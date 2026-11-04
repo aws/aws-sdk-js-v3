@@ -23,7 +23,8 @@ export interface GetIntegrationCommandInput extends GetIntegrationRequest {}
 export interface GetIntegrationCommandOutput extends GetIntegrationResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about one integration between CloudWatch Logs and OpenSearch Service. </p>
+ * Returns information about one integration between CloudWatch Logs and OpenSearch Service.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -106,17 +107,20 @@ export interface GetIntegrationCommandOutput extends GetIntegrationResponse, __M
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is specified incorrectly.</p>
+ *
+ * A parameter is specified incorrectly.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service cannot complete the request.</p>
+ *
+ * The service cannot complete the request.
  *
  * @throws {@link CloudWatchLogsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchLogs service.
  *
  * @public
  */

@@ -23,23 +23,16 @@ export interface ListDatasetEntriesCommandInput extends ListDatasetEntriesReques
 export interface ListDatasetEntriesCommandOutput extends ListDatasetEntriesResponse, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This operation applies only to Amazon Rekognition Custom Labels.</p>
- *          </note>
- *          <p>
- * Lists the entries (images) within a dataset. An entry is a
- * JSON Line that contains the information for a single image, including
- * the image location, assigned labels, and object location bounding boxes. For
- * more information, see <a href="https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/md-manifest-files.html">Creating a manifest file</a>.</p>
- *          <p>JSON Lines in the response include information about non-terminal
- *    errors found in the dataset.
- *    Non terminal errors are reported in <code>errors</code> lists within each JSON Line. The
- *    same information is reported in the training and testing validation result manifests that
- *    Amazon Rekognition Custom Labels creates during model training.
- *  </p>
- *          <p>You can filter the response in variety of ways, such as choosing which labels to return and returning JSON Lines created after a specific date.
- * </p>
- *          <p>This operation requires permissions to perform the <code>rekognition:ListDatasetEntries</code> action.</p>
+ * > **Note:** This operation applies only to Amazon Rekognition Custom Labels.
+ *
+ * Lists the entries (images) within a dataset. An entry is a JSON Line that contains the information for a single image, including the image location, assigned labels, and object location bounding boxes. For more information, see [Creating a manifest file](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/md-manifest-files.html).
+ *
+ * JSON Lines in the response include information about non-terminal errors found in the dataset. Non terminal errors are reported in `errors` lists within each JSON Line. The same information is reported in the training and testing validation result manifests that Amazon Rekognition Custom Labels creates during model training.
+ *
+ * You can filter the response in variety of ways, such as choosing which labels to return and returning JSON Lines created after a specific date.
+ *
+ * This operation requires permissions to perform the `rekognition:ListDatasetEntries` action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,39 +70,44 @@ export interface ListDatasetEntriesCommandOutput extends ListDatasetEntriesRespo
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You are not authorized to perform the action.</p>
+ *
+ * You are not authorized to perform the action.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * Amazon Rekognition experienced a service issue. Try your call again.
  *
  * @throws {@link InvalidPaginationTokenException} (client fault)
- *  <p>Pagination token in the request is not valid.</p>
+ *
+ * Pagination token in the request is not valid.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
- *       operation again.</p>
+ *
+ * Input parameter violated a constraint. Validate your parameter before calling the API operation again.
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
- *  <p>The number of requests exceeded your throughput limit. If you want to increase this
- *       limit, contact Amazon Rekognition.</p>
+ *
+ * The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is already being used.</p>
+ *
+ * The specified resource is already being used.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource specified in the request cannot be found.</p>
+ *
+ * The resource specified in the request cannot be found.
  *
  * @throws {@link ResourceNotReadyException} (client fault)
- *  <p>The requested resource isn't ready. For example,
- *          this exception occurs when you call <code>DetectCustomLabels</code> with a
- *          model version that isn't deployed. </p>
+ *
+ * The requested resource isn't ready. For example, this exception occurs when you call `DetectCustomLabels` with a model version that isn't deployed.
  *
  * @throws {@link ThrottlingException} (server fault)
- *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
+ * Amazon Rekognition is temporarily unable to process the request. Try your call again.
  *
  * @throws {@link RekognitionServiceException}
- * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * Base exception class for all service exceptions from Rekognition service.
  *
  * @example To list the entries in an Amazon Rekognition Custom Labels dataset
  * ```javascript

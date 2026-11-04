@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { SustainabilityServiceException as __BaseException } from "./SustainabilityServiceException";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+ * The request processing has failed because of an unknown error, exception, or failure.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -51,7 +53,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -75,7 +78,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {

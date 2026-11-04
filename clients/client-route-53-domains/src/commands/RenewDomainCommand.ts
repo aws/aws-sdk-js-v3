@@ -23,13 +23,10 @@ export interface RenewDomainCommandInput extends RenewDomainRequest {}
 export interface RenewDomainCommandOutput extends RenewDomainResponse, __MetadataBearer {}
 
 /**
- * <p>This operation renews a domain for the specified number of years. The cost of renewing
- * 			your domain is billed to your Amazon Web Services account.</p>
- *          <p>We recommend that you renew your domain several weeks before the expiration date. Some
- * 			TLD registries delete domains before the expiration date if you haven't renewed far
- * 			enough in advance. For more information about renewing domain registration, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-renew.html">Renewing
- * 				Registration for a Domain</a> in the <i>Amazon Route 53 Developer
- * 				Guide</i>.</p>
+ * This operation renews a domain for the specified number of years. The cost of renewing your domain is billed to your Amazon Web Services account.
+ *
+ * We recommend that you renew your domain several weeks before the expiration date. Some TLD registries delete domains before the expiration date if you haven't renewed far enough in advance. For more information about renewing domain registration, see [Renewing Registration for a Domain](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-renew.html) in the *Amazon Route 53 Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,27 +59,28 @@ export interface RenewDomainCommandOutput extends RenewDomainResponse, __Metadat
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
  *
  * @throws {@link DuplicateRequest} (client fault)
- *  <p>The request is already in progress for the domain.</p>
+ *
+ * The request is already in progress for the domain.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The requested item is not acceptable. For example, for APIs that accept a domain name,
- * 			the request might specify a domain name that doesn't belong to the account that
- * 			submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the
- * 			password might be invalid.</p>
+ *
+ * The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For `AcceptDomainTransferFromAnotherAwsAccount`, the password might be invalid.
  *
  * @throws {@link OperationLimitExceeded} (client fault)
- *  <p>The number of operations or jobs running exceeded the allowed threshold for the
- * 			account.</p>
+ *
+ * The number of operations or jobs running exceeded the allowed threshold for the account.
  *
  * @throws {@link TLDRulesViolation} (client fault)
- *  <p>The top-level domain does not support this operation.</p>
+ *
+ * The top-level domain does not support this operation.
  *
  * @throws {@link UnsupportedTLD} (client fault)
- *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+ *
+ * Amazon Route 53 does not support this top-level domain (TLD).
  *
  * @throws {@link Route53DomainsServiceException}
- * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ * Base exception class for all service exceptions from Route53Domains service.
  *
  * @public
  */

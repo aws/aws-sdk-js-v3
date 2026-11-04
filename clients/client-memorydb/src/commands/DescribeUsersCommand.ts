@@ -23,7 +23,8 @@ export interface DescribeUsersCommandInput extends DescribeUsersRequest {}
 export interface DescribeUsersCommandOutput extends DescribeUsersResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of users.</p>
+ * Returns a list of users.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,14 +77,16 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResponse, __Met
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>The specified parameter combination is not valid.</p>
+ *
+ * The specified parameter combination is not valid.
  *
  * @throws {@link UserNotFoundFault} (client fault)
- *  <p>The specified user does not exist.</p>
+ *
+ * The specified user does not exist.
  *
  * @throws {@link MemoryDBServiceException}
- * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * Base exception class for all service exceptions from MemoryDB service.
  *
  * @public
  */

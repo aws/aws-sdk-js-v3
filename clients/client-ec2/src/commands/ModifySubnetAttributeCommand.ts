@@ -23,34 +23,18 @@ export interface ModifySubnetAttributeCommandInput extends ModifySubnetAttribute
 export interface ModifySubnetAttributeCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Modifies a subnet attribute. You can only modify one attribute at a time.</p>
- *          <p>Use this action to modify subnets on Amazon Web Services Outposts.</p>
- *          <ul>
- *             <li>
- *                <p>To modify a subnet on an Outpost rack, set both
- *                         <code>MapCustomerOwnedIpOnLaunch</code> and
- *                         <code>CustomerOwnedIpv4Pool</code>. These two parameters act as a single
- *                     attribute.</p>
- *             </li>
- *             <li>
- *                <p>To modify a subnet on an Outpost server, set either
- *                         <code>EnableLniAtDeviceIndex</code> or
- *                     <code>DisableLniAtDeviceIndex</code>.</p>
- *             </li>
- *          </ul>
- *          <p>For more information about Amazon Web Services Outposts, see the following:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/outposts/latest/userguide/how-servers-work.html">Outpost servers</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/outposts/latest/userguide/how-racks-work.html">Outpost racks</a>
- *                </p>
- *             </li>
- *          </ul>
+ * Modifies a subnet attribute. You can only modify one attribute at a time.
+ *
+ * Use this action to modify subnets on Amazon Web Services Outposts.
+ *
+ * - To modify a subnet on an Outpost rack, set both `MapCustomerOwnedIpOnLaunch` and `CustomerOwnedIpv4Pool`. These two parameters act as a single attribute.
+ * - To modify a subnet on an Outpost server, set either `EnableLniAtDeviceIndex` or `DisableLniAtDeviceIndex`.
+ *
+ * For more information about Amazon Web Services Outposts, see the following:
+ *
+ * - [Outpost servers](https://docs.aws.amazon.com/outposts/latest/userguide/how-servers-work.html)
+ * - [Outpost racks](https://docs.aws.amazon.com/outposts/latest/userguide/how-racks-work.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,8 +79,8 @@ export interface ModifySubnetAttributeCommandOutput extends __MetadataBearer {}
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To change a subnet's public IP addressing behavior
  * ```javascript

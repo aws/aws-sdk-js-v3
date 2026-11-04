@@ -23,32 +23,17 @@ export interface GetCSVHeaderCommandInput extends GetCSVHeaderRequest {}
 export interface GetCSVHeaderCommandOutput extends GetCSVHeaderResponse, __MetadataBearer {}
 
 /**
- * <p>Given a user pool ID, generates a comma-separated value (CSV) list populated with
- *             available user attributes in the user pool. This list is the header for the CSV file
- *             that determines the users in a user import job. Save the content of
- *                 <code>CSVHeader</code> in the response as a <code>.csv</code> file and populate it
- *             with the usernames and attributes of users that you want to import. For more information
- *             about CSV user import, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-using-import-tool.html">Importing users from a CSV file</a>.</p>
- *          <note>
- *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
- *     this operation, you must use IAM credentials to authorize requests, and you must
- *     grant yourself the corresponding IAM permission in a policy.</p>
- *             <p class="title">
- *                <b>Learn more</b>
- *             </p>
- *             <ul>
- *                <li>
- *                   <p>
- *                      <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html">Signing Amazon Web Services API Requests</a>
- *                   </p>
- *                </li>
- *                <li>
- *                   <p>
- *                      <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using the Amazon Cognito user pools API and user pool endpoints</a>
- *                   </p>
- *                </li>
- *             </ul>
- *          </note>
+ * Given a user pool ID, generates a comma-separated value (CSV) list populated with available user attributes in the user pool. This list is the header for the CSV file that determines the users in a user import job. Save the content of `CSVHeader` in the response as a `.csv` file and populate it with the usernames and attributes of users that you want to import. For more information about CSV user import, see [Importing users from a CSV file](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-using-import-tool.html).
+ *
+ * > **Note:**
+ * >
+ * > Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.
+ * >
+ * > **Learn more**
+ * >
+ * > - [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+ * > - [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,29 +63,32 @@ export interface GetCSVHeaderCommandOutput extends GetCSVHeaderResponse, __Metad
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * This exception is thrown when Amazon Cognito encounters an internal error.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
- *             parameter.</p>
+ *
+ * This exception is thrown when the Amazon Cognito service encounters an invalid parameter.
  *
  * @throws {@link NotAuthorizedException} (client fault)
- *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * This exception is thrown when a user isn't authorized.
  *
  * @throws {@link OperationNotEnabledException} (client fault)
- *  <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+ *
+ * This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
- *             resource.</p>
+ *
+ * This exception is thrown when the Amazon Cognito service can't find the requested resource.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>This exception is thrown when the user has made too many requests for a given
- *             operation.</p>
+ *
+ * This exception is thrown when the user has made too many requests for a given operation.
  *
  * @throws {@link CognitoIdentityProviderServiceException}
- * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * Base exception class for all service exceptions from CognitoIdentityProvider service.
  *
  * @public
  */

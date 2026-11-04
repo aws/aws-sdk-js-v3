@@ -23,9 +23,12 @@ export interface CreateTrafficMirrorFilterRuleCommandInput extends CreateTraffic
 export interface CreateTrafficMirrorFilterRuleCommandOutput extends CreateTrafficMirrorFilterRuleResult, __MetadataBearer {}
 
 /**
- * <p>Creates a Traffic Mirror filter rule.</p>
- *          <p>A Traffic Mirror rule defines the Traffic Mirror source traffic to mirror.</p>
- *          <p>You need the Traffic Mirror filter ID when you create the rule.</p>
+ * Creates a Traffic Mirror filter rule.
+ *
+ * A Traffic Mirror rule defines the Traffic Mirror source traffic to mirror.
+ *
+ * You need the Traffic Mirror filter ID when you create the rule.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -105,8 +108,8 @@ export interface CreateTrafficMirrorFilterRuleCommandOutput extends CreateTraffi
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

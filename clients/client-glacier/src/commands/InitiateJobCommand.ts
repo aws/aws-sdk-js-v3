@@ -23,11 +23,8 @@ export interface InitiateJobCommandInput extends InitiateJobInput {}
 export interface InitiateJobCommandOutput extends InitiateJobOutput, __MetadataBearer {}
 
 /**
- * <p>This operation initiates a job of the specified type, which can be a select, an archival retrieval,
- *          or a vault retrieval. For more information about using this operation,
- *          see the documentation for the underlying REST API <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-initiate-job-post.html">Initiate
- *             a Job</a>.
- *       </p>
+ * This operation initiates a job of the specified type, which can be a select, an archival retrieval, or a vault retrieval. For more information about using this operation, see the documentation for the underlying REST API [Initiate a Job](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-initiate-job-post.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -126,33 +123,36 @@ export interface InitiateJobCommandOutput extends InitiateJobOutput, __MetadataB
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
  * @throws {@link InsufficientCapacityException} (client fault)
- *  <p>Returned if there is insufficient capacity to process this expedited request. This
- *          error only applies to expedited retrievals and not to standard or bulk
- *          retrievals.</p>
+ *
+ * Returned if there is insufficient capacity to process this expedited request. This error only applies to expedited retrievals and not to standard or bulk retrievals.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>Returned if a parameter of the request is incorrectly specified.</p>
+ *
+ * Returned if a parameter of the request is incorrectly specified.
  *
  * @throws {@link MissingParameterValueException} (client fault)
- *  <p>Returned if a required header or parameter is missing from the request.</p>
+ *
+ * Returned if a required header or parameter is missing from the request.
  *
  * @throws {@link NoLongerSupportedException} (client fault)
- *  <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+ *
+ * Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.
  *
  * @throws {@link PolicyEnforcedException} (client fault)
- *  <p>Returned if a retrieval job would exceed the current data policy's retrieval rate
- *          limit. For more information about data retrieval policies,</p>
+ *
+ * Returned if a retrieval job would exceed the current data policy's retrieval rate limit. For more information about data retrieval policies,
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't
- *          exist.</p>
+ *
+ * Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>Returned if the service cannot complete the request.</p>
+ *
+ * Returned if the service cannot complete the request.
  *
  * @throws {@link GlacierServiceException}
- * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * Base exception class for all service exceptions from Glacier service.
  *
  * @example To initiate an inventory-retrieval job
  * ```javascript

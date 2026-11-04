@@ -23,7 +23,18 @@ export interface CreateAssetRevisionCommandInput extends CreateAssetRevisionInpu
 export interface CreateAssetRevisionCommandOutput extends CreateAssetRevisionOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a revision of the asset.</p> <p>Asset revisions represent new versions of existing assets, capturing changes to either the underlying data or its metadata. They maintain a historical record of how assets evolve over time, who made changes, and when those changes occurred. This versioning capability is crucial for governance and compliance, allowing organizations to track changes, understand their impact, and roll back if necessary.</p> <p>Prerequisites:</p> <ul> <li> <p>Asset must already exist in the domain with identifier. </p> </li> <li> <p> <code>formsInput</code> is required when asset has the form type. <code>typeRevision</code> should be the latest version of form type. </p> </li> <li> <p>The form content must include all required fields (e.g., <code>bucketArn</code> for <code>S3ObjectCollectionForm</code>).</p> </li> <li> <p>The owning project of the original asset must still exist and be active.</p> </li> <li> <p>User must have write access to the project and domain.</p> </li> </ul>
+ * Creates a revision of the asset.
+ *
+ * Asset revisions represent new versions of existing assets, capturing changes to either the underlying data or its metadata. They maintain a historical record of how assets evolve over time, who made changes, and when those changes occurred. This versioning capability is crucial for governance and compliance, allowing organizations to track changes, understand their impact, and roll back if necessary.
+ *
+ * Prerequisites:
+ *
+ * - Asset must already exist in the domain with identifier.
+ * - `formsInput` is required when asset has the form type. `typeRevision` should be the latest version of form type.
+ * - The form content must include all required fields (e.g., `bucketArn` for `S3ObjectCollectionForm`).
+ * - The owning project of the original asset must still exist and be active.
+ * - User must have write access to the project and domain.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -124,29 +135,36 @@ export interface CreateAssetRevisionCommandOutput extends CreateAssetRevisionOut
  * @see {@link DataZoneClientResolvedConfig | config} for DataZoneClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>There is a conflict while performing this action.</p>
+ *
+ * There is a conflict while performing this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request has failed because of an unknown error, exception or failure.</p>
+ *
+ * The request has failed because of an unknown error, exception or failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource cannot be found.</p>
+ *
+ * The specified resource cannot be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by the Amazon Web Services service.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>You do not have permission to perform this action.</p>
+ *
+ * You do not have permission to perform this action.
  *
  * @throws {@link DataZoneServiceException}
- * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * Base exception class for all service exceptions from DataZone service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface ListAssociationsCommandInput extends ListAssociationsRequest {}
 export interface ListAssociationsCommandOutput extends ListAssociationsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the associations in your account and their properties.</p>
+ * Lists the associations in your account and their properties.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,11 +83,12 @@ export interface ListAssociationsCommandOutput extends ListAssociationsResponse,
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Resource being access is not found.</p>
+ *
+ * Resource being access is not found.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

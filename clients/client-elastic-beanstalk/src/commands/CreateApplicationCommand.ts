@@ -23,8 +23,8 @@ export interface CreateApplicationCommandInput extends CreateApplicationMessage 
 export interface CreateApplicationCommandOutput extends ApplicationDescriptionMessage, __MetadataBearer {}
 
 /**
- * <p>Creates an application that has one configuration template named <code>default</code> and
- *       no application versions.</p>
+ * Creates an application that has one configuration template named `default` and no application versions.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -100,11 +100,12 @@ export interface CreateApplicationCommandOutput extends ApplicationDescriptionMe
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  * @throws {@link TooManyApplicationsException} (client fault)
- *  <p>The specified account has reached its limit of applications.</p>
+ *
+ * The specified account has reached its limit of applications.
  *
  * @throws {@link ElasticBeanstalkSyntheticServiceException}
- * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * Base exception class for all service exceptions from ElasticBeanstalk service.
  *
  * @example To create a new application
  * ```javascript

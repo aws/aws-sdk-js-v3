@@ -23,7 +23,10 @@ export interface DescribeDBInstancesCommandInput extends DescribeDBInstancesMess
 export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __MetadataBearer {}
 
 /**
- * <p>Describes provisioned RDS instances. This API supports pagination.</p> <note> <p>This operation can also return information for Amazon Neptune DB instances and Amazon DocumentDB instances.</p> </note>
+ * Describes provisioned RDS instances. This API supports pagination.
+ *
+ * > **Note:** This operation can also return information for Amazon Neptune DB instances and Amazon DocumentDB instances.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -317,11 +320,12 @@ export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __M
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *
+ * `DBInstanceIdentifier` doesn't refer to an existing DB instance.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To describe a DB instance
  * ```javascript

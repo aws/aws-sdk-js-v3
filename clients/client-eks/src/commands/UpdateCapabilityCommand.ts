@@ -23,8 +23,10 @@ export interface UpdateCapabilityCommandInput extends UpdateCapabilityRequest {}
 export interface UpdateCapabilityCommandOutput extends UpdateCapabilityResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the configuration of a managed capability in your Amazon EKS cluster. You can update the IAM role, configuration settings, and delete propagation policy for a capability.</p>
- *          <p>When you update a capability, Amazon EKS applies the changes and may restart capability components as needed. The capability remains available during the update process, but some operations may be temporarily unavailable.</p>
+ * Updates the configuration of a managed capability in your Amazon EKS cluster. You can update the IAM role, configuration settings, and delete propagation policy for a capability.
+ *
+ * When you update a capability, Amazon EKS applies the changes and may restart capability components as needed. The capability remains available during the update process, but some operations may be temporarily unavailable.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -118,30 +120,28 @@ export interface UpdateCapabilityCommandOutput extends UpdateCapabilityResponse,
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permissions to perform the requested operation. The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html">IAM principal</a>
- *             making the request must have at least one IAM permissions policy attached that grants
- *             the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access
- *                 management</a> in the <i>IAM User Guide</i>. </p>
+ *
+ * You don't have permissions to perform the requested operation. The [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see [Access management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the *IAM User Guide*.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is in use.</p>
+ *
+ * The specified resource is in use.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource could not be found. You can view your available clusters with
- *                 <code>ListClusters</code>. You can view your available managed node groups with
- *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region
- *             specific.</p>
+ *
+ * The specified resource could not be found. You can view your available clusters with `ListClusters`. You can view your available managed node groups with `ListNodegroups`. Amazon EKS clusters and node groups are Amazon Web Services Region specific.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link EKSServiceException}
- * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * Base exception class for all service exceptions from EKS service.
  *
  * @public
  */

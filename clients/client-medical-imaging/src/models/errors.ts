@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { MedicalImagingServiceException as __BaseException } from "./MedicalImagingServiceException";
 
 /**
- * <p>The user does not have sufficient access to perform this action.</p>
+ * The user does not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ * Updating or deleting a resource can cause an inconsistent state.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -46,7 +48,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>An unexpected error occurred during processing of the request.</p>
+ * An unexpected error occurred during processing of the request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -67,7 +70,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The request references a resource which does not exist.</p>
+ * The request references a resource which does not exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -88,7 +92,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request caused a service quota to be exceeded.</p>
+ * The request caused a service quota to be exceeded.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -109,7 +114,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to throttling.</p>
+ * The request was denied due to throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -130,7 +136,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints set by the service.</p>
+ * The input fails to satisfy the constraints set by the service.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -151,7 +158,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The request is invalid or malformed.</p>
+ * The request is invalid or malformed.
+ *
  * @public
  */
 export class BadRequestException extends __BaseException {
@@ -172,7 +180,8 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * <p>The request content type or accept header is not supported.</p>
+ * The request content type or accept header is not supported.
+ *
  * @public
  */
 export class NotAcceptableException extends __BaseException {

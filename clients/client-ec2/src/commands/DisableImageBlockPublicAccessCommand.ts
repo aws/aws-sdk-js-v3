@@ -23,12 +23,10 @@ export interface DisableImageBlockPublicAccessCommandInput extends DisableImageB
 export interface DisableImageBlockPublicAccessCommandOutput extends DisableImageBlockPublicAccessResult, __MetadataBearer {}
 
 /**
- * <p>Disables <i>block public access for AMIs</i> at the account level in the
- *       specified Amazon Web Services Region. This removes the <i>block public access</i> restriction
- *       from your account. With the restriction removed, you can publicly share your AMIs in the
- *       specified Amazon Web Services Region.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-public-access-to-amis.html">Block
- *       public access to your AMIs</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * Disables *block public access for AMIs* at the account level in the specified Amazon Web Services Region. This removes the *block public access* restriction from your account. With the restriction removed, you can publicly share your AMIs in the specified Amazon Web Services Region.
+ *
+ * For more information, see [Block public access to your AMIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-public-access-to-amis.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,8 +53,8 @@ export interface DisableImageBlockPublicAccessCommandOutput extends DisableImage
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

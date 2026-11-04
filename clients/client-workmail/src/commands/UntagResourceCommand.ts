@@ -23,8 +23,8 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Untags the specified tags from the specified WorkMail organization
- *          resource.</p>
+ * Untags the specified tags from the specified WorkMail organization resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,11 +52,12 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource cannot be found.</p>
+ *
+ * The resource cannot be found.
  *
  * @throws {@link WorkMailServiceException}
- * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * Base exception class for all service exceptions from WorkMail service.
  *
  * @public
  */

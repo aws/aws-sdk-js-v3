@@ -23,7 +23,8 @@ export interface UpdatePullRequestStatusCommandInput extends UpdatePullRequestSt
 export interface UpdatePullRequestStatusCommandOutput extends UpdatePullRequestStatusOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the status of a pull request. </p>
+ * Updates the status of a pull request.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -92,41 +93,52 @@ export interface UpdatePullRequestStatusCommandOutput extends UpdatePullRequestS
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  * @throws {@link EncryptionIntegrityChecksFailedException} (server fault)
- *  <p>An encryption integrity check failed.</p>
+ *
+ * An encryption integrity check failed.
  *
  * @throws {@link EncryptionKeyAccessDeniedException} (client fault)
- *  <p>An encryption key could not be accessed.</p>
+ *
+ * An encryption key could not be accessed.
  *
  * @throws {@link EncryptionKeyDisabledException} (client fault)
- *  <p>The encryption key is disabled.</p>
+ *
+ * The encryption key is disabled.
  *
  * @throws {@link EncryptionKeyNotFoundException} (client fault)
- *  <p>No encryption key was found.</p>
+ *
+ * No encryption key was found.
  *
  * @throws {@link EncryptionKeyUnavailableException} (client fault)
- *  <p>The encryption key is not available.</p>
+ *
+ * The encryption key is not available.
  *
  * @throws {@link InvalidPullRequestIdException} (client fault)
- *  <p>The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.</p>
+ *
+ * The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.
  *
  * @throws {@link InvalidPullRequestStatusException} (client fault)
- *  <p>The pull request status is not valid. The only valid values are <code>OPEN</code> and <code>CLOSED</code>.</p>
+ *
+ * The pull request status is not valid. The only valid values are `OPEN` and `CLOSED`.
  *
  * @throws {@link InvalidPullRequestStatusUpdateException} (client fault)
- *  <p>The pull request status update is not valid. The only valid update is from <code>OPEN</code> to <code>CLOSED</code>.</p>
+ *
+ * The pull request status update is not valid. The only valid update is from `OPEN` to `CLOSED`.
  *
  * @throws {@link PullRequestDoesNotExistException} (client fault)
- *  <p>The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.</p>
+ *
+ * The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.
  *
  * @throws {@link PullRequestIdRequiredException} (client fault)
- *  <p>A pull request ID is required, but none was provided.</p>
+ *
+ * A pull request ID is required, but none was provided.
  *
  * @throws {@link PullRequestStatusRequiredException} (client fault)
- *  <p>A pull request status is required, but none was provided.</p>
+ *
+ * A pull request status is required, but none was provided.
  *
  * @throws {@link CodeCommitServiceException}
- * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * Base exception class for all service exceptions from CodeCommit service.
  *
  * @public
  */

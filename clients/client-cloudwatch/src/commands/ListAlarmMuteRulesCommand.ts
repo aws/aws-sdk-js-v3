@@ -23,17 +23,16 @@ export interface ListAlarmMuteRulesCommandInput extends ListAlarmMuteRulesInput 
 export interface ListAlarmMuteRulesCommandOutput extends ListAlarmMuteRulesOutput, __MetadataBearer {}
 
 /**
- * <p>Lists alarm mute rules in your Amazon Web Services account and region.</p>
- *          <p>You can filter the results by alarm name to find all mute rules targeting a specific
- *             alarm, or by status to find rules that are scheduled, active, or expired.</p>
- *          <p>This operation supports pagination for accounts with many mute rules. Use the
- *                 <code>MaxRecords</code> and <code>NextToken</code> parameters to retrieve results in
- *             multiple calls.</p>
- *          <p>
- *             <b>Permissions</b>
- *          </p>
- *          <p>To list mute rules, you need the <code>cloudwatch:ListAlarmMuteRules</code>
- *             permission.</p>
+ * Lists alarm mute rules in your Amazon Web Services account and region.
+ *
+ * You can filter the results by alarm name to find all mute rules targeting a specific alarm, or by status to find rules that are scheduled, active, or expired.
+ *
+ * This operation supports pagination for accounts with many mute rules. Use the `MaxRecords` and `NextToken` parameters to retrieve results in multiple calls.
+ *
+ * **Permissions**
+ *
+ * To list mute rules, you need the `cloudwatch:ListAlarmMuteRules` permission.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,14 +73,16 @@ export interface ListAlarmMuteRulesCommandOutput extends ListAlarmMuteRulesOutpu
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  * @throws {@link InvalidNextToken} (client fault)
- *  <p>The next token specified is invalid.</p>
+ *
+ * The next token specified is invalid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The named resource does not exist.</p>
+ *
+ * The named resource does not exist.
  *
  * @throws {@link CloudWatchServiceException}
- * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatch service.
  *
  * @public
  */

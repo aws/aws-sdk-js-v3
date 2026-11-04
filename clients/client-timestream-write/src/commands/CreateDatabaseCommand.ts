@@ -23,10 +23,8 @@ export interface CreateDatabaseCommandInput extends CreateDatabaseRequest {}
 export interface CreateDatabaseCommandOutput extends CreateDatabaseResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new Timestream database. If the KMS key is not
- *          specified, the database will be encrypted with a Timestream managed KMS key located in your account. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon Web Services managed keys</a>. <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Service quotas apply</a>. For
- *          details, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.create-db.html">code sample</a>.
- *       </p>
+ * Creates a new Timestream database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account. For more information, see [Amazon Web Services managed keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk). [Service quotas apply](https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html). For details, see [code sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.create-db.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,33 +65,36 @@ export interface CreateDatabaseCommandOutput extends CreateDatabaseResponse, __M
  * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You are not authorized to perform this action.</p>
+ *
+ * You are not authorized to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Timestream was unable to process this request because it contains resource that
- *          already exists.</p>
+ *
+ * Timestream was unable to process this request because it contains resource that already exists.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>
- *          Timestream was unable to fully process this request because of an internal server
- *          error.</p>
+ *
+ * Timestream was unable to fully process this request because of an internal server error.
  *
  * @throws {@link InvalidEndpointException} (client fault)
- *  <p>The requested endpoint was not valid.</p>
+ *
+ * The requested endpoint was not valid.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p> The instance quota of resource exceeded for this account.</p>
+ *
+ * The instance quota of resource exceeded for this account.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p> Too many requests were made by a user and they exceeded the service quotas. The request
- *          was throttled.</p>
+ *
+ * Too many requests were made by a user and they exceeded the service quotas. The request was throttled.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> An invalid or malformed request.</p>
+ *
+ * An invalid or malformed request.
  *
  * @throws {@link TimestreamWriteServiceException}
- * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
+ * Base exception class for all service exceptions from TimestreamWrite service.
  *
  * @public
  */

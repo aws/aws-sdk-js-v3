@@ -23,9 +23,8 @@ export interface ListSignalingChannelsCommandInput extends ListSignalingChannels
 export interface ListSignalingChannelsCommandOutput extends ListSignalingChannelsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns an array of <code>ChannelInfo</code> objects. Each object describes a
- *             signaling channel. To retrieve only those channels that satisfy a specific condition,
- *             you can specify a <code>ChannelNameCondition</code>.</p>
+ * Returns an array of `ChannelInfo` objects. Each object describes a signaling channel. To retrieve only those channels that satisfy a specific condition, you can specify a `ChannelNameCondition`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,18 +69,20 @@ export interface ListSignalingChannelsCommandOutput extends ListSignalingChannel
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have required permissions to perform this operation.</p>
+ *
+ * You do not have required permissions to perform this operation.
  *
  * @throws {@link ClientLimitExceededException} (client fault)
- *  <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
- *             allowed client calls. Try making the call later.</p>
+ *
+ * Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>The value for this input parameter is invalid.</p>
+ *
+ * The value for this input parameter is invalid.
  *
  * @throws {@link KinesisVideoServiceException}
- * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ * Base exception class for all service exceptions from KinesisVideo service.
  *
  * @public
  */

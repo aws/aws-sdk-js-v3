@@ -23,7 +23,8 @@ export interface UpdateRecoveryGroupCommandInput extends UpdateRecoveryGroupRequ
 export interface UpdateRecoveryGroupCommandOutput extends UpdateRecoveryGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a recovery group.</p>
+ * Updates a recovery group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,8 +76,8 @@ export interface UpdateRecoveryGroupCommandOutput extends UpdateRecoveryGroupRes
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
  * @throws {@link Route53RecoveryReadinessServiceException}
- * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
+ * Base exception class for all service exceptions from Route53RecoveryReadiness service.
  *
  * @public
  */

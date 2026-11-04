@@ -23,7 +23,10 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of all tags associated with the specified Amazon Keyspaces resource.</p> <p>To read keyspace metadata using <code>ListTagsForResource</code>, the IAM principal needs <code>Select</code> action permissions for the specified resource and the system keyspace.</p>
+ * Returns a list of all tags associated with the specified Amazon Keyspaces resource.
+ *
+ * To read keyspace metadata using `ListTagsForResource`, the IAM principal needs `Select` action permissions for the specified resource and the system keyspace.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,23 +61,28 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link KeyspacesClientResolvedConfig | config} for KeyspacesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access permissions to perform this action. </p>
+ *
+ * You don't have sufficient access permissions to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Amazon Keyspaces was unable to fully process this request because of an internal server error.</p>
+ *
+ * Amazon Keyspaces was unable to fully process this request because of an internal server error.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The operation tried to access a keyspace, table, or type that doesn't exist. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+ *
+ * The operation tried to access a keyspace, table, or type that doesn't exist. The resource might not be specified correctly, or its status might not be `ACTIVE`.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The operation exceeded the service quota for this resource. For more information on service quotas, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html">Quotas</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+ *
+ * The operation exceeded the service quota for this resource. For more information on service quotas, see [Quotas](https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html) in the *Amazon Keyspaces Developer Guide*.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The operation failed due to an invalid or malformed request.</p>
+ *
+ * The operation failed due to an invalid or malformed request.
  *
  * @throws {@link KeyspacesServiceException}
- * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
+ * Base exception class for all service exceptions from Keyspaces service.
  *
  * @public
  */

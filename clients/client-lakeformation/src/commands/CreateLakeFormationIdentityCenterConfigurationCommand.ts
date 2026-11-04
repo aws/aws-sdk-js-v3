@@ -26,7 +26,8 @@ export interface CreateLakeFormationIdentityCenterConfigurationCommandInput exte
 export interface CreateLakeFormationIdentityCenterConfigurationCommandOutput extends CreateLakeFormationIdentityCenterConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an IAM Identity Center connection with Lake Formation to allow IAM Identity Center users and groups to access Data Catalog resources.</p>
+ * Creates an IAM Identity Center connection with Lake Formation to allow IAM Identity Center users and groups to access Data Catalog resources.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,26 +77,32 @@ export interface CreateLakeFormationIdentityCenterConfigurationCommandOutput ext
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to a resource was denied.</p>
+ *
+ * Access to a resource was denied.
  *
  * @throws {@link AlreadyExistsException} (client fault)
- *  <p>A resource to be created or added already exists.</p>
+ *
+ * A resource to be created or added already exists.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Two processes are trying to modify a resource simultaneously.</p>
+ *
+ * Two processes are trying to modify a resource simultaneously.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link LakeFormationServiceException}
- * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * Base exception class for all service exceptions from LakeFormation service.
  *
  * @public
  */

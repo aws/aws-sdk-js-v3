@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { ChimeSDKMeetingsServiceException as __BaseException } from "./ChimeSDKMeetingsServiceException";
 
 /**
- * <p>The input parameters don't match the service's restrictions.</p>
+ * The input parameters don't match the service's restrictions.
+ *
  * @public
  */
 export class BadRequestException extends __BaseException {
@@ -14,7 +15,8 @@ export class BadRequestException extends __BaseException {
   Code?: string | undefined;
   Message?: string | undefined;
   /**
-   * <p>The request id associated with the call responsible for the exception.</p>
+   * The request id associated with the call responsible for the exception.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -35,7 +37,8 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * <p>The client is permanently forbidden from making the request.</p>
+ * The client is permanently forbidden from making the request.
+ *
  * @public
  */
 export class ForbiddenException extends __BaseException {
@@ -45,7 +48,8 @@ export class ForbiddenException extends __BaseException {
   Code?: string | undefined;
   Message?: string | undefined;
   /**
-   * <p>The request id associated with the call responsible for the exception.</p>
+   * The request id associated with the call responsible for the exception.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -66,7 +70,8 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
- * <p>The request exceeds the resource limit.</p>
+ * The request exceeds the resource limit.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -76,7 +81,8 @@ export class LimitExceededException extends __BaseException {
   Code?: string | undefined;
   Message?: string | undefined;
   /**
-   * <p>The request id associated with the call responsible for the exception.</p>
+   * The request id associated with the call responsible for the exception.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -97,7 +103,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>One or more of the resources in the request does not exist in the system.</p>
+ * One or more of the resources in the request does not exist in the system.
+ *
  * @public
  */
 export class NotFoundException extends __BaseException {
@@ -107,7 +114,8 @@ export class NotFoundException extends __BaseException {
   Code?: string | undefined;
   Message?: string | undefined;
   /**
-   * <p>The request ID associated with the call responsible for the exception.</p>
+   * The request ID associated with the call responsible for the exception.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -128,7 +136,8 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * <p>The service encountered an unexpected error.</p>
+ * The service encountered an unexpected error.
+ *
  * @public
  */
 export class ServiceFailureException extends __BaseException {
@@ -138,7 +147,8 @@ export class ServiceFailureException extends __BaseException {
   Code?: string | undefined;
   Message?: string | undefined;
   /**
-   * <p>The ID of the failed request.</p>
+   * The ID of the failed request.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -159,7 +169,8 @@ export class ServiceFailureException extends __BaseException {
 }
 
 /**
- * <p>The service is currently unavailable.</p>
+ * The service is currently unavailable.
+ *
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -169,13 +180,15 @@ export class ServiceUnavailableException extends __BaseException {
   Code?: string | undefined;
   Message?: string | undefined;
   /**
-   * <p>The request id associated with the call responsible for the exception.</p>
+   * The request id associated with the call responsible for the exception.
+   *
    * @public
    */
   RequestId?: string | undefined;
 
   /**
-   * <p>The number of seconds the caller should wait before retrying.</p>
+   * The number of seconds the caller should wait before retrying.
+   *
    * @public
    */
   RetryAfterSeconds?: string | undefined;
@@ -197,7 +210,8 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>The number of customer requests exceeds the request rate limit.</p>
+ * The number of customer requests exceeds the request rate limit.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -207,7 +221,8 @@ export class ThrottlingException extends __BaseException {
   Code?: string | undefined;
   Message?: string | undefined;
   /**
-   * <p>The ID of the request that exceeded the throttling limit.</p>
+   * The ID of the request that exceeded the throttling limit.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -228,7 +243,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The user isn't authorized to request a resource.</p>
+ * The user isn't authorized to request a resource.
+ *
  * @public
  */
 export class UnauthorizedException extends __BaseException {
@@ -238,7 +254,8 @@ export class UnauthorizedException extends __BaseException {
   Code?: string | undefined;
   Message?: string | undefined;
   /**
-   * <p>The request id associated with the call responsible for the exception.</p>
+   * The request id associated with the call responsible for the exception.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -259,7 +276,8 @@ export class UnauthorizedException extends __BaseException {
 }
 
 /**
- * <p>The request was well-formed but was unable to be followed due to semantic errors.</p>
+ * The request was well-formed but was unable to be followed due to semantic errors.
+ *
  * @public
  */
 export class UnprocessableEntityException extends __BaseException {
@@ -269,7 +287,8 @@ export class UnprocessableEntityException extends __BaseException {
   Code?: string | undefined;
   Message?: string | undefined;
   /**
-   * <p>The request id associated with the call responsible for the exception.</p>
+   * The request id associated with the call responsible for the exception.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -290,7 +309,8 @@ export class UnprocessableEntityException extends __BaseException {
 }
 
 /**
- * <p>Multiple instances of the same request have been made simultaneously.</p>
+ * Multiple instances of the same request have been made simultaneously.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -300,7 +320,8 @@ export class ConflictException extends __BaseException {
   Code?: string | undefined;
   Message?: string | undefined;
   /**
-   * <p>The ID of the request involved in the conflict.</p>
+   * The ID of the request involved in the conflict.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -321,7 +342,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The resource that you want to tag couldn't be found.</p>
+ * The resource that you want to tag couldn't be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -331,13 +353,15 @@ export class ResourceNotFoundException extends __BaseException {
   Code?: string | undefined;
   Message?: string | undefined;
   /**
-   * <p>The ID of the resource that couldn't be found.</p>
+   * The ID of the resource that couldn't be found.
+   *
    * @public
    */
   RequestId?: string | undefined;
 
   /**
-   * <p>The name of the resource that couldn't be found.</p>
+   * The name of the resource that couldn't be found.
+   *
    * @public
    */
   ResourceName?: string | undefined;
@@ -359,7 +383,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Too many tags were added to the specified resource.</p>
+ * Too many tags were added to the specified resource.
+ *
  * @public
  */
 export class TooManyTagsException extends __BaseException {
@@ -369,13 +394,15 @@ export class TooManyTagsException extends __BaseException {
   Code?: string | undefined;
   Message?: string | undefined;
   /**
-   * <p>The ID of the request that contains too many tags.</p>
+   * The ID of the request that contains too many tags.
+   *
    * @public
    */
   RequestId?: string | undefined;
 
   /**
-   * <p>The name of the resource that received too many tags.</p>
+   * The name of the resource that received too many tags.
+   *
    * @public
    */
   ResourceName?: string | undefined;

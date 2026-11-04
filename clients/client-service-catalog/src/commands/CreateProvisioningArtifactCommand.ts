@@ -23,11 +23,12 @@ export interface CreateProvisioningArtifactCommandInput extends CreateProvisioni
 export interface CreateProvisioningArtifactCommandOutput extends CreateProvisioningArtifactOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a provisioning artifact (also known as a version) for the specified product.</p>
- *          <p>You cannot create a provisioning artifact for a product that was shared with you.</p>
- *          <p>The user or role that performs this operation must have the <code>cloudformation:GetTemplate</code>
- *          IAM policy permission. This policy permission is required when using the
- *          <code>ImportFromPhysicalId</code> template source in the information data section.</p>
+ * Creates a provisioning artifact (also known as a version) for the specified product.
+ *
+ * You cannot create a provisioning artifact for a product that was shared with you.
+ *
+ * The user or role that performs this operation must have the `cloudformation:GetTemplate` IAM policy permission. This policy permission is required when using the `ImportFromPhysicalId` template source in the information data section.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,18 +79,20 @@ export interface CreateProvisioningArtifactCommandOutput extends CreateProvision
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  * @throws {@link InvalidParametersException} (client fault)
- *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * One or more parameters provided to the operation are not valid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The current limits of the service would have been exceeded by this operation. Decrease your
- *          resource use or increase your service limits and retry the operation.</p>
+ *
+ * The current limits of the service would have been exceeded by this operation. Decrease your resource use or increase your service limits and retry the operation.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ServiceCatalogServiceException}
- * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * Base exception class for all service exceptions from ServiceCatalog service.
  *
  * @public
  */

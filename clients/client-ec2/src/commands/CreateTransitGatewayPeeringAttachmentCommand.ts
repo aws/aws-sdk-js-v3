@@ -26,11 +26,10 @@ export interface CreateTransitGatewayPeeringAttachmentCommandInput extends Creat
 export interface CreateTransitGatewayPeeringAttachmentCommandOutput extends CreateTransitGatewayPeeringAttachmentResult, __MetadataBearer {}
 
 /**
- * <p>Requests a transit gateway peering attachment between the specified transit gateway
- *             (requester) and a peer transit gateway (accepter). The peer transit gateway can be in
- *             your account or a different Amazon Web Services account.</p>
- *          <p>After you create the peering attachment, the owner of the accepter transit gateway
- *             must accept the attachment request.</p>
+ * Requests a transit gateway peering attachment between the specified transit gateway (requester) and a peer transit gateway (accepter). The peer transit gateway can be in your account or a different Amazon Web Services account.
+ *
+ * After you create the peering attachment, the owner of the accepter transit gateway must accept the attachment request.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -105,8 +104,8 @@ export interface CreateTransitGatewayPeeringAttachmentCommandOutput extends Crea
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

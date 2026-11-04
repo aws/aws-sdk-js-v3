@@ -23,7 +23,16 @@ export interface CopyDistributionCommandInput extends CopyDistributionRequest {}
 export interface CopyDistributionCommandOutput extends CopyDistributionResult, __MetadataBearer {}
 
 /**
- * <p>Creates a staging distribution using the configuration of the provided primary distribution. A staging distribution is a copy of an existing distribution (called the primary distribution) that you can use in a continuous deployment workflow.</p> <p>After you create a staging distribution, you can use <code>UpdateDistribution</code> to modify the staging distribution's configuration. Then you can use <code>CreateContinuousDeploymentPolicy</code> to incrementally move traffic to the staging distribution.</p> <p>This API operation requires the following IAM permissions:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_GetDistribution.html">GetDistribution</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CreateDistribution.html">CreateDistribution</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CopyDistribution.html">CopyDistribution</a> </p> </li> </ul>
+ * Creates a staging distribution using the configuration of the provided primary distribution. A staging distribution is a copy of an existing distribution (called the primary distribution) that you can use in a continuous deployment workflow.
+ *
+ * After you create a staging distribution, you can use `UpdateDistribution` to modify the staging distribution's configuration. Then you can use `CreateContinuousDeploymentPolicy` to incrementally move traffic to the staging distribution.
+ *
+ * This API operation requires the following IAM permissions:
+ *
+ * - [GetDistribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_GetDistribution.html)
+ * - [CreateDistribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CreateDistribution.html)
+ * - [CopyDistribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CopyDistribution.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -435,200 +444,268 @@ export interface CopyDistributionCommandOutput extends CopyDistributionResult, _
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link AccessDenied} (client fault)
- *  <p>Access denied.</p>
+ *
+ * Access denied.
  *
  * @throws {@link CNAMEAlreadyExists} (client fault)
- *  <p>The CNAME specified is already defined for CloudFront.</p>
+ *
+ * The CNAME specified is already defined for CloudFront.
  *
  * @throws {@link DistributionAlreadyExists} (client fault)
- *  <p>The caller reference you attempted to create the distribution with is associated with another distribution.</p>
+ *
+ * The caller reference you attempted to create the distribution with is associated with another distribution.
  *
  * @throws {@link IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior} (client fault)
- *  <p>The specified configuration for field-level encryption can't be associated with the specified cache behavior.</p>
+ *
+ * The specified configuration for field-level encryption can't be associated with the specified cache behavior.
  *
  * @throws {@link InconsistentQuantities} (client fault)
- *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
+ *
+ * The value of `Quantity` and the size of `Items` don't match.
  *
  * @throws {@link InvalidArgument} (client fault)
- *  <p>An argument is invalid.</p>
+ *
+ * An argument is invalid.
  *
  * @throws {@link InvalidDefaultRootObject} (client fault)
- *  <p>The default root object file name is too big or contains an invalid character.</p>
+ *
+ * The default root object file name is too big or contains an invalid character.
  *
  * @throws {@link InvalidErrorCode} (client fault)
- *  <p>An invalid error code was specified.</p>
+ *
+ * An invalid error code was specified.
  *
  * @throws {@link InvalidForwardCookies} (client fault)
- *  <p>Your request contains forward cookies option which doesn't match with the expectation for the <code>whitelisted</code> list of cookie names. Either list of cookie names has been specified when not allowed or list of cookie names is missing when expected.</p>
+ *
+ * Your request contains forward cookies option which doesn't match with the expectation for the `whitelisted` list of cookie names. Either list of cookie names has been specified when not allowed or list of cookie names is missing when expected.
  *
  * @throws {@link InvalidFunctionAssociation} (client fault)
- *  <p>A CloudFront function association is invalid.</p>
+ *
+ * A CloudFront function association is invalid.
  *
  * @throws {@link InvalidGeoRestrictionParameter} (client fault)
- *  <p>The specified geo restriction parameter is not valid.</p>
+ *
+ * The specified geo restriction parameter is not valid.
  *
  * @throws {@link InvalidHeadersForS3Origin} (client fault)
- *  <p>The headers specified are not valid for an Amazon S3 origin.</p>
+ *
+ * The headers specified are not valid for an Amazon S3 origin.
  *
  * @throws {@link InvalidIfMatchVersion} (client fault)
- *  <p>The <code>If-Match</code> version is missing or not valid.</p>
+ *
+ * The `If-Match` version is missing or not valid.
  *
  * @throws {@link InvalidLambdaFunctionAssociation} (client fault)
- *  <p>The specified Lambda@Edge function association is invalid.</p>
+ *
+ * The specified Lambda@Edge function association is invalid.
  *
  * @throws {@link InvalidLocationCode} (client fault)
- *  <p>The location code specified is not valid.</p>
+ *
+ * The location code specified is not valid.
  *
  * @throws {@link InvalidMinimumProtocolVersion} (client fault)
- *  <p>The minimum protocol version specified is not valid.</p>
+ *
+ * The minimum protocol version specified is not valid.
  *
  * @throws {@link InvalidOrigin} (client fault)
- *  <p>The Amazon S3 origin server specified does not refer to a valid Amazon S3 bucket.</p>
+ *
+ * The Amazon S3 origin server specified does not refer to a valid Amazon S3 bucket.
  *
  * @throws {@link InvalidOriginAccessControl} (client fault)
- *  <p>The origin access control is not valid.</p>
+ *
+ * The origin access control is not valid.
  *
  * @throws {@link InvalidOriginAccessIdentity} (client fault)
- *  <p>The origin access identity is not valid or doesn't exist.</p>
+ *
+ * The origin access identity is not valid or doesn't exist.
  *
  * @throws {@link InvalidOriginKeepaliveTimeout} (client fault)
- *  <p>The keep alive timeout specified for the origin is not valid.</p>
+ *
+ * The keep alive timeout specified for the origin is not valid.
  *
  * @throws {@link InvalidOriginReadTimeout} (client fault)
- *  <p>The read timeout specified for the origin is not valid.</p>
+ *
+ * The read timeout specified for the origin is not valid.
  *
  * @throws {@link InvalidProtocolSettings} (client fault)
- *  <p>You cannot specify SSLv3 as the minimum protocol version if you only want to support only clients that support Server Name Indication (SNI).</p>
+ *
+ * You cannot specify SSLv3 as the minimum protocol version if you only want to support only clients that support Server Name Indication (SNI).
  *
  * @throws {@link InvalidQueryStringParameters} (client fault)
- *  <p>The query string parameters specified are not valid.</p>
+ *
+ * The query string parameters specified are not valid.
  *
  * @throws {@link InvalidRelativePath} (client fault)
- *  <p>The relative path is too big, is not URL-encoded, or does not begin with a slash (/).</p>
+ *
+ * The relative path is too big, is not URL-encoded, or does not begin with a slash (/).
  *
  * @throws {@link InvalidRequiredProtocol} (client fault)
- *  <p>This operation requires the HTTPS protocol. Ensure that you specify the HTTPS protocol in your request, or omit the <code>RequiredProtocols</code> element from your distribution configuration.</p>
+ *
+ * This operation requires the HTTPS protocol. Ensure that you specify the HTTPS protocol in your request, or omit the `RequiredProtocols` element from your distribution configuration.
  *
  * @throws {@link InvalidResponseCode} (client fault)
- *  <p>A response code is not valid.</p>
+ *
+ * A response code is not valid.
  *
  * @throws {@link InvalidTTLOrder} (client fault)
- *  <p>The TTL order specified is not valid.</p>
+ *
+ * The TTL order specified is not valid.
  *
  * @throws {@link InvalidViewerCertificate} (client fault)
- *  <p>A viewer certificate specified is not valid.</p>
+ *
+ * A viewer certificate specified is not valid.
  *
  * @throws {@link InvalidWebACLId} (client fault)
- *  <p>A web ACL ID specified is not valid. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example <code>arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a</code>. To specify a web ACL created using WAF Classic, use the ACL ID, for example <code>473e64fd-f30b-4765-81a0-62ad96dd167a</code>.</p>
+ *
+ * A web ACL ID specified is not valid. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example `arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a`. To specify a web ACL created using WAF Classic, use the ACL ID, for example `473e64fd-f30b-4765-81a0-62ad96dd167a`.
  *
  * @throws {@link MissingBody} (client fault)
- *  <p>This operation requires a body. Ensure that the body is present and the <code>Content-Type</code> header is set.</p>
+ *
+ * This operation requires a body. Ensure that the body is present and the `Content-Type` header is set.
  *
  * @throws {@link NoSuchCachePolicy} (client fault)
- *  <p>The cache policy does not exist.</p>
+ *
+ * The cache policy does not exist.
  *
  * @throws {@link NoSuchDistribution} (client fault)
- *  <p>The specified distribution does not exist.</p>
+ *
+ * The specified distribution does not exist.
  *
  * @throws {@link NoSuchFieldLevelEncryptionConfig} (client fault)
- *  <p>The specified configuration for field-level encryption doesn't exist.</p>
+ *
+ * The specified configuration for field-level encryption doesn't exist.
  *
  * @throws {@link NoSuchOrigin} (client fault)
- *  <p>No origin exists with the specified <code>Origin Id</code>.</p>
+ *
+ * No origin exists with the specified `Origin Id`.
  *
  * @throws {@link NoSuchOriginRequestPolicy} (client fault)
- *  <p>The origin request policy does not exist.</p>
+ *
+ * The origin request policy does not exist.
  *
  * @throws {@link NoSuchRealtimeLogConfig} (client fault)
- *  <p>The real-time log configuration does not exist.</p>
+ *
+ * The real-time log configuration does not exist.
  *
  * @throws {@link NoSuchResponseHeadersPolicy} (client fault)
- *  <p>The response headers policy does not exist.</p>
+ *
+ * The response headers policy does not exist.
  *
  * @throws {@link PreconditionFailed} (client fault)
- *  <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+ *
+ * The precondition in one or more of the request fields evaluated to `false`.
  *
  * @throws {@link RealtimeLogConfigOwnerMismatch} (client fault)
- *  <p>The specified real-time log configuration belongs to a different Amazon Web Services account.</p>
+ *
+ * The specified real-time log configuration belongs to a different Amazon Web Services account.
  *
  * @throws {@link TooManyCacheBehaviors} (client fault)
- *  <p>You cannot create more cache behaviors for the distribution.</p>
+ *
+ * You cannot create more cache behaviors for the distribution.
  *
  * @throws {@link TooManyCertificates} (client fault)
- *  <p>You cannot create anymore custom SSL/TLS certificates.</p>
+ *
+ * You cannot create anymore custom SSL/TLS certificates.
  *
  * @throws {@link TooManyCookieNamesInWhiteList} (client fault)
- *  <p>Your request contains more cookie names in the whitelist than are allowed per cache behavior.</p>
+ *
+ * Your request contains more cookie names in the whitelist than are allowed per cache behavior.
  *
  * @throws {@link TooManyDistributionCNAMEs} (client fault)
- *  <p>Your request contains more CNAMEs than are allowed per distribution.</p>
+ *
+ * Your request contains more CNAMEs than are allowed per distribution.
  *
  * @throws {@link TooManyDistributions} (client fault)
- *  <p>Processing your request would cause you to exceed the maximum number of distributions allowed.</p>
+ *
+ * Processing your request would cause you to exceed the maximum number of distributions allowed.
  *
  * @throws {@link TooManyDistributionsAssociatedToCachePolicy} (client fault)
- *  <p>The maximum number of distributions have been associated with the specified cache policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+ *
+ * The maximum number of distributions have been associated with the specified cache policy. For more information, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) (formerly known as limits) in the *Amazon CloudFront Developer Guide*.
  *
  * @throws {@link TooManyDistributionsAssociatedToFieldLevelEncryptionConfig} (client fault)
- *  <p>The maximum number of distributions have been associated with the specified configuration for field-level encryption.</p>
+ *
+ * The maximum number of distributions have been associated with the specified configuration for field-level encryption.
  *
  * @throws {@link TooManyDistributionsAssociatedToKeyGroup} (client fault)
- *  <p>The number of distributions that reference this key group is more than the maximum allowed. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+ *
+ * The number of distributions that reference this key group is more than the maximum allowed. For more information, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) (formerly known as limits) in the *Amazon CloudFront Developer Guide*.
  *
  * @throws {@link TooManyDistributionsAssociatedToOriginAccessControl} (client fault)
- *  <p>The maximum number of distributions have been associated with the specified origin access control.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+ *
+ * The maximum number of distributions have been associated with the specified origin access control.
+ *
+ * For more information, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) (formerly known as limits) in the *Amazon CloudFront Developer Guide*.
  *
  * @throws {@link TooManyDistributionsAssociatedToOriginRequestPolicy} (client fault)
- *  <p>The maximum number of distributions have been associated with the specified origin request policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+ *
+ * The maximum number of distributions have been associated with the specified origin request policy. For more information, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) (formerly known as limits) in the *Amazon CloudFront Developer Guide*.
  *
  * @throws {@link TooManyDistributionsAssociatedToResponseHeadersPolicy} (client fault)
- *  <p>The maximum number of distributions have been associated with the specified response headers policy.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+ *
+ * The maximum number of distributions have been associated with the specified response headers policy.
+ *
+ * For more information, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) (formerly known as limits) in the *Amazon CloudFront Developer Guide*.
  *
  * @throws {@link TooManyDistributionsWithFunctionAssociations} (client fault)
- *  <p>You have reached the maximum number of distributions that are associated with a CloudFront function. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+ *
+ * You have reached the maximum number of distributions that are associated with a CloudFront function. For more information, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) (formerly known as limits) in the *Amazon CloudFront Developer Guide*.
  *
  * @throws {@link TooManyDistributionsWithLambdaAssociations} (client fault)
- *  <p>Processing your request would cause the maximum number of distributions with Lambda@Edge function associations per owner to be exceeded.</p>
+ *
+ * Processing your request would cause the maximum number of distributions with Lambda@Edge function associations per owner to be exceeded.
  *
  * @throws {@link TooManyDistributionsWithSingleFunctionARN} (client fault)
- *  <p>The maximum number of distributions have been associated with the specified Lambda@Edge function.</p>
+ *
+ * The maximum number of distributions have been associated with the specified Lambda@Edge function.
  *
  * @throws {@link TooManyFunctionAssociations} (client fault)
- *  <p>You have reached the maximum number of CloudFront function associations for this distribution. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+ *
+ * You have reached the maximum number of CloudFront function associations for this distribution. For more information, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) (formerly known as limits) in the *Amazon CloudFront Developer Guide*.
  *
  * @throws {@link TooManyHeadersInForwardedValues} (client fault)
- *  <p>Your request contains too many headers in forwarded values.</p>
+ *
+ * Your request contains too many headers in forwarded values.
  *
  * @throws {@link TooManyKeyGroupsAssociatedToDistribution} (client fault)
- *  <p>The number of key groups referenced by this distribution is more than the maximum allowed. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+ *
+ * The number of key groups referenced by this distribution is more than the maximum allowed. For more information, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) (formerly known as limits) in the *Amazon CloudFront Developer Guide*.
  *
  * @throws {@link TooManyLambdaFunctionAssociations} (client fault)
- *  <p>Your request contains more Lambda@Edge function associations than are allowed per distribution.</p>
+ *
+ * Your request contains more Lambda@Edge function associations than are allowed per distribution.
  *
  * @throws {@link TooManyOriginCustomHeaders} (client fault)
- *  <p>Your request contains too many origin custom headers.</p>
+ *
+ * Your request contains too many origin custom headers.
  *
  * @throws {@link TooManyOriginGroupsPerDistribution} (client fault)
- *  <p>Processing your request would cause you to exceed the maximum number of origin groups allowed.</p>
+ *
+ * Processing your request would cause you to exceed the maximum number of origin groups allowed.
  *
  * @throws {@link TooManyOrigins} (client fault)
- *  <p>You cannot create more origins for the distribution.</p>
+ *
+ * You cannot create more origins for the distribution.
  *
  * @throws {@link TooManyQueryStringParameters} (client fault)
- *  <p>Your request contains too many query string parameters.</p>
+ *
+ * Your request contains too many query string parameters.
  *
  * @throws {@link TooManyTrustedSigners} (client fault)
- *  <p>Your request contains more trusted signers than are allowed per distribution.</p>
+ *
+ * Your request contains more trusted signers than are allowed per distribution.
  *
  * @throws {@link TrustedKeyGroupDoesNotExist} (client fault)
- *  <p>The specified key group does not exist.</p>
+ *
+ * The specified key group does not exist.
  *
  * @throws {@link TrustedSignerDoesNotExist} (client fault)
- *  <p>One or more of your trusted signers don't exist.</p>
+ *
+ * One or more of your trusted signers don't exist.
  *
  * @throws {@link CloudFrontServiceException}
- * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * Base exception class for all service exceptions from CloudFront service.
  *
  * @public
  */

@@ -23,15 +23,16 @@ export interface DisableAvailabilityZonesForLoadBalancerCommandInput extends Rem
 export interface DisableAvailabilityZonesForLoadBalancerCommandOutput extends RemoveAvailabilityZonesOutput, __MetadataBearer {}
 
 /**
- * <p>Removes the specified Availability Zones from the set of Availability Zones for the specified load balancer
- *             in EC2-Classic or a default VPC.</p>
- *         <p>For load balancers in a non-default VPC, use <a>DetachLoadBalancerFromSubnets</a>.</p>
- *         <p>There must be at least one Availability Zone registered with a load balancer at all times.
- *          After an Availability Zone is removed, all instances registered with the load balancer that are in the removed
- *          Availability Zone go into the <code>OutOfService</code> state. Then, the load balancer attempts to equally balance
- *          the traffic among its remaining Availability Zones.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html">Add or Remove Availability Zones</a>
- *             in the <i>Classic Load Balancers Guide</i>.</p>
+ * Removes the specified Availability Zones from the set of Availability Zones for the specified load balancer in EC2-Classic or a default VPC.
+ *
+ * For load balancers in a non-default VPC, use DetachLoadBalancerFromSubnets.
+ *
+ * There must be at least one Availability Zone registered with a load balancer at all times. After an Availability Zone is removed, all instances registered with the load balancer that are in the removed Availability Zone go into the `OutOfService` state. Then, the load balancer attempts to equally balance the traffic among its remaining Availability Zones.
+ *
+ *
+ *
+ * For more information, see [Add or Remove Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html) in the *Classic Load Balancers Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,14 +64,16 @@ export interface DisableAvailabilityZonesForLoadBalancerCommandOutput extends Re
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
  * @throws {@link AccessPointNotFoundException} (client fault)
- *  <p>The specified load balancer does not exist.</p>
+ *
+ * The specified load balancer does not exist.
  *
  * @throws {@link InvalidConfigurationRequestException} (client fault)
- *  <p>The requested configuration change is not valid.</p>
+ *
+ * The requested configuration change is not valid.
  *
  * @throws {@link ElasticLoadBalancingServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancing service.
  *
  * @example To disable an Availability Zone for a load balancer
  * ```javascript

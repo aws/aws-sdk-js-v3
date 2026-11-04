@@ -23,7 +23,8 @@ export interface DeregisterApplicationCommandInput extends DeregisterApplication
 export interface DeregisterApplicationCommandOutput extends DeregisterApplicationOutput, __MetadataBearer {}
 
 /**
- * <p>Deregister an SAP application with AWS Systems Manager for SAP. This action does not aﬀect the existing setup of your SAP workloads on Amazon EC2.</p>
+ * Deregister an SAP application with AWS Systems Manager for SAP. This action does not aﬀect the existing setup of your SAP workloads on Amazon EC2.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,17 +49,20 @@ export interface DeregisterApplicationCommandOutput extends DeregisterApplicatio
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error has occurred.</p>
+ *
+ * An internal error has occurred.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The request is not authorized.</p>
+ *
+ * The request is not authorized.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service. </p>
+ *
+ * The input fails to satisfy the constraints specified by an AWS service.
  *
  * @throws {@link SsmSapServiceException}
- * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
+ * Base exception class for all service exceptions from SsmSap service.
  *
  * @public
  */

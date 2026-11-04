@@ -23,24 +23,8 @@ export interface GetFileUploadURLCommandInput extends GetFileUploadURLRequest {}
 export interface GetFileUploadURLCommandOutput extends GetFileUploadURLResponse, __MetadataBearer {}
 
 /**
- * <p>
- *             The
- *             <code>GetFileUploadURL</code>
- *             operation generates and returns a temporary URL. You use the
- *             temporary URL to retrieve a file uploaded by a Worker as an answer to
- *             a FileUploadAnswer question for a HIT. The temporary URL is generated
- *             the instant the GetFileUploadURL operation is called, and is valid
- *             for 60 seconds. You can get a temporary file upload URL any time
- *             until the HIT is disposed. After the HIT is disposed, any uploaded
- *             files are deleted, and cannot be retrieved.
+ * The `GetFileUploadURL` operation generates and returns a temporary URL. You use the temporary URL to retrieve a file uploaded by a Worker as an answer to a FileUploadAnswer question for a HIT. The temporary URL is generated the instant the GetFileUploadURL operation is called, and is valid for 60 seconds. You can get a temporary file upload URL any time until the HIT is disposed. After the HIT is disposed, any uploaded files are deleted, and cannot be retrieved. Pending Deprecation on December 12, 2017. The Answer Specification structure will no longer support the `FileUploadAnswer` element to be used for the QuestionForm data structure. Instead, we recommend that Requesters who want to create HITs asking Workers to upload files to use Amazon S3.
  *
- *             Pending Deprecation on December 12, 2017. The Answer Specification
- *             structure will no longer  support the <code>FileUploadAnswer</code>
- *             element to be used for the QuestionForm data structure.
- *             Instead, we recommend that Requesters who want to create HITs asking
- *             Workers to upload files to use Amazon S3.
- *
- *         </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,14 +52,16 @@ export interface GetFileUploadURLCommandOutput extends GetFileUploadURLResponse,
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
  *
  * @throws {@link RequestError} (client fault)
- *  <p>Your request is invalid.</p>
+ *
+ * Your request is invalid.
  *
  * @throws {@link ServiceFault} (server fault)
- *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
+ * Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.
  *
  * @throws {@link MTurkServiceException}
- * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * Base exception class for all service exceptions from MTurk service.
  *
  * @public
  */

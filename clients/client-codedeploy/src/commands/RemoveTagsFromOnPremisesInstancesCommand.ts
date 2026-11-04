@@ -23,7 +23,8 @@ export interface RemoveTagsFromOnPremisesInstancesCommandInput extends RemoveTag
 export interface RemoveTagsFromOnPremisesInstancesCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Removes one or more tags from one or more on-premises instances.</p>
+ * Removes one or more tags from one or more on-premises instances.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,30 +57,36 @@ export interface RemoveTagsFromOnPremisesInstancesCommandOutput extends __Metada
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  * @throws {@link InstanceLimitExceededException} (client fault)
- *  <p>The maximum number of allowed on-premises instances in a single call was
- *             exceeded.</p>
+ *
+ * The maximum number of allowed on-premises instances in a single call was exceeded.
  *
  * @throws {@link InstanceNameRequiredException} (client fault)
- *  <p>An on-premises instance name was not specified.</p>
+ *
+ * An on-premises instance name was not specified.
  *
  * @throws {@link InstanceNotRegisteredException} (client fault)
- *  <p>The specified on-premises instance is not registered.</p>
+ *
+ * The specified on-premises instance is not registered.
  *
  * @throws {@link InvalidInstanceNameException} (client fault)
- *  <p>The on-premises instance name was specified in an invalid format.</p>
+ *
+ * The on-premises instance name was specified in an invalid format.
  *
  * @throws {@link InvalidTagException} (client fault)
- *  <p>The tag was specified in an invalid format.</p>
+ *
+ * The tag was specified in an invalid format.
  *
  * @throws {@link TagLimitExceededException} (client fault)
- *  <p>The maximum allowed number of tags was exceeded.</p>
+ *
+ * The maximum allowed number of tags was exceeded.
  *
  * @throws {@link TagRequiredException} (client fault)
- *  <p>A tag was not specified.</p>
+ *
+ * A tag was not specified.
  *
  * @throws {@link CodeDeployServiceException}
- * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * Base exception class for all service exceptions from CodeDeploy service.
  *
  * @public
  */

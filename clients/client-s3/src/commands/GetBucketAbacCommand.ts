@@ -23,7 +23,8 @@ export interface GetBucketAbacCommandInput extends GetBucketAbacRequest {}
 export interface GetBucketAbacCommandOutput extends GetBucketAbacOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the attribute-based access control (ABAC) property of the general purpose bucket. If ABAC is enabled on your bucket, you can use tags on the bucket for access control. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging-enable-abac.html">Enabling ABAC in general purpose buckets</a>.</p>
+ * Returns the attribute-based access control (ABAC) property of the general purpose bucket. If ABAC is enabled on your bucket, you can use tags on the bucket for access control. For more information, see [Enabling ABAC in general purpose buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging-enable-abac.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,8 +54,8 @@ export interface GetBucketAbacCommandOutput extends GetBucketAbacOutput, __Metad
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  * @throws {@link S3ServiceException}
- * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * Base exception class for all service exceptions from S3 service.
  *
  * @public
  */

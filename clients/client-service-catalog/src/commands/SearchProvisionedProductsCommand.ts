@@ -23,7 +23,8 @@ export interface SearchProvisionedProductsCommandInput extends SearchProvisioned
 export interface SearchProvisionedProductsCommandOutput extends SearchProvisionedProductsOutput, __MetadataBearer {}
 
 /**
- * <p>Gets information about the provisioned products that meet the specified criteria.</p>
+ * Gets information about the provisioned products that meet the specified criteria.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -92,11 +93,12 @@ export interface SearchProvisionedProductsCommandOutput extends SearchProvisione
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  * @throws {@link InvalidParametersException} (client fault)
- *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * One or more parameters provided to the operation are not valid.
  *
  * @throws {@link ServiceCatalogServiceException}
- * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * Base exception class for all service exceptions from ServiceCatalog service.
  *
  * @public
  */

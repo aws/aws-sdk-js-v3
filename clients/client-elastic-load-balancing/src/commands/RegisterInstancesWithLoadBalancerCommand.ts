@@ -23,25 +23,23 @@ export interface RegisterInstancesWithLoadBalancerCommandInput extends RegisterE
 export interface RegisterInstancesWithLoadBalancerCommandOutput extends RegisterEndPointsOutput, __MetadataBearer {}
 
 /**
- * <p>Adds the specified instances to the specified load balancer.</p>
+ * Adds the specified instances to the specified load balancer.
  *
- *         <p>The instance must be a running instance in the same network as the load balancer (EC2-Classic or the same VPC). If you have EC2-Classic instances and a load balancer in a VPC with ClassicLink enabled, you can link the EC2-Classic instances to that VPC and then register the linked EC2-Classic instances with the load balancer in the VPC.</p>
+ * The instance must be a running instance in the same network as the load balancer (EC2-Classic or the same VPC). If you have EC2-Classic instances and a load balancer in a VPC with ClassicLink enabled, you can link the EC2-Classic instances to that VPC and then register the linked EC2-Classic instances with the load balancer in the VPC.
  *
- *         <p>Note that <code>RegisterInstanceWithLoadBalancer</code> completes when the request has been registered.
- *          Instance registration takes a little time to complete. To check the state of the registered instances, use
- *          <a>DescribeLoadBalancers</a> or <a>DescribeInstanceHealth</a>.</p>
+ * Note that `RegisterInstanceWithLoadBalancer` completes when the request has been registered. Instance registration takes a little time to complete. To check the state of the registered instances, use DescribeLoadBalancers or DescribeInstanceHealth.
  *
- *         <p>After the instance is registered, it starts receiving traffic
- *          and requests from the load balancer. Any instance that is not
- *          in one of the Availability Zones registered for the load balancer
- *          is moved to the <code>OutOfService</code> state. If an Availability Zone
- *          is added to the load balancer later, any instances registered with the
- *          load balancer move to the <code>InService</code> state.</p>
  *
- *         <p>To deregister instances from a load balancer, use <a>DeregisterInstancesFromLoadBalancer</a>.</p>
  *
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-deregister-register-instances.html">Register or De-Register EC2 Instances</a>
- *             in the <i>Classic Load Balancers Guide</i>.</p>
+ *
+ * After the instance is registered, it starts receiving traffic and requests from the load balancer. Any instance that is not in one of the Availability Zones registered for the load balancer is moved to the `OutOfService` state. If an Availability Zone is added to the load balancer later, any instances registered with the load balancer move to the `InService` state.
+ *
+ * To deregister instances from a load balancer, use DeregisterInstancesFromLoadBalancer.
+ *
+ *
+ *
+ * For more information, see [Register or De-Register EC2 Instances](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-deregister-register-instances.html) in the *Classic Load Balancers Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,14 +75,16 @@ export interface RegisterInstancesWithLoadBalancerCommandOutput extends Register
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
  * @throws {@link AccessPointNotFoundException} (client fault)
- *  <p>The specified load balancer does not exist.</p>
+ *
+ * The specified load balancer does not exist.
  *
  * @throws {@link InvalidEndPointException} (client fault)
- *  <p>The specified endpoint is not valid.</p>
+ *
+ * The specified endpoint is not valid.
  *
  * @throws {@link ElasticLoadBalancingServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancing service.
  *
  * @example To register instances with a load balancer
  * ```javascript

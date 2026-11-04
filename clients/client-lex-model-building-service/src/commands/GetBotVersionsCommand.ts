@@ -23,17 +23,13 @@ export interface GetBotVersionsCommandInput extends GetBotVersionsRequest {}
 export interface GetBotVersionsCommandOutput extends GetBotVersionsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about all of the versions of a bot.</p>
- *          <p>The <code>GetBotVersions</code> operation returns a
- *         <code>BotMetadata</code> object for each version of a bot. For example,
- *       if a bot has three numbered versions, the <code>GetBotVersions</code>
- *       operation returns four <code>BotMetadata</code> objects in the response,
- *       one for each numbered version and one for the <code>$LATEST</code>
- *       version. </p>
- *          <p>The <code>GetBotVersions</code> operation always returns at least
- *       one version, the <code>$LATEST</code> version.</p>
- *          <p>This operation requires permissions for the
- *         <code>lex:GetBotVersions</code> action.</p>
+ * Gets information about all of the versions of a bot.
+ *
+ * The `GetBotVersions` operation returns a `BotMetadata` object for each version of a bot. For example, if a bot has three numbered versions, the `GetBotVersions` operation returns four `BotMetadata` objects in the response, one for each numbered version and one for the `$LATEST` version.
+ *
+ * The `GetBotVersions` operation always returns at least one version, the `$LATEST` version.
+ *
+ * This operation requires permissions for the `lex:GetBotVersions` action.
  *
  * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @example
@@ -74,23 +70,24 @@ export interface GetBotVersionsCommandOutput extends GetBotVersionsResponse, __M
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request is not well formed. For example, a value is invalid or
- *       a required field is missing. Check the field values, and try
- *       again.</p>
+ *
+ * The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An internal Amazon Lex error occurred. Try your request again.</p>
+ *
+ * An internal Amazon Lex error occurred. Try your request again.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request exceeded a limit. Try your request again.</p>
+ *
+ * The request exceeded a limit. Try your request again.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource specified in the request was not found. Check the
- *       resource and try again.</p>
+ *
+ * The resource specified in the request was not found. Check the resource and try again.
  *
  * @throws {@link LexModelBuildingServiceServiceException}
- * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * Base exception class for all service exceptions from LexModelBuildingService service.
  *
  * @public
  */

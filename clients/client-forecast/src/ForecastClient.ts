@@ -588,7 +588,8 @@ export type ForecastClientResolvedConfigType = __SmithyResolvedConfiguration<__H
 export interface ForecastClientResolvedConfig extends ForecastClientResolvedConfigType {}
 
 /**
- * <p>Provides APIs for creating and managing Amazon Forecast resources.</p>
+ * Provides APIs for creating and managing Amazon Forecast resources.
+ *
  * @public
  */
 export class ForecastClient extends __Client<

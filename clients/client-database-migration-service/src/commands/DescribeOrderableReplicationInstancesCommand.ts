@@ -26,8 +26,8 @@ export interface DescribeOrderableReplicationInstancesCommandInput extends Descr
 export interface DescribeOrderableReplicationInstancesCommandOutput extends DescribeOrderableReplicationInstancesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about the replication instance types that can be created in the
- *          specified region.</p>
+ * Returns information about the replication instance types that can be created in the specified region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,8 +70,8 @@ export interface DescribeOrderableReplicationInstancesCommandOutput extends Desc
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @example Describe orderable replication instances
  * ```javascript

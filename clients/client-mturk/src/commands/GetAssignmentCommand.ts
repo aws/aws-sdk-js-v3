@@ -23,9 +23,8 @@ export interface GetAssignmentCommandInput extends GetAssignmentRequest {}
 export interface GetAssignmentCommandOutput extends GetAssignmentResponse, __MetadataBearer {}
 
 /**
- * <p>
- *             The <code>GetAssignment</code> operation retrieves the details of the specified Assignment.
- *         </p>
+ * The `GetAssignment` operation retrieves the details of the specified Assignment.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -104,14 +103,16 @@ export interface GetAssignmentCommandOutput extends GetAssignmentResponse, __Met
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
  *
  * @throws {@link RequestError} (client fault)
- *  <p>Your request is invalid.</p>
+ *
+ * Your request is invalid.
  *
  * @throws {@link ServiceFault} (server fault)
- *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
+ * Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.
  *
  * @throws {@link MTurkServiceException}
- * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * Base exception class for all service exceptions from MTurk service.
  *
  * @public
  */

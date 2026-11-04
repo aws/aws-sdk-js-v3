@@ -26,7 +26,8 @@ export interface ListResourceEndpointAssociationsCommandInput extends ListResour
 export interface ListResourceEndpointAssociationsCommandOutput extends ListResourceEndpointAssociationsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the associations for the specified VPC endpoint.</p>
+ * Lists the associations for the specified VPC endpoint.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,20 +78,24 @@ export interface ListResourceEndpointAssociationsCommandOutput extends ListResou
  * @see {@link VPCLatticeClientResolvedConfig | config} for VPCLatticeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The user does not have sufficient access to perform this action.</p>
+ *
+ * The user does not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred while processing the request.</p>
+ *
+ * An unexpected error occurred while processing the request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The limit on the number of requests per second was exceeded.</p>
+ *
+ * The limit on the number of requests per second was exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input does not satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link VPCLatticeServiceException}
- * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * Base exception class for all service exceptions from VPCLattice service.
  *
  * @public
  */

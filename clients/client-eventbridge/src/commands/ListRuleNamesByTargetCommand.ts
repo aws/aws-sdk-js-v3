@@ -23,9 +23,10 @@ export interface ListRuleNamesByTargetCommandInput extends ListRuleNamesByTarget
 export interface ListRuleNamesByTargetCommandOutput extends ListRuleNamesByTargetResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the rules for the specified target. You can see which of the rules in Amazon
- *       EventBridge can invoke a specific target in your account.</p>
- *          <p>The maximum number of results per page for requests is 100.</p>
+ * Lists the rules for the specified target. You can see which of the rules in Amazon EventBridge can invoke a specific target in your account.
+ *
+ * The maximum number of results per page for requests is 100.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,14 +59,16 @@ export interface ListRuleNamesByTargetCommandOutput extends ListRuleNamesByTarge
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * This exception occurs due to unexpected causes.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An entity that you specified does not exist.</p>
+ *
+ * An entity that you specified does not exist.
  *
  * @throws {@link EventBridgeServiceException}
- * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ * Base exception class for all service exceptions from EventBridge service.
  *
  * @public
  */

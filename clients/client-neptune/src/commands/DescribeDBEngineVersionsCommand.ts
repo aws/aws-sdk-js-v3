@@ -23,7 +23,8 @@ export interface DescribeDBEngineVersionsCommandInput extends DescribeDBEngineVe
 export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMessage, __MetadataBearer {}
 
 /**
- * <p>Returns a list of the available DB engines.</p>
+ * Returns a list of the available DB engines.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -105,8 +106,8 @@ export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMe
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  * @throws {@link NeptuneServiceException}
- * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * Base exception class for all service exceptions from Neptune service.
  *
  * @public
  */

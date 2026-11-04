@@ -23,7 +23,8 @@ export interface ListMlflowAppsCommandInput extends ListMlflowAppsRequest {}
 export interface ListMlflowAppsCommandOutput extends ListMlflowAppsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all MLflow Apps</p>
+ * Lists all MLflow Apps
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,8 +70,8 @@ export interface ListMlflowAppsCommandOutput extends ListMlflowAppsResponse, __M
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

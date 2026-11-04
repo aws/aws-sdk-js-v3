@@ -23,7 +23,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all tags on an SAP HANA application and/or database registered with AWS Systems Manager for SAP.</p>
+ * Lists all tags on an SAP HANA application and/or database registered with AWS Systems Manager for SAP.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,17 +53,20 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A conflict has occurred.</p>
+ *
+ * A conflict has occurred.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource is not available.</p>
+ *
+ * The resource is not available.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service. </p>
+ *
+ * The input fails to satisfy the constraints specified by an AWS service.
  *
  * @throws {@link SsmSapServiceException}
- * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
+ * Base exception class for all service exceptions from SsmSap service.
  *
  * @public
  */

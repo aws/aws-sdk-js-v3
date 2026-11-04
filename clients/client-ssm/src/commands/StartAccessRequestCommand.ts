@@ -23,7 +23,8 @@ export interface StartAccessRequestCommandInput extends StartAccessRequestReques
 export interface StartAccessRequestCommandOutput extends StartAccessRequestResponse, __MetadataBearer {}
 
 /**
- * <p>Starts the workflow for just-in-time node access sessions.</p>
+ * Starts the workflow for just-in-time node access sessions.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,29 +65,32 @@ export interface StartAccessRequestCommandOutput extends StartAccessRequestRespo
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The requester doesn't have permissions to perform the requested operation.</p>
+ *
+ * The requester doesn't have permissions to perform the requested operation.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified parameter to be shared could not be found.</p>
+ *
+ * The specified parameter to be shared could not be found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request exceeds the service quota. Service quotas, also referred to as limits, are the
- *    maximum number of service resources or operations for your Amazon Web Services account.</p>
+ *
+ * The request exceeds the service quota. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your Amazon Web Services account.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request or operation couldn't be performed because the service is throttling
- *    requests.</p>
+ *
+ * The request or operation couldn't be performed because the service is throttling requests.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. Verify that you entered valid contents for the command and try
- *    again.</p>
+ *
+ * The request isn't valid. Verify that you entered valid contents for the command and try again.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

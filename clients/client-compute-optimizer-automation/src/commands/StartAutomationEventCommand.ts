@@ -23,7 +23,10 @@ export interface StartAutomationEventCommandInput extends StartAutomationEventRe
 export interface StartAutomationEventCommandOutput extends StartAutomationEventResponse, __MetadataBearer {}
 
 /**
- * <p> Initiates a one-time, on-demand automation for the specified recommended action. </p> <note> <p>Management accounts and delegated administrators can only initiate recommended actions for associated member accounts. You can associate a member account using <code>AssociateAccounts</code>.</p> </note>
+ * Initiates a one-time, on-demand automation for the specified recommended action.
+ *
+ * > **Note:** Management accounts and delegated administrators can only initiate recommended actions for associated member accounts. You can associate a member account using `AssociateAccounts`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,41 +56,52 @@ export interface StartAutomationEventCommandOutput extends StartAutomationEventR
  * @see {@link ComputeOptimizerAutomationClientResolvedConfig | config} for ComputeOptimizerAutomationClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p> You do not have sufficient permissions to perform this action. </p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p> You are not authorized to perform this action. </p>
+ *
+ * You are not authorized to perform this action.
  *
  * @throws {@link IdempotencyTokenInUseException} (client fault)
- *  <p> The specified client token is already in use. </p>
+ *
+ * The specified client token is already in use.
  *
  * @throws {@link IdempotentParameterMismatchException} (client fault)
- *  <p>Exception thrown when the same client token is used with different parameters, indicating a mismatch in idempotent request parameters.</p>
+ *
+ * Exception thrown when the same client token is used with different parameters, indicating a mismatch in idempotent request parameters.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> An internal error occurred while processing the request. </p>
+ *
+ * An internal error occurred while processing the request.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p> One or more parameter values are not valid. </p>
+ *
+ * One or more parameter values are not valid.
  *
  * @throws {@link OptInRequiredException} (client fault)
- *  <p> The account must be opted in to Compute Optimizer Automation before performing this action. </p>
+ *
+ * The account must be opted in to Compute Optimizer Automation before performing this action.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The specified resource was not found. </p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p> The request would exceed service quotas. </p>
+ *
+ * The request would exceed service quotas.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p> The service is temporarily unavailable. </p>
+ *
+ * The service is temporarily unavailable.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p> The request was denied due to request throttling. </p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ComputeOptimizerAutomationServiceException}
- * <p>Base exception class for all service exceptions from ComputeOptimizerAutomation service.</p>
  *
+ * Base exception class for all service exceptions from ComputeOptimizerAutomation service.
  *
  * @public
  */

@@ -23,13 +23,12 @@ export interface CreateApplicationCommandInput extends CreateApplicationRequest 
 export interface CreateApplicationCommandOutput extends CreateApplicationResult, __MetadataBearer {}
 
 /**
- * <p>Creates an application.</p>
- *          <p>Applications are a WorkSpaces Applications resource that stores the details about how to
- *             launch applications on Elastic fleet streaming instances. An application consists of the
- *             launch details, icon, and display name. Applications are associated with an app block
- *             that contains the application binaries and other files. The applications assigned to an
- *             Elastic fleet are the applications users can launch. </p>
- *          <p>This is only supported for Elastic fleets.</p>
+ * Creates an application.
+ *
+ * Applications are a WorkSpaces Applications resource that stores the details about how to launch applications on Elastic fleet streaming instances. An application consists of the launch details, icon, and display name. Applications are associated with an app block that contains the application binaries and other files. The applications assigned to an Elastic fleet are the applications users can launch.
+ *
+ * This is only supported for Elastic fleets.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -100,23 +99,28 @@ export interface CreateApplicationCommandOutput extends CreateApplicationResult,
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>An API error occurred. Wait a few minutes and try again.</p>
+ *
+ * An API error occurred. Wait a few minutes and try again.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The requested limit exceeds the permitted limit for an account.</p>
+ *
+ * The requested limit exceeds the permitted limit for an account.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>The attempted operation is not permitted.</p>
+ *
+ * The attempted operation is not permitted.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>The specified resource already exists.</p>
+ *
+ * The specified resource already exists.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link AppStreamServiceException}
- * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * Base exception class for all service exceptions from AppStream service.
  *
  * @public
  */

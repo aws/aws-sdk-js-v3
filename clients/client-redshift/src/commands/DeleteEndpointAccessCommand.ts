@@ -23,7 +23,8 @@ export interface DeleteEndpointAccessCommandInput extends DeleteEndpointAccessMe
 export interface DeleteEndpointAccessCommandOutput extends EndpointAccess, __MetadataBearer {}
 
 /**
- * <p>Deletes a Redshift-managed VPC endpoint.</p>
+ * Deletes a Redshift-managed VPC endpoint.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,24 +77,28 @@ export interface DeleteEndpointAccessCommandOutput extends EndpointAccess, __Met
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
- *         </p>
+ *
+ * The `ClusterIdentifier` parameter does not refer to an existing cluster.
  *
  * @throws {@link EndpointNotFoundFault} (client fault)
- *  <p>The endpoint name doesn't refer to an existing endpoint.</p>
+ *
+ * The endpoint name doesn't refer to an existing endpoint.
  *
  * @throws {@link InvalidClusterSecurityGroupStateFault} (client fault)
- *  <p>The state of the cluster security group is not <code>available</code>. </p>
+ *
+ * The state of the cluster security group is not `available`.
  *
  * @throws {@link InvalidClusterStateFault} (client fault)
- *  <p>The specified cluster is not in the <code>available</code> state. </p>
+ *
+ * The specified cluster is not in the `available` state.
  *
  * @throws {@link InvalidEndpointStateFault} (client fault)
- *  <p>The status of the endpoint is not valid.</p>
+ *
+ * The status of the endpoint is not valid.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface GetIpamDiscoveredResourceCidrsCommandInput extends GetIpamDisco
 export interface GetIpamDiscoveredResourceCidrsCommandOutput extends GetIpamDiscoveredResourceCidrsResult, __MetadataBearer {}
 
 /**
- * <p>Returns the resource CIDRs that are monitored as part of a resource discovery. A discovered resource is a resource CIDR monitored under a resource discovery. The following resources can be discovered: VPCs, Public IPv4 pools, VPC subnets, and Elastic IP addresses. </p>
+ * Returns the resource CIDRs that are monitored as part of a resource discovery. A discovered resource is a resource CIDR monitored under a resource discovery. The following resources can be discovered: VPCs, Public IPv4 pools, VPC subnets, and Elastic IP addresses.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,8 +86,8 @@ export interface GetIpamDiscoveredResourceCidrsCommandOutput extends GetIpamDisc
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

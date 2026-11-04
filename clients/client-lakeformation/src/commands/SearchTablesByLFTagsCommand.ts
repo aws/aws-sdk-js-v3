@@ -23,7 +23,8 @@ export interface SearchTablesByLFTagsCommandInput extends SearchTablesByLFTagsRe
 export interface SearchTablesByLFTagsCommandOutput extends SearchTablesByLFTagsResponse, __MetadataBearer {}
 
 /**
- * <p>This operation allows a search on <code>TABLE</code> resources by <code>LFTag</code>s. This will be used by admins who want to grant user permissions on certain LF-tags. Before making a grant, the admin can use <code>SearchTablesByLFTags</code> to find all resources where the given <code>LFTag</code>s are valid to verify whether the returned resources can be shared.</p>
+ * This operation allows a search on `TABLE` resources by `LFTag`s. This will be used by admins who want to grant user permissions on certain LF-tags. Before making a grant, the admin can use `SearchTablesByLFTags` to find all resources where the given `LFTag`s are valid to verify whether the returned resources can be shared.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -102,26 +103,32 @@ export interface SearchTablesByLFTagsCommandOutput extends SearchTablesByLFTagsR
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to a resource was denied.</p>
+ *
+ * Access to a resource was denied.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist.</p>
+ *
+ * A specified entity does not exist.
  *
  * @throws {@link GlueEncryptionException} (client fault)
- *  <p>An encryption operation failed.</p>
+ *
+ * An encryption operation failed.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link LakeFormationServiceException}
- * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * Base exception class for all service exceptions from LakeFormation service.
  *
  * @public
  */

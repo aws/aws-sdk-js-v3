@@ -23,7 +23,18 @@ export interface GenerateAs2805KekValidationCommandInput extends GenerateAs2805K
 export interface GenerateAs2805KekValidationCommandOutput extends GenerateAs2805KekValidationOutput, __MetadataBearer {}
 
 /**
- * <p>Generates a <code>KekValidationRequest</code> or a <code>KekValidationResponse</code> for node-to-node initialization between payment processing nodes using <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/as2805.html">Australian Standard 2805 (AS2805)</a>.</p> <p>During node-to-node initialization, both communicating nodes must validate that they possess the correct Key Encrypting Keys (KEKs) before proceeding with session key exchange. In AS2805, the sending KEK (KEKs) of one node corresponds to the receiving KEK (KEKr) of its partner node. Each node uses its KEK to encrypt and decrypt session keys exchanged between the nodes. A KEK can be created or imported into Amazon Web Services Payment Cryptography using either the <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateKey.html">CreateKey</a> or <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html">ImportKey</a> operations.</p> <p>To use <code>GenerateAs2805KekValidation</code> to generate a KEK validation request, set <code>KekValidationType</code> to <code>KekValidationRequest</code>. This operation returns both <code>RandomKeySend</code> (KRs) and <code>RandomKeyReceive</code> (KRr) as response values. The partnering node receives the KRs, uses its KEKr to decrypt it, and generates a KRr which is an inverted value of KRs. The node receiving the KRr validates it against its own KRr generated during KEK validation request outside of Amazon Web Services Payment Cryptography.</p> <p>You can also use this operation to generate a KEK validation response, by setting <code>KekValidationType</code> to <code>KekValidationResponse</code> and providing the incoming KRs. This operation then calculates a KRr. To learn more about more about node-to-node initialization, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/as2805.kekvalidation.html">Validation of KEK</a> in the <i>Amazon Web Services Payment Cryptography User Guide</i>.</p> <p>For information about valid keys for this operation, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-validattributes.html">Understanding key attributes</a> and <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/crypto-ops-validkeys-ops.html">Key types for specific data operations</a> in the <i>Amazon Web Services Payment Cryptography User Guide</i>. </p> <p> <b>Cross-account use</b>: This operation supports cross-account use when the key has a resource-based policy that grants access. For more information, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/security_iam_resource-based-policies.html">Resource-based policies</a>.</p>
+ * Generates a `KekValidationRequest` or a `KekValidationResponse` for node-to-node initialization between payment processing nodes using [Australian Standard 2805 (AS2805)](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/as2805.html).
+ *
+ * During node-to-node initialization, both communicating nodes must validate that they possess the correct Key Encrypting Keys (KEKs) before proceeding with session key exchange. In AS2805, the sending KEK (KEKs) of one node corresponds to the receiving KEK (KEKr) of its partner node. Each node uses its KEK to encrypt and decrypt session keys exchanged between the nodes. A KEK can be created or imported into Amazon Web Services Payment Cryptography using either the [CreateKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateKey.html) or [ImportKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html) operations.
+ *
+ * To use `GenerateAs2805KekValidation` to generate a KEK validation request, set `KekValidationType` to `KekValidationRequest`. This operation returns both `RandomKeySend` (KRs) and `RandomKeyReceive` (KRr) as response values. The partnering node receives the KRs, uses its KEKr to decrypt it, and generates a KRr which is an inverted value of KRs. The node receiving the KRr validates it against its own KRr generated during KEK validation request outside of Amazon Web Services Payment Cryptography.
+ *
+ * You can also use this operation to generate a KEK validation response, by setting `KekValidationType` to `KekValidationResponse` and providing the incoming KRs. This operation then calculates a KRr. To learn more about more about node-to-node initialization, see [Validation of KEK](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/as2805.kekvalidation.html) in the *Amazon Web Services Payment Cryptography User Guide*.
+ *
+ * For information about valid keys for this operation, see [Understanding key attributes](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-validattributes.html) and [Key types for specific data operations](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/crypto-ops-validkeys-ops.html) in the *Amazon Web Services Payment Cryptography User Guide*.
+ *
+ * **Cross-account use**: This operation supports cross-account use when the key has a resource-based policy that grants access. For more information, see [Resource-based policies](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/security_iam_resource-based-policies.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,23 +74,28 @@ export interface GenerateAs2805KekValidationCommandOutput extends GenerateAs2805
  * @see {@link PaymentCryptographyDataClientResolvedConfig | config} for PaymentCryptographyDataClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception, or failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request was denied due to an invalid resource error.</p>
+ *
+ * The request was denied due to an invalid resource error.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request was denied due to an invalid request error.</p>
+ *
+ * The request was denied due to an invalid request error.
  *
  * @throws {@link PaymentCryptographyDataServiceException}
- * <p>Base exception class for all service exceptions from PaymentCryptographyData service.</p>
  *
+ * Base exception class for all service exceptions from PaymentCryptographyData service.
  *
  * @public
  */

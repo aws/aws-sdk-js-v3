@@ -23,10 +23,10 @@ export interface GetCredentialsForIdentityCommandInput extends GetCredentialsFor
 export interface GetCredentialsForIdentityCommandOutput extends GetCredentialsForIdentityResponse, __MetadataBearer {}
 
 /**
- * <p>Returns credentials for the provided identity ID. Any provided logins will be
- *          validated against supported login providers. If the token is for
- *             <code>cognito-identity.amazonaws.com</code>, it will be passed through to Security Token Service with the appropriate role for the token.</p>
- *          <p>This is a public API. You do not need any credentials to call this API.</p>
+ * Returns credentials for the provided identity ID. Any provided logins will be validated against supported login providers. If the token is for `cognito-identity.amazonaws.com`, it will be passed through to Security Token Service with the appropriate role for the token.
+ *
+ * This is a public API. You do not need any credentials to call this API.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,41 +63,42 @@ export interface GetCredentialsForIdentityCommandOutput extends GetCredentialsFo
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
  *
  * @throws {@link ExternalServiceException} (client fault)
- *  <p>An exception thrown when a dependent service such as Facebook or Twitter is not
- *          responding</p>
+ *
+ * An exception thrown when a dependent service such as Facebook or Twitter is not responding
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>Thrown when the service encounters an error during processing the request.</p>
+ *
+ * Thrown when the service encounters an error during processing the request.
  *
  * @throws {@link InvalidIdentityPoolConfigurationException} (client fault)
- *  <p>If you provided authentication information in the request, the identity pool has no
- *          authenticated role configured, or STS returned an error response to the
- *          request to assume the authenticated role from the identity pool. If you provided no
- *          authentication information in the request, the identity pool has no unauthenticated role
- *          configured, or STS returned an error response to the request to assume the
- *          unauthenticated role from the identity pool.</p>
- *          <p>Your role trust policy must grant <code>AssumeRoleWithWebIdentity</code> permissions to <code>cognito-identity.amazonaws.com</code>.</p>
+ *
+ * If you provided authentication information in the request, the identity pool has no authenticated role configured, or STS returned an error response to the request to assume the authenticated role from the identity pool. If you provided no authentication information in the request, the identity pool has no unauthenticated role configured, or STS returned an error response to the request to assume the unauthenticated role from the identity pool.
+ *
+ * Your role trust policy must grant `AssumeRoleWithWebIdentity` permissions to `cognito-identity.amazonaws.com`.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Thrown for missing or bad input parameter(s).</p>
+ *
+ * Thrown for missing or bad input parameter(s).
  *
  * @throws {@link NotAuthorizedException} (client fault)
- *  <p>Thrown when a user is not authorized to access the requested resource.</p>
+ *
+ * Thrown when a user is not authorized to access the requested resource.
  *
  * @throws {@link ResourceConflictException} (client fault)
- *  <p>Thrown when a user tries to use a login which is already linked to another
- *          account.</p>
+ *
+ * Thrown when a user tries to use a login which is already linked to another account.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Thrown when the requested resource (for example, a dataset or record) does not
- *          exist.</p>
+ *
+ * Thrown when the requested resource (for example, a dataset or record) does not exist.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Thrown when a request is throttled.</p>
+ *
+ * Thrown when a request is throttled.
  *
  * @throws {@link CognitoIdentityServiceException}
- * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ * Base exception class for all service exceptions from CognitoIdentity service.
  *
  * @public
  */

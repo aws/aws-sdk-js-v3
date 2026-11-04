@@ -23,7 +23,8 @@ export interface DeleteWorkteamCommandInput extends DeleteWorkteamRequest {}
 export interface DeleteWorkteamCommandOutput extends DeleteWorkteamResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an existing work team. This operation can't be undone.</p>
+ * Deletes an existing work team. This operation can't be undone.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,11 +51,12 @@ export interface DeleteWorkteamCommandOutput extends DeleteWorkteamResponse, __M
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+ *
+ * You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

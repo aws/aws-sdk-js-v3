@@ -26,8 +26,8 @@ export interface ListCostCategoryResourceAssociationsCommandInput extends ListCo
 export interface ListCostCategoryResourceAssociationsCommandOutput extends ListCostCategoryResourceAssociationsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns resource associations of all cost categories defined in the account. You have the option to use <code>CostCategoryArn</code> to get the association for a specific cost category. <code>ListCostCategoryResourceAssociations</code> supports pagination. The request can have a <code>MaxResults</code> range up to 100.
- *     </p>
+ * Returns resource associations of all cost categories defined in the account. You have the option to use `CostCategoryArn` to get the association for a specific cost category. `ListCostCategoryResourceAssociations` supports pagination. The request can have a `MaxResults` range up to 100.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,14 +63,16 @@ export interface ListCostCategoryResourceAssociationsCommandOutput extends ListC
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ * You made too many calls in a short period of time. Try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The specified ARN in the request doesn't exist. </p>
+ *
+ * The specified ARN in the request doesn't exist.
  *
  * @throws {@link CostExplorerServiceException}
- * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * Base exception class for all service exceptions from CostExplorer service.
  *
  * @public
  */

@@ -23,32 +23,19 @@ export interface UpdateBucketMetadataAnnotationTableConfigurationCommandInput ex
 export interface UpdateBucketMetadataAnnotationTableConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Updates the annotation table configuration for an Amazon S3 bucket's metadata configuration. Use this
- *       operation to enable or disable the annotation table, or to update its associated IAM role.</p>
- *          <p>An annotation table is a queryable Iceberg table that contains records of all annotations
- *       attached to objects in the bucket. To use this operation, the bucket must have an existing Amazon S3
- *       Metadata configuration.</p>
- *          <p>To use this operation, you must have the
- *       <code>s3:UpdateBucketMetadataAnnotationTableConfiguration</code> permission. If you are specifying
- *       or changing the IAM role, you must also have <code>iam:PassRole</code> permission for the role.</p>
- *          <p>The IAM role must have a trust policy that allows the Amazon S3 metadata service to assume it, and a
- *       permissions policy that grants the actions needed to read annotations from your bucket. The
- *       following examples show a trust policy and a permissions policy that you can adapt for your bucket
- *       and account.</p>
- *          <p>The following operations are related to
- *       <code>UpdateBucketMetadataAnnotationTableConfiguration</code>:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html">CreateBucketMetadataConfiguration</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketMetadataConfiguration.html">GetBucketMetadataConfiguration</a>
- *                </p>
- *             </li>
- *          </ul>
+ * Updates the annotation table configuration for an Amazon S3 bucket's metadata configuration. Use this operation to enable or disable the annotation table, or to update its associated IAM role.
+ *
+ * An annotation table is a queryable Iceberg table that contains records of all annotations attached to objects in the bucket. To use this operation, the bucket must have an existing Amazon S3 Metadata configuration.
+ *
+ * To use this operation, you must have the `s3:UpdateBucketMetadataAnnotationTableConfiguration` permission. If you are specifying or changing the IAM role, you must also have `iam:PassRole` permission for the role.
+ *
+ * The IAM role must have a trust policy that allows the Amazon S3 metadata service to assume it, and a permissions policy that grants the actions needed to read annotations from your bucket. The following examples show a trust policy and a permissions policy that you can adapt for your bucket and account.
+ *
+ * The following operations are related to `UpdateBucketMetadataAnnotationTableConfiguration`:
+ *
+ * - [CreateBucketMetadataConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html)
+ * - [GetBucketMetadataConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketMetadataConfiguration.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,8 +71,8 @@ export interface UpdateBucketMetadataAnnotationTableConfigurationCommandOutput e
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  * @throws {@link S3ServiceException}
- * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * Base exception class for all service exceptions from S3 service.
  *
  * @public
  */

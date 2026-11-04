@@ -23,7 +23,8 @@ export interface PutReportDefinitionCommandInput extends PutReportDefinitionRequ
 export interface PutReportDefinitionCommandOutput extends PutReportDefinitionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new report using the description that you provide.</p>
+ * Creates a new report using the description that you provide.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,23 +76,28 @@ export interface PutReportDefinitionCommandOutput extends PutReportDefinitionRes
  * @see {@link CostAndUsageReportServiceClientResolvedConfig | config} for CostAndUsageReportServiceClient's `config` shape.
  *
  * @throws {@link DuplicateReportNameException} (client fault)
- *  <p>A report with the specified name already exists in the account. Specify a different report name.</p>
+ *
+ * A report with the specified name already exists in the account. Specify a different report name.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>An error on the server occurred during the processing of your request. Try again later.</p>
+ *
+ * An error on the server occurred during the processing of your request. Try again later.
  *
  * @throws {@link ReportLimitReachedException} (client fault)
- *  <p>This account already has five reports defined. To define a new report, you must delete an existing report.</p>
+ *
+ * This account already has five reports defined. To define a new report, you must delete an existing report.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified report (<code>ReportName</code>) in the request doesn't exist.</p>
+ *
+ * The specified report (`ReportName`) in the request doesn't exist.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link CostAndUsageReportServiceServiceException}
- * <p>Base exception class for all service exceptions from CostAndUsageReportService service.</p>
  *
+ * Base exception class for all service exceptions from CostAndUsageReportService service.
  *
  * @example To create a report named ExampleReport.
  * ```javascript

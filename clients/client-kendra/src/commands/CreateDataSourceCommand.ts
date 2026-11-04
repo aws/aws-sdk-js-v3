@@ -23,17 +23,14 @@ export interface CreateDataSourceCommandInput extends CreateDataSourceRequest {}
 export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a data source connector that you want to use with an Amazon Kendra
- *       index.</p>
- *          <p>You specify a name, data source connector type and description for your data source. You
- *       also specify configuration information for the data source connector.</p>
- *          <p>
- *             <code>CreateDataSource</code> is a synchronous operation. The operation returns 200 if the
- *       data source was successfully created. Otherwise, an exception is raised.</p>
- *          <p>For an example of creating an index and data source using the Python SDK, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/gs-python.html">Getting started with Python
- *         SDK</a>. For an example of creating an index and data source using the Java SDK, see
- *         <a href="https://docs.aws.amazon.com/kendra/latest/dg/gs-java.html">Getting started with Java
- *         SDK</a>.</p>
+ * Creates a data source connector that you want to use with an Amazon Kendra index.
+ *
+ * You specify a name, data source connector type and description for your data source. You also specify configuration information for the data source connector.
+ *
+ * `CreateDataSource` is a synchronous operation. The operation returns 200 if the data source was successfully created. Otherwise, an exception is raised.
+ *
+ * For an example of creating an index and data source using the Python SDK, see [Getting started with Python SDK](https://docs.aws.amazon.com/kendra/latest/dg/gs-python.html). For an example of creating an index and data source using the Java SDK, see [Getting started with Java SDK](https://docs.aws.amazon.com/kendra/latest/dg/gs-java.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -626,42 +623,40 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action. Please ensure you have the
- *             required permission policies and user accounts and try again.</p>
+ *
+ * You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A conflict occurred with the request. Please fix any inconsistences with your
- *             resources and try again.</p>
+ *
+ * A conflict occurred with the request. Please fix any inconsistences with your resources and try again.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
+ *
+ * An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact [Support](http://aws.amazon.com/contact-us/) for help.
  *
  * @throws {@link ResourceAlreadyExistException} (client fault)
- *  <p>The resource you want to use already exists. Please check you have provided the
- *             correct resource and try again.</p>
+ *
+ * The resource you want to use already exists. Please check you have provided the correct resource and try again.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct
- *             resource and try again.</p>
+ *
+ * The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You have exceeded the set limits for your Amazon Kendra service. Please see
- *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas</a> for
- *             more information, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> to inquire about
- *             an increase of limits.</p>
+ *
+ * You have exceeded the set limits for your Amazon Kendra service. Please see [Quotas](https://docs.aws.amazon.com/kendra/latest/dg/quotas.html) for more information, or contact [Support](http://aws.amazon.com/contact-us/) to inquire about an increase of limits.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. Please reduce the number of requests
- *             and try again.</p>
+ *
+ * The request was denied due to request throttling. Please reduce the number of requests and try again.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
- *             Please provide the correct input and try again.</p>
+ *
+ * The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.
  *
  * @throws {@link KendraServiceException}
- * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * Base exception class for all service exceptions from Kendra service.
  *
  * @public
  */

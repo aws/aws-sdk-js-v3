@@ -23,28 +23,16 @@ export interface StartExportTaskCommandInput extends StartExportTaskRequest {}
 export interface StartExportTaskCommandOutput extends StartExportTaskResponse, __MetadataBearer {}
 
 /**
- * <p>Begins the export of a discovered data report to an Amazon S3 bucket managed by Amazon Web Services.</p>
- *          <note>
- *             <p>Exports might provide an estimate of fees and savings based on certain information
- *       that you provide. Fee estimates do not include any taxes that might apply.
- *       Your actual fees and savings depend on a variety of factors, including your actual usage of Amazon Web Services
- *       services, which might vary from the estimates provided in this report.</p>
- *          </note>
- *          <p>If you do not specify <code>preferences</code> or <code>agentIds</code> in the filter, a
- *       summary of all servers, applications, tags, and performance is generated. This data is an
- *       aggregation of all server data collected through on-premises tooling, file import, application
- *       grouping and applying tags.</p>
- *          <p>If you specify <code>agentIds</code> in a filter, the task exports up to 72 hours of
- *       detailed data collected by the identified Application Discovery Agent, including network,
- *       process, and performance details. A time range for exported agent data may be set by using
- *         <code>startTime</code> and <code>endTime</code>. Export of detailed agent data is limited to
- *       five concurrently running exports.
- *       Export of detailed agent data is limited to two exports per day.</p>
- *          <p>If you enable <code>ec2RecommendationsPreferences</code> in <code>preferences</code>
- *       , an
- *       Amazon EC2 instance matching the characteristics of each server in Application Discovery Service is generated.
- *       Changing the attributes of the <code>ec2RecommendationsPreferences</code> changes the
- *       criteria of the recommendation.</p>
+ * Begins the export of a discovered data report to an Amazon S3 bucket managed by Amazon Web Services.
+ *
+ * > **Note:** Exports might provide an estimate of fees and savings based on certain information that you provide. Fee estimates do not include any taxes that might apply. Your actual fees and savings depend on a variety of factors, including your actual usage of Amazon Web Services services, which might vary from the estimates provided in this report.
+ *
+ * If you do not specify `preferences` or `agentIds` in the filter, a summary of all servers, applications, tags, and performance is generated. This data is an aggregation of all server data collected through on-premises tooling, file import, application grouping and applying tags.
+ *
+ * If you specify `agentIds` in a filter, the task exports up to 72 hours of detailed data collected by the identified Application Discovery Agent, including network, process, and performance details. A time range for exported agent data may be set by using `startTime` and `endTime`. Export of detailed agent data is limited to five concurrently running exports. Export of detailed agent data is limited to two exports per day.
+ *
+ * If you enable `ec2RecommendationsPreferences` in `preferences` , an Amazon EC2 instance matching the characteristics of each server in Application Discovery Service is generated. Changing the attributes of the `ec2RecommendationsPreferences` changes the criteria of the recommendation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -107,28 +95,32 @@ export interface StartExportTaskCommandOutput extends StartExportTaskResponse, _
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
  *
  * @throws {@link AuthorizationErrorException} (client fault)
- *  <p>The user does not have permission to perform the action. Check the IAM
- *       policy associated with this user.</p>
+ *
+ * The user does not have permission to perform the action. Check the IAM policy associated with this user.
  *
  * @throws {@link HomeRegionNotSetException} (client fault)
- *  <p>The home Region is not set. Set the home Region to continue.</p>
+ *
+ * The home Region is not set. Set the home Region to continue.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+ *
+ * One or more parameters are not valid. Verify the parameters and try again.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value of one or more parameters are either invalid or out of range. Verify the
- *       parameter values and try again.</p>
+ *
+ * The value of one or more parameters are either invalid or out of range. Verify the parameter values and try again.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>This operation is not permitted.</p>
+ *
+ * This operation is not permitted.
  *
  * @throws {@link ServerInternalErrorException} (server fault)
- *  <p>The server experienced an internal error. Try again.</p>
+ *
+ * The server experienced an internal error. Try again.
  *
  * @throws {@link ApplicationDiscoveryServiceServiceException}
- * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ * Base exception class for all service exceptions from ApplicationDiscoveryService service.
  *
  * @public
  */

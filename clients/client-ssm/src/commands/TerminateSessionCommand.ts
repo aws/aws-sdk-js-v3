@@ -23,8 +23,8 @@ export interface TerminateSessionCommandInput extends TerminateSessionRequest {}
 export interface TerminateSessionCommandOutput extends TerminateSessionResponse, __MetadataBearer {}
 
 /**
- * <p>Permanently ends a session and closes the data connection between the Session Manager client and
- *    SSM Agent on the managed node. A terminated session can't be resumed.</p>
+ * Permanently ends a session and closes the data connection between the Session Manager client and SSM Agent on the managed node. A terminated session can't be resumed.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,11 +51,12 @@ export interface TerminateSessionCommandOutput extends TerminateSessionResponse,
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

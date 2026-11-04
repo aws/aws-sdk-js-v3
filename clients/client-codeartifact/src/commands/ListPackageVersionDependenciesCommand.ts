@@ -23,13 +23,8 @@ export interface ListPackageVersionDependenciesCommandInput extends ListPackageV
 export interface ListPackageVersionDependenciesCommandOutput extends ListPackageVersionDependenciesResult, __MetadataBearer {}
 
 /**
- * <p>
- *          Returns the direct dependencies for a package version. The dependencies are returned as
- *         <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDependency.html">PackageDependency</a>
- *           objects. CodeArtifact extracts the dependencies for a package version from the metadata file for the package
- *           format (for example, the <code>package.json</code> file for npm packages and the <code>pom.xml</code> file
- *         for Maven). Any package version dependencies that are not listed in the configuration file are not returned.
- *       </p>
+ * Returns the direct dependencies for a package version. The dependencies are returned as [PackageDependency](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDependency.html) objects. CodeArtifact extracts the dependencies for a package version from the metadata file for the package format (for example, the `package.json` file for npm packages and the `pom.xml` file for Maven). Any package version dependencies that are not listed in the configuration file are not returned.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,31 +71,28 @@ export interface ListPackageVersionDependenciesCommandOutput extends ListPackage
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>
- *         The operation did not succeed because of an unauthorized access attempt.
- *       </p>
+ *
+ * The operation did not succeed because of an unauthorized access attempt.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+ *
+ * The operation did not succeed because of an error that occurred inside CodeArtifact.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>
- *       The operation did not succeed because the resource requested is not found in the service.
- *     </p>
+ *
+ * The operation did not succeed because the resource requested is not found in the service.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>
- *       The operation did not succeed because too many requests are sent to the service.
- *     </p>
+ *
+ * The operation did not succeed because too many requests are sent to the service.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>
- *       The operation did not succeed because a parameter in the request was sent with an invalid value.
- *     </p>
+ *
+ * The operation did not succeed because a parameter in the request was sent with an invalid value.
  *
  * @throws {@link CodeartifactServiceException}
- * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ * Base exception class for all service exceptions from Codeartifact service.
  *
  * @public
  */

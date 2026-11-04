@@ -23,11 +23,12 @@ export interface DeleteQueryDefinitionCommandInput extends DeleteQueryDefinition
 export interface DeleteQueryDefinitionCommandOutput extends DeleteQueryDefinitionResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a saved CloudWatch Logs Insights query definition. A query definition contains
- *       details about a saved CloudWatch Logs Insights query.</p>
- *          <p>Each <code>DeleteQueryDefinition</code> operation can delete one query definition.</p>
- *          <p>You must have the <code>logs:DeleteQueryDefinition</code> permission to be able to perform
- *       this operation.</p>
+ * Deletes a saved CloudWatch Logs Insights query definition. A query definition contains details about a saved CloudWatch Logs Insights query.
+ *
+ * Each `DeleteQueryDefinition` operation can delete one query definition.
+ *
+ * You must have the `logs:DeleteQueryDefinition` permission to be able to perform this operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,17 +55,20 @@ export interface DeleteQueryDefinitionCommandOutput extends DeleteQueryDefinitio
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is specified incorrectly.</p>
+ *
+ * A parameter is specified incorrectly.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service cannot complete the request.</p>
+ *
+ * The service cannot complete the request.
  *
  * @throws {@link CloudWatchLogsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchLogs service.
  *
  * @public
  */

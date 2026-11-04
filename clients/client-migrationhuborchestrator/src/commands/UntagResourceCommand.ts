@@ -23,7 +23,8 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the tags for a resource.</p>
+ * Deletes the tags for a resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,14 +52,16 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource is not available.</p>
+ *
+ * The resource is not available.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an AWS service.
  *
  * @throws {@link MigrationHubOrchestratorServiceException}
- * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
+ * Base exception class for all service exceptions from MigrationHubOrchestrator service.
  *
  * @public
  */

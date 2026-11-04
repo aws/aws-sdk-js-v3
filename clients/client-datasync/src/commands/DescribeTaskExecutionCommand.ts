@@ -23,14 +23,10 @@ export interface DescribeTaskExecutionCommandInput extends DescribeTaskExecution
 export interface DescribeTaskExecutionCommandOutput extends DescribeTaskExecutionResponse, __MetadataBearer {}
 
 /**
- * <p>Provides information about an execution of your DataSync task. You can
- *       use this operation to help monitor the progress of an ongoing data transfer or check the
- *       results of the transfer.</p>
- *          <note>
- *             <p>Some <code>DescribeTaskExecution</code> response elements are only relevant to a
- *         specific task mode. For information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html#task-mode-differences">Understanding task mode differences</a> and <a href="https://docs.aws.amazon.com/datasync/latest/userguide/transfer-performance-counters.html">Understanding data
- *           transfer performance counters</a>.</p>
- *          </note>
+ * Provides information about an execution of your DataSync task. You can use this operation to help monitor the progress of an ongoing data transfer or check the results of the transfer.
+ *
+ * > **Note:** Some `DescribeTaskExecution` response elements are only relevant to a specific task mode. For information, see [Understanding task mode differences](https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html#task-mode-differences) and [Understanding data transfer performance counters](https://docs.aws.amazon.com/datasync/latest/userguide/transfer-performance-counters.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -185,15 +181,16 @@ export interface DescribeTaskExecutionCommandOutput extends DescribeTaskExecutio
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception is thrown when an error occurs in the DataSync
- *       service.</p>
+ *
+ * This exception is thrown when an error occurs in the DataSync service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * This exception is thrown when the client submits a malformed request.
  *
  * @throws {@link DataSyncServiceException}
- * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * Base exception class for all service exceptions from DataSync service.
  *
  * @public
  */

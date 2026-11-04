@@ -23,9 +23,10 @@ export interface ListStackResourcesCommandInput extends ListStackResourcesInput 
 export interface ListStackResourcesCommandOutput extends ListStackResourcesOutput, __MetadataBearer {}
 
 /**
- * <p>Returns descriptions of all resources of the specified stack.</p>
- *          <p>For deleted stacks, ListStackResources returns resource information for up to 90 days
- *       after the stack has been deleted.</p>
+ * Returns descriptions of all resources of the specified stack.
+ *
+ * For deleted stacks, ListStackResources returns resource information for up to 90 days after the stack has been deleted.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,8 +72,8 @@ export interface ListStackResourcesCommandOutput extends ListStackResourcesOutpu
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { GuardDutyServiceException as __BaseException } from "./GuardDutyServiceException";
 
 /**
- * <p>A bad request exception object.</p>
+ * A bad request exception object.
+ *
  * @public
  */
 export class BadRequestException extends __BaseException {
@@ -12,13 +13,15 @@ export class BadRequestException extends __BaseException {
   readonly name = "BadRequestException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error message.</p>
+   * The error message.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The error type.</p>
+   * The error type.
+   *
    * @public
    */
   Type?: string | undefined;
@@ -38,7 +41,8 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * <p>An internal server error exception object.</p>
+ * An internal server error exception object.
+ *
  * @public
  */
 export class InternalServerErrorException extends __BaseException {
@@ -46,13 +50,15 @@ export class InternalServerErrorException extends __BaseException {
   readonly name = "InternalServerErrorException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>The error message.</p>
+   * The error message.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The error type.</p>
+   * The error type.
+   *
    * @public
    */
   Type?: string | undefined;
@@ -72,7 +78,8 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
- * <p>An access denied exception object.</p>
+ * An access denied exception object.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -80,13 +87,15 @@ export class AccessDeniedException extends __BaseException {
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error message.</p>
+   * The error message.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The error type.</p>
+   * The error type.
+   *
    * @public
    */
   Type?: string | undefined;
@@ -106,7 +115,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>A request conflict exception object.</p>
+ * A request conflict exception object.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -114,13 +124,15 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error message.</p>
+   * The error message.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The error type.</p>
+   * The error type.
+   *
    * @public
    */
   Type?: string | undefined;
@@ -140,7 +152,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The requested resource can't be found.</p>
+ * The requested resource can't be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -148,13 +161,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error message.</p>
+   * The error message.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The error type.</p>
+   * The error type.
+   *
    * @public
    */
   Type?: string | undefined;

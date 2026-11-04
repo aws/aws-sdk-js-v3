@@ -23,10 +23,10 @@ export interface CreateThemeCommandInput extends CreateThemeRequest {}
 export interface CreateThemeCommandOutput extends CreateThemeResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a theme.</p>
- *          <p>A <i>theme</i> is set of configuration options for color and layout.
- * 			Themes apply to analyses and dashboards. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using
- * 			Themes in Amazon Quick Sight</a> in the <i>Amazon Quick Sight User Guide</i>.</p>
+ * Creates a theme.
+ *
+ * A *theme* is set of configuration options for color and layout. Themes apply to analyses and dashboards. For more information, see [Using Themes in Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html) in the *Amazon Quick Sight User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -215,38 +215,40 @@ export interface CreateThemeCommandOutput extends CreateThemeResponse, __Metadat
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have access to this item. The provided credentials couldn't be
- * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
- * 			correct permissions, and that you are using the correct credentials.</p>
+ *
+ * You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An internal failure occurred.</p>
+ *
+ * An internal failure occurred.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more parameters has a value that isn't valid.</p>
+ *
+ * One or more parameters has a value that isn't valid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>A limit is exceeded.</p>
+ *
+ * A limit is exceeded.
  *
  * @throws {@link ResourceExistsException} (client fault)
- *  <p>The resource specified already exists. </p>
+ *
+ * The resource specified already exists.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>One or more resources can't be found.</p>
+ *
+ * One or more resources can't be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Access is throttled.</p>
+ *
+ * Access is throttled.
  *
  * @throws {@link UnsupportedUserEditionException} (client fault)
- *  <p>This error indicates that you are calling an operation on an Amazon Quick Suite
- * 			subscription where the edition doesn't include support for that operation. Amazon
- * 			Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and
- * 			capability is available in every edition.</p>
+ *
+ * This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.
  *
  * @throws {@link QuickSightServiceException}
- * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * Base exception class for all service exceptions from QuickSight service.
  *
  * @public
  */

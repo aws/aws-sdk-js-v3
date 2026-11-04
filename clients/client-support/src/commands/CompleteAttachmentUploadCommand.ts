@@ -23,13 +23,8 @@ export interface CompleteAttachmentUploadCommandInput extends CompleteAttachment
 export interface CompleteAttachmentUploadCommandOutput extends CompleteAttachmentUploadResponse, __MetadataBearer {}
 
 /**
- * <p>Completes an attachment upload that was started with <a>GetAttachmentUploadLinks</a>. After you upload a part of the file to its
- *          presigned Amazon S3 URL, call <code>CompleteAttachmentUpload</code> with the
- *             <code>partIndex</code> and <code>eTag</code> of that part. You can include one part per
- *          call, or multiple parts in a single call. After <code>CompleteAttachmentUpload</code> has
- *          been called for every part of the file, the service processes the upload asynchronously. The
- *             <code>attachment-ready</code> status might not be reflected immediately. Use <a>DescribeAttachmentUploadStatus</a> to poll for the <code>uploadStatus</code> to
- *          become <code>attachment-ready</code> before passing the <code>uploadId</code> to <a>CreateCase</a> or <a>AddCommunicationToCase</a>.</p>
+ * Completes an attachment upload that was started with GetAttachmentUploadLinks. After you upload a part of the file to its presigned Amazon S3 URL, call `CompleteAttachmentUpload` with the `partIndex` and `eTag` of that part. You can include one part per call, or multiple parts in a single call. After `CompleteAttachmentUpload` has been called for every part of the file, the service processes the upload asynchronously. The `attachment-ready` status might not be reflected immediately. Use DescribeAttachmentUploadStatus to poll for the `uploadStatus` to become `attachment-ready` before passing the `uploadId` to CreateCase or AddCommunicationToCase.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,18 +58,20 @@ export interface CompleteAttachmentUploadCommandOutput extends CompleteAttachmen
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
  *
  * @throws {@link DryRunOperationException} (client fault)
- *  <p>The request was valid, but the operation wasn't performed because <code>dryRun</code> was
- *          set to <code>true</code>.</p>
+ *
+ * The request was valid, but the operation wasn't performed because `dryRun` was set to `true`.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error occurred.</p>
+ *
+ * An internal server error occurred.
  *
  * @throws {@link UploadIdNotFound} (client fault)
- *  <p>The specified <code>uploadId</code> couldn't be located.</p>
+ *
+ * The specified `uploadId` couldn't be located.
  *
  * @throws {@link SupportServiceException}
- * <p>Base exception class for all service exceptions from Support service.</p>
  *
+ * Base exception class for all service exceptions from Support service.
  *
  * @public
  */

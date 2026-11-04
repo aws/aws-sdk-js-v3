@@ -23,7 +23,8 @@ export interface CreateAddonSubscriptionCommandInput extends CreateAddonSubscrip
 export interface CreateAddonSubscriptionCommandOutput extends CreateAddonSubscriptionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a subscription for an Add On representing the acceptance of its terms of use and additional pricing. The subscription can then be used to create an instance for use in rule sets or traffic policies.</p>
+ * Creates a subscription for an Add On representing the acceptance of its terms of use and additional pricing. The subscription can then be used to create an instance for use in rule sets or traffic policies.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,20 +58,24 @@ export interface CreateAddonSubscriptionCommandOutput extends CreateAddonSubscri
  * @see {@link MailManagerClientResolvedConfig | config} for MailManagerClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+ *
+ * The request configuration has conflicts. For details, see the accompanying error message.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Occurs when an operation exceeds a predefined service quota or limit.</p>
+ *
+ * Occurs when an operation exceeds a predefined service quota or limit.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.</p>
+ *
+ * Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request validation has failed. For details, see the accompanying error message.</p>
+ *
+ * The request validation has failed. For details, see the accompanying error message.
  *
  * @throws {@link MailManagerServiceException}
- * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ * Base exception class for all service exceptions from MailManager service.
  *
  * @public
  */

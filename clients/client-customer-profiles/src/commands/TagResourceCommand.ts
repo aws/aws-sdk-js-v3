@@ -23,18 +23,14 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Assigns one or more tags (key-value pairs) to the specified Amazon Connect Customer Profiles
- *          resource. Tags can help you organize and categorize your resources. You can also use them
- *          to scope user permissions by granting a user permission to access or change only resources
- *          with certain tag values. In Connect Customer Profiles, domains, profile object types, and
- *          integrations can be tagged.</p>
- *          <p>Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of
- *          characters.</p>
- *          <p>You can use the TagResource action with a resource that already has tags. If you specify
- *          a new tag key, this tag is appended to the list of tags associated with the resource. If
- *          you specify a tag key that is already associated with the resource, the new tag value that
- *          you specify replaces the previous value for that tag.</p>
- *          <p>You can associate as many as 50 tags with a resource.</p>
+ * Assigns one or more tags (key-value pairs) to the specified Amazon Connect Customer Profiles resource. Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values. In Connect Customer Profiles, domains, profile object types, and integrations can be tagged.
+ *
+ * Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of characters.
+ *
+ * You can use the TagResource action with a resource that already has tags. If you specify a new tag key, this tag is appended to the list of tags associated with the resource. If you specify a tag key that is already associated with the resource, the new tag value that you specify replaces the previous value for that tag.
+ *
+ * You can associate as many as 50 tags with a resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,17 +58,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource does not exist, or access was denied.</p>
+ *
+ * The requested resource does not exist, or access was denied.
  *
  * @throws {@link CustomerProfilesServiceException}
- * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * Base exception class for all service exceptions from CustomerProfiles service.
  *
  * @public
  */

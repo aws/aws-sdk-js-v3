@@ -23,13 +23,10 @@ export interface DescribeDeliveryStreamCommandInput extends DescribeDeliveryStre
 export interface DescribeDeliveryStreamCommandOutput extends DescribeDeliveryStreamOutput, __MetadataBearer {}
 
 /**
- * <p>Describes the specified Firehose stream and its status. For example, after your
- *          Firehose stream is created, call <code>DescribeDeliveryStream</code> to see whether the
- *          Firehose stream is <code>ACTIVE</code> and therefore ready for data to be sent to it. </p>
- *          <p>If the status of a Firehose stream is <code>CREATING_FAILED</code>, this status
- *          doesn't change, and you can't invoke <a>CreateDeliveryStream</a> again on it.
- *          However, you can invoke the <a>DeleteDeliveryStream</a> operation to delete it.
- *          If the status is <code>DELETING_FAILED</code>, you can force deletion by invoking <a>DeleteDeliveryStream</a> again but with <a>DeleteDeliveryStreamInput$AllowForceDelete</a> set to true.</p>
+ * Describes the specified Firehose stream and its status. For example, after your Firehose stream is created, call `DescribeDeliveryStream` to see whether the Firehose stream is `ACTIVE` and therefore ready for data to be sent to it.
+ *
+ * If the status of a Firehose stream is `CREATING_FAILED`, this status doesn't change, and you can't invoke CreateDeliveryStream again on it. However, you can invoke the DeleteDeliveryStream operation to delete it. If the status is `DELETING_FAILED`, you can force deletion by invoking DeleteDeliveryStream again but with DeleteDeliveryStreamInput$AllowForceDelete set to true.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -644,11 +641,12 @@ export interface DescribeDeliveryStreamCommandOutput extends DescribeDeliveryStr
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource could not be found.</p>
+ *
+ * The specified resource could not be found.
  *
  * @throws {@link FirehoseServiceException}
- * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
+ * Base exception class for all service exceptions from Firehose service.
  *
  * @public
  */

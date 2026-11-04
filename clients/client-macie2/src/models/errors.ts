@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { Macie2ServiceException as __BaseException } from "./Macie2ServiceException";
 
 /**
- * <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+ * Provides information about an error that occurred due to insufficient access to a specified resource.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+ * Provides information about an error that occurred due to a versioning conflict for a specified resource.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -46,7 +48,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+ * Provides information about an error that occurred due to an unknown internal server error, exception, or failure.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -67,7 +70,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+ * Provides information about an error that occurred because a specified resource wasn't found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -88,7 +92,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+ * Provides information about an error that occurred due to one or more service quotas for an account.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -109,7 +114,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+ * Provides information about an error that occurred because too many requests were sent during a certain amount of time.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -130,7 +136,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+ * Provides information about an error that occurred due to a syntax error in a request.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -151,7 +158,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>Provides information about an error that occurred due to an unprocessable entity.</p>
+ * Provides information about an error that occurred due to an unprocessable entity.
+ *
  * @public
  */
 export class UnprocessableEntityException extends __BaseException {

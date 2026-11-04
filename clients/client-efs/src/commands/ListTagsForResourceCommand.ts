@@ -23,9 +23,10 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all tags for a top-level EFS resource. You must provide the ID of the
- *       resource that you want to retrieve the tags for.</p>
- *          <p>This operation requires permissions for the <code>elasticfilesystem:DescribeAccessPoints</code> action.</p>
+ * Lists all tags for a top-level EFS resource. You must provide the ID of the resource that you want to retrieve the tags for.
+ *
+ * This operation requires permissions for the `elasticfilesystem:DescribeAccessPoints` action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,23 +61,24 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
  * @throws {@link AccessPointNotFound} (client fault)
- *  <p>Returned if the specified <code>AccessPointId</code> value doesn't exist in the
- *             requester's Amazon Web Services account.</p>
+ *
+ * Returned if the specified `AccessPointId` value doesn't exist in the requester's Amazon Web Services account.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>Returned if the request is malformed or contains an error such as an invalid
- *             parameter value or a missing required parameter.</p>
+ *
+ * Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.
  *
  * @throws {@link FileSystemNotFound} (client fault)
- *  <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the
- *             requester's Amazon Web Services account.</p>
+ *
+ * Returned if the specified `FileSystemId` value doesn't exist in the requester's Amazon Web Services account.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Returned if an error occurred on the server side.</p>
+ *
+ * Returned if an error occurred on the server side.
  *
  * @throws {@link EFSServiceException}
- * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * Base exception class for all service exceptions from EFS service.
  *
  * @public
  */

@@ -23,7 +23,16 @@ export interface GetAssetTypeCommandInput extends GetAssetTypeInput {}
 export interface GetAssetTypeCommandOutput extends GetAssetTypeOutput, __MetadataBearer {}
 
 /**
- * <p>Gets an Amazon DataZone asset type.</p> <p>Asset types define the categories and characteristics of different kinds of data assets within Amazon DataZone.. They determine what metadata fields are required, what operations are possible, and how the asset integrates with other Amazon Web Services services. Asset types can range from built-in types like Amazon S3 buckets and Amazon Web Services Glue tables to custom types defined for specific organizational needs. Understanding asset types is crucial for properly organizing and managing different kinds of data resources.</p> <p>Prerequisites:</p> <ul> <li> <p>The asset type with identifier must exist in the domain. ResourceNotFoundException.</p> </li> <li> <p>You must have the GetAssetType permission.</p> </li> <li> <p>Ensure the domain-identifier value is correct and accessible.</p> </li> </ul>
+ * Gets an Amazon DataZone asset type.
+ *
+ * Asset types define the categories and characteristics of different kinds of data assets within Amazon DataZone.. They determine what metadata fields are required, what operations are possible, and how the asset integrates with other Amazon Web Services services. Asset types can range from built-in types like Amazon S3 buckets and Amazon Web Services Glue tables to custom types defined for specific organizational needs. Understanding asset types is crucial for properly organizing and managing different kinds of data resources.
+ *
+ * Prerequisites:
+ *
+ * - The asset type with identifier must exist in the domain. ResourceNotFoundException.
+ * - You must have the GetAssetType permission.
+ * - Ensure the domain-identifier value is correct and accessible.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,26 +78,32 @@ export interface GetAssetTypeCommandOutput extends GetAssetTypeOutput, __Metadat
  * @see {@link DataZoneClientResolvedConfig | config} for DataZoneClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request has failed because of an unknown error, exception or failure.</p>
+ *
+ * The request has failed because of an unknown error, exception or failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource cannot be found.</p>
+ *
+ * The specified resource cannot be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by the Amazon Web Services service.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>You do not have permission to perform this action.</p>
+ *
+ * You do not have permission to perform this action.
  *
  * @throws {@link DataZoneServiceException}
- * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * Base exception class for all service exceptions from DataZone service.
  *
  * @public
  */

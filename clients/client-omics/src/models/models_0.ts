@@ -61,13 +61,15 @@ import type {
  */
 export interface AbortMultipartReadSetUploadRequest {
   /**
-   * <p>The sequence store ID for the store involved in the multipart upload.</p>
+   * The sequence store ID for the store involved in the multipart upload.
+   *
    * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * <p>The ID for the multipart upload.</p>
+   * The ID for the multipart upload.
+   *
    * @public
    */
   uploadId: string | undefined;
@@ -83,7 +85,8 @@ export interface AbortMultipartReadSetUploadResponse {}
  */
 export interface AcceptShareRequest {
   /**
-   * <p>The ID of the resource share.</p>
+   * The ID of the resource share.
+   *
    * @public
    */
   shareId: string | undefined;
@@ -94,121 +97,141 @@ export interface AcceptShareRequest {
  */
 export interface AcceptShareResponse {
   /**
-   * <p>The status of the resource share.</p>
+   * The status of the resource share.
+   *
    * @public
    */
   status?: ShareStatus | undefined;
 }
 
 /**
- * <p>A read set activation job filter.</p>
+ * A read set activation job filter.
+ *
  * @public
  */
 export interface ActivateReadSetFilter {
   /**
-   * <p>The filter's status.</p>
+   * The filter's status.
+   *
    * @public
    */
   status?: ReadSetActivationJobStatus | undefined;
 
   /**
-   * <p>The filter's start date.</p>
+   * The filter's start date.
+   *
    * @public
    */
   createdAfter?: Date | undefined;
 
   /**
-   * <p>The filter's end date.</p>
+   * The filter's end date.
+   *
    * @public
    */
   createdBefore?: Date | undefined;
 }
 
 /**
- * <p>A read set activation job.</p>
+ * A read set activation job.
+ *
  * @public
  */
 export interface ActivateReadSetJobItem {
   /**
-   * <p>The job's ID.</p>
+   * The job's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The job's sequence store ID.</p>
+   * The job's sequence store ID.
+   *
    * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * <p>The job's status.</p>
+   * The job's status.
+   *
    * @public
    */
   status: ReadSetActivationJobStatus | undefined;
 
   /**
-   * <p>When the job was created.</p>
+   * When the job was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>When the job completed.</p>
+   * When the job completed.
+   *
    * @public
    */
   completionTime?: Date | undefined;
 }
 
 /**
- * <p>A source for a read set activation job.</p>
+ * A source for a read set activation job.
+ *
  * @public
  */
 export interface ActivateReadSetSourceItem {
   /**
-   * <p>The source's read set ID.</p>
+   * The source's read set ID.
+   *
    * @public
    */
   readSetId: string | undefined;
 
   /**
-   * <p>The source's status.</p>
+   * The source's status.
+   *
    * @public
    */
   status: ReadSetActivationJobItemStatus | undefined;
 
   /**
-   * <p>The source's status message.</p>
+   * The source's status message.
+   *
    * @public
    */
   statusMessage?: string | undefined;
 }
 
 /**
- * <p>Details about an imported annotation item.</p>
+ * Details about an imported annotation item.
+ *
  * @public
  */
 export interface AnnotationImportItemDetail {
   /**
-   * <p>The source file's location in Amazon S3.</p>
+   * The source file's location in Amazon S3.
+   *
    * @public
    */
   source: string | undefined;
 
   /**
-   * <p>The item's job status.</p>
+   * The item's job status.
+   *
    * @public
    */
   jobStatus: JobStatus | undefined;
 }
 
 /**
- * <p>A source for an annotation import job.</p>
+ * A source for an annotation import job.
+ *
  * @public
  */
 export interface AnnotationImportItemSource {
   /**
-   * <p>The source file's location in Amazon S3.</p>
+   * The source file's location in Amazon S3.
+   *
    * @public
    */
   source: string | undefined;
@@ -219,7 +242,8 @@ export interface AnnotationImportItemSource {
  */
 export interface CancelAnnotationImportRequest {
   /**
-   * <p>The job's ID.</p>
+   * The job's ID.
+   *
    * @public
    */
   jobId: string | undefined;
@@ -235,104 +259,121 @@ export interface CancelAnnotationImportResponse {}
  */
 export interface GetAnnotationImportRequest {
   /**
-   * <p>The job's ID.</p>
+   * The job's ID.
+   *
    * @public
    */
   jobId: string | undefined;
 }
 
 /**
- * <p>Read options for an annotation import job.</p>
+ * Read options for an annotation import job.
+ *
  * @public
  */
 export interface ReadOptions {
   /**
-   * <p>The file's field separator.</p>
+   * The file's field separator.
+   *
    * @public
    */
   sep?: string | undefined;
 
   /**
-   * <p>The file's encoding.</p>
+   * The file's encoding.
+   *
    * @public
    */
   encoding?: string | undefined;
 
   /**
-   * <p>The file's quote character.</p>
+   * The file's quote character.
+   *
    * @public
    */
   quote?: string | undefined;
 
   /**
-   * <p>Whether all values need to be quoted, or just those that contain quotes.</p>
+   * Whether all values need to be quoted, or just those that contain quotes.
+   *
    * @public
    */
   quoteAll?: boolean | undefined;
 
   /**
-   * <p>A character for escaping quotes in the file.</p>
+   * A character for escaping quotes in the file.
+   *
    * @public
    */
   escape?: string | undefined;
 
   /**
-   * <p>Whether quotes need to be escaped in the file.</p>
+   * Whether quotes need to be escaped in the file.
+   *
    * @public
    */
   escapeQuotes?: boolean | undefined;
 
   /**
-   * <p>The file's comment character.</p>
+   * The file's comment character.
+   *
    * @public
    */
   comment?: string | undefined;
 
   /**
-   * <p>Whether the file has a header row.</p>
+   * Whether the file has a header row.
+   *
    * @public
    */
   header?: boolean | undefined;
 
   /**
-   * <p>A line separator for the file.</p>
+   * A line separator for the file.
+   *
    * @public
    */
   lineSep?: string | undefined;
 }
 
 /**
- * <p>Formatting options for a TSV file.</p>
+ * Formatting options for a TSV file.
+ *
  * @public
  */
 export interface TsvOptions {
   /**
-   * <p>The file's read options.</p>
+   * The file's read options.
+   *
    * @public
    */
   readOptions?: ReadOptions | undefined;
 }
 
 /**
- * <p>Formatting options for a VCF file.</p>
+ * Formatting options for a VCF file.
+ *
  * @public
  */
 export interface VcfOptions {
   /**
-   * <p>The file's ignore qual field setting.</p>
+   * The file's ignore qual field setting.
+   *
    * @public
    */
   ignoreQualField?: boolean | undefined;
 
   /**
-   * <p>The file's ignore filter field setting.</p>
+   * The file's ignore filter field setting.
+   *
    * @public
    */
   ignoreFilterField?: boolean | undefined;
 }
 
 /**
- * <p>Formatting options for a file.</p>
+ * Formatting options for a file.
+ *
  * @public
  */
 export type FormatOptions =
@@ -345,7 +386,8 @@ export type FormatOptions =
  */
 export namespace FormatOptions {
   /**
-   * <p>Options for a TSV file.</p>
+   * Options for a TSV file.
+   *
    * @public
    */
   export interface TsvOptionsMember {
@@ -355,7 +397,8 @@ export namespace FormatOptions {
   }
 
   /**
-   * <p>Options for a VCF file.</p>
+   * Options for a VCF file.
+   *
    * @public
    */
   export interface VcfOptionsMember {
@@ -389,97 +432,113 @@ export namespace FormatOptions {
  */
 export interface GetAnnotationImportResponse {
   /**
-   * <p>The job's ID.</p>
+   * The job's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The job's destination annotation store.</p>
+   * The job's destination annotation store.
+   *
    * @public
    */
   destinationName: string | undefined;
 
   /**
-   * <p> The name of the annotation store version. </p>
+   * The name of the annotation store version.
+   *
    * @public
    */
   versionName: string | undefined;
 
   /**
-   * <p>The job's service role ARN.</p>
+   * The job's service role ARN.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>The job's status.</p>
+   * The job's status.
+   *
    * @public
    */
   status: JobStatus | undefined;
 
   /**
-   * <p>The job's status message.</p>
+   * The job's status message.
+   *
    * @public
    */
   statusMessage: string | undefined;
 
   /**
-   * <p>When the job was created.</p>
+   * When the job was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>When the job was updated.</p>
+   * When the job was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>When the job completed.</p>
+   * When the job completed.
+   *
    * @public
    */
   completionTime: Date | undefined;
 
   /**
-   * <p>The job's imported items.</p>
+   * The job's imported items.
+   *
    * @public
    */
   items: AnnotationImportItemDetail[] | undefined;
 
   /**
-   * <p>The job's left normalization setting.</p>
+   * The job's left normalization setting.
+   *
    * @public
    */
   runLeftNormalization: boolean | undefined;
 
   /**
-   * <p>Formatting options for a file.</p>
+   * Formatting options for a file.
+   *
    * @public
    */
   formatOptions: FormatOptions | undefined;
 
   /**
-   * <p>The annotation schema generated by the parsed annotation data.</p>
+   * The annotation schema generated by the parsed annotation data.
+   *
    * @public
    */
   annotationFields?: Record<string, string> | undefined;
 }
 
 /**
- * <p>A filter for annotation import jobs.</p>
+ * A filter for annotation import jobs.
+ *
  * @public
  */
 export interface ListAnnotationImportJobsFilter {
   /**
-   * <p>A status to filter on.</p>
+   * A status to filter on.
+   *
    * @public
    */
   status?: JobStatus | undefined;
 
   /**
-   * <p>A store name to filter on.</p>
+   * A store name to filter on.
+   *
    * @public
    */
   storeName?: string | undefined;
@@ -490,91 +549,106 @@ export interface ListAnnotationImportJobsFilter {
  */
 export interface ListAnnotationImportJobsRequest {
   /**
-   * <p>The maximum number of jobs to return in one page of results.</p>
+   * The maximum number of jobs to return in one page of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>IDs of annotation import jobs to retrieve.</p>
+   * IDs of annotation import jobs to retrieve.
+   *
    * @public
    */
   ids?: string[] | undefined;
 
   /**
-   * <p>Specifies the pagination token from a previous request to retrieve the next page of results.</p>
+   * Specifies the pagination token from a previous request to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>A filter to apply to the list.</p>
+   * A filter to apply to the list.
+   *
    * @public
    */
   filter?: ListAnnotationImportJobsFilter | undefined;
 }
 
 /**
- * <p>An annotation import job.</p>
+ * An annotation import job.
+ *
  * @public
  */
 export interface AnnotationImportJobItem {
   /**
-   * <p>The job's ID.</p>
+   * The job's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The job's destination annotation store.</p>
+   * The job's destination annotation store.
+   *
    * @public
    */
   destinationName: string | undefined;
 
   /**
-   * <p> The name of the annotation store version. </p>
+   * The name of the annotation store version.
+   *
    * @public
    */
   versionName: string | undefined;
 
   /**
-   * <p>The job's service role ARN.</p>
+   * The job's service role ARN.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>The job's status.</p>
+   * The job's status.
+   *
    * @public
    */
   status: JobStatus | undefined;
 
   /**
-   * <p>When the job was created.</p>
+   * When the job was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>When the job was updated.</p>
+   * When the job was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>When the job completed.</p>
+   * When the job completed.
+   *
    * @public
    */
   completionTime?: Date | undefined;
 
   /**
-   * <p>The job's left normalization setting.</p>
+   * The job's left normalization setting.
+   *
    * @public
    */
   runLeftNormalization?: boolean | undefined;
 
   /**
-   * <p> The annotation schema generated by the parsed annotation data. </p>
+   * The annotation schema generated by the parsed annotation data.
+   *
    * @public
    */
   annotationFields?: Record<string, string> | undefined;
@@ -585,13 +659,15 @@ export interface AnnotationImportJobItem {
  */
 export interface ListAnnotationImportJobsResponse {
   /**
-   * <p>A list of jobs.</p>
+   * A list of jobs.
+   *
    * @public
    */
   annotationImportJobs?: AnnotationImportJobItem[] | undefined;
 
   /**
-   * <p>Specifies the pagination token from a previous request to retrieve the next page of results.</p>
+   * Specifies the pagination token from a previous request to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -602,43 +678,50 @@ export interface ListAnnotationImportJobsResponse {
  */
 export interface StartAnnotationImportRequest {
   /**
-   * <p>A destination annotation store for the job.</p>
+   * A destination annotation store for the job.
+   *
    * @public
    */
   destinationName: string | undefined;
 
   /**
-   * <p>A service role for the job.</p>
+   * A service role for the job.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>Items to import.</p>
+   * Items to import.
+   *
    * @public
    */
   items: AnnotationImportItemSource[] | undefined;
 
   /**
-   * <p> The name of the annotation store version. </p>
+   * The name of the annotation store version.
+   *
    * @public
    */
   versionName?: string | undefined;
 
   /**
-   * <p>Formatting options for the annotation file.</p>
+   * Formatting options for the annotation file.
+   *
    * @public
    */
   formatOptions?: FormatOptions | undefined;
 
   /**
-   * <p>The job's left normalization setting.</p>
+   * The job's left normalization setting.
+   *
    * @public
    */
   runLeftNormalization?: boolean | undefined;
 
   /**
-   * <p>The annotation schema generated by the parsed annotation data.</p>
+   * The annotation schema generated by the parsed annotation data.
+   *
    * @public
    */
   annotationFields?: Record<string, string> | undefined;
@@ -649,14 +732,16 @@ export interface StartAnnotationImportRequest {
  */
 export interface StartAnnotationImportResponse {
   /**
-   * <p>The job's ID.</p>
+   * The job's ID.
+   *
    * @public
    */
   jobId: string | undefined;
 }
 
 /**
- * <p>A genome reference.</p>
+ * A genome reference.
+ *
  * @public
  */
 export type ReferenceItem =
@@ -668,7 +753,8 @@ export type ReferenceItem =
  */
 export namespace ReferenceItem {
   /**
-   * <p>The reference's ARN.</p>
+   * The reference's ARN.
+   *
    * @public
    */
   export interface ReferenceArnMember {
@@ -695,49 +781,57 @@ export namespace ReferenceItem {
 }
 
 /**
- * <p>Server-side encryption (SSE) settings for a store.</p>
+ * Server-side encryption (SSE) settings for a store.
+ *
  * @public
  */
 export interface SseConfig {
   /**
-   * <p>The encryption type.</p>
+   * The encryption type.
+   *
    * @public
    */
   type: EncryptionType | undefined;
 
   /**
-   * <p>An encryption key ARN.</p>
+   * An encryption key ARN.
+   *
    * @public
    */
   keyArn?: string | undefined;
 }
 
 /**
- * <p>File settings for a TSV store.</p>
+ * File settings for a TSV store.
+ *
  * @public
  */
 export interface TsvStoreOptions {
   /**
-   * <p>The store's annotation type.</p>
+   * The store's annotation type.
+   *
    * @public
    */
   annotationType?: AnnotationType | undefined;
 
   /**
-   * <p>The store's header key to column name mapping.</p>
+   * The store's header key to column name mapping.
+   *
    * @public
    */
   formatToHeader?: Partial<Record<FormatToHeaderKey, string>> | undefined;
 
   /**
-   * <p>The store's schema.</p>
+   * The store's schema.
+   *
    * @public
    */
   schema?: Record<string, SchemaValueType>[] | undefined;
 }
 
 /**
- * <p>Settings for a store.</p>
+ * Settings for a store.
+ *
  * @public
  */
 export type StoreOptions =
@@ -749,7 +843,8 @@ export type StoreOptions =
  */
 export namespace StoreOptions {
   /**
-   * <p>File settings for a TSV store.</p>
+   * File settings for a TSV store.
+   *
    * @public
    */
   export interface TsvStoreOptionsMember {
@@ -780,49 +875,57 @@ export namespace StoreOptions {
  */
 export interface CreateAnnotationStoreRequest {
   /**
-   * <p>The genome reference for the store's annotations.</p>
+   * The genome reference for the store's annotations.
+   *
    * @public
    */
   reference?: ReferenceItem | undefined;
 
   /**
-   * <p>A name for the store.</p>
+   * A name for the store.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>A description for the store.</p>
+   * A description for the store.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Tags for the store.</p>
+   * Tags for the store.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p> The name given to an annotation store version to distinguish it from other versions. </p>
+   * The name given to an annotation store version to distinguish it from other versions.
+   *
    * @public
    */
   versionName?: string | undefined;
 
   /**
-   * <p>Server-side encryption (SSE) settings for the store.</p>
+   * Server-side encryption (SSE) settings for the store.
+   *
    * @public
    */
   sseConfig?: SseConfig | undefined;
 
   /**
-   * <p>The annotation file format of the store.</p>
+   * The annotation file format of the store.
+   *
    * @public
    */
   storeFormat: StoreFormat | undefined;
 
   /**
-   * <p>File parsing options for the annotation store.</p>
+   * File parsing options for the annotation store.
+   *
    * @public
    */
   storeOptions?: StoreOptions | undefined;
@@ -833,49 +936,57 @@ export interface CreateAnnotationStoreRequest {
  */
 export interface CreateAnnotationStoreResponse {
   /**
-   * <p>The store's ID.</p>
+   * The store's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The store's genome reference. Required for all stores except TSV format with generic annotations.</p>
+   * The store's genome reference. Required for all stores except TSV format with generic annotations.
+   *
    * @public
    */
   reference?: ReferenceItem | undefined;
 
   /**
-   * <p>The annotation file format of the store.</p>
+   * The annotation file format of the store.
+   *
    * @public
    */
   storeFormat?: StoreFormat | undefined;
 
   /**
-   * <p>The store's file parsing options.</p>
+   * The store's file parsing options.
+   *
    * @public
    */
   storeOptions?: StoreOptions | undefined;
 
   /**
-   * <p>The store's status.</p>
+   * The store's status.
+   *
    * @public
    */
   status: StoreStatus | undefined;
 
   /**
-   * <p>The store's name.</p>
+   * The store's name.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p> The name given to an annotation store version to distinguish it from other versions. </p>
+   * The name given to an annotation store version to distinguish it from other versions.
+   *
    * @public
    */
   versionName: string | undefined;
 
   /**
-   * <p>When the store was created.</p>
+   * When the store was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
@@ -886,13 +997,15 @@ export interface CreateAnnotationStoreResponse {
  */
 export interface DeleteAnnotationStoreRequest {
   /**
-   * <p>The store's name.</p>
+   * The store's name.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Whether to force deletion.</p>
+   * Whether to force deletion.
+   *
    * @public
    */
   force?: boolean | undefined;
@@ -903,7 +1016,8 @@ export interface DeleteAnnotationStoreRequest {
  */
 export interface DeleteAnnotationStoreResponse {
   /**
-   * <p>The store's status.</p>
+   * The store's status.
+   *
    * @public
    */
   status: StoreStatus | undefined;
@@ -914,7 +1028,8 @@ export interface DeleteAnnotationStoreResponse {
  */
 export interface GetAnnotationStoreRequest {
   /**
-   * <p>The store's name.</p>
+   * The store's name.
+   *
    * @public
    */
   name: string | undefined;
@@ -925,103 +1040,120 @@ export interface GetAnnotationStoreRequest {
  */
 export interface GetAnnotationStoreResponse {
   /**
-   * <p>The store's ID.</p>
+   * The store's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The store's genome reference.</p>
+   * The store's genome reference.
+   *
    * @public
    */
   reference: ReferenceItem | undefined;
 
   /**
-   * <p>The store's status.</p>
+   * The store's status.
+   *
    * @public
    */
   status: StoreStatus | undefined;
 
   /**
-   * <p>The store's ARN.</p>
+   * The store's ARN.
+   *
    * @public
    */
   storeArn: string | undefined;
 
   /**
-   * <p>The store's name.</p>
+   * The store's name.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The store's description.</p>
+   * The store's description.
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p>The store's server-side encryption (SSE) settings.</p>
+   * The store's server-side encryption (SSE) settings.
+   *
    * @public
    */
   sseConfig: SseConfig | undefined;
 
   /**
-   * <p>When the store was created.</p>
+   * When the store was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>When the store was updated.</p>
+   * When the store was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The store's tags.</p>
+   * The store's tags.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
 
   /**
-   * <p>The store's parsing options.</p>
+   * The store's parsing options.
+   *
    * @public
    */
   storeOptions?: StoreOptions | undefined;
 
   /**
-   * <p>The store's annotation file format.</p>
+   * The store's annotation file format.
+   *
    * @public
    */
   storeFormat?: StoreFormat | undefined;
 
   /**
-   * <p>A status message.</p>
+   * A status message.
+   *
    * @public
    */
   statusMessage: string | undefined;
 
   /**
-   * <p>The store's size in bytes.</p>
+   * The store's size in bytes.
+   *
    * @public
    */
   storeSizeBytes: number | undefined;
 
   /**
-   * <p> An integer indicating how many versions of an annotation store exist. </p>
+   * An integer indicating how many versions of an annotation store exist.
+   *
    * @public
    */
   numVersions: number | undefined;
 }
 
 /**
- * <p>A filter for annotation stores.</p>
+ * A filter for annotation stores.
+ *
  * @public
  */
 export interface ListAnnotationStoresFilter {
   /**
-   * <p>A status to filter on.</p>
+   * A status to filter on.
+   *
    * @public
    */
   status?: StoreStatus | undefined;
@@ -1032,103 +1164,120 @@ export interface ListAnnotationStoresFilter {
  */
 export interface ListAnnotationStoresRequest {
   /**
-   * <p>IDs of stores to list.</p>
+   * IDs of stores to list.
+   *
    * @public
    */
   ids?: string[] | undefined;
 
   /**
-   * <p>The maximum number of stores to return in one page of results.</p>
+   * The maximum number of stores to return in one page of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * Specify the pagination token from a previous request to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>A filter to apply to the list.</p>
+   * A filter to apply to the list.
+   *
    * @public
    */
   filter?: ListAnnotationStoresFilter | undefined;
 }
 
 /**
- * <p>An annotation store.</p>
+ * An annotation store.
+ *
  * @public
  */
 export interface AnnotationStoreItem {
   /**
-   * <p>The store's ID.</p>
+   * The store's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The store's genome reference.</p>
+   * The store's genome reference.
+   *
    * @public
    */
   reference: ReferenceItem | undefined;
 
   /**
-   * <p>The store's status.</p>
+   * The store's status.
+   *
    * @public
    */
   status: StoreStatus | undefined;
 
   /**
-   * <p>The store's ARN.</p>
+   * The store's ARN.
+   *
    * @public
    */
   storeArn: string | undefined;
 
   /**
-   * <p>The store's name.</p>
+   * The store's name.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The store's file format.</p>
+   * The store's file format.
+   *
    * @public
    */
   storeFormat: StoreFormat | undefined;
 
   /**
-   * <p>The store's description.</p>
+   * The store's description.
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p>The store's server-side encryption (SSE) settings.</p>
+   * The store's server-side encryption (SSE) settings.
+   *
    * @public
    */
   sseConfig: SseConfig | undefined;
 
   /**
-   * <p>The store's creation time.</p>
+   * The store's creation time.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>When the store was updated.</p>
+   * When the store was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The store's status message.</p>
+   * The store's status message.
+   *
    * @public
    */
   statusMessage: string | undefined;
 
   /**
-   * <p>The store's size in bytes.</p>
+   * The store's size in bytes.
+   *
    * @public
    */
   storeSizeBytes: number | undefined;
@@ -1139,13 +1288,15 @@ export interface AnnotationStoreItem {
  */
 export interface ListAnnotationStoresResponse {
   /**
-   * <p>A list of stores.</p>
+   * A list of stores.
+   *
    * @public
    */
   annotationStores?: AnnotationStoreItem[] | undefined;
 
   /**
-   * <p>A pagination token that's included if more results are available.</p>
+   * A pagination token that's included if more results are available.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1156,13 +1307,15 @@ export interface ListAnnotationStoresResponse {
  */
 export interface UpdateAnnotationStoreRequest {
   /**
-   * <p>A name for the store.</p>
+   * A name for the store.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description for the store.</p>
+   * A description for the store.
+   *
    * @public
    */
   description?: string | undefined;
@@ -1173,86 +1326,100 @@ export interface UpdateAnnotationStoreRequest {
  */
 export interface UpdateAnnotationStoreResponse {
   /**
-   * <p>The store's ID.</p>
+   * The store's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The store's genome reference.</p>
+   * The store's genome reference.
+   *
    * @public
    */
   reference: ReferenceItem | undefined;
 
   /**
-   * <p>The store's status.</p>
+   * The store's status.
+   *
    * @public
    */
   status: StoreStatus | undefined;
 
   /**
-   * <p>The store's name.</p>
+   * The store's name.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The store's description.</p>
+   * The store's description.
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p>When the store was created.</p>
+   * When the store was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>When the store was updated.</p>
+   * When the store was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>Parsing options for the store.</p>
+   * Parsing options for the store.
+   *
    * @public
    */
   storeOptions?: StoreOptions | undefined;
 
   /**
-   * <p>The annotation file format of the store.</p>
+   * The annotation file format of the store.
+   *
    * @public
    */
   storeFormat?: StoreFormat | undefined;
 }
 
 /**
- * <p> The options for a TSV file. </p>
+ * The options for a TSV file.
+ *
  * @public
  */
 export interface TsvVersionOptions {
   /**
-   * <p> The store version's annotation type. </p>
+   * The store version's annotation type.
+   *
    * @public
    */
   annotationType?: AnnotationType | undefined;
 
   /**
-   * <p> The annotation store version's header key to column name mapping. </p>
+   * The annotation store version's header key to column name mapping.
+   *
    * @public
    */
   formatToHeader?: Partial<Record<FormatToHeaderKey, string>> | undefined;
 
   /**
-   * <p> The TSV schema for an annotation store version. </p>
+   * The TSV schema for an annotation store version.
+   *
    * @public
    */
   schema?: Record<string, SchemaValueType>[] | undefined;
 }
 
 /**
- * <p> The options for an annotation store version. </p>
+ * The options for an annotation store version.
+ *
  * @public
  */
 export type VersionOptions =
@@ -1264,7 +1431,8 @@ export type VersionOptions =
  */
 export namespace VersionOptions {
   /**
-   * <p> File settings for a version of a TSV store. </p>
+   * File settings for a version of a TSV store.
+   *
    * @public
    */
   export interface TsvVersionOptionsMember {
@@ -1295,31 +1463,36 @@ export namespace VersionOptions {
  */
 export interface CreateAnnotationStoreVersionRequest {
   /**
-   * <p> The name of an annotation store version from which versions are being created. </p>
+   * The name of an annotation store version from which versions are being created.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p> The name given to an annotation store version to distinguish it from other versions. </p>
+   * The name given to an annotation store version to distinguish it from other versions.
+   *
    * @public
    */
   versionName: string | undefined;
 
   /**
-   * <p> The description of an annotation store version. </p>
+   * The description of an annotation store version.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p> The options for an annotation store version. </p>
+   * The options for an annotation store version.
+   *
    * @public
    */
   versionOptions?: VersionOptions | undefined;
 
   /**
-   * <p> Any tags added to annotation store version. </p>
+   * Any tags added to annotation store version.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1330,43 +1503,50 @@ export interface CreateAnnotationStoreVersionRequest {
  */
 export interface CreateAnnotationStoreVersionResponse {
   /**
-   * <p> A generated ID for the annotation store </p>
+   * A generated ID for the annotation store
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p> The name given to an annotation store version to distinguish it from other versions. </p>
+   * The name given to an annotation store version to distinguish it from other versions.
+   *
    * @public
    */
   versionName: string | undefined;
 
   /**
-   * <p> The ID for the annotation store from which new versions are being created. </p>
+   * The ID for the annotation store from which new versions are being created.
+   *
    * @public
    */
   storeId: string | undefined;
 
   /**
-   * <p> The options for an annotation store version. </p>
+   * The options for an annotation store version.
+   *
    * @public
    */
   versionOptions?: VersionOptions | undefined;
 
   /**
-   * <p> The name given to an annotation store version to distinguish it from other versions. </p>
+   * The name given to an annotation store version to distinguish it from other versions.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p> The status of a annotation store version. </p>
+   * The status of a annotation store version.
+   *
    * @public
    */
   status: VersionStatus | undefined;
 
   /**
-   * <p> The time stamp for the creation of an annotation store version. </p>
+   * The time stamp for the creation of an annotation store version.
+   *
    * @public
    */
   creationTime: Date | undefined;
@@ -1377,37 +1557,43 @@ export interface CreateAnnotationStoreVersionResponse {
  */
 export interface DeleteAnnotationStoreVersionsRequest {
   /**
-   * <p> The name of the annotation store from which versions are being deleted. </p>
+   * The name of the annotation store from which versions are being deleted.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p> The versions of an annotation store to be deleted. </p>
+   * The versions of an annotation store to be deleted.
+   *
    * @public
    */
   versions: string[] | undefined;
 
   /**
-   * <p> Forces the deletion of an annotation store version when imports are in-progress.. </p>
+   * Forces the deletion of an annotation store version when imports are in-progress..
+   *
    * @public
    */
   force?: boolean | undefined;
 }
 
 /**
- * <p> The error preventing deletion of the annotation store version. </p>
+ * The error preventing deletion of the annotation store version.
+ *
  * @public
  */
 export interface VersionDeleteError {
   /**
-   * <p> The name given to an annotation store version. </p>
+   * The name given to an annotation store version.
+   *
    * @public
    */
   versionName: string | undefined;
 
   /**
-   * <p> The message explaining the error in annotation store deletion. </p>
+   * The message explaining the error in annotation store deletion.
+   *
    * @public
    */
   message: string | undefined;
@@ -1418,7 +1604,8 @@ export interface VersionDeleteError {
  */
 export interface DeleteAnnotationStoreVersionsResponse {
   /**
-   * <p> Any errors that occur when attempting to delete an annotation store version. </p>
+   * Any errors that occur when attempting to delete an annotation store version.
+   *
    * @public
    */
   errors?: VersionDeleteError[] | undefined;
@@ -1429,13 +1616,15 @@ export interface DeleteAnnotationStoreVersionsResponse {
  */
 export interface GetAnnotationStoreVersionRequest {
   /**
-   * <p> The name given to an annotation store version to distinguish it from others. </p>
+   * The name given to an annotation store version to distinguish it from others.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p> The name given to an annotation store version to distinguish it from others. </p>
+   * The name given to an annotation store version to distinguish it from others.
+   *
    * @public
    */
   versionName: string | undefined;
@@ -1446,91 +1635,106 @@ export interface GetAnnotationStoreVersionRequest {
  */
 export interface GetAnnotationStoreVersionResponse {
   /**
-   * <p> The store ID for annotation store version. </p>
+   * The store ID for annotation store version.
+   *
    * @public
    */
   storeId: string | undefined;
 
   /**
-   * <p> The annotation store version ID. </p>
+   * The annotation store version ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p> The status of an annotation store version. </p>
+   * The status of an annotation store version.
+   *
    * @public
    */
   status: VersionStatus | undefined;
 
   /**
-   * <p> The Arn for the annotation store. </p>
+   * The Arn for the annotation store.
+   *
    * @public
    */
   versionArn: string | undefined;
 
   /**
-   * <p> The name of the annotation store. </p>
+   * The name of the annotation store.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p> The name given to an annotation store version to distinguish it from others. </p>
+   * The name given to an annotation store version to distinguish it from others.
+   *
    * @public
    */
   versionName: string | undefined;
 
   /**
-   * <p> The description for an annotation store version. </p>
+   * The description for an annotation store version.
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p> The time stamp for when an annotation store version was created. </p>
+   * The time stamp for when an annotation store version was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p> The time stamp for when an annotation store version was updated. </p>
+   * The time stamp for when an annotation store version was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p> Any tags associated with an annotation store version. </p>
+   * Any tags associated with an annotation store version.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
 
   /**
-   * <p> The options for an annotation store version. </p>
+   * The options for an annotation store version.
+   *
    * @public
    */
   versionOptions?: VersionOptions | undefined;
 
   /**
-   * <p> The status of an annotation store version. </p>
+   * The status of an annotation store version.
+   *
    * @public
    */
   statusMessage: string | undefined;
 
   /**
-   * <p> The size of the annotation store version in Bytes. </p>
+   * The size of the annotation store version in Bytes.
+   *
    * @public
    */
   versionSizeBytes: number | undefined;
 }
 
 /**
- * <p>Use filters to focus the returned annotation store versions on a specific parameter, such as the status of the annotation store.</p>
+ * Use filters to focus the returned annotation store versions on a specific parameter, such as the status of the annotation store.
+ *
  * @public
  */
 export interface ListAnnotationStoreVersionsFilter {
   /**
-   * <p>The status of an annotation store version.</p>
+   * The status of an annotation store version.
+   *
    * @public
    */
   status?: VersionStatus | undefined;
@@ -1541,97 +1745,113 @@ export interface ListAnnotationStoreVersionsFilter {
  */
 export interface ListAnnotationStoreVersionsRequest {
   /**
-   * <p> The name of an annotation store. </p>
+   * The name of an annotation store.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p> The maximum number of annotation store versions to return in one page of results. </p>
+   * The maximum number of annotation store versions to return in one page of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p> Specifies the pagination token from a previous request to retrieve the next page of results. </p>
+   * Specifies the pagination token from a previous request to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p> A filter to apply to the list of annotation store versions. </p>
+   * A filter to apply to the list of annotation store versions.
+   *
    * @public
    */
   filter?: ListAnnotationStoreVersionsFilter | undefined;
 }
 
 /**
- * <p> Annotation store versions. </p>
+ * Annotation store versions.
+ *
  * @public
  */
 export interface AnnotationStoreVersionItem {
   /**
-   * <p> The store ID for an annotation store version. </p>
+   * The store ID for an annotation store version.
+   *
    * @public
    */
   storeId: string | undefined;
 
   /**
-   * <p> The annotation store version ID. </p>
+   * The annotation store version ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p> The status of an annotation store version. </p>
+   * The status of an annotation store version.
+   *
    * @public
    */
   status: VersionStatus | undefined;
 
   /**
-   * <p> The Arn for an annotation store version. </p>
+   * The Arn for an annotation store version.
+   *
    * @public
    */
   versionArn: string | undefined;
 
   /**
-   * <p> A name given to an annotation store version to distinguish it from others. </p>
+   * A name given to an annotation store version to distinguish it from others.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p> The name of an annotation store version. </p>
+   * The name of an annotation store version.
+   *
    * @public
    */
   versionName: string | undefined;
 
   /**
-   * <p> The description of an annotation store version. </p>
+   * The description of an annotation store version.
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p> The time stamp for when an annotation store version was created. </p>
+   * The time stamp for when an annotation store version was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p> The time stamp for when an annotation store version was updated. </p>
+   * The time stamp for when an annotation store version was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p> The status of an annotation store version. </p>
+   * The status of an annotation store version.
+   *
    * @public
    */
   statusMessage: string | undefined;
 
   /**
-   * <p> The size of an annotation store version in Bytes. </p>
+   * The size of an annotation store version in Bytes.
+   *
    * @public
    */
   versionSizeBytes: number | undefined;
@@ -1642,13 +1862,15 @@ export interface AnnotationStoreVersionItem {
  */
 export interface ListAnnotationStoreVersionsResponse {
   /**
-   * <p> Lists all versions of an annotation store. </p>
+   * Lists all versions of an annotation store.
+   *
    * @public
    */
   annotationStoreVersions?: AnnotationStoreVersionItem[] | undefined;
 
   /**
-   * <p> Specifies the pagination token from a previous request to retrieve the next page of results. </p>
+   * Specifies the pagination token from a previous request to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1659,19 +1881,22 @@ export interface ListAnnotationStoreVersionsResponse {
  */
 export interface UpdateAnnotationStoreVersionRequest {
   /**
-   * <p> The name of an annotation store. </p>
+   * The name of an annotation store.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p> The name of an annotation store version. </p>
+   * The name of an annotation store version.
+   *
    * @public
    */
   versionName: string | undefined;
 
   /**
-   * <p> The description of an annotation store. </p>
+   * The description of an annotation store.
+   *
    * @public
    */
   description?: string | undefined;
@@ -1682,49 +1907,57 @@ export interface UpdateAnnotationStoreVersionRequest {
  */
 export interface UpdateAnnotationStoreVersionResponse {
   /**
-   * <p> The annotation store ID. </p>
+   * The annotation store ID.
+   *
    * @public
    */
   storeId: string | undefined;
 
   /**
-   * <p> The annotation store version ID. </p>
+   * The annotation store version ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p> The status of an annotation store version. </p>
+   * The status of an annotation store version.
+   *
    * @public
    */
   status: VersionStatus | undefined;
 
   /**
-   * <p> The name of an annotation store. </p>
+   * The name of an annotation store.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p> The name of an annotation store version. </p>
+   * The name of an annotation store version.
+   *
    * @public
    */
   versionName: string | undefined;
 
   /**
-   * <p> The description of an annotation store version. </p>
+   * The description of an annotation store version.
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p> The time stamp for when an annotation store version was created. </p>
+   * The time stamp for when an annotation store version was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p> The time stamp for when an annotation store version was updated. </p>
+   * The time stamp for when an annotation store version was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
@@ -1735,37 +1968,43 @@ export interface UpdateAnnotationStoreVersionResponse {
  */
 export interface BatchDeleteReadSetRequest {
   /**
-   * <p>The read sets' IDs.</p>
+   * The read sets' IDs.
+   *
    * @public
    */
   ids: string[] | undefined;
 
   /**
-   * <p>The read sets' sequence store ID.</p>
+   * The read sets' sequence store ID.
+   *
    * @public
    */
   sequenceStoreId: string | undefined;
 }
 
 /**
- * <p>An error from a batch read set operation.</p>
+ * An error from a batch read set operation.
+ *
  * @public
  */
 export interface ReadSetBatchError {
   /**
-   * <p>The error's ID.</p>
+   * The error's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The error's code.</p>
+   * The error's code.
+   *
    * @public
    */
   code: string | undefined;
 
   /**
-   * <p>The error's message.</p>
+   * The error's message.
+   *
    * @public
    */
   message: string | undefined;
@@ -1776,110 +2015,128 @@ export interface ReadSetBatchError {
  */
 export interface BatchDeleteReadSetResponse {
   /**
-   * <p>Errors returned by individual delete operations.</p>
+   * Errors returned by individual delete operations.
+   *
    * @public
    */
   errors?: ReadSetBatchError[] | undefined;
 }
 
 /**
- * <p>A summary of a batch returned by <code>ListBatch</code>.</p>
+ * A summary of a batch returned by `ListBatch`.
+ *
  * @public
  */
 export interface BatchListItem {
   /**
-   * <p>The batch identifier.</p>
+   * The batch identifier.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The batch name.</p>
+   * The batch name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The current batch status.</p>
+   * The current batch status.
+   *
    * @public
    */
   status?: BatchStatus | undefined;
 
   /**
-   * <p>The timestamp when the batch was created.</p>
+   * The timestamp when the batch was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The total number of runs in the batch.</p>
+   * The total number of runs in the batch.
+   *
    * @public
    */
   totalRuns?: number | undefined;
 
   /**
-   * <p>The identifier of the workflow used for the batch.</p>
+   * The identifier of the workflow used for the batch.
+   *
    * @public
    */
   workflowId?: string | undefined;
 }
 
 /**
- * <p>A per-run configuration that overrides or merges with fields from <code>DefaultRunSetting</code> for a specific run.</p>
+ * A per-run configuration that overrides or merges with fields from `DefaultRunSetting` for a specific run.
+ *
  * @public
  */
 export interface InlineSetting {
   /**
-   * <p>A customer-provided unique identifier for this run configuration within the batch. After submission, use <code>ListRunsInBatch</code> to map each <code>runSettingId</code> to the HealthOmics-generated <code>runId</code>.</p>
+   * A customer-provided unique identifier for this run configuration within the batch. After submission, use `ListRunsInBatch` to map each `runSettingId` to the HealthOmics-generated `runId`.
+   *
    * @public
    */
   runSettingId: string | undefined;
 
   /**
-   * <p>An optional user-friendly name for this run.</p>
+   * An optional user-friendly name for this run.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Override the destination S3 URI for this run's outputs.</p>
+   * Override the destination S3 URI for this run's outputs.
+   *
    * @public
    */
   outputUri?: string | undefined;
 
   /**
-   * <p>Override the priority for this run.</p>
+   * Override the priority for this run.
+   *
    * @public
    */
   priority?: number | undefined;
 
   /**
-   * <p>Per-run workflow parameters. Merged with <code>defaultRunSetting.parameters</code>; values in this object take precedence when keys overlap.</p>
+   * Per-run workflow parameters. Merged with `defaultRunSetting.parameters`; values in this object take precedence when keys overlap.
+   *
    * @public
    */
   parameters?: __DocumentType | undefined;
 
   /**
-   * <p>The expected Amazon Web Services account ID of the owner of the output S3 bucket for this run.</p>
+   * The expected Amazon Web Services account ID of the owner of the output S3 bucket for this run.
+   *
    * @public
    */
   outputBucketOwnerId?: string | undefined;
 
   /**
-   * <p>Per-run Amazon Web Services tags. Merged with <code>defaultRunSetting.runTags</code>; values in this object take precedence when keys overlap.</p>
+   * Per-run Amazon Web Services tags. Merged with `defaultRunSetting.runTags`; values in this object take precedence when keys overlap.
+   *
    * @public
    */
   runTags?: Record<string, string> | undefined;
 
   /**
-   * <p>Per-run engine-specific settings. Use this field to specify configuration options that are specific to the workflow engine (for example, Nextflow profiles). Overrides <code>defaultRunSetting.engineSettings</code> for this run.</p>
+   * Per-run engine-specific settings. Use this field to specify configuration options that are specific to the workflow engine (for example, Nextflow profiles). Overrides `defaultRunSetting.engineSettings` for this run.
+   *
    * @public
    */
   engineSettings?: __DocumentType | undefined;
 }
 
 /**
- * <p>A union type representing per-run configurations for the batch. Specify exactly one of the following members.</p>
+ * A union type representing per-run configurations for the batch. Specify exactly one of the following members.
+ *
  * @public
  */
 export type BatchRunSettings =
@@ -1892,7 +2149,8 @@ export type BatchRunSettings =
  */
 export namespace BatchRunSettings {
   /**
-   * <p>A list of per-run configurations provided inline in the request. Each entry must include a unique <code>runSettingId</code>. Supports up to 100 entries. For batches with more than 100 runs, use <code>s3UriSettings</code>.</p>
+   * A list of per-run configurations provided inline in the request. Each entry must include a unique `runSettingId`. Supports up to 100 entries. For batches with more than 100 runs, use `s3UriSettings`.
+   *
    * @public
    */
   export interface InlineSettingsMember {
@@ -1902,7 +2160,10 @@ export namespace BatchRunSettings {
   }
 
   /**
-   * <p>An Amazon S3 URI pointing to a JSON file containing per-run configurations. The file must be a JSON array in the same format as <code>inlineSettings</code>. Supports up to 100,000 run configurations. The maximum file size is 6 GB.</p> <p>The IAM service role in <code>roleArn</code> must have read access to this S3 object. HealthOmics validates access to the file during the synchronous API call and records the file's ETag. If the file is modified after submission, the batch fails.</p>
+   * An Amazon S3 URI pointing to a JSON file containing per-run configurations. The file must be a JSON array in the same format as `inlineSettings`. Supports up to 100,000 run configurations. The maximum file size is 6 GB.
+   *
+   * The IAM service role in `roleArn` must have read access to this S3 object. HealthOmics validates access to the file during the synchronous API call and records the file's ETag. If the file is modified after submission, the batch fails.
+   *
    * @public
    */
   export interface S3UriSettingsMember {
@@ -1936,7 +2197,8 @@ export namespace BatchRunSettings {
  */
 export interface CancelRunRequest {
   /**
-   * <p>The run's ID.</p>
+   * The run's ID.
+   *
    * @public
    */
   id: string | undefined;
@@ -1947,7 +2209,8 @@ export interface CancelRunRequest {
  */
 export interface CancelRunBatchRequest {
   /**
-   * <p>The identifier portion of the run batch ARN.</p>
+   * The identifier portion of the run batch ARN.
+   *
    * @public
    */
   batchId: string | undefined;
@@ -1963,7 +2226,8 @@ export interface CancelRunBatchResponse {}
  */
 export interface CancelVariantImportRequest {
   /**
-   * <p>The job's ID.</p>
+   * The job's ID.
+   *
    * @public
    */
   jobId: string | undefined;
@@ -1975,24 +2239,28 @@ export interface CancelVariantImportRequest {
 export interface CancelVariantImportResponse {}
 
 /**
- * <p> Part of the response to the CompleteReadSetUpload API, including metadata. </p>
+ * Part of the response to the CompleteReadSetUpload API, including metadata.
+ *
  * @public
  */
 export interface CompleteReadSetUploadPartListItem {
   /**
-   * <p> A number identifying the part in a read set upload. </p>
+   * A number identifying the part in a read set upload.
+   *
    * @public
    */
   partNumber: number | undefined;
 
   /**
-   * <p> The source file of the part being uploaded. </p>
+   * The source file of the part being uploaded.
+   *
    * @public
    */
   partSource: ReadSetPartSource | undefined;
 
   /**
-   * <p> A unique identifier used to confirm that parts are being added to the correct upload. </p>
+   * A unique identifier used to confirm that parts are being added to the correct upload.
+   *
    * @public
    */
   checksum: string | undefined;
@@ -2003,19 +2271,22 @@ export interface CompleteReadSetUploadPartListItem {
  */
 export interface CompleteMultipartReadSetUploadRequest {
   /**
-   * <p>The sequence store ID for the store involved in the multipart upload.</p>
+   * The sequence store ID for the store involved in the multipart upload.
+   *
    * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * <p>The ID for the multipart upload.</p>
+   * The ID for the multipart upload.
+   *
    * @public
    */
   uploadId: string | undefined;
 
   /**
-   * <p>The individual uploads or parts of a multipart upload.</p>
+   * The individual uploads or parts of a multipart upload.
+   *
    * @public
    */
   parts: CompleteReadSetUploadPartListItem[] | undefined;
@@ -2026,103 +2297,120 @@ export interface CompleteMultipartReadSetUploadRequest {
  */
 export interface CompleteMultipartReadSetUploadResponse {
   /**
-   * <p>The read set ID created for an uploaded read set.</p>
+   * The read set ID created for an uploaded read set.
+   *
    * @public
    */
   readSetId: string | undefined;
 }
 
 /**
- * <p>Minimal details for a configuration resource.</p>
+ * Minimal details for a configuration resource.
+ *
  * @public
  */
 export interface ConfigurationDetails {
   /**
-   * <p>User-friendly name for the configuration.</p>
+   * User-friendly name for the configuration.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Unique resource identifier for the configuration.</p>
+   * Unique resource identifier for the configuration.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>Unique identifier for the configuration.</p>
+   * Unique identifier for the configuration.
+   *
    * @public
    */
   uuid?: string | undefined;
 }
 
 /**
- * <p>Configuration list item with summary information.</p>
+ * Configuration list item with summary information.
+ *
  * @public
  */
 export interface ConfigurationListItem {
   /**
-   * <p>Unique resource identifier for the configuration.</p>
+   * Unique resource identifier for the configuration.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>User-friendly name for the configuration.</p>
+   * User-friendly name for the configuration.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Description for the configuration.</p>
+   * Description for the configuration.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Current configuration status.</p>
+   * Current configuration status.
+   *
    * @public
    */
   status?: ConfigurationStatus | undefined;
 
   /**
-   * <p>Configuration creation timestamp.</p>
+   * Configuration creation timestamp.
+   *
    * @public
    */
   creationTime?: Date | undefined;
 }
 
 /**
- * <p>VPC configuration for workflow runs.</p>
+ * VPC configuration for workflow runs.
+ *
  * @public
  */
 export interface VpcConfig {
   /**
-   * <p>List of security group IDs. Maximum of 5 security groups allowed.</p>
+   * List of security group IDs. Maximum of 5 security groups allowed.
+   *
    * @public
    */
   securityGroupIds?: string[] | undefined;
 
   /**
-   * <p>List of subnet IDs. Maximum of 16 subnets allowed.</p>
+   * List of subnet IDs. Maximum of 16 subnets allowed.
+   *
    * @public
    */
   subnetIds?: string[] | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the cross-account VPC owner for RAM-shared VPC configurations.</p>
+   * The Amazon Web Services account ID of the cross-account VPC owner for RAM-shared VPC configurations.
+   *
    * @public
    */
   vpcOwnerAccountId?: string | undefined;
 }
 
 /**
- * <p>Run-specific configuration settings.</p>
+ * Run-specific configuration settings.
+ *
  * @public
  */
 export interface RunConfigurations {
   /**
-   * <p>VPC configuration for workflow runs.</p>
+   * VPC configuration for workflow runs.
+   *
    * @public
    */
   vpcConfig?: VpcConfig | undefined;
@@ -2133,73 +2421,85 @@ export interface RunConfigurations {
  */
 export interface CreateConfigurationRequest {
   /**
-   * <p>User-friendly name for the configuration.</p>
+   * User-friendly name for the configuration.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Optional description for the configuration.</p>
+   * Optional description for the configuration.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Required run-specific configurations.</p>
+   * Required run-specific configurations.
+   *
    * @public
    */
   runConfigurations: RunConfigurations | undefined;
 
   /**
-   * <p>Optional tags for the configuration.</p>
+   * Optional tags for the configuration.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Optional request idempotency token. If not specified, a universally unique identifier (UUID) will be automatically generated for the request.</p>
+   * Optional request idempotency token. If not specified, a universally unique identifier (UUID) will be automatically generated for the request.
+   *
    * @public
    */
   requestId?: string | undefined;
 }
 
 /**
- * <p>VPC configuration for workflow runs with computed VPC ID.</p>
+ * VPC configuration for workflow runs with computed VPC ID.
+ *
  * @public
  */
 export interface VpcConfigResponse {
   /**
-   * <p>List of security group IDs.</p>
+   * List of security group IDs.
+   *
    * @public
    */
   securityGroupIds?: string[] | undefined;
 
   /**
-   * <p>List of subnet IDs.</p>
+   * List of subnet IDs.
+   *
    * @public
    */
   subnetIds?: string[] | undefined;
 
   /**
-   * <p>VPC ID computed from the provided subnet IDs.</p>
+   * VPC ID computed from the provided subnet IDs.
+   *
    * @public
    */
   vpcId?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the cross-account VPC owner for RAM-shared VPC configurations.</p>
+   * The Amazon Web Services account ID of the cross-account VPC owner for RAM-shared VPC configurations.
+   *
    * @public
    */
   vpcOwnerAccountId?: string | undefined;
 }
 
 /**
- * <p>Run-specific configuration settings with computed values.</p>
+ * Run-specific configuration settings with computed values.
+ *
  * @public
  */
 export interface RunConfigurationsResponse {
   /**
-   * <p>VPC configuration for workflow runs with computed VPC ID.</p>
+   * VPC configuration for workflow runs with computed VPC ID.
+   *
    * @public
    */
   vpcConfig?: VpcConfigResponse | undefined;
@@ -2210,49 +2510,57 @@ export interface RunConfigurationsResponse {
  */
 export interface CreateConfigurationResponse {
   /**
-   * <p>Unique resource identifier for the configuration.</p>
+   * Unique resource identifier for the configuration.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>Unique identifier for the configuration.</p>
+   * Unique identifier for the configuration.
+   *
    * @public
    */
   uuid?: string | undefined;
 
   /**
-   * <p>User-friendly name for the configuration.</p>
+   * User-friendly name for the configuration.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Description for the configuration.</p>
+   * Description for the configuration.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Run-specific configurations.</p>
+   * Run-specific configurations.
+   *
    * @public
    */
   runConfigurations?: RunConfigurationsResponse | undefined;
 
   /**
-   * <p>Current configuration status.</p>
+   * Current configuration status.
+   *
    * @public
    */
   status?: ConfigurationStatus | undefined;
 
   /**
-   * <p>Configuration creation timestamp.</p>
+   * Configuration creation timestamp.
+   *
    * @public
    */
   creationTime?: Date | undefined;
 
   /**
-   * <p>Tags for the configuration.</p>
+   * Tags for the configuration.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -2263,7 +2571,8 @@ export interface CreateConfigurationResponse {
  */
 export interface DeleteConfigurationRequest {
   /**
-   * <p>Configuration name to delete.</p>
+   * Configuration name to delete.
+   *
    * @public
    */
   name: string | undefined;
@@ -2274,7 +2583,8 @@ export interface DeleteConfigurationRequest {
  */
 export interface GetConfigurationRequest {
   /**
-   * <p>Configuration name to retrieve.</p>
+   * Configuration name to retrieve.
+   *
    * @public
    */
   name: string | undefined;
@@ -2285,49 +2595,57 @@ export interface GetConfigurationRequest {
  */
 export interface GetConfigurationResponse {
   /**
-   * <p>Unique resource identifier for the configuration.</p>
+   * Unique resource identifier for the configuration.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>Unique identifier for the configuration.</p>
+   * Unique identifier for the configuration.
+   *
    * @public
    */
   uuid?: string | undefined;
 
   /**
-   * <p>User-friendly name for the configuration.</p>
+   * User-friendly name for the configuration.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Description for the configuration.</p>
+   * Description for the configuration.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Run-specific configurations.</p>
+   * Run-specific configurations.
+   *
    * @public
    */
   runConfigurations?: RunConfigurationsResponse | undefined;
 
   /**
-   * <p>Current configuration status.</p>
+   * Current configuration status.
+   *
    * @public
    */
   status?: ConfigurationStatus | undefined;
 
   /**
-   * <p>Configuration creation timestamp.</p>
+   * Configuration creation timestamp.
+   *
    * @public
    */
   creationTime?: Date | undefined;
 
   /**
-   * <p>Tags for the configuration.</p>
+   * Tags for the configuration.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -2338,13 +2656,15 @@ export interface GetConfigurationResponse {
  */
 export interface ListConfigurationsRequest {
   /**
-   * <p>Maximum number of results to return.</p>
+   * Maximum number of results to return.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Pagination token for retrieving next page of results.</p>
+   * Pagination token for retrieving next page of results.
+   *
    * @public
    */
   startingToken?: string | undefined;
@@ -2355,85 +2675,99 @@ export interface ListConfigurationsRequest {
  */
 export interface ListConfigurationsResponse {
   /**
-   * <p>List of configuration items.</p>
+   * List of configuration items.
+   *
    * @public
    */
   items?: ConfigurationListItem[] | undefined;
 
   /**
-   * <p>Token for retrieving next page of results.</p>
+   * Token for retrieving next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Specifies image mappings that workflow tasks can use. For example, you can replace all the task references of a public image to use an equivalent image in your private ECR repository. You can use image mappings with upstream registries that don't support pull through cache. You need to manually synchronize the upstream registry with your private repository. </p>
+ * Specifies image mappings that workflow tasks can use. For example, you can replace all the task references of a public image to use an equivalent image in your private ECR repository. You can use image mappings with upstream registries that don't support pull through cache. You need to manually synchronize the upstream registry with your private repository.
+ *
  * @public
  */
 export interface ImageMapping {
   /**
-   * <p>Specifies the URI of the source image in the upstream registry.</p>
+   * Specifies the URI of the source image in the upstream registry.
+   *
    * @public
    */
   sourceImage?: string | undefined;
 
   /**
-   * <p>Specifies the URI of the corresponding image in the private ECR registry.</p>
+   * Specifies the URI of the corresponding image in the private ECR registry.
+   *
    * @public
    */
   destinationImage?: string | undefined;
 }
 
 /**
- * <p>Maps an upstream container registry to a repository prefix in your Amazon Elastic Container Registry (Amazon ECR) private registry. For registries that Amazon ECR pull through cache supports, you create a pull through cache rule that synchronizes the upstream repositories with your private repositories. You can also use some registries that pull through cache doesn't support. For these registries, specify <code>credentialArn</code>, and Amazon Web Services HealthOmics copies each image into a private Amazon ECR repository the first time a task needs it.</p>
+ * Maps an upstream container registry to a repository prefix in your Amazon Elastic Container Registry (Amazon ECR) private registry. For registries that Amazon ECR pull through cache supports, you create a pull through cache rule that synchronizes the upstream repositories with your private repositories. You can also use some registries that pull through cache doesn't support. For these registries, specify `credentialArn`, and Amazon Web Services HealthOmics copies each image into a private Amazon ECR repository the first time a task needs it.
+ *
  * @public
  */
 export interface RegistryMapping {
   /**
-   * <p>The URI of the upstream registry.</p>
+   * The URI of the upstream registry.
+   *
    * @public
    */
   upstreamRegistryUrl: string | undefined;
 
   /**
-   * <p>The repository prefix to use in the ECR private repository.</p>
+   * The repository prefix to use in the ECR private repository.
+   *
    * @public
    */
   ecrRepositoryPrefix: string | undefined;
 
   /**
-   * <p>The repository prefix of the corresponding repository in the upstream registry.</p>
+   * The repository prefix of the corresponding repository in the upstream registry.
+   *
    * @public
    */
   upstreamRepositoryPrefix?: string | undefined;
 
   /**
-   * <p>Account ID of the account that owns the upstream container image.</p>
+   * Account ID of the account that owns the upstream container image.
+   *
    * @public
    */
   ecrAccountId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that holds the credentials for the upstream registry. You must specify this value when Amazon Elastic Container Registry (Amazon ECR) doesn't support pull through cache for the upstream registry. HealthOmics supports only some of these registries. The workflow role must have permission to call the <code>secretsmanager:GetSecretValue</code> operation on the secret. For more information about the supported registries, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html">Container images</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+   * The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that holds the credentials for the upstream registry. You must specify this value when Amazon Elastic Container Registry (Amazon ECR) doesn't support pull through cache for the upstream registry. HealthOmics supports only some of these registries. The workflow role must have permission to call the `secretsmanager:GetSecretValue` operation on the secret. For more information about the supported registries, see [Container images](https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html) in the *Amazon Web Services HealthOmics User Guide*.
+   *
    * @public
    */
   credentialArn?: string | undefined;
 }
 
 /**
- * <p>Use a container registry map to specify mappings between the ECR private repository and one or more upstream registries. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html">Container images</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+ * Use a container registry map to specify mappings between the ECR private repository and one or more upstream registries. For more information, see [Container images](https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html) in the *Amazon Web Services HealthOmics User Guide*.
+ *
  * @public
  */
 export interface ContainerRegistryMap {
   /**
-   * <p>The mappings between upstream container registries and repository prefixes in your Amazon Elastic Container Registry (Amazon ECR) private registry. The list can include both pull through cache mappings and mappings for registries that Amazon Web Services HealthOmics copies images from.</p>
+   * The mappings between upstream container registries and repository prefixes in your Amazon Elastic Container Registry (Amazon ECR) private registry. The list can include both pull through cache mappings and mappings for registries that Amazon Web Services HealthOmics copies images from.
+   *
    * @public
    */
   registryMappings?: RegistryMapping[] | undefined;
 
   /**
-   * <p>Image mappings specify path mappings between the ECR private repository and their corresponding external repositories.</p>
+   * Image mappings specify path mappings between the ECR private repository and their corresponding external repositories.
+   *
    * @public
    */
   imageMappings?: ImageMapping[] | undefined;
@@ -2444,61 +2778,71 @@ export interface ContainerRegistryMap {
  */
 export interface CreateMultipartReadSetUploadRequest {
   /**
-   * <p>The sequence store ID for the store that is the destination of the multipart uploads.</p>
+   * The sequence store ID for the store that is the destination of the multipart uploads.
+   *
    * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * <p>An idempotency token that can be used to avoid triggering multiple multipart uploads.</p>
+   * An idempotency token that can be used to avoid triggering multiple multipart uploads.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The type of file being uploaded.</p>
+   * The type of file being uploaded.
+   *
    * @public
    */
   sourceFileType: FileType | undefined;
 
   /**
-   * <p>The source's subject ID.</p>
+   * The source's subject ID.
+   *
    * @public
    */
   subjectId: string | undefined;
 
   /**
-   * <p>The source's sample ID.</p>
+   * The source's sample ID.
+   *
    * @public
    */
   sampleId: string | undefined;
 
   /**
-   * <p>Where the source originated.</p>
+   * Where the source originated.
+   *
    * @public
    */
   generatedFrom?: string | undefined;
 
   /**
-   * <p>The ARN of the reference.</p>
+   * The ARN of the reference.
+   *
    * @public
    */
   referenceArn?: string | undefined;
 
   /**
-   * <p>The name of the read set.</p>
+   * The name of the read set.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the read set.</p>
+   * The description of the read set.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Any tags to add to the read set.</p>
+   * Any tags to add to the read set.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -2509,67 +2853,78 @@ export interface CreateMultipartReadSetUploadRequest {
  */
 export interface CreateMultipartReadSetUploadResponse {
   /**
-   * <p>The sequence store ID for the store that the read set will be created in.</p>
+   * The sequence store ID for the store that the read set will be created in.
+   *
    * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * <p>The ID for the initiated multipart upload.</p>
+   * The ID for the initiated multipart upload.
+   *
    * @public
    */
   uploadId: string | undefined;
 
   /**
-   * <p>The file type of the read set source.</p>
+   * The file type of the read set source.
+   *
    * @public
    */
   sourceFileType: FileType | undefined;
 
   /**
-   * <p>The source's subject ID.</p>
+   * The source's subject ID.
+   *
    * @public
    */
   subjectId: string | undefined;
 
   /**
-   * <p>The source's sample ID.</p>
+   * The source's sample ID.
+   *
    * @public
    */
   sampleId: string | undefined;
 
   /**
-   * <p>The source of the read set.</p>
+   * The source of the read set.
+   *
    * @public
    */
   generatedFrom?: string | undefined;
 
   /**
-   * <p>The read set source's reference ARN.</p>
+   * The read set source's reference ARN.
+   *
    * @public
    */
   referenceArn: string | undefined;
 
   /**
-   * <p>The name of the read set.</p>
+   * The name of the read set.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The description of the read set.</p>
+   * The description of the read set.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The tags to add to the read set.</p>
+   * The tags to add to the read set.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The creation time of the multipart upload.</p>
+   * The creation time of the multipart upload.
+   *
    * @public
    */
   creationTime: Date | undefined;
@@ -2580,31 +2935,36 @@ export interface CreateMultipartReadSetUploadResponse {
  */
 export interface CreateReferenceStoreRequest {
   /**
-   * <p>A name for the store.</p>
+   * A name for the store.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description for the store.</p>
+   * A description for the store.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Server-side encryption (SSE) settings for the store.</p>
+   * Server-side encryption (SSE) settings for the store.
+   *
    * @public
    */
   sseConfig?: SseConfig | undefined;
 
   /**
-   * <p>Tags for the store.</p>
+   * Tags for the store.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>To ensure that requests don't run multiple times, specify a unique token for each request.</p>
+   * To ensure that requests don't run multiple times, specify a unique token for each request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -2615,37 +2975,43 @@ export interface CreateReferenceStoreRequest {
  */
 export interface CreateReferenceStoreResponse {
   /**
-   * <p>The store's ID.</p>
+   * The store's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The store's ARN.</p>
+   * The store's ARN.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The store's name.</p>
+   * The store's name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The store's description.</p>
+   * The store's description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The store's SSE settings.</p>
+   * The store's SSE settings.
+   *
    * @public
    */
   sseConfig?: SseConfig | undefined;
 
   /**
-   * <p>When the store was created.</p>
+   * When the store was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
@@ -2656,43 +3022,58 @@ export interface CreateReferenceStoreResponse {
  */
 export interface CreateRunCacheRequest {
   /**
-   * <p>Default cache behavior for runs that use this cache. Supported values are:</p> <p> <code>CACHE_ON_FAILURE</code>: Caches task outputs from completed tasks for runs that fail. This setting is useful if you're debugging a workflow that fails after several tasks completed successfully. The subsequent run uses the cache outputs for previously-completed tasks if the task definition, inputs, and container in ECR are identical to the prior run.</p> <p> <code>CACHE_ALWAYS</code>: Caches task outputs from completed tasks for all runs. This setting is useful in development mode, but do not use it in a production setting.</p> <p>If you don't specify a value, the default behavior is CACHE_ON_FAILURE. When you start a run that uses this cache, you can override the default cache behavior.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/how-run-cache.html#run-cache-behavior">Run cache behavior</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+   * Default cache behavior for runs that use this cache. Supported values are:
+   *
+   * `CACHE_ON_FAILURE`: Caches task outputs from completed tasks for runs that fail. This setting is useful if you're debugging a workflow that fails after several tasks completed successfully. The subsequent run uses the cache outputs for previously-completed tasks if the task definition, inputs, and container in ECR are identical to the prior run.
+   *
+   * `CACHE_ALWAYS`: Caches task outputs from completed tasks for all runs. This setting is useful in development mode, but do not use it in a production setting.
+   *
+   * If you don't specify a value, the default behavior is CACHE_ON_FAILURE. When you start a run that uses this cache, you can override the default cache behavior.
+   *
+   * For more information, see [Run cache behavior](https://docs.aws.amazon.com/omics/latest/dev/how-run-cache.html#run-cache-behavior) in the *Amazon Web Services HealthOmics User Guide*.
+   *
    * @public
    */
   cacheBehavior?: CacheBehavior | undefined;
 
   /**
-   * <p>Specify the S3 location for storing the cached task outputs. This data must be immediately accessible (not in an archived state).</p>
+   * Specify the S3 location for storing the cached task outputs. This data must be immediately accessible (not in an archived state).
+   *
    * @public
    */
   cacheS3Location: string | undefined;
 
   /**
-   * <p>Enter a description of the run cache.</p>
+   * Enter a description of the run cache.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Enter a user-friendly name for the run cache.</p>
+   * Enter a user-friendly name for the run cache.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>A unique request token, to ensure idempotency. If you don't specify a token, Amazon Web Services HealthOmics automatically generates a universally unique identifier (UUID) for the request.</p>
+   * A unique request token, to ensure idempotency. If you don't specify a token, Amazon Web Services HealthOmics automatically generates a universally unique identifier (UUID) for the request.
+   *
    * @public
    */
   requestId?: string | undefined;
 
   /**
-   * <p>Specify one or more tags to associate with this run cache.</p>
+   * Specify one or more tags to associate with this run cache.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the expected owner of the S3 bucket for the run cache. If not provided, your account ID is set as the owner of the bucket.</p>
+   * The Amazon Web Services account ID of the expected owner of the S3 bucket for the run cache. If not provided, your account ID is set as the owner of the bucket.
+   *
    * @public
    */
   cacheBucketOwnerId?: string | undefined;
@@ -2703,25 +3084,29 @@ export interface CreateRunCacheRequest {
  */
 export interface CreateRunCacheResponse {
   /**
-   * <p>Unique resource identifier for the run cache.</p>
+   * Unique resource identifier for the run cache.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>Identifier for the run cache.</p>
+   * Identifier for the run cache.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>Run cache status.</p>
+   * Run cache status.
+   *
    * @public
    */
   status?: RunCacheStatus | undefined;
 
   /**
-   * <p>The tags associated with this run cache.</p>
+   * The tags associated with this run cache.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -2732,43 +3117,50 @@ export interface CreateRunCacheResponse {
  */
 export interface CreateRunGroupRequest {
   /**
-   * <p>A name for the group.</p>
+   * A name for the group.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The maximum number of CPUs that can run concurrently across all active runs in the run group.</p>
+   * The maximum number of CPUs that can run concurrently across all active runs in the run group.
+   *
    * @public
    */
   maxCpus?: number | undefined;
 
   /**
-   * <p>The maximum number of runs that can be running at the same time.</p>
+   * The maximum number of runs that can be running at the same time.
+   *
    * @public
    */
   maxRuns?: number | undefined;
 
   /**
-   * <p>The maximum time for each run (in minutes). If a run exceeds the maximum run time, the run fails automatically.</p>
+   * The maximum time for each run (in minutes). If a run exceeds the maximum run time, the run fails automatically.
+   *
    * @public
    */
   maxDuration?: number | undefined;
 
   /**
-   * <p>Tags for the group.</p>
+   * Tags for the group.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>To ensure that requests don't run multiple times, specify a unique ID for each request.</p>
+   * To ensure that requests don't run multiple times, specify a unique ID for each request.
+   *
    * @public
    */
   requestId?: string | undefined;
 
   /**
-   * <p>The maximum number of GPUs that can run concurrently across all active runs in the run group.</p>
+   * The maximum number of GPUs that can run concurrently across all active runs in the run group.
+   *
    * @public
    */
   maxGpus?: number | undefined;
@@ -2779,31 +3171,36 @@ export interface CreateRunGroupRequest {
  */
 export interface CreateRunGroupResponse {
   /**
-   * <p>The group's ARN.</p>
+   * The group's ARN.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The group's ID.</p>
+   * The group's ID.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>Tags for the run group.</p>
+   * Tags for the run group.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>S3 access configuration parameters.</p>
+ * S3 access configuration parameters.
+ *
  * @public
  */
 export interface S3AccessConfig {
   /**
-   * <p>Location of the access logs.</p>
+   * Location of the access logs.
+   *
    * @public
    */
   accessLogLocation?: string | undefined;
@@ -2814,79 +3211,92 @@ export interface S3AccessConfig {
  */
 export interface CreateSequenceStoreRequest {
   /**
-   * <p>A name for the store.</p>
+   * A name for the store.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description for the store.</p>
+   * A description for the store.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Server-side encryption (SSE) settings for the store.</p>
+   * Server-side encryption (SSE) settings for the store.
+   *
    * @public
    */
   sseConfig?: SseConfig | undefined;
 
   /**
-   * <p>Tags for the store. You can configure up to 50 tags.</p>
+   * Tags for the store. You can configure up to 50 tags.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>An idempotency token used to dedupe retry requests so that duplicate runs are not created.</p>
+   * An idempotency token used to dedupe retry requests so that duplicate runs are not created.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>An S3 location that is used to store files that have failed a direct upload. You can add or change the <code>fallbackLocation</code> after creating a sequence store. This is not required if you are uploading files from a different S3 bucket.</p>
+   * An S3 location that is used to store files that have failed a direct upload. You can add or change the `fallbackLocation` after creating a sequence store. This is not required if you are uploading files from a different S3 bucket.
+   *
    * @public
    */
   fallbackLocation?: string | undefined;
 
   /**
-   * <p>The ETag algorithm family to use for ingested read sets. The default value is MD5up. For more information on ETags, see <a href="https://docs.aws.amazon.com/omics/latest/dev/etags-and-provenance.html">ETags and data provenance</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+   * The ETag algorithm family to use for ingested read sets. The default value is MD5up. For more information on ETags, see [ETags and data provenance](https://docs.aws.amazon.com/omics/latest/dev/etags-and-provenance.html) in the *Amazon Web Services HealthOmics User Guide*.
+   *
    * @public
    */
   eTagAlgorithmFamily?: ETagAlgorithmFamily | undefined;
 
   /**
-   * <p>The tags keys to propagate to the S3 objects associated with read sets in the sequence store. These tags can be used as input to add metadata to your read sets.</p>
+   * The tags keys to propagate to the S3 objects associated with read sets in the sequence store. These tags can be used as input to add metadata to your read sets.
+   *
    * @public
    */
   propagatedSetLevelTags?: string[] | undefined;
 
   /**
-   * <p>S3 access configuration parameters. This specifies the parameters needed to access logs stored in S3 buckets. The S3 bucket must be in the same region and account as the sequence store. </p>
+   * S3 access configuration parameters. This specifies the parameters needed to access logs stored in S3 buckets. The S3 bucket must be in the same region and account as the sequence store.
+   *
    * @public
    */
   s3AccessConfig?: S3AccessConfig | undefined;
 }
 
 /**
- * <p>The S3 access metadata of the sequence store.</p>
+ * The S3 access metadata of the sequence store.
+ *
  * @public
  */
 export interface SequenceStoreS3Access {
   /**
-   * <p>The S3 URI of the sequence store.</p>
+   * The S3 URI of the sequence store.
+   *
    * @public
    */
   s3Uri?: string | undefined;
 
   /**
-   * <p>This is ARN of the access point associated with the S3 bucket storing read sets.</p>
+   * This is ARN of the access point associated with the S3 bucket storing read sets.
+   *
    * @public
    */
   s3AccessPointArn?: string | undefined;
 
   /**
-   * <p>Location of the access logs.</p>
+   * Location of the access logs.
+   *
    * @public
    */
   accessLogLocation?: string | undefined;
@@ -2897,73 +3307,85 @@ export interface SequenceStoreS3Access {
  */
 export interface CreateSequenceStoreResponse {
   /**
-   * <p>The store's ID.</p>
+   * The store's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The store's ARN.</p>
+   * The store's ARN.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The store's name.</p>
+   * The store's name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The store's description.</p>
+   * The store's description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Server-side encryption (SSE) settings for the store. This contains the KMS key ARN that is used to encrypt read set objects.</p>
+   * Server-side encryption (SSE) settings for the store. This contains the KMS key ARN that is used to encrypt read set objects.
+   *
    * @public
    */
   sseConfig?: SseConfig | undefined;
 
   /**
-   * <p>When the store was created.</p>
+   * When the store was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>An S3 location that is used to store files that have failed a direct upload.</p>
+   * An S3 location that is used to store files that have failed a direct upload.
+   *
    * @public
    */
   fallbackLocation?: string | undefined;
 
   /**
-   * <p>The algorithm family of the ETag.</p>
+   * The algorithm family of the ETag.
+   *
    * @public
    */
   eTagAlgorithmFamily?: ETagAlgorithmFamily | undefined;
 
   /**
-   * <p>The status of the sequence store.</p>
+   * The status of the sequence store.
+   *
    * @public
    */
   status?: SequenceStoreStatus | undefined;
 
   /**
-   * <p>The status message of the sequence store.</p>
+   * The status message of the sequence store.
+   *
    * @public
    */
   statusMessage?: string | undefined;
 
   /**
-   * <p>The tags keys to propagate to the S3 objects associated with read sets in the sequence store.</p>
+   * The tags keys to propagate to the S3 objects associated with read sets in the sequence store.
+   *
    * @public
    */
   propagatedSetLevelTags?: string[] | undefined;
 
   /**
-   * <p>The S3 access metadata of the sequence store.</p>
+   * The S3 access metadata of the sequence store.
+   *
    * @public
    */
   s3Access?: SequenceStoreS3Access | undefined;
@@ -2974,19 +3396,22 @@ export interface CreateSequenceStoreResponse {
  */
 export interface CreateShareRequest {
   /**
-   * <p>The ARN of the resource to be shared.</p>
+   * The ARN of the resource to be shared.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The principal subscriber is the account being offered shared access to the resource. </p>
+   * The principal subscriber is the account being offered shared access to the resource.
+   *
    * @public
    */
   principalSubscriber: string | undefined;
 
   /**
-   * <p>A name that the owner defines for the share.</p>
+   * A name that the owner defines for the share.
+   *
    * @public
    */
   shareName?: string | undefined;
@@ -2997,19 +3422,22 @@ export interface CreateShareRequest {
  */
 export interface CreateShareResponse {
   /**
-   * <p>The ID that HealthOmics generates for the share.</p>
+   * The ID that HealthOmics generates for the share.
+   *
    * @public
    */
   shareId?: string | undefined;
 
   /**
-   * <p>The status of the share.</p>
+   * The status of the share.
+   *
    * @public
    */
   status?: ShareStatus | undefined;
 
   /**
-   * <p>The name of the share.</p>
+   * The name of the share.
+   *
    * @public
    */
   shareName?: string | undefined;
@@ -3020,31 +3448,36 @@ export interface CreateShareResponse {
  */
 export interface CreateVariantStoreRequest {
   /**
-   * <p>The genome reference for the store's variants.</p>
+   * The genome reference for the store's variants.
+   *
    * @public
    */
   reference: ReferenceItem | undefined;
 
   /**
-   * <p>A name for the store.</p>
+   * A name for the store.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>A description for the store.</p>
+   * A description for the store.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Tags for the store.</p>
+   * Tags for the store.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Server-side encryption (SSE) settings for the store.</p>
+   * Server-side encryption (SSE) settings for the store.
+   *
    * @public
    */
   sseConfig?: SseConfig | undefined;
@@ -3055,97 +3488,113 @@ export interface CreateVariantStoreRequest {
  */
 export interface CreateVariantStoreResponse {
   /**
-   * <p>The store's ID.</p>
+   * The store's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The store's genome reference.</p>
+   * The store's genome reference.
+   *
    * @public
    */
   reference?: ReferenceItem | undefined;
 
   /**
-   * <p>The store's status.</p>
+   * The store's status.
+   *
    * @public
    */
   status: StoreStatus | undefined;
 
   /**
-   * <p>The store's name.</p>
+   * The store's name.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>When the store was created.</p>
+   * When the store was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
 }
 
 /**
- * <p>Contains information about the source reference in a code repository, such as a branch, tag, or commit.</p>
+ * Contains information about the source reference in a code repository, such as a branch, tag, or commit.
+ *
  * @public
  */
 export interface SourceReference {
   /**
-   * <p>The type of source reference, such as branch, tag, or commit.</p>
+   * The type of source reference, such as branch, tag, or commit.
+   *
    * @public
    */
   type: SourceReferenceType | undefined;
 
   /**
-   * <p>The value of the source reference, such as the branch name, tag name, or commit ID.</p>
+   * The value of the source reference, such as the branch name, tag name, or commit ID.
+   *
    * @public
    */
   value: string | undefined;
 }
 
 /**
- * <p>Contains information about a source code repository that hosts the workflow definition files.</p>
+ * Contains information about a source code repository that hosts the workflow definition files.
+ *
  * @public
  */
 export interface DefinitionRepository {
   /**
-   * <p>The Amazon Resource Name (ARN) of the connection to the source code repository.</p>
+   * The Amazon Resource Name (ARN) of the connection to the source code repository.
+   *
    * @public
    */
   connectionArn: string | undefined;
 
   /**
-   * <p>The full repository identifier, including the repository owner and name. For example, 'repository-owner/repository-name'.</p>
+   * The full repository identifier, including the repository owner and name. For example, 'repository-owner/repository-name'.
+   *
    * @public
    */
   fullRepositoryId: string | undefined;
 
   /**
-   * <p>The source reference for the repository, such as a branch name, tag, or commit ID.</p>
+   * The source reference for the repository, such as a branch name, tag, or commit ID.
+   *
    * @public
    */
   sourceReference?: SourceReference | undefined;
 
   /**
-   * <p>A list of file patterns to exclude when retrieving the workflow definition from the repository.</p>
+   * A list of file patterns to exclude when retrieving the workflow definition from the repository.
+   *
    * @public
    */
   excludeFilePatterns?: string[] | undefined;
 }
 
 /**
- * <p>A workflow parameter.</p>
+ * A workflow parameter.
+ *
  * @public
  */
 export interface WorkflowParameter {
   /**
-   * <p>The parameter's description.</p>
+   * The parameter's description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Whether the parameter is optional.</p>
+   * Whether the parameter is optional.
+   *
    * @public
    */
   optional?: boolean | undefined;
@@ -3156,121 +3605,147 @@ export interface WorkflowParameter {
  */
 export interface CreateWorkflowRequest {
   /**
-   * <p>Name (optional but highly recommended) for the workflow to locate relevant information in the CloudWatch logs and Amazon Web Services HealthOmics console. </p>
+   * Name (optional but highly recommended) for the workflow to locate relevant information in the CloudWatch logs and Amazon Web Services HealthOmics console.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>A description for the workflow.</p>
+   * A description for the workflow.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The workflow engine for the workflow. By default, Amazon Web Services HealthOmics detects the engine automatically from your workflow definition. Provide a value if you have workflow definition files from more than one engine in your zip file, or to use WDL lenient.</p> <p>WDL lenient is designed to handle workflows migrated from Cromwell. It supports customer Cromwell directives and some non-conformant logic. For details, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflow-wdl-type-conversion.html">Implicit type conversion in WDL lenient</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+   * The workflow engine for the workflow. By default, Amazon Web Services HealthOmics detects the engine automatically from your workflow definition. Provide a value if you have workflow definition files from more than one engine in your zip file, or to use WDL lenient.
+   *
+   * WDL lenient is designed to handle workflows migrated from Cromwell. It supports customer Cromwell directives and some non-conformant logic. For details, see [Implicit type conversion in WDL lenient](https://docs.aws.amazon.com/omics/latest/dev/workflow-wdl-type-conversion.html) in the *Amazon Web Services HealthOmics User Guide*.
+   *
    * @public
    */
   engine?: WorkflowEngine | undefined;
 
   /**
-   * <p>A ZIP archive containing the main workflow definition file and dependencies that it imports for the workflow. You can use a file with a ://fileb prefix instead of the Base64 string. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflow-defn-requirements.html">Workflow definition requirements</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+   * A ZIP archive containing the main workflow definition file and dependencies that it imports for the workflow. You can use a file with a ://fileb prefix instead of the Base64 string. For more information, see [Workflow definition requirements](https://docs.aws.amazon.com/omics/latest/dev/workflow-defn-requirements.html) in the *Amazon Web Services HealthOmics User Guide*.
+   *
    * @public
    */
   definitionZip?: Uint8Array | undefined;
 
   /**
-   * <p>The S3 URI of a definition for the workflow. The S3 bucket must be in the same region as the workflow.</p>
+   * The S3 URI of a definition for the workflow. The S3 bucket must be in the same region as the workflow.
+   *
    * @public
    */
   definitionUri?: string | undefined;
 
   /**
-   * <p>The path of the main definition file for the workflow. This parameter is not required if the ZIP archive contains only one workflow definition file, or if the main definition file is named “main”. An example path is: <code>workflow-definition/main-file.wdl</code>. </p>
+   * The path of the main definition file for the workflow. This parameter is not required if the ZIP archive contains only one workflow definition file, or if the main definition file is named “main”. An example path is: `workflow-definition/main-file.wdl`.
+   *
    * @public
    */
   main?: string | undefined;
 
   /**
-   * <p>A parameter template for the workflow. If this field is blank, Amazon Web Services HealthOmics will automatically parse the parameter template values from your workflow definition file. To override these service generated default values, provide a parameter template. To view an example of a parameter template, see <a href="https://docs.aws.amazon.com/omics/latest/dev/parameter-templates.html">Parameter template files</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+   * A parameter template for the workflow. If this field is blank, Amazon Web Services HealthOmics will automatically parse the parameter template values from your workflow definition file. To override these service generated default values, provide a parameter template. To view an example of a parameter template, see [Parameter template files](https://docs.aws.amazon.com/omics/latest/dev/parameter-templates.html) in the *Amazon Web Services HealthOmics User Guide*.
+   *
    * @public
    */
   parameterTemplate?: Record<string, WorkflowParameter> | undefined;
 
   /**
-   * <p>The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version. The <code>storageCapacity</code> can be overwritten at run time. The storage capacity is not required for runs with a <code>DYNAMIC</code> storage type.</p>
+   * The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version. The `storageCapacity` can be overwritten at run time. The storage capacity is not required for runs with a `DYNAMIC` storage type.
+   *
    * @public
    */
   storageCapacity?: number | undefined;
 
   /**
-   * <p>Tags for the workflow. You can define up to 50 tags for the workflow. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/add-a-tag.html">Adding a tag</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+   * Tags for the workflow. You can define up to 50 tags for the workflow. For more information, see [Adding a tag](https://docs.aws.amazon.com/omics/latest/dev/add-a-tag.html) in the *Amazon Web Services HealthOmics User Guide*.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>An idempotency token to ensure that duplicate workflows are not created when Amazon Web Services HealthOmics submits retry requests.</p>
+   * An idempotency token to ensure that duplicate workflows are not created when Amazon Web Services HealthOmics submits retry requests.
+   *
    * @public
    */
   requestId?: string | undefined;
 
   /**
-   * <p>The computational accelerator specified to run the workflow.</p>
+   * The computational accelerator specified to run the workflow.
+   *
    * @public
    */
   accelerators?: Accelerators | undefined;
 
   /**
-   * <p>The default storage type for runs that use this workflow. The <code>storageType</code> can be overridden at run time. <code>DYNAMIC</code> storage dynamically scales the storage up or down, based on file system utilization. <code>STATIC</code> storage allocates a fixed amount of storage. For more information about dynamic and static storage types, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflows-run-types.html">Run storage types</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+   * The default storage type for runs that use this workflow. The `storageType` can be overridden at run time. `DYNAMIC` storage dynamically scales the storage up or down, based on file system utilization. `STATIC` storage allocates a fixed amount of storage. For more information about dynamic and static storage types, see [Run storage types](https://docs.aws.amazon.com/omics/latest/dev/workflows-run-types.html) in the *Amazon Web Services HealthOmics User Guide*.
+   *
    * @public
    */
   storageType?: StorageType | undefined;
 
   /**
-   * <p>(Optional) Use a container registry map to specify mappings between the ECR private repository and one or more upstream registries. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html">Container images</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+   * (Optional) Use a container registry map to specify mappings between the ECR private repository and one or more upstream registries. For more information, see [Container images](https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html) in the *Amazon Web Services HealthOmics User Guide*.
+   *
    * @public
    */
   containerRegistryMap?: ContainerRegistryMap | undefined;
 
   /**
-   * <p>(Optional) URI of the S3 location for the registry mapping file.</p>
+   * (Optional) URI of the S3 location for the registry mapping file.
+   *
    * @public
    */
   containerRegistryMapUri?: string | undefined;
 
   /**
-   * <p>The markdown content for the workflow's README file. This provides documentation and usage information for users of the workflow.</p>
+   * The markdown content for the workflow's README file. This provides documentation and usage information for users of the workflow.
+   *
    * @public
    */
   readmeMarkdown?: string | undefined;
 
   /**
-   * <p>The path to the workflow parameter template JSON file within the repository. This file defines the input parameters for runs that use this workflow. If not specified, the workflow will be created without a parameter template.</p>
+   * The path to the workflow parameter template JSON file within the repository. This file defines the input parameters for runs that use this workflow. If not specified, the workflow will be created without a parameter template.
+   *
    * @public
    */
   parameterTemplatePath?: string | undefined;
 
   /**
-   * <p>The path to the workflow README markdown file within the repository. This file provides documentation and usage information for the workflow. If not specified, the <code>README.md</code> file from the root directory of the repository will be used.</p>
+   * The path to the workflow README markdown file within the repository. This file provides documentation and usage information for the workflow. If not specified, the `README.md` file from the root directory of the repository will be used.
+   *
    * @public
    */
   readmePath?: string | undefined;
 
   /**
-   * <p>The repository information for the workflow definition. This allows you to source your workflow definition directly from a code repository.</p>
+   * The repository information for the workflow definition. This allows you to source your workflow definition directly from a code repository.
+   *
    * @public
    */
   definitionRepository?: DefinitionRepository | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the expected owner of the S3 bucket that contains the workflow definition. If not specified, the service skips the validation.</p>
+   * The Amazon Web Services account ID of the expected owner of the S3 bucket that contains the workflow definition. If not specified, the service skips the validation.
+   *
    * @public
    */
   workflowBucketOwnerId?: string | undefined;
 
   /**
-   * <p>The S3 URI of the README file for the workflow. This file provides documentation and usage information for the workflow. Requirements include:</p> <ul> <li> <p>The S3 URI must begin with <code>s3://USER-OWNED-BUCKET/</code> </p> </li> <li> <p>The requester must have access to the S3 bucket and object.</p> </li> <li> <p>The max README content length is 500 KiB.</p> </li> </ul>
+   * The S3 URI of the README file for the workflow. This file provides documentation and usage information for the workflow. Requirements include:
+   *
+   * - The S3 URI must begin with `s3://USER-OWNED-BUCKET/`
+   * - The requester must have access to the S3 bucket and object.
+   * - The max README content length is 500 KiB.
+   *
    * @public
    */
   readmeUri?: string | undefined;
@@ -3281,31 +3756,36 @@ export interface CreateWorkflowRequest {
  */
 export interface CreateWorkflowResponse {
   /**
-   * <p>The workflow's ARN.</p>
+   * The workflow's ARN.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The workflow's ID.</p>
+   * The workflow's ID.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The workflow's status.</p>
+   * The workflow's status.
+   *
    * @public
    */
   status?: WorkflowStatus | undefined;
 
   /**
-   * <p>The workflow's tags.</p>
+   * The workflow's tags.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The universally unique identifier (UUID) value for this workflow.</p>
+   * The universally unique identifier (UUID) value for this workflow.
+   *
    * @public
    */
   uuid?: string | undefined;
@@ -3316,127 +3796,154 @@ export interface CreateWorkflowResponse {
  */
 export interface CreateWorkflowVersionRequest {
   /**
-   * <p>The ID of the workflow where you are creating the new version. The <code>workflowId</code> is not the UUID.</p>
+   * The ID of the workflow where you are creating the new version. The `workflowId` is not the UUID.
+   *
    * @public
    */
   workflowId: string | undefined;
 
   /**
-   * <p>A name for the workflow version. Provide a version name that is unique for this workflow. You cannot change the name after HealthOmics creates the version. </p> <p>The version name must start with a letter or number and it can include upper-case and lower-case letters, numbers, hyphens, periods and underscores. The maximum length is 64 characters. You can use a simple naming scheme, such as version1, version2, version3. You can also match your workflow versions with your own internal versioning conventions, such as 2.7.0, 2.7.1, 2.7.2.</p>
+   * A name for the workflow version. Provide a version name that is unique for this workflow. You cannot change the name after HealthOmics creates the version.
+   *
+   * The version name must start with a letter or number and it can include upper-case and lower-case letters, numbers, hyphens, periods and underscores. The maximum length is 64 characters. You can use a simple naming scheme, such as version1, version2, version3. You can also match your workflow versions with your own internal versioning conventions, such as 2.7.0, 2.7.1, 2.7.2.
+   *
    * @public
    */
   versionName: string | undefined;
 
   /**
-   * <p>A ZIP archive containing the main workflow definition file and dependencies that it imports for this workflow version. You can use a file with a ://fileb prefix instead of the Base64 string. For more information, see Workflow definition requirements in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+   * A ZIP archive containing the main workflow definition file and dependencies that it imports for this workflow version. You can use a file with a ://fileb prefix instead of the Base64 string. For more information, see Workflow definition requirements in the *Amazon Web Services HealthOmics User Guide*.
+   *
    * @public
    */
   definitionZip?: Uint8Array | undefined;
 
   /**
-   * <p>The S3 URI of a definition for this workflow version. The S3 bucket must be in the same region as this workflow version.</p>
+   * The S3 URI of a definition for this workflow version. The S3 bucket must be in the same region as this workflow version.
+   *
    * @public
    */
   definitionUri?: string | undefined;
 
   /**
-   * <p>The computational accelerator for this workflow version.</p>
+   * The computational accelerator for this workflow version.
+   *
    * @public
    */
   accelerators?: Accelerators | undefined;
 
   /**
-   * <p>A description for this workflow version.</p>
+   * A description for this workflow version.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The workflow engine for this workflow version. This is only required if you have workflow definition files from more than one engine in your zip file. Otherwise, the service can detect the engine automatically from your workflow definition.</p>
+   * The workflow engine for this workflow version. This is only required if you have workflow definition files from more than one engine in your zip file. Otherwise, the service can detect the engine automatically from your workflow definition.
+   *
    * @public
    */
   engine?: WorkflowEngine | undefined;
 
   /**
-   * <p>The path of the main definition file for this workflow version. This parameter is not required if the ZIP archive contains only one workflow definition file, or if the main definition file is named “main”. An example path is: <code>workflow-definition/main-file.wdl</code>. </p>
+   * The path of the main definition file for this workflow version. This parameter is not required if the ZIP archive contains only one workflow definition file, or if the main definition file is named “main”. An example path is: `workflow-definition/main-file.wdl`.
+   *
    * @public
    */
   main?: string | undefined;
 
   /**
-   * <p>A parameter template for this workflow version. If this field is blank, Amazon Web Services HealthOmics will automatically parse the parameter template values from your workflow definition file. To override these service generated default values, provide a parameter template. To view an example of a parameter template, see <a href="https://docs.aws.amazon.com/omics/latest/dev/parameter-templates.html">Parameter template files</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+   * A parameter template for this workflow version. If this field is blank, Amazon Web Services HealthOmics will automatically parse the parameter template values from your workflow definition file. To override these service generated default values, provide a parameter template. To view an example of a parameter template, see [Parameter template files](https://docs.aws.amazon.com/omics/latest/dev/parameter-templates.html) in the *Amazon Web Services HealthOmics User Guide*.
+   *
    * @public
    */
   parameterTemplate?: Record<string, WorkflowParameter> | undefined;
 
   /**
-   * <p>An idempotency token to ensure that duplicate workflows are not created when Amazon Web Services HealthOmics submits retry requests.</p>
+   * An idempotency token to ensure that duplicate workflows are not created when Amazon Web Services HealthOmics submits retry requests.
+   *
    * @public
    */
   requestId?: string | undefined;
 
   /**
-   * <p>The default storage type for runs that use this workflow version. The <code>storageType</code> can be overridden at run time. <code>DYNAMIC</code> storage dynamically scales the storage up or down, based on file system utilization. STATIC storage allocates a fixed amount of storage. For more information about dynamic and static storage types, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflows-run-types.html">Run storage types</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+   * The default storage type for runs that use this workflow version. The `storageType` can be overridden at run time. `DYNAMIC` storage dynamically scales the storage up or down, based on file system utilization. STATIC storage allocates a fixed amount of storage. For more information about dynamic and static storage types, see [Run storage types](https://docs.aws.amazon.com/omics/latest/dev/workflows-run-types.html) in the *Amazon Web Services HealthOmics User Guide*.
+   *
    * @public
    */
   storageType?: StorageType | undefined;
 
   /**
-   * <p>The default static storage capacity (in gibibytes) for runs that use this workflow version. The <code>storageCapacity</code> can be overwritten at run time. The storage capacity is not required for runs with a <code>DYNAMIC</code> storage type.</p>
+   * The default static storage capacity (in gibibytes) for runs that use this workflow version. The `storageCapacity` can be overwritten at run time. The storage capacity is not required for runs with a `DYNAMIC` storage type.
+   *
    * @public
    */
   storageCapacity?: number | undefined;
 
   /**
-   * <p>Tags for this workflow version. You can define up to 50 tags for the workflow. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/add-a-tag.html">Adding a tag</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+   * Tags for this workflow version. You can define up to 50 tags for the workflow. For more information, see [Adding a tag](https://docs.aws.amazon.com/omics/latest/dev/add-a-tag.html) in the *Amazon Web Services HealthOmics User Guide*.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Amazon Web Services Id of the owner of the S3 bucket that contains the workflow definition. You need to specify this parameter if your account is not the bucket owner.</p>
+   * Amazon Web Services Id of the owner of the S3 bucket that contains the workflow definition. You need to specify this parameter if your account is not the bucket owner.
+   *
    * @public
    */
   workflowBucketOwnerId?: string | undefined;
 
   /**
-   * <p>(Optional) Use a container registry map to specify mappings between the ECR private repository and one or more upstream registries. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html">Container images</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+   * (Optional) Use a container registry map to specify mappings between the ECR private repository and one or more upstream registries. For more information, see [Container images](https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html) in the *Amazon Web Services HealthOmics User Guide*.
+   *
    * @public
    */
   containerRegistryMap?: ContainerRegistryMap | undefined;
 
   /**
-   * <p>(Optional) URI of the S3 location for the registry mapping file.</p>
+   * (Optional) URI of the S3 location for the registry mapping file.
+   *
    * @public
    */
   containerRegistryMapUri?: string | undefined;
 
   /**
-   * <p>The markdown content for the workflow version's README file. This provides documentation and usage information for users of this specific workflow version.</p>
+   * The markdown content for the workflow version's README file. This provides documentation and usage information for users of this specific workflow version.
+   *
    * @public
    */
   readmeMarkdown?: string | undefined;
 
   /**
-   * <p>The path to the workflow version parameter template JSON file within the repository. This file defines the input parameters for runs that use this workflow version. If not specified, the workflow version will be created without a parameter template.</p>
+   * The path to the workflow version parameter template JSON file within the repository. This file defines the input parameters for runs that use this workflow version. If not specified, the workflow version will be created without a parameter template.
+   *
    * @public
    */
   parameterTemplatePath?: string | undefined;
 
   /**
-   * <p>The path to the workflow version README markdown file within the repository. This file provides documentation and usage information for the workflow. If not specified, the <code>README.md</code> file from the root directory of the repository will be used.</p>
+   * The path to the workflow version README markdown file within the repository. This file provides documentation and usage information for the workflow. If not specified, the `README.md` file from the root directory of the repository will be used.
+   *
    * @public
    */
   readmePath?: string | undefined;
 
   /**
-   * <p>The repository information for the workflow version definition. This allows you to source your workflow version definition directly from a code repository.</p>
+   * The repository information for the workflow version definition. This allows you to source your workflow version definition directly from a code repository.
+   *
    * @public
    */
   definitionRepository?: DefinitionRepository | undefined;
 
   /**
-   * <p>The S3 URI of the README file for the workflow version. This file provides documentation and usage information for the workflow version. Requirements include:</p> <ul> <li> <p>The S3 URI must begin with <code>s3://USER-OWNED-BUCKET/</code> </p> </li> <li> <p>The requester must have access to the S3 bucket and object.</p> </li> <li> <p>The max README content length is 500 KiB.</p> </li> </ul>
+   * The S3 URI of the README file for the workflow version. This file provides documentation and usage information for the workflow version. Requirements include:
+   *
+   * - The S3 URI must begin with `s3://USER-OWNED-BUCKET/`
+   * - The requester must have access to the S3 bucket and object.
+   * - The max README content length is 500 KiB.
+   *
    * @public
    */
   readmeUri?: string | undefined;
@@ -3447,217 +3954,253 @@ export interface CreateWorkflowVersionRequest {
  */
 export interface CreateWorkflowVersionResponse {
   /**
-   * <p>ARN of the workflow version.</p>
+   * ARN of the workflow version.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The workflow's ID.</p>
+   * The workflow's ID.
+   *
    * @public
    */
   workflowId?: string | undefined;
 
   /**
-   * <p>The workflow version name.</p>
+   * The workflow version name.
+   *
    * @public
    */
   versionName?: string | undefined;
 
   /**
-   * <p>The workflow version status.</p>
+   * The workflow version status.
+   *
    * @public
    */
   status?: WorkflowStatus | undefined;
 
   /**
-   * <p>The workflow version's tags.</p>
+   * The workflow version's tags.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The universally unique identifier (UUID) value for this workflow version.</p>
+   * The universally unique identifier (UUID) value for this workflow version.
+   *
    * @public
    */
   uuid?: string | undefined;
 }
 
 /**
- * <p>Shared configuration applied to all runs in a batch. Fields specified in a per-run <code>InlineSetting</code> entry override the corresponding fields in this object for that run. The <code>parameters</code> and <code>runTags</code> fields are merged rather than replaced — run-specific values take precedence when keys overlap.</p>
+ * Shared configuration applied to all runs in a batch. Fields specified in a per-run `InlineSetting` entry override the corresponding fields in this object for that run. The `parameters` and `runTags` fields are merged rather than replaced — run-specific values take precedence when keys overlap.
+ *
  * @public
  */
 export interface DefaultRunSetting {
   /**
-   * <p>The identifier of the workflow to run.</p>
+   * The identifier of the workflow to run.
+   *
    * @public
    */
   workflowId: string | undefined;
 
   /**
-   * <p>The type of the originating workflow. Batch runs are not supported with <code>READY2RUN</code> workflows.</p>
+   * The type of the originating workflow. Batch runs are not supported with `READY2RUN` workflows.
+   *
    * @public
    */
   workflowType?: WorkflowType | undefined;
 
   /**
-   * <p>The IAM role ARN that grants HealthOmics permissions to access required Amazon Web Services resources such as Amazon S3 and CloudWatch. The role must have the same permissions required for individual <code>StartRun</code> calls.</p>
+   * The IAM role ARN that grants HealthOmics permissions to access required Amazon Web Services resources such as Amazon S3 and CloudWatch. The role must have the same permissions required for individual `StartRun` calls.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>An optional user-friendly name applied to each workflow run. Can be overridden per run.</p>
+   * An optional user-friendly name applied to each workflow run. Can be overridden per run.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The identifier of the run cache to associate with the runs.</p>
+   * The identifier of the run cache to associate with the runs.
+   *
    * @public
    */
   cacheId?: string | undefined;
 
   /**
-   * <p>The cache behavior for the runs. Requires <code>cacheId</code> to be set.</p>
+   * The cache behavior for the runs. Requires `cacheId` to be set.
+   *
    * @public
    */
   cacheBehavior?: CacheBehavior | undefined;
 
   /**
-   * <p>The ID of the run group to contain all workflow runs in the batch.</p>
+   * The ID of the run group to contain all workflow runs in the batch.
+   *
    * @public
    */
   runGroupId?: string | undefined;
 
   /**
-   * <p>An integer priority for the workflow runs. Higher values correspond to higher priority. A value of 0 corresponds to the lowest priority. Can be overridden per run.</p>
+   * An integer priority for the workflow runs. Higher values correspond to higher priority. A value of 0 corresponds to the lowest priority. Can be overridden per run.
+   *
    * @public
    */
   priority?: number | undefined;
 
   /**
-   * <p>Workflow parameter names and values shared across all runs. Merged with per-run parameters; run-specific values take precedence when keys overlap. Can be overridden per run.</p>
+   * Workflow parameter names and values shared across all runs. Merged with per-run parameters; run-specific values take precedence when keys overlap. Can be overridden per run.
+   *
    * @public
    */
   parameters?: __DocumentType | undefined;
 
   /**
-   * <p>The filesystem size in gibibytes (GiB) provisioned for each workflow run and shared by all tasks in that run. Defaults to 1200 GiB if not specified.</p>
+   * The filesystem size in gibibytes (GiB) provisioned for each workflow run and shared by all tasks in that run. Defaults to 1200 GiB if not specified.
+   *
    * @public
    */
   storageCapacity?: number | undefined;
 
   /**
-   * <p>The destination S3 URI for workflow outputs. Must begin with <code>s3://</code>. The <code>roleArn</code> must grant write permissions to this bucket. Can be overridden per run.</p>
+   * The destination S3 URI for workflow outputs. Must begin with `s3://`. The `roleArn` must grant write permissions to this bucket. Can be overridden per run.
+   *
    * @public
    */
   outputUri?: string | undefined;
 
   /**
-   * <p>The verbosity level for CloudWatch Logs emitted during each run.</p>
+   * The verbosity level for CloudWatch Logs emitted during each run.
+   *
    * @public
    */
   logLevel?: RunLogLevel | undefined;
 
   /**
-   * <p>Amazon Web Services tags to associate with each workflow run. Merged with per-run <code>runTags</code>; run-specific values take precedence when keys overlap.</p>
+   * Amazon Web Services tags to associate with each workflow run. Merged with per-run `runTags`; run-specific values take precedence when keys overlap.
+   *
    * @public
    */
   runTags?: Record<string, string> | undefined;
 
   /**
-   * <p>The retention behavior for runs after completion.</p>
+   * The retention behavior for runs after completion.
+   *
    * @public
    */
   retentionMode?: RunRetentionMode | undefined;
 
   /**
-   * <p>The storage type for the workflow runs.</p>
+   * The storage type for the workflow runs.
+   *
    * @public
    */
   storageType?: StorageType | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the workflow owner, used for cross-account workflow sharing.</p>
+   * The Amazon Web Services account ID of the workflow owner, used for cross-account workflow sharing.
+   *
    * @public
    */
   workflowOwnerId?: string | undefined;
 
   /**
-   * <p>The expected Amazon Web Services account ID of the owner of the output S3 bucket. Can be overridden per run.</p>
+   * The expected Amazon Web Services account ID of the owner of the output S3 bucket. Can be overridden per run.
+   *
    * @public
    */
   outputBucketOwnerId?: string | undefined;
 
   /**
-   * <p>The version name of the specified workflow.</p>
+   * The version name of the specified workflow.
+   *
    * @public
    */
   workflowVersionName?: string | undefined;
 
   /**
-   * <p>Optional configuration for run networking behavior. If not specified, this will default to RESTRICTED.</p>
+   * Optional configuration for run networking behavior. If not specified, this will default to RESTRICTED.
+   *
    * @public
    */
   networkingMode?: NetworkingMode | undefined;
 
   /**
-   * <p>Optional configuration name to use for the workflow run.</p>
+   * Optional configuration name to use for the workflow run.
+   *
    * @public
    */
   configurationName?: string | undefined;
 
   /**
-   * <p>Optional inline policy json for scoping down permissions via a session policy on the IAM role provided in the roleArn parameter.</p>
+   * Optional inline policy json for scoping down permissions via a session policy on the IAM role provided in the roleArn parameter.
+   *
    * @public
    */
   sessionPolicy?: string | undefined;
 
   /**
-   * <p>Engine-specific settings for the workflow run. Use this field to specify configuration options that are specific to the workflow engine (for example, Nextflow profiles).</p>
+   * Engine-specific settings for the workflow run. Use this field to specify configuration options that are specific to the workflow engine (for example, Nextflow profiles).
+   *
    * @public
    */
   engineSettings?: __DocumentType | undefined;
 
   /**
-   * <p>Optional configuration for enabling scratch ephemeral storage mounted at /tmp. If not specified, this will default to SHARED. This configuration is applicable only for CPU tasks. For tasks using GPUs, scratch storage is always LOCAL.</p>
+   * Optional configuration for enabling scratch ephemeral storage mounted at /tmp. If not specified, this will default to SHARED. This configuration is applicable only for CPU tasks. For tasks using GPUs, scratch storage is always LOCAL.
+   *
    * @public
    */
   scratchStorageMode?: ScratchStorageMode | undefined;
 }
 
 /**
- * <p>Contains detailed information about the source code repository that hosts the workflow definition files.</p>
+ * Contains detailed information about the source code repository that hosts the workflow definition files.
+ *
  * @public
  */
 export interface DefinitionRepositoryDetails {
   /**
-   * <p>The Amazon Resource Name (ARN) of the connection to the source code repository.</p>
+   * The Amazon Resource Name (ARN) of the connection to the source code repository.
+   *
    * @public
    */
   connectionArn?: string | undefined;
 
   /**
-   * <p>The full repository identifier, including the repository owner and name. For example, 'repository-owner/repository-name'.</p>
+   * The full repository identifier, including the repository owner and name. For example, 'repository-owner/repository-name'.
+   *
    * @public
    */
   fullRepositoryId?: string | undefined;
 
   /**
-   * <p>The source reference for the repository, such as a branch name, tag, or commit ID.</p>
+   * The source reference for the repository, such as a branch name, tag, or commit ID.
+   *
    * @public
    */
   sourceReference?: SourceReference | undefined;
 
   /**
-   * <p>The provider type of the source code repository, such as Bitbucket, GitHub, GitHubEnterpriseServer, GitLab, and GitLabSelfManaged.</p>
+   * The provider type of the source code repository, such as Bitbucket, GitHub, GitHubEnterpriseServer, GitLab, and GitLabSelfManaged.
+   *
    * @public
    */
   providerType?: string | undefined;
 
   /**
-   * <p>The endpoint URL of the source code repository provider.</p>
+   * The endpoint URL of the source code repository provider.
+   *
    * @public
    */
   providerEndpoint?: string | undefined;
@@ -3668,7 +4211,8 @@ export interface DefinitionRepositoryDetails {
  */
 export interface DeleteBatchRequest {
   /**
-   * <p>The identifier portion of the run batch ARN.</p>
+   * The identifier portion of the run batch ARN.
+   *
    * @public
    */
   batchId: string | undefined;
@@ -3679,13 +4223,15 @@ export interface DeleteBatchRequest {
  */
 export interface DeleteReferenceRequest {
   /**
-   * <p>The reference's ID.</p>
+   * The reference's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The reference's store ID.</p>
+   * The reference's store ID.
+   *
    * @public
    */
   referenceStoreId: string | undefined;
@@ -3701,7 +4247,8 @@ export interface DeleteReferenceResponse {}
  */
 export interface DeleteReferenceStoreRequest {
   /**
-   * <p>The store's ID.</p>
+   * The store's ID.
+   *
    * @public
    */
   id: string | undefined;
@@ -3717,7 +4264,8 @@ export interface DeleteReferenceStoreResponse {}
  */
 export interface DeleteRunRequest {
   /**
-   * <p>The run's ID.</p>
+   * The run's ID.
+   *
    * @public
    */
   id: string | undefined;
@@ -3728,7 +4276,8 @@ export interface DeleteRunRequest {
  */
 export interface DeleteRunBatchRequest {
   /**
-   * <p>The identifier portion of the run batch ARN.</p>
+   * The identifier portion of the run batch ARN.
+   *
    * @public
    */
   batchId: string | undefined;
@@ -3744,7 +4293,8 @@ export interface DeleteRunBatchResponse {}
  */
 export interface DeleteRunCacheRequest {
   /**
-   * <p>Run cache identifier for the cache you want to delete.</p>
+   * Run cache identifier for the cache you want to delete.
+   *
    * @public
    */
   id: string | undefined;
@@ -3755,7 +4305,8 @@ export interface DeleteRunCacheRequest {
  */
 export interface DeleteRunGroupRequest {
   /**
-   * <p>The run group's ID.</p>
+   * The run group's ID.
+   *
    * @public
    */
   id: string | undefined;
@@ -3766,7 +4317,8 @@ export interface DeleteRunGroupRequest {
  */
 export interface DeleteS3AccessPolicyRequest {
   /**
-   * <p>The S3 access point ARN that has the access policy.</p>
+   * The S3 access point ARN that has the access policy.
+   *
    * @public
    */
   s3AccessPointArn: string | undefined;
@@ -3782,7 +4334,8 @@ export interface DeleteS3AccessPolicyResponse {}
  */
 export interface DeleteSequenceStoreRequest {
   /**
-   * <p>The sequence store's ID.</p>
+   * The sequence store's ID.
+   *
    * @public
    */
   id: string | undefined;
@@ -3798,7 +4351,8 @@ export interface DeleteSequenceStoreResponse {}
  */
 export interface DeleteShareRequest {
   /**
-   * <p>The ID for the resource share to be deleted.</p>
+   * The ID for the resource share to be deleted.
+   *
    * @public
    */
   shareId: string | undefined;
@@ -3809,7 +4363,8 @@ export interface DeleteShareRequest {
  */
 export interface DeleteShareResponse {
   /**
-   * <p>The status of the share being deleted.</p>
+   * The status of the share being deleted.
+   *
    * @public
    */
   status?: ShareStatus | undefined;
@@ -3820,13 +4375,15 @@ export interface DeleteShareResponse {
  */
 export interface DeleteVariantStoreRequest {
   /**
-   * <p>The store's name.</p>
+   * The store's name.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Whether to force deletion.</p>
+   * Whether to force deletion.
+   *
    * @public
    */
   force?: boolean | undefined;
@@ -3837,7 +4394,8 @@ export interface DeleteVariantStoreRequest {
  */
 export interface DeleteVariantStoreResponse {
   /**
-   * <p>The store's status.</p>
+   * The store's status.
+   *
    * @public
    */
   status: StoreStatus | undefined;
@@ -3848,7 +4406,8 @@ export interface DeleteVariantStoreResponse {
  */
 export interface DeleteWorkflowRequest {
   /**
-   * <p>The workflow's ID.</p>
+   * The workflow's ID.
+   *
    * @public
    */
   id: string | undefined;
@@ -3859,205 +4418,239 @@ export interface DeleteWorkflowRequest {
  */
 export interface DeleteWorkflowVersionRequest {
   /**
-   * <p>The workflow's ID.</p>
+   * The workflow's ID.
+   *
    * @public
    */
   workflowId: string | undefined;
 
   /**
-   * <p>The workflow version name.</p>
+   * The workflow version name.
+   *
    * @public
    */
   versionName: string | undefined;
 }
 
 /**
- * <p>The entity tag (ETag) is a hash of the object representing its semantic content.</p>
+ * The entity tag (ETag) is a hash of the object representing its semantic content.
+ *
  * @public
  */
 export interface ETag {
   /**
-   * <p>The algorithm used to calculate the read set’s ETag(s).</p>
+   * The algorithm used to calculate the read set’s ETag(s).
+   *
    * @public
    */
   algorithm?: ETagAlgorithm | undefined;
 
   /**
-   * <p>The ETag hash calculated on Source1 of the read set.</p>
+   * The ETag hash calculated on Source1 of the read set.
+   *
    * @public
    */
   source1?: string | undefined;
 
   /**
-   * <p>The ETag hash calculated on Source2 of the read set.</p>
+   * The ETag hash calculated on Source2 of the read set.
+   *
    * @public
    */
   source2?: string | undefined;
 }
 
 /**
- * <p>A read set.</p>
+ * A read set.
+ *
  * @public
  */
 export interface ExportReadSet {
   /**
-   * <p>The set's ID.</p>
+   * The set's ID.
+   *
    * @public
    */
   readSetId: string | undefined;
 }
 
 /**
- * <p>Details about a read set.</p>
+ * Details about a read set.
+ *
  * @public
  */
 export interface ExportReadSetDetail {
   /**
-   * <p>The set's ID.</p>
+   * The set's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The set's status.</p>
+   * The set's status.
+   *
    * @public
    */
   status: ReadSetExportJobItemStatus | undefined;
 
   /**
-   * <p>The set's status message.</p>
+   * The set's status message.
+   *
    * @public
    */
   statusMessage?: string | undefined;
 }
 
 /**
- * <p>An read set export job filter.</p>
+ * An read set export job filter.
+ *
  * @public
  */
 export interface ExportReadSetFilter {
   /**
-   * <p>A status to filter on.</p>
+   * A status to filter on.
+   *
    * @public
    */
   status?: ReadSetExportJobStatus | undefined;
 
   /**
-   * <p>The filter's start date.</p>
+   * The filter's start date.
+   *
    * @public
    */
   createdAfter?: Date | undefined;
 
   /**
-   * <p>The filter's end date.</p>
+   * The filter's end date.
+   *
    * @public
    */
   createdBefore?: Date | undefined;
 }
 
 /**
- * <p>Details about a read set export job.</p>
+ * Details about a read set export job.
+ *
  * @public
  */
 export interface ExportReadSetJobDetail {
   /**
-   * <p>The job's ID.</p>
+   * The job's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The job's sequence store ID.</p>
+   * The job's sequence store ID.
+   *
    * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * <p>The job's destination in Amazon S3.</p>
+   * The job's destination in Amazon S3.
+   *
    * @public
    */
   destination: string | undefined;
 
   /**
-   * <p>The job's status.</p>
+   * The job's status.
+   *
    * @public
    */
   status: ReadSetExportJobStatus | undefined;
 
   /**
-   * <p>When the job was created.</p>
+   * When the job was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>When the job completed.</p>
+   * When the job completed.
+   *
    * @public
    */
   completionTime?: Date | undefined;
 }
 
 /**
- * <p>The S3 URI for each read set file.</p>
+ * The S3 URI for each read set file.
+ *
  * @public
  */
 export interface ReadSetS3Access {
   /**
-   * <p>The S3 URI for each read set file.</p>
+   * The S3 URI for each read set file.
+   *
    * @public
    */
   s3Uri?: string | undefined;
 }
 
 /**
- * <p>Details about a file.</p>
+ * Details about a file.
+ *
  * @public
  */
 export interface FileInformation {
   /**
-   * <p>The file's total parts.</p>
+   * The file's total parts.
+   *
    * @public
    */
   totalParts?: number | undefined;
 
   /**
-   * <p>The file's part size.</p>
+   * The file's part size.
+   *
    * @public
    */
   partSize?: number | undefined;
 
   /**
-   * <p>The file's content length.</p>
+   * The file's content length.
+   *
    * @public
    */
   contentLength?: number | undefined;
 
   /**
-   * <p>The S3 URI metadata of a sequence store.</p>
+   * The S3 URI metadata of a sequence store.
+   *
    * @public
    */
   s3Access?: ReadSetS3Access | undefined;
 }
 
 /**
- * <p>Use filters to return a subset of resources. You can define filters for specific parameters, such as the resource status.</p>
+ * Use filters to return a subset of resources. You can define filters for specific parameters, such as the resource status.
+ *
  * @public
  */
 export interface Filter {
   /**
-   * <p>Filter based on the Amazon Resource Number (ARN) of the resource. You can specify up to 10 values.</p>
+   * Filter based on the Amazon Resource Number (ARN) of the resource. You can specify up to 10 values.
+   *
    * @public
    */
   resourceArns?: string[] | undefined;
 
   /**
-   * <p>Filter based on the resource status. You can specify up to 10 values.</p>
+   * Filter based on the resource status. You can specify up to 10 values.
+   *
    * @public
    */
   status?: ShareStatus[] | undefined;
 
   /**
-   * <p>The type of resources to be filtered. You can specify one or more of the resource types.</p>
+   * The type of resources to be filtered. You can specify one or more of the resource types.
+   *
    * @public
    */
   type?: ShareResourceType[] | undefined;
@@ -4068,109 +4661,127 @@ export interface Filter {
  */
 export interface GetBatchRequest {
   /**
-   * <p>The identifier portion of the run batch ARN.</p>
+   * The identifier portion of the run batch ARN.
+   *
    * @public
    */
   batchId: string | undefined;
 }
 
 /**
- * <p>A summary of the runs in a batch.</p>
+ * A summary of the runs in a batch.
+ *
  * @public
  */
 export interface RunSummary {
   /**
-   * <p>The number of pending runs.</p>
+   * The number of pending runs.
+   *
    * @public
    */
   pendingRunCount?: number | undefined;
 
   /**
-   * <p>The number of starting runs.</p>
+   * The number of starting runs.
+   *
    * @public
    */
   startingRunCount?: number | undefined;
 
   /**
-   * <p>The number of running runs.</p>
+   * The number of running runs.
+   *
    * @public
    */
   runningRunCount?: number | undefined;
 
   /**
-   * <p>The number of stopping runs.</p>
+   * The number of stopping runs.
+   *
    * @public
    */
   stoppingRunCount?: number | undefined;
 
   /**
-   * <p>The number of completed runs.</p>
+   * The number of completed runs.
+   *
    * @public
    */
   completedRunCount?: number | undefined;
 
   /**
-   * <p>The number of deleted runs.</p>
+   * The number of deleted runs.
+   *
    * @public
    */
   deletedRunCount?: number | undefined;
 
   /**
-   * <p>The number of failed runs.</p>
+   * The number of failed runs.
+   *
    * @public
    */
   failedRunCount?: number | undefined;
 
   /**
-   * <p>The number of cancelled runs.</p>
+   * The number of cancelled runs.
+   *
    * @public
    */
   cancelledRunCount?: number | undefined;
 }
 
 /**
- * <p>A summary of the submissions in a batch.</p>
+ * A summary of the submissions in a batch.
+ *
  * @public
  */
 export interface SubmissionSummary {
   /**
-   * <p>The number of successful start submissions.</p>
+   * The number of successful start submissions.
+   *
    * @public
    */
   successfulStartSubmissionCount?: number | undefined;
 
   /**
-   * <p>The number of failed start submissions.</p>
+   * The number of failed start submissions.
+   *
    * @public
    */
   failedStartSubmissionCount?: number | undefined;
 
   /**
-   * <p>The number of pending start submissions.</p>
+   * The number of pending start submissions.
+   *
    * @public
    */
   pendingStartSubmissionCount?: number | undefined;
 
   /**
-   * <p>The number of successful cancel submissions.</p>
+   * The number of successful cancel submissions.
+   *
    * @public
    */
   successfulCancelSubmissionCount?: number | undefined;
 
   /**
-   * <p>The number of failed cancel submissions.</p>
+   * The number of failed cancel submissions.
+   *
    * @public
    */
   failedCancelSubmissionCount?: number | undefined;
 
   /**
-   * <p>The number of successful delete submissions.</p>
+   * The number of successful delete submissions.
+   *
    * @public
    */
   successfulDeleteSubmissionCount?: number | undefined;
 
   /**
-   * <p>The number of failed delete submissions.</p>
+   * The number of failed delete submissions.
+   *
    * @public
    */
   failedDeleteSubmissionCount?: number | undefined;
@@ -4181,91 +4792,106 @@ export interface SubmissionSummary {
  */
 export interface GetBatchResponse {
   /**
-   * <p>The identifier portion of the run batch ARN.</p>
+   * The identifier portion of the run batch ARN.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The unique ARN of the run batch.</p>
+   * The unique ARN of the run batch.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The universally unique identifier (UUID) for the run batch.</p>
+   * The universally unique identifier (UUID) for the run batch.
+   *
    * @public
    */
   uuid?: string | undefined;
 
   /**
-   * <p>The optional user-friendly name of the batch.</p>
+   * The optional user-friendly name of the batch.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The current status of the run batch. Possible values: <code>CREATING</code> (initial setup), <code>PENDING</code> (ready to submit runs), <code>SUBMITTING</code> (submitting runs), <code>INPROGRESS</code> (runs executing), <code>STOPPING</code> (cancellation in progress), <code>PROCESSED</code> (all runs completed), <code>CANCELLED</code> (batch cancelled), <code>FAILED</code> (batch failed), <code>RUNS_DELETING</code> (deleting runs), <code>RUNS_DELETE_FAILED</code> (run deletion failed for some or all runs), <code>RUNS_DELETED</code> (runs deleted).</p>
+   * The current status of the run batch. Possible values: `CREATING` (initial setup), `PENDING` (ready to submit runs), `SUBMITTING` (submitting runs), `INPROGRESS` (runs executing), `STOPPING` (cancellation in progress), `PROCESSED` (all runs completed), `CANCELLED` (batch cancelled), `FAILED` (batch failed), `RUNS_DELETING` (deleting runs), `RUNS_DELETE_FAILED` (run deletion failed for some or all runs), `RUNS_DELETED` (runs deleted).
+   *
    * @public
    */
   status?: BatchStatus | undefined;
 
   /**
-   * <p>Amazon Web Services tags associated with the run batch.</p>
+   * Amazon Web Services tags associated with the run batch.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The total number of runs in the batch.</p>
+   * The total number of runs in the batch.
+   *
    * @public
    */
   totalRuns?: number | undefined;
 
   /**
-   * <p>The shared configuration applied to all runs in the batch. See <code>DefaultRunSetting</code>.</p>
+   * The shared configuration applied to all runs in the batch. See `DefaultRunSetting`.
+   *
    * @public
    */
   defaultRunSetting?: DefaultRunSetting | undefined;
 
   /**
-   * <p>A summary of run submission outcomes. See <code>SubmissionSummary</code>.</p>
+   * A summary of run submission outcomes. See `SubmissionSummary`.
+   *
    * @public
    */
   submissionSummary?: SubmissionSummary | undefined;
 
   /**
-   * <p>A summary of run execution states. Run execution counts are eventually consistent and may lag behind actual run states. Final counts are accurate once the batch reaches <code>PROCESSED</code> status. See <code>RunSummary</code>.</p>
+   * A summary of run execution states. Run execution counts are eventually consistent and may lag behind actual run states. Final counts are accurate once the batch reaches `PROCESSED` status. See `RunSummary`.
+   *
    * @public
    */
   runSummary?: RunSummary | undefined;
 
   /**
-   * <p>The timestamp when the batch was created.</p>
+   * The timestamp when the batch was created.
+   *
    * @public
    */
   creationTime?: Date | undefined;
 
   /**
-   * <p>The timestamp when all run submissions completed.</p>
+   * The timestamp when all run submissions completed.
+   *
    * @public
    */
   submittedTime?: Date | undefined;
 
   /**
-   * <p>The timestamp when all run executions completed.</p>
+   * The timestamp when all run executions completed.
+   *
    * @public
    */
   processedTime?: Date | undefined;
 
   /**
-   * <p>The timestamp when the batch transitioned to a <code>FAILED</code> status.</p>
+   * The timestamp when the batch transitioned to a `FAILED` status.
+   *
    * @public
    */
   failedTime?: Date | undefined;
 
   /**
-   * <p>A description of the batch failure. Present only when status is <code>FAILED</code>.</p>
+   * A description of the batch failure. Present only when status is `FAILED`.
+   *
    * @public
    */
   failureReason?: string | undefined;
@@ -4276,25 +4902,29 @@ export interface GetBatchResponse {
  */
 export interface GetReadSetRequest {
   /**
-   * <p>The read set's ID.</p>
+   * The read set's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The read set's sequence store ID.</p>
+   * The read set's sequence store ID.
+   *
    * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * <p>The file to retrieve.</p>
+   * The file to retrieve.
+   *
    * @public
    */
   file?: ReadSetFile | undefined;
 
   /**
-   * <p>The part number to retrieve.</p>
+   * The part number to retrieve.
+   *
    * @public
    */
   partNumber: number | undefined;
@@ -4305,7 +4935,8 @@ export interface GetReadSetRequest {
  */
 export interface GetReadSetResponse {
   /**
-   * <p>The read set file payload.</p>
+   * The read set file payload.
+   *
    * @public
    */
   payload?: StreamingBlobTypes | undefined;
@@ -4316,13 +4947,15 @@ export interface GetReadSetResponse {
  */
 export interface GetReadSetActivationJobRequest {
   /**
-   * <p>The job's ID.</p>
+   * The job's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The job's sequence store ID.</p>
+   * The job's sequence store ID.
+   *
    * @public
    */
   sequenceStoreId: string | undefined;
@@ -4333,43 +4966,50 @@ export interface GetReadSetActivationJobRequest {
  */
 export interface GetReadSetActivationJobResponse {
   /**
-   * <p>The job's ID.</p>
+   * The job's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The job's sequence store ID.</p>
+   * The job's sequence store ID.
+   *
    * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * <p>The job's status.</p>
+   * The job's status.
+   *
    * @public
    */
   status: ReadSetActivationJobStatus | undefined;
 
   /**
-   * <p>The job's status message.</p>
+   * The job's status message.
+   *
    * @public
    */
   statusMessage?: string | undefined;
 
   /**
-   * <p>When the job was created.</p>
+   * When the job was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>When the job completed.</p>
+   * When the job completed.
+   *
    * @public
    */
   completionTime?: Date | undefined;
 
   /**
-   * <p>The job's source files.</p>
+   * The job's source files.
+   *
    * @public
    */
   sources?: ActivateReadSetSourceItem[] | undefined;
@@ -4380,13 +5020,15 @@ export interface GetReadSetActivationJobResponse {
  */
 export interface GetReadSetExportJobRequest {
   /**
-   * <p>The job's sequence store ID.</p>
+   * The job's sequence store ID.
+   *
    * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * <p>The job's ID.</p>
+   * The job's ID.
+   *
    * @public
    */
   id: string | undefined;
@@ -4397,49 +5039,57 @@ export interface GetReadSetExportJobRequest {
  */
 export interface GetReadSetExportJobResponse {
   /**
-   * <p>The job's ID.</p>
+   * The job's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The job's sequence store ID.</p>
+   * The job's sequence store ID.
+   *
    * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * <p>The job's destination in Amazon S3.</p>
+   * The job's destination in Amazon S3.
+   *
    * @public
    */
   destination: string | undefined;
 
   /**
-   * <p>The job's status.</p>
+   * The job's status.
+   *
    * @public
    */
   status: ReadSetExportJobStatus | undefined;
 
   /**
-   * <p>The job's status message.</p>
+   * The job's status message.
+   *
    * @public
    */
   statusMessage?: string | undefined;
 
   /**
-   * <p>When the job was created.</p>
+   * When the job was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>When the job completed.</p>
+   * When the job completed.
+   *
    * @public
    */
   completionTime?: Date | undefined;
 
   /**
-   * <p>The job's read sets.</p>
+   * The job's read sets.
+   *
    * @public
    */
   readSets?: ExportReadSetDetail[] | undefined;
@@ -4450,109 +5100,127 @@ export interface GetReadSetExportJobResponse {
  */
 export interface GetReadSetImportJobRequest {
   /**
-   * <p>The job's ID.</p>
+   * The job's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The job's sequence store ID.</p>
+   * The job's sequence store ID.
+   *
    * @public
    */
   sequenceStoreId: string | undefined;
 }
 
 /**
- * <p>Source files for a sequence.</p>
+ * Source files for a sequence.
+ *
  * @public
  */
 export interface SourceFiles {
   /**
-   * <p>The location of the first file in Amazon S3.</p>
+   * The location of the first file in Amazon S3.
+   *
    * @public
    */
   source1: string | undefined;
 
   /**
-   * <p>The location of the second file in Amazon S3.</p>
+   * The location of the second file in Amazon S3.
+   *
    * @public
    */
   source2?: string | undefined;
 }
 
 /**
- * <p>A source for an import read set job.</p>
+ * A source for an import read set job.
+ *
  * @public
  */
 export interface ImportReadSetSourceItem {
   /**
-   * <p>The source files' location in Amazon S3.</p>
+   * The source files' location in Amazon S3.
+   *
    * @public
    */
   sourceFiles: SourceFiles | undefined;
 
   /**
-   * <p>The source's file type.</p>
+   * The source's file type.
+   *
    * @public
    */
   sourceFileType: FileType | undefined;
 
   /**
-   * <p>The source's status.</p>
+   * The source's status.
+   *
    * @public
    */
   status: ReadSetImportJobItemStatus | undefined;
 
   /**
-   * <p>The source's status message.</p>
+   * The source's status message.
+   *
    * @public
    */
   statusMessage?: string | undefined;
 
   /**
-   * <p>The source's subject ID.</p>
+   * The source's subject ID.
+   *
    * @public
    */
   subjectId: string | undefined;
 
   /**
-   * <p>The source's sample ID.</p>
+   * The source's sample ID.
+   *
    * @public
    */
   sampleId: string | undefined;
 
   /**
-   * <p>Where the source originated.</p>
+   * Where the source originated.
+   *
    * @public
    */
   generatedFrom?: string | undefined;
 
   /**
-   * <p>The source's genome reference ARN.</p>
+   * The source's genome reference ARN.
+   *
    * @public
    */
   referenceArn?: string | undefined;
 
   /**
-   * <p>The source's name.</p>
+   * The source's name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The source's description.</p>
+   * The source's description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The source's tags.</p>
+   * The source's tags.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The source's read set ID.</p>
+   * The source's read set ID.
+   *
    * @public
    */
   readSetId?: string | undefined;
@@ -4563,49 +5231,57 @@ export interface ImportReadSetSourceItem {
  */
 export interface GetReadSetImportJobResponse {
   /**
-   * <p>The job's ID.</p>
+   * The job's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The job's sequence store ID.</p>
+   * The job's sequence store ID.
+   *
    * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * <p>The job's service role ARN.</p>
+   * The job's service role ARN.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>The job's status.</p>
+   * The job's status.
+   *
    * @public
    */
   status: ReadSetImportJobStatus | undefined;
 
   /**
-   * <p>The job's status message.</p>
+   * The job's status message.
+   *
    * @public
    */
   statusMessage?: string | undefined;
 
   /**
-   * <p>When the job was created.</p>
+   * When the job was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>When the job completed.</p>
+   * When the job completed.
+   *
    * @public
    */
   completionTime?: Date | undefined;
 
   /**
-   * <p>The job's source files.</p>
+   * The job's source files.
+   *
    * @public
    */
   sources: ImportReadSetSourceItem[] | undefined;
@@ -4616,67 +5292,78 @@ export interface GetReadSetImportJobResponse {
  */
 export interface GetReadSetMetadataRequest {
   /**
-   * <p>The read set's ID.</p>
+   * The read set's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The read set's sequence store ID.</p>
+   * The read set's sequence store ID.
+   *
    * @public
    */
   sequenceStoreId: string | undefined;
 }
 
 /**
- * <p>Files in a read set.</p>
+ * Files in a read set.
+ *
  * @public
  */
 export interface ReadSetFiles {
   /**
-   * <p>The location of the first file in Amazon S3.</p>
+   * The location of the first file in Amazon S3.
+   *
    * @public
    */
   source1?: FileInformation | undefined;
 
   /**
-   * <p>The location of the second file in Amazon S3.</p>
+   * The location of the second file in Amazon S3.
+   *
    * @public
    */
   source2?: FileInformation | undefined;
 
   /**
-   * <p>The files' index.</p>
+   * The files' index.
+   *
    * @public
    */
   index?: FileInformation | undefined;
 }
 
 /**
- * <p>Details about a sequence.</p>
+ * Details about a sequence.
+ *
  * @public
  */
 export interface SequenceInformation {
   /**
-   * <p>The sequence's total read count.</p>
+   * The sequence's total read count.
+   *
    * @public
    */
   totalReadCount?: number | undefined;
 
   /**
-   * <p>The sequence's total base count.</p>
+   * The sequence's total base count.
+   *
    * @public
    */
   totalBaseCount?: number | undefined;
 
   /**
-   * <p>Where the sequence originated.</p>
+   * Where the sequence originated.
+   *
    * @public
    */
   generatedFrom?: string | undefined;
 
   /**
-   * <p>The sequence's alignment setting.</p>
+   * The sequence's alignment setting.
+   *
    * @public
    */
   alignment?: string | undefined;
@@ -4687,103 +5374,120 @@ export interface SequenceInformation {
  */
 export interface GetReadSetMetadataResponse {
   /**
-   * <p>The read set's ID.</p>
+   * The read set's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The read set's ARN.</p>
+   * The read set's ARN.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The read set's sequence store ID.</p>
+   * The read set's sequence store ID.
+   *
    * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * <p>The read set's subject ID.</p>
+   * The read set's subject ID.
+   *
    * @public
    */
   subjectId?: string | undefined;
 
   /**
-   * <p>The read set's sample ID.</p>
+   * The read set's sample ID.
+   *
    * @public
    */
   sampleId?: string | undefined;
 
   /**
-   * <p>The read set's status.</p>
+   * The read set's status.
+   *
    * @public
    */
   status: ReadSetStatus | undefined;
 
   /**
-   * <p>The read set's name.</p>
+   * The read set's name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The read set's description.</p>
+   * The read set's description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The read set's file type.</p>
+   * The read set's file type.
+   *
    * @public
    */
   fileType: FileType | undefined;
 
   /**
-   * <p>When the read set was created.</p>
+   * When the read set was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>The read set's sequence information.</p>
+   * The read set's sequence information.
+   *
    * @public
    */
   sequenceInformation?: SequenceInformation | undefined;
 
   /**
-   * <p>The read set's genome reference ARN.</p>
+   * The read set's genome reference ARN.
+   *
    * @public
    */
   referenceArn?: string | undefined;
 
   /**
-   * <p>The read set's files.</p>
+   * The read set's files.
+   *
    * @public
    */
   files?: ReadSetFiles | undefined;
 
   /**
-   * <p>The status message for a read set. It provides more detail as to why the read set has a status. </p>
+   * The status message for a read set. It provides more detail as to why the read set has a status.
+   *
    * @public
    */
   statusMessage?: string | undefined;
 
   /**
-   * <p> The creation type of the read set. </p>
+   * The creation type of the read set.
+   *
    * @public
    */
   creationType?: CreationType | undefined;
 
   /**
-   * <p>The entity tag (ETag) is a hash of the object meant to represent its semantic content.</p>
+   * The entity tag (ETag) is a hash of the object meant to represent its semantic content.
+   *
    * @public
    */
   etag?: ETag | undefined;
 
   /**
-   * <p>The read set's creation job ID.</p>
+   * The read set's creation job ID.
+   *
    * @public
    */
   creationJobId?: string | undefined;
@@ -4794,31 +5498,36 @@ export interface GetReadSetMetadataResponse {
  */
 export interface GetReferenceRequest {
   /**
-   * <p>The reference's ID.</p>
+   * The reference's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The reference's store ID.</p>
+   * The reference's store ID.
+   *
    * @public
    */
   referenceStoreId: string | undefined;
 
   /**
-   * <p>The range to retrieve.</p>
+   * The range to retrieve.
+   *
    * @public
    */
   range?: string | undefined;
 
   /**
-   * <p>The part number to retrieve.</p>
+   * The part number to retrieve.
+   *
    * @public
    */
   partNumber: number | undefined;
 
   /**
-   * <p>The file to retrieve.</p>
+   * The file to retrieve.
+   *
    * @public
    */
   file?: ReferenceFile | undefined;
@@ -4829,7 +5538,8 @@ export interface GetReferenceRequest {
  */
 export interface GetReferenceResponse {
   /**
-   * <p>The reference file payload.</p>
+   * The reference file payload.
+   *
    * @public
    */
   payload?: StreamingBlobTypes | undefined;
@@ -4840,61 +5550,71 @@ export interface GetReferenceResponse {
  */
 export interface GetReferenceImportJobRequest {
   /**
-   * <p>The job's ID.</p>
+   * The job's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The job's reference store ID.</p>
+   * The job's reference store ID.
+   *
    * @public
    */
   referenceStoreId: string | undefined;
 }
 
 /**
- * <p>An genome reference source.</p>
+ * An genome reference source.
+ *
  * @public
  */
 export interface ImportReferenceSourceItem {
   /**
-   * <p>The source file's location in Amazon S3.</p>
+   * The source file's location in Amazon S3.
+   *
    * @public
    */
   sourceFile?: string | undefined;
 
   /**
-   * <p>The source's status.</p>
+   * The source's status.
+   *
    * @public
    */
   status: ReferenceImportJobItemStatus | undefined;
 
   /**
-   * <p>The source's status message.</p>
+   * The source's status message.
+   *
    * @public
    */
   statusMessage?: string | undefined;
 
   /**
-   * <p>The source's name.</p>
+   * The source's name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The source's description.</p>
+   * The source's description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The source's tags.</p>
+   * The source's tags.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The source's reference ID.</p>
+   * The source's reference ID.
+   *
    * @public
    */
   referenceId?: string | undefined;
@@ -4905,49 +5625,57 @@ export interface ImportReferenceSourceItem {
  */
 export interface GetReferenceImportJobResponse {
   /**
-   * <p>The job's ID.</p>
+   * The job's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The job's reference store ID.</p>
+   * The job's reference store ID.
+   *
    * @public
    */
   referenceStoreId: string | undefined;
 
   /**
-   * <p>The job's service role ARN.</p>
+   * The job's service role ARN.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>The job's status.</p>
+   * The job's status.
+   *
    * @public
    */
   status: ReferenceImportJobStatus | undefined;
 
   /**
-   * <p>The job's status message.</p>
+   * The job's status message.
+   *
    * @public
    */
   statusMessage?: string | undefined;
 
   /**
-   * <p>When the job was created.</p>
+   * When the job was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>When the job completed.</p>
+   * When the job completed.
+   *
    * @public
    */
   completionTime?: Date | undefined;
 
   /**
-   * <p>The job's source files.</p>
+   * The job's source files.
+   *
    * @public
    */
   sources: ImportReferenceSourceItem[] | undefined;
@@ -4958,31 +5686,36 @@ export interface GetReferenceImportJobResponse {
  */
 export interface GetReferenceMetadataRequest {
   /**
-   * <p>The reference's ID.</p>
+   * The reference's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The reference's reference store ID.</p>
+   * The reference's reference store ID.
+   *
    * @public
    */
   referenceStoreId: string | undefined;
 }
 
 /**
- * <p>A set of genome reference files.</p>
+ * A set of genome reference files.
+ *
  * @public
  */
 export interface ReferenceFiles {
   /**
-   * <p>The source file's location in Amazon S3.</p>
+   * The source file's location in Amazon S3.
+   *
    * @public
    */
   source?: FileInformation | undefined;
 
   /**
-   * <p>The files' index.</p>
+   * The files' index.
+   *
    * @public
    */
   index?: FileInformation | undefined;
@@ -4993,73 +5726,85 @@ export interface ReferenceFiles {
  */
 export interface GetReferenceMetadataResponse {
   /**
-   * <p>The reference's ID.</p>
+   * The reference's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The reference's ARN.</p>
+   * The reference's ARN.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The reference's reference store ID.</p>
+   * The reference's reference store ID.
+   *
    * @public
    */
   referenceStoreId: string | undefined;
 
   /**
-   * <p>The reference's MD5 checksum.</p>
+   * The reference's MD5 checksum.
+   *
    * @public
    */
   md5: string | undefined;
 
   /**
-   * <p>The reference's status.</p>
+   * The reference's status.
+   *
    * @public
    */
   status?: ReferenceStatus | undefined;
 
   /**
-   * <p>The reference's name.</p>
+   * The reference's name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The reference's description.</p>
+   * The reference's description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>When the reference was created.</p>
+   * When the reference was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>When the reference was updated.</p>
+   * When the reference was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The reference's files.</p>
+   * The reference's files.
+   *
    * @public
    */
   files?: ReferenceFiles | undefined;
 
   /**
-   * <p>The reference's creation type.</p>
+   * The reference's creation type.
+   *
    * @public
    */
   creationType?: ReferenceCreationType | undefined;
 
   /**
-   * <p>The reference's creation job ID.</p>
+   * The reference's creation job ID.
+   *
    * @public
    */
   creationJobId?: string | undefined;
@@ -5070,7 +5815,8 @@ export interface GetReferenceMetadataResponse {
  */
 export interface GetReferenceStoreRequest {
   /**
-   * <p>The store's ID.</p>
+   * The store's ID.
+   *
    * @public
    */
   id: string | undefined;
@@ -5081,37 +5827,43 @@ export interface GetReferenceStoreRequest {
  */
 export interface GetReferenceStoreResponse {
   /**
-   * <p>The store's ID.</p>
+   * The store's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The store's ARN.</p>
+   * The store's ARN.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The store's name.</p>
+   * The store's name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The store's description.</p>
+   * The store's description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The store's server-side encryption (SSE) settings.</p>
+   * The store's server-side encryption (SSE) settings.
+   *
    * @public
    */
   sseConfig?: SseConfig | undefined;
 
   /**
-   * <p>When the store was created.</p>
+   * When the store was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
@@ -5122,31 +5874,36 @@ export interface GetReferenceStoreResponse {
  */
 export interface GetRunRequest {
   /**
-   * <p>The run's ID.</p>
+   * The run's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The run's export format.</p>
+   * The run's export format.
+   *
    * @public
    */
   export?: RunExport[] | undefined;
 }
 
 /**
- * <p>The URI for the run log.</p>
+ * The URI for the run log.
+ *
  * @public
  */
 export interface RunLogLocation {
   /**
-   * <p>The log stream ARN for the engine log.</p>
+   * The log stream ARN for the engine log.
+   *
    * @public
    */
   engineLogStream?: string | undefined;
 
   /**
-   * <p>The log stream ARN for the run log.</p>
+   * The log stream ARN for the run log.
+   *
    * @public
    */
   runLogStream?: string | undefined;
@@ -5157,265 +5914,309 @@ export interface RunLogLocation {
  */
 export interface GetRunResponse {
   /**
-   * <p>The run's ARN.</p>
+   * The run's ARN.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The run's ID.</p>
+   * The run's ID.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The run cache associated with the run.</p>
+   * The run cache associated with the run.
+   *
    * @public
    */
   cacheId?: string | undefined;
 
   /**
-   * <p>The run cache behavior for the run.</p>
+   * The run cache behavior for the run.
+   *
    * @public
    */
   cacheBehavior?: CacheBehavior | undefined;
 
   /**
-   * <p>The actual Nextflow engine version that Amazon Web Services HealthOmics used for the run. The other workflow definition languages don't provide a value for this field.</p>
+   * The actual Nextflow engine version that Amazon Web Services HealthOmics used for the run. The other workflow definition languages don't provide a value for this field.
+   *
    * @public
    */
   engineVersion?: string | undefined;
 
   /**
-   * <p>The run's status.</p>
+   * The run's status.
+   *
    * @public
    */
   status?: RunStatus | undefined;
 
   /**
-   * <p>The run's workflow ID.</p>
+   * The run's workflow ID.
+   *
    * @public
    */
   workflowId?: string | undefined;
 
   /**
-   * <p>The run's workflow type.</p>
+   * The run's workflow type.
+   *
    * @public
    */
   workflowType?: WorkflowType | undefined;
 
   /**
-   * <p>The run's ID.</p>
+   * The run's ID.
+   *
    * @public
    */
   runId?: string | undefined;
 
   /**
-   * <p>The run's service role ARN.</p>
+   * The run's service role ARN.
+   *
    * @public
    */
   roleArn?: string | undefined;
 
   /**
-   * <p>The run's name.</p>
+   * The run's name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The run's group ID.</p>
+   * The run's group ID.
+   *
    * @public
    */
   runGroupId?: string | undefined;
 
   /**
-   * <p>The run's batch ID.</p>
+   * The run's batch ID.
+   *
    * @public
    */
   batchId?: string | undefined;
 
   /**
-   * <p>The run's priority.</p>
+   * The run's priority.
+   *
    * @public
    */
   priority?: number | undefined;
 
   /**
-   * <p>The run's definition.</p>
+   * The run's definition.
+   *
    * @public
    */
   definition?: string | undefined;
 
   /**
-   * <p>The run's digest.</p>
+   * The run's digest.
+   *
    * @public
    */
   digest?: string | undefined;
 
   /**
-   * <p>The run's parameters.</p>
+   * The run's parameters.
+   *
    * @public
    */
   parameters?: __DocumentType | undefined;
 
   /**
-   * <p>The run's storage capacity in gibibytes. For dynamic storage, after the run has completed, this value is the maximum amount of storage used during the run.</p>
+   * The run's storage capacity in gibibytes. For dynamic storage, after the run has completed, this value is the maximum amount of storage used during the run.
+   *
    * @public
    */
   storageCapacity?: number | undefined;
 
   /**
-   * <p>The run's output URI.</p>
+   * The run's output URI.
+   *
    * @public
    */
   outputUri?: string | undefined;
 
   /**
-   * <p>The run's log level.</p>
+   * The run's log level.
+   *
    * @public
    */
   logLevel?: RunLogLevel | undefined;
 
   /**
-   * <p>The run's resource digests.</p>
+   * The run's resource digests.
+   *
    * @public
    */
   resourceDigests?: Record<string, string> | undefined;
 
   /**
-   * <p>Who started the run.</p>
+   * Who started the run.
+   *
    * @public
    */
   startedBy?: string | undefined;
 
   /**
-   * <p>When the run was created.</p>
+   * When the run was created.
+   *
    * @public
    */
   creationTime?: Date | undefined;
 
   /**
-   * <p>When the run started.</p>
+   * When the run started.
+   *
    * @public
    */
   startTime?: Date | undefined;
 
   /**
-   * <p>The run's stop time.</p>
+   * The run's stop time.
+   *
    * @public
    */
   stopTime?: Date | undefined;
 
   /**
-   * <p>The run's status message.</p>
+   * The run's status message.
+   *
    * @public
    */
   statusMessage?: string | undefined;
 
   /**
-   * <p>The run's tags.</p>
+   * The run's tags.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The computational accelerator used to run the workflow.</p>
+   * The computational accelerator used to run the workflow.
+   *
    * @public
    */
   accelerators?: Accelerators | undefined;
 
   /**
-   * <p>The run's retention mode.</p>
+   * The run's retention mode.
+   *
    * @public
    */
   retentionMode?: RunRetentionMode | undefined;
 
   /**
-   * <p>The reason a run has failed.</p>
+   * The reason a run has failed.
+   *
    * @public
    */
   failureReason?: string | undefined;
 
   /**
-   * <p>The location of the run log.</p>
+   * The location of the run log.
+   *
    * @public
    */
   logLocation?: RunLogLocation | undefined;
 
   /**
-   * <p>The universally unique identifier for a run.</p>
+   * The universally unique identifier for a run.
+   *
    * @public
    */
   uuid?: string | undefined;
 
   /**
-   * <p>The destination for workflow outputs.</p>
+   * The destination for workflow outputs.
+   *
    * @public
    */
   runOutputUri?: string | undefined;
 
   /**
-   * <p>The run's storage type.</p>
+   * The run's storage type.
+   *
    * @public
    */
   storageType?: StorageType | undefined;
 
   /**
-   * <p>The ID of the workflow owner.</p>
+   * The ID of the workflow owner.
+   *
    * @public
    */
   workflowOwnerId?: string | undefined;
 
   /**
-   * <p>The workflow version name.</p>
+   * The workflow version name.
+   *
    * @public
    */
   workflowVersionName?: string | undefined;
 
   /**
-   * <p>The universally unique identifier (UUID) value for the workflow.</p>
+   * The universally unique identifier (UUID) value for the workflow.
+   *
    * @public
    */
   workflowUuid?: string | undefined;
 
   /**
-   * <p>Configuration for run networking behavior. If absent, this will default to RESTRICTED.</p>
+   * Configuration for run networking behavior. If absent, this will default to RESTRICTED.
+   *
    * @public
    */
   networkingMode?: NetworkingMode | undefined;
 
   /**
-   * <p>Optional configuration for enabling scratch ephemeral storage mounted at /tmp. If absent, this will default to SHARED. This configuration is applicable only for CPU tasks. For tasks using GPUs, scratch storage is always LOCAL.</p>
+   * Optional configuration for enabling scratch ephemeral storage mounted at /tmp. If absent, this will default to SHARED. This configuration is applicable only for CPU tasks. For tasks using GPUs, scratch storage is always LOCAL.
+   *
    * @public
    */
   scratchStorageMode?: ScratchStorageMode | undefined;
 
   /**
-   * <p>Configuration details for the workflow run.</p>
+   * Configuration details for the workflow run.
+   *
    * @public
    */
   configuration?: ConfigurationDetails | undefined;
 
   /**
-   * <p>VPC configuration for the workflow run.</p>
+   * VPC configuration for the workflow run.
+   *
    * @public
    */
   vpcConfig?: VpcConfigResponse | undefined;
 
   /**
-   * <p>The engine-specific settings for the workflow run.</p>
+   * The engine-specific settings for the workflow run.
+   *
    * @public
    */
   engineSettings?: __DocumentType | undefined;
 
   /**
-   * <p>Inline policy json for scoping down permissions via a session policy on the IAM role.</p>
+   * Inline policy json for scoping down permissions via a session policy on the IAM role.
+   *
    * @public
    */
   sessionPolicy?: string | undefined;
 
   /**
-   * <p>The service returns the value that the <code>StartRun</code> request specified for <code>outputUriPrefixMode</code>. The service returns <code>SERVICE_DEFINED</code> if the request did not specify a value.</p>
+   * The service returns the value that the `StartRun` request specified for `outputUriPrefixMode`. The service returns `SERVICE_DEFINED` if the request did not specify a value.
+   *
    * @public
    */
   outputUriPrefixMode?: RunOutputUriPrefixMode | undefined;
@@ -5426,7 +6227,8 @@ export interface GetRunResponse {
  */
 export interface GetRunCacheRequest {
   /**
-   * <p>The identifier of the run cache to retrieve.</p>
+   * The identifier of the run cache to retrieve.
+   *
    * @public
    */
   id: string | undefined;
@@ -5437,61 +6239,71 @@ export interface GetRunCacheRequest {
  */
 export interface GetRunCacheResponse {
   /**
-   * <p>Unique resource identifier for the run cache.</p>
+   * Unique resource identifier for the run cache.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The default cache behavior for runs using this cache.</p>
+   * The default cache behavior for runs using this cache.
+   *
    * @public
    */
   cacheBehavior?: CacheBehavior | undefined;
 
   /**
-   * <p>The identifier of the bucket owner.</p>
+   * The identifier of the bucket owner.
+   *
    * @public
    */
   cacheBucketOwnerId?: string | undefined;
 
   /**
-   * <p>The S3 URI where the cache data is stored.</p>
+   * The S3 URI where the cache data is stored.
+   *
    * @public
    */
   cacheS3Uri?: string | undefined;
 
   /**
-   * <p>Creation time of the run cache (an ISO 8601 formatted string).</p>
+   * Creation time of the run cache (an ISO 8601 formatted string).
+   *
    * @public
    */
   creationTime?: Date | undefined;
 
   /**
-   * <p>The run cache description.</p>
+   * The run cache description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The run cache ID.</p>
+   * The run cache ID.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The run cache name.</p>
+   * The run cache name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The run cache status.</p>
+   * The run cache status.
+   *
    * @public
    */
   status?: RunCacheStatus | undefined;
 
   /**
-   * <p>The tags associated with the run cache.</p>
+   * The tags associated with the run cache.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -5502,7 +6314,8 @@ export interface GetRunCacheResponse {
  */
 export interface GetRunGroupRequest {
   /**
-   * <p>The group's ID.</p>
+   * The group's ID.
+   *
    * @public
    */
   id: string | undefined;
@@ -5513,55 +6326,64 @@ export interface GetRunGroupRequest {
  */
 export interface GetRunGroupResponse {
   /**
-   * <p>The group's ARN.</p>
+   * The group's ARN.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The group's ID.</p>
+   * The group's ID.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The group's name.</p>
+   * The group's name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The group's maximum number of CPUs to use.</p>
+   * The group's maximum number of CPUs to use.
+   *
    * @public
    */
   maxCpus?: number | undefined;
 
   /**
-   * <p>The maximum number of concurrent runs for the group.</p>
+   * The maximum number of concurrent runs for the group.
+   *
    * @public
    */
   maxRuns?: number | undefined;
 
   /**
-   * <p>The group's maximum run time in minutes.</p>
+   * The group's maximum run time in minutes.
+   *
    * @public
    */
   maxDuration?: number | undefined;
 
   /**
-   * <p>When the group was created.</p>
+   * When the group was created.
+   *
    * @public
    */
   creationTime?: Date | undefined;
 
   /**
-   * <p>The group's tags.</p>
+   * The group's tags.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The maximum GPUs that can be used by a run group.</p>
+   * The maximum GPUs that can be used by a run group.
+   *
    * @public
    */
   maxGpus?: number | undefined;
@@ -5572,37 +6394,43 @@ export interface GetRunGroupResponse {
  */
 export interface GetRunTaskRequest {
   /**
-   * <p>The workflow run ID.</p>
+   * The workflow run ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The task's ID.</p>
+   * The task's ID.
+   *
    * @public
    */
   taskId: string | undefined;
 }
 
 /**
- * <p>Information about the container image used for a task.</p>
+ * Information about the container image used for a task.
+ *
  * @public
  */
 export interface ImageDetails {
   /**
-   * <p>The URI of the container image.</p>
+   * The URI of the container image.
+   *
    * @public
    */
   image?: string | undefined;
 
   /**
-   * <p>The container image digest. If the image URI was transformed, this will be the digest of the container image referenced by the transformed URI.</p>
+   * The container image digest. If the image URI was transformed, this will be the digest of the container image referenced by the transformed URI.
+   *
    * @public
    */
   imageDigest?: string | undefined;
 
   /**
-   * <p>URI of the source registry. If the URI is from a third-party registry, Amazon Web Services HealthOmics transforms the URI to the corresponding ECR path, using the pull-through cache mapping rules.</p>
+   * URI of the source registry. If the URI is from a third-party registry, Amazon Web Services HealthOmics transforms the URI to the corresponding ECR path, using the pull-through cache mapping rules.
+   *
    * @public
    */
   sourceImage?: string | undefined;
@@ -5613,103 +6441,120 @@ export interface ImageDetails {
  */
 export interface GetRunTaskResponse {
   /**
-   * <p>The task's ID.</p>
+   * The task's ID.
+   *
    * @public
    */
   taskId?: string | undefined;
 
   /**
-   * <p>The task's status.</p>
+   * The task's status.
+   *
    * @public
    */
   status?: TaskStatus | undefined;
 
   /**
-   * <p>The task's name.</p>
+   * The task's name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The task's CPU usage.</p>
+   * The task's CPU usage.
+   *
    * @public
    */
   cpus?: number | undefined;
 
   /**
-   * <p>Set to true if Amazon Web Services HealthOmics found a matching entry in the run cache for this task.</p>
+   * Set to true if Amazon Web Services HealthOmics found a matching entry in the run cache for this task.
+   *
    * @public
    */
   cacheHit?: boolean | undefined;
 
   /**
-   * <p>The S3 URI of the cache location.</p>
+   * The S3 URI of the cache location.
+   *
    * @public
    */
   cacheS3Uri?: string | undefined;
 
   /**
-   * <p>The task's memory use in gigabytes.</p>
+   * The task's memory use in gigabytes.
+   *
    * @public
    */
   memory?: number | undefined;
 
   /**
-   * <p>When the task was created.</p>
+   * When the task was created.
+   *
    * @public
    */
   creationTime?: Date | undefined;
 
   /**
-   * <p>The task's start time.</p>
+   * The task's start time.
+   *
    * @public
    */
   startTime?: Date | undefined;
 
   /**
-   * <p>The task's stop time.</p>
+   * The task's stop time.
+   *
    * @public
    */
   stopTime?: Date | undefined;
 
   /**
-   * <p>The task's status message.</p>
+   * The task's status message.
+   *
    * @public
    */
   statusMessage?: string | undefined;
 
   /**
-   * <p>The task's log stream.</p>
+   * The task's log stream.
+   *
    * @public
    */
   logStream?: string | undefined;
 
   /**
-   * <p>The number of Graphics Processing Units (GPU) specified in the task.</p>
+   * The number of Graphics Processing Units (GPU) specified in the task.
+   *
    * @public
    */
   gpus?: number | undefined;
 
   /**
-   * <p>The instance type for a task.</p>
+   * The instance type for a task.
+   *
    * @public
    */
   instanceType?: string | undefined;
 
   /**
-   * <p>The reason a task has failed.</p>
+   * The reason a task has failed.
+   *
    * @public
    */
   failureReason?: string | undefined;
 
   /**
-   * <p>Details about the container image that this task uses.</p>
+   * Details about the container image that this task uses.
+   *
    * @public
    */
   imageDetails?: ImageDetails | undefined;
 
   /**
-   * <p>The universally unique identifier (UUID) for the workflow task.</p>
+   * The universally unique identifier (UUID) for the workflow task.
+   *
    * @public
    */
   uuid?: string | undefined;
@@ -5720,7 +6565,8 @@ export interface GetRunTaskResponse {
  */
 export interface GetS3AccessPolicyRequest {
   /**
-   * <p>The S3 access point ARN that has the access policy.</p>
+   * The S3 access point ARN that has the access policy.
+   *
    * @public
    */
   s3AccessPointArn: string | undefined;
@@ -5731,31 +6577,36 @@ export interface GetS3AccessPolicyRequest {
  */
 export interface GetS3AccessPolicyResponse {
   /**
-   * <p>The S3 access point ARN that has the access policy.</p>
+   * The S3 access point ARN that has the access policy.
+   *
    * @public
    */
   s3AccessPointArn?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services-generated Sequence Store or Reference Store ID.</p>
+   * The Amazon Web Services-generated Sequence Store or Reference Store ID.
+   *
    * @public
    */
   storeId?: string | undefined;
 
   /**
-   * <p>The type of store associated with the access point.</p>
+   * The type of store associated with the access point.
+   *
    * @public
    */
   storeType?: StoreType | undefined;
 
   /**
-   * <p>The time when the policy was last updated.</p>
+   * The time when the policy was last updated.
+   *
    * @public
    */
   updateTime?: Date | undefined;
 
   /**
-   * <p>The current resource policy that controls S3 access on the store.</p>
+   * The current resource policy that controls S3 access on the store.
+   *
    * @public
    */
   s3AccessPolicy: __AutomaticJsonStringConversion | string | undefined;
@@ -5766,7 +6617,8 @@ export interface GetS3AccessPolicyResponse {
  */
 export interface GetSequenceStoreRequest {
   /**
-   * <p>The store's ID.</p>
+   * The store's ID.
+   *
    * @public
    */
   id: string | undefined;
@@ -5777,79 +6629,92 @@ export interface GetSequenceStoreRequest {
  */
 export interface GetSequenceStoreResponse {
   /**
-   * <p>The store's ID.</p>
+   * The store's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The store's ARN.</p>
+   * The store's ARN.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The store's name.</p>
+   * The store's name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The store's description.</p>
+   * The store's description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The store's server-side encryption (SSE) settings.</p>
+   * The store's server-side encryption (SSE) settings.
+   *
    * @public
    */
   sseConfig?: SseConfig | undefined;
 
   /**
-   * <p>When the store was created.</p>
+   * When the store was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>An S3 location that is used to store files that have failed a direct upload.</p>
+   * An S3 location that is used to store files that have failed a direct upload.
+   *
    * @public
    */
   fallbackLocation?: string | undefined;
 
   /**
-   * <p>The S3 metadata of a sequence store, including the ARN and S3 URI of the S3 bucket.</p>
+   * The S3 metadata of a sequence store, including the ARN and S3 URI of the S3 bucket.
+   *
    * @public
    */
   s3Access?: SequenceStoreS3Access | undefined;
 
   /**
-   * <p>The algorithm family of the ETag.</p>
+   * The algorithm family of the ETag.
+   *
    * @public
    */
   eTagAlgorithmFamily?: ETagAlgorithmFamily | undefined;
 
   /**
-   * <p>The status of the sequence store.</p>
+   * The status of the sequence store.
+   *
    * @public
    */
   status?: SequenceStoreStatus | undefined;
 
   /**
-   * <p>The status message of the sequence store.</p>
+   * The status message of the sequence store.
+   *
    * @public
    */
   statusMessage?: string | undefined;
 
   /**
-   * <p>The tags keys to propagate to the S3 objects associated with read sets in the sequence store.</p>
+   * The tags keys to propagate to the S3 objects associated with read sets in the sequence store.
+   *
    * @public
    */
   propagatedSetLevelTags?: string[] | undefined;
 
   /**
-   * <p>The last-updated time of the sequence store.</p>
+   * The last-updated time of the sequence store.
+   *
    * @public
    */
   updateTime?: Date | undefined;
@@ -5860,73 +6725,85 @@ export interface GetSequenceStoreResponse {
  */
 export interface GetShareRequest {
   /**
-   * <p>The ID of the share.</p>
+   * The ID of the share.
+   *
    * @public
    */
   shareId: string | undefined;
 }
 
 /**
- * <p>The details of a resource share.</p>
+ * The details of a resource share.
+ *
  * @public
  */
 export interface ShareDetails {
   /**
-   * <p>The ID of the resource share.</p>
+   * The ID of the resource share.
+   *
    * @public
    */
   shareId?: string | undefined;
 
   /**
-   * <p>The Arn of the shared resource. </p>
+   * The Arn of the shared resource.
+   *
    * @public
    */
   resourceArn?: string | undefined;
 
   /**
-   * <p>The ID of the shared resource. </p>
+   * The ID of the shared resource.
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>The principal subscriber is the account that is sharing the resource.</p>
+   * The principal subscriber is the account that is sharing the resource.
+   *
    * @public
    */
   principalSubscriber?: string | undefined;
 
   /**
-   * <p>The account ID for the data owner. The owner creates the resource share.</p>
+   * The account ID for the data owner. The owner creates the resource share.
+   *
    * @public
    */
   ownerId?: string | undefined;
 
   /**
-   * <p>The status of the share.</p>
+   * The status of the share.
+   *
    * @public
    */
   status?: ShareStatus | undefined;
 
   /**
-   * <p>The status message for a resource share. It provides additional details about the share status.</p>
+   * The status message for a resource share. It provides additional details about the share status.
+   *
    * @public
    */
   statusMessage?: string | undefined;
 
   /**
-   * <p>The name of the resource share.</p>
+   * The name of the resource share.
+   *
    * @public
    */
   shareName?: string | undefined;
 
   /**
-   * <p>The timestamp of when the resource share was created.</p>
+   * The timestamp of when the resource share was created.
+   *
    * @public
    */
   creationTime?: Date | undefined;
 
   /**
-   * <p>The timestamp of the resource share update.</p>
+   * The timestamp of the resource share update.
+   *
    * @public
    */
   updateTime?: Date | undefined;
@@ -5937,7 +6814,8 @@ export interface ShareDetails {
  */
 export interface GetShareResponse {
   /**
-   * <p>A resource share details object. The object includes the status, the resourceArn, and ownerId.</p>
+   * A resource share details object. The object includes the status, the resourceArn, and ownerId.
+   *
    * @public
    */
   share?: ShareDetails | undefined;
@@ -5948,31 +6826,36 @@ export interface GetShareResponse {
  */
 export interface GetVariantImportRequest {
   /**
-   * <p>The job's ID.</p>
+   * The job's ID.
+   *
    * @public
    */
   jobId: string | undefined;
 }
 
 /**
- * <p>Details about an imported variant item.</p>
+ * Details about an imported variant item.
+ *
  * @public
  */
 export interface VariantImportItemDetail {
   /**
-   * <p>The source file's location in Amazon S3.</p>
+   * The source file's location in Amazon S3.
+   *
    * @public
    */
   source: string | undefined;
 
   /**
-   * <p>The item's job status.</p>
+   * The item's job status.
+   *
    * @public
    */
   jobStatus: JobStatus | undefined;
 
   /**
-   * <p> A message that provides additional context about a job </p>
+   * A message that provides additional context about a job
+   *
    * @public
    */
   statusMessage?: string | undefined;
@@ -5983,67 +6866,78 @@ export interface VariantImportItemDetail {
  */
 export interface GetVariantImportResponse {
   /**
-   * <p>The job's ID.</p>
+   * The job's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The job's destination variant store.</p>
+   * The job's destination variant store.
+   *
    * @public
    */
   destinationName: string | undefined;
 
   /**
-   * <p>The job's service role ARN.</p>
+   * The job's service role ARN.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>The job's status.</p>
+   * The job's status.
+   *
    * @public
    */
   status: JobStatus | undefined;
 
   /**
-   * <p>The job's status message.</p>
+   * The job's status message.
+   *
    * @public
    */
   statusMessage: string | undefined;
 
   /**
-   * <p>When the job was created.</p>
+   * When the job was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>When the job was updated.</p>
+   * When the job was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>When the job completed.</p>
+   * When the job completed.
+   *
    * @public
    */
   completionTime?: Date | undefined;
 
   /**
-   * <p>The job's items.</p>
+   * The job's items.
+   *
    * @public
    */
   items: VariantImportItemDetail[] | undefined;
 
   /**
-   * <p>The job's left normalization setting.</p>
+   * The job's left normalization setting.
+   *
    * @public
    */
   runLeftNormalization: boolean | undefined;
 
   /**
-   * <p>The annotation schema generated by the parsed annotation data.</p>
+   * The annotation schema generated by the parsed annotation data.
+   *
    * @public
    */
   annotationFields?: Record<string, string> | undefined;
@@ -6054,7 +6948,8 @@ export interface GetVariantImportResponse {
  */
 export interface GetVariantStoreRequest {
   /**
-   * <p>The store's name.</p>
+   * The store's name.
+   *
    * @public
    */
   name: string | undefined;
@@ -6065,73 +6960,85 @@ export interface GetVariantStoreRequest {
  */
 export interface GetVariantStoreResponse {
   /**
-   * <p>The store's ID.</p>
+   * The store's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The store's genome reference.</p>
+   * The store's genome reference.
+   *
    * @public
    */
   reference: ReferenceItem | undefined;
 
   /**
-   * <p>The store's status.</p>
+   * The store's status.
+   *
    * @public
    */
   status: StoreStatus | undefined;
 
   /**
-   * <p>The store's ARN.</p>
+   * The store's ARN.
+   *
    * @public
    */
   storeArn: string | undefined;
 
   /**
-   * <p>The store's name.</p>
+   * The store's name.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The store's description.</p>
+   * The store's description.
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p>The store's server-side encryption (SSE) settings.</p>
+   * The store's server-side encryption (SSE) settings.
+   *
    * @public
    */
   sseConfig: SseConfig | undefined;
 
   /**
-   * <p>When the store was created.</p>
+   * When the store was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>When the store was updated.</p>
+   * When the store was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The store's tags.</p>
+   * The store's tags.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
 
   /**
-   * <p>The store's status message.</p>
+   * The store's status message.
+   *
    * @public
    */
   statusMessage: string | undefined;
 
   /**
-   * <p>The store's size in bytes.</p>
+   * The store's size in bytes.
+   *
    * @public
    */
   storeSizeBytes: number | undefined;
@@ -6142,25 +7049,29 @@ export interface GetVariantStoreResponse {
  */
 export interface GetWorkflowRequest {
   /**
-   * <p>The workflow's ID.</p>
+   * The workflow's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The workflow's type.</p>
+   * The workflow's type.
+   *
    * @public
    */
   type?: WorkflowType | undefined;
 
   /**
-   * <p>The export format for the workflow.</p>
+   * The export format for the workflow.
+   *
    * @public
    */
   export?: WorkflowExport[] | undefined;
 
   /**
-   * <p>The ID of the workflow owner.</p>
+   * The ID of the workflow owner.
+   *
    * @public
    */
   workflowOwnerId?: string | undefined;
@@ -6171,151 +7082,176 @@ export interface GetWorkflowRequest {
  */
 export interface GetWorkflowResponse {
   /**
-   * <p>The workflow's ARN.</p>
+   * The workflow's ARN.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The workflow's ID.</p>
+   * The workflow's ID.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The workflow's status.</p>
+   * The workflow's status.
+   *
    * @public
    */
   status?: WorkflowStatus | undefined;
 
   /**
-   * <p>The workflow's type.</p>
+   * The workflow's type.
+   *
    * @public
    */
   type?: WorkflowType | undefined;
 
   /**
-   * <p>The workflow's name.</p>
+   * The workflow's name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The workflow's description.</p>
+   * The workflow's description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The workflow's engine.</p>
+   * The workflow's engine.
+   *
    * @public
    */
   engine?: WorkflowEngine | undefined;
 
   /**
-   * <p>The workflow's definition.</p>
+   * The workflow's definition.
+   *
    * @public
    */
   definition?: string | undefined;
 
   /**
-   * <p>The path of the main definition file for the workflow.</p>
+   * The path of the main definition file for the workflow.
+   *
    * @public
    */
   main?: string | undefined;
 
   /**
-   * <p>The workflow's digest.</p>
+   * The workflow's digest.
+   *
    * @public
    */
   digest?: string | undefined;
 
   /**
-   * <p>The workflow's parameter template.</p>
+   * The workflow's parameter template.
+   *
    * @public
    */
   parameterTemplate?: Record<string, WorkflowParameter> | undefined;
 
   /**
-   * <p>The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version.</p>
+   * The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version.
+   *
    * @public
    */
   storageCapacity?: number | undefined;
 
   /**
-   * <p>When the workflow was created.</p>
+   * When the workflow was created.
+   *
    * @public
    */
   creationTime?: Date | undefined;
 
   /**
-   * <p>The workflow's status message.</p>
+   * The workflow's status message.
+   *
    * @public
    */
   statusMessage?: string | undefined;
 
   /**
-   * <p>The workflow's tags.</p>
+   * The workflow's tags.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Gets metadata for the workflow.</p>
+   * Gets metadata for the workflow.
+   *
    * @public
    */
   metadata?: Record<string, string> | undefined;
 
   /**
-   * <p>The computational accelerator specified to run the workflow. </p>
+   * The computational accelerator specified to run the workflow.
+   *
    * @public
    */
   accelerators?: Accelerators | undefined;
 
   /**
-   * <p>The default storage type for runs using this workflow.</p>
+   * The default storage type for runs using this workflow.
+   *
    * @public
    */
   storageType?: StorageType | undefined;
 
   /**
-   * <p>The universally unique identifier (UUID) value for this workflow.</p>
+   * The universally unique identifier (UUID) value for this workflow.
+   *
    * @public
    */
   uuid?: string | undefined;
 
   /**
-   * <p>The registry map that this workflow is using.</p>
+   * The registry map that this workflow is using.
+   *
    * @public
    */
   containerRegistryMap?: ContainerRegistryMap | undefined;
 
   /**
-   * <p>The README content for the workflow, providing documentation and usage information.</p>
+   * The README content for the workflow, providing documentation and usage information.
+   *
    * @public
    */
   readme?: string | undefined;
 
   /**
-   * <p>Details about the source code repository that hosts the workflow definition files.</p>
+   * Details about the source code repository that hosts the workflow definition files.
+   *
    * @public
    */
   definitionRepositoryDetails?: DefinitionRepositoryDetails | undefined;
 
   /**
-   * <p>The path to the workflow README markdown file within the repository. This file provides documentation and usage information for the workflow. If not specified, the <code>README.md</code> file from the root directory of the repository will be used.</p>
+   * The path to the workflow README markdown file within the repository. This file provides documentation and usage information for the workflow. If not specified, the `README.md` file from the root directory of the repository will be used.
+   *
    * @public
    */
   readmePath?: string | undefined;
 
   /**
-   * <p>The list of Nextflow profiles that are available for this workflow. Profiles allow you to select predefined configuration settings at runtime.</p>
+   * The list of Nextflow profiles that are available for this workflow. Profiles allow you to select predefined configuration settings at runtime.
+   *
    * @public
    */
   profiles?: string[] | undefined;
 
   /**
-   * <p>A mapping of profile names to their parameter templates. Each profile defines its own set of parameters that you can use when starting a run with that profile.</p>
+   * A mapping of profile names to their parameter templates. Each profile defines its own set of parameters that you can use when starting a run with that profile.
+   *
    * @public
    */
   profileParameterTemplates?: Record<string, Record<string, WorkflowParameter>> | undefined;
@@ -6326,31 +7262,36 @@ export interface GetWorkflowResponse {
  */
 export interface GetWorkflowVersionRequest {
   /**
-   * <p>The workflow's ID. The <code>workflowId</code> is not the UUID.</p>
+   * The workflow's ID. The `workflowId` is not the UUID.
+   *
    * @public
    */
   workflowId: string | undefined;
 
   /**
-   * <p>The workflow version name.</p>
+   * The workflow version name.
+   *
    * @public
    */
   versionName: string | undefined;
 
   /**
-   * <p>The workflow's type. </p>
+   * The workflow's type.
+   *
    * @public
    */
   type?: WorkflowType | undefined;
 
   /**
-   * <p>The export format for the workflow.</p>
+   * The export format for the workflow.
+   *
    * @public
    */
   export?: WorkflowExport[] | undefined;
 
   /**
-   * <p>The 12-digit account ID of the workflow owner. The workflow owner ID can be retrieved using the <code>GetShare</code> API operation. If you are the workflow owner, you do not need to include this ID.</p>
+   * The 12-digit account ID of the workflow owner. The workflow owner ID can be retrieved using the `GetShare` API operation. If you are the workflow owner, you do not need to include this ID.
+   *
    * @public
    */
   workflowOwnerId?: string | undefined;
@@ -6361,289 +7302,337 @@ export interface GetWorkflowVersionRequest {
  */
 export interface GetWorkflowVersionResponse {
   /**
-   * <p>ARN of the workflow version.</p>
+   * ARN of the workflow version.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The workflow's ID.</p>
+   * The workflow's ID.
+   *
    * @public
    */
   workflowId?: string | undefined;
 
   /**
-   * <p>The workflow version name.</p>
+   * The workflow version name.
+   *
    * @public
    */
   versionName?: string | undefined;
 
   /**
-   * <p>The accelerator for this workflow version.</p>
+   * The accelerator for this workflow version.
+   *
    * @public
    */
   accelerators?: Accelerators | undefined;
 
   /**
-   * <p>When the workflow version was created.</p>
+   * When the workflow version was created.
+   *
    * @public
    */
   creationTime?: Date | undefined;
 
   /**
-   * <p>Description of the workflow version.</p>
+   * Description of the workflow version.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Definition of the workflow version.</p>
+   * Definition of the workflow version.
+   *
    * @public
    */
   definition?: string | undefined;
 
   /**
-   * <p>The workflow version's digest.</p>
+   * The workflow version's digest.
+   *
    * @public
    */
   digest?: string | undefined;
 
   /**
-   * <p>The workflow engine for this workflow version.</p>
+   * The workflow engine for this workflow version.
+   *
    * @public
    */
   engine?: WorkflowEngine | undefined;
 
   /**
-   * <p>The path of the main definition file for the workflow.</p>
+   * The path of the main definition file for the workflow.
+   *
    * @public
    */
   main?: string | undefined;
 
   /**
-   * <p>The metadata for the workflow version.</p>
+   * The metadata for the workflow version.
+   *
    * @public
    */
   metadata?: Record<string, string> | undefined;
 
   /**
-   * <p>The parameter template for the workflow version.</p>
+   * The parameter template for the workflow version.
+   *
    * @public
    */
   parameterTemplate?: Record<string, WorkflowParameter> | undefined;
 
   /**
-   * <p>The workflow version status</p>
+   * The workflow version status
+   *
    * @public
    */
   status?: WorkflowStatus | undefined;
 
   /**
-   * <p>The workflow version status message</p>
+   * The workflow version status message
+   *
    * @public
    */
   statusMessage?: string | undefined;
 
   /**
-   * <p>The default storage type for the run.</p>
+   * The default storage type for the run.
+   *
    * @public
    */
   storageType?: StorageType | undefined;
 
   /**
-   * <p>The default run storage capacity for static storage.</p>
+   * The default run storage capacity for static storage.
+   *
    * @public
    */
   storageCapacity?: number | undefined;
 
   /**
-   * <p>The workflow version type</p>
+   * The workflow version type
+   *
    * @public
    */
   type?: WorkflowType | undefined;
 
   /**
-   * <p>The workflow version tags</p>
+   * The workflow version tags
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The universally unique identifier (UUID) value for this workflow version</p>
+   * The universally unique identifier (UUID) value for this workflow version
+   *
    * @public
    */
   uuid?: string | undefined;
 
   /**
-   * <p>Amazon Web Services Id of the owner of the bucket.</p>
+   * Amazon Web Services Id of the owner of the bucket.
+   *
    * @public
    */
   workflowBucketOwnerId?: string | undefined;
 
   /**
-   * <p>The registry map that this workflow version uses.</p>
+   * The registry map that this workflow version uses.
+   *
    * @public
    */
   containerRegistryMap?: ContainerRegistryMap | undefined;
 
   /**
-   * <p>The README content for the workflow version, providing documentation and usage information specific to this version.</p>
+   * The README content for the workflow version, providing documentation and usage information specific to this version.
+   *
    * @public
    */
   readme?: string | undefined;
 
   /**
-   * <p>Details about the source code repository that hosts the workflow version definition files.</p>
+   * Details about the source code repository that hosts the workflow version definition files.
+   *
    * @public
    */
   definitionRepositoryDetails?: DefinitionRepositoryDetails | undefined;
 
   /**
-   * <p>The path to the workflow version README markdown file within the repository. This file provides documentation and usage information for the workflow. If not specified, the <code>README.md</code> file from the root directory of the repository will be used.</p>
+   * The path to the workflow version README markdown file within the repository. This file provides documentation and usage information for the workflow. If not specified, the `README.md` file from the root directory of the repository will be used.
+   *
    * @public
    */
   readmePath?: string | undefined;
 
   /**
-   * <p>The list of Nextflow profiles that are available for this workflow version. Profiles allow you to select predefined configuration settings at runtime.</p>
+   * The list of Nextflow profiles that are available for this workflow version. Profiles allow you to select predefined configuration settings at runtime.
+   *
    * @public
    */
   profiles?: string[] | undefined;
 
   /**
-   * <p>A mapping of profile names to their parameter templates. Each profile defines its own set of parameters that you can use when starting a run with that profile.</p>
+   * A mapping of profile names to their parameter templates. Each profile defines its own set of parameters that you can use when starting a run with that profile.
+   *
    * @public
    */
   profileParameterTemplates?: Record<string, Record<string, WorkflowParameter>> | undefined;
 }
 
 /**
- * <p>A filter for import read set jobs.</p>
+ * A filter for import read set jobs.
+ *
  * @public
  */
 export interface ImportReadSetFilter {
   /**
-   * <p>A status to filter on.</p>
+   * A status to filter on.
+   *
    * @public
    */
   status?: ReadSetImportJobStatus | undefined;
 
   /**
-   * <p>The filter's start date.</p>
+   * The filter's start date.
+   *
    * @public
    */
   createdAfter?: Date | undefined;
 
   /**
-   * <p>The filter's end date.</p>
+   * The filter's end date.
+   *
    * @public
    */
   createdBefore?: Date | undefined;
 }
 
 /**
- * <p>An import read set job.</p>
+ * An import read set job.
+ *
  * @public
  */
 export interface ImportReadSetJobItem {
   /**
-   * <p>The job's ID.</p>
+   * The job's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The job's sequence store ID.</p>
+   * The job's sequence store ID.
+   *
    * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * <p>The job's service role ARN.</p>
+   * The job's service role ARN.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>The job's status.</p>
+   * The job's status.
+   *
    * @public
    */
   status: ReadSetImportJobStatus | undefined;
 
   /**
-   * <p>When the job was created.</p>
+   * When the job was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>When the job completed.</p>
+   * When the job completed.
+   *
    * @public
    */
   completionTime?: Date | undefined;
 }
 
 /**
- * <p>A filter for import references.</p>
+ * A filter for import references.
+ *
  * @public
  */
 export interface ImportReferenceFilter {
   /**
-   * <p>A status to filter on.</p>
+   * A status to filter on.
+   *
    * @public
    */
   status?: ReferenceImportJobStatus | undefined;
 
   /**
-   * <p>The filter's start date.</p>
+   * The filter's start date.
+   *
    * @public
    */
   createdAfter?: Date | undefined;
 
   /**
-   * <p>The filter's end date.</p>
+   * The filter's end date.
+   *
    * @public
    */
   createdBefore?: Date | undefined;
 }
 
 /**
- * <p>An import reference job.</p>
+ * An import reference job.
+ *
  * @public
  */
 export interface ImportReferenceJobItem {
   /**
-   * <p>The job's ID.</p>
+   * The job's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The job's reference store ID.</p>
+   * The job's reference store ID.
+   *
    * @public
    */
   referenceStoreId: string | undefined;
 
   /**
-   * <p>The job's service role ARN.</p>
+   * The job's service role ARN.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>The job's status.</p>
+   * The job's status.
+   *
    * @public
    */
   status: ReferenceImportJobStatus | undefined;
 
   /**
-   * <p>When the job was created.</p>
+   * When the job was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>When the job completed.</p>
+   * When the job completed.
+   *
    * @public
    */
   completionTime?: Date | undefined;
@@ -6654,31 +7643,36 @@ export interface ImportReferenceJobItem {
  */
 export interface ListBatchRequest {
   /**
-   * <p>The maximum number of batches to return. If not specified, defaults to 100.</p>
+   * The maximum number of batches to return. If not specified, defaults to 100.
+   *
    * @public
    */
   maxItems?: number | undefined;
 
   /**
-   * <p>A pagination token returned from a prior <code>ListBatch</code> call.</p>
+   * A pagination token returned from a prior `ListBatch` call.
+   *
    * @public
    */
   startingToken?: string | undefined;
 
   /**
-   * <p>Filter batches by status.</p>
+   * Filter batches by status.
+   *
    * @public
    */
   status?: BatchStatus | undefined;
 
   /**
-   * <p>Filter batches by name.</p>
+   * Filter batches by name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Filter batches by run group ID.</p>
+   * Filter batches by run group ID.
+   *
    * @public
    */
   runGroupId?: string | undefined;
@@ -6689,13 +7683,15 @@ export interface ListBatchRequest {
  */
 export interface ListBatchResponse {
   /**
-   * <p>A list of batch summary objects. See <code>BatchListItem</code>.</p>
+   * A list of batch summary objects. See `BatchListItem`.
+   *
    * @public
    */
   items?: BatchListItem[] | undefined;
 
   /**
-   * <p>A pagination token to retrieve the next page of results. Absent when no further results are available.</p>
+   * A pagination token to retrieve the next page of results. Absent when no further results are available.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -6706,91 +7702,106 @@ export interface ListBatchResponse {
  */
 export interface ListMultipartReadSetUploadsRequest {
   /**
-   * <p>The Sequence Store ID used for the multipart uploads.</p>
+   * The Sequence Store ID used for the multipart uploads.
+   *
    * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * <p>The maximum number of multipart uploads returned in a page.</p>
+   * The maximum number of multipart uploads returned in a page.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Next token returned in the response of a previous ListMultipartReadSetUploads call. Used to get the next page of results.</p>
+   * Next token returned in the response of a previous ListMultipartReadSetUploads call. Used to get the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p> Part of the response to ListMultipartReadSetUploads, excluding completed and aborted multipart uploads. </p>
+ * Part of the response to ListMultipartReadSetUploads, excluding completed and aborted multipart uploads.
+ *
  * @public
  */
 export interface MultipartReadSetUploadListItem {
   /**
-   * <p> The sequence store ID used for the multipart upload. </p>
+   * The sequence store ID used for the multipart upload.
+   *
    * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * <p> The ID for the initiated multipart upload. </p>
+   * The ID for the initiated multipart upload.
+   *
    * @public
    */
   uploadId: string | undefined;
 
   /**
-   * <p> The type of file the read set originated from. </p>
+   * The type of file the read set originated from.
+   *
    * @public
    */
   sourceFileType: FileType | undefined;
 
   /**
-   * <p> The read set source's subject ID. </p>
+   * The read set source's subject ID.
+   *
    * @public
    */
   subjectId: string | undefined;
 
   /**
-   * <p> The read set source's sample ID. </p>
+   * The read set source's sample ID.
+   *
    * @public
    */
   sampleId: string | undefined;
 
   /**
-   * <p> The source of an uploaded part. </p>
+   * The source of an uploaded part.
+   *
    * @public
    */
   generatedFrom: string | undefined;
 
   /**
-   * <p> The source's reference ARN. </p>
+   * The source's reference ARN.
+   *
    * @public
    */
   referenceArn: string | undefined;
 
   /**
-   * <p> The name of a read set. </p>
+   * The name of a read set.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p> The description of a read set. </p>
+   * The description of a read set.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p> Any tags you wish to add to a read set. </p>
+   * Any tags you wish to add to a read set.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p> The time stamp for when a direct upload was created. </p>
+   * The time stamp for when a direct upload was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
@@ -6801,13 +7812,15 @@ export interface MultipartReadSetUploadListItem {
  */
 export interface ListMultipartReadSetUploadsResponse {
   /**
-   * <p>Next token returned in the response of a previous ListMultipartReadSetUploads call. Used to get the next page of results.</p>
+   * Next token returned in the response of a previous ListMultipartReadSetUploads call. Used to get the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>An array of multipart uploads.</p>
+   * An array of multipart uploads.
+   *
    * @public
    */
   uploads?: MultipartReadSetUploadListItem[] | undefined;
@@ -6818,25 +7831,29 @@ export interface ListMultipartReadSetUploadsResponse {
  */
 export interface ListReadSetActivationJobsRequest {
   /**
-   * <p>The read set's sequence store ID.</p>
+   * The read set's sequence store ID.
+   *
    * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * <p>The maximum number of read set activation jobs to return in one page of results.</p>
+   * The maximum number of read set activation jobs to return in one page of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * Specify the pagination token from a previous request to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>A filter to apply to the list.</p>
+   * A filter to apply to the list.
+   *
    * @public
    */
   filter?: ActivateReadSetFilter | undefined;
@@ -6847,13 +7864,15 @@ export interface ListReadSetActivationJobsRequest {
  */
 export interface ListReadSetActivationJobsResponse {
   /**
-   * <p>A pagination token that's included if more results are available.</p>
+   * A pagination token that's included if more results are available.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>A list of jobs.</p>
+   * A list of jobs.
+   *
    * @public
    */
   activationJobs?: ActivateReadSetJobItem[] | undefined;
@@ -6864,25 +7883,29 @@ export interface ListReadSetActivationJobsResponse {
  */
 export interface ListReadSetExportJobsRequest {
   /**
-   * <p>The jobs' sequence store ID.</p>
+   * The jobs' sequence store ID.
+   *
    * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * <p>The maximum number of jobs to return in one page of results.</p>
+   * The maximum number of jobs to return in one page of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * Specify the pagination token from a previous request to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>A filter to apply to the list.</p>
+   * A filter to apply to the list.
+   *
    * @public
    */
   filter?: ExportReadSetFilter | undefined;
@@ -6893,13 +7916,15 @@ export interface ListReadSetExportJobsRequest {
  */
 export interface ListReadSetExportJobsResponse {
   /**
-   * <p>A pagination token that's included if more results are available.</p>
+   * A pagination token that's included if more results are available.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>A list of jobs.</p>
+   * A list of jobs.
+   *
    * @public
    */
   exportJobs?: ExportReadSetJobDetail[] | undefined;
@@ -6910,25 +7935,29 @@ export interface ListReadSetExportJobsResponse {
  */
 export interface ListReadSetImportJobsRequest {
   /**
-   * <p>The maximum number of jobs to return in one page of results.</p>
+   * The maximum number of jobs to return in one page of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * Specify the pagination token from a previous request to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The jobs' sequence store ID.</p>
+   * The jobs' sequence store ID.
+   *
    * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * <p>A filter to apply to the list.</p>
+   * A filter to apply to the list.
+   *
    * @public
    */
   filter?: ImportReadSetFilter | undefined;
@@ -6939,73 +7968,85 @@ export interface ListReadSetImportJobsRequest {
  */
 export interface ListReadSetImportJobsResponse {
   /**
-   * <p>A pagination token that's included if more results are available.</p>
+   * A pagination token that's included if more results are available.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>A list of jobs.</p>
+   * A list of jobs.
+   *
    * @public
    */
   importJobs?: ImportReadSetJobItem[] | undefined;
 }
 
 /**
- * <p>A filter for read sets.</p>
+ * A filter for read sets.
+ *
  * @public
  */
 export interface ReadSetFilter {
   /**
-   * <p>A name to filter on.</p>
+   * A name to filter on.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>A status to filter on.</p>
+   * A status to filter on.
+   *
    * @public
    */
   status?: ReadSetStatus | undefined;
 
   /**
-   * <p>A genome reference ARN to filter on.</p>
+   * A genome reference ARN to filter on.
+   *
    * @public
    */
   referenceArn?: string | undefined;
 
   /**
-   * <p>The filter's start date.</p>
+   * The filter's start date.
+   *
    * @public
    */
   createdAfter?: Date | undefined;
 
   /**
-   * <p>The filter's end date.</p>
+   * The filter's end date.
+   *
    * @public
    */
   createdBefore?: Date | undefined;
 
   /**
-   * <p> The read set source's sample ID. </p>
+   * The read set source's sample ID.
+   *
    * @public
    */
   sampleId?: string | undefined;
 
   /**
-   * <p> The read set source's subject ID. </p>
+   * The read set source's subject ID.
+   *
    * @public
    */
   subjectId?: string | undefined;
 
   /**
-   * <p> Where the source originated. </p>
+   * Where the source originated.
+   *
    * @public
    */
   generatedFrom?: string | undefined;
 
   /**
-   * <p> The creation type of the read set. </p>
+   * The creation type of the read set.
+   *
    * @public
    */
   creationType?: CreationType | undefined;
@@ -7016,121 +8057,141 @@ export interface ReadSetFilter {
  */
 export interface ListReadSetsRequest {
   /**
-   * <p>The jobs' sequence store ID.</p>
+   * The jobs' sequence store ID.
+   *
    * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * <p>The maximum number of read sets to return in one page of results.</p>
+   * The maximum number of read sets to return in one page of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * Specify the pagination token from a previous request to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>A filter to apply to the list.</p>
+   * A filter to apply to the list.
+   *
    * @public
    */
   filter?: ReadSetFilter | undefined;
 }
 
 /**
- * <p>A read set.</p>
+ * A read set.
+ *
  * @public
  */
 export interface ReadSetListItem {
   /**
-   * <p>The read set's ID.</p>
+   * The read set's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The read set's ARN.</p>
+   * The read set's ARN.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The read set's sequence store ID.</p>
+   * The read set's sequence store ID.
+   *
    * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * <p>The read set's subject ID.</p>
+   * The read set's subject ID.
+   *
    * @public
    */
   subjectId?: string | undefined;
 
   /**
-   * <p>The read set's sample ID.</p>
+   * The read set's sample ID.
+   *
    * @public
    */
   sampleId?: string | undefined;
 
   /**
-   * <p>The read set's status.</p>
+   * The read set's status.
+   *
    * @public
    */
   status: ReadSetStatus | undefined;
 
   /**
-   * <p>The read set's name.</p>
+   * The read set's name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The read set's description.</p>
+   * The read set's description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The read set's genome reference ARN.</p>
+   * The read set's genome reference ARN.
+   *
    * @public
    */
   referenceArn?: string | undefined;
 
   /**
-   * <p>The read set's file type.</p>
+   * The read set's file type.
+   *
    * @public
    */
   fileType: FileType | undefined;
 
   /**
-   * <p>Details about a sequence.</p>
+   * Details about a sequence.
+   *
    * @public
    */
   sequenceInformation?: SequenceInformation | undefined;
 
   /**
-   * <p>When the read set was created.</p>
+   * When the read set was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p> The status for a read set. It provides more detail as to why the read set has a status. </p>
+   * The status for a read set. It provides more detail as to why the read set has a status.
+   *
    * @public
    */
   statusMessage?: string | undefined;
 
   /**
-   * <p> The creation type of the read set. </p>
+   * The creation type of the read set.
+   *
    * @public
    */
   creationType?: CreationType | undefined;
 
   /**
-   * <p>The entity tag (ETag) is a hash of the object representing its semantic content.</p>
+   * The entity tag (ETag) is a hash of the object representing its semantic content.
+   *
    * @public
    */
   etag?: ETag | undefined;
@@ -7141,31 +8202,36 @@ export interface ReadSetListItem {
  */
 export interface ListReadSetsResponse {
   /**
-   * <p>A pagination token that's included if more results are available.</p>
+   * A pagination token that's included if more results are available.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>A list of read sets.</p>
+   * A list of read sets.
+   *
    * @public
    */
   readSets: ReadSetListItem[] | undefined;
 }
 
 /**
- * <p> Filter settings that select for read set upload parts of interest. </p>
+ * Filter settings that select for read set upload parts of interest.
+ *
  * @public
  */
 export interface ReadSetUploadPartListFilter {
   /**
-   * <p> Filters for read set uploads after a specified time. </p>
+   * Filters for read set uploads after a specified time.
+   *
    * @public
    */
   createdAfter?: Date | undefined;
 
   /**
-   * <p> Filters for read set part uploads before a specified time. </p>
+   * Filters for read set part uploads before a specified time.
+   *
    * @public
    */
   createdBefore?: Date | undefined;
@@ -7176,79 +8242,92 @@ export interface ReadSetUploadPartListFilter {
  */
 export interface ListReadSetUploadPartsRequest {
   /**
-   * <p>The Sequence Store ID used for the multipart uploads.</p>
+   * The Sequence Store ID used for the multipart uploads.
+   *
    * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * <p>The ID for the initiated multipart upload.</p>
+   * The ID for the initiated multipart upload.
+   *
    * @public
    */
   uploadId: string | undefined;
 
   /**
-   * <p>The source file for the upload part.</p>
+   * The source file for the upload part.
+   *
    * @public
    */
   partSource: ReadSetPartSource | undefined;
 
   /**
-   * <p>The maximum number of read set upload parts returned in a page.</p>
+   * The maximum number of read set upload parts returned in a page.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Next token returned in the response of a previous ListReadSetUploadPartsRequest call. Used to get the next page of results.</p>
+   * Next token returned in the response of a previous ListReadSetUploadPartsRequest call. Used to get the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Attributes used to filter for a specific subset of read set part uploads.</p>
+   * Attributes used to filter for a specific subset of read set part uploads.
+   *
    * @public
    */
   filter?: ReadSetUploadPartListFilter | undefined;
 }
 
 /**
- * <p> The metadata of a single part of a file that was added to a multipart upload. A list of these parts is returned in the response to the ListReadSetUploadParts API. </p>
+ * The metadata of a single part of a file that was added to a multipart upload. A list of these parts is returned in the response to the ListReadSetUploadParts API.
+ *
  * @public
  */
 export interface ReadSetUploadPartListItem {
   /**
-   * <p> The number identifying the part in an upload. </p>
+   * The number identifying the part in an upload.
+   *
    * @public
    */
   partNumber: number | undefined;
 
   /**
-   * <p> The size of the the part in an upload. </p>
+   * The size of the the part in an upload.
+   *
    * @public
    */
   partSize: number | undefined;
 
   /**
-   * <p> The origin of the part being direct uploaded. </p>
+   * The origin of the part being direct uploaded.
+   *
    * @public
    */
   partSource: ReadSetPartSource | undefined;
 
   /**
-   * <p> A unique identifier used to confirm that parts are being added to the correct upload. </p>
+   * A unique identifier used to confirm that parts are being added to the correct upload.
+   *
    * @public
    */
   checksum: string | undefined;
 
   /**
-   * <p> The time stamp for when a direct upload was created. </p>
+   * The time stamp for when a direct upload was created.
+   *
    * @public
    */
   creationTime?: Date | undefined;
 
   /**
-   * <p> The time stamp for the most recent update to an uploaded part. </p>
+   * The time stamp for the most recent update to an uploaded part.
+   *
    * @public
    */
   lastUpdatedTime?: Date | undefined;
@@ -7259,13 +8338,15 @@ export interface ReadSetUploadPartListItem {
  */
 export interface ListReadSetUploadPartsResponse {
   /**
-   * <p>Next token returned in the response of a previous ListReadSetUploadParts call. Used to get the next page of results.</p>
+   * Next token returned in the response of a previous ListReadSetUploadParts call. Used to get the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>An array of upload parts.</p>
+   * An array of upload parts.
+   *
    * @public
    */
   parts?: ReadSetUploadPartListItem[] | undefined;
@@ -7276,25 +8357,29 @@ export interface ListReadSetUploadPartsResponse {
  */
 export interface ListReferenceImportJobsRequest {
   /**
-   * <p>The maximum number of jobs to return in one page of results.</p>
+   * The maximum number of jobs to return in one page of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * Specify the pagination token from a previous request to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The job's reference store ID.</p>
+   * The job's reference store ID.
+   *
    * @public
    */
   referenceStoreId: string | undefined;
 
   /**
-   * <p>A filter to apply to the list.</p>
+   * A filter to apply to the list.
+   *
    * @public
    */
   filter?: ImportReferenceFilter | undefined;
@@ -7305,43 +8390,50 @@ export interface ListReferenceImportJobsRequest {
  */
 export interface ListReferenceImportJobsResponse {
   /**
-   * <p>A pagination token that's included if more results are available.</p>
+   * A pagination token that's included if more results are available.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>A lis of jobs.</p>
+   * A lis of jobs.
+   *
    * @public
    */
   importJobs?: ImportReferenceJobItem[] | undefined;
 }
 
 /**
- * <p>A filter for references.</p>
+ * A filter for references.
+ *
  * @public
  */
 export interface ReferenceFilter {
   /**
-   * <p>A name to filter on.</p>
+   * A name to filter on.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>An MD5 checksum to filter on.</p>
+   * An MD5 checksum to filter on.
+   *
    * @public
    */
   md5?: string | undefined;
 
   /**
-   * <p>The filter's start date.</p>
+   * The filter's start date.
+   *
    * @public
    */
   createdAfter?: Date | undefined;
 
   /**
-   * <p>The filter's end date.</p>
+   * The filter's end date.
+   *
    * @public
    */
   createdBefore?: Date | undefined;
@@ -7352,85 +8444,99 @@ export interface ReferenceFilter {
  */
 export interface ListReferencesRequest {
   /**
-   * <p>The references' reference store ID.</p>
+   * The references' reference store ID.
+   *
    * @public
    */
   referenceStoreId: string | undefined;
 
   /**
-   * <p>The maximum number of references to return in one page of results.</p>
+   * The maximum number of references to return in one page of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * Specify the pagination token from a previous request to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>A filter to apply to the list.</p>
+   * A filter to apply to the list.
+   *
    * @public
    */
   filter?: ReferenceFilter | undefined;
 }
 
 /**
- * <p>A genome reference.</p>
+ * A genome reference.
+ *
  * @public
  */
 export interface ReferenceListItem {
   /**
-   * <p>The reference's ID.</p>
+   * The reference's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The reference's ARN.</p>
+   * The reference's ARN.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The reference's store ID.</p>
+   * The reference's store ID.
+   *
    * @public
    */
   referenceStoreId: string | undefined;
 
   /**
-   * <p>The reference's MD5 checksum.</p>
+   * The reference's MD5 checksum.
+   *
    * @public
    */
   md5: string | undefined;
 
   /**
-   * <p>The reference's status.</p>
+   * The reference's status.
+   *
    * @public
    */
   status?: ReferenceStatus | undefined;
 
   /**
-   * <p>The reference's name.</p>
+   * The reference's name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The reference's description.</p>
+   * The reference's description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>When the reference was created.</p>
+   * When the reference was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>When the reference was updated.</p>
+   * When the reference was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
@@ -7441,37 +8547,43 @@ export interface ReferenceListItem {
  */
 export interface ListReferencesResponse {
   /**
-   * <p>A pagination token that's included if more results are available.</p>
+   * A pagination token that's included if more results are available.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>A list of references.</p>
+   * A list of references.
+   *
    * @public
    */
   references: ReferenceListItem[] | undefined;
 }
 
 /**
- * <p>A filter for reference stores.</p>
+ * A filter for reference stores.
+ *
  * @public
  */
 export interface ReferenceStoreFilter {
   /**
-   * <p>The name to filter on.</p>
+   * The name to filter on.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The filter's start date.</p>
+   * The filter's start date.
+   *
    * @public
    */
   createdAfter?: Date | undefined;
 
   /**
-   * <p>The filter's end date.</p>
+   * The filter's end date.
+   *
    * @public
    */
   createdBefore?: Date | undefined;
@@ -7482,61 +8594,71 @@ export interface ReferenceStoreFilter {
  */
 export interface ListReferenceStoresRequest {
   /**
-   * <p>The maximum number of stores to return in one page of results.</p>
+   * The maximum number of stores to return in one page of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * Specify the pagination token from a previous request to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>A filter to apply to the list.</p>
+   * A filter to apply to the list.
+   *
    * @public
    */
   filter?: ReferenceStoreFilter | undefined;
 }
 
 /**
- * <p>Details about a reference store.</p>
+ * Details about a reference store.
+ *
  * @public
  */
 export interface ReferenceStoreDetail {
   /**
-   * <p>The store's ARN.</p>
+   * The store's ARN.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The store's ID.</p>
+   * The store's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The store's name.</p>
+   * The store's name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The store's description.</p>
+   * The store's description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The store's server-side encryption (SSE) settings.</p>
+   * The store's server-side encryption (SSE) settings.
+   *
    * @public
    */
   sseConfig?: SseConfig | undefined;
 
   /**
-   * <p>When the store was created.</p>
+   * When the store was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
@@ -7547,13 +8669,15 @@ export interface ReferenceStoreDetail {
  */
 export interface ListReferenceStoresResponse {
   /**
-   * <p>A pagination token that's included if more results are available.</p>
+   * A pagination token that's included if more results are available.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>A list of reference stores.</p>
+   * A list of reference stores.
+   *
    * @public
    */
   referenceStores: ReferenceStoreDetail[] | undefined;
@@ -7564,61 +8688,71 @@ export interface ListReferenceStoresResponse {
  */
 export interface ListRunCachesRequest {
   /**
-   * <p>The maximum number of results to return.</p>
+   * The maximum number of results to return.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Optional pagination token returned from a prior call to the <code>ListRunCaches</code> API operation.</p>
+   * Optional pagination token returned from a prior call to the `ListRunCaches` API operation.
+   *
    * @public
    */
   startingToken?: string | undefined;
 }
 
 /**
- * <p>List entry for one run cache.</p>
+ * List entry for one run cache.
+ *
  * @public
  */
 export interface RunCacheListItem {
   /**
-   * <p>Unique resource identifier for the run cache.</p>
+   * Unique resource identifier for the run cache.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>Default cache behavior for the run cache.</p>
+   * Default cache behavior for the run cache.
+   *
    * @public
    */
   cacheBehavior?: CacheBehavior | undefined;
 
   /**
-   * <p>The S3 uri for the run cache data.</p>
+   * The S3 uri for the run cache data.
+   *
    * @public
    */
   cacheS3Uri?: string | undefined;
 
   /**
-   * <p>The time that this run cache was created (an ISO 8601 formatted string).</p>
+   * The time that this run cache was created (an ISO 8601 formatted string).
+   *
    * @public
    */
   creationTime?: Date | undefined;
 
   /**
-   * <p>The identifier for this run cache.</p>
+   * The identifier for this run cache.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The name of the run cache.</p>
+   * The name of the run cache.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The run cache status.</p>
+   * The run cache status.
+   *
    * @public
    */
   status?: RunCacheStatus | undefined;
@@ -7629,13 +8763,15 @@ export interface RunCacheListItem {
  */
 export interface ListRunCachesResponse {
   /**
-   * <p>Details about each run cache in the response.</p>
+   * Details about each run cache in the response.
+   *
    * @public
    */
   items?: RunCacheListItem[] | undefined;
 
   /**
-   * <p>Pagination token to retrieve additional run caches. If the response does not have a <code>nextToken</code>value, you have reached to the end of the list.</p>
+   * Pagination token to retrieve additional run caches. If the response does not have a `nextToken`value, you have reached to the end of the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -7646,73 +8782,85 @@ export interface ListRunCachesResponse {
  */
 export interface ListRunGroupsRequest {
   /**
-   * <p>The run groups' name.</p>
+   * The run groups' name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * Specify the pagination token from a previous request to retrieve the next page of results.
+   *
    * @public
    */
   startingToken?: string | undefined;
 
   /**
-   * <p>The maximum number of run groups to return in one page of results.</p>
+   * The maximum number of run groups to return in one page of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>A run group.</p>
+ * A run group.
+ *
  * @public
  */
 export interface RunGroupListItem {
   /**
-   * <p>The group's ARN.</p>
+   * The group's ARN.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The group's ID.</p>
+   * The group's ID.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The group's name.</p>
+   * The group's name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The group's maximum CPU count setting.</p>
+   * The group's maximum CPU count setting.
+   *
    * @public
    */
   maxCpus?: number | undefined;
 
   /**
-   * <p>The group's maximum concurrent run setting.</p>
+   * The group's maximum concurrent run setting.
+   *
    * @public
    */
   maxRuns?: number | undefined;
 
   /**
-   * <p>The group's maximum duration setting in minutes.</p>
+   * The group's maximum duration setting in minutes.
+   *
    * @public
    */
   maxDuration?: number | undefined;
 
   /**
-   * <p>When the group was created.</p>
+   * When the group was created.
+   *
    * @public
    */
   creationTime?: Date | undefined;
 
   /**
-   * <p> The maximum GPUs that can be used by a run group. </p>
+   * The maximum GPUs that can be used by a run group.
+   *
    * @public
    */
   maxGpus?: number | undefined;
@@ -7723,13 +8871,15 @@ export interface RunGroupListItem {
  */
 export interface ListRunGroupsResponse {
   /**
-   * <p>A list of groups.</p>
+   * A list of groups.
+   *
    * @public
    */
   items?: RunGroupListItem[] | undefined;
 
   /**
-   * <p>A pagination token that's included if more results are available.</p>
+   * A pagination token that's included if more results are available.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -7740,127 +8890,148 @@ export interface ListRunGroupsResponse {
  */
 export interface ListRunsRequest {
   /**
-   * <p>Filter the list by run name.</p>
+   * Filter the list by run name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Filter the list by run group ID.</p>
+   * Filter the list by run group ID.
+   *
    * @public
    */
   runGroupId?: string | undefined;
 
   /**
-   * <p>Filter by batch ID.</p>
+   * Filter by batch ID.
+   *
    * @public
    */
   batchId?: string | undefined;
 
   /**
-   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * Specify the pagination token from a previous request to retrieve the next page of results.
+   *
    * @public
    */
   startingToken?: string | undefined;
 
   /**
-   * <p>The maximum number of runs to return in one page of results.</p>
+   * The maximum number of runs to return in one page of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The status of a run.</p>
+   * The status of a run.
+   *
    * @public
    */
   status?: RunStatus | undefined;
 }
 
 /**
- * <p>A workflow run.</p>
+ * A workflow run.
+ *
  * @public
  */
 export interface RunListItem {
   /**
-   * <p>The run's ARN.</p>
+   * The run's ARN.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The run's ID.</p>
+   * The run's ID.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The run's status.</p>
+   * The run's status.
+   *
    * @public
    */
   status?: RunStatus | undefined;
 
   /**
-   * <p>The run's workflow ID.</p>
+   * The run's workflow ID.
+   *
    * @public
    */
   workflowId?: string | undefined;
 
   /**
-   * <p>The run's batch ID.</p>
+   * The run's batch ID.
+   *
    * @public
    */
   batchId?: string | undefined;
 
   /**
-   * <p>The run's name.</p>
+   * The run's name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The run's priority.</p>
+   * The run's priority.
+   *
    * @public
    */
   priority?: number | undefined;
 
   /**
-   * <p>The run's storage capacity in gibibytes. For dynamic storage, after the run has completed, this value is the maximum amount of storage used during the run.</p>
+   * The run's storage capacity in gibibytes. For dynamic storage, after the run has completed, this value is the maximum amount of storage used during the run.
+   *
    * @public
    */
   storageCapacity?: number | undefined;
 
   /**
-   * <p>When the run was created.</p>
+   * When the run was created.
+   *
    * @public
    */
   creationTime?: Date | undefined;
 
   /**
-   * <p>When the run started.</p>
+   * When the run started.
+   *
    * @public
    */
   startTime?: Date | undefined;
 
   /**
-   * <p>When the run stopped.</p>
+   * When the run stopped.
+   *
    * @public
    */
   stopTime?: Date | undefined;
 
   /**
-   * <p>The run's storage type.</p>
+   * The run's storage type.
+   *
    * @public
    */
   storageType?: StorageType | undefined;
 
   /**
-   * <p>The name of the workflow version.</p>
+   * The name of the workflow version.
+   *
    * @public
    */
   workflowVersionName?: string | undefined;
 
   /**
-   * <p>The name of the workflow.</p>
+   * The name of the workflow.
+   *
    * @public
    */
   workflowName?: string | undefined;
@@ -7871,13 +9042,15 @@ export interface RunListItem {
  */
 export interface ListRunsResponse {
   /**
-   * <p>A list of runs.</p>
+   * A list of runs.
+   *
    * @public
    */
   items?: RunListItem[] | undefined;
 
   /**
-   * <p>A pagination token that's included if more results are available.</p>
+   * A pagination token that's included if more results are available.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -7888,85 +9061,99 @@ export interface ListRunsResponse {
  */
 export interface ListRunsInBatchRequest {
   /**
-   * <p>The identifier portion of the run batch ARN.</p>
+   * The identifier portion of the run batch ARN.
+   *
    * @public
    */
   batchId: string | undefined;
 
   /**
-   * <p>The maximum number of runs to return.</p>
+   * The maximum number of runs to return.
+   *
    * @public
    */
   maxItems?: number | undefined;
 
   /**
-   * <p>A pagination token returned from a prior <code>ListRunsInBatch</code> call.</p>
+   * A pagination token returned from a prior `ListRunsInBatch` call.
+   *
    * @public
    */
   startingToken?: string | undefined;
 
   /**
-   * <p>Filter runs by submission status.</p>
+   * Filter runs by submission status.
+   *
    * @public
    */
   submissionStatus?: SubmissionStatus | undefined;
 
   /**
-   * <p>Filter runs by the customer-provided run setting ID.</p>
+   * Filter runs by the customer-provided run setting ID.
+   *
    * @public
    */
   runSettingId?: string | undefined;
 
   /**
-   * <p>Filter runs by the HealthOmics-generated run ID.</p>
+   * Filter runs by the HealthOmics-generated run ID.
+   *
    * @public
    */
   runId?: string | undefined;
 }
 
 /**
- * <p>A single run entry returned by <code>ListRunsInBatch</code>.</p>
+ * A single run entry returned by `ListRunsInBatch`.
+ *
  * @public
  */
 export interface RunBatchListItem {
   /**
-   * <p>The customer-provided identifier for the run configuration. Use this to correlate results back to the input configuration provided in <code>inlineSettings</code> or <code>s3UriSettings</code>.</p>
+   * The customer-provided identifier for the run configuration. Use this to correlate results back to the input configuration provided in `inlineSettings` or `s3UriSettings`.
+   *
    * @public
    */
   runSettingId?: string | undefined;
 
   /**
-   * <p>The HealthOmics-generated identifier for the workflow run. Empty if submission failed.</p>
+   * The HealthOmics-generated identifier for the workflow run. Empty if submission failed.
+   *
    * @public
    */
   runId?: string | undefined;
 
   /**
-   * <p>The universally unique identifier (UUID) for the run.</p>
+   * The universally unique identifier (UUID) for the run.
+   *
    * @public
    */
   runInternalUuid?: string | undefined;
 
   /**
-   * <p>The unique ARN of the workflow run.</p>
+   * The unique ARN of the workflow run.
+   *
    * @public
    */
   runArn?: string | undefined;
 
   /**
-   * <p>The submission outcome for this run.</p>
+   * The submission outcome for this run.
+   *
    * @public
    */
   submissionStatus?: SubmissionStatus | undefined;
 
   /**
-   * <p>The error category for a failed submission. See the run-level failure table in the HealthOmics User Guide for details on each value.</p>
+   * The error category for a failed submission. See the run-level failure table in the HealthOmics User Guide for details on each value.
+   *
    * @public
    */
   submissionFailureReason?: string | undefined;
 
   /**
-   * <p>A detailed message describing the submission failure.</p>
+   * A detailed message describing the submission failure.
+   *
    * @public
    */
   submissionFailureMessage?: string | undefined;
@@ -7977,13 +9164,15 @@ export interface RunBatchListItem {
  */
 export interface ListRunsInBatchResponse {
   /**
-   * <p>A list of run entries in the batch. See <code>RunBatchListItem</code>.</p>
+   * A list of run entries in the batch. See `RunBatchListItem`.
+   *
    * @public
    */
   runs?: RunBatchListItem[] | undefined;
 
   /**
-   * <p>A pagination token to retrieve the next page of results. Absent when the last run has been returned.</p>
+   * A pagination token to retrieve the next page of results. Absent when the last run has been returned.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -7994,109 +9183,127 @@ export interface ListRunsInBatchResponse {
  */
 export interface ListRunTasksRequest {
   /**
-   * <p>The run's ID.</p>
+   * The run's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>Filter the list by status.</p>
+   * Filter the list by status.
+   *
    * @public
    */
   status?: TaskStatus | undefined;
 
   /**
-   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * Specify the pagination token from a previous request to retrieve the next page of results.
+   *
    * @public
    */
   startingToken?: string | undefined;
 
   /**
-   * <p>The maximum number of run tasks to return in one page of results.</p>
+   * The maximum number of run tasks to return in one page of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>A workflow run task.</p>
+ * A workflow run task.
+ *
  * @public
  */
 export interface TaskListItem {
   /**
-   * <p>The task's ID.</p>
+   * The task's ID.
+   *
    * @public
    */
   taskId?: string | undefined;
 
   /**
-   * <p>The task's status.</p>
+   * The task's status.
+   *
    * @public
    */
   status?: TaskStatus | undefined;
 
   /**
-   * <p>The task's name.</p>
+   * The task's name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The task's CPU count.</p>
+   * The task's CPU count.
+   *
    * @public
    */
   cpus?: number | undefined;
 
   /**
-   * <p>Set to true if Amazon Web Services HealthOmics found a matching entry in the run cache for this task.</p>
+   * Set to true if Amazon Web Services HealthOmics found a matching entry in the run cache for this task.
+   *
    * @public
    */
   cacheHit?: boolean | undefined;
 
   /**
-   * <p>The S3 URI of the cache location.</p>
+   * The S3 URI of the cache location.
+   *
    * @public
    */
   cacheS3Uri?: string | undefined;
 
   /**
-   * <p>The task's memory use in gigabyes.</p>
+   * The task's memory use in gigabyes.
+   *
    * @public
    */
   memory?: number | undefined;
 
   /**
-   * <p>When the task was created.</p>
+   * When the task was created.
+   *
    * @public
    */
   creationTime?: Date | undefined;
 
   /**
-   * <p>When the task started.</p>
+   * When the task started.
+   *
    * @public
    */
   startTime?: Date | undefined;
 
   /**
-   * <p>When the task stopped.</p>
+   * When the task stopped.
+   *
    * @public
    */
   stopTime?: Date | undefined;
 
   /**
-   * <p> The number of Graphics Processing Units (GPU) specified for the task. </p>
+   * The number of Graphics Processing Units (GPU) specified for the task.
+   *
    * @public
    */
   gpus?: number | undefined;
 
   /**
-   * <p> The instance type for a task.</p>
+   * The instance type for a task.
+   *
    * @public
    */
   instanceType?: string | undefined;
 
   /**
-   * <p>The universally unique identifier (UUID) for the workflow task.</p>
+   * The universally unique identifier (UUID) for the workflow task.
+   *
    * @public
    */
   uuid?: string | undefined;
@@ -8107,55 +9314,64 @@ export interface TaskListItem {
  */
 export interface ListRunTasksResponse {
   /**
-   * <p>A list of tasks.</p>
+   * A list of tasks.
+   *
    * @public
    */
   items?: TaskListItem[] | undefined;
 
   /**
-   * <p>A pagination token that's included if more results are available.</p>
+   * A pagination token that's included if more results are available.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>A filter for a sequence store.</p>
+ * A filter for a sequence store.
+ *
  * @public
  */
 export interface SequenceStoreFilter {
   /**
-   * <p>A name to filter on.</p>
+   * A name to filter on.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The filter's start date.</p>
+   * The filter's start date.
+   *
    * @public
    */
   createdAfter?: Date | undefined;
 
   /**
-   * <p>The filter's end date.</p>
+   * The filter's end date.
+   *
    * @public
    */
   createdBefore?: Date | undefined;
 
   /**
-   * <p>Filter results based on status.</p>
+   * Filter results based on status.
+   *
    * @public
    */
   status?: SequenceStoreStatus | undefined;
 
   /**
-   * <p>Filter results based on stores updated after the specified time.</p>
+   * Filter results based on stores updated after the specified time.
+   *
    * @public
    */
   updatedAfter?: Date | undefined;
 
   /**
-   * <p>Filter results based on stores updated before the specified time.</p>
+   * Filter results based on stores updated before the specified time.
+   *
    * @public
    */
   updatedBefore?: Date | undefined;
@@ -8166,91 +9382,106 @@ export interface SequenceStoreFilter {
  */
 export interface ListSequenceStoresRequest {
   /**
-   * <p>The maximum number of stores to return in one page of results.</p>
+   * The maximum number of stores to return in one page of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * Specify the pagination token from a previous request to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>A filter to apply to the list.</p>
+   * A filter to apply to the list.
+   *
    * @public
    */
   filter?: SequenceStoreFilter | undefined;
 }
 
 /**
- * <p>Details about a sequence store.</p>
+ * Details about a sequence store.
+ *
  * @public
  */
 export interface SequenceStoreDetail {
   /**
-   * <p>The store's ARN.</p>
+   * The store's ARN.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The store's ID.</p>
+   * The store's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The store's name.</p>
+   * The store's name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The store's description.</p>
+   * The store's description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The store's server-side encryption (SSE) settings.</p>
+   * The store's server-side encryption (SSE) settings.
+   *
    * @public
    */
   sseConfig?: SseConfig | undefined;
 
   /**
-   * <p>When the store was created.</p>
+   * When the store was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p> An S3 location that is used to store files that have failed a direct upload. </p>
+   * An S3 location that is used to store files that have failed a direct upload.
+   *
    * @public
    */
   fallbackLocation?: string | undefined;
 
   /**
-   * <p>The algorithm family of the ETag.</p>
+   * The algorithm family of the ETag.
+   *
    * @public
    */
   eTagAlgorithmFamily?: ETagAlgorithmFamily | undefined;
 
   /**
-   * <p>Status of the sequence store.</p>
+   * Status of the sequence store.
+   *
    * @public
    */
   status?: SequenceStoreStatus | undefined;
 
   /**
-   * <p>The status message of the sequence store.</p>
+   * The status message of the sequence store.
+   *
    * @public
    */
   statusMessage?: string | undefined;
 
   /**
-   * <p>The last-updated time of the Sequence Store.</p>
+   * The last-updated time of the Sequence Store.
+   *
    * @public
    */
   updateTime?: Date | undefined;
@@ -8261,13 +9492,15 @@ export interface SequenceStoreDetail {
  */
 export interface ListSequenceStoresResponse {
   /**
-   * <p>A pagination token that's included if more results are available.</p>
+   * A pagination token that's included if more results are available.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>A list of sequence stores.</p>
+   * A list of sequence stores.
+   *
    * @public
    */
   sequenceStores: SequenceStoreDetail[] | undefined;
@@ -8278,25 +9511,29 @@ export interface ListSequenceStoresResponse {
  */
 export interface ListSharesRequest {
   /**
-   * <p>The account that owns the resource shares.</p>
+   * The account that owns the resource shares.
+   *
    * @public
    */
   resourceOwner: ResourceOwner | undefined;
 
   /**
-   * <p>Attributes that you use to filter for a specific subset of resource shares.</p>
+   * Attributes that you use to filter for a specific subset of resource shares.
+   *
    * @public
    */
   filter?: Filter | undefined;
 
   /**
-   * <p>Next token returned in the response of a previous ListReadSetUploadPartsRequest call. Used to get the next page of results.</p>
+   * Next token returned in the response of a previous ListReadSetUploadPartsRequest call. Used to get the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of shares to return in one page of results.</p>
+   * The maximum number of shares to return in one page of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
@@ -8307,13 +9544,15 @@ export interface ListSharesRequest {
  */
 export interface ListSharesResponse {
   /**
-   * <p>The shares available and their metadata details.</p>
+   * The shares available and their metadata details.
+   *
    * @public
    */
   shares: ShareDetails[] | undefined;
 
   /**
-   * <p> Next token returned in the response of a previous ListSharesResponse call. Used to get the next page of results. </p>
+   * Next token returned in the response of a previous ListSharesResponse call. Used to get the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -8324,7 +9563,8 @@ export interface ListSharesResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The resource's ARN.</p>
+   * The resource's ARN.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -8335,25 +9575,29 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>A list of tags.</p>
+   * A list of tags.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
 }
 
 /**
- * <p>A filter for variant import jobs.</p>
+ * A filter for variant import jobs.
+ *
  * @public
  */
 export interface ListVariantImportJobsFilter {
   /**
-   * <p>A status to filter on.</p>
+   * A status to filter on.
+   *
    * @public
    */
   status?: JobStatus | undefined;
 
   /**
-   * <p>A store name to filter on.</p>
+   * A store name to filter on.
+   *
    * @public
    */
   storeName?: string | undefined;
@@ -8364,85 +9608,99 @@ export interface ListVariantImportJobsFilter {
  */
 export interface ListVariantImportJobsRequest {
   /**
-   * <p>The maximum number of import jobs to return in one page of results.</p>
+   * The maximum number of import jobs to return in one page of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A list of job IDs.</p>
+   * A list of job IDs.
+   *
    * @public
    */
   ids?: string[] | undefined;
 
   /**
-   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * Specify the pagination token from a previous request to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>A filter to apply to the list.</p>
+   * A filter to apply to the list.
+   *
    * @public
    */
   filter?: ListVariantImportJobsFilter | undefined;
 }
 
 /**
- * <p>A variant import job.</p>
+ * A variant import job.
+ *
  * @public
  */
 export interface VariantImportJobItem {
   /**
-   * <p>The job's ID.</p>
+   * The job's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The job's destination variant store.</p>
+   * The job's destination variant store.
+   *
    * @public
    */
   destinationName: string | undefined;
 
   /**
-   * <p>The job's service role ARN.</p>
+   * The job's service role ARN.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>The job's status.</p>
+   * The job's status.
+   *
    * @public
    */
   status: JobStatus | undefined;
 
   /**
-   * <p>When the job was created.</p>
+   * When the job was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>When the job was updated.</p>
+   * When the job was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>When the job completed.</p>
+   * When the job completed.
+   *
    * @public
    */
   completionTime?: Date | undefined;
 
   /**
-   * <p>The job's left normalization setting.</p>
+   * The job's left normalization setting.
+   *
    * @public
    */
   runLeftNormalization?: boolean | undefined;
 
   /**
-   * <p> The annotation schema generated by the parsed annotation data. </p>
+   * The annotation schema generated by the parsed annotation data.
+   *
    * @public
    */
   annotationFields?: Record<string, string> | undefined;
@@ -8453,25 +9711,29 @@ export interface VariantImportJobItem {
  */
 export interface ListVariantImportJobsResponse {
   /**
-   * <p>A list of jobs.</p>
+   * A list of jobs.
+   *
    * @public
    */
   variantImportJobs?: VariantImportJobItem[] | undefined;
 
   /**
-   * <p>A pagination token that's included if more results are available.</p>
+   * A pagination token that's included if more results are available.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>A filter for variant stores.</p>
+ * A filter for variant stores.
+ *
  * @public
  */
 export interface ListVariantStoresFilter {
   /**
-   * <p>A status to filter on.</p>
+   * A status to filter on.
+   *
    * @public
    */
   status?: StoreStatus | undefined;
@@ -8482,97 +9744,113 @@ export interface ListVariantStoresFilter {
  */
 export interface ListVariantStoresRequest {
   /**
-   * <p>The maximum number of stores to return in one page of results.</p>
+   * The maximum number of stores to return in one page of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A list of store IDs.</p>
+   * A list of store IDs.
+   *
    * @public
    */
   ids?: string[] | undefined;
 
   /**
-   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * Specify the pagination token from a previous request to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>A filter to apply to the list.</p>
+   * A filter to apply to the list.
+   *
    * @public
    */
   filter?: ListVariantStoresFilter | undefined;
 }
 
 /**
- * <p>A variant store.</p>
+ * A variant store.
+ *
  * @public
  */
 export interface VariantStoreItem {
   /**
-   * <p>The store's ID.</p>
+   * The store's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The store's genome reference.</p>
+   * The store's genome reference.
+   *
    * @public
    */
   reference: ReferenceItem | undefined;
 
   /**
-   * <p>The store's status.</p>
+   * The store's status.
+   *
    * @public
    */
   status: StoreStatus | undefined;
 
   /**
-   * <p>The store's ARN.</p>
+   * The store's ARN.
+   *
    * @public
    */
   storeArn: string | undefined;
 
   /**
-   * <p>The store's name.</p>
+   * The store's name.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The store's description.</p>
+   * The store's description.
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p>The store's server-side encryption (SSE) settings.</p>
+   * The store's server-side encryption (SSE) settings.
+   *
    * @public
    */
   sseConfig: SseConfig | undefined;
 
   /**
-   * <p>When the store was created.</p>
+   * When the store was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>When the store was updated.</p>
+   * When the store was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The store's status message.</p>
+   * The store's status message.
+   *
    * @public
    */
   statusMessage: string | undefined;
 
   /**
-   * <p>The store's size in bytes.</p>
+   * The store's size in bytes.
+   *
    * @public
    */
   storeSizeBytes: number | undefined;
@@ -8583,13 +9861,15 @@ export interface VariantStoreItem {
  */
 export interface ListVariantStoresResponse {
   /**
-   * <p>A list of variant stores.</p>
+   * A list of variant stores.
+   *
    * @public
    */
   variantStores?: VariantStoreItem[] | undefined;
 
   /**
-   * <p>A pagination token that's included if more results are available.</p>
+   * A pagination token that's included if more results are available.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -8600,79 +9880,92 @@ export interface ListVariantStoresResponse {
  */
 export interface ListWorkflowsRequest {
   /**
-   * <p>Filter the list by workflow type.</p>
+   * Filter the list by workflow type.
+   *
    * @public
    */
   type?: WorkflowType | undefined;
 
   /**
-   * <p>Filter the list by workflow name.</p>
+   * Filter the list by workflow name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * Specify the pagination token from a previous request to retrieve the next page of results.
+   *
    * @public
    */
   startingToken?: string | undefined;
 
   /**
-   * <p>The maximum number of workflows to return in one page of results.</p>
+   * The maximum number of workflows to return in one page of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>A workflow.</p>
+ * A workflow.
+ *
  * @public
  */
 export interface WorkflowListItem {
   /**
-   * <p>The workflow's ARN.</p>
+   * The workflow's ARN.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The workflow's ID.</p>
+   * The workflow's ID.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The workflow's name.</p>
+   * The workflow's name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The workflow's status.</p>
+   * The workflow's status.
+   *
    * @public
    */
   status?: WorkflowStatus | undefined;
 
   /**
-   * <p>The workflow's type.</p>
+   * The workflow's type.
+   *
    * @public
    */
   type?: WorkflowType | undefined;
 
   /**
-   * <p>The workflow's digest.</p>
+   * The workflow's digest.
+   *
    * @public
    */
   digest?: string | undefined;
 
   /**
-   * <p>When the workflow was created.</p>
+   * When the workflow was created.
+   *
    * @public
    */
   creationTime?: Date | undefined;
 
   /**
-   * <p> Any metadata available for workflow. The information listed may vary depending on the workflow, and there may also be no metadata to return. </p>
+   * Any metadata available for workflow. The information listed may vary depending on the workflow, and there may also be no metadata to return.
+   *
    * @public
    */
   metadata?: Record<string, string> | undefined;
@@ -8683,13 +9976,15 @@ export interface WorkflowListItem {
  */
 export interface ListWorkflowsResponse {
   /**
-   * <p>A list of workflow items.</p>
+   * A list of workflow items.
+   *
    * @public
    */
   items?: WorkflowListItem[] | undefined;
 
   /**
-   * <p>A pagination token that's included if more results are available.</p>
+   * A pagination token that's included if more results are available.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -8700,91 +9995,106 @@ export interface ListWorkflowsResponse {
  */
 export interface ListWorkflowVersionsRequest {
   /**
-   * <p>The workflow's ID. The <code>workflowId</code> is not the UUID.</p>
+   * The workflow's ID. The `workflowId` is not the UUID.
+   *
    * @public
    */
   workflowId: string | undefined;
 
   /**
-   * <p>The workflow type.</p>
+   * The workflow type.
+   *
    * @public
    */
   type?: WorkflowType | undefined;
 
   /**
-   * <p>The 12-digit account ID of the workflow owner. The workflow owner ID can be retrieved using the <code>GetShare</code> API operation. If you are the workflow owner, you do not need to include this ID.</p>
+   * The 12-digit account ID of the workflow owner. The workflow owner ID can be retrieved using the `GetShare` API operation. If you are the workflow owner, you do not need to include this ID.
+   *
    * @public
    */
   workflowOwnerId?: string | undefined;
 
   /**
-   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * Specify the pagination token from a previous request to retrieve the next page of results.
+   *
    * @public
    */
   startingToken?: string | undefined;
 
   /**
-   * <p>The maximum number of workflows to return in one page of results.</p>
+   * The maximum number of workflows to return in one page of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>A list of workflow version items.</p>
+ * A list of workflow version items.
+ *
  * @public
  */
 export interface WorkflowVersionListItem {
   /**
-   * <p>ARN of the workflow version.</p>
+   * ARN of the workflow version.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The workflow's ID.</p>
+   * The workflow's ID.
+   *
    * @public
    */
   workflowId?: string | undefined;
 
   /**
-   * <p>The name of the workflow version.</p>
+   * The name of the workflow version.
+   *
    * @public
    */
   versionName?: string | undefined;
 
   /**
-   * <p>The description of the workflow version.</p>
+   * The description of the workflow version.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The status of the workflow version.</p>
+   * The status of the workflow version.
+   *
    * @public
    */
   status?: WorkflowStatus | undefined;
 
   /**
-   * <p>The type of the workflow version.</p>
+   * The type of the workflow version.
+   *
    * @public
    */
   type?: WorkflowType | undefined;
 
   /**
-   * <p>The digist of the workflow version.</p>
+   * The digist of the workflow version.
+   *
    * @public
    */
   digest?: string | undefined;
 
   /**
-   * <p>The creation time of the workflow version.</p>
+   * The creation time of the workflow version.
+   *
    * @public
    */
   creationTime?: Date | undefined;
 
   /**
-   * <p>Metadata for the workflow version.</p>
+   * Metadata for the workflow version.
+   *
    * @public
    */
   metadata?: Record<string, string> | undefined;
@@ -8795,13 +10105,15 @@ export interface WorkflowVersionListItem {
  */
 export interface ListWorkflowVersionsResponse {
   /**
-   * <p>A list of workflow version items.</p>
+   * A list of workflow version items.
+   *
    * @public
    */
   items?: WorkflowVersionListItem[] | undefined;
 
   /**
-   * <p>A pagination token that's included if more results are available.</p>
+   * A pagination token that's included if more results are available.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -8812,13 +10124,15 @@ export interface ListWorkflowVersionsResponse {
  */
 export interface PutS3AccessPolicyRequest {
   /**
-   * <p>The S3 access point ARN where you want to put the access policy.</p>
+   * The S3 access point ARN where you want to put the access policy.
+   *
    * @public
    */
   s3AccessPointArn: string | undefined;
 
   /**
-   * <p>The resource policy that controls S3 access to the store.</p>
+   * The resource policy that controls S3 access to the store.
+   *
    * @public
    */
   s3AccessPolicy: __AutomaticJsonStringConversion | string | undefined;
@@ -8829,49 +10143,57 @@ export interface PutS3AccessPolicyRequest {
  */
 export interface PutS3AccessPolicyResponse {
   /**
-   * <p>The S3 access point ARN that now has the access policy.</p>
+   * The S3 access point ARN that now has the access policy.
+   *
    * @public
    */
   s3AccessPointArn?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services-generated Sequence Store or Reference Store ID.</p>
+   * The Amazon Web Services-generated Sequence Store or Reference Store ID.
+   *
    * @public
    */
   storeId?: string | undefined;
 
   /**
-   * <p>The type of store associated with the access point.</p>
+   * The type of store associated with the access point.
+   *
    * @public
    */
   storeType?: StoreType | undefined;
 }
 
 /**
- * <p>A source for a reference import job.</p>
+ * A source for a reference import job.
+ *
  * @public
  */
 export interface StartReferenceImportJobSourceItem {
   /**
-   * <p>The source file's location in Amazon S3.</p>
+   * The source file's location in Amazon S3.
+   *
    * @public
    */
   sourceFile: string | undefined;
 
   /**
-   * <p>The source's name.</p>
+   * The source's name.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The source's description.</p>
+   * The source's description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The source's tags.</p>
+   * The source's tags.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -8882,25 +10204,29 @@ export interface StartReferenceImportJobSourceItem {
  */
 export interface StartReferenceImportJobRequest {
   /**
-   * <p>The job's reference store ID.</p>
+   * The job's reference store ID.
+   *
    * @public
    */
   referenceStoreId: string | undefined;
 
   /**
-   * <p>A service role for the job.</p>
+   * A service role for the job.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>To ensure that jobs don't run multiple times, specify a unique token for each job.</p>
+   * To ensure that jobs don't run multiple times, specify a unique token for each job.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The job's source files.</p>
+   * The job's source files.
+   *
    * @public
    */
   sources: StartReferenceImportJobSourceItem[] | undefined;
@@ -8911,31 +10237,36 @@ export interface StartReferenceImportJobRequest {
  */
 export interface StartReferenceImportJobResponse {
   /**
-   * <p>The job's ID.</p>
+   * The job's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The job's reference store ID.</p>
+   * The job's reference store ID.
+   *
    * @public
    */
   referenceStoreId: string | undefined;
 
   /**
-   * <p>The job's service role ARN.</p>
+   * The job's service role ARN.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>The job's status.</p>
+   * The job's status.
+   *
    * @public
    */
   status: ReferenceImportJobStatus | undefined;
 
   /**
-   * <p>When the job was created.</p>
+   * When the job was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
@@ -8946,31 +10277,36 @@ export interface StartReferenceImportJobResponse {
  */
 export interface StartRunBatchRequest {
   /**
-   * <p>An optional user-friendly name for the run batch.</p>
+   * An optional user-friendly name for the run batch.
+   *
    * @public
    */
   batchName?: string | undefined;
 
   /**
-   * <p>A client token used to deduplicate retry requests and prevent duplicate batches from being created.</p>
+   * A client token used to deduplicate retry requests and prevent duplicate batches from being created.
+   *
    * @public
    */
   requestId?: string | undefined;
 
   /**
-   * <p>Amazon Web Services tags to associate with the batch resource. These tags are not inherited by individual runs. To tag individual runs, use <code>defaultRunSetting.runTags</code>.</p>
+   * Amazon Web Services tags to associate with the batch resource. These tags are not inherited by individual runs. To tag individual runs, use `defaultRunSetting.runTags`.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Shared configuration applied to all runs in the batch. See <code>DefaultRunSetting</code>.</p>
+   * Shared configuration applied to all runs in the batch. See `DefaultRunSetting`.
+   *
    * @public
    */
   defaultRunSetting: DefaultRunSetting | undefined;
 
   /**
-   * <p>The individual run configurations. Specify exactly one of <code>inlineSettings</code> or <code>s3UriSettings</code>. See <code>BatchRunSettings</code>.</p>
+   * The individual run configurations. Specify exactly one of `inlineSettings` or `s3UriSettings`. See `BatchRunSettings`.
+   *
    * @public
    */
   batchRunSettings: BatchRunSettings | undefined;
@@ -8981,31 +10317,36 @@ export interface StartRunBatchRequest {
  */
 export interface StartRunBatchResponse {
   /**
-   * <p>The identifier portion of the run batch ARN.</p>
+   * The identifier portion of the run batch ARN.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The unique ARN of the run batch.</p>
+   * The unique ARN of the run batch.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The initial status of the run batch. Returns <code>CREATING</code> while the batch is being initialized.</p>
+   * The initial status of the run batch. Returns `CREATING` while the batch is being initialized.
+   *
    * @public
    */
   status?: BatchStatus | undefined;
 
   /**
-   * <p>The universally unique identifier (UUID) for the run batch.</p>
+   * The universally unique identifier (UUID) for the run batch.
+   *
    * @public
    */
   uuid?: string | undefined;
 
   /**
-   * <p>Amazon Web Services tags associated with the run batch.</p>
+   * Amazon Web Services tags associated with the run batch.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -9016,25 +10357,29 @@ export interface StartRunBatchResponse {
  */
 export interface UpdateRunCacheRequest {
   /**
-   * <p>Update the default run cache behavior.</p>
+   * Update the default run cache behavior.
+   *
    * @public
    */
   cacheBehavior?: CacheBehavior | undefined;
 
   /**
-   * <p>Update the run cache description.</p>
+   * Update the run cache description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The identifier of the run cache you want to update.</p>
+   * The identifier of the run cache you want to update.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>Update the name of the run cache.</p>
+   * Update the name of the run cache.
+   *
    * @public
    */
   name?: string | undefined;
@@ -9045,37 +10390,43 @@ export interface UpdateRunCacheRequest {
  */
 export interface UpdateRunGroupRequest {
   /**
-   * <p>The group's ID.</p>
+   * The group's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>A name for the group.</p>
+   * A name for the group.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The maximum number of CPUs to use.</p>
+   * The maximum number of CPUs to use.
+   *
    * @public
    */
   maxCpus?: number | undefined;
 
   /**
-   * <p>The maximum number of concurrent runs for the group.</p>
+   * The maximum number of concurrent runs for the group.
+   *
    * @public
    */
   maxRuns?: number | undefined;
 
   /**
-   * <p>A maximum run time for the group in minutes.</p>
+   * A maximum run time for the group in minutes.
+   *
    * @public
    */
   maxDuration?: number | undefined;
 
   /**
-   * <p>The maximum GPUs that can be used by a run group.</p>
+   * The maximum GPUs that can be used by a run group.
+   *
    * @public
    */
   maxGpus?: number | undefined;
@@ -9086,151 +10437,180 @@ export interface UpdateRunGroupRequest {
  */
 export interface StartRunRequest {
   /**
-   * <p>The run's workflow ID. The <code>workflowId</code> is not the UUID.</p>
+   * The run's workflow ID. The `workflowId` is not the UUID.
+   *
    * @public
    */
   workflowId?: string | undefined;
 
   /**
-   * <p>The run's workflow type. The <code>workflowType</code> must be specified if you are running a <code>READY2RUN</code> workflow. If you are running a <code>PRIVATE</code> workflow (default), you do not need to include the workflow type. </p>
+   * The run's workflow type. The `workflowType` must be specified if you are running a `READY2RUN` workflow. If you are running a `PRIVATE` workflow (default), you do not need to include the workflow type.
+   *
    * @public
    */
   workflowType?: WorkflowType | undefined;
 
   /**
-   * <p>The ID of a run to duplicate.</p>
+   * The ID of a run to duplicate.
+   *
    * @public
    */
   runId?: string | undefined;
 
   /**
-   * <p>A service role for the run. The <code>roleArn</code> requires access to Amazon Web Services HealthOmics, S3, Cloudwatch logs, and EC2. An example <code>roleArn</code> is <code>arn:aws:iam::123456789012:role/omics-service-role-serviceRole-W8O1XMPL7QZ</code>. In this example, the Amazon Web Services account ID is <code>123456789012</code> and the role name is <code>omics-service-role-serviceRole-W8O1XMPL7QZ</code>.</p>
+   * A service role for the run. The `roleArn` requires access to Amazon Web Services HealthOmics, S3, Cloudwatch logs, and EC2. An example `roleArn` is `arn:aws:iam::123456789012:role/omics-service-role-serviceRole-W8O1XMPL7QZ`. In this example, the Amazon Web Services account ID is `123456789012` and the role name is `omics-service-role-serviceRole-W8O1XMPL7QZ`.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>A name for the run. This is recommended to view and organize runs in the Amazon Web Services HealthOmics console and CloudWatch logs.</p>
+   * A name for the run. This is recommended to view and organize runs in the Amazon Web Services HealthOmics console and CloudWatch logs.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Identifier of the cache associated with this run. If you don't specify a cache ID, no task outputs are cached for this run.</p>
+   * Identifier of the cache associated with this run. If you don't specify a cache ID, no task outputs are cached for this run.
+   *
    * @public
    */
   cacheId?: string | undefined;
 
   /**
-   * <p>The cache behavior for the run. You specify this value if you want to override the default behavior for the cache. You had set the default value when you created the cache. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/how-run-cache.html#run-cache-behavior">Run cache behavior</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+   * The cache behavior for the run. You specify this value if you want to override the default behavior for the cache. You had set the default value when you created the cache. For more information, see [Run cache behavior](https://docs.aws.amazon.com/omics/latest/dev/how-run-cache.html#run-cache-behavior) in the *Amazon Web Services HealthOmics User Guide*.
+   *
    * @public
    */
   cacheBehavior?: CacheBehavior | undefined;
 
   /**
-   * <p>The run's group ID. Use a run group to cap the compute resources (and number of concurrent runs) for the runs that you add to the run group.</p>
+   * The run's group ID. Use a run group to cap the compute resources (and number of concurrent runs) for the runs that you add to the run group.
+   *
    * @public
    */
   runGroupId?: string | undefined;
 
   /**
-   * <p>Use the run priority (highest: 1) to establish the order of runs in a run group when you start a run. If multiple runs share the same priority, the run that was initiated first will have the higher priority. Runs that do not belong to a run group can be assigned a priority. The priorities of these runs are ranked among other runs that are not in a run group. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/creating-run-groups.html#run-priority">Run priority</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+   * Use the run priority (highest: 1) to establish the order of runs in a run group when you start a run. If multiple runs share the same priority, the run that was initiated first will have the higher priority. Runs that do not belong to a run group can be assigned a priority. The priorities of these runs are ranked among other runs that are not in a run group. For more information, see [Run priority](https://docs.aws.amazon.com/omics/latest/dev/creating-run-groups.html#run-priority) in the *Amazon Web Services HealthOmics User Guide*.
+   *
    * @public
    */
   priority?: number | undefined;
 
   /**
-   * <p>Parameters for the run. The run needs all required parameters and can include optional parameters. The run cannot include any parameters that are not defined in the parameter template. To retrieve parameters from the run, use the GetRun API operation.</p>
+   * Parameters for the run. The run needs all required parameters and can include optional parameters. The run cannot include any parameters that are not defined in the parameter template. To retrieve parameters from the run, use the GetRun API operation.
+   *
    * @public
    */
   parameters?: __DocumentType | undefined;
 
   /**
-   * <p>The <code>STATIC</code> storage capacity (in gibibytes, GiB) for this run. The default run storage capacity is 1200 GiB. If your requested storage capacity is unavailable, the system rounds up the value to the nearest 1200 GiB multiple. If the requested storage capacity is still unavailable, the system rounds up the value to the nearest 2400 GiB multiple. This field is not required if the storage type is <code>DYNAMIC</code> (the system ignores any value that you enter).</p>
+   * The `STATIC` storage capacity (in gibibytes, GiB) for this run. The default run storage capacity is 1200 GiB. If your requested storage capacity is unavailable, the system rounds up the value to the nearest 1200 GiB multiple. If the requested storage capacity is still unavailable, the system rounds up the value to the nearest 2400 GiB multiple. This field is not required if the storage type is `DYNAMIC` (the system ignores any value that you enter).
+   *
    * @public
    */
   storageCapacity?: number | undefined;
 
   /**
-   * <p>An output S3 URI for the run. The S3 bucket must be in the same region as the workflow. The role ARN must have permission to write to this S3 bucket.</p>
+   * An output S3 URI for the run. The S3 bucket must be in the same region as the workflow. The role ARN must have permission to write to this S3 bucket.
+   *
    * @public
    */
   outputUri: string | undefined;
 
   /**
-   * <p>A log level for the run.</p>
+   * A log level for the run.
+   *
    * @public
    */
   logLevel?: RunLogLevel | undefined;
 
   /**
-   * <p>Tags for the run. You can add up to 50 tags per run. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/add-a-tag.html">Adding a tag</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+   * Tags for the run. You can add up to 50 tags per run. For more information, see [Adding a tag](https://docs.aws.amazon.com/omics/latest/dev/add-a-tag.html) in the *Amazon Web Services HealthOmics User Guide*.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>An idempotency token used to dedupe retry requests so that duplicate runs are not created.</p>
+   * An idempotency token used to dedupe retry requests so that duplicate runs are not created.
+   *
    * @public
    */
   requestId?: string | undefined;
 
   /**
-   * <p>The retention mode for the run. The default value is <code>RETAIN</code>. </p> <p>Amazon Web Services HealthOmics stores a fixed number of runs that are available to the console and API. In the default mode (<code>RETAIN</code>), you need to remove runs manually when the number of run exceeds the maximum. If you set the retention mode to <code>REMOVE</code>, Amazon Web Services HealthOmics automatically removes runs (that have mode set to <code>REMOVE</code>) when the number of run exceeds the maximum. All run logs are available in CloudWatch logs, if you need information about a run that is no longer available to the API.</p> <p>For more information about retention mode, see <a href="https://docs.aws.amazon.com/omics/latest/dev/starting-a-run.html">Specifying run retention mode</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+   * The retention mode for the run. The default value is `RETAIN`.
+   *
+   * Amazon Web Services HealthOmics stores a fixed number of runs that are available to the console and API. In the default mode (`RETAIN`), you need to remove runs manually when the number of run exceeds the maximum. If you set the retention mode to `REMOVE`, Amazon Web Services HealthOmics automatically removes runs (that have mode set to `REMOVE`) when the number of run exceeds the maximum. All run logs are available in CloudWatch logs, if you need information about a run that is no longer available to the API.
+   *
+   * For more information about retention mode, see [Specifying run retention mode](https://docs.aws.amazon.com/omics/latest/dev/starting-a-run.html) in the *Amazon Web Services HealthOmics User Guide*.
+   *
    * @public
    */
   retentionMode?: RunRetentionMode | undefined;
 
   /**
-   * <p>The storage type for the run. If you set the storage type to <code>DYNAMIC</code>, Amazon Web Services HealthOmics dynamically scales the storage up or down, based on file system utilization. By default, the run uses <code>STATIC</code> storage type, which allocates a fixed amount of storage. For more information about <code>DYNAMIC</code> and <code>STATIC</code> storage, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflows-run-types.html">Run storage types</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+   * The storage type for the run. If you set the storage type to `DYNAMIC`, Amazon Web Services HealthOmics dynamically scales the storage up or down, based on file system utilization. By default, the run uses `STATIC` storage type, which allocates a fixed amount of storage. For more information about `DYNAMIC` and `STATIC` storage, see [Run storage types](https://docs.aws.amazon.com/omics/latest/dev/workflows-run-types.html) in the *Amazon Web Services HealthOmics User Guide*.
+   *
    * @public
    */
   storageType?: StorageType | undefined;
 
   /**
-   * <p>The 12-digit account ID of the workflow owner that is used for running a shared workflow. The workflow owner ID can be retrieved using the <code>GetShare</code> API operation. If you are the workflow owner, you do not need to include this ID.</p>
+   * The 12-digit account ID of the workflow owner that is used for running a shared workflow. The workflow owner ID can be retrieved using the `GetShare` API operation. If you are the workflow owner, you do not need to include this ID.
+   *
    * @public
    */
   workflowOwnerId?: string | undefined;
 
   /**
-   * <p>The name of the workflow version. Use workflow versions to track and organize changes to the workflow. If your workflow has multiple versions, the run uses the default version unless you specify a version name. To learn more, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflow-versions.html">Workflow versioning</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+   * The name of the workflow version. Use workflow versions to track and organize changes to the workflow. If your workflow has multiple versions, the run uses the default version unless you specify a version name. To learn more, see [Workflow versioning](https://docs.aws.amazon.com/omics/latest/dev/workflow-versions.html) in the *Amazon Web Services HealthOmics User Guide*.
+   *
    * @public
    */
   workflowVersionName?: string | undefined;
 
   /**
-   * <p>Optional configuration for run networking behavior. If not specified, this will default to RESTRICTED.</p>
+   * Optional configuration for run networking behavior. If not specified, this will default to RESTRICTED.
+   *
    * @public
    */
   networkingMode?: NetworkingMode | undefined;
 
   /**
-   * <p>Optional configuration for enabling scratch ephemeral storage mounted at /tmp. If not specified, this will default to SHARED. This configuration is applicable only for CPU tasks. For tasks using GPUs, scratch storage is always LOCAL.</p>
+   * Optional configuration for enabling scratch ephemeral storage mounted at /tmp. If not specified, this will default to SHARED. This configuration is applicable only for CPU tasks. For tasks using GPUs, scratch storage is always LOCAL.
+   *
    * @public
    */
   scratchStorageMode?: ScratchStorageMode | undefined;
 
   /**
-   * <p>Optional configuration name to use for the workflow run.</p>
+   * Optional configuration name to use for the workflow run.
+   *
    * @public
    */
   configurationName?: string | undefined;
 
   /**
-   * <p>Optional inline policy json for scoping down permissions via a session policy on the IAM role provided in the roleArn parameter.</p>
+   * Optional inline policy json for scoping down permissions via a session policy on the IAM role provided in the roleArn parameter.
+   *
    * @public
    */
   sessionPolicy?: string | undefined;
 
   /**
-   * <p>Engine-specific settings for the workflow run. Use this field to specify configuration options that are specific to the workflow engine (for example, Nextflow profiles).</p>
+   * Engine-specific settings for the workflow run. Use this field to specify configuration options that are specific to the workflow engine (for example, Nextflow profiles).
+   *
    * @public
    */
   engineSettings?: __DocumentType | undefined;
 
   /**
-   * <p>You can control the path prefixes that the service adds beneath <code>outputUri</code>. If you don't specify a value, the service uses <code>SERVICE_DEFINED</code>, which adds a run-specific prefix.</p>
+   * You can control the path prefixes that the service adds beneath `outputUri`. If you don't specify a value, the service uses `SERVICE_DEFINED`, which adds a run-specific prefix.
+   *
    * @public
    */
   outputUriPrefixMode?: RunOutputUriPrefixMode | undefined;
@@ -9241,61 +10621,71 @@ export interface StartRunRequest {
  */
 export interface StartRunResponse {
   /**
-   * <p>Unique resource identifier for the run.</p>
+   * Unique resource identifier for the run.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The run's ID.</p>
+   * The run's ID.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The run's status.</p>
+   * The run's status.
+   *
    * @public
    */
   status?: RunStatus | undefined;
 
   /**
-   * <p>The run's tags.</p>
+   * The run's tags.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The universally unique identifier for a run.</p>
+   * The universally unique identifier for a run.
+   *
    * @public
    */
   uuid?: string | undefined;
 
   /**
-   * <p>The destination for workflow outputs.</p>
+   * The destination for workflow outputs.
+   *
    * @public
    */
   runOutputUri?: string | undefined;
 
   /**
-   * <p>Configuration details for the workflow run.</p>
+   * Configuration details for the workflow run.
+   *
    * @public
    */
   configuration?: ConfigurationDetails | undefined;
 
   /**
-   * <p>Networking mode for the workflow run.</p>
+   * Networking mode for the workflow run.
+   *
    * @public
    */
   networkingMode?: string | undefined;
 }
 
 /**
- * <p>A source for a read set activation job.</p>
+ * A source for a read set activation job.
+ *
  * @public
  */
 export interface StartReadSetActivationJobSourceItem {
   /**
-   * <p>The source's read set ID.</p>
+   * The source's read set ID.
+   *
    * @public
    */
   readSetId: string | undefined;
@@ -9306,19 +10696,22 @@ export interface StartReadSetActivationJobSourceItem {
  */
 export interface StartReadSetActivationJobRequest {
   /**
-   * <p>The read set's sequence store ID.</p>
+   * The read set's sequence store ID.
+   *
    * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * <p>To ensure that jobs don't run multiple times, specify a unique token for each job.</p>
+   * To ensure that jobs don't run multiple times, specify a unique token for each job.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The job's source files.</p>
+   * The job's source files.
+   *
    * @public
    */
   sources: StartReadSetActivationJobSourceItem[] | undefined;
@@ -9329,25 +10722,29 @@ export interface StartReadSetActivationJobRequest {
  */
 export interface StartReadSetActivationJobResponse {
   /**
-   * <p>The job's ID.</p>
+   * The job's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The read set's sequence store ID.</p>
+   * The read set's sequence store ID.
+   *
    * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * <p>The job's status.</p>
+   * The job's status.
+   *
    * @public
    */
   status: ReadSetActivationJobStatus | undefined;
 
   /**
-   * <p>When the job was created.</p>
+   * When the job was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
@@ -9358,31 +10755,36 @@ export interface StartReadSetActivationJobResponse {
  */
 export interface StartReadSetExportJobRequest {
   /**
-   * <p>The read set's sequence store ID.</p>
+   * The read set's sequence store ID.
+   *
    * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * <p>A location for exported files in Amazon S3.</p>
+   * A location for exported files in Amazon S3.
+   *
    * @public
    */
   destination: string | undefined;
 
   /**
-   * <p>A service role for the job.</p>
+   * A service role for the job.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>To ensure that jobs don't run multiple times, specify a unique token for each job.</p>
+   * To ensure that jobs don't run multiple times, specify a unique token for each job.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The job's source files.</p>
+   * The job's source files.
+   *
    * @public
    */
   sources: ExportReadSet[] | undefined;
@@ -9393,91 +10795,106 @@ export interface StartReadSetExportJobRequest {
  */
 export interface StartReadSetExportJobResponse {
   /**
-   * <p>The job's ID.</p>
+   * The job's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The read set's sequence store ID.</p>
+   * The read set's sequence store ID.
+   *
    * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * <p>The job's output location.</p>
+   * The job's output location.
+   *
    * @public
    */
   destination: string | undefined;
 
   /**
-   * <p>The job's status.</p>
+   * The job's status.
+   *
    * @public
    */
   status: ReadSetExportJobStatus | undefined;
 
   /**
-   * <p>When the job was created.</p>
+   * When the job was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
 }
 
 /**
- * <p>A source for a read set import job.</p>
+ * A source for a read set import job.
+ *
  * @public
  */
 export interface StartReadSetImportJobSourceItem {
   /**
-   * <p>The source files' location in Amazon S3.</p>
+   * The source files' location in Amazon S3.
+   *
    * @public
    */
   sourceFiles: SourceFiles | undefined;
 
   /**
-   * <p>The source's file type.</p>
+   * The source's file type.
+   *
    * @public
    */
   sourceFileType: FileType | undefined;
 
   /**
-   * <p>The source's subject ID.</p>
+   * The source's subject ID.
+   *
    * @public
    */
   subjectId: string | undefined;
 
   /**
-   * <p>The source's sample ID.</p>
+   * The source's sample ID.
+   *
    * @public
    */
   sampleId: string | undefined;
 
   /**
-   * <p>Where the source originated.</p>
+   * Where the source originated.
+   *
    * @public
    */
   generatedFrom?: string | undefined;
 
   /**
-   * <p>The source's reference ARN.</p>
+   * The source's reference ARN.
+   *
    * @public
    */
   referenceArn?: string | undefined;
 
   /**
-   * <p>The source's name.</p>
+   * The source's name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The source's description.</p>
+   * The source's description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The source's tags.</p>
+   * The source's tags.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -9488,25 +10905,29 @@ export interface StartReadSetImportJobSourceItem {
  */
 export interface StartReadSetImportJobRequest {
   /**
-   * <p>The read set's sequence store ID.</p>
+   * The read set's sequence store ID.
+   *
    * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * <p>A service role for the job.</p>
+   * A service role for the job.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>To ensure that jobs don't run multiple times, specify a unique token for each job.</p>
+   * To ensure that jobs don't run multiple times, specify a unique token for each job.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The job's source files.</p>
+   * The job's source files.
+   *
    * @public
    */
   sources: StartReadSetImportJobSourceItem[] | undefined;
@@ -9517,31 +10938,36 @@ export interface StartReadSetImportJobRequest {
  */
 export interface StartReadSetImportJobResponse {
   /**
-   * <p>The job's ID.</p>
+   * The job's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The read set's sequence store ID.</p>
+   * The read set's sequence store ID.
+   *
    * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * <p>The job's service role ARN.</p>
+   * The job's service role ARN.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>The job's status.</p>
+   * The job's status.
+   *
    * @public
    */
   status: ReadSetImportJobStatus | undefined;
 
   /**
-   * <p>When the job was created.</p>
+   * When the job was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
@@ -9552,43 +10978,50 @@ export interface StartReadSetImportJobResponse {
  */
 export interface UpdateSequenceStoreRequest {
   /**
-   * <p>The ID of the sequence store.</p>
+   * The ID of the sequence store.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>A name for the sequence store.</p>
+   * A name for the sequence store.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>A description for the sequence store.</p>
+   * A description for the sequence store.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>To ensure that requests don't run multiple times, specify a unique token for each request.</p>
+   * To ensure that requests don't run multiple times, specify a unique token for each request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The S3 URI of a bucket and folder to store Read Sets that fail to upload.</p>
+   * The S3 URI of a bucket and folder to store Read Sets that fail to upload.
+   *
    * @public
    */
   fallbackLocation?: string | undefined;
 
   /**
-   * <p>The tags keys to propagate to the S3 objects associated with read sets in the sequence store.</p>
+   * The tags keys to propagate to the S3 objects associated with read sets in the sequence store.
+   *
    * @public
    */
   propagatedSetLevelTags?: string[] | undefined;
 
   /**
-   * <p>S3 access configuration parameters.</p>
+   * S3 access configuration parameters.
+   *
    * @public
    */
   s3AccessConfig?: S3AccessConfig | undefined;
@@ -9599,79 +11032,92 @@ export interface UpdateSequenceStoreRequest {
  */
 export interface UpdateSequenceStoreResponse {
   /**
-   * <p>The ID of the sequence store.</p>
+   * The ID of the sequence store.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The ARN of the sequence store.</p>
+   * The ARN of the sequence store.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The name of the sequence store.</p>
+   * The name of the sequence store.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Description of the sequence store.</p>
+   * Description of the sequence store.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Server-side encryption (SSE) settings for a store.</p>
+   * Server-side encryption (SSE) settings for a store.
+   *
    * @public
    */
   sseConfig?: SseConfig | undefined;
 
   /**
-   * <p>The time when the store was created.</p>
+   * The time when the store was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>The last-updated time of the Sequence Store.</p>
+   * The last-updated time of the Sequence Store.
+   *
    * @public
    */
   updateTime?: Date | undefined;
 
   /**
-   * <p>The tags keys to propagate to the S3 objects associated with read sets in the sequence store.</p>
+   * The tags keys to propagate to the S3 objects associated with read sets in the sequence store.
+   *
    * @public
    */
   propagatedSetLevelTags?: string[] | undefined;
 
   /**
-   * <p>The status of the sequence store.</p>
+   * The status of the sequence store.
+   *
    * @public
    */
   status?: SequenceStoreStatus | undefined;
 
   /**
-   * <p>The status message of the sequence store.</p>
+   * The status message of the sequence store.
+   *
    * @public
    */
   statusMessage?: string | undefined;
 
   /**
-   * <p>The S3 URI of a bucket and folder to store Read Sets that fail to upload.</p>
+   * The S3 URI of a bucket and folder to store Read Sets that fail to upload.
+   *
    * @public
    */
   fallbackLocation?: string | undefined;
 
   /**
-   * <p>The S3 access metadata of the sequence store.</p>
+   * The S3 access metadata of the sequence store.
+   *
    * @public
    */
   s3Access?: SequenceStoreS3Access | undefined;
 
   /**
-   * <p>The ETag algorithm family to use on ingested read sets.</p>
+   * The ETag algorithm family to use on ingested read sets.
+   *
    * @public
    */
   eTagAlgorithmFamily?: ETagAlgorithmFamily | undefined;
@@ -9682,31 +11128,36 @@ export interface UpdateSequenceStoreResponse {
  */
 export interface UploadReadSetPartRequest {
   /**
-   * <p>The Sequence Store ID used for the multipart upload.</p>
+   * The Sequence Store ID used for the multipart upload.
+   *
    * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * <p>The ID for the initiated multipart upload.</p>
+   * The ID for the initiated multipart upload.
+   *
    * @public
    */
   uploadId: string | undefined;
 
   /**
-   * <p>The source file for an upload part.</p>
+   * The source file for an upload part.
+   *
    * @public
    */
   partSource: ReadSetPartSource | undefined;
 
   /**
-   * <p>The number of the part being uploaded.</p>
+   * The number of the part being uploaded.
+   *
    * @public
    */
   partNumber: number | undefined;
 
   /**
-   * <p>The read set data to upload for a part.</p>
+   * The read set data to upload for a part.
+   *
    * @public
    */
   payload: StreamingBlobTypes | undefined;
@@ -9717,7 +11168,8 @@ export interface UploadReadSetPartRequest {
  */
 export interface UploadReadSetPartResponse {
   /**
-   * <p>An identifier used to confirm that parts are being added to the intended upload.</p>
+   * An identifier used to confirm that parts are being added to the intended upload.
+   *
    * @public
    */
   checksum: string | undefined;
@@ -9728,13 +11180,15 @@ export interface UploadReadSetPartResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The resource's ARN.</p>
+   * The resource's ARN.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>Tags for the resource.</p>
+   * Tags for the resource.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -9750,13 +11204,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The resource's ARN.</p>
+   * The resource's ARN.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>Keys of tags to remove.</p>
+   * Keys of tags to remove.
+   *
    * @public
    */
   tagKeys: string[] | undefined;
@@ -9768,12 +11224,14 @@ export interface UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 /**
- * <p>A imported variant item's source.</p>
+ * A imported variant item's source.
+ *
  * @public
  */
 export interface VariantImportItemSource {
   /**
-   * <p>The source file's location in Amazon S3.</p>
+   * The source file's location in Amazon S3.
+   *
    * @public
    */
   source: string | undefined;
@@ -9784,31 +11242,36 @@ export interface VariantImportItemSource {
  */
 export interface StartVariantImportRequest {
   /**
-   * <p>The destination variant store for the job.</p>
+   * The destination variant store for the job.
+   *
    * @public
    */
   destinationName: string | undefined;
 
   /**
-   * <p>A service role for the job.</p>
+   * A service role for the job.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>Items to import.</p>
+   * Items to import.
+   *
    * @public
    */
   items: VariantImportItemSource[] | undefined;
 
   /**
-   * <p>The job's left normalization setting.</p>
+   * The job's left normalization setting.
+   *
    * @public
    */
   runLeftNormalization?: boolean | undefined;
 
   /**
-   * <p>The annotation schema generated by the parsed annotation data.</p>
+   * The annotation schema generated by the parsed annotation data.
+   *
    * @public
    */
   annotationFields?: Record<string, string> | undefined;
@@ -9819,7 +11282,8 @@ export interface StartVariantImportRequest {
  */
 export interface StartVariantImportResponse {
   /**
-   * <p>The job's ID.</p>
+   * The job's ID.
+   *
    * @public
    */
   jobId: string | undefined;
@@ -9830,13 +11294,15 @@ export interface StartVariantImportResponse {
  */
 export interface UpdateVariantStoreRequest {
   /**
-   * <p>A name for the store.</p>
+   * A name for the store.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description for the store.</p>
+   * A description for the store.
+   *
    * @public
    */
   description?: string | undefined;
@@ -9847,43 +11313,50 @@ export interface UpdateVariantStoreRequest {
  */
 export interface UpdateVariantStoreResponse {
   /**
-   * <p>The store's ID.</p>
+   * The store's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The store's genome reference.</p>
+   * The store's genome reference.
+   *
    * @public
    */
   reference: ReferenceItem | undefined;
 
   /**
-   * <p>The store's status.</p>
+   * The store's status.
+   *
    * @public
    */
   status: StoreStatus | undefined;
 
   /**
-   * <p>The store's name.</p>
+   * The store's name.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The store's description.</p>
+   * The store's description.
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p>When the store was created.</p>
+   * When the store was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>When the store was updated.</p>
+   * When the store was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
@@ -9894,37 +11367,43 @@ export interface UpdateVariantStoreResponse {
  */
 export interface UpdateWorkflowRequest {
   /**
-   * <p>The workflow's ID.</p>
+   * The workflow's ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>A name for the workflow.</p>
+   * A name for the workflow.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>A description for the workflow.</p>
+   * A description for the workflow.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The default storage type for runs that use this workflow. STATIC storage allocates a fixed amount of storage. DYNAMIC storage dynamically scales the storage up or down, based on file system utilization. For more information about static and dynamic storage, see <a href="https://docs.aws.amazon.com/omics/latest/dev/Using-workflows.html">Running workflows</a> in the <i>Amazon Web Services HealthOmics User Guide</i>. </p>
+   * The default storage type for runs that use this workflow. STATIC storage allocates a fixed amount of storage. DYNAMIC storage dynamically scales the storage up or down, based on file system utilization. For more information about static and dynamic storage, see [Running workflows](https://docs.aws.amazon.com/omics/latest/dev/Using-workflows.html) in the *Amazon Web Services HealthOmics User Guide*.
+   *
    * @public
    */
   storageType?: StorageType | undefined;
 
   /**
-   * <p>The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version. </p>
+   * The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version.
+   *
    * @public
    */
   storageCapacity?: number | undefined;
 
   /**
-   * <p>The markdown content for the workflow's README file. This provides documentation and usage information for users of the workflow.</p>
+   * The markdown content for the workflow's README file. This provides documentation and usage information for users of the workflow.
+   *
    * @public
    */
   readmeMarkdown?: string | undefined;
@@ -9935,37 +11414,43 @@ export interface UpdateWorkflowRequest {
  */
 export interface UpdateWorkflowVersionRequest {
   /**
-   * <p>The workflow's ID. The <code>workflowId</code> is not the UUID.</p>
+   * The workflow's ID. The `workflowId` is not the UUID.
+   *
    * @public
    */
   workflowId: string | undefined;
 
   /**
-   * <p>The name of the workflow version.</p>
+   * The name of the workflow version.
+   *
    * @public
    */
   versionName: string | undefined;
 
   /**
-   * <p>Description of the workflow version.</p>
+   * Description of the workflow version.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The default storage type for runs that use this workflow version. The <code>storageType</code> can be overridden at run time. <code>DYNAMIC</code> storage dynamically scales the storage up or down, based on file system utilization. STATIC storage allocates a fixed amount of storage. For more information about dynamic and static storage types, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflows-run-types.html">Run storage types</a> in the <i>in the <i>Amazon Web Services HealthOmics User Guide</i> </i>.</p>
+   * The default storage type for runs that use this workflow version. The `storageType` can be overridden at run time. `DYNAMIC` storage dynamically scales the storage up or down, based on file system utilization. STATIC storage allocates a fixed amount of storage. For more information about dynamic and static storage types, see [Run storage types](https://docs.aws.amazon.com/omics/latest/dev/workflows-run-types.html) in the *in the *Amazon Web Services HealthOmics User Guide** .
+   *
    * @public
    */
   storageType?: StorageType | undefined;
 
   /**
-   * <p>The default static storage capacity (in gibibytes) for runs that use this workflow version. The <code>storageCapacity</code> can be overwritten at run time. The storage capacity is not required for runs with a <code>DYNAMIC</code> storage type.</p>
+   * The default static storage capacity (in gibibytes) for runs that use this workflow version. The `storageCapacity` can be overwritten at run time. The storage capacity is not required for runs with a `DYNAMIC` storage type.
+   *
    * @public
    */
   storageCapacity?: number | undefined;
 
   /**
-   * <p>The markdown content for the workflow version's README file. This provides documentation and usage information for users of this specific workflow version.</p>
+   * The markdown content for the workflow version's README file. This provides documentation and usage information for users of this specific workflow version.
+   *
    * @public
    */
   readmeMarkdown?: string | undefined;

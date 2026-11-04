@@ -23,7 +23,8 @@ export interface DeleteDBInstanceCommandInput extends DeleteDBInstanceMessage {}
 export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, __MetadataBearer {}
 
 /**
- * <p>Deletes a previously provisioned instance.</p>
+ * Deletes a previously provisioned instance.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -142,26 +143,28 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p>
- *             <code>DBInstanceIdentifier</code> doesn't refer to an existing instance. </p>
+ *
+ * `DBInstanceIdentifier` doesn't refer to an existing instance.
  *
  * @throws {@link DBSnapshotAlreadyExistsFault} (client fault)
- *  <p>
- *             <code>DBSnapshotIdentifier</code> is already being used by an existing snapshot. </p>
+ *
+ * `DBSnapshotIdentifier` is already being used by an existing snapshot.
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
- *  <p>The cluster isn't in a valid state.</p>
+ *
+ * The cluster isn't in a valid state.
  *
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
- *  <p> The specified instance isn't in the <i>available</i> state.
- *         </p>
+ *
+ * The specified instance isn't in the *available* state.
  *
  * @throws {@link SnapshotQuotaExceededFault} (client fault)
- *  <p>The request would cause you to exceed the allowed number of snapshots.</p>
+ *
+ * The request would cause you to exceed the allowed number of snapshots.
  *
  * @throws {@link DocDBServiceException}
- * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * Base exception class for all service exceptions from DocDB service.
  *
  * @public
  */

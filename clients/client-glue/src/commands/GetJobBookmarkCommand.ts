@@ -23,25 +23,14 @@ export interface GetJobBookmarkCommandInput extends GetJobBookmarkRequest {}
 export interface GetJobBookmarkCommandOutput extends GetJobBookmarkResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information on a job bookmark entry.</p>
- *          <p>For more information about enabling and using job bookmarks, see:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-continuations.html">Tracking processed data using job bookmarks</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Job parameters used by Glue</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html#aws-glue-api-jobs-job-Job">Job structure</a>
- *                </p>
- *             </li>
- *          </ul>
+ * Returns information on a job bookmark entry.
+ *
+ * For more information about enabling and using job bookmarks, see:
+ *
+ * - [Tracking processed data using job bookmarks](https://docs.aws.amazon.com/glue/latest/dg/monitor-continuations.html)
+ * - [Job parameters used by Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html)
+ * - [Job structure](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html#aws-glue-api-jobs-job-Job)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,23 +66,28 @@ export interface GetJobBookmarkCommandOutput extends GetJobBookmarkResponse, __M
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A value could not be validated.</p>
+ *
+ * A value could not be validated.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

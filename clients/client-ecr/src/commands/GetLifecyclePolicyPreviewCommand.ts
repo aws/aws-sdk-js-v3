@@ -23,8 +23,8 @@ export interface GetLifecyclePolicyPreviewCommandInput extends GetLifecyclePolic
 export interface GetLifecyclePolicyPreviewCommandOutput extends GetLifecyclePolicyPreviewResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the results of the lifecycle policy preview request for the specified
- *             repository.</p>
+ * Retrieves the results of the lifecycle policy preview request for the specified repository.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,25 +91,28 @@ export interface GetLifecyclePolicyPreviewCommandOutput extends GetLifecyclePoli
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link LifecyclePolicyPreviewNotFoundException} (client fault)
- *  <p>There is no dry run for this repository.</p>
+ *
+ * There is no dry run for this repository.
  *
  * @throws {@link RepositoryNotFoundException} (client fault)
- *  <p>The specified repository could not be found. Check the spelling of the specified
- *             repository and ensure that you are performing operations on the correct registry.</p>
+ *
+ * The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>There was an exception validating this request.</p>
+ *
+ * There was an exception validating this request.
  *
  * @throws {@link ECRServiceException}
- * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * Base exception class for all service exceptions from ECR service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface AssociateLibraryItemReviewCommandInput extends AssociateLibrary
 export interface AssociateLibraryItemReviewCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Associates a rating or review for a library item with the user submitting the request. This increments the rating count for the specified library item.</p>
+ * Associates a rating or review for a library item with the user submitting the request. This increments the rating count for the specified library item.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,32 +50,40 @@ export interface AssociateLibraryItemReviewCommandOutput extends __MetadataBeare
  * @see {@link QAppsClientResolvedConfig | config} for QAppsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The client is not authorized to perform the requested operation.</p>
+ *
+ * The client is not authorized to perform the requested operation.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The requested operation could not be completed due to a conflict with the current state of the resource.</p>
+ *
+ * The requested operation could not be completed due to a conflict with the current state of the resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal service error occurred while processing the request.</p>
+ *
+ * An internal service error occurred while processing the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource could not be found.</p>
+ *
+ * The requested resource could not be found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The requested operation could not be completed because it would exceed the service's quota or limit.</p>
+ *
+ * The requested operation could not be completed because it would exceed the service's quota or limit.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
+ *
+ * The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The client is not authenticated or authorized to perform the requested operation.</p>
+ *
+ * The client is not authenticated or authorized to perform the requested operation.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input failed to satisfy the constraints specified by the service.</p>
+ *
+ * The input failed to satisfy the constraints specified by the service.
  *
  * @throws {@link QAppsServiceException}
- * <p>Base exception class for all service exceptions from QApps service.</p>
  *
+ * Base exception class for all service exceptions from QApps service.
  *
  * @example Increase the rating counter by 1 for the related app for this user
  * ```javascript

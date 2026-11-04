@@ -108,8 +108,8 @@ export interface ListAlertsCommandOutput extends ListAlertsOutput, __MetadataBea
  *  A parameter is specified incorrectly.
  *
  * @throws {@link CloudWatchOmniServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchOmni service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchOmni service.
  *
  * @example List alerts in a space
  * ```javascript

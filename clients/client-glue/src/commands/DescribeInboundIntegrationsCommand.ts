@@ -23,7 +23,8 @@ export interface DescribeInboundIntegrationsCommandInput extends DescribeInbound
 export interface DescribeInboundIntegrationsCommandOutput extends DescribeInboundIntegrationsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of inbound integrations for the specified integration.</p>
+ * Returns a list of inbound integrations for the specified integration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,35 +77,44 @@ export interface DescribeInboundIntegrationsCommandOutput extends DescribeInboun
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to a resource was denied.</p>
+ *
+ * Access to a resource was denied.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link IntegrationNotFoundFault} (client fault)
- *  <p>The specified integration could not be found.</p>
+ *
+ * The specified integration could not be found.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred.</p>
+ *
+ * An internal server error occurred.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationNotSupportedException} (client fault)
- *  <p>The operation is not available in the region.</p>
+ *
+ * The operation is not available in the region.
  *
  * @throws {@link TargetResourceNotFound} (client fault)
- *  <p>The target resource could not be found.</p>
+ *
+ * The target resource could not be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A value could not be validated.</p>
+ *
+ * A value could not be validated.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

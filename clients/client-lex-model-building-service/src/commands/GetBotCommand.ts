@@ -23,10 +23,9 @@ export interface GetBotCommandInput extends GetBotRequest {}
 export interface GetBotCommandOutput extends GetBotResponse, __MetadataBearer {}
 
 /**
- * <p>Returns metadata information for a specific bot. You must provide
- *       the bot name and the bot version or alias. </p>
- *          <p> This operation requires permissions for the
- *         <code>lex:GetBot</code> action. </p>
+ * Returns metadata information for a specific bot. You must provide the bot name and the bot version or alias.
+ *
+ * This operation requires permissions for the `lex:GetBot` action.
  *
  * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @example
@@ -97,23 +96,24 @@ export interface GetBotCommandOutput extends GetBotResponse, __MetadataBearer {}
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request is not well formed. For example, a value is invalid or
- *       a required field is missing. Check the field values, and try
- *       again.</p>
+ *
+ * The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An internal Amazon Lex error occurred. Try your request again.</p>
+ *
+ * An internal Amazon Lex error occurred. Try your request again.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request exceeded a limit. Try your request again.</p>
+ *
+ * The request exceeded a limit. Try your request again.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource specified in the request was not found. Check the
- *       resource and try again.</p>
+ *
+ * The resource specified in the request was not found. Check the resource and try again.
  *
  * @throws {@link LexModelBuildingServiceServiceException}
- * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * Base exception class for all service exceptions from LexModelBuildingService service.
  *
  * @example To get information about a bot
  * ```javascript

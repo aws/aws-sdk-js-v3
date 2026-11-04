@@ -23,18 +23,13 @@ export interface AddApplicationVpcConfigurationCommandInput extends AddApplicati
 export interface AddApplicationVpcConfigurationCommandOutput extends AddApplicationVpcConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Adds a Virtual Private Cloud (VPC) configuration to the application. Applications can use VPCs to store
- *         and access resources securely.</p>
- *          <p>Note the following about VPC configurations for Managed Service for Apache Flink applications:</p>
- *          <ul>
- *             <li>
- *                <p>VPC configurations are not supported for SQL applications.</p>
- *             </li>
- *             <li>
- *                <p>When a VPC is added to a Managed Service for Apache Flink application, the application can no longer be accessed from the
- *            Internet directly. To enable Internet access to the application, add an Internet gateway to your VPC.</p>
- *             </li>
- *          </ul>
+ * Adds a Virtual Private Cloud (VPC) configuration to the application. Applications can use VPCs to store and access resources securely.
+ *
+ * Note the following about VPC configurations for Managed Service for Apache Flink applications:
+ *
+ * - VPC configurations are not supported for SQL applications.
+ * - When a VPC is added to a Managed Service for Apache Flink application, the application can no longer be accessed from the Internet directly. To enable Internet access to the application, add an Internet gateway to your VPC.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,25 +78,28 @@ export interface AddApplicationVpcConfigurationCommandOutput extends AddApplicat
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Exception thrown as a result of concurrent modifications to an application. This error can
- *       be the result of attempting to modify an application without using the current application
- *       ID.</p>
+ *
+ * Exception thrown as a result of concurrent modifications to an application. This error can be the result of attempting to modify an application without using the current application ID.
  *
  * @throws {@link InvalidApplicationConfigurationException} (client fault)
- *  <p>The user-provided application configuration is not valid.</p>
+ *
+ * The user-provided application configuration is not valid.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>The specified input parameter value is not valid.</p>
+ *
+ * The specified input parameter value is not valid.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The application is not available for this operation.</p>
+ *
+ * The application is not available for this operation.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Specified application can't be found.</p>
+ *
+ * Specified application can't be found.
  *
  * @throws {@link KinesisAnalyticsV2ServiceException}
- * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ * Base exception class for all service exceptions from KinesisAnalyticsV2 service.
  *
  * @public
  */

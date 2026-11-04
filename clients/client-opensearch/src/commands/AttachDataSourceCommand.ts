@@ -23,7 +23,8 @@ export interface AttachDataSourceCommandInput extends AttachDataSourceRequest {}
 export interface AttachDataSourceCommandOutput extends AttachDataSourceResponse, __MetadataBearer {}
 
 /**
- * <p>Attaches a data source to an OpenSearch application. The data source must be an Amazon OpenSearch Service domain. If both the application and the data source are active, the attachment completes immediately with a status of <code>ATTACHED</code>. Otherwise, the operation returns <code>PENDING</code> and completes the attachment automatically once both become active. If the attachment cannot be completed, its status becomes <code>FAILED</code>. This operation is idempotent: If the data source is already attached or pending, the operation returns the existing attachment.</p>
+ * Attaches a data source to an OpenSearch application. The data source must be an Amazon OpenSearch Service domain. If both the application and the data source are active, the attachment completes immediately with a status of `ATTACHED`. Otherwise, the operation returns `PENDING` and completes the attachment automatically once both become active. If the attachment cannot be completed, its status becomes `FAILED`. This operation is idempotent: If the data source is already attached or pending, the operation returns the existing attachment.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,26 +62,32 @@ export interface AttachDataSourceCommandOutput extends AttachDataSourceResponse,
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>An error occurred because you don't have permissions to access the resource.</p>
+ *
+ * An error occurred because you don't have permissions to access the resource.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>An error occurred because the client attempts to remove a resource that is currently in use.</p>
+ *
+ * An error occurred because the client attempts to remove a resource that is currently in use.
  *
  * @throws {@link DisabledOperationException} (client fault)
- *  <p>An error occured because the client wanted to access an unsupported operation.</p>
+ *
+ * An error occured because the client wanted to access an unsupported operation.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+ *
+ * Request processing failed because of an unknown error, exception, or internal failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+ *
+ * An exception for accessing or deleting a resource that doesn't exist.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+ *
+ * An exception for accessing or deleting a resource that doesn't exist.
  *
  * @throws {@link OpenSearchServiceException}
- * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * Base exception class for all service exceptions from OpenSearch service.
  *
  * @public
  */

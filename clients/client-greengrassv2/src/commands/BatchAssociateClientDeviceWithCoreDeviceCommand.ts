@@ -26,18 +26,10 @@ export interface BatchAssociateClientDeviceWithCoreDeviceCommandInput extends Ba
 export interface BatchAssociateClientDeviceWithCoreDeviceCommandOutput extends BatchAssociateClientDeviceWithCoreDeviceResponse, __MetadataBearer {}
 
 /**
- * <p>Associates a list of client devices with a core device. Use this API operation to specify
- *       which client devices can discover a core device through cloud discovery. With cloud discovery,
- *       client devices connect to IoT Greengrass to retrieve associated core devices' connectivity information
- *       and certificates. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/configure-cloud-discovery.html">Configure cloud
- *         discovery</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
- *          <note>
- *             <p>Client devices are local IoT devices that connect to and communicate with an IoT Greengrass core
- *         device over MQTT. You can connect client devices to a core device to sync MQTT messages and
- *         data to Amazon Web Services IoT Core and interact with client devices in Greengrass components. For more information,
- *         see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/interact-with-local-iot-devices.html">Interact with
- *           local IoT devices</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
- *          </note>
+ * Associates a list of client devices with a core device. Use this API operation to specify which client devices can discover a core device through cloud discovery. With cloud discovery, client devices connect to IoT Greengrass to retrieve associated core devices' connectivity information and certificates. For more information, see [Configure cloud discovery](https://docs.aws.amazon.com/greengrass/v2/developerguide/configure-cloud-discovery.html) in the *IoT Greengrass V2 Developer Guide*.
+ *
+ * > **Note:** Client devices are local IoT devices that connect to and communicate with an IoT Greengrass core device over MQTT. You can connect client devices to a core device to sync MQTT messages and data to Amazon Web Services IoT Core and interact with client devices in Greengrass components. For more information, see [Interact with local IoT devices](https://docs.aws.amazon.com/greengrass/v2/developerguide/interact-with-local-iot-devices.html) in the *IoT Greengrass V2 Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,25 +67,28 @@ export interface BatchAssociateClientDeviceWithCoreDeviceCommandOutput extends B
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permission to perform the action.</p>
+ *
+ * You don't have permission to perform the action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>IoT Greengrass can't process your request right now. Try again later.</p>
+ *
+ * IoT Greengrass can't process your request right now. Try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource can't be found.</p>
+ *
+ * The requested resource can't be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Your request exceeded a request rate quota. For example, you might have exceeded the
- *       amount of times that you can retrieve device or deployment status per second.</p>
+ *
+ * Your request exceeded a request rate quota. For example, you might have exceeded the amount of times that you can retrieve device or deployment status per second.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *       unsupported characters.</p>
+ *
+ * The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.
  *
  * @throws {@link GreengrassV2ServiceException}
- * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
+ * Base exception class for all service exceptions from GreengrassV2 service.
  *
  * @public
  */

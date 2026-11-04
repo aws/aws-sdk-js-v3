@@ -23,23 +23,14 @@ export interface GetAccuracyMetricsCommandInput extends GetAccuracyMetricsReques
 export interface GetAccuracyMetricsCommandOutput extends GetAccuracyMetricsResponse, __MetadataBearer {}
 
 /**
- * <p>Provides metrics on the accuracy of the models that were trained by the <a>CreatePredictor</a> operation. Use metrics to see how well the model performed and
- *       to decide whether to use the predictor to generate a forecast. For more information, see
- *         <a href="https://docs.aws.amazon.com/forecast/latest/dg/metrics.html">Predictor
- *         Metrics</a>.</p>
- *          <p>This operation generates metrics for each backtest window that was evaluated. The number
- *       of backtest windows (<code>NumberOfBacktestWindows</code>) is specified using the <a>EvaluationParameters</a> object, which is optionally included in the
- *         <code>CreatePredictor</code> request. If <code>NumberOfBacktestWindows</code> isn't
- *       specified, the number defaults to one.</p>
- *          <p>The parameters of the <code>filling</code> method determine which items contribute to the
- *       metrics. If you want all items to contribute, specify <code>zero</code>. If you want only
- *       those items that have complete data in the range being evaluated to contribute, specify
- *         <code>nan</code>. For more information, see <a>FeaturizationMethod</a>.</p>
- *          <note>
- *             <p>Before you can get accuracy metrics, the <code>Status</code> of the predictor must be
- *           <code>ACTIVE</code>, signifying that training has completed. To get the status, use the
- *           <a>DescribePredictor</a> operation.</p>
- *          </note>
+ * Provides metrics on the accuracy of the models that were trained by the CreatePredictor operation. Use metrics to see how well the model performed and to decide whether to use the predictor to generate a forecast. For more information, see [Predictor Metrics](https://docs.aws.amazon.com/forecast/latest/dg/metrics.html).
+ *
+ * This operation generates metrics for each backtest window that was evaluated. The number of backtest windows (`NumberOfBacktestWindows`) is specified using the EvaluationParameters object, which is optionally included in the `CreatePredictor` request. If `NumberOfBacktestWindows` isn't specified, the number defaults to one.
+ *
+ * The parameters of the `filling` method determine which items contribute to the metrics. If you want all items to contribute, specify `zero`. If you want only those items that have complete data in the range being evaluated to contribute, specify `nan`. For more information, see FeaturizationMethod.
+ *
+ * > **Note:** Before you can get accuracy metrics, the `Status` of the predictor must be `ACTIVE`, signifying that training has completed. To get the status, use the DescribePredictor operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -100,19 +91,20 @@ export interface GetAccuracyMetricsCommandOutput extends GetAccuracyMetricsRespo
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>We can't process the request because it includes an invalid value or a value that exceeds
- *       the valid range.</p>
+ *
+ * We can't process the request because it includes an invalid value or a value that exceeds the valid range.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is in use.</p>
+ *
+ * The specified resource is in use.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
- *       again.</p>
+ *
+ * We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.
  *
  * @throws {@link ForecastServiceException}
- * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * Base exception class for all service exceptions from Forecast service.
  *
  * @public
  */

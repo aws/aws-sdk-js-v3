@@ -23,7 +23,8 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Adds tags to a resource.</p>
+ * Adds tags to a resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,23 +52,28 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>One or more tags submitted as part of the request is not valid.</p>
+ *
+ * One or more tags submitted as part of the request is not valid.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+ *
+ * The request has failed due to an internal failure of the Amazon Inspector service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+ *
+ * The operation tried to access an invalid resource. Make sure the resource is specified correctly.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The limit on the number of requests per second was exceeded.</p>
+ *
+ * The limit on the number of requests per second was exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+ *
+ * The request has failed validation due to missing required fields or having invalid inputs.
  *
  * @throws {@link Inspector2ServiceException}
- * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * Base exception class for all service exceptions from Inspector2 service.
  *
  * @public
  */

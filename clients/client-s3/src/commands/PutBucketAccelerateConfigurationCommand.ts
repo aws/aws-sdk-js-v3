@@ -23,47 +23,32 @@ export interface PutBucketAccelerateConfigurationCommandInput extends PutBucketA
 export interface PutBucketAccelerateConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This operation is not supported for directory buckets.</p>
- *          </note>
- *          <p>Sets the accelerate configuration of an existing bucket. Amazon S3 Transfer Acceleration is a
- *       bucket-level feature that enables you to perform faster data transfers to Amazon S3.</p>
- *          <p> To use this operation, you must have permission to perform the
- *         <code>s3:PutAccelerateConfiguration</code> action. The bucket owner has this permission by default.
- *       The bucket owner can grant this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access Permissions to Your Amazon S3
- *         Resources</a>.</p>
- *          <p> The Transfer Acceleration state of a bucket can be set to one of the following two values:</p>
- *          <ul>
- *             <li>
- *                <p> Enabled – Enables accelerated data transfers to the bucket.</p>
- *             </li>
- *             <li>
- *                <p> Suspended – Disables accelerated data transfers to the bucket.</p>
- *             </li>
- *          </ul>
- *          <p>The <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketAccelerateConfiguration.html">GetBucketAccelerateConfiguration</a> action returns the transfer acceleration state of a
- *       bucket.</p>
- *          <p>After setting the Transfer Acceleration state of a bucket to Enabled, it might take up to thirty
- *       minutes before the data transfer rates to the bucket increase.</p>
- *          <p> The name of the bucket used for Transfer Acceleration must be DNS-compliant and must not contain
- *       periods (".").</p>
- *          <p> For more information about transfer acceleration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html">Transfer Acceleration</a>.</p>
- *          <p>The following operations are related to <code>PutBucketAccelerateConfiguration</code>:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketAccelerateConfiguration.html">GetBucketAccelerateConfiguration</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
+ * > **Note:** This operation is not supported for directory buckets.
+ *
+ * Sets the accelerate configuration of an existing bucket. Amazon S3 Transfer Acceleration is a bucket-level feature that enables you to perform faster data transfers to Amazon S3.
+ *
+ * To use this operation, you must have permission to perform the `s3:PutAccelerateConfiguration` action. The bucket owner has this permission by default. The bucket owner can grant this permission to others. For more information about permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources) and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html).
+ *
+ * The Transfer Acceleration state of a bucket can be set to one of the following two values:
+ *
+ * - Enabled – Enables accelerated data transfers to the bucket.
+ * - Suspended – Disables accelerated data transfers to the bucket.
+ *
+ * The [GetBucketAccelerateConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketAccelerateConfiguration.html) action returns the transfer acceleration state of a bucket.
+ *
+ * After setting the Transfer Acceleration state of a bucket to Enabled, it might take up to thirty minutes before the data transfer rates to the bucket increase.
+ *
+ * The name of the bucket used for Transfer Acceleration must be DNS-compliant and must not contain periods (".").
+ *
+ * For more information about transfer acceleration, see [Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html).
+ *
+ * The following operations are related to `PutBucketAccelerateConfiguration`:
+ *
+ * - [GetBucketAccelerateConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketAccelerateConfiguration.html)
+ * - [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)
+ *
+ * > **Important:** You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,8 +78,8 @@ export interface PutBucketAccelerateConfigurationCommandOutput extends __Metadat
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  * @throws {@link S3ServiceException}
- * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * Base exception class for all service exceptions from S3 service.
  *
  * @public
  */

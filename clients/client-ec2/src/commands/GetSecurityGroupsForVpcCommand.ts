@@ -23,7 +23,8 @@ export interface GetSecurityGroupsForVpcCommandInput extends GetSecurityGroupsFo
 export interface GetSecurityGroupsForVpcCommandOutput extends GetSecurityGroupsForVpcResult, __MetadataBearer {}
 
 /**
- * <p>Gets security groups that can be associated by the Amazon Web Services account making the request with network interfaces in the specified VPC.</p>
+ * Gets security groups that can be associated by the Amazon Web Services account making the request with network interfaces in the specified VPC.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,8 +77,8 @@ export interface GetSecurityGroupsForVpcCommandOutput extends GetSecurityGroupsF
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

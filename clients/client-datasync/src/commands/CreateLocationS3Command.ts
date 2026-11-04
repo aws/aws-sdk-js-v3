@@ -23,27 +23,17 @@ export interface CreateLocationS3CommandInput extends CreateLocationS3Request {}
 export interface CreateLocationS3CommandOutput extends CreateLocationS3Response, __MetadataBearer {}
 
 /**
- * <p>Creates a transfer <i>location</i> for an Amazon S3 bucket.
- *         DataSync can use this location as a source or destination for transferring
- *       data.</p>
- *          <important>
- *             <p>Before you begin, make sure that you read the following topics:</p>
- *             <ul>
- *                <li>
- *                   <p>
- *                      <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Storage
- *               class considerations with Amazon S3 locations</a>
- *                   </p>
- *                </li>
- *                <li>
- *                   <p>
- *                      <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-s3-requests">Evaluating S3 request costs when using DataSync</a>
- *                   </p>
- *                </li>
- *             </ul>
- *          </important>
- *          <p> For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html">Configuring
- *         transfers with Amazon S3</a>.</p>
+ * Creates a transfer *location* for an Amazon S3 bucket. DataSync can use this location as a source or destination for transferring data.
+ *
+ * > **Important:**
+ * >
+ * > Before you begin, make sure that you read the following topics:
+ * >
+ * > - [Storage class considerations with Amazon S3 locations](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+ * > - [Evaluating S3 request costs when using DataSync](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-s3-requests)
+ *
+ * For more information, see [Configuring transfers with Amazon S3](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,15 +74,16 @@ export interface CreateLocationS3CommandOutput extends CreateLocationS3Response,
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception is thrown when an error occurs in the DataSync
- *       service.</p>
+ *
+ * This exception is thrown when an error occurs in the DataSync service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * This exception is thrown when the client submits a malformed request.
  *
  * @throws {@link DataSyncServiceException}
- * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * Base exception class for all service exceptions from DataSync service.
  *
  * @public
  */

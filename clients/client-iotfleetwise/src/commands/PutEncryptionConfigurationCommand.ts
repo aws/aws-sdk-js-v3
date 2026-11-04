@@ -23,10 +23,8 @@ export interface PutEncryptionConfigurationCommandInput extends PutEncryptionCon
 export interface PutEncryptionConfigurationCommandOutput extends PutEncryptionConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates or updates the encryption configuration. Amazon Web Services IoT FleetWise can encrypt your data and
- *             resources using an Amazon Web Services managed key. Or, you can use a KMS key that you own and
- *             manage. For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/data-encryption.html">Data
- *                 encryption</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
+ * Creates or updates the encryption configuration. Amazon Web Services IoT FleetWise can encrypt your data and resources using an Amazon Web Services managed key. Or, you can use a KMS key that you own and manage. For more information, see [Data encryption](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/data-encryption.html) in the *Amazon Web Services IoT FleetWise Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,27 +54,32 @@ export interface PutEncryptionConfigurationCommandOutput extends PutEncryptionCo
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * You don't have sufficient permission to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request has conflicting operations. This can occur if you're trying to perform
- *             more than one operation on the same resource at the same time.</p>
+ *
+ * The request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request couldn't be completed because the server temporarily failed.</p>
+ *
+ * The request couldn't be completed because the server temporarily failed.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource wasn't found.</p>
+ *
+ * The resource wasn't found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request couldn't be completed due to throttling.</p>
+ *
+ * The request couldn't be completed due to throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link IoTFleetWiseServiceException}
- * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * Base exception class for all service exceptions from IoTFleetWise service.
  *
  * @public
  */

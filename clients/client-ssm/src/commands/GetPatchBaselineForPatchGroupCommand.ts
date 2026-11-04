@@ -23,7 +23,8 @@ export interface GetPatchBaselineForPatchGroupCommandInput extends GetPatchBasel
 export interface GetPatchBaselineForPatchGroupCommandOutput extends GetPatchBaselineForPatchGroupResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves the patch baseline that should be used for the specified patch group.</p>
+ * Retrieves the patch baseline that should be used for the specified patch group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,11 +54,12 @@ export interface GetPatchBaselineForPatchGroupCommandOutput extends GetPatchBase
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

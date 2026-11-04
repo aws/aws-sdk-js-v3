@@ -23,17 +23,12 @@ export interface DeleteFirewallCommandInput extends DeleteFirewallRequest {}
 export interface DeleteFirewallCommandOutput extends DeleteFirewallResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified <a>Firewall</a> and its <a>FirewallStatus</a>.
- *        This operation requires the firewall's <code>DeleteProtection</code> flag to be
- *             <code>FALSE</code>. You can't revert this operation. </p>
- *          <p>You can check whether a firewall is
- *          in use by reviewing the route tables for the Availability Zones where you have
- *          firewall subnet mappings. Retrieve the subnet mappings by calling <a>DescribeFirewall</a>.
- *          You define and update the route tables through Amazon VPC. As needed, update the route tables for the
- *          zones to remove the firewall endpoints. When the route tables no longer use the firewall endpoints,
- *          you can remove the firewall safely.</p>
- *          <p>To delete a firewall, remove the delete protection if you need to using <a>UpdateFirewallDeleteProtection</a>,
- *          then delete the firewall by calling <a>DeleteFirewall</a>. </p>
+ * Deletes the specified Firewall and its FirewallStatus. This operation requires the firewall's `DeleteProtection` flag to be `FALSE`. You can't revert this operation.
+ *
+ * You can check whether a firewall is in use by reviewing the route tables for the Availability Zones where you have firewall subnet mappings. Retrieve the subnet mappings by calling DescribeFirewall. You define and update the route tables through Amazon VPC. As needed, update the route tables for the zones to remove the firewall endpoints. When the route tables no longer use the firewall endpoints, you can remove the firewall safely.
+ *
+ * To delete a firewall, remove the delete protection if you need to using UpdateFirewallDeleteProtection, then delete the firewall by calling DeleteFirewall.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -167,41 +162,36 @@ export interface DeleteFirewallCommandOutput extends DeleteFirewallResponse, __M
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Your request is valid, but Network Firewall couldn't perform the operation because of a
- *          system problem. Retry your request. </p>
+ *
+ * Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request.
  *
  * @throws {@link InvalidOperationException} (client fault)
- *  <p>The operation failed because it's not valid. For example, you might have tried to delete
- *          a rule group or firewall policy that's in use.</p>
+ *
+ * The operation failed because it's not valid. For example, you might have tried to delete a rule group or firewall policy that's in use.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The operation failed because of a problem with your request. Examples include: </p>
- *          <ul>
- *             <li>
- *                <p>You specified an unsupported parameter name or value.</p>
- *             </li>
- *             <li>
- *                <p>You tried to update a property with a value that isn't among the available
- *                types.</p>
- *             </li>
- *             <li>
- *                <p>Your request references an ARN that is malformed, or corresponds to a resource
- *                that isn't valid in the context of the request.</p>
- *             </li>
- *          </ul>
+ *
+ * The operation failed because of a problem with your request. Examples include:
+ *
+ * - You specified an unsupported parameter name or value.
+ * - You tried to update a property with a value that isn't among the available types.
+ * - Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Unable to locate a resource using the parameters that you provided.</p>
+ *
+ * Unable to locate a resource using the parameters that you provided.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Unable to process the request due to throttling limitations.</p>
+ *
+ * Unable to process the request due to throttling limitations.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>The operation you requested isn't supported by Network Firewall. </p>
+ *
+ * The operation you requested isn't supported by Network Firewall.
  *
  * @throws {@link NetworkFirewallServiceException}
- * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ * Base exception class for all service exceptions from NetworkFirewall service.
  *
  * @public
  */

@@ -57,8 +57,8 @@ export interface AssociateRoleToGroupCommandOutput extends AssociateRoleToGroupR
  *  General error information.
  *
  * @throws {@link GreengrassServiceException}
- * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * Base exception class for all service exceptions from Greengrass service.
  *
  * @public
  */

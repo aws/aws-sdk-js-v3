@@ -23,14 +23,8 @@ export interface RetryStageExecutionCommandInput extends RetryStageExecutionInpu
 export interface RetryStageExecutionCommandOutput extends RetryStageExecutionOutput, __MetadataBearer {}
 
 /**
- * <p>You can retry a stage that has failed without having to run a pipeline again from
- *             the beginning. You do this by either retrying the failed actions in a stage or by
- *             retrying all actions in the stage starting from the first action in the stage. When you
- *             retry the failed actions in a stage, all actions that are still in progress continue
- *             working, and failed actions are triggered again. When you retry a failed stage from the
- *             first action in the stage, the stage cannot have any actions in progress. Before a stage
- *             can be retried, it must either have all actions failed or some actions failed and some
- *             succeeded.</p>
+ * You can retry a stage that has failed without having to run a pipeline again from the beginning. You do this by either retrying the failed actions in a stage or by retrying all actions in the stage starting from the first action in the stage. When you retry the failed actions in a stage, all actions that are still in progress continue working, and failed actions are triggered again. When you retry a failed stage from the first action in the stage, the stage cannot have any actions in progress. Before a stage can be retried, it must either have all actions failed or some actions failed and some succeeded.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,34 +54,36 @@ export interface RetryStageExecutionCommandOutput extends RetryStageExecutionOut
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  * @throws {@link ConcurrentPipelineExecutionsLimitExceededException} (client fault)
- *  <p>The pipeline has reached the limit for concurrent pipeline executions.</p>
+ *
+ * The pipeline has reached the limit for concurrent pipeline executions.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Your request cannot be handled because the pipeline is busy handling ongoing
- *             activities. Try again later.</p>
+ *
+ * Your request cannot be handled because the pipeline is busy handling ongoing activities. Try again later.
  *
  * @throws {@link NotLatestPipelineExecutionException} (client fault)
- *  <p>The stage has failed in a later run of the pipeline and the
- *                 <code>pipelineExecutionId</code> associated with the request is out of
- *             date.</p>
+ *
+ * The stage has failed in a later run of the pipeline and the `pipelineExecutionId` associated with the request is out of date.
  *
  * @throws {@link PipelineNotFoundException} (client fault)
- *  <p>The pipeline was specified in an invalid format or cannot be found.</p>
+ *
+ * The pipeline was specified in an invalid format or cannot be found.
  *
  * @throws {@link StageNotFoundException} (client fault)
- *  <p>The stage was specified in an invalid format or cannot be found.</p>
+ *
+ * The stage was specified in an invalid format or cannot be found.
  *
  * @throws {@link StageNotRetryableException} (client fault)
- *  <p>Unable to retry. The pipeline structure or stage state might have changed while
- *             actions awaited retry, or the stage contains no failed
- *             actions.</p>
+ *
+ * Unable to retry. The pipeline structure or stage state might have changed while actions awaited retry, or the stage contains no failed actions.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The validation was specified in an invalid format.</p>
+ *
+ * The validation was specified in an invalid format.
  *
  * @throws {@link CodePipelineServiceException}
- * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * Base exception class for all service exceptions from CodePipeline service.
  *
  * @public
  */

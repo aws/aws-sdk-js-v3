@@ -23,17 +23,12 @@ export interface CreateMLTransformCommandInput extends CreateMLTransformRequest 
 export interface CreateMLTransformCommandOutput extends CreateMLTransformResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Glue machine learning transform. This operation creates the transform and
- *       all the necessary parameters to train it.</p>
- *          <p>Call this operation as the first step in the process of using a machine learning transform
- *       (such as the <code>FindMatches</code> transform) for deduplicating data. You can provide an
- *       optional <code>Description</code>, in addition to the parameters that you want to use for your
- *       algorithm.</p>
- *          <p>You must also specify certain parameters for the tasks that Glue runs on your
- *       behalf as part of learning from your data and creating a high-quality machine learning
- *       transform. These parameters include <code>Role</code>, and optionally,
- *         <code>AllocatedCapacity</code>, <code>Timeout</code>, and <code>MaxRetries</code>. For more
- *       information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html">Jobs</a>.</p>
+ * Creates an Glue machine learning transform. This operation creates the transform and all the necessary parameters to train it.
+ *
+ * Call this operation as the first step in the process of using a machine learning transform (such as the `FindMatches` transform) for deduplicating data. You can provide an optional `Description`, in addition to the parameters that you want to use for your algorithm.
+ *
+ * You must also specify certain parameters for the tasks that Glue runs on your behalf as part of learning from your data and creating a high-quality machine learning transform. These parameters include `Role`, and optionally, `AllocatedCapacity`, `Timeout`, and `MaxRetries`. For more information, see [Jobs](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -98,29 +93,36 @@ export interface CreateMLTransformCommandOutput extends CreateMLTransformRespons
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to a resource was denied.</p>
+ *
+ * Access to a resource was denied.
  *
  * @throws {@link AlreadyExistsException} (client fault)
- *  <p>A resource to be created or added already exists.</p>
+ *
+ * A resource to be created or added already exists.
  *
  * @throws {@link IdempotentParameterMismatchException} (client fault)
- *  <p>The same unique identifier was associated with two different records.</p>
+ *
+ * The same unique identifier was associated with two different records.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
- *  <p>A resource numerical limit was exceeded.</p>
+ *
+ * A resource numerical limit was exceeded.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

@@ -23,7 +23,12 @@ export interface UpdateFeatureGroupCommandInput extends UpdateFeatureGroupReques
 export interface UpdateFeatureGroupCommandOutput extends UpdateFeatureGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the feature group by either adding features or updating the online store configuration. Use one of the following request parameters at a time while using the <code>UpdateFeatureGroup</code> API.</p> <p>You can add features for your feature group using the <code>FeatureAdditions</code> request parameter. Features cannot be removed from a feature group.</p> <p>You can update the online store configuration by using the <code>OnlineStoreConfig</code> request parameter. If a <code>TtlDuration</code> is specified, the default <code>TtlDuration</code> applies for all records added to the feature group <i>after the feature group is updated</i>. If a record level <code>TtlDuration</code> exists from using the <code>PutRecord</code> API, the record level <code>TtlDuration</code> applies to that record instead of the default <code>TtlDuration</code>. To remove the default <code>TtlDuration</code> from an existing feature group, use the <code>UpdateFeatureGroup</code> API and set the <code>TtlDuration</code> <code>Unit</code> and <code>Value</code> to <code>null</code>.</p>
+ * Updates the feature group by either adding features or updating the online store configuration. Use one of the following request parameters at a time while using the `UpdateFeatureGroup` API.
+ *
+ * You can add features for your feature group using the `FeatureAdditions` request parameter. Features cannot be removed from a feature group.
+ *
+ * You can update the online store configuration by using the `OnlineStoreConfig` request parameter. If a `TtlDuration` is specified, the default `TtlDuration` applies for all records added to the feature group *after the feature group is updated*. If a record level `TtlDuration` exists from using the `PutRecord` API, the record level `TtlDuration` applies to that record instead of the default `TtlDuration`. To remove the default `TtlDuration` from an existing feature group, use the `UpdateFeatureGroup` API and set the `TtlDuration` `Unit` and `Value` to `null`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,14 +79,16 @@ export interface UpdateFeatureGroupCommandOutput extends UpdateFeatureGroupRespo
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+ *
+ * You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Resource being access is not found.</p>
+ *
+ * Resource being access is not found.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

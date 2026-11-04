@@ -23,7 +23,8 @@ export interface UpdateAcceleratorAttributesCommandInput extends UpdateAccelerat
 export interface UpdateAcceleratorAttributesCommandOutput extends UpdateAcceleratorAttributesResponse, __MetadataBearer {}
 
 /**
- * <p>Update the attributes for an accelerator. </p>
+ * Update the attributes for an accelerator.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,23 +58,28 @@ export interface UpdateAcceleratorAttributesCommandOutput extends UpdateAccelera
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
  * @throws {@link AcceleratorNotFoundException} (client fault)
- *  <p>The accelerator that you specified doesn't exist.</p>
+ *
+ * The accelerator that you specified doesn't exist.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have access permission.</p>
+ *
+ * You don't have access permission.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * There was an internal error for Global Accelerator.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>An argument that you specified is invalid.</p>
+ *
+ * An argument that you specified is invalid.
  *
  * @throws {@link TransactionInProgressException} (client fault)
- *  <p>There's already a transaction in progress. Another transaction can't be processed.</p>
+ *
+ * There's already a transaction in progress. Another transaction can't be processed.
  *
  * @throws {@link GlobalAcceleratorServiceException}
- * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * Base exception class for all service exceptions from GlobalAccelerator service.
  *
  * @public
  */

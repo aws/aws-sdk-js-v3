@@ -23,9 +23,10 @@ export interface ListHoursOfOperationsCommandInput extends ListHoursOfOperations
 export interface ListHoursOfOperationsCommandOutput extends ListHoursOfOperationsResponse, __MetadataBearer {}
 
 /**
- * <p>Provides information about the hours of operation for the specified Connect Customer instance.</p>
- *          <p>For more information about hours of operation, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-hours-operation.html">Set the Hours of Operation for a Queue</a> in the
- *      <i>Connect Customer Administrator Guide</i>.</p>
+ * Provides information about the hours of operation for the specified Connect Customer instance.
+ *
+ * For more information about hours of operation, see [Set the Hours of Operation for a Queue](https://docs.aws.amazon.com/connect/latest/adminguide/set-hours-operation.html) in the *Connect Customer Administrator Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,23 +64,28 @@ export interface ListHoursOfOperationsCommandOutput extends ListHoursOfOperation
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

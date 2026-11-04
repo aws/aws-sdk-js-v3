@@ -23,7 +23,8 @@ export interface DeleteServerlessCacheSnapshotCommandInput extends DeleteServerl
 export interface DeleteServerlessCacheSnapshotCommandOutput extends DeleteServerlessCacheSnapshotResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an existing serverless cache snapshot. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
+ * Deletes an existing serverless cache snapshot. Available for Valkey, Redis OSS and Serverless Memcached only.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,20 +65,24 @@ export interface DeleteServerlessCacheSnapshotCommandOutput extends DeleteServer
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link InvalidServerlessCacheSnapshotStateFault} (client fault)
- *  <p>The state of the serverless cache snapshot was not received. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
+ *
+ * The state of the serverless cache snapshot was not received. Available for Valkey, Redis OSS and Serverless Memcached only.
  *
  * @throws {@link ServerlessCacheSnapshotNotFoundFault} (client fault)
- *  <p>This serverless cache snapshot could not be found or does not exist. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
+ *
+ * This serverless cache snapshot could not be found or does not exist. Available for Valkey, Redis OSS and Serverless Memcached only.
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
- *  <p>The specified service linked role (SLR) was not found.</p>
+ *
+ * The specified service linked role (SLR) was not found.
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @public
  */

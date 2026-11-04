@@ -23,7 +23,8 @@ export interface ModifyListenerAttributesCommandInput extends ModifyListenerAttr
 export interface ModifyListenerAttributesCommandOutput extends ModifyListenerAttributesOutput, __MetadataBearer {}
 
 /**
- * <p>Modifies the specified attributes of the specified listener.</p>
+ * Modifies the specified attributes of the specified listener.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,14 +62,16 @@ export interface ModifyListenerAttributesCommandOutput extends ModifyListenerAtt
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
  * @throws {@link InvalidConfigurationRequestException} (client fault)
- *  <p>The requested configuration is not valid.</p>
+ *
+ * The requested configuration is not valid.
  *
  * @throws {@link ListenerNotFoundException} (client fault)
- *  <p>The specified listener does not exist.</p>
+ *
+ * The specified listener does not exist.
  *
  * @throws {@link ElasticLoadBalancingV2ServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancingV2 service.
  *
  * @public
  */

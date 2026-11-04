@@ -23,17 +23,12 @@ export interface AddWorkingStorageCommandInput extends AddWorkingStorageInput {}
 export interface AddWorkingStorageCommandOutput extends AddWorkingStorageOutput, __MetadataBearer {}
 
 /**
- * <p>Configures one or more gateway local disks as working storage for a gateway. This
- *          operation is only supported in the stored volume gateway type. This operation is deprecated
- *          in cached volume API version 20120630. Use <a>AddUploadBuffer</a>
- *          instead.</p>
- *          <note>
- *             <p>Working storage is also referred to as upload buffer. You can also use the <a>AddUploadBuffer</a> operation to add upload buffer to a stored volume
- *             gateway.</p>
- *          </note>
- *          <p>In the request, you specify the gateway Amazon Resource Name (ARN) to which you want to
- *          add working storage, and one or more disk IDs that you want to configure as working
- *          storage.</p>
+ * Configures one or more gateway local disks as working storage for a gateway. This operation is only supported in the stored volume gateway type. This operation is deprecated in cached volume API version 20120630. Use AddUploadBuffer instead.
+ *
+ * > **Note:** Working storage is also referred to as upload buffer. You can also use the AddUploadBuffer operation to add upload buffer to a stored volume gateway.
+ *
+ * In the request, you specify the gateway Amazon Resource Name (ARN) to which you want to add working storage, and one or more disk IDs that you want to configure as working storage.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,16 +58,16 @@ export interface AddWorkingStorageCommandOutput extends AddWorkingStorageOutput,
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @example To add storage on local disk
  * ```javascript

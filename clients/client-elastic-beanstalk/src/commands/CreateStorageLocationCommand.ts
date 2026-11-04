@@ -23,9 +23,8 @@ export interface CreateStorageLocationCommandInput {}
 export interface CreateStorageLocationCommandOutput extends CreateStorageLocationResultMessage, __MetadataBearer {}
 
 /**
- * <p>Creates a bucket in Amazon S3 to store application versions, logs, and other files used by Elastic Beanstalk environments. The Elastic Beanstalk
- *       console and EB CLI call this API the first time you create an environment in a region. If the storage location already exists,
- *         <code>CreateStorageLocation</code> still returns the bucket name but does not create a new bucket.</p>
+ * Creates a bucket in Amazon S3 to store application versions, logs, and other files used by Elastic Beanstalk environments. The Elastic Beanstalk console and EB CLI call this API the first time you create an environment in a region. If the storage location already exists, `CreateStorageLocation` still returns the bucket name but does not create a new bucket.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,17 +49,20 @@ export interface CreateStorageLocationCommandOutput extends CreateStorageLocatio
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  * @throws {@link InsufficientPrivilegesException} (client fault)
- *  <p>The specified account does not have sufficient privileges for one or more Amazon Web Services services.</p>
+ *
+ * The specified account does not have sufficient privileges for one or more Amazon Web Services services.
  *
  * @throws {@link S3SubscriptionRequiredException} (client fault)
- *  <p>The specified account does not have a subscription to Amazon S3.</p>
+ *
+ * The specified account does not have a subscription to Amazon S3.
  *
  * @throws {@link TooManyBucketsException} (client fault)
- *  <p>The specified account has reached its limit of Amazon S3 buckets.</p>
+ *
+ * The specified account has reached its limit of Amazon S3 buckets.
  *
  * @throws {@link ElasticBeanstalkSyntheticServiceException}
- * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * Base exception class for all service exceptions from ElasticBeanstalk service.
  *
  * @example To create a new environment for an application
  * ```javascript

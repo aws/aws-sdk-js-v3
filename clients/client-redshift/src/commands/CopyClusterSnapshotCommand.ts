@@ -23,18 +23,12 @@ export interface CopyClusterSnapshotCommandInput extends CopyClusterSnapshotMess
 export interface CopyClusterSnapshotCommandOutput extends CopyClusterSnapshotResult, __MetadataBearer {}
 
 /**
- * <p>Copies the specified automated cluster snapshot to a new manual cluster snapshot.
- *             The source must be an automated snapshot and it must be in the available
- *             state.</p>
- *          <p>When you delete a cluster, Amazon Redshift deletes any automated snapshots of the
- *             cluster. Also, when the retention period of the snapshot expires, Amazon Redshift
- *             automatically deletes it. If you want to keep an automated snapshot for a longer period,
- *             you can make a manual copy of the snapshot. Manual snapshots are retained until you
- *             delete them.</p>
- *          <p>
- * For more information about working with snapshots, go to
- * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon Redshift Snapshots</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
+ * Copies the specified automated cluster snapshot to a new manual cluster snapshot. The source must be an automated snapshot and it must be in the available state.
+ *
+ * When you delete a cluster, Amazon Redshift deletes any automated snapshots of the cluster. Also, when the retention period of the snapshot expires, Amazon Redshift automatically deletes it. If you want to keep an automated snapshot for a longer period, you can make a manual copy of the snapshot. Manual snapshots are retained until you delete them.
+ *
+ * For more information about working with snapshots, go to [Amazon Redshift Snapshots](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html) in the *Amazon Redshift Cluster Management Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -114,31 +108,34 @@ export interface CopyClusterSnapshotCommandOutput extends CopyClusterSnapshotRes
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
- *         </p>
+ *
+ * The `ClusterIdentifier` parameter does not refer to an existing cluster.
  *
  * @throws {@link ClusterSnapshotAlreadyExistsFault} (client fault)
- *  <p>The value specified as a snapshot identifier is already used by an existing
- *             snapshot.</p>
+ *
+ * The value specified as a snapshot identifier is already used by an existing snapshot.
  *
  * @throws {@link ClusterSnapshotNotFoundFault} (client fault)
- *  <p>The snapshot identifier does not refer to an existing cluster snapshot.</p>
+ *
+ * The snapshot identifier does not refer to an existing cluster snapshot.
  *
  * @throws {@link ClusterSnapshotQuotaExceededFault} (client fault)
- *  <p>The request would result in the user exceeding the allowed number of cluster
- *             snapshots.</p>
+ *
+ * The request would result in the user exceeding the allowed number of cluster snapshots.
  *
  * @throws {@link InvalidClusterSnapshotStateFault} (client fault)
- *  <p>The specified cluster snapshot is not in the <code>available</code> state, or other
- *             accounts are authorized to access the snapshot. </p>
+ *
+ * The specified cluster snapshot is not in the `available` state, or other accounts are authorized to access the snapshot.
  *
  * @throws {@link InvalidRetentionPeriodFault} (client fault)
- *  <p>The retention period specified is either in the past or is not a valid value.</p>
- *          <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+ *
+ * The retention period specified is either in the past or is not a valid value.
+ *
+ * The value must be either -1 or an integer between 1 and 3,653.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

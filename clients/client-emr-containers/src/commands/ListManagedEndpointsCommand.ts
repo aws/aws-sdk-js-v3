@@ -23,8 +23,8 @@ export interface ListManagedEndpointsCommandInput extends ListManagedEndpointsRe
 export interface ListManagedEndpointsCommandOutput extends ListManagedEndpointsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists managed endpoints based on a set of parameters. A managed endpoint is a gateway
- *          that connects Amazon EMR Studio to Amazon EMR on EKS so that Amazon EMR Studio can communicate with your virtual cluster.</p>
+ * Lists managed endpoints based on a set of parameters. A managed endpoint is a gateway that connects Amazon EMR Studio to Amazon EMR on EKS so that Amazon EMR Studio can communicate with your virtual cluster.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -128,14 +128,16 @@ export interface ListManagedEndpointsCommandOutput extends ListManagedEndpointsR
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This is an internal server exception.</p>
+ *
+ * This is an internal server exception.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>There are invalid parameters in the client request.</p>
+ *
+ * There are invalid parameters in the client request.
  *
  * @throws {@link EMRContainersServiceException}
- * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
+ * Base exception class for all service exceptions from EMRContainers service.
  *
  * @public
  */

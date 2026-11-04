@@ -23,10 +23,8 @@ export interface CreateFrameworkCommandInput extends CreateFrameworkInput {}
 export interface CreateFrameworkCommandOutput extends CreateFrameworkOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a framework with one or more controls. A framework is a collection of controls
- *          that you can use to evaluate your backup practices. By using pre-built customizable
- *          controls to define your policies, you can evaluate whether your backup practices comply
- *          with your policies and which resources are not yet in compliance.</p>
+ * Creates a framework with one or more controls. A framework is a collection of controls that you can use to evaluate your backup practices. By using pre-built customizable controls to define your policies, you can evaluate whether your backup practices comply with your policies and which resources are not yet in compliance.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,25 +79,28 @@ export interface CreateFrameworkCommandOutput extends CreateFrameworkOutput, __M
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  * @throws {@link AlreadyExistsException} (client fault)
- *  <p>The required resource already exists.</p>
+ *
+ * The required resource already exists.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
- *          out of range.</p>
+ *
+ * Indicates that something is wrong with a parameter's value. For example, the value is out of range.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>A limit in the request has been exceeded; for example, a maximum number of items allowed
- *          in a request.</p>
+ *
+ * A limit in the request has been exceeded; for example, a maximum number of items allowed in a request.
  *
  * @throws {@link MissingParameterValueException} (client fault)
- *  <p>Indicates that a required parameter is missing.</p>
+ *
+ * Indicates that a required parameter is missing.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The request failed due to a temporary failure of the server.</p>
+ *
+ * The request failed due to a temporary failure of the server.
  *
  * @throws {@link BackupServiceException}
- * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * Base exception class for all service exceptions from Backup service.
  *
  * @public
  */

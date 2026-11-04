@@ -23,22 +23,13 @@ export interface CreateAppInstanceAdminCommandInput extends CreateAppInstanceAdm
 export interface CreateAppInstanceAdminCommandOutput extends CreateAppInstanceAdminResponse, __MetadataBearer {}
 
 /**
- * <p>Promotes an <code>AppInstanceUser</code> or <code>AppInstanceBot</code> to an
- *          <code>AppInstanceAdmin</code>. The
- *          promoted entity can perform the following actions. </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>ChannelModerator</code> actions across all channels in the
- *                   <code>AppInstance</code>.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>DeleteChannelMessage</code> actions.</p>
- *             </li>
- *          </ul>
- *          <p>Only an <code>AppInstanceUser</code> and <code>AppInstanceBot</code> can be promoted to an <code>AppInstanceAdmin</code>
- *          role.</p>
+ * Promotes an `AppInstanceUser` or `AppInstanceBot` to an `AppInstanceAdmin`. The promoted entity can perform the following actions.
+ *
+ * - `ChannelModerator` actions across all channels in the `AppInstance`.
+ * - `DeleteChannelMessage` actions.
+ *
+ * Only an `AppInstanceUser` and `AppInstanceBot` can be promoted to an `AppInstanceAdmin` role.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,33 +61,40 @@ export interface CreateAppInstanceAdminCommandOutput extends CreateAppInstanceAd
  * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * The input parameters don't match the service's restrictions.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of conflict in the current state of the
- *          resource.</p>
+ *
+ * The request could not be processed because of conflict in the current state of the resource.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * The client is permanently forbidden from making the request.
  *
  * @throws {@link ResourceLimitExceededException} (client fault)
- *  <p>The request exceeds the resource limit.</p>
+ *
+ * The request exceeds the resource limit.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The service encountered an unexpected error.</p>
+ *
+ * The service encountered an unexpected error.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is currently unavailable.</p>
+ *
+ * The service is currently unavailable.
  *
  * @throws {@link ThrottledClientException} (client fault)
- *  <p>The client exceeded its request rate limit.</p>
+ *
+ * The client exceeded its request rate limit.
  *
  * @throws {@link UnauthorizedClientException} (client fault)
- *  <p>The client is not currently authorized to make the request.</p>
+ *
+ * The client is not currently authorized to make the request.
  *
  * @throws {@link ChimeSDKIdentityServiceException}
- * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
+ * Base exception class for all service exceptions from ChimeSDKIdentity service.
  *
  * @public
  */

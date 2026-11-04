@@ -23,12 +23,8 @@ export interface SearchUsersCommandInput extends SearchUsersRequest {}
 export interface SearchUsersCommandOutput extends SearchUsersResponse, __MetadataBearer {}
 
 /**
- * <p>Searches for UserIDs within a collection based on a <code>FaceId</code> or
- *         <code>UserId</code>. This API can be used to find the closest UserID (with a highest
- *       similarity) to associate a face. The request must be provided with either <code>FaceId</code>
- *       or <code>UserId</code>. The operation returns an array of UserID that match the
- *         <code>FaceId</code> or <code>UserId</code>, ordered by similarity score with the highest
- *       similarity first. </p>
+ * Searches for UserIDs within a collection based on a `FaceId` or `UserId`. This API can be used to find the closest UserID (with a highest similarity) to associate a face. The request must be provided with either `FaceId` or `UserId`. The operation returns an array of UserID that match the `FaceId` or `UserId`, ordered by similarity score with the highest similarity first.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,28 +70,32 @@ export interface SearchUsersCommandOutput extends SearchUsersResponse, __Metadat
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You are not authorized to perform the action.</p>
+ *
+ * You are not authorized to perform the action.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * Amazon Rekognition experienced a service issue. Try your call again.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
- *       operation again.</p>
+ *
+ * Input parameter violated a constraint. Validate your parameter before calling the API operation again.
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
- *  <p>The number of requests exceeded your throughput limit. If you want to increase this
- *       limit, contact Amazon Rekognition.</p>
+ *
+ * The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource specified in the request cannot be found.</p>
+ *
+ * The resource specified in the request cannot be found.
  *
  * @throws {@link ThrottlingException} (server fault)
- *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
+ * Amazon Rekognition is temporarily unable to process the request. Try your call again.
  *
  * @throws {@link RekognitionServiceException}
- * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * Base exception class for all service exceptions from Rekognition service.
  *
  * @example SearchUsers
  * ```javascript

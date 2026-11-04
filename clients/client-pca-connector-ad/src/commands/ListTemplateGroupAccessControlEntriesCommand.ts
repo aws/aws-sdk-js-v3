@@ -26,7 +26,8 @@ export interface ListTemplateGroupAccessControlEntriesCommandInput extends ListT
 export interface ListTemplateGroupAccessControlEntriesCommandOutput extends ListTemplateGroupAccessControlEntriesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists group access control entries you created. </p>
+ * Lists group access control entries you created.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,30 +69,28 @@ export interface ListTemplateGroupAccessControlEntriesCommandOutput extends List
  * @see {@link PcaConnectorAdClientResolvedConfig | config} for PcaConnectorAdClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You can receive this error if you attempt to create a resource share when you don't have
- *          the required permissions. This can be caused by insufficient permissions in policies
- *          attached to your Amazon Web Services Identity and Access Management (IAM) principal. It can also happen
- *          because of restrictions in place from an Amazon Web Services Organizations service control policy (SCP)
- *          that affects your Amazon Web Services account. </p>
+ *
+ * You can receive this error if you attempt to create a resource share when you don't have the required permissions. This can be caused by insufficient permissions in policies attached to your Amazon Web Services Identity and Access Management (IAM) principal. It can also happen because of restrictions in place from an Amazon Web Services Organizations service control policy (SCP) that affects your Amazon Web Services account.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure with
- *          an internal server. </p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure with an internal server.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The operation tried to access a nonexistent resource. The resource might not be
- *          specified correctly, or its status might not be ACTIVE.</p>
+ *
+ * The operation tried to access a nonexistent resource. The resource might not be specified correctly, or its status might not be ACTIVE.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The limit on the number of requests per second was exceeded. </p>
+ *
+ * The limit on the number of requests per second was exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An input validation error occurred. For example, invalid characters in a template name,
- *          or if a pagination token is invalid. </p>
+ *
+ * An input validation error occurred. For example, invalid characters in a template name, or if a pagination token is invalid.
  *
  * @throws {@link PcaConnectorAdServiceException}
- * <p>Base exception class for all service exceptions from PcaConnectorAd service.</p>
  *
+ * Base exception class for all service exceptions from PcaConnectorAd service.
  *
  * @public
  */

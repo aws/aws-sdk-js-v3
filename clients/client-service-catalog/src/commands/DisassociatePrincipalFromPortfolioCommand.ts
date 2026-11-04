@@ -26,24 +26,16 @@ export interface DisassociatePrincipalFromPortfolioCommandInput extends Disassoc
 export interface DisassociatePrincipalFromPortfolioCommandOutput extends DisassociatePrincipalFromPortfolioOutput, __MetadataBearer {}
 
 /**
- * <p>Disassociates a previously associated principal ARN from a specified
- *          portfolio.</p>
- *          <p>The <code>PrincipalType</code> and <code>PrincipalARN</code> must match the
- *          <code>AssociatePrincipalWithPortfolio</code> call request details. For example,
- *          to disassociate an association created with a <code>PrincipalARN</code> of <code>PrincipalType</code>
- *          IAM you must use the <code>PrincipalType</code> IAM when calling <code>DisassociatePrincipalFromPortfolio</code>. </p>
- *          <p>For portfolios that have been shared with principal name sharing enabled: after disassociating a principal,
- *    share recipient accounts will no longer be able to provision products in this portfolio using a role matching the name
- *    of the associated principal. </p>
- *          <p>For more information, review <a href="https://docs.aws.amazon.com/cli/latest/reference/servicecatalog/associate-principal-with-portfolio.html#options">associate-principal-with-portfolio</a>
- *          in the Amazon Web Services CLI Command Reference. </p>
- *          <note>
- *             <p>If you disassociate a principal from a portfolio, with PrincipalType as <code>IAM</code>, the same principal will
- *             still have access to the portfolio if it matches one of the associated principals of type <code>IAM_PATTERN</code>.
- *             To fully remove access for a principal, verify all the associated Principals of type <code>IAM_PATTERN</code>,
- *             and then ensure you disassociate any <code>IAM_PATTERN</code> principals that match the principal
- *             whose access you are removing.</p>
- *          </note>
+ * Disassociates a previously associated principal ARN from a specified portfolio.
+ *
+ * The `PrincipalType` and `PrincipalARN` must match the `AssociatePrincipalWithPortfolio` call request details. For example, to disassociate an association created with a `PrincipalARN` of `PrincipalType` IAM you must use the `PrincipalType` IAM when calling `DisassociatePrincipalFromPortfolio`.
+ *
+ * For portfolios that have been shared with principal name sharing enabled: after disassociating a principal, share recipient accounts will no longer be able to provision products in this portfolio using a role matching the name of the associated principal.
+ *
+ * For more information, review [associate-principal-with-portfolio](https://docs.aws.amazon.com/cli/latest/reference/servicecatalog/associate-principal-with-portfolio.html#options) in the Amazon Web Services CLI Command Reference.
+ *
+ * > **Note:** If you disassociate a principal from a portfolio, with PrincipalType as `IAM`, the same principal will still have access to the portfolio if it matches one of the associated principals of type `IAM_PATTERN`. To fully remove access for a principal, verify all the associated Principals of type `IAM_PATTERN`, and then ensure you disassociate any `IAM_PATTERN` principals that match the principal whose access you are removing.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,14 +63,16 @@ export interface DisassociatePrincipalFromPortfolioCommandOutput extends Disasso
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  * @throws {@link InvalidParametersException} (client fault)
- *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * One or more parameters provided to the operation are not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ServiceCatalogServiceException}
- * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * Base exception class for all service exceptions from ServiceCatalog service.
  *
  * @public
  */

@@ -23,7 +23,10 @@ export interface ScanSbomCommandInput extends ScanSbomRequest {}
 export interface ScanSbomCommandOutput extends ScanSbomResponse, __MetadataBearer {}
 
 /**
- * <p>Scans a provided CycloneDX 1.5 SBOM and reports on any vulnerabilities discovered in that SBOM. You can generate compatible SBOMs for your resources using the <a href="https://docs.aws.amazon.com/inspector/latest/user/sbom-generator.html">Amazon Inspector SBOM generator</a>.</p> <note> <p> The output of this action reports NVD and CVSS scores when NVD and CVSS scores are available. Because the output reports both scores, you might notice a discrepency between them. However, you can triage the severity of either score depending on the vendor of your choosing. </p> </note>
+ * Scans a provided CycloneDX 1.5 SBOM and reports on any vulnerabilities discovered in that SBOM. You can generate compatible SBOMs for your resources using the [Amazon Inspector SBOM generator](https://docs.aws.amazon.com/inspector/latest/user/sbom-generator.html).
+ *
+ * > **Note:** The output of this action reports NVD and CVSS scores when NVD and CVSS scores are available. Because the output reports both scores, you might notice a discrepency between them. However, you can triage the severity of either score depending on the vendor of your choosing.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,20 +54,24 @@ export interface ScanSbomCommandOutput extends ScanSbomResponse, __MetadataBeare
  * @see {@link InspectorScanClientResolvedConfig | config} for InspectorScanClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action. </p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure. </p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. </p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+ *
+ * The request has failed validation due to missing required fields or having invalid inputs.
  *
  * @throws {@link InspectorScanServiceException}
- * <p>Base exception class for all service exceptions from InspectorScan service.</p>
  *
+ * Base exception class for all service exceptions from InspectorScan service.
  *
  * @example Sample ScanSbom Call
  * ```javascript

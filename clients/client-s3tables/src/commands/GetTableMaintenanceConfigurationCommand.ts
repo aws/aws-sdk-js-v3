@@ -26,7 +26,13 @@ export interface GetTableMaintenanceConfigurationCommandInput extends GetTableMa
 export interface GetTableMaintenanceConfigurationCommandOutput extends GetTableMaintenanceConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Gets details about the maintenance configuration of a table. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-maintenance.html">S3 Tables maintenance</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <ul> <li> <p>You must have the <code>s3tables:GetTableMaintenanceConfiguration</code> permission to use this operation. </p> </li> <li> <p>You must have the <code>s3tables:GetTableData</code> permission to use set the compaction strategy to <code>sort</code> or <code>zorder</code>.</p> </li> </ul> </dd> </dl>
+ * Gets details about the maintenance configuration of a table. For more information, see [S3 Tables maintenance](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-maintenance.html) in the *Amazon Simple Storage Service User Guide*.
+ *
+ * - **Permissions**
+ *
+ *   - You must have the `s3tables:GetTableMaintenanceConfiguration` permission to use this operation.
+ *   - You must have the `s3tables:GetTableData` permission to use set the compaction strategy to `sort` or `zorder`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,26 +76,32 @@ export interface GetTableMaintenanceConfigurationCommandOutput extends GetTableM
  * @see {@link S3TablesClientResolvedConfig | config} for S3TablesClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request is invalid or malformed.</p>
+ *
+ * The request is invalid or malformed.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
+ *
+ * The request failed because there is a conflict with a previous write. You can retry the request.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>The caller isn't authorized to make the request.</p>
+ *
+ * The caller isn't authorized to make the request.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>The request failed due to an internal server error.</p>
+ *
+ * The request failed due to an internal server error.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The request was rejected because the specified resource could not be found.</p>
+ *
+ * The request was rejected because the specified resource could not be found.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The limit on the number of requests per second was exceeded.</p>
+ *
+ * The limit on the number of requests per second was exceeded.
  *
  * @throws {@link S3TablesServiceException}
- * <p>Base exception class for all service exceptions from S3Tables service.</p>
  *
+ * Base exception class for all service exceptions from S3Tables service.
  *
  * @public
  */

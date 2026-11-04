@@ -23,7 +23,10 @@ export interface DisassociateTrialComponentCommandInput extends DisassociateTria
 export interface DisassociateTrialComponentCommandOutput extends DisassociateTrialComponentResponse, __MetadataBearer {}
 
 /**
- * <p>Disassociates a trial component from a trial. This doesn't effect other trials the component is associated with. Before you can delete a component, you must disassociate the component from all trials it is associated with. To associate a trial component with a trial, call the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AssociateTrialComponent.html">AssociateTrialComponent</a> API.</p> <p>To get a list of the trials a component is associated with, use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API. Specify <code>ExperimentTrialComponent</code> for the <code>Resource</code> parameter. The list appears in the response under <code>Results.TrialComponent.Parents</code>.</p>
+ * Disassociates a trial component from a trial. This doesn't effect other trials the component is associated with. Before you can delete a component, you must disassociate the component from all trials it is associated with. To associate a trial component with a trial, call the [AssociateTrialComponent](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AssociateTrialComponent.html) API.
+ *
+ * To get a list of the trials a component is associated with, use the [Search](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html) API. Specify `ExperimentTrialComponent` for the `Resource` parameter. The list appears in the response under `Results.TrialComponent.Parents`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,11 +55,12 @@ export interface DisassociateTrialComponentCommandOutput extends DisassociateTri
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Resource being access is not found.</p>
+ *
+ * Resource being access is not found.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

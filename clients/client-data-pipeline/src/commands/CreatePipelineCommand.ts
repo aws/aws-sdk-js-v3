@@ -23,7 +23,9 @@ export interface CreatePipelineCommandInput extends CreatePipelineInput {}
 export interface CreatePipelineCommandOutput extends CreatePipelineOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a new, empty pipeline. Use <a>PutPipelineDefinition</a> to populate the pipeline.</p>
+ * Creates a new, empty pipeline. Use PutPipelineDefinition to populate the pipeline.
+ *
+ *
  *
  *         <examples>
  *             <request>
@@ -88,14 +90,16 @@ export interface CreatePipelineCommandOutput extends CreatePipelineOutput, __Met
  * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.
  *
  * @throws {@link InternalServiceError} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
+ *
+ * The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.
  *
  * @throws {@link DataPipelineServiceException}
- * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ * Base exception class for all service exceptions from DataPipeline service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface UpdateACLCommandInput extends UpdateACLRequest {}
 export interface UpdateACLCommandOutput extends UpdateACLResponse, __MetadataBearer {}
 
 /**
- * <p>Changes the list of users that belong to the Access Control List.</p>
+ * Changes the list of users that belong to the Access Control List.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,29 +76,36 @@ export interface UpdateACLCommandOutput extends UpdateACLResponse, __MetadataBea
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  * @throws {@link ACLNotFoundFault} (client fault)
- *  <p>The specified ACL does not exist.</p>
+ *
+ * The specified ACL does not exist.
  *
  * @throws {@link DefaultUserRequired} (client fault)
- *  <p>A default user is required and must be specified.</p>
+ *
+ * A default user is required and must be specified.
  *
  * @throws {@link DuplicateUserNameFault} (client fault)
- *  <p>A user with the specified name already exists.</p>
+ *
+ * A user with the specified name already exists.
  *
  * @throws {@link InvalidACLStateFault} (client fault)
- *  <p>The ACL is not in a valid state for the requested operation.</p>
+ *
+ * The ACL is not in a valid state for the requested operation.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>The specified parameter combination is not valid.</p>
+ *
+ * The specified parameter combination is not valid.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The specified parameter value is not valid.</p>
+ *
+ * The specified parameter value is not valid.
  *
  * @throws {@link UserNotFoundFault} (client fault)
- *  <p>The specified user does not exist.</p>
+ *
+ * The specified user does not exist.
  *
  * @throws {@link MemoryDBServiceException}
- * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * Base exception class for all service exceptions from MemoryDB service.
  *
  * @public
  */

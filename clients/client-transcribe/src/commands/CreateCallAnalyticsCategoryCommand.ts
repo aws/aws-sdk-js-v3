@@ -23,22 +23,18 @@ export interface CreateCallAnalyticsCategoryCommandInput extends CreateCallAnaly
 export interface CreateCallAnalyticsCategoryCommandOutput extends CreateCallAnalyticsCategoryResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new Call Analytics category.</p>
- *          <p>All categories are automatically applied to your Call Analytics transcriptions. Note that in
- *             order to apply categories to your transcriptions, you must create them before submitting your
- *             transcription request, as categories cannot be applied retroactively.</p>
- *          <p>When creating a new category, you can use the <code>InputType</code> parameter to
- *             label the category as a <code>POST_CALL</code> or a <code>REAL_TIME</code> category.
- *             <code>POST_CALL</code> categories can only be applied to post-call transcriptions and
- *             <code>REAL_TIME</code> categories can only be applied to real-time transcriptions. If you
- *             do not include <code>InputType</code>, your category is created as a
- *             <code>POST_CALL</code> category by default.</p>
- *          <p>Call Analytics categories are composed of rules. For each category, you must create
- *             between 1 and 20 rules. Rules can include these parameters: , , , and .</p>
- *          <p>To update an existing category, see .</p>
- *          <p>To learn more about Call Analytics categories, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html">Creating categories for post-call
- *             transcriptions</a> and <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-stream.html">Creating categories for
- *                 real-time transcriptions</a>.</p>
+ * Creates a new Call Analytics category.
+ *
+ * All categories are automatically applied to your Call Analytics transcriptions. Note that in order to apply categories to your transcriptions, you must create them before submitting your transcription request, as categories cannot be applied retroactively.
+ *
+ * When creating a new category, you can use the `InputType` parameter to label the category as a `POST_CALL` or a `REAL_TIME` category. `POST_CALL` categories can only be applied to post-call transcriptions and `REAL_TIME` categories can only be applied to real-time transcriptions. If you do not include `InputType`, your category is created as a `POST_CALL` category by default.
+ *
+ * Call Analytics categories are composed of rules. For each category, you must create between 1 and 20 rules. Rules can include these parameters: , , , and .
+ *
+ * To update an existing category, see .
+ *
+ * To learn more about Call Analytics categories, see [Creating categories for post-call transcriptions](https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html) and [Creating categories for real-time transcriptions](https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-stream.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -235,26 +231,24 @@ export interface CreateCallAnalyticsCategoryCommandOutput extends CreateCallAnal
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>Your request didn't pass one or more validation tests. This can occur when the entity
- *             you're trying to delete doesn't exist or if it's in a non-terminal state (such as
- *                 <code>IN PROGRESS</code>). See the exception message field for more
- *             information.</p>
+ *
+ * Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as `IN PROGRESS`). See the exception message field for more information.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A resource already exists with this name. Resource names must be unique within an
- *                 Amazon Web Services account.</p>
+ *
+ * A resource already exists with this name. Resource names must be unique within an Amazon Web Services account.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>There was an internal error. Check the error message, correct the issue, and try your
- *             request again.</p>
+ *
+ * There was an internal error. Check the error message, correct the issue, and try your request again.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You've either sent too many requests or your input file is too long. Wait before
- *             retrying your request, or use a smaller file and try your request again.</p>
+ *
+ * You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.
  *
  * @throws {@link TranscribeServiceException}
- * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * Base exception class for all service exceptions from Transcribe service.
  *
  * @public
  */

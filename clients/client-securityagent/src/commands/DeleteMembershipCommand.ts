@@ -23,7 +23,8 @@ export interface DeleteMembershipCommandInput extends DeleteMembershipRequest {}
 export interface DeleteMembershipCommandOutput extends DeleteMembershipResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a membership, revoking a user's access to an agent space.</p>
+ * Deletes a membership, revoking a user's access to an agent space.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,8 +52,8 @@ export interface DeleteMembershipCommandOutput extends DeleteMembershipResponse,
  * @see {@link SecurityAgentClientResolvedConfig | config} for SecurityAgentClient's `config` shape.
  *
  * @throws {@link SecurityAgentServiceException}
- * <p>Base exception class for all service exceptions from SecurityAgent service.</p>
  *
+ * Base exception class for all service exceptions from SecurityAgent service.
  *
  * @public
  */

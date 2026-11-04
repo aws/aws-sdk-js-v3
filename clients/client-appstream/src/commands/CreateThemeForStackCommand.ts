@@ -23,7 +23,8 @@ export interface CreateThemeForStackCommandInput extends CreateThemeForStackRequ
 export interface CreateThemeForStackCommandOutput extends CreateThemeForStackResult, __MetadataBearer {}
 
 /**
- * <p>Creates custom branding that customizes the appearance of the streaming application catalog page.</p>
+ * Creates custom branding that customizes the appearance of the streaming application catalog page.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,26 +81,32 @@ export interface CreateThemeForStackCommandOutput extends CreateThemeForStackRes
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>An API error occurred. Wait a few minutes and try again.</p>
+ *
+ * An API error occurred. Wait a few minutes and try again.
  *
  * @throws {@link InvalidAccountStatusException} (client fault)
- *  <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
+ *
+ * The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The requested limit exceeds the permitted limit for an account.</p>
+ *
+ * The requested limit exceeds the permitted limit for an account.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>The attempted operation is not permitted.</p>
+ *
+ * The attempted operation is not permitted.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>The specified resource already exists.</p>
+ *
+ * The specified resource already exists.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link AppStreamServiceException}
- * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * Base exception class for all service exceptions from AppStream service.
  *
  * @public
  */

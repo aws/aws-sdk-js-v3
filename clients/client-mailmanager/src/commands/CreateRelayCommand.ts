@@ -23,7 +23,8 @@ export interface CreateRelayCommandInput extends CreateRelayRequest {}
 export interface CreateRelayCommandOutput extends CreateRelayResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a relay resource which can be used in rules to relay incoming emails to defined relay destinations. </p>
+ * Creates a relay resource which can be used in rules to relay incoming emails to defined relay destinations.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,17 +64,20 @@ export interface CreateRelayCommandOutput extends CreateRelayResponse, __Metadat
  * @see {@link MailManagerClientResolvedConfig | config} for MailManagerClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+ *
+ * The request configuration has conflicts. For details, see the accompanying error message.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Occurs when an operation exceeds a predefined service quota or limit.</p>
+ *
+ * Occurs when an operation exceeds a predefined service quota or limit.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request validation has failed. For details, see the accompanying error message.</p>
+ *
+ * The request validation has failed. For details, see the accompanying error message.
  *
  * @throws {@link MailManagerServiceException}
- * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ * Base exception class for all service exceptions from MailManager service.
  *
  * @public
  */

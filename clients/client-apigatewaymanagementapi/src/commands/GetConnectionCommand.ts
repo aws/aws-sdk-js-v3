@@ -23,7 +23,8 @@ export interface GetConnectionCommandInput extends GetConnectionRequest {}
 export interface GetConnectionCommandOutput extends GetConnectionResponse, __MetadataBearer {}
 
 /**
- * <p>Get information about the connection with the provided id.</p>
+ * Get information about the connection with the provided id.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,17 +56,20 @@ export interface GetConnectionCommandOutput extends GetConnectionResponse, __Met
  * @see {@link ApiGatewayManagementApiClientResolvedConfig | config} for ApiGatewayManagementApiClient's `config` shape.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>The caller is not authorized to invoke this operation.</p>
+ *
+ * The caller is not authorized to invoke this operation.
  *
  * @throws {@link GoneException} (client fault)
- *  <p>The connection with the provided id no longer exists.</p>
+ *
+ * The connection with the provided id no longer exists.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The client is sending more than the allowed number of requests per unit of time or the WebSocket client side buffer is full.</p>
+ *
+ * The client is sending more than the allowed number of requests per unit of time or the WebSocket client side buffer is full.
  *
  * @throws {@link ApiGatewayManagementApiServiceException}
- * <p>Base exception class for all service exceptions from ApiGatewayManagementApi service.</p>
  *
+ * Base exception class for all service exceptions from ApiGatewayManagementApi service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface DescribeSecurityGroupsCommandInput extends DescribeSecurityGrou
 export interface DescribeSecurityGroupsCommandOutput extends DescribeSecurityGroupsResult, __MetadataBearer {}
 
 /**
- * <p>Describes the specified security groups or all of your security groups.</p>
+ * Describes the specified security groups or all of your security groups.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -154,8 +155,8 @@ export interface DescribeSecurityGroupsCommandOutput extends DescribeSecurityGro
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To describe a security group
  * ```javascript

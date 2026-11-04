@@ -23,10 +23,10 @@ export interface SendActivationCodeCommandInput extends SendActivationCodeReques
 export interface SendActivationCodeCommandOutput extends SendActivationCodeResponse, __MetadataBearer {}
 
 /**
- * <p>Sends an activation email to the email address associated with the specified email contact.</p>
- *          <note>
- *             <p>It might take a few minutes for the activation email to arrive. If it doesn't arrive, check in your spam folder or try sending another activation email.</p>
- *          </note>
+ * Sends an activation email to the email address associated with the specified email contact.
+ *
+ * > **Note:** It might take a few minutes for the activation email to arrive. If it doesn't arrive, check in your spam folder or try sending another activation email.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,26 +51,32 @@ export interface SendActivationCodeCommandOutput extends SendActivationCodeRespo
  * @see {@link NotificationsContactsClientResolvedConfig | config} for NotificationsContactsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ *
+ * Updating or deleting a resource can cause an inconsistent state.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error during processing of request.</p>
+ *
+ * Unexpected error during processing of request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Your request references a resource which does not exist. </p>
+ *
+ * Your request references a resource which does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an AWS service.
  *
  * @throws {@link NotificationsContactsServiceException}
- * <p>Base exception class for all service exceptions from NotificationsContacts service.</p>
  *
+ * Base exception class for all service exceptions from NotificationsContacts service.
  *
  * @public
  */

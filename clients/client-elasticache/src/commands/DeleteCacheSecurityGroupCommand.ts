@@ -23,11 +23,10 @@ export interface DeleteCacheSecurityGroupCommandInput extends DeleteCacheSecurit
 export interface DeleteCacheSecurityGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a cache security group.</p>
- *          <note>
- *             <p>You cannot delete a cache security group if it is associated with any
- *                 clusters.</p>
- *          </note>
+ * Deletes a cache security group.
+ *
+ * > **Note:** You cannot delete a cache security group if it is associated with any clusters.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,21 +51,24 @@ export interface DeleteCacheSecurityGroupCommandOutput extends __MetadataBearer 
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link CacheSecurityGroupNotFoundFault} (client fault)
- *  <p>The requested cache security group name does not refer to an existing cache security
- *             group.</p>
+ *
+ * The requested cache security group name does not refer to an existing cache security group.
  *
  * @throws {@link InvalidCacheSecurityGroupStateFault} (client fault)
- *  <p>The current state of the cache security group does not allow deletion.</p>
+ *
+ * The current state of the cache security group does not allow deletion.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * Two or more incompatible parameters were specified.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @example DeleteCacheSecurityGroup
  * ```javascript

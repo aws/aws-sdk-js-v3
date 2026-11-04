@@ -23,9 +23,8 @@ export interface ReportTaskRunnerHeartbeatCommandInput extends ReportTaskRunnerH
 export interface ReportTaskRunnerHeartbeatCommandOutput extends ReportTaskRunnerHeartbeatOutput, __MetadataBearer {}
 
 /**
- * <p>Task runners call <code>ReportTaskRunnerHeartbeat</code> every 15 minutes to indicate that they are operational.
- *             If the AWS Data Pipeline Task Runner is launched on a resource managed by AWS Data Pipeline, the web service can use
- *             this call to detect when the task runner application has failed and restart a new instance.</p>
+ * Task runners call `ReportTaskRunnerHeartbeat` every 15 minutes to indicate that they are operational. If the AWS Data Pipeline Task Runner is launched on a resource managed by AWS Data Pipeline, the web service can use this call to detect when the task runner application has failed and restart a new instance.
+ *
  *
  *         <examples>
  *             <request>
@@ -84,14 +83,16 @@ export interface ReportTaskRunnerHeartbeatCommandOutput extends ReportTaskRunner
  * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.
  *
  * @throws {@link InternalServiceError} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
+ *
+ * The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.
  *
  * @throws {@link DataPipelineServiceException}
- * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ * Base exception class for all service exceptions from DataPipeline service.
  *
  * @public
  */

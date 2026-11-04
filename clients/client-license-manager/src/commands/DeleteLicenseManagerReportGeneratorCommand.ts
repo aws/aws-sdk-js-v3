@@ -26,9 +26,10 @@ export interface DeleteLicenseManagerReportGeneratorCommandInput extends DeleteL
 export interface DeleteLicenseManagerReportGeneratorCommandOutput extends DeleteLicenseManagerReportGeneratorResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified report generator.</p>
- *          <p>This action deletes the report generator, which stops it from generating future reports.
- *          The action cannot be reversed. It has no effect on the previous reports from this generator.</p>
+ * Deletes the specified report generator.
+ *
+ * This action deletes the report generator, which stops it from generating future reports. The action cannot be reversed. It has no effect on the previous reports from this generator.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,33 +54,40 @@ export interface DeleteLicenseManagerReportGeneratorCommandOutput extends Delete
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to resource denied.</p>
+ *
+ * Access to resource denied.
  *
  * @throws {@link AuthorizationException} (client fault)
- *  <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
- *          policy associated with this account.</p>
+ *
+ * The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more parameter values are not valid.</p>
+ *
+ * One or more parameter values are not valid.
  *
  * @throws {@link RateLimitExceededException} (client fault)
- *  <p>Too many requests have been submitted. Try again after a brief wait.</p>
+ *
+ * Too many requests have been submitted. Try again after a brief wait.
  *
  * @throws {@link ResourceLimitExceededException} (client fault)
- *  <p>Your resource limits have been exceeded.</p>
+ *
+ * Your resource limits have been exceeded.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource cannot be found.</p>
+ *
+ * The resource cannot be found.
  *
  * @throws {@link ServerInternalException} (server fault)
- *  <p>The server experienced an internal error. Try again.</p>
+ *
+ * The server experienced an internal error. Try again.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The provided input is not valid. Try your request again.</p>
+ *
+ * The provided input is not valid. Try your request again.
  *
  * @throws {@link LicenseManagerServiceException}
- * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ * Base exception class for all service exceptions from LicenseManager service.
  *
  * @public
  */

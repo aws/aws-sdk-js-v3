@@ -23,10 +23,10 @@ export interface TagResourceCommandInput extends TagResourceInput {}
 export interface TagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Add a tag to a Amazon SWF domain.</p>
- *          <note>
- *             <p>Amazon SWF supports a maximum of 50 tags per resource.</p>
- *          </note>
+ * Add a tag to a Amazon SWF domain.
+ *
+ * > **Note:** Amazon SWF supports a maximum of 50 tags per resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,20 +57,24 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
  *
  * @throws {@link LimitExceededFault} (client fault)
- *  <p>Returned by any operation if a system imposed limitation has been reached. To address this fault you should either clean up unused resources or increase the limit by contacting AWS.</p>
+ *
+ * Returned by any operation if a system imposed limitation has been reached. To address this fault you should either clean up unused resources or increase the limit by contacting AWS.
  *
  * @throws {@link OperationNotPermittedFault} (client fault)
- *  <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+ *
+ * Returned when the caller doesn't have sufficient permissions to invoke the action.
  *
  * @throws {@link TooManyTagsFault} (client fault)
- *  <p>You've exceeded the number of tags allowed for a domain.</p>
+ *
+ * You've exceeded the number of tags allowed for a domain.
  *
  * @throws {@link UnknownResourceFault} (client fault)
- *  <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+ *
+ * Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.
  *
  * @throws {@link SWFServiceException}
- * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ * Base exception class for all service exceptions from SWF service.
  *
  * @public
  */

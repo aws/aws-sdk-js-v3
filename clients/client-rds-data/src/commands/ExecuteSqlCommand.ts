@@ -23,7 +23,9 @@ export interface ExecuteSqlCommandInput extends ExecuteSqlRequest {}
 export interface ExecuteSqlCommandOutput extends ExecuteSqlResponse, __MetadataBearer {}
 
 /**
- * <p>Runs one or more SQL statements.</p> <note> <p>This operation is deprecated. Please use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation.</p> </note>
+ * Runs one or more SQL statements.
+ *
+ * > **Note:** This operation is deprecated. Please use the `BatchExecuteStatement` or `ExecuteStatement` operation.
  *
  * @deprecated (since 2019-03-21) The ExecuteSql API is deprecated, please use the ExecuteStatement API.
  * @example
@@ -120,23 +122,28 @@ export interface ExecuteSqlCommandOutput extends ExecuteSqlResponse, __MetadataB
  * @see {@link RDSDataClientResolvedConfig | config} for RDSDataClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * You don't have sufficient access to perform this action.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>There is an error in the call or in a SQL statement. This exception is deprecated.</p>
+ *
+ * There is an error in the call or in a SQL statement. This exception is deprecated.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>There are insufficient privileges to make the call.</p>
+ *
+ * There are insufficient privileges to make the call.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>An internal error occurred.</p>
+ *
+ * An internal error occurred.
  *
  * @throws {@link ServiceUnavailableError} (server fault)
- *  <p>The service specified by the <code>resourceArn</code> parameter isn't available.</p>
+ *
+ * The service specified by the `resourceArn` parameter isn't available.
  *
  * @throws {@link RDSDataServiceException}
- * <p>Base exception class for all service exceptions from RDSData service.</p>
  *
+ * Base exception class for all service exceptions from RDSData service.
  *
  * @public
  */

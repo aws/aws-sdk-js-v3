@@ -23,7 +23,8 @@ export interface ListTemplatesCommandInput extends ListTemplatesInput {}
 export interface ListTemplatesCommandOutput extends ListTemplatesOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the templates in the account. You can filter the results by status and page through them using <code>maxResults</code> and <code>nextToken</code>.</p>
+ * Lists the templates in the account. You can filter the results by status and page through them using `maxResults` and `nextToken`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,20 +65,24 @@ export interface ListTemplatesCommandOutput extends ListTemplatesOutput, __Metad
  * @see {@link NetworkSecurityManagerClientResolvedConfig | config} for NetworkSecurityManagerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing failed because of an internal error in the service. This is a retryable error.</p>
+ *
+ * The request processing failed because of an internal error in the service. This is a retryable error.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied because of request throttling. Reduce your request rate and try again.</p>
+ *
+ * The request was denied because of request throttling. Reduce your request rate and try again.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request failed validation. For details, see the <code>reason</code> and <code>fieldList</code> members of the response.</p>
+ *
+ * The request failed validation. For details, see the `reason` and `fieldList` members of the response.
  *
  * @throws {@link NetworkSecurityManagerServiceException}
- * <p>Base exception class for all service exceptions from NetworkSecurityManager service.</p>
  *
+ * Base exception class for all service exceptions from NetworkSecurityManager service.
  *
  * @example List templates
  * ```javascript

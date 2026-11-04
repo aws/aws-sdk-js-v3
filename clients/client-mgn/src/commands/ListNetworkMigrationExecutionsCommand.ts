@@ -23,7 +23,8 @@ export interface ListNetworkMigrationExecutionsCommandInput extends ListNetworkM
 export interface ListNetworkMigrationExecutionsCommandOutput extends ListNetworkMigrationExecutionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists network migration execution instances for a given definition, showing the status and progress of each execution.</p>
+ * Lists network migration execution instances for a given definition, showing the status and progress of each execution.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,14 +75,16 @@ export interface ListNetworkMigrationExecutionsCommandOutput extends ListNetwork
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Operation denied due to a file permission or access check error.</p>
+ *
+ * Operation denied due to a file permission or access check error.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource not found exception.</p>
+ *
+ * Resource not found exception.
  *
  * @throws {@link MgnServiceException}
- * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * Base exception class for all service exceptions from Mgn service.
  *
  * @example Sample ListNetworkMigrationExecutions call
  * ```javascript

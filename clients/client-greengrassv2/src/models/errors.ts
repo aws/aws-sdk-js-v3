@@ -6,7 +6,8 @@ import { GreengrassV2ServiceException as __BaseException } from "./GreengrassV2S
 import type { ValidationExceptionField } from "./models_0";
 
 /**
- * <p>You don't have permission to perform the action.</p>
+ * You don't have permission to perform the action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>IoT Greengrass can't process your request right now. Try again later.</p>
+ * IoT Greengrass can't process your request right now. Try again later.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -35,7 +37,8 @@ export class InternalServerException extends __BaseException {
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>The amount of time to wait before you retry the request.</p>
+   * The amount of time to wait before you retry the request.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -55,8 +58,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *       unsupported characters.</p>
+ * The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -64,13 +67,15 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The reason for the validation exception.</p>
+   * The reason for the validation exception.
+   *
    * @public
    */
   reason?: ValidationExceptionReason | undefined;
 
   /**
-   * <p>The list of fields that failed to validate.</p>
+   * The list of fields that failed to validate.
+   *
    * @public
    */
   fields?: ValidationExceptionField[] | undefined;
@@ -91,7 +96,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The requested resource can't be found.</p>
+ * The requested resource can't be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -99,13 +105,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The ID of the resource that isn't found.</p>
+   * The ID of the resource that isn't found.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The type of the resource that isn't found.</p>
+   * The type of the resource that isn't found.
+   *
    * @public
    */
   resourceType: string | undefined;
@@ -126,8 +134,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Your request exceeded a request rate quota. For example, you might have exceeded the
- *       amount of times that you can retrieve device or deployment status per second.</p>
+ * Your request exceeded a request rate quota. For example, you might have exceeded the amount of times that you can retrieve device or deployment status per second.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -135,19 +143,22 @@ export class ThrottlingException extends __BaseException {
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The code for the quota in <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html">Service Quotas</a>.</p>
+   * The code for the quota in [Service Quotas](https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html).
+   *
    * @public
    */
   quotaCode?: string | undefined;
 
   /**
-   * <p>The code for the service in <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html">Service Quotas</a>.</p>
+   * The code for the service in [Service Quotas](https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html).
+   *
    * @public
    */
   serviceCode?: string | undefined;
 
   /**
-   * <p>The amount of time to wait before you retry the request.</p>
+   * The amount of time to wait before you retry the request.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -169,8 +180,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>Your request has conflicting operations. This can occur if you're trying to perform more
- *       than one operation on the same resource at the same time.</p>
+ * Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -178,13 +189,15 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The ID of the resource that conflicts with the request.</p>
+   * The ID of the resource that conflicts with the request.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The type of the resource that conflicts with the request.</p>
+   * The type of the resource that conflicts with the request.
+   *
    * @public
    */
   resourceType: string | undefined;
@@ -205,9 +218,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The request is already in progress. This exception occurs when you use a client token for
- *       multiple requests while IoT Greengrass is still processing an earlier request that uses the same client
- *       token.</p>
+ * The request is already in progress. This exception occurs when you use a client token for multiple requests while IoT Greengrass is still processing an earlier request that uses the same client token.
+ *
  * @public
  */
 export class RequestAlreadyInProgressException extends __BaseException {
@@ -228,8 +240,8 @@ export class RequestAlreadyInProgressException extends __BaseException {
 }
 
 /**
- * <p>Your request exceeds a service quota. For example, you might have the maximum number of
- *       components that you can create.</p>
+ * Your request exceeds a service quota. For example, you might have the maximum number of components that you can create.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -237,25 +249,29 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The ID of the resource that exceeds the service quota.</p>
+   * The ID of the resource that exceeds the service quota.
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>The type of the resource that exceeds the service quota.</p>
+   * The type of the resource that exceeds the service quota.
+   *
    * @public
    */
   resourceType?: string | undefined;
 
   /**
-   * <p>The code for the quota in <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html">Service Quotas</a>.</p>
+   * The code for the quota in [Service Quotas](https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html).
+   *
    * @public
    */
   quotaCode: string | undefined;
 
   /**
-   * <p>The code for the service in <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html">Service Quotas</a>.</p>
+   * The code for the service in [Service Quotas](https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html).
+   *
    * @public
    */
   serviceCode: string | undefined;

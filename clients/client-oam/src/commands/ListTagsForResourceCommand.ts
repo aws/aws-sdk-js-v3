@@ -23,7 +23,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceInpu
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Displays the tags associated with a resource. Both sinks and links support tagging.</p>
+ * Displays the tags associated with a resource. Both sinks and links support tagging.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,14 +53,16 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request references a resource that does not exist.</p>
+ *
+ * The request references a resource that does not exist.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The value of a parameter in the request caused an error.</p>
+ *
+ * The value of a parameter in the request caused an error.
  *
  * @throws {@link OAMServiceException}
- * <p>Base exception class for all service exceptions from OAM service.</p>
  *
+ * Base exception class for all service exceptions from OAM service.
  *
  * @public
  */

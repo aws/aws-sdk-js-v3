@@ -23,61 +23,42 @@ export interface UpdateRateBasedRuleCommandInput extends UpdateRateBasedRuleRequ
 export interface UpdateRateBasedRuleCommandOutput extends UpdateRateBasedRuleResponse, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This is <b>AWS WAF Classic</b> documentation. For
- *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
- *       WAF Classic</a> in the developer guide.</p>
- *             <p>
- *                <b>For the latest version of AWS
- *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
- *          </note>
- *          <p>Inserts or deletes <a>Predicate</a> objects in a rule and updates the
- *             <code>RateLimit</code> in the rule. </p>
- *          <p>Each <code>Predicate</code> object identifies a predicate, such as a <a>ByteMatchSet</a> or an <a>IPSet</a>, that specifies the web requests
- *          that you want to block or count. The <code>RateLimit</code> specifies the number of
- *          requests every five minutes that triggers the rule.</p>
- *          <p>If you add more than one predicate to a <code>RateBasedRule</code>, a request must
- *          match all the predicates and exceed the <code>RateLimit</code> to be counted or blocked.
- *          For example, suppose you add the following to a <code>RateBasedRule</code>:</p>
- *          <ul>
- *             <li>
- *                <p>An <code>IPSet</code> that matches the IP address <code>192.0.2.44/32</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>A <code>ByteMatchSet</code> that matches <code>BadBot</code> in the
- *                   <code>User-Agent</code> header</p>
- *             </li>
- *          </ul>
- *          <p>Further, you specify a
- *             <code>RateLimit</code> of 1,000.</p>
- *          <p>You then add the <code>RateBasedRule</code> to a <code>WebACL</code> and specify that
- *          you want to block requests that satisfy the rule. For a request to be blocked, it must come
- *          from the IP address 192.0.2.44 <i>and</i> the <code>User-Agent</code> header
- *          in the request must contain the value <code>BadBot</code>. Further, requests that match
- *          these two conditions much be received at a rate of more than 1,000 every five minutes. If
- *          the rate drops below this limit, AWS WAF no longer blocks the requests.</p>
- * 		
- * 		       <p>As a second example, suppose you want to limit requests to a particular page on your site. To do this, you could add the following to a
- *             <code>RateBasedRule</code>:</p>
- * 			
- * 			
- *          <ul>
- *             <li>
- *                <p>A <code>ByteMatchSet</code> with <code>FieldToMatch</code> of <code>URI</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>A <code>PositionalConstraint</code> of <code>STARTS_WITH</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>A <code>TargetString</code> of <code>login</code>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>Further, you specify a <code>RateLimit</code> of 1,000.</p>
- *          <p>By adding this <code>RateBasedRule</code> to a <code>WebACL</code>, you could limit requests to your login page without affecting the rest of your site.</p>
+ * > **Note:**
+ * >
+ * > This is **AWS WAF Classic** documentation. For more information, see [AWS WAF Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html) in the developer guide.
+ * >
+ * > **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html). With the latest version, AWS WAF has a single set of endpoints for regional and global use.
+ *
+ *
+ *
+ * Inserts or deletes Predicate objects in a rule and updates the `RateLimit` in the rule.
+ *
+ * Each `Predicate` object identifies a predicate, such as a ByteMatchSet or an IPSet, that specifies the web requests that you want to block or count. The `RateLimit` specifies the number of requests every five minutes that triggers the rule.
+ *
+ * If you add more than one predicate to a `RateBasedRule`, a request must match all the predicates and exceed the `RateLimit` to be counted or blocked. For example, suppose you add the following to a `RateBasedRule`:
+ *
+ * - An `IPSet` that matches the IP address `192.0.2.44/32`
+ * - A `ByteMatchSet` that matches `BadBot` in the `User-Agent` header
+ *
+ * Further, you specify a `RateLimit` of 1,000.
+ *
+ * You then add the `RateBasedRule` to a `WebACL` and specify that you want to block requests that satisfy the rule. For a request to be blocked, it must come from the IP address 192.0.2.44 *and* the `User-Agent` header in the request must contain the value `BadBot`. Further, requests that match these two conditions much be received at a rate of more than 1,000 every five minutes. If the rate drops below this limit, AWS WAF no longer blocks the requests.
+ *
+ *
+ *
+ * As a second example, suppose you want to limit requests to a particular page on your site. To do this, you could add the following to a `RateBasedRule`:
+ *
+ *
+ *
+ *
+ * - A `ByteMatchSet` with `FieldToMatch` of `URI`
+ * - A `PositionalConstraint` of `STARTS_WITH`
+ * - A `TargetString` of `login`
+ *
+ * Further, you specify a `RateLimit` of 1,000.
+ *
+ * By adding this `RateBasedRule` to a `WebACL`, you could limit requests to your login page without affecting the rest of your site.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -116,117 +97,68 @@ export interface UpdateRateBasedRuleCommandOutput extends UpdateRateBasedRuleRes
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
  * @throws {@link WAFInternalErrorException} (server fault)
- *  <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+ *
+ * The operation failed because of a system problem, even though the request was valid. Retry your request.
  *
  * @throws {@link WAFInvalidAccountException} (client fault)
- *  <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+ *
+ * The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.
  *
  * @throws {@link WAFInvalidOperationException} (client fault)
- *  <p>The operation failed because there was nothing to do. For example:</p>
- * 			      <ul>
- *             <li>
- *                <p>You tried to remove a <code>Rule</code> from a <code>WebACL</code>, but the <code>Rule</code> isn't in the specified <code>WebACL</code>.</p>
- *             </li>
- *             <li>
- *                <p>You tried to remove an IP address from an <code>IPSet</code>, but the IP address isn't in the specified <code>IPSet</code>.</p>
- *             </li>
- *             <li>
- *                <p>You tried to remove a <code>ByteMatchTuple</code> from a <code>ByteMatchSet</code>, but the <code>ByteMatchTuple</code>
- * 					isn't in the specified <code>WebACL</code>.</p>
- *             </li>
- *             <li>
- *                <p>You tried to add a <code>Rule</code> to a <code>WebACL</code>, but the <code>Rule</code> already exists in the
- * 					specified <code>WebACL</code>.</p>
- *             </li>
- *             <li>
- *                <p>You tried to add a <code>ByteMatchTuple</code> to a <code>ByteMatchSet</code>, but the <code>ByteMatchTuple</code>
- *                already exists in the specified <code>WebACL</code>.</p>
- *             </li>
- *          </ul>
+ *
+ * The operation failed because there was nothing to do. For example:
+ *
+ * - You tried to remove a `Rule` from a `WebACL`, but the `Rule` isn't in the specified `WebACL`.
+ * - You tried to remove an IP address from an `IPSet`, but the IP address isn't in the specified `IPSet`.
+ * - You tried to remove a `ByteMatchTuple` from a `ByteMatchSet`, but the `ByteMatchTuple` isn't in the specified `WebACL`.
+ * - You tried to add a `Rule` to a `WebACL`, but the `Rule` already exists in the specified `WebACL`.
+ * - You tried to add a `ByteMatchTuple` to a `ByteMatchSet`, but the `ByteMatchTuple` already exists in the specified `WebACL`.
  *
  * @throws {@link WAFInvalidParameterException} (client fault)
- *  <p>The operation failed because AWS WAF didn't recognize a parameter in the request. For example:</p>
- * 			      <ul>
- *             <li>
- *                <p>You specified an invalid parameter name.</p>
- *             </li>
- *             <li>
- *                <p>You specified an invalid value.</p>
- *             </li>
- *             <li>
- *                <p>You tried to update an object (<code>ByteMatchSet</code>, <code>IPSet</code>, <code>Rule</code>, or <code>WebACL</code>)
- * 					using an action other than <code>INSERT</code> or <code>DELETE</code>.</p>
- *             </li>
- *             <li>
- *                <p>You tried to create a <code>WebACL</code> with a <code>DefaultAction</code>
- *                   <code>Type</code> other than
- * 					<code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p>
- *             </li>
- *             <li>
- * 		 	           <p>You tried to create a <code>RateBasedRule</code> with a <code>RateKey</code> value other than <code>IP</code>.</p>
- * 		          </li>
- *             <li>
- *                <p>You tried to update a <code>WebACL</code> with a <code>WafAction</code>
- *                   <code>Type</code> other than
- * 					<code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p>
- *             </li>
- *             <li>
- *                <p>You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code>
- *                   <code>Type</code> other than
- * 					HEADER, METHOD, QUERY_STRING, URI, or BODY.</p>
- *             </li>
- *             <li>
- *                <p>You tried to update a <code>ByteMatchSet</code> with a <code>Field</code> of <code>HEADER</code>
- * 					but no value for <code>Data</code>.</p>
- *             </li>
- *             <li>
- * 			   		       <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.</p>
- * 			   	     </li>
- *          </ul>
+ *
+ * The operation failed because AWS WAF didn't recognize a parameter in the request. For example:
+ *
+ * - You specified an invalid parameter name.
+ * - You specified an invalid value.
+ * - You tried to update an object (`ByteMatchSet`, `IPSet`, `Rule`, or `WebACL`) using an action other than `INSERT` or `DELETE`.
+ * - You tried to create a `WebACL` with a `DefaultAction` `Type` other than `ALLOW`, `BLOCK`, or `COUNT`.
+ * - You tried to create a `RateBasedRule` with a `RateKey` value other than `IP`.
+ * - You tried to update a `WebACL` with a `WafAction` `Type` other than `ALLOW`, `BLOCK`, or `COUNT`.
+ * - You tried to update a `ByteMatchSet` with a `FieldToMatch` `Type` other than HEADER, METHOD, QUERY_STRING, URI, or BODY.
+ * - You tried to update a `ByteMatchSet` with a `Field` of `HEADER` but no value for `Data`.
+ * - Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.
  *
  * @throws {@link WAFLimitsExceededException} (client fault)
- *  <p>The operation exceeds a resource limit, for example, the maximum number of <code>WebACL</code> objects that you can create
- * 			for an AWS account. For more information, see
- * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">Limits</a> in the <i>AWS WAF Developer Guide</i>.</p>
+ *
+ * The operation exceeds a resource limit, for example, the maximum number of `WebACL` objects that you can create for an AWS account. For more information, see [Limits](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the *AWS WAF Developer Guide*.
  *
  * @throws {@link WAFNonexistentContainerException} (client fault)
- *  <p>The operation failed because you tried to add an object to or delete an object from another object that doesn't exist. For example:</p>
- * 		       <ul>
- *             <li>
- *                <p>You tried to add a <code>Rule</code> to or delete a <code>Rule</code> from a <code>WebACL</code> that doesn't exist.</p>
- *             </li>
- *             <li>
- *                <p>You tried to add a <code>ByteMatchSet</code> to or delete a <code>ByteMatchSet</code> from a <code>Rule</code> that doesn't exist.</p>
- *             </li>
- *             <li>
- *                <p>You tried to add an IP address to or delete an IP address from an <code>IPSet</code> that doesn't exist.</p>
- *             </li>
- *             <li>
- *                <p>You tried to add a <code>ByteMatchTuple</code> to or delete a <code>ByteMatchTuple</code> from a <code>ByteMatchSet</code>
- * 				that doesn't exist.</p>
- *             </li>
- *          </ul>
+ *
+ * The operation failed because you tried to add an object to or delete an object from another object that doesn't exist. For example:
+ *
+ * - You tried to add a `Rule` to or delete a `Rule` from a `WebACL` that doesn't exist.
+ * - You tried to add a `ByteMatchSet` to or delete a `ByteMatchSet` from a `Rule` that doesn't exist.
+ * - You tried to add an IP address to or delete an IP address from an `IPSet` that doesn't exist.
+ * - You tried to add a `ByteMatchTuple` to or delete a `ByteMatchTuple` from a `ByteMatchSet` that doesn't exist.
  *
  * @throws {@link WAFNonexistentItemException} (client fault)
- *  <p>The operation failed because the referenced object doesn't exist.</p>
+ *
+ * The operation failed because the referenced object doesn't exist.
  *
  * @throws {@link WAFReferencedItemException} (client fault)
- *  <p>The operation failed because you tried to delete an object that is still in use. For example:</p>
- * 		       <ul>
- *             <li>
- *                <p>You tried to delete a <code>ByteMatchSet</code> that is still referenced by a <code>Rule</code>.</p>
- *             </li>
- *             <li>
- *                <p>You tried to delete a <code>Rule</code> that is still referenced by a <code>WebACL</code>.</p>
- *             </li>
- *          </ul>
+ *
+ * The operation failed because you tried to delete an object that is still in use. For example:
+ *
+ * - You tried to delete a `ByteMatchSet` that is still referenced by a `Rule`.
+ * - You tried to delete a `Rule` that is still referenced by a `WebACL`.
  *
  * @throws {@link WAFStaleDataException} (client fault)
- *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+ *
+ * The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.
  *
  * @throws {@link WAFServiceException}
- * <p>Base exception class for all service exceptions from WAF service.</p>
  *
+ * Base exception class for all service exceptions from WAF service.
  *
  * @public
  */

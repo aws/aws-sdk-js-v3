@@ -23,8 +23,8 @@ export interface DisableInsightRulesCommandInput extends DisableInsightRulesInpu
 export interface DisableInsightRulesCommandOutput extends DisableInsightRulesOutput, __MetadataBearer {}
 
 /**
- * <p>Disables the specified Contributor Insights rules. When rules are disabled, they do
- *             not analyze log groups and do not incur costs.</p>
+ * Disables the specified Contributor Insights rules. When rules are disabled, they do not analyze log groups and do not incur costs.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,14 +60,16 @@ export interface DisableInsightRulesCommandOutput extends DisableInsightRulesOut
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value of an input parameter is bad or out-of-range.</p>
+ *
+ * The value of an input parameter is bad or out-of-range.
  *
  * @throws {@link MissingRequiredParameterException} (client fault)
- *  <p>An input parameter that is required is missing.</p>
+ *
+ * An input parameter that is required is missing.
  *
  * @throws {@link CloudWatchServiceException}
- * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatch service.
  *
  * @public
  */

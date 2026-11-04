@@ -23,17 +23,12 @@ export interface CreateCustomRoutingAcceleratorCommandInput extends CreateCustom
 export interface CreateCustomRoutingAcceleratorCommandOutput extends CreateCustomRoutingAcceleratorResponse, __MetadataBearer {}
 
 /**
- * <p>Create a custom routing accelerator. A custom routing accelerator directs traffic to one of possibly thousands
- * 	    of Amazon EC2 instance destinations running in a single or multiple virtual private clouds (VPC) subnet endpoints.</p>
- *          <p>Be aware that, by default, all destination EC2 instances in a VPC subnet endpoint cannot receive
- * 			traffic. To enable all destinations to receive traffic, or to specify individual port
- * 			mappings that can receive traffic, see the <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/API_AllowCustomRoutingTraffic.html">
- * 				AllowCustomRoutingTraffic</a> operation.</p>
- *          <important>
- *             <p>Global Accelerator is a global service that supports endpoints in multiple Amazon Web Services Regions but you must specify the
- * 			US West (Oregon) Region to create, update, or otherwise work with accelerators.  That is, for example, specify <code>--region us-west-2</code>
- * 			on Amazon Web Services CLI commands.</p>
- *          </important>
+ * Create a custom routing accelerator. A custom routing accelerator directs traffic to one of possibly thousands of Amazon EC2 instance destinations running in a single or multiple virtual private clouds (VPC) subnet endpoints.
+ *
+ * Be aware that, by default, all destination EC2 instances in a VPC subnet endpoint cannot receive traffic. To enable all destinations to receive traffic, or to specify individual port mappings that can receive traffic, see the [AllowCustomRoutingTraffic](https://docs.aws.amazon.com/global-accelerator/latest/api/API_AllowCustomRoutingTraffic.html) operation.
+ *
+ * > **Important:** Global Accelerator is a global service that supports endpoints in multiple Amazon Web Services Regions but you must specify the US West (Oregon) Region to create, update, or otherwise work with accelerators. That is, for example, specify `--region us-west-2` on Amazon Web Services CLI commands.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -96,23 +91,28 @@ export interface CreateCustomRoutingAcceleratorCommandOutput extends CreateCusto
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have access permission.</p>
+ *
+ * You don't have access permission.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * There was an internal error for Global Accelerator.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>An argument that you specified is invalid.</p>
+ *
+ * An argument that you specified is invalid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
+ *
+ * Processing your request would cause you to exceed an Global Accelerator limit.
  *
  * @throws {@link TransactionInProgressException} (client fault)
- *  <p>There's already a transaction in progress. Another transaction can't be processed.</p>
+ *
+ * There's already a transaction in progress. Another transaction can't be processed.
  *
  * @throws {@link GlobalAcceleratorServiceException}
- * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * Base exception class for all service exceptions from GlobalAccelerator service.
  *
  * @public
  */

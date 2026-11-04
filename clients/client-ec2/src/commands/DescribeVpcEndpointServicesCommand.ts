@@ -23,14 +23,10 @@ export interface DescribeVpcEndpointServicesCommandInput extends DescribeVpcEndp
 export interface DescribeVpcEndpointServicesCommandOutput extends DescribeVpcEndpointServicesResult, __MetadataBearer {}
 
 /**
- * <p>Describes available services to which you can create a VPC endpoint.</p>
- *          <p>When the service provider and the consumer have different accounts in multiple
- *             Availability Zones, and the consumer views the VPC endpoint service information, the
- *             response only includes the common Availability Zones. For example, when the service
- *             provider account uses <code>us-east-1a</code> and <code>us-east-1c</code> and the
- *             consumer uses <code>us-east-1a</code> and <code>us-east-1b</code>, the response includes
- *             the VPC endpoint services in the common Availability Zone,
- *             <code>us-east-1a</code>.</p>
+ * Describes available services to which you can create a VPC endpoint.
+ *
+ * When the service provider and the consumer have different accounts in multiple Availability Zones, and the consumer views the VPC endpoint service information, the response only includes the common Availability Zones. For example, when the service provider account uses `us-east-1a` and `us-east-1c` and the consumer uses `us-east-1a` and `us-east-1b`, the response includes the VPC endpoint services in the common Availability Zone, `us-east-1a`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -118,8 +114,8 @@ export interface DescribeVpcEndpointServicesCommandOutput extends DescribeVpcEnd
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

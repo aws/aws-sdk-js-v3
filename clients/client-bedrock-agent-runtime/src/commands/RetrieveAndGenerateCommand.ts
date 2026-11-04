@@ -23,7 +23,10 @@ export interface RetrieveAndGenerateCommandInput extends RetrieveAndGenerateRequ
 export interface RetrieveAndGenerateCommandOutput extends RetrieveAndGenerateResponse, __MetadataBearer {}
 
 /**
- * <p>Queries a knowledge base and generates responses based on the retrieved results and using the specified foundation model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference profile</a>. The response only cites sources that are relevant to the query.</p> <note> <p>This API cannot be used with managed knowledge bases. Use <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_AgenticRetrieveStream.html">AgenticRetrieveStream</a> or <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html">Retrieve</a> with managed knowledge bases.</p> </note>
+ * Queries a knowledge base and generates responses based on the retrieved results and using the specified foundation model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html). The response only cites sources that are relevant to the query.
+ *
+ * > **Note:** This API cannot be used with managed knowledge bases. Use [AgenticRetrieveStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_AgenticRetrieveStream.html) or [Retrieve](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html) with managed knowledge bases.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -360,35 +363,44 @@ export interface RetrieveAndGenerateCommandOutput extends RetrieveAndGenerateRes
  * @see {@link BedrockAgentRuntimeClientResolvedConfig | config} for BedrockAgentRuntimeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request is denied because of missing access permissions. Check your permissions and retry your request.</p>
+ *
+ * The request is denied because of missing access permissions. Check your permissions and retry your request.
  *
  * @throws {@link BadGatewayException} (server fault)
- *  <p>There was an issue with a dependency due to a server issue. Retry your request.</p>
+ *
+ * There was an issue with a dependency due to a server issue. Retry your request.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>There was a conflict performing an operation. Resolve the conflict and retry your request.</p>
+ *
+ * There was a conflict performing an operation. Resolve the conflict and retry your request.
  *
  * @throws {@link DependencyFailedException} (client fault)
- *  <p>There was an issue with a dependency. Check the resource configurations and retry the request.</p>
+ *
+ * There was an issue with a dependency. Check the resource configurations and retry the request.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
+ *
+ * The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The number of requests exceeds the service quota. Resubmit your request later.</p>
+ *
+ * The number of requests exceeds the service quota. Resubmit your request later.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
+ * The number of requests exceeds the limit. Resubmit your request later.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Input validation failed. Check your request parameters and retry the request.</p>
+ *
+ * Input validation failed. Check your request parameters and retry the request.
  *
  * @throws {@link BedrockAgentRuntimeServiceException}
- * <p>Base exception class for all service exceptions from BedrockAgentRuntime service.</p>
  *
+ * Base exception class for all service exceptions from BedrockAgentRuntime service.
  *
  * @public
  */

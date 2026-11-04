@@ -23,16 +23,10 @@ export interface VerifySMSSandboxPhoneNumberCommandInput extends VerifySMSSandbo
 export interface VerifySMSSandboxPhoneNumberCommandOutput extends VerifySMSSandboxPhoneNumberResult, __MetadataBearer {}
 
 /**
- * <p>Verifies a destination phone number with a one-time password (OTP) for the calling
- *             Amazon Web Services account.</p>
- *          <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the
- *                 <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for
- *                 you to try Amazon SNS features without risking your reputation as an SMS sender. While your
- *                 Amazon Web Services account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send
- *                 SMS messages only to verified destination phone numbers. For more information, including how to
- *                 move out of the sandbox to send messages without restrictions,
- *                 see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS sandbox</a> in
- *                 the <i>Amazon SNS Developer Guide</i>.</p>
+ * Verifies a destination phone number with a one-time password (OTP) for the calling Amazon Web Services account.
+ *
+ * When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the *SMS sandbox*. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your Amazon Web Services account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see [SMS sandbox](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) in the *Amazon SNS Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,28 +52,32 @@ export interface VerifySMSSandboxPhoneNumberCommandOutput extends VerifySMSSandb
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
  *
  * @throws {@link AuthorizationErrorException} (client fault)
- *  <p>Indicates that the user has been denied access to the requested resource.</p>
+ *
+ * Indicates that the user has been denied access to the requested resource.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>Indicates an internal service error.</p>
+ *
+ * Indicates an internal service error.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Indicates that a request parameter does not comply with the associated
- *             constraints.</p>
+ *
+ * Indicates that a request parameter does not comply with the associated constraints.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Can’t perform the action on the specified resource. Make sure that the resource
- *             exists.</p>
+ *
+ * Can’t perform the action on the specified resource. Make sure that the resource exists.
  *
  * @throws {@link ThrottledException} (client fault)
- *  <p>Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.</p>
+ *
+ * Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.
  *
  * @throws {@link VerificationException} (client fault)
- *  <p>Indicates that the one-time password (OTP) used for verification is invalid.</p>
+ *
+ * Indicates that the one-time password (OTP) used for verification is invalid.
  *
  * @throws {@link SNSServiceException}
- * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * Base exception class for all service exceptions from SNS service.
  *
  * @public
  */

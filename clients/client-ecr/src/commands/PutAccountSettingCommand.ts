@@ -23,7 +23,8 @@ export interface PutAccountSettingCommandInput extends PutAccountSettingRequest 
 export interface PutAccountSettingCommandOutput extends PutAccountSettingResponse, __MetadataBearer {}
 
 /**
- * <p>Allows you to change the basic scan type version or registry policy scope.</p>
+ * Allows you to change the basic scan type version or registry policy scope.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,23 +53,24 @@ export interface PutAccountSettingCommandOutput extends PutAccountSettingRespons
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The operation did not succeed because it would have exceeded a service limit for your
- *             account. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html">Amazon ECR service quotas</a> in
- *             the Amazon Elastic Container Registry User Guide.</p>
+ *
+ * The operation did not succeed because it would have exceeded a service limit for your account. For more information, see [Amazon ECR service quotas](https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html) in the Amazon Elastic Container Registry User Guide.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>There was an exception validating this request.</p>
+ *
+ * There was an exception validating this request.
  *
  * @throws {@link ECRServiceException}
- * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * Base exception class for all service exceptions from ECR service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface DescribeLifecycleHooksCommandInput extends DescribeLifecycleHoo
 export interface DescribeLifecycleHooksCommandOutput extends DescribeLifecycleHooksAnswer, __MetadataBearer {}
 
 /**
- * <p>Gets information about the lifecycle hooks for the specified Auto Scaling group.</p>
+ * Gets information about the lifecycle hooks for the specified Auto Scaling group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,12 +66,12 @@ export interface DescribeLifecycleHooksCommandOutput extends DescribeLifecycleHo
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  * @throws {@link ResourceContentionFault} (server fault)
- *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
- *             instance, or load balancer).</p>
+ *
+ * You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).
  *
  * @throws {@link AutoScalingServiceException}
- * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from AutoScaling service.
  *
  * @example To describe your lifecycle hooks
  * ```javascript

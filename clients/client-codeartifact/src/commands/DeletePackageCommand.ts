@@ -23,8 +23,8 @@ export interface DeletePackageCommandInput extends DeletePackageRequest {}
 export interface DeletePackageCommandOutput extends DeletePackageResult, __MetadataBearer {}
 
 /**
- * <p>Deletes a package and all associated package versions. A deleted package cannot be restored. To delete one or more package versions, use the
- *       <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DeletePackageVersions.html">DeletePackageVersions</a> API.</p>
+ * Deletes a package and all associated package versions. A deleted package cannot be restored. To delete one or more package versions, use the [DeletePackageVersions](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DeletePackageVersions.html) API.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,36 +66,32 @@ export interface DeletePackageCommandOutput extends DeletePackageResult, __Metad
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>
- *         The operation did not succeed because of an unauthorized access attempt.
- *       </p>
+ *
+ * The operation did not succeed because of an unauthorized access attempt.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>
- *         The operation did not succeed because prerequisites are not met.
- *       </p>
+ *
+ * The operation did not succeed because prerequisites are not met.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+ *
+ * The operation did not succeed because of an error that occurred inside CodeArtifact.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>
- *       The operation did not succeed because the resource requested is not found in the service.
- *     </p>
+ *
+ * The operation did not succeed because the resource requested is not found in the service.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>
- *       The operation did not succeed because too many requests are sent to the service.
- *     </p>
+ *
+ * The operation did not succeed because too many requests are sent to the service.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>
- *       The operation did not succeed because a parameter in the request was sent with an invalid value.
- *     </p>
+ *
+ * The operation did not succeed because a parameter in the request was sent with an invalid value.
  *
  * @throws {@link CodeartifactServiceException}
- * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ * Base exception class for all service exceptions from Codeartifact service.
  *
  * @public
  */

@@ -26,8 +26,10 @@ export interface StartDataQualityRuleRecommendationRunCommandInput extends Start
 export interface StartDataQualityRuleRecommendationRunCommandOutput extends StartDataQualityRuleRecommendationRunResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a recommendation run that is used to generate rules when you don't know what rules to write. Glue Data Quality analyzes the data and comes up with recommendations for a potential ruleset. You can then triage the ruleset and modify the generated ruleset to your liking.</p>
- *          <p>Recommendation runs are automatically deleted after 90 days.</p>
+ * Starts a recommendation run that is used to generate rules when you don't know what rules to write. Glue Data Quality analyzes the data and comes up with recommendations for a potential ruleset. You can then triage the ruleset and modify the generated ruleset to your liking.
+ *
+ * Recommendation runs are automatically deleted after 90 days.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,20 +86,24 @@ export interface StartDataQualityRuleRecommendationRunCommandOutput extends Star
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The <code>CreatePartitions</code> API was called on a table that has indexes enabled.	</p>
+ *
+ * The `CreatePartitions` API was called on a table that has indexes enabled.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

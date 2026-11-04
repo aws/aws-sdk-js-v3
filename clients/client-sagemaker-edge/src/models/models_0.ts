@@ -6,91 +6,104 @@ import type { ChecksumType, DeploymentStatus, DeploymentType, FailureHandlingPol
  */
 export interface GetDeploymentsRequest {
   /**
-   * <p>The unique name of the device you want to get the configuration of active deployments from.</p>
+   * The unique name of the device you want to get the configuration of active deployments from.
+   *
    * @public
    */
   DeviceName: string | undefined;
 
   /**
-   * <p>The name of the fleet that the device belongs to.</p>
+   * The name of the fleet that the device belongs to.
+   *
    * @public
    */
   DeviceFleetName: string | undefined;
 }
 
 /**
- * <p>Information about the checksum of a model deployed on a device.</p>
+ * Information about the checksum of a model deployed on a device.
+ *
  * @public
  */
 export interface Checksum {
   /**
-   * <p>The type of the checksum.</p>
+   * The type of the checksum.
+   *
    * @public
    */
   Type?: ChecksumType | undefined;
 
   /**
-   * <p>The checksum of the model.</p>
+   * The checksum of the model.
+   *
    * @public
    */
   Sum?: string | undefined;
 }
 
 /**
- * <p></p>
  * @public
  */
 export interface Definition {
   /**
-   * <p>The unique model handle.</p>
+   * The unique model handle.
+   *
    * @public
    */
   ModelHandle?: string | undefined;
 
   /**
-   * <p>The absolute S3 location of the model.</p>
+   * The absolute S3 location of the model.
+   *
    * @public
    */
   S3Url?: string | undefined;
 
   /**
-   * <p>The checksum information of the model.</p>
+   * The checksum information of the model.
+   *
    * @public
    */
   Checksum?: Checksum | undefined;
 
   /**
-   * <p>The desired state of the model.</p>
+   * The desired state of the model.
+   *
    * @public
    */
   State?: ModelState | undefined;
 }
 
 /**
- * <p>Information about a deployment on an edge device that is registered with SageMaker Edge Manager.</p>
+ * Information about a deployment on an edge device that is registered with SageMaker Edge Manager.
+ *
  * @public
  */
 export interface EdgeDeployment {
   /**
-   * <p>The name and unique ID of the deployment.</p>
+   * The name and unique ID of the deployment.
+   *
    * @public
    */
   DeploymentName?: string | undefined;
 
   /**
-   * <p>The type of the deployment.</p>
+   * The type of the deployment.
+   *
    * @public
    */
   Type?: DeploymentType | undefined;
 
   /**
-   * <p>Determines whether to rollback to previous configuration if deployment fails.</p>
+   * Determines whether to rollback to previous configuration if deployment fails.
+   *
    * @public
    */
   FailureHandlingPolicy?: FailureHandlingPolicy | undefined;
 
   /**
-   * <p>Returns a list of Definition objects.</p>
+   * Returns a list of Definition objects.
+   *
    * @public
    */
   Definitions?: Definition[] | undefined;
@@ -101,7 +114,8 @@ export interface EdgeDeployment {
  */
 export interface GetDeploymentsResult {
   /**
-   * <p>Returns a list of the configurations of the active deployments on the device.</p>
+   * Returns a list of the configurations of the active deployments on the device.
+   *
    * @public
    */
   Deployments?: EdgeDeployment[] | undefined;
@@ -112,13 +126,15 @@ export interface GetDeploymentsResult {
  */
 export interface GetDeviceRegistrationRequest {
   /**
-   * <p>The unique name of the device you want to get the registration status from.</p>
+   * The unique name of the device you want to get the registration status from.
+   *
    * @public
    */
   DeviceName: string | undefined;
 
   /**
-   * <p>The name of the fleet that the device belongs to.</p>
+   * The name of the fleet that the device belongs to.
+   *
    * @public
    */
   DeviceFleetName: string | undefined;
@@ -129,175 +145,202 @@ export interface GetDeviceRegistrationRequest {
  */
 export interface GetDeviceRegistrationResult {
   /**
-   * <p>Describes if the device is currently registered with SageMaker Edge Manager.</p>
+   * Describes if the device is currently registered with SageMaker Edge Manager.
+   *
    * @public
    */
   DeviceRegistration?: string | undefined;
 
   /**
-   * <p>The amount of time, in seconds, that the registration status is stored on the device’s cache before it is refreshed.</p>
+   * The amount of time, in seconds, that the registration status is stored on the device’s cache before it is refreshed.
+   *
    * @public
    */
   CacheTTL?: string | undefined;
 }
 
 /**
- * <p>Information required for edge device metrics.</p>
+ * Information required for edge device metrics.
+ *
  * @public
  */
 export interface EdgeMetric {
   /**
-   * <p>The dimension of metrics published.</p>
+   * The dimension of metrics published.
+   *
    * @public
    */
   Dimension?: string | undefined;
 
   /**
-   * <p>Returns the name of the metric.</p>
+   * Returns the name of the metric.
+   *
    * @public
    */
   MetricName?: string | undefined;
 
   /**
-   * <p>Returns the value of the metric.</p>
+   * Returns the value of the metric.
+   *
    * @public
    */
   Value?: number | undefined;
 
   /**
-   * <p>Timestamp of when the metric was requested.</p>
+   * Timestamp of when the metric was requested.
+   *
    * @public
    */
   Timestamp?: Date | undefined;
 }
 
 /**
- * <p></p>
  * @public
  */
 export interface DeploymentModel {
   /**
-   * <p>The unique handle of the model.</p>
+   * The unique handle of the model.
+   *
    * @public
    */
   ModelHandle?: string | undefined;
 
   /**
-   * <p>The name of the model.</p>
+   * The name of the model.
+   *
    * @public
    */
   ModelName?: string | undefined;
 
   /**
-   * <p>The version of the model.</p>
+   * The version of the model.
+   *
    * @public
    */
   ModelVersion?: string | undefined;
 
   /**
-   * <p>The desired state of the model.</p>
+   * The desired state of the model.
+   *
    * @public
    */
   DesiredState?: ModelState | undefined;
 
   /**
-   * <p>Returns the current state of the model.</p>
+   * Returns the current state of the model.
+   *
    * @public
    */
   State?: ModelState | undefined;
 
   /**
-   * <p>Returns the deployment status of the model.</p>
+   * Returns the deployment status of the model.
+   *
    * @public
    */
   Status?: DeploymentStatus | undefined;
 
   /**
-   * <p>Returns the error message for the deployment status result.</p>
+   * Returns the error message for the deployment status result.
+   *
    * @public
    */
   StatusReason?: string | undefined;
 
   /**
-   * <p>Returns the error message if there is a rollback.</p>
+   * Returns the error message if there is a rollback.
+   *
    * @public
    */
   RollbackFailureReason?: string | undefined;
 }
 
 /**
- * <p>Information about the result of a deployment on an edge device that is registered with SageMaker Edge Manager.</p>
+ * Information about the result of a deployment on an edge device that is registered with SageMaker Edge Manager.
+ *
  * @public
  */
 export interface DeploymentResult {
   /**
-   * <p>The name and unique ID of the deployment.</p>
+   * The name and unique ID of the deployment.
+   *
    * @public
    */
   DeploymentName?: string | undefined;
 
   /**
-   * <p>Returns the bucket error code.</p>
+   * Returns the bucket error code.
+   *
    * @public
    */
   DeploymentStatus?: string | undefined;
 
   /**
-   * <p>Returns the detailed error message.</p>
+   * Returns the detailed error message.
+   *
    * @public
    */
   DeploymentStatusMessage?: string | undefined;
 
   /**
-   * <p>The timestamp of when the deployment was started on the agent.</p>
+   * The timestamp of when the deployment was started on the agent.
+   *
    * @public
    */
   DeploymentStartTime?: Date | undefined;
 
   /**
-   * <p>The timestamp of when the deployment was ended, and the agent got the deployment results.</p>
+   * The timestamp of when the deployment was ended, and the agent got the deployment results.
+   *
    * @public
    */
   DeploymentEndTime?: Date | undefined;
 
   /**
-   * <p>Returns a list of models deployed on the agent.</p>
+   * Returns a list of models deployed on the agent.
+   *
    * @public
    */
   DeploymentModels?: DeploymentModel[] | undefined;
 }
 
 /**
- * <p>Information about a model deployed on an edge device that is registered with SageMaker Edge Manager.</p>
+ * Information about a model deployed on an edge device that is registered with SageMaker Edge Manager.
+ *
  * @public
  */
 export interface Model {
   /**
-   * <p>The name of the model.</p>
+   * The name of the model.
+   *
    * @public
    */
   ModelName?: string | undefined;
 
   /**
-   * <p>The version of the model.</p>
+   * The version of the model.
+   *
    * @public
    */
   ModelVersion?: string | undefined;
 
   /**
-   * <p>The timestamp of the last data sample taken.</p>
+   * The timestamp of the last data sample taken.
+   *
    * @public
    */
   LatestSampleTime?: Date | undefined;
 
   /**
-   * <p>The timestamp of the last inference that was made.</p>
+   * The timestamp of the last inference that was made.
+   *
    * @public
    */
   LatestInference?: Date | undefined;
 
   /**
-   * <p>Information required for model metrics.</p>
+   * Information required for model metrics.
+   *
    * @public
    */
   ModelMetrics?: EdgeMetric[] | undefined;
@@ -308,37 +351,43 @@ export interface Model {
  */
 export interface SendHeartbeatRequest {
   /**
-   * <p>For internal use. Returns a list of SageMaker Edge Manager agent operating metrics.</p>
+   * For internal use. Returns a list of SageMaker Edge Manager agent operating metrics.
+   *
    * @public
    */
   AgentMetrics?: EdgeMetric[] | undefined;
 
   /**
-   * <p>Returns a list of models deployed on the the device.</p>
+   * Returns a list of models deployed on the the device.
+   *
    * @public
    */
   Models?: Model[] | undefined;
 
   /**
-   * <p>Returns the version of the agent.</p>
+   * Returns the version of the agent.
+   *
    * @public
    */
   AgentVersion: string | undefined;
 
   /**
-   * <p>The unique name of the device.</p>
+   * The unique name of the device.
+   *
    * @public
    */
   DeviceName: string | undefined;
 
   /**
-   * <p>The name of the fleet that the device belongs to.</p>
+   * The name of the fleet that the device belongs to.
+   *
    * @public
    */
   DeviceFleetName: string | undefined;
 
   /**
-   * <p>Returns the result of a deployment on the device.</p>
+   * Returns the result of a deployment on the device.
+   *
    * @public
    */
   DeploymentResult?: DeploymentResult | undefined;

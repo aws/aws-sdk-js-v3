@@ -342,9 +342,8 @@ export type SSMQuickSetupClientResolvedConfigType = __SmithyResolvedConfiguratio
 export interface SSMQuickSetupClientResolvedConfig extends SSMQuickSetupClientResolvedConfigType {}
 
 /**
- * <p>Quick Setup helps you quickly configure frequently used services and features with
- *                   recommended best practices. Quick Setup simplifies setting up services, including
- *                         Systems Manager, by automating common or recommended tasks.</p>
+ * Quick Setup helps you quickly configure frequently used services and features with recommended best practices. Quick Setup simplifies setting up services, including Systems Manager, by automating common or recommended tasks.
+ *
  * @public
  */
 export class SSMQuickSetupClient extends __Client<

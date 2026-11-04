@@ -23,24 +23,12 @@ export interface DescribePrincipalIdFormatCommandInput extends DescribePrincipal
 export interface DescribePrincipalIdFormatCommandOutput extends DescribePrincipalIdFormatResult, __MetadataBearer {}
 
 /**
- * <p>Describes the ID format settings for the root user and all IAM roles and IAM users
- *             that have explicitly specified a longer ID (17-character ID) preference. </p>
- *          <p>By default, all IAM roles and IAM users default to the same ID settings as the root user, unless they
- *             explicitly override the settings. This request is useful for identifying those IAM users and IAM roles
- *             that have overridden the default ID settings.</p>
- *          <p>The following resource types support longer IDs: <code>bundle</code> |
- *           <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
- *           <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> |
- *           <code>export-task</code> | <code>flow-log</code> | <code>image</code> |
- *           <code>import-task</code> | <code>instance</code> | <code>internet-gateway</code> |
- *           <code>network-acl</code> | <code>network-acl-association</code> |
- *           <code>network-interface</code> | <code>network-interface-attachment</code> |
- *           <code>prefix-list</code> | <code>reservation</code> | <code>route-table</code> |
- *           <code>route-table-association</code> | <code>security-group</code> |
- *           <code>snapshot</code> | <code>subnet</code> |
- *           <code>subnet-cidr-block-association</code> | <code>volume</code> | <code>vpc</code>
- *           | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> |
- *           <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>. </p>
+ * Describes the ID format settings for the root user and all IAM roles and IAM users that have explicitly specified a longer ID (17-character ID) preference.
+ *
+ * By default, all IAM roles and IAM users default to the same ID settings as the root user, unless they explicitly override the settings. This request is useful for identifying those IAM users and IAM roles that have overridden the default ID settings.
+ *
+ * The following resource types support longer IDs: `bundle` | `conversion-task` | `customer-gateway` | `dhcp-options` | `elastic-ip-allocation` | `elastic-ip-association` | `export-task` | `flow-log` | `image` | `import-task` | `instance` | `internet-gateway` | `network-acl` | `network-acl-association` | `network-interface` | `network-interface-attachment` | `prefix-list` | `reservation` | `route-table` | `route-table-association` | `security-group` | `snapshot` | `subnet` | `subnet-cidr-block-association` | `volume` | `vpc` | `vpc-cidr-block-association` | `vpc-endpoint` | `vpc-peering-connection` | `vpn-connection` | `vpn-gateway`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,8 +72,8 @@ export interface DescribePrincipalIdFormatCommandOutput extends DescribePrincipa
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

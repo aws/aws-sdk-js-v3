@@ -23,7 +23,10 @@ export interface CreateAliasCommandInput extends CreateAliasRequest {}
 export interface CreateAliasCommandOutput extends AliasConfiguration, __MetadataBearer {}
 
 /**
- * <p>Creates an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">alias</a> for a Lambda Event Function version. Use aliases to provide clients with a function identifier that you can update to invoke a different version.</p> <p>You can also map an alias to split invocation requests between two versions. Use the <code>RoutingConfig</code> parameter to specify a second version and the percentage of invocation requests that it receives.</p>
+ * Creates an [alias](https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html) for a Lambda Event Function version. Use aliases to provide clients with a function identifier that you can update to invoke a different version.
+ *
+ * You can also map an alias to split invocation requests between two versions. Use the `RoutingConfig` parameter to specify a second version and the percentage of invocation requests that it receives.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,26 +70,32 @@ export interface CreateAliasCommandOutput extends AliasConfiguration, __Metadata
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
  *
  * @throws {@link AliasLimitExceededException} (client fault)
- *  <p>Lambda couldn't create the alias because your Amazon Web Services account has exceeded the maximum number of aliases allowed per Lambda function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
+ *
+ * Lambda couldn't create the alias because your Amazon Web Services account has exceeded the maximum number of aliases allowed per Lambda function. For more information, see [Lambda quotas](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html).
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One of the parameters in the request is not valid.</p>
+ *
+ * One of the parameters in the request is not valid.
  *
  * @throws {@link ResourceConflictException} (client fault)
- *  <p>The resource already exists, or another operation is in progress.</p>
+ *
+ * The resource already exists, or another operation is in progress.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource specified in the request does not exist.</p>
+ *
+ * The resource specified in the request does not exist.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>The Lambda service encountered an internal error.</p>
+ *
+ * The Lambda service encountered an internal error.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
+ *
+ * The request throughput limit was exceeded. For more information, see [Lambda quotas](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests).
  *
  * @throws {@link LambdaServiceException}
- * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * Base exception class for all service exceptions from Lambda service.
  *
  * @example To create an alias for a Lambda function
  * ```javascript

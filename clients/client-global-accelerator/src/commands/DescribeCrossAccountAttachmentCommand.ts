@@ -23,7 +23,8 @@ export interface DescribeCrossAccountAttachmentCommandInput extends DescribeCros
 export interface DescribeCrossAccountAttachmentCommandOutput extends DescribeCrossAccountAttachmentResponse, __MetadataBearer {}
 
 /**
- * <p>Gets configuration information about a cross-account attachment.</p>
+ * Gets configuration information about a cross-account attachment.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,20 +66,24 @@ export interface DescribeCrossAccountAttachmentCommandOutput extends DescribeCro
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have access permission.</p>
+ *
+ * You don't have access permission.
  *
  * @throws {@link AttachmentNotFoundException} (client fault)
- *  <p>No cross-account attachment was found.</p>
+ *
+ * No cross-account attachment was found.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * There was an internal error for Global Accelerator.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>An argument that you specified is invalid.</p>
+ *
+ * An argument that you specified is invalid.
  *
  * @throws {@link GlobalAcceleratorServiceException}
- * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * Base exception class for all service exceptions from GlobalAccelerator service.
  *
  * @public
  */

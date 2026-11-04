@@ -5,7 +5,8 @@ import type { ValidationError } from "./models_0";
 import { ObservabilityAdminServiceException as __BaseException } from "./ObservabilityAdminServiceException";
 
 /**
- * <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
+ * Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see [Access management for Amazon Web Services resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the IAM user guide.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -14,7 +15,8 @@ export class AccessDeniedException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p> The name of the exception. </p>
+   * The name of the exception.
+   *
    * @public
    */
   amznErrorType?: string | undefined;
@@ -34,7 +36,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p> The requested operation conflicts with the current state of the specified resource or with another request. </p>
+ * The requested operation conflicts with the current state of the specified resource or with another request.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -43,13 +46,15 @@ export class ConflictException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p> The identifier of the resource which is in conflict with the requested operation. </p>
+   * The identifier of the resource which is in conflict with the requested operation.
+   *
    * @public
    */
   ResourceId?: string | undefined;
 
   /**
-   * <p> The type of the resource which is in conflict with the requested operation. </p>
+   * The type of the resource which is in conflict with the requested operation.
+   *
    * @public
    */
   ResourceType?: string | undefined;
@@ -70,7 +75,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
+ * Indicates the request has failed to process because of an unknown server error, exception, or failure.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -79,13 +85,15 @@ export class InternalServerException extends __BaseException {
   readonly $fault = "server" as const;
   Message?: string | undefined;
   /**
-   * <p> The name of the exception. </p>
+   * The name of the exception.
+   *
    * @public
    */
   amznErrorType?: string | undefined;
 
   /**
-   * <p>The number of seconds to wait before retrying the request.</p>
+   * The number of seconds to wait before retrying the request.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -106,7 +114,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p> The requested operation would exceed the allowed quota for the specified resource type. </p>
+ * The requested operation would exceed the allowed quota for the specified resource type.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -115,31 +124,36 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p> The identifier of the resource which exceeds the service quota. </p>
+   * The identifier of the resource which exceeds the service quota.
+   *
    * @public
    */
   ResourceId?: string | undefined;
 
   /**
-   * <p> The type of the resource which exceeds the service quota. </p>
+   * The type of the resource which exceeds the service quota.
+   *
    * @public
    */
   ResourceType?: string | undefined;
 
   /**
-   * <p> The code for the service of the exceeded quota. </p>
+   * The code for the service of the exceeded quota.
+   *
    * @public
    */
   ServiceCode?: string | undefined;
 
   /**
-   * <p> The code for the exceeded service quota. </p>
+   * The code for the exceeded service quota.
+   *
    * @public
    */
   QuotaCode?: string | undefined;
 
   /**
-   * <p> The name of the exception. </p>
+   * The name of the exception.
+   *
    * @public
    */
   amznErrorType?: string | undefined;
@@ -163,7 +177,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p> The request throughput limit was exceeded. </p>
+ * The request throughput limit was exceeded.
+ *
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
@@ -186,7 +201,8 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
+ * Indicates input validation failed. Check your request parameters and retry the request.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -195,7 +211,8 @@ export class ValidationException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p> The errors in the input which caused the exception. </p>
+   * The errors in the input which caused the exception.
+   *
    * @public
    */
   Errors?: ValidationError[] | undefined;
@@ -215,7 +232,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p> The specified resource (such as a telemetry rule) could not be found. </p>
+ * The specified resource (such as a telemetry rule) could not be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -224,13 +242,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p> The identifier of the resource which could not be found. </p>
+   * The identifier of the resource which could not be found.
+   *
    * @public
    */
   ResourceId?: string | undefined;
 
   /**
-   * <p> The type of the resource which could not be found. </p>
+   * The type of the resource which could not be found.
+   *
    * @public
    */
   ResourceType?: string | undefined;
@@ -251,7 +271,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p> The requested operation cannot be completed on the specified resource in the current state. </p>
+ * The requested operation cannot be completed on the specified resource in the current state.
+ *
  * @public
  */
 export class InvalidStateException extends __BaseException {

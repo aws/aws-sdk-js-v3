@@ -23,9 +23,8 @@ export interface CreateNotificationRuleCommandInput extends CreateNotificationRu
 export interface CreateNotificationRuleCommandOutput extends CreateNotificationRuleResult, __MetadataBearer {}
 
 /**
- * <p>Creates a notification rule for a resource. The rule specifies the events you want
- *             notifications about and the targets (such as Amazon Q Developer in chat applications topics or Amazon Q Developer in chat applications clients configured for Slack) where you want to receive
- *             them.</p>
+ * Creates a notification rule for a resource. The rule specifies the events you want notifications about and the targets (such as Amazon Q Developer in chat applications topics or Amazon Q Developer in chat applications clients configured for Slack) where you want to receive them.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,33 +67,32 @@ export interface CreateNotificationRuleCommandOutput extends CreateNotificationR
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>
- *             CodeStar Notifications can't create the notification rule because you do not have sufficient
- *       permissions.</p>
+ *
+ * CodeStar Notifications can't create the notification rule because you do not have sufficient permissions.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>
- *             CodeStar Notifications can't complete the request because the resource is being modified by
- *       another process. Wait a few minutes and try again.</p>
+ *
+ * CodeStar Notifications can't complete the request because the resource is being modified by another process. Wait a few minutes and try again.
  *
  * @throws {@link ConfigurationException} (client fault)
- *  <p>Some or all of the configuration is incomplete, missing, or not valid.</p>
+ *
+ * Some or all of the configuration is incomplete, missing, or not valid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>One of the CodeStar Notifications limits has been exceeded. Limits apply to
- *             accounts, notification rules, notifications, resources, and targets. For more
- *             information, see Limits.</p>
+ *
+ * One of the CodeStar Notifications limits has been exceeded. Limits apply to accounts, notification rules, notifications, resources, and targets. For more information, see Limits.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>A resource with the same name or ID already exists. Notification rule names must be
- *             unique in your Amazon Web Services account.</p>
+ *
+ * A resource with the same name or ID already exists. Notification rule names must be unique in your Amazon Web Services account.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One or more parameter values are not valid.</p>
+ *
+ * One or more parameter values are not valid.
  *
  * @throws {@link CodestarNotificationsServiceException}
- * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
+ * Base exception class for all service exceptions from CodestarNotifications service.
  *
  * @public
  */

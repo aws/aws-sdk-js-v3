@@ -80,457 +80,537 @@ import type {
 } from "./enums";
 
 /**
- * <p>Add a network output to an existing bridge. </p>
+ * Add a network output to an existing bridge.
+ *
  * @public
  */
 export interface AddBridgeNetworkOutputRequest {
   /**
-   * <p> The network output IP Address. </p>
+   * The network output IP Address.
+   *
    * @public
    */
   IpAddress: string | undefined;
 
   /**
-   * <p> The network output name. This name is used to reference the output and must be unique among outputs in this bridge. </p>
+   * The network output name. This name is used to reference the output and must be unique among outputs in this bridge.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p> The network output's gateway network name. </p>
+   * The network output's gateway network name.
+   *
    * @public
    */
   NetworkName: string | undefined;
 
   /**
-   * <p> The network output port. </p>
+   * The network output port.
+   *
    * @public
    */
   Port: number | undefined;
 
   /**
-   * <p> The network output protocol. </p> <note> <p>Elemental MediaConnect no longer supports the Fujitsu QoS protocol. This reference is maintained for legacy purposes only.</p> </note>
+   * The network output protocol.
+   *
+   * > **Note:** Elemental MediaConnect no longer supports the Fujitsu QoS protocol. This reference is maintained for legacy purposes only.
+   *
    * @public
    */
   Protocol: Protocol | undefined;
 
   /**
-   * <p> The network output TTL. </p>
+   * The network output TTL.
+   *
    * @public
    */
   Ttl: number | undefined;
 }
 
 /**
- * <p> Add outputs to the specified bridge.</p>
+ * Add outputs to the specified bridge.
+ *
  * @public
  */
 export interface AddBridgeOutputRequest {
   /**
-   * <p> The network output of the bridge. A network output is delivered to your premises. </p>
+   * The network output of the bridge. A network output is delivered to your premises.
+   *
    * @public
    */
   NetworkOutput?: AddBridgeNetworkOutputRequest | undefined;
 }
 
 /**
- * <p> The settings for attaching a VPC interface to an resource. </p>
+ * The settings for attaching a VPC interface to an resource.
+ *
  * @public
  */
 export interface VpcInterfaceAttachment {
   /**
-   * <p> The name of the VPC interface to use for this resource.</p>
+   * The name of the VPC interface to use for this resource.
+   *
    * @public
    */
   VpcInterfaceName?: string | undefined;
 }
 
 /**
- * <p> Add a flow source to an existing bridge. </p>
+ * Add a flow source to an existing bridge.
+ *
  * @public
  */
 export interface AddBridgeFlowSourceRequest {
   /**
-   * <p> The Amazon Resource Number (ARN) of the flow to use as a source of this bridge. </p>
+   * The Amazon Resource Number (ARN) of the flow to use as a source of this bridge.
+   *
    * @public
    */
   FlowArn: string | undefined;
 
   /**
-   * <p>The name of the VPC interface attachment to use for this source. </p>
+   * The name of the VPC interface attachment to use for this source.
+   *
    * @public
    */
   FlowVpcInterfaceAttachment?: VpcInterfaceAttachment | undefined;
 
   /**
-   * <p> The name of the flow source. This name is used to reference the source and must be unique among sources in this bridge. </p>
+   * The name of the flow source. This name is used to reference the source and must be unique among sources in this bridge.
+   *
    * @public
    */
   Name: string | undefined;
 }
 
 /**
- * <p> The settings related to the multicast source. </p>
+ * The settings related to the multicast source.
+ *
  * @public
  */
 export interface MulticastSourceSettings {
   /**
-   * <p> The IP address of the source for source-specific multicast (SSM).</p>
+   * The IP address of the source for source-specific multicast (SSM).
+   *
    * @public
    */
   MulticastSourceIp?: string | undefined;
 }
 
 /**
- * <p> Add a network source to an existing bridge. </p>
+ * Add a network source to an existing bridge.
+ *
  * @public
  */
 export interface AddBridgeNetworkSourceRequest {
   /**
-   * <p> The network source multicast IP.</p>
+   * The network source multicast IP.
+   *
    * @public
    */
   MulticastIp: string | undefined;
 
   /**
-   * <p> The settings related to the multicast source. </p>
+   * The settings related to the multicast source.
+   *
    * @public
    */
   MulticastSourceSettings?: MulticastSourceSettings | undefined;
 
   /**
-   * <p> The name of the network source. This name is used to reference the source and must be unique among sources in this bridge.</p>
+   * The name of the network source. This name is used to reference the source and must be unique among sources in this bridge.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p> The network source's gateway network name.</p>
+   * The network source's gateway network name.
+   *
    * @public
    */
   NetworkName: string | undefined;
 
   /**
-   * <p> The network source port.</p>
+   * The network source port.
+   *
    * @public
    */
   Port: number | undefined;
 
   /**
-   * <p> The network source protocol.</p> <note> <p>Elemental MediaConnect no longer supports the Fujitsu QoS protocol. This reference is maintained for legacy purposes only.</p> </note>
+   * The network source protocol.
+   *
+   * > **Note:** Elemental MediaConnect no longer supports the Fujitsu QoS protocol. This reference is maintained for legacy purposes only.
+   *
    * @public
    */
   Protocol: Protocol | undefined;
 }
 
 /**
- * <p> Add an output to a bridge. </p>
+ * Add an output to a bridge.
+ *
  * @public
  */
 export interface AddBridgeSourceRequest {
   /**
-   * <p> The source of the flow. </p>
+   * The source of the flow.
+   *
    * @public
    */
   FlowSource?: AddBridgeFlowSourceRequest | undefined;
 
   /**
-   * <p> The source of the network. </p>
+   * The source of the network.
+   *
    * @public
    */
   NetworkSource?: AddBridgeNetworkSourceRequest | undefined;
 }
 
 /**
- * <p> The settings that you want to use to define the media stream.</p>
+ * The settings that you want to use to define the media stream.
+ *
  * @public
  */
 export interface FmtpRequest {
   /**
-   * <p> The format of the audio channel.</p>
+   * The format of the audio channel.
+   *
    * @public
    */
   ChannelOrder?: string | undefined;
 
   /**
-   * <p> The format that is used for the representation of color.</p>
+   * The format that is used for the representation of color.
+   *
    * @public
    */
   Colorimetry?: Colorimetry | undefined;
 
   /**
-   * <p> The frame rate for the video stream, in frames/second. For example: 60000/1001. If you specify a whole number, MediaConnect uses a ratio of N/1. For example, if you specify 60, MediaConnect uses 60/1 as the <code>exactFramerate</code>.</p>
+   * The frame rate for the video stream, in frames/second. For example: 60000/1001. If you specify a whole number, MediaConnect uses a ratio of N/1. For example, if you specify 60, MediaConnect uses 60/1 as the `exactFramerate`.
+   *
    * @public
    */
   ExactFramerate?: string | undefined;
 
   /**
-   * <p> The pixel aspect ratio (PAR) of the video.</p>
+   * The pixel aspect ratio (PAR) of the video.
+   *
    * @public
    */
   Par?: string | undefined;
 
   /**
-   * <p> The encoding range of the video.</p>
+   * The encoding range of the video.
+   *
    * @public
    */
   Range?: Range | undefined;
 
   /**
-   * <p> The type of compression that was used to smooth the video’s appearance.</p>
+   * The type of compression that was used to smooth the video’s appearance.
+   *
    * @public
    */
   ScanMode?: ScanMode | undefined;
 
   /**
-   * <p> The transfer characteristic system (TCS) that is used in the video.</p>
+   * The transfer characteristic system (TCS) that is used in the video.
+   *
    * @public
    */
   Tcs?: Tcs | undefined;
 }
 
 /**
- * <p>Attributes that are related to the media stream. </p>
+ * Attributes that are related to the media stream.
+ *
  * @public
  */
 export interface MediaStreamAttributesRequest {
   /**
-   * <p>The settings that you want to use to define the media stream. </p>
+   * The settings that you want to use to define the media stream.
+   *
    * @public
    */
   Fmtp?: FmtpRequest | undefined;
 
   /**
-   * <p>The audio language, in a format that is recognized by the receiver. </p>
+   * The audio language, in a format that is recognized by the receiver.
+   *
    * @public
    */
   Lang?: string | undefined;
 }
 
 /**
- * <p> The media stream that you want to add to the flow. </p>
+ * The media stream that you want to add to the flow.
+ *
  * @public
  */
 export interface AddMediaStreamRequest {
   /**
-   * <p> The attributes that you want to assign to the new media stream.</p>
+   * The attributes that you want to assign to the new media stream.
+   *
    * @public
    */
   Attributes?: MediaStreamAttributesRequest | undefined;
 
   /**
-   * <p> The sample rate (in Hz) for the stream. If the media stream type is video or ancillary data, set this value to 90000. If the media stream type is audio, set this value to either 48000 or 96000.</p>
+   * The sample rate (in Hz) for the stream. If the media stream type is video or ancillary data, set this value to 90000. If the media stream type is audio, set this value to either 48000 or 96000.
+   *
    * @public
    */
   ClockRate?: number | undefined;
 
   /**
-   * <p> A description that can help you quickly identify what your media stream is used for.</p>
+   * A description that can help you quickly identify what your media stream is used for.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p> A unique identifier for the media stream. </p>
+   * A unique identifier for the media stream.
+   *
    * @public
    */
   MediaStreamId: number | undefined;
 
   /**
-   * <p> A name that helps you distinguish one media stream from another.</p>
+   * A name that helps you distinguish one media stream from another.
+   *
    * @public
    */
   MediaStreamName: string | undefined;
 
   /**
-   * <p> The type of media stream.</p>
+   * The type of media stream.
+   *
    * @public
    */
   MediaStreamType: MediaStreamType | undefined;
 
   /**
-   * <p> The resolution of the video.</p>
+   * The resolution of the video.
+   *
    * @public
    */
   VideoFormat?: string | undefined;
 
   /**
-   * <p> The key-value pairs that can be used to tag and organize the media stream. </p>
+   * The key-value pairs that can be used to tag and organize the media stream.
+   *
    * @public
    */
   MediaStreamTags?: Record<string, string> | undefined;
 }
 
 /**
- * <p> Encryption information.</p>
+ * Encryption information.
+ *
  * @public
  */
 export interface Encryption {
   /**
-   * <p> The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).</p>
+   * The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
+   *
    * @public
    */
   Algorithm?: Algorithm | undefined;
 
   /**
-   * <p> A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.</p>
+   * A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
+   *
    * @public
    */
   ConstantInitializationVector?: string | undefined;
 
   /**
-   * <p> The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.</p>
+   * The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+   *
    * @public
    */
   DeviceId?: string | undefined;
 
   /**
-   * <p> The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).</p>
+   * The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
+   *
    * @public
    */
   KeyType?: KeyType | undefined;
 
   /**
-   * <p> The Amazon Web Services Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.</p>
+   * The Amazon Web Services Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+   *
    * @public
    */
   Region?: string | undefined;
 
   /**
-   * <p> An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.</p>
+   * An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+   *
    * @public
    */
   ResourceId?: string | undefined;
 
   /**
-   * <p> The ARN of the role that you created during setup (when you set up MediaConnect as a trusted entity).</p>
+   * The ARN of the role that you created during setup (when you set up MediaConnect as a trusted entity).
+   *
    * @public
    */
   RoleArn: string | undefined;
 
   /**
-   * <p> The ARN of the secret that you created in Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.</p>
+   * The ARN of the secret that you created in Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
+   *
    * @public
    */
   SecretArn?: string | undefined;
 
   /**
-   * <p> The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.</p>
+   * The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+   *
    * @public
    */
   Url?: string | undefined;
 }
 
 /**
- * <p> The VPC interface that you want to designate where the media stream is coming from or going to.</p>
+ * The VPC interface that you want to designate where the media stream is coming from or going to.
+ *
  * @public
  */
 export interface InterfaceRequest {
   /**
-   * <p> The name of the VPC interface.</p>
+   * The name of the VPC interface.
+   *
    * @public
    */
   Name: string | undefined;
 }
 
 /**
- * <p>The definition of a media stream that you want to associate with the output. </p>
+ * The definition of a media stream that you want to associate with the output.
+ *
  * @public
  */
 export interface DestinationConfigurationRequest {
   /**
-   * <p>The IP address where you want MediaConnect to send contents of the media stream.</p>
+   * The IP address where you want MediaConnect to send contents of the media stream.
+   *
    * @public
    */
   DestinationIp: string | undefined;
 
   /**
-   * <p> The port that you want MediaConnect to use when it distributes the media stream to the output.</p>
+   * The port that you want MediaConnect to use when it distributes the media stream to the output.
+   *
    * @public
    */
   DestinationPort: number | undefined;
 
   /**
-   * <p> The VPC interface that you want to use for the media stream associated with the output.</p>
+   * The VPC interface that you want to use for the media stream associated with the output.
+   *
    * @public
    */
   Interface: InterfaceRequest | undefined;
 }
 
 /**
- * <p> A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.</p>
+ * A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
+ *
  * @public
  */
 export interface EncodingParametersRequest {
   /**
-   * <p> A value that is used to calculate compression for an output. The bitrate of the output is calculated as follows: Output bitrate = (1 / compressionFactor) * (source bitrate) This property only applies to outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol. Valid values are floating point numbers in the range of 3.0 to 10.0, inclusive.</p>
+   * A value that is used to calculate compression for an output. The bitrate of the output is calculated as follows: Output bitrate = (1 / compressionFactor) * (source bitrate) This property only applies to outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol. Valid values are floating point numbers in the range of 3.0 to 10.0, inclusive.
+   *
    * @public
    */
   CompressionFactor: number | undefined;
 
   /**
-   * <p> A setting on the encoder that drives compression settings. This property only applies to video media streams associated with outputs that use the ST 2110 JPEG XS protocol, if at least one source on the flow uses the CDI protocol.</p>
+   * A setting on the encoder that drives compression settings. This property only applies to video media streams associated with outputs that use the ST 2110 JPEG XS protocol, if at least one source on the flow uses the CDI protocol.
+   *
    * @public
    */
   EncoderProfile: EncoderProfile | undefined;
 }
 
 /**
- * <p> The media stream that you want to associate with the output, and the parameters for that association.</p>
+ * The media stream that you want to associate with the output, and the parameters for that association.
+ *
  * @public
  */
 export interface MediaStreamOutputConfigurationRequest {
   /**
-   * <p> The media streams that you want to associate with the output. </p>
+   * The media streams that you want to associate with the output.
+   *
    * @public
    */
   DestinationConfigurations?: DestinationConfigurationRequest[] | undefined;
 
   /**
-   * <p> The format that will be used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.</p>
+   * The format that will be used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
+   *
    * @public
    */
   EncodingName: EncodingName | undefined;
 
   /**
-   * <p> A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source. </p>
+   * A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
+   *
    * @public
    */
   EncodingParameters?: EncodingParametersRequest | undefined;
 
   /**
-   * <p> The name of the media stream that is associated with the output.</p>
+   * The name of the media stream that is associated with the output.
+   *
    * @public
    */
   MediaStreamName: string | undefined;
 }
 
 /**
- * <p>Configuration settings for automatic encryption key management, where MediaConnect handles key creation and rotation.</p>
+ * Configuration settings for automatic encryption key management, where MediaConnect handles key creation and rotation.
+ *
  * @public
  */
 export interface AutomaticEncryptionKeyConfiguration {}
 
 /**
- * <p>The configuration settings for transit encryption using Secrets Manager, including the secret ARN and role ARN.</p>
+ * The configuration settings for transit encryption using Secrets Manager, including the secret ARN and role ARN.
+ *
  * @public
  */
 export interface SecretsManagerEncryptionKeyConfiguration {
   /**
-   * <p>The ARN of the Secrets Manager secret used for transit encryption.</p>
+   * The ARN of the Secrets Manager secret used for transit encryption.
+   *
    * @public
    */
   SecretArn: string | undefined;
 
   /**
-   * <p>The ARN of the IAM role assumed by MediaConnect to access the Secrets Manager secret.</p>
+   * The ARN of the IAM role assumed by MediaConnect to access the Secrets Manager secret.
+   *
    * @public
    */
   RoleArn: string | undefined;
 }
 
 /**
- * <p>Configuration settings for flow transit encryption keys.</p>
+ * Configuration settings for flow transit encryption keys.
+ *
  * @public
  */
 export type FlowTransitEncryptionKeyConfiguration =
@@ -543,7 +623,8 @@ export type FlowTransitEncryptionKeyConfiguration =
  */
 export namespace FlowTransitEncryptionKeyConfiguration {
   /**
-   * <p>The configuration settings for transit encryption using Secrets Manager, including the secret ARN and role ARN.</p>
+   * The configuration settings for transit encryption using Secrets Manager, including the secret ARN and role ARN.
+   *
    * @public
    */
   export interface SecretsManagerMember {
@@ -553,7 +634,8 @@ export namespace FlowTransitEncryptionKeyConfiguration {
   }
 
   /**
-   * <p>Configuration settings for automatic encryption key management, where MediaConnect handles key creation and rotation.</p>
+   * Configuration settings for automatic encryption key management, where MediaConnect handles key creation and rotation.
+   *
    * @public
    */
   export interface AutomaticMember {
@@ -583,2082 +665,2461 @@ export namespace FlowTransitEncryptionKeyConfiguration {
 }
 
 /**
- * <p>The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.</p>
+ * The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
+ *
  * @public
  */
 export interface FlowTransitEncryption {
   /**
-   * <p>The type of encryption key to use for flow transit encryption.</p>
+   * The type of encryption key to use for flow transit encryption.
+   *
    * @public
    */
   EncryptionKeyType?: FlowTransitEncryptionKeyType | undefined;
 
   /**
-   * <p>The configuration details for the encryption key.</p>
+   * The configuration details for the encryption key.
+   *
    * @public
    */
   EncryptionKeyConfiguration: FlowTransitEncryptionKeyConfiguration | undefined;
 }
 
 /**
- * <p> A request to add an output to a flow.</p>
+ * A request to add an output to a flow.
+ *
  * @public
  */
 export interface AddOutputRequest {
   /**
-   * <p> The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.</p>
+   * The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+   *
    * @public
    */
   CidrAllowList?: string[] | undefined;
 
   /**
-   * <p> A description of the output. This description appears only on the Audit Manager console and will not be seen by the end user.</p>
+   * A description of the output. This description appears only on the Audit Manager console and will not be seen by the end user.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p> The IP address from which video will be sent to output destinations.</p>
+   * The IP address from which video will be sent to output destinations.
+   *
    * @public
    */
   Destination?: string | undefined;
 
   /**
-   * <p> The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key). Allowable encryption types: static-key.</p>
+   * The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key). Allowable encryption types: static-key.
+   *
    * @public
    */
   Encryption?: Encryption | undefined;
 
   /**
-   * <p> The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.</p>
+   * The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
+   *
    * @public
    */
   MaxLatency?: number | undefined;
 
   /**
-   * <p> The media streams that are associated with the output, and the parameters for those associations.</p>
+   * The media streams that are associated with the output, and the parameters for those associations.
+   *
    * @public
    */
   MediaStreamOutputConfigurations?: MediaStreamOutputConfigurationRequest[] | undefined;
 
   /**
-   * <p> The minimum latency in milliseconds for SRT-based streams. In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.</p>
+   * The minimum latency in milliseconds for SRT-based streams. In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.
+   *
    * @public
    */
   MinLatency?: number | undefined;
 
   /**
-   * <p> The name of the output. This value must be unique within the current flow.</p>
+   * The name of the output. This value must be unique within the current flow.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p> The port to use when content is distributed to this output.</p>
+   * The port to use when content is distributed to this output.
+   *
    * @public
    */
   Port?: number | undefined;
 
   /**
-   * <p> The protocol to use for the output.</p> <note> <p>Elemental MediaConnect no longer supports the Fujitsu QoS protocol. This reference is maintained for legacy purposes only.</p> </note>
+   * The protocol to use for the output.
+   *
+   * > **Note:** Elemental MediaConnect no longer supports the Fujitsu QoS protocol. This reference is maintained for legacy purposes only.
+   *
    * @public
    */
   Protocol?: Protocol | undefined;
 
   /**
-   * <p> The remote ID for the Zixi-pull output stream.</p>
+   * The remote ID for the Zixi-pull output stream.
+   *
    * @public
    */
   RemoteId?: string | undefined;
 
   /**
-   * <p> The port that the flow uses to send outbound requests to initiate connection with the sender.</p>
+   * The port that the flow uses to send outbound requests to initiate connection with the sender.
+   *
    * @public
    */
   SenderControlPort?: number | undefined;
 
   /**
-   * <p> The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.</p>
+   * The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
+   *
    * @public
    */
   SmoothingLatency?: number | undefined;
 
   /**
-   * <p> The stream ID that you want to use for this transport. This parameter applies only to Zixi and SRT caller-based streams.</p>
+   * The stream ID that you want to use for this transport. This parameter applies only to Zixi and SRT caller-based streams.
+   *
    * @public
    */
   StreamId?: string | undefined;
 
   /**
-   * <p> The name of the VPC interface attachment to use for this output.</p>
+   * The name of the VPC interface attachment to use for this output.
+   *
    * @public
    */
   VpcInterfaceAttachment?: VpcInterfaceAttachment | undefined;
 
   /**
-   * <p> An indication of whether the new output should be enabled or disabled as soon as it is created. If you don't specify the outputStatus field in your request, MediaConnect sets it to ENABLED.</p>
+   * An indication of whether the new output should be enabled or disabled as soon as it is created. If you don't specify the outputStatus field in your request, MediaConnect sets it to ENABLED.
+   *
    * @public
    */
   OutputStatus?: OutputStatus | undefined;
 
   /**
-   * <p>A quality setting for the NDI Speed HQ encoder. </p>
+   * A quality setting for the NDI Speed HQ encoder.
+   *
    * @public
    */
   NdiSpeedHqQuality?: number | undefined;
 
   /**
-   * <p> A suffix for the name of the NDI® sender that the flow creates. If a custom name isn't specified, MediaConnect uses the output name. </p>
+   * A suffix for the name of the NDI® sender that the flow creates. If a custom name isn't specified, MediaConnect uses the output name.
+   *
    * @public
    */
   NdiProgramName?: string | undefined;
 
   /**
-   * <p> The key-value pairs that can be used to tag and organize the output. </p>
+   * The key-value pairs that can be used to tag and organize the output.
+   *
    * @public
    */
   OutputTags?: Record<string, string> | undefined;
 
   /**
-   * <p>Indicates whether to enable or disable router integration when creating a new flow output.</p>
+   * Indicates whether to enable or disable router integration when creating a new flow output.
+   *
    * @public
    */
   RouterIntegrationState?: State | undefined;
 
   /**
-   * <p>The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.</p>
+   * The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
+   *
    * @public
    */
   RouterIntegrationTransitEncryption?: FlowTransitEncryption | undefined;
 
   /**
-   * <p>Controls how MediaConnect generates timecodes for NDI output frames. If you don't specify this field, MediaConnect uses <code>EMBEDDED_TIMECODE</code>.</p> <ul> <li> <p> <code>EMBEDDED_TIMECODE</code> (default) - Preserves timecodes from the input transport stream. The timecodes must be embedded in the video stream as SEI timing messages. If no embedded timecode is detected, MediaConnect uses the UTC system time instead.</p> </li> <li> <p> <code>UTC_SYSTEM_TIME</code> - Generates timecodes based on the system clock time when each frame is sent.</p> </li> </ul>
+   * Controls how MediaConnect generates timecodes for NDI output frames. If you don't specify this field, MediaConnect uses `EMBEDDED_TIMECODE`.
+   *
+   * - `EMBEDDED_TIMECODE` (default) - Preserves timecodes from the input transport stream. The timecodes must be embedded in the video stream as SEI timing messages. If no embedded timecode is detected, MediaConnect uses the UTC system time instead.
+   * - `UTC_SYSTEM_TIME` - Generates timecodes based on the system clock time when each frame is sent.
+   *
    * @public
    */
   NdiOutputTimecodeSource?: NdiOutputTimecodeSource | undefined;
 
   /**
-   * <p>The audio reference level of the NDI receiver, in decibels relative to full scale (dBFS). Common values are <code>-20</code> (NDI and SMPTE) and <code>-18</code> (EBU). If you don't specify this field, MediaConnect uses <code>-20</code>.</p>
+   * The audio reference level of the NDI receiver, in decibels relative to full scale (dBFS). Common values are `-20` (NDI and SMPTE) and `-18` (EBU). If you don't specify this field, MediaConnect uses `-20`.
+   *
    * @public
    */
   NdiAudioReferenceLevel?: number | undefined;
 }
 
 /**
- * <p>Configures settings for the <code>SilentAudio</code> metric. </p>
+ * Configures settings for the `SilentAudio` metric.
+ *
  * @public
  */
 export interface SilentAudio {
   /**
-   * <p>Indicates whether the <code>SilentAudio</code> metric is enabled or disabled. </p>
+   * Indicates whether the `SilentAudio` metric is enabled or disabled.
+   *
    * @public
    */
   State?: State | undefined;
 
   /**
-   * <p>Specifies the number of consecutive seconds of silence that triggers an event or alert. </p>
+   * Specifies the number of consecutive seconds of silence that triggers an event or alert.
+   *
    * @public
    */
   ThresholdSeconds?: number | undefined;
 }
 
 /**
- * <p> Specifies the configuration for audio stream metrics monitoring.</p>
+ * Specifies the configuration for audio stream metrics monitoring.
+ *
  * @public
  */
 export interface AudioMonitoringSetting {
   /**
-   * <p> Detects periods of silence. </p>
+   * Detects periods of silence.
+   *
    * @public
    */
   SilentAudio?: SilentAudio | undefined;
 }
 
 /**
- * <p> The output of the bridge. A flow output is delivered to the Amazon Web Services cloud. </p>
+ * The output of the bridge. A flow output is delivered to the Amazon Web Services cloud.
+ *
  * @public
  */
 export interface BridgeFlowOutput {
   /**
-   * <p> The Amazon Resource Number (ARN) of the cloud flow.</p>
+   * The Amazon Resource Number (ARN) of the cloud flow.
+   *
    * @public
    */
   FlowArn: string | undefined;
 
   /**
-   * <p> The Amazon Resource Number (ARN) of the flow source.</p>
+   * The Amazon Resource Number (ARN) of the flow source.
+   *
    * @public
    */
   FlowSourceArn: string | undefined;
 
   /**
-   * <p> The name of the bridge's output.</p>
+   * The name of the bridge's output.
+   *
    * @public
    */
   Name: string | undefined;
 }
 
 /**
- * <p> The output of the bridge. A network output is delivered to your premises.</p>
+ * The output of the bridge. A network output is delivered to your premises.
+ *
  * @public
  */
 export interface BridgeNetworkOutput {
   /**
-   * <p> The network output IP address.</p>
+   * The network output IP address.
+   *
    * @public
    */
   IpAddress: string | undefined;
 
   /**
-   * <p> The network output name.</p>
+   * The network output name.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p> The network output's gateway network name.</p>
+   * The network output's gateway network name.
+   *
    * @public
    */
   NetworkName: string | undefined;
 
   /**
-   * <p> The network output's port.</p>
+   * The network output's port.
+   *
    * @public
    */
   Port: number | undefined;
 
   /**
-   * <p> The network output protocol.</p> <note> <p>Elemental MediaConnect no longer supports the Fujitsu QoS protocol. This reference is maintained for legacy purposes only.</p> </note>
+   * The network output protocol.
+   *
+   * > **Note:** Elemental MediaConnect no longer supports the Fujitsu QoS protocol. This reference is maintained for legacy purposes only.
+   *
    * @public
    */
   Protocol: Protocol | undefined;
 
   /**
-   * <p> The network output TTL.</p>
+   * The network output TTL.
+   *
    * @public
    */
   Ttl: number | undefined;
 }
 
 /**
- * <p> The output of the bridge.</p>
+ * The output of the bridge.
+ *
  * @public
  */
 export interface BridgeOutput {
   /**
-   * <p> The output of the associated flow. </p>
+   * The output of the associated flow.
+   *
    * @public
    */
   FlowOutput?: BridgeFlowOutput | undefined;
 
   /**
-   * <p> The network output for the bridge. </p>
+   * The network output for the bridge.
+   *
    * @public
    */
   NetworkOutput?: BridgeNetworkOutput | undefined;
 }
 
 /**
- * <p> The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.</p>
+ * The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+ *
  * @public
  */
 export interface BridgeFlowSource {
   /**
-   * <p> The ARN of the cloud flow used as a source of this bridge.</p>
+   * The ARN of the cloud flow used as a source of this bridge.
+   *
    * @public
    */
   FlowArn: string | undefined;
 
   /**
-   * <p> The name of the VPC interface attachment to use for this source.</p>
+   * The name of the VPC interface attachment to use for this source.
+   *
    * @public
    */
   FlowVpcInterfaceAttachment?: VpcInterfaceAttachment | undefined;
 
   /**
-   * <p> The name of the flow source.</p>
+   * The name of the flow source.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p> The Amazon Resource Number (ARN) of the output.</p>
+   * The Amazon Resource Number (ARN) of the output.
+   *
    * @public
    */
   OutputArn?: string | undefined;
 }
 
 /**
- * <p> The source of the bridge. A network source originates at your premises.</p>
+ * The source of the bridge. A network source originates at your premises.
+ *
  * @public
  */
 export interface BridgeNetworkSource {
   /**
-   * <p> The network source multicast IP.</p>
+   * The network source multicast IP.
+   *
    * @public
    */
   MulticastIp: string | undefined;
 
   /**
-   * <p>The settings related to the multicast source. </p>
+   * The settings related to the multicast source.
+   *
    * @public
    */
   MulticastSourceSettings?: MulticastSourceSettings | undefined;
 
   /**
-   * <p> The name of the network source.</p>
+   * The name of the network source.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p> The network source's gateway network name.</p>
+   * The network source's gateway network name.
+   *
    * @public
    */
   NetworkName: string | undefined;
 
   /**
-   * <p> The network source port.</p>
+   * The network source port.
+   *
    * @public
    */
   Port: number | undefined;
 
   /**
-   * <p> The network source protocol.</p> <note> <p>Elemental MediaConnect no longer supports the Fujitsu QoS protocol. This reference is maintained for legacy purposes only.</p> </note>
+   * The network source protocol.
+   *
+   * > **Note:** Elemental MediaConnect no longer supports the Fujitsu QoS protocol. This reference is maintained for legacy purposes only.
+   *
    * @public
    */
   Protocol: Protocol | undefined;
 }
 
 /**
- * <p> The bridge's source.</p>
+ * The bridge's source.
+ *
  * @public
  */
 export interface BridgeSource {
   /**
-   * <p> The source of the associated flow. </p>
+   * The source of the associated flow.
+   *
    * @public
    */
   FlowSource?: BridgeFlowSource | undefined;
 
   /**
-   * <p> The network source for the bridge. </p>
+   * The network source for the bridge.
+   *
    * @public
    */
   NetworkSource?: BridgeNetworkSource | undefined;
 }
 
 /**
- * <p> The VPC interface that is used for the media stream associated with the source or output.</p>
+ * The VPC interface that is used for the media stream associated with the source or output.
+ *
  * @public
  */
 export interface Interface {
   /**
-   * <p> The name of the VPC interface.</p>
+   * The name of the VPC interface.
+   *
    * @public
    */
   Name: string | undefined;
 }
 
 /**
- * <p> The transport parameters that you want to associate with an outbound media stream.</p>
+ * The transport parameters that you want to associate with an outbound media stream.
+ *
  * @public
  */
 export interface DestinationConfiguration {
   /**
-   * <p>The IP address where you want MediaConnect to send contents of the media stream.</p>
+   * The IP address where you want MediaConnect to send contents of the media stream.
+   *
    * @public
    */
   DestinationIp: string | undefined;
 
   /**
-   * <p> The port that you want MediaConnect to use when it distributes the media stream to the output.</p>
+   * The port that you want MediaConnect to use when it distributes the media stream to the output.
+   *
    * @public
    */
   DestinationPort: number | undefined;
 
   /**
-   * <p> The VPC interface that you want to use for the media stream associated with the output.</p>
+   * The VPC interface that you want to use for the media stream associated with the output.
+   *
    * @public
    */
   Interface: Interface | undefined;
 
   /**
-   * <p>The IP address that the receiver requires in order to establish a connection with the flow. This value is represented by the elastic network interface IP address of the VPC. This field applies only to outputs that use the CDI or ST 2110 JPEG XS or protocol. </p>
+   * The IP address that the receiver requires in order to establish a connection with the flow. This value is represented by the elastic network interface IP address of the VPC. This field applies only to outputs that use the CDI or ST 2110 JPEG XS or protocol.
+   *
    * @public
    */
   OutboundIp: string | undefined;
 }
 
 /**
- * <p> The settings for a flow entitlement.</p>
+ * The settings for a flow entitlement.
+ *
  * @public
  */
 export interface Entitlement {
   /**
-   * <p> Percentage from 0-100 of the data transfer cost to be billed to the subscriber.</p>
+   * Percentage from 0-100 of the data transfer cost to be billed to the subscriber.
+   *
    * @public
    */
   DataTransferSubscriberFeePercent?: number | undefined;
 
   /**
-   * <p> A description of the entitlement.</p>
+   * A description of the entitlement.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p> The type of encryption that will be used on the output that is associated with this entitlement.</p>
+   * The type of encryption that will be used on the output that is associated with this entitlement.
+   *
    * @public
    */
   Encryption?: Encryption | undefined;
 
   /**
-   * <p> The ARN of the entitlement. </p>
+   * The ARN of the entitlement.
+   *
    * @public
    */
   EntitlementArn: string | undefined;
 
   /**
-   * <p> An indication of whether the entitlement is enabled. </p>
+   * An indication of whether the entitlement is enabled.
+   *
    * @public
    */
   EntitlementStatus?: EntitlementStatus | undefined;
 
   /**
-   * <p> The name of the entitlement. </p>
+   * The name of the entitlement.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p> The Amazon Web Services account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source. </p>
+   * The Amazon Web Services account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.
+   *
    * @public
    */
   Subscribers: string[] | undefined;
 }
 
 /**
- * <p>The network settings for a gateway. </p>
+ * The network settings for a gateway.
+ *
  * @public
  */
 export interface GatewayNetwork {
   /**
-   * <p>A unique IP address range to use for this network. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16. </p>
+   * A unique IP address range to use for this network. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+   *
    * @public
    */
   CidrBlock: string | undefined;
 
   /**
-   * <p>The name of the network. This name is used to reference the network and must be unique among networks in this gateway. </p>
+   * The name of the network. This name is used to reference the network and must be unique among networks in this gateway.
+   *
    * @public
    */
   Name: string | undefined;
 }
 
 /**
- * <p> The entitlements that you want to grant on a flow.</p>
+ * The entitlements that you want to grant on a flow.
+ *
  * @public
  */
 export interface GrantEntitlementRequest {
   /**
-   * <p> Percentage from 0-100 of the data transfer cost to be billed to the subscriber.</p>
+   * Percentage from 0-100 of the data transfer cost to be billed to the subscriber.
+   *
    * @public
    */
   DataTransferSubscriberFeePercent?: number | undefined;
 
   /**
-   * <p> A description of the entitlement. This description appears only on the MediaConnect console and will not be seen by the subscriber or end user. </p>
+   * A description of the entitlement. This description appears only on the MediaConnect console and will not be seen by the subscriber or end user.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p> The type of encryption that will be used on the output that is associated with this entitlement. Allowable encryption types: static-key, speke.</p>
+   * The type of encryption that will be used on the output that is associated with this entitlement. Allowable encryption types: static-key, speke.
+   *
    * @public
    */
   Encryption?: Encryption | undefined;
 
   /**
-   * <p> An indication of whether the new entitlement should be enabled or disabled as soon as it is created. If you don’t specify the entitlementStatus field in your request, MediaConnect sets it to ENABLED.</p>
+   * An indication of whether the new entitlement should be enabled or disabled as soon as it is created. If you don’t specify the entitlementStatus field in your request, MediaConnect sets it to ENABLED.
+   *
    * @public
    */
   EntitlementStatus?: EntitlementStatus | undefined;
 
   /**
-   * <p> The name of the entitlement. This value must be unique within the current flow.</p>
+   * The name of the entitlement. This value must be unique within the current flow.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p> The Amazon Web Services account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flows using your content as the source.</p>
+   * The Amazon Web Services account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flows using your content as the source.
+   *
    * @public
    */
   Subscribers: string[] | undefined;
 
   /**
-   * <p> The key-value pairs that can be used to tag and organize the entitlement. </p>
+   * The key-value pairs that can be used to tag and organize the entitlement.
+   *
    * @public
    */
   EntitlementTags?: Record<string, string> | undefined;
 }
 
 /**
- * <p> The transport parameters that are associated with an incoming media stream.</p>
+ * The transport parameters that are associated with an incoming media stream.
+ *
  * @public
  */
 export interface InputConfiguration {
   /**
-   * <p> The IP address that the flow listens on for incoming content for a media stream.</p>
+   * The IP address that the flow listens on for incoming content for a media stream.
+   *
    * @public
    */
   InputIp: string | undefined;
 
   /**
-   * <p> The port that the flow listens on for an incoming media stream.</p>
+   * The port that the flow listens on for an incoming media stream.
+   *
    * @public
    */
   InputPort: number | undefined;
 
   /**
-   * <p> The VPC interface where the media stream comes in from.</p>
+   * The VPC interface where the media stream comes in from.
+   *
    * @public
    */
   Interface: Interface | undefined;
 }
 
 /**
- * <p> The transport parameters that you want to associate with an incoming media stream.</p>
+ * The transport parameters that you want to associate with an incoming media stream.
+ *
  * @public
  */
 export interface InputConfigurationRequest {
   /**
-   * <p> The port that you want the flow to listen on for an incoming media stream.</p>
+   * The port that you want the flow to listen on for an incoming media stream.
+   *
    * @public
    */
   InputPort: number | undefined;
 
   /**
-   * <p> The VPC interface that you want to use for the incoming media stream.</p>
+   * The VPC interface that you want to use for the incoming media stream.
+   *
    * @public
    */
   Interface: InterfaceRequest | undefined;
 }
 
 /**
- * <p> Displays details of the selected bridge.</p>
+ * Displays details of the selected bridge.
+ *
  * @public
  */
 export interface ListedBridge {
   /**
-   * <p> The ARN of the bridge.</p>
+   * The ARN of the bridge.
+   *
    * @public
    */
   BridgeArn: string | undefined;
 
   /**
-   * <p>The state of the bridge. </p>
+   * The state of the bridge.
+   *
    * @public
    */
   BridgeState: BridgeState | undefined;
 
   /**
-   * <p> The type of the bridge.</p>
+   * The type of the bridge.
+   *
    * @public
    */
   BridgeType: string | undefined;
 
   /**
-   * <p> The name of the bridge.</p>
+   * The name of the bridge.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p> The ARN of the gateway associated with the bridge.</p>
+   * The ARN of the gateway associated with the bridge.
+   *
    * @public
    */
   PlacementArn: string | undefined;
 }
 
 /**
- * <p> An entitlement that has been granted to you from other Amazon Web Services accounts.</p>
+ * An entitlement that has been granted to you from other Amazon Web Services accounts.
+ *
  * @public
  */
 export interface ListedEntitlement {
   /**
-   * <p> Percentage from 0-100 of the data transfer cost to be billed to the subscriber.</p>
+   * Percentage from 0-100 of the data transfer cost to be billed to the subscriber.
+   *
    * @public
    */
   DataTransferSubscriberFeePercent?: number | undefined;
 
   /**
-   * <p> The ARN of the entitlement.</p>
+   * The ARN of the entitlement.
+   *
    * @public
    */
   EntitlementArn: string | undefined;
 
   /**
-   * <p> The name of the entitlement.</p>
+   * The name of the entitlement.
+   *
    * @public
    */
   EntitlementName: string | undefined;
 }
 
 /**
- * <p> The maintenance setting of a flow.</p>
+ * The maintenance setting of a flow.
+ *
  * @public
  */
 export interface Maintenance {
   /**
-   * <p> A day of a week when the maintenance will happen. Use Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.</p>
+   * A day of a week when the maintenance will happen. Use Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.
+   *
    * @public
    */
   MaintenanceDay?: MaintenanceDay | undefined;
 
   /**
-   * <p> The Maintenance has to be performed before this deadline in ISO UTC format. Example: 2021-01-30T08:30:00Z.</p>
+   * The Maintenance has to be performed before this deadline in ISO UTC format. Example: 2021-01-30T08:30:00Z.
+   *
    * @public
    */
   MaintenanceDeadline?: string | undefined;
 
   /**
-   * <p> A scheduled date in ISO UTC format when the maintenance will happen. Use YYYY-MM-DD format. Example: 2021-01-30.</p>
+   * A scheduled date in ISO UTC format when the maintenance will happen. Use YYYY-MM-DD format. Example: 2021-01-30.
+   *
    * @public
    */
   MaintenanceScheduledDate?: string | undefined;
 
   /**
-   * <p> UTC time when the maintenance will happen. Use 24-hour HH:MM format. Minutes must be 00. Example: 13:00. The default value is 02:00.</p>
+   * UTC time when the maintenance will happen. Use 24-hour HH:MM format. Minutes must be 00. Example: 13:00. The default value is 02:00.
+   *
    * @public
    */
   MaintenanceStartHour?: string | undefined;
 }
 
 /**
- * <p> A summary of a flow, including its ARN, Availability Zone, and source type.</p>
+ * A summary of a flow, including its ARN, Availability Zone, and source type.
+ *
  * @public
  */
 export interface ListedFlow {
   /**
-   * <p> The Availability Zone that the flow was created in.</p>
+   * The Availability Zone that the flow was created in.
+   *
    * @public
    */
   AvailabilityZone: string | undefined;
 
   /**
-   * <p> A description of the flow.</p>
+   * A description of the flow.
+   *
    * @public
    */
   Description: string | undefined;
 
   /**
-   * <p> The ARN of the flow.</p>
+   * The ARN of the flow.
+   *
    * @public
    */
   FlowArn: string | undefined;
 
   /**
-   * <p> The name of the flow.</p>
+   * The name of the flow.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p> The type of source. This value is either owned (originated somewhere other than an MediaConnect flow owned by another Amazon Web Services account) or entitled (originated at a MediaConnect flow owned by another Amazon Web Services account).</p>
+   * The type of source. This value is either owned (originated somewhere other than an MediaConnect flow owned by another Amazon Web Services account) or entitled (originated at a MediaConnect flow owned by another Amazon Web Services account).
+   *
    * @public
    */
   SourceType: SourceType | undefined;
 
   /**
-   * <p> The current status of the flow.</p>
+   * The current status of the flow.
+   *
    * @public
    */
   Status: Status | undefined;
 
   /**
-   * <p> The maintenance settings for the flow. </p>
+   * The maintenance settings for the flow.
+   *
    * @public
    */
   Maintenance?: Maintenance | undefined;
 }
 
 /**
- * <p> A summary of a gateway, including its name, ARN, and status.</p>
+ * A summary of a gateway, including its name, ARN, and status.
+ *
  * @public
  */
 export interface ListedGateway {
   /**
-   * <p> The Amazon Resource Name (ARN) of the gateway.</p>
+   * The Amazon Resource Name (ARN) of the gateway.
+   *
    * @public
    */
   GatewayArn: string | undefined;
 
   /**
-   * <p> The status of the gateway.</p>
+   * The status of the gateway.
+   *
    * @public
    */
   GatewayState: GatewayState | undefined;
 
   /**
-   * <p> The name of the gateway.</p>
+   * The name of the gateway.
+   *
    * @public
    */
   Name: string | undefined;
 }
 
 /**
- * <p> A summary of an instance. </p>
+ * A summary of an instance.
+ *
  * @public
  */
 export interface ListedGatewayInstance {
   /**
-   * <p> The Amazon Resource Name (ARN) of the gateway.</p>
+   * The Amazon Resource Name (ARN) of the gateway.
+   *
    * @public
    */
   GatewayArn: string | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the instance.</p>
+   * The Amazon Resource Name (ARN) of the instance.
+   *
    * @public
    */
   GatewayInstanceArn: string | undefined;
 
   /**
-   * <p> The managed instance ID generated by the SSM install. This will begin with "mi-".</p>
+   * The managed instance ID generated by the SSM install. This will begin with "mi-".
+   *
    * @public
    */
   InstanceId: string | undefined;
 
   /**
-   * <p> The status of the instance.</p>
+   * The status of the instance.
+   *
    * @public
    */
   InstanceState?: InstanceState | undefined;
 }
 
 /**
- * <p> A set of parameters that define the media stream. </p>
+ * A set of parameters that define the media stream.
+ *
  * @public
  */
 export interface Fmtp {
   /**
-   * <p> The format of the audio channel. </p>
+   * The format of the audio channel.
+   *
    * @public
    */
   ChannelOrder?: string | undefined;
 
   /**
-   * <p>The format used for the representation of color. </p>
+   * The format used for the representation of color.
+   *
    * @public
    */
   Colorimetry?: Colorimetry | undefined;
 
   /**
-   * <p>The frame rate for the video stream, in frames/second. For example: 60000/1001. </p>
+   * The frame rate for the video stream, in frames/second. For example: 60000/1001.
+   *
    * @public
    */
   ExactFramerate?: string | undefined;
 
   /**
-   * <p>The pixel aspect ratio (PAR) of the video. </p>
+   * The pixel aspect ratio (PAR) of the video.
+   *
    * @public
    */
   Par?: string | undefined;
 
   /**
-   * <p>The encoding range of the video. </p>
+   * The encoding range of the video.
+   *
    * @public
    */
   Range?: Range | undefined;
 
   /**
-   * <p>The type of compression that was used to smooth the video’s appearance. </p>
+   * The type of compression that was used to smooth the video’s appearance.
+   *
    * @public
    */
   ScanMode?: ScanMode | undefined;
 
   /**
-   * <p>The transfer characteristic system (TCS) that is used in the video. </p>
+   * The transfer characteristic system (TCS) that is used in the video.
+   *
    * @public
    */
   Tcs?: Tcs | undefined;
 }
 
 /**
- * <p>Attributes that are related to the media stream. </p>
+ * Attributes that are related to the media stream.
+ *
  * @public
  */
 export interface MediaStreamAttributes {
   /**
-   * <p>The settings that you want to use to define the media stream. </p>
+   * The settings that you want to use to define the media stream.
+   *
    * @public
    */
   Fmtp: Fmtp | undefined;
 
   /**
-   * <p>The audio language, in a format that is recognized by the receiver. </p>
+   * The audio language, in a format that is recognized by the receiver.
+   *
    * @public
    */
   Lang?: string | undefined;
 }
 
 /**
- * <p> A media stream represents one component of your content, such as video, audio, or ancillary data. After you add a media stream to your flow, you can associate it with sources and outputs that use the ST 2110 JPEG XS or CDI protocol. </p>
+ * A media stream represents one component of your content, such as video, audio, or ancillary data. After you add a media stream to your flow, you can associate it with sources and outputs that use the ST 2110 JPEG XS or CDI protocol.
+ *
  * @public
  */
 export interface MediaStream {
   /**
-   * <p> Attributes that are related to the media stream.</p>
+   * Attributes that are related to the media stream.
+   *
    * @public
    */
   Attributes?: MediaStreamAttributes | undefined;
 
   /**
-   * <p> The sample rate for the stream. This value is measured in Hz.</p>
+   * The sample rate for the stream. This value is measured in Hz.
+   *
    * @public
    */
   ClockRate?: number | undefined;
 
   /**
-   * <p> A description that can help you quickly identify what your media stream is used for.</p>
+   * A description that can help you quickly identify what your media stream is used for.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p> The format type number (sometimes referred to as RTP payload type) of the media stream. MediaConnect assigns this value to the media stream. For ST 2110 JPEG XS outputs, you need to provide this value to the receiver.</p>
+   * The format type number (sometimes referred to as RTP payload type) of the media stream. MediaConnect assigns this value to the media stream. For ST 2110 JPEG XS outputs, you need to provide this value to the receiver.
+   *
    * @public
    */
   Fmt: number | undefined;
 
   /**
-   * <p> A unique identifier for the media stream. </p>
+   * A unique identifier for the media stream.
+   *
    * @public
    */
   MediaStreamId: number | undefined;
 
   /**
-   * <p> A name that helps you distinguish one media stream from another. </p>
+   * A name that helps you distinguish one media stream from another.
+   *
    * @public
    */
   MediaStreamName: string | undefined;
 
   /**
-   * <p> The type of media stream. </p>
+   * The type of media stream.
+   *
    * @public
    */
   MediaStreamType: MediaStreamType | undefined;
 
   /**
-   * <p> The resolution of the video. </p>
+   * The resolution of the video.
+   *
    * @public
    */
   VideoFormat?: string | undefined;
 }
 
 /**
- * <p> A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.</p>
+ * A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
+ *
  * @public
  */
 export interface EncodingParameters {
   /**
-   * <p> A value that is used to calculate compression for an output. The bitrate of the output is calculated as follows: Output bitrate = (1 / compressionFactor) * (source bitrate) This property only applies to outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol. Valid values are floating point numbers in the range of 3.0 to 10.0, inclusive.</p>
+   * A value that is used to calculate compression for an output. The bitrate of the output is calculated as follows: Output bitrate = (1 / compressionFactor) * (source bitrate) This property only applies to outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol. Valid values are floating point numbers in the range of 3.0 to 10.0, inclusive.
+   *
    * @public
    */
   CompressionFactor: number | undefined;
 
   /**
-   * <p> A setting on the encoder that drives compression settings. This property only applies to video media streams associated with outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol.</p>
+   * A setting on the encoder that drives compression settings. This property only applies to video media streams associated with outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol.
+   *
    * @public
    */
   EncoderProfile: EncoderProfile | undefined;
 }
 
 /**
- * <p> The media stream that is associated with the output, and the parameters for that association.</p>
+ * The media stream that is associated with the output, and the parameters for that association.
+ *
  * @public
  */
 export interface MediaStreamOutputConfiguration {
   /**
-   * <p> The transport parameters that are associated with each outbound media stream.</p>
+   * The transport parameters that are associated with each outbound media stream.
+   *
    * @public
    */
   DestinationConfigurations?: DestinationConfiguration[] | undefined;
 
   /**
-   * <p> The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.</p>
+   * The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
+   *
    * @public
    */
   EncodingName: EncodingName | undefined;
 
   /**
-   * <p>A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source. </p>
+   * A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
+   *
    * @public
    */
   EncodingParameters?: EncodingParameters | undefined;
 
   /**
-   * <p> The name of the media stream.</p>
+   * The name of the media stream.
+   *
    * @public
    */
   MediaStreamName: string | undefined;
 }
 
 /**
- * <p>The media stream that is associated with the source, and the parameters for that association. </p>
+ * The media stream that is associated with the source, and the parameters for that association.
+ *
  * @public
  */
 export interface MediaStreamSourceConfiguration {
   /**
-   * <p> The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv. </p>
+   * The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
+   *
    * @public
    */
   EncodingName: EncodingName | undefined;
 
   /**
-   * <p>The media streams that you want to associate with the source. </p>
+   * The media streams that you want to associate with the source.
+   *
    * @public
    */
   InputConfigurations?: InputConfiguration[] | undefined;
 
   /**
-   * <p>A name that helps you distinguish one media stream from another. </p>
+   * A name that helps you distinguish one media stream from another.
+   *
    * @public
    */
   MediaStreamName: string | undefined;
 }
 
 /**
- * <p>The media stream that you want to associate with the source, and the parameters for that association. </p>
+ * The media stream that you want to associate with the source, and the parameters for that association.
+ *
  * @public
  */
 export interface MediaStreamSourceConfigurationRequest {
   /**
-   * <p>The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv. </p>
+   * The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
+   *
    * @public
    */
   EncodingName: EncodingName | undefined;
 
   /**
-   * <p>The media streams that you want to associate with the source. </p>
+   * The media streams that you want to associate with the source.
+   *
    * @public
    */
   InputConfigurations?: InputConfigurationRequest[] | undefined;
 
   /**
-   * <p>The name of the media stream. </p>
+   * The name of the media stream.
+   *
    * @public
    */
   MediaStreamName: string | undefined;
 }
 
 /**
- * <p>The details of an error message. </p>
+ * The details of an error message.
+ *
  * @public
  */
 export interface MessageDetail {
   /**
-   * <p> The error code.</p>
+   * The error code.
+   *
    * @public
    */
   Code: string | undefined;
 
   /**
-   * <p> The specific error message that MediaConnect returns to help you understand the reason that the request did not succeed.</p>
+   * The specific error message that MediaConnect returns to help you understand the reason that the request did not succeed.
+   *
    * @public
    */
   Message: string | undefined;
 
   /**
-   * <p> The name of the resource.</p>
+   * The name of the resource.
+   *
    * @public
    */
   ResourceName?: string | undefined;
 }
 
 /**
- * <p>Specifies the configuration settings for individual NDI® discovery servers. A maximum of 3 servers is allowed. </p>
+ * Specifies the configuration settings for individual NDI® discovery servers. A maximum of 3 servers is allowed.
+ *
  * @public
  */
 export interface NdiDiscoveryServerConfig {
   /**
-   * <p>The unique network address of the NDI discovery server. </p>
+   * The unique network address of the NDI discovery server.
+   *
    * @public
    */
   DiscoveryServerAddress: string | undefined;
 
   /**
-   * <p>The port for the NDI discovery server. Defaults to 5959 if a custom port isn't specified. </p>
+   * The port for the NDI discovery server. Defaults to 5959 if a custom port isn't specified.
+   *
    * @public
    */
   DiscoveryServerPort?: number | undefined;
 
   /**
-   * <p>The identifier for the Virtual Private Cloud (VPC) network interface used by the flow. </p>
+   * The identifier for the Virtual Private Cloud (VPC) network interface used by the flow.
+   *
    * @public
    */
   VpcInterfaceAdapter: string | undefined;
 }
 
 /**
- * <p>The color signaling of the video stream.</p>
+ * The color signaling of the video stream.
+ *
  * @public
  */
 export interface ColorInformation {
   /**
-   * <p>The color primaries that the video stream uses (for example, <code>BT709</code> or <code>BT2020</code>).</p>
+   * The color primaries that the video stream uses (for example, `BT709` or `BT2020`).
+   *
    * @public
    */
   Colorimetry?: VideoColorimetry | undefined;
 
   /**
-   * <p>The transfer characteristics that the video stream uses (for example, <code>BT601</code>, <code>BT709</code>, <code>BT2100_PQ</code>, or <code>BT2100_HLG</code>).</p>
+   * The transfer characteristics that the video stream uses (for example, `BT601`, `BT709`, `BT2100_PQ`, or `BT2100_HLG`).
+   *
    * @public
    */
   TransferCharacteristics?: VideoTransferCharacteristics | undefined;
 
   /**
-   * <p>The YCbCr matrix coefficients that the video stream uses (for example, <code>BT709</code> or <code>BT2020_NCL</code>).</p>
+   * The YCbCr matrix coefficients that the video stream uses (for example, `BT709` or `BT2020_NCL`).
+   *
    * @public
    */
   MatrixCoefficients?: VideoMatrixCoefficients | undefined;
 }
 
 /**
- * <p> The frame resolution used by the video stream.</p>
+ * The frame resolution used by the video stream.
+ *
  * @public
  */
 export interface FrameResolution {
   /**
-   * <p> The number of pixels in the height of the video frame.</p>
+   * The number of pixels in the height of the video frame.
+   *
    * @public
    */
   FrameHeight: number | undefined;
 
   /**
-   * <p> The number of pixels in the width of the video frame.</p>
+   * The number of pixels in the width of the video frame.
+   *
    * @public
    */
   FrameWidth: number | undefined;
 }
 
 /**
- * <p> Detailed information about a single media stream that is part of an NDI® source. This includes details about the stream type, codec, resolution, frame rate, audio channels, and sample rate. </p>
+ * Detailed information about a single media stream that is part of an NDI® source. This includes details about the stream type, codec, resolution, frame rate, audio channels, and sample rate.
+ *
  * @public
  */
 export interface NdiMediaStreamInfo {
   /**
-   * <p> The type of media stream (for example, <code>Video</code> or <code>Audio</code>). </p>
+   * The type of media stream (for example, `Video` or `Audio`).
+   *
    * @public
    */
   StreamType: string | undefined;
 
   /**
-   * <p> The codec used for the media stream. For NDI sources, use <code>speed-hq</code>. </p>
+   * The codec used for the media stream. For NDI sources, use `speed-hq`.
+   *
    * @public
    */
   Codec: string | undefined;
 
   /**
-   * <p> A unique identifier for the media stream. </p>
+   * A unique identifier for the media stream.
+   *
    * @public
    */
   StreamId: number | undefined;
 
   /**
-   * <p> The method used to display video frames. Used when the <code>streamType</code> is <code>Video</code>.</p>
+   * The method used to display video frames. Used when the `streamType` is `Video`.
+   *
    * @public
    */
   ScanMode?: ScanMode | undefined;
 
   /**
-   * <p> The color signaling of the video stream. Used when the <code>streamType</code> is <code>Video</code>. </p>
+   * The color signaling of the video stream. Used when the `streamType` is `Video`.
+   *
    * @public
    */
   Color?: ColorInformation | undefined;
 
   /**
-   * <p> The width and height dimensions of the video frame in pixels. Used when the <code>streamType</code> is <code>Video</code>. </p>
+   * The width and height dimensions of the video frame in pixels. Used when the `streamType` is `Video`.
+   *
    * @public
    */
   FrameResolution?: FrameResolution | undefined;
 
   /**
-   * <p> The number of video frames displayed per second. Used when the <code>streamType</code> is <code>Video</code>. </p>
+   * The number of video frames displayed per second. Used when the `streamType` is `Video`.
+   *
    * @public
    */
   FrameRate?: string | undefined;
 
   /**
-   * <p> The number of audio channels in the stream. Used when the <code>streamType</code> is <code>Audio</code>.</p>
+   * The number of audio channels in the stream. Used when the `streamType` is `Audio`.
+   *
    * @public
    */
   Channels?: number | undefined;
 
   /**
-   * <p> The number of audio samples captured per second, measured in kilohertz (kHz). Used when the <code>streamType</code> is <code>Audio</code>.</p>
+   * The number of audio samples captured per second, measured in kilohertz (kHz). Used when the `streamType` is `Audio`.
+   *
    * @public
    */
   SampleRate?: number | undefined;
 }
 
 /**
- * <p> Information about a single NDI® sender, including its name. </p>
+ * Information about a single NDI® sender, including its name.
+ *
  * @public
  */
 export interface NdiSourceInfo {
   /**
-   * <p> The name of the upstream NDI sender. </p>
+   * The name of the upstream NDI sender.
+   *
    * @public
    */
   SourceName: string | undefined;
 }
 
 /**
- * <p> A definition of what is being billed for, including the type and amount.</p>
+ * A definition of what is being billed for, including the type and amount.
+ *
  * @public
  */
 export interface ResourceSpecification {
   /**
-   * <p> The amount of outbound bandwidth that is discounted in the offering.</p>
+   * The amount of outbound bandwidth that is discounted in the offering.
+   *
    * @public
    */
   ReservedBitrate?: number | undefined;
 
   /**
-   * <p> The type of resource and the unit that is being billed for.</p>
+   * The type of resource and the unit that is being billed for.
+   *
    * @public
    */
   ResourceType: ResourceType | undefined;
 }
 
 /**
- * <p> A savings plan that reserves a certain amount of outbound bandwidth usage at a discounted rate each month over a period of time. </p>
+ * A savings plan that reserves a certain amount of outbound bandwidth usage at a discounted rate each month over a period of time.
+ *
  * @public
  */
 export interface Offering {
   /**
-   * <p> The type of currency that is used for billing. The currencyCode used for all reservations is US dollars.</p>
+   * The type of currency that is used for billing. The currencyCode used for all reservations is US dollars.
+   *
    * @public
    */
   CurrencyCode: string | undefined;
 
   /**
-   * <p> The length of time that your reservation would be active.</p>
+   * The length of time that your reservation would be active.
+   *
    * @public
    */
   Duration: number | undefined;
 
   /**
-   * <p> The unit of measurement for the duration of the offering.</p>
+   * The unit of measurement for the duration of the offering.
+   *
    * @public
    */
   DurationUnits: DurationUnits | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) that MediaConnect assigns to the offering.</p>
+   * The Amazon Resource Name (ARN) that MediaConnect assigns to the offering.
+   *
    * @public
    */
   OfferingArn: string | undefined;
 
   /**
-   * <p> A description of the offering.</p>
+   * A description of the offering.
+   *
    * @public
    */
   OfferingDescription: string | undefined;
 
   /**
-   * <p> The cost of a single unit. This value, in combination with priceUnits, makes up the rate.</p>
+   * The cost of a single unit. This value, in combination with priceUnits, makes up the rate.
+   *
    * @public
    */
   PricePerUnit: string | undefined;
 
   /**
-   * <p> The unit of measurement that is used for billing. This value, in combination with pricePerUnit, makes up the rate.</p>
+   * The unit of measurement that is used for billing. This value, in combination with pricePerUnit, makes up the rate.
+   *
    * @public
    */
   PriceUnits: PriceUnits | undefined;
 
   /**
-   * <p> A definition of the amount of outbound bandwidth that you would be reserving if you purchase the offering.</p>
+   * A definition of the amount of outbound bandwidth that you would be reserving if you purchase the offering.
+   *
    * @public
    */
   ResourceSpecification: ResourceSpecification | undefined;
 }
 
 /**
- * <p> The settings for the NDI® source. This includes the exact name of the upstream NDI sender that you want to connect to your source. </p> <note> <p>When you update the NDI source, include only the members you want to change. MediaConnect leaves the members that you don't specify unchanged.</p> </note>
+ * The settings for the NDI® source. This includes the exact name of the upstream NDI sender that you want to connect to your source.
+ *
+ * > **Note:** When you update the NDI source, include only the members you want to change. MediaConnect leaves the members that you don't specify unchanged.
+ *
  * @public
  */
 export interface NdiSourceSettings {
   /**
-   * <p> The exact name of an existing NDI sender that's registered with your discovery server. If included, the format of this name must be <code>MACHINENAME (ProgramName)</code>. </p>
+   * The exact name of an existing NDI sender that's registered with your discovery server. If included, the format of this name must be `MACHINENAME (ProgramName)`.
+   *
    * @public
    */
   SourceName?: string | undefined;
 
   /**
-   * <p>The audio reference level of the NDI sender, in decibels relative to full scale (dBFS). Common values are <code>-20</code> (NDI and SMPTE) and <code>-18</code> (EBU). If you don't specify this field, MediaConnect uses <code>-20</code>.</p>
+   * The audio reference level of the NDI sender, in decibels relative to full scale (dBFS). Common values are `-20` (NDI and SMPTE) and `-18` (EBU). If you don't specify this field, MediaConnect uses `-20`.
+   *
    * @public
    */
   AudioReferenceLevel?: number | undefined;
 }
 
 /**
- * <p> Attributes related to the transport stream that are used in a source or output.</p>
+ * Attributes related to the transport stream that are used in a source or output.
+ *
  * @public
  */
 export interface Transport {
   /**
-   * <p> The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16</p>
+   * The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16
+   *
    * @public
    */
   CidrAllowList?: string[] | undefined;
 
   /**
-   * <p> The smoothing max bitrate (in bps) for RIST, RTP, and RTP-FEC streams.</p>
+   * The smoothing max bitrate (in bps) for RIST, RTP, and RTP-FEC streams.
+   *
    * @public
    */
   MaxBitrate?: number | undefined;
 
   /**
-   * <p> The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.</p>
+   * The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
+   *
    * @public
    */
   MaxLatency?: number | undefined;
 
   /**
-   * <p> The size of the buffer (in milliseconds) to use to sync incoming source data.</p>
+   * The size of the buffer (in milliseconds) to use to sync incoming source data.
+   *
    * @public
    */
   MaxSyncBuffer?: number | undefined;
 
   /**
-   * <p> The minimum latency in milliseconds for SRT-based streams. In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.</p>
+   * The minimum latency in milliseconds for SRT-based streams. In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.
+   *
    * @public
    */
   MinLatency?: number | undefined;
 
   /**
-   * <p> The protocol that is used by the source or output.</p> <note> <p>Elemental MediaConnect no longer supports the Fujitsu QoS protocol. This reference is maintained for legacy purposes only.</p> </note>
+   * The protocol that is used by the source or output.
+   *
+   * > **Note:** Elemental MediaConnect no longer supports the Fujitsu QoS protocol. This reference is maintained for legacy purposes only.
+   *
    * @public
    */
   Protocol: Protocol | undefined;
 
   /**
-   * <p> The remote ID for the Zixi-pull stream.</p>
+   * The remote ID for the Zixi-pull stream.
+   *
    * @public
    */
   RemoteId?: string | undefined;
 
   /**
-   * <p> The port that the flow uses to send outbound requests to initiate connection with the sender.</p>
+   * The port that the flow uses to send outbound requests to initiate connection with the sender.
+   *
    * @public
    */
   SenderControlPort?: number | undefined;
 
   /**
-   * <p> The IP address that the flow communicates with to initiate connection with the sender.</p>
+   * The IP address that the flow communicates with to initiate connection with the sender.
+   *
    * @public
    */
   SenderIpAddress?: string | undefined;
 
   /**
-   * <p> The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.</p>
+   * The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
+   *
    * @public
    */
   SmoothingLatency?: number | undefined;
 
   /**
-   * <p> Source IP or domain name for SRT-caller protocol.</p>
+   * Source IP or domain name for SRT-caller protocol.
+   *
    * @public
    */
   SourceListenerAddress?: string | undefined;
 
   /**
-   * <p> Source port for SRT-caller protocol.</p>
+   * Source port for SRT-caller protocol.
+   *
    * @public
    */
   SourceListenerPort?: number | undefined;
 
   /**
-   * <p> The stream ID that you want to use for this transport. This parameter applies only to Zixi and SRT caller-based streams.</p>
+   * The stream ID that you want to use for this transport. This parameter applies only to Zixi and SRT caller-based streams.
+   *
    * @public
    */
   StreamId?: string | undefined;
 
   /**
-   * <p>A quality setting for the NDI Speed HQ encoder. </p>
+   * A quality setting for the NDI Speed HQ encoder.
+   *
    * @public
    */
   NdiSpeedHqQuality?: number | undefined;
 
   /**
-   * <p>A suffix for the name of the NDI® sender that the flow creates. If a custom name isn't specified, MediaConnect uses the output name. </p>
+   * A suffix for the name of the NDI® sender that the flow creates. If a custom name isn't specified, MediaConnect uses the output name.
+   *
    * @public
    */
   NdiProgramName?: string | undefined;
 
   /**
-   * <p> The settings for the NDI source. This includes the exact name of the upstream NDI sender that you want to connect to your source. </p>
+   * The settings for the NDI source. This includes the exact name of the upstream NDI sender that you want to connect to your source.
+   *
    * @public
    */
   NdiSourceSettings?: NdiSourceSettings | undefined;
 
   /**
-   * <p>The timecode source for NDI output frames. For NDI outputs, this field is always present and defaults to <code>EMBEDDED_TIMECODE</code>.</p> <ul> <li> <p> <code>EMBEDDED_TIMECODE</code> - Preserves timecodes from the input transport stream. The timecodes must be embedded in the video stream as SEI timing messages. If no embedded timecode is detected, MediaConnect uses the UTC system time instead.</p> </li> <li> <p> <code>UTC_SYSTEM_TIME</code> - Generates timecodes based on the system clock time when each frame is sent.</p> </li> </ul>
+   * The timecode source for NDI output frames. For NDI outputs, this field is always present and defaults to `EMBEDDED_TIMECODE`.
+   *
+   * - `EMBEDDED_TIMECODE` - Preserves timecodes from the input transport stream. The timecodes must be embedded in the video stream as SEI timing messages. If no embedded timecode is detected, MediaConnect uses the UTC system time instead.
+   * - `UTC_SYSTEM_TIME` - Generates timecodes based on the system clock time when each frame is sent.
+   *
    * @public
    */
   NdiOutputTimecodeSource?: NdiOutputTimecodeSource | undefined;
 
   /**
-   * <p>The audio reference level of the NDI receiver, in decibels relative to full scale (dBFS). Common values are <code>-20</code> (NDI and SMPTE) and <code>-18</code> (EBU). For NDI outputs, this field is always present and defaults to <code>-20</code>.</p>
+   * The audio reference level of the NDI receiver, in decibels relative to full scale (dBFS). Common values are `-20` (NDI and SMPTE) and `-18` (EBU). For NDI outputs, this field is always present and defaults to `-20`.
+   *
    * @public
    */
   NdiAudioReferenceLevel?: number | undefined;
 }
 
 /**
- * <p>The settings for an output. </p>
+ * The settings for an output.
+ *
  * @public
  */
 export interface Output {
   /**
-   * <p> Percentage from 0-100 of the data transfer cost to be billed to the subscriber.</p>
+   * Percentage from 0-100 of the data transfer cost to be billed to the subscriber.
+   *
    * @public
    */
   DataTransferSubscriberFeePercent?: number | undefined;
 
   /**
-   * <p> A description of the output.</p>
+   * A description of the output.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p> The address where you want to send the output.</p>
+   * The address where you want to send the output.
+   *
    * @public
    */
   Destination?: string | undefined;
 
   /**
-   * <p> The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key).</p>
+   * The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
+   *
    * @public
    */
   Encryption?: Encryption | undefined;
 
   /**
-   * <p> The ARN of the entitlement on the originator''s flow. This value is relevant only on entitled flows.</p>
+   * The ARN of the entitlement on the originator''s flow. This value is relevant only on entitled flows.
+   *
    * @public
    */
   EntitlementArn?: string | undefined;
 
   /**
-   * <p> The IP address that the receiver requires in order to establish a connection with the flow. For public networking, the ListenerAddress is represented by the elastic IP address of the flow. For private networking, the ListenerAddress is represented by the elastic network interface IP address of the VPC. This field applies only to outputs that use the Zixi pull or SRT listener protocol.</p>
+   * The IP address that the receiver requires in order to establish a connection with the flow. For public networking, the ListenerAddress is represented by the elastic IP address of the flow. For private networking, the ListenerAddress is represented by the elastic network interface IP address of the VPC. This field applies only to outputs that use the Zixi pull or SRT listener protocol.
+   *
    * @public
    */
   ListenerAddress?: string | undefined;
 
   /**
-   * <p> The input ARN of the MediaLive channel. This parameter is relevant only for outputs that were added by creating a MediaLive input.</p>
+   * The input ARN of the MediaLive channel. This parameter is relevant only for outputs that were added by creating a MediaLive input.
+   *
    * @public
    */
   MediaLiveInputArn?: string | undefined;
 
   /**
-   * <p> The configuration for each media stream that is associated with the output.</p>
+   * The configuration for each media stream that is associated with the output.
+   *
    * @public
    */
   MediaStreamOutputConfigurations?: MediaStreamOutputConfiguration[] | undefined;
 
   /**
-   * <p> The name of the output. This value must be unique within the current flow.</p>
+   * The name of the output. This value must be unique within the current flow.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p> The ARN of the output.</p>
+   * The ARN of the output.
+   *
    * @public
    */
   OutputArn: string | undefined;
 
   /**
-   * <p> The port to use when content is distributed to this output.</p>
+   * The port to use when content is distributed to this output.
+   *
    * @public
    */
   Port?: number | undefined;
 
   /**
-   * <p> Attributes related to the transport stream that are used in the output.</p>
+   * Attributes related to the transport stream that are used in the output.
+   *
    * @public
    */
   Transport?: Transport | undefined;
 
   /**
-   * <p> The name of the VPC interface attachment to use for this output.</p>
+   * The name of the VPC interface attachment to use for this output.
+   *
    * @public
    */
   VpcInterfaceAttachment?: VpcInterfaceAttachment | undefined;
 
   /**
-   * <p> The ARN of the bridge added to this output.</p>
+   * The ARN of the bridge added to this output.
+   *
    * @public
    */
   BridgeArn?: string | undefined;
 
   /**
-   * <p> The bridge output ports currently in use.</p>
+   * The bridge output ports currently in use.
+   *
    * @public
    */
   BridgePorts?: number[] | undefined;
 
   /**
-   * <p> An indication of whether the output is transmitting data or not.</p>
+   * An indication of whether the output is transmitting data or not.
+   *
    * @public
    */
   OutputStatus?: OutputStatus | undefined;
 
   /**
-   * <p>The IP address of the device that is currently receiving content from this output.</p> <note> <ul> <li> <p>For outputs that use protocols where you specify the destination (such as SRT Caller or Zixi Push), this value matches the configured destination address.</p> </li> <li> <p>For outputs that use listener protocols (such as SRT Listener), this value shows the address of the connected receiver. </p> </li> <li> <p>Peer IP addresses aren't available for entitlements, managed MediaLive outputs, NDI® sources and outputs, and CDI/ST2110 outputs. </p> </li> <li> <p>The peer IP address might not be visible for flows that haven't been started yet, or flows that were started before May 2025. In these cases, restart your flow to see the peer IP address.</p> </li> </ul> </note>
+   * The IP address of the device that is currently receiving content from this output.
+   *
+   * > **Note:**
+   * >
+   * > - For outputs that use protocols where you specify the destination (such as SRT Caller or Zixi Push), this value matches the configured destination address.
+   * > - For outputs that use listener protocols (such as SRT Listener), this value shows the address of the connected receiver.
+   * > - Peer IP addresses aren't available for entitlements, managed MediaLive outputs, NDI® sources and outputs, and CDI/ST2110 outputs.
+   * > - The peer IP address might not be visible for flows that haven't been started yet, or flows that were started before May 2025. In these cases, restart your flow to see the peer IP address.
+   *
    * @public
    */
   PeerIpAddress?: string | undefined;
 
   /**
-   * <p>Indicates if router integration is enabled or disabled on the flow output.</p>
+   * Indicates if router integration is enabled or disabled on the flow output.
+   *
    * @public
    */
   RouterIntegrationState?: State | undefined;
 
   /**
-   * <p>The encryption configuration for the output when router integration is enabled.</p>
+   * The encryption configuration for the output when router integration is enabled.
+   *
    * @public
    */
   RouterIntegrationTransitEncryption?: FlowTransitEncryption | undefined;
 
   /**
-   * <p>The ARN of the router input that's connected to this flow output.</p>
+   * The ARN of the router input that's connected to this flow output.
+   *
    * @public
    */
   ConnectedRouterInputArn?: string | undefined;
 }
 
 /**
- * <p> A pricing agreement for a discounted rate for a specific outbound bandwidth that your MediaConnect account will use each month over a specific time period. The discounted rate in the reservation applies to outbound bandwidth for all flows from your account until your account reaches the amount of bandwidth in your reservation. If you use more outbound bandwidth than the agreed upon amount in a single month, the overage is charged at the on-demand rate.</p>
+ * A pricing agreement for a discounted rate for a specific outbound bandwidth that your MediaConnect account will use each month over a specific time period. The discounted rate in the reservation applies to outbound bandwidth for all flows from your account until your account reaches the amount of bandwidth in your reservation. If you use more outbound bandwidth than the agreed upon amount in a single month, the overage is charged at the on-demand rate.
+ *
  * @public
  */
 export interface Reservation {
   /**
-   * <p> The type of currency that is used for billing. The currencyCode used for your reservation is US dollars.</p>
+   * The type of currency that is used for billing. The currencyCode used for your reservation is US dollars.
+   *
    * @public
    */
   CurrencyCode: string | undefined;
 
   /**
-   * <p> The length of time that this reservation is active. MediaConnect defines this value in the offering.</p>
+   * The length of time that this reservation is active. MediaConnect defines this value in the offering.
+   *
    * @public
    */
   Duration: number | undefined;
 
   /**
-   * <p> The unit of measurement for the duration of the reservation. MediaConnect defines this value in the offering.</p>
+   * The unit of measurement for the duration of the reservation. MediaConnect defines this value in the offering.
+   *
    * @public
    */
   DurationUnits: DurationUnits | undefined;
 
   /**
-   * <p> The day and time that this reservation expires. This value is calculated based on the start date and time that you set and the offering's duration.</p>
+   * The day and time that this reservation expires. This value is calculated based on the start date and time that you set and the offering's duration.
+   *
    * @public
    */
   End: string | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) that MediaConnect assigns to the offering.</p>
+   * The Amazon Resource Name (ARN) that MediaConnect assigns to the offering.
+   *
    * @public
    */
   OfferingArn: string | undefined;
 
   /**
-   * <p> A description of the offering. MediaConnect defines this value in the offering.</p>
+   * A description of the offering. MediaConnect defines this value in the offering.
+   *
    * @public
    */
   OfferingDescription: string | undefined;
 
   /**
-   * <p> The cost of a single unit. This value, in combination with priceUnits, makes up the rate. MediaConnect defines this value in the offering.</p>
+   * The cost of a single unit. This value, in combination with priceUnits, makes up the rate. MediaConnect defines this value in the offering.
+   *
    * @public
    */
   PricePerUnit: string | undefined;
 
   /**
-   * <p> The unit of measurement that is used for billing. This value, in combination with pricePerUnit, makes up the rate. MediaConnect defines this value in the offering.</p>
+   * The unit of measurement that is used for billing. This value, in combination with pricePerUnit, makes up the rate. MediaConnect defines this value in the offering.
+   *
    * @public
    */
   PriceUnits: PriceUnits | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) that MediaConnect assigns to the reservation when you purchase an offering.</p>
+   * The Amazon Resource Name (ARN) that MediaConnect assigns to the reservation when you purchase an offering.
+   *
    * @public
    */
   ReservationArn: string | undefined;
 
   /**
-   * <p> The name that you assigned to the reservation when you purchased the offering.</p>
+   * The name that you assigned to the reservation when you purchased the offering.
+   *
    * @public
    */
   ReservationName: string | undefined;
 
   /**
-   * <p> The status of your reservation.</p>
+   * The status of your reservation.
+   *
    * @public
    */
   ReservationState: ReservationState | undefined;
 
   /**
-   * <p> A definition of the amount of outbound bandwidth that you would be reserving if you purchase the offering. MediaConnect defines the values that make up the resourceSpecification in the offering.</p>
+   * A definition of the amount of outbound bandwidth that you would be reserving if you purchase the offering. MediaConnect defines the values that make up the resourceSpecification in the offering.
+   *
    * @public
    */
   ResourceSpecification: ResourceSpecification | undefined;
 
   /**
-   * <p> The day and time that the reservation becomes active. You set this value when you purchase the offering.</p>
+   * The day and time that the reservation becomes active. You set this value when you purchase the offering.
+   *
    * @public
    */
   Start: string | undefined;
 }
 
 /**
- * <p> The source configuration for cloud flows receiving a stream from a bridge.</p>
+ * The source configuration for cloud flows receiving a stream from a bridge.
+ *
  * @public
  */
 export interface SetGatewayBridgeSourceRequest {
   /**
-   * <p> The ARN of the bridge feeding this flow.</p>
+   * The ARN of the bridge feeding this flow.
+   *
    * @public
    */
   BridgeArn: string | undefined;
 
   /**
-   * <p> The name of the VPC interface attachment to use for this bridge source.</p>
+   * The name of the VPC interface attachment to use for this bridge source.
+   *
    * @public
    */
   VpcInterfaceAttachment?: VpcInterfaceAttachment | undefined;
 }
 
 /**
- * <p> The settings for the source of the flow.</p>
+ * The settings for the source of the flow.
+ *
  * @public
  */
 export interface SetSourceRequest {
   /**
-   * <p> The type of encryption that is used on the content ingested from this source. Allowable encryption types: static-key.</p>
+   * The type of encryption that is used on the content ingested from this source. Allowable encryption types: static-key.
+   *
    * @public
    */
   Decryption?: Encryption | undefined;
 
   /**
-   * <p> A description for the source. This value is not used or seen outside of the current MediaConnect account.</p>
+   * A description for the source. This value is not used or seen outside of the current MediaConnect account.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p> The ARN of the entitlement that allows you to subscribe to this flow. The entitlement is set by the flow originator, and the ARN is generated as part of the originator's flow.</p>
+   * The ARN of the entitlement that allows you to subscribe to this flow. The entitlement is set by the flow originator, and the ARN is generated as part of the originator's flow.
+   *
    * @public
    */
   EntitlementArn?: string | undefined;
 
   /**
-   * <p> The port that the flow will be listening on for incoming content.</p>
+   * The port that the flow will be listening on for incoming content.
+   *
    * @public
    */
   IngestPort?: number | undefined;
 
   /**
-   * <p> The smoothing max bitrate (in bps) for RIST, RTP, and RTP-FEC streams.</p>
+   * The smoothing max bitrate (in bps) for RIST, RTP, and RTP-FEC streams.
+   *
    * @public
    */
   MaxBitrate?: number | undefined;
 
   /**
-   * <p> The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.</p>
+   * The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
+   *
    * @public
    */
   MaxLatency?: number | undefined;
 
   /**
-   * <p> The size of the buffer (in milliseconds) to use to sync incoming source data.</p>
+   * The size of the buffer (in milliseconds) to use to sync incoming source data.
+   *
    * @public
    */
   MaxSyncBuffer?: number | undefined;
 
   /**
-   * <p> The media streams that are associated with the source, and the parameters for those associations.</p>
+   * The media streams that are associated with the source, and the parameters for those associations.
+   *
    * @public
    */
   MediaStreamSourceConfigurations?: MediaStreamSourceConfigurationRequest[] | undefined;
 
   /**
-   * <p> The minimum latency in milliseconds for SRT-based streams. In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.</p>
+   * The minimum latency in milliseconds for SRT-based streams. In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.
+   *
    * @public
    */
   MinLatency?: number | undefined;
 
   /**
-   * <p> The name of the source.</p>
+   * The name of the source.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p> The protocol that is used by the source.</p> <note> <p>Elemental MediaConnect no longer supports the Fujitsu QoS protocol. This reference is maintained for legacy purposes only.</p> </note>
+   * The protocol that is used by the source.
+   *
+   * > **Note:** Elemental MediaConnect no longer supports the Fujitsu QoS protocol. This reference is maintained for legacy purposes only.
+   *
    * @public
    */
   Protocol?: Protocol | undefined;
 
   /**
-   * <p> The port that the flow uses to send outbound requests to initiate connection with the sender.</p>
+   * The port that the flow uses to send outbound requests to initiate connection with the sender.
+   *
    * @public
    */
   SenderControlPort?: number | undefined;
 
   /**
-   * <p> The IP address that the flow communicates with to initiate connection with the sender.</p>
+   * The IP address that the flow communicates with to initiate connection with the sender.
+   *
    * @public
    */
   SenderIpAddress?: string | undefined;
 
   /**
-   * <p> Source IP or domain name for SRT-caller protocol.</p>
+   * Source IP or domain name for SRT-caller protocol.
+   *
    * @public
    */
   SourceListenerAddress?: string | undefined;
 
   /**
-   * <p> Source port for SRT-caller protocol.</p>
+   * Source port for SRT-caller protocol.
+   *
    * @public
    */
   SourceListenerPort?: number | undefined;
 
   /**
-   * <p> The stream ID that you want to use for this transport. This parameter applies only to Zixi and SRT caller-based streams.</p>
+   * The stream ID that you want to use for this transport. This parameter applies only to Zixi and SRT caller-based streams.
+   *
    * @public
    */
   StreamId?: string | undefined;
 
   /**
-   * <p> The name of the VPC interface to use for this source.</p>
+   * The name of the VPC interface to use for this source.
+   *
    * @public
    */
   VpcInterfaceName?: string | undefined;
 
   /**
-   * <p> The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.</p>
+   * The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+   *
    * @public
    */
   WhitelistCidr?: string | undefined;
 
   /**
-   * <p> The source configuration for cloud flows receiving a stream from a bridge.</p>
+   * The source configuration for cloud flows receiving a stream from a bridge.
+   *
    * @public
    */
   GatewayBridgeSource?: SetGatewayBridgeSourceRequest | undefined;
 
   /**
-   * <p> The settings for the NDI® source. This includes the exact name of the upstream NDI sender that you want to connect to your source. </p>
+   * The settings for the NDI® source. This includes the exact name of the upstream NDI sender that you want to connect to your source.
+   *
    * @public
    */
   NdiSourceSettings?: NdiSourceSettings | undefined;
 
   /**
-   * <p> The key-value pairs that can be used to tag and organize the source. </p>
+   * The key-value pairs that can be used to tag and organize the source.
+   *
    * @public
    */
   SourceTags?: Record<string, string> | undefined;
 
   /**
-   * <p>Indicates whether to enable or disable router integration when setting a flow source.</p>
+   * Indicates whether to enable or disable router integration when setting a flow source.
+   *
    * @public
    */
   RouterIntegrationState?: State | undefined;
 
   /**
-   * <p>The decryption configuration for the flow source when router integration is enabled. Specifies how the source content should be decrypted when router integration is used.</p>
+   * The decryption configuration for the flow source when router integration is enabled. Specifies how the source content should be decrypted when router integration is used.
+   *
    * @public
    */
   RouterIntegrationTransitDecryption?: FlowTransitEncryption | undefined;
 }
 
 /**
- * <p> The source configuration for cloud flows receiving a stream from a bridge.</p>
+ * The source configuration for cloud flows receiving a stream from a bridge.
+ *
  * @public
  */
 export interface GatewayBridgeSource {
   /**
-   * <p> The ARN of the bridge feeding this flow.</p>
+   * The ARN of the bridge feeding this flow.
+   *
    * @public
    */
   BridgeArn: string | undefined;
 
   /**
-   * <p> The name of the VPC interface attachment to use for this bridge source.</p>
+   * The name of the VPC interface attachment to use for this bridge source.
+   *
    * @public
    */
   VpcInterfaceAttachment?: VpcInterfaceAttachment | undefined;
 }
 
 /**
- * <p> The settings for the source of the flow.</p>
+ * The settings for the source of the flow.
+ *
  * @public
  */
 export interface Source {
   /**
-   * <p> Percentage from 0-100 of the data transfer cost to be billed to the subscriber.</p>
+   * Percentage from 0-100 of the data transfer cost to be billed to the subscriber.
+   *
    * @public
    */
   DataTransferSubscriberFeePercent?: number | undefined;
 
   /**
-   * <p> The type of encryption that is used on the content ingested from this source.</p>
+   * The type of encryption that is used on the content ingested from this source.
+   *
    * @public
    */
   Decryption?: Encryption | undefined;
 
   /**
-   * <p> A description for the source. This value is not used or seen outside of the current MediaConnect account.</p>
+   * A description for the source. This value is not used or seen outside of the current MediaConnect account.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p> The ARN of the entitlement that allows you to subscribe to content that comes from another Amazon Web Services account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.</p>
+   * The ARN of the entitlement that allows you to subscribe to content that comes from another Amazon Web Services account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.
+   *
    * @public
    */
   EntitlementArn?: string | undefined;
 
   /**
-   * <p> The IP address that the flow will be listening on for incoming content.</p>
+   * The IP address that the flow will be listening on for incoming content.
+   *
    * @public
    */
   IngestIp?: string | undefined;
 
   /**
-   * <p> The port that the flow will be listening on for incoming content.</p>
+   * The port that the flow will be listening on for incoming content.
+   *
    * @public
    */
   IngestPort?: number | undefined;
 
   /**
-   * <p> The media streams that are associated with the source, and the parameters for those associations.</p>
+   * The media streams that are associated with the source, and the parameters for those associations.
+   *
    * @public
    */
   MediaStreamSourceConfigurations?: MediaStreamSourceConfiguration[] | undefined;
 
   /**
-   * <p> The name of the source.</p>
+   * The name of the source.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p> The port that the flow uses to send outbound requests to initiate connection with the sender.</p>
+   * The port that the flow uses to send outbound requests to initiate connection with the sender.
+   *
    * @public
    */
   SenderControlPort?: number | undefined;
 
   /**
-   * <p> The IP address that the flow communicates with to initiate connection with the sender.</p>
+   * The IP address that the flow communicates with to initiate connection with the sender.
+   *
    * @public
    */
   SenderIpAddress?: string | undefined;
 
   /**
-   * <p> The ARN of the source.</p>
+   * The ARN of the source.
+   *
    * @public
    */
   SourceArn: string | undefined;
 
   /**
-   * <p> Attributes related to the transport stream that are used in the source.</p>
+   * Attributes related to the transport stream that are used in the source.
+   *
    * @public
    */
   Transport?: Transport | undefined;
 
   /**
-   * <p> The name of the VPC interface that is used for this source.</p>
+   * The name of the VPC interface that is used for this source.
+   *
    * @public
    */
   VpcInterfaceName?: string | undefined;
 
   /**
-   * <p> The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.</p>
+   * The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+   *
    * @public
    */
   WhitelistCidr?: string | undefined;
 
   /**
-   * <p> The source configuration for cloud flows receiving a stream from a bridge.</p>
+   * The source configuration for cloud flows receiving a stream from a bridge.
+   *
    * @public
    */
   GatewayBridgeSource?: GatewayBridgeSource | undefined;
 
   /**
-   * <p>The IP address of the device that is currently sending content to this source. </p> <note> <ul> <li> <p>For sources that use protocols where you specify the origin (such as SRT Caller), this value matches the configured origin address. </p> </li> <li> <p>For sources that use listener protocols (such as SRT Listener or RTP), this value shows the address of the connected sender. </p> </li> <li> <p>Peer IP addresses aren't available for entitlements and CDI/ST2110 sources.</p> </li> <li> <p>The peer IP address might not be visible for flows that haven't been started yet, or flows that were started before May 2025. In these cases, restart your flow to see the peer IP address.</p> </li> </ul> </note>
+   * The IP address of the device that is currently sending content to this source.
+   *
+   * > **Note:**
+   * >
+   * > - For sources that use protocols where you specify the origin (such as SRT Caller), this value matches the configured origin address.
+   * > - For sources that use listener protocols (such as SRT Listener or RTP), this value shows the address of the connected sender.
+   * > - Peer IP addresses aren't available for entitlements and CDI/ST2110 sources.
+   * > - The peer IP address might not be visible for flows that haven't been started yet, or flows that were started before May 2025. In these cases, restart your flow to see the peer IP address.
+   *
    * @public
    */
   PeerIpAddress?: string | undefined;
 
   /**
-   * <p>Indicates if router integration is enabled or disabled on the flow source.</p>
+   * Indicates if router integration is enabled or disabled on the flow source.
+   *
    * @public
    */
   RouterIntegrationState?: State | undefined;
 
   /**
-   * <p>The decryption configuration for the flow source when router integration is enabled.</p>
+   * The decryption configuration for the flow source when router integration is enabled.
+   *
    * @public
    */
   RouterIntegrationTransitDecryption?: FlowTransitEncryption | undefined;
 
   /**
-   * <p>The ARN of the router output that's currently connected to this source.</p>
+   * The ARN of the router output that's currently connected to this source.
+   *
    * @public
    */
   ConnectedRouterOutputArn?: string | undefined;
 }
 
 /**
- * <p> The metadata of an elementary transport stream.</p>
+ * The metadata of an elementary transport stream.
+ *
  * @public
  */
 export interface TransportStream {
   /**
-   * <p> The number of channels in the audio stream.</p>
+   * The number of channels in the audio stream.
+   *
    * @public
    */
   Channels?: number | undefined;
 
   /**
-   * <p> The codec used by the stream.</p>
+   * The codec used by the stream.
+   *
    * @public
    */
   Codec?: string | undefined;
 
   /**
-   * <p>The color signaling of the video stream.</p>
+   * The color signaling of the video stream.
+   *
    * @public
    */
   Color?: ColorInformation | undefined;
 
   /**
-   * <p> The frame rate used by the video stream.</p>
+   * The frame rate used by the video stream.
+   *
    * @public
    */
   FrameRate?: string | undefined;
 
   /**
-   * <p>The frame resolution used by the video stream. </p>
+   * The frame resolution used by the video stream.
+   *
    * @public
    */
   FrameResolution?: FrameResolution | undefined;
 
   /**
-   * <p> The Packet ID (PID) as it is reported in the Program Map Table.</p>
+   * The Packet ID (PID) as it is reported in the Program Map Table.
+   *
    * @public
    */
   Pid: number | undefined;
 
   /**
-   * <p> The sample rate used by the audio stream.</p>
+   * The sample rate used by the audio stream.
+   *
    * @public
    */
   SampleRate?: number | undefined;
 
   /**
-   * <p> The sample bit size used by the audio stream.</p>
+   * The sample bit size used by the audio stream.
+   *
    * @public
    */
   SampleSize?: number | undefined;
 
   /**
-   * <p> The Stream Type as it is reported in the Program Map Table.</p>
+   * The Stream Type as it is reported in the Program Map Table.
+   *
    * @public
    */
   StreamType: string | undefined;
 }
 
 /**
- * <p> The metadata of a single transport stream program.</p>
+ * The metadata of a single transport stream program.
+ *
  * @public
  */
 export interface TransportStreamProgram {
   /**
-   * <p> The Program Clock Reference (PCR) Packet ID (PID) as it is reported in the Program Association Table.</p>
+   * The Program Clock Reference (PCR) Packet ID (PID) as it is reported in the Program Association Table.
+   *
    * @public
    */
   PcrPid: number | undefined;
 
   /**
-   * <p> The program name as it is reported in the Program Association Table.</p>
+   * The program name as it is reported in the Program Association Table.
+   *
    * @public
    */
   ProgramName?: string | undefined;
 
   /**
-   * <p> The program number as it is reported in the Program Association Table.</p>
+   * The program number as it is reported in the Program Association Table.
+   *
    * @public
    */
   ProgramNumber: number | undefined;
 
   /**
-   * <p> The program Packet ID (PID) as it is reported in the Program Association Table.</p>
+   * The program Packet ID (PID) as it is reported in the Program Association Table.
+   *
    * @public
    */
   ProgramPid: number | undefined;
 
   /**
-   * <p> The list of elementary transport streams in the program. The list includes video, audio, and data streams.</p>
+   * The list of elementary transport streams in the program. The list includes video, audio, and data streams.
+   *
    * @public
    */
   Streams: TransportStream[] | undefined;
 }
 
 /**
- * <p> Configures settings for the <code>BlackFrames</code> metric.</p>
+ * Configures settings for the `BlackFrames` metric.
+ *
  * @public
  */
 export interface BlackFrames {
   /**
-   * <p> Indicates whether the <code>BlackFrames</code> metric is enabled or disabled.</p>
+   * Indicates whether the `BlackFrames` metric is enabled or disabled.
+   *
    * @public
    */
   State?: State | undefined;
 
   /**
-   * <p> Specifies the number of consecutive seconds of black frames that triggers an event or alert.</p>
+   * Specifies the number of consecutive seconds of black frames that triggers an event or alert.
+   *
    * @public
    */
   ThresholdSeconds?: number | undefined;
 }
 
 /**
- * <p> Configures settings for the <code>FrozenFrames</code> metric.</p>
+ * Configures settings for the `FrozenFrames` metric.
+ *
  * @public
  */
 export interface FrozenFrames {
   /**
-   * <p>Indicates whether the <code>FrozenFrames</code> metric is enabled or disabled.</p>
+   * Indicates whether the `FrozenFrames` metric is enabled or disabled.
+   *
    * @public
    */
   State?: State | undefined;
 
   /**
-   * <p> Specifies the number of consecutive seconds of a static image that triggers an event or alert.</p>
+   * Specifies the number of consecutive seconds of a static image that triggers an event or alert.
+   *
    * @public
    */
   ThresholdSeconds?: number | undefined;
 }
 
 /**
- * <p>Specifies the configuration for video stream metrics monitoring.</p>
+ * Specifies the configuration for video stream metrics monitoring.
+ *
  * @public
  */
 export interface VideoMonitoringSetting {
   /**
-   * <p>Detects video frames that are black. </p>
+   * Detects video frames that are black.
+   *
    * @public
    */
   BlackFrames?: BlackFrames | undefined;
 
   /**
-   * <p>Detects video frames that have not changed. </p>
+   * Detects video frames that have not changed.
+   *
    * @public
    */
   FrozenFrames?: FrozenFrames | undefined;
 }
 
 /**
- * <p> The settings for a VPC source.</p>
+ * The settings for a VPC source.
+ *
  * @public
  */
 export interface VpcInterface {
   /**
-   * <p> Immutable and has to be a unique against other VpcInterfaces in this Flow.</p>
+   * Immutable and has to be a unique against other VpcInterfaces in this Flow.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p> IDs of the network interfaces created in customer's account by MediaConnect.</p>
+   * IDs of the network interfaces created in customer's account by MediaConnect.
+   *
    * @public
    */
   NetworkInterfaceIds: string[] | undefined;
 
   /**
-   * <p> The type of network interface.</p>
+   * The type of network interface.
+   *
    * @public
    */
   NetworkInterfaceType: NetworkInterfaceType | undefined;
 
   /**
-   * <p> A role Arn MediaConnect can assume to create ENIs in your account.</p>
+   * A role Arn MediaConnect can assume to create ENIs in your account.
+   *
    * @public
    */
   RoleArn: string | undefined;
 
   /**
-   * <p> Security Group IDs to be used on ENI.</p>
+   * Security Group IDs to be used on ENI.
+   *
    * @public
    */
   SecurityGroupIds: string[] | undefined;
 
   /**
-   * <p> Subnet must be in the AZ of the Flow. </p>
+   * Subnet must be in the AZ of the Flow.
+   *
    * @public
    */
   SubnetId: string | undefined;
 }
 
 /**
- * <p>The details of the VPC interfaces that you want to add to the flow. </p>
+ * The details of the VPC interfaces that you want to add to the flow.
+ *
  * @public
  */
 export interface VpcInterfaceRequest {
   /**
-   * <p>The name for the VPC interface. This name must be unique within the flow. </p>
+   * The name for the VPC interface. This name must be unique within the flow.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The type of network interface. </p>
+   * The type of network interface.
+   *
    * @public
    */
   NetworkInterfaceType?: NetworkInterfaceType | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the role that you created when you set up MediaConnect as a trusted service. </p>
+   * The Amazon Resource Name (ARN) of the role that you created when you set up MediaConnect as a trusted service.
+   *
    * @public
    */
   RoleArn: string | undefined;
 
   /**
-   * <p>A virtual firewall to control inbound and outbound traffic. </p>
+   * A virtual firewall to control inbound and outbound traffic.
+   *
    * @public
    */
   SecurityGroupIds: string[] | undefined;
 
   /**
-   * <p> The subnet IDs that you want to use for your VPC interface. A range of IP addresses in your VPC. When you create your VPC, you specify a range of IPv4 addresses for the VPC in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16. This is the primary CIDR block for your VPC. When you create a subnet for your VPC, you specify the CIDR block for the subnet, which is a subset of the VPC CIDR block. The subnets that you use across all VPC interfaces on the flow must be in the same Availability Zone as the flow. </p>
+   * The subnet IDs that you want to use for your VPC interface. A range of IP addresses in your VPC. When you create your VPC, you specify a range of IPv4 addresses for the VPC in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16. This is the primary CIDR block for your VPC. When you create a subnet for your VPC, you specify the CIDR block for the subnet, which is a subset of the VPC CIDR block. The subnets that you use across all VPC interfaces on the flow must be in the same Availability Zone as the flow.
+   *
    * @public
    */
   SubnetId: string | undefined;
 
   /**
-   * <p> The key-value pairs that can be used to tag and organize the VPC network interface. </p>
+   * The key-value pairs that can be used to tag and organize the VPC network interface.
+   *
    * @public
    */
   VpcInterfaceTags?: Record<string, string> | undefined;
@@ -2669,13 +3130,15 @@ export interface VpcInterfaceRequest {
  */
 export interface AddBridgeOutputsRequest {
   /**
-   * <p> The Amazon Resource Name (ARN) of the bridge that you want to update.</p>
+   * The Amazon Resource Name (ARN) of the bridge that you want to update.
+   *
    * @public
    */
   BridgeArn: string | undefined;
 
   /**
-   * <p> The outputs that you want to add to this bridge.</p>
+   * The outputs that you want to add to this bridge.
+   *
    * @public
    */
   Outputs: AddBridgeOutputRequest[] | undefined;
@@ -2686,13 +3149,15 @@ export interface AddBridgeOutputsRequest {
  */
 export interface AddBridgeOutputsResponse {
   /**
-   * <p> The ARN of the bridge that you added outputs to.</p>
+   * The ARN of the bridge that you added outputs to.
+   *
    * @public
    */
   BridgeArn?: string | undefined;
 
   /**
-   * <p> The outputs that you added to this bridge.</p>
+   * The outputs that you added to this bridge.
+   *
    * @public
    */
   Outputs?: BridgeOutput[] | undefined;
@@ -2703,13 +3168,15 @@ export interface AddBridgeOutputsResponse {
  */
 export interface AddBridgeSourcesRequest {
   /**
-   * <p> The Amazon Resource Name (ARN) of the bridge that you want to update.</p>
+   * The Amazon Resource Name (ARN) of the bridge that you want to update.
+   *
    * @public
    */
   BridgeArn: string | undefined;
 
   /**
-   * <p> The sources that you want to add to this bridge.</p>
+   * The sources that you want to add to this bridge.
+   *
    * @public
    */
   Sources: AddBridgeSourceRequest[] | undefined;
@@ -2720,25 +3187,29 @@ export interface AddBridgeSourcesRequest {
  */
 export interface AddBridgeSourcesResponse {
   /**
-   * <p> The ARN of the bridge that you added sources to.</p>
+   * The ARN of the bridge that you added sources to.
+   *
    * @public
    */
   BridgeArn?: string | undefined;
 
   /**
-   * <p> The sources that you added to this bridge.</p>
+   * The sources that you added to this bridge.
+   *
    * @public
    */
   Sources?: BridgeSource[] | undefined;
 }
 
 /**
- * <p> Create a bridge with the egress bridge type. An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises. </p>
+ * Create a bridge with the egress bridge type. An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
+ *
  * @public
  */
 export interface AddEgressGatewayBridgeRequest {
   /**
-   * <p> The maximum expected bitrate (in bps) of the egress bridge.</p>
+   * The maximum expected bitrate (in bps) of the egress bridge.
+   *
    * @public
    */
   MaxBitrate: number | undefined;
@@ -2749,13 +3220,15 @@ export interface AddEgressGatewayBridgeRequest {
  */
 export interface AddFlowMediaStreamsRequest {
   /**
-   * <p> The Amazon Resource Name (ARN) of the flow.</p>
+   * The Amazon Resource Name (ARN) of the flow.
+   *
    * @public
    */
   FlowArn: string | undefined;
 
   /**
-   * <p> The media streams that you want to add to the flow.</p>
+   * The media streams that you want to add to the flow.
+   *
    * @public
    */
   MediaStreams: AddMediaStreamRequest[] | undefined;
@@ -2766,13 +3239,15 @@ export interface AddFlowMediaStreamsRequest {
  */
 export interface AddFlowMediaStreamsResponse {
   /**
-   * <p> The ARN of the flow that you added media streams to.</p>
+   * The ARN of the flow that you added media streams to.
+   *
    * @public
    */
   FlowArn?: string | undefined;
 
   /**
-   * <p> The media streams that you added to the flow.</p>
+   * The media streams that you added to the flow.
+   *
    * @public
    */
   MediaStreams?: MediaStream[] | undefined;
@@ -2783,13 +3258,15 @@ export interface AddFlowMediaStreamsResponse {
  */
 export interface AddFlowOutputsRequest {
   /**
-   * <p> The Amazon Resource Name (ARN) of the flow that you want to add outputs to.</p>
+   * The Amazon Resource Name (ARN) of the flow that you want to add outputs to.
+   *
    * @public
    */
   FlowArn: string | undefined;
 
   /**
-   * <p> A list of outputs that you want to add to the flow.</p>
+   * A list of outputs that you want to add to the flow.
+   *
    * @public
    */
   Outputs: AddOutputRequest[] | undefined;
@@ -2800,13 +3277,15 @@ export interface AddFlowOutputsRequest {
  */
 export interface AddFlowOutputsResponse {
   /**
-   * <p> The ARN of the flow that these outputs were added to.</p>
+   * The ARN of the flow that these outputs were added to.
+   *
    * @public
    */
   FlowArn?: string | undefined;
 
   /**
-   * <p> The details of the newly added outputs.</p>
+   * The details of the newly added outputs.
+   *
    * @public
    */
   Outputs?: Output[] | undefined;
@@ -2817,13 +3296,15 @@ export interface AddFlowOutputsResponse {
  */
 export interface AddFlowSourcesRequest {
   /**
-   * <p> The Amazon Resource Name (ARN) of the flow that you want to update.</p>
+   * The Amazon Resource Name (ARN) of the flow that you want to update.
+   *
    * @public
    */
   FlowArn: string | undefined;
 
   /**
-   * <p> A list of sources that you want to add to the flow.</p>
+   * A list of sources that you want to add to the flow.
+   *
    * @public
    */
   Sources: SetSourceRequest[] | undefined;
@@ -2834,13 +3315,15 @@ export interface AddFlowSourcesRequest {
  */
 export interface AddFlowSourcesResponse {
   /**
-   * <p> The ARN of the flow that these sources were added to.</p>
+   * The ARN of the flow that these sources were added to.
+   *
    * @public
    */
   FlowArn?: string | undefined;
 
   /**
-   * <p> The details of the newly added sources.</p>
+   * The details of the newly added sources.
+   *
    * @public
    */
   Sources?: Source[] | undefined;
@@ -2851,13 +3334,15 @@ export interface AddFlowSourcesResponse {
  */
 export interface AddFlowVpcInterfacesRequest {
   /**
-   * <p> The Amazon Resource Name (ARN) of the flow that you want to update.</p>
+   * The Amazon Resource Name (ARN) of the flow that you want to update.
+   *
    * @public
    */
   FlowArn: string | undefined;
 
   /**
-   * <p> A list of VPC interfaces that you want to add to the flow.</p>
+   * A list of VPC interfaces that you want to add to the flow.
+   *
    * @public
    */
   VpcInterfaces: VpcInterfaceRequest[] | undefined;
@@ -2868,56 +3353,73 @@ export interface AddFlowVpcInterfacesRequest {
  */
 export interface AddFlowVpcInterfacesResponse {
   /**
-   * <p> The ARN of the flow that these VPC interfaces were added to.</p>
+   * The ARN of the flow that these VPC interfaces were added to.
+   *
    * @public
    */
   FlowArn?: string | undefined;
 
   /**
-   * <p> The details of the newly added VPC interfaces.</p>
+   * The details of the newly added VPC interfaces.
+   *
    * @public
    */
   VpcInterfaces?: VpcInterface[] | undefined;
 }
 
 /**
- * <p>Create a bridge with the ingress bridge type. An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud. </p>
+ * Create a bridge with the ingress bridge type. An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
+ *
  * @public
  */
 export interface AddIngressGatewayBridgeRequest {
   /**
-   * <p> The maximum expected bitrate (in bps) of the ingress bridge. </p>
+   * The maximum expected bitrate (in bps) of the ingress bridge.
+   *
    * @public
    */
   MaxBitrate: number | undefined;
 
   /**
-   * <p> The maximum number of expected outputs on the ingress bridge. </p>
+   * The maximum number of expected outputs on the ingress bridge.
+   *
    * @public
    */
   MaxOutputs: number | undefined;
 }
 
 /**
- * <p> Create a maintenance setting for a flow.</p>
+ * Create a maintenance setting for a flow.
+ *
  * @public
  */
 export interface AddMaintenance {
   /**
-   * <p> A day of a week when the maintenance will happen. </p>
+   * A day of a week when the maintenance will happen.
+   *
    * @public
    */
   MaintenanceDay: MaintenanceDay | undefined;
 
   /**
-   * <p> UTC time when the maintenance will happen. </p> <p>Use 24-hour HH:MM format. </p> <p>Minutes must be 00. </p> <p>Example: 13:00. </p> <p>The default value is 02:00.</p>
+   * UTC time when the maintenance will happen.
+   *
+   * Use 24-hour HH:MM format.
+   *
+   * Minutes must be 00.
+   *
+   * Example: 13:00.
+   *
+   * The default value is 02:00.
+   *
    * @public
    */
   MaintenanceStartHour: string | undefined;
 }
 
 /**
- * <p>The configuration for automatic endpoint encryption. In this mode, MediaConnect determines the encryption key when the endpoint connects. This type does not require any additional settings.</p>
+ * The configuration for automatic endpoint encryption. In this mode, MediaConnect determines the encryption key when the endpoint connects. This type does not require any additional settings.
+ *
  * @public
  */
 export interface AutomaticEndpointEncryptionConfiguration {}
@@ -2927,68 +3429,79 @@ export interface AutomaticEndpointEncryptionConfiguration {}
  */
 export interface BatchGetDestinationEndpointRequest {
   /**
-   * <p>The Amazon Resource Names (ARNs) of one or more destination endpoints to retrieve. You can specify from 1 to 20 ARNs.</p>
+   * The Amazon Resource Names (ARNs) of one or more destination endpoints to retrieve. You can specify from 1 to 20 ARNs.
+   *
    * @public
    */
   Arns: string[] | undefined;
 }
 
 /**
- * <p>A message associated with a router input, including a code and a message.</p>
+ * A message associated with a router input, including a code and a message.
+ *
  * @public
  */
 export interface RouterInputMessage {
   /**
-   * <p>The code associated with the router input message.</p>
+   * The code associated with the router input message.
+   *
    * @public
    */
   Code: string | undefined;
 
   /**
-   * <p>The message text associated with the router input message.</p>
+   * The message text associated with the router input message.
+   *
    * @public
    */
   Message: string | undefined;
 }
 
 /**
- * <p>The details of the router input that is associated with a destination endpoint.</p>
+ * The details of the router input that is associated with a destination endpoint.
+ *
  * @public
  */
 export interface RouterInputDestinationEndpointAssociatedResourceDetails {
   /**
-   * <p>The name of the router input.</p>
+   * The name of the router input.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The maximum bitrate of the router input, in bits per second.</p>
+   * The maximum bitrate of the router input, in bits per second.
+   *
    * @public
    */
   MaximumBitrate: number | undefined;
 
   /**
-   * <p>The state of the router input.</p>
+   * The state of the router input.
+   *
    * @public
    */
   State: RouterInputState | undefined;
 
   /**
-   * <p>The status messages for the router input.</p>
+   * The status messages for the router input.
+   *
    * @public
    */
   Messages: RouterInputMessage[] | undefined;
 }
 
 /**
- * <p>The associated resource details for a standard destination endpoint. This type does not require any additional settings.</p>
+ * The associated resource details for a standard destination endpoint. This type does not require any additional settings.
+ *
  * @public
  */
 export interface StandardDestinationEndpointAssociatedResourceDetails {}
 
 /**
- * <p>The details of the resource that is associated with a destination endpoint. This is a union type, so exactly one of its members is set, depending on the type of the destination endpoint.</p>
+ * The details of the resource that is associated with a destination endpoint. This is a union type, so exactly one of its members is set, depending on the type of the destination endpoint.
+ *
  * @public
  */
 export type DestinationEndpointAssociatedResourceDetails =
@@ -3001,7 +3514,8 @@ export type DestinationEndpointAssociatedResourceDetails =
  */
 export namespace DestinationEndpointAssociatedResourceDetails {
   /**
-   * <p>The associated resource details for a standard destination endpoint.</p>
+   * The associated resource details for a standard destination endpoint.
+   *
    * @public
    */
   export interface StandardMember {
@@ -3011,7 +3525,8 @@ export namespace DestinationEndpointAssociatedResourceDetails {
   }
 
   /**
-   * <p>The associated resource details for a destination endpoint that represents a router input.</p>
+   * The associated resource details for a destination endpoint that represents a router input.
+   *
    * @public
    */
   export interface RouterInputMember {
@@ -3041,61 +3556,71 @@ export namespace DestinationEndpointAssociatedResourceDetails {
 }
 
 /**
- * <p>The configuration settings for a destination endpoint that represents a router input.</p>
+ * The configuration settings for a destination endpoint that represents a router input.
+ *
  * @public
  */
 export interface RouterInputDestinationEndpointConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the router input that the destination endpoint represents.</p>
+   * The Amazon Resource Name (ARN) of the router input that the destination endpoint represents.
+   *
    * @public
    */
   RouterInputArn: string | undefined;
 }
 
 /**
- * <p>A rule that allows a specific CIDR block to connect to the public destination endpoint.</p>
+ * A rule that allows a specific CIDR block to connect to the public destination endpoint.
+ *
  * @public
  */
 export interface PublicDestinationEndpointNetworkingConfigurationAllowRule {
   /**
-   * <p>The CIDR block that is allowed to connect to the destination endpoint, in CIDR notation.</p>
+   * The CIDR block that is allowed to connect to the destination endpoint, in CIDR notation.
+   *
    * @public
    */
   Cidr: string | undefined;
 }
 
 /**
- * <p>The networking configuration for a publicly accessible destination endpoint, including the CIDR blocks that are allowed to connect.</p>
+ * The networking configuration for a publicly accessible destination endpoint, including the CIDR blocks that are allowed to connect.
+ *
  * @public
  */
 export interface PublicDestinationEndpointNetworkingConfiguration {
   /**
-   * <p>The rules that specify which CIDR blocks can connect to the destination endpoint. You can specify up to 10 rules.</p>
+   * The rules that specify which CIDR blocks can connect to the destination endpoint. You can specify up to 10 rules.
+   *
    * @public
    */
   DestinationAllowRules: PublicDestinationEndpointNetworkingConfigurationAllowRule[] | undefined;
 }
 
 /**
- * <p>The networking configuration for a destination endpoint in a virtual private cloud (VPC).</p>
+ * The networking configuration for a destination endpoint in a virtual private cloud (VPC).
+ *
  * @public
  */
 export interface VpcDestinationEndpointNetworkingConfiguration {
   /**
-   * <p>The IDs of the security groups to associate with the destination endpoint. You can specify from 1 to 5 security groups.</p>
+   * The IDs of the security groups to associate with the destination endpoint. You can specify from 1 to 5 security groups.
+   *
    * @public
    */
   SecurityGroupIds: string[] | undefined;
 
   /**
-   * <p>The ID of the subnet to use for the destination endpoint.</p>
+   * The ID of the subnet to use for the destination endpoint.
+   *
    * @public
    */
   SubnetId: string | undefined;
 }
 
 /**
- * <p>The networking configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set: <code>public</code> for a publicly accessible endpoint, or <code>vpc</code> for an endpoint in a virtual private cloud (VPC).</p>
+ * The networking configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set: `public` for a publicly accessible endpoint, or `vpc` for an endpoint in a virtual private cloud (VPC).
+ *
  * @public
  */
 export type StandardDestinationEndpointNetworkingConfiguration =
@@ -3108,7 +3633,8 @@ export type StandardDestinationEndpointNetworkingConfiguration =
  */
 export namespace StandardDestinationEndpointNetworkingConfiguration {
   /**
-   * <p>The configuration for a publicly accessible destination endpoint.</p>
+   * The configuration for a publicly accessible destination endpoint.
+   *
    * @public
    */
   export interface PublicMember {
@@ -3118,7 +3644,8 @@ export namespace StandardDestinationEndpointNetworkingConfiguration {
   }
 
   /**
-   * <p>The configuration for a destination endpoint in a virtual private cloud (VPC).</p>
+   * The configuration for a destination endpoint in a virtual private cloud (VPC).
+   *
    * @public
    */
   export interface VpcMember {
@@ -3148,121 +3675,141 @@ export namespace StandardDestinationEndpointNetworkingConfiguration {
 }
 
 /**
- * <p>The configuration settings for a destination endpoint that uses the RIST protocol.</p>
+ * The configuration settings for a destination endpoint that uses the RIST protocol.
+ *
  * @public
  */
 export interface RistStandardDestinationEndpointConfiguration {
   /**
-   * <p>The IP address on which the destination endpoint receives content.</p>
+   * The IP address on which the destination endpoint receives content.
+   *
    * @public
    */
   DestinationAddress: string | undefined;
 
   /**
-   * <p>The port on which the destination endpoint receives content. The valid range is 1024 to 65531.</p>
+   * The port on which the destination endpoint receives content. The valid range is 1024 to 65531.
+   *
    * @public
    */
   DestinationIngestPort: number | undefined;
 }
 
 /**
- * <p>The configuration settings for a destination endpoint that uses the RTP protocol.</p>
+ * The configuration settings for a destination endpoint that uses the RTP protocol.
+ *
  * @public
  */
 export interface RtpStandardDestinationEndpointConfiguration {
   /**
-   * <p>The IP address on which the destination endpoint receives content.</p>
+   * The IP address on which the destination endpoint receives content.
+   *
    * @public
    */
   DestinationAddress: string | undefined;
 
   /**
-   * <p>The port on which the destination endpoint receives content. The valid range is 1024 to 65531.</p>
+   * The port on which the destination endpoint receives content. The valid range is 1024 to 65531.
+   *
    * @public
    */
   DestinationIngestPort: number | undefined;
 
   /**
-   * <p>Indicates whether forward error correction (FEC) is enabled for the destination endpoint.</p>
+   * Indicates whether forward error correction (FEC) is enabled for the destination endpoint.
+   *
    * @public
    */
   ForwardErrorCorrectionState: ForwardErrorCorrectionState | undefined;
 }
 
 /**
- * <p>The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.</p>
+ * The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.
+ *
  * @public
  */
 export interface EndpointEncryptionSecretConfiguration {
   /**
-   * <p>The ARN of the Secrets Manager secret that holds the key or passphrase. The secret must be encrypted with a customer managed Amazon Web Services KMS key that is enabled and symmetric; it cannot use the Amazon Web Services managed key <code>aws/secretsmanager</code>. The secret must be in the same Amazon Web Services account and Region as the endpoint.</p>
+   * The ARN of the Secrets Manager secret that holds the key or passphrase. The secret must be encrypted with a customer managed Amazon Web Services KMS key that is enabled and symmetric; it cannot use the Amazon Web Services managed key `aws/secretsmanager`. The secret must be in the same Amazon Web Services account and Region as the endpoint.
+   *
    * @public
    */
   SecretArn: string | undefined;
 }
 
 /**
- * <p>The configuration settings for a destination endpoint that uses SRT in caller mode.</p>
+ * The configuration settings for a destination endpoint that uses SRT in caller mode.
+ *
  * @public
  */
 export interface SrtCallerStandardDestinationEndpointConfiguration {
   /**
-   * <p>The port on which the source listens for the connection. The valid range is 3000 to 30000.</p>
+   * The port on which the source listens for the connection. The valid range is 3000 to 30000.
+   *
    * @public
    */
   SourceListenerPort: number | undefined;
 
   /**
-   * <p>The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.</p>
+   * The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.
+   *
    * @public
    */
   MinimumLatencyMilliseconds: number | undefined;
 
   /**
-   * <p>The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.</p>
+   * The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.
+   *
    * @public
    */
   EncryptionPassphrase?: EndpointEncryptionSecretConfiguration | undefined;
 }
 
 /**
- * <p>The configuration settings for a destination endpoint that uses SRT in listener mode.</p>
+ * The configuration settings for a destination endpoint that uses SRT in listener mode.
+ *
  * @public
  */
 export interface SrtListenerStandardDestinationEndpointConfiguration {
   /**
-   * <p>The IP address on which the destination endpoint listens for incoming connections.</p>
+   * The IP address on which the destination endpoint listens for incoming connections.
+   *
    * @public
    */
   DestinationAddress: string | undefined;
 
   /**
-   * <p>The port on which the destination endpoint listens for incoming connections. The valid range is 0 to 65531.</p>
+   * The port on which the destination endpoint listens for incoming connections. The valid range is 0 to 65531.
+   *
    * @public
    */
   DestinationIngestPort: number | undefined;
 
   /**
-   * <p>The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.</p>
+   * The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.
+   *
    * @public
    */
   MinimumLatencyMilliseconds: number | undefined;
 
   /**
-   * <p>The stream ID that identifies the content for the SRT connection.</p>
+   * The stream ID that identifies the content for the SRT connection.
+   *
    * @public
    */
   StreamId?: string | undefined;
 
   /**
-   * <p>The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.</p>
+   * The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.
+   *
    * @public
    */
   EncryptionPassphrase?: EndpointEncryptionSecretConfiguration | undefined;
 }
 
 /**
- * <p>The protocol configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the destination endpoint uses.</p>
+ * The protocol configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the destination endpoint uses.
+ *
  * @public
  */
 export type StandardDestinationEndpointProtocolConfiguration =
@@ -3277,7 +3824,8 @@ export type StandardDestinationEndpointProtocolConfiguration =
  */
 export namespace StandardDestinationEndpointProtocolConfiguration {
   /**
-   * <p>The configuration settings for a destination endpoint that uses the RIST protocol.</p>
+   * The configuration settings for a destination endpoint that uses the RIST protocol.
+   *
    * @public
    */
   export interface RistMember {
@@ -3289,7 +3837,8 @@ export namespace StandardDestinationEndpointProtocolConfiguration {
   }
 
   /**
-   * <p>The configuration settings for a destination endpoint that uses SRT in listener mode.</p>
+   * The configuration settings for a destination endpoint that uses SRT in listener mode.
+   *
    * @public
    */
   export interface SrtListenerMember {
@@ -3301,7 +3850,8 @@ export namespace StandardDestinationEndpointProtocolConfiguration {
   }
 
   /**
-   * <p>The configuration settings for a destination endpoint that uses SRT in caller mode.</p>
+   * The configuration settings for a destination endpoint that uses SRT in caller mode.
+   *
    * @public
    */
   export interface SrtCallerMember {
@@ -3313,7 +3863,8 @@ export namespace StandardDestinationEndpointProtocolConfiguration {
   }
 
   /**
-   * <p>The configuration settings for a destination endpoint that uses the RTP protocol.</p>
+   * The configuration settings for a destination endpoint that uses the RTP protocol.
+   *
    * @public
    */
   export interface RtpMember {
@@ -3349,43 +3900,58 @@ export namespace StandardDestinationEndpointProtocolConfiguration {
 }
 
 /**
- * <p>The configuration settings for a standard destination endpoint.</p>
+ * The configuration settings for a standard destination endpoint.
+ *
  * @public
  */
 export interface StandardDestinationEndpointConfiguration {
   /**
-   * <p>The name of the destination endpoint.</p>
+   * The name of the destination endpoint.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The networking configuration for the destination endpoint, which determines whether it is publicly accessible or in a virtual private cloud (VPC).</p>
+   * The networking configuration for the destination endpoint, which determines whether it is publicly accessible or in a virtual private cloud (VPC).
+   *
    * @public
    */
   DestinationNetworkingConfiguration: StandardDestinationEndpointNetworkingConfiguration | undefined;
 
   /**
-   * <p>The protocol configuration for the destination endpoint.</p>
+   * The protocol configuration for the destination endpoint.
+   *
    * @public
    */
   ProtocolConfiguration: StandardDestinationEndpointProtocolConfiguration | undefined;
 
   /**
-   * <p>The networking type of the destination endpoint. Valid values include the following:</p> <ul> <li> <p> <code>PUBLIC</code> – The destination endpoint is publicly accessible.</p> </li> <li> <p> <code>VPC</code> – The destination endpoint is in a virtual private cloud (VPC).</p> </li> </ul>
+   * The networking type of the destination endpoint. Valid values include the following:
+   *
+   * - `PUBLIC` – The destination endpoint is publicly accessible.
+   * - `VPC` – The destination endpoint is in a virtual private cloud (VPC).
+   *
    * @public
    */
   DestinationNetworkingType?: DestinationEndpointNetworkingType | undefined;
 
   /**
-   * <p>The protocol used by the destination endpoint. Valid values include the following:</p> <ul> <li> <p> <code>RTP</code> – Real-time Transport Protocol.</p> </li> <li> <p> <code>RIST</code> – Reliable Internet Stream Transport.</p> </li> <li> <p> <code>SRT_CALLER</code> – Secure Reliable Transport (SRT) in caller mode.</p> </li> <li> <p> <code>SRT_LISTENER</code> – Secure Reliable Transport (SRT) in listener mode.</p> </li> </ul>
+   * The protocol used by the destination endpoint. Valid values include the following:
+   *
+   * - `RTP` – Real-time Transport Protocol.
+   * - `RIST` – Reliable Internet Stream Transport.
+   * - `SRT_CALLER` – Secure Reliable Transport (SRT) in caller mode.
+   * - `SRT_LISTENER` – Secure Reliable Transport (SRT) in listener mode.
+   *
    * @public
    */
   Protocol?: DestinationEndpointProtocol | undefined;
 }
 
 /**
- * <p>The configuration settings for a destination endpoint. This is a union type, so exactly one of its members is set, depending on the type of the destination endpoint.</p>
+ * The configuration settings for a destination endpoint. This is a union type, so exactly one of its members is set, depending on the type of the destination endpoint.
+ *
  * @public
  */
 export type DestinationEndpointConfiguration =
@@ -3398,7 +3964,8 @@ export type DestinationEndpointConfiguration =
  */
 export namespace DestinationEndpointConfiguration {
   /**
-   * <p>The configuration settings for a standard destination endpoint, which represents an external destination.</p>
+   * The configuration settings for a standard destination endpoint, which represents an external destination.
+   *
    * @public
    */
   export interface StandardMember {
@@ -3408,7 +3975,8 @@ export namespace DestinationEndpointConfiguration {
   }
 
   /**
-   * <p>The configuration settings for a destination endpoint that represents a router input.</p>
+   * The configuration settings for a destination endpoint that represents a router input.
+   *
    * @public
    */
   export interface RouterInputMember {
@@ -3438,25 +4006,34 @@ export namespace DestinationEndpointConfiguration {
 }
 
 /**
- * <p>The endpoint encryption configuration for connections that use a key or passphrase that you store in Secrets Manager.</p>
+ * The endpoint encryption configuration for connections that use a key or passphrase that you store in Secrets Manager.
+ *
  * @public
  */
 export interface SecretsManagerEndpointEncryptionConfiguration {
   /**
-   * <p>The type of secret used to encrypt the connection. Valid values include the following:</p> <ul> <li> <p> <code>AES_128_KEY</code> – A 128-bit AES encryption key.</p> </li> <li> <p> <code>AES_192_KEY</code> – A 192-bit AES encryption key.</p> </li> <li> <p> <code>AES_256_KEY</code> – A 256-bit AES encryption key.</p> </li> <li> <p> <code>SRT_PASSPHRASE</code> – An SRT passphrase.</p> </li> </ul>
+   * The type of secret used to encrypt the connection. Valid values include the following:
+   *
+   * - `AES_128_KEY` – A 128-bit AES encryption key.
+   * - `AES_192_KEY` – A 192-bit AES encryption key.
+   * - `AES_256_KEY` – A 256-bit AES encryption key.
+   * - `SRT_PASSPHRASE` – An SRT passphrase.
+   *
    * @public
    */
   EncryptionSecretType?: EndpointEncryptionSecretType | undefined;
 
   /**
-   * <p>The Secrets Manager secret that holds the key or passphrase used to encrypt the connection.</p>
+   * The Secrets Manager secret that holds the key or passphrase used to encrypt the connection.
+   *
    * @public
    */
   EncryptionSecret: EndpointEncryptionSecretConfiguration | undefined;
 }
 
 /**
- * <p>The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: <code>secretsManager</code> when you store the encryption key or passphrase in Secrets Manager, or <code>automatic</code> when you let MediaConnect determine the encryption key when the endpoint connects.</p>
+ * The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: `secretsManager` when you store the encryption key or passphrase in Secrets Manager, or `automatic` when you let MediaConnect determine the encryption key when the endpoint connects.
+ *
  * @public
  */
 export type EndpointEncryptionConfiguration =
@@ -3469,7 +4046,8 @@ export type EndpointEncryptionConfiguration =
  */
 export namespace EndpointEncryptionConfiguration {
   /**
-   * <p>The encryption configuration for a connection that uses a key or passphrase that you store in Secrets Manager.</p>
+   * The encryption configuration for a connection that uses a key or passphrase that you store in Secrets Manager.
+   *
    * @public
    */
   export interface SecretsManagerMember {
@@ -3479,7 +4057,8 @@ export namespace EndpointEncryptionConfiguration {
   }
 
   /**
-   * <p>The configuration for automatic encryption, where MediaConnect determines the encryption key when the endpoint connects.</p>
+   * The configuration for automatic encryption, where MediaConnect determines the encryption key when the endpoint connects.
+   *
    * @public
    */
   export interface AutomaticMember {
@@ -3509,67 +4088,78 @@ export namespace EndpointEncryptionConfiguration {
 }
 
 /**
- * <p>The connection details for a destination endpoint that represents a router input.</p>
+ * The connection details for a destination endpoint that represents a router input.
+ *
  * @public
  */
 export interface RouterInputDestinationEndpointConnectionDetails {
   /**
-   * <p>The type of encryption that the source uses for the connection.</p>
+   * The type of encryption that the source uses for the connection.
+   *
    * @public
    */
   SourceEncryptionType?: EndpointEncryptionType | undefined;
 
   /**
-   * <p>The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: <code>secretsManager</code> when you store the encryption key or passphrase in Secrets Manager, or <code>automatic</code> when you let MediaConnect determine the encryption key when the endpoint connects.</p>
+   * The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: `secretsManager` when you store the encryption key or passphrase in Secrets Manager, or `automatic` when you let MediaConnect determine the encryption key when the endpoint connects.
+   *
    * @public
    */
   SourceEncryptionConfiguration?: EndpointEncryptionConfiguration | undefined;
 
   /**
-   * <p>The type of the connected source endpoint.</p>
+   * The type of the connected source endpoint.
+   *
    * @public
    */
   SourceEndpointType?: SourceEndpointType | undefined;
 }
 
 /**
- * <p>The connection details for a standard destination endpoint.</p>
+ * The connection details for a standard destination endpoint.
+ *
  * @public
  */
 export interface StandardDestinationEndpointConnectionDetails {
   /**
-   * <p>The IP address of the source that is connected to the destination endpoint.</p>
+   * The IP address of the source that is connected to the destination endpoint.
+   *
    * @public
    */
   SourceIpAddress?: string | undefined;
 
   /**
-   * <p>The port on which the source listens for the connection.</p>
+   * The port on which the source listens for the connection.
+   *
    * @public
    */
   SourceListenerPort?: number | undefined;
 
   /**
-   * <p>The type of encryption that the source uses for the connection.</p>
+   * The type of encryption that the source uses for the connection.
+   *
    * @public
    */
   SourceEncryptionType?: EndpointEncryptionType | undefined;
 
   /**
-   * <p>The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: <code>secretsManager</code> when you store the encryption key or passphrase in Secrets Manager, or <code>automatic</code> when you let MediaConnect determine the encryption key when the endpoint connects.</p>
+   * The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: `secretsManager` when you store the encryption key or passphrase in Secrets Manager, or `automatic` when you let MediaConnect determine the encryption key when the endpoint connects.
+   *
    * @public
    */
   SourceEncryptionConfiguration?: EndpointEncryptionConfiguration | undefined;
 
   /**
-   * <p>The type of the connected source endpoint.</p>
+   * The type of the connected source endpoint.
+   *
    * @public
    */
   SourceEndpointType?: SourceEndpointType | undefined;
 }
 
 /**
- * <p>The connection details for a destination endpoint. After the destination endpoint connects to a source endpoint, MediaConnect populates these details to describe the connected source. This is a union type, so exactly one of its members is set, depending on the destination endpoint type.</p>
+ * The connection details for a destination endpoint. After the destination endpoint connects to a source endpoint, MediaConnect populates these details to describe the connected source. This is a union type, so exactly one of its members is set, depending on the destination endpoint type.
+ *
  * @public
  */
 export type DestinationEndpointConnectionDetails =
@@ -3582,7 +4172,8 @@ export type DestinationEndpointConnectionDetails =
  */
 export namespace DestinationEndpointConnectionDetails {
   /**
-   * <p>The connection details for a standard destination endpoint.</p>
+   * The connection details for a standard destination endpoint.
+   *
    * @public
    */
   export interface StandardMember {
@@ -3592,7 +4183,8 @@ export namespace DestinationEndpointConnectionDetails {
   }
 
   /**
-   * <p>The connection details for a destination endpoint that represents a router input.</p>
+   * The connection details for a destination endpoint that represents a router input.
+   *
    * @public
    */
   export interface RouterInputMember {
@@ -3622,49 +4214,60 @@ export namespace DestinationEndpointConnectionDetails {
 }
 
 /**
- * <p>A status message for a destination endpoint.</p>
+ * A status message for a destination endpoint.
+ *
  * @public
  */
 export interface DestinationEndpointMessage {
   /**
-   * <p>The message code.</p>
+   * The message code.
+   *
    * @public
    */
   Code: string | undefined;
 
   /**
-   * <p>The message text.</p>
+   * The message text.
+   *
    * @public
    */
   Message: string | undefined;
 }
 
 /**
- * <p>The cross-account sharing details for an endpoint that another account shares with this account.</p>
+ * The cross-account sharing details for an endpoint that another account shares with this account.
+ *
  * @public
  */
 export interface ConsumedResourceShareDetails {
   /**
-   * <p>The ID of the Amazon Web Services account that owns the shared endpoint.</p>
+   * The ID of the Amazon Web Services account that owns the shared endpoint.
+   *
    * @public
    */
   OwnerAccountId: string | undefined;
 }
 
 /**
- * <p>The cross-account sharing details for an endpoint that this account owns and shares with other accounts.</p>
+ * The cross-account sharing details for an endpoint that this account owns and shares with other accounts.
+ *
  * @public
  */
 export interface OwnedResourceShareDetails {
   /**
-   * <p>The sharing state of the endpoint. Valid values include the following:</p> <ul> <li> <p> <code>SHARED</code> – The endpoint is shared with one or more accounts.</p> </li> <li> <p> <code>UNSHARED</code> – The endpoint is not shared with other accounts.</p> </li> </ul>
+   * The sharing state of the endpoint. Valid values include the following:
+   *
+   * - `SHARED` – The endpoint is shared with one or more accounts.
+   * - `UNSHARED` – The endpoint is not shared with other accounts.
+   *
    * @public
    */
   ShareState: ResourceShareState | undefined;
 }
 
 /**
- * <p>The cross-account sharing details for an endpoint. Endpoints are shared through Resource Access Manager (RAM). This is a union type, so exactly one of its members is set: <code>owned</code> when this account owns the endpoint and shares it with other accounts, or <code>consumed</code> when this account consumes an endpoint that another account shares. To change how an endpoint is shared, use RAM.</p>
+ * The cross-account sharing details for an endpoint. Endpoints are shared through Resource Access Manager (RAM). This is a union type, so exactly one of its members is set: `owned` when this account owns the endpoint and shares it with other accounts, or `consumed` when this account consumes an endpoint that another account shares. To change how an endpoint is shared, use RAM.
+ *
  * @public
  */
 export type ResourceShareDetails =
@@ -3677,7 +4280,8 @@ export type ResourceShareDetails =
  */
 export namespace ResourceShareDetails {
   /**
-   * <p>The sharing details for an endpoint that this account owns and shares with other accounts through RAM.</p>
+   * The sharing details for an endpoint that this account owns and shares with other accounts through RAM.
+   *
    * @public
    */
   export interface OwnedMember {
@@ -3687,7 +4291,8 @@ export namespace ResourceShareDetails {
   }
 
   /**
-   * <p>The sharing details for an endpoint that another account shares with this account through RAM.</p>
+   * The sharing details for an endpoint that another account shares with this account through RAM.
+   *
    * @public
    */
   export interface ConsumedMember {
@@ -3717,168 +4322,209 @@ export namespace ResourceShareDetails {
 }
 
 /**
- * <p>The details of a destination endpoint in MediaConnect, including its configuration, state, and connection details.</p>
+ * The details of a destination endpoint in MediaConnect, including its configuration, state, and connection details.
+ *
  * @public
  */
 export interface DestinationEndpoint {
   /**
-   * <p>The name of the destination endpoint.</p>
+   * The name of the destination endpoint.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the destination endpoint.</p>
+   * The Amazon Resource Name (ARN) of the destination endpoint.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The unique identifier of the destination endpoint.</p>
+   * The unique identifier of the destination endpoint.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The description of the destination endpoint.</p>
+   * The description of the destination endpoint.
+   *
    * @public
    */
   Description: string | undefined;
 
   /**
-   * <p>The name of the Amazon Web Services Region in which the destination endpoint is located.</p>
+   * The name of the Amazon Web Services Region in which the destination endpoint is located.
+   *
    * @public
    */
   RegionName: string | undefined;
 
   /**
-   * <p>The Availability Zone in which the destination endpoint is located.</p>
+   * The Availability Zone in which the destination endpoint is located.
+   *
    * @public
    */
   AvailabilityZone?: string | undefined;
 
   /**
-   * <p>The ID of the Availability Zone in which the destination endpoint is located.</p>
+   * The ID of the Availability Zone in which the destination endpoint is located.
+   *
    * @public
    */
   AvailabilityZoneId?: string | undefined;
 
   /**
-   * <p>The date and time when the destination endpoint was created.</p>
+   * The date and time when the destination endpoint was created.
+   *
    * @public
    */
   CreatedAt: Date | undefined;
 
   /**
-   * <p>The date and time when the destination endpoint was last updated.</p>
+   * The date and time when the destination endpoint was last updated.
+   *
    * @public
    */
   UpdatedAt: Date | undefined;
 
   /**
-   * <p>The entity that manages the lifecycle of the destination endpoint.</p>
+   * The entity that manages the lifecycle of the destination endpoint.
+   *
    * @public
    */
   LifecycleManagement: EndpointLifecycle | undefined;
 
   /**
-   * <p>The status messages for the destination endpoint.</p>
+   * The status messages for the destination endpoint.
+   *
    * @public
    */
   Messages: DestinationEndpointMessage[] | undefined;
 
   /**
-   * <p>The type of the destination endpoint. Valid values include the following:</p> <ul> <li> <p> <code>STANDARD</code> – A destination endpoint that represents an external destination over a standard protocol, such as RTP, RIST, or SRT.</p> </li> <li> <p> <code>ROUTER_INPUT</code> – A destination endpoint that represents a router input.</p> </li> </ul>
+   * The type of the destination endpoint. Valid values include the following:
+   *
+   * - `STANDARD` – A destination endpoint that represents an external destination over a standard protocol, such as RTP, RIST, or SRT.
+   * - `ROUTER_INPUT` – A destination endpoint that represents a router input.
+   *
    * @public
    */
   DestinationType: DestinationEndpointType | undefined;
 
   /**
-   * <p>The configuration settings for the destination endpoint.</p>
+   * The configuration settings for the destination endpoint.
+   *
    * @public
    */
   Configuration: DestinationEndpointConfiguration | undefined;
 
   /**
-   * <p>Indicates whether this account owns the destination endpoint or consumes it from another account through RAM.</p>
+   * Indicates whether this account owns the destination endpoint or consumes it from another account through RAM.
+   *
    * @public
    */
   ResourceShareOwnership: ResourceShareOwnership | undefined;
 
   /**
-   * <p>The cross-account sharing details for an endpoint. Endpoints are shared through Resource Access Manager (RAM). This is a union type, so exactly one of its members is set: <code>owned</code> when this account owns the endpoint and shares it with other accounts, or <code>consumed</code> when this account consumes an endpoint that another account shares. To change how an endpoint is shared, use RAM.</p>
+   * The cross-account sharing details for an endpoint. Endpoints are shared through Resource Access Manager (RAM). This is a union type, so exactly one of its members is set: `owned` when this account owns the endpoint and shares it with other accounts, or `consumed` when this account consumes an endpoint that another account shares. To change how an endpoint is shared, use RAM.
+   *
    * @public
    */
   ResourceShareDetails: ResourceShareDetails | undefined;
 
   /**
-   * <p>The registration state of the destination endpoint. Valid values include the following:</p> <ul> <li> <p> <code>REGISTERED</code> – The destination endpoint is registered and ready to use.</p> </li> <li> <p> <code>REGISTERING</code> – MediaConnect is registering the destination endpoint.</p> </li> <li> <p> <code>DEREGISTERING</code> – MediaConnect is deregistering the destination endpoint.</p> </li> <li> <p> <code>REGISTRATION_FAILED</code> – MediaConnect couldn't register the destination endpoint.</p> </li> </ul>
+   * The registration state of the destination endpoint. Valid values include the following:
+   *
+   * - `REGISTERED` – The destination endpoint is registered and ready to use.
+   * - `REGISTERING` – MediaConnect is registering the destination endpoint.
+   * - `DEREGISTERING` – MediaConnect is deregistering the destination endpoint.
+   * - `REGISTRATION_FAILED` – MediaConnect couldn't register the destination endpoint.
+   *
    * @public
    */
   RegistrationState: DestinationEndpointRegistrationState | undefined;
 
   /**
-   * <p>The connection details for the destination endpoint.</p>
+   * The connection details for the destination endpoint.
+   *
    * @public
    */
   ConnectionDetails?: DestinationEndpointConnectionDetails | undefined;
 
   /**
-   * <p>The connection state of the destination endpoint. Valid values include the following:</p> <ul> <li> <p> <code>CONNECTED</code> – The destination endpoint is connected to a source endpoint.</p> </li> <li> <p> <code>DISCONNECTED</code> – The destination endpoint isn't connected to a source endpoint.</p> </li> <li> <p> <code>CONNECTING</code> – The destination endpoint is connecting to a source endpoint.</p> </li> <li> <p> <code>DISCONNECTING</code> – The destination endpoint is disconnecting from a source endpoint.</p> </li> </ul>
+   * The connection state of the destination endpoint. Valid values include the following:
+   *
+   * - `CONNECTED` – The destination endpoint is connected to a source endpoint.
+   * - `DISCONNECTED` – The destination endpoint isn't connected to a source endpoint.
+   * - `CONNECTING` – The destination endpoint is connecting to a source endpoint.
+   * - `DISCONNECTING` – The destination endpoint is disconnecting from a source endpoint.
+   *
    * @public
    */
   ConnectionState: DestinationEndpointConnectionState | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the source endpoint that is connected to the destination endpoint.</p>
+   * The Amazon Resource Name (ARN) of the source endpoint that is connected to the destination endpoint.
+   *
    * @public
    */
   ConnectedSource?: string | undefined;
 
   /**
-   * <p>The type of decryption used for the destination endpoint connection.</p>
+   * The type of decryption used for the destination endpoint connection.
+   *
    * @public
    */
   DecryptionType?: EndpointEncryptionType | undefined;
 
   /**
-   * <p>The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: <code>secretsManager</code> when you store the encryption key or passphrase in Secrets Manager, or <code>automatic</code> when you let MediaConnect determine the encryption key when the endpoint connects.</p>
+   * The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: `secretsManager` when you store the encryption key or passphrase in Secrets Manager, or `automatic` when you let MediaConnect determine the encryption key when the endpoint connects.
+   *
    * @public
    */
   DecryptionConfiguration?: EndpointEncryptionConfiguration | undefined;
 
   /**
-   * <p>The details of the resource that is associated with the destination endpoint.</p>
+   * The details of the resource that is associated with the destination endpoint.
+   *
    * @public
    */
   AssociatedResourceDetails: DestinationEndpointAssociatedResourceDetails | undefined;
 
   /**
-   * <p>The tags associated with the destination endpoint. Each tag is a key-value pair.</p>
+   * The tags associated with the destination endpoint. Each tag is a key-value pair.
+   *
    * @public
    */
   Tags: Record<string, string> | undefined;
 }
 
 /**
- * <p>An error for a destination endpoint that MediaConnect couldn't retrieve in a <code>BatchGetDestinationEndpoint</code> request.</p>
+ * An error for a destination endpoint that MediaConnect couldn't retrieve in a `BatchGetDestinationEndpoint` request.
+ *
  * @public
  */
 export interface BatchGetDestinationEndpointError {
   /**
-   * <p>The Amazon Resource Name (ARN) of the destination endpoint that MediaConnect couldn't retrieve.</p>
+   * The Amazon Resource Name (ARN) of the destination endpoint that MediaConnect couldn't retrieve.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The error code.</p>
+   * The error code.
+   *
    * @public
    */
   Code: string | undefined;
 
   /**
-   * <p>A description of the error.</p>
+   * A description of the error.
+   *
    * @public
    */
   Message: string | undefined;
@@ -3889,13 +4535,15 @@ export interface BatchGetDestinationEndpointError {
  */
 export interface BatchGetDestinationEndpointResponse {
   /**
-   * <p>The destination endpoints that MediaConnect successfully retrieved.</p>
+   * The destination endpoints that MediaConnect successfully retrieved.
+   *
    * @public
    */
   DestinationEndpoints: DestinationEndpoint[] | undefined;
 
   /**
-   * <p>The errors for any destination endpoints that MediaConnect couldn't retrieve.</p>
+   * The errors for any destination endpoints that MediaConnect couldn't retrieve.
+   *
    * @public
    */
   Errors: BatchGetDestinationEndpointError[] | undefined;
@@ -3906,170 +4554,204 @@ export interface BatchGetDestinationEndpointResponse {
  */
 export interface BatchGetRouterInputRequest {
   /**
-   * <p>The Amazon Resource Names (ARNs) of the router inputs you want to retrieve information about.</p>
+   * The Amazon Resource Names (ARNs) of the router inputs you want to retrieve information about.
+   *
    * @public
    */
   Arns: string[] | undefined;
 }
 
 /**
- * <p>An error that occurred when retrieving multiple router inputs in the BatchGetRouterInput operation, including the ARN, error code, and error message.</p>
+ * An error that occurred when retrieving multiple router inputs in the BatchGetRouterInput operation, including the ARN, error code, and error message.
+ *
  * @public
  */
 export interface BatchGetRouterInputError {
   /**
-   * <p>The Amazon Resource Name (ARN) of the router input for which the error occurred.</p>
+   * The Amazon Resource Name (ARN) of the router input for which the error occurred.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The error code associated with the error.</p>
+   * The error code associated with the error.
+   *
    * @public
    */
   Code: string | undefined;
 
   /**
-   * <p>A message describing the error.</p>
+   * A message describing the error.
+   *
    * @public
    */
   Message: string | undefined;
 }
 
 /**
- * <p>Configuration settings for a router input that is represented by a destination endpoint.</p>
+ * Configuration settings for a router input that is represented by a destination endpoint.
+ *
  * @public
  */
 export interface DestinationEndpointRouterInputConfiguration {
   /**
-   * <p>The entity that manages the lifecycle of the associated destination endpoint. Valid values include the following:</p> <ul> <li> <p> <code>MANAGED</code> – MediaConnect manages the lifecycle of the associated destination endpoint.</p> </li> <li> <p> <code>UNMANAGED</code> – You manage the lifecycle of the associated destination endpoint.</p> </li> </ul>
+   * The entity that manages the lifecycle of the associated destination endpoint. Valid values include the following:
+   *
+   * - `MANAGED` – MediaConnect manages the lifecycle of the associated destination endpoint.
+   * - `UNMANAGED` – You manage the lifecycle of the associated destination endpoint.
+   *
    * @public
    */
   EndpointLifecycleManagement: EndpointLifecycle | undefined;
 
   /**
-   * <p>The type of transit decryption applied to the source content that this router input receives. Valid values include the following:</p> <ul> <li> <p> <code>SECRETS_MANAGER</code> – The decryption key or passphrase is stored in Secrets Manager.</p> </li> <li> <p> <code>AUTOMATIC</code> – MediaConnect determines the decryption key when the endpoint connects.</p> </li> </ul>
+   * The type of transit decryption applied to the source content that this router input receives. Valid values include the following:
+   *
+   * - `SECRETS_MANAGER` – The decryption key or passphrase is stored in Secrets Manager.
+   * - `AUTOMATIC` – MediaConnect determines the decryption key when the endpoint connects.
+   *
    * @public
    */
   SourceTransitDecryptionType?: EndpointEncryptionType | undefined;
 
   /**
-   * <p>The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: <code>secretsManager</code> when you store the encryption key or passphrase in Secrets Manager, or <code>automatic</code> when you let MediaConnect determine the encryption key when the endpoint connects.</p>
+   * The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: `secretsManager` when you store the encryption key or passphrase in Secrets Manager, or `automatic` when you let MediaConnect determine the encryption key when the endpoint connects.
+   *
    * @public
    */
   SourceTransitDecryption: EndpointEncryptionConfiguration | undefined;
 }
 
 /**
- * <p>The configuration settings for a router input using the RIST (Reliable Internet Stream Transport) protocol, including the port and recovery latency.</p>
+ * The configuration settings for a router input using the RIST (Reliable Internet Stream Transport) protocol, including the port and recovery latency.
+ *
  * @public
  */
 export interface RistRouterInputConfiguration {
   /**
-   * <p>The port number used for the RIST protocol in the router input configuration.</p>
+   * The port number used for the RIST protocol in the router input configuration.
+   *
    * @public
    */
   Port: number | undefined;
 
   /**
-   * <p>The recovery latency in milliseconds for the RIST protocol in the router input configuration.</p>
+   * The recovery latency in milliseconds for the RIST protocol in the router input configuration.
+   *
    * @public
    */
   RecoveryLatencyMilliseconds: number | undefined;
 }
 
 /**
- * <p>The configuration settings for a Router Input using the RTP (Real-Time Transport Protocol) protocol, including the port and forward error correction state.</p>
+ * The configuration settings for a Router Input using the RTP (Real-Time Transport Protocol) protocol, including the port and forward error correction state.
+ *
  * @public
  */
 export interface RtpRouterInputConfiguration {
   /**
-   * <p>The port number used for the RTP protocol in the router input configuration.</p>
+   * The port number used for the RTP protocol in the router input configuration.
+   *
    * @public
    */
   Port: number | undefined;
 
   /**
-   * <p>The state of forward error correction for the RTP protocol in the router input configuration.</p>
+   * The state of forward error correction for the RTP protocol in the router input configuration.
+   *
    * @public
    */
   ForwardErrorCorrection?: ForwardErrorCorrectionState | undefined;
 }
 
 /**
- * <p>Contains the configuration settings for decrypting SRT streams, including the encryption key details and decryption parameters.</p>
+ * Contains the configuration settings for decrypting SRT streams, including the encryption key details and decryption parameters.
+ *
  * @public
  */
 export interface SrtDecryptionConfiguration {
   /**
-   * <p>Specifies the encryption key configuration used for decrypting SRT streams, including the key source and associated credentials.</p>
+   * Specifies the encryption key configuration used for decrypting SRT streams, including the key source and associated credentials.
+   *
    * @public
    */
   EncryptionKey: SecretsManagerEncryptionKeyConfiguration | undefined;
 }
 
 /**
- * <p>The configuration settings for a router input using the SRT (Secure Reliable Transport) protocol in caller mode, including the source address and port, minimum latency, stream ID, and decryption key configuration.</p>
+ * The configuration settings for a router input using the SRT (Secure Reliable Transport) protocol in caller mode, including the source address and port, minimum latency, stream ID, and decryption key configuration.
+ *
  * @public
  */
 export interface SrtCallerRouterInputConfiguration {
   /**
-   * <p>The source IP address for the SRT protocol in caller mode.</p>
+   * The source IP address for the SRT protocol in caller mode.
+   *
    * @public
    */
   SourceAddress: string | undefined;
 
   /**
-   * <p>The source port number for the SRT protocol in caller mode.</p>
+   * The source port number for the SRT protocol in caller mode.
+   *
    * @public
    */
   SourcePort: number | undefined;
 
   /**
-   * <p>The minimum latency in milliseconds for the SRT protocol in caller mode.</p>
+   * The minimum latency in milliseconds for the SRT protocol in caller mode.
+   *
    * @public
    */
   MinimumLatencyMilliseconds: number | undefined;
 
   /**
-   * <p>The stream ID for the SRT protocol in caller mode.</p>
+   * The stream ID for the SRT protocol in caller mode.
+   *
    * @public
    */
   StreamId?: string | undefined;
 
   /**
-   * <p>Specifies the decryption settings for an SRT caller input, including the encryption key configuration and associated parameters.</p>
+   * Specifies the decryption settings for an SRT caller input, including the encryption key configuration and associated parameters.
+   *
    * @public
    */
   DecryptionConfiguration?: SrtDecryptionConfiguration | undefined;
 }
 
 /**
- * <p>The configuration settings for a router input using the SRT (Secure Reliable Transport) protocol in listener mode, including the port, minimum latency, and decryption key configuration.</p>
+ * The configuration settings for a router input using the SRT (Secure Reliable Transport) protocol in listener mode, including the port, minimum latency, and decryption key configuration.
+ *
  * @public
  */
 export interface SrtListenerRouterInputConfiguration {
   /**
-   * <p>The port number for the SRT protocol in listener mode.</p>
+   * The port number for the SRT protocol in listener mode.
+   *
    * @public
    */
   Port: number | undefined;
 
   /**
-   * <p>The minimum latency in milliseconds for the SRT protocol in listener mode.</p>
+   * The minimum latency in milliseconds for the SRT protocol in listener mode.
+   *
    * @public
    */
   MinimumLatencyMilliseconds: number | undefined;
 
   /**
-   * <p>Specifies the decryption settings for an SRT listener input, including the encryption key configuration and associated parameters.</p>
+   * Specifies the decryption settings for an SRT listener input, including the encryption key configuration and associated parameters.
+   *
    * @public
    */
   DecryptionConfiguration?: SrtDecryptionConfiguration | undefined;
 }
 
 /**
- * <p>Protocol configuration settings for failover router inputs.</p>
+ * Protocol configuration settings for failover router inputs.
+ *
  * @public
  */
 export type FailoverRouterInputProtocolConfiguration =
@@ -4084,7 +4766,8 @@ export type FailoverRouterInputProtocolConfiguration =
  */
 export namespace FailoverRouterInputProtocolConfiguration {
   /**
-   * <p>The configuration settings for a router input using the RIST (Reliable Internet Stream Transport) protocol, including the port and recovery latency.</p>
+   * The configuration settings for a router input using the RIST (Reliable Internet Stream Transport) protocol, including the port and recovery latency.
+   *
    * @public
    */
   export interface RistMember {
@@ -4096,7 +4779,8 @@ export namespace FailoverRouterInputProtocolConfiguration {
   }
 
   /**
-   * <p>The configuration settings for a router input using the SRT (Secure Reliable Transport) protocol in listener mode, including the port, minimum latency, and decryption key configuration.</p>
+   * The configuration settings for a router input using the SRT (Secure Reliable Transport) protocol in listener mode, including the port, minimum latency, and decryption key configuration.
+   *
    * @public
    */
   export interface SrtListenerMember {
@@ -4108,7 +4792,8 @@ export namespace FailoverRouterInputProtocolConfiguration {
   }
 
   /**
-   * <p>The configuration settings for a router input using the SRT (Secure Reliable Transport) protocol in caller mode, including the source address and port, minimum latency, stream ID, and decryption key configuration.</p>
+   * The configuration settings for a router input using the SRT (Secure Reliable Transport) protocol in caller mode, including the source address and port, minimum latency, stream ID, and decryption key configuration.
+   *
    * @public
    */
   export interface SrtCallerMember {
@@ -4120,7 +4805,8 @@ export namespace FailoverRouterInputProtocolConfiguration {
   }
 
   /**
-   * <p>The configuration settings for a Router Input using the RTP (Real-Time Transport Protocol) protocol, including the port and forward error correction state.</p>
+   * The configuration settings for a Router Input using the RTP (Real-Time Transport Protocol) protocol, including the port and forward error correction state.
+   *
    * @public
    */
   export interface RtpMember {
@@ -4156,61 +4842,75 @@ export namespace FailoverRouterInputProtocolConfiguration {
 }
 
 /**
- * <p>Configuration settings for a failover router input that allows switching between two input sources.</p>
+ * Configuration settings for a failover router input that allows switching between two input sources.
+ *
  * @public
  */
 export interface FailoverRouterInputConfiguration {
   /**
-   * <p>The ARN of the network interface to use for this failover router input.</p>
+   * The ARN of the network interface to use for this failover router input.
+   *
    * @public
    */
   NetworkInterfaceArn: string | undefined;
 
   /**
-   * <p>A list of exactly two protocol configurations for the failover input sources. Both must use the same protocol type.</p>
+   * A list of exactly two protocol configurations for the failover input sources. Both must use the same protocol type.
+   *
    * @public
    */
   ProtocolConfigurations: FailoverRouterInputProtocolConfiguration[] | undefined;
 
   /**
-   * <p>The mode for determining source priority in failover configurations.</p>
+   * The mode for determining source priority in failover configurations.
+   *
    * @public
    */
   SourcePriorityMode: FailoverInputSourcePriorityMode | undefined;
 
   /**
-   * <p>The index (0 or 1) that specifies which source in the protocol configurations list is currently active. Used to control which of the two failover sources is currently selected. This field is ignored when sourcePriorityMode is set to NO_PRIORITY</p>
+   * The index (0 or 1) that specifies which source in the protocol configurations list is currently active. Used to control which of the two failover sources is currently selected. This field is ignored when sourcePriorityMode is set to NO_PRIORITY
+   *
    * @public
    */
   PrimarySourceIndex?: number | undefined;
 }
 
 /**
- * <p>Configuration settings for connecting a router input to a flow output.</p> <p>To connect the router input to the flow output, provide both <code>flowArn</code> and <code>flowOutputArn</code>. To disconnect it, call the update operation and omit both fields while keeping this configuration object.</p> <note> <p>You can't change <code>sourceTransitDecryption</code> while the router input is connected to a flow output. To change it, first disconnect the router input, then update the decryption.</p> </note>
+ * Configuration settings for connecting a router input to a flow output.
+ *
+ * To connect the router input to the flow output, provide both `flowArn` and `flowOutputArn`. To disconnect it, call the update operation and omit both fields while keeping this configuration object.
+ *
+ * > **Note:** You can't change `sourceTransitDecryption` while the router input is connected to a flow output. To change it, first disconnect the router input, then update the decryption.
+ *
  * @public
  */
 export interface MediaConnectFlowRouterInputConfiguration {
   /**
-   * <p>The ARN of the flow to connect to.</p>
+   * The ARN of the flow to connect to.
+   *
    * @public
    */
   FlowArn?: string | undefined;
 
   /**
-   * <p>The ARN of the flow output to connect to this router input.</p>
+   * The ARN of the flow output to connect to this router input.
+   *
    * @public
    */
   FlowOutputArn?: string | undefined;
 
   /**
-   * <p>The decryption configuration for the flow source when connected to this router input.</p>
+   * The decryption configuration for the flow source when connected to this router input.
+   *
    * @public
    */
   SourceTransitDecryption: FlowTransitEncryption | undefined;
 }
 
 /**
- * <p>Configuration settings for the MediaLive transit encryption key.</p>
+ * Configuration settings for the MediaLive transit encryption key.
+ *
  * @public
  */
 export type MediaLiveTransitEncryptionKeyConfiguration =
@@ -4223,7 +4923,8 @@ export type MediaLiveTransitEncryptionKeyConfiguration =
  */
 export namespace MediaLiveTransitEncryptionKeyConfiguration {
   /**
-   * <p>The configuration settings for transit encryption using Secrets Manager, including the secret ARN and role ARN.</p>
+   * The configuration settings for transit encryption using Secrets Manager, including the secret ARN and role ARN.
+   *
    * @public
    */
   export interface SecretsManagerMember {
@@ -4233,7 +4934,8 @@ export namespace MediaLiveTransitEncryptionKeyConfiguration {
   }
 
   /**
-   * <p>Configuration settings for automatic encryption key management, where MediaConnect handles key creation and rotation.</p>
+   * Configuration settings for automatic encryption key management, where MediaConnect handles key creation and rotation.
+   *
    * @public
    */
   export interface AutomaticMember {
@@ -4263,55 +4965,68 @@ export namespace MediaLiveTransitEncryptionKeyConfiguration {
 }
 
 /**
- * <p>The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through Secrets Manager.</p>
+ * The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through Secrets Manager.
+ *
  * @public
  */
 export interface MediaLiveTransitEncryption {
   /**
-   * <p>The type of encryption key to use for MediaLive transit encryption.</p>
+   * The type of encryption key to use for MediaLive transit encryption.
+   *
    * @public
    */
   EncryptionKeyType?: MediaLiveTransitEncryptionKeyType | undefined;
 
   /**
-   * <p>The configuration details for the MediaLive encryption key.</p>
+   * The configuration details for the MediaLive encryption key.
+   *
    * @public
    */
   EncryptionKeyConfiguration: MediaLiveTransitEncryptionKeyConfiguration | undefined;
 }
 
 /**
- * <p>Configuration settings for connecting a router input to a MediaLive channel output.</p> <p>To connect the router input to the MediaLive channel output, provide all three of <code>mediaLiveChannelArn</code>, <code>mediaLivePipelineId</code>, and <code>mediaLiveChannelOutputName</code>. To disconnect it, call the update operation and omit all three fields while keeping this configuration object.</p> <note> <p>You can't change <code>sourceTransitDecryption</code> while the router input is connected to a MediaLive channel output. To change it, first disconnect the router input, then update the decryption.</p> </note>
+ * Configuration settings for connecting a router input to a MediaLive channel output.
+ *
+ * To connect the router input to the MediaLive channel output, provide all three of `mediaLiveChannelArn`, `mediaLivePipelineId`, and `mediaLiveChannelOutputName`. To disconnect it, call the update operation and omit all three fields while keeping this configuration object.
+ *
+ * > **Note:** You can't change `sourceTransitDecryption` while the router input is connected to a MediaLive channel output. To change it, first disconnect the router input, then update the decryption.
+ *
  * @public
  */
 export interface MediaLiveChannelRouterInputConfiguration {
   /**
-   * <p>The ARN of the MediaLive channel to connect to this router input.</p>
+   * The ARN of the MediaLive channel to connect to this router input.
+   *
    * @public
    */
   MediaLiveChannelArn?: string | undefined;
 
   /**
-   * <p>The index of the MediaLive pipeline to connect to this router input.</p>
+   * The index of the MediaLive pipeline to connect to this router input.
+   *
    * @public
    */
   MediaLivePipelineId?: MediaLiveChannelPipelineId | undefined;
 
   /**
-   * <p>The name of the MediaLive channel output to connect to this router input.</p>
+   * The name of the MediaLive channel output to connect to this router input.
+   *
    * @public
    */
   MediaLiveChannelOutputName?: string | undefined;
 
   /**
-   * <p>The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through Secrets Manager.</p>
+   * The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through Secrets Manager.
+   *
    * @public
    */
   SourceTransitDecryption: MediaLiveTransitEncryption | undefined;
 }
 
 /**
- * <p>Protocol configuration settings for merge router inputs.</p>
+ * Protocol configuration settings for merge router inputs.
+ *
  * @public
  */
 export type MergeRouterInputProtocolConfiguration =
@@ -4324,7 +5039,8 @@ export type MergeRouterInputProtocolConfiguration =
  */
 export namespace MergeRouterInputProtocolConfiguration {
   /**
-   * <p>The configuration settings for a Router Input using the RTP (Real-Time Transport Protocol) protocol, including the port and forward error correction state.</p>
+   * The configuration settings for a Router Input using the RTP (Real-Time Transport Protocol) protocol, including the port and forward error correction state.
+   *
    * @public
    */
   export interface RtpMember {
@@ -4334,7 +5050,8 @@ export namespace MergeRouterInputProtocolConfiguration {
   }
 
   /**
-   * <p>The configuration settings for a router input using the RIST (Reliable Internet Stream Transport) protocol, including the port and recovery latency.</p>
+   * The configuration settings for a router input using the RIST (Reliable Internet Stream Transport) protocol, including the port and recovery latency.
+   *
    * @public
    */
   export interface RistMember {
@@ -4364,31 +5081,36 @@ export namespace MergeRouterInputProtocolConfiguration {
 }
 
 /**
- * <p>Configuration settings for a merge router input that combines two input sources.</p>
+ * Configuration settings for a merge router input that combines two input sources.
+ *
  * @public
  */
 export interface MergeRouterInputConfiguration {
   /**
-   * <p>The ARN of the network interface to use for this merge router input.</p>
+   * The ARN of the network interface to use for this merge router input.
+   *
    * @public
    */
   NetworkInterfaceArn: string | undefined;
 
   /**
-   * <p>A list of exactly two protocol configurations for the merge input sources. Both must use the same protocol type.</p>
+   * A list of exactly two protocol configurations for the merge input sources. Both must use the same protocol type.
+   *
    * @public
    */
   ProtocolConfigurations: MergeRouterInputProtocolConfiguration[] | undefined;
 
   /**
-   * <p>The time window in milliseconds for merging the two input sources.</p>
+   * The time window in milliseconds for merging the two input sources.
+   *
    * @public
    */
   MergeRecoveryWindowMilliseconds: number | undefined;
 }
 
 /**
- * <p>The protocol configuration settings for a router input.</p>
+ * The protocol configuration settings for a router input.
+ *
  * @public
  */
 export type RouterInputProtocolConfiguration =
@@ -4403,7 +5125,8 @@ export type RouterInputProtocolConfiguration =
  */
 export namespace RouterInputProtocolConfiguration {
   /**
-   * <p>The configuration settings for a router input using the RIST (Reliable Internet Stream Transport) protocol, including the port and recovery latency.</p>
+   * The configuration settings for a router input using the RIST (Reliable Internet Stream Transport) protocol, including the port and recovery latency.
+   *
    * @public
    */
   export interface RistMember {
@@ -4415,7 +5138,8 @@ export namespace RouterInputProtocolConfiguration {
   }
 
   /**
-   * <p>The configuration settings for a router input using the SRT (Secure Reliable Transport) protocol in listener mode, including the port, minimum latency, and decryption key configuration.</p>
+   * The configuration settings for a router input using the SRT (Secure Reliable Transport) protocol in listener mode, including the port, minimum latency, and decryption key configuration.
+   *
    * @public
    */
   export interface SrtListenerMember {
@@ -4427,7 +5151,8 @@ export namespace RouterInputProtocolConfiguration {
   }
 
   /**
-   * <p>The configuration settings for a router input using the SRT (Secure Reliable Transport) protocol in caller mode, including the source address and port, minimum latency, stream ID, and decryption key configuration.</p>
+   * The configuration settings for a router input using the SRT (Secure Reliable Transport) protocol in caller mode, including the source address and port, minimum latency, stream ID, and decryption key configuration.
+   *
    * @public
    */
   export interface SrtCallerMember {
@@ -4439,7 +5164,8 @@ export namespace RouterInputProtocolConfiguration {
   }
 
   /**
-   * <p>The configuration settings for a Router Input using the RTP (Real-Time Transport Protocol) protocol, including the port and forward error correction state.</p>
+   * The configuration settings for a Router Input using the RTP (Real-Time Transport Protocol) protocol, including the port and forward error correction state.
+   *
    * @public
    */
   export interface RtpMember {
@@ -4475,31 +5201,36 @@ export namespace RouterInputProtocolConfiguration {
 }
 
 /**
- * <p>The configuration settings for a standard router input, including the protocol, protocol-specific configuration, network interface, and availability zone.</p>
+ * The configuration settings for a standard router input, including the protocol, protocol-specific configuration, network interface, and availability zone.
+ *
  * @public
  */
 export interface StandardRouterInputConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the network interface associated with the standard router input.</p>
+   * The Amazon Resource Name (ARN) of the network interface associated with the standard router input.
+   *
    * @public
    */
   NetworkInterfaceArn: string | undefined;
 
   /**
-   * <p>The configuration settings for the protocol used by the standard router input.</p>
+   * The configuration settings for the protocol used by the standard router input.
+   *
    * @public
    */
   ProtocolConfiguration: RouterInputProtocolConfiguration | undefined;
 
   /**
-   * <p>The protocol used by the standard router input.</p>
+   * The protocol used by the standard router input.
+   *
    * @public
    */
   Protocol?: RouterInputProtocol | undefined;
 }
 
 /**
- * <p>The configuration settings for a router input.</p>
+ * The configuration settings for a router input.
+ *
  * @public
  */
 export type RouterInputConfiguration =
@@ -4516,7 +5247,8 @@ export type RouterInputConfiguration =
  */
 export namespace RouterInputConfiguration {
   /**
-   * <p>Configuration settings for a router input that is represented by a destination endpoint.</p>
+   * Configuration settings for a router input that is represented by a destination endpoint.
+   *
    * @public
    */
   export interface DestinationEndpointMember {
@@ -4530,7 +5262,8 @@ export namespace RouterInputConfiguration {
   }
 
   /**
-   * <p>The configuration settings for a standard router input, including the protocol, protocol-specific configuration, network interface, and availability zone.</p>
+   * The configuration settings for a standard router input, including the protocol, protocol-specific configuration, network interface, and availability zone.
+   *
    * @public
    */
   export interface StandardMember {
@@ -4544,7 +5277,12 @@ export namespace RouterInputConfiguration {
   }
 
   /**
-   * <p>Configuration settings for connecting a router input to a MediaLive channel output.</p> <p>To connect the router input to the MediaLive channel output, provide all three of <code>mediaLiveChannelArn</code>, <code>mediaLivePipelineId</code>, and <code>mediaLiveChannelOutputName</code>. To disconnect it, call the update operation and omit all three fields while keeping this configuration object.</p> <note> <p>You can't change <code>sourceTransitDecryption</code> while the router input is connected to a MediaLive channel output. To change it, first disconnect the router input, then update the decryption.</p> </note>
+   * Configuration settings for connecting a router input to a MediaLive channel output.
+   *
+   * To connect the router input to the MediaLive channel output, provide all three of `mediaLiveChannelArn`, `mediaLivePipelineId`, and `mediaLiveChannelOutputName`. To disconnect it, call the update operation and omit all three fields while keeping this configuration object.
+   *
+   * > **Note:** You can't change `sourceTransitDecryption` while the router input is connected to a MediaLive channel output. To change it, first disconnect the router input, then update the decryption.
+   *
    * @public
    */
   export interface MediaLiveChannelMember {
@@ -4558,7 +5296,8 @@ export namespace RouterInputConfiguration {
   }
 
   /**
-   * <p>Configuration settings for a failover router input that allows switching between two input sources.</p>
+   * Configuration settings for a failover router input that allows switching between two input sources.
+   *
    * @public
    */
   export interface FailoverMember {
@@ -4572,7 +5311,12 @@ export namespace RouterInputConfiguration {
   }
 
   /**
-   * <p>Configuration settings for connecting a router input to a flow output.</p> <p>To connect the router input to the flow output, provide both <code>flowArn</code> and <code>flowOutputArn</code>. To disconnect it, call the update operation and omit both fields while keeping this configuration object.</p> <note> <p>You can't change <code>sourceTransitDecryption</code> while the router input is connected to a flow output. To change it, first disconnect the router input, then update the decryption.</p> </note>
+   * Configuration settings for connecting a router input to a flow output.
+   *
+   * To connect the router input to the flow output, provide both `flowArn` and `flowOutputArn`. To disconnect it, call the update operation and omit both fields while keeping this configuration object.
+   *
+   * > **Note:** You can't change `sourceTransitDecryption` while the router input is connected to a flow output. To change it, first disconnect the router input, then update the decryption.
+   *
    * @public
    */
   export interface MediaConnectFlowMember {
@@ -4586,7 +5330,8 @@ export namespace RouterInputConfiguration {
   }
 
   /**
-   * <p>Configuration settings for a merge router input that combines two input sources.</p>
+   * Configuration settings for a merge router input that combines two input sources.
+   *
    * @public
    */
   export interface MergeMember {
@@ -4628,85 +5373,101 @@ export namespace RouterInputConfiguration {
 }
 
 /**
- * <p>Detects black frames in the router input's source content and reports them through a CloudWatch metric, an EventBridge event, and a router input message.</p>
+ * Detects black frames in the router input's source content and reports them through a CloudWatch metric, an EventBridge event, and a router input message.
+ *
  * @public
  */
 export interface BlackFramesConfiguration {
   /**
-   * <p>Indicates whether black frames detection is enabled or disabled.</p>
+   * Indicates whether black frames detection is enabled or disabled.
+   *
    * @public
    */
   State: ContentQualityAnalysisState | undefined;
 
   /**
-   * <p>The number of consecutive seconds of black frames that MediaConnect must detect before it reports an issue.</p>
+   * The number of consecutive seconds of black frames that MediaConnect must detect before it reports an issue.
+   *
    * @public
    */
   ThresholdSeconds: number | undefined;
 }
 
 /**
- * <p>Detects frozen video frames in the router input's source content and reports them through a CloudWatch metric, an EventBridge event, and a router input message.</p>
+ * Detects frozen video frames in the router input's source content and reports them through a CloudWatch metric, an EventBridge event, and a router input message.
+ *
  * @public
  */
 export interface FrozenFramesConfiguration {
   /**
-   * <p>Indicates whether frozen frames detection is enabled or disabled.</p>
+   * Indicates whether frozen frames detection is enabled or disabled.
+   *
    * @public
    */
   State: ContentQualityAnalysisState | undefined;
 
   /**
-   * <p>The number of consecutive seconds of a frozen frame that MediaConnect must detect before it reports an issue.</p>
+   * The number of consecutive seconds of a frozen frame that MediaConnect must detect before it reports an issue.
+   *
    * @public
    */
   ThresholdSeconds: number | undefined;
 }
 
 /**
- * <p>Detects silent audio in the router input's source content and reports it through a CloudWatch metric, an EventBridge event, and a router input message.</p>
+ * Detects silent audio in the router input's source content and reports it through a CloudWatch metric, an EventBridge event, and a router input message.
+ *
  * @public
  */
 export interface SilentAudioConfiguration {
   /**
-   * <p>Indicates whether silent audio detection is enabled or disabled.</p>
+   * Indicates whether silent audio detection is enabled or disabled.
+   *
    * @public
    */
   State: ContentQualityAnalysisState | undefined;
 
   /**
-   * <p>The number of consecutive seconds of silence that MediaConnect must detect before it reports an issue.</p>
+   * The number of consecutive seconds of silence that MediaConnect must detect before it reports an issue.
+   *
    * @public
    */
   ThresholdSeconds: number | undefined;
 }
 
 /**
- * <p>Configures the content quality analysis features for the router input.</p>
+ * Configures the content quality analysis features for the router input.
+ *
  * @public
  */
 export interface ContentQualityAnalysisFeatureConfiguration {
   /**
-   * <p>Settings for black frames detection.</p>
+   * Settings for black frames detection.
+   *
    * @public
    */
   BlackFrames?: BlackFramesConfiguration | undefined;
 
   /**
-   * <p>Settings for frozen frames detection.</p>
+   * Settings for frozen frames detection.
+   *
    * @public
    */
   FrozenFrames?: FrozenFramesConfiguration | undefined;
 
   /**
-   * <p>Settings for silent audio detection.</p>
+   * Settings for silent audio detection.
+   *
    * @public
    */
   SilentAudio?: SilentAudioConfiguration | undefined;
 }
 
 /**
- * <p>The content quality analysis configuration for the router input.</p> <important> <p>The content quality analysis feature only monitors the first video stream and the first audio stream it encounters within the router input source.</p> </important>
+ * The content quality analysis configuration for the router input.
+ *
+ * > **Important:** The content quality analysis feature only monitors the first video stream and the first audio stream it encounters within the router input source.
+ *
  * @public
  */
 export type RouterContentQualityAnalysisConfiguration =
@@ -4718,7 +5479,8 @@ export type RouterContentQualityAnalysisConfiguration =
  */
 export namespace RouterContentQualityAnalysisConfiguration {
   /**
-   * <p>The content quality analysis configuration.</p>
+   * The content quality analysis configuration.
+   *
    * @public
    */
   export interface ContentLevelMember {
@@ -4745,31 +5507,36 @@ export namespace RouterContentQualityAnalysisConfiguration {
 }
 
 /**
- * <p>Configuration settings for default maintenance scheduling.</p>
+ * Configuration settings for default maintenance scheduling.
+ *
  * @public
  */
 export interface DefaultMaintenanceConfiguration {}
 
 /**
- * <p>Configuration for preferred day and time maintenance settings.</p>
+ * Configuration for preferred day and time maintenance settings.
+ *
  * @public
  */
 export interface PreferredDayTimeMaintenanceConfiguration {
   /**
-   * <p>The preferred day for maintenance operations.</p>
+   * The preferred day for maintenance operations.
+   *
    * @public
    */
   Day: Day | undefined;
 
   /**
-   * <p>The preferred time for maintenance operations.</p>
+   * The preferred time for maintenance operations.
+   *
    * @public
    */
   Time: string | undefined;
 }
 
 /**
- * <p>The configuration settings for maintenance operations, including preferred maintenance windows and schedules.</p>
+ * The configuration settings for maintenance operations, including preferred maintenance windows and schedules.
+ *
  * @public
  */
 export type MaintenanceConfiguration =
@@ -4782,7 +5549,8 @@ export type MaintenanceConfiguration =
  */
 export namespace MaintenanceConfiguration {
   /**
-   * <p>Preferred day and time maintenance configuration settings.</p>
+   * Preferred day and time maintenance configuration settings.
+   *
    * @public
    */
   export interface PreferredDayTimeMember {
@@ -4792,7 +5560,8 @@ export namespace MaintenanceConfiguration {
   }
 
   /**
-   * <p>Default maintenance configuration settings.</p>
+   * Default maintenance configuration settings.
+   *
    * @public
    */
   export interface DefaultMember {
@@ -4822,31 +5591,36 @@ export namespace MaintenanceConfiguration {
 }
 
 /**
- * <p>Defines a specific time window for maintenance operations.</p>
+ * Defines a specific time window for maintenance operations.
+ *
  * @public
  */
 export interface WindowMaintenanceSchedule {
   /**
-   * <p>The start time of the maintenance window.</p>
+   * The start time of the maintenance window.
+   *
    * @public
    */
   Start: Date | undefined;
 
   /**
-   * <p>The end time of the maintenance window.</p>
+   * The end time of the maintenance window.
+   *
    * @public
    */
   End: Date | undefined;
 
   /**
-   * <p>The date and time when the maintenance window is scheduled to occur.</p>
+   * The date and time when the maintenance window is scheduled to occur.
+   *
    * @public
    */
   ScheduledTime: Date | undefined;
 }
 
 /**
- * <p>The details of the maintenance schedule.</p>
+ * The details of the maintenance schedule.
+ *
  * @public
  */
 export type MaintenanceSchedule =
@@ -4858,7 +5632,8 @@ export type MaintenanceSchedule =
  */
 export namespace MaintenanceSchedule {
   /**
-   * <p>Defines a specific time window for maintenance operations.</p>
+   * Defines a specific time window for maintenance operations.
+   *
    * @public
    */
   export interface WindowMember {
@@ -4885,109 +5660,127 @@ export namespace MaintenanceSchedule {
 }
 
 /**
- * <p>Configuration details for a router input stream that is represented by a destination endpoint.</p>
+ * Configuration details for a router input stream that is represented by a destination endpoint.
+ *
  * @public
  */
 export interface DestinationEndpointRouterInputStreamDetails {}
 
 /**
- * <p>Configuration details for an indexed stream in a failover router input setup.</p>
+ * Configuration details for an indexed stream in a failover router input setup.
+ *
  * @public
  */
 export interface FailoverRouterInputIndexedStreamDetails {
   /**
-   * <p>The index number (0 or 1) assigned to this source in the failover configuration.</p>
+   * The index number (0 or 1) assigned to this source in the failover configuration.
+   *
    * @public
    */
   SourceIndex: number | undefined;
 
   /**
-   * <p>The IP address of the source for this indexed stream.</p>
+   * The IP address of the source for this indexed stream.
+   *
    * @public
    */
   SourceIpAddress?: string | undefined;
 }
 
 /**
- * <p>Configuration details for a failover router input that can automatically switch between two sources.</p>
+ * Configuration details for a failover router input that can automatically switch between two sources.
+ *
  * @public
  */
 export interface FailoverRouterInputStreamDetails {
   /**
-   * <p>Configuration details for the primary source (index 0) in the failover setup.</p>
+   * Configuration details for the primary source (index 0) in the failover setup.
+   *
    * @public
    */
   SourceIndexZeroStreamDetails: FailoverRouterInputIndexedStreamDetails | undefined;
 
   /**
-   * <p>Configuration details for the secondary source (index 1) in the failover setup.</p>
+   * Configuration details for the secondary source (index 1) in the failover setup.
+   *
    * @public
    */
   SourceIndexOneStreamDetails: FailoverRouterInputIndexedStreamDetails | undefined;
 }
 
 /**
- * <p>Configuration details for a MediaConnect flow when used as a router input source.</p>
+ * Configuration details for a MediaConnect flow when used as a router input source.
+ *
  * @public
  */
 export interface MediaConnectFlowRouterInputStreamDetails {}
 
 /**
- * <p>Configuration details for a MediaLive channel when used as a router input source.</p>
+ * Configuration details for a MediaLive channel when used as a router input source.
+ *
  * @public
  */
 export interface MediaLiveChannelRouterInputStreamDetails {}
 
 /**
- * <p>Configuration details for an indexed stream in a merge router input setup.</p>
+ * Configuration details for an indexed stream in a merge router input setup.
+ *
  * @public
  */
 export interface MergeRouterInputIndexedStreamDetails {
   /**
-   * <p>The index number (0 or 1) assigned to this source in the merge configuration.</p>
+   * The index number (0 or 1) assigned to this source in the merge configuration.
+   *
    * @public
    */
   SourceIndex: number | undefined;
 
   /**
-   * <p>The IP address of the source for this indexed stream in the merge setup.</p>
+   * The IP address of the source for this indexed stream in the merge setup.
+   *
    * @public
    */
   SourceIpAddress?: string | undefined;
 }
 
 /**
- * <p>Configuration details for a merge router input that combines two input sources.</p>
+ * Configuration details for a merge router input that combines two input sources.
+ *
  * @public
  */
 export interface MergeRouterInputStreamDetails {
   /**
-   * <p>Configuration details for the first source (index 0) in the merge setup.</p>
+   * Configuration details for the first source (index 0) in the merge setup.
+   *
    * @public
    */
   SourceIndexZeroStreamDetails: MergeRouterInputIndexedStreamDetails | undefined;
 
   /**
-   * <p>Configuration details for the second source (index 1) in the merge setup.</p>
+   * Configuration details for the second source (index 1) in the merge setup.
+   *
    * @public
    */
   SourceIndexOneStreamDetails: MergeRouterInputIndexedStreamDetails | undefined;
 }
 
 /**
- * <p>Configuration details for a standard router input stream type.</p>
+ * Configuration details for a standard router input stream type.
+ *
  * @public
  */
 export interface StandardRouterInputStreamDetails {
   /**
-   * <p>The source IP address for the standard router input stream.</p>
+   * The source IP address for the standard router input stream.
+   *
    * @public
    */
   SourceIpAddress?: string | undefined;
 }
 
 /**
- * <p>Configuration details for the router input stream.</p>
+ * Configuration details for the router input stream.
+ *
  * @public
  */
 export type RouterInputStreamDetails =
@@ -5004,7 +5797,8 @@ export type RouterInputStreamDetails =
  */
 export namespace RouterInputStreamDetails {
   /**
-   * <p>Configuration details for a router input stream that is represented by a destination endpoint.</p>
+   * Configuration details for a router input stream that is represented by a destination endpoint.
+   *
    * @public
    */
   export interface DestinationEndpointMember {
@@ -5018,7 +5812,8 @@ export namespace RouterInputStreamDetails {
   }
 
   /**
-   * <p>Configuration details for a standard router input stream type.</p>
+   * Configuration details for a standard router input stream type.
+   *
    * @public
    */
   export interface StandardMember {
@@ -5032,7 +5827,8 @@ export namespace RouterInputStreamDetails {
   }
 
   /**
-   * <p>Configuration details for a MediaLive channel when used as a router input source.</p>
+   * Configuration details for a MediaLive channel when used as a router input source.
+   *
    * @public
    */
   export interface MediaLiveChannelMember {
@@ -5046,7 +5842,8 @@ export namespace RouterInputStreamDetails {
   }
 
   /**
-   * <p>Configuration details for a failover router input that can automatically switch between two sources.</p>
+   * Configuration details for a failover router input that can automatically switch between two sources.
+   *
    * @public
    */
   export interface FailoverMember {
@@ -5060,7 +5857,8 @@ export namespace RouterInputStreamDetails {
   }
 
   /**
-   * <p>Configuration details for a MediaConnect flow when used as a router input source.</p>
+   * Configuration details for a MediaConnect flow when used as a router input source.
+   *
    * @public
    */
   export interface MediaConnectFlowMember {
@@ -5074,7 +5872,8 @@ export namespace RouterInputStreamDetails {
   }
 
   /**
-   * <p>Configuration details for a merge router input that combines two input sources.</p>
+   * Configuration details for a merge router input that combines two input sources.
+   *
    * @public
    */
   export interface MergeMember {
@@ -5116,7 +5915,8 @@ export namespace RouterInputStreamDetails {
 }
 
 /**
- * <p>Defines the configuration settings for transit encryption keys.</p>
+ * Defines the configuration settings for transit encryption keys.
+ *
  * @public
  */
 export type RouterInputTransitEncryptionKeyConfiguration =
@@ -5129,7 +5929,8 @@ export type RouterInputTransitEncryptionKeyConfiguration =
  */
 export namespace RouterInputTransitEncryptionKeyConfiguration {
   /**
-   * <p>The configuration settings for transit encryption using Secrets Manager, including the secret ARN and role ARN.</p>
+   * The configuration settings for transit encryption using Secrets Manager, including the secret ARN and role ARN.
+   *
    * @public
    */
   export interface SecretsManagerMember {
@@ -5139,7 +5940,8 @@ export namespace RouterInputTransitEncryptionKeyConfiguration {
   }
 
   /**
-   * <p>Configuration settings for automatic encryption key management, where MediaConnect handles key creation and rotation.</p>
+   * Configuration settings for automatic encryption key management, where MediaConnect handles key creation and rotation.
+   *
    * @public
    */
   export interface AutomaticMember {
@@ -5169,186 +5971,225 @@ export namespace RouterInputTransitEncryptionKeyConfiguration {
 }
 
 /**
- * <p>The transit encryption settings for a router input.</p>
+ * The transit encryption settings for a router input.
+ *
  * @public
  */
 export interface RouterInputTransitEncryption {
   /**
-   * <p>Specifies the type of encryption key to use for transit encryption.</p>
+   * Specifies the type of encryption key to use for transit encryption.
+   *
    * @public
    */
   EncryptionKeyType?: RouterInputTransitEncryptionKeyType | undefined;
 
   /**
-   * <p>Contains the configuration details for the encryption key used in transit encryption, including the key source and associated parameters.</p>
+   * Contains the configuration details for the encryption key used in transit encryption, including the key source and associated parameters.
+   *
    * @public
    */
   EncryptionKeyConfiguration: RouterInputTransitEncryptionKeyConfiguration | undefined;
 }
 
 /**
- * <p>A router input in AWS Elemental MediaConnect. A router input is a source of media content that can be routed to one or more router outputs.</p>
+ * A router input in AWS Elemental MediaConnect. A router input is a source of media content that can be routed to one or more router outputs.
+ *
  * @public
  */
 export interface RouterInput {
   /**
-   * <p>The name of the router input.</p>
+   * The name of the router input.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the router input.</p>
+   * The Amazon Resource Name (ARN) of the router input.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The unique identifier of the router input.</p>
+   * The unique identifier of the router input.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The current state of the router input.</p>
+   * The current state of the router input.
+   *
    * @public
    */
   State: RouterInputState | undefined;
 
   /**
-   * <p>The type of the router input.</p>
+   * The type of the router input.
+   *
    * @public
    */
   InputType: RouterInputType | undefined;
 
   /**
-   * <p>The configuration settings for a router input.</p>
+   * The configuration settings for a router input.
+   *
    * @public
    */
   Configuration: RouterInputConfiguration | undefined;
 
   /**
-   * <p>The number of router outputs associated with the router input.</p>
+   * The number of router outputs associated with the router input.
+   *
    * @public
    */
   RoutedOutputs: number | undefined;
 
   /**
-   * <p>The maximum number of outputs that can be simultaneously routed to this input.</p>
+   * The maximum number of outputs that can be simultaneously routed to this input.
+   *
    * @public
    */
   MaximumRoutedOutputs?: number | undefined;
 
   /**
-   * <p>The Amazon Web Services Region where the router input is located.</p>
+   * The Amazon Web Services Region where the router input is located.
+   *
    * @public
    */
   RegionName: string | undefined;
 
   /**
-   * <p>The Availability Zone of the router input.</p>
+   * The Availability Zone of the router input.
+   *
    * @public
    */
   AvailabilityZone: string | undefined;
 
   /**
-   * <p>The maximum bitrate for the router input.</p>
+   * The maximum bitrate for the router input.
+   *
    * @public
    */
   MaximumBitrate: number | undefined;
 
   /**
-   * <p>The tier level for the router input. The tier sets the maximum bitrate, in Mbps, for the router input. Valid values include the following:</p> <ul> <li> <p> <code>INPUT_20</code> – 20 Mbps</p> </li> <li> <p> <code>INPUT_50</code> – 50 Mbps</p> </li> <li> <p> <code>INPUT_100</code> – 100 Mbps</p> </li> <li> <p> <code>INPUT_250</code> – 250 Mbps</p> </li> <li> <p> <code>INPUT_500</code> – 500 Mbps</p> </li> </ul> <p>The 250 Mbps and 500 Mbps tiers are high-bitrate tiers that support TR-07 (JPEG XS) workflows.</p>
+   * The tier level for the router input. The tier sets the maximum bitrate, in Mbps, for the router input. Valid values include the following:
+   *
+   * - `INPUT_20` – 20 Mbps
+   * - `INPUT_50` – 50 Mbps
+   * - `INPUT_100` – 100 Mbps
+   * - `INPUT_250` – 250 Mbps
+   * - `INPUT_500` – 500 Mbps
+   *
+   * The 250 Mbps and 500 Mbps tiers are high-bitrate tiers that support TR-07 (JPEG XS) workflows.
+   *
    * @public
    */
   Tier: RouterInputTier | undefined;
 
   /**
-   * <p>Indicates whether the router input is configured for Regional or global routing.</p>
+   * Indicates whether the router input is configured for Regional or global routing.
+   *
    * @public
    */
   RoutingScope: RoutingScope | undefined;
 
   /**
-   * <p>The timestamp when the router input was created.</p>
+   * The timestamp when the router input was created.
+   *
    * @public
    */
   CreatedAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the router input was last updated.</p>
+   * The timestamp when the router input was last updated.
+   *
    * @public
    */
   UpdatedAt: Date | undefined;
 
   /**
-   * <p>The messages associated with the router input.</p>
+   * The messages associated with the router input.
+   *
    * @public
    */
   Messages: RouterInputMessage[] | undefined;
 
   /**
-   * <p>The transit encryption settings for a router input.</p>
+   * The transit encryption settings for a router input.
+   *
    * @public
    */
   TransitEncryption: RouterInputTransitEncryption | undefined;
 
   /**
-   * <p>Key-value pairs that can be used to tag and organize this router input.</p>
+   * Key-value pairs that can be used to tag and organize this router input.
+   *
    * @public
    */
   Tags: Record<string, string> | undefined;
 
   /**
-   * <p>Configuration details for the router input stream.</p>
+   * Configuration details for the router input stream.
+   *
    * @public
    */
   StreamDetails: RouterInputStreamDetails | undefined;
 
   /**
-   * <p>The IP address of the router input.</p>
+   * The IP address of the router input.
+   *
    * @public
    */
   IpAddress?: string | undefined;
 
   /**
-   * <p>The type of maintenance configuration applied to this router input.</p>
+   * The type of maintenance configuration applied to this router input.
+   *
    * @public
    */
   MaintenanceType: MaintenanceType | undefined;
 
   /**
-   * <p>The maintenance configuration settings applied to this router input.</p>
+   * The maintenance configuration settings applied to this router input.
+   *
    * @public
    */
   MaintenanceConfiguration: MaintenanceConfiguration | undefined;
 
   /**
-   * <p>The type of maintenance schedule currently in effect for this router input.</p>
+   * The type of maintenance schedule currently in effect for this router input.
+   *
    * @public
    */
   MaintenanceScheduleType?: MaintenanceScheduleType | undefined;
 
   /**
-   * <p>The current maintenance schedule details for this router input.</p>
+   * The current maintenance schedule details for this router input.
+   *
    * @public
    */
   MaintenanceSchedule?: MaintenanceSchedule | undefined;
 
   /**
-   * <p>The type of content quality analysis applied to the router input.</p>
+   * The type of content quality analysis applied to the router input.
+   *
    * @public
    */
   ContentQualityAnalysisType: RouterContentQualityAnalysisType | undefined;
 
   /**
-   * <p>The content quality analysis configuration for the router input.</p>
+   * The content quality analysis configuration for the router input.
+   *
    * @public
    */
   ContentQualityAnalysisConfiguration: RouterContentQualityAnalysisConfiguration | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of one or more destination endpoints that are associated with this router input.</p>
+   * The Amazon Resource Names (ARNs) of one or more destination endpoints that are associated with this router input.
+   *
    * @public
    */
   AssociatedDestinationEndpointArns?: string[] | undefined;
@@ -5359,13 +6200,15 @@ export interface RouterInput {
  */
 export interface BatchGetRouterInputResponse {
   /**
-   * <p>An array of router inputs that were successfully retrieved.</p>
+   * An array of router inputs that were successfully retrieved.
+   *
    * @public
    */
   RouterInputs: RouterInput[] | undefined;
 
   /**
-   * <p>An array of errors that occurred when retrieving the requested router inputs.</p>
+   * An array of errors that occurred when retrieving the requested router inputs.
+   *
    * @public
    */
   Errors: BatchGetRouterInputError[] | undefined;
@@ -5376,80 +6219,93 @@ export interface BatchGetRouterInputResponse {
  */
 export interface BatchGetRouterNetworkInterfaceRequest {
   /**
-   * <p>The Amazon Resource Names (ARNs) of the router network interfaces you want to retrieve information about.</p>
+   * The Amazon Resource Names (ARNs) of the router network interfaces you want to retrieve information about.
+   *
    * @public
    */
   Arns: string[] | undefined;
 }
 
 /**
- * <p>An error that occurred when retrieving multiple router network interfaces in the BatchGetRouterNetworkInterface operation, including the ARN, error code, and error message.</p>
+ * An error that occurred when retrieving multiple router network interfaces in the BatchGetRouterNetworkInterface operation, including the ARN, error code, and error message.
+ *
  * @public
  */
 export interface BatchGetRouterNetworkInterfaceError {
   /**
-   * <p>The Amazon Resource Name (ARN) of the router network interface for which the error occurred.</p>
+   * The Amazon Resource Name (ARN) of the router network interface for which the error occurred.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The error code associated with the error.</p>
+   * The error code associated with the error.
+   *
    * @public
    */
   Code: string | undefined;
 
   /**
-   * <p>A message describing the error.</p>
+   * A message describing the error.
+   *
    * @public
    */
   Message: string | undefined;
 }
 
 /**
- * <p>A rule that allows a specific CIDR block to access the public router network interface.</p>
+ * A rule that allows a specific CIDR block to access the public router network interface.
+ *
  * @public
  */
 export interface PublicRouterNetworkInterfaceRule {
   /**
-   * <p>The CIDR block that is allowed to access the public router network interface.</p>
+   * The CIDR block that is allowed to access the public router network interface.
+   *
    * @public
    */
   Cidr: string | undefined;
 }
 
 /**
- * <p>The configuration settings for a public router network interface, including the list of allowed CIDR blocks.</p>
+ * The configuration settings for a public router network interface, including the list of allowed CIDR blocks.
+ *
  * @public
  */
 export interface PublicRouterNetworkInterfaceConfiguration {
   /**
-   * <p>The list of allowed CIDR blocks for the public router network interface.</p>
+   * The list of allowed CIDR blocks for the public router network interface.
+   *
    * @public
    */
   AllowRules: PublicRouterNetworkInterfaceRule[] | undefined;
 }
 
 /**
- * <p>The configuration settings for a router network interface within a VPC, including the security group IDs and subnet ID.</p>
+ * The configuration settings for a router network interface within a VPC, including the security group IDs and subnet ID.
+ *
  * @public
  */
 export interface VpcRouterNetworkInterfaceConfiguration {
   /**
-   * <p>The IDs of the security groups to associate with the router network interface within the VPC.</p>
+   * The IDs of the security groups to associate with the router network interface within the VPC.
+   *
    * @public
    */
   SecurityGroupIds: string[] | undefined;
 
   /**
-   * <p>The ID of the subnet within the VPC to associate the router network interface with.</p>
+   * The ID of the subnet within the VPC to associate the router network interface with.
+   *
    * @public
    */
   SubnetId: string | undefined;
 }
 
 /**
- * <p>The configuration settings for a router network interface.</p>
+ * The configuration settings for a router network interface.
+ *
  * @public
  */
 export type RouterNetworkInterfaceConfiguration =
@@ -5462,7 +6318,8 @@ export type RouterNetworkInterfaceConfiguration =
  */
 export namespace RouterNetworkInterfaceConfiguration {
   /**
-   * <p>The configuration settings for a public router network interface, including the list of allowed CIDR blocks.</p>
+   * The configuration settings for a public router network interface, including the list of allowed CIDR blocks.
+   *
    * @public
    */
   export interface PublicMember {
@@ -5472,7 +6329,8 @@ export namespace RouterNetworkInterfaceConfiguration {
   }
 
   /**
-   * <p>The configuration settings for a router network interface within a VPC, including the security group IDs and subnet ID.</p>
+   * The configuration settings for a router network interface within a VPC, including the security group IDs and subnet ID.
+   *
    * @public
    */
   export interface VpcMember {
@@ -5502,78 +6360,91 @@ export namespace RouterNetworkInterfaceConfiguration {
 }
 
 /**
- * <p>A router network interface in AWS Elemental MediaConnect. A router network interface is a network interface that can be associated with one or more router inputs and outputs.</p>
+ * A router network interface in AWS Elemental MediaConnect. A router network interface is a network interface that can be associated with one or more router inputs and outputs.
+ *
  * @public
  */
 export interface RouterNetworkInterface {
   /**
-   * <p>The name of the router network interface.</p>
+   * The name of the router network interface.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the router network interface.</p>
+   * The Amazon Resource Name (ARN) of the router network interface.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The unique identifier of the router network interface.</p>
+   * The unique identifier of the router network interface.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The current state of the router network interface.</p>
+   * The current state of the router network interface.
+   *
    * @public
    */
   State: RouterNetworkInterfaceState | undefined;
 
   /**
-   * <p>The type of the router network interface.</p>
+   * The type of the router network interface.
+   *
    * @public
    */
   NetworkInterfaceType: RouterNetworkInterfaceType | undefined;
 
   /**
-   * <p>The configuration settings for a router network interface.</p>
+   * The configuration settings for a router network interface.
+   *
    * @public
    */
   Configuration: RouterNetworkInterfaceConfiguration | undefined;
 
   /**
-   * <p>The number of router outputs associated with the network interface.</p>
+   * The number of router outputs associated with the network interface.
+   *
    * @public
    */
   AssociatedOutputCount: number | undefined;
 
   /**
-   * <p>The number of router inputs associated with the network interface.</p>
+   * The number of router inputs associated with the network interface.
+   *
    * @public
    */
   AssociatedInputCount: number | undefined;
 
   /**
-   * <p>The Amazon Web Services Region where the router network interface is located.</p>
+   * The Amazon Web Services Region where the router network interface is located.
+   *
    * @public
    */
   RegionName: string | undefined;
 
   /**
-   * <p>The timestamp when the router network interface was created.</p>
+   * The timestamp when the router network interface was created.
+   *
    * @public
    */
   CreatedAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the router network interface was last updated.</p>
+   * The timestamp when the router network interface was last updated.
+   *
    * @public
    */
   UpdatedAt: Date | undefined;
 
   /**
-   * <p>Key-value pairs that can be used to tag and organize this router network interface.</p>
+   * Key-value pairs that can be used to tag and organize this router network interface.
+   *
    * @public
    */
   Tags: Record<string, string> | undefined;
@@ -5584,13 +6455,15 @@ export interface RouterNetworkInterface {
  */
 export interface BatchGetRouterNetworkInterfaceResponse {
   /**
-   * <p>An array of router network interfaces that were successfully retrieved.</p>
+   * An array of router network interfaces that were successfully retrieved.
+   *
    * @public
    */
   RouterNetworkInterfaces: RouterNetworkInterface[] | undefined;
 
   /**
-   * <p>An array of errors that occurred when retrieving the requested router network interfaces.</p>
+   * An array of errors that occurred when retrieving the requested router network interfaces.
+   *
    * @public
    */
   Errors: BatchGetRouterNetworkInterfaceError[] | undefined;
@@ -5601,134 +6474,170 @@ export interface BatchGetRouterNetworkInterfaceResponse {
  */
 export interface BatchGetRouterOutputRequest {
   /**
-   * <p>The Amazon Resource Names (ARNs) of the router outputs you want to retrieve information about.</p>
+   * The Amazon Resource Names (ARNs) of the router outputs you want to retrieve information about.
+   *
    * @public
    */
   Arns: string[] | undefined;
 }
 
 /**
- * <p>An error that occurred when retrieving multiple router outputs in the BatchGetRouterOutput operation, including the ARN, error code, and error message.</p>
+ * An error that occurred when retrieving multiple router outputs in the BatchGetRouterOutput operation, including the ARN, error code, and error message.
+ *
  * @public
  */
 export interface BatchGetRouterOutputError {
   /**
-   * <p>The Amazon Resource Name (ARN) of the router output for which the error occurred.</p>
+   * The Amazon Resource Name (ARN) of the router output for which the error occurred.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The error code associated with the error.</p>
+   * The error code associated with the error.
+   *
    * @public
    */
   Code: string | undefined;
 
   /**
-   * <p>A message describing the error.</p>
+   * A message describing the error.
+   *
    * @public
    */
   Message: string | undefined;
 }
 
 /**
- * <p>Configuration settings for connecting a router output to a MediaConnect flow source.</p> <p>To connect the router output to the flow source, provide both <code>flowArn</code> and <code>flowSourceArn</code>. To disconnect it, call the update operation and omit both fields while keeping this configuration object.</p> <note> <p>You can't change <code>destinationTransitEncryption</code> while the router output is connected to a flow source. To change it, first disconnect the router output, then update the encryption.</p> </note>
+ * Configuration settings for connecting a router output to a MediaConnect flow source.
+ *
+ * To connect the router output to the flow source, provide both `flowArn` and `flowSourceArn`. To disconnect it, call the update operation and omit both fields while keeping this configuration object.
+ *
+ * > **Note:** You can't change `destinationTransitEncryption` while the router output is connected to a flow source. To change it, first disconnect the router output, then update the encryption.
+ *
  * @public
  */
 export interface MediaConnectFlowRouterOutputConfiguration {
   /**
-   * <p>The ARN of the flow to connect to this router output.</p>
+   * The ARN of the flow to connect to this router output.
+   *
    * @public
    */
   FlowArn?: string | undefined;
 
   /**
-   * <p>The ARN of the flow source to connect to this router output.</p>
+   * The ARN of the flow source to connect to this router output.
+   *
    * @public
    */
   FlowSourceArn?: string | undefined;
 
   /**
-   * <p>The encryption configuration for the flow destination when connected to this router output.</p>
+   * The encryption configuration for the flow destination when connected to this router output.
+   *
    * @public
    */
   DestinationTransitEncryption: FlowTransitEncryption | undefined;
 }
 
 /**
- * <p>Configuration settings for connecting a router output to a MediaLive input.</p> <p>To connect the router output to the MediaLive input, provide both <code>mediaLiveInputArn</code> and <code>mediaLivePipelineId</code>. To disconnect it, call the update operation and omit both fields while keeping this configuration object.</p> <note> <p>You can't change <code>destinationTransitEncryption</code> while the router output is connected to a MediaLive input. To change it, first disconnect the router output, then update the encryption.</p> </note>
+ * Configuration settings for connecting a router output to a MediaLive input.
+ *
+ * To connect the router output to the MediaLive input, provide both `mediaLiveInputArn` and `mediaLivePipelineId`. To disconnect it, call the update operation and omit both fields while keeping this configuration object.
+ *
+ * > **Note:** You can't change `destinationTransitEncryption` while the router output is connected to a MediaLive input. To change it, first disconnect the router output, then update the encryption.
+ *
  * @public
  */
 export interface MediaLiveInputRouterOutputConfiguration {
   /**
-   * <p>The ARN of the MediaLive input to connect to this router output.</p>
+   * The ARN of the MediaLive input to connect to this router output.
+   *
    * @public
    */
   MediaLiveInputArn?: string | undefined;
 
   /**
-   * <p>The index of the MediaLive pipeline to connect to this router output.</p>
+   * The index of the MediaLive pipeline to connect to this router output.
+   *
    * @public
    */
   MediaLivePipelineId?: MediaLiveInputPipelineId | undefined;
 
   /**
-   * <p>The encryption configuration for the MediaLive input when connected to this router output.</p>
+   * The encryption configuration for the MediaLive input when connected to this router output.
+   *
    * @public
    */
   DestinationTransitEncryption: MediaLiveTransitEncryption | undefined;
 }
 
 /**
- * <p>Configuration settings for a router output that is represented by a source endpoint.</p>
+ * Configuration settings for a router output that is represented by a source endpoint.
+ *
  * @public
  */
 export interface SourceEndpointRouterOutputConfiguration {
   /**
-   * <p>The entity that manages the lifecycle of the associated source endpoint. Valid values include the following:</p> <ul> <li> <p> <code>MANAGED</code> – MediaConnect manages the lifecycle of the associated source endpoint.</p> </li> <li> <p> <code>UNMANAGED</code> – You manage the lifecycle of the associated source endpoint.</p> </li> </ul>
+   * The entity that manages the lifecycle of the associated source endpoint. Valid values include the following:
+   *
+   * - `MANAGED` – MediaConnect manages the lifecycle of the associated source endpoint.
+   * - `UNMANAGED` – You manage the lifecycle of the associated source endpoint.
+   *
    * @public
    */
   EndpointLifecycleManagement: EndpointLifecycle | undefined;
 
   /**
-   * <p>The type of transit encryption applied to the destination content that this router output sends. Valid values include the following:</p> <ul> <li> <p> <code>SECRETS_MANAGER</code> – The encryption key or passphrase is stored in Secrets Manager.</p> </li> <li> <p> <code>AUTOMATIC</code> – MediaConnect determines the encryption key when the endpoint connects.</p> </li> </ul>
+   * The type of transit encryption applied to the destination content that this router output sends. Valid values include the following:
+   *
+   * - `SECRETS_MANAGER` – The encryption key or passphrase is stored in Secrets Manager.
+   * - `AUTOMATIC` – MediaConnect determines the encryption key when the endpoint connects.
+   *
    * @public
    */
   DestinationTransitEncryptionType?: EndpointEncryptionType | undefined;
 
   /**
-   * <p>The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: <code>secretsManager</code> when you store the encryption key or passphrase in Secrets Manager, or <code>automatic</code> when you let MediaConnect determine the encryption key when the endpoint connects.</p>
+   * The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: `secretsManager` when you store the encryption key or passphrase in Secrets Manager, or `automatic` when you let MediaConnect determine the encryption key when the endpoint connects.
+   *
    * @public
    */
   DestinationTransitEncryption: EndpointEncryptionConfiguration | undefined;
 }
 
 /**
- * <p>The configuration settings for a router output using the RIST (Reliable Internet Stream Transport) protocol, including the destination address and port.</p>
+ * The configuration settings for a router output using the RIST (Reliable Internet Stream Transport) protocol, including the destination address and port.
+ *
  * @public
  */
 export interface RistRouterOutputConfiguration {
   /**
-   * <p>The destination IP address for the RIST protocol in the router output configuration.</p>
+   * The destination IP address for the RIST protocol in the router output configuration.
+   *
    * @public
    */
   DestinationAddress: string | undefined;
 
   /**
-   * <p>The destination port number for the RIST protocol in the router output configuration.</p>
+   * The destination port number for the RIST protocol in the router output configuration.
+   *
    * @public
    */
   DestinationPort: number | undefined;
 }
 
 /**
- * <p>The TLS encryption configuration for destinations that present a certificate from a publicly trusted certificate authority. This type does not require any additional settings.</p>
+ * The TLS encryption configuration for destinations that present a certificate from a publicly trusted certificate authority. This type does not require any additional settings.
+ *
  * @public
  */
 export interface PublicTlsEncryptionConfiguration {}
 
 /**
- * <p>The configuration settings for TLS encryption.</p>
+ * The configuration settings for TLS encryption.
+ *
  * @public
  */
 export type TlsEncryptionConfiguration =
@@ -5740,7 +6649,8 @@ export type TlsEncryptionConfiguration =
  */
 export namespace TlsEncryptionConfiguration {
   /**
-   * <p>The TLS encryption configuration that validates the destination by using a publicly trusted certificate authority.</p>
+   * The TLS encryption configuration that validates the destination by using a publicly trusted certificate authority.
+   *
    * @public
    */
   export interface PublicMember {
@@ -5767,157 +6677,183 @@ export namespace TlsEncryptionConfiguration {
 }
 
 /**
- * <p>The Transport Layer Security (TLS) encryption settings used to establish a secure connection to a destination.</p>
+ * The Transport Layer Security (TLS) encryption settings used to establish a secure connection to a destination.
+ *
  * @public
  */
 export interface TlsEncryption {
   /**
-   * <p>The type of TLS encryption to use for the connection.</p>
+   * The type of TLS encryption to use for the connection.
+   *
    * @public
    */
   EncryptionType?: TlsEncryptionType | undefined;
 
   /**
-   * <p>The configuration settings for the specified TLS encryption type.</p>
+   * The configuration settings for the specified TLS encryption type.
+   *
    * @public
    */
   EncryptionConfiguration: TlsEncryptionConfiguration | undefined;
 }
 
 /**
- * <p>The configuration settings for a router output that pushes a stream to a destination using the RTMP (Real-Time Messaging Protocol) protocol, or RTMPS (RTMP over TLS) when TLS encryption is specified. These settings include the destination address and port, the application and stream names, and optional TLS encryption configuration.</p>
+ * The configuration settings for a router output that pushes a stream to a destination using the RTMP (Real-Time Messaging Protocol) protocol, or RTMPS (RTMP over TLS) when TLS encryption is specified. These settings include the destination address and port, the application and stream names, and optional TLS encryption configuration.
+ *
  * @public
  */
 export interface RtmpPushRouterOutputConfiguration {
   /**
-   * <p>The IP address or hostname of the destination RTMP server that the router output pushes the stream to. Provide only the server address; specify the application and stream names separately.</p>
+   * The IP address or hostname of the destination RTMP server that the router output pushes the stream to. Provide only the server address; specify the application and stream names separately.
+   *
    * @public
    */
   DestinationAddress: string | undefined;
 
   /**
-   * <p>The TCP port on the destination RTMP server. For RTMP, valid values range from <code>1024</code> to <code>65535</code>. For RTMPS (RTMP over TLS), valid values are <code>443</code> or <code>1024</code> to <code>65535</code>. RTMP typically uses port <code>1935</code>, and RTMPS typically uses port <code>443</code>.</p>
+   * The TCP port on the destination RTMP server. For RTMP, valid values range from `1024` to `65535`. For RTMPS (RTMP over TLS), valid values are `443` or `1024` to `65535`. RTMP typically uses port `1935`, and RTMPS typically uses port `443`.
+   *
    * @public
    */
   DestinationPort: number | undefined;
 
   /**
-   * <p>The name of the RTMP application on the destination server. Together with the stream name, the application name forms the RTMP URL path, in the pattern <code>rtmp://destinationAddress/applicationName/streamName</code>.</p>
+   * The name of the RTMP application on the destination server. Together with the stream name, the application name forms the RTMP URL path, in the pattern `rtmp://destinationAddress/applicationName/streamName`.
+   *
    * @public
    */
   ApplicationName: string | undefined;
 
   /**
-   * <p>The name of the RTMP stream that the output publishes to the destination application. The stream name forms the final segment of the RTMP URL path.</p>
+   * The name of the RTMP stream that the output publishes to the destination application. The stream name forms the final segment of the RTMP URL path.
+   *
    * @public
    */
   StreamName: string | undefined;
 
   /**
-   * <p>The TLS encryption settings for the output. When you specify these settings, the output uses RTMPS (RTMP over TLS) to establish a secure, encrypted connection to the destination server.</p>
+   * The TLS encryption settings for the output. When you specify these settings, the output uses RTMPS (RTMP over TLS) to establish a secure, encrypted connection to the destination server.
+   *
    * @public
    */
   TlsEncryption?: TlsEncryption | undefined;
 }
 
 /**
- * <p>The configuration settings for a router output using the RTP (Real-Time Transport Protocol) protocol, including the destination address and port, and forward error correction state.</p>
+ * The configuration settings for a router output using the RTP (Real-Time Transport Protocol) protocol, including the destination address and port, and forward error correction state.
+ *
  * @public
  */
 export interface RtpRouterOutputConfiguration {
   /**
-   * <p>The destination IP address for the RTP protocol in the router output configuration.</p>
+   * The destination IP address for the RTP protocol in the router output configuration.
+   *
    * @public
    */
   DestinationAddress: string | undefined;
 
   /**
-   * <p>The destination port number for the RTP protocol in the router output configuration.</p>
+   * The destination port number for the RTP protocol in the router output configuration.
+   *
    * @public
    */
   DestinationPort: number | undefined;
 
   /**
-   * <p>The state of forward error correction for the RTP protocol in the router output configuration.</p>
+   * The state of forward error correction for the RTP protocol in the router output configuration.
+   *
    * @public
    */
   ForwardErrorCorrection?: ForwardErrorCorrectionState | undefined;
 }
 
 /**
- * <p>Contains the configuration settings for encrypting SRT streams, including the encryption key details and encryption parameters.</p>
+ * Contains the configuration settings for encrypting SRT streams, including the encryption key details and encryption parameters.
+ *
  * @public
  */
 export interface SrtEncryptionConfiguration {
   /**
-   * <p>Specifies the encryption key configuration used for encrypting SRT streams, including the key source and associated credentials.</p>
+   * Specifies the encryption key configuration used for encrypting SRT streams, including the key source and associated credentials.
+   *
    * @public
    */
   EncryptionKey: SecretsManagerEncryptionKeyConfiguration | undefined;
 }
 
 /**
- * <p>The configuration settings for a router output using the SRT (Secure Reliable Transport) protocol in caller mode, including the destination address and port, minimum latency, stream ID, and encryption key configuration.</p>
+ * The configuration settings for a router output using the SRT (Secure Reliable Transport) protocol in caller mode, including the destination address and port, minimum latency, stream ID, and encryption key configuration.
+ *
  * @public
  */
 export interface SrtCallerRouterOutputConfiguration {
   /**
-   * <p>The destination IP address for the SRT protocol in caller mode.</p>
+   * The destination IP address for the SRT protocol in caller mode.
+   *
    * @public
    */
   DestinationAddress: string | undefined;
 
   /**
-   * <p>The destination port number for the SRT protocol in caller mode.</p>
+   * The destination port number for the SRT protocol in caller mode.
+   *
    * @public
    */
   DestinationPort: number | undefined;
 
   /**
-   * <p>The minimum latency in milliseconds for the SRT protocol in caller mode.</p>
+   * The minimum latency in milliseconds for the SRT protocol in caller mode.
+   *
    * @public
    */
   MinimumLatencyMilliseconds: number | undefined;
 
   /**
-   * <p>The stream ID for the SRT protocol in caller mode.</p>
+   * The stream ID for the SRT protocol in caller mode.
+   *
    * @public
    */
   StreamId?: string | undefined;
 
   /**
-   * <p>Defines the encryption settings for an SRT caller output, including the encryption key configuration and associated parameters.</p>
+   * Defines the encryption settings for an SRT caller output, including the encryption key configuration and associated parameters.
+   *
    * @public
    */
   EncryptionConfiguration?: SrtEncryptionConfiguration | undefined;
 }
 
 /**
- * <p>The configuration settings for a router output using the SRT (Secure Reliable Transport) protocol in listener mode, including the port, minimum latency, and encryption key configuration.</p>
+ * The configuration settings for a router output using the SRT (Secure Reliable Transport) protocol in listener mode, including the port, minimum latency, and encryption key configuration.
+ *
  * @public
  */
 export interface SrtListenerRouterOutputConfiguration {
   /**
-   * <p>The port number for the SRT protocol in listener mode.</p>
+   * The port number for the SRT protocol in listener mode.
+   *
    * @public
    */
   Port: number | undefined;
 
   /**
-   * <p>The minimum latency in milliseconds for the SRT protocol in listener mode.</p>
+   * The minimum latency in milliseconds for the SRT protocol in listener mode.
+   *
    * @public
    */
   MinimumLatencyMilliseconds: number | undefined;
 
   /**
-   * <p>Defines the encryption settings for an SRT listener output, including the encryption key configuration and associated parameters.</p>
+   * Defines the encryption settings for an SRT listener output, including the encryption key configuration and associated parameters.
+   *
    * @public
    */
   EncryptionConfiguration?: SrtEncryptionConfiguration | undefined;
 }
 
 /**
- * <p>The protocol configuration settings for a router output.</p>
+ * The protocol configuration settings for a router output.
+ *
  * @public
  */
 export type RouterOutputProtocolConfiguration =
@@ -5933,7 +6869,8 @@ export type RouterOutputProtocolConfiguration =
  */
 export namespace RouterOutputProtocolConfiguration {
   /**
-   * <p>The configuration settings for a router output using the RIST (Reliable Internet Stream Transport) protocol, including the destination address and port.</p>
+   * The configuration settings for a router output using the RIST (Reliable Internet Stream Transport) protocol, including the destination address and port.
+   *
    * @public
    */
   export interface RistMember {
@@ -5946,7 +6883,8 @@ export namespace RouterOutputProtocolConfiguration {
   }
 
   /**
-   * <p>The configuration settings for a router output using the SRT (Secure Reliable Transport) protocol in listener mode, including the port, minimum latency, and encryption key configuration.</p>
+   * The configuration settings for a router output using the SRT (Secure Reliable Transport) protocol in listener mode, including the port, minimum latency, and encryption key configuration.
+   *
    * @public
    */
   export interface SrtListenerMember {
@@ -5959,7 +6897,8 @@ export namespace RouterOutputProtocolConfiguration {
   }
 
   /**
-   * <p>The configuration settings for a router output that pushes a stream to a destination using the RTMP (Real-Time Messaging Protocol) protocol, or RTMPS (RTMP over TLS) when TLS encryption is specified. These settings include the destination address and port, the application and stream names, and optional TLS encryption configuration.</p>
+   * The configuration settings for a router output that pushes a stream to a destination using the RTMP (Real-Time Messaging Protocol) protocol, or RTMPS (RTMP over TLS) when TLS encryption is specified. These settings include the destination address and port, the application and stream names, and optional TLS encryption configuration.
+   *
    * @public
    */
   export interface RtmpPushMember {
@@ -5972,7 +6911,8 @@ export namespace RouterOutputProtocolConfiguration {
   }
 
   /**
-   * <p>The configuration settings for a router output using the SRT (Secure Reliable Transport) protocol in caller mode, including the destination address and port, minimum latency, stream ID, and encryption key configuration.</p>
+   * The configuration settings for a router output using the SRT (Secure Reliable Transport) protocol in caller mode, including the destination address and port, minimum latency, stream ID, and encryption key configuration.
+   *
    * @public
    */
   export interface SrtCallerMember {
@@ -5985,7 +6925,8 @@ export namespace RouterOutputProtocolConfiguration {
   }
 
   /**
-   * <p>The configuration settings for a router output using the RTP (Real-Time Transport Protocol) protocol, including the destination address and port, and forward error correction state.</p>
+   * The configuration settings for a router output using the RTP (Real-Time Transport Protocol) protocol, including the destination address and port, and forward error correction state.
+   *
    * @public
    */
   export interface RtpMember {
@@ -6024,31 +6965,36 @@ export namespace RouterOutputProtocolConfiguration {
 }
 
 /**
- * <p>The configuration settings for a standard router output, including the protocol, protocol-specific configuration, network interface, and availability zone.</p>
+ * The configuration settings for a standard router output, including the protocol, protocol-specific configuration, network interface, and availability zone.
+ *
  * @public
  */
 export interface StandardRouterOutputConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the network interface associated with the standard router output.</p>
+   * The Amazon Resource Name (ARN) of the network interface associated with the standard router output.
+   *
    * @public
    */
   NetworkInterfaceArn: string | undefined;
 
   /**
-   * <p>The configuration settings for the protocol used by the standard router output.</p>
+   * The configuration settings for the protocol used by the standard router output.
+   *
    * @public
    */
   ProtocolConfiguration: RouterOutputProtocolConfiguration | undefined;
 
   /**
-   * <p>The protocol used by the standard router output.</p>
+   * The protocol used by the standard router output.
+   *
    * @public
    */
   Protocol?: RouterOutputProtocol | undefined;
 }
 
 /**
- * <p>The configuration settings for a router output.</p>
+ * The configuration settings for a router output.
+ *
  * @public
  */
 export type RouterOutputConfiguration =
@@ -6063,7 +7009,8 @@ export type RouterOutputConfiguration =
  */
 export namespace RouterOutputConfiguration {
   /**
-   * <p>The configuration settings for a standard router output, including the protocol, protocol-specific configuration, network interface, and availability zone.</p>
+   * The configuration settings for a standard router output, including the protocol, protocol-specific configuration, network interface, and availability zone.
+   *
    * @public
    */
   export interface StandardMember {
@@ -6075,7 +7022,12 @@ export namespace RouterOutputConfiguration {
   }
 
   /**
-   * <p>Configuration settings for connecting a router output to a MediaConnect flow source.</p> <p>To connect the router output to the flow source, provide both <code>flowArn</code> and <code>flowSourceArn</code>. To disconnect it, call the update operation and omit both fields while keeping this configuration object.</p> <note> <p>You can't change <code>destinationTransitEncryption</code> while the router output is connected to a flow source. To change it, first disconnect the router output, then update the encryption.</p> </note>
+   * Configuration settings for connecting a router output to a MediaConnect flow source.
+   *
+   * To connect the router output to the flow source, provide both `flowArn` and `flowSourceArn`. To disconnect it, call the update operation and omit both fields while keeping this configuration object.
+   *
+   * > **Note:** You can't change `destinationTransitEncryption` while the router output is connected to a flow source. To change it, first disconnect the router output, then update the encryption.
+   *
    * @public
    */
   export interface MediaConnectFlowMember {
@@ -6087,7 +7039,12 @@ export namespace RouterOutputConfiguration {
   }
 
   /**
-   * <p>Configuration settings for connecting a router output to a MediaLive input.</p> <p>To connect the router output to the MediaLive input, provide both <code>mediaLiveInputArn</code> and <code>mediaLivePipelineId</code>. To disconnect it, call the update operation and omit both fields while keeping this configuration object.</p> <note> <p>You can't change <code>destinationTransitEncryption</code> while the router output is connected to a MediaLive input. To change it, first disconnect the router output, then update the encryption.</p> </note>
+   * Configuration settings for connecting a router output to a MediaLive input.
+   *
+   * To connect the router output to the MediaLive input, provide both `mediaLiveInputArn` and `mediaLivePipelineId`. To disconnect it, call the update operation and omit both fields while keeping this configuration object.
+   *
+   * > **Note:** You can't change `destinationTransitEncryption` while the router output is connected to a MediaLive input. To change it, first disconnect the router output, then update the encryption.
+   *
    * @public
    */
   export interface MediaLiveInputMember {
@@ -6099,7 +7056,8 @@ export namespace RouterOutputConfiguration {
   }
 
   /**
-   * <p>Configuration settings for a router output that is represented by a source endpoint.</p>
+   * Configuration settings for a router output that is represented by a source endpoint.
+   *
    * @public
    */
   export interface SourceEndpointMember {
@@ -6135,67 +7093,81 @@ export namespace RouterOutputConfiguration {
 }
 
 /**
- * <p>The fabric configuration settings for the router output.</p>
+ * The fabric configuration settings for the router output.
+ *
  * @public
  */
 export interface FabricConfiguration {
   /**
-   * <p>The recovery latency mode for the router fabric connection. Valid values include the following:</p> <ul> <li> <p> <code>BALANCED</code> (default) – Optimizes for stream quality.</p> </li> <li> <p> <code>LOW_LATENCY</code> – Reduces latency at the potential cost of stream quality under adverse network conditions.</p> </li> </ul>
+   * The recovery latency mode for the router fabric connection. Valid values include the following:
+   *
+   * - `BALANCED` (default) – Optimizes for stream quality.
+   * - `LOW_LATENCY` – Reduces latency at the potential cost of stream quality under adverse network conditions.
+   *
    * @public
    */
   RecoveryLatencyMode: FabricLatencyMode | undefined;
 }
 
 /**
- * <p>A message associated with a router output.</p>
+ * A message associated with a router output.
+ *
  * @public
  */
 export interface RouterOutputMessage {
   /**
-   * <p>The code associated with the router output message.</p>
+   * The code associated with the router output message.
+   *
    * @public
    */
   Code: string | undefined;
 
   /**
-   * <p>The message text associated with the router output message.</p>
+   * The message text associated with the router output message.
+   *
    * @public
    */
   Message: string | undefined;
 }
 
 /**
- * <p>Configuration details for a MediaConnect flow when used as a router output destination.</p>
+ * Configuration details for a MediaConnect flow when used as a router output destination.
+ *
  * @public
  */
 export interface MediaConnectFlowRouterOutputStreamDetails {}
 
 /**
- * <p>Configuration details for a MediaLive input when used as a router output destination.</p>
+ * Configuration details for a MediaLive input when used as a router output destination.
+ *
  * @public
  */
 export interface MediaLiveInputRouterOutputStreamDetails {}
 
 /**
- * <p>Configuration details for a router output stream that is represented by a source endpoint.</p>
+ * Configuration details for a router output stream that is represented by a source endpoint.
+ *
  * @public
  */
 export interface SourceEndpointRouterOutputStreamDetails {}
 
 /**
- * <p>Configuration details for a standard router output stream type. Contains information about the destination IP address and connection state for basic output routing.</p>
+ * Configuration details for a standard router output stream type. Contains information about the destination IP address and connection state for basic output routing.
+ *
  * @public
  */
 export interface StandardRouterOutputStreamDetails {
   /**
-   * <p>The IP address where the output stream will be sent. This is the destination address that will receive the routed media content.</p>
+   * The IP address where the output stream will be sent. This is the destination address that will receive the routed media content.
+   *
    * @public
    */
   DestinationIpAddress?: string | undefined;
 }
 
 /**
- * <p>Information about the router output's stream, including connection state and destination details. The specific details provided vary based on the router output type.</p>
+ * Information about the router output's stream, including connection state and destination details. The specific details provided vary based on the router output type.
+ *
  * @public
  */
 export type RouterOutputStreamDetails =
@@ -6210,7 +7182,8 @@ export type RouterOutputStreamDetails =
  */
 export namespace RouterOutputStreamDetails {
   /**
-   * <p>Configuration details for a standard router output stream type. Contains information about the destination IP address and connection state for basic output routing.</p>
+   * Configuration details for a standard router output stream type. Contains information about the destination IP address and connection state for basic output routing.
+   *
    * @public
    */
   export interface StandardMember {
@@ -6222,7 +7195,8 @@ export namespace RouterOutputStreamDetails {
   }
 
   /**
-   * <p>Configuration details for a MediaConnect flow when used as a router output destination.</p>
+   * Configuration details for a MediaConnect flow when used as a router output destination.
+   *
    * @public
    */
   export interface MediaConnectFlowMember {
@@ -6234,7 +7208,8 @@ export namespace RouterOutputStreamDetails {
   }
 
   /**
-   * <p>Configuration details for a MediaLive input when used as a router output destination.</p>
+   * Configuration details for a MediaLive input when used as a router output destination.
+   *
    * @public
    */
   export interface MediaLiveInputMember {
@@ -6246,7 +7221,8 @@ export namespace RouterOutputStreamDetails {
   }
 
   /**
-   * <p>Configuration details for a router output stream that is represented by a source endpoint.</p>
+   * Configuration details for a router output stream that is represented by a source endpoint.
+   *
    * @public
    */
   export interface SourceEndpointMember {
@@ -6282,156 +7258,190 @@ export namespace RouterOutputStreamDetails {
 }
 
 /**
- * <p>A router output in AWS Elemental MediaConnect. A router output is a destination for media content that can receive input from one or more router inputs.</p>
+ * A router output in AWS Elemental MediaConnect. A router output is a destination for media content that can receive input from one or more router inputs.
+ *
  * @public
  */
 export interface RouterOutput {
   /**
-   * <p>The name of the router output.</p>
+   * The name of the router output.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the router output.</p>
+   * The Amazon Resource Name (ARN) of the router output.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The unique identifier of the router output.</p>
+   * The unique identifier of the router output.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The overall state of the router output.</p>
+   * The overall state of the router output.
+   *
    * @public
    */
   State: RouterOutputState | undefined;
 
   /**
-   * <p>The type of the router output.</p>
+   * The type of the router output.
+   *
    * @public
    */
   OutputType: RouterOutputType | undefined;
 
   /**
-   * <p>The configuration settings for a router output.</p>
+   * The configuration settings for a router output.
+   *
    * @public
    */
   Configuration: RouterOutputConfiguration | undefined;
 
   /**
-   * <p>The current state of the association between the router output and its input.</p>
+   * The current state of the association between the router output and its input.
+   *
    * @public
    */
   RoutedState: RouterOutputRoutedState | undefined;
 
   /**
-   * <p>The Amazon Web Services Region where the router output is located.</p>
+   * The Amazon Web Services Region where the router output is located.
+   *
    * @public
    */
   RegionName: string | undefined;
 
   /**
-   * <p>The Availability Zone of the router output.</p>
+   * The Availability Zone of the router output.
+   *
    * @public
    */
   AvailabilityZone: string | undefined;
 
   /**
-   * <p>The maximum bitrate for the router output.</p>
+   * The maximum bitrate for the router output.
+   *
    * @public
    */
   MaximumBitrate: number | undefined;
 
   /**
-   * <p>Indicates whether the router output is configured for Regional or global routing.</p>
+   * Indicates whether the router output is configured for Regional or global routing.
+   *
    * @public
    */
   RoutingScope: RoutingScope | undefined;
 
   /**
-   * <p>The tier level for the router output. The tier sets the maximum bitrate, in Mbps, for the router output. Valid values include the following:</p> <ul> <li> <p> <code>OUTPUT_20</code> – 20 Mbps</p> </li> <li> <p> <code>OUTPUT_50</code> – 50 Mbps</p> </li> <li> <p> <code>OUTPUT_100</code> – 100 Mbps</p> </li> <li> <p> <code>OUTPUT_250</code> – 250 Mbps</p> </li> <li> <p> <code>OUTPUT_500</code> – 500 Mbps</p> </li> </ul> <p>The 250 Mbps and 500 Mbps tiers are high-bitrate tiers that support TR-07 (JPEG XS) workflows.</p>
+   * The tier level for the router output. The tier sets the maximum bitrate, in Mbps, for the router output. Valid values include the following:
+   *
+   * - `OUTPUT_20` – 20 Mbps
+   * - `OUTPUT_50` – 50 Mbps
+   * - `OUTPUT_100` – 100 Mbps
+   * - `OUTPUT_250` – 250 Mbps
+   * - `OUTPUT_500` – 500 Mbps
+   *
+   * The 250 Mbps and 500 Mbps tiers are high-bitrate tiers that support TR-07 (JPEG XS) workflows.
+   *
    * @public
    */
   Tier: RouterOutputTier | undefined;
 
   /**
-   * <p>The timestamp when the router output was created.</p>
+   * The timestamp when the router output was created.
+   *
    * @public
    */
   CreatedAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the router output was last updated.</p>
+   * The timestamp when the router output was last updated.
+   *
    * @public
    */
   UpdatedAt: Date | undefined;
 
   /**
-   * <p>The messages associated with the router output.</p>
+   * The messages associated with the router output.
+   *
    * @public
    */
   Messages: RouterOutputMessage[] | undefined;
 
   /**
-   * <p>Key-value pairs that can be used to tag and organize this router output.</p>
+   * Key-value pairs that can be used to tag and organize this router output.
+   *
    * @public
    */
   Tags: Record<string, string> | undefined;
 
   /**
-   * <p>Information about the router output's stream, including connection state and destination details. The specific details provided vary based on the router output type.</p>
+   * Information about the router output's stream, including connection state and destination details. The specific details provided vary based on the router output type.
+   *
    * @public
    */
   StreamDetails: RouterOutputStreamDetails | undefined;
 
   /**
-   * <p>The IP address of the router output.</p>
+   * The IP address of the router output.
+   *
    * @public
    */
   IpAddress?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the router input associated with the output.</p>
+   * The Amazon Resource Name (ARN) of the router input associated with the output.
+   *
    * @public
    */
   RoutedInputArn?: string | undefined;
 
   /**
-   * <p>The type of maintenance configuration applied to this router output.</p>
+   * The type of maintenance configuration applied to this router output.
+   *
    * @public
    */
   MaintenanceType: MaintenanceType | undefined;
 
   /**
-   * <p>The maintenance configuration settings applied to this router output.</p>
+   * The maintenance configuration settings applied to this router output.
+   *
    * @public
    */
   MaintenanceConfiguration: MaintenanceConfiguration | undefined;
 
   /**
-   * <p>The type of maintenance schedule currently in effect for this router output.</p>
+   * The type of maintenance schedule currently in effect for this router output.
+   *
    * @public
    */
   MaintenanceScheduleType?: MaintenanceScheduleType | undefined;
 
   /**
-   * <p>The current maintenance schedule details for this router output.</p>
+   * The current maintenance schedule details for this router output.
+   *
    * @public
    */
   MaintenanceSchedule?: MaintenanceSchedule | undefined;
 
   /**
-   * <p>The fabric configuration settings for the router output.</p>
+   * The fabric configuration settings for the router output.
+   *
    * @public
    */
   FabricConfiguration: FabricConfiguration | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of one or more source endpoints that are associated with this router output.</p>
+   * The Amazon Resource Names (ARNs) of one or more source endpoints that are associated with this router output.
+   *
    * @public
    */
   AssociatedSourceEndpointArns?: string[] | undefined;
@@ -6442,13 +7452,15 @@ export interface RouterOutput {
  */
 export interface BatchGetRouterOutputResponse {
   /**
-   * <p>An array of router outputs that were successfully retrieved.</p>
+   * An array of router outputs that were successfully retrieved.
+   *
    * @public
    */
   RouterOutputs: RouterOutput[] | undefined;
 
   /**
-   * <p>An array of errors that occurred when retrieving the requested router outputs.</p>
+   * An array of errors that occurred when retrieving the requested router outputs.
+   *
    * @public
    */
   Errors: BatchGetRouterOutputError[] | undefined;
@@ -6459,74 +7471,86 @@ export interface BatchGetRouterOutputResponse {
  */
 export interface BatchGetSourceEndpointRequest {
   /**
-   * <p>The Amazon Resource Names (ARNs) of one or more source endpoints to retrieve. You can specify from 1 to 20 ARNs.</p>
+   * The Amazon Resource Names (ARNs) of one or more source endpoints to retrieve. You can specify from 1 to 20 ARNs.
+   *
    * @public
    */
   Arns: string[] | undefined;
 }
 
 /**
- * <p>An error for a source endpoint that MediaConnect couldn't retrieve in a <code>BatchGetSourceEndpoint</code> request.</p>
+ * An error for a source endpoint that MediaConnect couldn't retrieve in a `BatchGetSourceEndpoint` request.
+ *
  * @public
  */
 export interface BatchGetSourceEndpointError {
   /**
-   * <p>The Amazon Resource Name (ARN) of the source endpoint that MediaConnect couldn't retrieve.</p>
+   * The Amazon Resource Name (ARN) of the source endpoint that MediaConnect couldn't retrieve.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The error code.</p>
+   * The error code.
+   *
    * @public
    */
   Code: string | undefined;
 
   /**
-   * <p>A description of the error.</p>
+   * A description of the error.
+   *
    * @public
    */
   Message: string | undefined;
 }
 
 /**
- * <p>The details of the router output that is associated with a source endpoint.</p>
+ * The details of the router output that is associated with a source endpoint.
+ *
  * @public
  */
 export interface RouterOutputSourceEndpointAssociatedResourceDetails {
   /**
-   * <p>The name of the router output.</p>
+   * The name of the router output.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The maximum bitrate of the router output, in bits per second.</p>
+   * The maximum bitrate of the router output, in bits per second.
+   *
    * @public
    */
   MaximumBitrate: number | undefined;
 
   /**
-   * <p>The state of the router output.</p>
+   * The state of the router output.
+   *
    * @public
    */
   State: RouterOutputState | undefined;
 
   /**
-   * <p>The status messages for the router output.</p>
+   * The status messages for the router output.
+   *
    * @public
    */
   Messages: RouterOutputMessage[] | undefined;
 }
 
 /**
- * <p>The associated resource details for a standard source endpoint. This type does not require any additional settings.</p>
+ * The associated resource details for a standard source endpoint. This type does not require any additional settings.
+ *
  * @public
  */
 export interface StandardSourceEndpointAssociatedResourceDetails {}
 
 /**
- * <p>The details of the resource that is associated with a source endpoint. This is a union type, so exactly one of its members is set, depending on the type of the source endpoint.</p>
+ * The details of the resource that is associated with a source endpoint. This is a union type, so exactly one of its members is set, depending on the type of the source endpoint.
+ *
  * @public
  */
 export type SourceEndpointAssociatedResourceDetails =
@@ -6539,7 +7563,8 @@ export type SourceEndpointAssociatedResourceDetails =
  */
 export namespace SourceEndpointAssociatedResourceDetails {
   /**
-   * <p>The associated resource details for a standard source endpoint.</p>
+   * The associated resource details for a standard source endpoint.
+   *
    * @public
    */
   export interface StandardMember {
@@ -6549,7 +7574,8 @@ export namespace SourceEndpointAssociatedResourceDetails {
   }
 
   /**
-   * <p>The associated resource details for a source endpoint that represents a router output.</p>
+   * The associated resource details for a source endpoint that represents a router output.
+   *
    * @public
    */
   export interface RouterOutputMember {
@@ -6579,115 +7605,134 @@ export namespace SourceEndpointAssociatedResourceDetails {
 }
 
 /**
- * <p>The configuration settings for a source endpoint that represents a router output.</p>
+ * The configuration settings for a source endpoint that represents a router output.
+ *
  * @public
  */
 export interface RouterOutputSourceEndpointConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the router output that the source endpoint represents.</p>
+   * The Amazon Resource Name (ARN) of the router output that the source endpoint represents.
+   *
    * @public
    */
   RouterOutputArn: string | undefined;
 }
 
 /**
- * <p>The configuration settings for a source endpoint that uses the RIST protocol.</p>
+ * The configuration settings for a source endpoint that uses the RIST protocol.
+ *
  * @public
  */
 export interface RistStandardSourceEndpointConfiguration {
   /**
-   * <p>The port on the destination that receives the content. The valid range is 3000 to 30000.</p>
+   * The port on the destination that receives the content. The valid range is 3000 to 30000.
+   *
    * @public
    */
   DestinationIngestPort: number | undefined;
 
   /**
-   * <p>The amount of time, in milliseconds, that the source endpoint allows for recovering lost packets. The valid range is 10 to 10000.</p>
+   * The amount of time, in milliseconds, that the source endpoint allows for recovering lost packets. The valid range is 10 to 10000.
+   *
    * @public
    */
   RecoveryLatencyMilliseconds: number | undefined;
 }
 
 /**
- * <p>The configuration settings for a source endpoint that uses the RTP protocol.</p>
+ * The configuration settings for a source endpoint that uses the RTP protocol.
+ *
  * @public
  */
 export interface RtpStandardSourceEndpointConfiguration {
   /**
-   * <p>The port on the destination that receives the content. The valid range is 3000 to 30000.</p>
+   * The port on the destination that receives the content. The valid range is 3000 to 30000.
+   *
    * @public
    */
   DestinationIngestPort: number | undefined;
 
   /**
-   * <p>Indicates whether forward error correction (FEC) is enabled for the source endpoint.</p>
+   * Indicates whether forward error correction (FEC) is enabled for the source endpoint.
+   *
    * @public
    */
   ForwardErrorCorrectionState: ForwardErrorCorrectionState | undefined;
 }
 
 /**
- * <p>The configuration settings for a source endpoint that uses SRT in caller mode.</p>
+ * The configuration settings for a source endpoint that uses SRT in caller mode.
+ *
  * @public
  */
 export interface SrtCallerStandardSourceEndpointConfiguration {
   /**
-   * <p>The port on which the destination listens for the connection. The valid range is 3000 to 30000.</p>
+   * The port on which the destination listens for the connection. The valid range is 3000 to 30000.
+   *
    * @public
    */
   DestinationIngestPort: number | undefined;
 
   /**
-   * <p>The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.</p>
+   * The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.
+   *
    * @public
    */
   MinimumLatencyMilliseconds: number | undefined;
 
   /**
-   * <p>The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.</p>
+   * The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.
+   *
    * @public
    */
   EncryptionPassphrase?: EndpointEncryptionSecretConfiguration | undefined;
 }
 
 /**
- * <p>The configuration settings for a source endpoint that uses SRT in listener mode.</p>
+ * The configuration settings for a source endpoint that uses SRT in listener mode.
+ *
  * @public
  */
 export interface SrtListenerStandardSourceEndpointConfiguration {
   /**
-   * <p>The port that the source endpoint listens on for incoming connections. The valid range is 1024 to 65535.</p>
+   * The port that the source endpoint listens on for incoming connections. The valid range is 1024 to 65535.
+   *
    * @public
    */
   SourceListenerPort: number | undefined;
 
   /**
-   * <p>The IP address that the source endpoint listens on for incoming connections.</p>
+   * The IP address that the source endpoint listens on for incoming connections.
+   *
    * @public
    */
   SourceAddress: string | undefined;
 
   /**
-   * <p>The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.</p>
+   * The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.
+   *
    * @public
    */
   MinimumLatencyMilliseconds: number | undefined;
 
   /**
-   * <p>The stream ID that identifies the content for the SRT connection.</p>
+   * The stream ID that identifies the content for the SRT connection.
+   *
    * @public
    */
   StreamId?: string | undefined;
 
   /**
-   * <p>The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.</p>
+   * The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.
+   *
    * @public
    */
   EncryptionPassphrase?: EndpointEncryptionSecretConfiguration | undefined;
 }
 
 /**
- * <p>The protocol configuration for a standard source endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the source endpoint uses.</p>
+ * The protocol configuration for a standard source endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the source endpoint uses.
+ *
  * @public
  */
 export type StandardSourceEndpointProtocolConfiguration =
@@ -6702,7 +7747,8 @@ export type StandardSourceEndpointProtocolConfiguration =
  */
 export namespace StandardSourceEndpointProtocolConfiguration {
   /**
-   * <p>The configuration settings for a source endpoint that uses the RIST protocol.</p>
+   * The configuration settings for a source endpoint that uses the RIST protocol.
+   *
    * @public
    */
   export interface RistMember {
@@ -6714,7 +7760,8 @@ export namespace StandardSourceEndpointProtocolConfiguration {
   }
 
   /**
-   * <p>The configuration settings for a source endpoint that uses SRT in listener mode.</p>
+   * The configuration settings for a source endpoint that uses SRT in listener mode.
+   *
    * @public
    */
   export interface SrtListenerMember {
@@ -6726,7 +7773,8 @@ export namespace StandardSourceEndpointProtocolConfiguration {
   }
 
   /**
-   * <p>The configuration settings for a source endpoint that uses SRT in caller mode.</p>
+   * The configuration settings for a source endpoint that uses SRT in caller mode.
+   *
    * @public
    */
   export interface SrtCallerMember {
@@ -6738,7 +7786,8 @@ export namespace StandardSourceEndpointProtocolConfiguration {
   }
 
   /**
-   * <p>The configuration settings for a source endpoint that uses the RTP protocol.</p>
+   * The configuration settings for a source endpoint that uses the RTP protocol.
+   *
    * @public
    */
   export interface RtpMember {
@@ -6774,49 +7823,57 @@ export namespace StandardSourceEndpointProtocolConfiguration {
 }
 
 /**
- * <p>A rule that allows a specific CIDR block to connect to the public source endpoint.</p>
+ * A rule that allows a specific CIDR block to connect to the public source endpoint.
+ *
  * @public
  */
 export interface PublicSourceEndpointNetworkingConfigurationAllowRule {
   /**
-   * <p>The CIDR block that is allowed to connect to the source endpoint, in CIDR notation.</p>
+   * The CIDR block that is allowed to connect to the source endpoint, in CIDR notation.
+   *
    * @public
    */
   Cidr: string | undefined;
 }
 
 /**
- * <p>The networking configuration for a publicly accessible source endpoint, including the CIDR blocks that are allowed to connect.</p>
+ * The networking configuration for a publicly accessible source endpoint, including the CIDR blocks that are allowed to connect.
+ *
  * @public
  */
 export interface PublicSourceEndpointNetworkingConfiguration {
   /**
-   * <p>The rules that specify which CIDR blocks can connect to the source endpoint. You can specify up to 10 rules.</p>
+   * The rules that specify which CIDR blocks can connect to the source endpoint. You can specify up to 10 rules.
+   *
    * @public
    */
   SourceAllowRules: PublicSourceEndpointNetworkingConfigurationAllowRule[] | undefined;
 }
 
 /**
- * <p>The networking configuration for a source endpoint in a virtual private cloud (VPC).</p>
+ * The networking configuration for a source endpoint in a virtual private cloud (VPC).
+ *
  * @public
  */
 export interface VpcSourceEndpointNetworkingConfiguration {
   /**
-   * <p>The IDs of the security groups to associate with the source endpoint. You can specify from 1 to 5 security groups.</p>
+   * The IDs of the security groups to associate with the source endpoint. You can specify from 1 to 5 security groups.
+   *
    * @public
    */
   SecurityGroupIds: string[] | undefined;
 
   /**
-   * <p>The ID of the subnet to use for the source endpoint.</p>
+   * The ID of the subnet to use for the source endpoint.
+   *
    * @public
    */
   SubnetId: string | undefined;
 }
 
 /**
- * <p>The networking configuration for a standard source endpoint. This is a union type, so exactly one of its members is set: <code>public</code> for a publicly accessible endpoint, or <code>vpc</code> for an endpoint in a virtual private cloud (VPC).</p>
+ * The networking configuration for a standard source endpoint. This is a union type, so exactly one of its members is set: `public` for a publicly accessible endpoint, or `vpc` for an endpoint in a virtual private cloud (VPC).
+ *
  * @public
  */
 export type StandardSourceEndpointNetworkingConfiguration =
@@ -6829,7 +7886,8 @@ export type StandardSourceEndpointNetworkingConfiguration =
  */
 export namespace StandardSourceEndpointNetworkingConfiguration {
   /**
-   * <p>The configuration for a publicly accessible source endpoint.</p>
+   * The configuration for a publicly accessible source endpoint.
+   *
    * @public
    */
   export interface PublicMember {
@@ -6839,7 +7897,8 @@ export namespace StandardSourceEndpointNetworkingConfiguration {
   }
 
   /**
-   * <p>The configuration for a source endpoint in a virtual private cloud (VPC).</p>
+   * The configuration for a source endpoint in a virtual private cloud (VPC).
+   *
    * @public
    */
   export interface VpcMember {
@@ -6869,43 +7928,58 @@ export namespace StandardSourceEndpointNetworkingConfiguration {
 }
 
 /**
- * <p>The configuration settings for a standard source endpoint.</p>
+ * The configuration settings for a standard source endpoint.
+ *
  * @public
  */
 export interface StandardSourceEndpointConfiguration {
   /**
-   * <p>The name of the source endpoint.</p>
+   * The name of the source endpoint.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The networking configuration for the source endpoint, which determines whether it is publicly accessible or in a virtual private cloud (VPC).</p>
+   * The networking configuration for the source endpoint, which determines whether it is publicly accessible or in a virtual private cloud (VPC).
+   *
    * @public
    */
   SourceNetworkingConfiguration: StandardSourceEndpointNetworkingConfiguration | undefined;
 
   /**
-   * <p>The protocol configuration for the source endpoint.</p>
+   * The protocol configuration for the source endpoint.
+   *
    * @public
    */
   ProtocolConfiguration: StandardSourceEndpointProtocolConfiguration | undefined;
 
   /**
-   * <p>The networking type of the source endpoint. Valid values include the following:</p> <ul> <li> <p> <code>PUBLIC</code> – The source endpoint is publicly accessible.</p> </li> <li> <p> <code>VPC</code> – The source endpoint is in a virtual private cloud (VPC).</p> </li> </ul>
+   * The networking type of the source endpoint. Valid values include the following:
+   *
+   * - `PUBLIC` – The source endpoint is publicly accessible.
+   * - `VPC` – The source endpoint is in a virtual private cloud (VPC).
+   *
    * @public
    */
   SourceNetworkingType?: SourceEndpointNetworkingType | undefined;
 
   /**
-   * <p>The protocol used by the source endpoint. Valid values include the following:</p> <ul> <li> <p> <code>RTP</code> – Real-time Transport Protocol.</p> </li> <li> <p> <code>RIST</code> – Reliable Internet Stream Transport.</p> </li> <li> <p> <code>SRT_CALLER</code> – Secure Reliable Transport (SRT) in caller mode.</p> </li> <li> <p> <code>SRT_LISTENER</code> – Secure Reliable Transport (SRT) in listener mode.</p> </li> </ul>
+   * The protocol used by the source endpoint. Valid values include the following:
+   *
+   * - `RTP` – Real-time Transport Protocol.
+   * - `RIST` – Reliable Internet Stream Transport.
+   * - `SRT_CALLER` – Secure Reliable Transport (SRT) in caller mode.
+   * - `SRT_LISTENER` – Secure Reliable Transport (SRT) in listener mode.
+   *
    * @public
    */
   Protocol?: SourceEndpointProtocol | undefined;
 }
 
 /**
- * <p>The configuration settings for a source endpoint. This is a union type, so exactly one of its members is set, depending on the type of the source endpoint.</p>
+ * The configuration settings for a source endpoint. This is a union type, so exactly one of its members is set, depending on the type of the source endpoint.
+ *
  * @public
  */
 export type SourceEndpointConfiguration =
@@ -6918,7 +7992,8 @@ export type SourceEndpointConfiguration =
  */
 export namespace SourceEndpointConfiguration {
   /**
-   * <p>The configuration settings for a standard source endpoint, which represents an external source.</p>
+   * The configuration settings for a standard source endpoint, which represents an external source.
+   *
    * @public
    */
   export interface StandardMember {
@@ -6928,7 +8003,8 @@ export namespace SourceEndpointConfiguration {
   }
 
   /**
-   * <p>The configuration settings for a source endpoint that represents a router output.</p>
+   * The configuration settings for a source endpoint that represents a router output.
+   *
    * @public
    */
   export interface RouterOutputMember {
@@ -6958,67 +8034,78 @@ export namespace SourceEndpointConfiguration {
 }
 
 /**
- * <p>The connection details for a source endpoint that represents a router output.</p>
+ * The connection details for a source endpoint that represents a router output.
+ *
  * @public
  */
 export interface RouterOutputSourceEndpointConnectionDetails {
   /**
-   * <p>The type of decryption that the destination uses for the connection.</p>
+   * The type of decryption that the destination uses for the connection.
+   *
    * @public
    */
   DestinationDecryptionType?: EndpointEncryptionType | undefined;
 
   /**
-   * <p>The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: <code>secretsManager</code> when you store the encryption key or passphrase in Secrets Manager, or <code>automatic</code> when you let MediaConnect determine the encryption key when the endpoint connects.</p>
+   * The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: `secretsManager` when you store the encryption key or passphrase in Secrets Manager, or `automatic` when you let MediaConnect determine the encryption key when the endpoint connects.
+   *
    * @public
    */
   DestinationDecryptionConfiguration?: EndpointEncryptionConfiguration | undefined;
 
   /**
-   * <p>The type of the connected destination endpoint.</p>
+   * The type of the connected destination endpoint.
+   *
    * @public
    */
   DestinationEndpointType?: DestinationEndpointType | undefined;
 }
 
 /**
- * <p>The connection details for a standard source endpoint.</p>
+ * The connection details for a standard source endpoint.
+ *
  * @public
  */
 export interface StandardSourceEndpointConnectionDetails {
   /**
-   * <p>The IP address of the destination that receives the content.</p>
+   * The IP address of the destination that receives the content.
+   *
    * @public
    */
   DestinationIpAddress?: string | undefined;
 
   /**
-   * <p>The port on the destination that receives the content.</p>
+   * The port on the destination that receives the content.
+   *
    * @public
    */
   DestinationIngestPort?: number | undefined;
 
   /**
-   * <p>The type of decryption that the destination uses for the connection.</p>
+   * The type of decryption that the destination uses for the connection.
+   *
    * @public
    */
   DestinationDecryptionType?: EndpointEncryptionType | undefined;
 
   /**
-   * <p>The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: <code>secretsManager</code> when you store the encryption key or passphrase in Secrets Manager, or <code>automatic</code> when you let MediaConnect determine the encryption key when the endpoint connects.</p>
+   * The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: `secretsManager` when you store the encryption key or passphrase in Secrets Manager, or `automatic` when you let MediaConnect determine the encryption key when the endpoint connects.
+   *
    * @public
    */
   DestinationDecryptionConfiguration?: EndpointEncryptionConfiguration | undefined;
 
   /**
-   * <p>The type of the connected destination endpoint.</p>
+   * The type of the connected destination endpoint.
+   *
    * @public
    */
   DestinationEndpointType?: DestinationEndpointType | undefined;
 }
 
 /**
- * <p>The connection details for a source endpoint. After the source endpoint connects to a destination endpoint, MediaConnect populates these details to describe the connected destination and how the source delivers content to it. This is a union type, so exactly one of its members is set, depending on the source endpoint type.</p>
+ * The connection details for a source endpoint. After the source endpoint connects to a destination endpoint, MediaConnect populates these details to describe the connected destination and how the source delivers content to it. This is a union type, so exactly one of its members is set, depending on the source endpoint type.
+ *
  * @public
  */
 export type SourceEndpointConnectionDetails =
@@ -7031,7 +8118,8 @@ export type SourceEndpointConnectionDetails =
  */
 export namespace SourceEndpointConnectionDetails {
   /**
-   * <p>The connection details for a standard source endpoint.</p>
+   * The connection details for a standard source endpoint.
+   *
    * @public
    */
   export interface StandardMember {
@@ -7041,7 +8129,8 @@ export namespace SourceEndpointConnectionDetails {
   }
 
   /**
-   * <p>The connection details for a source endpoint that represents a router output.</p>
+   * The connection details for a source endpoint that represents a router output.
+   *
    * @public
    */
   export interface RouterOutputMember {
@@ -7071,162 +8160,202 @@ export namespace SourceEndpointConnectionDetails {
 }
 
 /**
- * <p>A status message for a source endpoint.</p>
+ * A status message for a source endpoint.
+ *
  * @public
  */
 export interface SourceEndpointMessage {
   /**
-   * <p>The message code.</p>
+   * The message code.
+   *
    * @public
    */
   Code: string | undefined;
 
   /**
-   * <p>The message text.</p>
+   * The message text.
+   *
    * @public
    */
   Message: string | undefined;
 }
 
 /**
- * <p>The details of a source endpoint in MediaConnect, including its configuration, state, and connection details.</p>
+ * The details of a source endpoint in MediaConnect, including its configuration, state, and connection details.
+ *
  * @public
  */
 export interface SourceEndpoint {
   /**
-   * <p>The name of the source endpoint.</p>
+   * The name of the source endpoint.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the source endpoint.</p>
+   * The Amazon Resource Name (ARN) of the source endpoint.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The unique identifier of the source endpoint.</p>
+   * The unique identifier of the source endpoint.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The description of the source endpoint.</p>
+   * The description of the source endpoint.
+   *
    * @public
    */
   Description: string | undefined;
 
   /**
-   * <p>The name of the Amazon Web Services Region in which the source endpoint is located.</p>
+   * The name of the Amazon Web Services Region in which the source endpoint is located.
+   *
    * @public
    */
   RegionName: string | undefined;
 
   /**
-   * <p>The Availability Zone in which the source endpoint is located.</p>
+   * The Availability Zone in which the source endpoint is located.
+   *
    * @public
    */
   AvailabilityZone?: string | undefined;
 
   /**
-   * <p>The ID of the Availability Zone in which the source endpoint is located.</p>
+   * The ID of the Availability Zone in which the source endpoint is located.
+   *
    * @public
    */
   AvailabilityZoneId?: string | undefined;
 
   /**
-   * <p>The date and time when the source endpoint was created.</p>
+   * The date and time when the source endpoint was created.
+   *
    * @public
    */
   CreatedAt: Date | undefined;
 
   /**
-   * <p>The date and time when the source endpoint was last updated.</p>
+   * The date and time when the source endpoint was last updated.
+   *
    * @public
    */
   UpdatedAt: Date | undefined;
 
   /**
-   * <p>The entity that manages the lifecycle of the source endpoint.</p>
+   * The entity that manages the lifecycle of the source endpoint.
+   *
    * @public
    */
   LifecycleManagement: EndpointLifecycle | undefined;
 
   /**
-   * <p>The status messages for the source endpoint.</p>
+   * The status messages for the source endpoint.
+   *
    * @public
    */
   Messages: SourceEndpointMessage[] | undefined;
 
   /**
-   * <p>The type of the source endpoint. Valid values include the following:</p> <ul> <li> <p> <code>STANDARD</code> – A source endpoint that represents an external source over a standard protocol, such as RTP, RIST, or SRT.</p> </li> <li> <p> <code>ROUTER_OUTPUT</code> – A source endpoint that represents a router output.</p> </li> </ul>
+   * The type of the source endpoint. Valid values include the following:
+   *
+   * - `STANDARD` – A source endpoint that represents an external source over a standard protocol, such as RTP, RIST, or SRT.
+   * - `ROUTER_OUTPUT` – A source endpoint that represents a router output.
+   *
    * @public
    */
   SourceType: SourceEndpointType | undefined;
 
   /**
-   * <p>The configuration settings for the source endpoint.</p>
+   * The configuration settings for the source endpoint.
+   *
    * @public
    */
   Configuration: SourceEndpointConfiguration | undefined;
 
   /**
-   * <p>Indicates whether this account owns the source endpoint or consumes it from another account through RAM.</p>
+   * Indicates whether this account owns the source endpoint or consumes it from another account through RAM.
+   *
    * @public
    */
   ResourceShareOwnership: ResourceShareOwnership | undefined;
 
   /**
-   * <p>The cross-account sharing details for an endpoint. Endpoints are shared through Resource Access Manager (RAM). This is a union type, so exactly one of its members is set: <code>owned</code> when this account owns the endpoint and shares it with other accounts, or <code>consumed</code> when this account consumes an endpoint that another account shares. To change how an endpoint is shared, use RAM.</p>
+   * The cross-account sharing details for an endpoint. Endpoints are shared through Resource Access Manager (RAM). This is a union type, so exactly one of its members is set: `owned` when this account owns the endpoint and shares it with other accounts, or `consumed` when this account consumes an endpoint that another account shares. To change how an endpoint is shared, use RAM.
+   *
    * @public
    */
   ResourceShareDetails: ResourceShareDetails | undefined;
 
   /**
-   * <p>The registration state of the source endpoint. Valid values include the following:</p> <ul> <li> <p> <code>REGISTERED</code> – The source endpoint is registered and ready to use.</p> </li> <li> <p> <code>REGISTERING</code> – MediaConnect is registering the source endpoint.</p> </li> <li> <p> <code>DEREGISTERING</code> – MediaConnect is deregistering the source endpoint.</p> </li> <li> <p> <code>REGISTRATION_FAILED</code> – MediaConnect couldn't register the source endpoint.</p> </li> </ul>
+   * The registration state of the source endpoint. Valid values include the following:
+   *
+   * - `REGISTERED` – The source endpoint is registered and ready to use.
+   * - `REGISTERING` – MediaConnect is registering the source endpoint.
+   * - `DEREGISTERING` – MediaConnect is deregistering the source endpoint.
+   * - `REGISTRATION_FAILED` – MediaConnect couldn't register the source endpoint.
+   *
    * @public
    */
   RegistrationState: SourceEndpointRegistrationState | undefined;
 
   /**
-   * <p>The connection state of the source endpoint. Valid values include the following:</p> <ul> <li> <p> <code>CONNECTED</code> – The source endpoint is connected to a destination endpoint.</p> </li> <li> <p> <code>DISCONNECTED</code> – The source endpoint isn't connected to a destination endpoint.</p> </li> <li> <p> <code>CONNECTING</code> – The source endpoint is connecting to a destination endpoint.</p> </li> <li> <p> <code>DISCONNECTING</code> – The source endpoint is disconnecting from a destination endpoint.</p> </li> </ul>
+   * The connection state of the source endpoint. Valid values include the following:
+   *
+   * - `CONNECTED` – The source endpoint is connected to a destination endpoint.
+   * - `DISCONNECTED` – The source endpoint isn't connected to a destination endpoint.
+   * - `CONNECTING` – The source endpoint is connecting to a destination endpoint.
+   * - `DISCONNECTING` – The source endpoint is disconnecting from a destination endpoint.
+   *
    * @public
    */
   ConnectionState: SourceEndpointConnectionState | undefined;
 
   /**
-   * <p>The connection details for the source endpoint.</p>
+   * The connection details for the source endpoint.
+   *
    * @public
    */
   ConnectionDetails?: SourceEndpointConnectionDetails | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the destination endpoints that are connected to the source endpoint.</p>
+   * The Amazon Resource Names (ARNs) of the destination endpoints that are connected to the source endpoint.
+   *
    * @public
    */
   ConnectedDestinations: string[] | undefined;
 
   /**
-   * <p>The type of encryption used for the source endpoint connection.</p>
+   * The type of encryption used for the source endpoint connection.
+   *
    * @public
    */
   EncryptionType?: EndpointEncryptionType | undefined;
 
   /**
-   * <p>The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: <code>secretsManager</code> when you store the encryption key or passphrase in Secrets Manager, or <code>automatic</code> when you let MediaConnect determine the encryption key when the endpoint connects.</p>
+   * The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: `secretsManager` when you store the encryption key or passphrase in Secrets Manager, or `automatic` when you let MediaConnect determine the encryption key when the endpoint connects.
+   *
    * @public
    */
   EncryptionConfiguration?: EndpointEncryptionConfiguration | undefined;
 
   /**
-   * <p>The details of the resource that is associated with the source endpoint.</p>
+   * The details of the resource that is associated with the source endpoint.
+   *
    * @public
    */
   AssociatedResourceDetails: SourceEndpointAssociatedResourceDetails | undefined;
 
   /**
-   * <p>The tags associated with the source endpoint. Each tag is a key-value pair.</p>
+   * The tags associated with the source endpoint. Each tag is a key-value pair.
+   *
    * @public
    */
   Tags: Record<string, string> | undefined;
@@ -7237,163 +8366,190 @@ export interface SourceEndpoint {
  */
 export interface BatchGetSourceEndpointResponse {
   /**
-   * <p>The source endpoints that MediaConnect successfully retrieved.</p>
+   * The source endpoints that MediaConnect successfully retrieved.
+   *
    * @public
    */
   SourceEndpoints: SourceEndpoint[] | undefined;
 
   /**
-   * <p>The errors for any source endpoints that MediaConnect couldn't retrieve.</p>
+   * The errors for any source endpoints that MediaConnect couldn't retrieve.
+   *
    * @public
    */
   Errors: BatchGetSourceEndpointError[] | undefined;
 }
 
 /**
- * <p> Create a bridge with the egress bridge type. An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises. </p>
+ * Create a bridge with the egress bridge type. An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
+ *
  * @public
  */
 export interface EgressGatewayBridge {
   /**
-   * <p> The ID of the instance running this bridge.</p>
+   * The ID of the instance running this bridge.
+   *
    * @public
    */
   InstanceId?: string | undefined;
 
   /**
-   * <p> The maximum expected bitrate (in bps) of the egress bridge.</p>
+   * The maximum expected bitrate (in bps) of the egress bridge.
+   *
    * @public
    */
   MaxBitrate: number | undefined;
 }
 
 /**
- * <p>Create a bridge with the ingress bridge type. An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud. </p>
+ * Create a bridge with the ingress bridge type. An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
+ *
  * @public
  */
 export interface IngressGatewayBridge {
   /**
-   * <p>The ID of the instance running this bridge. </p>
+   * The ID of the instance running this bridge.
+   *
    * @public
    */
   InstanceId?: string | undefined;
 
   /**
-   * <p>The maximum expected bitrate (in bps) of the ingress bridge. </p>
+   * The maximum expected bitrate (in bps) of the ingress bridge.
+   *
    * @public
    */
   MaxBitrate: number | undefined;
 
   /**
-   * <p>The maximum number of outputs on the ingress bridge. </p>
+   * The maximum number of outputs on the ingress bridge.
+   *
    * @public
    */
   MaxOutputs: number | undefined;
 }
 
 /**
- * <p> The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams. </p>
+ * The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+ *
  * @public
  */
 export interface SourcePriority {
   /**
-   * <p> The name of the source you choose as the primary source for this flow.</p>
+   * The name of the source you choose as the primary source for this flow.
+   *
    * @public
    */
   PrimarySource?: string | undefined;
 }
 
 /**
- * <p> The settings for source failover.</p>
+ * The settings for source failover.
+ *
  * @public
  */
 export interface FailoverConfig {
   /**
-   * <p> The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.</p>
+   * The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.
+   *
    * @public
    */
   FailoverMode?: FailoverMode | undefined;
 
   /**
-   * <p> Search window time to look for dash-7 packets.</p>
+   * Search window time to look for dash-7 packets.
+   *
    * @public
    */
   RecoveryWindow?: number | undefined;
 
   /**
-   * <p> The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.</p>
+   * The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+   *
    * @public
    */
   SourcePriority?: SourcePriority | undefined;
 
   /**
-   * <p>The state of source failover on the flow. If the state is inactive, the flow can have only one source. If the state is active, the flow can have one or two sources. </p>
+   * The state of source failover on the flow. If the state is inactive, the flow can have only one source. If the state is active, the flow can have one or two sources.
+   *
    * @public
    */
   State?: State | undefined;
 }
 
 /**
- * <p> A Bridge is the connection between your data center's Instances and the Amazon Web Services cloud. A bridge can be used to send video from the Amazon Web Services cloud to your data center or from your data center to the Amazon Web Services cloud.</p>
+ * A Bridge is the connection between your data center's Instances and the Amazon Web Services cloud. A bridge can be used to send video from the Amazon Web Services cloud to your data center or from your data center to the Amazon Web Services cloud.
+ *
  * @public
  */
 export interface Bridge {
   /**
-   * <p> The Amazon Resource Number (ARN) of the bridge.</p>
+   * The Amazon Resource Number (ARN) of the bridge.
+   *
    * @public
    */
   BridgeArn: string | undefined;
 
   /**
-   * <p> Messages with details about the bridge. </p>
+   * Messages with details about the bridge.
+   *
    * @public
    */
   BridgeMessages?: MessageDetail[] | undefined;
 
   /**
-   * <p>The state of the bridge. </p>
+   * The state of the bridge.
+   *
    * @public
    */
   BridgeState: BridgeState | undefined;
 
   /**
-   * <p> An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises. </p>
+   * An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
+   *
    * @public
    */
   EgressGatewayBridge?: EgressGatewayBridge | undefined;
 
   /**
-   * <p> An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud. </p>
+   * An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
+   *
    * @public
    */
   IngressGatewayBridge?: IngressGatewayBridge | undefined;
 
   /**
-   * <p> The name of the bridge.</p>
+   * The name of the bridge.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p> The outputs on this bridge.</p>
+   * The outputs on this bridge.
+   *
    * @public
    */
   Outputs?: BridgeOutput[] | undefined;
 
   /**
-   * <p> The placement Amazon Resource Number (ARN) of the bridge.</p>
+   * The placement Amazon Resource Number (ARN) of the bridge.
+   *
    * @public
    */
   PlacementArn: string | undefined;
 
   /**
-   * <p> The settings for source failover. </p>
+   * The settings for source failover.
+   *
    * @public
    */
   SourceFailoverConfig?: FailoverConfig | undefined;
 
   /**
-   * <p> The sources on this bridge.</p>
+   * The sources on this bridge.
+   *
    * @public
    */
   Sources?: BridgeSource[] | undefined;
@@ -7404,43 +8560,50 @@ export interface Bridge {
  */
 export interface CreateBridgeRequest {
   /**
-   * <p>An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises. </p>
+   * An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
+   *
    * @public
    */
   EgressGatewayBridge?: AddEgressGatewayBridgeRequest | undefined;
 
   /**
-   * <p>An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud. </p>
+   * An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
+   *
    * @public
    */
   IngressGatewayBridge?: AddIngressGatewayBridgeRequest | undefined;
 
   /**
-   * <p> The name of the bridge. This name can not be modified after the bridge is created.</p>
+   * The name of the bridge. This name can not be modified after the bridge is created.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p> The outputs that you want to add to this bridge.</p>
+   * The outputs that you want to add to this bridge.
+   *
    * @public
    */
   Outputs?: AddBridgeOutputRequest[] | undefined;
 
   /**
-   * <p> The bridge placement Amazon Resource Number (ARN).</p>
+   * The bridge placement Amazon Resource Number (ARN).
+   *
    * @public
    */
   PlacementArn: string | undefined;
 
   /**
-   * <p> The settings for source failover.</p>
+   * The settings for source failover.
+   *
    * @public
    */
   SourceFailoverConfig?: FailoverConfig | undefined;
 
   /**
-   * <p> The sources that you want to add to this bridge.</p>
+   * The sources that you want to add to this bridge.
+   *
    * @public
    */
   Sources: AddBridgeSourceRequest[] | undefined;
@@ -7451,7 +8614,8 @@ export interface CreateBridgeRequest {
  */
 export interface CreateBridgeResponse {
   /**
-   * <p> The name of the bridge that was created.</p>
+   * The name of the bridge that was created.
+   *
    * @public
    */
   Bridge?: Bridge | undefined;
@@ -7462,7 +8626,8 @@ export interface CreateBridgeResponse {
  */
 export interface DeleteBridgeRequest {
   /**
-   * <p> The Amazon Resource Name (ARN) of the bridge that you want to delete.</p>
+   * The Amazon Resource Name (ARN) of the bridge that you want to delete.
+   *
    * @public
    */
   BridgeArn: string | undefined;
@@ -7473,7 +8638,8 @@ export interface DeleteBridgeRequest {
  */
 export interface DeleteBridgeResponse {
   /**
-   * <p> The ARN of the deleted bridge.</p>
+   * The ARN of the deleted bridge.
+   *
    * @public
    */
   BridgeArn?: string | undefined;
@@ -7484,7 +8650,8 @@ export interface DeleteBridgeResponse {
  */
 export interface DescribeBridgeRequest {
   /**
-   * <p> The Amazon Resource Name (ARN) of the bridge that you want to describe.</p>
+   * The Amazon Resource Name (ARN) of the bridge that you want to describe.
+   *
    * @public
    */
   BridgeArn: string | undefined;
@@ -7495,7 +8662,8 @@ export interface DescribeBridgeRequest {
  */
 export interface DescribeBridgeResponse {
   /**
-   * <p>The bridge that you requested a description of. </p>
+   * The bridge that you requested a description of.
+   *
    * @public
    */
   Bridge?: Bridge | undefined;
@@ -7506,19 +8674,28 @@ export interface DescribeBridgeResponse {
  */
 export interface ListBridgesRequest {
   /**
-   * <p> Filter the list results to display only the bridges associated with the selected ARN.</p>
+   * Filter the list results to display only the bridges associated with the selected ARN.
+   *
    * @public
    */
   FilterArn?: string | undefined;
 
   /**
-   * <p> The maximum number of results to return per API request. </p> <p>For example, you submit a <code>ListBridges</code> request with <code>MaxResults</code> set at 5. Although 20 items match your request, the service returns no more than the first 5 items. (The service also returns a <code>NextToken</code> value that you can use to fetch the next batch of results.) </p> <p>The service might return fewer results than the <code>MaxResults</code> value. If <code>MaxResults</code> is not included in the request, the service defaults to pagination with a maximum of 10 results per page.</p>
+   * The maximum number of results to return per API request.
+   *
+   * For example, you submit a `ListBridges` request with `MaxResults` set at 5. Although 20 items match your request, the service returns no more than the first 5 items. (The service also returns a `NextToken` value that you can use to fetch the next batch of results.)
+   *
+   * The service might return fewer results than the `MaxResults` value. If `MaxResults` is not included in the request, the service defaults to pagination with a maximum of 10 results per page.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p> The token that identifies the batch of results that you want to see. </p> <p>For example, you submit a <code>ListBridges</code> request with <code>MaxResults</code> set at 5. The service returns the first batch of results (up to 5) and a <code>NextToken</code> value. To see the next batch of results, you can submit the <code>ListBridges</code> request a second time and specify the <code>NextToken</code> value.</p>
+   * The token that identifies the batch of results that you want to see.
+   *
+   * For example, you submit a `ListBridges` request with `MaxResults` set at 5. The service returns the first batch of results (up to 5) and a `NextToken` value. To see the next batch of results, you can submit the `ListBridges` request a second time and specify the `NextToken` value.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -7529,13 +8706,17 @@ export interface ListBridgesRequest {
  */
 export interface ListBridgesResponse {
   /**
-   * <p> A list of bridge summaries.</p>
+   * A list of bridge summaries.
+   *
    * @public
    */
   Bridges?: ListedBridge[] | undefined;
 
   /**
-   * <p> The token that identifies the batch of results that you want to see. </p> <p>For example, you submit a <code>ListBridges</code> request with <code>MaxResults</code> set at 5. The service returns the first batch of results (up to 5) and a <code>NextToken</code> value. To see the next batch of results, you can submit the <code>ListBridges</code> request a second time and specify the <code>NextToken</code> value.</p>
+   * The token that identifies the batch of results that you want to see.
+   *
+   * For example, you submit a `ListBridges` request with `MaxResults` set at 5. The service returns the first batch of results (up to 5) and a `NextToken` value. To see the next batch of results, you can submit the `ListBridges` request a second time and specify the `NextToken` value.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -7546,13 +8727,15 @@ export interface ListBridgesResponse {
  */
 export interface RemoveBridgeOutputRequest {
   /**
-   * <p> The Amazon Resource Name (ARN) of the bridge that you want to update.</p>
+   * The Amazon Resource Name (ARN) of the bridge that you want to update.
+   *
    * @public
    */
   BridgeArn: string | undefined;
 
   /**
-   * <p> The name of the bridge output that you want to remove.</p>
+   * The name of the bridge output that you want to remove.
+   *
    * @public
    */
   OutputName: string | undefined;
@@ -7563,13 +8746,15 @@ export interface RemoveBridgeOutputRequest {
  */
 export interface RemoveBridgeOutputResponse {
   /**
-   * <p> The ARN of the bridge from which the output was removed. </p>
+   * The ARN of the bridge from which the output was removed.
+   *
    * @public
    */
   BridgeArn?: string | undefined;
 
   /**
-   * <p> The name of the bridge output that was removed. </p>
+   * The name of the bridge output that was removed.
+   *
    * @public
    */
   OutputName?: string | undefined;
@@ -7580,13 +8765,15 @@ export interface RemoveBridgeOutputResponse {
  */
 export interface RemoveBridgeSourceRequest {
   /**
-   * <p> The Amazon Resource Name (ARN) of the bridge that you want to update.</p>
+   * The Amazon Resource Name (ARN) of the bridge that you want to update.
+   *
    * @public
    */
   BridgeArn: string | undefined;
 
   /**
-   * <p> The name of the bridge source that you want to remove.</p>
+   * The name of the bridge source that you want to remove.
+   *
    * @public
    */
   SourceName: string | undefined;
@@ -7597,73 +8784,85 @@ export interface RemoveBridgeSourceRequest {
  */
 export interface RemoveBridgeSourceResponse {
   /**
-   * <p> The ARN of the bridge from which the source was removed. </p>
+   * The ARN of the bridge from which the source was removed.
+   *
    * @public
    */
   BridgeArn?: string | undefined;
 
   /**
-   * <p> The name of the bridge source that was removed. </p>
+   * The name of the bridge source that was removed.
+   *
    * @public
    */
   SourceName?: string | undefined;
 }
 
 /**
- * <p> Update an existing egress-type bridge.</p>
+ * Update an existing egress-type bridge.
+ *
  * @public
  */
 export interface UpdateEgressGatewayBridgeRequest {
   /**
-   * <p>The maximum expected bitrate (in bps). </p>
+   * The maximum expected bitrate (in bps).
+   *
    * @public
    */
   MaxBitrate?: number | undefined;
 }
 
 /**
- * <p> Update an existing ingress-type bridge. </p>
+ * Update an existing ingress-type bridge.
+ *
  * @public
  */
 export interface UpdateIngressGatewayBridgeRequest {
   /**
-   * <p> The maximum expected bitrate (in bps).</p>
+   * The maximum expected bitrate (in bps).
+   *
    * @public
    */
   MaxBitrate?: number | undefined;
 
   /**
-   * <p> The maximum number of expected outputs.</p>
+   * The maximum number of expected outputs.
+   *
    * @public
    */
   MaxOutputs?: number | undefined;
 }
 
 /**
- * <p> The settings for source failover.</p>
+ * The settings for source failover.
+ *
  * @public
  */
 export interface UpdateFailoverConfig {
   /**
-   * <p> The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.</p>
+   * The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.
+   *
    * @public
    */
   FailoverMode?: FailoverMode | undefined;
 
   /**
-   * <p> Recovery window time to look for dash-7 packets.</p>
+   * Recovery window time to look for dash-7 packets.
+   *
    * @public
    */
   RecoveryWindow?: number | undefined;
 
   /**
-   * <p> The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.</p>
+   * The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+   *
    * @public
    */
   SourcePriority?: SourcePriority | undefined;
 
   /**
-   * <p>The state of source failover on the flow. If the state is inactive, the flow can have only one source. If the state is active, the flow can have one or two sources. </p>
+   * The state of source failover on the flow. If the state is inactive, the flow can have only one source. If the state is active, the flow can have one or two sources.
+   *
    * @public
    */
   State?: State | undefined;
@@ -7674,25 +8873,29 @@ export interface UpdateFailoverConfig {
  */
 export interface UpdateBridgeRequest {
   /**
-   * <p> TheAmazon Resource Name (ARN) of the bridge that you want to update. </p>
+   * TheAmazon Resource Name (ARN) of the bridge that you want to update.
+   *
    * @public
    */
   BridgeArn: string | undefined;
 
   /**
-   * <p> A cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises. </p>
+   * A cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
+   *
    * @public
    */
   EgressGatewayBridge?: UpdateEgressGatewayBridgeRequest | undefined;
 
   /**
-   * <p> A ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud. </p>
+   * A ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
+   *
    * @public
    */
   IngressGatewayBridge?: UpdateIngressGatewayBridgeRequest | undefined;
 
   /**
-   * <p> The settings for source failover. </p>
+   * The settings for source failover.
+   *
    * @public
    */
   SourceFailoverConfig?: UpdateFailoverConfig | undefined;
@@ -7703,43 +8906,52 @@ export interface UpdateBridgeRequest {
  */
 export interface UpdateBridgeResponse {
   /**
-   * <p> The bridge that was updated. </p>
+   * The bridge that was updated.
+   *
    * @public
    */
   Bridge?: Bridge | undefined;
 }
 
 /**
- * <p>Update an existing network output. </p>
+ * Update an existing network output.
+ *
  * @public
  */
 export interface UpdateBridgeNetworkOutputRequest {
   /**
-   * <p>The network output IP Address. </p>
+   * The network output IP Address.
+   *
    * @public
    */
   IpAddress?: string | undefined;
 
   /**
-   * <p>The network output's gateway network name. </p>
+   * The network output's gateway network name.
+   *
    * @public
    */
   NetworkName?: string | undefined;
 
   /**
-   * <p>The network output port. </p>
+   * The network output port.
+   *
    * @public
    */
   Port?: number | undefined;
 
   /**
-   * <p>The network output protocol. </p> <note> <p>Elemental MediaConnect no longer supports the Fujitsu QoS protocol. This reference is maintained for legacy purposes only.</p> </note>
+   * The network output protocol.
+   *
+   * > **Note:** Elemental MediaConnect no longer supports the Fujitsu QoS protocol. This reference is maintained for legacy purposes only.
+   *
    * @public
    */
   Protocol?: Protocol | undefined;
 
   /**
-   * <p>The network output TTL. </p>
+   * The network output TTL.
+   *
    * @public
    */
   Ttl?: number | undefined;
@@ -7750,19 +8962,22 @@ export interface UpdateBridgeNetworkOutputRequest {
  */
 export interface UpdateBridgeOutputRequest {
   /**
-   * <p> The Amazon Resource Name (ARN) of the bridge that you want to update.</p>
+   * The Amazon Resource Name (ARN) of the bridge that you want to update.
+   *
    * @public
    */
   BridgeArn: string | undefined;
 
   /**
-   * <p> The network of the bridge output. </p>
+   * The network of the bridge output.
+   *
    * @public
    */
   NetworkOutput?: UpdateBridgeNetworkOutputRequest | undefined;
 
   /**
-   * <p> Tname of the output that you want to update. </p>
+   * Tname of the output that you want to update.
+   *
    * @public
    */
   OutputName: string | undefined;
@@ -7773,67 +8988,80 @@ export interface UpdateBridgeOutputRequest {
  */
 export interface UpdateBridgeOutputResponse {
   /**
-   * <p> The ARN of the bridge that was updated. </p>
+   * The ARN of the bridge that was updated.
+   *
    * @public
    */
   BridgeArn?: string | undefined;
 
   /**
-   * <p> The bridge output that was updated. </p>
+   * The bridge output that was updated.
+   *
    * @public
    */
   Output?: BridgeOutput | undefined;
 }
 
 /**
- * <p> Update the flow source of the bridge. </p>
+ * Update the flow source of the bridge.
+ *
  * @public
  */
 export interface UpdateBridgeFlowSourceRequest {
   /**
-   * <p> The Amazon Resource Name (ARN) that identifies the MediaConnect resource from which to delete tags.</p>
+   * The Amazon Resource Name (ARN) that identifies the MediaConnect resource from which to delete tags.
+   *
    * @public
    */
   FlowArn?: string | undefined;
 
   /**
-   * <p>The name of the VPC interface attachment to use for this source. </p>
+   * The name of the VPC interface attachment to use for this source.
+   *
    * @public
    */
   FlowVpcInterfaceAttachment?: VpcInterfaceAttachment | undefined;
 }
 
 /**
- * <p> Update the network source of the bridge.</p>
+ * Update the network source of the bridge.
+ *
  * @public
  */
 export interface UpdateBridgeNetworkSourceRequest {
   /**
-   * <p> The network source multicast IP.</p>
+   * The network source multicast IP.
+   *
    * @public
    */
   MulticastIp?: string | undefined;
 
   /**
-   * <p>The settings related to the multicast source. </p>
+   * The settings related to the multicast source.
+   *
    * @public
    */
   MulticastSourceSettings?: MulticastSourceSettings | undefined;
 
   /**
-   * <p>The network source's gateway network name. </p>
+   * The network source's gateway network name.
+   *
    * @public
    */
   NetworkName?: string | undefined;
 
   /**
-   * <p>The network source port. </p>
+   * The network source port.
+   *
    * @public
    */
   Port?: number | undefined;
 
   /**
-   * <p>The network source protocol. </p> <note> <p>Elemental MediaConnect no longer supports the Fujitsu QoS protocol. This reference is maintained for legacy purposes only.</p> </note>
+   * The network source protocol.
+   *
+   * > **Note:** Elemental MediaConnect no longer supports the Fujitsu QoS protocol. This reference is maintained for legacy purposes only.
+   *
    * @public
    */
   Protocol?: Protocol | undefined;
@@ -7844,25 +9072,29 @@ export interface UpdateBridgeNetworkSourceRequest {
  */
 export interface UpdateBridgeSourceRequest {
   /**
-   * <p> The Amazon Resource Name (ARN) of the bridge that you want to update.</p>
+   * The Amazon Resource Name (ARN) of the bridge that you want to update.
+   *
    * @public
    */
   BridgeArn: string | undefined;
 
   /**
-   * <p> The name of the flow that you want to update.</p>
+   * The name of the flow that you want to update.
+   *
    * @public
    */
   FlowSource?: UpdateBridgeFlowSourceRequest | undefined;
 
   /**
-   * <p> The network for the bridge source. </p>
+   * The network for the bridge source.
+   *
    * @public
    */
   NetworkSource?: UpdateBridgeNetworkSourceRequest | undefined;
 
   /**
-   * <p> The name of the source that you want to update. </p>
+   * The name of the source that you want to update.
+   *
    * @public
    */
   SourceName: string | undefined;
@@ -7873,13 +9105,15 @@ export interface UpdateBridgeSourceRequest {
  */
 export interface UpdateBridgeSourceResponse {
   /**
-   * <p> The ARN of the updated bridge source. </p>
+   * The ARN of the updated bridge source.
+   *
    * @public
    */
   BridgeArn?: string | undefined;
 
   /**
-   * <p> The updated bridge source. </p>
+   * The updated bridge source.
+   *
    * @public
    */
   Source?: BridgeSource | undefined;
@@ -7890,13 +9124,15 @@ export interface UpdateBridgeSourceResponse {
  */
 export interface UpdateBridgeStateRequest {
   /**
-   * <p> The Amazon Resource Name (ARN) of the bridge that you want to update the state of. </p>
+   * The Amazon Resource Name (ARN) of the bridge that you want to update the state of.
+   *
    * @public
    */
   BridgeArn: string | undefined;
 
   /**
-   * <p> The desired state for the bridge. </p>
+   * The desired state for the bridge.
+   *
    * @public
    */
   DesiredState: DesiredState | undefined;
@@ -7907,13 +9143,15 @@ export interface UpdateBridgeStateRequest {
  */
 export interface UpdateBridgeStateResponse {
   /**
-   * <p>The ARN of the updated bridge. </p>
+   * The ARN of the updated bridge.
+   *
    * @public
    */
   BridgeArn?: string | undefined;
 
   /**
-   * <p> The new state of the bridge. </p>
+   * The new state of the bridge.
+   *
    * @public
    */
   DesiredState?: DesiredState | undefined;
@@ -7924,13 +9162,15 @@ export interface UpdateBridgeStateResponse {
  */
 export interface ConnectEndpointsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the destination endpoint to connect.</p>
+   * The Amazon Resource Name (ARN) of the destination endpoint to connect.
+   *
    * @public
    */
   DestinationEndpointArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the source endpoint to connect.</p>
+   * The Amazon Resource Name (ARN) of the source endpoint to connect.
+   *
    * @public
    */
   SourceEndpointArn: string | undefined;
@@ -7941,97 +9181,117 @@ export interface ConnectEndpointsRequest {
  */
 export interface ConnectEndpointsResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the connected destination endpoint.</p>
+   * The Amazon Resource Name (ARN) of the connected destination endpoint.
+   *
    * @public
    */
   DestinationEndpointArn: string | undefined;
 
   /**
-   * <p>The name of the connected destination endpoint.</p>
+   * The name of the connected destination endpoint.
+   *
    * @public
    */
   DestinationEndpointName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the connected source endpoint.</p>
+   * The Amazon Resource Name (ARN) of the connected source endpoint.
+   *
    * @public
    */
   SourceEndpointArn: string | undefined;
 
   /**
-   * <p>The name of the connected source endpoint.</p>
+   * The name of the connected source endpoint.
+   *
    * @public
    */
   SourceEndpointName: string | undefined;
 }
 
 /**
- * <p> The encoding configuration to apply to the NDI® source when transcoding it to a transport stream for downstream distribution. You can choose between several predefined encoding profiles based on common use cases. </p>
+ * The encoding configuration to apply to the NDI® source when transcoding it to a transport stream for downstream distribution. You can choose between several predefined encoding profiles based on common use cases.
+ *
  * @public
  */
 export interface EncodingConfig {
   /**
-   * <p> The encoding profile to use when transcoding the NDI source content to a transport stream. You can change this value while the flow is running. </p>
+   * The encoding profile to use when transcoding the NDI source content to a transport stream. You can change this value while the flow is running.
+   *
    * @public
    */
   EncodingProfile?: EncodingProfile | undefined;
 
   /**
-   * <p> The maximum video bitrate to use when transcoding the NDI source to a transport stream. This parameter enables you to override the default video bitrate within the encoding profile's supported range. </p> <p> The supported range is 10,000,000 - 50,000,000 bits per second (bps). If you don't specify a value, MediaConnect uses the default value of 20,000,000 bps. </p>
+   * The maximum video bitrate to use when transcoding the NDI source to a transport stream. This parameter enables you to override the default video bitrate within the encoding profile's supported range.
+   *
+   * The supported range is 10,000,000 - 50,000,000 bits per second (bps). If you don't specify a value, MediaConnect uses the default value of 20,000,000 bps.
+   *
    * @public
    */
   VideoMaxBitrate?: number | undefined;
 }
 
 /**
- * <p>Specifies the configuration settings for NDI sources and outputs. </p>
+ * Specifies the configuration settings for NDI sources and outputs.
+ *
  * @public
  */
 export interface NdiConfig {
   /**
-   * <p>A setting that controls whether NDI® sources or outputs can be used in the flow. </p> <p> The default value is <code>DISABLED</code>. This value must be set as <code>ENABLED</code> for your flow to support NDI sources or outputs. </p>
+   * A setting that controls whether NDI® sources or outputs can be used in the flow.
+   *
+   * The default value is `DISABLED`. This value must be set as `ENABLED` for your flow to support NDI sources or outputs.
+   *
    * @public
    */
   NdiState?: NdiState | undefined;
 
   /**
-   * <p>A prefix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect generates a unique 12-character ID as the prefix. </p>
+   * A prefix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect generates a unique 12-character ID as the prefix.
+   *
    * @public
    */
   MachineName?: string | undefined;
 
   /**
-   * <p>A list of up to three NDI discovery server configurations. While not required by the API, this configuration is necessary for NDI functionality to work properly. </p>
+   * A list of up to three NDI discovery server configurations. While not required by the API, this configuration is necessary for NDI functionality to work properly.
+   *
    * @public
    */
   NdiDiscoveryServers?: NdiDiscoveryServerConfig[] | undefined;
 }
 
 /**
- * <p> The settings for source monitoring. </p>
+ * The settings for source monitoring.
+ *
  * @public
  */
 export interface MonitoringConfig {
   /**
-   * <p> Indicates whether thumbnails are enabled or disabled.</p>
+   * Indicates whether thumbnails are enabled or disabled.
+   *
    * @public
    */
   ThumbnailState?: ThumbnailState | undefined;
 
   /**
-   * <p> Contains the settings for audio stream metrics monitoring.</p>
+   * Contains the settings for audio stream metrics monitoring.
+   *
    * @public
    */
   AudioMonitoringSettings?: AudioMonitoringSetting[] | undefined;
 
   /**
-   * <p> Indicates whether content quality analysis is enabled or disabled.</p>
+   * Indicates whether content quality analysis is enabled or disabled.
+   *
    * @public
    */
   ContentQualityAnalysisState?: ContentQualityAnalysisState | undefined;
 
   /**
-   * <p> Contains the settings for video stream metrics monitoring.</p>
+   * Contains the settings for video stream metrics monitoring.
+   *
    * @public
    */
   VideoMonitoringSettings?: VideoMonitoringSetting[] | undefined;
@@ -8042,205 +9302,239 @@ export interface MonitoringConfig {
  */
 export interface CreateFlowRequest {
   /**
-   * <p> The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current Amazon Web Services Region.</p>
+   * The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current Amazon Web Services Region.
+   *
    * @public
    */
   AvailabilityZone?: string | undefined;
 
   /**
-   * <p> The entitlements that you want to grant on a flow.</p>
+   * The entitlements that you want to grant on a flow.
+   *
    * @public
    */
   Entitlements?: GrantEntitlementRequest[] | undefined;
 
   /**
-   * <p> The media streams that you want to add to the flow. You can associate these media streams with sources and outputs on the flow.</p>
+   * The media streams that you want to add to the flow. You can associate these media streams with sources and outputs on the flow.
+   *
    * @public
    */
   MediaStreams?: AddMediaStreamRequest[] | undefined;
 
   /**
-   * <p> The name of the flow.</p>
+   * The name of the flow.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p> The outputs that you want to add to this flow.</p>
+   * The outputs that you want to add to this flow.
+   *
    * @public
    */
   Outputs?: AddOutputRequest[] | undefined;
 
   /**
-   * <p> The settings for the source that you want to use for the new flow. </p>
+   * The settings for the source that you want to use for the new flow.
+   *
    * @public
    */
   Source?: SetSourceRequest | undefined;
 
   /**
-   * <p> The settings for source failover. </p>
+   * The settings for source failover.
+   *
    * @public
    */
   SourceFailoverConfig?: FailoverConfig | undefined;
 
   /**
-   * <p>The sources that are assigned to the flow. </p>
+   * The sources that are assigned to the flow.
+   *
    * @public
    */
   Sources?: SetSourceRequest[] | undefined;
 
   /**
-   * <p> The VPC interfaces you want on the flow.</p>
+   * The VPC interfaces you want on the flow.
+   *
    * @public
    */
   VpcInterfaces?: VpcInterfaceRequest[] | undefined;
 
   /**
-   * <p> The maintenance settings you want to use for the flow. </p>
+   * The maintenance settings you want to use for the flow.
+   *
    * @public
    */
   Maintenance?: AddMaintenance | undefined;
 
   /**
-   * <p> The settings for source monitoring. </p>
+   * The settings for source monitoring.
+   *
    * @public
    */
   SourceMonitoringConfig?: MonitoringConfig | undefined;
 
   /**
-   * <p> Determines the processing capacity and feature set of the flow. Set this optional parameter to <code>LARGE</code> if you want to enable NDI sources or outputs on the flow. </p>
+   * Determines the processing capacity and feature set of the flow. Set this optional parameter to `LARGE` if you want to enable NDI sources or outputs on the flow.
+   *
    * @public
    */
   FlowSize?: FlowSize | undefined;
 
   /**
-   * <p> Specifies the configuration settings for a flow's NDI source or output. Required when the flow includes an NDI source or output. </p>
+   * Specifies the configuration settings for a flow's NDI source or output. Required when the flow includes an NDI source or output.
+   *
    * @public
    */
   NdiConfig?: NdiConfig | undefined;
 
   /**
-   * <p> The encoding configuration to apply to the NDI® source when transcoding it to a transport stream for downstream distribution. You can choose between several predefined encoding profiles based on common use cases. </p>
+   * The encoding configuration to apply to the NDI® source when transcoding it to a transport stream for downstream distribution. You can choose between several predefined encoding profiles based on common use cases.
+   *
    * @public
    */
   EncodingConfig?: EncodingConfig | undefined;
 
   /**
-   * <p> The key-value pairs that can be used to tag and organize the flow. </p>
+   * The key-value pairs that can be used to tag and organize the flow.
+   *
    * @public
    */
   FlowTags?: Record<string, string> | undefined;
 }
 
 /**
- * <p> The settings for a flow, including its source, outputs, and entitlements.</p>
+ * The settings for a flow, including its source, outputs, and entitlements.
+ *
  * @public
  */
 export interface Flow {
   /**
-   * <p> The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current Amazon Web Services Region.</p>
+   * The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current Amazon Web Services Region.
+   *
    * @public
    */
   AvailabilityZone: string | undefined;
 
   /**
-   * <p> A description of the flow. This value is not used or seen outside of the current MediaConnect account.</p>
+   * A description of the flow. This value is not used or seen outside of the current MediaConnect account.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p> The IP address from which video will be sent to output destinations.</p>
+   * The IP address from which video will be sent to output destinations.
+   *
    * @public
    */
   EgressIp?: string | undefined;
 
   /**
-   * <p> The entitlements in this flow.</p>
+   * The entitlements in this flow.
+   *
    * @public
    */
   Entitlements: Entitlement[] | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the flow.</p>
+   * The Amazon Resource Name (ARN) of the flow.
+   *
    * @public
    */
   FlowArn: string | undefined;
 
   /**
-   * <p> The media streams that are associated with the flow. After you associate a media stream with a source, you can also associate it with outputs on the flow.</p>
+   * The media streams that are associated with the flow. After you associate a media stream with a source, you can also associate it with outputs on the flow.
+   *
    * @public
    */
   MediaStreams?: MediaStream[] | undefined;
 
   /**
-   * <p> The name of the flow.</p>
+   * The name of the flow.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p> The outputs in this flow.</p>
+   * The outputs in this flow.
+   *
    * @public
    */
   Outputs: Output[] | undefined;
 
   /**
-   * <p> The source for the flow. </p>
+   * The source for the flow.
+   *
    * @public
    */
   Source: Source | undefined;
 
   /**
-   * <p> The settings for the source failover. </p>
+   * The settings for the source failover.
+   *
    * @public
    */
   SourceFailoverConfig?: FailoverConfig | undefined;
 
   /**
-   * <p>The settings for the sources that are assigned to the flow. </p>
+   * The settings for the sources that are assigned to the flow.
+   *
    * @public
    */
   Sources?: Source[] | undefined;
 
   /**
-   * <p> The current status of the flow.</p>
+   * The current status of the flow.
+   *
    * @public
    */
   Status: Status | undefined;
 
   /**
-   * <p> The VPC Interfaces for this flow.</p>
+   * The VPC Interfaces for this flow.
+   *
    * @public
    */
   VpcInterfaces?: VpcInterface[] | undefined;
 
   /**
-   * <p> The maintenance settings for the flow. </p>
+   * The maintenance settings for the flow.
+   *
    * @public
    */
   Maintenance?: Maintenance | undefined;
 
   /**
-   * <p> The settings for source monitoring. </p>
+   * The settings for source monitoring.
+   *
    * @public
    */
   SourceMonitoringConfig?: MonitoringConfig | undefined;
 
   /**
-   * <p> Determines the processing capacity and feature set of the flow. </p>
+   * Determines the processing capacity and feature set of the flow.
+   *
    * @public
    */
   FlowSize?: FlowSize | undefined;
 
   /**
-   * <p>Specifies the configuration settings for a flow's NDI source or output. Required when the flow includes an NDI source or output.</p>
+   * Specifies the configuration settings for a flow's NDI source or output. Required when the flow includes an NDI source or output.
+   *
    * @public
    */
   NdiConfig?: NdiConfig | undefined;
 
   /**
-   * <p> The encoding configuration to apply to the NDI® source when transcoding it to a transport stream for downstream distribution. </p>
+   * The encoding configuration to apply to the NDI® source when transcoding it to a transport stream for downstream distribution.
+   *
    * @public
    */
   EncodingConfig?: EncodingConfig | undefined;
@@ -8251,7 +9545,8 @@ export interface Flow {
  */
 export interface CreateFlowResponse {
   /**
-   * <p> The flow that you created. </p>
+   * The flow that you created.
+   *
    * @public
    */
   Flow?: Flow | undefined;
@@ -8262,61 +9557,71 @@ export interface CreateFlowResponse {
  */
 export interface CreateGatewayRequest {
   /**
-   * <p> The range of IP addresses that are allowed to contribute content or initiate output requests for flows communicating with this gateway. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.</p>
+   * The range of IP addresses that are allowed to contribute content or initiate output requests for flows communicating with this gateway. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+   *
    * @public
    */
   EgressCidrBlocks: string[] | undefined;
 
   /**
-   * <p> The name of the gateway. This name can not be modified after the gateway is created.</p>
+   * The name of the gateway. This name can not be modified after the gateway is created.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p> The list of networks that you want to add to the gateway.</p>
+   * The list of networks that you want to add to the gateway.
+   *
    * @public
    */
   Networks: GatewayNetwork[] | undefined;
 }
 
 /**
- * <p>The settings for a gateway, including its networks. </p>
+ * The settings for a gateway, including its networks.
+ *
  * @public
  */
 export interface Gateway {
   /**
-   * <p> The range of IP addresses that contribute content or initiate output requests for flows communicating with this gateway. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.</p>
+   * The range of IP addresses that contribute content or initiate output requests for flows communicating with this gateway. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+   *
    * @public
    */
   EgressCidrBlocks: string[] | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the gateway.</p>
+   * The Amazon Resource Name (ARN) of the gateway.
+   *
    * @public
    */
   GatewayArn: string | undefined;
 
   /**
-   * <p>Messages with information about the gateway. </p>
+   * Messages with information about the gateway.
+   *
    * @public
    */
   GatewayMessages?: MessageDetail[] | undefined;
 
   /**
-   * <p> The current status of the gateway.</p>
+   * The current status of the gateway.
+   *
    * @public
    */
   GatewayState?: GatewayState | undefined;
 
   /**
-   * <p> The name of the gateway. This name can not be modified after the gateway is created.</p>
+   * The name of the gateway. This name can not be modified after the gateway is created.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p> The list of networks in the gateway.</p>
+   * The list of networks in the gateway.
+   *
    * @public
    */
   Networks: GatewayNetwork[] | undefined;
@@ -8327,7 +9632,8 @@ export interface Gateway {
  */
 export interface CreateGatewayResponse {
   /**
-   * <p> The gateway that you created. </p>
+   * The gateway that you created.
+   *
    * @public
    */
   Gateway?: Gateway | undefined;
@@ -8338,73 +9644,93 @@ export interface CreateGatewayResponse {
  */
 export interface CreateRouterInputRequest {
   /**
-   * <p>The name of the router input.</p>
+   * The name of the router input.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The configuration settings for the router input, which can include the protocol, network interface, and other details.</p>
+   * The configuration settings for the router input, which can include the protocol, network interface, and other details.
+   *
    * @public
    */
   Configuration: RouterInputConfiguration | undefined;
 
   /**
-   * <p>The maximum bitrate for the router input.</p>
+   * The maximum bitrate for the router input.
+   *
    * @public
    */
   MaximumBitrate: number | undefined;
 
   /**
-   * <p>Specifies whether the router input can be assigned to outputs in different Regions. REGIONAL (default) - connects only to outputs in same Region. GLOBAL - connects to outputs in any Region.</p>
+   * Specifies whether the router input can be assigned to outputs in different Regions. REGIONAL (default) - connects only to outputs in same Region. GLOBAL - connects to outputs in any Region.
+   *
    * @public
    */
   RoutingScope: RoutingScope | undefined;
 
   /**
-   * <p>The tier level for the router input. The tier sets the maximum bitrate, in Mbps, for the router input. Valid values include the following:</p> <ul> <li> <p> <code>INPUT_20</code> – 20 Mbps</p> </li> <li> <p> <code>INPUT_50</code> – 50 Mbps</p> </li> <li> <p> <code>INPUT_100</code> – 100 Mbps</p> </li> <li> <p> <code>INPUT_250</code> – 250 Mbps</p> </li> <li> <p> <code>INPUT_500</code> – 500 Mbps</p> </li> </ul> <p>The 250 Mbps and 500 Mbps tiers are high-bitrate tiers that support TR-07 (JPEG XS) workflows.</p>
+   * The tier level for the router input. The tier sets the maximum bitrate, in Mbps, for the router input. Valid values include the following:
+   *
+   * - `INPUT_20` – 20 Mbps
+   * - `INPUT_50` – 50 Mbps
+   * - `INPUT_100` – 100 Mbps
+   * - `INPUT_250` – 250 Mbps
+   * - `INPUT_500` – 500 Mbps
+   *
+   * The 250 Mbps and 500 Mbps tiers are high-bitrate tiers that support TR-07 (JPEG XS) workflows.
+   *
    * @public
    */
   Tier: RouterInputTier | undefined;
 
   /**
-   * <p>The Amazon Web Services Region for the router input. Defaults to the current region if not specified.</p>
+   * The Amazon Web Services Region for the router input. Defaults to the current region if not specified.
+   *
    * @public
    */
   RegionName?: string | undefined;
 
   /**
-   * <p>The Availability Zone where you want to create the router input. This must be a valid Availability Zone for the region specified by <code>regionName</code>, or the current region if no <code>regionName</code> is provided. </p>
+   * The Availability Zone where you want to create the router input. This must be a valid Availability Zone for the region specified by `regionName`, or the current region if no `regionName` is provided.
+   *
    * @public
    */
   AvailabilityZone?: string | undefined;
 
   /**
-   * <p>The transit encryption settings for the router input.</p>
+   * The transit encryption settings for the router input.
+   *
    * @public
    */
   TransitEncryption?: RouterInputTransitEncryption | undefined;
 
   /**
-   * <p>The maintenance configuration settings for the router input, including preferred maintenance windows and schedules.</p>
+   * The maintenance configuration settings for the router input, including preferred maintenance windows and schedules.
+   *
    * @public
    */
   MaintenanceConfiguration?: MaintenanceConfiguration | undefined;
 
   /**
-   * <p>Key-value pairs that can be used to tag and organize this router input.</p>
+   * Key-value pairs that can be used to tag and organize this router input.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>A unique identifier for the request to ensure idempotency.</p>
+   * A unique identifier for the request to ensure idempotency.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The content quality analysis configuration for the router input.</p>
+   * The content quality analysis configuration for the router input.
+   *
    * @public
    */
   ContentQualityAnalysisConfiguration?: RouterContentQualityAnalysisConfiguration | undefined;
@@ -8415,7 +9741,8 @@ export interface CreateRouterInputRequest {
  */
 export interface CreateRouterInputResponse {
   /**
-   * <p>The newly-created router input.</p>
+   * The newly-created router input.
+   *
    * @public
    */
   RouterInput: RouterInput | undefined;
@@ -8426,31 +9753,36 @@ export interface CreateRouterInputResponse {
  */
 export interface CreateRouterNetworkInterfaceRequest {
   /**
-   * <p>The name of the router network interface.</p>
+   * The name of the router network interface.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The configuration settings for the router network interface.</p>
+   * The configuration settings for the router network interface.
+   *
    * @public
    */
   Configuration: RouterNetworkInterfaceConfiguration | undefined;
 
   /**
-   * <p>The Amazon Web Services Region for the router network interface. Defaults to the current region if not specified.</p>
+   * The Amazon Web Services Region for the router network interface. Defaults to the current region if not specified.
+   *
    * @public
    */
   RegionName?: string | undefined;
 
   /**
-   * <p>Key-value pairs that can be used to tag and organize this router network interface.</p>
+   * Key-value pairs that can be used to tag and organize this router network interface.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>A unique identifier for the request to ensure idempotency.</p>
+   * A unique identifier for the request to ensure idempotency.
+   *
    * @public
    */
   ClientToken?: string | undefined;
@@ -8461,7 +9793,8 @@ export interface CreateRouterNetworkInterfaceRequest {
  */
 export interface CreateRouterNetworkInterfaceResponse {
   /**
-   * <p>The newly-created router network interface.</p>
+   * The newly-created router network interface.
+   *
    * @public
    */
   RouterNetworkInterface: RouterNetworkInterface | undefined;
@@ -8472,67 +9805,86 @@ export interface CreateRouterNetworkInterfaceResponse {
  */
 export interface CreateRouterOutputRequest {
   /**
-   * <p>The name of the router output.</p>
+   * The name of the router output.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The configuration settings for the router output.</p>
+   * The configuration settings for the router output.
+   *
    * @public
    */
   Configuration: RouterOutputConfiguration | undefined;
 
   /**
-   * <p>The maximum bitrate for the router output.</p>
+   * The maximum bitrate for the router output.
+   *
    * @public
    */
   MaximumBitrate: number | undefined;
 
   /**
-   * <p>Specifies whether the router output can take inputs that are in different Regions. REGIONAL (default) - can only take inputs from same Region. GLOBAL - can take inputs from any Region.</p>
+   * Specifies whether the router output can take inputs that are in different Regions. REGIONAL (default) - can only take inputs from same Region. GLOBAL - can take inputs from any Region.
+   *
    * @public
    */
   RoutingScope: RoutingScope | undefined;
 
   /**
-   * <p>The tier level for the router output. The tier sets the maximum bitrate, in Mbps, for the router output. Valid values include the following:</p> <ul> <li> <p> <code>OUTPUT_20</code> – 20 Mbps</p> </li> <li> <p> <code>OUTPUT_50</code> – 50 Mbps</p> </li> <li> <p> <code>OUTPUT_100</code> – 100 Mbps</p> </li> <li> <p> <code>OUTPUT_250</code> – 250 Mbps</p> </li> <li> <p> <code>OUTPUT_500</code> – 500 Mbps</p> </li> </ul> <p>The 250 Mbps and 500 Mbps tiers are high-bitrate tiers that support TR-07 (JPEG XS) workflows.</p>
+   * The tier level for the router output. The tier sets the maximum bitrate, in Mbps, for the router output. Valid values include the following:
+   *
+   * - `OUTPUT_20` – 20 Mbps
+   * - `OUTPUT_50` – 50 Mbps
+   * - `OUTPUT_100` – 100 Mbps
+   * - `OUTPUT_250` – 250 Mbps
+   * - `OUTPUT_500` – 500 Mbps
+   *
+   * The 250 Mbps and 500 Mbps tiers are high-bitrate tiers that support TR-07 (JPEG XS) workflows.
+   *
    * @public
    */
   Tier: RouterOutputTier | undefined;
 
   /**
-   * <p>The Amazon Web Services Region for the router output. Defaults to the current region if not specified.</p>
+   * The Amazon Web Services Region for the router output. Defaults to the current region if not specified.
+   *
    * @public
    */
   RegionName?: string | undefined;
 
   /**
-   * <p>The Availability Zone where you want to create the router output. This must be a valid Availability Zone for the region specified by <code>regionName</code>, or the current region if no <code>regionName</code> is provided. </p>
+   * The Availability Zone where you want to create the router output. This must be a valid Availability Zone for the region specified by `regionName`, or the current region if no `regionName` is provided.
+   *
    * @public
    */
   AvailabilityZone?: string | undefined;
 
   /**
-   * <p>The maintenance configuration settings for the router output, including preferred maintenance windows and schedules.</p>
+   * The maintenance configuration settings for the router output, including preferred maintenance windows and schedules.
+   *
    * @public
    */
   MaintenanceConfiguration?: MaintenanceConfiguration | undefined;
 
   /**
-   * <p>Key-value pairs that can be used to tag this router output.</p>
+   * Key-value pairs that can be used to tag this router output.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The fabric configuration settings for the router output.</p>
+   * The fabric configuration settings for the router output.
+   *
    * @public
    */
   FabricConfiguration?: FabricConfiguration | undefined;
 
   /**
-   * <p>A unique identifier for the request to ensure idempotency.</p>
+   * A unique identifier for the request to ensure idempotency.
+   *
    * @public
    */
   ClientToken?: string | undefined;
@@ -8543,7 +9895,8 @@ export interface CreateRouterOutputRequest {
  */
 export interface CreateRouterOutputResponse {
   /**
-   * <p>The newly-created router output.</p>
+   * The newly-created router output.
+   *
    * @public
    */
   RouterOutput: RouterOutput | undefined;
@@ -8554,7 +9907,8 @@ export interface CreateRouterOutputResponse {
  */
 export interface DeleteFlowRequest {
   /**
-   * <p> The Amazon Resource Name (ARN) of the flow that you want to delete.</p>
+   * The Amazon Resource Name (ARN) of the flow that you want to delete.
+   *
    * @public
    */
   FlowArn: string | undefined;
@@ -8565,13 +9919,15 @@ export interface DeleteFlowRequest {
  */
 export interface DeleteFlowResponse {
   /**
-   * <p> The ARN of the flow that was deleted.</p>
+   * The ARN of the flow that was deleted.
+   *
    * @public
    */
   FlowArn?: string | undefined;
 
   /**
-   * <p> The status of the flow when the <code>DeleteFlow</code> process begins.</p>
+   * The status of the flow when the `DeleteFlow` process begins.
+   *
    * @public
    */
   Status?: Status | undefined;
@@ -8582,7 +9938,8 @@ export interface DeleteFlowResponse {
  */
 export interface DeleteGatewayRequest {
   /**
-   * <p> The Amazon Resource Name (ARN) of the gateway that you want to delete.</p>
+   * The Amazon Resource Name (ARN) of the gateway that you want to delete.
+   *
    * @public
    */
   GatewayArn: string | undefined;
@@ -8593,7 +9950,8 @@ export interface DeleteGatewayRequest {
  */
 export interface DeleteGatewayResponse {
   /**
-   * <p> The ARN of the gateway that was deleted.</p>
+   * The ARN of the gateway that was deleted.
+   *
    * @public
    */
   GatewayArn?: string | undefined;
@@ -8604,7 +9962,8 @@ export interface DeleteGatewayResponse {
  */
 export interface DeleteRouterInputRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the router input that you want to delete.</p>
+   * The Amazon Resource Name (ARN) of the router input that you want to delete.
+   *
    * @public
    */
   Arn: string | undefined;
@@ -8615,19 +9974,22 @@ export interface DeleteRouterInputRequest {
  */
 export interface DeleteRouterInputResponse {
   /**
-   * <p>The ARN of the deleted router input.</p>
+   * The ARN of the deleted router input.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The name of the deleted router input.</p>
+   * The name of the deleted router input.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The current state of the deleted router input, indicating where it is in the deletion process.</p>
+   * The current state of the deleted router input, indicating where it is in the deletion process.
+   *
    * @public
    */
   State: RouterInputState | undefined;
@@ -8638,7 +10000,8 @@ export interface DeleteRouterInputResponse {
  */
 export interface DeleteRouterNetworkInterfaceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the router network interface that you want to delete.</p>
+   * The Amazon Resource Name (ARN) of the router network interface that you want to delete.
+   *
    * @public
    */
   Arn: string | undefined;
@@ -8649,19 +10012,22 @@ export interface DeleteRouterNetworkInterfaceRequest {
  */
 export interface DeleteRouterNetworkInterfaceResponse {
   /**
-   * <p>The ARN of the deleted router network interface.</p>
+   * The ARN of the deleted router network interface.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The name of the deleted router network interface.</p>
+   * The name of the deleted router network interface.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The current state of the deleted router network interface, indicating where it is in the deletion process.</p>
+   * The current state of the deleted router network interface, indicating where it is in the deletion process.
+   *
    * @public
    */
   State: RouterNetworkInterfaceState | undefined;
@@ -8672,7 +10038,8 @@ export interface DeleteRouterNetworkInterfaceResponse {
  */
 export interface DeleteRouterOutputRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the router output that you want to delete.</p>
+   * The Amazon Resource Name (ARN) of the router output that you want to delete.
+   *
    * @public
    */
   Arn: string | undefined;
@@ -8683,19 +10050,22 @@ export interface DeleteRouterOutputRequest {
  */
 export interface DeleteRouterOutputResponse {
   /**
-   * <p>The ARN of the deleted router output.</p>
+   * The ARN of the deleted router output.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The name of the deleted router output.</p>
+   * The name of the deleted router output.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The current state of the deleted router output, indicating where it is in the deletion process.</p>
+   * The current state of the deleted router output, indicating where it is in the deletion process.
+   *
    * @public
    */
   State: RouterOutputState | undefined;
@@ -8706,7 +10076,8 @@ export interface DeleteRouterOutputResponse {
  */
 export interface DeregisterDestinationEndpointRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the destination endpoint to deregister.</p>
+   * The Amazon Resource Name (ARN) of the destination endpoint to deregister.
+   *
    * @public
    */
   Arn: string | undefined;
@@ -8717,13 +10088,15 @@ export interface DeregisterDestinationEndpointRequest {
  */
 export interface DeregisterDestinationEndpointResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the destination endpoint that was deregistered.</p>
+   * The Amazon Resource Name (ARN) of the destination endpoint that was deregistered.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The name of the destination endpoint that was deregistered.</p>
+   * The name of the destination endpoint that was deregistered.
+   *
    * @public
    */
   Name: string | undefined;
@@ -8734,13 +10107,15 @@ export interface DeregisterDestinationEndpointResponse {
  */
 export interface DeregisterGatewayInstanceRequest {
   /**
-   * <p> Force the deregistration of an instance. Force will deregister an instance, even if there are bridges running on it.</p>
+   * Force the deregistration of an instance. Force will deregister an instance, even if there are bridges running on it.
+   *
    * @public
    */
   Force?: boolean | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the gateway that contains the instance that you want to deregister.</p>
+   * The Amazon Resource Name (ARN) of the gateway that contains the instance that you want to deregister.
+   *
    * @public
    */
   GatewayInstanceArn: string | undefined;
@@ -8751,13 +10126,15 @@ export interface DeregisterGatewayInstanceRequest {
  */
 export interface DeregisterGatewayInstanceResponse {
   /**
-   * <p> The ARN of the instance.</p>
+   * The ARN of the instance.
+   *
    * @public
    */
   GatewayInstanceArn?: string | undefined;
 
   /**
-   * <p> The status of the instance.</p>
+   * The status of the instance.
+   *
    * @public
    */
   InstanceState?: InstanceState | undefined;
@@ -8768,7 +10145,8 @@ export interface DeregisterGatewayInstanceResponse {
  */
 export interface DeregisterSourceEndpointRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the source endpoint to deregister.</p>
+   * The Amazon Resource Name (ARN) of the source endpoint to deregister.
+   *
    * @public
    */
   Arn: string | undefined;
@@ -8779,13 +10157,15 @@ export interface DeregisterSourceEndpointRequest {
  */
 export interface DeregisterSourceEndpointResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the source endpoint that was deregistered.</p>
+   * The Amazon Resource Name (ARN) of the source endpoint that was deregistered.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The name of the source endpoint that was deregistered.</p>
+   * The name of the source endpoint that was deregistered.
+   *
    * @public
    */
   Name: string | undefined;
@@ -8796,19 +10176,22 @@ export interface DeregisterSourceEndpointResponse {
  */
 export interface DescribeFlowRequest {
   /**
-   * <p> The ARN of the flow that you want to describe.</p>
+   * The ARN of the flow that you want to describe.
+   *
    * @public
    */
   FlowArn: string | undefined;
 }
 
 /**
- * <p> Messages that provide the state of the flow.</p>
+ * Messages that provide the state of the flow.
+ *
  * @public
  */
 export interface Messages {
   /**
-   * <p> A list of errors that might have been generated from processes on this flow.</p>
+   * A list of errors that might have been generated from processes on this flow.
+   *
    * @public
    */
   Errors: string[] | undefined;
@@ -8819,13 +10202,15 @@ export interface Messages {
  */
 export interface DescribeFlowResponse {
   /**
-   * <p>The flow that you requested a description of. </p>
+   * The flow that you requested a description of.
+   *
    * @public
    */
   Flow?: Flow | undefined;
 
   /**
-   * <p> Any errors that apply currently to the flow. If there are no errors, MediaConnect will not include this field in the response. </p>
+   * Any errors that apply currently to the flow. If there are no errors, MediaConnect will not include this field in the response.
+   *
    * @public
    */
   Messages?: Messages | undefined;
@@ -8836,67 +10221,78 @@ export interface DescribeFlowResponse {
  */
 export interface DescribeFlowSourceMetadataRequest {
   /**
-   * <p> The Amazon Resource Name (ARN) of the flow.</p>
+   * The Amazon Resource Name (ARN) of the flow.
+   *
    * @public
    */
   FlowArn: string | undefined;
 }
 
 /**
- * <p> Metadata about the audio and video media that is part of the NDI® source content. This includes details about the individual media streams. </p>
+ * Metadata about the audio and video media that is part of the NDI® source content. This includes details about the individual media streams.
+ *
  * @public
  */
 export interface NdiMediaInfo {
   /**
-   * <p> A list of the individual media streams that make up the NDI source. This includes details about each stream's codec, resolution, frame rate, audio channels, and other parameters. </p>
+   * A list of the individual media streams that make up the NDI source. This includes details about each stream's codec, resolution, frame rate, audio channels, and other parameters.
+   *
    * @public
    */
   Streams: NdiMediaStreamInfo[] | undefined;
 }
 
 /**
- * <p> Comprehensive information about the NDI® source that's associated with a flow. This includes the currently active NDI source, a list of all discovered NDI senders, metadata about the media streams, and any relevant status messages. </p>
+ * Comprehensive information about the NDI® source that's associated with a flow. This includes the currently active NDI source, a list of all discovered NDI senders, metadata about the media streams, and any relevant status messages.
+ *
  * @public
  */
 export interface NdiSourceMetadataInfo {
   /**
-   * <p> The connected NDI sender that's currently sending source content to the flow's NDI source. </p>
+   * The connected NDI sender that's currently sending source content to the flow's NDI source.
+   *
    * @public
    */
   ActiveSource?: NdiSourceInfo | undefined;
 
   /**
-   * <p> A list of the available upstream NDI senders aggregated from all of your configured discovery servers. </p>
+   * A list of the available upstream NDI senders aggregated from all of your configured discovery servers.
+   *
    * @public
    */
   DiscoveredSources: NdiSourceInfo[] | undefined;
 
   /**
-   * <p> Detailed information about the media streams (video, audio, and so on) that are part of the active NDI source. </p>
+   * Detailed information about the media streams (video, audio, and so on) that are part of the active NDI source.
+   *
    * @public
    */
   MediaInfo: NdiMediaInfo | undefined;
 
   /**
-   * <p> Any status messages or error codes related to the NDI source and its metadata. </p>
+   * Any status messages or error codes related to the NDI source and its metadata.
+   *
    * @public
    */
   Messages: MessageDetail[] | undefined;
 }
 
 /**
- * <p> The metadata of the transport stream in the current flow's source.</p>
+ * The metadata of the transport stream in the current flow's source.
+ *
  * @public
  */
 export interface TransportMediaInfo {
   /**
-   * <p> The list of transport stream programs in the current flow's source.</p>
+   * The list of transport stream programs in the current flow's source.
+   *
    * @public
    */
   Programs: TransportStreamProgram[] | undefined;
 
   /**
-   * <p>The transport stream ID (TSID) of the source, from the Program Association Table (PAT).</p>
+   * The transport stream ID (TSID) of the source, from the Program Association Table (PAT).
+   *
    * @public
    */
   TsId?: number | undefined;
@@ -8907,31 +10303,36 @@ export interface TransportMediaInfo {
  */
 export interface DescribeFlowSourceMetadataResponse {
   /**
-   * <p> The ARN of the flow that DescribeFlowSourceMetadata was performed on.</p>
+   * The ARN of the flow that DescribeFlowSourceMetadata was performed on.
+   *
    * @public
    */
   FlowArn?: string | undefined;
 
   /**
-   * <p> Provides a status code and message regarding issues found with the flow source metadata.</p>
+   * Provides a status code and message regarding issues found with the flow source metadata.
+   *
    * @public
    */
   Messages?: MessageDetail[] | undefined;
 
   /**
-   * <p> The timestamp of the most recent change in metadata for this flow’s source.</p>
+   * The timestamp of the most recent change in metadata for this flow’s source.
+   *
    * @public
    */
   Timestamp?: Date | undefined;
 
   /**
-   * <p> Information about the flow's transport media. </p>
+   * Information about the flow's transport media.
+   *
    * @public
    */
   TransportMediaInfo?: TransportMediaInfo | undefined;
 
   /**
-   * <p> The NDI® specific information about the flow's source. This includes the current active NDI sender, a list of all discovered NDI senders, the associated media streams for the active NDI sender, and any relevant status messages. </p>
+   * The NDI® specific information about the flow's source. This includes the current active NDI sender, a list of all discovered NDI senders, the associated media streams for the active NDI sender, and any relevant status messages.
+   *
    * @public
    */
   NdiInfo?: NdiSourceMetadataInfo | undefined;
@@ -8942,43 +10343,50 @@ export interface DescribeFlowSourceMetadataResponse {
  */
 export interface DescribeFlowSourceThumbnailRequest {
   /**
-   * <p> The Amazon Resource Name (ARN) of the flow.</p>
+   * The Amazon Resource Name (ARN) of the flow.
+   *
    * @public
    */
   FlowArn: string | undefined;
 }
 
 /**
- * <p> The details of the thumbnail, including thumbnail base64 string, timecode and the time when thumbnail was generated.</p>
+ * The details of the thumbnail, including thumbnail base64 string, timecode and the time when thumbnail was generated.
+ *
  * @public
  */
 export interface ThumbnailDetails {
   /**
-   * <p> The ARN of the flow that DescribeFlowSourceThumbnail was performed on.</p>
+   * The ARN of the flow that DescribeFlowSourceThumbnail was performed on.
+   *
    * @public
    */
   FlowArn: string | undefined;
 
   /**
-   * <p>Thumbnail Base64 string. </p>
+   * Thumbnail Base64 string.
+   *
    * @public
    */
   Thumbnail?: string | undefined;
 
   /**
-   * <p> Status code and messages about the flow source thumbnail.</p>
+   * Status code and messages about the flow source thumbnail.
+   *
    * @public
    */
   ThumbnailMessages: MessageDetail[] | undefined;
 
   /**
-   * <p> Timecode of thumbnail.</p>
+   * Timecode of thumbnail.
+   *
    * @public
    */
   Timecode?: string | undefined;
 
   /**
-   * <p> The timestamp of when thumbnail was generated.</p>
+   * The timestamp of when thumbnail was generated.
+   *
    * @public
    */
   Timestamp?: Date | undefined;
@@ -8989,7 +10397,8 @@ export interface ThumbnailDetails {
  */
 export interface DescribeFlowSourceThumbnailResponse {
   /**
-   * <p>The details of the thumbnail, including thumbnail base64 string, timecode and the time when thumbnail was generated. </p>
+   * The details of the thumbnail, including thumbnail base64 string, timecode and the time when thumbnail was generated.
+   *
    * @public
    */
   ThumbnailDetails?: ThumbnailDetails | undefined;
@@ -9000,7 +10409,8 @@ export interface DescribeFlowSourceThumbnailResponse {
  */
 export interface DescribeGatewayRequest {
   /**
-   * <p> The ARN of the gateway that you want to describe.</p>
+   * The ARN of the gateway that you want to describe.
+   *
    * @public
    */
   GatewayArn: string | undefined;
@@ -9011,7 +10421,8 @@ export interface DescribeGatewayRequest {
  */
 export interface DescribeGatewayResponse {
   /**
-   * <p>The gateway that you wanted to describe. </p>
+   * The gateway that you wanted to describe.
+   *
    * @public
    */
   Gateway?: Gateway | undefined;
@@ -9022,61 +10433,71 @@ export interface DescribeGatewayResponse {
  */
 export interface DescribeGatewayInstanceRequest {
   /**
-   * <p> The Amazon Resource Name (ARN) of the gateway instance that you want to describe.</p>
+   * The Amazon Resource Name (ARN) of the gateway instance that you want to describe.
+   *
    * @public
    */
   GatewayInstanceArn: string | undefined;
 }
 
 /**
- * <p> The settings for an instance in a gateway.</p>
+ * The settings for an instance in a gateway.
+ *
  * @public
  */
 export interface GatewayInstance {
   /**
-   * <p>The availability of the instance to host new bridges. The bridgePlacement property can be LOCKED or AVAILABLE. If it is LOCKED, no new bridges can be deployed to this instance. If it is AVAILABLE, new bridges can be deployed to this instance. </p>
+   * The availability of the instance to host new bridges. The bridgePlacement property can be LOCKED or AVAILABLE. If it is LOCKED, no new bridges can be deployed to this instance. If it is AVAILABLE, new bridges can be deployed to this instance.
+   *
    * @public
    */
   BridgePlacement: BridgePlacement | undefined;
 
   /**
-   * <p>The connection state of the instance. </p>
+   * The connection state of the instance.
+   *
    * @public
    */
   ConnectionStatus: ConnectionStatus | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the instance. </p>
+   * The Amazon Resource Name (ARN) of the instance.
+   *
    * @public
    */
   GatewayArn: string | undefined;
 
   /**
-   * <p>The ARN of the gateway. </p>
+   * The ARN of the gateway.
+   *
    * @public
    */
   GatewayInstanceArn: string | undefined;
 
   /**
-   * <p>The instance ID generated by the SSM install. This will begin with "mi-". </p>
+   * The instance ID generated by the SSM install. This will begin with "mi-".
+   *
    * @public
    */
   InstanceId: string | undefined;
 
   /**
-   * <p> Messages with information about the gateway. </p>
+   * Messages with information about the gateway.
+   *
    * @public
    */
   InstanceMessages?: MessageDetail[] | undefined;
 
   /**
-   * <p>The status of the instance. </p>
+   * The status of the instance.
+   *
    * @public
    */
   InstanceState: InstanceState | undefined;
 
   /**
-   * <p> The running bridge count. </p>
+   * The running bridge count.
+   *
    * @public
    */
   RunningBridgeCount: number | undefined;
@@ -9087,7 +10508,8 @@ export interface GatewayInstance {
  */
 export interface DescribeGatewayInstanceResponse {
   /**
-   * <p>The gateway instance that you requested a description of. </p>
+   * The gateway instance that you requested a description of.
+   *
    * @public
    */
   GatewayInstance?: GatewayInstance | undefined;
@@ -9098,7 +10520,8 @@ export interface DescribeGatewayInstanceResponse {
  */
 export interface DescribeOfferingRequest {
   /**
-   * <p> The ARN of the offering.</p>
+   * The ARN of the offering.
+   *
    * @public
    */
   OfferingArn: string | undefined;
@@ -9109,7 +10532,8 @@ export interface DescribeOfferingRequest {
  */
 export interface DescribeOfferingResponse {
   /**
-   * <p>The offering that you requested a description of. </p>
+   * The offering that you requested a description of.
+   *
    * @public
    */
   Offering?: Offering | undefined;
@@ -9120,7 +10544,8 @@ export interface DescribeOfferingResponse {
  */
 export interface DescribeReservationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the offering. </p>
+   * The Amazon Resource Name (ARN) of the offering.
+   *
    * @public
    */
   ReservationArn: string | undefined;
@@ -9131,7 +10556,8 @@ export interface DescribeReservationRequest {
  */
 export interface DescribeReservationResponse {
   /**
-   * <p> A pricing agreement for a discounted rate for a specific outbound bandwidth that your MediaConnect account will use each month over a specific time period. The discounted rate in the reservation applies to outbound bandwidth for all flows from your account until your account reaches the amount of bandwidth in your reservation. If you use more outbound bandwidth than the agreed upon amount in a single month, the overage is charged at the on-demand rate. </p>
+   * A pricing agreement for a discounted rate for a specific outbound bandwidth that your MediaConnect account will use each month over a specific time period. The discounted rate in the reservation applies to outbound bandwidth for all flows from your account until your account reaches the amount of bandwidth in your reservation. If you use more outbound bandwidth than the agreed upon amount in a single month, the overage is charged at the on-demand rate.
+   *
    * @public
    */
   Reservation?: Reservation | undefined;

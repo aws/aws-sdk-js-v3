@@ -33,534 +33,647 @@ import type {
 } from "./enums";
 
 /**
- * <p> Condition that matches based on the specific WAF action taken on the request. </p>
+ * Condition that matches based on the specific WAF action taken on the request.
+ *
  * @public
  */
 export interface ActionCondition {
   /**
-   * <p> The WAF action to match against (ALLOW, BLOCK, COUNT, CAPTCHA, CHALLENGE, EXCLUDED_AS_COUNT). </p>
+   * The WAF action to match against (ALLOW, BLOCK, COUNT, CAPTCHA, CHALLENGE, EXCLUDED_AS_COUNT).
+   *
    * @public
    */
   Action?: Action | undefined;
 }
 
 /**
- * <p> Defines criteria for selecting resources based on field values. </p>
+ * Defines criteria for selecting resources based on field values.
+ *
  * @public
  */
 export interface AdvancedFieldSelector {
   /**
-   * <p> The name of the field to use for selection. </p>
+   * The name of the field to use for selection.
+   *
    * @public
    */
   Field: string | undefined;
 
   /**
-   * <p> Matches if the field value equals the specified value. </p>
+   * Matches if the field value equals the specified value.
+   *
    * @public
    */
   Equals?: string[] | undefined;
 
   /**
-   * <p> Matches if the field value starts with the specified value. </p>
+   * Matches if the field value starts with the specified value.
+   *
    * @public
    */
   StartsWith?: string[] | undefined;
 
   /**
-   * <p> Matches if the field value ends with the specified value. </p>
+   * Matches if the field value ends with the specified value.
+   *
    * @public
    */
   EndsWith?: string[] | undefined;
 
   /**
-   * <p> Matches if the field value does not equal the specified value. </p>
+   * Matches if the field value does not equal the specified value.
+   *
    * @public
    */
   NotEquals?: string[] | undefined;
 
   /**
-   * <p> Matches if the field value does not start with the specified value. </p>
+   * Matches if the field value does not start with the specified value.
+   *
    * @public
    */
   NotStartsWith?: string[] | undefined;
 
   /**
-   * <p> Matches if the field value does not end with the specified value. </p>
+   * Matches if the field value does not end with the specified value.
+   *
    * @public
    */
   NotEndsWith?: string[] | undefined;
 }
 
 /**
- * <p>Advanced event selectors let you create fine-grained selectors for management, data, and network activity events.</p>
+ * Advanced event selectors let you create fine-grained selectors for management, data, and network activity events.
+ *
  * @public
  */
 export interface AdvancedEventSelector {
   /**
-   * <p>An optional, descriptive name for an advanced event selector, such as "Log data events for only two S3 buckets".</p>
+   * An optional, descriptive name for an advanced event selector, such as "Log data events for only two S3 buckets".
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>Contains all selector statements in an advanced event selector.</p>
+   * Contains all selector statements in an advanced event selector.
+   *
    * @public
    */
   FieldSelectors: AdvancedFieldSelector[] | undefined;
 }
 
 /**
- * <p>Configuration for backing up centralized log data to a secondary region.</p>
+ * Configuration for backing up centralized log data to a secondary region.
+ *
  * @public
  */
 export interface LogsBackupConfiguration {
   /**
-   * <p>Logs specific backup destination region within the primary destination account to which log data should be centralized.</p>
+   * Logs specific backup destination region within the primary destination account to which log data should be centralized.
+   *
    * @public
    */
   Region: string | undefined;
 
   /**
-   * <p>KMS Key ARN belonging to the primary destination account and backup region, to encrypt newly created central log groups in the backup destination.</p>
+   * KMS Key ARN belonging to the primary destination account and backup region, to encrypt newly created central log groups in the backup destination.
+   *
    * @public
    */
   KmsKeyArn?: string | undefined;
 }
 
 /**
- * <p>Configuration that specifies a naming pattern for destination log groups created during centralization. The pattern supports static text and dynamic variables that are replaced with source attributes when log groups are created.</p>
+ * Configuration that specifies a naming pattern for destination log groups created during centralization. The pattern supports static text and dynamic variables that are replaced with source attributes when log groups are created.
+ *
  * @public
  */
 export interface LogGroupNameConfiguration {
   /**
-   * <p>The pattern used to generate destination log group names during centralization. The pattern can contain static text and dynamic variables that are replaced with source attributes. If a variable cannot be resolved, it inherits the value from its parent variable in the hierarchy. The pattern must be between 1 and 512 characters.</p> <p>Supported variables:</p> <ul> <li> <p> <b>$\{source.logGroup\}</b> — The original log group name from the source account.</p> </li> <li> <p> <b>$\{source.accountId\}</b> — The Amazon Web Services account ID where the log originated.</p> </li> <li> <p> <b>$\{source.region\}</b> — The Amazon Web Services Region where the log originated.</p> </li> <li> <p> <b>$\{source.org.id\}</b> — The Amazon Web Services Organization ID of the source account.</p> </li> <li> <p> <b>$\{source.org.ouId\}</b> — The organizational unit ID of the source account.</p> </li> <li> <p> <b>$\{source.org.rootId\}</b> — The organization Root ID.</p> </li> <li> <p> <b>$\{source.org.path\}</b> — The organizational path from account to root.</p> </li> </ul>
+   * The pattern used to generate destination log group names during centralization. The pattern can contain static text and dynamic variables that are replaced with source attributes. If a variable cannot be resolved, it inherits the value from its parent variable in the hierarchy. The pattern must be between 1 and 512 characters.
+   *
+   * Supported variables:
+   *
+   * - **$\{source.logGroup\}** — The original log group name from the source account.
+   * - **$\{source.accountId\}** — The Amazon Web Services account ID where the log originated.
+   * - **$\{source.region\}** — The Amazon Web Services Region where the log originated.
+   * - **$\{source.org.id\}** — The Amazon Web Services Organization ID of the source account.
+   * - **$\{source.org.ouId\}** — The organizational unit ID of the source account.
+   * - **$\{source.org.rootId\}** — The organization Root ID.
+   * - **$\{source.org.path\}** — The organizational path from account to root.
+   *
    * @public
    */
   LogGroupNamePattern: string | undefined;
 }
 
 /**
- * <p>Configuration for encrypting centralized destination log groups. By default, this configuration applies only to destination log groups whose corresponding source log groups are encrypted using customer managed KMS keys. To encrypt all destination log groups created by the rule, set <code>EncryptionScope</code> to <code>NEW_DESTINATION_LOG_GROUPS</code>.</p>
+ * Configuration for encrypting centralized destination log groups. By default, this configuration applies only to destination log groups whose corresponding source log groups are encrypted using customer managed KMS keys. To encrypt all destination log groups created by the rule, set `EncryptionScope` to `NEW_DESTINATION_LOG_GROUPS`.
+ *
  * @public
  */
 export interface LogsEncryptionConfiguration {
   /**
-   * <p>Configuration that determines the encryption strategy of the destination log groups. CUSTOMER_MANAGED uses the configured KmsKeyArn to encrypt newly created destination log groups.</p>
+   * Configuration that determines the encryption strategy of the destination log groups. CUSTOMER_MANAGED uses the configured KmsKeyArn to encrypt newly created destination log groups.
+   *
    * @public
    */
   EncryptionStrategy: EncryptionStrategy | undefined;
 
   /**
-   * <p>KMS Key ARN belonging to the primary destination account and region, to encrypt newly created central log groups in the primary destination.</p>
+   * KMS Key ARN belonging to the primary destination account and region, to encrypt newly created central log groups in the primary destination.
+   *
    * @public
    */
   KmsKeyArn?: string | undefined;
 
   /**
-   * <p>Conflict resolution strategy for centralization if the encryption strategy is set to CUSTOMER_MANAGED and the destination log group is encrypted with an AWS_OWNED KMS Key. ALLOW lets centralization go through while SKIP prevents centralization into the destination log group.</p>
+   * Conflict resolution strategy for centralization if the encryption strategy is set to CUSTOMER_MANAGED and the destination log group is encrypted with an AWS_OWNED KMS Key. ALLOW lets centralization go through while SKIP prevents centralization into the destination log group.
+   *
    * @public
    */
   EncryptionConflictResolutionStrategy?: EncryptionConflictResolutionStrategy | undefined;
 
   /**
-   * <p>Determines which newly created destination log groups are encrypted with the configured <code>KmsKeyArn</code> when <code>EncryptionStrategy</code> is <code>CUSTOMER_MANAGED</code>.</p> <p>If you set this to <code>ENCRYPTED_SOURCE_ONLY</code> (the default), only destination log groups whose source log group is encrypted with a customer managed KMS key use the configured <code>KmsKeyArn</code>. Destination log groups derived from Amazon Web Services owned encrypted source log groups remain Amazon Web Services owned encrypted.</p> <p>If you set this to <code>NEW_DESTINATION_LOG_GROUPS</code>, every new destination log group created by this rule uses the configured <code>KmsKeyArn</code>, regardless of the source log group's encryption posture.</p> <p>This field is not valid when <code>EncryptionStrategy</code> is <code>AWS_OWNED</code>.</p>
+   * Determines which newly created destination log groups are encrypted with the configured `KmsKeyArn` when `EncryptionStrategy` is `CUSTOMER_MANAGED`.
+   *
+   * If you set this to `ENCRYPTED_SOURCE_ONLY` (the default), only destination log groups whose source log group is encrypted with a customer managed KMS key use the configured `KmsKeyArn`. Destination log groups derived from Amazon Web Services owned encrypted source log groups remain Amazon Web Services owned encrypted.
+   *
+   * If you set this to `NEW_DESTINATION_LOG_GROUPS`, every new destination log group created by this rule uses the configured `KmsKeyArn`, regardless of the source log group's encryption posture.
+   *
+   * This field is not valid when `EncryptionStrategy` is `AWS_OWNED`.
+   *
    * @public
    */
   EncryptionScope?: EncryptionScope | undefined;
 }
 
 /**
- * <p>Specifies configuration for propagating resource tags from source log groups to centralized destination log groups. The service uses a customer-managed IAM role in the destination account to add, update, and remove tags on destination log groups.</p>
+ * Specifies configuration for propagating resource tags from source log groups to centralized destination log groups. The service uses a customer-managed IAM role in the destination account to add, update, and remove tags on destination log groups.
+ *
  * @public
  */
 export interface TagPropagationConfiguration {
   /**
-   * <p>The ARN of a customer-managed IAM role in the destination account. The service assumes this role to propagate tags to destination log groups. You must have <code>iam:PassRole</code> permission on this role.</p>
+   * The ARN of a customer-managed IAM role in the destination account. The service assumes this role to propagate tags to destination log groups. You must have `iam:PassRole` permission on this role.
+   *
    * @public
    */
   DestinationRoleArn: string | undefined;
 
   /**
-   * <p>The strategy for resolving conflicts when a tag key exists on both the source and destination log groups. If not specified, defaults to <code>UPDATE_SYNC</code>.</p> <ul> <li> <p> <code>ADD_ONLY</code> – Only adds new tags from the source without modifying existing destination tags.</p> </li> <li> <p> <code>UPDATE_SYNC</code> – Adds new tags and updates existing tags from the source. Does not remove destination tags that are absent from the source.</p> </li> <li> <p> <code>IN_SYNC</code> – Keeps destination tags fully synchronized with source tags, including removing destination tags that do not exist on the source.</p> </li> </ul>
+   * The strategy for resolving conflicts when a tag key exists on both the source and destination log groups. If not specified, defaults to `UPDATE_SYNC`.
+   *
+   * - `ADD_ONLY` – Only adds new tags from the source without modifying existing destination tags.
+   * - `UPDATE_SYNC` – Adds new tags and updates existing tags from the source. Does not remove destination tags that are absent from the source.
+   * - `IN_SYNC` – Keeps destination tags fully synchronized with source tags, including removing destination tags that do not exist on the source.
+   *
    * @public
    */
   TagConflictResolutionStrategy?: TagConflictResolutionStrategy | undefined;
 }
 
 /**
- * <p>Configuration for centralization destination log groups, including encryption and backup settings.</p>
+ * Configuration for centralization destination log groups, including encryption and backup settings.
+ *
  * @public
  */
 export interface DestinationLogsConfiguration {
   /**
-   * <p>The encryption configuration for centralization destination log groups.</p>
+   * The encryption configuration for centralization destination log groups.
+   *
    * @public
    */
   LogsEncryptionConfiguration?: LogsEncryptionConfiguration | undefined;
 
   /**
-   * <p>Configuration defining the backup region and an optional KMS key for the backup destination.</p>
+   * Configuration defining the backup region and an optional KMS key for the backup destination.
+   *
    * @public
    */
   BackupConfiguration?: LogsBackupConfiguration | undefined;
 
   /**
-   * <p>Configuration that specifies a naming pattern for destination log groups created during centralization. The pattern supports static text and dynamic variables that are replaced with source attributes when log groups are created.</p>
+   * Configuration that specifies a naming pattern for destination log groups created during centralization. The pattern supports static text and dynamic variables that are replaced with source attributes when log groups are created.
+   *
    * @public
    */
   LogGroupNameConfiguration?: LogGroupNameConfiguration | undefined;
 
   /**
-   * <p>Specifies the tag propagation configuration for this centralization rule. When present, <code>LogGroupNameConfiguration</code> must use a <code>LogGroupNamePattern</code> that contains <code>$\{source.logGroup\}</code>, <code>$\{source.accountId\}</code>, and <code>$\{source.region\}</code>.</p>
+   * Specifies the tag propagation configuration for this centralization rule. When present, `LogGroupNameConfiguration` must use a `LogGroupNamePattern` that contains `$\{source.logGroup\}`, `$\{source.accountId\}`, and `$\{source.region\}`.
+   *
    * @public
    */
   TagPropagationConfiguration?: TagPropagationConfiguration | undefined;
 
   /**
-   * <p>Specifies whether this centralization rule enables deletion protection on the destination log groups that it creates. If you don't specify this setting, the rule doesn't enable deletion protection on the log groups that it creates. If you specify a backup Region in <code>BackupConfiguration</code>, the setting also applies to the log groups that the rule creates in the backup Region.</p> <p>When you set this to <code>ENABLED</code>, the rule enables deletion protection only on log groups that it creates after you enable the setting. It does not add deletion protection to log groups the rule created before you enabled the setting.</p> <p>If you remove this setting from the rule or delete the rule, deletion protection stays enabled on log groups that already have it. To delete one of these log groups, first disable deletion protection on the log group in the destination account.</p>
+   * Specifies whether this centralization rule enables deletion protection on the destination log groups that it creates. If you don't specify this setting, the rule doesn't enable deletion protection on the log groups that it creates. If you specify a backup Region in `BackupConfiguration`, the setting also applies to the log groups that the rule creates in the backup Region.
+   *
+   * When you set this to `ENABLED`, the rule enables deletion protection only on log groups that it creates after you enable the setting. It does not add deletion protection to log groups the rule created before you enabled the setting.
+   *
+   * If you remove this setting from the rule or delete the rule, deletion protection stays enabled on log groups that already have it. To delete one of these log groups, first disable deletion protection on the log group in the destination account.
+   *
    * @public
    */
   LogGroupDeletionProtection?: DeletionProtection | undefined;
 }
 
 /**
- * <p>Configuration for backing up centralized metrics data to a secondary region.</p>
+ * Configuration for backing up centralized metrics data to a secondary region.
+ *
  * @public
  */
 export interface MetricsBackupConfiguration {
   /**
-   * <p>Metrics specific backup destination region within the primary destination account to which metrics data should be centralized.</p>
+   * Metrics specific backup destination region within the primary destination account to which metrics data should be centralized.
+   *
    * @public
    */
   Region: string | undefined;
 }
 
 /**
- * <p>Configuration for centralization destination metrics, including backup settings.</p>
+ * Configuration for centralization destination metrics, including backup settings.
+ *
  * @public
  */
 export interface DestinationMetricsConfiguration {
   /**
-   * <p>Configuration defining the backup region for the metrics backup destination.</p>
+   * Configuration defining the backup region for the metrics backup destination.
+   *
    * @public
    */
   BackupConfiguration?: MetricsBackupConfiguration | undefined;
 }
 
 /**
- * <p>Configuration specifying the primary destination for centralized telemetry data.</p>
+ * Configuration specifying the primary destination for centralized telemetry data.
+ *
  * @public
  */
 export interface CentralizationRuleDestination {
   /**
-   * <p>The primary destination region to which telemetry data should be centralized.</p>
+   * The primary destination region to which telemetry data should be centralized.
+   *
    * @public
    */
   Region: string | undefined;
 
   /**
-   * <p>The destination account (within the organization) to which the telemetry data should be centralized.</p>
+   * The destination account (within the organization) to which the telemetry data should be centralized.
+   *
    * @public
    */
   Account?: string | undefined;
 
   /**
-   * <p>Log specific configuration for centralization destination log groups.</p>
+   * Log specific configuration for centralization destination log groups.
+   *
    * @public
    */
   DestinationLogsConfiguration?: DestinationLogsConfiguration | undefined;
 
   /**
-   * <p>Metric specific configuration for centralization destination metrics.</p>
+   * Metric specific configuration for centralization destination metrics.
+   *
    * @public
    */
   DestinationMetricsConfiguration?: DestinationMetricsConfiguration | undefined;
 }
 
 /**
- * <p>Configuration that enables centralization of the context graph for the selected sources. Including this configuration in a rule's source opts the rule into centralizing the context graph for the selected sources.</p>
+ * Configuration that enables centralization of the context graph for the selected sources. Including this configuration in a rule's source opts the rule into centralizing the context graph for the selected sources.
+ *
  * @public
  */
 export interface SourceContextGraphConfiguration {}
 
 /**
- * <p>Configuration for selecting and handling source log groups for centralization.</p>
+ * Configuration for selecting and handling source log groups for centralization.
+ *
  * @public
  */
 export interface SourceLogsConfiguration {
   /**
-   * <p>The selection criteria that specifies which source log groups to centralize. The selection criteria uses the same format as OAM link filters.</p>
+   * The selection criteria that specifies which source log groups to centralize. The selection criteria uses the same format as OAM link filters.
+   *
    * @public
    */
   LogGroupSelectionCriteria?: string | undefined;
 
   /**
-   * <p>The selection criteria that specifies which data sources to centralize. The selection criteria uses the same filter expression format as <code>LogGroupSelectionCriteria</code>, but operates on <code>DataSourceName</code> and <code>DataSourceType</code> operands. When both <code>LogGroupSelectionCriteria</code> and <code>DataSourceSelectionCriteria</code> are specified, a log event must match both criteria to be centralized.</p>
+   * The selection criteria that specifies which data sources to centralize. The selection criteria uses the same filter expression format as `LogGroupSelectionCriteria`, but operates on `DataSourceName` and `DataSourceType` operands. When both `LogGroupSelectionCriteria` and `DataSourceSelectionCriteria` are specified, a log event must match both criteria to be centralized.
+   *
    * @public
    */
   DataSourceSelectionCriteria?: string | undefined;
 
   /**
-   * <p>A strategy determining whether to centralize source log groups that are encrypted with customer managed KMS keys (CMK). ALLOW will consider CMK encrypted source log groups for centralization while SKIP will skip CMK encrypted source log groups from centralization.</p>
+   * A strategy determining whether to centralize source log groups that are encrypted with customer managed KMS keys (CMK). ALLOW will consider CMK encrypted source log groups for centralization while SKIP will skip CMK encrypted source log groups from centralization.
+   *
    * @public
    */
   EncryptedLogGroupStrategy: EncryptedLogGroupStrategy | undefined;
 }
 
 /**
- * <p>Configuration for selecting source metrics for centralization.</p>
+ * Configuration for selecting source metrics for centralization.
+ *
  * @public
  */
 export interface SourceMetricsConfiguration {
   /**
-   * <p>The filter expression that selects which source metrics to centralize. Currently, only <code>*</code> (all metrics) is supported. Other values return a validation error.</p>
+   * The filter expression that selects which source metrics to centralize. Currently, only `*` (all metrics) is supported. Other values return a validation error.
+   *
    * @public
    */
   MetricsSelectionCriteria?: string | undefined;
 }
 
 /**
- * <p>Configuration specifying the source of telemetry data to be centralized.</p>
+ * Configuration specifying the source of telemetry data to be centralized.
+ *
  * @public
  */
 export interface CentralizationRuleSource {
   /**
-   * <p>The list of source regions from which telemetry data should be centralized.</p>
+   * The list of source regions from which telemetry data should be centralized.
+   *
    * @public
    */
   Regions: string[] | undefined;
 
   /**
-   * <p>The organizational scope from which telemetry data should be centralized, specified using organization id, accounts or organizational unit ids.</p>
+   * The organizational scope from which telemetry data should be centralized, specified using organization id, accounts or organizational unit ids.
+   *
    * @public
    */
   Scope?: string | undefined;
 
   /**
-   * <p>Log specific configuration for centralization source log groups.</p>
+   * Log specific configuration for centralization source log groups.
+   *
    * @public
    */
   SourceLogsConfiguration?: SourceLogsConfiguration | undefined;
 
   /**
-   * <p>Metric specific configuration for centralization source metrics.</p>
+   * Metric specific configuration for centralization source metrics.
+   *
    * @public
    */
   SourceMetricsConfiguration?: SourceMetricsConfiguration | undefined;
 
   /**
-   * <p>Configuration that enables centralization of the context graph for the selected sources. Including this configuration in a rule's source opts the rule into centralizing the context graph for the selected sources.</p>
+   * Configuration that enables centralization of the context graph for the selected sources. Including this configuration in a rule's source opts the rule into centralizing the context graph for the selected sources.
+   *
    * @public
    */
   SourceContextGraphConfiguration?: SourceContextGraphConfiguration | undefined;
 }
 
 /**
- * <p>Defines how telemetry data should be centralized across an Amazon Web Services Organization, including source and destination configurations.</p>
+ * Defines how telemetry data should be centralized across an Amazon Web Services Organization, including source and destination configurations.
+ *
  * @public
  */
 export interface CentralizationRule {
   /**
-   * <p>Configuration determining the source of the telemetry data to be centralized.</p>
+   * Configuration determining the source of the telemetry data to be centralized.
+   *
    * @public
    */
   Source: CentralizationRuleSource | undefined;
 
   /**
-   * <p>Configuration determining where the telemetry data should be centralized, backed up, as well as encryption configuration for the primary and backup destinations.</p>
+   * Configuration determining where the telemetry data should be centralized, backed up, as well as encryption configuration for the primary and backup destinations.
+   *
    * @public
    */
   Destination: CentralizationRuleDestination | undefined;
 }
 
 /**
- * <p>A summary of a centralization rule's key properties and status.</p>
+ * A summary of a centralization rule's key properties and status.
+ *
  * @public
  */
 export interface CentralizationRuleSummary {
   /**
-   * <p>The name of the organization centralization rule.</p>
+   * The name of the organization centralization rule.
+   *
    * @public
    */
   RuleName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the organization centralization rule.</p>
+   * The Amazon Resource Name (ARN) of the organization centralization rule.
+   *
    * @public
    */
   RuleArn?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Account that created the organization centralization rule.</p>
+   * The Amazon Web Services Account that created the organization centralization rule.
+   *
    * @public
    */
   CreatorAccountId?: string | undefined;
 
   /**
-   * <p>The timestamp when the organization centralization rule was created.</p>
+   * The timestamp when the organization centralization rule was created.
+   *
    * @public
    */
   CreatedTimeStamp?: number | undefined;
 
   /**
-   * <p>The Amazon Web Services region where the organization centralization rule was created.</p>
+   * The Amazon Web Services region where the organization centralization rule was created.
+   *
    * @public
    */
   CreatedRegion?: string | undefined;
 
   /**
-   * <p>The timestamp when the organization centralization rule was last updated.</p>
+   * The timestamp when the organization centralization rule was last updated.
+   *
    * @public
    */
   LastUpdateTimeStamp?: number | undefined;
 
   /**
-   * <p>The health status of the organization centralization rule.</p>
+   * The health status of the organization centralization rule.
+   *
    * @public
    */
   RuleHealth?: RuleHealth | undefined;
 
   /**
-   * <p>The reason why an organization centralization rule is marked UNHEALTHY.</p>
+   * The reason why an organization centralization rule is marked UNHEALTHY.
+   *
    * @public
    */
   FailureReason?: CentralizationFailureReason | undefined;
 
   /**
-   * <p>The health status of tag propagation for this rule. This status is independent of the overall <code>RuleHealth</code> for log delivery. Returns <code>Healthy</code> when the most recent tag-propagation attempt succeeded, or <code>Unhealthy</code> when the most recent attempt failed.</p>
+   * The health status of tag propagation for this rule. This status is independent of the overall `RuleHealth` for log delivery. Returns `Healthy` when the most recent tag-propagation attempt succeeded, or `Unhealthy` when the most recent attempt failed.
+   *
    * @public
    */
   TagPropagationStatus?: TagPropagationStatus | undefined;
 
   /**
-   * <p>The reason tag propagation is unhealthy for this rule. Only present when <code>TagPropagationStatus</code> is <code>Unhealthy</code>.</p>
+   * The reason tag propagation is unhealthy for this rule. Only present when `TagPropagationStatus` is `Unhealthy`.
+   *
    * @public
    */
   TagPropagationFailureReason?: TagPropagationFailureReason | undefined;
 
   /**
-   * <p>The status of context graph centralization for this rule. Returns <code>Provisioning</code> while the context graph is being set up, <code>Healthy</code> once it is active, or <code>Unhealthy</code> if provisioning failed. This status is independent of the overall <code>RuleHealth</code> for log delivery.</p>
+   * The status of context graph centralization for this rule. Returns `Provisioning` while the context graph is being set up, `Healthy` once it is active, or `Unhealthy` if provisioning failed. This status is independent of the overall `RuleHealth` for log delivery.
+   *
    * @public
    */
   ContextGraphStatus?: ContextGraphStatus | undefined;
 
   /**
-   * <p>The primary destination account of the organization centralization rule.</p>
+   * The primary destination account of the organization centralization rule.
+   *
    * @public
    */
   DestinationAccountId?: string | undefined;
 
   /**
-   * <p>The primary destination region of the organization centralization rule.</p>
+   * The primary destination region of the organization centralization rule.
+   *
    * @public
    */
   DestinationRegion?: string | undefined;
 }
 
 /**
- * <p> Parameters specific to Amazon Web Services CloudTrail telemetry configuration. </p>
+ * Parameters specific to Amazon Web Services CloudTrail telemetry configuration.
+ *
  * @public
  */
 export interface CloudtrailParameters {
   /**
-   * <p> The advanced event selectors to use for filtering Amazon Web Services CloudTrail events. </p>
+   * The advanced event selectors to use for filtering Amazon Web Services CloudTrail events.
+   *
    * @public
    */
   AdvancedEventSelectors: AdvancedEventSelector[] | undefined;
 }
 
 /**
- * <p> Condition that matches based on WAF rule labels, with label names limited to 1024 characters. </p>
+ * Condition that matches based on WAF rule labels, with label names limited to 1024 characters.
+ *
  * @public
  */
 export interface LabelNameCondition {
   /**
-   * <p> The label name to match, supporting alphanumeric characters, underscores, hyphens, and colons. </p>
+   * The label name to match, supporting alphanumeric characters, underscores, hyphens, and colons.
+   *
    * @public
    */
   LabelName?: string | undefined;
 }
 
 /**
- * <p> A single condition that can match based on WAF rule action or label name. </p>
+ * A single condition that can match based on WAF rule action or label name.
+ *
  * @public
  */
 export interface Condition {
   /**
-   * <p> Matches log records based on the WAF rule action taken (ALLOW, BLOCK, COUNT, etc.). </p>
+   * Matches log records based on the WAF rule action taken (ALLOW, BLOCK, COUNT, etc.).
+   *
    * @public
    */
   ActionCondition?: ActionCondition | undefined;
 
   /**
-   * <p> Matches log records based on WAF rule labels applied to the request. </p>
+   * Matches log records based on WAF rule labels applied to the request.
+   *
    * @public
    */
   LabelNameCondition?: LabelNameCondition | undefined;
 }
 
 /**
- * <p>Information about a data source associated with the telemetry pipeline. For CloudWatch Logs sources, this includes both a name and type extracted from the log event metadata. For third-party sources (such as S3), this includes only a name, with the type field left empty.</p>
+ * Information about a data source associated with the telemetry pipeline. For CloudWatch Logs sources, this includes both a name and type extracted from the log event metadata. For third-party sources (such as S3), this includes only a name, with the type field left empty.
+ *
  * @public
  */
 export interface DataSource {
   /**
-   * <p>The name of the data source. For CloudWatch Logs sources, this corresponds to the <code>data_source_name</code> from the log event metadata. For third-party sources, this is either the configured <code>data_source_name</code> or defaults to the plugin name if not specified.</p>
+   * The name of the data source. For CloudWatch Logs sources, this corresponds to the `data_source_name` from the log event metadata. For third-party sources, this is either the configured `data_source_name` or defaults to the plugin name if not specified.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The type of the data source. For CloudWatch Logs sources, this corresponds to the <code>data_source_type</code> from the log event metadata. For third-party sources, this field is empty.</p>
+   * The type of the data source. For CloudWatch Logs sources, this corresponds to the `data_source_type` from the log event metadata. For third-party sources, this field is empty.
+   *
    * @public
    */
   Type?: string | undefined;
 }
 
 /**
- * <p>A list of source plugin types used in the pipeline configuration (such as <code>cloudwatch_logs</code> or <code>s3</code>). Currently supports a single source per pipeline, but is structured as a list to accommodate multiple pipelines in the configuration.</p>
+ * A list of source plugin types used in the pipeline configuration (such as `cloudwatch_logs` or `s3`). Currently supports a single source per pipeline, but is structured as a list to accommodate multiple pipelines in the configuration.
+ *
  * @public
  */
 export interface Source {
   /**
-   * <p>The plugin name of the source, such as <code>cloudwatch_logs</code> or <code>s3</code>.</p>
+   * The plugin name of the source, such as `cloudwatch_logs` or `s3`.
+   *
    * @public
    */
   Type?: string | undefined;
 }
 
 /**
- * <p>Provides a summary of pipeline configuration components including sources, processors, and destinations.</p>
+ * Provides a summary of pipeline configuration components including sources, processors, and destinations.
+ *
  * @public
  */
 export interface ConfigurationSummary {
   /**
-   * <p>The list of data sources configured in the pipeline.</p>
+   * The list of data sources configured in the pipeline.
+   *
    * @public
    */
   Sources?: Source[] | undefined;
 
   /**
-   * <p>The list of data sources that provide telemetry data to the pipeline.</p>
+   * The list of data sources that provide telemetry data to the pipeline.
+   *
    * @public
    */
   DataSources?: DataSource[] | undefined;
 
   /**
-   * <p>The list of processors configured in the pipeline for data transformation.</p>
+   * The list of processors configured in the pipeline for data transformation.
+   *
    * @public
    */
   Processors?: string[] | undefined;
 
   /**
-   * <p>The total number of processors configured in the pipeline.</p>
+   * The total number of processors configured in the pipeline.
+   *
    * @public
    */
   ProcessorCount?: number | undefined;
 
   /**
-   * <p>The list of destinations where processed data is sent.</p>
+   * The list of destinations where processed data is sent.
+   *
    * @public
    */
   Sinks?: string[] | undefined;
@@ -571,19 +684,22 @@ export interface ConfigurationSummary {
  */
 export interface CreateCentralizationRuleForOrganizationInput {
   /**
-   * <p>A unique name for the organization-wide centralization rule being created.</p>
+   * A unique name for the organization-wide centralization rule being created.
+   *
    * @public
    */
   RuleName: string | undefined;
 
   /**
-   * <p>The configuration details for the organization-wide centralization rule, including the source configuration and the destination configuration to centralize telemetry data across the organization.</p>
+   * The configuration details for the organization-wide centralization rule, including the source configuration and the destination configuration to centralize telemetry data across the organization.
+   *
    * @public
    */
   Rule: CentralizationRule | undefined;
 
   /**
-   * <p>The key-value pairs to associate with the organization telemetry rule resource for categorization and management purposes.</p>
+   * The key-value pairs to associate with the organization telemetry rule resource for categorization and management purposes.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -594,31 +710,36 @@ export interface CreateCentralizationRuleForOrganizationInput {
  */
 export interface CreateCentralizationRuleForOrganizationOutput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the created organization centralization rule.</p>
+   * The Amazon Resource Name (ARN) of the created organization centralization rule.
+   *
    * @public
    */
   RuleArn?: string | undefined;
 }
 
 /**
- * <p>Represents a detailed validation error with message, reason, and field mapping for comprehensive error reporting.</p>
+ * Represents a detailed validation error with message, reason, and field mapping for comprehensive error reporting.
+ *
  * @public
  */
 export interface ValidationError {
   /**
-   * <p>The error message describing the validation issue.</p>
+   * The error message describing the validation issue.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The reason code or category for the validation error.</p>
+   * The reason code or category for the validation error.
+   *
    * @public
    */
   Reason?: string | undefined;
 
   /**
-   * <p>A mapping of field names to specific validation issues within the configuration.</p>
+   * A mapping of field names to specific validation issues within the configuration.
+   *
    * @public
    */
   FieldMap?: Record<string, string> | undefined;
@@ -629,13 +750,15 @@ export interface ValidationError {
  */
 export interface CreateDatasetIntegrationInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that grants Amazon CloudWatch permission to access the resources needed for the dataset integration.</p>
+   * The Amazon Resource Name (ARN) of the IAM role that grants Amazon CloudWatch permission to access the resources needed for the dataset integration.
+   *
    * @public
    */
   RoleArn: string | undefined;
 
   /**
-   * <p>The key-value pairs to associate with the dataset integration resource for categorization and management purposes.</p>
+   * The key-value pairs to associate with the dataset integration resource for categorization and management purposes.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -646,43 +769,50 @@ export interface CreateDatasetIntegrationInput {
  */
 export interface CreateDatasetIntegrationOutput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the created dataset integration.</p>
+   * The Amazon Resource Name (ARN) of the created dataset integration.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role associated with the dataset integration.</p>
+   * The Amazon Resource Name (ARN) of the IAM role associated with the dataset integration.
+   *
    * @public
    */
   RoleArn: string | undefined;
 
   /**
-   * <p>The timestamp when the dataset integration was created.</p>
+   * The timestamp when the dataset integration was created.
+   *
    * @public
    */
   CreatedAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the dataset integration was last updated.</p>
+   * The timestamp when the dataset integration was last updated.
+   *
    * @public
    */
   UpdatedAt: Date | undefined;
 }
 
 /**
- * <p>Defines the encryption configuration for S3 Table integrations, including the encryption algorithm and KMS key settings.</p>
+ * Defines the encryption configuration for S3 Table integrations, including the encryption algorithm and KMS key settings.
+ *
  * @public
  */
 export interface Encryption {
   /**
-   * <p>The server-side encryption algorithm used for encrypting data in the S3 Table integration.</p>
+   * The server-side encryption algorithm used for encrypting data in the S3 Table integration.
+   *
    * @public
    */
   SseAlgorithm: SSEAlgorithm | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used for encryption when using customer-managed keys.</p>
+   * The Amazon Resource Name (ARN) of the KMS key used for encryption when using customer-managed keys.
+   *
    * @public
    */
   KmsKeyArn?: string | undefined;
@@ -693,19 +823,22 @@ export interface Encryption {
  */
 export interface CreateS3TableIntegrationInput {
   /**
-   * <p>The encryption configuration for the S3 Table integration, including the encryption algorithm and KMS key settings.</p>
+   * The encryption configuration for the S3 Table integration, including the encryption algorithm and KMS key settings.
+   *
    * @public
    */
   Encryption: Encryption | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that grants permissions for the S3 Table integration to access necessary resources.</p>
+   * The Amazon Resource Name (ARN) of the IAM role that grants permissions for the S3 Table integration to access necessary resources.
+   *
    * @public
    */
   RoleArn: string | undefined;
 
   /**
-   * <p>The key-value pairs to associate with the S3 Table integration resource for categorization and management purposes.</p>
+   * The key-value pairs to associate with the S3 Table integration resource for categorization and management purposes.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -716,19 +849,31 @@ export interface CreateS3TableIntegrationInput {
  */
 export interface CreateS3TableIntegrationOutput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the created S3 Table integration.</p>
+   * The Amazon Resource Name (ARN) of the created S3 Table integration.
+   *
    * @public
    */
   Arn?: string | undefined;
 }
 
 /**
- * <p>Defines the configuration for a pipeline, including how data flows from sources through processors to destinations. The configuration is specified in YAML format and must include a valid pipeline definition with required source and sink components. This pipeline enables end-to-end telemetry data collection, transformation, and delivery while supporting optional processing steps and extensions for enhanced functionality.</p> <p>The primary pipeline configuration section are:</p> <ul> <li> <p> <b>Source:</b> Defines where log data originates from (S3 buckets, CloudWatch Logs, third-party APIs). Each pipeline must have exactly one source.</p> </li> <li> <p> <b>Processors (optional):</b> Transform, parse, and enrich log data as it flows through the pipeline. Processors are applied sequentially in the order they are defined.</p> </li> <li> <p> <b>Sink:</b> Defines the destination where processed log data is sent. Each pipeline must have exactly one sink.</p> </li> <li> <p> <b>Extensions (optional):</b> Provide additional functionality such as Amazon Web Services Secrets Manager integration for credential management.</p> </li> </ul> <p>For more details on each configuration section see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-pipelines.html">CloudWatch pipelines User Guide</a>. Additional comprehensive configuration examples can be found in the <a href="https://docs.aws.amazon.com/cloudwatch/latest/observabilityadmin/API_CreateTelemetryPipeline.html#API_CreateTelemetryPipeline_Examples">CreateTelemetryPipeline API docs</a>.</p>
+ * Defines the configuration for a pipeline, including how data flows from sources through processors to destinations. The configuration is specified in YAML format and must include a valid pipeline definition with required source and sink components. This pipeline enables end-to-end telemetry data collection, transformation, and delivery while supporting optional processing steps and extensions for enhanced functionality.
+ *
+ * The primary pipeline configuration section are:
+ *
+ * - **Source:** Defines where log data originates from (S3 buckets, CloudWatch Logs, third-party APIs). Each pipeline must have exactly one source.
+ * - **Processors (optional):** Transform, parse, and enrich log data as it flows through the pipeline. Processors are applied sequentially in the order they are defined.
+ * - **Sink:** Defines the destination where processed log data is sent. Each pipeline must have exactly one sink.
+ * - **Extensions (optional):** Provide additional functionality such as Amazon Web Services Secrets Manager integration for credential management.
+ *
+ * For more details on each configuration section see [CloudWatch pipelines User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-pipelines.html). Additional comprehensive configuration examples can be found in the [CreateTelemetryPipeline API docs](https://docs.aws.amazon.com/cloudwatch/latest/observabilityadmin/API_CreateTelemetryPipeline.html#API_CreateTelemetryPipeline_Examples).
+ *
  * @public
  */
 export interface TelemetryPipelineConfiguration {
   /**
-   * <p>The pipeline configuration body that defines the data processing rules and transformations.</p>
+   * The pipeline configuration body that defines the data processing rules and transformations.
+   *
    * @public
    */
   Body: string | undefined;
@@ -739,19 +884,22 @@ export interface TelemetryPipelineConfiguration {
  */
 export interface CreateTelemetryPipelineInput {
   /**
-   * <p>The name of the telemetry pipeline to create. The name must be unique within your account.</p>
+   * The name of the telemetry pipeline to create. The name must be unique within your account.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The configuration that defines how the telemetry pipeline processes data, including sources, processors, and destinations. For more information about pipeline components, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/pipeline-components-reference.html">Amazon CloudWatch User Guide</a> </p>
+   * The configuration that defines how the telemetry pipeline processes data, including sources, processors, and destinations. For more information about pipeline components, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/pipeline-components-reference.html)
+   *
    * @public
    */
   Configuration: TelemetryPipelineConfiguration | undefined;
 
   /**
-   * <p>The key-value pairs to associate with the telemetry pipeline resource for categorization and management purposes.</p>
+   * The key-value pairs to associate with the telemetry pipeline resource for categorization and management purposes.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -762,307 +910,358 @@ export interface CreateTelemetryPipelineInput {
  */
 export interface CreateTelemetryPipelineOutput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the created telemetry pipeline.</p>
+   * The Amazon Resource Name (ARN) of the created telemetry pipeline.
+   *
    * @public
    */
   Arn?: string | undefined;
 }
 
 /**
- * <p> Configuration parameters for ELB load balancer logging, including output format and field delimiter settings. </p>
+ * Configuration parameters for ELB load balancer logging, including output format and field delimiter settings.
+ *
  * @public
  */
 export interface ELBLoadBalancerLoggingParameters {
   /**
-   * <p> The format for ELB access log entries (plain text or JSON format). </p>
+   * The format for ELB access log entries (plain text or JSON format).
+   *
    * @public
    */
   OutputFormat?: OutputFormat | undefined;
 
   /**
-   * <p> The delimiter character used to separate fields in ELB access log entries when using plain text format. </p>
+   * The delimiter character used to separate fields in ELB access log entries when using plain text format.
+   *
    * @public
    */
   FieldDelimiter?: string | undefined;
 }
 
 /**
- * <p>The configuration parameters for log delivery, including <code>logType</code> settings. Applies to resource types that support configurable log delivery, such as Amazon Bedrock Knowledge Bases, Amazon Bedrock AgentCore payment managers, and Elastic Load Balancing Application Load Balancers.</p>
+ * The configuration parameters for log delivery, including `logType` settings. Applies to resource types that support configurable log delivery, such as Amazon Bedrock Knowledge Bases, Amazon Bedrock AgentCore payment managers, and Elastic Load Balancing Application Load Balancers.
+ *
  * @public
  */
 export interface LogDeliveryParameters {
   /**
-   * <p>The types of logs to collect from the resource.</p>
+   * The types of logs to collect from the resource.
+   *
    * @public
    */
   LogTypes?: LogType[] | undefined;
 }
 
 /**
- * <p> Configuration parameters for Amazon MSK cluster monitoring, including enhanced monitoring level settings. </p>
+ * Configuration parameters for Amazon MSK cluster monitoring, including enhanced monitoring level settings.
+ *
  * @public
  */
 export interface MskMonitoringParameters {
   /**
-   * <p> The level of enhanced monitoring for the MSK cluster. </p>
+   * The level of enhanced monitoring for the MSK cluster.
+   *
    * @public
    */
   EnhancedMonitoring?: MskEnhancedMonitoringLevel | undefined;
 }
 
 /**
- * <p> Configuration parameters specific to VPC Flow Logs. </p>
+ * Configuration parameters specific to VPC Flow Logs.
+ *
  * @public
  */
 export interface VPCFlowLogParameters {
   /**
-   * <p> The format in which VPC Flow Log entries should be logged. </p>
+   * The format in which VPC Flow Log entries should be logged.
+   *
    * @public
    */
   LogFormat?: string | undefined;
 
   /**
-   * <p> The type of traffic to log (ACCEPT, REJECT, or ALL). </p>
+   * The type of traffic to log (ACCEPT, REJECT, or ALL).
+   *
    * @public
    */
   TrafficType?: string | undefined;
 
   /**
-   * <p> The maximum interval in seconds between the capture of flow log records. </p>
+   * The maximum interval in seconds between the capture of flow log records.
+   *
    * @public
    */
   MaxAggregationInterval?: number | undefined;
 }
 
 /**
- * <p> A single filter condition that specifies behavior, requirement, and matching conditions for WAF log records. </p>
+ * A single filter condition that specifies behavior, requirement, and matching conditions for WAF log records.
+ *
  * @public
  */
 export interface Filter {
   /**
-   * <p> The action to take for log records matching this filter (KEEP or DROP). </p>
+   * The action to take for log records matching this filter (KEEP or DROP).
+   *
    * @public
    */
   Behavior?: FilterBehavior | undefined;
 
   /**
-   * <p> Whether the log record must meet all conditions (MEETS_ALL) or any condition (MEETS_ANY) to match this filter. </p>
+   * Whether the log record must meet all conditions (MEETS_ALL) or any condition (MEETS_ANY) to match this filter.
+   *
    * @public
    */
   Requirement?: FilterRequirement | undefined;
 
   /**
-   * <p> The list of conditions that determine if a log record matches this filter. </p>
+   * The list of conditions that determine if a log record matches this filter.
+   *
    * @public
    */
   Conditions?: Condition[] | undefined;
 }
 
 /**
- * <p> Configuration that determines which WAF log records to keep or drop based on specified conditions. </p>
+ * Configuration that determines which WAF log records to keep or drop based on specified conditions.
+ *
  * @public
  */
 export interface LoggingFilter {
   /**
-   * <p> A list of filter conditions that determine log record handling behavior. </p>
+   * A list of filter conditions that determine log record handling behavior.
+   *
    * @public
    */
   Filters?: Filter[] | undefined;
 
   /**
-   * <p> The default action (KEEP or DROP) for log records that don't match any filter conditions. </p>
+   * The default action (KEEP or DROP) for log records that don't match any filter conditions.
+   *
    * @public
    */
   DefaultBehavior?: FilterBehavior | undefined;
 }
 
 /**
- * <p> Structure containing a name field limited to 64 characters for header or query parameter identification. </p>
+ * Structure containing a name field limited to 64 characters for header or query parameter identification.
+ *
  * @public
  */
 export interface SingleHeader {
   /**
-   * <p> The name value, limited to 64 characters. </p>
+   * The name value, limited to 64 characters.
+   *
    * @public
    */
   Name?: string | undefined;
 }
 
 /**
- * <p> Specifies a field in the request to redact from WAF logs, such as headers, query parameters, or body content. </p>
+ * Specifies a field in the request to redact from WAF logs, such as headers, query parameters, or body content.
+ *
  * @public
  */
 export interface FieldToMatch {
   /**
-   * <p> Redacts a specific header field by name from WAF logs. </p>
+   * Redacts a specific header field by name from WAF logs.
+   *
    * @public
    */
   SingleHeader?: SingleHeader | undefined;
 
   /**
-   * <p> Redacts the URI path from WAF logs. </p>
+   * Redacts the URI path from WAF logs.
+   *
    * @public
    */
   UriPath?: string | undefined;
 
   /**
-   * <p> Redacts the entire query string from WAF logs. </p>
+   * Redacts the entire query string from WAF logs.
+   *
    * @public
    */
   QueryString?: string | undefined;
 
   /**
-   * <p> Redacts the HTTP method from WAF logs. </p>
+   * Redacts the HTTP method from WAF logs.
+   *
    * @public
    */
   Method?: string | undefined;
 }
 
 /**
- * <p> Configuration parameters for WAF logging, including redacted fields and logging filters. </p>
+ * Configuration parameters for WAF logging, including redacted fields and logging filters.
+ *
  * @public
  */
 export interface WAFLoggingParameters {
   /**
-   * <p> The fields to redact from WAF logs to protect sensitive information. </p>
+   * The fields to redact from WAF logs to protect sensitive information.
+   *
    * @public
    */
   RedactedFields?: FieldToMatch[] | undefined;
 
   /**
-   * <p> A filter configuration that determines which WAF log records to include or exclude. </p>
+   * A filter configuration that determines which WAF log records to include or exclude.
+   *
    * @public
    */
   LoggingFilter?: LoggingFilter | undefined;
 
   /**
-   * <p> The type of WAF logs to collect (currently supports WAF_LOGS). </p>
+   * The type of WAF logs to collect (currently supports WAF_LOGS).
+   *
    * @public
    */
   LogType?: WAFLogType | undefined;
 }
 
 /**
- * <p> Configuration specifying where and how telemetry data should be delivered for Amazon Web Services resources. </p>
+ * Configuration specifying where and how telemetry data should be delivered for Amazon Web Services resources.
+ *
  * @public
  */
 export interface TelemetryDestinationConfiguration {
   /**
-   * <p> The type of destination for the telemetry data (e.g., "Amazon CloudWatch Logs", "S3"). </p>
+   * The type of destination for the telemetry data (e.g., "Amazon CloudWatch Logs", "S3").
+   *
    * @public
    */
   DestinationType?: DestinationType | undefined;
 
   /**
-   * <p> The pattern used to generate the destination path or name, supporting macros like &lt;resourceId&gt; and &lt;accountId&gt;. </p>
+   * The pattern used to generate the destination path or name, supporting macros like &lt;resourceId&gt; and &lt;accountId&gt;.
+   *
    * @public
    */
   DestinationPattern?: string | undefined;
 
   /**
-   * <p> The number of days to retain the telemetry data in the destination. </p>
+   * The number of days to retain the telemetry data in the destination.
+   *
    * @public
    */
   RetentionInDays?: number | undefined;
 
   /**
-   * <p> Configuration parameters specific to VPC Flow Logs when VPC is the resource type. </p>
+   * Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
+   *
    * @public
    */
   VPCFlowLogParameters?: VPCFlowLogParameters | undefined;
 
   /**
-   * <p> Configuration parameters specific to Amazon Web Services CloudTrail when CloudTrail is the source type. </p>
+   * Configuration parameters specific to Amazon Web Services CloudTrail when CloudTrail is the source type.
+   *
    * @public
    */
   CloudtrailParameters?: CloudtrailParameters | undefined;
 
   /**
-   * <p> Configuration parameters specific to ELB load balancer logging when ELB is the resource type. </p>
+   * Configuration parameters specific to ELB load balancer logging when ELB is the resource type.
+   *
    * @public
    */
   ELBLoadBalancerLoggingParameters?: ELBLoadBalancerLoggingParameters | undefined;
 
   /**
-   * <p> Configuration parameters specific to WAF logging when WAF is the resource type. </p>
+   * Configuration parameters specific to WAF logging when WAF is the resource type.
+   *
    * @public
    */
   WAFLoggingParameters?: WAFLoggingParameters | undefined;
 
   /**
-   * <p>The configuration parameters for log delivery when the resource type supports configurable log types, such as Amazon Bedrock Knowledge Bases, Amazon Bedrock AgentCore payment managers, or Elastic Load Balancing Application Load Balancers.</p>
+   * The configuration parameters for log delivery when the resource type supports configurable log types, such as Amazon Bedrock Knowledge Bases, Amazon Bedrock AgentCore payment managers, or Elastic Load Balancing Application Load Balancers.
+   *
    * @public
    */
   LogDeliveryParameters?: LogDeliveryParameters | undefined;
 
   /**
-   * <p> Configuration parameters specific to MSK monitoring when MSK is the resource type. </p>
+   * Configuration parameters specific to MSK monitoring when MSK is the resource type.
+   *
    * @public
    */
   MskMonitoringParameters?: MskMonitoringParameters | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the customer-managed Amazon Web Services KMS key used to encrypt the log groups created during telemetry rule remediation. </p>
+   * The Amazon Resource Name (ARN) of the customer-managed Amazon Web Services KMS key used to encrypt the log groups created during telemetry rule remediation.
+   *
    * @public
    */
   KmsKeyArn?: string | undefined;
 }
 
 /**
- * <p> Defines how telemetry should be configured for specific Amazon Web Services resources. </p>
+ * Defines how telemetry should be configured for specific Amazon Web Services resources.
+ *
  * @public
  */
 export interface TelemetryRule {
   /**
-   * <p> The type of Amazon Web Services resource to configure telemetry for (for example, <code>AWS::EC2::VPC</code>, <code>AWS::EKS::Cluster</code>, <code>AWS::ElasticLoadBalancingV2::LoadBalancer</code>, <code>AWS::Bedrock::KnowledgeBase</code>, <code>AWS::BedrockAgentCore::PaymentManager</code>, or <code>AWS::XRay::TransactionSearchConfig</code>). </p>
+   * The type of Amazon Web Services resource to configure telemetry for (for example, `AWS::EC2::VPC`, `AWS::EKS::Cluster`, `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::Bedrock::KnowledgeBase`, `AWS::BedrockAgentCore::PaymentManager`, or `AWS::XRay::TransactionSearchConfig`).
+   *
    * @public
    */
   ResourceType?: ResourceType | undefined;
 
   /**
-   * <p> The type of telemetry to collect (Logs, Metrics, or Traces). </p>
+   * The type of telemetry to collect (Logs, Metrics, or Traces).
+   *
    * @public
    */
   TelemetryType: TelemetryType | undefined;
 
   /**
-   * <p> The specific telemetry source types to configure for the resource, such as VPC_FLOW_LOGS or EKS_AUDIT_LOGS. TelemetrySourceTypes must be correlated with the specific resource type. </p>
+   * The specific telemetry source types to configure for the resource, such as VPC_FLOW_LOGS or EKS_AUDIT_LOGS. TelemetrySourceTypes must be correlated with the specific resource type.
+   *
    * @public
    */
   TelemetrySourceTypes?: TelemetrySourceType[] | undefined;
 
   /**
-   * <p> Configuration specifying where and how the telemetry data should be delivered. </p>
+   * Configuration specifying where and how the telemetry data should be delivered.
+   *
    * @public
    */
   DestinationConfiguration?: TelemetryDestinationConfiguration | undefined;
 
   /**
-   * <p> The organizational scope to which the rule applies, specified using accounts or organizational units. </p>
+   * The organizational scope to which the rule applies, specified using accounts or organizational units.
+   *
    * @public
    */
   Scope?: string | undefined;
 
   /**
-   * <p> Criteria for selecting which resources the rule applies to, such as resource tags. </p>
+   * Criteria for selecting which resources the rule applies to, such as resource tags.
+   *
    * @public
    */
   SelectionCriteria?: string | undefined;
 
   /**
-   * <p> If set to <code>true</code>, Amazon CloudWatch Observability Admin detects and remediates configuration drift in telemetry resources that it manages. For example, if a VPC flow log's format, traffic type, or aggregation interval no longer matches the rule's destination configuration, the flow log is replaced with one that matches. Only Observability Admin-managed resources are updated; customer-created resources are never modified. Currently supported for <code>AWS::EC2::VPC</code> resources (VPC flow logs). </p>
+   * If set to `true`, Amazon CloudWatch Observability Admin detects and remediates configuration drift in telemetry resources that it manages. For example, if a VPC flow log's format, traffic type, or aggregation interval no longer matches the rule's destination configuration, the flow log is replaced with one that matches. Only Observability Admin-managed resources are updated; customer-created resources are never modified. Currently supported for `AWS::EC2::VPC` resources (VPC flow logs).
+   *
    * @public
    */
   AllowFieldUpdates?: boolean | undefined;
 
   /**
-   * <p> An optional list of Amazon Web Services Regions where this telemetry rule should be replicated. When specified, the rule is created in the home region and automatically replicated to all listed regions. Mutually exclusive with <code>AllRegions</code>. </p>
+   * An optional list of Amazon Web Services Regions where this telemetry rule should be replicated. When specified, the rule is created in the home region and automatically replicated to all listed regions. Mutually exclusive with `AllRegions`.
+   *
    * @public
    */
   Regions?: string[] | undefined;
 
   /**
-   * <p> If set to <code>true</code>, the telemetry rule is replicated to all Amazon Web Services Regions where Amazon CloudWatch Observability Admin is available in the current partition. When new regions become available, the rule automatically replicates to them. Mutually exclusive with <code>Regions</code>. </p>
+   * If set to `true`, the telemetry rule is replicated to all Amazon Web Services Regions where Amazon CloudWatch Observability Admin is available in the current partition. When new regions become available, the rule automatically replicates to them. Mutually exclusive with `Regions`.
+   *
    * @public
    */
   AllRegions?: boolean | undefined;
@@ -1073,19 +1272,22 @@ export interface TelemetryRule {
  */
 export interface CreateTelemetryRuleInput {
   /**
-   * <p> A unique name for the telemetry rule being created. </p>
+   * A unique name for the telemetry rule being created.
+   *
    * @public
    */
   RuleName: string | undefined;
 
   /**
-   * <p> The configuration details for the telemetry rule, including the resource type, telemetry type, destination configuration, and selection criteria for which resources the rule applies to. </p>
+   * The configuration details for the telemetry rule, including the resource type, telemetry type, destination configuration, and selection criteria for which resources the rule applies to.
+   *
    * @public
    */
   Rule: TelemetryRule | undefined;
 
   /**
-   * <p> The key-value pairs to associate with the telemetry rule resource for categorization and management purposes. </p>
+   * The key-value pairs to associate with the telemetry rule resource for categorization and management purposes.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -1096,7 +1298,8 @@ export interface CreateTelemetryRuleInput {
  */
 export interface CreateTelemetryRuleOutput {
   /**
-   * <p> The Amazon Resource Name (ARN) of the created telemetry rule. </p>
+   * The Amazon Resource Name (ARN) of the created telemetry rule.
+   *
    * @public
    */
   RuleArn?: string | undefined;
@@ -1107,19 +1310,22 @@ export interface CreateTelemetryRuleOutput {
  */
 export interface CreateTelemetryRuleForOrganizationInput {
   /**
-   * <p> A unique name for the organization-wide telemetry rule being created. </p>
+   * A unique name for the organization-wide telemetry rule being created.
+   *
    * @public
    */
   RuleName: string | undefined;
 
   /**
-   * <p> The configuration details for the organization-wide telemetry rule, including the resource type, telemetry type, destination configuration, and selection criteria for which resources the rule applies to across the organization. </p>
+   * The configuration details for the organization-wide telemetry rule, including the resource type, telemetry type, destination configuration, and selection criteria for which resources the rule applies to across the organization.
+   *
    * @public
    */
   Rule: TelemetryRule | undefined;
 
   /**
-   * <p> The key-value pairs to associate with the organization telemetry rule resource for categorization and management purposes. </p>
+   * The key-value pairs to associate with the organization telemetry rule resource for categorization and management purposes.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -1130,37 +1336,43 @@ export interface CreateTelemetryRuleForOrganizationInput {
  */
 export interface CreateTelemetryRuleForOrganizationOutput {
   /**
-   * <p> The Amazon Resource Name (ARN) of the created organization telemetry rule. </p>
+   * The Amazon Resource Name (ARN) of the created organization telemetry rule.
+   *
    * @public
    */
   RuleArn?: string | undefined;
 }
 
 /**
- * <p>Contains summary information about a dataset integration, including its ARN, associated IAM role, and creation and update timestamps, as returned by <code>ListDatasetIntegrations</code>.</p>
+ * Contains summary information about a dataset integration, including its ARN, associated IAM role, and creation and update timestamps, as returned by `ListDatasetIntegrations`.
+ *
  * @public
  */
 export interface DatasetIntegrationSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the dataset integration.</p>
+   * The Amazon Resource Name (ARN) of the dataset integration.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role associated with the dataset integration.</p>
+   * The Amazon Resource Name (ARN) of the IAM role associated with the dataset integration.
+   *
    * @public
    */
   RoleArn?: string | undefined;
 
   /**
-   * <p>The timestamp when the dataset integration was created.</p>
+   * The timestamp when the dataset integration was created.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when the dataset integration was last updated.</p>
+   * The timestamp when the dataset integration was last updated.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
@@ -1171,7 +1383,8 @@ export interface DatasetIntegrationSummary {
  */
 export interface DeleteCentralizationRuleForOrganizationInput {
   /**
-   * <p>The identifier (name or ARN) of the organization centralization rule to delete.</p>
+   * The identifier (name or ARN) of the organization centralization rule to delete.
+   *
    * @public
    */
   RuleIdentifier: string | undefined;
@@ -1182,7 +1395,8 @@ export interface DeleteCentralizationRuleForOrganizationInput {
  */
 export interface DeleteDatasetIntegrationInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the dataset integration to delete.</p>
+   * The Amazon Resource Name (ARN) of the dataset integration to delete.
+   *
    * @public
    */
   Arn: string | undefined;
@@ -1193,7 +1407,8 @@ export interface DeleteDatasetIntegrationInput {
  */
 export interface DeleteS3TableIntegrationInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the S3 Table integration to delete.</p>
+   * The Amazon Resource Name (ARN) of the S3 Table integration to delete.
+   *
    * @public
    */
   Arn: string | undefined;
@@ -1204,7 +1419,8 @@ export interface DeleteS3TableIntegrationInput {
  */
 export interface DeleteTelemetryPipelineInput {
   /**
-   * <p>The ARN of the telemetry pipeline to delete.</p>
+   * The ARN of the telemetry pipeline to delete.
+   *
    * @public
    */
   PipelineIdentifier: string | undefined;
@@ -1220,7 +1436,8 @@ export interface DeleteTelemetryPipelineOutput {}
  */
 export interface DeleteTelemetryRuleInput {
   /**
-   * <p> The identifier (name or ARN) of the telemetry rule to delete. </p>
+   * The identifier (name or ARN) of the telemetry rule to delete.
+   *
    * @public
    */
   RuleIdentifier: string | undefined;
@@ -1231,7 +1448,8 @@ export interface DeleteTelemetryRuleInput {
  */
 export interface DeleteTelemetryRuleForOrganizationInput {
   /**
-   * <p> The identifier (name or ARN) of the organization telemetry rule to delete. </p>
+   * The identifier (name or ARN) of the organization telemetry rule to delete.
+   *
    * @public
    */
   RuleIdentifier: string | undefined;
@@ -1242,7 +1460,8 @@ export interface DeleteTelemetryRuleForOrganizationInput {
  */
 export interface GetCentralizationRuleForOrganizationInput {
   /**
-   * <p>The identifier (name or ARN) of the organization centralization rule to retrieve.</p>
+   * The identifier (name or ARN) of the organization centralization rule to retrieve.
+   *
    * @public
    */
   RuleIdentifier: string | undefined;
@@ -1253,73 +1472,85 @@ export interface GetCentralizationRuleForOrganizationInput {
  */
 export interface GetCentralizationRuleForOrganizationOutput {
   /**
-   * <p>The name of the organization centralization rule.</p>
+   * The name of the organization centralization rule.
+   *
    * @public
    */
   RuleName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the organization centralization rule.</p>
+   * The Amazon Resource Name (ARN) of the organization centralization rule.
+   *
    * @public
    */
   RuleArn?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Account that created the organization centralization rule.</p>
+   * The Amazon Web Services Account that created the organization centralization rule.
+   *
    * @public
    */
   CreatorAccountId?: string | undefined;
 
   /**
-   * <p>The timestamp when the organization centralization rule was created.</p>
+   * The timestamp when the organization centralization rule was created.
+   *
    * @public
    */
   CreatedTimeStamp?: number | undefined;
 
   /**
-   * <p>The Amazon Web Services region where the organization centralization rule was created.</p>
+   * The Amazon Web Services region where the organization centralization rule was created.
+   *
    * @public
    */
   CreatedRegion?: string | undefined;
 
   /**
-   * <p>The timestamp when the organization centralization rule was last updated.</p>
+   * The timestamp when the organization centralization rule was last updated.
+   *
    * @public
    */
   LastUpdateTimeStamp?: number | undefined;
 
   /**
-   * <p>The health status of the organization centralization rule.</p>
+   * The health status of the organization centralization rule.
+   *
    * @public
    */
   RuleHealth?: RuleHealth | undefined;
 
   /**
-   * <p>The reason why an organization centralization rule is marked UNHEALTHY.</p>
+   * The reason why an organization centralization rule is marked UNHEALTHY.
+   *
    * @public
    */
   FailureReason?: CentralizationFailureReason | undefined;
 
   /**
-   * <p>The health status of tag propagation for this rule. This status is independent of the overall <code>RuleHealth</code> for log delivery. Returns <code>Healthy</code> when the most recent tag-propagation attempt succeeded, or <code>Unhealthy</code> when the most recent attempt failed.</p>
+   * The health status of tag propagation for this rule. This status is independent of the overall `RuleHealth` for log delivery. Returns `Healthy` when the most recent tag-propagation attempt succeeded, or `Unhealthy` when the most recent attempt failed.
+   *
    * @public
    */
   TagPropagationStatus?: TagPropagationStatus | undefined;
 
   /**
-   * <p>The reason tag propagation is unhealthy for this rule. Only present when <code>TagPropagationStatus</code> is <code>Unhealthy</code>.</p>
+   * The reason tag propagation is unhealthy for this rule. Only present when `TagPropagationStatus` is `Unhealthy`.
+   *
    * @public
    */
   TagPropagationFailureReason?: TagPropagationFailureReason | undefined;
 
   /**
-   * <p>The status of context graph centralization for this rule. Returns <code>Provisioning</code> while the context graph is being set up, <code>Healthy</code> once it is active, or <code>Unhealthy</code> if provisioning failed. This status is independent of the overall <code>RuleHealth</code> for log delivery.</p>
+   * The status of context graph centralization for this rule. Returns `Provisioning` while the context graph is being set up, `Healthy` once it is active, or `Unhealthy` if provisioning failed. This status is independent of the overall `RuleHealth` for log delivery.
+   *
    * @public
    */
   ContextGraphStatus?: ContextGraphStatus | undefined;
 
   /**
-   * <p>The configuration details for the organization centralization rule.</p>
+   * The configuration details for the organization centralization rule.
+   *
    * @public
    */
   CentralizationRule?: CentralizationRule | undefined;
@@ -1330,7 +1561,8 @@ export interface GetCentralizationRuleForOrganizationOutput {
  */
 export interface GetDatasetIntegrationInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the dataset integration to retrieve.</p>
+   * The Amazon Resource Name (ARN) of the dataset integration to retrieve.
+   *
    * @public
    */
   Arn: string | undefined;
@@ -1341,25 +1573,29 @@ export interface GetDatasetIntegrationInput {
  */
 export interface GetDatasetIntegrationOutput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the dataset integration.</p>
+   * The Amazon Resource Name (ARN) of the dataset integration.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role associated with the dataset integration.</p>
+   * The Amazon Resource Name (ARN) of the IAM role associated with the dataset integration.
+   *
    * @public
    */
   RoleArn?: string | undefined;
 
   /**
-   * <p>The timestamp when the dataset integration was created.</p>
+   * The timestamp when the dataset integration was created.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when the dataset integration was last updated.</p>
+   * The timestamp when the dataset integration was last updated.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
@@ -1370,7 +1606,8 @@ export interface GetDatasetIntegrationOutput {
  */
 export interface GetS3TableIntegrationInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the S3 Table integration to retrieve.</p>
+   * The Amazon Resource Name (ARN) of the S3 Table integration to retrieve.
+   *
    * @public
    */
   Arn: string | undefined;
@@ -1381,37 +1618,43 @@ export interface GetS3TableIntegrationInput {
  */
 export interface GetS3TableIntegrationOutput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the S3 Table integration.</p>
+   * The Amazon Resource Name (ARN) of the S3 Table integration.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role used by the S3 Table integration.</p>
+   * The Amazon Resource Name (ARN) of the IAM role used by the S3 Table integration.
+   *
    * @public
    */
   RoleArn?: string | undefined;
 
   /**
-   * <p>The current status of the S3 Table integration.</p>
+   * The current status of the S3 Table integration.
+   *
    * @public
    */
   Status?: IntegrationStatus | undefined;
 
   /**
-   * <p>The encryption configuration for the S3 Table integration.</p>
+   * The encryption configuration for the S3 Table integration.
+   *
    * @public
    */
   Encryption?: Encryption | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the S3 bucket used as the destination for the table data.</p>
+   * The Amazon Resource Name (ARN) of the S3 bucket used as the destination for the table data.
+   *
    * @public
    */
   DestinationTableBucketArn?: string | undefined;
 
   /**
-   * <p>The timestamp when the S3 Table integration was created.</p>
+   * The timestamp when the S3 Table integration was created.
+   *
    * @public
    */
   CreatedTimeStamp?: number | undefined;
@@ -1422,43 +1665,50 @@ export interface GetS3TableIntegrationOutput {
  */
 export interface GetTelemetryEnrichmentStatusOutput {
   /**
-   * <p> The current status of the resource tags for telemetry feature (<code>Running</code>, <code>Stopped</code>, or <code>Impaired</code>). </p>
+   * The current status of the resource tags for telemetry feature (`Running`, `Stopped`, or `Impaired`).
+   *
    * @public
    */
   Status?: TelemetryEnrichmentStatus | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the Resource Explorer managed view used for resource tags for telemetry, if the feature is enabled. </p>
+   * The Amazon Resource Name (ARN) of the Resource Explorer managed view used for resource tags for telemetry, if the feature is enabled.
+   *
    * @public
    */
   AwsResourceExplorerManagedViewArn?: string | undefined;
 }
 
 /**
- * <p> Represents the status of a multi-region operation in a specific Amazon Web Services Region. This structure is used to report per-region progress for both telemetry evaluation and telemetry rule replication. </p>
+ * Represents the status of a multi-region operation in a specific Amazon Web Services Region. This structure is used to report per-region progress for both telemetry evaluation and telemetry rule replication.
+ *
  * @public
  */
 export interface RegionStatus {
   /**
-   * <p> The Amazon Web Services Region code (for example, <code>eu-west-1</code> or <code>us-west-2</code>) that this status applies to. </p>
+   * The Amazon Web Services Region code (for example, `eu-west-1` or `us-west-2`) that this status applies to.
+   *
    * @public
    */
   Region?: string | undefined;
 
   /**
-   * <p> The status of the operation in this region. For telemetry evaluation, valid values include <code>STARTING</code>, <code>RUNNING</code>, and <code>FAILED_START</code>. For telemetry rules, valid values include <code>PENDING</code>, <code>ACTIVE</code>, and <code>FAILED</code>. </p>
+   * The status of the operation in this region. For telemetry evaluation, valid values include `STARTING`, `RUNNING`, and `FAILED_START`. For telemetry rules, valid values include `PENDING`, `ACTIVE`, and `FAILED`.
+   *
    * @public
    */
   Status?: string | undefined;
 
   /**
-   * <p> The reason for a failure status in this region. This field is only populated when <code>Status</code> indicates a failure. </p>
+   * The reason for a failure status in this region. This field is only populated when `Status` indicates a failure.
+   *
    * @public
    */
   FailureReason?: string | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the telemetry rule in this spoke region. This field is only present for telemetry rule region statuses and is populated when the rule has been successfully created in the spoke region (status is <code>ACTIVE</code>). </p>
+   * The Amazon Resource Name (ARN) of the telemetry rule in this spoke region. This field is only present for telemetry rule region statuses and is populated when the rule has been successfully created in the spoke region (status is `ACTIVE`).
+   *
    * @public
    */
   RuleArn?: string | undefined;
@@ -1469,25 +1719,29 @@ export interface RegionStatus {
  */
 export interface GetTelemetryEvaluationStatusOutput {
   /**
-   * <p> The onboarding status of the telemetry config feature. </p>
+   * The onboarding status of the telemetry config feature.
+   *
    * @public
    */
   Status?: Status | undefined;
 
   /**
-   * <p> Describes the reason for the failure status. The field will only be populated if <code>Status</code> is <code>FAILED_START</code> or <code>FAILED_STOP</code>. </p>
+   * Describes the reason for the failure status. The field will only be populated if `Status` is `FAILED_START` or `FAILED_STOP`.
+   *
    * @public
    */
   FailureReason?: string | undefined;
 
   /**
-   * <p> The Amazon Web Services Region that is designated as the home region for multi-region telemetry evaluation. The home region is the single management point for all multi-region operations on this account. This field is only present when multi-region telemetry evaluation is active. </p>
+   * The Amazon Web Services Region that is designated as the home region for multi-region telemetry evaluation. The home region is the single management point for all multi-region operations on this account. This field is only present when multi-region telemetry evaluation is active.
+   *
    * @public
    */
   HomeRegion?: string | undefined;
 
   /**
-   * <p> A list of per-region telemetry evaluation statuses. Each entry indicates the evaluation status for a specific spoke region included in the multi-region configuration. This field is only present when multi-region telemetry evaluation is active. </p>
+   * A list of per-region telemetry evaluation statuses. Each entry indicates the evaluation status for a specific spoke region included in the multi-region configuration. This field is only present when multi-region telemetry evaluation is active.
+   *
    * @public
    */
   RegionStatuses?: RegionStatus[] | undefined;
@@ -1498,25 +1752,29 @@ export interface GetTelemetryEvaluationStatusOutput {
  */
 export interface GetTelemetryEvaluationStatusForOrganizationOutput {
   /**
-   * <p> The onboarding status of the telemetry config feature for the organization. </p>
+   * The onboarding status of the telemetry config feature for the organization.
+   *
    * @public
    */
   Status?: Status | undefined;
 
   /**
-   * <p> This field describes the reason for the failure status. The field will only be populated if <code>Status</code> is <code>FAILED_START</code> or <code>FAILED_STOP</code>. </p>
+   * This field describes the reason for the failure status. The field will only be populated if `Status` is `FAILED_START` or `FAILED_STOP`.
+   *
    * @public
    */
   FailureReason?: string | undefined;
 
   /**
-   * <p> The Amazon Web Services Region that is designated as the home region for multi-region telemetry evaluation for the organization. The home region is the single management point for all multi-region operations on this organization. This field is only present when multi-region telemetry evaluation is active. </p>
+   * The Amazon Web Services Region that is designated as the home region for multi-region telemetry evaluation for the organization. The home region is the single management point for all multi-region operations on this organization. This field is only present when multi-region telemetry evaluation is active.
+   *
    * @public
    */
   HomeRegion?: string | undefined;
 
   /**
-   * <p> A list of per-region telemetry evaluation statuses for the organization. Each entry indicates the evaluation status for a specific spoke region included in the multi-region configuration. This field is only present when multi-region telemetry evaluation is active. </p>
+   * A list of per-region telemetry evaluation statuses for the organization. Each entry indicates the evaluation status for a specific spoke region included in the multi-region configuration. This field is only present when multi-region telemetry evaluation is active.
+   *
    * @public
    */
   RegionStatuses?: RegionStatus[] | undefined;
@@ -1527,73 +1785,85 @@ export interface GetTelemetryEvaluationStatusForOrganizationOutput {
  */
 export interface GetTelemetryPipelineInput {
   /**
-   * <p>The identifier (name or ARN) of the telemetry pipeline to retrieve.</p>
+   * The identifier (name or ARN) of the telemetry pipeline to retrieve.
+   *
    * @public
    */
   PipelineIdentifier: string | undefined;
 }
 
 /**
- * <p>Provides detailed information about the status of a telemetry pipeline, including reasons for specific states.</p>
+ * Provides detailed information about the status of a telemetry pipeline, including reasons for specific states.
+ *
  * @public
  */
 export interface TelemetryPipelineStatusReason {
   /**
-   * <p>A description of the pipeline status reason, providing additional context about the current state.</p>
+   * A description of the pipeline status reason, providing additional context about the current state.
+   *
    * @public
    */
   Description?: string | undefined;
 }
 
 /**
- * <p>Represents a complete telemetry pipeline resource with configuration, status, and metadata for data processing and transformation.</p>
+ * Represents a complete telemetry pipeline resource with configuration, status, and metadata for data processing and transformation.
+ *
  * @public
  */
 export interface TelemetryPipeline {
   /**
-   * <p>The timestamp when the telemetry pipeline was created.</p>
+   * The timestamp when the telemetry pipeline was created.
+   *
    * @public
    */
   CreatedTimeStamp?: number | undefined;
 
   /**
-   * <p>The timestamp when the telemetry pipeline was last updated.</p>
+   * The timestamp when the telemetry pipeline was last updated.
+   *
    * @public
    */
   LastUpdateTimeStamp?: number | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the telemetry pipeline.</p>
+   * The Amazon Resource Name (ARN) of the telemetry pipeline.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The name of the telemetry pipeline.</p>
+   * The name of the telemetry pipeline.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The configuration that defines how the telemetry pipeline processes data.</p>
+   * The configuration that defines how the telemetry pipeline processes data.
+   *
    * @public
    */
   Configuration?: TelemetryPipelineConfiguration | undefined;
 
   /**
-   * <p>The current status of the telemetry pipeline.</p>
+   * The current status of the telemetry pipeline.
+   *
    * @public
    */
   Status?: TelemetryPipelineStatus | undefined;
 
   /**
-   * <p>Additional information about the pipeline status, including reasons for failure states.</p>
+   * Additional information about the pipeline status, including reasons for failure states.
+   *
    * @public
    */
   StatusReason?: TelemetryPipelineStatusReason | undefined;
 
   /**
-   * <p>The key-value pairs associated with the telemetry pipeline resource.</p>
+   * The key-value pairs associated with the telemetry pipeline resource.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -1604,7 +1874,8 @@ export interface TelemetryPipeline {
  */
 export interface GetTelemetryPipelineOutput {
   /**
-   * <p>The complete telemetry pipeline resource information, including configuration, status, and metadata.</p>
+   * The complete telemetry pipeline resource information, including configuration, status, and metadata.
+   *
    * @public
    */
   Pipeline?: TelemetryPipeline | undefined;
@@ -1615,7 +1886,8 @@ export interface GetTelemetryPipelineOutput {
  */
 export interface GetTelemetryRuleInput {
   /**
-   * <p> The identifier (name or ARN) of the telemetry rule to retrieve. </p>
+   * The identifier (name or ARN) of the telemetry rule to retrieve.
+   *
    * @public
    */
   RuleIdentifier: string | undefined;
@@ -1626,49 +1898,57 @@ export interface GetTelemetryRuleInput {
  */
 export interface GetTelemetryRuleOutput {
   /**
-   * <p> The name of the telemetry rule. </p>
+   * The name of the telemetry rule.
+   *
    * @public
    */
   RuleName?: string | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the telemetry rule. </p>
+   * The Amazon Resource Name (ARN) of the telemetry rule.
+   *
    * @public
    */
   RuleArn?: string | undefined;
 
   /**
-   * <p> The timestamp when the telemetry rule was created. </p>
+   * The timestamp when the telemetry rule was created.
+   *
    * @public
    */
   CreatedTimeStamp?: number | undefined;
 
   /**
-   * <p> The timestamp when the telemetry rule was last updated. </p>
+   * The timestamp when the telemetry rule was last updated.
+   *
    * @public
    */
   LastUpdateTimeStamp?: number | undefined;
 
   /**
-   * <p> The configuration details of the telemetry rule. </p>
+   * The configuration details of the telemetry rule.
+   *
    * @public
    */
   TelemetryRule?: TelemetryRule | undefined;
 
   /**
-   * <p> The Amazon Web Services Region where the telemetry rule was originally created. For replicated rules in spoke regions, this indicates the region that manages the rule. For rules created without multi-region scope, this field is not present. </p>
+   * The Amazon Web Services Region where the telemetry rule was originally created. For replicated rules in spoke regions, this indicates the region that manages the rule. For rules created without multi-region scope, this field is not present.
+   *
    * @public
    */
   HomeRegion?: string | undefined;
 
   /**
-   * <p> Indicates whether this telemetry rule is a replica that was created in this region through multi-region fan-out from the home region. Replicated rules cannot be directly updated or deleted in the spoke region. To modify a replicated rule, make changes in the home region. </p>
+   * Indicates whether this telemetry rule is a replica that was created in this region through multi-region fan-out from the home region. Replicated rules cannot be directly updated or deleted in the spoke region. To modify a replicated rule, make changes in the home region.
+   *
    * @public
    */
   IsReplicated?: boolean | undefined;
 
   /**
-   * <p> A list of per-region replication statuses for the telemetry rule. Each entry indicates the replication status of the rule in a specific spoke region. This field is only present for rules created with multi-region scope. </p>
+   * A list of per-region replication statuses for the telemetry rule. Each entry indicates the replication status of the rule in a specific spoke region. This field is only present for rules created with multi-region scope.
+   *
    * @public
    */
   RegionStatuses?: RegionStatus[] | undefined;
@@ -1679,7 +1959,8 @@ export interface GetTelemetryRuleOutput {
  */
 export interface GetTelemetryRuleForOrganizationInput {
   /**
-   * <p> The identifier (name or ARN) of the organization telemetry rule to retrieve. </p>
+   * The identifier (name or ARN) of the organization telemetry rule to retrieve.
+   *
    * @public
    */
   RuleIdentifier: string | undefined;
@@ -1690,67 +1971,78 @@ export interface GetTelemetryRuleForOrganizationInput {
  */
 export interface GetTelemetryRuleForOrganizationOutput {
   /**
-   * <p> The name of the organization telemetry rule. </p>
+   * The name of the organization telemetry rule.
+   *
    * @public
    */
   RuleName?: string | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the organization telemetry rule. </p>
+   * The Amazon Resource Name (ARN) of the organization telemetry rule.
+   *
    * @public
    */
   RuleArn?: string | undefined;
 
   /**
-   * <p> The timestamp when the organization telemetry rule was created. </p>
+   * The timestamp when the organization telemetry rule was created.
+   *
    * @public
    */
   CreatedTimeStamp?: number | undefined;
 
   /**
-   * <p> The timestamp when the organization telemetry rule was last updated. </p>
+   * The timestamp when the organization telemetry rule was last updated.
+   *
    * @public
    */
   LastUpdateTimeStamp?: number | undefined;
 
   /**
-   * <p> The configuration details of the organization telemetry rule. </p>
+   * The configuration details of the organization telemetry rule.
+   *
    * @public
    */
   TelemetryRule?: TelemetryRule | undefined;
 
   /**
-   * <p> The Amazon Web Services Region where the organization telemetry rule was originally created. For replicated rules in spoke regions, this indicates the region that manages the rule. For rules created without multi-region scope, this field is not present. </p>
+   * The Amazon Web Services Region where the organization telemetry rule was originally created. For replicated rules in spoke regions, this indicates the region that manages the rule. For rules created without multi-region scope, this field is not present.
+   *
    * @public
    */
   HomeRegion?: string | undefined;
 
   /**
-   * <p> Indicates whether this organization telemetry rule is a replica that was created in this region through multi-region fan-out from the home region. Replicated rules cannot be directly updated or deleted in the spoke region. To modify a replicated rule, make changes in the home region. </p>
+   * Indicates whether this organization telemetry rule is a replica that was created in this region through multi-region fan-out from the home region. Replicated rules cannot be directly updated or deleted in the spoke region. To modify a replicated rule, make changes in the home region.
+   *
    * @public
    */
   IsReplicated?: boolean | undefined;
 
   /**
-   * <p> A list of per-region replication statuses for the organization telemetry rule. Each entry indicates the replication status of the rule in a specific spoke region. This field is only present for rules created with multi-region scope. </p>
+   * A list of per-region replication statuses for the organization telemetry rule. Each entry indicates the replication status of the rule in a specific spoke region. This field is only present for rules created with multi-region scope.
+   *
    * @public
    */
   RegionStatuses?: RegionStatus[] | undefined;
 }
 
 /**
- * <p>Contains summary information about an S3 Table integration for listing operations.</p>
+ * Contains summary information about an S3 Table integration for listing operations.
+ *
  * @public
  */
 export interface IntegrationSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the S3 Table integration.</p>
+   * The Amazon Resource Name (ARN) of the S3 Table integration.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The current status of the S3 Table integration.</p>
+   * The current status of the S3 Table integration.
+   *
    * @public
    */
   Status?: IntegrationStatus | undefined;
@@ -1761,25 +2053,29 @@ export interface IntegrationSummary {
  */
 export interface ListCentralizationRulesForOrganizationInput {
   /**
-   * <p>A string to filter organization centralization rules whose names begin with the specified prefix.</p>
+   * A string to filter organization centralization rules whose names begin with the specified prefix.
+   *
    * @public
    */
   RuleNamePrefix?: string | undefined;
 
   /**
-   * <p>A flag determining whether to return organization centralization rules from all regions or only the current region.</p>
+   * A flag determining whether to return organization centralization rules from all regions or only the current region.
+   *
    * @public
    */
   AllRegions?: boolean | undefined;
 
   /**
-   * <p>The maximum number of organization centralization rules to return in a single call.</p>
+   * The maximum number of organization centralization rules to return in a single call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token for the next set of results. A previous call generates this token.</p>
+   * The token for the next set of results. A previous call generates this token.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1790,13 +2086,15 @@ export interface ListCentralizationRulesForOrganizationInput {
  */
 export interface ListCentralizationRulesForOrganizationOutput {
   /**
-   * <p>A list of centralization rule summaries.</p>
+   * A list of centralization rule summaries.
+   *
    * @public
    */
   CentralizationRuleSummaries?: CentralizationRuleSummary[] | undefined;
 
   /**
-   * <p>A token to resume pagination of results.</p>
+   * A token to resume pagination of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1807,13 +2105,15 @@ export interface ListCentralizationRulesForOrganizationOutput {
  */
 export interface ListDatasetIntegrationsInput {
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token for the next set of results. A previous call generates this token.</p>
+   * The token for the next set of results. A previous call generates this token.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1824,13 +2124,15 @@ export interface ListDatasetIntegrationsInput {
  */
 export interface ListDatasetIntegrationsOutput {
   /**
-   * <p>The dataset integrations in your account.</p>
+   * The dataset integrations in your account.
+   *
    * @public
    */
   DatasetIntegrationSummaries: DatasetIntegrationSummary[] | undefined;
 
   /**
-   * <p>A token to resume pagination of results.</p>
+   * A token to resume pagination of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1841,85 +2143,106 @@ export interface ListDatasetIntegrationsOutput {
  */
 export interface ListResourceTelemetryInput {
   /**
-   * <p> A string used to filter resources which have a <code>ResourceIdentifier</code> starting with the <code>ResourceIdentifierPrefix</code>. </p>
+   * A string used to filter resources which have a `ResourceIdentifier` starting with the `ResourceIdentifierPrefix`.
+   *
    * @public
    */
   ResourceIdentifierPrefix?: string | undefined;
 
   /**
-   * <p> A list of resource types used to filter resources supported by telemetry config. If this parameter is provided, the service returns the resources in the same order as specified in the request. Currently supported resource types for discovery are:</p> <ul> <li> <p> <code>AWS::EC2::Instance</code> </p> </li> <li> <p> <code>AWS::EC2::VPC</code> </p> </li> <li> <p> <code>AWS::Lambda::Function</code> </p> </li> <li> <p> <code>AWS::EKS::Cluster</code> </p> </li> <li> <p> <code>AWS::WAFv2::WebACL</code> </p> </li> <li> <p> <code>AWS::ElasticLoadBalancingV2::LoadBalancer</code> (Network Load Balancers only)</p> </li> </ul>
+   * A list of resource types used to filter resources supported by telemetry config. If this parameter is provided, the service returns the resources in the same order as specified in the request. Currently supported resource types for discovery are:
+   *
+   * - `AWS::EC2::Instance`
+   * - `AWS::EC2::VPC`
+   * - `AWS::Lambda::Function`
+   * - `AWS::EKS::Cluster`
+   * - `AWS::WAFv2::WebACL`
+   * - `AWS::ElasticLoadBalancingV2::LoadBalancer` (Network Load Balancers only)
+   *
    * @public
    */
   ResourceTypes?: ResourceType[] | undefined;
 
   /**
-   * <p> A key-value pair to filter resources based on the telemetry type and the state of the telemetry configuration. The key is the telemetry type and the value is the state. </p>
+   * A key-value pair to filter resources based on the telemetry type and the state of the telemetry configuration. The key is the telemetry type and the value is the state.
+   *
    * @public
    */
   TelemetryConfigurationState?: Partial<Record<TelemetryType, TelemetryState>> | undefined;
 
   /**
-   * <p> A key-value pair to filter resources based on tags associated with the resource. For more information about tags, see <a href="https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/what-are-tags.html">What are tags?</a> </p>
+   * A key-value pair to filter resources based on tags associated with the resource. For more information about tags, see [What are tags?](https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/what-are-tags.html)
+   *
    * @public
    */
   ResourceTags?: Record<string, string> | undefined;
 
   /**
-   * <p> A number field used to limit the number of results within the returned list. </p>
+   * A number field used to limit the number of results within the returned list.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p> The token for the next set of items to return. A previous call generates this token. </p>
+   * The token for the next set of items to return. A previous call generates this token.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p> A model representing the state of a resource within an account according to telemetry config. </p>
+ * A model representing the state of a resource within an account according to telemetry config.
+ *
  * @public
  */
 export interface TelemetryConfiguration {
   /**
-   * <p> The account ID which contains the resource managed in telemetry configuration. An example of a valid account ID is <code>012345678901</code>. </p>
+   * The account ID which contains the resource managed in telemetry configuration. An example of a valid account ID is `012345678901`.
+   *
    * @public
    */
   AccountIdentifier?: string | undefined;
 
   /**
-   * <p> The configuration state for the resource, for example <code>\{ Logs: NotApplicable; Metrics: Enabled; Traces: NotApplicable; \}</code>. </p>
+   * The configuration state for the resource, for example `\{ Logs: NotApplicable; Metrics: Enabled; Traces: NotApplicable; \}`.
+   *
    * @public
    */
   TelemetryConfigurationState?: Partial<Record<TelemetryType, TelemetryState>> | undefined;
 
   /**
-   * <p> The type of resource, for example <code>Amazon Web Services::EC2::Instance</code>, or <code>Amazon Web Services::EKS::Cluster</code>, etc. </p>
+   * The type of resource, for example `Amazon Web Services::EC2::Instance`, or `Amazon Web Services::EKS::Cluster`, etc.
+   *
    * @public
    */
   ResourceType?: ResourceType | undefined;
 
   /**
-   * <p> The identifier of the resource, for example for Amazon VPC, it would be <code>vpc-1a2b3c4d5e6f1a2b3</code>. </p>
+   * The identifier of the resource, for example for Amazon VPC, it would be `vpc-1a2b3c4d5e6f1a2b3`.
+   *
    * @public
    */
   ResourceIdentifier?: string | undefined;
 
   /**
-   * <p> Tags associated with the resource, for example <code>\{ Name: "ExampleInstance", Environment: "Development" \}</code>. </p>
+   * Tags associated with the resource, for example `\{ Name: "ExampleInstance", Environment: "Development" \}`.
+   *
    * @public
    */
   ResourceTags?: Record<string, string> | undefined;
 
   /**
-   * <p> The timestamp of the last change to the telemetry configuration for the resource. For example, <code>1728679196318</code>. </p>
+   * The timestamp of the last change to the telemetry configuration for the resource. For example, `1728679196318`.
+   *
    * @public
    */
   LastUpdateTimeStamp?: number | undefined;
 
   /**
-   * <p> Specifies the type of telemetry source for a resource, such as EKS cluster logs. </p>
+   * Specifies the type of telemetry source for a resource, such as EKS cluster logs.
+   *
    * @public
    */
   TelemetrySourceType?: TelemetrySourceType | undefined;
@@ -1930,13 +2253,15 @@ export interface TelemetryConfiguration {
  */
 export interface ListResourceTelemetryOutput {
   /**
-   * <p> A list of telemetry configurations for Amazon Web Services resources supported by telemetry config in the caller's account. </p>
+   * A list of telemetry configurations for Amazon Web Services resources supported by telemetry config in the caller's account.
+   *
    * @public
    */
   TelemetryConfigurations?: TelemetryConfiguration[] | undefined;
 
   /**
-   * <p> The token for the next set of items to return. A previous call generates this token. </p>
+   * The token for the next set of items to return. A previous call generates this token.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1947,43 +2272,57 @@ export interface ListResourceTelemetryOutput {
  */
 export interface ListResourceTelemetryForOrganizationInput {
   /**
-   * <p> A list of Amazon Web Services accounts used to filter the resources to those associated with the specified accounts. </p>
+   * A list of Amazon Web Services accounts used to filter the resources to those associated with the specified accounts.
+   *
    * @public
    */
   AccountIdentifiers?: string[] | undefined;
 
   /**
-   * <p> A string used to filter resources in the organization which have a <code>ResourceIdentifier</code> starting with the <code>ResourceIdentifierPrefix</code>. </p>
+   * A string used to filter resources in the organization which have a `ResourceIdentifier` starting with the `ResourceIdentifierPrefix`.
+   *
    * @public
    */
   ResourceIdentifierPrefix?: string | undefined;
 
   /**
-   * <p> A list of resource types used to filter resources in the organization. If this parameter is provided, the service returns the resources in the same order as specified in the request. Currently supported resource types for discovery are:</p> <ul> <li> <p> <code>AWS::EC2::Instance</code> </p> </li> <li> <p> <code>AWS::EC2::VPC</code> </p> </li> <li> <p> <code>AWS::Lambda::Function</code> </p> </li> <li> <p> <code>AWS::EKS::Cluster</code> </p> </li> <li> <p> <code>AWS::WAFv2::WebACL</code> </p> </li> <li> <p> <code>AWS::ElasticLoadBalancingV2::LoadBalancer</code> (Network Load Balancers only)</p> </li> </ul>
+   * A list of resource types used to filter resources in the organization. If this parameter is provided, the service returns the resources in the same order as specified in the request. Currently supported resource types for discovery are:
+   *
+   * - `AWS::EC2::Instance`
+   * - `AWS::EC2::VPC`
+   * - `AWS::Lambda::Function`
+   * - `AWS::EKS::Cluster`
+   * - `AWS::WAFv2::WebACL`
+   * - `AWS::ElasticLoadBalancingV2::LoadBalancer` (Network Load Balancers only)
+   *
    * @public
    */
   ResourceTypes?: ResourceType[] | undefined;
 
   /**
-   * <p> A key-value pair to filter resources in the organization based on the telemetry type and the state of the telemetry configuration. The key is the telemetry type and the value is the state. </p>
+   * A key-value pair to filter resources in the organization based on the telemetry type and the state of the telemetry configuration. The key is the telemetry type and the value is the state.
+   *
    * @public
    */
   TelemetryConfigurationState?: Partial<Record<TelemetryType, TelemetryState>> | undefined;
 
   /**
-   * <p> A key-value pair to filter resources in the organization based on tags associated with the resource. Fore more information about tags, see <a href="https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/what-are-tags.html">What are tags?</a> </p>
+   * A key-value pair to filter resources in the organization based on tags associated with the resource. Fore more information about tags, see [What are tags?](https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/what-are-tags.html)
+   *
    * @public
    */
   ResourceTags?: Record<string, string> | undefined;
 
   /**
-   * <p> A number field used to limit the number of results within the returned list. </p>
+   * A number field used to limit the number of results within the returned list.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p> The token for the next set of items to return. A previous call provides this token. </p>
+   * The token for the next set of items to return. A previous call provides this token.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1994,13 +2333,15 @@ export interface ListResourceTelemetryForOrganizationInput {
  */
 export interface ListResourceTelemetryForOrganizationOutput {
   /**
-   * <p> A list of telemetry configurations for Amazon Web Services resources supported by telemetry config in the organization. </p>
+   * A list of telemetry configurations for Amazon Web Services resources supported by telemetry config in the organization.
+   *
    * @public
    */
   TelemetryConfigurations?: TelemetryConfiguration[] | undefined;
 
   /**
-   * <p> The token for the next set of items to return. A previous call provides this token. </p>
+   * The token for the next set of items to return. A previous call provides this token.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2011,13 +2352,15 @@ export interface ListResourceTelemetryForOrganizationOutput {
  */
 export interface ListS3TableIntegrationsInput {
   /**
-   * <p>The maximum number of S3 Table integrations to return in a single call.</p>
+   * The maximum number of S3 Table integrations to return in a single call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token for the next set of results. A previous call generates this token.</p>
+   * The token for the next set of results. A previous call generates this token.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2028,13 +2371,15 @@ export interface ListS3TableIntegrationsInput {
  */
 export interface ListS3TableIntegrationsOutput {
   /**
-   * <p>A list of S3 Table integration summaries containing key information about each integration.</p>
+   * A list of S3 Table integration summaries containing key information about each integration.
+   *
    * @public
    */
   IntegrationSummaries?: IntegrationSummary[] | undefined;
 
   /**
-   * <p>A token to resume pagination of results.</p>
+   * A token to resume pagination of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2045,7 +2390,8 @@ export interface ListS3TableIntegrationsOutput {
  */
 export interface ListTagsForResourceInput {
   /**
-   * <p> The Amazon Resource Name (ARN) of the telemetry rule resource whose tags you want to list. </p>
+   * The Amazon Resource Name (ARN) of the telemetry rule resource whose tags you want to list.
+   *
    * @public
    */
   ResourceARN: string | undefined;
@@ -2056,7 +2402,8 @@ export interface ListTagsForResourceInput {
  */
 export interface ListTagsForResourceOutput {
   /**
-   * <p> The list of tags associated with the telemetry rule resource. </p>
+   * The list of tags associated with the telemetry rule resource.
+   *
    * @public
    */
   Tags: Record<string, string> | undefined;
@@ -2067,61 +2414,71 @@ export interface ListTagsForResourceOutput {
  */
 export interface ListTelemetryPipelinesInput {
   /**
-   * <p>The maximum number of telemetry pipelines to return in a single call.</p>
+   * The maximum number of telemetry pipelines to return in a single call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token for the next set of results. A previous call generates this token.</p>
+   * The token for the next set of results. A previous call generates this token.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Contains summary information about a telemetry pipeline for listing operations.</p>
+ * Contains summary information about a telemetry pipeline for listing operations.
+ *
  * @public
  */
 export interface TelemetryPipelineSummary {
   /**
-   * <p>The timestamp when the telemetry pipeline was created.</p>
+   * The timestamp when the telemetry pipeline was created.
+   *
    * @public
    */
   CreatedTimeStamp?: number | undefined;
 
   /**
-   * <p>The timestamp when the telemetry pipeline was last updated.</p>
+   * The timestamp when the telemetry pipeline was last updated.
+   *
    * @public
    */
   LastUpdateTimeStamp?: number | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the telemetry pipeline.</p>
+   * The Amazon Resource Name (ARN) of the telemetry pipeline.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The name of the telemetry pipeline.</p>
+   * The name of the telemetry pipeline.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The current status of the telemetry pipeline.</p>
+   * The current status of the telemetry pipeline.
+   *
    * @public
    */
   Status?: TelemetryPipelineStatus | undefined;
 
   /**
-   * <p>The key-value pairs associated with the telemetry pipeline resource.</p>
+   * The key-value pairs associated with the telemetry pipeline resource.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>A summary of the pipeline configuration components.</p>
+   * A summary of the pipeline configuration components.
+   *
    * @public
    */
   ConfigurationSummary?: ConfigurationSummary | undefined;
@@ -2132,13 +2489,15 @@ export interface TelemetryPipelineSummary {
  */
 export interface ListTelemetryPipelinesOutput {
   /**
-   * <p>A list of telemetry pipeline summaries containing key information about each pipeline.</p>
+   * A list of telemetry pipeline summaries containing key information about each pipeline.
+   *
    * @public
    */
   PipelineSummaries?: TelemetryPipelineSummary[] | undefined;
 
   /**
-   * <p>A token to resume pagination of results.</p>
+   * A token to resume pagination of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2149,67 +2508,78 @@ export interface ListTelemetryPipelinesOutput {
  */
 export interface ListTelemetryRulesInput {
   /**
-   * <p> A string to filter telemetry rules whose names begin with the specified prefix. </p>
+   * A string to filter telemetry rules whose names begin with the specified prefix.
+   *
    * @public
    */
   RuleNamePrefix?: string | undefined;
 
   /**
-   * <p> The maximum number of telemetry rules to return in a single call. </p>
+   * The maximum number of telemetry rules to return in a single call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p> The token for the next set of results. A previous call generates this token. </p>
+   * The token for the next set of results. A previous call generates this token.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p> A summary of a telemetry rule's key properties. </p>
+ * A summary of a telemetry rule's key properties.
+ *
  * @public
  */
 export interface TelemetryRuleSummary {
   /**
-   * <p> The name of the telemetry rule. </p>
+   * The name of the telemetry rule.
+   *
    * @public
    */
   RuleName?: string | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the telemetry rule. </p>
+   * The Amazon Resource Name (ARN) of the telemetry rule.
+   *
    * @public
    */
   RuleArn?: string | undefined;
 
   /**
-   * <p> The timestamp when the telemetry rule was created. </p>
+   * The timestamp when the telemetry rule was created.
+   *
    * @public
    */
   CreatedTimeStamp?: number | undefined;
 
   /**
-   * <p> The timestamp when the telemetry rule was last modified. </p>
+   * The timestamp when the telemetry rule was last modified.
+   *
    * @public
    */
   LastUpdateTimeStamp?: number | undefined;
 
   /**
-   * <p> The type of Amazon Web Services resource the rule applies to. </p>
+   * The type of Amazon Web Services resource the rule applies to.
+   *
    * @public
    */
   ResourceType?: ResourceType | undefined;
 
   /**
-   * <p> The type of telemetry (Logs, Metrics, or Traces) the rule configures. </p>
+   * The type of telemetry (Logs, Metrics, or Traces) the rule configures.
+   *
    * @public
    */
   TelemetryType?: TelemetryType | undefined;
 
   /**
-   * <p> The types of telemetry sources configured for this rule, such as VPC Flow Logs or EKS audit logs. TelemetrySourceTypes must be correlated with the specific resource type. </p>
+   * The types of telemetry sources configured for this rule, such as VPC Flow Logs or EKS audit logs. TelemetrySourceTypes must be correlated with the specific resource type.
+   *
    * @public
    */
   TelemetrySourceTypes?: TelemetrySourceType[] | undefined;
@@ -2220,13 +2590,15 @@ export interface TelemetryRuleSummary {
  */
 export interface ListTelemetryRulesOutput {
   /**
-   * <p> A list of telemetry rule summaries. </p>
+   * A list of telemetry rule summaries.
+   *
    * @public
    */
   TelemetryRuleSummaries?: TelemetryRuleSummary[] | undefined;
 
   /**
-   * <p> A token to resume pagination of results. </p>
+   * A token to resume pagination of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2237,31 +2609,36 @@ export interface ListTelemetryRulesOutput {
  */
 export interface ListTelemetryRulesForOrganizationInput {
   /**
-   * <p> A string to filter organization telemetry rules whose names begin with the specified prefix. </p>
+   * A string to filter organization telemetry rules whose names begin with the specified prefix.
+   *
    * @public
    */
   RuleNamePrefix?: string | undefined;
 
   /**
-   * <p> The list of account IDs to filter organization telemetry rules by their source accounts. </p>
+   * The list of account IDs to filter organization telemetry rules by their source accounts.
+   *
    * @public
    */
   SourceAccountIds?: string[] | undefined;
 
   /**
-   * <p> The list of organizational unit IDs to filter organization telemetry rules by their source organizational units. </p>
+   * The list of organizational unit IDs to filter organization telemetry rules by their source organizational units.
+   *
    * @public
    */
   SourceOrganizationUnitIds?: string[] | undefined;
 
   /**
-   * <p> The maximum number of organization telemetry rules to return in a single call. </p>
+   * The maximum number of organization telemetry rules to return in a single call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p> The token for the next set of results. A previous call generates this token. </p>
+   * The token for the next set of results. A previous call generates this token.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2272,13 +2649,15 @@ export interface ListTelemetryRulesForOrganizationInput {
  */
 export interface ListTelemetryRulesForOrganizationOutput {
   /**
-   * <p> A list of organization telemetry rule summaries. </p>
+   * A list of organization telemetry rule summaries.
+   *
    * @public
    */
   TelemetryRuleSummaries?: TelemetryRuleSummary[] | undefined;
 
   /**
-   * <p> A token to resume pagination of results. </p>
+   * A token to resume pagination of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2289,13 +2668,15 @@ export interface ListTelemetryRulesForOrganizationOutput {
  */
 export interface StartTelemetryEnrichmentOutput {
   /**
-   * <p> The status of the resource tags for telemetry feature after the start operation (<code>Running</code>, <code>Stopped</code>, or <code>Impaired</code>). </p>
+   * The status of the resource tags for telemetry feature after the start operation (`Running`, `Stopped`, or `Impaired`).
+   *
    * @public
    */
   Status?: TelemetryEnrichmentStatus | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the Resource Explorer managed view created for resource tags for telemetry. </p>
+   * The Amazon Resource Name (ARN) of the Resource Explorer managed view created for resource tags for telemetry.
+   *
    * @public
    */
   AwsResourceExplorerManagedViewArn?: string | undefined;
@@ -2306,13 +2687,15 @@ export interface StartTelemetryEnrichmentOutput {
  */
 export interface StartTelemetryEvaluationInput {
   /**
-   * <p> An optional list of Amazon Web Services Regions to include in multi-region telemetry evaluation. The current region is always implicitly included and must not be specified in this list. When provided, telemetry evaluation starts in the current region and propagates to all specified regions. Mutually exclusive with <code>AllRegions</code>. If neither <code>Regions</code> nor <code>AllRegions</code> is provided, the operation applies only to the current region. </p>
+   * An optional list of Amazon Web Services Regions to include in multi-region telemetry evaluation. The current region is always implicitly included and must not be specified in this list. When provided, telemetry evaluation starts in the current region and propagates to all specified regions. Mutually exclusive with `AllRegions`. If neither `Regions` nor `AllRegions` is provided, the operation applies only to the current region.
+   *
    * @public
    */
   Regions?: string[] | undefined;
 
   /**
-   * <p> If set to <code>true</code>, telemetry evaluation starts in all Amazon Web Services Regions where Amazon CloudWatch Observability Admin is available in the current partition. The current region becomes the home region for managing multi-region evaluation. When new regions become available, evaluation automatically expands to include them. Mutually exclusive with <code>Regions</code>. </p>
+   * If set to `true`, telemetry evaluation starts in all Amazon Web Services Regions where Amazon CloudWatch Observability Admin is available in the current partition. The current region becomes the home region for managing multi-region evaluation. When new regions become available, evaluation automatically expands to include them. Mutually exclusive with `Regions`.
+   *
    * @public
    */
   AllRegions?: boolean | undefined;
@@ -2323,13 +2706,15 @@ export interface StartTelemetryEvaluationInput {
  */
 export interface StartTelemetryEvaluationForOrganizationInput {
   /**
-   * <p> An optional list of Amazon Web Services Regions to include in multi-region telemetry evaluation for the organization. The current region is always implicitly included and must not be specified in this list. When provided, telemetry evaluation starts in the current region and propagates to all specified regions for the organization. Mutually exclusive with <code>AllRegions</code>. If neither <code>Regions</code> nor <code>AllRegions</code> is provided, the operation applies only to the current region. </p>
+   * An optional list of Amazon Web Services Regions to include in multi-region telemetry evaluation for the organization. The current region is always implicitly included and must not be specified in this list. When provided, telemetry evaluation starts in the current region and propagates to all specified regions for the organization. Mutually exclusive with `AllRegions`. If neither `Regions` nor `AllRegions` is provided, the operation applies only to the current region.
+   *
    * @public
    */
   Regions?: string[] | undefined;
 
   /**
-   * <p> If set to <code>true</code>, telemetry evaluation for the organization starts in all Amazon Web Services Regions where Amazon CloudWatch Observability Admin is available in the current partition. The current region becomes the home region for managing multi-region evaluation for the organization. When new regions become available, evaluation automatically expands to include them. Mutually exclusive with <code>Regions</code>. </p>
+   * If set to `true`, telemetry evaluation for the organization starts in all Amazon Web Services Regions where Amazon CloudWatch Observability Admin is available in the current partition. The current region becomes the home region for managing multi-region evaluation for the organization. When new regions become available, evaluation automatically expands to include them. Mutually exclusive with `Regions`.
+   *
    * @public
    */
   AllRegions?: boolean | undefined;
@@ -2340,7 +2725,8 @@ export interface StartTelemetryEvaluationForOrganizationInput {
  */
 export interface StopTelemetryEnrichmentOutput {
   /**
-   * <p> The status of the resource tags for telemetry feature after the stop operation (<code>Running</code>, <code>Stopped</code>, or <code>Impaired</code>). </p>
+   * The status of the resource tags for telemetry feature after the stop operation (`Running`, `Stopped`, or `Impaired`).
+   *
    * @public
    */
   Status?: TelemetryEnrichmentStatus | undefined;
@@ -2351,13 +2737,15 @@ export interface StopTelemetryEnrichmentOutput {
  */
 export interface TagResourceInput {
   /**
-   * <p> The Amazon Resource Name (ARN) of the telemetry rule resource to tag. </p>
+   * The Amazon Resource Name (ARN) of the telemetry rule resource to tag.
+   *
    * @public
    */
   ResourceARN: string | undefined;
 
   /**
-   * <p> The key-value pairs to add or update for the telemetry rule resource. </p>
+   * The key-value pairs to add or update for the telemetry rule resource.
+   *
    * @public
    */
   Tags: Record<string, string> | undefined;
@@ -2368,13 +2756,15 @@ export interface TagResourceInput {
  */
 export interface UpdateTelemetryPipelineInput {
   /**
-   * <p>The ARN of the telemetry pipeline to update.</p>
+   * The ARN of the telemetry pipeline to update.
+   *
    * @public
    */
   PipelineIdentifier: string | undefined;
 
   /**
-   * <p>The new configuration for the telemetry pipeline, including updated sources, processors, and destinations.</p>
+   * The new configuration for the telemetry pipeline, including updated sources, processors, and destinations.
+   *
    * @public
    */
   Configuration: TelemetryPipelineConfiguration | undefined;
@@ -2386,18 +2776,21 @@ export interface UpdateTelemetryPipelineInput {
 export interface UpdateTelemetryPipelineOutput {}
 
 /**
- * <p>Represents a test record structure used for pipeline testing operations to validate data processing.</p>
+ * Represents a test record structure used for pipeline testing operations to validate data processing.
+ *
  * @public
  */
 export interface _Record {
   /**
-   * <p>The data content of the test record used for pipeline validation.</p>
+   * The data content of the test record used for pipeline validation.
+   *
    * @public
    */
   Data?: string | undefined;
 
   /**
-   * <p>The type of the test record, indicating the format or category of the data.</p>
+   * The type of the test record, indicating the format or category of the data.
+   *
    * @public
    */
   Type?: RecordFormat | undefined;
@@ -2408,49 +2801,57 @@ export interface _Record {
  */
 export interface TestTelemetryPipelineInput {
   /**
-   * <p>The sample records to process through the pipeline configuration for testing purposes.</p>
+   * The sample records to process through the pipeline configuration for testing purposes.
+   *
    * @public
    */
   Records: _Record[] | undefined;
 
   /**
-   * <p>The pipeline configuration to test with the provided sample records.</p>
+   * The pipeline configuration to test with the provided sample records.
+   *
    * @public
    */
   Configuration: TelemetryPipelineConfiguration | undefined;
 
   /**
-   * <p>The type of telemetry signal to test. If not specified, defaults to log processing.</p>
+   * The type of telemetry signal to test. If not specified, defaults to log processing.
+   *
    * @public
    */
   SignalType?: SignalType | undefined;
 }
 
 /**
- * <p>Contains detailed error information from pipeline test operations, providing structured error responses for better debugging and troubleshooting capabilities.</p>
+ * Contains detailed error information from pipeline test operations, providing structured error responses for better debugging and troubleshooting capabilities.
+ *
  * @public
  */
 export interface PipelineOutputError {
   /**
-   * <p>The detailed error message describing what went wrong during the pipeline test operation for this record.</p>
+   * The detailed error message describing what went wrong during the pipeline test operation for this record.
+   *
    * @public
    */
   Message?: string | undefined;
 }
 
 /**
- * <p>Contains the output from pipeline test operations, including processed records and any errors encountered.</p>
+ * Contains the output from pipeline test operations, including processed records and any errors encountered.
+ *
  * @public
  */
 export interface PipelineOutput {
   /**
-   * <p>The processed record output from the pipeline test operation.</p>
+   * The processed record output from the pipeline test operation.
+   *
    * @public
    */
   Record?: _Record | undefined;
 
   /**
-   * <p>Any error that occurred during the pipeline test operation for this record.</p>
+   * Any error that occurred during the pipeline test operation for this record.
+   *
    * @public
    */
   Error?: PipelineOutputError | undefined;
@@ -2461,7 +2862,8 @@ export interface PipelineOutput {
  */
 export interface TestTelemetryPipelineOutput {
   /**
-   * <p>The results of processing the test records through the pipeline configuration, including any outputs or errors.</p>
+   * The results of processing the test records through the pipeline configuration, including any outputs or errors.
+   *
    * @public
    */
   Results?: PipelineOutput[] | undefined;
@@ -2472,13 +2874,15 @@ export interface TestTelemetryPipelineOutput {
  */
 export interface UntagResourceInput {
   /**
-   * <p> The Amazon Resource Name (ARN) of the telemetry rule resource to remove tags from. </p>
+   * The Amazon Resource Name (ARN) of the telemetry rule resource to remove tags from.
+   *
    * @public
    */
   ResourceARN: string | undefined;
 
   /**
-   * <p> The list of tag keys to remove from the telemetry rule resource. </p>
+   * The list of tag keys to remove from the telemetry rule resource.
+   *
    * @public
    */
   TagKeys: string[] | undefined;
@@ -2489,13 +2893,15 @@ export interface UntagResourceInput {
  */
 export interface UpdateCentralizationRuleForOrganizationInput {
   /**
-   * <p>The identifier (name or ARN) of the organization centralization rule to update.</p>
+   * The identifier (name or ARN) of the organization centralization rule to update.
+   *
    * @public
    */
   RuleIdentifier: string | undefined;
 
   /**
-   * <p>The configuration details for the organization-wide centralization rule, including the source configuration and the destination configuration to centralize telemetry data across the organization.</p>
+   * The configuration details for the organization-wide centralization rule, including the source configuration and the destination configuration to centralize telemetry data across the organization.
+   *
    * @public
    */
   Rule: CentralizationRule | undefined;
@@ -2506,7 +2912,8 @@ export interface UpdateCentralizationRuleForOrganizationInput {
  */
 export interface UpdateCentralizationRuleForOrganizationOutput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the updated organization centralization rule.</p>
+   * The Amazon Resource Name (ARN) of the updated organization centralization rule.
+   *
    * @public
    */
   RuleArn?: string | undefined;
@@ -2517,13 +2924,15 @@ export interface UpdateCentralizationRuleForOrganizationOutput {
  */
 export interface UpdateDatasetIntegrationInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the dataset integration to update.</p>
+   * The Amazon Resource Name (ARN) of the dataset integration to update.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role to associate with the dataset integration.</p>
+   * The Amazon Resource Name (ARN) of the IAM role to associate with the dataset integration.
+   *
    * @public
    */
   RoleArn: string | undefined;
@@ -2534,25 +2943,29 @@ export interface UpdateDatasetIntegrationInput {
  */
 export interface UpdateDatasetIntegrationOutput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the updated dataset integration.</p>
+   * The Amazon Resource Name (ARN) of the updated dataset integration.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role associated with the updated dataset integration.</p>
+   * The Amazon Resource Name (ARN) of the IAM role associated with the updated dataset integration.
+   *
    * @public
    */
   RoleArn: string | undefined;
 
   /**
-   * <p>The timestamp when the dataset integration was created.</p>
+   * The timestamp when the dataset integration was created.
+   *
    * @public
    */
   CreatedAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the dataset integration was last updated.</p>
+   * The timestamp when the dataset integration was last updated.
+   *
    * @public
    */
   UpdatedAt: Date | undefined;
@@ -2563,13 +2976,15 @@ export interface UpdateDatasetIntegrationOutput {
  */
 export interface UpdateTelemetryRuleInput {
   /**
-   * <p> The identifier (name or ARN) of the telemetry rule to update. </p>
+   * The identifier (name or ARN) of the telemetry rule to update.
+   *
    * @public
    */
   RuleIdentifier: string | undefined;
 
   /**
-   * <p> The new configuration details for the telemetry rule. </p>
+   * The new configuration details for the telemetry rule.
+   *
    * @public
    */
   Rule: TelemetryRule | undefined;
@@ -2580,7 +2995,8 @@ export interface UpdateTelemetryRuleInput {
  */
 export interface UpdateTelemetryRuleOutput {
   /**
-   * <p> The Amazon Resource Name (ARN) of the updated telemetry rule. </p>
+   * The Amazon Resource Name (ARN) of the updated telemetry rule.
+   *
    * @public
    */
   RuleArn?: string | undefined;
@@ -2591,13 +3007,15 @@ export interface UpdateTelemetryRuleOutput {
  */
 export interface UpdateTelemetryRuleForOrganizationInput {
   /**
-   * <p> The identifier (name or ARN) of the organization telemetry rule to update. </p>
+   * The identifier (name or ARN) of the organization telemetry rule to update.
+   *
    * @public
    */
   RuleIdentifier: string | undefined;
 
   /**
-   * <p> The new configuration details for the organization telemetry rule, including resource type, telemetry type, and destination configuration. </p>
+   * The new configuration details for the organization telemetry rule, including resource type, telemetry type, and destination configuration.
+   *
    * @public
    */
   Rule: TelemetryRule | undefined;
@@ -2608,7 +3026,8 @@ export interface UpdateTelemetryRuleForOrganizationInput {
  */
 export interface UpdateTelemetryRuleForOrganizationOutput {
   /**
-   * <p> The Amazon Resource Name (ARN) of the updated organization telemetry rule. </p>
+   * The Amazon Resource Name (ARN) of the updated organization telemetry rule.
+   *
    * @public
    */
   RuleArn?: string | undefined;
@@ -2619,7 +3038,8 @@ export interface UpdateTelemetryRuleForOrganizationOutput {
  */
 export interface ValidateTelemetryPipelineConfigurationInput {
   /**
-   * <p>The pipeline configuration to validate for syntax and compatibility.</p>
+   * The pipeline configuration to validate for syntax and compatibility.
+   *
    * @public
    */
   Configuration: TelemetryPipelineConfiguration | undefined;
@@ -2630,7 +3050,8 @@ export interface ValidateTelemetryPipelineConfigurationInput {
  */
 export interface ValidateTelemetryPipelineConfigurationOutput {
   /**
-   * <p>A list of validation errors found in the pipeline configuration, if any.</p>
+   * A list of validation errors found in the pipeline configuration, if any.
+   *
    * @public
    */
   Errors?: ValidationError[] | undefined;

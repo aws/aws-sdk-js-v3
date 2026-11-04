@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 /**
- * <p>This structure contains Amazon Web Services-specific parameter extensions and the <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-overview.html">identity context</a>.</p>
+ * This structure contains Amazon Web Services-specific parameter extensions and the [identity context](https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-overview.html).
+ *
  * @public
  */
 export interface AwsAdditionalDetails {
   /**
-   * <p>The trusted context assertion is signed and encrypted by STS. It provides access to
-   *         <code>sts:identity_context</code> claim in the <code>idToken</code> without JWT
-   *       parsing</p>
-   *          <p>Identity context comprises information that Amazon Web Services services use to make authorization
-   *       decisions when they receive requests.</p>
+   * The trusted context assertion is signed and encrypted by STS. It provides access to `sts:identity_context` claim in the `idToken` without JWT parsing
+   *
+   * Identity context comprises information that Amazon Web Services services use to make authorization decisions when they receive requests.
+   *
    * @public
    */
   identityContext?: string | undefined;
@@ -20,74 +20,72 @@ export interface AwsAdditionalDetails {
  */
 export interface CreateTokenRequest {
   /**
-   * <p>The unique identifier string for the client or application. This value comes from the
-   *       result of the <a>RegisterClient</a> API.</p>
+   * The unique identifier string for the client or application. This value comes from the result of the RegisterClient API.
+   *
    * @public
    */
   clientId: string | undefined;
 
   /**
-   * <p>A secret string generated for the client. This value should come from the persisted result
-   *       of the <a>RegisterClient</a> API.</p>
+   * A secret string generated for the client. This value should come from the persisted result of the RegisterClient API.
+   *
    * @public
    */
   clientSecret: string | undefined;
 
   /**
-   * <p>Supports the following OAuth grant types: Authorization Code, Device Code, and Refresh
-   *       Token. Specify one of the following values, depending on the grant type that you want:</p>
-   *          <p>* Authorization Code - <code>authorization_code</code>
-   *          </p>
-   *          <p>* Device Code - <code>urn:ietf:params:oauth:grant-type:device_code</code>
-   *          </p>
-   *          <p>* Refresh Token - <code>refresh_token</code>
-   *          </p>
+   * Supports the following OAuth grant types: Authorization Code, Device Code, and Refresh Token. Specify one of the following values, depending on the grant type that you want:
+   *
+   * * Authorization Code - `authorization_code`
+   *
+   * * Device Code - `urn:ietf:params:oauth:grant-type:device_code`
+   *
+   * * Refresh Token - `refresh_token`
+   *
    * @public
    */
   grantType: string | undefined;
 
   /**
-   * <p>Used only when calling this API for the Device Code grant type. This short-lived code is
-   *       used to identify this authorization request. This comes from the result of the <a>StartDeviceAuthorization</a> API.</p>
+   * Used only when calling this API for the Device Code grant type. This short-lived code is used to identify this authorization request. This comes from the result of the StartDeviceAuthorization API.
+   *
    * @public
    */
   deviceCode?: string | undefined;
 
   /**
-   * <p>Used only when calling this API for the Authorization Code grant type. The short-lived
-   *       code is used to identify this authorization request.</p>
+   * Used only when calling this API for the Authorization Code grant type. The short-lived code is used to identify this authorization request.
+   *
    * @public
    */
   code?: string | undefined;
 
   /**
-   * <p>Used only when calling this API for the Refresh Token grant type. This token is used to
-   *       refresh short-lived tokens, such as the access token, that might expire.</p>
-   *          <p>For more information about the features and limitations of the current IAM Identity Center OIDC
-   *       implementation, see <i>Considerations for Using this Guide</i> in the <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html">IAM Identity Center
-   *         OIDC API Reference</a>.</p>
+   * Used only when calling this API for the Refresh Token grant type. This token is used to refresh short-lived tokens, such as the access token, that might expire.
+   *
+   * For more information about the features and limitations of the current IAM Identity Center OIDC implementation, see *Considerations for Using this Guide* in the [IAM Identity Center OIDC API Reference](https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html).
+   *
    * @public
    */
   refreshToken?: string | undefined;
 
   /**
-   * <p>The list of scopes for which authorization is requested. This parameter has no effect; the access token will always include all scopes configured during client registration.</p>
+   * The list of scopes for which authorization is requested. This parameter has no effect; the access token will always include all scopes configured during client registration.
+   *
    * @public
    */
   scope?: string[] | undefined;
 
   /**
-   * <p>Used only when calling this API for the Authorization Code grant type. This value
-   *       specifies the location of the client or application that has registered to receive the
-   *       authorization code.</p>
+   * Used only when calling this API for the Authorization Code grant type. This value specifies the location of the client or application that has registered to receive the authorization code.
+   *
    * @public
    */
   redirectUri?: string | undefined;
 
   /**
-   * <p>Used only when calling this API for the Authorization Code grant type. This value is
-   *       generated by the client and presented to validate the original code challenge value the client
-   *       passed at authorization time.</p>
+   * Used only when calling this API for the Authorization Code grant type. This value is generated by the client and presented to validate the original code challenge value the client passed at authorization time.
+   *
    * @public
    */
   codeVerifier?: string | undefined;
@@ -98,41 +96,40 @@ export interface CreateTokenRequest {
  */
 export interface CreateTokenResponse {
   /**
-   * <p>A bearer token to access Amazon Web Services accounts and applications assigned to a user.</p>
+   * A bearer token to access Amazon Web Services accounts and applications assigned to a user.
+   *
    * @public
    */
   accessToken?: string | undefined;
 
   /**
-   * <p>Used to notify the client that the returned token is an access token. The supported token
-   *       type is <code>Bearer</code>.</p>
+   * Used to notify the client that the returned token is an access token. The supported token type is `Bearer`.
+   *
    * @public
    */
   tokenType?: string | undefined;
 
   /**
-   * <p>Indicates the time in seconds when an access token will expire.</p>
+   * Indicates the time in seconds when an access token will expire.
+   *
    * @public
    */
   expiresIn?: number | undefined;
 
   /**
-   * <p>A token that, if present, can be used to refresh a previously issued access token that
-   *       might have expired.</p>
-   *          <p>For more information about the features and limitations of the current IAM Identity Center OIDC
-   *       implementation, see <i>Considerations for Using this Guide</i> in the <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html">IAM Identity Center
-   *         OIDC API Reference</a>.</p>
+   * A token that, if present, can be used to refresh a previously issued access token that might have expired.
+   *
+   * For more information about the features and limitations of the current IAM Identity Center OIDC implementation, see *Considerations for Using this Guide* in the [IAM Identity Center OIDC API Reference](https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html).
+   *
    * @public
    */
   refreshToken?: string | undefined;
 
   /**
-   * <p>The <code>idToken</code> is not implemented or supported. For more information about the
-   *       features and limitations of the current IAM Identity Center OIDC implementation, see
-   *         <i>Considerations for Using this Guide</i> in the <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html">IAM Identity Center
-   *         OIDC API Reference</a>.</p>
-   *          <p>A JSON Web Token (JWT) that identifies who is associated with the issued access token.
-   *     </p>
+   * The `idToken` is not implemented or supported. For more information about the features and limitations of the current IAM Identity Center OIDC implementation, see *Considerations for Using this Guide* in the [IAM Identity Center OIDC API Reference](https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html).
+   *
+   * A JSON Web Token (JWT) that identifies who is associated with the issued access token.
+   *
    * @public
    */
   idToken?: string | undefined;
@@ -143,106 +140,94 @@ export interface CreateTokenResponse {
  */
 export interface CreateTokenWithIAMRequest {
   /**
-   * <p>The unique identifier string for the client or application. This value is an application
-   *       ARN that has OAuth grants configured.</p>
+   * The unique identifier string for the client or application. This value is an application ARN that has OAuth grants configured.
+   *
    * @public
    */
   clientId: string | undefined;
 
   /**
-   * <p>Supports the following OAuth grant types: Authorization Code, Refresh Token, JWT Bearer,
-   *       and Token Exchange. Specify one of the following values, depending on the grant type that you
-   *       want:</p>
-   *          <p>* Authorization Code - <code>authorization_code</code>
-   *          </p>
-   *          <p>* Refresh Token - <code>refresh_token</code>
-   *          </p>
-   *          <p>* JWT Bearer - <code>urn:ietf:params:oauth:grant-type:jwt-bearer</code>
-   *          </p>
-   *          <p>* Token Exchange - <code>urn:ietf:params:oauth:grant-type:token-exchange</code>
-   *          </p>
+   * Supports the following OAuth grant types: Authorization Code, Refresh Token, JWT Bearer, and Token Exchange. Specify one of the following values, depending on the grant type that you want:
+   *
+   * * Authorization Code - `authorization_code`
+   *
+   * * Refresh Token - `refresh_token`
+   *
+   * * JWT Bearer - `urn:ietf:params:oauth:grant-type:jwt-bearer`
+   *
+   * * Token Exchange - `urn:ietf:params:oauth:grant-type:token-exchange`
+   *
    * @public
    */
   grantType: string | undefined;
 
   /**
-   * <p>Used only when calling this API for the Authorization Code grant type. This short-lived
-   *       code is used to identify this authorization request. The code is obtained through a redirect
-   *       from IAM Identity Center to a redirect URI persisted in the Authorization Code GrantOptions for the
-   *       application.</p>
+   * Used only when calling this API for the Authorization Code grant type. This short-lived code is used to identify this authorization request. The code is obtained through a redirect from IAM Identity Center to a redirect URI persisted in the Authorization Code GrantOptions for the application.
+   *
    * @public
    */
   code?: string | undefined;
 
   /**
-   * <p>Used only when calling this API for the Refresh Token grant type. This token is used to
-   *       refresh short-lived tokens, such as the access token, that might expire.</p>
-   *          <p>For more information about the features and limitations of the current IAM Identity Center OIDC
-   *       implementation, see <i>Considerations for Using this Guide</i> in the <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html">IAM Identity Center
-   *         OIDC API Reference</a>.</p>
+   * Used only when calling this API for the Refresh Token grant type. This token is used to refresh short-lived tokens, such as the access token, that might expire.
+   *
+   * For more information about the features and limitations of the current IAM Identity Center OIDC implementation, see *Considerations for Using this Guide* in the [IAM Identity Center OIDC API Reference](https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html).
+   *
    * @public
    */
   refreshToken?: string | undefined;
 
   /**
-   * <p>Used only when calling this API for the JWT Bearer grant type. This value specifies the
-   *       JSON Web Token (JWT) issued by a trusted token issuer. To authorize a trusted token issuer,
-   *       configure the JWT Bearer GrantOptions for the application.</p>
+   * Used only when calling this API for the JWT Bearer grant type. This value specifies the JSON Web Token (JWT) issued by a trusted token issuer. To authorize a trusted token issuer, configure the JWT Bearer GrantOptions for the application.
+   *
    * @public
    */
   assertion?: string | undefined;
 
   /**
-   * <p>The list of scopes for which authorization is requested. The access token that is issued
-   *       is limited to the scopes that are granted. If the value is not specified, IAM Identity Center authorizes all
-   *       scopes configured for the application, including the following default scopes:
-   *         <code>openid</code>, <code>aws</code>, <code>sts:identity_context</code>.</p>
+   * The list of scopes for which authorization is requested. The access token that is issued is limited to the scopes that are granted. If the value is not specified, IAM Identity Center authorizes all scopes configured for the application, including the following default scopes: `openid`, `aws`, `sts:identity_context`.
+   *
    * @public
    */
   scope?: string[] | undefined;
 
   /**
-   * <p>Used only when calling this API for the Authorization Code grant type. This value
-   *       specifies the location of the client or application that has registered to receive the
-   *       authorization code. </p>
+   * Used only when calling this API for the Authorization Code grant type. This value specifies the location of the client or application that has registered to receive the authorization code.
+   *
    * @public
    */
   redirectUri?: string | undefined;
 
   /**
-   * <p>Used only when calling this API for the Token Exchange grant type. This value specifies
-   *       the subject of the exchange. The value of the subject token must be an access token issued by
-   *       IAM Identity Center to a different client or application. The access token must have authorized scopes that
-   *       indicate the requested application as a target audience.</p>
+   * Used only when calling this API for the Token Exchange grant type. This value specifies the subject of the exchange. The value of the subject token must be an access token issued by IAM Identity Center to a different client or application. The access token must have authorized scopes that indicate the requested application as a target audience.
+   *
    * @public
    */
   subjectToken?: string | undefined;
 
   /**
-   * <p>Used only when calling this API for the Token Exchange grant type. This value specifies
-   *       the type of token that is passed as the subject of the exchange. The following value is
-   *       supported:</p>
-   *          <p>* Access Token - <code>urn:ietf:params:oauth:token-type:access_token</code>
-   *          </p>
+   * Used only when calling this API for the Token Exchange grant type. This value specifies the type of token that is passed as the subject of the exchange. The following value is supported:
+   *
+   * * Access Token - `urn:ietf:params:oauth:token-type:access_token`
+   *
    * @public
    */
   subjectTokenType?: string | undefined;
 
   /**
-   * <p>Used only when calling this API for the Token Exchange grant type. This value specifies
-   *       the type of token that the requester can receive. The following values are supported:</p>
-   *          <p>* Access Token - <code>urn:ietf:params:oauth:token-type:access_token</code>
-   *          </p>
-   *          <p>* Refresh Token - <code>urn:ietf:params:oauth:token-type:refresh_token</code>
-   *          </p>
+   * Used only when calling this API for the Token Exchange grant type. This value specifies the type of token that the requester can receive. The following values are supported:
+   *
+   * * Access Token - `urn:ietf:params:oauth:token-type:access_token`
+   *
+   * * Refresh Token - `urn:ietf:params:oauth:token-type:refresh_token`
+   *
    * @public
    */
   requestedTokenType?: string | undefined;
 
   /**
-   * <p>Used only when calling this API for the Authorization Code grant type. This value is
-   *       generated by the client and presented to validate the original code challenge value the client
-   *       passed at authorization time.</p>
+   * Used only when calling this API for the Authorization Code grant type. This value is generated by the client and presented to validate the original code challenge value the client passed at authorization time.
+   *
    * @public
    */
   codeVerifier?: string | undefined;
@@ -253,61 +238,63 @@ export interface CreateTokenWithIAMRequest {
  */
 export interface CreateTokenWithIAMResponse {
   /**
-   * <p>A bearer token to access Amazon Web Services accounts and applications assigned to a user.</p>
+   * A bearer token to access Amazon Web Services accounts and applications assigned to a user.
+   *
    * @public
    */
   accessToken?: string | undefined;
 
   /**
-   * <p>Used to notify the requester that the returned token is an access token. The supported
-   *       token type is <code>Bearer</code>.</p>
+   * Used to notify the requester that the returned token is an access token. The supported token type is `Bearer`.
+   *
    * @public
    */
   tokenType?: string | undefined;
 
   /**
-   * <p>Indicates the time in seconds when an access token will expire.</p>
+   * Indicates the time in seconds when an access token will expire.
+   *
    * @public
    */
   expiresIn?: number | undefined;
 
   /**
-   * <p>A token that, if present, can be used to refresh a previously issued access token that
-   *       might have expired.</p>
-   *          <p>For more information about the features and limitations of the current IAM Identity Center OIDC
-   *       implementation, see <i>Considerations for Using this Guide</i> in the <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html">IAM Identity Center
-   *         OIDC API Reference</a>.</p>
+   * A token that, if present, can be used to refresh a previously issued access token that might have expired.
+   *
+   * For more information about the features and limitations of the current IAM Identity Center OIDC implementation, see *Considerations for Using this Guide* in the [IAM Identity Center OIDC API Reference](https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html).
+   *
    * @public
    */
   refreshToken?: string | undefined;
 
   /**
-   * <p>A JSON Web Token (JWT) that identifies the user associated with the issued access token.
-   *     </p>
+   * A JSON Web Token (JWT) that identifies the user associated with the issued access token.
+   *
    * @public
    */
   idToken?: string | undefined;
 
   /**
-   * <p>Indicates the type of tokens that are issued by IAM Identity Center. The following values are supported: </p>
-   *          <p>* Access Token - <code>urn:ietf:params:oauth:token-type:access_token</code>
-   *          </p>
-   *          <p>* Refresh Token - <code>urn:ietf:params:oauth:token-type:refresh_token</code>
-   *          </p>
+   * Indicates the type of tokens that are issued by IAM Identity Center. The following values are supported:
+   *
+   * * Access Token - `urn:ietf:params:oauth:token-type:access_token`
+   *
+   * * Refresh Token - `urn:ietf:params:oauth:token-type:refresh_token`
+   *
    * @public
    */
   issuedTokenType?: string | undefined;
 
   /**
-   * <p>The list of scopes for which authorization is granted. The access token that is issued is
-   *       limited to the scopes that are granted.</p>
+   * The list of scopes for which authorization is granted. The access token that is issued is limited to the scopes that are granted.
+   *
    * @public
    */
   scope?: string[] | undefined;
 
   /**
-   * <p>A structure containing information from IAM Identity Center managed user and group
-   *       information.</p>
+   * A structure containing information from IAM Identity Center managed user and group information.
+   *
    * @public
    */
   awsAdditionalDetails?: AwsAdditionalDetails | undefined;
@@ -318,57 +305,56 @@ export interface CreateTokenWithIAMResponse {
  */
 export interface RegisterClientRequest {
   /**
-   * <p>The friendly name of the client.</p>
+   * The friendly name of the client.
+   *
    * @public
    */
   clientName: string | undefined;
 
   /**
-   * <p>The type of client. The service supports only <code>public</code> as a client type.
-   *       Anything other than public will be rejected by the service.</p>
+   * The type of client. The service supports only `public` as a client type. Anything other than public will be rejected by the service.
+   *
    * @public
    */
   clientType: string | undefined;
 
   /**
-   * <p>The list of scopes that are defined by the client. Upon authorization, this list is used
-   *       to restrict permissions when granting an access token.</p>
+   * The list of scopes that are defined by the client. Upon authorization, this list is used to restrict permissions when granting an access token.
+   *
    * @public
    */
   scopes?: string[] | undefined;
 
   /**
-   * <p>The list of redirect URI that are defined by the client. At completion of authorization,
-   *       this list is used to restrict what locations the user agent can be redirected back to.</p>
+   * The list of redirect URI that are defined by the client. At completion of authorization, this list is used to restrict what locations the user agent can be redirected back to.
+   *
    * @public
    */
   redirectUris?: string[] | undefined;
 
   /**
-   * <p>The list of OAuth 2.0 grant types that are defined by the client. This list is used to
-   *       restrict the token granting flows available to the client. Supports the following OAuth 2.0
-   *       grant types: Authorization Code, Device Code, and Refresh Token. </p>
-   *          <p>* Authorization Code - <code>authorization_code</code>
-   *          </p>
-   *          <p>* Device Code - <code>urn:ietf:params:oauth:grant-type:device_code</code>
-   *          </p>
-   *          <p>* Refresh Token - <code>refresh_token</code>
-   *          </p>
+   * The list of OAuth 2.0 grant types that are defined by the client. This list is used to restrict the token granting flows available to the client. Supports the following OAuth 2.0 grant types: Authorization Code, Device Code, and Refresh Token.
+   *
+   * * Authorization Code - `authorization_code`
+   *
+   * * Device Code - `urn:ietf:params:oauth:grant-type:device_code`
+   *
+   * * Refresh Token - `refresh_token`
+   *
    * @public
    */
   grantTypes?: string[] | undefined;
 
   /**
-   * <p>The IAM Identity Center Issuer URL associated with an instance of IAM Identity Center. This value is needed for user
-   *       access to resources through the client.</p>
+   * The IAM Identity Center Issuer URL associated with an instance of IAM Identity Center. This value is needed for user access to resources through the client.
+   *
    * @public
    */
   issuerUrl?: string | undefined;
 
   /**
-   * <p>This IAM Identity Center application ARN is used to define administrator-managed configuration for
-   *       public client access to resources. At authorization, the scopes, grants, and redirect URI
-   *       available to this client will be restricted by this application resource.</p>
+   * This IAM Identity Center application ARN is used to define administrator-managed configuration for public client access to resources. At authorization, the scopes, grants, and redirect URI available to this client will be restricted by this application resource.
+   *
    * @public
    */
   entitledApplicationArn?: string | undefined;
@@ -379,41 +365,43 @@ export interface RegisterClientRequest {
  */
 export interface RegisterClientResponse {
   /**
-   * <p>The unique identifier string for each client. This client uses this identifier to get
-   *       authenticated by the service in subsequent calls.</p>
+   * The unique identifier string for each client. This client uses this identifier to get authenticated by the service in subsequent calls.
+   *
    * @public
    */
   clientId?: string | undefined;
 
   /**
-   * <p>A secret string generated for the client. The client will use this string to get
-   *       authenticated by the service in subsequent calls.</p>
+   * A secret string generated for the client. The client will use this string to get authenticated by the service in subsequent calls.
+   *
    * @public
    */
   clientSecret?: string | undefined;
 
   /**
-   * <p>Indicates the time at which the <code>clientId</code> and <code>clientSecret</code> were
-   *       issued.</p>
+   * Indicates the time at which the `clientId` and `clientSecret` were issued.
+   *
    * @public
    */
   clientIdIssuedAt?: number | undefined;
 
   /**
-   * <p>Indicates the time at which the <code>clientId</code> and <code>clientSecret</code> will
-   *       become invalid.</p>
+   * Indicates the time at which the `clientId` and `clientSecret` will become invalid.
+   *
    * @public
    */
   clientSecretExpiresAt?: number | undefined;
 
   /**
-   * <p>An endpoint that the client can use to request authorization.</p>
+   * An endpoint that the client can use to request authorization.
+   *
    * @public
    */
   authorizationEndpoint?: string | undefined;
 
   /**
-   * <p>An endpoint that the client can use to create tokens.</p>
+   * An endpoint that the client can use to create tokens.
+   *
    * @public
    */
   tokenEndpoint?: string | undefined;
@@ -424,23 +412,22 @@ export interface RegisterClientResponse {
  */
 export interface StartDeviceAuthorizationRequest {
   /**
-   * <p>The unique identifier string for the client that is registered with IAM Identity Center. This value
-   *       should come from the persisted result of the <a>RegisterClient</a> API
-   *       operation.</p>
+   * The unique identifier string for the client that is registered with IAM Identity Center. This value should come from the persisted result of the RegisterClient API operation.
+   *
    * @public
    */
   clientId: string | undefined;
 
   /**
-   * <p>A secret string that is generated for the client. This value should come from the
-   *       persisted result of the <a>RegisterClient</a> API operation.</p>
+   * A secret string that is generated for the client. This value should come from the persisted result of the RegisterClient API operation.
+   *
    * @public
    */
   clientSecret: string | undefined;
 
   /**
-   * <p>The URL for the Amazon Web Services access portal. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/using-the-portal.html">Using
-   *         the Amazon Web Services access portal</a> in the <i>IAM Identity Center User Guide</i>.</p>
+   * The URL for the Amazon Web Services access portal. For more information, see [Using the Amazon Web Services access portal](https://docs.aws.amazon.com/singlesignon/latest/userguide/using-the-portal.html) in the *IAM Identity Center User Guide*.
+   *
    * @public
    */
   startUrl: string | undefined;
@@ -451,41 +438,43 @@ export interface StartDeviceAuthorizationRequest {
  */
 export interface StartDeviceAuthorizationResponse {
   /**
-   * <p>The short-lived code that is used by the device when polling for a session token.</p>
+   * The short-lived code that is used by the device when polling for a session token.
+   *
    * @public
    */
   deviceCode?: string | undefined;
 
   /**
-   * <p>A one-time user verification code. This is needed to authorize an in-use device.</p>
+   * A one-time user verification code. This is needed to authorize an in-use device.
+   *
    * @public
    */
   userCode?: string | undefined;
 
   /**
-   * <p>The URI of the verification page that takes the <code>userCode</code> to authorize the
-   *       device.</p>
+   * The URI of the verification page that takes the `userCode` to authorize the device.
+   *
    * @public
    */
   verificationUri?: string | undefined;
 
   /**
-   * <p>An alternate URL that the client can use to automatically launch a browser. This process
-   *       skips the manual step in which the user visits the verification page and enters their
-   *       code.</p>
+   * An alternate URL that the client can use to automatically launch a browser. This process skips the manual step in which the user visits the verification page and enters their code.
+   *
    * @public
    */
   verificationUriComplete?: string | undefined;
 
   /**
-   * <p>Indicates the number of seconds in which the verification code will become invalid.</p>
+   * Indicates the number of seconds in which the verification code will become invalid.
+   *
    * @public
    */
   expiresIn?: number | undefined;
 
   /**
-   * <p>Indicates the number of seconds the client must wait between attempts when polling for a
-   *       session.</p>
+   * Indicates the number of seconds the client must wait between attempts when polling for a session.
+   *
    * @public
    */
   interval?: number | undefined;

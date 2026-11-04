@@ -23,7 +23,8 @@ export interface BatchGetThreatsCommandInput extends BatchGetThreatsInput {}
 export interface BatchGetThreatsCommandOutput extends BatchGetThreatsOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about one or more threats.</p>
+ * Retrieves information about one or more threats.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,8 +96,8 @@ export interface BatchGetThreatsCommandOutput extends BatchGetThreatsOutput, __M
  * @see {@link SecurityAgentClientResolvedConfig | config} for SecurityAgentClient's `config` shape.
  *
  * @throws {@link SecurityAgentServiceException}
- * <p>Base exception class for all service exceptions from SecurityAgent service.</p>
  *
+ * Base exception class for all service exceptions from SecurityAgent service.
  *
  * @public
  */

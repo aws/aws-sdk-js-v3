@@ -26,7 +26,8 @@ export interface GetNetworkInsightsAccessScopeAnalysisFindingsCommandInput exten
 export interface GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput extends GetNetworkInsightsAccessScopeAnalysisFindingsResult, __MetadataBearer {}
 
 /**
- * <p>Gets the findings for the specified Network Access Scope analysis.</p>
+ * Gets the findings for the specified Network Access Scope analysis.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -406,8 +407,8 @@ export interface GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput exte
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface CreateStackCommandInput extends CreateStackRequest {}
 export interface CreateStackCommandOutput extends CreateStackResult, __MetadataBearer {}
 
 /**
- * <p>Creates a stack to start streaming applications to users. A stack consists of an associated fleet, user access policies, and storage configurations. </p>
+ * Creates a stack to start streaming applications to users. A stack consists of an associated fleet, user access policies, and storage configurations.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -192,32 +193,40 @@ export interface CreateStackCommandOutput extends CreateStackResult, __MetadataB
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>An API error occurred. Wait a few minutes and try again.</p>
+ *
+ * An API error occurred. Wait a few minutes and try again.
  *
  * @throws {@link InvalidAccountStatusException} (client fault)
- *  <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
+ *
+ * The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+ *
+ * Indicates an incorrect combination of parameters, or a missing parameter.
  *
  * @throws {@link InvalidRoleException} (client fault)
- *  <p>The specified role is invalid.</p>
+ *
+ * The specified role is invalid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The requested limit exceeds the permitted limit for an account.</p>
+ *
+ * The requested limit exceeds the permitted limit for an account.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>The attempted operation is not permitted.</p>
+ *
+ * The attempted operation is not permitted.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>The specified resource already exists.</p>
+ *
+ * The specified resource already exists.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link AppStreamServiceException}
- * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * Base exception class for all service exceptions from AppStream service.
  *
  * @public
  */

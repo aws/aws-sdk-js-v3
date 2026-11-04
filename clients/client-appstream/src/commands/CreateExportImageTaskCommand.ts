@@ -23,7 +23,8 @@ export interface CreateExportImageTaskCommandInput extends CreateExportImageTask
 export interface CreateExportImageTaskCommandOutput extends CreateExportImageTaskResult, __MetadataBearer {}
 
 /**
- * <p>Creates a task to export a WorkSpaces Applications image to an EC2 AMI. This allows you to use your customized WorkSpaces Applications images with other AWS services or for backup purposes.</p>
+ * Creates a task to export a WorkSpaces Applications image to an EC2 AMI. This allows you to use your customized WorkSpaces Applications images with other AWS services or for backup purposes.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,29 +74,36 @@ export interface CreateExportImageTaskCommandOutput extends CreateExportImageTas
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>An API error occurred. Wait a few minutes and try again.</p>
+ *
+ * An API error occurred. Wait a few minutes and try again.
  *
  * @throws {@link InvalidAccountStatusException} (client fault)
- *  <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
+ *
+ * The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support.
  *
  * @throws {@link InvalidRoleException} (client fault)
- *  <p>The specified role is invalid.</p>
+ *
+ * The specified role is invalid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The requested limit exceeds the permitted limit for an account.</p>
+ *
+ * The requested limit exceeds the permitted limit for an account.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>The attempted operation is not permitted.</p>
+ *
+ * The attempted operation is not permitted.
  *
  * @throws {@link ResourceNotAvailableException} (client fault)
- *  <p>The specified resource exists and is not in use, but isn't available.</p>
+ *
+ * The specified resource exists and is not in use, but isn't available.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link AppStreamServiceException}
- * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * Base exception class for all service exceptions from AppStream service.
  *
  * @public
  */

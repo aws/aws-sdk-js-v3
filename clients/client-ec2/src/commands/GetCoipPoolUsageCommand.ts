@@ -23,7 +23,8 @@ export interface GetCoipPoolUsageCommandInput extends GetCoipPoolUsageRequest {}
 export interface GetCoipPoolUsageCommandOutput extends GetCoipPoolUsageResult, __MetadataBearer {}
 
 /**
- * <p>Describes the allocations from the specified customer-owned address pool.</p>
+ * Describes the allocations from the specified customer-owned address pool.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,8 +72,8 @@ export interface GetCoipPoolUsageCommandOutput extends GetCoipPoolUsageResult, _
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

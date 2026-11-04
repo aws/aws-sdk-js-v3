@@ -459,30 +459,19 @@ export type ChatbotClientResolvedConfigType = __SmithyResolvedConfiguration<__Ht
 export interface ChatbotClientResolvedConfig extends ChatbotClientResolvedConfigType {}
 
 /**
- * <p>The <i>AWS Chatbot API Reference</i> provides descriptions, API request parameters, and the XML response for each of the AWS Chatbot API actions.</p>
- *          <p>AWS Chatbot APIs are currently available in the following Regions:</p>
- *          <ul>
- *             <li>
- *                <p>US East (Ohio) - <code>us-east-2</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>US West (Oregon) - <code>us-west-2</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>Asia Pacific (Singapore) - <code>ap-southeast-1</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>Europe (Ireland) - <code>eu-west-1</code>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>The AWS Chatbot console can only be used in US East (Ohio). Your configuration data however, is stored in each of the relevant available Regions.</p>
- *          <note>
- *             <p>Your AWS CloudTrail events are logged in whatever Region you call from, not US East (N. Virginia) by default.</p>
- *          </note>
+ * The *AWS Chatbot API Reference* provides descriptions, API request parameters, and the XML response for each of the AWS Chatbot API actions.
+ *
+ * AWS Chatbot APIs are currently available in the following Regions:
+ *
+ * - US East (Ohio) - `us-east-2`
+ * - US West (Oregon) - `us-west-2`
+ * - Asia Pacific (Singapore) - `ap-southeast-1`
+ * - Europe (Ireland) - `eu-west-1`
+ *
+ * The AWS Chatbot console can only be used in US East (Ohio). Your configuration data however, is stored in each of the relevant available Regions.
+ *
+ * > **Note:** Your AWS CloudTrail events are logged in whatever Region you call from, not US East (N. Virginia) by default.
+ *
  * @public
  */
 export class ChatbotClient extends __Client<

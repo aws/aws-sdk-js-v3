@@ -23,13 +23,12 @@ export interface ListAccessGrantsInstancesCommandInput extends ListAccessGrantsI
 export interface ListAccessGrantsInstancesCommandOutput extends ListAccessGrantsInstancesResult, __MetadataBearer {}
 
 /**
- * <p>Returns a list of S3 Access Grants instances. An S3 Access Grants instance serves as a logical grouping for your individual access grants. You can only have one S3 Access Grants instance per Region per account.</p>
- *          <dl>
- *             <dt>Permissions</dt>
- *             <dd>
- *                <p>You must have the <code>s3:ListAccessGrantsInstances</code> permission to use this operation. </p>
- *             </dd>
- *          </dl>
+ * Returns a list of S3 Access Grants instances. An S3 Access Grants instance serves as a logical grouping for your individual access grants. You can only have one S3 Access Grants instance per Region per account.
+ *
+ * - **Permissions**
+ *
+ *   You must have the `s3:ListAccessGrantsInstances` permission to use this operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,8 +67,8 @@ export interface ListAccessGrantsInstancesCommandOutput extends ListAccessGrants
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
  * @throws {@link S3ControlServiceException}
- * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * Base exception class for all service exceptions from S3Control service.
  *
  * @public
  */

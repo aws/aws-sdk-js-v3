@@ -25,7 +25,14 @@ export interface ExecuteQueryCommandOutput extends Omit<ExecuteQueryOutput, "pay
 }
 
 /**
- * <p>Execute an openCypher query.</p> <p> When invoking this operation in a Neptune Analytics cluster, the IAM user or role making the request must have a policy attached that allows one of the following IAM actions in that cluster, depending on the query: </p> <ul> <li> <p>neptune-graph:ReadDataViaQuery</p> </li> <li> <p>neptune-graph:WriteDataViaQuery</p> </li> <li> <p>neptune-graph:DeleteDataViaQuery</p> </li> </ul>
+ * Execute an openCypher query.
+ *
+ * When invoking this operation in a Neptune Analytics cluster, the IAM user or role making the request must have a policy attached that allows one of the following IAM actions in that cluster, depending on the query:
+ *
+ * - neptune-graph:ReadDataViaQuery
+ * - neptune-graph:WriteDataViaQuery
+ * - neptune-graph:DeleteDataViaQuery
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,26 +72,32 @@ export interface ExecuteQueryCommandOutput extends Omit<ExecuteQueryOutput, "pay
  * @see {@link NeptuneGraphClientResolvedConfig | config} for NeptuneGraphClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Raised in case of an authentication or authorization failure.</p>
+ *
+ * Raised in case of an authentication or authorization failure.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Raised when a conflict is encountered.</p>
+ *
+ * Raised when a conflict is encountered.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>A failure occurred on the server.</p>
+ *
+ * A failure occurred on the server.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The exception was interrupted by throttling.</p>
+ *
+ * The exception was interrupted by throttling.
  *
  * @throws {@link UnprocessableException} (client fault)
- *  <p>Request cannot be processed due to known reasons. Eg. partition full.</p>
+ *
+ * Request cannot be processed due to known reasons. Eg. partition full.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A resource could not be validated.</p>
+ *
+ * A resource could not be validated.
  *
  * @throws {@link NeptuneGraphServiceException}
- * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ * Base exception class for all service exceptions from NeptuneGraph service.
  *
  * @public
  */

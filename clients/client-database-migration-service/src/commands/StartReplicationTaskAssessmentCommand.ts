@@ -23,21 +23,17 @@ export interface StartReplicationTaskAssessmentCommandInput extends StartReplica
 export interface StartReplicationTaskAssessmentCommandOutput extends StartReplicationTaskAssessmentResponse, __MetadataBearer {}
 
 /**
- * <p> Starts the replication task assessment for unsupported data types in the source
- *          database. </p>
- *          <p>You can only use this operation for a task if the following conditions are true:</p>
- *          <ul>
- *             <li>
- *                <p>The task must be in the <code>stopped</code> state.</p>
- *             </li>
- *             <li>
- *                <p>The task must have successful connections to the source and target.</p>
- *             </li>
- *          </ul>
- *          <p>If either of these conditions are not met, an <code>InvalidResourceStateFault</code>
- *          error will result. </p>
- *          <p>For information about DMS task assessments, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.AssessmentReport.html">Creating a task assessment report</a> in the <i>Database Migration Service User
- *             Guide</i>.</p>
+ * Starts the replication task assessment for unsupported data types in the source database.
+ *
+ * You can only use this operation for a task if the following conditions are true:
+ *
+ * - The task must be in the `stopped` state.
+ * - The task must have successful connections to the source and target.
+ *
+ * If either of these conditions are not met, an `InvalidResourceStateFault` error will result.
+ *
+ * For information about DMS task assessments, see [Creating a task assessment report](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.AssessmentReport.html) in the *Database Migration Service User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -96,14 +92,16 @@ export interface StartReplicationTaskAssessmentCommandOutput extends StartReplic
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link InvalidResourceStateFault} (client fault)
- *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
+ * The resource is in a state that prevents it from being used for database migration.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>This operation tags a resource.</p>
+ * This operation tags a resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,8 +52,8 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
  *
  * @throws {@link DataExchangeServiceException}
- * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ * Base exception class for all service exceptions from DataExchange service.
  *
  * @public
  */

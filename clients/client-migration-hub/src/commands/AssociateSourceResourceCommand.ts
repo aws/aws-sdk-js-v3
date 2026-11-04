@@ -23,8 +23,8 @@ export interface AssociateSourceResourceCommandInput extends AssociateSourceReso
 export interface AssociateSourceResourceCommandOutput extends AssociateSourceResourceResult, __MetadataBearer {}
 
 /**
- * <p>Associates a source resource with a migration task. For example, the source resource can
- *          be a source server, an application, or a migration wave.</p>
+ * Associates a source resource with a migration task. For example, the source resource can be a source server, an application, or a migration wave.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,39 +56,40 @@ export interface AssociateSourceResourceCommandOutput extends AssociateSourceRes
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link DryRunOperation} (client fault)
- *  <p>Exception raised to indicate a successfully authorized action when the
- *             <code>DryRun</code> flag is set to "true".</p>
+ *
+ * Exception raised to indicate a successfully authorized action when the `DryRun` flag is set to "true".
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Exception raised when an internal, configuration, or dependency error is
- *          encountered.</p>
+ *
+ * Exception raised when an internal, configuration, or dependency error is encountered.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>Exception raised when the provided input violates a policy constraint or is entered in
- *          the wrong format or data type.</p>
+ *
+ * Exception raised when the provided input violates a policy constraint or is entered in the wrong format or data type.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Exception raised when the request references a resource (Application Discovery Service
- *          configuration, update stream, migration task, etc.) that does not exist in Application
- *          Discovery Service (Application Discovery Service) or in Migration Hub's repository.</p>
+ *
+ * Exception raised when the request references a resource (Application Discovery Service configuration, update stream, migration task, etc.) that does not exist in Application Discovery Service (Application Discovery Service) or in Migration Hub's repository.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>Exception raised when there is an internal, configuration, or dependency error
- *          encountered.</p>
+ *
+ * Exception raised when there is an internal, configuration, or dependency error encountered.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link UnauthorizedOperation} (client fault)
- *  <p>Exception raised to indicate a request was not authorized when the <code>DryRun</code>
- *          flag is set to "true".</p>
+ *
+ * Exception raised to indicate a request was not authorized when the `DryRun` flag is set to "true".
  *
  * @throws {@link MigrationHubServiceException}
- * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
+ * Base exception class for all service exceptions from MigrationHub service.
  *
  * @public
  */

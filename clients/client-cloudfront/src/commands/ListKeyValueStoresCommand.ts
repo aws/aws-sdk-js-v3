@@ -23,7 +23,8 @@ export interface ListKeyValueStoresCommandInput extends ListKeyValueStoresReques
 export interface ListKeyValueStoresCommandOutput extends ListKeyValueStoresResult, __MetadataBearer {}
 
 /**
- * <p>Specifies the key value stores to list.</p>
+ * Specifies the key value stores to list.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,17 +67,20 @@ export interface ListKeyValueStoresCommandOutput extends ListKeyValueStoresResul
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link AccessDenied} (client fault)
- *  <p>Access denied.</p>
+ *
+ * Access denied.
  *
  * @throws {@link InvalidArgument} (client fault)
- *  <p>An argument is invalid.</p>
+ *
+ * An argument is invalid.
  *
  * @throws {@link UnsupportedOperation} (client fault)
- *  <p>This operation is not supported in this Amazon Web Services Region.</p>
+ *
+ * This operation is not supported in this Amazon Web Services Region.
  *
  * @throws {@link CloudFrontServiceException}
- * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * Base exception class for all service exceptions from CloudFront service.
  *
  * @example To get a list of KeyValueStores
  * ```javascript

@@ -23,12 +23,10 @@ export interface DescribeClassicLinkInstancesCommandInput extends DescribeClassi
 export interface DescribeClassicLinkInstancesCommandOutput extends DescribeClassicLinkInstancesResult, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This action is deprecated.</p>
- *          </note>
- *          <p>Describes your linked EC2-Classic instances. This request only returns
- * 			information about EC2-Classic instances linked to a VPC through ClassicLink. You cannot
- * 			use this request to return information about other instances.</p>
+ * > **Note:** This action is deprecated.
+ *
+ * Describes your linked EC2-Classic instances. This request only returns information about EC2-Classic instances linked to a VPC through ClassicLink. You cannot use this request to return information about other instances.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,8 +84,8 @@ export interface DescribeClassicLinkInstancesCommandOutput extends DescribeClass
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

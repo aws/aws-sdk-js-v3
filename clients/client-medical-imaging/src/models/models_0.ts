@@ -14,66 +14,77 @@ import type {
 } from "./enums";
 
 /**
- * <p>Copy the destination image set.</p>
+ * Copy the destination image set.
+ *
  * @public
  */
 export interface CopyDestinationImageSet {
   /**
-   * <p>The image set identifier for the destination image set.</p>
+   * The image set identifier for the destination image set.
+   *
    * @public
    */
   imageSetId: string | undefined;
 
   /**
-   * <p>The latest version identifier for the destination image set.</p>
+   * The latest version identifier for the destination image set.
+   *
    * @public
    */
   latestVersionId: string | undefined;
 }
 
 /**
- * <p>Contains copiable <code>Attributes</code> structure and wraps information related to specific copy use cases. For example, when copying subsets.</p>
+ * Contains copiable `Attributes` structure and wraps information related to specific copy use cases. For example, when copying subsets.
+ *
  * @public
  */
 export interface MetadataCopies {
   /**
-   * <p>The JSON string used to specify a subset of SOP Instances to copy from source to destination image set.</p>
+   * The JSON string used to specify a subset of SOP Instances to copy from source to destination image set.
+   *
    * @public
    */
   copiableAttributes: string | undefined;
 }
 
 /**
- * <p>Copy source image set information.</p>
+ * Copy source image set information.
+ *
  * @public
  */
 export interface CopySourceImageSetInformation {
   /**
-   * <p>The latest version identifier for the source image set.</p>
+   * The latest version identifier for the source image set.
+   *
    * @public
    */
   latestVersionId: string | undefined;
 
   /**
-   * <p>Contains <code>MetadataCopies</code> structure and wraps information related to specific copy use cases. For example, when copying subsets.</p>
+   * Contains `MetadataCopies` structure and wraps information related to specific copy use cases. For example, when copying subsets.
+   *
    * @public
    */
   DICOMCopies?: MetadataCopies | undefined;
 }
 
 /**
- * <p>Copy image set information.</p>
+ * Copy image set information.
+ *
  * @public
  */
 export interface CopyImageSetInformation {
   /**
-   * <p>The source image set.</p>
+   * The source image set.
+   *
    * @public
    */
   sourceImageSet: CopySourceImageSetInformation | undefined;
 
   /**
-   * <p>The destination image set.</p>
+   * The destination image set.
+   *
    * @public
    */
   destinationImageSet?: CopyDestinationImageSet | undefined;
@@ -84,127 +95,148 @@ export interface CopyImageSetInformation {
  */
 export interface CopyImageSetRequest {
   /**
-   * <p>The data store identifier.</p>
+   * The data store identifier.
+   *
    * @public
    */
   datastoreId: string | undefined;
 
   /**
-   * <p>The source image set identifier.</p>
+   * The source image set identifier.
+   *
    * @public
    */
   sourceImageSetId: string | undefined;
 
   /**
-   * <p>Copy image set information.</p>
+   * Copy image set information.
+   *
    * @public
    */
   copyImageSetInformation: CopyImageSetInformation | undefined;
 
   /**
-   * <p>Providing this parameter will force completion of the <code>CopyImageSet</code> operation, even if there are inconsistent Patient, Study, and/or Series level metadata elements between the <code>sourceImageSet</code> and <code>destinationImageSet</code>.</p>
+   * Providing this parameter will force completion of the `CopyImageSet` operation, even if there are inconsistent Patient, Study, and/or Series level metadata elements between the `sourceImageSet` and `destinationImageSet`.
+   *
    * @public
    */
   force?: boolean | undefined;
 
   /**
-   * <p>Providing this parameter will configure the <code>CopyImageSet</code> operation to promote the given image set to the primary DICOM hierarchy. If successful, a new primary image set ID will be returned as the destination image set.</p>
+   * Providing this parameter will configure the `CopyImageSet` operation to promote the given image set to the primary DICOM hierarchy. If successful, a new primary image set ID will be returned as the destination image set.
+   *
    * @public
    */
   promoteToPrimary?: boolean | undefined;
 }
 
 /**
- * <p>Copy the image set properties of the destination image set.</p>
+ * Copy the image set properties of the destination image set.
+ *
  * @public
  */
 export interface CopyDestinationImageSetProperties {
   /**
-   * <p>The image set identifier of the copied image set properties.</p>
+   * The image set identifier of the copied image set properties.
+   *
    * @public
    */
   imageSetId: string | undefined;
 
   /**
-   * <p>The latest version identifier for the destination image set properties.</p>
+   * The latest version identifier for the destination image set properties.
+   *
    * @public
    */
   latestVersionId: string | undefined;
 
   /**
-   * <p>The image set state of the destination image set properties.</p>
+   * The image set state of the destination image set properties.
+   *
    * @public
    */
   imageSetState?: ImageSetState | undefined;
 
   /**
-   * <p>The image set workflow status of the destination image set properties.</p>
+   * The image set workflow status of the destination image set properties.
+   *
    * @public
    */
   imageSetWorkflowStatus?: ImageSetWorkflowStatus | undefined;
 
   /**
-   * <p>The timestamp when the destination image set properties were created.</p>
+   * The timestamp when the destination image set properties were created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when the destination image set properties were last updated.</p>
+   * The timestamp when the destination image set properties were last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) assigned to the destination image set.</p>
+   * The Amazon Resource Name (ARN) assigned to the destination image set.
+   *
    * @public
    */
   imageSetArn?: string | undefined;
 }
 
 /**
- * <p>Copy source image set properties.</p>
+ * Copy source image set properties.
+ *
  * @public
  */
 export interface CopySourceImageSetProperties {
   /**
-   * <p>The image set identifier for the copied source image set.</p>
+   * The image set identifier for the copied source image set.
+   *
    * @public
    */
   imageSetId: string | undefined;
 
   /**
-   * <p>The latest version identifier for the copied source image set.</p>
+   * The latest version identifier for the copied source image set.
+   *
    * @public
    */
   latestVersionId: string | undefined;
 
   /**
-   * <p>The image set state of the copied source image set.</p>
+   * The image set state of the copied source image set.
+   *
    * @public
    */
   imageSetState?: ImageSetState | undefined;
 
   /**
-   * <p>The workflow status of the copied source image set.</p>
+   * The workflow status of the copied source image set.
+   *
    * @public
    */
   imageSetWorkflowStatus?: ImageSetWorkflowStatus | undefined;
 
   /**
-   * <p>The timestamp when the source image set properties were created.</p>
+   * The timestamp when the source image set properties were created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when the source image set properties were updated.</p>
+   * The timestamp when the source image set properties were updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) assigned to the source image set.</p>
+   * The Amazon Resource Name (ARN) assigned to the source image set.
+   *
    * @public
    */
   imageSetArn?: string | undefined;
@@ -215,19 +247,22 @@ export interface CopySourceImageSetProperties {
  */
 export interface CopyImageSetResponse {
   /**
-   * <p>The data store identifier.</p>
+   * The data store identifier.
+   *
    * @public
    */
   datastoreId: string | undefined;
 
   /**
-   * <p>The properties of the source image set.</p>
+   * The properties of the source image set.
+   *
    * @public
    */
   sourceImageSetProperties: CopySourceImageSetProperties | undefined;
 
   /**
-   * <p>The properties of the destination image set.</p>
+   * The properties of the destination image set.
+   *
    * @public
    */
   destinationImageSetProperties: CopyDestinationImageSetProperties | undefined;
@@ -238,37 +273,43 @@ export interface CopyImageSetResponse {
  */
 export interface CreateDatastoreRequest {
   /**
-   * <p>The data store name.</p>
+   * The data store name.
+   *
    * @public
    */
   datastoreName?: string | undefined;
 
   /**
-   * <p>A unique identifier for API idempotency.</p>
+   * A unique identifier for API idempotency.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The tags provided when creating a data store.</p>
+   * The tags provided when creating a data store.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) assigned to the Key Management Service (KMS) key for accessing encrypted data.</p>
+   * The Amazon Resource Name (ARN) assigned to the Key Management Service (KMS) key for accessing encrypted data.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The ARN of the authorizer's Lambda function.</p>
+   * The ARN of the authorizer's Lambda function.
+   *
    * @public
    */
   lambdaAuthorizerArn?: string | undefined;
 
   /**
-   * <p>The lossless storage format for the datastore.</p>
+   * The lossless storage format for the datastore.
+   *
    * @public
    */
   losslessStorageFormat?: LosslessStorageFormat | undefined;
@@ -279,13 +320,15 @@ export interface CreateDatastoreRequest {
  */
 export interface CreateDatastoreResponse {
   /**
-   * <p>The data store identifier.</p>
+   * The data store identifier.
+   *
    * @public
    */
   datastoreId: string | undefined;
 
   /**
-   * <p>The data store status.</p>
+   * The data store status.
+   *
    * @public
    */
   datastoreStatus: DatastoreStatus | undefined;
@@ -296,7 +339,8 @@ export interface CreateDatastoreResponse {
  */
 export interface DeleteDatastoreRequest {
   /**
-   * <p>The data store identifier.</p>
+   * The data store identifier.
+   *
    * @public
    */
   datastoreId: string | undefined;
@@ -307,13 +351,15 @@ export interface DeleteDatastoreRequest {
  */
 export interface DeleteDatastoreResponse {
   /**
-   * <p>The data store identifier.</p>
+   * The data store identifier.
+   *
    * @public
    */
   datastoreId: string | undefined;
 
   /**
-   * <p>The data store status.</p>
+   * The data store status.
+   *
    * @public
    */
   datastoreStatus: DatastoreStatus | undefined;
@@ -324,67 +370,78 @@ export interface DeleteDatastoreResponse {
  */
 export interface GetDatastoreRequest {
   /**
-   * <p>The data store identifier.</p>
+   * The data store identifier.
+   *
    * @public
    */
   datastoreId: string | undefined;
 }
 
 /**
- * <p>The properties associated with the data store.</p>
+ * The properties associated with the data store.
+ *
  * @public
  */
 export interface DatastoreProperties {
   /**
-   * <p>The data store identifier.</p>
+   * The data store identifier.
+   *
    * @public
    */
   datastoreId: string | undefined;
 
   /**
-   * <p>The data store name.</p>
+   * The data store name.
+   *
    * @public
    */
   datastoreName: string | undefined;
 
   /**
-   * <p>The data store status.</p>
+   * The data store status.
+   *
    * @public
    */
   datastoreStatus: DatastoreStatus | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) assigned to the Key Management Service (KMS) key for accessing encrypted data.</p>
+   * The Amazon Resource Name (ARN) assigned to the Key Management Service (KMS) key for accessing encrypted data.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The ARN of the authorizer's Lambda function.</p>
+   * The ARN of the authorizer's Lambda function.
+   *
    * @public
    */
   lambdaAuthorizerArn?: string | undefined;
 
   /**
-   * <p>The datastore's lossless storage format.</p>
+   * The datastore's lossless storage format.
+   *
    * @public
    */
   losslessStorageFormat?: LosslessStorageFormat | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the data store.</p>
+   * The Amazon Resource Name (ARN) for the data store.
+   *
    * @public
    */
   datastoreArn?: string | undefined;
 
   /**
-   * <p>The timestamp when the data store was created.</p>
+   * The timestamp when the data store was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when the data store was last updated.</p>
+   * The timestamp when the data store was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -395,7 +452,8 @@ export interface DatastoreProperties {
  */
 export interface GetDatastoreResponse {
   /**
-   * <p>The data store properties.</p>
+   * The data store properties.
+   *
    * @public
    */
   datastoreProperties: DatastoreProperties | undefined;
@@ -406,61 +464,71 @@ export interface GetDatastoreResponse {
  */
 export interface ListDatastoresRequest {
   /**
-   * <p>The data store status.</p>
+   * The data store status.
+   *
    * @public
    */
   datastoreStatus?: DatastoreStatus | undefined;
 
   /**
-   * <p>The pagination token used to request the list of data stores on the next page.</p>
+   * The pagination token used to request the list of data stores on the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Valid Range: Minimum value of 1. Maximum value of 50.</p>
+   * Valid Range: Minimum value of 1. Maximum value of 50.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>List of summaries of data stores.</p>
+ * List of summaries of data stores.
+ *
  * @public
  */
 export interface DatastoreSummary {
   /**
-   * <p>The data store identifier.</p>
+   * The data store identifier.
+   *
    * @public
    */
   datastoreId: string | undefined;
 
   /**
-   * <p>The data store name.</p>
+   * The data store name.
+   *
    * @public
    */
   datastoreName: string | undefined;
 
   /**
-   * <p>The data store status.</p>
+   * The data store status.
+   *
    * @public
    */
   datastoreStatus: DatastoreStatus | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the data store.</p>
+   * The Amazon Resource Name (ARN) for the data store.
+   *
    * @public
    */
   datastoreArn?: string | undefined;
 
   /**
-   * <p>The timestamp when the data store was created.</p>
+   * The timestamp when the data store was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when the data store was last updated.</p>
+   * The timestamp when the data store was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -471,13 +539,15 @@ export interface DatastoreSummary {
  */
 export interface ListDatastoresResponse {
   /**
-   * <p>The list of summaries of data stores.</p>
+   * The list of summaries of data stores.
+   *
    * @public
    */
   datastoreSummaries?: DatastoreSummary[] | undefined;
 
   /**
-   * <p>The pagination token used to retrieve the list of data stores on the next page.</p>
+   * The pagination token used to retrieve the list of data stores on the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -488,13 +558,15 @@ export interface ListDatastoresResponse {
  */
 export interface DeleteImageSetRequest {
   /**
-   * <p>The data store identifier.</p>
+   * The data store identifier.
+   *
    * @public
    */
   datastoreId: string | undefined;
 
   /**
-   * <p>The image set identifier.</p>
+   * The image set identifier.
+   *
    * @public
    */
   imageSetId: string | undefined;
@@ -505,25 +577,29 @@ export interface DeleteImageSetRequest {
  */
 export interface DeleteImageSetResponse {
   /**
-   * <p>The data store identifier.</p>
+   * The data store identifier.
+   *
    * @public
    */
   datastoreId: string | undefined;
 
   /**
-   * <p>The image set identifier.</p>
+   * The image set identifier.
+   *
    * @public
    */
   imageSetId: string | undefined;
 
   /**
-   * <p>The image set state.</p>
+   * The image set state.
+   *
    * @public
    */
   imageSetState: ImageSetState | undefined;
 
   /**
-   * <p>The image set workflow status.</p>
+   * The image set workflow status.
+   *
    * @public
    */
   imageSetWorkflowStatus: ImageSetWorkflowStatus | undefined;
@@ -534,56 +610,65 @@ export interface DeleteImageSetResponse {
  */
 export interface GetDICOMImportJobRequest {
   /**
-   * <p>The data store identifier.</p>
+   * The data store identifier.
+   *
    * @public
    */
   datastoreId: string | undefined;
 
   /**
-   * <p>The import job identifier.</p>
+   * The import job identifier.
+   *
    * @public
    */
   jobId: string | undefined;
 }
 
 /**
- * <p>Maps DCM files to their metadata.</p>
+ * Maps DCM files to their metadata.
+ *
  * @public
  */
 export interface DicomMetadataMapping {
   /**
-   * <p>The Study Instance UID that identifies the study.</p>
+   * The Study Instance UID that identifies the study.
+   *
    * @public
    */
   studyInstanceUID: string | undefined;
 
   /**
-   * <p>The Series Instance UID that identifies the series. This parameter is optional because the mapping might be at the study level.</p>
+   * The Series Instance UID that identifies the series. This parameter is optional because the mapping might be at the study level.
+   *
    * @public
    */
   seriesInstanceUID?: string | undefined;
 
   /**
-   * <p>The path to the JSON metadata file relative to inputS3Uri.</p>
+   * The path to the JSON metadata file relative to inputS3Uri.
+   *
    * @public
    */
   metadataFilePath: string | undefined;
 }
 
 /**
- * <p>The configuration parameters that are specific to DICOM JSON metadata import operations.</p>
+ * The configuration parameters that are specific to DICOM JSON metadata import operations.
+ *
  * @public
  */
 export interface DicomJsonMetadataImportConfiguration {
   /**
-   * <p>Maps DCM files to their metadata.</p>
+   * Maps DCM files to their metadata.
+   *
    * @public
    */
   dicomMetadataMappings: DicomMetadataMapping[] | undefined;
 }
 
 /**
- * <p>The configuration options for different types of import operations.</p>
+ * The configuration options for different types of import operations.
+ *
  * @public
  */
 export type ImportConfiguration =
@@ -595,7 +680,8 @@ export type ImportConfiguration =
  */
 export namespace ImportConfiguration {
   /**
-   * <p>The configuration parameters that are specific to DICOM JSON metadata import operations.</p>
+   * The configuration parameters that are specific to DICOM JSON metadata import operations.
+   *
    * @public
    */
   export interface DicomJsonMetadataImportConfigurationMember {
@@ -622,72 +708,84 @@ export namespace ImportConfiguration {
 }
 
 /**
- * <p>Properties of the import job.</p>
+ * Properties of the import job.
+ *
  * @public
  */
 export interface DICOMImportJobProperties {
   /**
-   * <p>The import job identifier.</p>
+   * The import job identifier.
+   *
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The import job name.</p>
+   * The import job name.
+   *
    * @public
    */
   jobName: string | undefined;
 
   /**
-   * <p>The filters for listing import jobs based on status.</p>
+   * The filters for listing import jobs based on status.
+   *
    * @public
    */
   jobStatus: JobStatus | undefined;
 
   /**
-   * <p>The data store identifier.</p>
+   * The data store identifier.
+   *
    * @public
    */
   datastoreId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) that grants permissions to access medical imaging resources.</p>
+   * The Amazon Resource Name (ARN) that grants permissions to access medical imaging resources.
+   *
    * @public
    */
   dataAccessRoleArn: string | undefined;
 
   /**
-   * <p>The timestamp for when the import job was ended.</p>
+   * The timestamp for when the import job was ended.
+   *
    * @public
    */
   endedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp for when the import job was submitted.</p>
+   * The timestamp for when the import job was submitted.
+   *
    * @public
    */
   submittedAt?: Date | undefined;
 
   /**
-   * <p>The input prefix path for the S3 bucket that contains the DICOM P10 files to be imported.</p>
+   * The input prefix path for the S3 bucket that contains the DICOM P10 files to be imported.
+   *
    * @public
    */
   inputS3Uri: string | undefined;
 
   /**
-   * <p>The output prefix of the S3 bucket to upload the results of the DICOM import job.</p>
+   * The output prefix of the S3 bucket to upload the results of the DICOM import job.
+   *
    * @public
    */
   outputS3Uri: string | undefined;
 
   /**
-   * <p>The error message thrown if an import job fails.</p>
+   * The error message thrown if an import job fails.
+   *
    * @public
    */
   message?: string | undefined;
 
   /**
-   * <p>The object containing <code>DicomJsonMetadataImportConfiguration</code>.</p>
+   * The object containing `DicomJsonMetadataImportConfiguration`.
+   *
    * @public
    */
   importConfiguration?: ImportConfiguration | undefined;
@@ -698,19 +796,22 @@ export interface DICOMImportJobProperties {
  */
 export interface GetDICOMImportJobResponse {
   /**
-   * <p>The properties of the import job.</p>
+   * The properties of the import job.
+   *
    * @public
    */
   jobProperties: DICOMImportJobProperties | undefined;
 }
 
 /**
- * <p>Information about the image frame (pixel data) identifier.</p>
+ * Information about the image frame (pixel data) identifier.
+ *
  * @public
  */
 export interface ImageFrameInformation {
   /**
-   * <p>The image frame (pixel data) identifier.</p>
+   * The image frame (pixel data) identifier.
+   *
    * @public
    */
   imageFrameId: string | undefined;
@@ -721,19 +822,22 @@ export interface ImageFrameInformation {
  */
 export interface GetImageFrameRequest {
   /**
-   * <p>The data store identifier.</p>
+   * The data store identifier.
+   *
    * @public
    */
   datastoreId: string | undefined;
 
   /**
-   * <p>The image set identifier.</p>
+   * The image set identifier.
+   *
    * @public
    */
   imageSetId: string | undefined;
 
   /**
-   * <p>Information about the image frame (pixel data) identifier.</p>
+   * Information about the image frame (pixel data) identifier.
+   *
    * @public
    */
   imageFrameInformation: ImageFrameInformation | undefined;
@@ -744,13 +848,34 @@ export interface GetImageFrameRequest {
  */
 export interface GetImageFrameResponse {
   /**
-   * <p>The blob containing the aggregated image frame information.</p>
+   * The blob containing the aggregated image frame information.
+   *
    * @public
    */
   imageFrameBlob: StreamingBlobTypes | undefined;
 
   /**
-   * <p>The format in which the image frame information is returned to the customer. Default is <code>application/octet-stream</code>.</p> <note> <ul> <li> <p>If the stored transfer syntax is <code>1.2.840.10008.1.2.1</code>, the returned <code>contentType</code> is <code>application/octet-stream</code>.</p> </li> </ul> <ul> <li> <p>If the stored transfer syntax is <code>1.2.840.10008.1.2.4.50</code>, the returned <code>contentType</code> is <code>image/jpeg</code>.</p> </li> </ul> <ul> <li> <p>If the stored transfer syntax is <code>1.2.840.10008.1.2.4.91</code>, the returned <code>contentType</code> is <code>image/j2c</code>.</p> </li> </ul> <ul> <li> <p>If the stored transfer syntax is MPEG2, <code>1.2.840.10008.1.2.4.100</code>, <code>1.2.840.10008.1.2.4.100.1</code>, <code>1.2.840.10008.1.2.4.101</code>, or <code>1.2.840.10008.1.2.4.101.1</code>, the returned <code>contentType</code> is <code>video/mpeg</code>.</p> </li> </ul> <ul> <li> <p>If the stored transfer syntax is MPEG-4 AVC/H.264, UID <code>1.2.840.10008.1.2.4.102</code>, <code>1.2.840.10008.1.2.4.102.1</code>, <code>1.2.840.10008.1.2.4.103</code>, <code>1.2.840.10008.1.2.4.103.1</code>, <code>1.2.840.10008.1.2.4.104</code>, <code>1.2.840.10008.1.2.4.104.1</code>, <code>1.2.840.10008.1.2.4.105</code>, <code>1.2.840.10008.1.2.4.105.1</code>, <code>1.2.840.10008.1.2.4.106</code>, or <code>1.2.840.10008.1.2.4.106.1</code>, the returned <code>contentType</code> is <code>video/mp4</code>.</p> </li> </ul> <ul> <li> <p>If the stored transfer syntax is HEVC/H.265, UID <code>1.2.840.10008.1.2.4.107</code> or <code>1.2.840.10008.1.2.4.108</code>, the returned <code>contentType</code> is <code>video/H256</code>.</p> </li> </ul> <ul> <li> <p>If the stored transfer syntax is <code>1.2.840.10008.1.2.4.202</code> or if the stored transfer syntax is <i>missing</i>, the returned <code>contentType</code> is <code>image/jph</code>.</p> </li> </ul> <ul> <li> <p>If the stored transfer syntax is <code>1.2.840.10008.1.2.4.203</code>, the returned contentType is <code>image/jphc</code>.</p> </li> <li> <p>If the stored transfer syntax is <code>1.2.840.10008.1.2.4.112</code> the returned <code>contentType</code> is <code>image/jxl</code>.</p> </li> </ul> </note>
+   * The format in which the image frame information is returned to the customer. Default is `application/octet-stream`.
+   *
+   * > **Note:**
+   * >
+   * > - If the stored transfer syntax is `1.2.840.10008.1.2.1`, the returned `contentType` is `application/octet-stream`.
+   * >
+   * > - If the stored transfer syntax is `1.2.840.10008.1.2.4.50`, the returned `contentType` is `image/jpeg`.
+   * >
+   * > - If the stored transfer syntax is `1.2.840.10008.1.2.4.91`, the returned `contentType` is `image/j2c`.
+   * >
+   * > - If the stored transfer syntax is MPEG2, `1.2.840.10008.1.2.4.100`, `1.2.840.10008.1.2.4.100.1`, `1.2.840.10008.1.2.4.101`, or `1.2.840.10008.1.2.4.101.1`, the returned `contentType` is `video/mpeg`.
+   * >
+   * > - If the stored transfer syntax is MPEG-4 AVC/H.264, UID `1.2.840.10008.1.2.4.102`, `1.2.840.10008.1.2.4.102.1`, `1.2.840.10008.1.2.4.103`, `1.2.840.10008.1.2.4.103.1`, `1.2.840.10008.1.2.4.104`, `1.2.840.10008.1.2.4.104.1`, `1.2.840.10008.1.2.4.105`, `1.2.840.10008.1.2.4.105.1`, `1.2.840.10008.1.2.4.106`, or `1.2.840.10008.1.2.4.106.1`, the returned `contentType` is `video/mp4`.
+   * >
+   * > - If the stored transfer syntax is HEVC/H.265, UID `1.2.840.10008.1.2.4.107` or `1.2.840.10008.1.2.4.108`, the returned `contentType` is `video/H256`.
+   * >
+   * > - If the stored transfer syntax is `1.2.840.10008.1.2.4.202` or if the stored transfer syntax is *missing*, the returned `contentType` is `image/jph`.
+   * >
+   * > - If the stored transfer syntax is `1.2.840.10008.1.2.4.203`, the returned contentType is `image/jphc`.
+   * > - If the stored transfer syntax is `1.2.840.10008.1.2.4.112` the returned `contentType` is `image/jxl`.
+   *
    * @public
    */
   contentType?: string | undefined;
@@ -761,31 +886,36 @@ export interface GetImageFrameResponse {
  */
 export interface GetImageSetRequest {
   /**
-   * <p>The data store identifier.</p>
+   * The data store identifier.
+   *
    * @public
    */
   datastoreId: string | undefined;
 
   /**
-   * <p>The image set identifier.</p>
+   * The image set identifier.
+   *
    * @public
    */
   imageSetId: string | undefined;
 
   /**
-   * <p>The image set version identifier.</p>
+   * The image set version identifier.
+   *
    * @public
    */
   versionId?: string | undefined;
 }
 
 /**
- * <p>Specifies the overrides used in image set modification calls to <code>CopyImageSet</code> and <code>UpdateImageSetMetadata</code>.</p>
+ * Specifies the overrides used in image set modification calls to `CopyImageSet` and `UpdateImageSetMetadata`.
+ *
  * @public
  */
 export interface Overrides {
   /**
-   * <p>Providing this parameter will force completion of the <code>CopyImageSet</code> and <code>UpdateImageSetMetadata</code> actions, even if metadata is inconsistent at the Patient, Study, and/or Series levels.</p>
+   * Providing this parameter will force completion of the `CopyImageSet` and `UpdateImageSetMetadata` actions, even if metadata is inconsistent at the Patient, Study, and/or Series levels.
+   *
    * @public
    */
   forced?: boolean | undefined;
@@ -796,85 +926,99 @@ export interface Overrides {
  */
 export interface GetImageSetResponse {
   /**
-   * <p>The data store identifier.</p>
+   * The data store identifier.
+   *
    * @public
    */
   datastoreId: string | undefined;
 
   /**
-   * <p>The image set identifier.</p>
+   * The image set identifier.
+   *
    * @public
    */
   imageSetId: string | undefined;
 
   /**
-   * <p>The image set version identifier.</p>
+   * The image set version identifier.
+   *
    * @public
    */
   versionId: string | undefined;
 
   /**
-   * <p>The image set state.</p>
+   * The image set state.
+   *
    * @public
    */
   imageSetState: ImageSetState | undefined;
 
   /**
-   * <p>The image set workflow status.</p>
+   * The image set workflow status.
+   *
    * @public
    */
   imageSetWorkflowStatus?: ImageSetWorkflowStatus | undefined;
 
   /**
-   * <p>The timestamp when image set properties were created.</p>
+   * The timestamp when image set properties were created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when image set properties were updated.</p>
+   * The timestamp when image set properties were updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when the image set properties were deleted.</p>
+   * The timestamp when the image set properties were deleted.
+   *
    * @public
    */
   deletedAt?: Date | undefined;
 
   /**
-   * <p>The error message thrown if an image set action fails.</p>
+   * The error message thrown if an image set action fails.
+   *
    * @public
    */
   message?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) assigned to the image set.</p>
+   * The Amazon Resource Name (ARN) assigned to the image set.
+   *
    * @public
    */
   imageSetArn?: string | undefined;
 
   /**
-   * <p>This object contains the details of any overrides used while creating a specific image set version. If an image set was copied or updated using the <code>force</code> flag, this object will contain the <code>forced</code> flag.</p>
+   * This object contains the details of any overrides used while creating a specific image set version. If an image set was copied or updated using the `force` flag, this object will contain the `forced` flag.
+   *
    * @public
    */
   overrides?: Overrides | undefined;
 
   /**
-   * <p>The flag to determine whether the image set is primary or not.</p>
+   * The flag to determine whether the image set is primary or not.
+   *
    * @public
    */
   isPrimary?: boolean | undefined;
 
   /**
-   * <p>When the image set was last accessed.</p>
+   * When the image set was last accessed.
+   *
    * @public
    */
   lastAccessedAt?: Date | undefined;
 
   /**
-   * <p>The storage tier of the image set.</p>
+   * The storage tier of the image set.
+   *
    * @public
    */
   storageTier?: StorageTier | undefined;
@@ -885,19 +1029,22 @@ export interface GetImageSetResponse {
  */
 export interface GetImageSetMetadataRequest {
   /**
-   * <p>The data store identifier.</p>
+   * The data store identifier.
+   *
    * @public
    */
   datastoreId: string | undefined;
 
   /**
-   * <p>The image set identifier.</p>
+   * The image set identifier.
+   *
    * @public
    */
   imageSetId: string | undefined;
 
   /**
-   * <p>The image set version identifier.</p>
+   * The image set version identifier.
+   *
    * @public
    */
   versionId?: string | undefined;
@@ -908,19 +1055,22 @@ export interface GetImageSetMetadataRequest {
  */
 export interface GetImageSetMetadataResponse {
   /**
-   * <p>The blob containing the aggregated metadata information for the image set.</p>
+   * The blob containing the aggregated metadata information for the image set.
+   *
    * @public
    */
   imageSetMetadataBlob: StreamingBlobTypes | undefined;
 
   /**
-   * <p>The format in which the study metadata is returned to the customer. Default is <code>text/plain</code>.</p>
+   * The format in which the study metadata is returned to the customer. Default is `text/plain`.
+   *
    * @public
    */
   contentType?: string | undefined;
 
   /**
-   * <p>The compression format in which image set metadata attributes are returned.</p>
+   * The compression format in which image set metadata attributes are returned.
+   *
    * @public
    */
   contentEncoding?: string | undefined;
@@ -931,79 +1081,92 @@ export interface GetImageSetMetadataResponse {
  */
 export interface ListDICOMImportJobsRequest {
   /**
-   * <p>The data store identifier.</p>
+   * The data store identifier.
+   *
    * @public
    */
   datastoreId: string | undefined;
 
   /**
-   * <p>The filters for listing import jobs based on status.</p>
+   * The filters for listing import jobs based on status.
+   *
    * @public
    */
   jobStatus?: JobStatus | undefined;
 
   /**
-   * <p>The pagination token used to request the list of import jobs on the next page.</p>
+   * The pagination token used to request the list of import jobs on the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The max results count. The upper bound is determined by load testing.</p>
+   * The max results count. The upper bound is determined by load testing.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Summary of import job.</p>
+ * Summary of import job.
+ *
  * @public
  */
 export interface DICOMImportJobSummary {
   /**
-   * <p>The import job identifier.</p>
+   * The import job identifier.
+   *
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The import job name.</p>
+   * The import job name.
+   *
    * @public
    */
   jobName: string | undefined;
 
   /**
-   * <p>The filters for listing import jobs based on status.</p>
+   * The filters for listing import jobs based on status.
+   *
    * @public
    */
   jobStatus: JobStatus | undefined;
 
   /**
-   * <p>The data store identifier.</p>
+   * The data store identifier.
+   *
    * @public
    */
   datastoreId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) that grants permissions to access medical imaging resources.</p>
+   * The Amazon Resource Name (ARN) that grants permissions to access medical imaging resources.
+   *
    * @public
    */
   dataAccessRoleArn?: string | undefined;
 
   /**
-   * <p>The timestamp when an import job ended.</p>
+   * The timestamp when an import job ended.
+   *
    * @public
    */
   endedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when an import job was submitted.</p>
+   * The timestamp when an import job was submitted.
+   *
    * @public
    */
   submittedAt?: Date | undefined;
 
   /**
-   * <p>The error message thrown if an import job fails.</p>
+   * The error message thrown if an import job fails.
+   *
    * @public
    */
   message?: string | undefined;
@@ -1014,13 +1177,15 @@ export interface DICOMImportJobSummary {
  */
 export interface ListDICOMImportJobsResponse {
   /**
-   * <p>A list of job summaries.</p>
+   * A list of job summaries.
+   *
    * @public
    */
   jobSummaries: DICOMImportJobSummary[] | undefined;
 
   /**
-   * <p>The pagination token used to retrieve the list of import jobs on the next page.</p>
+   * The pagination token used to retrieve the list of import jobs on the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1031,91 +1196,106 @@ export interface ListDICOMImportJobsResponse {
  */
 export interface ListImageSetVersionsRequest {
   /**
-   * <p>The data store identifier.</p>
+   * The data store identifier.
+   *
    * @public
    */
   datastoreId: string | undefined;
 
   /**
-   * <p>The image set identifier.</p>
+   * The image set identifier.
+   *
    * @public
    */
   imageSetId: string | undefined;
 
   /**
-   * <p>The pagination token used to request the list of image set versions on the next page.</p>
+   * The pagination token used to request the list of image set versions on the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The max results count.</p>
+   * The max results count.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>The image set properties.</p>
+ * The image set properties.
+ *
  * @public
  */
 export interface ImageSetProperties {
   /**
-   * <p>The image set identifier.</p>
+   * The image set identifier.
+   *
    * @public
    */
   imageSetId: string | undefined;
 
   /**
-   * <p>The image set version identifier.</p>
+   * The image set version identifier.
+   *
    * @public
    */
   versionId: string | undefined;
 
   /**
-   * <p>The image set state.</p>
+   * The image set state.
+   *
    * @public
    */
   imageSetState: ImageSetState | undefined;
 
   /**
-   * <p>The image set workflow status.</p>
+   * The image set workflow status.
+   *
    * @public
    */
   ImageSetWorkflowStatus?: ImageSetWorkflowStatus | undefined;
 
   /**
-   * <p>The timestamp when the image set properties were created.</p>
+   * The timestamp when the image set properties were created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when the image set properties were updated.</p>
+   * The timestamp when the image set properties were updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when the image set properties were deleted.</p>
+   * The timestamp when the image set properties were deleted.
+   *
    * @public
    */
   deletedAt?: Date | undefined;
 
   /**
-   * <p>The error message thrown if an image set action fails.</p>
+   * The error message thrown if an image set action fails.
+   *
    * @public
    */
   message?: string | undefined;
 
   /**
-   * <p>Contains details on overrides used when creating the returned version of an image set. For example, if <code>forced</code> exists, the <code>forced</code> flag was used when creating the image set.</p>
+   * Contains details on overrides used when creating the returned version of an image set. For example, if `forced` exists, the `forced` flag was used when creating the image set.
+   *
    * @public
    */
   overrides?: Overrides | undefined;
 
   /**
-   * <p>The flag to determine whether the image set is primary or not.</p>
+   * The flag to determine whether the image set is primary or not.
+   *
    * @public
    */
   isPrimary?: boolean | undefined;
@@ -1126,13 +1306,15 @@ export interface ImageSetProperties {
  */
 export interface ListImageSetVersionsResponse {
   /**
-   * <p>Lists all properties associated with an image set.</p>
+   * Lists all properties associated with an image set.
+   *
    * @public
    */
   imageSetPropertiesList: ImageSetProperties[] | undefined;
 
   /**
-   * <p>The pagination token used to retrieve the list of image set versions on the next page.</p>
+   * The pagination token used to retrieve the list of image set versions on the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1143,7 +1325,8 @@ export interface ListImageSetVersionsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the medical imaging resource to list tags for.</p>
+   * The Amazon Resource Name (ARN) of the medical imaging resource to list tags for.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -1154,32 +1337,37 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>A list of all tags associated with a medical imaging resource.</p>
+   * A list of all tags associated with a medical imaging resource.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
 }
 
 /**
- * <p>The aggregated structure to store DICOM study date and study time for search capabilities.</p>
+ * The aggregated structure to store DICOM study date and study time for search capabilities.
+ *
  * @public
  */
 export interface DICOMStudyDateAndTime {
   /**
-   * <p>The DICOM study date provided in <code>yyMMdd</code> format.</p>
+   * The DICOM study date provided in `yyMMdd` format.
+   *
    * @public
    */
   DICOMStudyDate: string | undefined;
 
   /**
-   * <p>The DICOM study time provided in <code>HHmmss.FFFFFF</code> format.</p>
+   * The DICOM study time provided in `HHmmss.FFFFFF` format.
+   *
    * @public
    */
   DICOMStudyTime?: string | undefined;
 }
 
 /**
- * <p>The search input attribute value.</p>
+ * The search input attribute value.
+ *
  * @public
  */
 export type SearchByAttributeValue =
@@ -1199,7 +1387,8 @@ export type SearchByAttributeValue =
  */
 export namespace SearchByAttributeValue {
   /**
-   * <p>The patient ID input for search.</p>
+   * The patient ID input for search.
+   *
    * @public
    */
   export interface DICOMPatientIdMember {
@@ -1216,7 +1405,8 @@ export namespace SearchByAttributeValue {
   }
 
   /**
-   * <p>The DICOM accession number for search.</p>
+   * The DICOM accession number for search.
+   *
    * @public
    */
   export interface DICOMAccessionNumberMember {
@@ -1233,7 +1423,8 @@ export namespace SearchByAttributeValue {
   }
 
   /**
-   * <p>The DICOM study ID for search.</p>
+   * The DICOM study ID for search.
+   *
    * @public
    */
   export interface DICOMStudyIdMember {
@@ -1250,7 +1441,8 @@ export namespace SearchByAttributeValue {
   }
 
   /**
-   * <p>The DICOM study instance UID for search.</p>
+   * The DICOM study instance UID for search.
+   *
    * @public
    */
   export interface DICOMStudyInstanceUIDMember {
@@ -1267,7 +1459,8 @@ export namespace SearchByAttributeValue {
   }
 
   /**
-   * <p>The Series Instance UID input for search.</p>
+   * The Series Instance UID input for search.
+   *
    * @public
    */
   export interface DICOMSeriesInstanceUIDMember {
@@ -1284,7 +1477,8 @@ export namespace SearchByAttributeValue {
   }
 
   /**
-   * <p>The created at time of the image set provided for search.</p>
+   * The created at time of the image set provided for search.
+   *
    * @public
    */
   export interface CreatedAtMember {
@@ -1301,7 +1495,8 @@ export namespace SearchByAttributeValue {
   }
 
   /**
-   * <p>The timestamp input for search.</p>
+   * The timestamp input for search.
+   *
    * @public
    */
   export interface UpdatedAtMember {
@@ -1318,7 +1513,8 @@ export namespace SearchByAttributeValue {
   }
 
   /**
-   * <p>The aggregated structure containing DICOM study date and study time for search.</p>
+   * The aggregated structure containing DICOM study date and study time for search.
+   *
    * @public
    */
   export interface DICOMStudyDateAndTimeMember {
@@ -1335,7 +1531,8 @@ export namespace SearchByAttributeValue {
   }
 
   /**
-   * <p>The primary image set flag provided for search.</p>
+   * The primary image set flag provided for search.
+   *
    * @public
    */
   export interface IsPrimaryMember {
@@ -1386,54 +1583,63 @@ export namespace SearchByAttributeValue {
 }
 
 /**
- * <p>The search filter.</p>
+ * The search filter.
+ *
  * @public
  */
 export interface SearchFilter {
   /**
-   * <p>The search filter values.</p>
+   * The search filter values.
+   *
    * @public
    */
   values: SearchByAttributeValue[] | undefined;
 
   /**
-   * <p>The search filter operator for <code>imageSetDateTime</code>.</p>
+   * The search filter operator for `imageSetDateTime`.
+   *
    * @public
    */
   operator: Operator | undefined;
 }
 
 /**
- * <p>Sort search results.</p>
+ * Sort search results.
+ *
  * @public
  */
 export interface Sort {
   /**
-   * <p>The sort order for search criteria.</p>
+   * The sort order for search criteria.
+   *
    * @public
    */
   sortOrder: SortOrder | undefined;
 
   /**
-   * <p>The sort field for search criteria.</p>
+   * The sort field for search criteria.
+   *
    * @public
    */
   sortField: SortField | undefined;
 }
 
 /**
- * <p>The search criteria.</p>
+ * The search criteria.
+ *
  * @public
  */
 export interface SearchCriteria {
   /**
-   * <p>The filters for the search criteria.</p>
+   * The filters for the search criteria.
+   *
    * @public
    */
   filters?: SearchFilter[] | undefined;
 
   /**
-   * <p>The sort input for search criteria.</p>
+   * The sort input for search criteria.
+   *
    * @public
    */
   sort?: Sort | undefined;
@@ -1444,181 +1650,211 @@ export interface SearchCriteria {
  */
 export interface SearchImageSetsRequest {
   /**
-   * <p>The identifier of the data store where the image sets reside.</p>
+   * The identifier of the data store where the image sets reside.
+   *
    * @public
    */
   datastoreId: string | undefined;
 
   /**
-   * <p>The search criteria that filters by applying a maximum of 1 item to <code>SearchByAttribute</code>.</p>
+   * The search criteria that filters by applying a maximum of 1 item to `SearchByAttribute`.
+   *
    * @public
    */
   searchCriteria?: SearchCriteria | undefined;
 
   /**
-   * <p>The maximum number of results that can be returned in a search.</p>
+   * The maximum number of results that can be returned in a search.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token used for pagination of results returned in the response. Use the token returned from the previous request to continue results where the previous request ended.</p>
+   * The token used for pagination of results returned in the response. Use the token returned from the previous request to continue results where the previous request ended.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>The DICOM attributes returned as a part of a response. Each image set has these properties as part of a search result.</p>
+ * The DICOM attributes returned as a part of a response. Each image set has these properties as part of a search result.
+ *
  * @public
  */
 export interface DICOMTags {
   /**
-   * <p>The unique identifier for a patient in a DICOM Study.</p>
+   * The unique identifier for a patient in a DICOM Study.
+   *
    * @public
    */
   DICOMPatientId?: string | undefined;
 
   /**
-   * <p>The patient name.</p>
+   * The patient name.
+   *
    * @public
    */
   DICOMPatientName?: string | undefined;
 
   /**
-   * <p>The patient birth date.</p>
+   * The patient birth date.
+   *
    * @public
    */
   DICOMPatientBirthDate?: string | undefined;
 
   /**
-   * <p>The patient sex.</p>
+   * The patient sex.
+   *
    * @public
    */
   DICOMPatientSex?: string | undefined;
 
   /**
-   * <p>The DICOM provided identifier for the Study Instance UID.</p>
+   * The DICOM provided identifier for the Study Instance UID.
+   *
    * @public
    */
   DICOMStudyInstanceUID?: string | undefined;
 
   /**
-   * <p>The DICOM provided identifier for the Study ID.</p>
+   * The DICOM provided identifier for the Study ID.
+   *
    * @public
    */
   DICOMStudyId?: string | undefined;
 
   /**
-   * <p>The DICOM provided Study Description.</p>
+   * The DICOM provided Study Description.
+   *
    * @public
    */
   DICOMStudyDescription?: string | undefined;
 
   /**
-   * <p>The total number of series in the DICOM study.</p>
+   * The total number of series in the DICOM study.
+   *
    * @public
    */
   DICOMNumberOfStudyRelatedSeries?: number | undefined;
 
   /**
-   * <p>The total number of instances in the DICOM study.</p>
+   * The total number of instances in the DICOM study.
+   *
    * @public
    */
   DICOMNumberOfStudyRelatedInstances?: number | undefined;
 
   /**
-   * <p>The accession number for the DICOM study.</p>
+   * The accession number for the DICOM study.
+   *
    * @public
    */
   DICOMAccessionNumber?: string | undefined;
 
   /**
-   * <p>The DICOM provided identifier for the Series Instance UID.</p>
+   * The DICOM provided identifier for the Series Instance UID.
+   *
    * @public
    */
   DICOMSeriesInstanceUID?: string | undefined;
 
   /**
-   * <p>The DICOM provided identifier for the series Modality.</p>
+   * The DICOM provided identifier for the series Modality.
+   *
    * @public
    */
   DICOMSeriesModality?: string | undefined;
 
   /**
-   * <p>The DICOM provided identifier for the series Body Part Examined.</p>
+   * The DICOM provided identifier for the series Body Part Examined.
+   *
    * @public
    */
   DICOMSeriesBodyPart?: string | undefined;
 
   /**
-   * <p>The DICOM provided identifier for the Series Number.</p>
+   * The DICOM provided identifier for the Series Number.
+   *
    * @public
    */
   DICOMSeriesNumber?: number | undefined;
 
   /**
-   * <p>The study date.</p>
+   * The study date.
+   *
    * @public
    */
   DICOMStudyDate?: string | undefined;
 
   /**
-   * <p>The study time.</p>
+   * The study time.
+   *
    * @public
    */
   DICOMStudyTime?: string | undefined;
 }
 
 /**
- * <p>Summary of the image set metadata.</p>
+ * Summary of the image set metadata.
+ *
  * @public
  */
 export interface ImageSetsMetadataSummary {
   /**
-   * <p>The image set identifier.</p>
+   * The image set identifier.
+   *
    * @public
    */
   imageSetId: string | undefined;
 
   /**
-   * <p>The image set version.</p>
+   * The image set version.
+   *
    * @public
    */
   version?: number | undefined;
 
   /**
-   * <p>The time an image set is created. Sample creation date is provided in <code>1985-04-12T23:20:50.52Z</code> format.</p>
+   * The time an image set is created. Sample creation date is provided in `1985-04-12T23:20:50.52Z` format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The time an image set was last updated.</p>
+   * The time an image set was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>When the image set was last accessed.</p>
+   * When the image set was last accessed.
+   *
    * @public
    */
   lastAccessedAt?: Date | undefined;
 
   /**
-   * <p>The image set's storage tier.</p>
+   * The image set's storage tier.
+   *
    * @public
    */
   storageTier?: StorageTier | undefined;
 
   /**
-   * <p>The DICOM tags associated with the image set.</p>
+   * The DICOM tags associated with the image set.
+   *
    * @public
    */
   DICOMTags?: DICOMTags | undefined;
 
   /**
-   * <p>The flag to determine whether the image set is primary or not.</p>
+   * The flag to determine whether the image set is primary or not.
+   *
    * @public
    */
   isPrimary?: boolean | undefined;
@@ -1629,19 +1865,22 @@ export interface ImageSetsMetadataSummary {
  */
 export interface SearchImageSetsResponse {
   /**
-   * <p>The model containing the image set results.</p>
+   * The model containing the image set results.
+   *
    * @public
    */
   imageSetsMetadataSummaries: ImageSetsMetadataSummary[] | undefined;
 
   /**
-   * <p>The sort order for image set search results.</p>
+   * The sort order for image set search results.
+   *
    * @public
    */
   sort?: Sort | undefined;
 
   /**
-   * <p>The token for pagination results.</p>
+   * The token for pagination results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1652,49 +1891,57 @@ export interface SearchImageSetsResponse {
  */
 export interface StartDICOMImportJobRequest {
   /**
-   * <p>The import job name.</p>
+   * The import job name.
+   *
    * @public
    */
   jobName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that grants permission to access medical imaging resources.</p>
+   * The Amazon Resource Name (ARN) of the IAM role that grants permission to access medical imaging resources.
+   *
    * @public
    */
   dataAccessRoleArn: string | undefined;
 
   /**
-   * <p>A unique identifier for API idempotency.</p>
+   * A unique identifier for API idempotency.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The data store identifier.</p>
+   * The data store identifier.
+   *
    * @public
    */
   datastoreId: string | undefined;
 
   /**
-   * <p>The input prefix path for the S3 bucket that contains the DICOM files to be imported.</p>
+   * The input prefix path for the S3 bucket that contains the DICOM files to be imported.
+   *
    * @public
    */
   inputS3Uri: string | undefined;
 
   /**
-   * <p>The output prefix of the S3 bucket to upload the results of the DICOM import job.</p>
+   * The output prefix of the S3 bucket to upload the results of the DICOM import job.
+   *
    * @public
    */
   outputS3Uri: string | undefined;
 
   /**
-   * <p>The account ID of the source S3 bucket owner.</p>
+   * The account ID of the source S3 bucket owner.
+   *
    * @public
    */
   inputOwnerAccountId?: string | undefined;
 
   /**
-   * <p>The import configuration for the import job.</p>
+   * The import configuration for the import job.
+   *
    * @public
    */
   importConfiguration?: ImportConfiguration | undefined;
@@ -1705,25 +1952,29 @@ export interface StartDICOMImportJobRequest {
  */
 export interface StartDICOMImportJobResponse {
   /**
-   * <p>The data store identifier.</p>
+   * The data store identifier.
+   *
    * @public
    */
   datastoreId: string | undefined;
 
   /**
-   * <p>The import job identifier.</p>
+   * The import job identifier.
+   *
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The import job status.</p>
+   * The import job status.
+   *
    * @public
    */
   jobStatus: JobStatus | undefined;
 
   /**
-   * <p>The timestamp when the import job was submitted.</p>
+   * The timestamp when the import job was submitted.
+   *
    * @public
    */
   submittedAt: Date | undefined;
@@ -1734,13 +1985,15 @@ export interface StartDICOMImportJobResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the medical imaging resource that tags are being added to.</p>
+   * The Amazon Resource Name (ARN) of the medical imaging resource that tags are being added to.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The user-specified key and value tag pairs added to a medical imaging resource.</p>
+   * The user-specified key and value tag pairs added to a medical imaging resource.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -1756,13 +2009,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the medical imaging resource that tags are being removed from.</p>
+   * The Amazon Resource Name (ARN) of the medical imaging resource that tags are being removed from.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The keys for the tags to be removed from the medical imaging resource.</p>
+   * The keys for the tags to be removed from the medical imaging resource.
+   *
    * @public
    */
   tagKeys: string[] | undefined;
@@ -1774,25 +2029,29 @@ export interface UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 /**
- * <p>The object containing <code>removableAttributes</code> and <code>updatableAttributes</code>.</p>
+ * The object containing `removableAttributes` and `updatableAttributes`.
+ *
  * @public
  */
 export interface DICOMUpdates {
   /**
-   * <p>The DICOM tags to be removed from <code>ImageSetMetadata</code>.</p>
+   * The DICOM tags to be removed from `ImageSetMetadata`.
+   *
    * @public
    */
   removableAttributes?: Uint8Array | undefined;
 
   /**
-   * <p>The DICOM tags that need to be updated in <code>ImageSetMetadata</code>.</p>
+   * The DICOM tags that need to be updated in `ImageSetMetadata`.
+   *
    * @public
    */
   updatableAttributes?: Uint8Array | undefined;
 }
 
 /**
- * <p>Contains DICOMUpdates.</p>
+ * Contains DICOMUpdates.
+ *
  * @public
  */
 export type MetadataUpdates =
@@ -1805,7 +2064,8 @@ export type MetadataUpdates =
  */
 export namespace MetadataUpdates {
   /**
-   * <p>The object containing <code>removableAttributes</code> and <code>updatableAttributes</code>.</p>
+   * The object containing `removableAttributes` and `updatableAttributes`.
+   *
    * @public
    */
   export interface DICOMUpdatesMember {
@@ -1815,7 +2075,10 @@ export namespace MetadataUpdates {
   }
 
   /**
-   * <p>Specifies the previous image set version ID to revert the current image set back to.</p> <note> <p>You must provide either <code>revertToVersionId</code> or <code>DICOMUpdates</code> in your request. A <code>ValidationException</code> error is thrown if both parameters are provided at the same time.</p> </note>
+   * Specifies the previous image set version ID to revert the current image set back to.
+   *
+   * > **Note:** You must provide either `revertToVersionId` or `DICOMUpdates` in your request. A `ValidationException` error is thrown if both parameters are provided at the same time.
+   *
    * @public
    */
   export interface RevertToVersionIdMember {
@@ -1849,37 +2112,46 @@ export namespace MetadataUpdates {
  */
 export interface UpdateImageSetMetadataRequest {
   /**
-   * <p>The data store identifier.</p>
+   * The data store identifier.
+   *
    * @public
    */
   datastoreId: string | undefined;
 
   /**
-   * <p>The image set identifier.</p>
+   * The image set identifier.
+   *
    * @public
    */
   imageSetId: string | undefined;
 
   /**
-   * <p>The latest image set version identifier.</p>
+   * The latest image set version identifier.
+   *
    * @public
    */
   latestVersionId: string | undefined;
 
   /**
-   * <p>Setting this flag will force the <code>UpdateImageSetMetadata</code> operation for the following attributes:</p> <ul> <li> <p> <code>Tag.StudyInstanceUID</code>, <code>Tag.SeriesInstanceUID</code>, <code>Tag.SOPInstanceUID</code>, and <code>Tag.StudyID</code> </p> </li> <li> <p>Adding, removing, or updating private tags for an individual SOP Instance</p> </li> </ul>
+   * Setting this flag will force the `UpdateImageSetMetadata` operation for the following attributes:
+   *
+   * - `Tag.StudyInstanceUID`, `Tag.SeriesInstanceUID`, `Tag.SOPInstanceUID`, and `Tag.StudyID`
+   * - Adding, removing, or updating private tags for an individual SOP Instance
+   *
    * @public
    */
   force?: boolean | undefined;
 
   /**
-   * <p>Flag to apply the metadata updates to all image sets in the same Study as the requested image set ID.</p>
+   * Flag to apply the metadata updates to all image sets in the same Study as the requested image set ID.
+   *
    * @public
    */
   includeStudyImageSets?: boolean | undefined;
 
   /**
-   * <p>Update image set metadata updates.</p>
+   * Update image set metadata updates.
+   *
    * @public
    */
   updateImageSetMetadataUpdates: MetadataUpdates | undefined;
@@ -1890,49 +2162,57 @@ export interface UpdateImageSetMetadataRequest {
  */
 export interface UpdateImageSetMetadataResponse {
   /**
-   * <p>The data store identifier.</p>
+   * The data store identifier.
+   *
    * @public
    */
   datastoreId: string | undefined;
 
   /**
-   * <p>The image set identifier.</p>
+   * The image set identifier.
+   *
    * @public
    */
   imageSetId: string | undefined;
 
   /**
-   * <p>The latest image set version identifier.</p>
+   * The latest image set version identifier.
+   *
    * @public
    */
   latestVersionId: string | undefined;
 
   /**
-   * <p>The image set state.</p>
+   * The image set state.
+   *
    * @public
    */
   imageSetState: ImageSetState | undefined;
 
   /**
-   * <p>The image set workflow status.</p>
+   * The image set workflow status.
+   *
    * @public
    */
   imageSetWorkflowStatus?: ImageSetWorkflowStatus | undefined;
 
   /**
-   * <p>The timestamp when image set metadata was created.</p>
+   * The timestamp when image set metadata was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when image set metadata was updated.</p>
+   * The timestamp when image set metadata was updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The error message thrown if an update image set metadata action fails.</p>
+   * The error message thrown if an update image set metadata action fails.
+   *
    * @public
    */
   message?: string | undefined;

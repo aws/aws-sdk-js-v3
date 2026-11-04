@@ -23,8 +23,8 @@ export interface ApplyEnvironmentManagedActionCommandInput extends ApplyEnvironm
 export interface ApplyEnvironmentManagedActionCommandOutput extends ApplyEnvironmentManagedActionResult, __MetadataBearer {}
 
 /**
- * <p>Applies a scheduled managed action immediately. A managed action can be applied only if its status is <code>Scheduled</code>. Get the status and
- *       action ID of a managed action with <a>DescribeEnvironmentManagedActions</a>.</p>
+ * Applies a scheduled managed action immediately. A managed action can be applied only if its status is `Scheduled`. Get the status and action ID of a managed action with DescribeEnvironmentManagedActions.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,14 +56,16 @@ export interface ApplyEnvironmentManagedActionCommandOutput extends ApplyEnviron
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  * @throws {@link ElasticBeanstalkServiceException} (client fault)
- *  <p>A generic service exception has occurred.</p>
+ *
+ * A generic service exception has occurred.
  *
  * @throws {@link ManagedActionInvalidStateException} (client fault)
- *  <p>Cannot modify the managed action in its current state.</p>
+ *
+ * Cannot modify the managed action in its current state.
  *
  * @throws {@link ElasticBeanstalkSyntheticServiceException}
- * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * Base exception class for all service exceptions from ElasticBeanstalk service.
  *
  * @public
  */

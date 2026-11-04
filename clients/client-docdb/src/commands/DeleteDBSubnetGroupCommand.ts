@@ -23,11 +23,10 @@ export interface DeleteDBSubnetGroupCommandInput extends DeleteDBSubnetGroupMess
 export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a subnet group.</p>
- *          <note>
- *             <p>The specified database subnet group must not be associated with any DB
- *                 instances.</p>
- *          </note>
+ * Deletes a subnet group.
+ *
+ * > **Note:** The specified database subnet group must not be associated with any DB instances.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,18 +51,20 @@ export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  * @throws {@link DBSubnetGroupNotFoundFault} (client fault)
- *  <p>
- *             <code>DBSubnetGroupName</code> doesn't refer to an existing subnet group. </p>
+ *
+ * `DBSubnetGroupName` doesn't refer to an existing subnet group.
  *
  * @throws {@link InvalidDBSubnetGroupStateFault} (client fault)
- *  <p>The subnet group can't be deleted because it's in use.</p>
+ *
+ * The subnet group can't be deleted because it's in use.
  *
  * @throws {@link InvalidDBSubnetStateFault} (client fault)
- *  <p> The subnet isn't in the <i>available</i> state. </p>
+ *
+ * The subnet isn't in the *available* state.
  *
  * @throws {@link DocDBServiceException}
- * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * Base exception class for all service exceptions from DocDB service.
  *
  * @public
  */

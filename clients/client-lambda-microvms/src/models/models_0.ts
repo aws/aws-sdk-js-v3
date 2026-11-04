@@ -13,25 +13,29 @@ import type {
 } from "./enums";
 
 /**
- * <p>Configuration for Amazon CloudWatch Logs logging.</p>
+ * Configuration for Amazon CloudWatch Logs logging.
+ *
  * @public
  */
 export interface CloudWatchLogging {
   /**
-   * <p>The name of the CloudWatch Logs log group to send logs to.</p>
+   * The name of the CloudWatch Logs log group to send logs to.
+   *
    * @public
    */
   logGroup?: string | undefined;
 
   /**
-   * <p>The name of the CloudWatch Logs log stream within the log group.</p>
+   * The name of the CloudWatch Logs log stream within the log group.
+   *
    * @public
    */
   logStream?: string | undefined;
 }
 
 /**
- * <p>Contains the location of the code artifact for a MicroVM image.</p>
+ * Contains the location of the code artifact for a MicroVM image.
+ *
  * @public
  */
 export type CodeArtifact =
@@ -43,7 +47,8 @@ export type CodeArtifact =
  */
 export namespace CodeArtifact {
   /**
-   * <p>The URI of the code artifact in Amazon S3.</p>
+   * The URI of the code artifact in Amazon S3.
+   *
    * @public
    */
   export interface UriMember {
@@ -70,12 +75,14 @@ export namespace CodeArtifact {
 }
 
 /**
- * <p>Configuration for the CPU architecture of a MicroVM.</p>
+ * Configuration for the CPU architecture of a MicroVM.
+ *
  * @public
  */
 export interface CpuConfiguration {
   /**
-   * <p>The CPU architecture.</p>
+   * The CPU architecture.
+   *
    * @public
    */
   architecture: Architecture | undefined;
@@ -87,25 +94,29 @@ export interface CpuConfiguration {
 export interface Unit {}
 
 /**
- * <p>Specifies a range of ports.</p>
+ * Specifies a range of ports.
+ *
  * @public
  */
 export interface PortRange {
   /**
-   * <p>The starting port number of the range.</p>
+   * The starting port number of the range.
+   *
    * @public
    */
   startPort: number | undefined;
 
   /**
-   * <p>The ending port number of the range.</p>
+   * The ending port number of the range.
+   *
    * @public
    */
   endPort: number | undefined;
 }
 
 /**
- * <p>Specifies which ports are accessible on a MicroVM. Only one of the port specification options can be set.</p>
+ * Specifies which ports are accessible on a MicroVM. Only one of the port specification options can be set.
+ *
  * @public
  */
 export type PortSpecification =
@@ -119,7 +130,8 @@ export type PortSpecification =
  */
 export namespace PortSpecification {
   /**
-   * <p>A single port number.</p>
+   * A single port number.
+   *
    * @public
    */
   export interface PortMember {
@@ -130,7 +142,8 @@ export namespace PortSpecification {
   }
 
   /**
-   * <p>A range of ports.</p>
+   * A range of ports.
+   *
    * @public
    */
   export interface RangeMember {
@@ -141,7 +154,8 @@ export namespace PortSpecification {
   }
 
   /**
-   * <p>Indicates that all ports are accessible.</p>
+   * Indicates that all ports are accessible.
+   *
    * @public
    */
   export interface AllPortsMember {
@@ -178,19 +192,22 @@ export namespace PortSpecification {
  */
 export interface CreateMicrovmAuthTokenRequest {
   /**
-   * <p>The ID of the MicroVM to create an authentication token for.</p>
+   * The ID of the MicroVM to create an authentication token for.
+   *
    * @public
    */
   microvmIdentifier: string | undefined;
 
   /**
-   * <p>The duration in minutes before the authentication token expires. Maximum: 60 minutes.</p>
+   * The duration in minutes before the authentication token expires. Maximum: 60 minutes.
+   *
    * @public
    */
   expirationInMinutes: number | undefined;
 
   /**
-   * <p>The list of port specifications that the authentication token grants access to on the MicroVM.</p>
+   * The list of port specifications that the authentication token grants access to on the MicroVM.
+   *
    * @public
    */
   allowedPorts: PortSpecification[] | undefined;
@@ -201,128 +218,149 @@ export interface CreateMicrovmAuthTokenRequest {
  */
 export interface CreateMicrovmAuthTokenResponse {
   /**
-   * <p>A map containing the authentication token. Use the value at key "X-aws-proxy-auth" as the header value when connecting to the MicroVM endpoint.</p>
+   * A map containing the authentication token. Use the value at key "X-aws-proxy-auth" as the header value when connecting to the MicroVM endpoint.
+   *
    * @public
    */
   authToken: Record<string, string> | undefined;
 }
 
 /**
- * <p>Configuration for lifecycle hooks invoked during MicroVM events such as run, resume, suspend, and terminate.</p>
+ * Configuration for lifecycle hooks invoked during MicroVM events such as run, resume, suspend, and terminate.
+ *
  * @public
  */
 export interface MicrovmHooks {
   /**
-   * <p>The path of the hook invoked when the MicroVM starts running.</p>
+   * The path of the hook invoked when the MicroVM starts running.
+   *
    * @public
    */
   run?: HookState | undefined;
 
   /**
-   * <p>The maximum time in seconds for the run hook to complete.</p>
+   * The maximum time in seconds for the run hook to complete.
+   *
    * @public
    */
   runTimeoutInSeconds?: number | undefined;
 
   /**
-   * <p>The path of the hook invoked when the MicroVM resumes from a suspended state.</p>
+   * The path of the hook invoked when the MicroVM resumes from a suspended state.
+   *
    * @public
    */
   resume?: HookState | undefined;
 
   /**
-   * <p>The maximum time in seconds for the resume hook to complete.</p>
+   * The maximum time in seconds for the resume hook to complete.
+   *
    * @public
    */
   resumeTimeoutInSeconds?: number | undefined;
 
   /**
-   * <p>The path of the hook invoked when the MicroVM is suspended.</p>
+   * The path of the hook invoked when the MicroVM is suspended.
+   *
    * @public
    */
   suspend?: HookState | undefined;
 
   /**
-   * <p>The maximum time in seconds for the suspend hook to complete.</p>
+   * The maximum time in seconds for the suspend hook to complete.
+   *
    * @public
    */
   suspendTimeoutInSeconds?: number | undefined;
 
   /**
-   * <p>The path of the hook invoked when the MicroVM is terminated.</p>
+   * The path of the hook invoked when the MicroVM is terminated.
+   *
    * @public
    */
   terminate?: HookState | undefined;
 
   /**
-   * <p>The maximum time in seconds for the terminate hook to complete.</p>
+   * The maximum time in seconds for the terminate hook to complete.
+   *
    * @public
    */
   terminateTimeoutInSeconds?: number | undefined;
 }
 
 /**
- * <p>Configuration for hooks invoked during MicroVM image build events such as ready and validate.</p>
+ * Configuration for hooks invoked during MicroVM image build events such as ready and validate.
+ *
  * @public
  */
 export interface MicrovmImageHooks {
   /**
-   * <p>The path of the hook invoked when the MicroVM image build is ready.</p>
+   * The path of the hook invoked when the MicroVM image build is ready.
+   *
    * @public
    */
   ready?: HookState | undefined;
 
   /**
-   * <p>The maximum time in seconds for the ready hook to complete.</p>
+   * The maximum time in seconds for the ready hook to complete.
+   *
    * @public
    */
   readyTimeoutInSeconds?: number | undefined;
 
   /**
-   * <p>The path of the hook invoked to validate the MicroVM image build.</p>
+   * The path of the hook invoked to validate the MicroVM image build.
+   *
    * @public
    */
   validate?: HookState | undefined;
 
   /**
-   * <p>The maximum time in seconds for the validate hook to complete.</p>
+   * The maximum time in seconds for the validate hook to complete.
+   *
    * @public
    */
   validateTimeoutInSeconds?: number | undefined;
 }
 
 /**
- * <p>Lifecycle hook configuration for MicroVMs and MicroVM images.</p>
+ * Lifecycle hook configuration for MicroVMs and MicroVM images.
+ *
  * @public
  */
 export interface Hooks {
   /**
-   * <p>The port number on which the hooks listener runs.</p>
+   * The port number on which the hooks listener runs.
+   *
    * @public
    */
   port?: number | undefined;
 
   /**
-   * <p>The lifecycle hooks for MicroVM events.</p>
+   * The lifecycle hooks for MicroVM events.
+   *
    * @public
    */
   microvmHooks?: MicrovmHooks | undefined;
 
   /**
-   * <p>The hooks for MicroVM image build events.</p>
+   * The hooks for MicroVM image build events.
+   *
    * @public
    */
   microvmImageHooks?: MicrovmImageHooks | undefined;
 }
 
 /**
- * <p>Specifies that logging is disabled for the MicroVM.</p>
+ * Specifies that logging is disabled for the MicroVM.
+ *
  * @public
  */
 export interface LoggingDisabled {}
 
 /**
- * <p>Configuration for MicroVM logging output. Specify exactly one: cloudWatch to enable CloudWatch logging, or disabled to turn off logging.</p>
+ * Configuration for MicroVM logging output. Specify exactly one: cloudWatch to enable CloudWatch logging, or disabled to turn off logging.
+ *
  * @public
  */
 export type Logging =
@@ -335,7 +373,8 @@ export type Logging =
  */
 export namespace Logging {
   /**
-   * <p>Specifies that logging is disabled.</p>
+   * Specifies that logging is disabled.
+   *
    * @public
    */
   export interface DisabledMember {
@@ -345,7 +384,8 @@ export namespace Logging {
   }
 
   /**
-   * <p>Configuration for sending logs to Amazon CloudWatch Logs.</p>
+   * Configuration for sending logs to Amazon CloudWatch Logs.
+   *
    * @public
    */
   export interface CloudWatchMember {
@@ -375,12 +415,14 @@ export namespace Logging {
 }
 
 /**
- * <p>Resource requirements for a MicroVM.</p>
+ * Resource requirements for a MicroVM.
+ *
  * @public
  */
 export interface Resources {
   /**
-   * <p>The minimum amount of memory in MiB to allocate to the MicroVM.</p>
+   * The minimum amount of memory in MiB to allocate to the MicroVM.
+   *
    * @public
    */
   minimumMemoryInMiB: number | undefined;
@@ -391,91 +433,106 @@ export interface Resources {
  */
 export interface CreateMicrovmImageRequest {
   /**
-   * <p>The ARN of the Lambda-managed base MicroVM image to build upon. Use ListManagedMicrovmImages to discover available base images.</p>
+   * The ARN of the Lambda-managed base MicroVM image to build upon. Use ListManagedMicrovmImages to discover available base images.
+   *
    * @public
    */
   baseImageArn: string | undefined;
 
   /**
-   * <p>The specific version of the base MicroVM image to use.</p>
+   * The specific version of the base MicroVM image to use.
+   *
    * @public
    */
   baseImageVersion?: string | undefined;
 
   /**
-   * <p>The ARN of the IAM role assumed during the image build process. This role must have permissions to access the code artifact and any required resources.</p>
+   * The ARN of the IAM role assumed during the image build process. This role must have permissions to access the code artifact and any required resources.
+   *
    * @public
    */
   buildRoleArn: string | undefined;
 
   /**
-   * <p>A description of the MicroVM image.</p>
+   * A description of the MicroVM image.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The code artifact containing the application code and metadata for the MicroVM image.</p>
+   * The code artifact containing the application code and metadata for the MicroVM image.
+   *
    * @public
    */
   codeArtifact: CodeArtifact | undefined;
 
   /**
-   * <p>The logging configuration for build-time and runtime logs. Specify \{"cloudWatch": \{"logGroup": "..."\}\} to stream logs to a custom CloudWatch log group, or \{"disabled": \{\}\} to turn off logging.</p>
+   * The logging configuration for build-time and runtime logs. Specify \{"cloudWatch": \{"logGroup": "..."\}\} to stream logs to a custom CloudWatch log group, or \{"disabled": \{\}\} to turn off logging.
+   *
    * @public
    */
   logging?: Logging | undefined;
 
   /**
-   * <p>The list of egress network connectors available to the MicroVM at runtime.</p>
+   * The list of egress network connectors available to the MicroVM at runtime.
+   *
    * @public
    */
   egressNetworkConnectors?: string[] | undefined;
 
   /**
-   * <p>The list of supported CPU configurations for the MicroVM.</p>
+   * The list of supported CPU configurations for the MicroVM.
+   *
    * @public
    */
   cpuConfigurations?: CpuConfiguration[] | undefined;
 
   /**
-   * <p>The resource requirements for the MicroVM.</p>
+   * The resource requirements for the MicroVM.
+   *
    * @public
    */
   resources?: Resources[] | undefined;
 
   /**
-   * <p>Additional OS capabilities granted to the MicroVM runtime environment.</p>
+   * Additional OS capabilities granted to the MicroVM runtime environment.
+   *
    * @public
    */
   additionalOsCapabilities?: Capability[] | undefined;
 
   /**
-   * <p>Lifecycle hook configuration for MicroVMs and MicroVM images.</p>
+   * Lifecycle hook configuration for MicroVMs and MicroVM images.
+   *
    * @public
    */
   hooks?: Hooks | undefined;
 
   /**
-   * <p>Environment variables set in the MicroVM runtime environment.</p>
+   * Environment variables set in the MicroVM runtime environment.
+   *
    * @public
    */
   environmentVariables?: Record<string, string> | undefined;
 
   /**
-   * <p>The name of the MicroVM image. Must be unique within the AWS account.</p>
+   * The name of the MicroVM image. Must be unique within the AWS account.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A set of key-value pairs that you can attach to the resource. Use tags to categorize resources for cost allocation, access control (ABAC), and organization.</p>
+   * A set of key-value pairs that you can attach to the resource. Use tags to categorize resources for cost allocation, access control (ABAC), and organization.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier you provide to ensure the idempotency of the request. If you retry a request that completed successfully using the same client token, the operation returns the successful response without performing any further actions.</p>
+   * A unique, case-sensitive identifier you provide to ensure the idempotency of the request. If you retry a request that completed successfully using the same client token, the operation returns the successful response without performing any further actions.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -486,127 +543,148 @@ export interface CreateMicrovmImageRequest {
  */
 export interface CreateMicrovmImageResponse {
   /**
-   * <p>The ARN of the created MicroVM image.</p>
+   * The ARN of the created MicroVM image.
+   *
    * @public
    */
   imageArn: string | undefined;
 
   /**
-   * <p>The name of the MicroVM image.</p>
+   * The name of the MicroVM image.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The current state of the MicroVM image.</p>
+   * The current state of the MicroVM image.
+   *
    * @public
    */
   state: MicrovmImageState | undefined;
 
   /**
-   * <p>The latest active version of the MicroVM image.</p>
+   * The latest active version of the MicroVM image.
+   *
    * @public
    */
   latestActiveImageVersion?: string | undefined;
 
   /**
-   * <p>The latest failed version of the MicroVM image, if any.</p>
+   * The latest failed version of the MicroVM image, if any.
+   *
    * @public
    */
   latestFailedImageVersion?: string | undefined;
 
   /**
-   * <p>The timestamp when the MicroVM image was created.</p>
+   * The timestamp when the MicroVM image was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The ARN of the base MicroVM image.</p>
+   * The ARN of the base MicroVM image.
+   *
    * @public
    */
   baseImageArn: string | undefined;
 
   /**
-   * <p>The specific version of the base MicroVM image.</p>
+   * The specific version of the base MicroVM image.
+   *
    * @public
    */
   baseImageVersion?: string | undefined;
 
   /**
-   * <p>The ARN of the IAM build role.</p>
+   * The ARN of the IAM build role.
+   *
    * @public
    */
   buildRoleArn: string | undefined;
 
   /**
-   * <p>The description of the MicroVM image.</p>
+   * The description of the MicroVM image.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The code artifact containing the application code and metadata for the MicroVM image.</p>
+   * The code artifact containing the application code and metadata for the MicroVM image.
+   *
    * @public
    */
   codeArtifact: CodeArtifact | undefined;
 
   /**
-   * <p>The logging configuration for build-time and runtime logs. Specify \{"cloudWatch": \{"logGroup": "..."\}\} to stream logs to a custom CloudWatch log group, or \{"disabled": \{\}\} to turn off logging.</p>
+   * The logging configuration for build-time and runtime logs. Specify \{"cloudWatch": \{"logGroup": "..."\}\} to stream logs to a custom CloudWatch log group, or \{"disabled": \{\}\} to turn off logging.
+   *
    * @public
    */
   logging?: Logging | undefined;
 
   /**
-   * <p>The list of egress network connectors available to the MicroVM at runtime.</p>
+   * The list of egress network connectors available to the MicroVM at runtime.
+   *
    * @public
    */
   egressNetworkConnectors?: string[] | undefined;
 
   /**
-   * <p>The list of supported CPU configurations for the MicroVM.</p>
+   * The list of supported CPU configurations for the MicroVM.
+   *
    * @public
    */
   cpuConfigurations?: CpuConfiguration[] | undefined;
 
   /**
-   * <p>The resource requirements for the MicroVM.</p>
+   * The resource requirements for the MicroVM.
+   *
    * @public
    */
   resources?: Resources[] | undefined;
 
   /**
-   * <p>Additional OS capabilities granted to the MicroVM runtime environment.</p>
+   * Additional OS capabilities granted to the MicroVM runtime environment.
+   *
    * @public
    */
   additionalOsCapabilities?: Capability[] | undefined;
 
   /**
-   * <p>Lifecycle hook configuration for MicroVMs and MicroVM images.</p>
+   * Lifecycle hook configuration for MicroVMs and MicroVM images.
+   *
    * @public
    */
   hooks?: Hooks | undefined;
 
   /**
-   * <p>Environment variables set in the MicroVM runtime environment.</p>
+   * Environment variables set in the MicroVM runtime environment.
+   *
    * @public
    */
   environmentVariables?: Record<string, string> | undefined;
 
   /**
-   * <p>A set of key-value pairs that you can attach to the resource. Use tags to categorize resources for cost allocation, access control (ABAC), and organization.</p>
+   * A set of key-value pairs that you can attach to the resource. Use tags to categorize resources for cost allocation, access control (ABAC), and organization.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The timestamp when the MicroVM image was last updated.</p>
+   * The timestamp when the MicroVM image was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The version of the MicroVM image.</p>
+   * The version of the MicroVM image.
+   *
    * @public
    */
   imageVersion: string | undefined;
@@ -617,13 +695,15 @@ export interface CreateMicrovmImageResponse {
  */
 export interface CreateMicrovmShellAuthTokenRequest {
   /**
-   * <p>The ID of the MicroVM to create a shell authentication token for.</p>
+   * The ID of the MicroVM to create a shell authentication token for.
+   *
    * @public
    */
   microvmIdentifier: string | undefined;
 
   /**
-   * <p>The duration in minutes before the shell authentication token expires.</p>
+   * The duration in minutes before the shell authentication token expires.
+   *
    * @public
    */
   expirationInMinutes: number | undefined;
@@ -634,7 +714,8 @@ export interface CreateMicrovmShellAuthTokenRequest {
  */
 export interface CreateMicrovmShellAuthTokenResponse {
   /**
-   * <p>The generated shell authentication token key-value pairs for accessing the MicroVM.</p>
+   * The generated shell authentication token key-value pairs for accessing the MicroVM.
+   *
    * @public
    */
   authToken: Record<string, string> | undefined;
@@ -645,7 +726,8 @@ export interface CreateMicrovmShellAuthTokenResponse {
  */
 export interface DeleteMicrovmImageInput {
   /**
-   * <p>The unique identifier (ARN or ID) of the MicroVM image to delete.</p>
+   * The unique identifier (ARN or ID) of the MicroVM image to delete.
+   *
    * @public
    */
   imageIdentifier: string | undefined;
@@ -656,13 +738,15 @@ export interface DeleteMicrovmImageInput {
  */
 export interface DeleteMicrovmImageOutput {
   /**
-   * <p>The identifier of the deleted MicroVM image.</p>
+   * The identifier of the deleted MicroVM image.
+   *
    * @public
    */
   imageIdentifier: string | undefined;
 
   /**
-   * <p>The current state of the MicroVM image after deletion.</p>
+   * The current state of the MicroVM image after deletion.
+   *
    * @public
    */
   state: MicrovmImageState | undefined;
@@ -673,13 +757,15 @@ export interface DeleteMicrovmImageOutput {
  */
 export interface DeleteMicrovmImageVersionInput {
   /**
-   * <p>The unique identifier (ARN or ID) of the MicroVM image.</p>
+   * The unique identifier (ARN or ID) of the MicroVM image.
+   *
    * @public
    */
   imageIdentifier: string | undefined;
 
   /**
-   * <p>The version of the MicroVM image to delete.</p>
+   * The version of the MicroVM image to delete.
+   *
    * @public
    */
   imageVersion: string | undefined;
@@ -690,19 +776,22 @@ export interface DeleteMicrovmImageVersionInput {
  */
 export interface DeleteMicrovmImageVersionOutput {
   /**
-   * <p>The identifier of the MicroVM image.</p>
+   * The identifier of the MicroVM image.
+   *
    * @public
    */
   imageIdentifier: string | undefined;
 
   /**
-   * <p>The version that was deleted.</p>
+   * The version that was deleted.
+   *
    * @public
    */
   imageVersion: string | undefined;
 
   /**
-   * <p>The current state of the MicroVM image version after deletion.</p>
+   * The current state of the MicroVM image version after deletion.
+   *
    * @public
    */
   state: MicrovmImageVersionState | undefined;
@@ -713,31 +802,36 @@ export interface DeleteMicrovmImageVersionOutput {
  */
 export interface GetMicrovmRequest {
   /**
-   * <p>The ID of the MicroVM to retrieve.</p>
+   * The ID of the MicroVM to retrieve.
+   *
    * @public
    */
   microvmIdentifier: string | undefined;
 }
 
 /**
- * <p>Configuration that controls MicroVM auto-suspend and auto-resume behavior. Idle time is measured by inbound traffic through the MicroVM proxy endpoint — if no requests arrive within the configured duration, the MicroVM is suspended.</p>
+ * Configuration that controls MicroVM auto-suspend and auto-resume behavior. Idle time is measured by inbound traffic through the MicroVM proxy endpoint — if no requests arrive within the configured duration, the MicroVM is suspended.
+ *
  * @public
  */
 export interface IdlePolicy {
   /**
-   * <p>The maximum time in seconds that a MicroVM can remain idle before it is automatically suspended.</p>
+   * The maximum time in seconds that a MicroVM can remain idle before it is automatically suspended.
+   *
    * @public
    */
   maxIdleDurationSeconds: number | undefined;
 
   /**
-   * <p>The maximum time in seconds that a MicroVM can remain suspended before it is automatically terminated.</p>
+   * The maximum time in seconds that a MicroVM can remain suspended before it is automatically terminated.
+   *
    * @public
    */
   suspendedDurationSeconds: number | undefined;
 
   /**
-   * <p>Indicates whether the MicroVM automatically resumes when it receives a request while suspended.</p>
+   * Indicates whether the MicroVM automatically resumes when it receives a request while suspended.
+   *
    * @public
    */
   autoResumeEnabled: boolean | undefined;
@@ -748,79 +842,92 @@ export interface IdlePolicy {
  */
 export interface GetMicrovmResponse {
   /**
-   * <p>The unique identifier of the MicroVM.</p>
+   * The unique identifier of the MicroVM.
+   *
    * @public
    */
   microvmId: string | undefined;
 
   /**
-   * <p>The current lifecycle state of the MicroVM.</p>
+   * The current lifecycle state of the MicroVM.
+   *
    * @public
    */
   state: MicrovmState | undefined;
 
   /**
-   * <p>The HTTPS endpoint URL for communicating with the MicroVM. Include a valid authentication token in the X-aws-proxy-auth header when sending requests.</p>
+   * The HTTPS endpoint URL for communicating with the MicroVM. Include a valid authentication token in the X-aws-proxy-auth header when sending requests.
+   *
    * @public
    */
   endpoint: string | undefined;
 
   /**
-   * <p>The ARN of the MicroVM image used to run this MicroVM.</p>
+   * The ARN of the MicroVM image used to run this MicroVM.
+   *
    * @public
    */
   imageArn: string | undefined;
 
   /**
-   * <p>The version of the MicroVM image used to run this MicroVM.</p>
+   * The version of the MicroVM image used to run this MicroVM.
+   *
    * @public
    */
   imageVersion: string | undefined;
 
   /**
-   * <p>The ARN of the IAM execution role assumed by the MicroVM.</p>
+   * The ARN of the IAM execution role assumed by the MicroVM.
+   *
    * @public
    */
   executionRoleArn?: string | undefined;
 
   /**
-   * <p>The idle policy configuration of the MicroVM, controlling auto-suspend and auto-resume behavior.</p>
+   * The idle policy configuration of the MicroVM, controlling auto-suspend and auto-resume behavior.
+   *
    * @public
    */
   idlePolicy?: IdlePolicy | undefined;
 
   /**
-   * <p>The maximum duration in seconds that the MicroVM can exist before being terminated by the platform.</p>
+   * The maximum duration in seconds that the MicroVM can exist before being terminated by the platform.
+   *
    * @public
    */
   maximumDurationInSeconds: number | undefined;
 
   /**
-   * <p>The timestamp when the MicroVM first started.</p>
+   * The timestamp when the MicroVM first started.
+   *
    * @public
    */
   startedAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the MicroVM terminated.</p>
+   * The timestamp when the MicroVM terminated.
+   *
    * @public
    */
   terminatedAt?: Date | undefined;
 
   /**
-   * <p>The reason for why the MicroVM is in the current state.</p>
+   * The reason for why the MicroVM is in the current state.
+   *
    * @public
    */
   stateReason?: string | undefined;
 
   /**
-   * <p>The list of ingress network connectors configured for the MicroVM.</p>
+   * The list of ingress network connectors configured for the MicroVM.
+   *
    * @public
    */
   ingressNetworkConnectors?: string[] | undefined;
 
   /**
-   * <p>The list of egress network connectors configured for the MicroVM.</p>
+   * The list of egress network connectors configured for the MicroVM.
+   *
    * @public
    */
   egressNetworkConnectors?: string[] | undefined;
@@ -831,7 +938,8 @@ export interface GetMicrovmResponse {
  */
 export interface GetMicrovmImageInput {
   /**
-   * <p>The unique identifier (ARN or ID) of the MicroVM image to retrieve.</p>
+   * The unique identifier (ARN or ID) of the MicroVM image to retrieve.
+   *
    * @public
    */
   imageIdentifier: string | undefined;
@@ -842,49 +950,57 @@ export interface GetMicrovmImageInput {
  */
 export interface GetMicrovmImageOutput {
   /**
-   * <p>The ARN of the MicroVM image.</p>
+   * The ARN of the MicroVM image.
+   *
    * @public
    */
   imageArn: string | undefined;
 
   /**
-   * <p>The name of the MicroVM image.</p>
+   * The name of the MicroVM image.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The current state of the MicroVM image.</p>
+   * The current state of the MicroVM image.
+   *
    * @public
    */
   state: MicrovmImageState | undefined;
 
   /**
-   * <p>The latest active version of the MicroVM image.</p>
+   * The latest active version of the MicroVM image.
+   *
    * @public
    */
   latestActiveImageVersion?: string | undefined;
 
   /**
-   * <p>The latest failed version of the MicroVM image, if any.</p>
+   * The latest failed version of the MicroVM image, if any.
+   *
    * @public
    */
   latestFailedImageVersion?: string | undefined;
 
   /**
-   * <p>The timestamp when the MicroVM image was created.</p>
+   * The timestamp when the MicroVM image was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>A set of key-value pairs that you can attach to the resource. Use tags to categorize resources for cost allocation, access control (ABAC), and organization.</p>
+   * A set of key-value pairs that you can attach to the resource. Use tags to categorize resources for cost allocation, access control (ABAC), and organization.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The timestamp when the MicroVM image was last updated.</p>
+   * The timestamp when the MicroVM image was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -895,43 +1011,50 @@ export interface GetMicrovmImageOutput {
  */
 export interface GetMicrovmImageBuildInput {
   /**
-   * <p>The unique identifier (ARN or ID) of the MicroVM image.</p>
+   * The unique identifier (ARN or ID) of the MicroVM image.
+   *
    * @public
    */
   imageIdentifier: string | undefined;
 
   /**
-   * <p>The version of the MicroVM image.</p>
+   * The version of the MicroVM image.
+   *
    * @public
    */
   imageVersion: string | undefined;
 
   /**
-   * <p>The unique identifier of the build to retrieve.</p>
+   * The unique identifier of the build to retrieve.
+   *
    * @public
    */
   buildId: string | undefined;
 }
 
 /**
- * <p>Contains size information about a MicroVM image snapshot build.</p>
+ * Contains size information about a MicroVM image snapshot build.
+ *
  * @public
  */
 export interface SnapshotBuild {
   /**
-   * <p>The size of the memory snapshot in bytes.</p>
+   * The size of the memory snapshot in bytes.
+   *
    * @public
    */
   memorySnapshotSizeInBytes?: number | undefined;
 
   /**
-   * <p>The size of the installed code in bytes.</p>
+   * The size of the installed code in bytes.
+   *
    * @public
    */
   codeInstallSizeInBytes?: number | undefined;
 
   /**
-   * <p>The size of the disk snapshot in bytes.</p>
+   * The size of the disk snapshot in bytes.
+   *
    * @public
    */
   diskSnapshotSizeInBytes?: number | undefined;
@@ -942,61 +1065,71 @@ export interface SnapshotBuild {
  */
 export interface GetMicrovmImageBuildOutput {
   /**
-   * <p>The ARN of the MicroVM image.</p>
+   * The ARN of the MicroVM image.
+   *
    * @public
    */
   imageArn: string | undefined;
 
   /**
-   * <p>The version of the MicroVM image.</p>
+   * The version of the MicroVM image.
+   *
    * @public
    */
   imageVersion: string | undefined;
 
   /**
-   * <p>The build request ID.</p>
+   * The build request ID.
+   *
    * @public
    */
   buildId: string | undefined;
 
   /**
-   * <p>The current state of the build.</p>
+   * The current state of the build.
+   *
    * @public
    */
   buildState: BuildState | undefined;
 
   /**
-   * <p>The target CPU architecture for the build. Supported value: ARM_64.</p>
+   * The target CPU architecture for the build. Supported value: ARM_64.
+   *
    * @public
    */
   architecture: Architecture | undefined;
 
   /**
-   * <p>The target chipset for the build.</p>
+   * The target chipset for the build.
+   *
    * @public
    */
   chipset: Chipset | undefined;
 
   /**
-   * <p>The target chipset generation for the build.</p>
+   * The target chipset generation for the build.
+   *
    * @public
    */
   chipsetGeneration: string | undefined;
 
   /**
-   * <p>The reason for the build state, if applicable.</p>
+   * The reason for the build state, if applicable.
+   *
    * @public
    */
   stateReason?: string | undefined;
 
   /**
-   * <p>The timestamp when the build was created.</p>
+   * The timestamp when the build was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The snapshot build details, including memory and disk snapshot sizes.</p>
+   * The snapshot build details, including memory and disk snapshot sizes.
+   *
    * @public
    */
   snapshotBuild?: SnapshotBuild | undefined;
@@ -1007,13 +1140,15 @@ export interface GetMicrovmImageBuildOutput {
  */
 export interface GetMicrovmImageVersionInput {
   /**
-   * <p>The unique identifier (ARN or ID) of the MicroVM image.</p>
+   * The unique identifier (ARN or ID) of the MicroVM image.
+   *
    * @public
    */
   imageIdentifier: string | undefined;
 
   /**
-   * <p>The version of the MicroVM image to retrieve.</p>
+   * The version of the MicroVM image to retrieve.
+   *
    * @public
    */
   imageVersion: string | undefined;
@@ -1024,121 +1159,141 @@ export interface GetMicrovmImageVersionInput {
  */
 export interface GetMicrovmImageVersionOutput {
   /**
-   * <p>The ARN of the base MicroVM image used.</p>
+   * The ARN of the base MicroVM image used.
+   *
    * @public
    */
   baseImageArn: string | undefined;
 
   /**
-   * <p>The specific version of the base MicroVM image.</p>
+   * The specific version of the base MicroVM image.
+   *
    * @public
    */
   baseImageVersion?: string | undefined;
 
   /**
-   * <p>The ARN of the IAM build role.</p>
+   * The ARN of the IAM build role.
+   *
    * @public
    */
   buildRoleArn: string | undefined;
 
   /**
-   * <p>The description of the version.</p>
+   * The description of the version.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The code artifact for this version.</p>
+   * The code artifact for this version.
+   *
    * @public
    */
   codeArtifact: CodeArtifact | undefined;
 
   /**
-   * <p>The logging configuration for this version.</p>
+   * The logging configuration for this version.
+   *
    * @public
    */
   logging?: Logging | undefined;
 
   /**
-   * <p>The list of egress network connectors available to the MicroVM at runtime.</p>
+   * The list of egress network connectors available to the MicroVM at runtime.
+   *
    * @public
    */
   egressNetworkConnectors?: string[] | undefined;
 
   /**
-   * <p>The list of supported CPU configurations for the MicroVM.</p>
+   * The list of supported CPU configurations for the MicroVM.
+   *
    * @public
    */
   cpuConfigurations?: CpuConfiguration[] | undefined;
 
   /**
-   * <p>The resource requirements for the MicroVM.</p>
+   * The resource requirements for the MicroVM.
+   *
    * @public
    */
   resources?: Resources[] | undefined;
 
   /**
-   * <p>Additional OS capabilities granted to the MicroVM runtime environment.</p>
+   * Additional OS capabilities granted to the MicroVM runtime environment.
+   *
    * @public
    */
   additionalOsCapabilities?: Capability[] | undefined;
 
   /**
-   * <p>Lifecycle hook configuration for MicroVMs and MicroVM images.</p>
+   * Lifecycle hook configuration for MicroVMs and MicroVM images.
+   *
    * @public
    */
   hooks?: Hooks | undefined;
 
   /**
-   * <p>Environment variables set in the MicroVM runtime environment.</p>
+   * Environment variables set in the MicroVM runtime environment.
+   *
    * @public
    */
   environmentVariables?: Record<string, string> | undefined;
 
   /**
-   * <p>The ARN of the MicroVM image.</p>
+   * The ARN of the MicroVM image.
+   *
    * @public
    */
   imageArn: string | undefined;
 
   /**
-   * <p>The version of the MicroVM image.</p>
+   * The version of the MicroVM image.
+   *
    * @public
    */
   imageVersion: string | undefined;
 
   /**
-   * <p>The current state of the version.</p>
+   * The current state of the version.
+   *
    * @public
    */
   state: MicrovmImageVersionState | undefined;
 
   /**
-   * <p>The availability status of the version: ACTIVE (can be used by RunMicrovm) or INACTIVE (blocked from launching new MicroVMs).</p>
+   * The availability status of the version: ACTIVE (can be used by RunMicrovm) or INACTIVE (blocked from launching new MicroVMs).
+   *
    * @public
    */
   status: MicrovmImageVersionStatus | undefined;
 
   /**
-   * <p>The timestamp when the version was created.</p>
+   * The timestamp when the version was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the version was last updated.</p>
+   * The timestamp when the version was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The reason for the current state. For example, one or more builds failed.</p>
+   * The reason for the current state. For example, one or more builds failed.
+   *
    * @public
    */
   stateReason?: string | undefined;
 
   /**
-   * <p>Key-value pairs associated with the version.</p>
+   * Key-value pairs associated with the version.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1149,37 +1304,43 @@ export interface GetMicrovmImageVersionOutput {
  */
 export interface ListManagedMicrovmImagesInput {
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The pagination token from a previous call. Use this token to retrieve the next page of results.</p>
+   * The pagination token from a previous call. Use this token to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Contains summary information about a managed MicroVM image.</p>
+ * Contains summary information about a managed MicroVM image.
+ *
  * @public
  */
 export interface ManagedMicrovmImageSummary {
   /**
-   * <p>The ARN of the managed MicroVM image.</p>
+   * The ARN of the managed MicroVM image.
+   *
    * @public
    */
   imageArn: string | undefined;
 
   /**
-   * <p>The timestamp when the managed MicroVM image was created.</p>
+   * The timestamp when the managed MicroVM image was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the managed MicroVM image was last updated.</p>
+   * The timestamp when the managed MicroVM image was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -1190,13 +1351,15 @@ export interface ManagedMicrovmImageSummary {
  */
 export interface ListManagedMicrovmImagesOutput {
   /**
-   * <p>The pagination token to use in a subsequent request to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * The pagination token to use in a subsequent request to retrieve the next page of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The list of managed MicroVM images.</p>
+   * The list of managed MicroVM images.
+   *
    * @public
    */
   items: ManagedMicrovmImageSummary[] | undefined;
@@ -1207,7 +1370,8 @@ export interface ListManagedMicrovmImagesOutput {
  */
 export interface ListTagsRequest {
   /**
-   * <p>The ARN of the resource to list tags for.</p>
+   * The ARN of the resource to list tags for.
+   *
    * @public
    */
   Resource: string | undefined;
@@ -1218,7 +1382,8 @@ export interface ListTagsRequest {
  */
 export interface ListTagsResponse {
   /**
-   * <p>The key-value pairs of tags associated with the resource.</p>
+   * The key-value pairs of tags associated with the resource.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -1229,61 +1394,71 @@ export interface ListTagsResponse {
  */
 export interface ListMicrovmsRequest {
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The pagination token from a previous call. Use this token to retrieve the next page of results.</p>
+   * The pagination token from a previous call. Use this token to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Optional filter to list only MicroVMs running the specified image.</p>
+   * Optional filter to list only MicroVMs running the specified image.
+   *
    * @public
    */
   imageIdentifier?: string | undefined;
 
   /**
-   * <p>Optional filter to list only MicroVMs running the specified image version.</p>
+   * Optional filter to list only MicroVMs running the specified image version.
+   *
    * @public
    */
   imageVersion?: string | undefined;
 }
 
 /**
- * <p>Contains summary information about a MicroVM instance.</p>
+ * Contains summary information about a MicroVM instance.
+ *
  * @public
  */
 export interface MicrovmItem {
   /**
-   * <p>The unique identifier of the MicroVM.</p>
+   * The unique identifier of the MicroVM.
+   *
    * @public
    */
   microvmId: string | undefined;
 
   /**
-   * <p>The current lifecycle state of the MicroVM.</p>
+   * The current lifecycle state of the MicroVM.
+   *
    * @public
    */
   state: MicrovmState | undefined;
 
   /**
-   * <p>The ARN of the MicroVM image used to run this MicroVM.</p>
+   * The ARN of the MicroVM image used to run this MicroVM.
+   *
    * @public
    */
   imageArn: string | undefined;
 
   /**
-   * <p>The version of the MicroVM image used to run this MicroVM.</p>
+   * The version of the MicroVM image used to run this MicroVM.
+   *
    * @public
    */
   imageVersion: string | undefined;
 
   /**
-   * <p>The timestamp when the MicroVM started.</p>
+   * The timestamp when the MicroVM started.
+   *
    * @public
    */
   startedAt: Date | undefined;
@@ -1294,13 +1469,15 @@ export interface MicrovmItem {
  */
 export interface ListMicrovmsResponse {
   /**
-   * <p>The pagination token to use in a subsequent request to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * The pagination token to use in a subsequent request to retrieve the next page of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The list of MicroVMs.</p>
+   * The list of MicroVMs.
+   *
    * @public
    */
   items: MicrovmItem[] | undefined;
@@ -1311,7 +1488,8 @@ export interface ListMicrovmsResponse {
  */
 export interface ResumeMicrovmRequest {
   /**
-   * <p>The ID of the MicroVM to resume.</p>
+   * The ID of the MicroVM to resume.
+   *
    * @public
    */
   microvmIdentifier: string | undefined;
@@ -1327,61 +1505,71 @@ export interface ResumeMicrovmResponse {}
  */
 export interface RunMicrovmRequest {
   /**
-   * <p>The list of ingress network connectors to configure for the MicroVM.</p>
+   * The list of ingress network connectors to configure for the MicroVM.
+   *
    * @public
    */
   ingressNetworkConnectors?: string[] | undefined;
 
   /**
-   * <p>The list of egress network connectors to configure for the MicroVM.</p>
+   * The list of egress network connectors to configure for the MicroVM.
+   *
    * @public
    */
   egressNetworkConnectors?: string[] | undefined;
 
   /**
-   * <p>The identifier (ARN or ID) of the MicroVM image to run.</p>
+   * The identifier (ARN or ID) of the MicroVM image to run.
+   *
    * @public
    */
   imageIdentifier: string | undefined;
 
   /**
-   * <p>The version of the MicroVM image to run.</p>
+   * The version of the MicroVM image to run.
+   *
    * @public
    */
   imageVersion?: string | undefined;
 
   /**
-   * <p>The ARN of the IAM role to be assumed by the MicroVM during execution.</p>
+   * The ARN of the IAM role to be assumed by the MicroVM during execution.
+   *
    * @public
    */
   executionRoleArn?: string | undefined;
 
   /**
-   * <p>Configuration to control auto-suspend and auto-resume behavior.</p>
+   * Configuration to control auto-suspend and auto-resume behavior.
+   *
    * @public
    */
   idlePolicy?: IdlePolicy | undefined;
 
   /**
-   * <p>The logging configuration for this MicroVM instance. Specify \{"cloudWatch": \{"logGroup": "..."\}\} to stream application logs to a custom CloudWatch log group, or \{"disabled": \{\}\} to turn off logging.</p>
+   * The logging configuration for this MicroVM instance. Specify \{"cloudWatch": \{"logGroup": "..."\}\} to stream application logs to a custom CloudWatch log group, or \{"disabled": \{\}\} to turn off logging.
+   *
    * @public
    */
   logging?: Logging | undefined;
 
   /**
-   * <p>Per-MicroVM initialization data delivered as the request body of the /run lifecycle hook. Use to pass tenant-specific configuration such as session IDs or secret references. Maximum: 16,384 bytes.</p>
+   * Per-MicroVM initialization data delivered as the request body of the /run lifecycle hook. Use to pass tenant-specific configuration such as session IDs or secret references. Maximum: 16,384 bytes.
+   *
    * @public
    */
   runHookPayload?: string | undefined;
 
   /**
-   * <p>The maximum duration in seconds that the MicroVM can exist before being terminated by the platform. Valid range: 1–28,800 (8 hours).</p>
+   * The maximum duration in seconds that the MicroVM can exist before being terminated by the platform. Valid range: 1–28,800 (8 hours).
+   *
    * @public
    */
   maximumDurationInSeconds?: number | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier you provide to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -1392,79 +1580,92 @@ export interface RunMicrovmRequest {
  */
 export interface RunMicrovmResponse {
   /**
-   * <p>The unique identifier of the MicroVM.</p>
+   * The unique identifier of the MicroVM.
+   *
    * @public
    */
   microvmId: string | undefined;
 
   /**
-   * <p>The current lifecycle state of the MicroVM.</p>
+   * The current lifecycle state of the MicroVM.
+   *
    * @public
    */
   state: MicrovmState | undefined;
 
   /**
-   * <p>The HTTPS endpoint URL for communicating with the MicroVM. Include a valid authentication token in the X-aws-proxy-auth header when sending requests.</p>
+   * The HTTPS endpoint URL for communicating with the MicroVM. Include a valid authentication token in the X-aws-proxy-auth header when sending requests.
+   *
    * @public
    */
   endpoint: string | undefined;
 
   /**
-   * <p>The ARN of the MicroVM image used to run this MicroVM.</p>
+   * The ARN of the MicroVM image used to run this MicroVM.
+   *
    * @public
    */
   imageArn: string | undefined;
 
   /**
-   * <p>The version of the MicroVM image used to run this MicroVM.</p>
+   * The version of the MicroVM image used to run this MicroVM.
+   *
    * @public
    */
   imageVersion: string | undefined;
 
   /**
-   * <p>The ARN of the IAM execution role assumed by the MicroVM.</p>
+   * The ARN of the IAM execution role assumed by the MicroVM.
+   *
    * @public
    */
   executionRoleArn?: string | undefined;
 
   /**
-   * <p>The idle policy configuration of the MicroVM.</p>
+   * The idle policy configuration of the MicroVM.
+   *
    * @public
    */
   idlePolicy?: IdlePolicy | undefined;
 
   /**
-   * <p>The maximum duration in seconds that the MicroVM can exist.</p>
+   * The maximum duration in seconds that the MicroVM can exist.
+   *
    * @public
    */
   maximumDurationInSeconds: number | undefined;
 
   /**
-   * <p>The timestamp when the MicroVM first started.</p>
+   * The timestamp when the MicroVM first started.
+   *
    * @public
    */
   startedAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the MicroVM terminated.</p>
+   * The timestamp when the MicroVM terminated.
+   *
    * @public
    */
   terminatedAt?: Date | undefined;
 
   /**
-   * <p>The reason for why the MicroVM is in the current state.</p>
+   * The reason for why the MicroVM is in the current state.
+   *
    * @public
    */
   stateReason?: string | undefined;
 
   /**
-   * <p>The list of ingress network connectors configured for the MicroVM.</p>
+   * The list of ingress network connectors configured for the MicroVM.
+   *
    * @public
    */
   ingressNetworkConnectors?: string[] | undefined;
 
   /**
-   * <p>The list of egress network connectors configured for the MicroVM.</p>
+   * The list of egress network connectors configured for the MicroVM.
+   *
    * @public
    */
   egressNetworkConnectors?: string[] | undefined;
@@ -1475,7 +1676,8 @@ export interface RunMicrovmResponse {
  */
 export interface SuspendMicrovmRequest {
   /**
-   * <p>The ID of the MicroVM to suspend.</p>
+   * The ID of the MicroVM to suspend.
+   *
    * @public
    */
   microvmIdentifier: string | undefined;
@@ -1491,7 +1693,8 @@ export interface SuspendMicrovmResponse {}
  */
 export interface TerminateMicrovmRequest {
   /**
-   * <p>The ID of the MicroVM to terminate.</p>
+   * The ID of the MicroVM to terminate.
+   *
    * @public
    */
   microvmIdentifier: string | undefined;
@@ -1507,55 +1710,64 @@ export interface TerminateMicrovmResponse {}
  */
 export interface ListManagedMicrovmImageVersionsInput {
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The pagination token from a previous call. Use this token to retrieve the next page of results.</p>
+   * The pagination token from a previous call. Use this token to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The unique identifier (ARN or ID) of the managed MicroVM image to list versions for.</p>
+   * The unique identifier (ARN or ID) of the managed MicroVM image to list versions for.
+   *
    * @public
    */
   imageIdentifier: string | undefined;
 }
 
 /**
- * <p>Contains version information for a managed MicroVM image.</p>
+ * Contains version information for a managed MicroVM image.
+ *
  * @public
  */
 export interface ManagedMicrovmImageVersion {
   /**
-   * <p>The ARN of the managed MicroVM image.</p>
+   * The ARN of the managed MicroVM image.
+   *
    * @public
    */
   imageArn: string | undefined;
 
   /**
-   * <p>The version of the managed MicroVM image.</p>
+   * The version of the managed MicroVM image.
+   *
    * @public
    */
   imageVersion: string | undefined;
 
   /**
-   * <p>The lifecycle status of the managed MicroVM image version. Valid values: AVAILABLE (the version is available for use) or DEPRECATED (the version is deprecated; do not use it for new MicroVM images).</p>
+   * The lifecycle status of the managed MicroVM image version. Valid values: AVAILABLE (the version is available for use) or DEPRECATED (the version is deprecated; do not use it for new MicroVM images).
+   *
    * @public
    */
   status?: ManagedMicrovmImageVersionStatus | undefined;
 
   /**
-   * <p>The timestamp when the version was created.</p>
+   * The timestamp when the version was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the version was last updated.</p>
+   * The timestamp when the version was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -1566,13 +1778,15 @@ export interface ManagedMicrovmImageVersion {
  */
 export interface ListManagedMicrovmImageVersionsOutput {
   /**
-   * <p>The pagination token to use in a subsequent request to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * The pagination token to use in a subsequent request to retrieve the next page of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The list of managed MicroVM image versions.</p>
+   * The list of managed MicroVM image versions.
+   *
    * @public
    */
   items: ManagedMicrovmImageVersion[] | undefined;
@@ -1583,103 +1797,120 @@ export interface ListManagedMicrovmImageVersionsOutput {
  */
 export interface ListMicrovmImageBuildsInput {
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The pagination token from a previous call. Use this token to retrieve the next page of results.</p>
+   * The pagination token from a previous call. Use this token to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The unique identifier (ARN or ID) of the MicroVM image.</p>
+   * The unique identifier (ARN or ID) of the MicroVM image.
+   *
    * @public
    */
   imageIdentifier: string | undefined;
 
   /**
-   * <p>The version of the MicroVM image to list builds for.</p>
+   * The version of the MicroVM image to list builds for.
+   *
    * @public
    */
   imageVersion: string | undefined;
 
   /**
-   * <p>Filters builds by target CPU architecture.</p>
+   * Filters builds by target CPU architecture.
+   *
    * @public
    */
   architecture?: Architecture | undefined;
 
   /**
-   * <p>Filters builds by target chipset.</p>
+   * Filters builds by target chipset.
+   *
    * @public
    */
   chipset?: Chipset | undefined;
 
   /**
-   * <p>Filters builds by target chipset generation.</p>
+   * Filters builds by target chipset generation.
+   *
    * @public
    */
   chipsetGeneration?: string | undefined;
 }
 
 /**
- * <p>Contains summary information about a MicroVM image build.</p>
+ * Contains summary information about a MicroVM image build.
+ *
  * @public
  */
 export interface MicrovmImageBuildSummary {
   /**
-   * <p>The ARN of the MicroVM image.</p>
+   * The ARN of the MicroVM image.
+   *
    * @public
    */
   imageArn: string | undefined;
 
   /**
-   * <p>The version of the MicroVM image.</p>
+   * The version of the MicroVM image.
+   *
    * @public
    */
   imageVersion: string | undefined;
 
   /**
-   * <p>The build request ID.</p>
+   * The build request ID.
+   *
    * @public
    */
   buildId: string | undefined;
 
   /**
-   * <p>The current state of the build.</p>
+   * The current state of the build.
+   *
    * @public
    */
   buildState: BuildState | undefined;
 
   /**
-   * <p>The target CPU architecture for the build. Supported value: ARM_64.</p>
+   * The target CPU architecture for the build. Supported value: ARM_64.
+   *
    * @public
    */
   architecture: Architecture | undefined;
 
   /**
-   * <p>The target chipset for the build.</p>
+   * The target chipset for the build.
+   *
    * @public
    */
   chipset: Chipset | undefined;
 
   /**
-   * <p>The target chipset generation for the build.</p>
+   * The target chipset generation for the build.
+   *
    * @public
    */
   chipsetGeneration: string | undefined;
 
   /**
-   * <p>The reason for the build state, if applicable.</p>
+   * The reason for the build state, if applicable.
+   *
    * @public
    */
   stateReason?: string | undefined;
 
   /**
-   * <p>The timestamp when the build was created.</p>
+   * The timestamp when the build was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
@@ -1690,13 +1921,15 @@ export interface MicrovmImageBuildSummary {
  */
 export interface ListMicrovmImageBuildsOutput {
   /**
-   * <p>The pagination token to use in a subsequent request to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * The pagination token to use in a subsequent request to retrieve the next page of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The list of MicroVM image builds.</p>
+   * The list of MicroVM image builds.
+   *
    * @public
    */
   items: MicrovmImageBuildSummary[] | undefined;
@@ -1707,61 +1940,71 @@ export interface ListMicrovmImageBuildsOutput {
  */
 export interface ListMicrovmImagesRequest {
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The pagination token from a previous call. Use this token to retrieve the next page of results.</p>
+   * The pagination token from a previous call. Use this token to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Filters images whose name contains the specified string.</p>
+   * Filters images whose name contains the specified string.
+   *
    * @public
    */
   nameFilter?: string | undefined;
 }
 
 /**
- * <p>Contains summary information about a MicroVM image.</p>
+ * Contains summary information about a MicroVM image.
+ *
  * @public
  */
 export interface MicrovmImageSummary {
   /**
-   * <p>The ARN of the MicroVM image.</p>
+   * The ARN of the MicroVM image.
+   *
    * @public
    */
   imageArn: string | undefined;
 
   /**
-   * <p>The name of the MicroVM image.</p>
+   * The name of the MicroVM image.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The current state of the MicroVM image.</p>
+   * The current state of the MicroVM image.
+   *
    * @public
    */
   state: MicrovmImageState | undefined;
 
   /**
-   * <p>The latest active version of the MicroVM image.</p>
+   * The latest active version of the MicroVM image.
+   *
    * @public
    */
   latestActiveImageVersion?: string | undefined;
 
   /**
-   * <p>The latest failed version of the MicroVM image, if any.</p>
+   * The latest failed version of the MicroVM image, if any.
+   *
    * @public
    */
   latestFailedImageVersion?: string | undefined;
 
   /**
-   * <p>The timestamp when the MicroVM image was created.</p>
+   * The timestamp when the MicroVM image was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
@@ -1772,13 +2015,15 @@ export interface MicrovmImageSummary {
  */
 export interface ListMicrovmImagesResponse {
   /**
-   * <p>The pagination token to use in a subsequent request to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * The pagination token to use in a subsequent request to retrieve the next page of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The list of MicroVM images.</p>
+   * The list of MicroVM images.
+   *
    * @public
    */
   items: MicrovmImageSummary[] | undefined;
@@ -1789,145 +2034,169 @@ export interface ListMicrovmImagesResponse {
  */
 export interface ListMicrovmImageVersionsInput {
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The pagination token from a previous call. Use this token to retrieve the next page of results.</p>
+   * The pagination token from a previous call. Use this token to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The unique identifier (ARN or ID) of the MicroVM image to list versions for.</p>
+   * The unique identifier (ARN or ID) of the MicroVM image to list versions for.
+   *
    * @public
    */
   imageIdentifier: string | undefined;
 }
 
 /**
- * <p>Contains summary information about a version of a MicroVM image.</p>
+ * Contains summary information about a version of a MicroVM image.
+ *
  * @public
  */
 export interface MicrovmImageVersionSummary {
   /**
-   * <p>The ARN of the base MicroVM image used.</p>
+   * The ARN of the base MicroVM image used.
+   *
    * @public
    */
   baseImageArn: string | undefined;
 
   /**
-   * <p>The specific version of the base MicroVM image.</p>
+   * The specific version of the base MicroVM image.
+   *
    * @public
    */
   baseImageVersion?: string | undefined;
 
   /**
-   * <p>The ARN of the IAM build role.</p>
+   * The ARN of the IAM build role.
+   *
    * @public
    */
   buildRoleArn: string | undefined;
 
   /**
-   * <p>The description of the version.</p>
+   * The description of the version.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The code artifact for this version.</p>
+   * The code artifact for this version.
+   *
    * @public
    */
   codeArtifact: CodeArtifact | undefined;
 
   /**
-   * <p>The logging configuration for this version.</p>
+   * The logging configuration for this version.
+   *
    * @public
    */
   logging?: Logging | undefined;
 
   /**
-   * <p>The list of egress network connectors available to the MicroVM at runtime.</p>
+   * The list of egress network connectors available to the MicroVM at runtime.
+   *
    * @public
    */
   egressNetworkConnectors?: string[] | undefined;
 
   /**
-   * <p>The list of supported CPU configurations for the MicroVM.</p>
+   * The list of supported CPU configurations for the MicroVM.
+   *
    * @public
    */
   cpuConfigurations?: CpuConfiguration[] | undefined;
 
   /**
-   * <p>The resource requirements for the MicroVM.</p>
+   * The resource requirements for the MicroVM.
+   *
    * @public
    */
   resources?: Resources[] | undefined;
 
   /**
-   * <p>Additional OS capabilities granted to the MicroVM runtime environment.</p>
+   * Additional OS capabilities granted to the MicroVM runtime environment.
+   *
    * @public
    */
   additionalOsCapabilities?: Capability[] | undefined;
 
   /**
-   * <p>Lifecycle hook configuration for MicroVMs and MicroVM images.</p>
+   * Lifecycle hook configuration for MicroVMs and MicroVM images.
+   *
    * @public
    */
   hooks?: Hooks | undefined;
 
   /**
-   * <p>Environment variables set in the MicroVM runtime environment.</p>
+   * Environment variables set in the MicroVM runtime environment.
+   *
    * @public
    */
   environmentVariables?: Record<string, string> | undefined;
 
   /**
-   * <p>The ARN of the MicroVM image.</p>
+   * The ARN of the MicroVM image.
+   *
    * @public
    */
   imageArn: string | undefined;
 
   /**
-   * <p>The version of the MicroVM image.</p>
+   * The version of the MicroVM image.
+   *
    * @public
    */
   imageVersion: string | undefined;
 
   /**
-   * <p>The current state of the version.</p>
+   * The current state of the version.
+   *
    * @public
    */
   state: MicrovmImageVersionState | undefined;
 
   /**
-   * <p>The availability status of the version: ACTIVE (can be used by RunMicrovm) or INACTIVE (blocked from launching new MicroVMs).</p>
+   * The availability status of the version: ACTIVE (can be used by RunMicrovm) or INACTIVE (blocked from launching new MicroVMs).
+   *
    * @public
    */
   status: MicrovmImageVersionStatus | undefined;
 
   /**
-   * <p>The timestamp when the version was created.</p>
+   * The timestamp when the version was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the version was last updated.</p>
+   * The timestamp when the version was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The reason for the current state. For example, one or more builds failed.</p>
+   * The reason for the current state. For example, one or more builds failed.
+   *
    * @public
    */
   stateReason?: string | undefined;
 
   /**
-   * <p>Key-value pairs associated with the version.</p>
+   * Key-value pairs associated with the version.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1938,13 +2207,15 @@ export interface MicrovmImageVersionSummary {
  */
 export interface ListMicrovmImageVersionsOutput {
   /**
-   * <p>The pagination token to use in a subsequent request to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * The pagination token to use in a subsequent request to retrieve the next page of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The list of MicroVM image versions.</p>
+   * The list of MicroVM image versions.
+   *
    * @public
    */
   items: MicrovmImageVersionSummary[] | undefined;
@@ -1955,85 +2226,99 @@ export interface ListMicrovmImageVersionsOutput {
  */
 export interface UpdateMicrovmImageRequest {
   /**
-   * <p>The ARN of the base MicroVM image.</p>
+   * The ARN of the base MicroVM image.
+   *
    * @public
    */
   baseImageArn: string | undefined;
 
   /**
-   * <p>The specific version of the base MicroVM image to use.</p>
+   * The specific version of the base MicroVM image to use.
+   *
    * @public
    */
   baseImageVersion?: string | undefined;
 
   /**
-   * <p>The ARN of the IAM build role.</p>
+   * The ARN of the IAM build role.
+   *
    * @public
    */
   buildRoleArn: string | undefined;
 
   /**
-   * <p>The description of the MicroVM image.</p>
+   * The description of the MicroVM image.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The code artifact containing the application code and metadata for the MicroVM image.</p>
+   * The code artifact containing the application code and metadata for the MicroVM image.
+   *
    * @public
    */
   codeArtifact: CodeArtifact | undefined;
 
   /**
-   * <p>The logging configuration for build-time and runtime logs. Specify \{"cloudWatch": \{"logGroup": "..."\}\} to stream logs to a custom CloudWatch log group, or \{"disabled": \{\}\} to turn off logging.</p>
+   * The logging configuration for build-time and runtime logs. Specify \{"cloudWatch": \{"logGroup": "..."\}\} to stream logs to a custom CloudWatch log group, or \{"disabled": \{\}\} to turn off logging.
+   *
    * @public
    */
   logging?: Logging | undefined;
 
   /**
-   * <p>The list of egress network connectors available to the MicroVM at runtime.</p>
+   * The list of egress network connectors available to the MicroVM at runtime.
+   *
    * @public
    */
   egressNetworkConnectors?: string[] | undefined;
 
   /**
-   * <p>The list of supported CPU configurations for the MicroVM.</p>
+   * The list of supported CPU configurations for the MicroVM.
+   *
    * @public
    */
   cpuConfigurations?: CpuConfiguration[] | undefined;
 
   /**
-   * <p>The resource requirements for the MicroVM.</p>
+   * The resource requirements for the MicroVM.
+   *
    * @public
    */
   resources?: Resources[] | undefined;
 
   /**
-   * <p>Additional OS capabilities granted to the MicroVM runtime environment.</p>
+   * Additional OS capabilities granted to the MicroVM runtime environment.
+   *
    * @public
    */
   additionalOsCapabilities?: Capability[] | undefined;
 
   /**
-   * <p>Lifecycle hook configuration for MicroVMs and MicroVM images.</p>
+   * Lifecycle hook configuration for MicroVMs and MicroVM images.
+   *
    * @public
    */
   hooks?: Hooks | undefined;
 
   /**
-   * <p>Environment variables set in the MicroVM runtime environment.</p>
+   * Environment variables set in the MicroVM runtime environment.
+   *
    * @public
    */
   environmentVariables?: Record<string, string> | undefined;
 
   /**
-   * <p>The unique identifier (ARN or ID) of the MicroVM image to update.</p>
+   * The unique identifier (ARN or ID) of the MicroVM image to update.
+   *
    * @public
    */
   imageIdentifier: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier you provide to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -2044,121 +2329,141 @@ export interface UpdateMicrovmImageRequest {
  */
 export interface UpdateMicrovmImageResponse {
   /**
-   * <p>The ARN of the MicroVM image.</p>
+   * The ARN of the MicroVM image.
+   *
    * @public
    */
   imageArn: string | undefined;
 
   /**
-   * <p>The name of the MicroVM image.</p>
+   * The name of the MicroVM image.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The current state of the MicroVM image.</p>
+   * The current state of the MicroVM image.
+   *
    * @public
    */
   state: MicrovmImageState | undefined;
 
   /**
-   * <p>The latest active version of the MicroVM image.</p>
+   * The latest active version of the MicroVM image.
+   *
    * @public
    */
   latestActiveImageVersion?: string | undefined;
 
   /**
-   * <p>The latest failed version of the MicroVM image, if any.</p>
+   * The latest failed version of the MicroVM image, if any.
+   *
    * @public
    */
   latestFailedImageVersion?: string | undefined;
 
   /**
-   * <p>The timestamp when the MicroVM image was created.</p>
+   * The timestamp when the MicroVM image was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The ARN of the base MicroVM image.</p>
+   * The ARN of the base MicroVM image.
+   *
    * @public
    */
   baseImageArn: string | undefined;
 
   /**
-   * <p>The specific version of the base MicroVM image.</p>
+   * The specific version of the base MicroVM image.
+   *
    * @public
    */
   baseImageVersion?: string | undefined;
 
   /**
-   * <p>The ARN of the IAM build role.</p>
+   * The ARN of the IAM build role.
+   *
    * @public
    */
   buildRoleArn: string | undefined;
 
   /**
-   * <p>The description of the MicroVM image.</p>
+   * The description of the MicroVM image.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The code artifact containing the application code and metadata for the MicroVM image.</p>
+   * The code artifact containing the application code and metadata for the MicroVM image.
+   *
    * @public
    */
   codeArtifact: CodeArtifact | undefined;
 
   /**
-   * <p>The logging configuration for build-time and runtime logs. Specify \{"cloudWatch": \{"logGroup": "..."\}\} to stream logs to a custom CloudWatch log group, or \{"disabled": \{\}\} to turn off logging.</p>
+   * The logging configuration for build-time and runtime logs. Specify \{"cloudWatch": \{"logGroup": "..."\}\} to stream logs to a custom CloudWatch log group, or \{"disabled": \{\}\} to turn off logging.
+   *
    * @public
    */
   logging?: Logging | undefined;
 
   /**
-   * <p>The list of egress network connectors available to the MicroVM at runtime.</p>
+   * The list of egress network connectors available to the MicroVM at runtime.
+   *
    * @public
    */
   egressNetworkConnectors?: string[] | undefined;
 
   /**
-   * <p>The list of supported CPU configurations for the MicroVM.</p>
+   * The list of supported CPU configurations for the MicroVM.
+   *
    * @public
    */
   cpuConfigurations?: CpuConfiguration[] | undefined;
 
   /**
-   * <p>The resource requirements for the MicroVM.</p>
+   * The resource requirements for the MicroVM.
+   *
    * @public
    */
   resources?: Resources[] | undefined;
 
   /**
-   * <p>Additional OS capabilities granted to the MicroVM runtime environment.</p>
+   * Additional OS capabilities granted to the MicroVM runtime environment.
+   *
    * @public
    */
   additionalOsCapabilities?: Capability[] | undefined;
 
   /**
-   * <p>Lifecycle hook configuration for MicroVMs and MicroVM images.</p>
+   * Lifecycle hook configuration for MicroVMs and MicroVM images.
+   *
    * @public
    */
   hooks?: Hooks | undefined;
 
   /**
-   * <p>Environment variables set in the MicroVM runtime environment.</p>
+   * Environment variables set in the MicroVM runtime environment.
+   *
    * @public
    */
   environmentVariables?: Record<string, string> | undefined;
 
   /**
-   * <p>The timestamp when the MicroVM image was last updated.</p>
+   * The timestamp when the MicroVM image was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The version of the MicroVM image.</p>
+   * The version of the MicroVM image.
+   *
    * @public
    */
   imageVersion: string | undefined;
@@ -2169,19 +2474,22 @@ export interface UpdateMicrovmImageResponse {
  */
 export interface UpdateMicrovmImageVersionRequest {
   /**
-   * <p>The unique identifier (ARN or ID) of the MicroVM image.</p>
+   * The unique identifier (ARN or ID) of the MicroVM image.
+   *
    * @public
    */
   imageIdentifier: string | undefined;
 
   /**
-   * <p>The version of the MicroVM image to update.</p>
+   * The version of the MicroVM image to update.
+   *
    * @public
    */
   imageVersion: string | undefined;
 
   /**
-   * <p>The new status to set for the MicroVM image version.</p>
+   * The new status to set for the MicroVM image version.
+   *
    * @public
    */
   status: MicrovmImageVersionStatus | undefined;
@@ -2192,121 +2500,141 @@ export interface UpdateMicrovmImageVersionRequest {
  */
 export interface UpdateMicrovmImageVersionResponse {
   /**
-   * <p>The ARN of the base MicroVM image used.</p>
+   * The ARN of the base MicroVM image used.
+   *
    * @public
    */
   baseImageArn: string | undefined;
 
   /**
-   * <p>The specific version of the base MicroVM image.</p>
+   * The specific version of the base MicroVM image.
+   *
    * @public
    */
   baseImageVersion?: string | undefined;
 
   /**
-   * <p>The ARN of the IAM build role.</p>
+   * The ARN of the IAM build role.
+   *
    * @public
    */
   buildRoleArn: string | undefined;
 
   /**
-   * <p>The description of the version.</p>
+   * The description of the version.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The code artifact for this version.</p>
+   * The code artifact for this version.
+   *
    * @public
    */
   codeArtifact: CodeArtifact | undefined;
 
   /**
-   * <p>The logging configuration for this version.</p>
+   * The logging configuration for this version.
+   *
    * @public
    */
   logging?: Logging | undefined;
 
   /**
-   * <p>The list of egress network connectors available to the MicroVM at runtime.</p>
+   * The list of egress network connectors available to the MicroVM at runtime.
+   *
    * @public
    */
   egressNetworkConnectors?: string[] | undefined;
 
   /**
-   * <p>The list of supported CPU configurations for the MicroVM.</p>
+   * The list of supported CPU configurations for the MicroVM.
+   *
    * @public
    */
   cpuConfigurations?: CpuConfiguration[] | undefined;
 
   /**
-   * <p>The resource requirements for the MicroVM.</p>
+   * The resource requirements for the MicroVM.
+   *
    * @public
    */
   resources?: Resources[] | undefined;
 
   /**
-   * <p>Additional OS capabilities granted to the MicroVM runtime environment.</p>
+   * Additional OS capabilities granted to the MicroVM runtime environment.
+   *
    * @public
    */
   additionalOsCapabilities?: Capability[] | undefined;
 
   /**
-   * <p>Lifecycle hook configuration for MicroVMs and MicroVM images.</p>
+   * Lifecycle hook configuration for MicroVMs and MicroVM images.
+   *
    * @public
    */
   hooks?: Hooks | undefined;
 
   /**
-   * <p>Environment variables set in the MicroVM runtime environment.</p>
+   * Environment variables set in the MicroVM runtime environment.
+   *
    * @public
    */
   environmentVariables?: Record<string, string> | undefined;
 
   /**
-   * <p>The ARN of the MicroVM image.</p>
+   * The ARN of the MicroVM image.
+   *
    * @public
    */
   imageArn: string | undefined;
 
   /**
-   * <p>The version of the MicroVM image.</p>
+   * The version of the MicroVM image.
+   *
    * @public
    */
   imageVersion: string | undefined;
 
   /**
-   * <p>The current state of the version.</p>
+   * The current state of the version.
+   *
    * @public
    */
   state: MicrovmImageVersionState | undefined;
 
   /**
-   * <p>The availability status of the version: ACTIVE (can be used by RunMicrovm) or INACTIVE (blocked from launching new MicroVMs).</p>
+   * The availability status of the version: ACTIVE (can be used by RunMicrovm) or INACTIVE (blocked from launching new MicroVMs).
+   *
    * @public
    */
   status: MicrovmImageVersionStatus | undefined;
 
   /**
-   * <p>The timestamp when the version was created.</p>
+   * The timestamp when the version was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the version was last updated.</p>
+   * The timestamp when the version was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The reason for the current state. For example, one or more builds failed.</p>
+   * The reason for the current state. For example, one or more builds failed.
+   *
    * @public
    */
   stateReason?: string | undefined;
 
   /**
-   * <p>Key-value pairs associated with the version.</p>
+   * Key-value pairs associated with the version.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -2317,13 +2645,15 @@ export interface UpdateMicrovmImageVersionResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The ARN of the resource to tag.</p>
+   * The ARN of the resource to tag.
+   *
    * @public
    */
   Resource: string | undefined;
 
   /**
-   * <p>The key-value pairs of tags to add to the resource.</p>
+   * The key-value pairs of tags to add to the resource.
+   *
    * @public
    */
   Tags: Record<string, string> | undefined;
@@ -2334,13 +2664,15 @@ export interface TagResourceRequest {
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The ARN of the resource to remove tags from.</p>
+   * The ARN of the resource to remove tags from.
+   *
    * @public
    */
   Resource: string | undefined;
 
   /**
-   * <p>The list of tag keys to remove from the resource.</p>
+   * The list of tag keys to remove from the resource.
+   *
    * @public
    */
   TagKeys: string[] | undefined;

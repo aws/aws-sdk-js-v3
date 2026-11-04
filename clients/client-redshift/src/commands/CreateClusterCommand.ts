@@ -23,35 +23,19 @@ export interface CreateClusterCommandInput extends CreateClusterMessage {}
 export interface CreateClusterCommandOutput extends CreateClusterResult, __MetadataBearer {}
 
 /**
- * <p>Creates a new cluster with the specified parameters.</p>
- *          <p>To create a cluster in Virtual Private Cloud (VPC), you must provide a cluster
- *             subnet group name. The cluster subnet group identifies the subnets of your VPC that
- *             Amazon Redshift uses when creating the cluster.
- * For more information about managing clusters, go to
- * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
- *          <p>VPC Block Public Access (BPA) enables you to block resources in VPCs and subnets that
- *             you own in a Region from reaching or being reached from the internet through internet
- *             gateways and egress-only internet gateways. If a subnet group for a
- *             provisioned cluster is in an account with VPC BPA turned on, the following capabilities
- *             are blocked:</p>
- *          <ul>
- *             <li>
- *                <p>Creating a public cluster</p>
- *             </li>
- *             <li>
- *                <p>Restoring a public cluster</p>
- *             </li>
- *             <li>
- *                <p>Modifying a private cluster to be public</p>
- *             </li>
- *             <li>
- *                <p>Adding a subnet with VPC BPA turned on to the subnet group when there's at
- *                     least one public cluster within the group</p>
- *             </li>
- *          </ul>
- *          <p>For more information about VPC BPA, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html">Block public access to VPCs and
- *             subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
+ * Creates a new cluster with the specified parameters.
+ *
+ * To create a cluster in Virtual Private Cloud (VPC), you must provide a cluster subnet group name. The cluster subnet group identifies the subnets of your VPC that Amazon Redshift uses when creating the cluster. For more information about managing clusters, go to [Amazon Redshift Clusters](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html) in the *Amazon Redshift Cluster Management Guide*.
+ *
+ * VPC Block Public Access (BPA) enables you to block resources in VPCs and subnets that you own in a Region from reaching or being reached from the internet through internet gateways and egress-only internet gateways. If a subnet group for a provisioned cluster is in an account with VPC BPA turned on, the following capabilities are blocked:
+ *
+ * - Creating a public cluster
+ * - Restoring a public cluster
+ * - Modifying a private cluster to be public
+ * - Adding a subnet with VPC BPA turned on to the subnet group when there's at least one public cluster within the group
+ *
+ * For more information about VPC BPA, see [Block public access to VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html) in the *Amazon VPC User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -333,106 +317,118 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterAlreadyExistsFault} (client fault)
- *  <p>The account already has a cluster with the given identifier.</p>
+ *
+ * The account already has a cluster with the given identifier.
  *
  * @throws {@link ClusterParameterGroupNotFoundFault} (client fault)
- *  <p>The parameter group name does not refer to an existing parameter group.</p>
+ *
+ * The parameter group name does not refer to an existing parameter group.
  *
  * @throws {@link ClusterQuotaExceededFault} (client fault)
- *  <p>The request would exceed the allowed number of cluster instances for this account.
  *
- * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.
- * </p>
+ * The request would exceed the allowed number of cluster instances for this account. For information about increasing your quota, go to [Limits in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html) in the *Amazon Redshift Cluster Management Guide*.
  *
  * @throws {@link ClusterSecurityGroupNotFoundFault} (client fault)
- *  <p>The cluster security group name does not refer to an existing cluster security
- *             group.</p>
+ *
+ * The cluster security group name does not refer to an existing cluster security group.
  *
  * @throws {@link ClusterSubnetGroupNotFoundFault} (client fault)
- *  <p>The cluster subnet group name does not refer to an existing cluster subnet
- *             group.</p>
+ *
+ * The cluster subnet group name does not refer to an existing cluster subnet group.
  *
  * @throws {@link DependentServiceAccessDeniedFault} (client fault)
- *  <p>A dependent service denied access for the integration.</p>
+ *
+ * A dependent service denied access for the integration.
  *
  * @throws {@link DependentServiceRequestThrottlingFault} (client fault)
- *  <p>The request cannot be completed because a dependent service is throttling requests
- *             made by Amazon Redshift on your behalf. Wait and retry the request.</p>
+ *
+ * The request cannot be completed because a dependent service is throttling requests made by Amazon Redshift on your behalf. Wait and retry the request.
  *
  * @throws {@link DependentServiceUnavailableFault} (client fault)
- *  <p>Your request cannot be completed because a dependent internal service is
- *             temporarily unavailable. Wait 30 to 60 seconds and try again.</p>
+ *
+ * Your request cannot be completed because a dependent internal service is temporarily unavailable. Wait 30 to 60 seconds and try again.
  *
  * @throws {@link HsmClientCertificateNotFoundFault} (client fault)
- *  <p>There is no Amazon Redshift HSM client certificate with the specified
- *             identifier.</p>
+ *
+ * There is no Amazon Redshift HSM client certificate with the specified identifier.
  *
  * @throws {@link HsmConfigurationNotFoundFault} (client fault)
- *  <p>There is no Amazon Redshift HSM configuration with the specified identifier.</p>
+ *
+ * There is no Amazon Redshift HSM configuration with the specified identifier.
  *
  * @throws {@link InsufficientClusterCapacityFault} (client fault)
- *  <p>The number of nodes specified exceeds the allotted capacity of the
- *             cluster.</p>
+ *
+ * The number of nodes specified exceeds the allotted capacity of the cluster.
  *
  * @throws {@link InvalidClusterSubnetGroupStateFault} (client fault)
- *  <p>The cluster subnet group cannot be deleted because it is in use.</p>
+ *
+ * The cluster subnet group cannot be deleted because it is in use.
  *
  * @throws {@link InvalidClusterTrackFault} (client fault)
- *  <p>The provided cluster track name is not valid.</p>
+ *
+ * The provided cluster track name is not valid.
  *
  * @throws {@link InvalidElasticIpFault} (client fault)
- *  <p>The Elastic IP (EIP) is invalid or cannot be found.</p>
+ *
+ * The Elastic IP (EIP) is invalid or cannot be found.
  *
  * @throws {@link InvalidRetentionPeriodFault} (client fault)
- *  <p>The retention period specified is either in the past or is not a valid value.</p>
- *          <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+ *
+ * The retention period specified is either in the past or is not a valid value.
+ *
+ * The value must be either -1 or an integer between 1 and 3,653.
  *
  * @throws {@link InvalidSubnet} (client fault)
- *  <p>The requested subnet is not valid, or not all of the subnets are in the same
- *             VPC.</p>
+ *
+ * The requested subnet is not valid, or not all of the subnets are in the same VPC.
  *
  * @throws {@link InvalidTagFault} (client fault)
- *  <p>The tag is invalid.</p>
+ *
+ * The tag is invalid.
  *
  * @throws {@link InvalidVPCNetworkStateFault} (client fault)
- *  <p>The cluster subnet group does not cover all Availability Zones.</p>
+ *
+ * The cluster subnet group does not cover all Availability Zones.
  *
  * @throws {@link Ipv6CidrBlockNotFoundFault} (client fault)
- *  <p>There are no subnets in your VPC with associated IPv6 CIDR blocks. To use dual-stack mode,
- *             associate an IPv6 CIDR block with each subnet in your VPC.</p>
+ *
+ * There are no subnets in your VPC with associated IPv6 CIDR blocks. To use dual-stack mode, associate an IPv6 CIDR block with each subnet in your VPC.
  *
  * @throws {@link LimitExceededFault} (client fault)
- *  <p>The encryption key has exceeded its grant limit in Amazon Web Services KMS.</p>
+ *
+ * The encryption key has exceeded its grant limit in Amazon Web Services KMS.
  *
  * @throws {@link NumberOfNodesPerClusterLimitExceededFault} (client fault)
- *  <p>The operation would exceed the number of nodes allowed for a cluster.</p>
+ *
+ * The operation would exceed the number of nodes allowed for a cluster.
  *
  * @throws {@link NumberOfNodesQuotaExceededFault} (client fault)
- *  <p>The operation would exceed the number of nodes allotted to the account.
  *
- * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.
- * </p>
+ * The operation would exceed the number of nodes allotted to the account. For information about increasing your quota, go to [Limits in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html) in the *Amazon Redshift Cluster Management Guide*.
  *
  * @throws {@link RedshiftIdcApplicationNotExistsFault} (client fault)
- *  <p>The application you attempted to find doesn't exist.</p>
+ *
+ * The application you attempted to find doesn't exist.
  *
  * @throws {@link SnapshotScheduleNotFoundFault} (client fault)
- *  <p>We could not find the specified snapshot schedule. </p>
+ *
+ * We could not find the specified snapshot schedule.
  *
  * @throws {@link TagLimitExceededFault} (client fault)
- *  <p>You have exceeded the number of tags allowed.</p>
+ *
+ * You have exceeded the number of tags allowed.
  *
  * @throws {@link UnauthorizedOperation} (client fault)
- *  <p>Your account is not authorized to perform the requested operation.</p>
+ *
+ * Your account is not authorized to perform the requested operation.
  *
  * @throws {@link UnsupportedOperationFault} (client fault)
- *  <p>The requested operation isn't supported.</p>
+ *
+ * The requested operation isn't supported.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

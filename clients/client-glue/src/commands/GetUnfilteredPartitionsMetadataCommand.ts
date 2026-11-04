@@ -26,9 +26,10 @@ export interface GetUnfilteredPartitionsMetadataCommandInput extends GetUnfilter
 export interface GetUnfilteredPartitionsMetadataCommandOutput extends GetUnfilteredPartitionsMetadataResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves partition metadata from the Data Catalog that contains unfiltered
- *           metadata.</p>
- *          <p>For IAM authorization, the public IAM action associated with this API is <code>glue:GetPartitions</code>.</p>
+ * Retrieves partition metadata from the Data Catalog that contains unfiltered metadata.
+ *
+ * For IAM authorization, the public IAM action associated with this API is `glue:GetPartitions`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -160,32 +161,40 @@ export interface GetUnfilteredPartitionsMetadataCommandOutput extends GetUnfilte
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link FederationSourceException} (client fault)
- *  <p>A federation source failed.</p>
+ *
+ * A federation source failed.
  *
  * @throws {@link FederationSourceRetryableException} (client fault)
- *  <p>A federation source failed, but the operation may be retried.</p>
+ *
+ * A federation source failed, but the operation may be retried.
  *
  * @throws {@link GlueEncryptionException} (client fault)
- *  <p>An encryption operation failed.</p>
+ *
+ * An encryption operation failed.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link PermissionTypeMismatchException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

@@ -23,12 +23,12 @@ export interface StartMLEvaluationTaskRunCommandInput extends StartMLEvaluationT
 export interface StartMLEvaluationTaskRunCommandOutput extends StartMLEvaluationTaskRunResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a task to estimate the quality of the transform. </p>
- *          <p>When you provide label sets as examples of truth, Glue machine learning uses some of
- *       those examples to learn from them. The rest of the labels are used as a test to estimate
- *       quality.</p>
- *          <p>Returns a unique identifier for the run. You can call <code>GetMLTaskRun</code> to get more
- *       information about the stats of the <code>EvaluationTaskRun</code>.</p>
+ * Starts a task to estimate the quality of the transform.
+ *
+ * When you provide label sets as examples of truth, Glue machine learning uses some of those examples to learn from them. The rest of the labels are used as a test to estimate quality.
+ *
+ * Returns a unique identifier for the run. You can call `GetMLTaskRun` to get more information about the stats of the `EvaluationTaskRun`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,26 +55,32 @@ export interface StartMLEvaluationTaskRunCommandOutput extends StartMLEvaluation
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link ConcurrentRunsExceededException} (client fault)
- *  <p>Too many jobs are being run concurrently.</p>
+ *
+ * Too many jobs are being run concurrently.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link MLTransformNotReadyException} (client fault)
- *  <p>The machine learning transform is not ready to run.</p>
+ *
+ * The machine learning transform is not ready to run.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

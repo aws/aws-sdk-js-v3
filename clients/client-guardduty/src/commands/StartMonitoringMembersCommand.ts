@@ -23,7 +23,8 @@ export interface StartMonitoringMembersCommandInput extends StartMonitoringMembe
 export interface StartMonitoringMembersCommandOutput extends StartMonitoringMembersResponse, __MetadataBearer {}
 
 /**
- * <p>Turns on GuardDuty monitoring of the specified member accounts. Use this operation to restart monitoring of accounts that you stopped monitoring with the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_StopMonitoringMembers.html">StopMonitoringMembers</a> operation.</p>
+ * Turns on GuardDuty monitoring of the specified member accounts. Use this operation to restart monitoring of accounts that you stopped monitoring with the [StopMonitoringMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_StopMonitoringMembers.html) operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,14 +59,16 @@ export interface StartMonitoringMembersCommandOutput extends StartMonitoringMemb
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>A bad request exception object.</p>
+ *
+ * A bad request exception object.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>An internal server error exception object.</p>
+ *
+ * An internal server error exception object.
  *
  * @throws {@link GuardDutyServiceException}
- * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * Base exception class for all service exceptions from GuardDuty service.
  *
  * @public
  */

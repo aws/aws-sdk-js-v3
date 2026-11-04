@@ -23,9 +23,12 @@ export interface DescribeAttackStatisticsCommandInput extends DescribeAttackStat
 export interface DescribeAttackStatisticsCommandOutput extends DescribeAttackStatisticsResponse, __MetadataBearer {}
 
 /**
- * <p>Provides information about the number and type of attacks Shield has detected in the last year for all resources that belong to your account, regardless of whether you've defined Shield protections for them. This operation is available to Shield customers as well as to Shield Advanced customers.</p>
- *          <p>The operation returns data for the time range of midnight UTC, one year ago, to midnight UTC, today. For example, if the current time is <code>2020-10-26 15:39:32 PDT</code>, equal to <code>2020-10-26 22:39:32 UTC</code>, then the time range for the attack data returned is from <code>2019-10-26 00:00:00 UTC</code> to <code>2020-10-26 00:00:00 UTC</code>. </p>
- *          <p>The time range indicates the period covered by the attack statistics data items.</p>
+ * Provides information about the number and type of attacks Shield has detected in the last year for all resources that belong to your account, regardless of whether you've defined Shield protections for them. This operation is available to Shield customers as well as to Shield Advanced customers.
+ *
+ * The operation returns data for the time range of midnight UTC, one year ago, to midnight UTC, today. For example, if the current time is `2020-10-26 15:39:32 PDT`, equal to `2020-10-26 22:39:32 UTC`, then the time range for the attack data returned is from `2019-10-26 00:00:00 UTC` to `2020-10-26 00:00:00 UTC`.
+ *
+ * The time range indicates the period covered by the attack statistics data items.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,11 +72,12 @@ export interface DescribeAttackStatisticsCommandOutput extends DescribeAttackSta
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+ *
+ * Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.
  *
  * @throws {@link ShieldServiceException}
- * <p>Base exception class for all service exceptions from Shield service.</p>
  *
+ * Base exception class for all service exceptions from Shield service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface CancelRunCommandInput extends CancelRunRequest {}
 export interface CancelRunCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Cancels a run using its ID and returns a response with no body if the operation is successful. To confirm that the run has been cancelled, use the <code>ListRuns</code> API operation to check that it is no longer listed.</p>
+ * Cancels a run using its ID and returns a response with no body if the operation is successful. To confirm that the run has been cancelled, use the `ListRuns` API operation to check that it is no longer listed.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,32 +49,40 @@ export interface CancelRunCommandOutput extends __MetadataBearer {}
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request cannot be applied to the target resource in its current state.</p>
+ *
+ * The request cannot be applied to the target resource in its current state.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred. Try the request again.</p>
+ *
+ * An unexpected error occurred. Try the request again.
  *
  * @throws {@link RequestTimeoutException} (client fault)
- *  <p>The request timed out.</p>
+ *
+ * The request timed out.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The target resource was not found in the current Region.</p>
+ *
+ * The target resource was not found in the current Region.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request exceeds a service quota.</p>
+ *
+ * The request exceeds a service quota.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link OmicsServiceException}
- * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * Base exception class for all service exceptions from Omics service.
  *
  * @public
  */

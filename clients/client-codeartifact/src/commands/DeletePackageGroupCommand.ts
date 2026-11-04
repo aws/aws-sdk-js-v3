@@ -23,11 +23,8 @@ export interface DeletePackageGroupCommandInput extends DeletePackageGroupReques
 export interface DeletePackageGroupCommandOutput extends DeletePackageGroupResult, __MetadataBearer {}
 
 /**
- * <p>Deletes a package group.
- *       Deleting a package group does not delete packages or package versions associated with the package group.
- *       When a package group is deleted, the direct child package groups will become children of the package
- *       group's direct parent package group. Therefore, if any of the child groups are inheriting any settings
- *       from the parent, those settings could change.</p>
+ * Deletes a package group. Deleting a package group does not delete packages or package versions associated with the package group. When a package group is deleted, the direct child package groups will become children of the package group's direct parent package group. Therefore, if any of the child groups are inheriting any settings from the parent, those settings could change.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,41 +78,36 @@ export interface DeletePackageGroupCommandOutput extends DeletePackageGroupResul
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>
- *         The operation did not succeed because of an unauthorized access attempt.
- *       </p>
+ *
+ * The operation did not succeed because of an unauthorized access attempt.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>
- *         The operation did not succeed because prerequisites are not met.
- *       </p>
+ *
+ * The operation did not succeed because prerequisites are not met.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+ *
+ * The operation did not succeed because of an error that occurred inside CodeArtifact.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>
- *       The operation did not succeed because the resource requested is not found in the service.
- *     </p>
+ *
+ * The operation did not succeed because the resource requested is not found in the service.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>
- *         The operation did not succeed because it would have exceeded a service limit for your account.
- *       </p>
+ *
+ * The operation did not succeed because it would have exceeded a service limit for your account.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>
- *       The operation did not succeed because too many requests are sent to the service.
- *     </p>
+ *
+ * The operation did not succeed because too many requests are sent to the service.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>
- *       The operation did not succeed because a parameter in the request was sent with an invalid value.
- *     </p>
+ *
+ * The operation did not succeed because a parameter in the request was sent with an invalid value.
  *
  * @throws {@link CodeartifactServiceException}
- * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ * Base exception class for all service exceptions from Codeartifact service.
  *
  * @public
  */

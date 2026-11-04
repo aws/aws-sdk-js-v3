@@ -23,12 +23,9 @@ export interface CreateRepositoryCommandInput extends CreateRepositoryInput {}
 export interface CreateRepositoryCommandOutput extends CreateRepositoryOutput, __MetadataBearer {}
 
 /**
- * <p>Create and register a link to a repository. Proton uses the link to repeatedly access the repository, to either push to it (self-managed
- *       provisioning) or pull from it (template sync). You can share a linked repository across multiple resources (like environments using self-managed
- *       provisioning, or synced templates). When you create a repository link, Proton creates a <a href="https://docs.aws.amazon.com/proton/latest/userguide/using-service-linked-roles.html">service-linked role</a> for you.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-self">Self-managed provisioning</a>, <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-template-authoring.html#ag-template-bundles">Template bundles</a>, and
- *         <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-template-sync-configs.html">Template sync configurations</a> in the <i>Proton
- *         User Guide</i>.</p>
+ * Create and register a link to a repository. Proton uses the link to repeatedly access the repository, to either push to it (self-managed provisioning) or pull from it (template sync). You can share a linked repository across multiple resources (like environments using self-managed provisioning, or synced templates). When you create a repository link, Proton creates a [service-linked role](https://docs.aws.amazon.com/proton/latest/userguide/using-service-linked-roles.html) for you.
+ *
+ * For more information, see [Self-managed provisioning](https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-self), [Template bundles](https://docs.aws.amazon.com/proton/latest/userguide/ag-template-authoring.html#ag-template-bundles), and [Template sync configurations](https://docs.aws.amazon.com/proton/latest/userguide/ag-template-sync-configs.html) in the *Proton User Guide*.
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example
@@ -72,27 +69,32 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryOutput, _
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>There <i>isn't</i> sufficient access for performing this action.</p>
+ *
+ * There *isn't* sufficient access for performing this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request <i>couldn't</i> be made due to a conflicting operation or resource.</p>
+ *
+ * The request *couldn't* be made due to a conflicting operation or resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request failed to register with the service.</p>
+ *
+ * The request failed to register with the service.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>A quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-limits.html">Proton Quotas</a> in
- *       the <i>Proton User Guide</i>.</p>
+ *
+ * A quota was exceeded. For more information, see [Proton Quotas](https://docs.aws.amazon.com/proton/latest/userguide/ag-limits.html) in the *Proton User Guide*.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+ *
+ * The input is invalid or an out-of-range value was supplied for the input parameter.
  *
  * @throws {@link ProtonServiceException}
- * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * Base exception class for all service exceptions from Proton service.
  *
  * @public
  */

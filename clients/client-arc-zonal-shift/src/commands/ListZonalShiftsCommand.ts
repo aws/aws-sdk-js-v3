@@ -23,7 +23,10 @@ export interface ListZonalShiftsCommandInput extends ListZonalShiftsRequest {}
 export interface ListZonalShiftsCommandOutput extends ListZonalShiftsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all active and completed zonal shifts in Amazon Application Recovery Controller in your Amazon Web Services account in this Amazon Web Services Region. <code>ListZonalShifts</code> returns customer-initiated zonal shifts, as well as practice run zonal shifts that ARC started on your behalf for zonal autoshift.</p> <p>For more information about listing autoshifts, see <a href="https://docs.aws.amazon.com/arc-zonal-shift/latest/api/API_ListAutoshifts.html">"&gt;ListAutoshifts</a>.</p>
+ * Lists all active and completed zonal shifts in Amazon Application Recovery Controller in your Amazon Web Services account in this Amazon Web Services Region. `ListZonalShifts` returns customer-initiated zonal shifts, as well as practice run zonal shifts that ARC started on your behalf for zonal autoshift.
+ *
+ * For more information about listing autoshifts, see ["&gt;ListAutoshifts](https://docs.aws.amazon.com/arc-zonal-shift/latest/api/API_ListAutoshifts.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,20 +69,24 @@ export interface ListZonalShiftsCommandOutput extends ListZonalShiftsResponse, _
  * @see {@link ARCZonalShiftClientResolvedConfig | config} for ARCZonalShiftClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>There was an internal server error.</p>
+ *
+ * There was an internal server error.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link ARCZonalShiftServiceException}
- * <p>Base exception class for all service exceptions from ARCZonalShift service.</p>
  *
+ * Base exception class for all service exceptions from ARCZonalShift service.
  *
  * @public
  */

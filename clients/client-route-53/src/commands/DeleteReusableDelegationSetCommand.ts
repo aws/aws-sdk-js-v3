@@ -23,14 +23,12 @@ export interface DeleteReusableDelegationSetCommandInput extends DeleteReusableD
 export interface DeleteReusableDelegationSetCommandOutput extends DeleteReusableDelegationSetResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a reusable delegation set.</p>
- *          <important>
- *             <p>You can delete a reusable delegation set only if it isn't associated with any
- * 				hosted zones.</p>
- *          </important>
- *          <p>To verify that the reusable delegation set is not associated with any hosted zones,
- * 			submit a <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetReusableDelegationSet.html">GetReusableDelegationSet</a> request and specify the ID of the reusable
- * 			delegation set that you want to delete.</p>
+ * Deletes a reusable delegation set.
+ *
+ * > **Important:** You can delete a reusable delegation set only if it isn't associated with any hosted zones.
+ *
+ * To verify that the reusable delegation set is not associated with any hosted zones, submit a [GetReusableDelegationSet](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetReusableDelegationSet.html) request and specify the ID of the reusable delegation set that you want to delete.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,21 +53,24 @@ export interface DeleteReusableDelegationSetCommandOutput extends DeleteReusable
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link DelegationSetInUse} (client fault)
- *  <p>The specified delegation contains associated hosted zones which must be deleted before
- * 			the reusable delegation set can be deleted.</p>
+ *
+ * The specified delegation contains associated hosted zones which must be deleted before the reusable delegation set can be deleted.
  *
  * @throws {@link DelegationSetNotReusable} (client fault)
- *  <p>A reusable delegation set with the specified ID does not exist.</p>
+ *
+ * A reusable delegation set with the specified ID does not exist.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link NoSuchDelegationSet} (client fault)
- *  <p>A reusable delegation set with the specified ID does not exist.</p>
+ *
+ * A reusable delegation set with the specified ID does not exist.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @public
  */

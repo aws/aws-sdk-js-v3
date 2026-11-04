@@ -23,7 +23,8 @@ export interface UpdateHostCommandInput extends UpdateHostInput {}
 export interface UpdateHostCommandOutput extends UpdateHostOutput, __MetadataBearer {}
 
 /**
- * <p>Updates a specified host with the provided configurations.</p>
+ * Updates a specified host with the provided configurations.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,20 +60,24 @@ export interface UpdateHostCommandOutput extends UpdateHostOutput, __MetadataBea
  * @see {@link CodeStarConnectionsClientResolvedConfig | config} for CodeStarConnectionsClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Two conflicting operations have been made on the same resource.</p>
+ *
+ * Two conflicting operations have been made on the same resource.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource not found. Verify the connection resource ARN and try again.</p>
+ *
+ * Resource not found. Verify the connection resource ARN and try again.
  *
  * @throws {@link ResourceUnavailableException} (client fault)
- *  <p>Resource not found. Verify the ARN for the host resource and try again.</p>
+ *
+ * Resource not found. Verify the ARN for the host resource and try again.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>The operation is not supported. Check the connection status and try again.</p>
+ *
+ * The operation is not supported. Check the connection status and try again.
  *
  * @throws {@link CodeStarConnectionsServiceException}
- * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ * Base exception class for all service exceptions from CodeStarConnections service.
  *
  * @public
  */

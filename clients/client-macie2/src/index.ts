@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>Amazon Macie</p>
+ * Amazon Macie
  *
  * @packageDocumentation
  */

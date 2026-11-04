@@ -23,7 +23,8 @@ export interface DescribeAccountPreferencesCommandInput extends DescribeAccountP
 export interface DescribeAccountPreferencesCommandOutput extends DescribeAccountPreferencesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the account preferences settings for the Amazon Web Services account associated with the user making the request, in the current Amazon Web Services Region.</p>
+ * Returns the account preferences settings for the Amazon Web Services account associated with the user making the request, in the current Amazon Web Services Region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,11 +58,12 @@ export interface DescribeAccountPreferencesCommandOutput extends DescribeAccount
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Returned if an error occurred on the server side.</p>
+ *
+ * Returned if an error occurred on the server side.
  *
  * @throws {@link EFSServiceException}
- * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * Base exception class for all service exceptions from EFS service.
  *
  * @public
  */

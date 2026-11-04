@@ -23,17 +23,12 @@ export interface CreateTrafficDistributionGroupCommandInput extends CreateTraffi
 export interface CreateTrafficDistributionGroupCommandOutput extends CreateTrafficDistributionGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a traffic distribution group given an Connect Customer instance that has been replicated.</p>
- *          <note>
- *             <p>The <code>SignInConfig</code> distribution is available only on a
- * default <code>TrafficDistributionGroup</code> (see the <code>IsDefault</code> parameter in the
- * <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_TrafficDistributionGroup.html">TrafficDistributionGroup</a>
- *  data type). If you call
- *     <code>UpdateTrafficDistribution</code> with a modified <code>SignInConfig</code> and a non-default <code>TrafficDistributionGroup</code>,
- *     an <code>InvalidRequestException</code> is returned.</p>
- *          </note>
- *          <p>For more information about creating traffic distribution groups, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-traffic-distribution-groups.html">Set up traffic distribution groups</a> in the
- *      <i>Connect Customer Administrator Guide</i>. </p>
+ * Creates a traffic distribution group given an Connect Customer instance that has been replicated.
+ *
+ * > **Note:** The `SignInConfig` distribution is available only on a default `TrafficDistributionGroup` (see the `IsDefault` parameter in the [TrafficDistributionGroup](https://docs.aws.amazon.com/connect/latest/APIReference/API_TrafficDistributionGroup.html) data type). If you call `UpdateTrafficDistribution` with a modified `SignInConfig` and a non-default `TrafficDistributionGroup`, an `InvalidRequestException` is returned.
+ *
+ * For more information about creating traffic distribution groups, see [Set up traffic distribution groups](https://docs.aws.amazon.com/connect/latest/adminguide/setup-traffic-distribution-groups.html) in the *Connect Customer Administrator Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,32 +62,40 @@ export interface CreateTrafficDistributionGroupCommandOutput extends CreateTraff
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceConflictException} (client fault)
- *  <p>A resource already has that name.</p>
+ *
+ * A resource already has that name.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ResourceNotReadyException} (client fault)
- *  <p>The resource is not ready.</p>
+ *
+ * The resource is not ready.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The service quota has been exceeded.</p>
+ *
+ * The service quota has been exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

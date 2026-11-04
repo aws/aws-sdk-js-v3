@@ -23,33 +23,17 @@ export interface PublishStateMachineVersionCommandInput extends PublishStateMach
 export interface PublishStateMachineVersionCommandOutput extends PublishStateMachineVersionOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html">version</a> from the
- *       current revision of a state machine. Use versions to create immutable snapshots of your state
- *       machine. You can start executions from versions either directly or with an alias. To create an
- *       alias, use <a>CreateStateMachineAlias</a>.</p>
- *          <p>You can publish up to 1000 versions for each state machine. You must manually delete unused versions using the <a>DeleteStateMachineVersion</a> API action.</p>
- *          <p>
- *             <code>PublishStateMachineVersion</code> is an idempotent API. It doesn't create a
- *       duplicate state machine version if it already exists for the current revision. Step Functions bases <code>PublishStateMachineVersion</code>'s idempotency check on the
- *         <code>stateMachineArn</code>, <code>name</code>, and <code>revisionId</code> parameters.
- *       Requests with the same parameters return a successful idempotent response. If you don't
- *       specify a <code>revisionId</code>, Step Functions checks for a previously published
- *       version of the state machine's current revision.</p>
- *          <p>
- *             <b>Related operations:</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>DeleteStateMachineVersion</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListStateMachineVersions</a>
- *                </p>
- *             </li>
- *          </ul>
+ * Creates a [version](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html) from the current revision of a state machine. Use versions to create immutable snapshots of your state machine. You can start executions from versions either directly or with an alias. To create an alias, use CreateStateMachineAlias.
+ *
+ * You can publish up to 1000 versions for each state machine. You must manually delete unused versions using the DeleteStateMachineVersion API action.
+ *
+ * `PublishStateMachineVersion` is an idempotent API. It doesn't create a duplicate state machine version if it already exists for the current revision. Step Functions bases `PublishStateMachineVersion`'s idempotency check on the `stateMachineArn`, `name`, and `revisionId` parameters. Requests with the same parameters return a successful idempotent response. If you don't specify a `revisionId`, Step Functions checks for a previously published version of the state machine's current revision.
+ *
+ * **Related operations:**
+ *
+ * - DeleteStateMachineVersion
+ * - ListStateMachineVersions
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,28 +63,36 @@ export interface PublishStateMachineVersionCommandOutput extends PublishStateMac
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting a resource can cause an inconsistent state. This error occurs when there're concurrent requests for <a>DeleteStateMachineVersion</a>, <a>PublishStateMachineVersion</a>, or <a>UpdateStateMachine</a> with the <code>publish</code> parameter set to <code>true</code>.</p>
- *          <p>HTTP Status Code: 409</p>
+ *
+ * Updating or deleting a resource can cause an inconsistent state. This error occurs when there're concurrent requests for DeleteStateMachineVersion, PublishStateMachineVersion, or UpdateStateMachine with the `publish` parameter set to `true`.
+ *
+ * HTTP Status Code: 409
  *
  * @throws {@link InvalidArn} (client fault)
- *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * The provided Amazon Resource Name (ARN) is not valid.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would cause a service quota to be exceeded.</p>
- *          <p>HTTP Status Code: 402</p>
+ *
+ * The request would cause a service quota to be exceeded.
+ *
+ * HTTP Status Code: 402
  *
  * @throws {@link StateMachineDeleting} (client fault)
- *  <p>The specified state machine is being deleted.</p>
+ *
+ * The specified state machine is being deleted.
  *
  * @throws {@link StateMachineDoesNotExist} (client fault)
- *  <p>The specified state machine does not exist.</p>
+ *
+ * The specified state machine does not exist.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input does not satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link SFNServiceException}
- * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * Base exception class for all service exceptions from SFN service.
  *
  * @public
  */

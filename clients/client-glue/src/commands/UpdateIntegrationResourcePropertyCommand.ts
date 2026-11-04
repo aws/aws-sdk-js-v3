@@ -26,7 +26,8 @@ export interface UpdateIntegrationResourcePropertyCommandInput extends UpdateInt
 export interface UpdateIntegrationResourcePropertyCommandOutput extends UpdateIntegrationResourcePropertyResponse, __MetadataBearer {}
 
 /**
- * <p>This API can be used for updating the <code>ResourceProperty</code> of the Glue connection (for the source) or Glue database ARN (for the target). These properties can include the role to access the connection or database. Since the same resource can be used across multiple integrations, updating resource properties will impact all the integrations using it.</p>
+ * This API can be used for updating the `ResourceProperty` of the Glue connection (for the source) or Glue database ARN (for the target). These properties can include the role to access the connection or database. Since the same resource can be used across multiple integrations, updating resource properties will impact all the integrations using it.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,29 +73,36 @@ export interface UpdateIntegrationResourcePropertyCommandOutput extends UpdateIn
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to a resource was denied.</p>
+ *
+ * Access to a resource was denied.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred.</p>
+ *
+ * An internal server error occurred.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A value could not be validated.</p>
+ *
+ * A value could not be validated.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

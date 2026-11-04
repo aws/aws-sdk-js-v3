@@ -23,15 +23,12 @@ export interface CreateExportJobCommandInput extends CreateExportJobRequest {}
 export interface CreateExportJobCommandOutput extends CreateExportJobResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an export job for a data source and destination.</p>
- *          <p>Export jobs run asynchronously. This operation returns a <code>JobId</code>. Call
- *                 <code>GetExportJob</code> with that ID until <code>JobStatus</code> is
- *                 <code>COMPLETED</code>, <code>FAILED</code>, or <code>CANCELLED</code>. When the
- *             status is <code>COMPLETED</code>, download the export file from the pre-signed URL in
- *                 <code>ExportDestination.S3Url</code>. When the status is <code>FAILED</code>, see
- *                 <code>FailureInfo</code>. To store a copy in your own bucket, upload the downloaded
- *             file to your bucket. Do not include <code>S3Url</code> in the request.</p>
- *          <p>You can execute this operation no more than once per second.</p>
+ * Creates an export job for a data source and destination.
+ *
+ * Export jobs run asynchronously. This operation returns a `JobId`. Call `GetExportJob` with that ID until `JobStatus` is `COMPLETED`, `FAILED`, or `CANCELLED`. When the status is `COMPLETED`, download the export file from the pre-signed URL in `ExportDestination.S3Url`. When the status is `FAILED`, see `FailureInfo`. To store a copy in your own bucket, upload the downloaded file to your bucket. Do not include `S3Url` in the request.
+ *
+ * You can execute this operation no more than once per second.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -130,20 +127,24 @@ export interface CreateExportJobCommandOutput extends CreateExportJobResponse, _
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>There are too many instances of the specified resource type.</p>
+ *
+ * There are too many instances of the specified resource type.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * The resource you attempted to access doesn't exist.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Too many requests have been made to the operation.</p>
+ *
+ * Too many requests have been made to the operation.
  *
  * @throws {@link SESv2ServiceException}
- * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * Base exception class for all service exceptions from SESv2 service.
  *
  * @public
  */

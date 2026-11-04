@@ -23,7 +23,10 @@ export interface GetCognitoEventsCommandInput extends GetCognitoEventsRequest {}
 export interface GetCognitoEventsCommandOutput extends GetCognitoEventsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the events and the corresponding Lambda functions associated with an identity pool.</p><p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
+ * Gets the events and the corresponding Lambda functions associated with an identity pool.
+ *
+ * This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,8 +75,8 @@ export interface GetCognitoEventsCommandOutput extends GetCognitoEventsResponse,
  *       throttled.
  *
  * @throws {@link CognitoSyncServiceException}
- * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
+ * Base exception class for all service exceptions from CognitoSync service.
  *
  * @public
  */

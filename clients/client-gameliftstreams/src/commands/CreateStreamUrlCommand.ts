@@ -23,7 +23,12 @@ export interface CreateStreamUrlCommandInput extends CreateStreamUrlInput {}
 export interface CreateStreamUrlCommandOutput extends CreateStreamUrlOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a stream URL that grants temporary access to a stream session in a web browser without requiring an Amazon Web Services account or client integration.</p> <p>You can use the stream URL to start a stream session up to the number of times set by <code>UsageLimit</code>, until it expires after <code>UrlExpiresAfterMinutes</code>. Each successful use starts a new stream session.</p> <p>To make the request idempotent, provide a <code>ClientToken</code>.</p>
+ * Creates a stream URL that grants temporary access to a stream session in a web browser without requiring an Amazon Web Services account or client integration.
+ *
+ * You can use the stream URL to start a stream session up to the number of times set by `UsageLimit`, until it expires after `UrlExpiresAfterMinutes`. Each successful use starts a new stream session.
+ *
+ * To make the request idempotent, provide a `ClientToken`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -102,29 +107,36 @@ export interface CreateStreamUrlCommandOutput extends CreateStreamUrlOutput, __M
  * @see {@link GameLiftStreamsClientResolvedConfig | config} for GameLiftStreamsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have the required permissions to access this Amazon GameLift Streams resource. Correct the permissions before you try again.</p>
+ *
+ * You don't have the required permissions to access this Amazon GameLift Streams resource. Correct the permissions before you try again.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p>
+ *
+ * The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The service encountered an internal error and is unable to complete the request.</p>
+ *
+ * The service encountered an internal error and is unable to complete the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource specified in the request was not found. Correct the request before you try again.</p>
+ *
+ * The resource specified in the request was not found. Correct the request before you try again.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would cause the resource to exceed an allowed service quota. Resolve the issue before you try again.</p>
+ *
+ * The request would cause the resource to exceed an allowed service quota. Resolve the issue before you try again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. Retry the request after the suggested wait time.</p>
+ *
+ * The request was denied due to request throttling. Retry the request after the suggested wait time.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One or more parameter values in the request fail to satisfy the specified constraints. Correct the invalid parameter values before retrying the request.</p>
+ *
+ * One or more parameter values in the request fail to satisfy the specified constraints. Correct the invalid parameter values before retrying the request.
  *
  * @throws {@link GameLiftStreamsServiceException}
- * <p>Base exception class for all service exceptions from GameLiftStreams service.</p>
  *
+ * Base exception class for all service exceptions from GameLiftStreams service.
  *
  * @public
  */

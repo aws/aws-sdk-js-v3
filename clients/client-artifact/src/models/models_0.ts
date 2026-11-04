@@ -18,12 +18,14 @@ import type {
 } from "./enums";
 
 /**
- * <p>Account settings for the customer.</p>
+ * Account settings for the customer.
+ *
  * @public
  */
 export interface AccountSettings {
   /**
-   * <p>Notification subscription status of the customer.</p>
+   * Notification subscription status of the customer.
+   *
    * @public
    */
   notificationSubscriptionStatus?: NotificationSubscriptionStatus | undefined;
@@ -39,25 +41,29 @@ export interface GetAccountSettingsRequest {}
  */
 export interface GetAccountSettingsResponse {
   /**
-   * <p>Account settings for the customer.</p>
+   * Account settings for the customer.
+   *
    * @public
    */
   accountSettings?: AccountSettings | undefined;
 }
 
 /**
- * <p>Validation exception message and name.</p>
+ * Validation exception message and name.
+ *
  * @public
  */
 export interface ValidationExceptionField {
   /**
-   * <p>Name of validation exception.</p>
+   * Name of validation exception.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Message describing why the field failed validation.</p>
+   * Message describing why the field failed validation.
+   *
    * @public
    */
   message: string | undefined;
@@ -68,7 +74,8 @@ export interface ValidationExceptionField {
  */
 export interface PutAccountSettingsRequest {
   /**
-   * <p>Desired notification subscription status.</p>
+   * Desired notification subscription status.
+   *
    * @public
    */
   notificationSubscriptionStatus?: NotificationSubscriptionStatus | undefined;
@@ -79,32 +86,37 @@ export interface PutAccountSettingsRequest {
  */
 export interface PutAccountSettingsResponse {
   /**
-   * <p>Account settings for the customer.</p>
+   * Account settings for the customer.
+   *
    * @public
    */
   accountSettings?: AccountSettings | undefined;
 }
 
 /**
- * <p>File content structure for compliance inquiry uploads.</p>
+ * File content structure for compliance inquiry uploads.
+ *
  * @public
  */
 export interface InquiryFileContent {
   /**
-   * <p>List of file sections/sheets to process.</p>
+   * List of file sections/sheets to process.
+   *
    * @public
    */
   fileSections?: string[] | undefined;
 
   /**
-   * <p>Binary content of the uploaded file.</p>
+   * Binary content of the uploaded file.
+   *
    * @public
    */
   content: Uint8Array | undefined;
 }
 
 /**
- * <p>Content for creating a compliance inquiry - either a single query or file content.</p>
+ * Content for creating a compliance inquiry - either a single query or file content.
+ *
  * @public
  */
 export type InquiryContent =
@@ -117,7 +129,8 @@ export type InquiryContent =
  */
 export namespace InquiryContent {
   /**
-   * <p>Single text query for AI-generated answer.</p>
+   * Single text query for AI-generated answer.
+   *
    * @public
    */
   export interface QueryMember {
@@ -127,7 +140,8 @@ export namespace InquiryContent {
   }
 
   /**
-   * <p>File content with multiple questions.</p>
+   * File content with multiple questions.
+   *
    * @public
    */
   export interface FileContentMember {
@@ -161,79 +175,92 @@ export namespace InquiryContent {
  */
 export interface CreateComplianceInquiryRequest {
   /**
-   * <p>Title of the inquiry.</p>
+   * Title of the inquiry.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Content for creating a compliance inquiry - either a single query or file content.</p>
+   * Content for creating a compliance inquiry - either a single query or file content.
+   *
    * @public
    */
   inquiryContent: InquiryContent | undefined;
 
   /**
-   * <p>Idempotency token for the request.</p>
+   * Idempotency token for the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>Support mode for inquiry processing. Only supported for file upload mode. Defaults to AI_ONLY if not specified.</p>
+   * Support mode for inquiry processing. Only supported for file upload mode. Defaults to AI_ONLY if not specified.
+   *
    * @public
    */
   supportMode?: InquirySupportMode | undefined;
 
   /**
-   * <p>Tags to associate with the compliance inquiry resource.</p>
+   * Tags to associate with the compliance inquiry resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Summary information about a compliance inquiry.</p>
+ * Summary information about a compliance inquiry.
+ *
  * @public
  */
 export interface InquirySummary {
   /**
-   * <p>ARN of the compliance inquiry resource.</p>
+   * ARN of the compliance inquiry resource.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>Title of the inquiry.</p>
+   * Title of the inquiry.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Unique resource ID for the compliance inquiry.</p>
+   * Unique resource ID for the compliance inquiry.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>Current processing status of the inquiry.</p>
+   * Current processing status of the inquiry.
+   *
    * @public
    */
   status: InquiryStatus | undefined;
 
   /**
-   * <p>Status message providing additional context.</p>
+   * Status message providing additional context.
+   *
    * @public
    */
   statusMessage: InquiryStatusMessage | undefined;
 
   /**
-   * <p>Type of inquiry content (text or file).</p>
+   * Type of inquiry content (text or file).
+   *
    * @public
    */
   inputSource: InputSource | undefined;
 
   /**
-   * <p>Timestamp indicating when the resource was created.</p>
+   * Timestamp indicating when the resource was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
@@ -244,13 +271,15 @@ export interface InquirySummary {
  */
 export interface CreateComplianceInquiryResponse {
   /**
-   * <p>Summary information about the created compliance inquiry.</p>
+   * Summary information about the created compliance inquiry.
+   *
    * @public
    */
   complianceInquirySummary?: InquirySummary | undefined;
 
   /**
-   * <p>Tags associated with the compliance inquiry resource.</p>
+   * Tags associated with the compliance inquiry resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -261,19 +290,22 @@ export interface CreateComplianceInquiryResponse {
  */
 export interface ExportComplianceInquiryRequest {
   /**
-   * <p>Unique resource ID for the compliance inquiry.</p>
+   * Unique resource ID for the compliance inquiry.
+   *
    * @public
    */
   complianceInquiryId: string | undefined;
 
   /**
-   * <p>List of query identifiers to include in the export.</p>
+   * List of query identifiers to include in the export.
+   *
    * @public
    */
   queryIdentifiers?: number[] | undefined;
 
   /**
-   * <p>When true, include citations in the exported document.</p>
+   * When true, include citations in the exported document.
+   *
    * @public
    */
   includeCitations?: boolean | undefined;
@@ -284,13 +316,15 @@ export interface ExportComplianceInquiryRequest {
  */
 export interface ExportComplianceInquiryResponse {
   /**
-   * <p>Presigned S3 URL to access the exported compliance inquiry report.</p>
+   * Presigned S3 URL to access the exported compliance inquiry report.
+   *
    * @public
    */
   documentPresignedUrl?: string | undefined;
 
   /**
-   * <p>Tags associated with the compliance inquiry resource.</p>
+   * Tags associated with the compliance inquiry resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -301,67 +335,78 @@ export interface ExportComplianceInquiryResponse {
  */
 export interface GetComplianceInquiryMetadataRequest {
   /**
-   * <p>Unique resource ID for the compliance inquiry.</p>
+   * Unique resource ID for the compliance inquiry.
+   *
    * @public
    */
   complianceInquiryId: string | undefined;
 }
 
 /**
- * <p>Detailed information about a compliance inquiry.</p>
+ * Detailed information about a compliance inquiry.
+ *
  * @public
  */
 export interface InquiryDetail {
   /**
-   * <p>ARN of the compliance inquiry resource.</p>
+   * ARN of the compliance inquiry resource.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>Title of the inquiry.</p>
+   * Title of the inquiry.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Unique resource ID for the compliance inquiry.</p>
+   * Unique resource ID for the compliance inquiry.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>Current processing status of the inquiry.</p>
+   * Current processing status of the inquiry.
+   *
    * @public
    */
   status: InquiryStatus | undefined;
 
   /**
-   * <p>Status message providing additional context.</p>
+   * Status message providing additional context.
+   *
    * @public
    */
   statusMessage: InquiryStatusMessage | undefined;
 
   /**
-   * <p>Type of inquiry content (text or file).</p>
+   * Type of inquiry content (text or file).
+   *
    * @public
    */
   inputSource: InputSource | undefined;
 
   /**
-   * <p>Timestamp indicating when the resource was created.</p>
+   * Timestamp indicating when the resource was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>Timestamp indicating when the resource was last modified.</p>
+   * Timestamp indicating when the resource was last modified.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>Support mode for this inquiry. AI_ONLY provides AI-generated responses.</p>
+   * Support mode for this inquiry. AI_ONLY provides AI-generated responses.
+   *
    * @public
    */
   supportMode?: InquirySupportMode | undefined;
@@ -372,13 +417,15 @@ export interface InquiryDetail {
  */
 export interface GetComplianceInquiryMetadataResponse {
   /**
-   * <p>Detailed information about the compliance inquiry.</p>
+   * Detailed information about the compliance inquiry.
+   *
    * @public
    */
   complianceInquiryDetail?: InquiryDetail | undefined;
 
   /**
-   * <p>Tags associated with the compliance inquiry resource.</p>
+   * Tags associated with the compliance inquiry resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -389,13 +436,15 @@ export interface GetComplianceInquiryMetadataResponse {
  */
 export interface ListComplianceInquiriesRequest {
   /**
-   * <p>Maximum number of resources to return in the paginated response.</p>
+   * Maximum number of resources to return in the paginated response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Pagination token to request the next page of resources.</p>
+   * Pagination token to request the next page of resources.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -406,13 +455,15 @@ export interface ListComplianceInquiriesRequest {
  */
 export interface ListComplianceInquiriesResponse {
   /**
-   * <p>List of compliance inquiry resources.</p>
+   * List of compliance inquiry resources.
+   *
    * @public
    */
   complianceInquiries?: InquirySummary[] | undefined;
 
   /**
-   * <p>Pagination token to request the next page of resources.</p>
+   * Pagination token to request the next page of resources.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -423,121 +474,141 @@ export interface ListComplianceInquiriesResponse {
  */
 export interface ListComplianceInquiryQueriesRequest {
   /**
-   * <p>Unique resource ID for the compliance inquiry.</p>
+   * Unique resource ID for the compliance inquiry.
+   *
    * @public
    */
   complianceInquiryId: string | undefined;
 
   /**
-   * <p>Maximum number of resources to return in the paginated response.</p>
+   * Maximum number of resources to return in the paginated response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Pagination token to request the next page of resources.</p>
+   * Pagination token to request the next page of resources.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Citation information for AI-generated responses.</p>
+ * Citation information for AI-generated responses.
+ *
  * @public
  */
 export interface Citation {
   /**
-   * <p>Label identifying the compliance source.</p>
+   * Label identifying the compliance source.
+   *
    * @public
    */
   sourceLabel?: string | undefined;
 
   /**
-   * <p>Content text from the compliance source.</p>
+   * Content text from the compliance source.
+   *
    * @public
    */
   sourceContent?: string | undefined;
 
   /**
-   * <p>Link to the compliance source.</p>
+   * Link to the compliance source.
+   *
    * @public
    */
   sourceLink?: string | undefined;
 }
 
 /**
- * <p>A versioned snapshot of a response edit.</p>
+ * A versioned snapshot of a response edit.
+ *
  * @public
  */
 export interface ResponseVersion {
   /**
-   * <p>The response text for this version.</p>
+   * The response text for this version.
+   *
    * @public
    */
   responseText: string | undefined;
 
   /**
-   * <p>ISO 8601 timestamp of when this edit was made.</p>
+   * ISO 8601 timestamp of when this edit was made.
+   *
    * @public
    */
   timestamp: Date | undefined;
 }
 
 /**
- * <p>Summary information about a single query within a compliance inquiry.</p>
+ * Summary information about a single query within a compliance inquiry.
+ *
  * @public
  */
 export interface QuerySummary {
   /**
-   * <p>Sequential identifier of the query within the inquiry.</p>
+   * Sequential identifier of the query within the inquiry.
+   *
    * @public
    */
   queryIdentifier: number | undefined;
 
   /**
-   * <p>The actual query text.</p>
+   * The actual query text.
+   *
    * @public
    */
   query: string | undefined;
 
   /**
-   * <p>Generated response to the query.</p>
+   * Generated response to the query.
+   *
    * @public
    */
   response?: string | undefined;
 
   /**
-   * <p>Type of review for the response.</p>
+   * Type of review for the response.
+   *
    * @public
    */
   reviewType?: ReviewType | undefined;
 
   /**
-   * <p>Supporting citations for the response.</p>
+   * Supporting citations for the response.
+   *
    * @public
    */
   citations?: Citation[] | undefined;
 
   /**
-   * <p>Current processing status of the query.</p>
+   * Current processing status of the query.
+   *
    * @public
    */
   status: QueryStatus | undefined;
 
   /**
-   * <p>Descriptive status message.</p>
+   * Descriptive status message.
+   *
    * @public
    */
   statusMessage: QueryStatusMessage | undefined;
 
   /**
-   * <p>Timestamp when the query was created.</p>
+   * Timestamp when the query was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>Ordered list of response version history entries, oldest first.</p>
+   * Ordered list of response version history entries, oldest first.
+   *
    * @public
    */
   updatedResponseVersions?: ResponseVersion[] | undefined;
@@ -548,13 +619,15 @@ export interface QuerySummary {
  */
 export interface ListComplianceInquiryQueriesResponse {
   /**
-   * <p>List of compliance query summaries.</p>
+   * List of compliance query summaries.
+   *
    * @public
    */
   queries?: QuerySummary[] | undefined;
 
   /**
-   * <p>Pagination token to request the next page of resources.</p>
+   * Pagination token to request the next page of resources.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -565,43 +638,50 @@ export interface ListComplianceInquiryQueriesResponse {
  */
 export interface PutComplianceInquiryFeedbackRequest {
   /**
-   * <p>The unique identifier for the compliance inquiry.</p>
+   * The unique identifier for the compliance inquiry.
+   *
    * @public
    */
   complianceInquiryId: string | undefined;
 
   /**
-   * <p>The sequential identifier of the query to provide feedback on.</p>
+   * The sequential identifier of the query to provide feedback on.
+   *
    * @public
    */
   queryIdentifier?: number | undefined;
 
   /**
-   * <p>The rating for the feedback. Valid values are THUMBS_UP and THUMBS_DOWN.</p>
+   * The rating for the feedback. Valid values are THUMBS_UP and THUMBS_DOWN.
+   *
    * @public
    */
   rating: FeedbackRating | undefined;
 
   /**
-   * <p>The response revision ID. Use this value to prevent submitting feedback on a stale response.</p>
+   * The response revision ID. Use this value to prevent submitting feedback on a stale response.
+   *
    * @public
    */
   responseRevisionId?: number | undefined;
 
   /**
-   * <p>The reason codes that describe why you rated the response. Valid values are OTHER, PARTIAL_RESPONSE, and IRRELEVANT_RESPONSE.</p>
+   * The reason codes that describe why you rated the response. Valid values are OTHER, PARTIAL_RESPONSE, and IRRELEVANT_RESPONSE.
+   *
    * @public
    */
   reasonCodes?: FeedbackReasonCode[] | undefined;
 
   /**
-   * <p>An optional comment for the feedback.</p>
+   * An optional comment for the feedback.
+   *
    * @public
    */
   comment?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, the service ignores the request, but does not return an error.</p>
+   * A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, the service ignores the request, but does not return an error.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -612,7 +692,8 @@ export interface PutComplianceInquiryFeedbackRequest {
  */
 export interface PutComplianceInquiryFeedbackResponse {
   /**
-   * <p>The timestamp when the feedback was submitted.</p>
+   * The timestamp when the feedback was submitted.
+   *
    * @public
    */
   submittedAt: Date | undefined;
@@ -623,97 +704,113 @@ export interface PutComplianceInquiryFeedbackResponse {
  */
 export interface ListCustomerAgreementsRequest {
   /**
-   * <p>Maximum number of resources to return in the paginated response.</p>
+   * Maximum number of resources to return in the paginated response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Pagination token to request the next page of resources.</p>
+   * Pagination token to request the next page of resources.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Summary for customer-agreement resource.</p>
+ * Summary for customer-agreement resource.
+ *
  * @public
  */
 export interface CustomerAgreementSummary {
   /**
-   * <p>Name of the customer-agreement resource.</p>
+   * Name of the customer-agreement resource.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>ARN of the customer-agreement resource.</p>
+   * ARN of the customer-agreement resource.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>Identifier of the customer-agreement resource.</p>
+   * Identifier of the customer-agreement resource.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>ARN of the agreement resource the customer-agreement resource represents.</p>
+   * ARN of the agreement resource the customer-agreement resource represents.
+   *
    * @public
    */
   agreementArn?: string | undefined;
 
   /**
-   * <p>AWS account Id that owns the resource.</p>
+   * AWS account Id that owns the resource.
+   *
    * @public
    */
   awsAccountId?: string | undefined;
 
   /**
-   * <p>ARN of the organization that owns the resource.</p>
+   * ARN of the organization that owns the resource.
+   *
    * @public
    */
   organizationArn?: string | undefined;
 
   /**
-   * <p>Timestamp indicating when the agreement became effective.</p>
+   * Timestamp indicating when the agreement became effective.
+   *
    * @public
    */
   effectiveStart?: Date | undefined;
 
   /**
-   * <p>Timestamp indicating when the agreement was terminated.</p>
+   * Timestamp indicating when the agreement was terminated.
+   *
    * @public
    */
   effectiveEnd?: Date | undefined;
 
   /**
-   * <p>State of the resource.</p>
+   * State of the resource.
+   *
    * @public
    */
   state?: CustomerAgreementState | undefined;
 
   /**
-   * <p>Description of the resource.</p>
+   * Description of the resource.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Terms required to accept the agreement resource.</p>
+   * Terms required to accept the agreement resource.
+   *
    * @public
    */
   acceptanceTerms?: string[] | undefined;
 
   /**
-   * <p>Terms required to terminate the customer-agreement resource.</p>
+   * Terms required to terminate the customer-agreement resource.
+   *
    * @public
    */
   terminateTerms?: string[] | undefined;
 
   /**
-   * <p>Type of the customer-agreement resource.</p>
+   * Type of the customer-agreement resource.
+   *
    * @public
    */
   type?: AgreementType | undefined;
@@ -724,13 +821,15 @@ export interface CustomerAgreementSummary {
  */
 export interface ListCustomerAgreementsResponse {
   /**
-   * <p>List of customer-agreement resources.</p>
+   * List of customer-agreement resources.
+   *
    * @public
    */
   customerAgreements: CustomerAgreementSummary[] | undefined;
 
   /**
-   * <p>Pagination token to request the next page of resources.</p>
+   * Pagination token to request the next page of resources.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -741,7 +840,8 @@ export interface ListCustomerAgreementsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -752,7 +852,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>Tags associated with the resource.</p>
+   * Tags associated with the resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -763,19 +864,22 @@ export interface ListTagsForResourceResponse {
  */
 export interface GetReportRequest {
   /**
-   * <p>Unique resource ID for the report resource.</p>
+   * Unique resource ID for the report resource.
+   *
    * @public
    */
   reportId: string | undefined;
 
   /**
-   * <p>Version for the report resource.</p>
+   * Version for the report resource.
+   *
    * @public
    */
   reportVersion?: number | undefined;
 
   /**
-   * <p>Unique download token provided by GetTermForReport API.</p>
+   * Unique download token provided by GetTermForReport API.
+   *
    * @public
    */
   termToken: string | undefined;
@@ -786,7 +890,8 @@ export interface GetReportRequest {
  */
 export interface GetReportResponse {
   /**
-   * <p>Presigned S3 url to access the report content.</p>
+   * Presigned S3 url to access the report content.
+   *
    * @public
    */
   documentPresignedUrl?: string | undefined;
@@ -797,139 +902,162 @@ export interface GetReportResponse {
  */
 export interface GetReportMetadataRequest {
   /**
-   * <p>Unique resource ID for the report resource.</p>
+   * Unique resource ID for the report resource.
+   *
    * @public
    */
   reportId: string | undefined;
 
   /**
-   * <p>Version for the report resource.</p>
+   * Version for the report resource.
+   *
    * @public
    */
   reportVersion?: number | undefined;
 }
 
 /**
- * <p>Full detail for report resource metadata.</p>
+ * Full detail for report resource metadata.
+ *
  * @public
  */
 export interface ReportDetail {
   /**
-   * <p>Unique resource ID for the report resource.</p>
+   * Unique resource ID for the report resource.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>Name for the report resource.</p>
+   * Name for the report resource.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Description for the report resource.</p>
+   * Description for the report resource.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Timestamp indicating the report resource effective start.</p>
+   * Timestamp indicating the report resource effective start.
+   *
    * @public
    */
   periodStart?: Date | undefined;
 
   /**
-   * <p>Timestamp indicating the report resource effective end.</p>
+   * Timestamp indicating the report resource effective end.
+   *
    * @public
    */
   periodEnd?: Date | undefined;
 
   /**
-   * <p>Timestamp indicating when the report resource was created.</p>
+   * Timestamp indicating when the report resource was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>Timestamp indicating when the report resource was last modified.</p>
+   * Timestamp indicating when the report resource was last modified.
+   *
    * @public
    */
   lastModifiedAt?: Date | undefined;
 
   /**
-   * <p>Timestamp indicating when the report resource was deleted.</p>
+   * Timestamp indicating when the report resource was deleted.
+   *
    * @public
    */
   deletedAt?: Date | undefined;
 
   /**
-   * <p>Current state of the report resource</p>
+   * Current state of the report resource
+   *
    * @public
    */
   state?: PublishedState | undefined;
 
   /**
-   * <p>ARN for the report resource.</p>
+   * ARN for the report resource.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>Series for the report resource.</p>
+   * Series for the report resource.
+   *
    * @public
    */
   series?: string | undefined;
 
   /**
-   * <p>Category for the report resource.</p>
+   * Category for the report resource.
+   *
    * @public
    */
   category?: string | undefined;
 
   /**
-   * <p>Associated company name for the report resource.</p>
+   * Associated company name for the report resource.
+   *
    * @public
    */
   companyName?: string | undefined;
 
   /**
-   * <p>Associated product name for the report resource.</p>
+   * Associated product name for the report resource.
+   *
    * @public
    */
   productName?: string | undefined;
 
   /**
-   * <p>Unique resource ARN for term resource.</p>
+   * Unique resource ARN for term resource.
+   *
    * @public
    */
   termArn?: string | undefined;
 
   /**
-   * <p>Version for the report resource.</p>
+   * Version for the report resource.
+   *
    * @public
    */
   version?: number | undefined;
 
   /**
-   * <p>Acceptance type for report.</p>
+   * Acceptance type for report.
+   *
    * @public
    */
   acceptanceType?: AcceptanceType | undefined;
 
   /**
-   * <p>Sequence number to enforce optimistic locking.</p>
+   * Sequence number to enforce optimistic locking.
+   *
    * @public
    */
   sequenceNumber?: number | undefined;
 
   /**
-   * <p>The current state of the document upload.</p>
+   * The current state of the document upload.
+   *
    * @public
    */
   uploadState?: UploadState | undefined;
 
   /**
-   * <p>The message associated with the current upload state.</p>
+   * The message associated with the current upload state.
+   *
    * @public
    */
   statusMessage?: string | undefined;
@@ -940,7 +1068,8 @@ export interface ReportDetail {
  */
 export interface GetReportMetadataResponse {
   /**
-   * <p>Report resource detail.</p>
+   * Report resource detail.
+   *
    * @public
    */
   reportDetails?: ReportDetail | undefined;
@@ -951,13 +1080,15 @@ export interface GetReportMetadataResponse {
  */
 export interface GetTermForReportRequest {
   /**
-   * <p>Unique resource ID for the report resource.</p>
+   * Unique resource ID for the report resource.
+   *
    * @public
    */
   reportId: string | undefined;
 
   /**
-   * <p>Version for the report resource.</p>
+   * Version for the report resource.
+   *
    * @public
    */
   reportVersion?: number | undefined;
@@ -968,13 +1099,15 @@ export interface GetTermForReportRequest {
  */
 export interface GetTermForReportResponse {
   /**
-   * <p>Presigned S3 url to access the term content.</p>
+   * Presigned S3 url to access the term content.
+   *
    * @public
    */
   documentPresignedUrl?: string | undefined;
 
   /**
-   * <p>Unique token representing this request event.</p>
+   * Unique token representing this request event.
+   *
    * @public
    */
   termToken?: string | undefined;
@@ -985,109 +1118,127 @@ export interface GetTermForReportResponse {
  */
 export interface ListReportsRequest {
   /**
-   * <p>Maximum number of resources to return in the paginated response.</p>
+   * Maximum number of resources to return in the paginated response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Pagination token to request the next page of resources.</p>
+   * Pagination token to request the next page of resources.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Summary for report resource.</p>
+ * Summary for report resource.
+ *
  * @public
  */
 export interface ReportSummary {
   /**
-   * <p>Unique resource ID for the report resource.</p>
+   * Unique resource ID for the report resource.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>Name for the report resource.</p>
+   * Name for the report resource.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Current state of the report resource.</p>
+   * Current state of the report resource.
+   *
    * @public
    */
   state?: PublishedState | undefined;
 
   /**
-   * <p>ARN for the report resource.</p>
+   * ARN for the report resource.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>Version for the report resource.</p>
+   * Version for the report resource.
+   *
    * @public
    */
   version?: number | undefined;
 
   /**
-   * <p>The current state of the document upload.</p>
+   * The current state of the document upload.
+   *
    * @public
    */
   uploadState?: UploadState | undefined;
 
   /**
-   * <p>Description for the report resource.</p>
+   * Description for the report resource.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Timestamp indicating the report resource effective start.</p>
+   * Timestamp indicating the report resource effective start.
+   *
    * @public
    */
   periodStart?: Date | undefined;
 
   /**
-   * <p>Timestamp indicating the report resource effective end.</p>
+   * Timestamp indicating the report resource effective end.
+   *
    * @public
    */
   periodEnd?: Date | undefined;
 
   /**
-   * <p>Series for the report resource.</p>
+   * Series for the report resource.
+   *
    * @public
    */
   series?: string | undefined;
 
   /**
-   * <p>Category for the report resource.</p>
+   * Category for the report resource.
+   *
    * @public
    */
   category?: string | undefined;
 
   /**
-   * <p>Associated company name for the report resource.</p>
+   * Associated company name for the report resource.
+   *
    * @public
    */
   companyName?: string | undefined;
 
   /**
-   * <p>Associated product name for the report resource.</p>
+   * Associated product name for the report resource.
+   *
    * @public
    */
   productName?: string | undefined;
 
   /**
-   * <p>The message associated with the current upload state.</p>
+   * The message associated with the current upload state.
+   *
    * @public
    */
   statusMessage?: string | undefined;
 
   /**
-   * <p>Acceptance type for report.</p>
+   * Acceptance type for report.
+   *
    * @public
    */
   acceptanceType?: AcceptanceType | undefined;
@@ -1098,13 +1249,15 @@ export interface ReportSummary {
  */
 export interface ListReportsResponse {
   /**
-   * <p>List of report resources.</p>
+   * List of report resources.
+   *
    * @public
    */
   reports?: ReportSummary[] | undefined;
 
   /**
-   * <p>Pagination token to request the next page of resources.</p>
+   * Pagination token to request the next page of resources.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1115,19 +1268,22 @@ export interface ListReportsResponse {
  */
 export interface ListReportVersionsRequest {
   /**
-   * <p>Unique resource ID for the report resource.</p>
+   * Unique resource ID for the report resource.
+   *
    * @public
    */
   reportId: string | undefined;
 
   /**
-   * <p>Maximum number of resources to return in the paginated response.</p>
+   * Maximum number of resources to return in the paginated response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Pagination token to request the next page of resources.</p>
+   * Pagination token to request the next page of resources.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1138,13 +1294,15 @@ export interface ListReportVersionsRequest {
  */
 export interface ListReportVersionsResponse {
   /**
-   * <p>List of report resources.</p>
+   * List of report resources.
+   *
    * @public
    */
   reports: ReportSummary[] | undefined;
 
   /**
-   * <p>Pagination token to request the next page of resources.</p>
+   * Pagination token to request the next page of resources.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1155,13 +1313,15 @@ export interface ListReportVersionsResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>Tags to add to the resource.</p>
+   * Tags to add to the resource.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -1177,13 +1337,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>Tag keys to remove from the resource.</p>
+   * Tag keys to remove from the resource.
+   *
    * @public
    */
   tagKeys: string[] | undefined;

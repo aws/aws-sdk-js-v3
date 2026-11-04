@@ -23,17 +23,12 @@ export interface ListAgentsCommandInput extends ListAgentsRequest {}
 export interface ListAgentsCommandOutput extends ListAgentsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of DataSync agents that belong to an Amazon Web Services account in the Amazon Web Services Region specified in the request.</p>
- *          <p>With pagination, you can reduce the number of agents returned in a response. If you get
- *       a truncated list of agents in a response, the response contains a marker that you can specify
- *       in your next request to fetch the next page of agents.</p>
- *          <p>
- *             <code>ListAgents</code> is eventually consistent. This means the result of running the
- *       operation might not reflect that you just created or deleted an agent. For example, if you
- *       create an agent with <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateAgent.html">CreateAgent</a> and then
- *       immediately run <code>ListAgents</code>, that agent might not show up in the list right away.
- *       In situations like this, you can always confirm whether an agent has been created (or deleted)
- *       by using <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeAgent.html">DescribeAgent</a>.</p>
+ * Returns a list of DataSync agents that belong to an Amazon Web Services account in the Amazon Web Services Region specified in the request.
+ *
+ * With pagination, you can reduce the number of agents returned in a response. If you get a truncated list of agents in a response, the response contains a marker that you can specify in your next request to fetch the next page of agents.
+ *
+ * `ListAgents` is eventually consistent. This means the result of running the operation might not reflect that you just created or deleted an agent. For example, if you create an agent with [CreateAgent](https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateAgent.html) and then immediately run `ListAgents`, that agent might not show up in the list right away. In situations like this, you can always confirm whether an agent has been created (or deleted) by using [DescribeAgent](https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeAgent.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,15 +66,16 @@ export interface ListAgentsCommandOutput extends ListAgentsResponse, __MetadataB
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception is thrown when an error occurs in the DataSync
- *       service.</p>
+ *
+ * This exception is thrown when an error occurs in the DataSync service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * This exception is thrown when the client submits a malformed request.
  *
  * @throws {@link DataSyncServiceException}
- * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * Base exception class for all service exceptions from DataSync service.
  *
  * @public
  */

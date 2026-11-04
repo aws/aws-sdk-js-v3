@@ -23,7 +23,8 @@ export interface DeleteGatewayCommandInput extends DeleteGatewayRequest {}
 export interface DeleteGatewayCommandOutput extends DeleteGatewayResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a gateway. Before you can delete a gateway, deletion protection must be disabled and the gateway must not have any cluster associations that are in the <code>ACTIVE</code> or <code>DISASSOCIATING</code> state. If associations exist, the operation fails; disassociate all clusters first. <code>DeleteGateway</code> is a synchronous operation. After you delete a gateway, subsequent requests for it return a <code>GatewayNotFoundException</code>.</p>
+ * Deletes a gateway. Before you can delete a gateway, deletion protection must be disabled and the gateway must not have any cluster associations that are in the `ACTIVE` or `DISASSOCIATING` state. If associations exist, the operation fails; disassociate all clusters first. `DeleteGateway` is a synchronous operation. After you delete a gateway, subsequent requests for it return a `GatewayNotFoundException`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,26 +53,34 @@ export interface DeleteGatewayCommandOutput extends DeleteGatewayResponse, __Met
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have authorization to perform the requested action.</p>
+ *
+ * You don't have authorization to perform the requested action.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action. This client action might be using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+ *
+ * These errors are usually caused by a client action. This client action might be using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Or, it might be specifying an identifier that isn't valid.
  *
  * @throws {@link GatewayNotFoundException} (client fault)
- *  <p>The specified gateway wasn't found. Check that the gateway name or ARN is correct and that the gateway exists in your account and Region.</p>
+ *
+ * The specified gateway wasn't found. Check that the gateway name or ARN is correct and that the gateway exists in your account and Region.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter isn't valid. Review the available parameters for the API request.</p> <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service event messages</a>. </p>
+ *
+ * The specified parameter isn't valid. Review the available parameters for the API request.
+ *
+ * For more information about service event errors, see [Amazon ECS service event messages](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html).
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server issue.</p>
+ *
+ * These errors are usually caused by a server issue.
  *
  * @throws {@link UnsupportedFeatureException} (client fault)
- *  <p>The specified task isn't supported in this Region.</p>
+ *
+ * The specified task isn't supported in this Region.
  *
  * @throws {@link ECSServiceException}
- * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * Base exception class for all service exceptions from ECS service.
  *
  * @example To delete a gateway
  * ```javascript

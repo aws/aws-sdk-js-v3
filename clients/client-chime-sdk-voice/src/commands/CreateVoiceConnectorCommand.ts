@@ -23,10 +23,8 @@ export interface CreateVoiceConnectorCommandInput extends CreateVoiceConnectorRe
 export interface CreateVoiceConnectorCommandOutput extends CreateVoiceConnectorResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon Chime SDK Voice Connector. For more information about
- *           Voice Connectors,
- *          see <a href="https://docs.aws.amazon.com/chime-sdk/latest/ag/voice-connector-groups.html">Managing Amazon Chime SDK Voice Connector groups</a> in the <i>Amazon Chime SDK
- *             Administrator Guide</i>.</p>
+ * Creates an Amazon Chime SDK Voice Connector. For more information about Voice Connectors, see [Managing Amazon Chime SDK Voice Connector groups](https://docs.aws.amazon.com/chime-sdk/latest/ag/voice-connector-groups.html) in the *Amazon Chime SDK Administrator Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,32 +72,40 @@ export interface CreateVoiceConnectorCommandOutput extends CreateVoiceConnectorR
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have the permissions needed to run this action.</p>
+ *
+ * You don't have the permissions needed to run this action.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * The input parameters don't match the service's restrictions.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * The client is permanently forbidden from making the request.
  *
  * @throws {@link ResourceLimitExceededException} (client fault)
- *  <p>The request exceeds the resource limit.</p>
+ *
+ * The request exceeds the resource limit.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The service encountered an unexpected error.</p>
+ *
+ * The service encountered an unexpected error.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is currently unavailable.</p>
+ *
+ * The service is currently unavailable.
  *
  * @throws {@link ThrottledClientException} (client fault)
- *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
+ * The number of customer requests exceeds the request rate limit.
  *
  * @throws {@link UnauthorizedClientException} (client fault)
- *  <p>The client isn't authorized to request a resource.</p>
+ *
+ * The client isn't authorized to request a resource.
  *
  * @throws {@link ChimeSDKVoiceServiceException}
- * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * Base exception class for all service exceptions from ChimeSDKVoice service.
  *
  * @public
  */

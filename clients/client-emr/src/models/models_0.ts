@@ -52,328 +52,273 @@ import type {
 } from "./enums";
 
 /**
- * <p>EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s)
- *          that are requested for the EBS volume attached to an Amazon EC2 instance in the
- *          cluster.</p>
+ * EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s) that are requested for the EBS volume attached to an Amazon EC2 instance in the cluster.
+ *
  * @public
  */
 export interface VolumeSpecification {
   /**
-   * <p>The volume type. Volume types supported are gp3, gp2, io1, st1, sc1, and
-   *          standard.</p>
+   * The volume type. Volume types supported are gp3, gp2, io1, st1, sc1, and standard.
+   *
    * @public
    */
   VolumeType: string | undefined;
 
   /**
-   * <p>The number of I/O operations per second (IOPS) that the volume supports.</p>
+   * The number of I/O operations per second (IOPS) that the volume supports.
+   *
    * @public
    */
   Iops?: number | undefined;
 
   /**
-   * <p>The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume
-   *          type is EBS-optimized, the minimum value is 10.</p>
+   * The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
+   *
    * @public
    */
   SizeInGB: number | undefined;
 
   /**
-   * <p>The throughput, in mebibyte per second (MiB/s). This optional parameter can be a number
-   *          from 125 - 1000 and is valid only for gp3 volumes.</p>
+   * The throughput, in mebibyte per second (MiB/s). This optional parameter can be a number from 125 - 1000 and is valid only for gp3 volumes.
+   *
    * @public
    */
   Throughput?: number | undefined;
 }
 
 /**
- * <p>Configuration of requested EBS block device associated with the instance group with
- *          count of volumes that are associated to every instance.</p>
+ * Configuration of requested EBS block device associated with the instance group with count of volumes that are associated to every instance.
+ *
  * @public
  */
 export interface EbsBlockDeviceConfig {
   /**
-   * <p>EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s)
-   *          that are requested for the EBS volume attached to an Amazon EC2 instance in the
-   *          cluster.</p>
+   * EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s) that are requested for the EBS volume attached to an Amazon EC2 instance in the cluster.
+   *
    * @public
    */
   VolumeSpecification: VolumeSpecification | undefined;
 
   /**
-   * <p>Number of EBS volumes with a specific volume configuration that are associated with
-   *          every instance in the instance group</p>
+   * Number of EBS volumes with a specific volume configuration that are associated with every instance in the instance group
+   *
    * @public
    */
   VolumesPerInstance?: number | undefined;
 }
 
 /**
- * <p>The Amazon EBS configuration of a cluster instance.</p>
+ * The Amazon EBS configuration of a cluster instance.
+ *
  * @public
  */
 export interface EbsConfiguration {
   /**
-   * <p>An array of Amazon EBS volume specifications attached to a cluster
-   *          instance.</p>
+   * An array of Amazon EBS volume specifications attached to a cluster instance.
+   *
    * @public
    */
   EbsBlockDeviceConfigs?: EbsBlockDeviceConfig[] | undefined;
 
   /**
-   * <p>Indicates whether an Amazon EBS volume is EBS-optimized. The default is false. You should explicitly set this value to true to enable the Amazon EBS-optimized setting
-   *          for an EC2 instance.</p>
+   * Indicates whether an Amazon EBS volume is EBS-optimized. The default is false. You should explicitly set this value to true to enable the Amazon EBS-optimized setting for an EC2 instance.
+   *
    * @public
    */
   EbsOptimized?: boolean | undefined;
 }
 
 /**
- * <p>Describes the strategy for using unused Capacity Reservations for fulfilling On-Demand
- *          capacity.</p>
+ * Describes the strategy for using unused Capacity Reservations for fulfilling On-Demand capacity.
+ *
  * @public
  */
 export interface OnDemandCapacityReservationOptions {
   /**
-   * <p>Indicates whether to use unused Capacity Reservations for fulfilling On-Demand
-   *          capacity.</p>
-   *          <p>If you specify <code>use-capacity-reservations-first</code>, the fleet uses unused
-   *          Capacity Reservations to fulfill On-Demand capacity up to the target On-Demand capacity. If
-   *          multiple instance pools have unused Capacity Reservations, the On-Demand allocation
-   *          strategy (<code>lowest-price</code>) is applied. If the number of unused Capacity
-   *          Reservations is less than the On-Demand target capacity, the remaining On-Demand target
-   *          capacity is launched according to the On-Demand allocation strategy
-   *             (<code>lowest-price</code>).</p>
-   *          <p>If you do not specify a value, the fleet fulfills the On-Demand capacity according to
-   *          the chosen On-Demand allocation strategy.</p>
+   * Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity.
+   *
+   * If you specify `use-capacity-reservations-first`, the fleet uses unused Capacity Reservations to fulfill On-Demand capacity up to the target On-Demand capacity. If multiple instance pools have unused Capacity Reservations, the On-Demand allocation strategy (`lowest-price`) is applied. If the number of unused Capacity Reservations is less than the On-Demand target capacity, the remaining On-Demand target capacity is launched according to the On-Demand allocation strategy (`lowest-price`).
+   *
+   * If you do not specify a value, the fleet fulfills the On-Demand capacity according to the chosen On-Demand allocation strategy.
+   *
    * @public
    */
   UsageStrategy?: OnDemandCapacityReservationUsageStrategy | undefined;
 
   /**
-   * <p>Indicates the instance's Capacity Reservation preferences. Possible preferences
-   *          include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>open</code> - The instance can run in any open Capacity Reservation that has
-   *                matching attributes (instance type, platform, Availability Zone).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>none</code> - The instance avoids running in a Capacity Reservation even if
-   *                one is available. The instance runs as an On-Demand Instance.</p>
-   *             </li>
-   *          </ul>
+   * Indicates the instance's Capacity Reservation preferences. Possible preferences include:
+   *
+   * - `open` - The instance can run in any open Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).
+   * - `none` - The instance avoids running in a Capacity Reservation even if one is available. The instance runs as an On-Demand Instance.
+   *
    * @public
    */
   CapacityReservationPreference?: OnDemandCapacityReservationPreference | undefined;
 
   /**
-   * <p>The ARN of the Capacity Reservation resource group in which to run the instance.</p>
+   * The ARN of the Capacity Reservation resource group in which to run the instance.
+   *
    * @public
    */
   CapacityReservationResourceGroupArn?: string | undefined;
 }
 
 /**
- * <p> The launch specification for On-Demand Instances in the instance fleet, which
- *          determines the allocation strategy. </p>
- *          <note>
- *             <p>The instance fleet configuration is available only in Amazon EMR releases
- *             4.8.0 and later, excluding 5.0.x versions. On-Demand Instances allocation strategy is
- *             available in Amazon EMR releases 5.12.1 and later.</p>
- *          </note>
+ * The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy.
+ *
+ * > **Note:** The instance fleet configuration is available only in Amazon EMR releases 4.8.0 and later, excluding 5.0.x versions. On-Demand Instances allocation strategy is available in Amazon EMR releases 5.12.1 and later.
+ *
  * @public
  */
 export interface OnDemandProvisioningSpecification {
   /**
-   * <p>Specifies the strategy to use in launching On-Demand instance fleets. Available
-   *          options are <code>lowest-price</code> and <code>prioritized</code>. <code>lowest-price</code>
-   *       specifies to launch the instances with the lowest price first, and <code>prioritized</code> specifies
-   *       that Amazon EMR should launch the instances with the highest priority first. The default is
-   *       <code>lowest-price</code>.</p>
+   * Specifies the strategy to use in launching On-Demand instance fleets. Available options are `lowest-price` and `prioritized`. `lowest-price` specifies to launch the instances with the lowest price first, and `prioritized` specifies that Amazon EMR should launch the instances with the highest priority first. The default is `lowest-price`.
+   *
    * @public
    */
   AllocationStrategy: OnDemandProvisioningAllocationStrategy | undefined;
 
   /**
-   * <p>The launch specification for On-Demand instances in the instance fleet, which determines
-   *          the allocation strategy.</p>
+   * The launch specification for On-Demand instances in the instance fleet, which determines the allocation strategy.
+   *
    * @public
    */
   CapacityReservationOptions?: OnDemandCapacityReservationOptions | undefined;
 }
 
 /**
- * <p>The launch specification for Spot Instances in the instance fleet, which determines the
- *          defined duration, provisioning timeout behavior, and allocation strategy.</p>
- *          <note>
- *             <p>The instance fleet configuration is available only in Amazon EMR releases
- *             4.8.0 and later, excluding 5.0.x versions. Spot Instance allocation strategy is
- *             available in Amazon EMR releases 5.12.1 and later.</p>
- *          </note>
- *          <note>
- *             <p>Spot Instances with a defined duration (also known as Spot blocks) are no longer
- *             available to new customers from July 1, 2021. For customers who have previously used the
- *             feature, we will continue to support Spot Instances with a defined duration until
- *             December 31, 2022. </p>
- *          </note>
+ * The launch specification for Spot Instances in the instance fleet, which determines the defined duration, provisioning timeout behavior, and allocation strategy.
+ *
+ * > **Note:** The instance fleet configuration is available only in Amazon EMR releases 4.8.0 and later, excluding 5.0.x versions. Spot Instance allocation strategy is available in Amazon EMR releases 5.12.1 and later.
+ *
+ * > **Note:** Spot Instances with a defined duration (also known as Spot blocks) are no longer available to new customers from July 1, 2021. For customers who have previously used the feature, we will continue to support Spot Instances with a defined duration until December 31, 2022.
+ *
  * @public
  */
 export interface SpotProvisioningSpecification {
   /**
-   * <p>The Spot provisioning timeout period in minutes. If Spot Instances are not provisioned
-   *          within this time period, the <code>TimeOutAction</code> is taken. Minimum value is 5 and
-   *          maximum value is 1440. The timeout applies only during initial provisioning, when the
-   *          cluster is first created.</p>
+   * The Spot provisioning timeout period in minutes. If Spot Instances are not provisioned within this time period, the `TimeOutAction` is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+   *
    * @public
    */
   TimeoutDurationMinutes: number | undefined;
 
   /**
-   * <p>The action to take when <code>TargetSpotCapacity</code> has not been fulfilled when the
-   *             <code>TimeoutDurationMinutes</code> has expired; that is, when all Spot Instances could
-   *          not be provisioned within the Spot provisioning timeout. Valid values are
-   *             <code>TERMINATE_CLUSTER</code> and <code>SWITCH_TO_ON_DEMAND</code>. SWITCH_TO_ON_DEMAND
-   *          specifies that if no Spot Instances are available, On-Demand Instances should be
-   *          provisioned to fulfill any remaining Spot capacity.</p>
+   * The action to take when `TargetSpotCapacity` has not been fulfilled when the `TimeoutDurationMinutes` has expired; that is, when all Spot Instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot Instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+   *
    * @public
    */
   TimeoutAction: SpotProvisioningTimeoutAction | undefined;
 
   /**
-   * <p>The defined duration for Spot Instances (also known as Spot blocks) in minutes. When
-   *          specified, the Spot Instance does not terminate before the defined duration expires, and
-   *          defined duration pricing for Spot Instances applies. Valid values are 60, 120, 180, 240,
-   *          300, or 360. The duration period starts as soon as a Spot Instance receives its instance
-   *          ID. At the end of the duration, Amazon EC2 marks the Spot Instance for termination
-   *          and provides a Spot Instance termination notice, which gives the instance a two-minute
-   *          warning before it terminates. </p>
-   *          <note>
-   *             <p>Spot Instances with a defined duration (also known as Spot blocks) are no longer
-   *             available to new customers from July 1, 2021. For customers who have previously used the
-   *             feature, we will continue to support Spot Instances with a defined duration until
-   *             December 31, 2022. </p>
-   *          </note>
+   * The defined duration for Spot Instances (also known as Spot blocks) in minutes. When specified, the Spot Instance does not terminate before the defined duration expires, and defined duration pricing for Spot Instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot Instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot Instance for termination and provides a Spot Instance termination notice, which gives the instance a two-minute warning before it terminates.
+   *
+   * > **Note:** Spot Instances with a defined duration (also known as Spot blocks) are no longer available to new customers from July 1, 2021. For customers who have previously used the feature, we will continue to support Spot Instances with a defined duration until December 31, 2022.
+   *
    * @public
    */
   BlockDurationMinutes?: number | undefined;
 
   /**
-   * <p>Specifies one of the following strategies to launch Spot Instance fleets:
-   *          <code>capacity-optimized</code>, <code>price-capacity-optimized</code>, <code>lowest-price</code>, or
-   *          <code>diversified</code>, and <code>capacity-optimized-prioritized</code>. For more information on the provisioning strategies, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html">Allocation strategies for Spot Instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
-   *          <note>
-   *             <p>When you launch a Spot Instance fleet with the old console, it automatically launches with the <code>capacity-optimized</code> strategy. You can't change the allocation strategy from the old console.</p>
-   *          </note>
+   * Specifies one of the following strategies to launch Spot Instance fleets: `capacity-optimized`, `price-capacity-optimized`, `lowest-price`, or `diversified`, and `capacity-optimized-prioritized`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html) in the *Amazon EC2 User Guide for Linux Instances*.
+   *
+   * > **Note:** When you launch a Spot Instance fleet with the old console, it automatically launches with the `capacity-optimized` strategy. You can't change the allocation strategy from the old console.
+   *
    * @public
    */
   AllocationStrategy?: SpotProvisioningAllocationStrategy | undefined;
 }
 
 /**
- * <p>The launch specification for On-Demand and Spot Instances in the fleet.</p>
- *          <note>
- *             <p>The instance fleet configuration is available only in Amazon EMR releases
- *             4.8.0 and later, excluding 5.0.x versions. On-Demand and Spot instance allocation
- *             strategies are available in Amazon EMR releases 5.12.1 and later.</p>
- *          </note>
+ * The launch specification for On-Demand and Spot Instances in the fleet.
+ *
+ * > **Note:** The instance fleet configuration is available only in Amazon EMR releases 4.8.0 and later, excluding 5.0.x versions. On-Demand and Spot instance allocation strategies are available in Amazon EMR releases 5.12.1 and later.
+ *
  * @public
  */
 export interface InstanceFleetProvisioningSpecifications {
   /**
-   * <p>The launch specification for Spot instances in the fleet, which determines the allocation strategy, defined
-   *          duration, and provisioning timeout behavior.</p>
+   * The launch specification for Spot instances in the fleet, which determines the allocation strategy, defined duration, and provisioning timeout behavior.
+   *
    * @public
    */
   SpotSpecification?: SpotProvisioningSpecification | undefined;
 
   /**
-   * <p> The launch specification for On-Demand Instances in the instance fleet, which
-   *          determines the allocation strategy and capacity reservation options.</p>
-   *          <note>
-   *             <p>The instance fleet configuration is available only in Amazon EMR releases
-   *             4.8.0 and later, excluding 5.0.x versions. On-Demand Instances allocation strategy is
-   *             available in Amazon EMR releases 5.12.1 and later.</p>
-   *          </note>
+   * The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy and capacity reservation options.
+   *
+   * > **Note:** The instance fleet configuration is available only in Amazon EMR releases 4.8.0 and later, excluding 5.0.x versions. On-Demand Instances allocation strategy is available in Amazon EMR releases 5.12.1 and later.
+   *
    * @public
    */
   OnDemandSpecification?: OnDemandProvisioningSpecification | undefined;
 }
 
 /**
- * <p>The resize specification for On-Demand Instances in the instance fleet, which contains
- *          the resize timeout period. </p>
+ * The resize specification for On-Demand Instances in the instance fleet, which contains the resize timeout period.
+ *
  * @public
  */
 export interface OnDemandResizingSpecification {
   /**
-   * <p>On-Demand resize timeout in minutes. If On-Demand Instances are not provisioned within
-   *          this time, the resize workflow stops. The minimum value is 5 minutes, and the maximum value
-   *          is 10,080 minutes (7 days). The timeout applies to all resize workflows on the Instance
-   *          Fleet. The resize could be triggered by Amazon EMR Managed Scaling or by the
-   *          customer (via Amazon EMR Console, Amazon EMR CLI modify-instance-fleet or
-   *             Amazon EMR SDK ModifyInstanceFleet API) or by Amazon EMR due to Amazon EC2 Spot Reclamation.</p>
+   * On-Demand resize timeout in minutes. If On-Demand Instances are not provisioned within this time, the resize workflow stops. The minimum value is 5 minutes, and the maximum value is 10,080 minutes (7 days). The timeout applies to all resize workflows on the Instance Fleet. The resize could be triggered by Amazon EMR Managed Scaling or by the customer (via Amazon EMR Console, Amazon EMR CLI modify-instance-fleet or Amazon EMR SDK ModifyInstanceFleet API) or by Amazon EMR due to Amazon EC2 Spot Reclamation.
+   *
    * @public
    */
   TimeoutDurationMinutes?: number | undefined;
 
   /**
-   * <p>Specifies the allocation strategy to use to launch On-Demand instances during a resize. The default is <code>lowest-price</code>.</p>
+   * Specifies the allocation strategy to use to launch On-Demand instances during a resize. The default is `lowest-price`.
+   *
    * @public
    */
   AllocationStrategy?: OnDemandProvisioningAllocationStrategy | undefined;
 
   /**
-   * <p>Describes the strategy for using unused Capacity Reservations for fulfilling On-Demand
-   *          capacity.</p>
+   * Describes the strategy for using unused Capacity Reservations for fulfilling On-Demand capacity.
+   *
    * @public
    */
   CapacityReservationOptions?: OnDemandCapacityReservationOptions | undefined;
 }
 
 /**
- * <p>The resize specification for Spot Instances in the instance fleet, which contains the
- *          resize timeout period. </p>
+ * The resize specification for Spot Instances in the instance fleet, which contains the resize timeout period.
+ *
  * @public
  */
 export interface SpotResizingSpecification {
   /**
-   * <p>Spot resize timeout in minutes. If Spot Instances are not provisioned within this time,
-   *          the resize workflow will stop provisioning of Spot instances. Minimum value is 5 minutes
-   *          and maximum value is 10,080 minutes (7 days). The timeout applies to all resize workflows
-   *          on the Instance Fleet. The resize could be triggered by Amazon EMR Managed Scaling
-   *          or by the customer (via Amazon EMR Console, Amazon EMR CLI
-   *          modify-instance-fleet or Amazon EMR SDK ModifyInstanceFleet API) or by Amazon EMR due to Amazon EC2 Spot Reclamation.</p>
+   * Spot resize timeout in minutes. If Spot Instances are not provisioned within this time, the resize workflow will stop provisioning of Spot instances. Minimum value is 5 minutes and maximum value is 10,080 minutes (7 days). The timeout applies to all resize workflows on the Instance Fleet. The resize could be triggered by Amazon EMR Managed Scaling or by the customer (via Amazon EMR Console, Amazon EMR CLI modify-instance-fleet or Amazon EMR SDK ModifyInstanceFleet API) or by Amazon EMR due to Amazon EC2 Spot Reclamation.
+   *
    * @public
    */
   TimeoutDurationMinutes?: number | undefined;
 
   /**
-   * <p>Specifies the allocation strategy to use to launch Spot instances during a resize. If you run Amazon EMR releases 6.9.0 or higher,
-   *       the default is <code>price-capacity-optimized</code>. If you run Amazon EMR releases 6.8.0 or lower, the default is
-   *       <code>capacity-optimized</code>.</p>
+   * Specifies the allocation strategy to use to launch Spot instances during a resize. If you run Amazon EMR releases 6.9.0 or higher, the default is `price-capacity-optimized`. If you run Amazon EMR releases 6.8.0 or lower, the default is `capacity-optimized`.
+   *
    * @public
    */
   AllocationStrategy?: SpotProvisioningAllocationStrategy | undefined;
 }
 
 /**
- * <p>The resize specification for On-Demand and Spot Instances in the fleet.</p>
+ * The resize specification for On-Demand and Spot Instances in the fleet.
+ *
  * @public
  */
 export interface InstanceFleetResizingSpecifications {
   /**
-   * <p>The resize specification for Spot Instances in the instance fleet, which contains the
-   *          allocation strategy and the resize timeout period. </p>
+   * The resize specification for Spot Instances in the instance fleet, which contains the allocation strategy and the resize timeout period.
+   *
    * @public
    */
   SpotResizeSpecification?: SpotResizingSpecification | undefined;
 
   /**
-   * <p>The resize specification for On-Demand Instances in the instance fleet, which contains
-   *          the allocation strategy, capacity reservation options, and the resize timeout period. </p>
+   * The resize specification for On-Demand Instances in the instance fleet, which contains the allocation strategy, capacity reservation options, and the resize timeout period.
+   *
    * @public
    */
   OnDemandResizeSpecification?: OnDemandResizingSpecification | undefined;
@@ -384,1325 +329,1292 @@ export interface InstanceFleetResizingSpecifications {
  */
 export interface AddInstanceFleetOutput {
   /**
-   * <p>The unique identifier of the cluster.</p>
+   * The unique identifier of the cluster.
+   *
    * @public
    */
   ClusterId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the instance fleet.</p>
+   * The unique identifier of the instance fleet.
+   *
    * @public
    */
   InstanceFleetId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name of the cluster.</p>
+   * The Amazon Resource Name of the cluster.
+   *
    * @public
    */
   ClusterArn?: string | undefined;
 }
 
 /**
- * <p>The upper and lower Amazon EC2 instance limits for an automatic scaling policy.
- *          Automatic scaling activities triggered by automatic scaling rules will not cause an
- *          instance group to grow above or below these limits.</p>
+ * The upper and lower Amazon EC2 instance limits for an automatic scaling policy. Automatic scaling activities triggered by automatic scaling rules will not cause an instance group to grow above or below these limits.
+ *
  * @public
  */
 export interface ScalingConstraints {
   /**
-   * <p>The lower boundary of Amazon EC2 instances in an instance group below which
-   *          scaling activities are not allowed to shrink. Scale-in activities will not terminate
-   *          instances below this boundary.</p>
+   * The lower boundary of Amazon EC2 instances in an instance group below which scaling activities are not allowed to shrink. Scale-in activities will not terminate instances below this boundary.
+   *
    * @public
    */
   MinCapacity: number | undefined;
 
   /**
-   * <p>The upper boundary of Amazon EC2 instances in an instance group beyond which
-   *          scaling activities are not allowed to grow. Scale-out activities will not add instances
-   *          beyond this boundary.</p>
+   * The upper boundary of Amazon EC2 instances in an instance group beyond which scaling activities are not allowed to grow. Scale-out activities will not add instances beyond this boundary.
+   *
    * @public
    */
   MaxCapacity: number | undefined;
 }
 
 /**
- * <p>An automatic scaling configuration, which describes how the policy adds or removes
- *          instances, the cooldown period, and the number of Amazon EC2 instances that will be
- *          added each time the CloudWatch metric alarm condition is satisfied.</p>
+ * An automatic scaling configuration, which describes how the policy adds or removes instances, the cooldown period, and the number of Amazon EC2 instances that will be added each time the CloudWatch metric alarm condition is satisfied.
+ *
  * @public
  */
 export interface SimpleScalingPolicyConfiguration {
   /**
-   * <p>The way in which Amazon EC2 instances are added (if
-   *             <code>ScalingAdjustment</code> is a positive number) or terminated (if
-   *             <code>ScalingAdjustment</code> is a negative number) each time the scaling activity is
-   *          triggered. <code>CHANGE_IN_CAPACITY</code> is the default. <code>CHANGE_IN_CAPACITY</code>
-   *          indicates that the Amazon EC2 instance count increments or decrements by
-   *             <code>ScalingAdjustment</code>, which should be expressed as an integer.
-   *             <code>PERCENT_CHANGE_IN_CAPACITY</code> indicates the instance count increments or
-   *          decrements by the percentage specified by <code>ScalingAdjustment</code>, which should be
-   *          expressed as an integer. For example, 20 indicates an increase in 20% increments of cluster
-   *          capacity. <code>EXACT_CAPACITY</code> indicates the scaling activity results in an instance
-   *          group with the number of Amazon EC2 instances specified by
-   *             <code>ScalingAdjustment</code>, which should be expressed as a positive integer.</p>
+   * The way in which Amazon EC2 instances are added (if `ScalingAdjustment` is a positive number) or terminated (if `ScalingAdjustment` is a negative number) each time the scaling activity is triggered. `CHANGE_IN_CAPACITY` is the default. `CHANGE_IN_CAPACITY` indicates that the Amazon EC2 instance count increments or decrements by `ScalingAdjustment`, which should be expressed as an integer. `PERCENT_CHANGE_IN_CAPACITY` indicates the instance count increments or decrements by the percentage specified by `ScalingAdjustment`, which should be expressed as an integer. For example, 20 indicates an increase in 20% increments of cluster capacity. `EXACT_CAPACITY` indicates the scaling activity results in an instance group with the number of Amazon EC2 instances specified by `ScalingAdjustment`, which should be expressed as a positive integer.
+   *
    * @public
    */
   AdjustmentType?: AdjustmentType | undefined;
 
   /**
-   * <p>The amount by which to scale in or scale out, based on the specified
-   *             <code>AdjustmentType</code>. A positive value adds to the instance group's Amazon EC2 instance count while a negative number removes instances. If
-   *             <code>AdjustmentType</code> is set to <code>EXACT_CAPACITY</code>, the number should
-   *          only be a positive integer. If <code>AdjustmentType</code> is set to
-   *             <code>PERCENT_CHANGE_IN_CAPACITY</code>, the value should express the percentage as an
-   *          integer. For example, -20 indicates a decrease in 20% increments of cluster
-   *          capacity.</p>
+   * The amount by which to scale in or scale out, based on the specified `AdjustmentType`. A positive value adds to the instance group's Amazon EC2 instance count while a negative number removes instances. If `AdjustmentType` is set to `EXACT_CAPACITY`, the number should only be a positive integer. If `AdjustmentType` is set to `PERCENT_CHANGE_IN_CAPACITY`, the value should express the percentage as an integer. For example, -20 indicates a decrease in 20% increments of cluster capacity.
+   *
    * @public
    */
   ScalingAdjustment: number | undefined;
 
   /**
-   * <p>The amount of time, in seconds, after a scaling activity completes before any further
-   *          trigger-related scaling activities can start. The default value is 0.</p>
+   * The amount of time, in seconds, after a scaling activity completes before any further trigger-related scaling activities can start. The default value is 0.
+   *
    * @public
    */
   CoolDown?: number | undefined;
 }
 
 /**
- * <p>The type of adjustment the automatic scaling activity makes when triggered, and the
- *          periodicity of the adjustment.</p>
+ * The type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.
+ *
  * @public
  */
 export interface ScalingAction {
   /**
-   * <p>Not available for instance groups. Instance groups use the market type specified for the
-   *          group.</p>
+   * Not available for instance groups. Instance groups use the market type specified for the group.
+   *
    * @public
    */
   Market?: MarketType | undefined;
 
   /**
-   * <p>The type of adjustment the automatic scaling activity makes when triggered, and the
-   *          periodicity of the adjustment.</p>
+   * The type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.
+   *
    * @public
    */
   SimpleScalingPolicyConfiguration: SimpleScalingPolicyConfiguration | undefined;
 }
 
 /**
- * <p>A CloudWatch dimension, which is specified using a <code>Key</code> (known as a
- *             <code>Name</code> in CloudWatch), <code>Value</code> pair. By default, Amazon EMR uses one dimension whose <code>Key</code> is <code>JobFlowID</code> and
- *             <code>Value</code> is a variable representing the cluster ID, which is
- *             <code>$\{emr.clusterId\}</code>. This enables the rule to bootstrap when the cluster ID
- *          becomes available.</p>
+ * A CloudWatch dimension, which is specified using a `Key` (known as a `Name` in CloudWatch), `Value` pair. By default, Amazon EMR uses one dimension whose `Key` is `JobFlowID` and `Value` is a variable representing the cluster ID, which is `$\{emr.clusterId\}`. This enables the rule to bootstrap when the cluster ID becomes available.
+ *
  * @public
  */
 export interface MetricDimension {
   /**
-   * <p>The dimension name.</p>
+   * The dimension name.
+   *
    * @public
    */
   Key?: string | undefined;
 
   /**
-   * <p>The dimension value.</p>
+   * The dimension value.
+   *
    * @public
    */
   Value?: string | undefined;
 }
 
 /**
- * <p>The definition of a CloudWatch metric alarm, which determines when an automatic scaling
- *          activity is triggered. When the defined alarm conditions are satisfied, scaling activity
- *          begins.</p>
+ * The definition of a CloudWatch metric alarm, which determines when an automatic scaling activity is triggered. When the defined alarm conditions are satisfied, scaling activity begins.
+ *
  * @public
  */
 export interface CloudWatchAlarmDefinition {
   /**
-   * <p>Determines how the metric specified by <code>MetricName</code> is compared to the value
-   *          specified by <code>Threshold</code>.</p>
+   * Determines how the metric specified by `MetricName` is compared to the value specified by `Threshold`.
+   *
    * @public
    */
   ComparisonOperator: ComparisonOperator | undefined;
 
   /**
-   * <p>The number of periods, in five-minute increments, during which the alarm condition must
-   *          exist before the alarm triggers automatic scaling activity. The default value is
-   *             <code>1</code>.</p>
+   * The number of periods, in five-minute increments, during which the alarm condition must exist before the alarm triggers automatic scaling activity. The default value is `1`.
+   *
    * @public
    */
   EvaluationPeriods?: number | undefined;
 
   /**
-   * <p>The name of the CloudWatch metric that is watched to determine an alarm
-   *          condition.</p>
+   * The name of the CloudWatch metric that is watched to determine an alarm condition.
+   *
    * @public
    */
   MetricName: string | undefined;
 
   /**
-   * <p>The namespace for the CloudWatch metric. The default is
-   *             <code>AWS/ElasticMapReduce</code>.</p>
+   * The namespace for the CloudWatch metric. The default is `AWS/ElasticMapReduce`.
+   *
    * @public
    */
   Namespace?: string | undefined;
 
   /**
-   * <p>The period, in seconds, over which the statistic is applied. CloudWatch metrics for
-   *             Amazon EMR are emitted every five minutes (300 seconds), so if you specify a
-   *          CloudWatch metric, specify <code>300</code>.</p>
+   * The period, in seconds, over which the statistic is applied. CloudWatch metrics for Amazon EMR are emitted every five minutes (300 seconds), so if you specify a CloudWatch metric, specify `300`.
+   *
    * @public
    */
   Period: number | undefined;
 
   /**
-   * <p>The statistic to apply to the metric associated with the alarm. The default is
-   *             <code>AVERAGE</code>.</p>
+   * The statistic to apply to the metric associated with the alarm. The default is `AVERAGE`.
+   *
    * @public
    */
   Statistic?: Statistic | undefined;
 
   /**
-   * <p>The value against which the specified statistic is compared.</p>
+   * The value against which the specified statistic is compared.
+   *
    * @public
    */
   Threshold: number | undefined;
 
   /**
-   * <p>The unit of measure associated with the CloudWatch metric being watched. The value
-   *          specified for <code>Unit</code> must correspond to the units specified in the CloudWatch
-   *          metric.</p>
+   * The unit of measure associated with the CloudWatch metric being watched. The value specified for `Unit` must correspond to the units specified in the CloudWatch metric.
+   *
    * @public
    */
   Unit?: Unit | undefined;
 
   /**
-   * <p>A CloudWatch metric dimension.</p>
+   * A CloudWatch metric dimension.
+   *
    * @public
    */
   Dimensions?: MetricDimension[] | undefined;
 }
 
 /**
- * <p>The conditions that trigger an automatic scaling activity.</p>
+ * The conditions that trigger an automatic scaling activity.
+ *
  * @public
  */
 export interface ScalingTrigger {
   /**
-   * <p>The definition of a CloudWatch metric alarm. When the defined alarm conditions are met
-   *          along with other trigger parameters, scaling activity begins.</p>
+   * The definition of a CloudWatch metric alarm. When the defined alarm conditions are met along with other trigger parameters, scaling activity begins.
+   *
    * @public
    */
   CloudWatchAlarmDefinition: CloudWatchAlarmDefinition | undefined;
 }
 
 /**
- * <p>A scale-in or scale-out rule that defines scaling activity, including the CloudWatch
- *          metric alarm that triggers activity, how Amazon EC2 instances are added or removed,
- *          and the periodicity of adjustments. The automatic scaling policy for an instance group can
- *          comprise one or more automatic scaling rules.</p>
+ * A scale-in or scale-out rule that defines scaling activity, including the CloudWatch metric alarm that triggers activity, how Amazon EC2 instances are added or removed, and the periodicity of adjustments. The automatic scaling policy for an instance group can comprise one or more automatic scaling rules.
+ *
  * @public
  */
 export interface ScalingRule {
   /**
-   * <p>The name used to identify an automatic scaling rule. Rule names must be unique within a
-   *          scaling policy.</p>
+   * The name used to identify an automatic scaling rule. Rule names must be unique within a scaling policy.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>A friendly, more verbose description of the automatic scaling rule.</p>
+   * A friendly, more verbose description of the automatic scaling rule.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The conditions that trigger an automatic scaling activity.</p>
+   * The conditions that trigger an automatic scaling activity.
+   *
    * @public
    */
   Action: ScalingAction | undefined;
 
   /**
-   * <p>The CloudWatch alarm definition that determines when automatic scaling activity is
-   *          triggered.</p>
+   * The CloudWatch alarm definition that determines when automatic scaling activity is triggered.
+   *
    * @public
    */
   Trigger: ScalingTrigger | undefined;
 }
 
 /**
- * <p>An automatic scaling policy for a core instance group or task instance group in an
- *             Amazon EMR cluster. An automatic scaling policy defines how an instance group
- *          dynamically adds and terminates Amazon EC2 instances in response to the value of a
- *          CloudWatch metric. See <a>PutAutoScalingPolicy</a>.</p>
+ * An automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster. An automatic scaling policy defines how an instance group dynamically adds and terminates Amazon EC2 instances in response to the value of a CloudWatch metric. See PutAutoScalingPolicy.
+ *
  * @public
  */
 export interface AutoScalingPolicy {
   /**
-   * <p>The upper and lower Amazon EC2 instance limits for an automatic scaling policy.
-   *          Automatic scaling activity will not cause an instance group to grow above or below these
-   *          limits.</p>
+   * The upper and lower Amazon EC2 instance limits for an automatic scaling policy. Automatic scaling activity will not cause an instance group to grow above or below these limits.
+   *
    * @public
    */
   Constraints: ScalingConstraints | undefined;
 
   /**
-   * <p>The scale-in and scale-out rules that comprise the automatic scaling policy.</p>
+   * The scale-in and scale-out rules that comprise the automatic scaling policy.
+   *
    * @public
    */
   Rules: ScalingRule[] | undefined;
 }
 
 /**
- * <p>Output from an AddInstanceGroups call.</p>
+ * Output from an AddInstanceGroups call.
+ *
  * @public
  */
 export interface AddInstanceGroupsOutput {
   /**
-   * <p>The job flow ID in which the instance groups are added.</p>
+   * The job flow ID in which the instance groups are added.
+   *
    * @public
    */
   JobFlowId?: string | undefined;
 
   /**
-   * <p>Instance group IDs of the newly created instance groups.</p>
+   * Instance group IDs of the newly created instance groups.
+   *
    * @public
    */
   InstanceGroupIds?: string[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name of the cluster.</p>
+   * The Amazon Resource Name of the cluster.
+   *
    * @public
    */
   ClusterArn?: string | undefined;
 }
 
 /**
- * <p>A key-value pair.</p>
+ * A key-value pair.
+ *
  * @public
  */
 export interface KeyValue {
   /**
-   * <p>The unique identifier of a key-value pair.</p>
+   * The unique identifier of a key-value pair.
+   *
    * @public
    */
   Key?: string | undefined;
 
   /**
-   * <p>The value part of the identified key.</p>
+   * The value part of the identified key.
+   *
    * @public
    */
   Value?: string | undefined;
 }
 
 /**
- * <p>A job flow step consisting of a JAR file whose main function will be executed. The main
- *          function submits a job for Hadoop to execute and waits for the job to finish or
- *          fail.</p>
+ * A job flow step consisting of a JAR file whose main function will be executed. The main function submits a job for Hadoop to execute and waits for the job to finish or fail.
+ *
  * @public
  */
 export interface HadoopJarStepConfig {
   /**
-   * <p>A list of Java properties that are set when the step runs. You can use these properties
-   *          to pass key-value pairs to your main function.</p>
+   * A list of Java properties that are set when the step runs. You can use these properties to pass key-value pairs to your main function.
+   *
    * @public
    */
   Properties?: KeyValue[] | undefined;
 
   /**
-   * <p>A path to a JAR file run during the step.</p>
+   * A path to a JAR file run during the step.
+   *
    * @public
    */
   Jar: string | undefined;
 
   /**
-   * <p>The name of the main class in the specified Java file. If not specified, the JAR file
-   *          should specify a Main-Class in its manifest file.</p>
+   * The name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
+   *
    * @public
    */
   MainClass?: string | undefined;
 
   /**
-   * <p>A list of command line arguments passed to the JAR file's main function when
-   *          executed.</p>
+   * A list of command line arguments passed to the JAR file's main function when executed.
+   *
    * @public
    */
   Args?: string[] | undefined;
 }
 
 /**
- * <p>The Amazon S3 configuration for monitoring log publishing. You can configure your step to send log information
- *          to Amazon S3. When it's specified, it takes precedence over the cluster's logging configuration. If you don't specify this
- *          configuration entirely, or omit individual fields, EMR falls back to cluster-level
- *          logging behavior.</p>
+ * The Amazon S3 configuration for monitoring log publishing. You can configure your step to send log information to Amazon S3. When it's specified, it takes precedence over the cluster's logging configuration. If you don't specify this configuration entirely, or omit individual fields, EMR falls back to cluster-level logging behavior.
+ *
  * @public
  */
 export interface S3MonitoringConfiguration {
   /**
-   * <p>The Amazon S3 destination URI for log publishing.</p>
+   * The Amazon S3 destination URI for log publishing.
+   *
    * @public
    */
   LogUri?: string | undefined;
 
   /**
-   * <p>The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.</p>
+   * The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
+   *
    * @public
    */
   EncryptionKeyArn?: string | undefined;
 }
 
 /**
- * <p>Object that holds configuration properties for logging.</p>
+ * Object that holds configuration properties for logging.
+ *
  * @public
  */
 export interface StepMonitoringConfiguration {
   /**
-   * <p>The Amazon S3 configuration for monitoring log publishing. You can configure your step to send log information
-   *          to Amazon S3. When it's specified, it takes precedence over the cluster's logging configuration. If you don't specify this
-   *          configuration entirely, or omit individual fields, EMR falls back to cluster-level logging behavior.
-   *       </p>
+   * The Amazon S3 configuration for monitoring log publishing. You can configure your step to send log information to Amazon S3. When it's specified, it takes precedence over the cluster's logging configuration. If you don't specify this configuration entirely, or omit individual fields, EMR falls back to cluster-level logging behavior.
+   *
    * @public
    */
   S3MonitoringConfiguration?: S3MonitoringConfiguration | undefined;
 }
 
 /**
- * <p>Specification for a cluster (job flow) step.</p>
+ * Specification for a cluster (job flow) step.
+ *
  * @public
  */
 export interface StepConfig {
   /**
-   * <p>The name of the step.</p>
+   * The name of the step.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The action to take when the step fails. Use one of the following values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>TERMINATE_CLUSTER</code> - Shuts down the cluster.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CANCEL_AND_WAIT</code> - Cancels any pending steps and returns the cluster
-   *                to the <code>WAITING</code> state.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CONTINUE</code> - Continues to the next step in the queue.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TERMINATE_JOB_FLOW</code> - Shuts down the cluster.
-   *                   <code>TERMINATE_JOB_FLOW</code> is provided for backward compatibility. We
-   *                recommend using <code>TERMINATE_CLUSTER</code> instead.</p>
-   *             </li>
-   *          </ul>
-   *          <p>If a cluster's <code>StepConcurrencyLevel</code> is greater than <code>1</code>, do not
-   *          use <code>AddJobFlowSteps</code> to submit a step with this parameter set to
-   *             <code>CANCEL_AND_WAIT</code> or <code>TERMINATE_CLUSTER</code>. The step is not
-   *          submitted and the action fails with a message that the <code>ActionOnFailure</code> setting
-   *          is not valid.</p>
-   *          <p>If you change a cluster's <code>StepConcurrencyLevel</code> to be greater than 1 while a
-   *          step is running, the <code>ActionOnFailure</code> parameter may not behave as you expect.
-   *          In this case, for a step that fails with this parameter set to
-   *          <code>CANCEL_AND_WAIT</code>, pending steps and the running step are not canceled; for a
-   *          step that fails with this parameter set to <code>TERMINATE_CLUSTER</code>, the cluster does
-   *          not terminate.</p>
+   * The action to take when the step fails. Use one of the following values:
+   *
+   * - `TERMINATE_CLUSTER` - Shuts down the cluster.
+   * - `CANCEL_AND_WAIT` - Cancels any pending steps and returns the cluster to the `WAITING` state.
+   * - `CONTINUE` - Continues to the next step in the queue.
+   * - `TERMINATE_JOB_FLOW` - Shuts down the cluster. `TERMINATE_JOB_FLOW` is provided for backward compatibility. We recommend using `TERMINATE_CLUSTER` instead.
+   *
+   * If a cluster's `StepConcurrencyLevel` is greater than `1`, do not use `AddJobFlowSteps` to submit a step with this parameter set to `CANCEL_AND_WAIT` or `TERMINATE_CLUSTER`. The step is not submitted and the action fails with a message that the `ActionOnFailure` setting is not valid.
+   *
+   * If you change a cluster's `StepConcurrencyLevel` to be greater than 1 while a step is running, the `ActionOnFailure` parameter may not behave as you expect. In this case, for a step that fails with this parameter set to `CANCEL_AND_WAIT`, pending steps and the running step are not canceled; for a step that fails with this parameter set to `TERMINATE_CLUSTER`, the cluster does not terminate.
+   *
    * @public
    */
   ActionOnFailure?: ActionOnFailure | undefined;
 
   /**
-   * <p>The JAR file used for the step.</p>
+   * The JAR file used for the step.
+   *
    * @public
    */
   HadoopJarStep: HadoopJarStepConfig | undefined;
 
   /**
-   * <p>Object that holds configuration properties for logging.</p>
+   * Object that holds configuration properties for logging.
+   *
    * @public
    */
   StepMonitoringConfiguration?: StepMonitoringConfiguration | undefined;
 }
 
 /**
- * <p> The input argument to the <a>AddJobFlowSteps</a> operation. </p>
+ * The input argument to the AddJobFlowSteps operation.
+ *
  * @public
  */
 export interface AddJobFlowStepsInput {
   /**
-   * <p>A string that uniquely identifies the job flow. This identifier is returned by <a>RunJobFlow</a> and can also be obtained from <a>ListClusters</a>.
-   *       </p>
+   * A string that uniquely identifies the job flow. This identifier is returned by RunJobFlow and can also be obtained from ListClusters.
+   *
    * @public
    */
   JobFlowId: string | undefined;
 
   /**
-   * <p> A list of <a>StepConfig</a> to be executed by the job flow. </p>
+   * A list of StepConfig to be executed by the job flow.
+   *
    * @public
    */
   Steps: StepConfig[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the runtime role for a step on the cluster. The
-   *          runtime role can be a cross-account IAM role. The runtime role ARN is a
-   *          combination of account ID, role name, and role type using the following format:
-   *             <code>arn:partition:service:region:account:resource</code>. </p>
-   *          <p>For example, <code>arn:aws:IAM::1234567890:role/ReadOnly</code> is a correctly formatted
-   *          runtime role ARN.</p>
+   * The Amazon Resource Name (ARN) of the runtime role for a step on the cluster. The runtime role can be a cross-account IAM role. The runtime role ARN is a combination of account ID, role name, and role type using the following format: `arn:partition:service:region:account:resource`.
+   *
+   * For example, `arn:aws:IAM::1234567890:role/ReadOnly` is a correctly formatted runtime role ARN.
+   *
    * @public
    */
   ExecutionRoleArn?: string | undefined;
 }
 
 /**
- * <p> The output for the <a>AddJobFlowSteps</a> operation. </p>
+ * The output for the AddJobFlowSteps operation.
+ *
  * @public
  */
 export interface AddJobFlowStepsOutput {
   /**
-   * <p>The identifiers of the list of steps added to the job flow.</p>
+   * The identifiers of the list of steps added to the job flow.
+   *
    * @public
    */
   StepIds?: string[] | undefined;
 }
 
 /**
- * <p>A key-value pair containing user-defined metadata that you can associate with an Amazon EMR resource. Tags make it easier to associate clusters in various ways, such as
- *          grouping clusters to track your Amazon EMR resource allocation costs. For more
- *          information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html">Tag Clusters</a>. </p>
+ * A key-value pair containing user-defined metadata that you can associate with an Amazon EMR resource. Tags make it easier to associate clusters in various ways, such as grouping clusters to track your Amazon EMR resource allocation costs. For more information, see [Tag Clusters](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html).
+ *
  * @public
  */
 export interface Tag {
   /**
-   * <p>A user-defined key, which is the minimum required information for a valid tag. For more
-   *          information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html">Tag</a>. </p>
+   * A user-defined key, which is the minimum required information for a valid tag. For more information, see [Tag](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html).
+   *
    * @public
    */
   Key?: string | undefined;
 
   /**
-   * <p>A user-defined value, which is optional in a tag. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html">Tag
-   *             Clusters</a>. </p>
+   * A user-defined value, which is optional in a tag. For more information, see [Tag Clusters](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html).
+   *
    * @public
    */
   Value?: string | undefined;
 }
 
 /**
- * <p>This input identifies an Amazon EMR resource and a list of tags to
- *          attach.</p>
+ * This input identifies an Amazon EMR resource and a list of tags to attach.
+ *
  * @public
  */
 export interface AddTagsInput {
   /**
-   * <p>The Amazon EMR resource identifier to which tags will be added. For example, a
-   *          cluster identifier or an Amazon EMR Studio ID.</p>
+   * The Amazon EMR resource identifier to which tags will be added. For example, a cluster identifier or an Amazon EMR Studio ID.
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>A list of tags to associate with a resource. Tags are user-defined key-value pairs that
-   *          consist of a required key string with a maximum of 128 characters, and an optional value
-   *          string with a maximum of 256 characters.</p>
+   * A list of tags to associate with a resource. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
+   *
    * @public
    */
   Tags: Tag[] | undefined;
 
   /**
-   * <p>The ID of the cluster that scopes the tag operation. Required when the resource being tagged is a session-scoped resource.</p>
+   * The ID of the cluster that scopes the tag operation. Required when the resource being tagged is a session-scoped resource.
+   *
    * @public
    */
   ClusterId?: string | undefined;
 }
 
 /**
- * <p>This output indicates the result of adding tags to a resource.</p>
+ * This output indicates the result of adding tags to a resource.
+ *
  * @public
  */
 export interface AddTagsOutput {}
 
 /**
- * <p>With Amazon EMR release version 4.0 and later, the only accepted parameter is
- *          the application name. To pass arguments to applications, you use configuration
- *          classifications specified using configuration JSON objects. For more information, see
- *             <a href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html">Configuring Applications</a>.</p>
- *          <p>With earlier Amazon EMR releases, the application is any Amazon or third-party
- *          software that you can add to the cluster. This structure contains a list of strings that
- *          indicates the software to use with the cluster and accepts a user argument list. Amazon EMR accepts and forwards the argument list to the corresponding installation
- *          script as bootstrap action argument.</p>
+ * With Amazon EMR release version 4.0 and later, the only accepted parameter is the application name. To pass arguments to applications, you use configuration classifications specified using configuration JSON objects. For more information, see [Configuring Applications](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html).
+ *
+ * With earlier Amazon EMR releases, the application is any Amazon or third-party software that you can add to the cluster. This structure contains a list of strings that indicates the software to use with the cluster and accepts a user argument list. Amazon EMR accepts and forwards the argument list to the corresponding installation script as bootstrap action argument.
+ *
  * @public
  */
 export interface Application {
   /**
-   * <p>The name of the application.</p>
+   * The name of the application.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The version of the application.</p>
+   * The version of the application.
+   *
    * @public
    */
   Version?: string | undefined;
 
   /**
-   * <p>Arguments for Amazon EMR to pass to the application.</p>
+   * Arguments for Amazon EMR to pass to the application.
+   *
    * @public
    */
   Args?: string[] | undefined;
 
   /**
-   * <p>This option is for advanced users only. This is meta information about third-party
-   *          applications that third-party vendors use for testing purposes.</p>
+   * This option is for advanced users only. This is meta information about third-party applications that third-party vendors use for testing purposes.
+   *
    * @public
    */
   AdditionalInfo?: Record<string, string> | undefined;
 }
 
 /**
- * <p>The reason for an <a>AutoScalingPolicyStatus</a> change.</p>
+ * The reason for an AutoScalingPolicyStatus change.
+ *
  * @public
  */
 export interface AutoScalingPolicyStateChangeReason {
   /**
-   * <p>The code indicating the reason for the change in status.<code>USER_REQUEST</code>
-   *          indicates that the scaling policy status was changed by a user.
-   *             <code>PROVISION_FAILURE</code> indicates that the status change was because the policy
-   *          failed to provision. <code>CLEANUP_FAILURE</code> indicates an error.</p>
+   * The code indicating the reason for the change in status.`USER_REQUEST` indicates that the scaling policy status was changed by a user. `PROVISION_FAILURE` indicates that the status change was because the policy failed to provision. `CLEANUP_FAILURE` indicates an error.
+   *
    * @public
    */
   Code?: AutoScalingPolicyStateChangeReasonCode | undefined;
 
   /**
-   * <p>A friendly, more verbose message that accompanies an automatic scaling policy state
-   *          change.</p>
+   * A friendly, more verbose message that accompanies an automatic scaling policy state change.
+   *
    * @public
    */
   Message?: string | undefined;
 }
 
 /**
- * <p>The status of an automatic scaling policy.
- *          </p>
+ * The status of an automatic scaling policy.
+ *
  * @public
  */
 export interface AutoScalingPolicyStatus {
   /**
-   * <p>Indicates the status of the automatic scaling policy.</p>
+   * Indicates the status of the automatic scaling policy.
+   *
    * @public
    */
   State?: AutoScalingPolicyState | undefined;
 
   /**
-   * <p>The reason for a change in status.</p>
+   * The reason for a change in status.
+   *
    * @public
    */
   StateChangeReason?: AutoScalingPolicyStateChangeReason | undefined;
 }
 
 /**
- * <p>An automatic scaling policy for a core instance group or task instance group in an
- *             Amazon EMR cluster. The automatic scaling policy defines how an instance group
- *          dynamically adds and terminates Amazon EC2 instances in response to the value of a
- *          CloudWatch metric. See <a>PutAutoScalingPolicy</a>.</p>
+ * An automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster. The automatic scaling policy defines how an instance group dynamically adds and terminates Amazon EC2 instances in response to the value of a CloudWatch metric. See PutAutoScalingPolicy.
+ *
  * @public
  */
 export interface AutoScalingPolicyDescription {
   /**
-   * <p>The status of an automatic scaling policy. </p>
+   * The status of an automatic scaling policy.
+   *
    * @public
    */
   Status?: AutoScalingPolicyStatus | undefined;
 
   /**
-   * <p>The upper and lower Amazon EC2 instance limits for an automatic scaling policy.
-   *          Automatic scaling activity will not cause an instance group to grow above or below these
-   *          limits.</p>
+   * The upper and lower Amazon EC2 instance limits for an automatic scaling policy. Automatic scaling activity will not cause an instance group to grow above or below these limits.
+   *
    * @public
    */
   Constraints?: ScalingConstraints | undefined;
 
   /**
-   * <p>The scale-in and scale-out rules that comprise the automatic scaling policy.</p>
+   * The scale-in and scale-out rules that comprise the automatic scaling policy.
+   *
    * @public
    */
   Rules?: ScalingRule[] | undefined;
 }
 
 /**
- * <p>An auto-termination policy for an Amazon EMR cluster. An auto-termination policy
- *          defines the amount of idle time in seconds after which a cluster automatically terminates.
- *          For alternative cluster termination options, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-termination.html">Control cluster
- *             termination</a>.</p>
+ * An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. For alternative cluster termination options, see [Control cluster termination](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-termination.html).
+ *
  * @public
  */
 export interface AutoTerminationPolicy {
   /**
-   * <p>Specifies the amount of idle time in seconds after which the cluster automatically
-   *          terminates. You can specify a minimum of 60 seconds and a maximum of 604800 seconds (seven
-   *          days).</p>
+   * Specifies the amount of idle time in seconds after which the cluster automatically terminates. You can specify a minimum of 60 seconds and a maximum of 604800 seconds (seven days).
+   *
    * @public
    */
   IdleTimeout?: number | undefined;
 }
 
 /**
- * <p>A list of port ranges that are permitted to allow inbound traffic from all public IP
- *          addresses. To specify a single port, use the same value for <code>MinRange</code> and
- *             <code>MaxRange</code>.</p>
+ * A list of port ranges that are permitted to allow inbound traffic from all public IP addresses. To specify a single port, use the same value for `MinRange` and `MaxRange`.
+ *
  * @public
  */
 export interface PortRange {
   /**
-   * <p>The smallest port number in a specified range of port numbers.</p>
+   * The smallest port number in a specified range of port numbers.
+   *
    * @public
    */
   MinRange: number | undefined;
 
   /**
-   * <p>The smallest port number in a specified range of port numbers.</p>
+   * The smallest port number in a specified range of port numbers.
+   *
    * @public
    */
   MaxRange?: number | undefined;
 }
 
 /**
- * <p>Properties that describe the Amazon Web Services principal that created the
- *             <code>BlockPublicAccessConfiguration</code> using the
- *             <code>PutBlockPublicAccessConfiguration</code> action as well as the date and time that
- *          the configuration was created. Each time a configuration for block public access is
- *          updated, Amazon EMR updates this metadata.</p>
+ * Properties that describe the Amazon Web Services principal that created the `BlockPublicAccessConfiguration` using the `PutBlockPublicAccessConfiguration` action as well as the date and time that the configuration was created. Each time a configuration for block public access is updated, Amazon EMR updates this metadata.
+ *
  * @public
  */
 export interface BlockPublicAccessConfigurationMetadata {
   /**
-   * <p>The date and time that the configuration was created.</p>
+   * The date and time that the configuration was created.
+   *
    * @public
    */
   CreationDateTime: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name that created or last modified the configuration.</p>
+   * The Amazon Resource Name that created or last modified the configuration.
+   *
    * @public
    */
   CreatedByArn: string | undefined;
 }
 
 /**
- * <p>Configuration of the script to run during a bootstrap action.</p>
+ * Configuration of the script to run during a bootstrap action.
+ *
  * @public
  */
 export interface ScriptBootstrapActionConfig {
   /**
-   * <p>Location in Amazon S3 of the script to run during a bootstrap action.</p>
+   * Location in Amazon S3 of the script to run during a bootstrap action.
+   *
    * @public
    */
   Path: string | undefined;
 
   /**
-   * <p>A list of command line arguments to pass to the bootstrap action script.</p>
+   * A list of command line arguments to pass to the bootstrap action script.
+   *
    * @public
    */
   Args?: string[] | undefined;
 }
 
 /**
- * <p>Configuration of a bootstrap action.</p>
+ * Configuration of a bootstrap action.
+ *
  * @public
  */
 export interface BootstrapActionConfig {
   /**
-   * <p>The name of the bootstrap action.</p>
+   * The name of the bootstrap action.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The script run by the bootstrap action.</p>
+   * The script run by the bootstrap action.
+   *
    * @public
    */
   ScriptBootstrapAction: ScriptBootstrapActionConfig | undefined;
 }
 
 /**
- * <p>Reports the configuration of a bootstrap action in a cluster (job flow).</p>
+ * Reports the configuration of a bootstrap action in a cluster (job flow).
+ *
  * @public
  */
 export interface BootstrapActionDetail {
   /**
-   * <p>A description of the bootstrap action.</p>
+   * A description of the bootstrap action.
+   *
    * @public
    */
   BootstrapActionConfig?: BootstrapActionConfig | undefined;
 }
 
 /**
- * <p>The input argument to the <a>CancelSteps</a> operation.</p>
+ * The input argument to the CancelSteps operation.
+ *
  * @public
  */
 export interface CancelStepsInput {
   /**
-   * <p>The <code>ClusterID</code> for the specified steps that will be canceled. Use <a>RunJobFlow</a> and <a>ListClusters</a> to get ClusterIDs. </p>
+   * The `ClusterID` for the specified steps that will be canceled. Use RunJobFlow and ListClusters to get ClusterIDs.
+   *
    * @public
    */
   ClusterId: string | undefined;
 
   /**
-   * <p>The list of <code>StepIDs</code> to cancel. Use <a>ListSteps</a> to get steps
-   *          and their states for the specified cluster.</p>
+   * The list of `StepIDs` to cancel. Use ListSteps to get steps and their states for the specified cluster.
+   *
    * @public
    */
   StepIds: string[] | undefined;
 
   /**
-   * <p>The option to choose to cancel <code>RUNNING</code> steps. By default, the value is
-   *             <code>SEND_INTERRUPT</code>.</p>
+   * The option to choose to cancel `RUNNING` steps. By default, the value is `SEND_INTERRUPT`.
+   *
    * @public
    */
   StepCancellationOption?: StepCancellationOption | undefined;
 }
 
 /**
- * <p>Specification of the status of a CancelSteps request. Available only in Amazon EMR version 4.8.0 and later, excluding version 5.0.0.</p>
+ * Specification of the status of a CancelSteps request. Available only in Amazon EMR version 4.8.0 and later, excluding version 5.0.0.
+ *
  * @public
  */
 export interface CancelStepsInfo {
   /**
-   * <p>The encrypted StepId of a step.</p>
+   * The encrypted StepId of a step.
+   *
    * @public
    */
   StepId?: string | undefined;
 
   /**
-   * <p>The status of a CancelSteps Request. The value may be SUBMITTED or FAILED.</p>
+   * The status of a CancelSteps Request. The value may be SUBMITTED or FAILED.
+   *
    * @public
    */
   Status?: CancelStepsRequestStatus | undefined;
 
   /**
-   * <p>The reason for the failure if the CancelSteps request fails.</p>
+   * The reason for the failure if the CancelSteps request fails.
+   *
    * @public
    */
   Reason?: string | undefined;
 }
 
 /**
- * <p> The output for the <a>CancelSteps</a> operation. </p>
+ * The output for the CancelSteps operation.
+ *
  * @public
  */
 export interface CancelStepsOutput {
   /**
-   * <p>A list of <a>CancelStepsInfo</a>, which shows the status of specified cancel
-   *          requests for each <code>StepID</code> specified.</p>
+   * A list of CancelStepsInfo, which shows the status of specified cancel requests for each `StepID` specified.
+   *
    * @public
    */
   CancelStepsInfoList?: CancelStepsInfo[] | undefined;
 }
 
 /**
- * <p>Holds CloudWatch log configuration settings and metadata that specify settings like log files to monitor and where to send them.</p>
+ * Holds CloudWatch log configuration settings and metadata that specify settings like log files to monitor and where to send them.
+ *
  * @public
  */
 export interface CloudWatchLogConfiguration {
   /**
-   * <p>Specifies if CloudWatch logging is enabled.</p>
+   * Specifies if CloudWatch logging is enabled.
+   *
    * @public
    */
   Enabled: boolean | undefined;
 
   /**
-   * <p>The name of the CloudWatch log group where logs are published.</p>
+   * The name of the CloudWatch log group where logs are published.
+   *
    * @public
    */
   LogGroupName?: string | undefined;
 
   /**
-   * <p>The prefix of the log stream name.</p>
+   * The prefix of the log stream name.
+   *
    * @public
    */
   LogStreamNamePrefix?: string | undefined;
 
   /**
-   * <p>The ARN of the encryption key used to encrypt the logs.</p>
+   * The ARN of the encryption key used to encrypt the logs.
+   *
    * @public
    */
   EncryptionKeyArn?: string | undefined;
 
   /**
-   * <p>A map of log types to file names for publishing logs to the standard output or standard error streams for CloudWatch. Valid log types include STEP_LOGS, SPARK_DRIVER, and SPARK_EXECUTOR. Valid file names for each type include STDOUT and STDERR.</p>
+   * A map of log types to file names for publishing logs to the standard output or standard error streams for CloudWatch. Valid log types include STEP_LOGS, SPARK_DRIVER, and SPARK_EXECUTOR. Valid file names for each type include STDOUT and STDERR.
+   *
    * @public
    */
   LogTypes?: Record<string, string[]> | undefined;
 }
 
 /**
- * <p>Provides information about the Amazon EC2 instances in a cluster grouped by
- *          category. For example, key name, subnet ID, IAM instance profile, and so
- *          on.</p>
+ * Provides information about the Amazon EC2 instances in a cluster grouped by category. For example, key name, subnet ID, IAM instance profile, and so on.
+ *
  * @public
  */
 export interface Ec2InstanceAttributes {
   /**
-   * <p>The name of the Amazon EC2 key pair to use when connecting with SSH into the
-   *          master node as a user named "hadoop".</p>
+   * The name of the Amazon EC2 key pair to use when connecting with SSH into the master node as a user named "hadoop".
+   *
    * @public
    */
   Ec2KeyName?: string | undefined;
 
   /**
-   * <p>Set this parameter to the identifier of the Amazon VPC subnet where you want the
-   *          cluster to launch. If you do not specify this value, and your account supports EC2-Classic,
-   *          the cluster launches in EC2-Classic.</p>
+   * Set this parameter to the identifier of the Amazon VPC subnet where you want the cluster to launch. If you do not specify this value, and your account supports EC2-Classic, the cluster launches in EC2-Classic.
+   *
    * @public
    */
   Ec2SubnetId?: string | undefined;
 
   /**
-   * <p>Applies to clusters configured with the instance fleets option. Specifies the unique
-   *          identifier of one or more Amazon EC2 subnets in which to launch Amazon EC2
-   *          cluster instances. Subnets must exist within the same VPC. Amazon EMR chooses the
-   *             Amazon EC2 subnet with the best fit from among the list of
-   *             <code>RequestedEc2SubnetIds</code>, and then launches all cluster instances within that
-   *          Subnet. If this value is not specified, and the account and Region support EC2-Classic
-   *          networks, the cluster launches instances in the EC2-Classic network and uses
-   *             <code>RequestedEc2AvailabilityZones</code> instead of this setting. If EC2-Classic is
-   *          not supported, and no Subnet is specified, Amazon EMR chooses the subnet for you.
-   *             <code>RequestedEc2SubnetIDs</code> and <code>RequestedEc2AvailabilityZones</code> cannot
-   *          be specified together.</p>
+   * Applies to clusters configured with the instance fleets option. Specifies the unique identifier of one or more Amazon EC2 subnets in which to launch Amazon EC2 cluster instances. Subnets must exist within the same VPC. Amazon EMR chooses the Amazon EC2 subnet with the best fit from among the list of `RequestedEc2SubnetIds`, and then launches all cluster instances within that Subnet. If this value is not specified, and the account and Region support EC2-Classic networks, the cluster launches instances in the EC2-Classic network and uses `RequestedEc2AvailabilityZones` instead of this setting. If EC2-Classic is not supported, and no Subnet is specified, Amazon EMR chooses the subnet for you. `RequestedEc2SubnetIDs` and `RequestedEc2AvailabilityZones` cannot be specified together.
+   *
    * @public
    */
   RequestedEc2SubnetIds?: string[] | undefined;
 
   /**
-   * <p>The Availability Zone in which the cluster will run. </p>
+   * The Availability Zone in which the cluster will run.
+   *
    * @public
    */
   Ec2AvailabilityZone?: string | undefined;
 
   /**
-   * <p>Applies to clusters configured with the instance fleets option. Specifies one or more
-   *          Availability Zones in which to launch Amazon EC2 cluster instances when the
-   *          EC2-Classic network configuration is supported. Amazon EMR chooses the Availability
-   *          Zone with the best fit from among the list of <code>RequestedEc2AvailabilityZones</code>,
-   *          and then launches all cluster instances within that Availability Zone. If you do not
-   *          specify this value, Amazon EMR chooses the Availability Zone for you.
-   *             <code>RequestedEc2SubnetIDs</code> and <code>RequestedEc2AvailabilityZones</code> cannot
-   *          be specified together.</p>
+   * Applies to clusters configured with the instance fleets option. Specifies one or more Availability Zones in which to launch Amazon EC2 cluster instances when the EC2-Classic network configuration is supported. Amazon EMR chooses the Availability Zone with the best fit from among the list of `RequestedEc2AvailabilityZones`, and then launches all cluster instances within that Availability Zone. If you do not specify this value, Amazon EMR chooses the Availability Zone for you. `RequestedEc2SubnetIDs` and `RequestedEc2AvailabilityZones` cannot be specified together.
+   *
    * @public
    */
   RequestedEc2AvailabilityZones?: string[] | undefined;
 
   /**
-   * <p>The IAM role that was specified when the cluster was launched. The
-   *             Amazon EC2 instances of the cluster assume this role.</p>
+   * The IAM role that was specified when the cluster was launched. The Amazon EC2 instances of the cluster assume this role.
+   *
    * @public
    */
   IamInstanceProfile?: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon EC2 security group for the master node.</p>
+   * The identifier of the Amazon EC2 security group for the master node.
+   *
    * @public
    */
   EmrManagedMasterSecurityGroup?: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon EC2 security group for the core and task
-   *          nodes.</p>
+   * The identifier of the Amazon EC2 security group for the core and task nodes.
+   *
    * @public
    */
   EmrManagedSlaveSecurityGroup?: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon EC2 security group for the Amazon EMR
-   *          service to access clusters in VPC private subnets.</p>
+   * The identifier of the Amazon EC2 security group for the Amazon EMR service to access clusters in VPC private subnets.
+   *
    * @public
    */
   ServiceAccessSecurityGroup?: string | undefined;
 
   /**
-   * <p>A list of additional Amazon EC2 security group IDs for the master node.</p>
+   * A list of additional Amazon EC2 security group IDs for the master node.
+   *
    * @public
    */
   AdditionalMasterSecurityGroups?: string[] | undefined;
 
   /**
-   * <p>A list of additional Amazon EC2 security group IDs for the core and task
-   *          nodes.</p>
+   * A list of additional Amazon EC2 security group IDs for the core and task nodes.
+   *
    * @public
    */
   AdditionalSlaveSecurityGroups?: string[] | undefined;
 }
 
 /**
- * <p>Attributes for Kerberos configuration when Kerberos authentication is enabled using a
- *          security configuration. For more information see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html">Use Kerberos Authentication</a>
- *          in the <i>Amazon EMR Management Guide</i>.</p>
+ * Attributes for Kerberos configuration when Kerberos authentication is enabled using a security configuration. For more information see [Use Kerberos Authentication](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html) in the *Amazon EMR Management Guide*.
+ *
  * @public
  */
 export interface KerberosAttributes {
   /**
-   * <p>The name of the Kerberos realm to which all nodes in a cluster belong. For example,
-   *             <code>EC2.INTERNAL</code>. </p>
+   * The name of the Kerberos realm to which all nodes in a cluster belong. For example, `EC2.INTERNAL`.
+   *
    * @public
    */
   Realm: string | undefined;
 
   /**
-   * <p>The password used within the cluster for the kadmin service on the cluster-dedicated
-   *          KDC, which maintains Kerberos principals, password policies, and keytabs for the
-   *          cluster.</p>
+   * The password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster.
+   *
    * @public
    */
   KdcAdminPassword: string | undefined;
 
   /**
-   * <p>Required only when establishing a cross-realm trust with a KDC in a different realm. The
-   *          cross-realm principal password, which must be identical across realms.</p>
+   * Required only when establishing a cross-realm trust with a KDC in a different realm. The cross-realm principal password, which must be identical across realms.
+   *
    * @public
    */
   CrossRealmTrustPrincipalPassword?: string | undefined;
 
   /**
-   * <p>Required only when establishing a cross-realm trust with an Active Directory domain. A
-   *          user with sufficient privileges to join resources to the domain.</p>
+   * Required only when establishing a cross-realm trust with an Active Directory domain. A user with sufficient privileges to join resources to the domain.
+   *
    * @public
    */
   ADDomainJoinUser?: string | undefined;
 
   /**
-   * <p>The Active Directory password for <code>ADDomainJoinUser</code>.</p>
+   * The Active Directory password for `ADDomainJoinUser`.
+   *
    * @public
    */
   ADDomainJoinPassword?: string | undefined;
 }
 
 /**
- * <p>Configuration for S3 logging behavior in EMR clusters. Defines how different types of logs are uploaded to S3 based on the specified upload policies for each log type.</p>
+ * Configuration for S3 logging behavior in EMR clusters. Defines how different types of logs are uploaded to S3 based on the specified upload policies for each log type.
+ *
  * @public
  */
 export interface S3LoggingConfiguration {
   /**
-   * <p>A map that specifies the upload policy for each log type. The key is the log type, and the value is the upload policy.</p>
-   *          <p>Valid log types:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>system-logs</code>: EMR Daemon logs.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>application-logs</code>: Framework logs from Hadoop, Spark, Hive and other applications running on the cluster.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>persistent-ui-logs</code>: Logs required for persistent application UIs such as Spark History Server and Tez UI.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Valid upload policies:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>emr-managed</code>: Standard behavior. Logs are uploaded to S3 bucket as configured in your
-   *                 LogUri, with certain logs retained by the service for operational
-   *                 support and troubleshooting purposes.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>on-customer-s3only</code>: Logs are uploaded only to the customer-specified S3 bucket. This requires you to specify a LogUri
-   *                 when creating the cluster. Persistent-ui-logs cannot have
-   *                 on-customer-s3only policy. Allowed policies for persistent-ui-logs
-   *                 are emr-managed and disabled.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>disabled</code>: No S3 upload for this log type.</p>
-   *             </li>
-   *          </ul>
+   * A map that specifies the upload policy for each log type. The key is the log type, and the value is the upload policy.
+   *
+   * Valid log types:
+   *
+   * - `system-logs`: EMR Daemon logs.
+   * - `application-logs`: Framework logs from Hadoop, Spark, Hive and other applications running on the cluster.
+   * - `persistent-ui-logs`: Logs required for persistent application UIs such as Spark History Server and Tez UI.
+   *
+   * Valid upload policies:
+   *
+   * - `emr-managed`: Standard behavior. Logs are uploaded to S3 bucket as configured in your LogUri, with certain logs retained by the service for operational support and troubleshooting purposes.
+   * - `on-customer-s3only`: Logs are uploaded only to the customer-specified S3 bucket. This requires you to specify a LogUri when creating the cluster. Persistent-ui-logs cannot have on-customer-s3only policy. Allowed policies for persistent-ui-logs are emr-managed and disabled.
+   * - `disabled`: No S3 upload for this log type.
+   *
    * @public
    */
   LogTypeUploadPolicy?: Partial<Record<LogType, LogUploadPolicyValue>> | undefined;
 }
 
 /**
- * <p>Contains CloudWatch log configuration and S3 logging configuration metadata and settings.</p>
+ * Contains CloudWatch log configuration and S3 logging configuration metadata and settings.
+ *
  * @public
  */
 export interface MonitoringConfiguration {
   /**
-   * <p>CloudWatch log configuration settings and metadata that specify settings like log files to monitor and where to send them.</p>
+   * CloudWatch log configuration settings and metadata that specify settings like log files to monitor and where to send them.
+   *
    * @public
    */
   CloudWatchLogConfiguration?: CloudWatchLogConfiguration | undefined;
 
   /**
-   * <p>S3 logging configuration that controls how different types of logs (system logs, application logs, and persistent UI logs) are uploaded to S3. Each log type can be configured with a specific upload policy.</p>
+   * S3 logging configuration that controls how different types of logs (system logs, application logs, and persistent UI logs) are uploaded to S3. Each log type can be configured with a specific upload policy.
+   *
    * @public
    */
   S3LoggingConfiguration?: S3LoggingConfiguration | undefined;
 }
 
 /**
- * <p>Placement group configuration for an Amazon EMR cluster. The configuration
- *          specifies the placement strategy that can be applied to instance roles during cluster
- *          creation.</p>
- *          <p>To use this configuration, consider attaching managed policy
- *          AmazonElasticMapReducePlacementGroupPolicy to the Amazon EMR role.</p>
+ * Placement group configuration for an Amazon EMR cluster. The configuration specifies the placement strategy that can be applied to instance roles during cluster creation.
+ *
+ * To use this configuration, consider attaching managed policy AmazonElasticMapReducePlacementGroupPolicy to the Amazon EMR role.
+ *
  * @public
  */
 export interface PlacementGroupConfig {
   /**
-   * <p>Role of the instance in the cluster.</p>
-   *          <p>Starting with Amazon EMR release 5.23.0, the only supported instance role is
-   *             <code>MASTER</code>.</p>
+   * Role of the instance in the cluster.
+   *
+   * Starting with Amazon EMR release 5.23.0, the only supported instance role is `MASTER`.
+   *
    * @public
    */
   InstanceRole: InstanceRoleType | undefined;
 
   /**
-   * <p>Amazon EC2 Placement Group strategy associated with instance role.</p>
-   *          <p>Starting with Amazon EMR release 5.23.0, the only supported placement strategy
-   *          is <code>SPREAD</code> for the <code>MASTER</code> instance role.</p>
+   * Amazon EC2 Placement Group strategy associated with instance role.
+   *
+   * Starting with Amazon EMR release 5.23.0, the only supported placement strategy is `SPREAD` for the `MASTER` instance role.
+   *
    * @public
    */
   PlacementStrategy?: PlacementGroupStrategy | undefined;
 }
 
 /**
- * <p>A tuple that provides information about an error that caused a cluster to
- *          terminate.</p>
+ * A tuple that provides information about an error that caused a cluster to terminate.
+ *
  * @public
  */
 export interface ErrorDetail {
   /**
-   * <p>The name or code associated with the error.</p>
+   * The name or code associated with the error.
+   *
    * @public
    */
   ErrorCode?: string | undefined;
 
   /**
-   * <p>A list of key value pairs that provides contextual information about why an error
-   *          occured.</p>
+   * A list of key value pairs that provides contextual information about why an error occured.
+   *
    * @public
    */
   ErrorData?: Record<string, string>[] | undefined;
 
   /**
-   * <p>A message that describes the error.</p>
+   * A message that describes the error.
+   *
    * @public
    */
   ErrorMessage?: string | undefined;
 }
 
 /**
- * <p>The reason that the cluster changed to its current state.</p>
+ * The reason that the cluster changed to its current state.
+ *
  * @public
  */
 export interface ClusterStateChangeReason {
   /**
-   * <p>The programmatic code for the state change reason.</p>
+   * The programmatic code for the state change reason.
+   *
    * @public
    */
   Code?: ClusterStateChangeReasonCode | undefined;
 
   /**
-   * <p>The descriptive message for the state change reason.</p>
+   * The descriptive message for the state change reason.
+   *
    * @public
    */
   Message?: string | undefined;
 }
 
 /**
- * <p>Represents the timeline of the cluster's lifecycle.</p>
+ * Represents the timeline of the cluster's lifecycle.
+ *
  * @public
  */
 export interface ClusterTimeline {
   /**
-   * <p>The creation date and time of the cluster.</p>
+   * The creation date and time of the cluster.
+   *
    * @public
    */
   CreationDateTime?: Date | undefined;
 
   /**
-   * <p>The date and time when the cluster was ready to run steps.</p>
+   * The date and time when the cluster was ready to run steps.
+   *
    * @public
    */
   ReadyDateTime?: Date | undefined;
 
   /**
-   * <p>The date and time when the cluster was terminated.</p>
+   * The date and time when the cluster was terminated.
+   *
    * @public
    */
   EndDateTime?: Date | undefined;
 }
 
 /**
- * <p>The detailed status of the cluster.</p>
+ * The detailed status of the cluster.
+ *
  * @public
  */
 export interface ClusterStatus {
   /**
-   * <p>The current state of the cluster.</p>
+   * The current state of the cluster.
+   *
    * @public
    */
   State?: ClusterState | undefined;
 
   /**
-   * <p>The reason for the cluster status change.</p>
+   * The reason for the cluster status change.
+   *
    * @public
    */
   StateChangeReason?: ClusterStateChangeReason | undefined;
 
   /**
-   * <p>A timeline that represents the status of a cluster over the lifetime of the
-   *          cluster.</p>
+   * A timeline that represents the status of a cluster over the lifetime of the cluster.
+   *
    * @public
    */
   Timeline?: ClusterTimeline | undefined;
 
   /**
-   * <p>A list of tuples that provides information about the errors that caused a cluster to
-   *          terminate. This structure can contain up to 10 different <code>ErrorDetail</code>
-   *          tuples.</p>
+   * A list of tuples that provides information about the errors that caused a cluster to terminate. This structure can contain up to 10 different `ErrorDetail` tuples.
+   *
    * @public
    */
   ErrorDetails?: ErrorDetail[] | undefined;
 }
 
 /**
- * <p>The summary description of the cluster.</p>
+ * The summary description of the cluster.
+ *
  * @public
  */
 export interface ClusterSummary {
   /**
-   * <p>The unique identifier for the cluster.</p>
+   * The unique identifier for the cluster.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The name of the cluster.</p>
+   * The name of the cluster.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The details about the current status of the cluster.</p>
+   * The details about the current status of the cluster.
+   *
    * @public
    */
   Status?: ClusterStatus | undefined;
 
   /**
-   * <p>An approximation of the cost of the cluster, represented in m1.small/hours. This value
-   *          is incremented one time for every hour an m1.small instance runs. Larger instances are
-   *          weighted more, so an Amazon EC2 instance that is roughly four times more expensive
-   *          would result in the normalized instance hours being incremented by four. This result is
-   *          only an approximation and does not reflect the actual billing rate.</p>
+   * An approximation of the cost of the cluster, represented in m1.small/hours. This value is incremented one time for every hour an m1.small instance runs. Larger instances are weighted more, so an Amazon EC2 instance that is roughly four times more expensive would result in the normalized instance hours being incremented by four. This result is only an approximation and does not reflect the actual billing rate.
+   *
    * @public
    */
   NormalizedInstanceHours?: number | undefined;
 
   /**
-   * <p>The Amazon Resource Name of the cluster.</p>
+   * The Amazon Resource Name of the cluster.
+   *
    * @public
    */
   ClusterArn?: string | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the Outpost where the cluster is launched. </p>
+   * The Amazon Resource Name (ARN) of the Outpost where the cluster is launched.
+   *
    * @public
    */
   OutpostArn?: string | undefined;
 }
 
 /**
- * <p>An entity describing an executable that runs on a cluster.</p>
+ * An entity describing an executable that runs on a cluster.
+ *
  * @public
  */
 export interface Command {
   /**
-   * <p>The name of the command.</p>
+   * The name of the command.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The Amazon S3 location of the command script.</p>
+   * The Amazon S3 location of the command script.
+   *
    * @public
    */
   ScriptPath?: string | undefined;
 
   /**
-   * <p>Arguments for Amazon EMR to pass to the command for execution.</p>
+   * Arguments for Amazon EMR to pass to the command for execution.
+   *
    * @public
    */
   Args?: string[] | undefined;
 }
 
 /**
- * <p> The Amazon EC2 unit limits for a managed scaling policy. The managed scaling
- *          activity of a cluster can not be above or below these limits. The limit only applies to the
- *          core and task nodes. The master node cannot be scaled after initial configuration. </p>
+ * The Amazon EC2 unit limits for a managed scaling policy. The managed scaling activity of a cluster can not be above or below these limits. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+ *
  * @public
  */
 export interface ComputeLimits {
   /**
-   * <p> The unit type used for specifying a managed scaling policy. </p>
+   * The unit type used for specifying a managed scaling policy.
+   *
    * @public
    */
   UnitType: ComputeLimitsUnitType | undefined;
 
   /**
-   * <p> The lower boundary of Amazon EC2 units. It is measured through vCPU cores or
-   *          instances for instance groups and measured through units for instance fleets. Managed
-   *          scaling activities are not allowed beyond this boundary. The limit only applies to the core
-   *          and task nodes. The master node cannot be scaled after initial configuration. </p>
+   * The lower boundary of Amazon EC2 units. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+   *
    * @public
    */
   MinimumCapacityUnits: number | undefined;
 
   /**
-   * <p> The upper boundary of Amazon EC2 units. It is measured through vCPU cores or
-   *          instances for instance groups and measured through units for instance fleets. Managed
-   *          scaling activities are not allowed beyond this boundary. The limit only applies to the core
-   *          and task nodes. The master node cannot be scaled after initial configuration. </p>
+   * The upper boundary of Amazon EC2 units. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+   *
    * @public
    */
   MaximumCapacityUnits: number | undefined;
 
   /**
-   * <p> The upper boundary of On-Demand Amazon EC2 units. It is measured through vCPU
-   *          cores or instances for instance groups and measured through units for instance fleets. The
-   *          On-Demand units are not allowed to scale beyond this boundary. The parameter is used to
-   *          split capacity allocation between On-Demand and Spot Instances. </p>
+   * The upper boundary of On-Demand Amazon EC2 units. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. The On-Demand units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between On-Demand and Spot Instances.
+   *
    * @public
    */
   MaximumOnDemandCapacityUnits?: number | undefined;
 
   /**
-   * <p> The upper boundary of Amazon EC2 units for core node type in a cluster. It is
-   *          measured through vCPU cores or instances for instance groups and measured through units for
-   *          instance fleets. The core units are not allowed to scale beyond this boundary. The
-   *          parameter is used to split capacity allocation between core and task nodes. </p>
+   * The upper boundary of Amazon EC2 units for core node type in a cluster. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. The core units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between core and task nodes.
+   *
    * @public
    */
   MaximumCoreCapacityUnits?: number | undefined;
 }
 
 /**
- * <p>The EMR container configuration.</p>
+ * The EMR container configuration.
+ *
  * @public
  */
 export interface EMRContainersConfig {
   /**
-   * <p>The Job run ID for the container configuration.</p>
+   * The Job run ID for the container configuration.
+   *
    * @public
    */
   JobRunId?: string | undefined;
@@ -1713,31 +1625,36 @@ export interface EMRContainersConfig {
  */
 export interface CreatePersistentAppUIInput {
   /**
-   * <p>The unique Amazon Resource Name (ARN) of the target resource.</p>
+   * The unique Amazon Resource Name (ARN) of the target resource.
+   *
    * @public
    */
   TargetResourceArn: string | undefined;
 
   /**
-   * <p>The EMR containers configuration.</p>
+   * The EMR containers configuration.
+   *
    * @public
    */
   EMRContainersConfig?: EMRContainersConfig | undefined;
 
   /**
-   * <p>Tags for the persistent application user interface.</p>
+   * Tags for the persistent application user interface.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>The cross reference for the persistent application user interface.</p>
+   * The cross reference for the persistent application user interface.
+   *
    * @public
    */
   XReferer?: string | undefined;
 
   /**
-   * <p>The profiler type for the persistent application user interface.</p>
+   * The profiler type for the persistent application user interface.
+   *
    * @public
    */
   ProfilerType?: ProfilerType | undefined;
@@ -1748,14 +1665,15 @@ export interface CreatePersistentAppUIInput {
  */
 export interface CreatePersistentAppUIOutput {
   /**
-   * <p>The persistent application user interface identifier.</p>
+   * The persistent application user interface identifier.
+   *
    * @public
    */
   PersistentAppUIId?: string | undefined;
 
   /**
-   * <p>Represents if the EMR on EC2 cluster that the persisent application user interface is created for is a runtime role
-   *          enabled cluster or not.</p>
+   * Represents if the EMR on EC2 cluster that the persisent application user interface is created for is a runtime role enabled cluster or not.
+   *
    * @public
    */
   RuntimeRoleEnabledCluster?: boolean | undefined;
@@ -1766,16 +1684,15 @@ export interface CreatePersistentAppUIOutput {
  */
 export interface CreateSecurityConfigurationInput {
   /**
-   * <p>The name of the security configuration.</p>
+   * The name of the security configuration.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The security configuration details in JSON format. For JSON parameters and examples, see
-   *             <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-security-configurations.html">Use Security
-   *             Configurations to Set Up Cluster Security</a> in the <i>Amazon EMR
-   *             Management Guide</i>.</p>
+   * The security configuration details in JSON format. For JSON parameters and examples, see [Use Security Configurations to Set Up Cluster Security](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-security-configurations.html) in the *Amazon EMR Management Guide*.
+   *
    * @public
    */
   SecurityConfiguration: string | undefined;
@@ -1786,13 +1703,15 @@ export interface CreateSecurityConfigurationInput {
  */
 export interface CreateSecurityConfigurationOutput {
   /**
-   * <p>The name of the security configuration.</p>
+   * The name of the security configuration.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The date and time the security configuration was created.</p>
+   * The date and time the security configuration was created.
+   *
    * @public
    */
   CreationDateTime: Date | undefined;
@@ -1803,130 +1722,120 @@ export interface CreateSecurityConfigurationOutput {
  */
 export interface CreateStudioInput {
   /**
-   * <p>A descriptive name for the Amazon EMR Studio.</p>
+   * A descriptive name for the Amazon EMR Studio.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>A detailed description of the Amazon EMR Studio.</p>
+   * A detailed description of the Amazon EMR Studio.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Specifies whether the Studio authenticates users using IAM or IAM Identity Center.</p>
+   * Specifies whether the Studio authenticates users using IAM or IAM Identity Center.
+   *
    * @public
    */
   AuthMode: AuthMode | undefined;
 
   /**
-   * <p>The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the
-   *          Studio.</p>
+   * The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
+   *
    * @public
    */
   VpcId: string | undefined;
 
   /**
-   * <p>A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have
-   *          a maximum of 5 subnets. The subnets must belong to the VPC specified by <code>VpcId</code>.
-   *          Studio users can create a Workspace in any of the specified subnets.</p>
+   * A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `VpcId`. Studio users can create a Workspace in any of the specified subnets.
+   *
    * @public
    */
   SubnetIds: string[] | undefined;
 
   /**
-   * <p>The IAM role that the Amazon EMR Studio assumes. The service role
-   *          provides a way for Amazon EMR Studio to interoperate with other Amazon Web Services
-   *          services.</p>
+   * The IAM role that the Amazon EMR Studio assumes. The service role provides a way for Amazon EMR Studio to interoperate with other Amazon Web Services services.
+   *
    * @public
    */
   ServiceRole: string | undefined;
 
   /**
-   * <p>The IAM user role that users and groups assume when logged in to an
-   *             Amazon EMR Studio. Only specify a <code>UserRole</code> when you use IAM Identity Center authentication. The permissions attached to the <code>UserRole</code> can be
-   *          scoped down for each user or group using session policies.</p>
+   * The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a `UserRole` when you use IAM Identity Center authentication. The permissions attached to the `UserRole` can be scoped down for each user or group using session policies.
+   *
    * @public
    */
   UserRole?: string | undefined;
 
   /**
-   * <p>The ID of the Amazon EMR Studio Workspace security group. The Workspace security
-   *          group allows outbound network traffic to resources in the Engine security group, and it
-   *          must be in the same VPC specified by <code>VpcId</code>.</p>
+   * The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `VpcId`.
+   *
    * @public
    */
   WorkspaceSecurityGroupId: string | undefined;
 
   /**
-   * <p>The ID of the Amazon EMR Studio Engine security group. The Engine security group
-   *          allows inbound network traffic from the Workspace security group, and it must be in the
-   *          same VPC specified by <code>VpcId</code>.</p>
+   * The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `VpcId`.
+   *
    * @public
    */
   EngineSecurityGroupId: string | undefined;
 
   /**
-   * <p>The Amazon S3 location to back up Amazon EMR Studio Workspaces and
-   *          notebook files.</p>
+   * The Amazon S3 location to back up Amazon EMR Studio Workspaces and notebook files.
+   *
    * @public
    */
   DefaultS3Location: string | undefined;
 
   /**
-   * <p>The authentication endpoint of your identity provider (IdP). Specify this value when you
-   *          use IAM authentication and want to let federated users log in to a Studio
-   *          with the Studio URL and credentials from your IdP. Amazon EMR Studio redirects
-   *          users to this endpoint to enter credentials.</p>
+   * The authentication endpoint of your identity provider (IdP). Specify this value when you use IAM authentication and want to let federated users log in to a Studio with the Studio URL and credentials from your IdP. Amazon EMR Studio redirects users to this endpoint to enter credentials.
+   *
    * @public
    */
   IdpAuthUrl?: string | undefined;
 
   /**
-   * <p>The name that your identity provider (IdP) uses for its <code>RelayState</code>
-   *          parameter. For example, <code>RelayState</code> or <code>TargetSource</code>. Specify this
-   *          value when you use IAM authentication and want to let federated users log in
-   *          to a Studio using the Studio URL. The <code>RelayState</code> parameter differs by
-   *          IdP.</p>
+   * The name that your identity provider (IdP) uses for its `RelayState` parameter. For example, `RelayState` or `TargetSource`. Specify this value when you use IAM authentication and want to let federated users log in to a Studio using the Studio URL. The `RelayState` parameter differs by IdP.
+   *
    * @public
    */
   IdpRelayStateParameterName?: string | undefined;
 
   /**
-   * <p>A list of tags to associate with the Amazon EMR Studio. Tags are user-defined
-   *          key-value pairs that consist of a required key string with a maximum of 128 characters, and
-   *          an optional value string with a maximum of 256 characters.</p>
+   * A list of tags to associate with the Amazon EMR Studio. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>
-   *          A Boolean indicating whether to enable Trusted identity propagation for the Studio. The default value is <code>false</code>.
-   *       </p>
+   * A Boolean indicating whether to enable Trusted identity propagation for the Studio. The default value is `false`.
+   *
    * @public
    */
   TrustedIdentityPropagationEnabled?: boolean | undefined;
 
   /**
-   * <p>
-   *          Specifies whether IAM Identity Center user assignment is <code>REQUIRED</code> or <code>OPTIONAL</code>. If the value is set to <code>REQUIRED</code>, users must be explicitly assigned to the Studio application to access the Studio.
-   *       </p>
+   * Specifies whether IAM Identity Center user assignment is `REQUIRED` or `OPTIONAL`. If the value is set to `REQUIRED`, users must be explicitly assigned to the Studio application to access the Studio.
+   *
    * @public
    */
   IdcUserAssignment?: IdcUserAssignment | undefined;
 
   /**
-   * <p>
-   *          The ARN of the IAM Identity Center instance to create the Studio application.
-   *       </p>
+   * The ARN of the IAM Identity Center instance to create the Studio application.
+   *
    * @public
    */
   IdcInstanceArn?: string | undefined;
 
   /**
-   * <p>The KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.</p>
+   * The KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.
+   *
    * @public
    */
   EncryptionKeyArn?: string | undefined;
@@ -1937,13 +1846,15 @@ export interface CreateStudioInput {
  */
 export interface CreateStudioOutput {
   /**
-   * <p>The ID of the Amazon EMR Studio.</p>
+   * The ID of the Amazon EMR Studio.
+   *
    * @public
    */
   StudioId?: string | undefined;
 
   /**
-   * <p>The unique Studio access URL.</p>
+   * The unique Studio access URL.
+   *
    * @public
    */
   Url?: string | undefined;
@@ -1954,69 +1865,65 @@ export interface CreateStudioOutput {
  */
 export interface CreateStudioSessionMappingInput {
   /**
-   * <p>The ID of the Amazon EMR Studio to which the user or group will be
-   *          mapped.</p>
+   * The ID of the Amazon EMR Studio to which the user or group will be mapped.
+   *
    * @public
    */
   StudioId: string | undefined;
 
   /**
-   * <p>The globally unique identifier (GUID) of the user or group from the IAM Identity Center
-   *          Identity Store. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId">UserId</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId">GroupId</a> in the <i>IAM Identity Center Identity Store API
-   *             Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must
-   *          be specified, but not both.</p>
+   * The globally unique identifier (GUID) of the user or group from the IAM Identity Center Identity Store. For more information, see [UserId](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId) and [GroupId](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId) in the *IAM Identity Center Identity Store API Reference*. Either `IdentityName` or `IdentityId` must be specified, but not both.
+   *
    * @public
    */
   IdentityId?: string | undefined;
 
   /**
-   * <p>The name of the user or group. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>IAM Identity Center Identity Store API
-   *             Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must
-   *          be specified, but not both.</p>
+   * The name of the user or group. For more information, see [UserName](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName) and [DisplayName](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName) in the *IAM Identity Center Identity Store API Reference*. Either `IdentityName` or `IdentityId` must be specified, but not both.
+   *
    * @public
    */
   IdentityName?: string | undefined;
 
   /**
-   * <p>Specifies whether the identity to map to the Amazon EMR Studio is a user or a
-   *          group.</p>
+   * Specifies whether the identity to map to the Amazon EMR Studio is a user or a group.
+   *
    * @public
    */
   IdentityType: IdentityType | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the session policy that will be applied to the user
-   *          or group. You should specify the ARN for the session policy that you want to apply, not the
-   *          ARN of your user role. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-user-role.html">Create an Amazon EMR
-   *             Studio User Role with Session Policies</a>.</p>
+   * The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role. For more information, see [Create an Amazon EMR Studio User Role with Session Policies](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-user-role.html).
+   *
    * @public
    */
   SessionPolicyArn: string | undefined;
 }
 
 /**
- * <p>The username and password that you use to connect to cluster endpoints.</p>
+ * The username and password that you use to connect to cluster endpoints.
+ *
  * @public
  */
 export interface UsernamePassword {
   /**
-   * <p>The username associated with the temporary credentials that you use to connect to
-   *          cluster endpoints.</p>
+   * The username associated with the temporary credentials that you use to connect to cluster endpoints.
+   *
    * @public
    */
   Username?: string | undefined;
 
   /**
-   * <p>The password associated with the temporary credentials that you use to connect to
-   *          cluster endpoints.</p>
+   * The password associated with the temporary credentials that you use to connect to cluster endpoints.
+   *
    * @public
    */
   Password?: string | undefined;
 }
 
 /**
- * <p>The credentials that you can use to connect to cluster endpoints. Credentials consist of
- *          a username and a password.</p>
+ * The credentials that you can use to connect to cluster endpoints. Credentials consist of a username and a password.
+ *
  * @public
  */
 export type Credentials =
@@ -2028,7 +1935,8 @@ export type Credentials =
  */
 export namespace Credentials {
   /**
-   * <p>The username and password that you use to connect to cluster endpoints.</p>
+   * The username and password that you use to connect to cluster endpoints.
+   *
    * @public
    */
   export interface UsernamePasswordMember {
@@ -2059,7 +1967,8 @@ export namespace Credentials {
  */
 export interface DeleteSecurityConfigurationInput {
   /**
-   * <p>The name of the security configuration.</p>
+   * The name of the security configuration.
+   *
    * @public
    */
   Name: string | undefined;
@@ -2075,7 +1984,8 @@ export interface DeleteSecurityConfigurationOutput {}
  */
 export interface DeleteStudioInput {
   /**
-   * <p>The ID of the Amazon EMR Studio.</p>
+   * The ID of the Amazon EMR Studio.
+   *
    * @public
    */
   StudioId: string | undefined;
@@ -2086,531 +1996,558 @@ export interface DeleteStudioInput {
  */
 export interface DeleteStudioSessionMappingInput {
   /**
-   * <p>The ID of the Amazon EMR Studio.</p>
+   * The ID of the Amazon EMR Studio.
+   *
    * @public
    */
   StudioId: string | undefined;
 
   /**
-   * <p>The globally unique identifier (GUID) of the user or group to remove from the Amazon EMR Studio. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId">UserId</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId">GroupId</a> in the <i>IAM Identity Center Identity Store API
-   *             Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must
-   *          be specified.</p>
+   * The globally unique identifier (GUID) of the user or group to remove from the Amazon EMR Studio. For more information, see [UserId](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId) and [GroupId](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId) in the *IAM Identity Center Identity Store API Reference*. Either `IdentityName` or `IdentityId` must be specified.
+   *
    * @public
    */
   IdentityId?: string | undefined;
 
   /**
-   * <p>The name of the user name or group to remove from the Amazon EMR Studio. For
-   *          more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>IAM Identity Center Store API Reference</i>.
-   *          Either <code>IdentityName</code> or <code>IdentityId</code> must be specified.</p>
+   * The name of the user name or group to remove from the Amazon EMR Studio. For more information, see [UserName](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName) and [DisplayName](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName) in the *IAM Identity Center Store API Reference*. Either `IdentityName` or `IdentityId` must be specified.
+   *
    * @public
    */
   IdentityName?: string | undefined;
 
   /**
-   * <p>Specifies whether the identity to delete from the Amazon EMR Studio is a user or
-   *          a group.</p>
+   * Specifies whether the identity to delete from the Amazon EMR Studio is a user or a group.
+   *
    * @public
    */
   IdentityType: IdentityType | undefined;
 }
 
 /**
- * <p>This input determines which cluster to describe.</p>
+ * This input determines which cluster to describe.
+ *
  * @public
  */
 export interface DescribeClusterInput {
   /**
-   * <p>The identifier of the cluster to describe.</p>
+   * The identifier of the cluster to describe.
+   *
    * @public
    */
   ClusterId: string | undefined;
 }
 
 /**
- * <p> The input for the <a>DescribeJobFlows</a> operation. </p>
+ * The input for the DescribeJobFlows operation.
+ *
  * @public
  */
 export interface DescribeJobFlowsInput {
   /**
-   * <p>Return only job flows created after this date and time.</p>
+   * Return only job flows created after this date and time.
+   *
    * @public
    */
   CreatedAfter?: Date | undefined;
 
   /**
-   * <p>Return only job flows created before this date and time.</p>
+   * Return only job flows created before this date and time.
+   *
    * @public
    */
   CreatedBefore?: Date | undefined;
 
   /**
-   * <p>Return only job flows whose job flow ID is contained in this list.</p>
+   * Return only job flows whose job flow ID is contained in this list.
+   *
    * @public
    */
   JobFlowIds?: string[] | undefined;
 
   /**
-   * <p>Return only job flows whose state is contained in this list.</p>
+   * Return only job flows whose state is contained in this list.
+   *
    * @public
    */
   JobFlowStates?: JobFlowExecutionState[] | undefined;
 }
 
 /**
- * <p>Describes the status of the cluster (job flow).</p>
+ * Describes the status of the cluster (job flow).
+ *
  * @public
  */
 export interface JobFlowExecutionStatusDetail {
   /**
-   * <p>The state of the job flow.</p>
+   * The state of the job flow.
+   *
    * @public
    */
   State: JobFlowExecutionState | undefined;
 
   /**
-   * <p>The creation date and time of the job flow.</p>
+   * The creation date and time of the job flow.
+   *
    * @public
    */
   CreationDateTime: Date | undefined;
 
   /**
-   * <p>The start date and time of the job flow.</p>
+   * The start date and time of the job flow.
+   *
    * @public
    */
   StartDateTime?: Date | undefined;
 
   /**
-   * <p>The date and time when the job flow was ready to start running bootstrap actions.</p>
+   * The date and time when the job flow was ready to start running bootstrap actions.
+   *
    * @public
    */
   ReadyDateTime?: Date | undefined;
 
   /**
-   * <p>The completion date and time of the job flow.</p>
+   * The completion date and time of the job flow.
+   *
    * @public
    */
   EndDateTime?: Date | undefined;
 
   /**
-   * <p>Description of the job flow last changed state.</p>
+   * Description of the job flow last changed state.
+   *
    * @public
    */
   LastStateChangeReason?: string | undefined;
 }
 
 /**
- * <p>Detailed information about an instance group.</p>
+ * Detailed information about an instance group.
+ *
  * @public
  */
 export interface InstanceGroupDetail {
   /**
-   * <p>Unique identifier for the instance group.</p>
+   * Unique identifier for the instance group.
+   *
    * @public
    */
   InstanceGroupId?: string | undefined;
 
   /**
-   * <p>Friendly name for the instance group.</p>
+   * Friendly name for the instance group.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>Market type of the Amazon EC2 instances used to create a cluster node.</p>
+   * Market type of the Amazon EC2 instances used to create a cluster node.
+   *
    * @public
    */
   Market: MarketType | undefined;
 
   /**
-   * <p>Instance group role in the cluster</p>
+   * Instance group role in the cluster
+   *
    * @public
    */
   InstanceRole: InstanceRoleType | undefined;
 
   /**
-   * <p>The bid price for each Amazon EC2 Spot Instance type as defined by
-   *          <code>InstanceType</code>. Expressed in USD. If neither <code>BidPrice</code> nor
-   *          <code>BidPriceAsPercentageOfOnDemandPrice</code> is provided,
-   *          <code>BidPriceAsPercentageOfOnDemandPrice</code> defaults to 100%.</p>
+   * The bid price for each Amazon EC2 Spot Instance type as defined by `InstanceType`. Expressed in USD. If neither `BidPrice` nor `BidPriceAsPercentageOfOnDemandPrice` is provided, `BidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+   *
    * @public
    */
   BidPrice?: string | undefined;
 
   /**
-   * <p>Amazon EC2 instance type.</p>
+   * Amazon EC2 instance type.
+   *
    * @public
    */
   InstanceType: string | undefined;
 
   /**
-   * <p>Target number of instances to run in the instance group.</p>
+   * Target number of instances to run in the instance group.
+   *
    * @public
    */
   InstanceRequestCount: number | undefined;
 
   /**
-   * <p>Actual count of running instances.</p>
+   * Actual count of running instances.
+   *
    * @public
    */
   InstanceRunningCount: number | undefined;
 
   /**
-   * <p>State of instance group. The following values are no longer supported: STARTING,
-   *          TERMINATED, and FAILED.</p>
+   * State of instance group. The following values are no longer supported: STARTING, TERMINATED, and FAILED.
+   *
    * @public
    */
   State: InstanceGroupState | undefined;
 
   /**
-   * <p>Details regarding the state of the instance group.</p>
+   * Details regarding the state of the instance group.
+   *
    * @public
    */
   LastStateChangeReason?: string | undefined;
 
   /**
-   * <p>The date/time the instance group was created.</p>
+   * The date/time the instance group was created.
+   *
    * @public
    */
   CreationDateTime: Date | undefined;
 
   /**
-   * <p>The date/time the instance group was started.</p>
+   * The date/time the instance group was started.
+   *
    * @public
    */
   StartDateTime?: Date | undefined;
 
   /**
-   * <p>The date/time the instance group was available to the cluster.</p>
+   * The date/time the instance group was available to the cluster.
+   *
    * @public
    */
   ReadyDateTime?: Date | undefined;
 
   /**
-   * <p>The date/time the instance group was terminated.</p>
+   * The date/time the instance group was terminated.
+   *
    * @public
    */
   EndDateTime?: Date | undefined;
 
   /**
-   * <p>The custom AMI ID to use for the provisioned instance group.</p>
+   * The custom AMI ID to use for the provisioned instance group.
+   *
    * @public
    */
   CustomAmiId?: string | undefined;
 }
 
 /**
- * <p>The Amazon EC2 Availability Zone configuration of the cluster (job flow).</p>
+ * The Amazon EC2 Availability Zone configuration of the cluster (job flow).
+ *
  * @public
  */
 export interface PlacementType {
   /**
-   * <p>The Amazon EC2 Availability Zone for the cluster. <code>AvailabilityZone</code>
-   *          is used for uniform instance groups, while <code>AvailabilityZones</code> (plural) is used
-   *          for instance fleets.</p>
+   * The Amazon EC2 Availability Zone for the cluster. `AvailabilityZone` is used for uniform instance groups, while `AvailabilityZones` (plural) is used for instance fleets.
+   *
    * @public
    */
   AvailabilityZone?: string | undefined;
 
   /**
-   * <p>When multiple Availability Zones are specified, Amazon EMR evaluates them and
-   *          launches instances in the optimal Availability Zone. <code>AvailabilityZones</code> is used
-   *          for instance fleets, while <code>AvailabilityZone</code> (singular) is used for uniform
-   *          instance groups.</p>
-   *          <note>
-   *             <p>The instance fleet configuration is available only in Amazon EMR releases
-   *             4.8.0 and later, excluding 5.0.x versions.</p>
-   *          </note>
+   * When multiple Availability Zones are specified, Amazon EMR evaluates them and launches instances in the optimal Availability Zone. `AvailabilityZones` is used for instance fleets, while `AvailabilityZone` (singular) is used for uniform instance groups.
+   *
+   * > **Note:** The instance fleet configuration is available only in Amazon EMR releases 4.8.0 and later, excluding 5.0.x versions.
+   *
    * @public
    */
   AvailabilityZones?: string[] | undefined;
 }
 
 /**
- * <p>Specify the type of Amazon EC2 instances that the cluster (job flow) runs
- *          on.</p>
+ * Specify the type of Amazon EC2 instances that the cluster (job flow) runs on.
+ *
  * @public
  */
 export interface JobFlowInstancesDetail {
   /**
-   * <p>The Amazon EC2 master node instance type.</p>
+   * The Amazon EC2 master node instance type.
+   *
    * @public
    */
   MasterInstanceType: string | undefined;
 
   /**
-   * <p>The DNS name of the master node. If the cluster is on a private subnet, this is the
-   *          private DNS name. On a public subnet, this is the public DNS name.</p>
+   * The DNS name of the master node. If the cluster is on a private subnet, this is the private DNS name. On a public subnet, this is the public DNS name.
+   *
    * @public
    */
   MasterPublicDnsName?: string | undefined;
 
   /**
-   * <p>The Amazon EC2 instance identifier of the master node.</p>
+   * The Amazon EC2 instance identifier of the master node.
+   *
    * @public
    */
   MasterInstanceId?: string | undefined;
 
   /**
-   * <p>The Amazon EC2 core and task node instance type.</p>
+   * The Amazon EC2 core and task node instance type.
+   *
    * @public
    */
   SlaveInstanceType: string | undefined;
 
   /**
-   * <p>The number of Amazon EC2 instances in the cluster. If the value is 1, the same
-   *          instance serves as both the master and core and task node. If the value is greater than 1,
-   *          one instance is the master node and all others are core and task nodes.</p>
+   * The number of Amazon EC2 instances in the cluster. If the value is 1, the same instance serves as both the master and core and task node. If the value is greater than 1, one instance is the master node and all others are core and task nodes.
+   *
    * @public
    */
   InstanceCount: number | undefined;
 
   /**
-   * <p>Details about the instance groups in a cluster.</p>
+   * Details about the instance groups in a cluster.
+   *
    * @public
    */
   InstanceGroups?: InstanceGroupDetail[] | undefined;
 
   /**
-   * <p>An approximation of the cost of the cluster, represented in m1.small/hours. This value
-   *          is increased one time for every hour that an m1.small instance runs. Larger instances are
-   *          weighted more heavily, so an Amazon EC2 instance that is roughly four times more
-   *          expensive would result in the normalized instance hours being increased incrementally four
-   *          times. This result is only an approximation and does not reflect the actual billing
-   *          rate.</p>
+   * An approximation of the cost of the cluster, represented in m1.small/hours. This value is increased one time for every hour that an m1.small instance runs. Larger instances are weighted more heavily, so an Amazon EC2 instance that is roughly four times more expensive would result in the normalized instance hours being increased incrementally four times. This result is only an approximation and does not reflect the actual billing rate.
+   *
    * @public
    */
   NormalizedInstanceHours?: number | undefined;
 
   /**
-   * <p>The name of an Amazon EC2 key pair that can be used to connect to the master
-   *          node using SSH.</p>
+   * The name of an Amazon EC2 key pair that can be used to connect to the master node using SSH.
+   *
    * @public
    */
   Ec2KeyName?: string | undefined;
 
   /**
-   * <p>For clusters launched within Amazon Virtual Private Cloud, this is the identifier of the
-   *          subnet where the cluster was launched.</p>
+   * For clusters launched within Amazon Virtual Private Cloud, this is the identifier of the subnet where the cluster was launched.
+   *
    * @public
    */
   Ec2SubnetId?: string | undefined;
 
   /**
-   * <p>The Amazon EC2 Availability Zone for the cluster.</p>
+   * The Amazon EC2 Availability Zone for the cluster.
+   *
    * @public
    */
   Placement?: PlacementType | undefined;
 
   /**
-   * <p>Specifies whether the cluster should remain available after completing all steps.</p>
+   * Specifies whether the cluster should remain available after completing all steps.
+   *
    * @public
    */
   KeepJobFlowAliveWhenNoSteps?: boolean | undefined;
 
   /**
-   * <p>Specifies whether the Amazon EC2 instances in the cluster are protected from
-   *          termination by API calls, user intervention, or in the event of a job-flow error.</p>
+   * Specifies whether the Amazon EC2 instances in the cluster are protected from termination by API calls, user intervention, or in the event of a job-flow error.
+   *
    * @public
    */
   TerminationProtected?: boolean | undefined;
 
   /**
-   * <p>Indicates whether Amazon EMR should gracefully replace core nodes
-   *          that have degraded within the cluster.</p>
+   * Indicates whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster.
+   *
    * @public
    */
   UnhealthyNodeReplacement?: boolean | undefined;
 
   /**
-   * <p>The Hadoop version for the cluster.</p>
+   * The Hadoop version for the cluster.
+   *
    * @public
    */
   HadoopVersion?: string | undefined;
 }
 
 /**
- * <p>The execution state of a step.</p>
+ * The execution state of a step.
+ *
  * @public
  */
 export interface StepExecutionStatusDetail {
   /**
-   * <p>The state of the step.</p>
+   * The state of the step.
+   *
    * @public
    */
   State: StepExecutionState | undefined;
 
   /**
-   * <p>The creation date and time of the step.</p>
+   * The creation date and time of the step.
+   *
    * @public
    */
   CreationDateTime: Date | undefined;
 
   /**
-   * <p>The start date and time of the step.</p>
+   * The start date and time of the step.
+   *
    * @public
    */
   StartDateTime?: Date | undefined;
 
   /**
-   * <p>The completion date and time of the step.</p>
+   * The completion date and time of the step.
+   *
    * @public
    */
   EndDateTime?: Date | undefined;
 
   /**
-   * <p>A description of the step's current state.</p>
+   * A description of the step's current state.
+   *
    * @public
    */
   LastStateChangeReason?: string | undefined;
 }
 
 /**
- * <p>Combines the execution state and configuration of a step.</p>
+ * Combines the execution state and configuration of a step.
+ *
  * @public
  */
 export interface StepDetail {
   /**
-   * <p>The step configuration.</p>
+   * The step configuration.
+   *
    * @public
    */
   StepConfig: StepConfig | undefined;
 
   /**
-   * <p>The description of the step status.</p>
+   * The description of the step status.
+   *
    * @public
    */
   ExecutionStatusDetail: StepExecutionStatusDetail | undefined;
 }
 
 /**
- * <p>A description of a cluster (job flow).</p>
+ * A description of a cluster (job flow).
+ *
  * @public
  */
 export interface JobFlowDetail {
   /**
-   * <p>The job flow identifier.</p>
+   * The job flow identifier.
+   *
    * @public
    */
   JobFlowId: string | undefined;
 
   /**
-   * <p>The name of the job flow.</p>
+   * The name of the job flow.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The location in Amazon S3 where log files for the job are stored.</p>
+   * The location in Amazon S3 where log files for the job are stored.
+   *
    * @public
    */
   LogUri?: string | undefined;
 
   /**
-   * <p>The KMS key used for encrypting log files. This attribute is only
-   *          available with Amazon EMR 5.30.0 and later, excluding 6.0.0.</p>
+   * The KMS key used for encrypting log files. This attribute is only available with Amazon EMR 5.30.0 and later, excluding 6.0.0.
+   *
    * @public
    */
   LogEncryptionKmsKeyId?: string | undefined;
 
   /**
-   * <p>Applies only to Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR
-   *          releases 4.0 and later, <code>ReleaseLabel</code> is used. To specify a custom AMI, use
-   *             <code>CustomAmiID</code>.</p>
+   * Applies only to Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR releases 4.0 and later, `ReleaseLabel` is used. To specify a custom AMI, use `CustomAmiID`.
+   *
    * @public
    */
   AmiVersion?: string | undefined;
 
   /**
-   * <p>Describes the execution status of the job flow.</p>
+   * Describes the execution status of the job flow.
+   *
    * @public
    */
   ExecutionStatusDetail: JobFlowExecutionStatusDetail | undefined;
 
   /**
-   * <p>Describes the Amazon EC2 instances of the job flow.</p>
+   * Describes the Amazon EC2 instances of the job flow.
+   *
    * @public
    */
   Instances: JobFlowInstancesDetail | undefined;
 
   /**
-   * <p>A list of steps run by the job flow.</p>
+   * A list of steps run by the job flow.
+   *
    * @public
    */
   Steps?: StepDetail[] | undefined;
 
   /**
-   * <p>A list of the bootstrap actions run by the job flow.</p>
+   * A list of the bootstrap actions run by the job flow.
+   *
    * @public
    */
   BootstrapActions?: BootstrapActionDetail[] | undefined;
 
   /**
-   * <p>A list of strings set by third-party software when the job flow is launched. If you are
-   *          not using third-party software to manage the job flow, this value is empty.</p>
+   * A list of strings set by third-party software when the job flow is launched. If you are not using third-party software to manage the job flow, this value is empty.
+   *
    * @public
    */
   SupportedProducts?: string[] | undefined;
 
   /**
-   * <p>Indicates whether the cluster is visible to IAM principals in the Amazon Web Services account associated with the cluster. When <code>true</code>, IAM principals in the Amazon Web Services account can perform Amazon EMR cluster
-   *          actions that their IAM policies allow. When <code>false</code>, only the
-   *             IAM principal that created the cluster and the Amazon Web Services account
-   *          root user can perform Amazon EMR actions, regardless of IAM
-   *          permissions policies attached to other IAM principals.</p>
-   *          <p>The default value is <code>true</code> if a value is not provided when creating a
-   *          cluster using the Amazon EMR API <a>RunJobFlow</a> command, the CLI
-   *          <a href="https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html">create-cluster</a> command, or the Amazon Web Services Management Console.</p>
+   * Indicates whether the cluster is visible to IAM principals in the Amazon Web Services account associated with the cluster. When `true`, IAM principals in the Amazon Web Services account can perform Amazon EMR cluster actions that their IAM policies allow. When `false`, only the IAM principal that created the cluster and the Amazon Web Services account root user can perform Amazon EMR actions, regardless of IAM permissions policies attached to other IAM principals.
+   *
+   * The default value is `true` if a value is not provided when creating a cluster using the Amazon EMR API RunJobFlow command, the CLI [create-cluster](https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html) command, or the Amazon Web Services Management Console.
+   *
    * @public
    */
   VisibleToAllUsers?: boolean | undefined;
 
   /**
-   * <p>The IAM role that was specified when the job flow was launched. The
-   *             Amazon EC2 instances of the job flow assume this role.</p>
+   * The IAM role that was specified when the job flow was launched. The Amazon EC2 instances of the job flow assume this role.
+   *
    * @public
    */
   JobFlowRole?: string | undefined;
 
   /**
-   * <p>The IAM role that is assumed by the Amazon EMR service to access
-   *             Amazon Web Services resources on your behalf.</p>
+   * The IAM role that is assumed by the Amazon EMR service to access Amazon Web Services resources on your behalf.
+   *
    * @public
    */
   ServiceRole?: string | undefined;
 
   /**
-   * <p>An IAM role for automatic scaling policies. The default role is
-   *             <code>EMR_AutoScaling_DefaultRole</code>. The IAM role provides a way for
-   *          the automatic scaling feature to get the required permissions it needs to launch and
-   *          terminate Amazon EC2 instances in an instance group.</p>
+   * An IAM role for automatic scaling policies. The default role is `EMR_AutoScaling_DefaultRole`. The IAM role provides a way for the automatic scaling feature to get the required permissions it needs to launch and terminate Amazon EC2 instances in an instance group.
+   *
    * @public
    */
   AutoScalingRole?: string | undefined;
 
   /**
-   * <p>The way that individual Amazon EC2 instances terminate when an automatic
-   *          scale-in activity occurs or an instance group is resized.
-   *             <code>TERMINATE_AT_INSTANCE_HOUR</code> indicates that Amazon EMR terminates
-   *          nodes at the instance-hour boundary, regardless of when the request to terminate the
-   *          instance was submitted. This option is only available with Amazon EMR 5.1.0 and
-   *          later and is the default for clusters created using that version.
-   *             <code>TERMINATE_AT_TASK_COMPLETION</code> indicates that Amazon EMR adds nodes
-   *          to a deny list and drains tasks from nodes before terminating the Amazon EC2
-   *          instances, regardless of the instance-hour boundary. With either behavior, Amazon EMR removes the least active nodes first and blocks instance termination if it could lead to
-   *          HDFS corruption. <code>TERMINATE_AT_TASK_COMPLETION</code> available only in Amazon EMR releases 4.1.0 and later, and is the default for releases of Amazon EMR earlier than 5.1.0.</p>
+   * The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an instance group is resized. `TERMINATE_AT_INSTANCE_HOUR` indicates that Amazon EMR terminates nodes at the instance-hour boundary, regardless of when the request to terminate the instance was submitted. This option is only available with Amazon EMR 5.1.0 and later and is the default for clusters created using that version. `TERMINATE_AT_TASK_COMPLETION` indicates that Amazon EMR adds nodes to a deny list and drains tasks from nodes before terminating the Amazon EC2 instances, regardless of the instance-hour boundary. With either behavior, Amazon EMR removes the least active nodes first and blocks instance termination if it could lead to HDFS corruption. `TERMINATE_AT_TASK_COMPLETION` available only in Amazon EMR releases 4.1.0 and later, and is the default for releases of Amazon EMR earlier than 5.1.0.
+   *
    * @public
    */
   ScaleDownBehavior?: ScaleDownBehavior | undefined;
 }
 
 /**
- * <p> The output for the <a>DescribeJobFlows</a> operation. </p>
+ * The output for the DescribeJobFlows operation.
+ *
  * @public
  */
 export interface DescribeJobFlowsOutput {
   /**
-   * <p>A list of job flows matching the parameters supplied.</p>
+   * A list of job flows matching the parameters supplied.
+   *
    * @public
    */
   JobFlows?: JobFlowDetail[] | undefined;
@@ -2621,248 +2558,222 @@ export interface DescribeJobFlowsOutput {
  */
 export interface DescribeNotebookExecutionInput {
   /**
-   * <p>The unique identifier of the notebook execution.</p>
+   * The unique identifier of the notebook execution.
+   *
    * @public
    */
   NotebookExecutionId: string | undefined;
 }
 
 /**
- * <p>Specifies the execution engine (cluster) to run the notebook and perform the notebook
- *          execution, for example, an Amazon EMR cluster.</p>
+ * Specifies the execution engine (cluster) to run the notebook and perform the notebook execution, for example, an Amazon EMR cluster.
+ *
  * @public
  */
 export interface ExecutionEngineConfig {
   /**
-   * <p>The unique identifier of the execution engine. For an Amazon EMR cluster, this
-   *          is the cluster ID.</p>
+   * The unique identifier of the execution engine. For an Amazon EMR cluster, this is the cluster ID.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The type of execution engine. A value of <code>EMR</code> specifies an Amazon EMR cluster.</p>
+   * The type of execution engine. A value of `EMR` specifies an Amazon EMR cluster.
+   *
    * @public
    */
   Type?: ExecutionEngineType | undefined;
 
   /**
-   * <p>An optional unique ID of an Amazon EC2 security group to associate with the
-   *          master instance of the Amazon EMR cluster for this notebook execution. For more
-   *          information see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-security-groups.html">Specifying
-   *                Amazon EC2 Security Groups for Amazon EMR Notebooks</a> in the
-   *             <i>EMR Management Guide</i>.</p>
+   * An optional unique ID of an Amazon EC2 security group to associate with the master instance of the Amazon EMR cluster for this notebook execution. For more information see [Specifying Amazon EC2 Security Groups for Amazon EMR Notebooks](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-security-groups.html) in the *EMR Management Guide*.
+   *
    * @public
    */
   MasterInstanceSecurityGroupId?: string | undefined;
 
   /**
-   * <p>The execution role ARN required for the notebook execution.</p>
+   * The execution role ARN required for the notebook execution.
+   *
    * @public
    */
   ExecutionRoleArn?: string | undefined;
 }
 
 /**
- * <p>The Amazon S3 location that stores the notebook execution input.</p>
+ * The Amazon S3 location that stores the notebook execution input.
+ *
  * @public
  */
 export interface NotebookS3LocationForOutput {
   /**
-   * <p>The Amazon S3 bucket that stores the notebook execution input.</p>
+   * The Amazon S3 bucket that stores the notebook execution input.
+   *
    * @public
    */
   Bucket?: string | undefined;
 
   /**
-   * <p>The key to the Amazon S3 location that stores the notebook execution
-   *          input.</p>
+   * The key to the Amazon S3 location that stores the notebook execution input.
+   *
    * @public
    */
   Key?: string | undefined;
 }
 
 /**
- * <p>The Amazon S3 location that stores the notebook execution output.</p>
+ * The Amazon S3 location that stores the notebook execution output.
+ *
  * @public
  */
 export interface OutputNotebookS3LocationForOutput {
   /**
-   * <p>The Amazon S3 bucket that stores the notebook execution output.</p>
+   * The Amazon S3 bucket that stores the notebook execution output.
+   *
    * @public
    */
   Bucket?: string | undefined;
 
   /**
-   * <p>The key to the Amazon S3 location that stores the notebook execution
-   *          output.</p>
+   * The key to the Amazon S3 location that stores the notebook execution output.
+   *
    * @public
    */
   Key?: string | undefined;
 }
 
 /**
- * <p>A notebook execution. An execution is a specific instance that an Amazon EMR
- *          Notebook is run using the <code>StartNotebookExecution</code> action.</p>
+ * A notebook execution. An execution is a specific instance that an Amazon EMR Notebook is run using the `StartNotebookExecution` action.
+ *
  * @public
  */
 export interface NotebookExecution {
   /**
-   * <p>The unique identifier of a notebook execution.</p>
+   * The unique identifier of a notebook execution.
+   *
    * @public
    */
   NotebookExecutionId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the Amazon EMR Notebook that is used for the notebook
-   *          execution.</p>
+   * The unique identifier of the Amazon EMR Notebook that is used for the notebook execution.
+   *
    * @public
    */
   EditorId?: string | undefined;
 
   /**
-   * <p>The execution engine, such as an Amazon EMR cluster, used to run the Amazon EMR notebook and perform the notebook execution.</p>
+   * The execution engine, such as an Amazon EMR cluster, used to run the Amazon EMR notebook and perform the notebook execution.
+   *
    * @public
    */
   ExecutionEngine?: ExecutionEngineConfig | undefined;
 
   /**
-   * <p>A name for the notebook execution.</p>
+   * A name for the notebook execution.
+   *
    * @public
    */
   NotebookExecutionName?: string | undefined;
 
   /**
-   * <p>Input parameters in JSON format passed to the Amazon EMR Notebook at runtime for
-   *          execution.</p>
+   * Input parameters in JSON format passed to the Amazon EMR Notebook at runtime for execution.
+   *
    * @public
    */
   NotebookParams?: string | undefined;
 
   /**
-   * <p>The status of the notebook execution.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>START_PENDING</code> indicates that the cluster has received the execution
-   *                request but execution has not begun.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>STARTING</code> indicates that the execution is starting on the
-   *                cluster.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RUNNING</code> indicates that the execution is being processed by the
-   *                cluster.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FINISHING</code> indicates that execution processing is in the final
-   *                stages.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FINISHED</code> indicates that the execution has completed without
-   *                error.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILING</code> indicates that the execution is failing and will not finish
-   *                successfully.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED</code> indicates that the execution failed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>STOP_PENDING</code> indicates that the cluster has received a
-   *                   <code>StopNotebookExecution</code> request and the stop is pending.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>STOPPING</code> indicates that the cluster is in the process of stopping the
-   *                execution as a result of a <code>StopNotebookExecution</code> request.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>STOPPED</code> indicates that the execution stopped because of a
-   *                   <code>StopNotebookExecution</code> request.</p>
-   *             </li>
-   *          </ul>
+   * The status of the notebook execution.
+   *
+   * - `START_PENDING` indicates that the cluster has received the execution request but execution has not begun.
+   * - `STARTING` indicates that the execution is starting on the cluster.
+   * - `RUNNING` indicates that the execution is being processed by the cluster.
+   * - `FINISHING` indicates that execution processing is in the final stages.
+   * - `FINISHED` indicates that the execution has completed without error.
+   * - `FAILING` indicates that the execution is failing and will not finish successfully.
+   * - `FAILED` indicates that the execution failed.
+   * - `STOP_PENDING` indicates that the cluster has received a `StopNotebookExecution` request and the stop is pending.
+   * - `STOPPING` indicates that the cluster is in the process of stopping the execution as a result of a `StopNotebookExecution` request.
+   * - `STOPPED` indicates that the execution stopped because of a `StopNotebookExecution` request.
+   *
    * @public
    */
   Status?: NotebookExecutionStatus | undefined;
 
   /**
-   * <p>The timestamp when notebook execution started.</p>
+   * The timestamp when notebook execution started.
+   *
    * @public
    */
   StartTime?: Date | undefined;
 
   /**
-   * <p>The timestamp when notebook execution ended.</p>
+   * The timestamp when notebook execution ended.
+   *
    * @public
    */
   EndTime?: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the notebook execution.</p>
+   * The Amazon Resource Name (ARN) of the notebook execution.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The location of the notebook execution's output file in Amazon S3.</p>
+   * The location of the notebook execution's output file in Amazon S3.
+   *
    * @public
    */
   OutputNotebookURI?: string | undefined;
 
   /**
-   * <p>The reason for the latest status change of the notebook execution.</p>
+   * The reason for the latest status change of the notebook execution.
+   *
    * @public
    */
   LastStateChangeReason?: string | undefined;
 
   /**
-   * <p>The unique identifier of the Amazon EC2 security group associated with the
-   *             Amazon EMR Notebook instance. For more information see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-security-groups.html">Specifying
-   *                Amazon EC2 Security Groups for Amazon EMR Notebooks</a> in the
-   *                <i>Amazon EMR Management Guide</i>.</p>
+   * The unique identifier of the Amazon EC2 security group associated with the Amazon EMR Notebook instance. For more information see [Specifying Amazon EC2 Security Groups for Amazon EMR Notebooks](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-security-groups.html) in the *Amazon EMR Management Guide*.
+   *
    * @public
    */
   NotebookInstanceSecurityGroupId?: string | undefined;
 
   /**
-   * <p>A list of tags associated with a notebook execution. Tags are user-defined key-value
-   *          pairs that consist of a required key string with a maximum of 128 characters and an
-   *          optional value string with a maximum of 256 characters.</p>
+   * A list of tags associated with a notebook execution. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters and an optional value string with a maximum of 256 characters.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>The Amazon S3 location that stores the notebook execution input.</p>
+   * The Amazon S3 location that stores the notebook execution input.
+   *
    * @public
    */
   NotebookS3Location?: NotebookS3LocationForOutput | undefined;
 
   /**
-   * <p>The Amazon S3 location for the notebook execution output.</p>
+   * The Amazon S3 location for the notebook execution output.
+   *
    * @public
    */
   OutputNotebookS3Location?: OutputNotebookS3LocationForOutput | undefined;
 
   /**
-   * <p>The output format for the notebook execution.</p>
+   * The output format for the notebook execution.
+   *
    * @public
    */
   OutputNotebookFormat?: OutputNotebookFormat | undefined;
 
   /**
-   * <p>The environment variables associated with the notebook execution.</p>
+   * The environment variables associated with the notebook execution.
+   *
    * @public
    */
   EnvironmentVariables?: Record<string, string> | undefined;
@@ -2873,7 +2784,8 @@ export interface NotebookExecution {
  */
 export interface DescribeNotebookExecutionOutput {
   /**
-   * <p>Properties of the notebook execution.</p>
+   * Properties of the notebook execution.
+   *
    * @public
    */
   NotebookExecution?: NotebookExecution | undefined;
@@ -2884,63 +2796,71 @@ export interface DescribeNotebookExecutionOutput {
  */
 export interface DescribePersistentAppUIInput {
   /**
-   * <p>The identifier for the persistent application user interface.</p>
+   * The identifier for the persistent application user interface.
+   *
    * @public
    */
   PersistentAppUIId: string | undefined;
 }
 
 /**
- * <p>Holds persistent application user interface information. Applications installed on the Amazon EMR cluster publish user interfaces as
- *          web sites to monitor cluster activity.</p>
+ * Holds persistent application user interface information. Applications installed on the Amazon EMR cluster publish user interfaces as web sites to monitor cluster activity.
+ *
  * @public
  */
 export interface PersistentAppUI {
   /**
-   * <p>The identifier for the persistent application user interface object.</p>
+   * The identifier for the persistent application user interface object.
+   *
    * @public
    */
   PersistentAppUIId?: string | undefined;
 
   /**
-   * <p>The type list for the persistent application user interface object. Valid values
-   *          include SHS, YTS, or TEZ.</p>
+   * The type list for the persistent application user interface object. Valid values include SHS, YTS, or TEZ.
+   *
    * @public
    */
   PersistentAppUITypeList?: PersistentAppUIType[] | undefined;
 
   /**
-   * <p>The status for the persistent application user interface object.</p>
+   * The status for the persistent application user interface object.
+   *
    * @public
    */
   PersistentAppUIStatus?: string | undefined;
 
   /**
-   * <p>The author ID for the persistent application user interface object.</p>
+   * The author ID for the persistent application user interface object.
+   *
    * @public
    */
   AuthorId?: string | undefined;
 
   /**
-   * <p>The creation date and time for the persistent application user interface object.</p>
+   * The creation date and time for the persistent application user interface object.
+   *
    * @public
    */
   CreationTime?: Date | undefined;
 
   /**
-   * <p>The date and time the persistent application user interface object was last changed.</p>
+   * The date and time the persistent application user interface object was last changed.
+   *
    * @public
    */
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>The reason the persistent application user interface object was last changed.</p>
+   * The reason the persistent application user interface object was last changed.
+   *
    * @public
    */
   LastStateChangeReason?: string | undefined;
 
   /**
-   * <p>A collection of tags for the persistent application user interface object.</p>
+   * A collection of tags for the persistent application user interface object.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -2951,7 +2871,8 @@ export interface PersistentAppUI {
  */
 export interface DescribePersistentAppUIOutput {
   /**
-   * <p>The persistent application user interface.</p>
+   * The persistent application user interface.
+   *
    * @public
    */
   PersistentAppUI?: PersistentAppUI | undefined;
@@ -2962,53 +2883,57 @@ export interface DescribePersistentAppUIOutput {
  */
 export interface DescribeReleaseLabelInput {
   /**
-   * <p>The target release label to be described.</p>
+   * The target release label to be described.
+   *
    * @public
    */
   ReleaseLabel?: string | undefined;
 
   /**
-   * <p>The pagination token. Reserved for future use. Currently set to null.</p>
+   * The pagination token. Reserved for future use. Currently set to null.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>Reserved for future use. Currently set to null.</p>
+   * Reserved for future use. Currently set to null.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>The returned release label application names or versions.</p>
+ * The returned release label application names or versions.
+ *
  * @public
  */
 export interface SimplifiedApplication {
   /**
-   * <p>The returned release label application name. For example, <code>hadoop</code>.</p>
+   * The returned release label application name. For example, `hadoop`.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The returned release label application version. For example, <code>3.2.1</code>.</p>
+   * The returned release label application version. For example, `3.2.1`.
+   *
    * @public
    */
   Version?: string | undefined;
 }
 
 /**
- * <p>The Amazon Linux release specified for a cluster in the RunJobFlow request.</p>
+ * The Amazon Linux release specified for a cluster in the RunJobFlow request.
+ *
  * @public
  */
 export interface OSRelease {
   /**
-   * <p>The Amazon Linux release specified for a cluster in the RunJobFlow request. The format
-   *          is as shown in <a href="https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-20220218.html">
-   *                <i>Amazon Linux 2 Release Notes</i>
-   *             </a>. For example,
-   *          2.0.20220218.1.</p>
+   * The Amazon Linux release specified for a cluster in the RunJobFlow request. The format is as shown in [*Amazon Linux 2 Release Notes*](https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-20220218.html). For example, 2.0.20220218.1.
+   *
    * @public
    */
   Label?: string | undefined;
@@ -3019,31 +2944,29 @@ export interface OSRelease {
  */
 export interface DescribeReleaseLabelOutput {
   /**
-   * <p>The target release label described in the response.</p>
+   * The target release label described in the response.
+   *
    * @public
    */
   ReleaseLabel?: string | undefined;
 
   /**
-   * <p>The list of applications available for the target release label. <code>Name</code> is
-   *          the name of the application. <code>Version</code> is the concise version of the
-   *          application.</p>
+   * The list of applications available for the target release label. `Name` is the name of the application. `Version` is the concise version of the application.
+   *
    * @public
    */
   Applications?: SimplifiedApplication[] | undefined;
 
   /**
-   * <p>The pagination token. Reserved for future use. Currently set to null.</p>
+   * The pagination token. Reserved for future use. Currently set to null.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The list of available Amazon Linux release versions for an Amazon EMR release.
-   *          Contains a Label field that is formatted as shown in <a href="https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-al2.html">
-   *                <i>Amazon Linux 2 Release
-   *                Notes</i>
-   *             </a>. For example, <a href="https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-20220218.html">2.0.20220218.1</a>.</p>
+   * The list of available Amazon Linux release versions for an Amazon EMR release. Contains a Label field that is formatted as shown in [*Amazon Linux 2 Release Notes*](https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-al2.html). For example, [2.0.20220218.1](https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-20220218.html).
+   *
    * @public
    */
   AvailableOSReleases?: OSRelease[] | undefined;
@@ -3054,7 +2977,8 @@ export interface DescribeReleaseLabelOutput {
  */
 export interface DescribeSecurityConfigurationInput {
   /**
-   * <p>The name of the security configuration.</p>
+   * The name of the security configuration.
+   *
    * @public
    */
   Name: string | undefined;
@@ -3065,261 +2989,273 @@ export interface DescribeSecurityConfigurationInput {
  */
 export interface DescribeSecurityConfigurationOutput {
   /**
-   * <p>The name of the security configuration.</p>
+   * The name of the security configuration.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The security configuration details in JSON format.</p>
+   * The security configuration details in JSON format.
+   *
    * @public
    */
   SecurityConfiguration?: string | undefined;
 
   /**
-   * <p>The date and time the security configuration was created</p>
+   * The date and time the security configuration was created
+   *
    * @public
    */
   CreationDateTime?: Date | undefined;
 }
 
 /**
- * <p>This input determines which step to describe.</p>
+ * This input determines which step to describe.
+ *
  * @public
  */
 export interface DescribeStepInput {
   /**
-   * <p>The identifier of the cluster with steps to describe.</p>
+   * The identifier of the cluster with steps to describe.
+   *
    * @public
    */
   ClusterId: string | undefined;
 
   /**
-   * <p>The identifier of the step to describe.</p>
+   * The identifier of the step to describe.
+   *
    * @public
    */
   StepId: string | undefined;
 }
 
 /**
- * <p>A cluster step consisting of a JAR file whose main function will be executed. The main
- *          function submits a job for Hadoop to execute and waits for the job to finish or
- *          fail.</p>
+ * A cluster step consisting of a JAR file whose main function will be executed. The main function submits a job for Hadoop to execute and waits for the job to finish or fail.
+ *
  * @public
  */
 export interface HadoopStepConfig {
   /**
-   * <p>The path to the JAR file that runs during the step.</p>
+   * The path to the JAR file that runs during the step.
+   *
    * @public
    */
   Jar?: string | undefined;
 
   /**
-   * <p>The list of Java properties that are set when the step runs. You can use these
-   *          properties to pass key-value pairs to your main function.</p>
+   * The list of Java properties that are set when the step runs. You can use these properties to pass key-value pairs to your main function.
+   *
    * @public
    */
   Properties?: Record<string, string> | undefined;
 
   /**
-   * <p>The name of the main class in the specified Java file. If not specified, the JAR file
-   *          should specify a main class in its manifest file.</p>
+   * The name of the main class in the specified Java file. If not specified, the JAR file should specify a main class in its manifest file.
+   *
    * @public
    */
   MainClass?: string | undefined;
 
   /**
-   * <p>The list of command line arguments to pass to the JAR file's main function for
-   *          execution.</p>
+   * The list of command line arguments to pass to the JAR file's main function for execution.
+   *
    * @public
    */
   Args?: string[] | undefined;
 }
 
 /**
- * <p>The details of the step failure. The service attempts to detect the root cause for many
- *          common failures.</p>
+ * The details of the step failure. The service attempts to detect the root cause for many common failures.
+ *
  * @public
  */
 export interface FailureDetails {
   /**
-   * <p>The reason for the step failure. In the case where the service cannot successfully
-   *          determine the root cause of the failure, it returns "Unknown Error" as a reason.</p>
+   * The reason for the step failure. In the case where the service cannot successfully determine the root cause of the failure, it returns "Unknown Error" as a reason.
+   *
    * @public
    */
   Reason?: string | undefined;
 
   /**
-   * <p>The descriptive message including the error the Amazon EMR service has
-   *          identified as the cause of step failure. This is text from an error log that describes the
-   *          root cause of the failure.</p>
+   * The descriptive message including the error the Amazon EMR service has identified as the cause of step failure. This is text from an error log that describes the root cause of the failure.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The path to the log file where the step failure root cause was originally
-   *          recorded.</p>
+   * The path to the log file where the step failure root cause was originally recorded.
+   *
    * @public
    */
   LogFile?: string | undefined;
 }
 
 /**
- * <p>The details of the step state change reason.</p>
+ * The details of the step state change reason.
+ *
  * @public
  */
 export interface StepStateChangeReason {
   /**
-   * <p>The programmable code for the state change reason. Note: Currently, the service provides
-   *          no code for the state change.</p>
+   * The programmable code for the state change reason. Note: Currently, the service provides no code for the state change.
+   *
    * @public
    */
   Code?: StepStateChangeReasonCode | undefined;
 
   /**
-   * <p>The descriptive message for the state change reason.</p>
+   * The descriptive message for the state change reason.
+   *
    * @public
    */
   Message?: string | undefined;
 }
 
 /**
- * <p>The timeline of the cluster step lifecycle.</p>
+ * The timeline of the cluster step lifecycle.
+ *
  * @public
  */
 export interface StepTimeline {
   /**
-   * <p>The date and time when the cluster step was created.</p>
+   * The date and time when the cluster step was created.
+   *
    * @public
    */
   CreationDateTime?: Date | undefined;
 
   /**
-   * <p>The date and time when the cluster step execution started.</p>
+   * The date and time when the cluster step execution started.
+   *
    * @public
    */
   StartDateTime?: Date | undefined;
 
   /**
-   * <p>The date and time when the cluster step execution completed or failed.</p>
+   * The date and time when the cluster step execution completed or failed.
+   *
    * @public
    */
   EndDateTime?: Date | undefined;
 }
 
 /**
- * <p>The execution status details of the cluster step.</p>
+ * The execution status details of the cluster step.
+ *
  * @public
  */
 export interface StepStatus {
   /**
-   * <p>The execution state of the cluster step.</p>
+   * The execution state of the cluster step.
+   *
    * @public
    */
   State?: StepState | undefined;
 
   /**
-   * <p>The reason for the step execution status change.</p>
+   * The reason for the step execution status change.
+   *
    * @public
    */
   StateChangeReason?: StepStateChangeReason | undefined;
 
   /**
-   * <p>The details for the step failure including reason, message, and log file path where the
-   *          root cause was identified.</p>
+   * The details for the step failure including reason, message, and log file path where the root cause was identified.
+   *
    * @public
    */
   FailureDetails?: FailureDetails | undefined;
 
   /**
-   * <p>The timeline of the cluster step status over time.</p>
+   * The timeline of the cluster step status over time.
+   *
    * @public
    */
   Timeline?: StepTimeline | undefined;
 }
 
 /**
- * <p>This represents a step in a cluster.</p>
+ * This represents a step in a cluster.
+ *
  * @public
  */
 export interface Step {
   /**
-   * <p>The identifier of the cluster step.</p>
+   * The identifier of the cluster step.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The name of the cluster step.</p>
+   * The name of the cluster step.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The Hadoop job configuration of the cluster step.</p>
+   * The Hadoop job configuration of the cluster step.
+   *
    * @public
    */
   Config?: HadoopStepConfig | undefined;
 
   /**
-   * <p>The action to take when the cluster step fails. Possible values are
-   *             <code>TERMINATE_CLUSTER</code>, <code>CANCEL_AND_WAIT</code>, and <code>CONTINUE</code>.
-   *             <code>TERMINATE_JOB_FLOW</code> is provided for backward compatibility. We recommend
-   *          using <code>TERMINATE_CLUSTER</code> instead.</p>
-   *          <p>If a cluster's <code>StepConcurrencyLevel</code> is greater than <code>1</code>, do not
-   *          use <code>AddJobFlowSteps</code> to submit a step with this parameter set to
-   *             <code>CANCEL_AND_WAIT</code> or <code>TERMINATE_CLUSTER</code>. The step is not
-   *          submitted and the action fails with a message that the <code>ActionOnFailure</code> setting
-   *          is not valid.</p>
-   *          <p>If you change a cluster's <code>StepConcurrencyLevel</code> to be greater than 1 while a
-   *          step is running, the <code>ActionOnFailure</code> parameter may not behave as you expect.
-   *          In this case, for a step that fails with this parameter set to
-   *          <code>CANCEL_AND_WAIT</code>, pending steps and the running step are not canceled; for a
-   *          step that fails with this parameter set to <code>TERMINATE_CLUSTER</code>, the cluster does
-   *          not terminate.</p>
+   * The action to take when the cluster step fails. Possible values are `TERMINATE_CLUSTER`, `CANCEL_AND_WAIT`, and `CONTINUE`. `TERMINATE_JOB_FLOW` is provided for backward compatibility. We recommend using `TERMINATE_CLUSTER` instead.
+   *
+   * If a cluster's `StepConcurrencyLevel` is greater than `1`, do not use `AddJobFlowSteps` to submit a step with this parameter set to `CANCEL_AND_WAIT` or `TERMINATE_CLUSTER`. The step is not submitted and the action fails with a message that the `ActionOnFailure` setting is not valid.
+   *
+   * If you change a cluster's `StepConcurrencyLevel` to be greater than 1 while a step is running, the `ActionOnFailure` parameter may not behave as you expect. In this case, for a step that fails with this parameter set to `CANCEL_AND_WAIT`, pending steps and the running step are not canceled; for a step that fails with this parameter set to `TERMINATE_CLUSTER`, the cluster does not terminate.
+   *
    * @public
    */
   ActionOnFailure?: ActionOnFailure | undefined;
 
   /**
-   * <p>The current execution status details of the cluster step.</p>
+   * The current execution status details of the cluster step.
+   *
    * @public
    */
   Status?: StepStatus | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the runtime role for a step on the cluster. The
-   *          runtime role can be a cross-account IAM role. The runtime role ARN is a
-   *          combination of account ID, role name, and role type using the following format:
-   *             <code>arn:partition:service:region:account:resource</code>. </p>
-   *          <p>For example, <code>arn:aws:IAM::1234567890:role/ReadOnly</code> is a correctly formatted
-   *          runtime role ARN.</p>
+   * The Amazon Resource Name (ARN) of the runtime role for a step on the cluster. The runtime role can be a cross-account IAM role. The runtime role ARN is a combination of account ID, role name, and role type using the following format: `arn:partition:service:region:account:resource`.
+   *
+   * For example, `arn:aws:IAM::1234567890:role/ReadOnly` is a correctly formatted runtime role ARN.
+   *
    * @public
    */
   ExecutionRoleArn?: string | undefined;
 
   /**
-   * <p>The Amazon S3 destination URI for log publishing.</p>
+   * The Amazon S3 destination URI for log publishing.
+   *
    * @public
    */
   LogUri?: string | undefined;
 
   /**
-   * <p>The KMS key ARN to encrypt the logs published to the given Amazon S3
-   *          destination.</p>
+   * The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
+   *
    * @public
    */
   EncryptionKeyArn?: string | undefined;
 }
 
 /**
- * <p>This output contains the description of the cluster step.</p>
+ * This output contains the description of the cluster step.
+ *
  * @public
  */
 export interface DescribeStepOutput {
   /**
-   * <p>The step details for the requested step identifier.</p>
+   * The step details for the requested step identifier.
+   *
    * @public
    */
   Step?: Step | undefined;
@@ -3330,153 +3266,162 @@ export interface DescribeStepOutput {
  */
 export interface DescribeStudioInput {
   /**
-   * <p>The Amazon EMR Studio ID.</p>
+   * The Amazon EMR Studio ID.
+   *
    * @public
    */
   StudioId: string | undefined;
 }
 
 /**
- * <p>Details for an Amazon EMR Studio including ID, creation time, name, and so
- *          on.</p>
+ * Details for an Amazon EMR Studio including ID, creation time, name, and so on.
+ *
  * @public
  */
 export interface Studio {
   /**
-   * <p>The ID of the Amazon EMR Studio.</p>
+   * The ID of the Amazon EMR Studio.
+   *
    * @public
    */
   StudioId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon EMR Studio.</p>
+   * The Amazon Resource Name (ARN) of the Amazon EMR Studio.
+   *
    * @public
    */
   StudioArn?: string | undefined;
 
   /**
-   * <p>The name of the Amazon EMR Studio.</p>
+   * The name of the Amazon EMR Studio.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The detailed description of the Amazon EMR Studio.</p>
+   * The detailed description of the Amazon EMR Studio.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Specifies whether the Amazon EMR Studio authenticates users with IAM or IAM Identity Center.</p>
+   * Specifies whether the Amazon EMR Studio authenticates users with IAM or IAM Identity Center.
+   *
    * @public
    */
   AuthMode?: AuthMode | undefined;
 
   /**
-   * <p>The ID of the VPC associated with the Amazon EMR Studio.</p>
+   * The ID of the VPC associated with the Amazon EMR Studio.
+   *
    * @public
    */
   VpcId?: string | undefined;
 
   /**
-   * <p>The list of IDs of the subnets associated with the Amazon EMR Studio.</p>
+   * The list of IDs of the subnets associated with the Amazon EMR Studio.
+   *
    * @public
    */
   SubnetIds?: string[] | undefined;
 
   /**
-   * <p>The name of the IAM role assumed by the Amazon EMR Studio.</p>
+   * The name of the IAM role assumed by the Amazon EMR Studio.
+   *
    * @public
    */
   ServiceRole?: string | undefined;
 
   /**
-   * <p>The name of the IAM role assumed by users logged in to the Amazon EMR Studio. A Studio only requires a <code>UserRole</code> when you use IAM authentication.</p>
+   * The name of the IAM role assumed by users logged in to the Amazon EMR Studio. A Studio only requires a `UserRole` when you use IAM authentication.
+   *
    * @public
    */
   UserRole?: string | undefined;
 
   /**
-   * <p>The ID of the Workspace security group associated with the Amazon EMR Studio.
-   *          The Workspace security group allows outbound network traffic to resources in the Engine
-   *          security group and to the internet.</p>
+   * The ID of the Workspace security group associated with the Amazon EMR Studio. The Workspace security group allows outbound network traffic to resources in the Engine security group and to the internet.
+   *
    * @public
    */
   WorkspaceSecurityGroupId?: string | undefined;
 
   /**
-   * <p>The ID of the Engine security group associated with the Amazon EMR Studio. The
-   *          Engine security group allows inbound network traffic from resources in the Workspace
-   *          security group.</p>
+   * The ID of the Engine security group associated with the Amazon EMR Studio. The Engine security group allows inbound network traffic from resources in the Workspace security group.
+   *
    * @public
    */
   EngineSecurityGroupId?: string | undefined;
 
   /**
-   * <p>The unique access URL of the Amazon EMR Studio.</p>
+   * The unique access URL of the Amazon EMR Studio.
+   *
    * @public
    */
   Url?: string | undefined;
 
   /**
-   * <p>The time the Amazon EMR Studio was created.</p>
+   * The time the Amazon EMR Studio was created.
+   *
    * @public
    */
   CreationTime?: Date | undefined;
 
   /**
-   * <p>The Amazon S3 location to back up Amazon EMR Studio Workspaces and
-   *          notebook files.</p>
+   * The Amazon S3 location to back up Amazon EMR Studio Workspaces and notebook files.
+   *
    * @public
    */
   DefaultS3Location?: string | undefined;
 
   /**
-   * <p>Your identity provider's authentication endpoint. Amazon EMR Studio redirects
-   *          federated users to this endpoint for authentication when logging in to a Studio with the
-   *          Studio URL.</p>
+   * Your identity provider's authentication endpoint. Amazon EMR Studio redirects federated users to this endpoint for authentication when logging in to a Studio with the Studio URL.
+   *
    * @public
    */
   IdpAuthUrl?: string | undefined;
 
   /**
-   * <p>The name of your identity provider's <code>RelayState</code> parameter.</p>
+   * The name of your identity provider's `RelayState` parameter.
+   *
    * @public
    */
   IdpRelayStateParameterName?: string | undefined;
 
   /**
-   * <p>A list of tags associated with the Amazon EMR Studio.</p>
+   * A list of tags associated with the Amazon EMR Studio.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>
-   *          The ARN of the IAM Identity Center instance the Studio application belongs to.
-   *       </p>
+   * The ARN of the IAM Identity Center instance the Studio application belongs to.
+   *
    * @public
    */
   IdcInstanceArn?: string | undefined;
 
   /**
-   * <p>
-   *          Indicates whether the Studio has Trusted identity propagation enabled. The default value is <code>false</code>.
-   *       </p>
+   * Indicates whether the Studio has Trusted identity propagation enabled. The default value is `false`.
+   *
    * @public
    */
   TrustedIdentityPropagationEnabled?: boolean | undefined;
 
   /**
-   * <p>
-   *          Indicates whether the Studio has <code>REQUIRED</code> or <code>OPTIONAL</code> IAM Identity Center user assignment. If the value is set to <code>REQUIRED</code>, users must be explicitly assigned to the Studio application to access the Studio.
-   *       </p>
+   * Indicates whether the Studio has `REQUIRED` or `OPTIONAL` IAM Identity Center user assignment. If the value is set to `REQUIRED`, users must be explicitly assigned to the Studio application to access the Studio.
+   *
    * @public
    */
   IdcUserAssignment?: IdcUserAssignment | undefined;
 
   /**
-   * <p>The KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.</p>
+   * The KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.
+   *
    * @public
    */
   EncryptionKeyArn?: string | undefined;
@@ -3487,45 +3432,50 @@ export interface Studio {
  */
 export interface DescribeStudioOutput {
   /**
-   * <p>The Amazon EMR Studio details.</p>
+   * The Amazon EMR Studio details.
+   *
    * @public
    */
   Studio?: Studio | undefined;
 }
 
 /**
- * <p>Configuration of requested EBS block device associated with the instance group.</p>
+ * Configuration of requested EBS block device associated with the instance group.
+ *
  * @public
  */
 export interface EbsBlockDevice {
   /**
-   * <p>EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s)
-   *          that are requested for the EBS volume attached to an Amazon EC2 instance in the
-   *          cluster.</p>
+   * EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s) that are requested for the EBS volume attached to an Amazon EC2 instance in the cluster.
+   *
    * @public
    */
   VolumeSpecification?: VolumeSpecification | undefined;
 
   /**
-   * <p>The device name that is exposed to the instance, such as /dev/sdh.</p>
+   * The device name that is exposed to the instance, such as /dev/sdh.
+   *
    * @public
    */
   Device?: string | undefined;
 }
 
 /**
- * <p>EBS block device that's attached to an Amazon EC2 instance.</p>
+ * EBS block device that's attached to an Amazon EC2 instance.
+ *
  * @public
  */
 export interface EbsVolume {
   /**
-   * <p>The device name that is exposed to the instance, such as /dev/sdh.</p>
+   * The device name that is exposed to the instance, such as /dev/sdh.
+   *
    * @public
    */
   Device?: string | undefined;
 
   /**
-   * <p>The volume identifier of the EBS volume.</p>
+   * The volume identifier of the EBS volume.
+   *
    * @public
    */
   VolumeId?: string | undefined;
@@ -3536,8 +3486,8 @@ export interface EbsVolume {
  */
 export interface GetAutoTerminationPolicyInput {
   /**
-   * <p>Specifies the ID of the Amazon EMR cluster for which the auto-termination policy
-   *          will be fetched.</p>
+   * Specifies the ID of the Amazon EMR cluster for which the auto-termination policy will be fetched.
+   *
    * @public
    */
   ClusterId: string | undefined;
@@ -3548,8 +3498,8 @@ export interface GetAutoTerminationPolicyInput {
  */
 export interface GetAutoTerminationPolicyOutput {
   /**
-   * <p>Specifies the auto-termination policy that is attached to an Amazon EMR cluster.
-   *       </p>
+   * Specifies the auto-termination policy that is attached to an Amazon EMR cluster.
+   *
    * @public
    */
   AutoTerminationPolicy?: AutoTerminationPolicy | undefined;
@@ -3565,16 +3515,15 @@ export interface GetBlockPublicAccessConfigurationInput {}
  */
 export interface GetClusterSessionCredentialsInput {
   /**
-   * <p>The unique identifier of the cluster.</p>
+   * The unique identifier of the cluster.
+   *
    * @public
    */
   ClusterId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the runtime role for interactive workload submission
-   *          on the cluster. The runtime role can be a cross-account IAM role. The
-   *          runtime role ARN is a combination of account ID, role name, and role type using the
-   *          following format: <code>arn:partition:service:region:account:resource</code>.</p>
+   * The Amazon Resource Name (ARN) of the runtime role for interactive workload submission on the cluster. The runtime role can be a cross-account IAM role. The runtime role ARN is a combination of account ID, role name, and role type using the following format: `arn:partition:service:region:account:resource`.
+   *
    * @public
    */
   ExecutionRoleArn?: string | undefined;
@@ -3585,15 +3534,15 @@ export interface GetClusterSessionCredentialsInput {
  */
 export interface GetClusterSessionCredentialsOutput {
   /**
-   * <p>The credentials that you can use to connect to cluster endpoints that support username
-   *          and password authentication.</p>
+   * The credentials that you can use to connect to cluster endpoints that support username and password authentication.
+   *
    * @public
    */
   Credentials?: Credentials | undefined;
 
   /**
-   * <p>The time when the credentials that are returned by the
-   *             <code>GetClusterSessionCredentials</code> API expire.</p>
+   * The time when the credentials that are returned by the `GetClusterSessionCredentials` API expire.
+   *
    * @public
    */
   ExpiresAt?: Date | undefined;
@@ -3604,39 +3553,36 @@ export interface GetClusterSessionCredentialsOutput {
  */
 export interface GetManagedScalingPolicyInput {
   /**
-   * <p>Specifies the ID of the cluster for which the managed scaling policy will be fetched.
-   *       </p>
+   * Specifies the ID of the cluster for which the managed scaling policy will be fetched.
+   *
    * @public
    */
   ClusterId: string | undefined;
 }
 
 /**
- * <p> Managed scaling policy for an Amazon EMR cluster. The policy specifies the
- *          limits for resources that can be added or terminated from a cluster. The policy only
- *          applies to the core and task nodes. The master node cannot be scaled after initial
- *          configuration. </p>
+ * Managed scaling policy for an Amazon EMR cluster. The policy specifies the limits for resources that can be added or terminated from a cluster. The policy only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+ *
  * @public
  */
 export interface ManagedScalingPolicy {
   /**
-   * <p>The Amazon EC2 unit limits for a managed scaling policy. The managed scaling
-   *          activity of a cluster is not allowed to go above or below these limits. The limit only
-   *          applies to the core and task nodes. The master node cannot be scaled after initial
-   *          configuration.</p>
+   * The Amazon EC2 unit limits for a managed scaling policy. The managed scaling activity of a cluster is not allowed to go above or below these limits. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+   *
    * @public
    */
   ComputeLimits?: ComputeLimits | undefined;
 
   /**
-   * <p>An integer value that represents an advanced scaling strategy. Setting a higher value optimizes for performance. Setting a lower value optimizes for resource conservation. Setting the value
-   *          to 50 balances performance and resource conservation. Possible values are 1, 25, 50, 75, and 100.</p>
+   * An integer value that represents an advanced scaling strategy. Setting a higher value optimizes for performance. Setting a lower value optimizes for resource conservation. Setting the value to 50 balances performance and resource conservation. Possible values are 1, 25, 50, 75, and 100.
+   *
    * @public
    */
   UtilizationPerformanceIndex?: number | undefined;
 
   /**
-   * <p>Determines whether a custom scaling utilization performance index can be set. Possible values include <i>ADVANCED</i> or <i>DEFAULT</i>.</p>
+   * Determines whether a custom scaling utilization performance index can be set. Possible values include *ADVANCED* or *DEFAULT*.
+   *
    * @public
    */
   ScalingStrategy?: ScalingStrategy | undefined;
@@ -3647,8 +3593,8 @@ export interface ManagedScalingPolicy {
  */
 export interface GetManagedScalingPolicyOutput {
   /**
-   * <p>Specifies the managed scaling policy that is attached to an Amazon EMR cluster.
-   *       </p>
+   * Specifies the managed scaling policy that is attached to an Amazon EMR cluster.
+   *
    * @public
    */
   ManagedScalingPolicy?: ManagedScalingPolicy | undefined;
@@ -3659,32 +3605,36 @@ export interface GetManagedScalingPolicyOutput {
  */
 export interface GetOnClusterAppUIPresignedURLInput {
   /**
-   * <p>The cluster ID associated with the cluster's application user interface presigned URL.</p>
+   * The cluster ID associated with the cluster's application user interface presigned URL.
+   *
    * @public
    */
   ClusterId: string | undefined;
 
   /**
-   * <p>The application UI type associated with the cluster's application user interface presigned URL.</p>
+   * The application UI type associated with the cluster's application user interface presigned URL.
+   *
    * @public
    */
   OnClusterAppUIType?: OnClusterAppUIType | undefined;
 
   /**
-   * <p>The application ID associated with the cluster's application user interface presigned URL.</p>
+   * The application ID associated with the cluster's application user interface presigned URL.
+   *
    * @public
    */
   ApplicationId?: string | undefined;
 
   /**
-   * <p>Determines if the user interface presigned URL is for a dry run.</p>
+   * Determines if the user interface presigned URL is for a dry run.
+   *
    * @public
    */
   DryRun?: boolean | undefined;
 
   /**
-   * <p>The execution role ARN associated with the cluster's application user interface
-   *          presigned URL.</p>
+   * The execution role ARN associated with the cluster's application user interface presigned URL.
+   *
    * @public
    */
   ExecutionRoleArn?: string | undefined;
@@ -3695,13 +3645,15 @@ export interface GetOnClusterAppUIPresignedURLInput {
  */
 export interface GetOnClusterAppUIPresignedURLOutput {
   /**
-   * <p>Used to determine if the presigned URL is ready.</p>
+   * Used to determine if the presigned URL is ready.
+   *
    * @public
    */
   PresignedURLReady?: boolean | undefined;
 
   /**
-   * <p>The cluster's generated presigned URL.</p>
+   * The cluster's generated presigned URL.
+   *
    * @public
    */
   PresignedURL?: string | undefined;
@@ -3712,31 +3664,36 @@ export interface GetOnClusterAppUIPresignedURLOutput {
  */
 export interface GetPersistentAppUIPresignedURLInput {
   /**
-   * <p>The persistent application user interface ID associated with the presigned URL.</p>
+   * The persistent application user interface ID associated with the presigned URL.
+   *
    * @public
    */
   PersistentAppUIId: string | undefined;
 
   /**
-   * <p>The persistent application user interface type associated with the presigned URL.</p>
+   * The persistent application user interface type associated with the presigned URL.
+   *
    * @public
    */
   PersistentAppUIType?: PersistentAppUIType | undefined;
 
   /**
-   * <p>The application ID associated with the presigned URL.</p>
+   * The application ID associated with the presigned URL.
+   *
    * @public
    */
   ApplicationId?: string | undefined;
 
   /**
-   * <p>A boolean that represents if the caller is an authentication proxy call.</p>
+   * A boolean that represents if the caller is an authentication proxy call.
+   *
    * @public
    */
   AuthProxyCall?: boolean | undefined;
 
   /**
-   * <p>The execution role ARN associated with the presigned URL.</p>
+   * The execution role ARN associated with the presigned URL.
+   *
    * @public
    */
   ExecutionRoleArn?: string | undefined;
@@ -3747,187 +3704,218 @@ export interface GetPersistentAppUIPresignedURLInput {
  */
 export interface GetPersistentAppUIPresignedURLOutput {
   /**
-   * <p>Used to determine if the presigned URL is ready.</p>
+   * Used to determine if the presigned URL is ready.
+   *
    * @public
    */
   PresignedURLReady?: boolean | undefined;
 
   /**
-   * <p>The returned presigned URL.</p>
+   * The returned presigned URL.
+   *
    * @public
    */
   PresignedURL?: string | undefined;
 }
 
 /**
- * <p>Input to the <code>GetSession</code> operation.</p>
+ * Input to the `GetSession` operation.
+ *
  * @public
  */
 export interface GetSessionInput {
   /**
-   * <p>The ID of the cluster that the session belongs to.</p>
+   * The ID of the cluster that the session belongs to.
+   *
    * @public
    */
   ClusterId: string | undefined;
 
   /**
-   * <p>The ID of the session.</p>
+   * The ID of the session.
+   *
    * @public
    */
   SessionId: string | undefined;
 }
 
 /**
- * <p>The CloudWatch Logs configuration for a session.</p>
+ * The CloudWatch Logs configuration for a session.
+ *
  * @public
  */
 export interface SessionCloudWatchLoggingConfiguration {
   /**
-   * <p>Whether CloudWatch Logs is enabled for the session.</p>
+   * Whether CloudWatch Logs is enabled for the session.
+   *
    * @public
    */
   Enabled?: boolean | undefined;
 
   /**
-   * <p>The name of the log group where session logs are published.</p>
+   * The name of the log group where session logs are published.
+   *
    * @public
    */
   LogGroup?: string | undefined;
 
   /**
-   * <p>The prefix applied to the log stream name where session logs are published.</p>
+   * The prefix applied to the log stream name where session logs are published.
+   *
    * @public
    */
   LogStreamNamePrefix?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the logs published to CloudWatch Logs.</p>
+   * The Amazon Resource Name (ARN) of the KMS key used to encrypt the logs published to CloudWatch Logs.
+   *
    * @public
    */
   EncryptionKeyArn?: string | undefined;
 
   /**
-   * <p>A map of log component names (for example, <code>SPARK_DRIVER</code>, <code>SPARK_EXECUTOR</code>) to the list of log types to publish for that component (for example, <code>stdout</code>, <code>stderr</code>).</p>
+   * A map of log component names (for example, `SPARK_DRIVER`, `SPARK_EXECUTOR`) to the list of log types to publish for that component (for example, `stdout`, `stderr`).
+   *
    * @public
    */
   LogTypes?: Record<string, string[]> | undefined;
 }
 
 /**
- * <p>The Amazon EMR-managed logging configuration for a session.</p>
+ * The Amazon EMR-managed logging configuration for a session.
+ *
  * @public
  */
 export interface SessionManagedLoggingConfiguration {
   /**
-   * <p>Whether Amazon EMR-managed logging is enabled for the session.</p>
+   * Whether Amazon EMR-managed logging is enabled for the session.
+   *
    * @public
    */
   Enabled?: boolean | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the managed logs.</p>
+   * The Amazon Resource Name (ARN) of the KMS key used to encrypt the managed logs.
+   *
    * @public
    */
   EncryptionKeyArn?: string | undefined;
 }
 
 /**
- * <p>The Amazon S3 logging configuration for a session.</p>
+ * The Amazon S3 logging configuration for a session.
+ *
  * @public
  */
 export interface SessionS3LoggingConfiguration {
   /**
-   * <p>Whether Amazon S3 logging is enabled for the session.</p>
+   * Whether Amazon S3 logging is enabled for the session.
+   *
    * @public
    */
   Enabled?: boolean | undefined;
 
   /**
-   * <p>The Amazon S3 destination URI where session logs are published.</p>
+   * The Amazon S3 destination URI where session logs are published.
+   *
    * @public
    */
   LogUri?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt logs published to Amazon S3.</p>
+   * The Amazon Resource Name (ARN) of the KMS key used to encrypt logs published to Amazon S3.
+   *
    * @public
    */
   EncryptionKeyArn?: string | undefined;
 
   /**
-   * <p>A map of log component names (for example, <code>SPARK_DRIVER</code>, <code>SPARK_EXECUTOR</code>) to the list of log types to publish for that component (for example, <code>stdout</code>, <code>stderr</code>).</p>
+   * A map of log component names (for example, `SPARK_DRIVER`, `SPARK_EXECUTOR`) to the list of log types to publish for that component (for example, `stdout`, `stderr`).
+   *
    * @public
    */
   LogTypes?: Record<string, string[]> | undefined;
 }
 
 /**
- * <p>The monitoring configuration for a session. Controls where session logs are published.</p>
+ * The monitoring configuration for a session. Controls where session logs are published.
+ *
  * @public
  */
 export interface SessionMonitoringConfiguration {
   /**
-   * <p>The CloudWatch Logs configuration for the session.</p>
+   * The CloudWatch Logs configuration for the session.
+   *
    * @public
    */
   CloudWatchLoggingConfiguration?: SessionCloudWatchLoggingConfiguration | undefined;
 
   /**
-   * <p>The Amazon EMR-managed logging configuration for the session.</p>
+   * The Amazon EMR-managed logging configuration for the session.
+   *
    * @public
    */
   ManagedLoggingConfiguration?: SessionManagedLoggingConfiguration | undefined;
 
   /**
-   * <p>The Amazon S3 logging configuration for the session.</p>
+   * The Amazon S3 logging configuration for the session.
+   *
    * @public
    */
   S3LoggingConfiguration?: SessionS3LoggingConfiguration | undefined;
 }
 
 /**
- * <p>Input to the <code>GetSessionEndpoint</code> operation.</p>
+ * Input to the `GetSessionEndpoint` operation.
+ *
  * @public
  */
 export interface GetSessionEndpointInput {
   /**
-   * <p>The ID of the cluster that the session belongs to.</p>
+   * The ID of the cluster that the session belongs to.
+   *
    * @public
    */
   ClusterId: string | undefined;
 
   /**
-   * <p>The ID of the session.</p>
+   * The ID of the session.
+   *
    * @public
    */
   SessionId: string | undefined;
 }
 
 /**
- * <p>Output of the <code>GetSessionEndpoint</code> operation.</p>
+ * Output of the `GetSessionEndpoint` operation.
+ *
  * @public
  */
 export interface GetSessionEndpointOutput {
   /**
-   * <p>The Spark Connect endpoint URL to use in the PySpark client.</p>
+   * The Spark Connect endpoint URL to use in the PySpark client.
+   *
    * @public
    */
   Endpoint: string | undefined;
 
   /**
-   * <p>A time-limited authentication token used to connect to the Spark Connect endpoint.</p>
+   * A time-limited authentication token used to connect to the Spark Connect endpoint.
+   *
    * @public
    */
   AuthToken?: string | undefined;
 
   /**
-   * <p>The time at which the authentication token expires. After this time, call <code>GetSessionEndpoint</code> again to obtain a new token.</p>
+   * The time at which the authentication token expires. After this time, call `GetSessionEndpoint` again to obtain a new token.
+   *
    * @public
    */
   AuthTokenExpirationTime?: Date | undefined;
 
   /**
-   * <p>Username and password used to authenticate with the Spark Connect server when connecting directly over VPC peering.</p>
+   * Username and password used to authenticate with the Spark Connect server when connecting directly over VPC peering.
+   *
    * @public
    */
   Credentials?: Credentials | undefined;
@@ -3938,82 +3926,85 @@ export interface GetSessionEndpointOutput {
  */
 export interface GetStudioSessionMappingInput {
   /**
-   * <p>The ID of the Amazon EMR Studio.</p>
+   * The ID of the Amazon EMR Studio.
+   *
    * @public
    */
   StudioId: string | undefined;
 
   /**
-   * <p>The globally unique identifier (GUID) of the user or group. For more information, see
-   *             <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId">UserId</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId">GroupId</a> in the <i>IAM Identity Center Identity Store API
-   *             Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must
-   *          be specified.</p>
+   * The globally unique identifier (GUID) of the user or group. For more information, see [UserId](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId) and [GroupId](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId) in the *IAM Identity Center Identity Store API Reference*. Either `IdentityName` or `IdentityId` must be specified.
+   *
    * @public
    */
   IdentityId?: string | undefined;
 
   /**
-   * <p>The name of the user or group to fetch. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>IAM Identity Center Identity Store API
-   *             Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must
-   *          be specified.</p>
+   * The name of the user or group to fetch. For more information, see [UserName](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName) and [DisplayName](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName) in the *IAM Identity Center Identity Store API Reference*. Either `IdentityName` or `IdentityId` must be specified.
+   *
    * @public
    */
   IdentityName?: string | undefined;
 
   /**
-   * <p>Specifies whether the identity to fetch is a user or a group.</p>
+   * Specifies whether the identity to fetch is a user or a group.
+   *
    * @public
    */
   IdentityType: IdentityType | undefined;
 }
 
 /**
- * <p>Details for an Amazon EMR Studio session mapping including creation time, user
- *          or group ID, Studio ID, and so on.</p>
+ * Details for an Amazon EMR Studio session mapping including creation time, user or group ID, Studio ID, and so on.
+ *
  * @public
  */
 export interface SessionMappingDetail {
   /**
-   * <p>The ID of the Amazon EMR Studio.</p>
+   * The ID of the Amazon EMR Studio.
+   *
    * @public
    */
   StudioId?: string | undefined;
 
   /**
-   * <p>The globally unique identifier (GUID) of the user or group.</p>
+   * The globally unique identifier (GUID) of the user or group.
+   *
    * @public
    */
   IdentityId?: string | undefined;
 
   /**
-   * <p>The name of the user or group. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>IAM Identity Center Identity Store API
-   *             Reference</i>.</p>
+   * The name of the user or group. For more information, see [UserName](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName) and [DisplayName](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName) in the *IAM Identity Center Identity Store API Reference*.
+   *
    * @public
    */
   IdentityName?: string | undefined;
 
   /**
-   * <p>Specifies whether the identity mapped to the Amazon EMR Studio is a user or a
-   *          group.</p>
+   * Specifies whether the identity mapped to the Amazon EMR Studio is a user or a group.
+   *
    * @public
    */
   IdentityType?: IdentityType | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the session policy associated with the user or
-   *          group.</p>
+   * The Amazon Resource Name (ARN) of the session policy associated with the user or group.
+   *
    * @public
    */
   SessionPolicyArn?: string | undefined;
 
   /**
-   * <p>The time the session mapping was created.</p>
+   * The time the session mapping was created.
+   *
    * @public
    */
   CreationTime?: Date | undefined;
 
   /**
-   * <p>The time the session mapping was last modified.</p>
+   * The time the session mapping was last modified.
+   *
    * @public
    */
   LastModifiedTime?: Date | undefined;
@@ -4024,95 +4015,106 @@ export interface SessionMappingDetail {
  */
 export interface GetStudioSessionMappingOutput {
   /**
-   * <p>The session mapping details for the specified Amazon EMR Studio and identity,
-   *          including session policy ARN and creation time.</p>
+   * The session mapping details for the specified Amazon EMR Studio and identity, including session policy ARN and creation time.
+   *
    * @public
    */
   SessionMapping?: SessionMappingDetail | undefined;
 }
 
 /**
- * <p>This input determines which bootstrap actions to retrieve.</p>
+ * This input determines which bootstrap actions to retrieve.
+ *
  * @public
  */
 export interface ListBootstrapActionsInput {
   /**
-   * <p>The cluster identifier for the bootstrap actions to list.</p>
+   * The cluster identifier for the bootstrap actions to list.
+   *
    * @public
    */
   ClusterId: string | undefined;
 
   /**
-   * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   * The pagination token that indicates the next set of results to retrieve.
+   *
    * @public
    */
   Marker?: string | undefined;
 }
 
 /**
- * <p>This output contains the bootstrap actions detail.</p>
+ * This output contains the bootstrap actions detail.
+ *
  * @public
  */
 export interface ListBootstrapActionsOutput {
   /**
-   * <p>The bootstrap actions associated with the cluster.</p>
+   * The bootstrap actions associated with the cluster.
+   *
    * @public
    */
   BootstrapActions?: Command[] | undefined;
 
   /**
-   * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   * The pagination token that indicates the next set of results to retrieve.
+   *
    * @public
    */
   Marker?: string | undefined;
 }
 
 /**
- * <p>This input determines how the ListClusters action filters the list of clusters that it
- *          returns.</p>
+ * This input determines how the ListClusters action filters the list of clusters that it returns.
+ *
  * @public
  */
 export interface ListClustersInput {
   /**
-   * <p>The creation date and time beginning value filter for listing clusters.</p>
+   * The creation date and time beginning value filter for listing clusters.
+   *
    * @public
    */
   CreatedAfter?: Date | undefined;
 
   /**
-   * <p>The creation date and time end value filter for listing clusters.</p>
+   * The creation date and time end value filter for listing clusters.
+   *
    * @public
    */
   CreatedBefore?: Date | undefined;
 
   /**
-   * <p>The cluster state filters to apply when listing clusters. Clusters that change state
-   *          while this action runs may be not be returned as expected in the list of clusters.</p>
+   * The cluster state filters to apply when listing clusters. Clusters that change state while this action runs may be not be returned as expected in the list of clusters.
+   *
    * @public
    */
   ClusterStates?: ClusterState[] | undefined;
 
   /**
-   * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   * The pagination token that indicates the next set of results to retrieve.
+   *
    * @public
    */
   Marker?: string | undefined;
 }
 
 /**
- * <p>This contains a ClusterSummaryList with the cluster details; for example, the cluster
- *          IDs, names, and status.</p>
+ * This contains a ClusterSummaryList with the cluster details; for example, the cluster IDs, names, and status.
+ *
  * @public
  */
 export interface ListClustersOutput {
   /**
-   * <p>The list of clusters for the account based on the given filters.</p>
+   * The list of clusters for the account based on the given filters.
+   *
    * @public
    */
   Clusters?: ClusterSummary[] | undefined;
 
   /**
-   * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   * The pagination token that indicates the next set of results to retrieve.
+   *
    * @public
    */
   Marker?: string | undefined;
@@ -4123,473 +4125,498 @@ export interface ListClustersOutput {
  */
 export interface ListInstanceFleetsInput {
   /**
-   * <p>The unique identifier of the cluster.</p>
+   * The unique identifier of the cluster.
+   *
    * @public
    */
   ClusterId: string | undefined;
 
   /**
-   * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   * The pagination token that indicates the next set of results to retrieve.
+   *
    * @public
    */
   Marker?: string | undefined;
 }
 
 /**
- * <p>Provides status change reason details for the instance fleet.</p>
- *          <note>
- *             <p>The instance fleet configuration is available only in Amazon EMR releases
- *             4.8.0 and later, excluding 5.0.x versions.</p>
- *          </note>
+ * Provides status change reason details for the instance fleet.
+ *
+ * > **Note:** The instance fleet configuration is available only in Amazon EMR releases 4.8.0 and later, excluding 5.0.x versions.
+ *
  * @public
  */
 export interface InstanceFleetStateChangeReason {
   /**
-   * <p>A code corresponding to the reason the state change occurred.</p>
+   * A code corresponding to the reason the state change occurred.
+   *
    * @public
    */
   Code?: InstanceFleetStateChangeReasonCode | undefined;
 
   /**
-   * <p>An explanatory message.</p>
+   * An explanatory message.
+   *
    * @public
    */
   Message?: string | undefined;
 }
 
 /**
- * <p>Provides historical timestamps for the instance fleet, including the time of creation,
- *          the time it became ready to run jobs, and the time of termination.</p>
- *          <note>
- *             <p>The instance fleet configuration is available only in Amazon EMR releases
- *             4.8.0 and later, excluding 5.0.x versions.</p>
- *          </note>
+ * Provides historical timestamps for the instance fleet, including the time of creation, the time it became ready to run jobs, and the time of termination.
+ *
+ * > **Note:** The instance fleet configuration is available only in Amazon EMR releases 4.8.0 and later, excluding 5.0.x versions.
+ *
  * @public
  */
 export interface InstanceFleetTimeline {
   /**
-   * <p>The time and date the instance fleet was created.</p>
+   * The time and date the instance fleet was created.
+   *
    * @public
    */
   CreationDateTime?: Date | undefined;
 
   /**
-   * <p>The time and date the instance fleet was ready to run jobs.</p>
+   * The time and date the instance fleet was ready to run jobs.
+   *
    * @public
    */
   ReadyDateTime?: Date | undefined;
 
   /**
-   * <p>The time and date the instance fleet terminated.</p>
+   * The time and date the instance fleet terminated.
+   *
    * @public
    */
   EndDateTime?: Date | undefined;
 }
 
 /**
- * <p>The status of the instance fleet.</p>
- *          <note>
- *             <p>The instance fleet configuration is available only in Amazon EMR releases
- *             4.8.0 and later, excluding 5.0.x versions.</p>
- *          </note>
+ * The status of the instance fleet.
+ *
+ * > **Note:** The instance fleet configuration is available only in Amazon EMR releases 4.8.0 and later, excluding 5.0.x versions.
+ *
  * @public
  */
 export interface InstanceFleetStatus {
   /**
-   * <p>A code representing the instance fleet status.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PROVISIONING</code>—The instance fleet is provisioning Amazon EC2
-   *                resources and is not yet ready to run jobs.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>BOOTSTRAPPING</code>—Amazon EC2 instances and other resources have
-   *                been provisioned and the bootstrap actions specified for the instances are
-   *                underway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RUNNING</code>—Amazon EC2 instances and other resources are running.
-   *                They are either executing jobs or waiting to execute jobs.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RESIZING</code>—A resize operation is underway. Amazon EC2 instances
-   *                are either being added or removed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SUSPENDED</code>—A resize operation could not complete. Existing Amazon EC2 instances are running, but instances can't be added or removed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TERMINATING</code>—The instance fleet is terminating Amazon EC2
-   *                instances.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TERMINATED</code>—The instance fleet is no longer active, and all Amazon EC2 instances have been terminated.</p>
-   *             </li>
-   *          </ul>
+   * A code representing the instance fleet status.
+   *
+   * - `PROVISIONING`—The instance fleet is provisioning Amazon EC2 resources and is not yet ready to run jobs.
+   * - `BOOTSTRAPPING`—Amazon EC2 instances and other resources have been provisioned and the bootstrap actions specified for the instances are underway.
+   * - `RUNNING`—Amazon EC2 instances and other resources are running. They are either executing jobs or waiting to execute jobs.
+   * - `RESIZING`—A resize operation is underway. Amazon EC2 instances are either being added or removed.
+   * - `SUSPENDED`—A resize operation could not complete. Existing Amazon EC2 instances are running, but instances can't be added or removed.
+   * - `TERMINATING`—The instance fleet is terminating Amazon EC2 instances.
+   * - `TERMINATED`—The instance fleet is no longer active, and all Amazon EC2 instances have been terminated.
+   *
    * @public
    */
   State?: InstanceFleetState | undefined;
 
   /**
-   * <p>Provides status change reason details for the instance fleet.</p>
+   * Provides status change reason details for the instance fleet.
+   *
    * @public
    */
   StateChangeReason?: InstanceFleetStateChangeReason | undefined;
 
   /**
-   * <p>Provides historical timestamps for the instance fleet, including the time of creation,
-   *          the time it became ready to run jobs, and the time of termination.</p>
+   * Provides historical timestamps for the instance fleet, including the time of creation, the time it became ready to run jobs, and the time of termination.
+   *
    * @public
    */
   Timeline?: InstanceFleetTimeline | undefined;
 }
 
 /**
- * <p>This input determines which instance groups to retrieve.</p>
+ * This input determines which instance groups to retrieve.
+ *
  * @public
  */
 export interface ListInstanceGroupsInput {
   /**
-   * <p>The identifier of the cluster for which to list the instance groups.</p>
+   * The identifier of the cluster for which to list the instance groups.
+   *
    * @public
    */
   ClusterId: string | undefined;
 
   /**
-   * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   * The pagination token that indicates the next set of results to retrieve.
+   *
    * @public
    */
   Marker?: string | undefined;
 }
 
 /**
- * <p>Custom policy for requesting termination protection or termination of specific instances
- *          when shrinking an instance group.</p>
+ * Custom policy for requesting termination protection or termination of specific instances when shrinking an instance group.
+ *
  * @public
  */
 export interface InstanceResizePolicy {
   /**
-   * <p>Specific list of instances to be terminated when shrinking an instance group.</p>
+   * Specific list of instances to be terminated when shrinking an instance group.
+   *
    * @public
    */
   InstancesToTerminate?: string[] | undefined;
 
   /**
-   * <p>Specific list of instances to be protected when shrinking an instance group.</p>
+   * Specific list of instances to be protected when shrinking an instance group.
+   *
    * @public
    */
   InstancesToProtect?: string[] | undefined;
 
   /**
-   * <p>Decommissioning timeout override for the specific list of instances to be
-   *          terminated.</p>
+   * Decommissioning timeout override for the specific list of instances to be terminated.
+   *
    * @public
    */
   InstanceTerminationTimeout?: number | undefined;
 }
 
 /**
- * <p>Policy for customizing shrink operations. Allows configuration of decommissioning
- *          timeout and targeted instance shrinking.</p>
+ * Policy for customizing shrink operations. Allows configuration of decommissioning timeout and targeted instance shrinking.
+ *
  * @public
  */
 export interface ShrinkPolicy {
   /**
-   * <p>The desired timeout for decommissioning an instance. Overrides the default YARN
-   *          decommissioning timeout.</p>
+   * The desired timeout for decommissioning an instance. Overrides the default YARN decommissioning timeout.
+   *
    * @public
    */
   DecommissionTimeout?: number | undefined;
 
   /**
-   * <p>Custom policy for requesting termination protection or termination of specific instances
-   *          when shrinking an instance group.</p>
+   * Custom policy for requesting termination protection or termination of specific instances when shrinking an instance group.
+   *
    * @public
    */
   InstanceResizePolicy?: InstanceResizePolicy | undefined;
 }
 
 /**
- * <p>The status change reason details for the instance group.</p>
+ * The status change reason details for the instance group.
+ *
  * @public
  */
 export interface InstanceGroupStateChangeReason {
   /**
-   * <p>The programmable code for the state change reason.</p>
+   * The programmable code for the state change reason.
+   *
    * @public
    */
   Code?: InstanceGroupStateChangeReasonCode | undefined;
 
   /**
-   * <p>The status change reason description.</p>
+   * The status change reason description.
+   *
    * @public
    */
   Message?: string | undefined;
 }
 
 /**
- * <p>The timeline of the instance group lifecycle.</p>
+ * The timeline of the instance group lifecycle.
+ *
  * @public
  */
 export interface InstanceGroupTimeline {
   /**
-   * <p>The creation date and time of the instance group.</p>
+   * The creation date and time of the instance group.
+   *
    * @public
    */
   CreationDateTime?: Date | undefined;
 
   /**
-   * <p>The date and time when the instance group became ready to perform tasks.</p>
+   * The date and time when the instance group became ready to perform tasks.
+   *
    * @public
    */
   ReadyDateTime?: Date | undefined;
 
   /**
-   * <p>The date and time when the instance group terminated.</p>
+   * The date and time when the instance group terminated.
+   *
    * @public
    */
   EndDateTime?: Date | undefined;
 }
 
 /**
- * <p>The details of the instance group status.</p>
+ * The details of the instance group status.
+ *
  * @public
  */
 export interface InstanceGroupStatus {
   /**
-   * <p>The current state of the instance group.</p>
+   * The current state of the instance group.
+   *
    * @public
    */
   State?: InstanceGroupState | undefined;
 
   /**
-   * <p>The status change reason details for the instance group.</p>
+   * The status change reason details for the instance group.
+   *
    * @public
    */
   StateChangeReason?: InstanceGroupStateChangeReason | undefined;
 
   /**
-   * <p>The timeline of the instance group status over time.</p>
+   * The timeline of the instance group status over time.
+   *
    * @public
    */
   Timeline?: InstanceGroupTimeline | undefined;
 }
 
 /**
- * <p>This input determines which instances to list.</p>
+ * This input determines which instances to list.
+ *
  * @public
  */
 export interface ListInstancesInput {
   /**
-   * <p>The identifier of the cluster for which to list the instances.</p>
+   * The identifier of the cluster for which to list the instances.
+   *
    * @public
    */
   ClusterId: string | undefined;
 
   /**
-   * <p>The identifier of the instance group for which to list the instances.</p>
+   * The identifier of the instance group for which to list the instances.
+   *
    * @public
    */
   InstanceGroupId?: string | undefined;
 
   /**
-   * <p>The type of instance group for which to list the instances.</p>
+   * The type of instance group for which to list the instances.
+   *
    * @public
    */
   InstanceGroupTypes?: InstanceGroupType[] | undefined;
 
   /**
-   * <p>The unique identifier of the instance fleet.</p>
+   * The unique identifier of the instance fleet.
+   *
    * @public
    */
   InstanceFleetId?: string | undefined;
 
   /**
-   * <p>The node type of the instance fleet. For example MASTER, CORE, or TASK.</p>
+   * The node type of the instance fleet. For example MASTER, CORE, or TASK.
+   *
    * @public
    */
   InstanceFleetType?: InstanceFleetType | undefined;
 
   /**
-   * <p>A list of instance states that will filter the instances returned with this
-   *          request.</p>
+   * A list of instance states that will filter the instances returned with this request.
+   *
    * @public
    */
   InstanceStates?: InstanceState[] | undefined;
 
   /**
-   * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   * The pagination token that indicates the next set of results to retrieve.
+   *
    * @public
    */
   Marker?: string | undefined;
 }
 
 /**
- * <p>The details of the status change reason for the instance.</p>
+ * The details of the status change reason for the instance.
+ *
  * @public
  */
 export interface InstanceStateChangeReason {
   /**
-   * <p>The programmable code for the state change reason.</p>
+   * The programmable code for the state change reason.
+   *
    * @public
    */
   Code?: InstanceStateChangeReasonCode | undefined;
 
   /**
-   * <p>The status change reason description.</p>
+   * The status change reason description.
+   *
    * @public
    */
   Message?: string | undefined;
 }
 
 /**
- * <p>The timeline of the instance lifecycle.</p>
+ * The timeline of the instance lifecycle.
+ *
  * @public
  */
 export interface InstanceTimeline {
   /**
-   * <p>The creation date and time of the instance.</p>
+   * The creation date and time of the instance.
+   *
    * @public
    */
   CreationDateTime?: Date | undefined;
 
   /**
-   * <p>The date and time when the instance was ready to perform tasks.</p>
+   * The date and time when the instance was ready to perform tasks.
+   *
    * @public
    */
   ReadyDateTime?: Date | undefined;
 
   /**
-   * <p>The date and time when the instance was terminated.</p>
+   * The date and time when the instance was terminated.
+   *
    * @public
    */
   EndDateTime?: Date | undefined;
 }
 
 /**
- * <p>The instance status details.</p>
+ * The instance status details.
+ *
  * @public
  */
 export interface InstanceStatus {
   /**
-   * <p>The current state of the instance.</p>
+   * The current state of the instance.
+   *
    * @public
    */
   State?: InstanceState | undefined;
 
   /**
-   * <p>The details of the status change reason for the instance.</p>
+   * The details of the status change reason for the instance.
+   *
    * @public
    */
   StateChangeReason?: InstanceStateChangeReason | undefined;
 
   /**
-   * <p>The timeline of the instance status over time.</p>
+   * The timeline of the instance status over time.
+   *
    * @public
    */
   Timeline?: InstanceTimeline | undefined;
 }
 
 /**
- * <p>Represents an Amazon EC2 instance provisioned as part of cluster.</p>
+ * Represents an Amazon EC2 instance provisioned as part of cluster.
+ *
  * @public
  */
 export interface Instance {
   /**
-   * <p>The unique identifier for the instance in Amazon EMR.</p>
+   * The unique identifier for the instance in Amazon EMR.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The unique identifier of the instance in Amazon EC2.</p>
+   * The unique identifier of the instance in Amazon EC2.
+   *
    * @public
    */
   Ec2InstanceId?: string | undefined;
 
   /**
-   * <p>The public DNS name of the instance.</p>
+   * The public DNS name of the instance.
+   *
    * @public
    */
   PublicDnsName?: string | undefined;
 
   /**
-   * <p>The public IP address of the instance.</p>
+   * The public IP address of the instance.
+   *
    * @public
    */
   PublicIpAddress?: string | undefined;
 
   /**
-   * <p>The private DNS name of the instance.</p>
+   * The private DNS name of the instance.
+   *
    * @public
    */
   PrivateDnsName?: string | undefined;
 
   /**
-   * <p>The private IP address of the instance.</p>
+   * The private IP address of the instance.
+   *
    * @public
    */
   PrivateIpAddress?: string | undefined;
 
   /**
-   * <p>The current status of the instance.</p>
+   * The current status of the instance.
+   *
    * @public
    */
   Status?: InstanceStatus | undefined;
 
   /**
-   * <p>The identifier of the instance group to which this instance belongs.</p>
+   * The identifier of the instance group to which this instance belongs.
+   *
    * @public
    */
   InstanceGroupId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the instance fleet to which an Amazon EC2 instance
-   *          belongs.</p>
+   * The unique identifier of the instance fleet to which an Amazon EC2 instance belongs.
+   *
    * @public
    */
   InstanceFleetId?: string | undefined;
 
   /**
-   * <p>The instance purchasing option. Valid values are <code>ON_DEMAND</code> or
-   *             <code>SPOT</code>. </p>
+   * The instance purchasing option. Valid values are `ON_DEMAND` or `SPOT`.
+   *
    * @public
    */
   Market?: MarketType | undefined;
 
   /**
-   * <p>The Amazon EC2 instance type, for example <code>m3.xlarge</code>.</p>
+   * The Amazon EC2 instance type, for example `m3.xlarge`.
+   *
    * @public
    */
   InstanceType?: string | undefined;
 
   /**
-   * <p>The list of Amazon EBS volumes that are attached to this instance.</p>
+   * The list of Amazon EBS volumes that are attached to this instance.
+   *
    * @public
    */
   EbsVolumes?: EbsVolume[] | undefined;
 }
 
 /**
- * <p>This output contains the list of instances.</p>
+ * This output contains the list of instances.
+ *
  * @public
  */
 export interface ListInstancesOutput {
   /**
-   * <p>The list of instances for the cluster and given filters.</p>
+   * The list of instances for the cluster and given filters.
+   *
    * @public
    */
   Instances?: Instance[] | undefined;
 
   /**
-   * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   * The pagination token that indicates the next set of results to retrieve.
+   *
    * @public
    */
   Marker?: string | undefined;
@@ -4600,198 +4627,128 @@ export interface ListInstancesOutput {
  */
 export interface ListNotebookExecutionsInput {
   /**
-   * <p>The unique ID of the editor associated with the notebook execution.</p>
+   * The unique ID of the editor associated with the notebook execution.
+   *
    * @public
    */
   EditorId?: string | undefined;
 
   /**
-   * <p>The status filter for listing notebook executions.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>START_PENDING</code> indicates that the cluster has received the execution
-   *                request but execution has not begun.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>STARTING</code> indicates that the execution is starting on the
-   *                cluster.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RUNNING</code> indicates that the execution is being processed by the
-   *                cluster.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FINISHING</code> indicates that execution processing is in the final
-   *                stages.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FINISHED</code> indicates that the execution has completed without
-   *                error.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILING</code> indicates that the execution is failing and will not finish
-   *                successfully.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED</code> indicates that the execution failed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>STOP_PENDING</code> indicates that the cluster has received a
-   *                   <code>StopNotebookExecution</code> request and the stop is pending.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>STOPPING</code> indicates that the cluster is in the process of stopping the
-   *                execution as a result of a <code>StopNotebookExecution</code> request.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>STOPPED</code> indicates that the execution stopped because of a
-   *                   <code>StopNotebookExecution</code> request.</p>
-   *             </li>
-   *          </ul>
+   * The status filter for listing notebook executions.
+   *
+   * - `START_PENDING` indicates that the cluster has received the execution request but execution has not begun.
+   * - `STARTING` indicates that the execution is starting on the cluster.
+   * - `RUNNING` indicates that the execution is being processed by the cluster.
+   * - `FINISHING` indicates that execution processing is in the final stages.
+   * - `FINISHED` indicates that the execution has completed without error.
+   * - `FAILING` indicates that the execution is failing and will not finish successfully.
+   * - `FAILED` indicates that the execution failed.
+   * - `STOP_PENDING` indicates that the cluster has received a `StopNotebookExecution` request and the stop is pending.
+   * - `STOPPING` indicates that the cluster is in the process of stopping the execution as a result of a `StopNotebookExecution` request.
+   * - `STOPPED` indicates that the execution stopped because of a `StopNotebookExecution` request.
+   *
    * @public
    */
   Status?: NotebookExecutionStatus | undefined;
 
   /**
-   * <p>The beginning of time range filter for listing notebook executions. The default is the
-   *          timestamp of 30 days ago.</p>
+   * The beginning of time range filter for listing notebook executions. The default is the timestamp of 30 days ago.
+   *
    * @public
    */
   From?: Date | undefined;
 
   /**
-   * <p>The end of time range filter for listing notebook executions. The default is the current
-   *          timestamp.</p>
+   * The end of time range filter for listing notebook executions. The default is the current timestamp.
+   *
    * @public
    */
   To?: Date | undefined;
 
   /**
-   * <p>The pagination token, returned by a previous <code>ListNotebookExecutions</code> call,
-   *          that indicates the start of the list for this <code>ListNotebookExecutions</code>
-   *          call.</p>
+   * The pagination token, returned by a previous `ListNotebookExecutions` call, that indicates the start of the list for this `ListNotebookExecutions` call.
+   *
    * @public
    */
   Marker?: string | undefined;
 
   /**
-   * <p>The unique ID of the execution engine.</p>
+   * The unique ID of the execution engine.
+   *
    * @public
    */
   ExecutionEngineId?: string | undefined;
 }
 
 /**
- * <p>Details for a notebook execution. The details include information such as the unique ID
- *          and status of the notebook execution.</p>
+ * Details for a notebook execution. The details include information such as the unique ID and status of the notebook execution.
+ *
  * @public
  */
 export interface NotebookExecutionSummary {
   /**
-   * <p>The unique identifier of the notebook execution.</p>
+   * The unique identifier of the notebook execution.
+   *
    * @public
    */
   NotebookExecutionId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the editor associated with the notebook execution.</p>
+   * The unique identifier of the editor associated with the notebook execution.
+   *
    * @public
    */
   EditorId?: string | undefined;
 
   /**
-   * <p>The name of the notebook execution.</p>
+   * The name of the notebook execution.
+   *
    * @public
    */
   NotebookExecutionName?: string | undefined;
 
   /**
-   * <p>The status of the notebook execution.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>START_PENDING</code> indicates that the cluster has received the execution
-   *                request but execution has not begun.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>STARTING</code> indicates that the execution is starting on the
-   *                cluster.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RUNNING</code> indicates that the execution is being processed by the
-   *                cluster.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FINISHING</code> indicates that execution processing is in the final
-   *                stages.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FINISHED</code> indicates that the execution has completed without
-   *                error.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILING</code> indicates that the execution is failing and will not finish
-   *                successfully.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED</code> indicates that the execution failed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>STOP_PENDING</code> indicates that the cluster has received a
-   *                   <code>StopNotebookExecution</code> request and the stop is pending.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>STOPPING</code> indicates that the cluster is in the process of stopping the
-   *                execution as a result of a <code>StopNotebookExecution</code> request.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>STOPPED</code> indicates that the execution stopped because of a
-   *                   <code>StopNotebookExecution</code> request.</p>
-   *             </li>
-   *          </ul>
+   * The status of the notebook execution.
+   *
+   * - `START_PENDING` indicates that the cluster has received the execution request but execution has not begun.
+   * - `STARTING` indicates that the execution is starting on the cluster.
+   * - `RUNNING` indicates that the execution is being processed by the cluster.
+   * - `FINISHING` indicates that execution processing is in the final stages.
+   * - `FINISHED` indicates that the execution has completed without error.
+   * - `FAILING` indicates that the execution is failing and will not finish successfully.
+   * - `FAILED` indicates that the execution failed.
+   * - `STOP_PENDING` indicates that the cluster has received a `StopNotebookExecution` request and the stop is pending.
+   * - `STOPPING` indicates that the cluster is in the process of stopping the execution as a result of a `StopNotebookExecution` request.
+   * - `STOPPED` indicates that the execution stopped because of a `StopNotebookExecution` request.
+   *
    * @public
    */
   Status?: NotebookExecutionStatus | undefined;
 
   /**
-   * <p>The timestamp when notebook execution started.</p>
+   * The timestamp when notebook execution started.
+   *
    * @public
    */
   StartTime?: Date | undefined;
 
   /**
-   * <p>The timestamp when notebook execution started.</p>
+   * The timestamp when notebook execution started.
+   *
    * @public
    */
   EndTime?: Date | undefined;
 
   /**
-   * <p>The Amazon S3 location that stores the notebook execution input.</p>
+   * The Amazon S3 location that stores the notebook execution input.
+   *
    * @public
    */
   NotebookS3Location?: NotebookS3LocationForOutput | undefined;
 
   /**
-   * <p>The unique ID of the execution engine for the notebook execution.</p>
+   * The unique ID of the execution engine for the notebook execution.
+   *
    * @public
    */
   ExecutionEngineId?: string | undefined;
@@ -4802,32 +4759,36 @@ export interface NotebookExecutionSummary {
  */
 export interface ListNotebookExecutionsOutput {
   /**
-   * <p>A list of notebook executions.</p>
+   * A list of notebook executions.
+   *
    * @public
    */
   NotebookExecutions?: NotebookExecutionSummary[] | undefined;
 
   /**
-   * <p>A pagination token that a subsequent <code>ListNotebookExecutions</code> can use to
-   *          determine the next set of results to retrieve.</p>
+   * A pagination token that a subsequent `ListNotebookExecutions` can use to determine the next set of results to retrieve.
+   *
    * @public
    */
   Marker?: string | undefined;
 }
 
 /**
- * <p>The release label filters by application or version prefix.</p>
+ * The release label filters by application or version prefix.
+ *
  * @public
  */
 export interface ReleaseLabelFilter {
   /**
-   * <p>Optional release label version prefix filter. For example, <code>emr-5</code>.</p>
+   * Optional release label version prefix filter. For example, `emr-5`.
+   *
    * @public
    */
   Prefix?: string | undefined;
 
   /**
-   * <p>Optional release label application filter. For example, <code>spark@2.1.0</code>.</p>
+   * Optional release label application filter. For example, `spark@2.1.0`.
+   *
    * @public
    */
   Application?: string | undefined;
@@ -4838,27 +4799,22 @@ export interface ReleaseLabelFilter {
  */
 export interface ListReleaseLabelsInput {
   /**
-   * <p>Filters the results of the request. <code>Prefix</code> specifies the prefix of release
-   *          labels to return. <code>Application</code> specifies the application (with/without version)
-   *          of release labels to return.</p>
+   * Filters the results of the request. `Prefix` specifies the prefix of release labels to return. `Application` specifies the application (with/without version) of release labels to return.
+   *
    * @public
    */
   Filters?: ReleaseLabelFilter | undefined;
 
   /**
-   * <p>Specifies the next page of results. If <code>NextToken</code> is not specified, which is
-   *          usually the case for the first request of ListReleaseLabels, the first page of results are
-   *          determined by other filtering parameters or by the latest version. The
-   *             <code>ListReleaseLabels</code> request fails if the identity (Amazon Web Services account
-   *          ID) and all filtering parameters are different from the original request, or if the
-   *             <code>NextToken</code> is expired or tampered with.</p>
+   * Specifies the next page of results. If `NextToken` is not specified, which is usually the case for the first request of ListReleaseLabels, the first page of results are determined by other filtering parameters or by the latest version. The `ListReleaseLabels` request fails if the identity (Amazon Web Services account ID) and all filtering parameters are different from the original request, or if the `NextToken` is expired or tampered with.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>Defines the maximum number of release labels to return in a single response. The default
-   *          is <code>100</code>.</p>
+   * Defines the maximum number of release labels to return in a single response. The default is `100`.
+   *
    * @public
    */
   MaxResults?: number | undefined;
@@ -4869,14 +4825,15 @@ export interface ListReleaseLabelsInput {
  */
 export interface ListReleaseLabelsOutput {
   /**
-   * <p>The returned release labels.</p>
+   * The returned release labels.
+   *
    * @public
    */
   ReleaseLabels?: string[] | undefined;
 
   /**
-   * <p>Used to paginate the next page of results if specified in the next
-   *             <code>ListReleaseLabels</code> request.</p>
+   * Used to paginate the next page of results if specified in the next `ListReleaseLabels` request.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -4887,25 +4844,29 @@ export interface ListReleaseLabelsOutput {
  */
 export interface ListSecurityConfigurationsInput {
   /**
-   * <p>The pagination token that indicates the set of results to retrieve.</p>
+   * The pagination token that indicates the set of results to retrieve.
+   *
    * @public
    */
   Marker?: string | undefined;
 }
 
 /**
- * <p>The creation date and time, and name, of a security configuration.</p>
+ * The creation date and time, and name, of a security configuration.
+ *
  * @public
  */
 export interface SecurityConfigurationSummary {
   /**
-   * <p>The name of the security configuration.</p>
+   * The name of the security configuration.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The date and time the security configuration was created.</p>
+   * The date and time the security configuration was created.
+   *
    * @public
    */
   CreationDateTime?: Date | undefined;
@@ -4916,153 +4877,162 @@ export interface SecurityConfigurationSummary {
  */
 export interface ListSecurityConfigurationsOutput {
   /**
-   * <p>The creation date and time, and name, of each security configuration.</p>
+   * The creation date and time, and name, of each security configuration.
+   *
    * @public
    */
   SecurityConfigurations?: SecurityConfigurationSummary[] | undefined;
 
   /**
-   * <p>A pagination token that indicates the next set of results to retrieve. Include the
-   *          marker in the next ListSecurityConfiguration call to retrieve the next page of results, if
-   *          required.</p>
+   * A pagination token that indicates the next set of results to retrieve. Include the marker in the next ListSecurityConfiguration call to retrieve the next page of results, if required.
+   *
    * @public
    */
   Marker?: string | undefined;
 }
 
 /**
- * <p>Input to the <code>ListSessions</code> operation.</p>
+ * Input to the `ListSessions` operation.
+ *
  * @public
  */
 export interface ListSessionsInput {
   /**
-   * <p>The ID of the cluster to list sessions for.</p>
+   * The ID of the cluster to list sessions for.
+   *
    * @public
    */
   ClusterId: string | undefined;
 
   /**
-   * <p>An optional filter that limits the results to sessions in the specified states.</p>
+   * An optional filter that limits the results to sessions in the specified states.
+   *
    * @public
    */
   SessionStates?: SessionState[] | undefined;
 
   /**
-   * <p>The pagination token returned by a previous <code>ListSessions</code> call. Use it to retrieve the next page of results.</p>
+   * The pagination token returned by a previous `ListSessions` call. Use it to retrieve the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of sessions to return in each page of results.</p>
+   * The maximum number of sessions to return in each page of results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>This input determines which steps to list.</p>
+ * This input determines which steps to list.
+ *
  * @public
  */
 export interface ListStepsInput {
   /**
-   * <p>The identifier of the cluster for which to list the steps.</p>
+   * The identifier of the cluster for which to list the steps.
+   *
    * @public
    */
   ClusterId: string | undefined;
 
   /**
-   * <p>The filter to limit the step list based on certain states.</p>
+   * The filter to limit the step list based on certain states.
+   *
    * @public
    */
   StepStates?: StepState[] | undefined;
 
   /**
-   * <p>The filter to limit the step list based on the identifier of the steps. You can specify
-   *          a maximum of ten Step IDs. The character constraint applies to the overall length of the
-   *          array.</p>
+   * The filter to limit the step list based on the identifier of the steps. You can specify a maximum of ten Step IDs. The character constraint applies to the overall length of the array.
+   *
    * @public
    */
   StepIds?: string[] | undefined;
 
   /**
-   * <p>The maximum number of steps that a single <code>ListSteps</code> action returns is 50.
-   *          To return a longer list of steps, use multiple <code>ListSteps</code> actions along with
-   *          the <code>Marker</code> parameter, which is a pagination token that indicates the next set
-   *          of results to retrieve.</p>
+   * The maximum number of steps that a single `ListSteps` action returns is 50. To return a longer list of steps, use multiple `ListSteps` actions along with the `Marker` parameter, which is a pagination token that indicates the next set of results to retrieve.
+   *
    * @public
    */
   Marker?: string | undefined;
 }
 
 /**
- * <p>The summary of the cluster step.</p>
+ * The summary of the cluster step.
+ *
  * @public
  */
 export interface StepSummary {
   /**
-   * <p>The identifier of the cluster step.</p>
+   * The identifier of the cluster step.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The name of the cluster step.</p>
+   * The name of the cluster step.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The Hadoop job configuration of the cluster step.</p>
+   * The Hadoop job configuration of the cluster step.
+   *
    * @public
    */
   Config?: HadoopStepConfig | undefined;
 
   /**
-   * <p>The action to take when the cluster step fails. Possible values are TERMINATE_CLUSTER,
-   *          CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is available for backward
-   *          compatibility.</p>
+   * The action to take when the cluster step fails. Possible values are TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is available for backward compatibility.
+   *
    * @public
    */
   ActionOnFailure?: ActionOnFailure | undefined;
 
   /**
-   * <p>The current execution status details of the cluster step.</p>
+   * The current execution status details of the cluster step.
+   *
    * @public
    */
   Status?: StepStatus | undefined;
 
   /**
-   * <p>The Amazon S3 destination URI for log publishing.</p>
+   * The Amazon S3 destination URI for log publishing.
+   *
    * @public
    */
   LogUri?: string | undefined;
 
   /**
-   * <p>The KMS key ARN to encrypt the logs published to the given Amazon S3
-   *          destination.</p>
+   * The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
+   *
    * @public
    */
   EncryptionKeyArn?: string | undefined;
 }
 
 /**
- * <p>This output contains the list of steps returned in reverse order. This means that the
- *          last step is the first element in the list.</p>
+ * This output contains the list of steps returned in reverse order. This means that the last step is the first element in the list.
+ *
  * @public
  */
 export interface ListStepsOutput {
   /**
-   * <p>The filtered list of steps for the cluster.</p>
+   * The filtered list of steps for the cluster.
+   *
    * @public
    */
   Steps?: StepSummary[] | undefined;
 
   /**
-   * <p>The maximum number of steps that a single <code>ListSteps</code> action returns is 50.
-   *          To return a longer list of steps, use multiple <code>ListSteps</code> actions along with
-   *          the <code>Marker</code> parameter, which is a pagination token that indicates the next set
-   *          of results to retrieve.</p>
+   * The maximum number of steps that a single `ListSteps` action returns is 50. To return a longer list of steps, use multiple `ListSteps` actions along with the `Marker` parameter, which is a pagination token that indicates the next set of results to retrieve.
+   *
    * @public
    */
   Marker?: string | undefined;
@@ -5073,56 +5043,64 @@ export interface ListStepsOutput {
  */
 export interface ListStudiosInput {
   /**
-   * <p>The pagination token that indicates the set of results to retrieve.</p>
+   * The pagination token that indicates the set of results to retrieve.
+   *
    * @public
    */
   Marker?: string | undefined;
 }
 
 /**
- * <p>Details for an Amazon EMR Studio, including ID, Name, VPC, and Description. To fetch additional details such as subnets, IAM roles,
- *          security groups, and tags for the Studio, use the <a>DescribeStudio</a> API.</p>
+ * Details for an Amazon EMR Studio, including ID, Name, VPC, and Description. To fetch additional details such as subnets, IAM roles, security groups, and tags for the Studio, use the DescribeStudio API.
+ *
  * @public
  */
 export interface StudioSummary {
   /**
-   * <p>The ID of the Amazon EMR Studio.</p>
+   * The ID of the Amazon EMR Studio.
+   *
    * @public
    */
   StudioId?: string | undefined;
 
   /**
-   * <p>The name of the Amazon EMR Studio.</p>
+   * The name of the Amazon EMR Studio.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The ID of the Virtual Private Cloud (Amazon VPC) associated with the Amazon EMR Studio.</p>
+   * The ID of the Virtual Private Cloud (Amazon VPC) associated with the Amazon EMR Studio.
+   *
    * @public
    */
   VpcId?: string | undefined;
 
   /**
-   * <p>The detailed description of the Amazon EMR Studio.</p>
+   * The detailed description of the Amazon EMR Studio.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The unique access URL of the Amazon EMR Studio.</p>
+   * The unique access URL of the Amazon EMR Studio.
+   *
    * @public
    */
   Url?: string | undefined;
 
   /**
-   * <p>Specifies whether the Studio authenticates users using IAM or IAM Identity Center.</p>
+   * Specifies whether the Studio authenticates users using IAM or IAM Identity Center.
+   *
    * @public
    */
   AuthMode?: AuthMode | undefined;
 
   /**
-   * <p>The time when the Amazon EMR Studio was created.</p>
+   * The time when the Amazon EMR Studio was created.
+   *
    * @public
    */
   CreationTime?: Date | undefined;
@@ -5133,13 +5111,15 @@ export interface StudioSummary {
  */
 export interface ListStudiosOutput {
   /**
-   * <p>The list of Studio summary objects.</p>
+   * The list of Studio summary objects.
+   *
    * @public
    */
   Studios?: StudioSummary[] | undefined;
 
   /**
-   * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   * The pagination token that indicates the next set of results to retrieve.
+   *
    * @public
    */
   Marker?: string | undefined;
@@ -5150,67 +5130,71 @@ export interface ListStudiosOutput {
  */
 export interface ListStudioSessionMappingsInput {
   /**
-   * <p>The ID of the Amazon EMR Studio.</p>
+   * The ID of the Amazon EMR Studio.
+   *
    * @public
    */
   StudioId?: string | undefined;
 
   /**
-   * <p>Specifies whether to return session mappings for users or groups. If not specified, the
-   *          results include session mapping details for both users and groups.</p>
+   * Specifies whether to return session mappings for users or groups. If not specified, the results include session mapping details for both users and groups.
+   *
    * @public
    */
   IdentityType?: IdentityType | undefined;
 
   /**
-   * <p>The pagination token that indicates the set of results to retrieve.</p>
+   * The pagination token that indicates the set of results to retrieve.
+   *
    * @public
    */
   Marker?: string | undefined;
 }
 
 /**
- * <p>Details for an Amazon EMR Studio session mapping. The details do not include the
- *          time the session mapping was last modified.</p>
+ * Details for an Amazon EMR Studio session mapping. The details do not include the time the session mapping was last modified.
+ *
  * @public
  */
 export interface SessionMappingSummary {
   /**
-   * <p>The ID of the Amazon EMR Studio.</p>
+   * The ID of the Amazon EMR Studio.
+   *
    * @public
    */
   StudioId?: string | undefined;
 
   /**
-   * <p>The globally unique identifier (GUID) of the user or group from the IAM Identity Center
-   *          Identity Store.</p>
+   * The globally unique identifier (GUID) of the user or group from the IAM Identity Center Identity Store.
+   *
    * @public
    */
   IdentityId?: string | undefined;
 
   /**
-   * <p>The name of the user or group. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>IAM Identity Center Identity Store API
-   *             Reference</i>.</p>
+   * The name of the user or group. For more information, see [UserName](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName) and [DisplayName](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName) in the *IAM Identity Center Identity Store API Reference*.
+   *
    * @public
    */
   IdentityName?: string | undefined;
 
   /**
-   * <p>Specifies whether the identity mapped to the Amazon EMR Studio is a user or a
-   *          group.</p>
+   * Specifies whether the identity mapped to the Amazon EMR Studio is a user or a group.
+   *
    * @public
    */
   IdentityType?: IdentityType | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the session policy associated with the user or
-   *          group.</p>
+   * The Amazon Resource Name (ARN) of the session policy associated with the user or group.
+   *
    * @public
    */
   SessionPolicyArn?: string | undefined;
 
   /**
-   * <p>The time the session mapping was created.</p>
+   * The time the session mapping was created.
+   *
    * @public
    */
   CreationTime?: Date | undefined;
@@ -5221,15 +5205,15 @@ export interface SessionMappingSummary {
  */
 export interface ListStudioSessionMappingsOutput {
   /**
-   * <p>A list of session mapping summary objects. Each object includes session mapping details
-   *          such as creation time, identity type (user or group), and Amazon EMR Studio
-   *          ID.</p>
+   * A list of session mapping summary objects. Each object includes session mapping details such as creation time, identity type (user or group), and Amazon EMR Studio ID.
+   *
    * @public
    */
   SessionMappings?: SessionMappingSummary[] | undefined;
 
   /**
-   * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   * The pagination token that indicates the next set of results to retrieve.
+   *
    * @public
    */
   Marker?: string | undefined;
@@ -5240,102 +5224,99 @@ export interface ListStudioSessionMappingsOutput {
  */
 export interface ListSupportedInstanceTypesInput {
   /**
-   * <p>The Amazon EMR release label determines the <a href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-app-versions-6.x.html">versions of open-source
-   *             application packages</a> that Amazon EMR has installed on the cluster.
-   *          Release labels are in the format <code>emr-x.x.x</code>, where x.x.x is an Amazon EMR release number such as <code>emr-6.10.0</code>. For more information about Amazon EMR releases and their included application versions and features, see the
-   *                <i>
-   *                <a href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html">Amazon EMR Release
-   *                Guide</a>
-   *             </i>.</p>
+   * The Amazon EMR release label determines the [versions of open-source application packages](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-app-versions-6.x.html) that Amazon EMR has installed on the cluster. Release labels are in the format `emr-x.x.x`, where x.x.x is an Amazon EMR release number such as `emr-6.10.0`. For more information about Amazon EMR releases and their included application versions and features, see the *[Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html)* .
+   *
    * @public
    */
   ReleaseLabel: string | undefined;
 
   /**
-   * <p>The pagination token that marks the next set of results to retrieve.</p>
+   * The pagination token that marks the next set of results to retrieve.
+   *
    * @public
    */
   Marker?: string | undefined;
 }
 
 /**
- * <p>An instance type that the specified Amazon EMR release supports.</p>
+ * An instance type that the specified Amazon EMR release supports.
+ *
  * @public
  */
 export interface SupportedInstanceType {
   /**
-   * <p>The <a href="http://aws.amazon.com/ec2/instance-types/">Amazon EC2 instance
-   *             type</a>, for example <code>m5.xlarge</code>, of the
-   *             <code>SupportedInstanceType</code>.</p>
+   * The [Amazon EC2 instance type](http://aws.amazon.com/ec2/instance-types/), for example `m5.xlarge`, of the `SupportedInstanceType`.
+   *
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p>The amount of memory that is available to Amazon EMR from the <code>SupportedInstanceType</code>. The kernel and hypervisor
-   *          software consume some memory, so this value might be lower than the overall memory for the
-   *          instance type.</p>
+   * The amount of memory that is available to Amazon EMR from the `SupportedInstanceType`. The kernel and hypervisor software consume some memory, so this value might be lower than the overall memory for the instance type.
+   *
    * @public
    */
   MemoryGB?: number | undefined;
 
   /**
-   * <p>
-   *             <code>StorageGB</code> represents the storage capacity of the
-   *             <code>SupportedInstanceType</code>. This value is <code>0</code> for Amazon EBS-only instance types.</p>
+   * `StorageGB` represents the storage capacity of the `SupportedInstanceType`. This value is `0` for Amazon EBS-only instance types.
+   *
    * @public
    */
   StorageGB?: number | undefined;
 
   /**
-   * <p>The number of vCPUs available for the <code>SupportedInstanceType</code>.</p>
+   * The number of vCPUs available for the `SupportedInstanceType`.
+   *
    * @public
    */
   VCPU?: number | undefined;
 
   /**
-   * <p>Indicates whether the <code>SupportedInstanceType</code> only supports 64-bit
-   *          architecture.</p>
+   * Indicates whether the `SupportedInstanceType` only supports 64-bit architecture.
+   *
    * @public
    */
   Is64BitsOnly?: boolean | undefined;
 
   /**
-   * <p>The Amazon EC2 family and generation for the
-   *          <code>SupportedInstanceType</code>.</p>
+   * The Amazon EC2 family and generation for the `SupportedInstanceType`.
+   *
    * @public
    */
   InstanceFamilyId?: string | undefined;
 
   /**
-   * <p>Indicates whether the <code>SupportedInstanceType</code> supports Amazon EBS
-   *          optimization.</p>
+   * Indicates whether the `SupportedInstanceType` supports Amazon EBS optimization.
+   *
    * @public
    */
   EbsOptimizedAvailable?: boolean | undefined;
 
   /**
-   * <p>Indicates whether the <code>SupportedInstanceType</code> uses Amazon EBS
-   *          optimization by default.</p>
+   * Indicates whether the `SupportedInstanceType` uses Amazon EBS optimization by default.
+   *
    * @public
    */
   EbsOptimizedByDefault?: boolean | undefined;
 
   /**
-   * <p>Number of disks for the <code>SupportedInstanceType</code>. This value is <code>0</code>
-   *          for Amazon EBS-only instance types.</p>
+   * Number of disks for the `SupportedInstanceType`. This value is `0` for Amazon EBS-only instance types.
+   *
    * @public
    */
   NumberOfDisks?: number | undefined;
 
   /**
-   * <p>Indicates whether the <code>SupportedInstanceType</code> only supports Amazon EBS.</p>
+   * Indicates whether the `SupportedInstanceType` only supports Amazon EBS.
+   *
    * @public
    */
   EbsStorageOnly?: boolean | undefined;
 
   /**
-   * <p>The CPU architecture, for example <code>X86_64</code> or <code>AARCH64</code>.</p>
+   * The CPU architecture, for example `X86_64` or `AARCH64`.
+   *
    * @public
    */
   Architecture?: string | undefined;
@@ -5346,14 +5327,15 @@ export interface SupportedInstanceType {
  */
 export interface ListSupportedInstanceTypesOutput {
   /**
-   * <p>The list of instance types that the release specified in
-   *             <code>ListSupportedInstanceTypesInput$ReleaseLabel</code> supports, filtered by Amazon Web Services Region.</p>
+   * The list of instance types that the release specified in `ListSupportedInstanceTypesInput$ReleaseLabel` supports, filtered by Amazon Web Services Region.
+   *
    * @public
    */
   SupportedInstanceTypes?: SupportedInstanceType[] | undefined;
 
   /**
-   * <p>The pagination token that marks the next set of results to retrieve.</p>
+   * The pagination token that marks the next set of results to retrieve.
+   *
    * @public
    */
   Marker?: string | undefined;
@@ -5364,22 +5346,22 @@ export interface ListSupportedInstanceTypesOutput {
  */
 export interface ModifyClusterInput {
   /**
-   * <p>The unique identifier of the cluster.</p>
+   * The unique identifier of the cluster.
+   *
    * @public
    */
   ClusterId: string | undefined;
 
   /**
-   * <p>The number of steps that can be executed concurrently. You can specify a minimum of 1
-   *          step and a maximum of 256 steps. We recommend that you do not change this parameter while
-   *          steps are running or the <code>ActionOnFailure</code> setting may not behave as expected.
-   *          For more information see <a>Step$ActionOnFailure</a>.</p>
+   * The number of steps that can be executed concurrently. You can specify a minimum of 1 step and a maximum of 256 steps. We recommend that you do not change this parameter while steps are running or the `ActionOnFailure` setting may not behave as expected. For more information see Step$ActionOnFailure.
+   *
    * @public
    */
   StepConcurrencyLevel?: number | undefined;
 
   /**
-   * <p>Reserved.</p>
+   * Reserved.
+   *
    * @public
    */
   ExtendedSupport?: boolean | undefined;
@@ -5390,13 +5372,15 @@ export interface ModifyClusterInput {
  */
 export interface ModifyClusterOutput {
   /**
-   * <p>The number of steps that can be executed concurrently.</p>
+   * The number of steps that can be executed concurrently.
+   *
    * @public
    */
   StepConcurrencyLevel?: number | undefined;
 
   /**
-   * <p>Reserved.</p>
+   * Reserved.
+   *
    * @public
    */
   ExtendedSupport?: boolean | undefined;
@@ -5407,21 +5391,22 @@ export interface ModifyClusterOutput {
  */
 export interface PutAutoScalingPolicyInput {
   /**
-   * <p>Specifies the ID of a cluster. The instance group to which the automatic scaling policy
-   *          is applied is within this cluster.</p>
+   * Specifies the ID of a cluster. The instance group to which the automatic scaling policy is applied is within this cluster.
+   *
    * @public
    */
   ClusterId: string | undefined;
 
   /**
-   * <p>Specifies the ID of the instance group to which the automatic scaling policy is
-   *          applied.</p>
+   * Specifies the ID of the instance group to which the automatic scaling policy is applied.
+   *
    * @public
    */
   InstanceGroupId: string | undefined;
 
   /**
-   * <p>Specifies the definition of the automatic scaling policy.</p>
+   * Specifies the definition of the automatic scaling policy.
+   *
    * @public
    */
   AutoScalingPolicy: AutoScalingPolicy | undefined;
@@ -5432,26 +5417,29 @@ export interface PutAutoScalingPolicyInput {
  */
 export interface PutAutoScalingPolicyOutput {
   /**
-   * <p>Specifies the ID of a cluster. The instance group to which the automatic scaling policy
-   *          is applied is within this cluster.</p>
+   * Specifies the ID of a cluster. The instance group to which the automatic scaling policy is applied is within this cluster.
+   *
    * @public
    */
   ClusterId?: string | undefined;
 
   /**
-   * <p>Specifies the ID of the instance group to which the scaling policy is applied.</p>
+   * Specifies the ID of the instance group to which the scaling policy is applied.
+   *
    * @public
    */
   InstanceGroupId?: string | undefined;
 
   /**
-   * <p>The automatic scaling policy definition.</p>
+   * The automatic scaling policy definition.
+   *
    * @public
    */
   AutoScalingPolicy?: AutoScalingPolicyDescription | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   * The Amazon Resource Name (ARN) of the cluster.
+   *
    * @public
    */
   ClusterArn?: string | undefined;
@@ -5462,14 +5450,15 @@ export interface PutAutoScalingPolicyOutput {
  */
 export interface PutAutoTerminationPolicyInput {
   /**
-   * <p>Specifies the ID of the Amazon EMR cluster to which the auto-termination policy
-   *          will be attached.</p>
+   * Specifies the ID of the Amazon EMR cluster to which the auto-termination policy will be attached.
+   *
    * @public
    */
   ClusterId: string | undefined;
 
   /**
-   * <p>Specifies the auto-termination policy to attach to the cluster.</p>
+   * Specifies the auto-termination policy to attach to the cluster.
+   *
    * @public
    */
   AutoTerminationPolicy?: AutoTerminationPolicy | undefined;
@@ -5490,14 +5479,15 @@ export interface PutBlockPublicAccessConfigurationOutput {}
  */
 export interface PutManagedScalingPolicyInput {
   /**
-   * <p>Specifies the ID of an Amazon EMR cluster where the managed scaling policy is
-   *          attached. </p>
+   * Specifies the ID of an Amazon EMR cluster where the managed scaling policy is attached.
+   *
    * @public
    */
   ClusterId: string | undefined;
 
   /**
-   * <p>Specifies the constraints for the managed scaling policy. </p>
+   * Specifies the constraints for the managed scaling policy.
+   *
    * @public
    */
   ManagedScalingPolicy: ManagedScalingPolicy | undefined;
@@ -5513,14 +5503,15 @@ export interface PutManagedScalingPolicyOutput {}
  */
 export interface RemoveAutoScalingPolicyInput {
   /**
-   * <p>Specifies the ID of a cluster. The instance group to which the automatic scaling policy
-   *          is applied is within this cluster.</p>
+   * Specifies the ID of a cluster. The instance group to which the automatic scaling policy is applied is within this cluster.
+   *
    * @public
    */
   ClusterId: string | undefined;
 
   /**
-   * <p>Specifies the ID of the instance group to which the scaling policy is applied.</p>
+   * Specifies the ID of the instance group to which the scaling policy is applied.
+   *
    * @public
    */
   InstanceGroupId: string | undefined;
@@ -5536,8 +5527,8 @@ export interface RemoveAutoScalingPolicyOutput {}
  */
 export interface RemoveAutoTerminationPolicyInput {
   /**
-   * <p>Specifies the ID of the Amazon EMR cluster from which the auto-termination
-   *          policy will be removed.</p>
+   * Specifies the ID of the Amazon EMR cluster from which the auto-termination policy will be removed.
+   *
    * @public
    */
   ClusterId: string | undefined;
@@ -5553,8 +5544,8 @@ export interface RemoveAutoTerminationPolicyOutput {}
  */
 export interface RemoveManagedScalingPolicyInput {
   /**
-   * <p> Specifies the ID of the cluster from which the managed scaling policy will be removed.
-   *       </p>
+   * Specifies the ID of the cluster from which the managed scaling policy will be removed.
+   *
    * @public
    */
   ClusterId: string | undefined;
@@ -5566,69 +5557,77 @@ export interface RemoveManagedScalingPolicyInput {
 export interface RemoveManagedScalingPolicyOutput {}
 
 /**
- * <p>This input identifies an Amazon EMR resource and a list of tags to
- *          remove.</p>
+ * This input identifies an Amazon EMR resource and a list of tags to remove.
+ *
  * @public
  */
 export interface RemoveTagsInput {
   /**
-   * <p>The Amazon EMR resource identifier from which tags will be removed. For example,
-   *          a cluster identifier or an Amazon EMR Studio ID.</p>
+   * The Amazon EMR resource identifier from which tags will be removed. For example, a cluster identifier or an Amazon EMR Studio ID.
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>A list of tag keys to remove from the resource.</p>
+   * A list of tag keys to remove from the resource.
+   *
    * @public
    */
   TagKeys: string[] | undefined;
 
   /**
-   * <p>The ID of the cluster that scopes the tag operation. Required when the resource being untagged is a session-scoped resource.</p>
+   * The ID of the cluster that scopes the tag operation. Required when the resource being untagged is a session-scoped resource.
+   *
    * @public
    */
   ClusterId?: string | undefined;
 }
 
 /**
- * <p>This output indicates the result of removing tags from the resource.</p>
+ * This output indicates the result of removing tags from the resource.
+ *
  * @public
  */
 export interface RemoveTagsOutput {}
 
 /**
- * <p>The list of supported product configurations that allow user-supplied arguments. Amazon EMR accepts these arguments and forwards them to the corresponding installation
- *          script as bootstrap action arguments.</p>
+ * The list of supported product configurations that allow user-supplied arguments. Amazon EMR accepts these arguments and forwards them to the corresponding installation script as bootstrap action arguments.
+ *
  * @public
  */
 export interface SupportedProductConfig {
   /**
-   * <p>The name of the product configuration.</p>
+   * The name of the product configuration.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The list of user-supplied arguments.</p>
+   * The list of user-supplied arguments.
+   *
    * @public
    */
   Args?: string[] | undefined;
 }
 
 /**
- * <p> The result of the <a>RunJobFlow</a> operation. </p>
+ * The result of the RunJobFlow operation.
+ *
  * @public
  */
 export interface RunJobFlowOutput {
   /**
-   * <p>A unique identifier for the job flow.</p>
+   * A unique identifier for the job flow.
+   *
    * @public
    */
   JobFlowId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   * The Amazon Resource Name (ARN) of the cluster.
+   *
    * @public
    */
   ClusterArn?: string | undefined;
@@ -5639,35 +5638,36 @@ export interface RunJobFlowOutput {
  */
 export interface SetKeepJobFlowAliveWhenNoStepsInput {
   /**
-   * <p>A list of strings that uniquely identify the clusters to protect. This identifier is returned by
-   *          <a href="https://docs.aws.amazon.com/emr/latest/APIReference/API_RunJobFlow.html">RunJobFlow</a> and can also
-   *          be obtained from <a href="https://docs.aws.amazon.com/emr/latest/APIReference/API_DescribeJobFlows.html">DescribeJobFlows</a>.</p>
+   * A list of strings that uniquely identify the clusters to protect. This identifier is returned by [RunJobFlow](https://docs.aws.amazon.com/emr/latest/APIReference/API_RunJobFlow.html) and can also be obtained from [DescribeJobFlows](https://docs.aws.amazon.com/emr/latest/APIReference/API_DescribeJobFlows.html).
+   *
    * @public
    */
   JobFlowIds: string[] | undefined;
 
   /**
-   * <p>A Boolean that indicates whether to terminate the cluster after all steps are executed.</p>
+   * A Boolean that indicates whether to terminate the cluster after all steps are executed.
+   *
    * @public
    */
   KeepJobFlowAliveWhenNoSteps: boolean | undefined;
 }
 
 /**
- * <p> The input argument to the <a>TerminationProtection</a> operation. </p>
+ * The input argument to the TerminationProtection operation.
+ *
  * @public
  */
 export interface SetTerminationProtectionInput {
   /**
-   * <p> A list of strings that uniquely identify the clusters to protect. This identifier is
-   *          returned by <a>RunJobFlow</a> and can also be obtained from <a>DescribeJobFlows</a> . </p>
+   * A list of strings that uniquely identify the clusters to protect. This identifier is returned by RunJobFlow and can also be obtained from DescribeJobFlows .
+   *
    * @public
    */
   JobFlowIds: string[] | undefined;
 
   /**
-   * <p>A Boolean that indicates whether to protect the cluster and prevent the Amazon EC2 instances in the cluster from shutting down due to API calls, user intervention, or
-   *          job-flow error.</p>
+   * A Boolean that indicates whether to protect the cluster and prevent the Amazon EC2 instances in the cluster from shutting down due to API calls, user intervention, or job-flow error.
+   *
    * @public
    */
   TerminationProtected: boolean | undefined;
@@ -5678,76 +5678,78 @@ export interface SetTerminationProtectionInput {
  */
 export interface SetUnhealthyNodeReplacementInput {
   /**
-   * <p>The list of strings that uniquely identify the clusters for which to turn on
-   *          unhealthy node replacement. You can get these identifiers by running the
-   *          <a>RunJobFlow</a> or the <a>DescribeJobFlows</a> operations.</p>
+   * The list of strings that uniquely identify the clusters for which to turn on unhealthy node replacement. You can get these identifiers by running the RunJobFlow or the DescribeJobFlows operations.
+   *
    * @public
    */
   JobFlowIds: string[] | undefined;
 
   /**
-   * <p>Indicates whether to turn on or turn off graceful unhealthy node replacement.</p>
+   * Indicates whether to turn on or turn off graceful unhealthy node replacement.
+   *
    * @public
    */
   UnhealthyNodeReplacement: boolean | undefined;
 }
 
 /**
- * <p>The input to the SetVisibleToAllUsers action.</p>
+ * The input to the SetVisibleToAllUsers action.
+ *
  * @public
  */
 export interface SetVisibleToAllUsersInput {
   /**
-   * <p>The unique identifier of the job flow (cluster).</p>
+   * The unique identifier of the job flow (cluster).
+   *
    * @public
    */
   JobFlowIds: string[] | undefined;
 
   /**
-   * <p>A value of <code>true</code> indicates that an IAM principal in the
-   *             Amazon Web Services account can perform Amazon EMR actions on the cluster that
-   *          the IAM policies attached to the principal allow. A value of
-   *             <code>false</code> indicates that only the IAM principal that created the
-   *          cluster and the Amazon Web Services root user can perform Amazon EMR actions on the
-   *          cluster.</p>
+   * A value of `true` indicates that an IAM principal in the Amazon Web Services account can perform Amazon EMR actions on the cluster that the IAM policies attached to the principal allow. A value of `false` indicates that only the IAM principal that created the cluster and the Amazon Web Services root user can perform Amazon EMR actions on the cluster.
+   *
    * @public
    */
   VisibleToAllUsers: boolean | undefined;
 }
 
 /**
- * <p>The Amazon S3 location that stores the notebook execution input.</p>
+ * The Amazon S3 location that stores the notebook execution input.
+ *
  * @public
  */
 export interface NotebookS3LocationFromInput {
   /**
-   * <p>The Amazon S3 bucket that stores the notebook execution input.</p>
+   * The Amazon S3 bucket that stores the notebook execution input.
+   *
    * @public
    */
   Bucket?: string | undefined;
 
   /**
-   * <p>The key to the Amazon S3 location that stores the notebook execution
-   *          input.</p>
+   * The key to the Amazon S3 location that stores the notebook execution input.
+   *
    * @public
    */
   Key?: string | undefined;
 }
 
 /**
- * <p>The Amazon S3 location that stores the notebook execution output.</p>
+ * The Amazon S3 location that stores the notebook execution output.
+ *
  * @public
  */
 export interface OutputNotebookS3LocationFromInput {
   /**
-   * <p>The Amazon S3 bucket that stores the notebook execution output.</p>
+   * The Amazon S3 bucket that stores the notebook execution output.
+   *
    * @public
    */
   Bucket?: string | undefined;
 
   /**
-   * <p>The key to the Amazon S3 location that stores the notebook execution
-   *          output.</p>
+   * The key to the Amazon S3 location that stores the notebook execution output.
+   *
    * @public
    */
   Key?: string | undefined;
@@ -5758,86 +5760,85 @@ export interface OutputNotebookS3LocationFromInput {
  */
 export interface StartNotebookExecutionInput {
   /**
-   * <p>The unique identifier of the Amazon EMR Notebook to use for notebook
-   *          execution.</p>
+   * The unique identifier of the Amazon EMR Notebook to use for notebook execution.
+   *
    * @public
    */
   EditorId?: string | undefined;
 
   /**
-   * <p>The path and file name of the notebook file for this execution, relative to the path
-   *          specified for the Amazon EMR Notebook. For example, if you specify a path of
-   *             <code>s3://MyBucket/MyNotebooks</code> when you create an Amazon EMR Notebook
-   *          for a notebook with an ID of <code>e-ABCDEFGHIJK1234567890ABCD</code> (the
-   *             <code>EditorID</code> of this request), and you specify a <code>RelativePath</code> of
-   *             <code>my_notebook_executions/notebook_execution.ipynb</code>, the location of the file
-   *          for the notebook execution is
-   *             <code>s3://MyBucket/MyNotebooks/e-ABCDEFGHIJK1234567890ABCD/my_notebook_executions/notebook_execution.ipynb</code>.</p>
+   * The path and file name of the notebook file for this execution, relative to the path specified for the Amazon EMR Notebook. For example, if you specify a path of `s3://MyBucket/MyNotebooks` when you create an Amazon EMR Notebook for a notebook with an ID of `e-ABCDEFGHIJK1234567890ABCD` (the `EditorID` of this request), and you specify a `RelativePath` of `my_notebook_executions/notebook_execution.ipynb`, the location of the file for the notebook execution is `s3://MyBucket/MyNotebooks/e-ABCDEFGHIJK1234567890ABCD/my_notebook_executions/notebook_execution.ipynb`.
+   *
    * @public
    */
   RelativePath?: string | undefined;
 
   /**
-   * <p>An optional name for the notebook execution.</p>
+   * An optional name for the notebook execution.
+   *
    * @public
    */
   NotebookExecutionName?: string | undefined;
 
   /**
-   * <p>Input parameters in JSON format passed to the Amazon EMR Notebook at runtime for
-   *          execution.</p>
+   * Input parameters in JSON format passed to the Amazon EMR Notebook at runtime for execution.
+   *
    * @public
    */
   NotebookParams?: string | undefined;
 
   /**
-   * <p>Specifies the execution engine (cluster) that runs the notebook execution.</p>
+   * Specifies the execution engine (cluster) that runs the notebook execution.
+   *
    * @public
    */
   ExecutionEngine: ExecutionEngineConfig | undefined;
 
   /**
-   * <p>The name or ARN of the IAM role that is used as the service role for
-   *             Amazon EMR (the Amazon EMR role) for the notebook execution.</p>
+   * The name or ARN of the IAM role that is used as the service role for Amazon EMR (the Amazon EMR role) for the notebook execution.
+   *
    * @public
    */
   ServiceRole: string | undefined;
 
   /**
-   * <p>The unique identifier of the Amazon EC2 security group to associate with the
-   *             Amazon EMR Notebook for this notebook execution.</p>
+   * The unique identifier of the Amazon EC2 security group to associate with the Amazon EMR Notebook for this notebook execution.
+   *
    * @public
    */
   NotebookInstanceSecurityGroupId?: string | undefined;
 
   /**
-   * <p>A list of tags associated with a notebook execution. Tags are user-defined key-value
-   *          pairs that consist of a required key string with a maximum of 128 characters and an
-   *          optional value string with a maximum of 256 characters.</p>
+   * A list of tags associated with a notebook execution. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters and an optional value string with a maximum of 256 characters.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>The Amazon S3 location for the notebook execution input.</p>
+   * The Amazon S3 location for the notebook execution input.
+   *
    * @public
    */
   NotebookS3Location?: NotebookS3LocationFromInput | undefined;
 
   /**
-   * <p>The Amazon S3 location for the notebook execution output.</p>
+   * The Amazon S3 location for the notebook execution output.
+   *
    * @public
    */
   OutputNotebookS3Location?: OutputNotebookS3LocationFromInput | undefined;
 
   /**
-   * <p>The output format for the notebook execution.</p>
+   * The output format for the notebook execution.
+   *
    * @public
    */
   OutputNotebookFormat?: OutputNotebookFormat | undefined;
 
   /**
-   * <p>The environment variables associated with the notebook execution.</p>
+   * The environment variables associated with the notebook execution.
+   *
    * @public
    */
   EnvironmentVariables?: Record<string, string> | undefined;
@@ -5848,43 +5849,50 @@ export interface StartNotebookExecutionInput {
  */
 export interface StartNotebookExecutionOutput {
   /**
-   * <p>The unique identifier of the notebook execution.</p>
+   * The unique identifier of the notebook execution.
+   *
    * @public
    */
   NotebookExecutionId?: string | undefined;
 }
 
 /**
- * <p>Output of the <code>StartSession</code> operation.</p>
+ * Output of the `StartSession` operation.
+ *
  * @public
  */
 export interface StartSessionOutput {
   /**
-   * <p>The output contains the ID of the session.</p>
+   * The output contains the ID of the session.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The ID of the cluster that the session was started on.</p>
+   * The ID of the cluster that the session was started on.
+   *
    * @public
    */
   ClusterId?: string | undefined;
 
   /**
-   * <p>The output contains the ARN of the session.</p>
+   * The output contains the ARN of the session.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID that owns the session.</p>
+   * The Amazon Web Services account ID that owns the session.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The state of the session at the time the request returned. When a session is first created, it enters the <code>SUBMITTED</code> state.</p>
+   * The state of the session at the time the request returned. When a session is first created, it enters the `SUBMITTED` state.
+   *
    * @public
    */
   State?: SessionState | undefined;
@@ -5895,61 +5903,71 @@ export interface StartSessionOutput {
  */
 export interface StopNotebookExecutionInput {
   /**
-   * <p>The unique identifier of the notebook execution.</p>
+   * The unique identifier of the notebook execution.
+   *
    * @public
    */
   NotebookExecutionId: string | undefined;
 }
 
 /**
- * <p> Input to the <a>TerminateJobFlows</a> operation. </p>
+ * Input to the TerminateJobFlows operation.
+ *
  * @public
  */
 export interface TerminateJobFlowsInput {
   /**
-   * <p>A list of job flows to be shut down.</p>
+   * A list of job flows to be shut down.
+   *
    * @public
    */
   JobFlowIds: string[] | undefined;
 }
 
 /**
- * <p>Input to the <code>TerminateSession</code> operation.</p>
+ * Input to the `TerminateSession` operation.
+ *
  * @public
  */
 export interface TerminateSessionInput {
   /**
-   * <p>The ID of the cluster that the session belongs to.</p>
+   * The ID of the cluster that the session belongs to.
+   *
    * @public
    */
   ClusterId: string | undefined;
 
   /**
-   * <p>The ID of the session to terminate.</p>
+   * The ID of the session to terminate.
+   *
    * @public
    */
   SessionId: string | undefined;
 }
 
 /**
- * <p>Output of the <code>TerminateSession</code> operation.</p>
+ * Output of the `TerminateSession` operation.
+ *
  * @public
  */
 export interface TerminateSessionOutput {
   /**
-   * <p>The ID of the cluster that the session belonged to.</p>
+   * The ID of the cluster that the session belonged to.
+   *
    * @public
    */
   ClusterId: string | undefined;
 
   /**
-   * <p>The ID of the terminated session.</p>
+   * The ID of the terminated session.
+   *
    * @public
    */
   SessionId: string | undefined;
 
   /**
-   * <p>The state of the session after the terminate request has been accepted.</p>
+   * The state of the session after the terminate request has been accepted.
+   *
    * @public
    */
   State: SessionState | undefined;
@@ -5960,40 +5978,43 @@ export interface TerminateSessionOutput {
  */
 export interface UpdateStudioInput {
   /**
-   * <p>The ID of the Amazon EMR Studio to update.</p>
+   * The ID of the Amazon EMR Studio to update.
+   *
    * @public
    */
   StudioId: string | undefined;
 
   /**
-   * <p>A descriptive name for the Amazon EMR Studio.</p>
+   * A descriptive name for the Amazon EMR Studio.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>A detailed description to assign to the Amazon EMR Studio.</p>
+   * A detailed description to assign to the Amazon EMR Studio.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>A list of subnet IDs to associate with the Amazon EMR Studio. The list can
-   *          include new subnet IDs, but must also include all of the subnet IDs previously associated
-   *          with the Studio. The list order does not matter. A Studio can have a maximum of 5 subnets.
-   *          The subnets must belong to the same VPC as the Studio. </p>
+   * A list of subnet IDs to associate with the Amazon EMR Studio. The list can include new subnet IDs, but must also include all of the subnet IDs previously associated with the Studio. The list order does not matter. A Studio can have a maximum of 5 subnets. The subnets must belong to the same VPC as the Studio.
+   *
    * @public
    */
   SubnetIds?: string[] | undefined;
 
   /**
-   * <p>The Amazon S3 location to back up Workspaces and notebook files for the Amazon EMR Studio.</p>
+   * The Amazon S3 location to back up Workspaces and notebook files for the Amazon EMR Studio.
+   *
    * @public
    */
   DefaultS3Location?: string | undefined;
 
   /**
-   * <p>The KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.</p>
+   * The KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.
+   *
    * @public
    */
   EncryptionKeyArn?: string | undefined;
@@ -6004,861 +6025,862 @@ export interface UpdateStudioInput {
  */
 export interface UpdateStudioSessionMappingInput {
   /**
-   * <p>The ID of the Amazon EMR Studio.</p>
+   * The ID of the Amazon EMR Studio.
+   *
    * @public
    */
   StudioId: string | undefined;
 
   /**
-   * <p>The globally unique identifier (GUID) of the user or group. For more information, see
-   *             <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId">UserId</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId">GroupId</a> in the <i>IAM Identity Center Identity Store API
-   *             Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must
-   *          be specified.</p>
+   * The globally unique identifier (GUID) of the user or group. For more information, see [UserId](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId) and [GroupId](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId) in the *IAM Identity Center Identity Store API Reference*. Either `IdentityName` or `IdentityId` must be specified.
+   *
    * @public
    */
   IdentityId?: string | undefined;
 
   /**
-   * <p>The name of the user or group to update. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>IAM Identity Center Identity Store API
-   *             Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must
-   *          be specified.</p>
+   * The name of the user or group to update. For more information, see [UserName](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName) and [DisplayName](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName) in the *IAM Identity Center Identity Store API Reference*. Either `IdentityName` or `IdentityId` must be specified.
+   *
    * @public
    */
   IdentityName?: string | undefined;
 
   /**
-   * <p>Specifies whether the identity to update is a user or a group.</p>
+   * Specifies whether the identity to update is a user or a group.
+   *
    * @public
    */
   IdentityType: IdentityType | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the session policy to associate with the specified
-   *          user or group.</p>
+   * The Amazon Resource Name (ARN) of the session policy to associate with the specified user or group.
+   *
    * @public
    */
   SessionPolicyArn: string | undefined;
 }
 
 /**
- * <note>
- *             <p>Amazon EMR releases 4.x or later.</p>
- *          </note>
- *          <p>An optional configuration specification to be used when provisioning cluster instances,
- *          which can include configurations for applications and software bundled with Amazon EMR. A configuration consists of a classification, properties, and optional
- *          nested configurations. A classification refers to an application-specific configuration
- *          file. Properties are the settings you want to change in that file. For more information,
- *          see <a href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html">Configuring Applications</a>.</p>
+ * > **Note:** Amazon EMR releases 4.x or later.
+ *
+ * An optional configuration specification to be used when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file. For more information, see [Configuring Applications](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html).
+ *
  * @public
  */
 export interface Configuration {
   /**
-   * <p>The classification within a configuration.</p>
+   * The classification within a configuration.
+   *
    * @public
    */
   Classification?: string | undefined;
 
   /**
-   * <p>A list of additional configurations to apply within a configuration object.</p>
+   * A list of additional configurations to apply within a configuration object.
+   *
    * @public
    */
   Configurations?: Configuration[] | undefined;
 
   /**
-   * <p>A set of properties specified within a configuration classification.</p>
+   * A set of properties specified within a configuration classification.
+   *
    * @public
    */
   Properties?: Record<string, string> | undefined;
 }
 
 /**
- * <p>A configuration for Amazon EMR block public access. When
- *             <code>BlockPublicSecurityGroupRules</code> is set to <code>true</code>, Amazon EMR prevents cluster creation if one of the cluster's security groups has a rule that allows
- *          inbound traffic from 0.0.0.0/0 or ::/0 on a port, unless the port is specified as an
- *          exception using <code>PermittedPublicSecurityGroupRuleRanges</code>.</p>
+ * A configuration for Amazon EMR block public access. When `BlockPublicSecurityGroupRules` is set to `true`, Amazon EMR prevents cluster creation if one of the cluster's security groups has a rule that allows inbound traffic from 0.0.0.0/0 or ::/0 on a port, unless the port is specified as an exception using `PermittedPublicSecurityGroupRuleRanges`.
+ *
  * @public
  */
 export interface BlockPublicAccessConfiguration {
   /**
-   * <p>Indicates whether Amazon EMR block public access is enabled (<code>true</code>)
-   *          or disabled (<code>false</code>). By default, the value is <code>false</code> for accounts
-   *          that have created Amazon EMR clusters before July 2019. For accounts created after
-   *          this, the default is <code>true</code>.</p>
+   * Indicates whether Amazon EMR block public access is enabled (`true`) or disabled (`false`). By default, the value is `false` for accounts that have created Amazon EMR clusters before July 2019. For accounts created after this, the default is `true`.
+   *
    * @public
    */
   BlockPublicSecurityGroupRules: boolean | undefined;
 
   /**
-   * <p>Specifies ports and port ranges that are permitted to have security group rules that
-   *          allow inbound traffic from all public sources. For example, if Port 23 (Telnet) is
-   *          specified for <code>PermittedPublicSecurityGroupRuleRanges</code>, Amazon EMR
-   *          allows cluster creation if a security group associated with the cluster has a rule that
-   *          allows inbound traffic on Port 23 from IPv4 0.0.0.0/0 or IPv6 port ::/0 as the
-   *          source.</p>
-   *          <p>By default, Port 22, which is used for SSH access to the cluster Amazon EC2
-   *          instances, is in the list of <code>PermittedPublicSecurityGroupRuleRanges</code>.</p>
+   * Specifies ports and port ranges that are permitted to have security group rules that allow inbound traffic from all public sources. For example, if Port 23 (Telnet) is specified for `PermittedPublicSecurityGroupRuleRanges`, Amazon EMR allows cluster creation if a security group associated with the cluster has a rule that allows inbound traffic on Port 23 from IPv4 0.0.0.0/0 or IPv6 port ::/0 as the source.
+   *
+   * By default, Port 22, which is used for SSH access to the cluster Amazon EC2 instances, is in the list of `PermittedPublicSecurityGroupRuleRanges`.
+   *
    * @public
    */
   PermittedPublicSecurityGroupRuleRanges?: PortRange[] | undefined;
 
   /**
-   * <p>The classification within a configuration.</p>
+   * The classification within a configuration.
+   *
    * @public
    */
   Classification?: string | undefined;
 
   /**
-   * <p>A list of additional configurations to apply within a configuration object.</p>
+   * A list of additional configurations to apply within a configuration object.
+   *
    * @public
    */
   Configurations?: Configuration[] | undefined;
 
   /**
-   * <p>A set of properties specified within a configuration classification.</p>
+   * A set of properties specified within a configuration classification.
+   *
    * @public
    */
   Properties?: Record<string, string> | undefined;
 }
 
 /**
- * <p>The detailed description of the cluster.</p>
+ * The detailed description of the cluster.
+ *
  * @public
  */
 export interface Cluster {
   /**
-   * <p>The unique identifier for the cluster.</p>
+   * The unique identifier for the cluster.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The name of the cluster. This parameter can't contain the characters <, >, $, |, or ` (backtick).</p>
+   * The name of the cluster. This parameter can't contain the characters <, >, $, |, or ` (backtick).
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The current status details about the cluster.</p>
+   * The current status details about the cluster.
+   *
    * @public
    */
   Status?: ClusterStatus | undefined;
 
   /**
-   * <p>Provides information about the Amazon EC2 instances in a cluster grouped by
-   *          category. For example, key name, subnet ID, IAM instance profile, and so
-   *          on.</p>
+   * Provides information about the Amazon EC2 instances in a cluster grouped by category. For example, key name, subnet ID, IAM instance profile, and so on.
+   *
    * @public
    */
   Ec2InstanceAttributes?: Ec2InstanceAttributes | undefined;
 
   /**
-   * <note>
-   *             <p>The instance fleet configuration is available only in Amazon EMR releases
-   *             4.8.0 and later, excluding 5.0.x versions.</p>
-   *          </note>
-   *          <p>The instance group configuration of the cluster. A value of <code>INSTANCE_GROUP</code>
-   *          indicates a uniform instance group configuration. A value of <code>INSTANCE_FLEET</code>
-   *          indicates an instance fleets configuration.</p>
+   * > **Note:** The instance fleet configuration is available only in Amazon EMR releases 4.8.0 and later, excluding 5.0.x versions.
+   *
+   * The instance group configuration of the cluster. A value of `INSTANCE_GROUP` indicates a uniform instance group configuration. A value of `INSTANCE_FLEET` indicates an instance fleets configuration.
+   *
    * @public
    */
   InstanceCollectionType?: InstanceCollectionType | undefined;
 
   /**
-   * <p>The path to the Amazon S3 location where logs for this cluster are
-   *          stored.</p>
+   * The path to the Amazon S3 location where logs for this cluster are stored.
+   *
    * @public
    */
   LogUri?: string | undefined;
 
   /**
-   * <p> The KMS key used for encrypting log files. This attribute is only
-   *          available with Amazon EMR 5.30.0 and later, excluding Amazon EMR 6.0.0.
-   *       </p>
+   * The KMS key used for encrypting log files. This attribute is only available with Amazon EMR 5.30.0 and later, excluding Amazon EMR 6.0.0.
+   *
    * @public
    */
   LogEncryptionKmsKeyId?: string | undefined;
 
   /**
-   * <p>The AMI version requested for this cluster.</p>
+   * The AMI version requested for this cluster.
+   *
    * @public
    */
   RequestedAmiVersion?: string | undefined;
 
   /**
-   * <p>The AMI version running on this cluster.</p>
+   * The AMI version running on this cluster.
+   *
    * @public
    */
   RunningAmiVersion?: string | undefined;
 
   /**
-   * <p>The Amazon EMR release label, which determines the version of open-source
-   *          application packages installed on the cluster. Release labels are in the form
-   *             <code>emr-x.x.x</code>, where x.x.x is an Amazon EMR release version such as
-   *             <code>emr-5.14.0</code>. For more information about Amazon EMR release versions
-   *          and included application versions and features, see <a href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/">https://docs.aws.amazon.com/emr/latest/ReleaseGuide/</a>. The release label applies only to Amazon EMR
-   *          releases version 4.0 and later. Earlier versions use <code>AmiVersion</code>.</p>
+   * The Amazon EMR release label, which determines the version of open-source application packages installed on the cluster. Release labels are in the form `emr-x.x.x`, where x.x.x is an Amazon EMR release version such as `emr-5.14.0`. For more information about Amazon EMR release versions and included application versions and features, see [https://docs.aws.amazon.com/emr/latest/ReleaseGuide/](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/). The release label applies only to Amazon EMR releases version 4.0 and later. Earlier versions use `AmiVersion`.
+   *
    * @public
    */
   ReleaseLabel?: string | undefined;
 
   /**
-   * <p>Specifies whether the cluster should terminate after completing all steps.</p>
+   * Specifies whether the cluster should terminate after completing all steps.
+   *
    * @public
    */
   AutoTerminate?: boolean | undefined;
 
   /**
-   * <p>Indicates whether Amazon EMR will lock the cluster to prevent the Amazon EC2 instances from being terminated by an API call or user intervention, or in
-   *          the event of a cluster error.</p>
+   * Indicates whether Amazon EMR will lock the cluster to prevent the Amazon EC2 instances from being terminated by an API call or user intervention, or in the event of a cluster error.
+   *
    * @public
    */
   TerminationProtected?: boolean | undefined;
 
   /**
-   * <p>Indicates whether Amazon EMR should gracefully replace Amazon EC2
-   *          core instances that have degraded within the cluster.</p>
+   * Indicates whether Amazon EMR should gracefully replace Amazon EC2 core instances that have degraded within the cluster.
+   *
    * @public
    */
   UnhealthyNodeReplacement?: boolean | undefined;
 
   /**
-   * <p>Indicates whether the cluster is visible to IAM principals in the Amazon Web Services account associated with the cluster. When <code>true</code>, IAM principals in the Amazon Web Services account can perform Amazon EMR cluster
-   *          actions on the cluster that their IAM policies allow. When
-   *             <code>false</code>, only the IAM principal that created the cluster and
-   *          the Amazon Web Services account root user can perform Amazon EMR actions, regardless
-   *          of IAM permissions policies attached to other IAM
-   *          principals.</p>
-   *          <p>The default value is <code>true</code> if a value is not provided when creating a
-   *          cluster using the Amazon EMR API <a>RunJobFlow</a> command, the CLI
-   *          <a href="https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html">create-cluster</a> command, or the Amazon Web Services Management Console.</p>
+   * Indicates whether the cluster is visible to IAM principals in the Amazon Web Services account associated with the cluster. When `true`, IAM principals in the Amazon Web Services account can perform Amazon EMR cluster actions on the cluster that their IAM policies allow. When `false`, only the IAM principal that created the cluster and the Amazon Web Services account root user can perform Amazon EMR actions, regardless of IAM permissions policies attached to other IAM principals.
+   *
+   * The default value is `true` if a value is not provided when creating a cluster using the Amazon EMR API RunJobFlow command, the CLI [create-cluster](https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html) command, or the Amazon Web Services Management Console.
+   *
    * @public
    */
   VisibleToAllUsers?: boolean | undefined;
 
   /**
-   * <p>The applications installed on this cluster.</p>
+   * The applications installed on this cluster.
+   *
    * @public
    */
   Applications?: Application[] | undefined;
 
   /**
-   * <p>A list of tags associated with a cluster.</p>
+   * A list of tags associated with a cluster.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>The IAM role that Amazon EMR assumes in order to access Amazon Web Services resources on your behalf.</p>
+   * The IAM role that Amazon EMR assumes in order to access Amazon Web Services resources on your behalf.
+   *
    * @public
    */
   ServiceRole?: string | undefined;
 
   /**
-   * <p>An approximation of the cost of the cluster, represented in m1.small/hours. This value
-   *          is incremented one time for every hour an m1.small instance runs. Larger instances are
-   *          weighted more, so an Amazon EC2 instance that is roughly four times more expensive
-   *          would result in the normalized instance hours being incremented by four. This result is
-   *          only an approximation and does not reflect the actual billing rate.</p>
+   * An approximation of the cost of the cluster, represented in m1.small/hours. This value is incremented one time for every hour an m1.small instance runs. Larger instances are weighted more, so an Amazon EC2 instance that is roughly four times more expensive would result in the normalized instance hours being incremented by four. This result is only an approximation and does not reflect the actual billing rate.
+   *
    * @public
    */
   NormalizedInstanceHours?: number | undefined;
 
   /**
-   * <p>The DNS name of the master node. If the cluster is on a private subnet, this is the
-   *          private DNS name. On a public subnet, this is the public DNS name.</p>
+   * The DNS name of the master node. If the cluster is on a private subnet, this is the private DNS name. On a public subnet, this is the public DNS name.
+   *
    * @public
    */
   MasterPublicDnsName?: string | undefined;
 
   /**
-   * <p>Applies only to Amazon EMR releases 4.x and later. The list of configurations
-   *          that are supplied to the Amazon EMR cluster.</p>
+   * Applies only to Amazon EMR releases 4.x and later. The list of configurations that are supplied to the Amazon EMR cluster.
+   *
    * @public
    */
   Configurations?: Configuration[] | undefined;
 
   /**
-   * <p>The name of the security configuration applied to the cluster.</p>
+   * The name of the security configuration applied to the cluster.
+   *
    * @public
    */
   SecurityConfiguration?: string | undefined;
 
   /**
-   * <p>An IAM role for automatic scaling policies. The default role is
-   *             <code>EMR_AutoScaling_DefaultRole</code>. The IAM role provides
-   *          permissions that the automatic scaling feature requires to launch and terminate Amazon EC2 instances in an instance group.</p>
+   * An IAM role for automatic scaling policies. The default role is `EMR_AutoScaling_DefaultRole`. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate Amazon EC2 instances in an instance group.
+   *
    * @public
    */
   AutoScalingRole?: string | undefined;
 
   /**
-   * <p>The way that individual Amazon EC2 instances terminate when an automatic
-   *          scale-in activity occurs or an instance group is resized.
-   *             <code>TERMINATE_AT_INSTANCE_HOUR</code> indicates that Amazon EMR terminates
-   *          nodes at the instance-hour boundary, regardless of when the request to terminate the
-   *          instance was submitted. This option is only available with Amazon EMR 5.1.0 and
-   *          later and is the default for clusters created using that version.
-   *             <code>TERMINATE_AT_TASK_COMPLETION</code> indicates that Amazon EMR adds nodes
-   *          to a deny list and drains tasks from nodes before terminating the Amazon EC2
-   *          instances, regardless of the instance-hour boundary. With either behavior, Amazon EMR removes the least active nodes first and blocks instance termination if it could lead to
-   *          HDFS corruption. <code>TERMINATE_AT_TASK_COMPLETION</code> is available only in Amazon EMR releases 4.1.0 and later, and is the default for versions of Amazon EMR earlier than 5.1.0.</p>
+   * The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an instance group is resized. `TERMINATE_AT_INSTANCE_HOUR` indicates that Amazon EMR terminates nodes at the instance-hour boundary, regardless of when the request to terminate the instance was submitted. This option is only available with Amazon EMR 5.1.0 and later and is the default for clusters created using that version. `TERMINATE_AT_TASK_COMPLETION` indicates that Amazon EMR adds nodes to a deny list and drains tasks from nodes before terminating the Amazon EC2 instances, regardless of the instance-hour boundary. With either behavior, Amazon EMR removes the least active nodes first and blocks instance termination if it could lead to HDFS corruption. `TERMINATE_AT_TASK_COMPLETION` is available only in Amazon EMR releases 4.1.0 and later, and is the default for versions of Amazon EMR earlier than 5.1.0.
+   *
    * @public
    */
   ScaleDownBehavior?: ScaleDownBehavior | undefined;
 
   /**
-   * <p>Available only in Amazon EMR releases 5.7.0 and later. The ID of a custom Amazon
-   *          EBS-backed Linux AMI if the cluster uses a custom AMI.</p>
+   * Available only in Amazon EMR releases 5.7.0 and later. The ID of a custom Amazon EBS-backed Linux AMI if the cluster uses a custom AMI.
+   *
    * @public
    */
   CustomAmiId?: string | undefined;
 
   /**
-   * <p>The size, in GiB, of the Amazon EBS root device volume of the Linux AMI that is
-   *          used for each Amazon EC2 instance. Available in Amazon EMR releases 4.x and
-   *          later.</p>
+   * The size, in GiB, of the Amazon EBS root device volume of the Linux AMI that is used for each Amazon EC2 instance. Available in Amazon EMR releases 4.x and later.
+   *
    * @public
    */
   EbsRootVolumeSize?: number | undefined;
 
   /**
-   * <p>Applies only when <code>CustomAmiID</code> is used. Specifies the type of updates that
-   *          the Amazon Linux AMI package repositories apply when an instance boots using the
-   *          AMI.</p>
+   * Applies only when `CustomAmiID` is used. Specifies the type of updates that the Amazon Linux AMI package repositories apply when an instance boots using the AMI.
+   *
    * @public
    */
   RepoUpgradeOnBoot?: RepoUpgradeOnBoot | undefined;
 
   /**
-   * <p>Attributes for Kerberos configuration when Kerberos authentication is enabled using a
-   *          security configuration. For more information see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html">Use Kerberos Authentication</a>
-   *          in the <i>Amazon EMR Management Guide</i>.</p>
+   * Attributes for Kerberos configuration when Kerberos authentication is enabled using a security configuration. For more information see [Use Kerberos Authentication](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html) in the *Amazon EMR Management Guide*.
+   *
    * @public
    */
   KerberosAttributes?: KerberosAttributes | undefined;
 
   /**
-   * <p>The Amazon Resource Name of the cluster.</p>
+   * The Amazon Resource Name of the cluster.
+   *
    * @public
    */
   ClusterArn?: string | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the Outpost where the cluster is launched. </p>
+   * The Amazon Resource Name (ARN) of the Outpost where the cluster is launched.
+   *
    * @public
    */
   OutpostArn?: string | undefined;
 
   /**
-   * <p>Specifies the number of steps that can be executed concurrently.</p>
+   * Specifies the number of steps that can be executed concurrently.
+   *
    * @public
    */
   StepConcurrencyLevel?: number | undefined;
 
   /**
-   * <p>Placement group configured for an Amazon EMR cluster.</p>
+   * Placement group configured for an Amazon EMR cluster.
+   *
    * @public
    */
   PlacementGroups?: PlacementGroupConfig[] | undefined;
 
   /**
-   * <p>The Amazon Linux release specified in a cluster launch RunJobFlow request. If no Amazon
-   *          Linux release was specified, the default Amazon Linux release is shown in the
-   *          response.</p>
+   * The Amazon Linux release specified in a cluster launch RunJobFlow request. If no Amazon Linux release was specified, the default Amazon Linux release is shown in the response.
+   *
    * @public
    */
   OSReleaseLabel?: string | undefined;
 
   /**
-   * <p>The IOPS, of the Amazon EBS root device volume of the Linux AMI that is
-   *          used for each Amazon EC2 instance. Available in Amazon EMR releases 6.15.0 and
-   *          later.</p>
+   * The IOPS, of the Amazon EBS root device volume of the Linux AMI that is used for each Amazon EC2 instance. Available in Amazon EMR releases 6.15.0 and later.
+   *
    * @public
    */
   EbsRootVolumeIops?: number | undefined;
 
   /**
-   * <p>The throughput, in MiB/s, of the Amazon EBS root device volume of the Linux AMI that is
-   *          used for each Amazon EC2 instance. Available in Amazon EMR releases 6.15.0 and
-   *          later.</p>
+   * The throughput, in MiB/s, of the Amazon EBS root device volume of the Linux AMI that is used for each Amazon EC2 instance. Available in Amazon EMR releases 6.15.0 and later.
+   *
    * @public
    */
   EbsRootVolumeThroughput?: number | undefined;
 
   /**
-   * <p>Reserved.</p>
+   * Reserved.
+   *
    * @public
    */
   ExtendedSupport?: boolean | undefined;
 
   /**
-   * <p>Contains Cloudwatch log configuration metadata and settings.</p>
+   * Contains Cloudwatch log configuration metadata and settings.
+   *
    * @public
    */
   MonitoringConfiguration?: MonitoringConfiguration | undefined;
 
   /**
-   * <p>Indicates whether Spark Connect sessions are enabled on the cluster.</p>
+   * Indicates whether Spark Connect sessions are enabled on the cluster.
+   *
    * @public
    */
   SessionEnabled?: boolean | undefined;
 }
 
 /**
- * <p>Configuration defining a new instance group.</p>
+ * Configuration defining a new instance group.
+ *
  * @public
  */
 export interface InstanceGroupConfig {
   /**
-   * <p>Friendly name given to the instance group.</p>
+   * Friendly name given to the instance group.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>Market type of the Amazon EC2 instances used to create a cluster node.</p>
+   * Market type of the Amazon EC2 instances used to create a cluster node.
+   *
    * @public
    */
   Market?: MarketType | undefined;
 
   /**
-   * <p>The role of the instance group in the cluster.</p>
+   * The role of the instance group in the cluster.
+   *
    * @public
    */
   InstanceRole: InstanceRoleType | undefined;
 
   /**
-   * <p>The bid price for each Amazon EC2 Spot Instance type as defined by
-   *          <code>InstanceType</code>. Expressed in USD. If neither <code>BidPrice</code> nor
-   *          <code>BidPriceAsPercentageOfOnDemandPrice</code> is provided,
-   *          <code>BidPriceAsPercentageOfOnDemandPrice</code> defaults to 100%.</p>
+   * The bid price for each Amazon EC2 Spot Instance type as defined by `InstanceType`. Expressed in USD. If neither `BidPrice` nor `BidPriceAsPercentageOfOnDemandPrice` is provided, `BidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+   *
    * @public
    */
   BidPrice?: string | undefined;
 
   /**
-   * <p>The Amazon EC2 instance type for all instances in the instance group.</p>
+   * The Amazon EC2 instance type for all instances in the instance group.
+   *
    * @public
    */
   InstanceType: string | undefined;
 
   /**
-   * <p>Target number of instances for the instance group.</p>
+   * Target number of instances for the instance group.
+   *
    * @public
    */
   InstanceCount: number | undefined;
 
   /**
-   * <note>
-   *             <p>Amazon EMR releases 4.x or later.</p>
-   *          </note>
-   *          <p>The list of configurations supplied for an Amazon EMR cluster instance group.
-   *          You can specify a separate configuration for each instance group (master, core, and
-   *          task).</p>
+   * > **Note:** Amazon EMR releases 4.x or later.
+   *
+   * The list of configurations supplied for an Amazon EMR cluster instance group. You can specify a separate configuration for each instance group (master, core, and task).
+   *
    * @public
    */
   Configurations?: Configuration[] | undefined;
 
   /**
-   * <p>EBS configurations that will be attached to each Amazon EC2 instance in the
-   *          instance group.</p>
+   * EBS configurations that will be attached to each Amazon EC2 instance in the instance group.
+   *
    * @public
    */
   EbsConfiguration?: EbsConfiguration | undefined;
 
   /**
-   * <p>An automatic scaling policy for a core instance group or task instance group in an
-   *             Amazon EMR cluster. The automatic scaling policy defines how an instance group
-   *          dynamically adds and terminates Amazon EC2 instances in response to the value of a
-   *          CloudWatch metric. See <a>PutAutoScalingPolicy</a>.</p>
+   * An automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster. The automatic scaling policy defines how an instance group dynamically adds and terminates Amazon EC2 instances in response to the value of a CloudWatch metric. See PutAutoScalingPolicy.
+   *
    * @public
    */
   AutoScalingPolicy?: AutoScalingPolicy | undefined;
 
   /**
-   * <p>The custom AMI ID to use for the provisioned instance group.</p>
+   * The custom AMI ID to use for the provisioned instance group.
+   *
    * @public
    */
   CustomAmiId?: string | undefined;
 }
 
 /**
- * <p>Modify the size or configurations of an instance group.</p>
+ * Modify the size or configurations of an instance group.
+ *
  * @public
  */
 export interface InstanceGroupModifyConfig {
   /**
-   * <p>Unique ID of the instance group to modify.</p>
+   * Unique ID of the instance group to modify.
+   *
    * @public
    */
   InstanceGroupId: string | undefined;
 
   /**
-   * <p>Target size for the instance group.</p>
+   * Target size for the instance group.
+   *
    * @public
    */
   InstanceCount?: number | undefined;
 
   /**
-   * <p>The Amazon EC2 InstanceIds to terminate. After you terminate the instances, the
-   *          instance group will not return to its original requested size.</p>
+   * The Amazon EC2 InstanceIds to terminate. After you terminate the instances, the instance group will not return to its original requested size.
+   *
    * @public
    */
   EC2InstanceIdsToTerminate?: string[] | undefined;
 
   /**
-   * <p>Policy for customizing shrink operations.</p>
+   * Policy for customizing shrink operations.
+   *
    * @public
    */
   ShrinkPolicy?: ShrinkPolicy | undefined;
 
   /**
-   * <p>Type of reconfiguration requested. Valid values are MERGE and OVERWRITE.</p>
+   * Type of reconfiguration requested. Valid values are MERGE and OVERWRITE.
+   *
    * @public
    */
   ReconfigurationType?: ReconfigurationType | undefined;
 
   /**
-   * <p>A list of new or modified configurations to apply for an instance group.</p>
+   * A list of new or modified configurations to apply for an instance group.
+   *
    * @public
    */
   Configurations?: Configuration[] | undefined;
 }
 
 /**
- * <p>An instance type configuration for each instance type in an instance fleet, which
- *          determines the Amazon EC2 instances Amazon EMR attempts to provision to
- *          fulfill On-Demand and Spot target capacities. When you use an allocation strategy, you can
- *          include a maximum of 30 instance type configurations for a fleet. For more information
- *          about how to use an allocation strategy, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html">Configure Instance
- *             Fleets</a>. Without an allocation strategy, you may specify a maximum of five
- *          instance type configurations for a fleet.</p>
- *          <note>
- *             <p>The instance fleet configuration is available only in Amazon EMR releases
- *             4.8.0 and later, excluding 5.0.x versions.</p>
- *          </note>
+ * An instance type configuration for each instance type in an instance fleet, which determines the Amazon EC2 instances Amazon EMR attempts to provision to fulfill On-Demand and Spot target capacities. When you use an allocation strategy, you can include a maximum of 30 instance type configurations for a fleet. For more information about how to use an allocation strategy, see [Configure Instance Fleets](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html). Without an allocation strategy, you may specify a maximum of five instance type configurations for a fleet.
+ *
+ * > **Note:** The instance fleet configuration is available only in Amazon EMR releases 4.8.0 and later, excluding 5.0.x versions.
+ *
  * @public
  */
 export interface InstanceTypeConfig {
   /**
-   * <p>An Amazon EC2 instance type, such as <code>m3.xlarge</code>. </p>
+   * An Amazon EC2 instance type, such as `m3.xlarge`.
+   *
    * @public
    */
   InstanceType: string | undefined;
 
   /**
-   * <p>The number of units that a provisioned instance of this type provides toward fulfilling
-   *          the target capacities defined in <a>InstanceFleetConfig</a>. This value is 1 for
-   *          a master instance fleet, and must be 1 or greater for core and task instance fleets.
-   *          Defaults to 1 if not specified. </p>
+   * The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in InstanceFleetConfig. This value is 1 for a master instance fleet, and must be 1 or greater for core and task instance fleets. Defaults to 1 if not specified.
+   *
    * @public
    */
   WeightedCapacity?: number | undefined;
 
   /**
-   * <p>The bid price for each Amazon EC2 Spot Instance type as defined by
-   *             <code>InstanceType</code>. Expressed in USD. If neither <code>BidPrice</code> nor
-   *             <code>BidPriceAsPercentageOfOnDemandPrice</code> is provided,
-   *             <code>BidPriceAsPercentageOfOnDemandPrice</code> defaults to 100%. </p>
+   * The bid price for each Amazon EC2 Spot Instance type as defined by `InstanceType`. Expressed in USD. If neither `BidPrice` nor `BidPriceAsPercentageOfOnDemandPrice` is provided, `BidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+   *
    * @public
    */
   BidPrice?: string | undefined;
 
   /**
-   * <p>The bid price, as a percentage of On-Demand price, for each Amazon EC2 Spot
-   *          Instance as defined by <code>InstanceType</code>. Expressed as a number (for example, 20
-   *          specifies 20%). If neither <code>BidPrice</code> nor
-   *             <code>BidPriceAsPercentageOfOnDemandPrice</code> is provided,
-   *             <code>BidPriceAsPercentageOfOnDemandPrice</code> defaults to 100%.</p>
+   * The bid price, as a percentage of On-Demand price, for each Amazon EC2 Spot Instance as defined by `InstanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `BidPrice` nor `BidPriceAsPercentageOfOnDemandPrice` is provided, `BidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+   *
    * @public
    */
   BidPriceAsPercentageOfOnDemandPrice?: number | undefined;
 
   /**
-   * <p>The configuration of Amazon Elastic Block Store (Amazon EBS) attached to each
-   *          instance as defined by <code>InstanceType</code>. </p>
+   * The configuration of Amazon Elastic Block Store (Amazon EBS) attached to each instance as defined by `InstanceType`.
+   *
    * @public
    */
   EbsConfiguration?: EbsConfiguration | undefined;
 
   /**
-   * <p>A configuration classification that applies when provisioning cluster instances, which
-   *          can include configurations for applications and software that run on the cluster.</p>
+   * A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster.
+   *
    * @public
    */
   Configurations?: Configuration[] | undefined;
 
   /**
-   * <p>The custom AMI ID to use for the instance type.</p>
+   * The custom AMI ID to use for the instance type.
+   *
    * @public
    */
   CustomAmiId?: string | undefined;
 
   /**
-   * <p>The priority at which Amazon EMR launches the Amazon EC2 instances with this instance type.
-   *          Priority starts at 0, which is the highest priority. Amazon EMR considers the highest priority first.</p>
+   * The priority at which Amazon EMR launches the Amazon EC2 instances with this instance type. Priority starts at 0, which is the highest priority. Amazon EMR considers the highest priority first.
+   *
    * @public
    */
   Priority?: number | undefined;
 }
 
 /**
- * <p>The configuration specification for each instance type in an instance fleet.</p>
- *          <note>
- *             <p>The instance fleet configuration is available only in Amazon EMR releases
- *             4.8.0 and later, excluding 5.0.x versions.</p>
- *          </note>
+ * The configuration specification for each instance type in an instance fleet.
+ *
+ * > **Note:** The instance fleet configuration is available only in Amazon EMR releases 4.8.0 and later, excluding 5.0.x versions.
+ *
  * @public
  */
 export interface InstanceTypeSpecification {
   /**
-   * <p>The Amazon EC2 instance type, for example <code>m3.xlarge</code>.</p>
+   * The Amazon EC2 instance type, for example `m3.xlarge`.
+   *
    * @public
    */
   InstanceType?: string | undefined;
 
   /**
-   * <p>The number of units that a provisioned instance of this type provides toward fulfilling
-   *          the target capacities defined in <a>InstanceFleetConfig</a>. Capacity values
-   *          represent performance characteristics such as vCPUs, memory, or I/O. If not specified, the
-   *          default value is 1.</p>
+   * The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in InstanceFleetConfig. Capacity values represent performance characteristics such as vCPUs, memory, or I/O. If not specified, the default value is 1.
+   *
    * @public
    */
   WeightedCapacity?: number | undefined;
 
   /**
-   * <p>The bid price for each Amazon EC2 Spot Instance type as defined by
-   *          <code>InstanceType</code>. Expressed in USD. If neither <code>BidPrice</code> nor
-   *          <code>BidPriceAsPercentageOfOnDemandPrice</code> is provided,
-   *          <code>BidPriceAsPercentageOfOnDemandPrice</code> defaults to 100%.</p>
+   * The bid price for each Amazon EC2 Spot Instance type as defined by `InstanceType`. Expressed in USD. If neither `BidPrice` nor `BidPriceAsPercentageOfOnDemandPrice` is provided, `BidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+   *
    * @public
    */
   BidPrice?: string | undefined;
 
   /**
-   * <p>The bid price, as a percentage of On-Demand price, for each Amazon EC2 Spot
-   *          Instance as defined by <code>InstanceType</code>. Expressed as a number (for example, 20
-   *          specifies 20%).</p>
+   * The bid price, as a percentage of On-Demand price, for each Amazon EC2 Spot Instance as defined by `InstanceType`. Expressed as a number (for example, 20 specifies 20%).
+   *
    * @public
    */
   BidPriceAsPercentageOfOnDemandPrice?: number | undefined;
 
   /**
-   * <p>A configuration classification that applies when provisioning cluster instances, which
-   *          can include configurations for applications and software bundled with Amazon EMR.</p>
+   * A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR.
+   *
    * @public
    */
   Configurations?: Configuration[] | undefined;
 
   /**
-   * <p>The configuration of Amazon Elastic Block Store (Amazon EBS) attached to each
-   *          instance as defined by <code>InstanceType</code>.</p>
+   * The configuration of Amazon Elastic Block Store (Amazon EBS) attached to each instance as defined by `InstanceType`.
+   *
    * @public
    */
   EbsBlockDevices?: EbsBlockDevice[] | undefined;
 
   /**
-   * <p>Evaluates to <code>TRUE</code> when the specified <code>InstanceType</code> is
-   *          EBS-optimized.</p>
+   * Evaluates to `TRUE` when the specified `InstanceType` is EBS-optimized.
+   *
    * @public
    */
   EbsOptimized?: boolean | undefined;
 
   /**
-   * <p>The custom AMI ID to use for the instance type.</p>
+   * The custom AMI ID to use for the instance type.
+   *
    * @public
    */
   CustomAmiId?: string | undefined;
 
   /**
-   * <p>The priority at which Amazon EMR launches the Amazon EC2 instances with this instance type.
-   *          Priority starts at 0, which is the highest priority. Amazon EMR considers the highest priority first.</p>
+   * The priority at which Amazon EMR launches the Amazon EC2 instances with this instance type. Priority starts at 0, which is the highest priority. Amazon EMR considers the highest priority first.
+   *
    * @public
    */
   Priority?: number | undefined;
 }
 
 /**
- * <p>Detailed information about a Spark Connect session.</p>
+ * Detailed information about a Spark Connect session.
+ *
  * @public
  */
 export interface Session {
   /**
-   * <p>The ID of the session.</p>
+   * The ID of the session.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The ID of the cluster that the session belongs to.</p>
+   * The ID of the cluster that the session belongs to.
+   *
    * @public
    */
   ClusterId: string | undefined;
 
   /**
-   * <p>The name of the session, if one was provided at creation time.</p>
+   * The name of the session, if one was provided at creation time.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the session.</p>
+   * The Amazon Resource Name (ARN) of the session.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The current state of the session. Valid values are <code>SUBMITTED</code>, <code>STARTING</code>, <code>STARTED</code>, <code>IDLE</code>, <code>BUSY</code>, <code>TERMINATING</code>, <code>TERMINATED</code>, and <code>FAILED</code>.</p>
+   * The current state of the session. Valid values are `SUBMITTED`, `STARTING`, `STARTED`, `IDLE`, `BUSY`, `TERMINATING`, `TERMINATED`, and `FAILED`.
+   *
    * @public
    */
   State: SessionState | undefined;
 
   /**
-   * <p>A human-readable message describing the most recent state change.</p>
+   * A human-readable message describing the most recent state change.
+   *
    * @public
    */
   StateChangeReason?: string | undefined;
 
   /**
-   * <p>The Amazon EMR release label of the cluster that the session is running on.</p>
+   * The Amazon EMR release label of the cluster that the session is running on.
+   *
    * @public
    */
   ReleaseLabel?: string | undefined;
 
   /**
-   * <p>The execution role ARN for the session. Amazon EMR uses this role to access Amazon Web Services resources on your behalf during session execution.</p>
+   * The execution role ARN for the session. Amazon EMR uses this role to access Amazon Web Services resources on your behalf during session execution.
+   *
    * @public
    */
   ExecutionRoleArn?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID that owns the session.</p>
+   * The Amazon Web Services account ID that owns the session.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The date and time that the session was created.</p>
+   * The date and time that the session was created.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The date and time that the session was last updated.</p>
+   * The date and time that the session was last updated.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
 
   /**
-   * <p>The date and time that the session entered the <code>STARTED</code> state.</p>
+   * The date and time that the session entered the `STARTED` state.
+   *
    * @public
    */
   StartedAt?: Date | undefined;
 
   /**
-   * <p>The date and time that the session was terminated or failed.</p>
+   * The date and time that the session was terminated or failed.
+   *
    * @public
    */
   EndedAt?: Date | undefined;
 
   /**
-   * <p>The date and time that the session last entered the <code>IDLE</code> state.</p>
+   * The date and time that the session last entered the `IDLE` state.
+   *
    * @public
    */
   IdleSince?: Date | undefined;
 
   /**
-   * <p>The configuration overrides for the session. Only runtime configuration overrides are supported.</p>
+   * The configuration overrides for the session. Only runtime configuration overrides are supported.
+   *
    * @public
    */
   EngineConfigurations?: Configuration[] | undefined;
 
   /**
-   * <p>The monitoring configuration for the session.</p>
+   * The monitoring configuration for the session.
+   *
    * @public
    */
   MonitoringConfiguration?: SessionMonitoringConfiguration | undefined;
 
   /**
-   * <p>The idle timeout, in minutes. If the session is idle for this duration, Amazon EMR automatically terminates it.</p>
+   * The idle timeout, in minutes. If the session is idle for this duration, Amazon EMR automatically terminates it.
+   *
    * @public
    */
   SessionIdleTimeoutInMinutes?: number | undefined;
 
   /**
-   * <p>The Spark Connect server URL for the session. Use this URL with the <code>Credentials</code> returned by <code>GetSessionEndpoint</code> to connect directly to the session over VPC peering.</p>
+   * The Spark Connect server URL for the session. Use this URL with the `Credentials` returned by `GetSessionEndpoint` to connect directly to the session over VPC peering.
+   *
    * @public
    */
   ServerUrl?: string | undefined;
 
   /**
-   * <p>The tags associated with the session.</p>
+   * The tags associated with the session.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 }
 
 /**
- * <p>Input to the <code>StartSession</code> operation.</p>
+ * Input to the `StartSession` operation.
+ *
  * @public
  */
 export interface StartSessionInput {
   /**
-   * <p>An optional name for the session.</p>
+   * An optional name for the session.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The ID of the cluster on which to start the session.</p>
+   * The ID of the cluster on which to start the session.
+   *
    * @public
    */
   ClusterId: string | undefined;
 
   /**
-   * <p>The execution role ARN for the session. Amazon EMR uses this role to access Amazon Web Services resources on your behalf during session execution.</p>
+   * The execution role ARN for the session. Amazon EMR uses this role to access Amazon Web Services resources on your behalf during session execution.
+   *
    * @public
    */
   ExecutionRoleArn?: string | undefined;
 
   /**
-   * <p>The configuration overrides for the session. Only runtime configuration overrides are supported.</p>
+   * The configuration overrides for the session. Only runtime configuration overrides are supported.
+   *
    * @public
    */
   EngineConfigurations?: Configuration[] | undefined;
 
   /**
-   * <p>The monitoring configuration that controls where session logs are published, such as Amazon S3, CloudWatch, or managed logging.</p>
+   * The monitoring configuration that controls where session logs are published, such as Amazon S3, CloudWatch, or managed logging.
+   *
    * @public
    */
   MonitoringConfiguration?: SessionMonitoringConfiguration | undefined;
 
   /**
-   * <p>The idle timeout, in minutes. If the session is idle for this duration, Amazon EMR EC2 automatically terminates it.</p>
+   * The idle timeout, in minutes. If the session is idle for this duration, Amazon EMR EC2 automatically terminates it.
+   *
    * @public
    */
   SessionIdleTimeoutInMinutes?: number | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request that completed successfully using the same client request token, the service returns the original response without performing the operation again.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request that completed successfully using the same client request token, the service returns the original response without performing the operation again.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
 
   /**
-   * <p>The tags to assign to the session.</p>
+   * The tags to assign to the session.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 }
 
 /**
- * <p>This output contains the description of the cluster.</p>
+ * This output contains the description of the cluster.
+ *
  * @public
  */
 export interface DescribeClusterOutput {
   /**
-   * <p>This output contains the details for the requested cluster.</p>
+   * This output contains the details for the requested cluster.
+   *
    * @public
    */
   Cluster?: Cluster | undefined;
@@ -6869,44 +6891,31 @@ export interface DescribeClusterOutput {
  */
 export interface GetBlockPublicAccessConfigurationOutput {
   /**
-   * <p>A configuration for Amazon EMR block public access. The configuration applies to
-   *          all clusters created in your account for the current Region. The configuration specifies
-   *          whether block public access is enabled. If block public access is enabled, security groups
-   *          associated with the cluster cannot have rules that allow inbound traffic from 0.0.0.0/0 or
-   *          ::/0 on a port, unless the port is specified as an exception using
-   *             <code>PermittedPublicSecurityGroupRuleRanges</code> in the
-   *             <code>BlockPublicAccessConfiguration</code>. By default, Port 22 (SSH) is an exception,
-   *          and public access is allowed on this port. You can change this by updating the block public
-   *          access configuration to remove the exception.</p>
-   *          <note>
-   *             <p>For accounts that created clusters in a Region before November 25, 2019, block public
-   *             access is disabled by default in that Region. To use this feature, you must manually
-   *             enable and configure it. For accounts that did not create an Amazon EMR cluster
-   *             in a Region before this date, block public access is enabled by default in that
-   *             Region.</p>
-   *          </note>
+   * A configuration for Amazon EMR block public access. The configuration applies to all clusters created in your account for the current Region. The configuration specifies whether block public access is enabled. If block public access is enabled, security groups associated with the cluster cannot have rules that allow inbound traffic from 0.0.0.0/0 or ::/0 on a port, unless the port is specified as an exception using `PermittedPublicSecurityGroupRuleRanges` in the `BlockPublicAccessConfiguration`. By default, Port 22 (SSH) is an exception, and public access is allowed on this port. You can change this by updating the block public access configuration to remove the exception.
+   *
+   * > **Note:** For accounts that created clusters in a Region before November 25, 2019, block public access is disabled by default in that Region. To use this feature, you must manually enable and configure it. For accounts that did not create an Amazon EMR cluster in a Region before this date, block public access is enabled by default in that Region.
+   *
    * @public
    */
   BlockPublicAccessConfiguration: BlockPublicAccessConfiguration | undefined;
 
   /**
-   * <p>Properties that describe the Amazon Web Services principal that created the
-   *             <code>BlockPublicAccessConfiguration</code> using the
-   *             <code>PutBlockPublicAccessConfiguration</code> action as well as the date and time that
-   *          the configuration was created. Each time a configuration for block public access is
-   *          updated, Amazon EMR updates this metadata.</p>
+   * Properties that describe the Amazon Web Services principal that created the `BlockPublicAccessConfiguration` using the `PutBlockPublicAccessConfiguration` action as well as the date and time that the configuration was created. Each time a configuration for block public access is updated, Amazon EMR updates this metadata.
+   *
    * @public
    */
   BlockPublicAccessConfigurationMetadata: BlockPublicAccessConfigurationMetadata | undefined;
 }
 
 /**
- * <p>Output of the <code>GetSession</code> operation.</p>
+ * Output of the `GetSession` operation.
+ *
  * @public
  */
 export interface GetSessionOutput {
   /**
-   * <p>The output displays information about the session.</p>
+   * The output displays information about the session.
+   *
    * @public
    */
   Session: Session | undefined;
@@ -6917,342 +6926,290 @@ export interface GetSessionOutput {
  */
 export interface PutBlockPublicAccessConfigurationInput {
   /**
-   * <p>A configuration for Amazon EMR block public access. The configuration applies to
-   *          all clusters created in your account for the current Region. The configuration specifies
-   *          whether block public access is enabled. If block public access is enabled, security groups
-   *          associated with the cluster cannot have rules that allow inbound traffic from 0.0.0.0/0 or
-   *          ::/0 on a port, unless the port is specified as an exception using
-   *             <code>PermittedPublicSecurityGroupRuleRanges</code> in the
-   *             <code>BlockPublicAccessConfiguration</code>. By default, Port 22 (SSH) is an exception,
-   *          and public access is allowed on this port. You can change this by updating
-   *             <code>BlockPublicSecurityGroupRules</code> to remove the exception.</p>
-   *          <note>
-   *             <p>For accounts that created clusters in a Region before November 25, 2019, block public
-   *             access is disabled by default in that Region. To use this feature, you must manually
-   *             enable and configure it. For accounts that did not create an Amazon EMR cluster
-   *             in a Region before this date, block public access is enabled by default in that
-   *             Region.</p>
-   *          </note>
+   * A configuration for Amazon EMR block public access. The configuration applies to all clusters created in your account for the current Region. The configuration specifies whether block public access is enabled. If block public access is enabled, security groups associated with the cluster cannot have rules that allow inbound traffic from 0.0.0.0/0 or ::/0 on a port, unless the port is specified as an exception using `PermittedPublicSecurityGroupRuleRanges` in the `BlockPublicAccessConfiguration`. By default, Port 22 (SSH) is an exception, and public access is allowed on this port. You can change this by updating `BlockPublicSecurityGroupRules` to remove the exception.
+   *
+   * > **Note:** For accounts that created clusters in a Region before November 25, 2019, block public access is disabled by default in that Region. To use this feature, you must manually enable and configure it. For accounts that did not create an Amazon EMR cluster in a Region before this date, block public access is enabled by default in that Region.
+   *
    * @public
    */
   BlockPublicAccessConfiguration: BlockPublicAccessConfiguration | undefined;
 }
 
 /**
- * <p>Input to an AddInstanceGroups call.</p>
+ * Input to an AddInstanceGroups call.
+ *
  * @public
  */
 export interface AddInstanceGroupsInput {
   /**
-   * <p>Instance groups to add.</p>
+   * Instance groups to add.
+   *
    * @public
    */
   InstanceGroups: InstanceGroupConfig[] | undefined;
 
   /**
-   * <p>Job flow in which to add the instance groups.</p>
+   * Job flow in which to add the instance groups.
+   *
    * @public
    */
   JobFlowId: string | undefined;
 }
 
 /**
- * <p>Describes an instance fleet, which is a group of Amazon EC2 instances that host
- *          a particular node type (master, core, or task) in an Amazon EMR cluster. Instance
- *          fleets can consist of a mix of instance types and On-Demand and Spot Instances, which are
- *          provisioned to meet a defined target capacity. </p>
- *          <note>
- *             <p>The instance fleet configuration is available only in Amazon EMR releases
- *             4.8.0 and later, excluding 5.0.x versions.</p>
- *          </note>
+ * Describes an instance fleet, which is a group of Amazon EC2 instances that host a particular node type (master, core, or task) in an Amazon EMR cluster. Instance fleets can consist of a mix of instance types and On-Demand and Spot Instances, which are provisioned to meet a defined target capacity.
+ *
+ * > **Note:** The instance fleet configuration is available only in Amazon EMR releases 4.8.0 and later, excluding 5.0.x versions.
+ *
  * @public
  */
 export interface InstanceFleet {
   /**
-   * <p>The unique identifier of the instance fleet.</p>
+   * The unique identifier of the instance fleet.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>A friendly name for the instance fleet.</p>
+   * A friendly name for the instance fleet.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The current status of the instance fleet. </p>
+   * The current status of the instance fleet.
+   *
    * @public
    */
   Status?: InstanceFleetStatus | undefined;
 
   /**
-   * <p>The node type that the instance fleet hosts. Valid values are MASTER, CORE, or TASK.
-   *       </p>
+   * The node type that the instance fleet hosts. Valid values are MASTER, CORE, or TASK.
+   *
    * @public
    */
   InstanceFleetType?: InstanceFleetType | undefined;
 
   /**
-   * <p>The target capacity of On-Demand units for the instance fleet, which determines how many
-   *          On-Demand Instances to provision. When the instance fleet launches, Amazon EMR
-   *          tries to provision On-Demand Instances as specified by <a>InstanceTypeConfig</a>. Each instance configuration has a specified <code>WeightedCapacity</code>. When an
-   *          On-Demand Instance is provisioned, the <code>WeightedCapacity</code> units count toward the
-   *          target capacity. Amazon EMR provisions instances until the target capacity is
-   *          totally fulfilled, even if this results in an overage. For example, if there are 2 units
-   *          remaining to fulfill capacity, and Amazon EMR can only provision an instance with a
-   *             <code>WeightedCapacity</code> of 5 units, the instance is provisioned, and the target
-   *          capacity is exceeded by 3 units. You can use <a>InstanceFleet$ProvisionedOnDemandCapacity</a> to determine the Spot capacity
-   *          units that have been provisioned for the instance fleet.</p>
-   *          <note>
-   *             <p>If not specified or set to 0, only Spot Instances are provisioned for the instance
-   *             fleet using <code>TargetSpotCapacity</code>. At least one of
-   *                <code>TargetSpotCapacity</code> and <code>TargetOnDemandCapacity</code> should be
-   *             greater than 0. For a master instance fleet, only one of <code>TargetSpotCapacity</code>
-   *             and <code>TargetOnDemandCapacity</code> can be specified, and its value must be
-   *             1.</p>
-   *          </note>
+   * The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand Instances to provision. When the instance fleet launches, Amazon EMR tries to provision On-Demand Instances as specified by InstanceTypeConfig. Each instance configuration has a specified `WeightedCapacity`. When an On-Demand Instance is provisioned, the `WeightedCapacity` units count toward the target capacity. Amazon EMR provisions instances until the target capacity is totally fulfilled, even if this results in an overage. For example, if there are 2 units remaining to fulfill capacity, and Amazon EMR can only provision an instance with a `WeightedCapacity` of 5 units, the instance is provisioned, and the target capacity is exceeded by 3 units. You can use InstanceFleet$ProvisionedOnDemandCapacity to determine the Spot capacity units that have been provisioned for the instance fleet.
+   *
+   * > **Note:** If not specified or set to 0, only Spot Instances are provisioned for the instance fleet using `TargetSpotCapacity`. At least one of `TargetSpotCapacity` and `TargetOnDemandCapacity` should be greater than 0. For a master instance fleet, only one of `TargetSpotCapacity` and `TargetOnDemandCapacity` can be specified, and its value must be 1.
+   *
    * @public
    */
   TargetOnDemandCapacity?: number | undefined;
 
   /**
-   * <p>The target capacity of Spot units for the instance fleet, which determines how many Spot
-   *          Instances to provision. When the instance fleet launches, Amazon EMR tries to
-   *          provision Spot Instances as specified by <a>InstanceTypeConfig</a>. Each
-   *          instance configuration has a specified <code>WeightedCapacity</code>. When a Spot instance
-   *          is provisioned, the <code>WeightedCapacity</code> units count toward the target capacity.
-   *             Amazon EMR provisions instances until the target capacity is totally fulfilled,
-   *          even if this results in an overage. For example, if there are 2 units remaining to fulfill
-   *          capacity, and Amazon EMR can only provision an instance with a
-   *             <code>WeightedCapacity</code> of 5 units, the instance is provisioned, and the target
-   *          capacity is exceeded by 3 units. You can use <a>InstanceFleet$ProvisionedSpotCapacity</a> to determine the Spot capacity units
-   *          that have been provisioned for the instance fleet.</p>
-   *          <note>
-   *             <p>If not specified or set to 0, only On-Demand Instances are provisioned for the
-   *             instance fleet. At least one of <code>TargetSpotCapacity</code> and
-   *                <code>TargetOnDemandCapacity</code> should be greater than 0. For a master instance
-   *             fleet, only one of <code>TargetSpotCapacity</code> and
-   *                <code>TargetOnDemandCapacity</code> can be specified, and its value must be 1.</p>
-   *          </note>
+   * The target capacity of Spot units for the instance fleet, which determines how many Spot Instances to provision. When the instance fleet launches, Amazon EMR tries to provision Spot Instances as specified by InstanceTypeConfig. Each instance configuration has a specified `WeightedCapacity`. When a Spot instance is provisioned, the `WeightedCapacity` units count toward the target capacity. Amazon EMR provisions instances until the target capacity is totally fulfilled, even if this results in an overage. For example, if there are 2 units remaining to fulfill capacity, and Amazon EMR can only provision an instance with a `WeightedCapacity` of 5 units, the instance is provisioned, and the target capacity is exceeded by 3 units. You can use InstanceFleet$ProvisionedSpotCapacity to determine the Spot capacity units that have been provisioned for the instance fleet.
+   *
+   * > **Note:** If not specified or set to 0, only On-Demand Instances are provisioned for the instance fleet. At least one of `TargetSpotCapacity` and `TargetOnDemandCapacity` should be greater than 0. For a master instance fleet, only one of `TargetSpotCapacity` and `TargetOnDemandCapacity` can be specified, and its value must be 1.
+   *
    * @public
    */
   TargetSpotCapacity?: number | undefined;
 
   /**
-   * <p>The number of On-Demand units that have been provisioned for the instance fleet to
-   *          fulfill <code>TargetOnDemandCapacity</code>. This provisioned capacity might be less than
-   *          or greater than <code>TargetOnDemandCapacity</code>.</p>
+   * The number of On-Demand units that have been provisioned for the instance fleet to fulfill `TargetOnDemandCapacity`. This provisioned capacity might be less than or greater than `TargetOnDemandCapacity`.
+   *
    * @public
    */
   ProvisionedOnDemandCapacity?: number | undefined;
 
   /**
-   * <p>The number of Spot units that have been provisioned for this instance fleet to fulfill
-   *             <code>TargetSpotCapacity</code>. This provisioned capacity might be less than or greater
-   *          than <code>TargetSpotCapacity</code>.</p>
+   * The number of Spot units that have been provisioned for this instance fleet to fulfill `TargetSpotCapacity`. This provisioned capacity might be less than or greater than `TargetSpotCapacity`.
+   *
    * @public
    */
   ProvisionedSpotCapacity?: number | undefined;
 
   /**
-   * <p>An array of specifications for the instance types that comprise an instance
-   *          fleet.</p>
+   * An array of specifications for the instance types that comprise an instance fleet.
+   *
    * @public
    */
   InstanceTypeSpecifications?: InstanceTypeSpecification[] | undefined;
 
   /**
-   * <p>Describes the launch specification for an instance fleet. </p>
+   * Describes the launch specification for an instance fleet.
+   *
    * @public
    */
   LaunchSpecifications?: InstanceFleetProvisioningSpecifications | undefined;
 
   /**
-   * <p>The resize specification for the instance fleet.</p>
+   * The resize specification for the instance fleet.
+   *
    * @public
    */
   ResizeSpecifications?: InstanceFleetResizingSpecifications | undefined;
 
   /**
-   * <p>Reserved.</p>
+   * Reserved.
+   *
    * @public
    */
   Context?: string | undefined;
 }
 
 /**
- * <p>The configuration that defines an instance fleet.</p>
- *          <note>
- *             <p>The instance fleet configuration is available only in Amazon EMR releases
- *             4.8.0 and later, excluding 5.0.x versions.</p>
- *          </note>
+ * The configuration that defines an instance fleet.
+ *
+ * > **Note:** The instance fleet configuration is available only in Amazon EMR releases 4.8.0 and later, excluding 5.0.x versions.
+ *
  * @public
  */
 export interface InstanceFleetConfig {
   /**
-   * <p>The friendly name of the instance fleet.</p>
+   * The friendly name of the instance fleet.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The node type that the instance fleet hosts. Valid values are MASTER, CORE, and
-   *          TASK.</p>
+   * The node type that the instance fleet hosts. Valid values are MASTER, CORE, and TASK.
+   *
    * @public
    */
   InstanceFleetType: InstanceFleetType | undefined;
 
   /**
-   * <p>The target capacity of On-Demand units for the instance fleet, which determines how many
-   *          On-Demand Instances to provision. When the instance fleet launches, Amazon EMR
-   *          tries to provision On-Demand Instances as specified by <a>InstanceTypeConfig</a>. Each instance configuration has a specified <code>WeightedCapacity</code>. When an
-   *          On-Demand Instance is provisioned, the <code>WeightedCapacity</code> units count toward the
-   *          target capacity. Amazon EMR provisions instances until the target capacity is
-   *          totally fulfilled, even if this results in an overage. For example, if there are 2 units
-   *          remaining to fulfill capacity, and Amazon EMR can only provision an instance with a
-   *             <code>WeightedCapacity</code> of 5 units, the instance is provisioned, and the target
-   *          capacity is exceeded by 3 units.</p>
-   *          <note>
-   *             <p>If not specified or set to 0, only Spot Instances are provisioned for the instance
-   *             fleet using <code>TargetSpotCapacity</code>. At least one of
-   *                <code>TargetSpotCapacity</code> and <code>TargetOnDemandCapacity</code> should be
-   *             greater than 0. For a master instance fleet, only one of <code>TargetSpotCapacity</code>
-   *             and <code>TargetOnDemandCapacity</code> can be specified, and its value must be
-   *             1.</p>
-   *          </note>
+   * The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand Instances to provision. When the instance fleet launches, Amazon EMR tries to provision On-Demand Instances as specified by InstanceTypeConfig. Each instance configuration has a specified `WeightedCapacity`. When an On-Demand Instance is provisioned, the `WeightedCapacity` units count toward the target capacity. Amazon EMR provisions instances until the target capacity is totally fulfilled, even if this results in an overage. For example, if there are 2 units remaining to fulfill capacity, and Amazon EMR can only provision an instance with a `WeightedCapacity` of 5 units, the instance is provisioned, and the target capacity is exceeded by 3 units.
+   *
+   * > **Note:** If not specified or set to 0, only Spot Instances are provisioned for the instance fleet using `TargetSpotCapacity`. At least one of `TargetSpotCapacity` and `TargetOnDemandCapacity` should be greater than 0. For a master instance fleet, only one of `TargetSpotCapacity` and `TargetOnDemandCapacity` can be specified, and its value must be 1.
+   *
    * @public
    */
   TargetOnDemandCapacity?: number | undefined;
 
   /**
-   * <p>The target capacity of Spot units for the instance fleet, which determines how many Spot
-   *          Instances to provision. When the instance fleet launches, Amazon EMR tries to
-   *          provision Spot Instances as specified by <a>InstanceTypeConfig</a>. Each
-   *          instance configuration has a specified <code>WeightedCapacity</code>. When a Spot Instance
-   *          is provisioned, the <code>WeightedCapacity</code> units count toward the target capacity.
-   *             Amazon EMR provisions instances until the target capacity is totally fulfilled,
-   *          even if this results in an overage. For example, if there are 2 units remaining to fulfill
-   *          capacity, and Amazon EMR can only provision an instance with a
-   *             <code>WeightedCapacity</code> of 5 units, the instance is provisioned, and the target
-   *          capacity is exceeded by 3 units.</p>
-   *          <note>
-   *             <p>If not specified or set to 0, only On-Demand Instances are provisioned for the
-   *             instance fleet. At least one of <code>TargetSpotCapacity</code> and
-   *                <code>TargetOnDemandCapacity</code> should be greater than 0. For a master instance
-   *             fleet, only one of <code>TargetSpotCapacity</code> and
-   *                <code>TargetOnDemandCapacity</code> can be specified, and its value must be 1.</p>
-   *          </note>
+   * The target capacity of Spot units for the instance fleet, which determines how many Spot Instances to provision. When the instance fleet launches, Amazon EMR tries to provision Spot Instances as specified by InstanceTypeConfig. Each instance configuration has a specified `WeightedCapacity`. When a Spot Instance is provisioned, the `WeightedCapacity` units count toward the target capacity. Amazon EMR provisions instances until the target capacity is totally fulfilled, even if this results in an overage. For example, if there are 2 units remaining to fulfill capacity, and Amazon EMR can only provision an instance with a `WeightedCapacity` of 5 units, the instance is provisioned, and the target capacity is exceeded by 3 units.
+   *
+   * > **Note:** If not specified or set to 0, only On-Demand Instances are provisioned for the instance fleet. At least one of `TargetSpotCapacity` and `TargetOnDemandCapacity` should be greater than 0. For a master instance fleet, only one of `TargetSpotCapacity` and `TargetOnDemandCapacity` can be specified, and its value must be 1.
+   *
    * @public
    */
   TargetSpotCapacity?: number | undefined;
 
   /**
-   * <p>The instance type configurations that define the Amazon EC2 instances in the
-   *          instance fleet.</p>
+   * The instance type configurations that define the Amazon EC2 instances in the instance fleet.
+   *
    * @public
    */
   InstanceTypeConfigs?: InstanceTypeConfig[] | undefined;
 
   /**
-   * <p>The launch specification for the instance fleet.</p>
+   * The launch specification for the instance fleet.
+   *
    * @public
    */
   LaunchSpecifications?: InstanceFleetProvisioningSpecifications | undefined;
 
   /**
-   * <p>The resize specification for the instance fleet.</p>
+   * The resize specification for the instance fleet.
+   *
    * @public
    */
   ResizeSpecifications?: InstanceFleetResizingSpecifications | undefined;
 
   /**
-   * <p>Reserved.</p>
+   * Reserved.
+   *
    * @public
    */
   Context?: string | undefined;
 }
 
 /**
- * <p>Configuration parameters for an instance fleet modification request.</p>
- *          <note>
- *             <p>The instance fleet configuration is available only in Amazon EMR releases
- *             4.8.0 and later, excluding 5.0.x versions.</p>
- *          </note>
+ * Configuration parameters for an instance fleet modification request.
+ *
+ * > **Note:** The instance fleet configuration is available only in Amazon EMR releases 4.8.0 and later, excluding 5.0.x versions.
+ *
  * @public
  */
 export interface InstanceFleetModifyConfig {
   /**
-   * <p>A unique identifier for the instance fleet.</p>
+   * A unique identifier for the instance fleet.
+   *
    * @public
    */
   InstanceFleetId: string | undefined;
 
   /**
-   * <p>The target capacity of On-Demand units for the instance fleet. For more information see
-   *             <a>InstanceFleetConfig$TargetOnDemandCapacity</a>.</p>
+   * The target capacity of On-Demand units for the instance fleet. For more information see InstanceFleetConfig$TargetOnDemandCapacity.
+   *
    * @public
    */
   TargetOnDemandCapacity?: number | undefined;
 
   /**
-   * <p>The target capacity of Spot units for the instance fleet. For more information, see
-   *             <a>InstanceFleetConfig$TargetSpotCapacity</a>.</p>
+   * The target capacity of Spot units for the instance fleet. For more information, see InstanceFleetConfig$TargetSpotCapacity.
+   *
    * @public
    */
   TargetSpotCapacity?: number | undefined;
 
   /**
-   * <p>The resize specification for the instance fleet.</p>
+   * The resize specification for the instance fleet.
+   *
    * @public
    */
   ResizeSpecifications?: InstanceFleetResizingSpecifications | undefined;
 
   /**
-   * <p>An array of InstanceTypeConfig objects that specify how Amazon EMR provisions Amazon EC2 instances
-   *          when it fulfills On-Demand and Spot capacities. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/APIReference/API_InstanceTypeConfig.html">InstanceTypeConfig</a>.</p>
+   * An array of InstanceTypeConfig objects that specify how Amazon EMR provisions Amazon EC2 instances when it fulfills On-Demand and Spot capacities. For more information, see [InstanceTypeConfig](https://docs.aws.amazon.com/emr/latest/APIReference/API_InstanceTypeConfig.html).
+   *
    * @public
    */
   InstanceTypeConfigs?: InstanceTypeConfig[] | undefined;
 
   /**
-   * <p>Reserved.</p>
+   * Reserved.
+   *
    * @public
    */
   Context?: string | undefined;
 }
 
 /**
- * <p>Output of the <code>ListSessions</code> operation.</p>
+ * Output of the `ListSessions` operation.
+ *
  * @public
  */
 export interface ListSessionsOutput {
   /**
-   * <p>The sessions that match the request.</p>
+   * The sessions that match the request.
+   *
    * @public
    */
   Sessions?: Session[] | undefined;
 
   /**
-   * <p>The pagination token to use in a subsequent <code>ListSessions</code> call to retrieve the next page of results. This field is absent when there are no more results.</p>
+   * The pagination token to use in a subsequent `ListSessions` call to retrieve the next page of results. This field is absent when there are no more results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Change the size of some instance groups.</p>
+ * Change the size of some instance groups.
+ *
  * @public
  */
 export interface ModifyInstanceGroupsInput {
   /**
-   * <p>The ID of the cluster to which the instance group belongs.</p>
+   * The ID of the cluster to which the instance group belongs.
+   *
    * @public
    */
   ClusterId?: string | undefined;
 
   /**
-   * <p>Instance groups to change.</p>
+   * Instance groups to change.
+   *
    * @public
    */
   InstanceGroups?: InstanceGroupModifyConfig[] | undefined;
@@ -7263,144 +7220,150 @@ export interface ModifyInstanceGroupsInput {
  */
 export interface AddInstanceFleetInput {
   /**
-   * <p>The unique identifier of the cluster.</p>
+   * The unique identifier of the cluster.
+   *
    * @public
    */
   ClusterId: string | undefined;
 
   /**
-   * <p>Specifies the configuration of the instance fleet.</p>
+   * Specifies the configuration of the instance fleet.
+   *
    * @public
    */
   InstanceFleet: InstanceFleetConfig | undefined;
 }
 
 /**
- * <p>This entity represents an instance group, which is a group of instances that have common
- *          purpose. For example, CORE instance group is used for HDFS.</p>
+ * This entity represents an instance group, which is a group of instances that have common purpose. For example, CORE instance group is used for HDFS.
+ *
  * @public
  */
 export interface InstanceGroup {
   /**
-   * <p>The identifier of the instance group.</p>
+   * The identifier of the instance group.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The name of the instance group.</p>
+   * The name of the instance group.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The marketplace to provision instances for this group. Valid values are ON_DEMAND or
-   *          SPOT.</p>
+   * The marketplace to provision instances for this group. Valid values are ON_DEMAND or SPOT.
+   *
    * @public
    */
   Market?: MarketType | undefined;
 
   /**
-   * <p>The type of the instance group. Valid values are MASTER, CORE or TASK.</p>
+   * The type of the instance group. Valid values are MASTER, CORE or TASK.
+   *
    * @public
    */
   InstanceGroupType?: InstanceGroupType | undefined;
 
   /**
-   * <p>The bid price for each Amazon EC2 Spot Instance type as defined by
-   *          <code>InstanceType</code>. Expressed in USD. If neither <code>BidPrice</code> nor
-   *          <code>BidPriceAsPercentageOfOnDemandPrice</code> is provided,
-   *          <code>BidPriceAsPercentageOfOnDemandPrice</code> defaults to 100%.</p>
+   * The bid price for each Amazon EC2 Spot Instance type as defined by `InstanceType`. Expressed in USD. If neither `BidPrice` nor `BidPriceAsPercentageOfOnDemandPrice` is provided, `BidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+   *
    * @public
    */
   BidPrice?: string | undefined;
 
   /**
-   * <p>The Amazon EC2 instance type for all instances in the instance group.</p>
+   * The Amazon EC2 instance type for all instances in the instance group.
+   *
    * @public
    */
   InstanceType?: string | undefined;
 
   /**
-   * <p>The target number of instances for the instance group.</p>
+   * The target number of instances for the instance group.
+   *
    * @public
    */
   RequestedInstanceCount?: number | undefined;
 
   /**
-   * <p>The number of instances currently running in this instance group.</p>
+   * The number of instances currently running in this instance group.
+   *
    * @public
    */
   RunningInstanceCount?: number | undefined;
 
   /**
-   * <p>The current status of the instance group.</p>
+   * The current status of the instance group.
+   *
    * @public
    */
   Status?: InstanceGroupStatus | undefined;
 
   /**
-   * <note>
-   *             <p>Amazon EMR releases 4.x or later.</p>
-   *          </note>
-   *          <p>The list of configurations supplied for an Amazon EMR cluster instance group.
-   *          You can specify a separate configuration for each instance group (master, core, and
-   *          task).</p>
+   * > **Note:** Amazon EMR releases 4.x or later.
+   *
+   * The list of configurations supplied for an Amazon EMR cluster instance group. You can specify a separate configuration for each instance group (master, core, and task).
+   *
    * @public
    */
   Configurations?: Configuration[] | undefined;
 
   /**
-   * <p>The version number of the requested configuration specification for this instance
-   *          group.</p>
+   * The version number of the requested configuration specification for this instance group.
+   *
    * @public
    */
   ConfigurationsVersion?: number | undefined;
 
   /**
-   * <p>A list of configurations that were successfully applied for an instance group last
-   *          time.</p>
+   * A list of configurations that were successfully applied for an instance group last time.
+   *
    * @public
    */
   LastSuccessfullyAppliedConfigurations?: Configuration[] | undefined;
 
   /**
-   * <p>The version number of a configuration specification that was successfully applied for an
-   *          instance group last time. </p>
+   * The version number of a configuration specification that was successfully applied for an instance group last time.
+   *
    * @public
    */
   LastSuccessfullyAppliedConfigurationsVersion?: number | undefined;
 
   /**
-   * <p>The EBS block devices that are mapped to this instance group.</p>
+   * The EBS block devices that are mapped to this instance group.
+   *
    * @public
    */
   EbsBlockDevices?: EbsBlockDevice[] | undefined;
 
   /**
-   * <p>If the instance group is EBS-optimized. An Amazon EBS-optimized instance uses an
-   *          optimized configuration stack and provides additional, dedicated capacity for Amazon EBS I/O.</p>
+   * If the instance group is EBS-optimized. An Amazon EBS-optimized instance uses an optimized configuration stack and provides additional, dedicated capacity for Amazon EBS I/O.
+   *
    * @public
    */
   EbsOptimized?: boolean | undefined;
 
   /**
-   * <p>Policy for customizing shrink operations.</p>
+   * Policy for customizing shrink operations.
+   *
    * @public
    */
   ShrinkPolicy?: ShrinkPolicy | undefined;
 
   /**
-   * <p>An automatic scaling policy for a core instance group or task instance group in an
-   *             Amazon EMR cluster. The automatic scaling policy defines how an instance group
-   *          dynamically adds and terminates Amazon EC2 instances in response to the value of a
-   *          CloudWatch metric. See PutAutoScalingPolicy.</p>
+   * An automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster. The automatic scaling policy defines how an instance group dynamically adds and terminates Amazon EC2 instances in response to the value of a CloudWatch metric. See PutAutoScalingPolicy.
+   *
    * @public
    */
   AutoScalingPolicy?: AutoScalingPolicyDescription | undefined;
 
   /**
-   * <p>The custom AMI ID to use for the provisioned instance group.</p>
+   * The custom AMI ID to use for the provisioned instance group.
+   *
    * @public
    */
   CustomAmiId?: string | undefined;
@@ -7411,13 +7374,15 @@ export interface InstanceGroup {
  */
 export interface ModifyInstanceFleetInput {
   /**
-   * <p>The unique identifier of the cluster.</p>
+   * The unique identifier of the cluster.
+   *
    * @public
    */
   ClusterId: string | undefined;
 
   /**
-   * <p>The configuration parameters of the instance fleet.</p>
+   * The configuration parameters of the instance fleet.
+   *
    * @public
    */
   InstanceFleet: InstanceFleetModifyConfig | undefined;
@@ -7428,522 +7393,451 @@ export interface ModifyInstanceFleetInput {
  */
 export interface ListInstanceFleetsOutput {
   /**
-   * <p>The list of instance fleets for the cluster and given filters.</p>
+   * The list of instance fleets for the cluster and given filters.
+   *
    * @public
    */
   InstanceFleets?: InstanceFleet[] | undefined;
 
   /**
-   * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   * The pagination token that indicates the next set of results to retrieve.
+   *
    * @public
    */
   Marker?: string | undefined;
 }
 
 /**
- * <p>This input determines which instance groups to retrieve.</p>
+ * This input determines which instance groups to retrieve.
+ *
  * @public
  */
 export interface ListInstanceGroupsOutput {
   /**
-   * <p>The list of instance groups for the cluster and given filters.</p>
+   * The list of instance groups for the cluster and given filters.
+   *
    * @public
    */
   InstanceGroups?: InstanceGroup[] | undefined;
 
   /**
-   * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   * The pagination token that indicates the next set of results to retrieve.
+   *
    * @public
    */
   Marker?: string | undefined;
 }
 
 /**
- * <p>A description of the Amazon EC2 instance on which the cluster (job flow) runs. A
- *          valid JobFlowInstancesConfig must contain either InstanceGroups or InstanceFleets. They
- *          cannot be used together. You may also have MasterInstanceType, SlaveInstanceType, and
- *          InstanceCount (all three must be present), but we don't recommend this
- *          configuration.</p>
+ * A description of the Amazon EC2 instance on which the cluster (job flow) runs. A valid JobFlowInstancesConfig must contain either InstanceGroups or InstanceFleets. They cannot be used together. You may also have MasterInstanceType, SlaveInstanceType, and InstanceCount (all three must be present), but we don't recommend this configuration.
+ *
  * @public
  */
 export interface JobFlowInstancesConfig {
   /**
-   * <p>The Amazon EC2 instance type of the master node.</p>
+   * The Amazon EC2 instance type of the master node.
+   *
    * @public
    */
   MasterInstanceType?: string | undefined;
 
   /**
-   * <p>The Amazon EC2 instance type of the core and task nodes.</p>
+   * The Amazon EC2 instance type of the core and task nodes.
+   *
    * @public
    */
   SlaveInstanceType?: string | undefined;
 
   /**
-   * <p>The number of Amazon EC2 instances in the cluster.</p>
+   * The number of Amazon EC2 instances in the cluster.
+   *
    * @public
    */
   InstanceCount?: number | undefined;
 
   /**
-   * <p>Configuration for the instance groups in a cluster.</p>
+   * Configuration for the instance groups in a cluster.
+   *
    * @public
    */
   InstanceGroups?: InstanceGroupConfig[] | undefined;
 
   /**
-   * <note>
-   *             <p>The instance fleet configuration is available only in Amazon EMR releases
-   *             4.8.0 and later, excluding 5.0.x versions.</p>
-   *          </note>
-   *          <p>Describes the Amazon EC2 instances and instance configurations for clusters that
-   *          use the instance fleet configuration.</p>
+   * > **Note:** The instance fleet configuration is available only in Amazon EMR releases 4.8.0 and later, excluding 5.0.x versions.
+   *
+   * Describes the Amazon EC2 instances and instance configurations for clusters that use the instance fleet configuration.
+   *
    * @public
    */
   InstanceFleets?: InstanceFleetConfig[] | undefined;
 
   /**
-   * <p>The name of the Amazon EC2 key pair that can be used to connect to the master
-   *          node using SSH as the user called "hadoop."</p>
+   * The name of the Amazon EC2 key pair that can be used to connect to the master node using SSH as the user called "hadoop."
+   *
    * @public
    */
   Ec2KeyName?: string | undefined;
 
   /**
-   * <p>The Availability Zone in which the cluster runs.</p>
+   * The Availability Zone in which the cluster runs.
+   *
    * @public
    */
   Placement?: PlacementType | undefined;
 
   /**
-   * <p>Specifies whether the cluster should remain available after completing all steps.
-   *          Defaults to <code>false</code>. For more information about configuring cluster termination,
-   *          see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-termination.html">Control Cluster Termination</a> in the <i>EMR Management
-   *          Guide</i>.</p>
+   * Specifies whether the cluster should remain available after completing all steps. Defaults to `false`. For more information about configuring cluster termination, see [Control Cluster Termination](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-termination.html) in the *EMR Management Guide*.
+   *
    * @public
    */
   KeepJobFlowAliveWhenNoSteps?: boolean | undefined;
 
   /**
-   * <p>Specifies whether to lock the cluster to prevent the Amazon EC2 instances from
-   *          being terminated by API call, user intervention, or in the event of a job-flow
-   *          error.</p>
+   * Specifies whether to lock the cluster to prevent the Amazon EC2 instances from being terminated by API call, user intervention, or in the event of a job-flow error.
+   *
    * @public
    */
   TerminationProtected?: boolean | undefined;
 
   /**
-   * <p>Indicates whether Amazon EMR should gracefully replace core nodes
-   *          that have degraded within the cluster.</p>
+   * Indicates whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster.
+   *
    * @public
    */
   UnhealthyNodeReplacement?: boolean | undefined;
 
   /**
-   * <p>Applies only to Amazon EMR release versions earlier than 4.0. The Hadoop version
-   *          for the cluster. Valid inputs are "0.18" (no longer maintained), "0.20" (no longer
-   *          maintained), "0.20.205" (no longer maintained), "1.0.3", "2.2.0", or "2.4.0". If you do not
-   *          set this value, the default of 0.18 is used, unless the <code>AmiVersion</code> parameter
-   *          is set in the RunJobFlow call, in which case the default version of Hadoop for that AMI
-   *          version is used.</p>
+   * Applies only to Amazon EMR release versions earlier than 4.0. The Hadoop version for the cluster. Valid inputs are "0.18" (no longer maintained), "0.20" (no longer maintained), "0.20.205" (no longer maintained), "1.0.3", "2.2.0", or "2.4.0". If you do not set this value, the default of 0.18 is used, unless the `AmiVersion` parameter is set in the RunJobFlow call, in which case the default version of Hadoop for that AMI version is used.
+   *
    * @public
    */
   HadoopVersion?: string | undefined;
 
   /**
-   * <p>Applies to clusters that use the uniform instance group configuration. To launch the
-   *          cluster in Amazon Virtual Private Cloud (Amazon VPC), set this parameter to the
-   *          identifier of the Amazon VPC subnet where you want the cluster to launch. If you do
-   *          not specify this value and your account supports EC2-Classic, the cluster launches in
-   *          EC2-Classic.</p>
+   * Applies to clusters that use the uniform instance group configuration. To launch the cluster in Amazon Virtual Private Cloud (Amazon VPC), set this parameter to the identifier of the Amazon VPC subnet where you want the cluster to launch. If you do not specify this value and your account supports EC2-Classic, the cluster launches in EC2-Classic.
+   *
    * @public
    */
   Ec2SubnetId?: string | undefined;
 
   /**
-   * <p>Applies to clusters that use the instance fleet configuration. When multiple Amazon EC2 subnet IDs are specified, Amazon EMR evaluates them and launches
-   *          instances in the optimal subnet.</p>
-   *          <note>
-   *             <p>The instance fleet configuration is available only in Amazon EMR releases
-   *             4.8.0 and later, excluding 5.0.x versions.</p>
-   *          </note>
+   * Applies to clusters that use the instance fleet configuration. When multiple Amazon EC2 subnet IDs are specified, Amazon EMR evaluates them and launches instances in the optimal subnet.
+   *
+   * > **Note:** The instance fleet configuration is available only in Amazon EMR releases 4.8.0 and later, excluding 5.0.x versions.
+   *
    * @public
    */
   Ec2SubnetIds?: string[] | undefined;
 
   /**
-   * <p>The identifier of the Amazon EC2 security group for the master node. If you
-   *          specify <code>EmrManagedMasterSecurityGroup</code>, you must also specify
-   *             <code>EmrManagedSlaveSecurityGroup</code>.</p>
+   * The identifier of the Amazon EC2 security group for the master node. If you specify `EmrManagedMasterSecurityGroup`, you must also specify `EmrManagedSlaveSecurityGroup`.
+   *
    * @public
    */
   EmrManagedMasterSecurityGroup?: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon EC2 security group for the core and task nodes. If
-   *          you specify <code>EmrManagedSlaveSecurityGroup</code>, you must also specify
-   *             <code>EmrManagedMasterSecurityGroup</code>.</p>
+   * The identifier of the Amazon EC2 security group for the core and task nodes. If you specify `EmrManagedSlaveSecurityGroup`, you must also specify `EmrManagedMasterSecurityGroup`.
+   *
    * @public
    */
   EmrManagedSlaveSecurityGroup?: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon EC2 security group for the Amazon EMR
-   *          service to access clusters in VPC private subnets.</p>
+   * The identifier of the Amazon EC2 security group for the Amazon EMR service to access clusters in VPC private subnets.
+   *
    * @public
    */
   ServiceAccessSecurityGroup?: string | undefined;
 
   /**
-   * <p>A list of additional Amazon EC2 security group IDs for the master node.</p>
+   * A list of additional Amazon EC2 security group IDs for the master node.
+   *
    * @public
    */
   AdditionalMasterSecurityGroups?: string[] | undefined;
 
   /**
-   * <p>A list of additional Amazon EC2 security group IDs for the core and task
-   *          nodes.</p>
+   * A list of additional Amazon EC2 security group IDs for the core and task nodes.
+   *
    * @public
    */
   AdditionalSlaveSecurityGroups?: string[] | undefined;
 }
 
 /**
- * <p> Input to the <a>RunJobFlow</a> operation. </p>
+ * Input to the RunJobFlow operation.
+ *
  * @public
  */
 export interface RunJobFlowInput {
   /**
-   * <p>The name of the job flow.</p>
+   * The name of the job flow.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The location in Amazon S3 to write the log files of the job flow. If a value is
-   *          not provided, logs are not created.</p>
+   * The location in Amazon S3 to write the log files of the job flow. If a value is not provided, logs are not created.
+   *
    * @public
    */
   LogUri?: string | undefined;
 
   /**
-   * <p>The KMS key used for encrypting log files. If a value is not
-   *          provided, the logs remain encrypted by AES-256. This attribute is only available with
-   *             Amazon EMR releases 5.30.0 and later, excluding Amazon EMR 6.0.0.</p>
+   * The KMS key used for encrypting log files. If a value is not provided, the logs remain encrypted by AES-256. This attribute is only available with Amazon EMR releases 5.30.0 and later, excluding Amazon EMR 6.0.0.
+   *
    * @public
    */
   LogEncryptionKmsKeyId?: string | undefined;
 
   /**
-   * <p>A JSON string for selecting additional features.</p>
+   * A JSON string for selecting additional features.
+   *
    * @public
    */
   AdditionalInfo?: string | undefined;
 
   /**
-   * <p>Applies only to Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR
-   *          releases 4.0 and later, <code>ReleaseLabel</code> is used. To specify a custom AMI, use
-   *             <code>CustomAmiID</code>.</p>
+   * Applies only to Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR releases 4.0 and later, `ReleaseLabel` is used. To specify a custom AMI, use `CustomAmiID`.
+   *
    * @public
    */
   AmiVersion?: string | undefined;
 
   /**
-   * <p>The Amazon EMR release label, which determines the version of open-source
-   *          application packages installed on the cluster. Release labels are in the form
-   *             <code>emr-x.x.x</code>, where x.x.x is an Amazon EMR release version such as
-   *             <code>emr-5.14.0</code>. For more information about Amazon EMR release versions
-   *          and included application versions and features, see <a href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/">https://docs.aws.amazon.com/emr/latest/ReleaseGuide/</a>. The release label applies only to Amazon EMR
-   *          releases version 4.0 and later. Earlier versions use <code>AmiVersion</code>.</p>
+   * The Amazon EMR release label, which determines the version of open-source application packages installed on the cluster. Release labels are in the form `emr-x.x.x`, where x.x.x is an Amazon EMR release version such as `emr-5.14.0`. For more information about Amazon EMR release versions and included application versions and features, see [https://docs.aws.amazon.com/emr/latest/ReleaseGuide/](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/). The release label applies only to Amazon EMR releases version 4.0 and later. Earlier versions use `AmiVersion`.
+   *
    * @public
    */
   ReleaseLabel?: string | undefined;
 
   /**
-   * <p>A specification of the number and type of Amazon EC2 instances.</p>
+   * A specification of the number and type of Amazon EC2 instances.
+   *
    * @public
    */
   Instances: JobFlowInstancesConfig | undefined;
 
   /**
-   * <p>A list of steps to run.</p>
+   * A list of steps to run.
+   *
    * @public
    */
   Steps?: StepConfig[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the runtime role for steps specified in the
-   *          RunJobFlow request. The runtime role can be a cross-account IAM role.
-   *          The runtime role ARN is a combination of account ID, role name, and role type using the
-   *          following format: <code>arn:partition:iam::account-id:role/role-name</code>.</p>
-   *          <p>For example, <code>arn:aws:iam::1234567890:role/ReadOnly</code> is a correctly formatted
-   *          runtime role ARN.</p>
-   *          <p>This parameter applies only to steps included in the <code>Steps</code> parameter of this
-   *          RunJobFlow request. It does not apply to steps added later to the cluster.</p>
+   * The Amazon Resource Name (ARN) of the runtime role for steps specified in the RunJobFlow request. The runtime role can be a cross-account IAM role. The runtime role ARN is a combination of account ID, role name, and role type using the following format: `arn:partition:iam::account-id:role/role-name`.
+   *
+   * For example, `arn:aws:iam::1234567890:role/ReadOnly` is a correctly formatted runtime role ARN.
+   *
+   * This parameter applies only to steps included in the `Steps` parameter of this RunJobFlow request. It does not apply to steps added later to the cluster.
+   *
    * @public
    */
   StepExecutionRoleArn?: string | undefined;
 
   /**
-   * <p>A list of bootstrap actions to run before Hadoop starts on the cluster nodes.</p>
+   * A list of bootstrap actions to run before Hadoop starts on the cluster nodes.
+   *
    * @public
    */
   BootstrapActions?: BootstrapActionConfig[] | undefined;
 
   /**
-   * <note>
-   *             <p>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and
-   *             later, use Applications.</p>
-   *          </note>
-   *          <p>A list of strings that indicates third-party software to use. For more information, see
-   *          the <a href="https://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf">Amazon EMR Developer Guide</a>. Currently supported values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>"mapr-m3" - launch the job flow using MapR M3 Edition.</p>
-   *             </li>
-   *             <li>
-   *                <p>"mapr-m5" - launch the job flow using MapR M5 Edition.</p>
-   *             </li>
-   *          </ul>
+   * > **Note:** For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and later, use Applications.
+   *
+   * A list of strings that indicates third-party software to use. For more information, see the [Amazon EMR Developer Guide](https://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf). Currently supported values are:
+   *
+   * - "mapr-m3" - launch the job flow using MapR M3 Edition.
+   * - "mapr-m5" - launch the job flow using MapR M5 Edition.
+   *
    * @public
    */
   SupportedProducts?: string[] | undefined;
 
   /**
-   * <note>
-   *             <p>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and
-   *             later, use Applications.</p>
-   *          </note>
-   *          <p>A list of strings that indicates third-party software to use with the job flow that
-   *          accepts a user argument list. Amazon EMR accepts and forwards the argument list to
-   *          the corresponding installation script as bootstrap action arguments. For more information,
-   *          see "Launch a Job Flow on the MapR Distribution for Hadoop" in the <a href="https://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf">Amazon EMR
-   *             Developer Guide</a>. Supported values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>"mapr-m3" - launch the cluster using MapR M3 Edition.</p>
-   *             </li>
-   *             <li>
-   *                <p>"mapr-m5" - launch the cluster using MapR M5 Edition.</p>
-   *             </li>
-   *             <li>
-   *                <p>"mapr" with the user arguments specifying "--edition,m3" or "--edition,m5" -
-   *                launch the job flow using MapR M3 or M5 Edition respectively.</p>
-   *             </li>
-   *             <li>
-   *                <p>"mapr-m7" - launch the cluster using MapR M7 Edition.</p>
-   *             </li>
-   *             <li>
-   *                <p>"hunk" - launch the cluster with the Hunk Big Data Analytics Platform.</p>
-   *             </li>
-   *             <li>
-   *                <p>"hue"- launch the cluster with Hue installed.</p>
-   *             </li>
-   *             <li>
-   *                <p>"spark" - launch the cluster with Apache Spark installed.</p>
-   *             </li>
-   *             <li>
-   *                <p>"ganglia" - launch the cluster with the Ganglia Monitoring System
-   *                installed.</p>
-   *             </li>
-   *          </ul>
+   * > **Note:** For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and later, use Applications.
+   *
+   * A list of strings that indicates third-party software to use with the job flow that accepts a user argument list. Amazon EMR accepts and forwards the argument list to the corresponding installation script as bootstrap action arguments. For more information, see "Launch a Job Flow on the MapR Distribution for Hadoop" in the [Amazon EMR Developer Guide](https://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf). Supported values are:
+   *
+   * - "mapr-m3" - launch the cluster using MapR M3 Edition.
+   * - "mapr-m5" - launch the cluster using MapR M5 Edition.
+   * - "mapr" with the user arguments specifying "--edition,m3" or "--edition,m5" - launch the job flow using MapR M3 or M5 Edition respectively.
+   * - "mapr-m7" - launch the cluster using MapR M7 Edition.
+   * - "hunk" - launch the cluster with the Hunk Big Data Analytics Platform.
+   * - "hue"- launch the cluster with Hue installed.
+   * - "spark" - launch the cluster with Apache Spark installed.
+   * - "ganglia" - launch the cluster with the Ganglia Monitoring System installed.
+   *
    * @public
    */
   NewSupportedProducts?: SupportedProductConfig[] | undefined;
 
   /**
-   * <p>Applies to Amazon EMR releases 4.0 and later. A case-insensitive list of
-   *          applications for Amazon EMR to install and configure when launching the cluster.
-   *          For a list of applications available for each Amazon EMR release version, see the
-   *             <a href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/">Amazon EMRRelease
-   *             Guide</a>.</p>
+   * Applies to Amazon EMR releases 4.0 and later. A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMRRelease Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/).
+   *
    * @public
    */
   Applications?: Application[] | undefined;
 
   /**
-   * <p>For Amazon EMR releases 4.0 and later. The list of configurations supplied for
-   *          the Amazon EMR cluster that you are creating.</p>
+   * For Amazon EMR releases 4.0 and later. The list of configurations supplied for the Amazon EMR cluster that you are creating.
+   *
    * @public
    */
   Configurations?: Configuration[] | undefined;
 
   /**
-   * <important>
-   *             <p>The VisibleToAllUsers parameter is no longer supported. By default, the value is set
-   *             to <code>true</code>. Setting it to <code>false</code> now has no effect.</p>
-   *          </important>
-   *          <p>Set this value to <code>true</code> so that IAM principals in the Amazon Web Services account associated with the cluster can perform Amazon EMR actions on
-   *          the cluster that their IAM policies allow. This value defaults to
-   *             <code>true</code> for clusters created using the Amazon EMR API or the CLI
-   *          <a href="https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html">create-cluster</a> command.</p>
-   *          <p>When set to <code>false</code>, only the IAM principal that created the
-   *          cluster and the Amazon Web Services account root user can perform Amazon EMR actions
-   *          for the cluster, regardless of the IAM permissions policies attached to
-   *          other IAM principals. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_IAM_emr-with-IAM.html#security_set_visible_to_all_users">Understanding the Amazon EMR cluster VisibleToAllUsers setting</a> in the
-   *                <i>Amazon EMR Management Guide</i>.</p>
+   * > **Important:** The VisibleToAllUsers parameter is no longer supported. By default, the value is set to `true`. Setting it to `false` now has no effect.
+   *
+   * Set this value to `true` so that IAM principals in the Amazon Web Services account associated with the cluster can perform Amazon EMR actions on the cluster that their IAM policies allow. This value defaults to `true` for clusters created using the Amazon EMR API or the CLI [create-cluster](https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html) command.
+   *
+   * When set to `false`, only the IAM principal that created the cluster and the Amazon Web Services account root user can perform Amazon EMR actions for the cluster, regardless of the IAM permissions policies attached to other IAM principals. For more information, see [Understanding the Amazon EMR cluster VisibleToAllUsers setting](https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_IAM_emr-with-IAM.html#security_set_visible_to_all_users) in the *Amazon EMR Management Guide*.
+   *
    * @public
    */
   VisibleToAllUsers?: boolean | undefined;
 
   /**
-   * <p>Also called instance profile and Amazon EC2 role. An IAM role for
-   *          an Amazon EMR cluster. The Amazon EC2 instances of the cluster assume this
-   *          role. The default role is <code>EMR_EC2_DefaultRole</code>. In order to use the default
-   *          role, you must have already created it using the CLI or console.</p>
+   * Also called instance profile and Amazon EC2 role. An IAM role for an Amazon EMR cluster. The Amazon EC2 instances of the cluster assume this role. The default role is `EMR_EC2_DefaultRole`. In order to use the default role, you must have already created it using the CLI or console.
+   *
    * @public
    */
   JobFlowRole?: string | undefined;
 
   /**
-   * <p>The IAM role that Amazon EMR assumes in order to access Amazon Web Services resources on your behalf. If you've created a custom service role path, you
-   *          must specify it for the service role when you launch your cluster.</p>
+   * The IAM role that Amazon EMR assumes in order to access Amazon Web Services resources on your behalf. If you've created a custom service role path, you must specify it for the service role when you launch your cluster.
+   *
    * @public
    */
   ServiceRole?: string | undefined;
 
   /**
-   * <p>A list of tags to associate with a cluster and propagate to Amazon EC2
-   *          instances.</p>
+   * A list of tags to associate with a cluster and propagate to Amazon EC2 instances.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>The name of a security configuration to apply to the cluster.</p>
+   * The name of a security configuration to apply to the cluster.
+   *
    * @public
    */
   SecurityConfiguration?: string | undefined;
 
   /**
-   * <p>An IAM role for automatic scaling policies. The default role is
-   *             <code>EMR_AutoScaling_DefaultRole</code>. The IAM role provides
-   *          permissions that the automatic scaling feature requires to launch and terminate Amazon EC2 instances in an instance group.</p>
+   * An IAM role for automatic scaling policies. The default role is `EMR_AutoScaling_DefaultRole`. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate Amazon EC2 instances in an instance group.
+   *
    * @public
    */
   AutoScalingRole?: string | undefined;
 
   /**
-   * <p>Specifies the way that individual Amazon EC2 instances terminate when an
-   *          automatic scale-in activity occurs or an instance group is resized.
-   *             <code>TERMINATE_AT_INSTANCE_HOUR</code> indicates that Amazon EMR terminates
-   *          nodes at the instance-hour boundary, regardless of when the request to terminate the
-   *          instance was submitted. This option is only available with Amazon EMR 5.1.0 and
-   *          later and is the default for clusters created using that version.
-   *             <code>TERMINATE_AT_TASK_COMPLETION</code> indicates that Amazon EMR adds nodes
-   *          to a deny list and drains tasks from nodes before terminating the Amazon EC2
-   *          instances, regardless of the instance-hour boundary. With either behavior, Amazon EMR removes the least active nodes first and blocks instance termination if it could lead to
-   *          HDFS corruption. <code>TERMINATE_AT_TASK_COMPLETION</code> available only in Amazon EMR releases 4.1.0 and later, and is the default for releases of Amazon EMR earlier than 5.1.0.</p>
+   * Specifies the way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an instance group is resized. `TERMINATE_AT_INSTANCE_HOUR` indicates that Amazon EMR terminates nodes at the instance-hour boundary, regardless of when the request to terminate the instance was submitted. This option is only available with Amazon EMR 5.1.0 and later and is the default for clusters created using that version. `TERMINATE_AT_TASK_COMPLETION` indicates that Amazon EMR adds nodes to a deny list and drains tasks from nodes before terminating the Amazon EC2 instances, regardless of the instance-hour boundary. With either behavior, Amazon EMR removes the least active nodes first and blocks instance termination if it could lead to HDFS corruption. `TERMINATE_AT_TASK_COMPLETION` available only in Amazon EMR releases 4.1.0 and later, and is the default for releases of Amazon EMR earlier than 5.1.0.
+   *
    * @public
    */
   ScaleDownBehavior?: ScaleDownBehavior | undefined;
 
   /**
-   * <p>Available only in Amazon EMR releases 5.7.0 and later. The ID of a custom Amazon
-   *          EBS-backed Linux AMI. If specified, Amazon EMR uses this AMI when it launches
-   *          cluster Amazon EC2 instances. For more information about custom AMIs in Amazon EMR, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami.html">Using a Custom AMI</a> in the
-   *                <i>Amazon EMR Management Guide</i>. If omitted, the cluster
-   *          uses the base Linux AMI for the <code>ReleaseLabel</code> specified. For Amazon EMR
-   *          releases 2.x and 3.x, use <code>AmiVersion</code> instead.</p>
-   *          <p>For information about creating a custom AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Creating an Amazon EBS-Backed Linux AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide for Linux
-   *             Instances</i>. For information about finding an AMI ID, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html">Finding a Linux
-   *             AMI</a>. </p>
+   * Available only in Amazon EMR releases 5.7.0 and later. The ID of a custom Amazon EBS-backed Linux AMI. If specified, Amazon EMR uses this AMI when it launches cluster Amazon EC2 instances. For more information about custom AMIs in Amazon EMR, see [Using a Custom AMI](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami.html) in the *Amazon EMR Management Guide*. If omitted, the cluster uses the base Linux AMI for the `ReleaseLabel` specified. For Amazon EMR releases 2.x and 3.x, use `AmiVersion` instead.
+   *
+   * For information about creating a custom AMI, see [Creating an Amazon EBS-Backed Linux AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html) in the *Amazon Elastic Compute Cloud User Guide for Linux Instances*. For information about finding an AMI ID, see [Finding a Linux AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html).
+   *
    * @public
    */
   CustomAmiId?: string | undefined;
 
   /**
-   * <p>The size, in GiB, of the Amazon EBS root device volume of the Linux AMI that is
-   *          used for each Amazon EC2 instance. Available in Amazon EMR releases 4.x and
-   *          later.</p>
+   * The size, in GiB, of the Amazon EBS root device volume of the Linux AMI that is used for each Amazon EC2 instance. Available in Amazon EMR releases 4.x and later.
+   *
    * @public
    */
   EbsRootVolumeSize?: number | undefined;
 
   /**
-   * <p>Applies only when <code>CustomAmiID</code> is used. Specifies which updates from the
-   *          Amazon Linux AMI package repositories to apply automatically when the instance boots using
-   *          the AMI. If omitted, the default is <code>SECURITY</code>, which indicates that only
-   *          security updates are applied. If <code>NONE</code> is specified, no updates are applied,
-   *          and all updates must be applied manually.</p>
+   * Applies only when `CustomAmiID` is used. Specifies which updates from the Amazon Linux AMI package repositories to apply automatically when the instance boots using the AMI. If omitted, the default is `SECURITY`, which indicates that only security updates are applied. If `NONE` is specified, no updates are applied, and all updates must be applied manually.
+   *
    * @public
    */
   RepoUpgradeOnBoot?: RepoUpgradeOnBoot | undefined;
 
   /**
-   * <p>Attributes for Kerberos configuration when Kerberos authentication is enabled using a
-   *          security configuration. For more information see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html">Use Kerberos Authentication</a>
-   *          in the <i>Amazon EMR Management Guide</i>.</p>
+   * Attributes for Kerberos configuration when Kerberos authentication is enabled using a security configuration. For more information see [Use Kerberos Authentication](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html) in the *Amazon EMR Management Guide*.
+   *
    * @public
    */
   KerberosAttributes?: KerberosAttributes | undefined;
 
   /**
-   * <p>Specifies the number of steps that can be executed concurrently. The default value is
-   *             <code>1</code>. The maximum value is <code>256</code>.</p>
+   * Specifies the number of steps that can be executed concurrently. The default value is `1`. The maximum value is `256`.
+   *
    * @public
    */
   StepConcurrencyLevel?: number | undefined;
 
   /**
-   * <p> The specified managed scaling policy for an Amazon EMR cluster. </p>
+   * The specified managed scaling policy for an Amazon EMR cluster.
+   *
    * @public
    */
   ManagedScalingPolicy?: ManagedScalingPolicy | undefined;
 
   /**
-   * <p>The specified placement group configuration for an Amazon EMR cluster.</p>
+   * The specified placement group configuration for an Amazon EMR cluster.
+   *
    * @public
    */
   PlacementGroupConfigs?: PlacementGroupConfig[] | undefined;
 
   /**
-   * <p>An auto-termination policy for an Amazon EMR cluster. An auto-termination policy
-   *          defines the amount of idle time in seconds after which a cluster automatically terminates.
-   *          For alternative cluster termination options, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-termination.html">Control cluster
-   *             termination</a>.</p>
+   * An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. For alternative cluster termination options, see [Control cluster termination](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-termination.html).
+   *
    * @public
    */
   AutoTerminationPolicy?: AutoTerminationPolicy | undefined;
 
   /**
-   * <p>Specifies a particular Amazon Linux release for all nodes in a cluster launch RunJobFlow
-   *          request. If a release is not specified, Amazon EMR uses the latest validated Amazon
-   *          Linux release for cluster launch.</p>
+   * Specifies a particular Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If a release is not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
+   *
    * @public
    */
   OSReleaseLabel?: string | undefined;
 
   /**
-   * <p>The IOPS, of the Amazon EBS root device volume of the Linux AMI that is
-   *             used for each Amazon EC2 instance. Available in Amazon EMR releases 6.15.0 and
-   *             later.</p>
+   * The IOPS, of the Amazon EBS root device volume of the Linux AMI that is used for each Amazon EC2 instance. Available in Amazon EMR releases 6.15.0 and later.
+   *
    * @public
    */
   EbsRootVolumeIops?: number | undefined;
 
   /**
-   * <p>The throughput, in MiB/s, of the Amazon EBS root device volume of the Linux AMI that is
-   *             used for each Amazon EC2 instance. Available in Amazon EMR releases 6.15.0 and
-   *             later.</p>
+   * The throughput, in MiB/s, of the Amazon EBS root device volume of the Linux AMI that is used for each Amazon EC2 instance. Available in Amazon EMR releases 6.15.0 and later.
+   *
    * @public
    */
   EbsRootVolumeThroughput?: number | undefined;
 
   /**
-   * <p>Reserved.</p>
+   * Reserved.
+   *
    * @public
    */
   ExtendedSupport?: boolean | undefined;
 
   /**
-   * <p>Contains CloudWatch log configuration metadata and settings.</p>
+   * Contains CloudWatch log configuration metadata and settings.
+   *
    * @public
    */
   MonitoringConfiguration?: MonitoringConfiguration | undefined;
 
   /**
-   * <p>Indicates whether Spark Connect sessions are enabled on the cluster. When set to <code>true</code>, you can start Spark Connect sessions using the <code>StartSession</code> operation.</p>
+   * Indicates whether Spark Connect sessions are enabled on the cluster. When set to `true`, you can start Spark Connect sessions using the `StartSession` operation.
+   *
    * @public
    */
   SessionEnabled?: boolean | undefined;

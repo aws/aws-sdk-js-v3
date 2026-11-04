@@ -5,31 +5,31 @@
  */
 export const EmissionsType = {
   /**
-   * <p>Total direct, indirect, and value chain emissions, calculated using GHG Protocol's Location-based method (LBM).</p>
+   * Total direct, indirect, and value chain emissions, calculated using GHG Protocol's Location-based method (LBM).
    */
   TOTAL_LBM_CARBON_EMISSIONS: "TOTAL_LBM_CARBON_EMISSIONS",
   /**
-   * <p>Total direct, indirect, and value chain emissions, calculated using GHG Protocol's Market-based method (MBM).</p>
+   * Total direct, indirect, and value chain emissions, calculated using GHG Protocol's Market-based method (MBM).
    */
   TOTAL_MBM_CARBON_EMISSIONS: "TOTAL_MBM_CARBON_EMISSIONS",
   /**
-   * <p>Total direct emissions from Amazon Web Services owned or controlled sources.</p>
+   * Total direct emissions from Amazon Web Services owned or controlled sources.
    */
   TOTAL_SCOPE_1_CARBON_EMISSIONS: "TOTAL_SCOPE_1_CARBON_EMISSIONS",
   /**
-   * <p>Total indirect emissions from the production of purchased energy, calculated using GHG Protocol's Location-based method (LBM).</p>
+   * Total indirect emissions from the production of purchased energy, calculated using GHG Protocol's Location-based method (LBM).
    */
   TOTAL_SCOPE_2_LBM_CARBON_EMISSIONS: "TOTAL_SCOPE_2_LBM_CARBON_EMISSIONS",
   /**
-   * <p>Total indirect emissions from the production of purchased energy, calculated using GHG Protocol's Market-based method (MBM).</p>
+   * Total indirect emissions from the production of purchased energy, calculated using GHG Protocol's Market-based method (MBM).
    */
   TOTAL_SCOPE_2_MBM_CARBON_EMISSIONS: "TOTAL_SCOPE_2_MBM_CARBON_EMISSIONS",
   /**
-   * <p>Total value chain emissions, calculated using GHG Protocol's Location-based method (LBM).</p>
+   * Total value chain emissions, calculated using GHG Protocol's Location-based method (LBM).
    */
   TOTAL_SCOPE_3_LBM_CARBON_EMISSIONS: "TOTAL_SCOPE_3_LBM_CARBON_EMISSIONS",
   /**
-   * <p>Total value chain emissions, calculated using GHG Protocol's Market-based method (MBM).</p>
+   * Total value chain emissions, calculated using GHG Protocol's Market-based method (MBM).
    */
   TOTAL_SCOPE_3_MBM_CARBON_EMISSIONS: "TOTAL_SCOPE_3_MBM_CARBON_EMISSIONS",
 } as const;
@@ -44,15 +44,15 @@ export type EmissionsType = (typeof EmissionsType)[keyof typeof EmissionsType];
  */
 export const Dimension = {
   /**
-   * <p>The geographical area containing data center clusters where Amazon Web Services services are hosted.</p>
+   * The geographical area containing data center clusters where Amazon Web Services services are hosted.
    */
   REGION: "REGION",
   /**
-   * <p>The cloud computing product and solution offered by Amazon Web Services.</p>
+   * The cloud computing product and solution offered by Amazon Web Services.
    */
   SERVICE: "SERVICE",
   /**
-   * <p>The account ID whose Amazon Web Services usage is associated with the estimated environmental impact data.</p>
+   * The account ID whose Amazon Web Services usage is associated with the estimated environmental impact data.
    */
   USAGE_ACCOUNT_ID: "USAGE_ACCOUNT_ID",
 } as const;
@@ -67,23 +67,23 @@ export type Dimension = (typeof Dimension)[keyof typeof Dimension];
  */
 export const TimeGranularity = {
   /**
-   * <p>Environmental impact data aggregated by calendar month.</p>
+   * Environmental impact data aggregated by calendar month.
    */
   MONTHLY: "MONTHLY",
   /**
-   * <p>Environmental impact data aggregated over calendar quarter periods (Q1: Jan-Mar, Q2: Apr-Jun, Q3: Jul-Sep, Q4: Oct-Dec).</p>
+   * Environmental impact data aggregated over calendar quarter periods (Q1: Jan-Mar, Q2: Apr-Jun, Q3: Jul-Sep, Q4: Oct-Dec).
    */
   QUARTERLY_CALENDAR: "QUARTERLY_CALENDAR",
   /**
-   * <p>Environmental impact data aggregated over fiscal quarter periods based on the fiscal year start month specified in GranularityConfiguration.FiscalYearStartMonth.</p>
+   * Environmental impact data aggregated over fiscal quarter periods based on the fiscal year start month specified in GranularityConfiguration.FiscalYearStartMonth.
    */
   QUARTERLY_FISCAL: "QUARTERLY_FISCAL",
   /**
-   * <p>Environmental impact data aggregated over calendar year periods (January-December).</p>
+   * Environmental impact data aggregated over calendar year periods (January-December).
    */
   YEARLY_CALENDAR: "YEARLY_CALENDAR",
   /**
-   * <p>Environmental impact data aggregated over fiscal year periods starting from the month specified in GranularityConfiguration.FiscalYearStartMonth.</p>
+   * Environmental impact data aggregated over fiscal year periods starting from the month specified in GranularityConfiguration.FiscalYearStartMonth.
    */
   YEARLY_FISCAL: "YEARLY_FISCAL",
 } as const;
@@ -98,7 +98,7 @@ export type TimeGranularity = (typeof TimeGranularity)[keyof typeof TimeGranular
  */
 export const EmissionsUnit = {
   /**
-   * <p>Metric tons of carbon dioxide-equivalent (MTCO2e).</p>
+   * Metric tons of carbon dioxide-equivalent (MTCO2e).
    */
   MT_CO2E: "MTCO2e",
 } as const;
@@ -113,7 +113,7 @@ export type EmissionsUnit = (typeof EmissionsUnit)[keyof typeof EmissionsUnit];
  */
 export const WaterAllocationType = {
   /**
-   * <p>Total water drawn from surface water, groundwater, seawater, or a third party associated with Amazon Web Services account usage.</p>
+   * Total water drawn from surface water, groundwater, seawater, or a third party associated with Amazon Web Services account usage.
    */
   TOTAL_WATER_WITHDRAWALS: "TOTAL_WATER_WITHDRAWALS",
 } as const;
@@ -128,7 +128,7 @@ export type WaterAllocationType = (typeof WaterAllocationType)[keyof typeof Wate
  */
 export const WaterAllocationUnit = {
   /**
-   * <p>Cubic meters of water.</p>
+   * Cubic meters of water.
    */
   CUBIC_METERS: "m3",
 } as const;

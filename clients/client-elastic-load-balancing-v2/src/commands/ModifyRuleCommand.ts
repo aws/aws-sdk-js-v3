@@ -23,11 +23,10 @@ export interface ModifyRuleCommandInput extends ModifyRuleInput {}
 export interface ModifyRuleCommandOutput extends ModifyRuleOutput, __MetadataBearer {}
 
 /**
- * <p>Replaces the specified properties of the specified rule. Any properties that you do not
- *       specify are unchanged.</p>
- *          <p>To add an item to a list, remove an item from a list, or update an item in a list, you
- *       must provide the entire list. For example, to add an action, specify a list with the current
- *       actions plus the new action.</p>
+ * Replaces the specified properties of the specified rule. Any properties that you do not specify are unchanged.
+ *
+ * To add an item to a list, remove an item from a list, or update an item in a list, you must provide the entire list. For example, to add an action, specify a list with the current actions plus the new action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -339,44 +338,52 @@ export interface ModifyRuleCommandOutput extends ModifyRuleOutput, __MetadataBea
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
  * @throws {@link IncompatibleProtocolsException} (client fault)
- *  <p>The specified configuration is not valid with this protocol.</p>
+ *
+ * The specified configuration is not valid with this protocol.
  *
  * @throws {@link InvalidLoadBalancerActionException} (client fault)
- *  <p>The requested action is not valid.</p>
+ *
+ * The requested action is not valid.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>This operation is not allowed.</p>
+ *
+ * This operation is not allowed.
  *
  * @throws {@link RuleNotFoundException} (client fault)
- *  <p>The specified rule does not exist.</p>
+ *
+ * The specified rule does not exist.
  *
  * @throws {@link TargetGroupAssociationLimitException} (client fault)
- *  <p>You've reached the limit on the number of load balancers per target group.</p>
+ *
+ * You've reached the limit on the number of load balancers per target group.
  *
  * @throws {@link TargetGroupNotFoundException} (client fault)
- *  <p>The specified target group does not exist.</p>
+ *
+ * The specified target group does not exist.
  *
  * @throws {@link TooManyActionsException} (client fault)
- *  <p>You've reached the limit on the number of actions per rule.</p>
+ *
+ * You've reached the limit on the number of actions per rule.
  *
  * @throws {@link TooManyRegistrationsForTargetIdException} (client fault)
- *  <p>You've reached the limit on the number of times a target can be registered with a load
- *       balancer.</p>
+ *
+ * You've reached the limit on the number of times a target can be registered with a load balancer.
  *
  * @throws {@link TooManyTargetsException} (client fault)
- *  <p>You've reached the limit on the number of targets.</p>
+ *
+ * You've reached the limit on the number of targets.
  *
  * @throws {@link TooManyUniqueTargetGroupsPerLoadBalancerException} (client fault)
- *  <p>You've reached the limit on the number of unique target groups per load balancer across
- *       all listeners. If a target group is used by multiple actions for a load balancer, it is
- *       counted as only one use.</p>
+ *
+ * You've reached the limit on the number of unique target groups per load balancer across all listeners. If a target group is used by multiple actions for a load balancer, it is counted as only one use.
  *
  * @throws {@link UnsupportedProtocolException} (client fault)
- *  <p>The specified protocol is not supported.</p>
+ *
+ * The specified protocol is not supported.
  *
  * @throws {@link ElasticLoadBalancingV2ServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancingV2 service.
  *
  * @example To modify a rule
  * ```javascript

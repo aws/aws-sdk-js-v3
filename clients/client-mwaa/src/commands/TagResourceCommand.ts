@@ -23,7 +23,8 @@ export interface TagResourceCommandInput extends TagResourceInput {}
 export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Associates key-value tag pairs to your Amazon Managed Workflows for Apache Airflow (MWAA) environment. </p>
+ * Associates key-value tag pairs to your Amazon Managed Workflows for Apache Airflow (MWAA) environment.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,17 +52,20 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * @see {@link MWAAClientResolvedConfig | config} for MWAAClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>InternalServerException: An internal error has occurred.</p>
+ *
+ * InternalServerException: An internal error has occurred.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>ResourceNotFoundException: The resource is not available.</p>
+ *
+ * ResourceNotFoundException: The resource is not available.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>ValidationException: The provided input is not valid.</p>
+ *
+ * ValidationException: The provided input is not valid.
  *
  * @throws {@link MWAAServiceException}
- * <p>Base exception class for all service exceptions from MWAA service.</p>
  *
+ * Base exception class for all service exceptions from MWAA service.
  *
  * @public
  */

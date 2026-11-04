@@ -23,7 +23,8 @@ export interface ListAlgorithmsCommandInput extends ListAlgorithmsInput {}
 export interface ListAlgorithmsCommandOutput extends ListAlgorithmsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the machine learning algorithms that have been created.</p>
+ * Lists the machine learning algorithms that have been created.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,8 +66,8 @@ export interface ListAlgorithmsCommandOutput extends ListAlgorithmsOutput, __Met
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

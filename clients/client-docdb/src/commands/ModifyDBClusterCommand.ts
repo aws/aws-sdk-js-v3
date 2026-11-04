@@ -23,9 +23,8 @@ export interface ModifyDBClusterCommandInput extends ModifyDBClusterMessage {}
 export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __MetadataBearer {}
 
 /**
- * <p>Modifies a setting for an Amazon DocumentDB cluster. You can change one or more database
- *             configuration parameters by specifying these parameters and the new values in the
- *             request. </p>
+ * Modifies a setting for an Amazon DocumentDB cluster. You can change one or more database configuration parameters by specifying these parameters and the new values in the request.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -154,51 +153,56 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  * @throws {@link DBClusterAlreadyExistsFault} (client fault)
- *  <p>You already have a cluster with the given identifier.</p>
+ *
+ * You already have a cluster with the given identifier.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p>
- *             <code>DBClusterIdentifier</code> doesn't refer to an existing cluster. </p>
+ *
+ * `DBClusterIdentifier` doesn't refer to an existing cluster.
  *
  * @throws {@link DBClusterParameterGroupNotFoundFault} (client fault)
- *  <p>
- *             <code>DBClusterParameterGroupName</code> doesn't refer to an existing cluster parameter group. </p>
+ *
+ * `DBClusterParameterGroupName` doesn't refer to an existing cluster parameter group.
  *
  * @throws {@link DBSubnetGroupNotFoundFault} (client fault)
- *  <p>
- *             <code>DBSubnetGroupName</code> doesn't refer to an existing subnet group. </p>
+ *
+ * `DBSubnetGroupName` doesn't refer to an existing subnet group.
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
- *  <p>The cluster isn't in a valid state.</p>
+ *
+ * The cluster isn't in a valid state.
  *
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
- *  <p> The specified instance isn't in the <i>available</i> state.
- *         </p>
+ *
+ * The specified instance isn't in the *available* state.
  *
  * @throws {@link InvalidDBSecurityGroupStateFault} (client fault)
- *  <p>The state of the security group doesn't allow deletion.</p>
+ *
+ * The state of the security group doesn't allow deletion.
  *
  * @throws {@link InvalidDBSubnetGroupStateFault} (client fault)
- *  <p>The subnet group can't be deleted because it's in use.</p>
+ *
+ * The subnet group can't be deleted because it's in use.
  *
  * @throws {@link InvalidSubnet} (client fault)
- *  <p>The requested subnet is not valid, or multiple subnets were requested that are not all
- *             in a common virtual private cloud (VPC).</p>
+ *
+ * The requested subnet is not valid, or multiple subnets were requested that are not all in a common virtual private cloud (VPC).
  *
  * @throws {@link InvalidVPCNetworkStateFault} (client fault)
- *  <p>The subnet group doesn't cover all Availability Zones after it is created
- *             because of changes that were made.</p>
+ *
+ * The subnet group doesn't cover all Availability Zones after it is created because of changes that were made.
  *
  * @throws {@link NetworkTypeNotSupported} (client fault)
- *  <p>The network type is not supported by either <code>DBSubnetGroup</code> or the DB engine version.</p>
+ *
+ * The network type is not supported by either `DBSubnetGroup` or the DB engine version.
  *
  * @throws {@link StorageQuotaExceededFault} (client fault)
- *  <p>The request would cause you to exceed the allowed amount of storage available across
- *             all instances.</p>
+ *
+ * The request would cause you to exceed the allowed amount of storage available across all instances.
  *
  * @throws {@link DocDBServiceException}
- * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * Base exception class for all service exceptions from DocDB service.
  *
  * @public
  */

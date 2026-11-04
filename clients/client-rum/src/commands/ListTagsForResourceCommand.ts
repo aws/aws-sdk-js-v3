@@ -23,7 +23,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Displays the tags associated with a CloudWatch RUM resource.</p>
+ * Displays the tags associated with a CloudWatch RUM resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,17 +54,20 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal service exception.</p>
+ *
+ * Internal service exception.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource not found.</p>
+ *
+ * Resource not found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One of the arguments for the request is not valid.</p>
+ *
+ * One of the arguments for the request is not valid.
  *
  * @throws {@link RUMServiceException}
- * <p>Base exception class for all service exceptions from RUM service.</p>
  *
+ * Base exception class for all service exceptions from RUM service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface CreateWaveCommandInput extends CreateWaveRequest {}
 export interface CreateWaveCommandOutput extends Wave, __MetadataBearer {}
 
 /**
- * <p>Create wave.</p>
+ * Create wave.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,17 +72,20 @@ export interface CreateWaveCommandOutput extends Wave, __MetadataBearer {}
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+ *
+ * The request could not be completed due to a conflict with the current state of the target resource.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request could not be completed because it exceeded the service quota.</p>
+ *
+ * The request could not be completed because it exceeded the service quota.
  *
  * @throws {@link UninitializedAccountException} (client fault)
- *  <p>Uninitialized account exception.</p>
+ *
+ * Uninitialized account exception.
  *
  * @throws {@link MgnServiceException}
- * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * Base exception class for all service exceptions from Mgn service.
  *
  * @public
  */

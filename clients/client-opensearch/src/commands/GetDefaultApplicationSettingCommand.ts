@@ -23,9 +23,10 @@ export interface GetDefaultApplicationSettingCommandInput extends GetDefaultAppl
 export interface GetDefaultApplicationSettingCommandOutput extends GetDefaultApplicationSettingResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the ARN of the current default application.</p>
- *          <p> If the default application isn't set, the operation returns a resource not found
- *             error.</p>
+ * Gets the ARN of the current default application.
+ *
+ * If the default application isn't set, the operation returns a resource not found error.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,20 +51,24 @@ export interface GetDefaultApplicationSettingCommandOutput extends GetDefaultApp
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>An error occurred because you don't have permissions to access the resource.</p>
+ *
+ * An error occurred because you don't have permissions to access the resource.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+ *
+ * Request processing failed because of an unknown error, exception, or internal failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+ *
+ * An exception for accessing or deleting a resource that doesn't exist.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+ *
+ * An exception for accessing or deleting a resource that doesn't exist.
  *
  * @throws {@link OpenSearchServiceException}
- * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * Base exception class for all service exceptions from OpenSearch service.
  *
  * @public
  */

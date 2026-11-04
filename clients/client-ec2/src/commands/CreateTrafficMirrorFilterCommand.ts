@@ -23,11 +23,12 @@ export interface CreateTrafficMirrorFilterCommandInput extends CreateTrafficMirr
 export interface CreateTrafficMirrorFilterCommandOutput extends CreateTrafficMirrorFilterResult, __MetadataBearer {}
 
 /**
- * <p>Creates a Traffic Mirror filter.</p>
- *          <p>A Traffic Mirror filter is a set of rules that defines the traffic to mirror.</p>
- *          <p>By default, no traffic is mirrored. To mirror traffic, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTrafficMirrorFilterRule.htm">CreateTrafficMirrorFilterRule</a>
- *          to add Traffic Mirror rules to the filter. The rules you add define what traffic gets mirrored.
- *          You can also use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTrafficMirrorFilterNetworkServices.html">ModifyTrafficMirrorFilterNetworkServices</a> to mirror supported network services.</p>
+ * Creates a Traffic Mirror filter.
+ *
+ * A Traffic Mirror filter is a set of rules that defines the traffic to mirror.
+ *
+ * By default, no traffic is mirrored. To mirror traffic, use [CreateTrafficMirrorFilterRule](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTrafficMirrorFilterRule.htm) to add Traffic Mirror rules to the filter. The rules you add define what traffic gets mirrored. You can also use [ModifyTrafficMirrorFilterNetworkServices](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTrafficMirrorFilterNetworkServices.html) to mirror supported network services.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -134,8 +135,8 @@ export interface CreateTrafficMirrorFilterCommandOutput extends CreateTrafficMir
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

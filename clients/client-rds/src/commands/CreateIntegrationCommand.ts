@@ -23,7 +23,8 @@ export interface CreateIntegrationCommandInput extends CreateIntegrationMessage 
 export interface CreateIntegrationCommandOutput extends Integration, __MetadataBearer {}
 
 /**
- * <p>Creates a zero-ETL integration with Amazon Redshift.</p>
+ * Creates a zero-ETL integration with Amazon Redshift.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,26 +88,32 @@ export interface CreateIntegrationCommandOutput extends Integration, __MetadataB
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *
+ * `DBClusterIdentifier` doesn't refer to an existing DB cluster.
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *
+ * `DBInstanceIdentifier` doesn't refer to an existing DB instance.
  *
  * @throws {@link IntegrationAlreadyExistsFault} (client fault)
- *  <p>The integration you are trying to create already exists.</p>
+ *
+ * The integration you are trying to create already exists.
  *
  * @throws {@link IntegrationConflictOperationFault} (client fault)
- *  <p>A conflicting conditional operation is currently in progress against this resource. Typically occurs when there are multiple requests being made to the same resource at the same time, and these requests conflict with each other.</p>
+ *
+ * A conflicting conditional operation is currently in progress against this resource. Typically occurs when there are multiple requests being made to the same resource at the same time, and these requests conflict with each other.
  *
  * @throws {@link IntegrationQuotaExceededFault} (client fault)
- *  <p>You can't crate any more zero-ETL integrations because the quota has been reached.</p>
+ *
+ * You can't crate any more zero-ETL integrations because the quota has been reached.
  *
  * @throws {@link KMSKeyNotAccessibleFault} (client fault)
- *  <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+ *
+ * An error occurred accessing an Amazon Web Services KMS key.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To create a zero-ETL integration
  * ```javascript

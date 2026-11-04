@@ -23,9 +23,10 @@ export interface DeleteWhatIfAnalysisCommandInput extends DeleteWhatIfAnalysisRe
 export interface DeleteWhatIfAnalysisCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a what-if analysis created using the <a>CreateWhatIfAnalysis</a>
- *       operation. You can delete only what-if analyses that have a status of <code>ACTIVE</code> or <code>CREATE_FAILED</code>. To get the status, use the <a>DescribeWhatIfAnalysis</a> operation. </p>
- *          <p>You can't delete a what-if analysis while any of its forecasts are being exported.</p>
+ * Deletes a what-if analysis created using the CreateWhatIfAnalysis operation. You can delete only what-if analyses that have a status of `ACTIVE` or `CREATE_FAILED`. To get the status, use the DescribeWhatIfAnalysis operation.
+ *
+ * You can't delete a what-if analysis while any of its forecasts are being exported.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,19 +51,20 @@ export interface DeleteWhatIfAnalysisCommandOutput extends __MetadataBearer {}
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>We can't process the request because it includes an invalid value or a value that exceeds
- *       the valid range.</p>
+ *
+ * We can't process the request because it includes an invalid value or a value that exceeds the valid range.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is in use.</p>
+ *
+ * The specified resource is in use.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
- *       again.</p>
+ *
+ * We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.
  *
  * @throws {@link ForecastServiceException}
- * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * Base exception class for all service exceptions from Forecast service.
  *
  * @public
  */

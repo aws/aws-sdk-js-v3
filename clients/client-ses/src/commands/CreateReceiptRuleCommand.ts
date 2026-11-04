@@ -23,10 +23,12 @@ export interface CreateReceiptRuleCommandInput extends CreateReceiptRuleRequest 
 export interface CreateReceiptRuleCommandOutput extends CreateReceiptRuleResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a receipt rule.</p>
- *          <p>For information about setting up receipt rules, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/receiving-email-receipt-rules-console-walkthrough.html">Amazon SES
- *                 Developer Guide</a>.</p>
- *          <p>You can execute this operation no more than once per second.</p>
+ * Creates a receipt rule.
+ *
+ * For information about setting up receipt rules, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/dg/receiving-email-receipt-rules-console-walkthrough.html).
+ *
+ * You can execute this operation no more than once per second.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -104,40 +106,36 @@ export interface CreateReceiptRuleCommandOutput extends CreateReceiptRuleRespons
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link AlreadyExistsException} (client fault)
- *  <p>Indicates that a resource could not be created because of a naming conflict.</p>
+ *
+ * Indicates that a resource could not be created because of a naming conflict.
  *
  * @throws {@link InvalidLambdaFunctionException} (client fault)
- *  <p>Indicates that the provided Amazon Web Services Lambda function is invalid, or that Amazon SES could
- *             not execute the provided function, possibly due to permissions issues. For information
- *             about giving permissions, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html">Amazon SES
- *                 Developer Guide</a>.</p>
+ *
+ * Indicates that the provided Amazon Web Services Lambda function is invalid, or that Amazon SES could not execute the provided function, possibly due to permissions issues. For information about giving permissions, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html).
  *
  * @throws {@link InvalidS3ConfigurationException} (client fault)
- *  <p>Indicates that the provided Amazon S3 bucket or Amazon Web Services KMS encryption key is invalid,
- *             or that Amazon SES could not publish to the bucket, possibly due to permissions issues.
- *             For information about giving permissions, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html">Amazon SES
- *                 Developer Guide</a>.</p>
+ *
+ * Indicates that the provided Amazon S3 bucket or Amazon Web Services KMS encryption key is invalid, or that Amazon SES could not publish to the bucket, possibly due to permissions issues. For information about giving permissions, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html).
  *
  * @throws {@link InvalidSnsTopicException} (client fault)
- *  <p>Indicates that the provided Amazon SNS topic is invalid, or that Amazon SES could not
- *             publish to the topic, possibly due to permissions issues. For information about giving
- *             permissions, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html">Amazon SES
- *                 Developer Guide</a>.</p>
+ *
+ * Indicates that the provided Amazon SNS topic is invalid, or that Amazon SES could not publish to the topic, possibly due to permissions issues. For information about giving permissions, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html).
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>Indicates that a resource could not be created because of service limits. For a list
- *             of Amazon SES limits, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html">Amazon SES Developer
- *             Guide</a>.</p>
+ *
+ * Indicates that a resource could not be created because of service limits. For a list of Amazon SES limits, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html).
  *
  * @throws {@link RuleDoesNotExistException} (client fault)
- *  <p>Indicates that the provided receipt rule does not exist.</p>
+ *
+ * Indicates that the provided receipt rule does not exist.
  *
  * @throws {@link RuleSetDoesNotExistException} (client fault)
- *  <p>Indicates that the provided receipt rule set does not exist.</p>
+ *
+ * Indicates that the provided receipt rule set does not exist.
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @example CreateReceiptRule
  * ```javascript

@@ -23,8 +23,8 @@ export interface PutSyslogConfigurationCommandInput extends PutSyslogConfigurati
 export interface PutSyslogConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Creates or updates a syslog configuration for a log group. This enables ingestion of
- *       syslog data through the specified VPC endpoint into the log group.</p>
+ * Creates or updates a syslog configuration for a log group. This enables ingestion of syslog data through the specified VPC endpoint into the log group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,29 +50,36 @@ export interface PutSyslogConfigurationCommandOutput extends __MetadataBearer {}
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permissions to perform this action.</p>
+ *
+ * You don't have sufficient permissions to perform this action.
  *
  * @throws {@link InvalidOperationException} (client fault)
- *  <p>The operation is not valid on the specified resource.</p>
+ *
+ * The operation is not valid on the specified resource.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is specified incorrectly.</p>
+ *
+ * A parameter is specified incorrectly.
  *
  * @throws {@link OperationAbortedException} (client fault)
- *  <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+ *
+ * Multiple concurrent requests to update the same resource were in conflict.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service cannot complete the request.</p>
+ *
+ * The service cannot complete the request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled because of quota limits.</p>
+ *
+ * The request was throttled because of quota limits.
  *
  * @throws {@link CloudWatchLogsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchLogs service.
  *
  * @public
  */

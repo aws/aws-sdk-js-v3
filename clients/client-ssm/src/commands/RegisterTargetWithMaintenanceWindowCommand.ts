@@ -26,7 +26,8 @@ export interface RegisterTargetWithMaintenanceWindowCommandInput extends Registe
 export interface RegisterTargetWithMaintenanceWindowCommandOutput extends RegisterTargetWithMaintenanceWindowResult, __MetadataBearer {}
 
 /**
- * <p>Registers a target with a maintenance window.</p>
+ * Registers a target with a maintenance window.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,27 +67,28 @@ export interface RegisterTargetWithMaintenanceWindowCommandOutput extends Regist
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link DoesNotExistException} (client fault)
- *  <p>Error returned when the ID specified for a resource, such as a maintenance window or patch
- *    baseline, doesn't exist.</p>
- *          <p>For information about resource quotas in Amazon Web Services Systems Manager, see <a href="https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm">Systems Manager service quotas</a> in the
- *     <i>Amazon Web Services General Reference</i>.</p>
+ *
+ * Error returned when the ID specified for a resource, such as a maintenance window or patch baseline, doesn't exist.
+ *
+ * For information about resource quotas in Amazon Web Services Systems Manager, see [Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*.
  *
  * @throws {@link IdempotentParameterMismatch} (client fault)
- *  <p>Error returned when an idempotent operation is retried and the parameters don't match the
- *    original call to the API with the same idempotency token. </p>
+ *
+ * Error returned when an idempotent operation is retried and the parameters don't match the original call to the API with the same idempotency token.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link ResourceLimitExceededException} (client fault)
- *  <p>Error returned when the caller has exceeded the default resource quotas. For example, too
- *    many maintenance windows or patch baselines have been created.</p>
- *          <p>For information about resource quotas in Systems Manager, see <a href="https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm">Systems Manager service quotas</a> in the
- *     <i>Amazon Web Services General Reference</i>.</p>
+ *
+ * Error returned when the caller has exceeded the default resource quotas. For example, too many maintenance windows or patch baselines have been created.
+ *
+ * For information about resource quotas in Systems Manager, see [Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

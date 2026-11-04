@@ -23,9 +23,8 @@ export interface DescribeDomainAutoTunesCommandInput extends DescribeDomainAutoT
 export interface DescribeDomainAutoTunesCommandOutput extends DescribeDomainAutoTunesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the list of optimizations that Auto-Tune has made to an Amazon OpenSearch
- *             Service domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html">Auto-Tune for Amazon
- *                 OpenSearch Service</a>.</p>
+ * Returns the list of optimizations that Auto-Tune has made to an Amazon OpenSearch Service domain. For more information, see [Auto-Tune for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,20 +66,24 @@ export interface DescribeDomainAutoTunesCommandOutput extends DescribeDomainAuto
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
  * @throws {@link BaseException} (client fault)
- *  <p>An error occurred while processing the request.</p>
+ *
+ * An error occurred while processing the request.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+ *
+ * Request processing failed because of an unknown error, exception, or internal failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+ *
+ * An exception for accessing or deleting a resource that doesn't exist.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+ *
+ * An exception for accessing or deleting a resource that doesn't exist.
  *
  * @throws {@link OpenSearchServiceException}
- * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * Base exception class for all service exceptions from OpenSearch service.
  *
  * @public
  */

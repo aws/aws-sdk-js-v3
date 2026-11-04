@@ -23,7 +23,8 @@ export interface CreateInvalidationCommandInput extends CreateInvalidationReques
 export interface CreateInvalidationCommandOutput extends CreateInvalidationResult, __MetadataBearer {}
 
 /**
- * <p>Create a new invalidation. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html">Invalidating files</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+ * Create a new invalidation. For more information, see [Invalidating files](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html) in the *Amazon CloudFront Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,29 +74,36 @@ export interface CreateInvalidationCommandOutput extends CreateInvalidationResul
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link AccessDenied} (client fault)
- *  <p>Access denied.</p>
+ *
+ * Access denied.
  *
  * @throws {@link BatchTooLarge} (client fault)
- *  <p>Invalidation batch specified is too large.</p>
+ *
+ * Invalidation batch specified is too large.
  *
  * @throws {@link InconsistentQuantities} (client fault)
- *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
+ *
+ * The value of `Quantity` and the size of `Items` don't match.
  *
  * @throws {@link InvalidArgument} (client fault)
- *  <p>An argument is invalid.</p>
+ *
+ * An argument is invalid.
  *
  * @throws {@link MissingBody} (client fault)
- *  <p>This operation requires a body. Ensure that the body is present and the <code>Content-Type</code> header is set.</p>
+ *
+ * This operation requires a body. Ensure that the body is present and the `Content-Type` header is set.
  *
  * @throws {@link NoSuchDistribution} (client fault)
- *  <p>The specified distribution does not exist.</p>
+ *
+ * The specified distribution does not exist.
  *
  * @throws {@link TooManyInvalidationsInProgress} (client fault)
- *  <p>You have exceeded the maximum number of allowable InProgress invalidation batch requests, or invalidation objects.</p>
+ *
+ * You have exceeded the maximum number of allowable InProgress invalidation batch requests, or invalidation objects.
  *
  * @throws {@link CloudFrontServiceException}
- * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * Base exception class for all service exceptions from CloudFront service.
  *
  * @public
  */

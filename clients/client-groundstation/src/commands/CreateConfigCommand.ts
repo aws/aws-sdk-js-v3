@@ -23,7 +23,10 @@ export interface CreateConfigCommandInput extends CreateConfigRequest {}
 export interface CreateConfigCommandOutput extends ConfigIdResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a <code>Config</code> with the specified <code>configData</code> parameters.</p> <p>Only one type of <code>configData</code> can be specified.</p>
+ * Creates a `Config` with the specified `configData` parameters.
+ *
+ * Only one type of `configData` can be specified.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -128,20 +131,24 @@ export interface CreateConfigCommandOutput extends ConfigIdResponse, __MetadataB
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
  *
  * @throws {@link DependencyException} (server fault)
- *  <p>Dependency encountered an error.</p>
+ *
+ * Dependency encountered an error.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link ResourceLimitExceededException} (client fault)
- *  <p>Account limits for this resource have been exceeded.</p>
+ *
+ * Account limits for this resource have been exceeded.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource was not found.</p>
+ *
+ * Resource was not found.
  *
  * @throws {@link GroundStationServiceException}
- * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ * Base exception class for all service exceptions from GroundStation service.
  *
  * @public
  */

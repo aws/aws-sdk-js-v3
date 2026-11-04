@@ -23,11 +23,10 @@ export interface DescribeSubnetsCommandInput extends DescribeSubnetsRequest {}
 export interface DescribeSubnetsCommandOutput extends DescribeSubnetsResult, __MetadataBearer {}
 
 /**
- * <p>Describes your subnets. The default is to describe all your subnets.
- *           Alternatively, you can specify specific subnet IDs or filter the results to
- *           include only the subnets that match specific criteria.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html">Subnets</a> in the
- * 				<i>Amazon VPC User Guide</i>.</p>
+ * Describes your subnets. The default is to describe all your subnets. Alternatively, you can specify specific subnet IDs or filter the results to include only the subnets that match specific criteria.
+ *
+ * For more information, see [Subnets](https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html) in the *Amazon VPC User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -116,8 +115,8 @@ export interface DescribeSubnetsCommandOutput extends DescribeSubnetsResult, __M
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To describe the subnets for a VPC
  * ```javascript

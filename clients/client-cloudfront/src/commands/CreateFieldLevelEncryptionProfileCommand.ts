@@ -26,7 +26,8 @@ export interface CreateFieldLevelEncryptionProfileCommandInput extends CreateFie
 export interface CreateFieldLevelEncryptionProfileCommandOutput extends CreateFieldLevelEncryptionProfileResult, __MetadataBearer {}
 
 /**
- * <p>Create a field-level encryption profile.</p>
+ * Create a field-level encryption profile.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -97,32 +98,40 @@ export interface CreateFieldLevelEncryptionProfileCommandOutput extends CreateFi
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link FieldLevelEncryptionProfileAlreadyExists} (client fault)
- *  <p>The specified profile for field-level encryption already exists.</p>
+ *
+ * The specified profile for field-level encryption already exists.
  *
  * @throws {@link FieldLevelEncryptionProfileSizeExceeded} (client fault)
- *  <p>The maximum size of a profile for field-level encryption was exceeded.</p>
+ *
+ * The maximum size of a profile for field-level encryption was exceeded.
  *
  * @throws {@link InconsistentQuantities} (client fault)
- *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
+ *
+ * The value of `Quantity` and the size of `Items` don't match.
  *
  * @throws {@link InvalidArgument} (client fault)
- *  <p>An argument is invalid.</p>
+ *
+ * An argument is invalid.
  *
  * @throws {@link NoSuchPublicKey} (client fault)
- *  <p>The specified public key doesn't exist.</p>
+ *
+ * The specified public key doesn't exist.
  *
  * @throws {@link TooManyFieldLevelEncryptionEncryptionEntities} (client fault)
- *  <p>The maximum number of encryption entities for field-level encryption have been created.</p>
+ *
+ * The maximum number of encryption entities for field-level encryption have been created.
  *
  * @throws {@link TooManyFieldLevelEncryptionFieldPatterns} (client fault)
- *  <p>The maximum number of field patterns for field-level encryption have been created.</p>
+ *
+ * The maximum number of field patterns for field-level encryption have been created.
  *
  * @throws {@link TooManyFieldLevelEncryptionProfiles} (client fault)
- *  <p>The maximum number of profiles for field-level encryption have been created.</p>
+ *
+ * The maximum number of profiles for field-level encryption have been created.
  *
  * @throws {@link CloudFrontServiceException}
- * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * Base exception class for all service exceptions from CloudFront service.
  *
  * @public
  */

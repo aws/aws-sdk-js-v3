@@ -23,16 +23,10 @@ export interface CreateEnvironmentCommandInput extends CreateEnvironmentRequest 
 export interface CreateEnvironmentCommandOutput extends CreateEnvironmentResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon Web Services Migration Hub Refactor Spaces environment. The caller owns the environment resource, and all
- *       Refactor Spaces applications, services, and routes created within the environment. They are referred
- *       to as the <i>environment owner</i>. The environment owner has cross-account
- *       visibility and control of Refactor Spaces resources that are added to the environment by other
- *       accounts that the environment is shared with.</p>
- *          <p>When creating an environment with a <a href="https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/APIReference/API_CreateEnvironment.html#migrationhubrefactorspaces-CreateEnvironment-request-NetworkFabricType">CreateEnvironment:NetworkFabricType</a> of <code>TRANSIT_GATEWAY</code>, Refactor Spaces
- *       provisions a transit gateway to enable services in VPCs to communicate directly across
- *       accounts. If <a href="https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/APIReference/API_CreateEnvironment.html#migrationhubrefactorspaces-CreateEnvironment-request-NetworkFabricType">CreateEnvironment:NetworkFabricType</a> is <code>NONE</code>, Refactor Spaces does not create
- *       a transit gateway and you must use your network infrastructure to route traffic to services
- *       with private URL endpoints.</p>
+ * Creates an Amazon Web Services Migration Hub Refactor Spaces environment. The caller owns the environment resource, and all Refactor Spaces applications, services, and routes created within the environment. They are referred to as the *environment owner*. The environment owner has cross-account visibility and control of Refactor Spaces resources that are added to the environment by other accounts that the environment is shared with.
+ *
+ * When creating an environment with a [CreateEnvironment:NetworkFabricType](https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/APIReference/API_CreateEnvironment.html#migrationhubrefactorspaces-CreateEnvironment-request-NetworkFabricType) of `TRANSIT_GATEWAY`, Refactor Spaces provisions a transit gateway to enable services in VPCs to communicate directly across accounts. If [CreateEnvironment:NetworkFabricType](https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/APIReference/API_CreateEnvironment.html#migrationhubrefactorspaces-CreateEnvironment-request-NetworkFabricType) is `NONE`, Refactor Spaces does not create a transit gateway and you must use your network infrastructure to route traffic to services with private URL endpoints.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,30 +70,36 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  * @see {@link MigrationHubRefactorSpacesClientResolvedConfig | config} for MigrationHubRefactorSpacesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The user does not have sufficient access to perform this action. </p>
+ *
+ * The user does not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ *
+ * Updating or deleting a resource can cause an inconsistent state.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred while processing the request.</p>
+ *
+ * An unexpected error occurred while processing the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request references a resource that does not exist. </p>
+ *
+ * The request references a resource that does not exist.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would cause a service quota to be exceeded. </p>
+ *
+ * The request would cause a service quota to be exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Request was denied because the request was throttled. </p>
+ *
+ * Request was denied because the request was throttled.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by an Amazon Web Service.
- *     </p>
+ *
+ * The input does not satisfy the constraints specified by an Amazon Web Service.
  *
  * @throws {@link MigrationHubRefactorSpacesServiceException}
- * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
+ * Base exception class for all service exceptions from MigrationHubRefactorSpaces service.
  *
  * @public
  */

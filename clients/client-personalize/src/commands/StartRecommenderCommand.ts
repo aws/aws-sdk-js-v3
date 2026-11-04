@@ -23,8 +23,8 @@ export interface StartRecommenderCommandInput extends StartRecommenderRequest {}
 export interface StartRecommenderCommandOutput extends StartRecommenderResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a recommender that is INACTIVE. Starting a recommender does not
- *       create any new models, but resumes billing and automatic retraining for the recommender.</p>
+ * Starts a recommender that is INACTIVE. Starting a recommender does not create any new models, but resumes billing and automatic retraining for the recommender.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,17 +51,20 @@ export interface StartRecommenderCommandOutput extends StartRecommenderResponse,
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * Provide a valid value for the field or parameter.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is in use.</p>
+ *
+ * The specified resource is in use.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Could not find the specified resource.</p>
+ *
+ * Could not find the specified resource.
  *
  * @throws {@link PersonalizeServiceException}
- * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * Base exception class for all service exceptions from Personalize service.
  *
  * @public
  */

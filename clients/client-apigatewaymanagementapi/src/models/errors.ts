@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { ApiGatewayManagementApiServiceException as __BaseException } from "./ApiGatewayManagementApiServiceException";
 
 /**
- * <p>The caller is not authorized to invoke this operation.</p>
+ * The caller is not authorized to invoke this operation.
+ *
  * @public
  */
 export class ForbiddenException extends __BaseException {
@@ -25,7 +26,8 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
- * <p>The connection with the provided id no longer exists.</p>
+ * The connection with the provided id no longer exists.
+ *
  * @public
  */
 export class GoneException extends __BaseException {
@@ -46,7 +48,8 @@ export class GoneException extends __BaseException {
 }
 
 /**
- * <p>The client is sending more than the allowed number of requests per unit of time or the WebSocket client side buffer is full.</p>
+ * The client is sending more than the allowed number of requests per unit of time or the WebSocket client side buffer is full.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -67,7 +70,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The data has exceeded the maximum size allowed.</p>
+ * The data has exceeded the maximum size allowed.
+ *
  * @public
  */
 export class PayloadTooLargeException extends __BaseException {

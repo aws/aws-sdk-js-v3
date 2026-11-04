@@ -23,17 +23,14 @@ export interface DescribeDirectoriesCommandInput extends DescribeDirectoriesRequ
 export interface DescribeDirectoriesCommandOutput extends DescribeDirectoriesResult, __MetadataBearer {}
 
 /**
- * <p>Obtains information about the directories that belong to this account.</p>
- *          <p>You can retrieve information about specific directories by passing the directory
- *       identifiers in the <code>DirectoryIds</code> parameter. Otherwise, all directories that belong
- *       to the current account are returned.</p>
- *          <p>This operation supports pagination with the use of the <code>NextToken</code> request and
- *       response parameters. If more results are available, the
- *         <code>DescribeDirectoriesResult.NextToken</code> member contains a token that you pass in
- *       the next call to <a>DescribeDirectories</a> to retrieve the next set of
- *       items.</p>
- *          <p>You can also specify a maximum number of return results with the <code>Limit</code>
- *       parameter.</p>
+ * Obtains information about the directories that belong to this account.
+ *
+ * You can retrieve information about specific directories by passing the directory identifiers in the `DirectoryIds` parameter. Otherwise, all directories that belong to the current account are returned.
+ *
+ * This operation supports pagination with the use of the `NextToken` request and response parameters. If more results are available, the `DescribeDirectoriesResult.NextToken` member contains a token that you pass in the next call to DescribeDirectories to retrieve the next set of items.
+ *
+ * You can also specify a maximum number of return results with the `Limit` parameter.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -188,23 +185,28 @@ export interface DescribeDirectoriesCommandOutput extends DescribeDirectoriesRes
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>A client exception has occurred.</p>
+ *
+ * A client exception has occurred.
  *
  * @throws {@link EntityDoesNotExistException} (client fault)
- *  <p>The specified entity could not be found.</p>
+ *
+ * The specified entity could not be found.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The <code>NextToken</code> value is not valid.</p>
+ *
+ * The `NextToken` value is not valid.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * An exception has occurred in Directory Service.
  *
  * @throws {@link DirectoryServiceServiceException}
- * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * Base exception class for all service exceptions from DirectoryService service.
  *
  * @example To describe one or more directories
  * ```javascript

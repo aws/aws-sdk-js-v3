@@ -23,11 +23,8 @@ export interface StartEvaluationFormValidationCommandInput extends StartEvaluati
 export interface StartEvaluationFormValidationCommandOutput extends StartEvaluationFormValidationResponse, __MetadataBearer {}
 
 /**
- * <p>Starts an asynchronous validation process for an evaluation form version in the specified Connect Customer
- *    instance. The validation first performs structural checks on the form content (such as verifying required fields,
- *    valid scoring configuration, and correct conditional logic), then asynchronously analyzes questions configured for
- *    generative AI evaluation against a set of best practices. Use <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_GetEvaluationFormValidation.html">GetEvaluationFormValidation</a> to
- *    retrieve the status and results once the validation completes.</p>
+ * Starts an asynchronous validation process for an evaluation form version in the specified Connect Customer instance. The validation first performs structural checks on the form content (such as verifying required fields, valid scoring configuration, and correct conditional logic), then asynchronously analyzes questions configured for generative AI evaluation against a set of best practices. Use [GetEvaluationFormValidation](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetEvaluationFormValidation.html) to retrieve the status and results once the validation completes.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,26 +55,32 @@ export interface StartEvaluationFormValidationCommandOutput extends StartEvaluat
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link ResourceConflictException} (client fault)
- *  <p>A resource already has that name.</p>
+ *
+ * A resource already has that name.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The service quota has been exceeded.</p>
+ *
+ * The service quota has been exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

@@ -23,8 +23,8 @@ export interface ListDeploymentGroupsCommandInput extends ListDeploymentGroupsIn
 export interface ListDeploymentGroupsCommandOutput extends ListDeploymentGroupsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the deployment groups for an application registered with the Amazon Web Services
- *             user or Amazon Web Services account.</p>
+ * Lists the deployment groups for an application registered with the Amazon Web Services user or Amazon Web Services account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,20 +56,24 @@ export interface ListDeploymentGroupsCommandOutput extends ListDeploymentGroupsO
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  * @throws {@link ApplicationDoesNotExistException} (client fault)
- *  <p>The application does not exist with the user or Amazon Web Services account.</p>
+ *
+ * The application does not exist with the user or Amazon Web Services account.
  *
  * @throws {@link ApplicationNameRequiredException} (client fault)
- *  <p>The minimum number of required application names was not specified.</p>
+ *
+ * The minimum number of required application names was not specified.
  *
  * @throws {@link InvalidApplicationNameException} (client fault)
- *  <p>The application name was specified in an invalid format.</p>
+ *
+ * The application name was specified in an invalid format.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The next token was specified in an invalid format.</p>
+ *
+ * The next token was specified in an invalid format.
  *
  * @throws {@link CodeDeployServiceException}
- * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * Base exception class for all service exceptions from CodeDeploy service.
  *
  * @public
  */

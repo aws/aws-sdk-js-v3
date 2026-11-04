@@ -23,92 +23,39 @@ export interface AssociateEmailAddressAliasCommandInput extends AssociateEmailAd
 export interface AssociateEmailAddressAliasCommandOutput extends AssociateEmailAddressAliasResponse, __MetadataBearer {}
 
 /**
- * <p>Associates an email address alias with an existing email address in an Connect Customer instance. This creates
- *    a forwarding relationship where emails sent to the alias email address are automatically forwarded to the primary
- *    email address. </p>
- *          <p>
- *             <b>Use cases</b>
- *          </p>
- *          <p>Following are common uses cases for this API:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <b>Unified customer support</b>: Create multiple entry points (for example,
- *      support@example.com, help@example.com, customercare@example.com) that all forward to a single agent queue for
- *      streamlined management.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Department consolidation</b>: Forward emails from legacy department addresses
- *      (for example, sales@example.com, info@example.com) to a centralized customer service email during organizational
- *      restructuring.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Brand management</b>: Enable you to use familiar brand-specific email addresses
- *      that forward to the appropriate Connect Customer instance email address.</p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Important things to know</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>Each email address can have a maximum of one alias. You cannot create multiple aliases for the same email
- *      address. </p>
- *             </li>
- *             <li>
- *                <p>If the alias email address already receives direct emails, it continues to receive direct emails plus
- *      forwarded emails.</p>
- *             </li>
- *             <li>
- *                <p>You cannot chain email aliases together (that is, create an alias of an alias).</p>
- *             </li>
- *          </ul>
- *          <p>
- *             <code>AssociateEmailAddressAlias</code> does not return the following information:</p>
- *          <ul>
- *             <li>
- *                <p>A confirmation of the alias relationship details (you must call <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeEmailAddress.html">DescribeEmailAddress</a> to verify).</p>
- *             </li>
- *             <li>
- *                <p>The timestamp of when the association occurred.</p>
- *             </li>
- *             <li>
- *                <p>The status of the forwarding configuration.</p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Connect Customer endpoints and quotas</a>.</p>
- *          <p>
- *             <b>Related operations</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DisassociateEmailAddressAlias.html">DisassociateEmailAddressAlias</a>: Removes the alias association between two email addresses in an Connect Customer instance.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeEmailAddress.html">DescribeEmailAddress</a>: View current alias configurations for an email address.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchEmailAddresses.html">SearchEmailAddresses</a>: Find email addresses and their alias relationships across an instance.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateEmailAddress.html">CreateEmailAddress</a>: Create new email addresses that can participate in alias relationships.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteEmailAddress.html">DeleteEmailAddress</a>: Remove email addresses (automatically removes any alias relationships).</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateEmailAddressMetadata.html">UpdateEmailAddressMetadata</a>: Modify email address properties (does not affect alias relationships).</p>
- *             </li>
- *          </ul>
+ * Associates an email address alias with an existing email address in an Connect Customer instance. This creates a forwarding relationship where emails sent to the alias email address are automatically forwarded to the primary email address.
+ *
+ * **Use cases**
+ *
+ * Following are common uses cases for this API:
+ *
+ * - **Unified customer support**: Create multiple entry points (for example, support@example.com, help@example.com, customercare@example.com) that all forward to a single agent queue for streamlined management.
+ * - **Department consolidation**: Forward emails from legacy department addresses (for example, sales@example.com, info@example.com) to a centralized customer service email during organizational restructuring.
+ * - **Brand management**: Enable you to use familiar brand-specific email addresses that forward to the appropriate Connect Customer instance email address.
+ *
+ * **Important things to know**
+ *
+ * - Each email address can have a maximum of one alias. You cannot create multiple aliases for the same email address.
+ * - If the alias email address already receives direct emails, it continues to receive direct emails plus forwarded emails.
+ * - You cannot chain email aliases together (that is, create an alias of an alias).
+ *
+ * `AssociateEmailAddressAlias` does not return the following information:
+ *
+ * - A confirmation of the alias relationship details (you must call [DescribeEmailAddress](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeEmailAddress.html) to verify).
+ * - The timestamp of when the association occurred.
+ * - The status of the forwarding configuration.
+ *
+ * **Endpoints**: See [Connect Customer endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+ *
+ * **Related operations**
+ *
+ * - [DisassociateEmailAddressAlias](https://docs.aws.amazon.com/connect/latest/APIReference/API_DisassociateEmailAddressAlias.html): Removes the alias association between two email addresses in an Connect Customer instance.
+ * - [DescribeEmailAddress](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeEmailAddress.html): View current alias configurations for an email address.
+ * - [SearchEmailAddresses](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchEmailAddresses.html): Find email addresses and their alias relationships across an instance.
+ * - [CreateEmailAddress](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateEmailAddress.html): Create new email addresses that can participate in alias relationships.
+ * - [DeleteEmailAddress](https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteEmailAddress.html): Remove email addresses (automatically removes any alias relationships).
+ * - [UpdateEmailAddressMetadata](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateEmailAddressMetadata.html): Modify email address properties (does not affect alias relationships).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -138,32 +85,40 @@ export interface AssociateEmailAddressAliasCommandOutput extends AssociateEmailA
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link IdempotencyException} (client fault)
- *  <p>An entity with the same name already exists.</p>
+ *
+ * An entity with the same name already exists.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceConflictException} (client fault)
- *  <p>A resource already has that name.</p>
+ *
+ * A resource already has that name.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

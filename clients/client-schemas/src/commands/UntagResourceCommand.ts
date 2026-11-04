@@ -23,7 +23,8 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Removes tags from a resource.</p>
+ * Removes tags from a resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,8 +60,8 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link NotFoundException} (client fault)
  *
  * @throws {@link SchemasServiceException}
- * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
+ * Base exception class for all service exceptions from Schemas service.
  *
  * @public
  */

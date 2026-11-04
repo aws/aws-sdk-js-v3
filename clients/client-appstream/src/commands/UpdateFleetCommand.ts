@@ -23,28 +23,21 @@ export interface UpdateFleetCommandInput extends UpdateFleetRequest {}
 export interface UpdateFleetCommandOutput extends UpdateFleetResult, __MetadataBearer {}
 
 /**
- * <p>Updates the specified fleet.</p>
- *          <p>If the fleet is in the <code>STOPPED</code> state, you can update any attribute except
- *             the fleet name.</p>
- *          <p>If the fleet is in the <code>RUNNING</code> state, you can update the following based
- *             on the fleet type:</p>
- *          <ul>
- *             <li>
- *                <p>Always-On and On-Demand fleet types</p>
- *                <p>You can update the  <code>DisplayName</code>, <code>ComputeCapacity</code>,
- *                         <code>ImageARN</code>, <code>ImageName</code>,
- *                         <code>IdleDisconnectTimeoutInSeconds</code>, and
- *                         <code>DisconnectTimeoutInSeconds</code> attributes.</p>
- *             </li>
- *             <li>
- *                <p>Elastic fleet type</p>
- *                <p>You can update the  <code>DisplayName</code>,
- *                         <code>IdleDisconnectTimeoutInSeconds</code>,
- *                     <code>DisconnectTimeoutInSeconds</code>, <code>MaxConcurrentSessions</code>, <code>SessionScriptS3Location</code>
- *                     and <code>UsbDeviceFilterStrings</code> attributes.</p>
- *             </li>
- *          </ul>
- *          <p>If the fleet is in the <code>STARTING</code> or <code>STOPPED</code> state, you can't update it.</p>
+ * Updates the specified fleet.
+ *
+ * If the fleet is in the `STOPPED` state, you can update any attribute except the fleet name.
+ *
+ * If the fleet is in the `RUNNING` state, you can update the following based on the fleet type:
+ *
+ * - Always-On and On-Demand fleet types
+ *
+ *   You can update the `DisplayName`, `ComputeCapacity`, `ImageARN`, `ImageName`, `IdleDisconnectTimeoutInSeconds`, and `DisconnectTimeoutInSeconds` attributes.
+ * - Elastic fleet type
+ *
+ *   You can update the `DisplayName`, `IdleDisconnectTimeoutInSeconds`, `DisconnectTimeoutInSeconds`, `MaxConcurrentSessions`, `SessionScriptS3Location` and `UsbDeviceFilterStrings` attributes.
+ *
+ * If the fleet is in the `STARTING` or `STOPPED` state, you can't update it.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -178,41 +171,52 @@ export interface UpdateFleetCommandOutput extends UpdateFleetResult, __MetadataB
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>An API error occurred. Wait a few minutes and try again.</p>
+ *
+ * An API error occurred. Wait a few minutes and try again.
  *
  * @throws {@link IncompatibleImageException} (client fault)
- *  <p>The image can't be updated because it's not compatible for updates.</p>
+ *
+ * The image can't be updated because it's not compatible for updates.
  *
  * @throws {@link InvalidAccountStatusException} (client fault)
- *  <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
+ *
+ * The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+ *
+ * Indicates an incorrect combination of parameters, or a missing parameter.
  *
  * @throws {@link InvalidRoleException} (client fault)
- *  <p>The specified role is invalid.</p>
+ *
+ * The specified role is invalid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The requested limit exceeds the permitted limit for an account.</p>
+ *
+ * The requested limit exceeds the permitted limit for an account.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>The attempted operation is not permitted.</p>
+ *
+ * The attempted operation is not permitted.
  *
  * @throws {@link RequestLimitExceededException} (client fault)
- *  <p>WorkSpaces Applications can’t process the request right now because the Describe calls from your AWS account are being throttled by Amazon EC2. Try again later.</p>
+ *
+ * WorkSpaces Applications can’t process the request right now because the Describe calls from your AWS account are being throttled by Amazon EC2. Try again later.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is in use.</p>
+ *
+ * The specified resource is in use.
  *
  * @throws {@link ResourceNotAvailableException} (client fault)
- *  <p>The specified resource exists and is not in use, but isn't available.</p>
+ *
+ * The specified resource exists and is not in use, but isn't available.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link AppStreamServiceException}
- * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * Base exception class for all service exceptions from AppStream service.
  *
  * @public
  */

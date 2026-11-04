@@ -1,8 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>Amazon Route 53 API actions let you register domain names and perform related
- * 			operations.</p>
+ * Amazon Route 53 API actions let you register domain names and perform related operations.
  *
  * @packageDocumentation
  */

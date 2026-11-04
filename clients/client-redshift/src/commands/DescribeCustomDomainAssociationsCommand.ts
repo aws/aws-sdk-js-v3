@@ -23,7 +23,8 @@ export interface DescribeCustomDomainAssociationsCommandInput extends DescribeCu
 export interface DescribeCustomDomainAssociationsCommandOutput extends CustomDomainAssociationsMessage, __MetadataBearer {}
 
 /**
- * <p>Contains information about custom domain associations for a cluster.</p>
+ * Contains information about custom domain associations for a cluster.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,14 +66,16 @@ export interface DescribeCustomDomainAssociationsCommandOutput extends CustomDom
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link CustomDomainAssociationNotFoundFault} (client fault)
- *  <p>An error occurred. The custom domain name couldn't be found.</p>
+ *
+ * An error occurred. The custom domain name couldn't be found.
  *
  * @throws {@link UnsupportedOperationFault} (client fault)
- *  <p>The requested operation isn't supported.</p>
+ *
+ * The requested operation isn't supported.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

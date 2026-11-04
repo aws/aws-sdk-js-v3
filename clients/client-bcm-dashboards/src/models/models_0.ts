@@ -14,43 +14,50 @@ import type {
 } from "./enums";
 
 /**
- * <p>A key-value pair that can be attached to a dashboard for organization and management purposes.</p>
+ * A key-value pair that can be attached to a dashboard for organization and management purposes.
+ *
  * @public
  */
 export interface ResourceTag {
   /**
-   * <p>The key of the tag to be attached to the dashboard resource.</p>
+   * The key of the tag to be attached to the dashboard resource.
+   *
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>The value of the tag to be attached to the dashboard resource.</p>
+   * The value of the tag to be attached to the dashboard resource.
+   *
    * @public
    */
   value: string | undefined;
 }
 
 /**
- * <p>Defines the visual representation settings for widget data, including the visualization type, styling options, and display preferences for different metric types.</p>
+ * Defines the visual representation settings for widget data, including the visualization type, styling options, and display preferences for different metric types.
+ *
  * @public
  */
 export interface GraphDisplayConfig {
   /**
-   * <p>The type of visualization to use for the data.</p>
+   * The type of visualization to use for the data.
+   *
    * @public
    */
   visualType: VisualType | undefined;
 }
 
 /**
- * <p>Configuration structure for customizing the tabular display of widget data.</p>
+ * Configuration structure for customizing the tabular display of widget data.
+ *
  * @public
  */
 export interface TableDisplayConfigStruct {}
 
 /**
- * <p>Defines how the widget's data should be visualized, including chart type, color schemes, axis configurations, and other display preferences.</p>
+ * Defines how the widget's data should be visualized, including chart type, color schemes, axis configurations, and other display preferences.
+ *
  * @public
  */
 export type DisplayConfig =
@@ -63,7 +70,8 @@ export type DisplayConfig =
  */
 export namespace DisplayConfig {
   /**
-   * <p>The configuration for graphical display of the widget data, including chart type and visual options.</p>
+   * The configuration for graphical display of the widget data, including chart type and visual options.
+   *
    * @public
    */
   export interface GraphMember {
@@ -73,7 +81,8 @@ export namespace DisplayConfig {
   }
 
   /**
-   * <p>The configuration for tabular display of the widget data.</p>
+   * The configuration for tabular display of the widget data.
+   *
    * @public
    */
   export interface TableMember {
@@ -103,126 +112,147 @@ export namespace DisplayConfig {
 }
 
 /**
- * <p>Specifies the values and match options for cost category-based filtering in cost and usage queries.</p>
+ * Specifies the values and match options for cost category-based filtering in cost and usage queries.
+ *
  * @public
  */
 export interface CostCategoryValues {
   /**
-   * <p>The key of the cost category to filter on.</p>
+   * The key of the cost category to filter on.
+   *
    * @public
    */
   key?: string | undefined;
 
   /**
-   * <p>The values to match for the specified cost category key.</p>
+   * The values to match for the specified cost category key.
+   *
    * @public
    */
   values?: string[] | undefined;
 
   /**
-   * <p>The match options for cost category values, such as <code>EQUALS</code>, <code>CONTAINS</code>, <code>STARTS_WITH</code>, or <code>ENDS_WITH</code>.</p>
+   * The match options for cost category values, such as `EQUALS`, `CONTAINS`, `STARTS_WITH`, or `ENDS_WITH`.
+   *
    * @public
    */
   matchOptions?: MatchOption[] | undefined;
 }
 
 /**
- * <p>Specifies the values and match options for dimension-based filtering in cost and usage queries.</p>
+ * Specifies the values and match options for dimension-based filtering in cost and usage queries.
+ *
  * @public
  */
 export interface DimensionValues {
   /**
-   * <p>The key of the dimension to filter on (for example, <code>SERVICE</code>, <code>USAGE_TYPE</code>, or <code>OPERATION</code>).</p>
+   * The key of the dimension to filter on (for example, `SERVICE`, `USAGE_TYPE`, or `OPERATION`).
+   *
    * @public
    */
   key: Dimension | undefined;
 
   /**
-   * <p>The values to match for the specified dimension key.</p>
+   * The values to match for the specified dimension key.
+   *
    * @public
    */
   values: string[] | undefined;
 
   /**
-   * <p>The match options for dimension values, such as <code>EQUALS</code>, <code>CONTAINS</code>, <code>STARTS_WITH</code>, or <code>ENDS_WITH</code>.</p>
+   * The match options for dimension values, such as `EQUALS`, `CONTAINS`, `STARTS_WITH`, or `ENDS_WITH`.
+   *
    * @public
    */
   matchOptions?: MatchOption[] | undefined;
 }
 
 /**
- * <p>Specifies tag-based filtering options for cost and usage queries.</p>
+ * Specifies tag-based filtering options for cost and usage queries.
+ *
  * @public
  */
 export interface TagValues {
   /**
-   * <p>The key of the tag to filter on.</p>
+   * The key of the tag to filter on.
+   *
    * @public
    */
   key?: string | undefined;
 
   /**
-   * <p>The values to match for the specified tag key.</p>
+   * The values to match for the specified tag key.
+   *
    * @public
    */
   values?: string[] | undefined;
 
   /**
-   * <p>The match options for tag values, such as <code>EQUALS</code>, <code>CONTAINS</code>, <code>STARTS_WITH</code>, or <code>ENDS_WITH</code>.</p>
+   * The match options for tag values, such as `EQUALS`, `CONTAINS`, `STARTS_WITH`, or `ENDS_WITH`.
+   *
    * @public
    */
   matchOptions?: MatchOption[] | undefined;
 }
 
 /**
- * <p>Specifies how to group cost and usage data.</p>
+ * Specifies how to group cost and usage data.
+ *
  * @public
  */
 export interface GroupDefinition {
   /**
-   * <p>The key to use for grouping cost and usage data.</p>
+   * The key to use for grouping cost and usage data.
+   *
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>The type of grouping to apply.</p>
+   * The type of grouping to apply.
+   *
    * @public
    */
   type?: GroupDefinitionType | undefined;
 }
 
 /**
- * <p>Represents a point in time that can be specified as either an absolute date (for example, "2025-07-01") or a relative time period using ISO 8601 duration format (for example, "-P3M" for three months ago).</p>
+ * Represents a point in time that can be specified as either an absolute date (for example, "2025-07-01") or a relative time period using ISO 8601 duration format (for example, "-P3M" for three months ago).
+ *
  * @public
  */
 export interface DateTimeValue {
   /**
-   * <p>The type of date/time value: <code>ABSOLUTE</code> for specific dates or <code>RELATIVE</code> for dynamic time periods.</p>
+   * The type of date/time value: `ABSOLUTE` for specific dates or `RELATIVE` for dynamic time periods.
+   *
    * @public
    */
   type: DateTimeType | undefined;
 
   /**
-   * <p>The actual date/time value.</p>
+   * The actual date/time value.
+   *
    * @public
    */
   value: string | undefined;
 }
 
 /**
- * <p>Defines a time period with explicit start and end times for data queries.</p>
+ * Defines a time period with explicit start and end times for data queries.
+ *
  * @public
  */
 export interface DateTimeRange {
   /**
-   * <p>The start time of the date range for querying data.</p>
+   * The start time of the date range for querying data.
+   *
    * @public
    */
   startTime: DateTimeValue | undefined;
 
   /**
-   * <p>The end time of the date range for querying data.</p>
+   * The end time of the date range for querying data.
+   *
    * @public
    */
   endTime: DateTimeValue | undefined;
@@ -233,103 +263,120 @@ export interface DateTimeRange {
  */
 export interface CreateDashboardResponse {
   /**
-   * <p>The ARN of the newly created dashboard.</p>
+   * The ARN of the newly created dashboard.
+   *
    * @public
    */
   arn: string | undefined;
 }
 
 /**
- * <p>Defines the active time period for execution of the scheduled report.</p>
+ * Defines the active time period for execution of the scheduled report.
+ *
  * @public
  */
 export interface SchedulePeriod {
   /**
-   * <p>The start time of the schedule period. If not specified, defaults to the time of the create or update request. The start time cannot be more than 5 minutes before the time of the request.</p>
+   * The start time of the schedule period. If not specified, defaults to the time of the create or update request. The start time cannot be more than 5 minutes before the time of the request.
+   *
    * @public
    */
   startTime?: Date | undefined;
 
   /**
-   * <p>The end time of the schedule period. If not specified, defaults to 3 years from the time of the create or update request. The maximum allowed value is 3 years from the current time. Setting an end time beyond this limit returns a <code>ValidationException</code>.</p>
+   * The end time of the schedule period. If not specified, defaults to 3 years from the time of the create or update request. The maximum allowed value is 3 years from the current time. Setting an end time beyond this limit returns a `ValidationException`.
+   *
    * @public
    */
   endTime?: Date | undefined;
 }
 
 /**
- * <p>Defines the schedule for a scheduled report, including the cron expression, time zone, active period, and the schedule state.</p>
+ * Defines the schedule for a scheduled report, including the cron expression, time zone, active period, and the schedule state.
+ *
  * @public
  */
 export interface ScheduleConfig {
   /**
-   * <p>The schedule expression that specifies when to trigger the scheduled report run. This value must be a cron expression consisting of six fields separated by white spaces: <code>cron(minutes hours day_of_month month day_of_week year)</code>.</p>
+   * The schedule expression that specifies when to trigger the scheduled report run. This value must be a cron expression consisting of six fields separated by white spaces: `cron(minutes hours day_of_month month day_of_week year)`.
+   *
    * @public
    */
   scheduleExpression?: string | undefined;
 
   /**
-   * <p>The time zone for the schedule expression, for example, <code>UTC</code>.</p>
+   * The time zone for the schedule expression, for example, `UTC`.
+   *
    * @public
    */
   scheduleExpressionTimeZone?: string | undefined;
 
   /**
-   * <p>The time period during which the schedule is active.</p>
+   * The time period during which the schedule is active.
+   *
    * @public
    */
   schedulePeriod?: SchedulePeriod | undefined;
 
   /**
-   * <p>The state of the schedule. <code>ENABLED</code> means the scheduled report runs according to its schedule expression. <code>DISABLED</code> means the scheduled report is paused and will not run until re-enabled.</p>
+   * The state of the schedule. `ENABLED` means the scheduled report runs according to its schedule expression. `DISABLED` means the scheduled report is paused and will not run until re-enabled.
+   *
    * @public
    */
   state?: ScheduleState | undefined;
 }
 
 /**
- * <p>Defines the configuration for creating a new scheduled report, including the dashboard, schedule, execution role, and optional widget settings.</p>
+ * Defines the configuration for creating a new scheduled report, including the dashboard, schedule, execution role, and optional widget settings.
+ *
  * @public
  */
 export interface ScheduledReportInput {
   /**
-   * <p>The name of the scheduled report.</p>
+   * The name of the scheduled report.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ARN of the dashboard to generate the scheduled report from.</p>
+   * The ARN of the dashboard to generate the scheduled report from.
+   *
    * @public
    */
   dashboardArn: string | undefined;
 
   /**
-   * <p>The ARN of the IAM role that the scheduled report uses to execute. Amazon Web Services Billing and Cost Management Dashboards will assume this IAM role while executing the scheduled report.</p>
+   * The ARN of the IAM role that the scheduled report uses to execute. Amazon Web Services Billing and Cost Management Dashboards will assume this IAM role while executing the scheduled report.
+   *
    * @public
    */
   scheduledReportExecutionRoleArn: string | undefined;
 
   /**
-   * <p>The schedule configuration that defines when and how often the report is generated. If the schedule state is not specified, it defaults to <code>ENABLED</code>.</p>
+   * The schedule configuration that defines when and how often the report is generated. If the schedule state is not specified, it defaults to `ENABLED`.
+   *
    * @public
    */
   scheduleConfig: ScheduleConfig | undefined;
 
   /**
-   * <p>A description of the scheduled report's purpose or contents.</p>
+   * A description of the scheduled report's purpose or contents.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The list of widget identifiers to include in the scheduled report. If not specified, all widgets in the dashboard are included.</p>
+   * The list of widget identifiers to include in the scheduled report. If not specified, all widgets in the dashboard are included.
+   *
    * @public
    */
   widgetIds?: string[] | undefined;
 
   /**
-   * <p>The date range override to apply to widgets in the scheduled report.</p>
+   * The date range override to apply to widgets in the scheduled report.
+   *
    * @public
    */
   widgetDateRangeOverride?: DateTimeRange | undefined;
@@ -340,19 +387,22 @@ export interface ScheduledReportInput {
  */
 export interface CreateScheduledReportRequest {
   /**
-   * <p>The configuration for the scheduled report, including the dashboard to report on, the schedule, and the execution role that the service will use to generate the dashboard snapshot.</p>
+   * The configuration for the scheduled report, including the dashboard to report on, the schedule, and the execution role that the service will use to generate the dashboard snapshot.
+   *
    * @public
    */
   scheduledReport: ScheduledReportInput | undefined;
 
   /**
-   * <p>The tags to apply to the scheduled report resource for organization and management.</p>
+   * The tags to apply to the scheduled report resource for organization and management.
+   *
    * @public
    */
   resourceTags?: ResourceTag[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -363,7 +413,8 @@ export interface CreateScheduledReportRequest {
  */
 export interface CreateScheduledReportResponse {
   /**
-   * <p>The ARN of the newly created scheduled report.</p>
+   * The ARN of the newly created scheduled report.
+   *
    * @public
    */
   arn: string | undefined;
@@ -374,7 +425,8 @@ export interface CreateScheduledReportResponse {
  */
 export interface DeleteDashboardRequest {
   /**
-   * <p>The ARN of the dashboard to be deleted.</p>
+   * The ARN of the dashboard to be deleted.
+   *
    * @public
    */
   arn: string | undefined;
@@ -385,7 +437,8 @@ export interface DeleteDashboardRequest {
  */
 export interface DeleteDashboardResponse {
   /**
-   * <p>The ARN of the dashboard that was deleted.</p>
+   * The ARN of the dashboard that was deleted.
+   *
    * @public
    */
   arn: string | undefined;
@@ -396,7 +449,8 @@ export interface DeleteDashboardResponse {
  */
 export interface DeleteScheduledReportRequest {
   /**
-   * <p>The ARN of the scheduled report to delete.</p>
+   * The ARN of the scheduled report to delete.
+   *
    * @public
    */
   arn: string | undefined;
@@ -407,7 +461,8 @@ export interface DeleteScheduledReportRequest {
  */
 export interface DeleteScheduledReportResponse {
   /**
-   * <p>The ARN of the scheduled report that was deleted.</p>
+   * The ARN of the scheduled report that was deleted.
+   *
    * @public
    */
   arn: string | undefined;
@@ -418,43 +473,50 @@ export interface DeleteScheduledReportResponse {
  */
 export interface ExecuteScheduledReportRequest {
   /**
-   * <p>The ARN of the scheduled report to execute.</p>
+   * The ARN of the scheduled report to execute.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>When set to <code>true</code>, validates the scheduled report configuration without triggering an actual execution.</p>
+   * When set to `true`, validates the scheduled report configuration without triggering an actual execution.
+   *
    * @public
    */
   dryRun?: boolean | undefined;
 }
 
 /**
- * <p>Contains the health status information for a scheduled report, including the status code and any reasons for an unhealthy state.</p>
+ * Contains the health status information for a scheduled report, including the status code and any reasons for an unhealthy state.
+ *
  * @public
  */
 export interface HealthStatus {
   /**
-   * <p>The health status code. <code>HEALTHY</code> indicates the scheduled report is configured properly and has all required permissions to execute. <code>UNHEALTHY</code> indicates the scheduled report is unable to deliver the notification to the default Amazon EventBridge EventBus in your account and your action is needed. The reason for the unhealthy state is captured in the health status reasons.</p>
+   * The health status code. `HEALTHY` indicates the scheduled report is configured properly and has all required permissions to execute. `UNHEALTHY` indicates the scheduled report is unable to deliver the notification to the default Amazon EventBridge EventBus in your account and your action is needed. The reason for the unhealthy state is captured in the health status reasons.
+   *
    * @public
    */
   statusCode: HealthStatusCode | undefined;
 
   /**
-   * <p>The timestamp when the health status was last refreshed.</p>
+   * The timestamp when the health status was last refreshed.
+   *
    * @public
    */
   lastRefreshedAt?: Date | undefined;
 
   /**
-   * <p>The list of reasons for the current health status. Only present when the status is <code>UNHEALTHY</code>.</p>
+   * The list of reasons for the current health status. Only present when the status is `UNHEALTHY`.
+   *
    * @public
    */
   statusReasons?: StatusReason[] | undefined;
@@ -465,13 +527,15 @@ export interface HealthStatus {
  */
 export interface ExecuteScheduledReportResponse {
   /**
-   * <p>The health status of the scheduled report after the execution request.</p>
+   * The health status of the scheduled report after the execution request.
+   *
    * @public
    */
   healthStatus?: HealthStatus | undefined;
 
   /**
-   * <p>Indicates whether the execution was successfully triggered.</p>
+   * Indicates whether the execution was successfully triggered.
+   *
    * @public
    */
   executionTriggered?: boolean | undefined;
@@ -482,7 +546,8 @@ export interface ExecuteScheduledReportResponse {
  */
 export interface GetDashboardRequest {
   /**
-   * <p>The ARN of the dashboard to retrieve. This is required to uniquely identify the dashboard.</p>
+   * The ARN of the dashboard to retrieve. This is required to uniquely identify the dashboard.
+   *
    * @public
    */
   arn: string | undefined;
@@ -493,7 +558,8 @@ export interface GetDashboardRequest {
  */
 export interface GetResourcePolicyRequest {
   /**
-   * <p>The ARN of the dashboard whose resource-based policy you want to retrieve.</p>
+   * The ARN of the dashboard whose resource-based policy you want to retrieve.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -504,13 +570,15 @@ export interface GetResourcePolicyRequest {
  */
 export interface GetResourcePolicyResponse {
   /**
-   * <p>The ARN of the dashboard for which the resource-based policy was retrieved.</p>
+   * The ARN of the dashboard for which the resource-based policy was retrieved.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The JSON policy document that represents the dashboard's resource-based policy.</p>
+   * The JSON policy document that represents the dashboard's resource-based policy.
+   *
    * @public
    */
   policyDocument: string | undefined;
@@ -521,85 +589,99 @@ export interface GetResourcePolicyResponse {
  */
 export interface GetScheduledReportRequest {
   /**
-   * <p>The ARN of the scheduled report to retrieve.</p>
+   * The ARN of the scheduled report to retrieve.
+   *
    * @public
    */
   arn: string | undefined;
 }
 
 /**
- * <p>Contains the full configuration and metadata of a scheduled report.</p>
+ * Contains the full configuration and metadata of a scheduled report.
+ *
  * @public
  */
 export interface ScheduledReport {
   /**
-   * <p>The ARN of the scheduled report.</p>
+   * The ARN of the scheduled report.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The name of the scheduled report.</p>
+   * The name of the scheduled report.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ARN of the dashboard associated with the scheduled report.</p>
+   * The ARN of the dashboard associated with the scheduled report.
+   *
    * @public
    */
   dashboardArn: string | undefined;
 
   /**
-   * <p>The ARN of the IAM role that the scheduled report uses to execute. Amazon Web Services Billing and Cost Management Dashboards will assume this IAM role while executing the scheduled report.</p>
+   * The ARN of the IAM role that the scheduled report uses to execute. Amazon Web Services Billing and Cost Management Dashboards will assume this IAM role while executing the scheduled report.
+   *
    * @public
    */
   scheduledReportExecutionRoleArn: string | undefined;
 
   /**
-   * <p>The schedule configuration that defines when and how often the report is generated.</p>
+   * The schedule configuration that defines when and how often the report is generated.
+   *
    * @public
    */
   scheduleConfig: ScheduleConfig | undefined;
 
   /**
-   * <p>A description of the scheduled report's purpose or contents.</p>
+   * A description of the scheduled report's purpose or contents.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The list of widget identifiers included in the scheduled report.</p>
+   * The list of widget identifiers included in the scheduled report.
+   *
    * @public
    */
   widgetIds?: string[] | undefined;
 
   /**
-   * <p>The date range override applied to widgets in the scheduled report.</p>
+   * The date range override applied to widgets in the scheduled report.
+   *
    * @public
    */
   widgetDateRangeOverride?: DateTimeRange | undefined;
 
   /**
-   * <p>The timestamp when the scheduled report was created.</p>
+   * The timestamp when the scheduled report was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when the scheduled report was last modified.</p>
+   * The timestamp when the scheduled report was last modified.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp of the most recent execution of the scheduled report.</p>
+   * The timestamp of the most recent execution of the scheduled report.
+   *
    * @public
    */
   lastExecutionAt?: Date | undefined;
 
   /**
-   * <p>The health status of the scheduled report at last refresh time.</p>
+   * The health status of the scheduled report at last refresh time.
+   *
    * @public
    */
   healthStatus?: HealthStatus | undefined;
@@ -610,7 +692,8 @@ export interface ScheduledReport {
  */
 export interface GetScheduledReportResponse {
   /**
-   * <p>The scheduled report configuration and metadata.</p>
+   * The scheduled report configuration and metadata.
+   *
    * @public
    */
   scheduledReport: ScheduledReport | undefined;
@@ -621,55 +704,64 @@ export interface GetScheduledReportResponse {
  */
 export interface ListDashboardsRequest {
   /**
-   * <p>The maximum number of results to return in a single call. The default value is 20.</p>
+   * The maximum number of results to return in a single call. The default value is 20.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results. Use the value returned in the previous response.</p>
+   * The token for the next page of results. Use the value returned in the previous response.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Contains basic information about a dashboard, including its ARN, name, type, and timestamps.</p>
+ * Contains basic information about a dashboard, including its ARN, name, type, and timestamps.
+ *
  * @public
  */
 export interface DashboardReference {
   /**
-   * <p>The ARN of the referenced dashboard.</p>
+   * The ARN of the referenced dashboard.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The name of the referenced dashboard.</p>
+   * The name of the referenced dashboard.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the referenced dashboard.</p>
+   * The description of the referenced dashboard.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The dashboard type.</p>
+   * The dashboard type.
+   *
    * @public
    */
   type: DashboardType | undefined;
 
   /**
-   * <p>The timestamp when the dashboard was created.</p>
+   * The timestamp when the dashboard was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the dashboard was last modified.</p>
+   * The timestamp when the dashboard was last modified.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -680,13 +772,15 @@ export interface DashboardReference {
  */
 export interface ListDashboardsResponse {
   /**
-   * <p>An array of dashboard references, containing basic information about each dashboard.</p>
+   * An array of dashboard references, containing basic information about each dashboard.
+   *
    * @public
    */
   dashboards: DashboardReference[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. Not returned if there are no more results to retrieve.</p>
+   * The token to use to retrieve the next page of results. Not returned if there are no more results to retrieve.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -697,67 +791,78 @@ export interface ListDashboardsResponse {
  */
 export interface ListScheduledReportsRequest {
   /**
-   * <p>The token for the next page of results. Use the value returned in the previous response.</p>
+   * The token for the next page of results. Use the value returned in the previous response.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. Valid range is 1 to 100. The default value is 50.</p>
+   * The maximum number of results to return in a single call. Valid range is 1 to 100. The default value is 50.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Contains summary information for a scheduled report.</p>
+ * Contains summary information for a scheduled report.
+ *
  * @public
  */
 export interface ScheduledReportSummary {
   /**
-   * <p>The ARN of the scheduled report.</p>
+   * The ARN of the scheduled report.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The name of the scheduled report.</p>
+   * The name of the scheduled report.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ARN of the dashboard associated with the scheduled report.</p>
+   * The ARN of the dashboard associated with the scheduled report.
+   *
    * @public
    */
   dashboardArn: string | undefined;
 
   /**
-   * <p>The schedule expression that defines when the report runs.</p>
+   * The schedule expression that defines when the report runs.
+   *
    * @public
    */
   scheduleExpression: string | undefined;
 
   /**
-   * <p>The state of the schedule: <code>ENABLED</code> or <code>DISABLED</code>.</p>
+   * The state of the schedule: `ENABLED` or `DISABLED`.
+   *
    * @public
    */
   state: ScheduleState | undefined;
 
   /**
-   * <p>The health status of the scheduled report as of its last refresh time.</p>
+   * The health status of the scheduled report as of its last refresh time.
+   *
    * @public
    */
   healthStatus: HealthStatus | undefined;
 
   /**
-   * <p>The time zone for the schedule expression, for example, <code>UTC</code>.</p>
+   * The time zone for the schedule expression, for example, `UTC`.
+   *
    * @public
    */
   scheduleExpressionTimeZone?: string | undefined;
 
   /**
-   * <p>The list of widget identifiers included in the scheduled report.</p>
+   * The list of widget identifiers included in the scheduled report.
+   *
    * @public
    */
   widgetIds?: string[] | undefined;
@@ -768,13 +873,15 @@ export interface ScheduledReportSummary {
  */
 export interface ListScheduledReportsResponse {
   /**
-   * <p>An array of scheduled report summaries, containing basic information about each scheduled report.</p>
+   * An array of scheduled report summaries, containing basic information about each scheduled report.
+   *
    * @public
    */
   scheduledReports: ScheduledReportSummary[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. Not returned if there are no more results to retrieve.</p>
+   * The token to use to retrieve the next page of results. Not returned if there are no more results to retrieve.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -785,7 +892,8 @@ export interface ListScheduledReportsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The unique identifier for the resource.</p>
+   * The unique identifier for the resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -796,7 +904,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>The list of tags associated with the specified dashboard resource.</p>
+   * The list of tags associated with the specified dashboard resource.
+   *
    * @public
    */
   resourceTags?: ResourceTag[] | undefined;
@@ -807,13 +916,15 @@ export interface ListTagsForResourceResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The unique identifier for the resource.</p>
+   * The unique identifier for the resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The tags to add to the dashboard resource.</p>
+   * The tags to add to the dashboard resource.
+   *
    * @public
    */
   resourceTags: ResourceTag[] | undefined;
@@ -829,13 +940,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The unique identifier for the resource.</p>
+   * The unique identifier for the resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The keys of the tags to remove from the dashboard resource.</p>
+   * The keys of the tags to remove from the dashboard resource.
+   *
    * @public
    */
   resourceTagKeys: string[] | undefined;
@@ -851,7 +964,8 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateDashboardResponse {
   /**
-   * <p>The ARN of the updated dashboard.</p>
+   * The ARN of the updated dashboard.
+   *
    * @public
    */
   arn: string | undefined;
@@ -862,49 +976,57 @@ export interface UpdateDashboardResponse {
  */
 export interface UpdateScheduledReportRequest {
   /**
-   * <p>The ARN of the scheduled report to update.</p>
+   * The ARN of the scheduled report to update.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The new name for the scheduled report.</p>
+   * The new name for the scheduled report.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The new description for the scheduled report.</p>
+   * The new description for the scheduled report.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The ARN of the dashboard to associate with the scheduled report.</p>
+   * The ARN of the dashboard to associate with the scheduled report.
+   *
    * @public
    */
   dashboardArn?: string | undefined;
 
   /**
-   * <p>The ARN of the IAM role that the scheduled report uses to execute. Amazon Web Services Billing and Cost Management Dashboards will assume this IAM role while executing the scheduled report.</p>
+   * The ARN of the IAM role that the scheduled report uses to execute. Amazon Web Services Billing and Cost Management Dashboards will assume this IAM role while executing the scheduled report.
+   *
    * @public
    */
   scheduledReportExecutionRoleArn?: string | undefined;
 
   /**
-   * <p>The updated schedule configuration for the report.</p>
+   * The updated schedule configuration for the report.
+   *
    * @public
    */
   scheduleConfig?: ScheduleConfig | undefined;
 
   /**
-   * <p>The list of widget identifiers to include in the scheduled report. If not specified, all widgets in the dashboard are included.</p>
+   * The list of widget identifiers to include in the scheduled report. If not specified, all widgets in the dashboard are included.
+   *
    * @public
    */
   widgetIds?: string[] | undefined;
 
   /**
-   * <p>The date range override to apply to widgets in the scheduled report.</p>
+   * The date range override to apply to widgets in the scheduled report.
+   *
    * @public
    */
   widgetDateRangeOverride?: DateTimeRange | undefined;
@@ -927,218 +1049,260 @@ export interface UpdateScheduledReportRequest {
  */
 export interface UpdateScheduledReportResponse {
   /**
-   * <p>The ARN of the updated scheduled report.</p>
+   * The ARN of the updated scheduled report.
+   *
    * @public
    */
   arn: string | undefined;
 }
 
 /**
- * <p>Defines complex filtering conditions using logical operators (<code>AND</code>, <code>OR</code>, <code>NOT</code>) and various filter types.</p>
+ * Defines complex filtering conditions using logical operators (`AND`, `OR`, `NOT`) and various filter types.
+ *
  * @public
  */
 export interface Expression {
   /**
-   * <p>A list of expressions to combine with OR logic.</p>
+   * A list of expressions to combine with OR logic.
+   *
    * @public
    */
   or?: Expression[] | undefined;
 
   /**
-   * <p>A list of expressions to combine with AND logic.</p>
+   * A list of expressions to combine with AND logic.
+   *
    * @public
    */
   and?: Expression[] | undefined;
 
   /**
-   * <p>An expression to negate with NOT logic.</p>
+   * An expression to negate with NOT logic.
+   *
    * @public
    */
   not?: Expression | undefined;
 
   /**
-   * <p>The dimension values to include in the filter expression.</p>
+   * The dimension values to include in the filter expression.
+   *
    * @public
    */
   dimensions?: DimensionValues | undefined;
 
   /**
-   * <p>The tag values to include in the filter expression.</p>
+   * The tag values to include in the filter expression.
+   *
    * @public
    */
   tags?: TagValues | undefined;
 
   /**
-   * <p>The cost category values to include in the filter expression.</p>
+   * The cost category values to include in the filter expression.
+   *
    * @public
    */
   costCategories?: CostCategoryValues | undefined;
 }
 
 /**
- * <p>Defines the parameters for retrieving Amazon Web Services cost and usage data. Includes specifications for metrics, time periods, granularity, grouping dimensions, and filtering conditions.</p>
+ * Defines the parameters for retrieving Amazon Web Services cost and usage data. Includes specifications for metrics, time periods, granularity, grouping dimensions, and filtering conditions.
+ *
  * @public
  */
 export interface CostAndUsageQuery {
   /**
-   * <p>The specific cost and usage metrics to retrieve.</p> <note> <p>Valid values for CostAndUsageQuery metrics are <code>AmortizedCost</code>, <code>BlendedCost</code>, <code>NetAmortizedCost</code>, <code>NetUnblendedCost</code>, <code>NormalizedUsageAmount</code>, <code>UnblendedCost</code>, and <code>UsageQuantity</code>.</p> </note>
+   * The specific cost and usage metrics to retrieve.
+   *
+   * > **Note:** Valid values for CostAndUsageQuery metrics are `AmortizedCost`, `BlendedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `NormalizedUsageAmount`, `UnblendedCost`, and `UsageQuantity`.
+   *
    * @public
    */
   metrics: MetricName[] | undefined;
 
   /**
-   * <p>The time period for which to retrieve data. Can be specified as absolute dates or relative time periods.</p>
+   * The time period for which to retrieve data. Can be specified as absolute dates or relative time periods.
+   *
    * @public
    */
   timeRange: DateTimeRange | undefined;
 
   /**
-   * <p>The granularity of the retrieved data: <code>HOURLY</code>, <code>DAILY</code>, or <code>MONTHLY</code>.</p>
+   * The granularity of the retrieved data: `HOURLY`, `DAILY`, or `MONTHLY`.
+   *
    * @public
    */
   granularity: Granularity | undefined;
 
   /**
-   * <p>Specifies how to group the retrieved data, such as by <code>SERVICE</code>, <code>ACCOUNT</code>, or <code>TAG</code>.</p>
+   * Specifies how to group the retrieved data, such as by `SERVICE`, `ACCOUNT`, or `TAG`.
+   *
    * @public
    */
   groupBy?: GroupDefinition[] | undefined;
 
   /**
-   * <p>The filter expression to be applied to the cost and usage data.</p>
+   * The filter expression to be applied to the cost and usage data.
+   *
    * @public
    */
   filter?: Expression | undefined;
 }
 
 /**
- * <p>Defines the parameters for querying Reserved Instance coverage data, including grouping options, metrics, and sorting preferences.</p>
+ * Defines the parameters for querying Reserved Instance coverage data, including grouping options, metrics, and sorting preferences.
+ *
  * @public
  */
 export interface ReservationCoverageQuery {
   /**
-   * <p>Defines a time period with explicit start and end times for data queries.</p>
+   * Defines a time period with explicit start and end times for data queries.
+   *
    * @public
    */
   timeRange: DateTimeRange | undefined;
 
   /**
-   * <p>Specifies how to group the Reserved Instance coverage data, such as by service, Region, or instance type.</p>
+   * Specifies how to group the Reserved Instance coverage data, such as by service, Region, or instance type.
+   *
    * @public
    */
   groupBy?: GroupDefinition[] | undefined;
 
   /**
-   * <p>The time granularity of the retrieved data: <code>HOURLY</code>, <code>DAILY</code>, or <code>MONTHLY</code>.</p>
+   * The time granularity of the retrieved data: `HOURLY`, `DAILY`, or `MONTHLY`.
+   *
    * @public
    */
   granularity?: Granularity | undefined;
 
   /**
-   * <p>Defines complex filtering conditions using logical operators (<code>AND</code>, <code>OR</code>, <code>NOT</code>) and various filter types.</p>
+   * Defines complex filtering conditions using logical operators (`AND`, `OR`, `NOT`) and various filter types.
+   *
    * @public
    */
   filter?: Expression | undefined;
 
   /**
-   * <p>The coverage metrics to include in the results.</p> <note> <p>Valid values for ReservationCoverageQuery metrics are <code>Hour</code>, <code>Unit</code>, and <code>Cost</code>.</p> </note>
+   * The coverage metrics to include in the results.
+   *
+   * > **Note:** Valid values for ReservationCoverageQuery metrics are `Hour`, `Unit`, and `Cost`.
+   *
    * @public
    */
   metrics?: MetricName[] | undefined;
 }
 
 /**
- * <p>Defines the parameters for querying Reserved Instance utilization data, including grouping options and time granularity.</p>
+ * Defines the parameters for querying Reserved Instance utilization data, including grouping options and time granularity.
+ *
  * @public
  */
 export interface ReservationUtilizationQuery {
   /**
-   * <p>Defines a time period with explicit start and end times for data queries.</p>
+   * Defines a time period with explicit start and end times for data queries.
+   *
    * @public
    */
   timeRange: DateTimeRange | undefined;
 
   /**
-   * <p>Specifies how to group the Reserved Instance utilization data, such as by service, Region, or instance type.</p>
+   * Specifies how to group the Reserved Instance utilization data, such as by service, Region, or instance type.
+   *
    * @public
    */
   groupBy?: GroupDefinition[] | undefined;
 
   /**
-   * <p>The time granularity of the retrieved data: <code>HOURLY</code>, <code>DAILY</code>, or <code>MONTHLY</code>.</p>
+   * The time granularity of the retrieved data: `HOURLY`, `DAILY`, or `MONTHLY`.
+   *
    * @public
    */
   granularity?: Granularity | undefined;
 
   /**
-   * <p>Defines complex filtering conditions using logical operators (<code>AND</code>, <code>OR</code>, <code>NOT</code>) and various filter types.</p>
+   * Defines complex filtering conditions using logical operators (`AND`, `OR`, `NOT`) and various filter types.
+   *
    * @public
    */
   filter?: Expression | undefined;
 }
 
 /**
- * <p>Defines the parameters for querying Savings Plans coverage data, including metrics, grouping options, and time granularity.</p>
+ * Defines the parameters for querying Savings Plans coverage data, including metrics, grouping options, and time granularity.
+ *
  * @public
  */
 export interface SavingsPlansCoverageQuery {
   /**
-   * <p>Defines a time period with explicit start and end times for data queries.</p>
+   * Defines a time period with explicit start and end times for data queries.
+   *
    * @public
    */
   timeRange: DateTimeRange | undefined;
 
   /**
-   * <p>The coverage metrics to include in the results.</p> <note> <p>Valid value for SavingsPlansCoverageQuery metrics is <code>SpendCoveredBySavingsPlans</code>.</p> </note>
+   * The coverage metrics to include in the results.
+   *
+   * > **Note:** Valid value for SavingsPlansCoverageQuery metrics is `SpendCoveredBySavingsPlans`.
+   *
    * @public
    */
   metrics?: MetricName[] | undefined;
 
   /**
-   * <p>The time granularity of the retrieved data: <code>HOURLY</code>, <code>DAILY</code>, or <code>MONTHLY</code>.</p>
+   * The time granularity of the retrieved data: `HOURLY`, `DAILY`, or `MONTHLY`.
+   *
    * @public
    */
   granularity?: Granularity | undefined;
 
   /**
-   * <p>Specifies how to group the Savings Plans coverage data, such as by service or instance family.</p>
+   * Specifies how to group the Savings Plans coverage data, such as by service or instance family.
+   *
    * @public
    */
   groupBy?: GroupDefinition[] | undefined;
 
   /**
-   * <p>Defines complex filtering conditions using logical operators (<code>AND</code>, <code>OR</code>, <code>NOT</code>) and various filter types.</p>
+   * Defines complex filtering conditions using logical operators (`AND`, `OR`, `NOT`) and various filter types.
+   *
    * @public
    */
   filter?: Expression | undefined;
 }
 
 /**
- * <p>Defines the parameters for querying Savings Plans utilization data, including time granularity and sorting preferences.</p>
+ * Defines the parameters for querying Savings Plans utilization data, including time granularity and sorting preferences.
+ *
  * @public
  */
 export interface SavingsPlansUtilizationQuery {
   /**
-   * <p>Defines a time period with explicit start and end times for data queries.</p>
+   * Defines a time period with explicit start and end times for data queries.
+   *
    * @public
    */
   timeRange: DateTimeRange | undefined;
 
   /**
-   * <p>The time granularity of the retrieved data: <code>HOURLY</code>, <code>DAILY</code>, or <code>MONTHLY</code>.</p>
+   * The time granularity of the retrieved data: `HOURLY`, `DAILY`, or `MONTHLY`.
+   *
    * @public
    */
   granularity?: Granularity | undefined;
 
   /**
-   * <p>Defines complex filtering conditions using logical operators (<code>AND</code>, <code>OR</code>, <code>NOT</code>) and various filter types.</p>
+   * Defines complex filtering conditions using logical operators (`AND`, `OR`, `NOT`) and various filter types.
+   *
    * @public
    */
   filter?: Expression | undefined;
 }
 
 /**
- * <p>Defines the data retrieval parameters for a widget.</p>
+ * Defines the data retrieval parameters for a widget.
+ *
  * @public
  */
 export type QueryParameters =
@@ -1154,7 +1318,8 @@ export type QueryParameters =
  */
 export namespace QueryParameters {
   /**
-   * <p>The parameters for querying cost and usage data, including metrics, time range, granularity, grouping dimensions, and filters.</p>
+   * The parameters for querying cost and usage data, including metrics, time range, granularity, grouping dimensions, and filters.
+   *
    * @public
    */
   export interface CostAndUsageMember {
@@ -1167,7 +1332,8 @@ export namespace QueryParameters {
   }
 
   /**
-   * <p>The parameters for querying Savings Plans coverage data, showing how much of your eligible compute usage is covered by Savings Plans.</p>
+   * The parameters for querying Savings Plans coverage data, showing how much of your eligible compute usage is covered by Savings Plans.
+   *
    * @public
    */
   export interface SavingsPlansCoverageMember {
@@ -1180,7 +1346,8 @@ export namespace QueryParameters {
   }
 
   /**
-   * <p>The parameters for querying Savings Plans utilization data, showing how effectively your Savings Plans are being used.</p>
+   * The parameters for querying Savings Plans utilization data, showing how effectively your Savings Plans are being used.
+   *
    * @public
    */
   export interface SavingsPlansUtilizationMember {
@@ -1193,7 +1360,8 @@ export namespace QueryParameters {
   }
 
   /**
-   * <p>The parameters for querying Reserved Instance coverage data, showing how much of your eligible instance usage is covered by Reserved Instances.</p>
+   * The parameters for querying Reserved Instance coverage data, showing how much of your eligible instance usage is covered by Reserved Instances.
+   *
    * @public
    */
   export interface ReservationCoverageMember {
@@ -1206,7 +1374,8 @@ export namespace QueryParameters {
   }
 
   /**
-   * <p>The parameters for querying Reserved Instance utilization data, showing how effectively your Reserved Instances are being used.</p>
+   * The parameters for querying Reserved Instance utilization data, showing how effectively your Reserved Instances are being used.
+   *
    * @public
    */
   export interface ReservationUtilizationMember {
@@ -1245,66 +1414,77 @@ export namespace QueryParameters {
 }
 
 /**
- * <p>Defines the complete configuration for a widget, including data retrieval settings and visualization preferences.</p>
+ * Defines the complete configuration for a widget, including data retrieval settings and visualization preferences.
+ *
  * @public
  */
 export interface WidgetConfig {
   /**
-   * <p>The parameters that define what data the widget should retrieve and how it should be filtered or grouped.</p>
+   * The parameters that define what data the widget should retrieve and how it should be filtered or grouped.
+   *
    * @public
    */
   queryParameters: QueryParameters | undefined;
 
   /**
-   * <p>The configuration that determines how the retrieved data should be visualized in the widget.</p>
+   * The configuration that determines how the retrieved data should be visualized in the widget.
+   *
    * @public
    */
   displayConfig: DisplayConfig | undefined;
 }
 
 /**
- * <p>A configurable visualization component within a dashboard that displays specific cost and usage metrics. Each widget can show data as charts or tables and includes settings for data querying, filtering, and visual presentation.</p>
+ * A configurable visualization component within a dashboard that displays specific cost and usage metrics. Each widget can show data as charts or tables and includes settings for data querying, filtering, and visual presentation.
+ *
  * @public
  */
 export interface Widget {
   /**
-   * <p>The unique identifier for the widget.</p>
+   * The unique identifier for the widget.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The title of the widget.</p>
+   * The title of the widget.
+   *
    * @public
    */
   title: string | undefined;
 
   /**
-   * <p>A description of the widget's purpose or the data it displays.</p>
+   * A description of the widget's purpose or the data it displays.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The width of the widget in column spans. The dashboard layout consists of a grid system.</p>
+   * The width of the widget in column spans. The dashboard layout consists of a grid system.
+   *
    * @public
    */
   width?: number | undefined;
 
   /**
-   * <p>The height of the widget in row spans. The dashboard layout consists of a grid system.</p>
+   * The height of the widget in row spans. The dashboard layout consists of a grid system.
+   *
    * @public
    */
   height?: number | undefined;
 
   /**
-   * <p>Specifies the starting column position of the widget in the dashboard's grid layout. Used to control widget placement.</p>
+   * Specifies the starting column position of the widget in the dashboard's grid layout. Used to control widget placement.
+   *
    * @public
    */
   horizontalOffset?: number | undefined;
 
   /**
-   * <p>An array of configurations that define the data queries and display settings for the widget.</p>
+   * An array of configurations that define the data queries and display settings for the widget.
+   *
    * @public
    */
   configs: WidgetConfig[] | undefined;
@@ -1315,25 +1495,29 @@ export interface Widget {
  */
 export interface CreateDashboardRequest {
   /**
-   * <p>The name of the dashboard. The name must be unique within your account.</p>
+   * The name of the dashboard. The name must be unique within your account.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description of the dashboard's purpose or contents.</p>
+   * A description of the dashboard's purpose or contents.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>An array of widget configurations that define the visualizations to be displayed in the dashboard. Each dashboard can contain up to 20 widgets.</p>
+   * An array of widget configurations that define the visualizations to be displayed in the dashboard. Each dashboard can contain up to 20 widgets.
+   *
    * @public
    */
   widgets: Widget[] | undefined;
 
   /**
-   * <p>The tags to apply to the dashboard resource for organization and management.</p>
+   * The tags to apply to the dashboard resource for organization and management.
+   *
    * @public
    */
   resourceTags?: ResourceTag[] | undefined;
@@ -1344,43 +1528,50 @@ export interface CreateDashboardRequest {
  */
 export interface GetDashboardResponse {
   /**
-   * <p>The ARN of the retrieved dashboard.</p>
+   * The ARN of the retrieved dashboard.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The name of the retrieved dashboard.</p>
+   * The name of the retrieved dashboard.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the retrieved dashboard.</p>
+   * The description of the retrieved dashboard.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Indicates the dashboard type.</p>
+   * Indicates the dashboard type.
+   *
    * @public
    */
   type: DashboardType | undefined;
 
   /**
-   * <p>An array of widget configurations that make up the dashboard.</p>
+   * An array of widget configurations that make up the dashboard.
+   *
    * @public
    */
   widgets: Widget[] | undefined;
 
   /**
-   * <p>The timestamp when the dashboard was created.</p>
+   * The timestamp when the dashboard was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the dashboard was last modified.</p>
+   * The timestamp when the dashboard was last modified.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -1391,25 +1582,29 @@ export interface GetDashboardResponse {
  */
 export interface UpdateDashboardRequest {
   /**
-   * <p>The ARN of the dashboard to update.</p>
+   * The ARN of the dashboard to update.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The new name for the dashboard.</p>
+   * The new name for the dashboard.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The new description for the dashboard.</p>
+   * The new description for the dashboard.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The updated array of widget configurations for the dashboard. Replaces all existing widgets.</p>
+   * The updated array of widget configurations for the dashboard. Replaces all existing widgets.
+   *
    * @public
    */
   widgets?: Widget[] | undefined;

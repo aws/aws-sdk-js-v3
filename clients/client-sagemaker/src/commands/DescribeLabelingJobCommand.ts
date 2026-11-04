@@ -23,7 +23,8 @@ export interface DescribeLabelingJobCommandInput extends DescribeLabelingJobRequ
 export interface DescribeLabelingJobCommandOutput extends DescribeLabelingJobResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about a labeling job.</p>
+ * Gets information about a labeling job.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -142,11 +143,12 @@ export interface DescribeLabelingJobCommandOutput extends DescribeLabelingJobRes
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Resource being access is not found.</p>
+ *
+ * Resource being access is not found.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

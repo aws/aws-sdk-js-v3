@@ -26,10 +26,8 @@ export interface GetComplianceSummaryByResourceTypeCommandInput extends GetCompl
 export interface GetComplianceSummaryByResourceTypeCommandOutput extends GetComplianceSummaryByResourceTypeResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the number of resources that are compliant and the
- * 			number that are noncompliant. You can specify one or more resource
- * 			types to get these numbers for each resource type. The maximum
- * 			number returned is 100.</p>
+ * Returns the number of resources that are compliant and the number that are noncompliant. You can specify one or more resource types to get these numbers for each resource type. The maximum number returned is 100.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,12 +71,12 @@ export interface GetComplianceSummaryByResourceTypeCommandOutput extends GetComp
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more of the specified parameters are not valid. Verify
- * 			that your parameters are valid and try again.</p>
+ *
+ * One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.
  *
  * @throws {@link ConfigServiceServiceException}
- * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * Base exception class for all service exceptions from ConfigService service.
  *
  * @public
  */

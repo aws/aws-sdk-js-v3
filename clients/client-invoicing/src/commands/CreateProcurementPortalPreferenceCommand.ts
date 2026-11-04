@@ -26,7 +26,10 @@ export interface CreateProcurementPortalPreferenceCommandInput extends CreatePro
 export interface CreateProcurementPortalPreferenceCommandOutput extends CreateProcurementPortalPreferenceResponse, __MetadataBearer {}
 
 /**
- * <p> <i> <b>This feature API is subject to changing at any time. For more information, see the <a href="https://aws.amazon.com/service-terms/">Amazon Web Services Service Terms</a> (Betas and Previews).</b> </i> </p> <p>Creates a procurement portal preference configuration for e-invoice delivery and purchase order retrieval. This preference defines how invoices are delivered to a procurement portal and how purchase orders are retrieved.</p>
+ * ***This feature API is subject to changing at any time. For more information, see the [Amazon Web Services Service Terms](https://aws.amazon.com/service-terms/) (Betas and Previews).***
+ *
+ * Creates a procurement portal preference configuration for e-invoice delivery and purchase order retrieval. This preference defines how invoices are delivered to a procurement portal and how purchase orders are retrieved.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -111,26 +114,32 @@ export interface CreateProcurementPortalPreferenceCommandOutput extends CreatePr
  * @see {@link InvoicingClientResolvedConfig | config} for InvoicingClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * You don't have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be completed due to a conflict with the current state of the resource. This exception occurs when a concurrent modification is detected during an update operation, or when attempting to create a resource that already exists.</p>
+ *
+ * The request could not be completed due to a conflict with the current state of the resource. This exception occurs when a concurrent modification is detected during an update operation, or when attempting to create a resource that already exists.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The processing request failed because of an unknown error, exception, or failure. </p>
+ *
+ * The processing request failed because of an unknown error, exception, or failure.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded. </p>
+ *
+ * The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link InvoicingServiceException}
- * <p>Base exception class for all service exceptions from Invoicing service.</p>
  *
+ * Base exception class for all service exceptions from Invoicing service.
  *
  * @example CreateProcurementPortalPreference for Coupa
  * ```javascript

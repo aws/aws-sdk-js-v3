@@ -23,10 +23,10 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p> Returns a list of tags in an Amazon Rekognition collection, stream processor, or Custom Labels
- *       model. </p>
- *          <p>This operation requires permissions to perform the
- *         <code>rekognition:ListTagsForResource</code> action. </p>
+ * Returns a list of tags in an Amazon Rekognition collection, stream processor, or Custom Labels model.
+ *
+ * This operation requires permissions to perform the `rekognition:ListTagsForResource` action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,28 +55,32 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You are not authorized to perform the action.</p>
+ *
+ * You are not authorized to perform the action.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * Amazon Rekognition experienced a service issue. Try your call again.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
- *       operation again.</p>
+ *
+ * Input parameter violated a constraint. Validate your parameter before calling the API operation again.
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
- *  <p>The number of requests exceeded your throughput limit. If you want to increase this
- *       limit, contact Amazon Rekognition.</p>
+ *
+ * The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource specified in the request cannot be found.</p>
+ *
+ * The resource specified in the request cannot be found.
  *
  * @throws {@link ThrottlingException} (server fault)
- *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
+ * Amazon Rekognition is temporarily unable to process the request. Try your call again.
  *
  * @throws {@link RekognitionServiceException}
- * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * Base exception class for all service exceptions from Rekognition service.
  *
  * @public
  */

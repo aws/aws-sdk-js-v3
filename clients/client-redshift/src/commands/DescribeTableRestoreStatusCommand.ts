@@ -23,12 +23,8 @@ export interface DescribeTableRestoreStatusCommandInput extends DescribeTableRes
 export interface DescribeTableRestoreStatusCommandOutput extends TableRestoreStatusMessage, __MetadataBearer {}
 
 /**
- * <p>Lists the status of one or more table restore requests made using the <a>RestoreTableFromClusterSnapshot</a> API action. If you don't specify a value
- *             for the <code>TableRestoreRequestId</code> parameter, then
- *                 <code>DescribeTableRestoreStatus</code> returns the status of all table restore
- *             requests ordered by the date and time of the request in ascending order. Otherwise
- *                 <code>DescribeTableRestoreStatus</code> returns the status of the table specified by
- *                 <code>TableRestoreRequestId</code>.</p>
+ * Lists the status of one or more table restore requests made using the RestoreTableFromClusterSnapshot API action. If you don't specify a value for the `TableRestoreRequestId` parameter, then `DescribeTableRestoreStatus` returns the status of all table restore requests ordered by the date and time of the request in ascending order. Otherwise `DescribeTableRestoreStatus` returns the status of the table specified by `TableRestoreRequestId`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,15 +72,16 @@ export interface DescribeTableRestoreStatusCommandOutput extends TableRestoreSta
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
- *         </p>
+ *
+ * The `ClusterIdentifier` parameter does not refer to an existing cluster.
  *
  * @throws {@link TableRestoreNotFoundFault} (client fault)
- *  <p>The specified <code>TableRestoreRequestId</code> value was not found.</p>
+ *
+ * The specified `TableRestoreRequestId` value was not found.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

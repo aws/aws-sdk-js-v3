@@ -23,8 +23,8 @@ export interface CreateClusterCommandInput extends CreateClusterRequest {}
 export interface CreateClusterCommandOutput extends CreateClusterResult, __MetadataBearer {}
 
 /**
- * <p>Creates an empty cluster. Each cluster supports five nodes. You use the <a>CreateJob</a> action separately to create the jobs for each of these nodes. The
- *       cluster does not ship until these five node jobs have been created.</p>
+ * Creates an empty cluster. Each cluster supports five nodes. You use the CreateJob action separately to create the jobs for each of these nodes. The cluster does not ship until these five node jobs have been created.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -142,23 +142,24 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
  * @throws {@link Ec2RequestFailedException} (client fault)
- *  <p>Your user lacks the necessary Amazon EC2 permissions to perform the attempted
- *       action.</p>
+ *
+ * Your user lacks the necessary Amazon EC2 permissions to perform the attempted action.
  *
  * @throws {@link InvalidInputCombinationException} (client fault)
- *  <p>Job or cluster creation failed. One or more inputs were invalid. Confirm that the <a>CreateClusterRequest$SnowballType</a> value supports your <a>CreateJobRequest$JobType</a>, and try again.</p>
+ *
+ * Job or cluster creation failed. One or more inputs were invalid. Confirm that the CreateClusterRequest$SnowballType value supports your CreateJobRequest$JobType, and try again.
  *
  * @throws {@link InvalidResourceException} (client fault)
- *  <p>The specified resource can't be found. Check the information you provided in your last
- *       request, and try again.</p>
+ *
+ * The specified resource can't be found. Check the information you provided in your last request, and try again.
  *
  * @throws {@link KMSRequestFailedException} (client fault)
- *  <p>The provided Key Management Service key lacks the permissions to perform the specified
- *         <a>CreateJob</a> or <a>UpdateJob</a> action.</p>
+ *
+ * The provided Key Management Service key lacks the permissions to perform the specified CreateJob or UpdateJob action.
  *
  * @throws {@link SnowballServiceException}
- * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ * Base exception class for all service exceptions from Snowball service.
  *
  * @example To create a cluster
  * ```javascript

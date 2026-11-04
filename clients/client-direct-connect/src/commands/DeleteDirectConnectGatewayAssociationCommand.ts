@@ -26,8 +26,10 @@ export interface DeleteDirectConnectGatewayAssociationCommandInput extends Delet
 export interface DeleteDirectConnectGatewayAssociationCommandOutput extends DeleteDirectConnectGatewayAssociationResult, __MetadataBearer {}
 
 /**
- * <p>Deletes the association between the specified Direct Connect gateway and virtual private gateway.</p>
- *          <p>We recommend that you specify the <code>associationID</code> to delete the association. Alternatively, if you own virtual gateway and a Direct Connect gateway association, you can specify the <code>virtualGatewayId</code> and <code>directConnectGatewayId</code> to delete an association.</p>
+ * Deletes the association between the specified Direct Connect gateway and virtual private gateway.
+ *
+ * We recommend that you specify the `associationID` to delete the association. Alternatively, if you own virtual gateway and a Direct Connect gateway association, you can specify the `virtualGatewayId` and `directConnectGatewayId` to delete an association.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,14 +83,16 @@ export interface DeleteDirectConnectGatewayAssociationCommandOutput extends Dele
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  * @throws {@link DirectConnectClientException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link DirectConnectServerException} (server fault)
- *  <p>A server-side error occurred.</p>
+ *
+ * A server-side error occurred.
  *
  * @throws {@link DirectConnectServiceException}
- * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * Base exception class for all service exceptions from DirectConnect service.
  *
  * @public
  */

@@ -23,7 +23,17 @@ export interface SearchPlaceIndexForPositionCommandInput extends SearchPlaceInde
 export interface SearchPlaceIndexForPositionCommandOutput extends SearchPlaceIndexForPositionResponse, __MetadataBearer {}
 
 /**
- * <important> <p>This operation is no longer current and may be deprecated in the future. We recommend you upgrade to <a href="/location/latest/APIReference/API_geoplaces_ReverseGeocode.html"> <code>ReverseGeocode</code> </a> or <a href="/location/latest/APIReference/API_geoplaces_SearchNearby.html"> <code>SearchNearby</code> </a> unless you require Grab data.</p> <ul> <li> <p> <code>SearchPlaceIndexForPosition</code> is part of a previous Amazon Location Service Places API (version 1) which has been superseded by a more intuitive, powerful, and complete API (version 2).</p> </li> <li> <p>The version 2 <code>ReverseGeocode</code> operation gives better results in the address reverse-geocoding use case, while the version 2 <code>SearchNearby</code> operation gives better results when searching for businesses and points of interest near a specific location.</p> </li> <li> <p>If you are using an Amazon Web Services SDK or the Amazon Web Services CLI, note that the Places API version 2 is found under <code>geo-places</code> or <code>geo_places</code>, not under <code>location</code>.</p> </li> <li> <p>Since Grab is not yet fully supported in Places API version 2, we recommend you continue using API version 1 when using Grab.</p> </li> </ul> </important> <p>Reverse geocodes a given coordinate and returns a legible address. Allows you to search for Places or points of interest near a given position.</p>
+ * > **Important:**
+ * >
+ * > This operation is no longer current and may be deprecated in the future. We recommend you upgrade to [`ReverseGeocode`](/location/latest/APIReference/API_geoplaces_ReverseGeocode.html) or [`SearchNearby`](/location/latest/APIReference/API_geoplaces_SearchNearby.html) unless you require Grab data.
+ * >
+ * > - `SearchPlaceIndexForPosition` is part of a previous Amazon Location Service Places API (version 1) which has been superseded by a more intuitive, powerful, and complete API (version 2).
+ * > - The version 2 `ReverseGeocode` operation gives better results in the address reverse-geocoding use case, while the version 2 `SearchNearby` operation gives better results when searching for businesses and points of interest near a specific location.
+ * > - If you are using an Amazon Web Services SDK or the Amazon Web Services CLI, note that the Places API version 2 is found under `geo-places` or `geo_places`, not under `location`.
+ * > - Since Grab is not yet fully supported in Places API version 2, we recommend you continue using API version 1 when using Grab.
+ *
+ * Reverse geocodes a given coordinate and returns a legible address. Allows you to search for Places or points of interest near a given position.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -99,23 +109,28 @@ export interface SearchPlaceIndexForPositionCommandOutput extends SearchPlaceInd
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+ *
+ * The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+ *
+ * The request has failed to process because of an unknown server error, exception, or failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource that you've entered was not found in your AWS account.</p>
+ *
+ * The resource that you've entered was not found in your AWS account.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied because of request throttling.</p>
+ *
+ * The request was denied because of request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input failed to meet the constraints specified by the AWS service. </p>
+ *
+ * The input failed to meet the constraints specified by the AWS service.
  *
  * @throws {@link LocationServiceException}
- * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * Base exception class for all service exceptions from Location service.
  *
  * @public
  */

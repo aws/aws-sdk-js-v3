@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { IoTServiceException as __BaseException } from "./IoTServiceException";
 
 /**
- * <p>An unexpected error has occurred.</p>
+ * An unexpected error has occurred.
+ *
  * @public
  */
 export class InternalFailureException extends __BaseException {
@@ -25,7 +26,8 @@ export class InternalFailureException extends __BaseException {
 }
 
 /**
- * <p>The request is not valid.</p>
+ * The request is not valid.
+ *
  * @public
  */
 export class InvalidRequestException extends __BaseException {
@@ -46,7 +48,8 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * <p>The specified resource does not exist.</p>
+ * The specified resource does not exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -67,7 +70,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The service is temporarily unavailable.</p>
+ * The service is temporarily unavailable.
+ *
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -88,7 +92,8 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>The rate exceeds the limit.</p>
+ * The rate exceeds the limit.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -109,8 +114,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>You can't revert the certificate transfer because the transfer is already
- *          complete.</p>
+ * You can't revert the certificate transfer because the transfer is already complete.
+ *
  * @public
  */
 export class TransferAlreadyCompletedException extends __BaseException {
@@ -131,7 +136,8 @@ export class TransferAlreadyCompletedException extends __BaseException {
 }
 
 /**
- * <p>You are not authorized to perform this operation.</p>
+ * You are not authorized to perform this operation.
+ *
  * @public
  */
 export class UnauthorizedException extends __BaseException {
@@ -152,7 +158,8 @@ export class UnauthorizedException extends __BaseException {
 }
 
 /**
- * <p>The request conflicts with the current state of the resource.</p>
+ * The request conflicts with the current state of the resource.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -160,7 +167,8 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A resource with the same name already exists.</p>
+   * A resource with the same name already exists.
+   *
    * @public
    */
   resourceId?: string | undefined;
@@ -180,8 +188,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>Internal error from the service that indicates an unexpected error or that the service
- *             is unavailable.</p>
+ * Internal error from the service that indicates an unexpected error or that the service is unavailable.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -202,7 +210,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>Service quota has been exceeded.</p>
+ * Service quota has been exceeded.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -223,7 +232,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request is not valid.</p>
+ * The request is not valid.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -244,7 +254,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>A limit has been exceeded.</p>
+ * A limit has been exceeded.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -265,9 +276,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>An exception thrown when the version of an entity specified with the
- *             <code>expectedVersion</code> parameter does not match the latest version in the
- *          system.</p>
+ * An exception thrown when the version of an entity specified with the `expectedVersion` parameter does not match the latest version in the system.
+ *
  * @public
  */
 export class VersionConflictException extends __BaseException {
@@ -288,9 +298,8 @@ export class VersionConflictException extends __BaseException {
 }
 
 /**
- * <p>An attempt was made to change to an invalid state, for example by deleting a job or a
- *          job execution which is "IN_PROGRESS" without setting the <code>force</code>
- *          parameter.</p>
+ * An attempt was made to change to an invalid state, for example by deleting a job or a job execution which is "IN_PROGRESS" without setting the `force` parameter.
+ *
  * @public
  */
 export class InvalidStateTransitionException extends __BaseException {
@@ -311,8 +320,8 @@ export class InvalidStateTransitionException extends __BaseException {
 }
 
 /**
- * <p>A conflicting resource update exception. This exception is thrown when two pending
- *          updates cause a conflict.</p>
+ * A conflicting resource update exception. This exception is thrown when two pending updates cause a conflict.
+ *
  * @public
  */
 export class ConflictingResourceUpdateException extends __BaseException {
@@ -333,7 +342,8 @@ export class ConflictingResourceUpdateException extends __BaseException {
 }
 
 /**
- * <p>An unexpected error has occurred.</p>
+ * An unexpected error has occurred.
+ *
  * @public
  */
 export class InternalException extends __BaseException {
@@ -354,7 +364,8 @@ export class InternalException extends __BaseException {
 }
 
 /**
- * <p>The resource already exists.</p>
+ * The resource already exists.
+ *
  * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -362,13 +373,15 @@ export class ResourceAlreadyExistsException extends __BaseException {
   readonly name = "ResourceAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The ID of the resource that caused the exception.</p>
+   * The ID of the resource that caused the exception.
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>The ARN of the resource that caused the exception.</p>
+   * The ARN of the resource that caused the exception.
+   *
    * @public
    */
   resourceArn?: string | undefined;
@@ -389,7 +402,8 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The certificate is invalid.</p>
+ * The certificate is invalid.
+ *
  * @public
  */
 export class CertificateValidationException extends __BaseException {
@@ -410,7 +424,8 @@ export class CertificateValidationException extends __BaseException {
 }
 
 /**
- * <p>The query is invalid.</p>
+ * The query is invalid.
+ *
  * @public
  */
 export class InvalidQueryException extends __BaseException {
@@ -431,7 +446,8 @@ export class InvalidQueryException extends __BaseException {
 }
 
 /**
- * <p>The index is not ready.</p>
+ * The index is not ready.
+ *
  * @public
  */
 export class IndexNotReadyException extends __BaseException {
@@ -452,7 +468,8 @@ export class IndexNotReadyException extends __BaseException {
 }
 
 /**
- * <p>The aggregation is invalid.</p>
+ * The aggregation is invalid.
+ *
  * @public
  */
 export class InvalidAggregationException extends __BaseException {
@@ -473,7 +490,8 @@ export class InvalidAggregationException extends __BaseException {
 }
 
 /**
- * <p>The policy documentation is not valid.</p>
+ * The policy documentation is not valid.
+ *
  * @public
  */
 export class MalformedPolicyException extends __BaseException {
@@ -494,7 +512,8 @@ export class MalformedPolicyException extends __BaseException {
 }
 
 /**
- * <p>The number of policy versions exceeds the limit.</p>
+ * The number of policy versions exceeds the limit.
+ *
  * @public
  */
 export class VersionsLimitExceededException extends __BaseException {
@@ -515,7 +534,8 @@ export class VersionsLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The Rule-SQL expression can't be parsed correctly.</p>
+ * The Rule-SQL expression can't be parsed correctly.
+ *
  * @public
  */
 export class SqlParseException extends __BaseException {
@@ -536,8 +556,8 @@ export class SqlParseException extends __BaseException {
 }
 
 /**
- * <p>You can't delete the resource because it is attached to one or more
- *          resources.</p>
+ * You can't delete the resource because it is attached to one or more resources.
+ *
  * @public
  */
 export class DeleteConflictException extends __BaseException {
@@ -558,7 +578,8 @@ export class DeleteConflictException extends __BaseException {
 }
 
 /**
- * <p>The certificate operation is not allowed.</p>
+ * The certificate operation is not allowed.
+ *
  * @public
  */
 export class CertificateStateException extends __BaseException {
@@ -579,7 +600,8 @@ export class CertificateStateException extends __BaseException {
 }
 
 /**
- * <p>The resource is not configured.</p>
+ * The resource is not configured.
+ *
  * @public
  */
 export class NotConfiguredException extends __BaseException {
@@ -600,7 +622,8 @@ export class NotConfiguredException extends __BaseException {
 }
 
 /**
- * <p>The registration code is invalid.</p>
+ * The registration code is invalid.
+ *
  * @public
  */
 export class RegistrationCodeValidationException extends __BaseException {
@@ -621,9 +644,8 @@ export class RegistrationCodeValidationException extends __BaseException {
 }
 
 /**
- * <p>Unable to verify the CA certificate used to sign the device certificate you are
- *          attempting to register. This is happens when you have registered more than one CA
- *          certificate that has the same subject field and public key.</p>
+ * Unable to verify the CA certificate used to sign the device certificate you are attempting to register. This is happens when you have registered more than one CA certificate that has the same subject field and public key.
+ *
  * @public
  */
 export class CertificateConflictException extends __BaseException {
@@ -644,7 +666,8 @@ export class CertificateConflictException extends __BaseException {
 }
 
 /**
- * <p>The resource registration failed.</p>
+ * The resource registration failed.
+ *
  * @public
  */
 export class ResourceRegistrationFailureException extends __BaseException {
@@ -665,9 +688,8 @@ export class ResourceRegistrationFailureException extends __BaseException {
 }
 
 /**
- * <p>
- *             This exception occurs if you attempt to start a task with the same task-id as an existing task but with a different clientRequestToken.
- *         </p>
+ * This exception occurs if you attempt to start a task with the same task-id as an existing task but with a different clientRequestToken.
+ *
  * @public
  */
 export class TaskAlreadyExistsException extends __BaseException {
@@ -688,7 +710,8 @@ export class TaskAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The response is invalid.</p>
+ * The response is invalid.
+ *
  * @public
  */
 export class InvalidResponseException extends __BaseException {
@@ -709,8 +732,8 @@ export class InvalidResponseException extends __BaseException {
 }
 
 /**
- * <p>You can't transfer the certificate because authorization policies are still
- *          attached.</p>
+ * You can't transfer the certificate because authorization policies are still attached.
+ *
  * @public
  */
 export class TransferConflictException extends __BaseException {

@@ -23,7 +23,7 @@ export interface UpdateSystemTemplateCommandInput extends UpdateSystemTemplateRe
 export interface UpdateSystemTemplateCommandOutput extends UpdateSystemTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the specified system. You don't need to run this action after updating a workflow. Any deployment that uses the system will see the changes in the system when it is redeployed.</p>
+ * Updates the specified system. You don't need to run this action after updating a workflow. Any deployment that uses the system will see the changes in the system when it is redeployed.
  *
  * @deprecated since: 2022-08-30.
  * @example
@@ -62,20 +62,16 @@ export interface UpdateSystemTemplateCommandOutput extends UpdateSystemTemplateR
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p></p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p></p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p></p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p></p>
  *
  * @throws {@link IoTThingsGraphServiceException}
- * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ * Base exception class for all service exceptions from IoTThingsGraph service.
  *
  * @public
  */

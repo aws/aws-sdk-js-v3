@@ -23,15 +23,10 @@ export interface CreateTagsCommandInput extends CreateTagsRequest {}
 export interface CreateTagsCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Adds or overwrites only the specified tags for the specified Amazon EC2 resource or
- *          resources. When you specify an existing tag key, the value is overwritten with
- *          the new value. Each resource can have a maximum of 50 tags. Each tag consists of a key and
- *          optional value. Tag keys must be unique per resource.</p>
- *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tag your Amazon EC2 resources</a> in the
- *             <i>Amazon Elastic Compute Cloud User Guide</i>. For more information about
- *          creating IAM policies that control users' access to resources based on tags, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html">Supported
- *             resource-level permissions for Amazon EC2 API actions</a> in the <i>Amazon
- *             Elastic Compute Cloud User Guide</i>.</p>
+ * Adds or overwrites only the specified tags for the specified Amazon EC2 resource or resources. When you specify an existing tag key, the value is overwritten with the new value. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.
+ *
+ * For more information about tags, see [Tag your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon Elastic Compute Cloud User Guide*. For more information about creating IAM policies that control users' access to resources based on tags, see [Supported resource-level permissions for Amazon EC2 API actions](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html) in the *Amazon Elastic Compute Cloud User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,8 +60,8 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To add a tag to a resource
  * ```javascript

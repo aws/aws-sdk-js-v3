@@ -23,8 +23,8 @@ export interface DescribeEventSourceCommandInput extends DescribeEventSourceRequ
 export interface DescribeEventSourceCommandOutput extends DescribeEventSourceResponse, __MetadataBearer {}
 
 /**
- * <p>This operation lists details about a partner event source that is shared with your
- *       account.</p>
+ * This operation lists details about a partner event source that is shared with your account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,17 +56,20 @@ export interface DescribeEventSourceCommandOutput extends DescribeEventSourceRes
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * This exception occurs due to unexpected causes.
  *
  * @throws {@link OperationDisabledException} (client fault)
- *  <p>The operation you are attempting is not available in this region.</p>
+ *
+ * The operation you are attempting is not available in this region.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An entity that you specified does not exist.</p>
+ *
+ * An entity that you specified does not exist.
  *
  * @throws {@link CloudWatchEventsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchEvents service.
  *
  * @public
  */

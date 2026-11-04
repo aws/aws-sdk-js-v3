@@ -23,9 +23,12 @@ export interface TestConnectionCommandInput extends TestConnectionRequest {}
 export interface TestConnectionCommandOutput extends TestConnectionResponse, __MetadataBearer {}
 
 /**
- * <p>Tests a connection to a service to validate the service credentials that you provide.</p>
- *          <p>You can either provide an existing connection name or a <code>TestConnectionInput</code> for testing a non-existing connection input. Providing both at the same time will cause an error.</p>
- *          <p>If the action is successful, the service sends back an HTTP 200 response.</p>
+ * Tests a connection to a service to validate the service credentials that you provide.
+ *
+ * You can either provide an existing connection name or a `TestConnectionInput` for testing a non-existing connection input. Providing both at the same time will cause an error.
+ *
+ * If the action is successful, the service sends back an HTTP 200 response.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,35 +93,44 @@ export interface TestConnectionCommandOutput extends TestConnectionResponse, __M
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to a resource was denied.</p>
+ *
+ * Access to a resource was denied.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The <code>CreatePartitions</code> API was called on a table that has indexes enabled.	</p>
+ *
+ * The `CreatePartitions` API was called on a table that has indexes enabled.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link FederationSourceException} (client fault)
- *  <p>A federation source failed.</p>
+ *
+ * A federation source failed.
  *
  * @throws {@link GlueEncryptionException} (client fault)
- *  <p>An encryption operation failed.</p>
+ *
+ * An encryption operation failed.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
- *  <p>A resource numerical limit was exceeded.</p>
+ *
+ * A resource numerical limit was exceeded.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

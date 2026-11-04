@@ -23,12 +23,10 @@ export interface DescribeResizeCommandInput extends DescribeResizeMessage {}
 export interface DescribeResizeCommandOutput extends ResizeProgressMessage, __MetadataBearer {}
 
 /**
- * <p>Returns information about the last resize operation for the specified cluster. If
- *             no resize operation has ever been initiated for the specified cluster, a <code>HTTP
- *                 404</code> error is returned. If a resize operation was initiated and completed, the
- *             status of the resize remains as <code>SUCCEEDED</code> until the next resize. </p>
- *          <p>A resize operation can be requested using <a>ModifyCluster</a> and
- *             specifying a different number or type of nodes for the cluster. </p>
+ * Returns information about the last resize operation for the specified cluster. If no resize operation has ever been initiated for the specified cluster, a `HTTP 404` error is returned. If a resize operation was initiated and completed, the status of the resize remains as `SUCCEEDED` until the next resize.
+ *
+ * A resize operation can be requested using ModifyCluster and specifying a different number or type of nodes for the cluster.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,18 +74,20 @@ export interface DescribeResizeCommandOutput extends ResizeProgressMessage, __Me
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
- *         </p>
+ *
+ * The `ClusterIdentifier` parameter does not refer to an existing cluster.
  *
  * @throws {@link ResizeNotFoundFault} (client fault)
- *  <p>A resize operation for the specified cluster is not found.</p>
+ *
+ * A resize operation for the specified cluster is not found.
  *
  * @throws {@link UnsupportedOperationFault} (client fault)
- *  <p>The requested operation isn't supported.</p>
+ *
+ * The requested operation isn't supported.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

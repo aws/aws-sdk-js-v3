@@ -23,14 +23,10 @@ export interface DeleteResourcesByExternalIdCommandInput extends DeleteResources
 export interface DeleteResourcesByExternalIdCommandOutput extends DeleteResourcesByExternalIdOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes resources linked to an external ID. This action only applies if you have
- *             configured blue/green deployments through CloudFormation. </p>
- *          <note>
- *             <p>It is not necessary to call this action directly. CloudFormation calls it
- *                 on your behalf when it needs to delete stack resources. This action is offered
- *                 publicly in case you need to delete resources to comply with General Data Protection
- *                 Regulation (GDPR) requirements.</p>
- *          </note>
+ * Deletes resources linked to an external ID. This action only applies if you have configured blue/green deployments through CloudFormation.
+ *
+ * > **Note:** It is not necessary to call this action directly. CloudFormation calls it on your behalf when it needs to delete stack resources. This action is offered publicly in case you need to delete resources to comply with General Data Protection Regulation (GDPR) requirements.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,8 +51,8 @@ export interface DeleteResourcesByExternalIdCommandOutput extends DeleteResource
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  * @throws {@link CodeDeployServiceException}
- * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * Base exception class for all service exceptions from CodeDeploy service.
  *
  * @public
  */

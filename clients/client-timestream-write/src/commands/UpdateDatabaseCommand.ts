@@ -23,11 +23,10 @@ export interface UpdateDatabaseCommandInput extends UpdateDatabaseRequest {}
 export interface UpdateDatabaseCommandOutput extends UpdateDatabaseResponse, __MetadataBearer {}
 
 /**
- * <p> Modifies the KMS key for an existing database. While updating the
- *          database, you must specify the database name and the identifier of the new KMS key to be used (<code>KmsKeyId</code>). If there are any concurrent
- *             <code>UpdateDatabase</code> requests, first writer wins. </p>
- *          <p>See <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.update-db.html">code sample</a>
- *          for details.</p>
+ * Modifies the KMS key for an existing database. While updating the database, you must specify the database name and the identifier of the new KMS key to be used (`KmsKeyId`). If there are any concurrent `UpdateDatabase` requests, first writer wins.
+ *
+ * See [code sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.update-db.html) for details.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,33 +61,36 @@ export interface UpdateDatabaseCommandOutput extends UpdateDatabaseResponse, __M
  * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You are not authorized to perform this action.</p>
+ *
+ * You are not authorized to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>
- *          Timestream was unable to fully process this request because of an internal server
- *          error.</p>
+ *
+ * Timestream was unable to fully process this request because of an internal server error.
  *
  * @throws {@link InvalidEndpointException} (client fault)
- *  <p>The requested endpoint was not valid.</p>
+ *
+ * The requested endpoint was not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The operation tried to access a nonexistent resource. The resource might not be
- *          specified correctly, or its status might not be ACTIVE.</p>
+ *
+ * The operation tried to access a nonexistent resource. The resource might not be specified correctly, or its status might not be ACTIVE.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p> The instance quota of resource exceeded for this account.</p>
+ *
+ * The instance quota of resource exceeded for this account.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p> Too many requests were made by a user and they exceeded the service quotas. The request
- *          was throttled.</p>
+ *
+ * Too many requests were made by a user and they exceeded the service quotas. The request was throttled.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> An invalid or malformed request.</p>
+ *
+ * An invalid or malformed request.
  *
  * @throws {@link TimestreamWriteServiceException}
- * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
+ * Base exception class for all service exceptions from TimestreamWrite service.
  *
  * @public
  */

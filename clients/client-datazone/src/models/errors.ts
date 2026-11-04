@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { DataZoneServiceException as __BaseException } from "./DataZoneServiceException";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>There is a conflict while performing this action.</p>
+ * There is a conflict while performing this action.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -46,7 +48,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The request has failed because of an unknown error, exception or failure.</p>
+ * The request has failed because of an unknown error, exception or failure.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -68,7 +71,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The specified resource cannot be found.</p>
+ * The specified resource cannot be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -89,7 +93,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -111,7 +116,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>You do not have permission to perform this action.</p>
+ * You do not have permission to perform this action.
+ *
  * @public
  */
 export class UnauthorizedException extends __BaseException {
@@ -132,7 +138,8 @@ export class UnauthorizedException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by the Amazon Web Services service.</p>
+ * The input fails to satisfy the constraints specified by the Amazon Web Services service.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -153,7 +160,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The request has exceeded the specified service quota.</p>
+ * The request has exceeded the specified service quota.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {

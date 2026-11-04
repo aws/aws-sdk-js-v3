@@ -23,7 +23,8 @@ export interface StartCodeReviewJobCommandInput extends StartCodeReviewJobInput 
 export interface StartCodeReviewJobCommandOutput extends StartCodeReviewJobOutput, __MetadataBearer {}
 
 /**
- * <p>Starts a new code review job for a code review configuration. The job executes the security-focused code analysis defined in the code review.</p>
+ * Starts a new code review job for a code review configuration. The job executes the security-focused code analysis defined in the code review.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,8 +61,8 @@ export interface StartCodeReviewJobCommandOutput extends StartCodeReviewJobOutpu
  * @see {@link SecurityAgentClientResolvedConfig | config} for SecurityAgentClient's `config` shape.
  *
  * @throws {@link SecurityAgentServiceException}
- * <p>Base exception class for all service exceptions from SecurityAgent service.</p>
  *
+ * Base exception class for all service exceptions from SecurityAgent service.
  *
  * @public
  */

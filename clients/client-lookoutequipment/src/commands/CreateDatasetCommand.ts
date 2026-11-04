@@ -23,10 +23,8 @@ export interface CreateDatasetCommandInput extends CreateDatasetRequest {}
 export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a container for a collection of data being ingested for analysis. The dataset
- *          contains the metadata describing where the data is and what the data actually looks like.
- *          For example, it contains the location of the data source, the data schema, and other
- *          information. A dataset also contains any tags associated with the ingested data. </p>
+ * Creates a container for a collection of data being ingested for analysis. The dataset contains the metadata describing where the data is and what the data actually looks like. For example, it contains the location of the data source, the data schema, and other information. A dataset also contains any tags associated with the ingested data.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,30 +64,32 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request could not be completed because you do not have access to the resource.
- *       </p>
+ *
+ * The request could not be completed because you do not have access to the resource.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p> The request could not be completed due to a conflict with the current state of the
- *          target resource. </p>
+ *
+ * The request could not be completed due to a conflict with the current state of the target resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> Processing of the request has failed because of an unknown error, exception or failure.
- *       </p>
+ *
+ * Processing of the request has failed because of an unknown error, exception or failure.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p> Resource limitations have been exceeded. </p>
+ *
+ * Resource limitations have been exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services
- *          service that's being utilized. </p>
+ *
+ * The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized.
  *
  * @throws {@link LookoutEquipmentServiceException}
- * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * Base exception class for all service exceptions from LookoutEquipment service.
  *
  * @public
  */

@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { RDSDataServiceException as __BaseException } from "./RDSDataServiceException";
 
 /**
- * <p>You don't have sufficient access to perform this action.</p>
+ * You don't have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>There is an error in the call or in a SQL statement. This exception is deprecated.</p>
+ * There is an error in the call or in a SQL statement. This exception is deprecated.
+ *
  * @public
  */
 export class BadRequestException extends __BaseException {
@@ -46,7 +48,8 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * <p>There was an error in processing the SQL statement.</p>
+ * There was an error in processing the SQL statement.
+ *
  * @public
  */
 export class DatabaseErrorException extends __BaseException {
@@ -67,7 +70,8 @@ export class DatabaseErrorException extends __BaseException {
 }
 
 /**
- * <p>The DB cluster doesn't have a DB instance.</p>
+ * The DB cluster doesn't have a DB instance.
+ *
  * @public
  */
 export class DatabaseNotFoundException extends __BaseException {
@@ -88,7 +92,8 @@ export class DatabaseNotFoundException extends __BaseException {
 }
 
 /**
- * <p>A request was cancelled because the Aurora Serverless DB instance was paused. The Data API request automatically resumes the DB instance. Wait a few seconds and try again.</p>
+ * A request was cancelled because the Aurora Serverless DB instance was paused. The Data API request automatically resumes the DB instance. Wait a few seconds and try again.
+ *
  * @public
  */
 export class DatabaseResumingException extends __BaseException {
@@ -109,7 +114,8 @@ export class DatabaseResumingException extends __BaseException {
 }
 
 /**
- * <p>The writer instance in the DB cluster isn't available.</p>
+ * The writer instance in the DB cluster isn't available.
+ *
  * @public
  */
 export class DatabaseUnavailableException extends __BaseException {
@@ -130,7 +136,8 @@ export class DatabaseUnavailableException extends __BaseException {
 }
 
 /**
- * <p>There are insufficient privileges to make the call.</p>
+ * There are insufficient privileges to make the call.
+ *
  * @public
  */
 export class ForbiddenException extends __BaseException {
@@ -151,7 +158,8 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
- * <p>The HTTP endpoint for using RDS Data API isn't enabled for the DB cluster.</p>
+ * The HTTP endpoint for using RDS Data API isn't enabled for the DB cluster.
+ *
  * @public
  */
 export class HttpEndpointNotEnabledException extends __BaseException {
@@ -172,7 +180,8 @@ export class HttpEndpointNotEnabledException extends __BaseException {
 }
 
 /**
- * <p>An internal error occurred.</p>
+ * An internal error occurred.
+ *
  * @public
  */
 export class InternalServerErrorException extends __BaseException {
@@ -193,7 +202,8 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
- * <p>The resource is in an invalid state.</p>
+ * The resource is in an invalid state.
+ *
  * @public
  */
 export class InvalidResourceStateException extends __BaseException {
@@ -214,7 +224,8 @@ export class InvalidResourceStateException extends __BaseException {
 }
 
 /**
- * <p>The Secrets Manager secret used with the request isn't valid.</p>
+ * The Secrets Manager secret used with the request isn't valid.
+ *
  * @public
  */
 export class InvalidSecretException extends __BaseException {
@@ -235,7 +246,12 @@ export class InvalidSecretException extends __BaseException {
 }
 
 /**
- * <p>There was a problem with the Secrets Manager secret used with the request, caused by one of the following conditions:</p> <ul> <li> <p>RDS Data API timed out retrieving the secret.</p> </li> <li> <p>The secret provided wasn't found.</p> </li> <li> <p>The secret couldn't be decrypted.</p> </li> </ul>
+ * There was a problem with the Secrets Manager secret used with the request, caused by one of the following conditions:
+ *
+ * - RDS Data API timed out retrieving the secret.
+ * - The secret provided wasn't found.
+ * - The secret couldn't be decrypted.
+ *
  * @public
  */
 export class SecretsErrorException extends __BaseException {
@@ -256,7 +272,8 @@ export class SecretsErrorException extends __BaseException {
 }
 
 /**
- * <p>The service specified by the <code>resourceArn</code> parameter isn't available.</p>
+ * The service specified by the `resourceArn` parameter isn't available.
+ *
  * @public
  */
 export class ServiceUnavailableError extends __BaseException {
@@ -277,7 +294,8 @@ export class ServiceUnavailableError extends __BaseException {
 }
 
 /**
- * <p>The execution of the SQL statement timed out.</p>
+ * The execution of the SQL statement timed out.
+ *
  * @public
  */
 export class StatementTimeoutException extends __BaseException {
@@ -285,7 +303,8 @@ export class StatementTimeoutException extends __BaseException {
   readonly name = "StatementTimeoutException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The database connection ID that executed the SQL statement.</p>
+   * The database connection ID that executed the SQL statement.
+   *
    * @public
    */
   dbConnectionId?: number | undefined;
@@ -305,7 +324,8 @@ export class StatementTimeoutException extends __BaseException {
 }
 
 /**
- * <p>The transaction ID wasn't found.</p>
+ * The transaction ID wasn't found.
+ *
  * @public
  */
 export class TransactionNotFoundException extends __BaseException {
@@ -326,7 +346,8 @@ export class TransactionNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The <code>resourceArn</code>, <code>secretArn</code>, or <code>transactionId</code> value can't be found.</p>
+ * The `resourceArn`, `secretArn`, or `transactionId` value can't be found.
+ *
  * @public
  */
 export class NotFoundException extends __BaseException {
@@ -347,7 +368,12 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * <p>There was a problem with the result because of one of the following conditions:</p> <ul> <li> <p>It contained an unsupported data type.</p> </li> <li> <p>It contained a multidimensional array.</p> </li> <li> <p>The size was too large.</p> </li> </ul>
+ * There was a problem with the result because of one of the following conditions:
+ *
+ * - It contained an unsupported data type.
+ * - It contained a multidimensional array.
+ * - The size was too large.
+ *
  * @public
  */
 export class UnsupportedResultException extends __BaseException {

@@ -23,14 +23,12 @@ export interface EnableImageCommandInput extends EnableImageRequest {}
 export interface EnableImageCommandOutput extends EnableImageResult, __MetadataBearer {}
 
 /**
- * <p>Re-enables a disabled AMI. The re-enabled AMI is marked as <code>available</code> and can
- *       be used for instance launches, appears in describe operations, and can be shared. Amazon Web Services
- *       accounts, organizations, and Organizational Units that lost access to the AMI when it was
- *       disabled do not regain access automatically. Once the AMI is available, it can be shared with
- *       them again.</p>
- *          <p>Only the AMI owner can re-enable a disabled AMI.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/disable-an-ami.html">Disable an Amazon EC2 AMI</a>
- *       in the <i>Amazon EC2 User Guide</i>.</p>
+ * Re-enables a disabled AMI. The re-enabled AMI is marked as `available` and can be used for instance launches, appears in describe operations, and can be shared. Amazon Web Services accounts, organizations, and Organizational Units that lost access to the AMI when it was disabled do not regain access automatically. Once the AMI is available, it can be shared with them again.
+ *
+ * Only the AMI owner can re-enable a disabled AMI.
+ *
+ * For more information, see [Disable an Amazon EC2 AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/disable-an-ami.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,8 +56,8 @@ export interface EnableImageCommandOutput extends EnableImageResult, __MetadataB
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

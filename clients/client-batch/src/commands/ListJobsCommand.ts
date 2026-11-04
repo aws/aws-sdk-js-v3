@@ -23,19 +23,14 @@ export interface ListJobsCommandInput extends ListJobsRequest {}
 export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of Batch jobs.</p>
- *          <p>You must specify only one of the following items:</p>
- *          <ul>
- *             <li>
- *                <p>A job queue ID to return a list of jobs in that job queue</p>
- *             </li>
- *             <li>
- *                <p>A multi-node parallel job ID to return a list of nodes for that job</p>
- *             </li>
- *             <li>
- *                <p>An array job ID to return a list of the children for that job</p>
- *             </li>
- *          </ul>
+ * Returns a list of Batch jobs.
+ *
+ * You must specify only one of the following items:
+ *
+ * - A job queue ID to return a list of jobs in that job queue
+ * - A multi-node parallel job ID to return a list of nodes for that job
+ * - An array job ID to return a list of the children for that job
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -115,16 +110,16 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf
- *    of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier
- *    that's not valid.</p>
+ *
+ * These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server issue.</p>
+ *
+ * These errors are usually caused by a server issue.
  *
  * @throws {@link BatchServiceException}
- * <p>Base exception class for all service exceptions from Batch service.</p>
  *
+ * Base exception class for all service exceptions from Batch service.
  *
  * @example To list running jobs
  * ```javascript

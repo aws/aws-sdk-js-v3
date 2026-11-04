@@ -23,7 +23,10 @@ export interface DeleteQueueCommandInput extends DeleteQueueRequest {}
 export interface DeleteQueueCommandOutput extends DeleteQueueResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a queue.</p> <important> <p>You can't recover the jobs in a queue if you delete the queue. Deleting the queue also deletes the jobs in that queue.</p> </important>
+ * Deletes a queue.
+ *
+ * > **Important:** You can't recover the jobs in a queue if you delete the queue. Deleting the queue also deletes the jobs in that queue.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,8 +70,8 @@ export interface DeleteQueueCommandOutput extends DeleteQueueResponse, __Metadat
  *  The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.
  *
  * @throws {@link DeadlineServiceException}
- * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ * Base exception class for all service exceptions from Deadline service.
  *
  * @public
  */

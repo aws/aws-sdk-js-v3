@@ -23,35 +23,16 @@ export interface UpdateTrafficPolicyInstanceCommandInput extends UpdateTrafficPo
 export interface UpdateTrafficPolicyInstanceCommandOutput extends UpdateTrafficPolicyInstanceResponse, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>After you submit a <code>UpdateTrafficPolicyInstance</code> request, there's a brief delay while Route 53 creates the resource record sets
- * 			that are specified in the traffic policy definition. Use <code>GetTrafficPolicyInstance</code> with the <code>id</code> of updated traffic policy instance confirm
- * 			that the
- * 			<code>UpdateTrafficPolicyInstance</code> request completed successfully. For more information, see the <code>State</code> response element.</p>
- *          </note>
- *          <p>Updates the resource record sets in a specified hosted zone that were created based on
- * 			the settings in a specified traffic policy version.</p>
- *          <p>When you update a traffic policy instance, Amazon Route 53 continues to respond to DNS
- * 			queries for the root resource record set name (such as example.com) while it replaces
- * 			one group of resource record sets with another. Route 53 performs the following
- * 			operations:</p>
- *          <ol>
- *             <li>
- *                <p>Route 53 creates a new group of resource record sets based on the specified
- * 					traffic policy. This is true regardless of how significant the differences are
- * 					between the existing resource record sets and the new resource record sets.
- * 				</p>
- *             </li>
- *             <li>
- *                <p>When all of the new resource record sets have been created, Route 53 starts to
- * 					respond to DNS queries for the root resource record set name (such as
- * 					example.com) by using the new resource record sets.</p>
- *             </li>
- *             <li>
- *                <p>Route 53 deletes the old group of resource record sets that are associated
- * 					with the root resource record set name.</p>
- *             </li>
- *          </ol>
+ * > **Note:** After you submit a `UpdateTrafficPolicyInstance` request, there's a brief delay while Route 53 creates the resource record sets that are specified in the traffic policy definition. Use `GetTrafficPolicyInstance` with the `id` of updated traffic policy instance confirm that the `UpdateTrafficPolicyInstance` request completed successfully. For more information, see the `State` response element.
+ *
+ * Updates the resource record sets in a specified hosted zone that were created based on the settings in a specified traffic policy version.
+ *
+ * When you update a traffic policy instance, Amazon Route 53 continues to respond to DNS queries for the root resource record set name (such as example.com) while it replaces one group of resource record sets with another. Route 53 performs the following operations:
+ *
+ * 1. Route 53 creates a new group of resource record sets based on the specified traffic policy. This is true regardless of how significant the differences are between the existing resource record sets and the new resource record sets.
+ * 2. When all of the new resource record sets have been created, Route 53 starts to respond to DNS queries for the root resource record set name (such as example.com) by using the new resource record sets.
+ * 3. Route 53 deletes the old group of resource record sets that are associated with the root resource record set name.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,30 +72,28 @@ export interface UpdateTrafficPolicyInstanceCommandOutput extends UpdateTrafficP
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link ConflictingTypes} (client fault)
- *  <p>You tried to update a traffic policy instance by using a traffic policy version that
- * 			has a different DNS type than the current type for the instance. You specified the type
- * 			in the JSON document in the <code>CreateTrafficPolicy</code> or
- * 				<code>CreateTrafficPolicyVersion</code>request. </p>
+ *
+ * You tried to update a traffic policy instance by using a traffic policy version that has a different DNS type than the current type for the instance. You specified the type in the JSON document in the `CreateTrafficPolicy` or `CreateTrafficPolicyVersion`request.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link NoSuchTrafficPolicy} (client fault)
- *  <p>No traffic policy exists with the specified ID.</p>
+ *
+ * No traffic policy exists with the specified ID.
  *
  * @throws {@link NoSuchTrafficPolicyInstance} (client fault)
- *  <p>No traffic policy instance exists with the specified ID.</p>
+ *
+ * No traffic policy instance exists with the specified ID.
  *
  * @throws {@link PriorRequestNotComplete} (client fault)
- *  <p>If Amazon Route 53 can't process a request before the next request arrives, it will
- * 			reject subsequent requests for the same hosted zone and return an <code>HTTP 400
- * 				error</code> (<code>Bad request</code>). If Route 53 returns this error repeatedly
- * 			for the same request, we recommend that you wait, in intervals of increasing duration,
- * 			before you try the request again.</p>
+ *
+ * If Amazon Route 53 can't process a request before the next request arrives, it will reject subsequent requests for the same hosted zone and return an `HTTP 400 error` (`Bad request`). If Route 53 returns this error repeatedly for the same request, we recommend that you wait, in intervals of increasing duration, before you try the request again.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @public
  */

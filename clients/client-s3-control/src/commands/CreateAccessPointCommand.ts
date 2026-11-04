@@ -23,45 +23,25 @@ export interface CreateAccessPointCommandInput extends CreateAccessPointRequest 
 export interface CreateAccessPointCommandOutput extends CreateAccessPointResult, __MetadataBearer {}
 
 /**
- * <p>Creates an access point and associates it to a specified bucket. For more information, see
- *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html">Managing
- *             access to shared datasets with access points</a> or <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets.html">Managing access to
- *             shared datasets in directory buckets with access points</a> in the
- *             <i>Amazon S3 User Guide</i>.</p>
- *          <p>To create an access point and attach it to a volume on an Amazon FSx file system, see <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateAndAttachS3AccessPoint.html">CreateAndAttachS3AccessPoint</a> in the <i>Amazon FSx API
- *          Reference</i>.</p>
- *          <p></p>
- *          <note>
- *             <p>S3 on Outposts only supports VPC-style access points. </p>
- *             <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html"> Accessing Amazon S3 on Outposts using
- *                virtual private cloud (VPC) only access points</a> in the
- *                <i>Amazon S3 User Guide</i>.</p>
- *          </note>
- *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessPoint.html#API_control_CreateAccessPoint_Examples">Examples</a> section.</p>
- *          <p></p>
- *          <p>The following actions are related to <code>CreateAccessPoint</code>:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPoint.html">GetAccessPoint</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPoint.html">DeleteAccessPoint</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPoints.html">ListAccessPoints</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPointsForDirectoryBuckets.html">ListAccessPointsForDirectoryBuckets</a>
- *                </p>
- *             </li>
- *          </ul>
+ * Creates an access point and associates it to a specified bucket. For more information, see [Managing access to shared datasets with access points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html) or [Managing access to shared datasets in directory buckets with access points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets.html) in the *Amazon S3 User Guide*.
+ *
+ * To create an access point and attach it to a volume on an Amazon FSx file system, see [CreateAndAttachS3AccessPoint](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateAndAttachS3AccessPoint.html) in the *Amazon FSx API Reference*.
+ *
+ * > **Note:**
+ * >
+ * > S3 on Outposts only supports VPC-style access points.
+ * >
+ * > For more information, see [Accessing Amazon S3 on Outposts using virtual private cloud (VPC) only access points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html) in the *Amazon S3 User Guide*.
+ *
+ * All Amazon S3 on Outposts REST API requests for this action require an additional parameter of `x-amz-outpost-id` to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of `s3-control`. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the `x-amz-outpost-id` derived by using the access point ARN, see the [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessPoint.html#API_control_CreateAccessPoint_Examples) section.
+ *
+ * The following actions are related to `CreateAccessPoint`:
+ *
+ * - [GetAccessPoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPoint.html)
+ * - [DeleteAccessPoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPoint.html)
+ * - [ListAccessPoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPoints.html)
+ * - [ListAccessPointsForDirectoryBuckets](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPointsForDirectoryBuckets.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -115,8 +95,8 @@ export interface CreateAccessPointCommandOutput extends CreateAccessPointResult,
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
  * @throws {@link S3ControlServiceException}
- * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * Base exception class for all service exceptions from S3Control service.
  *
  * @public
  */

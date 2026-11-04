@@ -23,7 +23,8 @@ export interface GetSchemaVersionCommandInput extends GetSchemaVersionRequest {}
 export interface GetSchemaVersionCommandOutput extends GetSchemaVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a schema version with the provided information.</p>
+ * Gets a schema version with the provided information.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,29 +59,36 @@ export interface GetSchemaVersionCommandOutput extends GetSchemaVersionResponse,
  * @see {@link IoTManagedIntegrationsClientResolvedConfig | config} for IoTManagedIntegrationsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>User is not authorized.</p>
+ *
+ * User is not authorized.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>There is a conflict with the request.</p>
+ *
+ * There is a conflict with the request.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+ *
+ * Internal error from the service that indicates an unexpected error or that the service is unavailable.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is temporarily unavailable.</p>
+ *
+ * The service is temporarily unavailable.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The rate exceeds the limit.</p>
+ *
+ * The rate exceeds the limit.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A validation error occurred when performing the API request.</p>
+ *
+ * A validation error occurred when performing the API request.
  *
  * @throws {@link IoTManagedIntegrationsServiceException}
- * <p>Base exception class for all service exceptions from IoTManagedIntegrations service.</p>
  *
+ * Base exception class for all service exceptions from IoTManagedIntegrations service.
  *
  * @example GetSchemaVersion happy path for an example schema version.
  * ```javascript

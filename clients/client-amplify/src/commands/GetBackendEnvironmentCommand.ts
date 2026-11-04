@@ -23,12 +23,10 @@ export interface GetBackendEnvironmentCommandInput extends GetBackendEnvironment
 export interface GetBackendEnvironmentCommandOutput extends GetBackendEnvironmentResult, __MetadataBearer {}
 
 /**
- * <p>Returns a backend environment for an Amplify app. </p>
- *          <p>This API is available only to Amplify Gen 1 applications where the
- *             backend is created using Amplify Studio or the Amplify
- *             command line interface (CLI). This API isn’t available to Amplify Gen 2
- *             applications. When you deploy an application with Amplify Gen 2, you provision the app's
- *             backend infrastructure using Typescript code.</p>
+ * Returns a backend environment for an Amplify app.
+ *
+ * This API is available only to Amplify Gen 1 applications where the backend is created using Amplify Studio or the Amplify command line interface (CLI). This API isn’t available to Amplify Gen 2 applications. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,20 +61,24 @@ export interface GetBackendEnvironmentCommandOutput extends GetBackendEnvironmen
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>A request contains unexpected data. </p>
+ *
+ * A request contains unexpected data.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>The service failed to perform an operation due to an internal issue. </p>
+ *
+ * The service failed to perform an operation due to an internal issue.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>An entity was not found during an operation. </p>
+ *
+ * An entity was not found during an operation.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>An operation failed due to a lack of access. </p>
+ *
+ * An operation failed due to a lack of access.
  *
  * @throws {@link AmplifyServiceException}
- * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ * Base exception class for all service exceptions from Amplify service.
  *
  * @public
  */

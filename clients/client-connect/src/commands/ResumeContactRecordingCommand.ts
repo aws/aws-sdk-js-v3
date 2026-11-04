@@ -23,10 +23,10 @@ export interface ResumeContactRecordingCommandInput extends ResumeContactRecordi
 export interface ResumeContactRecordingCommandOutput extends ResumeContactRecordingResponse, __MetadataBearer {}
 
 /**
- * <p>When a contact is being recorded, and the recording has been suspended using SuspendContactRecording, this API
- *    resumes recording whatever recording is selected in the flow configuration: call, screen, or both. If only call
- *    recording or only screen recording is enabled, then it would resume.</p>
- *          <p>Voice and screen recordings are supported.</p>
+ * When a contact is being recorded, and the recording has been suspended using SuspendContactRecording, this API resumes recording whatever recording is selected in the flow configuration: call, screen, or both. If only call recording or only screen recording is enabled, then it would resume.
+ *
+ * Voice and screen recordings are supported.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,20 +54,24 @@ export interface ResumeContactRecordingCommandOutput extends ResumeContactRecord
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidActiveRegionException} (client fault)
- *  <p>This exception occurs when an API request is made to a non-active region in an Amazon Connect instance configured with Amazon Connect Global Resiliency. For example, if the active region is US West (Oregon) and a request is made to US East (N. Virginia), the exception will be returned.</p>
+ *
+ * This exception occurs when an API request is made to a non-active region in an Amazon Connect instance configured with Amazon Connect Global Resiliency. For example, if the active region is US West (Oregon) and a request is made to US East (N. Virginia), the exception will be returned.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

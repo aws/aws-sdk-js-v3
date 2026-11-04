@@ -23,7 +23,8 @@ export interface CreateStudioLifecycleConfigCommandInput extends CreateStudioLif
 export interface CreateStudioLifecycleConfigCommandOutput extends CreateStudioLifecycleConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new Amazon SageMaker AI Studio Lifecycle Configuration.</p>
+ * Creates a new Amazon SageMaker AI Studio Lifecycle Configuration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,11 +59,12 @@ export interface CreateStudioLifecycleConfigCommandOutput extends CreateStudioLi
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceInUse} (client fault)
- *  <p>Resource being accessed is in use.</p>
+ *
+ * Resource being accessed is in use.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

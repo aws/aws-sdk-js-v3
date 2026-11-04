@@ -23,12 +23,12 @@ export interface DeleteInstanceCommandInput extends DeleteInstanceRequest {}
 export interface DeleteInstanceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Connect Customer and is subject to change.</p>
- *          <p>Deletes the Connect Customer instance. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/delete-connect-instance.html">Delete your Connect Customer instance</a> in the
- *      <i>Connect Customer Administrator Guide</i>.</p>
- *          <p>Connect Customer enforces a limit on the total number of instances that you can create or delete in 30 days.
- * If you exceed this limit, you will get an error message indicating there has been an excessive number of attempts at creating or deleting instances.
- * You must wait 30 days before you can restart creating and deleting instances in your account.</p>
+ * This API is in preview release for Connect Customer and is subject to change.
+ *
+ * Deletes the Connect Customer instance. For more information, see [Delete your Connect Customer instance](https://docs.aws.amazon.com/connect/latest/adminguide/delete-connect-instance.html) in the *Connect Customer Administrator Guide*.
+ *
+ * Connect Customer enforces a limit on the total number of instances that you can create or delete in 30 days. If you exceed this limit, you will get an error message indicating there has been an excessive number of attempts at creating or deleting instances. You must wait 30 days before you can restart creating and deleting instances in your account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,17 +54,20 @@ export interface DeleteInstanceCommandOutput extends __MetadataBearer {}
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

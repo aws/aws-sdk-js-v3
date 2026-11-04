@@ -23,7 +23,8 @@ export interface DeleteExperimentCommandInput extends DeleteExperimentRequest {}
 export interface DeleteExperimentCommandOutput extends DeleteExperimentResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an SageMaker experiment. All trials associated with the experiment must be deleted first. Use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListTrials.html">ListTrials</a> API to get a list of the trials associated with the experiment.</p>
+ * Deletes an SageMaker experiment. All trials associated with the experiment must be deleted first. Use the [ListTrials](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListTrials.html) API to get a list of the trials associated with the experiment.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,11 +51,12 @@ export interface DeleteExperimentCommandOutput extends DeleteExperimentResponse,
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Resource being access is not found.</p>
+ *
+ * Resource being access is not found.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

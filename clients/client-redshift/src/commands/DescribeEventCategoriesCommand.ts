@@ -23,9 +23,8 @@ export interface DescribeEventCategoriesCommandInput extends DescribeEventCatego
 export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMessage, __MetadataBearer {}
 
 /**
- * <p>Displays a list of event categories for all event source types, or for a specified
- *             source type. For a list of the event categories and source types, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html">Amazon Redshift Event
- *                 Notifications</a>.</p>
+ * Displays a list of event categories for all event source types, or for a specified source type. For a list of the event categories and source types, go to [Amazon Redshift Event Notifications](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,8 +65,8 @@ export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMes
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

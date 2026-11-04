@@ -26,8 +26,8 @@ export interface StartMisconfiguredStateRecoveryCommandInput extends StartMiscon
 export interface StartMisconfiguredStateRecoveryCommandOutput extends StartMisconfiguredStateRecoveryResponse, __MetadataBearer {}
 
 /**
- * <p>After performing steps to repair the Active Directory configuration of an FSx for Windows File Server file system, use this action to
- *       initiate the process of Amazon FSx attempting to reconnect to the file system.</p>
+ * After performing steps to repair the Active Directory configuration of an FSx for Windows File Server file system, use this action to initiate the process of Amazon FSx attempting to reconnect to the file system.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -667,17 +667,20 @@ export interface StartMisconfiguredStateRecoveryCommandOutput extends StartMisco
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * A generic error indicating a failure with a client request.
  *
  * @throws {@link FileSystemNotFound} (client fault)
- *  <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
+ *
+ * No Amazon FSx file systems were found based upon supplied parameters.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * A generic error indicating a server-side failure.
  *
  * @throws {@link FSxServiceException}
- * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * Base exception class for all service exceptions from FSx service.
  *
  * @public
  */

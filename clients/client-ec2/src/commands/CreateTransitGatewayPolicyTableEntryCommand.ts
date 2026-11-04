@@ -26,7 +26,8 @@ export interface CreateTransitGatewayPolicyTableEntryCommandInput extends Create
 export interface CreateTransitGatewayPolicyTableEntryCommandOutput extends CreateTransitGatewayPolicyTableEntryResult, __MetadataBearer {}
 
 /**
- * <p>Creates an entry in a transit gateway policy table to route matching traffic to a specified route table.</p>
+ * Creates an entry in a transit gateway policy table to route matching traffic to a specified route table.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,8 +83,8 @@ export interface CreateTransitGatewayPolicyTableEntryCommandOutput extends Creat
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

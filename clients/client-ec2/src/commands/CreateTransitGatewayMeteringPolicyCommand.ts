@@ -26,7 +26,8 @@ export interface CreateTransitGatewayMeteringPolicyCommandInput extends CreateTr
 export interface CreateTransitGatewayMeteringPolicyCommandOutput extends CreateTransitGatewayMeteringPolicyResult, __MetadataBearer {}
 
 /**
- * <p>Creates a metering policy for a transit gateway to track and measure network traffic.</p>
+ * Creates a metering policy for a transit gateway to track and measure network traffic.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,8 +83,8 @@ export interface CreateTransitGatewayMeteringPolicyCommandOutput extends CreateT
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

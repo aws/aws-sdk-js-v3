@@ -6,7 +6,8 @@ import type { BadRequestReason, BytesMeasure } from "./enums";
 import type { BadRequestDetails } from "./models_0";
 
 /**
- * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
+ *
  * @public
  */
 export class BadRequestException extends __BaseException {
@@ -16,8 +17,8 @@ export class BadRequestException extends __BaseException {
   Message?: string | undefined;
   Reason?: BadRequestReason | undefined;
   /**
-   * <p>Detailed information about the input that failed to satisfy the constraints specified by
-   *          a call.</p>
+   * Detailed information about the input that failed to satisfy the constraints specified by a call.
+   *
    * @public
    */
   Details?: BadRequestDetails | undefined;
@@ -38,7 +39,8 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * <p>There was an internal failure in the AppConfig service.</p>
+ * There was an internal failure in the AppConfig service.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -61,12 +63,12 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The number of one more AppConfig resources exceeds the maximum allowed. Verify that your
- *          environment doesn't exceed the following service quotas:</p>
- *          <p>Applications: 100 max</p>
- *          <p>To resolve this issue, you can delete one or more resources and try again. Or, you can
- *          request a quota increase. For more information about quotas and to request an increase, see
- *             <a href="https://docs.aws.amazon.com/general/latest/gr/appconfig.html#limits_appconfig">Service quotas for AppConfig</a> in the Amazon Web Services General Reference.</p>
+ * The number of one more AppConfig resources exceeds the maximum allowed. Verify that your environment doesn't exceed the following service quotas:
+ *
+ * Applications: 100 max
+ *
+ * To resolve this issue, you can delete one or more resources and try again. Or, you can request a quota increase. For more information about quotas and to request an increase, see [Service quotas for AppConfig](https://docs.aws.amazon.com/general/latest/gr/appconfig.html#limits_appconfig) in the Amazon Web Services General Reference.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -89,7 +91,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The requested resource could not be found.</p>
+ * The requested resource could not be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -114,8 +117,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request could not be processed because of conflict in the current state of the
- *          resource.</p>
+ * The request could not be processed because of conflict in the current state of the resource.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -138,7 +141,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The configuration size is too large.</p>
+ * The configuration size is too large.
+ *
  * @public
  */
 export class PayloadTooLargeException extends __BaseException {

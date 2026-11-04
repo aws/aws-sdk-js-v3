@@ -26,7 +26,8 @@ export interface DeleteSharedTrustStoreAssociationCommandInput extends DeleteSha
 export interface DeleteSharedTrustStoreAssociationCommandOutput extends DeleteSharedTrustStoreAssociationOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes a shared trust store association.</p>
+ * Deletes a shared trust store association.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,17 +53,20 @@ export interface DeleteSharedTrustStoreAssociationCommandOutput extends DeleteSh
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
  * @throws {@link DeleteAssociationSameAccountException} (client fault)
- *  <p>The specified association can't be within the same account.</p>
+ *
+ * The specified association can't be within the same account.
  *
  * @throws {@link TrustStoreAssociationNotFoundException} (client fault)
- *  <p>The specified association does not exist.</p>
+ *
+ * The specified association does not exist.
  *
  * @throws {@link TrustStoreNotFoundException} (client fault)
- *  <p>The specified trust store does not exist.</p>
+ *
+ * The specified trust store does not exist.
  *
  * @throws {@link ElasticLoadBalancingV2ServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancingV2 service.
  *
  * @example Delete a shared trust store association
  * ```javascript

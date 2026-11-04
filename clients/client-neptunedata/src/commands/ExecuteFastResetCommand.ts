@@ -23,7 +23,12 @@ export interface ExecuteFastResetCommandInput extends ExecuteFastResetInput {}
 export interface ExecuteFastResetCommandOutput extends ExecuteFastResetOutput, __MetadataBearer {}
 
 /**
- * <p>The fast reset REST API lets you reset a Neptune graph quicky and easily, removing all of its data.</p> <p>Neptune fast reset is a two-step process. First you call <code>ExecuteFastReset</code> with <code>action</code> set to <code>initiateDatabaseReset</code>. This returns a UUID token which you then include when calling <code>ExecuteFastReset</code> again with <code>action</code> set to <code>performDatabaseReset</code>. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/manage-console-fast-reset.html">Empty an Amazon Neptune DB cluster using the fast reset API</a>.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#resetdatabase">neptune-db:ResetDatabase</a> IAM action in that cluster.</p>
+ * The fast reset REST API lets you reset a Neptune graph quicky and easily, removing all of its data.
+ *
+ * Neptune fast reset is a two-step process. First you call `ExecuteFastReset` with `action` set to `initiateDatabaseReset`. This returns a UUID token which you then include when calling `ExecuteFastReset` again with `action` set to `performDatabaseReset`. See [Empty an Amazon Neptune DB cluster using the fast reset API](https://docs.aws.amazon.com/neptune/latest/userguide/manage-console-fast-reset.html).
+ *
+ * When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the [neptune-db:ResetDatabase](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#resetdatabase) IAM action in that cluster.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,47 +59,60 @@ export interface ExecuteFastResetCommandOutput extends ExecuteFastResetOutput, _
  * @see {@link NeptunedataClientResolvedConfig | config} for NeptunedataClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Raised in case of an authentication or authorization failure.</p>
+ *
+ * Raised in case of an authentication or authorization failure.
  *
  * @throws {@link ClientTimeoutException} (client fault)
- *  <p>Raised when a request timed out in the client.</p>
+ *
+ * Raised when a request timed out in the client.
  *
  * @throws {@link ConstraintViolationException} (client fault)
- *  <p>Raised when a value in a request field did not satisfy required constraints.</p>
+ *
+ * Raised when a value in a request field did not satisfy required constraints.
  *
  * @throws {@link IllegalArgumentException} (client fault)
- *  <p>Raised when an argument in a request is not supported.</p>
+ *
+ * Raised when an argument in a request is not supported.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>Raised when an argument in a request has an invalid value.</p>
+ *
+ * Raised when an argument in a request has an invalid value.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Raised when a parameter value is not valid.</p>
+ *
+ * Raised when a parameter value is not valid.
  *
  * @throws {@link MethodNotAllowedException} (client fault)
- *  <p>Raised when the HTTP method used by a request is not supported by the endpoint being used.</p>
+ *
+ * Raised when the HTTP method used by a request is not supported by the endpoint being used.
  *
  * @throws {@link MissingParameterException} (client fault)
- *  <p>Raised when a required parameter is missing.</p>
+ *
+ * Raised when a required parameter is missing.
  *
  * @throws {@link PreconditionsFailedException} (client fault)
- *  <p>Raised when a precondition for processing a request is not satisfied.</p>
+ *
+ * Raised when a precondition for processing a request is not satisfied.
  *
  * @throws {@link ReadOnlyViolationException} (client fault)
- *  <p>Raised when a request attempts to write to a read-only resource.</p>
+ *
+ * Raised when a request attempts to write to a read-only resource.
  *
  * @throws {@link ServerShutdownException} (server fault)
- *  <p>Raised when the server shuts down while processing a request.</p>
+ *
+ * Raised when the server shuts down while processing a request.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Raised when the number of requests being processed exceeds the limit.</p>
+ *
+ * Raised when the number of requests being processed exceeds the limit.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+ *
+ * Raised when a request attempts to initiate an operation that is not supported.
  *
  * @throws {@link NeptunedataServiceException}
- * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ * Base exception class for all service exceptions from Neptunedata service.
  *
  * @public
  */

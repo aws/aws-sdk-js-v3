@@ -23,25 +23,12 @@ export interface ModifyDBClusterParameterGroupCommandInput extends ModifyDBClust
 export interface ModifyDBClusterParameterGroupCommandOutput extends DBClusterParameterGroupNameMessage, __MetadataBearer {}
 
 /**
- * <p> Modifies the parameters of a cluster parameter group. To modify more than one
- *             parameter, submit a list of the following: <code>ParameterName</code>,
- *                 <code>ParameterValue</code>, and <code>ApplyMethod</code>. A maximum of 20
- *             parameters can be modified in a single request. </p>
- *          <note>
- *             <p>Changes to dynamic parameters are applied immediately. Changes to static
- *                 parameters require a reboot or maintenance window
+ * Modifies the parameters of a cluster parameter group. To modify more than one parameter, submit a list of the following: `ParameterName`, `ParameterValue`, and `ApplyMethod`. A maximum of 20 parameters can be modified in a single request.
  *
- *                 before the change can take effect.</p>
- *          </note>
- *          <important>
- *             <p>After you create a cluster parameter group, you should wait at least 5 minutes
- *                 before creating your first cluster that uses that cluster parameter group as
- *                 the default parameter group. This allows Amazon DocumentDB to fully complete the create action
- *                 before the parameter group is used as the default for a new cluster. This step is
- *                 especially important for parameters that are critical when creating the default
- *                 database for a cluster, such as the character set for the default database
- *                 defined by the <code>character_set_database</code> parameter.</p>
- *          </important>
+ * > **Note:** Changes to dynamic parameters are applied immediately. Changes to static parameters require a reboot or maintenance window before the change can take effect.
+ *
+ * > **Important:** After you create a cluster parameter group, you should wait at least 5 minutes before creating your first cluster that uses that cluster parameter group as the default parameter group. This allows Amazon DocumentDB to fully complete the create action before the parameter group is used as the default for a new cluster. This step is especially important for parameters that are critical when creating the default database for a cluster, such as the character set for the default database defined by the `character_set_database` parameter.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,15 +69,16 @@ export interface ModifyDBClusterParameterGroupCommandOutput extends DBClusterPar
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  * @throws {@link DBParameterGroupNotFoundFault} (client fault)
- *  <p>
- *             <code>DBParameterGroupName</code> doesn't refer to an existing parameter group. </p>
+ *
+ * `DBParameterGroupName` doesn't refer to an existing parameter group.
  *
  * @throws {@link InvalidDBParameterGroupStateFault} (client fault)
- *  <p>The parameter group is in use, or it is in a state that is not valid. If you are trying to delete the parameter group, you can't delete it when the parameter group is in this state.</p>
+ *
+ * The parameter group is in use, or it is in a state that is not valid. If you are trying to delete the parameter group, you can't delete it when the parameter group is in this state.
  *
  * @throws {@link DocDBServiceException}
- * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * Base exception class for all service exceptions from DocDB service.
  *
  * @public
  */

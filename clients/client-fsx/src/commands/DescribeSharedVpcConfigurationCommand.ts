@@ -23,8 +23,8 @@ export interface DescribeSharedVpcConfigurationCommandInput extends DescribeShar
 export interface DescribeSharedVpcConfigurationCommandOutput extends DescribeSharedVpcConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Indicates whether participant accounts in your organization can create Amazon FSx for NetApp ONTAP Multi-AZ file systems in subnets that are shared by a virtual
- *             private cloud (VPC) owner. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/creating-file-systems.html#fsxn-vpc-shared-subnets">Creating FSx for ONTAP file systems in shared subnets</a>. </p>
+ * Indicates whether participant accounts in your organization can create Amazon FSx for NetApp ONTAP Multi-AZ file systems in subnets that are shared by a virtual private cloud (VPC) owner. For more information, see [Creating FSx for ONTAP file systems in shared subnets](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/creating-file-systems.html#fsxn-vpc-shared-subnets).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,14 +49,16 @@ export interface DescribeSharedVpcConfigurationCommandOutput extends DescribeSha
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * A generic error indicating a failure with a client request.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * A generic error indicating a server-side failure.
  *
  * @throws {@link FSxServiceException}
- * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * Base exception class for all service exceptions from FSx service.
  *
  * @public
  */

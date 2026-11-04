@@ -23,18 +23,12 @@ export interface DeleteFileCacheCommandInput extends DeleteFileCacheRequest {}
 export interface DeleteFileCacheCommandOutput extends DeleteFileCacheResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an Amazon File Cache resource. After deletion, the cache no longer exists, and its data
- *             is gone.</p>
- *          <p>The <code>DeleteFileCache</code> operation returns while the cache has the
- *             <code>DELETING</code> status. You can check the cache deletion status by
- *             calling the <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeFileCaches.html">DescribeFileCaches</a> operation, which returns a list of caches in your
- *             account. If you pass the cache ID for a deleted cache, the
- *             <code>DescribeFileCaches</code> operation returns a <code>FileCacheNotFound</code>
- *             error.</p>
- *          <important>
- *             <p>The data in a deleted cache is also deleted and can't be recovered by
- *                 any means.</p>
- *          </important>
+ * Deletes an Amazon File Cache resource. After deletion, the cache no longer exists, and its data is gone.
+ *
+ * The `DeleteFileCache` operation returns while the cache has the `DELETING` status. You can check the cache deletion status by calling the [DescribeFileCaches](https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeFileCaches.html) operation, which returns a list of caches in your account. If you pass the cache ID for a deleted cache, the `DescribeFileCaches` operation returns a `FileCacheNotFound` error.
+ *
+ * > **Important:** The data in a deleted cache is also deleted and can't be recovered by any means.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,26 +57,28 @@ export interface DeleteFileCacheCommandOutput extends DeleteFileCacheResponse, _
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * A generic error indicating a failure with a client request.
  *
  * @throws {@link FileCacheNotFound} (client fault)
- *  <p>No caches were found based upon supplied parameters.</p>
+ *
+ * No caches were found based upon supplied parameters.
  *
  * @throws {@link IncompatibleParameterError} (client fault)
- *  <p>The error returned when a second request is received with the same client request
- *             token but different parameters settings. A client request token should always uniquely
- *             identify a single request.</p>
+ *
+ * The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * A generic error indicating a server-side failure.
  *
  * @throws {@link ServiceLimitExceeded} (client fault)
- *  <p>An error indicating that a particular service limit was exceeded. You can increase
- *             some service limits by contacting Amazon Web Services Support.</p>
+ *
+ * An error indicating that a particular service limit was exceeded. You can increase some service limits by contacting Amazon Web Services Support.
  *
  * @throws {@link FSxServiceException}
- * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * Base exception class for all service exceptions from FSx service.
  *
  * @public
  */

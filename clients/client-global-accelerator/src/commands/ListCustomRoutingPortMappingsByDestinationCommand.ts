@@ -26,10 +26,8 @@ export interface ListCustomRoutingPortMappingsByDestinationCommandInput extends 
 export interface ListCustomRoutingPortMappingsByDestinationCommandOutput extends ListCustomRoutingPortMappingsByDestinationResponse, __MetadataBearer {}
 
 /**
- * <p>List the port mappings for a specific EC2 instance (destination) in a VPC subnet endpoint. The
- * 			response is the mappings for one destination IP address. This is useful when your subnet endpoint has mappings that
- * 			span multiple custom routing accelerators in your account, or for scenarios where you only want to
- * 			list the port mappings for a specific destination instance.</p>
+ * List the port mappings for a specific EC2 instance (destination) in a VPC subnet endpoint. The response is the mappings for one destination IP address. This is useful when your subnet endpoint has mappings that span multiple custom routing accelerators in your account, or for scenarios where you only want to list the port mappings for a specific destination instance.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,20 +77,24 @@ export interface ListCustomRoutingPortMappingsByDestinationCommandOutput extends
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
  * @throws {@link EndpointNotFoundException} (client fault)
- *  <p>The endpoint that you specified doesn't exist.</p>
+ *
+ * The endpoint that you specified doesn't exist.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * There was an internal error for Global Accelerator.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>An argument that you specified is invalid.</p>
+ *
+ * An argument that you specified is invalid.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>There isn't another item to return.</p>
+ *
+ * There isn't another item to return.
  *
  * @throws {@link GlobalAcceleratorServiceException}
- * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * Base exception class for all service exceptions from GlobalAccelerator service.
  *
  * @public
  */

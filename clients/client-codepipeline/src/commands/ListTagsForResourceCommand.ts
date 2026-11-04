@@ -23,8 +23,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceInpu
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Gets the set of key-value pairs (metadata) that are used to manage the
- *             resource.</p>
+ * Gets the set of key-value pairs (metadata) that are used to manage the resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,21 +59,24 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  * @throws {@link InvalidArnException} (client fault)
- *  <p>The specified resource ARN is invalid.</p>
+ *
+ * The specified resource ARN is invalid.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The next token was specified in an invalid format. Make sure that the next token
- *             you provide is the token returned by a previous call.</p>
+ *
+ * The next token was specified in an invalid format. Make sure that the next token you provide is the token returned by a previous call.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource was specified in an invalid format.</p>
+ *
+ * The resource was specified in an invalid format.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The validation was specified in an invalid format.</p>
+ *
+ * The validation was specified in an invalid format.
  *
  * @throws {@link CodePipelineServiceException}
- * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * Base exception class for all service exceptions from CodePipeline service.
  *
  * @public
  */

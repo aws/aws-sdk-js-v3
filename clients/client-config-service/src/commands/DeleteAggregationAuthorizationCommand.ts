@@ -23,8 +23,8 @@ export interface DeleteAggregationAuthorizationCommandInput extends DeleteAggreg
 export interface DeleteAggregationAuthorizationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the authorization granted to the specified
- * 			configuration aggregator account in a specified region.</p>
+ * Deletes the authorization granted to the specified configuration aggregator account in a specified region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,12 +50,12 @@ export interface DeleteAggregationAuthorizationCommandOutput extends __MetadataB
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more of the specified parameters are not valid. Verify
- * 			that your parameters are valid and try again.</p>
+ *
+ * One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.
  *
  * @throws {@link ConfigServiceServiceException}
- * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * Base exception class for all service exceptions from ConfigService service.
  *
  * @public
  */

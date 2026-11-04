@@ -23,12 +23,10 @@ export interface EnableMetricsCollectionCommandInput extends EnableMetricsCollec
 export interface EnableMetricsCollectionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Enables group metrics collection for the specified Auto Scaling group.</p>
- *          <p>You can use these metrics to track changes in an Auto Scaling group and to set alarms on
- *             threshold values. You can view group metrics using the Amazon EC2 Auto Scaling console or the CloudWatch
- *             console. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-cloudwatch-monitoring.html">Monitor
- *                 CloudWatch metrics for your Auto Scaling groups and instances</a> in the
- *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ * Enables group metrics collection for the specified Auto Scaling group.
+ *
+ * You can use these metrics to track changes in an Auto Scaling group and to set alarms on threshold values. You can view group metrics using the Amazon EC2 Auto Scaling console or the CloudWatch console. For more information, see [Monitor CloudWatch metrics for your Auto Scaling groups and instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-cloudwatch-monitoring.html) in the *Amazon EC2 Auto Scaling User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,12 +55,12 @@ export interface EnableMetricsCollectionCommandOutput extends __MetadataBearer {
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  * @throws {@link ResourceContentionFault} (server fault)
- *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
- *             instance, or load balancer).</p>
+ *
+ * You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).
  *
  * @throws {@link AutoScalingServiceException}
- * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from AutoScaling service.
  *
  * @example To enable metrics collection for an Auto Scaling group
  * ```javascript

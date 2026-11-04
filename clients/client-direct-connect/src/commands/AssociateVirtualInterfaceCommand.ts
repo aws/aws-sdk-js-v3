@@ -23,16 +23,12 @@ export interface AssociateVirtualInterfaceCommandInput extends AssociateVirtualI
 export interface AssociateVirtualInterfaceCommandOutput extends VirtualInterface, __MetadataBearer {}
 
 /**
- * <p>Associates a virtual interface with a specified link aggregation group (LAG) or
- *       connection. Connectivity to Amazon Web Services is temporarily interrupted as the virtual interface is
- *       being migrated. If the target connection or LAG has an associated virtual interface with
- *       a conflicting VLAN number or a conflicting IP address, the operation fails.</p>
- *          <p>Virtual interfaces associated with a hosted connection cannot be associated with a
- *       LAG; hosted connections must be migrated along with their virtual interfaces using <a>AssociateHostedConnection</a>.</p>
- *          <p>To reassociate a virtual interface to a new connection or LAG, the requester
- *       must own either the virtual interface itself or the connection to which the virtual
- *       interface is currently associated. Additionally, the requester must own the connection
- *       or LAG for the association.</p>
+ * Associates a virtual interface with a specified link aggregation group (LAG) or connection. Connectivity to Amazon Web Services is temporarily interrupted as the virtual interface is being migrated. If the target connection or LAG has an associated virtual interface with a conflicting VLAN number or a conflicting IP address, the operation fails.
+ *
+ * Virtual interfaces associated with a hosted connection cannot be associated with a LAG; hosted connections must be migrated along with their virtual interfaces using AssociateHostedConnection.
+ *
+ * To reassociate a virtual interface to a new connection or LAG, the requester must own either the virtual interface itself or the connection to which the virtual interface is currently associated. Additionally, the requester must own the connection or LAG for the association.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -112,14 +108,16 @@ export interface AssociateVirtualInterfaceCommandOutput extends VirtualInterface
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  * @throws {@link DirectConnectClientException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link DirectConnectServerException} (server fault)
- *  <p>A server-side error occurred.</p>
+ *
+ * A server-side error occurred.
  *
  * @throws {@link DirectConnectServiceException}
- * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * Base exception class for all service exceptions from DirectConnect service.
  *
  * @public
  */

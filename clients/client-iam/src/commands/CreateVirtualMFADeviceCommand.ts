@@ -23,20 +23,12 @@ export interface CreateVirtualMFADeviceCommandInput extends CreateVirtualMFADevi
 export interface CreateVirtualMFADeviceCommandOutput extends CreateVirtualMFADeviceResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new virtual MFA device for the Amazon Web Services account. After creating the virtual
- *             MFA, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_EnableMFADevice.html">EnableMFADevice</a> to
- *             attach the MFA device to an IAM user. For more information about creating and working
- *             with virtual MFA devices, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html">Using a virtual MFA device</a> in the
- *                 <i>IAM User Guide</i>.</p>
- *          <p>For information about the maximum number of MFA devices you can create, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS
- *                 quotas</a> in the <i>IAM User Guide</i>.</p>
- *          <important>
- *             <p>The seed information contained in the QR code and the Base32 string should be
- *                 treated like any other secret access information. In other words, protect the seed
- *                 information as you would your Amazon Web Services access keys or your passwords. After you
- *                 provision your virtual device, you should ensure that the information is destroyed
- *                 following secure procedures.</p>
- *          </important>
+ * Creates a new virtual MFA device for the Amazon Web Services account. After creating the virtual MFA, use [EnableMFADevice](https://docs.aws.amazon.com/IAM/latest/APIReference/API_EnableMFADevice.html) to attach the MFA device to an IAM user. For more information about creating and working with virtual MFA devices, see [Using a virtual MFA device](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html) in the *IAM User Guide*.
+ *
+ * For information about the maximum number of MFA devices you can create, see [IAM and STS quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the *IAM User Guide*.
+ *
+ * > **Important:** The seed information contained in the QR code and the Base32 string should be treated like any other secret access information. In other words, protect the seed information as you would your Amazon Web Services access keys or your passwords. After you provision your virtual device, you should ensure that the information is destroyed following secure procedures.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -99,28 +91,28 @@ export interface CreateVirtualMFADeviceCommandOutput extends CreateVirtualMFADev
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>The request was rejected because multiple requests to change this object were submitted
- *       simultaneously. Wait a few minutes and submit your request again.</p>
+ *
+ * The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.
  *
  * @throws {@link EntityAlreadyExistsException} (client fault)
- *  <p>The request was rejected because it attempted to create a resource that already
- *       exists.</p>
+ *
+ * The request was rejected because it attempted to create a resource that already exists.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
- *       input parameter.</p>
+ *
+ * The request was rejected because an invalid or out-of-range value was supplied for an input parameter.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current
- *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+ *
+ * The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @public
  */

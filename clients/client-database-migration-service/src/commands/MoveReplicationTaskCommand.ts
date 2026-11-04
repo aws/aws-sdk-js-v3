@@ -23,9 +23,8 @@ export interface MoveReplicationTaskCommandInput extends MoveReplicationTaskMess
 export interface MoveReplicationTaskCommandOutput extends MoveReplicationTaskResponse, __MetadataBearer {}
 
 /**
- * <p>Moves a replication task from its current replication instance to a different target
- *          replication instance using the specified parameters. The target replication instance must
- *          be created with the same or later DMS version as the current replication instance.</p>
+ * Moves a replication task from its current replication instance to a different target replication instance using the specified parameters. The target replication instance must be created with the same or later DMS version as the current replication instance.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,24 +84,28 @@ export interface MoveReplicationTaskCommandOutput extends MoveReplicationTaskRes
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedFault} (client fault)
- *  <p>DMS was denied access to the endpoint. Check that the
- *             role is correctly configured.</p>
+ *
+ * DMS was denied access to the endpoint. Check that the role is correctly configured.
  *
  * @throws {@link InvalidResourceStateFault} (client fault)
- *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
+ * The resource is in a state that prevents it from being used for database migration.
  *
  * @throws {@link KMSKeyNotAccessibleFault} (client fault)
- *  <p>DMS cannot access the KMS key.</p>
+ *
+ * DMS cannot access the KMS key.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link ResourceQuotaExceededFault} (client fault)
- *  <p>The quota for this resource quota has been exceeded.</p>
+ *
+ * The quota for this resource quota has been exceeded.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @public
  */

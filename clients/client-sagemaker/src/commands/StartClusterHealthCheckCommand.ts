@@ -23,7 +23,8 @@ export interface StartClusterHealthCheckCommandInput extends StartClusterHealthC
 export interface StartClusterHealthCheckCommandOutput extends StartClusterHealthCheckResponse, __MetadataBearer {}
 
 /**
- * <p>Start deep health checks for a SageMaker HyperPod cluster. You can use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeClusterNode.html">DescribeClusterNode</a> API to track progress of the deep health checks. The unhealthy nodes will be automatically rebooted or replaced. Please see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-eks-resiliency-node-labels.html"> Resilience-related Kubernetes labels by SageMaker HyperPod</a> for details.</p>
+ * Start deep health checks for a SageMaker HyperPod cluster. You can use [DescribeClusterNode](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeClusterNode.html) API to track progress of the deep health checks. The unhealthy nodes will be automatically rebooted or replaced. Please see [Resilience-related Kubernetes labels by SageMaker HyperPod](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-eks-resiliency-node-labels.html) for details.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,11 +62,12 @@ export interface StartClusterHealthCheckCommandOutput extends StartClusterHealth
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Resource being access is not found.</p>
+ *
+ * Resource being access is not found.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

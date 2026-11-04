@@ -23,39 +23,19 @@ export interface CreateFileSystemFromBackupCommandInput extends CreateFileSystem
 export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSystemFromBackupResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new Amazon FSx for Lustre, Amazon FSx for Windows File
- *             Server, or Amazon FSx for OpenZFS file system from an existing Amazon FSx backup.</p>
- *          <p>If a file system with the specified client request token exists and the parameters
- *             match, this operation returns the description of the file system. If a file system
- *             with the specified client request token exists but the parameters don't match, this
- *             call returns <code>IncompatibleParameterError</code>. If a file system with the
- *             specified client request token doesn't exist, this operation does the following:</p>
- *          <ul>
- *             <li>
- *                <p>Creates a new Amazon FSx file system from backup with an assigned ID,
- *                     and an initial lifecycle state of <code>CREATING</code>.</p>
- *             </li>
- *             <li>
- *                <p>Returns the description of the file system.</p>
- *             </li>
- *          </ul>
- *          <p>Parameters like the Active Directory, default share name, automatic backup, and backup
- *             settings default to the parameters of the file system that was backed up, unless
- *             overridden. You can explicitly supply other settings.</p>
- *          <p>By using the idempotent operation, you can retry a
- *                 <code>CreateFileSystemFromBackup</code> call without the risk of creating an extra
- *             file system. This approach can be useful when an initial call fails in a way that makes
- *             it unclear whether a file system was created. Examples are if a transport level timeout
- *             occurred, or your connection was reset. If you use the same client request token and the
- *             initial call created a file system, the client receives a success message as long as the
- *             parameters are the same.</p>
- *          <note>
- *             <p>The <code>CreateFileSystemFromBackup</code> call returns while the file system's
- *                 lifecycle state is still <code>CREATING</code>. You can check the file-system
- *                 creation status by calling the <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeFileSystems.html">
- *                     DescribeFileSystems</a> operation, which returns the file system state along
- *                 with other information.</p>
- *          </note>
+ * Creates a new Amazon FSx for Lustre, Amazon FSx for Windows File Server, or Amazon FSx for OpenZFS file system from an existing Amazon FSx backup.
+ *
+ * If a file system with the specified client request token exists and the parameters match, this operation returns the description of the file system. If a file system with the specified client request token exists but the parameters don't match, this call returns `IncompatibleParameterError`. If a file system with the specified client request token doesn't exist, this operation does the following:
+ *
+ * - Creates a new Amazon FSx file system from backup with an assigned ID, and an initial lifecycle state of `CREATING`.
+ * - Returns the description of the file system.
+ *
+ * Parameters like the Active Directory, default share name, automatic backup, and backup settings default to the parameters of the file system that was backed up, unless overridden. You can explicitly supply other settings.
+ *
+ * By using the idempotent operation, you can retry a `CreateFileSystemFromBackup` call without the risk of creating an extra file system. This approach can be useful when an initial call fails in a way that makes it unclear whether a file system was created. Examples are if a transport level timeout occurred, or your connection was reset. If you use the same client request token and the initial call created a file system, the client receives a success message as long as the parameters are the same.
+ *
+ * > **Note:** The `CreateFileSystemFromBackup` call returns while the file system's lifecycle state is still `CREATING`. You can check the file-system creation status by calling the [DescribeFileSystems](https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeFileSystems.html) operation, which returns the file system state along with other information.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -831,38 +811,44 @@ export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSyste
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
  * @throws {@link ActiveDirectoryError} (client fault)
- *  <p>An Active Directory error.</p>
+ *
+ * An Active Directory error.
  *
  * @throws {@link BackupNotFound} (client fault)
- *  <p>No Amazon FSx backups were found based upon the supplied parameters.</p>
+ *
+ * No Amazon FSx backups were found based upon the supplied parameters.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * A generic error indicating a failure with a client request.
  *
  * @throws {@link IncompatibleParameterError} (client fault)
- *  <p>The error returned when a second request is received with the same client request
- *             token but different parameters settings. A client request token should always uniquely
- *             identify a single request.</p>
+ *
+ * The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * A generic error indicating a server-side failure.
  *
  * @throws {@link InvalidNetworkSettings} (client fault)
- *  <p>One or more network settings specified in the request are invalid.</p>
+ *
+ * One or more network settings specified in the request are invalid.
  *
  * @throws {@link InvalidPerUnitStorageThroughput} (client fault)
- *  <p>An invalid value for <code>PerUnitStorageThroughput</code> was provided. Please create your file system again, using a valid value.</p>
+ *
+ * An invalid value for `PerUnitStorageThroughput` was provided. Please create your file system again, using a valid value.
  *
  * @throws {@link MissingFileSystemConfiguration} (client fault)
- *  <p>A file system configuration is required for this operation.</p>
+ *
+ * A file system configuration is required for this operation.
  *
  * @throws {@link ServiceLimitExceeded} (client fault)
- *  <p>An error indicating that a particular service limit was exceeded. You can increase
- *             some service limits by contacting Amazon Web Services Support.</p>
+ *
+ * An error indicating that a particular service limit was exceeded. You can increase some service limits by contacting Amazon Web Services Support.
  *
  * @throws {@link FSxServiceException}
- * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * Base exception class for all service exceptions from FSx service.
  *
  * @public
  */

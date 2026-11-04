@@ -23,7 +23,8 @@ export interface ListDatabasesCommandInput extends ListDatabasesInput {}
 export interface ListDatabasesCommandOutput extends ListDatabasesOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the SAP HANA databases of an application registered with AWS Systems Manager for SAP.</p>
+ * Lists the SAP HANA databases of an application registered with AWS Systems Manager for SAP.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,17 +66,20 @@ export interface ListDatabasesCommandOutput extends ListDatabasesOutput, __Metad
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error has occurred.</p>
+ *
+ * An internal error has occurred.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource is not available.</p>
+ *
+ * The resource is not available.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service. </p>
+ *
+ * The input fails to satisfy the constraints specified by an AWS service.
  *
  * @throws {@link SsmSapServiceException}
- * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
+ * Base exception class for all service exceptions from SsmSap service.
  *
  * @public
  */

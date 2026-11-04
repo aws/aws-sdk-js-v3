@@ -23,7 +23,8 @@ export interface CreateDataMigrationCommandInput extends CreateDataMigrationMess
 export interface CreateDataMigrationCommandOutput extends CreateDataMigrationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a data migration using the provided settings.</p>
+ * Creates a data migration using the provided settings.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -123,23 +124,28 @@ export interface CreateDataMigrationCommandOutput extends CreateDataMigrationRes
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link FailedDependencyFault} (client fault)
- *  <p>A dependency threw an exception.</p>
+ *
+ * A dependency threw an exception.
  *
  * @throws {@link InvalidOperationFault} (client fault)
- *  <p>The action or operation requested isn't valid.</p>
+ *
+ * The action or operation requested isn't valid.
  *
  * @throws {@link ResourceAlreadyExistsFault} (client fault)
- *  <p>The resource you are attempting to create already exists.</p>
+ *
+ * The resource you are attempting to create already exists.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link ResourceQuotaExceededFault} (client fault)
- *  <p>The quota for this resource quota has been exceeded.</p>
+ *
+ * The quota for this resource quota has been exceeded.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @public
  */

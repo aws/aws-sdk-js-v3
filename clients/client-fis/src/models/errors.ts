@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { FisServiceException as __BaseException } from "./FisServiceException";
 
 /**
- * <p>The request could not be processed because of a conflict.</p>
+ * The request could not be processed because of a conflict.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -25,7 +26,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The specified resource cannot be found.</p>
+ * The specified resource cannot be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -46,7 +48,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>You have exceeded your service quota.</p>
+ * You have exceeded your service quota.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -67,7 +70,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
+ * The specified input is not valid, or fails to satisfy the constraints for the request.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {

@@ -23,17 +23,12 @@ export interface GetInstanceUefiDataCommandInput extends GetInstanceUefiDataRequ
 export interface GetInstanceUefiDataCommandOutput extends GetInstanceUefiDataResult, __MetadataBearer {}
 
 /**
- * <p>A binary representation of the UEFI variable store. Only non-volatile variables are
- *             stored. This is a base64 encoded and zlib compressed binary value that must be properly
- *             encoded.</p>
- *          <p>When you use <a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/register-image.html">register-image</a> to create
- *             an AMI, you can create an exact copy of your variable store by passing the UEFI data in
- *             the <code>UefiData</code> parameter. You can modify the UEFI data by using the <a href="https://github.com/awslabs/python-uefivars">python-uefivars tool</a> on
- *             GitHub. You can use the tool to convert the UEFI data into a human-readable format
- *             (JSON), which you can inspect and modify, and then convert back into the binary format
- *             to use with register-image.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html">UEFI Secure Boot</a> in the
- *                 <i>Amazon EC2 User Guide</i>.</p>
+ * A binary representation of the UEFI variable store. Only non-volatile variables are stored. This is a base64 encoded and zlib compressed binary value that must be properly encoded.
+ *
+ * When you use [register-image](https://docs.aws.amazon.com/cli/latest/reference/ec2/register-image.html) to create an AMI, you can create an exact copy of your variable store by passing the UEFI data in the `UefiData` parameter. You can modify the UEFI data by using the [python-uefivars tool](https://github.com/awslabs/python-uefivars) on GitHub. You can use the tool to convert the UEFI data into a human-readable format (JSON), which you can inspect and modify, and then convert back into the binary format to use with register-image.
+ *
+ * For more information, see [UEFI Secure Boot](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,8 +57,8 @@ export interface GetInstanceUefiDataCommandOutput extends GetInstanceUefiDataRes
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

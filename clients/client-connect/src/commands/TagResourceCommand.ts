@@ -23,11 +23,12 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Adds the specified tags to the specified resource.</p>
- *          <p>Some of the supported resource types are agents, routing profiles, queues, quick connects, flows, agent
- *    statuses, hours of operation, phone numbers, security profiles, task templates, and custom metrics. For a complete list, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/tagging.html">Tagging resources in Connect Customer</a>.</p>
- *          <p>For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Connect Customer Identity-Based Policy
- *     Examples</a> in the <i>Connect Customer Administrator Guide</i>.</p>
+ * Adds the specified tags to the specified resource.
+ *
+ * Some of the supported resource types are agents, routing profiles, queues, quick connects, flows, agent statuses, hours of operation, phone numbers, security profiles, task templates, and custom metrics. For a complete list, see [Tagging resources in Connect Customer](https://docs.aws.amazon.com/connect/latest/adminguide/tagging.html).
+ *
+ * For sample policies that use tags, see [Connect Customer Identity-Based Policy Examples](https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html) in the *Connect Customer Administrator Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,23 +56,28 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

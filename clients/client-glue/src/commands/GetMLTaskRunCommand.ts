@@ -23,11 +23,8 @@ export interface GetMLTaskRunCommandInput extends GetMLTaskRunRequest {}
 export interface GetMLTaskRunCommandOutput extends GetMLTaskRunResponse, __MetadataBearer {}
 
 /**
- * <p>Gets details for a specific task run on a machine learning transform. Machine learning
- *       task runs are asynchronous tasks that Glue runs on your behalf as part of various machine
- *       learning workflows. You can check the stats of any task run by calling
- *         <code>GetMLTaskRun</code> with the <code>TaskRunID</code> and its parent transform's
- *         <code>TransformID</code>.</p>
+ * Gets details for a specific task run on a machine learning transform. Machine learning task runs are asynchronous tasks that Glue runs on your behalf as part of various machine learning workflows. You can check the stats of any task run by calling `GetMLTaskRun` with the `TaskRunID` and its parent transform's `TransformID`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,20 +78,24 @@ export interface GetMLTaskRunCommandOutput extends GetMLTaskRunResponse, __Metad
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

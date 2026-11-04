@@ -23,27 +23,22 @@ export interface DescribeDashboardSnapshotJobCommandInput extends DescribeDashbo
 export interface DescribeDashboardSnapshotJobCommandOutput extends DescribeDashboardSnapshotJobResponse, __MetadataBearer {}
 
 /**
- * <p>Describes an existing snapshot job.</p>
- *          <p>Poll job descriptions after a job starts to know the status of the job. For information on available status codes, see <code>JobStatus</code>.</p>
- *          <p>
- *             <b>Registered user support</b>
- *          </p>
- *          <p>This API can be called as before to get status of a job started by the same Quick Sight user.</p>
- *          <p>
- *             <b>Possible error scenarios</b>
- *          </p>
- *          <p>Request will fail with an Access Denied error in the following scenarios:</p>
- *          <ul>
- *             <li>
- *                <p>The credentials have expired.</p>
- *             </li>
- *             <li>
- *                <p>Job has been started by a different user.</p>
- *             </li>
- *             <li>
- *                <p>Impersonated Quick Sight user doesn't have access to the specified dashboard in the job.</p>
- *             </li>
- *          </ul>
+ * Describes an existing snapshot job.
+ *
+ * Poll job descriptions after a job starts to know the status of the job. For information on available status codes, see `JobStatus`.
+ *
+ * **Registered user support**
+ *
+ * This API can be called as before to get status of a job started by the same Quick Sight user.
+ *
+ * **Possible error scenarios**
+ *
+ * Request will fail with an Access Denied error in the following scenarios:
+ *
+ * - The credentials have expired.
+ * - Job has been started by a different user.
+ * - Impersonated Quick Sight user doesn't have access to the specified dashboard in the job.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -154,29 +149,28 @@ export interface DescribeDashboardSnapshotJobCommandOutput extends DescribeDashb
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have access to this item. The provided credentials couldn't be
- * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
- * 			correct permissions, and that you are using the correct credentials.</p>
+ *
+ * You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An internal failure occurred.</p>
+ *
+ * An internal failure occurred.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>One or more resources can't be found.</p>
+ *
+ * One or more resources can't be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Access is throttled.</p>
+ *
+ * Access is throttled.
  *
  * @throws {@link UnsupportedUserEditionException} (client fault)
- *  <p>This error indicates that you are calling an operation on an Amazon Quick Suite
- * 			subscription where the edition doesn't include support for that operation. Amazon
- * 			Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and
- * 			capability is available in every edition.</p>
+ *
+ * This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.
  *
  * @throws {@link QuickSightServiceException}
- * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * Base exception class for all service exceptions from QuickSight service.
  *
  * @public
  */

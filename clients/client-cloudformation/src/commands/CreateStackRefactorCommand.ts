@@ -23,8 +23,8 @@ export interface CreateStackRefactorCommandInput extends CreateStackRefactorInpu
 export interface CreateStackRefactorCommandOutput extends CreateStackRefactorOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a refactor across multiple stacks, with the list of stacks and resources that are
- *       affected.</p>
+ * Creates a refactor across multiple stacks, with the list of stacks and resources that are affected.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,8 +71,8 @@ export interface CreateStackRefactorCommandOutput extends CreateStackRefactorOut
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

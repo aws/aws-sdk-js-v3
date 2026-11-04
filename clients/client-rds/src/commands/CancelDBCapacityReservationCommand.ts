@@ -23,7 +23,17 @@ export interface CancelDBCapacityReservationCommandInput extends CancelDBCapacit
 export interface CancelDBCapacityReservationCommandOutput extends CancelDBCapacityReservationResponse, __MetadataBearer {}
 
 /**
- * <p>Cancels a DB capacity reservation. Amazon RDS changes the state of the reservation to <code>cancelled</code> and stops reporting available capacity for it. Amazon RDS then releases the reserved capacity.</p> <p>A DB instance that uses the reservation keeps running. It continues on unreserved capacity, and Amazon RDS doesn't stop it or modify it. However, Amazon RDS no longer reserves capacity for the DB instance. If Amazon RDS later moves the DB instance to different hardware, for example during hardware maintenance, that move can fail when the Amazon Web Services Region has insufficient capacity for the DB instance class.</p> <p>You can't cancel a reservation in the <code>active</code> state during a capacity commitment. The response of <code>DescribeDBCapacityReservations</code> reports the end of the commitment in <code>CommitmentInfo</code>.</p> <p>Constraints:</p> <ul> <li> <p>The reservation must be in the <code>active</code>, <code>assessing</code>, or <code>delayed</code> state.</p> </li> <li> <p>The reservation must not be past its end date.</p> </li> </ul>
+ * Cancels a DB capacity reservation. Amazon RDS changes the state of the reservation to `cancelled` and stops reporting available capacity for it. Amazon RDS then releases the reserved capacity.
+ *
+ * A DB instance that uses the reservation keeps running. It continues on unreserved capacity, and Amazon RDS doesn't stop it or modify it. However, Amazon RDS no longer reserves capacity for the DB instance. If Amazon RDS later moves the DB instance to different hardware, for example during hardware maintenance, that move can fail when the Amazon Web Services Region has insufficient capacity for the DB instance class.
+ *
+ * You can't cancel a reservation in the `active` state during a capacity commitment. The response of `DescribeDBCapacityReservations` reports the end of the commitment in `CommitmentInfo`.
+ *
+ * Constraints:
+ *
+ * - The reservation must be in the `active`, `assessing`, or `delayed` state.
+ * - The reservation must not be past its end date.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,14 +88,16 @@ export interface CancelDBCapacityReservationCommandOutput extends CancelDBCapaci
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBCapacityReservationNotFoundFault} (client fault)
- *  <p> <code>DBCapacityReservationIdentifier</code> doesn't refer to an existing DB capacity reservation.</p>
+ *
+ * `DBCapacityReservationIdentifier` doesn't refer to an existing DB capacity reservation.
  *
  * @throws {@link InvalidDBCapacityReservationStateFault} (client fault)
- *  <p>The DB capacity reservation isn't in a valid state.</p>
+ *
+ * The DB capacity reservation isn't in a valid state.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To cancel a DB capacity reservation
  * ```javascript

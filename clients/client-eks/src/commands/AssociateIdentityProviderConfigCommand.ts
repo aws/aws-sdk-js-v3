@@ -26,14 +26,10 @@ export interface AssociateIdentityProviderConfigCommandInput extends AssociateId
 export interface AssociateIdentityProviderConfigCommandOutput extends AssociateIdentityProviderConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Associates an identity provider configuration to a cluster.</p>
- *          <p>If you want to authenticate identities using an identity provider, you can create an
- *             identity provider configuration and associate it to your cluster. After configuring
- *             authentication to your cluster you can create Kubernetes <code>Role</code> and
- *                 <code>ClusterRole</code> objects, assign permissions to them, and then bind them to
- *             the identities using Kubernetes <code>RoleBinding</code> and <code>ClusterRoleBinding</code>
- *             objects. For more information see <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/">Using RBAC
- *                 Authorization</a> in the Kubernetes documentation.</p>
+ * Associates an identity provider configuration to a cluster.
+ *
+ * If you want to authenticate identities using an identity provider, you can create an identity provider configuration and associate it to your cluster. After configuring authentication to your cluster you can create Kubernetes `Role` and `ClusterRole` objects, assign permissions to them, and then bind them to the identities using Kubernetes `RoleBinding` and `ClusterRoleBinding` objects. For more information see [Using RBAC Authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) in the Kubernetes documentation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -103,37 +99,36 @@ export interface AssociateIdentityProviderConfigCommandOutput extends AssociateI
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action. Actions can include using an
- *             action or resource on behalf of an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html">IAM principal</a> that doesn't have permissions to use
- *             the action or resource or specifying an identifier that is not valid.</p>
+ *
+ * These errors are usually caused by a client action. Actions can include using an action or resource on behalf of an [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) that doesn't have permissions to use the action or resource or specifying an identifier that is not valid.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is invalid given the state of the cluster. Check the state of the cluster
- *             and the associated operations.</p>
+ *
+ * The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is in use.</p>
+ *
+ * The specified resource is in use.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource could not be found. You can view your available clusters with
- *                 <code>ListClusters</code>. You can view your available managed node groups with
- *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region
- *             specific.</p>
+ *
+ * The specified resource could not be found. You can view your available clusters with `ListClusters`. You can view your available managed node groups with `ListNodegroups`. Amazon EKS clusters and node groups are Amazon Web Services Region specific.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request or operation couldn't be performed because a service is throttling
- *             requests.</p>
+ *
+ * The request or operation couldn't be performed because a service is throttling requests.
  *
  * @throws {@link EKSServiceException}
- * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * Base exception class for all service exceptions from EKS service.
  *
  * @public
  */

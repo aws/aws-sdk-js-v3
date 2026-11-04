@@ -23,7 +23,8 @@ export interface UpdateDocumentCommandInput extends UpdateDocumentRequest {}
 export interface UpdateDocumentCommandOutput extends UpdateDocumentResult, __MetadataBearer {}
 
 /**
- * <p>Updates one or more values for an SSM document.</p>
+ * Updates one or more values for an SSM document.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -131,42 +132,48 @@ export interface UpdateDocumentCommandOutput extends UpdateDocumentResult, __Met
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link DocumentVersionLimitExceeded} (client fault)
- *  <p>The document has too many versions. Delete one or more document versions and try
- *    again.</p>
+ *
+ * The document has too many versions. Delete one or more document versions and try again.
  *
  * @throws {@link DuplicateDocumentContent} (client fault)
- *  <p>The content of the association document matches another document. Change the content of the
- *    document and try again.</p>
+ *
+ * The content of the association document matches another document. Change the content of the document and try again.
  *
  * @throws {@link DuplicateDocumentVersionName} (client fault)
- *  <p>The version name has already been used in this document. Specify a different version name,
- *    and then try again.</p>
+ *
+ * The version name has already been used in this document. Specify a different version name, and then try again.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidDocument} (client fault)
- *  <p>The specified SSM document doesn't exist.</p>
+ *
+ * The specified SSM document doesn't exist.
  *
  * @throws {@link InvalidDocumentContent} (client fault)
- *  <p>The content for the document isn't valid.</p>
+ *
+ * The content for the document isn't valid.
  *
  * @throws {@link InvalidDocumentOperation} (client fault)
- *  <p>You attempted to delete a document while it is still shared. You must stop sharing the
- *    document before you can delete it.</p>
+ *
+ * You attempted to delete a document while it is still shared. You must stop sharing the document before you can delete it.
  *
  * @throws {@link InvalidDocumentSchemaVersion} (client fault)
- *  <p>The version of the document schema isn't supported.</p>
+ *
+ * The version of the document schema isn't supported.
  *
  * @throws {@link InvalidDocumentVersion} (client fault)
- *  <p>The document version isn't valid or doesn't exist.</p>
+ *
+ * The document version isn't valid or doesn't exist.
  *
  * @throws {@link MaxDocumentSizeExceeded} (client fault)
- *  <p>The size limit of a document is 64 KB.</p>
+ *
+ * The size limit of a document is 64 KB.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

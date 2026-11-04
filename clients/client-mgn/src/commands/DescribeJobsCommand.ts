@@ -23,7 +23,8 @@ export interface DescribeJobsCommandInput extends DescribeJobsRequest {}
 export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of Jobs. Use the jobIDs and fromDate and toDate filters to limit which jobs are returned. The response is sorted by creationDateTime - latest date first. Jobs are normally created by the StartTest, StartCutover, and TerminateTargetInstances APIs. Jobs are also created by DiagnosticLaunch and TerminateDiagnosticInstances, which are APIs available only to *Support* and only used in response to relevant support tickets.</p>
+ * Returns a list of Jobs. Use the jobIDs and fromDate and toDate filters to limit which jobs are returned. The response is sorted by creationDateTime - latest date first. Jobs are normally created by the StartTest, StartCutover, and TerminateTargetInstances APIs. Jobs are also created by DiagnosticLaunch and TerminateDiagnosticInstances, which are APIs available only to *Support* and only used in response to relevant support tickets.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -110,14 +111,16 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
  * @throws {@link UninitializedAccountException} (client fault)
- *  <p>Uninitialized account exception.</p>
+ *
+ * Uninitialized account exception.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Validate exception.</p>
+ *
+ * Validate exception.
  *
  * @throws {@link MgnServiceException}
- * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * Base exception class for all service exceptions from Mgn service.
  *
  * @public
  */

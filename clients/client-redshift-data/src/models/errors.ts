@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { RedshiftDataServiceException as __BaseException } from "./RedshiftDataServiceException";
 
 /**
- * <p>The Amazon Redshift Data API operation failed because the maximum number of active sessions exceeded.</p>
+ * The Amazon Redshift Data API operation failed because the maximum number of active sessions exceeded.
+ *
  * @public
  */
 export class ActiveSessionsExceededException extends __BaseException {
@@ -27,7 +28,8 @@ export class ActiveSessionsExceededException extends __BaseException {
 }
 
 /**
- * <p>The number of active statements exceeds the limit.</p>
+ * The number of active statements exceeds the limit.
+ *
  * @public
  */
 export class ActiveStatementsExceededException extends __BaseException {
@@ -50,7 +52,8 @@ export class ActiveStatementsExceededException extends __BaseException {
 }
 
 /**
- * <p>The number of active requests with <code>WaitTimeSeconds</code> for the same SQL statement exceeds the limit.</p>
+ * The number of active requests with `WaitTimeSeconds` for the same SQL statement exceeds the limit.
+ *
  * @public
  */
 export class ActiveWaitingRequestsExceededException extends __BaseException {
@@ -73,7 +76,8 @@ export class ActiveWaitingRequestsExceededException extends __BaseException {
 }
 
 /**
- * <p>An SQL statement encountered an environmental error while running.</p>
+ * An SQL statement encountered an environmental error while running.
+ *
  * @public
  */
 export class BatchExecuteStatementException extends __BaseException {
@@ -82,7 +86,8 @@ export class BatchExecuteStatementException extends __BaseException {
   readonly $fault = "server" as const;
   Message: string | undefined;
   /**
-   * <p>Statement identifier of the exception.</p>
+   * Statement identifier of the exception.
+   *
    * @public
    */
   StatementId: string | undefined;
@@ -102,7 +107,8 @@ export class BatchExecuteStatementException extends __BaseException {
 }
 
 /**
- * <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
+ * The Amazon Redshift Data API operation failed due to invalid input.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -110,7 +116,8 @@ export class InternalServerException extends __BaseException {
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>The exception message.</p>
+   * The exception message.
+   *
    * @public
    */
   Message: string | undefined;
@@ -129,7 +136,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The Amazon Redshift Data API operation failed due to a missing resource. </p>
+ * The Amazon Redshift Data API operation failed due to a missing resource.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -137,13 +145,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The exception message.</p>
+   * The exception message.
+   *
    * @public
    */
   Message: string | undefined;
 
   /**
-   * <p>Resource identifier associated with the exception.</p>
+   * Resource identifier associated with the exception.
+   *
    * @public
    */
   ResourceId: string | undefined;
@@ -163,7 +173,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
+ * The Amazon Redshift Data API operation failed due to invalid input.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -171,7 +182,8 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The exception message.</p>
+   * The exception message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -190,7 +202,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>Connection to a database failed.</p>
+ * Connection to a database failed.
+ *
  * @public
  */
 export class DatabaseConnectionException extends __BaseException {
@@ -213,7 +226,8 @@ export class DatabaseConnectionException extends __BaseException {
 }
 
 /**
- * <p>The Amazon Redshift Data API operation failed due to timeout.</p>
+ * The Amazon Redshift Data API operation failed due to timeout.
+ *
  * @public
  */
 export class QueryTimeoutException extends __BaseException {
@@ -236,7 +250,8 @@ export class QueryTimeoutException extends __BaseException {
 }
 
 /**
- * <p>The SQL statement encountered an environmental error while running.</p>
+ * The SQL statement encountered an environmental error while running.
+ *
  * @public
  */
 export class ExecuteStatementException extends __BaseException {
@@ -244,13 +259,15 @@ export class ExecuteStatementException extends __BaseException {
   readonly name = "ExecuteStatementException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>The exception message.</p>
+   * The exception message.
+   *
    * @public
    */
   Message: string | undefined;
 
   /**
-   * <p>Statement identifier of the exception.</p>
+   * Statement identifier of the exception.
+   *
    * @public
    */
   StatementId: string | undefined;

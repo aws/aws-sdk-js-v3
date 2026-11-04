@@ -23,10 +23,10 @@ export interface DeletePortfolioShareCommandInput extends DeletePortfolioShareIn
 export interface DeletePortfolioShareCommandOutput extends DeletePortfolioShareOutput, __MetadataBearer {}
 
 /**
- * <p>Stops sharing the specified portfolio with the specified account or organization
- *          node. Shares to an organization node can only be deleted by the management account of an
- *          organization or by a delegated administrator.</p>
- *          <p>Note that if a delegated admin is de-registered, portfolio shares created from that account are removed.</p>
+ * Stops sharing the specified portfolio with the specified account or organization node. Shares to an organization node can only be deleted by the management account of an organization or by a delegated administrator.
+ *
+ * Note that if a delegated admin is de-registered, portfolio shares created from that account are removed.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,21 +59,24 @@ export interface DeletePortfolioShareCommandOutput extends DeletePortfolioShareO
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  * @throws {@link InvalidParametersException} (client fault)
- *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * One or more parameters provided to the operation are not valid.
  *
  * @throws {@link InvalidStateException} (client fault)
- *  <p>An attempt was made to modify a resource that is in a state that is not valid.
- *          Check your resources to ensure that they are in valid states before retrying the operation.</p>
+ *
+ * An attempt was made to modify a resource that is in a state that is not valid. Check your resources to ensure that they are in valid states before retrying the operation.
  *
  * @throws {@link OperationNotSupportedException} (client fault)
- *  <p>The operation is not supported.</p>
+ *
+ * The operation is not supported.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ServiceCatalogServiceException}
- * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * Base exception class for all service exceptions from ServiceCatalog service.
  *
  * @public
  */

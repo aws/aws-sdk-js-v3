@@ -23,10 +23,14 @@ export interface CreateCapabilityCommandInput extends CreateCapabilityRequest {}
 export interface CreateCapabilityCommandOutput extends CreateCapabilityResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a managed capability resource for an Amazon EKS cluster.</p>
- *          <p>Capabilities provide fully managed capabilities to build and scale with Kubernetes. When you create a capability, Amazon EKSprovisions and manages the infrastructure required to run the capability outside of your cluster. This approach reduces operational overhead and preserves cluster resources.</p>
- *          <p>You can only create one Capability of each type on a given Amazon EKS cluster. Valid types are Argo CD for declarative GitOps deployment, Amazon Web Services Controllers for Kubernetes (ACK) for resource management, and Kube Resource Orchestrator (KRO) for Kubernetes custom resource orchestration.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/capabilities.html">EKS Capabilities</a> in the <i>Amazon EKS User Guide</i>.</p>
+ * Creates a managed capability resource for an Amazon EKS cluster.
+ *
+ * Capabilities provide fully managed capabilities to build and scale with Kubernetes. When you create a capability, Amazon EKSprovisions and manages the infrastructure required to run the capability outside of your cluster. This approach reduces operational overhead and preserves cluster resources.
+ *
+ * You can only create one Capability of each type on a given Amazon EKS cluster. Valid types are Argo CD for declarative GitOps deployment, Amazon Web Services Controllers for Kubernetes (ACK) for resource management, and Kube Resource Orchestrator (KRO) for Kubernetes custom resource orchestration.
+ *
+ * For more information, see [EKS Capabilities](https://docs.aws.amazon.com/eks/latest/userguide/capabilities.html) in the *Amazon EKS User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -149,35 +153,36 @@ export interface CreateCapabilityCommandOutput extends CreateCapabilityResponse,
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permissions to perform the requested operation. The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html">IAM principal</a>
- *             making the request must have at least one IAM permissions policy attached that grants
- *             the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access
- *                 management</a> in the <i>IAM User Guide</i>. </p>
+ *
+ * You don't have permissions to perform the requested operation. The [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see [Access management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the *IAM User Guide*.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is invalid given the state of the cluster. Check the state of the cluster
- *             and the associated operations.</p>
+ *
+ * The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is in use.</p>
+ *
+ * The specified resource is in use.
  *
  * @throws {@link ResourceLimitExceededException} (client fault)
- *  <p>You have encountered a service limit on the specified resource.</p>
+ *
+ * You have encountered a service limit on the specified resource.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request or operation couldn't be performed because a service is throttling
- *             requests.</p>
+ *
+ * The request or operation couldn't be performed because a service is throttling requests.
  *
  * @throws {@link EKSServiceException}
- * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * Base exception class for all service exceptions from EKS service.
  *
  * @public
  */

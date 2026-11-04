@@ -23,18 +23,12 @@ export interface DisposePackageVersionsCommandInput extends DisposePackageVersio
 export interface DisposePackageVersionsCommandOutput extends DisposePackageVersionsResult, __MetadataBearer {}
 
 /**
- * <p>
- *       Deletes the assets in package versions and sets the package versions' status to <code>Disposed</code>.
- *       A disposed package version cannot be restored in your repository because its assets are deleted.
- *     </p>
- *          <p>
- *       To view all disposed package versions in a repository, use <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html">ListPackageVersions</a> and set the
- *       <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html#API_ListPackageVersions_RequestSyntax">status</a> parameter
- *       to <code>Disposed</code>.
- *     </p>
- *          <p>
- *       To view information about a disposed package version, use <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DescribePackageVersion.html">DescribePackageVersion</a>.
- *     </p>
+ * Deletes the assets in package versions and sets the package versions' status to `Disposed`. A disposed package version cannot be restored in your repository because its assets are deleted.
+ *
+ * To view all disposed package versions in a repository, use [ListPackageVersions](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html) and set the [status](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html#API_ListPackageVersions_RequestSyntax) parameter to `Disposed`.
+ *
+ * To view information about a disposed package version, use [DescribePackageVersion](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DescribePackageVersion.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,36 +78,32 @@ export interface DisposePackageVersionsCommandOutput extends DisposePackageVersi
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>
- *         The operation did not succeed because of an unauthorized access attempt.
- *       </p>
+ *
+ * The operation did not succeed because of an unauthorized access attempt.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>
- *         The operation did not succeed because prerequisites are not met.
- *       </p>
+ *
+ * The operation did not succeed because prerequisites are not met.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+ *
+ * The operation did not succeed because of an error that occurred inside CodeArtifact.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>
- *       The operation did not succeed because the resource requested is not found in the service.
- *     </p>
+ *
+ * The operation did not succeed because the resource requested is not found in the service.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>
- *       The operation did not succeed because too many requests are sent to the service.
- *     </p>
+ *
+ * The operation did not succeed because too many requests are sent to the service.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>
- *       The operation did not succeed because a parameter in the request was sent with an invalid value.
- *     </p>
+ *
+ * The operation did not succeed because a parameter in the request was sent with an invalid value.
  *
  * @throws {@link CodeartifactServiceException}
- * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ * Base exception class for all service exceptions from Codeartifact service.
  *
  * @public
  */

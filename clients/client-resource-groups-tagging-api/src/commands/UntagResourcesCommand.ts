@@ -23,49 +23,20 @@ export interface UntagResourcesCommandInput extends UntagResourcesInput {}
 export interface UntagResourcesCommandOutput extends UntagResourcesOutput, __MetadataBearer {}
 
 /**
- * <p>Removes the specified tags from the specified resources. When you specify a tag key,
- *             the action removes both that key and its associated value. The operation succeeds even
- *             if you attempt to remove tags from a resource that were already removed. Note the
- *             following:</p>
- *          <ul>
- *             <li>
- *                <p>To remove tags from a resource, you need the necessary permissions for the
- *                     service that the resource belongs to as well as permissions for removing tags.
- *                     For more information, see the documentation for the service whose resource you
- *                     want to untag.</p>
- *             </li>
- *             <li>
- *                <p>You can only tag resources that are located in the specified Amazon Web Services Region for
- *                     the calling Amazon Web Services account.</p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Minimum permissions</b>
- *          </p>
- *          <p>In addition to the <code>tag:UntagResources</code> permission required by this
- *             operation, you must also have the remove tags permission defined by the service that
- *             created the resource. For example, to remove the tags from an Amazon EC2 instance using the
- *                 <code>UntagResources</code> operation, you must have both of the following
- *             permissions:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>tag:UntagResources</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>ec2:DeleteTags</code>
- *                </p>
- *             </li>
- *          </ul>
- *          <note>
- *             <p>In addition, some services might have specific requirements for untagging some
- *                 types of resources. For example, to untag Amazon Web Services Glue Connection, you must also have the
- *                     <code>glue:GetConnection</code> permission. If the expected minimum permissions
- *                 don't work, check the documentation for that service's tagging APIs for more
- *                 information.</p>
- *          </note>
+ * Removes the specified tags from the specified resources. When you specify a tag key, the action removes both that key and its associated value. The operation succeeds even if you attempt to remove tags from a resource that were already removed. Note the following:
+ *
+ * - To remove tags from a resource, you need the necessary permissions for the service that the resource belongs to as well as permissions for removing tags. For more information, see the documentation for the service whose resource you want to untag.
+ * - You can only tag resources that are located in the specified Amazon Web Services Region for the calling Amazon Web Services account.
+ *
+ * **Minimum permissions**
+ *
+ * In addition to the `tag:UntagResources` permission required by this operation, you must also have the remove tags permission defined by the service that created the resource. For example, to remove the tags from an Amazon EC2 instance using the `UntagResources` operation, you must have both of the following permissions:
+ *
+ * - `tag:UntagResources`
+ * - `ec2:DeleteTags`
+ *
+ * > **Note:** In addition, some services might have specific requirements for untagging some types of resources. For example, to untag Amazon Web Services Glue Connection, you must also have the `glue:GetConnection` permission. If the expected minimum permissions don't work, check the documentation for that service's tagging APIs for more information.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -103,42 +74,27 @@ export interface UntagResourcesCommandOutput extends UntagResourcesOutput, __Met
  * @see {@link ResourceGroupsTaggingAPIClientResolvedConfig | config} for ResourceGroupsTaggingAPIClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The request processing failed because of an unknown error, exception, or failure. You
- *             can retry the request.</p>
+ *
+ * The request processing failed because of an unknown error, exception, or failure. You can retry the request.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The request failed because of one of the following reasons:</p>
- *          <ul>
- *             <li>
- *                <p>A required parameter is missing.</p>
- *             </li>
- *             <li>
- *                <p>A provided string parameter is malformed.</p>
- *             </li>
- *             <li>
- *                <p>An provided parameter value is out of range.</p>
- *             </li>
- *             <li>
- *                <p>The target ID is invalid, unsupported, or doesn't exist.</p>
- *             </li>
- *             <li>
- *                <p>You can't access the Amazon S3 bucket for report storage. For more information, see
- *                         <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/tag-policies-orgs.html#bucket-policy">Amazon S3 bucket policy for report storage</a> in the <i>Tagging Amazon Web Services resources and Tag Editor</i> user guide. </p>
- *             </li>
- *             <li>
- *                <p>The partition specified in an ARN parameter in the request doesn't match the
- *                     partition where you invoked the operation. The partition is specified by the
- *                     second field of the ARN.</p>
- *             </li>
- *          </ul>
+ *
+ * The request failed because of one of the following reasons:
+ *
+ * - A required parameter is missing.
+ * - A provided string parameter is malformed.
+ * - An provided parameter value is out of range.
+ * - The target ID is invalid, unsupported, or doesn't exist.
+ * - You can't access the Amazon S3 bucket for report storage. For more information, see [Amazon S3 bucket policy for report storage](https://docs.aws.amazon.com/tag-editor/latest/userguide/tag-policies-orgs.html#bucket-policy) in the *Tagging Amazon Web Services resources and Tag Editor* user guide.
+ * - The partition specified in an ARN parameter in the request doesn't match the partition where you invoked the operation. The partition is specified by the second field of the ARN.
  *
  * @throws {@link ThrottledException} (client fault)
- *  <p>The request failed because it exceeded the allowed frequency of submitted
- *             requests.</p>
+ *
+ * The request failed because it exceeded the allowed frequency of submitted requests.
  *
  * @throws {@link ResourceGroupsTaggingAPIServiceException}
- * <p>Base exception class for all service exceptions from ResourceGroupsTaggingAPI service.</p>
  *
+ * Base exception class for all service exceptions from ResourceGroupsTaggingAPI service.
  *
  * @public
  */

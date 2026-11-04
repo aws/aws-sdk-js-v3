@@ -23,9 +23,8 @@ export interface AddTagsToResourceCommandInput extends AddTagsToResourceMessage 
 export interface AddTagsToResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Adds metadata tags to an Amazon Neptune resource. These tags can also be used with cost
- *       allocation reporting to track cost associated with Amazon Neptune resources, or used in a
- *       Condition statement in an IAM policy for Amazon Neptune.</p>
+ * Adds metadata tags to an Amazon Neptune resource. These tags can also be used with cost allocation reporting to track cost associated with Amazon Neptune resources, or used in a Condition statement in an IAM policy for Amazon Neptune.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,20 +55,20 @@ export interface AddTagsToResourceCommandOutput extends __MetadataBearer {}
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p>
- *             <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+ *
+ * *DBClusterIdentifier* does not refer to an existing DB cluster.
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p>
- *             <i>DBInstanceIdentifier</i> does not refer to an existing DB instance.</p>
+ *
+ * *DBInstanceIdentifier* does not refer to an existing DB instance.
  *
  * @throws {@link DBSnapshotNotFoundFault} (client fault)
- *  <p>
- *             <i>DBSnapshotIdentifier</i> does not refer to an existing DB snapshot.</p>
+ *
+ * *DBSnapshotIdentifier* does not refer to an existing DB snapshot.
  *
  * @throws {@link NeptuneServiceException}
- * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * Base exception class for all service exceptions from Neptune service.
  *
  * @public
  */

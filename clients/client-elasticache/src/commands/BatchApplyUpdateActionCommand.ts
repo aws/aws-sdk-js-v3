@@ -23,9 +23,8 @@ export interface BatchApplyUpdateActionCommandInput extends BatchApplyUpdateActi
 export interface BatchApplyUpdateActionCommandOutput extends UpdateActionResultsMessage, __MetadataBearer {}
 
 /**
- * <p>Apply the service update. For more information on service updates and applying them,
- *             see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/applying-updates.html">Applying Service
- *                 Updates</a>.</p>
+ * Apply the service update. For more information on service updates and applying them, see [Applying Service Updates](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/applying-updates.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,14 +73,16 @@ export interface BatchApplyUpdateActionCommandOutput extends UpdateActionResults
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link ServiceUpdateNotFoundFault} (client fault)
- *  <p>The service update doesn't exist</p>
+ *
+ * The service update doesn't exist
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @public
  */

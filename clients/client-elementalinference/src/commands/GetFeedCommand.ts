@@ -23,7 +23,8 @@ export interface GetFeedCommandInput extends GetFeedRequest {}
 export interface GetFeedCommandOutput extends GetFeedResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about the specified feed.</p>
+ * Retrieves information about the specified feed.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -102,20 +103,24 @@ export interface GetFeedCommandOutput extends GetFeedResponse, __MetadataBearer 
  * @see {@link ElementalInferenceClientResolvedConfig | config} for ElementalInferenceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>An internal server error occurred. This is a temporary condition and the request can be retried. If the problem persists, contact AWS Support. </p>
+ *
+ * An internal server error occurred. This is a temporary condition and the request can be retried. If the problem persists, contact AWS Support.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource specified in the action doesn't exist.</p>
+ *
+ * The resource specified in the action doesn't exist.
  *
  * @throws {@link TooManyRequestException} (client fault)
- *  <p>The request was denied due to request throttling. Too many requests have been made within a given time period. Reduce the frequency of requests and use exponential backoff when retrying. </p>
+ *
+ * The request was denied due to request throttling. Too many requests have been made within a given time period. Reduce the frequency of requests and use exponential backoff when retrying.
  *
  * @throws {@link ElementalInferenceServiceException}
- * <p>Base exception class for all service exceptions from ElementalInference service.</p>
  *
+ * Base exception class for all service exceptions from ElementalInference service.
  *
  * @public
  */

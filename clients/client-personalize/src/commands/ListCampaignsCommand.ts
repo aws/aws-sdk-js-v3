@@ -23,10 +23,8 @@ export interface ListCampaignsCommandInput extends ListCampaignsRequest {}
 export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of campaigns that use the given solution.
- *       When a solution is not specified, all the campaigns associated with the account are listed.
- *       The response provides the properties for each campaign, including the Amazon Resource Name (ARN).
- *       For more information on campaigns, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html">CreateCampaign</a>.</p>
+ * Returns a list of campaigns that use the given solution. When a solution is not specified, all the campaigns associated with the account are listed. The response provides the properties for each campaign, including the Amazon Resource Name (ARN). For more information on campaigns, see [CreateCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,14 +63,16 @@ export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __Met
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * Provide a valid value for the field or parameter.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The token is not valid.</p>
+ *
+ * The token is not valid.
  *
  * @throws {@link PersonalizeServiceException}
- * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * Base exception class for all service exceptions from Personalize service.
  *
  * @public
  */

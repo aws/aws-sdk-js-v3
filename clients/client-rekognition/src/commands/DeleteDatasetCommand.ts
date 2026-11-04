@@ -23,19 +23,14 @@ export interface DeleteDatasetCommandInput extends DeleteDatasetRequest {}
 export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This operation applies only to Amazon Rekognition Custom Labels.</p>
- *          </note>
- *          <p>Deletes an existing Amazon Rekognition Custom Labels dataset.
- *    Deleting a dataset might take while. Use <a>DescribeDataset</a> to check the
- *    current status. The dataset is still deleting if the value of <code>Status</code> is
- *    <code>DELETE_IN_PROGRESS</code>. If you try to access the dataset after it is deleted, you get
- *    a <code>ResourceNotFoundException</code> exception.
+ * > **Note:** This operation applies only to Amazon Rekognition Custom Labels.
  *
- * </p>
- *          <p>You can't delete a dataset while it is creating (<code>Status</code> =  <code>CREATE_IN_PROGRESS</code>)
- *       or if the dataset is updating (<code>Status</code> =  <code>UPDATE_IN_PROGRESS</code>).</p>
- *          <p>This operation requires permissions to perform the <code>rekognition:DeleteDataset</code> action.</p>
+ * Deletes an existing Amazon Rekognition Custom Labels dataset. Deleting a dataset might take while. Use DescribeDataset to check the current status. The dataset is still deleting if the value of `Status` is `DELETE_IN_PROGRESS`. If you try to access the dataset after it is deleted, you get a `ResourceNotFoundException` exception.
+ *
+ * You can't delete a dataset while it is creating (`Status` = `CREATE_IN_PROGRESS`) or if the dataset is updating (`Status` = `UPDATE_IN_PROGRESS`).
+ *
+ * This operation requires permissions to perform the `rekognition:DeleteDataset` action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,38 +55,40 @@ export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __Met
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You are not authorized to perform the action.</p>
+ *
+ * You are not authorized to perform the action.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * Amazon Rekognition experienced a service issue. Try your call again.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
- *       operation again.</p>
+ *
+ * Input parameter violated a constraint. Validate your parameter before calling the API operation again.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs
- *             concurrently, subsequent calls to start operations (ex:
- *             <code>StartLabelDetection</code>) will raise a <code>LimitExceededException</code>
- *             exception (HTTP status code: 400) until the number of concurrently running jobs is below
- *             the Amazon Rekognition service limit. </p>
+ *
+ * An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs concurrently, subsequent calls to start operations (ex: `StartLabelDetection`) will raise a `LimitExceededException` exception (HTTP status code: 400) until the number of concurrently running jobs is below the Amazon Rekognition service limit.
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
- *  <p>The number of requests exceeded your throughput limit. If you want to increase this
- *       limit, contact Amazon Rekognition.</p>
+ *
+ * The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is already being used.</p>
+ *
+ * The specified resource is already being used.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource specified in the request cannot be found.</p>
+ *
+ * The resource specified in the request cannot be found.
  *
  * @throws {@link ThrottlingException} (server fault)
- *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
+ * Amazon Rekognition is temporarily unable to process the request. Try your call again.
  *
  * @throws {@link RekognitionServiceException}
- * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * Base exception class for all service exceptions from Rekognition service.
  *
  * @example To delete an Amazon Rekognition Custom Labels dataset
  * ```javascript

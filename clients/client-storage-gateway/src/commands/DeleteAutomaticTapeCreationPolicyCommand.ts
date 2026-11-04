@@ -26,9 +26,8 @@ export interface DeleteAutomaticTapeCreationPolicyCommandInput extends DeleteAut
 export interface DeleteAutomaticTapeCreationPolicyCommandOutput extends DeleteAutomaticTapeCreationPolicyOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes the automatic tape creation policy of a gateway. If you delete this policy, new
- *          virtual tapes must be created manually. Use the Amazon Resource Name (ARN) of the gateway
- *          in your request to remove the policy.</p>
+ * Deletes the automatic tape creation policy of a gateway. If you delete this policy, new virtual tapes must be created manually. Use the Amazon Resource Name (ARN) of the gateway in your request to remove the policy.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,16 +54,16 @@ export interface DeleteAutomaticTapeCreationPolicyCommandOutput extends DeleteAu
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @public
  */

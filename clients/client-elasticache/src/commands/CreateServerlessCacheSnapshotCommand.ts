@@ -23,7 +23,8 @@ export interface CreateServerlessCacheSnapshotCommandInput extends CreateServerl
 export interface CreateServerlessCacheSnapshotCommandOutput extends CreateServerlessCacheSnapshotResponse, __MetadataBearer {}
 
 /**
- * <p>This API creates a copy of an entire ServerlessCache at a specific moment in time. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
+ * This API creates a copy of an entire ServerlessCache at a specific moment in time. Available for Valkey, Redis OSS and Serverless Memcached only.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,34 +73,40 @@ export interface CreateServerlessCacheSnapshotCommandOutput extends CreateServer
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * Two or more incompatible parameters were specified.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link InvalidServerlessCacheStateFault} (client fault)
- *  <p>The account for these credentials is not currently active.</p>
+ *
+ * The account for these credentials is not currently active.
  *
  * @throws {@link ServerlessCacheNotFoundFault} (client fault)
- *  <p>The serverless cache was not found or does not exist.</p>
+ *
+ * The serverless cache was not found or does not exist.
  *
  * @throws {@link ServerlessCacheSnapshotAlreadyExistsFault} (client fault)
- *  <p>A serverless cache snapshot with this name already exists. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
+ *
+ * A serverless cache snapshot with this name already exists. Available for Valkey, Redis OSS and Serverless Memcached only.
  *
  * @throws {@link ServerlessCacheSnapshotQuotaExceededFault} (client fault)
- *  <p>The number of serverless cache snapshots exceeds the customer snapshot quota. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
+ *
+ * The number of serverless cache snapshots exceeds the customer snapshot quota. Available for Valkey, Redis OSS and Serverless Memcached only.
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
- *  <p>The specified service linked role (SLR) was not found.</p>
+ *
+ * The specified service linked role (SLR) was not found.
  *
  * @throws {@link TagQuotaPerResourceExceeded} (client fault)
- *  <p>The request cannot be processed because it would cause the resource to have more than
- *             the allowed number of tags. The maximum number of tags permitted on a resource is
- *             50.</p>
+ *
+ * The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @public
  */

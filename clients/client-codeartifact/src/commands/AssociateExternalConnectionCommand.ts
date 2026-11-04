@@ -23,11 +23,10 @@ export interface AssociateExternalConnectionCommandInput extends AssociateExtern
 export interface AssociateExternalConnectionCommandOutput extends AssociateExternalConnectionResult, __MetadataBearer {}
 
 /**
- * <p>Adds an existing external connection to a repository. One external connection is allowed
- *       per repository.</p>
- *          <note>
- *             <p>A repository can have one or more upstream repositories, or an external connection.</p>
- *          </note>
+ * Adds an existing external connection to a repository. One external connection is allowed per repository.
+ *
+ * > **Note:** A repository can have one or more upstream repositories, or an external connection.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,41 +76,36 @@ export interface AssociateExternalConnectionCommandOutput extends AssociateExter
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>
- *         The operation did not succeed because of an unauthorized access attempt.
- *       </p>
+ *
+ * The operation did not succeed because of an unauthorized access attempt.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>
- *         The operation did not succeed because prerequisites are not met.
- *       </p>
+ *
+ * The operation did not succeed because prerequisites are not met.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+ *
+ * The operation did not succeed because of an error that occurred inside CodeArtifact.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>
- *       The operation did not succeed because the resource requested is not found in the service.
- *     </p>
+ *
+ * The operation did not succeed because the resource requested is not found in the service.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>
- *         The operation did not succeed because it would have exceeded a service limit for your account.
- *       </p>
+ *
+ * The operation did not succeed because it would have exceeded a service limit for your account.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>
- *       The operation did not succeed because too many requests are sent to the service.
- *     </p>
+ *
+ * The operation did not succeed because too many requests are sent to the service.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>
- *       The operation did not succeed because a parameter in the request was sent with an invalid value.
- *     </p>
+ *
+ * The operation did not succeed because a parameter in the request was sent with an invalid value.
  *
  * @throws {@link CodeartifactServiceException}
- * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ * Base exception class for all service exceptions from Codeartifact service.
  *
  * @public
  */

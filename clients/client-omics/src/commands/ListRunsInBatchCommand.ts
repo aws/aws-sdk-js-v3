@@ -23,7 +23,8 @@ export interface ListRunsInBatchCommandInput extends ListRunsInBatchRequest {}
 export interface ListRunsInBatchCommandOutput extends ListRunsInBatchResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a paginated list of individual workflow runs within a specific batch. Use this operation to map each <code>runSettingId</code> to its HealthOmics-generated <code>runId</code>, and to check the submission status of each run. Only one filter per call is supported.</p>
+ * Returns a paginated list of individual workflow runs within a specific batch. Use this operation to map each `runSettingId` to its HealthOmics-generated `runId`, and to check the submission status of each run. Only one filter per call is supported.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,32 +67,40 @@ export interface ListRunsInBatchCommandOutput extends ListRunsInBatchResponse, _
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request cannot be applied to the target resource in its current state.</p>
+ *
+ * The request cannot be applied to the target resource in its current state.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred. Try the request again.</p>
+ *
+ * An unexpected error occurred. Try the request again.
  *
  * @throws {@link RequestTimeoutException} (client fault)
- *  <p>The request timed out.</p>
+ *
+ * The request timed out.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The target resource was not found in the current Region.</p>
+ *
+ * The target resource was not found in the current Region.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request exceeds a service quota.</p>
+ *
+ * The request exceeds a service quota.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link OmicsServiceException}
- * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * Base exception class for all service exceptions from Omics service.
  *
  * @public
  */

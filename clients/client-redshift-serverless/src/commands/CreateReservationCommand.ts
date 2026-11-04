@@ -23,7 +23,8 @@ export interface CreateReservationCommandInput extends CreateReservationRequest 
 export interface CreateReservationCommandOutput extends CreateReservationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon Redshift Serverless reservation, which gives you the option to commit to a specified number of Redshift Processing Units (RPUs) for a year at a discount from Serverless on-demand (OD) rates.</p>
+ * Creates an Amazon Redshift Serverless reservation, which gives you the option to commit to a specified number of Redshift Processing Units (RPUs) for a year at a discount from Serverless on-demand (OD) rates.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,29 +68,36 @@ export interface CreateReservationCommandOutput extends CreateReservationRespons
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The submitted action has conflicts.</p>
+ *
+ * The submitted action has conflicts.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The service limit was exceeded.</p>
+ *
+ * The service limit was exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>The request exceeded the number of tags allowed for a resource.</p>
+ *
+ * The request exceeded the number of tags allowed for a resource.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input failed to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link RedshiftServerlessServiceException}
- * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ * Base exception class for all service exceptions from RedshiftServerless service.
  *
  * @public
  */

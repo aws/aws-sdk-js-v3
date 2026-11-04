@@ -23,10 +23,10 @@ export interface GetSigningConfigurationCommandInput extends GetSigningConfigura
 export interface GetSigningConfigurationCommandOutput extends GetSigningConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the registry's signing configuration, which defines
- *             rules for automatically signing images using Amazon Web Services Signer.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/managed-signing.html">Managed signing</a> in the
- *                 <i>Amazon Elastic Container Registry User Guide</i>.</p>
+ * Retrieves the registry's signing configuration, which defines rules for automatically signing images using Amazon Web Services Signer.
+ *
+ * For more information, see [Managed signing](https://docs.aws.amazon.com/AmazonECR/latest/userguide/managed-signing.html) in the *Amazon Elastic Container Registry User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,22 +64,24 @@ export interface GetSigningConfigurationCommandOutput extends GetSigningConfigur
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link SigningConfigurationNotFoundException} (client fault)
- *  <p>The specified signing configuration was not found. This occurs when
- *             attempting to retrieve or delete a signing configuration that does not exist.</p>
+ *
+ * The specified signing configuration was not found. This occurs when attempting to retrieve or delete a signing configuration that does not exist.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>There was an exception validating this request.</p>
+ *
+ * There was an exception validating this request.
  *
  * @throws {@link ECRServiceException}
- * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * Base exception class for all service exceptions from ECR service.
  *
  * @public
  */

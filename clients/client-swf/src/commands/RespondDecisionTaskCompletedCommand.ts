@@ -23,23 +23,14 @@ export interface RespondDecisionTaskCompletedCommandInput extends RespondDecisio
 export interface RespondDecisionTaskCompletedCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Used by deciders to tell the service that the <a>DecisionTask</a> identified
- *       by the <code>taskToken</code> has successfully completed. The <code>decisions</code> argument
- *       specifies the list of decisions made while processing the task.</p>
- *          <p>A <code>DecisionTaskCompleted</code> event is added to the workflow history. The
- *         <code>executionContext</code> specified is attached to the event in the workflow execution
- *       history.</p>
- *          <p>
- *             <b>Access Control</b>
- *          </p>
- *          <p>If an IAM policy grants permission to use <code>RespondDecisionTaskCompleted</code>, it
- *       can express permissions for the list of decisions in the <code>decisions</code> parameter.
- *       Each of the decisions has one or more parameters, much like a regular API call. To allow for
- *       policies to be as readable as possible, you can express permissions on decisions as if they
- *       were actual API calls, including applying conditions to some parameters. For more information,
- *       see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using
- *         IAM to Manage Access to Amazon SWF Workflows</a> in the
- *       <i>Amazon SWF Developer Guide</i>.</p>
+ * Used by deciders to tell the service that the DecisionTask identified by the `taskToken` has successfully completed. The `decisions` argument specifies the list of decisions made while processing the task.
+ *
+ * A `DecisionTaskCompleted` event is added to the workflow history. The `executionContext` specified is attached to the event in the workflow execution history.
+ *
+ * **Access Control**
+ *
+ * If an IAM policy grants permission to use `RespondDecisionTaskCompleted`, it can express permissions for the list of decisions in the `decisions` parameter. Each of the decisions has one or more parameters, much like a regular API call. To allow for policies to be as readable as possible, you can express permissions on decisions as if they were actual API calls, including applying conditions to some parameters. For more information, see [Using IAM to Manage Access to Amazon SWF Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html) in the *Amazon SWF Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -170,14 +161,16 @@ export interface RespondDecisionTaskCompletedCommandOutput extends __MetadataBea
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
  *
  * @throws {@link OperationNotPermittedFault} (client fault)
- *  <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+ *
+ * Returned when the caller doesn't have sufficient permissions to invoke the action.
  *
  * @throws {@link UnknownResourceFault} (client fault)
- *  <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+ *
+ * Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.
  *
  * @throws {@link SWFServiceException}
- * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ * Base exception class for all service exceptions from SWF service.
  *
  * @public
  */

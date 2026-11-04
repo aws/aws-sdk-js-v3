@@ -23,7 +23,8 @@ export interface PutResourcePolicyCommandInput extends PutResourcePolicyRequest 
 export interface PutResourcePolicyCommandOutput extends PutResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Attaches a resource-based permission policy to a service or service network. The policy must contain the same actions and condition statements as the Amazon Web Services Resource Access Manager permission for sharing services and service networks.</p>
+ * Attaches a resource-based permission policy to a service or service network. The policy must contain the same actions and condition statements as the Amazon Web Services Resource Access Manager permission for sharing services and service networks.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,23 +50,28 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * @see {@link VPCLatticeClientResolvedConfig | config} for VPCLatticeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The user does not have sufficient access to perform this action.</p>
+ *
+ * The user does not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred while processing the request.</p>
+ *
+ * An unexpected error occurred while processing the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request references a resource that does not exist.</p>
+ *
+ * The request references a resource that does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The limit on the number of requests per second was exceeded.</p>
+ *
+ * The limit on the number of requests per second was exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input does not satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link VPCLatticeServiceException}
- * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * Base exception class for all service exceptions from VPCLattice service.
  *
  * @public
  */

@@ -23,10 +23,10 @@ export interface ModifyTrafficMirrorFilterRuleCommandInput extends ModifyTraffic
 export interface ModifyTrafficMirrorFilterRuleCommandOutput extends ModifyTrafficMirrorFilterRuleResult, __MetadataBearer {}
 
 /**
- * <p>Modifies the specified Traffic Mirror rule.</p>
- *          <p>
- *             <code>DestinationCidrBlock</code> and <code>SourceCidrBlock</code> must both be an IPv4
- *          range or an IPv6 range.</p>
+ * Modifies the specified Traffic Mirror rule.
+ *
+ * `DestinationCidrBlock` and `SourceCidrBlock` must both be an IPv4 range or an IPv6 range.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -96,8 +96,8 @@ export interface ModifyTrafficMirrorFilterRuleCommandOutput extends ModifyTraffi
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

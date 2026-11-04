@@ -23,7 +23,8 @@ export interface CreateEdgeDeploymentStageCommandInput extends CreateEdgeDeploym
 export interface CreateEdgeDeploymentStageCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Creates a new stage in an existing edge deployment plan.</p>
+ * Creates a new stage in an existing edge deployment plan.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,11 +65,12 @@ export interface CreateEdgeDeploymentStageCommandOutput extends __MetadataBearer
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+ *
+ * You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

@@ -23,11 +23,10 @@ export interface CreateInstanceConnectEndpointCommandInput extends CreateInstanc
 export interface CreateInstanceConnectEndpointCommandOutput extends CreateInstanceConnectEndpointResult, __MetadataBearer {}
 
 /**
- * <p>Creates an EC2 Instance Connect Endpoint.</p>
- *          <p>An EC2 Instance Connect Endpoint allows you to connect to an instance, without
- *             requiring the instance to have a public IPv4 or public IPv6 address. For more
- *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Connect-using-EC2-Instance-Connect-Endpoint.html">Connect to your instances using EC2 Instance Connect Endpoint</a> in the
- *                 <i>Amazon EC2 User Guide</i>.</p>
+ * Creates an EC2 Instance Connect Endpoint.
+ *
+ * An EC2 Instance Connect Endpoint allows you to connect to an instance, without requiring the instance to have a public IPv4 or public IPv6 address. For more information, see [Connect to your instances using EC2 Instance Connect Endpoint](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Connect-using-EC2-Instance-Connect-Endpoint.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -110,8 +109,8 @@ export interface CreateInstanceConnectEndpointCommandOutput extends CreateInstan
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

@@ -23,8 +23,10 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Adds the specified tags to the specified Direct Connect resource. Each resource can have a maximum of 50 tags.</p>
- *          <p>Each tag consists of a key and an optional value. If a tag with the same key is already associated with the resource, this action updates its value.</p>
+ * Adds the specified tags to the specified Direct Connect resource. Each resource can have a maximum of 50 tags.
+ *
+ * Each tag consists of a key and an optional value. If a tag with the same key is already associated with the resource, this action updates its value.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,20 +57,24 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  * @throws {@link DirectConnectClientException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link DirectConnectServerException} (server fault)
- *  <p>A server-side error occurred.</p>
+ *
+ * A server-side error occurred.
  *
  * @throws {@link DuplicateTagKeysException} (client fault)
- *  <p>A tag key was specified more than once.</p>
+ *
+ * A tag key was specified more than once.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>You have reached the limit on the number of tags that can be assigned.</p>
+ *
+ * You have reached the limit on the number of tags that can be assigned.
  *
  * @throws {@link DirectConnectServiceException}
- * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * Base exception class for all service exceptions from DirectConnect service.
  *
  * @public
  */

@@ -23,13 +23,12 @@ export interface GetVocabularyCommandInput extends GetVocabularyRequest {}
 export interface GetVocabularyCommandOutput extends GetVocabularyResponse, __MetadataBearer {}
 
 /**
- * <p>Provides information about the specified custom vocabulary.</p>
- *          <p>To view the status of the specified custom vocabulary, check the
- *                 <code>VocabularyState</code> field. If the status is <code>READY</code>, your custom
- *             vocabulary is available to use. If the status is <code>FAILED</code>,
- *                 <code>FailureReason</code> provides details on why your custom vocabulary
- *             failed.</p>
- *          <p>To get a list of your custom vocabularies, use the  operation.</p>
+ * Provides information about the specified custom vocabulary.
+ *
+ * To view the status of the specified custom vocabulary, check the `VocabularyState` field. If the status is `READY`, your custom vocabulary is available to use. If the status is `FAILED`, `FailureReason` provides details on why your custom vocabulary failed.
+ *
+ * To get a list of your custom vocabularies, use the operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,26 +67,24 @@ export interface GetVocabularyCommandOutput extends GetVocabularyResponse, __Met
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>Your request didn't pass one or more validation tests. This can occur when the entity
- *             you're trying to delete doesn't exist or if it's in a non-terminal state (such as
- *                 <code>IN PROGRESS</code>). See the exception message field for more
- *             information.</p>
+ *
+ * Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as `IN PROGRESS`). See the exception message field for more information.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>There was an internal error. Check the error message, correct the issue, and try your
- *             request again.</p>
+ *
+ * There was an internal error. Check the error message, correct the issue, and try your request again.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You've either sent too many requests or your input file is too long. Wait before
- *             retrying your request, or use a smaller file and try your request again.</p>
+ *
+ * You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>We can't find the requested resource. Check that the specified name is correct and try
- *             your request again.</p>
+ *
+ * We can't find the requested resource. Check that the specified name is correct and try your request again.
  *
  * @throws {@link TranscribeServiceException}
- * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * Base exception class for all service exceptions from Transcribe service.
  *
  * @public
  */

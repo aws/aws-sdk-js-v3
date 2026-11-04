@@ -23,19 +23,12 @@ export interface CreateStorageLensGroupCommandInput extends CreateStorageLensGro
 export interface CreateStorageLensGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * <p> Creates a new S3 Storage Lens group and associates it with the specified Amazon Web Services account ID. An
- *          S3 Storage Lens group is a custom grouping of objects based on prefix, suffix, object tags,
- *          object size, object age, or a combination of these filters. For each Storage Lens group
- *          that you’ve created, you can also optionally add Amazon Web Services resource tags. For more information
- *          about S3 Storage Lens groups, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-lens-groups-overview.html">Working with S3 Storage Lens
- *             groups</a>.</p>
- *          <p>To use this operation, you must have the permission to perform the
- *             <code>s3:CreateStorageLensGroup</code> action. If you’re trying to create a Storage Lens
- *          group with Amazon Web Services resource tags, you must also have permission to perform the
- *             <code>s3:TagResource</code> action. For more information about the required Storage Lens
- *          Groups permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_iam_permissions.html#storage_lens_groups_permissions">Setting account permissions to use S3 Storage Lens groups</a>.</p>
- *          <p>For information about Storage Lens groups errors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3LensErrorCodeList">List of Amazon S3 Storage
- *             Lens error codes</a>.</p>
+ * Creates a new S3 Storage Lens group and associates it with the specified Amazon Web Services account ID. An S3 Storage Lens group is a custom grouping of objects based on prefix, suffix, object tags, object size, object age, or a combination of these filters. For each Storage Lens group that you’ve created, you can also optionally add Amazon Web Services resource tags. For more information about S3 Storage Lens groups, see [Working with S3 Storage Lens groups](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-lens-groups-overview.html).
+ *
+ * To use this operation, you must have the permission to perform the `s3:CreateStorageLensGroup` action. If you’re trying to create a Storage Lens group with Amazon Web Services resource tags, you must also have permission to perform the `s3:TagResource` action. For more information about the required Storage Lens Groups permissions, see [Setting account permissions to use S3 Storage Lens groups](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_iam_permissions.html#storage_lens_groups_permissions).
+ *
+ * For information about Storage Lens groups errors, see [List of Amazon S3 Storage Lens error codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3LensErrorCodeList).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -136,8 +129,8 @@ export interface CreateStorageLensGroupCommandOutput extends __MetadataBearer {}
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
  * @throws {@link S3ControlServiceException}
- * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * Base exception class for all service exceptions from S3Control service.
  *
  * @public
  */

@@ -23,8 +23,10 @@ export interface DisassociateAdminAccountCommandInput extends DisassociateAdminA
 export interface DisassociateAdminAccountCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Disassociates an Firewall Manager administrator account. To set a different account as an Firewall Manager administrator, submit a <a>PutAdminAccount</a> request. To set an account as a default administrator account, you must submit an <a>AssociateAdminAccount</a> request.</p>
- *          <p>Disassociation of the default administrator account follows the first in, last out principle. If you are the default administrator, all Firewall Manager administrators within the organization must first disassociate their accounts before you can disassociate your account.</p>
+ * Disassociates an Firewall Manager administrator account. To set a different account as an Firewall Manager administrator, submit a PutAdminAccount request. To set an account as a default administrator account, you must submit an AssociateAdminAccount request.
+ *
+ * Disassociation of the default administrator account follows the first in, last out principle. If you are the default administrator, all Firewall Manager administrators within the organization must first disassociate their accounts before you can disassociate your account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -47,22 +49,20 @@ export interface DisassociateAdminAccountCommandOutput extends __MetadataBearer 
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
  *
  * @throws {@link InternalErrorException} (client fault)
- *  <p>The operation failed because of a system problem, even though the request was valid. Retry
- *       your request.</p>
+ *
+ * The operation failed because of a system problem, even though the request was valid. Retry your request.
  *
  * @throws {@link InvalidOperationException} (client fault)
- *  <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have
- *         submitted an <code>AssociateAdminAccount</code> request for an account ID that
- *             was already set as the Firewall Manager administrator. Or you might have tried to access a Region
- *   that's disabled by default, and that you need to enable for the Firewall Manager
- *   administrator account and for Organizations before you can access it.</p>
+ *
+ * The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have submitted an `AssociateAdminAccount` request for an account ID that was already set as the Firewall Manager administrator. Or you might have tried to access a Region that's disabled by default, and that you need to enable for the Firewall Manager administrator account and for Organizations before you can access it.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link FMSServiceException}
- * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ * Base exception class for all service exceptions from FMS service.
  *
  * @public
  */

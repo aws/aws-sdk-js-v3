@@ -23,9 +23,10 @@ export interface DeleteTagsForDomainCommandInput extends DeleteTagsForDomainRequ
 export interface DeleteTagsForDomainCommandOutput extends DeleteTagsForDomainResponse, __MetadataBearer {}
 
 /**
- * <p>This operation deletes the specified tags for a domain.</p>
- *          <p>All tag operations are eventually consistent; subsequent operations might not
- * 			immediately represent all issued operations.</p>
+ * This operation deletes the specified tags for a domain.
+ *
+ * All tag operations are eventually consistent; subsequent operations might not immediately represent all issued operations.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,21 +54,20 @@ export interface DeleteTagsForDomainCommandOutput extends DeleteTagsForDomainRes
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The requested item is not acceptable. For example, for APIs that accept a domain name,
- * 			the request might specify a domain name that doesn't belong to the account that
- * 			submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the
- * 			password might be invalid.</p>
+ *
+ * The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For `AcceptDomainTransferFromAnotherAwsAccount`, the password might be invalid.
  *
  * @throws {@link OperationLimitExceeded} (client fault)
- *  <p>The number of operations or jobs running exceeded the allowed threshold for the
- * 			account.</p>
+ *
+ * The number of operations or jobs running exceeded the allowed threshold for the account.
  *
  * @throws {@link UnsupportedTLD} (client fault)
- *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+ *
+ * Amazon Route 53 does not support this top-level domain (TLD).
  *
  * @throws {@link Route53DomainsServiceException}
- * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ * Base exception class for all service exceptions from Route53Domains service.
  *
  * @public
  */

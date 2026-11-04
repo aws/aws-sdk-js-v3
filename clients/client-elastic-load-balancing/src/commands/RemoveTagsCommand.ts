@@ -23,7 +23,8 @@ export interface RemoveTagsCommandInput extends RemoveTagsInput {}
 export interface RemoveTagsCommandOutput extends RemoveTagsOutput, __MetadataBearer {}
 
 /**
- * <p>Removes one or more tags from the specified load balancer.</p>
+ * Removes one or more tags from the specified load balancer.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,11 +56,12 @@ export interface RemoveTagsCommandOutput extends RemoveTagsOutput, __MetadataBea
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
  * @throws {@link AccessPointNotFoundException} (client fault)
- *  <p>The specified load balancer does not exist.</p>
+ *
+ * The specified load balancer does not exist.
  *
  * @throws {@link ElasticLoadBalancingServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancing service.
  *
  * @example To remove tags from a load balancer
  * ```javascript

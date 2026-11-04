@@ -23,7 +23,14 @@ export interface UpdateFeedCommandInput extends UpdateFeedRequest {}
 export interface UpdateFeedCommandOutput extends UpdateFeedResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the name and/or outputs in a feed. </p> <p>UpdateFeed is a PUT operation, which means that the payload that you specify completely overwrites the existing payload. </p> <p>This means that if you want to touch the array of outputs, you must pass in the full new list. So you must omit outputs you want to delete, and include outputs you want to add or modify. </p> <p>If you want to patch the array of outputs to make selective additions, use AssociateFeed. </p>
+ * Updates the name and/or outputs in a feed.
+ *
+ * UpdateFeed is a PUT operation, which means that the payload that you specify completely overwrites the existing payload.
+ *
+ * This means that if you want to touch the array of outputs, you must pass in the full new list. So you must omit outputs you want to delete, and include outputs you want to add or modify.
+ *
+ * If you want to patch the array of outputs to make selective additions, use AssociateFeed.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -143,29 +150,36 @@ export interface UpdateFeedCommandOutput extends UpdateFeedResponse, __MetadataB
  * @see {@link ElementalInferenceClientResolvedConfig | config} for ElementalInferenceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be completed due to a conflict.</p>
+ *
+ * The request could not be completed due to a conflict.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>An internal server error occurred. This is a temporary condition and the request can be retried. If the problem persists, contact AWS Support. </p>
+ *
+ * An internal server error occurred. This is a temporary condition and the request can be retried. If the problem persists, contact AWS Support.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource specified in the action doesn't exist.</p>
+ *
+ * The resource specified in the action doesn't exist.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request was rejected because it would exceed one or more service quotas for your account. Review your service quotas and either delete unused resources or request a quota increase. </p>
+ *
+ * The request was rejected because it would exceed one or more service quotas for your account. Review your service quotas and either delete unused resources or request a quota increase.
  *
  * @throws {@link TooManyRequestException} (client fault)
- *  <p>The request was denied due to request throttling. Too many requests have been made within a given time period. Reduce the frequency of requests and use exponential backoff when retrying. </p>
+ *
+ * The request was denied due to request throttling. Too many requests have been made within a given time period. Reduce the frequency of requests and use exponential backoff when retrying.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the service. Check the error message for details about which parameter or field is invalid and correct the request before retrying. </p>
+ *
+ * The input fails to satisfy the constraints specified by the service. Check the error message for details about which parameter or field is invalid and correct the request before retrying.
  *
  * @throws {@link ElementalInferenceServiceException}
- * <p>Base exception class for all service exceptions from ElementalInference service.</p>
  *
+ * Base exception class for all service exceptions from ElementalInference service.
  *
  * @public
  */

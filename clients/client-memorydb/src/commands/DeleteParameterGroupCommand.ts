@@ -23,8 +23,8 @@ export interface DeleteParameterGroupCommandInput extends DeleteParameterGroupRe
 export interface DeleteParameterGroupCommandOutput extends DeleteParameterGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified parameter group. You cannot delete a parameter group if it is associated with any clusters.
- *          You cannot delete the default parameter groups in your account.</p>
+ * Deletes the specified parameter group. You cannot delete a parameter group if it is associated with any clusters. You cannot delete the default parameter groups in your account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,23 +56,28 @@ export interface DeleteParameterGroupCommandOutput extends DeleteParameterGroupR
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>The specified parameter combination is not valid.</p>
+ *
+ * The specified parameter combination is not valid.
  *
  * @throws {@link InvalidParameterGroupStateFault} (client fault)
- *  <p>The parameter group is not in a valid state for the requested operation.</p>
+ *
+ * The parameter group is not in a valid state for the requested operation.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The specified parameter value is not valid.</p>
+ *
+ * The specified parameter value is not valid.
  *
  * @throws {@link ParameterGroupNotFoundFault} (client fault)
- *  <p>The specified parameter group does not exist.</p>
+ *
+ * The specified parameter group does not exist.
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
- *  <p>The required service-linked role was not found.</p>
+ *
+ * The required service-linked role was not found.
  *
  * @throws {@link MemoryDBServiceException}
- * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * Base exception class for all service exceptions from MemoryDB service.
  *
  * @public
  */

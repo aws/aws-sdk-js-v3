@@ -23,7 +23,8 @@ export interface UpdateSnapshotCommandInput extends UpdateSnapshotRequest {}
 export interface UpdateSnapshotCommandOutput extends UpdateSnapshotResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the name of an Amazon FSx for OpenZFS snapshot.</p>
+ * Updates the name of an Amazon FSx for OpenZFS snapshot.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -662,17 +663,20 @@ export interface UpdateSnapshotCommandOutput extends UpdateSnapshotResponse, __M
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * A generic error indicating a failure with a client request.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * A generic error indicating a server-side failure.
  *
  * @throws {@link SnapshotNotFound} (client fault)
- *  <p>No Amazon FSx snapshots were found based on the supplied parameters.</p>
+ *
+ * No Amazon FSx snapshots were found based on the supplied parameters.
  *
  * @throws {@link FSxServiceException}
- * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * Base exception class for all service exceptions from FSx service.
  *
  * @public
  */

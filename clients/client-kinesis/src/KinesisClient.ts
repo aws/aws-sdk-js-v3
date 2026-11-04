@@ -494,9 +494,10 @@ export type KinesisClientResolvedConfigType = __SmithyResolvedConfiguration<__Ht
 export interface KinesisClientResolvedConfig extends KinesisClientResolvedConfigType {}
 
 /**
- * <fullname>Amazon Kinesis Data Streams Service API Reference</fullname>
- *          <p>Amazon Kinesis Data Streams is a managed service that scales elastically for real-time
- *             processing of streaming big data.</p>
+ * Amazon Kinesis Data Streams Service API Reference
+ *
+ * Amazon Kinesis Data Streams is a managed service that scales elastically for real-time processing of streaming big data.
+ *
  * @public
  */
 export class KinesisClient extends __Client<

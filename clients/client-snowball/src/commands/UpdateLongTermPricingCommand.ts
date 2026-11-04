@@ -23,7 +23,8 @@ export interface UpdateLongTermPricingCommandInput extends UpdateLongTermPricing
 export interface UpdateLongTermPricingCommandOutput extends UpdateLongTermPricingResult, __MetadataBearer {}
 
 /**
- * <p>Updates the long-term pricing type.</p>
+ * Updates the long-term pricing type.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,12 +51,12 @@ export interface UpdateLongTermPricingCommandOutput extends UpdateLongTermPricin
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
  * @throws {@link InvalidResourceException} (client fault)
- *  <p>The specified resource can't be found. Check the information you provided in your last
- *       request, and try again.</p>
+ *
+ * The specified resource can't be found. Check the information you provided in your last request, and try again.
  *
  * @throws {@link SnowballServiceException}
- * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ * Base exception class for all service exceptions from Snowball service.
  *
  * @public
  */

@@ -23,7 +23,14 @@ export interface UpdateEnabledControlCommandInput extends UpdateEnabledControlIn
 export interface UpdateEnabledControlCommandOutput extends UpdateEnabledControlOutput, __MetadataBearer {}
 
 /**
- * <p> Updates the configuration of an already enabled control.</p> <p>If the enabled control shows an <code>EnablementStatus</code> of SUCCEEDED, supply parameters that are different from the currently configured parameters. Otherwise, Amazon Web Services Control Tower will not accept the request.</p> <p>If the enabled control shows an <code>EnablementStatus</code> of FAILED, Amazon Web Services Control Tower updates the control to match any valid parameters that you supply.</p> <p>If the <code>DriftSummary</code> status for the control shows as <code>DRIFTED</code>, you cannot call this API. Instead, you can update the control by calling the <code>ResetEnabledControl</code> API. Alternatively, you can call <code>DisableControl</code> and then call <code>EnableControl</code> again. Also, you can run an extending governance operation to repair drift. For usage examples, see the <a href="https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html"> <i>Controls Reference Guide</i> </a>. </p>
+ * Updates the configuration of an already enabled control.
+ *
+ * If the enabled control shows an `EnablementStatus` of SUCCEEDED, supply parameters that are different from the currently configured parameters. Otherwise, Amazon Web Services Control Tower will not accept the request.
+ *
+ * If the enabled control shows an `EnablementStatus` of FAILED, Amazon Web Services Control Tower updates the control to match any valid parameters that you supply.
+ *
+ * If the `DriftSummary` status for the control shows as `DRIFTED`, you cannot call this API. Instead, you can update the control by calling the `ResetEnabledControl` API. Alternatively, you can call `DisableControl` and then call `EnableControl` again. Also, you can run an extending governance operation to repair drift. For usage examples, see the [*Controls Reference Guide*](https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,29 +63,36 @@ export interface UpdateEnabledControlCommandOutput extends UpdateEnabledControlO
  * @see {@link ControlTowerClientResolvedConfig | config} for ControlTowerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting the resource can cause an inconsistent state.</p>
+ *
+ * Updating or deleting the resource can cause an inconsistent state.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred during processing of a request.</p>
+ *
+ * An unexpected error occurred during processing of a request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request references a resource that does not exist.</p>
+ *
+ * The request references a resource that does not exist.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would cause a service quota to be exceeded. See <a href="https://docs.aws.amazon.com/controltower/latest/userguide/request-an-increase.html">Service quotas</a>.</p>
+ *
+ * The request would cause a service quota to be exceeded. See [Service quotas](https://docs.aws.amazon.com/controltower/latest/userguide/request-an-increase.html).
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input does not satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link ControlTowerServiceException}
- * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ * Base exception class for all service exceptions from ControlTower service.
  *
  * @public
  */

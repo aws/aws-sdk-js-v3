@@ -23,7 +23,8 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Removes the specified tag key and value pairs from the specified resource share or managed permission.</p>
+ * Removes the specified tag key and value pairs from the specified resource share or managed permission.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,25 +53,28 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The operation failed because a parameter you specified isn't valid.</p>
+ *
+ * The operation failed because a parameter you specified isn't valid.
  *
  * @throws {@link MalformedArnException} (client fault)
- *  <p>The operation failed because the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> has a format that isn't
- *             valid.</p>
+ *
+ * The operation failed because the specified [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) has a format that isn't valid.
  *
  * @throws {@link ServerInternalException} (server fault)
- *  <p>The operation failed because the service could not respond to the request due to an
- *             internal problem. Try again later.</p>
+ *
+ * The operation failed because the service could not respond to the request due to an internal problem. Try again later.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The operation failed because the service isn't available. Try again later.</p>
+ *
+ * The operation failed because the service isn't available. Try again later.
  *
  * @throws {@link UnknownResourceException} (client fault)
- *  <p>The operation failed because a specified resource couldn't be found.</p>
+ *
+ * The operation failed because a specified resource couldn't be found.
  *
  * @throws {@link RAMServiceException}
- * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ * Base exception class for all service exceptions from RAM service.
  *
  * @public
  */

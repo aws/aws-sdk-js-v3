@@ -24,7 +24,8 @@ export interface ModifyLakehouseConfigurationCommandInput extends ModifyLakehous
 export interface ModifyLakehouseConfigurationCommandOutput extends LakehouseConfiguration, __MetadataBearer {}
 
 /**
- * <p>Modifies the lakehouse configuration for a cluster. This operation allows you to manage Amazon Redshift federated permissions and Amazon Web Services IAM Identity Center trusted identity propagation.</p>
+ * Modifies the lakehouse configuration for a cluster. This operation allows you to manage Amazon Redshift federated permissions and Amazon Web Services IAM Identity Center trusted identity propagation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,31 +60,36 @@ export interface ModifyLakehouseConfigurationCommandOutput extends LakehouseConf
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
- *         </p>
+ *
+ * The `ClusterIdentifier` parameter does not refer to an existing cluster.
  *
  * @throws {@link DependentServiceAccessDeniedFault} (client fault)
- *  <p>A dependent service denied access for the integration.</p>
+ *
+ * A dependent service denied access for the integration.
  *
  * @throws {@link DependentServiceUnavailableFault} (client fault)
- *  <p>Your request cannot be completed because a dependent internal service is
- *             temporarily unavailable. Wait 30 to 60 seconds and try again.</p>
+ *
+ * Your request cannot be completed because a dependent internal service is temporarily unavailable. Wait 30 to 60 seconds and try again.
  *
  * @throws {@link InvalidClusterStateFault} (client fault)
- *  <p>The specified cluster is not in the <code>available</code> state. </p>
+ *
+ * The specified cluster is not in the `available` state.
  *
  * @throws {@link RedshiftIdcApplicationNotExistsFault} (client fault)
- *  <p>The application you attempted to find doesn't exist.</p>
+ *
+ * The application you attempted to find doesn't exist.
  *
  * @throws {@link UnauthorizedOperation} (client fault)
- *  <p>Your account is not authorized to perform the requested operation.</p>
+ *
+ * Your account is not authorized to perform the requested operation.
  *
  * @throws {@link UnsupportedOperationFault} (client fault)
- *  <p>The requested operation isn't supported.</p>
+ *
+ * The requested operation isn't supported.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

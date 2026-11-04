@@ -23,16 +23,10 @@ export interface UpdateSharedVpcConfigurationCommandInput extends UpdateSharedVp
 export interface UpdateSharedVpcConfigurationCommandOutput extends UpdateSharedVpcConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Configures whether participant accounts in your organization can create Amazon FSx for NetApp ONTAP Multi-AZ file systems in subnets that are shared by a virtual
- *             private cloud (VPC) owner. For more information, see the <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/maz-shared-vpc.html">Amazon FSx for NetApp ONTAP User
- *                 Guide</a>.</p>
- *          <note>
- *             <p>We strongly recommend that participant-created Multi-AZ file systems in the shared
- *                 VPC are deleted before you disable this feature. Once the feature is disabled, these
- *                 file systems will enter a <code>MISCONFIGURED</code> state and behave like Single-AZ
- *                 file systems. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/maz-shared-vpc.html#disabling-maz-vpc-sharing">Important considerations before disabling shared VPC support for Multi-AZ file
- *                     systems</a>.</p>
- *          </note>
+ * Configures whether participant accounts in your organization can create Amazon FSx for NetApp ONTAP Multi-AZ file systems in subnets that are shared by a virtual private cloud (VPC) owner. For more information, see the [Amazon FSx for NetApp ONTAP User Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/maz-shared-vpc.html).
+ *
+ * > **Note:** We strongly recommend that participant-created Multi-AZ file systems in the shared VPC are deleted before you disable this feature. Once the feature is disabled, these file systems will enter a `MISCONFIGURED` state and behave like Single-AZ file systems. For more information, see [Important considerations before disabling shared VPC support for Multi-AZ file systems](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/maz-shared-vpc.html#disabling-maz-vpc-sharing).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,19 +54,20 @@ export interface UpdateSharedVpcConfigurationCommandOutput extends UpdateSharedV
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * A generic error indicating a failure with a client request.
  *
  * @throws {@link IncompatibleParameterError} (client fault)
- *  <p>The error returned when a second request is received with the same client request
- *             token but different parameters settings. A client request token should always uniquely
- *             identify a single request.</p>
+ *
+ * The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * A generic error indicating a server-side failure.
  *
  * @throws {@link FSxServiceException}
- * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * Base exception class for all service exceptions from FSx service.
  *
  * @public
  */

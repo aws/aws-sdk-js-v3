@@ -2,37 +2,43 @@
 import type { InternalStreamFailure, ModelStreamError } from "./errors";
 
 /**
- * <p>Request payload part structure.</p>
+ * Request payload part structure.
+ *
  * @public
  */
 export interface RequestPayloadPart {
   /**
-   * <p>The payload bytes.</p>
+   * The payload bytes.
+   *
    * @public
    */
   Bytes?: Uint8Array | undefined;
 
   /**
-   * <p>Data type header. Can be one of these possible values: "UTF8", "BINARY".</p>
+   * Data type header. Can be one of these possible values: "UTF8", "BINARY".
+   *
    * @public
    */
   DataType?: string | undefined;
 
   /**
-   * <p>Completion state header. Can be one of these possible values: "PARTIAL", "COMPLETE".</p>
+   * Completion state header. Can be one of these possible values: "PARTIAL", "COMPLETE".
+   *
    * @public
    */
   CompletionState?: string | undefined;
 
   /**
-   * <p>Padding string for alignment.</p>
+   * Padding string for alignment.
+   *
    * @public
    */
   P?: string | undefined;
 }
 
 /**
- * <p>Request stream event union.</p>
+ * Request stream event union.
+ *
  * @public
  */
 export type RequestStreamEvent =
@@ -44,7 +50,8 @@ export type RequestStreamEvent =
  */
 export namespace RequestStreamEvent {
   /**
-   * <p>Payload part event.</p>
+   * Payload part event.
+   *
    * @public
    */
   export interface PayloadPartMember {
@@ -75,68 +82,79 @@ export namespace RequestStreamEvent {
  */
 export interface InvokeEndpointWithBidirectionalStreamInput {
   /**
-   * <p>The name of the endpoint to invoke.</p>
+   * The name of the endpoint to invoke.
+   *
    * @public
    */
   EndpointName: string | undefined;
 
   /**
-   * <p>The request payload stream.</p>
+   * The request payload stream.
+   *
    * @public
    */
   Body: AsyncIterable<RequestStreamEvent> | undefined;
 
   /**
-   * <p>Target variant for the request.</p>
+   * Target variant for the request.
+   *
    * @public
    */
   TargetVariant?: string | undefined;
 
   /**
-   * <p>Model invocation path.</p>
+   * Model invocation path.
+   *
    * @public
    */
   ModelInvocationPath?: string | undefined;
 
   /**
-   * <p>Model query string.</p>
+   * Model query string.
+   *
    * @public
    */
   ModelQueryString?: string | undefined;
 }
 
 /**
- * <p>Response payload part structure.</p>
+ * Response payload part structure.
+ *
  * @public
  */
 export interface ResponsePayloadPart {
   /**
-   * <p>The payload bytes.</p>
+   * The payload bytes.
+   *
    * @public
    */
   Bytes?: Uint8Array | undefined;
 
   /**
-   * <p>Data type header. Can be one of these possible values: "UTF8", "BINARY".</p>
+   * Data type header. Can be one of these possible values: "UTF8", "BINARY".
+   *
    * @public
    */
   DataType?: string | undefined;
 
   /**
-   * <p>Completion state header. Can be one of these possible values: "PARTIAL", "COMPLETE".</p>
+   * Completion state header. Can be one of these possible values: "PARTIAL", "COMPLETE".
+   *
    * @public
    */
   CompletionState?: string | undefined;
 
   /**
-   * <p>Padding string for alignment.</p>
+   * Padding string for alignment.
+   *
    * @public
    */
   P?: string | undefined;
 }
 
 /**
- * <p>Response stream event union.</p>
+ * Response stream event union.
+ *
  * @public
  */
 export type ResponseStreamEvent =
@@ -150,7 +168,8 @@ export type ResponseStreamEvent =
  */
 export namespace ResponseStreamEvent {
   /**
-   * <p>Payload part event.</p>
+   * Payload part event.
+   *
    * @public
    */
   export interface PayloadPartMember {
@@ -161,7 +180,8 @@ export namespace ResponseStreamEvent {
   }
 
   /**
-   * <p>Model stream error event.</p>
+   * Model stream error event.
+   *
    * @public
    */
   export interface ModelStreamErrorMember {
@@ -172,7 +192,8 @@ export namespace ResponseStreamEvent {
   }
 
   /**
-   * <p>Internal stream failure event.</p>
+   * Internal stream failure event.
+   *
    * @public
    */
   export interface InternalStreamFailureMember {
@@ -209,13 +230,15 @@ export namespace ResponseStreamEvent {
  */
 export interface InvokeEndpointWithBidirectionalStreamOutput {
   /**
-   * <p>The response payload stream.</p>
+   * The response payload stream.
+   *
    * @public
    */
   Body: AsyncIterable<ResponseStreamEvent> | undefined;
 
   /**
-   * <p>The invoked production variant.</p>
+   * The invoked production variant.
+   *
    * @public
    */
   InvokedProductionVariant?: string | undefined;

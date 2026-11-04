@@ -23,12 +23,10 @@ export interface ExecuteQueryCommandInput extends ExecuteQueryRequest {}
 export interface ExecuteQueryCommandOutput extends ExecuteQueryResponse, __MetadataBearer {}
 
 /**
- * <p>Run queries to access information from your knowledge graph of entities within
- *          individual workspaces.</p>
- *          <note>
- *             <p>The ExecuteQuery action only works with <a href="https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/home.html">Amazon Web Services Java SDK2</a>.
- *          ExecuteQuery will not work with any Amazon Web Services Java SDK version &lt; 2.x.</p>
- *          </note>
+ * Run queries to access information from your knowledge graph of entities within individual workspaces.
+ *
+ * > **Note:** The ExecuteQuery action only works with [Amazon Web Services Java SDK2](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/home.html). ExecuteQuery will not work with any Amazon Web Services Java SDK version &lt; 2.x.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,26 +69,32 @@ export interface ExecuteQueryCommandOutput extends ExecuteQueryResponse, __Metad
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access is denied.</p>
+ *
+ * Access is denied.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error has occurred.</p>
+ *
+ * An unexpected error has occurred.
  *
  * @throws {@link QueryTimeoutException} (client fault)
- *  <p>The query timeout exception.</p>
+ *
+ * The query timeout exception.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The service quota was exceeded.</p>
+ *
+ * The service quota was exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The rate exceeds the limit.</p>
+ *
+ * The rate exceeds the limit.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Failed</p>
+ *
+ * Failed
  *
  * @throws {@link IoTTwinMakerServiceException}
- * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ * Base exception class for all service exceptions from IoTTwinMaker service.
  *
  * @public
  */

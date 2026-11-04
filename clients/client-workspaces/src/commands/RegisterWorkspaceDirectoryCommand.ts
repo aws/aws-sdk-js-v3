@@ -23,11 +23,8 @@ export interface RegisterWorkspaceDirectoryCommandInput extends RegisterWorkspac
 export interface RegisterWorkspaceDirectoryCommandOutput extends RegisterWorkspaceDirectoryResult, __MetadataBearer {}
 
 /**
- * <p>Registers the specified directory. This operation is asynchronous and returns before the
- *          WorkSpace directory is registered. If this is the first time you are registering a
- *          directory, you will need to create the workspaces_DefaultRole role before you can register
- *          a directory. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role">
- *             Creating the workspaces_DefaultRole Role</a>.</p>
+ * Registers the specified directory. This operation is asynchronous and returns before the WorkSpace directory is registered. If this is the first time you are registering a directory, you will need to create the workspaces_DefaultRole role before you can register a directory. For more information, see [Creating the workspaces_DefaultRole Role](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,39 +76,44 @@ export interface RegisterWorkspaceDirectoryCommandOutput extends RegisterWorkspa
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The user is not authorized to access a resource.</p>
+ *
+ * The user is not authorized to access a resource.
  *
  * @throws {@link InvalidParameterValuesException} (client fault)
- *  <p>One or more parameter values are not valid.</p>
+ *
+ * One or more parameter values are not valid.
  *
  * @throws {@link InvalidResourceStateException} (client fault)
- *  <p>The state of the resource is not valid for this operation.</p>
+ *
+ * The state of the resource is not valid for this operation.
  *
  * @throws {@link OperationNotSupportedException} (client fault)
- *  <p>This operation is not supported.</p>
+ *
+ * This operation is not supported.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>The specified resource already exists.</p>
+ *
+ * The specified resource already exists.
  *
  * @throws {@link ResourceLimitExceededException} (client fault)
- *  <p>Your resource limits have been exceeded.</p>
+ *
+ * Your resource limits have been exceeded.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link UnsupportedNetworkConfigurationException} (client fault)
- *  <p>The configuration of this network is not supported for this operation, or your network configuration
- *          conflicts with the Amazon WorkSpaces management network IP range. For more information, see
- *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-vpc.html">
- *             Configure a VPC for Amazon WorkSpaces</a>.</p>
+ *
+ * The configuration of this network is not supported for this operation, or your network configuration conflicts with the Amazon WorkSpaces management network IP range. For more information, see [Configure a VPC for Amazon WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-vpc.html).
  *
  * @throws {@link WorkspacesDefaultRoleNotFoundException} (client fault)
- *  <p>The workspaces_DefaultRole role could not be found. If this is the first time you are registering a directory, you
- *          will need to create the workspaces_DefaultRole role before you can register a directory. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role">Creating the workspaces_DefaultRole Role</a>.</p>
+ *
+ * The workspaces_DefaultRole role could not be found. If this is the first time you are registering a directory, you will need to create the workspaces_DefaultRole role before you can register a directory. For more information, see [Creating the workspaces_DefaultRole Role](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role).
  *
  * @throws {@link WorkSpacesServiceException}
- * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * Base exception class for all service exceptions from WorkSpaces service.
  *
  * @public
  */

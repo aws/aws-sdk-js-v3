@@ -23,7 +23,14 @@ export interface CancelMetadataGenerationRunCommandInput extends CancelMetadataG
 export interface CancelMetadataGenerationRunCommandOutput extends CancelMetadataGenerationRunOutput, __MetadataBearer {}
 
 /**
- * <p>Cancels the metadata generation run.</p> <p>Prerequisites:</p> <ul> <li> <p>The run must exist and be in a cancelable status (e.g., SUBMITTED, IN_PROGRESS). </p> </li> <li> <p>Runs in SUCCEEDED status cannot be cancelled.</p> </li> <li> <p>User must have access to the run and cancel permissions.</p> </li> </ul>
+ * Cancels the metadata generation run.
+ *
+ * Prerequisites:
+ *
+ * - The run must exist and be in a cancelable status (e.g., SUBMITTED, IN_PROGRESS).
+ * - Runs in SUCCEEDED status cannot be cancelled.
+ * - User must have access to the run and cancel permissions.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,29 +56,36 @@ export interface CancelMetadataGenerationRunCommandOutput extends CancelMetadata
  * @see {@link DataZoneClientResolvedConfig | config} for DataZoneClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>There is a conflict while performing this action.</p>
+ *
+ * There is a conflict while performing this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request has failed because of an unknown error, exception or failure.</p>
+ *
+ * The request has failed because of an unknown error, exception or failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource cannot be found.</p>
+ *
+ * The specified resource cannot be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by the Amazon Web Services service.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>You do not have permission to perform this action.</p>
+ *
+ * You do not have permission to perform this action.
  *
  * @throws {@link DataZoneServiceException}
- * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * Base exception class for all service exceptions from DataZone service.
  *
  * @public
  */

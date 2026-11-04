@@ -26,7 +26,8 @@ export interface BatchPutScheduledUpdateGroupActionCommandInput extends BatchPut
 export interface BatchPutScheduledUpdateGroupActionCommandOutput extends BatchPutScheduledUpdateGroupActionAnswer, __MetadataBearer {}
 
 /**
- * <p>Creates or updates one or more scheduled scaling actions for an Auto Scaling group.</p>
+ * Creates or updates one or more scheduled scaling actions for an Auto Scaling group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,21 +72,20 @@ export interface BatchPutScheduledUpdateGroupActionCommandOutput extends BatchPu
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  * @throws {@link AlreadyExistsFault} (client fault)
- *  <p>You already have an Auto Scaling group or launch configuration with this name.</p>
+ *
+ * You already have an Auto Scaling group or launch configuration with this name.
  *
  * @throws {@link LimitExceededFault} (client fault)
- *  <p>You have already reached a limit for your Amazon EC2 Auto Scaling
- *             resources (for example, Auto Scaling groups, launch configurations, or lifecycle hooks). For
- *             more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html">DescribeAccountLimits</a> in the <i>Amazon EC2 Auto Scaling API
- *             Reference</i>.</p>
+ *
+ * You have already reached a limit for your Amazon EC2 Auto Scaling resources (for example, Auto Scaling groups, launch configurations, or lifecycle hooks). For more information, see [DescribeAccountLimits](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html) in the *Amazon EC2 Auto Scaling API Reference*.
  *
  * @throws {@link ResourceContentionFault} (server fault)
- *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
- *             instance, or load balancer).</p>
+ *
+ * You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).
  *
  * @throws {@link AutoScalingServiceException}
- * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from AutoScaling service.
  *
  * @public
  */

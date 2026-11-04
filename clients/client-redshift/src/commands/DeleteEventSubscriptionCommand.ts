@@ -23,7 +23,8 @@ export interface DeleteEventSubscriptionCommandInput extends DeleteEventSubscrip
 export interface DeleteEventSubscriptionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an Amazon Redshift event notification subscription.</p>
+ * Deletes an Amazon Redshift event notification subscription.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,16 +49,16 @@ export interface DeleteEventSubscriptionCommandOutput extends __MetadataBearer {
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link InvalidSubscriptionStateFault} (client fault)
- *  <p>The subscription request is invalid because it is a duplicate request. This
- *             subscription request is already in progress.</p>
+ *
+ * The subscription request is invalid because it is a duplicate request. This subscription request is already in progress.
  *
  * @throws {@link SubscriptionNotFoundFault} (client fault)
- *  <p>An Amazon Redshift event notification subscription with the specified name does not
- *             exist.</p>
+ *
+ * An Amazon Redshift event notification subscription with the specified name does not exist.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

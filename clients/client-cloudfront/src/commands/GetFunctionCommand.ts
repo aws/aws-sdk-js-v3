@@ -31,7 +31,10 @@ export type GetFunctionCommandOutputType = Omit<GetFunctionResult, "FunctionCode
 export interface GetFunctionCommandOutput extends GetFunctionCommandOutputType, __MetadataBearer {}
 
 /**
- * <p>Gets the code of a CloudFront function. To get configuration information and metadata about a function, use <code>DescribeFunction</code>.</p> <p>To get a function's code, you must provide the function's name and stage. To get these values, you can use <code>ListFunctions</code>.</p>
+ * Gets the code of a CloudFront function. To get configuration information and metadata about a function, use `DescribeFunction`.
+ *
+ * To get a function's code, you must provide the function's name and stage. To get these values, you can use `ListFunctions`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,14 +64,16 @@ export interface GetFunctionCommandOutput extends GetFunctionCommandOutputType, 
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link NoSuchFunctionExists} (client fault)
- *  <p>The function does not exist.</p>
+ *
+ * The function does not exist.
  *
  * @throws {@link UnsupportedOperation} (client fault)
- *  <p>This operation is not supported in this Amazon Web Services Region.</p>
+ *
+ * This operation is not supported in this Amazon Web Services Region.
  *
  * @throws {@link CloudFrontServiceException}
- * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * Base exception class for all service exceptions from CloudFront service.
  *
  * @public
  */

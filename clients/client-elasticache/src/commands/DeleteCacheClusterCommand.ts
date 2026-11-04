@@ -23,34 +23,18 @@ export interface DeleteCacheClusterCommandInput extends DeleteCacheClusterMessag
 export interface DeleteCacheClusterCommandOutput extends DeleteCacheClusterResult, __MetadataBearer {}
 
 /**
- * <p>Deletes a previously provisioned cluster. <code>DeleteCacheCluster</code> deletes all
- *             associated cache nodes, node endpoints and the cluster itself. When you receive a
- *             successful response from this operation, Amazon ElastiCache immediately begins deleting
- *             the cluster; you cannot cancel or revert this operation.</p>
- *          <p>This operation is not valid for:</p>
- *          <ul>
- *             <li>
- *                <p>Valkey or Redis OSS (cluster mode enabled) clusters</p>
- *             </li>
- *             <li>
- *                <p>Valkey or Redis OSS (cluster mode disabled) clusters</p>
- *             </li>
- *             <li>
- *                <p>A cluster that is the last read replica of a replication group</p>
- *             </li>
- *             <li>
- *                <p>A cluster that is the primary node of a replication group</p>
- *             </li>
- *             <li>
- *                <p>A node group (shard) that has Multi-AZ mode enabled</p>
- *             </li>
- *             <li>
- *                <p>A cluster from a Valkey or Redis OSS (cluster mode enabled) replication group</p>
- *             </li>
- *             <li>
- *                <p>A cluster that is not in the <code>available</code> state</p>
- *             </li>
- *          </ul>
+ * Deletes a previously provisioned cluster. `DeleteCacheCluster` deletes all associated cache nodes, node endpoints and the cluster itself. When you receive a successful response from this operation, Amazon ElastiCache immediately begins deleting the cluster; you cannot cancel or revert this operation.
+ *
+ * This operation is not valid for:
+ *
+ * - Valkey or Redis OSS (cluster mode enabled) clusters
+ * - Valkey or Redis OSS (cluster mode disabled) clusters
+ * - A cluster that is the last read replica of a replication group
+ * - A cluster that is the primary node of a replication group
+ * - A node group (shard) that has Multi-AZ mode enabled
+ * - A cluster from a Valkey or Redis OSS (cluster mode enabled) replication group
+ * - A cluster that is not in the `available` state
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -193,41 +177,41 @@ export interface DeleteCacheClusterCommandOutput extends DeleteCacheClusterResul
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link CacheClusterNotFoundFault} (client fault)
- *  <p>The requested cluster ID does not refer to an existing cluster.</p>
+ *
+ * The requested cluster ID does not refer to an existing cluster.
  *
  * @throws {@link InvalidCacheClusterStateFault} (client fault)
- *  <p>The requested cluster is not in the <code>available</code> state.</p>
+ *
+ * The requested cluster is not in the `available` state.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * Two or more incompatible parameters were specified.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link SnapshotAlreadyExistsFault} (client fault)
- *  <p>You already have a snapshot with the given name.</p>
+ *
+ * You already have a snapshot with the given name.
  *
  * @throws {@link SnapshotFeatureNotSupportedFault} (client fault)
- *  <p>You attempted one of the following operations:</p>
- *          <ul>
- *             <li>
- *                <p>Creating a snapshot of a Valkey or Redis OSS cluster running on a
- *                         <code>cache.t1.micro</code> cache node.</p>
- *             </li>
- *             <li>
- *                <p>Creating a snapshot of a cluster that is running Memcached rather than
- *                     Valkey or Redis OSS.</p>
- *             </li>
- *          </ul>
- *          <p>Neither of these are supported by ElastiCache.</p>
+ *
+ * You attempted one of the following operations:
+ *
+ * - Creating a snapshot of a Valkey or Redis OSS cluster running on a `cache.t1.micro` cache node.
+ * - Creating a snapshot of a cluster that is running Memcached rather than Valkey or Redis OSS.
+ *
+ * Neither of these are supported by ElastiCache.
  *
  * @throws {@link SnapshotQuotaExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the maximum number of
- *             snapshots.</p>
+ *
+ * The request cannot be processed because it would exceed the maximum number of snapshots.
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @example DeleteCacheCluster
  * ```javascript

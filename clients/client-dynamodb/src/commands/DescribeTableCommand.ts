@@ -23,16 +23,10 @@ export interface DescribeTableCommandInput extends DescribeTableInput {}
 export interface DescribeTableCommandOutput extends DescribeTableOutput, __MetadataBearer {}
 
 /**
- * <p>Returns information about the table, including the current status of the table, when
- *             it was created, the primary key schema, and any indexes on the table.</p>
- *          <note>
- *             <p>If you issue a <code>DescribeTable</code> request immediately after a
- *                     <code>CreateTable</code> request, DynamoDB might return a
- *                     <code>ResourceNotFoundException</code>. This is because
- *                     <code>DescribeTable</code> uses an eventually consistent query, and the metadata
- *                 for your table might not be available at that moment. Wait for a few seconds, and
- *                 then try the <code>DescribeTable</code> request again.</p>
- *          </note>
+ * Returns information about the table, including the current status of the table, when it was created, the primary key schema, and any indexes on the table.
+ *
+ * > **Note:** If you issue a `DescribeTable` request immediately after a `CreateTable` request, DynamoDB might return a `ResourceNotFoundException`. This is because `DescribeTable` uses an eventually consistent query, and the metadata for your table might not be available at that moment. Wait for a few seconds, and then try the `DescribeTable` request again.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -265,17 +259,18 @@ export interface DescribeTableCommandOutput extends DescribeTableOutput, __Metad
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidEndpointException} (client fault)
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The operation tried to access a nonexistent table or index. The resource might not
- *             be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+ *
+ * The operation tried to access a nonexistent table or index. The resource might not be specified correctly, or its status might not be `ACTIVE`.
  *
  * @throws {@link DynamoDBServiceException}
- * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * Base exception class for all service exceptions from DynamoDB service.
  *
  * @public
  */

@@ -23,11 +23,10 @@ export interface DeleteIngestionDestinationCommandInput extends DeleteIngestionD
 export interface DeleteIngestionDestinationCommandOutput extends DeleteIngestionDestinationResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an ingestion destination.</p>
- *          <p>This deletes the association between an ingestion and it's destination. It doesn't
- *          delete previously ingested data or the storage destination, such as the Amazon S3
- *          bucket where the data is delivered. If the ingestion destination is deleted while the
- *          associated ingestion is enabled, the ingestion will fail and is eventually disabled.</p>
+ * Deletes an ingestion destination.
+ *
+ * This deletes the association between an ingestion and it's destination. It doesn't delete previously ingested data or the storage destination, such as the Amazon S3 bucket where the data is delivered. If the ingestion destination is deleted while the associated ingestion is enabled, the ingestion will fail and is eventually disabled.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,24 +53,28 @@ export interface DeleteIngestionDestinationCommandOutput extends DeleteIngestion
  * @see {@link AppFabricClientResolvedConfig | config} for AppFabricClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You are not authorized to perform this operation.</p>
+ *
+ * You are not authorized to perform this operation.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception, or failure
- *          with an internal server.</p>
+ *
+ * The request processing has failed because of an unknown error, exception, or failure with an internal server.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request rate exceeds the limit.</p>
+ *
+ * The request rate exceeds the limit.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request has invalid or missing parameters.</p>
+ *
+ * The request has invalid or missing parameters.
  *
  * @throws {@link AppFabricServiceException}
- * <p>Base exception class for all service exceptions from AppFabric service.</p>
  *
+ * Base exception class for all service exceptions from AppFabric service.
  *
  * @public
  */

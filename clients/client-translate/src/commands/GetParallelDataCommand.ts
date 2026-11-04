@@ -23,7 +23,8 @@ export interface GetParallelDataCommandInput extends GetParallelDataRequest {}
 export interface GetParallelDataCommandOutput extends GetParallelDataResponse, __MetadataBearer {}
 
 /**
- * <p>Provides information about a parallel data resource.</p>
+ * Provides information about a parallel data resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,24 +89,24 @@ export interface GetParallelDataCommandOutput extends GetParallelDataResponse, _
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value of the parameter is not valid. Review the value of the parameter you are using
- *       to correct it, and then retry your operation.</p>
+ *
+ * The value of the parameter is not valid. Review the value of the parameter you are using to correct it, and then retry your operation.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource you are looking for has not been found. Review the resource you're looking
- *       for and see if a different resource will accomplish your needs before retrying the revised
- *       request.</p>
+ *
+ * The resource you are looking for has not been found. Review the resource you're looking for and see if a different resource will accomplish your needs before retrying the revised request.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p> You have made too many requests within a short period of time. Wait for a short time and
- *       then try your request again.</p>
+ *
+ * You have made too many requests within a short period of time. Wait for a short time and then try your request again.
  *
  * @throws {@link TranslateServiceException}
- * <p>Base exception class for all service exceptions from Translate service.</p>
  *
+ * Base exception class for all service exceptions from Translate service.
  *
  * @public
  */

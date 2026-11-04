@@ -23,7 +23,8 @@ export interface ListImportedModelsCommandInput extends ListImportedModelsReques
 export interface ListImportedModelsCommandOutput extends ListImportedModelsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of models you've imported. You can filter the results to return based on one or more criteria. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html">Import a customized model</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
+ * Returns a list of models you've imported. You can filter the results to return based on one or more criteria. For more information, see [Import a customized model](https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html) in the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,20 +66,24 @@ export interface ListImportedModelsCommandOutput extends ListImportedModelsRespo
  * @see {@link BedrockClientResolvedConfig | config} for BedrockClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request is denied because of missing access permissions.</p>
+ *
+ * The request is denied because of missing access permissions.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
+ * The number of requests exceeds the limit. Resubmit your request later.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Input validation failed. Check your request parameters and retry the request.</p>
+ *
+ * Input validation failed. Check your request parameters and retry the request.
  *
  * @throws {@link BedrockServiceException}
- * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ * Base exception class for all service exceptions from Bedrock service.
  *
  * @public
  */

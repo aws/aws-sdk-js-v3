@@ -23,12 +23,8 @@ export interface StopPipelineExecutionCommandInput extends StopPipelineExecution
 export interface StopPipelineExecutionCommandOutput extends StopPipelineExecutionOutput, __MetadataBearer {}
 
 /**
- * <p>Stops the specified pipeline execution. You choose to either stop the pipeline
- *             execution by completing in-progress actions without starting subsequent actions, or by
- *             abandoning in-progress actions. While completing or abandoning in-progress actions, the
- *             pipeline execution is in a <code>Stopping</code> state. After all in-progress actions
- *             are completed or abandoned, the pipeline execution is in a <code>Stopped</code>
- *             state.</p>
+ * Stops the specified pipeline execution. You choose to either stop the pipeline execution by completing in-progress actions without starting subsequent actions, or by abandoning in-progress actions. While completing or abandoning in-progress actions, the pipeline execution is in a `Stopping` state. After all in-progress actions are completed or abandoned, the pipeline execution is in a `Stopped` state.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,29 +54,28 @@ export interface StopPipelineExecutionCommandOutput extends StopPipelineExecutio
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Your request cannot be handled because the pipeline is busy handling ongoing
- *             activities. Try again later.</p>
+ *
+ * Your request cannot be handled because the pipeline is busy handling ongoing activities. Try again later.
  *
  * @throws {@link DuplicatedStopRequestException} (client fault)
- *  <p>The pipeline execution is already in a <code>Stopping</code> state. If you already
- *             chose to stop and wait, you cannot make that request again. You can choose to stop and
- *             abandon now, but be aware that this option can lead to failed tasks or out of sequence
- *             tasks. If you already chose to stop and abandon, you cannot make that request
- *             again.</p>
+ *
+ * The pipeline execution is already in a `Stopping` state. If you already chose to stop and wait, you cannot make that request again. You can choose to stop and abandon now, but be aware that this option can lead to failed tasks or out of sequence tasks. If you already chose to stop and abandon, you cannot make that request again.
  *
  * @throws {@link PipelineExecutionNotStoppableException} (client fault)
- *  <p>Unable to stop the pipeline execution. The execution might already be in a
- *                 <code>Stopped</code> state, or it might no longer be in progress.</p>
+ *
+ * Unable to stop the pipeline execution. The execution might already be in a `Stopped` state, or it might no longer be in progress.
  *
  * @throws {@link PipelineNotFoundException} (client fault)
- *  <p>The pipeline was specified in an invalid format or cannot be found.</p>
+ *
+ * The pipeline was specified in an invalid format or cannot be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The validation was specified in an invalid format.</p>
+ *
+ * The validation was specified in an invalid format.
  *
  * @throws {@link CodePipelineServiceException}
- * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * Base exception class for all service exceptions from CodePipeline service.
  *
  * @public
  */

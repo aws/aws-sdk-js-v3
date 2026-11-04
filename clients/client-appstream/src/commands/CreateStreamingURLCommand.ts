@@ -23,7 +23,8 @@ export interface CreateStreamingURLCommandInput extends CreateStreamingURLReques
 export interface CreateStreamingURLCommandOutput extends CreateStreamingURLResult, __MetadataBearer {}
 
 /**
- * <p>Creates a temporary URL to start an WorkSpaces Applications streaming session for the specified user. A streaming URL enables application streaming to be tested without user setup. </p>
+ * Creates a temporary URL to start an WorkSpaces Applications streaming session for the specified user. A streaming URL enables application streaming to be tested without user setup.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,20 +57,24 @@ export interface CreateStreamingURLCommandOutput extends CreateStreamingURLResul
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+ *
+ * Indicates an incorrect combination of parameters, or a missing parameter.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>The attempted operation is not permitted.</p>
+ *
+ * The attempted operation is not permitted.
  *
  * @throws {@link ResourceNotAvailableException} (client fault)
- *  <p>The specified resource exists and is not in use, but isn't available.</p>
+ *
+ * The specified resource exists and is not in use, but isn't available.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link AppStreamServiceException}
- * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * Base exception class for all service exceptions from AppStream service.
  *
  * @public
  */

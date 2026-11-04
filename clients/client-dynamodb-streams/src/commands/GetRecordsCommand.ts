@@ -23,17 +23,12 @@ export interface GetRecordsCommandInput extends GetRecordsInput {}
 export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves the stream records from a given shard.</p>
- *          <p>Specify a shard iterator using the <code>ShardIterator</code> parameter. The shard iterator
- *       specifies the position in the shard from which you want to start reading stream records
- *       sequentially. If there are no stream records available in the portion of the shard that the
- *       iterator points to, <code>GetRecords</code> returns an empty list. Note that it might take
- *       multiple calls to get to a portion of the shard that contains stream records.</p>
- *          <note>
- *             <p>
- *                <code>GetRecords</code> can retrieve a maximum of 1 MB of data or 1000 stream records,
- *         whichever comes first.</p>
- *          </note>
+ * Retrieves the stream records from a given shard.
+ *
+ * Specify a shard iterator using the `ShardIterator` parameter. The shard iterator specifies the position in the shard from which you want to start reading stream records sequentially. If there are no stream records available in the portion of the shard that the iterator points to, `GetRecords` returns an empty list. Note that it might take multiple calls to get to a portion of the shard that contains stream records.
+ *
+ * > **Note:** `GetRecords` can retrieve a maximum of 1 MB of data or 1000 stream records, whichever comes first.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -131,51 +126,45 @@ export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBea
  * @see {@link DynamoDBStreamsClientResolvedConfig | config} for DynamoDBStreamsClient's `config` shape.
  *
  * @throws {@link ExpiredIteratorException} (client fault)
- *  <p>The shard iterator has expired and can no longer be used to retrieve stream records. A shard
- *       iterator expires 15 minutes after it is retrieved using the <code>GetShardIterator</code>
- *       action.</p>
+ *
+ * The shard iterator has expired and can no longer be used to retrieve stream records. A shard iterator expires 15 minutes after it is retrieved using the `GetShardIterator` action.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>There is no limit to the number of daily on-demand backups that can be taken. </p>
- *          <p>For most purposes, up to 500 simultaneous table operations are allowed per account. These operations
- *           include <code>CreateTable</code>, <code>UpdateTable</code>,
- *           <code>DeleteTable</code>,<code>UpdateTimeToLive</code>,
- *           <code>RestoreTableFromBackup</code>, and <code>RestoreTableToPointInTime</code>. </p>
- *          <p>When you are creating a table with one or more secondary
- *           indexes, you can have up to 250 such requests running at a time. However, if the table or
- *           index specifications are complex, then DynamoDB might temporarily reduce the number
- *           of concurrent operations.</p>
- *          <p>When importing into DynamoDB, up to 50 simultaneous import table operations are allowed per account.</p>
- *          <p>There is a soft account quota of 2,500 tables.</p>
- *          <p>GetRecords was called with a value of more than 1000 for the limit request parameter.</p>
- *          <p>More than 2 processes are reading from the same streams shard at the same time. Exceeding
- *           this limit may result in request throttling.</p>
+ *
+ * There is no limit to the number of daily on-demand backups that can be taken.
+ *
+ * For most purposes, up to 500 simultaneous table operations are allowed per account. These operations include `CreateTable`, `UpdateTable`, `DeleteTable`,`UpdateTimeToLive`, `RestoreTableFromBackup`, and `RestoreTableToPointInTime`.
+ *
+ * When you are creating a table with one or more secondary indexes, you can have up to 250 such requests running at a time. However, if the table or index specifications are complex, then DynamoDB might temporarily reduce the number of concurrent operations.
+ *
+ * When importing into DynamoDB, up to 50 simultaneous import table operations are allowed per account.
+ *
+ * There is a soft account quota of 2,500 tables.
+ *
+ * GetRecords was called with a value of more than 1000 for the limit request parameter.
+ *
+ * More than 2 processes are reading from the same streams shard at the same time. Exceeding this limit may result in request throttling.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The operation tried to access a nonexistent table or index. The resource
- *             might not be specified correctly, or its status might not be
- *             <code>ACTIVE</code>.</p>
+ *
+ * The operation tried to access a nonexistent table or index. The resource might not be specified correctly, or its status might not be `ACTIVE`.
  *
  * @throws {@link TrimmedDataAccessException} (client fault)
- *  <p>The operation attempted to read past the oldest stream record in a shard.</p>
- *          <p>In DynamoDB Streams, there is a 24 hour limit on data retention. Stream records whose age exceeds this limit are subject to removal (trimming) from the stream. You might receive a TrimmedDataAccessException if:</p>
- *          <ul>
- *             <li>
- *                <p>You request a shard iterator with a sequence number older than the trim point (24 hours).</p>
- *             </li>
- *             <li>
- *                <p>You obtain a shard iterator, but before you use the iterator in a <code>GetRecords</code>
- *         request, a stream record in the shard exceeds the 24 hour period and is trimmed. This causes
- *         the iterator to access a record that no longer exists.</p>
- *             </li>
- *          </ul>
+ *
+ * The operation attempted to read past the oldest stream record in a shard.
+ *
+ * In DynamoDB Streams, there is a 24 hour limit on data retention. Stream records whose age exceeds this limit are subject to removal (trimming) from the stream. You might receive a TrimmedDataAccessException if:
+ *
+ * - You request a shard iterator with a sequence number older than the trim point (24 hours).
+ * - You obtain a shard iterator, but before you use the iterator in a `GetRecords` request, a stream record in the shard exceeds the 24 hour period and is trimmed. This causes the iterator to access a record that no longer exists.
  *
  * @throws {@link DynamoDBStreamsServiceException}
- * <p>Base exception class for all service exceptions from DynamoDBStreams service.</p>
  *
+ * Base exception class for all service exceptions from DynamoDBStreams service.
  *
  * @public
  */

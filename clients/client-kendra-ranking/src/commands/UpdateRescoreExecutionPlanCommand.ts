@@ -23,12 +23,8 @@ export interface UpdateRescoreExecutionPlanCommandInput extends UpdateRescoreExe
 export interface UpdateRescoreExecutionPlanCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Updates a rescore execution plan. A rescore execution plan
- *             is an Amazon Kendra Intelligent Ranking resource used for
- *             provisioning the <code>Rescore</code> API. You can update the
- *             number of capacity units you require for Amazon Kendra
- *             Intelligent Ranking to rescore or re-rank a search service's
- *             results.</p>
+ * Updates a rescore execution plan. A rescore execution plan is an Amazon Kendra Intelligent Ranking resource used for provisioning the `Rescore` API. You can update the number of capacity units you require for Amazon Kendra Intelligent Ranking to rescore or re-rank a search service's results.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,45 +54,36 @@ export interface UpdateRescoreExecutionPlanCommandOutput extends __MetadataBeare
  * @see {@link KendraRankingClientResolvedConfig | config} for KendraRankingClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don’t have sufficient access to perform this action.
- *             Please ensure you have the required permission policies
- *             and user accounts and try again.</p>
+ *
+ * You don’t have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A conflict occurred with the request. Please fix any
- *             inconsistencies with your resources and try again.</p>
+ *
+ * A conflict occurred with the request. Please fix any inconsistencies with your resources and try again.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An issue occurred with the internal server used for
- *             your Amazon Kendra Intelligent Ranking service.
- *             Please wait a few minutes and try again, or contact
- *             <a href="http://aws.amazon.com/contact-us/">Support</a>
- *             for help.</p>
+ *
+ * An issue occurred with the internal server used for your Amazon Kendra Intelligent Ranking service. Please wait a few minutes and try again, or contact [Support](http://aws.amazon.com/contact-us/) for help.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource you want to use doesn't exist. Please
- *             check you have provided the correct resource and try
- *             again.</p>
+ *
+ * The resource you want to use doesn't exist. Please check you have provided the correct resource and try again.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You have exceeded the set limits for your
- *             Amazon Kendra Intelligent Ranking service. Please
- *             see <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas</a>
- *             for more information, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> to inquire about
- *             an increase of limits.</p>
+ *
+ * You have exceeded the set limits for your Amazon Kendra Intelligent Ranking service. Please see [Quotas](https://docs.aws.amazon.com/kendra/latest/dg/quotas.html) for more information, or contact [Support](http://aws.amazon.com/contact-us/) to inquire about an increase of limits.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.
- *             Please reduce the number of requests and try again.</p>
+ *
+ * The request was denied due to request throttling. Please reduce the number of requests and try again.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints set by
- *             the Amazon Kendra Intelligent Ranking service.
- *             Please provide the correct input and try again.</p>
+ *
+ * The input fails to satisfy the constraints set by the Amazon Kendra Intelligent Ranking service. Please provide the correct input and try again.
  *
  * @throws {@link KendraRankingServiceException}
- * <p>Base exception class for all service exceptions from KendraRanking service.</p>
  *
+ * Base exception class for all service exceptions from KendraRanking service.
  *
  * @public
  */

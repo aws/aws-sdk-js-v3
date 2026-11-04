@@ -23,7 +23,8 @@ export interface DescribeMacHostsCommandInput extends DescribeMacHostsRequest {}
 export interface DescribeMacHostsCommandOutput extends DescribeMacHostsResult, __MetadataBearer {}
 
 /**
- * <p>Describes the specified EC2 Mac Dedicated Host or all of your EC2 Mac Dedicated Hosts.</p>
+ * Describes the specified EC2 Mac Dedicated Host or all of your EC2 Mac Dedicated Hosts.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,8 +71,8 @@ export interface DescribeMacHostsCommandOutput extends DescribeMacHostsResult, _
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

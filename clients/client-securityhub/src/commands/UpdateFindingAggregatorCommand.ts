@@ -23,13 +23,12 @@ export interface UpdateFindingAggregatorCommandInput extends UpdateFindingAggreg
 export interface UpdateFindingAggregatorCommandOutput extends UpdateFindingAggregatorResponse, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>The <i>aggregation Region</i> is now called the <i>home Region</i>.</p>
- *          </note>
- *          <p>Updates cross-Region aggregation settings. You can use this operation to update the Region linking mode and the list
- *         of included or excluded Amazon Web Services Regions. However, you can't use this operation to change the home Region.</p>
- *          <p>You can invoke this operation from the current home Region only.
- *       </p>
+ * > **Note:** The *aggregation Region* is now called the *home Region*.
+ *
+ * Updates cross-Region aggregation settings. You can use this operation to update the Region linking mode and the list of included or excluded Amazon Web Services Regions. However, you can't use this operation to change the home Region.
+ *
+ * You can invoke this operation from the current home Region only.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,28 +64,32 @@ export interface UpdateFindingAggregatorCommandOutput extends UpdateFindingAggre
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permission to perform the action specified in the request.</p>
+ *
+ * You don't have permission to perform the action specified in the request.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>Internal server error.</p>
+ *
+ * Internal server error.
  *
  * @throws {@link InvalidAccessException} (client fault)
- *  <p>The account doesn't have permission to perform this action.</p>
+ *
+ * The account doesn't have permission to perform this action.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because you supplied an invalid or out-of-range value for an
- *          input parameter.</p>
+ *
+ * The request was rejected because you supplied an invalid or out-of-range value for an input parameter.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
- *          account or throttling limits. The error code describes the limit exceeded.</p>
+ *
+ * The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request was rejected because we can't find the specified resource.</p>
+ *
+ * The request was rejected because we can't find the specified resource.
  *
  * @throws {@link SecurityHubServiceException}
- * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * Base exception class for all service exceptions from SecurityHub service.
  *
  * @example To update cross-Region aggregation settings
  * ```javascript

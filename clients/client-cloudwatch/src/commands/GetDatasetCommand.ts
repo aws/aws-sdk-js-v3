@@ -23,17 +23,12 @@ export interface GetDatasetCommandInput extends GetDatasetInput {}
 export interface GetDatasetCommandOutput extends GetDatasetOutput, __MetadataBearer {}
 
 /**
- * <p>Returns information about the specified dataset. This includes its identifier,
- *             Amazon Resource Name (ARN), and any customer managed Amazon Web Services Key
- *             Management Service (Amazon Web Services KMS) key that is currently associated with
- *             it.</p>
- *          <p>Only the <code>default</code> dataset is supported. The <code>default</code> dataset
- *             is implicit for every account in every Region — you can call <code>GetDataset</code>
- *             for it without first creating it. If no customer managed KMS key has been associated
- *             with the dataset, the response omits the <code>KmsKeyArn</code> field, indicating that
- *             data is encrypted at rest using an Amazon Web Services owned key managed by
- *             Amazon CloudWatch.</p>
- *          <p>To associate a customer managed KMS key with a dataset, use <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_AssociateDatasetKmsKey.html">AssociateDatasetKmsKey</a>. To remove the association, use <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DisassociateDatasetKmsKey.html">DisassociateDatasetKmsKey</a>.</p>
+ * Returns information about the specified dataset. This includes its identifier, Amazon Resource Name (ARN), and any customer managed Amazon Web Services Key Management Service (Amazon Web Services KMS) key that is currently associated with it.
+ *
+ * Only the `default` dataset is supported. The `default` dataset is implicit for every account in every Region — you can call `GetDataset` for it without first creating it. If no customer managed KMS key has been associated with the dataset, the response omits the `KmsKeyArn` field, indicating that data is encrypted at rest using an Amazon Web Services owned key managed by Amazon CloudWatch.
+ *
+ * To associate a customer managed KMS key with a dataset, use [AssociateDatasetKmsKey](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_AssociateDatasetKmsKey.html). To remove the association, use [DisassociateDatasetKmsKey](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DisassociateDatasetKmsKey.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,11 +57,12 @@ export interface GetDatasetCommandOutput extends GetDatasetOutput, __MetadataBea
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The named resource does not exist.</p>
+ *
+ * The named resource does not exist.
  *
  * @throws {@link CloudWatchServiceException}
- * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatch service.
  *
  * @public
  */

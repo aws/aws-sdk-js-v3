@@ -23,7 +23,8 @@ export interface ListCapacityReservationsCommandInput extends ListCapacityReserv
 export interface ListCapacityReservationsCommandOutput extends ListCapacityReservationsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the capacity reservations for the current account.</p>
+ * Lists the capacity reservations for the current account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,16 +68,16 @@ export interface ListCapacityReservationsCommandOutput extends ListCapacityReser
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Indicates a platform issue, which may be due to a transient condition or
- *             outage.</p>
+ *
+ * Indicates a platform issue, which may be due to a transient condition or outage.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Indicates that something is wrong with the input to the request. For example, a
- *             required parameter may be missing or out of range.</p>
+ *
+ * Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.
  *
  * @throws {@link AthenaServiceException}
- * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * Base exception class for all service exceptions from Athena service.
  *
  * @public
  */

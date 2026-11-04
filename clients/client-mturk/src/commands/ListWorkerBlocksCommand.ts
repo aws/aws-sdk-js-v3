@@ -23,7 +23,8 @@ export interface ListWorkerBlocksCommandInput extends ListWorkerBlocksRequest {}
 export interface ListWorkerBlocksCommandOutput extends ListWorkerBlocksResponse, __MetadataBearer {}
 
 /**
- * <p>The <code>ListWorkersBlocks</code> operation retrieves a list of Workers who are blocked from working on your HITs.</p>
+ * The `ListWorkersBlocks` operation retrieves a list of Workers who are blocked from working on your HITs.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,14 +59,16 @@ export interface ListWorkerBlocksCommandOutput extends ListWorkerBlocksResponse,
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
  *
  * @throws {@link RequestError} (client fault)
- *  <p>Your request is invalid.</p>
+ *
+ * Your request is invalid.
  *
  * @throws {@link ServiceFault} (server fault)
- *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
+ * Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.
  *
  * @throws {@link MTurkServiceException}
- * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * Base exception class for all service exceptions from MTurk service.
  *
  * @public
  */

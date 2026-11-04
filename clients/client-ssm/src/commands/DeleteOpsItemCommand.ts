@@ -23,34 +23,17 @@ export interface DeleteOpsItemCommandInput extends DeleteOpsItemRequest {}
 export interface DeleteOpsItemCommandOutput extends DeleteOpsItemResponse, __MetadataBearer {}
 
 /**
- * <p>Delete an OpsItem. You must have permission in Identity and Access Management (IAM) to
- *    delete an OpsItem. </p>
- *          <important>
- *             <p>Note the following important information about this operation.</p>
- *             <ul>
- *                <li>
- *                   <p>Deleting an OpsItem is irreversible. You can't restore a deleted OpsItem.</p>
- *                </li>
- *                <li>
- *                   <p>This operation uses an <i>eventual consistency model</i>, which means the
- *       system can take a few minutes to complete this operation. If you delete an OpsItem and
- *       immediately call, for example, <a>GetOpsItem</a>, the deleted OpsItem might still
- *       appear in the response. </p>
- *                </li>
- *                <li>
- *                   <p>This operation is idempotent. The system doesn't throw an exception if you repeatedly
- *       call this operation for the same OpsItem. If the first call is successful, all additional calls
- *       return the same successful response as the first call.</p>
- *                </li>
- *                <li>
- *                   <p>This operation doesn't support cross-account calls. A delegated administrator or
- *       management account can't delete OpsItems in other accounts, even if OpsCenter has been set up for
- *       cross-account administration. For more information about cross-account administration, see
- *        <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-setting-up-cross-account.html">Setting up
- *        OpsCenter to centrally manage OpsItems across accounts</a> in the <i>Systems Manager User Guide</i>.</p>
- *                </li>
- *             </ul>
- *          </important>
+ * Delete an OpsItem. You must have permission in Identity and Access Management (IAM) to delete an OpsItem.
+ *
+ * > **Important:**
+ * >
+ * > Note the following important information about this operation.
+ * >
+ * > - Deleting an OpsItem is irreversible. You can't restore a deleted OpsItem.
+ * > - This operation uses an *eventual consistency model*, which means the system can take a few minutes to complete this operation. If you delete an OpsItem and immediately call, for example, GetOpsItem, the deleted OpsItem might still appear in the response.
+ * > - This operation is idempotent. The system doesn't throw an exception if you repeatedly call this operation for the same OpsItem. If the first call is successful, all additional calls return the same successful response as the first call.
+ * > - This operation doesn't support cross-account calls. A delegated administrator or management account can't delete OpsItems in other accounts, even if OpsCenter has been set up for cross-account administration. For more information about cross-account administration, see [Setting up OpsCenter to centrally manage OpsItems across accounts](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-setting-up-cross-account.html) in the *Systems Manager User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,15 +58,16 @@ export interface DeleteOpsItemCommandOutput extends DeleteOpsItemResponse, __Met
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link OpsItemInvalidParameterException} (client fault)
- *  <p>A specified parameter argument isn't valid. Verify the available arguments and try
- *    again.</p>
+ *
+ * A specified parameter argument isn't valid. Verify the available arguments and try again.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

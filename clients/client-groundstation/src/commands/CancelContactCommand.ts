@@ -23,7 +23,13 @@ export interface CancelContactCommandInput extends CancelContactRequest {}
 export interface CancelContactCommandOutput extends ContactIdResponse, __MetadataBearer {}
 
 /**
- * <p>Cancels or stops a contact with a specified contact ID based on its position in the <a href="https://docs.aws.amazon.com/ground-station/latest/ug/contacts.lifecycle.html">contact lifecycle</a>.</p> <p>For contacts that:</p> <ul> <li> <p>Have yet to start, the contact will be cancelled.</p> </li> <li> <p>Have started but have yet to finish, the contact will be stopped.</p> </li> </ul>
+ * Cancels or stops a contact with a specified contact ID based on its position in the [contact lifecycle](https://docs.aws.amazon.com/ground-station/latest/ug/contacts.lifecycle.html).
+ *
+ * For contacts that:
+ *
+ * - Have yet to start, the contact will be cancelled.
+ * - Have started but have yet to finish, the contact will be stopped.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,17 +57,20 @@ export interface CancelContactCommandOutput extends ContactIdResponse, __Metadat
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
  *
  * @throws {@link DependencyException} (server fault)
- *  <p>Dependency encountered an error.</p>
+ *
+ * Dependency encountered an error.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource was not found.</p>
+ *
+ * Resource was not found.
  *
  * @throws {@link GroundStationServiceException}
- * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ * Base exception class for all service exceptions from GroundStation service.
  *
  * @public
  */

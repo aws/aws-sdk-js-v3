@@ -23,8 +23,8 @@ export interface CreateWhatIfForecastCommandInput extends CreateWhatIfForecastRe
 export interface CreateWhatIfForecastCommandOutput extends CreateWhatIfForecastResponse, __MetadataBearer {}
 
 /**
- * <p>A what-if forecast is a forecast that is created from a modified version of the baseline forecast. Each
- *       what-if forecast incorporates either a replacement dataset or a set of transformations to the original dataset. </p>
+ * A what-if forecast is a forecast that is created from a modified version of the baseline forecast. Each what-if forecast incorporates either a replacement dataset or a set of transformations to the original dataset.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,25 +91,28 @@ export interface CreateWhatIfForecastCommandOutput extends CreateWhatIfForecastR
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>We can't process the request because it includes an invalid value or a value that exceeds
- *       the valid range.</p>
+ *
+ * We can't process the request because it includes an invalid value or a value that exceeds the valid range.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The limit on the number of resources per account has been exceeded.</p>
+ *
+ * The limit on the number of resources per account has been exceeded.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>There is already a resource with this name. Try again with a different name.</p>
+ *
+ * There is already a resource with this name. Try again with a different name.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is in use.</p>
+ *
+ * The specified resource is in use.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
- *       again.</p>
+ *
+ * We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.
  *
  * @throws {@link ForecastServiceException}
- * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * Base exception class for all service exceptions from Forecast service.
  *
  * @public
  */

@@ -23,25 +23,16 @@ export interface CreateLagCommandInput extends CreateLagRequest {}
 export interface CreateLagCommandOutput extends Lag, __MetadataBearer {}
 
 /**
- * <p>Creates a link aggregation group (LAG) with the specified number of bundled
- *       physical dedicated connections between the customer network and a specific Direct Connect location.
- *       A LAG is a logical interface that uses the Link Aggregation Control Protocol
- *       (LACP) to aggregate multiple interfaces, enabling you to treat them as a single
- *       interface.</p>
- *          <p>All connections in a LAG must use the same bandwidth (either 1Gbps, 10Gbps, 100Gbps,
- *       or 400Gbps) and must terminate at the same Direct Connect endpoint.</p>
- *          <p>You can have up to 10 dedicated connections per location. Regardless of this limit, if you
- *       request more connections for the LAG than Direct Connect can allocate on a single endpoint, no LAG is
- *       created..</p>
- *          <p>You can specify an existing physical dedicated connection or interconnect to include in
- *       the LAG (which counts towards the total number of connections). Doing so interrupts the
- *       current physical dedicated connection, and re-establishes them as a member of the LAG. The LAG
- *       will be created on the same Direct Connect endpoint to which the dedicated connection terminates. Any
- *       virtual interfaces associated with the dedicated connection are automatically disassociated
- *       and re-associated with the LAG. The connection ID does not change.</p>
- *          <p>If the Amazon Web Services account used to create a LAG is a registered Direct Connect Partner, the LAG is
- *       automatically enabled to host sub-connections. For a LAG owned by a partner, any associated virtual
- *       interfaces cannot be directly configured.</p>
+ * Creates a link aggregation group (LAG) with the specified number of bundled physical dedicated connections between the customer network and a specific Direct Connect location. A LAG is a logical interface that uses the Link Aggregation Control Protocol (LACP) to aggregate multiple interfaces, enabling you to treat them as a single interface.
+ *
+ * All connections in a LAG must use the same bandwidth (either 1Gbps, 10Gbps, 100Gbps, or 400Gbps) and must terminate at the same Direct Connect endpoint.
+ *
+ * You can have up to 10 dedicated connections per location. Regardless of this limit, if you request more connections for the LAG than Direct Connect can allocate on a single endpoint, no LAG is created..
+ *
+ * You can specify an existing physical dedicated connection or interconnect to include in the LAG (which counts towards the total number of connections). Doing so interrupts the current physical dedicated connection, and re-establishes them as a member of the LAG. The LAG will be created on the same Direct Connect endpoint to which the dedicated connection terminates. Any virtual interfaces associated with the dedicated connection are automatically disassociated and re-associated with the LAG. The connection ID does not change.
+ *
+ * If the Amazon Web Services account used to create a LAG is a registered Direct Connect Partner, the LAG is automatically enabled to host sub-connections. For a LAG owned by a partner, any associated virtual interfaces cannot be directly configured.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -179,20 +170,24 @@ export interface CreateLagCommandOutput extends Lag, __MetadataBearer {}
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  * @throws {@link DirectConnectClientException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link DirectConnectServerException} (server fault)
- *  <p>A server-side error occurred.</p>
+ *
+ * A server-side error occurred.
  *
  * @throws {@link DuplicateTagKeysException} (client fault)
- *  <p>A tag key was specified more than once.</p>
+ *
+ * A tag key was specified more than once.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>You have reached the limit on the number of tags that can be assigned.</p>
+ *
+ * You have reached the limit on the number of tags that can be assigned.
  *
  * @throws {@link DirectConnectServiceException}
- * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * Base exception class for all service exceptions from DirectConnect service.
  *
  * @public
  */

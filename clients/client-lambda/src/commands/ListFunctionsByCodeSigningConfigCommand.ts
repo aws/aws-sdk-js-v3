@@ -26,7 +26,8 @@ export interface ListFunctionsByCodeSigningConfigCommandInput extends ListFuncti
 export interface ListFunctionsByCodeSigningConfigCommandOutput extends ListFunctionsByCodeSigningConfigResponse, __MetadataBearer {}
 
 /**
- * <p>List the functions that use the specified code signing configuration. You can use this method prior to deleting a code signing configuration, to verify that no functions are using it.</p>
+ * List the functions that use the specified code signing configuration. You can use this method prior to deleting a code signing configuration, to verify that no functions are using it.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,17 +59,20 @@ export interface ListFunctionsByCodeSigningConfigCommandOutput extends ListFunct
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One of the parameters in the request is not valid.</p>
+ *
+ * One of the parameters in the request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource specified in the request does not exist.</p>
+ *
+ * The resource specified in the request does not exist.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>The Lambda service encountered an internal error.</p>
+ *
+ * The Lambda service encountered an internal error.
  *
  * @throws {@link LambdaServiceException}
- * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * Base exception class for all service exceptions from Lambda service.
  *
  * @public
  */

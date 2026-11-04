@@ -23,10 +23,10 @@ export interface UpdateEmailTemplateCommandInput extends UpdateEmailTemplateRequ
 export interface UpdateEmailTemplateCommandOutput extends UpdateEmailTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an email template. Email templates enable you to send personalized email to
- *             one or more destinations in a single API operation. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer
- *                 Guide</a>.</p>
- *          <p>You can execute this operation no more than once per second.</p>
+ * Updates an email template. Email templates enable you to send personalized email to one or more destinations in a single API operation. For more information, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html).
+ *
+ * You can execute this operation no more than once per second.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,17 +56,20 @@ export interface UpdateEmailTemplateCommandOutput extends UpdateEmailTemplateRes
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * The resource you attempted to access doesn't exist.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Too many requests have been made to the operation.</p>
+ *
+ * Too many requests have been made to the operation.
  *
  * @throws {@link SESv2ServiceException}
- * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * Base exception class for all service exceptions from SESv2 service.
  *
  * @public
  */

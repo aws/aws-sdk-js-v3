@@ -26,7 +26,8 @@ export interface ListStackSetAutoDeploymentTargetsCommandInput extends ListStack
 export interface ListStackSetAutoDeploymentTargetsCommandOutput extends ListStackSetAutoDeploymentTargetsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns summary information about deployment targets for a StackSet.</p>
+ * Returns summary information about deployment targets for a StackSet.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,11 +65,12 @@ export interface ListStackSetAutoDeploymentTargetsCommandOutput extends ListStac
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link StackSetNotFoundException} (client fault)
- *  <p>The specified StackSet doesn't exist.</p>
+ *
+ * The specified StackSet doesn't exist.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

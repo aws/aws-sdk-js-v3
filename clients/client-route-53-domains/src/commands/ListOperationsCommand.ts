@@ -23,9 +23,10 @@ export interface ListOperationsCommandInput extends ListOperationsRequest {}
 export interface ListOperationsCommandOutput extends ListOperationsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about all of the operations that return an operation ID and that
- * 			have ever been performed on domains that were registered by the current account. </p>
- *          <p>This command runs only in the us-east-1 Region.</p>
+ * Returns information about all of the operations that return an operation ID and that have ever been performed on domains that were registered by the current account.
+ *
+ * This command runs only in the us-east-1 Region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,14 +75,12 @@ export interface ListOperationsCommandOutput extends ListOperationsResponse, __M
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The requested item is not acceptable. For example, for APIs that accept a domain name,
- * 			the request might specify a domain name that doesn't belong to the account that
- * 			submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the
- * 			password might be invalid.</p>
+ *
+ * The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For `AcceptDomainTransferFromAnotherAwsAccount`, the password might be invalid.
  *
  * @throws {@link Route53DomainsServiceException}
- * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ * Base exception class for all service exceptions from Route53Domains service.
  *
  * @public
  */

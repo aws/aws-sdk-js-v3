@@ -23,31 +23,14 @@ export interface CreateDBClusterParameterGroupCommandInput extends CreateDBClust
 export interface CreateDBClusterParameterGroupCommandOutput extends CreateDBClusterParameterGroupResult, __MetadataBearer {}
 
 /**
- * <p>Creates a new DB cluster parameter group.</p>
- *          <p>Parameters in a DB cluster parameter group apply to all of the instances in a DB
- *       cluster.</p>
- *          <p> A DB cluster parameter group is initially created with the default
- *       parameters for the database engine used by instances in the DB cluster.
- *       To provide custom values for any of the parameters, you must modify the
- *       group after creating it using <a>ModifyDBClusterParameterGroup</a>.
- *       Once you've created a DB cluster parameter group, you need to associate it
- *       with your DB cluster using <a>ModifyDBCluster</a>.
- *       When you associate a new DB cluster parameter group with a running DB cluster,
- *       you need to reboot the DB instances in the DB cluster without failover for the
- *       new DB cluster parameter group and associated settings to take effect.</p>
- *          <important>
- *             <p>After you create a DB cluster parameter group, you should wait at least
- *         5 minutes before creating your first DB cluster that uses that DB cluster
- *         parameter group as the default parameter group. This allows Amazon Neptune
- *         to fully complete the create action before the DB cluster parameter group
- *         is used as the default for a new DB cluster. This is especially important for
- *         parameters that are critical when creating the default database for a DB
- *         cluster, such as the character set for the default database defined by the
- *         <code>character_set_database</code> parameter. You can use the <i>Parameter
- *         Groups</i> option of the <a href="https://console.aws.amazon.com/rds/">Amazon Neptune
- *         console</a> or the <a>DescribeDBClusterParameters</a>
- *         command to verify that your DB cluster parameter group has been created or modified.</p>
- *          </important>
+ * Creates a new DB cluster parameter group.
+ *
+ * Parameters in a DB cluster parameter group apply to all of the instances in a DB cluster.
+ *
+ * A DB cluster parameter group is initially created with the default parameters for the database engine used by instances in the DB cluster. To provide custom values for any of the parameters, you must modify the group after creating it using ModifyDBClusterParameterGroup. Once you've created a DB cluster parameter group, you need to associate it with your DB cluster using ModifyDBCluster. When you associate a new DB cluster parameter group with a running DB cluster, you need to reboot the DB instances in the DB cluster without failover for the new DB cluster parameter group and associated settings to take effect.
+ *
+ * > **Important:** After you create a DB cluster parameter group, you should wait at least 5 minutes before creating your first DB cluster that uses that DB cluster parameter group as the default parameter group. This allows Amazon Neptune to fully complete the create action before the DB cluster parameter group is used as the default for a new DB cluster. This is especially important for parameters that are critical when creating the default database for a DB cluster, such as the character set for the default database defined by the `character_set_database` parameter. You can use the *Parameter Groups* option of the [Amazon Neptune console](https://console.aws.amazon.com/rds/) or the DescribeDBClusterParameters command to verify that your DB cluster parameter group has been created or modified.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,14 +70,16 @@ export interface CreateDBClusterParameterGroupCommandOutput extends CreateDBClus
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  * @throws {@link DBParameterGroupAlreadyExistsFault} (client fault)
- *  <p>A DB parameter group with the same name exists.</p>
+ *
+ * A DB parameter group with the same name exists.
  *
  * @throws {@link DBParameterGroupQuotaExceededFault} (client fault)
- *  <p>Request would result in user exceeding the allowed number of DB parameter groups.</p>
+ *
+ * Request would result in user exceeding the allowed number of DB parameter groups.
  *
  * @throws {@link NeptuneServiceException}
- * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * Base exception class for all service exceptions from Neptune service.
  *
  * @public
  */

@@ -23,7 +23,10 @@ export interface CheckpointDurableExecutionCommandInput extends CheckpointDurabl
 export interface CheckpointDurableExecutionCommandOutput extends CheckpointDurableExecutionResponse, __MetadataBearer {}
 
 /**
- * <p>Saves the progress of a <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html">durable function</a> execution during runtime. This API is used by the Lambda durable functions SDK to checkpoint completed steps and schedule asynchronous operations. You typically don't need to call this API directly as the SDK handles checkpointing automatically.</p> <p>Each checkpoint operation consumes the current checkpoint token and returns a new one for the next checkpoint. This ensures that checkpoints are applied in the correct order and prevents duplicate or out-of-order state updates.</p>
+ * Saves the progress of a [durable function](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html) execution during runtime. This API is used by the Lambda durable functions SDK to checkpoint completed steps and schedule asynchronous operations. You typically don't need to call this API directly as the SDK handles checkpointing automatically.
+ *
+ * Each checkpoint operation consumes the current checkpoint token and returns a new one for the next checkpoint. This ensures that checkpoints are applied in the correct order and prevents duplicate or out-of-order state updates.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -158,29 +161,36 @@ export interface CheckpointDurableExecutionCommandOutput extends CheckpointDurab
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One of the parameters in the request is not valid.</p>
+ *
+ * One of the parameters in the request is not valid.
  *
  * @throws {@link KMSAccessDeniedException} (server fault)
- *  <p>Lambda couldn't decrypt the environment variables because KMS access was denied. Check the Lambda function's KMS permissions.</p>
+ *
+ * Lambda couldn't decrypt the environment variables because KMS access was denied. Check the Lambda function's KMS permissions.
  *
  * @throws {@link KMSDisabledException} (server fault)
- *  <p>Lambda couldn't decrypt the environment variables because the KMS key used is disabled. Check the Lambda function's KMS key settings.</p>
+ *
+ * Lambda couldn't decrypt the environment variables because the KMS key used is disabled. Check the Lambda function's KMS key settings.
  *
  * @throws {@link KMSInvalidStateException} (server fault)
- *  <p>Lambda couldn't decrypt the environment variables because the state of the KMS key used is not valid for Decrypt. Check the function's KMS key settings.</p>
+ *
+ * Lambda couldn't decrypt the environment variables because the state of the KMS key used is not valid for Decrypt. Check the function's KMS key settings.
  *
  * @throws {@link KMSNotFoundException} (server fault)
- *  <p>Lambda couldn't decrypt the environment variables because the KMS key was not found. Check the function's KMS key settings.</p>
+ *
+ * Lambda couldn't decrypt the environment variables because the KMS key was not found. Check the function's KMS key settings.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>The Lambda service encountered an internal error.</p>
+ *
+ * The Lambda service encountered an internal error.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
+ *
+ * The request throughput limit was exceeded. For more information, see [Lambda quotas](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests).
  *
  * @throws {@link LambdaServiceException}
- * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * Base exception class for all service exceptions from Lambda service.
  *
  * @public
  */

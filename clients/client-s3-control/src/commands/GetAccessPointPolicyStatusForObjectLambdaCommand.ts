@@ -26,10 +26,10 @@ export interface GetAccessPointPolicyStatusForObjectLambdaCommandInput extends G
 export interface GetAccessPointPolicyStatusForObjectLambdaCommandOutput extends GetAccessPointPolicyStatusForObjectLambdaResult, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This operation is not supported by directory buckets.</p>
- *          </note>
- *          <p>Returns the status of the resource policy associated with an Object Lambda Access Point.</p>
+ * > **Note:** This operation is not supported by directory buckets.
+ *
+ * Returns the status of the resource policy associated with an Object Lambda Access Point.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,8 +59,8 @@ export interface GetAccessPointPolicyStatusForObjectLambdaCommandOutput extends 
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
  * @throws {@link S3ControlServiceException}
- * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * Base exception class for all service exceptions from S3Control service.
  *
  * @public
  */

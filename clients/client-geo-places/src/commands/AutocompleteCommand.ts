@@ -23,7 +23,10 @@ export interface AutocompleteCommandInput extends AutocompleteRequest {}
 export interface AutocompleteCommandOutput extends AutocompleteResponse, __MetadataBearer {}
 
 /**
- * <p> <code>Autocomplete</code> completes potential places and addresses as the user types, based on the partial input. The API enhances the efficiency and accuracy of address by completing query based on a few entered keystrokes. It helps you by completing partial queries with valid address completion. Also, the API supports the filtering of results based on geographic location, country, or specific place types, and can be tailored using optional parameters like language and political views. Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/autocomplete.html">Autocomplete</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+ * `Autocomplete` completes potential places and addresses as the user types, based on the partial input. The API enhances the efficiency and accuracy of address by completing query based on a few entered keystrokes. It helps you by completing partial queries with valid address completion. Also, the API supports the filtering of results based on geographic location, country, or specific place types, and can be tailored using optional parameters like language and political views. Not supported in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+ *
+ * For more information, see [Autocomplete](https://docs.aws.amazon.com/location/latest/developerguide/autocomplete.html) in the *Amazon Location Service Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -178,20 +181,24 @@ export interface AutocompleteCommandOutput extends AutocompleteResponse, __Metad
  * @see {@link GeoPlacesClientResolvedConfig | config} for GeoPlacesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * You don't have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an AWS service.
  *
  * @throws {@link GeoPlacesServiceException}
- * <p>Base exception class for all service exceptions from GeoPlaces service.</p>
  *
+ * Base exception class for all service exceptions from GeoPlaces service.
  *
  * @public
  */

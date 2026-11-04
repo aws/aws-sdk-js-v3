@@ -26,8 +26,8 @@ export interface DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput e
 export interface DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput extends DescribeMaintenanceWindowExecutionTaskInvocationsResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves the individual task executions (one per target) for a particular task run as part
- *    of a maintenance window execution.</p>
+ * Retrieves the individual task executions (one per target) for a particular task run as part of a maintenance window execution.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,17 +81,18 @@ export interface DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput 
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link DoesNotExistException} (client fault)
- *  <p>Error returned when the ID specified for a resource, such as a maintenance window or patch
- *    baseline, doesn't exist.</p>
- *          <p>For information about resource quotas in Amazon Web Services Systems Manager, see <a href="https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm">Systems Manager service quotas</a> in the
- *     <i>Amazon Web Services General Reference</i>.</p>
+ *
+ * Error returned when the ID specified for a resource, such as a maintenance window or patch baseline, doesn't exist.
+ *
+ * For information about resource quotas in Amazon Web Services Systems Manager, see [Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

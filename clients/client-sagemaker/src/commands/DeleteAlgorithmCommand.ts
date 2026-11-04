@@ -23,7 +23,8 @@ export interface DeleteAlgorithmCommandInput extends DeleteAlgorithmInput {}
 export interface DeleteAlgorithmCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Removes the specified algorithm from your account.</p>
+ * Removes the specified algorithm from your account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,11 +49,12 @@ export interface DeleteAlgorithmCommandOutput extends __MetadataBearer {}
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+ *
+ * There was a conflict when you attempted to modify a SageMaker entity such as an `Experiment` or `Artifact`.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

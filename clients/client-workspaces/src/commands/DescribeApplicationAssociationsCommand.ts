@@ -23,7 +23,8 @@ export interface DescribeApplicationAssociationsCommandInput extends DescribeApp
 export interface DescribeApplicationAssociationsCommandOutput extends DescribeApplicationAssociationsResult, __MetadataBearer {}
 
 /**
- * <p>Describes the associations between the application and the specified associated resources.</p>
+ * Describes the associations between the application and the specified associated resources.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,20 +70,24 @@ export interface DescribeApplicationAssociationsCommandOutput extends DescribeAp
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The user is not authorized to access a resource.</p>
+ *
+ * The user is not authorized to access a resource.
  *
  * @throws {@link InvalidParameterValuesException} (client fault)
- *  <p>One or more parameter values are not valid.</p>
+ *
+ * One or more parameter values are not valid.
  *
  * @throws {@link OperationNotSupportedException} (client fault)
- *  <p>This operation is not supported.</p>
+ *
+ * This operation is not supported.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link WorkSpacesServiceException}
- * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * Base exception class for all service exceptions from WorkSpaces service.
  *
  * @public
  */

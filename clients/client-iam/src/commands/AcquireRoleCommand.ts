@@ -23,14 +23,10 @@ export interface AcquireRoleCommandInput extends AcquireRoleRequest {}
 export interface AcquireRoleCommandOutput extends AcquireRoleResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an IAM role from the specified role template. The new role takes its
- *             configuration—including its name, path, trust policy, inline and managed policies,
- *             permissions boundary, tags, and maximum session duration—from the role
- *             template version that you specify. For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM roles</a> in the
- *                 <i>IAM User Guide</i>.</p>
- *          <p>If the template version defines parameters, use the <code>ReplacementValues</code>
- *             parameter to supply the values that the service substitutes into the role during
- *             creation.</p>
+ * Creates an IAM role from the specified role template. The new role takes its configuration—including its name, path, trust policy, inline and managed policies, permissions boundary, tags, and maximum session duration—from the role template version that you specify. For more information about roles, see [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) in the *IAM User Guide*.
+ *
+ * If the template version defines parameters, use the `ReplacementValues` parameter to supply the values that the service substitutes into the role during creation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -92,49 +88,48 @@ export interface AcquireRoleCommandOutput extends AcquireRoleResponse, __Metadat
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>The request was rejected because multiple requests to change this object were submitted
- *       simultaneously. Wait a few minutes and submit your request again.</p>
+ *
+ * The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.
  *
  * @throws {@link EntityAlreadyExistsException} (client fault)
- *  <p>The request was rejected because it attempted to create a resource that already
- *       exists.</p>
+ *
+ * The request was rejected because it attempted to create a resource that already exists.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
- *       input parameter.</p>
+ *
+ * The request was rejected because an invalid or out-of-range value was supplied for an input parameter.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current
- *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+ *
+ * The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.
  *
  * @throws {@link MalformedPolicyDocumentException} (client fault)
- *  <p>The request was rejected because the policy document was malformed. The error message
- *       describes the specific error.</p>
+ *
+ * The request was rejected because the policy document was malformed. The error message describes the specific error.
  *
  * @throws {@link NameConflictException} (client fault)
- *  <p>The request was rejected because the resulting role name conflicts with an existing role
- *       in the account.</p>
+ *
+ * The request was rejected because the resulting role name conflicts with an existing role in the account.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link RoleModifiedException} (client fault)
- *  <p>The request was rejected because someone modified the role template while the service was
- *       creating the role. Wait a few minutes and try the request again.</p>
+ *
+ * The request was rejected because someone modified the role template while the service was creating the role. Wait a few minutes and try the request again.
  *
  * @throws {@link RoleTemplateDisabledException} (client fault)
- *  <p>The request was rejected because the specified role template is disabled. A disabled
- *       role template cannot be used to create new roles. Contact your administrator to enable the
- *       role template, or use a different role template.</p>
+ *
+ * The request was rejected because the specified role template is disabled. A disabled role template cannot be used to create new roles. Contact your administrator to enable the role template, or use a different role template.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @public
  */

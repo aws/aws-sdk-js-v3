@@ -23,9 +23,8 @@ export interface DeleteWorkspaceBundleCommandInput extends DeleteWorkspaceBundle
 export interface DeleteWorkspaceBundleCommandOutput extends DeleteWorkspaceBundleResult, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified WorkSpace bundle. For more information about deleting WorkSpace bundles, see
- *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/delete_bundle.html">
- *             Delete a Custom WorkSpaces Bundle or Image</a>.</p>
+ * Deletes the specified WorkSpace bundle. For more information about deleting WorkSpace bundles, see [Delete a Custom WorkSpaces Bundle or Image](https://docs.aws.amazon.com/workspaces/latest/adminguide/delete_bundle.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,20 +49,24 @@ export interface DeleteWorkspaceBundleCommandOutput extends DeleteWorkspaceBundl
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The user is not authorized to access a resource.</p>
+ *
+ * The user is not authorized to access a resource.
  *
  * @throws {@link InvalidParameterValuesException} (client fault)
- *  <p>One or more parameter values are not valid.</p>
+ *
+ * One or more parameter values are not valid.
  *
  * @throws {@link ResourceAssociatedException} (client fault)
- *  <p>The resource is associated with a directory.</p>
+ *
+ * The resource is associated with a directory.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link WorkSpacesServiceException}
- * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * Base exception class for all service exceptions from WorkSpaces service.
  *
  * @public
  */

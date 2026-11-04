@@ -23,7 +23,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the tags associated with the specified Amazon Web Services Agent Registry resource. Returns the current tag key-value pairs on the resource.</p>
+ * Lists the tags associated with the specified Amazon Web Services Agent Registry resource. Returns the current tag key-value pairs on the resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,23 +53,28 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link AgentRegistryControlClientResolvedConfig | config} for AgentRegistryControlClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The caller is not authorized to perform the requested action.</p>
+ *
+ * The caller is not authorized to perform the requested action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request failed due to an unexpected internal error; the caller may retry.</p>
+ *
+ * The request failed due to an unexpected internal error; the caller may retry.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource was not found.</p>
+ *
+ * The requested resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling; the caller may retry after a delay.</p>
+ *
+ * The request was denied due to request throttling; the caller may retry after a delay.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request failed validation of one or more input fields.</p>
+ *
+ * The request failed validation of one or more input fields.
  *
  * @throws {@link AgentRegistryControlServiceException}
- * <p>Base exception class for all service exceptions from AgentRegistryControl service.</p>
  *
+ * Base exception class for all service exceptions from AgentRegistryControl service.
  *
  * @public
  */

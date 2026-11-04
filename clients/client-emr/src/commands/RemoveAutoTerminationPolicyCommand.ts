@@ -23,7 +23,8 @@ export interface RemoveAutoTerminationPolicyCommandInput extends RemoveAutoTermi
 export interface RemoveAutoTerminationPolicyCommandOutput extends RemoveAutoTerminationPolicyOutput, __MetadataBearer {}
 
 /**
- * <p>Removes an auto-termination policy from an Amazon EMR cluster.</p>
+ * Removes an auto-termination policy from an Amazon EMR cluster.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,8 +49,8 @@ export interface RemoveAutoTerminationPolicyCommandOutput extends RemoveAutoTerm
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  * @throws {@link EMRServiceException}
- * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * Base exception class for all service exceptions from EMR service.
  *
  * @public
  */

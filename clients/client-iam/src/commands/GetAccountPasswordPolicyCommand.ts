@@ -23,10 +23,8 @@ export interface GetAccountPasswordPolicyCommandInput {}
 export interface GetAccountPasswordPolicyCommandOutput extends GetAccountPasswordPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the password policy for the Amazon Web Services account. This tells you the complexity
- *             requirements and mandatory rotation periods for the IAM user passwords in your account.
- *             For more information about using a password policy, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html">Managing an IAM password
- *                 policy</a>.</p>
+ * Retrieves the password policy for the Amazon Web Services account. This tells you the complexity requirements and mandatory rotation periods for the IAM user passwords in your account. For more information about using a password policy, see [Managing an IAM password policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,16 +60,16 @@ export interface GetAccountPasswordPolicyCommandOutput extends GetAccountPasswor
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @example To see the current account password policy
  * ```javascript

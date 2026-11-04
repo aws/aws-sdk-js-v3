@@ -26,9 +26,12 @@ export interface StartDashboardSnapshotJobScheduleCommandInput extends StartDash
 export interface StartDashboardSnapshotJobScheduleCommandOutput extends StartDashboardSnapshotJobScheduleResponse, __MetadataBearer {}
 
 /**
- * <p>Starts an asynchronous job that runs an existing dashboard schedule and sends the dashboard snapshot through email. </p>
- *          <p>Only one job can run simultaneously in a given schedule. Repeated requests are skipped with a <code>202</code> HTTP status code.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sending-reports.html">Scheduling and sending Amazon Quick Sight reports by email</a> and <a href="https://docs.aws.amazon.com/quicksight/latest/user/email-reports-from-dashboard.html">Configuring email report settings for a Amazon Quick Sight dashboard</a> in the <i>Amazon Quick Sight User Guide</i>.</p>
+ * Starts an asynchronous job that runs an existing dashboard schedule and sends the dashboard snapshot through email.
+ *
+ * Only one job can run simultaneously in a given schedule. Repeated requests are skipped with a `202` HTTP status code.
+ *
+ * For more information, see [Scheduling and sending Amazon Quick Sight reports by email](https://docs.aws.amazon.com/quicksight/latest/user/sending-reports.html) and [Configuring email report settings for a Amazon Quick Sight dashboard](https://docs.aws.amazon.com/quicksight/latest/user/email-reports-from-dashboard.html) in the *Amazon Quick Sight User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,35 +61,36 @@ export interface StartDashboardSnapshotJobScheduleCommandOutput extends StartDas
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have access to this item. The provided credentials couldn't be
- * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
- * 			correct permissions, and that you are using the correct credentials.</p>
+ *
+ * You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An internal failure occurred.</p>
+ *
+ * An internal failure occurred.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more parameters has a value that isn't valid.</p>
+ *
+ * One or more parameters has a value that isn't valid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>A limit is exceeded.</p>
+ *
+ * A limit is exceeded.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>One or more resources can't be found.</p>
+ *
+ * One or more resources can't be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Access is throttled.</p>
+ *
+ * Access is throttled.
  *
  * @throws {@link UnsupportedUserEditionException} (client fault)
- *  <p>This error indicates that you are calling an operation on an Amazon Quick Suite
- * 			subscription where the edition doesn't include support for that operation. Amazon
- * 			Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and
- * 			capability is available in every edition.</p>
+ *
+ * This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.
  *
  * @throws {@link QuickSightServiceException}
- * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * Base exception class for all service exceptions from QuickSight service.
  *
  * @public
  */

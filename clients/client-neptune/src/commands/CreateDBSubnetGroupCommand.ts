@@ -23,8 +23,8 @@ export interface CreateDBSubnetGroupCommandInput extends CreateDBSubnetGroupMess
 export interface CreateDBSubnetGroupCommandOutput extends CreateDBSubnetGroupResult, __MetadataBearer {}
 
 /**
- * <p>Creates a new DB subnet group. DB subnet groups must contain at least one subnet in at
- *       least two AZs in the Amazon Region.</p>
+ * Creates a new DB subnet group. DB subnet groups must contain at least one subnet in at least two AZs in the Amazon Region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,26 +79,28 @@ export interface CreateDBSubnetGroupCommandOutput extends CreateDBSubnetGroupRes
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  * @throws {@link DBSubnetGroupAlreadyExistsFault} (client fault)
- *  <p>
- *             <i>DBSubnetGroupName</i> is already used by an existing DB subnet group.</p>
+ *
+ * *DBSubnetGroupName* is already used by an existing DB subnet group.
  *
  * @throws {@link DBSubnetGroupDoesNotCoverEnoughAZs} (client fault)
- *  <p>Subnets in the DB subnet group should cover at least two Availability
- *       Zones unless there is only one Availability Zone.</p>
+ *
+ * Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.
  *
  * @throws {@link DBSubnetGroupQuotaExceededFault} (client fault)
- *  <p>Request would result in user exceeding the allowed number of DB subnet groups.</p>
+ *
+ * Request would result in user exceeding the allowed number of DB subnet groups.
  *
  * @throws {@link DBSubnetQuotaExceededFault} (client fault)
- *  <p>Request would result in user exceeding the allowed number of subnets in a DB subnet groups.</p>
+ *
+ * Request would result in user exceeding the allowed number of subnets in a DB subnet groups.
  *
  * @throws {@link InvalidSubnet} (client fault)
- *  <p>The requested subnet is invalid, or multiple subnets were requested that are
- *       not all in a common VPC.</p>
+ *
+ * The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.
  *
  * @throws {@link NeptuneServiceException}
- * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * Base exception class for all service exceptions from Neptune service.
  *
  * @public
  */

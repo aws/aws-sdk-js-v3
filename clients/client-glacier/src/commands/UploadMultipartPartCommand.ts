@@ -26,57 +26,22 @@ export interface UploadMultipartPartCommandInput extends Omit<UploadMultipartPar
 export interface UploadMultipartPartCommandOutput extends UploadMultipartPartOutput, __MetadataBearer {}
 
 /**
- * <p>This operation uploads a part of an archive. You can upload archive parts in any
- *          order. You can also upload them in parallel. You can upload up to 10,000 parts for a
- *          multipart upload.</p>
+ * This operation uploads a part of an archive. You can upload archive parts in any order. You can also upload them in parallel. You can upload up to 10,000 parts for a multipart upload.
  *
- *          <p>Amazon Glacier rejects your upload part request if any of the following conditions is
- *          true:</p>
+ * Amazon Glacier rejects your upload part request if any of the following conditions is true:
  *
- *          <ul>
- *             <li>
- *                <p>
- *                   <b>SHA256 tree hash does not match</b>To ensure that part
- *                data is not corrupted in transmission, you compute a SHA256 tree hash of the part and
- *                include it in your request. Upon receiving the part data, Amazon Glacier also
- *                computes a SHA256 tree hash. If these hash values don't match, the operation fails.
- *                For information about computing a SHA256 tree hash, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/checksum-calculations.html">Computing
- *                   Checksums</a>.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Part size does not match</b>The size of each part except
- *                the last must match the size specified in the corresponding <a>InitiateMultipartUpload</a> request. The size of the last part must be the
- *                same size as, or smaller than, the specified size.</p>
- *                <note>
- *                   <p>If you upload a part whose size is smaller than the part size you specified
- *                   in your initiate multipart upload request and that part is not the last part, then
- *                   the upload part request will succeed. However, the subsequent Complete Multipart
- *                   Upload request will fail.</p>
- *                </note>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Range does not align</b>The byte range value in the
- *                request does not align with the part size specified in the corresponding initiate
- *                request. For example, if you specify a part size of 4194304 bytes (4 MB), then 0 to
- *                4194303 bytes (4 MB - 1) and 4194304 (4 MB) to 8388607 (8 MB - 1) are valid part
- *                ranges. However, if you set a range value of 2 MB to 6 MB, the range does not align
- *                with the part size and the upload will fail. </p>
- *             </li>
- *          </ul>
+ * - **SHA256 tree hash does not match**To ensure that part data is not corrupted in transmission, you compute a SHA256 tree hash of the part and include it in your request. Upon receiving the part data, Amazon Glacier also computes a SHA256 tree hash. If these hash values don't match, the operation fails. For information about computing a SHA256 tree hash, see [Computing Checksums](https://docs.aws.amazon.com/amazonglacier/latest/dev/checksum-calculations.html).
+ * - **Part size does not match**The size of each part except the last must match the size specified in the corresponding InitiateMultipartUpload request. The size of the last part must be the same size as, or smaller than, the specified size.
  *
- *          <p>This operation is idempotent. If you upload the same part multiple times, the data
- *          included in the most recent request overwrites the previously uploaded data.</p>
+ *   > **Note:** If you upload a part whose size is smaller than the part size you specified in your initiate multipart upload request and that part is not the last part, then the upload part request will succeed. However, the subsequent Complete Multipart Upload request will fail.
+ * - **Range does not align**The byte range value in the request does not align with the part size specified in the corresponding initiate request. For example, if you specify a part size of 4194304 bytes (4 MB), then 0 to 4194303 bytes (4 MB - 1) and 4194304 (4 MB) to 8388607 (8 MB - 1) are valid part ranges. However, if you set a range value of 2 MB to 6 MB, the range does not align with the part size and the upload will fail.
  *
- *          <p>An AWS account has full permission to perform all operations (actions). However, AWS
- *          Identity and Access Management (IAM) users don't have any permissions by default. You must
- *          grant them explicit permission to perform specific actions. For more information, see
- *             <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html">Access Control Using
- *             AWS Identity and Access Management (IAM)</a>.</p>
- *          <p> For conceptual information and underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/uploading-archive-mpu.html">Uploading Large Archives in
- *             Parts (Multipart Upload)</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-upload-part.html">Upload Part </a> in the
- *             <i>Amazon Glacier Developer Guide</i>.</p>
+ * This operation is idempotent. If you upload the same part multiple times, the data included in the most recent request overwrites the previously uploaded data.
+ *
+ * An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see [Access Control Using AWS Identity and Access Management (IAM)](https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
+ *
+ * For conceptual information and underlying REST API, see [Uploading Large Archives in Parts (Multipart Upload)](https://docs.aws.amazon.com/amazonglacier/latest/dev/uploading-archive-mpu.html) and [Upload Part](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-upload-part.html) in the *Amazon Glacier Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -108,28 +73,32 @@ export interface UploadMultipartPartCommandOutput extends UploadMultipartPartOut
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>Returned if a parameter of the request is incorrectly specified.</p>
+ *
+ * Returned if a parameter of the request is incorrectly specified.
  *
  * @throws {@link MissingParameterValueException} (client fault)
- *  <p>Returned if a required header or parameter is missing from the request.</p>
+ *
+ * Returned if a required header or parameter is missing from the request.
  *
  * @throws {@link NoLongerSupportedException} (client fault)
- *  <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+ *
+ * Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.
  *
  * @throws {@link RequestTimeoutException} (client fault)
- *  <p>Returned if, when uploading an archive, Amazon Glacier times out while receiving the
- *          upload.</p>
+ *
+ * Returned if, when uploading an archive, Amazon Glacier times out while receiving the upload.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't
- *          exist.</p>
+ *
+ * Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>Returned if the service cannot complete the request.</p>
+ *
+ * Returned if the service cannot complete the request.
  *
  * @throws {@link GlacierServiceException}
- * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * Base exception class for all service exceptions from Glacier service.
  *
  * @example To upload the first part of an archive
  * ```javascript

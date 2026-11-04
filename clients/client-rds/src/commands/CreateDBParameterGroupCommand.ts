@@ -23,7 +23,12 @@ export interface CreateDBParameterGroupCommandInput extends CreateDBParameterGro
 export interface CreateDBParameterGroupCommandOutput extends CreateDBParameterGroupResult, __MetadataBearer {}
 
 /**
- * <p>Creates a new DB parameter group.</p> <p>A DB parameter group is initially created with the default parameters for the database engine used by the DB instance. To provide custom values for any of the parameters, you must modify the group after creating it using <code>ModifyDBParameterGroup</code>. Once you've created a DB parameter group, you need to associate it with your DB instance using <code>ModifyDBInstance</code>. When you associate a new DB parameter group with a running DB instance, you need to reboot the DB instance without failover for the new DB parameter group and associated settings to take effect.</p> <p>This command doesn't apply to RDS Custom.</p>
+ * Creates a new DB parameter group.
+ *
+ * A DB parameter group is initially created with the default parameters for the database engine used by the DB instance. To provide custom values for any of the parameters, you must modify the group after creating it using `ModifyDBParameterGroup`. Once you've created a DB parameter group, you need to associate it with your DB instance using `ModifyDBInstance`. When you associate a new DB parameter group with a running DB instance, you need to reboot the DB instance without failover for the new DB parameter group and associated settings to take effect.
+ *
+ * This command doesn't apply to RDS Custom.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,14 +68,16 @@ export interface CreateDBParameterGroupCommandOutput extends CreateDBParameterGr
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBParameterGroupAlreadyExistsFault} (client fault)
- *  <p>A DB parameter group with the same name exists.</p>
+ *
+ * A DB parameter group with the same name exists.
  *
  * @throws {@link DBParameterGroupQuotaExceededFault} (client fault)
- *  <p>The request would result in the user exceeding the allowed number of DB parameter groups.</p>
+ *
+ * The request would result in the user exceeding the allowed number of DB parameter groups.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To create a DB parameter group
  * ```javascript

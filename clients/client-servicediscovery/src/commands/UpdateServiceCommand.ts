@@ -23,47 +23,27 @@ export interface UpdateServiceCommandInput extends UpdateServiceRequest {}
 export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __MetadataBearer {}
 
 /**
- * <p>Submits a request to perform the following operations:</p>
- *          <ul>
- *             <li>
- *                <p>Update the TTL setting for existing <code>DnsRecords</code> configurations</p>
- *             </li>
- *             <li>
- *                <p>Add, update, or delete <code>HealthCheckConfig</code> for a specified service</p>
- *                <note>
- *                   <p>You can't add, update, or delete a <code>HealthCheckCustomConfig</code>
- *       configuration.</p>
- *                </note>
- *             </li>
- *          </ul>
- *          <p>For public and private DNS namespaces, note the following:</p>
- *          <ul>
- *             <li>
- *                <p>If you omit any existing <code>DnsRecords</code> or <code>HealthCheckConfig</code>
- *      configurations from an <code>UpdateService</code> request, the configurations are deleted from
- *      the service.</p>
- *             </li>
- *             <li>
- *                <p>If you omit an existing <code>HealthCheckCustomConfig</code> configuration from an
- *       <code>UpdateService</code> request, the configuration isn't deleted from the service.</p>
- *             </li>
- *          </ul>
- *          <note>
- *             <p>You can't call <code>UpdateService</code> and update settings in the following
- *     scenarios:</p>
- *             <ul>
- *                <li>
- *                   <p>When the service is associated with an HTTP namespace</p>
- *                </li>
- *                <li>
- *                   <p>When the service is associated with a shared namespace and contains instances that were
- *       registered by Amazon Web Services accounts other than the account making the <code>UpdateService</code>
- *       call</p>
- *                </li>
- *             </ul>
- *          </note>
- *          <p>When you update settings for a service, Cloud Map also updates the corresponding settings
- *    in all the records and health checks that were created by using the specified service.</p>
+ * Submits a request to perform the following operations:
+ *
+ * - Update the TTL setting for existing `DnsRecords` configurations
+ * - Add, update, or delete `HealthCheckConfig` for a specified service
+ *
+ *   > **Note:** You can't add, update, or delete a `HealthCheckCustomConfig` configuration.
+ *
+ * For public and private DNS namespaces, note the following:
+ *
+ * - If you omit any existing `DnsRecords` or `HealthCheckConfig` configurations from an `UpdateService` request, the configurations are deleted from the service.
+ * - If you omit an existing `HealthCheckCustomConfig` configuration from an `UpdateService` request, the configuration isn't deleted from the service.
+ *
+ * > **Note:**
+ * >
+ * > You can't call `UpdateService` and update settings in the following scenarios:
+ * >
+ * > - When the service is associated with an HTTP namespace
+ * > - When the service is associated with a shared namespace and contains instances that were registered by Amazon Web Services accounts other than the account making the `UpdateService` call
+ *
+ * When you update settings for a service, Cloud Map also updates the corresponding settings in all the records and health checks that were created by using the specified service.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -106,19 +86,20 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
  * @throws {@link DuplicateRequest} (client fault)
- *  <p>The operation is already in progress.</p>
+ *
+ * The operation is already in progress.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>One or more specified values aren't valid. For example, a required value might be missing, a
- *    numeric value might be outside the allowed range, or a string value might exceed length
- *    constraints.</p>
+ *
+ * One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range, or a string value might exceed length constraints.
  *
  * @throws {@link ServiceNotFound} (client fault)
- *  <p>No service exists with the specified ID.</p>
+ *
+ * No service exists with the specified ID.
  *
  * @throws {@link ServiceDiscoveryServiceException}
- * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
+ * Base exception class for all service exceptions from ServiceDiscovery service.
  *
  * @example UpdateService Example
  * ```javascript

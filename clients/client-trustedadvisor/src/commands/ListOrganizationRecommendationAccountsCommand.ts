@@ -26,7 +26,8 @@ export interface ListOrganizationRecommendationAccountsCommandInput extends List
 export interface ListOrganizationRecommendationAccountsCommandOutput extends ListOrganizationRecommendationAccountsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the accounts that own the resources for an organization aggregate recommendation. This API only supports prioritized recommendations and provides global priority recommendations, eliminating the need to call the API in each AWS Region. </p>
+ * Lists the accounts that own the resources for an organization aggregate recommendation. This API only supports prioritized recommendations and provides global priority recommendations, eliminating the need to call the API in each AWS Region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,23 +69,28 @@ export interface ListOrganizationRecommendationAccountsCommandOutput extends Lis
  * @see {@link TrustedAdvisorClientResolvedConfig | config} for TrustedAdvisorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Exception that access has been denied due to insufficient access</p>
+ *
+ * Exception that access has been denied due to insufficient access
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Exception to notify that an unexpected internal error occurred during processing of the request</p>
+ *
+ * Exception to notify that an unexpected internal error occurred during processing of the request
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Exception that the requested resource has not been found</p>
+ *
+ * Exception that the requested resource has not been found
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Exception to notify that requests are being throttled</p>
+ *
+ * Exception to notify that requests are being throttled
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Exception that the request failed to satisfy service constraints</p>
+ *
+ * Exception that the request failed to satisfy service constraints
  *
  * @throws {@link TrustedAdvisorServiceException}
- * <p>Base exception class for all service exceptions from TrustedAdvisor service.</p>
  *
+ * Base exception class for all service exceptions from TrustedAdvisor service.
  *
  * @example List all Accounts for an AWS Organization's Recommendation
  * ```javascript

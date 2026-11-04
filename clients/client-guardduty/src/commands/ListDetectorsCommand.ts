@@ -23,7 +23,8 @@ export interface ListDetectorsCommandInput extends ListDetectorsRequest {}
 export interface ListDetectorsCommandOutput extends ListDetectorsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists detectorIds of all the existing Amazon GuardDuty detector resources.</p>
+ * Lists detectorIds of all the existing Amazon GuardDuty detector resources.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,14 +55,16 @@ export interface ListDetectorsCommandOutput extends ListDetectorsResponse, __Met
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>A bad request exception object.</p>
+ *
+ * A bad request exception object.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>An internal server error exception object.</p>
+ *
+ * An internal server error exception object.
  *
  * @throws {@link GuardDutyServiceException}
- * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * Base exception class for all service exceptions from GuardDuty service.
  *
  * @public
  */

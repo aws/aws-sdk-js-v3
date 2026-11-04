@@ -23,26 +23,16 @@ export interface DescribeFileSystemsCommandInput extends DescribeFileSystemsRequ
 export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the description of a specific Amazon EFS file system if either the file system
- *         <code>CreationToken</code> or the <code>FileSystemId</code> is provided. Otherwise, it
- *       returns descriptions of all file systems owned by the caller's Amazon Web Services account in the
- *       Amazon Web Services Region of the endpoint that you're calling.</p>
- *          <p>When retrieving all file system descriptions, you can optionally specify the
- *         <code>MaxItems</code> parameter to limit the number of descriptions in a response.
- *       This number is automatically set to 100. If more file system descriptions remain,
- *       Amazon EFS returns a <code>NextMarker</code>, an opaque token, in the response. In this case,
- *       you should send a subsequent request with the <code>Marker</code> request parameter set to the
- *       value of <code>NextMarker</code>. </p>
- *          <p>To retrieve a list of your file system descriptions, this operation is used in an
- *       iterative process, where <code>DescribeFileSystems</code> is called first without the
- *         <code>Marker</code> and then the operation continues to call it with the <code>Marker</code>
- *       parameter set to the value of the <code>NextMarker</code> from the previous response until the
- *       response has no <code>NextMarker</code>. </p>
- *          <p> The order of file systems returned in the response of one
- *         <code>DescribeFileSystems</code> call and the order of file systems returned across the
- *       responses of a multi-call iteration is unspecified. </p>
- *          <p> This operation requires permissions for the
- *         <code>elasticfilesystem:DescribeFileSystems</code> action. </p>
+ * Returns the description of a specific Amazon EFS file system if either the file system `CreationToken` or the `FileSystemId` is provided. Otherwise, it returns descriptions of all file systems owned by the caller's Amazon Web Services account in the Amazon Web Services Region of the endpoint that you're calling.
+ *
+ * When retrieving all file system descriptions, you can optionally specify the `MaxItems` parameter to limit the number of descriptions in a response. This number is automatically set to 100. If more file system descriptions remain, Amazon EFS returns a `NextMarker`, an opaque token, in the response. In this case, you should send a subsequent request with the `Marker` request parameter set to the value of `NextMarker`.
+ *
+ * To retrieve a list of your file system descriptions, this operation is used in an iterative process, where `DescribeFileSystems` is called first without the `Marker` and then the operation continues to call it with the `Marker` parameter set to the value of the `NextMarker` from the previous response until the response has no `NextMarker`.
+ *
+ * The order of file systems returned in the response of one `DescribeFileSystems` call and the order of file systems returned across the responses of a multi-call iteration is unspecified.
+ *
+ * This operation requires permissions for the `elasticfilesystem:DescribeFileSystems` action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -108,19 +98,20 @@ export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsRes
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>Returned if the request is malformed or contains an error such as an invalid
- *             parameter value or a missing required parameter.</p>
+ *
+ * Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.
  *
  * @throws {@link FileSystemNotFound} (client fault)
- *  <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the
- *             requester's Amazon Web Services account.</p>
+ *
+ * Returned if the specified `FileSystemId` value doesn't exist in the requester's Amazon Web Services account.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Returned if an error occurred on the server side.</p>
+ *
+ * Returned if an error occurred on the server side.
  *
  * @throws {@link EFSServiceException}
- * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * Base exception class for all service exceptions from EFS service.
  *
  * @public
  */

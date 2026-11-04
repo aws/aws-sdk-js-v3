@@ -23,8 +23,8 @@ export interface ListStudiosCommandInput extends ListStudiosInput {}
 export interface ListStudiosCommandOutput extends ListStudiosOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of all Amazon EMR Studios associated with the Amazon Web Services account. The list includes details such as ID, Studio Access URL, and
- *          creation time for each Studio.</p>
+ * Returns a list of all Amazon EMR Studios associated with the Amazon Web Services account. The list includes details such as ID, Studio Access URL, and creation time for each Studio.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,15 +62,16 @@ export interface ListStudiosCommandOutput extends ListStudiosOutput, __MetadataB
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Amazon EMR
- *          service.</p>
+ *
+ * This exception occurs when there is an internal failure in the Amazon EMR service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>This exception occurs when there is something wrong with user input.</p>
+ *
+ * This exception occurs when there is something wrong with user input.
  *
  * @throws {@link EMRServiceException}
- * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * Base exception class for all service exceptions from EMR service.
  *
  * @public
  */

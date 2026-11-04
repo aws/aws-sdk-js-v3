@@ -6,7 +6,8 @@ import {
 } from "./LicenseManagerLinuxSubscriptionsServiceException";
 
 /**
- * <p>An exception occurred with the service.</p>
+ * An exception occurred with the service.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -27,7 +28,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>Unable to find the requested Amazon Web Services resource.</p>
+ * Unable to find the requested Amazon Web Services resource.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -48,7 +50,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -69,7 +72,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The provided input is not valid. Try your request again.</p>
+ * The provided input is not valid. Try your request again.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {

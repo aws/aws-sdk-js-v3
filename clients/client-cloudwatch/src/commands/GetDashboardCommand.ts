@@ -23,17 +23,12 @@ export interface GetDashboardCommandInput extends GetDashboardInput {}
 export interface GetDashboardCommandOutput extends GetDashboardOutput, __MetadataBearer {}
 
 /**
- * <p>Displays the details of the dashboard that you specify.</p>
- *          <p>To copy an existing dashboard, use <code>GetDashboard</code>, and then use the data
- *             returned within <code>DashboardBody</code> as the template for the new dashboard when
- *             you call <code>PutDashboard</code> to create the copy.</p>
- *          <p>You might have recently enabled an <a href="https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html#optinregion">opt-in Region (Region that is disabled by default)</a> for your account. In
- *             that Region, <code>GetDashboard</code> can return an access denied error for up to 24
- *             hours after you enable the Region. This delay occurs while dashboard data propagates.
- *             The error does not
- *             indicate a problem with your permissions. Because dashboards are global, you can call
- *             <code>GetDashboard</code> in any other enabled Region, or retry after propagation
- *             completes.</p>
+ * Displays the details of the dashboard that you specify.
+ *
+ * To copy an existing dashboard, use `GetDashboard`, and then use the data returned within `DashboardBody` as the template for the new dashboard when you call `PutDashboard` to create the copy.
+ *
+ * You might have recently enabled an [opt-in Region (Region that is disabled by default)](https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html#optinregion) for your account. In that Region, `GetDashboard` can return an access denied error for up to 24 hours after you enable the Region. This delay occurs while dashboard data propagates. The error does not indicate a problem with your permissions. Because dashboards are global, you can call `GetDashboard` in any other enabled Region, or retry after propagation completes.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,18 +57,20 @@ export interface GetDashboardCommandOutput extends GetDashboardOutput, __Metadat
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  * @throws {@link DashboardNotFoundError} (client fault)
- *  <p>The specified dashboard does not exist.</p>
+ *
+ * The specified dashboard does not exist.
  *
  * @throws {@link InternalServiceFault} (server fault)
- *  <p>Request processing has failed due to some unknown error, exception, or
- *             failure.</p>
+ *
+ * Request processing has failed due to some unknown error, exception, or failure.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value of an input parameter is bad or out-of-range.</p>
+ *
+ * The value of an input parameter is bad or out-of-range.
  *
  * @throws {@link CloudWatchServiceException}
- * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatch service.
  *
  * @public
  */

@@ -23,9 +23,8 @@ export interface GetCanaryCommandInput extends GetCanaryRequest {}
 export interface GetCanaryCommandOutput extends GetCanaryResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves complete information about one canary. You must specify
- *       the name of the canary that you want. To get a list of canaries
- *       and their names, use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html">DescribeCanaries</a>.</p>
+ * Retrieves complete information about one canary. You must specify the name of the canary that you want. To get a list of canaries and their names, use [DescribeCanaries](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -188,14 +187,16 @@ export interface GetCanaryCommandOutput extends GetCanaryResponse, __MetadataBea
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unknown internal error occurred.</p>
+ *
+ * An unknown internal error occurred.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A parameter could not be validated.</p>
+ *
+ * A parameter could not be validated.
  *
  * @throws {@link SyntheticsServiceException}
- * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ * Base exception class for all service exceptions from Synthetics service.
  *
  * @public
  */

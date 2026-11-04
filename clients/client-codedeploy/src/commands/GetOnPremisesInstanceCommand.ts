@@ -23,7 +23,8 @@ export interface GetOnPremisesInstanceCommandInput extends GetOnPremisesInstance
 export interface GetOnPremisesInstanceCommandOutput extends GetOnPremisesInstanceOutput, __MetadataBearer {}
 
 /**
- * <p> Gets information about an on-premises instance. </p>
+ * Gets information about an on-premises instance.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,17 +64,20 @@ export interface GetOnPremisesInstanceCommandOutput extends GetOnPremisesInstanc
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  * @throws {@link InstanceNameRequiredException} (client fault)
- *  <p>An on-premises instance name was not specified.</p>
+ *
+ * An on-premises instance name was not specified.
  *
  * @throws {@link InstanceNotRegisteredException} (client fault)
- *  <p>The specified on-premises instance is not registered.</p>
+ *
+ * The specified on-premises instance is not registered.
  *
  * @throws {@link InvalidInstanceNameException} (client fault)
- *  <p>The on-premises instance name was specified in an invalid format.</p>
+ *
+ * The on-premises instance name was specified in an invalid format.
  *
  * @throws {@link CodeDeployServiceException}
- * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * Base exception class for all service exceptions from CodeDeploy service.
  *
  * @public
  */

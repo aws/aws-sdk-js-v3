@@ -23,7 +23,8 @@ export interface ListDomainsCommandInput extends ListDomainsRequest {}
 export interface ListDomainsCommandOutput extends ListDomainsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a paginated list of domains from the Control Catalog.</p>
+ * Returns a paginated list of domains from the Control Catalog.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,20 +61,24 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
  * @see {@link ControlCatalogClientResolvedConfig | config} for ControlCatalogClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal service error occurred during the processing of your request. Try again later.</p>
+ *
+ * An internal service error occurred during the processing of your request. Try again later.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request has invalid or missing parameters.</p>
+ *
+ * The request has invalid or missing parameters.
  *
  * @throws {@link ControlCatalogServiceException}
- * <p>Base exception class for all service exceptions from ControlCatalog service.</p>
  *
+ * Base exception class for all service exceptions from ControlCatalog service.
  *
  * @public
  */

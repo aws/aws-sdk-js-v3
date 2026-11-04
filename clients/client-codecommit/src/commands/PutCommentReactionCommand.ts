@@ -23,8 +23,8 @@ export interface PutCommentReactionCommandInput extends PutCommentReactionInput 
 export interface PutCommentReactionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Adds or updates a reaction to a specified comment for the user whose identity is used to make the request. You can only add or
- *         update a reaction for yourself. You cannot add, modify, or delete a reaction for another user.</p>
+ * Adds or updates a reaction to a specified comment for the user whose identity is used to make the request. You can only add or update a reaction for yourself. You cannot add, modify, or delete a reaction for another user.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,31 +50,36 @@ export interface PutCommentReactionCommandOutput extends __MetadataBearer {}
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  * @throws {@link CommentDeletedException} (client fault)
- *  <p>This comment has already been deleted. You cannot edit or delete a deleted comment.</p>
+ *
+ * This comment has already been deleted. You cannot edit or delete a deleted comment.
  *
  * @throws {@link CommentDoesNotExistException} (client fault)
- *  <p>No comment exists with the provided ID. Verify that you have used the correct ID, and
- *             then try again.</p>
+ *
+ * No comment exists with the provided ID. Verify that you have used the correct ID, and then try again.
  *
  * @throws {@link CommentIdRequiredException} (client fault)
- *  <p>The comment ID is missing or null. A comment ID is required.</p>
+ *
+ * The comment ID is missing or null. A comment ID is required.
  *
  * @throws {@link InvalidCommentIdException} (client fault)
- *  <p>The comment ID is not in a valid format. Make sure that you have provided the full comment ID.</p>
+ *
+ * The comment ID is not in a valid format. Make sure that you have provided the full comment ID.
  *
  * @throws {@link InvalidReactionValueException} (client fault)
- *  <p>The value of the reaction is not valid. For more information, see the <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">
- *                CodeCommit User Guide</a>.</p>
+ *
+ * The value of the reaction is not valid. For more information, see the [CodeCommit User Guide](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html).
  *
  * @throws {@link ReactionLimitExceededException} (client fault)
- *  <p>The number of reactions has been exceeded. Reactions are limited to one reaction per user for each individual comment ID.</p>
+ *
+ * The number of reactions has been exceeded. Reactions are limited to one reaction per user for each individual comment ID.
  *
  * @throws {@link ReactionValueRequiredException} (client fault)
- *  <p>A reaction value is required. </p>
+ *
+ * A reaction value is required.
  *
  * @throws {@link CodeCommitServiceException}
- * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * Base exception class for all service exceptions from CodeCommit service.
  *
  * @public
  */

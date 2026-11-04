@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { Route53DomainsServiceException as __BaseException } from "./Route53DomainsServiceException";
 
 /**
- * <p>The number of domains has exceeded the allowed threshold for the account.</p>
+ * The number of domains has exceeded the allowed threshold for the account.
+ *
  * @public
  */
 export class DomainLimitExceeded extends __BaseException {
@@ -25,10 +26,8 @@ export class DomainLimitExceeded extends __BaseException {
 }
 
 /**
- * <p>The requested item is not acceptable. For example, for APIs that accept a domain name,
- * 			the request might specify a domain name that doesn't belong to the account that
- * 			submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the
- * 			password might be invalid.</p>
+ * The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For `AcceptDomainTransferFromAnotherAwsAccount`, the password might be invalid.
+ *
  * @public
  */
 export class InvalidInput extends __BaseException {
@@ -49,8 +48,8 @@ export class InvalidInput extends __BaseException {
 }
 
 /**
- * <p>The number of operations or jobs running exceeded the allowed threshold for the
- * 			account.</p>
+ * The number of operations or jobs running exceeded the allowed threshold for the account.
+ *
  * @public
  */
 export class OperationLimitExceeded extends __BaseException {
@@ -71,7 +70,8 @@ export class OperationLimitExceeded extends __BaseException {
 }
 
 /**
- * <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+ * Amazon Route 53 does not support this top-level domain (TLD).
+ *
  * @public
  */
 export class UnsupportedTLD extends __BaseException {
@@ -92,9 +92,8 @@ export class UnsupportedTLD extends __BaseException {
 }
 
 /**
- * <p> This error is returned if you call <code>AssociateDelegationSignerToDomain</code>
- * 			when the specified domain has reached the maximum number of DS records. You can't add
- * 			any additional DS records unless you delete an existing one first. </p>
+ * This error is returned if you call `AssociateDelegationSignerToDomain` when the specified domain has reached the maximum number of DS records. You can't add any additional DS records unless you delete an existing one first.
+ *
  * @public
  */
 export class DnssecLimitExceeded extends __BaseException {
@@ -115,7 +114,8 @@ export class DnssecLimitExceeded extends __BaseException {
 }
 
 /**
- * <p>The request is already in progress for the domain.</p>
+ * The request is already in progress for the domain.
+ *
  * @public
  */
 export class DuplicateRequest extends __BaseException {
@@ -123,7 +123,8 @@ export class DuplicateRequest extends __BaseException {
   readonly name = "DuplicateRequest" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>ID of the request operation.</p>
+   * ID of the request operation.
+   *
    * @public
    */
   requestId?: string | undefined;
@@ -143,7 +144,8 @@ export class DuplicateRequest extends __BaseException {
 }
 
 /**
- * <p>The top-level domain does not support this operation.</p>
+ * The top-level domain does not support this operation.
+ *
  * @public
  */
 export class TLDRulesViolation extends __BaseException {
@@ -164,7 +166,8 @@ export class TLDRulesViolation extends __BaseException {
 }
 
 /**
- * <p>The top-level domain is currently undergoing maintenance and the request cannot be processed. Try again later.</p>
+ * The top-level domain is currently undergoing maintenance and the request cannot be processed. Try again later.
+ *
  * @public
  */
 export class TLDInMaintenance extends __BaseException {
@@ -172,7 +175,8 @@ export class TLDInMaintenance extends __BaseException {
   readonly name = "TLDInMaintenance" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The top-level domain that is currently undergoing maintenance.</p>
+   * The top-level domain that is currently undergoing maintenance.
+   *
    * @public
    */
   tld?: string | undefined;

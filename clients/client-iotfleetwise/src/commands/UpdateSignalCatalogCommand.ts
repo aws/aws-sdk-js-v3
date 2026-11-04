@@ -23,7 +23,8 @@ export interface UpdateSignalCatalogCommandInput extends UpdateSignalCatalogRequ
 export interface UpdateSignalCatalogCommandOutput extends UpdateSignalCatalogResponse, __MetadataBearer {}
 
 /**
- * <p> Updates a signal catalog. </p>
+ * Updates a signal catalog.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -191,38 +192,44 @@ export interface UpdateSignalCatalogCommandOutput extends UpdateSignalCatalogRes
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * You don't have sufficient permission to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request has conflicting operations. This can occur if you're trying to perform
- *             more than one operation on the same resource at the same time.</p>
+ *
+ * The request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request couldn't be completed because the server temporarily failed.</p>
+ *
+ * The request couldn't be completed because the server temporarily failed.
  *
  * @throws {@link InvalidNodeException} (client fault)
- *  <p>The specified node type doesn't match the expected node type for a node. You can
- *             specify the node type as branch, sensor, actuator, or attribute.</p>
+ *
+ * The specified node type doesn't match the expected node type for a node. You can specify the node type as branch, sensor, actuator, or attribute.
  *
  * @throws {@link InvalidSignalsException} (client fault)
- *  <p>The request couldn't be completed because it contains signals that aren't
- *             valid.</p>
+ *
+ * The request couldn't be completed because it contains signals that aren't valid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>A service quota was exceeded. </p>
+ *
+ * A service quota was exceeded.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource wasn't found.</p>
+ *
+ * The resource wasn't found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request couldn't be completed due to throttling.</p>
+ *
+ * The request couldn't be completed due to throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link IoTFleetWiseServiceException}
- * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * Base exception class for all service exceptions from IoTFleetWise service.
  *
  * @public
  */

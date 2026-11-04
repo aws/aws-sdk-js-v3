@@ -23,7 +23,8 @@ export interface CreateClusterCommandInput extends CreateClusterRequest {}
 export interface CreateClusterCommandOutput extends CreateClusterResponse, __MetadataBearer {}
 
 /**
- * <p>Create a new cluster. A cluster is a set of redundant Regional endpoints against which you can run API calls to update or get the state of one or more routing controls. Each cluster has a name, status, Amazon Resource Name (ARN), and an array of the five cluster endpoints (one for each supported Amazon Web Services Region) that you can use with API calls to the cluster data plane.</p>
+ * Create a new cluster. A cluster is a set of redundant Regional endpoints against which you can run API calls to update or get the state of one or more routing controls. Each cluster has a name, status, Amazon Resource Name (ARN), and an array of the five cluster endpoints (one for each supported Amazon Web Services Region) that you can use with API calls to the cluster data plane.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,29 +68,36 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>403 response - You do not have sufficient access to perform this action.</p>
+ *
+ * 403 response - You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>409 response - ConflictException. You might be using a predefined variable.</p>
+ *
+ * 409 response - ConflictException. You might be using a predefined variable.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>500 response - InternalServiceError. Temporary service error. Retry the request.</p>
+ *
+ * 500 response - InternalServiceError. Temporary service error. Retry the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>404 response - MalformedQueryString. The query string contains a syntax error or resource not found.</p>
+ *
+ * 404 response - MalformedQueryString. The query string contains a syntax error or resource not found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>402 response - You attempted to create more resources than the service allows based on service quotas.</p>
+ *
+ * 402 response - You attempted to create more resources than the service allows based on service quotas.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>429 response - LimitExceededException or TooManyRequestsException.</p>
+ *
+ * 429 response - LimitExceededException or TooManyRequestsException.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
+ *
+ * 400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.
  *
  * @throws {@link Route53RecoveryControlConfigServiceException}
- * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
+ * Base exception class for all service exceptions from Route53RecoveryControlConfig service.
  *
  * @public
  */

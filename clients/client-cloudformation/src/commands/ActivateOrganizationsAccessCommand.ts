@@ -23,9 +23,8 @@ export interface ActivateOrganizationsAccessCommandInput extends ActivateOrganiz
 export interface ActivateOrganizationsAccessCommandOutput extends ActivateOrganizationsAccessOutput, __MetadataBearer {}
 
 /**
- * <p>Activate trusted access with Organizations. With trusted access between StackSets
- *       and Organizations activated, the management account has permissions to create
- *       and manage StackSets for your organization.</p>
+ * Activate trusted access with Organizations. With trusted access between StackSets and Organizations activated, the management account has permissions to create and manage StackSets for your organization.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,14 +47,16 @@ export interface ActivateOrganizationsAccessCommandOutput extends ActivateOrgani
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link InvalidOperationException} (client fault)
- *  <p>The specified operation isn't valid.</p>
+ *
+ * The specified operation isn't valid.
  *
  * @throws {@link OperationNotFoundException} (client fault)
- *  <p>The specified ID refers to an operation that doesn't exist.</p>
+ *
+ * The specified ID refers to an operation that doesn't exist.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

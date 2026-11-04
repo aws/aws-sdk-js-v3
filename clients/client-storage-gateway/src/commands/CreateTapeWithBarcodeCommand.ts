@@ -23,14 +23,10 @@ export interface CreateTapeWithBarcodeCommandInput extends CreateTapeWithBarcode
 export interface CreateTapeWithBarcodeCommandOutput extends CreateTapeWithBarcodeOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a virtual tape by using your own barcode. You write data to the virtual tape and
- *          then archive the tape. A barcode is unique and cannot be reused if it has already been used
- *          on a tape. This applies to barcodes used on deleted tapes. This operation is only supported
- *          in the tape gateway type.</p>
- *          <note>
- *             <p>Cache storage must be allocated to the gateway before you can create a virtual tape.
- *             Use the <a>AddCache</a> operation to add cache storage to a gateway.</p>
- *          </note>
+ * Creates a virtual tape by using your own barcode. You write data to the virtual tape and then archive the tape. A barcode is unique and cannot be reused if it has already been used on a tape. This applies to barcodes used on deleted tapes. This operation is only supported in the tape gateway type.
+ *
+ * > **Note:** Cache storage must be allocated to the gateway before you can create a virtual tape. Use the AddCache operation to add cache storage to a gateway.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,16 +65,16 @@ export interface CreateTapeWithBarcodeCommandOutput extends CreateTapeWithBarcod
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @example To create a virtual tape using a barcode
  * ```javascript

@@ -23,7 +23,8 @@ export interface CreateProjectCommandInput extends CreateProjectInput {}
 export interface CreateProjectCommandOutput extends CreateProjectOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a build project.</p>
+ * Creates a build project.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -458,18 +459,20 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
  *
  * @throws {@link AccountLimitExceededException} (client fault)
- *  <p>An Amazon Web Services service limit was exceeded for the calling Amazon Web Services account.</p>
+ *
+ * An Amazon Web Services service limit was exceeded for the calling Amazon Web Services account.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input value that was provided is not valid.</p>
+ *
+ * The input value that was provided is not valid.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>The specified Amazon Web Services resource cannot be created, because an Amazon Web Services resource with the same
- *             settings already exists.</p>
+ *
+ * The specified Amazon Web Services resource cannot be created, because an Amazon Web Services resource with the same settings already exists.
  *
  * @throws {@link CodeBuildServiceException}
- * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * Base exception class for all service exceptions from CodeBuild service.
  *
  * @public
  */

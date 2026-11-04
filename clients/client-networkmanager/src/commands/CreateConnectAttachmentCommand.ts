@@ -23,10 +23,10 @@ export interface CreateConnectAttachmentCommandInput extends CreateConnectAttach
 export interface CreateConnectAttachmentCommandOutput extends CreateConnectAttachmentResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a core network Connect attachment from a specified core network attachment. </p>
- *          <p>A core network Connect attachment is a GRE-based tunnel attachment that you can use to
- *          establish a connection between a core network and an appliance. A core network Connect
- *          attachment uses an existing VPC attachment as the underlying transport mechanism.</p>
+ * Creates a core network Connect attachment from a specified core network attachment.
+ *
+ * A core network Connect attachment is a GRE-based tunnel attachment that you can use to establish a connection between a core network and an appliance. A core network Connect attachment uses an existing VPC attachment as the underlying transport mechanism.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -133,27 +133,32 @@ export interface CreateConnectAttachmentCommandOutput extends CreateConnectAttac
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>There was a conflict processing the request. Updating or deleting the resource can
- *             cause an inconsistent state.</p>
+ *
+ * There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request has failed due to an internal error.</p>
+ *
+ * The request has failed due to an internal error.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource could not be found.</p>
+ *
+ * The specified resource could not be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints.</p>
+ *
+ * The input fails to satisfy the constraints.
  *
  * @throws {@link NetworkManagerServiceException}
- * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * Base exception class for all service exceptions from NetworkManager service.
  *
  * @public
  */

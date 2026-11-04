@@ -6,7 +6,8 @@ import type { ValidationExceptionReason } from "./enums";
 import type { ProgramSetValidationFailure } from "./models_0";
 
 /**
- * <p>You do not have sufficient permissions to perform this action.</p>
+ * You do not have sufficient permissions to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request failed because of an unknown error.</p>
+ * The request failed because of an unknown error.
+ *
  * @public
  */
 export class InternalServiceException extends __BaseException {
@@ -48,7 +50,8 @@ export class InternalServiceException extends __BaseException {
 }
 
 /**
- * <p>The specified resource was not found.</p>
+ * The specified resource was not found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -69,7 +72,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The API throttling rate limit is exceeded.</p>
+ * The API throttling rate limit is exceeded.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -90,7 +94,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input request failed to satisfy constraints expected by Amazon Braket.</p>
+ * The input request failed to satisfy constraints expected by Amazon Braket.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -98,13 +103,15 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The reason for validation failure.</p>
+   * The reason for validation failure.
+   *
    * @public
    */
   reason?: ValidationExceptionReason | undefined;
 
   /**
-   * <p>The validation failures in the program set submitted in the request.</p>
+   * The validation failures in the program set submitted in the request.
+   *
    * @public
    */
   programSetValidationFailures?: ProgramSetValidationFailure[] | undefined;
@@ -125,7 +132,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>An error occurred due to a conflict.</p>
+ * An error occurred due to a conflict.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -146,7 +154,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The specified device is currently offline.</p>
+ * The specified device is currently offline.
+ *
  * @public
  */
 export class DeviceOfflineException extends __BaseException {
@@ -167,7 +176,8 @@ export class DeviceOfflineException extends __BaseException {
 }
 
 /**
- * <p>The specified device has been retired.</p>
+ * The specified device has been retired.
+ *
  * @public
  */
 export class DeviceRetiredException extends __BaseException {
@@ -188,7 +198,8 @@ export class DeviceRetiredException extends __BaseException {
 }
 
 /**
- * <p>The request failed because a service quota is exceeded.</p>
+ * The request failed because a service quota is exceeded.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {

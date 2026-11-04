@@ -23,13 +23,10 @@ export interface DeleteControlCommandInput extends DeleteControlRequest {}
 export interface DeleteControlCommandOutput extends DeleteControlResponse, __MetadataBearer {}
 
 /**
- * <p> Deletes a custom control in Audit Manager. </p>
- *          <important>
- *             <p>When you invoke this operation, the custom control is deleted from any frameworks or
- *             assessments that it’s currently part of. As a result, Audit Manager will stop
- *             collecting evidence for that custom control in all of your assessments. This includes
- *             assessments that you previously created before you deleted the custom control.</p>
- *          </important>
+ * Deletes a custom control in Audit Manager.
+ *
+ * > **Important:** When you invoke this operation, the custom control is deleted from any frameworks or assessments that it’s currently part of. As a result, Audit Manager will stop collecting evidence for that custom control in all of your assessments. This includes assessments that you previously created before you deleted the custom control.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,22 +51,24 @@ export interface DeleteControlCommandOutput extends DeleteControlResponse, __Met
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p> Your account isn't registered with Audit Manager. Check the delegated
- *          administrator setup on the Audit Manager settings page, and try again. </p>
+ *
+ * Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> An internal service error occurred during the processing of your request. Try again
- *          later. </p>
+ *
+ * An internal service error occurred during the processing of your request. Try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The resource that's specified in the request can't be found. </p>
+ *
+ * The resource that's specified in the request can't be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> The request has invalid or missing parameters. </p>
+ *
+ * The request has invalid or missing parameters.
  *
  * @throws {@link AuditManagerServiceException}
- * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * Base exception class for all service exceptions from AuditManager service.
  *
  * @public
  */

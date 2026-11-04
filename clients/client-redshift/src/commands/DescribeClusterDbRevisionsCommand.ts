@@ -23,7 +23,8 @@ export interface DescribeClusterDbRevisionsCommandInput extends DescribeClusterD
 export interface DescribeClusterDbRevisionsCommandOutput extends ClusterDbRevisionsMessage, __MetadataBearer {}
 
 /**
- * <p>Returns an array of <code>ClusterDbRevision</code> objects.</p>
+ * Returns an array of `ClusterDbRevision` objects.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,15 +67,16 @@ export interface DescribeClusterDbRevisionsCommandOutput extends ClusterDbRevisi
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
- *         </p>
+ *
+ * The `ClusterIdentifier` parameter does not refer to an existing cluster.
  *
  * @throws {@link InvalidClusterStateFault} (client fault)
- *  <p>The specified cluster is not in the <code>available</code> state. </p>
+ *
+ * The specified cluster is not in the `available` state.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

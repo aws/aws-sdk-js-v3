@@ -1,9 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <fullname>webrtc</fullname>
- *          <p>
- *     </p>
+ * webrtc
  *
  * @packageDocumentation
  */

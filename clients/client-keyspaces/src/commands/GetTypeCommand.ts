@@ -23,7 +23,10 @@ export interface GetTypeCommandInput extends GetTypeRequest {}
 export interface GetTypeCommandOutput extends GetTypeResponse, __MetadataBearer {}
 
 /**
- * <p> The <code>GetType</code> operation returns information about the type, for example the field definitions, the timestamp when the type was last modified, the level of nesting, the status, and details about if the type is used in other types and tables. </p> <p>To read keyspace metadata using <code>GetType</code>, the IAM principal needs <code>Select</code> action permissions for the system keyspace. To configure the required permissions, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/configure-udt-permissions.html#udt-permissions-view">Permissions to view a UDT</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+ * The `GetType` operation returns information about the type, for example the field definitions, the timestamp when the type was last modified, the level of nesting, the status, and details about if the type is used in other types and tables.
+ *
+ * To read keyspace metadata using `GetType`, the IAM principal needs `Select` action permissions for the system keyspace. To configure the required permissions, see [Permissions to view a UDT](https://docs.aws.amazon.com/keyspaces/latest/devguide/configure-udt-permissions.html#udt-permissions-view) in the *Amazon Keyspaces Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,23 +71,28 @@ export interface GetTypeCommandOutput extends GetTypeResponse, __MetadataBearer 
  * @see {@link KeyspacesClientResolvedConfig | config} for KeyspacesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access permissions to perform this action. </p>
+ *
+ * You don't have sufficient access permissions to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Amazon Keyspaces was unable to fully process this request because of an internal server error.</p>
+ *
+ * Amazon Keyspaces was unable to fully process this request because of an internal server error.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The operation tried to access a keyspace, table, or type that doesn't exist. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+ *
+ * The operation tried to access a keyspace, table, or type that doesn't exist. The resource might not be specified correctly, or its status might not be `ACTIVE`.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The operation exceeded the service quota for this resource. For more information on service quotas, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html">Quotas</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+ *
+ * The operation exceeded the service quota for this resource. For more information on service quotas, see [Quotas](https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html) in the *Amazon Keyspaces Developer Guide*.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The operation failed due to an invalid or malformed request.</p>
+ *
+ * The operation failed due to an invalid or malformed request.
  *
  * @throws {@link KeyspacesServiceException}
- * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
+ * Base exception class for all service exceptions from Keyspaces service.
  *
  * @public
  */

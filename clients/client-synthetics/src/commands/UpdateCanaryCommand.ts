@@ -23,21 +23,17 @@ export interface UpdateCanaryCommandInput extends UpdateCanaryRequest {}
 export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the configuration of a canary that has already been created.</p>
- *          <p>For multibrowser canaries, you can add or remove browsers by updating the browserConfig list in the update call. For example:</p>
- *          <ul>
- *             <li>
- *                <p>To add Firefox to a canary that currently uses Chrome, specify browserConfigs as [CHROME, FIREFOX]</p>
- *             </li>
- *             <li>
- *                <p>To remove Firefox and keep only Chrome, specify browserConfigs as [CHROME]</p>
- *             </li>
- *          </ul>
- *          <p>You can't use this operation to update the tags of an existing canary. To change the tags of an existing canary, use
- *          <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_TagResource.html">TagResource</a>.</p>
- *          <note>
- *             <p>When you use the <code>dryRunId</code> field when updating a canary, the only other field you can provide is the <code>Schedule</code>. Adding any other field will thrown an exception.</p>
- *          </note>
+ * Updates the configuration of a canary that has already been created.
+ *
+ * For multibrowser canaries, you can add or remove browsers by updating the browserConfig list in the update call. For example:
+ *
+ * - To add Firefox to a canary that currently uses Chrome, specify browserConfigs as [CHROME, FIREFOX]
+ * - To remove Firefox and keep only Chrome, specify browserConfigs as [CHROME]
+ *
+ * You can't use this operation to update the tags of an existing canary. To change the tags of an existing canary, use [TagResource](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_TagResource.html).
+ *
+ * > **Note:** When you use the `dryRunId` field when updating a canary, the only other field you can provide is the `Schedule`. Adding any other field will thrown an exception.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -166,26 +162,32 @@ export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __Metad
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permission to perform this operation on this resource.</p>
+ *
+ * You don't have permission to perform this operation on this resource.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A conflicting operation is already in progress.</p>
+ *
+ * A conflicting operation is already in progress.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unknown internal error occurred.</p>
+ *
+ * An unknown internal error occurred.
  *
  * @throws {@link RequestEntityTooLargeException} (client fault)
- *  <p>One of the input resources is larger than is allowed.</p>
+ *
+ * One of the input resources is larger than is allowed.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>One of the specified resources was not found.</p>
+ *
+ * One of the specified resources was not found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A parameter could not be validated.</p>
+ *
+ * A parameter could not be validated.
  *
  * @throws {@link SyntheticsServiceException}
- * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ * Base exception class for all service exceptions from Synthetics service.
  *
  * @public
  */

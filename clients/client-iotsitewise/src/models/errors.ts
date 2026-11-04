@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { IoTSiteWiseServiceException as __BaseException } from "./IoTSiteWiseServiceException";
 
 /**
- * <p>Access is denied.</p>
+ * Access is denied.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,8 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Your request has conflicting operations. This can occur if you're trying to perform more
- *       than one operation on the same resource at the same time.</p>
+ * Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.
+ *
  * @public
  */
 export class ConflictingOperationException extends __BaseException {
@@ -34,13 +35,15 @@ export class ConflictingOperationException extends __BaseException {
   readonly name = "ConflictingOperationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The ID of the resource that conflicts with this operation.</p>
+   * The ID of the resource that conflicts with this operation.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The ARN of the resource that conflicts with this operation.</p>
+   * The ARN of the resource that conflicts with this operation.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -61,7 +64,8 @@ export class ConflictingOperationException extends __BaseException {
 }
 
 /**
- * <p>IoT SiteWise can't process your request right now. Try again later.</p>
+ * IoT SiteWise can't process your request right now. Try again later.
+ *
  * @public
  */
 export class InternalFailureException extends __BaseException {
@@ -82,8 +86,8 @@ export class InternalFailureException extends __BaseException {
 }
 
 /**
- * <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *       unsupported characters. Check your request and try again.</p>
+ * The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.
+ *
  * @public
  */
 export class InvalidRequestException extends __BaseException {
@@ -104,10 +108,10 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * <p>You've reached the quota for a resource. For example, this can occur if you're trying to
- *       associate more than the allowed number of child assets or attempting to create more than the
- *       allowed number of properties for an asset model.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ * You've reached the quota for a resource. For example, this can occur if you're trying to associate more than the allowed number of child assets or attempting to create more than the allowed number of properties for an asset model.
+ *
+ * For more information, see [Quotas](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html) in the *IoT SiteWise User Guide*.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -128,7 +132,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The resource already exists.</p>
+ * The resource already exists.
+ *
  * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -136,13 +141,15 @@ export class ResourceAlreadyExistsException extends __BaseException {
   readonly name = "ResourceAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The ID of the resource that already exists.</p>
+   * The ID of the resource that already exists.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The ARN of the resource that already exists.</p>
+   * The ARN of the resource that already exists.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -163,7 +170,8 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The requested resource can't be found.</p>
+ * The requested resource can't be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -184,10 +192,10 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Your request exceeded a rate limit. For example, you might have exceeded the number of
- *       IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so
- *       on.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ * Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.
+ *
+ * For more information, see [Quotas](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html) in the *IoT SiteWise User Guide*.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -208,7 +216,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The requested service is unavailable.</p>
+ * The requested service is unavailable.
+ *
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -229,8 +238,8 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>The precondition in one or more of the request-header fields evaluated to
- *         <code>FALSE</code>.</p>
+ * The precondition in one or more of the request-header fields evaluated to `FALSE`.
+ *
  * @public
  */
 export class PreconditionFailedException extends __BaseException {
@@ -238,13 +247,15 @@ export class PreconditionFailedException extends __BaseException {
   readonly name = "PreconditionFailedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The ID of the resource on which precondition failed with this operation.</p>
+   * The ID of the resource on which precondition failed with this operation.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The ARN of the resource on which precondition failed with this operation.</p>
+   * The ARN of the resource on which precondition failed with this operation.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -265,7 +276,8 @@ export class PreconditionFailedException extends __BaseException {
 }
 
 /**
- * <p>The query timed out.</p>
+ * The query timed out.
+ *
  * @public
  */
 export class QueryTimeoutException extends __BaseException {
@@ -286,7 +298,8 @@ export class QueryTimeoutException extends __BaseException {
 }
 
 /**
- * <p>The validation failed for this query.</p>
+ * The validation failed for this query.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -307,7 +320,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>You are not authorized.</p>
+ * You are not authorized.
+ *
  * @public
  */
 export class UnauthorizedException extends __BaseException {
@@ -328,9 +342,8 @@ export class UnauthorizedException extends __BaseException {
 }
 
 /**
- * <p>You've reached the quota for the number of tags allowed for a resource. For more
- *       information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html#tag-conventions">Tag naming limits and
- *         requirements</a> in the <i>Amazon Web Services General Reference</i>.</p>
+ * You've reached the quota for the number of tags allowed for a resource. For more information, see [Tag naming limits and requirements](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html#tag-conventions) in the *Amazon Web Services General Reference*.
+ *
  * @public
  */
 export class TooManyTagsException extends __BaseException {
@@ -338,7 +351,8 @@ export class TooManyTagsException extends __BaseException {
   readonly name = "TooManyTagsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The name of the resource with too many tags.</p>
+   * The name of the resource with too many tags.
+   *
    * @public
    */
   resourceName?: string | undefined;

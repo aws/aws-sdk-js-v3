@@ -23,11 +23,10 @@ export interface AssociateTrunkInterfaceCommandInput extends AssociateTrunkInter
 export interface AssociateTrunkInterfaceCommandOutput extends AssociateTrunkInterfaceResult, __MetadataBearer {}
 
 /**
- * <p>Associates a branch network interface with a trunk network interface.</p>
- *          <p>Before you create the association, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html">CreateNetworkInterface</a> command and set the interface type
- *             to <code>trunk</code>. You must also create a network interface for
- *             each branch network interface that you want to associate with the trunk
- *             network interface.</p>
+ * Associates a branch network interface with a trunk network interface.
+ *
+ * Before you create the association, use [CreateNetworkInterface](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html) command and set the interface type to `trunk`. You must also create a network interface for each branch network interface that you want to associate with the trunk network interface.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,8 +72,8 @@ export interface AssociateTrunkInterfaceCommandOutput extends AssociateTrunkInte
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

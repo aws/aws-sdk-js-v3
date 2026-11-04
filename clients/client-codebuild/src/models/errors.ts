@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { CodeBuildServiceException as __BaseException } from "./CodeBuildServiceException";
 
 /**
- * <p>An Amazon Web Services service limit was exceeded for the calling Amazon Web Services account.</p>
+ * An Amazon Web Services service limit was exceeded for the calling Amazon Web Services account.
+ *
  * @public
  */
 export class AccountLimitExceededException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccountLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The CodeBuild access has been suspended for the calling Amazon Web Services account.</p>
+ * The CodeBuild access has been suspended for the calling Amazon Web Services account.
+ *
  * @public
  */
 export class AccountSuspendedException extends __BaseException {
@@ -46,7 +48,8 @@ export class AccountSuspendedException extends __BaseException {
 }
 
 /**
- * <p>The input value that was provided is not valid.</p>
+ * The input value that was provided is not valid.
+ *
  * @public
  */
 export class InvalidInputException extends __BaseException {
@@ -67,8 +70,8 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
- * <p>The specified Amazon Web Services resource cannot be created, because an Amazon Web Services resource with the same
- *             settings already exists.</p>
+ * The specified Amazon Web Services resource cannot be created, because an Amazon Web Services resource with the same settings already exists.
+ *
  * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -89,7 +92,8 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>There was a problem with the underlying OAuth provider.</p>
+ * There was a problem with the underlying OAuth provider.
+ *
  * @public
  */
 export class OAuthProviderException extends __BaseException {
@@ -110,7 +114,8 @@ export class OAuthProviderException extends __BaseException {
 }
 
 /**
- * <p>The specified Amazon Web Services resource cannot be found.</p>
+ * The specified Amazon Web Services resource cannot be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {

@@ -2,20 +2,23 @@
 import type { CustomActionAttachmentCriteriaOperator } from "./enums";
 
 /**
- * <p>Preferences related to AWS Chatbot usage in the calling AWS account.</p>
+ * Preferences related to AWS Chatbot usage in the calling AWS account.
+ *
  * @public
  */
 export interface AccountPreferences {
   /**
-   * <p>Enables use of a user role requirement in your chat configuration.</p>
+   * Enables use of a user role requirement in your chat configuration.
+   *
    * @public
    */
   UserAuthorizationRequired?: boolean | undefined;
 
   /**
-   * <p>Turns on training data collection.</p>
-   *          <p>This helps improve the AWS Chatbot experience by allowing AWS Chatbot to store and use your customer information, such as AWS Chatbot configurations, notifications, user inputs, AWS Chatbot generated responses, and interaction data. This data helps us to continuously improve and develop Artificial Intelligence (AI) technologies. Your data is not shared with any third parties and is protected using sophisticated controls to prevent unauthorized access and misuse. AWS Chatbot does not store or use interactions in chat channels with Amazon Q for training AI technologies for AWS Chatbot.
-   *   </p>
+   * Turns on training data collection.
+   *
+   * This helps improve the AWS Chatbot experience by allowing AWS Chatbot to store and use your customer information, such as AWS Chatbot configurations, notifications, user inputs, AWS Chatbot generated responses, and interaction data. This data helps us to continuously improve and develop Artificial Intelligence (AI) technologies. Your data is not shared with any third parties and is protected using sophisticated controls to prevent unauthorized access and misuse. AWS Chatbot does not store or use interactions in chat channels with Amazon Q for training AI technologies for AWS Chatbot.
+   *
    * @public
    */
   TrainingDataCollectionEnabled?: boolean | undefined;
@@ -26,13 +29,15 @@ export interface AccountPreferences {
  */
 export interface AssociateToConfigurationRequest {
   /**
-   * <p>The resource Amazon Resource Name (ARN) to link.</p>
+   * The resource Amazon Resource Name (ARN) to link.
+   *
    * @public
    */
   Resource: string | undefined;
 
   /**
-   * <p>The channel configuration to associate with the resource.</p>
+   * The channel configuration to associate with the resource.
+   *
    * @public
    */
   ChatConfiguration: string | undefined;
@@ -44,138 +49,157 @@ export interface AssociateToConfigurationRequest {
 export interface AssociateToConfigurationResult {}
 
 /**
- * <p>A listing of an association with a channel configuration.</p>
+ * A listing of an association with a channel configuration.
+ *
  * @public
  */
 export interface AssociationListing {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource (for example, a custom action).</p>
+   * The Amazon Resource Name (ARN) of the resource (for example, a custom action).
+   *
    * @public
    */
   Resource: string | undefined;
 }
 
 /**
- * <p>A key-value pair. A tag consists of a tag key and a tag value. Tag keys and tag values are both required, but tag values can be empty (null) strings.</p>
- *          <important>
- *             <p>Do not include confidential or sensitive information in this field. </p>
- *          </important>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">User-Defined Tag Restrictions</a> in the <i>AWS Billing and Cost Management User Guide</i>.</p>
+ * A key-value pair. A tag consists of a tag key and a tag value. Tag keys and tag values are both required, but tag values can be empty (null) strings.
+ *
+ * > **Important:** Do not include confidential or sensitive information in this field.
+ *
+ * For more information, see [User-Defined Tag Restrictions](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html) in the *AWS Billing and Cost Management User Guide*.
+ *
  * @public
  */
 export interface Tag {
   /**
-   * <p>The key of the tag.</p>
+   * The key of the tag.
+   *
    * @public
    */
   TagKey: string | undefined;
 
   /**
-   * <p>The value of the tag.</p>
+   * The value of the tag.
+   *
    * @public
    */
   TagValue: string | undefined;
 }
 
 /**
- * <p>An AWS Chatbot configuration for Amazon Chime.</p>
+ * An AWS Chatbot configuration for Amazon Chime.
+ *
  * @public
  */
 export interface ChimeWebhookConfiguration {
   /**
-   * <p>A description of the webhook. We recommend using the convention <code>RoomName/WebhookName</code>.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/chime-setup.html">Tutorial: Get started with Amazon Chime</a> in the <i> AWS Chatbot Administrator Guide</i>.
-   *  </p>
+   * A description of the webhook. We recommend using the convention `RoomName/WebhookName`.
+   *
+   * For more information, see [Tutorial: Get started with Amazon Chime](https://docs.aws.amazon.com/chatbot/latest/adminguide/chime-setup.html) in the *AWS Chatbot Administrator Guide*.
+   *
    * @public
    */
   WebhookDescription: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the ChimeWebhookConfiguration.</p>
+   * The Amazon Resource Name (ARN) of the ChimeWebhookConfiguration.
+   *
    * @public
    */
   ChatConfigurationArn: string | undefined;
 
   /**
-   * <p>A user-defined role that AWS Chatbot assumes. This is not the service-linked role.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html">IAM policies for AWS Chatbot</a> in the <i> AWS Chatbot Administrator Guide</i>.
-   *   </p>
+   * A user-defined role that AWS Chatbot assumes. This is not the service-linked role.
+   *
+   * For more information, see [IAM policies for AWS Chatbot](https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html) in the *AWS Chatbot Administrator Guide*.
+   *
    * @public
    */
   IamRoleArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the SNS topics that deliver notifications to AWS Chatbot.</p>
+   * The Amazon Resource Names (ARNs) of the SNS topics that deliver notifications to AWS Chatbot.
+   *
    * @public
    */
   SnsTopicArns: string[] | undefined;
 
   /**
-   * <p>The name of the configuration.</p>
+   * The name of the configuration.
+   *
    * @public
    */
   ConfigurationName?: string | undefined;
 
   /**
-   * <p>Logging levels include <code>ERROR</code>, <code>INFO</code>, or <code>NONE</code>.</p>
+   * Logging levels include `ERROR`, `INFO`, or `NONE`.
+   *
    * @public
    */
   LoggingLevel?: string | undefined;
 
   /**
-   * <p>A map of tags assigned to a resource. A tag is a string-to-string map of key-value pairs.</p>
+   * A map of tags assigned to a resource. A tag is a string-to-string map of key-value pairs.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>Either <code>ENABLED</code> or <code>DISABLED</code>. The resource returns <code>DISABLED</code> if the organization's AWS Chatbot policy has explicitly denied that configuration.
-   * 	  For example, if Amazon Chime is disabled.</p>
+   * Either `ENABLED` or `DISABLED`. The resource returns `DISABLED` if the organization's AWS Chatbot policy has explicitly denied that configuration. For example, if Amazon Chime is disabled.
+   *
    * @public
    */
   State?: string | undefined;
 
   /**
-   * <p>Provided if State is <code>DISABLED</code>. Provides context as to why the resource is disabled.</p>
+   * Provided if State is `DISABLED`. Provides context as to why the resource is disabled.
+   *
    * @public
    */
   StateReason?: string | undefined;
 }
 
 /**
- * <p>A Microsoft Teams team that is authorized with AWS Chatbot.</p>
+ * A Microsoft Teams team that is authorized with AWS Chatbot.
+ *
  * @public
  */
 export interface ConfiguredTeam {
   /**
-   * <p>The ID of the Microsoft Teams tenant.</p>
+   * The ID of the Microsoft Teams tenant.
+   *
    * @public
    */
   TenantId: string | undefined;
 
   /**
-   * <p> The ID of the Microsoft Teams authorized with AWS Chatbot.</p>
-   *          <p>To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the console. For more information, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/teams-setup.html#teams-client-setup">Step 1: Configure a Microsoft Teams client</a> in the <i> AWS Chatbot Administrator Guide</i>.
-   * </p>
+   * The ID of the Microsoft Teams authorized with AWS Chatbot.
+   *
+   * To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the console. For more information, see [Step 1: Configure a Microsoft Teams client](https://docs.aws.amazon.com/chatbot/latest/adminguide/teams-setup.html#teams-client-setup) in the *AWS Chatbot Administrator Guide*.
+   *
    * @public
    */
   TeamId: string | undefined;
 
   /**
-   * <p>The name of the Microsoft Teams Team.</p>
+   * The name of the Microsoft Teams Team.
+   *
    * @public
    */
   TeamName?: string | undefined;
 
   /**
-   * <p>Either <code>ENABLED</code> or <code>DISABLED</code>. The resource returns <code>DISABLED</code> if the organization's AWS Chatbot policy has explicitly denied that configuration.
-   * 	  For example, if Amazon Chime is disabled.</p>
+   * Either `ENABLED` or `DISABLED`. The resource returns `DISABLED` if the organization's AWS Chatbot policy has explicitly denied that configuration. For example, if Amazon Chime is disabled.
+   *
    * @public
    */
   State?: string | undefined;
 
   /**
-   * <p>Provided if State is <code>DISABLED</code>. Provides context as to why the resource is disabled.</p>
+   * Provided if State is `DISABLED`. Provides context as to why the resource is disabled.
+   *
    * @public
    */
   StateReason?: string | undefined;
@@ -186,47 +210,54 @@ export interface ConfiguredTeam {
  */
 export interface CreateChimeWebhookConfigurationRequest {
   /**
-   * <p>A description of the webhook. We recommend using the convention <code>RoomName/WebhookName</code>.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/chime-setup.html">Tutorial: Get started with Amazon Chime</a> in the <i> AWS Chatbot Administrator Guide</i>.
-   *  </p>
+   * A description of the webhook. We recommend using the convention `RoomName/WebhookName`.
+   *
+   * For more information, see [Tutorial: Get started with Amazon Chime](https://docs.aws.amazon.com/chatbot/latest/adminguide/chime-setup.html) in the *AWS Chatbot Administrator Guide*.
+   *
    * @public
    */
   WebhookDescription: string | undefined;
 
   /**
-   * <p>The URL for the Amazon Chime webhook.</p>
+   * The URL for the Amazon Chime webhook.
+   *
    * @public
    */
   WebhookUrl: string | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the SNS topics that deliver notifications to AWS Chatbot.</p>
+   * The Amazon Resource Names (ARNs) of the SNS topics that deliver notifications to AWS Chatbot.
+   *
    * @public
    */
   SnsTopicArns: string[] | undefined;
 
   /**
-   * <p>A user-defined role that AWS Chatbot assumes. This is not the service-linked role.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html">IAM policies for AWS Chatbot</a> in the <i> AWS Chatbot Administrator Guide</i>.
-   *   </p>
+   * A user-defined role that AWS Chatbot assumes. This is not the service-linked role.
+   *
+   * For more information, see [IAM policies for AWS Chatbot](https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html) in the *AWS Chatbot Administrator Guide*.
+   *
    * @public
    */
   IamRoleArn: string | undefined;
 
   /**
-   * <p>The name of the configuration.</p>
+   * The name of the configuration.
+   *
    * @public
    */
   ConfigurationName: string | undefined;
 
   /**
-   * <p>Logging levels include <code>ERROR</code>, <code>INFO</code>, or <code>NONE</code>.</p>
+   * Logging levels include `ERROR`, `INFO`, or `NONE`.
+   *
    * @public
    */
   LoggingLevel?: string | undefined;
 
   /**
-   * <p>A map of tags assigned to a resource. A tag is a string-to-string map of key-value pairs.</p>
+   * A map of tags assigned to a resource. A tag is a string-to-string map of key-value pairs.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -237,73 +268,85 @@ export interface CreateChimeWebhookConfigurationRequest {
  */
 export interface CreateChimeWebhookConfigurationResult {
   /**
-   * <p>An Amazon Chime webhook configuration.</p>
+   * An Amazon Chime webhook configuration.
+   *
    * @public
    */
   WebhookConfiguration?: ChimeWebhookConfiguration | undefined;
 }
 
 /**
- * <p>A criteria for when a button should be shown based on values in the notification</p>
+ * A criteria for when a button should be shown based on values in the notification
+ *
  * @public
  */
 export interface CustomActionAttachmentCriteria {
   /**
-   * <p>The operation to perform on the named variable.</p>
+   * The operation to perform on the named variable.
+   *
    * @public
    */
   Operator: CustomActionAttachmentCriteriaOperator | undefined;
 
   /**
-   * <p>The name of the variable to operate on.</p>
+   * The name of the variable to operate on.
+   *
    * @public
    */
   VariableName: string | undefined;
 
   /**
-   * <p>A value that is compared with the actual value of the variable based on the behavior of the operator.</p>
+   * A value that is compared with the actual value of the variable based on the behavior of the operator.
+   *
    * @public
    */
   Value?: string | undefined;
 }
 
 /**
- * <p>Defines when a custom action button should be attached to a notification.</p>
+ * Defines when a custom action button should be attached to a notification.
+ *
  * @public
  */
 export interface CustomActionAttachment {
   /**
-   * <p>The type of notification that the custom action should be attached to.</p>
+   * The type of notification that the custom action should be attached to.
+   *
    * @public
    */
   NotificationType?: string | undefined;
 
   /**
-   * <p>The text of the button that appears on the notification.</p>
+   * The text of the button that appears on the notification.
+   *
    * @public
    */
   ButtonText?: string | undefined;
 
   /**
-   * <p>The criteria for when a button should be shown based on values in the notification.</p>
+   * The criteria for when a button should be shown based on values in the notification.
+   *
    * @public
    */
   Criteria?: CustomActionAttachmentCriteria[] | undefined;
 
   /**
-   * <p>The variables to extract from the notification.</p>
+   * The variables to extract from the notification.
+   *
    * @public
    */
   Variables?: Record<string, string> | undefined;
 }
 
 /**
- * <p>The definition of the command to run when invoked as an alias or as an action button.</p>
+ * The definition of the command to run when invoked as an alias or as an action button.
+ *
  * @public
  */
 export interface CustomActionDefinition {
   /**
-   * <p>The command string to run which may include variables by prefixing with a dollar sign ($).</p>
+   * The command string to run which may include variables by prefixing with a dollar sign ($).
+   *
    * @public
    */
   CommandText: string | undefined;
@@ -314,38 +357,45 @@ export interface CustomActionDefinition {
  */
 export interface CreateCustomActionRequest {
   /**
-   * <p>The definition of the command to run when invoked as an alias or as an action button.</p>
+   * The definition of the command to run when invoked as an alias or as an action button.
+   *
    * @public
    */
   Definition: CustomActionDefinition | undefined;
 
   /**
-   * <p>The name used to invoke this action in a chat channel. For example, <code>@aws run my-alias</code>.</p>
+   * The name used to invoke this action in a chat channel. For example, `@aws run my-alias`.
+   *
    * @public
    */
   AliasName?: string | undefined;
 
   /**
-   * <p>Defines when this custom action button should be attached to a notification.</p>
+   * Defines when this custom action button should be attached to a notification.
+   *
    * @public
    */
   Attachments?: CustomActionAttachment[] | undefined;
 
   /**
-   * <p>A map of tags assigned to a resource. A tag is a string-to-string map of key-value pairs.</p>
+   * A map of tags assigned to a resource. A tag is a string-to-string map of key-value pairs.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, subsequent retries with the same client token returns the result from the original successful request.</p>
-   *          <p>If you do not specify a client token, one is automatically generated by the SDK.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, subsequent retries with the same client token returns the result from the original successful request.
+   *
+   * If you do not specify a client token, one is automatically generated by the SDK.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The name of the custom action. This name is included in the Amazon Resource Name (ARN).</p>
+   * The name of the custom action. This name is included in the Amazon Resource Name (ARN).
+   *
    * @public
    */
   ActionName: string | undefined;
@@ -356,7 +406,8 @@ export interface CreateCustomActionRequest {
  */
 export interface CreateCustomActionResult {
   /**
-   * <p>The fully defined ARN of the custom action.</p>
+   * The fully defined ARN of the custom action.
+   *
    * @public
    */
   CustomActionArn: string | undefined;
@@ -367,180 +418,205 @@ export interface CreateCustomActionResult {
  */
 export interface CreateTeamsChannelConfigurationRequest {
   /**
-   * <p>The ID of the Microsoft Teams channel.</p>
+   * The ID of the Microsoft Teams channel.
+   *
    * @public
    */
   ChannelId: string | undefined;
 
   /**
-   * <p>The name of the Microsoft Teams channel.</p>
+   * The name of the Microsoft Teams channel.
+   *
    * @public
    */
   ChannelName?: string | undefined;
 
   /**
-   * <p> The ID of the Microsoft Teams authorized with AWS Chatbot.</p>
-   *          <p>To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the console. For more information, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/teams-setup.html#teams-client-setup">Step 1: Configure a Microsoft Teams client</a> in the <i> AWS Chatbot Administrator Guide</i>.
-   * </p>
+   * The ID of the Microsoft Teams authorized with AWS Chatbot.
+   *
+   * To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the console. For more information, see [Step 1: Configure a Microsoft Teams client](https://docs.aws.amazon.com/chatbot/latest/adminguide/teams-setup.html#teams-client-setup) in the *AWS Chatbot Administrator Guide*.
+   *
    * @public
    */
   TeamId: string | undefined;
 
   /**
-   * <p>The name of the Microsoft Teams Team.</p>
+   * The name of the Microsoft Teams Team.
+   *
    * @public
    */
   TeamName?: string | undefined;
 
   /**
-   * <p>The ID of the Microsoft Teams tenant.</p>
+   * The ID of the Microsoft Teams tenant.
+   *
    * @public
    */
   TenantId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the SNS topics that deliver notifications to AWS Chatbot.</p>
+   * The Amazon Resource Names (ARNs) of the SNS topics that deliver notifications to AWS Chatbot.
+   *
    * @public
    */
   SnsTopicArns?: string[] | undefined;
 
   /**
-   * <p>A user-defined role that AWS Chatbot assumes. This is not the service-linked role.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html">IAM policies for AWS Chatbot</a> in the <i> AWS Chatbot Administrator Guide</i>.
-   *   </p>
+   * A user-defined role that AWS Chatbot assumes. This is not the service-linked role.
+   *
+   * For more information, see [IAM policies for AWS Chatbot](https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html) in the *AWS Chatbot Administrator Guide*.
+   *
    * @public
    */
   IamRoleArn: string | undefined;
 
   /**
-   * <p>The name of the configuration.</p>
+   * The name of the configuration.
+   *
    * @public
    */
   ConfigurationName: string | undefined;
 
   /**
-   * <p>Logging levels include <code>ERROR</code>, <code>INFO</code>, or <code>NONE</code>.</p>
+   * Logging levels include `ERROR`, `INFO`, or `NONE`.
+   *
    * @public
    */
   LoggingLevel?: string | undefined;
 
   /**
-   * <p>The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed <code>AdministratorAccess</code> policy is applied by default if this is not set.
-   *   </p>
+   * The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
+   *
    * @public
    */
   GuardrailPolicyArns?: string[] | undefined;
 
   /**
-   * <p>Enables use of a user role requirement in your chat configuration.</p>
+   * Enables use of a user role requirement in your chat configuration.
+   *
    * @public
    */
   UserAuthorizationRequired?: boolean | undefined;
 
   /**
-   * <p>A map of tags assigned to a resource. A tag is a string-to-string map of key-value pairs.</p>
+   * A map of tags assigned to a resource. A tag is a string-to-string map of key-value pairs.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 }
 
 /**
- * <p>An AWS Chatbot configuration for Microsoft Teams.</p>
+ * An AWS Chatbot configuration for Microsoft Teams.
+ *
  * @public
  */
 export interface TeamsChannelConfiguration {
   /**
-   * <p>The ID of the Microsoft Teams channel.</p>
+   * The ID of the Microsoft Teams channel.
+   *
    * @public
    */
   ChannelId: string | undefined;
 
   /**
-   * <p>The name of the Microsoft Teams channel.</p>
+   * The name of the Microsoft Teams channel.
+   *
    * @public
    */
   ChannelName?: string | undefined;
 
   /**
-   * <p> The ID of the Microsoft Teams authorized with AWS Chatbot.</p>
-   *          <p>To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the console. For more information, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/teams-setup.html#teams-client-setup">Step 1: Configure a Microsoft Teams client</a> in the <i> AWS Chatbot Administrator Guide</i>.
-   * </p>
+   * The ID of the Microsoft Teams authorized with AWS Chatbot.
+   *
+   * To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the console. For more information, see [Step 1: Configure a Microsoft Teams client](https://docs.aws.amazon.com/chatbot/latest/adminguide/teams-setup.html#teams-client-setup) in the *AWS Chatbot Administrator Guide*.
+   *
    * @public
    */
   TeamId: string | undefined;
 
   /**
-   * <p>The name of the Microsoft Teams Team.</p>
+   * The name of the Microsoft Teams Team.
+   *
    * @public
    */
   TeamName?: string | undefined;
 
   /**
-   * <p>The ID of the Microsoft Teams tenant.</p>
+   * The ID of the Microsoft Teams tenant.
+   *
    * @public
    */
   TenantId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the MicrosoftTeamsChannelConfiguration associated with the user identity to delete.</p>
+   * The Amazon Resource Name (ARN) of the MicrosoftTeamsChannelConfiguration associated with the user identity to delete.
+   *
    * @public
    */
   ChatConfigurationArn: string | undefined;
 
   /**
-   * <p>A user-defined role that AWS Chatbot assumes. This is not the service-linked role.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html">IAM policies for AWS Chatbot</a> in the <i> AWS Chatbot Administrator Guide</i>.
-   *   </p>
+   * A user-defined role that AWS Chatbot assumes. This is not the service-linked role.
+   *
+   * For more information, see [IAM policies for AWS Chatbot](https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html) in the *AWS Chatbot Administrator Guide*.
+   *
    * @public
    */
   IamRoleArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the SNS topics that deliver notifications to AWS Chatbot.</p>
+   * The Amazon Resource Names (ARNs) of the SNS topics that deliver notifications to AWS Chatbot.
+   *
    * @public
    */
   SnsTopicArns: string[] | undefined;
 
   /**
-   * <p>The name of the configuration.</p>
+   * The name of the configuration.
+   *
    * @public
    */
   ConfigurationName?: string | undefined;
 
   /**
-   * <p>Logging levels include <code>ERROR</code>, <code>INFO</code>, or <code>NONE</code>.</p>
+   * Logging levels include `ERROR`, `INFO`, or `NONE`.
+   *
    * @public
    */
   LoggingLevel?: string | undefined;
 
   /**
-   * <p>The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed <code>AdministratorAccess</code> policy is applied by default if this is not set.
-   *   </p>
+   * The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
+   *
    * @public
    */
   GuardrailPolicyArns?: string[] | undefined;
 
   /**
-   * <p>Enables use of a user role requirement in your chat configuration.</p>
+   * Enables use of a user role requirement in your chat configuration.
+   *
    * @public
    */
   UserAuthorizationRequired?: boolean | undefined;
 
   /**
-   * <p>A map of tags assigned to a resource. A tag is a string-to-string map of key-value pairs.</p>
+   * A map of tags assigned to a resource. A tag is a string-to-string map of key-value pairs.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>Either <code>ENABLED</code> or <code>DISABLED</code>. The resource returns <code>DISABLED</code> if the organization's AWS Chatbot policy has explicitly denied that configuration.
-   * 	  For example, if Amazon Chime is disabled.</p>
+   * Either `ENABLED` or `DISABLED`. The resource returns `DISABLED` if the organization's AWS Chatbot policy has explicitly denied that configuration. For example, if Amazon Chime is disabled.
+   *
    * @public
    */
   State?: string | undefined;
 
   /**
-   * <p>Provided if State is <code>DISABLED</code>. Provides context as to why the resource is disabled.</p>
+   * Provided if State is `DISABLED`. Provides context as to why the resource is disabled.
+   *
    * @public
    */
   StateReason?: string | undefined;
@@ -551,7 +627,8 @@ export interface TeamsChannelConfiguration {
  */
 export interface CreateTeamsChannelConfigurationResult {
   /**
-   * <p>The configuration for a Microsoft Teams channel configured with AWS Chatbot.</p>
+   * The configuration for a Microsoft Teams channel configured with AWS Chatbot.
+   *
    * @public
    */
   ChannelConfiguration?: TeamsChannelConfiguration | undefined;
@@ -562,162 +639,184 @@ export interface CreateTeamsChannelConfigurationResult {
  */
 export interface CreateSlackChannelConfigurationRequest {
   /**
-   * <p>The ID of the Slack workspace authorized with AWS Chatbot.</p>
+   * The ID of the Slack workspace authorized with AWS Chatbot.
+   *
    * @public
    */
   SlackTeamId: string | undefined;
 
   /**
-   * <p>The ID of the Slack channel.</p>
-   *          <p>To get this ID, open Slack, right click on the channel name in the left pane, then choose Copy Link. The channel ID is the 9-character string at the end of the URL. For example, ABCBBLZZZ.
-   *   </p>
+   * The ID of the Slack channel.
+   *
+   * To get this ID, open Slack, right click on the channel name in the left pane, then choose Copy Link. The channel ID is the 9-character string at the end of the URL. For example, ABCBBLZZZ.
+   *
    * @public
    */
   SlackChannelId: string | undefined;
 
   /**
-   * <p>The name of the Slack channel.</p>
+   * The name of the Slack channel.
+   *
    * @public
    */
   SlackChannelName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the SNS topics that deliver notifications to AWS Chatbot.</p>
+   * The Amazon Resource Names (ARNs) of the SNS topics that deliver notifications to AWS Chatbot.
+   *
    * @public
    */
   SnsTopicArns?: string[] | undefined;
 
   /**
-   * <p>A user-defined role that AWS Chatbot assumes. This is not the service-linked role.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html">IAM policies for AWS Chatbot</a> in the <i> AWS Chatbot Administrator Guide</i>.
-   *   </p>
+   * A user-defined role that AWS Chatbot assumes. This is not the service-linked role.
+   *
+   * For more information, see [IAM policies for AWS Chatbot](https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html) in the *AWS Chatbot Administrator Guide*.
+   *
    * @public
    */
   IamRoleArn: string | undefined;
 
   /**
-   * <p>The name of the configuration.</p>
+   * The name of the configuration.
+   *
    * @public
    */
   ConfigurationName: string | undefined;
 
   /**
-   * <p>Logging levels include <code>ERROR</code>, <code>INFO</code>, or <code>NONE</code>.</p>
+   * Logging levels include `ERROR`, `INFO`, or `NONE`.
+   *
    * @public
    */
   LoggingLevel?: string | undefined;
 
   /**
-   * <p>The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed <code>AdministratorAccess</code> policy is applied by default if this is not set.
-   *   </p>
+   * The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
+   *
    * @public
    */
   GuardrailPolicyArns?: string[] | undefined;
 
   /**
-   * <p>Enables use of a user role requirement in your chat configuration.</p>
+   * Enables use of a user role requirement in your chat configuration.
+   *
    * @public
    */
   UserAuthorizationRequired?: boolean | undefined;
 
   /**
-   * <p>A map of tags assigned to a resource. A tag is a string-to-string map of key-value pairs.</p>
+   * A map of tags assigned to a resource. A tag is a string-to-string map of key-value pairs.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 }
 
 /**
- * <p>An AWS Chatbot configuration for Slack.</p>
+ * An AWS Chatbot configuration for Slack.
+ *
  * @public
  */
 export interface SlackChannelConfiguration {
   /**
-   * <p>Name of the Slack workspace.</p>
+   * Name of the Slack workspace.
+   *
    * @public
    */
   SlackTeamName: string | undefined;
 
   /**
-   * <p>The ID of the Slack workspace authorized with Amazon Chime.</p>
+   * The ID of the Slack workspace authorized with Amazon Chime.
+   *
    * @public
    */
   SlackTeamId: string | undefined;
 
   /**
-   * <p>The ID of the Slack channel.</p>
-   *          <p>To get this ID, open Slack, right click on the channel name in the left pane, then choose Copy Link. The channel ID is the 9-character string at the end of the URL. For example, ABCBBLZZZ.
-   *   </p>
+   * The ID of the Slack channel.
+   *
+   * To get this ID, open Slack, right click on the channel name in the left pane, then choose Copy Link. The channel ID is the 9-character string at the end of the URL. For example, ABCBBLZZZ.
+   *
    * @public
    */
   SlackChannelId: string | undefined;
 
   /**
-   * <p>The name of the Slack channel.</p>
+   * The name of the Slack channel.
+   *
    * @public
    */
   SlackChannelName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the SlackChannelConfiguration.</p>
+   * The Amazon Resource Name (ARN) of the SlackChannelConfiguration.
+   *
    * @public
    */
   ChatConfigurationArn: string | undefined;
 
   /**
-   * <p>A user-defined role that AWS Chatbot assumes. This is not the service-linked role.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html">IAM policies for AWS Chatbot</a> in the <i> AWS Chatbot Administrator Guide</i>.
-   *   </p>
+   * A user-defined role that AWS Chatbot assumes. This is not the service-linked role.
+   *
+   * For more information, see [IAM policies for AWS Chatbot](https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html) in the *AWS Chatbot Administrator Guide*.
+   *
    * @public
    */
   IamRoleArn: string | undefined;
 
   /**
-   * <p>The ARNs of the SNS topics that deliver notifications to AWS Chatbot.</p>
+   * The ARNs of the SNS topics that deliver notifications to AWS Chatbot.
+   *
    * @public
    */
   SnsTopicArns: string[] | undefined;
 
   /**
-   * <p>The name of the configuration.</p>
+   * The name of the configuration.
+   *
    * @public
    */
   ConfigurationName?: string | undefined;
 
   /**
-   * <p>Logging levels include <code>ERROR</code>, <code>INFO</code>, or <code>NONE</code>.</p>
+   * Logging levels include `ERROR`, `INFO`, or `NONE`.
+   *
    * @public
    */
   LoggingLevel?: string | undefined;
 
   /**
-   * <p>The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed <code>AdministratorAccess</code> policy is applied by default if this is not set.
-   *   </p>
+   * The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
+   *
    * @public
    */
   GuardrailPolicyArns?: string[] | undefined;
 
   /**
-   * <p>Enables use of a user role requirement in your chat configuration.</p>
+   * Enables use of a user role requirement in your chat configuration.
+   *
    * @public
    */
   UserAuthorizationRequired?: boolean | undefined;
 
   /**
-   * <p>A map of tags assigned to a resource. A tag is a string-to-string map of key-value pairs.</p>
+   * A map of tags assigned to a resource. A tag is a string-to-string map of key-value pairs.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>Either <code>ENABLED</code> or <code>DISABLED</code>. The resource returns <code>DISABLED</code> if the organization's AWS Chatbot policy has explicitly denied that configuration.
-   * 	  For example, if Amazon Chime is disabled.</p>
+   * Either `ENABLED` or `DISABLED`. The resource returns `DISABLED` if the organization's AWS Chatbot policy has explicitly denied that configuration. For example, if Amazon Chime is disabled.
+   *
    * @public
    */
   State?: string | undefined;
 
   /**
-   * <p>Provided if State is <code>DISABLED</code>. Provides context as to why the resource is disabled.</p>
+   * Provided if State is `DISABLED`. Provides context as to why the resource is disabled.
+   *
    * @public
    */
   StateReason?: string | undefined;
@@ -728,43 +827,50 @@ export interface SlackChannelConfiguration {
  */
 export interface CreateSlackChannelConfigurationResult {
   /**
-   * <p>The configuration for a Slack channel configured with AWS Chatbot.</p>
+   * The configuration for a Slack channel configured with AWS Chatbot.
+   *
    * @public
    */
   ChannelConfiguration?: SlackChannelConfiguration | undefined;
 }
 
 /**
- * <p>Represents a parameterized command that can be invoked as an alias or as a notification button in the chat client.</p>
+ * Represents a parameterized command that can be invoked as an alias or as a notification button in the chat client.
+ *
  * @public
  */
 export interface CustomAction {
   /**
-   * <p>The fully defined Amazon Resource Name (ARN) of the custom action.</p>
+   * The fully defined Amazon Resource Name (ARN) of the custom action.
+   *
    * @public
    */
   CustomActionArn: string | undefined;
 
   /**
-   * <p>The definition of the command to run when invoked an alias or as an action button.</p>
+   * The definition of the command to run when invoked an alias or as an action button.
+   *
    * @public
    */
   Definition: CustomActionDefinition | undefined;
 
   /**
-   * <p>The name used to invoke this action in the chat channel. For example, <code>@aws run my-alias</code>.</p>
+   * The name used to invoke this action in the chat channel. For example, `@aws run my-alias`.
+   *
    * @public
    */
   AliasName?: string | undefined;
 
   /**
-   * <p>Defines when this custom action button should be attached to a notification.</p>
+   * Defines when this custom action button should be attached to a notification.
+   *
    * @public
    */
   Attachments?: CustomActionAttachment[] | undefined;
 
   /**
-   * <p>The name of the custom action that is included in the ARN.</p>
+   * The name of the custom action that is included in the ARN.
+   *
    * @public
    */
   ActionName?: string | undefined;
@@ -775,7 +881,8 @@ export interface CustomAction {
  */
 export interface DeleteCustomActionRequest {
   /**
-   * <p>The fully defined ARN of the custom action.</p>
+   * The fully defined ARN of the custom action.
+   *
    * @public
    */
   CustomActionArn: string | undefined;
@@ -791,7 +898,8 @@ export interface DeleteCustomActionResult {}
  */
 export interface GetCustomActionRequest {
   /**
-   * <p>Returns the fully defined Amazon Resource Name (ARN) of the custom action.</p>
+   * Returns the fully defined Amazon Resource Name (ARN) of the custom action.
+   *
    * @public
    */
   CustomActionArn: string | undefined;
@@ -802,7 +910,8 @@ export interface GetCustomActionRequest {
  */
 export interface GetCustomActionResult {
   /**
-   * <p>Returns the custom action.</p>
+   * Returns the custom action.
+   *
    * @public
    */
   CustomAction?: CustomAction | undefined;
@@ -813,13 +922,15 @@ export interface GetCustomActionResult {
  */
 export interface ListCustomActionsRequest {
   /**
-   * <p>The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
+   * The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.</p>
+   * An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -830,13 +941,15 @@ export interface ListCustomActionsRequest {
  */
 export interface ListCustomActionsResult {
   /**
-   * <p>A list of custom actions.</p>
+   * A list of custom actions.
+   *
    * @public
    */
   CustomActions: string[] | undefined;
 
   /**
-   * <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.</p>
+   * An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -847,25 +960,29 @@ export interface ListCustomActionsResult {
  */
 export interface UpdateCustomActionRequest {
   /**
-   * <p>The fully defined Amazon Resource Name (ARN) of the custom action.</p>
+   * The fully defined Amazon Resource Name (ARN) of the custom action.
+   *
    * @public
    */
   CustomActionArn: string | undefined;
 
   /**
-   * <p>The definition of the command to run when invoked as an alias or as an action button.</p>
+   * The definition of the command to run when invoked as an alias or as an action button.
+   *
    * @public
    */
   Definition: CustomActionDefinition | undefined;
 
   /**
-   * <p>The name used to invoke this action in the chat channel. For example, <code>@aws run my-alias</code>.</p>
+   * The name used to invoke this action in the chat channel. For example, `@aws run my-alias`.
+   *
    * @public
    */
   AliasName?: string | undefined;
 
   /**
-   * <p>Defines when this custom action button should be attached to a notification.</p>
+   * Defines when this custom action button should be attached to a notification.
+   *
    * @public
    */
   Attachments?: CustomActionAttachment[] | undefined;
@@ -876,7 +993,8 @@ export interface UpdateCustomActionRequest {
  */
 export interface UpdateCustomActionResult {
   /**
-   * <p>The fully defined ARN of the custom action.</p>
+   * The fully defined ARN of the custom action.
+   *
    * @public
    */
   CustomActionArn: string | undefined;
@@ -887,7 +1005,8 @@ export interface UpdateCustomActionResult {
  */
 export interface DeleteChimeWebhookConfigurationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the ChimeWebhookConfiguration to delete.</p>
+   * The Amazon Resource Name (ARN) of the ChimeWebhookConfiguration to delete.
+   *
    * @public
    */
   ChatConfigurationArn: string | undefined;
@@ -903,7 +1022,8 @@ export interface DeleteChimeWebhookConfigurationResult {}
  */
 export interface DeleteTeamsChannelConfigurationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the MicrosoftTeamsChannelConfiguration associated with the user identity to delete.</p>
+   * The Amazon Resource Name (ARN) of the MicrosoftTeamsChannelConfiguration associated with the user identity to delete.
+   *
    * @public
    */
   ChatConfigurationArn: string | undefined;
@@ -919,9 +1039,10 @@ export interface DeleteTeamsChannelConfigurationResult {}
  */
 export interface DeleteTeamsConfiguredTeamRequest {
   /**
-   * <p>The ID of the Microsoft Teams team authorized with AWS Chatbot.</p>
-   *          <p>To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the console. For more information, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/teams-setup.html#teams-client-setup">Step 1: Configure a Microsoft Teams client</a> in the <i> AWS Chatbot Administrator Guide</i>.
-   * </p>
+   * The ID of the Microsoft Teams team authorized with AWS Chatbot.
+   *
+   * To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the console. For more information, see [Step 1: Configure a Microsoft Teams client](https://docs.aws.amazon.com/chatbot/latest/adminguide/teams-setup.html#teams-client-setup) in the *AWS Chatbot Administrator Guide*.
+   *
    * @public
    */
   TeamId: string | undefined;
@@ -937,13 +1058,15 @@ export interface DeleteTeamsConfiguredTeamResult {}
  */
 export interface DeleteMicrosoftTeamsUserIdentityRequest {
   /**
-   * <p>The ARN of the MicrosoftTeamsChannelConfiguration associated with the user identity to delete.</p>
+   * The ARN of the MicrosoftTeamsChannelConfiguration associated with the user identity to delete.
+   *
    * @public
    */
   ChatConfigurationArn: string | undefined;
 
   /**
-   * <p>The Microsoft Teams user ID.</p>
+   * The Microsoft Teams user ID.
+   *
    * @public
    */
   UserId: string | undefined;
@@ -959,7 +1082,8 @@ export interface DeleteMicrosoftTeamsUserIdentityResult {}
  */
 export interface DeleteSlackChannelConfigurationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the SlackChannelConfiguration to delete.</p>
+   * The Amazon Resource Name (ARN) of the SlackChannelConfiguration to delete.
+   *
    * @public
    */
   ChatConfigurationArn: string | undefined;
@@ -975,19 +1099,22 @@ export interface DeleteSlackChannelConfigurationResult {}
  */
 export interface DeleteSlackUserIdentityRequest {
   /**
-   * <p>The ARN of the SlackChannelConfiguration associated with the user identity to delete.</p>
+   * The ARN of the SlackChannelConfiguration associated with the user identity to delete.
+   *
    * @public
    */
   ChatConfigurationArn: string | undefined;
 
   /**
-   * <p>The ID of the Slack workspace authorized with AWS Chatbot.</p>
+   * The ID of the Slack workspace authorized with AWS Chatbot.
+   *
    * @public
    */
   SlackTeamId: string | undefined;
 
   /**
-   * <p>The ID of the user in Slack</p>
+   * The ID of the user in Slack
+   *
    * @public
    */
   SlackUserId: string | undefined;
@@ -1003,7 +1130,8 @@ export interface DeleteSlackUserIdentityResult {}
  */
 export interface DeleteSlackWorkspaceAuthorizationRequest {
   /**
-   * <p>The ID of the Slack workspace authorized with AWS Chatbot.</p>
+   * The ID of the Slack workspace authorized with AWS Chatbot.
+   *
    * @public
    */
   SlackTeamId: string | undefined;
@@ -1019,21 +1147,22 @@ export interface DeleteSlackWorkspaceAuthorizationResult {}
  */
 export interface DescribeChimeWebhookConfigurationsRequest {
   /**
-   * <p>The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
-   *   </p>
+   * The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.
-   *   </p>
+   * An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>An optional Amazon Resource Name (ARN) of a ChimeWebhookConfiguration to describe.</p>
+   * An optional Amazon Resource Name (ARN) of a ChimeWebhookConfiguration to describe.
+   *
    * @public
    */
   ChatConfigurationArn?: string | undefined;
@@ -1044,14 +1173,15 @@ export interface DescribeChimeWebhookConfigurationsRequest {
  */
 export interface DescribeChimeWebhookConfigurationsResult {
   /**
-   * <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.
-   *  </p>
+   * An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>A list of Amazon Chime webhooks associated with the account.</p>
+   * A list of Amazon Chime webhooks associated with the account.
+   *
    * @public
    */
   WebhookConfigurations?: ChimeWebhookConfiguration[] | undefined;
@@ -1062,21 +1192,22 @@ export interface DescribeChimeWebhookConfigurationsResult {
  */
 export interface DescribeSlackChannelConfigurationsRequest {
   /**
-   * <p>The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
-   *   </p>
+   * The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p> An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.
-   *   </p>
+   * An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>An optional Amazon Resource Name (ARN) of a SlackChannelConfiguration to describe.</p>
+   * An optional Amazon Resource Name (ARN) of a SlackChannelConfiguration to describe.
+   *
    * @public
    */
   ChatConfigurationArn?: string | undefined;
@@ -1087,14 +1218,15 @@ export interface DescribeSlackChannelConfigurationsRequest {
  */
 export interface DescribeSlackChannelConfigurationsResult {
   /**
-   * <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.
-   *   </p>
+   * An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>A list of Slack channel configurations.</p>
+   * A list of Slack channel configurations.
+   *
    * @public
    */
   SlackChannelConfigurations?: SlackChannelConfiguration[] | undefined;
@@ -1105,59 +1237,66 @@ export interface DescribeSlackChannelConfigurationsResult {
  */
 export interface DescribeSlackUserIdentitiesRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the SlackChannelConfiguration associated with the user identities to describe.</p>
+   * The Amazon Resource Name (ARN) of the SlackChannelConfiguration associated with the user identities to describe.
+   *
    * @public
    */
   ChatConfigurationArn?: string | undefined;
 
   /**
-   * <p> An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.
-   *   </p>
+   * An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
-   *   </p>
+   * The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>Identifes a user level permission for a channel configuration. </p>
+ * Identifes a user level permission for a channel configuration.
+ *
  * @public
  */
 export interface SlackUserIdentity {
   /**
-   * <p>A user-defined role that AWS Chatbot assumes. This is not the service-linked role.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html">IAM policies for AWS Chatbot</a> in the <i> AWS Chatbot Administrator Guide</i>.
-   *   </p>
+   * A user-defined role that AWS Chatbot assumes. This is not the service-linked role.
+   *
+   * For more information, see [IAM policies for AWS Chatbot](https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html) in the *AWS Chatbot Administrator Guide*.
+   *
    * @public
    */
   IamRoleArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the SlackChannelConfiguration associated with the user identity to delete.</p>
+   * The Amazon Resource Name (ARN) of the SlackChannelConfiguration associated with the user identity to delete.
+   *
    * @public
    */
   ChatConfigurationArn: string | undefined;
 
   /**
-   * <p>The ID of the Slack workspace authorized with AWS Chatbot.</p>
+   * The ID of the Slack workspace authorized with AWS Chatbot.
+   *
    * @public
    */
   SlackTeamId: string | undefined;
 
   /**
-   * <p>The ID of the user in Slack</p>
+   * The ID of the user in Slack
+   *
    * @public
    */
   SlackUserId: string | undefined;
 
   /**
-   * <p>The AWS user identity ARN used to associate a Slack user ID with an IAM Role.</p>
+   * The AWS user identity ARN used to associate a Slack user ID with an IAM Role.
+   *
    * @public
    */
   AwsUserIdentity?: string | undefined;
@@ -1168,14 +1307,15 @@ export interface SlackUserIdentity {
  */
 export interface DescribeSlackUserIdentitiesResult {
   /**
-   * <p>A list of Slack User Identities.</p>
+   * A list of Slack User Identities.
+   *
    * @public
    */
   SlackUserIdentities?: SlackUserIdentity[] | undefined;
 
   /**
-   * <p> An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.
-   *   </p>
+   * An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1186,46 +1326,50 @@ export interface DescribeSlackUserIdentitiesResult {
  */
 export interface DescribeSlackWorkspacesRequest {
   /**
-   * <p>The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
-   *   </p>
+   * The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p> An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.
-   *   </p>
+   * An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>A Slack workspace. </p>
+ * A Slack workspace.
+ *
  * @public
  */
 export interface SlackWorkspace {
   /**
-   * <p>The ID of the Slack workspace authorized with AWS Chatbot.</p>
+   * The ID of the Slack workspace authorized with AWS Chatbot.
+   *
    * @public
    */
   SlackTeamId: string | undefined;
 
   /**
-   * <p>The name of the Slack workspace.</p>
+   * The name of the Slack workspace.
+   *
    * @public
    */
   SlackTeamName: string | undefined;
 
   /**
-   * <p>Either <code>ENABLED</code> or <code>DISABLED</code>. The resource returns <code>DISABLED</code> if the organization's AWS Chatbot policy has explicitly denied that configuration.
-   * 	  For example, if Amazon Chime is disabled.</p>
+   * Either `ENABLED` or `DISABLED`. The resource returns `DISABLED` if the organization's AWS Chatbot policy has explicitly denied that configuration. For example, if Amazon Chime is disabled.
+   *
    * @public
    */
   State?: string | undefined;
 
   /**
-   * <p>Provided if State is <code>DISABLED</code>. Provides context as to why the resource is disabled.</p>
+   * Provided if State is `DISABLED`. Provides context as to why the resource is disabled.
+   *
    * @public
    */
   StateReason?: string | undefined;
@@ -1236,14 +1380,15 @@ export interface SlackWorkspace {
  */
 export interface DescribeSlackWorkspacesResult {
   /**
-   * <p>A list of Slack workspaces registered with AWS Chatbot.</p>
+   * A list of Slack workspaces registered with AWS Chatbot.
+   *
    * @public
    */
   SlackWorkspaces?: SlackWorkspace[] | undefined;
 
   /**
-   * <p> An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.
-   *   </p>
+   * An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1254,13 +1399,15 @@ export interface DescribeSlackWorkspacesResult {
  */
 export interface DisassociateFromConfigurationRequest {
   /**
-   * <p>The resource (for example, a custom action) Amazon Resource Name (ARN) to unlink.</p>
+   * The resource (for example, a custom action) Amazon Resource Name (ARN) to unlink.
+   *
    * @public
    */
   Resource: string | undefined;
 
   /**
-   * <p>The channel configuration the resource is being disassociated from.</p>
+   * The channel configuration the resource is being disassociated from.
+   *
    * @public
    */
   ChatConfiguration: string | undefined;
@@ -1281,7 +1428,8 @@ export interface GetAccountPreferencesRequest {}
  */
 export interface GetAccountPreferencesResult {
   /**
-   * <p>The preferences related to AWS Chatbot usage in the calling AWS account.</p>
+   * The preferences related to AWS Chatbot usage in the calling AWS account.
+   *
    * @public
    */
   AccountPreferences?: AccountPreferences | undefined;
@@ -1292,7 +1440,8 @@ export interface GetAccountPreferencesResult {
  */
 export interface GetTeamsChannelConfigurationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the MicrosoftTeamsChannelConfiguration to retrieve.</p>
+   * The Amazon Resource Name (ARN) of the MicrosoftTeamsChannelConfiguration to retrieve.
+   *
    * @public
    */
   ChatConfigurationArn: string | undefined;
@@ -1303,7 +1452,8 @@ export interface GetTeamsChannelConfigurationRequest {
  */
 export interface GetTeamsChannelConfigurationResult {
   /**
-   * <p>The configuration for a Microsoft Teams channel configured with AWS Chatbot.</p>
+   * The configuration for a Microsoft Teams channel configured with AWS Chatbot.
+   *
    * @public
    */
   ChannelConfiguration?: TeamsChannelConfiguration | undefined;
@@ -1314,19 +1464,22 @@ export interface GetTeamsChannelConfigurationResult {
  */
 export interface ListAssociationsRequest {
   /**
-   * <p>The channel configuration to list associations for.</p>
+   * The channel configuration to list associations for.
+   *
    * @public
    */
   ChatConfiguration: string | undefined;
 
   /**
-   * <p>The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
+   * The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.</p>
+   * An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1337,13 +1490,15 @@ export interface ListAssociationsRequest {
  */
 export interface ListAssociationsResult {
   /**
-   * <p>The resources associated with this channel configuration.</p>
+   * The resources associated with this channel configuration.
+   *
    * @public
    */
   Associations: AssociationListing[] | undefined;
 
   /**
-   * <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.</p>
+   * An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1354,21 +1509,24 @@ export interface ListAssociationsResult {
  */
 export interface ListTeamsChannelConfigurationsRequest {
   /**
-   * <p>The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
+   * The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.</p>
+   * An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p> The ID of the Microsoft Teams authorized with AWS Chatbot.</p>
-   *          <p>To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the console. For more information, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/teams-setup.html#teams-client-setup">Step 1: Configure a Microsoft Teams client</a> in the <i> AWS Chatbot Administrator Guide</i>.
-   * </p>
+   * The ID of the Microsoft Teams authorized with AWS Chatbot.
+   *
+   * To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the console. For more information, see [Step 1: Configure a Microsoft Teams client](https://docs.aws.amazon.com/chatbot/latest/adminguide/teams-setup.html#teams-client-setup) in the *AWS Chatbot Administrator Guide*.
+   *
    * @public
    */
   TeamId?: string | undefined;
@@ -1379,13 +1537,15 @@ export interface ListTeamsChannelConfigurationsRequest {
  */
 export interface ListTeamsChannelConfigurationsResult {
   /**
-   * <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.</p>
+   * An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>A list of AWS Chatbot channel configurations for Microsoft Teams.</p>
+   * A list of AWS Chatbot channel configurations for Microsoft Teams.
+   *
    * @public
    */
   TeamChannelConfigurations?: TeamsChannelConfiguration[] | undefined;
@@ -1396,13 +1556,15 @@ export interface ListTeamsChannelConfigurationsResult {
  */
 export interface ListMicrosoftTeamsConfiguredTeamsRequest {
   /**
-   * <p>The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
+   * The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.</p>
+   * An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1413,13 +1575,15 @@ export interface ListMicrosoftTeamsConfiguredTeamsRequest {
  */
 export interface ListMicrosoftTeamsConfiguredTeamsResult {
   /**
-   * <p>A list of teams in Microsoft Teams that are configured with AWS Chatbot.</p>
+   * A list of teams in Microsoft Teams that are configured with AWS Chatbot.
+   *
    * @public
    */
   ConfiguredTeams?: ConfiguredTeam[] | undefined;
 
   /**
-   * <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.</p>
+   * An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1430,73 +1594,82 @@ export interface ListMicrosoftTeamsConfiguredTeamsResult {
  */
 export interface ListMicrosoftTeamsUserIdentitiesRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the MicrosoftTeamsChannelConfiguration associated with the user identities to list.</p>
+   * The Amazon Resource Name (ARN) of the MicrosoftTeamsChannelConfiguration associated with the user identities to list.
+   *
    * @public
    */
   ChatConfigurationArn?: string | undefined;
 
   /**
-   * <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.
-   *   </p>
+   * An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
-   *   </p>
+   * The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>Identifes a user level permission for a channel configuration.</p>
+ * Identifes a user level permission for a channel configuration.
+ *
  * @public
  */
 export interface TeamsUserIdentity {
   /**
-   * <p>A user-defined role that AWS Chatbot assumes. This is not the service-linked role.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html">IAM policies for AWS Chatbot</a> in the <i> AWS Chatbot Administrator Guide</i>.
-   *   </p>
+   * A user-defined role that AWS Chatbot assumes. This is not the service-linked role.
+   *
+   * For more information, see [IAM policies for AWS Chatbot](https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html) in the *AWS Chatbot Administrator Guide*.
+   *
    * @public
    */
   IamRoleArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the MicrosoftTeamsChannelConfiguration associated with the user identity to delete.</p>
+   * The Amazon Resource Name (ARN) of the MicrosoftTeamsChannelConfiguration associated with the user identity to delete.
+   *
    * @public
    */
   ChatConfigurationArn: string | undefined;
 
   /**
-   * <p> The ID of the Microsoft Teams authorized with AWS Chatbot.</p>
-   *          <p>To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the console. For more information, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/teams-setup.html#teams-client-setup">Step 1: Configure a Microsoft Teams client</a> in the <i> AWS Chatbot Administrator Guide</i>.
-   * </p>
+   * The ID of the Microsoft Teams authorized with AWS Chatbot.
+   *
+   * To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the console. For more information, see [Step 1: Configure a Microsoft Teams client](https://docs.aws.amazon.com/chatbot/latest/adminguide/teams-setup.html#teams-client-setup) in the *AWS Chatbot Administrator Guide*.
+   *
    * @public
    */
   TeamId: string | undefined;
 
   /**
-   * <p>The Microsoft Teams user ID.</p>
+   * The Microsoft Teams user ID.
+   *
    * @public
    */
   UserId?: string | undefined;
 
   /**
-   * <p>The AWS user identity ARN used to associate a Microsoft Teams user Identity with an IAM Role.</p>
+   * The AWS user identity ARN used to associate a Microsoft Teams user Identity with an IAM Role.
+   *
    * @public
    */
   AwsUserIdentity?: string | undefined;
 
   /**
-   * <p>The ID of the Microsoft Teams channel.</p>
+   * The ID of the Microsoft Teams channel.
+   *
    * @public
    */
   TeamsChannelId?: string | undefined;
 
   /**
-   * <p>The ID of the Microsoft Teams tenant.</p>
+   * The ID of the Microsoft Teams tenant.
+   *
    * @public
    */
   TeamsTenantId?: string | undefined;
@@ -1507,14 +1680,15 @@ export interface TeamsUserIdentity {
  */
 export interface ListMicrosoftTeamsUserIdentitiesResult {
   /**
-   * <p>User level permissions associated to a channel configuration.</p>
+   * User level permissions associated to a channel configuration.
+   *
    * @public
    */
   TeamsUserIdentities?: TeamsUserIdentity[] | undefined;
 
   /**
-   * <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.
-   *   </p>
+   * An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1525,7 +1699,8 @@ export interface ListMicrosoftTeamsUserIdentitiesResult {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The ARN of the resource to list tags for.</p>
+   * The ARN of the resource to list tags for.
+   *
    * @public
    */
   ResourceARN: string | undefined;
@@ -1536,7 +1711,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>Key-value pairs that are assigned to a resource, usually for the purpose of grouping and searching for items. Tags are metadata that you define.</p>
+   * Key-value pairs that are assigned to a resource, usually for the purpose of grouping and searching for items. Tags are metadata that you define.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -1547,13 +1723,15 @@ export interface ListTagsForResourceResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The ARN of the configuration.</p>
+   * The ARN of the configuration.
+   *
    * @public
    */
   ResourceARN: string | undefined;
 
   /**
-   * <p>A list of tags to apply to the configuration.</p>
+   * A list of tags to apply to the configuration.
+   *
    * @public
    */
   Tags: Tag[] | undefined;
@@ -1569,13 +1747,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The value of the resource that will have the tag removed. An Amazon Resource Name (ARN) is an identifier for a specific AWS resource, such as a server, user, or role.</p>
+   * The value of the resource that will have the tag removed. An Amazon Resource Name (ARN) is an identifier for a specific AWS resource, such as a server, user, or role.
+   *
    * @public
    */
   ResourceARN: string | undefined;
 
   /**
-   * <p>TagKeys are key-value pairs assigned to ARNs that can be used to group and search for resources by type. This metadata can be attached to resources for any purpose.</p>
+   * TagKeys are key-value pairs assigned to ARNs that can be used to group and search for resources by type. This metadata can be attached to resources for any purpose.
+   *
    * @public
    */
   TagKeys: string[] | undefined;
@@ -1591,15 +1771,17 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateAccountPreferencesRequest {
   /**
-   * <p>Enables use of a user role requirement in your chat configuration.</p>
+   * Enables use of a user role requirement in your chat configuration.
+   *
    * @public
    */
   UserAuthorizationRequired?: boolean | undefined;
 
   /**
-   * <p>Turns on training data collection.</p>
-   *          <p>This helps improve the AWS Chatbot experience by allowing AWS Chatbot to store and use your customer information, such as AWS Chatbot configurations, notifications, user inputs, AWS Chatbot generated responses, and interaction data. This data helps us to continuously improve and develop Artificial Intelligence (AI) technologies. Your data is not shared with any third parties and is protected using sophisticated controls to prevent unauthorized access and misuse. AWS Chatbot does not store or use interactions in chat channels with Amazon Q for training AI technologies for AWS Chatbot.
-   *   </p>
+   * Turns on training data collection.
+   *
+   * This helps improve the AWS Chatbot experience by allowing AWS Chatbot to store and use your customer information, such as AWS Chatbot configurations, notifications, user inputs, AWS Chatbot generated responses, and interaction data. This data helps us to continuously improve and develop Artificial Intelligence (AI) technologies. Your data is not shared with any third parties and is protected using sophisticated controls to prevent unauthorized access and misuse. AWS Chatbot does not store or use interactions in chat channels with Amazon Q for training AI technologies for AWS Chatbot.
+   *
    * @public
    */
   TrainingDataCollectionEnabled?: boolean | undefined;
@@ -1610,7 +1792,8 @@ export interface UpdateAccountPreferencesRequest {
  */
 export interface UpdateAccountPreferencesResult {
   /**
-   * <p>Preferences related to AWS Chatbot usage in the calling AWS account.</p>
+   * Preferences related to AWS Chatbot usage in the calling AWS account.
+   *
    * @public
    */
   AccountPreferences?: AccountPreferences | undefined;
@@ -1621,41 +1804,47 @@ export interface UpdateAccountPreferencesResult {
  */
 export interface UpdateChimeWebhookConfigurationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the ChimeWebhookConfiguration to update.</p>
+   * The Amazon Resource Name (ARN) of the ChimeWebhookConfiguration to update.
+   *
    * @public
    */
   ChatConfigurationArn: string | undefined;
 
   /**
-   * <p>A description of the webhook. We recommend using the convention <code>RoomName/WebhookName</code>.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/chime-setup.html">Tutorial: Get started with Amazon Chime</a> in the <i> AWS Chatbot Administrator Guide</i>.
-   *  </p>
+   * A description of the webhook. We recommend using the convention `RoomName/WebhookName`.
+   *
+   * For more information, see [Tutorial: Get started with Amazon Chime](https://docs.aws.amazon.com/chatbot/latest/adminguide/chime-setup.html) in the *AWS Chatbot Administrator Guide*.
+   *
    * @public
    */
   WebhookDescription?: string | undefined;
 
   /**
-   * <p>The URL for the Amazon Chime webhook.</p>
+   * The URL for the Amazon Chime webhook.
+   *
    * @public
    */
   WebhookUrl?: string | undefined;
 
   /**
-   * <p>The ARNs of the SNS topics that deliver notifications to AWS Chatbot.</p>
+   * The ARNs of the SNS topics that deliver notifications to AWS Chatbot.
+   *
    * @public
    */
   SnsTopicArns?: string[] | undefined;
 
   /**
-   * <p>A user-defined role that AWS Chatbot assumes. This is not the service-linked role.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html">IAM policies for AWS Chatbot</a> in the <i> AWS Chatbot Administrator Guide</i>.
-   *   </p>
+   * A user-defined role that AWS Chatbot assumes. This is not the service-linked role.
+   *
+   * For more information, see [IAM policies for AWS Chatbot](https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html) in the *AWS Chatbot Administrator Guide*.
+   *
    * @public
    */
   IamRoleArn?: string | undefined;
 
   /**
-   * <p>Logging levels include <code>ERROR</code>, <code>INFO</code>, or <code>NONE</code>.</p>
+   * Logging levels include `ERROR`, `INFO`, or `NONE`.
+   *
    * @public
    */
   LoggingLevel?: string | undefined;
@@ -1666,7 +1855,8 @@ export interface UpdateChimeWebhookConfigurationRequest {
  */
 export interface UpdateChimeWebhookConfigurationResult {
   /**
-   * <p>A Amazon Chime webhook configuration.</p>
+   * A Amazon Chime webhook configuration.
+   *
    * @public
    */
   WebhookConfiguration?: ChimeWebhookConfiguration | undefined;
@@ -1677,52 +1867,59 @@ export interface UpdateChimeWebhookConfigurationResult {
  */
 export interface UpdateTeamsChannelConfigurationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the TeamsChannelConfiguration to update.</p>
+   * The Amazon Resource Name (ARN) of the TeamsChannelConfiguration to update.
+   *
    * @public
    */
   ChatConfigurationArn: string | undefined;
 
   /**
-   * <p>The ID of the Microsoft Teams channel.</p>
+   * The ID of the Microsoft Teams channel.
+   *
    * @public
    */
   ChannelId: string | undefined;
 
   /**
-   * <p>The name of the Microsoft Teams channel.</p>
+   * The name of the Microsoft Teams channel.
+   *
    * @public
    */
   ChannelName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the SNS topics that deliver notifications to AWS Chatbot.</p>
+   * The Amazon Resource Names (ARNs) of the SNS topics that deliver notifications to AWS Chatbot.
+   *
    * @public
    */
   SnsTopicArns?: string[] | undefined;
 
   /**
-   * <p>A user-defined role that AWS Chatbot assumes. This is not the service-linked role.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html">IAM policies for AWS Chatbot</a> in the <i> AWS Chatbot Administrator Guide</i>.
-   *   </p>
+   * A user-defined role that AWS Chatbot assumes. This is not the service-linked role.
+   *
+   * For more information, see [IAM policies for AWS Chatbot](https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html) in the *AWS Chatbot Administrator Guide*.
+   *
    * @public
    */
   IamRoleArn?: string | undefined;
 
   /**
-   * <p>Logging levels include <code>ERROR</code>, <code>INFO</code>, or <code>NONE</code>.</p>
+   * Logging levels include `ERROR`, `INFO`, or `NONE`.
+   *
    * @public
    */
   LoggingLevel?: string | undefined;
 
   /**
-   * <p>The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed <code>AdministratorAccess</code> policy is applied by default if this is not set.
-   *   </p>
+   * The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
+   *
    * @public
    */
   GuardrailPolicyArns?: string[] | undefined;
 
   /**
-   * <p>Enables use of a user role requirement in your chat configuration.</p>
+   * Enables use of a user role requirement in your chat configuration.
+   *
    * @public
    */
   UserAuthorizationRequired?: boolean | undefined;
@@ -1733,7 +1930,8 @@ export interface UpdateTeamsChannelConfigurationRequest {
  */
 export interface UpdateTeamsChannelConfigurationResult {
   /**
-   * <p>The configuration for a Microsoft Teams channel configured with AWS Chatbot.</p>
+   * The configuration for a Microsoft Teams channel configured with AWS Chatbot.
+   *
    * @public
    */
   ChannelConfiguration?: TeamsChannelConfiguration | undefined;
@@ -1744,54 +1942,61 @@ export interface UpdateTeamsChannelConfigurationResult {
  */
 export interface UpdateSlackChannelConfigurationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the SlackChannelConfiguration to update.</p>
+   * The Amazon Resource Name (ARN) of the SlackChannelConfiguration to update.
+   *
    * @public
    */
   ChatConfigurationArn: string | undefined;
 
   /**
-   * <p>The ID of the Slack channel.</p>
-   *          <p>To get this ID, open Slack, right click on the channel name in the left pane, then choose Copy Link. The channel ID is the 9-character string at the end of the URL. For example, ABCBBLZZZ.
-   *   </p>
+   * The ID of the Slack channel.
+   *
+   * To get this ID, open Slack, right click on the channel name in the left pane, then choose Copy Link. The channel ID is the 9-character string at the end of the URL. For example, ABCBBLZZZ.
+   *
    * @public
    */
   SlackChannelId: string | undefined;
 
   /**
-   * <p>The name of the Slack channel.</p>
+   * The name of the Slack channel.
+   *
    * @public
    */
   SlackChannelName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the SNS topics that deliver notifications to AWS Chatbot.</p>
+   * The Amazon Resource Names (ARNs) of the SNS topics that deliver notifications to AWS Chatbot.
+   *
    * @public
    */
   SnsTopicArns?: string[] | undefined;
 
   /**
-   * <p>A user-defined role that AWS Chatbot assumes. This is not the service-linked role.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html">IAM policies for AWS Chatbot</a> in the <i> AWS Chatbot Administrator Guide</i>.
-   *   </p>
+   * A user-defined role that AWS Chatbot assumes. This is not the service-linked role.
+   *
+   * For more information, see [IAM policies for AWS Chatbot](https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html) in the *AWS Chatbot Administrator Guide*.
+   *
    * @public
    */
   IamRoleArn?: string | undefined;
 
   /**
-   * <p>Logging levels include <code>ERROR</code>, <code>INFO</code>, or <code>NONE</code>.</p>
+   * Logging levels include `ERROR`, `INFO`, or `NONE`.
+   *
    * @public
    */
   LoggingLevel?: string | undefined;
 
   /**
-   * <p>The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed <code>AdministratorAccess</code> policy is applied by default if this is not set.
-   *   </p>
+   * The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
+   *
    * @public
    */
   GuardrailPolicyArns?: string[] | undefined;
 
   /**
-   * <p>Enables use of a user role requirement in your chat configuration.</p>
+   * Enables use of a user role requirement in your chat configuration.
+   *
    * @public
    */
   UserAuthorizationRequired?: boolean | undefined;
@@ -1802,7 +2007,8 @@ export interface UpdateSlackChannelConfigurationRequest {
  */
 export interface UpdateSlackChannelConfigurationResult {
   /**
-   * <p>The configuration for a Slack channel configured with AWS Chatbot.</p>
+   * The configuration for a Slack channel configured with AWS Chatbot.
+   *
    * @public
    */
   ChannelConfiguration?: SlackChannelConfiguration | undefined;

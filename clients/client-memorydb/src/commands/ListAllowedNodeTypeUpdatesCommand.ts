@@ -23,9 +23,8 @@ export interface ListAllowedNodeTypeUpdatesCommandInput extends ListAllowedNodeT
 export interface ListAllowedNodeTypeUpdatesCommandOutput extends ListAllowedNodeTypeUpdatesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all available node types that you can scale to from your cluster's current node type.
+ * Lists all available node types that you can scale to from your cluster's current node type. When you use the UpdateCluster operation to scale your cluster, the value of the NodeType parameter must be one of the node types returned by this operation.
  *
- *          When you use the UpdateCluster operation to scale your cluster, the value of the NodeType parameter must be one of the node types returned by this operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,20 +56,24 @@ export interface ListAllowedNodeTypeUpdatesCommandOutput extends ListAllowedNode
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The specified cluster does not exist.</p>
+ *
+ * The specified cluster does not exist.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>The specified parameter combination is not valid.</p>
+ *
+ * The specified parameter combination is not valid.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The specified parameter value is not valid.</p>
+ *
+ * The specified parameter value is not valid.
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
- *  <p>The required service-linked role was not found.</p>
+ *
+ * The required service-linked role was not found.
  *
  * @throws {@link MemoryDBServiceException}
- * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * Base exception class for all service exceptions from MemoryDB service.
  *
  * @public
  */

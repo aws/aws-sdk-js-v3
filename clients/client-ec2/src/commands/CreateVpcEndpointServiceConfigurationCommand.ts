@@ -26,23 +26,17 @@ export interface CreateVpcEndpointServiceConfigurationCommandInput extends Creat
 export interface CreateVpcEndpointServiceConfigurationCommandOutput extends CreateVpcEndpointServiceConfigurationResult, __MetadataBearer {}
 
 /**
- * <p>Creates a VPC endpoint service to which service consumers (Amazon Web Services accounts,
- *             users, and IAM roles) can connect.</p>
- *          <p>Before you create an endpoint service, you must create one of the following for your service:</p>
- *          <ul>
- *             <li>
- *                <p>A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/">Network Load Balancer</a>.
- *                     Service consumers connect to your service using an interface endpoint.</p>
- *             </li>
- *             <li>
- *                <p>A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/">Gateway Load Balancer</a>.
- *                     Service consumers connect to your service using a Gateway Load Balancer endpoint.</p>
- *             </li>
- *          </ul>
- *          <p>If you set the private DNS name, you must prove that you own the private DNS domain
- *             name.</p>
- *          <p>For more information, see the <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/">Amazon Web Services PrivateLink
- * 	        Guide</a>.</p>
+ * Creates a VPC endpoint service to which service consumers (Amazon Web Services accounts, users, and IAM roles) can connect.
+ *
+ * Before you create an endpoint service, you must create one of the following for your service:
+ *
+ * - A [Network Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/). Service consumers connect to your service using an interface endpoint.
+ * - A [Gateway Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/). Service consumers connect to your service using a Gateway Load Balancer endpoint.
+ *
+ * If you set the private DNS name, you must prove that you own the private DNS domain name.
+ *
+ * For more information, see the [Amazon Web Services PrivateLink Guide](https://docs.aws.amazon.com/vpc/latest/privatelink/).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -146,8 +140,8 @@ export interface CreateVpcEndpointServiceConfigurationCommandOutput extends Crea
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

@@ -23,8 +23,7 @@ export interface UpdateFlowTemplateCommandInput extends UpdateFlowTemplateReques
 export interface UpdateFlowTemplateCommandOutput extends UpdateFlowTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the specified workflow. All deployed systems and system instances that use the workflow will see the changes in the flow when it is redeployed. If you don't want this
- *          behavior, copy the workflow (creating a new workflow with a different ID), and update the copy. The workflow can contain only entities in the specified namespace. </p>
+ * Updates the specified workflow. All deployed systems and system instances that use the workflow will see the changes in the flow when it is redeployed. If you don't want this behavior, copy the workflow (creating a new workflow with a different ID), and update the copy. The workflow can contain only entities in the specified namespace.
  *
  * @deprecated since: 2022-08-30.
  * @example
@@ -63,20 +62,16 @@ export interface UpdateFlowTemplateCommandOutput extends UpdateFlowTemplateRespo
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p></p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p></p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p></p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p></p>
  *
  * @throws {@link IoTThingsGraphServiceException}
- * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ * Base exception class for all service exceptions from IoTThingsGraph service.
  *
  * @public
  */

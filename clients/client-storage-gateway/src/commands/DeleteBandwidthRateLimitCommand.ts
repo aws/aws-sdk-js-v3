@@ -23,11 +23,8 @@ export interface DeleteBandwidthRateLimitCommandInput extends DeleteBandwidthRat
 export interface DeleteBandwidthRateLimitCommandOutput extends DeleteBandwidthRateLimitOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes the bandwidth rate limits of a gateway. You can delete either the upload and
- *          download bandwidth rate limit, or you can delete both. If you delete only one of the
- *          limits, the other limit remains unchanged. To specify which gateway to work with, use the
- *          Amazon Resource Name (ARN) of the gateway in your request. This operation is supported only
- *          for the stored volume, cached volume, and tape gateway types.</p>
+ * Deletes the bandwidth rate limits of a gateway. You can delete either the upload and download bandwidth rate limit, or you can delete both. If you delete only one of the limits, the other limit remains unchanged. To specify which gateway to work with, use the Amazon Resource Name (ARN) of the gateway in your request. This operation is supported only for the stored volume, cached volume, and tape gateway types.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,16 +52,16 @@ export interface DeleteBandwidthRateLimitCommandOutput extends DeleteBandwidthRa
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @example To delete bandwidth rate limits of gateway
  * ```javascript

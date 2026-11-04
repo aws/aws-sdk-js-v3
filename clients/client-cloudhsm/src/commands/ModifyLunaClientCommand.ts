@@ -23,19 +23,13 @@ export interface ModifyLunaClientCommandInput extends ModifyLunaClientRequest {}
 export interface ModifyLunaClientCommandOutput extends ModifyLunaClientResponse, __MetadataBearer {}
 
 /**
- * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
- *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
- *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
- *       CloudHSM Classic User Guide</a>, and the <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS CloudHSM Classic API Reference</a>.</p>
- *          <p>
- *             <b>For information about the current version of AWS
- *       CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS CloudHSM</a>, the
- *       <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS CloudHSM User Guide</a>,
- *       and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS CloudHSM API
- *       Reference</a>.</p>
- *          <p>Modifies the certificate used by the client.</p>
- *          <p>This action can potentially start a workflow to install the new certificate on the
- *       client's HSMs.</p>
+ * This is documentation for **AWS CloudHSM Classic**. For more information, see [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the [AWS CloudHSM Classic User Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS CloudHSM Classic API Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/).
+ *
+ * **For information about the current version of AWS CloudHSM**, see [AWS CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/), and the [AWS CloudHSM API Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
+ *
+ * Modifies the certificate used by the client.
+ *
+ * This action can potentially start a workflow to install the new certificate on the client's HSMs.
  *
  * @deprecated This API is deprecated.
  * @example
@@ -65,11 +59,12 @@ export interface ModifyLunaClientCommandOutput extends ModifyLunaClientResponse,
  * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.
  *
  * @throws {@link CloudHsmServiceException} (client fault)
- *  <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
+ *
+ * Indicates that an exception occurred in the AWS CloudHSM service.
  *
  * @throws {@link CloudHSMServiceException}
- * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
+ * Base exception class for all service exceptions from CloudHSM service.
  *
  * @public
  */

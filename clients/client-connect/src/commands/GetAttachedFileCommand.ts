@@ -23,8 +23,8 @@ export interface GetAttachedFileCommandInput extends GetAttachedFileRequest {}
 export interface GetAttachedFileCommandOutput extends GetAttachedFileResponse, __MetadataBearer {}
 
 /**
- * <p>Provides a pre-signed URL for download of an approved attached file. This API also returns metadata about the
- *    attached file. It will only return a downloadURL if the status of the attached file is <code>APPROVED</code>.</p>
+ * Provides a pre-signed URL for download of an approved attached file. This API also returns metadata about the attached file. It will only return a downloadURL if the status of the attached file is `APPROVED`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,23 +73,28 @@ export interface GetAttachedFileCommandOutput extends GetAttachedFileResponse, _
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

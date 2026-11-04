@@ -562,7 +562,6 @@ export interface KafkaConnect {
 }
 
 /**
- * <p/>
  * @public
  */
 export class KafkaConnect extends KafkaConnectClient implements KafkaConnect {}

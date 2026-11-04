@@ -23,15 +23,12 @@ export interface DescribeScalingActivitiesCommandInput extends DescribeScalingAc
 export interface DescribeScalingActivitiesCommandOutput extends ActivitiesType, __MetadataBearer {}
 
 /**
- * <p>Gets information about the scaling activities in the account and Region.</p>
- *          <p>When scaling events occur, you see a record of the scaling activity in the scaling
- *             activities. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html">Verify a scaling
- *                 activity for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
- *          <p>If the scaling event succeeds, the value of the <code>StatusCode</code> element in the
- *             response is <code>Successful</code>. If an attempt to launch instances failed, the
- *                 <code>StatusCode</code> value is <code>Failed</code> or <code>Cancelled</code> and
- *             the <code>StatusMessage</code> element in the response indicates the cause of the
- *             failure. For help interpreting the <code>StatusMessage</code>, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/CHAP_Troubleshooting.html">Troubleshooting Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
+ * Gets information about the scaling activities in the account and Region.
+ *
+ * When scaling events occur, you see a record of the scaling activity in the scaling activities. For more information, see [Verify a scaling activity for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) in the *Amazon EC2 Auto Scaling User Guide*.
+ *
+ * If the scaling event succeeds, the value of the `StatusCode` element in the response is `Successful`. If an attempt to launch instances failed, the `StatusCode` value is `Failed` or `Cancelled` and the `StatusMessage` element in the response indicates the cause of the failure. For help interpreting the `StatusMessage`, see [Troubleshooting Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/CHAP_Troubleshooting.html) in the *Amazon EC2 Auto Scaling User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,15 +85,16 @@ export interface DescribeScalingActivitiesCommandOutput extends ActivitiesType, 
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  * @throws {@link InvalidNextToken} (client fault)
- *  <p>The <code>NextToken</code> value is not valid.</p>
+ *
+ * The `NextToken` value is not valid.
  *
  * @throws {@link ResourceContentionFault} (server fault)
- *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
- *             instance, or load balancer).</p>
+ *
+ * You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).
  *
  * @throws {@link AutoScalingServiceException}
- * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from AutoScaling service.
  *
  * @example To describe the scaling activities for an Auto Scaling group
  * ```javascript

@@ -23,10 +23,10 @@ export interface ModifyGlobalClusterCommandInput extends ModifyGlobalClusterMess
 export interface ModifyGlobalClusterCommandOutput extends ModifyGlobalClusterResult, __MetadataBearer {}
 
 /**
- * <p>Modify a setting for an Amazon DocumentDB global cluster. You can change one or more configuration parameters (for example: deletion protection), or the global cluster identifier by specifying these parameters and the new values in the request.</p>
- *          <note>
- *             <p>This action only applies to Amazon DocumentDB clusters.</p>
- *          </note>
+ * Modify a setting for an Amazon DocumentDB global cluster. You can change one or more configuration parameters (for example: deletion protection), or the global cluster identifier by specifying these parameters and the new values in the request.
+ *
+ * > **Note:** This action only applies to Amazon DocumentDB clusters.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,14 +87,16 @@ export interface ModifyGlobalClusterCommandOutput extends ModifyGlobalClusterRes
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  * @throws {@link GlobalClusterNotFoundFault} (client fault)
- *  <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global cluster.</p>
+ *
+ * The `GlobalClusterIdentifier` doesn't refer to an existing global cluster.
  *
  * @throws {@link InvalidGlobalClusterStateFault} (client fault)
- *  <p>The requested operation can't be performed while the cluster is in this state.</p>
+ *
+ * The requested operation can't be performed while the cluster is in this state.
  *
  * @throws {@link DocDBServiceException}
- * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * Base exception class for all service exceptions from DocDB service.
  *
  * @public
  */

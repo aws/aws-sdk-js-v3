@@ -23,8 +23,8 @@ export interface SendAutomationSignalCommandInput extends SendAutomationSignalRe
 export interface SendAutomationSignalCommandOutput extends SendAutomationSignalResult, __MetadataBearer {}
 
 /**
- * <p>Sends a signal to an Automation execution to change the current behavior or status of the
- *    execution. </p>
+ * Sends a signal to an Automation execution to change the current behavior or status of the execution.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,22 +55,24 @@ export interface SendAutomationSignalCommandOutput extends SendAutomationSignalR
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link AutomationExecutionNotFoundException} (client fault)
- *  <p>There is no automation execution information for the requested automation execution
- *    ID.</p>
+ *
+ * There is no automation execution information for the requested automation execution ID.
  *
  * @throws {@link AutomationStepNotFoundException} (client fault)
- *  <p>The specified step name and execution ID don't exist. Verify the information and try
- *    again.</p>
+ *
+ * The specified step name and execution ID don't exist. Verify the information and try again.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidAutomationSignalException} (client fault)
- *  <p>The signal isn't valid for the current Automation execution.</p>
+ *
+ * The signal isn't valid for the current Automation execution.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

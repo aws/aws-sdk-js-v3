@@ -11,168 +11,196 @@ import type {
 } from "./enums";
 
 /**
- * <p>The SQL query of column selections and row filters from the data table you want.</p>
+ * The SQL query of column selections and row filters from the data table you want.
+ *
  * @public
  */
 export interface DataQuery {
   /**
-   * <p>The query statement.</p>
+   * The query statement.
+   *
    * @public
    */
   QueryStatement: string | undefined;
 
   /**
-   * <p>The table configuration.</p>
+   * The table configuration.
+   *
    * @public
    */
   TableConfigurations?: Record<string, Record<string, string>> | undefined;
 }
 
 /**
- * <p>The compression type, file format, and overwrite preference for the data export.</p>
+ * The compression type, file format, and overwrite preference for the data export.
+ *
  * @public
  */
 export interface S3OutputConfigurations {
   /**
-   * <p>The output type for the data export.</p>
+   * The output type for the data export.
+   *
    * @public
    */
   OutputType: S3OutputType | undefined;
 
   /**
-   * <p>The file format for the data export.</p>
+   * The file format for the data export.
+   *
    * @public
    */
   Format: FormatOption | undefined;
 
   /**
-   * <p>The compression type for the data export.</p>
+   * The compression type for the data export.
+   *
    * @public
    */
   Compression: CompressionOption | undefined;
 
   /**
-   * <p>The rule to follow when generating a version of the data export file. You have the choice to overwrite the previous version or to be delivered in addition to the previous versions. Overwriting exports can save on Amazon S3 storage costs. Creating new export versions allows you to track the changes in cost and usage data over time.</p>
+   * The rule to follow when generating a version of the data export file. You have the choice to overwrite the previous version or to be delivered in addition to the previous versions. Overwriting exports can save on Amazon S3 storage costs. Creating new export versions allows you to track the changes in cost and usage data over time.
+   *
    * @public
    */
   Overwrite: OverwriteOption | undefined;
 }
 
 /**
- * <p>Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and object keys of a data exports file.</p>
+ * Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and object keys of a data exports file.
+ *
  * @public
  */
 export interface S3Destination {
   /**
-   * <p>The name of the Amazon S3 bucket used as the destination of a data export file.</p>
+   * The name of the Amazon S3 bucket used as the destination of a data export file.
+   *
    * @public
    */
   S3Bucket: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID that owns the S3 bucket used as the destination for the data export.</p>
+   * The Amazon Web Services account ID that owns the S3 bucket used as the destination for the data export.
+   *
    * @public
    */
   S3BucketOwner?: string | undefined;
 
   /**
-   * <p>The S3 path prefix you want prepended to the name of your data export.</p>
+   * The S3 path prefix you want prepended to the name of your data export.
+   *
    * @public
    */
   S3Prefix: string | undefined;
 
   /**
-   * <p>The S3 bucket Region.</p>
+   * The S3 bucket Region.
+   *
    * @public
    */
   S3Region: string | undefined;
 
   /**
-   * <p>The output configuration for the data export.</p>
+   * The output configuration for the data export.
+   *
    * @public
    */
   S3OutputConfigurations: S3OutputConfigurations | undefined;
 }
 
 /**
- * <p>The destinations used for data exports.</p>
+ * The destinations used for data exports.
+ *
  * @public
  */
 export interface DestinationConfigurations {
   /**
-   * <p>An object that describes the destination of the data exports file.</p>
+   * An object that describes the destination of the data exports file.
+   *
    * @public
    */
   S3Destination: S3Destination | undefined;
 }
 
 /**
- * <p>The cadence for Amazon Web Services to update the data export in your S3 bucket.</p>
+ * The cadence for Amazon Web Services to update the data export in your S3 bucket.
+ *
  * @public
  */
 export interface RefreshCadence {
   /**
-   * <p>The frequency that data exports are updated. The export refreshes each time the source data updates, up to three times daily.</p>
+   * The frequency that data exports are updated. The export refreshes each time the source data updates, up to three times daily.
+   *
    * @public
    */
   Frequency: FrequencyOption | undefined;
 }
 
 /**
- * <p>The details that are available for an export.</p>
+ * The details that are available for an export.
+ *
  * @public
  */
 export interface Export {
   /**
-   * <p>The Amazon Resource Name (ARN) for this export.</p>
+   * The Amazon Resource Name (ARN) for this export.
+   *
    * @public
    */
   ExportArn?: string | undefined;
 
   /**
-   * <p>The name of this specific data export.</p>
+   * The name of this specific data export.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The description for this specific data export.</p>
+   * The description for this specific data export.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The data query for this specific data export.</p>
+   * The data query for this specific data export.
+   *
    * @public
    */
   DataQuery: DataQuery | undefined;
 
   /**
-   * <p>The destination configuration for this specific data export.</p>
+   * The destination configuration for this specific data export.
+   *
    * @public
    */
   DestinationConfigurations: DestinationConfigurations | undefined;
 
   /**
-   * <p>The cadence for Amazon Web Services to update the export in your S3 bucket.</p>
+   * The cadence for Amazon Web Services to update the export in your S3 bucket.
+   *
    * @public
    */
   RefreshCadence: RefreshCadence | undefined;
 }
 
 /**
- * <p>The tag structure that contains a tag key and value.</p>
+ * The tag structure that contains a tag key and value.
+ *
  * @public
  */
 export interface ResourceTag {
   /**
-   * <p>The key that's associated with the tag.</p>
+   * The key that's associated with the tag.
+   *
    * @public
    */
   Key: string | undefined;
 
   /**
-   * <p>The value that's associated with the tag.</p>
+   * The value that's associated with the tag.
+   *
    * @public
    */
   Value: string | undefined;
@@ -183,13 +211,15 @@ export interface ResourceTag {
  */
 export interface CreateExportRequest {
   /**
-   * <p>The details of the export, including data query, name, description, and destination configuration.</p>
+   * The details of the export, including data query, name, description, and destination configuration.
+   *
    * @public
    */
   Export: Export | undefined;
 
   /**
-   * <p>An optional list of tags to associate with the specified export. Each tag consists of a key and a value, and each key must be unique for the resource.</p>
+   * An optional list of tags to associate with the specified export. Each tag consists of a key and a value, and each key must be unique for the resource.
+   *
    * @public
    */
   ResourceTags?: ResourceTag[] | undefined;
@@ -200,25 +230,29 @@ export interface CreateExportRequest {
  */
 export interface CreateExportResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) for this export.</p>
+   * The Amazon Resource Name (ARN) for this export.
+   *
    * @public
    */
   ExportArn?: string | undefined;
 }
 
 /**
- * <p>The input failed to meet the constraints specified by the Amazon Web Services service in a specified field.</p>
+ * The input failed to meet the constraints specified by the Amazon Web Services service in a specified field.
+ *
  * @public
  */
 export interface ValidationExceptionField {
   /**
-   * <p>The field name where the invalid entry was detected.</p>
+   * The field name where the invalid entry was detected.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>A message with the reason for the validation exception error.</p>
+   * A message with the reason for the validation exception error.
+   *
    * @public
    */
   Message: string | undefined;
@@ -229,7 +263,8 @@ export interface ValidationExceptionField {
  */
 export interface DeleteExportRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) for this export.</p>
+   * The Amazon Resource Name (ARN) for this export.
+   *
    * @public
    */
   ExportArn: string | undefined;
@@ -240,7 +275,8 @@ export interface DeleteExportRequest {
  */
 export interface DeleteExportResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) for this export.</p>
+   * The Amazon Resource Name (ARN) for this export.
+   *
    * @public
    */
   ExportArn?: string | undefined;
@@ -251,43 +287,50 @@ export interface DeleteExportResponse {
  */
 export interface GetExportRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) for this export.</p>
+   * The Amazon Resource Name (ARN) for this export.
+   *
    * @public
    */
   ExportArn: string | undefined;
 }
 
 /**
- * <p>The status of the data export.</p>
+ * The status of the data export.
+ *
  * @public
  */
 export interface ExportStatus {
   /**
-   * <p>The status code for the request.</p>
+   * The status code for the request.
+   *
    * @public
    */
   StatusCode?: ExportStatusCode | undefined;
 
   /**
-   * <p>The description for the status code.</p>
+   * The description for the status code.
+   *
    * @public
    */
   StatusReason?: ExecutionStatusReason | undefined;
 
   /**
-   * <p>The timestamp of when the export was created.</p>
+   * The timestamp of when the export was created.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp of when the export was updated.</p>
+   * The timestamp of when the export was updated.
+   *
    * @public
    */
   LastUpdatedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp of when the export was last generated.</p>
+   * The timestamp of when the export was last generated.
+   *
    * @public
    */
   LastRefreshedAt?: Date | undefined;
@@ -298,13 +341,15 @@ export interface ExportStatus {
  */
 export interface GetExportResponse {
   /**
-   * <p>The data for this specific export.</p>
+   * The data for this specific export.
+   *
    * @public
    */
   Export?: Export | undefined;
 
   /**
-   * <p>The status of this specific export.</p>
+   * The status of this specific export.
+   *
    * @public
    */
   ExportStatus?: ExportStatus | undefined;
@@ -315,37 +360,43 @@ export interface GetExportResponse {
  */
 export interface ListExportsRequest {
   /**
-   * <p>The maximum number of objects that are returned for the request.</p>
+   * The maximum number of objects that are returned for the request.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token to retrieve the next set of results.</p>
+   * The token to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>The reference details for a given export.</p>
+ * The reference details for a given export.
+ *
  * @public
  */
 export interface ExportReference {
   /**
-   * <p>The Amazon Resource Name (ARN) for this export.</p>
+   * The Amazon Resource Name (ARN) for this export.
+   *
    * @public
    */
   ExportArn: string | undefined;
 
   /**
-   * <p>The name of this specific data export.</p>
+   * The name of this specific data export.
+   *
    * @public
    */
   ExportName: string | undefined;
 
   /**
-   * <p>The status of this specific data export.</p>
+   * The status of this specific data export.
+   *
    * @public
    */
   ExportStatus: ExportStatus | undefined;
@@ -356,13 +407,15 @@ export interface ExportReference {
  */
 export interface ListExportsResponse {
   /**
-   * <p>The details of the exports, including name and export status.</p>
+   * The details of the exports, including name and export status.
+   *
    * @public
    */
   Exports?: ExportReference[] | undefined;
 
   /**
-   * <p>The token to retrieve the next set of results.</p>
+   * The token to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -373,13 +426,15 @@ export interface ListExportsResponse {
  */
 export interface UpdateExportRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) for this export.</p>
+   * The Amazon Resource Name (ARN) for this export.
+   *
    * @public
    */
   ExportArn: string | undefined;
 
   /**
-   * <p>The name and query details for the export.</p>
+   * The name and query details for the export.
+   *
    * @public
    */
   Export: Export | undefined;
@@ -390,7 +445,8 @@ export interface UpdateExportRequest {
  */
 export interface UpdateExportResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) for this export.</p>
+   * The Amazon Resource Name (ARN) for this export.
+   *
    * @public
    */
   ExportArn?: string | undefined;
@@ -401,49 +457,57 @@ export interface UpdateExportResponse {
  */
 export interface GetExecutionRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Export object that generated this specific execution.</p>
+   * The Amazon Resource Name (ARN) of the Export object that generated this specific execution.
+   *
    * @public
    */
   ExportArn: string | undefined;
 
   /**
-   * <p>The ID for this specific execution.</p>
+   * The ID for this specific execution.
+   *
    * @public
    */
   ExecutionId: string | undefined;
 }
 
 /**
- * <p>The status of the execution.</p>
+ * The status of the execution.
+ *
  * @public
  */
 export interface ExecutionStatus {
   /**
-   * <p>The code for the status of the execution.</p>
+   * The code for the status of the execution.
+   *
    * @public
    */
   StatusCode?: ExecutionStatusCode | undefined;
 
   /**
-   * <p>The reason for the failed status.</p>
+   * The reason for the failed status.
+   *
    * @public
    */
   StatusReason?: ExecutionStatusReason | undefined;
 
   /**
-   * <p>The time when the execution was created.</p>
+   * The time when the execution was created.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The time when the execution was completed.</p>
+   * The time when the execution was completed.
+   *
    * @public
    */
   CompletedAt?: Date | undefined;
 
   /**
-   * <p>The time when the execution was last updated.</p>
+   * The time when the execution was last updated.
+   *
    * @public
    */
   LastUpdatedAt?: Date | undefined;
@@ -454,19 +518,22 @@ export interface ExecutionStatus {
  */
 export interface GetExecutionResponse {
   /**
-   * <p>The ID for this specific execution.</p>
+   * The ID for this specific execution.
+   *
    * @public
    */
   ExecutionId?: string | undefined;
 
   /**
-   * <p>The export data for this specific execution. This export data is a snapshot from when the execution was generated. The data could be different from the current export data if the export was updated since the execution was generated.</p>
+   * The export data for this specific execution. This export data is a snapshot from when the execution was generated. The data could be different from the current export data if the export was updated since the execution was generated.
+   *
    * @public
    */
   Export?: Export | undefined;
 
   /**
-   * <p>The status of this specific execution.</p>
+   * The status of this specific execution.
+   *
    * @public
    */
   ExecutionStatus?: ExecutionStatus | undefined;
@@ -477,37 +544,43 @@ export interface GetExecutionResponse {
  */
 export interface GetTableRequest {
   /**
-   * <p>The name of the table.</p>
+   * The name of the table.
+   *
    * @public
    */
   TableName: string | undefined;
 
   /**
-   * <p>TableProperties are additional configurations you can provide to change the data and schema of a table. Each table can have different TableProperties. Tables are not required to have any TableProperties. Each table property has a default value that it assumes if not specified.</p>
+   * TableProperties are additional configurations you can provide to change the data and schema of a table. Each table can have different TableProperties. Tables are not required to have any TableProperties. Each table property has a default value that it assumes if not specified.
+   *
    * @public
    */
   TableProperties?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Includes basic information for a data column such as its description, name, and type.</p>
+ * Includes basic information for a data column such as its description, name, and type.
+ *
  * @public
  */
 export interface Column {
   /**
-   * <p>The column name.</p>
+   * The column name.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The kind of data a column stores.</p>
+   * The kind of data a column stores.
+   *
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p>The description for a column.</p>
+   * The description for a column.
+   *
    * @public
    */
   Description?: string | undefined;
@@ -518,25 +591,29 @@ export interface Column {
  */
 export interface GetTableResponse {
   /**
-   * <p>The name of the table.</p>
+   * The name of the table.
+   *
    * @public
    */
   TableName?: string | undefined;
 
   /**
-   * <p>The table description.</p>
+   * The table description.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>TableProperties are additional configurations you can provide to change the data and schema of a table. Each table can have different TableProperties. Tables are not required to have any TableProperties. Each table property has a default value that it assumes if not specified.</p>
+   * TableProperties are additional configurations you can provide to change the data and schema of a table. Each table can have different TableProperties. Tables are not required to have any TableProperties. Each table property has a default value that it assumes if not specified.
+   *
    * @public
    */
   TableProperties?: Record<string, string> | undefined;
 
   /**
-   * <p>The schema of the table.</p>
+   * The schema of the table.
+   *
    * @public
    */
   Schema?: Column[] | undefined;
@@ -547,37 +624,43 @@ export interface GetTableResponse {
  */
 export interface ListExecutionsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) for this export.</p>
+   * The Amazon Resource Name (ARN) for this export.
+   *
    * @public
    */
   ExportArn: string | undefined;
 
   /**
-   * <p>The maximum number of objects that are returned for the request.</p>
+   * The maximum number of objects that are returned for the request.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token to retrieve the next set of results.</p>
+   * The token to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>The reference for the data export update.</p>
+ * The reference for the data export update.
+ *
  * @public
  */
 export interface ExecutionReference {
   /**
-   * <p>The ID for this specific execution.</p>
+   * The ID for this specific execution.
+   *
    * @public
    */
   ExecutionId: string | undefined;
 
   /**
-   * <p>The status of this specific execution.</p>
+   * The status of this specific execution.
+   *
    * @public
    */
   ExecutionStatus: ExecutionStatus | undefined;
@@ -588,13 +671,15 @@ export interface ExecutionReference {
  */
 export interface ListExecutionsResponse {
   /**
-   * <p>The list of executions.</p>
+   * The list of executions.
+   *
    * @public
    */
   Executions?: ExecutionReference[] | undefined;
 
   /**
-   * <p>The token to retrieve the next set of results.</p>
+   * The token to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -605,67 +690,78 @@ export interface ListExecutionsResponse {
  */
 export interface ListTablesRequest {
   /**
-   * <p>The token to retrieve the next set of results.</p>
+   * The token to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of objects that are returned for the request.</p>
+   * The maximum number of objects that are returned for the request.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>The properties for the data export table.</p>
+ * The properties for the data export table.
+ *
  * @public
  */
 export interface TablePropertyDescription {
   /**
-   * <p>The name of the table.</p>
+   * The name of the table.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The valid values for the table.</p>
+   * The valid values for the table.
+   *
    * @public
    */
   ValidValues?: string[] | undefined;
 
   /**
-   * <p>The default value for the table.</p>
+   * The default value for the table.
+   *
    * @public
    */
   DefaultValue?: string | undefined;
 
   /**
-   * <p>The description for the table.</p>
+   * The description for the table.
+   *
    * @public
    */
   Description?: string | undefined;
 }
 
 /**
- * <p>The details for the data export table.</p>
+ * The details for the data export table.
+ *
  * @public
  */
 export interface Table {
   /**
-   * <p>The name of the table.</p>
+   * The name of the table.
+   *
    * @public
    */
   TableName?: string | undefined;
 
   /**
-   * <p>The description for the table.</p>
+   * The description for the table.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The properties for the table.</p>
+   * The properties for the table.
+   *
    * @public
    */
   TableProperties?: TablePropertyDescription[] | undefined;
@@ -676,13 +772,15 @@ export interface Table {
  */
 export interface ListTablesResponse {
   /**
-   * <p>The list of tables.</p>
+   * The list of tables.
+   *
    * @public
    */
   Tables?: Table[] | undefined;
 
   /**
-   * <p>The token to retrieve the next set of results.</p>
+   * The token to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -693,19 +791,22 @@ export interface ListTablesResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The unique identifier for the resource.</p>
+   * The unique identifier for the resource.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>The maximum number of objects that are returned for the request.</p>
+   * The maximum number of objects that are returned for the request.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token to retrieve the next set of results.</p>
+   * The token to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -716,13 +817,15 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>An optional list of tags to associate with the specified export. Each tag consists of a key and a value, and each key must be unique for the resource.</p>
+   * An optional list of tags to associate with the specified export. Each tag consists of a key and a value, and each key must be unique for the resource.
+   *
    * @public
    */
   ResourceTags?: ResourceTag[] | undefined;
 
   /**
-   * <p>The token to retrieve the next set of results.</p>
+   * The token to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -733,13 +836,15 @@ export interface ListTagsForResourceResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The unique identifier for the resource.</p>
+   * The unique identifier for the resource.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>The tags to associate with the resource. Each tag consists of a key and a value, and each key must be unique for the resource.</p>
+   * The tags to associate with the resource. Each tag consists of a key and a value, and each key must be unique for the resource.
+   *
    * @public
    */
   ResourceTags: ResourceTag[] | undefined;
@@ -755,13 +860,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The unique identifier for the resource.</p>
+   * The unique identifier for the resource.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>The tag keys that are associated with the resource ARN.</p>
+   * The tag keys that are associated with the resource ARN.
+   *
    * @public
    */
   ResourceTagKeys: string[] | undefined;

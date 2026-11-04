@@ -23,7 +23,8 @@ export interface DeleteScheduledActionCommandInput extends DeleteScheduledAction
 export interface DeleteScheduledActionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified scheduled action.</p>
+ * Deletes the specified scheduled action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,12 +50,12 @@ export interface DeleteScheduledActionCommandOutput extends __MetadataBearer {}
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  * @throws {@link ResourceContentionFault} (server fault)
- *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
- *             instance, or load balancer).</p>
+ *
+ * You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).
  *
  * @throws {@link AutoScalingServiceException}
- * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from AutoScaling service.
  *
  * @example To delete a scheduled action from an Auto Scaling group
  * ```javascript

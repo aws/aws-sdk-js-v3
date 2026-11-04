@@ -23,7 +23,8 @@ export interface AssociateChannelCommandInput extends AssociateChannelRequest {}
 export interface AssociateChannelCommandOutput extends AssociateChannelResponse, __MetadataBearer {}
 
 /**
- * <p>Associates a delivery <a href="https://docs.aws.amazon.com/notifications/latest/userguide/managing-delivery-channels.html">Channel</a> with a particular <code>NotificationConfiguration</code>. Supported Channels include Amazon Q Developer in chat applications, the Console Mobile Application, and emails (notifications-contacts).</p>
+ * Associates a delivery [Channel](https://docs.aws.amazon.com/notifications/latest/userguide/managing-delivery-channels.html) with a particular `NotificationConfiguration`. Supported Channels include Amazon Q Developer in chat applications, the Console Mobile Application, and emails (notifications-contacts).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,29 +50,36 @@ export interface AssociateChannelCommandOutput extends AssociateChannelResponse,
  * @see {@link NotificationsClientResolvedConfig | config} for NotificationsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * User does not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ *
+ * Updating or deleting a resource can cause an inconsistent state.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error during processing of request.</p>
+ *
+ * Unexpected error during processing of request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Request references a resource which does not exist. </p>
+ *
+ * Request references a resource which does not exist.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Request would cause a service quota to be exceeded.</p>
+ *
+ * Request would cause a service quota to be exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Request was denied due to request throttling. </p>
+ *
+ * Request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>This exception is thrown when the notification event fails validation.</p>
+ *
+ * This exception is thrown when the notification event fails validation.
  *
  * @throws {@link NotificationsServiceException}
- * <p>Base exception class for all service exceptions from Notifications service.</p>
  *
+ * Base exception class for all service exceptions from Notifications service.
  *
  * @public
  */

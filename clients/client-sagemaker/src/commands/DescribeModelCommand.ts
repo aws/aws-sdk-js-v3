@@ -23,7 +23,8 @@ export interface DescribeModelCommandInput extends DescribeModelInput {}
 export interface DescribeModelCommandOutput extends DescribeModelOutput, __MetadataBearer {}
 
 /**
- * <p>Describes a model that you created using the <code>CreateModel</code> API.</p>
+ * Describes a model that you created using the `CreateModel` API.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -190,8 +191,8 @@ export interface DescribeModelCommandOutput extends DescribeModelOutput, __Metad
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

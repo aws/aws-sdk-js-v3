@@ -23,7 +23,8 @@ export interface DisassociateCertificateCommandInput extends DisassociateCertifi
 export interface DisassociateCertificateCommandOutput extends DisassociateCertificateResponse, __MetadataBearer {}
 
 /**
- * <p>Removes a certificate association from a responder gateway.</p>
+ * Removes a certificate association from a responder gateway.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,29 +54,36 @@ export interface DisassociateCertificateCommandOutput extends DisassociateCertif
  * @see {@link RTBFabricClientResolvedConfig | config} for RTBFabricClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request could not be completed because you do not have sufficient access to perform this action.</p>
+ *
+ * The request could not be completed because you do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be completed because of a conflict in the current state of the resource.</p>
+ *
+ * The request could not be completed because of a conflict in the current state of the resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request could not be completed because of an internal server error. Try your call again.</p>
+ *
+ * The request could not be completed because of an internal server error. Try your call again.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request could not be completed because the resource does not exist.</p>
+ *
+ * The request could not be completed because the resource does not exist.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request could not be completed because you exceeded a service quota.</p>
+ *
+ * The request could not be completed because you exceeded a service quota.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request could not be completed because it fails satisfy the constraints specified by the service.</p>
+ *
+ * The request could not be completed because it fails satisfy the constraints specified by the service.
  *
  * @throws {@link RTBFabricServiceException}
- * <p>Base exception class for all service exceptions from RTBFabric service.</p>
  *
+ * Base exception class for all service exceptions from RTBFabric service.
  *
  * @example Disassociate a certificate from a responder gateway
  * ```javascript

@@ -23,7 +23,18 @@ export interface UpdateRunGroupCommandInput extends UpdateRunGroupRequest {}
 export interface UpdateRunGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Updates the settings of a run group and returns a response with no body if the operation is successful.</p> <p>You can update the following settings with <code>UpdateRunGroup</code>:</p> <ul> <li> <p>Maximum number of CPUs</p> </li> <li> <p>Run time (measured in minutes)</p> </li> <li> <p>Number of GPUs</p> </li> <li> <p>Number of concurrent runs</p> </li> <li> <p>Group name</p> </li> </ul> <p>To confirm that the settings have been successfully updated, use the <code>ListRunGroups</code> or <code>GetRunGroup</code> API operations to verify that the desired changes have been made.</p>
+ * Updates the settings of a run group and returns a response with no body if the operation is successful.
+ *
+ * You can update the following settings with `UpdateRunGroup`:
+ *
+ * - Maximum number of CPUs
+ * - Run time (measured in minutes)
+ * - Number of GPUs
+ * - Number of concurrent runs
+ * - Group name
+ *
+ * To confirm that the settings have been successfully updated, use the `ListRunGroups` or `GetRunGroup` API operations to verify that the desired changes have been made.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,32 +64,40 @@ export interface UpdateRunGroupCommandOutput extends __MetadataBearer {}
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request cannot be applied to the target resource in its current state.</p>
+ *
+ * The request cannot be applied to the target resource in its current state.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred. Try the request again.</p>
+ *
+ * An unexpected error occurred. Try the request again.
  *
  * @throws {@link RequestTimeoutException} (client fault)
- *  <p>The request timed out.</p>
+ *
+ * The request timed out.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The target resource was not found in the current Region.</p>
+ *
+ * The target resource was not found in the current Region.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request exceeds a service quota.</p>
+ *
+ * The request exceeds a service quota.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link OmicsServiceException}
- * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * Base exception class for all service exceptions from Omics service.
  *
  * @public
  */

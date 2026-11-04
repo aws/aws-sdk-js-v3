@@ -26,38 +26,20 @@ export interface UploadArchiveCommandInput extends Omit<UploadArchiveInput, "bod
 export interface UploadArchiveCommandOutput extends ArchiveCreationOutput, __MetadataBearer {}
 
 /**
- * <p>This operation adds an archive to a vault. This is a synchronous operation, and for a
- *          successful upload, your data is durably persisted. Amazon Glacier returns the archive ID in
- *          the <code>x-amz-archive-id</code> header of the response. </p>
+ * This operation adds an archive to a vault. This is a synchronous operation, and for a successful upload, your data is durably persisted. Amazon Glacier returns the archive ID in the `x-amz-archive-id` header of the response.
  *
- *          <p>You must use the archive ID to access your data in Amazon Glacier. After you upload
- *          an archive, you should save the archive ID returned so that you can retrieve or delete the
- *          archive later. Besides saving the archive ID, you can also index it and give it a friendly
- *          name to allow for better searching. You can also use the optional archive description field
- *          to specify how the archive is referred to in an external index of archives, such as you
- *          might create in Amazon DynamoDB. You can also get the vault inventory to obtain a list of
- *          archive IDs in a vault. For more information, see <a>InitiateJob</a>. </p>
+ * You must use the archive ID to access your data in Amazon Glacier. After you upload an archive, you should save the archive ID returned so that you can retrieve or delete the archive later. Besides saving the archive ID, you can also index it and give it a friendly name to allow for better searching. You can also use the optional archive description field to specify how the archive is referred to in an external index of archives, such as you might create in Amazon DynamoDB. You can also get the vault inventory to obtain a list of archive IDs in a vault. For more information, see InitiateJob.
  *
- *          <p>You must provide a SHA256 tree hash of the data you are uploading. For information
- *          about computing a SHA256 tree hash, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/checksum-calculations.html">Computing Checksums</a>. </p>
+ * You must provide a SHA256 tree hash of the data you are uploading. For information about computing a SHA256 tree hash, see [Computing Checksums](https://docs.aws.amazon.com/amazonglacier/latest/dev/checksum-calculations.html).
  *
- *          <p>You can optionally specify an archive description of up to 1,024 printable ASCII
- *          characters. You can get the archive description when you either retrieve the archive or get
- *          the vault inventory. For more information, see <a>InitiateJob</a>. Amazon
- *          Glacier does not interpret the description in any way. An archive description does not need
- *          to be unique. You cannot use the description to retrieve or sort the archive list. </p>
+ * You can optionally specify an archive description of up to 1,024 printable ASCII characters. You can get the archive description when you either retrieve the archive or get the vault inventory. For more information, see InitiateJob. Amazon Glacier does not interpret the description in any way. An archive description does not need to be unique. You cannot use the description to retrieve or sort the archive list.
  *
- *          <p>Archives are immutable. After you upload an archive, you cannot edit the archive or
- *          its description.</p>
+ * Archives are immutable. After you upload an archive, you cannot edit the archive or its description.
  *
- *          <p>An AWS account has full permission to perform all operations (actions). However, AWS
- *          Identity and Access Management (IAM) users don't have any permissions by default. You must
- *          grant them explicit permission to perform specific actions. For more information, see
- *             <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html">Access Control Using
- *             AWS Identity and Access Management (IAM)</a>.</p>
- *          <p> For conceptual information and underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/uploading-an-archive.html">Uploading an Archive in Amazon
- *             Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-archive-post.html">Upload Archive</a> in the
- *             <i>Amazon Glacier Developer Guide</i>. </p>
+ * An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see [Access Control Using AWS Identity and Access Management (IAM)](https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
+ *
+ * For conceptual information and underlying REST API, see [Uploading an Archive in Amazon Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/uploading-an-archive.html) and [Upload Archive](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-archive-post.html) in the *Amazon Glacier Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,28 +72,32 @@ export interface UploadArchiveCommandOutput extends ArchiveCreationOutput, __Met
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>Returned if a parameter of the request is incorrectly specified.</p>
+ *
+ * Returned if a parameter of the request is incorrectly specified.
  *
  * @throws {@link MissingParameterValueException} (client fault)
- *  <p>Returned if a required header or parameter is missing from the request.</p>
+ *
+ * Returned if a required header or parameter is missing from the request.
  *
  * @throws {@link NoLongerSupportedException} (client fault)
- *  <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+ *
+ * Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.
  *
  * @throws {@link RequestTimeoutException} (client fault)
- *  <p>Returned if, when uploading an archive, Amazon Glacier times out while receiving the
- *          upload.</p>
+ *
+ * Returned if, when uploading an archive, Amazon Glacier times out while receiving the upload.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't
- *          exist.</p>
+ *
+ * Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>Returned if the service cannot complete the request.</p>
+ *
+ * Returned if the service cannot complete the request.
  *
  * @throws {@link GlacierServiceException}
- * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * Base exception class for all service exceptions from Glacier service.
  *
  * @example To upload an archive
  * ```javascript

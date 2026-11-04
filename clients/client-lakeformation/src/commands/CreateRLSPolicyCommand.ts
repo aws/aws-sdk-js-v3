@@ -23,7 +23,8 @@ export interface CreateRLSPolicyCommandInput extends CreateRLSPolicyRequest {}
 export interface CreateRLSPolicyCommandOutput extends CreateRLSPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a row-level security (RLS) policy. A row-level security policy defines a filter expression that Lake Formation evaluates to determine which rows of a table a principal is allowed to see. The policy is created independently of any resource, and is later associated with a resource and principal using <code>AttachRLSPolicy</code>.</p>
+ * Creates a row-level security (RLS) policy. A row-level security policy defines a filter expression that Lake Formation evaluates to determine which rows of a table a principal is allowed to see. The policy is created independently of any resource, and is later associated with a resource and principal using `AttachRLSPolicy`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,29 +56,36 @@ export interface CreateRLSPolicyCommandOutput extends CreateRLSPolicyResponse, _
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to a resource was denied.</p>
+ *
+ * Access to a resource was denied.
  *
  * @throws {@link AlreadyExistsException} (client fault)
- *  <p>A resource to be created or added already exists.</p>
+ *
+ * A resource to be created or added already exists.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Two processes are trying to modify a resource simultaneously.</p>
+ *
+ * Two processes are trying to modify a resource simultaneously.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
- *  <p>A resource numerical limit was exceeded.</p>
+ *
+ * A resource numerical limit was exceeded.
  *
  * @throws {@link LakeFormationServiceException}
- * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * Base exception class for all service exceptions from LakeFormation service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface ListVirtualMachinesCommandInput extends ListVirtualMachinesInpu
 export interface ListVirtualMachinesCommandOutput extends ListVirtualMachinesOutput, __MetadataBearer {}
 
 /**
- * <p>Lists your virtual machines.</p>
+ * Lists your virtual machines.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,17 +63,20 @@ export interface ListVirtualMachinesCommandOutput extends ListVirtualMachinesOut
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The operation did not succeed because an internal error occurred. Try again later.</p>
+ *
+ * The operation did not succeed because an internal error occurred. Try again later.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>TPS has been limited to protect against intentional or unintentional high request volumes.</p>
+ *
+ * TPS has been limited to protect against intentional or unintentional high request volumes.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The operation did not succeed because a validation error occurred.</p>
+ *
+ * The operation did not succeed because a validation error occurred.
  *
  * @throws {@link BackupGatewayServiceException}
- * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
+ * Base exception class for all service exceptions from BackupGateway service.
  *
  * @public
  */

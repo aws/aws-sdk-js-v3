@@ -23,7 +23,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the tags for an OpenSearch Serverless resource. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-collection.html">Tagging Amazon OpenSearch Serverless collections</a>.</p>
+ * Returns the tags for an OpenSearch Serverless resource. For more information, see [Tagging Amazon OpenSearch Serverless collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-collection.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,17 +56,20 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Thrown when an error internal to the service occurs while processing a request.</p>
+ *
+ * Thrown when an error internal to the service occurs while processing a request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Thrown when accessing or deleting a resource that does not exist.</p>
+ *
+ * Thrown when accessing or deleting a resource that does not exist.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Thrown when the HTTP request contains invalid input or is missing required input.</p>
+ *
+ * Thrown when the HTTP request contains invalid input or is missing required input.
  *
  * @throws {@link OpenSearchServerlessServiceException}
- * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
+ * Base exception class for all service exceptions from OpenSearchServerless service.
  *
  * @public
  */

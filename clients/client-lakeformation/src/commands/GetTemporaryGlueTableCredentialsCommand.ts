@@ -26,8 +26,10 @@ export interface GetTemporaryGlueTableCredentialsCommandInput extends GetTempora
 export interface GetTemporaryGlueTableCredentialsCommandOutput extends GetTemporaryGlueTableCredentialsResponse, __MetadataBearer {}
 
 /**
- * <p>Allows a caller in a secure environment to assume a role with permission to access Amazon S3. In order to vend such credentials, Lake Formation assumes the role associated with a registered location, for example an Amazon S3 bucket, with a scope down policy which restricts the access to a single prefix.</p>
- *          <p>To call this API, the role that the service assumes must have <code>lakeformation:GetDataAccess</code> permission on the resource.</p>
+ * Allows a caller in a secure environment to assume a role with permission to access Amazon S3. In order to vend such credentials, Lake Formation assumes the role associated with a registered location, for example an Amazon S3 bucket, with a scope down policy which restricts the access to a single prefix.
+ *
+ * To call this API, the role that the service assumes must have `lakeformation:GetDataAccess` permission on the resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,26 +82,32 @@ export interface GetTemporaryGlueTableCredentialsCommandOutput extends GetTempor
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to a resource was denied.</p>
+ *
+ * Access to a resource was denied.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist.</p>
+ *
+ * A specified entity does not exist.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link PermissionTypeMismatchException} (client fault)
- *  <p>The engine does not support filtering data based on the enforced permissions. For example, if you call the <code>GetTemporaryGlueTableCredentials</code> operation with <code>SupportedPermissionType</code> equal to <code>ColumnPermission</code>, but cell-level permissions exist on the table, this exception is thrown.</p>
+ *
+ * The engine does not support filtering data based on the enforced permissions. For example, if you call the `GetTemporaryGlueTableCredentials` operation with `SupportedPermissionType` equal to `ColumnPermission`, but cell-level permissions exist on the table, this exception is thrown.
  *
  * @throws {@link LakeFormationServiceException}
- * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * Base exception class for all service exceptions from LakeFormation service.
  *
  * @public
  */

@@ -26,9 +26,8 @@ export interface DescribeReplicationConfigurationsCommandInput extends DescribeR
 export interface DescribeReplicationConfigurationsCommandOutput extends DescribeReplicationConfigurationsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the replication configuration for a specific file system. If a file system is
- *       not specified, all of the replication configurations for the Amazon Web Services account in an
- *         Amazon Web Services Region are retrieved.</p>
+ * Retrieves the replication configuration for a specific file system. If a file system is not specified, all of the replication configurations for the Amazon Web Services account in an Amazon Web Services Region are retrieved.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,26 +77,28 @@ export interface DescribeReplicationConfigurationsCommandOutput extends Describe
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>Returned if the request is malformed or contains an error such as an invalid
- *             parameter value or a missing required parameter.</p>
+ *
+ * Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.
  *
  * @throws {@link FileSystemNotFound} (client fault)
- *  <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the
- *             requester's Amazon Web Services account.</p>
+ *
+ * Returned if the specified `FileSystemId` value doesn't exist in the requester's Amazon Web Services account.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Returned if an error occurred on the server side.</p>
+ *
+ * Returned if an error occurred on the server side.
  *
  * @throws {@link ReplicationNotFound} (client fault)
- *  <p>Returned if the specified file system does not have a replication
- *             configuration.</p>
+ *
+ * Returned if the specified file system does not have a replication configuration.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Returned if the Backup service is not available in the Amazon Web Services Region in which the request was made.</p>
+ *
+ * Returned if the Backup service is not available in the Amazon Web Services Region in which the request was made.
  *
  * @throws {@link EFSServiceException}
- * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * Base exception class for all service exceptions from EFS service.
  *
  * @public
  */

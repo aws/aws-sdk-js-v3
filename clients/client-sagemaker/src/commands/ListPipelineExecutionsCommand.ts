@@ -23,7 +23,8 @@ export interface ListPipelineExecutionsCommandInput extends ListPipelineExecutio
 export interface ListPipelineExecutionsCommandOutput extends ListPipelineExecutionsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a list of the pipeline executions.</p>
+ * Gets a list of the pipeline executions.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,11 +67,12 @@ export interface ListPipelineExecutionsCommandOutput extends ListPipelineExecuti
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Resource being access is not found.</p>
+ *
+ * Resource being access is not found.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

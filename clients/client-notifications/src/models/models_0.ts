@@ -20,114 +20,133 @@ import type {
 } from "./enums";
 
 /**
- * <p>Provides detailed information about the dimensions used for event summarization and aggregation.</p>
+ * Provides detailed information about the dimensions used for event summarization and aggregation.
+ *
  * @public
  */
 export interface SummarizationDimensionDetail {
   /**
-   * <p>The name of the SummarizationDimensionDetail.</p>
+   * The name of the SummarizationDimensionDetail.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Value of the property used to summarize aggregated events.</p>
+   * Value of the property used to summarize aggregated events.
+   *
    * @public
    */
   value: string | undefined;
 }
 
 /**
- * <p>Provides detailed information about the dimensions used for aggregation.</p>
+ * Provides detailed information about the dimensions used for aggregation.
+ *
  * @public
  */
 export interface AggregationDetail {
   /**
-   * <p>Properties used to summarize aggregated events.</p>
+   * Properties used to summarize aggregated events.
+   *
    * @public
    */
   summarizationDimensions?: SummarizationDimensionDetail[] | undefined;
 }
 
 /**
- * <p>Key-value collection that indicate how notifications are grouped.</p>
+ * Key-value collection that indicate how notifications are grouped.
+ *
  * @public
  */
 export interface AggregationKey {
   /**
-   * <p>Indicates the type of aggregation key.</p>
+   * Indicates the type of aggregation key.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Indicates the value associated with the aggregation key name.</p>
+   * Indicates the value associated with the aggregation key name.
+   *
    * @public
    */
   value: string | undefined;
 }
 
 /**
- * <p>Provides an overview of how data is summarized across different dimensions.</p>
+ * Provides an overview of how data is summarized across different dimensions.
+ *
  * @public
  */
 export interface SummarizationDimensionOverview {
   /**
-   * <p>Name of the summarization dimension.</p>
+   * Name of the summarization dimension.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Total number of occurrences for this dimension.</p>
+   * Total number of occurrences for this dimension.
+   *
    * @public
    */
   count: number | undefined;
 
   /**
-   * <p>Indicates the sample values found within the dimension.</p>
+   * Indicates the sample values found within the dimension.
+   *
    * @public
    */
   sampleValues?: string[] | undefined;
 }
 
 /**
- * <p>Provides additional information about the aggregation key.</p>
+ * Provides additional information about the aggregation key.
+ *
  * @public
  */
 export interface AggregationSummary {
   /**
-   * <p>Indicates the number of events associated with the aggregation key.</p>
+   * Indicates the number of events associated with the aggregation key.
+   *
    * @public
    */
   eventCount: number | undefined;
 
   /**
-   * <p>Indicates the criteria or rules by which notifications have been grouped together.</p>
+   * Indicates the criteria or rules by which notifications have been grouped together.
+   *
    * @public
    */
   aggregatedBy: AggregationKey[] | undefined;
 
   /**
-   * <p>Indicates the Amazon Web Services accounts in the aggregation key.</p>
+   * Indicates the Amazon Web Services accounts in the aggregation key.
+   *
    * @public
    */
   aggregatedAccounts: SummarizationDimensionOverview | undefined;
 
   /**
-   * <p>Indicates the Amazon Web Services Regions in the aggregation key.</p>
+   * Indicates the Amazon Web Services Regions in the aggregation key.
+   *
    * @public
    */
   aggregatedRegions: SummarizationDimensionOverview | undefined;
 
   /**
-   * <p>Indicates the collection of organizational units that are involved in the aggregation key.</p>
+   * Indicates the collection of organizational units that are involved in the aggregation key.
+   *
    * @public
    */
   aggregatedOrganizationalUnits?: SummarizationDimensionOverview | undefined;
 
   /**
-   * <p>List of additional dimensions used to group and summarize data.</p>
+   * List of additional dimensions used to group and summarize data.
+   *
    * @public
    */
   additionalSummarizationDimensions?: SummarizationDimensionOverview[] | undefined;
@@ -138,13 +157,17 @@ export interface AggregationSummary {
  */
 export interface AssociateChannelRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Channel to associate with the <code>NotificationConfiguration</code>.</p> <p>Supported ARNs include Amazon Q Developer in chat applications, the Console Mobile Application, and notifications-contacts.</p>
+   * The Amazon Resource Name (ARN) of the Channel to associate with the `NotificationConfiguration`.
+   *
+   * Supported ARNs include Amazon Q Developer in chat applications, the Console Mobile Application, and notifications-contacts.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The ARN of the <code>NotificationConfiguration</code> to associate with the Channel.</p>
+   * The ARN of the `NotificationConfiguration` to associate with the Channel.
+   *
    * @public
    */
   notificationConfigurationArn: string | undefined;
@@ -156,18 +179,21 @@ export interface AssociateChannelRequest {
 export interface AssociateChannelResponse {}
 
 /**
- * <p>Stores information about a field passed inside a request that resulted in an exception.</p>
+ * Stores information about a field passed inside a request that resulted in an exception.
+ *
  * @public
  */
 export interface ValidationExceptionField {
   /**
-   * <p>The field name where the invalid entry was detected.</p>
+   * The field name where the invalid entry was detected.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A message with the reason for the validation exception error.</p>
+   * A message with the reason for the validation exception error.
+   *
    * @public
    */
   message: string | undefined;
@@ -178,19 +204,22 @@ export interface ValidationExceptionField {
  */
 export interface AssociateManagedNotificationAccountContactRequest {
   /**
-   * <p>A unique value of an Account Contact Type to associate with the <code>ManagedNotificationConfiguration</code>.</p>
+   * A unique value of an Account Contact Type to associate with the `ManagedNotificationConfiguration`.
+   *
    * @public
    */
   contactIdentifier: AccountContactType | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the <code>ManagedNotificationConfiguration</code> to associate with the Account Contact.</p>
+   * The Amazon Resource Name (ARN) of the `ManagedNotificationConfiguration` to associate with the Account Contact.
+   *
    * @public
    */
   managedNotificationConfigurationArn: string | undefined;
 
   /**
-   * <p>Specifies whether this contact is subscribed to sensitive events. The <code>notifications:SubscribeSensitiveEvents</code> permission controls access to sensitive events. Defaults to false.</p>
+   * Specifies whether this contact is subscribed to sensitive events. The `notifications:SubscribeSensitiveEvents` permission controls access to sensitive events. Defaults to false.
+   *
    * @public
    */
   isSensitiveEventsSubscribed?: boolean | undefined;
@@ -206,19 +235,24 @@ export interface AssociateManagedNotificationAccountContactResponse {}
  */
 export interface AssociateManagedNotificationAdditionalChannelRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Channel to associate with the <code>ManagedNotificationConfiguration</code>.</p> <p>Supported ARNs include Amazon Q Developer in chat applications, the Console Mobile Application, and email (notifications-contacts).</p>
+   * The Amazon Resource Name (ARN) of the Channel to associate with the `ManagedNotificationConfiguration`.
+   *
+   * Supported ARNs include Amazon Q Developer in chat applications, the Console Mobile Application, and email (notifications-contacts).
+   *
    * @public
    */
   channelArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the <code>ManagedNotificationConfiguration</code> to associate with the additional Channel.</p>
+   * The Amazon Resource Name (ARN) of the `ManagedNotificationConfiguration` to associate with the additional Channel.
+   *
    * @public
    */
   managedNotificationConfigurationArn: string | undefined;
 
   /**
-   * <p>Specifies whether this channel is subscribed to sensitive events. The <code>notifications:SubscribeSensitiveEvents</code> permission controls access to sensitive events. Defaults to false.</p>
+   * Specifies whether this channel is subscribed to sensitive events. The `notifications:SubscribeSensitiveEvents` permission controls access to sensitive events. Defaults to false.
+   *
    * @public
    */
   isSensitiveEventsSubscribed?: boolean | undefined;
@@ -234,13 +268,15 @@ export interface AssociateManagedNotificationAdditionalChannelResponse {}
  */
 export interface AssociateOrganizationalUnitRequest {
   /**
-   * <p>The unique identifier of the organizational unit to associate.</p>
+   * The unique identifier of the organizational unit to associate.
+   *
    * @public
    */
   organizationalUnitId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the notification configuration to associate with the organizational unit.</p>
+   * The Amazon Resource Name (ARN) of the notification configuration to associate with the organizational unit.
+   *
    * @public
    */
   notificationConfigurationArn: string | undefined;
@@ -256,13 +292,15 @@ export interface AssociateOrganizationalUnitResponse {}
  */
 export interface DisassociateChannelRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Channel to disassociate.</p>
+   * The Amazon Resource Name (ARN) of the Channel to disassociate.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The ARN of the <code>NotificationConfiguration</code> to disassociate.</p>
+   * The ARN of the `NotificationConfiguration` to disassociate.
+   *
    * @public
    */
   notificationConfigurationArn: string | undefined;
@@ -278,19 +316,22 @@ export interface DisassociateChannelResponse {}
  */
 export interface ListChannelsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the <code>NotificationConfiguration</code>.</p>
+   * The Amazon Resource Name (ARN) of the `NotificationConfiguration`.
+   *
    * @public
    */
   notificationConfigurationArn: string | undefined;
 
   /**
-   * <p>The maximum number of results to be returned in this call. The default value is 20.</p>
+   * The maximum number of results to be returned in this call. The default value is 20.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The start token for paginated calls. Retrieved from the response of a previous ListNotificationEvents call. <code>NextToken</code> uses Base64 encoding.</p>
+   * The start token for paginated calls. Retrieved from the response of a previous ListNotificationEvents call. `NextToken` uses Base64 encoding.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -301,13 +342,15 @@ export interface ListChannelsRequest {
  */
 export interface ListChannelsResponse {
   /**
-   * <p>A pagination token. If a non-null pagination token is returned in a result, pass its value in another request to retrieve more entries.</p>
+   * A pagination token. If a non-null pagination token is returned in a result, pass its value in another request to retrieve more entries.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>A list of Channels.</p>
+   * A list of Channels.
+   *
    * @public
    */
   channels: string[] | undefined;
@@ -318,49 +361,87 @@ export interface ListChannelsResponse {
  */
 export interface CreateEventRuleRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the <code>NotificationConfiguration</code> associated with this <code>EventRule</code>.</p>
+   * The Amazon Resource Name (ARN) of the `NotificationConfiguration` associated with this `EventRule`.
+   *
    * @public
    */
   notificationConfigurationArn: string | undefined;
 
   /**
-   * <p>The matched event source.</p> <p>Must match one of the valid EventBridge sources. Only Amazon Web Services service sourced events are supported. For example, <code>aws.ec2</code> and <code>aws.cloudwatch</code>. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html#eb-service-event-delivery-level">Event delivery from Amazon Web Services services</a> in the <i>Amazon EventBridge User Guide</i>.</p>
+   * The matched event source.
+   *
+   * Must match one of the valid EventBridge sources. Only Amazon Web Services service sourced events are supported. For example, `aws.ec2` and `aws.cloudwatch`. For more information, see [Event delivery from Amazon Web Services services](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html#eb-service-event-delivery-level) in the *Amazon EventBridge User Guide*.
+   *
    * @public
    */
   source: string | undefined;
 
   /**
-   * <p>The event type to match.</p> <p>Must match one of the valid Amazon EventBridge event types. For example, EC2 Instance State-change Notification and Amazon CloudWatch Alarm State Change. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html#eb-service-event-delivery-level">Event delivery from Amazon Web Services services</a> in the <i>Amazon EventBridge User Guide</i>.</p>
+   * The event type to match.
+   *
+   * Must match one of the valid Amazon EventBridge event types. For example, EC2 Instance State-change Notification and Amazon CloudWatch Alarm State Change. For more information, see [Event delivery from Amazon Web Services services](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html#eb-service-event-delivery-level) in the *Amazon EventBridge User Guide*.
+   *
    * @public
    */
   eventType: string | undefined;
 
   /**
-   * <p>An additional event pattern used to further filter the events this <code>EventRule</code> receives.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html">Amazon EventBridge event patterns</a> in the <i>Amazon EventBridge User Guide.</i> </p>
+   * An additional event pattern used to further filter the events this `EventRule` receives.
+   *
+   * For more information, see [Amazon EventBridge event patterns](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html) in the *Amazon EventBridge User Guide.*
+   *
    * @public
    */
   eventPattern?: string | undefined;
 
   /**
-   * <p>A list of Amazon Web Services Regions that send events to this <code>EventRule</code>.</p>
+   * A list of Amazon Web Services Regions that send events to this `EventRule`.
+   *
    * @public
    */
   regions: string[] | undefined;
 }
 
 /**
- * <p>Provides additional information about the current <code>EventRule</code> status.</p>
+ * Provides additional information about the current `EventRule` status.
+ *
  * @public
  */
 export interface EventRuleStatusSummary {
   /**
-   * <p>The status of the <code>EventRule</code>.</p> <ul> <li> <p>Values:</p> <ul> <li> <p> <code>ACTIVE</code> </p> <ul> <li> <p>The <code>EventRule</code> can process events.</p> </li> </ul> </li> <li> <p> <code>INACTIVE</code> </p> <ul> <li> <p>The <code>EventRule</code> may be unable to process events.</p> </li> </ul> </li> <li> <p> <code>CREATING</code> </p> <ul> <li> <p>The <code>EventRule</code> is being created.</p> <p>Only <code>GET</code> and <code>LIST</code> calls can be run.</p> </li> </ul> </li> <li> <p> <code>UPDATING</code> </p> <ul> <li> <p>The <code>EventRule</code> is being updated.</p> <p>Only <code>GET</code> and <code>LIST</code> calls can be run.</p> </li> </ul> </li> <li> <p> <code>DELETING</code> </p> <ul> <li> <p>The <code>EventRule</code> is being deleted.</p> <p>Only <code>GET</code> and <code>LIST</code> calls can be run.</p> </li> </ul> </li> </ul> </li> </ul>
+   * The status of the `EventRule`.
+   *
+   * - Values:
+   *
+   *   - `ACTIVE`
+   *
+   *     - The `EventRule` can process events.
+   *   - `INACTIVE`
+   *
+   *     - The `EventRule` may be unable to process events.
+   *   - `CREATING`
+   *
+   *     - The `EventRule` is being created.
+   *
+   *       Only `GET` and `LIST` calls can be run.
+   *   - `UPDATING`
+   *
+   *     - The `EventRule` is being updated.
+   *
+   *       Only `GET` and `LIST` calls can be run.
+   *   - `DELETING`
+   *
+   *     - The `EventRule` is being deleted.
+   *
+   *       Only `GET` and `LIST` calls can be run.
+   *
    * @public
    */
   status: EventRuleStatus | undefined;
 
   /**
-   * <p>A human-readable reason for <code>EventRuleStatus</code>.</p>
+   * A human-readable reason for `EventRuleStatus`.
+   *
    * @public
    */
   reason: string | undefined;
@@ -371,19 +452,22 @@ export interface EventRuleStatusSummary {
  */
 export interface CreateEventRuleResponse {
   /**
-   * <p>The ARN of the resource.</p>
+   * The ARN of the resource.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The ARN of a <code>NotificationConfiguration</code>.</p>
+   * The ARN of a `NotificationConfiguration`.
+   *
    * @public
    */
   notificationConfigurationArn: string | undefined;
 
   /**
-   * <p>A list of an <code>EventRule</code>'s status by Region. Regions are mapped to <code>EventRuleStatusSummary</code>.</p>
+   * A list of an `EventRule`'s status by Region. Regions are mapped to `EventRuleStatusSummary`.
+   *
    * @public
    */
   statusSummaryByRegion: Record<string, EventRuleStatusSummary> | undefined;
@@ -394,25 +478,41 @@ export interface CreateEventRuleResponse {
  */
 export interface CreateNotificationConfigurationRequest {
   /**
-   * <p>The name of the <code>NotificationConfiguration</code>. Supports RFC 3986's unreserved characters.</p>
+   * The name of the `NotificationConfiguration`. Supports RFC 3986's unreserved characters.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the <code>NotificationConfiguration</code>.</p>
+   * The description of the `NotificationConfiguration`.
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p>The aggregation preference of the <code>NotificationConfiguration</code>.</p> <ul> <li> <p>Values:</p> <ul> <li> <p> <code>LONG</code> </p> <ul> <li> <p>Aggregate notifications for long periods of time (12 hours).</p> </li> </ul> </li> <li> <p> <code>SHORT</code> </p> <ul> <li> <p>Aggregate notifications for short periods of time (5 minutes).</p> </li> </ul> </li> <li> <p> <code>NONE</code> </p> <ul> <li> <p>Don't aggregate notifications.</p> </li> </ul> </li> </ul> </li> </ul>
+   * The aggregation preference of the `NotificationConfiguration`.
+   *
+   * - Values:
+   *
+   *   - `LONG`
+   *
+   *     - Aggregate notifications for long periods of time (12 hours).
+   *   - `SHORT`
+   *
+   *     - Aggregate notifications for short periods of time (5 minutes).
+   *   - `NONE`
+   *
+   *     - Don't aggregate notifications.
+   *
    * @public
    */
   aggregationDuration?: AggregationDuration | undefined;
 
   /**
-   * <p>A map of tags assigned to a resource. A tag is a string-to-string map of key-value pairs.</p>
+   * A map of tags assigned to a resource. A tag is a string-to-string map of key-value pairs.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -423,13 +523,15 @@ export interface CreateNotificationConfigurationRequest {
  */
 export interface CreateNotificationConfigurationResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the <code>NotificationConfiguration</code>.</p>
+   * The Amazon Resource Name (ARN) of the `NotificationConfiguration`.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The current status of this <code>NotificationConfiguration</code>.</p>
+   * The current status of this `NotificationConfiguration`.
+   *
    * @public
    */
   status: NotificationConfigurationStatus | undefined;
@@ -440,7 +542,8 @@ export interface CreateNotificationConfigurationResponse {
  */
 export interface DeleteEventRuleRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the <code>EventRule</code> to delete.</p>
+   * The Amazon Resource Name (ARN) of the `EventRule` to delete.
+   *
    * @public
    */
   arn: string | undefined;
@@ -456,7 +559,8 @@ export interface DeleteEventRuleResponse {}
  */
 export interface DeleteNotificationConfigurationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the <code>NotificationConfiguration</code> to delete.</p>
+   * The Amazon Resource Name (ARN) of the `NotificationConfiguration` to delete.
+   *
    * @public
    */
   arn: string | undefined;
@@ -472,25 +576,41 @@ export interface DeleteNotificationConfigurationResponse {}
  */
 export interface DeregisterNotificationHubRequest {
   /**
-   * <p>The <code>NotificationHub</code> Region.</p>
+   * The `NotificationHub` Region.
+   *
    * @public
    */
   notificationHubRegion: string | undefined;
 }
 
 /**
- * <p>Provides additional information about the current <code>NotificationHub</code> status.</p>
+ * Provides additional information about the current `NotificationHub` status.
+ *
  * @public
  */
 export interface NotificationHubStatusSummary {
   /**
-   * <p>Status information about the <code>NotificationHub</code>.</p> <ul> <li> <p>Values:</p> <ul> <li> <p> <code>ACTIVE</code> </p> <ul> <li> <p>Incoming <code>NotificationEvents</code> are replicated to this <code>NotificationHub</code>.</p> </li> </ul> </li> <li> <p> <code>REGISTERING</code> </p> <ul> <li> <p>The <code>NotificationConfiguration</code> is initializing. A <code>NotificationConfiguration</code> with this status can't be deregistered.</p> </li> </ul> </li> <li> <p> <code>DEREGISTERING</code> </p> <ul> <li> <p>The <code>NotificationConfiguration</code> is being deleted. You can't register additional <code>NotificationHubs</code> in the same Region as a <code>NotificationConfiguration</code> with this status.</p> </li> </ul> </li> </ul> </li> </ul>
+   * Status information about the `NotificationHub`.
+   *
+   * - Values:
+   *
+   *   - `ACTIVE`
+   *
+   *     - Incoming `NotificationEvents` are replicated to this `NotificationHub`.
+   *   - `REGISTERING`
+   *
+   *     - The `NotificationConfiguration` is initializing. A `NotificationConfiguration` with this status can't be deregistered.
+   *   - `DEREGISTERING`
+   *
+   *     - The `NotificationConfiguration` is being deleted. You can't register additional `NotificationHubs` in the same Region as a `NotificationConfiguration` with this status.
+   *
    * @public
    */
   status: NotificationHubStatus | undefined;
 
   /**
-   * <p>An explanation for the current status.</p>
+   * An explanation for the current status.
+   *
    * @public
    */
   reason: string | undefined;
@@ -501,31 +621,36 @@ export interface NotificationHubStatusSummary {
  */
 export interface DeregisterNotificationHubResponse {
   /**
-   * <p>The <code>NotificationHub</code> Region.</p>
+   * The `NotificationHub` Region.
+   *
    * @public
    */
   notificationHubRegion: string | undefined;
 
   /**
-   * <p> <code>NotificationHub</code> status information.</p>
+   * `NotificationHub` status information.
+   *
    * @public
    */
   statusSummary: NotificationHubStatusSummary | undefined;
 }
 
 /**
- * <p>The key-value pair of properties for an event.</p>
+ * The key-value pair of properties for an event.
+ *
  * @public
  */
 export interface Dimension {
   /**
-   * <p>The name of the dimension</p>
+   * The name of the dimension
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The value of the dimension.</p>
+   * The value of the dimension.
+   *
    * @public
    */
   value: string | undefined;
@@ -546,13 +671,15 @@ export interface DisableNotificationsAccessForOrganizationResponse {}
  */
 export interface DisassociateManagedNotificationAccountContactRequest {
   /**
-   * <p>The unique value of an Account Contact Type to associate with the <code>ManagedNotificationConfiguration</code>.</p>
+   * The unique value of an Account Contact Type to associate with the `ManagedNotificationConfiguration`.
+   *
    * @public
    */
   contactIdentifier: AccountContactType | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the <code>ManagedNotificationConfiguration</code> to associate with the Account Contact.</p>
+   * The Amazon Resource Name (ARN) of the `ManagedNotificationConfiguration` to associate with the Account Contact.
+   *
    * @public
    */
   managedNotificationConfigurationArn: string | undefined;
@@ -568,13 +695,15 @@ export interface DisassociateManagedNotificationAccountContactResponse {}
  */
 export interface DisassociateManagedNotificationAdditionalChannelRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Channel to associate with the <code>ManagedNotificationConfiguration</code>.</p>
+   * The Amazon Resource Name (ARN) of the Channel to associate with the `ManagedNotificationConfiguration`.
+   *
    * @public
    */
   channelArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Managed Notification Configuration to associate with the additional Channel.</p>
+   * The Amazon Resource Name (ARN) of the Managed Notification Configuration to associate with the additional Channel.
+   *
    * @public
    */
   managedNotificationConfigurationArn: string | undefined;
@@ -590,13 +719,15 @@ export interface DisassociateManagedNotificationAdditionalChannelResponse {}
  */
 export interface DisassociateOrganizationalUnitRequest {
   /**
-   * <p>The unique identifier of the organizational unit to disassociate.</p>
+   * The unique identifier of the organizational unit to disassociate.
+   *
    * @public
    */
   organizationalUnitId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the notification configuration to disassociate from the organizational unit.</p>
+   * The Amazon Resource Name (ARN) of the notification configuration to disassociate from the organizational unit.
+   *
    * @public
    */
   notificationConfigurationArn: string | undefined;
@@ -622,7 +753,8 @@ export interface EnableNotificationsAccessForOrganizationResponse {}
  */
 export interface GetEventRuleRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the <code>EventRule</code> to return.</p>
+   * The Amazon Resource Name (ARN) of the `EventRule` to return.
+   *
    * @public
    */
   arn: string | undefined;
@@ -633,55 +765,72 @@ export interface GetEventRuleRequest {
  */
 export interface GetEventRuleResponse {
   /**
-   * <p>The ARN of the resource.</p>
+   * The ARN of the resource.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The ARN of a <code>NotificationConfiguration</code>.</p>
+   * The ARN of a `NotificationConfiguration`.
+   *
    * @public
    */
   notificationConfigurationArn: string | undefined;
 
   /**
-   * <p>The date when the <code>EventRule</code> was created.</p>
+   * The date when the `EventRule` was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>The matched event source.</p> <p>Must match one of the valid EventBridge sources. Only Amazon Web Services service sourced events are supported. For example, <code>aws.ec2</code> and <code>aws.cloudwatch</code>. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html#eb-service-event-delivery-level">Event delivery from Amazon Web Services services</a> in the <i>Amazon EventBridge User Guide</i>.</p>
+   * The matched event source.
+   *
+   * Must match one of the valid EventBridge sources. Only Amazon Web Services service sourced events are supported. For example, `aws.ec2` and `aws.cloudwatch`. For more information, see [Event delivery from Amazon Web Services services](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html#eb-service-event-delivery-level) in the *Amazon EventBridge User Guide*.
+   *
    * @public
    */
   source: string | undefined;
 
   /**
-   * <p>The event type to match.</p> <p>Must match one of the valid Amazon EventBridge event types. For example, EC2 Instance State-change Notification and Amazon CloudWatch Alarm State Change. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html#eb-service-event-delivery-level">Event delivery from Amazon Web Services services</a> in the <i>Amazon EventBridge User Guide</i>.</p>
+   * The event type to match.
+   *
+   * Must match one of the valid Amazon EventBridge event types. For example, EC2 Instance State-change Notification and Amazon CloudWatch Alarm State Change. For more information, see [Event delivery from Amazon Web Services services](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html#eb-service-event-delivery-level) in the *Amazon EventBridge User Guide*.
+   *
    * @public
    */
   eventType: string | undefined;
 
   /**
-   * <p>An additional event pattern used to further filter the events this <code>EventRule</code> receives.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html">Amazon EventBridge event patterns</a> in the <i>Amazon EventBridge User Guide.</i> </p>
+   * An additional event pattern used to further filter the events this `EventRule` receives.
+   *
+   * For more information, see [Amazon EventBridge event patterns](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html) in the *Amazon EventBridge User Guide.*
+   *
    * @public
    */
   eventPattern: string | undefined;
 
   /**
-   * <p>A list of Amazon Web Services Regions that send events to this <code>EventRule</code>.</p>
+   * A list of Amazon Web Services Regions that send events to this `EventRule`.
+   *
    * @public
    */
   regions: string[] | undefined;
 
   /**
-   * <p>A list of managed rules from EventBridge that are associated with this <code>EventRule</code>.</p> <note> <p>These are created by User Notifications within your account so this <code>EventRule</code> functions.</p> </note>
+   * A list of managed rules from EventBridge that are associated with this `EventRule`.
+   *
+   * > **Note:** These are created by User Notifications within your account so this `EventRule` functions.
+   *
    * @public
    */
   managedRules: string[] | undefined;
 
   /**
-   * <p>A list of an <code>EventRule</code>'s status by Region. Regions are mapped to <code>EventRuleStatusSummary</code>.</p>
+   * A list of an `EventRule`'s status by Region. Regions are mapped to `EventRuleStatusSummary`.
+   *
    * @public
    */
   statusSummaryByRegion: Record<string, EventRuleStatusSummary> | undefined;
@@ -692,79 +841,96 @@ export interface GetEventRuleResponse {
  */
 export interface ListEventRulesRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the <code>NotificationConfiguration</code>.</p>
+   * The Amazon Resource Name (ARN) of the `NotificationConfiguration`.
+   *
    * @public
    */
   notificationConfigurationArn: string | undefined;
 
   /**
-   * <p>The maximum number of results to be returned in this call. The default value is 20.</p>
+   * The maximum number of results to be returned in this call. The default value is 20.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The start token for paginated calls. Retrieved from the response of a previous <code>ListEventRules</code> call. Next token uses Base64 encoding.</p>
+   * The start token for paginated calls. Retrieved from the response of a previous `ListEventRules` call. Next token uses Base64 encoding.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Contains a complete list of fields related to an <code>EventRule</code>.</p>
+ * Contains a complete list of fields related to an `EventRule`.
+ *
  * @public
  */
 export interface EventRuleStructure {
   /**
-   * <p>The Amazon Resource Name (ARN) of the <code>EventRule</code>. CloudFormation stack generates this ARN and then uses this ARN to associate with the <code>NotificationConfiguration</code>.</p>
+   * The Amazon Resource Name (ARN) of the `EventRule`. CloudFormation stack generates this ARN and then uses this ARN to associate with the `NotificationConfiguration`.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The ARN for the <code>NotificationConfiguration</code> associated with this <code>EventRule</code>.</p>
+   * The ARN for the `NotificationConfiguration` associated with this `EventRule`.
+   *
    * @public
    */
   notificationConfigurationArn: string | undefined;
 
   /**
-   * <p>The creation time of the <code>EventRule</code>.</p>
+   * The creation time of the `EventRule`.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>The event source this rule should match with the EventBridge event sources. It must match with atleast one of the valid EventBridge event sources. Only Amazon Web Services service sourced events are supported. For example, <code>aws.ec2</code> and <code>aws.cloudwatch</code>. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html#eb-service-event-delivery-level">Event delivery from Amazon Web Services services</a> in the <i> Amazon EventBridge User Guide</i>.</p>
+   * The event source this rule should match with the EventBridge event sources. It must match with atleast one of the valid EventBridge event sources. Only Amazon Web Services service sourced events are supported. For example, `aws.ec2` and `aws.cloudwatch`. For more information, see [Event delivery from Amazon Web Services services](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html#eb-service-event-delivery-level) in the *Amazon EventBridge User Guide*.
+   *
    * @public
    */
   source: string | undefined;
 
   /**
-   * <p>The event type this rule should match with the EventBridge events. It must match with atleast one of the valid EventBridge event types. For example, Amazon EC2 Instance State change Notification and Amazon CloudWatch State Change. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html#eb-service-event-delivery-level">Event delivery from Amazon Web Services services</a> in the <i> Amazon EventBridge User Guide</i>.</p>
+   * The event type this rule should match with the EventBridge events. It must match with atleast one of the valid EventBridge event types. For example, Amazon EC2 Instance State change Notification and Amazon CloudWatch State Change. For more information, see [Event delivery from Amazon Web Services services](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html#eb-service-event-delivery-level) in the *Amazon EventBridge User Guide*.
+   *
    * @public
    */
   eventType: string | undefined;
 
   /**
-   * <p>An additional event pattern used to further filter the events this <code>EventRule</code> receives.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html">Amazon EventBridge event patterns</a> in the <i>Amazon EventBridge User Guide.</i> </p>
+   * An additional event pattern used to further filter the events this `EventRule` receives.
+   *
+   * For more information, see [Amazon EventBridge event patterns](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html) in the *Amazon EventBridge User Guide.*
+   *
    * @public
    */
   eventPattern: string | undefined;
 
   /**
-   * <p>A list of Amazon Web Services Regions that send events to this <code>EventRule</code>.</p>
+   * A list of Amazon Web Services Regions that send events to this `EventRule`.
+   *
    * @public
    */
   regions: string[] | undefined;
 
   /**
-   * <p>A list of Amazon EventBridge Managed Rule ARNs associated with this <code>EventRule</code>.</p> <note> <p>These are created by User Notifications within your account so your <code>EventRules</code> can function.</p> </note>
+   * A list of Amazon EventBridge Managed Rule ARNs associated with this `EventRule`.
+   *
+   * > **Note:** These are created by User Notifications within your account so your `EventRules` can function.
+   *
    * @public
    */
   managedRules: string[] | undefined;
 
   /**
-   * <p>A list of an <code>EventRule</code>'s status by Region. Regions are mapped to <code>EventRuleStatusSummary</code>.</p>
+   * A list of an `EventRule`'s status by Region. Regions are mapped to `EventRuleStatusSummary`.
+   *
    * @public
    */
   statusSummaryByRegion: Record<string, EventRuleStatusSummary> | undefined;
@@ -775,13 +941,15 @@ export interface EventRuleStructure {
  */
 export interface ListEventRulesResponse {
   /**
-   * <p>A pagination token. If a non-null pagination token is returned in a result, pass its value in another request to retrieve more entries.</p>
+   * A pagination token. If a non-null pagination token is returned in a result, pass its value in another request to retrieve more entries.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>A list of <code>EventRules</code>.</p>
+   * A list of `EventRules`.
+   *
    * @public
    */
   eventRules: EventRuleStructure[] | undefined;
@@ -792,19 +960,24 @@ export interface ListEventRulesResponse {
  */
 export interface UpdateEventRuleRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) to use to update the <code>EventRule</code>.</p>
+   * The Amazon Resource Name (ARN) to use to update the `EventRule`.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>An additional event pattern used to further filter the events this <code>EventRule</code> receives.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html">Amazon EventBridge event patterns</a> in the <i>Amazon EventBridge User Guide.</i> </p>
+   * An additional event pattern used to further filter the events this `EventRule` receives.
+   *
+   * For more information, see [Amazon EventBridge event patterns](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html) in the *Amazon EventBridge User Guide.*
+   *
    * @public
    */
   eventPattern?: string | undefined;
 
   /**
-   * <p>A list of Amazon Web Services Regions that sends events to this <code>EventRule</code>.</p>
+   * A list of Amazon Web Services Regions that sends events to this `EventRule`.
+   *
    * @public
    */
   regions?: string[] | undefined;
@@ -815,19 +988,22 @@ export interface UpdateEventRuleRequest {
  */
 export interface UpdateEventRuleResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) to use to update the <code>EventRule</code>.</p>
+   * The Amazon Resource Name (ARN) to use to update the `EventRule`.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The ARN of the <code>NotificationConfiguration</code>.</p>
+   * The ARN of the `NotificationConfiguration`.
+   *
    * @public
    */
   notificationConfigurationArn: string | undefined;
 
   /**
-   * <p>The status of the action by Region.</p>
+   * The status of the action by Region.
+   *
    * @public
    */
   statusSummaryByRegion: Record<string, EventRuleStatusSummary> | undefined;
@@ -838,163 +1014,218 @@ export interface UpdateEventRuleResponse {
  */
 export interface GetManagedNotificationChildEventRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the <code>ManagedNotificationChildEvent</code> to return.</p>
+   * The Amazon Resource Name (ARN) of the `ManagedNotificationChildEvent` to return.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The locale code of the language used for the retrieved <code>ManagedNotificationChildEvent</code>. The default locale is English <code>en_US</code>.</p>
+   * The locale code of the language used for the retrieved `ManagedNotificationChildEvent`. The default locale is English `en_US`.
+   *
    * @public
    */
   locale?: LocaleCode | undefined;
 }
 
 /**
- * <p>Describes the components of a notification message.</p>
+ * Describes the components of a notification message.
+ *
  * @public
  */
 export interface MessageComponents {
   /**
-   * <p>A sentence long summary. For example, titles or an email subject line.</p>
+   * A sentence long summary. For example, titles or an email subject line.
+   *
    * @public
    */
   headline?: string | undefined;
 
   /**
-   * <p>A paragraph long or multiple sentence summary. For example, Amazon Q Developer in chat applications notifications.</p>
+   * A paragraph long or multiple sentence summary. For example, Amazon Q Developer in chat applications notifications.
+   *
    * @public
    */
   paragraphSummary?: string | undefined;
 
   /**
-   * <p>A complete summary with all possible relevant information.</p>
+   * A complete summary with all possible relevant information.
+   *
    * @public
    */
   completeDescription?: string | undefined;
 
   /**
-   * <p>A rich description in Portable Text format, which you can convert to markup formats such as HTML, Markdown, or plain text. Channels that don't support rich rendering ignore this field and use the plain text components instead.</p>
+   * A rich description in Portable Text format, which you can convert to markup formats such as HTML, Markdown, or plain text. Channels that don't support rich rendering ignore this field and use the plain text components instead.
+   *
    * @public
    */
   markupDescription?: string | undefined;
 
   /**
-   * <p>A list of properties in key-value pairs. Pairs are shown in order of importance from most important to least important. Channels may limit the number of dimensions shown to the notification viewer.</p> <note> <p>Included dimensions, keys, and values are subject to change.</p> </note>
+   * A list of properties in key-value pairs. Pairs are shown in order of importance from most important to least important. Channels may limit the number of dimensions shown to the notification viewer.
+   *
+   * > **Note:** Included dimensions, keys, and values are subject to change.
+   *
    * @public
    */
   dimensions?: Dimension[] | undefined;
 }
 
 /**
- * <p>Describes text information objects containing fields that determine how text part objects are composed.</p>
+ * Describes text information objects containing fields that determine how text part objects are composed.
+ *
  * @public
  */
 export interface TextPartValue {
   /**
-   * <p>The type of text part. Determines the usage of all other fields and whether or not they're required.</p>
+   * The type of text part. Determines the usage of all other fields and whether or not they're required.
+   *
    * @public
    */
   type: TextPartType | undefined;
 
   /**
-   * <p>A short single line description of the link. Must be hyper-linked with the URL itself. </p> <p>Used for text parts with the type <code>URL</code>.</p>
+   * A short single line description of the link. Must be hyper-linked with the URL itself.
+   *
+   * Used for text parts with the type `URL`.
+   *
    * @public
    */
   displayText?: string | undefined;
 
   /**
-   * <p>A map of locales to the text in that locale.</p>
+   * A map of locales to the text in that locale.
+   *
    * @public
    */
   textByLocale?: Partial<Record<LocaleCode, string>> | undefined;
 
   /**
-   * <p>The URL itself.</p>
+   * The URL itself.
+   *
    * @public
    */
   url?: string | undefined;
 }
 
 /**
- * <p>A notification-focused representation of an event. They contain semantic information used to create aggregated or non-aggregated end-user notifications.</p>
+ * A notification-focused representation of an event. They contain semantic information used to create aggregated or non-aggregated end-user notifications.
+ *
  * @public
  */
 export interface ManagedNotificationChildEvent {
   /**
-   * <p>The schema version of the Managed Notification Child Event.</p>
+   * The schema version of the Managed Notification Child Event.
+   *
    * @public
    */
   schemaVersion: SchemaVersion | undefined;
 
   /**
-   * <p>The unique identifier for a Managed Notification Child Event.</p>
+   * The unique identifier for a Managed Notification Child Event.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>Describes the components of a notification message.</p>
+   * Describes the components of a notification message.
+   *
    * @public
    */
   messageComponents: MessageComponents | undefined;
 
   /**
-   * <p>The source event URL.</p>
+   * The source event URL.
+   *
    * @public
    */
   sourceEventDetailUrl?: string | undefined;
 
   /**
-   * <p>The detailed URL for the source event.</p>
+   * The detailed URL for the source event.
+   *
    * @public
    */
   sourceEventDetailUrlDisplayText?: string | undefined;
 
   /**
-   * <p>The type of event causing the notification.</p> <ul> <li> <p>Values:</p> <ul> <li> <p> <code>ALERT</code> </p> <ul> <li> <p>A notification about an event where something was triggered, initiated, reopened, deployed, or a threshold was breached.</p> </li> </ul> </li> <li> <p> <code>WARNING</code> </p> <ul> <li> <p>A notification about an event where an issue is about to arise. For example, something is approaching a threshold.</p> </li> </ul> </li> <li> <p> <code>ANNOUNCEMENT</code> </p> <ul> <li> <p>A notification about an important event. For example, a step in a workflow or escalation path or that a workflow was updated.</p> </li> </ul> </li> <li> <p> <code>INFORMATIONAL</code> </p> <ul> <li> <p>A notification about informational messages. For example, recommendations, service announcements, or reminders.</p> </li> </ul> </li> </ul> </li> </ul>
+   * The type of event causing the notification.
+   *
+   * - Values:
+   *
+   *   - `ALERT`
+   *
+   *     - A notification about an event where something was triggered, initiated, reopened, deployed, or a threshold was breached.
+   *   - `WARNING`
+   *
+   *     - A notification about an event where an issue is about to arise. For example, something is approaching a threshold.
+   *   - `ANNOUNCEMENT`
+   *
+   *     - A notification about an important event. For example, a step in a workflow or escalation path or that a workflow was updated.
+   *   - `INFORMATIONAL`
+   *
+   *     - A notification about informational messages. For example, recommendations, service announcements, or reminders.
+   *
    * @public
    */
   notificationType: NotificationType | undefined;
 
   /**
-   * <p>The assesed nature of the event.</p> <ul> <li> <p>Values:</p> <ul> <li> <p> <code>HEALTHY</code> </p> <ul> <li> <p>All <code>EventRules</code> are <code>ACTIVE</code>.</p> </li> </ul> </li> <li> <p> <code>UNHEALTHY</code> </p> <ul> <li> <p>Some <code>EventRules</code> are <code>ACTIVE</code> and some are <code>INACTIVE</code>.</p> </li> </ul> </li> </ul> </li> </ul>
+   * The assesed nature of the event.
+   *
+   * - Values:
+   *
+   *   - `HEALTHY`
+   *
+   *     - All `EventRules` are `ACTIVE`.
+   *   - `UNHEALTHY`
+   *
+   *     - Some `EventRules` are `ACTIVE` and some are `INACTIVE`.
+   *
    * @public
    */
   eventStatus?: EventStatus | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the ManagedNotificationEvent that is associated with this Managed Notification Child Event.</p>
+   * The Amazon Resource Name (ARN) of the ManagedNotificationEvent that is associated with this Managed Notification Child Event.
+   *
    * @public
    */
   aggregateManagedNotificationEventArn: string | undefined;
 
   /**
-   * <p>The notification event start time.</p>
+   * The notification event start time.
+   *
    * @public
    */
   startTime?: Date | undefined;
 
   /**
-   * <p>The end time of the event.</p>
+   * The end time of the event.
+   *
    * @public
    */
   endTime?: Date | undefined;
 
   /**
-   * <p>A list of text values.</p>
+   * A list of text values.
+   *
    * @public
    */
   textParts: Record<string, TextPartValue> | undefined;
 
   /**
-   * <p>The Organizational Unit Id that an Amazon Web Services account belongs to.</p>
+   * The Organizational Unit Id that an Amazon Web Services account belongs to.
+   *
    * @public
    */
   organizationalUnitId?: string | undefined;
 
   /**
-   * <p>Provides detailed information about the dimensions used for event summarization and aggregation.</p>
+   * Provides detailed information about the dimensions used for event summarization and aggregation.
+   *
    * @public
    */
   aggregationDetail?: AggregationDetail | undefined;
@@ -1005,25 +1236,29 @@ export interface ManagedNotificationChildEvent {
  */
 export interface GetManagedNotificationChildEventResponse {
   /**
-   * <p>The ARN of the resource.</p>
+   * The ARN of the resource.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the <code>ManagedNotificationConfiguration</code> associated with the <code>ManagedNotificationChildEvent</code>.</p>
+   * The Amazon Resource Name (ARN) of the `ManagedNotificationConfiguration` associated with the `ManagedNotificationChildEvent`.
+   *
    * @public
    */
   managedNotificationConfigurationArn: string | undefined;
 
   /**
-   * <p>The creation time of the <code>ManagedNotificationChildEvent</code>.</p>
+   * The creation time of the `ManagedNotificationChildEvent`.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>The content of the <code>ManagedNotificationChildEvent</code>.</p>
+   * The content of the `ManagedNotificationChildEvent`.
+   *
    * @public
    */
   content: ManagedNotificationChildEvent | undefined;
@@ -1034,7 +1269,8 @@ export interface GetManagedNotificationChildEventResponse {
  */
 export interface GetManagedNotificationConfigurationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the <code>ManagedNotificationConfiguration</code> to return.</p>
+   * The Amazon Resource Name (ARN) of the `ManagedNotificationConfiguration` to return.
+   *
    * @public
    */
   arn: string | undefined;
@@ -1045,31 +1281,36 @@ export interface GetManagedNotificationConfigurationRequest {
  */
 export interface GetManagedNotificationConfigurationResponse {
   /**
-   * <p>The ARN of the <code>ManagedNotificationConfiguration</code> resource.</p>
+   * The ARN of the `ManagedNotificationConfiguration` resource.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The name of the <code>ManagedNotificationConfiguration</code>.</p>
+   * The name of the `ManagedNotificationConfiguration`.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the <code>ManagedNotificationConfiguration</code>.</p>
+   * The description of the `ManagedNotificationConfiguration`.
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p>The category of the <code>ManagedNotificationConfiguration</code>.</p>
+   * The category of the `ManagedNotificationConfiguration`.
+   *
    * @public
    */
   category: string | undefined;
 
   /**
-   * <p>The subCategory of the <code>ManagedNotificationConfiguration</code>.</p>
+   * The subCategory of the `ManagedNotificationConfiguration`.
+   *
    * @public
    */
   subCategory: string | undefined;
@@ -1080,127 +1321,172 @@ export interface GetManagedNotificationConfigurationResponse {
  */
 export interface GetManagedNotificationEventRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the <code>ManagedNotificationEvent</code> to return.</p>
+   * The Amazon Resource Name (ARN) of the `ManagedNotificationEvent` to return.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The locale code of the language used for the retrieved <code>ManagedNotificationEvent</code>. The default locale is English <code>(en_US)</code>.</p>
+   * The locale code of the language used for the retrieved `ManagedNotificationEvent`. The default locale is English `(en_US)`.
+   *
    * @public
    */
   locale?: LocaleCode | undefined;
 }
 
 /**
- * <p>A file attached to a notification event.</p>
+ * A file attached to a notification event.
+ *
  * @public
  */
 export interface NotificationEventAttachment {
   /**
-   * <p>The name of the attachment that recipients see.</p>
+   * The name of the attachment that recipients see.
+   *
    * @public
    */
   displayName: string | undefined;
 
   /**
-   * <p>A temporary URL for downloading the attachment. The URL expires shortly after it's issued.</p>
+   * A temporary URL for downloading the attachment. The URL expires shortly after it's issued.
+   *
    * @public
    */
   attachmentDownloadUrl?: string | undefined;
 
   /**
-   * <p>The MIME content type of the attachment, for example <code>application/pdf</code>.</p>
+   * The MIME content type of the attachment, for example `application/pdf`.
+   *
    * @public
    */
   contentType: string | undefined;
 }
 
 /**
- * <p>A notification-focused representation of an event. They contain semantic information used by AccountContacts or Additional Channels to create end-user notifications.</p>
+ * A notification-focused representation of an event. They contain semantic information used by AccountContacts or Additional Channels to create end-user notifications.
+ *
  * @public
  */
 export interface ManagedNotificationEvent {
   /**
-   * <p>Version of the <code>ManagedNotificationEvent</code> schema.</p>
+   * Version of the `ManagedNotificationEvent` schema.
+   *
    * @public
    */
   schemaVersion: SchemaVersion | undefined;
 
   /**
-   * <p>Unique identifier for a <code>ManagedNotificationEvent</code>.</p>
+   * Unique identifier for a `ManagedNotificationEvent`.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>Describes the components of a notification message.</p>
+   * Describes the components of a notification message.
+   *
    * @public
    */
   messageComponents: MessageComponents | undefined;
 
   /**
-   * <p>URL defined by Source Service to be used by notification consumers to get additional information about event.</p>
+   * URL defined by Source Service to be used by notification consumers to get additional information about event.
+   *
    * @public
    */
   sourceEventDetailUrl?: string | undefined;
 
   /**
-   * <p>Text that needs to be hyperlinked with the sourceEventDetailUrl. For example, the description of the sourceEventDetailUrl.</p>
+   * Text that needs to be hyperlinked with the sourceEventDetailUrl. For example, the description of the sourceEventDetailUrl.
+   *
    * @public
    */
   sourceEventDetailUrlDisplayText?: string | undefined;
 
   /**
-   * <p>The nature of the event causing this notification.</p> <ul> <li> <p>Values:</p> <ul> <li> <p> <code>ALERT</code> </p> <ul> <li> <p>A notification about an event where something was triggered, initiated, reopened, deployed, or a threshold was breached.</p> </li> </ul> </li> <li> <p> <code>WARNING</code> </p> <ul> <li> <p>A notification about an event where an issue is about to arise. For example, something is approaching a threshold.</p> </li> </ul> </li> <li> <p> <code>ANNOUNCEMENT</code> </p> <ul> <li> <p>A notification about an important event. For example, a step in a workflow or escalation path or that a workflow was updated.</p> </li> </ul> </li> <li> <p> <code>INFORMATIONAL</code> </p> <ul> <li> <p>A notification about informational messages. For example, recommendations, service announcements, or reminders.</p> </li> </ul> </li> </ul> </li> </ul>
+   * The nature of the event causing this notification.
+   *
+   * - Values:
+   *
+   *   - `ALERT`
+   *
+   *     - A notification about an event where something was triggered, initiated, reopened, deployed, or a threshold was breached.
+   *   - `WARNING`
+   *
+   *     - A notification about an event where an issue is about to arise. For example, something is approaching a threshold.
+   *   - `ANNOUNCEMENT`
+   *
+   *     - A notification about an important event. For example, a step in a workflow or escalation path or that a workflow was updated.
+   *   - `INFORMATIONAL`
+   *
+   *     - A notification about informational messages. For example, recommendations, service announcements, or reminders.
+   *
    * @public
    */
   notificationType: NotificationType | undefined;
 
   /**
-   * <p>The status of an event.</p> <ul> <li> <p>Values:</p> <ul> <li> <p> <code>HEALTHY</code> </p> <ul> <li> <p>All EventRules are <code>ACTIVE</code> and any call can be run.</p> </li> </ul> </li> <li> <p> <code>UNHEALTHY</code> </p> <ul> <li> <p>Some EventRules are <code>ACTIVE</code> and some are <code>INACTIVE</code>. Any call can be run.</p> </li> </ul> </li> </ul> </li> </ul>
+   * The status of an event.
+   *
+   * - Values:
+   *
+   *   - `HEALTHY`
+   *
+   *     - All EventRules are `ACTIVE` and any call can be run.
+   *   - `UNHEALTHY`
+   *
+   *     - Some EventRules are `ACTIVE` and some are `INACTIVE`. Any call can be run.
+   *
    * @public
    */
   eventStatus?: EventStatus | undefined;
 
   /**
-   * <p>The notifications aggregation type.</p>
+   * The notifications aggregation type.
+   *
    * @public
    */
   aggregationEventType?: AggregationEventType | undefined;
 
   /**
-   * <p>Provides additional information about the aggregation key.</p>
+   * Provides additional information about the aggregation key.
+   *
    * @public
    */
   aggregationSummary?: AggregationSummary | undefined;
 
   /**
-   * <p>The earliest time of events to return from this call.</p>
+   * The earliest time of events to return from this call.
+   *
    * @public
    */
   startTime?: Date | undefined;
 
   /**
-   * <p>The end time of the notification event.</p>
+   * The end time of the notification event.
+   *
    * @public
    */
   endTime?: Date | undefined;
 
   /**
-   * <p>A list of text values.</p>
+   * A list of text values.
+   *
    * @public
    */
   textParts: Record<string, TextPartValue> | undefined;
 
   /**
-   * <p>The Organizational Unit Id that an Amazon Web Services account belongs to.</p>
+   * The Organizational Unit Id that an Amazon Web Services account belongs to.
+   *
    * @public
    */
   organizationalUnitId?: string | undefined;
 
   /**
-   * <p>A list of files attached to the notification event.</p>
+   * A list of files attached to the notification event.
+   *
    * @public
    */
   attachments?: NotificationEventAttachment[] | undefined;
@@ -1211,25 +1497,29 @@ export interface ManagedNotificationEvent {
  */
 export interface GetManagedNotificationEventResponse {
   /**
-   * <p>The ARN of the resource.</p>
+   * The ARN of the resource.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The ARN of the <code>ManagedNotificationConfiguration</code>.</p>
+   * The ARN of the `ManagedNotificationConfiguration`.
+   *
    * @public
    */
   managedNotificationConfigurationArn: string | undefined;
 
   /**
-   * <p>The creation time of the <code>ManagedNotificationEvent</code>.</p>
+   * The creation time of the `ManagedNotificationEvent`.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>The content of the <code>ManagedNotificationEvent</code>.</p>
+   * The content of the `ManagedNotificationEvent`.
+   *
    * @public
    */
   content: ManagedNotificationEvent | undefined;
@@ -1240,7 +1530,8 @@ export interface GetManagedNotificationEventResponse {
  */
 export interface GetNotificationConfigurationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the <code>NotificationConfiguration</code> to return.</p>
+   * The Amazon Resource Name (ARN) of the `NotificationConfiguration` to return.
+   *
    * @public
    */
   arn: string | undefined;
@@ -1251,43 +1542,62 @@ export interface GetNotificationConfigurationRequest {
  */
 export interface GetNotificationConfigurationResponse {
   /**
-   * <p>The ARN of the resource.</p>
+   * The ARN of the resource.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The name of the <code>NotificationConfiguration</code>.</p>
+   * The name of the `NotificationConfiguration`.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the <code>NotificationConfiguration</code>.</p>
+   * The description of the `NotificationConfiguration`.
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p>The status of this <code>NotificationConfiguration</code>.</p>
+   * The status of this `NotificationConfiguration`.
+   *
    * @public
    */
   status: NotificationConfigurationStatus | undefined;
 
   /**
-   * <p>The creation time of the <code>NotificationConfiguration</code>.</p>
+   * The creation time of the `NotificationConfiguration`.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>The aggregation preference of the <code>NotificationConfiguration</code>.</p> <ul> <li> <p>Values:</p> <ul> <li> <p> <code>LONG</code> </p> <ul> <li> <p>Aggregate notifications for long periods of time (12 hours).</p> </li> </ul> </li> <li> <p> <code>SHORT</code> </p> <ul> <li> <p>Aggregate notifications for short periods of time (5 minutes).</p> </li> </ul> </li> <li> <p> <code>NONE</code> </p> <ul> <li> <p>Don't aggregate notifications.</p> </li> </ul> </li> </ul> </li> </ul>
+   * The aggregation preference of the `NotificationConfiguration`.
+   *
+   * - Values:
+   *
+   *   - `LONG`
+   *
+   *     - Aggregate notifications for long periods of time (12 hours).
+   *   - `SHORT`
+   *
+   *     - Aggregate notifications for short periods of time (5 minutes).
+   *   - `NONE`
+   *
+   *     - Don't aggregate notifications.
+   *
    * @public
    */
   aggregationDuration?: AggregationDuration | undefined;
 
   /**
-   * <p>The subtype of the notification configuration returned in the response.</p>
+   * The subtype of the notification configuration returned in the response.
+   *
    * @public
    */
   subtype?: NotificationConfigurationSubtype | undefined;
@@ -1298,229 +1608,309 @@ export interface GetNotificationConfigurationResponse {
  */
 export interface GetNotificationEventRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the <code>NotificationEvent</code> to return.</p>
+   * The Amazon Resource Name (ARN) of the `NotificationEvent` to return.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The locale code of the language used for the retrieved <code>NotificationEvent</code>. The default locale is English <code>en_US</code>.</p>
+   * The locale code of the language used for the retrieved `NotificationEvent`. The default locale is English `en_US`.
+   *
    * @public
    */
   locale?: LocaleCode | undefined;
 }
 
 /**
- * <p>Describes a media element.</p>
+ * Describes a media element.
+ *
  * @public
  */
 export interface MediaElement {
   /**
-   * <p>The unique ID for the media.</p>
+   * The unique ID for the media.
+   *
    * @public
    */
   mediaId: string | undefined;
 
   /**
-   * <p>The type of media.</p>
+   * The type of media.
+   *
    * @public
    */
   type: MediaElementType | undefined;
 
   /**
-   * <p>The URL of the media.</p>
+   * The URL of the media.
+   *
    * @public
    */
   url: string | undefined;
 
   /**
-   * <p>The caption of the media.</p>
+   * The caption of the media.
+   *
    * @public
    */
   caption: string | undefined;
 }
 
 /**
- * <p>A resource affected by or closely linked to an event.</p>
+ * A resource affected by or closely linked to an event.
+ *
  * @public
  */
 export interface Resource {
   /**
-   * <p>The unique identifier for the resource.</p> <p>At least one id or ARN is required.</p>
+   * The unique identifier for the resource.
+   *
+   * At least one id or ARN is required.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource. At least one id or ARN is required.</p>
+   * The Amazon Resource Name (ARN) of the resource. At least one id or ARN is required.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The URL to the resource's detail page. If a detail page URL is unavailable, it is the URL to an informational page that describes the resource's type.</p>
+   * The URL to the resource's detail page. If a detail page URL is unavailable, it is the URL to an informational page that describes the resource's type.
+   *
    * @public
    */
   detailUrl?: string | undefined;
 
   /**
-   * <p>A map of tags assigned to a resource. A tag is a string-to-string map of key-value pairs.</p>
+   * A map of tags assigned to a resource. A tag is a string-to-string map of key-value pairs.
+   *
    * @public
    */
   tags?: string[] | undefined;
 }
 
 /**
- * <p>Describes the metadata for a source event.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events-structure.html">Event structure reference</a> in the <i>Amazon EventBridge User Guide</i>.</p>
+ * Describes the metadata for a source event.
+ *
+ * For more information, see [Event structure reference](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events-structure.html) in the *Amazon EventBridge User Guide*.
+ *
  * @public
  */
 export interface SourceEventMetadata {
   /**
-   * <p>The version of the type of event.</p>
+   * The version of the type of event.
+   *
    * @public
    */
   eventTypeVersion: string | undefined;
 
   /**
-   * <p>The source event id.</p>
+   * The source event id.
+   *
    * @public
    */
   sourceEventId: string | undefined;
 
   /**
-   * <p>The Region the event originated from.</p>
+   * The Region the event originated from.
+   *
    * @public
    */
   eventOriginRegion?: string | undefined;
 
   /**
-   * <p>The primary Amazon Web Services account of <code>SourceEvent</code>.</p>
+   * The primary Amazon Web Services account of `SourceEvent`.
+   *
    * @public
    */
   relatedAccount: string | undefined;
 
   /**
-   * <p>The Amazon Web Services service the event originates from. For example <code>aws.cloudwatch</code>.</p>
+   * The Amazon Web Services service the event originates from. For example `aws.cloudwatch`.
+   *
    * @public
    */
   source: string | undefined;
 
   /**
-   * <p>The date and time the source event occurred. This is based on the Source Event.</p>
+   * The date and time the source event occurred. This is based on the Source Event.
+   *
    * @public
    */
   eventOccurrenceTime: Date | undefined;
 
   /**
-   * <p>The type of event. For example, an Amazon CloudWatch state change.</p>
+   * The type of event. For example, an Amazon CloudWatch state change.
+   *
    * @public
    */
   eventType: string | undefined;
 
   /**
-   * <p>A list of resources related to this <code>NotificationEvent</code>.</p>
+   * A list of resources related to this `NotificationEvent`.
+   *
    * @public
    */
   relatedResources: Resource[] | undefined;
 }
 
 /**
- * <p>A <code>NotificationEvent</code> is a notification-focused representation of an event. They contain semantic information used by Channels to create end-user notifications.</p>
+ * A `NotificationEvent` is a notification-focused representation of an event. They contain semantic information used by Channels to create end-user notifications.
+ *
  * @public
  */
 export interface NotificationEventSchema {
   /**
-   * <p>The schema version of the Notification Event.</p>
+   * The schema version of the Notification Event.
+   *
    * @public
    */
   schemaVersion: SchemaVersion | undefined;
 
   /**
-   * <p>The unique identifier for a <code>NotificationEvent</code>.</p>
+   * The unique identifier for a `NotificationEvent`.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The source event metadata.</p>
+   * The source event metadata.
+   *
    * @public
    */
   sourceEventMetadata: SourceEventMetadata | undefined;
 
   /**
-   * <p>Describes the components of a notification message.</p>
+   * Describes the components of a notification message.
+   *
    * @public
    */
   messageComponents: MessageComponents | undefined;
 
   /**
-   * <p>The source event URL.</p>
+   * The source event URL.
+   *
    * @public
    */
   sourceEventDetailUrl?: string | undefined;
 
   /**
-   * <p>The detailed URL for the source event.</p>
+   * The detailed URL for the source event.
+   *
    * @public
    */
   sourceEventDetailUrlDisplayText?: string | undefined;
 
   /**
-   * <p>The type of event causing the notification.</p> <ul> <li> <p>Values:</p> <ul> <li> <p> <code>ALERT</code> </p> <ul> <li> <p>A notification about an event where something was triggered, initiated, reopened, deployed, or a threshold was breached.</p> </li> </ul> </li> <li> <p> <code>WARNING</code> </p> <ul> <li> <p>A notification about an event where an issue is about to arise. For example, something is approaching a threshold.</p> </li> </ul> </li> <li> <p> <code>ANNOUNCEMENT</code> </p> <ul> <li> <p>A notification about an important event. For example, a step in a workflow or escalation path or that a workflow was updated.</p> </li> </ul> </li> <li> <p> <code>INFORMATIONAL</code> </p> <ul> <li> <p>A notification about informational messages. For example, recommendations, service announcements, or reminders.</p> </li> </ul> </li> </ul> </li> </ul>
+   * The type of event causing the notification.
+   *
+   * - Values:
+   *
+   *   - `ALERT`
+   *
+   *     - A notification about an event where something was triggered, initiated, reopened, deployed, or a threshold was breached.
+   *   - `WARNING`
+   *
+   *     - A notification about an event where an issue is about to arise. For example, something is approaching a threshold.
+   *   - `ANNOUNCEMENT`
+   *
+   *     - A notification about an important event. For example, a step in a workflow or escalation path or that a workflow was updated.
+   *   - `INFORMATIONAL`
+   *
+   *     - A notification about informational messages. For example, recommendations, service announcements, or reminders.
+   *
    * @public
    */
   notificationType: NotificationType | undefined;
 
   /**
-   * <p>The assessed nature of the event.</p> <ul> <li> <p>Values:</p> <ul> <li> <p> <code>HEALTHY</code> </p> <ul> <li> <p>All <code>EventRules</code> are <code>ACTIVE</code> and any call can be run.</p> </li> </ul> </li> <li> <p> <code>UNHEALTHY</code> </p> <ul> <li> <p>Some <code>EventRules</code> are <code>ACTIVE</code> and some are <code>INACTIVE</code>. Any call can be run.</p> </li> </ul> </li> </ul> </li> </ul>
+   * The assessed nature of the event.
+   *
+   * - Values:
+   *
+   *   - `HEALTHY`
+   *
+   *     - All `EventRules` are `ACTIVE` and any call can be run.
+   *   - `UNHEALTHY`
+   *
+   *     - Some `EventRules` are `ACTIVE` and some are `INACTIVE`. Any call can be run.
+   *
    * @public
    */
   eventStatus?: EventStatus | undefined;
 
   /**
-   * <p>The aggregation type of the <code>NotificationConfiguration</code>.</p> <ul> <li> <p>Values:</p> <ul> <li> <p> <code>AGGREGATE</code> </p> <ul> <li> <p>The notification event is an aggregate notification. Aggregate notifications summarize grouped events over a specified time period.</p> </li> </ul> </li> <li> <p> <code>CHILD</code> </p> <ul> <li> <p>Some <code>EventRules</code> are <code>ACTIVE</code> and some are <code>INACTIVE</code>. Any call can be run.</p> </li> </ul> </li> <li> <p> <code>NONE</code> </p> <ul> <li> <p>The notification isn't aggregated.</p> </li> </ul> </li> </ul> </li> </ul>
+   * The aggregation type of the `NotificationConfiguration`.
+   *
+   * - Values:
+   *
+   *   - `AGGREGATE`
+   *
+   *     - The notification event is an aggregate notification. Aggregate notifications summarize grouped events over a specified time period.
+   *   - `CHILD`
+   *
+   *     - Some `EventRules` are `ACTIVE` and some are `INACTIVE`. Any call can be run.
+   *   - `NONE`
+   *
+   *     - The notification isn't aggregated.
+   *
    * @public
    */
   aggregationEventType?: AggregationEventType | undefined;
 
   /**
-   * <p>If the value of <code>aggregationEventType</code> is not <code>NONE</code>, this is the Amazon Resource Event (ARN) of the parent aggregate notification.</p> <p>This is omitted if notification isn't aggregated.</p>
+   * If the value of `aggregationEventType` is not `NONE`, this is the Amazon Resource Event (ARN) of the parent aggregate notification.
+   *
+   * This is omitted if notification isn't aggregated.
+   *
    * @public
    */
   aggregateNotificationEventArn?: string | undefined;
 
   /**
-   * <p>Provides additional information about how multiple notifications are grouped.</p>
+   * Provides additional information about how multiple notifications are grouped.
+   *
    * @public
    */
   aggregationSummary?: AggregationSummary | undefined;
 
   /**
-   * <p>The notification event start time.</p>
+   * The notification event start time.
+   *
    * @public
    */
   startTime?: Date | undefined;
 
   /**
-   * <p>The end time of the event.</p>
+   * The end time of the event.
+   *
    * @public
    */
   endTime?: Date | undefined;
 
   /**
-   * <p>A list of text values.</p>
+   * A list of text values.
+   *
    * @public
    */
   textParts: Record<string, TextPartValue> | undefined;
 
   /**
-   * <p>A list of media elements.</p>
+   * A list of media elements.
+   *
    * @public
    */
   media: MediaElement[] | undefined;
 
   /**
-   * <p>The unique identifier of the organizational unit associated with the notification event.</p>
+   * The unique identifier of the organizational unit associated with the notification event.
+   *
    * @public
    */
   organizationalUnitId?: string | undefined;
@@ -1531,25 +1921,29 @@ export interface NotificationEventSchema {
  */
 export interface GetNotificationEventResponse {
   /**
-   * <p>The ARN of the resource.</p>
+   * The ARN of the resource.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The ARN of the <code>NotificationConfiguration</code>.</p>
+   * The ARN of the `NotificationConfiguration`.
+   *
    * @public
    */
   notificationConfigurationArn: string | undefined;
 
   /**
-   * <p>The creation time of the <code>NotificationEvent</code>.</p>
+   * The creation time of the `NotificationEvent`.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>The content of the <code>NotificationEvent</code>.</p>
+   * The content of the `NotificationEvent`.
+   *
    * @public
    */
   content: NotificationEventSchema | undefined;
@@ -1561,12 +1955,14 @@ export interface GetNotificationEventResponse {
 export interface GetNotificationsAccessForOrganizationRequest {}
 
 /**
- * <p>Orgs Service trust for User Notifications.</p>
+ * Orgs Service trust for User Notifications.
+ *
  * @public
  */
 export interface NotificationsAccessForOrganization {
   /**
-   * <p>Access Status for the Orgs Service.</p>
+   * Access Status for the Orgs Service.
+   *
    * @public
    */
   accessStatus: AccessStatus | undefined;
@@ -1577,7 +1973,8 @@ export interface NotificationsAccessForOrganization {
  */
 export interface GetNotificationsAccessForOrganizationResponse {
   /**
-   * <p>The <code>AccessStatus</code> of Service Trust Enablement for User Notifications to Amazon Web Services Organizations.</p>
+   * The `AccessStatus` of Service Trust Enablement for User Notifications to Amazon Web Services Organizations.
+   *
    * @public
    */
   notificationsAccessForOrganization: NotificationsAccessForOrganization | undefined;
@@ -1588,49 +1985,81 @@ export interface GetNotificationsAccessForOrganizationResponse {
  */
 export interface ListManagedNotificationChannelAssociationsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the <code>ManagedNotificationConfiguration</code> to match.</p>
+   * The Amazon Resource Name (ARN) of the `ManagedNotificationConfiguration` to match.
+   *
    * @public
    */
   managedNotificationConfigurationArn: string | undefined;
 
   /**
-   * <p>The maximum number of results to be returned in this call. Defaults to 20.</p>
+   * The maximum number of results to be returned in this call. Defaults to 20.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The start token for paginated calls. Retrieved from the response of a previous <code>ListManagedNotificationChannelAssociations</code> call.</p>
+   * The start token for paginated calls. Retrieved from the response of a previous `ListManagedNotificationChannelAssociations` call.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Provides a summary of channel associations for a managed notification configuration.</p>
+ * Provides a summary of channel associations for a managed notification configuration.
+ *
  * @public
  */
 export interface ManagedNotificationChannelAssociationSummary {
   /**
-   * <p>The unique identifier for the notification channel.</p>
+   * The unique identifier for the notification channel.
+   *
    * @public
    */
   channelIdentifier: string | undefined;
 
   /**
-   * <p>The type of notification channel used for message delivery.</p> <ul> <li> <p>Values:</p> <ul> <li> <p> <code>ACCOUNT_CONTACT</code> </p> <ul> <li> <p>Delivers notifications to Account Managed contacts through the User Notification Service.</p> </li> </ul> </li> <li> <p> <code>MOBILE</code> </p> <ul> <li> <p>Delivers notifications through the Amazon Web Services Console Mobile Application to mobile devices.</p> </li> </ul> </li> <li> <p> <code>CHATBOT</code> </p> <ul> <li> <p>Delivers notifications through Amazon Q Developer in chat applications to collaboration platforms (Slack, Chime).</p> </li> </ul> </li> <li> <p> <code>EMAIL</code> </p> <ul> <li> <p>Delivers notifications to email addresses.</p> </li> </ul> </li> </ul> </li> </ul>
+   * The type of notification channel used for message delivery.
+   *
+   * - Values:
+   *
+   *   - `ACCOUNT_CONTACT`
+   *
+   *     - Delivers notifications to Account Managed contacts through the User Notification Service.
+   *   - `MOBILE`
+   *
+   *     - Delivers notifications through the Amazon Web Services Console Mobile Application to mobile devices.
+   *   - `CHATBOT`
+   *
+   *     - Delivers notifications through Amazon Q Developer in chat applications to collaboration platforms (Slack, Chime).
+   *   - `EMAIL`
+   *
+   *     - Delivers notifications to email addresses.
+   *
    * @public
    */
   channelType: ChannelType | undefined;
 
   /**
-   * <p>Controls whether users can modify channel associations for a notification configuration.</p> <ul> <li> <p>Values:</p> <ul> <li> <p> <code>ENABLED</code> </p> <ul> <li> <p>Users can associate or disassociate channels with the notification configuration.</p> </li> </ul> </li> <li> <p> <code>DISABLED</code> </p> <ul> <li> <p>Users cannot associate or disassociate channels with the notification configuration.</p> </li> </ul> </li> </ul> </li> </ul>
+   * Controls whether users can modify channel associations for a notification configuration.
+   *
+   * - Values:
+   *
+   *   - `ENABLED`
+   *
+   *     - Users can associate or disassociate channels with the notification configuration.
+   *   - `DISABLED`
+   *
+   *     - Users cannot associate or disassociate channels with the notification configuration.
+   *
    * @public
    */
   overrideOption?: ChannelAssociationOverrideOption | undefined;
 
   /**
-   * <p>Specifies whether this channel association is subscribed to sensitive events. Defaults to false for associations created without the flag.</p>
+   * Specifies whether this channel association is subscribed to sensitive events. Defaults to false for associations created without the flag.
+   *
    * @public
    */
   isSensitiveEventsSubscribed?: boolean | undefined;
@@ -1641,13 +2070,15 @@ export interface ManagedNotificationChannelAssociationSummary {
  */
 export interface ListManagedNotificationChannelAssociationsResponse {
   /**
-   * <p>A pagination token. If a non-null pagination token is returned in a result, pass its value in another request to retrieve more entries.</p>
+   * A pagination token. If a non-null pagination token is returned in a result, pass its value in another request to retrieve more entries.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>A list that contains the following information about a channel association.</p>
+   * A list that contains the following information about a channel association.
+   *
    * @public
    */
   channelAssociations: ManagedNotificationChannelAssociationSummary[] | undefined;
@@ -1658,175 +2089,230 @@ export interface ListManagedNotificationChannelAssociationsResponse {
  */
 export interface ListManagedNotificationChildEventsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the <code>ManagedNotificationEvent</code>.</p>
+   * The Amazon Resource Name (ARN) of the `ManagedNotificationEvent`.
+   *
    * @public
    */
   aggregateManagedNotificationEventArn: string | undefined;
 
   /**
-   * <p>The earliest time of events to return from this call.</p>
+   * The earliest time of events to return from this call.
+   *
    * @public
    */
   startTime?: Date | undefined;
 
   /**
-   * <p>Latest time of events to return from this call.</p>
+   * Latest time of events to return from this call.
+   *
    * @public
    */
   endTime?: Date | undefined;
 
   /**
-   * <p>The locale code of the language used for the retrieved <code>NotificationEvent</code>. The default locale is English.<code>en_US</code>.</p>
+   * The locale code of the language used for the retrieved `NotificationEvent`. The default locale is English.`en_US`.
+   *
    * @public
    */
   locale?: LocaleCode | undefined;
 
   /**
-   * <p>The maximum number of results to be returned in this call. Defaults to 20.</p>
+   * The maximum number of results to be returned in this call. Defaults to 20.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID associated with the Managed Notification Child Events.</p>
+   * The Amazon Web Services account ID associated with the Managed Notification Child Events.
+   *
    * @public
    */
   relatedAccount?: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Web Services Organizations organizational unit (OU) associated with the Managed Notification Child Events.</p>
+   * The identifier of the Amazon Web Services Organizations organizational unit (OU) associated with the Managed Notification Child Events.
+   *
    * @public
    */
   organizationalUnitId?: string | undefined;
 
   /**
-   * <p>The start token for paginated calls. Retrieved from the response of a previous ListManagedNotificationChannelAssociations call. Next token uses Base64 encoding.</p>
+   * The start token for paginated calls. Retrieved from the response of a previous ListManagedNotificationChannelAssociations call. Next token uses Base64 encoding.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Contains the headline message component.</p>
+ * Contains the headline message component.
+ *
  * @public
  */
 export interface MessageComponentsSummary {
   /**
-   * <p>A sentence long summary. For example, titles or an email subject line.</p>
+   * A sentence long summary. For example, titles or an email subject line.
+   *
    * @public
    */
   headline: string | undefined;
 }
 
 /**
- * <p>A short summary and metadata for a managed notification event.</p>
+ * A short summary and metadata for a managed notification event.
+ *
  * @public
  */
 export interface ManagedSourceEventMetadataSummary {
   /**
-   * <p>The Region where the notification originated.</p>
+   * The Region where the notification originated.
+   *
    * @public
    */
   eventOriginRegion?: string | undefined;
 
   /**
-   * <p>The source service of the notification.</p> <p>Must match one of the valid EventBridge sources. Only Amazon Web Services service sourced events are supported. For example, <code>aws.ec2</code> and <code>aws.cloudwatch</code>. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html#eb-service-event-delivery-level">Event delivery from Amazon Web Services services</a> in the <i>Amazon EventBridge User Guide</i>.</p>
+   * The source service of the notification.
+   *
+   * Must match one of the valid EventBridge sources. Only Amazon Web Services service sourced events are supported. For example, `aws.ec2` and `aws.cloudwatch`. For more information, see [Event delivery from Amazon Web Services services](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html#eb-service-event-delivery-level) in the *Amazon EventBridge User Guide*.
+   *
    * @public
    */
   source: string | undefined;
 
   /**
-   * <p>The event Type of the notification.</p>
+   * The event Type of the notification.
+   *
    * @public
    */
   eventType: string | undefined;
 }
 
 /**
- * <p>Describes a short summary and metadata for a <code>ManagedNotificationChildEvent</code>.</p>
+ * Describes a short summary and metadata for a `ManagedNotificationChildEvent`.
+ *
  * @public
  */
 export interface ManagedNotificationChildEventSummary {
   /**
-   * <p>The schema version of the <code>ManagedNotificationChildEvent</code>.</p>
+   * The schema version of the `ManagedNotificationChildEvent`.
+   *
    * @public
    */
   schemaVersion: SchemaVersion | undefined;
 
   /**
-   * <p>Contains all event metadata present identically across all <code>NotificationEvents</code>. All fields are present in Source Events via Eventbridge.</p>
+   * Contains all event metadata present identically across all `NotificationEvents`. All fields are present in Source Events via Eventbridge.
+   *
    * @public
    */
   sourceEventMetadata: ManagedSourceEventMetadataSummary | undefined;
 
   /**
-   * <p>Contains the headline message component.</p>
+   * Contains the headline message component.
+   *
    * @public
    */
   messageComponents: MessageComponentsSummary | undefined;
 
   /**
-   * <p>Provides detailed information about the dimensions used for event summarization and aggregation.</p>
+   * Provides detailed information about the dimensions used for event summarization and aggregation.
+   *
    * @public
    */
   aggregationDetail: AggregationDetail | undefined;
 
   /**
-   * <p>The perceived nature of the event.</p> <ul> <li> <p>Values:</p> <ul> <li> <p> <code>HEALTHY</code> </p> <ul> <li> <p>All EventRules are <code>ACTIVE</code> and any call can be run.</p> </li> </ul> </li> <li> <p> <code>UNHEALTHY</code> </p> <ul> <li> <p>Some EventRules are <code>ACTIVE</code> and some are <code>INACTIVE</code>. Any call can be run.</p> </li> </ul> </li> </ul> </li> </ul>
+   * The perceived nature of the event.
+   *
+   * - Values:
+   *
+   *   - `HEALTHY`
+   *
+   *     - All EventRules are `ACTIVE` and any call can be run.
+   *   - `UNHEALTHY`
+   *
+   *     - Some EventRules are `ACTIVE` and some are `INACTIVE`. Any call can be run.
+   *
    * @public
    */
   eventStatus: EventStatus | undefined;
 
   /**
-   * <p>The Type of the event causing this notification.</p> <ul> <li> <p>Values:</p> <ul> <li> <p> <code>ALERT</code> </p> <ul> <li> <p>A notification about an event where something was triggered, initiated, reopened, deployed, or a threshold was breached.</p> </li> </ul> </li> <li> <p> <code>WARNING</code> </p> <ul> <li> <p>A notification about an event where an issue is about to arise. For example, something is approaching a threshold.</p> </li> </ul> </li> <li> <p> <code>ANNOUNCEMENT</code> </p> <ul> <li> <p>A notification about an important event. For example, a step in a workflow or escalation path or that a workflow was updated.</p> </li> </ul> </li> <li> <p> <code>INFORMATIONAL</code> </p> <ul> <li> <p>A notification about informational messages. For example, recommendations, service announcements, or reminders.</p> </li> </ul> </li> </ul> </li> </ul>
+   * The Type of the event causing this notification.
+   *
+   * - Values:
+   *
+   *   - `ALERT`
+   *
+   *     - A notification about an event where something was triggered, initiated, reopened, deployed, or a threshold was breached.
+   *   - `WARNING`
+   *
+   *     - A notification about an event where an issue is about to arise. For example, something is approaching a threshold.
+   *   - `ANNOUNCEMENT`
+   *
+   *     - A notification about an important event. For example, a step in a workflow or escalation path or that a workflow was updated.
+   *   - `INFORMATIONAL`
+   *
+   *     - A notification about informational messages. For example, recommendations, service announcements, or reminders.
+   *
    * @public
    */
   notificationType: NotificationType | undefined;
 }
 
 /**
- * <p>Describes an overview and metadata for a <code>ManagedNotificationChildEvent</code>.</p>
+ * Describes an overview and metadata for a `ManagedNotificationChildEvent`.
+ *
  * @public
  */
 export interface ManagedNotificationChildEventOverview {
   /**
-   * <p>The Amazon Resource Name (ARN) of the <code>ManagedNotificationChildEvent</code>.</p>
+   * The Amazon Resource Name (ARN) of the `ManagedNotificationChildEvent`.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the <code>ManagedNotificationConfiguration</code>.</p>
+   * The Amazon Resource Name (ARN) of the `ManagedNotificationConfiguration`.
+   *
    * @public
    */
   managedNotificationConfigurationArn: string | undefined;
 
   /**
-   * <p>The account that related to the <code>ManagedNotificationChildEvent</code>.</p>
+   * The account that related to the `ManagedNotificationChildEvent`.
+   *
    * @public
    */
   relatedAccount: string | undefined;
 
   /**
-   * <p>The creation time of the <code>ManagedNotificationChildEvent</code>.</p>
+   * The creation time of the `ManagedNotificationChildEvent`.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>The content of the <code>ManagedNotificationChildEvent</code>.</p>
+   * The content of the `ManagedNotificationChildEvent`.
+   *
    * @public
    */
   childEvent: ManagedNotificationChildEventSummary | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the ManagedNotificationEvent that is associated with this <code>ManagedNotificationChildEvent</code>.</p>
+   * The Amazon Resource Name (ARN) of the ManagedNotificationEvent that is associated with this `ManagedNotificationChildEvent`.
+   *
    * @public
    */
   aggregateManagedNotificationEventArn: string | undefined;
 
   /**
-   * <p>The Organizational Unit Id that an AWS account belongs to.</p>
+   * The Organizational Unit Id that an AWS account belongs to.
+   *
    * @public
    */
   organizationalUnitId?: string | undefined;
@@ -1837,13 +2323,15 @@ export interface ManagedNotificationChildEventOverview {
  */
 export interface ListManagedNotificationChildEventsResponse {
   /**
-   * <p>A pagination token. If a non-null pagination token is returned in a result, pass its value in another request to retrieve more entries.</p>
+   * A pagination token. If a non-null pagination token is returned in a result, pass its value in another request to retrieve more entries.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>A pagination token. If a non-null pagination token is returned in a result, pass its value in another request to retrieve more entries.</p>
+   * A pagination token. If a non-null pagination token is returned in a result, pass its value in another request to retrieve more entries.
+   *
    * @public
    */
   managedNotificationChildEvents: ManagedNotificationChildEventOverview[] | undefined;
@@ -1854,43 +2342,50 @@ export interface ListManagedNotificationChildEventsResponse {
  */
 export interface ListManagedNotificationConfigurationsRequest {
   /**
-   * <p>The identifier or ARN of the notification channel to filter configurations by.</p>
+   * The identifier or ARN of the notification channel to filter configurations by.
+   *
    * @public
    */
   channelIdentifier?: string | undefined;
 
   /**
-   * <p>The maximum number of results to be returned in this call. Defaults to 20.</p>
+   * The maximum number of results to be returned in this call. Defaults to 20.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The start token for paginated calls. Retrieved from the response of a previous ListManagedNotificationChannelAssociations call. Next token uses Base64 encoding.</p>
+   * The start token for paginated calls. Retrieved from the response of a previous ListManagedNotificationChannelAssociations call. Next token uses Base64 encoding.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Describes the basic structure and properties of a <code>ManagedNotificationConfiguration</code>.</p>
+ * Describes the basic structure and properties of a `ManagedNotificationConfiguration`.
+ *
  * @public
  */
 export interface ManagedNotificationConfigurationStructure {
   /**
-   * <p>The Amazon Resource Name (ARN) of the <code>ManagedNotificationConfiguration</code>.</p>
+   * The Amazon Resource Name (ARN) of the `ManagedNotificationConfiguration`.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The name of the <code>ManagedNotificationConfiguration</code>.</p>
+   * The name of the `ManagedNotificationConfiguration`.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the <code>ManagedNotificationConfiguration</code>.</p>
+   * The description of the `ManagedNotificationConfiguration`.
+   *
    * @public
    */
   description: string | undefined;
@@ -1901,13 +2396,15 @@ export interface ManagedNotificationConfigurationStructure {
  */
 export interface ListManagedNotificationConfigurationsResponse {
   /**
-   * <p>A pagination token. If a non-null pagination token is returned in a result, pass its value in another request to retrieve more entries.</p>
+   * A pagination token. If a non-null pagination token is returned in a result, pass its value in another request to retrieve more entries.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>A list of Managed Notification Configurations matching the request criteria.</p>
+   * A list of Managed Notification Configurations matching the request criteria.
+   *
    * @public
    */
   managedNotificationConfigurations: ManagedNotificationConfigurationStructure[] | undefined;
@@ -1918,151 +2415,210 @@ export interface ListManagedNotificationConfigurationsResponse {
  */
 export interface ListManagedNotificationEventsRequest {
   /**
-   * <p>The earliest time of events to return from this call.</p>
+   * The earliest time of events to return from this call.
+   *
    * @public
    */
   startTime?: Date | undefined;
 
   /**
-   * <p>Latest time of events to return from this call.</p>
+   * Latest time of events to return from this call.
+   *
    * @public
    */
   endTime?: Date | undefined;
 
   /**
-   * <p>The locale code of the language used for the retrieved NotificationEvent. The default locale is English (en_US).</p>
+   * The locale code of the language used for the retrieved NotificationEvent. The default locale is English (en_US).
+   *
    * @public
    */
   locale?: LocaleCode | undefined;
 
   /**
-   * <p>The Amazon Web Services service the event originates from. For example aws.cloudwatch.</p>
+   * The Amazon Web Services service the event originates from. For example aws.cloudwatch.
+   *
    * @public
    */
   source?: string | undefined;
 
   /**
-   * <p>The maximum number of results to be returned in this call. Defaults to 20.</p>
+   * The maximum number of results to be returned in this call. Defaults to 20.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The start token for paginated calls. Retrieved from the response of a previous <code>ListManagedNotificationChannelAssociations</code> call. Next token uses Base64 encoding.</p>
+   * The start token for paginated calls. Retrieved from the response of a previous `ListManagedNotificationChannelAssociations` call. Next token uses Base64 encoding.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The Organizational Unit Id that an Amazon Web Services account belongs to.</p>
+   * The Organizational Unit Id that an Amazon Web Services account belongs to.
+   *
    * @public
    */
   organizationalUnitId?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID associated with the Managed Notification Events.</p>
+   * The Amazon Web Services account ID associated with the Managed Notification Events.
+   *
    * @public
    */
   relatedAccount?: string | undefined;
 
   /**
-   * <p>Specifies whether to include sensitive events in the result. By default, only non-sensitive events are returned. The <code>notifications:AccessSensitiveEvents</code> permission controls access to sensitive events.</p>
+   * Specifies whether to include sensitive events in the result. By default, only non-sensitive events are returned. The `notifications:AccessSensitiveEvents` permission controls access to sensitive events.
+   *
    * @public
    */
   includeSensitiveEvents?: boolean | undefined;
 }
 
 /**
- * <p>A short summary of a <code>ManagedNotificationEvent</code>. This is only used when listing managed notification events.</p>
+ * A short summary of a `ManagedNotificationEvent`. This is only used when listing managed notification events.
+ *
  * @public
  */
 export interface ManagedNotificationEventSummary {
   /**
-   * <p>The schema version of the <code>ManagedNotificationEvent</code>.</p>
+   * The schema version of the `ManagedNotificationEvent`.
+   *
    * @public
    */
   schemaVersion: SchemaVersion | undefined;
 
   /**
-   * <p>Contains metadata about the event that caused the <code>ManagedNotificationEvent</code>.</p>
+   * Contains metadata about the event that caused the `ManagedNotificationEvent`.
+   *
    * @public
    */
   sourceEventMetadata: ManagedSourceEventMetadataSummary | undefined;
 
   /**
-   * <p>Contains the headline message component.</p>
+   * Contains the headline message component.
+   *
    * @public
    */
   messageComponents: MessageComponentsSummary | undefined;
 
   /**
-   * <p>The managed notification event status.</p> <ul> <li> <p>Values:</p> <ul> <li> <p> <code>HEALTHY</code> </p> <ul> <li> <p>All <code>EventRules</code> are <code>ACTIVE</code>.</p> </li> </ul> </li> <li> <p> <code>UNHEALTHY</code> </p> <ul> <li> <p>Some <code>EventRules</code> are <code>ACTIVE</code> and some are <code>INACTIVE</code>.</p> </li> </ul> </li> </ul> </li> </ul>
+   * The managed notification event status.
+   *
+   * - Values:
+   *
+   *   - `HEALTHY`
+   *
+   *     - All `EventRules` are `ACTIVE`.
+   *   - `UNHEALTHY`
+   *
+   *     - Some `EventRules` are `ACTIVE` and some are `INACTIVE`.
+   *
    * @public
    */
   eventStatus: EventStatus | undefined;
 
   /**
-   * <p>The Type of event causing the notification.</p> <ul> <li> <p>Values:</p> <ul> <li> <p> <code>ALERT</code> </p> <ul> <li> <p>A notification about an event where something was triggered, initiated, reopened, deployed, or a threshold was breached.</p> </li> </ul> </li> <li> <p> <code>WARNING</code> </p> <ul> <li> <p>A notification about an event where an issue is about to arise. For example, something is approaching a threshold.</p> </li> </ul> </li> <li> <p> <code>ANNOUNCEMENT</code> </p> <ul> <li> <p>A notification about an important event. For example, a step in a workflow or escalation path or that a workflow was updated.</p> </li> </ul> </li> <li> <p> <code>INFORMATIONAL</code> </p> <ul> <li> <p>A notification about informational messages. For example, recommendations, service announcements, or reminders.</p> </li> </ul> </li> </ul> </li> </ul>
+   * The Type of event causing the notification.
+   *
+   * - Values:
+   *
+   *   - `ALERT`
+   *
+   *     - A notification about an event where something was triggered, initiated, reopened, deployed, or a threshold was breached.
+   *   - `WARNING`
+   *
+   *     - A notification about an event where an issue is about to arise. For example, something is approaching a threshold.
+   *   - `ANNOUNCEMENT`
+   *
+   *     - A notification about an important event. For example, a step in a workflow or escalation path or that a workflow was updated.
+   *   - `INFORMATIONAL`
+   *
+   *     - A notification about informational messages. For example, recommendations, service announcements, or reminders.
+   *
    * @public
    */
   notificationType: NotificationType | undefined;
 }
 
 /**
- * <p>Describes an overview and metadata for a ManagedNotificationEvent.</p>
+ * Describes an overview and metadata for a ManagedNotificationEvent.
+ *
  * @public
  */
 export interface ManagedNotificationEventOverview {
   /**
-   * <p>The Amazon Resource Name (ARN) of the ManagedNotificationEvent.</p>
+   * The Amazon Resource Name (ARN) of the ManagedNotificationEvent.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the <code>ManagedNotificationConfiguration</code>.</p>
+   * The Amazon Resource Name (ARN) of the `ManagedNotificationConfiguration`.
+   *
    * @public
    */
   managedNotificationConfigurationArn: string | undefined;
 
   /**
-   * <p>The account that related to the <code>ManagedNotificationEvent</code>.</p>
+   * The account that related to the `ManagedNotificationEvent`.
+   *
    * @public
    */
   relatedAccount: string | undefined;
 
   /**
-   * <p>The creation time of the <code>ManagedNotificationEvent</code>.</p>
+   * The creation time of the `ManagedNotificationEvent`.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p/>
    * @public
    */
   notificationEvent: ManagedNotificationEventSummary | undefined;
 
   /**
-   * <p>The notifications aggregation type.</p> <ul> <li> <p>Values:</p> <ul> <li> <p> <code>AGGREGATE</code> </p> <ul> <li> <p>The notification event is an aggregate notification. Aggregate notifications summarize grouped events over a specified time period.</p> </li> </ul> </li> <li> <p> <code>CHILD</code> </p> <ul> <li> <p>Some <code>EventRules</code> are <code>ACTIVE</code> and some are <code>INACTIVE</code>. Any call can be run.</p> </li> </ul> </li> <li> <p> <code>NONE</code> </p> <ul> <li> <p>The notification isn't aggregated.</p> </li> </ul> </li> </ul> </li> </ul>
+   * The notifications aggregation type.
+   *
+   * - Values:
+   *
+   *   - `AGGREGATE`
+   *
+   *     - The notification event is an aggregate notification. Aggregate notifications summarize grouped events over a specified time period.
+   *   - `CHILD`
+   *
+   *     - Some `EventRules` are `ACTIVE` and some are `INACTIVE`. Any call can be run.
+   *   - `NONE`
+   *
+   *     - The notification isn't aggregated.
+   *
    * @public
    */
   aggregationEventType?: AggregationEventType | undefined;
 
   /**
-   * <p>The Organizational Unit Id that an Amazon Web Services account belongs to.</p>
+   * The Organizational Unit Id that an Amazon Web Services account belongs to.
+   *
    * @public
    */
   organizationalUnitId?: string | undefined;
 
   /**
-   * <p>Provides additional information about the aggregation key.</p>
+   * Provides additional information about the aggregation key.
+   *
    * @public
    */
   aggregationSummary?: AggregationSummary | undefined;
 
   /**
-   * <p>The list of the regions where the aggregated notifications in this <code>NotificationEvent</code> originated.</p>
+   * The list of the regions where the aggregated notifications in this `NotificationEvent` originated.
+   *
    * @public
    */
   aggregatedNotificationRegions?: string[] | undefined;
@@ -2073,13 +2629,15 @@ export interface ManagedNotificationEventOverview {
  */
 export interface ListManagedNotificationEventsResponse {
   /**
-   * <p>A pagination token. If a non-null pagination token is returned in a result, pass its value in another request to retrieve more entries.</p>
+   * A pagination token. If a non-null pagination token is returned in a result, pass its value in another request to retrieve more entries.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>A list of Managed Notification Events matching the request criteria.</p>
+   * A list of Managed Notification Events matching the request criteria.
+   *
    * @public
    */
   managedNotificationEvents: ManagedNotificationEventOverview[] | undefined;
@@ -2090,73 +2648,85 @@ export interface ListManagedNotificationEventsResponse {
  */
 export interface ListMemberAccountsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the notification configuration used to filter the member accounts.</p>
+   * The Amazon Resource Name (ARN) of the notification configuration used to filter the member accounts.
+   *
    * @public
    */
   notificationConfigurationArn: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. Valid values are 1-100.</p>
+   * The maximum number of results to return in a single call. Valid values are 1-100.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results. Use the value returned in the previous response.</p>
+   * The token for the next page of results. Use the value returned in the previous response.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The member account identifier used to filter the results.</p>
+   * The member account identifier used to filter the results.
+   *
    * @public
    */
   memberAccount?: string | undefined;
 
   /**
-   * <p>The status used to filter the member accounts.</p>
+   * The status used to filter the member accounts.
+   *
    * @public
    */
   status?: MemberAccountNotificationConfigurationStatus | undefined;
 
   /**
-   * <p>The organizational unit ID used to filter the member accounts.</p>
+   * The organizational unit ID used to filter the member accounts.
+   *
    * @public
    */
   organizationalUnitId?: string | undefined;
 }
 
 /**
- * <p>Contains information about a member account.</p>
+ * Contains information about a member account.
+ *
  * @public
  */
 export interface MemberAccount {
   /**
-   * <p>The Amazon Resource Name (ARN) of the notification configuration associated with the member account.</p>
+   * The Amazon Resource Name (ARN) of the notification configuration associated with the member account.
+   *
    * @public
    */
   notificationConfigurationArn?: string | undefined;
 
   /**
-   * <p>The AWS account ID of the member account.</p>
+   * The AWS account ID of the member account.
+   *
    * @public
    */
   accountId: string | undefined;
 
   /**
-   * <p>The current status of the member account.</p>
+   * The current status of the member account.
+   *
    * @public
    */
   status: MemberAccountNotificationConfigurationStatus | undefined;
 
   /**
-   * <p>The reason for the current status of the member account.</p>
+   * The reason for the current status of the member account.
+   *
    * @public
    */
   statusReason: string | undefined;
 
   /**
-   * <p>The unique identifier of the organizational unit containing the member account.</p>
+   * The unique identifier of the organizational unit containing the member account.
+   *
    * @public
    */
   organizationalUnitId: string | undefined;
@@ -2167,13 +2737,15 @@ export interface MemberAccount {
  */
 export interface ListMemberAccountsResponse {
   /**
-   * <p>The list of member accounts that match the specified criteria.</p>
+   * The list of member accounts that match the specified criteria.
+   *
    * @public
    */
   memberAccounts: MemberAccount[] | undefined;
 
   /**
-   * <p>The token to use for the next page of results.</p>
+   * The token to use for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2184,85 +2756,130 @@ export interface ListMemberAccountsResponse {
  */
 export interface ListNotificationConfigurationsRequest {
   /**
-   * <p>The matched event source.</p> <p>Must match one of the valid EventBridge sources. Only Amazon Web Services service sourced events are supported. For example, <code>aws.ec2</code> and <code>aws.cloudwatch</code>. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html#eb-service-event-delivery-level">Event delivery from Amazon Web Services services</a> in the <i>Amazon EventBridge User Guide</i>.</p>
+   * The matched event source.
+   *
+   * Must match one of the valid EventBridge sources. Only Amazon Web Services service sourced events are supported. For example, `aws.ec2` and `aws.cloudwatch`. For more information, see [Event delivery from Amazon Web Services services](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html#eb-service-event-delivery-level) in the *Amazon EventBridge User Guide*.
+   *
    * @public
    */
   eventRuleSource?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Channel to match.</p>
+   * The Amazon Resource Name (ARN) of the Channel to match.
+   *
    * @public
    */
   channelArn?: string | undefined;
 
   /**
-   * <p>The <code>NotificationConfiguration</code> status to match.</p> <ul> <li> <p>Values:</p> <ul> <li> <p> <code>ACTIVE</code> </p> <ul> <li> <p>All <code>EventRules</code> are <code>ACTIVE</code> and any call can be run.</p> </li> </ul> </li> <li> <p> <code>PARTIALLY_ACTIVE</code> </p> <ul> <li> <p>Some <code>EventRules</code> are <code>ACTIVE</code> and some are <code>INACTIVE</code>. Any call can be run.</p> </li> <li> <p>Any call can be run.</p> </li> </ul> </li> <li> <p> <code>INACTIVE</code> </p> <ul> <li> <p>All <code>EventRules</code> are <code>INACTIVE</code> and any call can be run.</p> </li> </ul> </li> <li> <p> <code>DELETING</code> </p> <ul> <li> <p>This <code>NotificationConfiguration</code> is being deleted.</p> </li> <li> <p>Only <code>GET</code> and <code>LIST</code> calls can be run.</p> </li> </ul> </li> </ul> </li> </ul>
+   * The `NotificationConfiguration` status to match.
+   *
+   * - Values:
+   *
+   *   - `ACTIVE`
+   *
+   *     - All `EventRules` are `ACTIVE` and any call can be run.
+   *   - `PARTIALLY_ACTIVE`
+   *
+   *     - Some `EventRules` are `ACTIVE` and some are `INACTIVE`. Any call can be run.
+   *     - Any call can be run.
+   *   - `INACTIVE`
+   *
+   *     - All `EventRules` are `INACTIVE` and any call can be run.
+   *   - `DELETING`
+   *
+   *     - This `NotificationConfiguration` is being deleted.
+   *     - Only `GET` and `LIST` calls can be run.
+   *
    * @public
    */
   status?: NotificationConfigurationStatus | undefined;
 
   /**
-   * <p>The subtype used to filter the notification configurations in the request.</p>
+   * The subtype used to filter the notification configurations in the request.
+   *
    * @public
    */
   subtype?: NotificationConfigurationSubtype | undefined;
 
   /**
-   * <p>The maximum number of results to be returned in this call. Defaults to 20.</p>
+   * The maximum number of results to be returned in this call. Defaults to 20.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The start token for paginated calls. Retrieved from the response of a previous <code>ListEventRules</code> call. Next token uses Base64 encoding.</p>
+   * The start token for paginated calls. Retrieved from the response of a previous `ListEventRules` call. Next token uses Base64 encoding.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Contains the complete list of fields for a NotificationConfiguration.</p>
+ * Contains the complete list of fields for a NotificationConfiguration.
+ *
  * @public
  */
 export interface NotificationConfigurationStructure {
   /**
-   * <p>The Amazon Resource Name (ARN) of the <code>NotificationConfiguration</code> resource.</p>
+   * The Amazon Resource Name (ARN) of the `NotificationConfiguration` resource.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The name of the <code>NotificationConfiguration</code>. Supports RFC 3986's unreserved characters.</p>
+   * The name of the `NotificationConfiguration`. Supports RFC 3986's unreserved characters.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the <code>NotificationConfiguration</code>.</p>
+   * The description of the `NotificationConfiguration`.
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p>The current status of the <code>NotificationConfiguration</code>.</p>
+   * The current status of the `NotificationConfiguration`.
+   *
    * @public
    */
   status: NotificationConfigurationStatus | undefined;
 
   /**
-   * <p>The creation time of the <code>NotificationConfiguration</code>.</p>
+   * The creation time of the `NotificationConfiguration`.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>The aggregation preference of the <code>NotificationConfiguration</code>.</p> <ul> <li> <p>Values:</p> <ul> <li> <p> <code>LONG</code> </p> <ul> <li> <p>Aggregate notifications for long periods of time (12 hours).</p> </li> </ul> </li> <li> <p> <code>SHORT</code> </p> <ul> <li> <p>Aggregate notifications for short periods of time (5 minutes).</p> </li> </ul> </li> <li> <p> <code>NONE</code> </p> <ul> <li> <p>Don't aggregate notifications.</p> </li> </ul> </li> </ul> </li> </ul>
+   * The aggregation preference of the `NotificationConfiguration`.
+   *
+   * - Values:
+   *
+   *   - `LONG`
+   *
+   *     - Aggregate notifications for long periods of time (12 hours).
+   *   - `SHORT`
+   *
+   *     - Aggregate notifications for short periods of time (5 minutes).
+   *   - `NONE`
+   *
+   *     - Don't aggregate notifications.
+   *
    * @public
    */
   aggregationDuration?: AggregationDuration | undefined;
 
   /**
-   * <p>The subtype of the notification configuration.</p>
+   * The subtype of the notification configuration.
+   *
    * @public
    */
   subtype?: NotificationConfigurationSubtype | undefined;
@@ -2273,13 +2890,15 @@ export interface NotificationConfigurationStructure {
  */
 export interface ListNotificationConfigurationsResponse {
   /**
-   * <p>A pagination token. If a non-null pagination token is returned in a result, pass its value in another request to retrieve more entries.</p>
+   * A pagination token. If a non-null pagination token is returned in a result, pass its value in another request to retrieve more entries.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The <code>NotificationConfigurations</code> in the account.</p>
+   * The `NotificationConfigurations` in the account.
+   *
    * @public
    */
   notificationConfigurations: NotificationConfigurationStructure[] | undefined;
@@ -2290,175 +2909,250 @@ export interface ListNotificationConfigurationsResponse {
  */
 export interface ListNotificationEventsRequest {
   /**
-   * <p>The earliest time of events to return from this call.</p>
+   * The earliest time of events to return from this call.
+   *
    * @public
    */
   startTime?: Date | undefined;
 
   /**
-   * <p>Latest time of events to return from this call.</p>
+   * Latest time of events to return from this call.
+   *
    * @public
    */
   endTime?: Date | undefined;
 
   /**
-   * <p>The locale code of the language used for the retrieved <code>NotificationEvent</code>. The default locale is English <code>(en_US)</code>.</p>
+   * The locale code of the language used for the retrieved `NotificationEvent`. The default locale is English `(en_US)`.
+   *
    * @public
    */
   locale?: LocaleCode | undefined;
 
   /**
-   * <p>The matched event source.</p> <p>Must match one of the valid EventBridge sources. Only Amazon Web Services service sourced events are supported. For example, <code>aws.ec2</code> and <code>aws.cloudwatch</code>. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html#eb-service-event-delivery-level">Event delivery from Amazon Web Services services</a> in the <i>Amazon EventBridge User Guide</i>.</p>
+   * The matched event source.
+   *
+   * Must match one of the valid EventBridge sources. Only Amazon Web Services service sourced events are supported. For example, `aws.ec2` and `aws.cloudwatch`. For more information, see [Event delivery from Amazon Web Services services](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html#eb-service-event-delivery-level) in the *Amazon EventBridge User Guide*.
+   *
    * @public
    */
   source?: string | undefined;
 
   /**
-   * <p>Include aggregated child events in the result.</p>
+   * Include aggregated child events in the result.
+   *
    * @public
    */
   includeChildEvents?: boolean | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the <code>aggregatedNotificationEventArn</code> to match.</p>
+   * The Amazon Resource Name (ARN) of the `aggregatedNotificationEventArn` to match.
+   *
    * @public
    */
   aggregateNotificationEventArn?: string | undefined;
 
   /**
-   * <p>The maximum number of results to be returned in this call. Defaults to 20.</p>
+   * The maximum number of results to be returned in this call. Defaults to 20.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The start token for paginated calls. Retrieved from the response of a previous <code>ListEventRules</code> call. Next token uses Base64 encoding.</p>
+   * The start token for paginated calls. Retrieved from the response of a previous `ListEventRules` call. Next token uses Base64 encoding.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The unique identifier of the organizational unit used to filter notification events.</p>
+   * The unique identifier of the organizational unit used to filter notification events.
+   *
    * @public
    */
   organizationalUnitId?: string | undefined;
 }
 
 /**
- * <p>Contains metadata about the event that caused the <code>NotificationEvent</code>. For other specific values, see <code>sourceEventMetadata</code>.</p>
+ * Contains metadata about the event that caused the `NotificationEvent`. For other specific values, see `sourceEventMetadata`.
+ *
  * @public
  */
 export interface SourceEventMetadataSummary {
   /**
-   * <p>The Region where the notification originated.</p> <p>Unavailable for aggregated notifications.</p>
+   * The Region where the notification originated.
+   *
+   * Unavailable for aggregated notifications.
+   *
    * @public
    */
   eventOriginRegion?: string | undefined;
 
   /**
-   * <p>The matched event source.</p> <p>Must match one of the valid EventBridge sources. Only Amazon Web Services service sourced events are supported. For example, <code>aws.ec2</code> and <code>aws.cloudwatch</code>. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html#eb-service-event-delivery-level">Event delivery from Amazon Web Services services</a> in the <i>Amazon EventBridge User Guide</i>.</p>
+   * The matched event source.
+   *
+   * Must match one of the valid EventBridge sources. Only Amazon Web Services service sourced events are supported. For example, `aws.ec2` and `aws.cloudwatch`. For more information, see [Event delivery from Amazon Web Services services](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html#eb-service-event-delivery-level) in the *Amazon EventBridge User Guide*.
+   *
    * @public
    */
   source: string | undefined;
 
   /**
-   * <p>The event type to match.</p> <p>Must match one of the valid Amazon EventBridge event types. For example, EC2 Instance State-change Notification and Amazon CloudWatch Alarm State Change. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html#eb-service-event-delivery-level">Event delivery from Amazon Web Services services</a> in the <i>Amazon EventBridge User Guide</i>.</p>
+   * The event type to match.
+   *
+   * Must match one of the valid Amazon EventBridge event types. For example, EC2 Instance State-change Notification and Amazon CloudWatch Alarm State Change. For more information, see [Event delivery from Amazon Web Services services](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html#eb-service-event-delivery-level) in the *Amazon EventBridge User Guide*.
+   *
    * @public
    */
   eventType: string | undefined;
 }
 
 /**
- * <p>Describes a short summary and metadata for a <code>NotificationEvent</code>.</p>
+ * Describes a short summary and metadata for a `NotificationEvent`.
+ *
  * @public
  */
 export interface NotificationEventSummary {
   /**
-   * <p>The schema version of the Notification Event.</p>
+   * The schema version of the Notification Event.
+   *
    * @public
    */
   schemaVersion: SchemaVersion | undefined;
 
   /**
-   * <p>The source event metadata.</p>
+   * The source event metadata.
+   *
    * @public
    */
   sourceEventMetadata: SourceEventMetadataSummary | undefined;
 
   /**
-   * <p>The message components of a notification event.</p>
+   * The message components of a notification event.
+   *
    * @public
    */
   messageComponents: MessageComponentsSummary | undefined;
 
   /**
-   * <p>Provides additional information about the current status of the <code>NotificationEvent</code>.</p> <ul> <li> <p>Values:</p> <ul> <li> <p> <code>HEALTHY</code> </p> <ul> <li> <p>All <code>EventRules</code> are <code>ACTIVE</code>.</p> </li> </ul> </li> <li> <p> <code>UNHEALTHY</code> </p> <ul> <li> <p>Some <code>EventRules</code> are <code>ACTIVE</code> and some are <code>INACTIVE</code>.</p> </li> </ul> </li> </ul> </li> </ul>
+   * Provides additional information about the current status of the `NotificationEvent`.
+   *
+   * - Values:
+   *
+   *   - `HEALTHY`
+   *
+   *     - All `EventRules` are `ACTIVE`.
+   *   - `UNHEALTHY`
+   *
+   *     - Some `EventRules` are `ACTIVE` and some are `INACTIVE`.
+   *
    * @public
    */
   eventStatus: EventStatus | undefined;
 
   /**
-   * <p>The type of event causing the notification.</p> <ul> <li> <p>Values:</p> <ul> <li> <p> <code>ALERT</code> </p> <ul> <li> <p>A notification about an event where something was triggered, initiated, reopened, deployed, or a threshold was breached.</p> </li> </ul> </li> <li> <p> <code>WARNING</code> </p> <ul> <li> <p>A notification about an event where an issue is about to arise. For example, something is approaching a threshold.</p> </li> </ul> </li> <li> <p> <code>ANNOUNCEMENT</code> </p> <ul> <li> <p>A notification about an important event. For example, a step in a workflow or escalation path or that a workflow was updated.</p> </li> </ul> </li> <li> <p> <code>INFORMATIONAL</code> </p> <ul> <li> <p>A notification about informational messages. For example, recommendations, service announcements, or reminders.</p> </li> </ul> </li> </ul> </li> </ul>
+   * The type of event causing the notification.
+   *
+   * - Values:
+   *
+   *   - `ALERT`
+   *
+   *     - A notification about an event where something was triggered, initiated, reopened, deployed, or a threshold was breached.
+   *   - `WARNING`
+   *
+   *     - A notification about an event where an issue is about to arise. For example, something is approaching a threshold.
+   *   - `ANNOUNCEMENT`
+   *
+   *     - A notification about an important event. For example, a step in a workflow or escalation path or that a workflow was updated.
+   *   - `INFORMATIONAL`
+   *
+   *     - A notification about informational messages. For example, recommendations, service announcements, or reminders.
+   *
    * @public
    */
   notificationType: NotificationType | undefined;
 }
 
 /**
- * <p>Describes a short summary of a <code>NotificationEvent</code>. This is only used when listing notification events.</p>
+ * Describes a short summary of a `NotificationEvent`. This is only used when listing notification events.
+ *
  * @public
  */
 export interface NotificationEventOverview {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The ARN of the <code>NotificationConfiguration</code>.</p>
+   * The ARN of the `NotificationConfiguration`.
+   *
    * @public
    */
   notificationConfigurationArn: string | undefined;
 
   /**
-   * <p>The account name containing the <code>NotificationHub</code>.</p>
+   * The account name containing the `NotificationHub`.
+   *
    * @public
    */
   relatedAccount: string | undefined;
 
   /**
-   * <p>The creation time of the <code>NotificationEvent</code>.</p>
+   * The creation time of the `NotificationEvent`.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>Refers to a <code>NotificationEventSummary</code> object.</p> <p>Similar in structure to <code>content</code> in the <code>GetNotificationEvent</code> response.</p>
+   * Refers to a `NotificationEventSummary` object.
+   *
+   * Similar in structure to `content` in the `GetNotificationEvent` response.
+   *
    * @public
    */
   notificationEvent: NotificationEventSummary | undefined;
 
   /**
-   * <p>The <code>NotificationConfiguration</code>'s aggregation type.</p> <ul> <li> <p>Values:</p> <ul> <li> <p> <code>AGGREGATE</code> </p> <ul> <li> <p>The notification event is an aggregate notification. Aggregate notifications summarize grouped events over a specified time period.</p> </li> </ul> </li> <li> <p> <code>CHILD</code> </p> <ul> <li> <p>Some <code>EventRules</code> are <code>ACTIVE</code> and some are <code>INACTIVE</code>. Any call can be run.</p> </li> </ul> </li> <li> <p> <code>NONE</code> </p> <ul> <li> <p>The notification isn't aggregated.</p> </li> </ul> </li> </ul> </li> </ul>
+   * The `NotificationConfiguration`'s aggregation type.
+   *
+   * - Values:
+   *
+   *   - `AGGREGATE`
+   *
+   *     - The notification event is an aggregate notification. Aggregate notifications summarize grouped events over a specified time period.
+   *   - `CHILD`
+   *
+   *     - Some `EventRules` are `ACTIVE` and some are `INACTIVE`. Any call can be run.
+   *   - `NONE`
+   *
+   *     - The notification isn't aggregated.
+   *
    * @public
    */
   aggregationEventType?: AggregationEventType | undefined;
 
   /**
-   * <p>The ARN of the <code>aggregatedNotificationEventArn</code> to match.</p>
+   * The ARN of the `aggregatedNotificationEventArn` to match.
+   *
    * @public
    */
   aggregateNotificationEventArn?: string | undefined;
 
   /**
-   * <p>Provides an aggregated summary data for notification events.</p>
+   * Provides an aggregated summary data for notification events.
+   *
    * @public
    */
   aggregationSummary?: AggregationSummary | undefined;
 
   /**
-   * <p>The unique identifier of the organizational unit in the notification event overview.</p>
+   * The unique identifier of the organizational unit in the notification event overview.
+   *
    * @public
    */
   organizationalUnitId?: string | undefined;
@@ -2469,13 +3163,15 @@ export interface NotificationEventOverview {
  */
 export interface ListNotificationEventsResponse {
   /**
-   * <p>A pagination token. If a non-null pagination token is returned in a result, pass its value in another request to retrieve more entries.</p>
+   * A pagination token. If a non-null pagination token is returned in a result, pass its value in another request to retrieve more entries.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The list of notification events.</p>
+   * The list of notification events.
+   *
    * @public
    */
   notificationEvents: NotificationEventOverview[] | undefined;
@@ -2486,43 +3182,52 @@ export interface ListNotificationEventsResponse {
  */
 export interface ListNotificationHubsRequest {
   /**
-   * <p>The maximum number of records to list in a single response.</p>
+   * The maximum number of records to list in a single response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A pagination token. Set to null to start listing notification hubs from the start.</p>
+   * A pagination token. Set to null to start listing notification hubs from the start.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Describes an overview of a <code>NotificationHub</code>.</p> <p>A <code>NotificationConfiguration</code> is an account-level setting used to select the Regions where you want to store, process and replicate your notifications.</p>
+ * Describes an overview of a `NotificationHub`.
+ *
+ * A `NotificationConfiguration` is an account-level setting used to select the Regions where you want to store, process and replicate your notifications.
+ *
  * @public
  */
 export interface NotificationHubOverview {
   /**
-   * <p>The Region of the resource.</p>
+   * The Region of the resource.
+   *
    * @public
    */
   notificationHubRegion: string | undefined;
 
   /**
-   * <p>The status summary of the resource.</p>
+   * The status summary of the resource.
+   *
    * @public
    */
   statusSummary: NotificationHubStatusSummary | undefined;
 
   /**
-   * <p>The date and time the <code>NotificationHubOverview</code> was created.</p>
+   * The date and time the `NotificationHubOverview` was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>The most recent time this <code>NotificationHub</code> had an <code>ACTIVE</code> status.</p>
+   * The most recent time this `NotificationHub` had an `ACTIVE` status.
+   *
    * @public
    */
   lastActivationTime?: Date | undefined;
@@ -2533,13 +3238,15 @@ export interface NotificationHubOverview {
  */
 export interface ListNotificationHubsResponse {
   /**
-   * <p>The <code>NotificationHubs</code> in the account.</p>
+   * The `NotificationHubs` in the account.
+   *
    * @public
    */
   notificationHubs: NotificationHubOverview[] | undefined;
 
   /**
-   * <p>A pagination token. If a non-null pagination token is returned in a result, pass its value in another request to retrieve more entries.</p>
+   * A pagination token. If a non-null pagination token is returned in a result, pass its value in another request to retrieve more entries.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2550,19 +3257,22 @@ export interface ListNotificationHubsResponse {
  */
 export interface ListOrganizationalUnitsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the notification configuration used to filter the organizational units.</p>
+   * The Amazon Resource Name (ARN) of the notification configuration used to filter the organizational units.
+   *
    * @public
    */
   notificationConfigurationArn: string | undefined;
 
   /**
-   * <p>The maximum number of organizational units to return in a single call. Valid values are 1-100.</p>
+   * The maximum number of organizational units to return in a single call. Valid values are 1-100.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results. Use the value returned in the previous response.</p>
+   * The token for the next page of results. Use the value returned in the previous response.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2573,13 +3283,15 @@ export interface ListOrganizationalUnitsRequest {
  */
 export interface ListOrganizationalUnitsResponse {
   /**
-   * <p>The list of organizational units that match the specified criteria.</p>
+   * The list of organizational units that match the specified criteria.
+   *
    * @public
    */
   organizationalUnits: string[] | undefined;
 
   /**
-   * <p>The token to use for the next page of results. If there are no additional results, this value is null.</p>
+   * The token to use for the next page of results. If there are no additional results, this value is null.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2590,7 +3302,8 @@ export interface ListOrganizationalUnitsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) to use to list tags.</p>
+   * The Amazon Resource Name (ARN) to use to list tags.
+   *
    * @public
    */
   arn: string | undefined;
@@ -2601,7 +3314,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>A list of tags for the specified ARN.</p>
+   * A list of tags for the specified ARN.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -2612,25 +3326,41 @@ export interface ListTagsForResourceResponse {
  */
 export interface UpdateNotificationConfigurationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) used to update the <code>NotificationConfiguration</code>.</p>
+   * The Amazon Resource Name (ARN) used to update the `NotificationConfiguration`.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The name of the <code>NotificationConfiguration</code>.</p>
+   * The name of the `NotificationConfiguration`.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The description of the <code>NotificationConfiguration</code>.</p>
+   * The description of the `NotificationConfiguration`.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The aggregation preference of the <code>NotificationConfiguration</code>.</p> <ul> <li> <p>Values:</p> <ul> <li> <p> <code>LONG</code> </p> <ul> <li> <p>Aggregate notifications for long periods of time (12 hours).</p> </li> </ul> </li> <li> <p> <code>SHORT</code> </p> <ul> <li> <p>Aggregate notifications for short periods of time (5 minutes).</p> </li> </ul> </li> <li> <p> <code>NONE</code> </p> <ul> <li> <p>Don't aggregate notifications.</p> </li> </ul> </li> </ul> </li> </ul>
+   * The aggregation preference of the `NotificationConfiguration`.
+   *
+   * - Values:
+   *
+   *   - `LONG`
+   *
+   *     - Aggregate notifications for long periods of time (12 hours).
+   *   - `SHORT`
+   *
+   *     - Aggregate notifications for short periods of time (5 minutes).
+   *   - `NONE`
+   *
+   *     - Don't aggregate notifications.
+   *
    * @public
    */
   aggregationDuration?: AggregationDuration | undefined;
@@ -2641,7 +3371,8 @@ export interface UpdateNotificationConfigurationRequest {
  */
 export interface UpdateNotificationConfigurationResponse {
   /**
-   * <p>The ARN used to update the <code>NotificationConfiguration</code>.</p>
+   * The ARN used to update the `NotificationConfiguration`.
+   *
    * @public
    */
   arn: string | undefined;
@@ -2652,7 +3383,8 @@ export interface UpdateNotificationConfigurationResponse {
  */
 export interface RegisterNotificationHubRequest {
   /**
-   * <p>The Region of the <code>NotificationHub</code>.</p>
+   * The Region of the `NotificationHub`.
+   *
    * @public
    */
   notificationHubRegion: string | undefined;
@@ -2663,25 +3395,29 @@ export interface RegisterNotificationHubRequest {
  */
 export interface RegisterNotificationHubResponse {
   /**
-   * <p>The Region of the <code>NotificationHub</code>.</p>
+   * The Region of the `NotificationHub`.
+   *
    * @public
    */
   notificationHubRegion: string | undefined;
 
   /**
-   * <p>Provides additional information about the current <code>NotificationHub</code> status information.</p>
+   * Provides additional information about the current `NotificationHub` status information.
+   *
    * @public
    */
   statusSummary: NotificationHubStatusSummary | undefined;
 
   /**
-   * <p>The date the resource was created.</p>
+   * The date the resource was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>The date the resource was last activated.</p>
+   * The date the resource was last activated.
+   *
    * @public
    */
   lastActivationTime?: Date | undefined;
@@ -2692,13 +3428,15 @@ export interface RegisterNotificationHubResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) to use to tag a resource.</p>
+   * The Amazon Resource Name (ARN) to use to tag a resource.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>A map of tags assigned to a resource. A tag is a string-to-string map of key-value pairs.</p>
+   * A map of tags assigned to a resource. A tag is a string-to-string map of key-value pairs.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -2714,13 +3452,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) to use to untag a resource.</p>
+   * The Amazon Resource Name (ARN) to use to untag a resource.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The tag keys to use to untag a resource.</p>
+   * The tag keys to use to untag a resource.
+   *
    * @public
    */
   tagKeys: string[] | undefined;
@@ -2736,19 +3476,25 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateManagedNotificationChannelAssociationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the <code>ManagedNotificationConfiguration</code> whose Channel association property you want to update.</p>
+   * The Amazon Resource Name (ARN) of the `ManagedNotificationConfiguration` whose Channel association property you want to update.
+   *
    * @public
    */
   managedNotificationConfigurationArn: string | undefined;
 
   /**
-   * <p>The identifier of the channel association to update. You can specify one of the following:</p> <ul> <li> <p>An Account contact identifier.</p> </li> <li> <p>A Channel ARN.</p> </li> </ul>
+   * The identifier of the channel association to update. You can specify one of the following:
+   *
+   * - An Account contact identifier.
+   * - A Channel ARN.
+   *
    * @public
    */
   channelIdentifier: string | undefined;
 
   /**
-   * <p>Specifies whether the association is subscribed to sensitive events. The <code>notifications:SubscribeSensitiveEvents</code> permission controls access to sensitive events.</p>
+   * Specifies whether the association is subscribed to sensitive events. The `notifications:SubscribeSensitiveEvents` permission controls access to sensitive events.
+   *
    * @public
    */
   isSensitiveEventsSubscribed?: boolean | undefined;

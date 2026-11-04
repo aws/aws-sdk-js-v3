@@ -23,32 +23,14 @@ export interface CreateAssetModelCommandInput extends CreateAssetModelRequest {}
 export interface CreateAssetModelCommandOutput extends CreateAssetModelResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an asset model from specified property and hierarchy definitions. You create
- *       assets from asset models. With asset models, you can easily create assets of the same type
- *       that have standardized definitions. Each asset created from a model inherits the asset model's
- *       property and hierarchy definitions. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/define-models.html">Defining asset models</a> in the
- *         <i>IoT SiteWise User Guide</i>.</p>
- *          <p>You can create three types of asset models, <code>ASSET_MODEL</code>,
- *         <code>COMPONENT_MODEL</code>, or an <code>INTERFACE</code>.</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <b>ASSET_MODEL</b> – (default) An asset model that
- *           you can use to create assets. Can't be included as a component in another asset
- *           model.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>COMPONENT_MODEL</b> – A reusable component that
- *           you can include in the composite models of other asset models. You can't create
- *           assets directly from this type of asset model. </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>INTERFACE</b> – An interface is a type of model
- *           that defines a standard structure that can be applied to different asset models.</p>
- *             </li>
- *          </ul>
+ * Creates an asset model from specified property and hierarchy definitions. You create assets from asset models. With asset models, you can easily create assets of the same type that have standardized definitions. Each asset created from a model inherits the asset model's property and hierarchy definitions. For more information, see [Defining asset models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/define-models.html) in the *IoT SiteWise User Guide*.
+ *
+ * You can create three types of asset models, `ASSET_MODEL`, `COMPONENT_MODEL`, or an `INTERFACE`.
+ *
+ * - **ASSET_MODEL** – (default) An asset model that you can use to create assets. Can't be included as a component in another asset model.
+ * - **COMPONENT_MODEL** – A reusable component that you can include in the composite models of other asset models. You can't create assets directly from this type of asset model.
+ * - **INTERFACE** – An interface is a type of model that defines a standard structure that can be applied to different asset models.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -260,37 +242,40 @@ export interface CreateAssetModelCommandOutput extends CreateAssetModelResponse,
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  * @throws {@link ConflictingOperationException} (client fault)
- *  <p>Your request has conflicting operations. This can occur if you're trying to perform more
- *       than one operation on the same resource at the same time.</p>
+ *
+ * Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>IoT SiteWise can't process your request right now. Try again later.</p>
+ *
+ * IoT SiteWise can't process your request right now. Try again later.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *       unsupported characters. Check your request and try again.</p>
+ *
+ * The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You've reached the quota for a resource. For example, this can occur if you're trying to
- *       associate more than the allowed number of child assets or attempting to create more than the
- *       allowed number of properties for an asset model.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ *
+ * You've reached the quota for a resource. For example, this can occur if you're trying to associate more than the allowed number of child assets or attempting to create more than the allowed number of properties for an asset model.
+ *
+ * For more information, see [Quotas](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html) in the *IoT SiteWise User Guide*.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>The resource already exists.</p>
+ *
+ * The resource already exists.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource can't be found.</p>
+ *
+ * The requested resource can't be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Your request exceeded a rate limit. For example, you might have exceeded the number of
- *       IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so
- *       on.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ *
+ * Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.
+ *
+ * For more information, see [Quotas](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html) in the *IoT SiteWise User Guide*.
  *
  * @throws {@link IoTSiteWiseServiceException}
- * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * Base exception class for all service exceptions from IoTSiteWise service.
  *
  * @public
  */

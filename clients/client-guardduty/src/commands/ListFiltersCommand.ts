@@ -23,7 +23,8 @@ export interface ListFiltersCommandInput extends ListFiltersRequest {}
 export interface ListFiltersCommandOutput extends ListFiltersResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a paginated list of the current filters.</p>
+ * Returns a paginated list of the current filters.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,14 +56,16 @@ export interface ListFiltersCommandOutput extends ListFiltersResponse, __Metadat
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>A bad request exception object.</p>
+ *
+ * A bad request exception object.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>An internal server error exception object.</p>
+ *
+ * An internal server error exception object.
  *
  * @throws {@link GuardDutyServiceException}
- * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * Base exception class for all service exceptions from GuardDuty service.
  *
  * @public
  */

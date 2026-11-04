@@ -23,30 +23,21 @@ export interface DescribeConfigurationsCommandInput extends DescribeConfiguratio
 export interface DescribeConfigurationsCommandOutput extends DescribeConfigurationsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves attributes for a list of configuration item IDs.</p>
- *          <note>
- *             <p>All of the supplied IDs must be for the same asset type from one of the
- *         following:</p>
- *             <ul>
- *                <li>
- *                   <p>server</p>
- *                </li>
- *                <li>
- *                   <p>application</p>
- *                </li>
- *                <li>
- *                   <p>process</p>
- *                </li>
- *                <li>
- *                   <p>connection</p>
- *                </li>
- *             </ul>
- *             <p>Output fields are specific to the asset type specified. For example, the output for a
- *           <i>server</i> configuration item includes a list of attributes about the
- *         server, such as host name, operating system, number of network cards, etc.</p>
- *             <p>For a complete list of outputs for each asset type, see <a href="https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#DescribeConfigurations">Using the DescribeConfigurations Action</a> in the <i>Amazon Web Services Application
- *           Discovery Service User Guide</i>.</p>
- *          </note>
+ * Retrieves attributes for a list of configuration item IDs.
+ *
+ * > **Note:**
+ * >
+ * > All of the supplied IDs must be for the same asset type from one of the following:
+ * >
+ * > - server
+ * > - application
+ * > - process
+ * > - connection
+ * >
+ * > Output fields are specific to the asset type specified. For example, the output for a *server* configuration item includes a list of attributes about the server, such as host name, operating system, number of network cards, etc.
+ * >
+ * > For a complete list of outputs for each asset type, see [Using the DescribeConfigurations Action](https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#DescribeConfigurations) in the *Amazon Web Services Application Discovery Service User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,25 +70,28 @@ export interface DescribeConfigurationsCommandOutput extends DescribeConfigurati
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
  *
  * @throws {@link AuthorizationErrorException} (client fault)
- *  <p>The user does not have permission to perform the action. Check the IAM
- *       policy associated with this user.</p>
+ *
+ * The user does not have permission to perform the action. Check the IAM policy associated with this user.
  *
  * @throws {@link HomeRegionNotSetException} (client fault)
- *  <p>The home Region is not set. Set the home Region to continue.</p>
+ *
+ * The home Region is not set. Set the home Region to continue.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+ *
+ * One or more parameters are not valid. Verify the parameters and try again.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value of one or more parameters are either invalid or out of range. Verify the
- *       parameter values and try again.</p>
+ *
+ * The value of one or more parameters are either invalid or out of range. Verify the parameter values and try again.
  *
  * @throws {@link ServerInternalErrorException} (server fault)
- *  <p>The server experienced an internal error. Try again.</p>
+ *
+ * The server experienced an internal error. Try again.
  *
  * @throws {@link ApplicationDiscoveryServiceServiceException}
- * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ * Base exception class for all service exceptions from ApplicationDiscoveryService service.
  *
  * @public
  */

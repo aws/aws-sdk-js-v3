@@ -26,8 +26,8 @@ export interface DescribeNetworkInterfaceAttributeCommandInput extends DescribeN
 export interface DescribeNetworkInterfaceAttributeCommandOutput extends DescribeNetworkInterfaceAttributeResult, __MetadataBearer {}
 
 /**
- * <p>Describes a network interface attribute. You can specify only one attribute at a
- *             time.</p>
+ * Describes a network interface attribute. You can specify only one attribute at a time.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,8 +86,8 @@ export interface DescribeNetworkInterfaceAttributeCommandOutput extends Describe
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To describe the attachment attribute of a network interface
  * ```javascript

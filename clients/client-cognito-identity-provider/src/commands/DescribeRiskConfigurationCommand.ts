@@ -23,10 +23,8 @@ export interface DescribeRiskConfigurationCommandInput extends DescribeRiskConfi
 export interface DescribeRiskConfigurationCommandOutput extends DescribeRiskConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Given an app client or user pool ID where threat protection is configured, describes
- *             the risk configuration. This operation returns details about adaptive authentication,
- *             compromised credentials, and IP-address allow- and denylists. For more information about
- *             threat protection, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-threat-protection.html">Threat protection</a>.</p>
+ * Given an app client or user pool ID where threat protection is configured, describes the risk configuration. This operation returns details about adaptive authentication, compromised credentials, and IP-address allow- and denylists. For more information about threat protection, see [Threat protection](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-threat-protection.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -110,32 +108,36 @@ export interface DescribeRiskConfigurationCommandOutput extends DescribeRiskConf
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * This exception is thrown when Amazon Cognito encounters an internal error.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
- *             parameter.</p>
+ *
+ * This exception is thrown when the Amazon Cognito service encounters an invalid parameter.
  *
  * @throws {@link NotAuthorizedException} (client fault)
- *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * This exception is thrown when a user isn't authorized.
  *
  * @throws {@link OperationNotEnabledException} (client fault)
- *  <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+ *
+ * This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
- *             resource.</p>
+ *
+ * This exception is thrown when the Amazon Cognito service can't find the requested resource.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>This exception is thrown when the user has made too many requests for a given
- *             operation.</p>
+ *
+ * This exception is thrown when the user has made too many requests for a given operation.
  *
  * @throws {@link UserPoolAddOnNotEnabledException} (client fault)
- *  <p>This exception is thrown when user pool add-ons aren't enabled.</p>
+ *
+ * This exception is thrown when user pool add-ons aren't enabled.
  *
  * @throws {@link CognitoIdentityProviderServiceException}
- * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * Base exception class for all service exceptions from CognitoIdentityProvider service.
  *
  * @public
  */

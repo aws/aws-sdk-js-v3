@@ -23,15 +23,12 @@ export interface SetIdentityNotificationTopicCommandInput extends SetIdentityNot
 export interface SetIdentityNotificationTopicCommandOutput extends SetIdentityNotificationTopicResponse, __MetadataBearer {}
 
 /**
- * <p>Sets an Amazon Simple Notification Service (Amazon SNS) topic to use when delivering notifications. When you use
- *             this operation, you specify a verified identity, such as an email address or domain.
- *             When you send an email that uses the chosen identity in the Source field, Amazon SES sends
- *             notifications to the topic you specified. You can send bounce, complaint, or delivery
- *             notifications (or any combination of the three) to the Amazon SNS topic that you
- *             specify.</p>
- *          <p>You can execute this operation no more than once per second.</p>
- *          <p>For more information about feedback notification, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity-using-notifications.html">Amazon SES
- *                 Developer Guide</a>.</p>
+ * Sets an Amazon Simple Notification Service (Amazon SNS) topic to use when delivering notifications. When you use this operation, you specify a verified identity, such as an email address or domain. When you send an email that uses the chosen identity in the Source field, Amazon SES sends notifications to the topic you specified. You can send bounce, complaint, or delivery notifications (or any combination of the three) to the Amazon SNS topic that you specify.
+ *
+ * You can execute this operation no more than once per second.
+ *
+ * For more information about feedback notification, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity-using-notifications.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,8 +55,8 @@ export interface SetIdentityNotificationTopicCommandOutput extends SetIdentityNo
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @example SetIdentityNotificationTopic
  * ```javascript

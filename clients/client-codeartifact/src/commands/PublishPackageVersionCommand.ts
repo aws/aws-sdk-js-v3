@@ -26,16 +26,12 @@ export interface PublishPackageVersionCommandInput extends Omit<PublishPackageVe
 export interface PublishPackageVersionCommandOutput extends PublishPackageVersionResult, __MetadataBearer {}
 
 /**
- * <p>Creates a new package version containing one or more assets (or files).</p>
- *          <p>The <code>unfinished</code> flag can be used to keep the package version in the
- *       <code>Unfinished</code> state until all of its assets have been uploaded (see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/packages-overview.html#package-version-status.html#package-version-status">Package version status</a> in the <i>CodeArtifact user guide</i>). To set
- *       the package version’s status to <code>Published</code>, omit the <code>unfinished</code> flag
- *       when uploading the final asset, or set the status using <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageVersionsStatus.html">UpdatePackageVersionStatus</a>. Once a package version’s status is set to
- *       <code>Published</code>, it cannot change back to <code>Unfinished</code>.</p>
- *          <note>
- *             <p>Only generic packages can be published using this API. For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-generic.html">Using generic
- *       packages</a> in the <i>CodeArtifact User Guide</i>.</p>
- *          </note>
+ * Creates a new package version containing one or more assets (or files).
+ *
+ * The `unfinished` flag can be used to keep the package version in the `Unfinished` state until all of its assets have been uploaded (see [Package version status](https://docs.aws.amazon.com/codeartifact/latest/ug/packages-overview.html#package-version-status.html#package-version-status) in the *CodeArtifact user guide*). To set the package version’s status to `Published`, omit the `unfinished` flag when uploading the final asset, or set the status using [UpdatePackageVersionStatus](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageVersionsStatus.html). Once a package version’s status is set to `Published`, it cannot change back to `Unfinished`.
+ *
+ * > **Note:** Only generic packages can be published using this API. For more information, see [Using generic packages](https://docs.aws.amazon.com/codeartifact/latest/ug/using-generic.html) in the *CodeArtifact User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,41 +80,36 @@ export interface PublishPackageVersionCommandOutput extends PublishPackageVersio
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>
- *         The operation did not succeed because of an unauthorized access attempt.
- *       </p>
+ *
+ * The operation did not succeed because of an unauthorized access attempt.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>
- *         The operation did not succeed because prerequisites are not met.
- *       </p>
+ *
+ * The operation did not succeed because prerequisites are not met.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+ *
+ * The operation did not succeed because of an error that occurred inside CodeArtifact.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>
- *       The operation did not succeed because the resource requested is not found in the service.
- *     </p>
+ *
+ * The operation did not succeed because the resource requested is not found in the service.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>
- *         The operation did not succeed because it would have exceeded a service limit for your account.
- *       </p>
+ *
+ * The operation did not succeed because it would have exceeded a service limit for your account.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>
- *       The operation did not succeed because too many requests are sent to the service.
- *     </p>
+ *
+ * The operation did not succeed because too many requests are sent to the service.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>
- *       The operation did not succeed because a parameter in the request was sent with an invalid value.
- *     </p>
+ *
+ * The operation did not succeed because a parameter in the request was sent with an invalid value.
  *
  * @throws {@link CodeartifactServiceException}
- * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ * Base exception class for all service exceptions from Codeartifact service.
  *
  * @public
  */

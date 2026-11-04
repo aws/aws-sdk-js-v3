@@ -23,12 +23,12 @@ export interface TagResourceCommandInput extends TagResourceInput {}
 export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Add a tag to a Step Functions resource.</p>
- *          <p>An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using
- *       Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User
- *         Guide</i>, and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html">Controlling Access Using IAM
- *           Tags</a>.</p>
- *          <p>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_ . : / = + - @</code>.</p>
+ * Add a tag to a Step Functions resource.
+ *
+ * An array of key-value pairs. For more information, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *Amazon Web Services Billing and Cost Management User Guide*, and [Controlling Access Using IAM Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html).
+ *
+ * Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,18 +59,20 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
  * @throws {@link InvalidArn} (client fault)
- *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * The provided Amazon Resource Name (ARN) is not valid.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Could not find the referenced resource.</p>
+ *
+ * Could not find the referenced resource.
  *
  * @throws {@link TooManyTags} (client fault)
- *  <p>You've exceeded the number of tags allowed for a resource. See the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html"> Limits Topic</a> in the
- *       Step Functions Developer Guide.</p>
+ *
+ * You've exceeded the number of tags allowed for a resource. See the [Limits Topic](https://docs.aws.amazon.com/step-functions/latest/dg/limits.html) in the Step Functions Developer Guide.
  *
  * @throws {@link SFNServiceException}
- * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * Base exception class for all service exceptions from SFN service.
  *
  * @public
  */

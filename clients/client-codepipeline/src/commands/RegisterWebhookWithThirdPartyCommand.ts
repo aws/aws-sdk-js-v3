@@ -23,8 +23,8 @@ export interface RegisterWebhookWithThirdPartyCommandInput extends RegisterWebho
 export interface RegisterWebhookWithThirdPartyCommandOutput extends RegisterWebhookWithThirdPartyOutput, __MetadataBearer {}
 
 /**
- * <p>Configures a connection between the webhook that was created and the external tool
- *             with events to be detected.</p>
+ * Configures a connection between the webhook that was created and the external tool with events to be detected.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,15 +49,16 @@ export interface RegisterWebhookWithThirdPartyCommandOutput extends RegisterWebh
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The validation was specified in an invalid format.</p>
+ *
+ * The validation was specified in an invalid format.
  *
  * @throws {@link WebhookNotFoundException} (client fault)
- *  <p>The specified webhook was entered in an invalid format or cannot be
- *             found.</p>
+ *
+ * The specified webhook was entered in an invalid format or cannot be found.
  *
  * @throws {@link CodePipelineServiceException}
- * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * Base exception class for all service exceptions from CodePipeline service.
  *
  * @public
  */

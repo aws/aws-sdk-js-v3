@@ -32,486 +32,475 @@ import type {
 } from "./enums";
 
 /**
- * <p>Request parameters to use when integrating with Amazon Cognito to authenticate
- *       users.</p>
+ * Request parameters to use when integrating with Amazon Cognito to authenticate users.
+ *
  * @public
  */
 export interface AuthenticateCognitoActionConfig {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Cognito user pool.</p>
+   * The Amazon Resource Name (ARN) of the Amazon Cognito user pool.
+   *
    * @public
    */
   UserPoolArn: string | undefined;
 
   /**
-   * <p>The ID of the Amazon Cognito user pool client.</p>
+   * The ID of the Amazon Cognito user pool client.
+   *
    * @public
    */
   UserPoolClientId: string | undefined;
 
   /**
-   * <p>The domain prefix or fully-qualified domain name of the Amazon Cognito user pool.</p>
+   * The domain prefix or fully-qualified domain name of the Amazon Cognito user pool.
+   *
    * @public
    */
   UserPoolDomain: string | undefined;
 
   /**
-   * <p>The name of the cookie used to maintain session information. The default is
-   *       AWSELBAuthSessionCookie.</p>
+   * The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.
+   *
    * @public
    */
   SessionCookieName?: string | undefined;
 
   /**
-   * <p>The set of user claims to be requested from the IdP. The default is
-   *       <code>openid</code>.</p>
-   *          <p>To verify which scope values your IdP supports and how to separate multiple values, see
-   *       the documentation for your IdP.</p>
+   * The set of user claims to be requested from the IdP. The default is `openid`.
+   *
+   * To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
+   *
    * @public
    */
   Scope?: string | undefined;
 
   /**
-   * <p>The maximum duration of the authentication session, in seconds. The default is 604800
-   *       seconds (7 days).</p>
+   * The maximum duration of the authentication session, in seconds. The default is 604800 seconds (7 days).
+   *
    * @public
    */
   SessionTimeout?: number | undefined;
 
   /**
-   * <p>The query parameters (up to 10) to include in the redirect request to the authorization
-   *       endpoint.</p>
+   * The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
+   *
    * @public
    */
   AuthenticationRequestExtraParams?: Record<string, string> | undefined;
 
   /**
-   * <p>The behavior if the user is not authenticated. The following are possible values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>deny<code></code> - Return an HTTP 401 Unauthorized error.</p>
-   *             </li>
-   *             <li>
-   *                <p>allow<code></code> - Allow the request to be forwarded to the target.</p>
-   *             </li>
-   *             <li>
-   *                <p>authenticate<code></code> - Redirect the request to the IdP authorization endpoint. This is
-   *           the default value.</p>
-   *             </li>
-   *          </ul>
+   * The behavior if the user is not authenticated. The following are possible values:
+   *
+   * - deny - Return an HTTP 401 Unauthorized error.
+   * - allow - Allow the request to be forwarded to the target.
+   * - authenticate - Redirect the request to the IdP authorization endpoint. This is the default value.
+   *
    * @public
    */
   OnUnauthenticatedRequest?: AuthenticateCognitoActionConditionalBehaviorEnum | undefined;
 }
 
 /**
- * <p>Request parameters when using an identity provider (IdP) that is compliant with OpenID
- *       Connect (OIDC) to authenticate users.</p>
+ * Request parameters when using an identity provider (IdP) that is compliant with OpenID Connect (OIDC) to authenticate users.
+ *
  * @public
  */
 export interface AuthenticateOidcActionConfig {
   /**
-   * <p>The OIDC issuer identifier of the IdP. This must be a full URL, including the HTTPS
-   *       protocol, the domain, and the path.</p>
+   * The OIDC issuer identifier of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+   *
    * @public
    */
   Issuer: string | undefined;
 
   /**
-   * <p>The authorization endpoint of the IdP. This must be a full URL, including the HTTPS
-   *       protocol, the domain, and the path.</p>
+   * The authorization endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+   *
    * @public
    */
   AuthorizationEndpoint: string | undefined;
 
   /**
-   * <p>The token endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the
-   *       domain, and the path.</p>
+   * The token endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+   *
    * @public
    */
   TokenEndpoint: string | undefined;
 
   /**
-   * <p>The user info endpoint of the IdP. This must be a full URL, including the HTTPS protocol,
-   *       the domain, and the path.</p>
+   * The user info endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+   *
    * @public
    */
   UserInfoEndpoint: string | undefined;
 
   /**
-   * <p>The OAuth 2.0 client identifier.</p>
+   * The OAuth 2.0 client identifier.
+   *
    * @public
    */
   ClientId: string | undefined;
 
   /**
-   * <p>The OAuth 2.0 client secret. This parameter is required if you are creating a rule. If you
-   *       are modifying a rule, you can omit this parameter if you set
-   *         <code>UseExistingClientSecret</code> to true.</p>
+   * The OAuth 2.0 client secret. This parameter is required if you are creating a rule. If you are modifying a rule, you can omit this parameter if you set `UseExistingClientSecret` to true.
+   *
    * @public
    */
   ClientSecret?: string | undefined;
 
   /**
-   * <p>The name of the cookie used to maintain session information. The default is
-   *       AWSELBAuthSessionCookie.</p>
+   * The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.
+   *
    * @public
    */
   SessionCookieName?: string | undefined;
 
   /**
-   * <p>The set of user claims to be requested from the IdP. The default is
-   *       <code>openid</code>.</p>
-   *          <p>To verify which scope values your IdP supports and how to separate multiple values, see
-   *       the documentation for your IdP.</p>
+   * The set of user claims to be requested from the IdP. The default is `openid`.
+   *
+   * To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
+   *
    * @public
    */
   Scope?: string | undefined;
 
   /**
-   * <p>The maximum duration of the authentication session, in seconds. The default is 604800
-   *       seconds (7 days).</p>
+   * The maximum duration of the authentication session, in seconds. The default is 604800 seconds (7 days).
+   *
    * @public
    */
   SessionTimeout?: number | undefined;
 
   /**
-   * <p>The query parameters (up to 10) to include in the redirect request to the authorization
-   *       endpoint.</p>
+   * The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
+   *
    * @public
    */
   AuthenticationRequestExtraParams?: Record<string, string> | undefined;
 
   /**
-   * <p>The behavior if the user is not authenticated. The following are possible values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>deny<code></code> - Return an HTTP 401 Unauthorized error.</p>
-   *             </li>
-   *             <li>
-   *                <p>allow<code></code> - Allow the request to be forwarded to the target.</p>
-   *             </li>
-   *             <li>
-   *                <p>authenticate<code></code> - Redirect the request to the IdP authorization endpoint. This is
-   *           the default value.</p>
-   *             </li>
-   *          </ul>
+   * The behavior if the user is not authenticated. The following are possible values:
+   *
+   * - deny - Return an HTTP 401 Unauthorized error.
+   * - allow - Allow the request to be forwarded to the target.
+   * - authenticate - Redirect the request to the IdP authorization endpoint. This is the default value.
+   *
    * @public
    */
   OnUnauthenticatedRequest?: AuthenticateOidcActionConditionalBehaviorEnum | undefined;
 
   /**
-   * <p>Indicates whether to use the existing client secret when modifying a rule. If you are
-   *       creating a rule, you can omit this parameter or set it to false.</p>
+   * Indicates whether to use the existing client secret when modifying a rule. If you are creating a rule, you can omit this parameter or set it to false.
+   *
    * @public
    */
   UseExistingClientSecret?: boolean | undefined;
 }
 
 /**
- * <p>Information about an action that returns a custom HTTP response.</p>
+ * Information about an action that returns a custom HTTP response.
+ *
  * @public
  */
 export interface FixedResponseActionConfig {
   /**
-   * <p>The message.</p>
+   * The message.
+   *
    * @public
    */
   MessageBody?: string | undefined;
 
   /**
-   * <p>The HTTP response code (2XX, 4XX, or 5XX).</p>
+   * The HTTP response code (2XX, 4XX, or 5XX).
+   *
    * @public
    */
   StatusCode: string | undefined;
 
   /**
-   * <p>The content type.</p>
-   *          <p>Valid Values: text/plain | text/css | text/html | application/javascript |
-   *       application/json</p>
+   * The content type.
+   *
+   * Valid Values: text/plain | text/css | text/html | application/javascript | application/json
+   *
    * @public
    */
   ContentType?: string | undefined;
 }
 
 /**
- * <p>Information about how traffic will be distributed between multiple target groups in a
- *       forward rule.</p>
+ * Information about how traffic will be distributed between multiple target groups in a forward rule.
+ *
  * @public
  */
 export interface TargetGroupTuple {
   /**
-   * <p>The Amazon Resource Name (ARN) of the target group.</p>
+   * The Amazon Resource Name (ARN) of the target group.
+   *
    * @public
    */
   TargetGroupArn?: string | undefined;
 
   /**
-   * <p>The weight. The range is 0 to 999.</p>
+   * The weight. The range is 0 to 999.
+   *
    * @public
    */
   Weight?: number | undefined;
 }
 
 /**
- * <p>Information about the target group stickiness for a rule.</p>
+ * Information about the target group stickiness for a rule.
+ *
  * @public
  */
 export interface TargetGroupStickinessConfig {
   /**
-   * <p>Indicates whether target group stickiness is enabled.</p>
+   * Indicates whether target group stickiness is enabled.
+   *
    * @public
    */
   Enabled?: boolean | undefined;
 
   /**
-   * <p>[Application Load Balancers] The time period, in seconds, during which requests from a
-   *       client should be routed to the same target group. The range is 1-604800 seconds (7 days). You
-   *       must specify this value when enabling target group stickiness.</p>
+   * [Application Load Balancers] The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
+   *
    * @public
    */
   DurationSeconds?: number | undefined;
 }
 
 /**
- * <p>Information about a forward action.</p>
+ * Information about a forward action.
+ *
  * @public
  */
 export interface ForwardActionConfig {
   /**
-   * <p>The target groups.</p>
+   * The target groups.
+   *
    * @public
    */
   TargetGroups?: TargetGroupTuple[] | undefined;
 
   /**
-   * <p>The target group stickiness for the rule.</p>
+   * The target group stickiness for the rule.
+   *
    * @public
    */
   TargetGroupStickinessConfig?: TargetGroupStickinessConfig | undefined;
 }
 
 /**
- * <p>Information about an additional claim to validate.</p>
+ * Information about an additional claim to validate.
+ *
  * @public
  */
 export interface JwtValidationActionAdditionalClaim {
   /**
-   * <p>The format of the claim value.</p>
+   * The format of the claim value.
+   *
    * @public
    */
   Format: JwtValidationActionAdditionalClaimFormatEnum | undefined;
 
   /**
-   * <p>The name of the claim. You can't specify <code>exp</code>, <code>iss</code>,
-   *       <code>nbf</code>, or <code>iat</code> because we validate them by default.</p>
+   * The name of the claim. You can't specify `exp`, `iss`, `nbf`, or `iat` because we validate them by default.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The claim value. The maximum size of the list is 10.
-   *       Each value can be up to 256 characters in length.
-   *       If the format is <code>space-separated-values</code>, the values
-   *       can't include spaces.</p>
+   * The claim value. The maximum size of the list is 10. Each value can be up to 256 characters in length. If the format is `space-separated-values`, the values can't include spaces.
+   *
    * @public
    */
   Values: string[] | undefined;
 }
 
 /**
- * <p>Information about a JSON Web Token (JWT) validation action.</p>
+ * Information about a JSON Web Token (JWT) validation action.
+ *
  * @public
  */
 export interface JwtValidationActionConfig {
   /**
-   * <p>The JSON Web Key Set (JWKS) endpoint. This endpoint contains JSON Web Keys (JWK)
-   *         that are used to validate signatures from the provider.</p>
-   *          <p>This must be a full URL, including the HTTPS protocol, the domain, and the path.
-   *         The maximum length is 256 characters.</p>
+   * The JSON Web Key Set (JWKS) endpoint. This endpoint contains JSON Web Keys (JWK) that are used to validate signatures from the provider.
+   *
+   * This must be a full URL, including the HTTPS protocol, the domain, and the path. The maximum length is 256 characters.
+   *
    * @public
    */
   JwksEndpoint: string | undefined;
 
   /**
-   * <p>The issuer of the JWT. The maximum length is 256 characters.</p>
+   * The issuer of the JWT. The maximum length is 256 characters.
+   *
    * @public
    */
   Issuer: string | undefined;
 
   /**
-   * <p>Additional claims to validate. The maximum size of the list is 10.
-   *       We validate the <code>exp</code>, <code>iss</code>, <code>nbf</code>,
-   *       and <code>iat</code> claims by default.</p>
+   * Additional claims to validate. The maximum size of the list is 10. We validate the `exp`, `iss`, `nbf`, and `iat` claims by default.
+   *
    * @public
    */
   AdditionalClaims?: JwtValidationActionAdditionalClaim[] | undefined;
 }
 
 /**
- * <p>Information about a redirect action.</p>
- *          <p>A URI consists of the following components: protocol://hostname:port/path?query. You must
- *       modify at least one of the following components to avoid a redirect loop: protocol, hostname,
- *       port, or path. Any components that you do not modify retain their original values.</p>
- *          <p>You can reuse URI components using the following reserved keywords:</p>
- *          <ul>
- *             <li>
- *                <p>#\{protocol\}</p>
- *             </li>
- *             <li>
- *                <p>#\{host\}</p>
- *             </li>
- *             <li>
- *                <p>#\{port\}</p>
- *             </li>
- *             <li>
- *                <p>#\{path\} (the leading "/" is removed)</p>
- *             </li>
- *             <li>
- *                <p>#\{query\}</p>
- *             </li>
- *          </ul>
- *          <p>For example, you can change the path to "/new/#\{path\}", the hostname to "example.#\{host\}",
- *       or the query to "#\{query\}&value=xyz".</p>
+ * Information about a redirect action.
+ *
+ * A URI consists of the following components: protocol://hostname:port/path?query. You must modify at least one of the following components to avoid a redirect loop: protocol, hostname, port, or path. Any components that you do not modify retain their original values.
+ *
+ * You can reuse URI components using the following reserved keywords:
+ *
+ * - #\{protocol\}
+ * - #\{host\}
+ * - #\{port\}
+ * - #\{path\} (the leading "/" is removed)
+ * - #\{query\}
+ *
+ * For example, you can change the path to "/new/#\{path\}", the hostname to "example.#\{host\}", or the query to "#\{query\}&value=xyz".
+ *
  * @public
  */
 export interface RedirectActionConfig {
   /**
-   * <p>The protocol. You can specify HTTP, HTTPS, or #\{protocol\}. You can redirect HTTP to HTTP,
-   *       HTTP to HTTPS, and HTTPS to HTTPS. You can't redirect HTTPS to HTTP.</p>
+   * The protocol. You can specify HTTP, HTTPS, or #\{protocol\}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You can't redirect HTTPS to HTTP.
+   *
    * @public
    */
   Protocol?: string | undefined;
 
   /**
-   * <p>The port. You can specify a value from 1 to 65535 or #\{port\}.</p>
+   * The port. You can specify a value from 1 to 65535 or #\{port\}.
+   *
    * @public
    */
   Port?: string | undefined;
 
   /**
-   * <p>The hostname. This component is not percent-encoded. The hostname can contain
-   *       #\{host\}.</p>
+   * The hostname. This component is not percent-encoded. The hostname can contain #\{host\}.
+   *
    * @public
    */
   Host?: string | undefined;
 
   /**
-   * <p>The absolute path, starting with the leading "/". This component is not percent-encoded.
-   *       The path can contain #\{host\}, #\{path\}, and #\{port\}.</p>
+   * The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #\{host\}, #\{path\}, and #\{port\}.
+   *
    * @public
    */
   Path?: string | undefined;
 
   /**
-   * <p>The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include
-   *       the leading "?", as it is automatically added. You can specify any of the reserved
-   *       keywords.</p>
+   * The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
+   *
    * @public
    */
   Query?: string | undefined;
 
   /**
-   * <p>The HTTP redirect code. The redirect is either permanent (HTTP 301) or temporary (HTTP
-   *       302).</p>
+   * The HTTP redirect code. The redirect is either permanent (HTTP 301) or temporary (HTTP 302).
+   *
    * @public
    */
   StatusCode: RedirectActionStatusCodeEnum | undefined;
 }
 
 /**
- * <p>Information about an action.</p>
- *          <p>Each rule must include exactly one of the following routing actions: <code>forward</code>,
- *       <code>fixed-response</code>, or <code>redirect</code>, and it must be the last
- *       action to be performed.</p>
- *          <p>Optionally, a rule for an HTTPS listener can also include one of the following
- *       user authentication actions: <code>authenticate-oidc</code>,
- *       <code>authenticate-cognito</code>, or <code>jwt-validation</code>.</p>
+ * Information about an action.
+ *
+ * Each rule must include exactly one of the following routing actions: `forward`, `fixed-response`, or `redirect`, and it must be the last action to be performed.
+ *
+ * Optionally, a rule for an HTTPS listener can also include one of the following user authentication actions: `authenticate-oidc`, `authenticate-cognito`, or `jwt-validation`.
+ *
  * @public
  */
 export interface Action {
   /**
-   * <p>The type of action.</p>
+   * The type of action.
+   *
    * @public
    */
   Type: ActionTypeEnum | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the target group. Specify only when <code>Type</code> is
-   *         <code>forward</code> and you want to route to a single target group. To route to multiple
-   *       target groups, you must use <code>ForwardConfig</code> instead.</p>
+   * The Amazon Resource Name (ARN) of the target group. Specify only when `Type` is `forward` and you want to route to a single target group. To route to multiple target groups, you must use `ForwardConfig` instead.
+   *
    * @public
    */
   TargetGroupArn?: string | undefined;
 
   /**
-   * <p>[HTTPS listeners] Information about an identity provider that is compliant with OpenID
-   *       Connect (OIDC). Specify only when <code>Type</code> is <code>authenticate-oidc</code>.</p>
+   * [HTTPS listeners] Information about an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `Type` is `authenticate-oidc`.
+   *
    * @public
    */
   AuthenticateOidcConfig?: AuthenticateOidcActionConfig | undefined;
 
   /**
-   * <p>[HTTPS listeners] Information for using Amazon Cognito to authenticate users. Specify only
-   *       when <code>Type</code> is <code>authenticate-cognito</code>.</p>
+   * [HTTPS listeners] Information for using Amazon Cognito to authenticate users. Specify only when `Type` is `authenticate-cognito`.
+   *
    * @public
    */
   AuthenticateCognitoConfig?: AuthenticateCognitoActionConfig | undefined;
 
   /**
-   * <p>The order for the action. This value is required for rules with multiple actions. The
-   *       action with the lowest value for order is performed first.</p>
+   * The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
+   *
    * @public
    */
   Order?: number | undefined;
 
   /**
-   * <p>[Application Load Balancer] Information for creating a redirect action. Specify only when
-   *         <code>Type</code> is <code>redirect</code>.</p>
+   * [Application Load Balancer] Information for creating a redirect action. Specify only when `Type` is `redirect`.
+   *
    * @public
    */
   RedirectConfig?: RedirectActionConfig | undefined;
 
   /**
-   * <p>[Application Load Balancer] Information for creating an action that returns a custom HTTP
-   *       response. Specify only when <code>Type</code> is <code>fixed-response</code>.</p>
+   * [Application Load Balancer] Information for creating an action that returns a custom HTTP response. Specify only when `Type` is `fixed-response`.
+   *
    * @public
    */
   FixedResponseConfig?: FixedResponseActionConfig | undefined;
 
   /**
-   * <p>Information for creating an action that distributes requests among multiple target
-   *       groups. Specify only when <code>Type</code> is <code>forward</code>.</p>
-   *          <p>If you specify both <code>ForwardConfig</code> and <code>TargetGroupArn</code>, you can
-   *       specify only one target group using <code>ForwardConfig</code> and it must be the same
-   *       target group specified in <code>TargetGroupArn</code>.</p>
+   * Information for creating an action that distributes requests among multiple target groups. Specify only when `Type` is `forward`.
+   *
+   * If you specify both `ForwardConfig` and `TargetGroupArn`, you can specify only one target group using `ForwardConfig` and it must be the same target group specified in `TargetGroupArn`.
+   *
    * @public
    */
   ForwardConfig?: ForwardActionConfig | undefined;
 
   /**
-   * <p>[HTTPS listeners] Information for validating JWT access tokens in client requests.
-   *       Specify only when <code>Type</code> is <code>jwt-validation</code>.</p>
+   * [HTTPS listeners] Information for validating JWT access tokens in client requests. Specify only when `Type` is `jwt-validation`.
+   *
    * @public
    */
   JwtValidationConfig?: JwtValidationActionConfig | undefined;
 }
 
 /**
- * <p>Information about an SSL server certificate.</p>
+ * Information about an SSL server certificate.
+ *
  * @public
  */
 export interface Certificate {
   /**
-   * <p>The Amazon Resource Name (ARN) of the certificate.</p>
+   * The Amazon Resource Name (ARN) of the certificate.
+   *
    * @public
    */
   CertificateArn?: string | undefined;
 
   /**
-   * <p>Indicates whether the certificate is the default certificate. Do not set this value when
-   *       specifying a certificate as an input. This value is not included in the output when describing
-   *       a listener, but is included when describing listener certificates.</p>
+   * Indicates whether the certificate is the default certificate. Do not set this value when specifying a certificate as an input. This value is not included in the output when describing a listener, but is included when describing listener certificates.
+   *
    * @public
    */
   IsDefault?: boolean | undefined;
@@ -522,15 +511,15 @@ export interface Certificate {
  */
 export interface AddListenerCertificatesInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the listener.</p>
+   * The Amazon Resource Name (ARN) of the listener.
+   *
    * @public
    */
   ListenerArn: string | undefined;
 
   /**
-   * <p>The certificate to add. You can specify one certificate per call. Set
-   *         <code>CertificateArn</code> to the certificate ARN but do not set
-   *       <code>IsDefault</code>.</p>
+   * The certificate to add. You can specify one certificate per call. Set `CertificateArn` to the certificate ARN but do not set `IsDefault`.
+   *
    * @public
    */
   Certificates: Certificate[] | undefined;
@@ -541,25 +530,29 @@ export interface AddListenerCertificatesInput {
  */
 export interface AddListenerCertificatesOutput {
   /**
-   * <p>Information about the certificates in the certificate list.</p>
+   * Information about the certificates in the certificate list.
+   *
    * @public
    */
   Certificates?: Certificate[] | undefined;
 }
 
 /**
- * <p>Information about a tag.</p>
+ * Information about a tag.
+ *
  * @public
  */
 export interface Tag {
   /**
-   * <p>The key of the tag.</p>
+   * The key of the tag.
+   *
    * @public
    */
   Key: string | undefined;
 
   /**
-   * <p>The value of the tag.</p>
+   * The value of the tag.
+   *
    * @public
    */
   Value?: string | undefined;
@@ -570,13 +563,15 @@ export interface Tag {
  */
 export interface AddTagsInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   ResourceArns: string[] | undefined;
 
   /**
-   * <p>The tags.</p>
+   * The tags.
+   *
    * @public
    */
   Tags: Tag[] | undefined;
@@ -588,30 +583,35 @@ export interface AddTagsInput {
 export interface AddTagsOutput {}
 
 /**
- * <p>Information about a revocation file.</p>
+ * Information about a revocation file.
+ *
  * @public
  */
 export interface RevocationContent {
   /**
-   * <p>The Amazon S3 bucket for the revocation file.</p>
+   * The Amazon S3 bucket for the revocation file.
+   *
    * @public
    */
   S3Bucket?: string | undefined;
 
   /**
-   * <p>The Amazon S3 path for the revocation file.</p>
+   * The Amazon S3 path for the revocation file.
+   *
    * @public
    */
   S3Key?: string | undefined;
 
   /**
-   * <p>The Amazon S3 object version of the revocation file.</p>
+   * The Amazon S3 object version of the revocation file.
+   *
    * @public
    */
   S3ObjectVersion?: string | undefined;
 
   /**
-   * <p>The type of revocation file.</p>
+   * The type of revocation file.
+   *
    * @public
    */
   RevocationType?: RevocationType | undefined;
@@ -622,43 +622,50 @@ export interface RevocationContent {
  */
 export interface AddTrustStoreRevocationsInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the trust store.</p>
+   * The Amazon Resource Name (ARN) of the trust store.
+   *
    * @public
    */
   TrustStoreArn: string | undefined;
 
   /**
-   * <p>The revocation file to add.</p>
+   * The revocation file to add.
+   *
    * @public
    */
   RevocationContents?: RevocationContent[] | undefined;
 }
 
 /**
- * <p>Information about a revocation file in use by a trust store.</p>
+ * Information about a revocation file in use by a trust store.
+ *
  * @public
  */
 export interface TrustStoreRevocation {
   /**
-   * <p>The Amazon Resource Name (ARN) of the trust store.</p>
+   * The Amazon Resource Name (ARN) of the trust store.
+   *
    * @public
    */
   TrustStoreArn?: string | undefined;
 
   /**
-   * <p>The revocation ID of the revocation file.</p>
+   * The revocation ID of the revocation file.
+   *
    * @public
    */
   RevocationId?: number | undefined;
 
   /**
-   * <p>The type of revocation file.</p>
+   * The type of revocation file.
+   *
    * @public
    */
   RevocationType?: RevocationType | undefined;
 
   /**
-   * <p>The number of revoked certificates.</p>
+   * The number of revoked certificates.
+   *
    * @public
    */
   NumberOfRevokedEntries?: number | undefined;
@@ -669,196 +676,218 @@ export interface TrustStoreRevocation {
  */
 export interface AddTrustStoreRevocationsOutput {
   /**
-   * <p>Information about the revocation file added to the trust store.</p>
+   * Information about the revocation file added to the trust store.
+   *
    * @public
    */
   TrustStoreRevocations?: TrustStoreRevocation[] | undefined;
 }
 
 /**
- * <p>Information about the override status applied to a target.</p>
+ * Information about the override status applied to a target.
+ *
  * @public
  */
 export interface AdministrativeOverride {
   /**
-   * <p>The state of the override.</p>
+   * The state of the override.
+   *
    * @public
    */
   State?: TargetAdministrativeOverrideStateEnum | undefined;
 
   /**
-   * <p>The reason code for the state.</p>
+   * The reason code for the state.
+   *
    * @public
    */
   Reason?: TargetAdministrativeOverrideReasonEnum | undefined;
 
   /**
-   * <p>A description of the override state that provides additional details.</p>
+   * A description of the override state that provides additional details.
+   *
    * @public
    */
   Description?: string | undefined;
 }
 
 /**
- * <p>Information about anomaly detection and mitigation.</p>
+ * Information about anomaly detection and mitigation.
+ *
  * @public
  */
 export interface AnomalyDetection {
   /**
-   * <p>The latest anomaly detection result.</p>
+   * The latest anomaly detection result.
+   *
    * @public
    */
   Result?: AnomalyResultEnum | undefined;
 
   /**
-   * <p>Indicates whether anomaly mitigation is in progress.</p>
+   * Indicates whether anomaly mitigation is in progress.
+   *
    * @public
    */
   MitigationInEffect?: MitigationInEffectEnum | undefined;
 }
 
 /**
- * <p>Information about a static IP address for a load balancer.</p>
+ * Information about a static IP address for a load balancer.
+ *
  * @public
  */
 export interface LoadBalancerAddress {
   /**
-   * <p>The static IP address.</p>
+   * The static IP address.
+   *
    * @public
    */
   IpAddress?: string | undefined;
 
   /**
-   * <p>[Network Load Balancers] The allocation ID of the Elastic IP address for an
-   *       internal-facing load balancer.</p>
+   * [Network Load Balancers] The allocation ID of the Elastic IP address for an internal-facing load balancer.
+   *
    * @public
    */
   AllocationId?: string | undefined;
 
   /**
-   * <p>[Network Load Balancers] The private IPv4 address for an internal load balancer.</p>
+   * [Network Load Balancers] The private IPv4 address for an internal load balancer.
+   *
    * @public
    */
   PrivateIPv4Address?: string | undefined;
 
   /**
-   * <p>[Network Load Balancers] The IPv6 address.</p>
+   * [Network Load Balancers] The IPv6 address.
+   *
    * @public
    */
   IPv6Address?: string | undefined;
 }
 
 /**
- * <p>Information about an Availability Zone.</p>
+ * Information about an Availability Zone.
+ *
  * @public
  */
 export interface AvailabilityZone {
   /**
-   * <p>The name of the Availability Zone.</p>
+   * The name of the Availability Zone.
+   *
    * @public
    */
   ZoneName?: string | undefined;
 
   /**
-   * <p>The ID of the subnet. You can specify one subnet per Availability Zone.</p>
+   * The ID of the subnet. You can specify one subnet per Availability Zone.
+   *
    * @public
    */
   SubnetId?: string | undefined;
 
   /**
-   * <p>[Application Load Balancers on Outposts] The ID of the Outpost.</p>
+   * [Application Load Balancers on Outposts] The ID of the Outpost.
+   *
    * @public
    */
   OutpostId?: string | undefined;
 
   /**
-   * <p>[Network Load Balancers] If you need static IP addresses for your load balancer, you can
-   *       specify one Elastic IP address per Availability Zone when you create an internal-facing load
-   *       balancer. For internal load balancers, you can specify a private IP address from the IPv4
-   *       range of the subnet.</p>
+   * [Network Load Balancers] If you need static IP addresses for your load balancer, you can specify one Elastic IP address per Availability Zone when you create an internal-facing load balancer. For internal load balancers, you can specify a private IP address from the IPv4 range of the subnet.
+   *
    * @public
    */
   LoadBalancerAddresses?: LoadBalancerAddress[] | undefined;
 
   /**
-   * <p>[Network Load Balancers with UDP listeners] The IPv6 prefixes to use for source NAT.
-   *       For each subnet, specify an IPv6 prefix (/80 netmask) from the subnet CIDR block or
-   *      <code>auto_assigned</code> to use an IPv6 prefix selected at random from the subnet CIDR
-   *       block.</p>
+   * [Network Load Balancers with UDP listeners] The IPv6 prefixes to use for source NAT. For each subnet, specify an IPv6 prefix (/80 netmask) from the subnet CIDR block or `auto_assigned` to use an IPv6 prefix selected at random from the subnet CIDR block.
+   *
    * @public
    */
   SourceNatIpv6Prefixes?: string[] | undefined;
 }
 
 /**
- * <p>The status of a capacity reservation.</p>
+ * The status of a capacity reservation.
+ *
  * @public
  */
 export interface CapacityReservationStatus {
   /**
-   * <p>The status code.</p>
+   * The status code.
+   *
    * @public
    */
   Code?: CapacityReservationStateEnum | undefined;
 
   /**
-   * <p>The reason code for the status.</p>
+   * The reason code for the status.
+   *
    * @public
    */
   Reason?: string | undefined;
 }
 
 /**
- * <p>Information about a cipher used in a policy.</p>
+ * Information about a cipher used in a policy.
+ *
  * @public
  */
 export interface Cipher {
   /**
-   * <p>The name of the cipher.</p>
+   * The name of the cipher.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The priority of the cipher.</p>
+   * The priority of the cipher.
+   *
    * @public
    */
   Priority?: number | undefined;
 }
 
 /**
- * <p>Information about the mutual authentication attributes of a listener.</p>
+ * Information about the mutual authentication attributes of a listener.
+ *
  * @public
  */
 export interface MutualAuthenticationAttributes {
   /**
-   * <p>The client certificate handling method. Options are <code>off</code>,
-   *       <code>passthrough</code> or <code>verify</code>. The default value is
-   *       <code>off</code>.</p>
+   * The client certificate handling method. Options are `off`, `passthrough` or `verify`. The default value is `off`.
+   *
    * @public
    */
   Mode?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the trust store.</p>
+   * The Amazon Resource Name (ARN) of the trust store.
+   *
    * @public
    */
   TrustStoreArn?: string | undefined;
 
   /**
-   * <p>Indicates whether expired client certificates are ignored.</p>
+   * Indicates whether expired client certificates are ignored.
+   *
    * @public
    */
   IgnoreClientCertificateExpiry?: boolean | undefined;
 
   /**
-   * <p>Indicates a shared trust stores association status.</p>
+   * Indicates a shared trust stores association status.
+   *
    * @public
    */
   TrustStoreAssociationStatus?: TrustStoreAssociationStatusEnum | undefined;
 
   /**
-   * <p>Indicates whether trust store CA certificate names are advertised.</p>
+   * Indicates whether trust store CA certificate names are advertised.
+   *
    * @public
    */
   AdvertiseTrustStoreCaNames?: AdvertiseTrustStoreCaNamesEnum | undefined;
@@ -869,157 +898,144 @@ export interface MutualAuthenticationAttributes {
  */
 export interface CreateListenerInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
+   * The Amazon Resource Name (ARN) of the load balancer.
+   *
    * @public
    */
   LoadBalancerArn: string | undefined;
 
   /**
-   * <p>The protocol for connections from clients to the load balancer. For Application Load
-   *       Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the
-   *       supported protocols are TCP, TLS, UDP, TCP_UDP, QUIC, and TCP_QUIC. You can’t specify the UDP, TCP_UDP, QUIC, or TCP_QUIC
-   *       protocol if dual-stack mode is enabled. You can't specify a protocol for a Gateway Load
-   *       Balancer.</p>
+   * The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, TCP_UDP, QUIC, and TCP_QUIC. You can’t specify the UDP, TCP_UDP, QUIC, or TCP_QUIC protocol if dual-stack mode is enabled. You can't specify a protocol for a Gateway Load Balancer.
+   *
    * @public
    */
   Protocol?: ProtocolEnum | undefined;
 
   /**
-   * <p>The port on which the load balancer is listening. You can't specify a port for a Gateway
-   *       Load Balancer.</p>
+   * The port on which the load balancer is listening. You can't specify a port for a Gateway Load Balancer.
+   *
    * @public
    */
   Port?: number | undefined;
 
   /**
-   * <p>[HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are
-   *       supported.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/describe-ssl-policies.html">Security policies</a> in the <i>Application Load Balancers Guide</i> and
-   *         <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/describe-ssl-policies.html">Security policies</a> in the <i>Network Load Balancers Guide</i>.</p>
+   * [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported.
+   *
+   * For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/describe-ssl-policies.html) in the *Application Load Balancers Guide* and [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/describe-ssl-policies.html) in the *Network Load Balancers Guide*.
+   *
    * @public
    */
   SslPolicy?: string | undefined;
 
   /**
-   * <p>[HTTPS and TLS listeners] The default certificate for the listener. You must provide
-   *       exactly one certificate. Set <code>CertificateArn</code> to the certificate ARN but do not set
-   *         <code>IsDefault</code>.</p>
+   * [HTTPS and TLS listeners] The default certificate for the listener. You must provide exactly one certificate. Set `CertificateArn` to the certificate ARN but do not set `IsDefault`.
+   *
    * @public
    */
   Certificates?: Certificate[] | undefined;
 
   /**
-   * <p>The actions for the default rule.</p>
+   * The actions for the default rule.
+   *
    * @public
    */
   DefaultActions: Action[] | undefined;
 
   /**
-   * <p>[TLS listeners] The name of the Application-Layer Protocol Negotiation (ALPN) policy. You
-   *       can specify one policy name. The following are the possible values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>HTTP1Only</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>HTTP2Only</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>HTTP2Optional</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>HTTP2Preferred</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>None</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-listeners.html#alpn-policies">ALPN
-   *         policies</a> in the <i>Network Load Balancers Guide</i>.</p>
+   * [TLS listeners] The name of the Application-Layer Protocol Negotiation (ALPN) policy. You can specify one policy name. The following are the possible values:
+   *
+   * - `HTTP1Only`
+   * - `HTTP2Only`
+   * - `HTTP2Optional`
+   * - `HTTP2Preferred`
+   * - `None`
+   *
+   * For more information, see [ALPN policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-listeners.html#alpn-policies) in the *Network Load Balancers Guide*.
+   *
    * @public
    */
   AlpnPolicy?: string[] | undefined;
 
   /**
-   * <p>The tags to assign to the listener.</p>
+   * The tags to assign to the listener.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>[HTTPS listeners] The mutual authentication configuration information.</p>
+   * [HTTPS listeners] The mutual authentication configuration information.
+   *
    * @public
    */
   MutualAuthentication?: MutualAuthenticationAttributes | undefined;
 }
 
 /**
- * <p>Information about a listener.</p>
+ * Information about a listener.
+ *
  * @public
  */
 export interface Listener {
   /**
-   * <p>The Amazon Resource Name (ARN) of the listener.</p>
+   * The Amazon Resource Name (ARN) of the listener.
+   *
    * @public
    */
   ListenerArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
+   * The Amazon Resource Name (ARN) of the load balancer.
+   *
    * @public
    */
   LoadBalancerArn?: string | undefined;
 
   /**
-   * <p>The port on which the load balancer is listening.</p>
+   * The port on which the load balancer is listening.
+   *
    * @public
    */
   Port?: number | undefined;
 
   /**
-   * <p>The protocol for connections from clients to the load balancer.</p>
+   * The protocol for connections from clients to the load balancer.
+   *
    * @public
    */
   Protocol?: ProtocolEnum | undefined;
 
   /**
-   * <p>[HTTPS or TLS listener] The default certificate for the listener.</p>
+   * [HTTPS or TLS listener] The default certificate for the listener.
+   *
    * @public
    */
   Certificates?: Certificate[] | undefined;
 
   /**
-   * <p>[HTTPS or TLS listener] The security policy that defines which protocols and ciphers are
-   *       supported.</p>
+   * [HTTPS or TLS listener] The security policy that defines which protocols and ciphers are supported.
+   *
    * @public
    */
   SslPolicy?: string | undefined;
 
   /**
-   * <p>The default actions for the listener.</p>
+   * The default actions for the listener.
+   *
    * @public
    */
   DefaultActions?: Action[] | undefined;
 
   /**
-   * <p>[TLS listener] The name of the Application-Layer Protocol Negotiation (ALPN)
-   *       policy.</p>
+   * [TLS listener] The name of the Application-Layer Protocol Negotiation (ALPN) policy.
+   *
    * @public
    */
   AlpnPolicy?: string[] | undefined;
 
   /**
-   * <p>The mutual authentication configuration information.</p>
+   * The mutual authentication configuration information.
+   *
    * @public
    */
   MutualAuthentication?: MutualAuthenticationAttributes | undefined;
@@ -1030,60 +1046,64 @@ export interface Listener {
  */
 export interface CreateListenerOutput {
   /**
-   * <p>Information about the listener.</p>
+   * Information about the listener.
+   *
    * @public
    */
   Listeners?: Listener[] | undefined;
 }
 
 /**
- * <p>An IPAM pool is a collection of IP address CIDRs.
- *       IPAM pools enable you to organize your IP addresses
- *       according to your routing and security needs.</p>
+ * An IPAM pool is a collection of IP address CIDRs. IPAM pools enable you to organize your IP addresses according to your routing and security needs.
+ *
  * @public
  */
 export interface IpamPools {
   /**
-   * <p>The ID of the IPv4 IPAM pool.</p>
+   * The ID of the IPv4 IPAM pool.
+   *
    * @public
    */
   Ipv4IpamPoolId?: string | undefined;
 }
 
 /**
- * <p>Information about a subnet mapping.</p>
+ * Information about a subnet mapping.
+ *
  * @public
  */
 export interface SubnetMapping {
   /**
-   * <p>The ID of the subnet.</p>
+   * The ID of the subnet.
+   *
    * @public
    */
   SubnetId?: string | undefined;
 
   /**
-   * <p>[Network Load Balancers] The allocation ID of the Elastic IP address for an
-   *       internet-facing load balancer.</p>
+   * [Network Load Balancers] The allocation ID of the Elastic IP address for an internet-facing load balancer.
+   *
    * @public
    */
   AllocationId?: string | undefined;
 
   /**
-   * <p>[Network Load Balancers] The private IPv4 address for an internal load balancer.</p>
+   * [Network Load Balancers] The private IPv4 address for an internal load balancer.
+   *
    * @public
    */
   PrivateIPv4Address?: string | undefined;
 
   /**
-   * <p>[Network Load Balancers] The IPv6 address.</p>
+   * [Network Load Balancers] The IPv6 address.
+   *
    * @public
    */
   IPv6Address?: string | undefined;
 
   /**
-   * <p>[Network Load Balancers with UDP listeners] The IPv6 prefix to use for source NAT.
-   *       Specify an IPv6 prefix (/80 netmask) from the subnet CIDR block or <code>auto_assigned</code>
-   *       to use an IPv6 prefix selected at random from the subnet CIDR block.</p>
+   * [Network Load Balancers with UDP listeners] The IPv6 prefix to use for source NAT. Specify an IPv6 prefix (/80 netmask) from the subnet CIDR block or `auto_assigned` to use an IPv6 prefix selected at random from the subnet CIDR block.
+   *
    * @public
    */
   SourceNatIpv6Prefix?: string | undefined;
@@ -1094,250 +1114,254 @@ export interface SubnetMapping {
  */
 export interface CreateLoadBalancerInput {
   /**
-   * <p>The name of the load balancer.</p>
-   *          <p>This name must be unique per region per account, can have a maximum of 32 characters, must
-   *       contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must
-   *       not begin with "internal-".</p>
+   * The name of the load balancer.
+   *
+   * This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The IDs of the subnets. You can specify only one subnet per Availability Zone. You
-   *       must specify either subnets or subnet mappings, but not both. To specify an Elastic IP
-   *       address, specify subnet mappings instead of subnets.</p>
-   *          <p>[Application Load Balancers] You must specify subnets from at least two Availability
-   *       Zones.</p>
-   *          <p>[Application Load Balancers on Outposts] You must specify one Outpost subnet.</p>
-   *          <p>[Application Load Balancers on Local Zones] You can specify subnets from one or more Local
-   *       Zones.</p>
-   *          <p>[Network Load Balancers and Gateway Load Balancers] You can specify subnets from one or more
-   *       Availability Zones.</p>
+   * The IDs of the subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both. To specify an Elastic IP address, specify subnet mappings instead of subnets.
+   *
+   * [Application Load Balancers] You must specify subnets from at least two Availability Zones.
+   *
+   * [Application Load Balancers on Outposts] You must specify one Outpost subnet.
+   *
+   * [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
+   *
+   * [Network Load Balancers and Gateway Load Balancers] You can specify subnets from one or more Availability Zones.
+   *
    * @public
    */
   Subnets?: string[] | undefined;
 
   /**
-   * <p>The IDs of the subnets. You can specify only one subnet per Availability Zone. You
-   *       must specify either subnets or subnet mappings, but not both.</p>
-   *          <p>[Application Load Balancers] You must specify subnets from at least two Availability
-   *       Zones. You can't specify Elastic IP addresses for your subnets.</p>
-   *          <p>[Application Load Balancers on Outposts] You must specify one Outpost subnet.</p>
-   *          <p>[Application Load Balancers on Local Zones] You can specify subnets from one or more Local
-   *       Zones.</p>
-   *          <p>[Network Load Balancers] You can specify subnets from one or more Availability Zones. You
-   *       can specify one Elastic IP address per subnet if you need static IP addresses for your
-   *       internet-facing load balancer. For internal load balancers, you can specify one private IP
-   *       address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you
-   *       can specify one IPv6 address per subnet.</p>
-   *          <p>[Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You
-   *       can't specify Elastic IP addresses for your subnets.</p>
+   * The IDs of the subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both.
+   *
+   * [Application Load Balancers] You must specify subnets from at least two Availability Zones. You can't specify Elastic IP addresses for your subnets.
+   *
+   * [Application Load Balancers on Outposts] You must specify one Outpost subnet.
+   *
+   * [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
+   *
+   * [Network Load Balancers] You can specify subnets from one or more Availability Zones. You can specify one Elastic IP address per subnet if you need static IP addresses for your internet-facing load balancer. For internal load balancers, you can specify one private IP address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you can specify one IPv6 address per subnet.
+   *
+   * [Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You can't specify Elastic IP addresses for your subnets.
+   *
    * @public
    */
   SubnetMappings?: SubnetMapping[] | undefined;
 
   /**
-   * <p>[Application Load Balancers and Network Load Balancers] The IDs of the security groups for
-   *       the load balancer.</p>
+   * [Application Load Balancers and Network Load Balancers] The IDs of the security groups for the load balancer.
+   *
    * @public
    */
   SecurityGroups?: string[] | undefined;
 
   /**
-   * <p>The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an
-   *       Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes.
-   *       Therefore, Internet-facing load balancers can route requests from clients over the
-   *       internet.</p>
-   *          <p>The nodes of an internal load balancer have only private IP addresses. The DNS name of an
-   *       internal load balancer is publicly resolvable to the private IP addresses of the nodes.
-   *       Therefore, internal load balancers can route requests only from clients with access to the VPC
-   *       for the load balancer.</p>
-   *          <p>The default is an Internet-facing load balancer.</p>
-   *          <p>You can't specify a scheme for a Gateway Load Balancer.</p>
+   * The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet.
+   *
+   * The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer.
+   *
+   * The default is an Internet-facing load balancer.
+   *
+   * You can't specify a scheme for a Gateway Load Balancer.
+   *
    * @public
    */
   Scheme?: LoadBalancerSchemeEnum | undefined;
 
   /**
-   * <p>The tags to assign to the load balancer.</p>
+   * The tags to assign to the load balancer.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>The type of load balancer. The default is <code>application</code>.</p>
+   * The type of load balancer. The default is `application`.
+   *
    * @public
    */
   Type?: LoadBalancerTypeEnum | undefined;
 
   /**
-   * <p>The IP address type. Internal load balancers must use <code>ipv4</code>.</p>
-   *          <p>[Application Load Balancers] The possible values are <code>ipv4</code> (IPv4 addresses),
-   *       <code>dualstack</code> (IPv4 and IPv6 addresses), and <code>dualstack-without-public-ipv4</code>
-   *       (public IPv6 addresses and private IPv4 and IPv6 addresses).</p>
-   *          <p>[Network Load Balancers and Gateway Load Balancers] The possible values are <code>ipv4</code>
-   *       (IPv4 addresses) and <code>dualstack</code> (IPv4 and IPv6 addresses).</p>
+   * The IP address type. Internal load balancers must use `ipv4`.
+   *
+   * [Application Load Balancers] The possible values are `ipv4` (IPv4 addresses), `dualstack` (IPv4 and IPv6 addresses), and `dualstack-without-public-ipv4` (public IPv6 addresses and private IPv4 and IPv6 addresses).
+   *
+   * [Network Load Balancers and Gateway Load Balancers] The possible values are `ipv4` (IPv4 addresses) and `dualstack` (IPv4 and IPv6 addresses).
+   *
    * @public
    */
   IpAddressType?: IpAddressType | undefined;
 
   /**
-   * <p>[Application Load Balancers on Outposts] The ID of the customer-owned address pool (CoIP
-   *       pool).</p>
+   * [Application Load Balancers on Outposts] The ID of the customer-owned address pool (CoIP pool).
+   *
    * @public
    */
   CustomerOwnedIpv4Pool?: string | undefined;
 
   /**
-   * <p>[Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix
-   *       from each subnet for source NAT. The IP address type must be <code>dualstack</code>.
-   *       The default value is <code>off</code>.</p>
+   * [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be `dualstack`. The default value is `off`.
+   *
    * @public
    */
   EnablePrefixForIpv6SourceNat?: EnablePrefixForIpv6SourceNatEnum | undefined;
 
   /**
-   * <p>[Application Load Balancers] The IPAM pools to use with the load balancer.</p>
+   * [Application Load Balancers] The IPAM pools to use with the load balancer.
+   *
    * @public
    */
   IpamPools?: IpamPools | undefined;
 }
 
 /**
- * <p>Information about the state of the load balancer.</p>
+ * Information about the state of the load balancer.
+ *
  * @public
  */
 export interface LoadBalancerState {
   /**
-   * <p>The state code. The initial state of the load balancer is <code>provisioning</code>. After
-   *       the load balancer is fully set up and ready to route traffic, its state is
-   *       <code>active</code>. If load balancer is routing traffic but does not have the resources it
-   *       needs to scale, its state is<code>active_impaired</code>. If the load balancer could not be
-   *       set up, its state is <code>failed</code>.</p>
+   * The state code. The initial state of the load balancer is `provisioning`. After the load balancer is fully set up and ready to route traffic, its state is `active`. If load balancer is routing traffic but does not have the resources it needs to scale, its state is`active_impaired`. If the load balancer could not be set up, its state is `failed`.
+   *
    * @public
    */
   Code?: LoadBalancerStateEnum | undefined;
 
   /**
-   * <p>A description of the state.</p>
+   * A description of the state.
+   *
    * @public
    */
   Reason?: string | undefined;
 }
 
 /**
- * <p>Information about a load balancer.</p>
+ * Information about a load balancer.
+ *
  * @public
  */
 export interface LoadBalancer {
   /**
-   * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
+   * The Amazon Resource Name (ARN) of the load balancer.
+   *
    * @public
    */
   LoadBalancerArn?: string | undefined;
 
   /**
-   * <p>The public DNS name of the load balancer.</p>
+   * The public DNS name of the load balancer.
+   *
    * @public
    */
   DNSName?: string | undefined;
 
   /**
-   * <p>The ID of the Amazon Route 53 hosted zone associated with the load balancer.</p>
+   * The ID of the Amazon Route 53 hosted zone associated with the load balancer.
+   *
    * @public
    */
   CanonicalHostedZoneId?: string | undefined;
 
   /**
-   * <p>The date and time the load balancer was created.</p>
+   * The date and time the load balancer was created.
+   *
    * @public
    */
   CreatedTime?: Date | undefined;
 
   /**
-   * <p>The name of the load balancer.</p>
+   * The name of the load balancer.
+   *
    * @public
    */
   LoadBalancerName?: string | undefined;
 
   /**
-   * <p>The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an
-   *       Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes.
-   *       Therefore, Internet-facing load balancers can route requests from clients over the
-   *       internet.</p>
-   *          <p>The nodes of an internal load balancer have only private IP addresses. The DNS name of an
-   *       internal load balancer is publicly resolvable to the private IP addresses of the nodes.
-   *       Therefore, internal load balancers can route requests only from clients with access to the VPC
-   *       for the load balancer.</p>
+   * The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet.
+   *
+   * The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer.
+   *
    * @public
    */
   Scheme?: LoadBalancerSchemeEnum | undefined;
 
   /**
-   * <p>The ID of the VPC for the load balancer.</p>
+   * The ID of the VPC for the load balancer.
+   *
    * @public
    */
   VpcId?: string | undefined;
 
   /**
-   * <p>The state of the load balancer.</p>
+   * The state of the load balancer.
+   *
    * @public
    */
   State?: LoadBalancerState | undefined;
 
   /**
-   * <p>The type of load balancer.</p>
+   * The type of load balancer.
+   *
    * @public
    */
   Type?: LoadBalancerTypeEnum | undefined;
 
   /**
-   * <p>The subnets for the load balancer.</p>
+   * The subnets for the load balancer.
+   *
    * @public
    */
   AvailabilityZones?: AvailabilityZone[] | undefined;
 
   /**
-   * <p>The IDs of the security groups for the load balancer.</p>
+   * The IDs of the security groups for the load balancer.
+   *
    * @public
    */
   SecurityGroups?: string[] | undefined;
 
   /**
-   * <p>The type of IP addresses used for public or private connections by the subnets
-   *       attached to your load balancer.</p>
-   *          <p>[Application Load Balancers] The possible values are <code>ipv4</code> (IPv4 addresses),
-   *       <code>dualstack</code> (IPv4 and IPv6 addresses), and <code>dualstack-without-public-ipv4</code>
-   *       (public IPv6 addresses and private IPv4 and IPv6 addresses).</p>
-   *          <p>[Network Load Balancers and Gateway Load Balancers] The possible values are <code>ipv4</code>
-   *       (IPv4 addresses) and <code>dualstack</code> (IPv4 and IPv6 addresses).</p>
+   * The type of IP addresses used for public or private connections by the subnets attached to your load balancer.
+   *
+   * [Application Load Balancers] The possible values are `ipv4` (IPv4 addresses), `dualstack` (IPv4 and IPv6 addresses), and `dualstack-without-public-ipv4` (public IPv6 addresses and private IPv4 and IPv6 addresses).
+   *
+   * [Network Load Balancers and Gateway Load Balancers] The possible values are `ipv4` (IPv4 addresses) and `dualstack` (IPv4 and IPv6 addresses).
+   *
    * @public
    */
   IpAddressType?: IpAddressType | undefined;
 
   /**
-   * <p>[Application Load Balancers on Outposts] The ID of the customer-owned address pool.</p>
+   * [Application Load Balancers on Outposts] The ID of the customer-owned address pool.
+   *
    * @public
    */
   CustomerOwnedIpv4Pool?: string | undefined;
 
   /**
-   * <p>Indicates whether to evaluate inbound security group rules for traffic sent to a
-   *       Network Load Balancer through Amazon Web Services PrivateLink.</p>
+   * Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through Amazon Web Services PrivateLink.
+   *
    * @public
    */
   EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic?: string | undefined;
 
   /**
-   * <p>[Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix
-   *       from each subnet for source NAT. The IP address type must be <code>dualstack</code>.
-   *       The default value is <code>off</code>.</p>
+   * [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be `dualstack`. The default value is `off`.
+   *
    * @public
    */
   EnablePrefixForIpv6SourceNat?: EnablePrefixForIpv6SourceNatEnum | undefined;
 
   /**
-   * <p>[Application Load Balancers] The IPAM pool in use by the load balancer, if configured.</p>
+   * [Application Load Balancers] The IPAM pool in use by the load balancer, if configured.
+   *
    * @public
    */
   IpamPools?: IpamPools | undefined;
@@ -1348,418 +1372,359 @@ export interface LoadBalancer {
  */
 export interface CreateLoadBalancerOutput {
   /**
-   * <p>Information about the load balancer.</p>
+   * Information about the load balancer.
+   *
    * @public
    */
   LoadBalancers?: LoadBalancer[] | undefined;
 }
 
 /**
- * <p>Information about a host header condition.</p>
+ * Information about a host header condition.
+ *
  * @public
  */
 export interface HostHeaderConditionConfig {
   /**
-   * <p>The host names. The maximum length of each string is 128 characters. The comparison is
-   *       case insensitive. The following wildcard characters are supported: * (matches 0 or more
-   *       characters) and ? (matches exactly 1 character). You must include at least one "."
-   *       character. You can include only alphabetical characters after the final "." character.</p>
-   *          <p>If you specify multiple strings, the condition is satisfied if one of the strings matches
-   *       the host name.</p>
+   * The host names. The maximum length of each string is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). You must include at least one "." character. You can include only alphabetical characters after the final "." character.
+   *
+   * If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
+   *
    * @public
    */
   Values?: string[] | undefined;
 
   /**
-   * <p>The regular expressions to compare against the host header. The maximum length of each string is 128 characters.</p>
+   * The regular expressions to compare against the host header. The maximum length of each string is 128 characters.
+   *
    * @public
    */
   RegexValues?: string[] | undefined;
 }
 
 /**
- * <p>Information about an HTTP header condition.</p>
- *          <p>There is a set of standard HTTP header fields. You can also define custom HTTP header
- *       fields.</p>
+ * Information about an HTTP header condition.
+ *
+ * There is a set of standard HTTP header fields. You can also define custom HTTP header fields.
+ *
  * @public
  */
 export interface HttpHeaderConditionConfig {
   /**
-   * <p>The name of the HTTP header field. The maximum length is 40 characters. The header name is
-   *       case insensitive. The allowed characters are specified by RFC 7230. Wildcards are not
-   *       supported.</p>
-   *          <p>You can't use an HTTP header condition to specify the host header. Instead, use a <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#host-conditions">host condition</a>.</p>
+   * The name of the HTTP header field. The maximum length is 40 characters. The header name is case insensitive. The allowed characters are specified by RFC 7230. Wildcards are not supported.
+   *
+   * You can't use an HTTP header condition to specify the host header. Instead, use a [host condition](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#host-conditions).
+   *
    * @public
    */
   HttpHeaderName?: string | undefined;
 
   /**
-   * <p>The strings to compare against the value of the HTTP header. The maximum length of
-   *       each string is 128 characters. The comparison strings are case insensitive. The following
-   *       wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1
-   *       character).</p>
-   *          <p>If the same header appears multiple times in the request, we search them in order until a
-   *       match is found.</p>
-   *          <p>If you specify multiple strings, the condition is satisfied if one of the strings matches
-   *       the value of the HTTP header. To require that all of the strings are a match, create one
-   *       condition per string.</p>
+   * The strings to compare against the value of the HTTP header. The maximum length of each string is 128 characters. The comparison strings are case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
+   *
+   * If the same header appears multiple times in the request, we search them in order until a match is found.
+   *
+   * If you specify multiple strings, the condition is satisfied if one of the strings matches the value of the HTTP header. To require that all of the strings are a match, create one condition per string.
+   *
    * @public
    */
   Values?: string[] | undefined;
 
   /**
-   * <p>The regular expression to compare against the HTTP header. The maximum length of each string is 128 characters.</p>
+   * The regular expression to compare against the HTTP header. The maximum length of each string is 128 characters.
+   *
    * @public
    */
   RegexValues?: string[] | undefined;
 }
 
 /**
- * <p>Information about an HTTP method condition.</p>
- *          <p>HTTP defines a set of request methods, also referred to as HTTP verbs. For more
- *       information, see the <a href="https://www.iana.org/assignments/http-methods/http-methods.xhtml">HTTP Method
- *         Registry</a>. You can also define custom HTTP methods.</p>
+ * Information about an HTTP method condition.
+ *
+ * HTTP defines a set of request methods, also referred to as HTTP verbs. For more information, see the [HTTP Method Registry](https://www.iana.org/assignments/http-methods/http-methods.xhtml). You can also define custom HTTP methods.
+ *
  * @public
  */
 export interface HttpRequestMethodConditionConfig {
   /**
-   * <p>The name of the request method. The maximum length is 40 characters. The allowed characters
-   *       are A-Z, hyphen (-), and underscore (_). The comparison is case sensitive. Wildcards are not
-   *       supported; therefore, the method name must be an exact match.</p>
-   *          <p>If you specify multiple strings, the condition is satisfied if one of the strings matches
-   *       the HTTP request method. We recommend that you route GET and HEAD requests in the same way,
-   *       because the response to a HEAD request may be cached.</p>
+   * The name of the request method. The maximum length is 40 characters. The allowed characters are A-Z, hyphen (-), and underscore (_). The comparison is case sensitive. Wildcards are not supported; therefore, the method name must be an exact match.
+   *
+   * If you specify multiple strings, the condition is satisfied if one of the strings matches the HTTP request method. We recommend that you route GET and HEAD requests in the same way, because the response to a HEAD request may be cached.
+   *
    * @public
    */
   Values?: string[] | undefined;
 }
 
 /**
- * <p>Information about a path pattern condition.</p>
+ * Information about a path pattern condition.
+ *
  * @public
  */
 export interface PathPatternConditionConfig {
   /**
-   * <p>The path patterns to compare against the request URL. The maximum length of each
-   *       string is 128 characters. The comparison is case sensitive. The following wildcard characters
-   *       are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).</p>
-   *          <p>If you specify multiple strings, the condition is satisfied if one of them matches the
-   *       request URL. The path pattern is compared only to the path of the URL, not to its query
-   *       string. To compare against the query string, use a <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#query-string-conditions">query string condition</a>.</p>
+   * The path patterns to compare against the request URL. The maximum length of each string is 128 characters. The comparison is case sensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
+   *
+   * If you specify multiple strings, the condition is satisfied if one of them matches the request URL. The path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a [query string condition](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#query-string-conditions).
+   *
    * @public
    */
   Values?: string[] | undefined;
 
   /**
-   * <p>The regular expressions to compare against the request URL. The maximum length of each string is 128 characters.</p>
+   * The regular expressions to compare against the request URL. The maximum length of each string is 128 characters.
+   *
    * @public
    */
   RegexValues?: string[] | undefined;
 }
 
 /**
- * <p>Information about a key/value pair.</p>
+ * Information about a key/value pair.
+ *
  * @public
  */
 export interface QueryStringKeyValuePair {
   /**
-   * <p>The key. You can omit the key.</p>
+   * The key. You can omit the key.
+   *
    * @public
    */
   Key?: string | undefined;
 
   /**
-   * <p>The value.</p>
+   * The value.
+   *
    * @public
    */
   Value?: string | undefined;
 }
 
 /**
- * <p>Information about a query string condition.</p>
- *          <p>The query string component of a URI starts after the first '?' character and is terminated
- *       by either a '#' character or the end of the URI. A typical query string contains key/value
- *       pairs separated by '&' characters. The allowed characters are specified by RFC 3986. Any
- *       character can be percentage encoded.</p>
+ * Information about a query string condition.
+ *
+ * The query string component of a URI starts after the first '?' character and is terminated by either a '#' character or the end of the URI. A typical query string contains key/value pairs separated by '&' characters. The allowed characters are specified by RFC 3986. Any character can be percentage encoded.
+ *
  * @public
  */
 export interface QueryStringConditionConfig {
   /**
-   * <p>The key/value pairs or values to find in the query string. The maximum length of
-   *       each string is 128 characters. The comparison is case insensitive. The following wildcard
-   *       characters are supported: * (matches 0 or more characters) and ? (matches exactly 1
-   *       character). To search for a literal '*' or '?' character in a query string, you must escape
-   *       these characters in <code>Values</code> using a '\' character.</p>
-   *          <p>If you specify multiple key/value pairs or values, the condition is satisfied if one of
-   *       them is found in the query string.</p>
+   * The key/value pairs or values to find in the query string. The maximum length of each string is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '*' or '?' character in a query string, you must escape these characters in `Values` using a '\' character.
+   *
+   * If you specify multiple key/value pairs or values, the condition is satisfied if one of them is found in the query string.
+   *
    * @public
    */
   Values?: QueryStringKeyValuePair[] | undefined;
 }
 
 /**
- * <p>Information about a source IP condition.</p>
- *          <p>You can use this condition to route based on the IP address of the source that connects to
- *       the load balancer. If a client is behind a proxy, this is the IP address of the proxy not the
- *       IP address of the client.</p>
- *          <p>For Application Load Balancers, use <code>Values</code> to specify CIDR ranges. For
- *       Network Load Balancers, use <code>IpAddressType</code> to match on the IP address type of
- *       the source traffic.</p>
+ * Information about a source IP condition.
+ *
+ * You can use this condition to route based on the IP address of the source that connects to the load balancer. If a client is behind a proxy, this is the IP address of the proxy not the IP address of the client.
+ *
+ * For Application Load Balancers, use `Values` to specify CIDR ranges. For Network Load Balancers, use `IpAddressType` to match on the IP address type of the source traffic.
+ *
  * @public
  */
 export interface SourceIpConditionConfig {
   /**
-   * <p>The source IP addresses, in CIDR format. You can use both IPv4 and IPv6 addresses.
-   *       Wildcards are not supported.</p>
-   *          <p>If you specify multiple addresses, the condition is satisfied if the source IP address of
-   *       the request matches one of the CIDR blocks. This condition is not satisfied by the addresses
-   *       in the X-Forwarded-For header. To search for addresses in the X-Forwarded-For header, use
-   *       an <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#http-header-conditions">HTTP header condition</a>.</p>
-   *          <p>The total number of values must be less than, or equal to five.</p>
+   * The source IP addresses, in CIDR format. You can use both IPv4 and IPv6 addresses. Wildcards are not supported.
+   *
+   * If you specify multiple addresses, the condition is satisfied if the source IP address of the request matches one of the CIDR blocks. This condition is not satisfied by the addresses in the X-Forwarded-For header. To search for addresses in the X-Forwarded-For header, use an [HTTP header condition](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#http-header-conditions).
+   *
+   * The total number of values must be less than, or equal to five.
+   *
    * @public
    */
   Values?: string[] | undefined;
 
   /**
-   * <p>The IP address type for Network Load Balancers.</p>
-   *          <p>The valid values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ipv4</code> – IPv4 addresses only.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ipv6</code> – IPv6 addresses only.</p>
-   *             </li>
-   *          </ul>
+   * The IP address type for Network Load Balancers.
+   *
+   * The valid values are:
+   *
+   * - `ipv4` – IPv4 addresses only.
+   * - `ipv6` – IPv6 addresses only.
+   *
    * @public
    */
   IpAddressType?: SourceIpAddressTypeEnum | undefined;
 }
 
 /**
- * <p>Information about a condition for a rule.</p>
- *          <p>Each rule can optionally include up to one of each of the following conditions:
- *         <code>http-request-method</code>, <code>host-header</code>, <code>path-pattern</code>, and
- *         <code>source-ip</code>. Each rule can also optionally include one or more of each of the
- *       following conditions: <code>http-header</code> and <code>query-string</code>. Note that the
- *       value for a condition can't be empty.</p>
- *          <p>For Network Load Balancer listener rules, the only supported condition is
- *         <code>source-ip</code>. Use <code>SourceIpConfig</code> with <code>IpAddressType</code> to
- *       match on the IP address type of the source traffic (<code>ipv4</code> or
- *       <code>ipv6</code>).</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html">Quotas for your
- *       Application Load Balancers</a>.</p>
+ * Information about a condition for a rule.
+ *
+ * Each rule can optionally include up to one of each of the following conditions: `http-request-method`, `host-header`, `path-pattern`, and `source-ip`. Each rule can also optionally include one or more of each of the following conditions: `http-header` and `query-string`. Note that the value for a condition can't be empty.
+ *
+ * For Network Load Balancer listener rules, the only supported condition is `source-ip`. Use `SourceIpConfig` with `IpAddressType` to match on the IP address type of the source traffic (`ipv4` or `ipv6`).
+ *
+ * For more information, see [Quotas for your Application Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html).
+ *
  * @public
  */
 export interface RuleCondition {
   /**
-   * <p>The name of the field. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>http-header</code> – [ALB] Matches on an HTTP header field.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>http-request-method</code> – [ALB] Matches on the HTTP request method.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>host-header</code> – [ALB] Matches on the host header.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>path-pattern</code> – [ALB] Matches on the URL path of the request.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>query-string</code> – [ALB] Matches on a query string parameter.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>source-ip</code> – [ALB, NLB] Matches on the source IP address. For ALB, use
-   *             <code>SourceIpConfig</code> with <code>Values</code> to specify CIDR ranges. For NLB,
-   *           use <code>SourceIpConfig</code> with <code>IpAddressType</code> to match the IP address
-   *           type (<code>ipv4</code> or <code>ipv6</code>).</p>
-   *             </li>
-   *          </ul>
+   * The name of the field. The possible values are:
+   *
+   * - `http-header` – [ALB] Matches on an HTTP header field.
+   * - `http-request-method` – [ALB] Matches on the HTTP request method.
+   * - `host-header` – [ALB] Matches on the host header.
+   * - `path-pattern` – [ALB] Matches on the URL path of the request.
+   * - `query-string` – [ALB] Matches on a query string parameter.
+   * - `source-ip` – [ALB, NLB] Matches on the source IP address. For ALB, use `SourceIpConfig` with `Values` to specify CIDR ranges. For NLB, use `SourceIpConfig` with `IpAddressType` to match the IP address type (`ipv4` or `ipv6`).
+   *
    * @public
    */
   Field?: string | undefined;
 
   /**
-   * <p>The condition value. Specify only when <code>Field</code> is <code>host-header</code> or
-   *         <code>path-pattern</code>. Alternatively, to specify multiple host names or multiple path
-   *       patterns, use <code>HostHeaderConfig</code> or <code>PathPatternConfig</code>.</p>
-   *          <p>If <code>Field</code> is <code>host-header</code> and you are not using
-   *         <code>HostHeaderConfig</code>, you can specify a single host name (for example,
-   *       my.example.com) in <code>Values</code>. A host name is case insensitive, can be up to 128
-   *       characters in length, and can contain any of the following characters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>A-Z, a-z, 0-9</p>
-   *             </li>
-   *             <li>
-   *                <p>- .</p>
-   *             </li>
-   *             <li>
-   *                <p>* (matches 0 or more characters)</p>
-   *             </li>
-   *             <li>
-   *                <p>? (matches exactly 1 character)</p>
-   *             </li>
-   *          </ul>
-   *          <p>If <code>Field</code> is <code>path-pattern</code> and you are not using
-   *         <code>PathPatternConfig</code>, you can specify a single path pattern (for example, /img/*)
-   *       in <code>Values</code>. A path pattern is case-sensitive, can be up to 128 characters in
-   *       length, and can contain any of the following characters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>A-Z, a-z, 0-9</p>
-   *             </li>
-   *             <li>
-   *                <p>_ - . $ / ~ " ' @ : +</p>
-   *             </li>
-   *             <li>
-   *                <p>& (using &amp;)</p>
-   *             </li>
-   *             <li>
-   *                <p>* (matches 0 or more characters)</p>
-   *             </li>
-   *             <li>
-   *                <p>? (matches exactly 1 character)</p>
-   *             </li>
-   *          </ul>
+   * The condition value. Specify only when `Field` is `host-header` or `path-pattern`. Alternatively, to specify multiple host names or multiple path patterns, use `HostHeaderConfig` or `PathPatternConfig`.
+   *
+   * If `Field` is `host-header` and you are not using `HostHeaderConfig`, you can specify a single host name (for example, my.example.com) in `Values`. A host name is case insensitive, can be up to 128 characters in length, and can contain any of the following characters.
+   *
+   * - A-Z, a-z, 0-9
+   * - - .
+   * - * (matches 0 or more characters)
+   * - ? (matches exactly 1 character)
+   *
+   * If `Field` is `path-pattern` and you are not using `PathPatternConfig`, you can specify a single path pattern (for example, /img/*) in `Values`. A path pattern is case-sensitive, can be up to 128 characters in length, and can contain any of the following characters.
+   *
+   * - A-Z, a-z, 0-9
+   * - _ - . $ / ~ " ' @ : +
+   * - & (using &amp;)
+   * - * (matches 0 or more characters)
+   * - ? (matches exactly 1 character)
+   *
    * @public
    */
   Values?: string[] | undefined;
 
   /**
-   * <p>Information for a host header condition. Specify only when <code>Field</code> is
-   *         <code>host-header</code>.</p>
+   * Information for a host header condition. Specify only when `Field` is `host-header`.
+   *
    * @public
    */
   HostHeaderConfig?: HostHeaderConditionConfig | undefined;
 
   /**
-   * <p>Information for a path pattern condition. Specify only when <code>Field</code> is
-   *         <code>path-pattern</code>.</p>
+   * Information for a path pattern condition. Specify only when `Field` is `path-pattern`.
+   *
    * @public
    */
   PathPatternConfig?: PathPatternConditionConfig | undefined;
 
   /**
-   * <p>Information for an HTTP header condition. Specify only when <code>Field</code> is
-   *         <code>http-header</code>.</p>
+   * Information for an HTTP header condition. Specify only when `Field` is `http-header`.
+   *
    * @public
    */
   HttpHeaderConfig?: HttpHeaderConditionConfig | undefined;
 
   /**
-   * <p>Information for a query string condition. Specify only when <code>Field</code> is
-   *         <code>query-string</code>.</p>
+   * Information for a query string condition. Specify only when `Field` is `query-string`.
+   *
    * @public
    */
   QueryStringConfig?: QueryStringConditionConfig | undefined;
 
   /**
-   * <p>Information for an HTTP method condition. Specify only when <code>Field</code> is
-   *         <code>http-request-method</code>.</p>
+   * Information for an HTTP method condition. Specify only when `Field` is `http-request-method`.
+   *
    * @public
    */
   HttpRequestMethodConfig?: HttpRequestMethodConditionConfig | undefined;
 
   /**
-   * <p>Information for a source IP condition. Specify only when <code>Field</code> is
-   *         <code>source-ip</code>.</p>
+   * Information for a source IP condition. Specify only when `Field` is `source-ip`.
+   *
    * @public
    */
   SourceIpConfig?: SourceIpConditionConfig | undefined;
 
   /**
-   * <p>The regular expressions to match against the condition field. The maximum length of each string is 128 characters.
-   *       Specify only when <code>Field</code> is <code>http-header</code>, <code>host-header</code>, or <code>path-pattern</code>.</p>
+   * The regular expressions to match against the condition field. The maximum length of each string is 128 characters. Specify only when `Field` is `http-header`, `host-header`, or `path-pattern`.
+   *
    * @public
    */
   RegexValues?: string[] | undefined;
 }
 
 /**
- * <p>Information about a rewrite transform. This transform matches a pattern and replaces it with the specified string.</p>
+ * Information about a rewrite transform. This transform matches a pattern and replaces it with the specified string.
+ *
  * @public
  */
 export interface RewriteConfig {
   /**
-   * <p>The regular expression to match in the input string. The maximum length of the string is 1,024 characters.</p>
+   * The regular expression to match in the input string. The maximum length of the string is 1,024 characters.
+   *
    * @public
    */
   Regex: string | undefined;
 
   /**
-   * <p>The replacement string to use when rewriting the matched input. The maximum length of the string is 1,024 characters.
-   *       You can specify capture groups in the regular expression (for example, $1 and $2).</p>
+   * The replacement string to use when rewriting the matched input. The maximum length of the string is 1,024 characters. You can specify capture groups in the regular expression (for example, $1 and $2).
+   *
    * @public
    */
   Replace: string | undefined;
 }
 
 /**
- * <p>Information about a host header rewrite transform. This transform matches a pattern in the host header in an HTTP request and replaces it with the specified string.</p>
+ * Information about a host header rewrite transform. This transform matches a pattern in the host header in an HTTP request and replaces it with the specified string.
+ *
  * @public
  */
 export interface HostHeaderRewriteConfig {
   /**
-   * <p>The host header rewrite transform. Each transform consists of a regular expression to match and a replacement string.</p>
+   * The host header rewrite transform. Each transform consists of a regular expression to match and a replacement string.
+   *
    * @public
    */
   Rewrites?: RewriteConfig[] | undefined;
 }
 
 /**
- * <p>Information about a URL rewrite transform. This transform matches a pattern in the request URL and replaces it with the specified string.</p>
+ * Information about a URL rewrite transform. This transform matches a pattern in the request URL and replaces it with the specified string.
+ *
  * @public
  */
 export interface UrlRewriteConfig {
   /**
-   * <p>The URL rewrite transform to apply to the request. The transform consists of a regular expression to match and a replacement string.</p>
+   * The URL rewrite transform to apply to the request. The transform consists of a regular expression to match and a replacement string.
+   *
    * @public
    */
   Rewrites?: RewriteConfig[] | undefined;
 }
 
 /**
- * <p>Information about a transform to apply to requests that match a rule. Transforms are applied to requests before they are sent to targets.</p>
+ * Information about a transform to apply to requests that match a rule. Transforms are applied to requests before they are sent to targets.
+ *
  * @public
  */
 export interface RuleTransform {
   /**
-   * <p>The type of transform. </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>host-header-rewrite</code> - Rewrite the host header.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>url-rewrite</code> - Rewrite the request URL.</p>
-   *             </li>
-   *          </ul>
+   * The type of transform.
+   *
+   * - `host-header-rewrite` - Rewrite the host header.
+   * - `url-rewrite` - Rewrite the request URL.
+   *
    * @public
    */
   Type: TransformTypeEnum | undefined;
 
   /**
-   * <p>Information about a host header rewrite transform. This transform modifies the host header in an HTTP request.
-   *         Specify only when <code>Type</code> is <code>host-header-rewrite</code>.</p>
+   * Information about a host header rewrite transform. This transform modifies the host header in an HTTP request. Specify only when `Type` is `host-header-rewrite`.
+   *
    * @public
    */
   HostHeaderRewriteConfig?: HostHeaderRewriteConfig | undefined;
 
   /**
-   * <p>Information about a URL rewrite transform. This transform modifies the request URL.
-   *       Specify only when <code>Type</code> is <code>url-rewrite</code>.</p>
+   * Information about a URL rewrite transform. This transform modifies the request URL. Specify only when `Type` is `url-rewrite`.
+   *
    * @public
    */
   UrlRewriteConfig?: UrlRewriteConfig | undefined;
@@ -1770,85 +1735,92 @@ export interface RuleTransform {
  */
 export interface CreateRuleInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the listener.</p>
+   * The Amazon Resource Name (ARN) of the listener.
+   *
    * @public
    */
   ListenerArn: string | undefined;
 
   /**
-   * <p>The conditions.</p>
+   * The conditions.
+   *
    * @public
    */
   Conditions: RuleCondition[] | undefined;
 
   /**
-   * <p>The rule priority. A listener can't have multiple rules with the same priority.</p>
+   * The rule priority. A listener can't have multiple rules with the same priority.
+   *
    * @public
    */
   Priority: number | undefined;
 
   /**
-   * <p>The actions.</p>
+   * The actions.
+   *
    * @public
    */
   Actions: Action[] | undefined;
 
   /**
-   * <p>The tags to assign to the rule.</p>
+   * The tags to assign to the rule.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>The transforms to apply to requests that match this rule. You can add one host header rewrite transform
-   *       and one URL rewrite transform.</p>
+   * The transforms to apply to requests that match this rule. You can add one host header rewrite transform and one URL rewrite transform.
+   *
    * @public
    */
   Transforms?: RuleTransform[] | undefined;
 }
 
 /**
- * <p>Information about a rule.</p>
+ * Information about a rule.
+ *
  * @public
  */
 export interface Rule {
   /**
-   * <p>The Amazon Resource Name (ARN) of the rule.</p>
+   * The Amazon Resource Name (ARN) of the rule.
+   *
    * @public
    */
   RuleArn?: string | undefined;
 
   /**
-   * <p>The priority.</p>
+   * The priority.
+   *
    * @public
    */
   Priority?: string | undefined;
 
   /**
-   * <p>The conditions. Each rule can include zero or one of the following conditions:
-   *         <code>http-request-method</code>, <code>host-header</code>, <code>path-pattern</code>, and
-   *         <code>source-ip</code>, and zero or more of the following conditions:
-   *         <code>http-header</code> and <code>query-string</code>.</p>
+   * The conditions. Each rule can include zero or one of the following conditions: `http-request-method`, `host-header`, `path-pattern`, and `source-ip`, and zero or more of the following conditions: `http-header` and `query-string`.
+   *
    * @public
    */
   Conditions?: RuleCondition[] | undefined;
 
   /**
-   * <p>The actions. Each rule must include exactly one of the following types of actions:
-   *         <code>forward</code>, <code>redirect</code>, or <code>fixed-response</code>, and it must be
-   *       the last action to be performed.</p>
+   * The actions. Each rule must include exactly one of the following types of actions: `forward`, `redirect`, or `fixed-response`, and it must be the last action to be performed.
+   *
    * @public
    */
   Actions?: Action[] | undefined;
 
   /**
-   * <p>Indicates whether this is the default rule.</p>
+   * Indicates whether this is the default rule.
+   *
    * @public
    */
   IsDefault?: boolean | undefined;
 
   /**
-   * <p>The transforms for the rule.</p>
+   * The transforms for the rule.
+   *
    * @public
    */
   Transforms?: RuleTransform[] | undefined;
@@ -1859,33 +1831,35 @@ export interface Rule {
  */
 export interface CreateRuleOutput {
   /**
-   * <p>Information about the rule.</p>
+   * Information about the rule.
+   *
    * @public
    */
   Rules?: Rule[] | undefined;
 }
 
 /**
- * <p>The codes to use when checking for a successful response from a target. If the protocol
- *       version is gRPC, these are gRPC codes. Otherwise, these are HTTP codes. </p>
+ * The codes to use when checking for a successful response from a target. If the protocol version is gRPC, these are gRPC codes. Otherwise, these are HTTP codes.
+ *
  * @public
  */
 export interface Matcher {
   /**
-   * <p>For Application Load Balancers, you can specify values between 200 and 499, with the
-   *       default value being 200. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299").</p>
-   *          <p>For Network Load Balancers, you can specify values between 200 and 599, with the
-   *       default value being 200-399. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299").</p>
-   *          <p>For Gateway Load Balancers, this must be "200–399".</p>
-   *          <p>Note that when using shorthand syntax, some values such as commas need to be
-   *       escaped.</p>
+   * For Application Load Balancers, you can specify values between 200 and 499, with the default value being 200. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299").
+   *
+   * For Network Load Balancers, you can specify values between 200 and 599, with the default value being 200-399. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299").
+   *
+   * For Gateway Load Balancers, this must be "200–399".
+   *
+   * Note that when using shorthand syntax, some values such as commas need to be escaped.
+   *
    * @public
    */
   HttpCode?: string | undefined;
 
   /**
-   * <p>You can specify values between 0 and 99. You can specify multiple values (for example,
-   *       "0,1") or a range of values (for example, "0-5"). The default value is 12.</p>
+   * You can specify values between 0 and 99. You can specify multiple values (for example, "0,1") or a range of values (for example, "0-5"). The default value is 12.
+   *
    * @public
    */
   GrpcCode?: string | undefined;
@@ -1896,306 +1870,278 @@ export interface Matcher {
  */
 export interface CreateTargetGroupInput {
   /**
-   * <p>The name of the target group.</p>
-   *          <p>This name must be unique per region per account, can have a maximum of 32 characters, must
-   *       contain only alphanumeric characters or hyphens, and must not begin or end with a
-   *       hyphen.</p>
+   * The name of the target group.
+   *
+   * This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The protocol to use for routing traffic to the targets. For Application Load Balancers,
-   *       the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported
-   *       protocols are TCP, TLS, UDP, TCP_UDP, QUIC, or TCP_QUIC. For Gateway Load Balancers, the supported protocol is
-   *       GENEVE. A TCP_UDP listener must be associated with a TCP_UDP target group. A TCP_QUIC listener must be associated with a TCP_QUIC target group. If the target is a
-   *       Lambda function, this parameter does not apply.</p>
+   * The protocol to use for routing traffic to the targets. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, TCP_UDP, QUIC, or TCP_QUIC. For Gateway Load Balancers, the supported protocol is GENEVE. A TCP_UDP listener must be associated with a TCP_UDP target group. A TCP_QUIC listener must be associated with a TCP_QUIC target group. If the target is a Lambda function, this parameter does not apply.
+   *
    * @public
    */
   Protocol?: ProtocolEnum | undefined;
 
   /**
-   * <p>[HTTP/HTTPS protocol] The protocol version. Specify <code>GRPC</code> to send requests to
-   *       targets using gRPC. Specify <code>HTTP2</code> to send requests to targets using HTTP/2. The
-   *       default is <code>HTTP1</code>, which sends requests to targets using HTTP/1.1.</p>
+   * [HTTP/HTTPS protocol] The protocol version. Specify `GRPC` to send requests to targets using gRPC. Specify `HTTP2` to send requests to targets using HTTP/2. The default is `HTTP1`, which sends requests to targets using HTTP/1.1.
+   *
    * @public
    */
   ProtocolVersion?: string | undefined;
 
   /**
-   * <p>The port on which the targets receive traffic. This port is used unless you specify a port
-   *       override when registering the target. If the target is a Lambda function, this parameter does
-   *       not apply. If the protocol is GENEVE, the supported port is 6081.</p>
+   * The port on which the targets receive traffic. This port is used unless you specify a port override when registering the target. If the target is a Lambda function, this parameter does not apply. If the protocol is GENEVE, the supported port is 6081.
+   *
    * @public
    */
   Port?: number | undefined;
 
   /**
-   * <p>The identifier of the virtual private cloud (VPC). If the target is a Lambda function,
-   *       this parameter does not apply. Otherwise, this parameter is required.</p>
+   * The identifier of the virtual private cloud (VPC). If the target is a Lambda function, this parameter does not apply. Otherwise, this parameter is required.
+   *
    * @public
    */
   VpcId?: string | undefined;
 
   /**
-   * <p>The protocol the load balancer uses when performing health checks on targets. For
-   *       Application Load Balancers, the default is HTTP. For Network Load Balancers and Gateway Load
-   *       Balancers, the default is TCP. The TCP protocol is not supported for health checks if the
-   *       protocol of the target group is HTTP or HTTPS. The GENEVE, TLS, UDP, TCP_UDP, QUIC, and TCP_QUIC protocols are
-   *       not supported for health checks.</p>
+   * The protocol the load balancer uses when performing health checks on targets. For Application Load Balancers, the default is HTTP. For Network Load Balancers and Gateway Load Balancers, the default is TCP. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. The GENEVE, TLS, UDP, TCP_UDP, QUIC, and TCP_QUIC protocols are not supported for health checks.
+   *
    * @public
    */
   HealthCheckProtocol?: ProtocolEnum | undefined;
 
   /**
-   * <p>The port the load balancer uses when performing health checks on targets. If the protocol
-   *       is HTTP, HTTPS, TCP, TLS, UDP, TCP_UDP, QUIC, or TCP_QUIC the default is <code>traffic-port</code>, which is
-   *       the port on which each target receives traffic from the load balancer. If the protocol is
-   *       GENEVE, the default is port 80.</p>
+   * The port the load balancer uses when performing health checks on targets. If the protocol is HTTP, HTTPS, TCP, TLS, UDP, TCP_UDP, QUIC, or TCP_QUIC the default is `traffic-port`, which is the port on which each target receives traffic from the load balancer. If the protocol is GENEVE, the default is port 80.
+   *
    * @public
    */
   HealthCheckPort?: string | undefined;
 
   /**
-   * <p>Indicates whether health checks are enabled. If the target type is <code>lambda</code>,
-   *       health checks are disabled by default but can be enabled. If the target type is
-   *         <code>instance</code>, <code>ip</code>, or <code>alb</code>, health checks are always
-   *       enabled and can't be disabled.</p>
+   * Indicates whether health checks are enabled. If the target type is `lambda`, health checks are disabled by default but can be enabled. If the target type is `instance`, `ip`, or `alb`, health checks are always enabled and can't be disabled.
+   *
    * @public
    */
   HealthCheckEnabled?: boolean | undefined;
 
   /**
-   * <p>[HTTP/HTTPS health checks] The destination for health checks on the targets.</p>
-   *          <p>[HTTP1 or HTTP2 protocol version] The ping path. The default is /.</p>
-   *          <p>[GRPC protocol version] The path of a custom health check method with the format
-   *       /package.service/method. The default is /Amazon Web Services.ALB/healthcheck.</p>
+   * [HTTP/HTTPS health checks] The destination for health checks on the targets.
+   *
+   * [HTTP1 or HTTP2 protocol version] The ping path. The default is /.
+   *
+   * [GRPC protocol version] The path of a custom health check method with the format /package.service/method. The default is /Amazon Web Services.ALB/healthcheck.
+   *
    * @public
    */
   HealthCheckPath?: string | undefined;
 
   /**
-   * <p>The approximate amount of time, in seconds, between health checks of an individual target. The range is 5-300.
-   *       If the target group protocol is TCP, TLS, UDP, TCP_UDP, QUIC, TCP_QUIC, HTTP or HTTPS, the default is 30 seconds.
-   *       If the target group protocol is GENEVE, the default is 10 seconds.
-   *       If the target type is <code>lambda</code>, the default is 35 seconds.</p>
+   * The approximate amount of time, in seconds, between health checks of an individual target. The range is 5-300. If the target group protocol is TCP, TLS, UDP, TCP_UDP, QUIC, TCP_QUIC, HTTP or HTTPS, the default is 30 seconds. If the target group protocol is GENEVE, the default is 10 seconds. If the target type is `lambda`, the default is 35 seconds.
+   *
    * @public
    */
   HealthCheckIntervalSeconds?: number | undefined;
 
   /**
-   * <p>The amount of time, in seconds, during which no response from a target means a failed
-   *       health check. The range is 2–120 seconds. For target groups with a protocol of HTTP, the
-   *       default is 6 seconds. For target groups with a protocol of TCP, TLS or HTTPS, the default
-   *       is 10 seconds. For target groups with a protocol of GENEVE, the default is 5 seconds. If
-   *       the target type is <code>lambda</code>, the default is 30 seconds.</p>
+   * The amount of time, in seconds, during which no response from a target means a failed health check. The range is 2–120 seconds. For target groups with a protocol of HTTP, the default is 6 seconds. For target groups with a protocol of TCP, TLS or HTTPS, the default is 10 seconds. For target groups with a protocol of GENEVE, the default is 5 seconds. If the target type is `lambda`, the default is 30 seconds.
+   *
    * @public
    */
   HealthCheckTimeoutSeconds?: number | undefined;
 
   /**
-   * <p>The number of consecutive health check successes required before considering a target healthy. The range is
-   *       2-10. If the target group protocol is TCP, TCP_UDP, UDP, TLS, HTTP or HTTPS, the default is 5. For target groups
-   *       with a protocol of GENEVE, the default is 5. If the target type
-   *       is <code>lambda</code>, the default is 5.</p>
+   * The number of consecutive health check successes required before considering a target healthy. The range is 2-10. If the target group protocol is TCP, TCP_UDP, UDP, TLS, HTTP or HTTPS, the default is 5. For target groups with a protocol of GENEVE, the default is 5. If the target type is `lambda`, the default is 5.
+   *
    * @public
    */
   HealthyThresholdCount?: number | undefined;
 
   /**
-   * <p>The number of consecutive health check failures required before considering a target unhealthy. The range is
-   *       2-10. If the target group protocol is TCP, TCP_UDP, UDP, TLS, QUIC, TCP_QUIC, HTTP or HTTPS, the default is 2. For target groups
-   *       with a protocol of GENEVE, the default is 2. If the target type
-   *       is <code>lambda</code>, the default is 5.</p>
+   * The number of consecutive health check failures required before considering a target unhealthy. The range is 2-10. If the target group protocol is TCP, TCP_UDP, UDP, TLS, QUIC, TCP_QUIC, HTTP or HTTPS, the default is 2. For target groups with a protocol of GENEVE, the default is 2. If the target type is `lambda`, the default is 5.
+   *
    * @public
    */
   UnhealthyThresholdCount?: number | undefined;
 
   /**
-   * <p>[HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful
-   *       response from a target. For target groups with a protocol of TCP, TCP_UDP, UDP, QUIC, TCP_QUIC, or TLS the range
-   *       is 200-599. For target groups with a protocol of HTTP or HTTPS, the range is 200-499. For target
-   *       groups with a protocol of GENEVE, the range is 200-399.</p>
+   * [HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful response from a target. For target groups with a protocol of TCP, TCP_UDP, UDP, QUIC, TCP_QUIC, or TLS the range is 200-599. For target groups with a protocol of HTTP or HTTPS, the range is 200-499. For target groups with a protocol of GENEVE, the range is 200-399.
+   *
    * @public
    */
   Matcher?: Matcher | undefined;
 
   /**
-   * <p>The type of target that you must specify when registering targets with this target group.
-   *       You can't specify targets for a target group using more than one target type.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>instance</code> - Register targets by instance ID. This is the default
-   *           value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ip</code> - Register targets by IP address. You can specify IP addresses from
-   *           the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range
-   *           (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10).
-   *           You can't specify publicly routable IP addresses.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>lambda</code> - Register a single Lambda function as a target.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>alb</code> - Register a single Application Load Balancer as a target.</p>
-   *             </li>
-   *          </ul>
+   * The type of target that you must specify when registering targets with this target group. You can't specify targets for a target group using more than one target type.
+   *
+   * - `instance` - Register targets by instance ID. This is the default value.
+   * - `ip` - Register targets by IP address. You can specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't specify publicly routable IP addresses.
+   * - `lambda` - Register a single Lambda function as a target.
+   * - `alb` - Register a single Application Load Balancer as a target.
+   *
    * @public
    */
   TargetType?: TargetTypeEnum | undefined;
 
   /**
-   * <p>The tags to assign to the target group.</p>
+   * The tags to assign to the target group.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>The IP address type. The default value is <code>ipv4</code>.</p>
+   * The IP address type. The default value is `ipv4`.
+   *
    * @public
    */
   IpAddressType?: TargetGroupIpAddressTypeEnum | undefined;
 
   /**
-   * <p>The port on which the target control agent and application load balancer exchange management traffic for the target optimizer feature.</p>
+   * The port on which the target control agent and application load balancer exchange management traffic for the target optimizer feature.
+   *
    * @public
    */
   TargetControlPort?: number | undefined;
 }
 
 /**
- * <p>Information about a target group.</p>
+ * Information about a target group.
+ *
  * @public
  */
 export interface TargetGroup {
   /**
-   * <p>The Amazon Resource Name (ARN) of the target group.</p>
+   * The Amazon Resource Name (ARN) of the target group.
+   *
    * @public
    */
   TargetGroupArn?: string | undefined;
 
   /**
-   * <p>The name of the target group.</p>
+   * The name of the target group.
+   *
    * @public
    */
   TargetGroupName?: string | undefined;
 
   /**
-   * <p>The protocol to use for routing traffic to the targets.</p>
+   * The protocol to use for routing traffic to the targets.
+   *
    * @public
    */
   Protocol?: ProtocolEnum | undefined;
 
   /**
-   * <p>The port on which the targets are listening. This parameter is not used if the target is
-   *       a Lambda function.</p>
+   * The port on which the targets are listening. This parameter is not used if the target is a Lambda function.
+   *
    * @public
    */
   Port?: number | undefined;
 
   /**
-   * <p>The ID of the VPC for the targets.</p>
+   * The ID of the VPC for the targets.
+   *
    * @public
    */
   VpcId?: string | undefined;
 
   /**
-   * <p>The protocol to use to connect with the target. The GENEVE, TLS, UDP, and TCP_UDP
-   *       protocols are not supported for health checks.</p>
+   * The protocol to use to connect with the target. The GENEVE, TLS, UDP, and TCP_UDP protocols are not supported for health checks.
+   *
    * @public
    */
   HealthCheckProtocol?: ProtocolEnum | undefined;
 
   /**
-   * <p>The port to use to connect with the target.</p>
+   * The port to use to connect with the target.
+   *
    * @public
    */
   HealthCheckPort?: string | undefined;
 
   /**
-   * <p>Indicates whether health checks are enabled.</p>
+   * Indicates whether health checks are enabled.
+   *
    * @public
    */
   HealthCheckEnabled?: boolean | undefined;
 
   /**
-   * <p>The approximate amount of time, in seconds, between health checks of an individual
-   *       target.</p>
+   * The approximate amount of time, in seconds, between health checks of an individual target.
+   *
    * @public
    */
   HealthCheckIntervalSeconds?: number | undefined;
 
   /**
-   * <p>The amount of time, in seconds, during which no response means a failed health
-   *       check.</p>
+   * The amount of time, in seconds, during which no response means a failed health check.
+   *
    * @public
    */
   HealthCheckTimeoutSeconds?: number | undefined;
 
   /**
-   * <p>The number of consecutive health checks successes required before considering an unhealthy
-   *       target healthy.</p>
+   * The number of consecutive health checks successes required before considering an unhealthy target healthy.
+   *
    * @public
    */
   HealthyThresholdCount?: number | undefined;
 
   /**
-   * <p>The number of consecutive health check failures required before considering the target
-   *       unhealthy.</p>
+   * The number of consecutive health check failures required before considering the target unhealthy.
+   *
    * @public
    */
   UnhealthyThresholdCount?: number | undefined;
 
   /**
-   * <p>The destination for health checks on the targets.</p>
+   * The destination for health checks on the targets.
+   *
    * @public
    */
   HealthCheckPath?: string | undefined;
 
   /**
-   * <p>The HTTP or gRPC codes to use when checking for a successful response from a
-   *       target.</p>
+   * The HTTP or gRPC codes to use when checking for a successful response from a target.
+   *
    * @public
    */
   Matcher?: Matcher | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the load balancer that routes traffic to this target
-   *       group. You can use each target group with only one load balancer.</p>
+   * The Amazon Resource Name (ARN) of the load balancer that routes traffic to this target group. You can use each target group with only one load balancer.
+   *
    * @public
    */
   LoadBalancerArns?: string[] | undefined;
 
   /**
-   * <p>The type of target that you must specify when registering targets with this target group.
-   *       The possible values are <code>instance</code> (register targets by instance ID),
-   *         <code>ip</code> (register targets by IP address), <code>lambda</code> (register a single
-   *       Lambda function as a target), or <code>alb</code> (register a single Application Load Balancer
-   *       as a target).</p>
+   * The type of target that you must specify when registering targets with this target group. The possible values are `instance` (register targets by instance ID), `ip` (register targets by IP address), `lambda` (register a single Lambda function as a target), or `alb` (register a single Application Load Balancer as a target).
+   *
    * @public
    */
   TargetType?: TargetTypeEnum | undefined;
 
   /**
-   * <p>[HTTP/HTTPS protocol] The protocol version. The possible values are <code>GRPC</code>,
-   *         <code>HTTP1</code>, and <code>HTTP2</code>.</p>
+   * [HTTP/HTTPS protocol] The protocol version. The possible values are `GRPC`, `HTTP1`, and `HTTP2`.
+   *
    * @public
    */
   ProtocolVersion?: string | undefined;
 
   /**
-   * <p>The IP address type. The default value is <code>ipv4</code>.</p>
+   * The IP address type. The default value is `ipv4`.
+   *
    * @public
    */
   IpAddressType?: TargetGroupIpAddressTypeEnum | undefined;
 
   /**
-   * <p>The port on which the target control agent and application load balancer exchange management traffic for the target optimizer feature.</p>
+   * The port on which the target control agent and application load balancer exchange management traffic for the target optimizer feature.
+   *
    * @public
    */
   TargetControlPort?: number | undefined;
@@ -2206,7 +2152,8 @@ export interface TargetGroup {
  */
 export interface CreateTargetGroupOutput {
   /**
-   * <p>Information about the target group.</p>
+   * Information about the target group.
+   *
    * @public
    */
   TargetGroups?: TargetGroup[] | undefined;
@@ -2217,68 +2164,80 @@ export interface CreateTargetGroupOutput {
  */
 export interface CreateTrustStoreInput {
   /**
-   * <p>The name of the trust store.</p>
-   *          <p>This name must be unique per region and can't be changed after creation.</p>
+   * The name of the trust store.
+   *
+   * This name must be unique per region and can't be changed after creation.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The Amazon S3 bucket for the ca certificates bundle.</p>
+   * The Amazon S3 bucket for the ca certificates bundle.
+   *
    * @public
    */
   CaCertificatesBundleS3Bucket: string | undefined;
 
   /**
-   * <p>The Amazon S3 path for the ca certificates bundle.</p>
+   * The Amazon S3 path for the ca certificates bundle.
+   *
    * @public
    */
   CaCertificatesBundleS3Key: string | undefined;
 
   /**
-   * <p>The Amazon S3 object version for the ca certificates bundle. If undefined the current version is used.</p>
+   * The Amazon S3 object version for the ca certificates bundle. If undefined the current version is used.
+   *
    * @public
    */
   CaCertificatesBundleS3ObjectVersion?: string | undefined;
 
   /**
-   * <p>The tags to assign to the trust store.</p>
+   * The tags to assign to the trust store.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 }
 
 /**
- * <p>Information about a trust store.</p>
+ * Information about a trust store.
+ *
  * @public
  */
 export interface TrustStore {
   /**
-   * <p>The name of the trust store.</p>
+   * The name of the trust store.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the trust store.</p>
+   * The Amazon Resource Name (ARN) of the trust store.
+   *
    * @public
    */
   TrustStoreArn?: string | undefined;
 
   /**
-   * <p>The current status of the trust store.</p>
+   * The current status of the trust store.
+   *
    * @public
    */
   Status?: TrustStoreStatus | undefined;
 
   /**
-   * <p>The number of ca certificates in the trust store.</p>
+   * The number of ca certificates in the trust store.
+   *
    * @public
    */
   NumberOfCaCertificates?: number | undefined;
 
   /**
-   * <p>The number of revoked certificates in the trust store.</p>
+   * The number of revoked certificates in the trust store.
+   *
    * @public
    */
   TotalRevokedEntries?: number | undefined;
@@ -2289,7 +2248,8 @@ export interface TrustStore {
  */
 export interface CreateTrustStoreOutput {
   /**
-   * <p>Information about the trust store created.</p>
+   * Information about the trust store created.
+   *
    * @public
    */
   TrustStores?: TrustStore[] | undefined;
@@ -2300,7 +2260,8 @@ export interface CreateTrustStoreOutput {
  */
 export interface DeleteListenerInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the listener.</p>
+   * The Amazon Resource Name (ARN) of the listener.
+   *
    * @public
    */
   ListenerArn: string | undefined;
@@ -2316,7 +2277,8 @@ export interface DeleteListenerOutput {}
  */
 export interface DeleteLoadBalancerInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
+   * The Amazon Resource Name (ARN) of the load balancer.
+   *
    * @public
    */
   LoadBalancerArn: string | undefined;
@@ -2332,7 +2294,8 @@ export interface DeleteLoadBalancerOutput {}
  */
 export interface DeleteRuleInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the rule.</p>
+   * The Amazon Resource Name (ARN) of the rule.
+   *
    * @public
    */
   RuleArn: string | undefined;
@@ -2348,13 +2311,15 @@ export interface DeleteRuleOutput {}
  */
 export interface DeleteSharedTrustStoreAssociationInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the trust store.</p>
+   * The Amazon Resource Name (ARN) of the trust store.
+   *
    * @public
    */
   TrustStoreArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   ResourceArn: string | undefined;
@@ -2370,7 +2335,8 @@ export interface DeleteSharedTrustStoreAssociationOutput {}
  */
 export interface DeleteTargetGroupInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the target group.</p>
+   * The Amazon Resource Name (ARN) of the target group.
+   *
    * @public
    */
   TargetGroupArn: string | undefined;
@@ -2386,7 +2352,8 @@ export interface DeleteTargetGroupOutput {}
  */
 export interface DeleteTrustStoreInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the trust store.</p>
+   * The Amazon Resource Name (ARN) of the trust store.
+   *
    * @public
    */
   TrustStoreArn: string | undefined;
@@ -2398,56 +2365,47 @@ export interface DeleteTrustStoreInput {
 export interface DeleteTrustStoreOutput {}
 
 /**
- * <p>Information about a target.</p>
+ * Information about a target.
+ *
  * @public
  */
 export interface TargetDescription {
   /**
-   * <p>The ID of the target. If the target type of the target group is <code>instance</code>,
-   *       specify an instance ID. If the target type is <code>ip</code>, specify an IP address. If the
-   *       target type is <code>lambda</code>, specify the ARN of the Lambda function. If the target type
-   *       is <code>alb</code>, specify the ARN of the Application Load Balancer target. </p>
+   * The ID of the target. If the target type of the target group is `instance`, specify an instance ID. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the ARN of the Lambda function. If the target type is `alb`, specify the ARN of the Application Load Balancer target.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The port on which the target is listening. If the target group protocol is GENEVE, the
-   *       supported port is 6081. If the target type is <code>alb</code>, the targeted Application Load
-   *       Balancer must have at least one listener whose port matches the target group port. This
-   *       parameter is not used if the target is a Lambda function.</p>
+   * The port on which the target is listening. If the target group protocol is GENEVE, the supported port is 6081. If the target type is `alb`, the targeted Application Load Balancer must have at least one listener whose port matches the target group port. This parameter is not used if the target is a Lambda function.
+   *
    * @public
    */
   Port?: number | undefined;
 
   /**
-   * <p>An Availability Zone or <code>all</code>. This determines whether the target receives
-   *       traffic from the load balancer nodes in the specified Availability Zone or from all enabled
-   *       Availability Zones for the load balancer.</p>
-   *          <p>For Application Load Balancer target groups, the specified Availability Zone value is only applicable
-   *       when cross-zone load balancing is off. Otherwise the parameter is ignored and treated
-   *       as <code>all</code>.</p>
-   *          <p>This parameter is not supported if the target type of the target group is
-   *       <code>instance</code> or <code>alb</code>.</p>
-   *          <p>If the target type is <code>ip</code> and the IP address is in a subnet of the VPC for the target group,
-   *       the Availability Zone is automatically detected and this parameter is optional. If the IP address is outside
-   *       the VPC, this parameter is required.</p>
-   *          <p>For Application Load Balancer target groups with cross-zone load balancing off, if the target type
-   *       is <code>ip</code> and the IP address is outside of the VPC for the target group, this should be an
-   *       Availability Zone inside the VPC for the target group.</p>
-   *          <p>If the target type is <code>lambda</code>, this parameter is optional and the only
-   *       supported value is <code>all</code>.</p>
+   * An Availability Zone or `all`. This determines whether the target receives traffic from the load balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the load balancer.
+   *
+   * For Application Load Balancer target groups, the specified Availability Zone value is only applicable when cross-zone load balancing is off. Otherwise the parameter is ignored and treated as `all`.
+   *
+   * This parameter is not supported if the target type of the target group is `instance` or `alb`.
+   *
+   * If the target type is `ip` and the IP address is in a subnet of the VPC for the target group, the Availability Zone is automatically detected and this parameter is optional. If the IP address is outside the VPC, this parameter is required.
+   *
+   * For Application Load Balancer target groups with cross-zone load balancing off, if the target type is `ip` and the IP address is outside of the VPC for the target group, this should be an Availability Zone inside the VPC for the target group.
+   *
+   * If the target type is `lambda`, this parameter is optional and the only supported value is `all`.
+   *
    * @public
    */
   AvailabilityZone?: string | undefined;
 
   /**
-   * <p>The server ID for the targets. This value is required if the protocol is
-   *       <code>QUIC</code> or <code>TCP_QUIC</code> and can't be used with other protocols.</p>
-   *          <p>The ID consists of the <code>0x</code> prefix followed by 16 hexadecimal characters.
-   *       Any letters must be lowercase. The value must be unique at the listener level. You can't
-   *       modify the server ID for a registered target. You must deregister the target and then
-   *       provide a new server ID when you register the target again.</p>
+   * The server ID for the targets. This value is required if the protocol is `QUIC` or `TCP_QUIC` and can't be used with other protocols.
+   *
+   * The ID consists of the `0x` prefix followed by 16 hexadecimal characters. Any letters must be lowercase. The value must be unique at the listener level. You can't modify the server ID for a registered target. You must deregister the target and then provide a new server ID when you register the target again.
+   *
    * @public
    */
   QuicServerId?: string | undefined;
@@ -2458,14 +2416,15 @@ export interface TargetDescription {
  */
 export interface DeregisterTargetsInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the target group.</p>
+   * The Amazon Resource Name (ARN) of the target group.
+   *
    * @public
    */
   TargetGroupArn: string | undefined;
 
   /**
-   * <p>The targets. If you specified a port override when you registered a target, you must
-   *       specify both the target ID and the port when you deregister it.</p>
+   * The targets. If you specified a port override when you registered a target, you must specify both the target ID and the port when you deregister it.
+   *
    * @public
    */
   Targets: TargetDescription[] | undefined;
@@ -2481,54 +2440,42 @@ export interface DeregisterTargetsOutput {}
  */
 export interface DescribeAccountLimitsInput {
   /**
-   * <p>The marker for the next set of results. (You received this marker from a previous
-   *       call.)</p>
+   * The marker for the next set of results. (You received this marker from a previous call.)
+   *
    * @public
    */
   Marker?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return with this call.</p>
+   * The maximum number of results to return with this call.
+   *
    * @public
    */
   PageSize?: number | undefined;
 }
 
 /**
- * <p>Information about an Elastic Load Balancing resource limit for your Amazon Web Services
- *       account.</p>
- *          <p>For more information, see the following:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html">Quotas for your
- *           Application Load Balancers</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-limits.html">Quotas for your
- *           Network Load Balancers</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/quotas-limits.html">Quotas for your Gateway
- *           Load Balancers</a>
- *                </p>
- *             </li>
- *          </ul>
+ * Information about an Elastic Load Balancing resource limit for your Amazon Web Services account.
+ *
+ * For more information, see the following:
+ *
+ * - [Quotas for your Application Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html)
+ * - [Quotas for your Network Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-limits.html)
+ * - [Quotas for your Gateway Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/quotas-limits.html)
+ *
  * @public
  */
 export interface Limit {
   /**
-   * <p>The name of the limit.</p>
+   * The name of the limit.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The maximum value of the limit.</p>
+   * The maximum value of the limit.
+   *
    * @public
    */
   Max?: string | undefined;
@@ -2539,14 +2486,15 @@ export interface Limit {
  */
 export interface DescribeAccountLimitsOutput {
   /**
-   * <p>Information about the limits.</p>
+   * Information about the limits.
+   *
    * @public
    */
   Limits?: Limit[] | undefined;
 
   /**
-   * <p>If there are additional results, this is the marker for the next set of results.
-   *       Otherwise, this is null.</p>
+   * If there are additional results, this is the marker for the next set of results. Otherwise, this is null.
+   *
    * @public
    */
   NextMarker?: string | undefined;
@@ -2557,43 +2505,50 @@ export interface DescribeAccountLimitsOutput {
  */
 export interface DescribeCapacityReservationInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
+   * The Amazon Resource Name (ARN) of the load balancer.
+   *
    * @public
    */
   LoadBalancerArn: string | undefined;
 }
 
 /**
- * <p>The capacity reservation status for each Availability Zone.</p>
+ * The capacity reservation status for each Availability Zone.
+ *
  * @public
  */
 export interface ZonalCapacityReservationState {
   /**
-   * <p>The state of the capacity reservation.</p>
+   * The state of the capacity reservation.
+   *
    * @public
    */
   State?: CapacityReservationStatus | undefined;
 
   /**
-   * <p>Information about the Availability Zone.</p>
+   * Information about the Availability Zone.
+   *
    * @public
    */
   AvailabilityZone?: string | undefined;
 
   /**
-   * <p>The number of effective capacity units.</p>
+   * The number of effective capacity units.
+   *
    * @public
    */
   EffectiveCapacityUnits?: number | undefined;
 }
 
 /**
- * <p>The minimum capacity for a load balancer.</p>
+ * The minimum capacity for a load balancer.
+ *
  * @public
  */
 export interface MinimumLoadBalancerCapacity {
   /**
-   * <p>The number of capacity units.</p>
+   * The number of capacity units.
+   *
    * @public
    */
   CapacityUnits?: number | undefined;
@@ -2604,25 +2559,29 @@ export interface MinimumLoadBalancerCapacity {
  */
 export interface DescribeCapacityReservationOutput {
   /**
-   * <p>The last time the capacity reservation was modified.</p>
+   * The last time the capacity reservation was modified.
+   *
    * @public
    */
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>The amount of daily capacity decreases remaining.</p>
+   * The amount of daily capacity decreases remaining.
+   *
    * @public
    */
   DecreaseRequestsRemaining?: number | undefined;
 
   /**
-   * <p>The requested minimum capacity reservation for the load balancer</p>
+   * The requested minimum capacity reservation for the load balancer
+   *
    * @public
    */
   MinimumLoadBalancerCapacity?: MinimumLoadBalancerCapacity | undefined;
 
   /**
-   * <p>The state of the capacity reservation.</p>
+   * The state of the capacity reservation.
+   *
    * @public
    */
   CapacityReservationState?: ZonalCapacityReservationState[] | undefined;
@@ -2633,158 +2592,59 @@ export interface DescribeCapacityReservationOutput {
  */
 export interface DescribeListenerAttributesInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the listener.</p>
+   * The Amazon Resource Name (ARN) of the listener.
+   *
    * @public
    */
   ListenerArn: string | undefined;
 }
 
 /**
- * <p>Information about a listener attribute.</p>
+ * Information about a listener attribute.
+ *
  * @public
  */
 export interface ListenerAttribute {
   /**
-   * <p>The name of the attribute.</p>
-   *          <p>The following attribute is supported by Network Load Balancers, and Gateway Load Balancers.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>tcp.idle_timeout.seconds</code> - The tcp idle timeout value, in seconds. The
-   *           valid range is 60-6000 seconds. The default is 350 seconds.</p>
-   *             </li>
-   *          </ul>
-   *          <p>The following attribute is only supported by Gateway Load Balancers:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>send_tcp_reset.on_idle_timeout.enabled</code> – Specifies whether the Gateway
-   *           Load Balancer sends a TCP Reset to the sender of traffic when a TCP flow's idle timeout
-   *           expires. This attribute also applies to non-SYN TCP packets received for flows that are
-   *           not in the flow table. The value is <code>true</code> or <code>false</code>. The default
-   *           is <code>false</code>.</p>
-   *             </li>
-   *          </ul>
-   *          <p>The following attributes are only supported by Application Load Balancers.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>routing.http.request.x_amzn_mtls_clientcert_serial_number.header_name</code> -
-   *           Enables you to modify the header name of the
-   *           <b>X-Amzn-Mtls-Clientcert-Serial-Number</b> HTTP request header.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>routing.http.request.x_amzn_mtls_clientcert_issuer.header_name</code> -
-   *           Enables you to modify the header name of the
-   *           <b>X-Amzn-Mtls-Clientcert-Issuer</b> HTTP request header.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>routing.http.request.x_amzn_mtls_clientcert_subject.header_name</code> -
-   *           Enables you to modify the header name of the
-   *           <b>X-Amzn-Mtls-Clientcert-Subject</b> HTTP request header.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>routing.http.request.x_amzn_mtls_clientcert_validity.header_name</code> -
-   *           Enables you to modify the header name of the
-   *           <b>X-Amzn-Mtls-Clientcert-Validity</b> HTTP request header.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>routing.http.request.x_amzn_mtls_clientcert_leaf.header_name</code> -
-   *           Enables you to modify the header name of the
-   *           <b>X-Amzn-Mtls-Clientcert-Leaf</b> HTTP request header.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>routing.http.request.x_amzn_mtls_clientcert.header_name</code> -
-   *           Enables you to modify the header name of the
-   *           <b>X-Amzn-Mtls-Clientcert</b> HTTP request header.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>routing.http.request.x_amzn_tls_version.header_name</code> -
-   *           Enables you to modify the header name of the
-   *           <b>X-Amzn-Tls-Version</b> HTTP request header.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>routing.http.request.x_amzn_tls_cipher_suite.header_name</code> -
-   *           Enables you to modify the header name of the
-   *           <b>X-Amzn-Tls-Cipher-Suite</b> HTTP request header.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>routing.http.response.server.enabled</code> -
-   *           Enables you to allow or remove the HTTP response server header.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>routing.http.response.strict_transport_security.header_value</code> -
-   *           Informs browsers that the site should only be accessed using HTTPS, and that
-   *           any future attempts to access it using HTTP should automatically be converted
-   *           to HTTPS.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>routing.http.response.access_control_allow_origin.header_value</code> -
-   *           Specifies which origins are allowed to access the server.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>routing.http.response.access_control_allow_methods.header_value</code> -
-   *           Returns which HTTP methods are allowed when accessing the server from a different
-   *           origin.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>routing.http.response.access_control_allow_headers.header_value</code> -
-   *           Specifies which headers can be used during the request.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>routing.http.response.access_control_allow_credentials.header_value</code> -
-   *           Indicates whether the browser should include credentials such as cookies or
-   *           authentication when making requests.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>routing.http.response.access_control_expose_headers.header_value</code> -
-   *           Returns which headers the browser can expose to the requesting client.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>routing.http.response.access_control_max_age.header_value</code> -
-   *           Specifies how long the results of a preflight request can be cached, in seconds.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>routing.http.response.content_security_policy.header_value</code> -
-   *           Specifies restrictions enforced by the browser to help minimize the risk of certain
-   *           types of security threats.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>routing.http.response.x_content_type_options.header_value</code> -
-   *           Indicates whether the MIME types advertised in the <b>Content-Type</b>
-   *           headers should be followed and not be changed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>routing.http.response.x_frame_options.header_value</code> - Indicates
-   *           whether the browser is allowed to render a page in a <b>frame</b>,
-   *           <b>iframe</b>, <b>embed</b> or
-   *           <b>object</b>.</p>
-   *             </li>
-   *          </ul>
+   * The name of the attribute.
+   *
+   * The following attribute is supported by Network Load Balancers, and Gateway Load Balancers.
+   *
+   * - `tcp.idle_timeout.seconds` - The tcp idle timeout value, in seconds. The valid range is 60-6000 seconds. The default is 350 seconds.
+   *
+   * The following attribute is only supported by Gateway Load Balancers:
+   *
+   * - `send_tcp_reset.on_idle_timeout.enabled` – Specifies whether the Gateway Load Balancer sends a TCP Reset to the sender of traffic when a TCP flow's idle timeout expires. This attribute also applies to non-SYN TCP packets received for flows that are not in the flow table. The value is `true` or `false`. The default is `false`.
+   *
+   * The following attributes are only supported by Application Load Balancers.
+   *
+   * - `routing.http.request.x_amzn_mtls_clientcert_serial_number.header_name` - Enables you to modify the header name of the **X-Amzn-Mtls-Clientcert-Serial-Number** HTTP request header.
+   * - `routing.http.request.x_amzn_mtls_clientcert_issuer.header_name` - Enables you to modify the header name of the **X-Amzn-Mtls-Clientcert-Issuer** HTTP request header.
+   * - `routing.http.request.x_amzn_mtls_clientcert_subject.header_name` - Enables you to modify the header name of the **X-Amzn-Mtls-Clientcert-Subject** HTTP request header.
+   * - `routing.http.request.x_amzn_mtls_clientcert_validity.header_name` - Enables you to modify the header name of the **X-Amzn-Mtls-Clientcert-Validity** HTTP request header.
+   * - `routing.http.request.x_amzn_mtls_clientcert_leaf.header_name` - Enables you to modify the header name of the **X-Amzn-Mtls-Clientcert-Leaf** HTTP request header.
+   * - `routing.http.request.x_amzn_mtls_clientcert.header_name` - Enables you to modify the header name of the **X-Amzn-Mtls-Clientcert** HTTP request header.
+   * - `routing.http.request.x_amzn_tls_version.header_name` - Enables you to modify the header name of the **X-Amzn-Tls-Version** HTTP request header.
+   * - `routing.http.request.x_amzn_tls_cipher_suite.header_name` - Enables you to modify the header name of the **X-Amzn-Tls-Cipher-Suite** HTTP request header.
+   * - `routing.http.response.server.enabled` - Enables you to allow or remove the HTTP response server header.
+   * - `routing.http.response.strict_transport_security.header_value` - Informs browsers that the site should only be accessed using HTTPS, and that any future attempts to access it using HTTP should automatically be converted to HTTPS.
+   * - `routing.http.response.access_control_allow_origin.header_value` - Specifies which origins are allowed to access the server.
+   * - `routing.http.response.access_control_allow_methods.header_value` - Returns which HTTP methods are allowed when accessing the server from a different origin.
+   * - `routing.http.response.access_control_allow_headers.header_value` - Specifies which headers can be used during the request.
+   * - `routing.http.response.access_control_allow_credentials.header_value` - Indicates whether the browser should include credentials such as cookies or authentication when making requests.
+   * - `routing.http.response.access_control_expose_headers.header_value` - Returns which headers the browser can expose to the requesting client.
+   * - `routing.http.response.access_control_max_age.header_value` - Specifies how long the results of a preflight request can be cached, in seconds.
+   * - `routing.http.response.content_security_policy.header_value` - Specifies restrictions enforced by the browser to help minimize the risk of certain types of security threats.
+   * - `routing.http.response.x_content_type_options.header_value` - Indicates whether the MIME types advertised in the **Content-Type** headers should be followed and not be changed.
+   * - `routing.http.response.x_frame_options.header_value` - Indicates whether the browser is allowed to render a page in a **frame**, **iframe**, **embed** or **object**.
+   *
    * @public
    */
   Key?: string | undefined;
 
   /**
-   * <p>The value of the attribute.</p>
+   * The value of the attribute.
+   *
    * @public
    */
   Value?: string | undefined;
@@ -2795,7 +2655,8 @@ export interface ListenerAttribute {
  */
 export interface DescribeListenerAttributesOutput {
   /**
-   * <p>Information about the listener attributes.</p>
+   * Information about the listener attributes.
+   *
    * @public
    */
   Attributes?: ListenerAttribute[] | undefined;
@@ -2806,20 +2667,22 @@ export interface DescribeListenerAttributesOutput {
  */
 export interface DescribeListenerCertificatesInput {
   /**
-   * <p>The Amazon Resource Names (ARN) of the listener.</p>
+   * The Amazon Resource Names (ARN) of the listener.
+   *
    * @public
    */
   ListenerArn: string | undefined;
 
   /**
-   * <p>The marker for the next set of results. (You received this marker from a previous
-   *       call.)</p>
+   * The marker for the next set of results. (You received this marker from a previous call.)
+   *
    * @public
    */
   Marker?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return with this call.</p>
+   * The maximum number of results to return with this call.
+   *
    * @public
    */
   PageSize?: number | undefined;
@@ -2830,14 +2693,15 @@ export interface DescribeListenerCertificatesInput {
  */
 export interface DescribeListenerCertificatesOutput {
   /**
-   * <p>Information about the certificates.</p>
+   * Information about the certificates.
+   *
    * @public
    */
   Certificates?: Certificate[] | undefined;
 
   /**
-   * <p>If there are additional results, this is the marker for the next set of results.
-   *       Otherwise, this is null.</p>
+   * If there are additional results, this is the marker for the next set of results. Otherwise, this is null.
+   *
    * @public
    */
   NextMarker?: string | undefined;
@@ -2848,26 +2712,29 @@ export interface DescribeListenerCertificatesOutput {
  */
 export interface DescribeListenersInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
+   * The Amazon Resource Name (ARN) of the load balancer.
+   *
    * @public
    */
   LoadBalancerArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARN) of the listeners.</p>
+   * The Amazon Resource Names (ARN) of the listeners.
+   *
    * @public
    */
   ListenerArns?: string[] | undefined;
 
   /**
-   * <p>The marker for the next set of results. (You received this marker from a previous
-   *       call.)</p>
+   * The marker for the next set of results. (You received this marker from a previous call.)
+   *
    * @public
    */
   Marker?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return with this call.</p>
+   * The maximum number of results to return with this call.
+   *
    * @public
    */
   PageSize?: number | undefined;
@@ -2878,14 +2745,15 @@ export interface DescribeListenersInput {
  */
 export interface DescribeListenersOutput {
   /**
-   * <p>Information about the listeners.</p>
+   * Information about the listeners.
+   *
    * @public
    */
   Listeners?: Listener[] | undefined;
 
   /**
-   * <p>If there are additional results, this is the marker for the next set of results.
-   *       Otherwise, this is null.</p>
+   * If there are additional results, this is the marker for the next set of results. Otherwise, this is null.
+   *
    * @public
    */
   NextMarker?: string | undefined;
@@ -2896,220 +2764,70 @@ export interface DescribeListenersOutput {
  */
 export interface DescribeLoadBalancerAttributesInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
+   * The Amazon Resource Name (ARN) of the load balancer.
+   *
    * @public
    */
   LoadBalancerArn: string | undefined;
 }
 
 /**
- * <p>Information about a load balancer attribute.</p>
+ * Information about a load balancer attribute.
+ *
  * @public
  */
 export interface LoadBalancerAttribute {
   /**
-   * <p>The name of the attribute.</p>
-   *          <p>The following attributes are supported by all load balancers:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>deletion_protection.enabled</code> - Indicates whether deletion protection is
-   *           enabled. The value is <code>true</code> or <code>false</code>. The default is
-   *             <code>false</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>load_balancing.cross_zone.enabled</code> - Indicates whether cross-zone load
-   *           balancing is enabled. The possible values are <code>true</code> and <code>false</code>.
-   *           The default for Network Load Balancers and Gateway Load Balancers is <code>false</code>.
-   *           The default for Application Load Balancers is <code>true</code>, and can't be changed.</p>
-   *             </li>
-   *          </ul>
-   *          <p>The following attributes are supported by both Application Load Balancers and Network Load
-   *       Balancers:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>access_logs.s3.enabled</code> - Indicates whether access logs are enabled. The
-   *           value is <code>true</code> or <code>false</code>. The default is
-   *           <code>false</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>access_logs.s3.bucket</code> - The name of the S3 bucket for the access logs.
-   *           This attribute is required if access logs are enabled. The bucket must exist in the same
-   *           region as the load balancer and have a bucket policy that grants Elastic Load Balancing
-   *           permissions to write to the bucket.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>access_logs.s3.prefix</code> - The prefix for the location in the S3 bucket for the
-   *           access logs.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ipv6.deny_all_igw_traffic</code> - Blocks internet gateway (IGW) access to the
-   *           load balancer. It is set to <code>false</code> for internet-facing load balancers and
-   *             <code>true</code> for internal load balancers, preventing unintended access to your
-   *           internal load balancer through an internet gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zonal_shift.config.enabled</code> - Indicates whether zonal shift is
-   *           enabled. The possible values are <code>true</code> and <code>false</code>. The
-   *           default is <code>false</code>.</p>
-   *             </li>
-   *          </ul>
-   *          <p>The following attributes are supported by only Application Load Balancers:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>idle_timeout.timeout_seconds</code> - The idle timeout value, in seconds. The
-   *           valid range is 1-4000 seconds. The default is 60 seconds.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>client_keep_alive.seconds</code> - The client keep alive value, in seconds. The
-   *           valid range is 60-604800 seconds. The default is 3600 seconds.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>connection_logs.s3.enabled</code> - Indicates whether connection logs are enabled. The
-   *           value is <code>true</code> or <code>false</code>. The default is <code>false</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>connection_logs.s3.bucket</code> - The name of the S3 bucket for the connection logs.
-   *           This attribute is required if connection logs are enabled. The bucket must exist in the same
-   *           region as the load balancer and have a bucket policy that grants Elastic Load Balancing
-   *           permissions to write to the bucket.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>connection_logs.s3.prefix</code> - The prefix for the location in the S3 bucket for the
-   *           connection logs.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>health_check_logs.s3.enabled</code> - Indicates whether health check logs are enabled. The
-   *           value is <code>true</code> or <code>false</code>. The default is <code>false</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>health_check_logs.s3.bucket</code> - The name of the S3 bucket for the health check logs.
-   *           This attribute is required if health check logs are enabled. The bucket must exist in the same
-   *           region as the load balancer and have a bucket policy that grants Elastic Load Balancing
-   *           permissions to write to the bucket.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>health_check_logs.s3.prefix</code> - The prefix for the location in the S3 bucket for the
-   *           health check logs.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>routing.http.desync_mitigation_mode</code> - Determines how the load balancer
-   *           handles requests that might pose a security risk to your application. The possible values
-   *           are <code>monitor</code>, <code>defensive</code>, and <code>strictest</code>. The default
-   *           is <code>defensive</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>routing.http.drop_invalid_header_fields.enabled</code> - Indicates whether HTTP
-   *           headers with invalid header fields are removed by the load balancer (<code>true</code>) or
-   *           routed to targets (<code>false</code>). The default is <code>false</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>routing.http.preserve_host_header.enabled</code> - Indicates whether the
-   *           Application Load Balancer should preserve the <code>Host</code> header in the HTTP request
-   *           and send it to the target without any change. The possible values are <code>true</code>
-   *           and <code>false</code>. The default is <code>false</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>routing.http.x_amzn_tls_version_and_cipher_suite.enabled</code> - Indicates
-   *           whether the two headers (<code>x-amzn-tls-version</code> and
-   *             <code>x-amzn-tls-cipher-suite</code>), which contain information about the negotiated
-   *           TLS version and cipher suite, are added to the client request before sending it to the
-   *           target. The <code>x-amzn-tls-version</code> header has information about the TLS protocol
-   *           version negotiated with the client, and the <code>x-amzn-tls-cipher-suite</code> header
-   *           has information about the cipher suite negotiated with the client. Both headers are in
-   *           OpenSSL format. The possible values for the attribute are <code>true</code> and
-   *             <code>false</code>. The default is <code>false</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>routing.http.xff_client_port.enabled</code> - Indicates whether the
-   *             <code>X-Forwarded-For</code> header should preserve the source port that the client used
-   *           to connect to the load balancer. The possible values are <code>true</code> and
-   *             <code>false</code>. The default is <code>false</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>routing.http.xff_header_processing.mode</code> - Enables you to modify,
-   *           preserve, or remove the <code>X-Forwarded-For</code> header in the HTTP request before the
-   *           Application Load Balancer sends the request to the target. The possible values are
-   *             <code>append</code>, <code>preserve</code>, and <code>remove</code>. The default is
-   *             <code>append</code>.</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>If the value is <code>append</code>, the Application Load Balancer adds the client
-   *               IP address (of the last hop) to the <code>X-Forwarded-For</code> header in the HTTP
-   *               request before it sends it to targets.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>If the value is <code>preserve</code> the Application Load Balancer preserves the
-   *                 <code>X-Forwarded-For</code> header in the HTTP request, and sends it to targets
-   *               without any change.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>If the value is <code>remove</code>, the Application Load Balancer removes the
-   *                 <code>X-Forwarded-For</code> header in the HTTP request before it sends it to
-   *               targets.</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>routing.http2.enabled</code> - Indicates whether clients can connect to the load
-   *           balancer using HTTP/2. If <code>true</code>, clients can connect using HTTP/2 or HTTP/1.1.
-   *           However, all client requests are subject to the stricter HTTP/2 header validation rules.
-   *           For example, message header names must contain only alphanumeric characters and hyphens.
-   *           If <code>false</code>, clients must connect using HTTP/1.1. The default is
-   *             <code>true</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>waf.fail_open.enabled</code> - Indicates whether to allow a WAF-enabled load
-   *           balancer to route requests to targets if it is unable to forward the request to Amazon Web Services WAF. The possible values are <code>true</code> and <code>false</code>. The
-   *           default is <code>false</code>.</p>
-   *             </li>
-   *          </ul>
-   *          <p>The following attributes are supported by only Network Load Balancers:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>dns_record.client_routing_policy</code> - Indicates how traffic is
-   *           distributed among the load balancer Availability Zones. The possible values are
-   *           <code>availability_zone_affinity</code> with 100 percent zonal affinity,
-   *           <code>partial_availability_zone_affinity</code> with 85 percent zonal affinity,
-   *           and <code>any_availability_zone</code> with 0 percent zonal affinity.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>secondary_ips.auto_assigned.per_subnet</code> - The number of secondary
-   *             IP addresses to configure for your load balancer nodes. Use to address port
-   *             allocation errors if you can't add targets. The valid range is 0 to 7. The
-   *             default is 0. After you set this value, you can't decrease it.</p>
-   *             </li>
-   *          </ul>
+   * The name of the attribute.
+   *
+   * The following attributes are supported by all load balancers:
+   *
+   * - `deletion_protection.enabled` - Indicates whether deletion protection is enabled. The value is `true` or `false`. The default is `false`.
+   * - `load_balancing.cross_zone.enabled` - Indicates whether cross-zone load balancing is enabled. The possible values are `true` and `false`. The default for Network Load Balancers and Gateway Load Balancers is `false`. The default for Application Load Balancers is `true`, and can't be changed.
+   *
+   * The following attributes are supported by both Application Load Balancers and Network Load Balancers:
+   *
+   * - `access_logs.s3.enabled` - Indicates whether access logs are enabled. The value is `true` or `false`. The default is `false`.
+   * - `access_logs.s3.bucket` - The name of the S3 bucket for the access logs. This attribute is required if access logs are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permissions to write to the bucket.
+   * - `access_logs.s3.prefix` - The prefix for the location in the S3 bucket for the access logs.
+   * - `ipv6.deny_all_igw_traffic` - Blocks internet gateway (IGW) access to the load balancer. It is set to `false` for internet-facing load balancers and `true` for internal load balancers, preventing unintended access to your internal load balancer through an internet gateway.
+   * - `zonal_shift.config.enabled` - Indicates whether zonal shift is enabled. The possible values are `true` and `false`. The default is `false`.
+   *
+   * The following attributes are supported by only Application Load Balancers:
+   *
+   * - `idle_timeout.timeout_seconds` - The idle timeout value, in seconds. The valid range is 1-4000 seconds. The default is 60 seconds.
+   * - `client_keep_alive.seconds` - The client keep alive value, in seconds. The valid range is 60-604800 seconds. The default is 3600 seconds.
+   * - `connection_logs.s3.enabled` - Indicates whether connection logs are enabled. The value is `true` or `false`. The default is `false`.
+   * - `connection_logs.s3.bucket` - The name of the S3 bucket for the connection logs. This attribute is required if connection logs are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permissions to write to the bucket.
+   * - `connection_logs.s3.prefix` - The prefix for the location in the S3 bucket for the connection logs.
+   * - `health_check_logs.s3.enabled` - Indicates whether health check logs are enabled. The value is `true` or `false`. The default is `false`.
+   * - `health_check_logs.s3.bucket` - The name of the S3 bucket for the health check logs. This attribute is required if health check logs are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permissions to write to the bucket.
+   * - `health_check_logs.s3.prefix` - The prefix for the location in the S3 bucket for the health check logs.
+   * - `routing.http.desync_mitigation_mode` - Determines how the load balancer handles requests that might pose a security risk to your application. The possible values are `monitor`, `defensive`, and `strictest`. The default is `defensive`.
+   * - `routing.http.drop_invalid_header_fields.enabled` - Indicates whether HTTP headers with invalid header fields are removed by the load balancer (`true`) or routed to targets (`false`). The default is `false`.
+   * - `routing.http.preserve_host_header.enabled` - Indicates whether the Application Load Balancer should preserve the `Host` header in the HTTP request and send it to the target without any change. The possible values are `true` and `false`. The default is `false`.
+   * - `routing.http.x_amzn_tls_version_and_cipher_suite.enabled` - Indicates whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. The `x-amzn-tls-version` header has information about the TLS protocol version negotiated with the client, and the `x-amzn-tls-cipher-suite` header has information about the cipher suite negotiated with the client. Both headers are in OpenSSL format. The possible values for the attribute are `true` and `false`. The default is `false`.
+   * - `routing.http.xff_client_port.enabled` - Indicates whether the `X-Forwarded-For` header should preserve the source port that the client used to connect to the load balancer. The possible values are `true` and `false`. The default is `false`.
+   * - `routing.http.xff_header_processing.mode` - Enables you to modify, preserve, or remove the `X-Forwarded-For` header in the HTTP request before the Application Load Balancer sends the request to the target. The possible values are `append`, `preserve`, and `remove`. The default is `append`.
+   *
+   *   - If the value is `append`, the Application Load Balancer adds the client IP address (of the last hop) to the `X-Forwarded-For` header in the HTTP request before it sends it to targets.
+   *   - If the value is `preserve` the Application Load Balancer preserves the `X-Forwarded-For` header in the HTTP request, and sends it to targets without any change.
+   *   - If the value is `remove`, the Application Load Balancer removes the `X-Forwarded-For` header in the HTTP request before it sends it to targets.
+   * - `routing.http2.enabled` - Indicates whether clients can connect to the load balancer using HTTP/2. If `true`, clients can connect using HTTP/2 or HTTP/1.1. However, all client requests are subject to the stricter HTTP/2 header validation rules. For example, message header names must contain only alphanumeric characters and hyphens. If `false`, clients must connect using HTTP/1.1. The default is `true`.
+   * - `waf.fail_open.enabled` - Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to Amazon Web Services WAF. The possible values are `true` and `false`. The default is `false`.
+   *
+   * The following attributes are supported by only Network Load Balancers:
+   *
+   * - `dns_record.client_routing_policy` - Indicates how traffic is distributed among the load balancer Availability Zones. The possible values are `availability_zone_affinity` with 100 percent zonal affinity, `partial_availability_zone_affinity` with 85 percent zonal affinity, and `any_availability_zone` with 0 percent zonal affinity.
+   * - `secondary_ips.auto_assigned.per_subnet` - The number of secondary IP addresses to configure for your load balancer nodes. Use to address port allocation errors if you can't add targets. The valid range is 0 to 7. The default is 0. After you set this value, you can't decrease it.
+   *
    * @public
    */
   Key?: string | undefined;
 
   /**
-   * <p>The value of the attribute.</p>
+   * The value of the attribute.
+   *
    * @public
    */
   Value?: string | undefined;
@@ -3120,7 +2838,8 @@ export interface LoadBalancerAttribute {
  */
 export interface DescribeLoadBalancerAttributesOutput {
   /**
-   * <p>Information about the load balancer attributes.</p>
+   * Information about the load balancer attributes.
+   *
    * @public
    */
   Attributes?: LoadBalancerAttribute[] | undefined;
@@ -3131,27 +2850,29 @@ export interface DescribeLoadBalancerAttributesOutput {
  */
 export interface DescribeLoadBalancersInput {
   /**
-   * <p>The Amazon Resource Names (ARN) of the load balancers. You can specify up to 20 load
-   *       balancers in a single call.</p>
+   * The Amazon Resource Names (ARN) of the load balancers. You can specify up to 20 load balancers in a single call.
+   *
    * @public
    */
   LoadBalancerArns?: string[] | undefined;
 
   /**
-   * <p>The names of the load balancers.</p>
+   * The names of the load balancers.
+   *
    * @public
    */
   Names?: string[] | undefined;
 
   /**
-   * <p>The marker for the next set of results. (You received this marker from a previous
-   *       call.)</p>
+   * The marker for the next set of results. (You received this marker from a previous call.)
+   *
    * @public
    */
   Marker?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return with this call.</p>
+   * The maximum number of results to return with this call.
+   *
    * @public
    */
   PageSize?: number | undefined;
@@ -3162,14 +2883,15 @@ export interface DescribeLoadBalancersInput {
  */
 export interface DescribeLoadBalancersOutput {
   /**
-   * <p>Information about the load balancers.</p>
+   * Information about the load balancers.
+   *
    * @public
    */
   LoadBalancers?: LoadBalancer[] | undefined;
 
   /**
-   * <p>If there are additional results, this is the marker for the next set of results.
-   *       Otherwise, this is null.</p>
+   * If there are additional results, this is the marker for the next set of results. Otherwise, this is null.
+   *
    * @public
    */
   NextMarker?: string | undefined;
@@ -3180,26 +2902,29 @@ export interface DescribeLoadBalancersOutput {
  */
 export interface DescribeRulesInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the listener.</p>
+   * The Amazon Resource Name (ARN) of the listener.
+   *
    * @public
    */
   ListenerArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARN) of the rules.</p>
+   * The Amazon Resource Names (ARN) of the rules.
+   *
    * @public
    */
   RuleArns?: string[] | undefined;
 
   /**
-   * <p>The marker for the next set of results. (You received this marker from a previous
-   *       call.)</p>
+   * The marker for the next set of results. (You received this marker from a previous call.)
+   *
    * @public
    */
   Marker?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return with this call.</p>
+   * The maximum number of results to return with this call.
+   *
    * @public
    */
   PageSize?: number | undefined;
@@ -3210,14 +2935,15 @@ export interface DescribeRulesInput {
  */
 export interface DescribeRulesOutput {
   /**
-   * <p>Information about the rules.</p>
+   * Information about the rules.
+   *
    * @public
    */
   Rules?: Rule[] | undefined;
 
   /**
-   * <p>If there are additional results, this is the marker for the next set of results.
-   *       Otherwise, this is null.</p>
+   * If there are additional results, this is the marker for the next set of results. Otherwise, this is null.
+   *
    * @public
    */
   NextMarker?: string | undefined;
@@ -3228,57 +2954,64 @@ export interface DescribeRulesOutput {
  */
 export interface DescribeSSLPoliciesInput {
   /**
-   * <p>The names of the policies.</p>
+   * The names of the policies.
+   *
    * @public
    */
   Names?: string[] | undefined;
 
   /**
-   * <p>The marker for the next set of results. (You received this marker from a previous
-   *       call.)</p>
+   * The marker for the next set of results. (You received this marker from a previous call.)
+   *
    * @public
    */
   Marker?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return with this call.</p>
+   * The maximum number of results to return with this call.
+   *
    * @public
    */
   PageSize?: number | undefined;
 
   /**
-   * <p> The type of load balancer. The default lists the SSL policies for all load
-   *       balancers.</p>
+   * The type of load balancer. The default lists the SSL policies for all load balancers.
+   *
    * @public
    */
   LoadBalancerType?: LoadBalancerTypeEnum | undefined;
 }
 
 /**
- * <p>Information about a policy used for SSL negotiation.</p>
+ * Information about a policy used for SSL negotiation.
+ *
  * @public
  */
 export interface SslPolicy {
   /**
-   * <p>The protocols.</p>
+   * The protocols.
+   *
    * @public
    */
   SslProtocols?: string[] | undefined;
 
   /**
-   * <p>The ciphers.</p>
+   * The ciphers.
+   *
    * @public
    */
   Ciphers?: Cipher[] | undefined;
 
   /**
-   * <p>The name of the policy.</p>
+   * The name of the policy.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p> The supported load balancers. </p>
+   * The supported load balancers.
+   *
    * @public
    */
   SupportedLoadBalancerTypes?: string[] | undefined;
@@ -3289,14 +3022,15 @@ export interface SslPolicy {
  */
 export interface DescribeSSLPoliciesOutput {
   /**
-   * <p>Information about the security policies.</p>
+   * Information about the security policies.
+   *
    * @public
    */
   SslPolicies?: SslPolicy[] | undefined;
 
   /**
-   * <p>If there are additional results, this is the marker for the next set of results.
-   *       Otherwise, this is null.</p>
+   * If there are additional results, this is the marker for the next set of results. Otherwise, this is null.
+   *
    * @public
    */
   NextMarker?: string | undefined;
@@ -3307,26 +3041,29 @@ export interface DescribeSSLPoliciesOutput {
  */
 export interface DescribeTagsInput {
   /**
-   * <p>The Amazon Resource Names (ARN) of the resources. You can specify up to 20 resources in a
-   *       single call.</p>
+   * The Amazon Resource Names (ARN) of the resources. You can specify up to 20 resources in a single call.
+   *
    * @public
    */
   ResourceArns: string[] | undefined;
 }
 
 /**
- * <p>The tags associated with a resource.</p>
+ * The tags associated with a resource.
+ *
  * @public
  */
 export interface TagDescription {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   ResourceArn?: string | undefined;
 
   /**
-   * <p>Information about the tags.</p>
+   * Information about the tags.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -3337,7 +3074,8 @@ export interface TagDescription {
  */
 export interface DescribeTagsOutput {
   /**
-   * <p>Information about the tags.</p>
+   * Information about the tags.
+   *
    * @public
    */
   TagDescriptions?: TagDescription[] | undefined;
@@ -3348,246 +3086,77 @@ export interface DescribeTagsOutput {
  */
 export interface DescribeTargetGroupAttributesInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the target group.</p>
+   * The Amazon Resource Name (ARN) of the target group.
+   *
    * @public
    */
   TargetGroupArn: string | undefined;
 }
 
 /**
- * <p>Information about a target group attribute.</p>
+ * Information about a target group attribute.
+ *
  * @public
  */
 export interface TargetGroupAttribute {
   /**
-   * <p>The name of the attribute.</p>
-   *          <p>The following attributes are supported by all load balancers:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>deregistration_delay.timeout_seconds</code> - The amount of time, in seconds,
-   *           for Elastic Load Balancing to wait before changing the state of a deregistering target
-   *           from <code>draining</code> to <code>unused</code>. The range is 0-3600 seconds. The
-   *           default value is 300 seconds. If the target is a Lambda function, this attribute is not
-   *           supported.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>stickiness.enabled</code> - Indicates whether target stickiness is enabled. The
-   *           value is <code>true</code> or <code>false</code>. The default is
-   *           <code>false</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>stickiness.type</code> - Indicates the type of stickiness. The possible values are:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>lb_cookie</code> and <code>app_cookie</code> for Application Load Balancers.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>source_ip</code> for Network Load Balancers.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>source_ip_dest_ip</code> and <code>source_ip_dest_ip_proto</code> for Gateway Load Balancers.</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *          </ul>
-   *          <p>The following attributes are supported by Application Load Balancers and
-   *       Network Load Balancers:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>load_balancing.cross_zone.enabled</code> - Indicates whether cross zone load
-   *           balancing is enabled. The value is <code>true</code>, <code>false</code> or
-   *           <code>use_load_balancer_configuration</code>. The default is
-   *           <code>use_load_balancer_configuration</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>target_group_health.dns_failover.minimum_healthy_targets.count</code> -
-   *           The minimum number of targets that must be healthy.
-   *           If the number of healthy targets is below this value, mark the zone as unhealthy
-   *           in DNS, so that traffic is routed only to healthy zones. The possible values are
-   *           <code>off</code> or an integer from 1 to the maximum number of targets.
-   *           The default is 1.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>target_group_health.dns_failover.minimum_healthy_targets.percentage</code> -
-   *           The minimum percentage of targets that must be healthy.
-   *           If the percentage of healthy targets is below this value, mark the zone as unhealthy
-   *           in DNS, so that traffic is routed only to healthy zones. The possible values are
-   *           <code>off</code> or an integer from 1 to 100. The default is <code>off</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>target_group_health.unhealthy_state_routing.minimum_healthy_targets.count</code> -
-   *           The minimum number of targets that must be healthy.
-   *           If the number of healthy targets is below this value, send traffic to all targets, including unhealthy targets.
-   *           The possible values are 1 to the maximum number of targets. The default is 1.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>target_group_health.unhealthy_state_routing.minimum_healthy_targets.percentage</code> -
-   *           The minimum percentage of targets that must be healthy.
-   *           If the percentage of healthy targets is below this value, send traffic to all targets, including unhealthy targets.
-   *           The possible values are <code>off</code> or an integer from 1 to 100.
-   *           The default is <code>off</code>.</p>
-   *             </li>
-   *          </ul>
-   *          <p>The following attributes are supported only if the load balancer is an Application Load
-   *       Balancer and the target is an instance or an IP address:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>load_balancing.algorithm.type</code> - The load balancing algorithm determines
-   *           how the load balancer selects targets when routing requests. The value is
-   *             <code>round_robin</code>, <code>least_outstanding_requests</code>, or <code>weighted_random</code>. The default is
-   *             <code>round_robin</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>load_balancing.algorithm.anomaly_mitigation</code> - Only available when <code>load_balancing.algorithm.type</code>
-   *           is <code>weighted_random</code>. Indicates whether anomaly mitigation is enabled. The value is <code>on</code>
-   *           or <code>off</code>. The default is <code>off</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>slow_start.duration_seconds</code> - The time period, in seconds, during which a
-   *           newly registered target receives an increasing share of the traffic to the target group.
-   *           After this time period ends, the target receives its full share of traffic. The range is
-   *           30-900 seconds (15 minutes). The default is 0 seconds (disabled).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>stickiness.app_cookie.cookie_name</code> - Indicates the name of the
-   *           application-based cookie. Names that start with the following prefixes are not allowed:
-   *             <code>AWSALB</code>, <code>AWSALBAPP</code>, and <code>AWSALBTG</code>; they're reserved
-   *           for use by the load balancer.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>stickiness.app_cookie.duration_seconds</code> - The time period, in seconds,
-   *           during which requests from a client should be routed to the same target. After this time
-   *           period expires, the application-based cookie is considered stale. The range is 1 second to
-   *           1 week (604800 seconds). The default value is 1 day (86400 seconds).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>stickiness.lb_cookie.duration_seconds</code> - The time period, in seconds,
-   *           during which requests from a client should be routed to the same target. After this time
-   *           period expires, the load balancer-generated cookie is considered stale. The range is 1
-   *           second to 1 week (604800 seconds). The default value is 1 day (86400 seconds). </p>
-   *             </li>
-   *          </ul>
-   *          <p>The following attribute is supported only if the load balancer is an Application Load
-   *       Balancer and the target is a Lambda function:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>lambda.multi_value_headers.enabled</code> - Indicates whether the request and
-   *           response headers that are exchanged between the load balancer and the Lambda function
-   *           include arrays of values or strings. The value is <code>true</code> or <code>false</code>.
-   *           The default is <code>false</code>. If the value is <code>false</code> and the request
-   *           contains a duplicate header field name or query parameter key, the load balancer uses the
-   *           last value sent by the client.</p>
-   *             </li>
-   *          </ul>
-   *          <p>The following attributes are supported only by Network Load Balancers:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>deregistration_delay.connection_termination.enabled</code> - Indicates whether
-   *           the load balancer terminates connections at the end of the deregistration timeout. The
-   *           value is <code>true</code> or <code>false</code>. For new UDP/TCP_UDP target groups the
-   *           default is <code>true</code>. Otherwise, the default is <code>false</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>preserve_client_ip.enabled</code> - Indicates whether client IP preservation is
-   *           enabled. The value is <code>true</code> or <code>false</code>. The default is disabled if
-   *           the target group type is IP address and the target group protocol is TCP or TLS.
-   *           Otherwise, the default is enabled. Client IP preservation can't be disabled for UDP and
-   *           TCP_UDP target groups.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>proxy_protocol_v2.enabled</code> - Indicates whether Proxy Protocol version 2 is
-   *           enabled. The value is <code>true</code> or <code>false</code>. The default is
-   *             <code>false</code>. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>target_health_state.unhealthy.connection_termination.enabled</code> - Indicates whether
-   *           the load balancer terminates connections to unhealthy targets. The value is <code>true</code>
-   *           or <code>false</code>. The default is <code>true</code>. This attribute can't be enabled for UDP and
-   *           TCP_UDP target groups.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>target_health_state.unhealthy.draining_interval_seconds</code> - The amount of time
-   *           for Elastic Load Balancing to wait before changing the state of an unhealthy target from
-   *           <code>unhealthy.draining</code> to <code>unhealthy</code>. The range is 0-360000 seconds.
-   *           The default value is 0 seconds.</p>
-   *                <p>Note: This attribute can only be configured when
-   *           <code>target_health_state.unhealthy.connection_termination.enabled</code> is <code>false</code>.</p>
-   *             </li>
-   *          </ul>
-   *          <p>The following attributes are supported only by Gateway Load Balancers:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>target_failover.on_deregistration</code> - Indicates how the Gateway Load
-   *           Balancer handles existing flows when a target is deregistered. The possible values are
-   *             <code>rebalance</code> and <code>no_rebalance</code>. The default is
-   *             <code>no_rebalance</code>. The two attributes
-   *             (<code>target_failover.on_deregistration</code> and
-   *             <code>target_failover.on_unhealthy</code>) can't be set independently. The value you set
-   *           for both attributes must be the same.  </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>target_failover.on_unhealthy</code> - Indicates how the Gateway Load Balancer
-   *           handles existing flows when a target is unhealthy. The possible values are
-   *             <code>rebalance</code> and <code>no_rebalance</code>. The default is
-   *             <code>no_rebalance</code>. The two attributes
-   *             (<code>target_failover.on_deregistration</code> and
-   *             <code>target_failover.on_unhealthy</code>) can't be set independently. The value you
-   *           set for both attributes must be the same.  </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>send_tcp_reset.on_unhealthy.enabled</code> – Specifies whether the Gateway Load
-   *           Balancer sends a TCP Reset to the sender of traffic when a target becomes unhealthy. After
-   *           sending the reset, the Gateway Load Balancer removes the flow entry from its flow table.
-   *           The value is <code>true</code> or <code>false</code>. The default is <code>false</code>.
-   *           This attribute does not apply when <code>target_failover.on_unhealthy</code> is set to
-   *             <code>rebalance</code>. This feature requires 5-tuple flow stickiness, which the target
-   *           group uses by default when <code>stickiness.enabled</code> is set to
-   *             <code>false</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>send_tcp_reset.on_deregistration.enabled</code> – Specifies whether the Gateway
-   *           Load Balancer sends a TCP Reset to the sender of traffic when a target is deregistered.
-   *           The reset occurs after the connection drain time has elapsed. The value is
-   *             <code>true</code> or <code>false</code>. The default is <code>false</code>. This
-   *           attribute does not apply when <code>target_failover.on_deregistration</code> is set to
-   *           <code>rebalance</code>. This feature requires 5-tuple flow stickiness, which the target
-   *           group uses by default when <code>stickiness.enabled</code> is set to
-   *           <code>false</code>.</p>
-   *             </li>
-   *          </ul>
+   * The name of the attribute.
+   *
+   * The following attributes are supported by all load balancers:
+   *
+   * - `deregistration_delay.timeout_seconds` - The amount of time, in seconds, for Elastic Load Balancing to wait before changing the state of a deregistering target from `draining` to `unused`. The range is 0-3600 seconds. The default value is 300 seconds. If the target is a Lambda function, this attribute is not supported.
+   * - `stickiness.enabled` - Indicates whether target stickiness is enabled. The value is `true` or `false`. The default is `false`.
+   * - `stickiness.type` - Indicates the type of stickiness. The possible values are:
+   *
+   *   - `lb_cookie` and `app_cookie` for Application Load Balancers.
+   *   - `source_ip` for Network Load Balancers.
+   *   - `source_ip_dest_ip` and `source_ip_dest_ip_proto` for Gateway Load Balancers.
+   *
+   * The following attributes are supported by Application Load Balancers and Network Load Balancers:
+   *
+   * - `load_balancing.cross_zone.enabled` - Indicates whether cross zone load balancing is enabled. The value is `true`, `false` or `use_load_balancer_configuration`. The default is `use_load_balancer_configuration`.
+   * - `target_group_health.dns_failover.minimum_healthy_targets.count` - The minimum number of targets that must be healthy. If the number of healthy targets is below this value, mark the zone as unhealthy in DNS, so that traffic is routed only to healthy zones. The possible values are `off` or an integer from 1 to the maximum number of targets. The default is 1.
+   * - `target_group_health.dns_failover.minimum_healthy_targets.percentage` - The minimum percentage of targets that must be healthy. If the percentage of healthy targets is below this value, mark the zone as unhealthy in DNS, so that traffic is routed only to healthy zones. The possible values are `off` or an integer from 1 to 100. The default is `off`.
+   * - `target_group_health.unhealthy_state_routing.minimum_healthy_targets.count` - The minimum number of targets that must be healthy. If the number of healthy targets is below this value, send traffic to all targets, including unhealthy targets. The possible values are 1 to the maximum number of targets. The default is 1.
+   * - `target_group_health.unhealthy_state_routing.minimum_healthy_targets.percentage` - The minimum percentage of targets that must be healthy. If the percentage of healthy targets is below this value, send traffic to all targets, including unhealthy targets. The possible values are `off` or an integer from 1 to 100. The default is `off`.
+   *
+   * The following attributes are supported only if the load balancer is an Application Load Balancer and the target is an instance or an IP address:
+   *
+   * - `load_balancing.algorithm.type` - The load balancing algorithm determines how the load balancer selects targets when routing requests. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
+   * - `load_balancing.algorithm.anomaly_mitigation` - Only available when `load_balancing.algorithm.type` is `weighted_random`. Indicates whether anomaly mitigation is enabled. The value is `on` or `off`. The default is `off`.
+   * - `slow_start.duration_seconds` - The time period, in seconds, during which a newly registered target receives an increasing share of the traffic to the target group. After this time period ends, the target receives its full share of traffic. The range is 30-900 seconds (15 minutes). The default is 0 seconds (disabled).
+   * - `stickiness.app_cookie.cookie_name` - Indicates the name of the application-based cookie. Names that start with the following prefixes are not allowed: `AWSALB`, `AWSALBAPP`, and `AWSALBTG`; they're reserved for use by the load balancer.
+   * - `stickiness.app_cookie.duration_seconds` - The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the application-based cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
+   * - `stickiness.lb_cookie.duration_seconds` - The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
+   *
+   * The following attribute is supported only if the load balancer is an Application Load Balancer and the target is a Lambda function:
+   *
+   * - `lambda.multi_value_headers.enabled` - Indicates whether the request and response headers that are exchanged between the load balancer and the Lambda function include arrays of values or strings. The value is `true` or `false`. The default is `false`. If the value is `false` and the request contains a duplicate header field name or query parameter key, the load balancer uses the last value sent by the client.
+   *
+   * The following attributes are supported only by Network Load Balancers:
+   *
+   * - `deregistration_delay.connection_termination.enabled` - Indicates whether the load balancer terminates connections at the end of the deregistration timeout. The value is `true` or `false`. For new UDP/TCP_UDP target groups the default is `true`. Otherwise, the default is `false`.
+   * - `preserve_client_ip.enabled` - Indicates whether client IP preservation is enabled. The value is `true` or `false`. The default is disabled if the target group type is IP address and the target group protocol is TCP or TLS. Otherwise, the default is enabled. Client IP preservation can't be disabled for UDP and TCP_UDP target groups.
+   * - `proxy_protocol_v2.enabled` - Indicates whether Proxy Protocol version 2 is enabled. The value is `true` or `false`. The default is `false`.
+   * - `target_health_state.unhealthy.connection_termination.enabled` - Indicates whether the load balancer terminates connections to unhealthy targets. The value is `true` or `false`. The default is `true`. This attribute can't be enabled for UDP and TCP_UDP target groups.
+   * - `target_health_state.unhealthy.draining_interval_seconds` - The amount of time for Elastic Load Balancing to wait before changing the state of an unhealthy target from `unhealthy.draining` to `unhealthy`. The range is 0-360000 seconds. The default value is 0 seconds.
+   *
+   *   Note: This attribute can only be configured when `target_health_state.unhealthy.connection_termination.enabled` is `false`.
+   *
+   * The following attributes are supported only by Gateway Load Balancers:
+   *
+   * - `target_failover.on_deregistration` - Indicates how the Gateway Load Balancer handles existing flows when a target is deregistered. The possible values are `rebalance` and `no_rebalance`. The default is `no_rebalance`. The two attributes (`target_failover.on_deregistration` and `target_failover.on_unhealthy`) can't be set independently. The value you set for both attributes must be the same.
+   * - `target_failover.on_unhealthy` - Indicates how the Gateway Load Balancer handles existing flows when a target is unhealthy. The possible values are `rebalance` and `no_rebalance`. The default is `no_rebalance`. The two attributes (`target_failover.on_deregistration` and `target_failover.on_unhealthy`) can't be set independently. The value you set for both attributes must be the same.
+   * - `send_tcp_reset.on_unhealthy.enabled` – Specifies whether the Gateway Load Balancer sends a TCP Reset to the sender of traffic when a target becomes unhealthy. After sending the reset, the Gateway Load Balancer removes the flow entry from its flow table. The value is `true` or `false`. The default is `false`. This attribute does not apply when `target_failover.on_unhealthy` is set to `rebalance`. This feature requires 5-tuple flow stickiness, which the target group uses by default when `stickiness.enabled` is set to `false`.
+   * - `send_tcp_reset.on_deregistration.enabled` – Specifies whether the Gateway Load Balancer sends a TCP Reset to the sender of traffic when a target is deregistered. The reset occurs after the connection drain time has elapsed. The value is `true` or `false`. The default is `false`. This attribute does not apply when `target_failover.on_deregistration` is set to `rebalance`. This feature requires 5-tuple flow stickiness, which the target group uses by default when `stickiness.enabled` is set to `false`.
+   *
    * @public
    */
   Key?: string | undefined;
 
   /**
-   * <p>The value of the attribute.</p>
+   * The value of the attribute.
+   *
    * @public
    */
   Value?: string | undefined;
@@ -3598,7 +3167,8 @@ export interface TargetGroupAttribute {
  */
 export interface DescribeTargetGroupAttributesOutput {
   /**
-   * <p>Information about the target group attributes</p>
+   * Information about the target group attributes
+   *
    * @public
    */
   Attributes?: TargetGroupAttribute[] | undefined;
@@ -3609,32 +3179,36 @@ export interface DescribeTargetGroupAttributesOutput {
  */
 export interface DescribeTargetGroupsInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
+   * The Amazon Resource Name (ARN) of the load balancer.
+   *
    * @public
    */
   LoadBalancerArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARN) of the target groups.</p>
+   * The Amazon Resource Names (ARN) of the target groups.
+   *
    * @public
    */
   TargetGroupArns?: string[] | undefined;
 
   /**
-   * <p>The names of the target groups.</p>
+   * The names of the target groups.
+   *
    * @public
    */
   Names?: string[] | undefined;
 
   /**
-   * <p>The marker for the next set of results. (You received this marker from a previous
-   *       call.)</p>
+   * The marker for the next set of results. (You received this marker from a previous call.)
+   *
    * @public
    */
   Marker?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return with this call.</p>
+   * The maximum number of results to return with this call.
+   *
    * @public
    */
   PageSize?: number | undefined;
@@ -3645,14 +3219,15 @@ export interface DescribeTargetGroupsInput {
  */
 export interface DescribeTargetGroupsOutput {
   /**
-   * <p>Information about the target groups.</p>
+   * Information about the target groups.
+   *
    * @public
    */
   TargetGroups?: TargetGroup[] | undefined;
 
   /**
-   * <p>If there are additional results, this is the marker for the next set of results.
-   *       Otherwise, this is null.</p>
+   * If there are additional results, this is the marker for the next set of results. Otherwise, this is null.
+   *
    * @public
    */
   NextMarker?: string | undefined;
@@ -3663,166 +3238,126 @@ export interface DescribeTargetGroupsOutput {
  */
 export interface DescribeTargetHealthInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the target group.</p>
+   * The Amazon Resource Name (ARN) of the target group.
+   *
    * @public
    */
   TargetGroupArn: string | undefined;
 
   /**
-   * <p>The targets.</p>
+   * The targets.
+   *
    * @public
    */
   Targets?: TargetDescription[] | undefined;
 
   /**
-   * <p>Used to include anomaly detection information.</p>
+   * Used to include anomaly detection information.
+   *
    * @public
    */
   Include?: DescribeTargetHealthInputIncludeEnum[] | undefined;
 }
 
 /**
- * <p>Information about the current health of a target.</p>
+ * Information about the current health of a target.
+ *
  * @public
  */
 export interface TargetHealth {
   /**
-   * <p>The state of the target.</p>
+   * The state of the target.
+   *
    * @public
    */
   State?: TargetHealthStateEnum | undefined;
 
   /**
-   * <p>The reason code.</p>
-   *          <p>If the target state is <code>healthy</code>, a reason code is not provided.</p>
-   *          <p>If the target state is <code>initial</code>, the reason code can be one of the following
-   *       values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Elb.RegistrationInProgress</code> - The target is in the process of being registered
-   *           with the load balancer.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Elb.InitialHealthChecking</code> - The load balancer is still sending the target the
-   *           minimum number of health checks required to determine its health status.</p>
-   *             </li>
-   *          </ul>
-   *          <p>If the target state is <code>unhealthy</code>, the reason code can be one of the following
-   *       values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Target.ResponseCodeMismatch</code> - The health checks did not return an
-   *           expected HTTP code.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Target.Timeout</code> - The health check requests timed out.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Target.FailedHealthChecks</code> - The load balancer received an error while
-   *           establishing a connection to the target or the target response was malformed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Elb.InternalError</code> - The health checks failed due to an internal error.</p>
-   *             </li>
-   *          </ul>
-   *          <p>If the target state is <code>unused</code>, the reason code can be one of the following
-   *       values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Target.NotRegistered</code> - The target is not registered with the target
-   *           group.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Target.NotInUse</code> - The target group is not used by any load balancer or
-   *           the target is in an Availability Zone that is not enabled for its load balancer.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Target.InvalidState</code> - The target is in the stopped or terminated
-   *           state.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Target.IpUnusable</code> - The target IP address is reserved for use by a load
-   *           balancer.</p>
-   *             </li>
-   *          </ul>
-   *          <p>If the target state is <code>draining</code>, the reason code can be the following
-   *       value:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Target.DeregistrationInProgress</code> - The target is in the process of being
-   *           deregistered and the deregistration delay period has not expired.</p>
-   *             </li>
-   *          </ul>
-   *          <p>If the target state is <code>unavailable</code>, the reason code can be the following
-   *       value:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Target.HealthCheckDisabled</code> - Health checks are disabled for the target
-   *           group.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Elb.InternalError</code> - Target health is unavailable due to an internal
-   *           error.</p>
-   *             </li>
-   *          </ul>
+   * The reason code.
+   *
+   * If the target state is `healthy`, a reason code is not provided.
+   *
+   * If the target state is `initial`, the reason code can be one of the following values:
+   *
+   * - `Elb.RegistrationInProgress` - The target is in the process of being registered with the load balancer.
+   * - `Elb.InitialHealthChecking` - The load balancer is still sending the target the minimum number of health checks required to determine its health status.
+   *
+   * If the target state is `unhealthy`, the reason code can be one of the following values:
+   *
+   * - `Target.ResponseCodeMismatch` - The health checks did not return an expected HTTP code.
+   * - `Target.Timeout` - The health check requests timed out.
+   * - `Target.FailedHealthChecks` - The load balancer received an error while establishing a connection to the target or the target response was malformed.
+   * - `Elb.InternalError` - The health checks failed due to an internal error.
+   *
+   * If the target state is `unused`, the reason code can be one of the following values:
+   *
+   * - `Target.NotRegistered` - The target is not registered with the target group.
+   * - `Target.NotInUse` - The target group is not used by any load balancer or the target is in an Availability Zone that is not enabled for its load balancer.
+   * - `Target.InvalidState` - The target is in the stopped or terminated state.
+   * - `Target.IpUnusable` - The target IP address is reserved for use by a load balancer.
+   *
+   * If the target state is `draining`, the reason code can be the following value:
+   *
+   * - `Target.DeregistrationInProgress` - The target is in the process of being deregistered and the deregistration delay period has not expired.
+   *
+   * If the target state is `unavailable`, the reason code can be the following value:
+   *
+   * - `Target.HealthCheckDisabled` - Health checks are disabled for the target group.
+   * - `Elb.InternalError` - Target health is unavailable due to an internal error.
+   *
    * @public
    */
   Reason?: TargetHealthReasonEnum | undefined;
 
   /**
-   * <p>A description of the target health that provides additional details. If the state is
-   *         <code>healthy</code>, a description is not provided.</p>
+   * A description of the target health that provides additional details. If the state is `healthy`, a description is not provided.
+   *
    * @public
    */
   Description?: string | undefined;
 }
 
 /**
- * <p>Information about the health of a target.</p>
+ * Information about the health of a target.
+ *
  * @public
  */
 export interface TargetHealthDescription {
   /**
-   * <p>The description of the target.</p>
+   * The description of the target.
+   *
    * @public
    */
   Target?: TargetDescription | undefined;
 
   /**
-   * <p>The port to use to connect with the target.</p>
+   * The port to use to connect with the target.
+   *
    * @public
    */
   HealthCheckPort?: string | undefined;
 
   /**
-   * <p>The health information for the target.</p>
+   * The health information for the target.
+   *
    * @public
    */
   TargetHealth?: TargetHealth | undefined;
 
   /**
-   * <p>The anomaly detection result for the target.</p>
-   *          <p>If no anomalies were detected, the result is <code>normal</code>.</p>
-   *          <p>If anomalies were detected, the result is <code>anomalous</code>.</p>
+   * The anomaly detection result for the target.
+   *
+   * If no anomalies were detected, the result is `normal`.
+   *
+   * If anomalies were detected, the result is `anomalous`.
+   *
    * @public
    */
   AnomalyDetection?: AnomalyDetection | undefined;
 
   /**
-   * <p>The administrative override information for the target.</p>
+   * The administrative override information for the target.
+   *
    * @public
    */
   AdministrativeOverride?: AdministrativeOverride | undefined;
@@ -3833,7 +3368,8 @@ export interface TargetHealthDescription {
  */
 export interface DescribeTargetHealthOutput {
   /**
-   * <p>Information about the health of the targets.</p>
+   * Information about the health of the targets.
+   *
    * @public
    */
   TargetHealthDescriptions?: TargetHealthDescription[] | undefined;
@@ -3844,31 +3380,36 @@ export interface DescribeTargetHealthOutput {
  */
 export interface DescribeTrustStoreAssociationsInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the trust store.</p>
+   * The Amazon Resource Name (ARN) of the trust store.
+   *
    * @public
    */
   TrustStoreArn: string | undefined;
 
   /**
-   * <p>The marker for the next set of results. (You received this marker from a previous call.)</p>
+   * The marker for the next set of results. (You received this marker from a previous call.)
+   *
    * @public
    */
   Marker?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return with this call.</p>
+   * The maximum number of results to return with this call.
+   *
    * @public
    */
   PageSize?: number | undefined;
 }
 
 /**
- * <p>Information about the resources a trust store is associated with.</p>
+ * Information about the resources a trust store is associated with.
+ *
  * @public
  */
 export interface TrustStoreAssociation {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   ResourceArn?: string | undefined;
@@ -3879,44 +3420,50 @@ export interface TrustStoreAssociation {
  */
 export interface DescribeTrustStoreAssociationsOutput {
   /**
-   * <p>Information about the resources the trust store is associated to.</p>
+   * Information about the resources the trust store is associated to.
+   *
    * @public
    */
   TrustStoreAssociations?: TrustStoreAssociation[] | undefined;
 
   /**
-   * <p>If there are additional results, this is the marker for the next set of results.
-   *       Otherwise, this is null.</p>
+   * If there are additional results, this is the marker for the next set of results. Otherwise, this is null.
+   *
    * @public
    */
   NextMarker?: string | undefined;
 }
 
 /**
- * <p>Information about the revocations used by a trust store.</p>
+ * Information about the revocations used by a trust store.
+ *
  * @public
  */
 export interface DescribeTrustStoreRevocation {
   /**
-   * <p>The Amazon Resource Name (ARN) of the trust store.</p>
+   * The Amazon Resource Name (ARN) of the trust store.
+   *
    * @public
    */
   TrustStoreArn?: string | undefined;
 
   /**
-   * <p>The revocation ID of a revocation file in use.</p>
+   * The revocation ID of a revocation file in use.
+   *
    * @public
    */
   RevocationId?: number | undefined;
 
   /**
-   * <p>The type of revocation file.</p>
+   * The type of revocation file.
+   *
    * @public
    */
   RevocationType?: RevocationType | undefined;
 
   /**
-   * <p>The number of revoked certificates.</p>
+   * The number of revoked certificates.
+   *
    * @public
    */
   NumberOfRevokedEntries?: number | undefined;
@@ -3927,25 +3474,29 @@ export interface DescribeTrustStoreRevocation {
  */
 export interface DescribeTrustStoreRevocationsInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the trust store.</p>
+   * The Amazon Resource Name (ARN) of the trust store.
+   *
    * @public
    */
   TrustStoreArn: string | undefined;
 
   /**
-   * <p>The revocation IDs of the revocation files you want to describe.</p>
+   * The revocation IDs of the revocation files you want to describe.
+   *
    * @public
    */
   RevocationIds?: number[] | undefined;
 
   /**
-   * <p>The marker for the next set of results. (You received this marker from a previous call.)</p>
+   * The marker for the next set of results. (You received this marker from a previous call.)
+   *
    * @public
    */
   Marker?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return with this call.</p>
+   * The maximum number of results to return with this call.
+   *
    * @public
    */
   PageSize?: number | undefined;
@@ -3956,14 +3507,15 @@ export interface DescribeTrustStoreRevocationsInput {
  */
 export interface DescribeTrustStoreRevocationsOutput {
   /**
-   * <p>Information about the revocation file in the trust store.</p>
+   * Information about the revocation file in the trust store.
+   *
    * @public
    */
   TrustStoreRevocations?: DescribeTrustStoreRevocation[] | undefined;
 
   /**
-   * <p>If there are additional results, this is the marker for the next set of results.
-   *       Otherwise, this is null.</p>
+   * If there are additional results, this is the marker for the next set of results. Otherwise, this is null.
+   *
    * @public
    */
   NextMarker?: string | undefined;
@@ -3974,25 +3526,29 @@ export interface DescribeTrustStoreRevocationsOutput {
  */
 export interface DescribeTrustStoresInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the trust store.</p>
+   * The Amazon Resource Name (ARN) of the trust store.
+   *
    * @public
    */
   TrustStoreArns?: string[] | undefined;
 
   /**
-   * <p>The names of the trust stores.</p>
+   * The names of the trust stores.
+   *
    * @public
    */
   Names?: string[] | undefined;
 
   /**
-   * <p>The marker for the next set of results. (You received this marker from a previous call.)</p>
+   * The marker for the next set of results. (You received this marker from a previous call.)
+   *
    * @public
    */
   Marker?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return with this call.</p>
+   * The maximum number of results to return with this call.
+   *
    * @public
    */
   PageSize?: number | undefined;
@@ -4003,14 +3559,15 @@ export interface DescribeTrustStoresInput {
  */
 export interface DescribeTrustStoresOutput {
   /**
-   * <p>Information about the trust stores.</p>
+   * Information about the trust stores.
+   *
    * @public
    */
   TrustStores?: TrustStore[] | undefined;
 
   /**
-   * <p>If there are additional results, this is the marker for the next set of results.
-   *       Otherwise, this is null.</p>
+   * If there are additional results, this is the marker for the next set of results. Otherwise, this is null.
+   *
    * @public
    */
   NextMarker?: string | undefined;
@@ -4021,7 +3578,8 @@ export interface DescribeTrustStoresOutput {
  */
 export interface GetResourcePolicyInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   ResourceArn: string | undefined;
@@ -4032,7 +3590,8 @@ export interface GetResourcePolicyInput {
  */
 export interface GetResourcePolicyOutput {
   /**
-   * <p>The content of the resource policy.</p>
+   * The content of the resource policy.
+   *
    * @public
    */
   Policy?: string | undefined;
@@ -4043,7 +3602,8 @@ export interface GetResourcePolicyOutput {
  */
 export interface GetTrustStoreCaCertificatesBundleInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the trust store.</p>
+   * The Amazon Resource Name (ARN) of the trust store.
+   *
    * @public
    */
   TrustStoreArn: string | undefined;
@@ -4054,7 +3614,8 @@ export interface GetTrustStoreCaCertificatesBundleInput {
  */
 export interface GetTrustStoreCaCertificatesBundleOutput {
   /**
-   * <p>The ca certificate bundles Amazon S3 URI.</p>
+   * The ca certificate bundles Amazon S3 URI.
+   *
    * @public
    */
   Location?: string | undefined;
@@ -4065,13 +3626,15 @@ export interface GetTrustStoreCaCertificatesBundleOutput {
  */
 export interface GetTrustStoreRevocationContentInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the trust store.</p>
+   * The Amazon Resource Name (ARN) of the trust store.
+   *
    * @public
    */
   TrustStoreArn: string | undefined;
 
   /**
-   * <p>The revocation ID of the revocation file.</p>
+   * The revocation ID of the revocation file.
+   *
    * @public
    */
   RevocationId: number | undefined;
@@ -4082,7 +3645,8 @@ export interface GetTrustStoreRevocationContentInput {
  */
 export interface GetTrustStoreRevocationContentOutput {
   /**
-   * <p>The revocation files Amazon S3 URI.</p>
+   * The revocation files Amazon S3 URI.
+   *
    * @public
    */
   Location?: string | undefined;
@@ -4093,19 +3657,22 @@ export interface GetTrustStoreRevocationContentOutput {
  */
 export interface ModifyCapacityReservationInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
+   * The Amazon Resource Name (ARN) of the load balancer.
+   *
    * @public
    */
   LoadBalancerArn: string | undefined;
 
   /**
-   * <p>The minimum load balancer capacity reserved.</p>
+   * The minimum load balancer capacity reserved.
+   *
    * @public
    */
   MinimumLoadBalancerCapacity?: MinimumLoadBalancerCapacity | undefined;
 
   /**
-   * <p>Resets the capacity reservation.</p>
+   * Resets the capacity reservation.
+   *
    * @public
    */
   ResetCapacityReservation?: boolean | undefined;
@@ -4116,25 +3683,29 @@ export interface ModifyCapacityReservationInput {
  */
 export interface ModifyCapacityReservationOutput {
   /**
-   * <p>The last time the capacity reservation was modified.</p>
+   * The last time the capacity reservation was modified.
+   *
    * @public
    */
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>The amount of daily capacity decreases remaining.</p>
+   * The amount of daily capacity decreases remaining.
+   *
    * @public
    */
   DecreaseRequestsRemaining?: number | undefined;
 
   /**
-   * <p>The requested minimum capacity reservation for the load balancer</p>
+   * The requested minimum capacity reservation for the load balancer
+   *
    * @public
    */
   MinimumLoadBalancerCapacity?: MinimumLoadBalancerCapacity | undefined;
 
   /**
-   * <p>The state of the capacity reservation.</p>
+   * The state of the capacity reservation.
+   *
    * @public
    */
   CapacityReservationState?: ZonalCapacityReservationState[] | undefined;
@@ -4145,19 +3716,22 @@ export interface ModifyCapacityReservationOutput {
  */
 export interface ModifyIpPoolsInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
+   * The Amazon Resource Name (ARN) of the load balancer.
+   *
    * @public
    */
   LoadBalancerArn: string | undefined;
 
   /**
-   * <p>The IPAM pools to be modified.</p>
+   * The IPAM pools to be modified.
+   *
    * @public
    */
   IpamPools?: IpamPools | undefined;
 
   /**
-   * <p>Remove the IP pools in use by the load balancer.</p>
+   * Remove the IP pools in use by the load balancer.
+   *
    * @public
    */
   RemoveIpamPools?: RemoveIpamPoolEnum[] | undefined;
@@ -4168,7 +3742,8 @@ export interface ModifyIpPoolsInput {
  */
 export interface ModifyIpPoolsOutput {
   /**
-   * <p>The IPAM pool ID.</p>
+   * The IPAM pool ID.
+   *
    * @public
    */
   IpamPools?: IpamPools | undefined;
@@ -4179,88 +3754,67 @@ export interface ModifyIpPoolsOutput {
  */
 export interface ModifyListenerInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the listener.</p>
+   * The Amazon Resource Name (ARN) of the listener.
+   *
    * @public
    */
   ListenerArn: string | undefined;
 
   /**
-   * <p>The port for connections from clients to the load balancer. You can't specify a port for
-   *       a Gateway Load Balancer.</p>
+   * The port for connections from clients to the load balancer. You can't specify a port for a Gateway Load Balancer.
+   *
    * @public
    */
   Port?: number | undefined;
 
   /**
-   * <p>The protocol for connections from clients to the load balancer. Application Load Balancers
-   *       support the HTTP and HTTPS protocols. Network Load Balancers support the TCP, TLS, UDP,
-   *       TCP_UDP, QUIC, and TCP_QUIC protocols. You can’t change the protocol to UDP, TCP_UDP, QUIC, or TCP_QUIC if dual-stack mode is
-   *       enabled. You can't specify a protocol for a Gateway Load Balancer.</p>
+   * The protocol for connections from clients to the load balancer. Application Load Balancers support the HTTP and HTTPS protocols. Network Load Balancers support the TCP, TLS, UDP, TCP_UDP, QUIC, and TCP_QUIC protocols. You can’t change the protocol to UDP, TCP_UDP, QUIC, or TCP_QUIC if dual-stack mode is enabled. You can't specify a protocol for a Gateway Load Balancer.
+   *
    * @public
    */
   Protocol?: ProtocolEnum | undefined;
 
   /**
-   * <p>[HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are
-   *       supported.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/describe-ssl-policies.html">Security policies</a> in the <i>Application Load Balancers Guide</i> or
-   *         <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/describe-ssl-policies.html">Security policies</a> in the <i>Network Load Balancers Guide</i>.</p>
+   * [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported.
+   *
+   * For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/describe-ssl-policies.html) in the *Application Load Balancers Guide* or [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/describe-ssl-policies.html) in the *Network Load Balancers Guide*.
+   *
    * @public
    */
   SslPolicy?: string | undefined;
 
   /**
-   * <p>[HTTPS and TLS listeners] The default certificate for the listener. You must provide
-   *       exactly one certificate. Set <code>CertificateArn</code> to the certificate ARN but do not set
-   *         <code>IsDefault</code>.</p>
+   * [HTTPS and TLS listeners] The default certificate for the listener. You must provide exactly one certificate. Set `CertificateArn` to the certificate ARN but do not set `IsDefault`.
+   *
    * @public
    */
   Certificates?: Certificate[] | undefined;
 
   /**
-   * <p>The actions for the default rule.</p>
+   * The actions for the default rule.
+   *
    * @public
    */
   DefaultActions?: Action[] | undefined;
 
   /**
-   * <p>[TLS listeners] The name of the Application-Layer Protocol Negotiation (ALPN) policy. You
-   *       can specify one policy name. The following are the possible values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>HTTP1Only</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>HTTP2Only</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>HTTP2Optional</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>HTTP2Preferred</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>None</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-listeners.html#alpn-policies">ALPN
-   *         policies</a> in the <i>Network Load Balancers Guide</i>.</p>
+   * [TLS listeners] The name of the Application-Layer Protocol Negotiation (ALPN) policy. You can specify one policy name. The following are the possible values:
+   *
+   * - `HTTP1Only`
+   * - `HTTP2Only`
+   * - `HTTP2Optional`
+   * - `HTTP2Preferred`
+   * - `None`
+   *
+   * For more information, see [ALPN policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-listeners.html#alpn-policies) in the *Network Load Balancers Guide*.
+   *
    * @public
    */
   AlpnPolicy?: string[] | undefined;
 
   /**
-   * <p>[HTTPS listeners] The mutual authentication configuration information.</p>
+   * [HTTPS listeners] The mutual authentication configuration information.
+   *
    * @public
    */
   MutualAuthentication?: MutualAuthenticationAttributes | undefined;
@@ -4271,7 +3825,8 @@ export interface ModifyListenerInput {
  */
 export interface ModifyListenerOutput {
   /**
-   * <p>Information about the modified listener.</p>
+   * Information about the modified listener.
+   *
    * @public
    */
   Listeners?: Listener[] | undefined;
@@ -4282,13 +3837,15 @@ export interface ModifyListenerOutput {
  */
 export interface ModifyListenerAttributesInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the listener.</p>
+   * The Amazon Resource Name (ARN) of the listener.
+   *
    * @public
    */
   ListenerArn: string | undefined;
 
   /**
-   * <p>The listener attributes.</p>
+   * The listener attributes.
+   *
    * @public
    */
   Attributes: ListenerAttribute[] | undefined;
@@ -4299,7 +3856,8 @@ export interface ModifyListenerAttributesInput {
  */
 export interface ModifyListenerAttributesOutput {
   /**
-   * <p>Information about the listener attributes.</p>
+   * Information about the listener attributes.
+   *
    * @public
    */
   Attributes?: ListenerAttribute[] | undefined;
@@ -4310,13 +3868,15 @@ export interface ModifyListenerAttributesOutput {
  */
 export interface ModifyLoadBalancerAttributesInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
+   * The Amazon Resource Name (ARN) of the load balancer.
+   *
    * @public
    */
   LoadBalancerArn: string | undefined;
 
   /**
-   * <p>The load balancer attributes.</p>
+   * The load balancer attributes.
+   *
    * @public
    */
   Attributes: LoadBalancerAttribute[] | undefined;
@@ -4327,7 +3887,8 @@ export interface ModifyLoadBalancerAttributesInput {
  */
 export interface ModifyLoadBalancerAttributesOutput {
   /**
-   * <p>Information about the load balancer attributes.</p>
+   * Information about the load balancer attributes.
+   *
    * @public
    */
   Attributes?: LoadBalancerAttribute[] | undefined;
@@ -4338,33 +3899,36 @@ export interface ModifyLoadBalancerAttributesOutput {
  */
 export interface ModifyRuleInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the rule.</p>
+   * The Amazon Resource Name (ARN) of the rule.
+   *
    * @public
    */
   RuleArn: string | undefined;
 
   /**
-   * <p>The conditions.</p>
+   * The conditions.
+   *
    * @public
    */
   Conditions?: RuleCondition[] | undefined;
 
   /**
-   * <p>The actions.</p>
+   * The actions.
+   *
    * @public
    */
   Actions?: Action[] | undefined;
 
   /**
-   * <p>The transforms to apply to requests that match this rule. You can add one host header rewrite transform
-   *       and one URL rewrite transform. If you specify <code>Transforms</code>, you can't specify <code>ResetTransforms</code>.</p>
+   * The transforms to apply to requests that match this rule. You can add one host header rewrite transform and one URL rewrite transform. If you specify `Transforms`, you can't specify `ResetTransforms`.
+   *
    * @public
    */
   Transforms?: RuleTransform[] | undefined;
 
   /**
-   * <p>Indicates whether to remove all transforms from the rule. If you specify <code>ResetTransforms</code>,
-   *       you can't specify <code>Transforms</code>.</p>
+   * Indicates whether to remove all transforms from the rule. If you specify `ResetTransforms`, you can't specify `Transforms`.
+   *
    * @public
    */
   ResetTransforms?: boolean | undefined;
@@ -4375,7 +3939,8 @@ export interface ModifyRuleInput {
  */
 export interface ModifyRuleOutput {
   /**
-   * <p>Information about the modified rule.</p>
+   * Information about the modified rule.
+   *
    * @public
    */
   Rules?: Rule[] | undefined;
@@ -4386,78 +3951,75 @@ export interface ModifyRuleOutput {
  */
 export interface ModifyTargetGroupInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the target group.</p>
+   * The Amazon Resource Name (ARN) of the target group.
+   *
    * @public
    */
   TargetGroupArn: string | undefined;
 
   /**
-   * <p>The protocol the load balancer uses when performing health checks on targets. For
-   *       Application Load Balancers, the default is HTTP. For Network Load Balancers and Gateway Load
-   *       Balancers, the default is TCP. The TCP protocol is not supported for health checks if the
-   *       protocol of the target group is HTTP or HTTPS. It is supported for health checks only if the
-   *       protocol of the target group is TCP, TLS, UDP, or TCP_UDP. The GENEVE, TLS, UDP, TCP_UDP, QUIC, and TCP_QUIC
-   *       protocols are not supported for health checks.</p>
+   * The protocol the load balancer uses when performing health checks on targets. For Application Load Balancers, the default is HTTP. For Network Load Balancers and Gateway Load Balancers, the default is TCP. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. It is supported for health checks only if the protocol of the target group is TCP, TLS, UDP, or TCP_UDP. The GENEVE, TLS, UDP, TCP_UDP, QUIC, and TCP_QUIC protocols are not supported for health checks.
+   *
    * @public
    */
   HealthCheckProtocol?: ProtocolEnum | undefined;
 
   /**
-   * <p>The port the load balancer uses when performing health checks on targets.</p>
+   * The port the load balancer uses when performing health checks on targets.
+   *
    * @public
    */
   HealthCheckPort?: string | undefined;
 
   /**
-   * <p>[HTTP/HTTPS health checks] The destination for health checks on the targets.</p>
-   *          <p>[HTTP1 or HTTP2 protocol version] The ping path. The default is /.</p>
-   *          <p>[GRPC protocol version] The path of a custom health check method with the format
-   *       /package.service/method. The default is /Amazon Web Services.ALB/healthcheck.</p>
+   * [HTTP/HTTPS health checks] The destination for health checks on the targets.
+   *
+   * [HTTP1 or HTTP2 protocol version] The ping path. The default is /.
+   *
+   * [GRPC protocol version] The path of a custom health check method with the format /package.service/method. The default is /Amazon Web Services.ALB/healthcheck.
+   *
    * @public
    */
   HealthCheckPath?: string | undefined;
 
   /**
-   * <p>Indicates whether health checks are enabled. If the target type is <code>lambda</code>,
-   *       health checks are disabled by default but can be enabled. If the target type is
-   *       <code>instance</code>, <code>ip</code>, or <code>alb</code>, health checks are always
-   *       enabled and can't be disabled.</p>
+   * Indicates whether health checks are enabled. If the target type is `lambda`, health checks are disabled by default but can be enabled. If the target type is `instance`, `ip`, or `alb`, health checks are always enabled and can't be disabled.
+   *
    * @public
    */
   HealthCheckEnabled?: boolean | undefined;
 
   /**
-   * <p>The approximate amount of time, in seconds, between health checks of an individual target.</p>
+   * The approximate amount of time, in seconds, between health checks of an individual target.
+   *
    * @public
    */
   HealthCheckIntervalSeconds?: number | undefined;
 
   /**
-   * <p>[HTTP/HTTPS health checks] The amount of time, in seconds, during which no response means
-   *       a failed health check.</p>
+   * [HTTP/HTTPS health checks] The amount of time, in seconds, during which no response means a failed health check.
+   *
    * @public
    */
   HealthCheckTimeoutSeconds?: number | undefined;
 
   /**
-   * <p>The number of consecutive health checks successes required before considering an unhealthy
-   *       target healthy.</p>
+   * The number of consecutive health checks successes required before considering an unhealthy target healthy.
+   *
    * @public
    */
   HealthyThresholdCount?: number | undefined;
 
   /**
-   * <p>The number of consecutive health check failures required before considering the target
-   *       unhealthy.</p>
+   * The number of consecutive health check failures required before considering the target unhealthy.
+   *
    * @public
    */
   UnhealthyThresholdCount?: number | undefined;
 
   /**
-   * <p>[HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful
-   *       response from a target. For target groups with a protocol of TCP, TCP_UDP, UDP or TLS the range
-   *       is 200-599. For target groups with a protocol of HTTP or HTTPS, the range is 200-499. For target
-   *       groups with a protocol of GENEVE, the range is 200-399.</p>
+   * [HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful response from a target. For target groups with a protocol of TCP, TCP_UDP, UDP or TLS the range is 200-599. For target groups with a protocol of HTTP or HTTPS, the range is 200-499. For target groups with a protocol of GENEVE, the range is 200-399.
+   *
    * @public
    */
   Matcher?: Matcher | undefined;
@@ -4468,7 +4030,8 @@ export interface ModifyTargetGroupInput {
  */
 export interface ModifyTargetGroupOutput {
   /**
-   * <p>Information about the modified target group.</p>
+   * Information about the modified target group.
+   *
    * @public
    */
   TargetGroups?: TargetGroup[] | undefined;
@@ -4479,13 +4042,15 @@ export interface ModifyTargetGroupOutput {
  */
 export interface ModifyTargetGroupAttributesInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the target group.</p>
+   * The Amazon Resource Name (ARN) of the target group.
+   *
    * @public
    */
   TargetGroupArn: string | undefined;
 
   /**
-   * <p>The target group attributes.</p>
+   * The target group attributes.
+   *
    * @public
    */
   Attributes: TargetGroupAttribute[] | undefined;
@@ -4496,7 +4061,8 @@ export interface ModifyTargetGroupAttributesInput {
  */
 export interface ModifyTargetGroupAttributesOutput {
   /**
-   * <p>Information about the target group attributes.</p>
+   * Information about the target group attributes.
+   *
    * @public
    */
   Attributes?: TargetGroupAttribute[] | undefined;
@@ -4507,25 +4073,29 @@ export interface ModifyTargetGroupAttributesOutput {
  */
 export interface ModifyTrustStoreInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the trust store.</p>
+   * The Amazon Resource Name (ARN) of the trust store.
+   *
    * @public
    */
   TrustStoreArn: string | undefined;
 
   /**
-   * <p>The Amazon S3 bucket for the ca certificates bundle.</p>
+   * The Amazon S3 bucket for the ca certificates bundle.
+   *
    * @public
    */
   CaCertificatesBundleS3Bucket: string | undefined;
 
   /**
-   * <p>The Amazon S3 path for the ca certificates bundle.</p>
+   * The Amazon S3 path for the ca certificates bundle.
+   *
    * @public
    */
   CaCertificatesBundleS3Key: string | undefined;
 
   /**
-   * <p>The Amazon S3 object version for the ca certificates bundle. If undefined the current version is used.</p>
+   * The Amazon S3 object version for the ca certificates bundle. If undefined the current version is used.
+   *
    * @public
    */
   CaCertificatesBundleS3ObjectVersion?: string | undefined;
@@ -4536,7 +4106,8 @@ export interface ModifyTrustStoreInput {
  */
 export interface ModifyTrustStoreOutput {
   /**
-   * <p>Information about the modified trust store.</p>
+   * Information about the modified trust store.
+   *
    * @public
    */
   TrustStores?: TrustStore[] | undefined;
@@ -4547,13 +4118,15 @@ export interface ModifyTrustStoreOutput {
  */
 export interface RegisterTargetsInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the target group.</p>
+   * The Amazon Resource Name (ARN) of the target group.
+   *
    * @public
    */
   TargetGroupArn: string | undefined;
 
   /**
-   * <p>The targets.</p>
+   * The targets.
+   *
    * @public
    */
   Targets: TargetDescription[] | undefined;
@@ -4569,15 +4142,15 @@ export interface RegisterTargetsOutput {}
  */
 export interface RemoveListenerCertificatesInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the listener.</p>
+   * The Amazon Resource Name (ARN) of the listener.
+   *
    * @public
    */
   ListenerArn: string | undefined;
 
   /**
-   * <p>The certificate to remove. You can specify one certificate per call. Set
-   *         <code>CertificateArn</code> to the certificate ARN but do not set
-   *       <code>IsDefault</code>.</p>
+   * The certificate to remove. You can specify one certificate per call. Set `CertificateArn` to the certificate ARN but do not set `IsDefault`.
+   *
    * @public
    */
   Certificates: Certificate[] | undefined;
@@ -4593,13 +4166,15 @@ export interface RemoveListenerCertificatesOutput {}
  */
 export interface RemoveTagsInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   ResourceArns: string[] | undefined;
 
   /**
-   * <p>The tag keys for the tags to remove.</p>
+   * The tag keys for the tags to remove.
+   *
    * @public
    */
   TagKeys: string[] | undefined;
@@ -4615,13 +4190,15 @@ export interface RemoveTagsOutput {}
  */
 export interface RemoveTrustStoreRevocationsInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the trust store.</p>
+   * The Amazon Resource Name (ARN) of the trust store.
+   *
    * @public
    */
   TrustStoreArn: string | undefined;
 
   /**
-   * <p>The revocation IDs of the revocation files you want to remove.</p>
+   * The revocation IDs of the revocation files you want to remove.
+   *
    * @public
    */
   RevocationIds: number[] | undefined;
@@ -4637,22 +4214,21 @@ export interface RemoveTrustStoreRevocationsOutput {}
  */
 export interface SetIpAddressTypeInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
+   * The Amazon Resource Name (ARN) of the load balancer.
+   *
    * @public
    */
   LoadBalancerArn: string | undefined;
 
   /**
-   * <p>The IP address type. Internal load balancers must use <code>ipv4</code>.</p>
-   *          <p>[Application Load Balancers] The possible values are <code>ipv4</code> (IPv4 addresses),
-   *       <code>dualstack</code> (IPv4 and IPv6 addresses), and <code>dualstack-without-public-ipv4</code>
-   *       (public IPv6 addresses and private IPv4 and IPv6 addresses).</p>
-   *          <p>Application Load Balancer authentication supports IPv4 addresses only when
-   *       connecting to an Identity Provider (IdP) or Amazon Cognito endpoint. Without a public
-   *       IPv4 address the load balancer can't complete the authentication process, resulting
-   *       in HTTP 500 errors.</p>
-   *          <p>[Network Load Balancers and Gateway Load Balancers] The possible values are <code>ipv4</code>
-   *       (IPv4 addresses) and <code>dualstack</code> (IPv4 and IPv6 addresses).</p>
+   * The IP address type. Internal load balancers must use `ipv4`.
+   *
+   * [Application Load Balancers] The possible values are `ipv4` (IPv4 addresses), `dualstack` (IPv4 and IPv6 addresses), and `dualstack-without-public-ipv4` (public IPv6 addresses and private IPv4 and IPv6 addresses).
+   *
+   * Application Load Balancer authentication supports IPv4 addresses only when connecting to an Identity Provider (IdP) or Amazon Cognito endpoint. Without a public IPv4 address the load balancer can't complete the authentication process, resulting in HTTP 500 errors.
+   *
+   * [Network Load Balancers and Gateway Load Balancers] The possible values are `ipv4` (IPv4 addresses) and `dualstack` (IPv4 and IPv6 addresses).
+   *
    * @public
    */
   IpAddressType: IpAddressType | undefined;
@@ -4663,25 +4239,29 @@ export interface SetIpAddressTypeInput {
  */
 export interface SetIpAddressTypeOutput {
   /**
-   * <p>The IP address type.</p>
+   * The IP address type.
+   *
    * @public
    */
   IpAddressType?: IpAddressType | undefined;
 }
 
 /**
- * <p>Information about the priorities for the rules for a listener.</p>
+ * Information about the priorities for the rules for a listener.
+ *
  * @public
  */
 export interface RulePriorityPair {
   /**
-   * <p>The Amazon Resource Name (ARN) of the rule.</p>
+   * The Amazon Resource Name (ARN) of the rule.
+   *
    * @public
    */
   RuleArn?: string | undefined;
 
   /**
-   * <p>The rule priority.</p>
+   * The rule priority.
+   *
    * @public
    */
   Priority?: number | undefined;
@@ -4692,7 +4272,8 @@ export interface RulePriorityPair {
  */
 export interface SetRulePrioritiesInput {
   /**
-   * <p>The rule priorities.</p>
+   * The rule priorities.
+   *
    * @public
    */
   RulePriorities: RulePriorityPair[] | undefined;
@@ -4703,7 +4284,8 @@ export interface SetRulePrioritiesInput {
  */
 export interface SetRulePrioritiesOutput {
   /**
-   * <p>Information about the rules.</p>
+   * Information about the rules.
+   *
    * @public
    */
   Rules?: Rule[] | undefined;
@@ -4714,21 +4296,22 @@ export interface SetRulePrioritiesOutput {
  */
 export interface SetSecurityGroupsInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
+   * The Amazon Resource Name (ARN) of the load balancer.
+   *
    * @public
    */
   LoadBalancerArn: string | undefined;
 
   /**
-   * <p>The IDs of the security groups.</p>
+   * The IDs of the security groups.
+   *
    * @public
    */
   SecurityGroups: string[] | undefined;
 
   /**
-   * <p>Indicates whether to evaluate inbound security group rules for traffic sent to a
-   *       Network Load Balancer through Amazon Web Services PrivateLink. Applies only if the load balancer
-   *       has an associated security group. The default is <code>on</code>.</p>
+   * Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through Amazon Web Services PrivateLink. Applies only if the load balancer has an associated security group. The default is `on`.
+   *
    * @public
    */
   EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic?: EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum | undefined;
@@ -4739,14 +4322,15 @@ export interface SetSecurityGroupsInput {
  */
 export interface SetSecurityGroupsOutput {
   /**
-   * <p>The IDs of the security groups associated with the load balancer.</p>
+   * The IDs of the security groups associated with the load balancer.
+   *
    * @public
    */
   SecurityGroupIds?: string[] | undefined;
 
   /**
-   * <p>Indicates whether to evaluate inbound security group rules for traffic sent to a
-   *       Network Load Balancer through Amazon Web Services PrivateLink.</p>
+   * Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through Amazon Web Services PrivateLink.
+   *
    * @public
    */
   EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic?: EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum | undefined;
@@ -4757,61 +4341,60 @@ export interface SetSecurityGroupsOutput {
  */
 export interface SetSubnetsInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
+   * The Amazon Resource Name (ARN) of the load balancer.
+   *
    * @public
    */
   LoadBalancerArn: string | undefined;
 
   /**
-   * <p>The IDs of the public subnets. You can specify only one subnet per Availability Zone. You
-   *       must specify either subnets or subnet mappings.</p>
-   *          <p>[Application Load Balancers] You must specify subnets from at least two Availability
-   *       Zones.</p>
-   *          <p>[Application Load Balancers on Outposts] You must specify one Outpost subnet.</p>
-   *          <p>[Application Load Balancers on Local Zones] You can specify subnets from one or more Local
-   *       Zones.</p>
-   *          <p>[Network Load Balancers] You can specify subnets from one or more Availability Zones.</p>
-   *          <p>[Gateway Load Balancers] You can specify subnets from one or more Availability Zones.
-   *       You must include all subnets that were enabled previously, with their existing configurations,
-   *       plus any additional subnets.</p>
+   * The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.
+   *
+   * [Application Load Balancers] You must specify subnets from at least two Availability Zones.
+   *
+   * [Application Load Balancers on Outposts] You must specify one Outpost subnet.
+   *
+   * [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
+   *
+   * [Network Load Balancers] You can specify subnets from one or more Availability Zones.
+   *
+   * [Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You must include all subnets that were enabled previously, with their existing configurations, plus any additional subnets.
+   *
    * @public
    */
   Subnets?: string[] | undefined;
 
   /**
-   * <p>The IDs of the public subnets. You can specify only one subnet per Availability Zone. You
-   *       must specify either subnets or subnet mappings.</p>
-   *          <p>[Application Load Balancers] You must specify subnets from at least two Availability
-   *       Zones. You can't specify Elastic IP addresses for your subnets.</p>
-   *          <p>[Application Load Balancers on Outposts] You must specify one Outpost subnet.</p>
-   *          <p>[Application Load Balancers on Local Zones] You can specify subnets from one or more Local
-   *       Zones.</p>
-   *          <p>[Network Load Balancers] You can specify subnets from one or more Availability Zones. You
-   *       can specify one Elastic IP address per subnet if you need static IP addresses for your
-   *       internet-facing load balancer. For internal load balancers, you can specify one private IP
-   *       address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you
-   *       can specify one IPv6 address per subnet.</p>
-   *          <p>[Gateway Load Balancers] You can specify subnets from one or more Availability
-   *       Zones.</p>
+   * The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.
+   *
+   * [Application Load Balancers] You must specify subnets from at least two Availability Zones. You can't specify Elastic IP addresses for your subnets.
+   *
+   * [Application Load Balancers on Outposts] You must specify one Outpost subnet.
+   *
+   * [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
+   *
+   * [Network Load Balancers] You can specify subnets from one or more Availability Zones. You can specify one Elastic IP address per subnet if you need static IP addresses for your internet-facing load balancer. For internal load balancers, you can specify one private IP address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you can specify one IPv6 address per subnet.
+   *
+   * [Gateway Load Balancers] You can specify subnets from one or more Availability Zones.
+   *
    * @public
    */
   SubnetMappings?: SubnetMapping[] | undefined;
 
   /**
-   * <p>The IP address type.</p>
-   *          <p>[Application Load Balancers] The possible values are <code>ipv4</code> (IPv4 addresses),
-   *       <code>dualstack</code> (IPv4 and IPv6 addresses), and <code>dualstack-without-public-ipv4</code>
-   *       (public IPv6 addresses and private IPv4 and IPv6 addresses).</p>
-   *          <p>[Network Load Balancers and Gateway Load Balancers] The possible values are <code>ipv4</code>
-   *       (IPv4 addresses) and <code>dualstack</code> (IPv4 and IPv6 addresses).</p>
+   * The IP address type.
+   *
+   * [Application Load Balancers] The possible values are `ipv4` (IPv4 addresses), `dualstack` (IPv4 and IPv6 addresses), and `dualstack-without-public-ipv4` (public IPv6 addresses and private IPv4 and IPv6 addresses).
+   *
+   * [Network Load Balancers and Gateway Load Balancers] The possible values are `ipv4` (IPv4 addresses) and `dualstack` (IPv4 and IPv6 addresses).
+   *
    * @public
    */
   IpAddressType?: IpAddressType | undefined;
 
   /**
-   * <p>[Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix
-   *       from each subnet for source NAT. The IP address type must be <code>dualstack</code>.
-   *       The default value is <code>off</code>.</p>
+   * [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be `dualstack`. The default value is `off`.
+   *
    * @public
    */
   EnablePrefixForIpv6SourceNat?: EnablePrefixForIpv6SourceNatEnum | undefined;
@@ -4822,19 +4405,22 @@ export interface SetSubnetsInput {
  */
 export interface SetSubnetsOutput {
   /**
-   * <p>Information about the subnets.</p>
+   * Information about the subnets.
+   *
    * @public
    */
   AvailabilityZones?: AvailabilityZone[] | undefined;
 
   /**
-   * <p>The IP address type.</p>
+   * The IP address type.
+   *
    * @public
    */
   IpAddressType?: IpAddressType | undefined;
 
   /**
-   * <p>[Network Load Balancers] Indicates whether to use an IPv6 prefix from each subnet for source NAT.</p>
+   * [Network Load Balancers] Indicates whether to use an IPv6 prefix from each subnet for source NAT.
+   *
    * @public
    */
   EnablePrefixForIpv6SourceNat?: EnablePrefixForIpv6SourceNatEnum | undefined;

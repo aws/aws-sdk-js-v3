@@ -23,7 +23,8 @@ export interface UpdateFHIRDatastoreCommandInput extends UpdateFHIRDatastoreRequ
 export interface UpdateFHIRDatastoreCommandOutput extends UpdateFHIRDatastoreResponse, __MetadataBearer {}
 
 /**
- * <p>Update the properties of a FHIR-enabled data store.</p>
+ * Update the properties of a FHIR-enabled data store.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -124,26 +125,32 @@ export interface UpdateFHIRDatastoreCommandOutput extends UpdateFHIRDatastoreRes
  * @see {@link HealthLakeClientResolvedConfig | config} for HealthLakeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access is denied. Your account is not authorized to perform this operation.</p>
+ *
+ * Access is denied. Your account is not authorized to perform this operation.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The data store is in a transition state and the user requested action cannot be performed.</p>
+ *
+ * The data store is in a transition state and the user requested action cannot be performed.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unknown internal error occurred in the service.</p>
+ *
+ * An unknown internal error occurred in the service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested data store was not found.</p>
+ *
+ * The requested data store was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The user has exceeded their maximum number of allowed calls to the given API. </p>
+ *
+ * The user has exceeded their maximum number of allowed calls to the given API.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The user input parameter was invalid.</p>
+ *
+ * The user input parameter was invalid.
  *
  * @throws {@link HealthLakeServiceException}
- * <p>Base exception class for all service exceptions from HealthLake service.</p>
  *
+ * Base exception class for all service exceptions from HealthLake service.
  *
  * @example Update a data store's name and configuration
  * ```javascript

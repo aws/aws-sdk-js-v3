@@ -23,9 +23,8 @@ export interface DeleteUserCommandInput extends DeleteUserMessage {}
 export interface DeleteUserCommandOutput extends User, __MetadataBearer {}
 
 /**
- * <p>For Valkey engine version 7.2 onwards and Redis OSS 6.0 onwards: Deletes a user. The user will be removed from
- *             all user groups and in turn removed from all replication groups. For more information,
- *             see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>. </p>
+ * For Valkey engine version 7.2 onwards and Redis OSS 6.0 onwards: Deletes a user. The user will be removed from all user groups and in turn removed from all replication groups. For more information, see [Using Role Based Access Control (RBAC)](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Clusters.RBAC.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,23 +64,28 @@ export interface DeleteUserCommandOutput extends User, __MetadataBearer {}
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link DefaultUserAssociatedToUserGroupFault} (client fault)
- *  <p>The default user assigned to the user group.</p>
+ *
+ * The default user assigned to the user group.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link InvalidUserStateFault} (client fault)
- *  <p>The user is not in active state.</p>
+ *
+ * The user is not in active state.
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
- *  <p>The specified service linked role (SLR) was not found.</p>
+ *
+ * The specified service linked role (SLR) was not found.
  *
  * @throws {@link UserNotFoundFault} (client fault)
- *  <p>The user does not exist or could not be found.</p>
+ *
+ * The user does not exist or could not be found.
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @public
  */

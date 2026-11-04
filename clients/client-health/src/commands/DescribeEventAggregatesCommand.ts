@@ -23,12 +23,10 @@ export interface DescribeEventAggregatesCommandInput extends DescribeEventAggreg
 export interface DescribeEventAggregatesCommandOutput extends DescribeEventAggregatesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the number of events of each event type (issue, scheduled change, and account
- *          notification). If no filter is specified, the counts of all events in each category are
- *          returned.</p>
- *          <note>
- *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the next request to return more results.</p>
- *          </note>
+ * Returns the number of events of each event type (issue, scheduled change, and account notification). If no filter is specified, the counts of all events in each category are returned.
+ *
+ * > **Note:** This API operation uses pagination. Specify the `nextToken` parameter in the next request to return more results.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -121,11 +119,12 @@ export interface DescribeEventAggregatesCommandOutput extends DescribeEventAggre
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
  *
  * @throws {@link InvalidPaginationToken} (client fault)
- *  <p>The specified pagination token (<code>nextToken</code>) is not valid.</p>
+ *
+ * The specified pagination token (`nextToken`) is not valid.
  *
  * @throws {@link HealthServiceException}
- * <p>Base exception class for all service exceptions from Health service.</p>
  *
+ * Base exception class for all service exceptions from Health service.
  *
  * @public
  */

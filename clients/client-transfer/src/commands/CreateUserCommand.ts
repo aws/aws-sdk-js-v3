@@ -23,7 +23,8 @@ export interface CreateUserCommandInput extends CreateUserRequest {}
 export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a user and associates them with an existing file transfer protocol-enabled server. You can only create and associate users with servers that have the <code>IdentityProviderType</code> set to <code>SERVICE_MANAGED</code>. Using parameters for <code>CreateUser</code>, you can specify the user name, set the home directory, store the user's public key, and assign the user's Identity and Access Management (IAM) role. You can also optionally add a session policy, and assign metadata with tags that can be used to group and search for users.</p>
+ * Creates a user and associates them with an existing file transfer protocol-enabled server. You can only create and associate users with servers that have the `IdentityProviderType` set to `SERVICE_MANAGED`. Using parameters for `CreateUser`, you can specify the user name, set the home directory, store the user's public key, and assign the user's Identity and Access Management (IAM) role. You can also optionally add a session policy, and assign metadata with tags that can be used to group and search for users.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,23 +78,28 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
  *
  * @throws {@link InternalServiceError} (server fault)
- *  <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+ *
+ * This exception is thrown when an error occurs in the Transfer Family service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * This exception is thrown when the client submits a malformed request.
  *
  * @throws {@link ResourceExistsException} (client fault)
- *  <p>The requested resource does not exist, or exists in a region other than the one specified for the command.</p>
+ *
+ * The requested resource does not exist, or exists in a region other than the one specified for the command.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+ *
+ * This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+ *
+ * The request has failed because the Amazon Web ServicesTransfer Family service is not available.
  *
  * @throws {@link TransferServiceException}
- * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * Base exception class for all service exceptions from Transfer service.
  *
  * @public
  */

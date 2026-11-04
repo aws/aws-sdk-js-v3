@@ -23,8 +23,8 @@ export interface DescribeHumanLoopCommandInput extends DescribeHumanLoopRequest 
 export interface DescribeHumanLoopCommandOutput extends DescribeHumanLoopResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about the specified human loop. If the human loop was deleted, this
- *       operation will return a <code>ResourceNotFoundException</code> error. </p>
+ * Returns information about the specified human loop. If the human loop was deleted, this operation will return a `ResourceNotFoundException` error.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,25 +60,24 @@ export interface DescribeHumanLoopCommandOutput extends DescribeHumanLoopRespons
  * @see {@link SageMakerA2IRuntimeClientResolvedConfig | config} for SageMakerA2IRuntimeClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>We couldn't process your request because of an issue with the server. Try again
- *       later.</p>
+ *
+ * We couldn't process your request because of an issue with the server. Try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>We couldn't find the requested resource. Check that your resources exists and were created
- *       in the same AWS Region as your request, and try your request again. </p>
+ *
+ * We couldn't find the requested resource. Check that your resources exists and were created in the same AWS Region as your request, and try your request again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>You exceeded
- *       the
- *       maximum number of requests.</p>
+ *
+ * You exceeded the maximum number of requests.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The
- *       request isn't valid. Check the syntax and try again.</p>
+ *
+ * The request isn't valid. Check the syntax and try again.
  *
  * @throws {@link SageMakerA2IRuntimeServiceException}
- * <p>Base exception class for all service exceptions from SageMakerA2IRuntime service.</p>
  *
+ * Base exception class for all service exceptions from SageMakerA2IRuntime service.
  *
  * @public
  */

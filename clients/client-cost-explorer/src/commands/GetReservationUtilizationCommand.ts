@@ -23,10 +23,8 @@ export interface GetReservationUtilizationCommandInput extends GetReservationUti
 export interface GetReservationUtilizationCommandOutput extends GetReservationUtilizationResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the reservation utilization for your account. Management account in an
- *       organization have access to member accounts. You can filter data by dimensions in a time
- *       period. You can use <code>GetDimensionValues</code> to determine the possible dimension
- *       values. Currently, you can group only by <code>SUBSCRIPTION_ID</code>. </p>
+ * Retrieves the reservation utilization for your account. Management account in an organization have access to member accounts. You can filter data by dimensions in a time period. You can use `GetDimensionValues` to determine the possible dimension values. Currently, you can group only by `SUBSCRIPTION_ID`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -206,17 +204,20 @@ export interface GetReservationUtilizationCommandOutput extends GetReservationUt
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
  * @throws {@link DataUnavailableException} (client fault)
- *  <p>The requested data is unavailable.</p>
+ *
+ * The requested data is unavailable.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The pagination token is invalid. Try again without a pagination token.</p>
+ *
+ * The pagination token is invalid. Try again without a pagination token.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ * You made too many calls in a short period of time. Try again later.
  *
  * @throws {@link CostExplorerServiceException}
- * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * Base exception class for all service exceptions from CostExplorer service.
  *
  * @public
  */

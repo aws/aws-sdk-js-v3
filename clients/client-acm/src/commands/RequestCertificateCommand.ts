@@ -23,7 +23,14 @@ export interface RequestCertificateCommandInput extends RequestCertificateReques
 export interface RequestCertificateCommandOutput extends RequestCertificateResponse, __MetadataBearer {}
 
 /**
- * <p>Requests an ACM certificate for use with other Amazon Web Services services. To request an ACM certificate, you must specify a fully qualified domain name (FQDN) in the <code>DomainName</code> parameter. You can also specify additional FQDNs in the <code>SubjectAlternativeNames</code> parameter. </p> <p>If you are requesting a private certificate, domain validation is not required. If you are requesting a public certificate, each domain name that you specify must be validated to verify that you own or control the domain. You can use <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html">DNS validation</a> or <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html">email validation</a>. We recommend that you use DNS validation.</p> <note> <p>ACM behavior differs from the <a href="https://datatracker.ietf.org/doc/html/rfc6125#appendix-B.2">RFC 6125</a> specification of the certificate validation process. ACM first checks for a Subject Alternative Name, and, if it finds one, ignores the common name (CN).</p> </note> <p>After successful completion of the <code>RequestCertificate</code> action, there is a delay of several seconds before you can retrieve information about the new certificate.</p>
+ * Requests an ACM certificate for use with other Amazon Web Services services. To request an ACM certificate, you must specify a fully qualified domain name (FQDN) in the `DomainName` parameter. You can also specify additional FQDNs in the `SubjectAlternativeNames` parameter.
+ *
+ * If you are requesting a private certificate, domain validation is not required. If you are requesting a public certificate, each domain name that you specify must be validated to verify that you own or control the domain. You can use [DNS validation](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html) or [email validation](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html). We recommend that you use DNS validation.
+ *
+ * > **Note:** ACM behavior differs from the [RFC 6125](https://datatracker.ietf.org/doc/html/rfc6125#appendix-B.2) specification of the certificate validation process. ACM first checks for a Subject Alternative Name, and, if it finds one, ignores the common name (CN).
+ *
+ * After successful completion of the `RequestCertificate` action, there is a delay of several seconds before you can retrieve information about the new certificate.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,29 +82,36 @@ export interface RequestCertificateCommandOutput extends RequestCertificateRespo
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
  *
  * @throws {@link InvalidArnException} (client fault)
- *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+ *
+ * The requested Amazon Resource Name (ARN) does not refer to an existing resource.
  *
  * @throws {@link InvalidDomainValidationOptionsException} (client fault)
- *  <p>One or more values in the <a>DomainValidationOption</a> structure is incorrect.</p>
+ *
+ * One or more values in the DomainValidationOption structure is incorrect.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>An input parameter was invalid.</p>
+ *
+ * An input parameter was invalid.
  *
  * @throws {@link InvalidTagException} (client fault)
- *  <p>One or both of the values that make up the key-value pair is not valid. For example, you cannot specify a tag value that begins with <code>aws:</code>.</p>
+ *
+ * One or both of the values that make up the key-value pair is not valid. For example, you cannot specify a tag value that begins with `aws:`.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>An ACM quota has been exceeded.</p>
+ *
+ * An ACM quota has been exceeded.
  *
  * @throws {@link TagPolicyException} (client fault)
- *  <p>A specified tag did not comply with an existing tag policy and was rejected.</p>
+ *
+ * A specified tag did not comply with an existing tag policy and was rejected.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>The request contains too many tags. Try the request again with fewer tags.</p>
+ *
+ * The request contains too many tags. Try the request again with fewer tags.
  *
  * @throws {@link ACMServiceException}
- * <p>Base exception class for all service exceptions from ACM service.</p>
  *
+ * Base exception class for all service exceptions from ACM service.
  *
  * @public
  */

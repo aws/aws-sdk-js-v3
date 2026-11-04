@@ -26,8 +26,10 @@ export interface ListAttachedFilesConfigurationsCommandInput extends ListAttache
 export interface ListAttachedFilesConfigurationsCommandOutput extends ListAttachedFilesConfigurationsResponse, __MetadataBearer {}
 
 /**
- * <p>Provides summary information about the attached files configurations for the specified Connect Customer instance.</p>
- *          <p>This API returns effective configurations (custom overrides or defaults) for each attachment scope. If no custom configuration exists for a scope, the default configuration values are returned.</p>
+ * Provides summary information about the attached files configurations for the specified Connect Customer instance.
+ *
+ * This API returns effective configurations (custom overrides or defaults) for each attachment scope. If no custom configuration exists for a scope, the default configuration values are returned.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,23 +72,28 @@ export interface ListAttachedFilesConfigurationsCommandOutput extends ListAttach
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

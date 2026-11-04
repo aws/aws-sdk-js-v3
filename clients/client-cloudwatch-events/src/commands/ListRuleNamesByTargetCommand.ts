@@ -23,8 +23,8 @@ export interface ListRuleNamesByTargetCommandInput extends ListRuleNamesByTarget
 export interface ListRuleNamesByTargetCommandOutput extends ListRuleNamesByTargetResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the rules for the specified target. You can see which of the rules in Amazon
- *       EventBridge can invoke a specific target in your account.</p>
+ * Lists the rules for the specified target. You can see which of the rules in Amazon EventBridge can invoke a specific target in your account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,14 +57,16 @@ export interface ListRuleNamesByTargetCommandOutput extends ListRuleNamesByTarge
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * This exception occurs due to unexpected causes.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An entity that you specified does not exist.</p>
+ *
+ * An entity that you specified does not exist.
  *
  * @throws {@link CloudWatchEventsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchEvents service.
  *
  * @public
  */

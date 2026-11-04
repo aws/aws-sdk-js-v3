@@ -2,48 +2,56 @@
 import type { MetricQueryResultStatus, MetricStatistic, Period, PutMetricsErrorCode, XAxisType } from "./enums";
 
 /**
- * <p>Specifies a query to retrieve training metrics from SageMaker.</p>
+ * Specifies a query to retrieve training metrics from SageMaker.
+ *
  * @public
  */
 export interface MetricQuery {
   /**
-   * <p>The name of the metric to retrieve.</p>
+   * The name of the metric to retrieve.
+   *
    * @public
    */
   MetricName: string | undefined;
 
   /**
-   * <p>The ARN of the SageMaker resource to retrieve metrics for.</p>
+   * The ARN of the SageMaker resource to retrieve metrics for.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>The metrics stat type of metrics to retrieve.</p>
+   * The metrics stat type of metrics to retrieve.
+   *
    * @public
    */
   MetricStat: MetricStatistic | undefined;
 
   /**
-   * <p>The time period of metrics to retrieve.</p>
+   * The time period of metrics to retrieve.
+   *
    * @public
    */
   Period: Period | undefined;
 
   /**
-   * <p>The x-axis type of metrics to retrieve.</p>
+   * The x-axis type of metrics to retrieve.
+   *
    * @public
    */
   XAxisType: XAxisType | undefined;
 
   /**
-   * <p>The start time of metrics to retrieve.</p>
+   * The start time of metrics to retrieve.
+   *
    * @public
    */
   Start?: number | undefined;
 
   /**
-   * <p>The end time of metrics to retrieve.</p>
+   * The end time of metrics to retrieve.
+   *
    * @public
    */
   End?: number | undefined;
@@ -54,37 +62,43 @@ export interface MetricQuery {
  */
 export interface BatchGetMetricsRequest {
   /**
-   * <p>Queries made to retrieve training metrics from SageMaker.</p>
+   * Queries made to retrieve training metrics from SageMaker.
+   *
    * @public
    */
   MetricQueries: MetricQuery[] | undefined;
 }
 
 /**
- * <p>The result of a query to retrieve training metrics from SageMaker.</p>
+ * The result of a query to retrieve training metrics from SageMaker.
+ *
  * @public
  */
 export interface MetricQueryResult {
   /**
-   * <p>The status of the metric query.</p>
+   * The status of the metric query.
+   *
    * @public
    */
   Status: MetricQueryResultStatus | undefined;
 
   /**
-   * <p>A message describing the status of the metric query.</p>
+   * A message describing the status of the metric query.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The values for the x-axis of the metrics.</p>
+   * The values for the x-axis of the metrics.
+   *
    * @public
    */
   XAxisValues: number[] | undefined;
 
   /**
-   * <p>The metric values retrieved by the query.</p>
+   * The metric values retrieved by the query.
+   *
    * @public
    */
   MetricValues: number[] | undefined;
@@ -95,38 +109,43 @@ export interface MetricQueryResult {
  */
 export interface BatchGetMetricsResponse {
   /**
-   * <p>The results of a query to retrieve training metrics from SageMaker.</p>
+   * The results of a query to retrieve training metrics from SageMaker.
+   *
    * @public
    */
   MetricQueryResults?: MetricQueryResult[] | undefined;
 }
 
 /**
- * <p>The raw metric data to associate with the resource.</p>
+ * The raw metric data to associate with the resource.
+ *
  * @public
  */
 export interface RawMetricData {
   /**
-   * <p>The name of the metric.</p>
+   * The name of the metric.
+   *
    * @public
    */
   MetricName: string | undefined;
 
   /**
-   * <p>The time that the metric was recorded.</p>
+   * The time that the metric was recorded.
+   *
    * @public
    */
   Timestamp: Date | undefined;
 
   /**
-   * <p>The metric step (epoch).
-   *       </p>
+   * The metric step (epoch).
+   *
    * @public
    */
   Step?: number | undefined;
 
   /**
-   * <p>The metric value.</p>
+   * The metric value.
+   *
    * @public
    */
   Value: number | undefined;
@@ -137,51 +156,41 @@ export interface RawMetricData {
  */
 export interface BatchPutMetricsRequest {
   /**
-   * <p>The name of the Trial Component to associate with the metrics. The Trial Component name must be entirely lowercase.</p>
+   * The name of the Trial Component to associate with the metrics. The Trial Component name must be entirely lowercase.
+   *
    * @public
    */
   TrialComponentName: string | undefined;
 
   /**
-   * <p>A list of raw metric values to put.</p>
+   * A list of raw metric values to put.
+   *
    * @public
    */
   MetricData: RawMetricData[] | undefined;
 }
 
 /**
- * <p>An error that occured when putting the metric data.</p>
+ * An error that occured when putting the metric data.
+ *
  * @public
  */
 export interface BatchPutMetricsError {
   /**
-   * <p>The error code of an error that occured when attempting to put metrics.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>METRIC_LIMIT_EXCEEDED</code>: The maximum amount of metrics per resource is
-   *                exceeded.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INTERNAL_ERROR</code>: An internal error occured.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>VALIDATION_ERROR</code>: The metric data failed validation.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CONFLICT_ERROR</code>: Multiple requests attempted to modify the same data
-   *                simultaneously.</p>
-   *             </li>
-   *          </ul>
+   * The error code of an error that occured when attempting to put metrics.
+   *
+   * - `METRIC_LIMIT_EXCEEDED`: The maximum amount of metrics per resource is exceeded.
+   * - `INTERNAL_ERROR`: An internal error occured.
+   * - `VALIDATION_ERROR`: The metric data failed validation.
+   * - `CONFLICT_ERROR`: Multiple requests attempted to modify the same data simultaneously.
+   *
    * @public
    */
   Code?: PutMetricsErrorCode | undefined;
 
   /**
-   * <p>An index that corresponds to the metric in the request.</p>
+   * An index that corresponds to the metric in the request.
+   *
    * @public
    */
   MetricIndex?: number | undefined;
@@ -192,7 +201,8 @@ export interface BatchPutMetricsError {
  */
 export interface BatchPutMetricsResponse {
   /**
-   * <p>Lists any errors that occur when inserting metric data.</p>
+   * Lists any errors that occur when inserting metric data.
+   *
    * @public
    */
   Errors?: BatchPutMetricsError[] | undefined;

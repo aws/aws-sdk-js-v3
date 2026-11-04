@@ -23,7 +23,8 @@ export interface DeleteSinkCommandInput extends DeleteSinkInput {}
 export interface DeleteSinkCommandOutput extends DeleteSinkOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes a sink. You must delete all links to a sink before you can delete that sink.</p>
+ * Deletes a sink. You must delete all links to a sink before you can delete that sink.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,23 +49,28 @@ export interface DeleteSinkCommandOutput extends DeleteSinkOutput, __MetadataBea
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A resource was in an inconsistent state during an update or a deletion.</p>
+ *
+ * A resource was in an inconsistent state during an update or a deletion.
  *
  * @throws {@link InternalServiceFault} (server fault)
- *  <p>Unexpected error while processing the request. Retry the request.</p>
+ *
+ * Unexpected error while processing the request. Retry the request.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is specified incorrectly.</p>
+ *
+ * A parameter is specified incorrectly.
  *
  * @throws {@link MissingRequiredParameterException} (client fault)
- *  <p>A required parameter is missing from the request.</p>
+ *
+ * A required parameter is missing from the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request references a resource that does not exist.</p>
+ *
+ * The request references a resource that does not exist.
  *
  * @throws {@link OAMServiceException}
- * <p>Base exception class for all service exceptions from OAM service.</p>
  *
+ * Base exception class for all service exceptions from OAM service.
  *
  * @public
  */

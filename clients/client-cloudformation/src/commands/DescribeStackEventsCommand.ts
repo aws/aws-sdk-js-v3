@@ -23,13 +23,10 @@ export interface DescribeStackEventsCommandInput extends DescribeStackEventsInpu
 export interface DescribeStackEventsCommandOutput extends DescribeStackEventsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns all stack related events for a specified stack in reverse chronological order. For
- *       more information about a stack's event history, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stack-resource-configuration-complete.html">Understand CloudFormation stack creation events</a> in the
- *         <i>CloudFormation User Guide</i>.</p>
- *          <note>
- *             <p>You can list events for stacks that have failed to create or have been deleted by
- *         specifying the unique stack identifier (stack ID).</p>
- *          </note>
+ * Returns all stack related events for a specified stack in reverse chronological order. For more information about a stack's event history, see [Understand CloudFormation stack creation events](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stack-resource-configuration-complete.html) in the *CloudFormation User Guide*.
+ *
+ * > **Note:** You can list events for stacks that have failed to create or have been deleted by specifying the unique stack identifier (stack ID).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,8 +77,8 @@ export interface DescribeStackEventsCommandOutput extends DescribeStackEventsOut
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

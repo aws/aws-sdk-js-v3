@@ -5,7 +5,8 @@ import type { ResourceType } from "./enums";
 import { OutpostsServiceException as __BaseException } from "./OutpostsServiceException";
 
 /**
- * <p>You do not have permission to perform this operation.</p>
+ * You do not have permission to perform this operation.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -28,7 +29,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Updating or deleting this resource can cause an inconsistent state.</p>
+ * Updating or deleting this resource can cause an inconsistent state.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -37,13 +39,15 @@ export class ConflictException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The ID of the resource causing the conflict.</p>
+   * The ID of the resource causing the conflict.
+   *
    * @public
    */
   ResourceId?: string | undefined;
 
   /**
-   * <p>The type of the resource causing the conflict.</p>
+   * The type of the resource causing the conflict.
+   *
    * @public
    */
   ResourceType?: ResourceType | undefined;
@@ -64,7 +68,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>An internal error has occurred.</p>
+ * An internal error has occurred.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -87,7 +92,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The specified request is not valid.</p>
+ * The specified request is not valid.
+ *
  * @public
  */
 export class NotFoundException extends __BaseException {
@@ -110,7 +116,8 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * <p>A parameter is not valid.</p>
+ * A parameter is not valid.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -133,7 +140,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>You have exceeded a service quota.</p>
+ * You have exceeded a service quota.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {

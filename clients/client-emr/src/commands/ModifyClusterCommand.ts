@@ -23,8 +23,8 @@ export interface ModifyClusterCommandInput extends ModifyClusterInput {}
 export interface ModifyClusterCommandOutput extends ModifyClusterOutput, __MetadataBearer {}
 
 /**
- * <p>Modifies the number of steps that can be executed concurrently for the cluster specified
- *          using ClusterID.</p>
+ * Modifies the number of steps that can be executed concurrently for the cluster specified using ClusterID.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,15 +54,16 @@ export interface ModifyClusterCommandOutput extends ModifyClusterOutput, __Metad
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Indicates that an error occurred while processing the request and that the request was
- *          not completed.</p>
+ *
+ * Indicates that an error occurred while processing the request and that the request was not completed.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>This exception occurs when there is something wrong with user input.</p>
+ *
+ * This exception occurs when there is something wrong with user input.
  *
  * @throws {@link EMRServiceException}
- * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * Base exception class for all service exceptions from EMR service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface ListChannelsCommandInput extends ListChannelsInput {}
 export interface ListChannelsCommandOutput extends ListChannelsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the list of channel within a private re:Post with some information about each channel.</p>
+ * Returns the list of channel within a private re:Post with some information about each channel.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,20 +66,24 @@ export interface ListChannelsCommandOutput extends ListChannelsOutput, __Metadat
  * @see {@link RepostspaceClientResolvedConfig | config} for RepostspaceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * User does not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error during processing of request.</p>
+ *
+ * Unexpected error during processing of request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Request was denied due to request throttling.</p>
+ *
+ * Request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an AWS service.
  *
  * @throws {@link RepostspaceServiceException}
- * <p>Base exception class for all service exceptions from Repostspace service.</p>
  *
+ * Base exception class for all service exceptions from Repostspace service.
  *
  * @example ListChannels
  * ```javascript

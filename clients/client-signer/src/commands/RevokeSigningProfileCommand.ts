@@ -23,11 +23,8 @@ export interface RevokeSigningProfileCommandInput extends RevokeSigningProfileRe
 export interface RevokeSigningProfileCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Changes the state of a signing profile to <code>REVOKED</code>. This indicates that signatures
- * 			generated using the signing profile after an effective start date are no longer
- * 			valid. A revoked profile is still viewable with the <code>ListSigningProfiles</code>
- * 				operation, but it cannot perform new signing jobs. See <a href="https://docs.aws.amazon.com/signer/latest/developerguide/retention.html">Data Retention</a>
- * 					for more information on scheduled deletion of a revoked signing profile.  </p>
+ * Changes the state of a signing profile to `REVOKED`. This indicates that signatures generated using the signing profile after an effective start date are no longer valid. A revoked profile is still viewable with the `ListSigningProfiles` operation, but it cannot perform new signing jobs. See [Data Retention](https://docs.aws.amazon.com/signer/latest/developerguide/retention.html) for more information on scheduled deletion of a revoked signing profile.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,24 +52,30 @@ export interface RevokeSigningProfileCommandOutput extends __MetadataBearer {}
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>An internal error occurred.</p>
+ *
+ * An internal error occurred.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A specified resource could not be found.</p>
+ *
+ * A specified resource could not be found.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The allowed number of job-signing requests has been exceeded.</p>
- *          <p>This error supersedes the error <code>ThrottlingException</code>.</p>
+ *
+ * The allowed number of job-signing requests has been exceeded.
+ *
+ * This error supersedes the error `ThrottlingException`.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>You signing certificate could not be validated.</p>
+ *
+ * You signing certificate could not be validated.
  *
  * @throws {@link SignerServiceException}
- * <p>Base exception class for all service exceptions from Signer service.</p>
  *
+ * Base exception class for all service exceptions from Signer service.
  *
  * @public
  */

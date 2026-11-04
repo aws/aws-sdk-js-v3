@@ -23,14 +23,10 @@ export interface CreateHostCommandInput extends CreateHostInput {}
 export interface CreateHostCommandOutput extends CreateHostOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a resource that represents the infrastructure where a third-party provider is
- *       installed. The host is used when you create connections to an installed third-party provider
- *       type, such as GitHub Enterprise Server. You create one host for all connections to that
- *       provider.</p>
- *          <note>
- *             <p>A host created through the CLI or the SDK is in `PENDING` status by
- *         default. You can make its status `AVAILABLE` by setting up the host in the console.</p>
- *          </note>
+ * Creates a resource that represents the infrastructure where a third-party provider is installed. The host is used when you create connections to an installed third-party provider type, such as GitHub Enterprise Server. You create one host for all connections to that provider.
+ *
+ * > **Note:** A host created through the CLI or the SDK is in `PENDING` status by default. You can make its status `AVAILABLE` by setting up the host in the console.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,11 +77,12 @@ export interface CreateHostCommandOutput extends CreateHostOutput, __MetadataBea
  * @see {@link CodeConnectionsClientResolvedConfig | config} for CodeConnectionsClient's `config` shape.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>Exceeded the maximum limit for connections.</p>
+ *
+ * Exceeded the maximum limit for connections.
  *
  * @throws {@link CodeConnectionsServiceException}
- * <p>Base exception class for all service exceptions from CodeConnections service.</p>
  *
+ * Base exception class for all service exceptions from CodeConnections service.
  *
  * @public
  */

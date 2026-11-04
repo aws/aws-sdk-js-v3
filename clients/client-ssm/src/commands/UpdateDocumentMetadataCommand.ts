@@ -23,13 +23,10 @@ export interface UpdateDocumentMetadataCommandInput extends UpdateDocumentMetada
 export interface UpdateDocumentMetadataCommandOutput extends UpdateDocumentMetadataResponse, __MetadataBearer {}
 
 /**
- * <important>
- *             <p>Amazon Web Services Systems Manager Change Manager is no longer open to new customers. Existing customers can
- *   continue to use the service as normal. For more information, see
- * <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/change-manager-availability-change.html">Amazon Web Services Systems Manager Change Manager availability change</a>.</p>
- *          </important>
- *          <p>Updates information related to approval reviews for a specific version of a change template
- *    in Change Manager.</p>
+ * > **Important:** Amazon Web Services Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [Amazon Web Services Systems Manager Change Manager availability change](https://docs.aws.amazon.com/systems-manager/latest/userguide/change-manager-availability-change.html).
+ *
+ * Updates information related to approval reviews for a specific version of a change template in Change Manager.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,24 +61,28 @@ export interface UpdateDocumentMetadataCommandOutput extends UpdateDocumentMetad
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidDocument} (client fault)
- *  <p>The specified SSM document doesn't exist.</p>
+ *
+ * The specified SSM document doesn't exist.
  *
  * @throws {@link InvalidDocumentOperation} (client fault)
- *  <p>You attempted to delete a document while it is still shared. You must stop sharing the
- *    document before you can delete it.</p>
+ *
+ * You attempted to delete a document while it is still shared. You must stop sharing the document before you can delete it.
  *
  * @throws {@link InvalidDocumentVersion} (client fault)
- *  <p>The document version isn't valid or doesn't exist.</p>
+ *
+ * The document version isn't valid or doesn't exist.
  *
  * @throws {@link TooManyUpdates} (client fault)
- *  <p>There are concurrent updates for a resource that supports one update at a time.</p>
+ *
+ * There are concurrent updates for a resource that supports one update at a time.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

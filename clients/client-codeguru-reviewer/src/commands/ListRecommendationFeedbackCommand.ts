@@ -23,8 +23,8 @@ export interface ListRecommendationFeedbackCommandInput extends ListRecommendati
 export interface ListRecommendationFeedbackCommandOutput extends ListRecommendationFeedbackResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RecommendationFeedbackSummary.html">RecommendationFeedbackSummary</a> objects that contain customer recommendation
- *          feedback for all CodeGuru Reviewer users.</p>
+ * Returns a list of [RecommendationFeedbackSummary](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RecommendationFeedbackSummary.html) objects that contain customer recommendation feedback for all CodeGuru Reviewer users.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,23 +68,28 @@ export interface ListRecommendationFeedbackCommandOutput extends ListRecommendat
  * @see {@link CodeGuruReviewerClientResolvedConfig | config} for CodeGuruReviewerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The server encountered an internal error and is unable to complete the request.</p>
+ *
+ * The server encountered an internal error and is unable to complete the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The resource specified in the request was not found. </p>
+ *
+ * The resource specified in the request was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the specified constraints.</p>
+ *
+ * The input fails to satisfy the specified constraints.
  *
  * @throws {@link CodeGuruReviewerServiceException}
- * <p>Base exception class for all service exceptions from CodeGuruReviewer service.</p>
  *
+ * Base exception class for all service exceptions from CodeGuruReviewer service.
  *
  * @public
  */

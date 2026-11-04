@@ -23,14 +23,10 @@ export interface ListChangedBlocksCommandInput extends ListChangedBlocksRequest 
 export interface ListChangedBlocksCommandOutput extends ListChangedBlocksResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about the blocks that are different between two
- *             Amazon Elastic Block Store snapshots of the same volume/snapshot lineage.</p>
- *          <note>
- *             <p>You should always retry requests that receive server (<code>5xx</code>)
- *     error responses, and <code>ThrottlingException</code> and <code>RequestThrottledException</code>
- *     client error responses. For more information see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html">Error retries</a> in the
- *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
- *          </note>
+ * Returns information about the blocks that are different between two Amazon Elastic Block Store snapshots of the same volume/snapshot lineage.
+ *
+ * > **Note:** You should always retry requests that receive server (`5xx`) error responses, and `ThrottlingException` and `RequestThrottledException` client error responses. For more information see [Error retries](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html) in the *Amazon Elastic Compute Cloud User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,27 +67,32 @@ export interface ListChangedBlocksCommandOutput extends ListChangedBlocksRespons
  * @see {@link EBSClientResolvedConfig | config} for EBSClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error has occurred. For more information see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html">Error retries</a>.</p>
+ *
+ * An internal error has occurred. For more information see [Error retries](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html).
  *
  * @throws {@link RequestThrottledException} (client fault)
- *  <p>The number of API requests has exceeded the maximum allowed API request
- *             throttling limit for the snapshot. For more information see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html">Error retries</a>.</p>
+ *
+ * The number of API requests has exceeded the maximum allowed API request throttling limit for the snapshot. For more information see [Error retries](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html).
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Your current service quotas do not allow you to perform this action.</p>
+ *
+ * Your current service quotas do not allow you to perform this action.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints of the EBS direct APIs.</p>
+ *
+ * The input fails to satisfy the constraints of the EBS direct APIs.
  *
  * @throws {@link EBSServiceException}
- * <p>Base exception class for all service exceptions from EBS service.</p>
  *
+ * Base exception class for all service exceptions from EBS service.
  *
  * @public
  */

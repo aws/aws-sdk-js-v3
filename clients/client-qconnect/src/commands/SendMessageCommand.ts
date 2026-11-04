@@ -23,7 +23,8 @@ export interface SendMessageCommandInput extends SendMessageRequest {}
 export interface SendMessageCommandOutput extends SendMessageResponse, __MetadataBearer {}
 
 /**
- * <p>Submits a message to the Amazon Q in Connect session.</p>
+ * Submits a message to the Amazon Q in Connect session.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -108,32 +109,40 @@ export interface SendMessageCommandOutput extends SendMessageResponse, __Metadat
  * @see {@link QConnectClientResolvedConfig | config} for QConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of conflict in the current state of the resource. For example, if you're using a <code>Create</code> API (such as <code>CreateAssistant</code>) that accepts name, a conflicting resource (usually with the same name) is being created or mutated.</p>
+ *
+ * The request could not be processed because of conflict in the current state of the resource. For example, if you're using a `Create` API (such as `CreateAssistant`) that accepts name, a conflicting resource (usually with the same name) is being created or mutated.
  *
  * @throws {@link DependencyFailedException} (client fault)
- *  <p>The request failed because it depends on another request that failed.</p>
+ *
+ * The request failed because it depends on another request that failed.
  *
  * @throws {@link RequestTimeoutException} (client fault)
- *  <p>The request reached the service more than 15 minutes after the date stamp on the request or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or the date stamp on the request is more than 15 minutes in the future.</p>
+ *
+ * The request reached the service more than 15 minutes after the date stamp on the request or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or the date stamp on the request is more than 15 minutes in the future.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You've exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use service quotas to request a service quota increase.</p>
+ *
+ * You've exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use service quotas to request a service quota increase.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by a service.</p>
+ *
+ * The input fails to satisfy the constraints specified by a service.
  *
  * @throws {@link QConnectServiceException}
- * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ * Base exception class for all service exceptions from QConnect service.
  *
  * @public
  */

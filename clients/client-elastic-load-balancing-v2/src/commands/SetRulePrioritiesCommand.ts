@@ -23,9 +23,10 @@ export interface SetRulePrioritiesCommandInput extends SetRulePrioritiesInput {}
 export interface SetRulePrioritiesCommandOutput extends SetRulePrioritiesOutput, __MetadataBearer {}
 
 /**
- * <p>Sets the priorities of the specified rules.</p>
- *          <p>You can reorder the rules as long as there are no priority conflicts in the new order. Any
- *       existing rules that you do not specify retain their current priority.</p>
+ * Sets the priorities of the specified rules.
+ *
+ * You can reorder the rules as long as there are no priority conflicts in the new order. Any existing rules that you do not specify retain their current priority.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -202,17 +203,20 @@ export interface SetRulePrioritiesCommandOutput extends SetRulePrioritiesOutput,
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>This operation is not allowed.</p>
+ *
+ * This operation is not allowed.
  *
  * @throws {@link PriorityInUseException} (client fault)
- *  <p>The specified priority is in use.</p>
+ *
+ * The specified priority is in use.
  *
  * @throws {@link RuleNotFoundException} (client fault)
- *  <p>The specified rule does not exist.</p>
+ *
+ * The specified rule does not exist.
  *
  * @throws {@link ElasticLoadBalancingV2ServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancingV2 service.
  *
  * @example To set the rule priority
  * ```javascript

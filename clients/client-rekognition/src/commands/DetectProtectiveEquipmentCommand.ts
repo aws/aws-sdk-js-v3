@@ -23,43 +23,28 @@ export interface DetectProtectiveEquipmentCommandInput extends DetectProtectiveE
 export interface DetectProtectiveEquipmentCommandOutput extends DetectProtectiveEquipmentResponse, __MetadataBearer {}
 
 /**
- * <p>Detects Personal Protective Equipment (PPE) worn by people detected in an image. Amazon Rekognition can detect the
- *          following types of PPE.</p>
- *          <ul>
- *             <li>
- *                <p>Face cover</p>
- *             </li>
- *             <li>
- *                <p>Hand cover</p>
- *             </li>
- *             <li>
- *                <p>Head cover</p>
- *             </li>
- *          </ul>
- *          <p>You pass the input image as base64-encoded image bytes or as a reference to an image in an Amazon S3 bucket.
- *          The image must be either a PNG or JPG formatted file. </p>
- *          <p>
- *             <code>DetectProtectiveEquipment</code> detects PPE worn by up to 15 persons detected in an image.</p>
- *          <p>For each person detected in the image the API returns an array of body parts (face, head, left-hand, right-hand).
- *          For each body part, an array of detected items of PPE is returned, including an indicator of whether or not the PPE
- *          covers the body part. The API returns the confidence it has in each detection
- *          (person, PPE, body part and body part coverage). It also returns a bounding box (<a>BoundingBox</a>) for each detected
- *          person and each detected item of PPE. </p>
- *          <p>You can optionally request a summary of detected PPE items with the <code>SummarizationAttributes</code> input parameter.
- *          The summary provides the following information. </p>
- *          <ul>
- *             <li>
- *                <p>The persons detected as wearing all of the types of PPE that you specify.</p>
- *             </li>
- *             <li>
- *                <p>The persons detected as not wearing all of the types PPE that you specify.</p>
- *             </li>
- *             <li>
- *                <p>The persons detected where PPE adornment could not be determined. </p>
- *             </li>
- *          </ul>
- *          <p>This is a stateless API operation. That is, the operation does not persist any data.</p>
- *          <p>This operation requires permissions to perform the <code>rekognition:DetectProtectiveEquipment</code> action. </p>
+ * Detects Personal Protective Equipment (PPE) worn by people detected in an image. Amazon Rekognition can detect the following types of PPE.
+ *
+ * - Face cover
+ * - Hand cover
+ * - Head cover
+ *
+ * You pass the input image as base64-encoded image bytes or as a reference to an image in an Amazon S3 bucket. The image must be either a PNG or JPG formatted file.
+ *
+ * `DetectProtectiveEquipment` detects PPE worn by up to 15 persons detected in an image.
+ *
+ * For each person detected in the image the API returns an array of body parts (face, head, left-hand, right-hand). For each body part, an array of detected items of PPE is returned, including an indicator of whether or not the PPE covers the body part. The API returns the confidence it has in each detection (person, PPE, body part and body part coverage). It also returns a bounding box (BoundingBox) for each detected person and each detected item of PPE.
+ *
+ * You can optionally request a summary of detected PPE items with the `SummarizationAttributes` input parameter. The summary provides the following information.
+ *
+ * - The persons detected as wearing all of the types of PPE that you specify.
+ * - The persons detected as not wearing all of the types PPE that you specify.
+ * - The persons detected where PPE adornment could not be determined.
+ *
+ * This is a stateless API operation. That is, the operation does not persist any data.
+ *
+ * This operation requires permissions to perform the `rekognition:DetectProtectiveEquipment` action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -144,37 +129,40 @@ export interface DetectProtectiveEquipmentCommandOutput extends DetectProtective
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You are not authorized to perform the action.</p>
+ *
+ * You are not authorized to perform the action.
  *
  * @throws {@link ImageTooLargeException} (client fault)
- *  <p>The input image size exceeds the allowed limit. If you are calling
- *       DetectProtectiveEquipment, the image size or resolution exceeds the allowed limit. For more
- *       information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide.
- *     </p>
+ *
+ * The input image size exceeds the allowed limit. If you are calling DetectProtectiveEquipment, the image size or resolution exceeds the allowed limit. For more information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * Amazon Rekognition experienced a service issue. Try your call again.
  *
  * @throws {@link InvalidImageFormatException} (client fault)
- *  <p>The provided image format is not supported. </p>
+ *
+ * The provided image format is not supported.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
- *       operation again.</p>
+ *
+ * Input parameter violated a constraint. Validate your parameter before calling the API operation again.
  *
  * @throws {@link InvalidS3ObjectException} (client fault)
- *  <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
+ *
+ * Amazon Rekognition is unable to access the S3 object specified in the request.
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
- *  <p>The number of requests exceeded your throughput limit. If you want to increase this
- *       limit, contact Amazon Rekognition.</p>
+ *
+ * The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.
  *
  * @throws {@link ThrottlingException} (server fault)
- *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
+ * Amazon Rekognition is temporarily unable to process the request. Try your call again.
  *
  * @throws {@link RekognitionServiceException}
- * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * Base exception class for all service exceptions from Rekognition service.
  *
  * @public
  */

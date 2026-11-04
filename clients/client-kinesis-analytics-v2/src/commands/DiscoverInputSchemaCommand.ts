@@ -23,13 +23,10 @@ export interface DiscoverInputSchemaCommandInput extends DiscoverInputSchemaRequ
 export interface DiscoverInputSchemaCommandOutput extends DiscoverInputSchemaResponse, __MetadataBearer {}
 
 /**
- * <p>Infers a schema for a SQL-based Kinesis Data Analytics application by evaluating
- *       sample records on the specified streaming source (Kinesis data stream or Kinesis Data Firehose
- *       delivery stream) or Amazon S3 object. In the response, the operation returns the inferred
- *       schema and also the sample records that the operation used to infer the schema.</p>
- *          <p> You can use the inferred schema when configuring a streaming source for your application.
- *       When you create an application using the Kinesis Data Analytics console, the console uses this
- *       operation to infer a schema and show it in the console user interface. </p>
+ * Infers a schema for a SQL-based Kinesis Data Analytics application by evaluating sample records on the specified streaming source (Kinesis data stream or Kinesis Data Firehose delivery stream) or Amazon S3 object. In the response, the operation returns the inferred schema and also the sample records that the operation used to infer the schema.
+ *
+ * You can use the inferred schema when configuring a streaming source for your application. When you create an application using the Kinesis Data Analytics console, the console uses this operation to infer a schema and show it in the console user interface.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -101,29 +98,32 @@ export interface DiscoverInputSchemaCommandOutput extends DiscoverInputSchemaRes
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>The specified input parameter value is not valid.</p>
+ *
+ * The specified input parameter value is not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request JSON is not valid for the operation.</p>
+ *
+ * The request JSON is not valid for the operation.
  *
  * @throws {@link ResourceProvisionedThroughputExceededException} (client fault)
- *  <p>Discovery failed to get a record from the streaming source because of the Kinesis
- *       Streams <code>ProvisionedThroughputExceededException</code>. For more information, see <a href="http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetRecords.html">GetRecords</a> in the Amazon Kinesis Streams API Reference.</p>
+ *
+ * Discovery failed to get a record from the streaming source because of the Kinesis Streams `ProvisionedThroughputExceededException`. For more information, see [GetRecords](http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetRecords.html) in the Amazon Kinesis Streams API Reference.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service cannot complete the request.</p>
+ *
+ * The service cannot complete the request.
  *
  * @throws {@link UnableToDetectSchemaException} (client fault)
- *  <p>The data format is not valid. Kinesis Data Analytics cannot detect the schema for
- *       the given streaming source.</p>
+ *
+ * The data format is not valid. Kinesis Data Analytics cannot detect the schema for the given streaming source.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this
- *       operation. </p>
+ *
+ * The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation.
  *
  * @throws {@link KinesisAnalyticsV2ServiceException}
- * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ * Base exception class for all service exceptions from KinesisAnalyticsV2 service.
  *
  * @public
  */

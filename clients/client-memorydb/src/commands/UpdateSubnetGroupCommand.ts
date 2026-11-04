@@ -23,8 +23,8 @@ export interface UpdateSubnetGroupCommandInput extends UpdateSubnetGroupRequest 
 export interface UpdateSubnetGroupCommandOutput extends UpdateSubnetGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a subnet group. For more information, see <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/ubnetGroups.Modifying.html">Updating a subnet group</a>
- *          </p>
+ * Updates a subnet group. For more information, see [Updating a subnet group](https://docs.aws.amazon.com/MemoryDB/latest/devguide/ubnetGroups.Modifying.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,26 +74,32 @@ export interface UpdateSubnetGroupCommandOutput extends UpdateSubnetGroupRespons
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  * @throws {@link InvalidSubnet} (client fault)
- *  <p>The specified subnet is not valid.</p>
+ *
+ * The specified subnet is not valid.
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
- *  <p>The required service-linked role was not found.</p>
+ *
+ * The required service-linked role was not found.
  *
  * @throws {@link SubnetGroupNotFoundFault} (client fault)
- *  <p>The specified subnet group does not exist.</p>
+ *
+ * The specified subnet group does not exist.
  *
  * @throws {@link SubnetInUse} (client fault)
- *  <p>The subnet is currently in use and cannot be deleted.</p>
+ *
+ * The subnet is currently in use and cannot be deleted.
  *
  * @throws {@link SubnetNotAllowedFault} (client fault)
- *  <p>The specified subnet is not allowed for this operation.</p>
+ *
+ * The specified subnet is not allowed for this operation.
  *
  * @throws {@link SubnetQuotaExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the maximum number of subnets allowed.</p>
+ *
+ * The request cannot be processed because it would exceed the maximum number of subnets allowed.
  *
  * @throws {@link MemoryDBServiceException}
- * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * Base exception class for all service exceptions from MemoryDB service.
  *
  * @public
  */

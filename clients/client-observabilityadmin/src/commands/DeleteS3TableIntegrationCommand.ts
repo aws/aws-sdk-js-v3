@@ -23,7 +23,8 @@ export interface DeleteS3TableIntegrationCommandInput extends DeleteS3TableInteg
 export interface DeleteS3TableIntegrationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an S3 Table integration and its associated data. This operation removes the connection between CloudWatch Observability Admin and S3 Tables.</p>
+ * Deletes an S3 Table integration and its associated data. This operation removes the connection between CloudWatch Observability Admin and S3 Tables.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,26 +49,32 @@ export interface DeleteS3TableIntegrationCommandOutput extends __MetadataBearer 
  * @see {@link ObservabilityAdminClientResolvedConfig | config} for ObservabilityAdminClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
+ *
+ * Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see [Access management for Amazon Web Services resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the IAM user guide.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
+ *
+ * Indicates the request has failed to process because of an unknown server error, exception, or failure.
  *
  * @throws {@link InvalidStateException} (client fault)
- *  <p> The requested operation cannot be completed on the specified resource in the current state. </p>
+ *
+ * The requested operation cannot be completed on the specified resource in the current state.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p> The requested operation would exceed the allowed quota for the specified resource type. </p>
+ *
+ * The requested operation would exceed the allowed quota for the specified resource type.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p> The request throughput limit was exceeded. </p>
+ *
+ * The request throughput limit was exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
+ *
+ * Indicates input validation failed. Check your request parameters and retry the request.
  *
  * @throws {@link ObservabilityAdminServiceException}
- * <p>Base exception class for all service exceptions from ObservabilityAdmin service.</p>
  *
+ * Base exception class for all service exceptions from ObservabilityAdmin service.
  *
  * @public
  */

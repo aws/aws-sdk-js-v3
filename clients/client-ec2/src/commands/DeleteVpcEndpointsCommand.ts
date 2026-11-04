@@ -23,11 +23,14 @@ export interface DeleteVpcEndpointsCommandInput extends DeleteVpcEndpointsReques
 export interface DeleteVpcEndpointsCommandOutput extends DeleteVpcEndpointsResult, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified VPC endpoints.</p>
- *          <p>When you delete a gateway endpoint, we delete the endpoint routes in the route tables for the endpoint.</p>
- *          <p>When you delete a Gateway Load Balancer endpoint, we delete its endpoint network interfaces.
- *           You can only delete Gateway Load Balancer endpoints when the routes that are associated with the endpoint are deleted.</p>
- *          <p>When you delete an interface endpoint, we delete its endpoint network interfaces.</p>
+ * Deletes the specified VPC endpoints.
+ *
+ * When you delete a gateway endpoint, we delete the endpoint routes in the route tables for the endpoint.
+ *
+ * When you delete a Gateway Load Balancer endpoint, we delete its endpoint network interfaces. You can only delete Gateway Load Balancer endpoints when the routes that are associated with the endpoint are deleted.
+ *
+ * When you delete an interface endpoint, we delete its endpoint network interfaces.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,8 +68,8 @@ export interface DeleteVpcEndpointsCommandOutput extends DeleteVpcEndpointsResul
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

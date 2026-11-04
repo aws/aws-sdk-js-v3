@@ -23,12 +23,8 @@ export interface GetDetectorsCommandInput extends GetDetectorsRequest {}
 export interface GetDetectorsCommandOutput extends GetDetectorsResult, __MetadataBearer {}
 
 /**
- * <p>Gets all detectors or a single detector if a <code>detectorId</code> is specified. This is a paginated API. If you
- *          provide a null <code>maxResults</code>, this action retrieves a maximum of 10 records
- *          per page. If you provide a <code>maxResults</code>, the value must be between 5 and 10.
- *          To get the next page results, provide the pagination token from the
- *             <code>GetDetectorsResponse</code> as part of your request. A null pagination token
- *          fetches the records from the beginning. </p>
+ * Gets all detectors or a single detector if a `detectorId` is specified. This is a paginated API. If you provide a null `maxResults`, this action retrieves a maximum of 10 records per page. If you provide a `maxResults`, the value must be between 5 and 10. To get the next page results, provide the pagination token from the `GetDetectorsResponse` as part of your request. A null pagination token fetches the records from the beginning.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,23 +63,28 @@ export interface GetDetectorsCommandOutput extends GetDetectorsResult, __Metadat
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+ *
+ * An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as `PutExternalModel`, that specifies a role that is not in your account.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An exception indicating an internal server error.</p>
+ *
+ * An exception indicating an internal server error.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An exception indicating the specified resource was not found.</p>
+ *
+ * An exception indicating the specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>An exception indicating a throttling error.</p>
+ *
+ * An exception indicating a throttling error.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An exception indicating a specified value is not allowed.</p>
+ *
+ * An exception indicating a specified value is not allowed.
  *
  * @throws {@link FraudDetectorServiceException}
- * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * Base exception class for all service exceptions from FraudDetector service.
  *
  * @public
  */

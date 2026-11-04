@@ -23,11 +23,10 @@ export interface StartSpeakerSearchTaskCommandInput extends StartSpeakerSearchTa
 export interface StartSpeakerSearchTaskCommandOutput extends StartSpeakerSearchTaskResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a speaker search task.</p>
- *          <important>
- *             <p>Before starting any speaker search tasks, you must provide all notices and obtain all consents from the speaker as required under applicable privacy and biometrics laws, and as required under the
- *          <a href="https://aws.amazon.com/service-terms/">AWS service terms</a> for the Amazon Chime SDK.</p>
- *          </important>
+ * Starts a speaker search task.
+ *
+ * > **Important:** Before starting any speaker search tasks, you must provide all notices and obtain all consents from the speaker as required under applicable privacy and biometrics laws, and as required under the [AWS service terms](https://aws.amazon.com/service-terms/) for the Amazon Chime SDK.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,33 +65,40 @@ export interface StartSpeakerSearchTaskCommandOutput extends StartSpeakerSearchT
  * @see {@link ChimeSDKMediaPipelinesClientResolvedConfig | config} for ChimeSDKMediaPipelinesClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * The input parameters don't match the service's restrictions.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of conflict in the current state of the
- *          resource.</p>
+ *
+ * The request could not be processed because of conflict in the current state of the resource.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * The client is permanently forbidden from making the request.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>One or more of the resources in the request does not exist in the system.</p>
+ *
+ * One or more of the resources in the request does not exist in the system.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The service encountered an unexpected error.</p>
+ *
+ * The service encountered an unexpected error.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is currently unavailable.</p>
+ *
+ * The service is currently unavailable.
  *
  * @throws {@link ThrottledClientException} (client fault)
- *  <p>The client exceeded its request rate limit.</p>
+ *
+ * The client exceeded its request rate limit.
  *
  * @throws {@link UnauthorizedClientException} (client fault)
- *  <p>The client is not currently authorized to make the request.</p>
+ *
+ * The client is not currently authorized to make the request.
  *
  * @throws {@link ChimeSDKMediaPipelinesServiceException}
- * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
+ * Base exception class for all service exceptions from ChimeSDKMediaPipelines service.
  *
  * @public
  */

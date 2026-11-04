@@ -98,8 +98,8 @@ export interface ListDomainAccessGrantsForOrganizationCommandOutput extends List
  *  A parameter is specified incorrectly.
  *
  * @throws {@link CloudWatchOmniServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchOmni service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchOmni service.
  *
  * @example List organization domain access grants
  * ```javascript

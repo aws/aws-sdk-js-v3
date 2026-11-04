@@ -26,7 +26,8 @@ export interface ListDistributionsByConnectionModeCommandInput extends ListDistr
 export interface ListDistributionsByConnectionModeCommandOutput extends ListDistributionsByConnectionModeResult, __MetadataBearer {}
 
 /**
- * <p>Lists the distributions by the connection mode that you specify.</p>
+ * Lists the distributions by the connection mode that you specify.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -385,14 +386,16 @@ export interface ListDistributionsByConnectionModeCommandOutput extends ListDist
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link AccessDenied} (client fault)
- *  <p>Access denied.</p>
+ *
+ * Access denied.
  *
  * @throws {@link InvalidArgument} (client fault)
- *  <p>An argument is invalid.</p>
+ *
+ * An argument is invalid.
  *
  * @throws {@link CloudFrontServiceException}
- * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * Base exception class for all service exceptions from CloudFront service.
  *
  * @public
  */

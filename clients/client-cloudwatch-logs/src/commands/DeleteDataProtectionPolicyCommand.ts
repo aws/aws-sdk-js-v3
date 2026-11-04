@@ -23,8 +23,10 @@ export interface DeleteDataProtectionPolicyCommandInput extends DeleteDataProtec
 export interface DeleteDataProtectionPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the data protection policy from the specified log group. </p>
- *          <p>For more information about data protection policies, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDataProtectionPolicy.html">PutDataProtectionPolicy</a>.</p>
+ * Deletes the data protection policy from the specified log group.
+ *
+ * For more information about data protection policies, see [PutDataProtectionPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDataProtectionPolicy.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,20 +51,24 @@ export interface DeleteDataProtectionPolicyCommandOutput extends __MetadataBeare
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is specified incorrectly.</p>
+ *
+ * A parameter is specified incorrectly.
  *
  * @throws {@link OperationAbortedException} (client fault)
- *  <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+ *
+ * Multiple concurrent requests to update the same resource were in conflict.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service cannot complete the request.</p>
+ *
+ * The service cannot complete the request.
  *
  * @throws {@link CloudWatchLogsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchLogs service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface GetExportImageTaskCommandInput extends GetExportImageTaskReques
 export interface GetExportImageTaskCommandOutput extends GetExportImageTaskResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about an export image task, including its current state, progress, and any error details.</p>
+ * Retrieves information about an export image task, including its current state, progress, and any error details.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,14 +68,16 @@ export interface GetExportImageTaskCommandOutput extends GetExportImageTaskResul
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>The attempted operation is not permitted.</p>
+ *
+ * The attempted operation is not permitted.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link AppStreamServiceException}
- * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * Base exception class for all service exceptions from AppStream service.
  *
  * @public
  */

@@ -23,23 +23,12 @@ export interface CreateEventSubscriptionCommandInput extends CreateEventSubscrip
 export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscriptionResult, __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon Redshift event notification subscription. This action requires an ARN
- *             (Amazon Resource Name) of an Amazon SNS topic created by either the Amazon Redshift console,
- *             the Amazon SNS console, or the Amazon SNS API. To obtain an ARN with Amazon SNS, you
- *             must create a topic in Amazon SNS and subscribe to the topic. The ARN is displayed in
- *             the SNS console.</p>
- *          <p>You can specify the source type, and lists of Amazon Redshift source IDs, event
- *             categories, and event severities. Notifications will be sent for all events you want
- *             that match those criteria. For example, you can specify source type = cluster, source ID
- *             = my-cluster-1 and mycluster2, event categories = Availability, Backup, and severity =
- *             ERROR. The subscription will only send notifications for those ERROR events in the
- *             Availability and Backup categories for the specified clusters.</p>
- *          <p>If you specify both the source type and source IDs, such as source type = cluster
- *             and source identifier = my-cluster-1, notifications will be sent for all the cluster
- *             events for my-cluster-1. If you specify a source type but do not specify a source
- *             identifier, you will receive notice of the events for the objects of that type in your
- *             Amazon Web Services account. If you do not specify either the SourceType nor the SourceIdentifier, you
- *             will be notified of events generated from all Amazon Redshift sources belonging to your Amazon Web Services account. You must specify a source type if you specify a source ID.</p>
+ * Creates an Amazon Redshift event notification subscription. This action requires an ARN (Amazon Resource Name) of an Amazon SNS topic created by either the Amazon Redshift console, the Amazon SNS console, or the Amazon SNS API. To obtain an ARN with Amazon SNS, you must create a topic in Amazon SNS and subscribe to the topic. The ARN is displayed in the SNS console.
+ *
+ * You can specify the source type, and lists of Amazon Redshift source IDs, event categories, and event severities. Notifications will be sent for all events you want that match those criteria. For example, you can specify source type = cluster, source ID = my-cluster-1 and mycluster2, event categories = Availability, Backup, and severity = ERROR. The subscription will only send notifications for those ERROR events in the Availability and Backup categories for the specified clusters.
+ *
+ * If you specify both the source type and source IDs, such as source type = cluster and source identifier = my-cluster-1, notifications will be sent for all the cluster events for my-cluster-1. If you specify a source type but do not specify a source identifier, you will receive notice of the events for the objects of that type in your Amazon Web Services account. If you do not specify either the SourceType nor the SourceIdentifier, you will be notified of events generated from all Amazon Redshift sources belonging to your Amazon Web Services account. You must specify a source type if you specify a source ID.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -103,52 +92,52 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link EventSubscriptionQuotaExceededFault} (client fault)
- *  <p>The request would exceed the allowed number of event subscriptions for this
- *             account.
- * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.
- * </p>
+ *
+ * The request would exceed the allowed number of event subscriptions for this account. For information about increasing your quota, go to [Limits in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html) in the *Amazon Redshift Cluster Management Guide*.
  *
  * @throws {@link InvalidTagFault} (client fault)
- *  <p>The tag is invalid.</p>
+ *
+ * The tag is invalid.
  *
  * @throws {@link SNSInvalidTopicFault} (client fault)
- *  <p>Amazon SNS has responded that there is a problem with the specified Amazon SNS
- *             topic.</p>
+ *
+ * Amazon SNS has responded that there is a problem with the specified Amazon SNS topic.
  *
  * @throws {@link SNSNoAuthorizationFault} (client fault)
- *  <p>You do not have permission to publish to the specified Amazon SNS topic.</p>
+ *
+ * You do not have permission to publish to the specified Amazon SNS topic.
  *
  * @throws {@link SNSTopicArnNotFoundFault} (client fault)
- *  <p>An Amazon SNS topic with the specified Amazon Resource Name (ARN) does not
- *             exist.</p>
+ *
+ * An Amazon SNS topic with the specified Amazon Resource Name (ARN) does not exist.
  *
  * @throws {@link SourceNotFoundFault} (client fault)
- *  <p>The specified Amazon Redshift event source could not be found.</p>
+ *
+ * The specified Amazon Redshift event source could not be found.
  *
  * @throws {@link SubscriptionAlreadyExistFault} (client fault)
- *  <p>There is already an existing event notification subscription with the specified
- *             name.</p>
+ *
+ * There is already an existing event notification subscription with the specified name.
  *
  * @throws {@link SubscriptionCategoryNotFoundFault} (client fault)
- *  <p>The value specified for the event category was not one of the allowed values, or it
- *             specified a category that does not apply to the specified source type. The allowed
- *             values are Configuration, Management, Monitoring, and Security.</p>
+ *
+ * The value specified for the event category was not one of the allowed values, or it specified a category that does not apply to the specified source type. The allowed values are Configuration, Management, Monitoring, and Security.
  *
  * @throws {@link SubscriptionEventIdNotFoundFault} (client fault)
- *  <p>An Amazon Redshift event with the specified event ID does not exist.</p>
+ *
+ * An Amazon Redshift event with the specified event ID does not exist.
  *
  * @throws {@link SubscriptionSeverityNotFoundFault} (client fault)
- *  <p>The value specified for the event severity was not one of the allowed values, or it
- *             specified a severity that does not apply to the specified source type. The allowed
- *             values are ERROR and INFO.</p>
+ *
+ * The value specified for the event severity was not one of the allowed values, or it specified a severity that does not apply to the specified source type. The allowed values are ERROR and INFO.
  *
  * @throws {@link TagLimitExceededFault} (client fault)
- *  <p>You have exceeded the number of tags allowed.</p>
+ *
+ * You have exceeded the number of tags allowed.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

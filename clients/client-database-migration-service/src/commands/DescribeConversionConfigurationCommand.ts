@@ -26,11 +26,10 @@ export interface DescribeConversionConfigurationCommandInput extends DescribeCon
 export interface DescribeConversionConfigurationCommandOutput extends DescribeConversionConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Returns configuration parameters for a schema conversion project.</p>
- *          <p>
- *             <b>Required permissions:</b>
- *             <code>dms:DescribeConversionConfiguration</code>. For more information, see
- *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
+ * Returns configuration parameters for a schema conversion project.
+ *
+ * **Required permissions:** `dms:DescribeConversionConfiguration`. For more information, see [Actions, resources, and condition keys for Database Migration Service](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,11 +57,12 @@ export interface DescribeConversionConfigurationCommandOutput extends DescribeCo
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @example Retrieving conversion configuration for a migration project
  * ```javascript

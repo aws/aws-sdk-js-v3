@@ -23,7 +23,8 @@ export interface RevokeClientVpnIngressCommandInput extends RevokeClientVpnIngre
 export interface RevokeClientVpnIngressCommandOutput extends RevokeClientVpnIngressResult, __MetadataBearer {}
 
 /**
- * <p>Removes an ingress authorization rule from a Client VPN endpoint. </p>
+ * Removes an ingress authorization rule from a Client VPN endpoint.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,8 +58,8 @@ export interface RevokeClientVpnIngressCommandOutput extends RevokeClientVpnIngr
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

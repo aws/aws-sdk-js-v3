@@ -23,8 +23,8 @@ export interface ListCidrLocationsCommandInput extends ListCidrLocationsRequest 
 export interface ListCidrLocationsCommandOutput extends ListCidrLocationsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a paginated list of CIDR locations for the given collection (metadata only,
- * 			does not include CIDR blocks).</p>
+ * Returns a paginated list of CIDR locations for the given collection (metadata only, does not include CIDR blocks).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,14 +58,16 @@ export interface ListCidrLocationsCommandOutput extends ListCidrLocationsRespons
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link NoSuchCidrCollectionException} (client fault)
- *  <p>The CIDR collection you specified, doesn't exist.</p>
+ *
+ * The CIDR collection you specified, doesn't exist.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @public
  */

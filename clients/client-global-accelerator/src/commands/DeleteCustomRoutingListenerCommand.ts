@@ -23,7 +23,8 @@ export interface DeleteCustomRoutingListenerCommandInput extends DeleteCustomRou
 export interface DeleteCustomRoutingListenerCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Delete a listener for a custom routing accelerator.</p>
+ * Delete a listener for a custom routing accelerator.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,21 +49,24 @@ export interface DeleteCustomRoutingListenerCommandOutput extends __MetadataBear
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
  * @throws {@link AssociatedEndpointGroupFoundException} (client fault)
- *  <p>The listener that you specified has an endpoint group associated with it. You must remove all dependent resources
- * 			from a listener before you can delete it.</p>
+ *
+ * The listener that you specified has an endpoint group associated with it. You must remove all dependent resources from a listener before you can delete it.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * There was an internal error for Global Accelerator.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>An argument that you specified is invalid.</p>
+ *
+ * An argument that you specified is invalid.
  *
  * @throws {@link ListenerNotFoundException} (client fault)
- *  <p>The listener that you specified doesn't exist.</p>
+ *
+ * The listener that you specified doesn't exist.
  *
  * @throws {@link GlobalAcceleratorServiceException}
- * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * Base exception class for all service exceptions from GlobalAccelerator service.
  *
  * @public
  */

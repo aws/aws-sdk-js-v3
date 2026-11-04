@@ -23,7 +23,8 @@ export interface UpdateFailbackReplicationConfigurationCommandInput extends Upda
 export interface UpdateFailbackReplicationConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Allows you to update the failback replication configuration of a Recovery Instance by ID.</p>
+ * Allows you to update the failback replication configuration of a Recovery Instance by ID.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,23 +53,28 @@ export interface UpdateFailbackReplicationConfigurationCommandOutput extends __M
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource for this operation was not found.</p>
+ *
+ * The resource for this operation was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link UninitializedAccountException} (client fault)
- *  <p>The account performing the request has not been initialized.</p>
+ *
+ * The account performing the request has not been initialized.
  *
  * @throws {@link DrsServiceException}
- * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ * Base exception class for all service exceptions from Drs service.
  *
  * @public
  */

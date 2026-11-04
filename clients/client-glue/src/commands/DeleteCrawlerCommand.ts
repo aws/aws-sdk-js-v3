@@ -23,8 +23,8 @@ export interface DeleteCrawlerCommandInput extends DeleteCrawlerRequest {}
 export interface DeleteCrawlerCommandOutput extends DeleteCrawlerResponse, __MetadataBearer {}
 
 /**
- * <p>Removes a specified crawler from the Glue Data Catalog, unless the crawler state is
- *         <code>RUNNING</code>.</p>
+ * Removes a specified crawler from the Glue Data Catalog, unless the crawler state is `RUNNING`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,20 +49,24 @@ export interface DeleteCrawlerCommandOutput extends DeleteCrawlerResponse, __Met
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link CrawlerRunningException} (client fault)
- *  <p>The operation cannot be performed because the crawler is already running.</p>
+ *
+ * The operation cannot be performed because the crawler is already running.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link SchedulerTransitioningException} (client fault)
- *  <p>The specified scheduler is transitioning.</p>
+ *
+ * The specified scheduler is transitioning.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

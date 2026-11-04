@@ -23,7 +23,8 @@ export interface SearchQuickResponsesCommandInput extends SearchQuickResponsesRe
 export interface SearchQuickResponsesCommandOutput extends SearchQuickResponsesResponse, __MetadataBearer {}
 
 /**
- * <p>Searches existing Wisdom quick responses in a Wisdom knowledge base.</p>
+ * Searches existing Wisdom quick responses in a Wisdom knowledge base.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -126,22 +127,24 @@ export interface SearchQuickResponsesCommandOutput extends SearchQuickResponsesR
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link RequestTimeoutException} (client fault)
- *  <p>The request reached the service more than 15 minutes after the date stamp on the request
- *       or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or
- *       the date stamp on the request is more than 15 minutes in the future.</p>
+ *
+ * The request reached the service more than 15 minutes after the date stamp on the request or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or the date stamp on the request is more than 15 minutes in the future.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by a service.</p>
+ *
+ * The input fails to satisfy the constraints specified by a service.
  *
  * @throws {@link WisdomServiceException}
- * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ * Base exception class for all service exceptions from Wisdom service.
  *
  * @public
  */

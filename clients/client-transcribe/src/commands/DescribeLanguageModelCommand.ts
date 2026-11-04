@@ -23,13 +23,12 @@ export interface DescribeLanguageModelCommandInput extends DescribeLanguageModel
 export interface DescribeLanguageModelCommandOutput extends DescribeLanguageModelResponse, __MetadataBearer {}
 
 /**
- * <p>Provides information about the specified custom language model.</p>
- *          <p>This operation also shows if the base language model that you used to create your
- *             custom language model has been updated. If Amazon Transcribe has updated the base
- *             model, you can create a new custom language model using the updated base model.</p>
- *          <p>If you tried to create a new custom language model and the request wasn't successful,
- *             you can use <code>DescribeLanguageModel</code> to help identify the reason for this
- *             failure.</p>
+ * Provides information about the specified custom language model.
+ *
+ * This operation also shows if the base language model that you used to create your custom language model has been updated. If Amazon Transcribe has updated the base model, you can create a new custom language model using the updated base model.
+ *
+ * If you tried to create a new custom language model and the request wasn't successful, you can use `DescribeLanguageModel` to help identify the reason for this failure.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,26 +75,24 @@ export interface DescribeLanguageModelCommandOutput extends DescribeLanguageMode
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>Your request didn't pass one or more validation tests. This can occur when the entity
- *             you're trying to delete doesn't exist or if it's in a non-terminal state (such as
- *                 <code>IN PROGRESS</code>). See the exception message field for more
- *             information.</p>
+ *
+ * Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as `IN PROGRESS`). See the exception message field for more information.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>There was an internal error. Check the error message, correct the issue, and try your
- *             request again.</p>
+ *
+ * There was an internal error. Check the error message, correct the issue, and try your request again.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You've either sent too many requests or your input file is too long. Wait before
- *             retrying your request, or use a smaller file and try your request again.</p>
+ *
+ * You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>We can't find the requested resource. Check that the specified name is correct and try
- *             your request again.</p>
+ *
+ * We can't find the requested resource. Check that the specified name is correct and try your request again.
  *
  * @throws {@link TranscribeServiceException}
- * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * Base exception class for all service exceptions from Transcribe service.
  *
  * @public
  */

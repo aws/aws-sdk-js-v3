@@ -23,9 +23,8 @@ export interface CreateConnectionCommandInput extends CreateConnectionInput {}
 export interface CreateConnectionCommandOutput extends CreateConnectionOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a connection that can then be given to other Amazon Web Services services like CodePipeline so
- *       that it can access third-party code repositories. The connection is in pending status until
- *       the third-party connection handshake is completed from the console.</p>
+ * Creates a connection that can then be given to other Amazon Web Services services like CodePipeline so that it can access third-party code repositories. The connection is in pending status until the third-party connection handshake is completed from the console.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,17 +65,20 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  * @see {@link CodeConnectionsClientResolvedConfig | config} for CodeConnectionsClient's `config` shape.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>Exceeded the maximum limit for connections.</p>
+ *
+ * Exceeded the maximum limit for connections.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource not found. Verify the connection resource ARN and try again.</p>
+ *
+ * Resource not found. Verify the connection resource ARN and try again.
  *
  * @throws {@link ResourceUnavailableException} (client fault)
- *  <p>Resource not found. Verify the ARN for the host resource and try again.</p>
+ *
+ * Resource not found. Verify the ARN for the host resource and try again.
  *
  * @throws {@link CodeConnectionsServiceException}
- * <p>Base exception class for all service exceptions from CodeConnections service.</p>
  *
+ * Base exception class for all service exceptions from CodeConnections service.
  *
  * @public
  */

@@ -26,7 +26,8 @@ export interface DeleteAvailabilityConfigurationCommandInput extends DeleteAvail
 export interface DeleteAvailabilityConfigurationCommandOutput extends DeleteAvailabilityConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the <code>AvailabilityConfiguration</code> for the given WorkMail organization and domain.</p>
+ * Deletes the `AvailabilityConfiguration` for the given WorkMail organization and domain.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,16 +53,16 @@ export interface DeleteAvailabilityConfigurationCommandOutput extends DeleteAvai
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
  * @throws {@link OrganizationNotFoundException} (client fault)
- *  <p>An operation received a valid organization identifier that either doesn't belong or
- *          exist in the system.</p>
+ *
+ * An operation received a valid organization identifier that either doesn't belong or exist in the system.
  *
  * @throws {@link OrganizationStateException} (client fault)
- *  <p>The organization must have a valid state to perform certain
- *          operations on the organization or its members.</p>
+ *
+ * The organization must have a valid state to perform certain operations on the organization or its members.
  *
  * @throws {@link WorkMailServiceException}
- * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * Base exception class for all service exceptions from WorkMail service.
  *
  * @public
  */

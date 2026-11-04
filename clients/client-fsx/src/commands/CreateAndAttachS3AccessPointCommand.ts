@@ -23,52 +23,21 @@ export interface CreateAndAttachS3AccessPointCommandInput extends CreateAndAttac
 export interface CreateAndAttachS3AccessPointCommandOutput extends CreateAndAttachS3AccessPointResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an S3 access point and attaches it to an Amazon FSx volume. For FSx for OpenZFS file systems, the
- *          volume must be hosted on a high-availability file system, either Single-AZ or Multi-AZ. For more information,
- *          see <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/s3accesspoints-for-FSx.html">Accessing your data using Amazon S3 access points</a>.
- *          in the Amazon FSx for OpenZFS User Guide.
- *       </p>
- *          <p>The requester requires the following permissions to perform these actions:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>fsx:CreateAndAttachS3AccessPoint</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>s3:CreateAccessPoint</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>s3:GetAccessPoint</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>s3:PutAccessPointPolicy</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>s3:DeleteAccessPoint</code>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>The following actions are related to <code>CreateAndAttachS3AccessPoint</code>:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>DescribeS3AccessPointAttachments</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DetachAndDeleteS3AccessPoint</a>
- *                </p>
- *             </li>
- *          </ul>
+ * Creates an S3 access point and attaches it to an Amazon FSx volume. For FSx for OpenZFS file systems, the volume must be hosted on a high-availability file system, either Single-AZ or Multi-AZ. For more information, see [Accessing your data using Amazon S3 access points](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/s3accesspoints-for-FSx.html). in the Amazon FSx for OpenZFS User Guide.
+ *
+ * The requester requires the following permissions to perform these actions:
+ *
+ * - `fsx:CreateAndAttachS3AccessPoint`
+ * - `s3:CreateAccessPoint`
+ * - `s3:GetAccessPoint`
+ * - `s3:PutAccessPointPolicy`
+ * - `s3:DeleteAccessPoint`
+ *
+ * The following actions are related to `CreateAndAttachS3AccessPoint`:
+ *
+ * - DescribeS3AccessPointAttachments
+ * - DetachAndDeleteS3AccessPoint
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -168,38 +137,44 @@ export interface CreateAndAttachS3AccessPointCommandOutput extends CreateAndAtta
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
  * @throws {@link AccessPointAlreadyOwnedByYou} (client fault)
- *  <p>An access point with that name already exists in the Amazon Web Services Region in your Amazon Web Services account.</p>
+ *
+ * An access point with that name already exists in the Amazon Web Services Region in your Amazon Web Services account.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * A generic error indicating a failure with a client request.
  *
  * @throws {@link IncompatibleParameterError} (client fault)
- *  <p>The error returned when a second request is received with the same client request
- *             token but different parameters settings. A client request token should always uniquely
- *             identify a single request.</p>
+ *
+ * The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * A generic error indicating a server-side failure.
  *
  * @throws {@link InvalidAccessPoint} (client fault)
- *  <p>The access point specified doesn't exist.</p>
+ *
+ * The access point specified doesn't exist.
  *
  * @throws {@link InvalidRequest} (client fault)
- *  <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+ *
+ * The action or operation requested is invalid. Verify that the action is typed correctly.
  *
  * @throws {@link TooManyAccessPoints} (client fault)
- *  <p>You have reached the maximum number of S3 access points attachments allowed for your account in this Amazon Web Services Region, or for the file system. For more information, or to request an increase,
- *          see <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/limits.html">Service quotas on FSx resources</a> in the FSx for OpenZFS User Guide.</p>
+ *
+ * You have reached the maximum number of S3 access points attachments allowed for your account in this Amazon Web Services Region, or for the file system. For more information, or to request an increase, see [Service quotas on FSx resources](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/limits.html) in the FSx for OpenZFS User Guide.
  *
  * @throws {@link UnsupportedOperation} (client fault)
- *  <p>The requested operation is not supported for this resource or API.</p>
+ *
+ * The requested operation is not supported for this resource or API.
  *
  * @throws {@link VolumeNotFound} (client fault)
- *  <p>No Amazon FSx volumes were found based upon the supplied parameters.</p>
+ *
+ * No Amazon FSx volumes were found based upon the supplied parameters.
  *
  * @throws {@link FSxServiceException}
- * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * Base exception class for all service exceptions from FSx service.
  *
  * @public
  */

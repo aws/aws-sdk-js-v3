@@ -23,13 +23,10 @@ export interface GetDataProtectionPolicyCommandInput extends GetDataProtectionPo
 export interface GetDataProtectionPolicyCommandOutput extends GetDataProtectionPolicyResponse, __MetadataBearer {}
 
 /**
- * <important>
- *             <p>Amazon SNS message data protection is no longer available to new customers.
- *   For more information and guidance on alternatives, see
- * <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-message-data-protection-availability-change.html">Amazon SNS message data protection availability change</a>.</p>
- *          </important>
- *          <p>Retrieves the specified inline <code>DataProtectionPolicy</code> document that is
- *             stored in the specified Amazon SNS topic. </p>
+ * > **Important:** Amazon SNS message data protection is no longer available to new customers. For more information and guidance on alternatives, see [Amazon SNS message data protection availability change](https://docs.aws.amazon.com/sns/latest/dg/sns-message-data-protection-availability-change.html).
+ *
+ * Retrieves the specified inline `DataProtectionPolicy` document that is stored in the specified Amazon SNS topic.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,25 +53,28 @@ export interface GetDataProtectionPolicyCommandOutput extends GetDataProtectionP
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
  *
  * @throws {@link AuthorizationErrorException} (client fault)
- *  <p>Indicates that the user has been denied access to the requested resource.</p>
+ *
+ * Indicates that the user has been denied access to the requested resource.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>Indicates an internal service error.</p>
+ *
+ * Indicates an internal service error.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Indicates that a request parameter does not comply with the associated
- *             constraints.</p>
+ *
+ * Indicates that a request parameter does not comply with the associated constraints.
  *
  * @throws {@link InvalidSecurityException} (client fault)
- *  <p>The credential signature isn't valid. You must use an HTTPS endpoint and sign your
- *             request using Signature Version 4.</p>
+ *
+ * The credential signature isn't valid. You must use an HTTPS endpoint and sign your request using Signature Version 4.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>Indicates that the requested resource does not exist.</p>
+ *
+ * Indicates that the requested resource does not exist.
  *
  * @throws {@link SNSServiceException}
- * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * Base exception class for all service exceptions from SNS service.
  *
  * @public
  */

@@ -5,7 +5,8 @@ import type { FederationSourceErrorCode } from "./enums";
 import { GlueServiceException as __BaseException } from "./GlueServiceException";
 
 /**
- * <p>Access to a resource was denied.</p>
+ * Access to a resource was denied.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -13,7 +14,8 @@ export class AccessDeniedException extends __BaseException {
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -32,7 +34,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>A resource to be created or added already exists.</p>
+ * A resource to be created or added already exists.
+ *
  * @public
  */
 export class AlreadyExistsException extends __BaseException {
@@ -40,7 +43,8 @@ export class AlreadyExistsException extends __BaseException {
   readonly name = "AlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -59,7 +63,8 @@ export class AlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>Two processes are trying to modify a resource simultaneously.</p>
+ * Two processes are trying to modify a resource simultaneously.
+ *
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
@@ -67,7 +72,8 @@ export class ConcurrentModificationException extends __BaseException {
   readonly name = "ConcurrentModificationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -86,7 +92,8 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
- * <p>A specified entity does not exist</p>
+ * A specified entity does not exist
+ *
  * @public
  */
 export class EntityNotFoundException extends __BaseException {
@@ -94,13 +101,15 @@ export class EntityNotFoundException extends __BaseException {
   readonly name = "EntityNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>Indicates whether or not the exception relates to a federated source.</p>
+   * Indicates whether or not the exception relates to a federated source.
+   *
    * @public
    */
   FromFederationSource?: boolean | undefined;
@@ -120,7 +129,8 @@ export class EntityNotFoundException extends __BaseException {
 }
 
 /**
- * <p>An internal service error occurred.</p>
+ * An internal service error occurred.
+ *
  * @public
  */
 export class InternalServiceException extends __BaseException {
@@ -128,7 +138,8 @@ export class InternalServiceException extends __BaseException {
   readonly name = "InternalServiceException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -147,7 +158,8 @@ export class InternalServiceException extends __BaseException {
 }
 
 /**
- * <p>The input provided was not valid.</p>
+ * The input provided was not valid.
+ *
  * @public
  */
 export class InvalidInputException extends __BaseException {
@@ -155,13 +167,15 @@ export class InvalidInputException extends __BaseException {
   readonly name = "InvalidInputException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>Indicates whether or not the exception relates to a federated source.</p>
+   * Indicates whether or not the exception relates to a federated source.
+   *
    * @public
    */
   FromFederationSource?: boolean | undefined;
@@ -181,7 +195,8 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
- * <p>The throttling threshhold was exceeded.</p>
+ * The throttling threshhold was exceeded.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -189,7 +204,8 @@ export class ThrottlingException extends __BaseException {
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -208,7 +224,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>An encryption operation failed.</p>
+ * An encryption operation failed.
+ *
  * @public
  */
 export class GlueEncryptionException extends __BaseException {
@@ -216,7 +233,8 @@ export class GlueEncryptionException extends __BaseException {
   readonly name = "GlueEncryptionException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The message describing the problem.</p>
+   * The message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -235,7 +253,8 @@ export class GlueEncryptionException extends __BaseException {
 }
 
 /**
- * <p>The operation timed out.</p>
+ * The operation timed out.
+ *
  * @public
  */
 export class OperationTimeoutException extends __BaseException {
@@ -243,7 +262,8 @@ export class OperationTimeoutException extends __BaseException {
   readonly name = "OperationTimeoutException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -262,7 +282,8 @@ export class OperationTimeoutException extends __BaseException {
 }
 
 /**
- * <p>A resource numerical limit was exceeded.</p>
+ * A resource numerical limit was exceeded.
+ *
  * @public
  */
 export class ResourceNumberLimitExceededException extends __BaseException {
@@ -270,7 +291,8 @@ export class ResourceNumberLimitExceededException extends __BaseException {
   readonly name = "ResourceNumberLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -289,7 +311,8 @@ export class ResourceNumberLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>A resource was not ready for a transaction.</p>
+ * A resource was not ready for a transaction.
+ *
  * @public
  */
 export class ResourceNotReadyException extends __BaseException {
@@ -297,7 +320,8 @@ export class ResourceNotReadyException extends __BaseException {
   readonly name = "ResourceNotReadyException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -316,7 +340,8 @@ export class ResourceNotReadyException extends __BaseException {
 }
 
 /**
- * <p>A federation source failed.</p>
+ * A federation source failed.
+ *
  * @public
  */
 export class FederationSourceException extends __BaseException {
@@ -324,13 +349,15 @@ export class FederationSourceException extends __BaseException {
   readonly name = "FederationSourceException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error code of the problem.</p>
+   * The error code of the problem.
+   *
    * @public
    */
   FederationSourceErrorCode?: FederationSourceErrorCode | undefined;
 
   /**
-   * <p>The message describing the problem.</p>
+   * The message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -350,7 +377,8 @@ export class FederationSourceException extends __BaseException {
 }
 
 /**
- * <p>A federation source failed, but the operation may be retried.</p>
+ * A federation source failed, but the operation may be retried.
+ *
  * @public
  */
 export class FederationSourceRetryableException extends __BaseException {
@@ -358,7 +386,8 @@ export class FederationSourceRetryableException extends __BaseException {
   readonly name = "FederationSourceRetryableException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -377,7 +406,8 @@ export class FederationSourceRetryableException extends __BaseException {
 }
 
 /**
- * <p>An error that indicates your data is in an invalid state.</p>
+ * An error that indicates your data is in an invalid state.
+ *
  * @public
  */
 export class InvalidStateException extends __BaseException {
@@ -385,7 +415,8 @@ export class InvalidStateException extends __BaseException {
   readonly name = "InvalidStateException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -404,7 +435,8 @@ export class InvalidStateException extends __BaseException {
 }
 
 /**
- * <p>The session is in an invalid state to perform a requested operation.</p>
+ * The session is in an invalid state to perform a requested operation.
+ *
  * @public
  */
 export class IllegalSessionStateException extends __BaseException {
@@ -412,7 +444,8 @@ export class IllegalSessionStateException extends __BaseException {
   readonly name = "IllegalSessionStateException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -431,7 +464,8 @@ export class IllegalSessionStateException extends __BaseException {
 }
 
 /**
- * <p>A federated resource already exists.</p>
+ * A federated resource already exists.
+ *
  * @public
  */
 export class FederatedResourceAlreadyExistsException extends __BaseException {
@@ -439,13 +473,15 @@ export class FederatedResourceAlreadyExistsException extends __BaseException {
   readonly name = "FederatedResourceAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The message describing the problem.</p>
+   * The message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The associated Glue resource already exists.</p>
+   * The associated Glue resource already exists.
+   *
    * @public
    */
   AssociatedGlueResource?: string | undefined;
@@ -465,7 +501,8 @@ export class FederatedResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>An exception thrown when you try to start another job while running a column stats generation job.</p>
+ * An exception thrown when you try to start another job while running a column stats generation job.
+ *
  * @public
  */
 export class ColumnStatisticsTaskRunningException extends __BaseException {
@@ -473,7 +510,8 @@ export class ColumnStatisticsTaskRunningException extends __BaseException {
   readonly name = "ColumnStatisticsTaskRunningException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -492,7 +530,8 @@ export class ColumnStatisticsTaskRunningException extends __BaseException {
 }
 
 /**
- * <p>The same unique identifier was associated with two different records.</p>
+ * The same unique identifier was associated with two different records.
+ *
  * @public
  */
 export class IdempotentParameterMismatchException extends __BaseException {
@@ -500,7 +539,8 @@ export class IdempotentParameterMismatchException extends __BaseException {
   readonly name = "IdempotentParameterMismatchException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -519,7 +559,8 @@ export class IdempotentParameterMismatchException extends __BaseException {
 }
 
 /**
- * <p>A value could not be validated.</p>
+ * A value could not be validated.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -527,7 +568,8 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -546,7 +588,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The <code>CreatePartitions</code> API was called on a table that has indexes enabled.	</p>
+ * The `CreatePartitions` API was called on a table that has indexes enabled.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -554,7 +597,8 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -573,7 +617,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The requested operation conflicts with another operation.</p>
+ * The requested operation conflicts with another operation.
+ *
  * @public
  */
 export class IntegrationConflictOperationFault extends __BaseException {
@@ -581,7 +626,8 @@ export class IntegrationConflictOperationFault extends __BaseException {
   readonly name = "IntegrationConflictOperationFault" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -600,7 +646,8 @@ export class IntegrationConflictOperationFault extends __BaseException {
 }
 
 /**
- * <p>The data processed through your integration exceeded your quota.</p>
+ * The data processed through your integration exceeded your quota.
+ *
  * @public
  */
 export class IntegrationQuotaExceededFault extends __BaseException {
@@ -608,7 +655,8 @@ export class IntegrationQuotaExceededFault extends __BaseException {
   readonly name = "IntegrationQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -627,7 +675,8 @@ export class IntegrationQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>An internal server error occurred.</p>
+ * An internal server error occurred.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -635,7 +684,8 @@ export class InternalServerException extends __BaseException {
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -654,7 +704,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The KMS key specified is not accessible.</p>
+ * The KMS key specified is not accessible.
+ *
  * @public
  */
 export class KMSKeyNotAccessibleFault extends __BaseException {
@@ -662,7 +713,8 @@ export class KMSKeyNotAccessibleFault extends __BaseException {
   readonly name = "KMSKeyNotAccessibleFault" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -681,7 +733,8 @@ export class KMSKeyNotAccessibleFault extends __BaseException {
 }
 
 /**
- * <p>The resource could not be found.</p>
+ * The resource could not be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -689,7 +742,8 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -708,7 +762,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The operation is not available in the region.</p>
+ * The operation is not available in the region.
+ *
  * @public
  */
 export class OperationNotSupportedException extends __BaseException {
@@ -716,7 +771,8 @@ export class OperationNotSupportedException extends __BaseException {
   readonly name = "OperationNotSupportedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -735,7 +791,8 @@ export class OperationNotSupportedException extends __BaseException {
 }
 
 /**
- * <p>The operation cannot be performed because the crawler is already running.</p>
+ * The operation cannot be performed because the crawler is already running.
+ *
  * @public
  */
 export class CrawlerRunningException extends __BaseException {
@@ -743,7 +800,8 @@ export class CrawlerRunningException extends __BaseException {
   readonly name = "CrawlerRunningException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -762,7 +820,8 @@ export class CrawlerRunningException extends __BaseException {
 }
 
 /**
- * <p>The specified scheduler is transitioning.</p>
+ * The specified scheduler is transitioning.
+ *
  * @public
  */
 export class SchedulerTransitioningException extends __BaseException {
@@ -770,7 +829,8 @@ export class SchedulerTransitioningException extends __BaseException {
   readonly name = "SchedulerTransitioningException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -789,7 +849,8 @@ export class SchedulerTransitioningException extends __BaseException {
 }
 
 /**
- * <p>The specified integration could not be found.</p>
+ * The specified integration could not be found.
+ *
  * @public
  */
 export class IntegrationNotFoundFault extends __BaseException {
@@ -797,7 +858,8 @@ export class IntegrationNotFoundFault extends __BaseException {
   readonly name = "IntegrationNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -816,7 +878,8 @@ export class IntegrationNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The integration is in an invalid state.</p>
+ * The integration is in an invalid state.
+ *
  * @public
  */
 export class InvalidIntegrationStateFault extends __BaseException {
@@ -824,7 +887,8 @@ export class InvalidIntegrationStateFault extends __BaseException {
   readonly name = "InvalidIntegrationStateFault" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -843,7 +907,8 @@ export class InvalidIntegrationStateFault extends __BaseException {
 }
 
 /**
- * <p>A specified condition was not satisfied.</p>
+ * A specified condition was not satisfied.
+ *
  * @public
  */
 export class ConditionCheckFailureException extends __BaseException {
@@ -851,7 +916,8 @@ export class ConditionCheckFailureException extends __BaseException {
   readonly name = "ConditionCheckFailureException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -870,7 +936,8 @@ export class ConditionCheckFailureException extends __BaseException {
 }
 
 /**
- * <p>The target resource could not be found.</p>
+ * The target resource could not be found.
+ *
  * @public
  */
 export class TargetResourceNotFound extends __BaseException {
@@ -878,7 +945,8 @@ export class TargetResourceNotFound extends __BaseException {
   readonly name = "TargetResourceNotFound" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -897,7 +965,8 @@ export class TargetResourceNotFound extends __BaseException {
 }
 
 /**
- * <p>The operation timed out.</p>
+ * The operation timed out.
+ *
  * @public
  */
 export class PermissionTypeMismatchException extends __BaseException {
@@ -905,8 +974,8 @@ export class PermissionTypeMismatchException extends __BaseException {
   readonly name = "PermissionTypeMismatchException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>There is a mismatch between the SupportedPermissionType used in the query request
-   *           and the permissions defined on the target table.</p>
+   * There is a mismatch between the SupportedPermissionType used in the query request and the permissions defined on the target table.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -925,7 +994,8 @@ export class PermissionTypeMismatchException extends __BaseException {
 }
 
 /**
- * <p>Too many jobs are being run concurrently.</p>
+ * Too many jobs are being run concurrently.
+ *
  * @public
  */
 export class ConcurrentRunsExceededException extends __BaseException {
@@ -933,7 +1003,8 @@ export class ConcurrentRunsExceededException extends __BaseException {
   readonly name = "ConcurrentRunsExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -952,7 +1023,8 @@ export class ConcurrentRunsExceededException extends __BaseException {
 }
 
 /**
- * <p>The workflow is in an invalid state to perform a requested operation.</p>
+ * The workflow is in an invalid state to perform a requested operation.
+ *
  * @public
  */
 export class IllegalWorkflowStateException extends __BaseException {
@@ -960,7 +1032,8 @@ export class IllegalWorkflowStateException extends __BaseException {
   readonly name = "IllegalWorkflowStateException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -979,7 +1052,8 @@ export class IllegalWorkflowStateException extends __BaseException {
 }
 
 /**
- * <p>The session is currently busy processing another request and cannot accept new operations.</p>
+ * The session is currently busy processing another request and cannot accept new operations.
+ *
  * @public
  */
 export class SessionBusyException extends __BaseException {
@@ -987,7 +1061,8 @@ export class SessionBusyException extends __BaseException {
   readonly name = "SessionBusyException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1006,7 +1081,8 @@ export class SessionBusyException extends __BaseException {
 }
 
 /**
- * <p>The blueprint is in an invalid state to perform a requested operation.</p>
+ * The blueprint is in an invalid state to perform a requested operation.
+ *
  * @public
  */
 export class IllegalBlueprintStateException extends __BaseException {
@@ -1014,7 +1090,8 @@ export class IllegalBlueprintStateException extends __BaseException {
   readonly name = "IllegalBlueprintStateException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1033,7 +1110,8 @@ export class IllegalBlueprintStateException extends __BaseException {
 }
 
 /**
- * <p>There is no applicable schedule.</p>
+ * There is no applicable schedule.
+ *
  * @public
  */
 export class NoScheduleException extends __BaseException {
@@ -1041,7 +1119,8 @@ export class NoScheduleException extends __BaseException {
   readonly name = "NoScheduleException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1060,7 +1139,8 @@ export class NoScheduleException extends __BaseException {
 }
 
 /**
- * <p>The specified scheduler is already running.</p>
+ * The specified scheduler is already running.
+ *
  * @public
  */
 export class SchedulerRunningException extends __BaseException {
@@ -1068,7 +1148,8 @@ export class SchedulerRunningException extends __BaseException {
   readonly name = "SchedulerRunningException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1087,7 +1168,8 @@ export class SchedulerRunningException extends __BaseException {
 }
 
 /**
- * <p>Exception thrown when a task is already in running state.</p>
+ * Exception thrown when a task is already in running state.
+ *
  * @public
  */
 export class MaterializedViewRefreshTaskRunningException extends __BaseException {
@@ -1095,7 +1177,8 @@ export class MaterializedViewRefreshTaskRunningException extends __BaseException
   readonly name = "MaterializedViewRefreshTaskRunningException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1114,7 +1197,8 @@ export class MaterializedViewRefreshTaskRunningException extends __BaseException
 }
 
 /**
- * <p>The machine learning transform is not ready to run.</p>
+ * The machine learning transform is not ready to run.
+ *
  * @public
  */
 export class MLTransformNotReadyException extends __BaseException {
@@ -1122,7 +1206,8 @@ export class MLTransformNotReadyException extends __BaseException {
   readonly name = "MLTransformNotReadyException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1141,7 +1226,8 @@ export class MLTransformNotReadyException extends __BaseException {
 }
 
 /**
- * <p>An exception thrown when you try to stop a task run when there is no task running.</p>
+ * An exception thrown when you try to stop a task run when there is no task running.
+ *
  * @public
  */
 export class ColumnStatisticsTaskNotRunningException extends __BaseException {
@@ -1149,7 +1235,8 @@ export class ColumnStatisticsTaskNotRunningException extends __BaseException {
   readonly name = "ColumnStatisticsTaskNotRunningException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1168,7 +1255,8 @@ export class ColumnStatisticsTaskNotRunningException extends __BaseException {
 }
 
 /**
- * <p>An exception thrown when you try to stop a task run.</p>
+ * An exception thrown when you try to stop a task run.
+ *
  * @public
  */
 export class ColumnStatisticsTaskStoppingException extends __BaseException {
@@ -1176,7 +1264,8 @@ export class ColumnStatisticsTaskStoppingException extends __BaseException {
   readonly name = "ColumnStatisticsTaskStoppingException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1195,7 +1284,8 @@ export class ColumnStatisticsTaskStoppingException extends __BaseException {
 }
 
 /**
- * <p>The specified crawler is not running.</p>
+ * The specified crawler is not running.
+ *
  * @public
  */
 export class CrawlerNotRunningException extends __BaseException {
@@ -1203,7 +1293,8 @@ export class CrawlerNotRunningException extends __BaseException {
   readonly name = "CrawlerNotRunningException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1222,7 +1313,8 @@ export class CrawlerNotRunningException extends __BaseException {
 }
 
 /**
- * <p>The specified crawler is stopping.</p>
+ * The specified crawler is stopping.
+ *
  * @public
  */
 export class CrawlerStoppingException extends __BaseException {
@@ -1230,7 +1322,8 @@ export class CrawlerStoppingException extends __BaseException {
   readonly name = "CrawlerStoppingException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1249,7 +1342,8 @@ export class CrawlerStoppingException extends __BaseException {
 }
 
 /**
- * <p>The specified scheduler is not running.</p>
+ * The specified scheduler is not running.
+ *
  * @public
  */
 export class SchedulerNotRunningException extends __BaseException {
@@ -1257,7 +1351,8 @@ export class SchedulerNotRunningException extends __BaseException {
   readonly name = "SchedulerNotRunningException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1276,7 +1371,8 @@ export class SchedulerNotRunningException extends __BaseException {
 }
 
 /**
- * <p>Exception thrown when stopping a task that is not in running state.</p>
+ * Exception thrown when stopping a task that is not in running state.
+ *
  * @public
  */
 export class MaterializedViewRefreshTaskNotRunningException extends __BaseException {
@@ -1284,7 +1380,8 @@ export class MaterializedViewRefreshTaskNotRunningException extends __BaseExcept
   readonly name = "MaterializedViewRefreshTaskNotRunningException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1303,7 +1400,8 @@ export class MaterializedViewRefreshTaskNotRunningException extends __BaseExcept
 }
 
 /**
- * <p>Exception thrown when a task is already in stopping state.</p>
+ * Exception thrown when a task is already in stopping state.
+ *
  * @public
  */
 export class MaterializedViewRefreshTaskStoppingException extends __BaseException {
@@ -1311,7 +1409,8 @@ export class MaterializedViewRefreshTaskStoppingException extends __BaseExceptio
   readonly name = "MaterializedViewRefreshTaskStoppingException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1330,7 +1429,8 @@ export class MaterializedViewRefreshTaskStoppingException extends __BaseExceptio
 }
 
 /**
- * <p>There was a version conflict.</p>
+ * There was a version conflict.
+ *
  * @public
  */
 export class VersionMismatchException extends __BaseException {
@@ -1338,7 +1438,8 @@ export class VersionMismatchException extends __BaseException {
   readonly name = "VersionMismatchException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;

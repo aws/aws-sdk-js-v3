@@ -23,9 +23,8 @@ export interface StartAssessmentRunCommandInput extends StartAssessmentRunReques
 export interface StartAssessmentRunCommandOutput extends StartAssessmentRunResponse, __MetadataBearer {}
 
 /**
- * <p>Starts the assessment run specified by the ARN of the assessment template. For this
- *          API to function properly, you must not exceed the limit of running up to 500 concurrent
- *          agents per AWS account.</p>
+ * Starts the assessment run specified by the ARN of the assessment template. For this API to function properly, you must not exceed the limit of running up to 500 concurrent agents per AWS account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,37 +52,40 @@ export interface StartAssessmentRunCommandOutput extends StartAssessmentRunRespo
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have required permissions to access the requested resource.</p>
+ *
+ * You do not have required permissions to access the requested resource.
  *
  * @throws {@link AgentsAlreadyRunningAssessmentException} (client fault)
- *  <p>You started an assessment run, but one of the instances is already participating in
- *          another assessment run.</p>
+ *
+ * You started an assessment run, but one of the instances is already participating in another assessment run.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>Internal server error.</p>
+ *
+ * Internal server error.
  *
  * @throws {@link InvalidCrossAccountRoleException} (client fault)
- *  <p>Amazon Inspector cannot assume the cross-account role that it needs to list your EC2
- *          instances during the assessment run.</p>
+ *
+ * Amazon Inspector cannot assume the cross-account role that it needs to list your EC2 instances during the assessment run.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
- *          input parameter.</p>
+ *
+ * The request was rejected because an invalid or out-of-range value was supplied for an input parameter.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current
- *          AWS account limits. The error code describes the limit exceeded.</p>
+ *
+ * The request was rejected because it attempted to create resources beyond the current AWS account limits. The error code describes the limit exceeded.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced an entity that does not exist. The
- *          error code describes the entity.</p>
+ *
+ * The request was rejected because it referenced an entity that does not exist. The error code describes the entity.
  *
  * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
- *  <p>The serice is temporary unavailable.</p>
+ *
+ * The serice is temporary unavailable.
  *
  * @throws {@link InspectorServiceException}
- * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * Base exception class for all service exceptions from Inspector service.
  *
  * @example Start assessment run
  * ```javascript

@@ -23,8 +23,10 @@ export interface CreateSecondaryNetworkCommandInput extends CreateSecondaryNetwo
 export interface CreateSecondaryNetworkCommandOutput extends CreateSecondaryNetworkResult, __MetadataBearer {}
 
 /**
- * <p>Creates a secondary network.</p>
- *          <p>The allowed size for a secondary network CIDR block is between /28 netmask (16 IP addresses) and /12 netmask (1,048,576 IP addresses).</p>
+ * Creates a secondary network.
+ *
+ * The allowed size for a secondary network CIDR block is between /28 netmask (16 IP addresses) and /12 netmask (1,048,576 IP addresses).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,8 +89,8 @@ export interface CreateSecondaryNetworkCommandOutput extends CreateSecondaryNetw
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To create a secondary network
  * ```javascript

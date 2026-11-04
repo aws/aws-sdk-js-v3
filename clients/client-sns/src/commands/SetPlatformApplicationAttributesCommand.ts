@@ -23,11 +23,8 @@ export interface SetPlatformApplicationAttributesCommandInput extends SetPlatfor
 export interface SetPlatformApplicationAttributesCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Sets the attributes of the platform application object for the supported push
- *             notification services, such as APNS and GCM (Firebase Cloud Messaging). For more
- *             information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. For information on configuring
- *             attributes for message delivery status, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-msg-status.html">Using Amazon SNS Application Attributes for
- *                 Message Delivery Status</a>. </p>
+ * Sets the attributes of the platform application object for the supported push notification services, such as APNS and GCM (Firebase Cloud Messaging). For more information, see [Using Amazon SNS Mobile Push Notifications](https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html). For information on configuring attributes for message delivery status, see [Using Amazon SNS Application Attributes for Message Delivery Status](https://docs.aws.amazon.com/sns/latest/dg/sns-msg-status.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,21 +52,24 @@ export interface SetPlatformApplicationAttributesCommandOutput extends __Metadat
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
  *
  * @throws {@link AuthorizationErrorException} (client fault)
- *  <p>Indicates that the user has been denied access to the requested resource.</p>
+ *
+ * Indicates that the user has been denied access to the requested resource.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>Indicates an internal service error.</p>
+ *
+ * Indicates an internal service error.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Indicates that a request parameter does not comply with the associated
- *             constraints.</p>
+ *
+ * Indicates that a request parameter does not comply with the associated constraints.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>Indicates that the requested resource does not exist.</p>
+ *
+ * Indicates that the requested resource does not exist.
  *
  * @throws {@link SNSServiceException}
- * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * Base exception class for all service exceptions from SNS service.
  *
  * @public
  */

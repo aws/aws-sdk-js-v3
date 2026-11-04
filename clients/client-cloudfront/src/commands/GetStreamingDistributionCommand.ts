@@ -23,7 +23,8 @@ export interface GetStreamingDistributionCommandInput extends GetStreamingDistri
 export interface GetStreamingDistributionCommandOutput extends GetStreamingDistributionResult, __MetadataBearer {}
 
 /**
- * <p>Gets information about a specified RTMP distribution, including the distribution configuration.</p>
+ * Gets information about a specified RTMP distribution, including the distribution configuration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -100,14 +101,16 @@ export interface GetStreamingDistributionCommandOutput extends GetStreamingDistr
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link AccessDenied} (client fault)
- *  <p>Access denied.</p>
+ *
+ * Access denied.
  *
  * @throws {@link NoSuchStreamingDistribution} (client fault)
- *  <p>The specified streaming distribution does not exist.</p>
+ *
+ * The specified streaming distribution does not exist.
  *
  * @throws {@link CloudFrontServiceException}
- * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * Base exception class for all service exceptions from CloudFront service.
  *
  * @public
  */

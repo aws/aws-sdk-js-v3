@@ -23,7 +23,8 @@ export interface ListInvalidationsCommandInput extends ListInvalidationsRequest 
 export interface ListInvalidationsCommandOutput extends ListInvalidationsResult, __MetadataBearer {}
 
 /**
- * <p>Lists invalidation batches.</p>
+ * Lists invalidation batches.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,17 +66,20 @@ export interface ListInvalidationsCommandOutput extends ListInvalidationsResult,
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link AccessDenied} (client fault)
- *  <p>Access denied.</p>
+ *
+ * Access denied.
  *
  * @throws {@link InvalidArgument} (client fault)
- *  <p>An argument is invalid.</p>
+ *
+ * An argument is invalid.
  *
  * @throws {@link NoSuchDistribution} (client fault)
- *  <p>The specified distribution does not exist.</p>
+ *
+ * The specified distribution does not exist.
  *
  * @throws {@link CloudFrontServiceException}
- * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * Base exception class for all service exceptions from CloudFront service.
  *
  * @public
  */

@@ -23,12 +23,10 @@ export interface CreateDataIntegrationCommandInput extends CreateDataIntegration
 export interface CreateDataIntegrationCommandOutput extends CreateDataIntegrationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates and persists a DataIntegration resource.</p>
- *          <note>
- *             <p>You cannot create a DataIntegration association for a DataIntegration that has been
- *         previously associated. Use a different DataIntegration, or recreate the DataIntegration
- *         using the <code>CreateDataIntegration</code> API.</p>
- *          </note>
+ * Creates and persists a DataIntegration resource.
+ *
+ * > **Note:** You cannot create a DataIntegration association for a DataIntegration that has been previously associated. Use a different DataIntegration, or recreate the DataIntegration using the `CreateDataIntegration` API.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -115,26 +113,32 @@ export interface CreateDataIntegrationCommandOutput extends CreateDataIntegratio
  * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link DuplicateResourceException} (client fault)
- *  <p>A resource with the specified name already exists.</p>
+ *
+ * A resource with the specified name already exists.
  *
  * @throws {@link InternalServiceError} (server fault)
- *  <p>Request processing failed due to an error or failure with the service.</p>
+ *
+ * Request processing failed due to an error or failure with the service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid. </p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceQuotaExceededException} (client fault)
- *  <p>The allowed quota for the resource has been exceeded.</p>
+ *
+ * The allowed quota for the resource has been exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link AppIntegrationsServiceException}
- * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
+ * Base exception class for all service exceptions from AppIntegrations service.
  *
  * @public
  */

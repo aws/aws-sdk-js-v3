@@ -5,7 +5,8 @@ import type { ConflictExceptionType, ResourceTypeNotFound, ValidationExceptionTy
 import { MediaPackageV2ServiceException as __BaseException } from "./MediaPackageV2ServiceException";
 
 /**
- * <p>Access is denied because either you don't have permissions to perform the requested operation or MediaPackage is getting throttling errors with CDN authorization. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see Access Management in the IAM User Guide. Or, if you're using CDN authorization, you will receive this exception if MediaPackage receives a throttling error from Secrets Manager.</p>
+ * Access is denied because either you don't have permissions to perform the requested operation or MediaPackage is getting throttling errors with CDN authorization. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see Access Management in the IAM User Guide. Or, if you're using CDN authorization, you will receive this exception if MediaPackage receives a throttling error from Secrets Manager.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -28,7 +29,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Updating or deleting this resource can cause an inconsistent state.</p>
+ * Updating or deleting this resource can cause an inconsistent state.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -37,7 +39,8 @@ export class ConflictException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The type of ConflictException.</p>
+   * The type of ConflictException.
+   *
    * @public
    */
   ConflictExceptionType?: ConflictExceptionType | undefined;
@@ -57,7 +60,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>Indicates that an error from the service occurred while trying to process a request.</p>
+ * Indicates that an error from the service occurred while trying to process a request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -80,7 +84,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The specified resource doesn't exist.</p>
+ * The specified resource doesn't exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -89,7 +94,8 @@ export class ResourceNotFoundException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The specified resource type wasn't found.</p>
+   * The specified resource type wasn't found.
+   *
    * @public
    */
   ResourceTypeNotFound?: ResourceTypeNotFound | undefined;
@@ -109,7 +115,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request throughput limit was exceeded.</p>
+ * The request throughput limit was exceeded.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -132,7 +139,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input failed to meet the constraints specified by the AWS service.</p>
+ * The input failed to meet the constraints specified by the AWS service.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -141,7 +149,8 @@ export class ValidationException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The type of ValidationException.</p>
+   * The type of ValidationException.
+   *
    * @public
    */
   ValidationExceptionType?: ValidationExceptionType | undefined;
@@ -161,7 +170,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The request would cause a service quota to be exceeded.</p>
+ * The request would cause a service quota to be exceeded.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {

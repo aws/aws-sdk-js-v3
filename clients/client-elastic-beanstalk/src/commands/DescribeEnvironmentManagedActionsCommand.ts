@@ -26,17 +26,12 @@ export interface DescribeEnvironmentManagedActionsCommandInput extends DescribeE
 export interface DescribeEnvironmentManagedActionsCommandOutput extends DescribeEnvironmentManagedActionsResult, __MetadataBearer {}
 
 /**
- * <p>Lists an environment's upcoming and in-progress managed actions.</p>
- *          <p>This action only returns information about environments that the calling principle has IAM permissions to access. For example, consider a case where
- *       a user only has permission to access one of three environments. When the user calls this action, the response will only include the one environment that
- *       the user has permission to access instead of all three environments. If the user doesn’t have access to any of the environments an empty result is
- *       returned.</p>
- *          <note>
- *             <p>The <a href="https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSElasticBeanstalkReadOnly.html">AWSElasticBeanstalkReadOnly</a>
- *         managed policy allows operators to view information about resources related to Elastic Beanstalk environments. For more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html"> Managing Elastic Beanstalk user policies</a> in the <i>Elastic Beanstalk Developer
- *           Guide</i>. For detailed instructions to attach a policy to a user or group, see the section <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html#iam-userpolicies-managed"> Controlling access with managed policies</a> in the
- *         same topic.</p>
- *          </note>
+ * Lists an environment's upcoming and in-progress managed actions.
+ *
+ * This action only returns information about environments that the calling principle has IAM permissions to access. For example, consider a case where a user only has permission to access one of three environments. When the user calls this action, the response will only include the one environment that the user has permission to access instead of all three environments. If the user doesn’t have access to any of the environments an empty result is returned.
+ *
+ * > **Note:** The [AWSElasticBeanstalkReadOnly](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSElasticBeanstalkReadOnly.html) managed policy allows operators to view information about resources related to Elastic Beanstalk environments. For more information, see [Managing Elastic Beanstalk user policies](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html) in the *Elastic Beanstalk Developer Guide*. For detailed instructions to attach a policy to a user or group, see the section [Controlling access with managed policies](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html#iam-userpolicies-managed) in the same topic.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,11 +68,12 @@ export interface DescribeEnvironmentManagedActionsCommandOutput extends Describe
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  * @throws {@link ElasticBeanstalkServiceException} (client fault)
- *  <p>A generic service exception has occurred.</p>
+ *
+ * A generic service exception has occurred.
  *
  * @throws {@link ElasticBeanstalkSyntheticServiceException}
- * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * Base exception class for all service exceptions from ElasticBeanstalk service.
  *
  * @public
  */

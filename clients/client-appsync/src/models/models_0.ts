@@ -36,679 +36,555 @@ import type {
 } from "./enums";
 
 /**
- * <p>A <code>LambdaAuthorizerConfig</code> specifies how to authorize AppSync
- *          API access when using the <code>AWS_LAMBDA</code> authorizer mode. Be aware that an AppSync API can have only one Lambda authorizer configured at a
- *          time.</p>
+ * A `LambdaAuthorizerConfig` specifies how to authorize AppSync API access when using the `AWS_LAMBDA` authorizer mode. Be aware that an AppSync API can have only one Lambda authorizer configured at a time.
+ *
  * @public
  */
 export interface LambdaAuthorizerConfig {
   /**
-   * <p>The number of seconds a response should be cached for. The default is 0 seconds, which
-   *          disables caching. If you don't specify a value for
-   *             <code>authorizerResultTtlInSeconds</code>, the default value is used. The maximum value
-   *          is one hour (3600 seconds). The Lambda function can override this by returning
-   *          a <code>ttlOverride</code> key in its response.</p>
+   * The number of seconds a response should be cached for. The default is 0 seconds, which disables caching. If you don't specify a value for `authorizerResultTtlInSeconds`, the default value is used. The maximum value is one hour (3600 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response.
+   *
    * @public
    */
   authorizerResultTtlInSeconds?: number | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Lambda function to be called for
-   *          authorization. This can be a standard Lambda ARN, a version ARN
-   *             (<code>.../v3</code>), or an alias ARN. </p>
-   *          <p>
-   *             <b>Note</b>: This Lambda function must have the
-   *          following resource-based policy assigned to it. When configuring Lambda
-   *          authorizers in the console, this is done for you. To use the Command Line Interface
-   *             (CLI), run the following:</p>
-   *          <p>
-   *             <code>aws lambda add-permission --function-name
-   *             "arn:aws:lambda:us-east-2:111122223333:function:my-function" --statement-id "appsync"
-   *             --principal appsync.amazonaws.com --action lambda:InvokeFunction</code>
-   *          </p>
+   * The Amazon Resource Name (ARN) of the Lambda function to be called for authorization. This can be a standard Lambda ARN, a version ARN (`.../v3`), or an alias ARN.
+   *
+   * **Note**: This Lambda function must have the following resource-based policy assigned to it. When configuring Lambda authorizers in the console, this is done for you. To use the Command Line Interface (CLI), run the following:
+   *
+   * `aws lambda add-permission --function-name "arn:aws:lambda:us-east-2:111122223333:function:my-function" --statement-id "appsync" --principal appsync.amazonaws.com --action lambda:InvokeFunction`
+   *
    * @public
    */
   authorizerUri: string | undefined;
 
   /**
-   * <p>A regular expression for validation of tokens before the Lambda function is
-   *          called.</p>
+   * A regular expression for validation of tokens before the Lambda function is called.
+   *
    * @public
    */
   identityValidationExpression?: string | undefined;
 }
 
 /**
- * <p>Describes an OpenID Connect (OIDC) configuration.</p>
+ * Describes an OpenID Connect (OIDC) configuration.
+ *
  * @public
  */
 export interface OpenIDConnectConfig {
   /**
-   * <p>The issuer for the OIDC configuration. The issuer returned by discovery must exactly
-   *          match the value of <code>iss</code> in the ID token.</p>
+   * The issuer for the OIDC configuration. The issuer returned by discovery must exactly match the value of `iss` in the ID token.
+   *
    * @public
    */
   issuer: string | undefined;
 
   /**
-   * <p>The client identifier of the relying party at the OpenID identity provider. This
-   *          identifier is typically obtained when the relying party is registered with the OpenID
-   *          identity provider. You can specify a regular expression so that AppSync can
-   *          validate against multiple client identifiers at a time.</p>
+   * The client identifier of the relying party at the OpenID identity provider. This identifier is typically obtained when the relying party is registered with the OpenID identity provider. You can specify a regular expression so that AppSync can validate against multiple client identifiers at a time.
+   *
    * @public
    */
   clientId?: string | undefined;
 
   /**
-   * <p>The number of milliseconds that a token is valid after it's issued to a user.</p>
+   * The number of milliseconds that a token is valid after it's issued to a user.
+   *
    * @public
    */
   iatTTL?: number | undefined;
 
   /**
-   * <p>The number of milliseconds that a token is valid after being authenticated.</p>
+   * The number of milliseconds that a token is valid after being authenticated.
+   *
    * @public
    */
   authTTL?: number | undefined;
 }
 
 /**
- * <p>Describes an Amazon Cognito user pool configuration.</p>
+ * Describes an Amazon Cognito user pool configuration.
+ *
  * @public
  */
 export interface CognitoUserPoolConfig {
   /**
-   * <p>The user pool ID.</p>
+   * The user pool ID.
+   *
    * @public
    */
   userPoolId: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region in which the user pool was created.</p>
+   * The Amazon Web Services Region in which the user pool was created.
+   *
    * @public
    */
   awsRegion: string | undefined;
 
   /**
-   * <p>A regular expression for validating the incoming Amazon Cognito user pool app client
-   *          ID. If this value isn't set, no filtering is applied.</p>
+   * A regular expression for validating the incoming Amazon Cognito user pool app client ID. If this value isn't set, no filtering is applied.
+   *
    * @public
    */
   appIdClientRegex?: string | undefined;
 }
 
 /**
- * <p>Describes an additional authentication provider.</p>
+ * Describes an additional authentication provider.
+ *
  * @public
  */
 export interface AdditionalAuthenticationProvider {
   /**
-   * <p>The authentication type: API key, Identity and Access Management (IAM), OpenID
-   *          Connect (OIDC), Amazon Cognito user pools, or Lambda.</p>
+   * The authentication type: API key, Identity and Access Management (IAM), OpenID Connect (OIDC), Amazon Cognito user pools, or Lambda.
+   *
    * @public
    */
   authenticationType?: AuthenticationType | undefined;
 
   /**
-   * <p>The OIDC configuration.</p>
+   * The OIDC configuration.
+   *
    * @public
    */
   openIDConnectConfig?: OpenIDConnectConfig | undefined;
 
   /**
-   * <p>The Amazon Cognito user pool configuration.</p>
+   * The Amazon Cognito user pool configuration.
+   *
    * @public
    */
   userPoolConfig?: CognitoUserPoolConfig | undefined;
 
   /**
-   * <p>Configuration for Lambda function authorization.</p>
+   * Configuration for Lambda function authorization.
+   *
    * @public
    */
   lambdaAuthorizerConfig?: LambdaAuthorizerConfig | undefined;
 }
 
 /**
- * <p>Describes an Amazon Cognito configuration.</p>
+ * Describes an Amazon Cognito configuration.
+ *
  * @public
  */
 export interface CognitoConfig {
   /**
-   * <p>The user pool ID.</p>
+   * The user pool ID.
+   *
    * @public
    */
   userPoolId: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region in which the user pool was created.</p>
+   * The Amazon Web Services Region in which the user pool was created.
+   *
    * @public
    */
   awsRegion: string | undefined;
 
   /**
-   * <p>A regular expression for validating the incoming Amazon Cognito user pool app client
-   *          ID. If this value isn't set, no filtering is applied.</p>
+   * A regular expression for validating the incoming Amazon Cognito user pool app client ID. If this value isn't set, no filtering is applied.
+   *
    * @public
    */
   appIdClientRegex?: string | undefined;
 }
 
 /**
- * <p>Describes an authorization provider.</p>
+ * Describes an authorization provider.
+ *
  * @public
  */
 export interface AuthProvider {
   /**
-   * <p>The authorization type.</p>
+   * The authorization type.
+   *
    * @public
    */
   authType: AuthenticationType | undefined;
 
   /**
-   * <p>Describes an Amazon Cognito user pool configuration.</p>
+   * Describes an Amazon Cognito user pool configuration.
+   *
    * @public
    */
   cognitoConfig?: CognitoConfig | undefined;
 
   /**
-   * <p>Describes an OpenID Connect (OIDC) configuration.</p>
+   * Describes an OpenID Connect (OIDC) configuration.
+   *
    * @public
    */
   openIDConnectConfig?: OpenIDConnectConfig | undefined;
 
   /**
-   * <p>A <code>LambdaAuthorizerConfig</code> specifies how to authorize AppSync
-   *          API access when using the <code>AWS_LAMBDA</code> authorizer mode. Be aware that an AppSync API can have only one Lambda authorizer configured at a
-   *          time.</p>
+   * A `LambdaAuthorizerConfig` specifies how to authorize AppSync API access when using the `AWS_LAMBDA` authorizer mode. Be aware that an AppSync API can have only one Lambda authorizer configured at a time.
+   *
    * @public
    */
   lambdaAuthorizerConfig?: LambdaAuthorizerConfig | undefined;
 }
 
 /**
- * <p>Describes an authorization configuration. Use <code>AuthMode</code> to specify the
- *          publishing and subscription authorization configuration for an Event API.</p>
+ * Describes an authorization configuration. Use `AuthMode` to specify the publishing and subscription authorization configuration for an Event API.
+ *
  * @public
  */
 export interface AuthMode {
   /**
-   * <p>The authorization type.</p>
+   * The authorization type.
+   *
    * @public
    */
   authType: AuthenticationType | undefined;
 }
 
 /**
- * <p>Describes the CloudWatch Logs configuration for the Event API.</p>
+ * Describes the CloudWatch Logs configuration for the Event API.
+ *
  * @public
  */
 export interface EventLogConfig {
   /**
-   * <p>The type of information to log for the Event API. </p>
+   * The type of information to log for the Event API.
+   *
    * @public
    */
   logLevel: EventLogLevel | undefined;
 
   /**
-   * <p>The IAM service role that AppSync assumes to publish CloudWatch Logs in your account.</p>
+   * The IAM service role that AppSync assumes to publish CloudWatch Logs in your account.
+   *
    * @public
    */
   cloudWatchLogsRoleArn: string | undefined;
 }
 
 /**
- * <p>Describes the authorization configuration for connections, message publishing, message
- *          subscriptions, and logging for an Event API.</p>
+ * Describes the authorization configuration for connections, message publishing, message subscriptions, and logging for an Event API.
+ *
  * @public
  */
 export interface EventConfig {
   /**
-   * <p>A list of authorization providers.</p>
+   * A list of authorization providers.
+   *
    * @public
    */
   authProviders: AuthProvider[] | undefined;
 
   /**
-   * <p>A list of valid authorization modes for the Event API connections.</p>
+   * A list of valid authorization modes for the Event API connections.
+   *
    * @public
    */
   connectionAuthModes: AuthMode[] | undefined;
 
   /**
-   * <p>A list of valid authorization modes for the Event API publishing.</p>
+   * A list of valid authorization modes for the Event API publishing.
+   *
    * @public
    */
   defaultPublishAuthModes: AuthMode[] | undefined;
 
   /**
-   * <p>A list of valid authorization modes for the Event API subscriptions.</p>
+   * A list of valid authorization modes for the Event API subscriptions.
+   *
    * @public
    */
   defaultSubscribeAuthModes: AuthMode[] | undefined;
 
   /**
-   * <p>The CloudWatch Logs configuration for the Event API.</p>
+   * The CloudWatch Logs configuration for the Event API.
+   *
    * @public
    */
   logConfig?: EventLogConfig | undefined;
 }
 
 /**
- * <p>Describes an AppSync API. You can use <code>Api</code> for an AppSync API with your preferred configuration, such as an Event API that provides
- *          real-time message publishing and message subscriptions over WebSockets.</p>
+ * Describes an AppSync API. You can use `Api` for an AppSync API with your preferred configuration, such as an Event API that provides real-time message publishing and message subscriptions over WebSockets.
+ *
  * @public
  */
 export interface Api {
   /**
-   * <p>The <code>Api</code> ID.</p>
+   * The `Api` ID.
+   *
    * @public
    */
   apiId?: string | undefined;
 
   /**
-   * <p>The name of the <code>Api</code>.</p>
+   * The name of the `Api`.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The owner contact information for the <code>Api</code>
-   *          </p>
+   * The owner contact information for the `Api`
+   *
    * @public
    */
   ownerContact?: string | undefined;
 
   /**
-   * <p>A map with keys of <code>TagKey</code> objects and values of <code>TagValue</code>
-   *          objects.</p>
+   * A map with keys of `TagKey` objects and values of `TagValue` objects.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The DNS records for the API. This will include an HTTP and a real-time endpoint.</p>
+   * The DNS records for the API. This will include an HTTP and a real-time endpoint.
+   *
    * @public
    */
   dns?: Record<string, string> | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the <code>Api</code>.</p>
+   * The Amazon Resource Name (ARN) for the `Api`.
+   *
    * @public
    */
   apiArn?: string | undefined;
 
   /**
-   * <p>The date and time that the <code>Api</code> was created.</p>
+   * The date and time that the `Api` was created.
+   *
    * @public
    */
   created?: Date | undefined;
 
   /**
-   * <p>A flag indicating whether to use X-Ray tracing for this
-   *             <code>Api</code>.</p>
+   * A flag indicating whether to use X-Ray tracing for this `Api`.
+   *
    * @public
    */
   xrayEnabled?: boolean | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the WAF web access control list (web
-   *          ACL) associated with this <code>Api</code>, if one exists.</p>
+   * The Amazon Resource Name (ARN) of the WAF web access control list (web ACL) associated with this `Api`, if one exists.
+   *
    * @public
    */
   wafWebAclArn?: string | undefined;
 
   /**
-   * <p>The Event API configuration. This includes the default authorization configuration for
-   *          connecting, publishing, and subscribing to an Event API.</p>
+   * The Event API configuration. This includes the default authorization configuration for connecting, publishing, and subscribing to an Event API.
+   *
    * @public
    */
   eventConfig?: EventConfig | undefined;
 }
 
 /**
- * <p>Describes an <code>ApiAssociation</code> object.</p>
+ * Describes an `ApiAssociation` object.
+ *
  * @public
  */
 export interface ApiAssociation {
   /**
-   * <p>The domain name.</p>
+   * The domain name.
+   *
    * @public
    */
   domainName?: string | undefined;
 
   /**
-   * <p>The API ID.</p>
+   * The API ID.
+   *
    * @public
    */
   apiId?: string | undefined;
 
   /**
-   * <p>Identifies the status of an association.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>PROCESSING</b>: The API association is being
-   *                created. You cannot modify association requests during processing.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>SUCCESS</b>: The API association was successful.
-   *                You can modify associations after success.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>FAILED</b>: The API association has failed. You
-   *                can modify associations after failure.</p>
-   *             </li>
-   *          </ul>
+   * Identifies the status of an association.
+   *
+   * - **PROCESSING**: The API association is being created. You cannot modify association requests during processing.
+   * - **SUCCESS**: The API association was successful. You can modify associations after success.
+   * - **FAILED**: The API association has failed. You can modify associations after failure.
+   *
    * @public
    */
   associationStatus?: AssociationStatus | undefined;
 
   /**
-   * <p>Details about the last deployment status.</p>
+   * Details about the last deployment status.
+   *
    * @public
    */
   deploymentDetail?: string | undefined;
 }
 
 /**
- * <p>The <code>ApiCache</code> object.</p>
+ * The `ApiCache` object.
+ *
  * @public
  */
 export interface ApiCache {
   /**
-   * <p>TTL in seconds for cache entries.</p>
-   *          <p>Valid values are 1–3,600 seconds.</p>
+   * TTL in seconds for cache entries.
+   *
+   * Valid values are 1–3,600 seconds.
+   *
    * @public
    */
   ttl?: number | undefined;
 
   /**
-   * <p>Caching behavior.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>FULL_REQUEST_CACHING</b>: All requests from the
-   *                same user are cached. Individual resolvers are automatically cached. All API calls
-   *                will try to return responses from the cache.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>PER_RESOLVER_CACHING</b>: Individual resolvers
-   *                that you specify are cached.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>OPERATION_LEVEL_CACHING</b>: Full requests are cached together and returned without executing resolvers.</p>
-   *             </li>
-   *          </ul>
+   * Caching behavior.
+   *
+   * - **FULL_REQUEST_CACHING**: All requests from the same user are cached. Individual resolvers are automatically cached. All API calls will try to return responses from the cache.
+   * - **PER_RESOLVER_CACHING**: Individual resolvers that you specify are cached.
+   * - **OPERATION_LEVEL_CACHING**: Full requests are cached together and returned without executing resolvers.
+   *
    * @public
    */
   apiCachingBehavior?: ApiCachingBehavior | undefined;
 
   /**
-   * <p>Transit encryption flag when connecting to cache. You cannot update this setting after
-   *          creation.</p>
+   * Transit encryption flag when connecting to cache. You cannot update this setting after creation.
+   *
    * @public
    */
   transitEncryptionEnabled?: boolean | undefined;
 
   /**
-   * <p>At-rest encryption flag for cache. You cannot update this setting after creation.</p>
+   * At-rest encryption flag for cache. You cannot update this setting after creation.
+   *
    * @public
    */
   atRestEncryptionEnabled?: boolean | undefined;
 
   /**
-   * <p>The cache instance type. Valid values are </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SMALL</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MEDIUM</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LARGE</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>XLARGE</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LARGE_2X</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LARGE_4X</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LARGE_8X</code> (not available in all regions)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LARGE_12X</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>Historically, instance types were identified by an EC2-style value. As of July 2020, this is deprecated, and the generic identifiers above should be used.</p>
-   *          <p>The following legacy instance types are available, but their use is discouraged:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>T2_SMALL</b>: A t2.small instance type.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>T2_MEDIUM</b>: A t2.medium instance type.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>R4_LARGE</b>: A r4.large instance type.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>R4_XLARGE</b>: A r4.xlarge instance type.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>R4_2XLARGE</b>: A r4.2xlarge instance type.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>R4_4XLARGE</b>: A r4.4xlarge instance type.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>R4_8XLARGE</b>: A r4.8xlarge instance type.</p>
-   *             </li>
-   *          </ul>
+   * The cache instance type. Valid values are
+   *
+   * - `SMALL`
+   * - `MEDIUM`
+   * - `LARGE`
+   * - `XLARGE`
+   * - `LARGE_2X`
+   * - `LARGE_4X`
+   * - `LARGE_8X` (not available in all regions)
+   * - `LARGE_12X`
+   *
+   * Historically, instance types were identified by an EC2-style value. As of July 2020, this is deprecated, and the generic identifiers above should be used.
+   *
+   * The following legacy instance types are available, but their use is discouraged:
+   *
+   * - **T2_SMALL**: A t2.small instance type.
+   * - **T2_MEDIUM**: A t2.medium instance type.
+   * - **R4_LARGE**: A r4.large instance type.
+   * - **R4_XLARGE**: A r4.xlarge instance type.
+   * - **R4_2XLARGE**: A r4.2xlarge instance type.
+   * - **R4_4XLARGE**: A r4.4xlarge instance type.
+   * - **R4_8XLARGE**: A r4.8xlarge instance type.
+   *
    * @public
    */
   type?: ApiCacheType | undefined;
 
   /**
-   * <p>The cache instance status.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>AVAILABLE</b>: The instance is available for
-   *                use.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>CREATING</b>: The instance is currently
-   *                creating.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>DELETING</b>: The instance is currently
-   *                deleting.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>MODIFYING</b>: The instance is currently
-   *                modifying.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>FAILED</b>: The instance has failed
-   *                creation.</p>
-   *             </li>
-   *          </ul>
+   * The cache instance status.
+   *
+   * - **AVAILABLE**: The instance is available for use.
+   * - **CREATING**: The instance is currently creating.
+   * - **DELETING**: The instance is currently deleting.
+   * - **MODIFYING**: The instance is currently modifying.
+   * - **FAILED**: The instance has failed creation.
+   *
    * @public
    */
   status?: ApiCacheStatus | undefined;
 
   /**
-   * <p>Controls how cache health metrics will be emitted to CloudWatch. Cache health metrics
-   *          include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>NetworkBandwidthOutAllowanceExceeded: The network packets dropped because the
-   *                throughput exceeded the aggregated bandwidth limit. This is useful for diagnosing
-   *                bottlenecks in a cache configuration.</p>
-   *             </li>
-   *             <li>
-   *                <p>EngineCPUUtilization: The CPU utilization (percentage) allocated to the Redis
-   *                process. This is useful for diagnosing bottlenecks in a cache
-   *                configuration.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Metrics will be recorded by API ID. You can set the value to <code>ENABLED</code> or
-   *             <code>DISABLED</code>.</p>
+   * Controls how cache health metrics will be emitted to CloudWatch. Cache health metrics include:
+   *
+   * - NetworkBandwidthOutAllowanceExceeded: The network packets dropped because the throughput exceeded the aggregated bandwidth limit. This is useful for diagnosing bottlenecks in a cache configuration.
+   * - EngineCPUUtilization: The CPU utilization (percentage) allocated to the Redis process. This is useful for diagnosing bottlenecks in a cache configuration.
+   *
+   * Metrics will be recorded by API ID. You can set the value to `ENABLED` or `DISABLED`.
+   *
    * @public
    */
   healthMetricsConfig?: CacheHealthMetricsConfig | undefined;
 }
 
 /**
- * <p>Describes an API key.</p>
- *          <p>Customers invoke AppSync GraphQL API operations with API keys as an
- *          identity mechanism. There are two key versions:</p>
- *          <p>
- *             <b>da1</b>: We introduced this version at launch in November
- *          2017. These keys always expire after 7 days. Amazon DynamoDB TTL manages key
- *          expiration. These keys ceased to be valid after February 21, 2018, and they should no
- *          longer be used.</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>ListApiKeys</code> returns the expiration time in milliseconds.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>CreateApiKey</code> returns the expiration time in
- *                milliseconds.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>UpdateApiKey</code> is not available for this key version.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>DeleteApiKey</code> deletes the item from the table.</p>
- *             </li>
- *             <li>
- *                <p>Expiration is stored in DynamoDB as milliseconds. This results in a
- *                bug where keys are not automatically deleted because DynamoDB expects the
- *                TTL to be stored in seconds. As a one-time action, we deleted these keys from the
- *                table on February 21, 2018.</p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>da2</b>: We introduced this version in February 2018 when
- *             AppSync added support to extend key expiration.</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>ListApiKeys</code> returns the expiration time and deletion time in
- *                seconds.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>CreateApiKey</code> returns the expiration time and deletion time in
- *                seconds and accepts a user-provided expiration time in seconds.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>UpdateApiKey</code> returns the expiration time and and deletion time in
- *                seconds and accepts a user-provided expiration time in seconds. Expired API keys are
- *                kept for 60 days after the expiration time. You can update the key expiration time as
- *                long as the key isn't deleted.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>DeleteApiKey</code> deletes the item from the table.</p>
- *             </li>
- *             <li>
- *                <p>Expiration is stored in DynamoDB as seconds. After the expiration
- *                time, using the key to authenticate will fail. However, you can reinstate the key
- *                before deletion.</p>
- *             </li>
- *             <li>
- *                <p>Deletion is stored in DynamoDB as seconds. The key is deleted after
- *                deletion time.</p>
- *             </li>
- *          </ul>
+ * Describes an API key.
+ *
+ * Customers invoke AppSync GraphQL API operations with API keys as an identity mechanism. There are two key versions:
+ *
+ * **da1**: We introduced this version at launch in November 2017. These keys always expire after 7 days. Amazon DynamoDB TTL manages key expiration. These keys ceased to be valid after February 21, 2018, and they should no longer be used.
+ *
+ * - `ListApiKeys` returns the expiration time in milliseconds.
+ * - `CreateApiKey` returns the expiration time in milliseconds.
+ * - `UpdateApiKey` is not available for this key version.
+ * - `DeleteApiKey` deletes the item from the table.
+ * - Expiration is stored in DynamoDB as milliseconds. This results in a bug where keys are not automatically deleted because DynamoDB expects the TTL to be stored in seconds. As a one-time action, we deleted these keys from the table on February 21, 2018.
+ *
+ * **da2**: We introduced this version in February 2018 when AppSync added support to extend key expiration.
+ *
+ * - `ListApiKeys` returns the expiration time and deletion time in seconds.
+ * - `CreateApiKey` returns the expiration time and deletion time in seconds and accepts a user-provided expiration time in seconds.
+ * - `UpdateApiKey` returns the expiration time and and deletion time in seconds and accepts a user-provided expiration time in seconds. Expired API keys are kept for 60 days after the expiration time. You can update the key expiration time as long as the key isn't deleted.
+ * - `DeleteApiKey` deletes the item from the table.
+ * - Expiration is stored in DynamoDB as seconds. After the expiration time, using the key to authenticate will fail. However, you can reinstate the key before deletion.
+ * - Deletion is stored in DynamoDB as seconds. The key is deleted after deletion time.
+ *
  * @public
  */
 export interface ApiKey {
   /**
-   * <p>The API key ID.</p>
+   * The API key ID.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>A description of the purpose of the API key.</p>
+   * A description of the purpose of the API key.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The time after which the API key expires. The date is represented as seconds since the
-   *          epoch, rounded down to the nearest hour.</p>
+   * The time after which the API key expires. The date is represented as seconds since the epoch, rounded down to the nearest hour.
+   *
    * @public
    */
   expires?: number | undefined;
 
   /**
-   * <p>The time after which the API key is deleted. The date is represented as seconds since
-   *          the epoch, rounded down to the nearest hour.</p>
+   * The time after which the API key is deleted. The date is represented as seconds since the epoch, rounded down to the nearest hour.
+   *
    * @public
    */
   deletes?: number | undefined;
 }
 
 /**
- * <p>Describes a runtime used by an Amazon Web Services AppSync pipeline resolver or Amazon Web Services AppSync function. Specifies the name and version of the runtime to use. Note
- *          that if a runtime is specified, code must also be specified.</p>
+ * Describes a runtime used by an Amazon Web Services AppSync pipeline resolver or Amazon Web Services AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
+ *
  * @public
  */
 export interface AppSyncRuntime {
   /**
-   * <p>The <code>name</code> of the runtime to use. Currently, the only allowed value is
-   *             <code>APPSYNC_JS</code>.</p>
+   * The `name` of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+   *
    * @public
    */
   name: RuntimeName | undefined;
 
   /**
-   * <p>The <code>version</code> of the runtime to use. Currently, the only allowed version is
-   *             <code>1.0.0</code>.</p>
+   * The `version` of the runtime to use. Currently, the only allowed version is `1.0.0`.
+   *
    * @public
    */
   runtimeVersion: string | undefined;
@@ -719,13 +595,15 @@ export interface AppSyncRuntime {
  */
 export interface AssociateApiRequest {
   /**
-   * <p>The domain name.</p>
+   * The domain name.
+   *
    * @public
    */
   domainName: string | undefined;
 
   /**
-   * <p>The API ID. Private APIs can not be associated with custom domains.</p>
+   * The API ID. Private APIs can not be associated with custom domains.
+   *
    * @public
    */
   apiId: string | undefined;
@@ -736,91 +614,98 @@ export interface AssociateApiRequest {
  */
 export interface AssociateApiResponse {
   /**
-   * <p>The <code>ApiAssociation</code> object.</p>
+   * The `ApiAssociation` object.
+   *
    * @public
    */
   apiAssociation?: ApiAssociation | undefined;
 }
 
 /**
- * <p>Describes the location of the error in a code sample.</p>
+ * Describes the location of the error in a code sample.
+ *
  * @public
  */
 export interface CodeErrorLocation {
   /**
-   * <p>The line number in the code. Defaults to <code>0</code> if unknown.</p>
+   * The line number in the code. Defaults to `0` if unknown.
+   *
    * @public
    */
   line?: number | undefined;
 
   /**
-   * <p>The column number in the code. Defaults to <code>0</code> if unknown.</p>
+   * The column number in the code. Defaults to `0` if unknown.
+   *
    * @public
    */
   column?: number | undefined;
 
   /**
-   * <p>The span/length of the error. Defaults to <code>-1</code> if unknown.</p>
+   * The span/length of the error. Defaults to `-1` if unknown.
+   *
    * @public
    */
   span?: number | undefined;
 }
 
 /**
- * <p>Describes an AppSync error.</p>
+ * Describes an AppSync error.
+ *
  * @public
  */
 export interface CodeError {
   /**
-   * <p>The type of code error. </p>
-   *          <p>Examples include, but aren't limited to: <code>LINT_ERROR</code>,
-   *             <code>PARSER_ERROR</code>.</p>
+   * The type of code error.
+   *
+   * Examples include, but aren't limited to: `LINT_ERROR`, `PARSER_ERROR`.
+   *
    * @public
    */
   errorType?: string | undefined;
 
   /**
-   * <p>A user presentable error.</p>
-   *          <p>Examples include, but aren't limited to: <code>Parsing error: Unterminated string
-   *             literal</code>.</p>
+   * A user presentable error.
+   *
+   * Examples include, but aren't limited to: `Parsing error: Unterminated string literal`.
+   *
    * @public
    */
   value?: string | undefined;
 
   /**
-   * <p>The line, column, and span location of the error in the code.</p>
+   * The line, column, and span location of the error in the code.
+   *
    * @public
    */
   location?: CodeErrorLocation | undefined;
 }
 
 /**
- * <p>Provides further details for the reason behind the bad request. For reason type
- *             <code>CODE_ERROR</code>, the detail will contain a list of code errors.</p>
+ * Provides further details for the reason behind the bad request. For reason type `CODE_ERROR`, the detail will contain a list of code errors.
+ *
  * @public
  */
 export interface BadRequestDetail {
   /**
-   * <p>Contains the list of errors in the request.</p>
+   * Contains the list of errors in the request.
+   *
    * @public
    */
   codeErrors?: CodeError[] | undefined;
 }
 
 /**
- * <p>Describes properties used to specify configurations related to a source API.</p>
+ * Describes properties used to specify configurations related to a source API.
+ *
  * @public
  */
 export interface SourceApiAssociationConfig {
   /**
-   * <p>The property that indicates which merging option is enabled in the source API
-   *          association.</p>
-   *          <p>Valid merge types are <code>MANUAL_MERGE</code> (default) and <code>AUTO_MERGE</code>.
-   *          Manual merges are the default behavior and require the user to trigger any changes from the
-   *          source APIs to the merged API manually. Auto merges subscribe the merged API to the changes
-   *          performed on the source APIs so that any change in the source APIs are also made to the
-   *          merged API. Auto merges use <code>MergedApiExecutionRoleArn</code> to perform merge
-   *          operations.</p>
+   * The property that indicates which merging option is enabled in the source API association.
+   *
+   * Valid merge types are `MANUAL_MERGE` (default) and `AUTO_MERGE`. Manual merges are the default behavior and require the user to trigger any changes from the source APIs to the merged API manually. Auto merges subscribe the merged API to the changes performed on the source APIs so that any change in the source APIs are also made to the merged API. Auto merges use `MergedApiExecutionRoleArn` to perform merge operations.
+   *
    * @public
    */
   mergeType?: MergeType | undefined;
@@ -831,109 +716,115 @@ export interface SourceApiAssociationConfig {
  */
 export interface AssociateMergedGraphqlApiRequest {
   /**
-   * <p>The identifier of the AppSync Source API. This is generated by the AppSync service. In
-   *          most cases, source APIs (especially in your account) only require the API ID value or ARN
-   *          of the source API. However, source APIs from other accounts (cross-account use cases)
-   *          strictly require the full resource ARN of the source API.</p>
+   * The identifier of the AppSync Source API. This is generated by the AppSync service. In most cases, source APIs (especially in your account) only require the API ID value or ARN of the source API. However, source APIs from other accounts (cross-account use cases) strictly require the full resource ARN of the source API.
+   *
    * @public
    */
   sourceApiIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the AppSync Merged API. This is generated by the AppSync service. In
-   *          most cases, Merged APIs (especially in your account) only require the API ID value or ARN
-   *          of the merged API. However, Merged APIs in other accounts (cross-account use cases)
-   *          strictly require the full resource ARN of the merged API.</p>
+   * The identifier of the AppSync Merged API. This is generated by the AppSync service. In most cases, Merged APIs (especially in your account) only require the API ID value or ARN of the merged API. However, Merged APIs in other accounts (cross-account use cases) strictly require the full resource ARN of the merged API.
+   *
    * @public
    */
   mergedApiIdentifier: string | undefined;
 
   /**
-   * <p>The description field.</p>
+   * The description field.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The <code>SourceApiAssociationConfig</code> object data.</p>
+   * The `SourceApiAssociationConfig` object data.
+   *
    * @public
    */
   sourceApiAssociationConfig?: SourceApiAssociationConfig | undefined;
 }
 
 /**
- * <p>Describes the configuration of a source API. A source API is a GraphQL API that is
- *          linked to a merged API. There can be multiple source APIs attached to each merged API. When
- *          linked to a merged API, the source API's schema, data sources, and resolvers will be
- *          combined with other linked source API data to form a new, singular API. </p>
- *          <p>Source APIs can originate from your account or from other accounts via Amazon Web Services Resource Access Manager. For more information about sharing resources from other
- *          accounts, see <a href="https://docs.aws.amazon.com/ram/latest/userguide/what-is.html">What is Amazon Web Services Resource Access Manager?</a> in the <i>Amazon Web Services Resource Access Manager</i> guide.</p>
+ * Describes the configuration of a source API. A source API is a GraphQL API that is linked to a merged API. There can be multiple source APIs attached to each merged API. When linked to a merged API, the source API's schema, data sources, and resolvers will be combined with other linked source API data to form a new, singular API.
+ *
+ * Source APIs can originate from your account or from other accounts via Amazon Web Services Resource Access Manager. For more information about sharing resources from other accounts, see [What is Amazon Web Services Resource Access Manager?](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) in the *Amazon Web Services Resource Access Manager* guide.
+ *
  * @public
  */
 export interface SourceApiAssociation {
   /**
-   * <p>The ID generated by the AppSync service for the source API association.</p>
+   * The ID generated by the AppSync service for the source API association.
+   *
    * @public
    */
   associationId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the source API association.</p>
+   * The Amazon Resource Name (ARN) of the source API association.
+   *
    * @public
    */
   associationArn?: string | undefined;
 
   /**
-   * <p>The ID of the AppSync source API.</p>
+   * The ID of the AppSync source API.
+   *
    * @public
    */
   sourceApiId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AppSync source API.</p>
+   * The Amazon Resource Name (ARN) of the AppSync source API.
+   *
    * @public
    */
   sourceApiArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AppSync Merged API.</p>
+   * The Amazon Resource Name (ARN) of the AppSync Merged API.
+   *
    * @public
    */
   mergedApiArn?: string | undefined;
 
   /**
-   * <p>The ID of the AppSync Merged API.</p>
+   * The ID of the AppSync Merged API.
+   *
    * @public
    */
   mergedApiId?: string | undefined;
 
   /**
-   * <p>The description field.</p>
+   * The description field.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The <code>SourceApiAssociationConfig</code> object data.</p>
+   * The `SourceApiAssociationConfig` object data.
+   *
    * @public
    */
   sourceApiAssociationConfig?: SourceApiAssociationConfig | undefined;
 
   /**
-   * <p>The state of the source API association.</p>
+   * The state of the source API association.
+   *
    * @public
    */
   sourceApiAssociationStatus?: SourceApiAssociationStatus | undefined;
 
   /**
-   * <p>The detailed message related to the current state of the source API association.</p>
+   * The detailed message related to the current state of the source API association.
+   *
    * @public
    */
   sourceApiAssociationStatusDetail?: string | undefined;
 
   /**
-   * <p>The datetime value of the last successful merge of the source API association. The
-   *          result will be in UTC format and your local time zone.</p>
+   * The datetime value of the last successful merge of the source API association. The result will be in UTC format and your local time zone.
+   *
    * @public
    */
   lastSuccessfulMergeDate?: Date | undefined;
@@ -944,7 +835,8 @@ export interface SourceApiAssociation {
  */
 export interface AssociateMergedGraphqlApiResponse {
   /**
-   * <p>The <code>SourceApiAssociation</code> object data.</p>
+   * The `SourceApiAssociation` object data.
+   *
    * @public
    */
   sourceApiAssociation?: SourceApiAssociation | undefined;
@@ -955,31 +847,29 @@ export interface AssociateMergedGraphqlApiResponse {
  */
 export interface AssociateSourceGraphqlApiRequest {
   /**
-   * <p>The identifier of the AppSync Merged API. This is generated by the AppSync service. In
-   *          most cases, Merged APIs (especially in your account) only require the API ID value or ARN
-   *          of the merged API. However, Merged APIs in other accounts (cross-account use cases)
-   *          strictly require the full resource ARN of the merged API.</p>
+   * The identifier of the AppSync Merged API. This is generated by the AppSync service. In most cases, Merged APIs (especially in your account) only require the API ID value or ARN of the merged API. However, Merged APIs in other accounts (cross-account use cases) strictly require the full resource ARN of the merged API.
+   *
    * @public
    */
   mergedApiIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the AppSync Source API. This is generated by the AppSync service. In
-   *          most cases, source APIs (especially in your account) only require the API ID value or ARN
-   *          of the source API. However, source APIs from other accounts (cross-account use cases)
-   *          strictly require the full resource ARN of the source API.</p>
+   * The identifier of the AppSync Source API. This is generated by the AppSync service. In most cases, source APIs (especially in your account) only require the API ID value or ARN of the source API. However, source APIs from other accounts (cross-account use cases) strictly require the full resource ARN of the source API.
+   *
    * @public
    */
   sourceApiIdentifier: string | undefined;
 
   /**
-   * <p>The description field.</p>
+   * The description field.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The <code>SourceApiAssociationConfig</code> object data.</p>
+   * The `SourceApiAssociationConfig` object data.
+   *
    * @public
    */
   sourceApiAssociationConfig?: SourceApiAssociationConfig | undefined;
@@ -990,50 +880,52 @@ export interface AssociateSourceGraphqlApiRequest {
  */
 export interface AssociateSourceGraphqlApiResponse {
   /**
-   * <p>The <code>SourceApiAssociation</code> object data.</p>
+   * The `SourceApiAssociation` object data.
+   *
    * @public
    */
   sourceApiAssociation?: SourceApiAssociation | undefined;
 }
 
 /**
- * <p>The Identity and Access Management (IAM) configuration.</p>
+ * The Identity and Access Management (IAM) configuration.
+ *
  * @public
  */
 export interface AwsIamConfig {
   /**
-   * <p>The signing Amazon Web Services Region for IAM authorization.</p>
+   * The signing Amazon Web Services Region for IAM authorization.
+   *
    * @public
    */
   signingRegion?: string | undefined;
 
   /**
-   * <p>The signing service name for IAM authorization.</p>
+   * The signing service name for IAM authorization.
+   *
    * @public
    */
   signingServiceName?: string | undefined;
 }
 
 /**
- * <p>The authorization configuration in case the HTTP endpoint requires authorization.</p>
+ * The authorization configuration in case the HTTP endpoint requires authorization.
+ *
  * @public
  */
 export interface AuthorizationConfig {
   /**
-   * <p>The authorization type that the HTTP endpoint requires.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>AWS_IAM</b>: The authorization type is Signature
-   *                Version 4 (SigV4).</p>
-   *             </li>
-   *          </ul>
+   * The authorization type that the HTTP endpoint requires.
+   *
+   * - **AWS_IAM**: The authorization type is Signature Version 4 (SigV4).
+   *
    * @public
    */
   authorizationType: AuthorizationType | undefined;
 
   /**
-   * <p>The Identity and Access Management (IAM) settings.</p>
+   * The Identity and Access Management (IAM) settings.
+   *
    * @public
    */
   awsIamConfig?: AwsIamConfig | undefined;
@@ -1044,27 +936,29 @@ export interface AuthorizationConfig {
  */
 export interface CreateApiRequest {
   /**
-   * <p>The name for the <code>Api</code>.</p>
+   * The name for the `Api`.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The owner contact information for the <code>Api</code>.</p>
+   * The owner contact information for the `Api`.
+   *
    * @public
    */
   ownerContact?: string | undefined;
 
   /**
-   * <p>A map with keys of <code>TagKey</code> objects and values of <code>TagValue</code>
-   *          objects.</p>
+   * A map with keys of `TagKey` objects and values of `TagValue` objects.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The Event API configuration. This includes the default authorization configuration for
-   *          connecting, publishing, and subscribing to an Event API.</p>
+   * The Event API configuration. This includes the default authorization configuration for connecting, publishing, and subscribing to an Event API.
+   *
    * @public
    */
   eventConfig: EventConfig | undefined;
@@ -1075,33 +969,37 @@ export interface CreateApiRequest {
  */
 export interface CreateApiResponse {
   /**
-   * <p>The <code>Api</code> object.</p>
+   * The `Api` object.
+   *
    * @public
    */
   api?: Api | undefined;
 }
 
 /**
- * <p>Represents the input of a <code>CreateApiCache</code> operation.</p>
+ * Represents the input of a `CreateApiCache` operation.
+ *
  * @public
  */
 export interface CreateApiCacheRequest {
   /**
-   * <p>The GraphQL API ID.</p>
+   * The GraphQL API ID.
+   *
    * @public
    */
   apiId: string | undefined;
 
   /**
-   * <p>TTL in seconds for cache entries.</p>
-   *          <p>Valid values are 1–3,600 seconds.</p>
+   * TTL in seconds for cache entries.
+   *
+   * Valid values are 1–3,600 seconds.
+   *
    * @public
    */
   ttl: number | undefined;
 
   /**
-   * <p>Transit encryption flag when connecting to cache. You cannot update this setting after
-   *          creation.</p>
+   * Transit encryption flag when connecting to cache. You cannot update this setting after creation.
    *
    * @deprecated (since 5/15/2025) transitEncryptionEnabled attribute is deprecated. Encryption in transit is always enabled.
    * @public
@@ -1109,7 +1007,7 @@ export interface CreateApiCacheRequest {
   transitEncryptionEnabled?: boolean | undefined;
 
   /**
-   * <p>At-rest encryption flag for cache. You cannot update this setting after creation.</p>
+   * At-rest encryption flag for cache. You cannot update this setting after creation.
    *
    * @deprecated (since 5/15/2025) atRestEncryptionEnabled attribute is deprecated. Encryption at rest is always enabled.
    * @public
@@ -1117,136 +1015,66 @@ export interface CreateApiCacheRequest {
   atRestEncryptionEnabled?: boolean | undefined;
 
   /**
-   * <p>Caching behavior.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>FULL_REQUEST_CACHING</b>: All requests from the
-   *                same user are cached. Individual resolvers are automatically cached. All API calls
-   *                will try to return responses from the cache.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>PER_RESOLVER_CACHING</b>: Individual resolvers
-   *                that you specify are cached.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>OPERATION_LEVEL_CACHING</b>: Full requests are cached together and returned without executing resolvers.</p>
-   *             </li>
-   *          </ul>
+   * Caching behavior.
+   *
+   * - **FULL_REQUEST_CACHING**: All requests from the same user are cached. Individual resolvers are automatically cached. All API calls will try to return responses from the cache.
+   * - **PER_RESOLVER_CACHING**: Individual resolvers that you specify are cached.
+   * - **OPERATION_LEVEL_CACHING**: Full requests are cached together and returned without executing resolvers.
+   *
    * @public
    */
   apiCachingBehavior: ApiCachingBehavior | undefined;
 
   /**
-   * <p>The cache instance type. Valid values are </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SMALL</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MEDIUM</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LARGE</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>XLARGE</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LARGE_2X</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LARGE_4X</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LARGE_8X</code> (not available in all regions)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LARGE_12X</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>Historically, instance types were identified by an EC2-style value. As of July 2020, this is deprecated, and the generic identifiers above should be used.</p>
-   *          <p>The following legacy instance types are available, but their use is discouraged:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>T2_SMALL</b>: A t2.small instance type.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>T2_MEDIUM</b>: A t2.medium instance type.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>R4_LARGE</b>: A r4.large instance type.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>R4_XLARGE</b>: A r4.xlarge instance type.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>R4_2XLARGE</b>: A r4.2xlarge instance type.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>R4_4XLARGE</b>: A r4.4xlarge instance type.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>R4_8XLARGE</b>: A r4.8xlarge instance type.</p>
-   *             </li>
-   *          </ul>
+   * The cache instance type. Valid values are
+   *
+   * - `SMALL`
+   * - `MEDIUM`
+   * - `LARGE`
+   * - `XLARGE`
+   * - `LARGE_2X`
+   * - `LARGE_4X`
+   * - `LARGE_8X` (not available in all regions)
+   * - `LARGE_12X`
+   *
+   * Historically, instance types were identified by an EC2-style value. As of July 2020, this is deprecated, and the generic identifiers above should be used.
+   *
+   * The following legacy instance types are available, but their use is discouraged:
+   *
+   * - **T2_SMALL**: A t2.small instance type.
+   * - **T2_MEDIUM**: A t2.medium instance type.
+   * - **R4_LARGE**: A r4.large instance type.
+   * - **R4_XLARGE**: A r4.xlarge instance type.
+   * - **R4_2XLARGE**: A r4.2xlarge instance type.
+   * - **R4_4XLARGE**: A r4.4xlarge instance type.
+   * - **R4_8XLARGE**: A r4.8xlarge instance type.
+   *
    * @public
    */
   type: ApiCacheType | undefined;
 
   /**
-   * <p>Controls how cache health metrics will be emitted to CloudWatch. Cache health metrics
-   *          include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>NetworkBandwidthOutAllowanceExceeded: The network packets dropped because the
-   *                throughput exceeded the aggregated bandwidth limit. This is useful for diagnosing
-   *                bottlenecks in a cache configuration.</p>
-   *             </li>
-   *             <li>
-   *                <p>EngineCPUUtilization: The CPU utilization (percentage) allocated to the Redis
-   *                process. This is useful for diagnosing bottlenecks in a cache
-   *                configuration.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Metrics will be recorded by API ID. You can set the value to <code>ENABLED</code> or
-   *             <code>DISABLED</code>.</p>
+   * Controls how cache health metrics will be emitted to CloudWatch. Cache health metrics include:
+   *
+   * - NetworkBandwidthOutAllowanceExceeded: The network packets dropped because the throughput exceeded the aggregated bandwidth limit. This is useful for diagnosing bottlenecks in a cache configuration.
+   * - EngineCPUUtilization: The CPU utilization (percentage) allocated to the Redis process. This is useful for diagnosing bottlenecks in a cache configuration.
+   *
+   * Metrics will be recorded by API ID. You can set the value to `ENABLED` or `DISABLED`.
+   *
    * @public
    */
   healthMetricsConfig?: CacheHealthMetricsConfig | undefined;
 }
 
 /**
- * <p>Represents the output of a <code>CreateApiCache</code> operation.</p>
+ * Represents the output of a `CreateApiCache` operation.
+ *
  * @public
  */
 export interface CreateApiCacheResponse {
   /**
-   * <p>The <code>ApiCache</code> object.</p>
+   * The `ApiCache` object.
+   *
    * @public
    */
   apiCache?: ApiCache | undefined;
@@ -1257,21 +1085,22 @@ export interface CreateApiCacheResponse {
  */
 export interface CreateApiKeyRequest {
   /**
-   * <p>The ID for your GraphQL API.</p>
+   * The ID for your GraphQL API.
+   *
    * @public
    */
   apiId: string | undefined;
 
   /**
-   * <p>A description of the purpose of the API key.</p>
+   * A description of the purpose of the API key.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>From the creation time, the time after which the API key expires. The date is
-   *          represented as seconds since the epoch, rounded down to the nearest hour. The default value
-   *          for this parameter is 7 days from creation time. For more information, see .</p>
+   * From the creation time, the time after which the API key expires. The date is represented as seconds since the epoch, rounded down to the nearest hour. The default value for this parameter is 7 days from creation time. For more information, see .
+   *
    * @public
    */
   expires?: number | undefined;
@@ -1282,73 +1111,85 @@ export interface CreateApiKeyRequest {
  */
 export interface CreateApiKeyResponse {
   /**
-   * <p>The API key.</p>
+   * The API key.
+   *
    * @public
    */
   apiKey?: ApiKey | undefined;
 }
 
 /**
- * <p>The configuration for a Lambda data source.</p>
+ * The configuration for a Lambda data source.
+ *
  * @public
  */
 export interface LambdaConfig {
   /**
-   * <p>The invocation type for a Lambda data source.</p>
+   * The invocation type for a Lambda data source.
+   *
    * @public
    */
   invokeType?: InvokeType | undefined;
 }
 
 /**
- * <p>The integration data source configuration for the handler.</p>
+ * The integration data source configuration for the handler.
+ *
  * @public
  */
 export interface Integration {
   /**
-   * <p>The unique name of the data source that has been configured on the API.</p>
+   * The unique name of the data source that has been configured on the API.
+   *
    * @public
    */
   dataSourceName: string | undefined;
 
   /**
-   * <p>The configuration for a Lambda data source.</p>
+   * The configuration for a Lambda data source.
+   *
    * @public
    */
   lambdaConfig?: LambdaConfig | undefined;
 }
 
 /**
- * <p>The configuration for a handler.</p>
+ * The configuration for a handler.
+ *
  * @public
  */
 export interface HandlerConfig {
   /**
-   * <p>The behavior for the handler.</p>
+   * The behavior for the handler.
+   *
    * @public
    */
   behavior: HandlerBehavior | undefined;
 
   /**
-   * <p>The integration data source configuration for the handler.</p>
+   * The integration data source configuration for the handler.
+   *
    * @public
    */
   integration: Integration | undefined;
 }
 
 /**
- * <p>The configuration for the <code>OnPublish</code> and <code>OnSubscribe</code> handlers.</p>
+ * The configuration for the `OnPublish` and `OnSubscribe` handlers.
+ *
  * @public
  */
 export interface HandlerConfigs {
   /**
-   * <p>The configuration for the <code>OnPublish</code> handler.</p>
+   * The configuration for the `OnPublish` handler.
+   *
    * @public
    */
   onPublish?: HandlerConfig | undefined;
 
   /**
-   * <p>The configuration for the <code>OnSubscribe</code> handler.</p>
+   * The configuration for the `OnSubscribe` handler.
+   *
    * @public
    */
   onSubscribe?: HandlerConfig | undefined;
@@ -1359,122 +1200,127 @@ export interface HandlerConfigs {
  */
 export interface CreateChannelNamespaceRequest {
   /**
-   * <p>The <code>Api</code> ID.</p>
+   * The `Api` ID.
+   *
    * @public
    */
   apiId: string | undefined;
 
   /**
-   * <p>The name of the <code>ChannelNamespace</code>. This name must be unique within the
-   *             <code>Api</code>
-   *          </p>
+   * The name of the `ChannelNamespace`. This name must be unique within the `Api`
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The authorization mode to use for subscribing to messages on the channel namespace. This
-   *          configuration overrides the default <code>Api</code> authorization configuration.</p>
+   * The authorization mode to use for subscribing to messages on the channel namespace. This configuration overrides the default `Api` authorization configuration.
+   *
    * @public
    */
   subscribeAuthModes?: AuthMode[] | undefined;
 
   /**
-   * <p>The authorization mode to use for publishing messages on the channel namespace. This
-   *          configuration overrides the default <code>Api</code> authorization configuration.</p>
+   * The authorization mode to use for publishing messages on the channel namespace. This configuration overrides the default `Api` authorization configuration.
+   *
    * @public
    */
   publishAuthModes?: AuthMode[] | undefined;
 
   /**
-   * <p>The event handler functions that run custom business logic to process published events
-   *          and subscribe requests.</p>
+   * The event handler functions that run custom business logic to process published events and subscribe requests.
+   *
    * @public
    */
   codeHandlers?: string | undefined;
 
   /**
-   * <p>A map with keys of <code>TagKey</code> objects and values of <code>TagValue</code>
-   *          objects.</p>
+   * A map with keys of `TagKey` objects and values of `TagValue` objects.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The configuration for the <code>OnPublish</code> and <code>OnSubscribe</code> handlers.</p>
+   * The configuration for the `OnPublish` and `OnSubscribe` handlers.
+   *
    * @public
    */
   handlerConfigs?: HandlerConfigs | undefined;
 }
 
 /**
- * <p>Describes a channel namespace associated with an <code>Api</code>. The
- *             <code>ChannelNamespace</code> contains the definitions for code handlers for the
- *             <code>Api</code>.</p>
+ * Describes a channel namespace associated with an `Api`. The `ChannelNamespace` contains the definitions for code handlers for the `Api`.
+ *
  * @public
  */
 export interface ChannelNamespace {
   /**
-   * <p>The <code>Api</code> ID.</p>
+   * The `Api` ID.
+   *
    * @public
    */
   apiId?: string | undefined;
 
   /**
-   * <p>The name of the channel namespace. This name must be unique within the
-   *          <code>Api</code>.</p>
+   * The name of the channel namespace. This name must be unique within the `Api`.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The authorization mode to use for subscribing to messages on the channel namespace. This
-   *          configuration overrides the default <code>Api</code>authorization configuration.</p>
+   * The authorization mode to use for subscribing to messages on the channel namespace. This configuration overrides the default `Api`authorization configuration.
+   *
    * @public
    */
   subscribeAuthModes?: AuthMode[] | undefined;
 
   /**
-   * <p>The authorization mode to use for publishing messages on the channel namespace. This
-   *          configuration overrides the default <code>Api</code>authorization configuration.</p>
+   * The authorization mode to use for publishing messages on the channel namespace. This configuration overrides the default `Api`authorization configuration.
+   *
    * @public
    */
   publishAuthModes?: AuthMode[] | undefined;
 
   /**
-   * <p>The event handler functions that run custom business logic to process published events
-   *          and subscribe requests.</p>
+   * The event handler functions that run custom business logic to process published events and subscribe requests.
+   *
    * @public
    */
   codeHandlers?: string | undefined;
 
   /**
-   * <p>A map with keys of <code>TagKey</code> objects and values of <code>TagValue</code>
-   *          objects.</p>
+   * A map with keys of `TagKey` objects and values of `TagValue` objects.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the <code>ChannelNamespace</code>.</p>
+   * The Amazon Resource Name (ARN) for the `ChannelNamespace`.
+   *
    * @public
    */
   channelNamespaceArn?: string | undefined;
 
   /**
-   * <p>The date and time that the <code>ChannelNamespace</code> was created.</p>
+   * The date and time that the `ChannelNamespace` was created.
+   *
    * @public
    */
   created?: Date | undefined;
 
   /**
-   * <p>The date and time that the <code>ChannelNamespace</code> was last changed.</p>
+   * The date and time that the `ChannelNamespace` was last changed.
+   *
    * @public
    */
   lastModified?: Date | undefined;
 
   /**
-   * <p>The configuration for the <code>OnPublish</code> and <code>OnSubscribe</code> handlers.</p>
+   * The configuration for the `OnPublish` and `OnSubscribe` handlers.
+   *
    * @public
    */
   handlerConfigs?: HandlerConfigs | undefined;
@@ -1485,216 +1331,236 @@ export interface ChannelNamespace {
  */
 export interface CreateChannelNamespaceResponse {
   /**
-   * <p>The <code>ChannelNamespace</code> object.</p>
+   * The `ChannelNamespace` object.
+   *
    * @public
    */
   channelNamespace?: ChannelNamespace | undefined;
 }
 
 /**
- * <p>Describes a Delta Sync configuration.</p>
+ * Describes a Delta Sync configuration.
+ *
  * @public
  */
 export interface DeltaSyncConfig {
   /**
-   * <p>The number of minutes that an Item is stored in the data source.</p>
+   * The number of minutes that an Item is stored in the data source.
+   *
    * @public
    */
   baseTableTTL?: number | undefined;
 
   /**
-   * <p>The Delta Sync table name.</p>
+   * The Delta Sync table name.
+   *
    * @public
    */
   deltaSyncTableName?: string | undefined;
 
   /**
-   * <p>The number of minutes that a Delta Sync log entry is stored in the Delta Sync
-   *          table.</p>
+   * The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
+   *
    * @public
    */
   deltaSyncTableTTL?: number | undefined;
 }
 
 /**
- * <p>Describes an Amazon DynamoDB data source configuration.</p>
+ * Describes an Amazon DynamoDB data source configuration.
+ *
  * @public
  */
 export interface DynamodbDataSourceConfig {
   /**
-   * <p>The table name.</p>
+   * The table name.
+   *
    * @public
    */
   tableName: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region.</p>
+   * The Amazon Web Services Region.
+   *
    * @public
    */
   awsRegion: string | undefined;
 
   /**
-   * <p>Set to TRUE to use Amazon Cognito credentials with this data source.</p>
+   * Set to TRUE to use Amazon Cognito credentials with this data source.
+   *
    * @public
    */
   useCallerCredentials?: boolean | undefined;
 
   /**
-   * <p>The <code>DeltaSyncConfig</code> for a versioned data source.</p>
+   * The `DeltaSyncConfig` for a versioned data source.
+   *
    * @public
    */
   deltaSyncConfig?: DeltaSyncConfig | undefined;
 
   /**
-   * <p>Set to TRUE to use Conflict Detection and Resolution with this data source.</p>
+   * Set to TRUE to use Conflict Detection and Resolution with this data source.
+   *
    * @public
    */
   versioned?: boolean | undefined;
 }
 
 /**
- * <p>Describes an OpenSearch data source configuration.</p>
- *          <p>As of September 2021, Amazon Elasticsearch service is Amazon OpenSearch Service. This
- *          configuration is deprecated. For new data sources, use <a>OpenSearchServiceDataSourceConfig</a> to specify an OpenSearch data
- *          source.</p>
+ * Describes an OpenSearch data source configuration.
+ *
+ * As of September 2021, Amazon Elasticsearch service is Amazon OpenSearch Service. This configuration is deprecated. For new data sources, use OpenSearchServiceDataSourceConfig to specify an OpenSearch data source.
+ *
  * @public
  */
 export interface ElasticsearchDataSourceConfig {
   /**
-   * <p>The endpoint.</p>
+   * The endpoint.
+   *
    * @public
    */
   endpoint: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region.</p>
+   * The Amazon Web Services Region.
+   *
    * @public
    */
   awsRegion: string | undefined;
 }
 
 /**
- * <p>Describes an Amazon EventBridge bus data source configuration.</p>
+ * Describes an Amazon EventBridge bus data source configuration.
+ *
  * @public
  */
 export interface EventBridgeDataSourceConfig {
   /**
-   * <p>The ARN of the event bus. For more information about event buses, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-bus.html">Amazon
-   *             EventBridge event buses</a>.</p>
+   * The ARN of the event bus. For more information about event buses, see [Amazon EventBridge event buses](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-bus.html).
+   *
    * @public
    */
   eventBusArn: string | undefined;
 }
 
 /**
- * <p>Describes an HTTP data source configuration.</p>
+ * Describes an HTTP data source configuration.
+ *
  * @public
  */
 export interface HttpDataSourceConfig {
   /**
-   * <p>The HTTP URL endpoint. You can specify either the domain name or IP, and port
-   *          combination, and the URL scheme must be HTTP or HTTPS. If you don't specify the port,
-   *             AppSync uses the default port 80 for the HTTP endpoint and port 443 for
-   *          HTTPS endpoints.</p>
+   * The HTTP URL endpoint. You can specify either the domain name or IP, and port combination, and the URL scheme must be HTTP or HTTPS. If you don't specify the port, AppSync uses the default port 80 for the HTTP endpoint and port 443 for HTTPS endpoints.
+   *
    * @public
    */
   endpoint?: string | undefined;
 
   /**
-   * <p>The authorization configuration in case the HTTP endpoint requires authorization.</p>
+   * The authorization configuration in case the HTTP endpoint requires authorization.
+   *
    * @public
    */
   authorizationConfig?: AuthorizationConfig | undefined;
 }
 
 /**
- * <p>Describes an Lambda data source configuration.</p>
+ * Describes an Lambda data source configuration.
+ *
  * @public
  */
 export interface LambdaDataSourceConfig {
   /**
-   * <p>The Amazon Resource Name (ARN) for the Lambda function.</p>
+   * The Amazon Resource Name (ARN) for the Lambda function.
+   *
    * @public
    */
   lambdaFunctionArn: string | undefined;
 }
 
 /**
- * <p>Describes an OpenSearch data source configuration.</p>
+ * Describes an OpenSearch data source configuration.
+ *
  * @public
  */
 export interface OpenSearchServiceDataSourceConfig {
   /**
-   * <p>The endpoint.</p>
+   * The endpoint.
+   *
    * @public
    */
   endpoint: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region.</p>
+   * The Amazon Web Services Region.
+   *
    * @public
    */
   awsRegion: string | undefined;
 }
 
 /**
- * <p>The Amazon Relational Database Service (Amazon RDS) HTTP endpoint configuration.</p>
+ * The Amazon Relational Database Service (Amazon RDS) HTTP endpoint configuration.
+ *
  * @public
  */
 export interface RdsHttpEndpointConfig {
   /**
-   * <p>Amazon Web Services Region for Amazon RDS HTTP endpoint.</p>
+   * Amazon Web Services Region for Amazon RDS HTTP endpoint.
+   *
    * @public
    */
   awsRegion?: string | undefined;
 
   /**
-   * <p>Amazon RDS cluster Amazon Resource Name (ARN).</p>
+   * Amazon RDS cluster Amazon Resource Name (ARN).
+   *
    * @public
    */
   dbClusterIdentifier?: string | undefined;
 
   /**
-   * <p>Logical database name.</p>
+   * Logical database name.
+   *
    * @public
    */
   databaseName?: string | undefined;
 
   /**
-   * <p>Logical schema name.</p>
+   * Logical schema name.
+   *
    * @public
    */
   schema?: string | undefined;
 
   /**
-   * <p>Amazon Web Services secret store Amazon Resource Name (ARN) for database
-   *          credentials.</p>
+   * Amazon Web Services secret store Amazon Resource Name (ARN) for database credentials.
+   *
    * @public
    */
   awsSecretStoreArn?: string | undefined;
 }
 
 /**
- * <p>Describes a relational database data source configuration.</p>
+ * Describes a relational database data source configuration.
+ *
  * @public
  */
 export interface RelationalDatabaseDataSourceConfig {
   /**
-   * <p>Source type for the relational database.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>RDS_HTTP_ENDPOINT</b>: The relational database
-   *                source type is an Amazon Relational Database Service (Amazon RDS) HTTP
-   *                endpoint.</p>
-   *             </li>
-   *          </ul>
+   * Source type for the relational database.
+   *
+   * - **RDS_HTTP_ENDPOINT**: The relational database source type is an Amazon Relational Database Service (Amazon RDS) HTTP endpoint.
+   *
    * @public
    */
   relationalDatabaseSourceType?: RelationalDatabaseSourceType | undefined;
 
   /**
-   * <p>Amazon RDS HTTP endpoint settings.</p>
+   * Amazon RDS HTTP endpoint settings.
+   *
    * @public
    */
   rdsHttpEndpointConfig?: RdsHttpEndpointConfig | undefined;
@@ -1705,228 +1571,206 @@ export interface RelationalDatabaseDataSourceConfig {
  */
 export interface CreateDataSourceRequest {
   /**
-   * <p>The API ID for the GraphQL API for the <code>DataSource</code>.</p>
+   * The API ID for the GraphQL API for the `DataSource`.
+   *
    * @public
    */
   apiId: string | undefined;
 
   /**
-   * <p>A user-supplied name for the <code>DataSource</code>.</p>
+   * A user-supplied name for the `DataSource`.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description of the <code>DataSource</code>.</p>
+   * A description of the `DataSource`.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The type of the <code>DataSource</code>.</p>
+   * The type of the `DataSource`.
+   *
    * @public
    */
   type: DataSourceType | undefined;
 
   /**
-   * <p>The Identity and Access Management (IAM) service role Amazon Resource Name (ARN)
-   *          for the data source. The system assumes this role when accessing the data source.</p>
+   * The Identity and Access Management (IAM) service role Amazon Resource Name (ARN) for the data source. The system assumes this role when accessing the data source.
+   *
    * @public
    */
   serviceRoleArn?: string | undefined;
 
   /**
-   * <p>Amazon DynamoDB settings.</p>
+   * Amazon DynamoDB settings.
+   *
    * @public
    */
   dynamodbConfig?: DynamodbDataSourceConfig | undefined;
 
   /**
-   * <p>Lambda settings.</p>
+   * Lambda settings.
+   *
    * @public
    */
   lambdaConfig?: LambdaDataSourceConfig | undefined;
 
   /**
-   * <p>Amazon OpenSearch Service settings.</p>
-   *          <p>As of September 2021, Amazon Elasticsearch service is Amazon OpenSearch Service. This
-   *          configuration is deprecated. For new data sources, use <a>CreateDataSourceRequest$openSearchServiceConfig</a> to create an OpenSearch data source.</p>
+   * Amazon OpenSearch Service settings.
+   *
+   * As of September 2021, Amazon Elasticsearch service is Amazon OpenSearch Service. This configuration is deprecated. For new data sources, use CreateDataSourceRequest$openSearchServiceConfig to create an OpenSearch data source.
+   *
    * @public
    */
   elasticsearchConfig?: ElasticsearchDataSourceConfig | undefined;
 
   /**
-   * <p>Amazon OpenSearch Service settings.</p>
+   * Amazon OpenSearch Service settings.
+   *
    * @public
    */
   openSearchServiceConfig?: OpenSearchServiceDataSourceConfig | undefined;
 
   /**
-   * <p>HTTP endpoint settings.</p>
+   * HTTP endpoint settings.
+   *
    * @public
    */
   httpConfig?: HttpDataSourceConfig | undefined;
 
   /**
-   * <p>Relational database settings.</p>
+   * Relational database settings.
+   *
    * @public
    */
   relationalDatabaseConfig?: RelationalDatabaseDataSourceConfig | undefined;
 
   /**
-   * <p>Amazon EventBridge settings.</p>
+   * Amazon EventBridge settings.
+   *
    * @public
    */
   eventBridgeConfig?: EventBridgeDataSourceConfig | undefined;
 
   /**
-   * <p>Enables or disables enhanced data source metrics for specified data sources. Note that
-   *             <code>metricsConfig</code> won't be used unless the
-   *             <code>dataSourceLevelMetricsBehavior</code> value is set to
-   *             <code>PER_DATA_SOURCE_METRICS</code>. If the <code>dataSourceLevelMetricsBehavior</code>
-   *          is set to <code>FULL_REQUEST_DATA_SOURCE_METRICS</code> instead, <code>metricsConfig</code>
-   *          will be ignored. However, you can still set its value.</p>
-   *          <p>
-   *             <code>metricsConfig</code> can be <code>ENABLED</code> or <code>DISABLED</code>.</p>
+   * Enables or disables enhanced data source metrics for specified data sources. Note that `metricsConfig` won't be used unless the `dataSourceLevelMetricsBehavior` value is set to `PER_DATA_SOURCE_METRICS`. If the `dataSourceLevelMetricsBehavior` is set to `FULL_REQUEST_DATA_SOURCE_METRICS` instead, `metricsConfig` will be ignored. However, you can still set its value.
+   *
+   * `metricsConfig` can be `ENABLED` or `DISABLED`.
+   *
    * @public
    */
   metricsConfig?: DataSourceLevelMetricsConfig | undefined;
 }
 
 /**
- * <p>Describes a data source.</p>
+ * Describes a data source.
+ *
  * @public
  */
 export interface DataSource {
   /**
-   * <p>The data source Amazon Resource Name (ARN).</p>
+   * The data source Amazon Resource Name (ARN).
+   *
    * @public
    */
   dataSourceArn?: string | undefined;
 
   /**
-   * <p>The name of the data source.</p>
+   * The name of the data source.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The description of the data source.</p>
+   * The description of the data source.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The type of the data source.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>AWS_LAMBDA</b>: The data source is an Lambda function.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>AMAZON_DYNAMODB</b>: The data source is an Amazon DynamoDB table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>AMAZON_ELASTICSEARCH</b>: The data source is an
-   *                   Amazon OpenSearch Service domain.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>AMAZON_OPENSEARCH_SERVICE</b>: The data source is
-   *                an Amazon OpenSearch Service domain.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>AMAZON_EVENTBRIDGE</b>: The data source is an
-   *                   Amazon EventBridge configuration.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>AMAZON_BEDROCK_RUNTIME</b>: The data source is the
-   *                   Amazon Bedrock runtime.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>NONE</b>: There is no data source. Use this type
-   *                when you want to invoke a GraphQL operation without connecting to a data source, such
-   *                as when you're performing data transformation with resolvers or invoking a
-   *                subscription from a mutation.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>HTTP</b>: The data source is an HTTP
-   *                endpoint.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>RELATIONAL_DATABASE</b>: The data source is a
-   *                relational database.</p>
-   *             </li>
-   *          </ul>
+   * The type of the data source.
+   *
+   * - **AWS_LAMBDA**: The data source is an Lambda function.
+   * - **AMAZON_DYNAMODB**: The data source is an Amazon DynamoDB table.
+   * - **AMAZON_ELASTICSEARCH**: The data source is an Amazon OpenSearch Service domain.
+   * - **AMAZON_OPENSEARCH_SERVICE**: The data source is an Amazon OpenSearch Service domain.
+   * - **AMAZON_EVENTBRIDGE**: The data source is an Amazon EventBridge configuration.
+   * - **AMAZON_BEDROCK_RUNTIME**: The data source is the Amazon Bedrock runtime.
+   * - **NONE**: There is no data source. Use this type when you want to invoke a GraphQL operation without connecting to a data source, such as when you're performing data transformation with resolvers or invoking a subscription from a mutation.
+   * - **HTTP**: The data source is an HTTP endpoint.
+   * - **RELATIONAL_DATABASE**: The data source is a relational database.
+   *
    * @public
    */
   type?: DataSourceType | undefined;
 
   /**
-   * <p>The Identity and Access Management (IAM) service role Amazon Resource Name (ARN)
-   *          for the data source. The system assumes this role when accessing the data source.</p>
+   * The Identity and Access Management (IAM) service role Amazon Resource Name (ARN) for the data source. The system assumes this role when accessing the data source.
+   *
    * @public
    */
   serviceRoleArn?: string | undefined;
 
   /**
-   * <p>DynamoDB settings.</p>
+   * DynamoDB settings.
+   *
    * @public
    */
   dynamodbConfig?: DynamodbDataSourceConfig | undefined;
 
   /**
-   * <p>Lambda settings.</p>
+   * Lambda settings.
+   *
    * @public
    */
   lambdaConfig?: LambdaDataSourceConfig | undefined;
 
   /**
-   * <p>Amazon OpenSearch Service settings.</p>
+   * Amazon OpenSearch Service settings.
+   *
    * @public
    */
   elasticsearchConfig?: ElasticsearchDataSourceConfig | undefined;
 
   /**
-   * <p>Amazon OpenSearch Service settings.</p>
+   * Amazon OpenSearch Service settings.
+   *
    * @public
    */
   openSearchServiceConfig?: OpenSearchServiceDataSourceConfig | undefined;
 
   /**
-   * <p>HTTP endpoint settings.</p>
+   * HTTP endpoint settings.
+   *
    * @public
    */
   httpConfig?: HttpDataSourceConfig | undefined;
 
   /**
-   * <p>Relational database settings.</p>
+   * Relational database settings.
+   *
    * @public
    */
   relationalDatabaseConfig?: RelationalDatabaseDataSourceConfig | undefined;
 
   /**
-   * <p>Amazon EventBridge settings.</p>
+   * Amazon EventBridge settings.
+   *
    * @public
    */
   eventBridgeConfig?: EventBridgeDataSourceConfig | undefined;
 
   /**
-   * <p>Enables or disables enhanced data source metrics for specified data sources. Note that
-   *             <code>metricsConfig</code> won't be used unless the
-   *             <code>dataSourceLevelMetricsBehavior</code> value is set to
-   *             <code>PER_DATA_SOURCE_METRICS</code>. If the <code>dataSourceLevelMetricsBehavior</code>
-   *          is set to <code>FULL_REQUEST_DATA_SOURCE_METRICS</code> instead, <code>metricsConfig</code>
-   *          will be ignored. However, you can still set its value.</p>
-   *          <p>
-   *             <code>metricsConfig</code> can be <code>ENABLED</code> or <code>DISABLED</code>.</p>
+   * Enables or disables enhanced data source metrics for specified data sources. Note that `metricsConfig` won't be used unless the `dataSourceLevelMetricsBehavior` value is set to `PER_DATA_SOURCE_METRICS`. If the `dataSourceLevelMetricsBehavior` is set to `FULL_REQUEST_DATA_SOURCE_METRICS` instead, `metricsConfig` will be ignored. However, you can still set its value.
+   *
+   * `metricsConfig` can be `ENABLED` or `DISABLED`.
+   *
    * @public
    */
   metricsConfig?: DataSourceLevelMetricsConfig | undefined;
@@ -1937,7 +1781,8 @@ export interface DataSource {
  */
 export interface CreateDataSourceResponse {
   /**
-   * <p>The <code>DataSource</code> object.</p>
+   * The `DataSource` object.
+   *
    * @public
    */
   dataSource?: DataSource | undefined;
@@ -1948,79 +1793,85 @@ export interface CreateDataSourceResponse {
  */
 export interface CreateDomainNameRequest {
   /**
-   * <p>The domain name.</p>
+   * The domain name.
+   *
    * @public
    */
   domainName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the certificate. This can be an Certificate Manager
-   *             (ACM) certificate or an Identity and Access Management (IAM)
-   *          server certificate.</p>
+   * The Amazon Resource Name (ARN) of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate.
+   *
    * @public
    */
   certificateArn: string | undefined;
 
   /**
-   * <p>A description of the <code>DomainName</code>.</p>
+   * A description of the `DomainName`.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>A map with keys of <code>TagKey</code> objects and values of <code>TagValue</code>
-   *          objects.</p>
+   * A map with keys of `TagKey` objects and values of `TagValue` objects.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Describes a configuration for a custom domain.</p>
+ * Describes a configuration for a custom domain.
+ *
  * @public
  */
 export interface DomainNameConfig {
   /**
-   * <p>The domain name.</p>
+   * The domain name.
+   *
    * @public
    */
   domainName?: string | undefined;
 
   /**
-   * <p>A description of the <code>DomainName</code> configuration.</p>
+   * A description of the `DomainName` configuration.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the certificate. This can be an Certificate Manager
-   *             (ACM) certificate or an Identity and Access Management (IAM)
-   *          server certificate.</p>
+   * The Amazon Resource Name (ARN) of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate.
+   *
    * @public
    */
   certificateArn?: string | undefined;
 
   /**
-   * <p>The domain name that AppSync provides.</p>
+   * The domain name that AppSync provides.
+   *
    * @public
    */
   appsyncDomainName?: string | undefined;
 
   /**
-   * <p>The ID of your Amazon Route 53 hosted zone.</p>
+   * The ID of your Amazon Route 53 hosted zone.
+   *
    * @public
    */
   hostedZoneId?: string | undefined;
 
   /**
-   * <p>A map with keys of <code>TagKey</code> objects and values of <code>TagValue</code>
-   *          objects.</p>
+   * A map with keys of `TagKey` objects and values of `TagValue` objects.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the domain name.</p>
+   * The Amazon Resource Name (ARN) of the domain name.
+   *
    * @public
    */
   domainNameArn?: string | undefined;
@@ -2031,78 +1882,59 @@ export interface DomainNameConfig {
  */
 export interface CreateDomainNameResponse {
   /**
-   * <p>The configuration for the <code>DomainName</code>.</p>
+   * The configuration for the `DomainName`.
+   *
    * @public
    */
   domainNameConfig?: DomainNameConfig | undefined;
 }
 
 /**
- * <p>The <code>LambdaConflictHandlerConfig</code> object when configuring <code>LAMBDA</code>
- *          as the Conflict Handler.</p>
+ * The `LambdaConflictHandlerConfig` object when configuring `LAMBDA` as the Conflict Handler.
+ *
  * @public
  */
 export interface LambdaConflictHandlerConfig {
   /**
-   * <p>The Amazon Resource Name (ARN) for the Lambda function to use as the
-   *          Conflict Handler.</p>
+   * The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
+   *
    * @public
    */
   lambdaConflictHandlerArn?: string | undefined;
 }
 
 /**
- * <p>Describes a Sync configuration for a resolver.</p>
- *          <p>Specifies which Conflict Detection strategy and Resolution strategy to use when the
- *          resolver is invoked.</p>
+ * Describes a Sync configuration for a resolver.
+ *
+ * Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.
+ *
  * @public
  */
 export interface SyncConfig {
   /**
-   * <p>The Conflict Resolution strategy to perform in the event of a conflict.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>OPTIMISTIC_CONCURRENCY</b>: Resolve conflicts by
-   *                rejecting mutations when versions don't match the latest version at the
-   *                server.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>AUTOMERGE</b>: Resolve conflicts with the
-   *                Automerge conflict resolution strategy.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>LAMBDA</b>: Resolve conflicts with an Lambda function supplied in the
-   *                <code>LambdaConflictHandlerConfig</code>.</p>
-   *             </li>
-   *          </ul>
+   * The Conflict Resolution strategy to perform in the event of a conflict.
+   *
+   * - **OPTIMISTIC_CONCURRENCY**: Resolve conflicts by rejecting mutations when versions don't match the latest version at the server.
+   * - **AUTOMERGE**: Resolve conflicts with the Automerge conflict resolution strategy.
+   * - **LAMBDA**: Resolve conflicts with an Lambda function supplied in the `LambdaConflictHandlerConfig`.
+   *
    * @public
    */
   conflictHandler?: ConflictHandlerType | undefined;
 
   /**
-   * <p>The Conflict Detection strategy to use.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>VERSION</b>: Detect conflicts based on object
-   *                versions for this resolver.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>NONE</b>: Do not detect conflicts when invoking
-   *                this resolver.</p>
-   *             </li>
-   *          </ul>
+   * The Conflict Detection strategy to use.
+   *
+   * - **VERSION**: Detect conflicts based on object versions for this resolver.
+   * - **NONE**: Do not detect conflicts when invoking this resolver.
+   *
    * @public
    */
   conflictDetection?: ConflictDetectionType | undefined;
 
   /**
-   * <p>The <code>LambdaConflictHandlerConfig</code> when configuring <code>LAMBDA</code> as the
-   *          Conflict Handler.</p>
+   * The `LambdaConflictHandlerConfig` when configuring `LAMBDA` as the Conflict Handler.
+   *
    * @public
    */
   lambdaConflictHandlerConfig?: LambdaConflictHandlerConfig | undefined;
@@ -2113,162 +1945,173 @@ export interface SyncConfig {
  */
 export interface CreateFunctionRequest {
   /**
-   * <p>The GraphQL API ID.</p>
+   * The GraphQL API ID.
+   *
    * @public
    */
   apiId: string | undefined;
 
   /**
-   * <p>The <code>Function</code> name. The function name does not have to be unique.</p>
+   * The `Function` name. The function name does not have to be unique.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The <code>Function</code> description.</p>
+   * The `Function` description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The <code>Function</code>
-   *             <code>DataSource</code> name.</p>
+   * The `Function` `DataSource` name.
+   *
    * @public
    */
   dataSourceName: string | undefined;
 
   /**
-   * <p>The <code>Function</code> request mapping template. Functions support only the
-   *          2018-05-29 version of the request mapping template.</p>
+   * The `Function` request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+   *
    * @public
    */
   requestMappingTemplate?: string | undefined;
 
   /**
-   * <p>The <code>Function</code> response mapping template.</p>
+   * The `Function` response mapping template.
+   *
    * @public
    */
   responseMappingTemplate?: string | undefined;
 
   /**
-   * <p>The <code>version</code> of the request mapping template. Currently, the supported value
-   *          is 2018-05-29. Note that when using VTL and mapping templates, the
-   *             <code>functionVersion</code> is required.</p>
+   * The `version` of the request mapping template. Currently, the supported value is 2018-05-29. Note that when using VTL and mapping templates, the `functionVersion` is required.
+   *
    * @public
    */
   functionVersion?: string | undefined;
 
   /**
-   * <p>Describes a Sync configuration for a resolver.</p>
-   *          <p>Specifies which Conflict Detection strategy and Resolution strategy to use when the
-   *          resolver is invoked.</p>
+   * Describes a Sync configuration for a resolver.
+   *
+   * Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.
+   *
    * @public
    */
   syncConfig?: SyncConfig | undefined;
 
   /**
-   * <p>The maximum batching size for a resolver.</p>
+   * The maximum batching size for a resolver.
+   *
    * @public
    */
   maxBatchSize?: number | undefined;
 
   /**
-   * <p>Describes a runtime used by an Amazon Web Services AppSync pipeline resolver or Amazon Web Services AppSync function. Specifies the name and version of the runtime to use. Note
-   *          that if a runtime is specified, code must also be specified.</p>
+   * Describes a runtime used by an Amazon Web Services AppSync pipeline resolver or Amazon Web Services AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
+   *
    * @public
    */
   runtime?: AppSyncRuntime | undefined;
 
   /**
-   * <p>The <code>function</code> code that contains the request and response functions. When
-   *          code is used, the <code>runtime</code> is required. The <code>runtime</code> value must be
-   *             <code>APPSYNC_JS</code>.</p>
+   * The `function` code that contains the request and response functions. When code is used, the `runtime` is required. The `runtime` value must be `APPSYNC_JS`.
+   *
    * @public
    */
   code?: string | undefined;
 }
 
 /**
- * <p>A function is a reusable entity. You can use multiple functions to compose the resolver
- *          logic.</p>
+ * A function is a reusable entity. You can use multiple functions to compose the resolver logic.
+ *
  * @public
  */
 export interface FunctionConfiguration {
   /**
-   * <p>A unique ID representing the <code>Function</code> object.</p>
+   * A unique ID representing the `Function` object.
+   *
    * @public
    */
   functionId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the <code>Function</code> object.</p>
+   * The Amazon Resource Name (ARN) of the `Function` object.
+   *
    * @public
    */
   functionArn?: string | undefined;
 
   /**
-   * <p>The name of the <code>Function</code> object.</p>
+   * The name of the `Function` object.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The <code>Function</code> description.</p>
+   * The `Function` description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The name of the <code>DataSource</code>.</p>
+   * The name of the `DataSource`.
+   *
    * @public
    */
   dataSourceName?: string | undefined;
 
   /**
-   * <p>The <code>Function</code> request mapping template. Functions support only the
-   *          2018-05-29 version of the request mapping template.</p>
+   * The `Function` request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+   *
    * @public
    */
   requestMappingTemplate?: string | undefined;
 
   /**
-   * <p>The <code>Function</code> response mapping template.</p>
+   * The `Function` response mapping template.
+   *
    * @public
    */
   responseMappingTemplate?: string | undefined;
 
   /**
-   * <p>The version of the request mapping template. Currently, only the 2018-05-29 version of
-   *          the template is supported.</p>
+   * The version of the request mapping template. Currently, only the 2018-05-29 version of the template is supported.
+   *
    * @public
    */
   functionVersion?: string | undefined;
 
   /**
-   * <p>Describes a Sync configuration for a resolver.</p>
-   *          <p>Specifies which Conflict Detection strategy and Resolution strategy to use when the
-   *          resolver is invoked.</p>
+   * Describes a Sync configuration for a resolver.
+   *
+   * Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.
+   *
    * @public
    */
   syncConfig?: SyncConfig | undefined;
 
   /**
-   * <p>The maximum batching size for a resolver.</p>
+   * The maximum batching size for a resolver.
+   *
    * @public
    */
   maxBatchSize?: number | undefined;
 
   /**
-   * <p>Describes a runtime used by an Amazon Web Services AppSync pipeline resolver or Amazon Web Services AppSync function. Specifies the name and version of the runtime to use. Note
-   *          that if a runtime is specified, code must also be specified.</p>
+   * Describes a runtime used by an Amazon Web Services AppSync pipeline resolver or Amazon Web Services AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
+   *
    * @public
    */
   runtime?: AppSyncRuntime | undefined;
 
   /**
-   * <p>The <code>function</code> code that contains the request and response functions. When
-   *          code is used, the <code>runtime</code> is required. The <code>runtime</code> value must be
-   *             <code>APPSYNC_JS</code>.</p>
+   * The `function` code that contains the request and response functions. When code is used, the `runtime` is required. The `runtime` value must be `APPSYNC_JS`.
+   *
    * @public
    */
   code?: string | undefined;
@@ -2279,303 +2122,166 @@ export interface FunctionConfiguration {
  */
 export interface CreateFunctionResponse {
   /**
-   * <p>The <code>Function</code> object.</p>
+   * The `Function` object.
+   *
    * @public
    */
   functionConfiguration?: FunctionConfiguration | undefined;
 }
 
 /**
- * <p>Enables and controls the enhanced metrics feature. Enhanced metrics emit granular data
- *          on API usage and performance such as AppSync request and error counts, latency, and cache
- *          hits/misses. All enhanced metric data is sent to your CloudWatch account, and you can
- *          configure the types of data that will be sent. </p>
- *          <p>Enhanced metrics can be configured at the resolver, data source, and operation levels.
- *             <code>EnhancedMetricsConfig</code> contains three required parameters, each controlling
- *          one of these categories:</p>
- *          <ol>
- *             <li>
- *                <p>
- *                   <code>resolverLevelMetricsBehavior</code>: Controls how resolver metrics will
- *                be emitted to CloudWatch. Resolver metrics include:</p>
- *                <ul>
- *                   <li>
- *                      <p>GraphQL errors: The number of GraphQL errors that occurred.</p>
- *                   </li>
- *                   <li>
- *                      <p>Requests: The number of invocations that occurred during a request.
- *                   </p>
- *                   </li>
- *                   <li>
- *                      <p>Latency: The time to complete a resolver invocation.</p>
- *                   </li>
- *                   <li>
- *                      <p>Cache hits: The number of cache hits during a request.</p>
- *                   </li>
- *                   <li>
- *                      <p>Cache misses: The number of cache misses during a request.</p>
- *                   </li>
- *                </ul>
- *                <p>These metrics can be emitted to CloudWatch per resolver or for all resolvers in
- *                the request. Metrics will be recorded by API ID and resolver name.
- *                   <code>resolverLevelMetricsBehavior</code> accepts one of these values at a
- *                time:</p>
- *                <ul>
- *                   <li>
- *                      <p>
- *                         <code>FULL_REQUEST_RESOLVER_METRICS</code>: Records and emits metric data
- *                      for all resolvers in the request.</p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <code>PER_RESOLVER_METRICS</code>: Records and emits metric data for
- *                      resolvers that have the <code>metricsConfig</code> value set to
- *                         <code>ENABLED</code>.</p>
- *                   </li>
- *                </ul>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>dataSourceLevelMetricsBehavior</code>: Controls how data source metrics
- *                will be emitted to CloudWatch. Data source metrics include:</p>
- *                <ul>
- *                   <li>
- *                      <p>Requests: The number of invocations that occured during a
- *                      request.</p>
- *                   </li>
- *                   <li>
- *                      <p>Latency: The time to complete a data source invocation.</p>
- *                   </li>
- *                   <li>
- *                      <p>Errors: The number of errors that occurred during a data source
- *                      invocation.</p>
- *                   </li>
- *                </ul>
- *                <p>These metrics can be emitted to CloudWatch per data source or for all data sources
- *                in the request. Metrics will be recorded by API ID and data source name.
- *                   <code>dataSourceLevelMetricsBehavior</code> accepts one of these values at a
- *                time:</p>
- *                <ul>
- *                   <li>
- *                      <p>
- *                         <code>FULL_REQUEST_DATA_SOURCE_METRICS</code>: Records and emits metric
- *                      data for all data sources in the request.</p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <code>PER_DATA_SOURCE_METRICS</code>: Records and emits metric data for
- *                      data sources that have the <code>metricsConfig</code> value set to
- *                         <code>ENABLED</code>.</p>
- *                   </li>
- *                </ul>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>operationLevelMetricsConfig</code>: Controls how operation metrics will
- *                be emitted to CloudWatch. Operation metrics include:</p>
- *                <ul>
- *                   <li>
- *                      <p>Requests: The number of times a specified GraphQL operation was
- *                      called.</p>
- *                   </li>
- *                   <li>
- *                      <p>GraphQL errors: The number of GraphQL errors that occurred during a
- *                      specified GraphQL operation.</p>
- *                   </li>
- *                </ul>
- *                <p>Metrics will be recorded by API ID and operation name. You can set the value to
- *                   <code>ENABLED</code> or <code>DISABLED</code>.</p>
- *             </li>
- *          </ol>
+ * Enables and controls the enhanced metrics feature. Enhanced metrics emit granular data on API usage and performance such as AppSync request and error counts, latency, and cache hits/misses. All enhanced metric data is sent to your CloudWatch account, and you can configure the types of data that will be sent.
+ *
+ * Enhanced metrics can be configured at the resolver, data source, and operation levels. `EnhancedMetricsConfig` contains three required parameters, each controlling one of these categories:
+ *
+ * 1. `resolverLevelMetricsBehavior`: Controls how resolver metrics will be emitted to CloudWatch. Resolver metrics include:
+ *
+ *    - GraphQL errors: The number of GraphQL errors that occurred.
+ *    - Requests: The number of invocations that occurred during a request.
+ *    - Latency: The time to complete a resolver invocation.
+ *    - Cache hits: The number of cache hits during a request.
+ *    - Cache misses: The number of cache misses during a request.
+ *
+ *    These metrics can be emitted to CloudWatch per resolver or for all resolvers in the request. Metrics will be recorded by API ID and resolver name. `resolverLevelMetricsBehavior` accepts one of these values at a time:
+ *
+ *    - `FULL_REQUEST_RESOLVER_METRICS`: Records and emits metric data for all resolvers in the request.
+ *    - `PER_RESOLVER_METRICS`: Records and emits metric data for resolvers that have the `metricsConfig` value set to `ENABLED`.
+ * 2. `dataSourceLevelMetricsBehavior`: Controls how data source metrics will be emitted to CloudWatch. Data source metrics include:
+ *
+ *    - Requests: The number of invocations that occured during a request.
+ *    - Latency: The time to complete a data source invocation.
+ *    - Errors: The number of errors that occurred during a data source invocation.
+ *
+ *    These metrics can be emitted to CloudWatch per data source or for all data sources in the request. Metrics will be recorded by API ID and data source name. `dataSourceLevelMetricsBehavior` accepts one of these values at a time:
+ *
+ *    - `FULL_REQUEST_DATA_SOURCE_METRICS`: Records and emits metric data for all data sources in the request.
+ *    - `PER_DATA_SOURCE_METRICS`: Records and emits metric data for data sources that have the `metricsConfig` value set to `ENABLED`.
+ * 3. `operationLevelMetricsConfig`: Controls how operation metrics will be emitted to CloudWatch. Operation metrics include:
+ *
+ *    - Requests: The number of times a specified GraphQL operation was called.
+ *    - GraphQL errors: The number of GraphQL errors that occurred during a specified GraphQL operation.
+ *
+ *    Metrics will be recorded by API ID and operation name. You can set the value to `ENABLED` or `DISABLED`.
+ *
  * @public
  */
 export interface EnhancedMetricsConfig {
   /**
-   * <p>Controls how resolver metrics will be emitted to CloudWatch. Resolver metrics
-   *          include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>GraphQL errors: The number of GraphQL errors that occurred.</p>
-   *             </li>
-   *             <li>
-   *                <p>Requests: The number of invocations that occurred during a request. </p>
-   *             </li>
-   *             <li>
-   *                <p>Latency: The time to complete a resolver invocation.</p>
-   *             </li>
-   *             <li>
-   *                <p>Cache hits: The number of cache hits during a request.</p>
-   *             </li>
-   *             <li>
-   *                <p>Cache misses: The number of cache misses during a request.</p>
-   *             </li>
-   *          </ul>
-   *          <p>These metrics can be emitted to CloudWatch per resolver or for all resolvers in the
-   *          request. Metrics will be recorded by API ID and resolver name.
-   *             <code>resolverLevelMetricsBehavior</code> accepts one of these values at a time:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>FULL_REQUEST_RESOLVER_METRICS</code>: Records and emits metric data for
-   *                all resolvers in the request.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PER_RESOLVER_METRICS</code>: Records and emits metric data for resolvers
-   *                that have the <code>metricsConfig</code> value set to <code>ENABLED</code>.</p>
-   *             </li>
-   *          </ul>
+   * Controls how resolver metrics will be emitted to CloudWatch. Resolver metrics include:
+   *
+   * - GraphQL errors: The number of GraphQL errors that occurred.
+   * - Requests: The number of invocations that occurred during a request.
+   * - Latency: The time to complete a resolver invocation.
+   * - Cache hits: The number of cache hits during a request.
+   * - Cache misses: The number of cache misses during a request.
+   *
+   * These metrics can be emitted to CloudWatch per resolver or for all resolvers in the request. Metrics will be recorded by API ID and resolver name. `resolverLevelMetricsBehavior` accepts one of these values at a time:
+   *
+   * - `FULL_REQUEST_RESOLVER_METRICS`: Records and emits metric data for all resolvers in the request.
+   * - `PER_RESOLVER_METRICS`: Records and emits metric data for resolvers that have the `metricsConfig` value set to `ENABLED`.
+   *
    * @public
    */
   resolverLevelMetricsBehavior: ResolverLevelMetricsBehavior | undefined;
 
   /**
-   * <p>Controls how data source metrics will be emitted to CloudWatch. Data source metrics
-   *          include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Requests: The number of invocations that occured during a request.</p>
-   *             </li>
-   *             <li>
-   *                <p>Latency: The time to complete a data source invocation.</p>
-   *             </li>
-   *             <li>
-   *                <p>Errors: The number of errors that occurred during a data source
-   *                invocation.</p>
-   *             </li>
-   *          </ul>
-   *          <p>These metrics can be emitted to CloudWatch per data source or for all data sources in
-   *          the request. Metrics will be recorded by API ID and data source name.
-   *             <code>dataSourceLevelMetricsBehavior</code> accepts one of these values at a
-   *          time:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>FULL_REQUEST_DATA_SOURCE_METRICS</code>: Records and emits metric data
-   *                for all data sources in the request.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PER_DATA_SOURCE_METRICS</code>: Records and emits metric data for data
-   *                sources that have the <code>metricsConfig</code> value set to
-   *                <code>ENABLED</code>.</p>
-   *             </li>
-   *          </ul>
+   * Controls how data source metrics will be emitted to CloudWatch. Data source metrics include:
+   *
+   * - Requests: The number of invocations that occured during a request.
+   * - Latency: The time to complete a data source invocation.
+   * - Errors: The number of errors that occurred during a data source invocation.
+   *
+   * These metrics can be emitted to CloudWatch per data source or for all data sources in the request. Metrics will be recorded by API ID and data source name. `dataSourceLevelMetricsBehavior` accepts one of these values at a time:
+   *
+   * - `FULL_REQUEST_DATA_SOURCE_METRICS`: Records and emits metric data for all data sources in the request.
+   * - `PER_DATA_SOURCE_METRICS`: Records and emits metric data for data sources that have the `metricsConfig` value set to `ENABLED`.
+   *
    * @public
    */
   dataSourceLevelMetricsBehavior: DataSourceLevelMetricsBehavior | undefined;
 
   /**
-   * <p> Controls how operation metrics will be emitted to CloudWatch. Operation metrics
-   *          include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Requests: The number of times a specified GraphQL operation was
-   *                called.</p>
-   *             </li>
-   *             <li>
-   *                <p>GraphQL errors: The number of GraphQL errors that occurred during a specified
-   *                GraphQL operation.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Metrics will be recorded by API ID and operation name. You can set the value to
-   *             <code>ENABLED</code> or <code>DISABLED</code>.</p>
+   * Controls how operation metrics will be emitted to CloudWatch. Operation metrics include:
+   *
+   * - Requests: The number of times a specified GraphQL operation was called.
+   * - GraphQL errors: The number of GraphQL errors that occurred during a specified GraphQL operation.
+   *
+   * Metrics will be recorded by API ID and operation name. You can set the value to `ENABLED` or `DISABLED`.
+   *
    * @public
    */
   operationLevelMetricsConfig: OperationLevelMetricsConfig | undefined;
 }
 
 /**
- * <p>The Amazon CloudWatch Logs configuration.</p>
+ * The Amazon CloudWatch Logs configuration.
+ *
  * @public
  */
 export interface LogConfig {
   /**
-   * <p>The field logging level. Values can be NONE, ERROR, or ALL.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>NONE</b>: No field-level logs are
-   *                captured.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>ERROR</b>: Logs the following information only for
-   *                the fields that are in error:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>The error section in the server response.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Field-level errors.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>The generated request/response functions that got resolved for error
-   *                      fields.</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>ALL</b>: The following information is logged for
-   *                all fields in the query:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>Field-level tracing information.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>The generated request/response functions that got resolved for each
-   *                      field.</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *          </ul>
+   * The field logging level. Values can be NONE, ERROR, or ALL.
+   *
+   * - **NONE**: No field-level logs are captured.
+   * - **ERROR**: Logs the following information only for the fields that are in error:
+   *
+   *   - The error section in the server response.
+   *   - Field-level errors.
+   *   - The generated request/response functions that got resolved for error fields.
+   * - **ALL**: The following information is logged for all fields in the query:
+   *
+   *   - Field-level tracing information.
+   *   - The generated request/response functions that got resolved for each field.
+   *
    * @public
    */
   fieldLogLevel: FieldLogLevel | undefined;
 
   /**
-   * <p>The service role that AppSync assumes to publish to CloudWatch
-   *          logs in your account.</p>
+   * The service role that AppSync assumes to publish to CloudWatch logs in your account.
+   *
    * @public
    */
   cloudWatchLogsRoleArn: string | undefined;
 
   /**
-   * <p>Set to TRUE to exclude sections that contain information such as headers, context, and
-   *          evaluated mapping templates, regardless of logging level.</p>
+   * Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging level.
+   *
    * @public
    */
   excludeVerboseContent?: boolean | undefined;
 }
 
 /**
- * <p>Describes an Amazon Cognito user pool configuration.</p>
+ * Describes an Amazon Cognito user pool configuration.
+ *
  * @public
  */
 export interface UserPoolConfig {
   /**
-   * <p>The user pool ID.</p>
+   * The user pool ID.
+   *
    * @public
    */
   userPoolId: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region in which the user pool was created.</p>
+   * The Amazon Web Services Region in which the user pool was created.
+   *
    * @public
    */
   awsRegion: string | undefined;
 
   /**
-   * <p>The action that you want your GraphQL API to take when a request that uses Amazon Cognito user pool authentication doesn't match the Amazon Cognito user pool
-   *          configuration.</p>
+   * The action that you want your GraphQL API to take when a request that uses Amazon Cognito user pool authentication doesn't match the Amazon Cognito user pool configuration.
+   *
    * @public
    */
   defaultAction: DefaultAction | undefined;
 
   /**
-   * <p>A regular expression for validating the incoming Amazon Cognito user pool app client
-   *          ID. If this value isn't set, no filtering is applied.</p>
+   * A regular expression for validating the incoming Amazon Cognito user pool app client ID. If this value isn't set, no filtering is applied.
+   *
    * @public
    */
   appIdClientRegex?: string | undefined;
@@ -2586,299 +2292,300 @@ export interface UserPoolConfig {
  */
 export interface CreateGraphqlApiRequest {
   /**
-   * <p>A user-supplied name for the <code>GraphqlApi</code>.</p>
+   * A user-supplied name for the `GraphqlApi`.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon CloudWatch Logs configuration.</p>
+   * The Amazon CloudWatch Logs configuration.
+   *
    * @public
    */
   logConfig?: LogConfig | undefined;
 
   /**
-   * <p>The authentication type: API key, Identity and Access Management (IAM), OpenID
-   *          Connect (OIDC), Amazon Cognito user pools, or Lambda.</p>
+   * The authentication type: API key, Identity and Access Management (IAM), OpenID Connect (OIDC), Amazon Cognito user pools, or Lambda.
+   *
    * @public
    */
   authenticationType: AuthenticationType | undefined;
 
   /**
-   * <p>The Amazon Cognito user pool configuration.</p>
+   * The Amazon Cognito user pool configuration.
+   *
    * @public
    */
   userPoolConfig?: UserPoolConfig | undefined;
 
   /**
-   * <p>The OIDC configuration.</p>
+   * The OIDC configuration.
+   *
    * @public
    */
   openIDConnectConfig?: OpenIDConnectConfig | undefined;
 
   /**
-   * <p>A <code>TagMap</code> object.</p>
+   * A `TagMap` object.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>A list of additional authentication providers for the <code>GraphqlApi</code>
-   *          API.</p>
+   * A list of additional authentication providers for the `GraphqlApi` API.
+   *
    * @public
    */
   additionalAuthenticationProviders?: AdditionalAuthenticationProvider[] | undefined;
 
   /**
-   * <p>A flag indicating whether to use X-Ray tracing for the
-   *             <code>GraphqlApi</code>.</p>
+   * A flag indicating whether to use X-Ray tracing for the `GraphqlApi`.
+   *
    * @public
    */
   xrayEnabled?: boolean | undefined;
 
   /**
-   * <p>Configuration for Lambda function authorization.</p>
+   * Configuration for Lambda function authorization.
+   *
    * @public
    */
   lambdaAuthorizerConfig?: LambdaAuthorizerConfig | undefined;
 
   /**
-   * <p>The value that indicates whether the GraphQL API is a standard API
-   *          (<code>GRAPHQL</code>) or merged API (<code>MERGED</code>).</p>
+   * The value that indicates whether the GraphQL API is a standard API (`GRAPHQL`) or merged API (`MERGED`).
+   *
    * @public
    */
   apiType?: GraphQLApiType | undefined;
 
   /**
-   * <p>The Identity and Access Management service role ARN for a merged API. The AppSync
-   *          service assumes this role on behalf of the Merged API to validate access to source APIs at
-   *          runtime and to prompt the <code>AUTO_MERGE</code> to update the merged API endpoint with
-   *          the source API changes automatically.</p>
+   * The Identity and Access Management service role ARN for a merged API. The AppSync service assumes this role on behalf of the Merged API to validate access to source APIs at runtime and to prompt the `AUTO_MERGE` to update the merged API endpoint with the source API changes automatically.
+   *
    * @public
    */
   mergedApiExecutionRoleArn?: string | undefined;
 
   /**
-   * <p>Sets the value of the GraphQL API to public (<code>GLOBAL</code>) or private
-   *             (<code>PRIVATE</code>). If no value is provided, the visibility will be set to
-   *             <code>GLOBAL</code> by default. This value cannot be changed once the API has been
-   *          created.</p>
+   * Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
+   *
    * @public
    */
   visibility?: GraphQLApiVisibility | undefined;
 
   /**
-   * <p>The owner contact information for an API resource.</p>
-   *          <p>This field accepts any string input with a length of 0 - 256 characters.</p>
+   * The owner contact information for an API resource.
+   *
+   * This field accepts any string input with a length of 0 - 256 characters.
+   *
    * @public
    */
   ownerContact?: string | undefined;
 
   /**
-   * <p>Sets the value of the GraphQL API to enable (<code>ENABLED</code>) or disable
-   *             (<code>DISABLED</code>) introspection. If no value is provided, the introspection
-   *          configuration will be set to <code>ENABLED</code> by default. This field will produce an
-   *          error if the operation attempts to use the introspection feature while this field is
-   *          disabled.</p>
-   *          <p>For more information about introspection, see <a href="https://graphql.org/learn/introspection/">GraphQL introspection</a>.</p>
+   * Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to `ENABLED` by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled.
+   *
+   * For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
+   *
    * @public
    */
   introspectionConfig?: GraphQLApiIntrospectionConfig | undefined;
 
   /**
-   * <p>The maximum depth a query can have in a single request. Depth refers to the amount of
-   *          nested levels allowed in the body of query. The default value is <code>0</code> (or
-   *          unspecified), which indicates there's no depth limit. If you set a limit, it can be between
-   *             <code>1</code> and <code>75</code> nested levels. This field will produce a limit error
-   *          if the operation falls out of bounds.</p>
-   *          <p>Note that fields can still be set to nullable or non-nullable. If a non-nullable field
-   *          produces an error, the error will be thrown upwards to the first nullable field
-   *          available.</p>
+   * The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
+   *
+   * Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
+   *
    * @public
    */
   queryDepthLimit?: number | undefined;
 
   /**
-   * <p>The maximum number of resolvers that can be invoked in a single request. The default
-   *          value is <code>0</code> (or unspecified), which will set the limit to <code>10000</code>.
-   *          When specified, the limit value can be between <code>1</code> and <code>10000</code>. This
-   *          field will produce a limit error if the operation falls out of bounds.</p>
+   * The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
+   *
    * @public
    */
   resolverCountLimit?: number | undefined;
 
   /**
-   * <p>The <code>enhancedMetricsConfig</code> object.</p>
+   * The `enhancedMetricsConfig` object.
+   *
    * @public
    */
   enhancedMetricsConfig?: EnhancedMetricsConfig | undefined;
 }
 
 /**
- * <p>Describes a GraphQL API.</p>
+ * Describes a GraphQL API.
+ *
  * @public
  */
 export interface GraphqlApi {
   /**
-   * <p>The API name.</p>
+   * The API name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The API ID.</p>
+   * The API ID.
+   *
    * @public
    */
   apiId?: string | undefined;
 
   /**
-   * <p>The authentication type.</p>
+   * The authentication type.
+   *
    * @public
    */
   authenticationType?: AuthenticationType | undefined;
 
   /**
-   * <p>The Amazon CloudWatch Logs configuration.</p>
+   * The Amazon CloudWatch Logs configuration.
+   *
    * @public
    */
   logConfig?: LogConfig | undefined;
 
   /**
-   * <p>The Amazon Cognito user pool configuration.</p>
+   * The Amazon Cognito user pool configuration.
+   *
    * @public
    */
   userPoolConfig?: UserPoolConfig | undefined;
 
   /**
-   * <p>The OpenID Connect configuration.</p>
+   * The OpenID Connect configuration.
+   *
    * @public
    */
   openIDConnectConfig?: OpenIDConnectConfig | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN).</p>
+   * The Amazon Resource Name (ARN).
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The URIs.</p>
+   * The URIs.
+   *
    * @public
    */
   uris?: Record<string, string> | undefined;
 
   /**
-   * <p>The tags.</p>
+   * The tags.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>A list of additional authentication providers for the <code>GraphqlApi</code>
-   *          API.</p>
+   * A list of additional authentication providers for the `GraphqlApi` API.
+   *
    * @public
    */
   additionalAuthenticationProviders?: AdditionalAuthenticationProvider[] | undefined;
 
   /**
-   * <p>A flag indicating whether to use X-Ray tracing for this
-   *             <code>GraphqlApi</code>.</p>
+   * A flag indicating whether to use X-Ray tracing for this `GraphqlApi`.
+   *
    * @public
    */
   xrayEnabled?: boolean | undefined;
 
   /**
-   * <p>The ARN of the WAF access control list (ACL) associated with this
-   *             <code>GraphqlApi</code>, if one exists.</p>
+   * The ARN of the WAF access control list (ACL) associated with this `GraphqlApi`, if one exists.
+   *
    * @public
    */
   wafWebAclArn?: string | undefined;
 
   /**
-   * <p>Configuration for Lambda function authorization.</p>
+   * Configuration for Lambda function authorization.
+   *
    * @public
    */
   lambdaAuthorizerConfig?: LambdaAuthorizerConfig | undefined;
 
   /**
-   * <p>The DNS records for the API.</p>
+   * The DNS records for the API.
+   *
    * @public
    */
   dns?: Record<string, string> | undefined;
 
   /**
-   * <p>Sets the value of the GraphQL API to public (<code>GLOBAL</code>) or private
-   *             (<code>PRIVATE</code>). If no value is provided, the visibility will be set to
-   *             <code>GLOBAL</code> by default. This value cannot be changed once the API has been
-   *          created.</p>
+   * Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
+   *
    * @public
    */
   visibility?: GraphQLApiVisibility | undefined;
 
   /**
-   * <p>The value that indicates whether the GraphQL API is a standard API
-   *          (<code>GRAPHQL</code>) or merged API (<code>MERGED</code>).</p>
+   * The value that indicates whether the GraphQL API is a standard API (`GRAPHQL`) or merged API (`MERGED`).
+   *
    * @public
    */
   apiType?: GraphQLApiType | undefined;
 
   /**
-   * <p>The Identity and Access Management service role ARN for a merged API. The AppSync
-   *          service assumes this role on behalf of the Merged API to validate access to source APIs at
-   *          runtime and to prompt the <code>AUTO_MERGE</code> to update the merged API endpoint with
-   *          the source API changes automatically.</p>
+   * The Identity and Access Management service role ARN for a merged API. The AppSync service assumes this role on behalf of the Merged API to validate access to source APIs at runtime and to prompt the `AUTO_MERGE` to update the merged API endpoint with the source API changes automatically.
+   *
    * @public
    */
   mergedApiExecutionRoleArn?: string | undefined;
 
   /**
-   * <p>The account owner of the GraphQL API.</p>
+   * The account owner of the GraphQL API.
+   *
    * @public
    */
   owner?: string | undefined;
 
   /**
-   * <p>The owner contact information for an API resource.</p>
-   *          <p>This field accepts any string input with a length of 0 - 256 characters.</p>
+   * The owner contact information for an API resource.
+   *
+   * This field accepts any string input with a length of 0 - 256 characters.
+   *
    * @public
    */
   ownerContact?: string | undefined;
 
   /**
-   * <p>Sets the value of the GraphQL API to enable (<code>ENABLED</code>) or disable
-   *             (<code>DISABLED</code>) introspection. If no value is provided, the introspection
-   *          configuration will be set to <code>ENABLED</code> by default. This field will produce an
-   *          error if the operation attempts to use the introspection feature while this field is
-   *          disabled.</p>
-   *          <p>For more information about introspection, see <a href="https://graphql.org/learn/introspection/">GraphQL introspection</a>.</p>
+   * Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to `ENABLED` by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled.
+   *
+   * For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
+   *
    * @public
    */
   introspectionConfig?: GraphQLApiIntrospectionConfig | undefined;
 
   /**
-   * <p>The maximum depth a query can have in a single request. Depth refers to the amount of
-   *          nested levels allowed in the body of query. The default value is <code>0</code> (or
-   *          unspecified), which indicates there's no depth limit. If you set a limit, it can be between
-   *             <code>1</code> and <code>75</code> nested levels. This field will produce a limit error
-   *          if the operation falls out of bounds.</p>
-   *          <p>Note that fields can still be set to nullable or non-nullable. If a non-nullable field
-   *          produces an error, the error will be thrown upwards to the first nullable field
-   *          available.</p>
+   * The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
+   *
+   * Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
+   *
    * @public
    */
   queryDepthLimit?: number | undefined;
 
   /**
-   * <p>The maximum number of resolvers that can be invoked in a single request. The default
-   *          value is <code>0</code> (or unspecified), which will set the limit to <code>10000</code>.
-   *          When specified, the limit value can be between <code>1</code> and <code>10000</code>. This
-   *          field will produce a limit error if the operation falls out of bounds.</p>
+   * The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
+   *
    * @public
    */
   resolverCountLimit?: number | undefined;
 
   /**
-   * <p>The <code>enhancedMetricsConfig</code> object.</p>
+   * The `enhancedMetricsConfig` object.
+   *
    * @public
    */
   enhancedMetricsConfig?: EnhancedMetricsConfig | undefined;
@@ -2889,40 +2596,47 @@ export interface GraphqlApi {
  */
 export interface CreateGraphqlApiResponse {
   /**
-   * <p>The <code>GraphqlApi</code>.</p>
+   * The `GraphqlApi`.
+   *
    * @public
    */
   graphqlApi?: GraphqlApi | undefined;
 }
 
 /**
- * <p>The caching configuration for a resolver that has caching activated.</p>
+ * The caching configuration for a resolver that has caching activated.
+ *
  * @public
  */
 export interface CachingConfig {
   /**
-   * <p>The TTL in seconds for a resolver that has caching activated.</p>
-   *          <p>Valid values are 1–3,600 seconds.</p>
+   * The TTL in seconds for a resolver that has caching activated.
+   *
+   * Valid values are 1–3,600 seconds.
+   *
    * @public
    */
   ttl: number | undefined;
 
   /**
-   * <p>The caching keys for a resolver that has caching activated.</p>
-   *          <p>Valid values are entries from the <code>$context.arguments</code>,
-   *             <code>$context.source</code>, and <code>$context.identity</code> maps.</p>
+   * The caching keys for a resolver that has caching activated.
+   *
+   * Valid values are entries from the `$context.arguments`, `$context.source`, and `$context.identity` maps.
+   *
    * @public
    */
   cachingKeys?: string[] | undefined;
 }
 
 /**
- * <p>The pipeline configuration for a resolver of kind <code>PIPELINE</code>.</p>
+ * The pipeline configuration for a resolver of kind `PIPELINE`.
+ *
  * @public
  */
 export interface PipelineConfig {
   /**
-   * <p>A list of <code>Function</code> objects.</p>
+   * A list of `Function` objects.
+   *
    * @public
    */
   functions?: string[] | undefined;
@@ -2933,231 +2647,218 @@ export interface PipelineConfig {
  */
 export interface CreateResolverRequest {
   /**
-   * <p>The ID for the GraphQL API for which the resolver is being created.</p>
+   * The ID for the GraphQL API for which the resolver is being created.
+   *
    * @public
    */
   apiId: string | undefined;
 
   /**
-   * <p>The name of the <code>Type</code>.</p>
+   * The name of the `Type`.
+   *
    * @public
    */
   typeName: string | undefined;
 
   /**
-   * <p>The name of the field to attach the resolver to.</p>
+   * The name of the field to attach the resolver to.
+   *
    * @public
    */
   fieldName: string | undefined;
 
   /**
-   * <p>The name of the data source for which the resolver is being created.</p>
+   * The name of the data source for which the resolver is being created.
+   *
    * @public
    */
   dataSourceName?: string | undefined;
 
   /**
-   * <p>The mapping template to use for requests.</p>
-   *          <p>A resolver uses a request mapping template to convert a GraphQL expression into a format
-   *          that a data source can understand. Mapping templates are written in Apache Velocity
-   *          Template Language (VTL).</p>
-   *          <p>VTL request mapping templates are optional when using an Lambda data
-   *          source. For all other data sources, VTL request and response mapping templates are
-   *          required.</p>
+   * The mapping template to use for requests.
+   *
+   * A resolver uses a request mapping template to convert a GraphQL expression into a format that a data source can understand. Mapping templates are written in Apache Velocity Template Language (VTL).
+   *
+   * VTL request mapping templates are optional when using an Lambda data source. For all other data sources, VTL request and response mapping templates are required.
+   *
    * @public
    */
   requestMappingTemplate?: string | undefined;
 
   /**
-   * <p>The mapping template to use for responses from the data source.</p>
+   * The mapping template to use for responses from the data source.
+   *
    * @public
    */
   responseMappingTemplate?: string | undefined;
 
   /**
-   * <p>The resolver type.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>UNIT</b>: A UNIT resolver type. A UNIT resolver is
-   *                the default resolver type. You can use a UNIT resolver to run a GraphQL query against
-   *                a single data source.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>PIPELINE</b>: A PIPELINE resolver type. You can
-   *                use a PIPELINE resolver to invoke a series of <code>Function</code> objects in a
-   *                serial manner. You can use a pipeline resolver to run a GraphQL query against
-   *                multiple data sources.</p>
-   *             </li>
-   *          </ul>
+   * The resolver type.
+   *
+   * - **UNIT**: A UNIT resolver type. A UNIT resolver is the default resolver type. You can use a UNIT resolver to run a GraphQL query against a single data source.
+   * - **PIPELINE**: A PIPELINE resolver type. You can use a PIPELINE resolver to invoke a series of `Function` objects in a serial manner. You can use a pipeline resolver to run a GraphQL query against multiple data sources.
+   *
    * @public
    */
   kind?: ResolverKind | undefined;
 
   /**
-   * <p>The <code>PipelineConfig</code>.</p>
+   * The `PipelineConfig`.
+   *
    * @public
    */
   pipelineConfig?: PipelineConfig | undefined;
 
   /**
-   * <p>The <code>SyncConfig</code> for a resolver attached to a versioned data source.</p>
+   * The `SyncConfig` for a resolver attached to a versioned data source.
+   *
    * @public
    */
   syncConfig?: SyncConfig | undefined;
 
   /**
-   * <p>The caching configuration for the resolver.</p>
+   * The caching configuration for the resolver.
+   *
    * @public
    */
   cachingConfig?: CachingConfig | undefined;
 
   /**
-   * <p>The maximum batching size for a resolver.</p>
+   * The maximum batching size for a resolver.
+   *
    * @public
    */
   maxBatchSize?: number | undefined;
 
   /**
-   * <p>Describes a runtime used by an Amazon Web Services AppSync pipeline resolver or Amazon Web Services AppSync function. Specifies the name and version of the runtime to use. Note
-   *          that if a runtime is specified, code must also be specified.</p>
+   * Describes a runtime used by an Amazon Web Services AppSync pipeline resolver or Amazon Web Services AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
+   *
    * @public
    */
   runtime?: AppSyncRuntime | undefined;
 
   /**
-   * <p>The <code>resolver</code> code that contains the request and response functions. When
-   *          code is used, the <code>runtime</code> is required. The <code>runtime</code> value must be
-   *             <code>APPSYNC_JS</code>.</p>
+   * The `resolver` code that contains the request and response functions. When code is used, the `runtime` is required. The `runtime` value must be `APPSYNC_JS`.
+   *
    * @public
    */
   code?: string | undefined;
 
   /**
-   * <p>Enables or disables enhanced resolver metrics for specified resolvers. Note that
-   *             <code>metricsConfig</code> won't be used unless the
-   *             <code>resolverLevelMetricsBehavior</code> value is set to
-   *             <code>PER_RESOLVER_METRICS</code>. If the <code>resolverLevelMetricsBehavior</code> is
-   *          set to <code>FULL_REQUEST_RESOLVER_METRICS</code> instead, <code>metricsConfig</code> will
-   *          be ignored. However, you can still set its value.</p>
-   *          <p>
-   *             <code>metricsConfig</code> can be <code>ENABLED</code> or <code>DISABLED</code>.</p>
+   * Enables or disables enhanced resolver metrics for specified resolvers. Note that `metricsConfig` won't be used unless the `resolverLevelMetricsBehavior` value is set to `PER_RESOLVER_METRICS`. If the `resolverLevelMetricsBehavior` is set to `FULL_REQUEST_RESOLVER_METRICS` instead, `metricsConfig` will be ignored. However, you can still set its value.
+   *
+   * `metricsConfig` can be `ENABLED` or `DISABLED`.
+   *
    * @public
    */
   metricsConfig?: ResolverLevelMetricsConfig | undefined;
 }
 
 /**
- * <p>Describes a resolver.</p>
+ * Describes a resolver.
+ *
  * @public
  */
 export interface Resolver {
   /**
-   * <p>The resolver type name.</p>
+   * The resolver type name.
+   *
    * @public
    */
   typeName?: string | undefined;
 
   /**
-   * <p>The resolver field name.</p>
+   * The resolver field name.
+   *
    * @public
    */
   fieldName?: string | undefined;
 
   /**
-   * <p>The resolver data source name.</p>
+   * The resolver data source name.
+   *
    * @public
    */
   dataSourceName?: string | undefined;
 
   /**
-   * <p>The resolver Amazon Resource Name (ARN).</p>
+   * The resolver Amazon Resource Name (ARN).
+   *
    * @public
    */
   resolverArn?: string | undefined;
 
   /**
-   * <p>The request mapping template.</p>
+   * The request mapping template.
+   *
    * @public
    */
   requestMappingTemplate?: string | undefined;
 
   /**
-   * <p>The response mapping template.</p>
+   * The response mapping template.
+   *
    * @public
    */
   responseMappingTemplate?: string | undefined;
 
   /**
-   * <p>The resolver type.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>UNIT</b>: A UNIT resolver type. A UNIT resolver is
-   *                the default resolver type. You can use a UNIT resolver to run a GraphQL query against
-   *                a single data source.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>PIPELINE</b>: A PIPELINE resolver type. You can
-   *                use a PIPELINE resolver to invoke a series of <code>Function</code> objects in a
-   *                serial manner. You can use a pipeline resolver to run a GraphQL query against
-   *                multiple data sources.</p>
-   *             </li>
-   *          </ul>
+   * The resolver type.
+   *
+   * - **UNIT**: A UNIT resolver type. A UNIT resolver is the default resolver type. You can use a UNIT resolver to run a GraphQL query against a single data source.
+   * - **PIPELINE**: A PIPELINE resolver type. You can use a PIPELINE resolver to invoke a series of `Function` objects in a serial manner. You can use a pipeline resolver to run a GraphQL query against multiple data sources.
+   *
    * @public
    */
   kind?: ResolverKind | undefined;
 
   /**
-   * <p>The <code>PipelineConfig</code>.</p>
+   * The `PipelineConfig`.
+   *
    * @public
    */
   pipelineConfig?: PipelineConfig | undefined;
 
   /**
-   * <p>The <code>SyncConfig</code> for a resolver attached to a versioned data source.</p>
+   * The `SyncConfig` for a resolver attached to a versioned data source.
+   *
    * @public
    */
   syncConfig?: SyncConfig | undefined;
 
   /**
-   * <p>The caching configuration for the resolver.</p>
+   * The caching configuration for the resolver.
+   *
    * @public
    */
   cachingConfig?: CachingConfig | undefined;
 
   /**
-   * <p>The maximum batching size for a resolver.</p>
+   * The maximum batching size for a resolver.
+   *
    * @public
    */
   maxBatchSize?: number | undefined;
 
   /**
-   * <p>Describes a runtime used by an Amazon Web Services AppSync pipeline resolver or Amazon Web Services AppSync function. Specifies the name and version of the runtime to use. Note
-   *          that if a runtime is specified, code must also be specified.</p>
+   * Describes a runtime used by an Amazon Web Services AppSync pipeline resolver or Amazon Web Services AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
+   *
    * @public
    */
   runtime?: AppSyncRuntime | undefined;
 
   /**
-   * <p>The <code>resolver</code> code that contains the request and response functions. When
-   *          code is used, the <code>runtime</code> is required. The <code>runtime</code> value must be
-   *             <code>APPSYNC_JS</code>.</p>
+   * The `resolver` code that contains the request and response functions. When code is used, the `runtime` is required. The `runtime` value must be `APPSYNC_JS`.
+   *
    * @public
    */
   code?: string | undefined;
 
   /**
-   * <p>Enables or disables enhanced resolver metrics for specified resolvers. Note that
-   *             <code>metricsConfig</code> won't be used unless the
-   *             <code>resolverLevelMetricsBehavior</code> value is set to
-   *             <code>PER_RESOLVER_METRICS</code>. If the <code>resolverLevelMetricsBehavior</code> is
-   *          set to <code>FULL_REQUEST_RESOLVER_METRICS</code> instead, <code>metricsConfig</code> will
-   *          be ignored. However, you can still set its value.</p>
-   *          <p>
-   *             <code>metricsConfig</code> can be <code>ENABLED</code> or <code>DISABLED</code>.</p>
+   * Enables or disables enhanced resolver metrics for specified resolvers. Note that `metricsConfig` won't be used unless the `resolverLevelMetricsBehavior` value is set to `PER_RESOLVER_METRICS`. If the `resolverLevelMetricsBehavior` is set to `FULL_REQUEST_RESOLVER_METRICS` instead, `metricsConfig` will be ignored. However, you can still set its value.
+   *
+   * `metricsConfig` can be `ENABLED` or `DISABLED`.
+   *
    * @public
    */
   metricsConfig?: ResolverLevelMetricsConfig | undefined;
@@ -3168,7 +2869,8 @@ export interface Resolver {
  */
 export interface CreateResolverResponse {
   /**
-   * <p>The <code>Resolver</code> object.</p>
+   * The `Resolver` object.
+   *
    * @public
    */
   resolver?: Resolver | undefined;
@@ -3179,57 +2881,66 @@ export interface CreateResolverResponse {
  */
 export interface CreateTypeRequest {
   /**
-   * <p>The API ID.</p>
+   * The API ID.
+   *
    * @public
    */
   apiId: string | undefined;
 
   /**
-   * <p>The type definition, in GraphQL Schema Definition Language (SDL) format.</p>
-   *          <p>For more information, see the <a href="http://graphql.org/learn/schema/">GraphQL SDL
-   *             documentation</a>.</p>
+   * The type definition, in GraphQL Schema Definition Language (SDL) format.
+   *
+   * For more information, see the [GraphQL SDL documentation](http://graphql.org/learn/schema/).
+   *
    * @public
    */
   definition: string | undefined;
 
   /**
-   * <p>The type format: SDL or JSON.</p>
+   * The type format: SDL or JSON.
+   *
    * @public
    */
   format: TypeDefinitionFormat | undefined;
 }
 
 /**
- * <p>Describes a type.</p>
+ * Describes a type.
+ *
  * @public
  */
 export interface Type {
   /**
-   * <p>The type name.</p>
+   * The type name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The type description.</p>
+   * The type description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The type Amazon Resource Name (ARN).</p>
+   * The type Amazon Resource Name (ARN).
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The type definition.</p>
+   * The type definition.
+   *
    * @public
    */
   definition?: string | undefined;
 
   /**
-   * <p>The type format: SDL or JSON.</p>
+   * The type format: SDL or JSON.
+   *
    * @public
    */
   format?: TypeDefinitionFormat | undefined;
@@ -3240,7 +2951,8 @@ export interface Type {
  */
 export interface CreateTypeResponse {
   /**
-   * <p>The <code>Type</code> object.</p>
+   * The `Type` object.
+   *
    * @public
    */
   type?: Type | undefined;
@@ -3251,7 +2963,8 @@ export interface CreateTypeResponse {
  */
 export interface DeleteApiRequest {
   /**
-   * <p>The <code>Api</code> ID.</p>
+   * The `Api` ID.
+   *
    * @public
    */
   apiId: string | undefined;
@@ -3263,19 +2976,22 @@ export interface DeleteApiRequest {
 export interface DeleteApiResponse {}
 
 /**
- * <p>Represents the input of a <code>DeleteApiCache</code> operation.</p>
+ * Represents the input of a `DeleteApiCache` operation.
+ *
  * @public
  */
 export interface DeleteApiCacheRequest {
   /**
-   * <p>The API ID.</p>
+   * The API ID.
+   *
    * @public
    */
   apiId: string | undefined;
 }
 
 /**
- * <p>Represents the output of a <code>DeleteApiCache</code> operation.</p>
+ * Represents the output of a `DeleteApiCache` operation.
+ *
  * @public
  */
 export interface DeleteApiCacheResponse {}
@@ -3285,13 +3001,15 @@ export interface DeleteApiCacheResponse {}
  */
 export interface DeleteApiKeyRequest {
   /**
-   * <p>The API ID.</p>
+   * The API ID.
+   *
    * @public
    */
   apiId: string | undefined;
 
   /**
-   * <p>The ID for the API key.</p>
+   * The ID for the API key.
+   *
    * @public
    */
   id: string | undefined;
@@ -3307,13 +3025,15 @@ export interface DeleteApiKeyResponse {}
  */
 export interface DeleteChannelNamespaceRequest {
   /**
-   * <p>The ID of the <code>Api</code> associated with the <code>ChannelNamespace</code>.</p>
+   * The ID of the `Api` associated with the `ChannelNamespace`.
+   *
    * @public
    */
   apiId: string | undefined;
 
   /**
-   * <p>The name of the <code>ChannelNamespace</code>.</p>
+   * The name of the `ChannelNamespace`.
+   *
    * @public
    */
   name: string | undefined;
@@ -3329,13 +3049,15 @@ export interface DeleteChannelNamespaceResponse {}
  */
 export interface DeleteDataSourceRequest {
   /**
-   * <p>The API ID.</p>
+   * The API ID.
+   *
    * @public
    */
   apiId: string | undefined;
 
   /**
-   * <p>The name of the data source.</p>
+   * The name of the data source.
+   *
    * @public
    */
   name: string | undefined;
@@ -3351,7 +3073,8 @@ export interface DeleteDataSourceResponse {}
  */
 export interface DeleteDomainNameRequest {
   /**
-   * <p>The domain name.</p>
+   * The domain name.
+   *
    * @public
    */
   domainName: string | undefined;
@@ -3367,13 +3090,15 @@ export interface DeleteDomainNameResponse {}
  */
 export interface DeleteFunctionRequest {
   /**
-   * <p>The GraphQL API ID.</p>
+   * The GraphQL API ID.
+   *
    * @public
    */
   apiId: string | undefined;
 
   /**
-   * <p>The <code>Function</code> ID.</p>
+   * The `Function` ID.
+   *
    * @public
    */
   functionId: string | undefined;
@@ -3389,7 +3114,8 @@ export interface DeleteFunctionResponse {}
  */
 export interface DeleteGraphqlApiRequest {
   /**
-   * <p>The API ID.</p>
+   * The API ID.
+   *
    * @public
    */
   apiId: string | undefined;
@@ -3405,19 +3131,22 @@ export interface DeleteGraphqlApiResponse {}
  */
 export interface DeleteResolverRequest {
   /**
-   * <p>The API ID.</p>
+   * The API ID.
+   *
    * @public
    */
   apiId: string | undefined;
 
   /**
-   * <p>The name of the resolver type.</p>
+   * The name of the resolver type.
+   *
    * @public
    */
   typeName: string | undefined;
 
   /**
-   * <p>The resolver field name.</p>
+   * The resolver field name.
+   *
    * @public
    */
   fieldName: string | undefined;
@@ -3433,13 +3162,15 @@ export interface DeleteResolverResponse {}
  */
 export interface DeleteTypeRequest {
   /**
-   * <p>The API ID.</p>
+   * The API ID.
+   *
    * @public
    */
   apiId: string | undefined;
 
   /**
-   * <p>The type name.</p>
+   * The type name.
+   *
    * @public
    */
   typeName: string | undefined;
@@ -3455,7 +3186,8 @@ export interface DeleteTypeResponse {}
  */
 export interface DisassociateApiRequest {
   /**
-   * <p>The domain name.</p>
+   * The domain name.
+   *
    * @public
    */
   domainName: string | undefined;
@@ -3471,16 +3203,15 @@ export interface DisassociateApiResponse {}
  */
 export interface DisassociateMergedGraphqlApiRequest {
   /**
-   * <p>The identifier of the AppSync Source API. This is generated by the AppSync service. In
-   *          most cases, source APIs (especially in your account) only require the API ID value or ARN
-   *          of the source API. However, source APIs from other accounts (cross-account use cases)
-   *          strictly require the full resource ARN of the source API.</p>
+   * The identifier of the AppSync Source API. This is generated by the AppSync service. In most cases, source APIs (especially in your account) only require the API ID value or ARN of the source API. However, source APIs from other accounts (cross-account use cases) strictly require the full resource ARN of the source API.
+   *
    * @public
    */
   sourceApiIdentifier: string | undefined;
 
   /**
-   * <p>The ID generated by the AppSync service for the source API association.</p>
+   * The ID generated by the AppSync service for the source API association.
+   *
    * @public
    */
   associationId: string | undefined;
@@ -3491,7 +3222,8 @@ export interface DisassociateMergedGraphqlApiRequest {
  */
 export interface DisassociateMergedGraphqlApiResponse {
   /**
-   * <p>The state of the source API association.</p>
+   * The state of the source API association.
+   *
    * @public
    */
   sourceApiAssociationStatus?: SourceApiAssociationStatus | undefined;
@@ -3502,16 +3234,15 @@ export interface DisassociateMergedGraphqlApiResponse {
  */
 export interface DisassociateSourceGraphqlApiRequest {
   /**
-   * <p>The identifier of the AppSync Merged API. This is generated by the AppSync service. In
-   *          most cases, Merged APIs (especially in your account) only require the API ID value or ARN
-   *          of the merged API. However, Merged APIs in other accounts (cross-account use cases)
-   *          strictly require the full resource ARN of the merged API.</p>
+   * The identifier of the AppSync Merged API. This is generated by the AppSync service. In most cases, Merged APIs (especially in your account) only require the API ID value or ARN of the merged API. However, Merged APIs in other accounts (cross-account use cases) strictly require the full resource ARN of the merged API.
+   *
    * @public
    */
   mergedApiIdentifier: string | undefined;
 
   /**
-   * <p>The ID generated by the AppSync service for the source API association.</p>
+   * The ID generated by the AppSync service for the source API association.
+   *
    * @public
    */
   associationId: string | undefined;
@@ -3522,7 +3253,8 @@ export interface DisassociateSourceGraphqlApiRequest {
  */
 export interface DisassociateSourceGraphqlApiResponse {
   /**
-   * <p>The state of the source API association.</p>
+   * The state of the source API association.
+   *
    * @public
    */
   sourceApiAssociationStatus?: SourceApiAssociationStatus | undefined;
@@ -3533,48 +3265,50 @@ export interface DisassociateSourceGraphqlApiResponse {
  */
 export interface EvaluateCodeRequest {
   /**
-   * <p>The runtime to be used when evaluating the code. Currently, only the
-   *             <code>APPSYNC_JS</code> runtime is supported.</p>
+   * The runtime to be used when evaluating the code. Currently, only the `APPSYNC_JS` runtime is supported.
+   *
    * @public
    */
   runtime: AppSyncRuntime | undefined;
 
   /**
-   * <p>The code definition to be evaluated. Note that <code>code</code> and
-   *             <code>runtime</code> are both required for this action. The <code>runtime</code> value
-   *          must be <code>APPSYNC_JS</code>.</p>
+   * The code definition to be evaluated. Note that `code` and `runtime` are both required for this action. The `runtime` value must be `APPSYNC_JS`.
+   *
    * @public
    */
   code: string | undefined;
 
   /**
-   * <p>The map that holds all of the contextual information for your resolver invocation. A
-   *             <code>context</code> is required for this action.</p>
+   * The map that holds all of the contextual information for your resolver invocation. A `context` is required for this action.
+   *
    * @public
    */
   context: string | undefined;
 
   /**
-   * <p>The function within the code to be evaluated. If provided, the valid values are
-   *             <code>request</code> and <code>response</code>.</p>
+   * The function within the code to be evaluated. If provided, the valid values are `request` and `response`.
+   *
    * @public
    */
   function?: string | undefined;
 }
 
 /**
- * <p>Contains the list of errors from a code evaluation response.</p>
+ * Contains the list of errors from a code evaluation response.
+ *
  * @public
  */
 export interface EvaluateCodeErrorDetail {
   /**
-   * <p>The error payload.</p>
+   * The error payload.
+   *
    * @public
    */
   message?: string | undefined;
 
   /**
-   * <p>Contains the list of <code>CodeError</code> objects.</p>
+   * Contains the list of `CodeError` objects.
+   *
    * @public
    */
   codeErrors?: CodeError[] | undefined;
@@ -3585,32 +3319,36 @@ export interface EvaluateCodeErrorDetail {
  */
 export interface EvaluateCodeResponse {
   /**
-   * <p>The result of the evaluation operation.</p>
+   * The result of the evaluation operation.
+   *
    * @public
    */
   evaluationResult?: string | undefined;
 
   /**
-   * <p>Contains the payload of the response error.</p>
+   * Contains the payload of the response error.
+   *
    * @public
    */
   error?: EvaluateCodeErrorDetail | undefined;
 
   /**
-   * <p>A list of logs that were generated by calls to <code>util.log.info</code> and
-   *             <code>util.log.error</code> in the evaluated code.</p>
+   * A list of logs that were generated by calls to `util.log.info` and `util.log.error` in the evaluated code.
+   *
    * @public
    */
   logs?: string[] | undefined;
 
   /**
-   * <p>An object available inside each resolver and function handler. A single <code>stash</code> object lives through a single resolver run. Therefore, you can use the stash to pass arbitrary data across request and response handlers and across functions in a pipeline resolver.</p>
+   * An object available inside each resolver and function handler. A single `stash` object lives through a single resolver run. Therefore, you can use the stash to pass arbitrary data across request and response handlers and across functions in a pipeline resolver.
+   *
    * @public
    */
   stash?: string | undefined;
 
   /**
-   * <p>The list of runtime errors that are added to the GraphQL operation response.</p>
+   * The list of runtime errors that are added to the GraphQL operation response.
+   *
    * @public
    */
   outErrors?: string | undefined;
@@ -3621,28 +3359,29 @@ export interface EvaluateCodeResponse {
  */
 export interface EvaluateMappingTemplateRequest {
   /**
-   * <p>The mapping template; this can be a request or response template. A
-   *             <code>template</code> is required for this action.</p>
+   * The mapping template; this can be a request or response template. A `template` is required for this action.
+   *
    * @public
    */
   template: string | undefined;
 
   /**
-   * <p>The map that holds all of the contextual information for your resolver invocation. A
-   *             <code>context</code> is required for this action.</p>
+   * The map that holds all of the contextual information for your resolver invocation. A `context` is required for this action.
+   *
    * @public
    */
   context: string | undefined;
 }
 
 /**
- * <p>Contains the list of errors generated. When using JavaScript, this will apply to the
- *          request or response function evaluation.</p>
+ * Contains the list of errors generated. When using JavaScript, this will apply to the request or response function evaluation.
+ *
  * @public
  */
 export interface ErrorDetail {
   /**
-   * <p>The error payload.</p>
+   * The error payload.
+   *
    * @public
    */
   message?: string | undefined;
@@ -3653,51 +3392,58 @@ export interface ErrorDetail {
  */
 export interface EvaluateMappingTemplateResponse {
   /**
-   * <p>The mapping template; this can be a request or response template.</p>
+   * The mapping template; this can be a request or response template.
+   *
    * @public
    */
   evaluationResult?: string | undefined;
 
   /**
-   * <p>The <code>ErrorDetail</code> object.</p>
+   * The `ErrorDetail` object.
+   *
    * @public
    */
   error?: ErrorDetail | undefined;
 
   /**
-   * <p>A list of logs that were generated by calls to <code>util.log.info</code> and
-   *             <code>util.log.error</code> in the evaluated code.</p>
+   * A list of logs that were generated by calls to `util.log.info` and `util.log.error` in the evaluated code.
+   *
    * @public
    */
   logs?: string[] | undefined;
 
   /**
-   * <p>An object available inside each resolver and function handler. A single <code>stash</code> object lives through a single resolver run. Therefore, you can use the stash to pass arbitrary data across request and response handlers and across functions in a pipeline resolver.</p>
+   * An object available inside each resolver and function handler. A single `stash` object lives through a single resolver run. Therefore, you can use the stash to pass arbitrary data across request and response handlers and across functions in a pipeline resolver.
+   *
    * @public
    */
   stash?: string | undefined;
 
   /**
-   * <p>The list of runtime errors that are added to the GraphQL operation response.</p>
+   * The list of runtime errors that are added to the GraphQL operation response.
+   *
    * @public
    */
   outErrors?: string | undefined;
 }
 
 /**
- * <p>Represents the input of a <code>FlushApiCache</code> operation.</p>
+ * Represents the input of a `FlushApiCache` operation.
+ *
  * @public
  */
 export interface FlushApiCacheRequest {
   /**
-   * <p>The API ID.</p>
+   * The API ID.
+   *
    * @public
    */
   apiId: string | undefined;
 }
 
 /**
- * <p>Represents the output of a <code>FlushApiCache</code> operation.</p>
+ * Represents the output of a `FlushApiCache` operation.
+ *
  * @public
  */
 export interface FlushApiCacheResponse {}
@@ -3707,7 +3453,8 @@ export interface FlushApiCacheResponse {}
  */
 export interface GetApiRequest {
   /**
-   * <p>The <code>Api</code> ID.</p>
+   * The `Api` ID.
+   *
    * @public
    */
   apiId: string | undefined;
@@ -3718,7 +3465,8 @@ export interface GetApiRequest {
  */
 export interface GetApiResponse {
   /**
-   * <p>The <code>Api</code> object.</p>
+   * The `Api` object.
+   *
    * @public
    */
   api?: Api | undefined;
@@ -3729,7 +3477,8 @@ export interface GetApiResponse {
  */
 export interface GetApiAssociationRequest {
   /**
-   * <p>The domain name.</p>
+   * The domain name.
+   *
    * @public
    */
   domainName: string | undefined;
@@ -3740,31 +3489,36 @@ export interface GetApiAssociationRequest {
  */
 export interface GetApiAssociationResponse {
   /**
-   * <p>The <code>ApiAssociation</code> object.</p>
+   * The `ApiAssociation` object.
+   *
    * @public
    */
   apiAssociation?: ApiAssociation | undefined;
 }
 
 /**
- * <p>Represents the input of a <code>GetApiCache</code> operation.</p>
+ * Represents the input of a `GetApiCache` operation.
+ *
  * @public
  */
 export interface GetApiCacheRequest {
   /**
-   * <p>The API ID.</p>
+   * The API ID.
+   *
    * @public
    */
   apiId: string | undefined;
 }
 
 /**
- * <p>Represents the output of a <code>GetApiCache</code> operation.</p>
+ * Represents the output of a `GetApiCache` operation.
+ *
  * @public
  */
 export interface GetApiCacheResponse {
   /**
-   * <p>The <code>ApiCache</code> object.</p>
+   * The `ApiCache` object.
+   *
    * @public
    */
   apiCache?: ApiCache | undefined;
@@ -3775,13 +3529,15 @@ export interface GetApiCacheResponse {
  */
 export interface GetChannelNamespaceRequest {
   /**
-   * <p>The <code>Api</code> ID.</p>
+   * The `Api` ID.
+   *
    * @public
    */
   apiId: string | undefined;
 
   /**
-   * <p>The name of the <code>ChannelNamespace</code>.</p>
+   * The name of the `ChannelNamespace`.
+   *
    * @public
    */
   name: string | undefined;
@@ -3792,7 +3548,8 @@ export interface GetChannelNamespaceRequest {
  */
 export interface GetChannelNamespaceResponse {
   /**
-   * <p>The <code>ChannelNamespace</code> object.</p>
+   * The `ChannelNamespace` object.
+   *
    * @public
    */
   channelNamespace?: ChannelNamespace | undefined;
@@ -3803,13 +3560,15 @@ export interface GetChannelNamespaceResponse {
  */
 export interface GetDataSourceRequest {
   /**
-   * <p>The API ID.</p>
+   * The API ID.
+   *
    * @public
    */
   apiId: string | undefined;
 
   /**
-   * <p>The name of the data source.</p>
+   * The name of the data source.
+   *
    * @public
    */
   name: string | undefined;
@@ -3820,7 +3579,8 @@ export interface GetDataSourceRequest {
  */
 export interface GetDataSourceResponse {
   /**
-   * <p>The <code>DataSource</code> object.</p>
+   * The `DataSource` object.
+   *
    * @public
    */
   dataSource?: DataSource | undefined;
@@ -3831,50 +3591,50 @@ export interface GetDataSourceResponse {
  */
 export interface GetDataSourceIntrospectionRequest {
   /**
-   * <p>The introspection ID. Each introspection contains a unique ID that can be used to
-   *          reference the instrospection record.</p>
+   * The introspection ID. Each introspection contains a unique ID that can be used to reference the instrospection record.
+   *
    * @public
    */
   introspectionId: string | undefined;
 
   /**
-   * <p>A boolean flag that determines whether SDL should be generated for introspected types.
-   *          If set to <code>true</code>, each model will contain an <code>sdl</code> property that
-   *          contains the SDL for that type. The SDL only contains the type data and no additional
-   *          metadata or directives. </p>
+   * A boolean flag that determines whether SDL should be generated for introspected types. If set to `true`, each model will contain an `sdl` property that contains the SDL for that type. The SDL only contains the type data and no additional metadata or directives.
+   *
    * @public
    */
   includeModelsSDL?: boolean | undefined;
 
   /**
-   * <p>Determines the number of types to be returned in a single response before paginating.
-   *          This value is typically taken from <code>nextToken</code> value from the previous
-   *          response.</p>
+   * Determines the number of types to be returned in a single response before paginating. This value is typically taken from `nextToken` value from the previous response.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of introspected types that will be returned in a single
-   *          response.</p>
+   * The maximum number of introspected types that will be returned in a single response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>The index that was retrieved from the introspected data.</p>
+ * The index that was retrieved from the introspected data.
+ *
  * @public
  */
 export interface DataSourceIntrospectionModelIndex {
   /**
-   * <p>The name of the index.</p>
+   * The name of the index.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The fields of the index.</p>
+   * The fields of the index.
+   *
    * @public
    */
   fields?: string[] | undefined;
@@ -3885,7 +3645,8 @@ export interface DataSourceIntrospectionModelIndex {
  */
 export interface GetDomainNameRequest {
   /**
-   * <p>The domain name.</p>
+   * The domain name.
+   *
    * @public
    */
   domainName: string | undefined;
@@ -3896,7 +3657,8 @@ export interface GetDomainNameRequest {
  */
 export interface GetDomainNameResponse {
   /**
-   * <p>The configuration for the <code>DomainName</code>.</p>
+   * The configuration for the `DomainName`.
+   *
    * @public
    */
   domainNameConfig?: DomainNameConfig | undefined;
@@ -3907,13 +3669,15 @@ export interface GetDomainNameResponse {
  */
 export interface GetFunctionRequest {
   /**
-   * <p>The GraphQL API ID.</p>
+   * The GraphQL API ID.
+   *
    * @public
    */
   apiId: string | undefined;
 
   /**
-   * <p>The <code>Function</code> ID.</p>
+   * The `Function` ID.
+   *
    * @public
    */
   functionId: string | undefined;
@@ -3924,7 +3688,8 @@ export interface GetFunctionRequest {
  */
 export interface GetFunctionResponse {
   /**
-   * <p>The <code>Function</code> object.</p>
+   * The `Function` object.
+   *
    * @public
    */
   functionConfiguration?: FunctionConfiguration | undefined;
@@ -3935,7 +3700,8 @@ export interface GetFunctionResponse {
  */
 export interface GetGraphqlApiRequest {
   /**
-   * <p>The API ID for the GraphQL API.</p>
+   * The API ID for the GraphQL API.
+   *
    * @public
    */
   apiId: string | undefined;
@@ -3946,7 +3712,8 @@ export interface GetGraphqlApiRequest {
  */
 export interface GetGraphqlApiResponse {
   /**
-   * <p>The <code>GraphqlApi</code> object.</p>
+   * The `GraphqlApi` object.
+   *
    * @public
    */
   graphqlApi?: GraphqlApi | undefined;
@@ -3957,7 +3724,8 @@ export interface GetGraphqlApiResponse {
  */
 export interface GetGraphqlApiEnvironmentVariablesRequest {
   /**
-   * <p>The ID of the API from which the environmental variable list will be retrieved.</p>
+   * The ID of the API from which the environmental variable list will be retrieved.
+   *
    * @public
    */
   apiId: string | undefined;
@@ -3968,8 +3736,8 @@ export interface GetGraphqlApiEnvironmentVariablesRequest {
  */
 export interface GetGraphqlApiEnvironmentVariablesResponse {
   /**
-   * <p>The payload containing each environmental variable in the <code>"key" : "value"</code>
-   *          format.</p>
+   * The payload containing each environmental variable in the `"key" : "value"` format.
+   *
    * @public
    */
   environmentVariables?: Record<string, string> | undefined;
@@ -3980,19 +3748,22 @@ export interface GetGraphqlApiEnvironmentVariablesResponse {
  */
 export interface GetIntrospectionSchemaRequest {
   /**
-   * <p>The API ID.</p>
+   * The API ID.
+   *
    * @public
    */
   apiId: string | undefined;
 
   /**
-   * <p>The schema format: SDL or JSON.</p>
+   * The schema format: SDL or JSON.
+   *
    * @public
    */
   format: OutputType | undefined;
 
   /**
-   * <p>A flag that specifies whether the schema introspection should contain directives.</p>
+   * A flag that specifies whether the schema introspection should contain directives.
+   *
    * @public
    */
   includeDirectives?: boolean | undefined;
@@ -4003,9 +3774,10 @@ export interface GetIntrospectionSchemaRequest {
  */
 export interface GetIntrospectionSchemaResponse {
   /**
-   * <p>The schema, in GraphQL Schema Definition Language (SDL) format.</p>
-   *          <p>For more information, see the <a href="http://graphql.org/learn/schema/">GraphQL SDL
-   *             documentation</a>.</p>
+   * The schema, in GraphQL Schema Definition Language (SDL) format.
+   *
+   * For more information, see the [GraphQL SDL documentation](http://graphql.org/learn/schema/).
+   *
    * @public
    */
   schema?: Uint8Array | undefined;
@@ -4016,19 +3788,22 @@ export interface GetIntrospectionSchemaResponse {
  */
 export interface GetResolverRequest {
   /**
-   * <p>The API ID.</p>
+   * The API ID.
+   *
    * @public
    */
   apiId: string | undefined;
 
   /**
-   * <p>The resolver type name.</p>
+   * The resolver type name.
+   *
    * @public
    */
   typeName: string | undefined;
 
   /**
-   * <p>The resolver field name.</p>
+   * The resolver field name.
+   *
    * @public
    */
   fieldName: string | undefined;
@@ -4039,7 +3814,8 @@ export interface GetResolverRequest {
  */
 export interface GetResolverResponse {
   /**
-   * <p>The <code>Resolver</code> object.</p>
+   * The `Resolver` object.
+   *
    * @public
    */
   resolver?: Resolver | undefined;
@@ -4050,7 +3826,8 @@ export interface GetResolverResponse {
  */
 export interface GetSchemaCreationStatusRequest {
   /**
-   * <p>The API ID.</p>
+   * The API ID.
+   *
    * @public
    */
   apiId: string | undefined;
@@ -4061,14 +3838,15 @@ export interface GetSchemaCreationStatusRequest {
  */
 export interface GetSchemaCreationStatusResponse {
   /**
-   * <p>The current state of the schema (PROCESSING, FAILED, SUCCESS, or NOT_APPLICABLE). When
-   *          the schema is in the ACTIVE state, you can add data.</p>
+   * The current state of the schema (PROCESSING, FAILED, SUCCESS, or NOT_APPLICABLE). When the schema is in the ACTIVE state, you can add data.
+   *
    * @public
    */
   status?: SchemaStatus | undefined;
 
   /**
-   * <p>Detailed information about the status of the schema creation operation.</p>
+   * Detailed information about the status of the schema creation operation.
+   *
    * @public
    */
   details?: string | undefined;
@@ -4079,16 +3857,15 @@ export interface GetSchemaCreationStatusResponse {
  */
 export interface GetSourceApiAssociationRequest {
   /**
-   * <p>The identifier of the AppSync Merged API. This is generated by the AppSync service. In
-   *          most cases, Merged APIs (especially in your account) only require the API ID value or ARN
-   *          of the merged API. However, Merged APIs in other accounts (cross-account use cases)
-   *          strictly require the full resource ARN of the merged API.</p>
+   * The identifier of the AppSync Merged API. This is generated by the AppSync service. In most cases, Merged APIs (especially in your account) only require the API ID value or ARN of the merged API. However, Merged APIs in other accounts (cross-account use cases) strictly require the full resource ARN of the merged API.
+   *
    * @public
    */
   mergedApiIdentifier: string | undefined;
 
   /**
-   * <p>The ID generated by the AppSync service for the source API association.</p>
+   * The ID generated by the AppSync service for the source API association.
+   *
    * @public
    */
   associationId: string | undefined;
@@ -4099,7 +3876,8 @@ export interface GetSourceApiAssociationRequest {
  */
 export interface GetSourceApiAssociationResponse {
   /**
-   * <p>The <code>SourceApiAssociation</code> object data.</p>
+   * The `SourceApiAssociation` object data.
+   *
    * @public
    */
   sourceApiAssociation?: SourceApiAssociation | undefined;
@@ -4110,19 +3888,22 @@ export interface GetSourceApiAssociationResponse {
  */
 export interface GetTypeRequest {
   /**
-   * <p>The API ID.</p>
+   * The API ID.
+   *
    * @public
    */
   apiId: string | undefined;
 
   /**
-   * <p>The type name.</p>
+   * The type name.
+   *
    * @public
    */
   typeName: string | undefined;
 
   /**
-   * <p>The type format: SDL or JSON.</p>
+   * The type format: SDL or JSON.
+   *
    * @public
    */
   format: TypeDefinitionFormat | undefined;
@@ -4133,7 +3914,8 @@ export interface GetTypeRequest {
  */
 export interface GetTypeResponse {
   /**
-   * <p>The <code>Type</code> object.</p>
+   * The `Type` object.
+   *
    * @public
    */
   type?: Type | undefined;
@@ -4144,20 +3926,22 @@ export interface GetTypeResponse {
  */
 export interface ListApiKeysRequest {
   /**
-   * <p>The API ID.</p>
+   * The API ID.
+   *
    * @public
    */
   apiId: string | undefined;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which you can
-   *          use to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which you can use to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results that you want the request to return.</p>
+   * The maximum number of results that you want the request to return.
+   *
    * @public
    */
   maxResults?: number | undefined;
@@ -4168,14 +3952,15 @@ export interface ListApiKeysRequest {
  */
 export interface ListApiKeysResponse {
   /**
-   * <p>The <code>ApiKey</code> objects.</p>
+   * The `ApiKey` objects.
+   *
    * @public
    */
   apiKeys?: ApiKey[] | undefined;
 
   /**
-   * <p>An identifier to pass in the next request to this operation to return the next set of
-   *          items in the list.</p>
+   * An identifier to pass in the next request to this operation to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4186,14 +3971,15 @@ export interface ListApiKeysResponse {
  */
 export interface ListApisRequest {
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which you can
-   *          use to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which you can use to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results that you want the request to return.</p>
+   * The maximum number of results that you want the request to return.
+   *
    * @public
    */
   maxResults?: number | undefined;
@@ -4204,14 +3990,15 @@ export interface ListApisRequest {
  */
 export interface ListApisResponse {
   /**
-   * <p>The <code>Api</code> objects.</p>
+   * The `Api` objects.
+   *
    * @public
    */
   apis?: Api[] | undefined;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which you can
-   *          use to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which you can use to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4222,20 +4009,22 @@ export interface ListApisResponse {
  */
 export interface ListChannelNamespacesRequest {
   /**
-   * <p>The <code>Api</code> ID.</p>
+   * The `Api` ID.
+   *
    * @public
    */
   apiId: string | undefined;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which you can
-   *          use to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which you can use to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results that you want the request to return.</p>
+   * The maximum number of results that you want the request to return.
+   *
    * @public
    */
   maxResults?: number | undefined;
@@ -4246,14 +4035,15 @@ export interface ListChannelNamespacesRequest {
  */
 export interface ListChannelNamespacesResponse {
   /**
-   * <p>The <code>ChannelNamespace</code> objects.</p>
+   * The `ChannelNamespace` objects.
+   *
    * @public
    */
   channelNamespaces?: ChannelNamespace[] | undefined;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which you can
-   *          use to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which you can use to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4264,20 +4054,22 @@ export interface ListChannelNamespacesResponse {
  */
 export interface ListDataSourcesRequest {
   /**
-   * <p>The API ID.</p>
+   * The API ID.
+   *
    * @public
    */
   apiId: string | undefined;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which you can
-   *          use to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which you can use to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results that you want the request to return.</p>
+   * The maximum number of results that you want the request to return.
+   *
    * @public
    */
   maxResults?: number | undefined;
@@ -4288,14 +4080,15 @@ export interface ListDataSourcesRequest {
  */
 export interface ListDataSourcesResponse {
   /**
-   * <p>The <code>DataSource</code> objects.</p>
+   * The `DataSource` objects.
+   *
    * @public
    */
   dataSources?: DataSource[] | undefined;
 
   /**
-   * <p>An identifier to pass in the next request to this operation to return the next set of
-   *          items in the list.</p>
+   * An identifier to pass in the next request to this operation to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4306,14 +4099,15 @@ export interface ListDataSourcesResponse {
  */
 export interface ListDomainNamesRequest {
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which you can
-   *          use to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which you can use to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results that you want the request to return.</p>
+   * The maximum number of results that you want the request to return.
+   *
    * @public
    */
   maxResults?: number | undefined;
@@ -4324,14 +4118,15 @@ export interface ListDomainNamesRequest {
  */
 export interface ListDomainNamesResponse {
   /**
-   * <p>Lists configurations for multiple domain names.</p>
+   * Lists configurations for multiple domain names.
+   *
    * @public
    */
   domainNameConfigs?: DomainNameConfig[] | undefined;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which you can
-   *          use to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which you can use to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4342,20 +4137,22 @@ export interface ListDomainNamesResponse {
  */
 export interface ListFunctionsRequest {
   /**
-   * <p>The GraphQL API ID.</p>
+   * The GraphQL API ID.
+   *
    * @public
    */
   apiId: string | undefined;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which you can
-   *          use to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which you can use to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results that you want the request to return.</p>
+   * The maximum number of results that you want the request to return.
+   *
    * @public
    */
   maxResults?: number | undefined;
@@ -4366,14 +4163,15 @@ export interface ListFunctionsRequest {
  */
 export interface ListFunctionsResponse {
   /**
-   * <p>A list of <code>Function</code> objects.</p>
+   * A list of `Function` objects.
+   *
    * @public
    */
   functions?: FunctionConfiguration[] | undefined;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which you can
-   *          use to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which you can use to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4384,27 +4182,29 @@ export interface ListFunctionsResponse {
  */
 export interface ListGraphqlApisRequest {
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which you can
-   *          use to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which you can use to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results that you want the request to return.</p>
+   * The maximum number of results that you want the request to return.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The value that indicates whether the GraphQL API is a standard API
-   *          (<code>GRAPHQL</code>) or merged API (<code>MERGED</code>).</p>
+   * The value that indicates whether the GraphQL API is a standard API (`GRAPHQL`) or merged API (`MERGED`).
+   *
    * @public
    */
   apiType?: GraphQLApiType | undefined;
 
   /**
-   * <p>The account owner of the GraphQL API.</p>
+   * The account owner of the GraphQL API.
+   *
    * @public
    */
   owner?: Ownership | undefined;
@@ -4415,14 +4215,15 @@ export interface ListGraphqlApisRequest {
  */
 export interface ListGraphqlApisResponse {
   /**
-   * <p>The <code>GraphqlApi</code> objects.</p>
+   * The `GraphqlApi` objects.
+   *
    * @public
    */
   graphqlApis?: GraphqlApi[] | undefined;
 
   /**
-   * <p>An identifier to pass in the next request to this operation to return the next set of
-   *          items in the list.</p>
+   * An identifier to pass in the next request to this operation to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4433,26 +4234,29 @@ export interface ListGraphqlApisResponse {
  */
 export interface ListResolversRequest {
   /**
-   * <p>The API ID.</p>
+   * The API ID.
+   *
    * @public
    */
   apiId: string | undefined;
 
   /**
-   * <p>The type name.</p>
+   * The type name.
+   *
    * @public
    */
   typeName: string | undefined;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which you can
-   *          use to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which you can use to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results that you want the request to return.</p>
+   * The maximum number of results that you want the request to return.
+   *
    * @public
    */
   maxResults?: number | undefined;
@@ -4463,14 +4267,15 @@ export interface ListResolversRequest {
  */
 export interface ListResolversResponse {
   /**
-   * <p>The <code>Resolver</code> objects.</p>
+   * The `Resolver` objects.
+   *
    * @public
    */
   resolvers?: Resolver[] | undefined;
 
   /**
-   * <p>An identifier to pass in the next request to this operation to return the next set of
-   *          items in the list.</p>
+   * An identifier to pass in the next request to this operation to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4481,26 +4286,29 @@ export interface ListResolversResponse {
  */
 export interface ListResolversByFunctionRequest {
   /**
-   * <p>The API ID.</p>
+   * The API ID.
+   *
    * @public
    */
   apiId: string | undefined;
 
   /**
-   * <p>The function ID.</p>
+   * The function ID.
+   *
    * @public
    */
   functionId: string | undefined;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which you can
-   *          use to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which you can use to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results that you want the request to return.</p>
+   * The maximum number of results that you want the request to return.
+   *
    * @public
    */
   maxResults?: number | undefined;
@@ -4511,13 +4319,15 @@ export interface ListResolversByFunctionRequest {
  */
 export interface ListResolversByFunctionResponse {
   /**
-   * <p>The list of resolvers.</p>
+   * The list of resolvers.
+   *
    * @public
    */
   resolvers?: Resolver[] | undefined;
 
   /**
-   * <p>An identifier that you can use to return the next set of items in the list.</p>
+   * An identifier that you can use to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4528,68 +4338,78 @@ export interface ListResolversByFunctionResponse {
  */
 export interface ListSourceApiAssociationsRequest {
   /**
-   * <p>The API ID.</p>
+   * The API ID.
+   *
    * @public
    */
   apiId: string | undefined;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which you can
-   *          use to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which you can use to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results that you want the request to return.</p>
+   * The maximum number of results that you want the request to return.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Describes the ARNs and IDs of associations, Merged APIs, and source APIs.</p>
+ * Describes the ARNs and IDs of associations, Merged APIs, and source APIs.
+ *
  * @public
  */
 export interface SourceApiAssociationSummary {
   /**
-   * <p>The ID generated by the AppSync service for the source API association.</p>
+   * The ID generated by the AppSync service for the source API association.
+   *
    * @public
    */
   associationId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the source API association.</p>
+   * The Amazon Resource Name (ARN) of the source API association.
+   *
    * @public
    */
   associationArn?: string | undefined;
 
   /**
-   * <p>The ID of the AppSync source API.</p>
+   * The ID of the AppSync source API.
+   *
    * @public
    */
   sourceApiId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AppSync Source API.</p>
+   * The Amazon Resource Name (ARN) of the AppSync Source API.
+   *
    * @public
    */
   sourceApiArn?: string | undefined;
 
   /**
-   * <p>The ID of the AppSync Merged API.</p>
+   * The ID of the AppSync Merged API.
+   *
    * @public
    */
   mergedApiId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AppSync Merged API.</p>
+   * The Amazon Resource Name (ARN) of the AppSync Merged API.
+   *
    * @public
    */
   mergedApiArn?: string | undefined;
 
   /**
-   * <p>The description field.</p>
+   * The description field.
+   *
    * @public
    */
   description?: string | undefined;
@@ -4600,14 +4420,15 @@ export interface SourceApiAssociationSummary {
  */
 export interface ListSourceApiAssociationsResponse {
   /**
-   * <p>The <code>SourceApiAssociationSummary</code> object data.</p>
+   * The `SourceApiAssociationSummary` object data.
+   *
    * @public
    */
   sourceApiAssociationSummaries?: SourceApiAssociationSummary[] | undefined;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which you can
-   *          use to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which you can use to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4618,7 +4439,8 @@ export interface ListSourceApiAssociationsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The <code>GraphqlApi</code> Amazon Resource Name (ARN).</p>
+   * The `GraphqlApi` Amazon Resource Name (ARN).
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -4629,7 +4451,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>A <code>TagMap</code> object.</p>
+   * A `TagMap` object.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -4640,26 +4463,29 @@ export interface ListTagsForResourceResponse {
  */
 export interface ListTypesRequest {
   /**
-   * <p>The API ID.</p>
+   * The API ID.
+   *
    * @public
    */
   apiId: string | undefined;
 
   /**
-   * <p>The type format: SDL or JSON.</p>
+   * The type format: SDL or JSON.
+   *
    * @public
    */
   format: TypeDefinitionFormat | undefined;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which you can
-   *          use to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which you can use to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results that you want the request to return.</p>
+   * The maximum number of results that you want the request to return.
+   *
    * @public
    */
   maxResults?: number | undefined;
@@ -4670,14 +4496,15 @@ export interface ListTypesRequest {
  */
 export interface ListTypesResponse {
   /**
-   * <p>The <code>Type</code> objects.</p>
+   * The `Type` objects.
+   *
    * @public
    */
   types?: Type[] | undefined;
 
   /**
-   * <p>An identifier to pass in the next request to this operation to return the next set of
-   *          items in the list.</p>
+   * An identifier to pass in the next request to this operation to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4688,35 +4515,36 @@ export interface ListTypesResponse {
  */
 export interface ListTypesByAssociationRequest {
   /**
-   * <p>The identifier of the AppSync Merged API. This is generated by the AppSync service. In
-   *          most cases, Merged APIs (especially in your account) only require the API ID value or ARN
-   *          of the merged API. However, Merged APIs in other accounts (cross-account use cases)
-   *          strictly require the full resource ARN of the merged API.</p>
+   * The identifier of the AppSync Merged API. This is generated by the AppSync service. In most cases, Merged APIs (especially in your account) only require the API ID value or ARN of the merged API. However, Merged APIs in other accounts (cross-account use cases) strictly require the full resource ARN of the merged API.
+   *
    * @public
    */
   mergedApiIdentifier: string | undefined;
 
   /**
-   * <p>The ID generated by the AppSync service for the source API association.</p>
+   * The ID generated by the AppSync service for the source API association.
+   *
    * @public
    */
   associationId: string | undefined;
 
   /**
-   * <p>The format type.</p>
+   * The format type.
+   *
    * @public
    */
   format: TypeDefinitionFormat | undefined;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which you can
-   *          use to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which you can use to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results that you want the request to return.</p>
+   * The maximum number of results that you want the request to return.
+   *
    * @public
    */
   maxResults?: number | undefined;
@@ -4727,14 +4555,15 @@ export interface ListTypesByAssociationRequest {
  */
 export interface ListTypesByAssociationResponse {
   /**
-   * <p>The <code>Type</code> objects.</p>
+   * The `Type` objects.
+   *
    * @public
    */
   types?: Type[] | undefined;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which you can
-   *          use to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which you can use to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4745,40 +4574,25 @@ export interface ListTypesByAssociationResponse {
  */
 export interface PutGraphqlApiEnvironmentVariablesRequest {
   /**
-   * <p>The ID of the API to which the environmental variable list will be written.</p>
+   * The ID of the API to which the environmental variable list will be written.
+   *
    * @public
    */
   apiId: string | undefined;
 
   /**
-   * <p>The list of environmental variables to add to the API.</p>
-   *          <p>When creating an environmental variable key-value pair, it must follow the additional
-   *          constraints below:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Keys must begin with a letter.</p>
-   *             </li>
-   *             <li>
-   *                <p>Keys must be at least two characters long.</p>
-   *             </li>
-   *             <li>
-   *                <p>Keys can only contain letters, numbers, and the underscore character
-   *                (_).</p>
-   *             </li>
-   *             <li>
-   *                <p>Values can be up to 512 characters long.</p>
-   *             </li>
-   *             <li>
-   *                <p>You can configure up to 50 key-value pairs in a GraphQL API.</p>
-   *             </li>
-   *          </ul>
-   *          <p>You can create a list of environmental variables by adding it to the
-   *             <code>environmentVariables</code> payload as a list in the format
-   *             <code>\{"key1":"value1","key2":"value2", …\}</code>. Note that each call of the
-   *             <code>PutGraphqlApiEnvironmentVariables</code> action will result in the overwriting of
-   *          the existing environmental variable list of that API. This means the existing environmental
-   *          variables will be lost. To avoid this, you must include all existing and new environmental
-   *          variables in the list each time you call this action.</p>
+   * The list of environmental variables to add to the API.
+   *
+   * When creating an environmental variable key-value pair, it must follow the additional constraints below:
+   *
+   * - Keys must begin with a letter.
+   * - Keys must be at least two characters long.
+   * - Keys can only contain letters, numbers, and the underscore character (_).
+   * - Values can be up to 512 characters long.
+   * - You can configure up to 50 key-value pairs in a GraphQL API.
+   *
+   * You can create a list of environmental variables by adding it to the `environmentVariables` payload as a list in the format `\{"key1":"value1","key2":"value2", …\}`. Note that each call of the `PutGraphqlApiEnvironmentVariables` action will result in the overwriting of the existing environmental variable list of that API. This means the existing environmental variables will be lost. To avoid this, you must include all existing and new environmental variables in the list each time you call this action.
+   *
    * @public
    */
   environmentVariables: Record<string, string> | undefined;
@@ -4789,35 +4603,36 @@ export interface PutGraphqlApiEnvironmentVariablesRequest {
  */
 export interface PutGraphqlApiEnvironmentVariablesResponse {
   /**
-   * <p>The payload containing each environmental variable in the <code>"key" : "value"</code>
-   *          format.</p>
+   * The payload containing each environmental variable in the `"key" : "value"` format.
+   *
    * @public
    */
   environmentVariables?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Contains the metadata required to introspect the RDS cluster.</p>
+ * Contains the metadata required to introspect the RDS cluster.
+ *
  * @public
  */
 export interface RdsDataApiConfig {
   /**
-   * <p>The resource ARN of the RDS cluster.</p>
+   * The resource ARN of the RDS cluster.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The secret's ARN that was obtained from Secrets Manager. A secret consists of secret
-   *          information, the secret value, plus metadata about the secret. A secret value can be a
-   *          string or binary. It typically includes the ARN, secret name and description, policies,
-   *          tags, encryption key from the Key Management Service, and key rotation data.</p>
+   * The secret's ARN that was obtained from Secrets Manager. A secret consists of secret information, the secret value, plus metadata about the secret. A secret value can be a string or binary. It typically includes the ARN, secret name and description, policies, tags, encryption key from the Key Management Service, and key rotation data.
+   *
    * @public
    */
   secretArn: string | undefined;
 
   /**
-   * <p>The name of the database in the cluster.</p>
+   * The name of the database in the cluster.
+   *
    * @public
    */
   databaseName: string | undefined;
@@ -4828,7 +4643,8 @@ export interface RdsDataApiConfig {
  */
 export interface StartDataSourceIntrospectionRequest {
   /**
-   * <p>The <code>rdsDataApiConfig</code> object data.</p>
+   * The `rdsDataApiConfig` object data.
+   *
    * @public
    */
   rdsDataApiConfig?: RdsDataApiConfig | undefined;
@@ -4839,26 +4655,22 @@ export interface StartDataSourceIntrospectionRequest {
  */
 export interface StartDataSourceIntrospectionResponse {
   /**
-   * <p>The introspection ID. Each introspection contains a unique ID that can be used to
-   *          reference the instrospection record.</p>
+   * The introspection ID. Each introspection contains a unique ID that can be used to reference the instrospection record.
+   *
    * @public
    */
   introspectionId?: string | undefined;
 
   /**
-   * <p>The status of the introspection during creation. By default, when a new instrospection
-   *          has been created, the status will be set to <code>PROCESSING</code>. Once the operation has
-   *          been completed, the status will change to <code>SUCCESS</code> or <code>FAILED</code>
-   *          depending on how the data was parsed. A <code>FAILED</code> operation will return an error
-   *          and its details as an <code>introspectionStatusDetail</code>.</p>
+   * The status of the introspection during creation. By default, when a new instrospection has been created, the status will be set to `PROCESSING`. Once the operation has been completed, the status will change to `SUCCESS` or `FAILED` depending on how the data was parsed. A `FAILED` operation will return an error and its details as an `introspectionStatusDetail`.
+   *
    * @public
    */
   introspectionStatus?: DataSourceIntrospectionStatus | undefined;
 
   /**
-   * <p>The error detail field. When a <code>FAILED</code>
-   *             <code>introspectionStatus</code> is returned, the <code>introspectionStatusDetail</code>
-   *          will also return the exact error that was generated during the operation.</p>
+   * The error detail field. When a `FAILED` `introspectionStatus` is returned, the `introspectionStatusDetail` will also return the exact error that was generated during the operation.
+   *
    * @public
    */
   introspectionStatusDetail?: string | undefined;
@@ -4869,13 +4681,15 @@ export interface StartDataSourceIntrospectionResponse {
  */
 export interface StartSchemaCreationRequest {
   /**
-   * <p>The API ID.</p>
+   * The API ID.
+   *
    * @public
    */
   apiId: string | undefined;
 
   /**
-   * <p>The schema definition, in GraphQL schema language format.</p>
+   * The schema definition, in GraphQL schema language format.
+   *
    * @public
    */
   definition: Uint8Array | undefined;
@@ -4886,8 +4700,8 @@ export interface StartSchemaCreationRequest {
  */
 export interface StartSchemaCreationResponse {
   /**
-   * <p>The current state of the schema (PROCESSING, FAILED, SUCCESS, or NOT_APPLICABLE). When
-   *          the schema is in the ACTIVE state, you can add data.</p>
+   * The current state of the schema (PROCESSING, FAILED, SUCCESS, or NOT_APPLICABLE). When the schema is in the ACTIVE state, you can add data.
+   *
    * @public
    */
   status?: SchemaStatus | undefined;
@@ -4898,16 +4712,15 @@ export interface StartSchemaCreationResponse {
  */
 export interface StartSchemaMergeRequest {
   /**
-   * <p>The ID generated by the AppSync service for the source API association.</p>
+   * The ID generated by the AppSync service for the source API association.
+   *
    * @public
    */
   associationId: string | undefined;
 
   /**
-   * <p>The identifier of the AppSync Merged API. This is generated by the AppSync service. In
-   *          most cases, Merged APIs (especially in your account) only require the API ID value or ARN
-   *          of the merged API. However, Merged APIs in other accounts (cross-account use cases)
-   *          strictly require the full resource ARN of the merged API.</p>
+   * The identifier of the AppSync Merged API. This is generated by the AppSync service. In most cases, Merged APIs (especially in your account) only require the API ID value or ARN of the merged API. However, Merged APIs in other accounts (cross-account use cases) strictly require the full resource ARN of the merged API.
+   *
    * @public
    */
   mergedApiIdentifier: string | undefined;
@@ -4918,7 +4731,8 @@ export interface StartSchemaMergeRequest {
  */
 export interface StartSchemaMergeResponse {
   /**
-   * <p>The state of the source API association.</p>
+   * The state of the source API association.
+   *
    * @public
    */
   sourceApiAssociationStatus?: SourceApiAssociationStatus | undefined;
@@ -4929,13 +4743,15 @@ export interface StartSchemaMergeResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The <code>GraphqlApi</code> Amazon Resource Name (ARN).</p>
+   * The `GraphqlApi` Amazon Resource Name (ARN).
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>A <code>TagMap</code> object.</p>
+   * A `TagMap` object.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -4951,13 +4767,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The <code>GraphqlApi</code> Amazon Resource Name (ARN).</p>
+   * The `GraphqlApi` Amazon Resource Name (ARN).
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>A list of <code>TagKey</code> objects.</p>
+   * A list of `TagKey` objects.
+   *
    * @public
    */
   tagKeys: string[] | undefined;
@@ -4973,26 +4791,29 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateApiRequest {
   /**
-   * <p>The <code>Api</code> ID.</p>
+   * The `Api` ID.
+   *
    * @public
    */
   apiId: string | undefined;
 
   /**
-   * <p>The name of the Api.</p>
+   * The name of the Api.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The owner contact information for the <code>Api</code>.</p>
+   * The owner contact information for the `Api`.
+   *
    * @public
    */
   ownerContact?: string | undefined;
 
   /**
-   * <p>The new event configuration. This includes the default authorization configuration for
-   *          connecting, publishing, and subscribing to an Event API.</p>
+   * The new event configuration. This includes the default authorization configuration for connecting, publishing, and subscribing to an Event API.
+   *
    * @public
    */
   eventConfig: EventConfig | undefined;
@@ -5003,161 +4824,96 @@ export interface UpdateApiRequest {
  */
 export interface UpdateApiResponse {
   /**
-   * <p>The <code>Api</code> object.</p>
+   * The `Api` object.
+   *
    * @public
    */
   api?: Api | undefined;
 }
 
 /**
- * <p>Represents the input of a <code>UpdateApiCache</code> operation.</p>
+ * Represents the input of a `UpdateApiCache` operation.
+ *
  * @public
  */
 export interface UpdateApiCacheRequest {
   /**
-   * <p>The GraphQL API ID.</p>
+   * The GraphQL API ID.
+   *
    * @public
    */
   apiId: string | undefined;
 
   /**
-   * <p>TTL in seconds for cache entries.</p>
-   *          <p>Valid values are 1–3,600 seconds.</p>
+   * TTL in seconds for cache entries.
+   *
+   * Valid values are 1–3,600 seconds.
+   *
    * @public
    */
   ttl: number | undefined;
 
   /**
-   * <p>Caching behavior.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>FULL_REQUEST_CACHING</b>: All requests from the
-   *                same user are cached. Individual resolvers are automatically cached. All API calls
-   *                will try to return responses from the cache.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>PER_RESOLVER_CACHING</b>: Individual resolvers
-   *                that you specify are cached.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>OPERATION_LEVEL_CACHING</b>: Full requests are cached together and returned without executing resolvers.</p>
-   *             </li>
-   *          </ul>
+   * Caching behavior.
+   *
+   * - **FULL_REQUEST_CACHING**: All requests from the same user are cached. Individual resolvers are automatically cached. All API calls will try to return responses from the cache.
+   * - **PER_RESOLVER_CACHING**: Individual resolvers that you specify are cached.
+   * - **OPERATION_LEVEL_CACHING**: Full requests are cached together and returned without executing resolvers.
+   *
    * @public
    */
   apiCachingBehavior: ApiCachingBehavior | undefined;
 
   /**
-   * <p>The cache instance type. Valid values are </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SMALL</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MEDIUM</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LARGE</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>XLARGE</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LARGE_2X</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LARGE_4X</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LARGE_8X</code> (not available in all regions)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LARGE_12X</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>Historically, instance types were identified by an EC2-style value. As of July 2020, this is deprecated, and the generic identifiers above should be used.</p>
-   *          <p>The following legacy instance types are available, but their use is discouraged:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>T2_SMALL</b>: A t2.small instance type.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>T2_MEDIUM</b>: A t2.medium instance type.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>R4_LARGE</b>: A r4.large instance type.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>R4_XLARGE</b>: A r4.xlarge instance type.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>R4_2XLARGE</b>: A r4.2xlarge instance type.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>R4_4XLARGE</b>: A r4.4xlarge instance type.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>R4_8XLARGE</b>: A r4.8xlarge instance type.</p>
-   *             </li>
-   *          </ul>
+   * The cache instance type. Valid values are
+   *
+   * - `SMALL`
+   * - `MEDIUM`
+   * - `LARGE`
+   * - `XLARGE`
+   * - `LARGE_2X`
+   * - `LARGE_4X`
+   * - `LARGE_8X` (not available in all regions)
+   * - `LARGE_12X`
+   *
+   * Historically, instance types were identified by an EC2-style value. As of July 2020, this is deprecated, and the generic identifiers above should be used.
+   *
+   * The following legacy instance types are available, but their use is discouraged:
+   *
+   * - **T2_SMALL**: A t2.small instance type.
+   * - **T2_MEDIUM**: A t2.medium instance type.
+   * - **R4_LARGE**: A r4.large instance type.
+   * - **R4_XLARGE**: A r4.xlarge instance type.
+   * - **R4_2XLARGE**: A r4.2xlarge instance type.
+   * - **R4_4XLARGE**: A r4.4xlarge instance type.
+   * - **R4_8XLARGE**: A r4.8xlarge instance type.
+   *
    * @public
    */
   type: ApiCacheType | undefined;
 
   /**
-   * <p>Controls how cache health metrics will be emitted to CloudWatch. Cache health metrics
-   *          include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>NetworkBandwidthOutAllowanceExceeded: The network packets dropped because the
-   *                throughput exceeded the aggregated bandwidth limit. This is useful for diagnosing
-   *                bottlenecks in a cache configuration.</p>
-   *             </li>
-   *             <li>
-   *                <p>EngineCPUUtilization: The CPU utilization (percentage) allocated to the Redis
-   *                process. This is useful for diagnosing bottlenecks in a cache
-   *                configuration.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Metrics will be recorded by API ID. You can set the value to <code>ENABLED</code> or
-   *             <code>DISABLED</code>.</p>
+   * Controls how cache health metrics will be emitted to CloudWatch. Cache health metrics include:
+   *
+   * - NetworkBandwidthOutAllowanceExceeded: The network packets dropped because the throughput exceeded the aggregated bandwidth limit. This is useful for diagnosing bottlenecks in a cache configuration.
+   * - EngineCPUUtilization: The CPU utilization (percentage) allocated to the Redis process. This is useful for diagnosing bottlenecks in a cache configuration.
+   *
+   * Metrics will be recorded by API ID. You can set the value to `ENABLED` or `DISABLED`.
+   *
    * @public
    */
   healthMetricsConfig?: CacheHealthMetricsConfig | undefined;
 }
 
 /**
- * <p>Represents the output of a <code>UpdateApiCache</code> operation.</p>
+ * Represents the output of a `UpdateApiCache` operation.
+ *
  * @public
  */
 export interface UpdateApiCacheResponse {
   /**
-   * <p>The <code>ApiCache</code> object.</p>
+   * The `ApiCache` object.
+   *
    * @public
    */
   apiCache?: ApiCache | undefined;
@@ -5168,26 +4924,29 @@ export interface UpdateApiCacheResponse {
  */
 export interface UpdateApiKeyRequest {
   /**
-   * <p>The ID for the GraphQL API.</p>
+   * The ID for the GraphQL API.
+   *
    * @public
    */
   apiId: string | undefined;
 
   /**
-   * <p>The API key ID.</p>
+   * The API key ID.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>A description of the purpose of the API key.</p>
+   * A description of the purpose of the API key.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>From the update time, the time after which the API key expires. The date is represented
-   *          as seconds since the epoch. For more information, see .</p>
+   * From the update time, the time after which the API key expires. The date is represented as seconds since the epoch. For more information, see .
+   *
    * @public
    */
   expires?: number | undefined;
@@ -5198,7 +4957,8 @@ export interface UpdateApiKeyRequest {
  */
 export interface UpdateApiKeyResponse {
   /**
-   * <p>The API key.</p>
+   * The API key.
+   *
    * @public
    */
   apiKey?: ApiKey | undefined;
@@ -5209,40 +4969,43 @@ export interface UpdateApiKeyResponse {
  */
 export interface UpdateChannelNamespaceRequest {
   /**
-   * <p>The <code>Api</code> ID.</p>
+   * The `Api` ID.
+   *
    * @public
    */
   apiId: string | undefined;
 
   /**
-   * <p>The name of the <code>ChannelNamespace</code>.</p>
+   * The name of the `ChannelNamespace`.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The authorization mode to use for subscribing to messages on the channel namespace. This
-   *          configuration overrides the default <code>Api</code> authorization configuration.</p>
+   * The authorization mode to use for subscribing to messages on the channel namespace. This configuration overrides the default `Api` authorization configuration.
+   *
    * @public
    */
   subscribeAuthModes?: AuthMode[] | undefined;
 
   /**
-   * <p>The authorization mode to use for publishing messages on the channel namespace. This
-   *          configuration overrides the default <code>Api</code> authorization configuration.</p>
+   * The authorization mode to use for publishing messages on the channel namespace. This configuration overrides the default `Api` authorization configuration.
+   *
    * @public
    */
   publishAuthModes?: AuthMode[] | undefined;
 
   /**
-   * <p>The event handler functions that run custom business logic to process published events
-   *          and subscribe requests.</p>
+   * The event handler functions that run custom business logic to process published events and subscribe requests.
+   *
    * @public
    */
   codeHandlers?: string | undefined;
 
   /**
-   * <p>The configuration for the <code>OnPublish</code> and <code>OnSubscribe</code> handlers.</p>
+   * The configuration for the `OnPublish` and `OnSubscribe` handlers.
+   *
    * @public
    */
   handlerConfigs?: HandlerConfigs | undefined;
@@ -5253,7 +5016,8 @@ export interface UpdateChannelNamespaceRequest {
  */
 export interface UpdateChannelNamespaceResponse {
   /**
-   * <p>The <code>ChannelNamespace</code> object.</p>
+   * The `ChannelNamespace` object.
+   *
    * @public
    */
   channelNamespace?: ChannelNamespace | undefined;
@@ -5264,88 +5028,96 @@ export interface UpdateChannelNamespaceResponse {
  */
 export interface UpdateDataSourceRequest {
   /**
-   * <p>The API ID.</p>
+   * The API ID.
+   *
    * @public
    */
   apiId: string | undefined;
 
   /**
-   * <p>The new name for the data source.</p>
+   * The new name for the data source.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The new description for the data source.</p>
+   * The new description for the data source.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The new data source type.</p>
+   * The new data source type.
+   *
    * @public
    */
   type: DataSourceType | undefined;
 
   /**
-   * <p>The new service role Amazon Resource Name (ARN) for the data source.</p>
+   * The new service role Amazon Resource Name (ARN) for the data source.
+   *
    * @public
    */
   serviceRoleArn?: string | undefined;
 
   /**
-   * <p>The new Amazon DynamoDB configuration.</p>
+   * The new Amazon DynamoDB configuration.
+   *
    * @public
    */
   dynamodbConfig?: DynamodbDataSourceConfig | undefined;
 
   /**
-   * <p>The new Lambda configuration.</p>
+   * The new Lambda configuration.
+   *
    * @public
    */
   lambdaConfig?: LambdaDataSourceConfig | undefined;
 
   /**
-   * <p>The new OpenSearch configuration.</p>
-   *          <p>As of September 2021, Amazon Elasticsearch service is Amazon OpenSearch Service. This
-   *          configuration is deprecated. Instead, use <a>UpdateDataSourceRequest$openSearchServiceConfig</a> to update an OpenSearch data source.</p>
+   * The new OpenSearch configuration.
+   *
+   * As of September 2021, Amazon Elasticsearch service is Amazon OpenSearch Service. This configuration is deprecated. Instead, use UpdateDataSourceRequest$openSearchServiceConfig to update an OpenSearch data source.
+   *
    * @public
    */
   elasticsearchConfig?: ElasticsearchDataSourceConfig | undefined;
 
   /**
-   * <p>The new OpenSearch configuration.</p>
+   * The new OpenSearch configuration.
+   *
    * @public
    */
   openSearchServiceConfig?: OpenSearchServiceDataSourceConfig | undefined;
 
   /**
-   * <p>The new HTTP endpoint configuration.</p>
+   * The new HTTP endpoint configuration.
+   *
    * @public
    */
   httpConfig?: HttpDataSourceConfig | undefined;
 
   /**
-   * <p>The new relational database configuration.</p>
+   * The new relational database configuration.
+   *
    * @public
    */
   relationalDatabaseConfig?: RelationalDatabaseDataSourceConfig | undefined;
 
   /**
-   * <p>The new Amazon EventBridge settings.</p>
+   * The new Amazon EventBridge settings.
+   *
    * @public
    */
   eventBridgeConfig?: EventBridgeDataSourceConfig | undefined;
 
   /**
-   * <p>Enables or disables enhanced data source metrics for specified data sources. Note that
-   *             <code>metricsConfig</code> won't be used unless the
-   *             <code>dataSourceLevelMetricsBehavior</code> value is set to
-   *             <code>PER_DATA_SOURCE_METRICS</code>. If the <code>dataSourceLevelMetricsBehavior</code>
-   *          is set to <code>FULL_REQUEST_DATA_SOURCE_METRICS</code> instead, <code>metricsConfig</code>
-   *          will be ignored. However, you can still set its value.</p>
-   *          <p>
-   *             <code>metricsConfig</code> can be <code>ENABLED</code> or <code>DISABLED</code>.</p>
+   * Enables or disables enhanced data source metrics for specified data sources. Note that `metricsConfig` won't be used unless the `dataSourceLevelMetricsBehavior` value is set to `PER_DATA_SOURCE_METRICS`. If the `dataSourceLevelMetricsBehavior` is set to `FULL_REQUEST_DATA_SOURCE_METRICS` instead, `metricsConfig` will be ignored. However, you can still set its value.
+   *
+   * `metricsConfig` can be `ENABLED` or `DISABLED`.
+   *
    * @public
    */
   metricsConfig?: DataSourceLevelMetricsConfig | undefined;
@@ -5356,7 +5128,8 @@ export interface UpdateDataSourceRequest {
  */
 export interface UpdateDataSourceResponse {
   /**
-   * <p>The updated <code>DataSource</code> object.</p>
+   * The updated `DataSource` object.
+   *
    * @public
    */
   dataSource?: DataSource | undefined;
@@ -5367,13 +5140,15 @@ export interface UpdateDataSourceResponse {
  */
 export interface UpdateDomainNameRequest {
   /**
-   * <p>The domain name.</p>
+   * The domain name.
+   *
    * @public
    */
   domainName: string | undefined;
 
   /**
-   * <p>A description of the <code>DomainName</code>.</p>
+   * A description of the `DomainName`.
+   *
    * @public
    */
   description?: string | undefined;
@@ -5384,7 +5159,8 @@ export interface UpdateDomainNameRequest {
  */
 export interface UpdateDomainNameResponse {
   /**
-   * <p>The configuration for the <code>DomainName</code>.</p>
+   * The configuration for the `DomainName`.
+   *
    * @public
    */
   domainNameConfig?: DomainNameConfig | undefined;
@@ -5395,82 +5171,87 @@ export interface UpdateDomainNameResponse {
  */
 export interface UpdateFunctionRequest {
   /**
-   * <p>The GraphQL API ID.</p>
+   * The GraphQL API ID.
+   *
    * @public
    */
   apiId: string | undefined;
 
   /**
-   * <p>The <code>Function</code> name.</p>
+   * The `Function` name.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The <code>Function</code> description.</p>
+   * The `Function` description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The function ID.</p>
+   * The function ID.
+   *
    * @public
    */
   functionId: string | undefined;
 
   /**
-   * <p>The <code>Function</code>
-   *             <code>DataSource</code> name.</p>
+   * The `Function` `DataSource` name.
+   *
    * @public
    */
   dataSourceName: string | undefined;
 
   /**
-   * <p>The <code>Function</code> request mapping template. Functions support only the
-   *          2018-05-29 version of the request mapping template.</p>
+   * The `Function` request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+   *
    * @public
    */
   requestMappingTemplate?: string | undefined;
 
   /**
-   * <p>The <code>Function</code> request mapping template.</p>
+   * The `Function` request mapping template.
+   *
    * @public
    */
   responseMappingTemplate?: string | undefined;
 
   /**
-   * <p>The <code>version</code> of the request mapping template. Currently, the supported value
-   *          is 2018-05-29. Note that when using VTL and mapping templates, the
-   *             <code>functionVersion</code> is required.</p>
+   * The `version` of the request mapping template. Currently, the supported value is 2018-05-29. Note that when using VTL and mapping templates, the `functionVersion` is required.
+   *
    * @public
    */
   functionVersion?: string | undefined;
 
   /**
-   * <p>Describes a Sync configuration for a resolver.</p>
-   *          <p>Specifies which Conflict Detection strategy and Resolution strategy to use when the
-   *          resolver is invoked.</p>
+   * Describes a Sync configuration for a resolver.
+   *
+   * Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.
+   *
    * @public
    */
   syncConfig?: SyncConfig | undefined;
 
   /**
-   * <p>The maximum batching size for a resolver.</p>
+   * The maximum batching size for a resolver.
+   *
    * @public
    */
   maxBatchSize?: number | undefined;
 
   /**
-   * <p>Describes a runtime used by an Amazon Web Services AppSync pipeline resolver or Amazon Web Services AppSync function. Specifies the name and version of the runtime to use. Note
-   *          that if a runtime is specified, code must also be specified.</p>
+   * Describes a runtime used by an Amazon Web Services AppSync pipeline resolver or Amazon Web Services AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
+   *
    * @public
    */
   runtime?: AppSyncRuntime | undefined;
 
   /**
-   * <p>The <code>function</code> code that contains the request and response functions. When
-   *          code is used, the <code>runtime</code> is required. The <code>runtime</code> value must be
-   *             <code>APPSYNC_JS</code>.</p>
+   * The `function` code that contains the request and response functions. When code is used, the `runtime` is required. The `runtime` value must be `APPSYNC_JS`.
+   *
    * @public
    */
   code?: string | undefined;
@@ -5481,7 +5262,8 @@ export interface UpdateFunctionRequest {
  */
 export interface UpdateFunctionResponse {
   /**
-   * <p>The <code>Function</code> object.</p>
+   * The `Function` object.
+   *
    * @public
    */
   functionConfiguration?: FunctionConfiguration | undefined;
@@ -5492,113 +5274,112 @@ export interface UpdateFunctionResponse {
  */
 export interface UpdateGraphqlApiRequest {
   /**
-   * <p>The API ID.</p>
+   * The API ID.
+   *
    * @public
    */
   apiId: string | undefined;
 
   /**
-   * <p>The new name for the <code>GraphqlApi</code> object.</p>
+   * The new name for the `GraphqlApi` object.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon CloudWatch Logs configuration for the <code>GraphqlApi</code> object.</p>
+   * The Amazon CloudWatch Logs configuration for the `GraphqlApi` object.
+   *
    * @public
    */
   logConfig?: LogConfig | undefined;
 
   /**
-   * <p>The new authentication type for the <code>GraphqlApi</code> object.</p>
+   * The new authentication type for the `GraphqlApi` object.
+   *
    * @public
    */
   authenticationType: AuthenticationType | undefined;
 
   /**
-   * <p>The new Amazon Cognito user pool configuration for the <code>~GraphqlApi</code>
-   *          object.</p>
+   * The new Amazon Cognito user pool configuration for the `~GraphqlApi` object.
+   *
    * @public
    */
   userPoolConfig?: UserPoolConfig | undefined;
 
   /**
-   * <p>The OpenID Connect configuration for the <code>GraphqlApi</code> object.</p>
+   * The OpenID Connect configuration for the `GraphqlApi` object.
+   *
    * @public
    */
   openIDConnectConfig?: OpenIDConnectConfig | undefined;
 
   /**
-   * <p>A list of additional authentication providers for the <code>GraphqlApi</code>
-   *          API.</p>
+   * A list of additional authentication providers for the `GraphqlApi` API.
+   *
    * @public
    */
   additionalAuthenticationProviders?: AdditionalAuthenticationProvider[] | undefined;
 
   /**
-   * <p>A flag indicating whether to use X-Ray tracing for the
-   *             <code>GraphqlApi</code>.</p>
+   * A flag indicating whether to use X-Ray tracing for the `GraphqlApi`.
+   *
    * @public
    */
   xrayEnabled?: boolean | undefined;
 
   /**
-   * <p>Configuration for Lambda function authorization.</p>
+   * Configuration for Lambda function authorization.
+   *
    * @public
    */
   lambdaAuthorizerConfig?: LambdaAuthorizerConfig | undefined;
 
   /**
-   * <p>The Identity and Access Management service role ARN for a merged API. The AppSync
-   *          service assumes this role on behalf of the Merged API to validate access to source APIs at
-   *          runtime and to prompt the <code>AUTO_MERGE</code> to update the merged API endpoint with
-   *          the source API changes automatically.</p>
+   * The Identity and Access Management service role ARN for a merged API. The AppSync service assumes this role on behalf of the Merged API to validate access to source APIs at runtime and to prompt the `AUTO_MERGE` to update the merged API endpoint with the source API changes automatically.
+   *
    * @public
    */
   mergedApiExecutionRoleArn?: string | undefined;
 
   /**
-   * <p>The owner contact information for an API resource.</p>
-   *          <p>This field accepts any string input with a length of 0 - 256 characters.</p>
+   * The owner contact information for an API resource.
+   *
+   * This field accepts any string input with a length of 0 - 256 characters.
+   *
    * @public
    */
   ownerContact?: string | undefined;
 
   /**
-   * <p>Sets the value of the GraphQL API to enable (<code>ENABLED</code>) or disable
-   *             (<code>DISABLED</code>) introspection. If no value is provided, the introspection
-   *          configuration will be set to <code>ENABLED</code> by default. This field will produce an
-   *          error if the operation attempts to use the introspection feature while this field is
-   *          disabled.</p>
-   *          <p>For more information about introspection, see <a href="https://graphql.org/learn/introspection/">GraphQL introspection</a>.</p>
+   * Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to `ENABLED` by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled.
+   *
+   * For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
+   *
    * @public
    */
   introspectionConfig?: GraphQLApiIntrospectionConfig | undefined;
 
   /**
-   * <p>The maximum depth a query can have in a single request. Depth refers to the amount of
-   *          nested levels allowed in the body of query. The default value is <code>0</code> (or
-   *          unspecified), which indicates there's no depth limit. If you set a limit, it can be between
-   *             <code>1</code> and <code>75</code> nested levels. This field will produce a limit error
-   *          if the operation falls out of bounds.</p>
-   *          <p>Note that fields can still be set to nullable or non-nullable. If a non-nullable field
-   *          produces an error, the error will be thrown upwards to the first nullable field
-   *          available.</p>
+   * The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
+   *
+   * Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
+   *
    * @public
    */
   queryDepthLimit?: number | undefined;
 
   /**
-   * <p>The maximum number of resolvers that can be invoked in a single request. The default
-   *          value is <code>0</code> (or unspecified), which will set the limit to <code>10000</code>.
-   *          When specified, the limit value can be between <code>1</code> and <code>10000</code>. This
-   *          field will produce a limit error if the operation falls out of bounds.</p>
+   * The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
+   *
    * @public
    */
   resolverCountLimit?: number | undefined;
 
   /**
-   * <p>The <code>enhancedMetricsConfig</code> object.</p>
+   * The `enhancedMetricsConfig` object.
+   *
    * @public
    */
   enhancedMetricsConfig?: EnhancedMetricsConfig | undefined;
@@ -5609,7 +5390,8 @@ export interface UpdateGraphqlApiRequest {
  */
 export interface UpdateGraphqlApiResponse {
   /**
-   * <p>The updated <code>GraphqlApi</code> object.</p>
+   * The updated `GraphqlApi` object.
+   *
    * @public
    */
   graphqlApi?: GraphqlApi | undefined;
@@ -5620,116 +5402,108 @@ export interface UpdateGraphqlApiResponse {
  */
 export interface UpdateResolverRequest {
   /**
-   * <p>The API ID.</p>
+   * The API ID.
+   *
    * @public
    */
   apiId: string | undefined;
 
   /**
-   * <p>The new type name.</p>
+   * The new type name.
+   *
    * @public
    */
   typeName: string | undefined;
 
   /**
-   * <p>The new field name.</p>
+   * The new field name.
+   *
    * @public
    */
   fieldName: string | undefined;
 
   /**
-   * <p>The new data source name.</p>
+   * The new data source name.
+   *
    * @public
    */
   dataSourceName?: string | undefined;
 
   /**
-   * <p>The new request mapping template.</p>
-   *          <p>A resolver uses a request mapping template to convert a GraphQL expression into a format
-   *          that a data source can understand. Mapping templates are written in Apache Velocity
-   *          Template Language (VTL).</p>
-   *          <p>VTL request mapping templates are optional when using an Lambda data
-   *          source. For all other data sources, VTL request and response mapping templates are
-   *          required.</p>
+   * The new request mapping template.
+   *
+   * A resolver uses a request mapping template to convert a GraphQL expression into a format that a data source can understand. Mapping templates are written in Apache Velocity Template Language (VTL).
+   *
+   * VTL request mapping templates are optional when using an Lambda data source. For all other data sources, VTL request and response mapping templates are required.
+   *
    * @public
    */
   requestMappingTemplate?: string | undefined;
 
   /**
-   * <p>The new response mapping template.</p>
+   * The new response mapping template.
+   *
    * @public
    */
   responseMappingTemplate?: string | undefined;
 
   /**
-   * <p>The resolver type.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>UNIT</b>: A UNIT resolver type. A UNIT resolver is
-   *                the default resolver type. You can use a UNIT resolver to run a GraphQL query against
-   *                a single data source.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>PIPELINE</b>: A PIPELINE resolver type. You can
-   *                use a PIPELINE resolver to invoke a series of <code>Function</code> objects in a
-   *                serial manner. You can use a pipeline resolver to run a GraphQL query against
-   *                multiple data sources.</p>
-   *             </li>
-   *          </ul>
+   * The resolver type.
+   *
+   * - **UNIT**: A UNIT resolver type. A UNIT resolver is the default resolver type. You can use a UNIT resolver to run a GraphQL query against a single data source.
+   * - **PIPELINE**: A PIPELINE resolver type. You can use a PIPELINE resolver to invoke a series of `Function` objects in a serial manner. You can use a pipeline resolver to run a GraphQL query against multiple data sources.
+   *
    * @public
    */
   kind?: ResolverKind | undefined;
 
   /**
-   * <p>The <code>PipelineConfig</code>.</p>
+   * The `PipelineConfig`.
+   *
    * @public
    */
   pipelineConfig?: PipelineConfig | undefined;
 
   /**
-   * <p>The <code>SyncConfig</code> for a resolver attached to a versioned data source.</p>
+   * The `SyncConfig` for a resolver attached to a versioned data source.
+   *
    * @public
    */
   syncConfig?: SyncConfig | undefined;
 
   /**
-   * <p>The caching configuration for the resolver.</p>
+   * The caching configuration for the resolver.
+   *
    * @public
    */
   cachingConfig?: CachingConfig | undefined;
 
   /**
-   * <p>The maximum batching size for a resolver.</p>
+   * The maximum batching size for a resolver.
+   *
    * @public
    */
   maxBatchSize?: number | undefined;
 
   /**
-   * <p>Describes a runtime used by an Amazon Web Services AppSync pipeline resolver or Amazon Web Services AppSync function. Specifies the name and version of the runtime to use. Note
-   *          that if a runtime is specified, code must also be specified.</p>
+   * Describes a runtime used by an Amazon Web Services AppSync pipeline resolver or Amazon Web Services AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
+   *
    * @public
    */
   runtime?: AppSyncRuntime | undefined;
 
   /**
-   * <p>The <code>resolver</code> code that contains the request and response functions. When
-   *          code is used, the <code>runtime</code> is required. The <code>runtime</code> value must be
-   *             <code>APPSYNC_JS</code>.</p>
+   * The `resolver` code that contains the request and response functions. When code is used, the `runtime` is required. The `runtime` value must be `APPSYNC_JS`.
+   *
    * @public
    */
   code?: string | undefined;
 
   /**
-   * <p>Enables or disables enhanced resolver metrics for specified resolvers. Note that
-   *             <code>metricsConfig</code> won't be used unless the
-   *             <code>resolverLevelMetricsBehavior</code> value is set to
-   *             <code>PER_RESOLVER_METRICS</code>. If the <code>resolverLevelMetricsBehavior</code> is
-   *          set to <code>FULL_REQUEST_RESOLVER_METRICS</code> instead, <code>metricsConfig</code> will
-   *          be ignored. However, you can still set its value.</p>
-   *          <p>
-   *             <code>metricsConfig</code> can be <code>ENABLED</code> or <code>DISABLED</code>.</p>
+   * Enables or disables enhanced resolver metrics for specified resolvers. Note that `metricsConfig` won't be used unless the `resolverLevelMetricsBehavior` value is set to `PER_RESOLVER_METRICS`. If the `resolverLevelMetricsBehavior` is set to `FULL_REQUEST_RESOLVER_METRICS` instead, `metricsConfig` will be ignored. However, you can still set its value.
+   *
+   * `metricsConfig` can be `ENABLED` or `DISABLED`.
+   *
    * @public
    */
   metricsConfig?: ResolverLevelMetricsConfig | undefined;
@@ -5740,7 +5514,8 @@ export interface UpdateResolverRequest {
  */
 export interface UpdateResolverResponse {
   /**
-   * <p>The updated <code>Resolver</code> object.</p>
+   * The updated `Resolver` object.
+   *
    * @public
    */
   resolver?: Resolver | undefined;
@@ -5751,28 +5526,29 @@ export interface UpdateResolverResponse {
  */
 export interface UpdateSourceApiAssociationRequest {
   /**
-   * <p>The ID generated by the AppSync service for the source API association.</p>
+   * The ID generated by the AppSync service for the source API association.
+   *
    * @public
    */
   associationId: string | undefined;
 
   /**
-   * <p>The identifier of the AppSync Merged API. This is generated by the AppSync service. In
-   *          most cases, Merged APIs (especially in your account) only require the API ID value or ARN
-   *          of the merged API. However, Merged APIs in other accounts (cross-account use cases)
-   *          strictly require the full resource ARN of the merged API.</p>
+   * The identifier of the AppSync Merged API. This is generated by the AppSync service. In most cases, Merged APIs (especially in your account) only require the API ID value or ARN of the merged API. However, Merged APIs in other accounts (cross-account use cases) strictly require the full resource ARN of the merged API.
+   *
    * @public
    */
   mergedApiIdentifier: string | undefined;
 
   /**
-   * <p>The description field.</p>
+   * The description field.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The <code>SourceApiAssociationConfig</code> object data.</p>
+   * The `SourceApiAssociationConfig` object data.
+   *
    * @public
    */
   sourceApiAssociationConfig?: SourceApiAssociationConfig | undefined;
@@ -5783,7 +5559,8 @@ export interface UpdateSourceApiAssociationRequest {
  */
 export interface UpdateSourceApiAssociationResponse {
   /**
-   * <p>The <code>SourceApiAssociation</code> object data.</p>
+   * The `SourceApiAssociation` object data.
+   *
    * @public
    */
   sourceApiAssociation?: SourceApiAssociation | undefined;
@@ -5794,25 +5571,29 @@ export interface UpdateSourceApiAssociationResponse {
  */
 export interface UpdateTypeRequest {
   /**
-   * <p>The API ID.</p>
+   * The API ID.
+   *
    * @public
    */
   apiId: string | undefined;
 
   /**
-   * <p>The new type name.</p>
+   * The new type name.
+   *
    * @public
    */
   typeName: string | undefined;
 
   /**
-   * <p>The new definition.</p>
+   * The new definition.
+   *
    * @public
    */
   definition?: string | undefined;
 
   /**
-   * <p>The new type format: SDL or JSON.</p>
+   * The new type format: SDL or JSON.
+   *
    * @public
    */
   format: TypeDefinitionFormat | undefined;
@@ -5823,151 +5604,142 @@ export interface UpdateTypeRequest {
  */
 export interface UpdateTypeResponse {
   /**
-   * <p>The updated <code>Type</code> object.</p>
+   * The updated `Type` object.
+   *
    * @public
    */
   type?: Type | undefined;
 }
 
 /**
- * <p>Represents the type data for each field retrieved from the introspection.</p>
+ * Represents the type data for each field retrieved from the introspection.
+ *
  * @public
  */
 export interface DataSourceIntrospectionModelFieldType {
   /**
-   * <p>Specifies the classification of data. For example, this could be set to values like
-   *             <code>Scalar</code> or <code>NonNull</code> to indicate a fundamental property of the
-   *          field.</p>
-   *          <p>Valid values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Scalar</code>: Indicates the value is a primitive type
-   *                (scalar).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NonNull</code>: Indicates the field cannot be
-   *                <code>null</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>List</code>: Indicates the field contains a list.</p>
-   *             </li>
-   *          </ul>
+   * Specifies the classification of data. For example, this could be set to values like `Scalar` or `NonNull` to indicate a fundamental property of the field.
+   *
+   * Valid values include:
+   *
+   * - `Scalar`: Indicates the value is a primitive type (scalar).
+   * - `NonNull`: Indicates the field cannot be `null`.
+   * - `List`: Indicates the field contains a list.
+   *
    * @public
    */
   kind?: string | undefined;
 
   /**
-   * <p>The name of the data type that represents the field. For example, <code>String</code> is
-   *          a valid <code>name</code> value.</p>
+   * The name of the data type that represents the field. For example, `String` is a valid `name` value.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The <code>DataSourceIntrospectionModelFieldType</code> object data. The
-   *             <code>type</code> is only present if
-   *             <code>DataSourceIntrospectionModelFieldType.kind</code> is set to <code>NonNull</code>
-   *          or <code>List</code>. </p>
-   *          <p>The <code>type</code> typically contains its own <code>kind</code> and <code>name</code>
-   *          fields to represent the actual type data. For instance, <code>type</code> could contain a
-   *             <code>kind</code> value of <code>Scalar</code> with a <code>name</code> value of
-   *             <code>String</code>. The values <code>Scalar</code> and <code>String</code> will be
-   *          collectively stored in the <code>values</code> field.</p>
+   * The `DataSourceIntrospectionModelFieldType` object data. The `type` is only present if `DataSourceIntrospectionModelFieldType.kind` is set to `NonNull` or `List`.
+   *
+   * The `type` typically contains its own `kind` and `name` fields to represent the actual type data. For instance, `type` could contain a `kind` value of `Scalar` with a `name` value of `String`. The values `Scalar` and `String` will be collectively stored in the `values` field.
+   *
    * @public
    */
   type?: DataSourceIntrospectionModelFieldType | undefined;
 
   /**
-   * <p>The values of the <code>type</code> field. This field represents the AppSync data type
-   *          equivalent of the introspected field.</p>
+   * The values of the `type` field. This field represents the AppSync data type equivalent of the introspected field.
+   *
    * @public
    */
   values?: string[] | undefined;
 }
 
 /**
- * <p>Represents the fields that were retrieved from the introspected data.</p>
+ * Represents the fields that were retrieved from the introspected data.
+ *
  * @public
  */
 export interface DataSourceIntrospectionModelField {
   /**
-   * <p>The name of the field that was retrieved from the introspected data.</p>
+   * The name of the field that was retrieved from the introspected data.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The <code>DataSourceIntrospectionModelFieldType</code> object data.</p>
+   * The `DataSourceIntrospectionModelFieldType` object data.
+   *
    * @public
    */
   type?: DataSourceIntrospectionModelFieldType | undefined;
 
   /**
-   * <p>The length value of the introspected field.</p>
+   * The length value of the introspected field.
+   *
    * @public
    */
   length?: number | undefined;
 }
 
 /**
- * <p>Contains the introspected data that was retrieved from the data source.</p>
+ * Contains the introspected data that was retrieved from the data source.
+ *
  * @public
  */
 export interface DataSourceIntrospectionModel {
   /**
-   * <p>The name of the model. For example, this could be the name of a single table in a
-   *          database.</p>
+   * The name of the model. For example, this could be the name of a single table in a database.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The <code>DataSourceIntrospectionModelField</code> object data.</p>
+   * The `DataSourceIntrospectionModelField` object data.
+   *
    * @public
    */
   fields?: DataSourceIntrospectionModelField[] | undefined;
 
   /**
-   * <p>The primary key stored as a <code>DataSourceIntrospectionModelIndex</code>
-   *          object.</p>
+   * The primary key stored as a `DataSourceIntrospectionModelIndex` object.
+   *
    * @public
    */
   primaryKey?: DataSourceIntrospectionModelIndex | undefined;
 
   /**
-   * <p>The array of <code>DataSourceIntrospectionModelIndex</code> objects.</p>
+   * The array of `DataSourceIntrospectionModelIndex` objects.
+   *
    * @public
    */
   indexes?: DataSourceIntrospectionModelIndex[] | undefined;
 
   /**
-   * <p>Contains the output of the SDL that was generated from the introspected types. This is
-   *          controlled by the <code>includeModelsSDL</code> parameter of the
-   *             <code>GetDataSourceIntrospection</code> operation.</p>
+   * Contains the output of the SDL that was generated from the introspected types. This is controlled by the `includeModelsSDL` parameter of the `GetDataSourceIntrospection` operation.
+   *
    * @public
    */
   sdl?: string | undefined;
 }
 
 /**
- * <p>Represents the output of a <code>DataSourceIntrospectionResult</code>. This is the
- *          populated result of a <code>GetDataSourceIntrospection</code> operation.</p>
+ * Represents the output of a `DataSourceIntrospectionResult`. This is the populated result of a `GetDataSourceIntrospection` operation.
+ *
  * @public
  */
 export interface DataSourceIntrospectionResult {
   /**
-   * <p>The array of <code>DataSourceIntrospectionModel</code> objects.</p>
+   * The array of `DataSourceIntrospectionModel` objects.
+   *
    * @public
    */
   models?: DataSourceIntrospectionModel[] | undefined;
 
   /**
-   * <p>Determines the number of types to be returned in a single response before paginating.
-   *          This value is typically taken from <code>nextToken</code> value from the previous
-   *          response.</p>
+   * Determines the number of types to be returned in a single response before paginating. This value is typically taken from `nextToken` value from the previous response.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -5978,32 +5750,29 @@ export interface DataSourceIntrospectionResult {
  */
 export interface GetDataSourceIntrospectionResponse {
   /**
-   * <p>The introspection ID. Each introspection contains a unique ID that can be used to
-   *          reference the instrospection record.</p>
+   * The introspection ID. Each introspection contains a unique ID that can be used to reference the instrospection record.
+   *
    * @public
    */
   introspectionId?: string | undefined;
 
   /**
-   * <p>The status of the introspection during retrieval. By default, when a new instrospection
-   *          is being retrieved, the status will be set to <code>PROCESSING</code>. Once the operation
-   *          has been completed, the status will change to <code>SUCCESS</code> or <code>FAILED</code>
-   *          depending on how the data was parsed. A <code>FAILED</code> operation will return an error
-   *          and its details as an <code>introspectionStatusDetail</code>.</p>
+   * The status of the introspection during retrieval. By default, when a new instrospection is being retrieved, the status will be set to `PROCESSING`. Once the operation has been completed, the status will change to `SUCCESS` or `FAILED` depending on how the data was parsed. A `FAILED` operation will return an error and its details as an `introspectionStatusDetail`.
+   *
    * @public
    */
   introspectionStatus?: DataSourceIntrospectionStatus | undefined;
 
   /**
-   * <p>The error detail field. When a <code>FAILED</code>
-   *             <code>introspectionStatus</code> is returned, the <code>introspectionStatusDetail</code>
-   *          will also return the exact error that was generated during the operation.</p>
+   * The error detail field. When a `FAILED` `introspectionStatus` is returned, the `introspectionStatusDetail` will also return the exact error that was generated during the operation.
+   *
    * @public
    */
   introspectionStatusDetail?: string | undefined;
 
   /**
-   * <p>The <code>DataSourceIntrospectionResult</code> object data.</p>
+   * The `DataSourceIntrospectionResult` object data.
+   *
    * @public
    */
   introspectionResult?: DataSourceIntrospectionResult | undefined;

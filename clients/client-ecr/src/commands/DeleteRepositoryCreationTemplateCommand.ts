@@ -26,7 +26,8 @@ export interface DeleteRepositoryCreationTemplateCommandInput extends DeleteRepo
 export interface DeleteRepositoryCreationTemplateCommandOutput extends DeleteRepositoryCreationTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a repository creation template.</p>
+ * Deletes a repository creation template.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,22 +83,24 @@ export interface DeleteRepositoryCreationTemplateCommandOutput extends DeleteRep
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link TemplateNotFoundException} (client fault)
- *  <p>The specified repository creation template can't be found. Verify the registry ID and
- *             prefix and try again.</p>
+ *
+ * The specified repository creation template can't be found. Verify the registry ID and prefix and try again.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>There was an exception validating this request.</p>
+ *
+ * There was an exception validating this request.
  *
  * @throws {@link ECRServiceException}
- * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * Base exception class for all service exceptions from ECR service.
  *
  * @public
  */

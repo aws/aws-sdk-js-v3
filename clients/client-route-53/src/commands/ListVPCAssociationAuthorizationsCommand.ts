@@ -26,11 +26,10 @@ export interface ListVPCAssociationAuthorizationsCommandInput extends ListVPCAss
 export interface ListVPCAssociationAuthorizationsCommandOutput extends ListVPCAssociationAuthorizationsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a list of the VPCs that were created by other accounts and that can be associated
- * 			with a specified hosted zone because you've submitted one or more
- * 				<code>CreateVPCAssociationAuthorization</code> requests. </p>
- *          <p>The response includes a <code>VPCs</code> element with a <code>VPC</code> child
- * 			element for each VPC that can be associated with the hosted zone.</p>
+ * Gets a list of the VPCs that were created by other accounts and that can be associated with a specified hosted zone because you've submitted one or more `CreateVPCAssociationAuthorization` requests.
+ *
+ * The response includes a `VPCs` element with a `VPC` child element for each VPC that can be associated with the hosted zone.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,18 +65,20 @@ export interface ListVPCAssociationAuthorizationsCommandOutput extends ListVPCAs
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link InvalidPaginationToken} (client fault)
- *  <p>The value that you specified to get the second or subsequent page of results is
- * 			invalid.</p>
+ *
+ * The value that you specified to get the second or subsequent page of results is invalid.
  *
  * @throws {@link NoSuchHostedZone} (client fault)
- *  <p>No hosted zone exists with the ID that you specified.</p>
+ *
+ * No hosted zone exists with the ID that you specified.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @public
  */

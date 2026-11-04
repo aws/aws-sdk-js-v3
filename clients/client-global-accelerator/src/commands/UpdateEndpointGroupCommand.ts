@@ -23,7 +23,8 @@ export interface UpdateEndpointGroupCommandInput extends UpdateEndpointGroupRequ
 export interface UpdateEndpointGroupCommandOutput extends UpdateEndpointGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Update an endpoint group. A resource must be valid and active when you add it as an endpoint.</p>
+ * Update an endpoint group. A resource must be valid and active when you add it as an endpoint.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,23 +95,28 @@ export interface UpdateEndpointGroupCommandOutput extends UpdateEndpointGroupRes
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have access permission.</p>
+ *
+ * You don't have access permission.
  *
  * @throws {@link EndpointGroupNotFoundException} (client fault)
- *  <p>The endpoint group that you specified doesn't exist.</p>
+ *
+ * The endpoint group that you specified doesn't exist.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * There was an internal error for Global Accelerator.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>An argument that you specified is invalid.</p>
+ *
+ * An argument that you specified is invalid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
+ *
+ * Processing your request would cause you to exceed an Global Accelerator limit.
  *
  * @throws {@link GlobalAcceleratorServiceException}
- * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * Base exception class for all service exceptions from GlobalAccelerator service.
  *
  * @public
  */

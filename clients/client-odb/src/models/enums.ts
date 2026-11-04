@@ -672,11 +672,11 @@ export type Objective = (typeof Objective)[keyof typeof Objective];
  */
 export const StorageManagementType = {
   /**
-   * <p>Oracle Automatic Storage Management (ASM).</p>
+   * Oracle Automatic Storage Management (ASM).
    */
   ASM: "ASM",
   /**
-   * <p>Exascale storage.</p>
+   * Exascale storage.
    */
   EXASCALE: "EXASCALE",
 } as const;
@@ -691,11 +691,11 @@ export type StorageManagementType = (typeof StorageManagementType)[keyof typeof 
  */
 export const VmStorageType = {
   /**
-   * <p>Exascale storage on the storage servers.</p>
+   * Exascale storage on the storage servers.
    */
   EXASCALE: "EXASCALE",
   /**
-   * <p>Local storage on the database servers.</p>
+   * Local storage on the database servers.
    */
   LOCAL: "LOCAL",
 } as const;
@@ -710,11 +710,11 @@ export type VmStorageType = (typeof VmStorageType)[keyof typeof VmStorageType];
  */
 export const ShapeAttribute = {
   /**
-   * <p>Block storage shape attribute.</p>
+   * Block storage shape attribute.
    */
   BLOCK_STORAGE: "BLOCK_STORAGE",
   /**
-   * <p>Smart storage shape attribute.</p>
+   * Smart storage shape attribute.
    */
   SMART_STORAGE: "SMART_STORAGE",
 } as const;
@@ -791,11 +791,11 @@ export type ShapeType = (typeof ShapeType)[keyof typeof ShapeType];
  */
 export const GridImageType = {
   /**
-   * <p>A custom grid image.</p>
+   * A custom grid image.
    */
   CUSTOM_IMAGE: "CUSTOM_IMAGE",
   /**
-   * <p>A release update grid image.</p>
+   * A release update grid image.
    */
   RELEASE_UPDATE: "RELEASE_UPDATE",
 } as const;
@@ -825,11 +825,11 @@ export type UpdateAction = (typeof UpdateAction)[keyof typeof UpdateAction];
  */
 export const ExascaleDbStorageVaultType = {
   /**
-   * <p>An Exascale storage vault on dedicated Exadata infrastructure for VM clusters.</p>
+   * An Exascale storage vault on dedicated Exadata infrastructure for VM clusters.
    */
   DEDICATED_INFRASTRUCTURE: "DEDICATED_INFRASTRUCTURE",
   /**
-   * <p>An Exascale storage vault for Exascale VM clusters.</p>
+   * An Exascale storage vault for Exascale VM clusters.
    */
   EXASCALE_INFRASTRUCTURE: "EXASCALE_INFRASTRUCTURE",
 } as const;

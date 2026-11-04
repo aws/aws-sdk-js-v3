@@ -23,10 +23,8 @@ export interface DescribeLaunchTemplateVersionsCommandInput extends DescribeLaun
 export interface DescribeLaunchTemplateVersionsCommandOutput extends DescribeLaunchTemplateVersionsResult, __MetadataBearer {}
 
 /**
- * <p>Describes one or more versions of a specified launch template. You can describe all
- *             versions, individual versions, or a range of versions. You can also describe all the
- *             latest versions or all the default versions of all the launch templates in your
- *             account.</p>
+ * Describes one or more versions of a specified launch template. You can describe all versions, individual versions, or a range of versions. You can also describe all the latest versions or all the default versions of all the launch templates in your account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -377,8 +375,8 @@ export interface DescribeLaunchTemplateVersionsCommandOutput extends DescribeLau
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To describe the versions for a launch template
  * ```javascript

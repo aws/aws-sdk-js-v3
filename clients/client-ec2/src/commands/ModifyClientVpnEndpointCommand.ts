@@ -23,7 +23,8 @@ export interface ModifyClientVpnEndpointCommandInput extends ModifyClientVpnEndp
 export interface ModifyClientVpnEndpointCommandOutput extends ModifyClientVpnEndpointResult, __MetadataBearer {}
 
 /**
- * <p>Modifies the specified Client VPN endpoint. Modifying the DNS server resets existing client connections.</p>
+ * Modifies the specified Client VPN endpoint. Modifying the DNS server resets existing client connections.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -104,8 +105,8 @@ export interface ModifyClientVpnEndpointCommandOutput extends ModifyClientVpnEnd
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

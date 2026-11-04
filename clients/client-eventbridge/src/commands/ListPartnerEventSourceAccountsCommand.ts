@@ -23,8 +23,8 @@ export interface ListPartnerEventSourceAccountsCommandInput extends ListPartnerE
 export interface ListPartnerEventSourceAccountsCommandOutput extends ListPartnerEventSourceAccountsResponse, __MetadataBearer {}
 
 /**
- * <p>An SaaS partner can use this operation to display the Amazon Web Services account ID that a
- *       particular partner event source name is associated with. This operation is not used by Amazon Web Services customers.</p>
+ * An SaaS partner can use this operation to display the Amazon Web Services account ID that a particular partner event source name is associated with. This operation is not used by Amazon Web Services customers.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,17 +61,20 @@ export interface ListPartnerEventSourceAccountsCommandOutput extends ListPartner
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * This exception occurs due to unexpected causes.
  *
  * @throws {@link OperationDisabledException} (client fault)
- *  <p>The operation you are attempting is not available in this region.</p>
+ *
+ * The operation you are attempting is not available in this region.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An entity that you specified does not exist.</p>
+ *
+ * An entity that you specified does not exist.
  *
  * @throws {@link EventBridgeServiceException}
- * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ * Base exception class for all service exceptions from EventBridge service.
  *
  * @public
  */

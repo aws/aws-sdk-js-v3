@@ -23,7 +23,10 @@ export interface DisassociateHostedZoneCommandInput extends DisassociateHostedZo
 export interface DisassociateHostedZoneCommandOutput extends DisassociateHostedZoneOutput, __MetadataBearer {}
 
 /**
- * <p>Disassociates a Route 53 private hosted zone from a Route 53 Global Resolver resource.</p> <important> <p>Route 53 Global Resolver is a global service that supports resolvers in multiple Amazon Web Services Regions but you must specify the US East (Ohio) Region to create, update, or otherwise work with Route 53 Global Resolver resources. That is, for example, specify <code>--region us-east-2</code> on Amazon Web Services CLI commands.</p> </important>
+ * Disassociates a Route 53 private hosted zone from a Route 53 Global Resolver resource.
+ *
+ * > **Important:** Route 53 Global Resolver is a global service that supports resolvers in multiple Amazon Web Services Regions but you must specify the US East (Ohio) Region to create, update, or otherwise work with Route 53 Global Resolver resources. That is, for example, specify `--region us-east-2` on Amazon Web Services CLI commands.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,26 +61,32 @@ export interface DisassociateHostedZoneCommandOutput extends DisassociateHostedZ
  * @see {@link Route53GlobalResolverClientResolvedConfig | config} for Route53GlobalResolverClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permission to perform this operation. Check your IAM permissions and try again.</p>
+ *
+ * You don't have permission to perform this operation. Check your IAM permissions and try again.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request conflicts with the current state of the resource. This can occur when trying to modify a resource that is not in a valid state for the requested operation.</p>
+ *
+ * The request conflicts with the current state of the resource. This can occur when trying to modify a resource that is not in a valid state for the requested operation.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Try again later.</p>
+ *
+ * An internal server error occurred. Try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found. Verify the resource ID and try again.</p>
+ *
+ * The specified resource was not found. Verify the resource ID and try again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled due to too many requests. Wait a moment and try again.</p>
+ *
+ * The request was throttled due to too many requests. Wait a moment and try again.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input parameters are invalid. Check the parameter values and try again.</p>
+ *
+ * The input parameters are invalid. Check the parameter values and try again.
  *
  * @throws {@link Route53GlobalResolverServiceException}
- * <p>Base exception class for all service exceptions from Route53GlobalResolver service.</p>
  *
+ * Base exception class for all service exceptions from Route53GlobalResolver service.
  *
  * @public
  */

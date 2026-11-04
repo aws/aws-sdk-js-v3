@@ -23,7 +23,8 @@ export interface DeleteSnapshotCommandInput extends DeleteSnapshotRequest {}
 export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an existing snapshot. When you receive a successful response from this operation, MemoryDB immediately begins deleting the snapshot; you cannot cancel or revert this operation.</p>
+ * Deletes an existing snapshot. When you receive a successful response from this operation, MemoryDB immediately begins deleting the snapshot; you cannot cancel or revert this operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,23 +87,28 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResponse, __M
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>The specified parameter combination is not valid.</p>
+ *
+ * The specified parameter combination is not valid.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The specified parameter value is not valid.</p>
+ *
+ * The specified parameter value is not valid.
  *
  * @throws {@link InvalidSnapshotStateFault} (client fault)
- *  <p>The snapshot is not in a valid state for the requested operation.</p>
+ *
+ * The snapshot is not in a valid state for the requested operation.
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
- *  <p>The required service-linked role was not found.</p>
+ *
+ * The required service-linked role was not found.
  *
  * @throws {@link SnapshotNotFoundFault} (client fault)
- *  <p>The specified snapshot does not exist.</p>
+ *
+ * The specified snapshot does not exist.
  *
  * @throws {@link MemoryDBServiceException}
- * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * Base exception class for all service exceptions from MemoryDB service.
  *
  * @public
  */

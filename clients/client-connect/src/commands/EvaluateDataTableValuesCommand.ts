@@ -24,11 +24,8 @@ export interface EvaluateDataTableValuesCommandInput extends EvaluateDataTableVa
 export interface EvaluateDataTableValuesCommandOutput extends EvaluateDataTableValuesResponse, __MetadataBearer {}
 
 /**
- * <p>Evaluates values at the time of the request and returns them. It considers the request's timezone or the table's
- *    timezone, in that order, when accessing time based tables. When a value is accessed, the accessor's identity and the
- *    time of access are saved alongside the value to help identify values that are actively in use. The term "Batch" is
- *    not included in the operation name since it does not meet all the criteria for a batch operation as specified in
- *    Batch Operations: Amazon Web Services API Standards.</p>
+ * Evaluates values at the time of the request and returns them. It considers the request's timezone or the table's timezone, in that order, when accessing time based tables. When a value is accessed, the accessor's identity and the time of access are saved alongside the value to help identify values that are actively in use. The term "Batch" is not included in the operation name since it does not meet all the criteria for a batch operation as specified in Batch Operations: Amazon Web Services API Standards.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,26 +85,32 @@ export interface EvaluateDataTableValuesCommandOutput extends EvaluateDataTableV
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

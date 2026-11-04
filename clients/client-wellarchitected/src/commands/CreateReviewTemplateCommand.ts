@@ -23,7 +23,14 @@ export interface CreateReviewTemplateCommandInput extends CreateReviewTemplateIn
 export interface CreateReviewTemplateCommandOutput extends CreateReviewTemplateOutput, __MetadataBearer {}
 
 /**
- * <p>Create a review template.</p> <note> <p> <b>Disclaimer</b> </p> <p>Do not include or gather personal identifiable information (PII) of end users or other identifiable individuals in or via your review templates. If your review template or those shared with you and used in your account do include or collect PII you are responsible for: ensuring that the included PII is processed in accordance with applicable law, providing adequate privacy notices, and obtaining necessary consents for processing such data.</p> </note>
+ * Create a review template.
+ *
+ * > **Note:**
+ * >
+ * > **Disclaimer**
+ * >
+ * > Do not include or gather personal identifiable information (PII) of end users or other identifiable individuals in or via your review templates. If your review template or those shared with you and used in your account do include or collect PII you are responsible for: ensuring that the included PII is processed in accordance with applicable law, providing adequate privacy notices, and obtaining necessary consents for processing such data.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,29 +66,36 @@ export interface CreateReviewTemplateCommandOutput extends CreateReviewTemplateO
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * User does not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The resource has already been processed, was deleted, or is too large.</p>
+ *
+ * The resource has already been processed, was deleted, or is too large.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>There is a problem with the Well-Architected Tool API service.</p>
+ *
+ * There is a problem with the Well-Architected Tool API service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource was not found.</p>
+ *
+ * The requested resource was not found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The user has reached their resource quota.</p>
+ *
+ * The user has reached their resource quota.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Request was denied due to request throttling.</p>
+ *
+ * Request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The user input is not valid.</p>
+ *
+ * The user input is not valid.
  *
  * @throws {@link WellArchitectedServiceException}
- * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ * Base exception class for all service exceptions from WellArchitected service.
  *
  * @public
  */

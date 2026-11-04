@@ -23,25 +23,12 @@ export interface DeleteQualificationTypeCommandInput extends DeleteQualification
 export interface DeleteQualificationTypeCommandOutput extends DeleteQualificationTypeResponse, __MetadataBearer {}
 
 /**
- * <p>
- *             The
- *             <code>DeleteQualificationType</code>
- *             deletes a Qualification type and deletes any HIT types that are
- *             associated with the Qualification type.
- *         </p>
- *         <p>This operation does not revoke Qualifications already assigned
- *             to Workers because the Qualifications might be needed for active HITs.
- *             If there are any pending requests for the Qualification type, Amazon
- *             Mechanical Turk rejects those requests. After you delete a
- *             Qualification type, you can no longer use it to create HITs or HIT
- *             types.</p>
- *         <note>
- *             <p>DeleteQualificationType must wait for all the HITs that use
- *                 the deleted Qualification type to be deleted before completing. It
- *                 may take up to 48 hours before DeleteQualificationType completes and
- *                 the unique name of the Qualification type is available for reuse with
- *                 CreateQualificationType.</p>
- *         </note>
+ * The `DeleteQualificationType` deletes a Qualification type and deletes any HIT types that are associated with the Qualification type.
+ *
+ * This operation does not revoke Qualifications already assigned to Workers because the Qualifications might be needed for active HITs. If there are any pending requests for the Qualification type, Amazon Mechanical Turk rejects those requests. After you delete a Qualification type, you can no longer use it to create HITs or HIT types.
+ *
+ * > **Note:** DeleteQualificationType must wait for all the HITs that use the deleted Qualification type to be deleted before completing. It may take up to 48 hours before DeleteQualificationType completes and the unique name of the Qualification type is available for reuse with CreateQualificationType.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,14 +53,16 @@ export interface DeleteQualificationTypeCommandOutput extends DeleteQualificatio
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
  *
  * @throws {@link RequestError} (client fault)
- *  <p>Your request is invalid.</p>
+ *
+ * Your request is invalid.
  *
  * @throws {@link ServiceFault} (server fault)
- *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
+ * Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.
  *
  * @throws {@link MTurkServiceException}
- * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * Base exception class for all service exceptions from MTurk service.
  *
  * @public
  */

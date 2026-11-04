@@ -23,12 +23,10 @@ export interface UpdateAnomalySubscriptionCommandInput extends UpdateAnomalySubs
 export interface UpdateAnomalySubscriptionCommandOutput extends UpdateAnomalySubscriptionResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an existing cost anomaly subscription. Specify the fields that you want to update.
- *       Omitted fields are unchanged.</p>
- *          <note>
- *             <p>The JSON below describes the generic construct for each type. See <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_UpdateAnomalySubscription.html#API_UpdateAnomalySubscription_RequestParameters">Request Parameters</a> for possible values as they apply to
- *           <code>AnomalySubscription</code>.</p>
- *          </note>
+ * Updates an existing cost anomaly subscription. Specify the fields that you want to update. Omitted fields are unchanged.
+ *
+ * > **Note:** The JSON below describes the generic construct for each type. See [Request Parameters](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_UpdateAnomalySubscription.html#API_UpdateAnomalySubscription_RequestParameters) for possible values as they apply to `AnomalySubscription`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -149,17 +147,20 @@ export interface UpdateAnomalySubscriptionCommandOutput extends UpdateAnomalySub
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ * You made too many calls in a short period of time. Try again later.
  *
  * @throws {@link UnknownMonitorException} (client fault)
- *  <p>The cost anomaly monitor does not exist for the account. </p>
+ *
+ * The cost anomaly monitor does not exist for the account.
  *
  * @throws {@link UnknownSubscriptionException} (client fault)
- *  <p>The cost anomaly subscription does not exist for the account. </p>
+ *
+ * The cost anomaly subscription does not exist for the account.
  *
  * @throws {@link CostExplorerServiceException}
- * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * Base exception class for all service exceptions from CostExplorer service.
  *
  * @public
  */

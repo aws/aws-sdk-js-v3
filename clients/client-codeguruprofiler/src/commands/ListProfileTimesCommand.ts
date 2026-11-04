@@ -23,8 +23,8 @@ export interface ListProfileTimesCommandInput extends ListProfileTimesRequest {}
 export interface ListProfileTimesCommandOutput extends ListProfileTimesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the start times of the available aggregated profiles of a profiling group
- *         for an aggregation period within the specified time range.</p>
+ * Lists the start times of the available aggregated profiles of a profiling group for an aggregation period within the specified time range.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,20 +62,24 @@ export interface ListProfileTimesCommandOutput extends ListProfileTimesResponse,
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The server encountered an internal error and is unable to complete the request.</p>
+ *
+ * The server encountered an internal error and is unable to complete the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource specified in the request does not exist.</p>
+ *
+ * The resource specified in the request does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The parameter is not valid.</p>
+ *
+ * The parameter is not valid.
  *
  * @throws {@link CodeGuruProfilerServiceException}
- * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
+ * Base exception class for all service exceptions from CodeGuruProfiler service.
  *
  * @public
  */

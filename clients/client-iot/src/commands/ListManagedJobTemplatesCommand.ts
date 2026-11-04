@@ -23,7 +23,8 @@ export interface ListManagedJobTemplatesCommandInput extends ListManagedJobTempl
 export interface ListManagedJobTemplatesCommandOutput extends ListManagedJobTemplatesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of managed job templates.</p>
+ * Returns a list of managed job templates.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,21 +64,24 @@ export interface ListManagedJobTemplatesCommandOutput extends ListManagedJobTemp
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal error from the service that indicates an unexpected error or that the service
- *             is unavailable.</p>
+ *
+ * Internal error from the service that indicates an unexpected error or that the service is unavailable.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The rate exceeds the limit.</p>
+ *
+ * The rate exceeds the limit.
  *
  * @throws {@link IoTServiceException}
- * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * Base exception class for all service exceptions from IoT service.
  *
  * @public
  */

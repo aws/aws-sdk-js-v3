@@ -23,62 +23,29 @@ export interface CreateBackupCommandInput extends CreateBackupRequest {}
 export interface CreateBackupCommandOutput extends CreateBackupResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a backup of an existing Amazon FSx for Windows File Server file
- *             system, Amazon FSx for Lustre file system, Amazon FSx for NetApp ONTAP
- *             volume, or Amazon FSx for OpenZFS file system. We recommend creating regular
- *             backups so that you can restore a file system or volume from a backup if an issue arises
- *             with the original file system or volume.</p>
- *          <p>For Amazon FSx for Lustre file systems, you can create a backup only for file
- *             systems that have the following configuration:</p>
- *          <ul>
- *             <li>
- *                <p>A Persistent deployment type</p>
- *             </li>
- *             <li>
- *                <p>Are <i>not</i> linked to a data repository</p>
- *             </li>
- *          </ul>
- *          <p>For more information about backups, see the following:</p>
- *          <ul>
- *             <li>
- *                <p>For Amazon FSx for Lustre, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/using-backups-fsx.html">Working with FSx for
- *                         Lustre backups</a>.</p>
- *             </li>
- *             <li>
- *                <p>For Amazon FSx for Windows, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/using-backups.html">Working with FSx for
- *                         Windows backups</a>.</p>
- *             </li>
- *             <li>
- *                <p>For Amazon FSx for NetApp ONTAP, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/using-backups.html">Working with FSx for NetApp
- *                         ONTAP backups</a>.</p>
- *             </li>
- *             <li>
- *                <p>For Amazon FSx for OpenZFS, see <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/using-backups.html">Working with FSx for OpenZFS backups</a>.</p>
- *             </li>
- *          </ul>
- *          <p>If a backup with the specified client request token exists and the parameters match,
- *             this operation returns the description of the existing backup. If a backup with the
- *             specified client request token exists and the parameters don't match, this operation
- *             returns <code>IncompatibleParameterError</code>. If a backup with the specified client
- *             request token doesn't exist, <code>CreateBackup</code> does the following: </p>
- *          <ul>
- *             <li>
- *                <p>Creates a new Amazon FSx backup with an assigned ID, and an initial
- *                     lifecycle state of <code>CREATING</code>.</p>
- *             </li>
- *             <li>
- *                <p>Returns the description of the backup.</p>
- *             </li>
- *          </ul>
- *          <p>By using the idempotent operation, you can retry a <code>CreateBackup</code>
- *             operation without the risk of creating an extra backup. This approach can be useful when
- *             an initial call fails in a way that makes it unclear whether a backup was created. If
- *             you use the same client request token and the initial call created a backup, the
- *             operation returns a successful result because all the parameters are the same.</p>
- *          <p>The <code>CreateBackup</code> operation returns while the backup's lifecycle state is
- *             still <code>CREATING</code>. You can check the backup creation status by calling the
- *                 <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeBackups.html">DescribeBackups</a> operation, which returns the backup state along with other
- *             information.</p>
+ * Creates a backup of an existing Amazon FSx for Windows File Server file system, Amazon FSx for Lustre file system, Amazon FSx for NetApp ONTAP volume, or Amazon FSx for OpenZFS file system. We recommend creating regular backups so that you can restore a file system or volume from a backup if an issue arises with the original file system or volume.
+ *
+ * For Amazon FSx for Lustre file systems, you can create a backup only for file systems that have the following configuration:
+ *
+ * - A Persistent deployment type
+ * - Are *not* linked to a data repository
+ *
+ * For more information about backups, see the following:
+ *
+ * - For Amazon FSx for Lustre, see [Working with FSx for Lustre backups](https://docs.aws.amazon.com/fsx/latest/LustreGuide/using-backups-fsx.html).
+ * - For Amazon FSx for Windows, see [Working with FSx for Windows backups](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/using-backups.html).
+ * - For Amazon FSx for NetApp ONTAP, see [Working with FSx for NetApp ONTAP backups](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/using-backups.html).
+ * - For Amazon FSx for OpenZFS, see [Working with FSx for OpenZFS backups](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/using-backups.html).
+ *
+ * If a backup with the specified client request token exists and the parameters match, this operation returns the description of the existing backup. If a backup with the specified client request token exists and the parameters don't match, this operation returns `IncompatibleParameterError`. If a backup with the specified client request token doesn't exist, `CreateBackup` does the following:
+ *
+ * - Creates a new Amazon FSx backup with an assigned ID, and an initial lifecycle state of `CREATING`.
+ * - Returns the description of the backup.
+ *
+ * By using the idempotent operation, you can retry a `CreateBackup` operation without the risk of creating an extra backup. This approach can be useful when an initial call fails in a way that makes it unclear whether a backup was created. If you use the same client request token and the initial call created a backup, the operation returns a successful result because all the parameters are the same.
+ *
+ * The `CreateBackup` operation returns while the backup's lifecycle state is still `CREATING`. You can check the backup creation status by calling the [DescribeBackups](https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeBackups.html) operation, which returns the backup state along with other information.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -749,36 +716,40 @@ export interface CreateBackupCommandOutput extends CreateBackupResponse, __Metad
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
  * @throws {@link BackupInProgress} (client fault)
- *  <p>Another backup is already under way. Wait for completion before initiating
- *             additional backups of this file system.</p>
+ *
+ * Another backup is already under way. Wait for completion before initiating additional backups of this file system.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * A generic error indicating a failure with a client request.
  *
  * @throws {@link FileSystemNotFound} (client fault)
- *  <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
+ *
+ * No Amazon FSx file systems were found based upon supplied parameters.
  *
  * @throws {@link IncompatibleParameterError} (client fault)
- *  <p>The error returned when a second request is received with the same client request
- *             token but different parameters settings. A client request token should always uniquely
- *             identify a single request.</p>
+ *
+ * The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * A generic error indicating a server-side failure.
  *
  * @throws {@link ServiceLimitExceeded} (client fault)
- *  <p>An error indicating that a particular service limit was exceeded. You can increase
- *             some service limits by contacting Amazon Web Services Support.</p>
+ *
+ * An error indicating that a particular service limit was exceeded. You can increase some service limits by contacting Amazon Web Services Support.
  *
  * @throws {@link UnsupportedOperation} (client fault)
- *  <p>The requested operation is not supported for this resource or API.</p>
+ *
+ * The requested operation is not supported for this resource or API.
  *
  * @throws {@link VolumeNotFound} (client fault)
- *  <p>No Amazon FSx volumes were found based upon the supplied parameters.</p>
+ *
+ * No Amazon FSx volumes were found based upon the supplied parameters.
  *
  * @throws {@link FSxServiceException}
- * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * Base exception class for all service exceptions from FSx service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface UpdateGroupCommandInput extends UpdateGroupRequest {}
 export interface UpdateGroupCommandOutput extends UpdateGroupResult, __MetadataBearer {}
 
 /**
- * <p>Updates a group resource.</p>
+ * Updates a group resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,14 +65,16 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResult, __MetadataB
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is missing required parameters or has invalid parameters.</p>
+ *
+ * The request is missing required parameters or has invalid parameters.
  *
  * @throws {@link ThrottledException} (client fault)
- *  <p>The request exceeds the maximum number of requests per second.</p>
+ *
+ * The request exceeds the maximum number of requests per second.
  *
  * @throws {@link XRayServiceException}
- * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ * Base exception class for all service exceptions from XRay service.
  *
  * @public
  */

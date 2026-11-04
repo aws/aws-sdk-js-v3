@@ -23,10 +23,10 @@ export interface PredictCommandInput extends PredictInput {}
 export interface PredictCommandOutput extends PredictOutput, __MetadataBearer {}
 
 /**
- * <p>Generates a prediction for the observation using the specified <code>ML Model</code>.</p>
- *         <p>
- *             <b>Note:</b> Not all response parameters will be populated. Whether a
- *           response parameter is populated depends on the type of model requested.</p>
+ * Generates a prediction for the observation using the specified `ML Model`.
+ *
+ * **Note:** Not all response parameters will be populated. Whether a response parameter is populated depends on the type of model requested.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,23 +66,28 @@ export interface PredictCommandOutput extends PredictOutput, __MetadataBearer {}
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An error on the server occurred when trying to process a request.</p>
+ *
+ * An error on the server occurred when trying to process a request.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+ *
+ * An error on the client occurred. Typically, the cause is an invalid input value.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The subscriber exceeded the maximum number of operations. This exception can occur when listing objects such as <code>DataSource</code>.</p>
+ *
+ * The subscriber exceeded the maximum number of operations. This exception can occur when listing objects such as `DataSource`.
  *
  * @throws {@link PredictorNotMountedException} (client fault)
- *  <p>The exception is thrown when a predict request is made to an unmounted <code>MLModel</code>.</p>
+ *
+ * The exception is thrown when a predict request is made to an unmounted `MLModel`.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A specified resource cannot be located.</p>
+ *
+ * A specified resource cannot be located.
  *
  * @throws {@link MachineLearningServiceException}
- * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ * Base exception class for all service exceptions from MachineLearning service.
  *
  * @public
  */

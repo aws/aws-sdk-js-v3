@@ -23,7 +23,8 @@ export interface GetCellCommandInput extends GetCellRequest {}
 export interface GetCellCommandOutput extends GetCellResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about a cell including cell name, cell Amazon Resource Name (ARN), ARNs of nested cells for this cell, and a list of those cell ARNs with their associated recovery group ARNs.</p>
+ * Gets information about a cell including cell name, cell Amazon Resource Name (ARN), ARNs of nested cells for this cell, and a list of those cell ARNs with their associated recovery group ARNs.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,8 +76,8 @@ export interface GetCellCommandOutput extends GetCellResponse, __MetadataBearer 
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
  * @throws {@link Route53RecoveryReadinessServiceException}
- * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
+ * Base exception class for all service exceptions from Route53RecoveryReadiness service.
  *
  * @public
  */

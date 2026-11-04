@@ -1,8 +1,6 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p/>
- *
  * @packageDocumentation
  */
 export * from "./KafkaConnectClient";

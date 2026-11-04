@@ -23,8 +23,8 @@ export interface UpdateAnomalyMonitorCommandInput extends UpdateAnomalyMonitorRe
 export interface UpdateAnomalyMonitorCommandOutput extends UpdateAnomalyMonitorResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an existing cost anomaly monitor. The changes made are applied going forward, and
- *       doesn't change anomalies detected in the past. </p>
+ * Updates an existing cost anomaly monitor. The changes made are applied going forward, and doesn't change anomalies detected in the past.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,14 +52,16 @@ export interface UpdateAnomalyMonitorCommandOutput extends UpdateAnomalyMonitorR
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ * You made too many calls in a short period of time. Try again later.
  *
  * @throws {@link UnknownMonitorException} (client fault)
- *  <p>The cost anomaly monitor does not exist for the account. </p>
+ *
+ * The cost anomaly monitor does not exist for the account.
  *
  * @throws {@link CostExplorerServiceException}
- * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * Base exception class for all service exceptions from CostExplorer service.
  *
  * @public
  */

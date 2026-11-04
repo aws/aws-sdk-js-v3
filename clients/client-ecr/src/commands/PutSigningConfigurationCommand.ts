@@ -23,15 +23,12 @@ export interface PutSigningConfigurationCommandInput extends PutSigningConfigura
 export interface PutSigningConfigurationCommandOutput extends PutSigningConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates or updates the registry's signing configuration, which defines
- *             rules for automatically signing images with Amazon Web Services Signer.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/managed-signing.html">Managed signing</a> in the
- *                 <i>Amazon Elastic Container Registry User Guide</i>.</p>
- *          <note>
- *             <p>To successfully generate a signature, the IAM principal pushing images must have
- *                 permission to sign payloads with the Amazon Web Services Signer signing profile referenced in the signing
- *                 configuration.</p>
- *          </note>
+ * Creates or updates the registry's signing configuration, which defines rules for automatically signing images with Amazon Web Services Signer.
+ *
+ * For more information, see [Managed signing](https://docs.aws.amazon.com/AmazonECR/latest/userguide/managed-signing.html) in the *Amazon Elastic Container Registry User Guide*.
+ *
+ * > **Note:** To successfully generate a signature, the IAM principal pushing images must have permission to sign payloads with the Amazon Web Services Signer signing profile referenced in the signing configuration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,18 +79,20 @@ export interface PutSigningConfigurationCommandOutput extends PutSigningConfigur
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>There was an exception validating this request.</p>
+ *
+ * There was an exception validating this request.
  *
  * @throws {@link ECRServiceException}
- * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * Base exception class for all service exceptions from ECR service.
  *
  * @public
  */

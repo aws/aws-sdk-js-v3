@@ -5,8 +5,10 @@ import { MarketplaceCatalogServiceException as __BaseException } from "./Marketp
 import type { ValidationExceptionField } from "./models_0";
 
 /**
- * <p>Access is denied.</p>
- *          <p>HTTP status code: 403</p>
+ * Access is denied.
+ *
+ * HTTP status code: 403
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -29,8 +31,10 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>There was an internal service exception.</p>
- *          <p>HTTP status code: 500</p>
+ * There was an internal service exception.
+ *
+ * HTTP status code: 500
+ *
  * @public
  */
 export class InternalServiceException extends __BaseException {
@@ -53,8 +57,10 @@ export class InternalServiceException extends __BaseException {
 }
 
 /**
- * <p>Too many requests.</p>
- *          <p>HTTP status code: 429</p>
+ * Too many requests.
+ *
+ * HTTP status code: 429
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -77,8 +83,10 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>An error occurred during validation.</p>
- *          <p>HTTP status code: 422</p>
+ * An error occurred during validation.
+ *
+ * HTTP status code: 422
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -87,9 +95,8 @@ export class ValidationException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>A list of detailed entries describing the request fields that failed
-   *             validation. Present when the failure can be attributed to one or more specific
-   *             fields.</p>
+   * A list of detailed entries describing the request fields that failed validation. Present when the failure can be attributed to one or more specific fields.
+   *
    * @public
    */
   ValidationExceptionFieldList?: ValidationExceptionField[] | undefined;
@@ -109,7 +116,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The resource is currently in use.</p>
+ * The resource is currently in use.
+ *
  * @public
  */
 export class ResourceInUseException extends __BaseException {
@@ -132,8 +140,10 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
- * <p>The specified resource wasn't found.</p>
- *          <p>HTTP status code: 404</p>
+ * The specified resource wasn't found.
+ *
+ * HTTP status code: 404
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -156,7 +166,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Currently, the specified resource is not supported.</p>
+ * Currently, the specified resource is not supported.
+ *
  * @public
  */
 export class ResourceNotSupportedException extends __BaseException {
@@ -179,7 +190,8 @@ export class ResourceNotSupportedException extends __BaseException {
 }
 
 /**
- * <p>The maximum number of open requests per account has been exceeded.</p>
+ * The maximum number of open requests per account has been exceeded.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {

@@ -23,52 +23,25 @@ export interface AdminSetUserPasswordCommandInput extends AdminSetUserPasswordRe
 export interface AdminSetUserPasswordCommandOutput extends AdminSetUserPasswordResponse, __MetadataBearer {}
 
 /**
- * <p>Sets the specified user's password in a user pool. This operation administratively
- *             sets a temporary or permanent password for a user. With this operation, you can bypass
- *             self-service password changes and permit immediate sign-in with the password that you
- *             set. To do this, set <code>Permanent</code> to <code>true</code>.</p>
- *          <p>You can also set a new temporary password in this request, send it to a user, and
- *             require them to choose a new password on their next sign-in. To do this, set
- *                 <code>Permanent</code> to <code>false</code>.</p>
- *          <p>If the password is temporary, the user's <code>Status</code> becomes
- *                 <code>FORCE_CHANGE_PASSWORD</code>. When the user next tries to sign in, the
- *                 <code>InitiateAuth</code> or <code>AdminInitiateAuth</code> response includes the
- *                 <code>NEW_PASSWORD_REQUIRED</code> challenge. If the user doesn't sign in
- *             before the temporary password expires, they can no longer sign in and you must repeat
- *             this operation to set a temporary or permanent password for them.</p>
- *          <p>After the user sets a new password, or if you set a permanent password, their status
- *             becomes <code>Confirmed</code>.</p>
- *          <p>
- *             <code>AdminSetUserPassword</code> can set a password for the user profile that Amazon Cognito
- *             creates for third-party federated users. When you set a password, the federated user's
- *             status changes from <code>EXTERNAL_PROVIDER</code> to <code>CONFIRMED</code>. A user in
- *             this state can sign in as a federated user, and initiate authentication flows in the API
- *             like a linked native user. They can also modify their password and attributes in
- *             token-authenticated API requests like <code>ChangePassword</code> and
- *                 <code>UpdateUserAttributes</code>. As a best security practice and to keep users in
- *             sync with your external IdP, don't set passwords on federated user profiles. To set up a
- *             federated user for native sign-in with a linked native user, refer to <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation-consolidate-users.html">Linking federated users to an existing user
- *             profile</a>.</p>
- *          <note>
- *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
- *     this operation, you must use IAM credentials to authorize requests, and you must
- *     grant yourself the corresponding IAM permission in a policy.</p>
- *             <p class="title">
- *                <b>Learn more</b>
- *             </p>
- *             <ul>
- *                <li>
- *                   <p>
- *                      <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html">Signing Amazon Web Services API Requests</a>
- *                   </p>
- *                </li>
- *                <li>
- *                   <p>
- *                      <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using the Amazon Cognito user pools API and user pool endpoints</a>
- *                   </p>
- *                </li>
- *             </ul>
- *          </note>
+ * Sets the specified user's password in a user pool. This operation administratively sets a temporary or permanent password for a user. With this operation, you can bypass self-service password changes and permit immediate sign-in with the password that you set. To do this, set `Permanent` to `true`.
+ *
+ * You can also set a new temporary password in this request, send it to a user, and require them to choose a new password on their next sign-in. To do this, set `Permanent` to `false`.
+ *
+ * If the password is temporary, the user's `Status` becomes `FORCE_CHANGE_PASSWORD`. When the user next tries to sign in, the `InitiateAuth` or `AdminInitiateAuth` response includes the `NEW_PASSWORD_REQUIRED` challenge. If the user doesn't sign in before the temporary password expires, they can no longer sign in and you must repeat this operation to set a temporary or permanent password for them.
+ *
+ * After the user sets a new password, or if you set a permanent password, their status becomes `Confirmed`.
+ *
+ * `AdminSetUserPassword` can set a password for the user profile that Amazon Cognito creates for third-party federated users. When you set a password, the federated user's status changes from `EXTERNAL_PROVIDER` to `CONFIRMED`. A user in this state can sign in as a federated user, and initiate authentication flows in the API like a linked native user. They can also modify their password and attributes in token-authenticated API requests like `ChangePassword` and `UpdateUserAttributes`. As a best security practice and to keep users in sync with your external IdP, don't set passwords on federated user profiles. To set up a federated user for native sign-in with a linked native user, refer to [Linking federated users to an existing user profile](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation-consolidate-users.html).
+ *
+ * > **Note:**
+ * >
+ * > Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.
+ * >
+ * > **Learn more**
+ * >
+ * > - [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+ * > - [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -96,39 +69,44 @@ export interface AdminSetUserPasswordCommandOutput extends AdminSetUserPasswordR
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * This exception is thrown when Amazon Cognito encounters an internal error.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
- *             parameter.</p>
+ *
+ * This exception is thrown when the Amazon Cognito service encounters an invalid parameter.
  *
  * @throws {@link InvalidPasswordException} (client fault)
- *  <p>This exception is thrown when Amazon Cognito encounters an invalid password.</p>
+ *
+ * This exception is thrown when Amazon Cognito encounters an invalid password.
  *
  * @throws {@link NotAuthorizedException} (client fault)
- *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * This exception is thrown when a user isn't authorized.
  *
  * @throws {@link OperationNotEnabledException} (client fault)
- *  <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+ *
+ * This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.
  *
  * @throws {@link PasswordHistoryPolicyViolationException} (client fault)
- *  <p>The message returned when a user's new password matches a previous password and
- *             doesn't comply with the password-history policy.</p>
+ *
+ * The message returned when a user's new password matches a previous password and doesn't comply with the password-history policy.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
- *             resource.</p>
+ *
+ * This exception is thrown when the Amazon Cognito service can't find the requested resource.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>This exception is thrown when the user has made too many requests for a given
- *             operation.</p>
+ *
+ * This exception is thrown when the user has made too many requests for a given operation.
  *
  * @throws {@link UserNotFoundException} (client fault)
- *  <p>This exception is thrown when a user isn't found.</p>
+ *
+ * This exception is thrown when a user isn't found.
  *
  * @throws {@link CognitoIdentityProviderServiceException}
- * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * Base exception class for all service exceptions from CognitoIdentityProvider service.
  *
  * @public
  */

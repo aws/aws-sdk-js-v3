@@ -23,7 +23,8 @@ export interface DescribeDBProxyTargetsCommandInput extends DescribeDBProxyTarge
 export interface DescribeDBProxyTargetsCommandOutput extends DescribeDBProxyTargetsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about <code>DBProxyTarget</code> objects. This API supports pagination.</p>
+ * Returns information about `DBProxyTarget` objects. This API supports pagination.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,20 +78,24 @@ export interface DescribeDBProxyTargetsCommandOutput extends DescribeDBProxyTarg
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBProxyNotFoundFault} (client fault)
- *  <p>The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+ *
+ * The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.
  *
  * @throws {@link DBProxyTargetGroupNotFoundFault} (client fault)
- *  <p>The specified target group isn't available for a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+ *
+ * The specified target group isn't available for a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.
  *
  * @throws {@link DBProxyTargetNotFoundFault} (client fault)
- *  <p>The specified RDS DB instance or Aurora DB cluster isn't available for a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+ *
+ * The specified RDS DB instance or Aurora DB cluster isn't available for a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.
  *
  * @throws {@link InvalidDBProxyStateFault} (client fault)
- *  <p>The requested operation can't be performed while the proxy is in this state.</p>
+ *
+ * The requested operation can't be performed while the proxy is in this state.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @public
  */

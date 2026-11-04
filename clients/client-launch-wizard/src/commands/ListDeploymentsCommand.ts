@@ -23,7 +23,8 @@ export interface ListDeploymentsCommandInput extends ListDeploymentsInput {}
 export interface ListDeploymentsCommandOutput extends ListDeploymentsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the deployments that have been created.</p>
+ * Lists the deployments that have been created.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,14 +71,16 @@ export interface ListDeploymentsCommandOutput extends ListDeploymentsOutput, __M
  * @see {@link LaunchWizardClientResolvedConfig | config} for LaunchWizardClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error has occurred. Retry your request, but if the problem persists, contact us with details by posting a question on <a href="https://repost.aws/">re:Post</a>.</p>
+ *
+ * An internal error has occurred. Retry your request, but if the problem persists, contact us with details by posting a question on [re:Post](https://repost.aws/).
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link LaunchWizardServiceException}
- * <p>Base exception class for all service exceptions from LaunchWizard service.</p>
  *
+ * Base exception class for all service exceptions from LaunchWizard service.
  *
  * @example List deployments in the account with filters.
  * ```javascript

@@ -23,16 +23,12 @@ export interface GetParametersByPathCommandInput extends GetParametersByPathRequ
 export interface GetParametersByPathCommandOutput extends GetParametersByPathResult, __MetadataBearer {}
 
 /**
- * <p>Retrieve information about one or more parameters under a specified level in a hierarchy. </p>
- *          <p>Request results are returned on a best-effort basis. If you specify <code>MaxResults</code>
- *    in the request, the response includes information up to the limit specified. The number of items
- *    returned, however, can be between zero and the value of <code>MaxResults</code>. If the service
- *    reaches an internal limit while processing the results, it stops the operation and returns the
- *    matching values up to that point and a <code>NextToken</code>. You can specify the
- *     <code>NextToken</code> in a subsequent call to get the next set of results.</p>
- *          <p>Parameter names can't contain spaces. The service removes any spaces specified for the
- *    beginning or end of a parameter name. If the specified name for a parameter contains spaces
- *    between characters, the request fails with a <code>ValidationException</code> error.</p>
+ * Retrieve information about one or more parameters under a specified level in a hierarchy.
+ *
+ * Request results are returned on a best-effort basis. If you specify `MaxResults` in the request, the response includes information up to the limit specified. The number of items returned, however, can be between zero and the value of `MaxResults`. If the service reaches an internal limit while processing the results, it stops the operation and returns the matching values up to that point and a `NextToken`. You can specify the `NextToken` in a subsequent call to get the next set of results.
+ *
+ * Parameter names can't contain spaces. The service removes any spaces specified for the beginning or end of a parameter name. If the specified name for a parameter contains spaces between characters, the request fails with a `ValidationException` error.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,27 +81,32 @@ export interface GetParametersByPathCommandOutput extends GetParametersByPathRes
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidFilterKey} (client fault)
- *  <p>The specified key isn't valid.</p>
+ *
+ * The specified key isn't valid.
  *
  * @throws {@link InvalidFilterOption} (client fault)
- *  <p>The specified filter option isn't valid. Valid options are Equals and BeginsWith. For Path
- *    filter, valid options are Recursive and OneLevel.</p>
+ *
+ * The specified filter option isn't valid. Valid options are Equals and BeginsWith. For Path filter, valid options are Recursive and OneLevel.
  *
  * @throws {@link InvalidFilterValue} (client fault)
- *  <p>The filter value isn't valid. Verify the value and try again.</p>
+ *
+ * The filter value isn't valid. Verify the value and try again.
  *
  * @throws {@link InvalidKeyId} (client fault)
- *  <p>The query key ID isn't valid.</p>
+ *
+ * The query key ID isn't valid.
  *
  * @throws {@link InvalidNextToken} (client fault)
- *  <p>The specified token isn't valid.</p>
+ *
+ * The specified token isn't valid.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

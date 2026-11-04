@@ -23,10 +23,10 @@ export interface DeleteLifecyclePolicyCommandInput extends DeleteLifecyclePolicy
 export interface DeleteLifecyclePolicyCommandOutput extends DeleteLifecyclePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified lifecycle policy and halts the automated operations that the
- * 			policy specified.</p>
- *          <p>For more information about deleting a policy, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/view-modify-delete.html#delete">Delete lifecycle
- * 			policies</a>.</p>
+ * Deletes the specified lifecycle policy and halts the automated operations that the policy specified.
+ *
+ * For more information about deleting a policy, see [Delete lifecycle policies](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/view-modify-delete.html#delete).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,17 +51,20 @@ export interface DeleteLifecyclePolicyCommandOutput extends DeleteLifecyclePolic
  * @see {@link DLMClientResolvedConfig | config} for DLMClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The service failed in an unexpected way.</p>
+ *
+ * The service failed in an unexpected way.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request failed because a limit was exceeded.</p>
+ *
+ * The request failed because a limit was exceeded.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A requested resource was not found.</p>
+ *
+ * A requested resource was not found.
  *
  * @throws {@link DLMServiceException}
- * <p>Base exception class for all service exceptions from DLM service.</p>
  *
+ * Base exception class for all service exceptions from DLM service.
  *
  * @public
  */

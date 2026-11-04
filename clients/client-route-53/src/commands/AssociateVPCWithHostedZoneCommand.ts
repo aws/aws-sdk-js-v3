@@ -23,40 +23,24 @@ export interface AssociateVPCWithHostedZoneCommandInput extends AssociateVPCWith
 export interface AssociateVPCWithHostedZoneCommandOutput extends AssociateVPCWithHostedZoneResponse, __MetadataBearer {}
 
 /**
- * <p>Associates an Amazon VPC with a private hosted zone. </p>
- *          <important>
- *             <p>To perform the association, the VPC and the private hosted zone must already
- * 				exist. You can't convert a public hosted zone into a private hosted zone.</p>
- *          </important>
- *          <note>
- *             <p>If you want to associate a VPC that was created by using one Amazon Web Services account with a private hosted zone that was created by using a
- * 				different account, the Amazon Web Services account that created the private hosted
- * 				zone must first submit a <code>CreateVPCAssociationAuthorization</code> request.
- * 				Then the account that created the VPC must submit an
- * 					<code>AssociateVPCWithHostedZone</code> request.</p>
- *          </note>
- *          <note>
- *             <p>When granting access, the hosted zone and the Amazon VPC must belong to
- * 				the same partition. A partition is a group of Amazon Web Services Regions. Each
- * 					Amazon Web Services account is scoped to one partition.</p>
- *             <p>The following are the supported partitions:</p>
- *             <ul>
- *                <li>
- *                   <p>
- *                      <code>aws</code> - Amazon Web Services Regions</p>
- *                </li>
- *                <li>
- *                   <p>
- *                      <code>aws-cn</code> - China Regions</p>
- *                </li>
- *                <li>
- *                   <p>
- *                      <code>aws-us-gov</code> - Amazon Web Services GovCloud (US) Region</p>
- *                </li>
- *             </ul>
- *             <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Access Management</a>
- * 				in the <i>Amazon Web Services General Reference</i>.</p>
- *          </note>
+ * Associates an Amazon VPC with a private hosted zone.
+ *
+ * > **Important:** To perform the association, the VPC and the private hosted zone must already exist. You can't convert a public hosted zone into a private hosted zone.
+ *
+ * > **Note:** If you want to associate a VPC that was created by using one Amazon Web Services account with a private hosted zone that was created by using a different account, the Amazon Web Services account that created the private hosted zone must first submit a `CreateVPCAssociationAuthorization` request. Then the account that created the VPC must submit an `AssociateVPCWithHostedZone` request.
+ *
+ * > **Note:**
+ * >
+ * > When granting access, the hosted zone and the Amazon VPC must belong to the same partition. A partition is a group of Amazon Web Services Regions. Each Amazon Web Services account is scoped to one partition.
+ * >
+ * > The following are the supported partitions:
+ * >
+ * > - `aws` - Amazon Web Services Regions
+ * > - `aws-cn` - China Regions
+ * > - `aws-us-gov` - Amazon Web Services GovCloud (US) Region
+ * >
+ * > For more information, see [Access Management](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,65 +77,44 @@ export interface AssociateVPCWithHostedZoneCommandOutput extends AssociateVPCWit
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link ConflictingDomainExists} (client fault)
- *  <p>The cause of this error depends on the operation that you're performing:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <b>Create a public hosted zone:</b> Two hosted zones
- * 					that have the same name or that have a parent/child relationship (example.com
- * 					and test.example.com) can't have any common name servers. You tried to create a
- * 					hosted zone that has the same name as an existing hosted zone or that's the
- * 					parent or child of an existing hosted zone, and you specified a delegation set
- * 					that shares one or more name servers with the existing hosted zone. For more
- * 					information, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateReusableDelegationSet.html">CreateReusableDelegationSet</a>.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Create a private hosted zone:</b> A hosted zone
- * 					with the specified name already exists and is already associated with the Amazon
- * 					VPC that you specified.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Associate VPCs with a private hosted zone:</b>
- * 					The VPC that you specified is already associated with another hosted zone that
- * 					has the same name.</p>
- *             </li>
- *          </ul>
+ *
+ * The cause of this error depends on the operation that you're performing:
+ *
+ * - **Create a public hosted zone:** Two hosted zones that have the same name or that have a parent/child relationship (example.com and test.example.com) can't have any common name servers. You tried to create a hosted zone that has the same name as an existing hosted zone or that's the parent or child of an existing hosted zone, and you specified a delegation set that shares one or more name servers with the existing hosted zone. For more information, see [CreateReusableDelegationSet](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateReusableDelegationSet.html).
+ * - **Create a private hosted zone:** A hosted zone with the specified name already exists and is already associated with the Amazon VPC that you specified.
+ * - **Associate VPCs with a private hosted zone:** The VPC that you specified is already associated with another hosted zone that has the same name.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link InvalidVPCId} (client fault)
- *  <p>The VPC ID that you specified either isn't a valid ID or the current account is not
- * 			authorized to access this VPC.</p>
+ *
+ * The VPC ID that you specified either isn't a valid ID or the current account is not authorized to access this VPC.
  *
  * @throws {@link LimitsExceeded} (client fault)
- *  <p>This operation can't be completed because the current account has reached the
- * 			limit on the resource you are trying to create. To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the Amazon Web Services Support
- * 			Center.</p>
+ *
+ * This operation can't be completed because the current account has reached the limit on the resource you are trying to create. To request a higher limit, [create a case](http://aws.amazon.com/route53-request) with the Amazon Web Services Support Center.
  *
  * @throws {@link NoSuchHostedZone} (client fault)
- *  <p>No hosted zone exists with the ID that you specified.</p>
+ *
+ * No hosted zone exists with the ID that you specified.
  *
  * @throws {@link NotAuthorizedException} (client fault)
- *  <p>Associating the specified VPC with the specified hosted zone has not been
- * 			authorized.</p>
+ *
+ * Associating the specified VPC with the specified hosted zone has not been authorized.
  *
  * @throws {@link PriorRequestNotComplete} (client fault)
- *  <p>If Amazon Route 53 can't process a request before the next request arrives, it will
- * 			reject subsequent requests for the same hosted zone and return an <code>HTTP 400
- * 				error</code> (<code>Bad request</code>). If Route 53 returns this error repeatedly
- * 			for the same request, we recommend that you wait, in intervals of increasing duration,
- * 			before you try the request again.</p>
+ *
+ * If Amazon Route 53 can't process a request before the next request arrives, it will reject subsequent requests for the same hosted zone and return an `HTTP 400 error` (`Bad request`). If Route 53 returns this error repeatedly for the same request, we recommend that you wait, in intervals of increasing duration, before you try the request again.
  *
  * @throws {@link PublicZoneVPCAssociation} (client fault)
- *  <p>You're trying to associate a VPC with a public hosted zone. Amazon Route 53 doesn't
- * 			support associating a VPC with a public hosted zone.</p>
+ *
+ * You're trying to associate a VPC with a public hosted zone. Amazon Route 53 doesn't support associating a VPC with a public hosted zone.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @example To associate a VPC with a hosted zone
  * ```javascript

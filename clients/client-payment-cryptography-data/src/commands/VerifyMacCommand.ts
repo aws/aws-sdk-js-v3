@@ -23,7 +23,18 @@ export interface VerifyMacCommandInput extends VerifyMacInput {}
 export interface VerifyMacCommandOutput extends VerifyMacOutput, __MetadataBearer {}
 
 /**
- * <p>Verifies a Message Authentication Code (MAC). </p> <p>You can use this operation to verify MAC for message data authentication such as . In this operation, you must use the same message data, secret encryption key and MAC algorithm that was used to generate MAC. You can use this operation to verify a DUPKT, CMAC, HMAC or EMV MAC by setting generation attributes and algorithm to the associated values. </p> <p>For information about valid keys for this operation, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-validattributes.html">Understanding key attributes</a> and <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/crypto-ops-validkeys-ops.html">Key types for specific data operations</a> in the <i>Amazon Web Services Payment Cryptography User Guide</i>. </p> <p> <b>Cross-account use</b>: This operation supports cross-account use when the key has a resource-based policy that grants access. For more information, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/security_iam_resource-based-policies.html">Resource-based policies</a>.</p> <p> <b>Related operations:</b> </p> <ul> <li> <p> <a>GenerateMac</a> </p> </li> </ul>
+ * Verifies a Message Authentication Code (MAC).
+ *
+ * You can use this operation to verify MAC for message data authentication such as . In this operation, you must use the same message data, secret encryption key and MAC algorithm that was used to generate MAC. You can use this operation to verify a DUPKT, CMAC, HMAC or EMV MAC by setting generation attributes and algorithm to the associated values.
+ *
+ * For information about valid keys for this operation, see [Understanding key attributes](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-validattributes.html) and [Key types for specific data operations](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/crypto-ops-validkeys-ops.html) in the *Amazon Web Services Payment Cryptography User Guide*.
+ *
+ * **Cross-account use**: This operation supports cross-account use when the key has a resource-based policy that grants access. For more information, see [Resource-based policies](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/security_iam_resource-based-policies.html).
+ *
+ * **Related operations:**
+ *
+ * - GenerateMac
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,26 +93,32 @@ export interface VerifyMacCommandOutput extends VerifyMacOutput, __MetadataBeare
  * @see {@link PaymentCryptographyDataClientResolvedConfig | config} for PaymentCryptographyDataClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception, or failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request was denied due to an invalid resource error.</p>
+ *
+ * The request was denied due to an invalid resource error.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request was denied due to an invalid request error.</p>
+ *
+ * The request was denied due to an invalid request error.
  *
  * @throws {@link VerificationFailedException} (client fault)
- *  <p>This request failed verification.</p>
+ *
+ * This request failed verification.
  *
  * @throws {@link PaymentCryptographyDataServiceException}
- * <p>Base exception class for all service exceptions from PaymentCryptographyData service.</p>
  *
+ * Base exception class for all service exceptions from PaymentCryptographyData service.
  *
  * @public
  */

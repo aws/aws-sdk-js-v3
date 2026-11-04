@@ -26,7 +26,8 @@ export interface UpdateQPersonalizationConfigurationCommandInput extends UpdateQ
 export interface UpdateQPersonalizationConfigurationCommandOutput extends UpdateQPersonalizationConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a personalization configuration.</p>
+ * Updates a personalization configuration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,32 +57,36 @@ export interface UpdateQPersonalizationConfigurationCommandOutput extends Update
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have access to this item. The provided credentials couldn't be
- * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
- * 			correct permissions, and that you are using the correct credentials.</p>
+ *
+ * You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ *
+ * Updating or deleting a resource can cause an inconsistent state.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An internal failure occurred.</p>
+ *
+ * An internal failure occurred.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more parameters has a value that isn't valid.</p>
+ *
+ * One or more parameters has a value that isn't valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>One or more resources can't be found.</p>
+ *
+ * One or more resources can't be found.
  *
  * @throws {@link ResourceUnavailableException} (server fault)
- *  <p>This resource is currently unavailable.</p>
+ *
+ * This resource is currently unavailable.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Access is throttled.</p>
+ *
+ * Access is throttled.
  *
  * @throws {@link QuickSightServiceException}
- * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * Base exception class for all service exceptions from QuickSight service.
  *
  * @public
  */

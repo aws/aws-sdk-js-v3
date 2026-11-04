@@ -23,13 +23,10 @@ export interface ListReputationEntitiesCommandInput extends ListReputationEntiti
 export interface ListReputationEntitiesCommandOutput extends ListReputationEntitiesResponse, __MetadataBearer {}
 
 /**
- * <p>List reputation entities in your Amazon SES account in the current Amazon Web Services Region.
- *             You can filter the results by entity type, reputation impact, sending status,
- *             or entity reference prefix.</p>
- *          <p>
- *             <i>Reputation entities</i> represent resources in your account that have reputation
- *             tracking and management capabilities. Use this operation to get an overview of
- *             all entities and their current reputation status.</p>
+ * List reputation entities in your Amazon SES account in the current Amazon Web Services Region. You can filter the results by entity type, reputation impact, sending status, or entity reference prefix.
+ *
+ * *Reputation entities* represent resources in your account that have reputation tracking and management capabilities. Use this operation to get an overview of all entities and their current reputation status.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,14 +76,16 @@ export interface ListReputationEntitiesCommandOutput extends ListReputationEntit
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Too many requests have been made to the operation.</p>
+ *
+ * Too many requests have been made to the operation.
  *
  * @throws {@link SESv2ServiceException}
- * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * Base exception class for all service exceptions from SESv2 service.
  *
  * @public
  */

@@ -23,8 +23,10 @@ export interface DescribeEntityCommandInput extends DescribeEntityRequest {}
 export interface DescribeEntityCommandOutput extends DescribeEntityResponse, __MetadataBearer {}
 
 /**
- * <p>Provides details regarding the entity used with the connection type, with a description of the data model for each field in the selected entity.</p>
- *          <p> The response includes all the fields which make up the entity.</p>
+ * Provides details regarding the entity used with the connection type, with a description of the data model for each field in the selected entity.
+ *
+ * The response includes all the fields which make up the entity.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,29 +85,36 @@ export interface DescribeEntityCommandOutput extends DescribeEntityResponse, __M
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to a resource was denied.</p>
+ *
+ * Access to a resource was denied.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link FederationSourceException} (client fault)
- *  <p>A federation source failed.</p>
+ *
+ * A federation source failed.
  *
  * @throws {@link GlueEncryptionException} (client fault)
- *  <p>An encryption operation failed.</p>
+ *
+ * An encryption operation failed.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A value could not be validated.</p>
+ *
+ * A value could not be validated.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

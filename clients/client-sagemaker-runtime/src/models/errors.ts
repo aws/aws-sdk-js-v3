@@ -4,8 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { SageMakerRuntimeServiceException as __BaseException } from "./SageMakerRuntimeServiceException";
 
 /**
- * <p>Your request caused an exception with an internal dependency. Contact customer
- *             support. </p>
+ * Your request caused an exception with an internal dependency. Contact customer support.
+ *
  * @public
  */
 export class InternalDependencyException extends __BaseException {
@@ -28,7 +28,8 @@ export class InternalDependencyException extends __BaseException {
 }
 
 /**
- * <p> An internal failure occurred. </p>
+ * An internal failure occurred.
+ *
  * @public
  */
 export class InternalFailure extends __BaseException {
@@ -51,8 +52,8 @@ export class InternalFailure extends __BaseException {
 }
 
 /**
- * <p> Model (owned by the customer in the container) returned 4xx or 5xx error code.
- *         </p>
+ * Model (owned by the customer in the container) returned 4xx or 5xx error code.
+ *
  * @public
  */
 export class ModelError extends __BaseException {
@@ -61,19 +62,22 @@ export class ModelError extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p> Original status code. </p>
+   * Original status code.
+   *
    * @public
    */
   OriginalStatusCode?: number | undefined;
 
   /**
-   * <p> Original message. </p>
+   * Original message.
+   *
    * @public
    */
   OriginalMessage?: string | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the log stream. </p>
+   * The Amazon Resource Name (ARN) of the log stream.
+   *
    * @public
    */
   LogStreamArn?: string | undefined;
@@ -95,9 +99,8 @@ export class ModelError extends __BaseException {
 }
 
 /**
- * <p>Either a serverless endpoint variant's resources are still being provisioned, or a
- *             multi-model endpoint is still downloading or loading the target model. Wait and try your
- *             request again.</p>
+ * Either a serverless endpoint variant's resources are still being provisioned, or a multi-model endpoint is still downloading or loading the target model. Wait and try your request again.
+ *
  * @public
  */
 export class ModelNotReadyException extends __BaseException {
@@ -120,7 +123,8 @@ export class ModelNotReadyException extends __BaseException {
 }
 
 /**
- * <p> The service is unavailable. Try your call again. </p>
+ * The service is unavailable. Try your call again.
+ *
  * @public
  */
 export class ServiceUnavailable extends __BaseException {
@@ -143,7 +147,8 @@ export class ServiceUnavailable extends __BaseException {
 }
 
 /**
- * <p> Inspect your request and try again. </p>
+ * Inspect your request and try again.
+ *
  * @public
  */
 export class ValidationError extends __BaseException {
@@ -166,7 +171,8 @@ export class ValidationError extends __BaseException {
 }
 
 /**
- * <p>The stream processing failed because of an unknown error, exception or failure. Try your request again.</p>
+ * The stream processing failed because of an unknown error, exception or failure. Try your request again.
+ *
  * @public
  */
 export class InternalStreamFailure extends __BaseException {
@@ -189,19 +195,16 @@ export class InternalStreamFailure extends __BaseException {
 }
 
 /**
- * <p> An error occurred while streaming the response body. This error can have the
- *     following error codes:</p>
- *          <dl>
- *             <dt>ModelInvocationTimeExceeded</dt>
- *             <dd>
- *                <p>The model failed to finish sending the response within the timeout period allowed by Amazon SageMaker AI.</p>
- *             </dd>
- *             <dt>StreamBroken</dt>
- *             <dd>
- *                <p>The Transmission Control Protocol (TCP) connection between the client and
- *                     the model was reset or closed.</p>
- *             </dd>
- *          </dl>
+ * An error occurred while streaming the response body. This error can have the following error codes:
+ *
+ * - **ModelInvocationTimeExceeded**
+ *
+ *   The model failed to finish sending the response within the timeout period allowed by Amazon SageMaker AI.
+ *
+ * - **StreamBroken**
+ *
+ *   The Transmission Control Protocol (TCP) connection between the client and the model was reset or closed.
+ *
  * @public
  */
 export class ModelStreamError extends __BaseException {
@@ -210,19 +213,16 @@ export class ModelStreamError extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>This error can have the following error codes:</p>
-   *          <dl>
-   *             <dt>ModelInvocationTimeExceeded</dt>
-   *             <dd>
-   *                <p>The model failed to finish sending the response within the timeout period
-   *                         allowed by Amazon SageMaker AI.</p>
-   *             </dd>
-   *             <dt>StreamBroken</dt>
-   *             <dd>
-   *                <p>The Transmission Control Protocol (TCP) connection between the client and
-   *                         the model was reset or closed.</p>
-   *             </dd>
-   *          </dl>
+   * This error can have the following error codes:
+   *
+   * - **ModelInvocationTimeExceeded**
+   *
+   *   The model failed to finish sending the response within the timeout period allowed by Amazon SageMaker AI.
+   *
+   * - **StreamBroken**
+   *
+   *   The Transmission Control Protocol (TCP) connection between the client and the model was reset or closed.
+   *
    * @public
    */
   ErrorCode?: string | undefined;

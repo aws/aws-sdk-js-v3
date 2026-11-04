@@ -23,17 +23,12 @@ export interface ListDeadLetterSourceQueuesCommandInput extends ListDeadLetterSo
 export interface ListDeadLetterSourceQueuesCommandOutput extends ListDeadLetterSourceQueuesResult, __MetadataBearer {}
 
 /**
- * <p>Returns a list of your queues that have the <code>RedrivePolicy</code> queue attribute
- *             configured with a dead-letter queue.</p>
- *          <p> The <code>ListDeadLetterSourceQueues</code> methods supports pagination. Set
- *             parameter <code>MaxResults</code> in the request to specify the maximum number of
- *             results to be returned in the response. If you do not set <code>MaxResults</code>, the
- *             response includes a maximum of 1,000 results. If you set <code>MaxResults</code> and
- *             there are additional results to display, the response includes a value for
- *                 <code>NextToken</code>. Use <code>NextToken</code> as a parameter in your next
- *             request to <code>ListDeadLetterSourceQueues</code> to receive the next page of results. </p>
- *          <p>For more information about using dead-letter queues, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">Using Amazon SQS Dead-Letter Queues</a> in the <i>Amazon SQS Developer
- *                 Guide</i>.</p>
+ * Returns a list of your queues that have the `RedrivePolicy` queue attribute configured with a dead-letter queue.
+ *
+ * The `ListDeadLetterSourceQueues` methods supports pagination. Set parameter `MaxResults` in the request to specify the maximum number of results to be returned in the response. If you do not set `MaxResults`, the response includes a maximum of 1,000 results. If you set `MaxResults` and there are additional results to display, the response includes a value for `NextToken`. Use `NextToken` as a parameter in your next request to `ListDeadLetterSourceQueues` to receive the next page of results.
+ *
+ * For more information about using dead-letter queues, see [Using Amazon SQS Dead-Letter Queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html) in the *Amazon SQS Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,35 +60,31 @@ export interface ListDeadLetterSourceQueuesCommandOutput extends ListDeadLetterS
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
  * @throws {@link InvalidAddress} (client fault)
- *  <p>The specified ID is invalid.</p>
+ *
+ * The specified ID is invalid.
  *
  * @throws {@link InvalidSecurity} (client fault)
- *  <p>The request was not made over HTTPS or did not use SigV4 for signing.</p>
+ *
+ * The request was not made over HTTPS or did not use SigV4 for signing.
  *
  * @throws {@link QueueDoesNotExist} (client fault)
- *  <p>Ensure that the <code>QueueUrl</code> is correct and that the queue has not been
- *             deleted.</p>
+ *
+ * Ensure that the `QueueUrl` is correct and that the queue has not been deleted.
  *
  * @throws {@link RequestThrottled} (client fault)
- *  <p>The request was denied due to request throttling.</p>
- *          <ul>
- *             <li>
- *                <p>Exceeds the permitted request rate for the queue or for the recipient of the
- *                     request.</p>
- *             </li>
- *             <li>
- *                <p>Ensure that the request rate is within the Amazon SQS limits for
- *                     sending messages. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-quotas.html#quotas-requests">Amazon SQS quotas</a> in the <i>Amazon SQS
- *                         Developer Guide</i>.</p>
- *             </li>
- *          </ul>
+ *
+ * The request was denied due to request throttling.
+ *
+ * - Exceeds the permitted request rate for the queue or for the recipient of the request.
+ * - Ensure that the request rate is within the Amazon SQS limits for sending messages. For more information, see [Amazon SQS quotas](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-quotas.html#quotas-requests) in the *Amazon SQS Developer Guide*.
  *
  * @throws {@link UnsupportedOperation} (client fault)
- *  <p>Error code 400. Unsupported operation.</p>
+ *
+ * Error code 400. Unsupported operation.
  *
  * @throws {@link SQSServiceException}
- * <p>Base exception class for all service exceptions from SQS service.</p>
  *
+ * Base exception class for all service exceptions from SQS service.
  *
  * @public
  */

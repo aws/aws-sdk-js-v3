@@ -23,16 +23,14 @@ export interface PutWarmPoolCommandInput extends PutWarmPoolType {}
 export interface PutWarmPoolCommandOutput extends PutWarmPoolAnswer, __MetadataBearer {}
 
 /**
- * <p>Creates or updates a warm pool for the specified Auto Scaling group. A warm pool is a pool of
- *             pre-initialized EC2 instances that sits alongside the Auto Scaling group. Whenever your
- *             application needs to scale out, the Auto Scaling group can draw on the warm pool to meet its new
- *             desired capacity.</p>
- *          <p>This operation must be called from the Region in which the Auto Scaling group was
- *             created.</p>
- *          <p>You can view the instances in the warm pool using the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeWarmPool.html">DescribeWarmPool</a> API call.
- *             If you are no longer using a warm pool, you can delete it by calling the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DeleteWarmPool.html">DeleteWarmPool</a> API.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html">Warm pools for
- *                 Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ * Creates or updates a warm pool for the specified Auto Scaling group. A warm pool is a pool of pre-initialized EC2 instances that sits alongside the Auto Scaling group. Whenever your application needs to scale out, the Auto Scaling group can draw on the warm pool to meet its new desired capacity.
+ *
+ * This operation must be called from the Region in which the Auto Scaling group was created.
+ *
+ * You can view the instances in the warm pool using the [DescribeWarmPool](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeWarmPool.html) API call. If you are no longer using a warm pool, you can delete it by calling the [DeleteWarmPool](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DeleteWarmPool.html) API.
+ *
+ * For more information, see [Warm pools for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html) in the *Amazon EC2 Auto Scaling User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,22 +61,20 @@ export interface PutWarmPoolCommandOutput extends PutWarmPoolAnswer, __MetadataB
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  * @throws {@link InstanceRefreshInProgressFault} (client fault)
- *  <p>The request failed because an active instance refresh already exists for the specified
- *             Auto Scaling group.</p>
+ *
+ * The request failed because an active instance refresh already exists for the specified Auto Scaling group.
  *
  * @throws {@link LimitExceededFault} (client fault)
- *  <p>You have already reached a limit for your Amazon EC2 Auto Scaling
- *             resources (for example, Auto Scaling groups, launch configurations, or lifecycle hooks). For
- *             more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html">DescribeAccountLimits</a> in the <i>Amazon EC2 Auto Scaling API
- *             Reference</i>.</p>
+ *
+ * You have already reached a limit for your Amazon EC2 Auto Scaling resources (for example, Auto Scaling groups, launch configurations, or lifecycle hooks). For more information, see [DescribeAccountLimits](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html) in the *Amazon EC2 Auto Scaling API Reference*.
  *
  * @throws {@link ResourceContentionFault} (server fault)
- *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
- *             instance, or load balancer).</p>
+ *
+ * You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).
  *
  * @throws {@link AutoScalingServiceException}
- * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from AutoScaling service.
  *
  * @example To create a warm pool for an Auto Scaling group
  * ```javascript

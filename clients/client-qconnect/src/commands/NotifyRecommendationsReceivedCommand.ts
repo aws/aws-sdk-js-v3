@@ -23,7 +23,8 @@ export interface NotifyRecommendationsReceivedCommandInput extends NotifyRecomme
 export interface NotifyRecommendationsReceivedCommandOutput extends NotifyRecommendationsReceivedResponse, __MetadataBearer {}
 
 /**
- * <p>Removes the specified recommendations from the specified assistant's queue of newly available recommendations. You can use this API in conjunction with <a href="https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_GetRecommendations.html">GetRecommendations</a> and a <code>waitTimeSeconds</code> input for long-polling behavior and avoiding duplicate recommendations.</p>
+ * Removes the specified recommendations from the specified assistant's queue of newly available recommendations. You can use this API in conjunction with [GetRecommendations](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_GetRecommendations.html) and a `waitTimeSeconds` input for long-polling behavior and avoiding duplicate recommendations.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,17 +63,20 @@ export interface NotifyRecommendationsReceivedCommandOutput extends NotifyRecomm
  * @see {@link QConnectClientResolvedConfig | config} for QConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by a service.</p>
+ *
+ * The input fails to satisfy the constraints specified by a service.
  *
  * @throws {@link QConnectServiceException}
- * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ * Base exception class for all service exceptions from QConnect service.
  *
  * @public
  */

@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { AIOpsServiceException as __BaseException } from "./AIOpsServiceException";
 
 /**
- * <p>You don't have sufficient permissions to perform this action.</p>
+ * You don't have sufficient permissions to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>This operation couldn't be completed because of a conflict in resource states.</p>
+ * This operation couldn't be completed because of a conflict in resource states.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -46,7 +48,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>Access id denied for this operation, or this operation is not valid for the specified resource.</p>
+ * Access id denied for this operation, or this operation is not valid for the specified resource.
+ *
  * @public
  */
 export class ForbiddenException extends __BaseException {
@@ -67,7 +70,8 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
- * <p>An internal server error occurred. You can try again later.</p>
+ * An internal server error occurred. You can try again later.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -88,7 +92,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The specified resource doesn't exist.</p>
+ * The specified resource doesn't exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -109,7 +114,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>This request exceeds a service quota.</p>
+ * This request exceeds a service quota.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -117,25 +123,29 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The resource that caused the quota exception.</p>
+   * The resource that caused the quota exception.
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>The type of resource that caused the quota exception.</p>
+   * The type of resource that caused the quota exception.
+   *
    * @public
    */
   resourceType?: string | undefined;
 
   /**
-   * <p>This name of the service associated with the error.</p>
+   * This name of the service associated with the error.
+   *
    * @public
    */
   serviceCode?: string | undefined;
 
   /**
-   * <p>This quota that was exceeded.</p>
+   * This quota that was exceeded.
+   *
    * @public
    */
   quotaCode?: string | undefined;
@@ -158,7 +168,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request was throttled because of quota limits. You can try again later.</p>
+ * The request was throttled because of quota limits. You can try again later.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -179,7 +190,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>This operation or its parameters aren't formatted correctly.</p>
+ * This operation or its parameters aren't formatted correctly.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {

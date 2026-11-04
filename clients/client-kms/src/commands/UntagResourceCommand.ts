@@ -23,51 +23,29 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes tags from a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-mgn-key">customer managed key</a>. To delete a
- *       tag, specify the tag key and the KMS key.</p>
- *          <note>
- *             <p>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC for KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
- *          </note>
- *          <p>When it succeeds, the <code>UntagResource</code> operation doesn't return any output.
- *       Also, if the specified tag key isn't found on the KMS key, it doesn't throw an exception or
- *       return a response. To confirm that the operation worked, use the <a>ListResourceTags</a> operation.</p>
- *          <p>For information about using tags in KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">Tagging keys</a>. For general information about
- *       tags, including the format and syntax, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in the <i>Amazon
- *         Web Services General Reference</i>. </p>
- *          <p>The KMS key that you use for this operation must be in a compatible key state. For
- * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
- *          <p>
- *             <b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account.</p>
- *          <p>
- *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:UntagResource</a> (key policy)</p>
- *          <p>
- *             <b>Related operations</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>CreateKey</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListResourceTags</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ReplicateKey</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>TagResource</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
+ * Deletes tags from a [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-mgn-key). To delete a tag, specify the tag key and the KMS key.
+ *
+ * > **Note:** Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see [ABAC for KMS](https://docs.aws.amazon.com/kms/latest/developerguide/abac.html) in the *Key Management Service Developer Guide*.
+ *
+ * When it succeeds, the `UntagResource` operation doesn't return any output. Also, if the specified tag key isn't found on the KMS key, it doesn't throw an exception or return a response. To confirm that the operation worked, use the ListResourceTags operation.
+ *
+ * For information about using tags in KMS, see [Tagging keys](https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html). For general information about tags, including the format and syntax, see [Tagging Amazon Web Services resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *Amazon Web Services General Reference*.
+ *
+ * The KMS key that you use for this operation must be in a compatible key state. For details, see [Key states of KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the *Key Management Service Developer Guide*.
+ *
+ * **Cross-account use**: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account.
+ *
+ * **Required permissions**: [kms:UntagResource](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy)
+ *
+ * **Related operations**
+ *
+ * - CreateKey
+ * - ListResourceTags
+ * - ReplicateKey
+ * - TagResource
+ *
+ * **Eventual consistency**: The KMS API follows an eventual consistency model. For more information, see [KMS eventual consistency](https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,43 +73,35 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
  * @throws {@link InvalidArnException} (client fault)
- *  <p>The request was rejected because a specified ARN, or an ARN in a key policy, is not
- *       valid.</p>
+ *
+ * The request was rejected because a specified ARN, or an ARN in a key policy, is not valid.
  *
  * @throws {@link KMSInternalException} (server fault)
- *  <p>The request was rejected because an internal exception occurred. The request can be
- *       retried.</p>
+ *
+ * The request was rejected because an internal exception occurred. The request can be retried.
  *
  * @throws {@link KMSInvalidStateException} (client fault)
- *  <p>The request was rejected because the state of the specified resource is not valid for this
- *       request.</p>
- *          <p>This exceptions means one of the following:</p>
- *          <ul>
- *             <li>
- *                <p>The key state of the KMS key is not compatible with the operation. </p>
- *                <p>To find the key state, use the <a>DescribeKey</a> operation. For more
- *           information about which key states are compatible with each KMS operation, see
- *           <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>
- *                      <i>Key Management Service Developer Guide</i>
- *                   </i>.</p>
- *             </li>
- *             <li>
- *                <p>For cryptographic operations on KMS keys in custom key stores, this exception
- *           represents a general failure with many possible causes. To identify the cause, see the
- *           error message that accompanies the exception.</p>
- *             </li>
- *          </ul>
+ *
+ * The request was rejected because the state of the specified resource is not valid for this request.
+ *
+ * This exceptions means one of the following:
+ *
+ * - The key state of the KMS key is not compatible with the operation.
+ *
+ *   To find the key state, use the DescribeKey operation. For more information about which key states are compatible with each KMS operation, see [Key states of KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the **Key Management Service Developer Guide** .
+ * - For cryptographic operations on KMS keys in custom key stores, this exception represents a general failure with many possible causes. To identify the cause, see the error message that accompanies the exception.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The request was rejected because the specified entity or resource could not be
- *       found.</p>
+ *
+ * The request was rejected because the specified entity or resource could not be found.
  *
  * @throws {@link TagException} (client fault)
- *  <p>The request was rejected because one or more tags are not valid.</p>
+ *
+ * The request was rejected because one or more tags are not valid.
  *
  * @throws {@link KMSServiceException}
- * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * Base exception class for all service exceptions from KMS service.
  *
  * @example To remove tags from a KMS key
  * ```javascript

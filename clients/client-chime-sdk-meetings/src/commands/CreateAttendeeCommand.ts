@@ -23,12 +23,8 @@ export interface CreateAttendeeCommandInput extends CreateAttendeeRequest {}
 export interface CreateAttendeeCommandOutput extends CreateAttendeeResponse, __MetadataBearer {}
 
 /**
- * <p>
- *            Creates a new attendee for an active Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see
- *            <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
- *            in the
- *            <i>Amazon Chime Developer Guide</i>.
- *        </p>
+ * Creates a new attendee for an active Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html) in the *Amazon Chime Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,35 +66,44 @@ export interface CreateAttendeeCommandOutput extends CreateAttendeeResponse, __M
  * @see {@link ChimeSDKMeetingsClientResolvedConfig | config} for ChimeSDKMeetingsClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * The input parameters don't match the service's restrictions.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * The client is permanently forbidden from making the request.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request exceeds the resource limit.</p>
+ *
+ * The request exceeds the resource limit.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>One or more of the resources in the request does not exist in the system.</p>
+ *
+ * One or more of the resources in the request does not exist in the system.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The service encountered an unexpected error.</p>
+ *
+ * The service encountered an unexpected error.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is currently unavailable.</p>
+ *
+ * The service is currently unavailable.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
+ * The number of customer requests exceeds the request rate limit.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The user isn't authorized to request a resource.</p>
+ *
+ * The user isn't authorized to request a resource.
  *
  * @throws {@link UnprocessableEntityException} (client fault)
- *  <p>The request was well-formed but was unable to be followed due to semantic errors.</p>
+ *
+ * The request was well-formed but was unable to be followed due to semantic errors.
  *
  * @throws {@link ChimeSDKMeetingsServiceException}
- * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
+ * Base exception class for all service exceptions from ChimeSDKMeetings service.
  *
  * @public
  */

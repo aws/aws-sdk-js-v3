@@ -23,9 +23,8 @@ export interface CheckDomainAvailabilityCommandInput extends CheckDomainAvailabi
 export interface CheckDomainAvailabilityCommandOutput extends CheckDomainAvailabilityResponse, __MetadataBearer {}
 
 /**
- * <p>This operation checks the availability of one domain name. Note that if the
- * 			availability status of a domain is pending, you must submit another request to determine
- * 			the availability of the domain name.</p>
+ * This operation checks the availability of one domain name. Note that if the availability status of a domain is pending, you must submit another request to determine the availability of the domain name.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,20 +57,20 @@ export interface CheckDomainAvailabilityCommandOutput extends CheckDomainAvailab
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The requested item is not acceptable. For example, for APIs that accept a domain name,
- * 			the request might specify a domain name that doesn't belong to the account that
- * 			submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the
- * 			password might be invalid.</p>
+ *
+ * The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For `AcceptDomainTransferFromAnotherAwsAccount`, the password might be invalid.
  *
  * @throws {@link TLDInMaintenance} (client fault)
- *  <p>The top-level domain is currently undergoing maintenance and the request cannot be processed. Try again later.</p>
+ *
+ * The top-level domain is currently undergoing maintenance and the request cannot be processed. Try again later.
  *
  * @throws {@link UnsupportedTLD} (client fault)
- *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+ *
+ * Amazon Route 53 does not support this top-level domain (TLD).
  *
  * @throws {@link Route53DomainsServiceException}
- * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ * Base exception class for all service exceptions from Route53Domains service.
  *
  * @public
  */

@@ -23,16 +23,10 @@ export interface StartSyncExecutionCommandInput extends StartSyncExecutionInput 
 export interface StartSyncExecutionCommandOutput extends StartSyncExecutionOutput, __MetadataBearer {}
 
 /**
- * <p>Starts a Synchronous Express state machine execution. <code>StartSyncExecution</code>
- * 			  is not available for <code>STANDARD</code> workflows.</p>
- *          <note>
- *             <p>
- *                <code>StartSyncExecution</code> will return a <code>200 OK</code> response, even if your
- *         execution fails, because the status code in the API response doesn't reflect function
- *         errors. Error codes are reserved for errors that prevent your execution from running, such
- *         as permissions errors, limit errors, or issues with your state machine code and
- *         configuration. </p>
- *          </note>
+ * Starts a Synchronous Express state machine execution. `StartSyncExecution` is not available for `STANDARD` workflows.
+ *
+ * > **Note:** `StartSyncExecution` will return a `200 OK` response, even if your execution fails, because the status code in the API response doesn't reflect function errors. Error codes are reserved for errors that prevent your execution from running, such as permissions errors, limit errors, or issues with your state machine code and configuration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,35 +77,44 @@ export interface StartSyncExecutionCommandOutput extends StartSyncExecutionOutpu
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
  * @throws {@link InvalidArn} (client fault)
- *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * The provided Amazon Resource Name (ARN) is not valid.
  *
  * @throws {@link InvalidExecutionInput} (client fault)
- *  <p>The provided JSON input data is not valid.</p>
+ *
+ * The provided JSON input data is not valid.
  *
  * @throws {@link InvalidName} (client fault)
- *  <p>The provided name is not valid.</p>
+ *
+ * The provided name is not valid.
  *
  * @throws {@link KmsAccessDeniedException} (client fault)
- *  <p>Either your KMS key policy or API caller does not have the required permissions.</p>
+ *
+ * Either your KMS key policy or API caller does not have the required permissions.
  *
  * @throws {@link KmsInvalidStateException} (client fault)
- *  <p>The KMS key is not in valid state, for example: Disabled or Deleted.</p>
+ *
+ * The KMS key is not in valid state, for example: Disabled or Deleted.
  *
  * @throws {@link KmsThrottlingException} (client fault)
- *  <p>Received when KMS returns <code>ThrottlingException</code> for a KMS call that Step Functions makes on behalf of the caller.</p>
+ *
+ * Received when KMS returns `ThrottlingException` for a KMS call that Step Functions makes on behalf of the caller.
  *
  * @throws {@link StateMachineDeleting} (client fault)
- *  <p>The specified state machine is being deleted.</p>
+ *
+ * The specified state machine is being deleted.
  *
  * @throws {@link StateMachineDoesNotExist} (client fault)
- *  <p>The specified state machine does not exist.</p>
+ *
+ * The specified state machine does not exist.
  *
  * @throws {@link StateMachineTypeNotSupported} (client fault)
- *  <p>State machine type is not supported.</p>
+ *
+ * State machine type is not supported.
  *
  * @throws {@link SFNServiceException}
- * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * Base exception class for all service exceptions from SFN service.
  *
  * @public
  */

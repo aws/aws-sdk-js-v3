@@ -23,9 +23,10 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Returns all the tags on the specified Application Auto Scaling scalable target.</p>
- *          <p>For general information about tags, including the format and syntax, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging your Amazon Web Services
- *             resources</a> in the <i>Amazon Web Services General Reference</i>.</p>
+ * Returns all the tags on the specified Application Auto Scaling scalable target.
+ *
+ * For general information about tags, including the format and syntax, see [Tagging your Amazon Web Services resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *Amazon Web Services General Reference*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,11 +55,12 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource doesn't exist.</p>
+ *
+ * The specified resource doesn't exist.
  *
  * @throws {@link ApplicationAutoScalingServiceException}
- * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from ApplicationAutoScaling service.
  *
  * @example To list tags for a scalable target
  * ```javascript

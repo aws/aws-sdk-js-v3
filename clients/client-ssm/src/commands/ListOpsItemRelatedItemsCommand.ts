@@ -23,8 +23,8 @@ export interface ListOpsItemRelatedItemsCommandInput extends ListOpsItemRelatedI
 export interface ListOpsItemRelatedItemsCommandOutput extends ListOpsItemRelatedItemsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all related-item resources associated with a Systems Manager OpsCenter OpsItem. OpsCenter is a
- *    tool in Amazon Web Services Systems Manager.</p>
+ * Lists all related-item resources associated with a Systems Manager OpsCenter OpsItem. OpsCenter is a tool in Amazon Web Services Systems Manager.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,15 +79,16 @@ export interface ListOpsItemRelatedItemsCommandOutput extends ListOpsItemRelated
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link OpsItemInvalidParameterException} (client fault)
- *  <p>A specified parameter argument isn't valid. Verify the available arguments and try
- *    again.</p>
+ *
+ * A specified parameter argument isn't valid. Verify the available arguments and try again.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

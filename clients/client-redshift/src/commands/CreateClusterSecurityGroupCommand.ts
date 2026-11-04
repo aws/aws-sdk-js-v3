@@ -23,12 +23,10 @@ export interface CreateClusterSecurityGroupCommandInput extends CreateClusterSec
 export interface CreateClusterSecurityGroupCommandOutput extends CreateClusterSecurityGroupResult, __MetadataBearer {}
 
 /**
- * <p>Creates a new Amazon Redshift security group. You use security groups to control access
- *             to non-VPC clusters.</p>
- *          <p>
- * For information about managing security groups, go to
- * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">Amazon Redshift Cluster Security Groups</a> in the
- * <i>Amazon Redshift Cluster Management Guide</i>.</p>
+ * Creates a new Amazon Redshift security group. You use security groups to control access to non-VPC clusters.
+ *
+ * For information about managing security groups, go to [Amazon Redshift Cluster Security Groups](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html) in the *Amazon Redshift Cluster Management Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -96,24 +94,24 @@ export interface CreateClusterSecurityGroupCommandOutput extends CreateClusterSe
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterSecurityGroupAlreadyExistsFault} (client fault)
- *  <p>A cluster security group with the same name already exists.</p>
+ *
+ * A cluster security group with the same name already exists.
  *
  * @throws {@link ClusterSecurityGroupQuotaExceededFault} (client fault)
- *  <p>The request would result in the user exceeding the allowed number of cluster
- *             security groups.
- * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.
- * </p>
+ *
+ * The request would result in the user exceeding the allowed number of cluster security groups. For information about increasing your quota, go to [Limits in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html) in the *Amazon Redshift Cluster Management Guide*.
  *
  * @throws {@link InvalidTagFault} (client fault)
- *  <p>The tag is invalid.</p>
+ *
+ * The tag is invalid.
  *
  * @throws {@link TagLimitExceededFault} (client fault)
- *  <p>You have exceeded the number of tags allowed.</p>
+ *
+ * You have exceeded the number of tags allowed.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

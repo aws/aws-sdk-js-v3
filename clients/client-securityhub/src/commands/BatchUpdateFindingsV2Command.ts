@@ -23,14 +23,14 @@ export interface BatchUpdateFindingsV2CommandInput extends BatchUpdateFindingsV2
 export interface BatchUpdateFindingsV2CommandOutput extends BatchUpdateFindingsV2Response, __MetadataBearer {}
 
 /**
- * <p>Updates information about a customer's investigation into a finding. Delegated administrator accounts can update findings for their account and their member accounts. Member accounts can update findings for their own account.</p>
- *          <p>
- *             <code>BatchUpdateFindings</code> and <code>BatchUpdateFindingsV2</code> both use <code>securityhub:BatchUpdateFindings</code> in the <code>Action</code> element of an IAM policy statement.
- *          You must have permission to perform the <code>securityhub:BatchUpdateFindings</code> action.
- *          You can configure IAM policies to restrict access to specific finding fields or field values by using the <code>securityhub:OCSFSyntaxPath/<fieldName></code> condition key, where <code><fieldName></code> is one of the following supported fields: <code>SeverityId</code>, <code>StatusId</code>, or <code>Comment</code>.</p>
- *          <p>To prevent a user from updating a specific field, use a <code>Null</code> condition with <code>securityhub:OCSFSyntaxPath/<fieldName></code> set to <code>"false"</code>.
- *          To prevent a user from setting a field to a specific value, use a <code>StringEquals</code> condition with <code>securityhub:OCSFSyntaxPath/<fieldName></code> set to the disallowed value or list of values.</p>
- *          <p>Updates from <code>BatchUpdateFindingsV2</code> don't affect the value of <code>finding_info.modified_time</code>, <code>finding_info.modified_time_dt</code>, <code>time</code>, or <code>time_dt</code> for a finding.</p>
+ * Updates information about a customer's investigation into a finding. Delegated administrator accounts can update findings for their account and their member accounts. Member accounts can update findings for their own account.
+ *
+ * `BatchUpdateFindings` and `BatchUpdateFindingsV2` both use `securityhub:BatchUpdateFindings` in the `Action` element of an IAM policy statement. You must have permission to perform the `securityhub:BatchUpdateFindings` action. You can configure IAM policies to restrict access to specific finding fields or field values by using the `securityhub:OCSFSyntaxPath/<fieldName>` condition key, where `<fieldName>` is one of the following supported fields: `SeverityId`, `StatusId`, or `Comment`.
+ *
+ * To prevent a user from updating a specific field, use a `Null` condition with `securityhub:OCSFSyntaxPath/<fieldName>` set to `"false"`. To prevent a user from setting a field to a specific value, use a `StringEquals` condition with `securityhub:OCSFSyntaxPath/<fieldName>` set to the disallowed value or list of values.
+ *
+ * Updates from `BatchUpdateFindingsV2` don't affect the value of `finding_info.modified_time`, `finding_info.modified_time_dt`, `time`, or `time_dt` for a finding.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,27 +90,28 @@ export interface BatchUpdateFindingsV2CommandOutput extends BatchUpdateFindingsV
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permission to perform the action specified in the request.</p>
+ *
+ * You don't have permission to perform the action specified in the request.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request causes conflict with the current state of the service resource.</p>
+ *
+ * The request causes conflict with the current state of the service resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>
- *          The request has failed due to an internal failure of the service.
- *       </p>
+ *
+ * The request has failed due to an internal failure of the service.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>
- *          The limit on the number of requests per second was exceeded.
- *       </p>
+ *
+ * The limit on the number of requests per second was exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request has failed validation because it's missing required fields or has invalid inputs.</p>
+ *
+ * The request has failed validation because it's missing required fields or has invalid inputs.
  *
  * @throws {@link SecurityHubServiceException}
- * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * Base exception class for all service exceptions from SecurityHub service.
  *
  * @public
  */

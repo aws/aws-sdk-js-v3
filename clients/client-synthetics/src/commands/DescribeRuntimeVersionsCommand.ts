@@ -23,9 +23,8 @@ export interface DescribeRuntimeVersionsCommandInput extends DescribeRuntimeVers
 export interface DescribeRuntimeVersionsCommandOutput extends DescribeRuntimeVersionsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of Synthetics canary runtime versions. For more information,
- *          see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html">
- *             Canary Runtime Versions</a>.</p>
+ * Returns a list of Synthetics canary runtime versions. For more information, see [Canary Runtime Versions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,14 +60,16 @@ export interface DescribeRuntimeVersionsCommandOutput extends DescribeRuntimeVer
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unknown internal error occurred.</p>
+ *
+ * An unknown internal error occurred.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A parameter could not be validated.</p>
+ *
+ * A parameter could not be validated.
  *
  * @throws {@link SyntheticsServiceException}
- * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ * Base exception class for all service exceptions from Synthetics service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface DeleteLimitCommandInput extends DeleteLimitRequest {}
 export interface DeleteLimitCommandOutput extends DeleteLimitResponse, __MetadataBearer {}
 
 /**
- * <p>Removes a limit from the specified farm. Before you delete a limit you must use the <code>DeleteQueueLimitAssociation</code> operation to remove the association with any queues. </p>
+ * Removes a limit from the specified farm. Before you delete a limit you must use the `DeleteQueueLimitAssociation` operation to remove the association with any queues.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,8 +62,8 @@ export interface DeleteLimitCommandOutput extends DeleteLimitResponse, __Metadat
  *  The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.
  *
  * @throws {@link DeadlineServiceException}
- * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ * Base exception class for all service exceptions from Deadline service.
  *
  * @public
  */

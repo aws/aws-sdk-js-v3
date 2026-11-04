@@ -23,7 +23,8 @@ export interface DescribeSecondaryInterfacesCommandInput extends DescribeSeconda
 export interface DescribeSecondaryInterfacesCommandOutput extends DescribeSecondaryInterfacesResult, __MetadataBearer {}
 
 /**
- * <p>Describes one or more of your secondary interfaces.</p>
+ * Describes one or more of your secondary interfaces.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -100,8 +101,8 @@ export interface DescribeSecondaryInterfacesCommandOutput extends DescribeSecond
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To describe all secondary interfaces
  * ```javascript

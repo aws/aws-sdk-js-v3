@@ -23,14 +23,12 @@ export interface GetRecommendationPreferencesCommandInput extends GetRecommendat
 export interface GetRecommendationPreferencesCommandOutput extends GetRecommendationPreferencesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns existing recommendation preferences, such as enhanced infrastructure
- *             metrics.</p>
- *          <p>Use the <code>scope</code> parameter to specify which preferences to return. You can
- *             specify to return preferences for an organization, a specific account ID, or a specific
- *             EC2 instance or Auto Scaling group Amazon Resource Name (ARN).</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html">Activating
- *                 enhanced infrastructure metrics</a> in the <i>Compute Optimizer User
- *                 Guide</i>.</p>
+ * Returns existing recommendation preferences, such as enhanced infrastructure metrics.
+ *
+ * Use the `scope` parameter to specify which preferences to return. You can specify to return preferences for an organization, a specific account ID, or a specific EC2 instance or Auto Scaling group Amazon Resource Name (ARN).
+ *
+ * For more information, see [Activating enhanced infrastructure metrics](https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html) in the *Compute Optimizer User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -102,33 +100,40 @@ export interface GetRecommendationPreferencesCommandOutput extends GetRecommenda
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error has occurred. Try your call again.</p>
+ *
+ * An internal error has occurred. Try your call again.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value supplied for the input parameter is out of range or not valid.</p>
+ *
+ * The value supplied for the input parameter is out of range or not valid.
  *
  * @throws {@link MissingAuthenticationToken} (client fault)
- *  <p>The request must contain either a valid (registered) Amazon Web Services access key ID
- *             or X.509 certificate.</p>
+ *
+ * The request must contain either a valid (registered) Amazon Web Services access key ID or X.509 certificate.
  *
  * @throws {@link OptInRequiredException} (client fault)
- *  <p>The account is not opted in to Compute Optimizer.</p>
+ *
+ * The account is not opted in to Compute Optimizer.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A resource that is required for the action doesn't exist.</p>
+ *
+ * A resource that is required for the action doesn't exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The request has failed due to a temporary failure of the server.</p>
+ *
+ * The request has failed due to a temporary failure of the server.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ComputeOptimizerServiceException}
- * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ * Base exception class for all service exceptions from ComputeOptimizer service.
  *
  * @public
  */

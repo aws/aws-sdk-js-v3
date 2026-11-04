@@ -23,7 +23,8 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Detaches a key-value pair from a resource, as identified by its Amazon Resource Name (ARN). Resources are users, servers, roles, and other entities.</p>
+ * Detaches a key-value pair from a resource, as identified by its Amazon Resource Name (ARN). Resources are users, servers, roles, and other entities.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,17 +52,20 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @see {@link ChatbotClientResolvedConfig | config} for ChatbotClient's `config` shape.
  *
  * @throws {@link InternalServiceError} (server fault)
- *  <p>Unexpected error during processing of request.</p>
+ *
+ * Unexpected error during processing of request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>We were unable to find the resource for your request</p>
+ *
+ * We were unable to find the resource for your request
  *
  * @throws {@link ServiceUnavailableException} (client fault)
- *  <p>We can’t process your request right now because of a server issue. Try again later.</p>
+ *
+ * We can’t process your request right now because of a server issue. Try again later.
  *
  * @throws {@link ChatbotServiceException}
- * <p>Base exception class for all service exceptions from Chatbot service.</p>
  *
+ * Base exception class for all service exceptions from Chatbot service.
  *
  * @public
  */

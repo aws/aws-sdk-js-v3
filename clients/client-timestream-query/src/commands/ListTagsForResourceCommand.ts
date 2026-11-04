@@ -23,7 +23,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>List all tags on a Timestream query resource.</p>
+ * List all tags on a Timestream query resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,20 +59,24 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link TimestreamQueryClientResolvedConfig | config} for TimestreamQueryClient's `config` shape.
  *
  * @throws {@link InvalidEndpointException} (client fault)
- *  <p>The requested endpoint is invalid.</p>
+ *
+ * The requested endpoint is invalid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource could not be found.</p>
+ *
+ * The requested resource could not be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled due to excessive requests.</p>
+ *
+ * The request was throttled due to excessive requests.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> Invalid or malformed request. </p>
+ *
+ * Invalid or malformed request.
  *
  * @throws {@link TimestreamQueryServiceException}
- * <p>Base exception class for all service exceptions from TimestreamQuery service.</p>
  *
+ * Base exception class for all service exceptions from TimestreamQuery service.
  *
  * @public
  */

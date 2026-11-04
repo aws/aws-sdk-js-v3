@@ -23,8 +23,8 @@ export interface DisableAlarmActionsCommandInput extends DisableAlarmActionsInpu
 export interface DisableAlarmActionsCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Disables the actions for the specified alarms. When an alarm's actions are
- *             disabled, the alarm actions do not execute when the alarm state changes.</p>
+ * Disables the actions for the specified alarms. When an alarm's actions are disabled, the alarm actions do not execute when the alarm state changes.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,8 +51,8 @@ export interface DisableAlarmActionsCommandOutput extends __MetadataBearer {}
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  * @throws {@link CloudWatchServiceException}
- * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatch service.
  *
  * @public
  */

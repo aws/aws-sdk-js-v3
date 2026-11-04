@@ -26,7 +26,8 @@ export interface ModifyTransitGatewayVpcAttachmentCommandInput extends ModifyTra
 export interface ModifyTransitGatewayVpcAttachmentCommandOutput extends ModifyTransitGatewayVpcAttachmentResult, __MetadataBearer {}
 
 /**
- * <p>Modifies the specified VPC attachment.</p>
+ * Modifies the specified VPC attachment.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,8 +89,8 @@ export interface ModifyTransitGatewayVpcAttachmentCommandOutput extends ModifyTr
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

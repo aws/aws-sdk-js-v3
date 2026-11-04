@@ -23,23 +23,15 @@ export interface StartContactStreamingCommandInput extends StartContactStreaming
 export interface StartContactStreamingCommandOutput extends StartContactStreamingResponse, __MetadataBearer {}
 
 /**
- * <p> Initiates real-time message streaming for a new chat contact.</p>
- *          <p> For more information about message streaming, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-message-streaming.html">Enable real-time chat message streaming</a> in the
- *      <i>Connect Customer Administrator Guide</i>.</p>
- *          <p>For more information about chat, see the following topics in the <i>Connect Customer
- *    Administrator Guide</i>: </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/connect/latest/adminguide/web-and-mobile-chat.html">Concepts: Web and mobile messaging capabilities in Connect Customer</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Connect Customer Chat security best practices</a>
- *                </p>
- *             </li>
- *          </ul>
+ * Initiates real-time message streaming for a new chat contact.
+ *
+ * For more information about message streaming, see [Enable real-time chat message streaming](https://docs.aws.amazon.com/connect/latest/adminguide/chat-message-streaming.html) in the *Connect Customer Administrator Guide*.
+ *
+ * For more information about chat, see the following topics in the *Connect Customer Administrator Guide*:
+ *
+ * - [Concepts: Web and mobile messaging capabilities in Connect Customer](https://docs.aws.amazon.com/connect/latest/adminguide/web-and-mobile-chat.html)
+ * - [Connect Customer Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,23 +63,28 @@ export interface StartContactStreamingCommandOutput extends StartContactStreamin
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The allowed limit for the resource has been exceeded.</p>
+ *
+ * The allowed limit for the resource has been exceeded.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

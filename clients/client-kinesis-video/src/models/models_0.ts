@@ -21,104 +21,112 @@ import type {
 } from "./enums";
 
 /**
- * <p>A structure that contains the configuration for the <code>SINGLE_MASTER</code> channel
- *             type.</p>
+ * A structure that contains the configuration for the `SINGLE_MASTER` channel type.
+ *
  * @public
  */
 export interface SingleMasterConfiguration {
   /**
-   * <p>The period of time (in seconds) a signaling channel retains undelivered messages
-   *             before they are discarded. Use  to update
-   *             this value.</p>
+   * The period of time (in seconds) a signaling channel retains undelivered messages before they are discarded. Use to update this value.
+   *
    * @public
    */
   MessageTtlSeconds?: number | undefined;
 }
 
 /**
- * <p>A structure that encapsulates a signaling channel's metadata and properties.</p>
+ * A structure that encapsulates a signaling channel's metadata and properties.
+ *
  * @public
  */
 export interface ChannelInfo {
   /**
-   * <p>The name of the signaling channel.</p>
+   * The name of the signaling channel.
+   *
    * @public
    */
   ChannelName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the signaling channel.</p>
+   * The Amazon Resource Name (ARN) of the signaling channel.
+   *
    * @public
    */
   ChannelARN?: string | undefined;
 
   /**
-   * <p>The type of the signaling channel.</p>
+   * The type of the signaling channel.
+   *
    * @public
    */
   ChannelType?: ChannelType | undefined;
 
   /**
-   * <p>Current status of the signaling channel.</p>
+   * Current status of the signaling channel.
+   *
    * @public
    */
   ChannelStatus?: Status | undefined;
 
   /**
-   * <p>The time at which the signaling channel was created.</p>
+   * The time at which the signaling channel was created.
+   *
    * @public
    */
   CreationTime?: Date | undefined;
 
   /**
-   * <p>A structure that contains the configuration for the <code>SINGLE_MASTER</code> channel
-   *             type.</p>
+   * A structure that contains the configuration for the `SINGLE_MASTER` channel type.
+   *
    * @public
    */
   SingleMasterConfiguration?: SingleMasterConfiguration | undefined;
 
   /**
-   * <p>The current version of the signaling channel.</p>
+   * The current version of the signaling channel.
+   *
    * @public
    */
   Version?: string | undefined;
 }
 
 /**
- * <p>An optional input parameter for the <code>ListSignalingChannels</code> API. When this
- *             parameter is specified while invoking <code>ListSignalingChannels</code>, the API
- *             returns only the channels that satisfy a condition specified in
- *                 <code>ChannelNameCondition</code>.</p>
+ * An optional input parameter for the `ListSignalingChannels` API. When this parameter is specified while invoking `ListSignalingChannels`, the API returns only the channels that satisfy a condition specified in `ChannelNameCondition`.
+ *
  * @public
  */
 export interface ChannelNameCondition {
   /**
-   * <p>A comparison operator. Currently, you can only specify the <code>BEGINS_WITH</code>
-   *             operator, which finds signaling channels whose names begin with a given prefix.</p>
+   * A comparison operator. Currently, you can only specify the `BEGINS_WITH` operator, which finds signaling channels whose names begin with a given prefix.
+   *
    * @public
    */
   ComparisonOperator?: ComparisonOperator | undefined;
 
   /**
-   * <p>A value to compare.</p>
+   * A value to compare.
+   *
    * @public
    */
   ComparisonValue?: string | undefined;
 }
 
 /**
- * <p>A key and value pair that is associated with the specified signaling channel.</p>
+ * A key and value pair that is associated with the specified signaling channel.
+ *
  * @public
  */
 export interface Tag {
   /**
-   * <p>The key of the tag that is associated with the specified signaling channel.</p>
+   * The key of the tag that is associated with the specified signaling channel.
+   *
    * @public
    */
   Key: string | undefined;
 
   /**
-   * <p>The value of the tag that is associated with the specified signaling channel.</p>
+   * The value of the tag that is associated with the specified signaling channel.
+   *
    * @public
    */
   Value: string | undefined;
@@ -129,28 +137,29 @@ export interface Tag {
  */
 export interface CreateSignalingChannelInput {
   /**
-   * <p>A name for the signaling channel that you are creating. It must be unique for each Amazon Web Services account and Amazon Web Services Region.</p>
+   * A name for the signaling channel that you are creating. It must be unique for each Amazon Web Services account and Amazon Web Services Region.
+   *
    * @public
    */
   ChannelName: string | undefined;
 
   /**
-   * <p>A type of the signaling channel that you are creating. Currently,
-   *                 <code>SINGLE_MASTER</code> is the only supported channel type. </p>
+   * A type of the signaling channel that you are creating. Currently, `SINGLE_MASTER` is the only supported channel type.
+   *
    * @public
    */
   ChannelType?: ChannelType | undefined;
 
   /**
-   * <p>A structure containing the configuration for the <code>SINGLE_MASTER</code> channel
-   *             type. The default configuration for the channel message's time to live is 60 seconds (1
-   *             minute).</p>
+   * A structure containing the configuration for the `SINGLE_MASTER` channel type. The default configuration for the channel message's time to live is 60 seconds (1 minute).
+   *
    * @public
    */
   SingleMasterConfiguration?: SingleMasterConfiguration | undefined;
 
   /**
-   * <p>A set of tags (key-value pairs) that you want to associate with this channel.</p>
+   * A set of tags (key-value pairs) that you want to associate with this channel.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -161,30 +170,27 @@ export interface CreateSignalingChannelInput {
  */
 export interface CreateSignalingChannelOutput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the created channel.</p>
+   * The Amazon Resource Name (ARN) of the created channel.
+   *
    * @public
    */
   ChannelARN?: string | undefined;
 }
 
 /**
- * <p>The configuration for stream storage, including the default storage tier for stream data. This configuration determines how stream data is stored and accessed, with different tiers offering varying levels of performance and cost optimization.</p>
+ * The configuration for stream storage, including the default storage tier for stream data. This configuration determines how stream data is stored and accessed, with different tiers offering varying levels of performance and cost optimization.
+ *
  * @public
  */
 export interface StreamStorageConfiguration {
   /**
-   * <p>The default storage tier for the stream data. This setting determines the storage class used for stream data, affecting both performance characteristics and storage costs.</p>
-   *          <p>Available storage tiers:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>HOT</code> - Optimized for frequent access with the lowest latency and highest performance. Ideal for real-time applications and frequently accessed data.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>WARM</code> - Balanced performance and cost for moderately accessed data. Suitable for data that is accessed regularly but not continuously.</p>
-   *             </li>
-   *          </ul>
+   * The default storage tier for the stream data. This setting determines the storage class used for stream data, affecting both performance characteristics and storage costs.
+   *
+   * Available storage tiers:
+   *
+   * - `HOT` - Optimized for frequent access with the lowest latency and highest performance. Ideal for real-time applications and frequently accessed data.
+   * - `WARM` - Balanced performance and cost for moderately accessed data. Suitable for data that is accessed regularly but not continuously.
+   *
    * @public
    */
   DefaultStorageTier: DefaultStorageTier | undefined;
@@ -195,66 +201,68 @@ export interface StreamStorageConfiguration {
  */
 export interface CreateStreamInput {
   /**
-   * <p>The name of the device that is writing to the stream. </p>
-   *          <note>
-   *             <p>In the current implementation, Kinesis Video Streams doesn't use this name.</p>
-   *          </note>
+   * The name of the device that is writing to the stream.
+   *
+   * > **Note:** In the current implementation, Kinesis Video Streams doesn't use this name.
+   *
    * @public
    */
   DeviceName?: string | undefined;
 
   /**
-   * <p>A name for the stream that you are creating.</p>
-   *          <p>The stream name is an identifier for the stream, and must be unique for each
-   *             account and region.</p>
+   * A name for the stream that you are creating.
+   *
+   * The stream name is an identifier for the stream, and must be unique for each account and region.
+   *
    * @public
    */
   StreamName: string | undefined;
 
   /**
-   * <p>The media type of the stream. Consumers of the stream can use this information when
-   *             processing the stream. For more information about media types, see <a href="http://www.iana.org/assignments/media-types/media-types.xhtml">Media
-   *                 Types</a>. If you choose to specify the <code>MediaType</code>, see <a href="https://tools.ietf.org/html/rfc6838#section-4.2">Naming Requirements</a>
-   *             for guidelines.</p>
-   *          <p>Example valid values include "video/h264" and "video/h264,audio/aac".</p>
-   *          <p>This parameter is optional; the default value is <code>null</code> (or empty in
-   *             JSON).</p>
+   * The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the `MediaType`, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
+   *
+   * Example valid values include "video/h264" and "video/h264,audio/aac".
+   *
+   * This parameter is optional; the default value is `null` (or empty in JSON).
+   *
    * @public
    */
   MediaType?: string | undefined;
 
   /**
-   * <p>The ID of the Key Management Service (KMS) key that you want Kinesis Video
-   *             Streams to use to encrypt stream data.</p>
-   *          <p>If no key ID is specified, the default, Kinesis Video-managed key
-   *             (<code>aws/kinesisvideo</code>) is used.</p>
-   *          <p> For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">DescribeKey</a>. </p>
+   * The ID of the Key Management Service (KMS) key that you want Kinesis Video Streams to use to encrypt stream data.
+   *
+   * If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
+   *
+   * For more information, see [DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters).
+   *
    * @public
    */
   KmsKeyId?: string | undefined;
 
   /**
-   * <p>The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream.</p>
-   *          <p>The default value is 0, indicating that the stream does not persist data. The minimum
-   *             is 1 hour.</p>
-   *          <p>When the <code>DataRetentionInHours</code> value is 0, consumers can still consume
-   *             the fragments that remain in the service host buffer, which has a retention time limit
-   *             of 5 minutes and a retention memory limit of 200 MB. Fragments are removed from the
-   *             buffer when either limit is reached.</p>
+   * The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream.
+   *
+   * The default value is 0, indicating that the stream does not persist data. The minimum is 1 hour.
+   *
+   * When the `DataRetentionInHours` value is 0, consumers can still consume the fragments that remain in the service host buffer, which has a retention time limit of 5 minutes and a retention memory limit of 200 MB. Fragments are removed from the buffer when either limit is reached.
+   *
    * @public
    */
   DataRetentionInHours?: number | undefined;
 
   /**
-   * <p>A list of tags to associate with the specified stream. Each tag is a key-value pair
-   *             (the value is optional).</p>
+   * A list of tags to associate with the specified stream. Each tag is a key-value pair (the value is optional).
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The configuration for the stream's storage, including the default storage tier for stream data. This configuration determines how stream data is stored and accessed, with different tiers offering varying levels of performance and cost optimization.</p>
-   *          <p>If not specified, the stream will use the default storage configuration with HOT tier for optimal performance.</p>
+   * The configuration for the stream's storage, including the default storage tier for stream data. This configuration determines how stream data is stored and accessed, with different tiers offering varying levels of performance and cost optimization.
+   *
+   * If not specified, the stream will use the default storage configuration with HOT tier for optimal performance.
+   *
    * @public
    */
   StreamStorageConfiguration?: StreamStorageConfiguration | undefined;
@@ -265,7 +273,8 @@ export interface CreateStreamInput {
  */
 export interface CreateStreamOutput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the stream.</p>
+   * The Amazon Resource Name (ARN) of the stream.
+   *
    * @public
    */
   StreamARN?: string | undefined;
@@ -276,13 +285,15 @@ export interface CreateStreamOutput {
  */
 export interface DeleteEdgeConfigurationInput {
   /**
-   * <p>The name of the stream from which to delete the edge configuration. Specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
+   * The name of the stream from which to delete the edge configuration. Specify either the `StreamName` or the `StreamARN`.
+   *
    * @public
    */
   StreamName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the stream. Specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
+   * The Amazon Resource Name (ARN) of the stream. Specify either the `StreamName` or the `StreamARN`.
+   *
    * @public
    */
   StreamARN?: string | undefined;
@@ -298,16 +309,15 @@ export interface DeleteEdgeConfigurationOutput {}
  */
 export interface DeleteSignalingChannelInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the signaling channel that you want to
-   *             delete.</p>
+   * The Amazon Resource Name (ARN) of the signaling channel that you want to delete.
+   *
    * @public
    */
   ChannelARN: string | undefined;
 
   /**
-   * <p>The current version of the signaling channel that you want to delete. You can obtain
-   *             the current version by invoking the <code>DescribeSignalingChannel</code> or
-   *                 <code>ListSignalingChannels</code> API operations.</p>
+   * The current version of the signaling channel that you want to delete. You can obtain the current version by invoking the `DescribeSignalingChannel` or `ListSignalingChannels` API operations.
+   *
    * @public
    */
   CurrentVersion?: string | undefined;
@@ -323,17 +333,19 @@ export interface DeleteSignalingChannelOutput {}
  */
 export interface DeleteStreamInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the stream that you want to delete. </p>
+   * The Amazon Resource Name (ARN) of the stream that you want to delete.
+   *
    * @public
    */
   StreamARN: string | undefined;
 
   /**
-   * <p>Optional: The version of the stream that you want to delete. </p>
-   *          <p>Specify the version as a safeguard to ensure that your are deleting the correct
-   *             stream. To get the stream version, use the <code>DescribeStream</code> API.</p>
-   *          <p>If not specified, only the <code>CreationTime</code> is checked before deleting the
-   *             stream.</p>
+   * Optional: The version of the stream that you want to delete.
+   *
+   * Specify the version as a safeguard to ensure that your are deleting the correct stream. To get the stream version, use the `DescribeStream` API.
+   *
+   * If not specified, only the `CreationTime` is checked before deleting the stream.
+   *
    * @public
    */
   CurrentVersion?: string | undefined;
@@ -345,52 +357,51 @@ export interface DeleteStreamInput {
 export interface DeleteStreamOutput {}
 
 /**
- * <p>The configuration details that include the maximum size of the media
- *             (<code>MaxLocalMediaSizeInMB</code>) that you want to
- *             store for a stream on the Edge Agent, as well as the strategy that should be used (<code>StrategyOnFullSize</code>) when a stream's
- *             maximum size has been reached.</p>
+ * The configuration details that include the maximum size of the media (`MaxLocalMediaSizeInMB`) that you want to store for a stream on the Edge Agent, as well as the strategy that should be used (`StrategyOnFullSize`) when a stream's maximum size has been reached.
+ *
  * @public
  */
 export interface LocalSizeConfig {
   /**
-   * <p>The overall maximum size of the media that you want to store for a stream on the Edge Agent. </p>
+   * The overall maximum size of the media that you want to store for a stream on the Edge Agent.
+   *
    * @public
    */
   MaxLocalMediaSizeInMB?: number | undefined;
 
   /**
-   * <p>The strategy to perform when a stream’s <code>MaxLocalMediaSizeInMB</code> limit is reached.</p>
+   * The strategy to perform when a stream’s `MaxLocalMediaSizeInMB` limit is reached.
+   *
    * @public
    */
   StrategyOnFullSize?: StrategyOnFullSize | undefined;
 }
 
 /**
- * <p>The configuration details required to delete the connection of the stream from the Edge Agent.</p>
+ * The configuration details required to delete the connection of the stream from the Edge Agent.
+ *
  * @public
  */
 export interface DeletionConfig {
   /**
-   * <p>The number of hours that you want to retain the data in the stream on the Edge Agent. The default value of the retention
-   *             time is 720 hours, which translates to 30 days.</p>
+   * The number of hours that you want to retain the data in the stream on the Edge Agent. The default value of the retention time is 720 hours, which translates to 30 days.
+   *
    * @public
    */
   EdgeRetentionInHours?: number | undefined;
 
   /**
-   * <p>The value of the local size required in order to delete the edge configuration.</p>
+   * The value of the local size required in order to delete the edge configuration.
+   *
    * @public
    */
   LocalSizeConfig?: LocalSizeConfig | undefined;
 
   /**
-   * <p>The <code>boolean</code> value used to indicate whether or not you want to mark the media for deletion, once it has been uploaded to
-   *             the Kinesis Video Stream cloud. The media files can be deleted if any of the deletion configuration values are
-   *             set to <code>true</code>, such as when the limit for the <code>EdgeRetentionInHours</code>, or the
-   *             <code>MaxLocalMediaSizeInMB</code>, has been reached.
-   *         </p>
-   *          <p>Since the default value is set to <code>true</code>, configure the uploader schedule such
-   *             that the media files are not being deleted before they are initially uploaded to the  Amazon Web Services cloud.</p>
+   * The `boolean` value used to indicate whether or not you want to mark the media for deletion, once it has been uploaded to the Kinesis Video Stream cloud. The media files can be deleted if any of the deletion configuration values are set to `true`, such as when the limit for the `EdgeRetentionInHours`, or the `MaxLocalMediaSizeInMB`, has been reached.
+   *
+   * Since the default value is set to `true`, configure the uploader schedule such that the media files are not being deleted before they are initially uploaded to the Amazon Web Services cloud.
+   *
    * @public
    */
   DeleteAfterUpload?: boolean | undefined;
@@ -401,227 +412,226 @@ export interface DeletionConfig {
  */
 export interface DescribeEdgeConfigurationInput {
   /**
-   * <p>The name of the stream whose edge configuration you want to update. Specify either the <code>StreamName</code> or
-   *             the <code>StreamARN</code>.
-   *         </p>
+   * The name of the stream whose edge configuration you want to update. Specify either the `StreamName` or the `StreamARN`.
+   *
    * @public
    */
   StreamName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the stream. Specify either the <code>StreamName</code>or the <code>StreamARN</code>.</p>
+   * The Amazon Resource Name (ARN) of the stream. Specify either the `StreamName`or the `StreamARN`.
+   *
    * @public
    */
   StreamARN?: string | undefined;
 }
 
 /**
- * <p>The latest status of a stream's edge recording job.</p>
+ * The latest status of a stream's edge recording job.
+ *
  * @public
  */
 export interface LastRecorderStatus {
   /**
-   * <p>A description of a recorder job’s latest status.</p>
+   * A description of a recorder job’s latest status.
+   *
    * @public
    */
   JobStatusDetails?: string | undefined;
 
   /**
-   * <p>The timestamp at which the recorder job was last executed and media stored to local disk.</p>
+   * The timestamp at which the recorder job was last executed and media stored to local disk.
+   *
    * @public
    */
   LastCollectedTime?: Date | undefined;
 
   /**
-   * <p>The timestamp at which the recorder status was last updated.</p>
+   * The timestamp at which the recorder status was last updated.
+   *
    * @public
    */
   LastUpdatedTime?: Date | undefined;
 
   /**
-   * <p>The status of the latest recorder job.</p>
+   * The status of the latest recorder job.
+   *
    * @public
    */
   RecorderStatus?: RecorderStatus | undefined;
 }
 
 /**
- * <p>The latest status of a stream’s edge to cloud uploader job.</p>
+ * The latest status of a stream’s edge to cloud uploader job.
+ *
  * @public
  */
 export interface LastUploaderStatus {
   /**
-   * <p>A description of an uploader job’s latest status.</p>
+   * A description of an uploader job’s latest status.
+   *
    * @public
    */
   JobStatusDetails?: string | undefined;
 
   /**
-   * <p>The timestamp at which the uploader job was last executed and media collected to the cloud.</p>
+   * The timestamp at which the uploader job was last executed and media collected to the cloud.
+   *
    * @public
    */
   LastCollectedTime?: Date | undefined;
 
   /**
-   * <p>The timestamp at which the uploader status was last updated.</p>
+   * The timestamp at which the uploader status was last updated.
+   *
    * @public
    */
   LastUpdatedTime?: Date | undefined;
 
   /**
-   * <p>The status of the latest uploader job.</p>
+   * The status of the latest uploader job.
+   *
    * @public
    */
   UploaderStatus?: UploaderStatus | undefined;
 }
 
 /**
- * <p>An object that contains the latest status details for an edge agent's recorder and uploader jobs. Use this information to determine the current health of an edge agent.</p>
+ * An object that contains the latest status details for an edge agent's recorder and uploader jobs. Use this information to determine the current health of an edge agent.
+ *
  * @public
  */
 export interface EdgeAgentStatus {
   /**
-   * <p>The latest status of a stream’s edge recording job.</p>
+   * The latest status of a stream’s edge recording job.
+   *
    * @public
    */
   LastRecorderStatus?: LastRecorderStatus | undefined;
 
   /**
-   * <p>The latest status of a stream’s edge to cloud uploader job.</p>
+   * The latest status of a stream’s edge to cloud uploader job.
+   *
    * @public
    */
   LastUploaderStatus?: LastUploaderStatus | undefined;
 }
 
 /**
- * <p>The configuration details that consist of the credentials required
- *             (<code>MediaUriSecretArn</code> and <code>MediaUriType</code>) to access the media files that are
- *             streamed to the camera.</p>
+ * The configuration details that consist of the credentials required (`MediaUriSecretArn` and `MediaUriType`) to access the media files that are streamed to the camera.
+ *
  * @public
  */
 export interface MediaSourceConfig {
   /**
-   * <p>The Amazon Web Services Secrets Manager ARN for the username and password of the camera, or a local media file location.</p>
+   * The Amazon Web Services Secrets Manager ARN for the username and password of the camera, or a local media file location.
+   *
    * @public
    */
   MediaUriSecretArn: string | undefined;
 
   /**
-   * <p>The Uniform Resource Identifier (URI) type. The <code>FILE_URI</code> value can be used to stream
-   *             local media files.</p>
-   *          <note>
-   *             <p>Preview only supports the <code>RTSP_URI</code> media source URI format .</p>
-   *          </note>
+   * The Uniform Resource Identifier (URI) type. The `FILE_URI` value can be used to stream local media files.
+   *
+   * > **Note:** Preview only supports the `RTSP_URI` media source URI format .
+   *
    * @public
    */
   MediaUriType: MediaUriType | undefined;
 }
 
 /**
- * <p>This API enables you to specify the duration that the camera,
- *             or local media file, should record onto the Edge Agent. The <code>ScheduleConfig</code> consists of the <code>ScheduleExpression</code> and the
- *             <code>DurationInMinutes</code> attributes. </p>
- *          <p>If the <code>ScheduleConfig</code> is not provided in the <code>RecorderConfig</code>,
- *                 then the Edge Agent will always be set to recording mode.</p>
- *          <p>If the <code>ScheduleConfig</code> is not provided in the <code>UploaderConfig</code>,
- *             then the Edge Agent will upload at regular intervals (every 1 hour).</p>
+ * This API enables you to specify the duration that the camera, or local media file, should record onto the Edge Agent. The `ScheduleConfig` consists of the `ScheduleExpression` and the `DurationInMinutes` attributes.
+ *
+ * If the `ScheduleConfig` is not provided in the `RecorderConfig`, then the Edge Agent will always be set to recording mode.
+ *
+ * If the `ScheduleConfig` is not provided in the `UploaderConfig`, then the Edge Agent will upload at regular intervals (every 1 hour).
+ *
  * @public
  */
 export interface ScheduleConfig {
   /**
-   * <p>The Quartz cron expression that takes care of scheduling jobs to record from the
-   *             camera, or local media file, onto the Edge Agent. If the <code>ScheduleExpression</code> is not provided for the <code>RecorderConfig</code>,
-   *             then the Edge Agent will always be set to recording mode.</p>
-   *          <p>For more information about Quartz, refer to the
-   *             <a href="https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html">
-   *                <i>Cron Trigger Tutorial</i>
-   *             </a> page to understand the valid expressions and its use.</p>
+   * The Quartz cron expression that takes care of scheduling jobs to record from the camera, or local media file, onto the Edge Agent. If the `ScheduleExpression` is not provided for the `RecorderConfig`, then the Edge Agent will always be set to recording mode.
+   *
+   * For more information about Quartz, refer to the [*Cron Trigger Tutorial*](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) page to understand the valid expressions and its use.
+   *
    * @public
    */
   ScheduleExpression: string | undefined;
 
   /**
-   * <p>The total duration to record the media. If the <code>ScheduleExpression</code> attribute is provided, then the
-   *         <code>DurationInSeconds</code> attribute should also be specified.</p>
+   * The total duration to record the media. If the `ScheduleExpression` attribute is provided, then the `DurationInSeconds` attribute should also be specified.
+   *
    * @public
    */
   DurationInSeconds: number | undefined;
 }
 
 /**
- * <p>The recorder configuration consists of the local <code>MediaSourceConfig</code> details that are used as
- *             credentials to access the local media files streamed on the camera. </p>
+ * The recorder configuration consists of the local `MediaSourceConfig` details that are used as credentials to access the local media files streamed on the camera.
+ *
  * @public
  */
 export interface RecorderConfig {
   /**
-   * <p>The configuration details that consist of the credentials required
-   *             (<code>MediaUriSecretArn</code> and <code>MediaUriType</code>) to access the media files
-   *             streamed to the camera.
-   *             </p>
+   * The configuration details that consist of the credentials required (`MediaUriSecretArn` and `MediaUriType`) to access the media files streamed to the camera.
+   *
    * @public
    */
   MediaSourceConfig: MediaSourceConfig | undefined;
 
   /**
-   * <p>The configuration that consists of the <code>ScheduleExpression</code> and the
-   *             <code>DurationInMinutes</code> details that specify the scheduling to record from a camera, or
-   *         local media file, onto the Edge Agent. If the <code>ScheduleExpression</code> attribute is not provided,
-   *         then the Edge Agent will always be set to recording mode.</p>
+   * The configuration that consists of the `ScheduleExpression` and the `DurationInMinutes` details that specify the scheduling to record from a camera, or local media file, onto the Edge Agent. If the `ScheduleExpression` attribute is not provided, then the Edge Agent will always be set to recording mode.
+   *
    * @public
    */
   ScheduleConfig?: ScheduleConfig | undefined;
 }
 
 /**
- * <p>The configuration that consists of the <code>ScheduleExpression</code>
- *             and the <code>DurationInMinutes</code> details that specify the scheduling to record from a camera,
- *             or local media file, onto the Edge Agent. If the <code>ScheduleConfig</code>
- *             is not provided in the <code>UploaderConfig</code>, then the Edge Agent will upload at regular intervals (every 1 hour).
- *         </p>
+ * The configuration that consists of the `ScheduleExpression` and the `DurationInMinutes` details that specify the scheduling to record from a camera, or local media file, onto the Edge Agent. If the `ScheduleConfig` is not provided in the `UploaderConfig`, then the Edge Agent will upload at regular intervals (every 1 hour).
+ *
  * @public
  */
 export interface UploaderConfig {
   /**
-   * <p>The configuration that consists of the <code>ScheduleExpression</code> and the
-   *             <code>DurationInMinutes</code> details that specify the scheduling to record from a camera, or
-   *             local media file, onto the Edge Agent. If the <code>ScheduleConfig</code> is not provided in this <code>UploaderConfig</code>,
-   *             then the Edge Agent will upload at regular intervals (every 1 hour).</p>
+   * The configuration that consists of the `ScheduleExpression` and the `DurationInMinutes` details that specify the scheduling to record from a camera, or local media file, onto the Edge Agent. If the `ScheduleConfig` is not provided in this `UploaderConfig`, then the Edge Agent will upload at regular intervals (every 1 hour).
+   *
    * @public
    */
   ScheduleConfig: ScheduleConfig | undefined;
 }
 
 /**
- * <p>A description of the stream's edge configuration that will be used to sync
- *             with the Edge Agent IoT Greengrass component. The Edge Agent component will run
- *             on an IoT Hub Device setup at your premise.</p>
+ * A description of the stream's edge configuration that will be used to sync with the Edge Agent IoT Greengrass component. The Edge Agent component will run on an IoT Hub Device setup at your premise.
+ *
  * @public
  */
 export interface EdgeConfig {
   /**
-   * <p>The "<b>Internet of Things (IoT) Thing</b>" Arn of the stream.</p>
+   * The "**Internet of Things (IoT) Thing**" Arn of the stream.
+   *
    * @public
    */
   HubDeviceArn: string | undefined;
 
   /**
-   * <p>The recorder configuration consists of the local <code>MediaSourceConfig</code> details, that are used as
-   *             credentials to access the local media files streamed on the camera. </p>
+   * The recorder configuration consists of the local `MediaSourceConfig` details, that are used as credentials to access the local media files streamed on the camera.
+   *
    * @public
    */
   RecorderConfig: RecorderConfig | undefined;
 
   /**
-   * <p>The uploader configuration contains the <code>ScheduleExpression</code> details that are used to
-   *             schedule upload jobs for the recorded media files from the Edge Agent to a Kinesis Video Stream.</p>
+   * The uploader configuration contains the `ScheduleExpression` details that are used to schedule upload jobs for the recorded media files from the Edge Agent to a Kinesis Video Stream.
+   *
    * @public
    */
   UploaderConfig?: UploaderConfig | undefined;
 
   /**
-   * <p>The deletion configuration is made up of the retention time (<code>EdgeRetentionInHours</code>) and local size configuration
-   *         (<code>LocalSizeConfig</code>) details that are used to make the deletion.</p>
+   * The deletion configuration is made up of the retention time (`EdgeRetentionInHours`) and local size configuration (`LocalSizeConfig`) details that are used to make the deletion.
+   *
    * @public
    */
   DeletionConfig?: DeletionConfig | undefined;
@@ -632,51 +642,57 @@ export interface EdgeConfig {
  */
 export interface DescribeEdgeConfigurationOutput {
   /**
-   * <p>The name of the stream from which the edge configuration was updated.</p>
+   * The name of the stream from which the edge configuration was updated.
+   *
    * @public
    */
   StreamName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the stream.</p>
+   * The Amazon Resource Name (ARN) of the stream.
+   *
    * @public
    */
   StreamARN?: string | undefined;
 
   /**
-   * <p>The timestamp at which a stream’s edge configuration was first created.</p>
+   * The timestamp at which a stream’s edge configuration was first created.
+   *
    * @public
    */
   CreationTime?: Date | undefined;
 
   /**
-   * <p>The timestamp at which a stream’s edge configuration was last updated.</p>
+   * The timestamp at which a stream’s edge configuration was last updated.
+   *
    * @public
    */
   LastUpdatedTime?: Date | undefined;
 
   /**
-   * <p>The latest status of the edge configuration update.</p>
+   * The latest status of the edge configuration update.
+   *
    * @public
    */
   SyncStatus?: SyncStatus | undefined;
 
   /**
-   * <p>A description of the generated failure status.</p>
+   * A description of the generated failure status.
+   *
    * @public
    */
   FailedStatusDetails?: string | undefined;
 
   /**
-   * <p>A description of the stream's edge configuration that will be used to sync
-   *             with the Edge Agent IoT Greengrass component. The Edge Agent component will run
-   *             on an IoT Hub Device setup at your premise.</p>
+   * A description of the stream's edge configuration that will be used to sync with the Edge Agent IoT Greengrass component. The Edge Agent component will run on an IoT Hub Device setup at your premise.
+   *
    * @public
    */
   EdgeConfig?: EdgeConfig | undefined;
 
   /**
-   * <p>An object that contains the latest status details for an edge agent's recorder and uploader jobs. Use this information to determine the current health of an edge agent.</p>
+   * An object that contains the latest status details for an edge agent's recorder and uploader jobs. Use this information to determine the current health of an edge agent.
+   *
    * @public
    */
   EdgeAgentStatus?: EdgeAgentStatus | undefined;
@@ -687,95 +703,99 @@ export interface DescribeEdgeConfigurationOutput {
  */
 export interface DescribeImageGenerationConfigurationInput {
   /**
-   * <p>The name of the stream from which to retrieve the image generation configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.  </p>
+   * The name of the stream from which to retrieve the image generation configuration. You must specify either the `StreamName` or the `StreamARN`.
+   *
    * @public
    */
   StreamName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Kinesis video stream from which to retrieve the image generation configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
+   * The Amazon Resource Name (ARN) of the Kinesis video stream from which to retrieve the image generation configuration. You must specify either the `StreamName` or the `StreamARN`.
+   *
    * @public
    */
   StreamARN?: string | undefined;
 }
 
 /**
- * <p>The structure that contains the information required to deliver images to a customer.</p>
+ * The structure that contains the information required to deliver images to a customer.
+ *
  * @public
  */
 export interface ImageGenerationDestinationConfig {
   /**
-   * <p>The Uniform Resource Identifier (URI) that identifies where the images will be delivered.</p>
+   * The Uniform Resource Identifier (URI) that identifies where the images will be delivered.
+   *
    * @public
    */
   Uri: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region of the S3 bucket where images will be delivered. This <code>DestinationRegion</code> must match the Region where the stream is located.</p>
+   * The Amazon Web Services Region of the S3 bucket where images will be delivered. This `DestinationRegion` must match the Region where the stream is located.
+   *
    * @public
    */
   DestinationRegion: string | undefined;
 }
 
 /**
- * <p>The structure that contains the information required for the KVS images delivery. If null, the configuration will be deleted from the stream.</p>
+ * The structure that contains the information required for the KVS images delivery. If null, the configuration will be deleted from the stream.
+ *
  * @public
  */
 export interface ImageGenerationConfiguration {
   /**
-   * <p>Indicates whether the <code>ContinuousImageGenerationConfigurations</code> API is enabled or disabled.</p>
+   * Indicates whether the `ContinuousImageGenerationConfigurations` API is enabled or disabled.
+   *
    * @public
    */
   Status: ConfigurationStatus | undefined;
 
   /**
-   * <p>The origin of the Server or Producer timestamps to use to generate the images.</p>
+   * The origin of the Server or Producer timestamps to use to generate the images.
+   *
    * @public
    */
   ImageSelectorType: ImageSelectorType | undefined;
 
   /**
-   * <p>The structure that contains the information required to deliver images to a customer.</p>
+   * The structure that contains the information required to deliver images to a customer.
+   *
    * @public
    */
   DestinationConfig: ImageGenerationDestinationConfig | undefined;
 
   /**
-   * <p>The time interval in milliseconds (ms) at which the images need to be generated from the stream. The minimum value that can be provided is 200 ms. If the timestamp range is less than the sampling interval, the
-   *             Image from the <code>StartTimestamp</code> will be returned if available. </p>
+   * The time interval in milliseconds (ms) at which the images need to be generated from the stream. The minimum value that can be provided is 200 ms. If the timestamp range is less than the sampling interval, the Image from the `StartTimestamp` will be returned if available.
+   *
    * @public
    */
   SamplingInterval: number | undefined;
 
   /**
-   * <p>The accepted image format.</p>
+   * The accepted image format.
+   *
    * @public
    */
   Format: Format | undefined;
 
   /**
-   * <p>The list of a key-value pair structure that contains extra parameters that can be applied when the image is generated.
-   *             The <code>FormatConfig</code> key is the <code>JPEGQuality</code>, which indicates the JPEG quality key to be used to generate the image.
-   *             The <code>FormatConfig</code> value accepts ints from 1 to 100. If the value is 1, the image will be generated with less quality and the best compression.
-   *             If the value is 100, the image will be generated with the best quality and less compression. If no value is provided, the default value of the <code>JPEGQuality</code>
-   *             key will be set to 80.</p>
+   * The list of a key-value pair structure that contains extra parameters that can be applied when the image is generated. The `FormatConfig` key is the `JPEGQuality`, which indicates the JPEG quality key to be used to generate the image. The `FormatConfig` value accepts ints from 1 to 100. If the value is 1, the image will be generated with less quality and the best compression. If the value is 100, the image will be generated with the best quality and less compression. If no value is provided, the default value of the `JPEGQuality` key will be set to 80.
+   *
    * @public
    */
   FormatConfig?: Partial<Record<FormatConfigKey, string>> | undefined;
 
   /**
-   * <p>The width of the output image that is used in conjunction with the <code>HeightPixels</code> parameter. When both <code>WidthPixels</code> and
-   *             <code>HeightPixels</code> parameters are provided, the image will be stretched to fit the specified aspect ratio. If only the <code>WidthPixels</code> parameter is
-   *             provided, its original aspect ratio will be used to calculate the <code>HeightPixels</code> ratio. If neither parameter is provided, the original image size will be returned.</p>
+   * The width of the output image that is used in conjunction with the `HeightPixels` parameter. When both `WidthPixels` and `HeightPixels` parameters are provided, the image will be stretched to fit the specified aspect ratio. If only the `WidthPixels` parameter is provided, its original aspect ratio will be used to calculate the `HeightPixels` ratio. If neither parameter is provided, the original image size will be returned.
+   *
    * @public
    */
   WidthPixels?: number | undefined;
 
   /**
-   * <p>The height of the output image that is used in conjunction with the <code>WidthPixels</code> parameter. When both
-   *             <code>HeightPixels</code> and <code>WidthPixels</code> parameters are provided, the image will be stretched to fit the specified aspect ratio.
-   *             If only the <code>HeightPixels</code> parameter is provided, its original aspect ratio will be used to calculate the <code>WidthPixels</code> ratio.
-   *             If neither parameter is provided, the original image size will be returned.</p>
+   * The height of the output image that is used in conjunction with the `WidthPixels` parameter. When both `HeightPixels` and `WidthPixels` parameters are provided, the image will be stretched to fit the specified aspect ratio. If only the `HeightPixels` parameter is provided, its original aspect ratio will be used to calculate the `WidthPixels` ratio. If neither parameter is provided, the original image size will be returned.
+   *
    * @public
    */
   HeightPixels?: number | undefined;
@@ -786,7 +806,8 @@ export interface ImageGenerationConfiguration {
  */
 export interface DescribeImageGenerationConfigurationOutput {
   /**
-   * <p>The structure that contains the information required for the Kinesis video stream (KVS) images delivery. If this structure is null, the configuration will be deleted from the stream.</p>
+   * The structure that contains the information required for the Kinesis video stream (KVS) images delivery. If this structure is null, the configuration will be deleted from the stream.
+   *
    * @public
    */
   ImageGenerationConfiguration?: ImageGenerationConfiguration | undefined;
@@ -797,43 +818,50 @@ export interface DescribeImageGenerationConfigurationOutput {
  */
 export interface DescribeMappedResourceConfigurationInput {
   /**
-   * <p>The name of the stream.</p>
+   * The name of the stream.
+   *
    * @public
    */
   StreamName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the stream.</p>
+   * The Amazon Resource Name (ARN) of the stream.
+   *
    * @public
    */
   StreamARN?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in the response.</p>
+   * The maximum number of results to return in the response.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token to provide in your next request, to get another batch of results.</p>
+   * The token to provide in your next request, to get another batch of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>A structure that encapsulates, or contains, the media storage configuration properties.</p>
+ * A structure that encapsulates, or contains, the media storage configuration properties.
+ *
  * @public
  */
 export interface MappedResourceConfigurationListItem {
   /**
-   * <p>The type of the associated resource for the kinesis video stream.</p>
+   * The type of the associated resource for the kinesis video stream.
+   *
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Kinesis Video Stream resource, associated with the stream.</p>
+   * The Amazon Resource Name (ARN) of the Kinesis Video Stream resource, associated with the stream.
+   *
    * @public
    */
   ARN?: string | undefined;
@@ -844,13 +872,15 @@ export interface MappedResourceConfigurationListItem {
  */
 export interface DescribeMappedResourceConfigurationOutput {
   /**
-   * <p>A structure that encapsulates, or contains, the media storage configuration properties.</p>
+   * A structure that encapsulates, or contains, the media storage configuration properties.
+   *
    * @public
    */
   MappedResourceConfigurationList?: MappedResourceConfigurationListItem[] | undefined;
 
   /**
-   * <p>The token that was used in the <code>NextToken</code>request to fetch the next set of results. </p>
+   * The token that was used in the `NextToken`request to fetch the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -861,43 +891,39 @@ export interface DescribeMappedResourceConfigurationOutput {
  */
 export interface DescribeMediaStorageConfigurationInput {
   /**
-   * <p>The name of the channel.</p>
+   * The name of the channel.
+   *
    * @public
    */
   ChannelName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the channel.</p>
+   * The Amazon Resource Name (ARN) of the channel.
+   *
    * @public
    */
   ChannelARN?: string | undefined;
 }
 
 /**
- * <p>A structure that encapsulates, or contains, the media storage configuration
- *             properties.</p>
- *          <ul>
- *             <li>
- *                <p>If <code>StorageStatus</code> is enabled, the data will be stored in the
- *                         <code>StreamARN</code> provided. In order for WebRTC Ingestion to work, the stream must have data retention
- *                     enabled.</p>
- *             </li>
- *             <li>
- *                <p>If <code>StorageStatus</code> is disabled, no data will be stored, and the
- *                         <code>StreamARN</code> parameter will not be needed. </p>
- *             </li>
- *          </ul>
+ * A structure that encapsulates, or contains, the media storage configuration properties.
+ *
+ * - If `StorageStatus` is enabled, the data will be stored in the `StreamARN` provided. In order for WebRTC Ingestion to work, the stream must have data retention enabled.
+ * - If `StorageStatus` is disabled, no data will be stored, and the `StreamARN` parameter will not be needed.
+ *
  * @public
  */
 export interface MediaStorageConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the stream. </p>
+   * The Amazon Resource Name (ARN) of the stream.
+   *
    * @public
    */
   StreamARN?: string | undefined;
 
   /**
-   * <p>The status of the media storage configuration.</p>
+   * The status of the media storage configuration.
+   *
    * @public
    */
   Status: MediaStorageConfigurationStatus | undefined;
@@ -908,7 +934,8 @@ export interface MediaStorageConfiguration {
  */
 export interface DescribeMediaStorageConfigurationOutput {
   /**
-   * <p>A structure that encapsulates, or contains, the media storage configuration properties.</p>
+   * A structure that encapsulates, or contains, the media storage configuration properties.
+   *
    * @public
    */
   MediaStorageConfiguration?: MediaStorageConfiguration | undefined;
@@ -919,47 +946,52 @@ export interface DescribeMediaStorageConfigurationOutput {
  */
 export interface DescribeNotificationConfigurationInput {
   /**
-   * <p>The name of the stream from which to retrieve the notification configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
+   * The name of the stream from which to retrieve the notification configuration. You must specify either the `StreamName` or the `StreamARN`.
+   *
    * @public
    */
   StreamName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Kinesis video stream from where you want to retrieve the notification configuration. You must specify either the <code>StreamName</code> or the StreamARN.</p>
+   * The Amazon Resource Name (ARN) of the Kinesis video stream from where you want to retrieve the notification configuration. You must specify either the `StreamName` or the StreamARN.
+   *
    * @public
    */
   StreamARN?: string | undefined;
 }
 
 /**
- * <p>The structure that contains the information required to deliver a notification to a customer.</p>
+ * The structure that contains the information required to deliver a notification to a customer.
+ *
  * @public
  */
 export interface NotificationDestinationConfig {
   /**
-   * <p>The Uniform Resource Identifier (URI) that identifies where the images will be delivered.</p>
+   * The Uniform Resource Identifier (URI) that identifies where the images will be delivered.
+   *
    * @public
    */
   Uri: string | undefined;
 }
 
 /**
- * <p>Use this API to configure Amazon Simple Notification Service (Amazon SNS)
- *             notifications for when fragments become available in a stream. If this parameter is
- *             null, the configuration will be deleted from the stream.</p>
- *          <p>See <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/notifications.html">Notifications in Kinesis
- *                 Video Streams</a> for more information.</p>
+ * Use this API to configure Amazon Simple Notification Service (Amazon SNS) notifications for when fragments become available in a stream. If this parameter is null, the configuration will be deleted from the stream.
+ *
+ * See [Notifications in Kinesis Video Streams](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/notifications.html) for more information.
+ *
  * @public
  */
 export interface NotificationConfiguration {
   /**
-   * <p>Indicates if a notification configuration is enabled or disabled.</p>
+   * Indicates if a notification configuration is enabled or disabled.
+   *
    * @public
    */
   Status: ConfigurationStatus | undefined;
 
   /**
-   * <p>The destination information required to deliver a notification to a customer.</p>
+   * The destination information required to deliver a notification to a customer.
+   *
    * @public
    */
   DestinationConfig: NotificationDestinationConfig | undefined;
@@ -970,7 +1002,8 @@ export interface NotificationConfiguration {
  */
 export interface DescribeNotificationConfigurationOutput {
   /**
-   * <p>The structure that contains the information required for notifications. If the structure is null, the configuration will be deleted from the stream.</p>
+   * The structure that contains the information required for notifications. If the structure is null, the configuration will be deleted from the stream.
+   *
    * @public
    */
   NotificationConfiguration?: NotificationConfiguration | undefined;
@@ -981,13 +1014,15 @@ export interface DescribeNotificationConfigurationOutput {
  */
 export interface DescribeSignalingChannelInput {
   /**
-   * <p>The name of the signaling channel that you want to describe.</p>
+   * The name of the signaling channel that you want to describe.
+   *
    * @public
    */
   ChannelName?: string | undefined;
 
   /**
-   * <p>The ARN of the signaling channel that you want to describe.</p>
+   * The ARN of the signaling channel that you want to describe.
+   *
    * @public
    */
   ChannelARN?: string | undefined;
@@ -998,8 +1033,8 @@ export interface DescribeSignalingChannelInput {
  */
 export interface DescribeSignalingChannelOutput {
   /**
-   * <p>A structure that encapsulates the specified signaling channel's metadata and
-   *             properties.</p>
+   * A structure that encapsulates the specified signaling channel's metadata and properties.
+   *
    * @public
    */
   ChannelInfo?: ChannelInfo | undefined;
@@ -1010,74 +1045,85 @@ export interface DescribeSignalingChannelOutput {
  */
 export interface DescribeStreamInput {
   /**
-   * <p>The name of the stream.</p>
+   * The name of the stream.
+   *
    * @public
    */
   StreamName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the stream.</p>
+   * The Amazon Resource Name (ARN) of the stream.
+   *
    * @public
    */
   StreamARN?: string | undefined;
 }
 
 /**
- * <p>An object describing a Kinesis video stream.</p>
+ * An object describing a Kinesis video stream.
+ *
  * @public
  */
 export interface StreamInfo {
   /**
-   * <p>The name of the device that is associated with the stream.</p>
+   * The name of the device that is associated with the stream.
+   *
    * @public
    */
   DeviceName?: string | undefined;
 
   /**
-   * <p>The name of the stream.</p>
+   * The name of the stream.
+   *
    * @public
    */
   StreamName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the stream.</p>
+   * The Amazon Resource Name (ARN) of the stream.
+   *
    * @public
    */
   StreamARN?: string | undefined;
 
   /**
-   * <p>The <code>MediaType</code> of the stream. </p>
+   * The `MediaType` of the stream.
+   *
    * @public
    */
   MediaType?: string | undefined;
 
   /**
-   * <p>The ID of the Key Management Service (KMS) key that Kinesis Video Streams
-   *             uses to encrypt data on the stream.</p>
+   * The ID of the Key Management Service (KMS) key that Kinesis Video Streams uses to encrypt data on the stream.
+   *
    * @public
    */
   KmsKeyId?: string | undefined;
 
   /**
-   * <p>The version of the stream.</p>
+   * The version of the stream.
+   *
    * @public
    */
   Version?: string | undefined;
 
   /**
-   * <p>The status of the stream.</p>
+   * The status of the stream.
+   *
    * @public
    */
   Status?: Status | undefined;
 
   /**
-   * <p>A time stamp that indicates when the stream was created.</p>
+   * A time stamp that indicates when the stream was created.
+   *
    * @public
    */
   CreationTime?: Date | undefined;
 
   /**
-   * <p>How long the stream retains data, in hours.</p>
+   * How long the stream retains data, in hours.
+   *
    * @public
    */
   DataRetentionInHours?: number | undefined;
@@ -1088,7 +1134,8 @@ export interface StreamInfo {
  */
 export interface DescribeStreamOutput {
   /**
-   * <p>An object that describes the stream.</p>
+   * An object that describes the stream.
+   *
    * @public
    */
   StreamInfo?: StreamInfo | undefined;
@@ -1099,13 +1146,15 @@ export interface DescribeStreamOutput {
  */
 export interface DescribeStreamStorageConfigurationInput {
   /**
-   * <p>The name of the stream for which you want to retrieve the storage configuration.</p>
+   * The name of the stream for which you want to retrieve the storage configuration.
+   *
    * @public
    */
   StreamName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the stream for which you want to retrieve the storage configuration.</p>
+   * The Amazon Resource Name (ARN) of the stream for which you want to retrieve the storage configuration.
+   *
    * @public
    */
   StreamARN?: string | undefined;
@@ -1116,19 +1165,22 @@ export interface DescribeStreamStorageConfigurationInput {
  */
 export interface DescribeStreamStorageConfigurationOutput {
   /**
-   * <p>The name of the stream.</p>
+   * The name of the stream.
+   *
    * @public
    */
   StreamName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the stream.</p>
+   * The Amazon Resource Name (ARN) of the stream.
+   *
    * @public
    */
   StreamARN?: string | undefined;
 
   /**
-   * <p>The current storage configuration for the stream, including the default storage tier and other storage-related settings.</p>
+   * The current storage configuration for the stream, including the default storage tier and other storage-related settings.
+   *
    * @public
    */
   StreamStorageConfiguration?: StreamStorageConfiguration | undefined;
@@ -1139,22 +1191,22 @@ export interface DescribeStreamStorageConfigurationOutput {
  */
 export interface GetDataEndpointInput {
   /**
-   * <p>The name of the stream that you want to get the endpoint for. You must specify
-   *             either this parameter or a <code>StreamARN</code> in the request.</p>
+   * The name of the stream that you want to get the endpoint for. You must specify either this parameter or a `StreamARN` in the request.
+   *
    * @public
    */
   StreamName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the stream that you want to get the endpoint for.
-   *             You must specify either this parameter or a <code>StreamName</code> in the request.
-   *         </p>
+   * The Amazon Resource Name (ARN) of the stream that you want to get the endpoint for. You must specify either this parameter or a `StreamName` in the request.
+   *
    * @public
    */
   StreamARN?: string | undefined;
 
   /**
-   * <p>The name of the API action for which to get an endpoint.</p>
+   * The name of the API action for which to get an endpoint.
+   *
    * @public
    */
   APIName: APIName | undefined;
@@ -1165,35 +1217,29 @@ export interface GetDataEndpointInput {
  */
 export interface GetDataEndpointOutput {
   /**
-   * <p>The endpoint value. To read data from the stream or to write data to it, specify
-   *             this endpoint in your application.</p>
+   * The endpoint value. To read data from the stream or to write data to it, specify this endpoint in your application.
+   *
    * @public
    */
   DataEndpoint?: string | undefined;
 }
 
 /**
- * <p>An object that contains the endpoint configuration for the <code>SINGLE_MASTER</code>
- *             channel type. </p>
+ * An object that contains the endpoint configuration for the `SINGLE_MASTER` channel type.
+ *
  * @public
  */
 export interface SingleMasterChannelEndpointConfiguration {
   /**
-   * <p>This property is used to determine the nature of communication over this
-   *                 <code>SINGLE_MASTER</code> signaling channel. If <code>WSS</code> is specified, this
-   *             API returns a websocket endpoint. If <code>HTTPS</code> is specified, this API returns
-   *             an <code>HTTPS</code> endpoint.</p>
+   * This property is used to determine the nature of communication over this `SINGLE_MASTER` signaling channel. If `WSS` is specified, this API returns a websocket endpoint. If `HTTPS` is specified, this API returns an `HTTPS` endpoint.
+   *
    * @public
    */
   Protocols?: ChannelProtocol[] | undefined;
 
   /**
-   * <p>This property is used to determine messaging permissions in this
-   *                 <code>SINGLE_MASTER</code> signaling channel. If <code>MASTER</code> is specified,
-   *             this API returns an endpoint that a client can use to receive offers from and send
-   *             answers to any of the viewers on this signaling channel. If <code>VIEWER</code> is
-   *             specified, this API returns an endpoint that a client can use only to send offers to
-   *             another <code>MASTER</code> client on this signaling channel. </p>
+   * This property is used to determine messaging permissions in this `SINGLE_MASTER` signaling channel. If `MASTER` is specified, this API returns an endpoint that a client can use to receive offers from and send answers to any of the viewers on this signaling channel. If `VIEWER` is specified, this API returns an endpoint that a client can use only to send offers to another `MASTER` client on this signaling channel.
+   *
    * @public
    */
   Role?: ChannelRole | undefined;
@@ -1204,37 +1250,38 @@ export interface SingleMasterChannelEndpointConfiguration {
  */
 export interface GetSignalingChannelEndpointInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the signalling channel for which you want to get an
-   *             endpoint.</p>
+   * The Amazon Resource Name (ARN) of the signalling channel for which you want to get an endpoint.
+   *
    * @public
    */
   ChannelARN: string | undefined;
 
   /**
-   * <p>A structure containing the endpoint configuration for the <code>SINGLE_MASTER</code>
-   *             channel type.</p>
+   * A structure containing the endpoint configuration for the `SINGLE_MASTER` channel type.
+   *
    * @public
    */
   SingleMasterChannelEndpointConfiguration?: SingleMasterChannelEndpointConfiguration | undefined;
 }
 
 /**
- * <p>An object that describes the endpoint of the signaling channel returned by the
- *                 <code>GetSignalingChannelEndpoint</code> API.</p>
- *          <p>The media server endpoint will correspond to the <code>WEBRTC</code> Protocol.</p>
+ * An object that describes the endpoint of the signaling channel returned by the `GetSignalingChannelEndpoint` API.
+ *
+ * The media server endpoint will correspond to the `WEBRTC` Protocol.
+ *
  * @public
  */
 export interface ResourceEndpointListItem {
   /**
-   * <p>The protocol of the signaling channel returned by the
-   *                 <code>GetSignalingChannelEndpoint</code> API.</p>
+   * The protocol of the signaling channel returned by the `GetSignalingChannelEndpoint` API.
+   *
    * @public
    */
   Protocol?: ChannelProtocol | undefined;
 
   /**
-   * <p>The endpoint of the signaling channel returned by the
-   *                 <code>GetSignalingChannelEndpoint</code> API.</p>
+   * The endpoint of the signaling channel returned by the `GetSignalingChannelEndpoint` API.
+   *
    * @public
    */
   ResourceEndpoint?: string | undefined;
@@ -1245,7 +1292,8 @@ export interface ResourceEndpointListItem {
  */
 export interface GetSignalingChannelEndpointOutput {
   /**
-   * <p>A list of endpoints for the specified signaling channel.</p>
+   * A list of endpoints for the specified signaling channel.
+   *
    * @public
    */
   ResourceEndpointList?: ResourceEndpointListItem[] | undefined;
@@ -1256,70 +1304,78 @@ export interface GetSignalingChannelEndpointOutput {
  */
 export interface ListEdgeAgentConfigurationsInput {
   /**
-   * <p>The "Internet of Things (IoT) Thing" Arn of the edge agent.</p>
+   * The "Internet of Things (IoT) Thing" Arn of the edge agent.
+   *
    * @public
    */
   HubDeviceArn: string | undefined;
 
   /**
-   * <p>The maximum number of edge configurations to return in the response. The default is 5.</p>
+   * The maximum number of edge configurations to return in the response. The default is 5.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>If you specify this parameter, when the result of a <code>ListEdgeAgentConfigurations</code> operation is truncated, the call returns the <code>NextToken</code> in the response. To get another batch of edge configurations, provide this token in your next request.
-   *         </p>
+   * If you specify this parameter, when the result of a `ListEdgeAgentConfigurations` operation is truncated, the call returns the `NextToken` in the response. To get another batch of edge configurations, provide this token in your next request.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>A description of a single stream's edge configuration.</p>
+ * A description of a single stream's edge configuration.
+ *
  * @public
  */
 export interface ListEdgeAgentConfigurationsEdgeConfig {
   /**
-   * <p>The name of the stream.</p>
+   * The name of the stream.
+   *
    * @public
    */
   StreamName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the stream.</p>
+   * The Amazon Resource Name (ARN) of the stream.
+   *
    * @public
    */
   StreamARN?: string | undefined;
 
   /**
-   * <p>The timestamp when the stream first created the edge config.</p>
+   * The timestamp when the stream first created the edge config.
+   *
    * @public
    */
   CreationTime?: Date | undefined;
 
   /**
-   * <p>The timestamp when the stream last updated the edge config.</p>
+   * The timestamp when the stream last updated the edge config.
+   *
    * @public
    */
   LastUpdatedTime?: Date | undefined;
 
   /**
-   * <p>The current sync status of the stream's edge configuration.</p>
+   * The current sync status of the stream's edge configuration.
+   *
    * @public
    */
   SyncStatus?: SyncStatus | undefined;
 
   /**
-   * <p>A description of the generated failure status.</p>
+   * A description of the generated failure status.
+   *
    * @public
    */
   FailedStatusDetails?: string | undefined;
 
   /**
-   * <p>A description of the stream's edge configuration that will be used to sync
-   *             with the Edge Agent IoT Greengrass component. The Edge Agent component will run
-   *             on an IoT Hub Device setup at your premise.</p>
+   * A description of the stream's edge configuration that will be used to sync with the Edge Agent IoT Greengrass component. The Edge Agent component will run on an IoT Hub Device setup at your premise.
+   *
    * @public
    */
   EdgeConfig?: EdgeConfig | undefined;
@@ -1330,13 +1386,15 @@ export interface ListEdgeAgentConfigurationsEdgeConfig {
  */
 export interface ListEdgeAgentConfigurationsOutput {
   /**
-   * <p>A description of a single stream's edge configuration.</p>
+   * A description of a single stream's edge configuration.
+   *
    * @public
    */
   EdgeConfigs?: ListEdgeAgentConfigurationsEdgeConfig[] | undefined;
 
   /**
-   * <p>If the response is truncated, the call returns this element with a given token. To get the next batch of edge configurations, use this token in your next request.</p>
+   * If the response is truncated, the call returns this element with a given token. To get the next batch of edge configurations, use this token in your next request.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1347,21 +1405,22 @@ export interface ListEdgeAgentConfigurationsOutput {
  */
 export interface ListSignalingChannelsInput {
   /**
-   * <p>The maximum number of channels to return in the response. The default is 500.</p>
+   * The maximum number of channels to return in the response. The default is 500.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>If you specify this parameter, when the result of a <code>ListSignalingChannels</code>
-   *             operation is truncated, the call returns the <code>NextToken</code> in the response. To
-   *             get another batch of channels, provide this token in your next request.</p>
+   * If you specify this parameter, when the result of a `ListSignalingChannels` operation is truncated, the call returns the `NextToken` in the response. To get another batch of channels, provide this token in your next request.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>Optional: Returns only the channels that satisfy a specific condition.</p>
+   * Optional: Returns only the channels that satisfy a specific condition.
+   *
    * @public
    */
   ChannelNameCondition?: ChannelNameCondition | undefined;
@@ -1372,36 +1431,36 @@ export interface ListSignalingChannelsInput {
  */
 export interface ListSignalingChannelsOutput {
   /**
-   * <p>An array of <code>ChannelInfo</code> objects.</p>
+   * An array of `ChannelInfo` objects.
+   *
    * @public
    */
   ChannelInfoList?: ChannelInfo[] | undefined;
 
   /**
-   * <p>If the response is truncated, the call returns this element with a token. To get the
-   *             next batch of streams, use this token in your next request.</p>
+   * If the response is truncated, the call returns this element with a token. To get the next batch of streams, use this token in your next request.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Specifies the condition that streams must satisfy to be returned when you list
- *             streams (see the <code>ListStreams</code> API). A condition has a comparison operation
- *             and a value. Currently, you can specify only the <code>BEGINS_WITH</code> operator,
- *             which finds streams whose names start with a given prefix. </p>
+ * Specifies the condition that streams must satisfy to be returned when you list streams (see the `ListStreams` API). A condition has a comparison operation and a value. Currently, you can specify only the `BEGINS_WITH` operator, which finds streams whose names start with a given prefix.
+ *
  * @public
  */
 export interface StreamNameCondition {
   /**
-   * <p>A comparison operator. Currently, you can specify only the <code>BEGINS_WITH</code>
-   *             operator, which finds streams whose names start with a given prefix.</p>
+   * A comparison operator. Currently, you can specify only the `BEGINS_WITH` operator, which finds streams whose names start with a given prefix.
+   *
    * @public
    */
   ComparisonOperator?: ComparisonOperator | undefined;
 
   /**
-   * <p>A value to compare.</p>
+   * A value to compare.
+   *
    * @public
    */
   ComparisonValue?: string | undefined;
@@ -1412,23 +1471,22 @@ export interface StreamNameCondition {
  */
 export interface ListStreamsInput {
   /**
-   * <p>The maximum number of streams to return in the response. The default is
-   *             10,000.</p>
+   * The maximum number of streams to return in the response. The default is 10,000.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>If you specify this parameter, when the result of a <code>ListStreams</code>
-   *             operation is truncated, the call returns the <code>NextToken</code> in the response. To
-   *             get another batch of streams, provide this token in your next request.</p>
+   * If you specify this parameter, when the result of a `ListStreams` operation is truncated, the call returns the `NextToken` in the response. To get another batch of streams, provide this token in your next request.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>Optional: Returns only streams that satisfy a specific condition. Currently, you
-   *             can specify only the prefix of a stream name as a condition. </p>
+   * Optional: Returns only streams that satisfy a specific condition. Currently, you can specify only the prefix of a stream name as a condition.
+   *
    * @public
    */
   StreamNameCondition?: StreamNameCondition | undefined;
@@ -1439,14 +1497,15 @@ export interface ListStreamsInput {
  */
 export interface ListStreamsOutput {
   /**
-   * <p>An array of <code>StreamInfo</code> objects.</p>
+   * An array of `StreamInfo` objects.
+   *
    * @public
    */
   StreamInfoList?: StreamInfo[] | undefined;
 
   /**
-   * <p>If the response is truncated, the call returns this element with a token. To get
-   *             the next batch of streams, use this token in your next request. </p>
+   * If the response is truncated, the call returns this element with a token. To get the next batch of streams, use this token in your next request.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1457,16 +1516,15 @@ export interface ListStreamsOutput {
  */
 export interface ListTagsForResourceInput {
   /**
-   * <p>If you specify this parameter and the result of a <code>ListTagsForResource</code>
-   *             call is truncated, the response includes a token that you can use in the next request to
-   *             fetch the next batch of tags. </p>
+   * If you specify this parameter and the result of a `ListTagsForResource` call is truncated, the response includes a token that you can use in the next request to fetch the next batch of tags.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the signaling channel for which you want to list
-   *             tags.</p>
+   * The Amazon Resource Name (ARN) of the signaling channel for which you want to list tags.
+   *
    * @public
    */
   ResourceARN: string | undefined;
@@ -1477,15 +1535,15 @@ export interface ListTagsForResourceInput {
  */
 export interface ListTagsForResourceOutput {
   /**
-   * <p>If you specify this parameter and the result of a <code>ListTagsForResource</code>
-   *             call is truncated, the response includes a token that you can use in the next request to
-   *             fetch the next set of tags. </p>
+   * If you specify this parameter and the result of a `ListTagsForResource` call is truncated, the response includes a token that you can use in the next request to fetch the next set of tags.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>A map of tag keys and values associated with the specified signaling channel.</p>
+   * A map of tag keys and values associated with the specified signaling channel.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -1496,22 +1554,22 @@ export interface ListTagsForResourceOutput {
  */
 export interface ListTagsForStreamInput {
   /**
-   * <p>If you specify this parameter and the result of a <code>ListTagsForStream</code>
-   *             call is truncated, the response includes a token that you can use in the next request to
-   *             fetch the next batch of tags.</p>
+   * If you specify this parameter and the result of a `ListTagsForStream` call is truncated, the response includes a token that you can use in the next request to fetch the next batch of tags.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the stream that you want to list tags
-   *             for.</p>
+   * The Amazon Resource Name (ARN) of the stream that you want to list tags for.
+   *
    * @public
    */
   StreamARN?: string | undefined;
 
   /**
-   * <p>The name of the stream that you want to list tags for.</p>
+   * The name of the stream that you want to list tags for.
+   *
    * @public
    */
   StreamName?: string | undefined;
@@ -1522,15 +1580,15 @@ export interface ListTagsForStreamInput {
  */
 export interface ListTagsForStreamOutput {
   /**
-   * <p>If you specify this parameter and the result of a <code>ListTags</code> call is
-   *             truncated, the response includes a token that you can use in the next request to fetch
-   *             the next set of tags.</p>
+   * If you specify this parameter and the result of a `ListTags` call is truncated, the response includes a token that you can use in the next request to fetch the next set of tags.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>A map of tag keys and values associated with the specified stream.</p>
+   * A map of tag keys and values associated with the specified stream.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -1541,21 +1599,22 @@ export interface ListTagsForStreamOutput {
  */
 export interface StartEdgeConfigurationUpdateInput {
   /**
-   * <p>The name of the stream whose edge configuration you want to update. Specify either the <code>StreamName</code>
-   *             or the <code>StreamARN</code>.</p>
+   * The name of the stream whose edge configuration you want to update. Specify either the `StreamName` or the `StreamARN`.
+   *
    * @public
    */
   StreamName?: string | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the stream. Specify either the
-   *             <code>StreamName</code> or the <code>StreamARN</code>.</p>
+   * The Amazon Resource Name (ARN) of the stream. Specify either the `StreamName` or the `StreamARN`.
+   *
    * @public
    */
   StreamARN?: string | undefined;
 
   /**
-   * <p>The edge configuration details required to invoke the update process.</p>
+   * The edge configuration details required to invoke the update process.
+   *
    * @public
    */
   EdgeConfig: EdgeConfig | undefined;
@@ -1566,47 +1625,50 @@ export interface StartEdgeConfigurationUpdateInput {
  */
 export interface StartEdgeConfigurationUpdateOutput {
   /**
-   * <p>The name of the stream from which the edge configuration was updated.</p>
+   * The name of the stream from which the edge configuration was updated.
+   *
    * @public
    */
   StreamName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the stream.</p>
+   * The Amazon Resource Name (ARN) of the stream.
+   *
    * @public
    */
   StreamARN?: string | undefined;
 
   /**
-   * <p>The timestamp at which a stream’s edge configuration was first created.</p>
+   * The timestamp at which a stream’s edge configuration was first created.
+   *
    * @public
    */
   CreationTime?: Date | undefined;
 
   /**
-   * <p>The timestamp at which a stream’s edge configuration was last updated.</p>
+   * The timestamp at which a stream’s edge configuration was last updated.
+   *
    * @public
    */
   LastUpdatedTime?: Date | undefined;
 
   /**
-   * <p> The current sync status of the stream's edge configuration. When you invoke this API, the sync
-   *             status will be set to the <code>SYNCING</code> state. Use the <code>DescribeEdgeConfiguration</code> API
-   *             to get the latest status of the edge configuration.</p>
+   * The current sync status of the stream's edge configuration. When you invoke this API, the sync status will be set to the `SYNCING` state. Use the `DescribeEdgeConfiguration` API to get the latest status of the edge configuration.
+   *
    * @public
    */
   SyncStatus?: SyncStatus | undefined;
 
   /**
-   * <p>A description of the generated failure status.</p>
+   * A description of the generated failure status.
+   *
    * @public
    */
   FailedStatusDetails?: string | undefined;
 
   /**
-   * <p>A description of the stream's edge configuration that will be used to sync
-   *             with the Edge Agent IoT Greengrass component. The Edge Agent component will run
-   *             on an IoT Hub Device setup at your premise.</p>
+   * A description of the stream's edge configuration that will be used to sync with the Edge Agent IoT Greengrass component. The Edge Agent component will run on an IoT Hub Device setup at your premise.
+   *
    * @public
    */
   EdgeConfig?: EdgeConfig | undefined;
@@ -1617,15 +1679,15 @@ export interface StartEdgeConfigurationUpdateOutput {
  */
 export interface TagResourceInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the signaling channel to which you want to add
-   *             tags.</p>
+   * The Amazon Resource Name (ARN) of the signaling channel to which you want to add tags.
+   *
    * @public
    */
   ResourceARN: string | undefined;
 
   /**
-   * <p>A list of tags to associate with the specified signaling channel. Each tag is a
-   *             key-value pair.</p>
+   * A list of tags to associate with the specified signaling channel. Each tag is a key-value pair.
+   *
    * @public
    */
   Tags: Tag[] | undefined;
@@ -1641,21 +1703,22 @@ export interface TagResourceOutput {}
  */
 export interface TagStreamInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource that you want to add the tag or tags
-   *             to.</p>
+   * The Amazon Resource Name (ARN) of the resource that you want to add the tag or tags to.
+   *
    * @public
    */
   StreamARN?: string | undefined;
 
   /**
-   * <p>The name of the stream that you want to add the tag or tags to.</p>
+   * The name of the stream that you want to add the tag or tags to.
+   *
    * @public
    */
   StreamName?: string | undefined;
 
   /**
-   * <p>A list of tags to associate with the specified stream. Each tag is a key-value pair
-   *             (the value is optional).</p>
+   * A list of tags to associate with the specified stream. Each tag is a key-value pair (the value is optional).
+   *
    * @public
    */
   Tags: Record<string, string> | undefined;
@@ -1671,14 +1734,15 @@ export interface TagStreamOutput {}
  */
 export interface UntagResourceInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the signaling channel from which you want to remove
-   *             tags.</p>
+   * The Amazon Resource Name (ARN) of the signaling channel from which you want to remove tags.
+   *
    * @public
    */
   ResourceARN: string | undefined;
 
   /**
-   * <p>A list of the keys of the tags that you want to remove.</p>
+   * A list of the keys of the tags that you want to remove.
+   *
    * @public
    */
   TagKeyList: string[] | undefined;
@@ -1694,20 +1758,22 @@ export interface UntagResourceOutput {}
  */
 export interface UntagStreamInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the stream that you want to remove tags
-   *             from.</p>
+   * The Amazon Resource Name (ARN) of the stream that you want to remove tags from.
+   *
    * @public
    */
   StreamARN?: string | undefined;
 
   /**
-   * <p>The name of the stream that you want to remove tags from.</p>
+   * The name of the stream that you want to remove tags from.
+   *
    * @public
    */
   StreamName?: string | undefined;
 
   /**
-   * <p>A list of the keys of the tags that you want to remove.</p>
+   * A list of the keys of the tags that you want to remove.
+   *
    * @public
    */
   TagKeyList: string[] | undefined;
@@ -1723,35 +1789,38 @@ export interface UntagStreamOutput {}
  */
 export interface UpdateDataRetentionInput {
   /**
-   * <p>The name of the stream whose retention period you want to change.</p>
+   * The name of the stream whose retention period you want to change.
+   *
    * @public
    */
   StreamName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the stream whose retention period you want to
-   *             change.</p>
+   * The Amazon Resource Name (ARN) of the stream whose retention period you want to change.
+   *
    * @public
    */
   StreamARN?: string | undefined;
 
   /**
-   * <p>The version of the stream whose retention period you want to change. To get the
-   *             version, call either the <code>DescribeStream</code> or the <code>ListStreams</code>
-   *             API.</p>
+   * The version of the stream whose retention period you want to change. To get the version, call either the `DescribeStream` or the `ListStreams` API.
+   *
    * @public
    */
   CurrentVersion: string | undefined;
 
   /**
-   * <p>Indicates whether you want to increase or decrease the retention period.</p>
+   * Indicates whether you want to increase or decrease the retention period.
+   *
    * @public
    */
   Operation: UpdateDataRetentionOperation | undefined;
 
   /**
-   * <p>The number of hours to adjust the current retention by. The value you specify is added to or subtracted from the current value, depending on the <code>operation</code>.</p>
-   *          <p>The minimum value for data retention is 0 and the maximum value is 87600 (ten years).</p>
+   * The number of hours to adjust the current retention by. The value you specify is added to or subtracted from the current value, depending on the `operation`.
+   *
+   * The minimum value for data retention is 0 and the maximum value is 87600 (ten years).
+   *
    * @public
    */
   DataRetentionChangeInHours: number | undefined;
@@ -1767,20 +1836,22 @@ export interface UpdateDataRetentionOutput {}
  */
 export interface UpdateImageGenerationConfigurationInput {
   /**
-   * <p>The name of the stream from which to update the image generation configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
+   * The name of the stream from which to update the image generation configuration. You must specify either the `StreamName` or the `StreamARN`.
+   *
    * @public
    */
   StreamName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Kinesis video stream from where you want to update the image generation configuration. You must specify either the <code>StreamName</code>
-   *             or the <code>StreamARN</code>.</p>
+   * The Amazon Resource Name (ARN) of the Kinesis video stream from where you want to update the image generation configuration. You must specify either the `StreamName` or the `StreamARN`.
+   *
    * @public
    */
   StreamARN?: string | undefined;
 
   /**
-   * <p>The structure that contains the information required for the KVS images delivery. If the structure is null, the configuration will be deleted from the stream.</p>
+   * The structure that contains the information required for the KVS images delivery. If the structure is null, the configuration will be deleted from the stream.
+   *
    * @public
    */
   ImageGenerationConfiguration?: ImageGenerationConfiguration | undefined;
@@ -1796,13 +1867,15 @@ export interface UpdateImageGenerationConfigurationOutput {}
  */
 export interface UpdateMediaStorageConfigurationInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the channel.</p>
+   * The Amazon Resource Name (ARN) of the channel.
+   *
    * @public
    */
   ChannelARN: string | undefined;
 
   /**
-   * <p>A structure that encapsulates, or contains, the media storage configuration properties.</p>
+   * A structure that encapsulates, or contains, the media storage configuration properties.
+   *
    * @public
    */
   MediaStorageConfiguration: MediaStorageConfiguration | undefined;
@@ -1818,19 +1891,22 @@ export interface UpdateMediaStorageConfigurationOutput {}
  */
 export interface UpdateNotificationConfigurationInput {
   /**
-   * <p>The name of the stream from which to update the notification configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
+   * The name of the stream from which to update the notification configuration. You must specify either the `StreamName` or the `StreamARN`.
+   *
    * @public
    */
   StreamName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Kinesis video stream from where you want to update the notification configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
+   * The Amazon Resource Name (ARN) of the Kinesis video stream from where you want to update the notification configuration. You must specify either the `StreamName` or the `StreamARN`.
+   *
    * @public
    */
   StreamARN?: string | undefined;
 
   /**
-   * <p>The structure containing the information required for notifications. If the structure is null, the configuration will be deleted from the stream.</p>
+   * The structure containing the information required for notifications. If the structure is null, the configuration will be deleted from the stream.
+   *
    * @public
    */
   NotificationConfiguration?: NotificationConfiguration | undefined;
@@ -1846,23 +1922,22 @@ export interface UpdateNotificationConfigurationOutput {}
  */
 export interface UpdateSignalingChannelInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the signaling channel that you want to
-   *             update.</p>
+   * The Amazon Resource Name (ARN) of the signaling channel that you want to update.
+   *
    * @public
    */
   ChannelARN: string | undefined;
 
   /**
-   * <p>The current version of the signaling channel that you want to update.</p>
+   * The current version of the signaling channel that you want to update.
+   *
    * @public
    */
   CurrentVersion: string | undefined;
 
   /**
-   * <p>The structure containing the configuration for the <code>SINGLE_MASTER</code> type of
-   *             the signaling channel that you want to update. This parameter and the channel message's
-   *             time-to-live are required for channels with the <code>SINGLE_MASTER</code> channel
-   *             type.</p>
+   * The structure containing the configuration for the `SINGLE_MASTER` type of the signaling channel that you want to update. This parameter and the channel message's time-to-live are required for channels with the `SINGLE_MASTER` channel type.
+   *
    * @public
    */
   SingleMasterConfiguration?: SingleMasterConfiguration | undefined;
@@ -1878,44 +1953,42 @@ export interface UpdateSignalingChannelOutput {}
  */
 export interface UpdateStreamInput {
   /**
-   * <p>The name of the stream whose metadata you want to update.</p>
-   *          <p>The stream name is an identifier for the stream, and must be unique for each
-   *             account and region.</p>
+   * The name of the stream whose metadata you want to update.
+   *
+   * The stream name is an identifier for the stream, and must be unique for each account and region.
+   *
    * @public
    */
   StreamName?: string | undefined;
 
   /**
-   * <p>The ARN of the stream whose metadata you want to update.</p>
+   * The ARN of the stream whose metadata you want to update.
+   *
    * @public
    */
   StreamARN?: string | undefined;
 
   /**
-   * <p>The version of the stream whose metadata you want to update.</p>
+   * The version of the stream whose metadata you want to update.
+   *
    * @public
    */
   CurrentVersion: string | undefined;
 
   /**
-   * <p>The name of the device that is writing to the stream. </p>
-   *          <note>
-   *             <p> In the current implementation, Kinesis Video Streams does not use this name.
-   *             </p>
-   *          </note>
+   * The name of the device that is writing to the stream.
+   *
+   * > **Note:** In the current implementation, Kinesis Video Streams does not use this name.
+   *
    * @public
    */
   DeviceName?: string | undefined;
 
   /**
-   * <p>The stream's media type. Use <code>MediaType</code> to specify the type of content
-   *             that the stream contains to the consumers of the stream. For more information about
-   *             media types, see <a href="http://www.iana.org/assignments/media-types/media-types.xhtml">Media
-   *                 Types</a>. If you choose to specify the <code>MediaType</code>, see <a href="https://tools.ietf.org/html/rfc6838#section-4.2">Naming
-   *             Requirements</a>.</p>
-   *          <p>To play video on the console, you must specify the correct video type. For example,
-   *             if the video in the stream is H.264, specify <code>video/h264</code> as the
-   *                 <code>MediaType</code>.</p>
+   * The stream's media type. Use `MediaType` to specify the type of content that the stream contains to the consumers of the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the `MediaType`, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2).
+   *
+   * To play video on the console, you must specify the correct video type. For example, if the video in the stream is H.264, specify `video/h264` as the `MediaType`.
+   *
    * @public
    */
   MediaType?: string | undefined;
@@ -1931,28 +2004,31 @@ export interface UpdateStreamOutput {}
  */
 export interface UpdateStreamStorageConfigurationInput {
   /**
-   * <p>The name of the stream for which you want to update the storage configuration.</p>
+   * The name of the stream for which you want to update the storage configuration.
+   *
    * @public
    */
   StreamName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the stream for which you want to update the storage configuration.</p>
+   * The Amazon Resource Name (ARN) of the stream for which you want to update the storage configuration.
+   *
    * @public
    */
   StreamARN?: string | undefined;
 
   /**
-   * <p>The version of the stream whose storage configuration you want to change. To get the
-   *             version, call either the <code>DescribeStream</code> or the <code>ListStreams</code>
-   *             API.</p>
+   * The version of the stream whose storage configuration you want to change. To get the version, call either the `DescribeStream` or the `ListStreams` API.
+   *
    * @public
    */
   CurrentVersion: string | undefined;
 
   /**
-   * <p>The new storage configuration for the stream. This includes the default storage tier that determines how stream data is stored and accessed.</p>
-   *          <p>Different storage tiers offer varying levels of performance and cost optimization to match your specific use case requirements.</p>
+   * The new storage configuration for the stream. This includes the default storage tier that determines how stream data is stored and accessed.
+   *
+   * Different storage tiers offer varying levels of performance and cost optimization to match your specific use case requirements.
+   *
    * @public
    */
   StreamStorageConfiguration: StreamStorageConfiguration | undefined;

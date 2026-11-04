@@ -23,12 +23,10 @@ export interface AuthorizeSnapshotAccessCommandInput extends AuthorizeSnapshotAc
 export interface AuthorizeSnapshotAccessCommandOutput extends AuthorizeSnapshotAccessResult, __MetadataBearer {}
 
 /**
- * <p>Authorizes the specified Amazon Web Services account to restore the specified
- *             snapshot.</p>
- *          <p>
- * For more information about working with snapshots, go to
- * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon Redshift Snapshots</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
+ * Authorizes the specified Amazon Web Services account to restore the specified snapshot.
+ *
+ * For more information about working with snapshots, go to [Amazon Redshift Snapshots](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html) in the *Amazon Redshift Cluster Management Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -108,32 +106,36 @@ export interface AuthorizeSnapshotAccessCommandOutput extends AuthorizeSnapshotA
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link AuthorizationAlreadyExistsFault} (client fault)
- *  <p>The specified CIDR block or EC2 security group is already authorized for the
- *             specified cluster security group.</p>
+ *
+ * The specified CIDR block or EC2 security group is already authorized for the specified cluster security group.
  *
  * @throws {@link AuthorizationQuotaExceededFault} (client fault)
- *  <p>The authorization quota for the cluster security group has been reached.</p>
+ *
+ * The authorization quota for the cluster security group has been reached.
  *
  * @throws {@link ClusterSnapshotNotFoundFault} (client fault)
- *  <p>The snapshot identifier does not refer to an existing cluster snapshot.</p>
+ *
+ * The snapshot identifier does not refer to an existing cluster snapshot.
  *
  * @throws {@link DependentServiceRequestThrottlingFault} (client fault)
- *  <p>The request cannot be completed because a dependent service is throttling requests
- *             made by Amazon Redshift on your behalf. Wait and retry the request.</p>
+ *
+ * The request cannot be completed because a dependent service is throttling requests made by Amazon Redshift on your behalf. Wait and retry the request.
  *
  * @throws {@link InvalidClusterSnapshotStateFault} (client fault)
- *  <p>The specified cluster snapshot is not in the <code>available</code> state, or other
- *             accounts are authorized to access the snapshot. </p>
+ *
+ * The specified cluster snapshot is not in the `available` state, or other accounts are authorized to access the snapshot.
  *
  * @throws {@link LimitExceededFault} (client fault)
- *  <p>The encryption key has exceeded its grant limit in Amazon Web Services KMS.</p>
+ *
+ * The encryption key has exceeded its grant limit in Amazon Web Services KMS.
  *
  * @throws {@link UnsupportedOperationFault} (client fault)
- *  <p>The requested operation isn't supported.</p>
+ *
+ * The requested operation isn't supported.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

@@ -23,30 +23,18 @@ export interface UpdateGameServerGroupCommandInput extends UpdateGameServerGroup
 export interface UpdateGameServerGroupCommandOutput extends UpdateGameServerGroupOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This API works with the following fleet types:</b> EC2 (FleetIQ)</p>
- *          <p>Updates Amazon GameLift Servers FleetIQ-specific
- *             properties for a game server group. Many Auto Scaling group properties are updated on
- *             the Auto Scaling group directly, including the launch template, Auto Scaling policies,
- *             and maximum/minimum/desired instance counts.</p>
- *          <p>To update the game server group, specify the game server group ID and provide the
- *             updated values. Before applying the updates, the new values are validated to ensure that
- *             Amazon GameLift Servers FleetIQ can continue to perform instance balancing activity. If successful, a
- *                 <code>GameServerGroup</code> object is returned.</p>
- *          <note>
- *             <p>Target tracking Auto Scaling policies on the Auto Scaling group cannot be
- *                 updated through the Amazon Web Services Management Console. Instead, use the Amazon Elastic Compute Cloud Auto Scaling
- *                 <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PutScalingPolicy.html">
- *                   <code>PutScalingPolicy</code>
- *                </a> API action to update these policies.</p>
- *          </note>
- *          <p>
- *             <b>Learn more</b>
- *          </p>
- *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift Servers FleetIQ
- *                 Guide</a>
- *          </p>
+ * **This API works with the following fleet types:** EC2 (FleetIQ)
+ *
+ * Updates Amazon GameLift Servers FleetIQ-specific properties for a game server group. Many Auto Scaling group properties are updated on the Auto Scaling group directly, including the launch template, Auto Scaling policies, and maximum/minimum/desired instance counts.
+ *
+ * To update the game server group, specify the game server group ID and provide the updated values. Before applying the updates, the new values are validated to ensure that Amazon GameLift Servers FleetIQ can continue to perform instance balancing activity. If successful, a `GameServerGroup` object is returned.
+ *
+ * > **Note:** Target tracking Auto Scaling policies on the Auto Scaling group cannot be updated through the Amazon Web Services Management Console. Instead, use the Amazon Elastic Compute Cloud Auto Scaling [`PutScalingPolicy`](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PutScalingPolicy.html) API action to update these policies.
+ *
+ * **Learn more**
+ *
+ * [Amazon GameLift Servers FleetIQ Guide](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -102,22 +90,24 @@ export interface UpdateGameServerGroupCommandOutput extends UpdateGameServerGrou
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an unrecoverable internal failure while processing the
- *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
- *             values before retrying.</p>
+ *
+ * One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resource was not found. The resource was either not created yet or deleted.</p>
+ *
+ * The requested resource was not found. The resource was either not created yet or deleted.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * The client failed authentication. Clients should not retry such requests.
  *
  * @throws {@link GameLiftServiceException}
- * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * Base exception class for all service exceptions from GameLift service.
  *
  * @public
  */

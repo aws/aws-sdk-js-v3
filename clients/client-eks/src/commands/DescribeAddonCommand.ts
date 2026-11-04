@@ -23,7 +23,8 @@ export interface DescribeAddonCommandInput extends DescribeAddonRequest {}
 export interface DescribeAddonCommandOutput extends DescribeAddonResponse, __MetadataBearer {}
 
 /**
- * <p>Describes an Amazon EKS add-on.</p>
+ * Describes an Amazon EKS add-on.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,30 +88,28 @@ export interface DescribeAddonCommandOutput extends DescribeAddonResponse, __Met
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action. Actions can include using an
- *             action or resource on behalf of an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html">IAM principal</a> that doesn't have permissions to use
- *             the action or resource or specifying an identifier that is not valid.</p>
+ *
+ * These errors are usually caused by a client action. Actions can include using an action or resource on behalf of an [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) that doesn't have permissions to use the action or resource or specifying an identifier that is not valid.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is invalid given the state of the cluster. Check the state of the cluster
- *             and the associated operations.</p>
+ *
+ * The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource could not be found. You can view your available clusters with
- *                 <code>ListClusters</code>. You can view your available managed node groups with
- *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region
- *             specific.</p>
+ *
+ * The specified resource could not be found. You can view your available clusters with `ListClusters`. You can view your available managed node groups with `ListNodegroups`. Amazon EKS clusters and node groups are Amazon Web Services Region specific.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link EKSServiceException}
- * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * Base exception class for all service exceptions from EKS service.
  *
  * @public
  */

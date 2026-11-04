@@ -23,7 +23,8 @@ export interface DescribeScalingPlansCommandInput extends DescribeScalingPlansRe
 export interface DescribeScalingPlansCommandOutput extends DescribeScalingPlansResponse, __MetadataBearer {}
 
 /**
- * <p>Describes one or more of your scaling plans.</p>
+ * Describes one or more of your scaling plans.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -145,21 +146,24 @@ export interface DescribeScalingPlansCommandOutput extends DescribeScalingPlansR
  * @see {@link AutoScalingPlansClientResolvedConfig | config} for AutoScalingPlansClient's `config` shape.
  *
  * @throws {@link ConcurrentUpdateException} (server fault)
- *  <p>Concurrent updates caused an exception, for example, if you request an update to a
- *          scaling plan that already has a pending update.</p>
+ *
+ * Concurrent updates caused an exception, for example, if you request an update to a scaling plan that already has a pending update.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an internal error.</p>
+ *
+ * The service encountered an internal error.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The token provided is not valid.</p>
+ *
+ * The token provided is not valid.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An exception was thrown for a validation issue. Review the parameters provided.</p>
+ *
+ * An exception was thrown for a validation issue. Review the parameters provided.
  *
  * @throws {@link AutoScalingPlansServiceException}
- * <p>Base exception class for all service exceptions from AutoScalingPlans service.</p>
  *
+ * Base exception class for all service exceptions from AutoScalingPlans service.
  *
  * @public
  */

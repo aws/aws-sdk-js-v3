@@ -23,9 +23,8 @@ export interface DeleteDashboardsCommandInput extends DeleteDashboardsInput {}
 export interface DeleteDashboardsCommandOutput extends DeleteDashboardsOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes all dashboards that you specify. You can specify up to 100 dashboards to
- *             delete. If there is an error during this call, the operation attempts to delete as many
- *             dashboards as possible.</p>
+ * Deletes all dashboards that you specify. You can specify up to 100 dashboards to delete. If there is an error during this call, the operation attempts to delete as many dashboards as possible.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,18 +51,20 @@ export interface DeleteDashboardsCommandOutput extends DeleteDashboardsOutput, _
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>This operation attempted to create a resource that already exists.</p>
+ *
+ * This operation attempted to create a resource that already exists.
  *
  * @throws {@link InternalServiceFault} (server fault)
- *  <p>Request processing has failed due to some unknown error, exception, or
- *             failure.</p>
+ *
+ * Request processing has failed due to some unknown error, exception, or failure.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value of an input parameter is bad or out-of-range.</p>
+ *
+ * The value of an input parameter is bad or out-of-range.
  *
  * @throws {@link CloudWatchServiceException}
- * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatch service.
  *
  * @public
  */

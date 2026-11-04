@@ -23,7 +23,25 @@ export interface TestIdentityProviderCommandInput extends TestIdentityProviderRe
 export interface TestIdentityProviderCommandOutput extends TestIdentityProviderResponse, __MetadataBearer {}
 
 /**
- * <p>If the <code>IdentityProviderType</code> of a file transfer protocol-enabled server is <code>AWS_DIRECTORY_SERVICE</code> or <code>API_Gateway</code>, tests whether your identity provider is set up successfully. We highly recommend that you call this operation to test your authentication method as soon as you create your server. By doing so, you can troubleshoot issues with the identity provider integration to ensure that your users can successfully use the service.</p> <p> The <code>ServerId</code> and <code>UserName</code> parameters are required. The <code>ServerProtocol</code>, <code>SourceIp</code>, and <code>UserPassword</code> are all optional. </p> <p>Note the following:</p> <ul> <li> <p> You cannot use <code>TestIdentityProvider</code> if the <code>IdentityProviderType</code> of your server is <code>SERVICE_MANAGED</code>.</p> </li> <li> <p> <code>TestIdentityProvider</code> does not work with keys: it only accepts passwords.</p> </li> <li> <p> <code>TestIdentityProvider</code> can test the password operation for a custom Identity Provider that handles keys and passwords.</p> </li> <li> <p> If you provide any incorrect values for any parameters, the <code>Response</code> field is empty. </p> </li> <li> <p> If you provide a server ID for a server that uses service-managed users, you get an error: </p> <p> <code> An error occurred (InvalidRequestException) when calling the TestIdentityProvider operation: s-<i>server-ID</i> not configured for external auth </code> </p> </li> <li> <p> If you enter a Server ID for the <code>--server-id</code> parameter that does not identify an actual Transfer server, you receive the following error: </p> <p> <code>An error occurred (ResourceNotFoundException) when calling the TestIdentityProvider operation: Unknown server</code>. </p> <p>It is possible your sever is in a different region. You can specify a region by adding the following: <code>--region region-code</code>, such as <code>--region us-east-2</code> to specify a server in <b>US East (Ohio)</b>.</p> </li> </ul>
+ * If the `IdentityProviderType` of a file transfer protocol-enabled server is `AWS_DIRECTORY_SERVICE` or `API_Gateway`, tests whether your identity provider is set up successfully. We highly recommend that you call this operation to test your authentication method as soon as you create your server. By doing so, you can troubleshoot issues with the identity provider integration to ensure that your users can successfully use the service.
+ *
+ * The `ServerId` and `UserName` parameters are required. The `ServerProtocol`, `SourceIp`, and `UserPassword` are all optional.
+ *
+ * Note the following:
+ *
+ * - You cannot use `TestIdentityProvider` if the `IdentityProviderType` of your server is `SERVICE_MANAGED`.
+ * - `TestIdentityProvider` does not work with keys: it only accepts passwords.
+ * - `TestIdentityProvider` can test the password operation for a custom Identity Provider that handles keys and passwords.
+ * - If you provide any incorrect values for any parameters, the `Response` field is empty.
+ * - If you provide a server ID for a server that uses service-managed users, you get an error:
+ *
+ *   `An error occurred (InvalidRequestException) when calling the TestIdentityProvider operation: s-server-ID not configured for external auth`
+ * - If you enter a Server ID for the `--server-id` parameter that does not identify an actual Transfer server, you receive the following error:
+ *
+ *   `An error occurred (ResourceNotFoundException) when calling the TestIdentityProvider operation: Unknown server`.
+ *
+ *   It is possible your sever is in a different region. You can specify a region by adding the following: `--region region-code`, such as `--region us-east-2` to specify a server in **US East (Ohio)**.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,20 +75,24 @@ export interface TestIdentityProviderCommandOutput extends TestIdentityProviderR
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
  *
  * @throws {@link InternalServiceError} (server fault)
- *  <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+ *
+ * This exception is thrown when an error occurs in the Transfer Family service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * This exception is thrown when the client submits a malformed request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+ *
+ * This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+ *
+ * The request has failed because the Amazon Web ServicesTransfer Family service is not available.
  *
  * @throws {@link TransferServiceException}
- * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * Base exception class for all service exceptions from Transfer service.
  *
  * @public
  */

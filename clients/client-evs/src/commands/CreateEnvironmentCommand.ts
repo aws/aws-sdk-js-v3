@@ -23,7 +23,16 @@ export interface CreateEnvironmentCommandInput extends CreateEnvironmentRequest 
 export interface CreateEnvironmentCommandOutput extends CreateEnvironmentResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon EVS environment that runs VCF software, such as SDDC Manager, NSX Manager, and vCenter Server.</p> <note> <p>When you specify <code>SELF_DEPLOYED</code> for <code>vcfVersion</code>, Amazon EVS provisions only the VLAN subnets; no hosts are added and no VCF installation is performed. After the environment is created, you can add hosts with <code>CreateEnvironmentHost</code> and install VCF yourself. The <code>licenseInfo</code>, <code>hosts</code>, <code>vcfHostnames</code>, <code>siteId</code>, and <code>connectivityInfo</code> parameters are not supported in this mode.</p> </note> <p>When you specify any other VCF version, Amazon EVS installs and configures VCF for you. For more information, see <a href="https://docs.aws.amazon.com/evs/latest/userguide/getting-started-self-deployed.html">Self-deployed mode</a> in the <i>Amazon EVS User Guide</i>.</p> <important> <p>When Amazon EVS installs VCF, the default ESX version for the selected VCF version will be used. After a host is added with a specific ESX version, it can only be upgraded using vCenter Lifecycle Manager.</p> </important> <note> <p>You cannot use the <code>dedicatedHostId</code> and <code>placementGroupId</code> parameters together in the same <code>CreateEnvironment</code> action. This results in a <code>ValidationException</code> response.</p> </note>
+ * Creates an Amazon EVS environment that runs VCF software, such as SDDC Manager, NSX Manager, and vCenter Server.
+ *
+ * > **Note:** When you specify `SELF_DEPLOYED` for `vcfVersion`, Amazon EVS provisions only the VLAN subnets; no hosts are added and no VCF installation is performed. After the environment is created, you can add hosts with `CreateEnvironmentHost` and install VCF yourself. The `licenseInfo`, `hosts`, `vcfHostnames`, `siteId`, and `connectivityInfo` parameters are not supported in this mode.
+ *
+ * When you specify any other VCF version, Amazon EVS installs and configures VCF for you. For more information, see [Self-deployed mode](https://docs.aws.amazon.com/evs/latest/userguide/getting-started-self-deployed.html) in the *Amazon EVS User Guide*.
+ *
+ * > **Important:** When Amazon EVS installs VCF, the default ESX version for the selected VCF version will be used. After a host is added with a specific ESX version, it can only be upgraded using vCenter Lifecycle Manager.
+ *
+ * > **Note:** You cannot use the `dedicatedHostId` and `placementGroupId` parameters together in the same `CreateEnvironment` action. This results in a `ValidationException` response.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -175,11 +184,12 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  * @see {@link EvsClientResolvedConfig | config} for EvsClient's `config` shape.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+ *
+ * The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.
  *
  * @throws {@link EvsServiceException}
- * <p>Base exception class for all service exceptions from Evs service.</p>
  *
+ * Base exception class for all service exceptions from Evs service.
  *
  * @public
  */

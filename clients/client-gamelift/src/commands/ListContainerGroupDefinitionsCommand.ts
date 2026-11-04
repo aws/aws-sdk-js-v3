@@ -23,32 +23,23 @@ export interface ListContainerGroupDefinitionsCommandInput extends ListContainer
 export interface ListContainerGroupDefinitionsCommandOutput extends ListContainerGroupDefinitionsOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This API works with the following fleet types:</b> Container</p>
- *          <p>Retrieves container group definitions for the Amazon Web Services account and Amazon Web Services Region. Use the pagination parameters to retrieve results in a set of sequential
- *       pages.</p>
- *          <p>This operation returns only the latest version of each definition. To retrieve all
- *       versions of a container group definition, use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListContainerGroupDefinitionVersions.html">ListContainerGroupDefinitionVersions</a>.</p>
- *          <p>
- *             <b>Request options:</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>Retrieve the most recent versions of all container group definitions. </p>
- *             </li>
- *             <li>
- *                <p>Retrieve the most recent versions of all container group definitions, filtered by
- *           type. Specify the container group type to filter on. </p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Results:</b>
- *          </p>
- *          <p>If successful, this operation returns the complete properties of a set of container group
- *       definition versions that match the request.</p>
- *          <note>
- *             <p>This operation returns the list of container group definitions in no particular order. </p>
- *          </note>
+ * **This API works with the following fleet types:** Container
+ *
+ * Retrieves container group definitions for the Amazon Web Services account and Amazon Web Services Region. Use the pagination parameters to retrieve results in a set of sequential pages.
+ *
+ * This operation returns only the latest version of each definition. To retrieve all versions of a container group definition, use [ListContainerGroupDefinitionVersions](https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListContainerGroupDefinitionVersions.html).
+ *
+ * **Request options:**
+ *
+ * - Retrieve the most recent versions of all container group definitions.
+ * - Retrieve the most recent versions of all container group definitions, filtered by type. Specify the container group type to filter on.
+ *
+ * **Results:**
+ *
+ * If successful, this operation returns the complete properties of a set of container group definition versions that match the request.
+ *
+ * > **Note:** This operation returns the list of container group definitions in no particular order.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -184,22 +175,24 @@ export interface ListContainerGroupDefinitionsCommandOutput extends ListContaine
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an unrecoverable internal failure while processing the
- *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
- *             values before retrying.</p>
+ *
+ * One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * The client failed authentication. Clients should not retry such requests.
  *
  * @throws {@link UnsupportedRegionException} (client fault)
- *  <p>The requested operation is not supported in the Region specified.</p>
+ *
+ * The requested operation is not supported in the Region specified.
  *
  * @throws {@link GameLiftServiceException}
- * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * Base exception class for all service exceptions from GameLift service.
  *
  * @public
  */

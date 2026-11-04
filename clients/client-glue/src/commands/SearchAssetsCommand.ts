@@ -23,7 +23,8 @@ export interface SearchAssetsCommandInput extends SearchAssetsInput {}
 export interface SearchAssetsCommandOutput extends SearchAssetsOutput, __MetadataBearer {}
 
 /**
- * <p>Searches for assets in Glue Data Catalog using full-text search, filters, sorting, and aggregations. Returns matching assets with relevance-ranked results.</p>
+ * Searches for assets in Glue Data Catalog using full-text search, filters, sorting, and aggregations. Returns matching assets with relevance-ranked results.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -110,20 +111,24 @@ export interface SearchAssetsCommandOutput extends SearchAssetsOutput, __Metadat
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to a resource was denied.</p>
+ *
+ * Access to a resource was denied.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling threshhold was exceeded.</p>
+ *
+ * The throttling threshhold was exceeded.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

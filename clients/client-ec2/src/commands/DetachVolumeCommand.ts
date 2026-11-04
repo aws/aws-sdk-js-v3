@@ -24,20 +24,14 @@ export interface DetachVolumeCommandInput extends DetachVolumeRequest {}
 export interface DetachVolumeCommandOutput extends VolumeAttachment, __MetadataBearer {}
 
 /**
- * <p>Detaches an EBS volume from an instance. Make sure to unmount any file systems on the
- *       device within your operating system before detaching the volume. Failure to do so can result
- *       in the volume becoming stuck in the <code>busy</code> state while detaching. If this happens,
- *       detachment can be delayed indefinitely until you unmount the volume, force detachment, reboot
- *       the instance, or all three. If an EBS volume is the root device of an instance, it can't be
- *       detached while the instance is running. To detach the root volume, stop the instance
- *       first.</p>
- *          <p>When a volume with an Amazon Web Services Marketplace product code is detached from an instance, the
- *       product code is no longer associated with the instance.</p>
- *          <p>You can't detach or force detach volumes that are attached to Amazon Web Services-managed resources.
- *       Attempting to do this results in the <code>UnsupportedOperationException</code>
- *       exception.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-detaching-volume.html">Detach an Amazon EBS volume</a> in the
- *         <i>Amazon EBS User Guide</i>.</p>
+ * Detaches an EBS volume from an instance. Make sure to unmount any file systems on the device within your operating system before detaching the volume. Failure to do so can result in the volume becoming stuck in the `busy` state while detaching. If this happens, detachment can be delayed indefinitely until you unmount the volume, force detachment, reboot the instance, or all three. If an EBS volume is the root device of an instance, it can't be detached while the instance is running. To detach the root volume, stop the instance first.
+ *
+ * When a volume with an Amazon Web Services Marketplace product code is detached from an instance, the product code is no longer associated with the instance.
+ *
+ * You can't detach or force detach volumes that are attached to Amazon Web Services-managed resources. Attempting to do this results in the `UnsupportedOperationException` exception.
+ *
+ * For more information, see [Detach an Amazon EBS volume](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-detaching-volume.html) in the *Amazon EBS User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,8 +70,8 @@ export interface DetachVolumeCommandOutput extends VolumeAttachment, __MetadataB
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To detach a volume from an instance
  * ```javascript

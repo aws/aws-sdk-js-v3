@@ -23,27 +23,18 @@ export interface ListIntentStageMetricsCommandInput extends ListIntentStageMetri
 export interface ListIntentStageMetricsCommandOutput extends ListIntentStageMetricsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves summary metrics for the stages within intents in your bot. The following fields are required:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>metrics</code> – A list of <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_AnalyticsIntentStageMetric.html">AnalyticsIntentStageMetric</a> objects. In each object, use the <code>name</code> field to specify the metric to calculate, the <code>statistic</code> field to specify whether to calculate the <code>Sum</code>, <code>Average</code>, or <code>Max</code> number, and the <code>order</code> field to specify whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>startDateTime</code> and <code>endDateTime</code> – Define a time range for which you want to retrieve results.</p>
- *             </li>
- *          </ul>
- *          <p>Of the optional fields, you can organize the results in the following ways:</p>
- *          <ul>
- *             <li>
- *                <p>Use the <code>filters</code> field to filter the results, the <code>groupBy</code> field to specify categories by which to group the results, and the <code>binBy</code> field to specify time intervals by which to group the results.</p>
- *             </li>
- *             <li>
- *                <p>Use the <code>maxResults</code> field to limit the number of results to return in a single response and the <code>nextToken</code> field to return the next batch of results if the response does not return the full set of results.</p>
- *             </li>
- *          </ul>
- *          <p>Note that an <code>order</code> field exists in both <code>binBy</code> and <code>metrics</code>. You can only specify one <code>order</code> in a given request.</p>
+ * Retrieves summary metrics for the stages within intents in your bot. The following fields are required:
+ *
+ * - `metrics` – A list of [AnalyticsIntentStageMetric](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_AnalyticsIntentStageMetric.html) objects. In each object, use the `name` field to specify the metric to calculate, the `statistic` field to specify whether to calculate the `Sum`, `Average`, or `Max` number, and the `order` field to specify whether to sort the results in `Ascending` or `Descending` order.
+ * - `startDateTime` and `endDateTime` – Define a time range for which you want to retrieve results.
+ *
+ * Of the optional fields, you can organize the results in the following ways:
+ *
+ * - Use the `filters` field to filter the results, the `groupBy` field to specify categories by which to group the results, and the `binBy` field to specify time intervals by which to group the results.
+ * - Use the `maxResults` field to limit the number of results to return in a single response and the `nextToken` field to return the next batch of results if the response does not return the full set of results.
+ *
+ * Note that an `order` field exists in both `binBy` and `metrics`. You can only specify one `order` in a given request.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -126,28 +117,28 @@ export interface ListIntentStageMetricsCommandOutput extends ListIntentStageMetr
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The service encountered an unexpected condition. Try your request
- *          again.</p>
+ *
+ * The service encountered an unexpected condition. Try your request again.
  *
  * @throws {@link PreconditionFailedException} (client fault)
- *  <p>Your request couldn't be completed because one or more request
- *          fields aren't valid. Check the fields in your request and try
- *          again.</p>
+ *
+ * Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You have reached a quota for your bot. </p>
+ *
+ * You have reached a quota for your bot.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Your request rate is too high. Reduce the frequency of
- *          requests.</p>
+ *
+ * Your request rate is too high. Reduce the frequency of requests.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One of the input parameters in your request isn't valid. Check the
- *          parameters and try your request again.</p>
+ *
+ * One of the input parameters in your request isn't valid. Check the parameters and try your request again.
  *
  * @throws {@link LexModelsV2ServiceException}
- * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * Base exception class for all service exceptions from LexModelsV2 service.
  *
  * @public
  */

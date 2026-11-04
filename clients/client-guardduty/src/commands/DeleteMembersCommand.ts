@@ -23,7 +23,10 @@ export interface DeleteMembersCommandInput extends DeleteMembersRequest {}
 export interface DeleteMembersCommandOutput extends DeleteMembersResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes GuardDuty member accounts (to the current GuardDuty administrator account) specified by the account IDs.</p> <p>With <code>autoEnableOrganizationMembers</code> configuration for your organization set to <code>ALL</code>, you'll receive an error if you attempt to disable GuardDuty for a member account in your organization.</p>
+ * Deletes GuardDuty member accounts (to the current GuardDuty administrator account) specified by the account IDs.
+ *
+ * With `autoEnableOrganizationMembers` configuration for your organization set to `ALL`, you'll receive an error if you attempt to disable GuardDuty for a member account in your organization.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,14 +61,16 @@ export interface DeleteMembersCommandOutput extends DeleteMembersResponse, __Met
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>A bad request exception object.</p>
+ *
+ * A bad request exception object.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>An internal server error exception object.</p>
+ *
+ * An internal server error exception object.
  *
  * @throws {@link GuardDutyServiceException}
- * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * Base exception class for all service exceptions from GuardDuty service.
  *
  * @public
  */

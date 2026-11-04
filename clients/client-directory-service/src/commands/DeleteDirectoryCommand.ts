@@ -23,10 +23,10 @@ export interface DeleteDirectoryCommandInput extends DeleteDirectoryRequest {}
 export interface DeleteDirectoryCommandOutput extends DeleteDirectoryResult, __MetadataBearer {}
 
 /**
- * <p>Deletes an Directory Service directory.</p>
- *          <p>Before you call <code>DeleteDirectory</code>, ensure that all of the required permissions
- *       have been explicitly granted through a policy. For details about what permissions are required
- *       to run the <code>DeleteDirectory</code> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">Directory Service API Permissions: Actions, Resources, and Conditions Reference</a>.</p>
+ * Deletes an Directory Service directory.
+ *
+ * Before you call `DeleteDirectory`, ensure that all of the required permissions have been explicitly granted through a policy. For details about what permissions are required to run the `DeleteDirectory` operation, see [Directory Service API Permissions: Actions, Resources, and Conditions Reference](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,17 +53,20 @@ export interface DeleteDirectoryCommandOutput extends DeleteDirectoryResult, __M
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>A client exception has occurred.</p>
+ *
+ * A client exception has occurred.
  *
  * @throws {@link EntityDoesNotExistException} (client fault)
- *  <p>The specified entity could not be found.</p>
+ *
+ * The specified entity could not be found.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * An exception has occurred in Directory Service.
  *
  * @throws {@link DirectoryServiceServiceException}
- * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * Base exception class for all service exceptions from DirectoryService service.
  *
  * @example To delete a directory
  * ```javascript

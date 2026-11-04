@@ -23,7 +23,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the tags for the specified resource.</p>
+ * Lists the tags for the specified resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,20 +53,24 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.
  *
  * @throws {@link InternalServiceError} (server fault)
- *  <p>Request processing failed due to an error or failure with the service.</p>
+ *
+ * Request processing failed due to an error or failure with the service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid. </p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link AppIntegrationsServiceException}
- * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
+ * Base exception class for all service exceptions from AppIntegrations service.
  *
  * @public
  */

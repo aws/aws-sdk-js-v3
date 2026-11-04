@@ -6,7 +6,8 @@ import type { ValidationExceptionReason } from "./enums";
 import type { ValidationExceptionDetail } from "./models_0";
 
 /**
- * <p>You are not authorized to use this operation with the given parameters.</p>
+ * You are not authorized to use this operation with the given parameters.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>An error on the server occurred during the processing of your request. Try again later.</p>
+ * An error on the server occurred during the processing of your request. Try again later.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -48,7 +50,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -69,7 +72,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -77,13 +81,15 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The reason for the validation exception.</p>
+   * The reason for the validation exception.
+   *
    * @public
    */
   reason?: ValidationExceptionReason | undefined;
 
   /**
-   * <p>The list of fields that are invalid.</p>
+   * The list of fields that are invalid.
+   *
    * @public
    */
   fields?: ValidationExceptionDetail[] | undefined;
@@ -104,7 +110,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The specified Amazon Resource Name (ARN) in the request doesn't exist.</p>
+ * The specified Amazon Resource Name (ARN) in the request doesn't exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -112,7 +119,8 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The identifier of the resource that was not found.</p>
+   * The identifier of the resource that was not found.
+   *
    * @public
    */
   resourceId: string | undefined;

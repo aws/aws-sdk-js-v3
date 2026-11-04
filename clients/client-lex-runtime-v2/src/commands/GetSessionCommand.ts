@@ -23,15 +23,12 @@ export interface GetSessionCommandInput extends GetSessionRequest {}
 export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataBearer {}
 
 /**
- * <p>Returns session information for a specified bot, alias, and
- *          user.</p>
- *          <p>For example, you can use this operation to retrieve session
- *          information for a user that has left a long-running session in
- *          use.</p>
- *          <p>If the bot, alias, or session identifier doesn't exist, Amazon Lex V2
- *          returns a <code>BadRequestException</code>. If the locale doesn't exist
- *          or is not enabled for the alias, you receive a
- *             <code>BadRequestException</code>.</p>
+ * Returns session information for a specified bot, alias, and user.
+ *
+ * For example, you can use this operation to retrieve session information for a user that has left a long-running session in use.
+ *
+ * If the bot, alias, or session identifier doesn't exist, Amazon Lex V2 returns a `BadRequestException`. If the locale doesn't exist or is not enabled for the alias, you receive a `BadRequestException`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -190,23 +187,18 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * @see {@link LexRuntimeV2ClientResolvedConfig | config} for LexRuntimeV2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p></p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p></p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p></p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p></p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p></p>
  *
  * @throws {@link LexRuntimeV2ServiceException}
- * <p>Base exception class for all service exceptions from LexRuntimeV2 service.</p>
  *
+ * Base exception class for all service exceptions from LexRuntimeV2 service.
  *
  * @public
  */

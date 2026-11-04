@@ -23,8 +23,8 @@ export interface SearchContentCommandInput extends SearchContentRequest {}
 export interface SearchContentCommandOutput extends SearchContentResponse, __MetadataBearer {}
 
 /**
- * <p>Searches for content in a specified knowledge base. Can be used to get a specific content
- *       resource by its name.</p>
+ * Searches for content in a specified knowledge base. Can be used to get a specific content resource by its name.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,17 +81,20 @@ export interface SearchContentCommandOutput extends SearchContentResponse, __Met
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by a service.</p>
+ *
+ * The input fails to satisfy the constraints specified by a service.
  *
  * @throws {@link WisdomServiceException}
- * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ * Base exception class for all service exceptions from Wisdom service.
  *
  * @public
  */

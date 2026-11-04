@@ -23,16 +23,14 @@ export interface UpdateSolutionCommandInput extends UpdateSolutionRequest {}
 export interface UpdateSolutionCommandOutput extends UpdateSolutionResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an Amazon Personalize solution to use a different automatic training configuration. When you update a solution,
- *       you can change whether the solution uses
- *       automatic training, and you can change the training frequency. For more information about updating a solution, see
- *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/updating-solution.html">Updating a solution</a>.</p>
- *          <p>A solution update can be in one of the
- *       following states:</p>
- *          <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
- *          <p>To get the status of a solution update, call the
- *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html">DescribeSolution</a> API operation and find the status
- *       in the <code>latestSolutionUpdate</code>. </p>
+ * Updates an Amazon Personalize solution to use a different automatic training configuration. When you update a solution, you can change whether the solution uses automatic training, and you can change the training frequency. For more information about updating a solution, see [Updating a solution](https://docs.aws.amazon.com/personalize/latest/dg/updating-solution.html).
+ *
+ * A solution update can be in one of the following states:
+ *
+ * CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
+ *
+ * To get the status of a solution update, call the [DescribeSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html) API operation and find the status in the `latestSolutionUpdate`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,20 +73,24 @@ export interface UpdateSolutionCommandOutput extends UpdateSolutionResponse, __M
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * Provide a valid value for the field or parameter.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The limit on the number of requests per second has been exceeded.</p>
+ *
+ * The limit on the number of requests per second has been exceeded.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is in use.</p>
+ *
+ * The specified resource is in use.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Could not find the specified resource.</p>
+ *
+ * Could not find the specified resource.
  *
  * @throws {@link PersonalizeServiceException}
- * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * Base exception class for all service exceptions from Personalize service.
  *
  * @public
  */

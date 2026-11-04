@@ -23,7 +23,16 @@ export interface CreateScraperCommandInput extends CreateScraperRequest {}
 export interface CreateScraperCommandOutput extends CreateScraperResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a scraper to collect metrics from Prometheus-compatible sources. The scraper sends the collected metrics to Amazon Managed Service for Prometheus workspaces or CloudWatch datasets. You can configure scrapers to collect metrics from Amazon EKS clusters, Amazon MSK clusters, or from VPC-based sources that support DNS-based service discovery. Scrapers are flexible. You can configure a scraper to control which metrics to collect, the frequency of collection, which transformations to apply to the metrics, and more.</p> <p>An IAM role will be created for you that Amazon Managed Service for Prometheus uses to access the metrics in your source. You must configure this role with a policy that allows it to scrape metrics from your source. For Amazon EKS sources, see <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-eks-setup">Configuring your Amazon EKS cluster</a> in the <i>Amazon Managed Service for Prometheus User Guide</i>. For a Kafka exporter, grant this role access with a cluster policy on the Amazon MSK cluster instead. For details, see <code>KafkaExporterConfiguration</code>.</p> <p>The <code>scrapeConfiguration</code> parameter contains the base-64 encoded YAML configuration for the scraper.</p> <p>When creating a scraper, the service creates a <code>Network Interface</code> in each <b>Availability Zone</b> that are passed into <code>CreateScraper</code> through subnets. These network interfaces are used to connect to your source within the VPC for scraping metrics.</p> <note> <p>For more information about collectors, including what metrics are collected, and how to configure the scraper, see <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html">Using an Amazon Web Services managed collector</a> in the <i>Amazon Managed Service for Prometheus User Guide</i>.</p> </note>
+ * Creates a scraper to collect metrics from Prometheus-compatible sources. The scraper sends the collected metrics to Amazon Managed Service for Prometheus workspaces or CloudWatch datasets. You can configure scrapers to collect metrics from Amazon EKS clusters, Amazon MSK clusters, or from VPC-based sources that support DNS-based service discovery. Scrapers are flexible. You can configure a scraper to control which metrics to collect, the frequency of collection, which transformations to apply to the metrics, and more.
+ *
+ * An IAM role will be created for you that Amazon Managed Service for Prometheus uses to access the metrics in your source. You must configure this role with a policy that allows it to scrape metrics from your source. For Amazon EKS sources, see [Configuring your Amazon EKS cluster](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-eks-setup) in the *Amazon Managed Service for Prometheus User Guide*. For a Kafka exporter, grant this role access with a cluster policy on the Amazon MSK cluster instead. For details, see `KafkaExporterConfiguration`.
+ *
+ * The `scrapeConfiguration` parameter contains the base-64 encoded YAML configuration for the scraper.
+ *
+ * When creating a scraper, the service creates a `Network Interface` in each **Availability Zone** that are passed into `CreateScraper` through subnets. These network interfaces are used to connect to your source within the VPC for scraping metrics.
+ *
+ * > **Note:** For more information about collectors, including what metrics are collected, and how to configure the scraper, see [Using an Amazon Web Services managed collector](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html) in the *Amazon Managed Service for Prometheus User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -107,29 +116,36 @@ export interface CreateScraperCommandOutput extends CreateScraperResponse, __Met
  * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request would cause an inconsistent state.</p>
+ *
+ * The request would cause an inconsistent state.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred during the processing of the request.</p>
+ *
+ * An unexpected error occurred during the processing of the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request references a resources that doesn't exist.</p>
+ *
+ * The request references a resources that doesn't exist.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Completing the request would cause a service quota to be exceeded.</p>
+ *
+ * Completing the request would cause a service quota to be exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link AmpServiceException}
- * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ * Base exception class for all service exceptions from Amp service.
  *
  * @example CreateScraper with optional alias input, optional clientToken input, and one set of tags
  * ```javascript

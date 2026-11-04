@@ -23,7 +23,8 @@ export interface DescribeAddressesCommandInput extends DescribeAddressesRequest 
 export interface DescribeAddressesCommandOutput extends DescribeAddressesResult, __MetadataBearer {}
 
 /**
- * <p>Describes the specified Elastic IP addresses or all of your Elastic IP addresses.</p>
+ * Describes the specified Elastic IP addresses or all of your Elastic IP addresses.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,8 +89,8 @@ export interface DescribeAddressesCommandOutput extends DescribeAddressesResult,
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To describe your Elastic IP addresses
  * ```javascript

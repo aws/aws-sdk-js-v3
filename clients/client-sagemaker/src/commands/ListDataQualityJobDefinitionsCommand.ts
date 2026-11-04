@@ -24,7 +24,8 @@ export interface ListDataQualityJobDefinitionsCommandInput extends ListDataQuali
 export interface ListDataQualityJobDefinitionsCommandOutput extends ListDataQualityJobDefinitionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the data quality job definitions in your account.</p>
+ * Lists the data quality job definitions in your account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,8 +67,8 @@ export interface ListDataQualityJobDefinitionsCommandOutput extends ListDataQual
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

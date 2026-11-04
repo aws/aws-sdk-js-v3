@@ -24,7 +24,8 @@ export interface GetDataAccessorCommandInput extends GetDataAccessorRequest {}
 export interface GetDataAccessorCommandOutput extends GetDataAccessorResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about a specified data accessor. This operation returns details about the data accessor, including its display name, unique identifier, Amazon Resource Name (ARN), the associated Amazon Q Business application and IAM Identity Center application, the IAM role for the ISV, the action configurations, and the timestamps for when the data accessor was created and last updated.</p>
+ * Retrieves information about a specified data accessor. This operation returns details about the data accessor, including its display name, unique identifier, Amazon Resource Name (ARN), the associated Amazon Q Business application and IAM Identity Center application, the IAM role for the ISV, the action configurations, and the timestamps for when the data accessor was created and last updated.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -158,23 +159,28 @@ export interface GetDataAccessorCommandOutput extends GetDataAccessorResponse, _
  * @see {@link QBusinessClientResolvedConfig | config} for QBusinessClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+ *
+ * You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
+ *
+ * An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact [Support](http://aws.amazon.com/contact-us/) for help.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+ *
+ * The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+ *
+ * The request was denied due to throttling. Reduce the number of requests and try again.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+ *
+ * The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.
  *
  * @throws {@link QBusinessServiceException}
- * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ * Base exception class for all service exceptions from QBusiness service.
  *
  * @public
  */

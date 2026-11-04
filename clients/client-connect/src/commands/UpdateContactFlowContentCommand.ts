@@ -23,12 +23,12 @@ export interface UpdateContactFlowContentCommandInput extends UpdateContactFlowC
 export interface UpdateContactFlowContentCommandOutput extends UpdateContactFlowContentResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the specified flow.</p>
- *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Connect Customer
- *    Flow language</a>.</p>
- *          <p>Use the <code>$SAVED</code> alias in the request to describe the <code>SAVED</code> content of a Flow. For
- *    example, <code>arn:aws:.../contact-flow/\{id\}:$SAVED</code>. After a flow is published, <code>$SAVED</code> needs to
- *    be supplied to view saved content that has not been published.</p>
+ * Updates the specified flow.
+ *
+ * You can also create and update flows using the [Connect Customer Flow language](https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html).
+ *
+ * Use the `$SAVED` alias in the request to describe the `SAVED` content of a Flow. For example, `arn:aws:.../contact-flow/\{id\}:$SAVED`. After a flow is published, `$SAVED` needs to be supplied to view saved content that has not been published.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,26 +55,32 @@ export interface UpdateContactFlowContentCommandOutput extends UpdateContactFlow
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidContactFlowException} (client fault)
- *  <p>The flow is not valid.</p>
+ *
+ * The flow is not valid.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

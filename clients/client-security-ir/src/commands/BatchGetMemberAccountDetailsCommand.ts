@@ -23,7 +23,10 @@ export interface BatchGetMemberAccountDetailsCommandInput extends BatchGetMember
 export interface BatchGetMemberAccountDetailsCommandOutput extends BatchGetMemberAccountDetailsResponse, __MetadataBearer {}
 
 /**
- * <p>Provides information on whether the supplied account IDs are associated with a membership.</p> <note> <p> AWS account ID's may appear less than 12 characters and need to be zero-prepended. An example would be <code>123123123</code> which is nine digits, and with zero-prepend would be <code>000123123123</code>. Not zero-prepending to 12 digits could result in errors. </p> </note>
+ * Provides information on whether the supplied account IDs are associated with a membership.
+ *
+ * > **Note:** AWS account ID's may appear less than 12 characters and need to be zero-prepended. An example would be `123123123` which is nine digits, and with zero-prepend would be `000123123123`. Not zero-prepending to 12 digits could result in errors.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,38 +69,28 @@ export interface BatchGetMemberAccountDetailsCommandOutput extends BatchGetMembe
  * @see {@link SecurityIRClientResolvedConfig | config} for SecurityIRClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p/>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p/>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p/>
  *
  * @throws {@link InvalidTokenException} (client fault)
- *  <p/>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p/>
  *
  * @throws {@link SecurityIncidentResponseNotActiveException} (client fault)
- *  <p/>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p/>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p/>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p/>
  *
  * @throws {@link SecurityIRServiceException}
- * <p>Base exception class for all service exceptions from SecurityIR service.</p>
  *
+ * Base exception class for all service exceptions from SecurityIR service.
  *
- * @example Invoke BatchGetMemberAccountDetails
- * ```javascript
+ * @example Invoke BatchGetMemberAccountDetails```javascript
  * //
  * const input = {
  *   accountIds: [

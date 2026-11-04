@@ -23,7 +23,8 @@ export interface GetCoreNetworkChangeSetCommandInput extends GetCoreNetworkChang
 export interface GetCoreNetworkChangeSetCommandOutput extends GetCoreNetworkChangeSetResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a change set between the LIVE core network policy and a submitted policy.</p>
+ * Returns a change set between the LIVE core network policy and a submitted policy.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -181,23 +182,28 @@ export interface GetCoreNetworkChangeSetCommandOutput extends GetCoreNetworkChan
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request has failed due to an internal error.</p>
+ *
+ * The request has failed due to an internal error.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource could not be found.</p>
+ *
+ * The specified resource could not be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints.</p>
+ *
+ * The input fails to satisfy the constraints.
  *
  * @throws {@link NetworkManagerServiceException}
- * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * Base exception class for all service exceptions from NetworkManager service.
  *
  * @public
  */

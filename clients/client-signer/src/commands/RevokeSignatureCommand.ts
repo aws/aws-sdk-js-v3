@@ -23,8 +23,8 @@ export interface RevokeSignatureCommandInput extends RevokeSignatureRequest {}
 export interface RevokeSignatureCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Changes the state of a signing job to <code>REVOKED</code>. This indicates that the signature is no
- * 			longer valid.</p>
+ * Changes the state of a signing job to `REVOKED`. This indicates that the signature is no longer valid.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,24 +51,30 @@ export interface RevokeSignatureCommandOutput extends __MetadataBearer {}
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>An internal error occurred.</p>
+ *
+ * An internal error occurred.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A specified resource could not be found.</p>
+ *
+ * A specified resource could not be found.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The allowed number of job-signing requests has been exceeded.</p>
- *          <p>This error supersedes the error <code>ThrottlingException</code>.</p>
+ *
+ * The allowed number of job-signing requests has been exceeded.
+ *
+ * This error supersedes the error `ThrottlingException`.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>You signing certificate could not be validated.</p>
+ *
+ * You signing certificate could not be validated.
  *
  * @throws {@link SignerServiceException}
- * <p>Base exception class for all service exceptions from Signer service.</p>
  *
+ * Base exception class for all service exceptions from Signer service.
  *
  * @public
  */

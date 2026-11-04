@@ -23,7 +23,8 @@ export interface DescribeAccountAttributesCommandInput extends DescribeAccountAt
 export interface DescribeAccountAttributesCommandOutput extends AccountAttributeList, __MetadataBearer {}
 
 /**
- * <p>Returns a list of attributes attached to an account</p>
+ * Returns a list of attributes attached to an account
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,8 +62,8 @@ export interface DescribeAccountAttributesCommandOutput extends AccountAttribute
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

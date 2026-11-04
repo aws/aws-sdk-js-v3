@@ -23,7 +23,8 @@ export interface StartScanJobCommandInput extends StartScanJobInput {}
 export interface StartScanJobCommandOutput extends StartScanJobOutput, __MetadataBearer {}
 
 /**
- * <p>Starts scanning jobs for specific resources.</p>
+ * Starts scanning jobs for specific resources.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,29 +60,32 @@ export interface StartScanJobCommandOutput extends StartScanJobOutput, __Metadat
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
- *          out of range.</p>
+ *
+ * Indicates that something is wrong with a parameter's value. For example, the value is out of range.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Indicates that something is wrong with the input to the request. For example, a
- *          parameter is of the wrong type.</p>
+ *
+ * Indicates that something is wrong with the input to the request. For example, a parameter is of the wrong type.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>A limit in the request has been exceeded; for example, a maximum number of items allowed
- *          in a request.</p>
+ *
+ * A limit in the request has been exceeded; for example, a maximum number of items allowed in a request.
  *
  * @throws {@link MissingParameterValueException} (client fault)
- *  <p>Indicates that a required parameter is missing.</p>
+ *
+ * Indicates that a required parameter is missing.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A resource that is required for the action doesn't exist.</p>
+ *
+ * A resource that is required for the action doesn't exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The request failed due to a temporary failure of the server.</p>
+ *
+ * The request failed due to a temporary failure of the server.
  *
  * @throws {@link BackupServiceException}
- * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * Base exception class for all service exceptions from Backup service.
  *
  * @public
  */

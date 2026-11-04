@@ -23,10 +23,8 @@ export interface RemovePermissionCommandInput extends RemovePermissionRequest {}
 export interface RemovePermissionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Revokes the permission of another Amazon Web Services account to be able to put events to
- *       the specified event bus. Specify the account to revoke by the <code>StatementId</code> value
- *       that you associated with the account when you granted it permission with
- *         <code>PutPermission</code>. You can find the <code>StatementId</code> by using <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DescribeEventBus.html">DescribeEventBus</a>.</p>
+ * Revokes the permission of another Amazon Web Services account to be able to put events to the specified event bus. Specify the account to revoke by the `StatementId` value that you associated with the account when you granted it permission with `PutPermission`. You can find the `StatementId` by using [DescribeEventBus](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DescribeEventBus.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,20 +51,24 @@ export interface RemovePermissionCommandOutput extends __MetadataBearer {}
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+ *
+ * There is concurrent modification on a rule, target, archive, or replay.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * This exception occurs due to unexpected causes.
  *
  * @throws {@link OperationDisabledException} (client fault)
- *  <p>The operation you are attempting is not available in this region.</p>
+ *
+ * The operation you are attempting is not available in this region.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An entity that you specified does not exist.</p>
+ *
+ * An entity that you specified does not exist.
  *
  * @throws {@link EventBridgeServiceException}
- * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ * Base exception class for all service exceptions from EventBridge service.
  *
  * @public
  */

@@ -23,15 +23,10 @@ export interface CreateApplicationCommandInput extends CreateApplicationRequest 
 export interface CreateApplicationCommandOutput extends CreateApplicationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon Web Services Migration Hub Refactor Spaces application. The account that owns the environment also owns the
- *       applications created inside the environment, regardless of the account that creates the
- *       application. Refactor Spaces provisions an Amazon API Gateway, API Gateway VPC link, and
- *         Network Load Balancer for the application proxy inside your account.</p>
- *          <p>In environments created with a <a href="https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/APIReference/API_CreateEnvironment.html#migrationhubrefactorspaces-CreateEnvironment-request-NetworkFabricType">CreateEnvironment:NetworkFabricType</a> of <code>NONE</code> you need to configure
- *         <a href="https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/amazon-vpc-to-amazon-vpc-connectivity-options.html"> VPC to VPC connectivity</a> between your service VPC and the application proxy VPC to
- *       route traffic through the application proxy to a service with a private URL endpoint. For more
- *       information, see <a href="https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/userguide/getting-started-create-application.html">
- *         Create an application</a> in the <i>Refactor Spaces User Guide</i>. </p>
+ * Creates an Amazon Web Services Migration Hub Refactor Spaces application. The account that owns the environment also owns the applications created inside the environment, regardless of the account that creates the application. Refactor Spaces provisions an Amazon API Gateway, API Gateway VPC link, and Network Load Balancer for the application proxy inside your account.
+ *
+ * In environments created with a [CreateEnvironment:NetworkFabricType](https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/APIReference/API_CreateEnvironment.html#migrationhubrefactorspaces-CreateEnvironment-request-NetworkFabricType) of `NONE` you need to configure [VPC to VPC connectivity](https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/amazon-vpc-to-amazon-vpc-connectivity-options.html) between your service VPC and the application proxy VPC to route traffic through the application proxy to a service with a private URL endpoint. For more information, see [Create an application](https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/userguide/getting-started-create-application.html) in the *Refactor Spaces User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,30 +81,36 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * @see {@link MigrationHubRefactorSpacesClientResolvedConfig | config} for MigrationHubRefactorSpacesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The user does not have sufficient access to perform this action. </p>
+ *
+ * The user does not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ *
+ * Updating or deleting a resource can cause an inconsistent state.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred while processing the request.</p>
+ *
+ * An unexpected error occurred while processing the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request references a resource that does not exist. </p>
+ *
+ * The request references a resource that does not exist.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would cause a service quota to be exceeded. </p>
+ *
+ * The request would cause a service quota to be exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Request was denied because the request was throttled. </p>
+ *
+ * Request was denied because the request was throttled.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by an Amazon Web Service.
- *     </p>
+ *
+ * The input does not satisfy the constraints specified by an Amazon Web Service.
  *
  * @throws {@link MigrationHubRefactorSpacesServiceException}
- * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
+ * Base exception class for all service exceptions from MigrationHubRefactorSpaces service.
  *
  * @public
  */

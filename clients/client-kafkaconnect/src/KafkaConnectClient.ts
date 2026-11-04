@@ -366,7 +366,6 @@ export type KafkaConnectClientResolvedConfigType = __SmithyResolvedConfiguration
 export interface KafkaConnectClientResolvedConfig extends KafkaConnectClientResolvedConfigType {}
 
 /**
- * <p/>
  * @public
  */
 export class KafkaConnectClient extends __Client<

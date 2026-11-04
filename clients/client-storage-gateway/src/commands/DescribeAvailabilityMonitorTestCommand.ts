@@ -23,9 +23,8 @@ export interface DescribeAvailabilityMonitorTestCommandInput extends DescribeAva
 export interface DescribeAvailabilityMonitorTestCommandOutput extends DescribeAvailabilityMonitorTestOutput, __MetadataBearer {}
 
 /**
- * <p>Returns information about the most recent high availability monitoring test that was
- *          performed on the host in a cluster. If a test isn't performed, the status and start
- *          time in the response would be null.</p>
+ * Returns information about the most recent high availability monitoring test that was performed on the host in a cluster. If a test isn't performed, the status and start time in the response would be null.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,16 +53,16 @@ export interface DescribeAvailabilityMonitorTestCommandOutput extends DescribeAv
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @public
  */

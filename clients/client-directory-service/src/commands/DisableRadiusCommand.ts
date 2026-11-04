@@ -23,8 +23,8 @@ export interface DisableRadiusCommandInput extends DisableRadiusRequest {}
 export interface DisableRadiusCommandOutput extends DisableRadiusResult, __MetadataBearer {}
 
 /**
- * <p>Disables multi-factor authentication (MFA) with the Remote Authentication Dial In User
- *          Service (RADIUS) server for an AD Connector or Microsoft AD directory.</p>
+ * Disables multi-factor authentication (MFA) with the Remote Authentication Dial In User Service (RADIUS) server for an AD Connector or Microsoft AD directory.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,17 +49,20 @@ export interface DisableRadiusCommandOutput extends DisableRadiusResult, __Metad
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>A client exception has occurred.</p>
+ *
+ * A client exception has occurred.
  *
  * @throws {@link EntityDoesNotExistException} (client fault)
- *  <p>The specified entity could not be found.</p>
+ *
+ * The specified entity could not be found.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * An exception has occurred in Directory Service.
  *
  * @throws {@link DirectoryServiceServiceException}
- * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * Base exception class for all service exceptions from DirectoryService service.
  *
  * @example To disable radius
  * ```javascript

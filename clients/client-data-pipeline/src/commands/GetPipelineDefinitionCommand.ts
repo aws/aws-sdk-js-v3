@@ -23,8 +23,7 @@ export interface GetPipelineDefinitionCommandInput extends GetPipelineDefinition
 export interface GetPipelineDefinitionCommandOutput extends GetPipelineDefinitionOutput, __MetadataBearer {}
 
 /**
- * <p>Gets the definition of the specified pipeline. You can call <code>GetPipelineDefinition</code> to retrieve
- *             the pipeline definition that you provided using <a>PutPipelineDefinition</a>.</p>
+ * Gets the definition of the specified pipeline. You can call `GetPipelineDefinition` to retrieve the pipeline definition that you provided using PutPipelineDefinition.
  *
  *         <examples>
  *             <request>
@@ -36,7 +35,6 @@ export interface GetPipelineDefinitionCommandOutput extends GetPipelineDefinitio
  * Host: datapipeline.us-east-1.amazonaws.com
  * X-Amz-Date: Mon, 12 Nov 2012 17:49:52 GMT
  * Authorization: AuthParams
- *
  *
  * \{"pipelineId": "df-06372391ZG65EXAMPLE"\}
  *
@@ -144,20 +142,24 @@ export interface GetPipelineDefinitionCommandOutput extends GetPipelineDefinitio
  * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.
  *
  * @throws {@link InternalServiceError} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
+ *
+ * The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.
  *
  * @throws {@link PipelineDeletedException} (client fault)
- *  <p>The specified pipeline has been deleted.</p>
+ *
+ * The specified pipeline has been deleted.
  *
  * @throws {@link PipelineNotFoundException} (client fault)
- *  <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
+ *
+ * The specified pipeline was not found. Verify that you used the correct user and account identifiers.
  *
  * @throws {@link DataPipelineServiceException}
- * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ * Base exception class for all service exceptions from DataPipeline service.
  *
  * @public
  */

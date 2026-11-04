@@ -23,10 +23,10 @@ export interface FailoverGlobalClusterCommandInput extends FailoverGlobalCluster
 export interface FailoverGlobalClusterCommandOutput extends FailoverGlobalClusterResult, __MetadataBearer {}
 
 /**
- * <p>Promotes the specified secondary DB cluster to be the primary DB cluster in the global cluster when failing over a global cluster occurs.</p>
- *          <p>Use this operation to respond to an unplanned event, such as a regional disaster in the primary region.
- *             Failing over can result in a loss of write transaction data that wasn't replicated to the chosen secondary before the failover event occurred.
- *             However, the recovery process that promotes a DB instance on the chosen seconday DB cluster to be the primary writer DB instance guarantees that the data is in a transactionally consistent state.</p>
+ * Promotes the specified secondary DB cluster to be the primary DB cluster in the global cluster when failing over a global cluster occurs.
+ *
+ * Use this operation to respond to an unplanned event, such as a regional disaster in the primary region. Failing over can result in a loss of write transaction data that wasn't replicated to the chosen secondary before the failover event occurred. However, the recovery process that promotes a DB instance on the chosen seconday DB cluster to be the primary writer DB instance guarantees that the data is in a transactionally consistent state.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,21 +88,24 @@ export interface FailoverGlobalClusterCommandOutput extends FailoverGlobalCluste
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p>
- *             <code>DBClusterIdentifier</code> doesn't refer to an existing cluster. </p>
+ *
+ * `DBClusterIdentifier` doesn't refer to an existing cluster.
  *
  * @throws {@link GlobalClusterNotFoundFault} (client fault)
- *  <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global cluster.</p>
+ *
+ * The `GlobalClusterIdentifier` doesn't refer to an existing global cluster.
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
- *  <p>The cluster isn't in a valid state.</p>
+ *
+ * The cluster isn't in a valid state.
  *
  * @throws {@link InvalidGlobalClusterStateFault} (client fault)
- *  <p>The requested operation can't be performed while the cluster is in this state.</p>
+ *
+ * The requested operation can't be performed while the cluster is in this state.
  *
  * @throws {@link DocDBServiceException}
- * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * Base exception class for all service exceptions from DocDB service.
  *
  * @public
  */

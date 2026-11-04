@@ -23,7 +23,8 @@ export interface ListCodeRepositoriesCommandInput extends ListCodeRepositoriesIn
 export interface ListCodeRepositoriesCommandOutput extends ListCodeRepositoriesOutput, __MetadataBearer {}
 
 /**
- * <p>Gets a list of the Git repositories in your account.</p>
+ * Gets a list of the Git repositories in your account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,8 +72,8 @@ export interface ListCodeRepositoriesCommandOutput extends ListCodeRepositoriesO
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { EventBridgeServiceException as __BaseException } from "./EventBridgeServiceException";
 
 /**
- * <p>You do not have the necessary permissions for this action.</p>
+ * You do not have the necessary permissions for this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+ * There is concurrent modification on a rule, target, archive, or replay.
+ *
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
@@ -46,7 +48,8 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
- * <p>This exception occurs due to unexpected causes.</p>
+ * This exception occurs due to unexpected causes.
+ *
  * @public
  */
 export class InternalException extends __BaseException {
@@ -67,7 +70,8 @@ export class InternalException extends __BaseException {
 }
 
 /**
- * <p>The specified state is not a valid state for an event source.</p>
+ * The specified state is not a valid state for an event source.
+ *
  * @public
  */
 export class InvalidStateException extends __BaseException {
@@ -88,7 +92,8 @@ export class InvalidStateException extends __BaseException {
 }
 
 /**
- * <p>The operation you are attempting is not available in this region.</p>
+ * The operation you are attempting is not available in this region.
+ *
  * @public
  */
 export class OperationDisabledException extends __BaseException {
@@ -109,7 +114,8 @@ export class OperationDisabledException extends __BaseException {
 }
 
 /**
- * <p>An entity that you specified does not exist.</p>
+ * An entity that you specified does not exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -130,8 +136,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>An error occurred because a replay can be canceled only when the state is Running or
- *       Starting.</p>
+ * An error occurred because a replay can be canceled only when the state is Running or Starting.
+ *
  * @public
  */
 export class IllegalStatusException extends __BaseException {
@@ -152,8 +158,8 @@ export class IllegalStatusException extends __BaseException {
 }
 
 /**
- * <p>The request failed because it attempted to create resource beyond the allowed service
- *       quota.</p>
+ * The request failed because it attempted to create resource beyond the allowed service quota.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -174,7 +180,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The resource you are trying to create already exists.</p>
+ * The resource you are trying to create already exists.
+ *
  * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -195,7 +202,8 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The event pattern is not valid.</p>
+ * The event pattern is not valid.
+ *
  * @public
  */
 export class InvalidEventPatternException extends __BaseException {
@@ -216,7 +224,8 @@ export class InvalidEventPatternException extends __BaseException {
 }
 
 /**
- * <p>This request cannot be completed due to throttling issues.</p>
+ * This request cannot be completed due to throttling issues.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -237,12 +246,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>This rule was created by an Amazon Web Services service on behalf of your account. It is
- *       managed by that service. If you see this error in response to <code>DeleteRule</code> or
- *         <code>RemoveTargets</code>, you can use the <code>Force</code> parameter in those calls to
- *       delete the rule or remove targets from the rule. You cannot modify these managed rules by
- *       using <code>DisableRule</code>, <code>EnableRule</code>, <code>PutTargets</code>,
- *         <code>PutRule</code>, <code>TagResource</code>, or <code>UntagResource</code>. </p>
+ * This rule was created by an Amazon Web Services service on behalf of your account. It is managed by that service. If you see this error in response to `DeleteRule` or `RemoveTargets`, you can use the `Force` parameter in those calls to delete the rule or remove targets from the rule. You cannot modify these managed rules by using `DisableRule`, `EnableRule`, `PutTargets`, `PutRule`, `TagResource`, or `UntagResource`.
+ *
  * @public
  */
 export class ManagedRuleException extends __BaseException {
@@ -263,7 +268,8 @@ export class ManagedRuleException extends __BaseException {
 }
 
 /**
- * <p>The event bus policy is too long. For more information, see the limits.</p>
+ * The event bus policy is too long. For more information, see the limits.
+ *
  * @public
  */
 export class PolicyLengthExceededException extends __BaseException {

@@ -23,7 +23,8 @@ export interface CreateRepositoryCommandInput extends CreateRepositoryInput {}
 export interface CreateRepositoryCommandOutput extends CreateRepositoryOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a new, empty repository.</p>
+ * Creates a new, empty repository.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,65 +68,78 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryOutput, _
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  * @throws {@link EncryptionIntegrityChecksFailedException} (server fault)
- *  <p>An encryption integrity check failed.</p>
+ *
+ * An encryption integrity check failed.
  *
  * @throws {@link EncryptionKeyAccessDeniedException} (client fault)
- *  <p>An encryption key could not be accessed.</p>
+ *
+ * An encryption key could not be accessed.
  *
  * @throws {@link EncryptionKeyDisabledException} (client fault)
- *  <p>The encryption key is disabled.</p>
+ *
+ * The encryption key is disabled.
  *
  * @throws {@link EncryptionKeyInvalidIdException} (client fault)
- *  <p>The Key Management Service encryption key is not valid.</p>
+ *
+ * The Key Management Service encryption key is not valid.
  *
  * @throws {@link EncryptionKeyInvalidUsageException} (client fault)
- *  <p>A KMS encryption key was used to try and encrypt or decrypt a repository, but either the repository or the key was not
- *         in a valid state to support the operation.</p>
+ *
+ * A KMS encryption key was used to try and encrypt or decrypt a repository, but either the repository or the key was not in a valid state to support the operation.
  *
  * @throws {@link EncryptionKeyNotFoundException} (client fault)
- *  <p>No encryption key was found.</p>
+ *
+ * No encryption key was found.
  *
  * @throws {@link EncryptionKeyUnavailableException} (client fault)
- *  <p>The encryption key is not available.</p>
+ *
+ * The encryption key is not available.
  *
  * @throws {@link InvalidRepositoryDescriptionException} (client fault)
- *  <p>The specified repository description is not valid.</p>
+ *
+ * The specified repository description is not valid.
  *
  * @throws {@link InvalidRepositoryNameException} (client fault)
- *  <p>A specified repository name is not valid.</p>
- *          <note>
- *             <p>This exception occurs only when a specified repository name is not valid. Other
- *                 exceptions occur when a required repository parameter is missing, or when a
- *                 specified repository does not exist.</p>
- *          </note>
+ *
+ * A specified repository name is not valid.
+ *
+ * > **Note:** This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.
  *
  * @throws {@link InvalidSystemTagUsageException} (client fault)
- *  <p>The specified tag is not valid. Key names cannot be prefixed with aws:.</p>
+ *
+ * The specified tag is not valid. Key names cannot be prefixed with aws:.
  *
  * @throws {@link InvalidTagsMapException} (client fault)
- *  <p>The map of tags is not valid.</p>
+ *
+ * The map of tags is not valid.
  *
  * @throws {@link OperationNotAllowedException} (client fault)
- *  <p>The requested action is not allowed.</p>
+ *
+ * The requested action is not allowed.
  *
  * @throws {@link RepositoryLimitExceededException} (client fault)
- *  <p>A repository resource limit was exceeded.</p>
+ *
+ * A repository resource limit was exceeded.
  *
  * @throws {@link RepositoryNameExistsException} (client fault)
- *  <p>The specified repository name already exists.</p>
+ *
+ * The specified repository name already exists.
  *
  * @throws {@link RepositoryNameRequiredException} (client fault)
- *  <p>A repository name is required, but was not specified.</p>
+ *
+ * A repository name is required, but was not specified.
  *
  * @throws {@link TagPolicyException} (client fault)
- *  <p>The tag policy is not valid.</p>
+ *
+ * The tag policy is not valid.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>The maximum number of tags for an CodeCommit resource has been exceeded.</p>
+ *
+ * The maximum number of tags for an CodeCommit resource has been exceeded.
  *
  * @throws {@link CodeCommitServiceException}
- * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * Base exception class for all service exceptions from CodeCommit service.
  *
  * @public
  */

@@ -5,7 +5,8 @@ import type { IntelligentTieringAccessTier, StorageClass } from "./enums";
 import { S3ServiceException as __BaseException } from "./S3ServiceException";
 
 /**
- * <p>The specified multipart upload does not exist.</p>
+ * The specified multipart upload does not exist.
+ *
  * @public
  */
 export class NoSuchUpload extends __BaseException {
@@ -26,9 +27,8 @@ export class NoSuchUpload extends __BaseException {
 }
 
 /**
- * <p>
- *       You might receive this error for several reasons. For details, see the description of this API
- *       operation.</p>
+ * You might receive this error for several reasons. For details, see the description of this API operation.
+ *
  * @public
  */
 export class AccessDenied extends __BaseException {
@@ -49,8 +49,8 @@ export class AccessDenied extends __BaseException {
 }
 
 /**
- * <p>The source object of the COPY action is not in the active tier and is only stored in Amazon S3
- *       Glacier.</p>
+ * The source object of the COPY action is not in the active tier and is only stored in Amazon S3 Glacier.
+ *
  * @public
  */
 export class ObjectNotInActiveTierError extends __BaseException {
@@ -71,8 +71,8 @@ export class ObjectNotInActiveTierError extends __BaseException {
 }
 
 /**
- * <p>The requested bucket name is not available. The bucket namespace is shared by all users of the
- *       system. Select a different name and try again.</p>
+ * The requested bucket name is not available. The bucket namespace is shared by all users of the system. Select a different name and try again.
+ *
  * @public
  */
 export class BucketAlreadyExists extends __BaseException {
@@ -93,10 +93,8 @@ export class BucketAlreadyExists extends __BaseException {
 }
 
 /**
- * <p>The bucket you tried to create already exists, and you own it. Amazon S3 returns this error in all Amazon Web Services
- *       Regions except in the North Virginia Region. For legacy compatibility, if you re-create an existing
- *       bucket that you already own in the North Virginia Region, Amazon S3 returns 200 OK and resets the bucket
- *       access control lists (ACLs).</p>
+ * The bucket you tried to create already exists, and you own it. Amazon S3 returns this error in all Amazon Web Services Regions except in the North Virginia Region. For legacy compatibility, if you re-create an existing bucket that you already own in the North Virginia Region, Amazon S3 returns 200 OK and resets the bucket access control lists (ACLs).
+ *
  * @public
  */
 export class BucketAlreadyOwnedByYou extends __BaseException {
@@ -117,7 +115,8 @@ export class BucketAlreadyOwnedByYou extends __BaseException {
 }
 
 /**
- * <p>The specified bucket does not exist.</p>
+ * The specified bucket does not exist.
+ *
  * @public
  */
 export class NoSuchBucket extends __BaseException {
@@ -138,7 +137,8 @@ export class NoSuchBucket extends __BaseException {
 }
 
 /**
- * <p>The specified key does not exist.</p>
+ * The specified key does not exist.
+ *
  * @public
  */
 export class NoSuchKey extends __BaseException {
@@ -159,13 +159,10 @@ export class NoSuchKey extends __BaseException {
 }
 
 /**
- * <p>Object is archived and inaccessible until restored.</p>
- *          <p>If the object you are retrieving is stored in the S3 Glacier Flexible Retrieval storage class, the
- *       S3 Glacier Deep Archive storage class, the S3 Intelligent-Tiering Archive Access tier, or the
- *       S3 Intelligent-Tiering Deep Archive Access tier, before you can retrieve the object you must first restore a copy
- *       using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html">RestoreObject</a>. Otherwise, this operation returns an <code>InvalidObjectState</code> error. For
- *       information about restoring archived objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/restoring-objects.html">Restoring Archived Objects</a> in the
- *         <i>Amazon S3 User Guide</i>.</p>
+ * Object is archived and inaccessible until restored.
+ *
+ * If the object you are retrieving is stored in the S3 Glacier Flexible Retrieval storage class, the S3 Glacier Deep Archive storage class, the S3 Intelligent-Tiering Archive Access tier, or the S3 Intelligent-Tiering Deep Archive Access tier, before you can retrieve the object you must first restore a copy using [RestoreObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html). Otherwise, this operation returns an `InvalidObjectState` error. For information about restoring archived objects, see [Restoring Archived Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/restoring-objects.html) in the *Amazon S3 User Guide*.
+ *
  * @public
  */
 export class InvalidObjectState extends __BaseException {
@@ -190,7 +187,8 @@ export class InvalidObjectState extends __BaseException {
 }
 
 /**
- * <p>The specified annotation does not exist on this object.</p>
+ * The specified annotation does not exist on this object.
+ *
  * @public
  */
 export class NoSuchAnnotation extends __BaseException {
@@ -211,7 +209,8 @@ export class NoSuchAnnotation extends __BaseException {
 }
 
 /**
- * <p>The specified content does not exist.</p>
+ * The specified content does not exist.
+ *
  * @public
  */
 export class NotFound extends __BaseException {
@@ -232,7 +231,8 @@ export class NotFound extends __BaseException {
 }
 
 /**
- * <p>The annotation prefix you provided is invalid.</p>
+ * The annotation prefix you provided is invalid.
+ *
  * @public
  */
 export class InvalidPrefix extends __BaseException {
@@ -253,8 +253,8 @@ export class InvalidPrefix extends __BaseException {
 }
 
 /**
- * <p> The existing object was created with a different encryption type. Subsequent write requests must
- *       include the appropriate encryption parameters in the request or while creating the session. </p>
+ * The existing object was created with a different encryption type. Subsequent write requests must include the appropriate encryption parameters in the request or while creating the session.
+ *
  * @public
  */
 export class EncryptionTypeMismatch extends __BaseException {
@@ -275,8 +275,8 @@ export class EncryptionTypeMismatch extends __BaseException {
 }
 
 /**
- * <p>A parameter or header in your request isn't valid. For details, see the description of this API
- *       operation.</p>
+ * A parameter or header in your request isn't valid. For details, see the description of this API operation.
+ *
  * @public
  */
 export class InvalidRequest extends __BaseException {
@@ -297,7 +297,8 @@ export class InvalidRequest extends __BaseException {
 }
 
 /**
- * <p> The write offset value that you specified does not match the current object size. </p>
+ * The write offset value that you specified does not match the current object size.
+ *
  * @public
  */
 export class InvalidWriteOffset extends __BaseException {
@@ -318,9 +319,8 @@ export class InvalidWriteOffset extends __BaseException {
 }
 
 /**
- * <p> You have attempted to add more parts than the maximum of 10000 that are allowed for this object.
- *       You can use the CopyObject operation to copy this object to another and then add more data to the newly
- *       copied object. </p>
+ * You have attempted to add more parts than the maximum of 10000 that are allowed for this object. You can use the CopyObject operation to copy this object to another and then add more data to the newly copied object.
+ *
  * @public
  */
 export class TooManyParts extends __BaseException {
@@ -341,7 +341,8 @@ export class TooManyParts extends __BaseException {
 }
 
 /**
- * <p>The request would exceed the maximum number of annotations allowed per object.</p>
+ * The request would exceed the maximum number of annotations allowed per object.
+ *
  * @public
  */
 export class AnnotationLimitExceeded extends __BaseException {
@@ -362,7 +363,8 @@ export class AnnotationLimitExceeded extends __BaseException {
 }
 
 /**
- * <p>The annotation name exceeds 512 bytes.</p>
+ * The annotation name exceeds 512 bytes.
+ *
  * @public
  */
 export class AnnotationNameTooLong extends __BaseException {
@@ -383,7 +385,8 @@ export class AnnotationNameTooLong extends __BaseException {
 }
 
 /**
- * <p>The annotation name you provided is invalid.</p>
+ * The annotation name you provided is invalid.
+ *
  * @public
  */
 export class InvalidAnnotationName extends __BaseException {
@@ -404,7 +407,8 @@ export class InvalidAnnotationName extends __BaseException {
 }
 
 /**
- * <p>The annotation payload is not valid UTF-8 encoded text.</p>
+ * The annotation payload is not valid UTF-8 encoded text.
+ *
  * @public
  */
 export class UnsupportedMediaType extends __BaseException {
@@ -425,13 +429,12 @@ export class UnsupportedMediaType extends __BaseException {
 }
 
 /**
- * <p>Parameters on this idempotent request are inconsistent with parameters used in previous request(s). </p>
- *          <p>For a list of error codes and more information on Amazon S3 errors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList">Error codes</a>.</p>
- *          <note>
- *             <p>Idempotency ensures that an API request completes no more than one time. With an idempotent
- *         request, if the original request completes successfully, any subsequent retries complete successfully
- *         without performing any further actions.</p>
- *          </note>
+ * Parameters on this idempotent request are inconsistent with parameters used in previous request(s).
+ *
+ * For a list of error codes and more information on Amazon S3 errors, see [Error codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList).
+ *
+ * > **Note:** Idempotency ensures that an API request completes no more than one time. With an idempotent request, if the original request completes successfully, any subsequent retries complete successfully without performing any further actions.
+ *
  * @public
  */
 export class IdempotencyParameterMismatch extends __BaseException {
@@ -452,7 +455,8 @@ export class IdempotencyParameterMismatch extends __BaseException {
 }
 
 /**
- * <p>This action is not allowed against this storage tier.</p>
+ * This action is not allowed against this storage tier.
+ *
  * @public
  */
 export class ObjectAlreadyInActiveTierError extends __BaseException {

@@ -23,7 +23,8 @@ export interface ListCrossAccountAttachmentsCommandInput extends ListCrossAccoun
 export interface ListCrossAccountAttachmentsCommandOutput extends ListCrossAccountAttachmentsResponse, __MetadataBearer {}
 
 /**
- * <p>List the cross-account attachments that have been created in Global Accelerator.</p>
+ * List the cross-account attachments that have been created in Global Accelerator.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,20 +70,24 @@ export interface ListCrossAccountAttachmentsCommandOutput extends ListCrossAccou
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have access permission.</p>
+ *
+ * You don't have access permission.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * There was an internal error for Global Accelerator.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>An argument that you specified is invalid.</p>
+ *
+ * An argument that you specified is invalid.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>There isn't another item to return.</p>
+ *
+ * There isn't another item to return.
  *
  * @throws {@link GlobalAcceleratorServiceException}
- * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * Base exception class for all service exceptions from GlobalAccelerator service.
  *
  * @public
  */

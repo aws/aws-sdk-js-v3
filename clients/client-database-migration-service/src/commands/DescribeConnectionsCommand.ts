@@ -23,8 +23,8 @@ export interface DescribeConnectionsCommandInput extends DescribeConnectionsMess
 export interface DescribeConnectionsCommandOutput extends DescribeConnectionsResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the status of the connections that have been made between the replication
- *          instance and an endpoint. Connections are created when you test an endpoint.</p>
+ * Describes the status of the connections that have been made between the replication instance and an endpoint. Connections are created when you test an endpoint.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,11 +70,12 @@ export interface DescribeConnectionsCommandOutput extends DescribeConnectionsRes
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @example Describe connections
  * ```javascript

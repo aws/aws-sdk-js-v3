@@ -23,11 +23,10 @@ export interface StopCanaryCommandInput extends StopCanaryRequest {}
 export interface StopCanaryCommandOutput extends StopCanaryResponse, __MetadataBearer {}
 
 /**
- * <p>Stops the canary to prevent all future runs. If the canary is currently running,the
- *         run that is in progress completes on its own, publishes metrics, and uploads artifacts, but
- *          it is not recorded in Synthetics as a completed run.</p>
- *          <p>You can use <code>StartCanary</code> to start it running again
- *          with the canary’s current schedule at any point in the future.  </p>
+ * Stops the canary to prevent all future runs. If the canary is currently running,the run that is in progress completes on its own, publishes metrics, and uploads artifacts, but it is not recorded in Synthetics as a completed run.
+ *
+ * You can use `StartCanary` to start it running again with the canary’s current schedule at any point in the future.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,20 +51,24 @@ export interface StopCanaryCommandOutput extends StopCanaryResponse, __MetadataB
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A conflicting operation is already in progress.</p>
+ *
+ * A conflicting operation is already in progress.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unknown internal error occurred.</p>
+ *
+ * An unknown internal error occurred.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>One of the specified resources was not found.</p>
+ *
+ * One of the specified resources was not found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A parameter could not be validated.</p>
+ *
+ * A parameter could not be validated.
  *
  * @throws {@link SyntheticsServiceException}
- * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ * Base exception class for all service exceptions from Synthetics service.
  *
  * @public
  */

@@ -23,9 +23,10 @@ export interface GetIndexingRulesCommandInput extends GetIndexingRulesRequest {}
 export interface GetIndexingRulesCommandOutput extends GetIndexingRulesResult, __MetadataBearer {}
 
 /**
- * <p>
- * Retrieves all indexing rules.</p>
- *          <p>Indexing rules are used to determine the server-side sampling rate for spans ingested through the CloudWatchLogs destination and indexed by X-Ray. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search.html">Transaction Search</a>.</p>
+ * Retrieves all indexing rules.
+ *
+ * Indexing rules are used to determine the server-side sampling rate for spans ingested through the CloudWatchLogs destination and indexed by X-Ray. For more information, see [Transaction Search](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,14 +65,16 @@ export interface GetIndexingRulesCommandOutput extends GetIndexingRulesResult, _
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is missing required parameters or has invalid parameters.</p>
+ *
+ * The request is missing required parameters or has invalid parameters.
  *
  * @throws {@link ThrottledException} (client fault)
- *  <p>The request exceeds the maximum number of requests per second.</p>
+ *
+ * The request exceeds the maximum number of requests per second.
  *
  * @throws {@link XRayServiceException}
- * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ * Base exception class for all service exceptions from XRay service.
  *
  * @public
  */

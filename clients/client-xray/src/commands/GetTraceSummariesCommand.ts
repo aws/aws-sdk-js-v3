@@ -23,23 +23,18 @@ export interface GetTraceSummariesCommandInput extends GetTraceSummariesRequest 
 export interface GetTraceSummariesCommandOutput extends GetTraceSummariesResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves IDs and annotations for traces available for a specified time frame using an
- *       optional filter. To get the full traces, pass the trace IDs to
- *       <code>BatchGetTraces</code>.</p>
- *          <p>A filter expression can target traced requests that hit specific service nodes or
- *       edges, have errors, or come from a known user. For example, the following filter expression
- *       targets traces that pass through <code>api.example.com</code>:</p>
- *          <p>
- *             <code>service("api.example.com")</code>
- *          </p>
- *          <p>This filter expression finds traces that have an annotation named <code>account</code>
- *       with the value <code>12345</code>:</p>
- *          <p>
- *             <code>annotation.account = "12345"</code>
- *          </p>
- *          <p>For a full list of indexed fields and keywords that you can use in filter expressions,
- *       see <a href="https://docs.aws.amazon.com/xray/latest/devguide/aws-xray-interface-console.html#xray-console-filters">Use filter
- *         expressions</a> in the <i>Amazon Web Services X-Ray Developer Guide</i>.</p>
+ * Retrieves IDs and annotations for traces available for a specified time frame using an optional filter. To get the full traces, pass the trace IDs to `BatchGetTraces`.
+ *
+ * A filter expression can target traced requests that hit specific service nodes or edges, have errors, or come from a known user. For example, the following filter expression targets traces that pass through `api.example.com`:
+ *
+ * `service("api.example.com")`
+ *
+ * This filter expression finds traces that have an annotation named `account` with the value `12345`:
+ *
+ * `annotation.account = "12345"`
+ *
+ * For a full list of indexed fields and keywords that you can use in filter expressions, see [Use filter expressions](https://docs.aws.amazon.com/xray/latest/devguide/aws-xray-interface-console.html#xray-console-filters) in the *Amazon Web Services X-Ray Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -230,14 +225,16 @@ export interface GetTraceSummariesCommandOutput extends GetTraceSummariesResult,
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is missing required parameters or has invalid parameters.</p>
+ *
+ * The request is missing required parameters or has invalid parameters.
  *
  * @throws {@link ThrottledException} (client fault)
- *  <p>The request exceeds the maximum number of requests per second.</p>
+ *
+ * The request exceeds the maximum number of requests per second.
  *
  * @throws {@link XRayServiceException}
- * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ * Base exception class for all service exceptions from XRay service.
  *
  * @public
  */

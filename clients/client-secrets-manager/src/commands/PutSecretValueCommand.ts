@@ -23,41 +23,20 @@ export interface PutSecretValueCommandInput extends PutSecretValueRequest {}
 export interface PutSecretValueCommandOutput extends PutSecretValueResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new version of your secret by creating a new encrypted value and attaching
- *             it to the secret. version can contain a new <code>SecretString</code> value or a new
- *                 <code>SecretBinary</code> value. </p>
- *          <p>Do not call <code>PutSecretValue</code> at a sustained rate of more than once every 10
- *             minutes. When you update the secret value, Secrets Manager creates a new version of the secret.
- *             Secrets Manager keeps 100 of the most recent versions, but it keeps <i>all</i>
- *             secret versions created in the last 24 hours. If you call <code>PutSecretValue</code>
- *             more than once every 10 minutes, you will create more versions than Secrets Manager removes, and
- *             you will reach the quota for secret versions.</p>
- *          <p>You can specify the staging labels to attach to the new version in
- *                 <code>VersionStages</code>. If you don't include <code>VersionStages</code>, then
- *             Secrets Manager automatically moves the staging label <code>AWSCURRENT</code> to this version. If
- *             this operation creates the first version for the secret, then Secrets Manager automatically
- *             attaches the staging label <code>AWSCURRENT</code> to it. If this operation moves the
- *             staging label <code>AWSCURRENT</code> from another version to this version, then Secrets Manager
- *             also automatically moves the staging label <code>AWSPREVIOUS</code> to the version that
- *                 <code>AWSCURRENT</code> was removed from.</p>
- *          <p>This operation is idempotent. If you call this operation with a
- *                 <code>ClientRequestToken</code> that matches an existing version's VersionId, and
- *             you specify the same secret data, the operation succeeds but does nothing. However, if
- *             the secret data is different, then the operation fails because you can't modify an
- *             existing version; you can only create new ones.</p>
- *          <p>Secrets Manager generates a CloudTrail log entry when you call this action.
- *             Do not include sensitive information in request parameters except
- *                 <code>SecretBinary</code>, <code>SecretString</code>, or <code>RotationToken</code>
- *             because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
- *          <p>
- *             <b>Required permissions:
- *                 </b>
- *             <code>secretsmanager:PutSecretValue</code>. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
- *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
- *       and access control in Secrets Manager</a>. </p>
- *          <important>
- *             <p>When you enter commands in a command shell, there is a risk of the command history being accessed or utilities having access to your command parameters. This is a concern if the command includes the value of a secret. Learn how to <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/security_cli-exposure-risks.html">Mitigate the risks of using command-line tools to store Secrets Manager secrets</a>.</p>
- *          </important>
+ * Creates a new version of your secret by creating a new encrypted value and attaching it to the secret. version can contain a new `SecretString` value or a new `SecretBinary` value.
+ *
+ * Do not call `PutSecretValue` at a sustained rate of more than once every 10 minutes. When you update the secret value, Secrets Manager creates a new version of the secret. Secrets Manager keeps 100 of the most recent versions, but it keeps *all* secret versions created in the last 24 hours. If you call `PutSecretValue` more than once every 10 minutes, you will create more versions than Secrets Manager removes, and you will reach the quota for secret versions.
+ *
+ * You can specify the staging labels to attach to the new version in `VersionStages`. If you don't include `VersionStages`, then Secrets Manager automatically moves the staging label `AWSCURRENT` to this version. If this operation creates the first version for the secret, then Secrets Manager automatically attaches the staging label `AWSCURRENT` to it. If this operation moves the staging label `AWSCURRENT` from another version to this version, then Secrets Manager also automatically moves the staging label `AWSPREVIOUS` to the version that `AWSCURRENT` was removed from.
+ *
+ * This operation is idempotent. If you call this operation with a `ClientRequestToken` that matches an existing version's VersionId, and you specify the same secret data, the operation succeeds but does nothing. However, if the secret data is different, then the operation fails because you can't modify an existing version; you can only create new ones.
+ *
+ * Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters except `SecretBinary`, `SecretString`, or `RotationToken` because it might be logged. For more information, see [Logging Secrets Manager events with CloudTrail](https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html).
+ *
+ * **Required permissions:** `secretsmanager:PutSecretValue`. For more information, see [IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions) and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
+ *
+ * > **Important:** When you enter commands in a command shell, there is a risk of the command history being accessed or utilities having access to your command parameters. This is a concern if the command includes the value of a secret. Learn how to [Mitigate the risks of using command-line tools to store Secrets Manager secrets](https://docs.aws.amazon.com/secretsmanager/latest/userguide/security_cli-exposure-risks.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -96,49 +75,46 @@ export interface PutSecretValueCommandOutput extends PutSecretValueResponse, __M
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
  *
  * @throws {@link DecryptionFailure} (client fault)
- *  <p>Secrets Manager can't decrypt the protected secret text using the provided KMS key. </p>
+ *
+ * Secrets Manager can't decrypt the protected secret text using the provided KMS key.
  *
  * @throws {@link EncryptionFailure} (client fault)
- *  <p>Secrets Manager can't encrypt the protected secret text using the provided KMS key. Check that the
- *       KMS key is available, enabled, and not in an invalid state. For more
- *       information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your KMS key</a>.</p>
+ *
+ * Secrets Manager can't encrypt the protected secret text using the provided KMS key. Check that the KMS key is available, enabled, and not in an invalid state. For more information, see [Key state: Effect on your KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html).
  *
  * @throws {@link InternalServiceError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The parameter name or value is invalid.</p>
+ *
+ * The parameter name or value is invalid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>A parameter value is not valid for the current state of the
- *       resource.</p>
- *          <p>Possible causes:</p>
- *          <ul>
- *             <li>
- *                <p>The secret is scheduled for deletion.</p>
- *             </li>
- *             <li>
- *                <p>You tried to enable rotation on a secret that doesn't already have a Lambda function
- *           ARN configured and you didn't include such an ARN as a parameter in this call. </p>
- *             </li>
- *             <li>
- *                <p>The secret is managed by another service, and you must use that service to update it.
- *           For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html">Secrets managed by other Amazon Web Services services</a>.</p>
- *             </li>
- *          </ul>
+ *
+ * A parameter value is not valid for the current state of the resource.
+ *
+ * Possible causes:
+ *
+ * - The secret is scheduled for deletion.
+ * - You tried to enable rotation on a secret that doesn't already have a Lambda function ARN configured and you didn't include such an ARN as a parameter in this call.
+ * - The secret is managed by another service, and you must use that service to update it. For more information, see [Secrets managed by other Amazon Web Services services](https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html).
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request failed because it would exceed one of the Secrets Manager quotas.</p>
+ *
+ * The request failed because it would exceed one of the Secrets Manager quotas.
  *
  * @throws {@link ResourceExistsException} (client fault)
- *  <p>A resource with the ID you requested already exists.</p>
+ *
+ * A resource with the ID you requested already exists.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Secrets Manager can't find the resource that you asked for.</p>
+ *
+ * Secrets Manager can't find the resource that you asked for.
  *
  * @throws {@link SecretsManagerServiceException}
- * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
+ * Base exception class for all service exceptions from SecretsManager service.
  *
  * @example To store a secret value in a new version of a secret
  * ```javascript

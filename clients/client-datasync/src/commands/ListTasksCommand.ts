@@ -23,7 +23,8 @@ export interface ListTasksCommandInput extends ListTasksRequest {}
 export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of the DataSync tasks you created.</p>
+ * Returns a list of the DataSync tasks you created.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,15 +69,16 @@ export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBea
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception is thrown when an error occurs in the DataSync
- *       service.</p>
+ *
+ * This exception is thrown when an error occurs in the DataSync service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * This exception is thrown when the client submits a malformed request.
  *
  * @throws {@link DataSyncServiceException}
- * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * Base exception class for all service exceptions from DataSync service.
  *
  * @public
  */

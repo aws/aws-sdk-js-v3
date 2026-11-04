@@ -23,7 +23,14 @@ export interface CreateConnectionCommandInput extends CreateConnectionRequest {}
 export interface CreateConnectionCommandOutput extends CreateConnectionResponse, __MetadataBearer {}
 
 /**
- * <p>Initiates the process to create a Connection across the specified Environment. </p> <p>The Environment dictates the specified partner and location to which the other end of the connection should attach. You can see a list of the available Environments by calling <a>ListEnvironments</a> </p> <p>The Attach Point specifies where within the AWS Network your connection will logically connect.</p> <p>After a successful call to this method, the resulting <a>Connection</a> will return an Activation Key which will need to be brought to the specific partner's portal to confirm the <a>Connection</a> on both sides. (See <a>Environment$activationPageUrl</a> for a direct link to the partner portal). </p>
+ * Initiates the process to create a Connection across the specified Environment.
+ *
+ * The Environment dictates the specified partner and location to which the other end of the connection should attach. You can see a list of the available Environments by calling ListEnvironments
+ *
+ * The Attach Point specifies where within the AWS Network your connection will logically connect.
+ *
+ * After a successful call to this method, the resulting Connection will return an Activation Key which will need to be brought to the specific partner's portal to confirm the Connection on both sides. (See Environment$activationPageUrl for a direct link to the partner portal).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,29 +94,36 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  * @see {@link InterconnectClientResolvedConfig | config} for InterconnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The calling principal is not allowed to access the specified resource, or the resource does not exist.</p>
+ *
+ * The calling principal is not allowed to access the specified resource, or the resource does not exist.
  *
  * @throws {@link InterconnectClientException} (client fault)
- *  <p>The request was denied due to incorrect client supplied parameters.</p>
+ *
+ * The request was denied due to incorrect client supplied parameters.
  *
  * @throws {@link InterconnectServerException} (server fault)
- *  <p>The request resulted in an exception internal to the service.</p>
+ *
+ * The request resulted in an exception internal to the service.
  *
  * @throws {@link InterconnectValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified.</p>
+ *
+ * The input fails to satisfy the constraints specified.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request specifies a resource that does not exist on the server.</p>
+ *
+ * The request specifies a resource that does not exist on the server.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The requested operation would result in the calling principal exceeding their allotted quota.</p>
+ *
+ * The requested operation would result in the calling principal exceeding their allotted quota.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link InterconnectServiceException}
- * <p>Base exception class for all service exceptions from Interconnect service.</p>
  *
+ * Base exception class for all service exceptions from Interconnect service.
  *
  * @example Create Connection on specific environment
  * ```javascript

@@ -23,8 +23,8 @@ export interface CreateCloudConnectorCommandInput extends CreateCloudConnectorRe
 export interface CreateCloudConnectorCommandOutput extends CreateCloudConnectorResult, __MetadataBearer {}
 
 /**
- * <p>Creates a cloud connector that establishes a connection between Systems Manager and a third-party
- *    cloud environment.</p>
+ * Creates a cloud connector that establishes a connection between Systems Manager and a third-party cloud environment.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,19 +76,20 @@ export interface CreateCloudConnectorCommandOutput extends CreateCloudConnectorR
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>An error occurred because of a conflict with a concurrent request or the current state of
- *    the resource. Retry your request.</p>
+ *
+ * An error occurred because of a conflict with a concurrent request or the current state of the resource. Retry your request.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request exceeds the service quota. Service quotas, also referred to as limits, are the
- *    maximum number of service resources or operations for your Amazon Web Services account.</p>
+ *
+ * The request exceeds the service quota. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your Amazon Web Services account.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface ListRulesCommandInput extends ListRulesRequest {}
 export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the Recycle Bin retention rules in the Region.</p>
+ * Lists the Recycle Bin retention rules in the Region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,14 +78,16 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * @see {@link RbinClientResolvedConfig | config} for RbinClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The service could not respond to the request due to an internal problem.</p>
+ *
+ * The service could not respond to the request due to an internal problem.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One or more of the parameters in the request is not valid.</p>
+ *
+ * One or more of the parameters in the request is not valid.
  *
  * @throws {@link RbinServiceException}
- * <p>Base exception class for all service exceptions from Rbin service.</p>
  *
+ * Base exception class for all service exceptions from Rbin service.
  *
  * @public
  */

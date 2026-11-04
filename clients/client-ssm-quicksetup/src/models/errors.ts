@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { SSMQuickSetupServiceException as __BaseException } from "./SSMQuickSetupServiceException";
 
 /**
- * <p>The requester has insufficient permissions to perform the operation.</p>
+ * The requester has insufficient permissions to perform the operation.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Another request is being processed. Wait a few minutes and try again.</p>
+ * Another request is being processed. Wait a few minutes and try again.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -50,7 +52,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>An error occurred on the server side.</p>
+ * An error occurred on the server side.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -74,7 +77,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The request or operation exceeds the maximum allowed request rate per Amazon Web Services account and Amazon Web Services Region.</p>
+ * The request or operation exceeds the maximum allowed request rate per Amazon Web Services account and Amazon Web Services Region.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -98,8 +102,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The request is invalid. Verify the values provided for the request parameters are
- *                   accurate.</p>
+ * The request is invalid. Verify the values provided for the request parameters are accurate.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -122,7 +126,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The resource couldn't be found. Check the ID or name and try again.</p>
+ * The resource couldn't be found. Check the ID or name and try again.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {

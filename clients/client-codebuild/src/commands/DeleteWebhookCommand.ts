@@ -23,9 +23,8 @@ export interface DeleteWebhookCommandInput extends DeleteWebhookInput {}
 export interface DeleteWebhookCommandOutput extends DeleteWebhookOutput, __MetadataBearer {}
 
 /**
- * <p>For an existing CodeBuild build project that has its source code stored in a GitHub or
- *             Bitbucket repository, stops CodeBuild from rebuilding the source code every time a code
- *             change is pushed to the repository.</p>
+ * For an existing CodeBuild build project that has its source code stored in a GitHub or Bitbucket repository, stops CodeBuild from rebuilding the source code every time a code change is pushed to the repository.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,17 +49,20 @@ export interface DeleteWebhookCommandOutput extends DeleteWebhookOutput, __Metad
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input value that was provided is not valid.</p>
+ *
+ * The input value that was provided is not valid.
  *
  * @throws {@link OAuthProviderException} (client fault)
- *  <p>There was a problem with the underlying OAuth provider.</p>
+ *
+ * There was a problem with the underlying OAuth provider.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified Amazon Web Services resource cannot be found.</p>
+ *
+ * The specified Amazon Web Services resource cannot be found.
  *
  * @throws {@link CodeBuildServiceException}
- * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * Base exception class for all service exceptions from CodeBuild service.
  *
  * @public
  */

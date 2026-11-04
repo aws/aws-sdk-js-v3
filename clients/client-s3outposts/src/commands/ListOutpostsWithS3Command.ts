@@ -23,9 +23,8 @@ export interface ListOutpostsWithS3CommandInput extends ListOutpostsWithS3Reques
 export interface ListOutpostsWithS3CommandOutput extends ListOutpostsWithS3Result, __MetadataBearer {}
 
 /**
- * <p>Lists the Outposts with S3 on Outposts capacity for your Amazon Web Services account.
- *             Includes S3 on Outposts that you have access to as the Outposts owner, or as a shared user
- *             from Resource Access Manager (RAM). </p>
+ * Lists the Outposts with S3 on Outposts capacity for your Amazon Web Services account. Includes S3 on Outposts that you have access to as the Outposts owner, or as a shared user from Resource Access Manager (RAM).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,20 +61,24 @@ export interface ListOutpostsWithS3CommandOutput extends ListOutpostsWithS3Resul
  * @see {@link S3OutpostsClientResolvedConfig | config} for S3OutpostsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access was denied for this action.</p>
+ *
+ * Access was denied for this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>There was an exception with the internal server.</p>
+ *
+ * There was an exception with the internal server.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>There was an exception validating this data.</p>
+ *
+ * There was an exception validating this data.
  *
  * @throws {@link S3OutpostsServiceException}
- * <p>Base exception class for all service exceptions from S3Outposts service.</p>
  *
+ * Base exception class for all service exceptions from S3Outposts service.
  *
  * @public
  */

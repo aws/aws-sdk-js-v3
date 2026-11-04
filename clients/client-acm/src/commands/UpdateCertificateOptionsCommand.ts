@@ -23,7 +23,8 @@ export interface UpdateCertificateOptionsCommandInput extends UpdateCertificateO
 export interface UpdateCertificateOptionsCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Updates certificate options. You can use this operation to change the domain validation method or specify whether to export your certificate. For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/email-to-dns-migration.html">Migrate from email to DNS validation</a> and <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-exportable-certificates.html">Certificate Manager Exportable Managed Certificates</a>.</p>
+ * Updates certificate options. You can use this operation to change the domain validation method or specify whether to export your certificate. For more information, see [Migrate from email to DNS validation](https://docs.aws.amazon.com/acm/latest/userguide/email-to-dns-migration.html) and [Certificate Manager Exportable Managed Certificates](https://docs.aws.amazon.com/acm/latest/userguide/acm-exportable-certificates.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,26 +54,32 @@ export interface UpdateCertificateOptionsCommandOutput extends __MetadataBearer 
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>You are trying to update a resource or configuration that is already being created or updated. Wait for the previous operation to finish and try again.</p>
+ *
+ * You are trying to update a resource or configuration that is already being created or updated. Wait for the previous operation to finish and try again.
  *
  * @throws {@link InvalidArnException} (client fault)
- *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+ *
+ * The requested Amazon Resource Name (ARN) does not refer to an existing resource.
  *
  * @throws {@link InvalidStateException} (client fault)
- *  <p>Processing has reached an invalid state.</p>
+ *
+ * Processing has reached an invalid state.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>An ACM quota has been exceeded.</p>
+ *
+ * An ACM quota has been exceeded.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified certificate cannot be found in the caller's account or the caller's account cannot be found.</p>
+ *
+ * The specified certificate cannot be found in the caller's account or the caller's account cannot be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The supplied input failed to satisfy constraints of an Amazon Web Services service.</p>
+ *
+ * The supplied input failed to satisfy constraints of an Amazon Web Services service.
  *
  * @throws {@link ACMServiceException}
- * <p>Base exception class for all service exceptions from ACM service.</p>
  *
+ * Base exception class for all service exceptions from ACM service.
  *
  * @public
  */

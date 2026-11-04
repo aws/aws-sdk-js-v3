@@ -23,27 +23,16 @@ export interface GetAuthorizationTokenCommandInput extends GetAuthorizationToken
 export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationTokenResult, __MetadataBearer {}
 
 /**
- * <p>
- *         Generates a temporary authorization token for accessing repositories in the domain.
- *         This API requires the <code>codeartifact:GetAuthorizationToken</code> and <code>sts:GetServiceBearerToken</code> permissions.
- *         For more information about authorization tokens, see
- *         <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/tokens-authentication.html">CodeArtifact authentication and tokens</a>.
- *       </p>
- *          <note>
- *             <p>CodeArtifact authorization tokens are valid for a period of 12 hours when created with the <code>login</code> command.
- *          You can call <code>login</code> periodically to refresh the token. When
- *          you create an authorization token with the <code>GetAuthorizationToken</code> API, you can set a custom authorization period,
- *          up to a maximum of 12 hours, with the <code>durationSeconds</code> parameter.</p>
- *             <p>The authorization period begins after <code>login</code>
- *          or <code>GetAuthorizationToken</code> is called. If <code>login</code> or <code>GetAuthorizationToken</code> is called while
- *          assuming a role, the token lifetime is independent of the maximum session duration
- *          of the role. For example, if you call <code>sts assume-role</code> and specify a session duration of 15 minutes, then
- *          generate a CodeArtifact authorization token, the token will be valid for the full authorization period
- *          even though this is longer than the 15-minute session duration.</p>
- *             <p>See
- *          <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html">Using IAM Roles</a>
- *          for more information on controlling session duration. </p>
- *          </note>
+ * Generates a temporary authorization token for accessing repositories in the domain. This API requires the `codeartifact:GetAuthorizationToken` and `sts:GetServiceBearerToken` permissions. For more information about authorization tokens, see [CodeArtifact authentication and tokens](https://docs.aws.amazon.com/codeartifact/latest/ug/tokens-authentication.html).
+ *
+ * > **Note:**
+ * >
+ * > CodeArtifact authorization tokens are valid for a period of 12 hours when created with the `login` command. You can call `login` periodically to refresh the token. When you create an authorization token with the `GetAuthorizationToken` API, you can set a custom authorization period, up to a maximum of 12 hours, with the `durationSeconds` parameter.
+ * >
+ * > The authorization period begins after `login` or `GetAuthorizationToken` is called. If `login` or `GetAuthorizationToken` is called while assuming a role, the token lifetime is independent of the maximum session duration of the role. For example, if you call `sts assume-role` and specify a session duration of 15 minutes, then generate a CodeArtifact authorization token, the token will be valid for the full authorization period even though this is longer than the 15-minute session duration.
+ * >
+ * > See [Using IAM Roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html) for more information on controlling session duration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,31 +62,28 @@ export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationToke
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>
- *         The operation did not succeed because of an unauthorized access attempt.
- *       </p>
+ *
+ * The operation did not succeed because of an unauthorized access attempt.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+ *
+ * The operation did not succeed because of an error that occurred inside CodeArtifact.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>
- *       The operation did not succeed because the resource requested is not found in the service.
- *     </p>
+ *
+ * The operation did not succeed because the resource requested is not found in the service.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>
- *       The operation did not succeed because too many requests are sent to the service.
- *     </p>
+ *
+ * The operation did not succeed because too many requests are sent to the service.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>
- *       The operation did not succeed because a parameter in the request was sent with an invalid value.
- *     </p>
+ *
+ * The operation did not succeed because a parameter in the request was sent with an invalid value.
  *
  * @throws {@link CodeartifactServiceException}
- * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ * Base exception class for all service exceptions from Codeartifact service.
  *
  * @public
  */

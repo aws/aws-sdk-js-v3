@@ -23,7 +23,8 @@ export interface CreatePartnerCommandInput extends CreatePartnerRequest {}
 export interface CreatePartnerCommandOutput extends CreatePartnerResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new partner account in the AWS Partner Network with the specified details and configuration.</p>
+ * Creates a new partner account in the AWS Partner Network with the specified details and configuration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -107,23 +108,28 @@ export interface CreatePartnerCommandOutput extends CreatePartnerResponse, __Met
  * @see {@link PartnerCentralAccountClientResolvedConfig | config} for PartnerCentralAccountClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request was denied due to insufficient permissions. The caller does not have the required permissions to perform this operation.</p>
+ *
+ * The request was denied due to insufficient permissions. The caller does not have the required permissions to perform this operation.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be completed due to a conflict with the current state of the resource. This typically occurs when trying to create a resource that already exists or modify a resource that has been changed by another process.</p>
+ *
+ * The request could not be completed due to a conflict with the current state of the resource. This typically occurs when trying to create a resource that already exists or modify a resource that has been changed by another process.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred while processing the request. This is typically a temporary condition and the request may be retried.</p>
+ *
+ * An internal server error occurred while processing the request. This is typically a temporary condition and the request may be retried.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled due to too many requests being sent in a short period of time. The client should implement exponential backoff and retry the request.</p>
+ *
+ * The request was throttled due to too many requests being sent in a short period of time. The client should implement exponential backoff and retry the request.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request failed validation. One or more input parameters are invalid, missing, or do not meet the required format or constraints.</p>
+ *
+ * The request failed validation. One or more input parameters are invalid, missing, or do not meet the required format or constraints.
  *
  * @throws {@link PartnerCentralAccountServiceException}
- * <p>Base exception class for all service exceptions from PartnerCentralAccount service.</p>
  *
+ * Base exception class for all service exceptions from PartnerCentralAccount service.
  *
  * @public
  */

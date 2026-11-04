@@ -23,7 +23,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Lists tags for a resource. Tagging is currently supported for detectors, finding filters, IP sets, threat intel sets, and publishing destination, with a limit of 50 tags per resource. When invoked, this operation returns all assigned tags for a given resource.</p>
+ * Lists tags for a resource. Tagging is currently supported for detectors, finding filters, IP sets, threat intel sets, and publishing destination, with a limit of 50 tags per resource. When invoked, this operation returns all assigned tags for a given resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,17 +53,20 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>An access denied exception object.</p>
+ *
+ * An access denied exception object.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>A bad request exception object.</p>
+ *
+ * A bad request exception object.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>An internal server error exception object.</p>
+ *
+ * An internal server error exception object.
  *
  * @throws {@link GuardDutyServiceException}
- * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * Base exception class for all service exceptions from GuardDuty service.
  *
  * @public
  */

@@ -23,14 +23,10 @@ export interface DescribeClientBrandingCommandInput extends DescribeClientBrandi
 export interface DescribeClientBrandingCommandOutput extends DescribeClientBrandingResult, __MetadataBearer {}
 
 /**
- * <p>Describes the specified client branding. Client branding allows you to customize the log
- *          in page of various device types for your users. You can add your company logo, the support
- *          email address, support link, link to reset password, and a custom message for users trying
- *          to sign in.</p>
- *          <note>
- *             <p>Only device types that have branding information configured will be shown in the
- *             response.</p>
- *          </note>
+ * Describes the specified client branding. Client branding allows you to customize the log in page of various device types for your users. You can add your company logo, the support email address, support link, link to reset password, and a custom message for users trying to sign in.
+ *
+ * > **Note:** Only device types that have branding information configured will be shown in the response.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -110,17 +106,20 @@ export interface DescribeClientBrandingCommandOutput extends DescribeClientBrand
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The user is not authorized to access a resource.</p>
+ *
+ * The user is not authorized to access a resource.
  *
  * @throws {@link InvalidParameterValuesException} (client fault)
- *  <p>One or more parameter values are not valid.</p>
+ *
+ * One or more parameter values are not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link WorkSpacesServiceException}
- * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * Base exception class for all service exceptions from WorkSpaces service.
  *
  * @public
  */

@@ -23,7 +23,10 @@ export interface UntagResourceCommandInput extends UntagResourceInput {}
 export interface UntagResourceCommandOutput extends UntagResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Removes one or more tags from the specified resource.</p> <important> <p>Unlike tagging permissions in other Amazon Web Services services, to tag or untag links and sinks you must have the <code>oam:ResourceTag</code> permission. The <code>iam:TagResource</code> permission does not allow you to tag and untag links and sinks.</p> </important>
+ * Removes one or more tags from the specified resource.
+ *
+ * > **Important:** Unlike tagging permissions in other Amazon Web Services services, to tag or untag links and sinks you must have the `oam:ResourceTag` permission. The `iam:TagResource` permission does not allow you to tag and untag links and sinks.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,14 +54,16 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request references a resource that does not exist.</p>
+ *
+ * The request references a resource that does not exist.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The value of a parameter in the request caused an error.</p>
+ *
+ * The value of a parameter in the request caused an error.
  *
  * @throws {@link OAMServiceException}
- * <p>Base exception class for all service exceptions from OAM service.</p>
  *
+ * Base exception class for all service exceptions from OAM service.
  *
  * @public
  */

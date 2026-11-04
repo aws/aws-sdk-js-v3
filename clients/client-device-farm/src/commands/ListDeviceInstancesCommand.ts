@@ -23,8 +23,8 @@ export interface ListDeviceInstancesCommandInput extends ListDeviceInstancesRequ
 export interface ListDeviceInstancesCommandOutput extends ListDeviceInstancesResult, __MetadataBearer {}
 
 /**
- * <p>Returns information about the private device instances associated with one or more AWS
- *             accounts.</p>
+ * Returns information about the private device instances associated with one or more AWS accounts.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,20 +73,24 @@ export interface ListDeviceInstancesCommandOutput extends ListDeviceInstancesRes
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
  * @throws {@link ArgumentException} (client fault)
- *  <p>An invalid argument was specified.</p>
+ *
+ * An invalid argument was specified.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>A limit was exceeded.</p>
+ *
+ * A limit was exceeded.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The specified entity was not found.</p>
+ *
+ * The specified entity was not found.
  *
  * @throws {@link ServiceAccountException} (client fault)
- *  <p>There was a problem with the service account.</p>
+ *
+ * There was a problem with the service account.
  *
  * @throws {@link DeviceFarmServiceException}
- * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * Base exception class for all service exceptions from DeviceFarm service.
  *
  * @public
  */

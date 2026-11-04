@@ -23,7 +23,8 @@ export interface StartAssessmentCommandInput extends StartAssessmentRequest {}
 export interface StartAssessmentCommandOutput extends StartAssessmentResponse, __MetadataBearer {}
 
 /**
- * <p> Starts the assessment of an on-premises environment. </p>
+ * Starts the assessment of an on-premises environment.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,22 +62,24 @@ export interface StartAssessmentCommandOutput extends StartAssessmentResponse, _
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p> The user does not have permission to perform the action. Check the
- *       AWS Identity and Access Management (IAM) policy associated with this user.</p>
+ *
+ * The user does not have permission to perform the action. Check the AWS Identity and Access Management (IAM) policy associated with this user.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> The server experienced an internal error. Try again. </p>
+ *
+ * The server experienced an internal error. Try again.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p> The AWS account has reached its quota of imports. Contact AWS Support to increase the
- *       quota for this account. </p>
+ *
+ * The AWS account has reached its quota of imports. Contact AWS Support to increase the quota for this account.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p> The request was denied due to request throttling. </p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link MigrationHubStrategyServiceException}
- * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
+ * Base exception class for all service exceptions from MigrationHubStrategy service.
  *
  * @public
  */

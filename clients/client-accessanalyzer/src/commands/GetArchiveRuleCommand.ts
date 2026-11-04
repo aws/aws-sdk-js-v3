@@ -23,7 +23,10 @@ export interface GetArchiveRuleCommandInput extends GetArchiveRuleRequest {}
 export interface GetArchiveRuleCommandOutput extends GetArchiveRuleResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about an archive rule.</p> <p>To learn about filter keys that you can use to create an archive rule, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html">IAM Access Analyzer filter keys</a> in the <b>IAM User Guide</b>.</p>
+ * Retrieves information about an archive rule.
+ *
+ * To learn about filter keys that you can use to create an archive rule, see [IAM Access Analyzer filter keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html) in the **IAM User Guide**.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,23 +72,28 @@ export interface GetArchiveRuleCommandOutput extends GetArchiveRuleResponse, __M
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal server error.</p>
+ *
+ * Internal server error.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource could not be found.</p>
+ *
+ * The specified resource could not be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Throttling limit exceeded error.</p>
+ *
+ * Throttling limit exceeded error.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Validation exception error.</p>
+ *
+ * Validation exception error.
  *
  * @throws {@link AccessAnalyzerServiceException}
- * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ * Base exception class for all service exceptions from AccessAnalyzer service.
  *
  * @public
  */

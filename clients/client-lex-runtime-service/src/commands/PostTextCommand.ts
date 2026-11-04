@@ -23,82 +23,27 @@ export interface PostTextCommandInput extends PostTextRequest {}
 export interface PostTextCommandOutput extends PostTextResponse, __MetadataBearer {}
 
 /**
- * <p>Sends user input to Amazon Lex. Client applications can use this API to
- *       send requests to Amazon Lex at runtime. Amazon Lex then interprets the user input
- *       using the machine learning model it built for the bot. </p>
- *          <p> In response, Amazon Lex returns the next <code>message</code> to convey to
- *       the user an optional <code>responseCard</code> to display. Consider the
- *       following example messages: </p>
- *          <ul>
- *             <li>
- *                <p> For a user input "I would like a pizza", Amazon Lex might return a
- *           response with a message eliciting slot data (for example, PizzaSize):
- *           "What size pizza would you like?" </p>
- *             </li>
- *             <li>
- *                <p> After the user provides all of the pizza order information,
- *           Amazon Lex might return a response with a message to obtain user
- *           confirmation "Proceed with the pizza order?". </p>
- *             </li>
- *             <li>
- *                <p> After the user replies to a confirmation prompt with a "yes",
- *           Amazon Lex might return a conclusion statement: "Thank you, your cheese
- *           pizza has been ordered.". </p>
- *             </li>
- *          </ul>
+ * Sends user input to Amazon Lex. Client applications can use this API to send requests to Amazon Lex at runtime. Amazon Lex then interprets the user input using the machine learning model it built for the bot.
  *
- *          <p> Not all Amazon Lex messages require a user response. For example, a
- *       conclusion statement does not require a response. Some messages require
- *       only a "yes" or "no" user response. In addition to the
- *         <code>message</code>, Amazon Lex provides additional context about the
- *       message in the response that you might use to enhance client behavior, for
- *       example, to display the appropriate client user interface. These are the
- *         <code>slotToElicit</code>, <code>dialogState</code>,
- *         <code>intentName</code>, and <code>slots</code> fields in the response.
- *       Consider the following examples: </p>
+ * In response, Amazon Lex returns the next `message` to convey to the user an optional `responseCard` to display. Consider the following example messages:
  *
- *          <ul>
- *             <li>
- *                <p>If the message is to elicit slot data, Amazon Lex returns the
- *           following context information:</p>
- *                <ul>
- *                   <li>
- *                      <p>
- *                         <code>dialogState</code> set to ElicitSlot </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <code>intentName</code> set to the intent name in the current
- *               context </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <code>slotToElicit</code> set to the slot name for which the
- *                 <code>message</code> is eliciting information </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <code>slots</code> set to a map of slots, configured for the
- *               intent, with currently known values </p>
- *                   </li>
- *                </ul>
- *             </li>
- *             <li>
- *                <p> If the message is a confirmation prompt, the
- *             <code>dialogState</code> is set to ConfirmIntent and
- *             <code>SlotToElicit</code> is set to null. </p>
- *             </li>
- *             <li>
- *                <p>If the message is a clarification prompt (configured for the
- *           intent) that indicates that user intent is not understood, the
- *             <code>dialogState</code> is set to ElicitIntent and
- *             <code>slotToElicit</code> is set to null. </p>
- *             </li>
- *          </ul>
+ * - For a user input "I would like a pizza", Amazon Lex might return a response with a message eliciting slot data (for example, PizzaSize): "What size pizza would you like?"
+ * - After the user provides all of the pizza order information, Amazon Lex might return a response with a message to obtain user confirmation "Proceed with the pizza order?".
+ * - After the user replies to a confirmation prompt with a "yes", Amazon Lex might return a conclusion statement: "Thank you, your cheese pizza has been ordered.".
  *
- *          <p> In addition, Amazon Lex also returns your application-specific
- *         <code>sessionAttributes</code>. For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html">Managing
- *         Conversation Context</a>. </p>
+ * Not all Amazon Lex messages require a user response. For example, a conclusion statement does not require a response. Some messages require only a "yes" or "no" user response. In addition to the `message`, Amazon Lex provides additional context about the message in the response that you might use to enhance client behavior, for example, to display the appropriate client user interface. These are the `slotToElicit`, `dialogState`, `intentName`, and `slots` fields in the response. Consider the following examples:
+ *
+ * - If the message is to elicit slot data, Amazon Lex returns the following context information:
+ *
+ *   - `dialogState` set to ElicitSlot
+ *   - `intentName` set to the intent name in the current context
+ *   - `slotToElicit` set to the slot name for which the `message` is eliciting information
+ *   - `slots` set to a map of slots, configured for the intent, with currently known values
+ * - If the message is a confirmation prompt, the `dialogState` is set to ConfirmIntent and `SlotToElicit` is set to null.
+ * - If the message is a clarification prompt (configured for the intent) that indicates that user intent is not understood, the `dialogState` is set to ElicitIntent and `slotToElicit` is set to null.
+ *
+ * In addition, Amazon Lex also returns your application-specific `sessionAttributes`. For more information, see [Managing Conversation Context](https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -206,53 +151,44 @@ export interface PostTextCommandOutput extends PostTextResponse, __MetadataBeare
  * @see {@link LexRuntimeServiceClientResolvedConfig | config} for LexRuntimeServiceClient's `config` shape.
  *
  * @throws {@link BadGatewayException} (server fault)
- *  <p>Either the Amazon Lex bot is still building, or one of the dependent
- *       services (Amazon Polly, AWS Lambda) failed with an internal service
- *       error.</p>
+ *
+ * Either the Amazon Lex bot is still building, or one of the dependent services (Amazon Polly, AWS Lambda) failed with an internal service error.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p> Request validation failed, there is no usable message in the context,
- *       or the bot build failed, is still in progress, or contains unbuilt
- *       changes. </p>
+ *
+ * Request validation failed, there is no usable message in the context, or the bot build failed, is still in progress, or contains unbuilt changes.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p> Two clients are using the same AWS account, Amazon Lex bot, and user
- *       ID. </p>
+ *
+ * Two clients are using the same AWS account, Amazon Lex bot, and user ID.
  *
  * @throws {@link DependencyFailedException} (client fault)
- *  <p> One of the dependencies, such as AWS Lambda or Amazon Polly, threw an
- *       exception. For example, </p>
- *          <ul>
- *             <li>
- *                <p>If Amazon Lex does not have sufficient permissions to call a Lambda
- *           function.</p>
- *             </li>
- *             <li>
- *                <p>If a Lambda function takes longer than 30 seconds to
- *           execute.</p>
- *             </li>
- *             <li>
- *                <p>If a fulfillment Lambda function returns a <code>Delegate</code>
- *           dialog action without removing any slot values.</p>
- *             </li>
- *          </ul>
+ *
+ * One of the dependencies, such as AWS Lambda or Amazon Polly, threw an exception. For example,
+ *
+ * - If Amazon Lex does not have sufficient permissions to call a Lambda function.
+ * - If a Lambda function takes longer than 30 seconds to execute.
+ * - If a fulfillment Lambda function returns a `Delegate` dialog action without removing any slot values.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>Internal service error. Retry the call.</p>
+ *
+ * Internal service error. Retry the call.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>Exceeded a limit.</p>
+ *
+ * Exceeded a limit.
  *
  * @throws {@link LoopDetectedException} (server fault)
- *  <p>This exception is not used.</p>
+ *
+ * This exception is not used.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource (such as the Amazon Lex bot or an alias) that is referred
- *       to is not found.</p>
+ *
+ * The resource (such as the Amazon Lex bot or an alias) that is referred to is not found.
  *
  * @throws {@link LexRuntimeServiceServiceException}
- * <p>Base exception class for all service exceptions from LexRuntimeService service.</p>
  *
+ * Base exception class for all service exceptions from LexRuntimeService service.
  *
  * @public
  */

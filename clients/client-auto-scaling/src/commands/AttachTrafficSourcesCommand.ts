@@ -23,31 +23,20 @@ export interface AttachTrafficSourcesCommandInput extends AttachTrafficSourcesTy
 export interface AttachTrafficSourcesCommandOutput extends AttachTrafficSourcesResultType, __MetadataBearer {}
 
 /**
- * <p>Attaches one or more traffic sources to the specified Auto Scaling group.</p>
- *          <p>You can use any of the following as traffic sources for an Auto Scaling group:</p>
- *          <ul>
- *             <li>
- *                <p>Application Load Balancer</p>
- *             </li>
- *             <li>
- *                <p>Classic Load Balancer</p>
- *             </li>
- *             <li>
- *                <p>Gateway Load Balancer</p>
- *             </li>
- *             <li>
- *                <p>Network Load Balancer</p>
- *             </li>
- *             <li>
- *                <p>VPC Lattice</p>
- *             </li>
- *          </ul>
- *          <p>This operation is additive and does not detach existing traffic sources from the Auto Scaling
- *             group. </p>
- *          <p>After the operation completes, use the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeTrafficSources.html">DescribeTrafficSources</a> API to
- *             return details about the state of the attachments between traffic sources and your Auto Scaling
- *             group. To detach a traffic source from the Auto Scaling group, call the
- *             <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachTrafficSources.html">DetachTrafficSources</a> API.</p>
+ * Attaches one or more traffic sources to the specified Auto Scaling group.
+ *
+ * You can use any of the following as traffic sources for an Auto Scaling group:
+ *
+ * - Application Load Balancer
+ * - Classic Load Balancer
+ * - Gateway Load Balancer
+ * - Network Load Balancer
+ * - VPC Lattice
+ *
+ * This operation is additive and does not detach existing traffic sources from the Auto Scaling group.
+ *
+ * After the operation completes, use the [DescribeTrafficSources](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeTrafficSources.html) API to return details about the state of the attachments between traffic sources and your Auto Scaling group. To detach a traffic source from the Auto Scaling group, call the [DetachTrafficSources](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachTrafficSources.html) API.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,19 +68,20 @@ export interface AttachTrafficSourcesCommandOutput extends AttachTrafficSourcesR
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  * @throws {@link InstanceRefreshInProgressFault} (client fault)
- *  <p>The request failed because an active instance refresh already exists for the specified
- *             Auto Scaling group.</p>
+ *
+ * The request failed because an active instance refresh already exists for the specified Auto Scaling group.
  *
  * @throws {@link ResourceContentionFault} (server fault)
- *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
- *             instance, or load balancer).</p>
+ *
+ * You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).
  *
  * @throws {@link ServiceLinkedRoleFailure} (server fault)
- *  <p>The service-linked role is not yet ready for use.</p>
+ *
+ * The service-linked role is not yet ready for use.
  *
  * @throws {@link AutoScalingServiceException}
- * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from AutoScaling service.
  *
  * @example To attach a target group to an Auto Scaling group
  * ```javascript

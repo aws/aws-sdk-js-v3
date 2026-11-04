@@ -23,7 +23,10 @@ export interface CreateOptionGroupCommandInput extends CreateOptionGroupMessage 
 export interface CreateOptionGroupCommandOutput extends CreateOptionGroupResult, __MetadataBearer {}
 
 /**
- * <p>Creates a new option group. You can create up to 20 option groups.</p> <p>This command doesn't apply to RDS Custom.</p>
+ * Creates a new option group. You can create up to 20 option groups.
+ *
+ * This command doesn't apply to RDS Custom.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -105,14 +108,16 @@ export interface CreateOptionGroupCommandOutput extends CreateOptionGroupResult,
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link OptionGroupAlreadyExistsFault} (client fault)
- *  <p>The option group you are trying to create already exists.</p>
+ *
+ * The option group you are trying to create already exists.
  *
  * @throws {@link OptionGroupQuotaExceededFault} (client fault)
- *  <p>The quota of 20 option groups was exceeded for this Amazon Web Services account.</p>
+ *
+ * The quota of 20 option groups was exceeded for this Amazon Web Services account.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To Create an Amazon RDS option group
  * ```javascript

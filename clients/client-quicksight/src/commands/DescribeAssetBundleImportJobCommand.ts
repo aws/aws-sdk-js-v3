@@ -23,9 +23,10 @@ export interface DescribeAssetBundleImportJobCommandInput extends DescribeAssetB
 export interface DescribeAssetBundleImportJobCommandOutput extends DescribeAssetBundleImportJobResponse, __MetadataBearer {}
 
 /**
- * <p>Describes an existing import job.</p>
- *          <p>Poll job descriptions after starting a job to know when it has succeeded or failed. Job
- *          descriptions are available for 14 days after job starts.</p>
+ * Describes an existing import job.
+ *
+ * Poll job descriptions after starting a job to know when it has succeeded or failed. Job descriptions are available for 14 days after job starts.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -576,20 +577,20 @@ export interface DescribeAssetBundleImportJobCommandOutput extends DescribeAsset
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>One or more resources can't be found.</p>
+ *
+ * One or more resources can't be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Access is throttled.</p>
+ *
+ * Access is throttled.
  *
  * @throws {@link UnsupportedUserEditionException} (client fault)
- *  <p>This error indicates that you are calling an operation on an Amazon Quick Suite
- * 			subscription where the edition doesn't include support for that operation. Amazon
- * 			Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and
- * 			capability is available in every edition.</p>
+ *
+ * This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.
  *
  * @throws {@link QuickSightServiceException}
- * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * Base exception class for all service exceptions from QuickSight service.
  *
  * @public
  */

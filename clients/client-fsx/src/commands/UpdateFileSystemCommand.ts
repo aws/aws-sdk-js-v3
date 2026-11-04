@@ -23,254 +23,66 @@ export interface UpdateFileSystemCommandInput extends UpdateFileSystemRequest {}
 export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse, __MetadataBearer {}
 
 /**
- * <p>Use this operation to update the configuration of an existing Amazon FSx file
- *       system. You can update multiple properties in a single request.</p>
- *          <p>For FSx for Windows File Server file systems, you can update the following
- *       properties:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>AuditLogConfiguration</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>AutomaticBackupRetentionDays</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>DailyAutomaticBackupStartTime</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>DiskIopsConfiguration</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>SelfManagedActiveDirectoryConfiguration</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>StorageCapacity</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>StorageType</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>ThroughputCapacity</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>WeeklyMaintenanceStartTime</code>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>For FSx for Lustre file systems, you can update the following
- *       properties:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>AutoImportPolicy</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>AutomaticBackupRetentionDays</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>DailyAutomaticBackupStartTime</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>DataCompressionType</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>FileSystemTypeVersion</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>LogConfiguration</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>LustreReadCacheConfiguration</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>LustreRootSquashConfiguration</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>MetadataConfiguration</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>PerUnitStorageThroughput</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>StorageCapacity</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>ThroughputCapacity</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>WeeklyMaintenanceStartTime</code>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>For FSx for ONTAP file systems, you can update the following
- *       properties:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>AddRouteTableIds</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>AutomaticBackupRetentionDays</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>DailyAutomaticBackupStartTime</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>DiskIopsConfiguration</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>EndpointIpv6AddressRange</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>FsxAdminPassword</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>HAPairs</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>RemoveRouteTableIds</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>StorageCapacity</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>ThroughputCapacity</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>ThroughputCapacityPerHAPair</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>WeeklyMaintenanceStartTime</code>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>For FSx for OpenZFS file systems, you can update the following
- *       properties:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>AddRouteTableIds</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>AutomaticBackupRetentionDays</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>CopyTagsToBackups</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>CopyTagsToVolumes</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>DailyAutomaticBackupStartTime</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>DiskIopsConfiguration</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>EndpointIpv6AddressRange</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>ReadCacheConfiguration</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>RemoveRouteTableIds</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>StorageCapacity</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>ThroughputCapacity</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>WeeklyMaintenanceStartTime</code>
- *                </p>
- *             </li>
- *          </ul>
+ * Use this operation to update the configuration of an existing Amazon FSx file system. You can update multiple properties in a single request.
+ *
+ * For FSx for Windows File Server file systems, you can update the following properties:
+ *
+ * - `AuditLogConfiguration`
+ * - `AutomaticBackupRetentionDays`
+ * - `DailyAutomaticBackupStartTime`
+ * - `DiskIopsConfiguration`
+ * - `SelfManagedActiveDirectoryConfiguration`
+ * - `StorageCapacity`
+ * - `StorageType`
+ * - `ThroughputCapacity`
+ * - `WeeklyMaintenanceStartTime`
+ *
+ * For FSx for Lustre file systems, you can update the following properties:
+ *
+ * - `AutoImportPolicy`
+ * - `AutomaticBackupRetentionDays`
+ * - `DailyAutomaticBackupStartTime`
+ * - `DataCompressionType`
+ * - `FileSystemTypeVersion`
+ * - `LogConfiguration`
+ * - `LustreReadCacheConfiguration`
+ * - `LustreRootSquashConfiguration`
+ * - `MetadataConfiguration`
+ * - `PerUnitStorageThroughput`
+ * - `StorageCapacity`
+ * - `ThroughputCapacity`
+ * - `WeeklyMaintenanceStartTime`
+ *
+ * For FSx for ONTAP file systems, you can update the following properties:
+ *
+ * - `AddRouteTableIds`
+ * - `AutomaticBackupRetentionDays`
+ * - `DailyAutomaticBackupStartTime`
+ * - `DiskIopsConfiguration`
+ * - `EndpointIpv6AddressRange`
+ * - `FsxAdminPassword`
+ * - `HAPairs`
+ * - `RemoveRouteTableIds`
+ * - `StorageCapacity`
+ * - `ThroughputCapacity`
+ * - `ThroughputCapacityPerHAPair`
+ * - `WeeklyMaintenanceStartTime`
+ *
+ * For FSx for OpenZFS file systems, you can update the following properties:
+ *
+ * - `AddRouteTableIds`
+ * - `AutomaticBackupRetentionDays`
+ * - `CopyTagsToBackups`
+ * - `CopyTagsToVolumes`
+ * - `DailyAutomaticBackupStartTime`
+ * - `DiskIopsConfiguration`
+ * - `EndpointIpv6AddressRange`
+ * - `ReadCacheConfiguration`
+ * - `RemoveRouteTableIds`
+ * - `StorageCapacity`
+ * - `ThroughputCapacity`
+ * - `WeeklyMaintenanceStartTime`
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -1014,35 +826,40 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * A generic error indicating a failure with a client request.
  *
  * @throws {@link FileSystemNotFound} (client fault)
- *  <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
+ *
+ * No Amazon FSx file systems were found based upon supplied parameters.
  *
  * @throws {@link IncompatibleParameterError} (client fault)
- *  <p>The error returned when a second request is received with the same client request
- *             token but different parameters settings. A client request token should always uniquely
- *             identify a single request.</p>
+ *
+ * The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * A generic error indicating a server-side failure.
  *
  * @throws {@link InvalidNetworkSettings} (client fault)
- *  <p>One or more network settings specified in the request are invalid.</p>
+ *
+ * One or more network settings specified in the request are invalid.
  *
  * @throws {@link MissingFileSystemConfiguration} (client fault)
- *  <p>A file system configuration is required for this operation.</p>
+ *
+ * A file system configuration is required for this operation.
  *
  * @throws {@link ServiceLimitExceeded} (client fault)
- *  <p>An error indicating that a particular service limit was exceeded. You can increase
- *             some service limits by contacting Amazon Web Services Support.</p>
+ *
+ * An error indicating that a particular service limit was exceeded. You can increase some service limits by contacting Amazon Web Services Support.
  *
  * @throws {@link UnsupportedOperation} (client fault)
- *  <p>The requested operation is not supported for this resource or API.</p>
+ *
+ * The requested operation is not supported for this resource or API.
  *
  * @throws {@link FSxServiceException}
- * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * Base exception class for all service exceptions from FSx service.
  *
  * @public
  */

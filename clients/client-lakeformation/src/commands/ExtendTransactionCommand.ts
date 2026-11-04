@@ -23,8 +23,10 @@ export interface ExtendTransactionCommandInput extends ExtendTransactionRequest 
 export interface ExtendTransactionCommandOutput extends ExtendTransactionResponse, __MetadataBearer {}
 
 /**
- * <p>Indicates to the service that the specified transaction is still active and should not be treated as idle and aborted.</p>
- *          <p>Write transactions that remain idle for a long period are automatically aborted unless explicitly extended.</p>
+ * Indicates to the service that the specified transaction is still active and should not be treated as idle and aborted.
+ *
+ * Write transactions that remain idle for a long period are automatically aborted unless explicitly extended.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,29 +51,36 @@ export interface ExtendTransactionCommandOutput extends ExtendTransactionRespons
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist.</p>
+ *
+ * A specified entity does not exist.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link TransactionCanceledException} (client fault)
- *  <p>Contains details about an error related to a transaction that was cancelled.</p>
+ *
+ * Contains details about an error related to a transaction that was cancelled.
  *
  * @throws {@link TransactionCommitInProgressException} (client fault)
- *  <p>Contains details about an error related to a transaction commit that was in progress.</p>
+ *
+ * Contains details about an error related to a transaction commit that was in progress.
  *
  * @throws {@link TransactionCommittedException} (client fault)
- *  <p>Contains details about an error where the specified transaction has already been committed and cannot be used for <code>UpdateTableObjects</code>.</p>
+ *
+ * Contains details about an error where the specified transaction has already been committed and cannot be used for `UpdateTableObjects`.
  *
  * @throws {@link LakeFormationServiceException}
- * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * Base exception class for all service exceptions from LakeFormation service.
  *
  * @public
  */

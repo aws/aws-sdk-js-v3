@@ -26,7 +26,8 @@ export interface GetCertificateAuthorityCertificateCommandInput extends GetCerti
 export interface GetCertificateAuthorityCertificateCommandOutput extends GetCertificateAuthorityCertificateResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the certificate and certificate chain for your private certificate authority (CA) or one that has been shared with you. Both the certificate and the chain are base64 PEM-encoded. The chain does not include the CA certificate. Each certificate in the chain signs the one before it. </p>
+ * Retrieves the certificate and certificate chain for your private certificate authority (CA) or one that has been shared with you. Both the certificate and the chain are base64 PEM-encoded. The chain does not include the CA certificate. Each certificate in the chain signs the one before it.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,17 +55,20 @@ export interface GetCertificateAuthorityCertificateCommandOutput extends GetCert
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
  *
  * @throws {@link InvalidArnException} (client fault)
- *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+ *
+ * The requested Amazon Resource Name (ARN) does not refer to an existing resource.
  *
  * @throws {@link InvalidStateException} (client fault)
- *  <p>The state of the private CA does not allow this action to occur.</p>
+ *
+ * The state of the private CA does not allow this action to occur.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy cannot be found.</p>
+ *
+ * A resource such as a private CA, S3 bucket, certificate, audit report, or policy cannot be found.
  *
  * @throws {@link ACMPCAServiceException}
- * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
+ * Base exception class for all service exceptions from ACMPCA service.
  *
  * @public
  */

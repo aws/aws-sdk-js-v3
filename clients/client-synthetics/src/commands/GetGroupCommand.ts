@@ -23,8 +23,8 @@ export interface GetGroupCommandInput extends GetGroupRequest {}
 export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about one group. Groups are a global resource, so you can use this operation from
- *       any Region.</p>
+ * Returns information about one group. Groups are a global resource, so you can use this operation from any Region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,20 +60,24 @@ export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBeare
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A conflicting operation is already in progress.</p>
+ *
+ * A conflicting operation is already in progress.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unknown internal error occurred.</p>
+ *
+ * An unknown internal error occurred.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>One of the specified resources was not found.</p>
+ *
+ * One of the specified resources was not found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A parameter could not be validated.</p>
+ *
+ * A parameter could not be validated.
  *
  * @throws {@link SyntheticsServiceException}
- * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ * Base exception class for all service exceptions from Synthetics service.
  *
  * @public
  */

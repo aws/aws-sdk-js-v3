@@ -23,57 +23,29 @@ export interface RestoreTableToPointInTimeCommandInput extends RestoreTableToPoi
 export interface RestoreTableToPointInTimeCommandOutput extends RestoreTableToPointInTimeOutput, __MetadataBearer {}
 
 /**
- * <p>Restores the specified table to the specified point in time within
- *                 <code>EarliestRestorableDateTime</code> and <code>LatestRestorableDateTime</code>.
- *             You can restore your table to any point in time in the last 35 days. You can set the
- *             recovery period to any value between 1 and 35 days. Any number of users can execute up
- *             to 50 concurrent restores (any type of restore) in a given account. </p>
- *          <p>When you restore using point in time recovery, DynamoDB restores your table data to
- *             the state based on the selected date and time (day:hour:minute:second) to a new table. </p>
- *          <p>Along with data, the following are also included on the new restored table using point
- *             in time recovery: </p>
- *          <ul>
- *             <li>
- *                <p>Global secondary indexes (GSIs)</p>
- *             </li>
- *             <li>
- *                <p>Local secondary indexes (LSIs)</p>
- *             </li>
- *             <li>
- *                <p>Provisioned read and write capacity</p>
- *             </li>
- *             <li>
- *                <p>Encryption settings</p>
- *                <important>
- *                   <p> All these settings come from the current settings of the source table at
- *                         the time of restore. </p>
- *                </important>
- *             </li>
- *          </ul>
- *          <p>You must manually set up the following on the restored table:</p>
- *          <ul>
- *             <li>
- *                <p>Auto scaling policies</p>
- *             </li>
- *             <li>
- *                <p>IAM policies</p>
- *             </li>
- *             <li>
- *                <p>Amazon CloudWatch metrics and alarms</p>
- *             </li>
- *             <li>
- *                <p>Tags</p>
- *             </li>
- *             <li>
- *                <p>Stream settings</p>
- *             </li>
- *             <li>
- *                <p>Time to Live (TTL) settings</p>
- *             </li>
- *             <li>
- *                <p>Point in time recovery settings</p>
- *             </li>
- *          </ul>
+ * Restores the specified table to the specified point in time within `EarliestRestorableDateTime` and `LatestRestorableDateTime`. You can restore your table to any point in time in the last 35 days. You can set the recovery period to any value between 1 and 35 days. Any number of users can execute up to 50 concurrent restores (any type of restore) in a given account.
+ *
+ * When you restore using point in time recovery, DynamoDB restores your table data to the state based on the selected date and time (day:hour:minute:second) to a new table.
+ *
+ * Along with data, the following are also included on the new restored table using point in time recovery:
+ *
+ * - Global secondary indexes (GSIs)
+ * - Local secondary indexes (LSIs)
+ * - Provisioned read and write capacity
+ * - Encryption settings
+ *
+ *   > **Important:** All these settings come from the current settings of the source table at the time of restore.
+ *
+ * You must manually set up the following on the restored table:
+ *
+ * - Auto scaling policies
+ * - IAM policies
+ * - Amazon CloudWatch metrics and alarms
+ * - Tags
+ * - Stream settings
+ * - Time to Live (TTL) settings
+ * - Point in time recovery settings
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -392,50 +364,50 @@ export interface RestoreTableToPointInTimeCommandOutput extends RestoreTableToPo
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidEndpointException} (client fault)
  *
  * @throws {@link InvalidRestoreTimeException} (client fault)
- *  <p>An invalid restore time was specified. RestoreDateTime must be between
- *             EarliestRestorableDateTime and LatestRestorableDateTime.</p>
+ *
+ * An invalid restore time was specified. RestoreDateTime must be between EarliestRestorableDateTime and LatestRestorableDateTime.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>There is no limit to the number of daily on-demand backups that can be taken. </p>
- *          <p>For most purposes, up to 500 simultaneous table operations are allowed per account.
- *             These operations include <code>CreateTable</code>, <code>UpdateTable</code>,
- *                 <code>DeleteTable</code>,<code>UpdateTimeToLive</code>,
- *                 <code>RestoreTableFromBackup</code>, and <code>RestoreTableToPointInTime</code>. </p>
- *          <p>When you are creating a table with one or more secondary indexes, you can have up
- *             to 250 such requests running at a time. However, if the table or index specifications
- *             are complex, then DynamoDB might temporarily reduce the number of concurrent
- *             operations.</p>
- *          <p>When importing into DynamoDB, up to 50 simultaneous import table operations are
- *             allowed per account.</p>
- *          <p>There is a soft account quota of 2,500 tables.</p>
- *          <p>GetRecords was called with a value of more than 1000 for the limit request
- *             parameter.</p>
- *          <p>More than 2 processes are reading from the same streams shard at the same time.
- *             Exceeding this limit may result in request throttling.</p>
+ *
+ * There is no limit to the number of daily on-demand backups that can be taken.
+ *
+ * For most purposes, up to 500 simultaneous table operations are allowed per account. These operations include `CreateTable`, `UpdateTable`, `DeleteTable`,`UpdateTimeToLive`, `RestoreTableFromBackup`, and `RestoreTableToPointInTime`.
+ *
+ * When you are creating a table with one or more secondary indexes, you can have up to 250 such requests running at a time. However, if the table or index specifications are complex, then DynamoDB might temporarily reduce the number of concurrent operations.
+ *
+ * When importing into DynamoDB, up to 50 simultaneous import table operations are allowed per account.
+ *
+ * There is a soft account quota of 2,500 tables.
+ *
+ * GetRecords was called with a value of more than 1000 for the limit request parameter.
+ *
+ * More than 2 processes are reading from the same streams shard at the same time. Exceeding this limit may result in request throttling.
  *
  * @throws {@link PointInTimeRecoveryUnavailableException} (client fault)
- *  <p>Point in time recovery has not yet been enabled for this source table.</p>
+ *
+ * Point in time recovery has not yet been enabled for this source table.
  *
  * @throws {@link TableAlreadyExistsException} (client fault)
- *  <p>A target table with the specified name already exists. </p>
+ *
+ * A target table with the specified name already exists.
  *
  * @throws {@link TableInUseException} (client fault)
- *  <p>A target table with the specified name is either being created or deleted.
- *         </p>
+ *
+ * A target table with the specified name is either being created or deleted.
  *
  * @throws {@link TableNotFoundException} (client fault)
- *  <p>A source table with the name <code>TableName</code> does not currently exist within
- *             the subscriber's account or the subscriber is operating in the wrong Amazon Web Services
- *             Region.</p>
+ *
+ * A source table with the name `TableName` does not currently exist within the subscriber's account or the subscriber is operating in the wrong Amazon Web Services Region.
  *
  * @throws {@link DynamoDBServiceException}
- * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * Base exception class for all service exceptions from DynamoDB service.
  *
  * @public
  */

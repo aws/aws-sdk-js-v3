@@ -23,9 +23,10 @@ export interface DescribeVolumeAttributeCommandInput extends DescribeVolumeAttri
 export interface DescribeVolumeAttributeCommandOutput extends DescribeVolumeAttributeResult, __MetadataBearer {}
 
 /**
- * <p>Describes the specified attribute of the specified volume. You can specify only one
- *       attribute at a time.</p>
- *          <p>For more information about EBS volumes, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes.html">Amazon EBS volumes</a> in the <i>Amazon EBS User Guide</i>.</p>
+ * Describes the specified attribute of the specified volume. You can specify only one attribute at a time.
+ *
+ * For more information about EBS volumes, see [Amazon EBS volumes](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes.html) in the *Amazon EBS User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,8 +64,8 @@ export interface DescribeVolumeAttributeCommandOutput extends DescribeVolumeAttr
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To describe a volume attribute
  * ```javascript

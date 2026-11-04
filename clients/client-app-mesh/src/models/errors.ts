@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { AppMeshServiceException as __BaseException } from "./AppMeshServiceException";
 
 /**
- * <p>The request syntax was malformed. Check your request syntax and try again.</p>
+ * The request syntax was malformed. Check your request syntax and try again.
+ *
  * @public
  */
 export class BadRequestException extends __BaseException {
@@ -25,7 +26,8 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * <p>You don't have permissions to perform this action.</p>
+ * You don't have permissions to perform this action.
+ *
  * @public
  */
 export class ForbiddenException extends __BaseException {
@@ -46,8 +48,8 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
- * <p>The request processing has failed because of an unknown error, exception, or
- *          failure.</p>
+ * The request processing has failed because of an unknown error, exception, or failure.
+ *
  * @public
  */
 export class InternalServerErrorException extends __BaseException {
@@ -69,7 +71,8 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
- * <p>The specified resource doesn't exist. Check your request syntax and try again.</p>
+ * The specified resource doesn't exist. Check your request syntax and try again.
+ *
  * @public
  */
 export class NotFoundException extends __BaseException {
@@ -90,7 +93,8 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request has failed due to a temporary failure of the service.</p>
+ * The request has failed due to a temporary failure of the service.
+ *
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -112,9 +116,8 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>The maximum request rate permitted by the App Mesh APIs has been exceeded for
- *          your account. For best results, use an increasing or variable sleep interval between
- *          requests.</p>
+ * The maximum request rate permitted by the App Mesh APIs has been exceeded for your account. For best results, use an increasing or variable sleep interval between requests.
+ *
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
@@ -138,8 +141,8 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * <p>The request contains a client token that was used for a previous update resource call
- *          with different specifications. Try the request again with a new client token.</p>
+ * The request contains a client token that was used for a previous update resource call with different specifications. Try the request again with a new client token.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -160,8 +163,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>You have exceeded a service limit for your account. For more information, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/service-quotas.html">Service
- *             Limits</a> in the <i>App Mesh User Guide</i>.</p>
+ * You have exceeded a service limit for your account. For more information, see [Service Limits](https://docs.aws.amazon.com/app-mesh/latest/userguide/service-quotas.html) in the *App Mesh User Guide*.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -182,8 +185,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>You can't delete the specified resource because it's in use or required by another
- *          resource.</p>
+ * You can't delete the specified resource because it's in use or required by another resource.
+ *
  * @public
  */
 export class ResourceInUseException extends __BaseException {
@@ -204,9 +207,8 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
- * <p>The request exceeds the maximum allowed number of tags allowed per resource. The current
- *          limit is 50 user tags per resource. You must reduce the number of tags in the request. None
- *          of the tags in this request were applied.</p>
+ * The request exceeds the maximum allowed number of tags allowed per resource. The current limit is 50 user tags per resource. You must reduce the number of tags in the request. None of the tags in this request were applied.
+ *
  * @public
  */
 export class TooManyTagsException extends __BaseException {

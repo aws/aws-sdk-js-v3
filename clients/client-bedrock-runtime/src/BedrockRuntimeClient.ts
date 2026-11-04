@@ -343,7 +343,8 @@ export type BedrockRuntimeClientResolvedConfigType = __SmithyResolvedConfigurati
 export interface BedrockRuntimeClientResolvedConfig extends BedrockRuntimeClientResolvedConfigType {}
 
 /**
- * <p>Describes the API operations for running inference using Amazon Bedrock models.</p>
+ * Describes the API operations for running inference using Amazon Bedrock models.
+ *
  * @public
  */
 export class BedrockRuntimeClient extends __Client<

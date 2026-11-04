@@ -23,7 +23,8 @@ export interface ListTopicsCommandInput extends ListTopicsRequest {}
 export interface ListTopicsCommandOutput extends ListTopicsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all of the topics within an account.</p>
+ * Lists all of the topics within an account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,26 +63,28 @@ export interface ListTopicsCommandOutput extends ListTopicsResponse, __MetadataB
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have access to this item. The provided credentials couldn't be
- * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
- * 			correct permissions, and that you are using the correct credentials.</p>
+ *
+ * You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An internal failure occurred.</p>
+ *
+ * An internal failure occurred.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The <code>NextToken</code> value isn't valid.</p>
+ *
+ * The `NextToken` value isn't valid.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more parameters has a value that isn't valid.</p>
+ *
+ * One or more parameters has a value that isn't valid.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Access is throttled.</p>
+ *
+ * Access is throttled.
  *
  * @throws {@link QuickSightServiceException}
- * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * Base exception class for all service exceptions from QuickSight service.
  *
  * @public
  */

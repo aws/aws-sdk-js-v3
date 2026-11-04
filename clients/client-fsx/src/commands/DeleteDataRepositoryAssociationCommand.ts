@@ -26,13 +26,8 @@ export interface DeleteDataRepositoryAssociationCommandInput extends DeleteDataR
 export interface DeleteDataRepositoryAssociationCommandOutput extends DeleteDataRepositoryAssociationResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a data repository association on an Amazon FSx for Lustre
- *             file system. Deleting the data repository association unlinks the
- *             file system from the Amazon S3 bucket. When deleting a data repository
- *             association, you have the option of deleting the data in the file system
- *             that corresponds to the data repository association. Data repository
- *             associations are supported on all FSx for Lustre 2.12 and 2.15 file
- *             systems, excluding <code>scratch_1</code> deployment type.</p>
+ * Deletes a data repository association on an Amazon FSx for Lustre file system. Deleting the data repository association unlinks the file system from the Amazon S3 bucket. When deleting a data repository association, you have the option of deleting the data in the file system that corresponds to the data repository association. Data repository associations are supported on all FSx for Lustre 2.12 and 2.15 file systems, excluding `scratch_1` deployment type.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,26 +58,28 @@ export interface DeleteDataRepositoryAssociationCommandOutput extends DeleteData
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * A generic error indicating a failure with a client request.
  *
  * @throws {@link DataRepositoryAssociationNotFound} (client fault)
- *  <p>No data repository associations were found based upon the supplied parameters.</p>
+ *
+ * No data repository associations were found based upon the supplied parameters.
  *
  * @throws {@link IncompatibleParameterError} (client fault)
- *  <p>The error returned when a second request is received with the same client request
- *             token but different parameters settings. A client request token should always uniquely
- *             identify a single request.</p>
+ *
+ * The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * A generic error indicating a server-side failure.
  *
  * @throws {@link ServiceLimitExceeded} (client fault)
- *  <p>An error indicating that a particular service limit was exceeded. You can increase
- *             some service limits by contacting Amazon Web Services Support.</p>
+ *
+ * An error indicating that a particular service limit was exceeded. You can increase some service limits by contacting Amazon Web Services Support.
  *
  * @throws {@link FSxServiceException}
- * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * Base exception class for all service exceptions from FSx service.
  *
  * @public
  */

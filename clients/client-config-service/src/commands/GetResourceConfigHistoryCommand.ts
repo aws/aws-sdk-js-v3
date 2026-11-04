@@ -23,36 +23,24 @@ export interface GetResourceConfigHistoryCommandInput extends GetResourceConfigH
 export interface GetResourceConfigHistoryCommandOutput extends GetResourceConfigHistoryResponse, __MetadataBearer {}
 
 /**
- * <important>
- *             <p>For accurate reporting on the compliance status, you must record the <code>AWS::Config::ResourceCompliance</code> resource type.</p>
- *             <p>For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html">Recording Amazon Web Services Resources</a> in the <i>Config Resources Developer Guide</i>.</p>
- *          </important>
- *          <p>Returns a list of configurations items (CIs) for the specified resource.</p>
- *          <p>
- *             <b>Contents</b>
- *          </p>
- *          <p>The list contains details about each state of the resource
- * 			during the specified time interval. If you specified a retention
- * 			period to retain your CIs between a
- * 			minimum of 30 days and a maximum of 7 years (2557 days), Config
- * 			returns the CIs for the specified
- * 			retention period. </p>
- *          <p>
- *             <b>Pagination</b>
- *          </p>
- *          <p>The response is paginated. By default, Config returns a
- * 			limit of 10 configuration items per page. You can customize this
- * 			number with the <code>limit</code> parameter. The response includes
- * 			a <code>nextToken</code> string. To get the next page of results,
- * 			run the request again and specify the string for the
- * 				<code>nextToken</code> parameter.</p>
- *          <note>
- *             <p>Each call to the API is limited to span a duration of seven
- * 				days. It is likely that the number of records returned is
- * 				smaller than the specified <code>limit</code>. In such cases,
- * 				you can make another call, using the
- * 				<code>nextToken</code>.</p>
- *          </note>
+ * > **Important:**
+ * >
+ * > For accurate reporting on the compliance status, you must record the `AWS::Config::ResourceCompliance` resource type.
+ * >
+ * > For more information, see [Recording Amazon Web Services Resources](https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html) in the *Config Resources Developer Guide*.
+ *
+ * Returns a list of configurations items (CIs) for the specified resource.
+ *
+ * **Contents**
+ *
+ * The list contains details about each state of the resource during the specified time interval. If you specified a retention period to retain your CIs between a minimum of 30 days and a maximum of 7 years (2557 days), Config returns the CIs for the specified retention period.
+ *
+ * **Pagination**
+ *
+ * The response is paginated. By default, Config returns a limit of 10 configuration items per page. You can customize this number with the `limit` parameter. The response includes a `nextToken` string. To get the next page of results, run the request again and specify the string for the `nextToken` parameter.
+ *
+ * > **Note:** Each call to the API is limited to span a duration of seven days. It is likely that the number of records returned is smaller than the specified `limit`. In such cases, you can make another call, using the `nextToken`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -122,73 +110,54 @@ export interface GetResourceConfigHistoryCommandOutput extends GetResourceConfig
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  * @throws {@link InvalidLimitException} (client fault)
- *  <p>The specified limit is outside the allowable range.</p>
+ *
+ * The specified limit is outside the allowable range.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The specified next token is not valid. Specify the
- * 				<code>nextToken</code> string that was returned in the previous
- * 			response to get the next page of results.</p>
+ *
+ * The specified next token is not valid. Specify the `nextToken` string that was returned in the previous response to get the next page of results.
  *
  * @throws {@link InvalidTimeRangeException} (client fault)
- *  <p>The specified time range is not valid. The earlier time is not
- * 			chronologically before the later time.</p>
+ *
+ * The specified time range is not valid. The earlier time is not chronologically before the later time.
  *
  * @throws {@link NoAvailableConfigurationRecorderException} (client fault)
- *  <p>There are no customer managed configuration recorders available to record your resources. Use the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigurationRecorder.html">PutConfigurationRecorder</a> operation to create the customer managed configuration
- * 			recorder.</p>
+ *
+ * There are no customer managed configuration recorders available to record your resources. Use the [PutConfigurationRecorder](https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigurationRecorder.html) operation to create the customer managed configuration recorder.
  *
  * @throws {@link ResourceNotDiscoveredException} (client fault)
- *  <p>You have specified a resource that is either unknown or has not
- * 			been discovered.</p>
+ *
+ * You have specified a resource that is either unknown or has not been discovered.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p>
- *          <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html">PutStoredQuery</a>, one of the following errors:</p>
- *          <ul>
- *             <li>
- *                <p>There are missing required fields.</p>
- *             </li>
- *             <li>
- *                <p>The input value fails the validation.</p>
- *             </li>
- *             <li>
- *                <p>You are trying to create more than 300 queries.</p>
- *             </li>
- *          </ul>
- *          <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html">DescribeConfigurationRecorders</a> and <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html">DescribeConfigurationRecorderStatus</a>, one of the following errors:</p>
- *          <ul>
- *             <li>
- *                <p>You have specified more than one configuration recorder.</p>
- *             </li>
- *             <li>
- *                <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p>
- *             </li>
- *          </ul>
- *          <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html">AssociateResourceTypes</a> and <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html">DisassociateResourceTypes</a>, one of the following errors:</p>
- *          <ul>
- *             <li>
- *                <p>Your configuraiton recorder has a recording strategy that does not allow the association or disassociation of resource types.</p>
- *             </li>
- *             <li>
- *                <p>One or more of the specified resource types are already associated or disassociated with the configuration recorder.</p>
- *             </li>
- *             <li>
- *                <p>For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.</p>
- *             </li>
- *          </ul>
- *          <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteServiceLinkedConfigurationRecorder.html">DeleteServiceLinkedConfigurationRecorder</a>, one of the following errors:</p>
- *          <ul>
- *             <li>
- *                <p>You have provided both <code>Arn</code> and <code>ServicePrincipal</code>. Only one of <code>Arn</code> or <code>ServicePrincipal</code> can be specified.</p>
- *             </li>
- *             <li>
- *                <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p>
- *             </li>
- *          </ul>
+ *
+ * The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.
+ *
+ * For [PutStoredQuery](https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html), one of the following errors:
+ *
+ * - There are missing required fields.
+ * - The input value fails the validation.
+ * - You are trying to create more than 300 queries.
+ *
+ * For [DescribeConfigurationRecorders](https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html) and [DescribeConfigurationRecorderStatus](https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html), one of the following errors:
+ *
+ * - You have specified more than one configuration recorder.
+ * - You have provided a service principal for service-linked configuration recorder that is not valid.
+ *
+ * For [AssociateResourceTypes](https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html) and [DisassociateResourceTypes](https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html), one of the following errors:
+ *
+ * - Your configuraiton recorder has a recording strategy that does not allow the association or disassociation of resource types.
+ * - One or more of the specified resource types are already associated or disassociated with the configuration recorder.
+ * - For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.
+ *
+ * For [DeleteServiceLinkedConfigurationRecorder](https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteServiceLinkedConfigurationRecorder.html), one of the following errors:
+ *
+ * - You have provided both `Arn` and `ServicePrincipal`. Only one of `Arn` or `ServicePrincipal` can be specified.
+ * - You have provided a service principal for service-linked configuration recorder that is not valid.
  *
  * @throws {@link ConfigServiceServiceException}
- * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * Base exception class for all service exceptions from ConfigService service.
  *
  * @public
  */

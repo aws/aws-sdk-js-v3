@@ -23,9 +23,8 @@ export interface UpdateServiceAccessPoliciesCommandInput extends UpdateServiceAc
 export interface UpdateServiceAccessPoliciesCommandOutput extends UpdateServiceAccessPoliciesResponse, __MetadataBearer {}
 
 /**
- * <p>Configures the access rules that control access to the domain's document and search endpoints.
- *       For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html" target="_blank">
- *         Configuring Access for an Amazon CloudSearch Domain</a>.</p>
+ * Configures the access rules that control access to the domain's document and search endpoints. For more information, see [Configuring Access for an Amazon CloudSearch Domain](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,27 +61,32 @@ export interface UpdateServiceAccessPoliciesCommandOutput extends UpdateServiceA
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
  *
  * @throws {@link BaseException} (client fault)
- *  <p>An error occurred while processing the request.</p>
+ *
+ * An error occurred while processing the request.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>An internal error occurred while processing the request. If this problem persists,
- *       report an issue from the <a href="http://status.aws.amazon.com/" target="_blank">Service Health Dashboard</a>.</p>
+ *
+ * An internal error occurred while processing the request. If this problem persists, report an issue from the [Service Health Dashboard](http://status.aws.amazon.com/).
  *
  * @throws {@link InvalidTypeException} (client fault)
- *  <p>The request was rejected because it specified an invalid type definition.</p>
+ *
+ * The request was rejected because it specified an invalid type definition.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because a resource limit has already been met.</p>
+ *
+ * The request was rejected because a resource limit has already been met.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
+ *
+ * The request was rejected because it attempted to reference a resource that does not exist.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request was rejected because it has invalid parameters.</p>
+ *
+ * The request was rejected because it has invalid parameters.
  *
  * @throws {@link CloudSearchServiceException}
- * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
+ * Base exception class for all service exceptions from CloudSearch service.
  *
  * @public
  */

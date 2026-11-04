@@ -23,10 +23,8 @@ export interface BatchDetectSyntaxCommandInput extends BatchDetectSyntaxRequest 
 export interface BatchDetectSyntaxCommandOutput extends BatchDetectSyntaxResponse, __MetadataBearer {}
 
 /**
- * <p>Inspects the text of a batch of documents for the syntax and part of speech of the words
- *       in the document and returns information about them. For more information, see
- *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html">Syntax</a> in the Comprehend Developer Guide.
- *     </p>
+ * Inspects the text of a batch of documents for the syntax and part of speech of the words in the document and returns information about them. For more information, see [Syntax](https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html) in the Comprehend Developer Guide.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,26 +77,28 @@ export interface BatchDetectSyntaxCommandOutput extends BatchDetectSyntaxRespons
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  * @throws {@link BatchSizeLimitExceededException} (client fault)
- *  <p>The number of documents in the request exceeds the limit of 25. Try your request again
- *       with fewer documents.</p>
+ *
+ * The number of documents in the request exceeds the limit of 25. Try your request again with fewer documents.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is invalid.</p>
+ *
+ * The request is invalid.
  *
  * @throws {@link TextSizeLimitExceededException} (client fault)
- *  <p>The size of the input text exceeds the limit. Use a smaller document.</p>
+ *
+ * The size of the input text exceeds the limit. Use a smaller document.
  *
  * @throws {@link UnsupportedLanguageException} (client fault)
- *  <p>Amazon Comprehend can't process the language of the input text. For a list of supported languages,
- *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html">Supported languages</a> in the Comprehend Developer Guide.
- *     </p>
+ *
+ * Amazon Comprehend can't process the language of the input text. For a list of supported languages, [Supported languages](https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html) in the Comprehend Developer Guide.
  *
  * @throws {@link ComprehendServiceException}
- * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * Base exception class for all service exceptions from Comprehend service.
  *
  * @public
  */

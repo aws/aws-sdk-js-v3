@@ -23,7 +23,8 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Adds tags to a resource.</p>
+ * Adds tags to a resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,17 +52,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link LicenseManagerUserSubscriptionsClientResolvedConfig | config} for LicenseManagerUserSubscriptionsClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An exception occurred with the service.</p>
+ *
+ * An exception occurred with the service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource couldn't be found.</p>
+ *
+ * The resource couldn't be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A parameter is not valid.</p>
+ *
+ * A parameter is not valid.
  *
  * @throws {@link LicenseManagerUserSubscriptionsServiceException}
- * <p>Base exception class for all service exceptions from LicenseManagerUserSubscriptions service.</p>
  *
+ * Base exception class for all service exceptions from LicenseManagerUserSubscriptions service.
  *
  * @public
  */

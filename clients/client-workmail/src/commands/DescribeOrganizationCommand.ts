@@ -23,8 +23,8 @@ export interface DescribeOrganizationCommandInput extends DescribeOrganizationRe
 export interface DescribeOrganizationCommandOutput extends DescribeOrganizationResponse, __MetadataBearer {}
 
 /**
- * <p>Provides more information regarding a given organization based on its
- *          identifier.</p>
+ * Provides more information regarding a given organization based on its identifier.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,15 +61,16 @@ export interface DescribeOrganizationCommandOutput extends DescribeOrganizationR
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the input parameters don't match the service's restrictions.</p>
+ *
+ * One or more of the input parameters don't match the service's restrictions.
  *
  * @throws {@link OrganizationNotFoundException} (client fault)
- *  <p>An operation received a valid organization identifier that either doesn't belong or
- *          exist in the system.</p>
+ *
+ * An operation received a valid organization identifier that either doesn't belong or exist in the system.
  *
  * @throws {@link WorkMailServiceException}
- * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * Base exception class for all service exceptions from WorkMail service.
  *
  * @public
  */

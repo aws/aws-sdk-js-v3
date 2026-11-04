@@ -23,30 +23,19 @@ export interface DeleteBucketOwnershipControlsCommandInput extends DeleteBucketO
 export interface DeleteBucketOwnershipControlsCommandOutput extends __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This operation is not supported for directory buckets.</p>
- *          </note>
- *          <p>Removes <code>OwnershipControls</code> for an Amazon S3 bucket. To use this operation, you must have the
- *         <code>s3:PutBucketOwnershipControls</code> permission. For more information about Amazon S3 permissions,
- *       see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying
- *         Permissions in a Policy</a>.</p>
- *          <p>For information about Amazon S3 Object Ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html">Using Object Ownership</a>. </p>
- *          <p>The following operations are related to <code>DeleteBucketOwnershipControls</code>:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>GetBucketOwnershipControls</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>PutBucketOwnershipControls</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
+ * > **Note:** This operation is not supported for directory buckets.
+ *
+ * Removes `OwnershipControls` for an Amazon S3 bucket. To use this operation, you must have the `s3:PutBucketOwnershipControls` permission. For more information about Amazon S3 permissions, see [Specifying Permissions in a Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
+ *
+ * For information about Amazon S3 Object Ownership, see [Using Object Ownership](https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html).
+ *
+ * The following operations are related to `DeleteBucketOwnershipControls`:
+ *
+ * - GetBucketOwnershipControls
+ * - PutBucketOwnershipControls
+ *
+ * > **Important:** You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,8 +61,8 @@ export interface DeleteBucketOwnershipControlsCommandOutput extends __MetadataBe
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  * @throws {@link S3ServiceException}
- * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * Base exception class for all service exceptions from S3 service.
  *
  * @public
  */

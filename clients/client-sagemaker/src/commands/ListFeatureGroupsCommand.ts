@@ -23,7 +23,8 @@ export interface ListFeatureGroupsCommandInput extends ListFeatureGroupsRequest 
 export interface ListFeatureGroupsCommandOutput extends ListFeatureGroupsResponse, __MetadataBearer {}
 
 /**
- * <p>List <code>FeatureGroup</code>s based on given filter and order.</p>
+ * List `FeatureGroup`s based on given filter and order.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,8 +71,8 @@ export interface ListFeatureGroupsCommandOutput extends ListFeatureGroupsRespons
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

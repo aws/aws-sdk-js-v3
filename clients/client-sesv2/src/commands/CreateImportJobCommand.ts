@@ -23,7 +23,8 @@ export interface CreateImportJobCommandInput extends CreateImportJobRequest {}
 export interface CreateImportJobCommandOutput extends CreateImportJobResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an import job for a data destination.</p>
+ * Creates an import job for a data destination.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,17 +63,20 @@ export interface CreateImportJobCommandOutput extends CreateImportJobResponse, _
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>There are too many instances of the specified resource type.</p>
+ *
+ * There are too many instances of the specified resource type.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Too many requests have been made to the operation.</p>
+ *
+ * Too many requests have been made to the operation.
  *
  * @throws {@link SESv2ServiceException}
- * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * Base exception class for all service exceptions from SESv2 service.
  *
  * @public
  */

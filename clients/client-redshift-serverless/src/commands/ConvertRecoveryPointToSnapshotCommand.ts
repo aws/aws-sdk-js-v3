@@ -23,7 +23,8 @@ export interface ConvertRecoveryPointToSnapshotCommandInput extends ConvertRecov
 export interface ConvertRecoveryPointToSnapshotCommandOutput extends ConvertRecoveryPointToSnapshotResponse, __MetadataBearer {}
 
 /**
- * <p>Converts a recovery point to a snapshot. For more information about recovery points and snapshots, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery-points.html">Working with snapshots and recovery points</a>.</p>
+ * Converts a recovery point to a snapshot. For more information about recovery points and snapshots, see [Working with snapshots and recovery points](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery-points.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,26 +86,32 @@ export interface ConvertRecoveryPointToSnapshotCommandOutput extends ConvertReco
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The submitted action has conflicts.</p>
+ *
+ * The submitted action has conflicts.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The service limit was exceeded.</p>
+ *
+ * The service limit was exceeded.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>The request exceeded the number of tags allowed for a resource.</p>
+ *
+ * The request exceeded the number of tags allowed for a resource.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input failed to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link RedshiftServerlessServiceException}
- * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ * Base exception class for all service exceptions from RedshiftServerless service.
  *
  * @public
  */

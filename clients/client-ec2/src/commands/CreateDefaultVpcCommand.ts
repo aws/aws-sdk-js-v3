@@ -23,13 +23,10 @@ export interface CreateDefaultVpcCommandInput extends CreateDefaultVpcRequest {}
 export interface CreateDefaultVpcCommandOutput extends CreateDefaultVpcResult, __MetadataBearer {}
 
 /**
- * <p>Creates a default VPC with a size <code>/16</code> IPv4 CIDR block and a default subnet
- * 			in each Availability Zone. For more information about the components of a default VPC,
- * 			see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html">Default VPCs</a>
- * 		    in the <i>Amazon VPC User Guide</i>. You cannot specify the components of the
- * 		    default VPC yourself.</p>
- *          <p>If you deleted your previous default VPC, you can create a default VPC. You cannot have
- * 			more than one default VPC per Region.</p>
+ * Creates a default VPC with a size `/16` IPv4 CIDR block and a default subnet in each Availability Zone. For more information about the components of a default VPC, see [Default VPCs](https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html) in the *Amazon VPC User Guide*. You cannot specify the components of the default VPC yourself.
+ *
+ * If you deleted your previous default VPC, you can create a default VPC. You cannot have more than one default VPC per Region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -135,8 +132,8 @@ export interface CreateDefaultVpcCommandOutput extends CreateDefaultVpcResult, _
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

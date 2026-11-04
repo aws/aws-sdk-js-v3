@@ -23,15 +23,10 @@ export interface CreateEndpointCommandInput extends CreateEndpointMessage {}
 export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an endpoint using the provided settings.</p>
- *          <note>
- *             <p>For a MySQL source or target endpoint, don't explicitly specify the database using
- *             the <code>DatabaseName</code> request parameter on the <code>CreateEndpoint</code> API
- *             call. Specifying <code>DatabaseName</code> when you create a MySQL endpoint replicates
- *             all the task tables to this single database. For MySQL endpoints, you specify the
- *             database only when you specify the schema in the table-mapping rules of the DMS
- *             task.</p>
- *          </note>
+ * Creates an endpoint using the provided settings.
+ *
+ * > **Note:** For a MySQL source or target endpoint, don't explicitly specify the database using the `DatabaseName` request parameter on the `CreateEndpoint` API call. Specifying `DatabaseName` when you create a MySQL endpoint replicates all the task tables to this single database. For MySQL endpoints, you specify the database only when you specify the schema in the table-mapping rules of the DMS task.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -783,30 +778,36 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedFault} (client fault)
- *  <p>DMS was denied access to the endpoint. Check that the
- *             role is correctly configured.</p>
+ *
+ * DMS was denied access to the endpoint. Check that the role is correctly configured.
  *
  * @throws {@link InvalidResourceStateFault} (client fault)
- *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
+ * The resource is in a state that prevents it from being used for database migration.
  *
  * @throws {@link KMSKeyNotAccessibleFault} (client fault)
- *  <p>DMS cannot access the KMS key.</p>
+ *
+ * DMS cannot access the KMS key.
  *
  * @throws {@link ResourceAlreadyExistsFault} (client fault)
- *  <p>The resource you are attempting to create already exists.</p>
+ *
+ * The resource you are attempting to create already exists.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link ResourceQuotaExceededFault} (client fault)
- *  <p>The quota for this resource quota has been exceeded.</p>
+ *
+ * The quota for this resource quota has been exceeded.
  *
  * @throws {@link S3AccessDeniedFault} (client fault)
- *  <p>Insufficient privileges are preventing access to an Amazon S3 object.</p>
+ *
+ * Insufficient privileges are preventing access to an Amazon S3 object.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @example Create endpoint
  * ```javascript

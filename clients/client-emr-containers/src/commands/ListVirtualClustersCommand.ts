@@ -23,12 +23,8 @@ export interface ListVirtualClustersCommandInput extends ListVirtualClustersRequ
 export interface ListVirtualClustersCommandOutput extends ListVirtualClustersResponse, __MetadataBearer {}
 
 /**
- * <p>Lists information about the specified virtual cluster. Virtual cluster is a managed
- *          entity on Amazon EMR on EKS. You can create, update, describe, list and delete virtual
- *          clusters. They do not consume any additional resource in your system. A single virtual
- *          cluster maps to a single Kubernetes namespace. Given this relationship, you can model
- *          virtual clusters the same way you model Kubernetes namespaces to meet your
- *          requirements.</p>
+ * Lists information about the specified virtual cluster. Virtual cluster is a managed entity on Amazon EMR on EKS. You can create, update, describe, list and delete virtual clusters. They do not consume any additional resource in your system. A single virtual cluster maps to a single Kubernetes namespace. Given this relationship, you can model virtual clusters the same way you model Kubernetes namespaces to meet your requirements.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -96,14 +92,16 @@ export interface ListVirtualClustersCommandOutput extends ListVirtualClustersRes
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This is an internal server exception.</p>
+ *
+ * This is an internal server exception.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>There are invalid parameters in the client request.</p>
+ *
+ * There are invalid parameters in the client request.
  *
  * @throws {@link EMRContainersServiceException}
- * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
+ * Base exception class for all service exceptions from EMRContainers service.
  *
  * @public
  */

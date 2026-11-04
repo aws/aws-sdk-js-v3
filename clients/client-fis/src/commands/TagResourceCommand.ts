@@ -23,7 +23,8 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Applies the specified tags to the specified resource.</p>
+ * Applies the specified tags to the specified resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,8 +52,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link FisClientResolvedConfig | config} for FisClient's `config` shape.
  *
  * @throws {@link FisServiceException}
- * <p>Base exception class for all service exceptions from Fis service.</p>
  *
+ * Base exception class for all service exceptions from Fis service.
  *
  * @public
  */

@@ -26,20 +26,14 @@ export interface DescribeBandwidthRateLimitScheduleCommandInput extends Describe
 export interface DescribeBandwidthRateLimitScheduleCommandOutput extends DescribeBandwidthRateLimitScheduleOutput, __MetadataBearer {}
 
 /**
- * <p> Returns information about the bandwidth rate limit schedule of a gateway. By default,
- *          gateways do not have bandwidth rate limit schedules, which means no bandwidth rate limiting
- *          is in effect. This operation is supported only for volume, tape and S3 file gateways. FSx
- *          file gateways do not support bandwidth rate limits.</p>
- *          <p>This operation returns information about a gateway's bandwidth rate limit schedule. A
- *          bandwidth rate limit schedule consists of one or more bandwidth rate limit intervals. A
- *          bandwidth rate limit interval defines a period of time on one or more days of the week,
- *          during which bandwidth rate limits are specified for uploading, downloading, or both. </p>
- *          <p> A bandwidth rate limit interval consists of one or more days of the week, a start hour
- *          and minute, an ending hour and minute, and bandwidth rate limits for uploading and
- *          downloading </p>
- *          <p> If no bandwidth rate limit schedule intervals are set for the gateway, this operation
- *          returns an empty response. To specify which gateway to describe, use the Amazon Resource
- *          Name (ARN) of the gateway in your request.</p>
+ * Returns information about the bandwidth rate limit schedule of a gateway. By default, gateways do not have bandwidth rate limit schedules, which means no bandwidth rate limiting is in effect. This operation is supported only for volume, tape and S3 file gateways. FSx file gateways do not support bandwidth rate limits.
+ *
+ * This operation returns information about a gateway's bandwidth rate limit schedule. A bandwidth rate limit schedule consists of one or more bandwidth rate limit intervals. A bandwidth rate limit interval defines a period of time on one or more days of the week, during which bandwidth rate limits are specified for uploading, downloading, or both.
+ *
+ * A bandwidth rate limit interval consists of one or more days of the week, a start hour and minute, an ending hour and minute, and bandwidth rate limits for uploading and downloading
+ *
+ * If no bandwidth rate limit schedule intervals are set for the gateway, this operation returns an empty response. To specify which gateway to describe, use the Amazon Resource Name (ARN) of the gateway in your request.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,16 +73,16 @@ export interface DescribeBandwidthRateLimitScheduleCommandOutput extends Describ
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @public
  */

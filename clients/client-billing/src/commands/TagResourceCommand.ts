@@ -23,7 +23,8 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p> An API operation for adding one or more tags (key-value pairs) to a resource. </p>
+ * An API operation for adding one or more tags (key-value pairs) to a resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,23 +55,28 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link BillingClientResolvedConfig | config} for BillingClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * You don't have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing failed because of an unknown error, exception, or failure. </p>
+ *
+ * The request processing failed because of an unknown error, exception, or failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The specified ARN in the request doesn't exist. </p>
+ *
+ * The specified ARN in the request doesn't exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. </p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link BillingServiceException}
- * <p>Base exception class for all service exceptions from Billing service.</p>
  *
+ * Base exception class for all service exceptions from Billing service.
  *
  * @example Invoke TagResource
  * ```javascript

@@ -23,17 +23,14 @@ export interface DeleteAccountCommandInput extends DeleteAccountRequest {}
 export interface DeleteAccountCommandOutput extends DeleteAccountResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified Amazon Chime account. You must suspend all users before deleting
- *                 <code>Team</code> account. You can use the <a>BatchSuspendUser</a> action
- *             to dodo.</p>
- *          <p>For <code>EnterpriseLWA</code> and <code>EnterpriseAD</code> accounts, you must release the
- *             claimed domains for your Amazon Chime account before deletion. As soon as you release
- *             the domain, all users under that account are suspended.</p>
- *          <p>Deleted accounts appear in your <code>Disabled</code> accounts list for 90 days. To restore
- *             deleted account from your <code>Disabled</code> accounts list, you must contact AWS
- *             Support.</p>
- *          <p>After 90 days, deleted accounts are permanently removed from your
- * <code>Disabled</code> accounts list.</p>
+ * Deletes the specified Amazon Chime account. You must suspend all users before deleting `Team` account. You can use the BatchSuspendUser action to dodo.
+ *
+ * For `EnterpriseLWA` and `EnterpriseAD` accounts, you must release the claimed domains for your Amazon Chime account before deletion. As soon as you release the domain, all users under that account are suspended.
+ *
+ * Deleted accounts appear in your `Disabled` accounts list for 90 days. To restore deleted account from your `Disabled` accounts list, you must contact AWS Support.
+ *
+ * After 90 days, deleted accounts are permanently removed from your `Disabled` accounts list.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,32 +55,40 @@ export interface DeleteAccountCommandOutput extends DeleteAccountResponse, __Met
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * The input parameters don't match the service's restrictions.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * The client is permanently forbidden from making the request.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>One or more of the resources in the request does not exist in the system.</p>
+ *
+ * One or more of the resources in the request does not exist in the system.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The service encountered an unexpected error.</p>
+ *
+ * The service encountered an unexpected error.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is currently unavailable.</p>
+ *
+ * The service is currently unavailable.
  *
  * @throws {@link ThrottledClientException} (client fault)
- *  <p>The client exceeded its request rate limit.</p>
+ *
+ * The client exceeded its request rate limit.
  *
  * @throws {@link UnauthorizedClientException} (client fault)
- *  <p>The client is not currently authorized to make the request.</p>
+ *
+ * The client is not currently authorized to make the request.
  *
  * @throws {@link UnprocessableEntityException} (client fault)
- *  <p>The request was well-formed but was unable to be followed due to semantic errors.</p>
+ *
+ * The request was well-formed but was unable to be followed due to semantic errors.
  *
  * @throws {@link ChimeServiceException}
- * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * Base exception class for all service exceptions from Chime service.
  *
  * @public
  */

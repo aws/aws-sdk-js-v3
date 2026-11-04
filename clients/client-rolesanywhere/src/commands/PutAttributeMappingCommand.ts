@@ -23,7 +23,8 @@ export interface PutAttributeMappingCommandInput extends PutAttributeMappingRequ
 export interface PutAttributeMappingCommandOutput extends PutAttributeMappingResponse, __MetadataBearer {}
 
 /**
- * <p>Put an entry in the attribute mapping rules that will be enforced by a given profile. A mapping specifies a certificate field and one or more specifiers that have contextual meanings.</p>
+ * Put an entry in the attribute mapping rules that will be enforced by a given profile. A mapping specifies a certificate field and one or more specifiers that have contextual meanings.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,17 +85,20 @@ export interface PutAttributeMappingCommandOutput extends PutAttributeMappingRes
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Validation exception error.</p>
+ *
+ * Validation exception error.
  *
  * @throws {@link RolesAnywhereServiceException}
- * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
+ * Base exception class for all service exceptions from RolesAnywhere service.
  *
  * @example PutAttributeMapping - Adds a custom attribute mapping rule
  * ```javascript

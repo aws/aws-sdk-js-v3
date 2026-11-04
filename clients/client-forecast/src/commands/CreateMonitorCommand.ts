@@ -23,9 +23,8 @@ export interface CreateMonitorCommandInput extends CreateMonitorRequest {}
 export interface CreateMonitorCommandOutput extends CreateMonitorResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a predictor monitor resource for an existing auto predictor. Predictor monitoring allows you to see how your predictor's performance changes over time.
- *            For more information, see <a href="https://docs.aws.amazon.com/forecast/latest/dg/predictor-monitoring.html">Predictor Monitoring</a>.
- *        </p>
+ * Creates a predictor monitor resource for an existing auto predictor. Predictor monitoring allows you to see how your predictor's performance changes over time. For more information, see [Predictor Monitoring](https://docs.aws.amazon.com/forecast/latest/dg/predictor-monitoring.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,25 +58,28 @@ export interface CreateMonitorCommandOutput extends CreateMonitorResponse, __Met
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>We can't process the request because it includes an invalid value or a value that exceeds
- *       the valid range.</p>
+ *
+ * We can't process the request because it includes an invalid value or a value that exceeds the valid range.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The limit on the number of resources per account has been exceeded.</p>
+ *
+ * The limit on the number of resources per account has been exceeded.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>There is already a resource with this name. Try again with a different name.</p>
+ *
+ * There is already a resource with this name. Try again with a different name.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is in use.</p>
+ *
+ * The specified resource is in use.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
- *       again.</p>
+ *
+ * We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.
  *
  * @throws {@link ForecastServiceException}
- * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * Base exception class for all service exceptions from Forecast service.
  *
  * @public
  */

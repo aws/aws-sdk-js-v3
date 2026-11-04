@@ -26,10 +26,10 @@ export interface ListCrossAccountResourceAccountsCommandInput extends ListCrossA
 export interface ListCrossAccountResourceAccountsCommandOutput extends ListCrossAccountResourceAccountsResponse, __MetadataBearer {}
 
 /**
- * <p>List the accounts that have cross-account resources.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/cross-account-resources.html">
- * 			Working with cross-account attachments and resources in Global Accelerator</a> in the <i>
- * 				Global Accelerator Developer Guide</i>.</p>
+ * List the accounts that have cross-account resources.
+ *
+ * For more information, see [Working with cross-account attachments and resources in Global Accelerator](https://docs.aws.amazon.com/global-accelerator/latest/dg/cross-account-resources.html) in the *Global Accelerator Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,14 +56,16 @@ export interface ListCrossAccountResourceAccountsCommandOutput extends ListCross
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have access permission.</p>
+ *
+ * You don't have access permission.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * There was an internal error for Global Accelerator.
  *
  * @throws {@link GlobalAcceleratorServiceException}
- * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * Base exception class for all service exceptions from GlobalAccelerator service.
  *
  * @public
  */

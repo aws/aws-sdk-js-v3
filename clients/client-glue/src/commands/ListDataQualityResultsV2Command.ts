@@ -23,7 +23,8 @@ export interface ListDataQualityResultsV2CommandInput extends ListDataQualityRes
 export interface ListDataQualityResultsV2CommandOutput extends ListDataQualityResultsV2Response, __MetadataBearer {}
 
 /**
- * <p>Returns a paginated list of data quality execution results for your account, filtered by the specified criteria. Use the <code>NextToken</code> parameter to retrieve additional results.</p>
+ * Returns a paginated list of data quality execution results for your account, filtered by the specified criteria. Use the `NextToken` parameter to retrieve additional results.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -114,17 +115,20 @@ export interface ListDataQualityResultsV2CommandOutput extends ListDataQualityRe
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

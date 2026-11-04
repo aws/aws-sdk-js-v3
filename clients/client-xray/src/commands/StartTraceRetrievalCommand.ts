@@ -23,12 +23,14 @@ export interface StartTraceRetrievalCommandInput extends StartTraceRetrievalRequ
 export interface StartTraceRetrievalCommandOutput extends StartTraceRetrievalResult, __MetadataBearer {}
 
 /**
- * <p>
- *   Initiates a trace retrieval process using the specified time range and for the given trace IDs in the  Transaction Search generated CloudWatch log group. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search.html">Transaction Search</a>.
- * </p>
- *          <p>API returns a <code>RetrievalToken</code>, which can be used with <code>ListRetrievedTraces</code> or <code>GetRetrievedTracesGraph</code> to fetch results. Retrievals will time out after 60 minutes. To execute long time ranges, consider segmenting into multiple retrievals.</p>
- *          <p>If you are using <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch cross-account observability</a>, you can use this operation in a monitoring account to retrieve data from a linked source account, as long as both accounts have transaction search enabled.</p>
- *          <p>For retrieving data from X-Ray directly as opposed to the Transaction-Search Log group, see <a href="https://docs.aws.amazon.com/xray/latest/api/API_BatchGetTraces.html">BatchGetTraces</a>.</p>
+ * Initiates a trace retrieval process using the specified time range and for the given trace IDs in the Transaction Search generated CloudWatch log group. For more information, see [Transaction Search](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search.html).
+ *
+ * API returns a `RetrievalToken`, which can be used with `ListRetrievedTraces` or `GetRetrievedTracesGraph` to fetch results. Retrievals will time out after 60 minutes. To execute long time ranges, consider segmenting into multiple retrievals.
+ *
+ * If you are using [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html), you can use this operation in a monitoring account to retrieve data from a linked source account, as long as both accounts have transaction search enabled.
+ *
+ * For retrieving data from X-Ray directly as opposed to the Transaction-Search Log group, see [BatchGetTraces](https://docs.aws.amazon.com/xray/latest/api/API_BatchGetTraces.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,18 +61,20 @@ export interface StartTraceRetrievalCommandOutput extends StartTraceRetrievalRes
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is missing required parameters or has invalid parameters.</p>
+ *
+ * The request is missing required parameters or has invalid parameters.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource was not found. Verify that the name or Amazon Resource Name (ARN) of the resource is
- *       correct.</p>
+ *
+ * The resource was not found. Verify that the name or Amazon Resource Name (ARN) of the resource is correct.
  *
  * @throws {@link ThrottledException} (client fault)
- *  <p>The request exceeds the maximum number of requests per second.</p>
+ *
+ * The request exceeds the maximum number of requests per second.
  *
  * @throws {@link XRayServiceException}
- * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ * Base exception class for all service exceptions from XRay service.
  *
  * @public
  */

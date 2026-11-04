@@ -23,9 +23,8 @@ export interface UnsubscribeCommandInput extends UnsubscribeRequest {}
 export interface UnsubscribeCommandOutput extends UnsubscribeResult, __MetadataBearer {}
 
 /**
- * <p>Removes an association between a notification rule and an Amazon Q Developer in chat applications topic so that
- *             subscribers to that topic stop receiving notifications when the events described in the
- *             rule are triggered.</p>
+ * Removes an association between a notification rule and an Amazon Q Developer in chat applications topic so that subscribers to that topic stop receiving notifications when the events described in the rule are triggered.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,11 +52,12 @@ export interface UnsubscribeCommandOutput extends UnsubscribeResult, __MetadataB
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One or more parameter values are not valid.</p>
+ *
+ * One or more parameter values are not valid.
  *
  * @throws {@link CodestarNotificationsServiceException}
- * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
+ * Base exception class for all service exceptions from CodestarNotifications service.
  *
  * @public
  */

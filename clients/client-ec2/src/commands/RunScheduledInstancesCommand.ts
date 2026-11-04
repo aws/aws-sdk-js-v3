@@ -23,12 +23,12 @@ export interface RunScheduledInstancesCommandInput extends RunScheduledInstances
 export interface RunScheduledInstancesCommandOutput extends RunScheduledInstancesResult, __MetadataBearer {}
 
 /**
- * <p>Launches the specified Scheduled Instances.</p>
- *          <p>Before you can launch a Scheduled Instance, you must purchase it and obtain an identifier using <a>PurchaseScheduledInstances</a>.</p>
- *          <p>You must launch a Scheduled Instance during its scheduled time period. You can't stop or
- *          reboot a Scheduled Instance, but you can terminate it as needed. If you terminate a
- *          Scheduled Instance before the current scheduled time period ends, you can launch it again
- *          after a few minutes.</p>
+ * Launches the specified Scheduled Instances.
+ *
+ * Before you can launch a Scheduled Instance, you must purchase it and obtain an identifier using PurchaseScheduledInstances.
+ *
+ * You must launch a Scheduled Instance during its scheduled time period. You can't stop or reboot a Scheduled Instance, but you can terminate it as needed. If you terminate a Scheduled Instance before the current scheduled time period ends, you can launch it again after a few minutes.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -126,8 +126,8 @@ export interface RunScheduledInstancesCommandOutput extends RunScheduledInstance
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

@@ -23,11 +23,10 @@ export interface DeletePartnerEventSourceCommandInput extends DeletePartnerEvent
 export interface DeletePartnerEventSourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>This operation is used by SaaS partners to delete a partner event source. This operation
- *       is not used by Amazon Web Services customers.</p>
- *          <p>When you delete an event source, the status of the corresponding partner event bus in the
- *         Amazon Web Services customer account becomes DELETED.</p>
- *          <p></p>
+ * This operation is used by SaaS partners to delete a partner event source. This operation is not used by Amazon Web Services customers.
+ *
+ * When you delete an event source, the status of the corresponding partner event bus in the Amazon Web Services customer account becomes DELETED.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,17 +52,20 @@ export interface DeletePartnerEventSourceCommandOutput extends __MetadataBearer 
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+ *
+ * There is concurrent modification on a rule, target, archive, or replay.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * This exception occurs due to unexpected causes.
  *
  * @throws {@link OperationDisabledException} (client fault)
- *  <p>The operation you are attempting is not available in this region.</p>
+ *
+ * The operation you are attempting is not available in this region.
  *
  * @throws {@link EventBridgeServiceException}
- * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ * Base exception class for all service exceptions from EventBridge service.
  *
  * @public
  */

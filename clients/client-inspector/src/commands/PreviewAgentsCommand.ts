@@ -23,8 +23,8 @@ export interface PreviewAgentsCommandInput extends PreviewAgentsRequest {}
 export interface PreviewAgentsCommandOutput extends PreviewAgentsResponse, __MetadataBearer {}
 
 /**
- * <p>Previews the agents installed on the EC2 instances that are part of the specified
- *          assessment target.</p>
+ * Previews the agents installed on the EC2 instances that are part of the specified assessment target.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,26 +65,28 @@ export interface PreviewAgentsCommandOutput extends PreviewAgentsResponse, __Met
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have required permissions to access the requested resource.</p>
+ *
+ * You do not have required permissions to access the requested resource.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>Internal server error.</p>
+ *
+ * Internal server error.
  *
  * @throws {@link InvalidCrossAccountRoleException} (client fault)
- *  <p>Amazon Inspector cannot assume the cross-account role that it needs to list your EC2
- *          instances during the assessment run.</p>
+ *
+ * Amazon Inspector cannot assume the cross-account role that it needs to list your EC2 instances during the assessment run.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
- *          input parameter.</p>
+ *
+ * The request was rejected because an invalid or out-of-range value was supplied for an input parameter.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced an entity that does not exist. The
- *          error code describes the entity.</p>
+ *
+ * The request was rejected because it referenced an entity that does not exist. The error code describes the entity.
  *
  * @throws {@link InspectorServiceException}
- * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * Base exception class for all service exceptions from Inspector service.
  *
  * @example Preview agents
  * ```javascript

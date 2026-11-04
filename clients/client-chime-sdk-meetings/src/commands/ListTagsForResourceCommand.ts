@@ -23,7 +23,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of the tags available for the specified resource.</p>
+ * Returns a list of the tags available for the specified resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,32 +56,40 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link ChimeSDKMeetingsClientResolvedConfig | config} for ChimeSDKMeetingsClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * The input parameters don't match the service's restrictions.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * The client is permanently forbidden from making the request.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request exceeds the resource limit.</p>
+ *
+ * The request exceeds the resource limit.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource that you want to tag couldn't be found.</p>
+ *
+ * The resource that you want to tag couldn't be found.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The service encountered an unexpected error.</p>
+ *
+ * The service encountered an unexpected error.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is currently unavailable.</p>
+ *
+ * The service is currently unavailable.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
+ * The number of customer requests exceeds the request rate limit.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The user isn't authorized to request a resource.</p>
+ *
+ * The user isn't authorized to request a resource.
  *
  * @throws {@link ChimeSDKMeetingsServiceException}
- * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
+ * Base exception class for all service exceptions from ChimeSDKMeetings service.
  *
  * @public
  */

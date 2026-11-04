@@ -23,12 +23,8 @@ export interface ImportCustomWorkspaceImageCommandInput extends ImportCustomWork
 export interface ImportCustomWorkspaceImageCommandOutput extends ImportCustomWorkspaceImageResult, __MetadataBearer {}
 
 /**
- * <p>Imports the specified Windows 10 or 11 Bring Your Own License (BYOL)
- *          image into Amazon WorkSpaces using EC2 Image Builder. The image must be an already licensed image that is
- *          in your Amazon Web Services account, and you must own the image. For more information about
- *          creating BYOL images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html"> Bring Your Own Windows
- *             Desktop Licenses</a>.
- *       </p>
+ * Imports the specified Windows 10 or 11 Bring Your Own License (BYOL) image into Amazon WorkSpaces using EC2 Image Builder. The image must be an already licensed image that is in your Amazon Web Services account, and you must own the image. For more information about creating BYOL images, see [Bring Your Own Windows Desktop Licenses](https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,26 +70,32 @@ export interface ImportCustomWorkspaceImageCommandOutput extends ImportCustomWor
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The user is not authorized to access a resource.</p>
+ *
+ * The user is not authorized to access a resource.
  *
  * @throws {@link InvalidParameterValuesException} (client fault)
- *  <p>One or more parameter values are not valid.</p>
+ *
+ * One or more parameter values are not valid.
  *
  * @throws {@link OperationNotSupportedException} (client fault)
- *  <p>This operation is not supported.</p>
+ *
+ * This operation is not supported.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>The specified resource already exists.</p>
+ *
+ * The specified resource already exists.
  *
  * @throws {@link ResourceLimitExceededException} (client fault)
- *  <p>Your resource limits have been exceeded.</p>
+ *
+ * Your resource limits have been exceeded.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link WorkSpacesServiceException}
- * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * Base exception class for all service exceptions from WorkSpaces service.
  *
  * @public
  */

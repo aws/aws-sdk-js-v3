@@ -23,7 +23,14 @@ export interface CreateIndexCommandInput extends CreateIndexInput {}
 export interface CreateIndexCommandOutput extends CreateIndexOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a vector index within a vector bucket. To specify the vector bucket, you must use either the vector bucket name or the vector bucket Amazon Resource Name (ARN).</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3vectors:CreateIndex</code> permission to use this operation.</p> <p>You must have the <code>s3vectors:TagResource</code> permission in addition to <code>s3vectors:CreateIndex</code> permission to create a vector index with tags.</p> </dd> </dl>
+ * Creates a vector index within a vector bucket. To specify the vector bucket, you must use either the vector bucket name or the vector bucket Amazon Resource Name (ARN).
+ *
+ * - **Permissions**
+ *
+ *   You must have the `s3vectors:CreateIndex` permission to use this operation.
+ *
+ *   You must have the `s3vectors:TagResource` permission in addition to `s3vectors:CreateIndex` permission to create a vector index with tags.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,35 +74,44 @@ export interface CreateIndexCommandOutput extends CreateIndexOutput, __MetadataB
  * @see {@link S3VectorsClientResolvedConfig | config} for S3VectorsClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request failed because a vector bucket name or a vector index name already exists. Vector bucket names must be unique within your Amazon Web Services account for each Amazon Web Services Region. Vector index names must be unique within your vector bucket. Choose a different vector bucket name or vector index name, and try again.</p>
+ *
+ * The request failed because a vector bucket name or a vector index name already exists. Vector bucket names must be unique within your Amazon Web Services account for each Amazon Web Services Region. Vector index names must be unique within your vector bucket. Choose a different vector bucket name or vector index name, and try again.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The request was rejected because the specified resource can't be found.</p>
+ *
+ * The request was rejected because the specified resource can't be found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Your request exceeds a service quota. </p>
+ *
+ * Your request exceeds a service quota.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is unavailable. Wait briefly and retry your request. If it continues to fail, increase your waiting time between retries.</p>
+ *
+ * The service is unavailable. Wait briefly and retry your request. If it continues to fail, increase your waiting time between retries.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access denied.</p>
+ *
+ * Access denied.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request failed due to an internal server error.</p>
+ *
+ * The request failed due to an internal server error.
  *
  * @throws {@link RequestTimeoutException} (client fault)
- *  <p>The request timed out. Retry your request.</p>
+ *
+ * The request timed out. Retry your request.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The requested action isn't valid.</p>
+ *
+ * The requested action isn't valid.
  *
  * @throws {@link S3VectorsServiceException}
- * <p>Base exception class for all service exceptions from S3Vectors service.</p>
  *
+ * Base exception class for all service exceptions from S3Vectors service.
  *
  * @public
  */

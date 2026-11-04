@@ -23,16 +23,12 @@ export interface StartSnapshotCommandInput extends StartSnapshotRequest {}
 export interface StartSnapshotCommandOutput extends StartSnapshotResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new Amazon EBS snapshot. The new snapshot enters the <code>pending</code> state
- *             after the request completes. </p>
- *          <p>After creating the snapshot, use <a href="https://docs.aws.amazon.com/ebs/latest/APIReference/API_PutSnapshotBlock.html"> PutSnapshotBlock</a> to
- *             write blocks of data to the snapshot.</p>
- *          <note>
- *             <p>You should always retry requests that receive server (<code>5xx</code>)
- *     error responses, and <code>ThrottlingException</code> and <code>RequestThrottledException</code>
- *     client error responses. For more information see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html">Error retries</a> in the
- *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
- *          </note>
+ * Creates a new Amazon EBS snapshot. The new snapshot enters the `pending` state after the request completes.
+ *
+ * After creating the snapshot, use [PutSnapshotBlock](https://docs.aws.amazon.com/ebs/latest/APIReference/API_PutSnapshotBlock.html) to write blocks of data to the snapshot.
+ *
+ * > **Note:** You should always retry requests that receive server (`5xx`) error responses, and `ThrottlingException` and `RequestThrottledException` client error responses. For more information see [Error retries](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html) in the *Amazon Elastic Compute Cloud User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,36 +82,40 @@ export interface StartSnapshotCommandOutput extends StartSnapshotResponse, __Met
  * @see {@link EBSClientResolvedConfig | config} for EBSClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConcurrentLimitExceededException} (client fault)
- *  <p>You have reached the limit for concurrent API requests. For more information, see
- *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshot.html#ebsapi-performance">Optimizing performance of the EBS direct APIs</a> in the <i>Amazon Elastic Compute Cloud
- *                 User Guide</i>.</p>
+ *
+ * You have reached the limit for concurrent API requests. For more information, see [Optimizing performance of the EBS direct APIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshot.html#ebsapi-performance) in the *Amazon Elastic Compute Cloud User Guide*.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request uses the same client token as a previous, but non-identical
- *             request.</p>
+ *
+ * The request uses the same client token as a previous, but non-identical request.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error has occurred. For more information see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html">Error retries</a>.</p>
+ *
+ * An internal error has occurred. For more information see [Error retries](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html).
  *
  * @throws {@link RequestThrottledException} (client fault)
- *  <p>The number of API requests has exceeded the maximum allowed API request
- *             throttling limit for the snapshot. For more information see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html">Error retries</a>.</p>
+ *
+ * The number of API requests has exceeded the maximum allowed API request throttling limit for the snapshot. For more information see [Error retries](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html).
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Your current service quotas do not allow you to perform this action.</p>
+ *
+ * Your current service quotas do not allow you to perform this action.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints of the EBS direct APIs.</p>
+ *
+ * The input fails to satisfy the constraints of the EBS direct APIs.
  *
  * @throws {@link EBSServiceException}
- * <p>Base exception class for all service exceptions from EBS service.</p>
  *
+ * Base exception class for all service exceptions from EBS service.
  *
  * @public
  */

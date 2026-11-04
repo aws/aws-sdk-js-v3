@@ -23,7 +23,8 @@ export interface GetNotebookRunCommandInput extends GetNotebookRunInput {}
 export interface GetNotebookRunCommandOutput extends GetNotebookRunOutput, __MetadataBearer {}
 
 /**
- * <p>Gets the details of a <a href="https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html">notebook run</a> in Amazon SageMaker Unified Studio.</p>
+ * Gets the details of a [notebook run](https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html) in Amazon SageMaker Unified Studio.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -111,26 +112,32 @@ export interface GetNotebookRunCommandOutput extends GetNotebookRunOutput, __Met
  * @see {@link DataZoneClientResolvedConfig | config} for DataZoneClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request has failed because of an unknown error, exception or failure.</p>
+ *
+ * The request has failed because of an unknown error, exception or failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource cannot be found.</p>
+ *
+ * The specified resource cannot be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by the Amazon Web Services service.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>You do not have permission to perform this action.</p>
+ *
+ * You do not have permission to perform this action.
  *
  * @throws {@link DataZoneServiceException}
- * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * Base exception class for all service exceptions from DataZone service.
  *
  * @public
  */

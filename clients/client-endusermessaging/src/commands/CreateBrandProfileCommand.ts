@@ -23,7 +23,8 @@ export interface CreateBrandProfileCommandInput extends CreateBrandProfileInput 
 export interface CreateBrandProfileCommandOutput extends CreateBrandProfileOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a brand profile. A brand profile is a lightweight container that holds your brand identity information as flexible attributes. After you create a brand profile, use the CreateBrandProfileAttributes operation to add company information, addresses, compliance documents, and logos.</p>
+ * Creates a brand profile. A brand profile is a lightweight container that holds your brand identity information as flexible attributes. After you create a brand profile, use the CreateBrandProfileAttributes operation to add company information, addresses, compliance documents, and logos.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,19 +66,24 @@ export interface CreateBrandProfileCommandOutput extends CreateBrandProfileOutpu
  * @see {@link EndUserMessagingClientResolvedConfig | config} for EndUserMessagingClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request conflicts with the current state of the resource.</p>
+ *
+ * The request conflicts with the current state of the resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred during the processing of the request.</p>
+ *
+ * An unexpected error occurred during the processing of the request.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would exceed a service quota for your account.</p>
+ *
+ * The request would exceed a service quota for your account.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied because it exceeded the allowed request rate.</p>
+ *
+ * The request was denied because it exceeded the allowed request rate.
  *
  * @throws {@link ValidationException} (client fault)
  *  A standard error for input validation failures.
@@ -85,8 +91,8 @@ export interface CreateBrandProfileCommandOutput extends CreateBrandProfileOutpu
  * falls outside of the modeled or documented constraints.
  *
  * @throws {@link EndUserMessagingServiceException}
- * <p>Base exception class for all service exceptions from EndUserMessaging service.</p>
  *
+ * Base exception class for all service exceptions from EndUserMessaging service.
  *
  * @example Create a brand profile
  * ```javascript

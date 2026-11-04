@@ -23,8 +23,10 @@ export interface UpdateJobExecutionCommandInput extends UpdateJobExecutionReques
 export interface UpdateJobExecutionCommandOutput extends UpdateJobExecutionResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the status of a job execution.</p>
- *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiotjobsdataplane.html">UpdateJobExecution</a> action.</p>
+ * Updates the status of a job execution.
+ *
+ * Requires permission to access the [UpdateJobExecution](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiotjobsdataplane.html) action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,29 +70,32 @@ export interface UpdateJobExecutionCommandOutput extends UpdateJobExecutionRespo
  * @see {@link IoTJobsDataPlaneClientResolvedConfig | config} for IoTJobsDataPlaneClient's `config` shape.
  *
  * @throws {@link CertificateValidationException} (client fault)
- *  <p>The certificate is invalid.</p>
+ *
+ * The certificate is invalid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The contents of the request were invalid.</p>
+ *
+ * The contents of the request were invalid.
  *
  * @throws {@link InvalidStateTransitionException} (client fault)
- *  <p>An update attempted to change the job execution to a state that is invalid because of
- *          the job execution's current state (for example, an attempt to change a request in state
- *          SUCCESS to state IN_PROGRESS). In this case, the body of the error message also contains
- *          the executionState field.</p>
+ *
+ * An update attempted to change the job execution to a state that is invalid because of the job execution's current state (for example, an attempt to change a request in state SUCCESS to state IN_PROGRESS). In this case, the body of the error message also contains the executionState field.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is temporarily unavailable.</p>
+ *
+ * The service is temporarily unavailable.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The rate exceeds the limit.</p>
+ *
+ * The rate exceeds the limit.
  *
  * @throws {@link IoTJobsDataPlaneServiceException}
- * <p>Base exception class for all service exceptions from IoTJobsDataPlane service.</p>
  *
+ * Base exception class for all service exceptions from IoTJobsDataPlane service.
  *
  * @public
  */

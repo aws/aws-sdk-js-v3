@@ -26,14 +26,10 @@ export interface DescribeRetentionConfigurationsCommandInput extends DescribeRet
 export interface DescribeRetentionConfigurationsCommandOutput extends DescribeRetentionConfigurationsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the details of one or more retention configurations. If
- * 			the retention configuration name is not specified, this operation
- * 			returns the details for all the retention configurations for that
- * 			account.</p>
- *          <note>
- *             <p>Currently, Config supports only one retention
- * 				configuration per region in your account.</p>
- *          </note>
+ * Returns the details of one or more retention configurations. If the retention configuration name is not specified, this operation returns the details for all the retention configurations for that account.
+ *
+ * > **Note:** Currently, Config supports only one retention configuration per region in your account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,20 +65,20 @@ export interface DescribeRetentionConfigurationsCommandOutput extends DescribeRe
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The specified next token is not valid. Specify the
- * 				<code>nextToken</code> string that was returned in the previous
- * 			response to get the next page of results.</p>
+ *
+ * The specified next token is not valid. Specify the `nextToken` string that was returned in the previous response to get the next page of results.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more of the specified parameters are not valid. Verify
- * 			that your parameters are valid and try again.</p>
+ *
+ * One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.
  *
  * @throws {@link NoSuchRetentionConfigurationException} (client fault)
- *  <p>You have specified a retention configuration that does not exist.</p>
+ *
+ * You have specified a retention configuration that does not exist.
  *
  * @throws {@link ConfigServiceServiceException}
- * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * Base exception class for all service exceptions from ConfigService service.
  *
  * @public
  */

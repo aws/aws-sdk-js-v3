@@ -23,11 +23,8 @@ export interface BatchGetPreparedStatementCommandInput extends BatchGetPreparedS
 export interface BatchGetPreparedStatementCommandOutput extends BatchGetPreparedStatementOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the details of a single prepared statement or a list of up to 256 prepared
- *             statements for the array of prepared statement names that you provide. Requires you to
- *             have access to the workgroup to which the prepared statements belong. If a prepared
- *             statement cannot be retrieved for the name specified, the statement is listed in
- *                 <code>UnprocessedPreparedStatementNames</code>.</p>
+ * Returns the details of a single prepared statement or a list of up to 256 prepared statements for the array of prepared statement names that you provide. Requires you to have access to the workgroup to which the prepared statements belong. If a prepared statement cannot be retrieved for the name specified, the statement is listed in `UnprocessedPreparedStatementNames`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,16 +69,16 @@ export interface BatchGetPreparedStatementCommandOutput extends BatchGetPrepared
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Indicates a platform issue, which may be due to a transient condition or
- *             outage.</p>
+ *
+ * Indicates a platform issue, which may be due to a transient condition or outage.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Indicates that something is wrong with the input to the request. For example, a
- *             required parameter may be missing or out of range.</p>
+ *
+ * Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.
  *
  * @throws {@link AthenaServiceException}
- * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * Base exception class for all service exceptions from Athena service.
  *
  * @public
  */

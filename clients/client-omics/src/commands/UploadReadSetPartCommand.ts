@@ -26,7 +26,10 @@ export interface UploadReadSetPartCommandInput extends Omit<UploadReadSetPartReq
 export interface UploadReadSetPartCommandOutput extends UploadReadSetPartResponse, __MetadataBearer {}
 
 /**
- * <p>Uploads a specific part of a read set into a sequence store. When you a upload a read set part with a part number that already exists, the new part replaces the existing one. This operation returns a JSON formatted response containing a string identifier that is used to confirm that parts are being added to the intended upload.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/synchronous-uploads.html">Direct upload to a sequence store</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+ * Uploads a specific part of a read set into a sequence store. When you a upload a read set part with a part number that already exists, the new part replaces the existing one. This operation returns a JSON formatted response containing a string identifier that is used to confirm that parts are being added to the intended upload.
+ *
+ * For more information, see [Direct upload to a sequence store](https://docs.aws.amazon.com/omics/latest/dev/synchronous-uploads.html) in the *Amazon Web Services HealthOmics User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,32 +60,40 @@ export interface UploadReadSetPartCommandOutput extends UploadReadSetPartRespons
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred. Try the request again.</p>
+ *
+ * An unexpected error occurred. Try the request again.
  *
  * @throws {@link NotSupportedOperationException} (client fault)
- *  <p> The operation is not supported by Amazon Omics, or the API does not exist. </p>
+ *
+ * The operation is not supported by Amazon Omics, or the API does not exist.
  *
  * @throws {@link RequestTimeoutException} (client fault)
- *  <p>The request timed out.</p>
+ *
+ * The request timed out.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The target resource was not found in the current Region.</p>
+ *
+ * The target resource was not found in the current Region.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request exceeds a service quota.</p>
+ *
+ * The request exceeds a service quota.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link OmicsServiceException}
- * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * Base exception class for all service exceptions from Omics service.
  *
  * @public
  */

@@ -23,39 +23,19 @@ export interface DeleteAccountPolicyCommandInput extends DeleteAccountPolicyRequ
 export interface DeleteAccountPolicyCommandOutput extends DeleteAccountPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a CloudWatch Logs account policy. This stops the account-wide policy from
- *       applying to log groups or data sources in the account. If you delete a data protection policy
- *       or subscription filter policy, any log-group level policies of those types remain in effect.
- *       This operation supports deletion of data source-based field index policies, including facet
- *       configurations, in addition to log group-based policies.</p>
- *          <p>To use this operation, you must be signed on with the correct permissions depending on the
- *       type of policy that you are deleting.</p>
- *          <ul>
- *             <li>
- *                <p>To delete a data protection policy, you must have the
- *             <code>logs:DeleteDataProtectionPolicy</code> and <code>logs:DeleteAccountPolicy</code>
- *           permissions.</p>
- *             </li>
- *             <li>
- *                <p>To delete a subscription filter policy, you must have the
- *             <code>logs:DeleteSubscriptionFilter</code> and <code>logs:DeleteAccountPolicy</code>
- *           permissions.</p>
- *             </li>
- *             <li>
- *                <p>To delete a transformer policy, you must have the <code>logs:DeleteTransformer</code>
- *           and <code>logs:DeleteAccountPolicy</code> permissions.</p>
- *             </li>
- *             <li>
- *                <p>To delete a field index policy, you must have the <code>logs:DeleteIndexPolicy</code>
- *           and <code>logs:DeleteAccountPolicy</code> permissions.</p>
- *                <p>If you delete a field index policy that included facet configurations, those facets
- *           will no longer be available for interactive exploration in the CloudWatch Logs Insights
- *           console. However, facet data is retained for up to 30 days.</p>
- *             </li>
- *          </ul>
- *          <p>If you delete a field index policy, the indexing of the log events that happened before
- *       you deleted the policy will still be used for up to 30 days to improve CloudWatch Logs
- *       Insights queries.</p>
+ * Deletes a CloudWatch Logs account policy. This stops the account-wide policy from applying to log groups or data sources in the account. If you delete a data protection policy or subscription filter policy, any log-group level policies of those types remain in effect. This operation supports deletion of data source-based field index policies, including facet configurations, in addition to log group-based policies.
+ *
+ * To use this operation, you must be signed on with the correct permissions depending on the type of policy that you are deleting.
+ *
+ * - To delete a data protection policy, you must have the `logs:DeleteDataProtectionPolicy` and `logs:DeleteAccountPolicy` permissions.
+ * - To delete a subscription filter policy, you must have the `logs:DeleteSubscriptionFilter` and `logs:DeleteAccountPolicy` permissions.
+ * - To delete a transformer policy, you must have the `logs:DeleteTransformer` and `logs:DeleteAccountPolicy` permissions.
+ * - To delete a field index policy, you must have the `logs:DeleteIndexPolicy` and `logs:DeleteAccountPolicy` permissions.
+ *
+ *   If you delete a field index policy that included facet configurations, those facets will no longer be available for interactive exploration in the CloudWatch Logs Insights console. However, facet data is retained for up to 30 days.
+ *
+ * If you delete a field index policy, the indexing of the log events that happened before you deleted the policy will still be used for up to 30 days to improve CloudWatch Logs Insights queries.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -98,20 +78,24 @@ export interface DeleteAccountPolicyCommandOutput extends DeleteAccountPolicyRes
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is specified incorrectly.</p>
+ *
+ * A parameter is specified incorrectly.
  *
  * @throws {@link OperationAbortedException} (client fault)
- *  <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+ *
+ * Multiple concurrent requests to update the same resource were in conflict.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service cannot complete the request.</p>
+ *
+ * The service cannot complete the request.
  *
  * @throws {@link CloudWatchLogsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchLogs service.
  *
  * @public
  */

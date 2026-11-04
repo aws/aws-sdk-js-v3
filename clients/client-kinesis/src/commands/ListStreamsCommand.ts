@@ -23,22 +23,14 @@ export interface ListStreamsCommandInput extends ListStreamsInput {}
 export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists your Kinesis data streams.</p>
- *          <p>The number of streams may be too large to return from a single call to
- *                 <code>ListStreams</code>. You can limit the number of returned streams using the
- *                 <code>Limit</code> parameter. If you do not specify a value for the
- *                 <code>Limit</code> parameter, Kinesis Data Streams uses the default limit, which is
- *             currently 100.</p>
- *          <p>You can detect if there are more streams available to list by using the
- *                 <code>HasMoreStreams</code> flag from the returned output. If there are more streams
- *             available, you can request more streams by using the name of the last stream returned by
- *             the <code>ListStreams</code> request in the <code>ExclusiveStartStreamName</code>
- *             parameter in a subsequent request to <code>ListStreams</code>. The group of stream names
- *             returned by the subsequent request is then added to the list. You can continue this
- *             process until all the stream names have been collected in the list. </p>
- *          <p>
- *             <a>ListStreams</a> has a limit of five transactions per second per
- *             account.</p>
+ * Lists your Kinesis data streams.
+ *
+ * The number of streams may be too large to return from a single call to `ListStreams`. You can limit the number of returned streams using the `Limit` parameter. If you do not specify a value for the `Limit` parameter, Kinesis Data Streams uses the default limit, which is currently 100.
+ *
+ * You can detect if there are more streams available to list by using the `HasMoreStreams` flag from the returned output. If there are more streams available, you can request more streams by using the name of the last stream returned by the `ListStreams` request in the `ExclusiveStartStreamName` parameter in a subsequent request to `ListStreams`. The group of stream names returned by the subsequent request is then added to the list. You can continue this process until all the stream names have been collected in the list.
+ *
+ * ListStreams has a limit of five transactions per second per account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,19 +74,20 @@ export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataB
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
  *
  * @throws {@link ExpiredNextTokenException} (client fault)
- *  <p>The pagination token passed to the operation is expired.</p>
+ *
+ * The pagination token passed to the operation is expired.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
- *             For more information, see the returned message.</p>
+ *
+ * A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
- *             stream requests exceeds the maximum number allowed. </p>
+ *
+ * The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed.
  *
  * @throws {@link KinesisServiceException}
- * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * Base exception class for all service exceptions from Kinesis service.
  *
  * @public
  */

@@ -23,109 +23,38 @@ export interface ListObjectsV2CommandInput extends ListObjectsV2Request {}
 export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __MetadataBearer {}
 
 /**
- * <p>Returns some or all (up to 1,000) of the objects in a bucket with each request. You can use the
- *       request parameters as selection criteria to return a subset of the objects in a bucket. A <code>200
- *         OK</code> response can contain valid or invalid XML. Make sure to design your application to parse the
- *       contents of the response and handle it appropriately. For more information about listing objects, see
- *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ListingKeysUsingAPIs.html">Listing object
- *         keys programmatically</a> in the <i>Amazon S3 User Guide</i>. To get a list of your
- *       buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html">ListBuckets</a>.</p>
- *          <note>
- *             <ul>
- *                <li>
- *                   <p>
- *                      <b>General purpose bucket</b> - For general purpose buckets,
- *               <code>ListObjectsV2</code> doesn't return prefixes that are related only to in-progress
- *             multipart uploads.</p>
- *                </li>
- *                <li>
- *                   <p>
- *                      <b>Directory buckets</b> - For directory buckets,
- *               <code>ListObjectsV2</code> response includes the prefixes that are related only to in-progress
- *             multipart uploads. </p>
- *                </li>
- *                <li>
- *                   <p>
- *                      <b>Directory buckets</b> - For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>amzn-s3-demo-bucket</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com/<i>key-name</i>
- *                      </code>. Path-style requests are not supported. For more information about endpoints in Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html">Regional and Zonal endpoints for directory buckets in Availability Zones</a> in the
- *     <i>Amazon S3 User Guide</i>. For more information about endpoints in Local Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html">Concepts for directory buckets in Local Zones</a> in the
- *     <i>Amazon S3 User Guide</i>.</p>
- *                </li>
- *             </ul>
- *          </note>
- *          <dl>
- *             <dt>Permissions</dt>
- *             <dd>
- *                <ul>
- *                   <li>
- *                      <p>
- *                         <b>General purpose bucket permissions</b> - To use this
- *                 operation, you must have READ access to the bucket. You must have permission to perform the
- *                   <code>s3:ListBucket</code> action. The bucket owner has this permission by default and can
- *                 grant this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access
- *                   Permissions to Your Amazon S3 Resources</a> in the
- *                 <i>Amazon S3 User Guide</i>.</p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <b>Directory bucket permissions</b> - To grant access to this API operation on a directory bucket, we recommend that you use the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html">
- *                            <code>CreateSession</code>
- *                         </a> API operation for session-based authorization. Specifically, you grant the <code>s3express:CreateSession</code> permission to the directory bucket in a bucket policy or an IAM identity-based policy. Then, you make the <code>CreateSession</code> API call on the bucket to obtain a session token. With the session token in your request header, you can make API requests to this operation. After the session token expires, you make another <code>CreateSession</code> API call to generate a new session token for use.
- * Amazon Web Services CLI or SDKs create session and refresh the session token automatically to avoid service interruptions when a session expires. For more information about authorization, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html">
- *                            <code>CreateSession</code>
- *                         </a>.</p>
- *                   </li>
- *                </ul>
- *             </dd>
- *             <dt>Sorting order of returned objects</dt>
- *             <dd>
- *                <ul>
- *                   <li>
- *                      <p>
- *                         <b>General purpose bucket</b> - For general purpose buckets,
- *                   <code>ListObjectsV2</code> returns objects in lexicographical order based on their key
- *                 names.</p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <b>Directory bucket</b> - For directory buckets,
- *                   <code>ListObjectsV2</code> does not return objects in lexicographical order.</p>
- *                   </li>
- *                </ul>
- *             </dd>
- *             <dt>HTTP Host header syntax</dt>
- *             <dd>
- *                <p>
- *                   <b>Directory buckets </b> - The HTTP Host header syntax is <code>
- *                      <i>Bucket-name</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com</code>.</p>
- *             </dd>
- *          </dl>
- *          <important>
- *             <p>This section describes the latest revision of this action. We recommend that you use this revised
- *         API operation for application development. For backward compatibility, Amazon S3 continues to support the
- *         prior version of this API operation, <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html">ListObjects</a>.</p>
- *          </important>
- *          <p>The following operations are related to <code>ListObjectsV2</code>:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html">PutObject</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
+ * Returns some or all (up to 1,000) of the objects in a bucket with each request. You can use the request parameters as selection criteria to return a subset of the objects in a bucket. A `200 OK` response can contain valid or invalid XML. Make sure to design your application to parse the contents of the response and handle it appropriately. For more information about listing objects, see [Listing object keys programmatically](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ListingKeysUsingAPIs.html) in the *Amazon S3 User Guide*. To get a list of your buckets, see [ListBuckets](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html).
+ *
+ * > **Note:**
+ * >
+ * > - **General purpose bucket** - For general purpose buckets, `ListObjectsV2` doesn't return prefixes that are related only to in-progress multipart uploads.
+ * > - **Directory buckets** - For directory buckets, `ListObjectsV2` response includes the prefixes that are related only to in-progress multipart uploads.
+ * > - **Directory buckets** - For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format `https://amzn-s3-demo-bucket.s3express-zone-id.region-code.amazonaws.com/key-name`. Path-style requests are not supported. For more information about endpoints in Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html) in the *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html) in the *Amazon S3 User Guide*.
+ *
+ * - **Permissions**
+ *
+ *   - **General purpose bucket permissions** - To use this operation, you must have READ access to the bucket. You must have permission to perform the `s3:ListBucket` action. The bucket owner has this permission by default and can grant this permission to others. For more information about permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources) and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html) in the *Amazon S3 User Guide*.
+ *   - **Directory bucket permissions** - To grant access to this API operation on a directory bucket, we recommend that you use the [`CreateSession`](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html) API operation for session-based authorization. Specifically, you grant the `s3express:CreateSession` permission to the directory bucket in a bucket policy or an IAM identity-based policy. Then, you make the `CreateSession` API call on the bucket to obtain a session token. With the session token in your request header, you can make API requests to this operation. After the session token expires, you make another `CreateSession` API call to generate a new session token for use. Amazon Web Services CLI or SDKs create session and refresh the session token automatically to avoid service interruptions when a session expires. For more information about authorization, see [`CreateSession`](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html).
+ *
+ * - **Sorting order of returned objects**
+ *
+ *   - **General purpose bucket** - For general purpose buckets, `ListObjectsV2` returns objects in lexicographical order based on their key names.
+ *   - **Directory bucket** - For directory buckets, `ListObjectsV2` does not return objects in lexicographical order.
+ *
+ * - **HTTP Host header syntax**
+ *
+ *   **Directory buckets** - The HTTP Host header syntax is `Bucket-name.s3express-zone-id.region-code.amazonaws.com`.
+ *
+ * > **Important:** This section describes the latest revision of this action. We recommend that you use this revised API operation for application development. For backward compatibility, Amazon S3 continues to support the prior version of this API operation, [ListObjects](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html).
+ *
+ * The following operations are related to `ListObjectsV2`:
+ *
+ * - [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
+ * - [PutObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
+ * - [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)
+ *
+ * > **Important:** You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -200,11 +129,12 @@ export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __Metad
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  * @throws {@link NoSuchBucket} (client fault)
- *  <p>The specified bucket does not exist.</p>
+ *
+ * The specified bucket does not exist.
  *
  * @throws {@link S3ServiceException}
- * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * Base exception class for all service exceptions from S3 service.
  *
  * @example To get object list
  * ```javascript

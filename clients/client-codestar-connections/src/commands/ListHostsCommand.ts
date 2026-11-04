@@ -23,7 +23,8 @@ export interface ListHostsCommandInput extends ListHostsInput {}
 export interface ListHostsCommandOutput extends ListHostsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the hosts associated with your account.</p>
+ * Lists the hosts associated with your account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,8 +72,8 @@ export interface ListHostsCommandOutput extends ListHostsOutput, __MetadataBeare
  * @see {@link CodeStarConnectionsClientResolvedConfig | config} for CodeStarConnectionsClient's `config` shape.
  *
  * @throws {@link CodeStarConnectionsServiceException}
- * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ * Base exception class for all service exceptions from CodeStarConnections service.
  *
  * @public
  */

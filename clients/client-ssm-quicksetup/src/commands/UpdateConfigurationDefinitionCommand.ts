@@ -23,7 +23,8 @@ export interface UpdateConfigurationDefinitionCommandInput extends UpdateConfigu
 export interface UpdateConfigurationDefinitionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Updates a Quick Setup configuration definition.</p>
+ * Updates a Quick Setup configuration definition.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,27 +56,32 @@ export interface UpdateConfigurationDefinitionCommandOutput extends __MetadataBe
  * @see {@link SSMQuickSetupClientResolvedConfig | config} for SSMQuickSetupClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The requester has insufficient permissions to perform the operation.</p>
+ *
+ * The requester has insufficient permissions to perform the operation.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Another request is being processed. Wait a few minutes and try again.</p>
+ *
+ * Another request is being processed. Wait a few minutes and try again.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource couldn't be found. Check the ID or name and try again.</p>
+ *
+ * The resource couldn't be found. Check the ID or name and try again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request or operation exceeds the maximum allowed request rate per Amazon Web Services account and Amazon Web Services Region.</p>
+ *
+ * The request or operation exceeds the maximum allowed request rate per Amazon Web Services account and Amazon Web Services Region.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request is invalid. Verify the values provided for the request parameters are
- *                   accurate.</p>
+ *
+ * The request is invalid. Verify the values provided for the request parameters are accurate.
  *
  * @throws {@link SSMQuickSetupServiceException}
- * <p>Base exception class for all service exceptions from SSMQuickSetup service.</p>
  *
+ * Base exception class for all service exceptions from SSMQuickSetup service.
  *
  * @public
  */

@@ -24,23 +24,15 @@ export interface SearchPredefinedAttributesCommandInput extends SearchPredefined
 export interface SearchPredefinedAttributesCommandOutput extends SearchPredefinedAttributesResponse, __MetadataBearer {}
 
 /**
- * <p>Searches predefined attributes that meet certain criteria. A <i>predefined attribute</i> is made
- *    up of a name and a value. You can use predefined attributes for:</p>
- *          <ul>
- *             <li>
- *                <p>Routing proficiency (for example, agent certification) that has predefined values (for example, a list of
- *      possible certifications). For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/predefined-attributes.html">Create predefined attributes for routing contacts to
- *       agents</a>.</p>
- *             </li>
- *             <li>
- *                <p>Contact information that varies between transfers or conferences, such as the name of the business unit
- *      handling the contact. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html">Use contact segment attributes</a>.</p>
- *             </li>
- *          </ul>
- *          <p>For the predefined attributes per instance quota, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas">Connect Customer
- *    quotas</a>.</p>
- *          <p>
- *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Connect Customer endpoints and quotas</a>.</p>
+ * Searches predefined attributes that meet certain criteria. A *predefined attribute* is made up of a name and a value. You can use predefined attributes for:
+ *
+ * - Routing proficiency (for example, agent certification) that has predefined values (for example, a list of possible certifications). For more information, see [Create predefined attributes for routing contacts to agents](https://docs.aws.amazon.com/connect/latest/adminguide/predefined-attributes.html).
+ * - Contact information that varies between transfers or conferences, such as the name of the business unit handling the contact. For more information, see [Use contact segment attributes](https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html).
+ *
+ * For the predefined attributes per instance quota, see [Connect Customer quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas).
+ *
+ * **Endpoints**: See [Connect Customer endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -114,23 +106,28 @@ export interface SearchPredefinedAttributesCommandOutput extends SearchPredefine
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

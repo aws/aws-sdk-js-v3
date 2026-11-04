@@ -23,7 +23,8 @@ export interface ListWhatIfForecastExportsCommandInput extends ListWhatIfForecas
 export interface ListWhatIfForecastExportsCommandOutput extends ListWhatIfForecastExportsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of what-if forecast exports created using the <a>CreateWhatIfForecastExport</a> operation. For each what-if forecast export, this operation returns a summary of its properties, including its Amazon Resource Name (ARN). You can retrieve the complete set of properties by using the what-if forecast export ARN with the <a>DescribeWhatIfForecastExport</a> operation.</p>
+ * Returns a list of what-if forecast exports created using the CreateWhatIfForecastExport operation. For each what-if forecast export, this operation returns a summary of its properties, including its Amazon Resource Name (ARN). You can retrieve the complete set of properties by using the what-if forecast export ARN with the DescribeWhatIfForecastExport operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,15 +79,16 @@ export interface ListWhatIfForecastExportsCommandOutput extends ListWhatIfForeca
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>We can't process the request because it includes an invalid value or a value that exceeds
- *       the valid range.</p>
+ *
+ * We can't process the request because it includes an invalid value or a value that exceeds the valid range.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The token is not valid. Tokens expire after 24 hours.</p>
+ *
+ * The token is not valid. Tokens expire after 24 hours.
  *
  * @throws {@link ForecastServiceException}
- * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * Base exception class for all service exceptions from Forecast service.
  *
  * @public
  */

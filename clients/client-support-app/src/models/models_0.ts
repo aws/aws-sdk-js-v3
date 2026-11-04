@@ -6,94 +6,71 @@ import type { AccountType, NotificationSeverityLevel } from "./enums";
  */
 export interface CreateSlackChannelConfigurationRequest {
   /**
-   * <p>The team ID in Slack. This ID uniquely identifies a Slack workspace, such as
-   * <code>T012ABCDEFG</code>.</p>
+   * The team ID in Slack. This ID uniquely identifies a Slack workspace, such as `T012ABCDEFG`.
+   *
    * @public
    */
   teamId: string | undefined;
 
   /**
-   * <p>The channel ID in Slack. This ID identifies a channel within a Slack workspace.</p>
+   * The channel ID in Slack. This ID identifies a channel within a Slack workspace.
+   *
    * @public
    */
   channelId: string | undefined;
 
   /**
-   * <p>The name of the Slack channel that you configure for the Amazon Web Services Support App.</p>
+   * The name of the Slack channel that you configure for the Amazon Web Services Support App.
+   *
    * @public
    */
   channelName?: string | undefined;
 
   /**
-   * <p>Whether you want to get notified when a support case is created or reopened.</p>
+   * Whether you want to get notified when a support case is created or reopened.
+   *
    * @public
    */
   notifyOnCreateOrReopenCase?: boolean | undefined;
 
   /**
-   * <p>Whether you want to get notified when a support case has a new correspondence.</p>
+   * Whether you want to get notified when a support case has a new correspondence.
+   *
    * @public
    */
   notifyOnAddCorrespondenceToCase?: boolean | undefined;
 
   /**
-   * <p>Whether you want to get notified when a support case is resolved.</p>
+   * Whether you want to get notified when a support case is resolved.
+   *
    * @public
    */
   notifyOnResolveCase?: boolean | undefined;
 
   /**
-   * <p>The case severity for a support case that you want to receive notifications.</p>
-   *          <p>If you specify <code>high</code> or <code>all</code>, you must specify <code>true</code>
-   *       for at least one of the following parameters:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>notifyOnAddCorrespondenceToCase</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>notifyOnCreateOrReopenCase</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>notifyOnResolveCase</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>If you specify <code>none</code>, the following parameters must be null or
-   *         <code>false</code>:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>notifyOnAddCorrespondenceToCase</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>notifyOnCreateOrReopenCase</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>notifyOnResolveCase</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <p>If you don't specify these parameters in your request, they default to
-   *           <code>false</code>.</p>
-   *          </note>
+   * The case severity for a support case that you want to receive notifications.
+   *
+   * If you specify `high` or `all`, you must specify `true` for at least one of the following parameters:
+   *
+   * - `notifyOnAddCorrespondenceToCase`
+   * - `notifyOnCreateOrReopenCase`
+   * - `notifyOnResolveCase`
+   *
+   * If you specify `none`, the following parameters must be null or `false`:
+   *
+   * - `notifyOnAddCorrespondenceToCase`
+   * - `notifyOnCreateOrReopenCase`
+   * - `notifyOnResolveCase`
+   *
+   * > **Note:** If you don't specify these parameters in your request, they default to `false`.
+   *
    * @public
    */
   notifyOnCaseSeverity: NotificationSeverityLevel | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that you want to
-   * use to perform operations on Amazon Web Services. For more information, see <a href="https://docs.aws.amazon.com/awssupport/latest/user/support-app-permissions.html">Managing access to
-   * the Amazon Web Services Support App</a> in the <i>Amazon Web Services Support User Guide</i>.</p>
+   * The Amazon Resource Name (ARN) of an IAM role that you want to use to perform operations on Amazon Web Services. For more information, see [Managing access to the Amazon Web Services Support App](https://docs.aws.amazon.com/awssupport/latest/user/support-app-permissions.html) in the *Amazon Web Services Support User Guide*.
+   *
    * @public
    */
   channelRoleArn: string | undefined;
@@ -119,14 +96,15 @@ export interface DeleteAccountAliasResult {}
  */
 export interface DeleteSlackChannelConfigurationRequest {
   /**
-   * <p>The team ID in Slack. This ID uniquely identifies a Slack workspace, such as
-   * <code>T012ABCDEFG</code>.</p>
+   * The team ID in Slack. This ID uniquely identifies a Slack workspace, such as `T012ABCDEFG`.
+   *
    * @public
    */
   teamId: string | undefined;
 
   /**
-   * <p>The channel ID in Slack. This ID identifies a channel within a Slack workspace.</p>
+   * The channel ID in Slack. This ID identifies a channel within a Slack workspace.
+   *
    * @public
    */
   channelId: string | undefined;
@@ -142,8 +120,8 @@ export interface DeleteSlackChannelConfigurationResult {}
  */
 export interface DeleteSlackWorkspaceConfigurationRequest {
   /**
-   * <p>The team ID in Slack. This ID uniquely identifies a Slack workspace, such as
-   * <code>T012ABCDEFG</code>.</p>
+   * The team ID in Slack. This ID uniquely identifies a Slack workspace, such as `T012ABCDEFG`.
+   *
    * @public
    */
   teamId: string | undefined;
@@ -164,7 +142,8 @@ export interface GetAccountAliasRequest {}
  */
 export interface GetAccountAliasResult {
   /**
-   * <p>An alias or short name for an Amazon Web Services account.</p>
+   * An alias or short name for an Amazon Web Services account.
+   *
    * @public
    */
   accountAlias?: string | undefined;
@@ -175,67 +154,71 @@ export interface GetAccountAliasResult {
  */
 export interface ListSlackChannelConfigurationsRequest {
   /**
-   * <p>If the results of a search are large, the API only returns a portion of the results and
-   * includes a <code>nextToken</code> pagination token in the response. To retrieve the next batch of results, reissue the search request and include the returned token.
-   * When the API returns the last set of results, the response doesn't include a pagination token value.</p>
+   * If the results of a search are large, the API only returns a portion of the results and includes a `nextToken` pagination token in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When the API returns the last set of results, the response doesn't include a pagination token value.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>The configuration for a Slack channel that you added for your Amazon Web Services account.</p>
+ * The configuration for a Slack channel that you added for your Amazon Web Services account.
+ *
  * @public
  */
 export interface SlackChannelConfiguration {
   /**
-   * <p>The team ID in Slack. This ID uniquely identifies a Slack workspace, such as
-   * <code>T012ABCDEFG</code>.</p>
+   * The team ID in Slack. This ID uniquely identifies a Slack workspace, such as `T012ABCDEFG`.
+   *
    * @public
    */
   teamId: string | undefined;
 
   /**
-   * <p>The channel ID in Slack. This ID identifies a channel within a Slack workspace.</p>
+   * The channel ID in Slack. This ID identifies a channel within a Slack workspace.
+   *
    * @public
    */
   channelId: string | undefined;
 
   /**
-   * <p>The name of the Slack channel that you configured with the Amazon Web Services Support App for your
-   *       Amazon Web Services account.</p>
+   * The name of the Slack channel that you configured with the Amazon Web Services Support App for your Amazon Web Services account.
+   *
    * @public
    */
   channelName?: string | undefined;
 
   /**
-   * <p>Whether you want to get notified when a support case is created or reopened.</p>
+   * Whether you want to get notified when a support case is created or reopened.
+   *
    * @public
    */
   notifyOnCreateOrReopenCase?: boolean | undefined;
 
   /**
-   * <p>Whether you want to get notified when a support case has a new correspondence.</p>
+   * Whether you want to get notified when a support case has a new correspondence.
+   *
    * @public
    */
   notifyOnAddCorrespondenceToCase?: boolean | undefined;
 
   /**
-   * <p>Whether you want to get notified when a support case is resolved.</p>
+   * Whether you want to get notified when a support case is resolved.
+   *
    * @public
    */
   notifyOnResolveCase?: boolean | undefined;
 
   /**
-   * <p>The case severity for a support case that you want to receive notifications.</p>
+   * The case severity for a support case that you want to receive notifications.
+   *
    * @public
    */
   notifyOnCaseSeverity?: NotificationSeverityLevel | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that you want to
-   * use to perform operations on Amazon Web Services. For more information, see <a href="https://docs.aws.amazon.com/awssupport/latest/user/support-app-permissions.html">Managing access to
-   * the Amazon Web Services Support App</a> in the <i>Amazon Web Services Support User Guide</i>.</p>
+   * The Amazon Resource Name (ARN) of an IAM role that you want to use to perform operations on Amazon Web Services. For more information, see [Managing access to the Amazon Web Services Support App](https://docs.aws.amazon.com/awssupport/latest/user/support-app-permissions.html) in the *Amazon Web Services Support User Guide*.
+   *
    * @public
    */
   channelRoleArn?: string | undefined;
@@ -246,14 +229,15 @@ export interface SlackChannelConfiguration {
  */
 export interface ListSlackChannelConfigurationsResult {
   /**
-   * <p>The point where pagination should resume when the response returns only partial
-   *       results.</p>
+   * The point where pagination should resume when the response returns only partial results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The configurations for a Slack channel.</p>
+   * The configurations for a Slack channel.
+   *
    * @public
    */
   slackChannelConfigurations: SlackChannelConfiguration[] | undefined;
@@ -264,35 +248,36 @@ export interface ListSlackChannelConfigurationsResult {
  */
 export interface ListSlackWorkspaceConfigurationsRequest {
   /**
-   * <p>If the results of a search are large, the API only returns a portion of the results and
-   * includes a <code>nextToken</code> pagination token in the response. To retrieve the next batch of results, reissue the search request and include the returned token.
-   * When the API returns the last set of results, the response doesn't include a pagination token value.</p>
+   * If the results of a search are large, the API only returns a portion of the results and includes a `nextToken` pagination token in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When the API returns the last set of results, the response doesn't include a pagination token value.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>The configuration for a Slack workspace that you added to an Amazon Web Services account.</p>
+ * The configuration for a Slack workspace that you added to an Amazon Web Services account.
+ *
  * @public
  */
 export interface SlackWorkspaceConfiguration {
   /**
-   * <p>The team ID in Slack. This ID uniquely identifies a Slack workspace, such as
-   * <code>T012ABCDEFG</code>.</p>
+   * The team ID in Slack. This ID uniquely identifies a Slack workspace, such as `T012ABCDEFG`.
+   *
    * @public
    */
   teamId: string | undefined;
 
   /**
-   * <p>The name of the Slack workspace.</p>
+   * The name of the Slack workspace.
+   *
    * @public
    */
   teamName?: string | undefined;
 
   /**
-   * <p>Whether to allow member accounts to authorize Slack workspaces. Member accounts must be
-   *       part of an organization in Organizations.</p>
+   * Whether to allow member accounts to authorize Slack workspaces. Member accounts must be part of an organization in Organizations.
+   *
    * @public
    */
   allowOrganizationMemberAccount?: boolean | undefined;
@@ -303,14 +288,15 @@ export interface SlackWorkspaceConfiguration {
  */
 export interface ListSlackWorkspaceConfigurationsResult {
   /**
-   * <p>The point where pagination should resume when the response returns only partial
-   *       results.</p>
+   * The point where pagination should resume when the response returns only partial results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The configurations for a Slack workspace.</p>
+   * The configurations for a Slack workspace.
+   *
    * @public
    */
   slackWorkspaceConfigurations?: SlackWorkspaceConfiguration[] | undefined;
@@ -321,7 +307,8 @@ export interface ListSlackWorkspaceConfigurationsResult {
  */
 export interface PutAccountAliasRequest {
   /**
-   * <p>An alias or short name for an Amazon Web Services account.</p>
+   * An alias or short name for an Amazon Web Services account.
+   *
    * @public
    */
   accountAlias: string | undefined;
@@ -337,8 +324,8 @@ export interface PutAccountAliasResult {}
  */
 export interface RegisterSlackWorkspaceForOrganizationRequest {
   /**
-   * <p>The team ID in Slack. This ID uniquely identifies a Slack workspace, such as
-   * <code>T012ABCDEFG</code>. Specify the Slack workspace that you want to use for your organization.</p>
+   * The team ID in Slack. This ID uniquely identifies a Slack workspace, such as `T012ABCDEFG`. Specify the Slack workspace that you want to use for your organization.
+   *
    * @public
    */
   teamId: string | undefined;
@@ -349,21 +336,22 @@ export interface RegisterSlackWorkspaceForOrganizationRequest {
  */
 export interface RegisterSlackWorkspaceForOrganizationResult {
   /**
-   * <p>The team ID in Slack. This ID uniquely identifies a Slack workspace, such as
-   * <code>T012ABCDEFG</code>.</p>
+   * The team ID in Slack. This ID uniquely identifies a Slack workspace, such as `T012ABCDEFG`.
+   *
    * @public
    */
   teamId?: string | undefined;
 
   /**
-   * <p>The name of the Slack workspace.</p>
+   * The name of the Slack workspace.
+   *
    * @public
    */
   teamName?: string | undefined;
 
   /**
-   * <p>Whether the Amazon Web Services account is a management or member account that's part of an organization
-   *       in Organizations.</p>
+   * Whether the Amazon Web Services account is a management or member account that's part of an organization in Organizations.
+   *
    * @public
    */
   accountType?: AccountType | undefined;
@@ -374,94 +362,71 @@ export interface RegisterSlackWorkspaceForOrganizationResult {
  */
 export interface UpdateSlackChannelConfigurationRequest {
   /**
-   * <p>The team ID in Slack. This ID uniquely identifies a Slack workspace, such as
-   * <code>T012ABCDEFG</code>.</p>
+   * The team ID in Slack. This ID uniquely identifies a Slack workspace, such as `T012ABCDEFG`.
+   *
    * @public
    */
   teamId: string | undefined;
 
   /**
-   * <p>The channel ID in Slack. This ID identifies a channel within a Slack workspace.</p>
+   * The channel ID in Slack. This ID identifies a channel within a Slack workspace.
+   *
    * @public
    */
   channelId: string | undefined;
 
   /**
-   * <p>The Slack channel name that you want to update.</p>
+   * The Slack channel name that you want to update.
+   *
    * @public
    */
   channelName?: string | undefined;
 
   /**
-   * <p>Whether you want to get notified when a support case is created or reopened.</p>
+   * Whether you want to get notified when a support case is created or reopened.
+   *
    * @public
    */
   notifyOnCreateOrReopenCase?: boolean | undefined;
 
   /**
-   * <p>Whether you want to get notified when a support case has a new correspondence.</p>
+   * Whether you want to get notified when a support case has a new correspondence.
+   *
    * @public
    */
   notifyOnAddCorrespondenceToCase?: boolean | undefined;
 
   /**
-   * <p>Whether you want to get notified when a support case is resolved.</p>
+   * Whether you want to get notified when a support case is resolved.
+   *
    * @public
    */
   notifyOnResolveCase?: boolean | undefined;
 
   /**
-   * <p>The case severity for a support case that you want to receive notifications.</p>
-   *          <p>If you specify <code>high</code> or <code>all</code>, at least one of the following
-   *       parameters must be <code>true</code>:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>notifyOnAddCorrespondenceToCase</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>notifyOnCreateOrReopenCase</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>notifyOnResolveCase</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>If you specify <code>none</code>, any of the following parameters that you specify in your
-   *       request must be <code>false</code>:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>notifyOnAddCorrespondenceToCase</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>notifyOnCreateOrReopenCase</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>notifyOnResolveCase</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <p>If you don't specify these parameters in your request, the Amazon Web Services Support App uses the current
-   *         values by default.</p>
-   *          </note>
+   * The case severity for a support case that you want to receive notifications.
+   *
+   * If you specify `high` or `all`, at least one of the following parameters must be `true`:
+   *
+   * - `notifyOnAddCorrespondenceToCase`
+   * - `notifyOnCreateOrReopenCase`
+   * - `notifyOnResolveCase`
+   *
+   * If you specify `none`, any of the following parameters that you specify in your request must be `false`:
+   *
+   * - `notifyOnAddCorrespondenceToCase`
+   * - `notifyOnCreateOrReopenCase`
+   * - `notifyOnResolveCase`
+   *
+   * > **Note:** If you don't specify these parameters in your request, the Amazon Web Services Support App uses the current values by default.
+   *
    * @public
    */
   notifyOnCaseSeverity?: NotificationSeverityLevel | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that you want to
-   * use to perform operations on Amazon Web Services. For more information, see <a href="https://docs.aws.amazon.com/awssupport/latest/user/support-app-permissions.html">Managing access to
-   * the Amazon Web Services Support App</a> in the <i>Amazon Web Services Support User Guide</i>.</p>
+   * The Amazon Resource Name (ARN) of an IAM role that you want to use to perform operations on Amazon Web Services. For more information, see [Managing access to the Amazon Web Services Support App](https://docs.aws.amazon.com/awssupport/latest/user/support-app-permissions.html) in the *Amazon Web Services Support User Guide*.
+   *
    * @public
    */
   channelRoleArn?: string | undefined;
@@ -472,52 +437,57 @@ export interface UpdateSlackChannelConfigurationRequest {
  */
 export interface UpdateSlackChannelConfigurationResult {
   /**
-   * <p>The team ID in Slack. This ID uniquely identifies a Slack workspace, such as
-   * <code>T012ABCDEFG</code>.</p>
+   * The team ID in Slack. This ID uniquely identifies a Slack workspace, such as `T012ABCDEFG`.
+   *
    * @public
    */
   teamId?: string | undefined;
 
   /**
-   * <p>The channel ID in Slack. This ID identifies a channel within a Slack workspace.</p>
+   * The channel ID in Slack. This ID identifies a channel within a Slack workspace.
+   *
    * @public
    */
   channelId?: string | undefined;
 
   /**
-   * <p>The name of the Slack channel that you configure for the Amazon Web Services Support App.</p>
+   * The name of the Slack channel that you configure for the Amazon Web Services Support App.
+   *
    * @public
    */
   channelName?: string | undefined;
 
   /**
-   * <p>Whether you want to get notified when a support case is created or reopened.</p>
+   * Whether you want to get notified when a support case is created or reopened.
+   *
    * @public
    */
   notifyOnCreateOrReopenCase?: boolean | undefined;
 
   /**
-   * <p>Whether you want to get notified when a support case has a new correspondence.</p>
+   * Whether you want to get notified when a support case has a new correspondence.
+   *
    * @public
    */
   notifyOnAddCorrespondenceToCase?: boolean | undefined;
 
   /**
-   * <p>Whether you want to get notified when a support case is resolved.</p>
+   * Whether you want to get notified when a support case is resolved.
+   *
    * @public
    */
   notifyOnResolveCase?: boolean | undefined;
 
   /**
-   * <p>The case severity for a support case that you want to receive notifications.</p>
+   * The case severity for a support case that you want to receive notifications.
+   *
    * @public
    */
   notifyOnCaseSeverity?: NotificationSeverityLevel | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that you want to
-   * use to perform operations on Amazon Web Services. For more information, see <a href="https://docs.aws.amazon.com/awssupport/latest/user/support-app-permissions.html">Managing access to
-   * the Amazon Web Services Support App</a> in the <i>Amazon Web Services Support User Guide</i>.</p>
+   * The Amazon Resource Name (ARN) of an IAM role that you want to use to perform operations on Amazon Web Services. For more information, see [Managing access to the Amazon Web Services Support App](https://docs.aws.amazon.com/awssupport/latest/user/support-app-permissions.html) in the *Amazon Web Services Support User Guide*.
+   *
    * @public
    */
   channelRoleArn?: string | undefined;

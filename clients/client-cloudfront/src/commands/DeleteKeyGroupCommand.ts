@@ -23,7 +23,12 @@ export interface DeleteKeyGroupCommandInput extends DeleteKeyGroupRequest {}
 export interface DeleteKeyGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a key group.</p> <p>You cannot delete a key group that is referenced in a cache behavior. First update your distributions to remove the key group from all cache behaviors, then delete the key group.</p> <p>To delete a key group, you must provide the key group's identifier and version. To get these values, use <code>ListKeyGroups</code> followed by <code>GetKeyGroup</code> or <code>GetKeyGroupConfig</code>.</p>
+ * Deletes a key group.
+ *
+ * You cannot delete a key group that is referenced in a cache behavior. First update your distributions to remove the key group from all cache behaviors, then delete the key group.
+ *
+ * To delete a key group, you must provide the key group's identifier and version. To get these values, use `ListKeyGroups` followed by `GetKeyGroup` or `GetKeyGroupConfig`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,20 +54,24 @@ export interface DeleteKeyGroupCommandOutput extends __MetadataBearer {}
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link InvalidIfMatchVersion} (client fault)
- *  <p>The <code>If-Match</code> version is missing or not valid.</p>
+ *
+ * The `If-Match` version is missing or not valid.
  *
  * @throws {@link NoSuchResource} (client fault)
- *  <p>A resource that was specified is not valid.</p>
+ *
+ * A resource that was specified is not valid.
  *
  * @throws {@link PreconditionFailed} (client fault)
- *  <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+ *
+ * The precondition in one or more of the request fields evaluated to `false`.
  *
  * @throws {@link ResourceInUse} (client fault)
- *  <p>Cannot delete this resource because it is in use.</p>
+ *
+ * Cannot delete this resource because it is in use.
  *
  * @throws {@link CloudFrontServiceException}
- * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * Base exception class for all service exceptions from CloudFront service.
  *
  * @public
  */

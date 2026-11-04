@@ -23,9 +23,10 @@ export interface ConfigureHealthCheckCommandInput extends ConfigureHealthCheckIn
 export interface ConfigureHealthCheckCommandOutput extends ConfigureHealthCheckOutput, __MetadataBearer {}
 
 /**
- * <p>Specifies the health check settings to use when evaluating the health state of your EC2 instances.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-healthchecks.html">Configure Health Checks for Your Load Balancer</a>
- *             in the <i>Classic Load Balancers Guide</i>.</p>
+ * Specifies the health check settings to use when evaluating the health state of your EC2 instances.
+ *
+ * For more information, see [Configure Health Checks for Your Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-healthchecks.html) in the *Classic Load Balancers Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,11 +66,12 @@ export interface ConfigureHealthCheckCommandOutput extends ConfigureHealthCheckO
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
  * @throws {@link AccessPointNotFoundException} (client fault)
- *  <p>The specified load balancer does not exist.</p>
+ *
+ * The specified load balancer does not exist.
  *
  * @throws {@link ElasticLoadBalancingServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancing service.
  *
  * @example To specify the health check settings for your backend EC2 instances
  * ```javascript

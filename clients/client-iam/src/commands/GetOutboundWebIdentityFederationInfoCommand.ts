@@ -23,8 +23,8 @@ export interface GetOutboundWebIdentityFederationInfoCommandInput {}
 export interface GetOutboundWebIdentityFederationInfoCommandOutput extends GetOutboundWebIdentityFederationInfoResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the configuration information for the outbound identity federation feature in your Amazon Web Services account. The response includes the unique issuer URL for your
- *             Amazon Web Services account and the current enabled/disabled status of the feature. Use this operation to obtain the issuer URL that you need to configure trust relationships with external services.</p>
+ * Retrieves the configuration information for the outbound identity federation feature in your Amazon Web Services account. The response includes the unique issuer URL for your Amazon Web Services account and the current enabled/disabled status of the feature. Use this operation to obtain the issuer URL that you need to configure trust relationships with external services.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,11 +50,12 @@ export interface GetOutboundWebIdentityFederationInfoCommandOutput extends GetOu
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link FeatureDisabledException} (client fault)
- *  <p>The request failed because outbound identity federation is already disabled for your Amazon Web Services account. You cannot disable the feature multiple times</p>
+ *
+ * The request failed because outbound identity federation is already disabled for your Amazon Web Services account. You cannot disable the feature multiple times
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @public
  */

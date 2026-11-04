@@ -23,7 +23,8 @@ export interface ListLandingZoneOperationsCommandInput extends ListLandingZoneOp
 export interface ListLandingZoneOperationsCommandOutput extends ListLandingZoneOperationsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists all landing zone operations from the past 90 days. Results are sorted by time, with the most recent operation first.</p>
+ * Lists all landing zone operations from the past 90 days. Results are sorted by time, with the most recent operation first.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,20 +67,24 @@ export interface ListLandingZoneOperationsCommandOutput extends ListLandingZoneO
  * @see {@link ControlTowerClientResolvedConfig | config} for ControlTowerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred during processing of a request.</p>
+ *
+ * An unexpected error occurred during processing of a request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input does not satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link ControlTowerServiceException}
- * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ * Base exception class for all service exceptions from ControlTower service.
  *
  * @public
  */

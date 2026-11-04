@@ -23,22 +23,14 @@ export interface ImportImageCommandInput extends ImportImageRequest {}
 export interface ImportImageCommandOutput extends ImportImageResult, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>To import your virtual machines (VMs) with a console-based experience, you can use the
- *     <i>Import virtual machine images to Amazon Web Services</i> template in the <a href="https://console.aws.amazon.com/migrationhub/orchestrator">Migration Hub Orchestrator console</a>. For more
- *     information, see the <a href="https://docs.aws.amazon.com/migrationhub-orchestrator/latest/userguide/import-vm-images.html">
- *                   <i>Migration Hub Orchestrator User Guide</i>
- *                </a>.</p>
- *          </note>
- *          <p>Import single or multi-volume disk images or EBS snapshots into an Amazon Machine Image (AMI).</p>
- *          <important>
- *             <p>Amazon Web Services VM Import/Export strongly recommends specifying a value for either the
- *      <code>--license-type</code> or <code>--usage-operation</code> parameter when you create a new
- *     VM Import task. This ensures your operating system is licensed appropriately and your billing is
- *     optimized.</p>
- *          </important>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html">Importing a
- *    VM as an image using VM Import/Export</a> in the <i>VM Import/Export User Guide</i>.</p>
+ * > **Note:** To import your virtual machines (VMs) with a console-based experience, you can use the *Import virtual machine images to Amazon Web Services* template in the [Migration Hub Orchestrator console](https://console.aws.amazon.com/migrationhub/orchestrator). For more information, see the [*Migration Hub Orchestrator User Guide*](https://docs.aws.amazon.com/migrationhub-orchestrator/latest/userguide/import-vm-images.html).
+ *
+ * Import single or multi-volume disk images or EBS snapshots into an Amazon Machine Image (AMI).
+ *
+ * > **Important:** Amazon Web Services VM Import/Export strongly recommends specifying a value for either the `--license-type` or `--usage-operation` parameter when you create a new VM Import task. This ensures your operating system is licensed appropriately and your billing is optimized.
+ *
+ * For more information, see [Importing a VM as an image using VM Import/Export](https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html) in the *VM Import/Export User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -151,8 +143,8 @@ export interface ImportImageCommandOutput extends ImportImageResult, __MetadataB
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

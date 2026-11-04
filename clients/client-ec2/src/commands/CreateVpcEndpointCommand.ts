@@ -23,10 +23,8 @@ export interface CreateVpcEndpointCommandInput extends CreateVpcEndpointRequest 
 export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointResult, __MetadataBearer {}
 
 /**
- * <p>Creates a VPC endpoint. A VPC endpoint provides a private connection between the
- *             specified VPC and the specified endpoint service. You can use an endpoint service
- *             provided by Amazon Web Services, an Amazon Web Services Marketplace Partner, or another
- *             Amazon Web Services account. For more information, see the <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/">Amazon Web Services PrivateLink User Guide</a>.</p>
+ * Creates a VPC endpoint. A VPC endpoint provides a private connection between the specified VPC and the specified endpoint service. You can use an endpoint service provided by Amazon Web Services, an Amazon Web Services Marketplace Partner, or another Amazon Web Services account. For more information, see the [Amazon Web Services PrivateLink User Guide](https://docs.aws.amazon.com/vpc/latest/privatelink/).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -176,8 +174,8 @@ export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointResult,
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

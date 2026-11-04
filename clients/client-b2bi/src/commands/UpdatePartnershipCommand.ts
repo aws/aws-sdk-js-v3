@@ -23,7 +23,8 @@ export interface UpdatePartnershipCommandInput extends UpdatePartnershipRequest 
 export interface UpdatePartnershipCommandOutput extends UpdatePartnershipResponse, __MetadataBearer {}
 
 /**
- * <p>Updates some of the parameters for a partnership between a customer and trading partner. A partnership represents the connection between you and your trading partner. It ties together a profile and one or more trading capabilities.</p>
+ * Updates some of the parameters for a partnership between a customer and trading partner. A partnership represents the connection between you and your trading partner. It ties together a profile and one or more trading capabilities.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -159,29 +160,36 @@ export interface UpdatePartnershipCommandOutput extends UpdatePartnershipRespons
  * @see {@link B2biClientResolvedConfig | config} for B2biClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A conflict exception is thrown when you attempt to delete a resource (such as a profile or a capability) that is being used by other resources.</p>
+ *
+ * A conflict exception is thrown when you attempt to delete a resource (such as a profile or a capability) that is being used by other resources.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception is thrown when an error occurs in the Amazon Web Services B2B Data Interchange service.</p>
+ *
+ * This exception is thrown when an error occurs in the Amazon Web Services B2B Data Interchange service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Occurs when the requested resource does not exist, or cannot be found. In some cases, the resource exists in a region other than the region specified in the API call.</p>
+ *
+ * Occurs when the requested resource does not exist, or cannot be found. In some cases, the resource exists in a region other than the region specified in the API call.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Occurs when the calling command attempts to exceed one of the service quotas, for example trying to create a capability when you already have the maximum number of capabilities allowed.</p>
+ *
+ * Occurs when the calling command attempts to exceed one of the service quotas, for example trying to create a capability when you already have the maximum number of capabilities allowed.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to throttling: the data speed and rendering may be limited depending on various parameters and conditions.</p>
+ *
+ * The request was denied due to throttling: the data speed and rendering may be limited depending on various parameters and conditions.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Occurs when a B2BI object cannot be validated against a request from another object. This exception can be thrown during standard EDI validation or when custom validation rules fail, such as when element length constraints are violated, invalid codes are used in code list validations, or required elements are missing based on configured element requirement rules.</p>
+ *
+ * Occurs when a B2BI object cannot be validated against a request from another object. This exception can be thrown during standard EDI validation or when custom validation rules fail, such as when element length constraints are violated, invalid codes are used in code list validations, or required elements are missing based on configured element requirement rules.
  *
  * @throws {@link B2biServiceException}
- * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
+ * Base exception class for all service exceptions from B2bi service.
  *
  * @example Sample UpdatePartnership call
  * ```javascript

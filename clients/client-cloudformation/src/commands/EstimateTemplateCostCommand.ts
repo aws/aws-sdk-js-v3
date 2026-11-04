@@ -23,9 +23,8 @@ export interface EstimateTemplateCostCommandInput extends EstimateTemplateCostIn
 export interface EstimateTemplateCostCommandOutput extends EstimateTemplateCostOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the estimated monthly cost of a template. The return value is an Amazon Web Services Simple
- *       Monthly Calculator URL with a query string that describes the resources required to run the
- *       template.</p>
+ * Returns the estimated monthly cost of a template. The return value is an Amazon Web Services Simple Monthly Calculator URL with a query string that describes the resources required to run the template.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,8 +60,8 @@ export interface EstimateTemplateCostCommandOutput extends EstimateTemplateCostO
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

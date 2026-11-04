@@ -23,10 +23,10 @@ export interface ListLocationsCommandInput extends ListLocationsRequest {}
 export interface ListLocationsCommandOutput extends ListLocationsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of source and destination locations.</p>
- *          <p>If you have more locations than are returned in a response (that is, the response
- *       returns only a truncated list of your agents), the response contains a token that you can
- *       specify in your next request to fetch the next page of locations.</p>
+ * Returns a list of source and destination locations.
+ *
+ * If you have more locations than are returned in a response (that is, the response returns only a truncated list of your agents), the response contains a token that you can specify in your next request to fetch the next page of locations.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,15 +69,16 @@ export interface ListLocationsCommandOutput extends ListLocationsResponse, __Met
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception is thrown when an error occurs in the DataSync
- *       service.</p>
+ *
+ * This exception is thrown when an error occurs in the DataSync service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * This exception is thrown when the client submits a malformed request.
  *
  * @throws {@link DataSyncServiceException}
- * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * Base exception class for all service exceptions from DataSync service.
  *
  * @public
  */

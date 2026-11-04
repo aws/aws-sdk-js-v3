@@ -23,8 +23,8 @@ export interface RemoveListenerCertificatesCommandInput extends RemoveListenerCe
 export interface RemoveListenerCertificatesCommandOutput extends RemoveListenerCertificatesOutput, __MetadataBearer {}
 
 /**
- * <p>Removes the specified certificate from the certificate list for the specified HTTPS or TLS
- *       listener.</p>
+ * Removes the specified certificate from the certificate list for the specified HTTPS or TLS listener.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,14 +55,16 @@ export interface RemoveListenerCertificatesCommandOutput extends RemoveListenerC
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
  * @throws {@link ListenerNotFoundException} (client fault)
- *  <p>The specified listener does not exist.</p>
+ *
+ * The specified listener does not exist.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>This operation is not allowed.</p>
+ *
+ * This operation is not allowed.
  *
  * @throws {@link ElasticLoadBalancingV2ServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancingV2 service.
  *
  * @public
  */

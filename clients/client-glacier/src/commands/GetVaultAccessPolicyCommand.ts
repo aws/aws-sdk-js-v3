@@ -23,12 +23,8 @@ export interface GetVaultAccessPolicyCommandInput extends GetVaultAccessPolicyIn
 export interface GetVaultAccessPolicyCommandOutput extends GetVaultAccessPolicyOutput, __MetadataBearer {}
 
 /**
- * <p>This operation retrieves the <code>access-policy</code> subresource set on the vault;
- *          for more information on setting this subresource, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-SetVaultAccessPolicy.html">Set Vault Access Policy
- *             (PUT access-policy)</a>. If there is no access policy set on the vault, the
- *          operation returns a <code>404 Not found</code> error. For more information about vault
- *          access policies, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html">Amazon Glacier Access Control
- *             with Vault Access Policies</a>.</p>
+ * This operation retrieves the `access-policy` subresource set on the vault; for more information on setting this subresource, see [Set Vault Access Policy (PUT access-policy)](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-SetVaultAccessPolicy.html). If there is no access policy set on the vault, the operation returns a `404 Not found` error. For more information about vault access policies, see [Amazon Glacier Access Control with Vault Access Policies](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,24 +54,28 @@ export interface GetVaultAccessPolicyCommandOutput extends GetVaultAccessPolicyO
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>Returned if a parameter of the request is incorrectly specified.</p>
+ *
+ * Returned if a parameter of the request is incorrectly specified.
  *
  * @throws {@link MissingParameterValueException} (client fault)
- *  <p>Returned if a required header or parameter is missing from the request.</p>
+ *
+ * Returned if a required header or parameter is missing from the request.
  *
  * @throws {@link NoLongerSupportedException} (client fault)
- *  <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+ *
+ * Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't
- *          exist.</p>
+ *
+ * Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>Returned if the service cannot complete the request.</p>
+ *
+ * Returned if the service cannot complete the request.
  *
  * @throws {@link GlacierServiceException}
- * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * Base exception class for all service exceptions from Glacier service.
  *
  * @example To  get the access-policy set on the vault
  * ```javascript

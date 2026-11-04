@@ -23,11 +23,10 @@ export interface ExportTransitGatewayRoutesCommandInput extends ExportTransitGat
 export interface ExportTransitGatewayRoutesCommandOutput extends ExportTransitGatewayRoutesResult, __MetadataBearer {}
 
 /**
- * <p>Exports routes from the specified transit gateway route table to the specified S3 bucket.
- *          By default, all routes are exported. Alternatively, you can filter by CIDR range.</p>
- *          <p>The routes are saved to the specified bucket in a JSON file. For more information, see
- *                 <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-route-tables.html#tgw-export-route-tables">Export route tables
- *                    to Amazon S3</a> in the <i>Amazon Web Services Transit Gateways Guide</i>.</p>
+ * Exports routes from the specified transit gateway route table to the specified S3 bucket. By default, all routes are exported. Alternatively, you can filter by CIDR range.
+ *
+ * The routes are saved to the specified bucket in a JSON file. For more information, see [Export route tables to Amazon S3](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-route-tables.html#tgw-export-route-tables) in the *Amazon Web Services Transit Gateways Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,8 +63,8 @@ export interface ExportTransitGatewayRoutesCommandOutput extends ExportTransitGa
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

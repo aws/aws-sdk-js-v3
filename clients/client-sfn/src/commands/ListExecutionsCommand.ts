@@ -23,15 +23,18 @@ export interface ListExecutionsCommandInput extends ListExecutionsInput {}
 export interface ListExecutionsCommandOutput extends ListExecutionsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists all executions of a state machine or a Map Run. You can list all executions related to a state machine by specifying a state machine Amazon Resource Name (ARN), or those related to a Map Run by specifying a Map Run ARN. Using this API action, you can also list all <a href="https://docs.aws.amazon.com/step-functions/latest/dg/redrive-executions.html">redriven</a> executions.</p>
- *          <p>You can also provide a state machine <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html">alias</a> ARN or <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html">version</a> ARN to list the executions associated with a specific alias or version.</p>
- *          <p>Results are sorted by time, with the most recent execution first. Running executions are sorted by their <code>startDate</code> or <code>redriveDate</code>, and other executions are sorted by their <code>stopDate</code>.</p>
- *          <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
- *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
- *          <note>
- *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
- *          </note>
- *          <p>This API action is not supported by <code>EXPRESS</code> state machines. However, you may list <code>EXPRESS</code> children started by a map run using the <code>mapRunArn</code> parameter.</p>
+ * Lists all executions of a state machine or a Map Run. You can list all executions related to a state machine by specifying a state machine Amazon Resource Name (ARN), or those related to a Map Run by specifying a Map Run ARN. Using this API action, you can also list all [redriven](https://docs.aws.amazon.com/step-functions/latest/dg/redrive-executions.html) executions.
+ *
+ * You can also provide a state machine [alias](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html) ARN or [version](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html) ARN to list the executions associated with a specific alias or version.
+ *
+ * Results are sorted by time, with the most recent execution first. Running executions are sorted by their `startDate` or `redriveDate`, and other executions are sorted by their `stopDate`.
+ *
+ * If `nextToken` is returned, there are more results available. The value of `nextToken` is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an *HTTP 400 InvalidToken* error.
+ *
+ * > **Note:** This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.
+ *
+ * This API action is not supported by `EXPRESS` state machines. However, you may list `EXPRESS` children started by a map run using the `mapRunArn` parameter.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,26 +82,32 @@ export interface ListExecutionsCommandOutput extends ListExecutionsOutput, __Met
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
  * @throws {@link InvalidArn} (client fault)
- *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * The provided Amazon Resource Name (ARN) is not valid.
  *
  * @throws {@link InvalidToken} (client fault)
- *  <p>The provided token is not valid.</p>
+ *
+ * The provided token is not valid.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Could not find the referenced resource.</p>
+ *
+ * Could not find the referenced resource.
  *
  * @throws {@link StateMachineDoesNotExist} (client fault)
- *  <p>The specified state machine does not exist.</p>
+ *
+ * The specified state machine does not exist.
  *
  * @throws {@link StateMachineTypeNotSupported} (client fault)
- *  <p>State machine type is not supported.</p>
+ *
+ * State machine type is not supported.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input does not satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link SFNServiceException}
- * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * Base exception class for all service exceptions from SFN service.
  *
  * @public
  */

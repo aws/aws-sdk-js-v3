@@ -23,7 +23,14 @@ export interface UpdateDomainAssociationCommandInput extends UpdateDomainAssocia
 export interface UpdateDomainAssociationCommandOutput extends UpdateDomainAssociationResult, __MetadataBearer {}
 
 /**
- * <note> <p>We recommend that you use the <code>UpdateDomainAssociation</code> API operation to move a domain association, as it supports both standard distributions and distribution tenants. <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_AssociateAlias.html">AssociateAlias</a> performs similar checks but only supports standard distributions.</p> </note> <p>Moves a domain from its current standard distribution or distribution tenant to another one.</p> <p>You must first disable the source distribution (standard distribution or distribution tenant) and then separately call this operation to move the domain to another target distribution (standard distribution or distribution tenant).</p> <p>To use this operation, specify the domain and the ID of the target resource (standard distribution or distribution tenant). For more information, including how to set up the target resource, prerequisites that you must complete, and other restrictions, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/CNAMEs.html#alternate-domain-names-move">Moving an alternate domain name to a different standard distribution or distribution tenant</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+ * > **Note:** We recommend that you use the `UpdateDomainAssociation` API operation to move a domain association, as it supports both standard distributions and distribution tenants. [AssociateAlias](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_AssociateAlias.html) performs similar checks but only supports standard distributions.
+ *
+ * Moves a domain from its current standard distribution or distribution tenant to another one.
+ *
+ * You must first disable the source distribution (standard distribution or distribution tenant) and then separately call this operation to move the domain to another target distribution (standard distribution or distribution tenant).
+ *
+ * To use this operation, specify the domain and the ID of the target resource (standard distribution or distribution tenant). For more information, including how to set up the target resource, prerequisites that you must complete, and other restrictions, see [Moving an alternate domain name to a different standard distribution or distribution tenant](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/CNAMEs.html#alternate-domain-names-move) in the *Amazon CloudFront Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,26 +64,32 @@ export interface UpdateDomainAssociationCommandOutput extends UpdateDomainAssoci
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link AccessDenied} (client fault)
- *  <p>Access denied.</p>
+ *
+ * Access denied.
  *
  * @throws {@link EntityNotFound} (client fault)
- *  <p>The entity was not found.</p>
+ *
+ * The entity was not found.
  *
  * @throws {@link IllegalUpdate} (client fault)
- *  <p>The update contains modifications that are not allowed.</p>
+ *
+ * The update contains modifications that are not allowed.
  *
  * @throws {@link InvalidArgument} (client fault)
- *  <p>An argument is invalid.</p>
+ *
+ * An argument is invalid.
  *
  * @throws {@link InvalidIfMatchVersion} (client fault)
- *  <p>The <code>If-Match</code> version is missing or not valid.</p>
+ *
+ * The `If-Match` version is missing or not valid.
  *
  * @throws {@link PreconditionFailed} (client fault)
- *  <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+ *
+ * The precondition in one or more of the request fields evaluated to `false`.
  *
  * @throws {@link CloudFrontServiceException}
- * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * Base exception class for all service exceptions from CloudFront service.
  *
  * @public
  */

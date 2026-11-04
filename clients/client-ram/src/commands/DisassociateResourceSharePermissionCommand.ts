@@ -26,9 +26,8 @@ export interface DisassociateResourceSharePermissionCommandInput extends Disasso
 export interface DisassociateResourceSharePermissionCommandOutput extends DisassociateResourceSharePermissionResponse, __MetadataBearer {}
 
 /**
- * <p>Removes a managed permission from a resource share. Permission changes take effect immediately. You can
- *             remove a managed permission from a resource share only if there are currently no resources of the relevant
- *             resource type currently attached to the resource share.</p>
+ * Removes a managed permission from a resource share. Permission changes take effect immediately. You can remove a managed permission from a resource share only if there are currently no resources of the relevant resource type currently attached to the resource share.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,35 +57,40 @@ export interface DisassociateResourceSharePermissionCommandOutput extends Disass
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
  *
  * @throws {@link InvalidClientTokenException} (client fault)
- *  <p>The operation failed because the specified client token isn't valid.</p>
+ *
+ * The operation failed because the specified client token isn't valid.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The operation failed because a parameter you specified isn't valid.</p>
+ *
+ * The operation failed because a parameter you specified isn't valid.
  *
  * @throws {@link InvalidStateTransitionException} (client fault)
- *  <p>The operation failed because the requested operation isn't valid for the resource
- *             share in its current state.</p>
+ *
+ * The operation failed because the requested operation isn't valid for the resource share in its current state.
  *
  * @throws {@link MalformedArnException} (client fault)
- *  <p>The operation failed because the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> has a format that isn't
- *             valid.</p>
+ *
+ * The operation failed because the specified [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) has a format that isn't valid.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>The operation failed because the requested operation isn't permitted.</p>
+ *
+ * The operation failed because the requested operation isn't permitted.
  *
  * @throws {@link ServerInternalException} (server fault)
- *  <p>The operation failed because the service could not respond to the request due to an
- *             internal problem. Try again later.</p>
+ *
+ * The operation failed because the service could not respond to the request due to an internal problem. Try again later.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The operation failed because the service isn't available. Try again later.</p>
+ *
+ * The operation failed because the service isn't available. Try again later.
  *
  * @throws {@link UnknownResourceException} (client fault)
- *  <p>The operation failed because a specified resource couldn't be found.</p>
+ *
+ * The operation failed because a specified resource couldn't be found.
  *
  * @throws {@link RAMServiceException}
- * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ * Base exception class for all service exceptions from RAM service.
  *
  * @public
  */

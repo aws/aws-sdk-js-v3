@@ -23,7 +23,8 @@ export interface StopEdgeDeploymentStageCommandInput extends StopEdgeDeploymentS
 export interface StopEdgeDeploymentStageCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Stops a stage in an edge deployment plan.</p>
+ * Stops a stage in an edge deployment plan.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,8 +50,8 @@ export interface StopEdgeDeploymentStageCommandOutput extends __MetadataBearer {
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

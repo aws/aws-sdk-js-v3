@@ -23,38 +23,19 @@ export interface ListRoutingControlsCommandInput extends ListRoutingControlsRequ
 export interface ListRoutingControlsCommandOutput extends ListRoutingControlsResponse, __MetadataBearer {}
 
 /**
- * <p>List routing control names and Amazon Resource Names (ARNs), as well as the routing control
- * 			state for each routing control, along with the control panel name and control panel ARN for the routing controls.
- * 			If you specify a control panel ARN, this call lists the routing controls in the control panel. Otherwise, it lists
- * 			all the routing controls in the cluster.</p>
- *          <p>A routing control is a simple on/off switch in Route 53 ARC that you
- * 			can use to route traffic to cells. When a routing control state is set to ON, traffic flows to a cell. When
- * 			the state is set to OFF, traffic does not flow.</p>
- *          <p>Before you can create a routing control, you must first create a cluster, and then host the control
- * 			in a control panel on the cluster. For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.create.html">
- * 				Create routing control structures</a> in the Amazon Route 53 Application Recovery Controller Developer Guide.
- * 			You access one of the endpoints for the cluster to get or update the routing control state to
- * 			redirect traffic for your application. </p>
- *          <p>
- *             <i>You must specify Regional endpoints when you work with API cluster operations
- * 			to use this API operation to list routing controls in Route 53 ARC.</i>
- *          </p>
- *          <p>Learn more about working with routing controls in the following topics in the
- * 			Amazon Route 53 Application Recovery Controller Developer Guide:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.update.html">
- * 				Viewing and updating routing control states</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.html">Working with
- * 				routing controls in Route 53 ARC</a>
- *                </p>
- *             </li>
- *          </ul>
+ * List routing control names and Amazon Resource Names (ARNs), as well as the routing control state for each routing control, along with the control panel name and control panel ARN for the routing controls. If you specify a control panel ARN, this call lists the routing controls in the control panel. Otherwise, it lists all the routing controls in the cluster.
+ *
+ * A routing control is a simple on/off switch in Route 53 ARC that you can use to route traffic to cells. When a routing control state is set to ON, traffic flows to a cell. When the state is set to OFF, traffic does not flow.
+ *
+ * Before you can create a routing control, you must first create a cluster, and then host the control in a control panel on the cluster. For more information, see [Create routing control structures](https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.create.html) in the Amazon Route 53 Application Recovery Controller Developer Guide. You access one of the endpoints for the cluster to get or update the routing control state to redirect traffic for your application.
+ *
+ * *You must specify Regional endpoints when you work with API cluster operations to use this API operation to list routing controls in Route 53 ARC.*
+ *
+ * Learn more about working with routing controls in the following topics in the Amazon Route 53 Application Recovery Controller Developer Guide:
+ *
+ * - [Viewing and updating routing control states](https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.update.html)
+ * - [Working with routing controls in Route 53 ARC](https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,26 +74,32 @@ export interface ListRoutingControlsCommandOutput extends ListRoutingControlsRes
  * @see {@link Route53RecoveryClusterClientResolvedConfig | config} for Route53RecoveryClusterClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permissions to perform this action.</p>
+ *
+ * You don't have sufficient permissions to perform this action.
  *
  * @throws {@link EndpointTemporarilyUnavailableException} (server fault)
- *  <p>The cluster endpoint isn't available. Try another cluster endpoint.</p>
+ *
+ * The cluster endpoint isn't available. Try another cluster endpoint.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>There was an unexpected error during processing of the request.</p>
+ *
+ * There was an unexpected error during processing of the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request references a routing control or control panel that was not found.</p>
+ *
+ * The request references a routing control or control panel that was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied because of request throttling.</p>
+ *
+ * The request was denied because of request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>There was a validation error on the request.</p>
+ *
+ * There was a validation error on the request.
  *
  * @throws {@link Route53RecoveryClusterServiceException}
- * <p>Base exception class for all service exceptions from Route53RecoveryCluster service.</p>
  *
+ * Base exception class for all service exceptions from Route53RecoveryCluster service.
  *
  * @public
  */

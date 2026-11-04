@@ -23,7 +23,8 @@ export interface UpdateImagePermissionsCommandInput extends UpdateImagePermissio
 export interface UpdateImagePermissionsCommandOutput extends UpdateImagePermissionsResult, __MetadataBearer {}
 
 /**
- * <p>Adds or updates permissions for the specified private image. </p>
+ * Adds or updates permissions for the specified private image.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,17 +54,20 @@ export interface UpdateImagePermissionsCommandOutput extends UpdateImagePermissi
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The requested limit exceeds the permitted limit for an account.</p>
+ *
+ * The requested limit exceeds the permitted limit for an account.
  *
  * @throws {@link ResourceNotAvailableException} (client fault)
- *  <p>The specified resource exists and is not in use, but isn't available.</p>
+ *
+ * The specified resource exists and is not in use, but isn't available.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link AppStreamServiceException}
- * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * Base exception class for all service exceptions from AppStream service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface ListAttributeGroupsCommandInput extends ListAttributeGroupsRequ
 export interface ListAttributeGroupsCommandOutput extends ListAttributeGroupsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all attribute groups which you have access to. Results are paginated.</p>
+ * Lists all attribute groups which you have access to. Results are paginated.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,14 +63,16 @@ export interface ListAttributeGroupsCommandOutput extends ListAttributeGroupsRes
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The service is experiencing internal problems.</p>
+ *
+ * The service is experiencing internal problems.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request has invalid or missing parameters.</p>
+ *
+ * The request has invalid or missing parameters.
  *
  * @throws {@link ServiceCatalogAppRegistryServiceException}
- * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
+ * Base exception class for all service exceptions from ServiceCatalogAppRegistry service.
  *
  * @public
  */

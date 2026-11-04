@@ -23,7 +23,8 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Associates the specified tags to the resource identified by the specified resourceArn in the current region. If existing tags on a resource are not specified in the request parameters, they are not changed. When a resource is deleted, the tags associated with that resource are also deleted. </p>
+ * Associates the specified tags to the resource identified by the specified resourceArn in the current region. If existing tags on a resource are not specified in the request parameters, they are not changed. When a resource is deleted, the tags associated with that resource are also deleted.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,26 +52,32 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @see {@link ElementalInferenceClientResolvedConfig | config} for ElementalInferenceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be completed due to a conflict.</p>
+ *
+ * The request could not be completed due to a conflict.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>An internal server error occurred. This is a temporary condition and the request can be retried. If the problem persists, contact AWS Support. </p>
+ *
+ * An internal server error occurred. This is a temporary condition and the request can be retried. If the problem persists, contact AWS Support.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource specified in the action doesn't exist.</p>
+ *
+ * The resource specified in the action doesn't exist.
  *
  * @throws {@link TooManyRequestException} (client fault)
- *  <p>The request was denied due to request throttling. Too many requests have been made within a given time period. Reduce the frequency of requests and use exponential backoff when retrying. </p>
+ *
+ * The request was denied due to request throttling. Too many requests have been made within a given time period. Reduce the frequency of requests and use exponential backoff when retrying.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the service. Check the error message for details about which parameter or field is invalid and correct the request before retrying. </p>
+ *
+ * The input fails to satisfy the constraints specified by the service. Check the error message for details about which parameter or field is invalid and correct the request before retrying.
  *
  * @throws {@link ElementalInferenceServiceException}
- * <p>Base exception class for all service exceptions from ElementalInference service.</p>
  *
+ * Base exception class for all service exceptions from ElementalInference service.
  *
  * @public
  */

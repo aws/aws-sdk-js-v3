@@ -23,7 +23,8 @@ export interface DeleteServiceEnvironmentCommandInput extends DeleteServiceEnvir
 export interface DeleteServiceEnvironmentCommandOutput extends DeleteServiceEnvironmentResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a Service environment. Before you can delete a service environment, you must first set its state to <code>DISABLED</code> with the <code>UpdateServiceEnvironment</code> API operation and disassociate it from any job queues with the <code>UpdateJobQueue</code> API operation.</p>
+ * Deletes a Service environment. Before you can delete a service environment, you must first set its state to `DISABLED` with the `UpdateServiceEnvironment` API operation and disassociate it from any job queues with the `UpdateJobQueue` API operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,16 +49,16 @@ export interface DeleteServiceEnvironmentCommandOutput extends DeleteServiceEnvi
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf
- *    of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier
- *    that's not valid.</p>
+ *
+ * These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server issue.</p>
+ *
+ * These errors are usually caused by a server issue.
  *
  * @throws {@link BatchServiceException}
- * <p>Base exception class for all service exceptions from Batch service.</p>
  *
+ * Base exception class for all service exceptions from Batch service.
  *
  * @public
  */

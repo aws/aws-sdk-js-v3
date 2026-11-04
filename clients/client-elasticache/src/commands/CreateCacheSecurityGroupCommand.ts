@@ -23,11 +23,10 @@ export interface CreateCacheSecurityGroupCommandInput extends CreateCacheSecurit
 export interface CreateCacheSecurityGroupCommandOutput extends CreateCacheSecurityGroupResult, __MetadataBearer {}
 
 /**
- * <p>Creates a new cache security group. Use a cache security group to control access to
- *             one or more clusters.</p>
- *          <p>Cache security groups are only used when you are creating a cluster outside of an
- *             Amazon Virtual Private Cloud (Amazon VPC). If you are creating a cluster inside of a
- *             VPC, use a cache subnet group instead. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheSubnetGroup.html">CreateCacheSubnetGroup</a>.</p>
+ * Creates a new cache security group. Use a cache security group to control access to one or more clusters.
+ *
+ * Cache security groups are only used when you are creating a cluster outside of an Amazon Virtual Private Cloud (Amazon VPC). If you are creating a cluster inside of a VPC, use a cache subnet group instead. For more information, see [CreateCacheSubnetGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheSubnetGroup.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,26 +72,28 @@ export interface CreateCacheSecurityGroupCommandOutput extends CreateCacheSecuri
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link CacheSecurityGroupAlreadyExistsFault} (client fault)
- *  <p>A cache security group with the specified name already exists.</p>
+ *
+ * A cache security group with the specified name already exists.
  *
  * @throws {@link CacheSecurityGroupQuotaExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the allowed number of cache
- *             security groups.</p>
+ *
+ * The request cannot be processed because it would exceed the allowed number of cache security groups.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * Two or more incompatible parameters were specified.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link TagQuotaPerResourceExceeded} (client fault)
- *  <p>The request cannot be processed because it would cause the resource to have more than
- *             the allowed number of tags. The maximum number of tags permitted on a resource is
- *             50.</p>
+ *
+ * The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @example CreateCacheSecurityGroup
  * ```javascript

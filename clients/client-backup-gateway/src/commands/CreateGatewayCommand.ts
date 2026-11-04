@@ -23,7 +23,8 @@ export interface CreateGatewayCommandInput extends CreateGatewayInput {}
 export interface CreateGatewayCommandOutput extends CreateGatewayOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a backup gateway. After you create a gateway, you can associate it with a server using the <code>AssociateGatewayToServer</code> operation.</p>
+ * Creates a backup gateway. After you create a gateway, you can associate it with a server using the `AssociateGatewayToServer` operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,17 +59,20 @@ export interface CreateGatewayCommandOutput extends CreateGatewayOutput, __Metad
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The operation did not succeed because an internal error occurred. Try again later.</p>
+ *
+ * The operation did not succeed because an internal error occurred. Try again later.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>TPS has been limited to protect against intentional or unintentional high request volumes.</p>
+ *
+ * TPS has been limited to protect against intentional or unintentional high request volumes.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The operation did not succeed because a validation error occurred.</p>
+ *
+ * The operation did not succeed because a validation error occurred.
  *
  * @throws {@link BackupGatewayServiceException}
- * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
+ * Base exception class for all service exceptions from BackupGateway service.
  *
  * @public
  */

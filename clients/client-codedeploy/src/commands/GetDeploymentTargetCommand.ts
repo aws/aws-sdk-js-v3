@@ -23,7 +23,8 @@ export interface GetDeploymentTargetCommandInput extends GetDeploymentTargetInpu
 export interface GetDeploymentTargetCommandOutput extends GetDeploymentTargetOutput, __MetadataBearer {}
 
 /**
- * <p> Returns information about a deployment target. </p>
+ * Returns information about a deployment target.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -160,32 +161,40 @@ export interface GetDeploymentTargetCommandOutput extends GetDeploymentTargetOut
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  * @throws {@link DeploymentDoesNotExistException} (client fault)
- *  <p>The deployment with the user or Amazon Web Services account does not exist.</p>
+ *
+ * The deployment with the user or Amazon Web Services account does not exist.
  *
  * @throws {@link DeploymentIdRequiredException} (client fault)
- *  <p>At least one deployment ID must be specified.</p>
+ *
+ * At least one deployment ID must be specified.
  *
  * @throws {@link DeploymentNotStartedException} (client fault)
- *  <p>The specified deployment has not started.</p>
+ *
+ * The specified deployment has not started.
  *
  * @throws {@link DeploymentTargetDoesNotExistException} (client fault)
- *  <p> The provided target ID does not belong to the attempted deployment. </p>
+ *
+ * The provided target ID does not belong to the attempted deployment.
  *
  * @throws {@link DeploymentTargetIdRequiredException} (client fault)
- *  <p> A deployment target ID was not provided. </p>
+ *
+ * A deployment target ID was not provided.
  *
  * @throws {@link InvalidDeploymentIdException} (client fault)
- *  <p>At least one of the deployment IDs was specified in an invalid format.</p>
+ *
+ * At least one of the deployment IDs was specified in an invalid format.
  *
  * @throws {@link InvalidDeploymentTargetIdException} (client fault)
- *  <p> The target ID provided was not valid. </p>
+ *
+ * The target ID provided was not valid.
  *
  * @throws {@link InvalidInstanceNameException} (client fault)
- *  <p>The on-premises instance name was specified in an invalid format.</p>
+ *
+ * The on-premises instance name was specified in an invalid format.
  *
  * @throws {@link CodeDeployServiceException}
- * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * Base exception class for all service exceptions from CodeDeploy service.
  *
  * @public
  */

@@ -23,10 +23,8 @@ export interface CreateSubnetGroupCommandInput extends CreateSubnetGroupRequest 
 export interface CreateSubnetGroupCommandOutput extends CreateSubnetGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a subnet group. A subnet group is a collection of subnets (typically private) that you can designate for your clusters running in an Amazon Virtual Private Cloud (VPC) environment.
+ * Creates a subnet group. A subnet group is a collection of subnets (typically private) that you can designate for your clusters running in an Amazon Virtual Private Cloud (VPC) environment. When you create a cluster in an Amazon VPC, you must specify a subnet group. MemoryDB uses that subnet group to choose a subnet and IP addresses within that subnet to associate with your nodes. For more information, see [Subnets and subnet groups](https://docs.aws.amazon.com/MemoryDB/latest/devguide/subnetgroups.html).
  *
- *          When you create a cluster in an Amazon VPC, you must specify a subnet group. MemoryDB uses that subnet group to choose a subnet and IP addresses within that subnet to associate with your nodes.
- *          For more information, see <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/subnetgroups.html">Subnets and subnet groups</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,29 +80,36 @@ export interface CreateSubnetGroupCommandOutput extends CreateSubnetGroupRespons
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  * @throws {@link InvalidSubnet} (client fault)
- *  <p>The specified subnet is not valid.</p>
+ *
+ * The specified subnet is not valid.
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
- *  <p>The required service-linked role was not found.</p>
+ *
+ * The required service-linked role was not found.
  *
  * @throws {@link SubnetGroupAlreadyExistsFault} (client fault)
- *  <p>A subnet group with the specified name already exists.</p>
+ *
+ * A subnet group with the specified name already exists.
  *
  * @throws {@link SubnetGroupQuotaExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the maximum number of subnet groups allowed.</p>
+ *
+ * The request cannot be processed because it would exceed the maximum number of subnet groups allowed.
  *
  * @throws {@link SubnetNotAllowedFault} (client fault)
- *  <p>The specified subnet is not allowed for this operation.</p>
+ *
+ * The specified subnet is not allowed for this operation.
  *
  * @throws {@link SubnetQuotaExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the maximum number of subnets allowed.</p>
+ *
+ * The request cannot be processed because it would exceed the maximum number of subnets allowed.
  *
  * @throws {@link TagQuotaPerResourceExceeded} (client fault)
- *  <p>The request cannot be processed because it would exceed the maximum number of tags allowed per resource.</p>
+ *
+ * The request cannot be processed because it would exceed the maximum number of tags allowed per resource.
  *
  * @throws {@link MemoryDBServiceException}
- * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * Base exception class for all service exceptions from MemoryDB service.
  *
  * @public
  */

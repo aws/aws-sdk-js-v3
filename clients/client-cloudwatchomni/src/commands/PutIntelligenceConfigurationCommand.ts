@@ -68,8 +68,8 @@ export interface PutIntelligenceConfigurationCommandOutput extends PutIntelligen
  *  A parameter is specified incorrectly.
  *
  * @throws {@link CloudWatchOmniServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchOmni service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchOmni service.
  *
  * @example Configure a customer-managed KMS key
  * ```javascript

@@ -23,7 +23,10 @@ export interface DescribeUserCommandInput extends DescribeUserRequest {}
 export interface DescribeUserCommandOutput extends DescribeUserResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the user assigned to the specific file transfer protocol-enabled server, as identified by its <code>ServerId</code> property.</p> <p>The response from this call returns the properties of the user associated with the <code>ServerId</code> value that was specified.</p>
+ * Describes the user assigned to the specific file transfer protocol-enabled server, as identified by its `ServerId` property.
+ *
+ * The response from this call returns the properties of the user associated with the `ServerId` value that was specified.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,20 +89,24 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
  *
  * @throws {@link InternalServiceError} (server fault)
- *  <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+ *
+ * This exception is thrown when an error occurs in the Transfer Family service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * This exception is thrown when the client submits a malformed request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+ *
+ * This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+ *
+ * The request has failed because the Amazon Web ServicesTransfer Family service is not available.
  *
  * @throws {@link TransferServiceException}
- * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * Base exception class for all service exceptions from Transfer service.
  *
  * @public
  */

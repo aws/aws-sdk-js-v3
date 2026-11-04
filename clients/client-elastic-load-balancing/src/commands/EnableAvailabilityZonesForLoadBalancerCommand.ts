@@ -23,12 +23,12 @@ export interface EnableAvailabilityZonesForLoadBalancerCommandInput extends AddA
 export interface EnableAvailabilityZonesForLoadBalancerCommandOutput extends AddAvailabilityZonesOutput, __MetadataBearer {}
 
 /**
- * <p>Adds the specified Availability Zones to the set of Availability Zones for the specified load balancer
- *             in EC2-Classic or a default VPC.</p>
- *         <p>For load balancers in a non-default VPC, use <a>AttachLoadBalancerToSubnets</a>.</p>
- *         <p>The load balancer evenly distributes requests across all its registered Availability Zones
- *             that contain instances. For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html">Add or Remove Availability Zones</a>
- *             in the <i>Classic Load Balancers Guide</i>.</p>
+ * Adds the specified Availability Zones to the set of Availability Zones for the specified load balancer in EC2-Classic or a default VPC.
+ *
+ * For load balancers in a non-default VPC, use AttachLoadBalancerToSubnets.
+ *
+ * The load balancer evenly distributes requests across all its registered Availability Zones that contain instances. For more information, see [Add or Remove Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html) in the *Classic Load Balancers Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,11 +60,12 @@ export interface EnableAvailabilityZonesForLoadBalancerCommandOutput extends Add
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
  * @throws {@link AccessPointNotFoundException} (client fault)
- *  <p>The specified load balancer does not exist.</p>
+ *
+ * The specified load balancer does not exist.
  *
  * @throws {@link ElasticLoadBalancingServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancing service.
  *
  * @example To enable an Availability Zone for a load balancer
  * ```javascript

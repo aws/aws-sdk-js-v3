@@ -23,11 +23,12 @@ export interface DetachImageWatermarkCommandInput extends DetachImageWatermarkRe
 export interface DetachImageWatermarkCommandOutput extends DetachImageWatermarkResult, __MetadataBearer {}
 
 /**
- * <p>Removes a watermark from the specified AMI. This is an idempotent operation. It succeeds
- *       even if the watermark does not exist on the image.</p>
- *          <p>Removing a watermark from an image does not affect derivative images that already carry
- *       the watermark.</p>
- *          <p>Only the AMI owner can detach watermarks.</p>
+ * Removes a watermark from the specified AMI. This is an idempotent operation. It succeeds even if the watermark does not exist on the image.
+ *
+ * Removing a watermark from an image does not affect derivative images that already carry the watermark.
+ *
+ * Only the AMI owner can detach watermarks.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,8 +57,8 @@ export interface DetachImageWatermarkCommandOutput extends DetachImageWatermarkR
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

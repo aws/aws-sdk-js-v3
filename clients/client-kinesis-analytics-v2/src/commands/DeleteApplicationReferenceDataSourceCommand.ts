@@ -26,9 +26,10 @@ export interface DeleteApplicationReferenceDataSourceCommandInput extends Delete
 export interface DeleteApplicationReferenceDataSourceCommandOutput extends DeleteApplicationReferenceDataSourceResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a reference data source configuration from the specified SQL-based Kinesis Data Analytics application's configuration.</p>
- *          <p>If the application is running, Kinesis Data Analytics immediately removes the in-application table
- *       that you created using the <a>AddApplicationReferenceDataSource</a> operation.  </p>
+ * Deletes a reference data source configuration from the specified SQL-based Kinesis Data Analytics application's configuration.
+ *
+ * If the application is running, Kinesis Data Analytics immediately removes the in-application table that you created using the AddApplicationReferenceDataSource operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,25 +59,28 @@ export interface DeleteApplicationReferenceDataSourceCommandOutput extends Delet
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Exception thrown as a result of concurrent modifications to an application. This error can
- *       be the result of attempting to modify an application without using the current application
- *       ID.</p>
+ *
+ * Exception thrown as a result of concurrent modifications to an application. This error can be the result of attempting to modify an application without using the current application ID.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>The specified input parameter value is not valid.</p>
+ *
+ * The specified input parameter value is not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request JSON is not valid for the operation.</p>
+ *
+ * The request JSON is not valid for the operation.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The application is not available for this operation.</p>
+ *
+ * The application is not available for this operation.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Specified application can't be found.</p>
+ *
+ * Specified application can't be found.
  *
  * @throws {@link KinesisAnalyticsV2ServiceException}
- * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ * Base exception class for all service exceptions from KinesisAnalyticsV2 service.
  *
  * @public
  */

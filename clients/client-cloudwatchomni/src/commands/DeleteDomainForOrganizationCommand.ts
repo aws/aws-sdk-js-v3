@@ -67,8 +67,8 @@ export interface DeleteDomainForOrganizationCommandOutput extends DeleteDomainFo
  *  A parameter is specified incorrectly.
  *
  * @throws {@link CloudWatchOmniServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchOmni service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchOmni service.
  *
  * @example Delete an organization domain
  * ```javascript

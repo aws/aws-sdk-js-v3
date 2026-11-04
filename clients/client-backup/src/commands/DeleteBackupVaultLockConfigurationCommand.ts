@@ -23,12 +23,10 @@ export interface DeleteBackupVaultLockConfigurationCommandInput extends DeleteBa
 export interface DeleteBackupVaultLockConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes Backup Vault Lock from a backup vault specified by a backup vault
- *          name.</p>
- *          <p>If the Vault Lock configuration is immutable, then you cannot delete Vault Lock using
- *          API operations, and you will receive an <code>InvalidRequestException</code> if you attempt
- *          to do so. For more information, see <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html">Vault Lock</a> in the
- *                <i>Backup Developer Guide</i>.</p>
+ * Deletes Backup Vault Lock from a backup vault specified by a backup vault name.
+ *
+ * If the Vault Lock configuration is immutable, then you cannot delete Vault Lock using API operations, and you will receive an `InvalidRequestException` if you attempt to do so. For more information, see [Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) in the *Backup Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,25 +51,28 @@ export interface DeleteBackupVaultLockConfigurationCommandOutput extends __Metad
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
- *          out of range.</p>
+ *
+ * Indicates that something is wrong with a parameter's value. For example, the value is out of range.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Indicates that something is wrong with the input to the request. For example, a
- *          parameter is of the wrong type.</p>
+ *
+ * Indicates that something is wrong with the input to the request. For example, a parameter is of the wrong type.
  *
  * @throws {@link MissingParameterValueException} (client fault)
- *  <p>Indicates that a required parameter is missing.</p>
+ *
+ * Indicates that a required parameter is missing.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A resource that is required for the action doesn't exist.</p>
+ *
+ * A resource that is required for the action doesn't exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The request failed due to a temporary failure of the server.</p>
+ *
+ * The request failed due to a temporary failure of the server.
  *
  * @throws {@link BackupServiceException}
- * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * Base exception class for all service exceptions from Backup service.
  *
  * @public
  */

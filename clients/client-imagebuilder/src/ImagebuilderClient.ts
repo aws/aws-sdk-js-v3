@@ -657,14 +657,10 @@ export type ImagebuilderClientResolvedConfigType = __SmithyResolvedConfiguration
 export interface ImagebuilderClientResolvedConfig extends ImagebuilderClientResolvedConfigType {}
 
 /**
- * <p>EC2 Image Builder automates the
- * 			creation, management, and deployment of customized, secure, and up-to-date
- * 			server images. You can build Amazon Machine Images (AMIs) and container images
- * 			that are pre-installed and pre-configured with software and settings to meet
- * 			specific IT standards.</p>
- *          <p>For an introduction to the service concepts that these API operations work with,
- * 			see <a href="https://docs.aws.amazon.com/imagebuilder/latest/userguide/how-image-builder-works.html">How Image Builder
- * 				works</a> in the <i>EC2 Image Builder User Guide</i>.</p>
+ * EC2 Image Builder automates the creation, management, and deployment of customized, secure, and up-to-date server images. You can build Amazon Machine Images (AMIs) and container images that are pre-installed and pre-configured with software and settings to meet specific IT standards.
+ *
+ * For an introduction to the service concepts that these API operations work with, see [How Image Builder works](https://docs.aws.amazon.com/imagebuilder/latest/userguide/how-image-builder-works.html) in the *EC2 Image Builder User Guide*.
+ *
  * @public
  */
 export class ImagebuilderClient extends __Client<

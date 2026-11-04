@@ -23,7 +23,10 @@ export interface CreateGraphUsingImportTaskCommandInput extends CreateGraphUsing
 export interface CreateGraphUsingImportTaskCommandOutput extends CreateGraphUsingImportTaskOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a new Neptune Analytics graph and imports data into it, either from Amazon Simple Storage Service (S3) or from a Neptune database or a Neptune database snapshot.</p> <p>The data can be loaded from files in S3 that in either the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-gremlin.html">Gremlin CSV format</a> or the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-opencypher.html">openCypher load format</a>.</p>
+ * Creates a new Neptune Analytics graph and imports data into it, either from Amazon Simple Storage Service (S3) or from a Neptune database or a Neptune database snapshot.
+ *
+ * The data can be loaded from files in S3 that in either the [Gremlin CSV format](https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-gremlin.html) or the [openCypher load format](https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-opencypher.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,23 +93,28 @@ export interface CreateGraphUsingImportTaskCommandOutput extends CreateGraphUsin
  * @see {@link NeptuneGraphClientResolvedConfig | config} for NeptuneGraphClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Raised when a conflict is encountered.</p>
+ *
+ * Raised when a conflict is encountered.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>A failure occurred on the server.</p>
+ *
+ * A failure occurred on the server.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>A service quota was exceeded.</p>
+ *
+ * A service quota was exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The exception was interrupted by throttling.</p>
+ *
+ * The exception was interrupted by throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A resource could not be validated.</p>
+ *
+ * A resource could not be validated.
  *
  * @throws {@link NeptuneGraphServiceException}
- * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ * Base exception class for all service exceptions from NeptuneGraph service.
  *
  * @public
  */

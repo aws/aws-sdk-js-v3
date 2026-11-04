@@ -23,7 +23,8 @@ export interface ListMonitoringExecutionsCommandInput extends ListMonitoringExec
 export interface ListMonitoringExecutionsCommandOutput extends ListMonitoringExecutionsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns list of all monitoring job executions.</p>
+ * Returns list of all monitoring job executions.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,8 +79,8 @@ export interface ListMonitoringExecutionsCommandOutput extends ListMonitoringExe
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

@@ -23,9 +23,8 @@ export interface ExportImageCommandInput extends ExportImageRequest {}
 export interface ExportImageCommandOutput extends ExportImageResult, __MetadataBearer {}
 
 /**
- * <p>Exports an Amazon Machine Image (AMI) to a VM file. For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport_image.html">Exporting a VM
- *     directly from an Amazon Machine Image (AMI)</a> in the
- *     <i>VM Import/Export User Guide</i>.</p>
+ * Exports an Amazon Machine Image (AMI) to a VM file. For more information, see [Exporting a VM directly from an Amazon Machine Image (AMI)](https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport_image.html) in the *VM Import/Export User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -89,8 +88,8 @@ export interface ExportImageCommandOutput extends ExportImageResult, __MetadataB
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

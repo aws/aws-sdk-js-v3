@@ -23,7 +23,8 @@ export interface ResetLandingZoneCommandInput extends ResetLandingZoneInput {}
 export interface ResetLandingZoneCommandOutput extends ResetLandingZoneOutput, __MetadataBearer {}
 
 /**
- * <p>This API call resets a landing zone. It starts an asynchronous operation that resets the landing zone to the parameters specified in the original configuration, which you specified in the manifest file. Nothing in the manifest file's original landing zone configuration is changed during the reset process, by default. This API is not the same as a rollback of a landing zone version, which is not a supported operation.</p>
+ * This API call resets a landing zone. It starts an asynchronous operation that resets the landing zone to the parameters specified in the original configuration, which you specified in the manifest file. Nothing in the manifest file's original landing zone configuration is changed during the reset process, by default. This API is not the same as a rollback of a landing zone version, which is not a supported operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,26 +51,32 @@ export interface ResetLandingZoneCommandOutput extends ResetLandingZoneOutput, _
  * @see {@link ControlTowerClientResolvedConfig | config} for ControlTowerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting the resource can cause an inconsistent state.</p>
+ *
+ * Updating or deleting the resource can cause an inconsistent state.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred during processing of a request.</p>
+ *
+ * An unexpected error occurred during processing of a request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request references a resource that does not exist.</p>
+ *
+ * The request references a resource that does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input does not satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link ControlTowerServiceException}
- * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ * Base exception class for all service exceptions from ControlTower service.
  *
  * @public
  */

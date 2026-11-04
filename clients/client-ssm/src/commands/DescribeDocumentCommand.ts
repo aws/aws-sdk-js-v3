@@ -23,7 +23,8 @@ export interface DescribeDocumentCommandInput extends DescribeDocumentRequest {}
 export interface DescribeDocumentCommandOutput extends DescribeDocumentResult, __MetadataBearer {}
 
 /**
- * <p>Describes the specified Amazon Web Services Systems Manager document (SSM document).</p>
+ * Describes the specified Amazon Web Services Systems Manager document (SSM document).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -118,17 +119,20 @@ export interface DescribeDocumentCommandOutput extends DescribeDocumentResult, _
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidDocument} (client fault)
- *  <p>The specified SSM document doesn't exist.</p>
+ *
+ * The specified SSM document doesn't exist.
  *
  * @throws {@link InvalidDocumentVersion} (client fault)
- *  <p>The document version isn't valid or doesn't exist.</p>
+ *
+ * The document version isn't valid or doesn't exist.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

@@ -26,10 +26,10 @@ export interface ModifyTrafficMirrorFilterNetworkServicesCommandInput extends Mo
 export interface ModifyTrafficMirrorFilterNetworkServicesCommandOutput extends ModifyTrafficMirrorFilterNetworkServicesResult, __MetadataBearer {}
 
 /**
- * <p>Allows or restricts mirroring network services.</p>
- *          <p> By default, Amazon DNS network services are not eligible for Traffic Mirror. Use <code>AddNetworkServices</code> to add network services to a Traffic Mirror filter. When a network service is added to the Traffic Mirror filter, all traffic related to that network service will be mirrored.
- *          When you no longer want to mirror network services, use <code>RemoveNetworkServices</code> to remove the network services from the Traffic Mirror filter.
- *       </p>
+ * Allows or restricts mirroring network services.
+ *
+ * By default, Amazon DNS network services are not eligible for Traffic Mirror. Use `AddNetworkServices` to add network services to a Traffic Mirror filter. When a network service is added to the Traffic Mirror filter, all traffic related to that network service will be mirrored. When you no longer want to mirror network services, use `RemoveNetworkServices` to remove the network services from the Traffic Mirror filter.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -129,8 +129,8 @@ export interface ModifyTrafficMirrorFilterNetworkServicesCommandOutput extends M
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

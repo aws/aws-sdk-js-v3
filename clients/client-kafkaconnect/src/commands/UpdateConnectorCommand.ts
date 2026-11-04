@@ -23,7 +23,8 @@ export interface UpdateConnectorCommandInput extends UpdateConnectorRequest {}
 export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the specified connector. In the request body, you can update either the connector's worker setting or its connector configuration, but not both in the same request. To update the worker setting, specify one or more of <code>capacity</code>, <code>plugins</code>, <code>workerConfiguration</code>, or <code>useDefaultWorkerConfiguration</code>. To update the connector configuration, specify only <code>connectorConfiguration</code>.</p>
+ * Updates the specified connector. In the request body, you can update either the connector's worker setting or its connector configuration, but not both in the same request. To update the worker setting, specify one or more of `capacity`, `plugins`, `workerConfiguration`, or `useDefaultWorkerConfiguration`. To update the connector configuration, specify only `connectorConfiguration`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,29 +89,36 @@ export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, _
  * @see {@link KafkaConnectClientResolvedConfig | config} for KafkaConnectClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>HTTP Status Code 400: Bad request due to incorrect input. Correct your request and then retry it.</p>
+ *
+ * HTTP Status Code 400: Bad request due to incorrect input. Correct your request and then retry it.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>HTTP Status Code 403: Access forbidden. Correct your credentials and then retry your request.</p>
+ *
+ * HTTP Status Code 403: Access forbidden. Correct your credentials and then retry your request.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>HTTP Status Code 500: Unexpected internal server error. Retrying your request might resolve the issue.</p>
+ *
+ * HTTP Status Code 500: Unexpected internal server error. Retrying your request might resolve the issue.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>HTTP Status Code 404: Resource not found due to incorrect input. Correct your request and then retry it.</p>
+ *
+ * HTTP Status Code 404: Resource not found due to incorrect input. Correct your request and then retry it.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>HTTP Status Code 503: Service Unavailable. Retrying your request in some time might resolve the issue.</p>
+ *
+ * HTTP Status Code 503: Service Unavailable. Retrying your request in some time might resolve the issue.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>HTTP Status Code 429: Limit exceeded. Resource limit reached.</p>
+ *
+ * HTTP Status Code 429: Limit exceeded. Resource limit reached.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be validated.</p>
+ *
+ * HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be validated.
  *
  * @throws {@link KafkaConnectServiceException}
- * <p>Base exception class for all service exceptions from KafkaConnect service.</p>
  *
+ * Base exception class for all service exceptions from KafkaConnect service.
  *
  * @public
  */

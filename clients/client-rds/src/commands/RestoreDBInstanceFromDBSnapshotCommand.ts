@@ -23,7 +23,16 @@ export interface RestoreDBInstanceFromDBSnapshotCommandInput extends RestoreDBIn
 export interface RestoreDBInstanceFromDBSnapshotCommandOutput extends RestoreDBInstanceFromDBSnapshotResult, __MetadataBearer {}
 
 /**
- * <p>Creates a new DB instance from a DB snapshot. The target database is created from the source database restore point with most of the source's original configuration, including the default security group and DB parameter group. By default, the new DB instance is created as a Single-AZ deployment, except when the instance is a SQL Server instance that has an option group associated with mirroring. In this case, the instance becomes a Multi-AZ deployment, not a Single-AZ deployment.</p> <p>If you want to replace your original DB instance with the new, restored DB instance, then rename your original DB instance before you call the <code>RestoreDBInstanceFromDBSnapshot</code> operation. RDS doesn't allow two DB instances with the same name. After you have renamed your original DB instance with a different identifier, then you can pass the original name of the DB instance as the <code>DBInstanceIdentifier</code> in the call to the <code>RestoreDBInstanceFromDBSnapshot</code> operation. The result is that you replace the original DB instance with the DB instance created from the snapshot.</p> <p>If you are restoring from a shared manual DB snapshot, the <code>DBSnapshotIdentifier</code> must be the ARN of the shared DB snapshot.</p> <p>To restore from a DB snapshot with an unsupported engine version, you must first upgrade the engine version of the snapshot. For more information about upgrading a RDS for MySQL DB snapshot engine version, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/mysql-upgrade-snapshot.html">Upgrading a MySQL DB snapshot engine version</a>. For more information about upgrading a RDS for PostgreSQL DB snapshot engine version, <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBSnapshot.PostgreSQL.html">Upgrading a PostgreSQL DB snapshot engine version</a>.</p> <note> <p>This command doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora, use <code>RestoreDBClusterFromSnapshot</code>.</p> </note>
+ * Creates a new DB instance from a DB snapshot. The target database is created from the source database restore point with most of the source's original configuration, including the default security group and DB parameter group. By default, the new DB instance is created as a Single-AZ deployment, except when the instance is a SQL Server instance that has an option group associated with mirroring. In this case, the instance becomes a Multi-AZ deployment, not a Single-AZ deployment.
+ *
+ * If you want to replace your original DB instance with the new, restored DB instance, then rename your original DB instance before you call the `RestoreDBInstanceFromDBSnapshot` operation. RDS doesn't allow two DB instances with the same name. After you have renamed your original DB instance with a different identifier, then you can pass the original name of the DB instance as the `DBInstanceIdentifier` in the call to the `RestoreDBInstanceFromDBSnapshot` operation. The result is that you replace the original DB instance with the DB instance created from the snapshot.
+ *
+ * If you are restoring from a shared manual DB snapshot, the `DBSnapshotIdentifier` must be the ARN of the shared DB snapshot.
+ *
+ * To restore from a DB snapshot with an unsupported engine version, you must first upgrade the engine version of the snapshot. For more information about upgrading a RDS for MySQL DB snapshot engine version, see [Upgrading a MySQL DB snapshot engine version](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/mysql-upgrade-snapshot.html). For more information about upgrading a RDS for PostgreSQL DB snapshot engine version, [Upgrading a PostgreSQL DB snapshot engine version](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBSnapshot.PostgreSQL.html).
+ *
+ * > **Note:** This command doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora, use `RestoreDBClusterFromSnapshot`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -387,92 +396,118 @@ export interface RestoreDBInstanceFromDBSnapshotCommandOutput extends RestoreDBI
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link AuthorizationNotFoundFault} (client fault)
- *  <p>The specified CIDR IP range or Amazon EC2 security group might not be authorized for the specified DB security group.</p> <p>Or, RDS might not be authorized to perform necessary actions using IAM on your behalf.</p>
+ *
+ * The specified CIDR IP range or Amazon EC2 security group might not be authorized for the specified DB security group.
+ *
+ * Or, RDS might not be authorized to perform necessary actions using IAM on your behalf.
  *
  * @throws {@link BackupPolicyNotFoundFault} (client fault)
- *  <p/>
  *
  * @throws {@link CertificateNotFoundFault} (client fault)
- *  <p> <code>CertificateIdentifier</code> doesn't refer to an existing certificate.</p>
+ *
+ * `CertificateIdentifier` doesn't refer to an existing certificate.
  *
  * @throws {@link DBCapacityReservationNotFoundFault} (client fault)
- *  <p> <code>DBCapacityReservationIdentifier</code> doesn't refer to an existing DB capacity reservation.</p>
+ *
+ * `DBCapacityReservationIdentifier` doesn't refer to an existing DB capacity reservation.
  *
  * @throws {@link DBClusterSnapshotNotFoundFault} (client fault)
- *  <p> <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing DB cluster snapshot.</p>
+ *
+ * `DBClusterSnapshotIdentifier` doesn't refer to an existing DB cluster snapshot.
  *
  * @throws {@link DBInstanceAlreadyExistsFault} (client fault)
- *  <p>The user already has a DB instance with the given identifier.</p>
+ *
+ * The user already has a DB instance with the given identifier.
  *
  * @throws {@link DBParameterGroupNotFoundFault} (client fault)
- *  <p> <code>DBParameterGroupName</code> doesn't refer to an existing DB parameter group.</p>
+ *
+ * `DBParameterGroupName` doesn't refer to an existing DB parameter group.
  *
  * @throws {@link DBSecurityGroupNotFoundFault} (client fault)
- *  <p> <code>DBSecurityGroupName</code> doesn't refer to an existing DB security group.</p>
+ *
+ * `DBSecurityGroupName` doesn't refer to an existing DB security group.
  *
  * @throws {@link DBSnapshotNotFoundFault} (client fault)
- *  <p> <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
+ *
+ * `DBSnapshotIdentifier` doesn't refer to an existing DB snapshot.
  *
  * @throws {@link DBSubnetGroupDoesNotCoverEnoughAZs} (client fault)
- *  <p>Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
+ *
+ * Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.
  *
  * @throws {@link DBSubnetGroupNotFoundFault} (client fault)
- *  <p> <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.</p>
+ *
+ * `DBSubnetGroupName` doesn't refer to an existing DB subnet group.
  *
  * @throws {@link DomainNotFoundFault} (client fault)
- *  <p> <code>Domain</code> doesn't refer to an existing Active Directory domain.</p>
+ *
+ * `Domain` doesn't refer to an existing Active Directory domain.
  *
  * @throws {@link InstanceQuotaExceededFault} (client fault)
- *  <p>The request would result in the user exceeding the allowed number of DB instances.</p>
+ *
+ * The request would result in the user exceeding the allowed number of DB instances.
  *
  * @throws {@link InsufficientDBInstanceCapacityFault} (client fault)
- *  <p>The specified DB instance class isn't available in the specified Availability Zone.</p>
+ *
+ * The specified DB instance class isn't available in the specified Availability Zone.
  *
  * @throws {@link InvalidDBCapacityReservationStateFault} (client fault)
- *  <p>The DB capacity reservation isn't in a valid state.</p>
+ *
+ * The DB capacity reservation isn't in a valid state.
  *
  * @throws {@link InvalidDBSnapshotStateFault} (client fault)
- *  <p>The state of the DB snapshot doesn't allow deletion.</p>
+ *
+ * The state of the DB snapshot doesn't allow deletion.
  *
  * @throws {@link InvalidRestoreFault} (client fault)
- *  <p>Cannot restore from VPC backup to non-VPC DB instance.</p>
+ *
+ * Cannot restore from VPC backup to non-VPC DB instance.
  *
  * @throws {@link InvalidSubnet} (client fault)
- *  <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
+ *
+ * The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.
  *
  * @throws {@link InvalidVPCNetworkStateFault} (client fault)
- *  <p>The DB subnet group doesn't cover all Availability Zones after it's created because of users' change.</p>
+ *
+ * The DB subnet group doesn't cover all Availability Zones after it's created because of users' change.
  *
  * @throws {@link KMSKeyNotAccessibleFault} (client fault)
- *  <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+ *
+ * An error occurred accessing an Amazon Web Services KMS key.
  *
  * @throws {@link NetworkTypeNotSupported} (client fault)
- *  <p>The network type is invalid for the DB instance. Valid nework type values are <code>IPV4</code> and <code>DUAL</code>.</p>
+ *
+ * The network type is invalid for the DB instance. Valid nework type values are `IPV4` and `DUAL`.
  *
  * @throws {@link OptionGroupNotFoundFault} (client fault)
- *  <p>The specified option group could not be found.</p>
+ *
+ * The specified option group could not be found.
  *
  * @throws {@link ProvisionedIopsNotAvailableInAZFault} (client fault)
- *  <p>Provisioned IOPS not available in the specified Availability Zone.</p>
+ *
+ * Provisioned IOPS not available in the specified Availability Zone.
  *
  * @throws {@link StorageQuotaExceededFault} (client fault)
- *  <p>The request would result in the user exceeding the allowed amount of storage available across all DB instances.</p>
+ *
+ * The request would result in the user exceeding the allowed amount of storage available across all DB instances.
  *
  * @throws {@link StorageTypeNotSupportedFault} (client fault)
- *  <p>The specified <code>StorageType</code> can't be associated with the DB instance.</p>
+ *
+ * The specified `StorageType` can't be associated with the DB instance.
  *
  * @throws {@link TenantDatabaseQuotaExceededFault} (client fault)
- *  <p>You attempted to create more tenant databases than are permitted in your Amazon Web Services account.</p>
+ *
+ * You attempted to create more tenant databases than are permitted in your Amazon Web Services account.
  *
  * @throws {@link VpcEncryptionControlViolationException} (client fault)
- *  <p>The operation violates VPC encryption control settings. Make sure that your DB instance type supports the Nitro encryption-in-transit capability, or modify your VPC's encryption controls to not enforce encryption-in-transit.</p>
+ *
+ * The operation violates VPC encryption control settings. Make sure that your DB instance type supports the Nitro encryption-in-transit capability, or modify your VPC's encryption controls to not enforce encryption-in-transit.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
- * @example To restore a DB instance from a DB snapshot
- * ```javascript
+ * @example To restore a DB instance from a DB snapshot```javascript
  * // The following example creates a new DB instance named db7-new-instance with the db.t3.small DB instance class from the specified DB snapshot. The source DB instance from which the snapshot was taken uses a deprecated DB instance class, so you can't upgrade it.
  * const input = {
  *   DBInstanceClass: "db.t3.small",

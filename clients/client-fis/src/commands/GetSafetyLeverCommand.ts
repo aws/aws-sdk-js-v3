@@ -23,9 +23,8 @@ export interface GetSafetyLeverCommandInput extends GetSafetyLeverRequest {}
 export interface GetSafetyLeverCommandOutput extends GetSafetyLeverResponse, __MetadataBearer {}
 
 /**
- * <p>
- *          Gets information about the specified safety lever.
- *       </p>
+ * Gets information about the specified safety lever.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,11 +58,12 @@ export interface GetSafetyLeverCommandOutput extends GetSafetyLeverResponse, __M
  * @see {@link FisClientResolvedConfig | config} for FisClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource cannot be found.</p>
+ *
+ * The specified resource cannot be found.
  *
  * @throws {@link FisServiceException}
- * <p>Base exception class for all service exceptions from Fis service.</p>
  *
+ * Base exception class for all service exceptions from Fis service.
  *
  * @public
  */

@@ -23,16 +23,10 @@ export interface CreateSMSSandboxPhoneNumberCommandInput extends CreateSMSSandbo
 export interface CreateSMSSandboxPhoneNumberCommandOutput extends CreateSMSSandboxPhoneNumberResult, __MetadataBearer {}
 
 /**
- * <p>Adds a destination phone number to an Amazon Web Services account in the SMS sandbox and sends a
- *             one-time password (OTP) to that phone number.</p>
- *          <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the
- *                 <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for
- *                 you to try Amazon SNS features without risking your reputation as an SMS sender. While your
- *                 Amazon Web Services account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send
- *                 SMS messages only to verified destination phone numbers. For more information, including how to
- *                 move out of the sandbox to send messages without restrictions,
- *                 see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS sandbox</a> in
- *                 the <i>Amazon SNS Developer Guide</i>.</p>
+ * Adds a destination phone number to an Amazon Web Services account in the SMS sandbox and sends a one-time password (OTP) to that phone number.
+ *
+ * When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the *SMS sandbox*. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your Amazon Web Services account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see [SMS sandbox](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html) in the *Amazon SNS Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,29 +52,32 @@ export interface CreateSMSSandboxPhoneNumberCommandOutput extends CreateSMSSandb
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
  *
  * @throws {@link AuthorizationErrorException} (client fault)
- *  <p>Indicates that the user has been denied access to the requested resource.</p>
+ *
+ * Indicates that the user has been denied access to the requested resource.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>Indicates an internal service error.</p>
+ *
+ * Indicates an internal service error.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Indicates that a request parameter does not comply with the associated
- *             constraints.</p>
+ *
+ * Indicates that a request parameter does not comply with the associated constraints.
  *
  * @throws {@link OptedOutException} (client fault)
- *  <p>Indicates that the specified phone number opted out of receiving SMS messages from
- *             your Amazon Web Services account. You can't send SMS messages to phone numbers that opt out.</p>
+ *
+ * Indicates that the specified phone number opted out of receiving SMS messages from your Amazon Web Services account. You can't send SMS messages to phone numbers that opt out.
  *
  * @throws {@link ThrottledException} (client fault)
- *  <p>Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.</p>
+ *
+ * Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.
  *
  * @throws {@link UserErrorException} (client fault)
- *  <p>Indicates that a request parameter does not comply with the associated
- *             constraints.</p>
+ *
+ * Indicates that a request parameter does not comply with the associated constraints.
  *
  * @throws {@link SNSServiceException}
- * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * Base exception class for all service exceptions from SNS service.
  *
  * @public
  */

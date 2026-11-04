@@ -23,10 +23,10 @@ export interface GetDefaultCreditSpecificationCommandInput extends GetDefaultCre
 export interface GetDefaultCreditSpecificationCommandOutput extends GetDefaultCreditSpecificationResult, __MetadataBearer {}
 
 /**
- * <p>Describes the default credit option for CPU usage of a burstable performance instance
- *             family.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
- *                 performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * Describes the default credit option for CPU usage of a burstable performance instance family.
+ *
+ * For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,8 +57,8 @@ export interface GetDefaultCreditSpecificationCommandOutput extends GetDefaultCr
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

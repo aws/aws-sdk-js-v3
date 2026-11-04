@@ -23,9 +23,10 @@ export interface DescribeIpamsCommandInput extends DescribeIpamsRequest {}
 export interface DescribeIpamsCommandOutput extends DescribeIpamsResult, __MetadataBearer {}
 
 /**
- * <p>Get information about your IPAM pools.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.
- *       </p>
+ * Get information about your IPAM pools.
+ *
+ * For more information, see [What is IPAM?](https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -96,8 +97,8 @@ export interface DescribeIpamsCommandOutput extends DescribeIpamsResult, __Metad
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

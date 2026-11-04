@@ -23,12 +23,8 @@ export interface ListStepsCommandInput extends ListStepsInput {}
 export interface ListStepsCommandOutput extends ListStepsOutput, __MetadataBearer {}
 
 /**
- * <p>Provides a list of steps for the cluster in reverse order unless you specify
- *             <code>stepIds</code> with the request or filter by <code>StepStates</code>. You can
- *          specify a maximum of 10 <code>stepIDs</code>. The CLI automatically
- *          paginates results to return a list greater than 50 steps. To return more than 50 steps
- *          using the CLI, specify a <code>Marker</code>, which is a pagination token
- *          that indicates the next set of steps to retrieve.</p>
+ * Provides a list of steps for the cluster in reverse order unless you specify `stepIds` with the request or filter by `StepStates`. You can specify a maximum of 10 `stepIDs`. The CLI automatically paginates results to return a list greater than 50 steps. To return more than 50 steps using the CLI, specify a `Marker`, which is a pagination token that indicates the next set of steps to retrieve.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -98,15 +94,16 @@ export interface ListStepsCommandOutput extends ListStepsOutput, __MetadataBeare
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Amazon EMR
- *          service.</p>
+ *
+ * This exception occurs when there is an internal failure in the Amazon EMR service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>This exception occurs when there is something wrong with user input.</p>
+ *
+ * This exception occurs when there is something wrong with user input.
  *
  * @throws {@link EMRServiceException}
- * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * Base exception class for all service exceptions from EMR service.
  *
  * @public
  */

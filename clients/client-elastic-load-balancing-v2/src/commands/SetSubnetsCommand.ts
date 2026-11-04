@@ -23,9 +23,8 @@ export interface SetSubnetsCommandInput extends SetSubnetsInput {}
 export interface SetSubnetsCommandOutput extends SetSubnetsOutput, __MetadataBearer {}
 
 /**
- * <p>Enables the Availability Zones for the specified public subnets for the specified
- *       Application Load Balancer, Network Load Balancer or Gateway Load Balancer. The specified subnets
- *       replace the previously enabled subnets.</p>
+ * Enables the Availability Zones for the specified public subnets for the specified Application Load Balancer, Network Load Balancer or Gateway Load Balancer. The specified subnets replace the previously enabled subnets.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,29 +84,36 @@ export interface SetSubnetsCommandOutput extends SetSubnetsOutput, __MetadataBea
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
  * @throws {@link AllocationIdNotFoundException} (client fault)
- *  <p>The specified allocation ID does not exist.</p>
+ *
+ * The specified allocation ID does not exist.
  *
  * @throws {@link AvailabilityZoneNotSupportedException} (client fault)
- *  <p>The specified Availability Zone is not supported.</p>
+ *
+ * The specified Availability Zone is not supported.
  *
  * @throws {@link CapacityReservationPendingException} (client fault)
- *  <p>There is a pending capacity reservation.</p>
+ *
+ * There is a pending capacity reservation.
  *
  * @throws {@link InvalidConfigurationRequestException} (client fault)
- *  <p>The requested configuration is not valid.</p>
+ *
+ * The requested configuration is not valid.
  *
  * @throws {@link InvalidSubnetException} (client fault)
- *  <p>The specified subnet is out of available addresses.</p>
+ *
+ * The specified subnet is out of available addresses.
  *
  * @throws {@link LoadBalancerNotFoundException} (client fault)
- *  <p>The specified load balancer does not exist.</p>
+ *
+ * The specified load balancer does not exist.
  *
  * @throws {@link SubnetNotFoundException} (client fault)
- *  <p>The specified subnet does not exist.</p>
+ *
+ * The specified subnet does not exist.
  *
  * @throws {@link ElasticLoadBalancingV2ServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancingV2 service.
  *
  * @example To enable Availability Zones for a load balancer
  * ```javascript

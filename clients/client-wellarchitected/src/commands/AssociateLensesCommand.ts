@@ -23,7 +23,16 @@ export interface AssociateLensesCommandInput extends AssociateLensesInput {}
 export interface AssociateLensesCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Associate a lens to a workload.</p> <p>Up to 10 lenses can be associated with a workload in a single API operation. A maximum of 20 lenses can be associated with a workload.</p> <note> <p> <b>Disclaimer</b> </p> <p>By accessing and/or applying custom lenses created by another Amazon Web Services user or account, you acknowledge that custom lenses created by other users and shared with you are Third Party Content as defined in the Amazon Web Services Customer Agreement. </p> </note>
+ * Associate a lens to a workload.
+ *
+ * Up to 10 lenses can be associated with a workload in a single API operation. A maximum of 20 lenses can be associated with a workload.
+ *
+ * > **Note:**
+ * >
+ * > **Disclaimer**
+ * >
+ * > By accessing and/or applying custom lenses created by another Amazon Web Services user or account, you acknowledge that custom lenses created by other users and shared with you are Third Party Content as defined in the Amazon Web Services Customer Agreement.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,26 +60,32 @@ export interface AssociateLensesCommandOutput extends __MetadataBearer {}
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * User does not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The resource has already been processed, was deleted, or is too large.</p>
+ *
+ * The resource has already been processed, was deleted, or is too large.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>There is a problem with the Well-Architected Tool API service.</p>
+ *
+ * There is a problem with the Well-Architected Tool API service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource was not found.</p>
+ *
+ * The requested resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Request was denied due to request throttling.</p>
+ *
+ * Request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The user input is not valid.</p>
+ *
+ * The user input is not valid.
  *
  * @throws {@link WellArchitectedServiceException}
- * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ * Base exception class for all service exceptions from WellArchitected service.
  *
  * @public
  */

@@ -23,8 +23,8 @@ export interface GetSessionCommandInput extends GetSessionRequest {}
 export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataBearer {}
 
 /**
- * <p>Returns session information for a specified bot, alias, and user
- *       ID.</p>
+ * Returns session information for a specified bot, alias, and user ID.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,23 +91,24 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * @see {@link LexRuntimeServiceClientResolvedConfig | config} for LexRuntimeServiceClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p> Request validation failed, there is no usable message in the context,
- *       or the bot build failed, is still in progress, or contains unbuilt
- *       changes. </p>
+ *
+ * Request validation failed, there is no usable message in the context, or the bot build failed, is still in progress, or contains unbuilt changes.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>Internal service error. Retry the call.</p>
+ *
+ * Internal service error. Retry the call.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>Exceeded a limit.</p>
+ *
+ * Exceeded a limit.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource (such as the Amazon Lex bot or an alias) that is referred
- *       to is not found.</p>
+ *
+ * The resource (such as the Amazon Lex bot or an alias) that is referred to is not found.
  *
  * @throws {@link LexRuntimeServiceServiceException}
- * <p>Base exception class for all service exceptions from LexRuntimeService service.</p>
  *
+ * Base exception class for all service exceptions from LexRuntimeService service.
  *
  * @public
  */

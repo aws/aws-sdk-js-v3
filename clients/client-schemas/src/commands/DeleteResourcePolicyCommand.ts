@@ -23,7 +23,8 @@ export interface DeleteResourcePolicyCommandInput extends DeleteResourcePolicyRe
 export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Delete the resource-based policy attached to the specified registry.</p>
+ * Delete the resource-based policy attached to the specified registry.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,8 +61,8 @@ export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *
  * @throws {@link SchemasServiceException}
- * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
+ * Base exception class for all service exceptions from Schemas service.
  *
  * @public
  */

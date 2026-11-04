@@ -23,7 +23,8 @@ export interface UpdateDirectorySetupCommandInput extends UpdateDirectorySetupRe
 export interface UpdateDirectorySetupCommandOutput extends UpdateDirectorySetupResult, __MetadataBearer {}
 
 /**
- * <p>Updates directory configuration for the specified update type.</p>
+ * Updates directory configuration for the specified update type.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,37 +63,44 @@ export interface UpdateDirectorySetupCommandOutput extends UpdateDirectorySetupR
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>A client exception has occurred.</p>
+ *
+ * A client exception has occurred.
  *
  * @throws {@link DirectoryDoesNotExistException} (client fault)
- *  <p>The specified directory does not exist in the system.</p>
+ *
+ * The specified directory does not exist in the system.
  *
  * @throws {@link DirectoryInDesiredStateException} (client fault)
- *  <p> The directory is already updated to desired update type settings. </p>
+ *
+ * The directory is already updated to desired update type settings.
  *
  * @throws {@link DirectoryUnavailableException} (client fault)
- *  <p>The specified directory is unavailable.</p>
+ *
+ * The specified directory is unavailable.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * An exception has occurred in Directory Service.
  *
  * @throws {@link SnapshotLimitExceededException} (client fault)
- *  <p>The maximum number of manual snapshots for the directory has been reached. You can
- *             use the <a>GetSnapshotLimits</a> operation to determine the snapshot limits
- *             for a directory.</p>
+ *
+ * The maximum number of manual snapshots for the directory has been reached. You can use the GetSnapshotLimits operation to determine the snapshot limits for a directory.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>The operation is not supported.</p>
+ *
+ * The operation is not supported.
  *
  * @throws {@link DirectoryServiceServiceException}
- * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * Base exception class for all service exceptions from DirectoryService service.
  *
  * @public
  */

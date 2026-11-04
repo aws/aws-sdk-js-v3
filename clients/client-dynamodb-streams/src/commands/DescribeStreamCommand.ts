@@ -23,15 +23,12 @@ export interface DescribeStreamCommandInput extends DescribeStreamInput {}
 export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __MetadataBearer {}
 
 /**
- * <p>Returns information about a stream, including the current status of the stream, its Amazon Resource Name (ARN), the composition of its shards, and its corresponding DynamoDB table.</p>
- *          <note>
- *             <p>You can call <code>DescribeStream</code> at a maximum rate of 10 times per second.</p>
- *          </note>
- *          <p>Each shard in the stream has a <code>SequenceNumberRange</code> associated with it. If the
- *         <code>SequenceNumberRange</code> has a <code>StartingSequenceNumber</code> but no
- *         <code>EndingSequenceNumber</code>, then the shard is still open (able to receive more stream
- *       records). If both <code>StartingSequenceNumber</code> and <code>EndingSequenceNumber</code>
- *       are present, then that shard is closed and can no longer receive more data.</p>
+ * Returns information about a stream, including the current status of the stream, its Amazon Resource Name (ARN), the composition of its shards, and its corresponding DynamoDB table.
+ *
+ * > **Note:** You can call `DescribeStream` at a maximum rate of 10 times per second.
+ *
+ * Each shard in the stream has a `SequenceNumberRange` associated with it. If the `SequenceNumberRange` has a `StartingSequenceNumber` but no `EndingSequenceNumber`, then the shard is still open (able to receive more stream records). If both `StartingSequenceNumber` and `EndingSequenceNumber` are present, then that shard is closed and can no longer receive more data.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,16 +85,16 @@ export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __Met
  * @see {@link DynamoDBStreamsClientResolvedConfig | config} for DynamoDBStreamsClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The operation tried to access a nonexistent table or index. The resource
- *             might not be specified correctly, or its status might not be
- *             <code>ACTIVE</code>.</p>
+ *
+ * The operation tried to access a nonexistent table or index. The resource might not be specified correctly, or its status might not be `ACTIVE`.
  *
  * @throws {@link DynamoDBStreamsServiceException}
- * <p>Base exception class for all service exceptions from DynamoDBStreams service.</p>
  *
+ * Base exception class for all service exceptions from DynamoDBStreams service.
  *
  * @public
  */

@@ -23,7 +23,12 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the tags associated with an ACM resource.</p> <note> <p>Use this action for all ACM resource types except the <code>certificate</code> resource type. For certificate resources, use <a>ListTagsForCertificate</a> instead.</p> </note> <p>To add one or more tags, use the <a>TagResource</a> action. To remove one or more tags, use the <a>UntagResource</a> action.</p>
+ * Lists the tags associated with an ACM resource.
+ *
+ * > **Note:** Use this action for all ACM resource types except the `certificate` resource type. For certificate resources, use ListTagsForCertificate instead.
+ *
+ * To add one or more tags, use the TagResource action. To remove one or more tags, use the UntagResource action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,14 +60,16 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified certificate cannot be found in the caller's account or the caller's account cannot be found.</p>
+ *
+ * The specified certificate cannot be found in the caller's account or the caller's account cannot be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The supplied input failed to satisfy constraints of an Amazon Web Services service.</p>
+ *
+ * The supplied input failed to satisfy constraints of an Amazon Web Services service.
  *
  * @throws {@link ACMServiceException}
- * <p>Base exception class for all service exceptions from ACM service.</p>
  *
+ * Base exception class for all service exceptions from ACM service.
  *
  * @public
  */

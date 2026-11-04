@@ -26,7 +26,8 @@ export interface GetTransitGatewayMeteringPolicyEntriesCommandInput extends GetT
 export interface GetTransitGatewayMeteringPolicyEntriesCommandOutput extends GetTransitGatewayMeteringPolicyEntriesResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves the entries for a transit gateway metering policy.</p>
+ * Retrieves the entries for a transit gateway metering policy.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,8 +85,8 @@ export interface GetTransitGatewayMeteringPolicyEntriesCommandOutput extends Get
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

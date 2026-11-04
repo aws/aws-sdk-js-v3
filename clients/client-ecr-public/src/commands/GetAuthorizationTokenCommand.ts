@@ -23,11 +23,8 @@ export interface GetAuthorizationTokenCommandInput extends GetAuthorizationToken
 export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationTokenResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves an authorization token. An authorization token represents your IAM
- *          authentication credentials. You can use it to access any Amazon ECR registry that your IAM
- *          principal has access to. The authorization token is valid for 12 hours. This API requires
- *          the <code>ecr-public:GetAuthorizationToken</code> and
- *             <code>sts:GetServiceBearerToken</code> permissions.</p>
+ * Retrieves an authorization token. An authorization token represents your IAM authentication credentials. You can use it to access any Amazon ECR registry that your IAM principal has access to. The authorization token is valid for 12 hours. This API requires the `ecr-public:GetAuthorizationToken` and `sts:GetServiceBearerToken` permissions.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,18 +52,20 @@ export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationToke
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *          request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link UnsupportedCommandException} (client fault)
- *  <p>The action isn't supported in this Region.</p>
+ *
+ * The action isn't supported in this Region.
  *
  * @throws {@link ECRPUBLICServiceException}
- * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
+ * Base exception class for all service exceptions from ECRPUBLIC service.
  *
  * @public
  */

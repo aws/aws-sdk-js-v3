@@ -23,10 +23,10 @@ export interface GetDefaultPatchBaselineCommandInput extends GetDefaultPatchBase
 export interface GetDefaultPatchBaselineCommandOutput extends GetDefaultPatchBaselineResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves the default patch baseline. Amazon Web Services Systems Manager supports creating multiple default patch
- *    baselines. For example, you can create a default patch baseline for each operating system.</p>
- *          <p>If you don't specify an operating system value, the default patch baseline for Windows is
- *    returned.</p>
+ * Retrieves the default patch baseline. Amazon Web Services Systems Manager supports creating multiple default patch baselines. For example, you can create a default patch baseline for each operating system.
+ *
+ * If you don't specify an operating system value, the default patch baseline for Windows is returned.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,11 +54,12 @@ export interface GetDefaultPatchBaselineCommandOutput extends GetDefaultPatchBas
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface GetCommitCommandInput extends GetCommitInput {}
 export interface GetCommitCommandOutput extends GetCommitOutput, __MetadataBearer {}
 
 /**
- * <p>Returns information about a commit, including commit message and committer information.</p>
+ * Returns information about a commit, including commit message and committer information.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,46 +70,54 @@ export interface GetCommitCommandOutput extends GetCommitOutput, __MetadataBeare
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  * @throws {@link CommitIdDoesNotExistException} (client fault)
- *  <p>The specified commit ID does not exist.</p>
+ *
+ * The specified commit ID does not exist.
  *
  * @throws {@link CommitIdRequiredException} (client fault)
- *  <p>A commit ID was not specified.</p>
+ *
+ * A commit ID was not specified.
  *
  * @throws {@link EncryptionIntegrityChecksFailedException} (server fault)
- *  <p>An encryption integrity check failed.</p>
+ *
+ * An encryption integrity check failed.
  *
  * @throws {@link EncryptionKeyAccessDeniedException} (client fault)
- *  <p>An encryption key could not be accessed.</p>
+ *
+ * An encryption key could not be accessed.
  *
  * @throws {@link EncryptionKeyDisabledException} (client fault)
- *  <p>The encryption key is disabled.</p>
+ *
+ * The encryption key is disabled.
  *
  * @throws {@link EncryptionKeyNotFoundException} (client fault)
- *  <p>No encryption key was found.</p>
+ *
+ * No encryption key was found.
  *
  * @throws {@link EncryptionKeyUnavailableException} (client fault)
- *  <p>The encryption key is not available.</p>
+ *
+ * The encryption key is not available.
  *
  * @throws {@link InvalidCommitIdException} (client fault)
- *  <p>The specified commit ID is not valid.</p>
+ *
+ * The specified commit ID is not valid.
  *
  * @throws {@link InvalidRepositoryNameException} (client fault)
- *  <p>A specified repository name is not valid.</p>
- *          <note>
- *             <p>This exception occurs only when a specified repository name is not valid. Other
- *                 exceptions occur when a required repository parameter is missing, or when a
- *                 specified repository does not exist.</p>
- *          </note>
+ *
+ * A specified repository name is not valid.
+ *
+ * > **Note:** This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.
  *
  * @throws {@link RepositoryDoesNotExistException} (client fault)
- *  <p>The specified repository does not exist.</p>
+ *
+ * The specified repository does not exist.
  *
  * @throws {@link RepositoryNameRequiredException} (client fault)
- *  <p>A repository name is required, but was not specified.</p>
+ *
+ * A repository name is required, but was not specified.
  *
  * @throws {@link CodeCommitServiceException}
- * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * Base exception class for all service exceptions from CodeCommit service.
  *
  * @public
  */

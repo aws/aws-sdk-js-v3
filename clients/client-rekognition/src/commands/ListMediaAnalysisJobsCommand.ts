@@ -23,14 +23,14 @@ export interface ListMediaAnalysisJobsCommandInput extends ListMediaAnalysisJobs
 export interface ListMediaAnalysisJobsCommandOutput extends ListMediaAnalysisJobsResponse, __MetadataBearer {}
 
 /**
- * <important>
- *             <p>Service availability notice: Streaming Video and Bulk Image Analysis is no longer available to new customers. For more information, see
- * <a href="https://docs.aws.amazon.com/rekognition/latest/dg/rekognition-availability-changes.html">Rekognition feature availability changes</a>.</p>
- *             <p>
- *                <b>This change does not impact the availability of other Amazon Rekognition features.</b>
- *             </p>
- *          </important>
- *          <p>Returns a list of media analysis jobs. Results are sorted by <code>CreationTimestamp</code> in descending order.</p>
+ * > **Important:**
+ * >
+ * > Service availability notice: Streaming Video and Bulk Image Analysis is no longer available to new customers. For more information, see [Rekognition feature availability changes](https://docs.aws.amazon.com/rekognition/latest/dg/rekognition-availability-changes.html).
+ * >
+ * > **This change does not impact the availability of other Amazon Rekognition features.**
+ *
+ * Returns a list of media analysis jobs. Results are sorted by `CreationTimestamp` in descending order.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -106,28 +106,32 @@ export interface ListMediaAnalysisJobsCommandOutput extends ListMediaAnalysisJob
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You are not authorized to perform the action.</p>
+ *
+ * You are not authorized to perform the action.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * Amazon Rekognition experienced a service issue. Try your call again.
  *
  * @throws {@link InvalidPaginationTokenException} (client fault)
- *  <p>Pagination token in the request is not valid.</p>
+ *
+ * Pagination token in the request is not valid.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
- *       operation again.</p>
+ *
+ * Input parameter violated a constraint. Validate your parameter before calling the API operation again.
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
- *  <p>The number of requests exceeded your throughput limit. If you want to increase this
- *       limit, contact Amazon Rekognition.</p>
+ *
+ * The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.
  *
  * @throws {@link ThrottlingException} (server fault)
- *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
+ * Amazon Rekognition is temporarily unable to process the request. Try your call again.
  *
  * @throws {@link RekognitionServiceException}
- * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * Base exception class for all service exceptions from Rekognition service.
  *
  * @public
  */

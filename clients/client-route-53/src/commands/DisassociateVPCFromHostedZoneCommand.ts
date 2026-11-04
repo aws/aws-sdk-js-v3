@@ -23,55 +23,27 @@ export interface DisassociateVPCFromHostedZoneCommandInput extends DisassociateV
 export interface DisassociateVPCFromHostedZoneCommandOutput extends DisassociateVPCFromHostedZoneResponse, __MetadataBearer {}
 
 /**
- * <p>Disassociates an Amazon Virtual Private Cloud (Amazon VPC) from an Amazon Route 53
- * 			private hosted zone. Note the following:</p>
- *          <ul>
- *             <li>
- *                <p>You can't disassociate the last Amazon VPC from a private hosted zone.</p>
- *             </li>
- *             <li>
- *                <p>You can't convert a private hosted zone into a public hosted zone.</p>
- *             </li>
- *             <li>
- *                <p>You can submit a <code>DisassociateVPCFromHostedZone</code> request using
- * 					either the account that created the hosted zone or the account that created the
- * 					Amazon VPC.</p>
- *             </li>
- *             <li>
- *                <p>Some services, such as Cloud Map and Amazon Elastic File System
- * 					(Amazon EFS) automatically create hosted zones and associate VPCs with the
- * 					hosted zones. A service can create a hosted zone using your account or using its
- * 					own account. You can disassociate a VPC from a hosted zone only if the service
- * 					created the hosted zone using your account.</p>
- *                <p>When you run <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHostedZonesByVPC.html">DisassociateVPCFromHostedZone</a>, if the hosted zone has a value for
- * 						<code>OwningAccount</code>, you can use
- * 						<code>DisassociateVPCFromHostedZone</code>. If the hosted zone has a value
- * 					for <code>OwningService</code>, you can't use
- * 						<code>DisassociateVPCFromHostedZone</code>.</p>
- *             </li>
- *          </ul>
- *          <note>
- *             <p>When revoking access, the hosted zone and the Amazon VPC must belong to
- * 				the same partition. A partition is a group of Amazon Web Services Regions. Each
- * 					Amazon Web Services account is scoped to one partition.</p>
- *             <p>The following are the supported partitions:</p>
- *             <ul>
- *                <li>
- *                   <p>
- *                      <code>aws</code> - Amazon Web Services Regions</p>
- *                </li>
- *                <li>
- *                   <p>
- *                      <code>aws-cn</code> - China Regions</p>
- *                </li>
- *                <li>
- *                   <p>
- *                      <code>aws-us-gov</code> - Amazon Web Services GovCloud (US) Region</p>
- *                </li>
- *             </ul>
- *             <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Access Management</a>
- * 				in the <i>Amazon Web Services General Reference</i>.</p>
- *          </note>
+ * Disassociates an Amazon Virtual Private Cloud (Amazon VPC) from an Amazon Route 53 private hosted zone. Note the following:
+ *
+ * - You can't disassociate the last Amazon VPC from a private hosted zone.
+ * - You can't convert a private hosted zone into a public hosted zone.
+ * - You can submit a `DisassociateVPCFromHostedZone` request using either the account that created the hosted zone or the account that created the Amazon VPC.
+ * - Some services, such as Cloud Map and Amazon Elastic File System (Amazon EFS) automatically create hosted zones and associate VPCs with the hosted zones. A service can create a hosted zone using your account or using its own account. You can disassociate a VPC from a hosted zone only if the service created the hosted zone using your account.
+ *
+ *   When you run [DisassociateVPCFromHostedZone](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHostedZonesByVPC.html), if the hosted zone has a value for `OwningAccount`, you can use `DisassociateVPCFromHostedZone`. If the hosted zone has a value for `OwningService`, you can't use `DisassociateVPCFromHostedZone`.
+ *
+ * > **Note:**
+ * >
+ * > When revoking access, the hosted zone and the Amazon VPC must belong to the same partition. A partition is a group of Amazon Web Services Regions. Each Amazon Web Services account is scoped to one partition.
+ * >
+ * > The following are the supported partitions:
+ * >
+ * > - `aws` - Amazon Web Services Regions
+ * > - `aws-cn` - China Regions
+ * > - `aws-us-gov` - Amazon Web Services GovCloud (US) Region
+ * >
+ * > For more information, see [Access Management](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -108,26 +80,28 @@ export interface DisassociateVPCFromHostedZoneCommandOutput extends Disassociate
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link InvalidVPCId} (client fault)
- *  <p>The VPC ID that you specified either isn't a valid ID or the current account is not
- * 			authorized to access this VPC.</p>
+ *
+ * The VPC ID that you specified either isn't a valid ID or the current account is not authorized to access this VPC.
  *
  * @throws {@link LastVPCAssociation} (client fault)
- *  <p>The VPC that you're trying to disassociate from the private hosted zone is the last
- * 			VPC that is associated with the hosted zone. Amazon Route 53 doesn't support
- * 			disassociating the last VPC from a hosted zone.</p>
+ *
+ * The VPC that you're trying to disassociate from the private hosted zone is the last VPC that is associated with the hosted zone. Amazon Route 53 doesn't support disassociating the last VPC from a hosted zone.
  *
  * @throws {@link NoSuchHostedZone} (client fault)
- *  <p>No hosted zone exists with the ID that you specified.</p>
+ *
+ * No hosted zone exists with the ID that you specified.
  *
  * @throws {@link VPCAssociationNotFound} (client fault)
- *  <p>The specified VPC and hosted zone are not currently associated.</p>
+ *
+ * The specified VPC and hosted zone are not currently associated.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @public
  */

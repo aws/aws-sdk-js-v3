@@ -26,7 +26,8 @@ export interface UpdateServiceNetworkVpcAssociationCommandInput extends UpdateSe
 export interface UpdateServiceNetworkVpcAssociationCommandOutput extends UpdateServiceNetworkVpcAssociationResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the service network and VPC association. If you add a security group to the service network and VPC association, the association must continue to have at least one security group. You can add or edit security groups at any time. However, to remove all security groups, you must first delete the association and then recreate it without security groups.</p>
+ * Updates the service network and VPC association. If you add a security group to the service network and VPC association, the association must continue to have at least one security group. You can add or edit security groups at any time. However, to remove all security groups, you must first delete the association and then recreate it without security groups.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,26 +77,32 @@ export interface UpdateServiceNetworkVpcAssociationCommandOutput extends UpdateS
  * @see {@link VPCLatticeClientResolvedConfig | config} for VPCLatticeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The user does not have sufficient access to perform this action.</p>
+ *
+ * The user does not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request conflicts with the current state of the resource. Updating or deleting a resource can cause an inconsistent state.</p>
+ *
+ * The request conflicts with the current state of the resource. Updating or deleting a resource can cause an inconsistent state.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred while processing the request.</p>
+ *
+ * An unexpected error occurred while processing the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request references a resource that does not exist.</p>
+ *
+ * The request references a resource that does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The limit on the number of requests per second was exceeded.</p>
+ *
+ * The limit on the number of requests per second was exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input does not satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link VPCLatticeServiceException}
- * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * Base exception class for all service exceptions from VPCLattice service.
  *
  * @public
  */

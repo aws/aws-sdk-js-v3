@@ -23,11 +23,10 @@ export interface DeleteSnapshotCommandInput extends DeleteSnapshotRequest {}
 export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an Amazon FSx for OpenZFS snapshot. After deletion, the snapshot no longer
- *             exists, and its data is gone. Deleting a snapshot doesn't affect snapshots stored in a
- *             file system backup. </p>
- *          <p>The <code>DeleteSnapshot</code> operation returns instantly. The snapshot appears with
- *             the lifecycle status of <code>DELETING</code> until the deletion is complete.</p>
+ * Deletes an Amazon FSx for OpenZFS snapshot. After deletion, the snapshot no longer exists, and its data is gone. Deleting a snapshot doesn't affect snapshots stored in a file system backup.
+ *
+ * The `DeleteSnapshot` operation returns instantly. The snapshot appears with the lifecycle status of `DELETING` until the deletion is complete.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,17 +55,20 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResponse, __M
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * A generic error indicating a failure with a client request.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * A generic error indicating a server-side failure.
  *
  * @throws {@link SnapshotNotFound} (client fault)
- *  <p>No Amazon FSx snapshots were found based on the supplied parameters.</p>
+ *
+ * No Amazon FSx snapshots were found based on the supplied parameters.
  *
  * @throws {@link FSxServiceException}
- * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * Base exception class for all service exceptions from FSx service.
  *
  * @public
  */

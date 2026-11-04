@@ -23,7 +23,8 @@ export interface ListFunctionsCommandInput extends ListFunctionsRequest {}
 export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves all functions associated with your AWS account in the current Region. For more information about functions, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions.html">Working with functions</a> in the <i>MediaTailor User Guide</i>.</p>
+ * Retrieves all functions associated with your AWS account in the current Region. For more information about functions, see [Working with functions](https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions.html) in the *MediaTailor User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -143,8 +144,8 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __Met
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
  * @throws {@link MediaTailorServiceException}
- * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ * Base exception class for all service exceptions from MediaTailor service.
  *
  * @public
  */

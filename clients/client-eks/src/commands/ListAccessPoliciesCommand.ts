@@ -23,7 +23,8 @@ export interface ListAccessPoliciesCommandInput extends ListAccessPoliciesReques
 export interface ListAccessPoliciesCommandOutput extends ListAccessPoliciesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the available access policies. </p>
+ * Lists the available access policies.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,11 +58,12 @@ export interface ListAccessPoliciesCommandOutput extends ListAccessPoliciesRespo
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link EKSServiceException}
- * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * Base exception class for all service exceptions from EKS service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface CreateWhatsAppDatasetCommandInput extends CreateWhatsAppDataset
 export interface CreateWhatsAppDatasetCommandOutput extends CreateWhatsAppDatasetOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a Meta Conversions API dataset for a WhatsApp Business Account.</p>
+ * Creates a Meta Conversions API dataset for a WhatsApp Business Account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,33 +51,40 @@ export interface CreateWhatsAppDatasetCommandOutput extends CreateWhatsAppDatase
  * @see {@link SocialMessagingClientResolvedConfig | config} for SocialMessagingClient's `config` shape.
  *
  * @throws {@link AccessDeniedByMetaException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link DependencyException} (server fault)
- *  <p>Thrown when performing an action because a dependency would be broken.</p>
+ *
+ * Thrown when performing an action because a dependency would be broken.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception, or
- *          failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception, or failure.
  *
  * @throws {@link InvalidParametersException} (client fault)
- *  <p>One or more parameters provided to the action are not valid.</p>
+ *
+ * One or more parameters provided to the action are not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource was not found.</p>
+ *
+ * The resource was not found.
  *
  * @throws {@link ThrottledRequestException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request contains an invalid parameter value. </p>
+ *
+ * The request contains an invalid parameter value.
  *
  * @throws {@link SocialMessagingServiceException}
- * <p>Base exception class for all service exceptions from SocialMessaging service.</p>
  *
+ * Base exception class for all service exceptions from SocialMessaging service.
  *
  * @public
  */

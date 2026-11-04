@@ -23,7 +23,8 @@ export interface DescribeDBShardGroupsCommandInput extends DescribeDBShardGroups
 export interface DescribeDBShardGroupsCommandOutput extends DescribeDBShardGroupsResponse, __MetadataBearer {}
 
 /**
- * <p>Describes existing Aurora Limitless Database DB shard groups.</p>
+ * Describes existing Aurora Limitless Database DB shard groups.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,14 +81,16 @@ export interface DescribeDBShardGroupsCommandOutput extends DescribeDBShardGroup
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *
+ * `DBClusterIdentifier` doesn't refer to an existing DB cluster.
  *
  * @throws {@link DBShardGroupNotFoundFault} (client fault)
- *  <p>The specified DB shard group name wasn't found.</p>
+ *
+ * The specified DB shard group name wasn't found.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @public
  */

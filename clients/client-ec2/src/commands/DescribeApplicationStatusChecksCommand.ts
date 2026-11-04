@@ -23,15 +23,11 @@ export interface DescribeApplicationStatusChecksCommandInput extends DescribeApp
 export interface DescribeApplicationStatusChecksCommandOutput extends DescribeApplicationStatusChecksResult, __MetadataBearer {}
 
 /**
- * <p>Describes application status checks, including configuration details such as protocol, port, path, thresholds, and associations. Results are paginated. Use the <code>NextToken</code> parameter to retrieve additional results. The following rules apply:</p>
- *          <ul>
- *             <li>
- *                <p>If you do not specify any application status check IDs, all checks in your account are returned.</p>
- *             </li>
- *             <li>
- *                <p>Use <code>DescribeApplicationStatus</code> to see the actual health status of instances.</p>
- *             </li>
- *          </ul>
+ * Describes application status checks, including configuration details such as protocol, port, path, thresholds, and associations. Results are paginated. Use the `NextToken` parameter to retrieve additional results. The following rules apply:
+ *
+ * - If you do not specify any application status check IDs, all checks in your account are returned.
+ * - Use `DescribeApplicationStatus` to see the actual health status of instances.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -120,8 +116,8 @@ export interface DescribeApplicationStatusChecksCommandOutput extends DescribeAp
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To describe application status checks
  * ```javascript

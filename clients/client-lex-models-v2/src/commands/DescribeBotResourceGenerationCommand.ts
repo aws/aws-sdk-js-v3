@@ -23,10 +23,8 @@ export interface DescribeBotResourceGenerationCommandInput extends DescribeBotRe
 export interface DescribeBotResourceGenerationCommandOutput extends DescribeBotResourceGenerationResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about a request to generate a bot through natural language description, made through
- *       the <code>StartBotResource</code> API. Use the <code>generatedBotLocaleUrl</code>
- *       to retrieve the Amazon S3 object containing the bot locale configuration. You can
- *       then modify and import this configuration.</p>
+ * Returns information about a request to generate a bot through natural language description, made through the `StartBotResource` API. Use the `generatedBotLocaleUrl` to retrieve the Amazon S3 object containing the bot locale configuration. You can then modify and import this configuration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,24 +66,24 @@ export interface DescribeBotResourceGenerationCommandOutput extends DescribeBotR
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The service encountered an unexpected condition. Try your request
- *          again.</p>
+ *
+ * The service encountered an unexpected condition. Try your request again.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>You asked to describe a resource that doesn't exist. Check the
- *          resource that you are requesting and try again.</p>
+ *
+ * You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Your request rate is too high. Reduce the frequency of
- *          requests.</p>
+ *
+ * Your request rate is too high. Reduce the frequency of requests.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One of the input parameters in your request isn't valid. Check the
- *          parameters and try your request again.</p>
+ *
+ * One of the input parameters in your request isn't valid. Check the parameters and try your request again.
  *
  * @throws {@link LexModelsV2ServiceException}
- * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * Base exception class for all service exceptions from LexModelsV2 service.
  *
  * @public
  */

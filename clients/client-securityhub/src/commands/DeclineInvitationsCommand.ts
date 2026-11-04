@@ -23,15 +23,14 @@ export interface DeclineInvitationsCommandInput extends DeclineInvitationsReques
 export interface DeclineInvitationsCommandOutput extends DeclineInvitationsResponse, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>We recommend using Organizations instead of Security Hub CSPM invitations to manage your member accounts.
- *            For information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts-orgs.html">Managing Security Hub CSPM administrator and member accounts with Organizations</a>
- *            in the <i>Security Hub CSPM User Guide</i>.</p>
- *          </note>
- *          <p>Declines invitations to become a Security Hub CSPM member account.</p>
- *          <p>A prospective member account uses this operation to decline an invitation to become a member.</p>
- *          <p>Only member accounts that aren't part of an Amazon Web Services organization should use this operation.
- *          Organization accounts don't receive invitations.</p>
+ * > **Note:** We recommend using Organizations instead of Security Hub CSPM invitations to manage your member accounts. For information, see [Managing Security Hub CSPM administrator and member accounts with Organizations](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts-orgs.html) in the *Security Hub CSPM User Guide*.
+ *
+ * Declines invitations to become a Security Hub CSPM member account.
+ *
+ * A prospective member account uses this operation to decline an invitation to become a member.
+ *
+ * Only member accounts that aren't part of an Amazon Web Services organization should use this operation. Organization accounts don't receive invitations.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,21 +64,24 @@ export interface DeclineInvitationsCommandOutput extends DeclineInvitationsRespo
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>Internal server error.</p>
+ *
+ * Internal server error.
  *
  * @throws {@link InvalidAccessException} (client fault)
- *  <p>The account doesn't have permission to perform this action.</p>
+ *
+ * The account doesn't have permission to perform this action.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because you supplied an invalid or out-of-range value for an
- *          input parameter.</p>
+ *
+ * The request was rejected because you supplied an invalid or out-of-range value for an input parameter.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request was rejected because we can't find the specified resource.</p>
+ *
+ * The request was rejected because we can't find the specified resource.
  *
  * @throws {@link SecurityHubServiceException}
- * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * Base exception class for all service exceptions from SecurityHub service.
  *
  * @example To decline invitation to become a member account
  * ```javascript

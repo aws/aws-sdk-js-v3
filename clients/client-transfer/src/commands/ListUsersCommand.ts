@@ -23,7 +23,8 @@ export interface ListUsersCommandInput extends ListUsersRequest {}
 export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the users for a file transfer protocol-enabled server that you specify by passing the <code>ServerId</code> parameter.</p>
+ * Lists the users for a file transfer protocol-enabled server that you specify by passing the `ServerId` parameter.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,23 +64,28 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
  *
  * @throws {@link InternalServiceError} (server fault)
- *  <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+ *
+ * This exception is thrown when an error occurs in the Transfer Family service.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The <code>NextToken</code> parameter that was passed is invalid.</p>
+ *
+ * The `NextToken` parameter that was passed is invalid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * This exception is thrown when the client submits a malformed request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+ *
+ * This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+ *
+ * The request has failed because the Amazon Web ServicesTransfer Family service is not available.
  *
  * @throws {@link TransferServiceException}
- * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * Base exception class for all service exceptions from Transfer service.
  *
  * @public
  */

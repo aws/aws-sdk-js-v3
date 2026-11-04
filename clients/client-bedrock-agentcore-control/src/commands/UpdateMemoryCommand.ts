@@ -23,7 +23,8 @@ export interface UpdateMemoryCommandInput extends UpdateMemoryInput {}
 export interface UpdateMemoryCommandOutput extends UpdateMemoryOutput, __MetadataBearer {}
 
 /**
- * <p>Update an Amazon Bedrock AgentCore Memory resource memory.</p>
+ * Update an Amazon Bedrock AgentCore Memory resource memory.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -676,29 +677,36 @@ export interface UpdateMemoryCommandOutput extends UpdateMemoryOutput, __Metadat
  * @see {@link BedrockAgentCoreControlClientResolvedConfig | config} for BedrockAgentCoreControlClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>This exception is thrown when a request is denied per access permissions</p>
+ *
+ * This exception is thrown when a request is denied per access permissions
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>This exception is thrown when there is a conflict performing an operation</p>
+ *
+ * This exception is thrown when there is a conflict performing an operation
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when a resource referenced by the operation does not exist</p>
+ *
+ * This exception is thrown when a resource referenced by the operation does not exist
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>An internal error occurred.</p>
+ *
+ * An internal error occurred.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>This exception is thrown when a request is made beyond the service quota</p>
+ *
+ * This exception is thrown when a request is made beyond the service quota
  *
  * @throws {@link ThrottledException} (client fault)
- *  <p>API rate limit has been exceeded.</p>
+ *
+ * API rate limit has been exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the service.</p>
+ *
+ * The input fails to satisfy the constraints specified by the service.
  *
  * @throws {@link BedrockAgentCoreControlServiceException}
- * <p>Base exception class for all service exceptions from BedrockAgentCoreControl service.</p>
  *
+ * Base exception class for all service exceptions from BedrockAgentCoreControl service.
  *
  * @public
  */

@@ -23,32 +23,15 @@ export interface DescribeStateMachineAliasCommandInput extends DescribeStateMach
 export interface DescribeStateMachineAliasCommandOutput extends DescribeStateMachineAliasOutput, __MetadataBearer {}
 
 /**
- * <p>Returns details about a state machine <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html">alias</a>.</p>
- *          <p>
- *             <b>Related operations:</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>CreateStateMachineAlias</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListStateMachineAliases</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateStateMachineAlias</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteStateMachineAlias</a>
- *                </p>
- *             </li>
- *          </ul>
+ * Returns details about a state machine [alias](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html).
+ *
+ * **Related operations:**
+ *
+ * - CreateStateMachineAlias
+ * - ListStateMachineAliases
+ * - UpdateStateMachineAlias
+ * - DeleteStateMachineAlias
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,17 +68,20 @@ export interface DescribeStateMachineAliasCommandOutput extends DescribeStateMac
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
  * @throws {@link InvalidArn} (client fault)
- *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * The provided Amazon Resource Name (ARN) is not valid.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Could not find the referenced resource.</p>
+ *
+ * Could not find the referenced resource.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input does not satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link SFNServiceException}
- * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * Base exception class for all service exceptions from SFN service.
  *
  * @public
  */

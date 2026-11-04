@@ -23,28 +23,16 @@ export interface UpdateOpenIDConnectProviderThumbprintCommandInput extends Updat
 export interface UpdateOpenIDConnectProviderThumbprintCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Replaces the existing list of server certificate thumbprints associated with an OpenID
- *             Connect (OIDC) provider resource object with a new list of thumbprints.</p>
- *          <p>The list that you pass with this operation completely replaces the existing list of
- *             thumbprints. (The lists are not merged.)</p>
- *          <p>Typically, you need to update a thumbprint only when the identity provider certificate
- *             changes, which occurs rarely. However, if the provider's certificate
- *                 <i>does</i> change, any attempt to assume an IAM role that specifies
- *             the OIDC provider as a principal fails until the certificate thumbprint is
- *             updated.</p>
- *          <note>
- *             <p>Amazon Web Services secures communication with OIDC identity providers (IdPs) using our library of
- *             trusted root certificate authorities (CAs) to verify the JSON Web Key Set (JWKS)
- *             endpoint's TLS certificate. If your OIDC IdP relies on a certificate that is not signed
- *             by one of these trusted CAs, only then we secure communication using the thumbprints set
- *             in the IdP's configuration.</p>
- *          </note>
- *          <note>
- *             <p>Trust for the OIDC provider is derived from the provider certificate and is
- *                 validated by the thumbprint. Therefore, it is best to limit access to the
- *                     <code>UpdateOpenIDConnectProviderThumbprint</code> operation to highly
- *                 privileged users.</p>
- *          </note>
+ * Replaces the existing list of server certificate thumbprints associated with an OpenID Connect (OIDC) provider resource object with a new list of thumbprints.
+ *
+ * The list that you pass with this operation completely replaces the existing list of thumbprints. (The lists are not merged.)
+ *
+ * Typically, you need to update a thumbprint only when the identity provider certificate changes, which occurs rarely. However, if the provider's certificate *does* change, any attempt to assume an IAM role that specifies the OIDC provider as a principal fails until the certificate thumbprint is updated.
+ *
+ * > **Note:** Amazon Web Services secures communication with OIDC identity providers (IdPs) using our library of trusted root certificate authorities (CAs) to verify the JSON Web Key Set (JWKS) endpoint's TLS certificate. If your OIDC IdP relies on a certificate that is not signed by one of these trusted CAs, only then we secure communication using the thumbprints set in the IdP's configuration.
+ *
+ * > **Note:** Trust for the OIDC provider is derived from the provider certificate and is validated by the thumbprint. Therefore, it is best to limit access to the `UpdateOpenIDConnectProviderThumbprint` operation to highly privileged users.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,24 +60,24 @@ export interface UpdateOpenIDConnectProviderThumbprintCommandOutput extends __Me
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>The request was rejected because multiple requests to change this object were submitted
- *       simultaneously. Wait a few minutes and submit your request again.</p>
+ *
+ * The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
- *       input parameter.</p>
+ *
+ * The request was rejected because an invalid or out-of-range value was supplied for an input parameter.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @public
  */

@@ -23,8 +23,8 @@ export interface DeleteVerifiedEmailAddressCommandInput extends DeleteVerifiedEm
 export interface DeleteVerifiedEmailAddressCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deprecated. Use the <code>DeleteIdentity</code> operation to delete email addresses
- *             and domains.</p>
+ * Deprecated. Use the `DeleteIdentity` operation to delete email addresses and domains.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,8 +49,8 @@ export interface DeleteVerifiedEmailAddressCommandOutput extends __MetadataBeare
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @example DeleteVerifiedEmailAddress
  * ```javascript

@@ -26,7 +26,8 @@ export interface DescribeAssociationExecutionTargetsCommandInput extends Describ
 export interface DescribeAssociationExecutionTargetsCommandOutput extends DescribeAssociationExecutionTargetsResult, __MetadataBearer {}
 
 /**
- * <p>Views information about a specific execution of a specific association.</p>
+ * Views information about a specific execution of a specific association.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,20 +79,24 @@ export interface DescribeAssociationExecutionTargetsCommandOutput extends Descri
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link AssociationDoesNotExist} (client fault)
- *  <p>The specified association doesn't exist.</p>
+ *
+ * The specified association doesn't exist.
  *
  * @throws {@link AssociationExecutionDoesNotExist} (client fault)
- *  <p>The specified execution ID doesn't exist. Verify the ID number and try again.</p>
+ *
+ * The specified execution ID doesn't exist. Verify the ID number and try again.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidNextToken} (client fault)
- *  <p>The specified token isn't valid.</p>
+ *
+ * The specified token isn't valid.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

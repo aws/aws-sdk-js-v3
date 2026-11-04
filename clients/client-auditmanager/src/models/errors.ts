@@ -6,8 +6,8 @@ import type { ValidationExceptionReason } from "./enums";
 import type { ValidationExceptionField } from "./models_0";
 
 /**
- * <p> Your account isn't registered with Audit Manager. Check the delegated
- *          administrator setup on the Audit Manager settings page, and try again. </p>
+ * Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -28,8 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p> An internal service error occurred during the processing of your request. Try again
- *          later. </p>
+ * An internal service error occurred during the processing of your request. Try again later.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -50,7 +50,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p> The resource that's specified in the request can't be found. </p>
+ * The resource that's specified in the request can't be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -58,13 +59,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p> The unique identifier for the resource. </p>
+   * The unique identifier for the resource.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p> The type of resource that's affected by the error. </p>
+   * The type of resource that's affected by the error.
+   *
    * @public
    */
   resourceType: string | undefined;
@@ -85,7 +88,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p> The request has invalid or missing parameters. </p>
+ * The request has invalid or missing parameters.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -93,13 +97,15 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p> The reason the request failed validation. </p>
+   * The reason the request failed validation.
+   *
    * @public
    */
   reason?: ValidationExceptionReason | undefined;
 
   /**
-   * <p> The fields that caused the error, if applicable. </p>
+   * The fields that caused the error, if applicable.
+   *
    * @public
    */
   fields?: ValidationExceptionField[] | undefined;
@@ -120,7 +126,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -141,10 +148,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>You've reached your account quota for this resource type. To perform the requested
- *          action, delete some existing resources or <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">request a quota increase</a> from
- *          the Service Quotas console. For a list of Audit Manager service quotas, see <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html">Quotas and
- *             restrictions for Audit Manager</a>.</p>
+ * You've reached your account quota for this resource type. To perform the requested action, delete some existing resources or [request a quota increase](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) from the Service Quotas console. For a list of Audit Manager service quotas, see [Quotas and restrictions for Audit Manager](https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html).
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {

@@ -23,7 +23,8 @@ export interface ListUserPoolClientSecretsCommandInput extends ListUserPoolClien
 export interface ListUserPoolClientSecretsCommandOutput extends ListUserPoolClientSecretsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all client secrets associated with a user pool app client. Returns metadata about the secrets. The response does not include pagination tokens as there are only 2 secrets at any given time and we return both with every ListUserPoolClientSecrets call. For security reasons, the response never reveals the actual secret value in ClientSecretValue.</p>
+ * Lists all client secrets associated with a user pool app client. Returns metadata about the secrets. The response does not include pagination tokens as there are only 2 secrets at any given time and we return both with every ListUserPoolClientSecrets call. For security reasons, the response never reveals the actual secret value in ClientSecretValue.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,27 +60,28 @@ export interface ListUserPoolClientSecretsCommandOutput extends ListUserPoolClie
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception is thrown when Amazon Cognito encounters an internal server error.</p>
+ *
+ * This exception is thrown when Amazon Cognito encounters an internal server error.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
- *             parameter.</p>
+ *
+ * This exception is thrown when the Amazon Cognito service encounters an invalid parameter.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services
- *             resource.</p>
+ *
+ * This exception is thrown when a user exceeds the limit for a requested Amazon Web Services resource.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
- *             resource.</p>
+ *
+ * This exception is thrown when the Amazon Cognito service can't find the requested resource.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>This exception is thrown when the user has made too many requests for a given
- *             operation.</p>
+ *
+ * This exception is thrown when the user has made too many requests for a given operation.
  *
  * @throws {@link CognitoIdentityProviderServiceException}
- * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * Base exception class for all service exceptions from CognitoIdentityProvider service.
  *
  * @public
  */

@@ -23,24 +23,12 @@ export interface DescribeVaultCommandInput extends DescribeVaultInput {}
 export interface DescribeVaultCommandOutput extends DescribeVaultOutput, __MetadataBearer {}
 
 /**
- * <p>This operation returns information about a vault, including the vault's Amazon
- *          Resource Name (ARN), the date the vault was created, the number of archives it contains,
- *          and the total size of all the archives in the vault. The number of archives and their total
- *          size are as of the last inventory generation. This means that if you add or remove an
- *          archive from a vault, and then immediately use Describe Vault, the change in contents will
- *          not be immediately reflected. If you want to retrieve the latest inventory of the vault,
- *          use <a>InitiateJob</a>. Amazon Glacier generates vault inventories approximately
- *          daily. For more information, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-inventory.html">Downloading a Vault Inventory in
- *             Amazon Glacier</a>. </p>
+ * This operation returns information about a vault, including the vault's Amazon Resource Name (ARN), the date the vault was created, the number of archives it contains, and the total size of all the archives in the vault. The number of archives and their total size are as of the last inventory generation. This means that if you add or remove an archive from a vault, and then immediately use Describe Vault, the change in contents will not be immediately reflected. If you want to retrieve the latest inventory of the vault, use InitiateJob. Amazon Glacier generates vault inventories approximately daily. For more information, see [Downloading a Vault Inventory in Amazon Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-inventory.html).
  *
- *          <p>An AWS account has full permission to perform all operations (actions). However, AWS
- *          Identity and Access Management (IAM) users don't have any permissions by default. You must
- *          grant them explicit permission to perform specific actions. For more information, see
- *             <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html">Access Control Using
- *             AWS Identity and Access Management (IAM)</a>.</p>
- *          <p>For conceptual information and underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/retrieving-vault-info.html">Retrieving Vault Metadata in
- *             Amazon Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-get.html">Describe Vault </a> in the
- *             <i>Amazon Glacier Developer Guide</i>. </p>
+ * An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see [Access Control Using AWS Identity and Access Management (IAM)](https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
+ *
+ * For conceptual information and underlying REST API, see [Retrieving Vault Metadata in Amazon Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/retrieving-vault-info.html) and [Describe Vault](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-get.html) in the *Amazon Glacier Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,24 +61,28 @@ export interface DescribeVaultCommandOutput extends DescribeVaultOutput, __Metad
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>Returned if a parameter of the request is incorrectly specified.</p>
+ *
+ * Returned if a parameter of the request is incorrectly specified.
  *
  * @throws {@link MissingParameterValueException} (client fault)
- *  <p>Returned if a required header or parameter is missing from the request.</p>
+ *
+ * Returned if a required header or parameter is missing from the request.
  *
  * @throws {@link NoLongerSupportedException} (client fault)
- *  <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+ *
+ * Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't
- *          exist.</p>
+ *
+ * Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>Returned if the service cannot complete the request.</p>
+ *
+ * Returned if the service cannot complete the request.
  *
  * @throws {@link GlacierServiceException}
- * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * Base exception class for all service exceptions from Glacier service.
  *
  * @example To retrieve information about a vault
  * ```javascript

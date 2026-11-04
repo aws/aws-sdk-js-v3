@@ -23,7 +23,7 @@ export interface AcceptInvitationCommandInput extends AcceptInvitationRequest {}
 export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse, __MetadataBearer {}
 
 /**
- * <p>Accepts the invitation to be monitored by a GuardDuty administrator account.</p>
+ * Accepts the invitation to be monitored by a GuardDuty administrator account.
  *
  * @deprecated This operation is deprecated, use AcceptAdministratorInvitation instead.
  * @example
@@ -52,14 +52,16 @@ export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse,
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>A bad request exception object.</p>
+ *
+ * A bad request exception object.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>An internal server error exception object.</p>
+ *
+ * An internal server error exception object.
  *
  * @throws {@link GuardDutyServiceException}
- * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * Base exception class for all service exceptions from GuardDuty service.
  *
  * @public
  */

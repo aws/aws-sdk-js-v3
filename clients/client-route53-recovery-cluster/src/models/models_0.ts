@@ -6,7 +6,8 @@ import type { RoutingControlState } from "./enums";
  */
 export interface GetRoutingControlStateRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) for the routing control that you want to get the state for.</p>
+   * The Amazon Resource Name (ARN) for the routing control that you want to get the state for.
+   *
    * @public
    */
   RoutingControlArn: string | undefined;
@@ -17,37 +18,43 @@ export interface GetRoutingControlStateRequest {
  */
 export interface GetRoutingControlStateResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the response.</p>
+   * The Amazon Resource Name (ARN) of the response.
+   *
    * @public
    */
   RoutingControlArn: string | undefined;
 
   /**
-   * <p>The state of the routing control.</p>
+   * The state of the routing control.
+   *
    * @public
    */
   RoutingControlState: RoutingControlState | undefined;
 
   /**
-   * <p>The routing control name.</p>
+   * The routing control name.
+   *
    * @public
    */
   RoutingControlName?: string | undefined;
 }
 
 /**
- * <p>There was a validation error on the request.</p>
+ * There was a validation error on the request.
+ *
  * @public
  */
 export interface ValidationExceptionField {
   /**
-   * <p>The field that had the validation exception.</p>
+   * The field that had the validation exception.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Information about the validation exception.</p>
+   * Information about the validation exception.
+   *
    * @public
    */
   message: string | undefined;
@@ -58,65 +65,71 @@ export interface ValidationExceptionField {
  */
 export interface ListRoutingControlsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the control panel of the routing controls to list.</p>
+   * The Amazon Resource Name (ARN) of the control panel of the routing controls to list.
+   *
    * @public
    */
   ControlPanelArn?: string | undefined;
 
   /**
-   * <p>The token for the next set of results. You receive this token from a previous call.</p>
+   * The token for the next set of results. You receive this token from a previous call.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The number of routing controls objects that you want to return with this call. The default value is 500.</p>
+   * The number of routing controls objects that you want to return with this call. The default value is 500.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>A routing control, which is a simple on/off switch that you
- * 			can use to route traffic to cells. When a routing control state is set to ON, traffic flows to a cell. When
- * 			the state is set to OFF, traffic does not flow. </p>
+ * A routing control, which is a simple on/off switch that you can use to route traffic to cells. When a routing control state is set to ON, traffic flows to a cell. When the state is set to OFF, traffic does not flow.
+ *
  * @public
  */
 export interface RoutingControl {
   /**
-   * <p>The Amazon Resource Name (ARN) of the control panel where the routing control is located.</p>
+   * The Amazon Resource Name (ARN) of the control panel where the routing control is located.
+   *
    * @public
    */
   ControlPanelArn?: string | undefined;
 
   /**
-   * <p>The name of the control panel where the routing control is located. Only ASCII characters are supported for control
-   * 		panel names.</p>
+   * The name of the control panel where the routing control is located. Only ASCII characters are supported for control panel names.
+   *
    * @public
    */
   ControlPanelName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the routing control.</p>
+   * The Amazon Resource Name (ARN) of the routing control.
+   *
    * @public
    */
   RoutingControlArn?: string | undefined;
 
   /**
-   * <p>The name of the routing control.</p>
+   * The name of the routing control.
+   *
    * @public
    */
   RoutingControlName?: string | undefined;
 
   /**
-   * <p>The current state of the routing control. When a routing control state is set to ON, traffic flows to a cell. When
-   * 			the state is set to OFF, traffic does not flow. </p>
+   * The current state of the routing control. When a routing control state is set to ON, traffic flows to a cell. When the state is set to OFF, traffic does not flow.
+   *
    * @public
    */
   RoutingControlState?: RoutingControlState | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the routing control owner.</p>
+   * The Amazon Web Services account ID of the routing control owner.
+   *
    * @public
    */
   Owner?: string | undefined;
@@ -127,13 +140,15 @@ export interface RoutingControl {
  */
 export interface ListRoutingControlsResponse {
   /**
-   * <p>The list of routing controls.</p>
+   * The list of routing controls.
+   *
    * @public
    */
   RoutingControls: RoutingControl[] | undefined;
 
   /**
-   * <p>The token for the next set of results. You receive this token from a previous call.</p>
+   * The token for the next set of results. You receive this token from a previous call.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -144,23 +159,24 @@ export interface ListRoutingControlsResponse {
  */
 export interface UpdateRoutingControlStateRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) for the routing control that you want to update the state for.</p>
+   * The Amazon Resource Name (ARN) for the routing control that you want to update the state for.
+   *
    * @public
    */
   RoutingControlArn: string | undefined;
 
   /**
-   * <p>The state of the routing control. You can set the value to ON or OFF.</p>
+   * The state of the routing control. You can set the value to ON or OFF.
+   *
    * @public
    */
   RoutingControlState: RoutingControlState | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) for the safety rules that you want to override when you're updating the state of
-   * 			a routing control. You can override one safety rule or multiple safety rules by including one or more ARNs, separated
-   * 			by commas.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.override-safety-rule.html">
-   * 			Override safety rules to reroute traffic</a> in the Amazon Route 53 Application Recovery Controller Developer Guide.</p>
+   * The Amazon Resource Names (ARNs) for the safety rules that you want to override when you're updating the state of a routing control. You can override one safety rule or multiple safety rules by including one or more ARNs, separated by commas.
+   *
+   * For more information, see [Override safety rules to reroute traffic](https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.override-safety-rule.html) in the Amazon Route 53 Application Recovery Controller Developer Guide.
+   *
    * @public
    */
   SafetyRulesToOverride?: string[] | undefined;
@@ -172,18 +188,21 @@ export interface UpdateRoutingControlStateRequest {
 export interface UpdateRoutingControlStateResponse {}
 
 /**
- * <p>A routing control state entry.</p>
+ * A routing control state entry.
+ *
  * @public
  */
 export interface UpdateRoutingControlStateEntry {
   /**
-   * <p>The Amazon Resource Name (ARN) for a routing control state entry.</p>
+   * The Amazon Resource Name (ARN) for a routing control state entry.
+   *
    * @public
    */
   RoutingControlArn: string | undefined;
 
   /**
-   * <p>The routing control state in a set of routing control state entries.</p>
+   * The routing control state in a set of routing control state entries.
+   *
    * @public
    */
   RoutingControlState: RoutingControlState | undefined;
@@ -194,17 +213,17 @@ export interface UpdateRoutingControlStateEntry {
  */
 export interface UpdateRoutingControlStatesRequest {
   /**
-   * <p>A set of routing control entries that you want to update.</p>
+   * A set of routing control entries that you want to update.
+   *
    * @public
    */
   UpdateRoutingControlStateEntries: UpdateRoutingControlStateEntry[] | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) for the safety rules that you want to override when you're updating routing
-   * 			control states. You can override one safety rule or multiple safety rules by including one or more ARNs, separated
-   * 			by commas.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.override-safety-rule.html">
-   * 			Override safety rules to reroute traffic</a> in the Amazon Route 53 Application Recovery Controller Developer Guide.</p>
+   * The Amazon Resource Names (ARNs) for the safety rules that you want to override when you're updating routing control states. You can override one safety rule or multiple safety rules by including one or more ARNs, separated by commas.
+   *
+   * For more information, see [Override safety rules to reroute traffic](https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.override-safety-rule.html) in the Amazon Route 53 Application Recovery Controller Developer Guide.
+   *
    * @public
    */
   SafetyRulesToOverride?: string[] | undefined;

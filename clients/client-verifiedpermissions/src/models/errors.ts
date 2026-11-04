@@ -6,7 +6,8 @@ import type { ResourceConflict, ValidationExceptionField } from "./models_0";
 import { VerifiedPermissionsServiceException as __BaseException } from "./VerifiedPermissionsServiceException";
 
 /**
- * <p>You don't have sufficient access to perform this action.</p>
+ * You don't have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request failed because of an internal error. Try your request again later</p>
+ * The request failed because of an internal error. Try your request again later
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -49,7 +51,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The request failed because it exceeded a throttling quota.</p>
+ * The request failed because it exceeded a throttling quota.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -60,13 +63,15 @@ export class ThrottlingException extends __BaseException {
     throttling: true,
   };
   /**
-   * <p>The code for the Amazon Web Services service that owns the quota.</p>
+   * The code for the Amazon Web Services service that owns the quota.
+   *
    * @public
    */
   serviceCode?: string | undefined;
 
   /**
-   * <p>The quota code recognized by the Amazon Web Services Service Quotas service.</p>
+   * The quota code recognized by the Amazon Web Services Service Quotas service.
+   *
    * @public
    */
   quotaCode?: string | undefined;
@@ -87,7 +92,41 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The request failed because one or more input parameters don't satisfy their constraint requirements. The output is provided as a list of fields and a reason for each field that isn't valid.</p> <p>The possible reasons include the following:</p> <ul> <li> <p> <b>UnrecognizedEntityType</b> </p> <p>The policy includes an entity type that isn't found in the schema.</p> </li> <li> <p> <b>UnrecognizedActionId</b> </p> <p>The policy includes an action id that isn't found in the schema.</p> </li> <li> <p> <b>InvalidActionApplication</b> </p> <p>The policy includes an action that, according to the schema, doesn't support the specified principal and resource.</p> </li> <li> <p> <b>UnexpectedType</b> </p> <p>The policy included an operand that isn't a valid type for the specified operation.</p> </li> <li> <p> <b>IncompatibleTypes</b> </p> <p>The types of elements included in a <code>set</code>, or the types of expressions used in an <code>if...then...else</code> clause aren't compatible in this context.</p> </li> <li> <p> <b>MissingAttribute</b> </p> <p>The policy attempts to access a record or entity attribute that isn't specified in the schema. Test for the existence of the attribute first before attempting to access its value. For more information, see the <a href="https://docs.cedarpolicy.com/policies/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the <i>Cedar Policy Language Guide</i>.</p> </li> <li> <p> <b>UnsafeOptionalAttributeAccess</b> </p> <p>The policy attempts to access a record or entity attribute that is optional and isn't guaranteed to be present. Test for the existence of the attribute first before attempting to access its value. For more information, see the <a href="https://docs.cedarpolicy.com/policies/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the <i>Cedar Policy Language Guide</i>.</p> </li> <li> <p> <b>ImpossiblePolicy</b> </p> <p>Cedar has determined that a policy condition always evaluates to false. If the policy is always false, it can never apply to any query, and so it can never affect an authorization decision.</p> </li> <li> <p> <b>WrongNumberArguments</b> </p> <p>The policy references an extension type with the wrong number of arguments.</p> </li> <li> <p> <b>FunctionArgumentValidationError</b> </p> <p>Cedar couldn't parse the argument passed to an extension type. For example, a string that is to be parsed as an IPv4 address can contain only digits and the period character.</p> </li> </ul>
+ * The request failed because one or more input parameters don't satisfy their constraint requirements. The output is provided as a list of fields and a reason for each field that isn't valid.
+ *
+ * The possible reasons include the following:
+ *
+ * - **UnrecognizedEntityType**
+ *
+ *   The policy includes an entity type that isn't found in the schema.
+ * - **UnrecognizedActionId**
+ *
+ *   The policy includes an action id that isn't found in the schema.
+ * - **InvalidActionApplication**
+ *
+ *   The policy includes an action that, according to the schema, doesn't support the specified principal and resource.
+ * - **UnexpectedType**
+ *
+ *   The policy included an operand that isn't a valid type for the specified operation.
+ * - **IncompatibleTypes**
+ *
+ *   The types of elements included in a `set`, or the types of expressions used in an `if...then...else` clause aren't compatible in this context.
+ * - **MissingAttribute**
+ *
+ *   The policy attempts to access a record or entity attribute that isn't specified in the schema. Test for the existence of the attribute first before attempting to access its value. For more information, see the [has (presence of attribute test) operator](https://docs.cedarpolicy.com/policies/syntax-operators.html#has-presence-of-attribute-test) in the *Cedar Policy Language Guide*.
+ * - **UnsafeOptionalAttributeAccess**
+ *
+ *   The policy attempts to access a record or entity attribute that is optional and isn't guaranteed to be present. Test for the existence of the attribute first before attempting to access its value. For more information, see the [has (presence of attribute test) operator](https://docs.cedarpolicy.com/policies/syntax-operators.html#has-presence-of-attribute-test) in the *Cedar Policy Language Guide*.
+ * - **ImpossiblePolicy**
+ *
+ *   Cedar has determined that a policy condition always evaluates to false. If the policy is always false, it can never apply to any query, and so it can never affect an authorization decision.
+ * - **WrongNumberArguments**
+ *
+ *   The policy references an extension type with the wrong number of arguments.
+ * - **FunctionArgumentValidationError**
+ *
+ *   Cedar couldn't parse the argument passed to an extension type. For example, a string that is to be parsed as an IPv4 address can contain only digits and the period character.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -95,7 +134,8 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The list of fields that aren't valid.</p>
+   * The list of fields that aren't valid.
+   *
    * @public
    */
   fieldList?: ValidationExceptionField[] | undefined;
@@ -115,7 +155,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The request failed because it references a resource that doesn't exist.</p>
+ * The request failed because it references a resource that doesn't exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -123,13 +164,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The unique ID of the resource referenced in the failed request.</p>
+   * The unique ID of the resource referenced in the failed request.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The resource type of the resource referenced in the failed request.</p>
+   * The resource type of the resource referenced in the failed request.
+   *
    * @public
    */
   resourceType: ResourceType | undefined;
@@ -150,7 +193,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request failed because another request to modify a resource occurred at the same time.</p>
+ * The request failed because another request to modify a resource occurred at the same time.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -158,7 +202,8 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The list of resources referenced with this failed request.</p>
+   * The list of resources referenced with this failed request.
+   *
    * @public
    */
   resources: ResourceConflict[] | undefined;
@@ -178,7 +223,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The request failed because it would cause a service quota to be exceeded.</p>
+ * The request failed because it would cause a service quota to be exceeded.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -186,25 +232,29 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The unique ID of the resource referenced in the failed request.</p>
+   * The unique ID of the resource referenced in the failed request.
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>The resource type of the resource referenced in the failed request.</p>
+   * The resource type of the resource referenced in the failed request.
+   *
    * @public
    */
   resourceType: ResourceType | undefined;
 
   /**
-   * <p>The code for the Amazon Web Services service that owns the quota.</p>
+   * The code for the Amazon Web Services service that owns the quota.
+   *
    * @public
    */
   serviceCode?: string | undefined;
 
   /**
-   * <p>The quota code recognized by the Amazon Web Services Service Quotas service.</p>
+   * The quota code recognized by the Amazon Web Services Service Quotas service.
+   *
    * @public
    */
   quotaCode?: string | undefined;
@@ -227,7 +277,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The policy store can't be deleted because deletion protection is enabled. To delete this policy store, disable deletion protection.</p>
+ * The policy store can't be deleted because deletion protection is enabled. To delete this policy store, disable deletion protection.
+ *
  * @public
  */
 export class InvalidStateException extends __BaseException {
@@ -248,7 +299,8 @@ export class InvalidStateException extends __BaseException {
 }
 
 /**
- * <p>No more tags be added because the limit (50) has been reached. To add new tags, use <code>UntagResource</code> to remove existing tags.</p>
+ * No more tags be added because the limit (50) has been reached. To add new tags, use `UntagResource` to remove existing tags.
+ *
  * @public
  */
 export class TooManyTagsException extends __BaseException {

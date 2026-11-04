@@ -23,7 +23,8 @@ export interface AddInstanceGroupsCommandInput extends AddInstanceGroupsInput {}
 export interface AddInstanceGroupsCommandOutput extends AddInstanceGroupsOutput, __MetadataBearer {}
 
 /**
- * <p>Adds one or more instance groups to a running cluster.</p>
+ * Adds one or more instance groups to a running cluster.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -134,12 +135,12 @@ export interface AddInstanceGroupsCommandOutput extends AddInstanceGroupsOutput,
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Indicates that an error occurred while processing the request and that the request was
- *          not completed.</p>
+ *
+ * Indicates that an error occurred while processing the request and that the request was not completed.
  *
  * @throws {@link EMRServiceException}
- * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * Base exception class for all service exceptions from EMR service.
  *
  * @public
  */

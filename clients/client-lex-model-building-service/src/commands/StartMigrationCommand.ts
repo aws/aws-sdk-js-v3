@@ -23,10 +23,9 @@ export interface StartMigrationCommandInput extends StartMigrationRequest {}
 export interface StartMigrationCommandOutput extends StartMigrationResponse, __MetadataBearer {}
 
 /**
- * <p>Starts migrating a bot from Amazon Lex V1 to Amazon Lex V2. Migrate your bot when
- *       you want to take advantage of the new features of Amazon Lex V2.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/migrate.html">Migrating a bot</a> in the <i>Amazon Lex
- *         developer guide</i>.</p>
+ * Starts migrating a bot from Amazon Lex V1 to Amazon Lex V2. Migrate your bot when you want to take advantage of the new features of Amazon Lex V2.
+ *
+ * For more information, see [Migrating a bot](https://docs.aws.amazon.com/lex/latest/dg/migrate.html) in the *Amazon Lex developer guide*.
  *
  * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @example
@@ -66,27 +65,28 @@ export interface StartMigrationCommandOutput extends StartMigrationResponse, __M
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Your IAM user or role does not have permission to call the Amazon Lex V2 APIs
- *       required to migrate your bot.</p>
+ *
+ * Your IAM user or role does not have permission to call the Amazon Lex V2 APIs required to migrate your bot.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request is not well formed. For example, a value is invalid or
- *       a required field is missing. Check the field values, and try
- *       again.</p>
+ *
+ * The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An internal Amazon Lex error occurred. Try your request again.</p>
+ *
+ * An internal Amazon Lex error occurred. Try your request again.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request exceeded a limit. Try your request again.</p>
+ *
+ * The request exceeded a limit. Try your request again.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource specified in the request was not found. Check the
- *       resource and try again.</p>
+ *
+ * The resource specified in the request was not found. Check the resource and try again.
  *
  * @throws {@link LexModelBuildingServiceServiceException}
- * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * Base exception class for all service exceptions from LexModelBuildingService service.
  *
  * @public
  */

@@ -23,15 +23,10 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Add one or more tags (keys and values) to a specified resource. A
- *                 <i>tag</i> is a label that you optionally define and associate with a
- *             resource. Tags can help you categorize and manage resources in different ways, such as
- *             by purpose, owner, environment, or other criteria. A resource can have as many as 50
- *             tags.</p>
- *          <p>Each tag consists of a required <i>tag key</i> and an
- *                 associated <i>tag value</i>, both of which you define. A tag key is a
- *             general label that acts as a category for more specific tag values. A tag value acts as
- *             a descriptor within a tag key.</p>
+ * Add one or more tags (keys and values) to a specified resource. A *tag* is a label that you optionally define and associate with a resource. Tags can help you categorize and manage resources in different ways, such as by purpose, owner, environment, or other criteria. A resource can have as many as 50 tags.
+ *
+ * Each tag consists of a required *tag key* and an associated *tag value*, both of which you define. A tag key is a general label that acts as a category for more specific tag values. A tag value acts as a descriptor within a tag key.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,20 +57,24 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link ConcurrentModificationException} (server fault)
- *  <p>The resource is being modified by another operation or thread.</p>
+ *
+ * The resource is being modified by another operation or thread.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * The resource you attempted to access doesn't exist.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Too many requests have been made to the operation.</p>
+ *
+ * Too many requests have been made to the operation.
  *
  * @throws {@link SESv2ServiceException}
- * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * Base exception class for all service exceptions from SESv2 service.
  *
  * @public
  */

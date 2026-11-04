@@ -23,11 +23,8 @@ export interface RestoreDBClusterToPointInTimeCommandInput extends RestoreDBClus
 export interface RestoreDBClusterToPointInTimeCommandOutput extends RestoreDBClusterToPointInTimeResult, __MetadataBearer {}
 
 /**
- * <p>Restores a cluster to an arbitrary point in time. Users can restore to any point in
- *             time before <code>LatestRestorableTime</code> for up to
- *                 <code>BackupRetentionPeriod</code> days. The target cluster is created from the
- *             source cluster with the same configuration as the original cluster, except that
- *             the new cluster is created with the default security group. </p>
+ * Restores a cluster to an arbitrary point in time. Users can restore to any point in time before `LatestRestorableTime` for up to `BackupRetentionPeriod` days. The target cluster is created from the source cluster with the same configuration as the original cluster, except that the new cluster is created with the default security group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -151,63 +148,72 @@ export interface RestoreDBClusterToPointInTimeCommandOutput extends RestoreDBClu
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  * @throws {@link DBClusterAlreadyExistsFault} (client fault)
- *  <p>You already have a cluster with the given identifier.</p>
+ *
+ * You already have a cluster with the given identifier.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p>
- *             <code>DBClusterIdentifier</code> doesn't refer to an existing cluster. </p>
+ *
+ * `DBClusterIdentifier` doesn't refer to an existing cluster.
  *
  * @throws {@link DBClusterQuotaExceededFault} (client fault)
- *  <p>The cluster can't be created because you have reached the maximum allowed quota of clusters.</p>
+ *
+ * The cluster can't be created because you have reached the maximum allowed quota of clusters.
  *
  * @throws {@link DBClusterSnapshotNotFoundFault} (client fault)
- *  <p>
- *             <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing cluster snapshot. </p>
+ *
+ * `DBClusterSnapshotIdentifier` doesn't refer to an existing cluster snapshot.
  *
  * @throws {@link DBSubnetGroupNotFoundFault} (client fault)
- *  <p>
- *             <code>DBSubnetGroupName</code> doesn't refer to an existing subnet group. </p>
+ *
+ * `DBSubnetGroupName` doesn't refer to an existing subnet group.
  *
  * @throws {@link InsufficientDBClusterCapacityFault} (client fault)
- *  <p>The cluster doesn't have enough capacity for the current operation.</p>
+ *
+ * The cluster doesn't have enough capacity for the current operation.
  *
  * @throws {@link InsufficientStorageClusterCapacityFault} (client fault)
- *  <p>There is not enough storage available for the current action. You might be able to resolve this error by updating your subnet group to use different Availability Zones that have more storage available. </p>
+ *
+ * There is not enough storage available for the current action. You might be able to resolve this error by updating your subnet group to use different Availability Zones that have more storage available.
  *
  * @throws {@link InvalidDBClusterSnapshotStateFault} (client fault)
- *  <p>The provided value isn't a valid cluster snapshot state.</p>
+ *
+ * The provided value isn't a valid cluster snapshot state.
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
- *  <p>The cluster isn't in a valid state.</p>
+ *
+ * The cluster isn't in a valid state.
  *
  * @throws {@link InvalidDBSnapshotStateFault} (client fault)
- *  <p>The state of the snapshot doesn't allow deletion.</p>
+ *
+ * The state of the snapshot doesn't allow deletion.
  *
  * @throws {@link InvalidRestoreFault} (client fault)
- *  <p>You cannot restore from a virtual private cloud (VPC) backup to a non-VPC DB
- *             instance.</p>
+ *
+ * You cannot restore from a virtual private cloud (VPC) backup to a non-VPC DB instance.
  *
  * @throws {@link InvalidSubnet} (client fault)
- *  <p>The requested subnet is not valid, or multiple subnets were requested that are not all
- *             in a common virtual private cloud (VPC).</p>
+ *
+ * The requested subnet is not valid, or multiple subnets were requested that are not all in a common virtual private cloud (VPC).
  *
  * @throws {@link InvalidVPCNetworkStateFault} (client fault)
- *  <p>The subnet group doesn't cover all Availability Zones after it is created
- *             because of changes that were made.</p>
+ *
+ * The subnet group doesn't cover all Availability Zones after it is created because of changes that were made.
  *
  * @throws {@link KMSKeyNotAccessibleFault} (client fault)
- *  <p>An error occurred when accessing an KMS key.</p>
+ *
+ * An error occurred when accessing an KMS key.
  *
  * @throws {@link NetworkTypeNotSupported} (client fault)
- *  <p>The network type is not supported by either <code>DBSubnetGroup</code> or the DB engine version.</p>
+ *
+ * The network type is not supported by either `DBSubnetGroup` or the DB engine version.
  *
  * @throws {@link StorageQuotaExceededFault} (client fault)
- *  <p>The request would cause you to exceed the allowed amount of storage available across
- *             all instances.</p>
+ *
+ * The request would cause you to exceed the allowed amount of storage available across all instances.
  *
  * @throws {@link DocDBServiceException}
- * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * Base exception class for all service exceptions from DocDB service.
  *
  * @public
  */

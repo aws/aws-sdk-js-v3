@@ -23,20 +23,13 @@ export interface DetachAndDeleteS3AccessPointCommandInput extends DetachAndDelet
 export interface DetachAndDeleteS3AccessPointCommandOutput extends DetachAndDeleteS3AccessPointResponse, __MetadataBearer {}
 
 /**
- * <p>Detaches an S3 access point from an Amazon FSx volume and deletes the S3 access point.</p>
- *          <p>The requester requires the following permission to perform this action:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>fsx:DetachAndDeleteS3AccessPoint</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>s3:DeleteAccessPoint</code>
- *                </p>
- *             </li>
- *          </ul>
+ * Detaches an S3 access point from an Amazon FSx volume and deletes the S3 access point.
+ *
+ * The requester requires the following permission to perform this action:
+ *
+ * - `fsx:DetachAndDeleteS3AccessPoint`
+ * - `s3:DeleteAccessPoint`
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,25 +58,28 @@ export interface DetachAndDeleteS3AccessPointCommandOutput extends DetachAndDele
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * A generic error indicating a failure with a client request.
  *
  * @throws {@link IncompatibleParameterError} (client fault)
- *  <p>The error returned when a second request is received with the same client request
- *             token but different parameters settings. A client request token should always uniquely
- *             identify a single request.</p>
+ *
+ * The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * A generic error indicating a server-side failure.
  *
  * @throws {@link S3AccessPointAttachmentNotFound} (client fault)
- *  <p>The access point specified was not found.</p>
+ *
+ * The access point specified was not found.
  *
  * @throws {@link UnsupportedOperation} (client fault)
- *  <p>The requested operation is not supported for this resource or API.</p>
+ *
+ * The requested operation is not supported for this resource or API.
  *
  * @throws {@link FSxServiceException}
- * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * Base exception class for all service exceptions from FSx service.
  *
  * @public
  */

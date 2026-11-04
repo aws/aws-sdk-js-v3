@@ -23,34 +23,22 @@ export interface ListFleetsCommandInput extends ListFleetsInput {}
 export interface ListFleetsCommandOutput extends ListFleetsOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
- *          <p>Retrieves a collection of fleet resources in an Amazon Web Services Region. You can filter the
- *             result set to find only those fleets that are deployed with a specific build or script.
- *             For fleets that have multiple locations, this operation retrieves fleets based on their
- *             home Region only.</p>
- *          <p>You can use this operation in the following ways: </p>
- *          <ul>
- *             <li>
- *                <p>To get a list of all fleets in a Region, don't provide a build or script
- *                     identifier.</p>
- *             </li>
- *             <li>
- *                <p>To get a list of all fleets where a specific game build is deployed, provide
- *                     the build ID.</p>
- *             </li>
- *             <li>
- *                <p>To get a list of all Amazon GameLift Servers Realtime fleets with a specific configuration script,
- *                     provide the script ID. </p>
- *             </li>
- *          </ul>
- *          <p>Use the pagination parameters to retrieve results as a set of sequential pages. </p>
- *          <p>If successful, this operation returns a list of fleet IDs that match the request
- *             parameters. A NextToken value is also returned if there are more result pages to
- *             retrieve.</p>
- *          <note>
- *             <p>Fleet IDs are returned in no particular order.</p>
- *          </note>
+ * **This API works with the following fleet types:** EC2, Anywhere, Container
+ *
+ * Retrieves a collection of fleet resources in an Amazon Web Services Region. You can filter the result set to find only those fleets that are deployed with a specific build or script. For fleets that have multiple locations, this operation retrieves fleets based on their home Region only.
+ *
+ * You can use this operation in the following ways:
+ *
+ * - To get a list of all fleets in a Region, don't provide a build or script identifier.
+ * - To get a list of all fleets where a specific game build is deployed, provide the build ID.
+ * - To get a list of all Amazon GameLift Servers Realtime fleets with a specific configuration script, provide the script ID.
+ *
+ * Use the pagination parameters to retrieve results as a set of sequential pages.
+ *
+ * If successful, this operation returns a list of fleet IDs that match the request parameters. A NextToken value is also returned if there are more result pages to retrieve.
+ *
+ * > **Note:** Fleet IDs are returned in no particular order.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,22 +71,24 @@ export interface ListFleetsCommandOutput extends ListFleetsOutput, __MetadataBea
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an unrecoverable internal failure while processing the
- *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
- *             values before retrying.</p>
+ *
+ * One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resource was not found. The resource was either not created yet or deleted.</p>
+ *
+ * The requested resource was not found. The resource was either not created yet or deleted.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * The client failed authentication. Clients should not retry such requests.
  *
  * @throws {@link GameLiftServiceException}
- * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * Base exception class for all service exceptions from GameLift service.
  *
  * @public
  */

@@ -23,11 +23,12 @@ export interface CreateStoreImageTaskCommandInput extends CreateStoreImageTaskRe
 export interface CreateStoreImageTaskCommandOutput extends CreateStoreImageTaskResult, __MetadataBearer {}
 
 /**
- * <p>Stores an AMI as a single object in an Amazon S3 bucket.</p>
- *          <p>To use this API, you must have the required permissions. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-ami-store-restore.html#ami-s3-permissions">Permissions for storing and restoring AMIs using S3</a> in the
- *         <i>Amazon EC2 User Guide</i>.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html">Store and restore an AMI using
- *         S3</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * Stores an AMI as a single object in an Amazon S3 bucket.
+ *
+ * To use this API, you must have the required permissions. For more information, see [Permissions for storing and restoring AMIs using S3](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-ami-store-restore.html#ami-s3-permissions) in the *Amazon EC2 User Guide*.
+ *
+ * For more information, see [Store and restore an AMI using S3](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,8 +63,8 @@ export interface CreateStoreImageTaskCommandOutput extends CreateStoreImageTaskR
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

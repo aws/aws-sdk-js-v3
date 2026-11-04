@@ -23,7 +23,8 @@ export interface ListDiscoverersCommandInput extends ListDiscoverersRequest {}
 export interface ListDiscoverersCommandOutput extends ListDiscoverersResponse, __MetadataBearer {}
 
 /**
- * <p>List the discoverers.</p>
+ * List the discoverers.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,8 +76,8 @@ export interface ListDiscoverersCommandOutput extends ListDiscoverersResponse, _
  * @throws {@link UnauthorizedException} (client fault)
  *
  * @throws {@link SchemasServiceException}
- * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
+ * Base exception class for all service exceptions from Schemas service.
  *
  * @public
  */

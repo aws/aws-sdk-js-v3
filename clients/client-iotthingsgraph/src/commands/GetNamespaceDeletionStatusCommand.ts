@@ -23,7 +23,7 @@ export interface GetNamespaceDeletionStatusCommandInput extends GetNamespaceDele
 export interface GetNamespaceDeletionStatusCommandOutput extends GetNamespaceDeletionStatusResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the status of a namespace deletion task.</p>
+ * Gets the status of a namespace deletion task.
  *
  * @deprecated since: 2022-08-30.
  * @example
@@ -54,17 +54,14 @@ export interface GetNamespaceDeletionStatusCommandOutput extends GetNamespaceDel
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p></p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p></p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p></p>
  *
  * @throws {@link IoTThingsGraphServiceException}
- * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ * Base exception class for all service exceptions from IoTThingsGraph service.
  *
  * @public
  */

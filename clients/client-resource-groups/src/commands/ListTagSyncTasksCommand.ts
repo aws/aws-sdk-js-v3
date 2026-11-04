@@ -23,18 +23,14 @@ export interface ListTagSyncTasksCommandInput extends ListTagSyncTasksInput {}
 export interface ListTagSyncTasksCommandOutput extends ListTagSyncTasksOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of tag-sync tasks. </p>
- *          <p>
- *             <b>Minimum permissions</b>
- *          </p>
- *          <p>To run this command, you must have the following permissions:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>resource-groups:ListTagSyncTasks</code> with the group passed in the filters as the resource
- *                     or * if using no filters </p>
- *             </li>
- *          </ul>
+ * Returns a list of tag-sync tasks.
+ *
+ * **Minimum permissions**
+ *
+ * To run this command, you must have the following permissions:
+ *
+ * - `resource-groups:ListTagSyncTasks` with the group passed in the filters as the resource or * if using no filters
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,28 +81,32 @@ export interface ListTagSyncTasksCommandOutput extends ListTagSyncTasksOutput, _
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request includes one or more parameters that violate validation rules.</p>
+ *
+ * The request includes one or more parameters that violate validation rules.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>The caller isn't authorized to make the request. Check permissions.</p>
+ *
+ * The caller isn't authorized to make the request. Check permissions.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>An internal error occurred while processing the request. Try again later.</p>
+ *
+ * An internal error occurred while processing the request. Try again later.
  *
  * @throws {@link MethodNotAllowedException} (client fault)
- *  <p>The request uses an HTTP method that isn't allowed for the specified resource.</p>
+ *
+ * The request uses an HTTP method that isn't allowed for the specified resource.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>You've exceeded throttling limits by making too many requests in a period of
- *             time.</p>
+ *
+ * You've exceeded throttling limits by making too many requests in a period of time.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The request was rejected because it doesn't have valid credentials for the target
- *             resource.</p>
+ *
+ * The request was rejected because it doesn't have valid credentials for the target resource.
  *
  * @throws {@link ResourceGroupsServiceException}
- * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
+ * Base exception class for all service exceptions from ResourceGroups service.
  *
  * @public
  */

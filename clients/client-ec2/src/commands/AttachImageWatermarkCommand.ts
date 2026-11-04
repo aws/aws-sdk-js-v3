@@ -23,12 +23,10 @@ export interface AttachImageWatermarkCommandInput extends AttachImageWatermarkRe
 export interface AttachImageWatermarkCommandOutput extends AttachImageWatermarkResult, __MetadataBearer {}
 
 /**
- * <p>Attaches a watermark to a non-public AMI. The watermark is a structured identifier that
- *       automatically propagates to all derivative images created through
- *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html">CreateImage</a>, and
- *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CopyImage.html">CopyImage</a>.</p>
- *          <p>Only the AMI owner can attach watermarks. Watermarks cannot be added to public
- *       AMIs.</p>
+ * Attaches a watermark to a non-public AMI. The watermark is a structured identifier that automatically propagates to all derivative images created through [CreateImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html), and [CopyImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CopyImage.html).
+ *
+ * Only the AMI owner can attach watermarks. Watermarks cannot be added to public AMIs.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,8 +55,8 @@ export interface AttachImageWatermarkCommandOutput extends AttachImageWatermarkR
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

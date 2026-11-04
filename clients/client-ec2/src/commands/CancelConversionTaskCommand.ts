@@ -23,9 +23,8 @@ export interface CancelConversionTaskCommandInput extends CancelConversionReques
 export interface CancelConversionTaskCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Cancels an active conversion task. The task can be the import of an instance or volume. The action removes all
- *    artifacts of the conversion, including a partially uploaded volume or instance. If the conversion is complete or is
- *    in the process of transferring the final disk image, the command fails and returns an exception.</p>
+ * Cancels an active conversion task. The task can be the import of an instance or volume. The action removes all artifacts of the conversion, including a partially uploaded volume or instance. If the conversion is complete or is in the process of transferring the final disk image, the command fails and returns an exception.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,8 +51,8 @@ export interface CancelConversionTaskCommandOutput extends __MetadataBearer {}
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

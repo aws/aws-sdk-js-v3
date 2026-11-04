@@ -23,10 +23,12 @@ export interface DescribeStandardsControlsCommandInput extends DescribeStandards
 export interface DescribeStandardsControlsCommandOutput extends DescribeStandardsControlsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of security standards controls.</p>
- *          <p>For each control, the results include information about whether it is currently enabled,
- *          the severity, and a link to remediation information.</p>
- *          <p>This operation returns an empty list for standard subscriptions where <code>StandardsControlsUpdatable</code> has value <code>NOT_READY_FOR_UPDATES</code>.</p>
+ * Returns a list of security standards controls.
+ *
+ * For each control, the results include information about whether it is currently enabled, the severity, and a link to remediation information.
+ *
+ * This operation returns an empty list for standard subscriptions where `StandardsControlsUpdatable` has value `NOT_READY_FOR_UPDATES`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,21 +73,24 @@ export interface DescribeStandardsControlsCommandOutput extends DescribeStandard
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>Internal server error.</p>
+ *
+ * Internal server error.
  *
  * @throws {@link InvalidAccessException} (client fault)
- *  <p>The account doesn't have permission to perform this action.</p>
+ *
+ * The account doesn't have permission to perform this action.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because you supplied an invalid or out-of-range value for an
- *          input parameter.</p>
+ *
+ * The request was rejected because you supplied an invalid or out-of-range value for an input parameter.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request was rejected because we can't find the specified resource.</p>
+ *
+ * The request was rejected because we can't find the specified resource.
  *
  * @throws {@link SecurityHubServiceException}
- * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * Base exception class for all service exceptions from SecurityHub service.
  *
  * @public
  */

@@ -23,8 +23,8 @@ export interface ListDirectoryRegistrationsCommandInput extends ListDirectoryReg
 export interface ListDirectoryRegistrationsCommandOutput extends ListDirectoryRegistrationsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the directory registrations that you created by using the <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration">https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration</a>
- *          action.</p>
+ * Lists the directory registrations that you created by using the [https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration) action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,26 +62,24 @@ export interface ListDirectoryRegistrationsCommandOutput extends ListDirectoryRe
  * @see {@link PcaConnectorAdClientResolvedConfig | config} for PcaConnectorAdClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You can receive this error if you attempt to create a resource share when you don't have
- *          the required permissions. This can be caused by insufficient permissions in policies
- *          attached to your Amazon Web Services Identity and Access Management (IAM) principal. It can also happen
- *          because of restrictions in place from an Amazon Web Services Organizations service control policy (SCP)
- *          that affects your Amazon Web Services account. </p>
+ *
+ * You can receive this error if you attempt to create a resource share when you don't have the required permissions. This can be caused by insufficient permissions in policies attached to your Amazon Web Services Identity and Access Management (IAM) principal. It can also happen because of restrictions in place from an Amazon Web Services Organizations service control policy (SCP) that affects your Amazon Web Services account.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure with
- *          an internal server. </p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure with an internal server.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The limit on the number of requests per second was exceeded. </p>
+ *
+ * The limit on the number of requests per second was exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An input validation error occurred. For example, invalid characters in a template name,
- *          or if a pagination token is invalid. </p>
+ *
+ * An input validation error occurred. For example, invalid characters in a template name, or if a pagination token is invalid.
  *
  * @throws {@link PcaConnectorAdServiceException}
- * <p>Base exception class for all service exceptions from PcaConnectorAd service.</p>
  *
+ * Base exception class for all service exceptions from PcaConnectorAd service.
  *
  * @public
  */

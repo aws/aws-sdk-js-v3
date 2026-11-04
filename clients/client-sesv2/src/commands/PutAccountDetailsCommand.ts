@@ -23,7 +23,8 @@ export interface PutAccountDetailsCommandInput extends PutAccountDetailsRequest 
 export interface PutAccountDetailsCommandOutput extends PutAccountDetailsResponse, __MetadataBearer {}
 
 /**
- * <p>Update your Amazon SES account details.</p>
+ * Update your Amazon SES account details.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,17 +56,20 @@ export interface PutAccountDetailsCommandOutput extends PutAccountDetailsRespons
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>If there is already an ongoing account details update under review.</p>
+ *
+ * If there is already an ongoing account details update under review.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Too many requests have been made to the operation.</p>
+ *
+ * Too many requests have been made to the operation.
  *
  * @throws {@link SESv2ServiceException}
- * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * Base exception class for all service exceptions from SESv2 service.
  *
  * @public
  */

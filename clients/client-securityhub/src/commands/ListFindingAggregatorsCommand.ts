@@ -23,8 +23,8 @@ export interface ListFindingAggregatorsCommandInput extends ListFindingAggregato
 export interface ListFindingAggregatorsCommandOutput extends ListFindingAggregatorsResponse, __MetadataBearer {}
 
 /**
- * <p>If cross-Region aggregation is enabled, then <code>ListFindingAggregators</code> returns the Amazon Resource Name (ARN)
- * of the finding aggregator. You can run this operation from any Amazon Web Services Region.</p>
+ * If cross-Region aggregation is enabled, then `ListFindingAggregators` returns the Amazon Resource Name (ARN) of the finding aggregator. You can run this operation from any Amazon Web Services Region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,25 +57,28 @@ export interface ListFindingAggregatorsCommandOutput extends ListFindingAggregat
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permission to perform the action specified in the request.</p>
+ *
+ * You don't have permission to perform the action specified in the request.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>Internal server error.</p>
+ *
+ * Internal server error.
  *
  * @throws {@link InvalidAccessException} (client fault)
- *  <p>The account doesn't have permission to perform this action.</p>
+ *
+ * The account doesn't have permission to perform this action.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because you supplied an invalid or out-of-range value for an
- *          input parameter.</p>
+ *
+ * The request was rejected because you supplied an invalid or out-of-range value for an input parameter.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
- *          account or throttling limits. The error code describes the limit exceeded.</p>
+ *
+ * The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.
  *
  * @throws {@link SecurityHubServiceException}
- * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * Base exception class for all service exceptions from SecurityHub service.
  *
  * @example To update the enablement status of a standard control
  * ```javascript

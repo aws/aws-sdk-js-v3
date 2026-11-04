@@ -23,7 +23,18 @@ export interface AssociateFeedCommandInput extends AssociateFeedRequest {}
 export interface AssociateFeedCommandOutput extends AssociateFeedResponse, __MetadataBearer {}
 
 /**
- * <p>Associates a resource with the feed. The resource provides the input that Elemental Inference needs in order to perform an Elemental Inference feature, such as cropping video. You always provide the resource by associating it with a feed. You can associate only one resource with each feed. With an association, a specific source media is claiming ownership of the feed. </p> <p>AssociateFeed is a PATCH operation, which means that you can include only parameters that you want to change. Parameters that you don't include will not be affected by the operation. </p> <p>Specifically:</p> <ul> <li> <p>You can add more outputs to the existing outputs. New outputs will be appended.</p> </li> <li> <p>You can't modify an existing output (for example to change its name). Instead, use UpdateFeed. </p> </li> <li> <p>You can't delete an existing output. Instead, use UpdateFeed.</p> </li> </ul> <p>Also note that you can't change the feed name with AssociateFeed. Instead, use UpdateFeed. </p>
+ * Associates a resource with the feed. The resource provides the input that Elemental Inference needs in order to perform an Elemental Inference feature, such as cropping video. You always provide the resource by associating it with a feed. You can associate only one resource with each feed. With an association, a specific source media is claiming ownership of the feed.
+ *
+ * AssociateFeed is a PATCH operation, which means that you can include only parameters that you want to change. Parameters that you don't include will not be affected by the operation.
+ *
+ * Specifically:
+ *
+ * - You can add more outputs to the existing outputs. New outputs will be appended.
+ * - You can't modify an existing output (for example to change its name). Instead, use UpdateFeed.
+ * - You can't delete an existing output. Instead, use UpdateFeed.
+ *
+ * Also note that you can't change the feed name with AssociateFeed. Instead, use UpdateFeed.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,29 +102,36 @@ export interface AssociateFeedCommandOutput extends AssociateFeedResponse, __Met
  * @see {@link ElementalInferenceClientResolvedConfig | config} for ElementalInferenceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be completed due to a conflict.</p>
+ *
+ * The request could not be completed due to a conflict.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>An internal server error occurred. This is a temporary condition and the request can be retried. If the problem persists, contact AWS Support. </p>
+ *
+ * An internal server error occurred. This is a temporary condition and the request can be retried. If the problem persists, contact AWS Support.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource specified in the action doesn't exist.</p>
+ *
+ * The resource specified in the action doesn't exist.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request was rejected because it would exceed one or more service quotas for your account. Review your service quotas and either delete unused resources or request a quota increase. </p>
+ *
+ * The request was rejected because it would exceed one or more service quotas for your account. Review your service quotas and either delete unused resources or request a quota increase.
  *
  * @throws {@link TooManyRequestException} (client fault)
- *  <p>The request was denied due to request throttling. Too many requests have been made within a given time period. Reduce the frequency of requests and use exponential backoff when retrying. </p>
+ *
+ * The request was denied due to request throttling. Too many requests have been made within a given time period. Reduce the frequency of requests and use exponential backoff when retrying.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the service. Check the error message for details about which parameter or field is invalid and correct the request before retrying. </p>
+ *
+ * The input fails to satisfy the constraints specified by the service. Check the error message for details about which parameter or field is invalid and correct the request before retrying.
  *
  * @throws {@link ElementalInferenceServiceException}
- * <p>Base exception class for all service exceptions from ElementalInference service.</p>
  *
+ * Base exception class for all service exceptions from ElementalInference service.
  *
  * @public
  */

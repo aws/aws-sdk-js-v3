@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>Provides APIs for creating and managing Amazon Forecast resources.</p>
+ * Provides APIs for creating and managing Amazon Forecast resources.
  *
  * @packageDocumentation
  */

@@ -2,30 +2,35 @@
 import type { EncryptionConfigurationType } from "./enums";
 
 /**
- * <p>This structure contains information about the cross-account configuration in the account. </p>
+ * This structure contains information about the cross-account configuration in the account.
+ *
  * @public
  */
 export interface CrossAccountConfiguration {
   /**
-   * <p>The ARN of an existing role which will be used to do investigations on your behalf. </p>
+   * The ARN of an existing role which will be used to do investigations on your behalf.
+   *
    * @public
    */
   sourceRoleArn?: string | undefined;
 }
 
 /**
- * <p>Use this structure to specify a customer managed KMS key to use to encrypt investigation data. </p>
+ * Use this structure to specify a customer managed KMS key to use to encrypt investigation data.
+ *
  * @public
  */
 export interface EncryptionConfiguration {
   /**
-   * <p>Displays whether investigation data is encrypted by a customer managed key or an Amazon Web Services owned key.</p>
+   * Displays whether investigation data is encrypted by a customer managed key or an Amazon Web Services owned key.
+   *
    * @public
    */
   type?: EncryptionConfigurationType | undefined;
 
   /**
-   * <p>If the investigation group uses a customer managed key for encryption, this field displays the ID of that key.</p>
+   * If the investigation group uses a customer managed key for encryption, this field displays the ID of that key.
+   *
    * @public
    */
   kmsKeyId?: string | undefined;
@@ -36,55 +41,72 @@ export interface EncryptionConfiguration {
  */
 export interface CreateInvestigationGroupInput {
   /**
-   * <p>Provides a name for the investigation group.</p>
+   * Provides a name for the investigation group.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Specify the ARN of the IAM role that CloudWatch investigations will use when it gathers investigation data. The permissions in this role determine which of your resources that CloudWatch investigations will have access to during investigations.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Investigations-Security.html#Investigations-Security-Data">How to control what data CloudWatch investigations has access to during investigations</a>.</p>
+   * Specify the ARN of the IAM role that CloudWatch investigations will use when it gathers investigation data. The permissions in this role determine which of your resources that CloudWatch investigations will have access to during investigations.
+   *
+   * For more information, see [How to control what data CloudWatch investigations has access to during investigations](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Investigations-Security.html#Investigations-Security-Data).
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>Use this structure if you want to use a customer managed KMS key to encrypt your investigation data. If you omit this parameter, CloudWatch investigations will use an Amazon Web Services key to encrypt the data. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Investigations-Security.html#Investigations-KMS">Encryption of investigation data</a>.</p>
+   * Use this structure if you want to use a customer managed KMS key to encrypt your investigation data. If you omit this parameter, CloudWatch investigations will use an Amazon Web Services key to encrypt the data. For more information, see [Encryption of investigation data](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Investigations-Security.html#Investigations-KMS).
+   *
    * @public
    */
   encryptionConfiguration?: EncryptionConfiguration | undefined;
 
   /**
-   * <p>Specify how long that investigation data is kept. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Investigations-Retention.html">Operational investigation data retention</a>. </p> <p>If you omit this parameter, the default of 90 days is used.</p>
+   * Specify how long that investigation data is kept. For more information, see [Operational investigation data retention](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Investigations-Retention.html).
+   *
+   * If you omit this parameter, the default of 90 days is used.
+   *
    * @public
    */
   retentionInDays?: number | undefined;
 
   /**
-   * <p>A list of key-value pairs to associate with the investigation group. You can associate as many as 50 tags with an investigation group. To be able to associate tags when you create the investigation group, you must have the <code>cloudwatch:TagResource</code> permission.</p> <p>Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.</p>
+   * A list of key-value pairs to associate with the investigation group. You can associate as many as 50 tags with an investigation group. To be able to associate tags when you create the investigation group, you must have the `cloudwatch:TagResource` permission.
+   *
+   * Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Enter the existing custom tag keys for custom applications in your system. Resource tags help CloudWatch investigations narrow the search space when it is unable to discover definite relationships between resources. For example, to discover that an Amazon ECS service depends on an Amazon RDS database, CloudWatch investigations can discover this relationship using data sources such as X-Ray and CloudWatch Application Signals. However, if you haven't deployed these features, CloudWatch investigations will attempt to identify possible relationships. Tag boundaries can be used to narrow the resources that will be discovered by CloudWatch investigations in these cases.</p> <p>You don't need to enter tags created by myApplications or CloudFormation, because CloudWatch investigations can automatically detect those tags.</p>
+   * Enter the existing custom tag keys for custom applications in your system. Resource tags help CloudWatch investigations narrow the search space when it is unable to discover definite relationships between resources. For example, to discover that an Amazon ECS service depends on an Amazon RDS database, CloudWatch investigations can discover this relationship using data sources such as X-Ray and CloudWatch Application Signals. However, if you haven't deployed these features, CloudWatch investigations will attempt to identify possible relationships. Tag boundaries can be used to narrow the resources that will be discovered by CloudWatch investigations in these cases.
+   *
+   * You don't need to enter tags created by myApplications or CloudFormation, because CloudWatch investigations can automatically detect those tags.
+   *
    * @public
    */
   tagKeyBoundaries?: string[] | undefined;
 
   /**
-   * <p>Use this structure to integrate CloudWatch investigations with chat applications. This structure is a string array. For the first string, specify the ARN of an Amazon SNS topic. For the array of strings, specify the ARNs of one or more chat applications configurations that you want to associate with that topic. For more information about these configuration ARNs, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/getting-started.html">Getting started with Amazon Q in chat applications</a> and <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awschatbot.html#awschatbot-resources-for-iam-policies">Resource type defined by Amazon Web Services Chatbot</a>.</p>
+   * Use this structure to integrate CloudWatch investigations with chat applications. This structure is a string array. For the first string, specify the ARN of an Amazon SNS topic. For the array of strings, specify the ARNs of one or more chat applications configurations that you want to associate with that topic. For more information about these configuration ARNs, see [Getting started with Amazon Q in chat applications](https://docs.aws.amazon.com/chatbot/latest/adminguide/getting-started.html) and [Resource type defined by Amazon Web Services Chatbot](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awschatbot.html#awschatbot-resources-for-iam-policies).
+   *
    * @public
    */
   chatbotNotificationChannel?: Record<string, string[]> | undefined;
 
   /**
-   * <p>Specify <code>true</code> to enable CloudWatch investigations to have access to change events that are recorded by CloudTrail. The default is <code>true</code>.</p>
+   * Specify `true` to enable CloudWatch investigations to have access to change events that are recorded by CloudTrail. The default is `true`.
+   *
    * @public
    */
   isCloudTrailEventHistoryEnabled?: boolean | undefined;
 
   /**
-   * <p>List of <code>sourceRoleArn</code> values that have been configured for cross-account access.</p>
+   * List of `sourceRoleArn` values that have been configured for cross-account access.
+   *
    * @public
    */
   crossAccountConfigurations?: CrossAccountConfiguration[] | undefined;
@@ -95,7 +117,8 @@ export interface CreateInvestigationGroupInput {
  */
 export interface CreateInvestigationGroupOutput {
   /**
-   * <p>The ARN of the investigation group that you just created.</p>
+   * The ARN of the investigation group that you just created.
+   *
    * @public
    */
   arn?: string | undefined;
@@ -106,7 +129,8 @@ export interface CreateInvestigationGroupOutput {
  */
 export interface DeleteInvestigationGroupRequest {
   /**
-   * <p>Specify either the name or the ARN of the investigation group that you want to delete.</p>
+   * Specify either the name or the ARN of the investigation group that you want to delete.
+   *
    * @public
    */
   identifier: string | undefined;
@@ -117,7 +141,8 @@ export interface DeleteInvestigationGroupRequest {
  */
 export interface GetInvestigationGroupRequest {
   /**
-   * <p>Specify either the name or the ARN of the investigation group that you want to view. This is used to set the name of the investigation group.</p>
+   * Specify either the name or the ARN of the investigation group that you want to view. This is used to set the name of the investigation group.
+   *
    * @public
    */
   identifier: string | undefined;
@@ -128,79 +153,92 @@ export interface GetInvestigationGroupRequest {
  */
 export interface GetInvestigationGroupResponse {
   /**
-   * <p>The name of the user who created the investigation group.</p>
+   * The name of the user who created the investigation group.
+   *
    * @public
    */
   createdBy?: string | undefined;
 
   /**
-   * <p>The date and time that the investigation group was created.</p>
+   * The date and time that the investigation group was created.
+   *
    * @public
    */
   createdAt?: number | undefined;
 
   /**
-   * <p>The name of the user who created the investigation group.</p>
+   * The name of the user who created the investigation group.
+   *
    * @public
    */
   lastModifiedBy?: string | undefined;
 
   /**
-   * <p>The date and time that the investigation group was most recently modified.</p>
+   * The date and time that the investigation group was most recently modified.
+   *
    * @public
    */
   lastModifiedAt?: number | undefined;
 
   /**
-   * <p>The name of the investigation group.</p>
+   * The name of the investigation group.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the investigation group.</p>
+   * The Amazon Resource Name (ARN) of the investigation group.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The ARN of the IAM role that the investigation group uses for permissions to gather data.</p>
+   * The ARN of the IAM role that the investigation group uses for permissions to gather data.
+   *
    * @public
    */
   roleArn?: string | undefined;
 
   /**
-   * <p>Specifies the customer managed KMS key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an Amazon Web Services key to encrypt the data.</p>
+   * Specifies the customer managed KMS key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an Amazon Web Services key to encrypt the data.
+   *
    * @public
    */
   encryptionConfiguration?: EncryptionConfiguration | undefined;
 
   /**
-   * <p>Specifies how long that investigation data is kept.</p>
+   * Specifies how long that investigation data is kept.
+   *
    * @public
    */
   retentionInDays?: number | undefined;
 
   /**
-   * <p>This structure is a string array. The first string is the ARN of a Amazon SNS topic. The array of strings display the ARNs of chat applications configurations that are associated with that topic. For more information about these configuration ARNs, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/getting-started.html">Getting started with Amazon Q in chat applications</a> and <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awschatbot.html#awschatbot-resources-for-iam-policies">Resource type defined by Amazon Web Services Chatbot</a>.</p>
+   * This structure is a string array. The first string is the ARN of a Amazon SNS topic. The array of strings display the ARNs of chat applications configurations that are associated with that topic. For more information about these configuration ARNs, see [Getting started with Amazon Q in chat applications](https://docs.aws.amazon.com/chatbot/latest/adminguide/getting-started.html) and [Resource type defined by Amazon Web Services Chatbot](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awschatbot.html#awschatbot-resources-for-iam-policies).
+   *
    * @public
    */
   chatbotNotificationChannel?: Record<string, string[]> | undefined;
 
   /**
-   * <p>Displays the custom tag keys for custom applications in your system that you have specified in the investigation group. Resource tags help CloudWatch investigations narrow the search space when it is unable to discover definite relationships between resources. </p>
+   * Displays the custom tag keys for custom applications in your system that you have specified in the investigation group. Resource tags help CloudWatch investigations narrow the search space when it is unable to discover definite relationships between resources.
+   *
    * @public
    */
   tagKeyBoundaries?: string[] | undefined;
 
   /**
-   * <p>Specifies whether CloudWatch investigationshas access to change events that are recorded by CloudTrail.</p>
+   * Specifies whether CloudWatch investigationshas access to change events that are recorded by CloudTrail.
+   *
    * @public
    */
   isCloudTrailEventHistoryEnabled?: boolean | undefined;
 
   /**
-   * <p>Lists the <code>AWSAccountId</code> of the accounts configured for cross-account access and the results of the last scan performed on each account.</p>
+   * Lists the `AWSAccountId` of the accounts configured for cross-account access and the results of the last scan performed on each account.
+   *
    * @public
    */
   crossAccountConfigurations?: CrossAccountConfiguration[] | undefined;
@@ -211,31 +249,36 @@ export interface GetInvestigationGroupResponse {
  */
 export interface ListInvestigationGroupsInput {
   /**
-   * <p>Include this value, if it was returned by the previous operation, to get the next set of service operations.</p>
+   * Include this value, if it was returned by the previous operation, to get the next set of service operations.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in one operation. If you omit this parameter, the default of 50 is used.</p>
+   * The maximum number of results to return in one operation. If you omit this parameter, the default of 50 is used.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>This structure contains information about one investigation group in the account.</p>
+ * This structure contains information about one investigation group in the account.
+ *
  * @public
  */
 export interface ListInvestigationGroupsModel {
   /**
-   * <p>The Amazon Resource Name (ARN) of the investigation group.</p>
+   * The Amazon Resource Name (ARN) of the investigation group.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The name of the investigation group.</p>
+   * The name of the investigation group.
+   *
    * @public
    */
   name?: string | undefined;
@@ -246,13 +289,15 @@ export interface ListInvestigationGroupsModel {
  */
 export interface ListInvestigationGroupsOutput {
   /**
-   * <p>Include this value in your next use of this operation to get the next set of service operations.</p>
+   * Include this value in your next use of this operation to get the next set of service operations.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>An array of structures, where each structure contains the information about one investigation group in the account.</p>
+   * An array of structures, where each structure contains the information about one investigation group in the account.
+   *
    * @public
    */
   investigationGroups?: ListInvestigationGroupsModel[] | undefined;
@@ -268,43 +313,56 @@ export interface UpdateInvestigationGroupOutput {}
  */
 export interface UpdateInvestigationGroupRequest {
   /**
-   * <p>Specify either the name or the ARN of the investigation group that you want to modify.</p>
+   * Specify either the name or the ARN of the investigation group that you want to modify.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>Specify this field if you want to change the IAM role that CloudWatch investigations will use when it gathers investigation data. To do so, specify the ARN of the new role.</p> <p>The permissions in this role determine which of your resources that CloudWatch investigations will have access to during investigations.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Investigations-Security.html#Investigations-Security-Data">How to control what data CloudWatch investigations has access to during investigations</a>.</p>
+   * Specify this field if you want to change the IAM role that CloudWatch investigations will use when it gathers investigation data. To do so, specify the ARN of the new role.
+   *
+   * The permissions in this role determine which of your resources that CloudWatch investigations will have access to during investigations.
+   *
+   * For more information, see [How to control what data CloudWatch investigations has access to during investigations](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Investigations-Security.html#Investigations-Security-Data).
+   *
    * @public
    */
   roleArn?: string | undefined;
 
   /**
-   * <p>Use this structure if you want to use a customer managed KMS key to encrypt your investigation data. If you omit this parameter, CloudWatch investigations will use an Amazon Web Services key to encrypt the data. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Investigations-Security.html#Investigations-KMS">Encryption of investigation data</a>.</p>
+   * Use this structure if you want to use a customer managed KMS key to encrypt your investigation data. If you omit this parameter, CloudWatch investigations will use an Amazon Web Services key to encrypt the data. For more information, see [Encryption of investigation data](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Investigations-Security.html#Investigations-KMS).
+   *
    * @public
    */
   encryptionConfiguration?: EncryptionConfiguration | undefined;
 
   /**
-   * <p>Enter the existing custom tag keys for custom applications in your system. Resource tags help CloudWatch investigations narrow the search space when it is unable to discover definite relationships between resources. For example, to discover that an Amazon ECS service depends on an Amazon RDS database, CloudWatch investigations can discover this relationship using data sources such as X-Ray and CloudWatch Application Signals. However, if you haven't deployed these features, CloudWatch investigations will attempt to identify possible relationships. Tag boundaries can be used to narrow the resources that will be discovered by CloudWatch investigations in these cases.</p> <p>You don't need to enter tags created by myApplications or CloudFormation, because CloudWatch investigations can automatically detect those tags.</p>
+   * Enter the existing custom tag keys for custom applications in your system. Resource tags help CloudWatch investigations narrow the search space when it is unable to discover definite relationships between resources. For example, to discover that an Amazon ECS service depends on an Amazon RDS database, CloudWatch investigations can discover this relationship using data sources such as X-Ray and CloudWatch Application Signals. However, if you haven't deployed these features, CloudWatch investigations will attempt to identify possible relationships. Tag boundaries can be used to narrow the resources that will be discovered by CloudWatch investigations in these cases.
+   *
+   * You don't need to enter tags created by myApplications or CloudFormation, because CloudWatch investigations can automatically detect those tags.
+   *
    * @public
    */
   tagKeyBoundaries?: string[] | undefined;
 
   /**
-   * <p>Use this structure to integrate CloudWatch investigations with chat applications. This structure is a string array. For the first string, specify the ARN of an Amazon SNS topic. For the array of strings, specify the ARNs of one or more chat applications configurations that you want to associate with that topic. For more information about these configuration ARNs, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/getting-started.html">Getting started with Amazon Q in chat applications</a> and <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awschatbot.html#awschatbot-resources-for-iam-policies">Resource type defined by Amazon Web Services Chatbot</a>.</p>
+   * Use this structure to integrate CloudWatch investigations with chat applications. This structure is a string array. For the first string, specify the ARN of an Amazon SNS topic. For the array of strings, specify the ARNs of one or more chat applications configurations that you want to associate with that topic. For more information about these configuration ARNs, see [Getting started with Amazon Q in chat applications](https://docs.aws.amazon.com/chatbot/latest/adminguide/getting-started.html) and [Resource type defined by Amazon Web Services Chatbot](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awschatbot.html#awschatbot-resources-for-iam-policies).
+   *
    * @public
    */
   chatbotNotificationChannel?: Record<string, string[]> | undefined;
 
   /**
-   * <p>Specify <code>true</code> to enable CloudWatch investigations to have access to change events that are recorded by CloudTrail. The default is <code>true</code>.</p>
+   * Specify `true` to enable CloudWatch investigations to have access to change events that are recorded by CloudTrail. The default is `true`.
+   *
    * @public
    */
   isCloudTrailEventHistoryEnabled?: boolean | undefined;
 
   /**
-   * <p>Used to configure cross-account access for an investigation group. It allows the investigation group to access resources in other accounts. </p>
+   * Used to configure cross-account access for an investigation group. It allows the investigation group to access resources in other accounts.
+   *
    * @public
    */
   crossAccountConfigurations?: CrossAccountConfiguration[] | undefined;
@@ -320,7 +378,8 @@ export interface DeleteInvestigationGroupPolicyOutput {}
  */
 export interface DeleteInvestigationGroupPolicyRequest {
   /**
-   * <p>Specify either the name or the ARN of the investigation group that you want to remove the policy from.</p>
+   * Specify either the name or the ARN of the investigation group that you want to remove the policy from.
+   *
    * @public
    */
   identifier: string | undefined;
@@ -331,7 +390,8 @@ export interface DeleteInvestigationGroupPolicyRequest {
  */
 export interface GetInvestigationGroupPolicyRequest {
   /**
-   * <p>Specify either the name or the ARN of the investigation group that you want to view the policy of.</p>
+   * Specify either the name or the ARN of the investigation group that you want to view the policy of.
+   *
    * @public
    */
   identifier: string | undefined;
@@ -342,13 +402,15 @@ export interface GetInvestigationGroupPolicyRequest {
  */
 export interface GetInvestigationGroupPolicyResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the investigation group that you want to view the policy of.</p>
+   * The Amazon Resource Name (ARN) of the investigation group that you want to view the policy of.
+   *
    * @public
    */
   investigationGroupArn?: string | undefined;
 
   /**
-   * <p>The policy, in JSON format.</p>
+   * The policy, in JSON format.
+   *
    * @public
    */
   policy?: string | undefined;
@@ -359,13 +421,15 @@ export interface GetInvestigationGroupPolicyResponse {
  */
 export interface PutInvestigationGroupPolicyRequest {
   /**
-   * <p>Specify either the name or the ARN of the investigation group that you want to assign the policy to.</p>
+   * Specify either the name or the ARN of the investigation group that you want to assign the policy to.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The policy, in JSON format.</p>
+   * The policy, in JSON format.
+   *
    * @public
    */
   policy: string | undefined;
@@ -376,7 +440,8 @@ export interface PutInvestigationGroupPolicyRequest {
  */
 export interface PutInvestigationGroupPolicyResponse {
   /**
-   * <p>The ARN of the investigation group that will use this policy.</p>
+   * The ARN of the investigation group that will use this policy.
+   *
    * @public
    */
   investigationGroupArn?: string | undefined;
@@ -387,7 +452,8 @@ export interface PutInvestigationGroupPolicyResponse {
  */
 export interface ListTagsForResourceOutput {
   /**
-   * <p>The list of tag keys and values associated with the resource you specified.</p>
+   * The list of tag keys and values associated with the resource you specified.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -398,7 +464,10 @@ export interface ListTagsForResourceOutput {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The ARN of the CloudWatch investigations resource that you want to view tags for. You can use the <code>ListInvestigationGroups</code> operation to find the ARNs of investigation groups.</p> <p>The ARN format for an investigation group is <code>arn:aws:aiops:<i>Region</i>:<i>account-id</i>:investigation-group:<i>investigation-group-id</i> </code>.</p>
+   * The ARN of the CloudWatch investigations resource that you want to view tags for. You can use the `ListInvestigationGroups` operation to find the ARNs of investigation groups.
+   *
+   * The ARN format for an investigation group is `arn:aws:aiops:Region:account-id:investigation-group:investigation-group-id`.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -409,13 +478,15 @@ export interface ListTagsForResourceRequest {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource that you want to apply the tags to. You can use the <code>ListInvestigationGroups</code> operation to find the ARNs of investigation groups.</p>
+   * The Amazon Resource Name (ARN) of the resource that you want to apply the tags to. You can use the `ListInvestigationGroups` operation to find the ARNs of investigation groups.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The list of key-value pairs to associate with the resource.</p>
+   * The list of key-value pairs to associate with the resource.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -431,13 +502,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource that you want to remove the tags from. You can use the<code>ListInvestigationGroups</code> operation to find the ARNs of investigation groups.</p>
+   * The Amazon Resource Name (ARN) of the resource that you want to remove the tags from. You can use the`ListInvestigationGroups` operation to find the ARNs of investigation groups.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The list of tag keys to remove from the resource.</p>
+   * The list of tag keys to remove from the resource.
+   *
    * @public
    */
   tagKeys: string[] | undefined;

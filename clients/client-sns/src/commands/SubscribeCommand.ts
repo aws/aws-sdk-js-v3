@@ -23,12 +23,12 @@ export interface SubscribeCommandInput extends SubscribeInput {}
 export interface SubscribeCommandOutput extends SubscribeResponse, __MetadataBearer {}
 
 /**
- * <p>Subscribes an endpoint to an Amazon SNS topic. If the endpoint type is HTTP/S or email, or
- *             if the endpoint and the topic are not in the same Amazon Web Services account, the endpoint owner must
- *             run the <code>ConfirmSubscription</code> action to confirm the subscription.</p>
- *          <p>You call the <code>ConfirmSubscription</code> action with the token from the
- *             subscription response. Confirmation tokens are valid for two days.</p>
- *          <p>This action is throttled at 100 transactions per second (TPS).</p>
+ * Subscribes an endpoint to an Amazon SNS topic. If the endpoint type is HTTP/S or email, or if the endpoint and the topic are not in the same Amazon Web Services account, the endpoint owner must run the `ConfirmSubscription` action to confirm the subscription.
+ *
+ * You call the `ConfirmSubscription` action with the token from the subscription response. Confirmation tokens are valid for two days.
+ *
+ * This action is throttled at 100 transactions per second (TPS).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,37 +61,40 @@ export interface SubscribeCommandOutput extends SubscribeResponse, __MetadataBea
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
  *
  * @throws {@link AuthorizationErrorException} (client fault)
- *  <p>Indicates that the user has been denied access to the requested resource.</p>
+ *
+ * Indicates that the user has been denied access to the requested resource.
  *
  * @throws {@link FilterPolicyLimitExceededException} (client fault)
- *  <p>Indicates that the number of filter polices in your Amazon Web Services account exceeds the limit. To
- *             add more filter polices, submit an Amazon SNS Limit Increase case in the Amazon Web Services Support
- *             Center.</p>
+ *
+ * Indicates that the number of filter polices in your Amazon Web Services account exceeds the limit. To add more filter polices, submit an Amazon SNS Limit Increase case in the Amazon Web Services Support Center.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>Indicates an internal service error.</p>
+ *
+ * Indicates an internal service error.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Indicates that a request parameter does not comply with the associated
- *             constraints.</p>
+ *
+ * Indicates that a request parameter does not comply with the associated constraints.
  *
  * @throws {@link InvalidSecurityException} (client fault)
- *  <p>The credential signature isn't valid. You must use an HTTPS endpoint and sign your
- *             request using Signature Version 4.</p>
+ *
+ * The credential signature isn't valid. You must use an HTTPS endpoint and sign your request using Signature Version 4.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>Indicates that the requested resource does not exist.</p>
+ *
+ * Indicates that the requested resource does not exist.
  *
  * @throws {@link ReplayLimitExceededException} (client fault)
- *  <p>Indicates that the request parameter has exceeded the maximum number of concurrent message replays.</p>
+ *
+ * Indicates that the request parameter has exceeded the maximum number of concurrent message replays.
  *
  * @throws {@link SubscriptionLimitExceededException} (client fault)
- *  <p>Indicates that the customer already owns the maximum allowed number of
- *             subscriptions.</p>
+ *
+ * Indicates that the customer already owns the maximum allowed number of subscriptions.
  *
  * @throws {@link SNSServiceException}
- * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * Base exception class for all service exceptions from SNS service.
  *
  * @public
  */

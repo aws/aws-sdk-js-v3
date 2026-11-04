@@ -23,9 +23,8 @@ export interface StartContactEvaluationCommandInput extends StartContactEvaluati
 export interface StartContactEvaluationCommandOutput extends StartContactEvaluationResponse, __MetadataBearer {}
 
 /**
- * <p>Starts an empty evaluation in the specified Connect Customer instance, using the given evaluation form for the
- *    particular contact. The evaluation form version used for the contact evaluation corresponds to the currently
- *    activated version. If no version is activated for the evaluation form, the contact evaluation cannot be started. </p>
+ * Starts an empty evaluation in the specified Connect Customer instance, using the given evaluation form for the particular contact. The evaluation form version used for the contact evaluation corresponds to the currently activated version. If no version is activated for the evaluation form, the contact evaluation cannot be started.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,26 +61,32 @@ export interface StartContactEvaluationCommandOutput extends StartContactEvaluat
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link ResourceConflictException} (client fault)
- *  <p>A resource already has that name.</p>
+ *
+ * A resource already has that name.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The service quota has been exceeded.</p>
+ *
+ * The service quota has been exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

@@ -23,16 +23,12 @@ export interface StartAssetBundleImportJobCommandInput extends StartAssetBundleI
 export interface StartAssetBundleImportJobCommandOutput extends StartAssetBundleImportJobResponse, __MetadataBearer {}
 
 /**
- * <p>Starts an Asset Bundle import job.</p>
- *          <p>An Asset Bundle import job imports specified Amazon Quick Sight assets into an Amazon Quick
- *          Sight account. You can also choose to import a naming prefix and specified configuration
- *          overrides. The assets that are contained in the bundle file that you provide are used to
- *          create or update a new or existing asset in your Amazon Quick Sight account. Each Amazon
- *          Quick Sight account can run up to 5 import jobs concurrently.</p>
- *          <p>The API caller must have the necessary <code>"create"</code>, <code>"describe"</code>,
- *          and <code>"update"</code> permissions in their IAM role to access each
- *          resource type that is contained in the bundle file before the resources can be
- *          imported.</p>
+ * Starts an Asset Bundle import job.
+ *
+ * An Asset Bundle import job imports specified Amazon Quick Sight assets into an Amazon Quick Sight account. You can also choose to import a naming prefix and specified configuration overrides. The assets that are contained in the bundle file that you provide are used to create or update a new or existing asset in your Amazon Quick Sight account. Each Amazon Quick Sight account can run up to 5 import jobs concurrently.
+ *
+ * The API caller must have the necessary `"create"`, `"describe"`, and `"update"` permissions in their IAM role to access each resource type that is contained in the bundle file before the resources can be imported.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -560,35 +556,36 @@ export interface StartAssetBundleImportJobCommandOutput extends StartAssetBundle
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have access to this item. The provided credentials couldn't be
- * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
- * 			correct permissions, and that you are using the correct credentials.</p>
+ *
+ * You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ *
+ * Updating or deleting a resource can cause an inconsistent state.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more parameters has a value that isn't valid.</p>
+ *
+ * One or more parameters has a value that isn't valid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>A limit is exceeded.</p>
+ *
+ * A limit is exceeded.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>One or more resources can't be found.</p>
+ *
+ * One or more resources can't be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Access is throttled.</p>
+ *
+ * Access is throttled.
  *
  * @throws {@link UnsupportedUserEditionException} (client fault)
- *  <p>This error indicates that you are calling an operation on an Amazon Quick Suite
- * 			subscription where the edition doesn't include support for that operation. Amazon
- * 			Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and
- * 			capability is available in every edition.</p>
+ *
+ * This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.
  *
  * @throws {@link QuickSightServiceException}
- * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * Base exception class for all service exceptions from QuickSight service.
  *
  * @public
  */

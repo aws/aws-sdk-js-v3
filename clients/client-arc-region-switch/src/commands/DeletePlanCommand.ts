@@ -23,7 +23,10 @@ export interface DeletePlanCommandInput extends DeletePlanRequest {}
 export interface DeletePlanCommandOutput extends DeletePlanResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a Region switch plan. You must specify the ARN of the plan to delete.</p> <p>You cannot delete a plan that has an active execution in progress.</p>
+ * Deletes a Region switch plan. You must specify the ARN of the plan to delete.
+ *
+ * You cannot delete a plan that has an active execution in progress.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,14 +51,20 @@ export interface DeletePlanCommandOutput extends DeletePlanResponse, __MetadataB
  * @see {@link ARCRegionSwitchClientResolvedConfig | config} for ARCRegionSwitchClient's `config` shape.
  *
  * @throws {@link IllegalStateException} (client fault)
- *  <p>The operation failed because the current state of the resource doesn't allow the operation to proceed.</p> <p>HTTP Status Code: 400</p>
+ *
+ * The operation failed because the current state of the resource doesn't allow the operation to proceed.
+ *
+ * HTTP Status Code: 400
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p> <p>HTTP Status Code: 404</p>
+ *
+ * The specified resource was not found.
+ *
+ * HTTP Status Code: 404
  *
  * @throws {@link ARCRegionSwitchServiceException}
- * <p>Base exception class for all service exceptions from ARCRegionSwitch service.</p>
  *
+ * Base exception class for all service exceptions from ARCRegionSwitch service.
  *
  * @public
  */

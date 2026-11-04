@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { OpenSearchServerlessServiceException as __BaseException } from "./OpenSearchServerlessServiceException";
 
 /**
- * <p>When creating a resource, thrown when a resource with the same name already exists or is being created. When deleting a resource, thrown when the resource is not in the ACTIVE, FAILED, or UPDATE_FAILED state.</p>
+ * When creating a resource, thrown when a resource with the same name already exists or is being created. When deleting a resource, thrown when the resource is not in the ACTIVE, FAILED, or UPDATE_FAILED state.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -25,7 +26,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>Thrown when an error internal to the service occurs while processing a request.</p>
+ * Thrown when an error internal to the service occurs while processing a request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -46,7 +48,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>Thrown when you attempt to create more resources than the service allows based on service quotas.</p>
+ * Thrown when you attempt to create more resources than the service allows based on service quotas.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -95,7 +98,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>Thrown when the HTTP request contains invalid input or is missing required input.</p>
+ * Thrown when the HTTP request contains invalid input or is missing required input.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -116,7 +120,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>Thrown when accessing or deleting a resource that does not exist.</p>
+ * Thrown when accessing or deleting a resource that does not exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -137,7 +142,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Thrown when the collection you're attempting to create results in a number of search or indexing OCUs that exceeds the account limit. </p>
+ * Thrown when the collection you're attempting to create results in a number of search or indexing OCUs that exceeds the account limit.
+ *
  * @public
  */
 export class OcuLimitExceededException extends __BaseException {

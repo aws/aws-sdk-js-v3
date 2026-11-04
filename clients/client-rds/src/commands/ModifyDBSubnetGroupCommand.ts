@@ -23,7 +23,8 @@ export interface ModifyDBSubnetGroupCommandInput extends ModifyDBSubnetGroupMess
 export interface ModifyDBSubnetGroupCommandOutput extends ModifyDBSubnetGroupResult, __MetadataBearer {}
 
 /**
- * <p>Modifies an existing DB subnet group. DB subnet groups must contain at least one subnet in at least two AZs in the Amazon Web Services Region.</p>
+ * Modifies an existing DB subnet group. DB subnet groups must contain at least one subnet in at least two AZs in the Amazon Web Services Region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,26 +76,32 @@ export interface ModifyDBSubnetGroupCommandOutput extends ModifyDBSubnetGroupRes
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBSubnetGroupDoesNotCoverEnoughAZs} (client fault)
- *  <p>Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
+ *
+ * Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.
  *
  * @throws {@link DBSubnetGroupNotFoundFault} (client fault)
- *  <p> <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.</p>
+ *
+ * `DBSubnetGroupName` doesn't refer to an existing DB subnet group.
  *
  * @throws {@link DBSubnetQuotaExceededFault} (client fault)
- *  <p>The request would result in the user exceeding the allowed number of subnets in a DB subnet groups.</p>
+ *
+ * The request would result in the user exceeding the allowed number of subnets in a DB subnet groups.
  *
  * @throws {@link InvalidDBSubnetGroupStateFault} (client fault)
- *  <p>The DB subnet group cannot be deleted because it's in use.</p>
+ *
+ * The DB subnet group cannot be deleted because it's in use.
  *
  * @throws {@link InvalidSubnet} (client fault)
- *  <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
+ *
+ * The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.
  *
  * @throws {@link SubnetAlreadyInUse} (client fault)
- *  <p>The DB subnet is already in use in the Availability Zone.</p>
+ *
+ * The DB subnet is already in use in the Availability Zone.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To modify a DB subnet group
  * ```javascript

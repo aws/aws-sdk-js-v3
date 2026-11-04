@@ -1,8 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>With License Manager, you can discover and track your commercial Linux subscriptions on running
- *       Amazon EC2 instances.</p>
+ * With License Manager, you can discover and track your commercial Linux subscriptions on running Amazon EC2 instances.
  *
  * @packageDocumentation
  */

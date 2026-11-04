@@ -23,83 +23,30 @@ export interface TestFailoverCommandInput extends TestFailoverMessage {}
 export interface TestFailoverCommandOutput extends TestFailoverResult, __MetadataBearer {}
 
 /**
- * <p>Represents the input of a <code>TestFailover</code> operation which tests automatic
- *             failover on a specified node group (called shard in the console) in a replication group
- *             (called cluster in the console).</p>
- *          <p>This API is designed for testing the behavior of your application in case of
- *             ElastiCache failover. It is not designed to be an operational tool for initiating a
- *             failover to overcome a problem you may have with the cluster. Moreover, in certain
- *             conditions such as large-scale operational events, Amazon may block this API. </p>
- *          <p class="title">
- *             <b>Note the following</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>A customer can use this operation to test automatic failover on up to 15 shards
- *                     (called node groups in the ElastiCache API and Amazon CLI) in any rolling
- *                     24-hour period.</p>
- *             </li>
- *             <li>
- *                <p>If calling this operation on shards in different clusters (called replication
- *                     groups in the API and CLI), the calls can be made concurrently.</p>
- *                <p> </p>
- *             </li>
- *             <li>
- *                <p>If calling this operation multiple times on different shards in the same Valkey or Redis OSS (cluster mode enabled) replication group, the first node replacement must
- *                     complete before a subsequent call can be made.</p>
- *             </li>
- *             <li>
- *                <p>To determine whether the node replacement is complete you can check Events
- *                     using the Amazon ElastiCache console, the Amazon CLI, or the ElastiCache API.
- *                     Look for the following automatic failover related events, listed here in order
- *                     of occurrance:</p>
- *                <ol>
- *                   <li>
- *                      <p>Replication group message: <code>Test Failover API called for node
- *                                 group <node-group-id></code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>Cache cluster message: <code>Failover from primary node
- *                                 <primary-node-id> to replica node <node-id>
- *                                 completed</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>Replication group message: <code>Failover from primary node
- *                                 <primary-node-id> to replica node <node-id>
- *                                 completed</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>Cache cluster message: <code>Recovering cache nodes
- *                                 <node-id></code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>Cache cluster message: <code>Finished recovery for cache nodes
- *                                 <node-id></code>
- *                      </p>
- *                   </li>
- *                </ol>
- *                <p>For more information see:</p>
- *                <ul>
- *                   <li>
- *                      <p>
- *                         <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ECEvents.Viewing.html">Viewing
- *                                 ElastiCache Events</a> in the <i>ElastiCache User
- *                                 Guide</i>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeEvents.html">DescribeEvents</a> in the ElastiCache API Reference</p>
- *                   </li>
- *                </ul>
- *             </li>
- *          </ul>
- *          <p>Also see, <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/AutoFailover.html#auto-failover-test">Testing
- *                 Multi-AZ </a> in the <i>ElastiCache User Guide</i>.</p>
+ * Represents the input of a `TestFailover` operation which tests automatic failover on a specified node group (called shard in the console) in a replication group (called cluster in the console).
+ *
+ * This API is designed for testing the behavior of your application in case of ElastiCache failover. It is not designed to be an operational tool for initiating a failover to overcome a problem you may have with the cluster. Moreover, in certain conditions such as large-scale operational events, Amazon may block this API.
+ *
+ * **Note the following**
+ *
+ * - A customer can use this operation to test automatic failover on up to 15 shards (called node groups in the ElastiCache API and Amazon CLI) in any rolling 24-hour period.
+ * - If calling this operation on shards in different clusters (called replication groups in the API and CLI), the calls can be made concurrently.
+ * - If calling this operation multiple times on different shards in the same Valkey or Redis OSS (cluster mode enabled) replication group, the first node replacement must complete before a subsequent call can be made.
+ * - To determine whether the node replacement is complete you can check Events using the Amazon ElastiCache console, the Amazon CLI, or the ElastiCache API. Look for the following automatic failover related events, listed here in order of occurrance:
+ *
+ *   1. Replication group message: `Test Failover API called for node group <node-group-id>`
+ *   2. Cache cluster message: `Failover from primary node <primary-node-id> to replica node <node-id> completed`
+ *   3. Replication group message: `Failover from primary node <primary-node-id> to replica node <node-id> completed`
+ *   4. Cache cluster message: `Recovering cache nodes <node-id>`
+ *   5. Cache cluster message: `Finished recovery for cache nodes <node-id>`
+ *
+ *   For more information see:
+ *
+ *   - [Viewing ElastiCache Events](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ECEvents.Viewing.html) in the *ElastiCache User Guide*
+ *   - [DescribeEvents](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeEvents.html) in the ElastiCache API Reference
+ *
+ * Also see, [Testing Multi-AZ](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/AutoFailover.html#auto-failover-test) in the *ElastiCache User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -250,37 +197,44 @@ export interface TestFailoverCommandOutput extends TestFailoverResult, __Metadat
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link APICallRateForCustomerExceededFault} (client fault)
- *  <p>The customer has exceeded the allowed rate of API calls.</p>
+ *
+ * The customer has exceeded the allowed rate of API calls.
  *
  * @throws {@link InvalidCacheClusterStateFault} (client fault)
- *  <p>The requested cluster is not in the <code>available</code> state.</p>
+ *
+ * The requested cluster is not in the `available` state.
  *
  * @throws {@link InvalidKMSKeyFault} (client fault)
- *  <p>The KMS key supplied is not valid.</p>
+ *
+ * The KMS key supplied is not valid.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * Two or more incompatible parameters were specified.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link InvalidReplicationGroupStateFault} (client fault)
- *  <p>The requested replication group is not in the <code>available</code> state.</p>
+ *
+ * The requested replication group is not in the `available` state.
  *
  * @throws {@link NodeGroupNotFoundFault} (client fault)
- *  <p>The node group specified by the <code>NodeGroupId</code> parameter could not be found.
- *             Please verify that the node group exists and that you spelled the
- *                 <code>NodeGroupId</code> value correctly.</p>
+ *
+ * The node group specified by the `NodeGroupId` parameter could not be found. Please verify that the node group exists and that you spelled the `NodeGroupId` value correctly.
  *
  * @throws {@link ReplicationGroupNotFoundFault} (client fault)
- *  <p>The specified replication group does not exist.</p>
+ *
+ * The specified replication group does not exist.
  *
  * @throws {@link TestFailoverNotAvailableFault} (client fault)
- *  <p>The <code>TestFailover</code> action is not available.</p>
+ *
+ * The `TestFailover` action is not available.
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @public
  */

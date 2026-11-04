@@ -23,7 +23,8 @@ export interface DeregisterDevicesCommandInput extends DeregisterDevicesRequest 
 export interface DeregisterDevicesCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deregisters the specified devices. After you deregister a device, you will need to re-register the devices.</p>
+ * Deregisters the specified devices. After you deregister a device, you will need to re-register the devices.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,8 +52,8 @@ export interface DeregisterDevicesCommandOutput extends __MetadataBearer {}
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

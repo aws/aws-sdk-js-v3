@@ -195,11 +195,11 @@ export type Source = (typeof Source)[keyof typeof Source];
  */
 export const GranularityType = {
   /**
-   * <p>Metrics are aggregated daily, with each data point representing a single day's worth of efficiency data. Timestamps are formatted as YYYY-MM-DD.</p>
+   * Metrics are aggregated daily, with each data point representing a single day's worth of efficiency data. Timestamps are formatted as YYYY-MM-DD.
    */
   DAILY: "Daily",
   /**
-   * <p>Metrics are aggregated monthly, with each data point representing a full month's worth of efficiency data. Timestamps are formatted as YYYY-MM.</p>
+   * Metrics are aggregated monthly, with each data point representing a full month's worth of efficiency data. Timestamps are formatted as YYYY-MM.
    */
   MONTHLY: "Monthly",
 } as const;

@@ -23,75 +23,36 @@ export interface CreateGrantCommandInput extends CreateGrantRequest {}
 export interface CreateGrantCommandOutput extends CreateGrantResponse, __MetadataBearer {}
 
 /**
- * <p>Adds a grant to a KMS key. </p>
- *          <p>A <i>grant</i> is a policy instrument that allows Amazon Web Services principals to use
- *       KMS keys in cryptographic operations. It also can allow them to view a KMS key (<a>DescribeKey</a>) and create and manage grants. When authorizing access to a KMS key,
- *       grants are considered along with key policies and IAM policies. Grants are often used for
- *       temporary permissions because you can create one, use its permissions, and delete it without
- *       changing your key policies or IAM policies. </p>
- *          <p>You can create a grant for an Amazon Web Services principal (IAM user, IAM role, or Amazon Web Services account) by
- *       specifying the <code>GranteePrincipal</code> parameter. You can also create a grant for an
- *       Amazon Web Services service principal by specifying the <code>GranteeServicePrincipal</code>
- *       parameter.</p>
- *          <p>For detailed information about grants, including grant terminology, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Grants in KMS</a> in the
- *         <i>
- *                <i>Key Management Service Developer Guide</i>
- *             </i>. For examples of creating grants in several
- *       programming languages, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/example_kms_CreateGrant_section.html">Use CreateGrant with an Amazon Web Services SDK or CLI</a>. </p>
- *          <p>The <code>CreateGrant</code> operation returns a <code>GrantToken</code> and a
- *         <code>GrantId</code>.</p>
- *          <ul>
- *             <li>
- *                <p>When you create, retire, or revoke a grant, there might be a brief delay, usually less than five minutes, until the grant is available throughout KMS. This state is known as <i>eventual consistency</i>. Once the grant has achieved eventual consistency, the grantee
- *           principal can use the permissions in the grant without identifying the grant. </p>
- *                <p>However, to use the permissions in the grant immediately, use the
- *             <code>GrantToken</code> that <code>CreateGrant</code> returns. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant
- *             token</a> in the <i>
- *                      <i>Key Management Service Developer Guide</i>
- *                   </i>.</p>
- *             </li>
- *             <li>
- *                <p>The <code>CreateGrant</code> operation also returns a <code>GrantId</code>. You can
- *           use the <code>GrantId</code> and a key identifier to identify the grant in the <a>RetireGrant</a> and <a>RevokeGrant</a> operations. To find the grant
- *           ID, use the <a>ListGrants</a> or <a>ListRetirableGrants</a>
- *           operations.</p>
- *             </li>
- *          </ul>
- *          <p>The KMS key that you use for this operation must be in a compatible key state. For
- * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
- *          <p>
- *             <b>Cross-account use</b>: Yes. To perform this operation on a KMS key in a different Amazon Web Services account, specify the key
- *   ARN in the value of the <code>KeyId</code> parameter. </p>
- *          <p>
- *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:CreateGrant</a> (key policy)</p>
- *          <p>
- *             <b>Related operations:</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>ListGrants</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListRetirableGrants</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>RetireGrant</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>RevokeGrant</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
+ * Adds a grant to a KMS key.
+ *
+ * A *grant* is a policy instrument that allows Amazon Web Services principals to use KMS keys in cryptographic operations. It also can allow them to view a KMS key (DescribeKey) and create and manage grants. When authorizing access to a KMS key, grants are considered along with key policies and IAM policies. Grants are often used for temporary permissions because you can create one, use its permissions, and delete it without changing your key policies or IAM policies.
+ *
+ * You can create a grant for an Amazon Web Services principal (IAM user, IAM role, or Amazon Web Services account) by specifying the `GranteePrincipal` parameter. You can also create a grant for an Amazon Web Services service principal by specifying the `GranteeServicePrincipal` parameter.
+ *
+ * For detailed information about grants, including grant terminology, see [Grants in KMS](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html) in the **Key Management Service Developer Guide** . For examples of creating grants in several programming languages, see [Use CreateGrant with an Amazon Web Services SDK or CLI](https://docs.aws.amazon.com/kms/latest/developerguide/example_kms_CreateGrant_section.html).
+ *
+ * The `CreateGrant` operation returns a `GrantToken` and a `GrantId`.
+ *
+ * - When you create, retire, or revoke a grant, there might be a brief delay, usually less than five minutes, until the grant is available throughout KMS. This state is known as *eventual consistency*. Once the grant has achieved eventual consistency, the grantee principal can use the permissions in the grant without identifying the grant.
+ *
+ *   However, to use the permissions in the grant immediately, use the `GrantToken` that `CreateGrant` returns. For details, see [Using a grant token](https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html) in the **Key Management Service Developer Guide** .
+ * - The `CreateGrant` operation also returns a `GrantId`. You can use the `GrantId` and a key identifier to identify the grant in the RetireGrant and RevokeGrant operations. To find the grant ID, use the ListGrants or ListRetirableGrants operations.
+ *
+ * The KMS key that you use for this operation must be in a compatible key state. For details, see [Key states of KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the *Key Management Service Developer Guide*.
+ *
+ * **Cross-account use**: Yes. To perform this operation on a KMS key in a different Amazon Web Services account, specify the key ARN in the value of the `KeyId` parameter.
+ *
+ * **Required permissions**: [kms:CreateGrant](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy)
+ *
+ * **Related operations:**
+ *
+ * - ListGrants
+ * - ListRetirableGrants
+ * - RetireGrant
+ * - RevokeGrant
+ *
+ * **Eventual consistency**: The KMS API follows an eventual consistency model. For more information, see [KMS eventual consistency](https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -140,58 +101,51 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
  * @throws {@link DependencyTimeoutException} (server fault)
- *  <p>The system timed out while trying to fulfill the request. You can retry the
- *       request.</p>
+ *
+ * The system timed out while trying to fulfill the request. You can retry the request.
  *
  * @throws {@link DisabledException} (client fault)
- *  <p>The request was rejected because the specified KMS key is not enabled.</p>
+ *
+ * The request was rejected because the specified KMS key is not enabled.
  *
  * @throws {@link DryRunOperationException} (client fault)
- *  <p> The request was rejected because the DryRun parameter was specified. </p>
+ *
+ * The request was rejected because the DryRun parameter was specified.
  *
  * @throws {@link InvalidArnException} (client fault)
- *  <p>The request was rejected because a specified ARN, or an ARN in a key policy, is not
- *       valid.</p>
+ *
+ * The request was rejected because a specified ARN, or an ARN in a key policy, is not valid.
  *
  * @throws {@link InvalidGrantTokenException} (client fault)
- *  <p>The request was rejected because the specified grant token is not valid.</p>
+ *
+ * The request was rejected because the specified grant token is not valid.
  *
  * @throws {@link KMSInternalException} (server fault)
- *  <p>The request was rejected because an internal exception occurred. The request can be
- *       retried.</p>
+ *
+ * The request was rejected because an internal exception occurred. The request can be retried.
  *
  * @throws {@link KMSInvalidStateException} (client fault)
- *  <p>The request was rejected because the state of the specified resource is not valid for this
- *       request.</p>
- *          <p>This exceptions means one of the following:</p>
- *          <ul>
- *             <li>
- *                <p>The key state of the KMS key is not compatible with the operation. </p>
- *                <p>To find the key state, use the <a>DescribeKey</a> operation. For more
- *           information about which key states are compatible with each KMS operation, see
- *           <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>
- *                      <i>Key Management Service Developer Guide</i>
- *                   </i>.</p>
- *             </li>
- *             <li>
- *                <p>For cryptographic operations on KMS keys in custom key stores, this exception
- *           represents a general failure with many possible causes. To identify the cause, see the
- *           error message that accompanies the exception.</p>
- *             </li>
- *          </ul>
+ *
+ * The request was rejected because the state of the specified resource is not valid for this request.
+ *
+ * This exceptions means one of the following:
+ *
+ * - The key state of the KMS key is not compatible with the operation.
+ *
+ *   To find the key state, use the DescribeKey operation. For more information about which key states are compatible with each KMS operation, see [Key states of KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the **Key Management Service Developer Guide** .
+ * - For cryptographic operations on KMS keys in custom key stores, this exception represents a general failure with many possible causes. To identify the cause, see the error message that accompanies the exception.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because a length constraint or quota was exceeded. For more
- *       information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html">Quotas</a> in
- *       the <i>Key Management Service Developer Guide</i>.</p>
+ *
+ * The request was rejected because a length constraint or quota was exceeded. For more information, see [Quotas](https://docs.aws.amazon.com/kms/latest/developerguide/limits.html) in the *Key Management Service Developer Guide*.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The request was rejected because the specified entity or resource could not be
- *       found.</p>
+ *
+ * The request was rejected because the specified entity or resource could not be found.
  *
  * @throws {@link KMSServiceException}
- * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * Base exception class for all service exceptions from KMS service.
  *
  * @example To create a grant
  * ```javascript

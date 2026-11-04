@@ -23,14 +23,14 @@ export interface DeleteReceiptRuleSetCommandInput extends DeleteReceiptRuleSetRe
 export interface DeleteReceiptRuleSetCommandOutput extends DeleteReceiptRuleSetResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified receipt rule set and all of the receipt rules it
- *             contains.</p>
- *          <note>
- *             <p>The currently active rule set cannot be deleted.</p>
- *          </note>
- *          <p>For information about managing receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/receiving-email-receipt-rules-console-walkthrough.html">Amazon SES
- *                 Developer Guide</a>.</p>
- *          <p>You can execute this operation no more than once per second.</p>
+ * Deletes the specified receipt rule set and all of the receipt rules it contains.
+ *
+ * > **Note:** The currently active rule set cannot be deleted.
+ *
+ * For information about managing receipt rule sets, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/dg/receiving-email-receipt-rules-console-walkthrough.html).
+ *
+ * You can execute this operation no more than once per second.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,11 +55,12 @@ export interface DeleteReceiptRuleSetCommandOutput extends DeleteReceiptRuleSetR
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link CannotDeleteException} (client fault)
- *  <p>Indicates that the delete operation could not be completed.</p>
+ *
+ * Indicates that the delete operation could not be completed.
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @example DeleteReceiptRuleSet
  * ```javascript

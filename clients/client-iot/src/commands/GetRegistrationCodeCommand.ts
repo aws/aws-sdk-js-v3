@@ -23,11 +23,12 @@ export interface GetRegistrationCodeCommandInput extends GetRegistrationCodeRequ
 export interface GetRegistrationCodeCommandOutput extends GetRegistrationCodeResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a registration code used to register a CA certificate with IoT.</p>
- *          <p>IoT will create a registration code as part of this API call if the registration
- *          code doesn't exist or has been deleted. If you already have a registration code, this API
- *          call will return the same registration code.</p>
- *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetRegistrationCode</a> action.</p>
+ * Gets a registration code used to register a CA certificate with IoT.
+ *
+ * IoT will create a registration code as part of this API call if the registration code doesn't exist or has been deleted. If you already have a registration code, this API call will return the same registration code.
+ *
+ * Requires permission to access the [GetRegistrationCode](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,23 +53,28 @@ export interface GetRegistrationCodeCommandOutput extends GetRegistrationCodeRes
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An unexpected error has occurred.</p>
+ *
+ * An unexpected error has occurred.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is temporarily unavailable.</p>
+ *
+ * The service is temporarily unavailable.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The rate exceeds the limit.</p>
+ *
+ * The rate exceeds the limit.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>You are not authorized to perform this operation.</p>
+ *
+ * You are not authorized to perform this operation.
  *
  * @throws {@link IoTServiceException}
- * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * Base exception class for all service exceptions from IoT service.
  *
  * @public
  */

@@ -23,11 +23,10 @@ export interface StartImageScanCommandInput extends StartImageScanRequest {}
 export interface StartImageScanCommandOutput extends StartImageScanResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a basic image vulnerability scan.</p>
- *          <p> A basic image scan can only be started once per 24 hours on an individual image. This
- *             limit includes if an image was scanned on initial push. You can start up to 100,000
- *             basic scans per 24 hours. This limit includes both scans on initial push and scans
- *             initiated by the StartImageScan API. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning-basic.html">Basic scanning</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
+ * Starts a basic image vulnerability scan.
+ *
+ * A basic image scan can only be started once per 24 hours on an individual image. This limit includes if an image was scanned on initial push. You can start up to 100,000 basic scans per 24 hours. This limit includes both scans on initial push and scans initiated by the StartImageScan API. For more information, see [Basic scanning](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning-basic.html) in the *Amazon Elastic Container Registry User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,36 +67,40 @@ export interface StartImageScanCommandOutput extends StartImageScanResponse, __M
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
  * @throws {@link ImageArchivedException} (client fault)
- *  <p>The specified image is archived and cannot be scanned.</p>
+ *
+ * The specified image is archived and cannot be scanned.
  *
  * @throws {@link ImageNotFoundException} (client fault)
- *  <p>The image requested does not exist in the specified repository.</p>
+ *
+ * The image requested does not exist in the specified repository.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The operation did not succeed because it would have exceeded a service limit for your
- *             account. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html">Amazon ECR service quotas</a> in
- *             the Amazon Elastic Container Registry User Guide.</p>
+ *
+ * The operation did not succeed because it would have exceeded a service limit for your account. For more information, see [Amazon ECR service quotas](https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html) in the Amazon Elastic Container Registry User Guide.
  *
  * @throws {@link RepositoryNotFoundException} (client fault)
- *  <p>The specified repository could not be found. Check the spelling of the specified
- *             repository and ensure that you are performing operations on the correct registry.</p>
+ *
+ * The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link UnsupportedImageTypeException} (client fault)
- *  <p>The image is of a type that cannot be scanned.</p>
+ *
+ * The image is of a type that cannot be scanned.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>There was an exception validating this request.</p>
+ *
+ * There was an exception validating this request.
  *
  * @throws {@link ECRServiceException}
- * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * Base exception class for all service exceptions from ECR service.
  *
  * @public
  */

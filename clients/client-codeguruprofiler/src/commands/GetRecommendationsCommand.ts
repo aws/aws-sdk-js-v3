@@ -23,18 +23,8 @@ export interface GetRecommendationsCommandInput extends GetRecommendationsReques
 export interface GetRecommendationsCommandOutput extends GetRecommendationsResponse, __MetadataBearer {}
 
 /**
- * <p>
- *             Returns a list of
- *             <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_Recommendation.html">
- *                <code>Recommendation</code>
- *             </a>
- *             objects that contain recommendations for a profiling group for a given time period. A list of
- *             <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_Anomaly.html">
- *                <code>Anomaly</code>
- *             </a>
- *             objects that contains details about anomalies detected in the profiling group for the same time period is also
- *             returned.
- *         </p>
+ * Returns a list of [`Recommendation`](https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_Recommendation.html) objects that contain recommendations for a profiling group for a given time period. A list of [`Anomaly`](https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_Anomaly.html) objects that contains details about anomalies detected in the profiling group for the same time period is also returned.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -118,20 +108,24 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The server encountered an internal error and is unable to complete the request.</p>
+ *
+ * The server encountered an internal error and is unable to complete the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource specified in the request does not exist.</p>
+ *
+ * The resource specified in the request does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The parameter is not valid.</p>
+ *
+ * The parameter is not valid.
  *
  * @throws {@link CodeGuruProfilerServiceException}
- * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
+ * Base exception class for all service exceptions from CodeGuruProfiler service.
  *
  * @public
  */

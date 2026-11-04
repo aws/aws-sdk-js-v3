@@ -26,12 +26,10 @@ export interface BatchGetStandardsControlAssociationsCommandInput extends BatchG
 export interface BatchGetStandardsControlAssociationsCommandOutput extends BatchGetStandardsControlAssociationsResponse, __MetadataBearer {}
 
 /**
- * <p>
- *          For a batch of security controls and standards, identifies whether each control is currently enabled or disabled in a standard.
- *       </p>
- *          <p>
- *          Calls to this operation return a <code>RESOURCE_NOT_FOUND_EXCEPTION</code> error when the standard subscription for the association has a <code>NOT_READY_FOR_UPDATES</code> value for <code>StandardsControlsUpdatable</code>.
- *       </p>
+ * For a batch of security controls and standards, identifies whether each control is currently enabled or disabled in a standard.
+ *
+ * Calls to this operation return a `RESOURCE_NOT_FOUND_EXCEPTION` error when the standard subscription for the association has a `NOT_READY_FOR_UPDATES` value for `StandardsControlsUpdatable`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,22 +88,24 @@ export interface BatchGetStandardsControlAssociationsCommandOutput extends Batch
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>Internal server error.</p>
+ *
+ * Internal server error.
  *
  * @throws {@link InvalidAccessException} (client fault)
- *  <p>The account doesn't have permission to perform this action.</p>
+ *
+ * The account doesn't have permission to perform this action.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because you supplied an invalid or out-of-range value for an
- *          input parameter.</p>
+ *
+ * The request was rejected because you supplied an invalid or out-of-range value for an input parameter.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
- *          account or throttling limits. The error code describes the limit exceeded.</p>
+ *
+ * The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.
  *
  * @throws {@link SecurityHubServiceException}
- * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * Base exception class for all service exceptions from SecurityHub service.
  *
  * @public
  */

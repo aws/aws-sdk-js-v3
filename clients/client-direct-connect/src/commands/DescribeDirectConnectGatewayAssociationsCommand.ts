@@ -26,37 +26,30 @@ export interface DescribeDirectConnectGatewayAssociationsCommandInput extends De
 export interface DescribeDirectConnectGatewayAssociationsCommandOutput extends DescribeDirectConnectGatewayAssociationsResult, __MetadataBearer {}
 
 /**
- * <p>Lists the associations between your Direct Connect gateways and virtual private gateways and transit gateways. You must specify one of the following:</p>
- *          <ul>
- *             <li>
- *                <p>A Direct Connect gateway</p>
- *                <p>The response contains all virtual private gateways and transit gateways associated with the Direct Connect gateway.</p>
- *             </li>
- *             <li>
- *                <p>A virtual private gateway</p>
- *                <p>The response contains the Direct Connect gateway.</p>
- *             </li>
- *             <li>
- *                <p>A transit gateway</p>
- *                <p>The response contains the Direct Connect gateway.</p>
- *             </li>
- *             <li>
- *                <p>A Direct Connect gateway and a virtual private gateway</p>
- *                <p>The response contains the association between the Direct Connect gateway and virtual private gateway.</p>
- *             </li>
- *             <li>
- *                <p>A Direct Connect gateway and a transit gateway</p>
- *                <p>The response contains the association between the Direct Connect gateway and transit gateway.</p>
- *             </li>
- *             <li>
- *                <p>A Direct Connect gateway and a virtual private gateway</p>
- *                <p>The response contains the association between the Direct Connect gateway and virtual private gateway.</p>
- *             </li>
- *             <li>
- *                <p>A Direct Connect gateway association to a Cloud WAN core network</p>
- *                <p>The response contains the Cloud WAN core network ID that the Direct Connect gateway is associated to.</p>
- *             </li>
- *          </ul>
+ * Lists the associations between your Direct Connect gateways and virtual private gateways and transit gateways. You must specify one of the following:
+ *
+ * - A Direct Connect gateway
+ *
+ *   The response contains all virtual private gateways and transit gateways associated with the Direct Connect gateway.
+ * - A virtual private gateway
+ *
+ *   The response contains the Direct Connect gateway.
+ * - A transit gateway
+ *
+ *   The response contains the Direct Connect gateway.
+ * - A Direct Connect gateway and a virtual private gateway
+ *
+ *   The response contains the association between the Direct Connect gateway and virtual private gateway.
+ * - A Direct Connect gateway and a transit gateway
+ *
+ *   The response contains the association between the Direct Connect gateway and transit gateway.
+ * - A Direct Connect gateway and a virtual private gateway
+ *
+ *   The response contains the association between the Direct Connect gateway and virtual private gateway.
+ * - A Direct Connect gateway association to a Cloud WAN core network
+ *
+ *   The response contains the Cloud WAN core network ID that the Direct Connect gateway is associated to.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -116,14 +109,16 @@ export interface DescribeDirectConnectGatewayAssociationsCommandOutput extends D
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  * @throws {@link DirectConnectClientException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link DirectConnectServerException} (server fault)
- *  <p>A server-side error occurred.</p>
+ *
+ * A server-side error occurred.
  *
  * @throws {@link DirectConnectServiceException}
- * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * Base exception class for all service exceptions from DirectConnect service.
  *
  * @public
  */

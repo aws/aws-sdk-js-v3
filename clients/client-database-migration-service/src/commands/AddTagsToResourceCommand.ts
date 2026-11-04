@@ -23,13 +23,8 @@ export interface AddTagsToResourceCommandInput extends AddTagsToResourceMessage 
 export interface AddTagsToResourceCommandOutput extends AddTagsToResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Adds metadata tags to an DMS resource, including replication instance, endpoint,
- *          subnet group, and migration task. These tags can also be used with cost allocation
- *          reporting to track cost associated with DMS resources, or used in a Condition statement in
- *          an IAM policy for DMS. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html">
- *                <code>Tag</code>
- *             </a> data type
- *          description.</p>
+ * Adds metadata tags to an DMS resource, including replication instance, endpoint, subnet group, and migration task. These tags can also be used with cost allocation reporting to track cost associated with DMS resources, or used in a Condition statement in an IAM policy for DMS. For more information, see [`Tag`](https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html) data type description.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,14 +56,16 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceRespons
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link InvalidResourceStateFault} (client fault)
- *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
+ * The resource is in a state that prevents it from being used for database migration.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @example Add tags to resource
  * ```javascript

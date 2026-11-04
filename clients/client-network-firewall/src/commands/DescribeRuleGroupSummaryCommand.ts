@@ -23,9 +23,12 @@ export interface DescribeRuleGroupSummaryCommandInput extends DescribeRuleGroupS
 export interface DescribeRuleGroupSummaryCommandOutput extends DescribeRuleGroupSummaryResponse, __MetadataBearer {}
 
 /**
- * <p>Returns detailed information for a stateful rule group.</p>
- *          <p>For active threat defense Amazon Web Services managed rule groups, this operation provides insight into the protections enabled by the rule group, based on Suricata rule metadata fields. Summaries are available for rule groups you manage and for active threat defense Amazon Web Services managed rule groups.</p>
- *          <p>To modify how threat information appears in summaries, use the <code>SummaryConfiguration</code> parameter in <a>UpdateRuleGroup</a>.</p>
+ * Returns detailed information for a stateful rule group.
+ *
+ * For active threat defense Amazon Web Services managed rule groups, this operation provides insight into the protections enabled by the rule group, based on Suricata rule metadata fields. Summaries are available for rule groups you manage and for active threat defense Amazon Web Services managed rule groups.
+ *
+ * To modify how threat information appears in summaries, use the `SummaryConfiguration` parameter in UpdateRuleGroup.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,34 +67,28 @@ export interface DescribeRuleGroupSummaryCommandOutput extends DescribeRuleGroup
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Your request is valid, but Network Firewall couldn't perform the operation because of a
- *          system problem. Retry your request. </p>
+ *
+ * Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The operation failed because of a problem with your request. Examples include: </p>
- *          <ul>
- *             <li>
- *                <p>You specified an unsupported parameter name or value.</p>
- *             </li>
- *             <li>
- *                <p>You tried to update a property with a value that isn't among the available
- *                types.</p>
- *             </li>
- *             <li>
- *                <p>Your request references an ARN that is malformed, or corresponds to a resource
- *                that isn't valid in the context of the request.</p>
- *             </li>
- *          </ul>
+ *
+ * The operation failed because of a problem with your request. Examples include:
+ *
+ * - You specified an unsupported parameter name or value.
+ * - You tried to update a property with a value that isn't among the available types.
+ * - Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Unable to locate a resource using the parameters that you provided.</p>
+ *
+ * Unable to locate a resource using the parameters that you provided.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Unable to process the request due to throttling limitations.</p>
+ *
+ * Unable to process the request due to throttling limitations.
  *
  * @throws {@link NetworkFirewallServiceException}
- * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ * Base exception class for all service exceptions from NetworkFirewall service.
  *
  * @public
  */

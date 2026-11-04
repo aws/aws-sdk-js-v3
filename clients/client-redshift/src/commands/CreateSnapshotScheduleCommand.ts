@@ -23,7 +23,8 @@ export interface CreateSnapshotScheduleCommandInput extends CreateSnapshotSchedu
 export interface CreateSnapshotScheduleCommandOutput extends SnapshotSchedule, __MetadataBearer {}
 
 /**
- * <p>Create a snapshot schedule that can be associated to a cluster and which overrides the default system backup schedule. </p>
+ * Create a snapshot schedule that can be associated to a cluster and which overrides the default system backup schedule.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,26 +83,32 @@ export interface CreateSnapshotScheduleCommandOutput extends SnapshotSchedule, _
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link InvalidScheduleFault} (client fault)
- *  <p>The schedule you submitted isn't valid.</p>
+ *
+ * The schedule you submitted isn't valid.
  *
  * @throws {@link InvalidTagFault} (client fault)
- *  <p>The tag is invalid.</p>
+ *
+ * The tag is invalid.
  *
  * @throws {@link ScheduleDefinitionTypeUnsupportedFault} (client fault)
- *  <p>The definition you submitted is not supported.</p>
+ *
+ * The definition you submitted is not supported.
  *
  * @throws {@link SnapshotScheduleAlreadyExistsFault} (client fault)
- *  <p>The specified snapshot schedule already exists. </p>
+ *
+ * The specified snapshot schedule already exists.
  *
  * @throws {@link SnapshotScheduleQuotaExceededFault} (client fault)
- *  <p>You have exceeded the quota of snapshot schedules. </p>
+ *
+ * You have exceeded the quota of snapshot schedules.
  *
  * @throws {@link TagLimitExceededFault} (client fault)
- *  <p>You have exceeded the number of tags allowed.</p>
+ *
+ * You have exceeded the number of tags allowed.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

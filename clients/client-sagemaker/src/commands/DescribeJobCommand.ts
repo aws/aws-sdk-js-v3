@@ -23,7 +23,15 @@ export interface DescribeJobCommandInput extends DescribeJobRequest {}
 export interface DescribeJobCommandOutput extends DescribeJobResponse, __MetadataBearer {}
 
 /**
- * <p>Returns detailed information about a job, including its current status, secondary status, configuration, and timestamps. Use <code>SecondaryStatus</code> for granular progress tracking and <code>SecondaryStatusTransitions</code> to see the full history of status changes with timestamps.</p> <p>The following operations are related to <code>DescribeJob</code>:</p> <ul> <li> <p> <code>CreateJob</code> </p> </li> <li> <p> <code>ListJobs</code> </p> </li> <li> <p> <code>StopJob</code> </p> </li> <li> <p> <code>DeleteJob</code> </p> </li> </ul>
+ * Returns detailed information about a job, including its current status, secondary status, configuration, and timestamps. Use `SecondaryStatus` for granular progress tracking and `SecondaryStatusTransitions` to see the full history of status changes with timestamps.
+ *
+ * The following operations are related to `DescribeJob`:
+ *
+ * - `CreateJob`
+ * - `ListJobs`
+ * - `StopJob`
+ * - `DeleteJob`
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,11 +84,12 @@ export interface DescribeJobCommandOutput extends DescribeJobResponse, __Metadat
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Resource being access is not found.</p>
+ *
+ * Resource being access is not found.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

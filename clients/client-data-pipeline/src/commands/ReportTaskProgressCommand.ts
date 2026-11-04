@@ -23,12 +23,10 @@ export interface ReportTaskProgressCommandInput extends ReportTaskProgressInput 
 export interface ReportTaskProgressCommandOutput extends ReportTaskProgressOutput, __MetadataBearer {}
 
 /**
- * <p>Task runners call <code>ReportTaskProgress</code> when assigned a task to acknowledge that it has the task. If the web service does not
- *             receive this acknowledgement within 2 minutes, it assigns the task in a subsequent <a>PollForTask</a> call. After this initial acknowledgement,
- *             the task runner only needs to report progress every 15 minutes to maintain its ownership of the task. You can change this reporting time
- *             from 15 minutes by specifying a <code>reportProgressTimeout</code> field in your pipeline.</p>
- *         <p>If a task runner does not report its status after 5 minutes, AWS Data Pipeline assumes that the task runner is unable to process the task
- *             and reassigns the task in a subsequent response to <a>PollForTask</a>. Task runners should call <code>ReportTaskProgress</code> every 60 seconds.</p>
+ * Task runners call `ReportTaskProgress` when assigned a task to acknowledge that it has the task. If the web service does not receive this acknowledgement within 2 minutes, it assigns the task in a subsequent PollForTask call. After this initial acknowledgement, the task runner only needs to report progress every 15 minutes to maintain its ownership of the task. You can change this reporting time from 15 minutes by specifying a `reportProgressTimeout` field in your pipeline.
+ *
+ * If a task runner does not report its status after 5 minutes, AWS Data Pipeline assumes that the task runner is unable to process the task and reassigns the task in a subsequent response to PollForTask. Task runners should call `ReportTaskProgress` every 60 seconds.
+ *
  *         <examples>
  *             <request>
  *
@@ -94,23 +92,28 @@ export interface ReportTaskProgressCommandOutput extends ReportTaskProgressOutpu
  * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.
  *
  * @throws {@link InternalServiceError} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
+ *
+ * The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.
  *
  * @throws {@link PipelineDeletedException} (client fault)
- *  <p>The specified pipeline has been deleted.</p>
+ *
+ * The specified pipeline has been deleted.
  *
  * @throws {@link PipelineNotFoundException} (client fault)
- *  <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
+ *
+ * The specified pipeline was not found. Verify that you used the correct user and account identifiers.
  *
  * @throws {@link TaskNotFoundException} (client fault)
- *  <p>The specified task was not found. </p>
+ *
+ * The specified task was not found.
  *
  * @throws {@link DataPipelineServiceException}
- * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ * Base exception class for all service exceptions from DataPipeline service.
  *
  * @public
  */

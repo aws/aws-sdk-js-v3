@@ -26,7 +26,8 @@ export interface DescribeRemediationConfigurationsCommandInput extends DescribeR
 export interface DescribeRemediationConfigurationsCommandOutput extends DescribeRemediationConfigurationsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the details of one or more remediation configurations.</p>
+ * Returns the details of one or more remediation configurations.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,8 +87,8 @@ export interface DescribeRemediationConfigurationsCommandOutput extends Describe
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  * @throws {@link ConfigServiceServiceException}
- * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * Base exception class for all service exceptions from ConfigService service.
  *
  * @public
  */

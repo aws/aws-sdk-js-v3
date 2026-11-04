@@ -23,40 +23,24 @@ export interface DeleteGameServerGroupCommandInput extends DeleteGameServerGroup
 export interface DeleteGameServerGroupCommandOutput extends DeleteGameServerGroupOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This API works with the following fleet types:</b> EC2 (FleetIQ)</p>
- *          <p>Terminates a game server group
- *             and permanently deletes the game server group record. You have several options for how
- *             these resources are impacted when deleting the game server group. Depending on the type
- *             of delete operation selected, this operation might affect these resources:</p>
- *          <ul>
- *             <li>
- *                <p>The game server group</p>
- *             </li>
- *             <li>
- *                <p>The corresponding Auto Scaling group</p>
- *             </li>
- *             <li>
- *                <p>All game servers that are currently running in the group</p>
- *             </li>
- *          </ul>
- *          <p>To delete a game server group, identify the game server group to delete and specify
- *             the type of delete operation to initiate. Game server groups can only be deleted if they
- *             are in <code>ACTIVE</code> or <code>ERROR</code> status.</p>
- *          <p>If the delete request is successful, a series of operations are kicked off. The game
- *             server group status is changed to <code>DELETE_SCHEDULED</code>, which prevents new game
- *             servers from being registered and stops automatic scaling activity. Once all game
- *             servers in the game server group are deregistered, Amazon GameLift Servers FleetIQ can begin deleting resources.
- *             If any of the delete operations fail, the game server group is placed in
- *                 <code>ERROR</code> status.</p>
- *          <p>Amazon GameLift Servers FleetIQ emits delete events to Amazon CloudWatch.</p>
- *          <p>
- *             <b>Learn more</b>
- *          </p>
- *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift Servers FleetIQ
- *                 Guide</a>
- *          </p>
+ * **This API works with the following fleet types:** EC2 (FleetIQ)
+ *
+ * Terminates a game server group and permanently deletes the game server group record. You have several options for how these resources are impacted when deleting the game server group. Depending on the type of delete operation selected, this operation might affect these resources:
+ *
+ * - The game server group
+ * - The corresponding Auto Scaling group
+ * - All game servers that are currently running in the group
+ *
+ * To delete a game server group, identify the game server group to delete and specify the type of delete operation to initiate. Game server groups can only be deleted if they are in `ACTIVE` or `ERROR` status.
+ *
+ * If the delete request is successful, a series of operations are kicked off. The game server group status is changed to `DELETE_SCHEDULED`, which prevents new game servers from being registered and stops automatic scaling activity. Once all game servers in the game server group are deregistered, Amazon GameLift Servers FleetIQ can begin deleting resources. If any of the delete operations fail, the game server group is placed in `ERROR` status.
+ *
+ * Amazon GameLift Servers FleetIQ emits delete events to Amazon CloudWatch.
+ *
+ * **Learn more**
+ *
+ * [Amazon GameLift Servers FleetIQ Guide](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -104,22 +88,24 @@ export interface DeleteGameServerGroupCommandOutput extends DeleteGameServerGrou
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an unrecoverable internal failure while processing the
- *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
- *             values before retrying.</p>
+ *
+ * One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resource was not found. The resource was either not created yet or deleted.</p>
+ *
+ * The requested resource was not found. The resource was either not created yet or deleted.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * The client failed authentication. Clients should not retry such requests.
  *
  * @throws {@link GameLiftServiceException}
- * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * Base exception class for all service exceptions from GameLift service.
  *
  * @public
  */

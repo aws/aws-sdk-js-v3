@@ -23,12 +23,12 @@ export interface FailoverReplicationCommandInput extends FailoverReplicationRequ
 export interface FailoverReplicationCommandOutput extends FailoverReplicationResponse, __MetadataBearer {}
 
 /**
- * <p>Promotes a secondary domain to primary without coordinating with the current primary. Use
- *   this operation when the primary is unreachable and you cannot wait for it to recover.</p>
- *          <p>Writes that had not yet replicated when the primary became unreachable are lost. You must
- *   set <code>AllowDataLoss</code> to acknowledge this. To promote a domain without losing writes,
- *   use the <code>SwitchoverReplication</code> operation instead.</p>
- *          <p>Call this operation in the Region of the domain you want to promote.</p>
+ * Promotes a secondary domain to primary without coordinating with the current primary. Use this operation when the primary is unreachable and you cannot wait for it to recover.
+ *
+ * Writes that had not yet replicated when the primary became unreachable are lost. You must set `AllowDataLoss` to acknowledge this. To promote a domain without losing writes, use the `SwitchoverReplication` operation instead.
+ *
+ * Call this operation in the Region of the domain you want to promote.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,20 +58,24 @@ export interface FailoverReplicationCommandOutput extends FailoverReplicationRes
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
  * @throws {@link DisabledOperationException} (client fault)
- *  <p>An error occured because the client wanted to access an unsupported operation.</p>
+ *
+ * An error occured because the client wanted to access an unsupported operation.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+ *
+ * Request processing failed because of an unknown error, exception, or internal failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+ *
+ * An exception for accessing or deleting a resource that doesn't exist.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+ *
+ * An exception for accessing or deleting a resource that doesn't exist.
  *
  * @throws {@link OpenSearchServiceException}
- * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * Base exception class for all service exceptions from OpenSearch service.
  *
  * @public
  */

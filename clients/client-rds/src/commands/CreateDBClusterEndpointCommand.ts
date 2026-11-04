@@ -23,7 +23,10 @@ export interface CreateDBClusterEndpointCommandInput extends CreateDBClusterEndp
 export interface CreateDBClusterEndpointCommandOutput extends DBClusterEndpoint, __MetadataBearer {}
 
 /**
- * <p>Creates a new custom endpoint and associates it with an Amazon Aurora DB cluster.</p> <note> <p>This action applies only to Aurora DB clusters.</p> </note>
+ * Creates a new custom endpoint and associates it with an Amazon Aurora DB cluster.
+ *
+ * > **Note:** This action applies only to Aurora DB clusters.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,26 +80,32 @@ export interface CreateDBClusterEndpointCommandOutput extends DBClusterEndpoint,
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBClusterEndpointAlreadyExistsFault} (client fault)
- *  <p>The specified custom endpoint can't be created because it already exists.</p>
+ *
+ * The specified custom endpoint can't be created because it already exists.
  *
  * @throws {@link DBClusterEndpointQuotaExceededFault} (client fault)
- *  <p>The cluster already has the maximum number of custom endpoints.</p>
+ *
+ * The cluster already has the maximum number of custom endpoints.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *
+ * `DBClusterIdentifier` doesn't refer to an existing DB cluster.
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *
+ * `DBInstanceIdentifier` doesn't refer to an existing DB instance.
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
- *  <p>The requested operation can't be performed while the cluster is in this state.</p>
+ *
+ * The requested operation can't be performed while the cluster is in this state.
  *
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
- *  <p>The DB instance isn't in a valid state.</p>
+ *
+ * The DB instance isn't in a valid state.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To create a custom DB cluster endpoint
  * ```javascript

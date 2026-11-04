@@ -23,7 +23,10 @@ export interface CreateRegistryCommandInput extends CreateRegistryRequest {}
 export interface CreateRegistryCommandOutput extends CreateRegistryResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new registry in your Amazon Web Services account. A registry serves as a centralized catalog for organizing and managing registry records, including MCP servers, A2A agents, agent skills, and custom resource types.</p> <p>If you specify <code>CUSTOM_JWT</code> as the <code>authorizerType</code>, you must provide an <code>authorizerConfiguration</code>.</p>
+ * Creates a new registry in your Amazon Web Services account. A registry serves as a centralized catalog for organizing and managing registry records, including MCP servers, A2A agents, agent skills, and custom resource types.
+ *
+ * If you specify `CUSTOM_JWT` as the `authorizerType`, you must provide an `authorizerConfiguration`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -141,26 +144,32 @@ export interface CreateRegistryCommandOutput extends CreateRegistryResponse, __M
  * @see {@link BedrockAgentCoreControlClientResolvedConfig | config} for BedrockAgentCoreControlClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>This exception is thrown when a request is denied per access permissions</p>
+ *
+ * This exception is thrown when a request is denied per access permissions
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>This exception is thrown when there is a conflict performing an operation</p>
+ *
+ * This exception is thrown when there is a conflict performing an operation
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception is thrown if there was an unexpected error during processing of request</p>
+ *
+ * This exception is thrown if there was an unexpected error during processing of request
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>This exception is thrown when a request is made beyond the service quota</p>
+ *
+ * This exception is thrown when a request is made beyond the service quota
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>This exception is thrown when the number of requests exceeds the limit</p>
+ *
+ * This exception is thrown when the number of requests exceeds the limit
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the service.</p>
+ *
+ * The input fails to satisfy the constraints specified by the service.
  *
  * @throws {@link BedrockAgentCoreControlServiceException}
- * <p>Base exception class for all service exceptions from BedrockAgentCoreControl service.</p>
  *
+ * Base exception class for all service exceptions from BedrockAgentCoreControl service.
  *
  * @public
  */

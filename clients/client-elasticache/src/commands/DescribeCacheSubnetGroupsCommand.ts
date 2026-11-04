@@ -23,10 +23,8 @@ export interface DescribeCacheSubnetGroupsCommandInput extends DescribeCacheSubn
 export interface DescribeCacheSubnetGroupsCommandOutput extends CacheSubnetGroupMessage, __MetadataBearer {}
 
 /**
- * <p>Returns a list of cache subnet group descriptions. If a subnet group name is
- *             specified, the list contains only the description of that group. This is applicable only
- *             when you have ElastiCache in VPC setup. All ElastiCache clusters now launch in VPC by
- *             default. </p>
+ * Returns a list of cache subnet group descriptions. If a subnet group name is specified, the list contains only the description of that group. This is applicable only when you have ElastiCache in VPC setup. All ElastiCache clusters now launch in VPC by default.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,12 +78,12 @@ export interface DescribeCacheSubnetGroupsCommandOutput extends CacheSubnetGroup
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link CacheSubnetGroupNotFoundFault} (client fault)
- *  <p>The requested cache subnet group name does not refer to an existing cache subnet
- *             group.</p>
+ *
+ * The requested cache subnet group name does not refer to an existing cache subnet group.
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @example DescribeCacheSubnetGroups
  * ```javascript

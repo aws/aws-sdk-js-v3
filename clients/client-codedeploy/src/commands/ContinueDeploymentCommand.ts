@@ -23,11 +23,8 @@ export interface ContinueDeploymentCommandInput extends ContinueDeploymentInput 
 export interface ContinueDeploymentCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>For a blue/green deployment, starts the process of rerouting traffic from instances in
- *             the original environment to instances in the replacement environment without waiting for
- *             a specified wait time to elapse. (Traffic rerouting, which is achieved by registering
- *             instances in the replacement environment with the load balancer, can start as soon as
- *             all instances have a status of Ready.) </p>
+ * For a blue/green deployment, starts the process of rerouting traffic from instances in the original environment to instances in the replacement environment without waiting for a specified wait time to elapse. (Traffic rerouting, which is achieved by registering instances in the replacement environment with the load balancer, can start as soon as all instances have a status of Ready.)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,32 +50,40 @@ export interface ContinueDeploymentCommandOutput extends __MetadataBearer {}
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  * @throws {@link DeploymentAlreadyCompletedException} (client fault)
- *  <p>The deployment is already complete.</p>
+ *
+ * The deployment is already complete.
  *
  * @throws {@link DeploymentDoesNotExistException} (client fault)
- *  <p>The deployment with the user or Amazon Web Services account does not exist.</p>
+ *
+ * The deployment with the user or Amazon Web Services account does not exist.
  *
  * @throws {@link DeploymentIdRequiredException} (client fault)
- *  <p>At least one deployment ID must be specified.</p>
+ *
+ * At least one deployment ID must be specified.
  *
  * @throws {@link DeploymentIsNotInReadyStateException} (client fault)
- *  <p>The deployment does not have a status of Ready and can't continue yet.</p>
+ *
+ * The deployment does not have a status of Ready and can't continue yet.
  *
  * @throws {@link InvalidDeploymentIdException} (client fault)
- *  <p>At least one of the deployment IDs was specified in an invalid format.</p>
+ *
+ * At least one of the deployment IDs was specified in an invalid format.
  *
  * @throws {@link InvalidDeploymentStatusException} (client fault)
- *  <p>The specified deployment status doesn't exist or cannot be determined.</p>
+ *
+ * The specified deployment status doesn't exist or cannot be determined.
  *
  * @throws {@link InvalidDeploymentWaitTypeException} (client fault)
- *  <p> The wait type is invalid. </p>
+ *
+ * The wait type is invalid.
  *
  * @throws {@link UnsupportedActionForDeploymentTypeException} (client fault)
- *  <p>A call was submitted that is not supported for the specified deployment type.</p>
+ *
+ * A call was submitted that is not supported for the specified deployment type.
  *
  * @throws {@link CodeDeployServiceException}
- * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * Base exception class for all service exceptions from CodeDeploy service.
  *
  * @public
  */

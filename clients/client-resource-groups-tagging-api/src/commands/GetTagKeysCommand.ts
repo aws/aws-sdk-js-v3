@@ -23,14 +23,10 @@ export interface GetTagKeysCommandInput extends GetTagKeysInput {}
 export interface GetTagKeysCommandOutput extends GetTagKeysOutput, __MetadataBearer {}
 
 /**
- * <p>Returns all tag keys currently in use in the specified Amazon Web Services Region for the calling
- *             account.</p>
- *          <p>This operation supports pagination, where the response can be sent in
- *     multiple pages. You should check the <code>PaginationToken</code> response parameter to determine
- *     if there are additional results available to return. Repeat the query, passing the
- *     <code>PaginationToken</code> response parameter value as an input to the next request until you
- *     recieve a <code>null</code> value. A null value for <code>PaginationToken</code> indicates that
- *     there are no more results waiting to be returned.</p>
+ * Returns all tag keys currently in use in the specified Amazon Web Services Region for the calling account.
+ *
+ * This operation supports pagination, where the response can be sent in multiple pages. You should check the `PaginationToken` response parameter to determine if there are additional results available to return. Repeat the query, passing the `PaginationToken` response parameter value as an input to the next request until you recieve a `null` value. A null value for `PaginationToken` indicates that there are no more results waiting to be returned.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,46 +56,31 @@ export interface GetTagKeysCommandOutput extends GetTagKeysOutput, __MetadataBea
  * @see {@link ResourceGroupsTaggingAPIClientResolvedConfig | config} for ResourceGroupsTaggingAPIClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The request processing failed because of an unknown error, exception, or failure. You
- *             can retry the request.</p>
+ *
+ * The request processing failed because of an unknown error, exception, or failure. You can retry the request.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The request failed because of one of the following reasons:</p>
- *          <ul>
- *             <li>
- *                <p>A required parameter is missing.</p>
- *             </li>
- *             <li>
- *                <p>A provided string parameter is malformed.</p>
- *             </li>
- *             <li>
- *                <p>An provided parameter value is out of range.</p>
- *             </li>
- *             <li>
- *                <p>The target ID is invalid, unsupported, or doesn't exist.</p>
- *             </li>
- *             <li>
- *                <p>You can't access the Amazon S3 bucket for report storage. For more information, see
- *                         <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/tag-policies-orgs.html#bucket-policy">Amazon S3 bucket policy for report storage</a> in the <i>Tagging Amazon Web Services resources and Tag Editor</i> user guide. </p>
- *             </li>
- *             <li>
- *                <p>The partition specified in an ARN parameter in the request doesn't match the
- *                     partition where you invoked the operation. The partition is specified by the
- *                     second field of the ARN.</p>
- *             </li>
- *          </ul>
+ *
+ * The request failed because of one of the following reasons:
+ *
+ * - A required parameter is missing.
+ * - A provided string parameter is malformed.
+ * - An provided parameter value is out of range.
+ * - The target ID is invalid, unsupported, or doesn't exist.
+ * - You can't access the Amazon S3 bucket for report storage. For more information, see [Amazon S3 bucket policy for report storage](https://docs.aws.amazon.com/tag-editor/latest/userguide/tag-policies-orgs.html#bucket-policy) in the *Tagging Amazon Web Services resources and Tag Editor* user guide.
+ * - The partition specified in an ARN parameter in the request doesn't match the partition where you invoked the operation. The partition is specified by the second field of the ARN.
  *
  * @throws {@link PaginationTokenExpiredException} (client fault)
- *  <p>The request failed because the specified <code>PaginationToken</code> has expired. A
- *                 <code>PaginationToken</code> is valid for a maximum of 15 minutes.</p>
+ *
+ * The request failed because the specified `PaginationToken` has expired. A `PaginationToken` is valid for a maximum of 15 minutes.
  *
  * @throws {@link ThrottledException} (client fault)
- *  <p>The request failed because it exceeded the allowed frequency of submitted
- *             requests.</p>
+ *
+ * The request failed because it exceeded the allowed frequency of submitted requests.
  *
  * @throws {@link ResourceGroupsTaggingAPIServiceException}
- * <p>Base exception class for all service exceptions from ResourceGroupsTaggingAPI service.</p>
  *
+ * Base exception class for all service exceptions from ResourceGroupsTaggingAPI service.
  *
  * @public
  */

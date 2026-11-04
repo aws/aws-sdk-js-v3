@@ -94,8 +94,8 @@ export interface ListAccessGrantsCommandOutput extends ListAccessGrantsOutput, _
  *  A parameter is specified incorrectly.
  *
  * @throws {@link CloudWatchOmniServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchOmni service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchOmni service.
  *
  * @example List access grants in a space
  * ```javascript

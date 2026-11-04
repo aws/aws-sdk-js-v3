@@ -23,7 +23,8 @@ export interface ListModelMetadataCommandInput extends ListModelMetadataRequest 
 export interface ListModelMetadataCommandOutput extends ListModelMetadataResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the domain, framework, task, and model name of standard machine learning models found in common model zoos.</p>
+ * Lists the domain, framework, task, and model name of standard machine learning models found in common model zoos.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,8 +69,8 @@ export interface ListModelMetadataCommandOutput extends ListModelMetadataRespons
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

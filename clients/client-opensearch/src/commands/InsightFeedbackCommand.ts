@@ -23,9 +23,8 @@ export interface InsightFeedbackCommandInput extends InsightFeedbackRequest {}
 export interface InsightFeedbackCommandOutput extends InsightFeedbackResponse, __MetadataBearer {}
 
 /**
- * <p>Submits feedback for an existing insight in an Amazon OpenSearch Service domain.
- *             Allows users to provide a thumbs up or thumbs down rating and optional text feedback
- *             for a specific insight.</p>
+ * Submits feedback for an existing insight in an Amazon OpenSearch Service domain. Allows users to provide a thumbs up or thumbs down rating and optional text feedback for a specific insight.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,26 +57,32 @@ export interface InsightFeedbackCommandOutput extends InsightFeedbackResponse, _
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
  * @throws {@link BaseException} (client fault)
- *  <p>An error occurred while processing the request.</p>
+ *
+ * An error occurred while processing the request.
  *
  * @throws {@link DisabledOperationException} (client fault)
- *  <p>An error occured because the client wanted to access an unsupported operation.</p>
+ *
+ * An error occured because the client wanted to access an unsupported operation.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+ *
+ * Request processing failed because of an unknown error, exception, or internal failure.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>An exception for trying to create more than the allowed number of resources or sub-resources.</p>
+ *
+ * An exception for trying to create more than the allowed number of resources or sub-resources.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+ *
+ * An exception for accessing or deleting a resource that doesn't exist.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+ *
+ * An exception for accessing or deleting a resource that doesn't exist.
  *
  * @throws {@link OpenSearchServiceException}
- * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * Base exception class for all service exceptions from OpenSearch service.
  *
  * @public
  */

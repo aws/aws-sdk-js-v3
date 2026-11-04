@@ -23,8 +23,8 @@ export interface ListGroupsCommandInput extends ListGroupsRequest {}
 export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of all groups in the account, displaying their names, unique IDs, and ARNs. The groups
- *       from all Regions are returned.</p>
+ * Returns a list of all groups in the account, displaying their names, unique IDs, and ARNs. The groups from all Regions are returned.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,14 +59,16 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unknown internal error occurred.</p>
+ *
+ * An unknown internal error occurred.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A parameter could not be validated.</p>
+ *
+ * A parameter could not be validated.
  *
  * @throws {@link SyntheticsServiceException}
- * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ * Base exception class for all service exceptions from Synthetics service.
  *
  * @public
  */

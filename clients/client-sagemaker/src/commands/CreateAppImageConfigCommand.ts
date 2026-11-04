@@ -23,7 +23,8 @@ export interface CreateAppImageConfigCommandInput extends CreateAppImageConfigRe
 export interface CreateAppImageConfigCommandOutput extends CreateAppImageConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a configuration for running a SageMaker AI image as a KernelGateway app. The configuration specifies the Amazon Elastic File System storage volume on the image, and a list of the kernels in the image.</p>
+ * Creates a configuration for running a SageMaker AI image as a KernelGateway app. The configuration specifies the Amazon Elastic File System storage volume on the image, and a list of the kernels in the image.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -105,11 +106,12 @@ export interface CreateAppImageConfigCommandOutput extends CreateAppImageConfigR
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceInUse} (client fault)
- *  <p>Resource being accessed is in use.</p>
+ *
+ * Resource being accessed is in use.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

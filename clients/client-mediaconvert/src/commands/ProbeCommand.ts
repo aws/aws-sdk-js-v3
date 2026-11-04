@@ -208,8 +208,8 @@ export interface ProbeCommandOutput extends ProbeResponse, __MetadataBearer {}
  *  The input file was recognized but appears to be malformed or corrupt.
  *
  * @throws {@link MediaConvertServiceException}
- * <p>Base exception class for all service exceptions from MediaConvert service.</p>
  *
+ * Base exception class for all service exceptions from MediaConvert service.
  *
  * @public
  */

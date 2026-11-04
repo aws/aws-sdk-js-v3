@@ -561,7 +561,8 @@ export type KafkaClientResolvedConfigType = __SmithyResolvedConfiguration<__Http
 export interface KafkaClientResolvedConfig extends KafkaClientResolvedConfigType {}
 
 /**
- * <p>The operations for managing an Amazon MSK cluster.</p>
+ * The operations for managing an Amazon MSK cluster.
+ *
  * @public
  */
 export class KafkaClient extends __Client<

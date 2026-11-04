@@ -23,7 +23,8 @@ export interface CreateCostCategoryDefinitionCommandInput extends CreateCostCate
 export interface CreateCostCategoryDefinitionCommandOutput extends CreateCostCategoryDefinitionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new cost category with the requested name and rules.</p>
+ * Creates a new cost category with the requested name and rules.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -168,15 +169,16 @@ export interface CreateCostCategoryDefinitionCommandOutput extends CreateCostCat
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ * You made too many calls in a short period of time. Try again later.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p> You've reached the limit on the number of resources you can create, or exceeded the
- *             size of an individual resource. </p>
+ *
+ * You've reached the limit on the number of resources you can create, or exceeded the size of an individual resource.
  *
  * @throws {@link CostExplorerServiceException}
- * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * Base exception class for all service exceptions from CostExplorer service.
  *
  * @public
  */

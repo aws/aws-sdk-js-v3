@@ -23,7 +23,8 @@ export interface UpdateServiceAttributesCommandInput extends UpdateServiceAttrib
 export interface UpdateServiceAttributesCommandOutput extends UpdateServiceAttributesResponse, __MetadataBearer {}
 
 /**
- * <p>Submits a request to update a specified service to add service-level attributes.</p>
+ * Submits a request to update a specified service to add service-level attributes.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,20 +52,20 @@ export interface UpdateServiceAttributesCommandOutput extends UpdateServiceAttri
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>One or more specified values aren't valid. For example, a required value might be missing, a
- *    numeric value might be outside the allowed range, or a string value might exceed length
- *    constraints.</p>
+ *
+ * One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range, or a string value might exceed length constraints.
  *
  * @throws {@link ServiceAttributesLimitExceededException} (client fault)
- *  <p>The attribute can't be added to the service because you've exceeded the quota for the number
- *    of attributes you can add to a service.</p>
+ *
+ * The attribute can't be added to the service because you've exceeded the quota for the number of attributes you can add to a service.
  *
  * @throws {@link ServiceNotFound} (client fault)
- *  <p>No service exists with the specified ID.</p>
+ *
+ * No service exists with the specified ID.
  *
  * @throws {@link ServiceDiscoveryServiceException}
- * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
+ * Base exception class for all service exceptions from ServiceDiscovery service.
  *
  * @example Update service attributes using service ARN
  * ```javascript

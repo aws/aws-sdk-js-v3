@@ -7,13 +7,15 @@ import type { ProtectConfigurationCountryRuleSetInformation } from "./models_0";
  */
 export interface UpdateProtectConfigurationRequest {
   /**
-   * <p>The unique identifier for the protect configuration.</p>
+   * The unique identifier for the protect configuration.
+   *
    * @public
    */
   ProtectConfigurationId: string | undefined;
 
   /**
-   * <p>When set to true deletion protection is enabled. By default this is set to false. </p>
+   * When set to true deletion protection is enabled. By default this is set to false.
+   *
    * @public
    */
   DeletionProtectionEnabled?: boolean | undefined;
@@ -24,31 +26,36 @@ export interface UpdateProtectConfigurationRequest {
  */
 export interface UpdateProtectConfigurationResult {
   /**
-   * <p>The Amazon Resource Name (ARN) of the protect configuration.</p>
+   * The Amazon Resource Name (ARN) of the protect configuration.
+   *
    * @public
    */
   ProtectConfigurationArn: string | undefined;
 
   /**
-   * <p>The unique identifier for the protect configuration.</p>
+   * The unique identifier for the protect configuration.
+   *
    * @public
    */
   ProtectConfigurationId: string | undefined;
 
   /**
-   * <p>The time when the protect configuration was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   * The time when the protect configuration was created, in [UNIX epoch time](https://www.epochconverter.com/) format.
+   *
    * @public
    */
   CreatedTimestamp: Date | undefined;
 
   /**
-   * <p>This is true if the protect configuration is set as your account default protect configuration.</p>
+   * This is true if the protect configuration is set as your account default protect configuration.
+   *
    * @public
    */
   AccountDefault: boolean | undefined;
 
   /**
-   * <p>The status of deletion protection for the protect configuration. When set to true deletion protection is enabled. By default this is set to false. </p>
+   * The status of deletion protection for the protect configuration. When set to true deletion protection is enabled. By default this is set to false.
+   *
    * @public
    */
   DeletionProtectionEnabled: boolean | undefined;
@@ -59,19 +66,24 @@ export interface UpdateProtectConfigurationResult {
  */
 export interface UpdateProtectConfigurationCountryRuleSetRequest {
   /**
-   * <p>The unique identifier for the protect configuration.</p>
+   * The unique identifier for the protect configuration.
+   *
    * @public
    */
   ProtectConfigurationId: string | undefined;
 
   /**
-   * <p>The number capability to apply the CountryRuleSetUpdates updates to.</p>
+   * The number capability to apply the CountryRuleSetUpdates updates to.
+   *
    * @public
    */
   NumberCapability: NumberCapability | undefined;
 
   /**
-   * <p>A map of ProtectConfigurationCountryRuleSetInformation objects that contain the details for the requested NumberCapability. The Key is the two-letter ISO country code. For a list of supported ISO country codes, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-sms-by-country.html">Supported countries and regions (SMS channel)</a> in the End User Messaging SMS User Guide.</p> <p>For example, to set the United States as allowed and Canada as blocked, the <code>CountryRuleSetUpdates</code> would be formatted as: <code>"CountryRuleSetUpdates": \{ "US" : \{ "ProtectStatus": "ALLOW" \} "CA" : \{ "ProtectStatus": "BLOCK" \} \}</code> </p>
+   * A map of ProtectConfigurationCountryRuleSetInformation objects that contain the details for the requested NumberCapability. The Key is the two-letter ISO country code. For a list of supported ISO country codes, see [Supported countries and regions (SMS channel)](https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-sms-by-country.html) in the End User Messaging SMS User Guide.
+   *
+   * For example, to set the United States as allowed and Canada as blocked, the `CountryRuleSetUpdates` would be formatted as: `"CountryRuleSetUpdates": \{ "US" : \{ "ProtectStatus": "ALLOW" \} "CA" : \{ "ProtectStatus": "BLOCK" \} \}`
+   *
    * @public
    */
   CountryRuleSetUpdates: Record<string, ProtectConfigurationCountryRuleSetInformation> | undefined;
@@ -82,25 +94,29 @@ export interface UpdateProtectConfigurationCountryRuleSetRequest {
  */
 export interface UpdateProtectConfigurationCountryRuleSetResult {
   /**
-   * <p>The Amazon Resource Name (ARN) of the protect configuration.</p>
+   * The Amazon Resource Name (ARN) of the protect configuration.
+   *
    * @public
    */
   ProtectConfigurationArn: string | undefined;
 
   /**
-   * <p>The unique identifier for the protect configuration.</p>
+   * The unique identifier for the protect configuration.
+   *
    * @public
    */
   ProtectConfigurationId: string | undefined;
 
   /**
-   * <p>The number capability that was updated</p>
+   * The number capability that was updated
+   *
    * @public
    */
   NumberCapability: NumberCapability | undefined;
 
   /**
-   * <p>An array of ProtectConfigurationCountryRuleSetInformation containing the rules for the NumberCapability.</p>
+   * An array of ProtectConfigurationCountryRuleSetInformation containing the rules for the NumberCapability.
+   *
    * @public
    */
   CountryRuleSet: Record<string, ProtectConfigurationCountryRuleSetInformation> | undefined;
@@ -111,67 +127,78 @@ export interface UpdateProtectConfigurationCountryRuleSetResult {
  */
 export interface UpdateRcsAgentRequest {
   /**
-   * <p>The unique identifier of the RCS agent to update. You can use either the RcsAgentId or RcsAgentArn.</p>
+   * The unique identifier of the RCS agent to update. You can use either the RcsAgentId or RcsAgentArn.
+   *
    * @public
    */
   RcsAgentId: string | undefined;
 
   /**
-   * <p>By default this is set to false. When set to true the RCS agent can't be deleted.</p>
+   * By default this is set to false. When set to true the RCS agent can't be deleted.
+   *
    * @public
    */
   DeletionProtectionEnabled?: boolean | undefined;
 
   /**
-   * <p>The OptOutList to associate with the RCS agent. Valid values are either OptOutListName or OptOutListArn.</p>
+   * The OptOutList to associate with the RCS agent. Valid values are either OptOutListName or OptOutListArn.
+   *
    * @public
    */
   OptOutListName?: string | undefined;
 
   /**
-   * <p>By default this is set to false. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.</p>
+   * By default this is set to false. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.
+   *
    * @public
    */
   SelfManagedOptOutsEnabled?: boolean | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the two way channel.</p>
+   * The Amazon Resource Name (ARN) of the two way channel.
+   *
    * @public
    */
   TwoWayChannelArn?: string | undefined;
 
   /**
-   * <p>An optional IAM Role Arn for a service to assume, to be able to post inbound SMS messages.</p>
+   * An optional IAM Role Arn for a service to assume, to be able to post inbound SMS messages.
+   *
    * @public
    */
   TwoWayChannelRole?: string | undefined;
 
   /**
-   * <p>By default this is set to false. When set to true you can receive incoming text messages from your end recipients.</p>
+   * By default this is set to false. When set to true you can receive incoming text messages from your end recipients.
+   *
    * @public
    */
   TwoWayEnabled?: boolean | undefined;
 
   /**
-   * <p>The name of the S3 bucket where inbound RCS media files are stored. Two-way messaging must be enabled on the agent. To remove the media configuration, pass the sentinel value <code>UNSET_RCS_MEDIA_CONFIGURATION</code> for both this field and TwoWayMediaS3Role.</p>
+   * The name of the S3 bucket where inbound RCS media files are stored. Two-way messaging must be enabled on the agent. To remove the media configuration, pass the sentinel value `UNSET_RCS_MEDIA_CONFIGURATION` for both this field and TwoWayMediaS3Role.
+   *
    * @public
    */
   TwoWayMediaS3BucketName?: string | undefined;
 
   /**
-   * <p>The key prefix used for inbound RCS media objects in the S3 bucket.</p>
+   * The key prefix used for inbound RCS media objects in the S3 bucket.
+   *
    * @public
    */
   TwoWayMediaS3KeyPrefix?: string | undefined;
 
   /**
-   * <p>The ARN of the IAM role used to write inbound RCS media files to the S3 bucket. The role must have <code>s3:PutObject</code> permission on the bucket and a trust policy allowing <code>sms-voice.amazonaws.com</code> to assume it. To remove the media configuration, pass the sentinel value <code>UNSET_RCS_MEDIA_CONFIGURATION</code> for both this field and TwoWayMediaS3BucketName.</p>
+   * The ARN of the IAM role used to write inbound RCS media files to the S3 bucket. The role must have `s3:PutObject` permission on the bucket and a trust policy allowing `sms-voice.amazonaws.com` to assume it. To remove the media configuration, pass the sentinel value `UNSET_RCS_MEDIA_CONFIGURATION` for both this field and TwoWayMediaS3BucketName.
+   *
    * @public
    */
   TwoWayMediaS3Role?: string | undefined;
 
   /**
-   * <p>The list of RCS event types to enable for two-way messaging. Pass an empty list to disable all event types. The special value <code>ALL</code> enables all current and future event types and must be the sole element if used.</p>
+   * The list of RCS event types to enable for two-way messaging. Pass an empty list to disable all event types. The special value `ALL` enables all current and future event types and must be the sole element if used.
+   *
    * @public
    */
   TwoWayRcsEventsEnabled?: string[] | undefined;
@@ -182,85 +209,99 @@ export interface UpdateRcsAgentRequest {
  */
 export interface UpdateRcsAgentResult {
   /**
-   * <p>The Amazon Resource Name (ARN) of the updated RCS agent.</p>
+   * The Amazon Resource Name (ARN) of the updated RCS agent.
+   *
    * @public
    */
   RcsAgentArn: string | undefined;
 
   /**
-   * <p>The unique identifier for the RCS agent.</p>
+   * The unique identifier for the RCS agent.
+   *
    * @public
    */
   RcsAgentId: string | undefined;
 
   /**
-   * <p>The current status of the RCS agent.</p>
+   * The current status of the RCS agent.
+   *
    * @public
    */
   Status: RcsAgentStatus | undefined;
 
   /**
-   * <p>The time when the RCS agent was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   * The time when the RCS agent was created, in [UNIX epoch time](https://www.epochconverter.com/) format.
+   *
    * @public
    */
   CreatedTimestamp: Date | undefined;
 
   /**
-   * <p>When set to true deletion protection is enabled. By default this is set to false.</p>
+   * When set to true deletion protection is enabled. By default this is set to false.
+   *
    * @public
    */
   DeletionProtectionEnabled: boolean | undefined;
 
   /**
-   * <p>The name of the OptOutList associated with the RCS agent.</p>
+   * The name of the OptOutList associated with the RCS agent.
+   *
    * @public
    */
   OptOutListName?: string | undefined;
 
   /**
-   * <p>By default this is set to false. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.</p>
+   * By default this is set to false. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.
+   *
    * @public
    */
   SelfManagedOptOutsEnabled: boolean | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the two way channel.</p>
+   * The Amazon Resource Name (ARN) of the two way channel.
+   *
    * @public
    */
   TwoWayChannelArn?: string | undefined;
 
   /**
-   * <p>An optional IAM Role Arn for a service to assume, to be able to post inbound SMS messages.</p>
+   * An optional IAM Role Arn for a service to assume, to be able to post inbound SMS messages.
+   *
    * @public
    */
   TwoWayChannelRole?: string | undefined;
 
   /**
-   * <p>By default this is set to false. When set to true you can receive incoming text messages from your end recipients.</p>
+   * By default this is set to false. When set to true you can receive incoming text messages from your end recipients.
+   *
    * @public
    */
   TwoWayEnabled: boolean | undefined;
 
   /**
-   * <p>The name of the S3 bucket where inbound RCS media files are stored.</p>
+   * The name of the S3 bucket where inbound RCS media files are stored.
+   *
    * @public
    */
   TwoWayMediaS3BucketName?: string | undefined;
 
   /**
-   * <p>The key prefix used for inbound RCS media objects in the S3 bucket.</p>
+   * The key prefix used for inbound RCS media objects in the S3 bucket.
+   *
    * @public
    */
   TwoWayMediaS3KeyPrefix?: string | undefined;
 
   /**
-   * <p>The ARN of the IAM role used to write inbound RCS media files to the S3 bucket.</p>
+   * The ARN of the IAM role used to write inbound RCS media files to the S3 bucket.
+   *
    * @public
    */
   TwoWayMediaS3Role?: string | undefined;
 
   /**
-   * <p>The list of RCS event types enabled for two-way messaging on the agent.</p>
+   * The list of RCS event types enabled for two-way messaging on the agent.
+   *
    * @public
    */
   TwoWayRcsEventsEnabled?: string[] | undefined;
@@ -271,19 +312,22 @@ export interface UpdateRcsAgentResult {
  */
 export interface UpdateSenderIdRequest {
   /**
-   * <p>The sender ID to update.</p>
+   * The sender ID to update.
+   *
    * @public
    */
   SenderId: string | undefined;
 
   /**
-   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.</p>
+   * The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
+   *
    * @public
    */
   IsoCountryCode: string | undefined;
 
   /**
-   * <p>By default this is set to false. When set to true the sender ID can't be deleted.</p>
+   * By default this is set to false. When set to true the sender ID can't be deleted.
+   *
    * @public
    */
   DeletionProtectionEnabled?: boolean | undefined;
@@ -294,49 +338,57 @@ export interface UpdateSenderIdRequest {
  */
 export interface UpdateSenderIdResult {
   /**
-   * <p>The Amazon Resource Name (ARN) associated with the SenderId.</p>
+   * The Amazon Resource Name (ARN) associated with the SenderId.
+   *
    * @public
    */
   SenderIdArn: string | undefined;
 
   /**
-   * <p>The sender ID that was updated.</p>
+   * The sender ID that was updated.
+   *
    * @public
    */
   SenderId: string | undefined;
 
   /**
-   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.</p>
+   * The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
+   *
    * @public
    */
   IsoCountryCode: string | undefined;
 
   /**
-   * <p>The type of message. Valid values are TRANSACTIONAL for messages that are critical or time-sensitive and PROMOTIONAL for messages that aren't critical or time-sensitive.</p>
+   * The type of message. Valid values are TRANSACTIONAL for messages that are critical or time-sensitive and PROMOTIONAL for messages that aren't critical or time-sensitive.
+   *
    * @public
    */
   MessageTypes: MessageType[] | undefined;
 
   /**
-   * <p>The monthly price, in US dollars, to lease the sender ID.</p>
+   * The monthly price, in US dollars, to lease the sender ID.
+   *
    * @public
    */
   MonthlyLeasingPrice: string | undefined;
 
   /**
-   * <p>By default this is set to false. When set to true the sender ID can't be deleted.</p>
+   * By default this is set to false. When set to true the sender ID can't be deleted.
+   *
    * @public
    */
   DeletionProtectionEnabled: boolean | undefined;
 
   /**
-   * <p>True if the sender ID is registered..</p>
+   * True if the sender ID is registered..
+   *
    * @public
    */
   Registered: boolean | undefined;
 
   /**
-   * <p>The unique identifier for the registration.</p>
+   * The unique identifier for the registration.
+   *
    * @public
    */
   RegistrationId?: string | undefined;
@@ -347,13 +399,15 @@ export interface UpdateSenderIdResult {
  */
 export interface VerifyDestinationNumberRequest {
   /**
-   * <p>The unique identifier for the verififed destination phone number.</p>
+   * The unique identifier for the verififed destination phone number.
+   *
    * @public
    */
   VerifiedDestinationNumberId: string | undefined;
 
   /**
-   * <p>The verification code that was received by the verified destination phone number.</p>
+   * The verification code that was received by the verified destination phone number.
+   *
    * @public
    */
   VerificationCode: string | undefined;
@@ -364,31 +418,36 @@ export interface VerifyDestinationNumberRequest {
  */
 export interface VerifyDestinationNumberResult {
   /**
-   * <p>The Amazon Resource Name (ARN) for the verified destination phone number.</p>
+   * The Amazon Resource Name (ARN) for the verified destination phone number.
+   *
    * @public
    */
   VerifiedDestinationNumberArn: string | undefined;
 
   /**
-   * <p>The unique identifier for the verified destination phone number.</p>
+   * The unique identifier for the verified destination phone number.
+   *
    * @public
    */
   VerifiedDestinationNumberId: string | undefined;
 
   /**
-   * <p>The phone number in E.164 format.</p>
+   * The phone number in E.164 format.
+   *
    * @public
    */
   DestinationPhoneNumber: string | undefined;
 
   /**
-   * <p>The status for being able to send messages to the phone number.</p>
+   * The status for being able to send messages to the phone number.
+   *
    * @public
    */
   Status: VerificationStatus | undefined;
 
   /**
-   * <p>The time when the destination phone number was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   * The time when the destination phone number was created, in [UNIX epoch time](https://www.epochconverter.com/) format.
+   *
    * @public
    */
   CreatedTimestamp: Date | undefined;

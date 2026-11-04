@@ -23,8 +23,8 @@ export interface CreateVerifiedAccessInstanceCommandInput extends CreateVerified
 export interface CreateVerifiedAccessInstanceCommandOutput extends CreateVerifiedAccessInstanceResult, __MetadataBearer {}
 
 /**
- * <p>An Amazon Web Services Verified Access instance is a regional entity that evaluates application requests and grants
- *          access only when your security requirements are met.</p>
+ * An Amazon Web Services Verified Access instance is a regional entity that evaluates application requests and grants access only when your security requirements are met.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,8 +93,8 @@ export interface CreateVerifiedAccessInstanceCommandOutput extends CreateVerifie
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

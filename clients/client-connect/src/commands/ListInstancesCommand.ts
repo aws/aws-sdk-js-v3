@@ -23,10 +23,10 @@ export interface ListInstancesCommandInput extends ListInstancesRequest {}
 export interface ListInstancesCommandOutput extends ListInstancesResponse, __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Connect Customer and is subject to change.</p>
- *          <p>Return a list of instances which are in active state, creation-in-progress state, and failed state. Instances
- *    that aren't successfully created (they are in a failed state) are returned only for 24 hours after the CreateInstance
- *    API was invoked.</p>
+ * This API is in preview release for Connect Customer and is subject to change.
+ *
+ * Return a list of instances which are in active state, creation-in-progress state, and failed state. Instances that aren't successfully created (they are in a failed state) are returned only for 24 hours after the CreateInstance API was invoked.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,14 +68,16 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

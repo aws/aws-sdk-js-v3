@@ -23,7 +23,10 @@ export interface StartRunBatchCommandInput extends StartRunBatchRequest {}
 export interface StartRunBatchCommandOutput extends StartRunBatchResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a batch of workflow runs. You can group up to 100,000 runs into a single batch that share a common configuration defined in <code>defaultRunSetting</code>. Per-run overrides can be provided either inline via <code>inlineSettings</code> (up to 100 runs) or via a JSON file stored in Amazon S3 via <code>s3UriSettings</code> (up to 100,000 runs).</p> <p> <code>StartRunBatch</code> validates common fields synchronously and returns immediately with a batch ID and status <code>CREATING</code>. The batch transitions to <code>PENDING</code> once initial setup completes. Runs are then submitted gradually and asynchronously at a rate governed by your <code>StartRun</code> throughput quota.</p>
+ * Starts a batch of workflow runs. You can group up to 100,000 runs into a single batch that share a common configuration defined in `defaultRunSetting`. Per-run overrides can be provided either inline via `inlineSettings` (up to 100 runs) or via a JSON file stored in Amazon S3 via `s3UriSettings` (up to 100,000 runs).
+ *
+ * `StartRunBatch` validates common fields synchronously and returns immediately with a batch ID and status `CREATING`. The batch transitions to `PENDING` once initial setup completes. Runs are then submitted gradually and asynchronously at a rate governed by your `StartRun` throughput quota.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -102,32 +105,40 @@ export interface StartRunBatchCommandOutput extends StartRunBatchResponse, __Met
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request cannot be applied to the target resource in its current state.</p>
+ *
+ * The request cannot be applied to the target resource in its current state.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred. Try the request again.</p>
+ *
+ * An unexpected error occurred. Try the request again.
  *
  * @throws {@link RequestTimeoutException} (client fault)
- *  <p>The request timed out.</p>
+ *
+ * The request timed out.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The target resource was not found in the current Region.</p>
+ *
+ * The target resource was not found in the current Region.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request exceeds a service quota.</p>
+ *
+ * The request exceeds a service quota.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link OmicsServiceException}
- * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * Base exception class for all service exceptions from Omics service.
  *
  * @public
  */

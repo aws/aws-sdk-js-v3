@@ -23,8 +23,8 @@ export interface GetAccountCommandInput extends GetAccountRequest {}
 export interface GetAccountCommandOutput extends GetAccountResponse, __MetadataBearer {}
 
 /**
- * <p>Obtain information about the email-sending status and capabilities of your Amazon Pinpoint
- *             account in the current AWS Region.</p>
+ * Obtain information about the email-sending status and capabilities of your Amazon Pinpoint account in the current AWS Region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,14 +57,16 @@ export interface GetAccountCommandOutput extends GetAccountResponse, __MetadataB
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Too many requests have been made to the operation.</p>
+ *
+ * Too many requests have been made to the operation.
  *
  * @throws {@link PinpointEmailServiceException}
- * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ * Base exception class for all service exceptions from PinpointEmail service.
  *
  * @public
  */

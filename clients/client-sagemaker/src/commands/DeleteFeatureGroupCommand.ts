@@ -23,7 +23,12 @@ export interface DeleteFeatureGroupCommandInput extends DeleteFeatureGroupReques
 export interface DeleteFeatureGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Delete the <code>FeatureGroup</code> and any data that was written to the <code>OnlineStore</code> of the <code>FeatureGroup</code>. Data cannot be accessed from the <code>OnlineStore</code> immediately after <code>DeleteFeatureGroup</code> is called. </p> <p>Data written into the <code>OfflineStore</code> will not be deleted. The Amazon Web Services Glue database and tables that are automatically created for your <code>OfflineStore</code> are not deleted. </p> <p>Note that it can take approximately 10-15 minutes to delete an <code>OnlineStore</code> <code>FeatureGroup</code> with the <code>InMemory</code> <code>StorageType</code>.</p>
+ * Delete the `FeatureGroup` and any data that was written to the `OnlineStore` of the `FeatureGroup`. Data cannot be accessed from the `OnlineStore` immediately after `DeleteFeatureGroup` is called.
+ *
+ * Data written into the `OfflineStore` will not be deleted. The Amazon Web Services Glue database and tables that are automatically created for your `OfflineStore` are not deleted.
+ *
+ * Note that it can take approximately 10-15 minutes to delete an `OnlineStore` `FeatureGroup` with the `InMemory` `StorageType`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,11 +53,12 @@ export interface DeleteFeatureGroupCommandOutput extends __MetadataBearer {}
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Resource being access is not found.</p>
+ *
+ * Resource being access is not found.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface ListAnalyzedResourcesCommandInput extends ListAnalyzedResources
 export interface ListAnalyzedResourcesCommandOutput extends ListAnalyzedResourcesResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of resources of the specified type that have been analyzed by the specified analyzer.</p>
+ * Retrieves a list of resources of the specified type that have been analyzed by the specified analyzer.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,23 +61,28 @@ export interface ListAnalyzedResourcesCommandOutput extends ListAnalyzedResource
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal server error.</p>
+ *
+ * Internal server error.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource could not be found.</p>
+ *
+ * The specified resource could not be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Throttling limit exceeded error.</p>
+ *
+ * Throttling limit exceeded error.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Validation exception error.</p>
+ *
+ * Validation exception error.
  *
  * @throws {@link AccessAnalyzerServiceException}
- * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ * Base exception class for all service exceptions from AccessAnalyzer service.
  *
  * @public
  */

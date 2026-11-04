@@ -23,7 +23,8 @@ export interface ListDocumentClassificationJobsCommandInput extends ListDocument
 export interface ListDocumentClassificationJobsCommandOutput extends ListDocumentClassificationJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a list of the documentation classification jobs that you have submitted.</p>
+ * Gets a list of the documentation classification jobs that you have submitted.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,21 +96,24 @@ export interface ListDocumentClassificationJobsCommandOutput extends ListDocumen
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link InvalidFilterException} (client fault)
- *  <p>The filter specified for the operation is invalid. Specify a different
- *       filter.</p>
+ *
+ * The filter specified for the operation is invalid. Specify a different filter.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is invalid.</p>
+ *
+ * The request is invalid.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
+ * The number of requests exceeds the limit. Resubmit your request later.
  *
  * @throws {@link ComprehendServiceException}
- * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * Base exception class for all service exceptions from Comprehend service.
  *
  * @public
  */

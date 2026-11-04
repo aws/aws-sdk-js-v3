@@ -23,14 +23,10 @@ export interface TestAvailabilityConfigurationCommandInput extends TestAvailabil
 export interface TestAvailabilityConfigurationCommandOutput extends TestAvailabilityConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Performs a test on an availability provider to ensure that access is allowed. For EWS, it verifies the provided credentials can be used to successfully log in. For Lambda, it verifies that the Lambda function can be invoked and that the resource access
- *          policy was configured to deny anonymous access. An anonymous invocation is one done without providing either a <code>SourceArn</code> or <code>SourceAccount</code> header.</p>
- *          <note>
- *             <p>The request must contain either one provider definition (<code>EwsProvider</code> or
- *                <code>LambdaProvider</code>) or the <code>DomainName</code> parameter. If the
- *                <code>DomainName</code> parameter is provided, the configuration stored under the
- *                <code>DomainName</code> will be tested.</p>
- *          </note>
+ * Performs a test on an availability provider to ensure that access is allowed. For EWS, it verifies the provided credentials can be used to successfully log in. For Lambda, it verifies that the Lambda function can be invoked and that the resource access policy was configured to deny anonymous access. An anonymous invocation is one done without providing either a `SourceArn` or `SourceAccount` header.
+ *
+ * > **Note:** The request must contain either one provider definition (`EwsProvider` or `LambdaProvider`) or the `DomainName` parameter. If the `DomainName` parameter is provided, the configuration stored under the `DomainName` will be tested.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,22 +63,24 @@ export interface TestAvailabilityConfigurationCommandOutput extends TestAvailabi
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the input parameters don't match the service's restrictions.</p>
+ *
+ * One or more of the input parameters don't match the service's restrictions.
  *
  * @throws {@link OrganizationNotFoundException} (client fault)
- *  <p>An operation received a valid organization identifier that either doesn't belong or
- *          exist in the system.</p>
+ *
+ * An operation received a valid organization identifier that either doesn't belong or exist in the system.
  *
  * @throws {@link OrganizationStateException} (client fault)
- *  <p>The organization must have a valid state to perform certain
- *          operations on the organization or its members.</p>
+ *
+ * The organization must have a valid state to perform certain operations on the organization or its members.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource cannot be found.</p>
+ *
+ * The resource cannot be found.
  *
  * @throws {@link WorkMailServiceException}
- * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * Base exception class for all service exceptions from WorkMail service.
  *
  * @public
  */

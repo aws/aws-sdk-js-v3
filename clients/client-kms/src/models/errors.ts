@@ -4,8 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { KMSServiceException as __BaseException } from "./KMSServiceException";
 
 /**
- * <p>The request was rejected because it attempted to create a resource that already
- *       exists.</p>
+ * The request was rejected because it attempted to create a resource that already exists.
+ *
  * @public
  */
 export class AlreadyExistsException extends __BaseException {
@@ -26,8 +26,8 @@ export class AlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The system timed out while trying to fulfill the request. You can retry the
- *       request.</p>
+ * The system timed out while trying to fulfill the request. You can retry the request.
+ *
  * @public
  */
 export class DependencyTimeoutException extends __BaseException {
@@ -48,8 +48,8 @@ export class DependencyTimeoutException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because a specified ARN, or an ARN in a key policy, is not
- *       valid.</p>
+ * The request was rejected because a specified ARN, or an ARN in a key policy, is not valid.
+ *
  * @public
  */
 export class InvalidArnException extends __BaseException {
@@ -70,8 +70,8 @@ export class InvalidArnException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because an internal exception occurred. The request can be
- *       retried.</p>
+ * The request was rejected because an internal exception occurred. The request can be retried.
+ *
  * @public
  */
 export class KMSInternalException extends __BaseException {
@@ -92,24 +92,15 @@ export class KMSInternalException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the state of the specified resource is not valid for this
- *       request.</p>
- *          <p>This exceptions means one of the following:</p>
- *          <ul>
- *             <li>
- *                <p>The key state of the KMS key is not compatible with the operation. </p>
- *                <p>To find the key state, use the <a>DescribeKey</a> operation. For more
- *           information about which key states are compatible with each KMS operation, see
- *           <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>
- *                      <i>Key Management Service Developer Guide</i>
- *                   </i>.</p>
- *             </li>
- *             <li>
- *                <p>For cryptographic operations on KMS keys in custom key stores, this exception
- *           represents a general failure with many possible causes. To identify the cause, see the
- *           error message that accompanies the exception.</p>
- *             </li>
- *          </ul>
+ * The request was rejected because the state of the specified resource is not valid for this request.
+ *
+ * This exceptions means one of the following:
+ *
+ * - The key state of the KMS key is not compatible with the operation.
+ *
+ *   To find the key state, use the DescribeKey operation. For more information about which key states are compatible with each KMS operation, see [Key states of KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the **Key Management Service Developer Guide** .
+ * - For cryptographic operations on KMS keys in custom key stores, this exception represents a general failure with many possible causes. To identify the cause, see the error message that accompanies the exception.
+ *
  * @public
  */
 export class KMSInvalidStateException extends __BaseException {
@@ -130,8 +121,8 @@ export class KMSInvalidStateException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the specified entity or resource could not be
- *       found.</p>
+ * The request was rejected because the specified entity or resource could not be found.
+ *
  * @public
  */
 export class NotFoundException extends __BaseException {
@@ -152,12 +143,10 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the specified CloudHSM cluster is already associated with an
- *       CloudHSM key store in the account, or it shares a backup history with an CloudHSM key store in the
- *       account. Each CloudHSM key store in the account must be associated with a different CloudHSM
- *       cluster.</p>
- *          <p>CloudHSM clusters that share a backup history have the same cluster certificate. To view the
- *       cluster certificate of an CloudHSM cluster, use the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a> operation.</p>
+ * The request was rejected because the specified CloudHSM cluster is already associated with an CloudHSM key store in the account, or it shares a backup history with an CloudHSM key store in the account. Each CloudHSM key store in the account must be associated with a different CloudHSM cluster.
+ *
+ * CloudHSM clusters that share a backup history have the same cluster certificate. To view the cluster certificate of an CloudHSM cluster, use the [DescribeClusters](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html) operation.
+ *
  * @public
  */
 export class CloudHsmClusterInUseException extends __BaseException {
@@ -178,38 +167,16 @@ export class CloudHsmClusterInUseException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the associated CloudHSM cluster did not meet the
- *       configuration requirements for an CloudHSM key store.</p>
- *          <ul>
- *             <li>
- *                <p>The CloudHSM cluster must be configured with private subnets in at least two different
- *           Availability Zones in the Region.</p>
- *             </li>
- *             <li>
- *                <p>The <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html">security group for
- *             the cluster</a> (cloudhsm-cluster-<i><cluster-id></i>-sg) must
- *           include inbound rules and outbound rules that allow TCP traffic on ports 2223-2225. The
- *             <b>Source</b> in the inbound rules and the <b>Destination</b> in the outbound rules must match the security group
- *           ID. These rules are set by default when you create the CloudHSM cluster. Do not delete or
- *           change them. To get information about a particular security group, use the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html">DescribeSecurityGroups</a> operation.</p>
- *             </li>
- *             <li>
- *                <p>The CloudHSM cluster must contain at least as many HSMs as the operation requires. To add
- *           HSMs, use the CloudHSM <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CreateHsm.html">CreateHsm</a> operation.</p>
- *                <p>For the <a>CreateCustomKeyStore</a>, <a>UpdateCustomKeyStore</a>, and <a>CreateKey</a> operations, the CloudHSM cluster must have at least two
- *           active HSMs, each in a different Availability Zone. For the <a>ConnectCustomKeyStore</a> operation, the CloudHSM must contain at least one active
- *           HSM.</p>
- *             </li>
- *          </ul>
- *          <p>For information about the requirements for an CloudHSM cluster that is associated with an
- *       CloudHSM key store, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore">Assemble the Prerequisites</a>
- *       in the <i>Key Management Service Developer Guide</i>. For information about creating a private subnet for an CloudHSM cluster,
- *       see <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/create-subnets.html">Create a Private
- *         Subnet</a> in the <i>CloudHSM User Guide</i>. For information about cluster security groups, see
- *         <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html">Configure a Default Security
- *         Group</a> in the <i>
- *                <i>CloudHSM User Guide</i>
- *             </i>. </p>
+ * The request was rejected because the associated CloudHSM cluster did not meet the configuration requirements for an CloudHSM key store.
+ *
+ * - The CloudHSM cluster must be configured with private subnets in at least two different Availability Zones in the Region.
+ * - The [security group for the cluster](https://docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html) (cloudhsm-cluster-*<cluster-id>*-sg) must include inbound rules and outbound rules that allow TCP traffic on ports 2223-2225. The **Source** in the inbound rules and the **Destination** in the outbound rules must match the security group ID. These rules are set by default when you create the CloudHSM cluster. Do not delete or change them. To get information about a particular security group, use the [DescribeSecurityGroups](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html) operation.
+ * - The CloudHSM cluster must contain at least as many HSMs as the operation requires. To add HSMs, use the CloudHSM [CreateHsm](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CreateHsm.html) operation.
+ *
+ *   For the CreateCustomKeyStore, UpdateCustomKeyStore, and CreateKey operations, the CloudHSM cluster must have at least two active HSMs, each in a different Availability Zone. For the ConnectCustomKeyStore operation, the CloudHSM must contain at least one active HSM.
+ *
+ * For information about the requirements for an CloudHSM cluster that is associated with an CloudHSM key store, see [Assemble the Prerequisites](https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore) in the *Key Management Service Developer Guide*. For information about creating a private subnet for an CloudHSM cluster, see [Create a Private Subnet](https://docs.aws.amazon.com/cloudhsm/latest/userguide/create-subnets.html) in the *CloudHSM User Guide*. For information about cluster security groups, see [Configure a Default Security Group](https://docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html) in the **CloudHSM User Guide** .
+ *
  * @public
  */
 export class CloudHsmClusterInvalidConfigurationException extends __BaseException {
@@ -230,10 +197,8 @@ export class CloudHsmClusterInvalidConfigurationException extends __BaseExceptio
 }
 
 /**
- * <p>The request was rejected because the CloudHSM cluster associated with the CloudHSM key store is
- *       not active. Initialize and activate the cluster and try the command again. For detailed
- *       instructions, see <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/getting-started.html">Getting
- *         Started</a> in the <i>CloudHSM User Guide</i>.</p>
+ * The request was rejected because the CloudHSM cluster associated with the CloudHSM key store is not active. Initialize and activate the cluster and try the command again. For detailed instructions, see [Getting Started](https://docs.aws.amazon.com/cloudhsm/latest/userguide/getting-started.html) in the *CloudHSM User Guide*.
+ *
  * @public
  */
 export class CloudHsmClusterNotActiveException extends __BaseException {
@@ -254,8 +219,8 @@ export class CloudHsmClusterNotActiveException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because KMS cannot find the CloudHSM cluster with the specified
- *       cluster ID. Retry the request with a different cluster ID.</p>
+ * The request was rejected because KMS cannot find the CloudHSM cluster with the specified cluster ID. Retry the request with a different cluster ID.
+ *
  * @public
  */
 export class CloudHsmClusterNotFoundException extends __BaseException {
@@ -276,14 +241,12 @@ export class CloudHsmClusterNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the specified CloudHSM cluster has a different cluster
- *       certificate than the original cluster. You cannot use the operation to specify an unrelated
- *       cluster for an CloudHSM key store.</p>
- *          <p>Specify an CloudHSM cluster that shares a backup history with the original cluster. This
- *       includes clusters that were created from a backup of the current cluster, and clusters that
- *       were created from the same backup that produced the current cluster.</p>
- *          <p>CloudHSM clusters that share a backup history have the same cluster certificate. To view the
- *       cluster certificate of an CloudHSM cluster, use the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a> operation.</p>
+ * The request was rejected because the specified CloudHSM cluster has a different cluster certificate than the original cluster. You cannot use the operation to specify an unrelated cluster for an CloudHSM key store.
+ *
+ * Specify an CloudHSM cluster that shares a backup history with the original cluster. This includes clusters that were created from a backup of the current cluster, and clusters that were created from the same backup that produced the current cluster.
+ *
+ * CloudHSM clusters that share a backup history have the same cluster certificate. To view the cluster certificate of an CloudHSM cluster, use the [DescribeClusters](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html) operation.
+ *
  * @public
  */
 export class CloudHsmClusterNotRelatedException extends __BaseException {
@@ -304,8 +267,8 @@ export class CloudHsmClusterNotRelatedException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because an automatic rotation of this key is currently in
- *       progress or scheduled to begin within the next 20 minutes. </p>
+ * The request was rejected because an automatic rotation of this key is currently in progress or scheduled to begin within the next 20 minutes.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -326,42 +289,16 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because of the <code>ConnectionState</code> of the custom key
- *       store. To get the <code>ConnectionState</code> of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p>
- *          <p>This exception is thrown under the following conditions:</p>
- *          <ul>
- *             <li>
- *                <p>You requested the <a>ConnectCustomKeyStore</a> operation on a custom key
- *           store with a <code>ConnectionState</code> of <code>DISCONNECTING</code> or
- *             <code>FAILED</code>. This operation is valid for all other <code>ConnectionState</code>
- *           values. To reconnect a custom key store in a <code>FAILED</code> state, disconnect it
- *             (<a>DisconnectCustomKeyStore</a>), then connect it
- *             (<code>ConnectCustomKeyStore</code>).</p>
- *             </li>
- *             <li>
- *                <p>You requested the <a>CreateKey</a> operation in a custom key store that is
- *           not connected. This operations is valid only when the custom key store
- *             <code>ConnectionState</code> is <code>CONNECTED</code>.</p>
- *             </li>
- *             <li>
- *                <p>You requested the <a>DisconnectCustomKeyStore</a> operation on a custom key
- *           store with a <code>ConnectionState</code> of <code>DISCONNECTING</code> or
- *             <code>DISCONNECTED</code>. This operation is valid for all other
- *             <code>ConnectionState</code> values.</p>
- *             </li>
- *             <li>
- *                <p>You requested the <a>UpdateCustomKeyStore</a> or <a>DeleteCustomKeyStore</a> operation on a custom key store that is not
- *           disconnected. <code>UpdateCustomKeyStore</code> can be called on a custom key store in the
- *             <code>CONNECTED</code> state only to update <code>NewCustomKeyStoreName</code>.
- *             For all other properties, the custom key store
- *             <code>ConnectionState</code> must be <code>DISCONNECTED</code>.</p>
- *             </li>
- *             <li>
- *                <p>You requested the <a>GenerateRandom</a> operation in an CloudHSM key store
- *           that is not connected. This operation is valid only when the CloudHSM key store
- *             <code>ConnectionState</code> is <code>CONNECTED</code>. </p>
- *             </li>
- *          </ul>
+ * The request was rejected because of the `ConnectionState` of the custom key store. To get the `ConnectionState` of a custom key store, use the DescribeCustomKeyStores operation.
+ *
+ * This exception is thrown under the following conditions:
+ *
+ * - You requested the ConnectCustomKeyStore operation on a custom key store with a `ConnectionState` of `DISCONNECTING` or `FAILED`. This operation is valid for all other `ConnectionState` values. To reconnect a custom key store in a `FAILED` state, disconnect it (DisconnectCustomKeyStore), then connect it (`ConnectCustomKeyStore`).
+ * - You requested the CreateKey operation in a custom key store that is not connected. This operations is valid only when the custom key store `ConnectionState` is `CONNECTED`.
+ * - You requested the DisconnectCustomKeyStore operation on a custom key store with a `ConnectionState` of `DISCONNECTING` or `DISCONNECTED`. This operation is valid for all other `ConnectionState` values.
+ * - You requested the UpdateCustomKeyStore or DeleteCustomKeyStore operation on a custom key store that is not disconnected. `UpdateCustomKeyStore` can be called on a custom key store in the `CONNECTED` state only to update `NewCustomKeyStoreName`. For all other properties, the custom key store `ConnectionState` must be `DISCONNECTED`.
+ * - You requested the GenerateRandom operation in an CloudHSM key store that is not connected. This operation is valid only when the CloudHSM key store `ConnectionState` is `CONNECTED`.
+ *
  * @public
  */
 export class CustomKeyStoreInvalidStateException extends __BaseException {
@@ -382,8 +319,8 @@ export class CustomKeyStoreInvalidStateException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because KMS cannot find a custom key store with the specified
- *       key store name or ID.</p>
+ * The request was rejected because KMS cannot find a custom key store with the specified key store name or ID.
+ *
  * @public
  */
 export class CustomKeyStoreNotFoundException extends __BaseException {
@@ -404,7 +341,8 @@ export class CustomKeyStoreNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the specified alias name is not valid.</p>
+ * The request was rejected because the specified alias name is not valid.
+ *
  * @public
  */
 export class InvalidAliasNameException extends __BaseException {
@@ -425,9 +363,8 @@ export class InvalidAliasNameException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because a length constraint or quota was exceeded. For more
- *       information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html">Quotas</a> in
- *       the <i>Key Management Service Developer Guide</i>.</p>
+ * The request was rejected because a length constraint or quota was exceeded. For more information, see [Quotas](https://docs.aws.amazon.com/kms/latest/developerguide/limits.html) in the *Key Management Service Developer Guide*.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -448,9 +385,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the specified custom key store name is already assigned
- *       to another custom key store in the account. Try again with a custom key store name that is
- *       unique in the account.</p>
+ * The request was rejected because the specified custom key store name is already assigned to another custom key store in the account. Try again with a custom key store name that is unique in the account.
+ *
  * @public
  */
 export class CustomKeyStoreNameInUseException extends __BaseException {
@@ -471,10 +407,10 @@ export class CustomKeyStoreNameInUseException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the trust anchor certificate in the request to create an
- *       CloudHSM key store is not the trust anchor certificate for the specified CloudHSM cluster.</p>
- *          <p>When you <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html#sign-csr">initialize the CloudHSM cluster</a>, you create the trust anchor certificate and save it
- *       in the <code>customerCA.crt</code> file.</p>
+ * The request was rejected because the trust anchor certificate in the request to create an CloudHSM key store is not the trust anchor certificate for the specified CloudHSM cluster.
+ *
+ * When you [initialize the CloudHSM cluster](https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html#sign-csr), you create the trust anchor certificate and save it in the `customerCA.crt` file.
+ *
  * @public
  */
 export class IncorrectTrustAnchorException extends __BaseException {
@@ -495,10 +431,8 @@ export class IncorrectTrustAnchorException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the proxy credentials failed to authenticate to the
- *       specified external key store proxy. The specified external key store proxy rejected a status
- *       request from KMS due to invalid credentials. This can indicate an error in the credentials
- *       or in the identification of the external key store proxy.</p>
+ * The request was rejected because the proxy credentials failed to authenticate to the specified external key store proxy. The specified external key store proxy rejected a status request from KMS due to invalid credentials. This can indicate an error in the credentials or in the identification of the external key store proxy.
+ *
  * @public
  */
 export class XksProxyIncorrectAuthenticationCredentialException extends __BaseException {
@@ -519,8 +453,8 @@ export class XksProxyIncorrectAuthenticationCredentialException extends __BaseEx
 }
 
 /**
- * <p>The request was rejected because the external key store proxy is not configured correctly.
- *       To identify the cause, see the error message that accompanies the exception.</p>
+ * The request was rejected because the external key store proxy is not configured correctly. To identify the cause, see the error message that accompanies the exception.
+ *
  * @public
  */
 export class XksProxyInvalidConfigurationException extends __BaseException {
@@ -541,10 +475,8 @@ export class XksProxyInvalidConfigurationException extends __BaseException {
 }
 
 /**
- * <p></p>
- *          <p>KMS cannot interpret the response it received from the external key store proxy. The
- *       problem might be a poorly constructed response, but it could also be a transient network
- *       issue. If you see this error repeatedly, report it to the proxy vendor.</p>
+ * KMS cannot interpret the response it received from the external key store proxy. The problem might be a poorly constructed response, but it could also be a transient network issue. If you see this error repeatedly, report it to the proxy vendor.
+ *
  * @public
  */
 export class XksProxyInvalidResponseException extends __BaseException {
@@ -565,9 +497,8 @@ export class XksProxyInvalidResponseException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the <code>XksProxyUriEndpoint</code> is already
- *       associated with another external key store in this Amazon Web Services Region. To identify the cause, see
- *       the error message that accompanies the exception. </p>
+ * The request was rejected because the `XksProxyUriEndpoint` is already associated with another external key store in this Amazon Web Services Region. To identify the cause, see the error message that accompanies the exception.
+ *
  * @public
  */
 export class XksProxyUriEndpointInUseException extends __BaseException {
@@ -588,10 +519,8 @@ export class XksProxyUriEndpointInUseException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the concatenation of the <code>XksProxyUriEndpoint</code>
- *       and <code>XksProxyUriPath</code> is already associated with another external key store in this
- *       Amazon Web Services Region. Each external key store in a Region must use a unique external key store proxy
- *       API address.</p>
+ * The request was rejected because the concatenation of the `XksProxyUriEndpoint` and `XksProxyUriPath` is already associated with another external key store in this Amazon Web Services Region. Each external key store in a Region must use a unique external key store proxy API address.
+ *
  * @public
  */
 export class XksProxyUriInUseException extends __BaseException {
@@ -612,11 +541,10 @@ export class XksProxyUriInUseException extends __BaseException {
 }
 
 /**
- * <p>KMS was unable to reach the specified <code>XksProxyUriPath</code>. The path must be
- *       reachable before you create the external key store or update its settings.</p>
- *          <p>This exception is also thrown when the external key store proxy response to a
- *         <code>GetHealthStatus</code> request indicates that all external key manager instances are
- *       unavailable.</p>
+ * KMS was unable to reach the specified `XksProxyUriPath`. The path must be reachable before you create the external key store or update its settings.
+ *
+ * This exception is also thrown when the external key store proxy response to a `GetHealthStatus` request indicates that all external key manager instances are unavailable.
+ *
  * @public
  */
 export class XksProxyUriUnreachableException extends __BaseException {
@@ -637,9 +565,8 @@ export class XksProxyUriUnreachableException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the specified Amazon VPC endpoint service is already
- *       associated with another external key store in this Amazon Web Services Region. Each external key store in a
- *       Region must use a different Amazon VPC endpoint service.</p>
+ * The request was rejected because the specified Amazon VPC endpoint service is already associated with another external key store in this Amazon Web Services Region. Each external key store in a Region must use a different Amazon VPC endpoint service.
+ *
  * @public
  */
 export class XksProxyVpcEndpointServiceInUseException extends __BaseException {
@@ -660,11 +587,8 @@ export class XksProxyVpcEndpointServiceInUseException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the Amazon VPC endpoint service configuration does not fulfill
- *       the requirements for an external key store. To identify the cause, see the error message that
- *       accompanies the exception and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/vpc-connectivity.html#xks-vpc-requirements">review the
- *         requirements</a> for Amazon VPC endpoint service connectivity for an external key
- *       store.</p>
+ * The request was rejected because the Amazon VPC endpoint service configuration does not fulfill the requirements for an external key store. To identify the cause, see the error message that accompanies the exception and [review the requirements](https://docs.aws.amazon.com/kms/latest/developerguide/vpc-connectivity.html#xks-vpc-requirements) for Amazon VPC endpoint service connectivity for an external key store.
+ *
  * @public
  */
 export class XksProxyVpcEndpointServiceInvalidConfigurationException extends __BaseException {
@@ -685,11 +609,8 @@ export class XksProxyVpcEndpointServiceInvalidConfigurationException extends __B
 }
 
 /**
- * <p>The request was rejected because KMS could not find the specified VPC endpoint service.
- *       Use <a>DescribeCustomKeyStores</a> to verify the VPC endpoint service name for the
- *       external key store. Also, confirm that the <code>Allow principals</code> list for the VPC
- *       endpoint service includes the KMS service principal for the Region, such as
- *         <code>cks.kms.us-east-1.amazonaws.com</code>.</p>
+ * The request was rejected because KMS could not find the specified VPC endpoint service. Use DescribeCustomKeyStores to verify the VPC endpoint service name for the external key store. Also, confirm that the `Allow principals` list for the VPC endpoint service includes the KMS service principal for the Region, such as `cks.kms.us-east-1.amazonaws.com`.
+ *
  * @public
  */
 export class XksProxyVpcEndpointServiceNotFoundException extends __BaseException {
@@ -710,7 +631,8 @@ export class XksProxyVpcEndpointServiceNotFoundException extends __BaseException
 }
 
 /**
- * <p>The request was rejected because the specified KMS key is not enabled.</p>
+ * The request was rejected because the specified KMS key is not enabled.
+ *
  * @public
  */
 export class DisabledException extends __BaseException {
@@ -731,7 +653,8 @@ export class DisabledException extends __BaseException {
 }
 
 /**
- * <p> The request was rejected because the DryRun parameter was specified. </p>
+ * The request was rejected because the DryRun parameter was specified.
+ *
  * @public
  */
 export class DryRunOperationException extends __BaseException {
@@ -752,7 +675,8 @@ export class DryRunOperationException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the specified grant token is not valid.</p>
+ * The request was rejected because the specified grant token is not valid.
+ *
  * @public
  */
 export class InvalidGrantTokenException extends __BaseException {
@@ -773,8 +697,8 @@ export class InvalidGrantTokenException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the specified policy is not syntactically or semantically
- *       correct.</p>
+ * The request was rejected because the specified policy is not syntactically or semantically correct.
+ *
  * @public
  */
 export class MalformedPolicyDocumentException extends __BaseException {
@@ -795,7 +719,8 @@ export class MalformedPolicyDocumentException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because one or more tags are not valid.</p>
+ * The request was rejected because one or more tags are not valid.
+ *
  * @public
  */
 export class TagException extends __BaseException {
@@ -816,8 +741,8 @@ export class TagException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because a specified parameter is not supported or a specified
- *       resource is not valid for this operation.</p>
+ * The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation.
+ *
  * @public
  */
 export class UnsupportedOperationException extends __BaseException {
@@ -838,9 +763,8 @@ export class UnsupportedOperationException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the (<code>XksKeyId</code>) is already associated with
- *       another KMS key in this external key store. Each KMS key in an external key store must be
- *       associated with a different external key.</p>
+ * The request was rejected because the (`XksKeyId`) is already associated with another KMS key in this external key store. Each KMS key in an external key store must be associated with a different external key.
+ *
  * @public
  */
 export class XksKeyAlreadyInUseException extends __BaseException {
@@ -861,10 +785,10 @@ export class XksKeyAlreadyInUseException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the external key specified by the <code>XksKeyId</code>
- *       parameter did not meet the configuration requirements for an external key store.</p>
- *          <p>The external key must be an AES-256 symmetric key that is enabled and performs encryption
- *       and decryption.</p>
+ * The request was rejected because the external key specified by the `XksKeyId` parameter did not meet the configuration requirements for an external key store.
+ *
+ * The external key must be an AES-256 symmetric key that is enabled and performs encryption and decryption.
+ *
  * @public
  */
 export class XksKeyInvalidConfigurationException extends __BaseException {
@@ -885,13 +809,10 @@ export class XksKeyInvalidConfigurationException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the external key store proxy could not find the external
- *       key. This exception is thrown when the value of the <code>XksKeyId</code> parameter doesn't
- *       identify a key in the external key manager associated with the external key proxy.</p>
- *          <p>Verify that the <code>XksKeyId</code> represents an existing key in the external key
- *       manager. Use the key identifier that the external key store proxy uses to identify the key.
- *       For details, see the documentation provided with your external key store proxy or key
- *       manager.</p>
+ * The request was rejected because the external key store proxy could not find the external key. This exception is thrown when the value of the `XksKeyId` parameter doesn't identify a key in the external key manager associated with the external key proxy.
+ *
+ * Verify that the `XksKeyId` represents an existing key in the external key manager. Use the key identifier that the external key store proxy uses to identify the key. For details, see the documentation provided with your external key store proxy or key manager.
+ *
  * @public
  */
 export class XksKeyNotFoundException extends __BaseException {
@@ -912,10 +833,8 @@ export class XksKeyNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the custom key store contains KMS keys. After verifying
- *       that you do not need to use the KMS keys, use the <a>ScheduleKeyDeletion</a>
- *       operation to delete the KMS keys. After they are deleted, you can delete the custom key
- *       store.</p>
+ * The request was rejected because the custom key store contains KMS keys. After verifying that you do not need to use the KMS keys, use the ScheduleKeyDeletion operation to delete the KMS keys. After they are deleted, you can delete the custom key store.
+ *
  * @public
  */
 export class CustomKeyStoreHasCMKsException extends __BaseException {
@@ -936,15 +855,12 @@ export class CustomKeyStoreHasCMKsException extends __BaseException {
 }
 
 /**
- * <p>From the <a>Decrypt</a> or <a>ReEncrypt</a> operation, the request
- *       was rejected because the specified ciphertext, or additional authenticated data incorporated
- *       into the ciphertext, such as the encryption context, is corrupted, missing, or otherwise
- *       invalid.</p>
- *          <p>From the <a>ImportKeyMaterial</a> operation, the request was rejected because
- *       KMS could not decrypt the encrypted (wrapped) key material. </p>
- *          <p>From the <a>Decapsulate</a> operation, the request was rejected because the
- *       length of the <code>SharedSecretCiphertextBlob</code> is inconsistent with the specified ML-KEM
- *       key spec.</p>
+ * From the Decrypt or ReEncrypt operation, the request was rejected because the specified ciphertext, or additional authenticated data incorporated into the ciphertext, such as the encryption context, is corrupted, missing, or otherwise invalid.
+ *
+ * From the ImportKeyMaterial operation, the request was rejected because KMS could not decrypt the encrypted (wrapped) key material.
+ *
+ * From the Decapsulate operation, the request was rejected because the length of the `SharedSecretCiphertextBlob` is inconsistent with the specified ML-KEM key spec.
+ *
  * @public
  */
 export class InvalidCiphertextException extends __BaseException {
@@ -965,27 +881,15 @@ export class InvalidCiphertextException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected for one of the following reasons: </p>
- *          <ul>
- *             <li>
- *                <p>The <code>KeyUsage</code> value of the KMS key is incompatible with the API
- *           operation.</p>
- *             </li>
- *             <li>
- *                <p>The encryption algorithm or signing algorithm specified for the operation is
- *           incompatible with the type of key material in the KMS key <code>(KeySpec</code>).</p>
- *             </li>
- *          </ul>
- *          <p>For encrypting, decrypting, re-encrypting, and generating data keys, the
- *         <code>KeyUsage</code> must be <code>ENCRYPT_DECRYPT</code>. For signing and verifying
- *       messages, the <code>KeyUsage</code> must be <code>SIGN_VERIFY</code>. For generating and
- *       verifying message authentication codes (MACs), the <code>KeyUsage</code> must be
- *         <code>GENERATE_VERIFY_MAC</code>. For deriving key agreement secrets, the
- *         <code>KeyUsage</code> must be <code>KEY_AGREEMENT</code>. For encapsulating and decapsulating
- *       shared secrets, the <code>KeyUsage</code> must be <code>ENCAPSULATE_DECAPSULATE</code>. To find
- *       the <code>KeyUsage</code> of a KMS key, use the <a>DescribeKey</a> operation.</p>
- *          <p>To find the encryption or signing algorithms supported for a particular KMS key, use the
- *         <a>DescribeKey</a> operation.</p>
+ * The request was rejected for one of the following reasons:
+ *
+ * - The `KeyUsage` value of the KMS key is incompatible with the API operation.
+ * - The encryption algorithm or signing algorithm specified for the operation is incompatible with the type of key material in the KMS key `(KeySpec`).
+ *
+ * For encrypting, decrypting, re-encrypting, and generating data keys, the `KeyUsage` must be `ENCRYPT_DECRYPT`. For signing and verifying messages, the `KeyUsage` must be `SIGN_VERIFY`. For generating and verifying message authentication codes (MACs), the `KeyUsage` must be `GENERATE_VERIFY_MAC`. For deriving key agreement secrets, the `KeyUsage` must be `KEY_AGREEMENT`. For encapsulating and decapsulating shared secrets, the `KeyUsage` must be `ENCAPSULATE_DECAPSULATE`. To find the `KeyUsage` of a KMS key, use the DescribeKey operation.
+ *
+ * To find the encryption or signing algorithms supported for a particular KMS key, use the DescribeKey operation.
+ *
  * @public
  */
 export class InvalidKeyUsageException extends __BaseException {
@@ -1006,8 +910,8 @@ export class InvalidKeyUsageException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the specified KMS key was not available. You can retry
- *       the request.</p>
+ * The request was rejected because the specified KMS key was not available. You can retry the request.
+ *
  * @public
  */
 export class KeyUnavailableException extends __BaseException {
@@ -1028,10 +932,8 @@ export class KeyUnavailableException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the specified KMS key cannot decrypt the data. The
- *         <code>KeyId</code> in a <a>Decrypt</a> request and the <code>SourceKeyId</code>
- *       in a <a>ReEncrypt</a> request must identify the same KMS key that was used to
- *       encrypt the ciphertext.</p>
+ * The request was rejected because the specified KMS key cannot decrypt the data. The `KeyId` in a Decrypt request and the `SourceKeyId` in a ReEncrypt request must identify the same KMS key that was used to encrypt the ciphertext.
+ *
  * @public
  */
 export class IncorrectKeyException extends __BaseException {
@@ -1052,8 +954,8 @@ export class IncorrectKeyException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the marker that specifies where pagination should next
- *       begin is not valid.</p>
+ * The request was rejected because the marker that specifies where pagination should next begin is not valid.
+ *
  * @public
  */
 export class InvalidMarkerException extends __BaseException {
@@ -1074,8 +976,8 @@ export class InvalidMarkerException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the specified import token is expired. Use <a>GetParametersForImport</a> to get a new import token and public key, use the new
- *       public key to encrypt the key material, and then try the request again.</p>
+ * The request was rejected because the specified import token is expired. Use GetParametersForImport to get a new import token and public key, use the new public key to encrypt the key material, and then try the request again.
+ *
  * @public
  */
 export class ExpiredImportTokenException extends __BaseException {
@@ -1096,10 +998,8 @@ export class ExpiredImportTokenException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the key material in the request is, expired, invalid, or
- *       does not meet expectations. For example, it is not the same key material that was previously
- *       imported or KMS expected new key material but the key material being imported is already
- *       associated with the KMS key.</p>
+ * The request was rejected because the key material in the request is, expired, invalid, or does not meet expectations. For example, it is not the same key material that was previously imported or KMS expected new key material but the key material being imported is already associated with the KMS key.
+ *
  * @public
  */
 export class IncorrectKeyMaterialException extends __BaseException {
@@ -1120,8 +1020,8 @@ export class IncorrectKeyMaterialException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the provided import token is invalid or is associated
- *       with a different KMS key.</p>
+ * The request was rejected because the provided import token is invalid or is associated with a different KMS key.
+ *
  * @public
  */
 export class InvalidImportTokenException extends __BaseException {
@@ -1142,7 +1042,8 @@ export class InvalidImportTokenException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the specified <code>GrantId</code> is not valid.</p>
+ * The request was rejected because the specified `GrantId` is not valid.
+ *
  * @public
  */
 export class InvalidGrantIdException extends __BaseException {
@@ -1163,9 +1064,8 @@ export class InvalidGrantIdException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the HMAC verification failed. HMAC verification fails
- *       when the HMAC computed by using the specified message, HMAC KMS key, and MAC algorithm does
- *       not match the HMAC specified in the request.</p>
+ * The request was rejected because the HMAC verification failed. HMAC verification fails when the HMAC computed by using the specified message, HMAC KMS key, and MAC algorithm does not match the HMAC specified in the request.
+ *
  * @public
  */
 export class KMSInvalidMacException extends __BaseException {
@@ -1186,9 +1086,8 @@ export class KMSInvalidMacException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the signature verification failed. Signature verification
- *       fails when it cannot confirm that signature was produced by signing the specified message with
- *       the specified KMS key and signing algorithm.</p>
+ * The request was rejected because the signature verification failed. Signature verification fails when it cannot confirm that signature was produced by signing the specified message with the specified KMS key and signing algorithm.
+ *
  * @public
  */
 export class KMSInvalidSignatureException extends __BaseException {

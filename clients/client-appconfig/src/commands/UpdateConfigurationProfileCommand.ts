@@ -23,7 +23,8 @@ export interface UpdateConfigurationProfileCommandInput extends UpdateConfigurat
 export interface UpdateConfigurationProfileCommandOutput extends ConfigurationProfile, __MetadataBearer {}
 
 /**
- * <p>Updates a configuration profile.</p>
+ * Updates a configuration profile.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,17 +76,20 @@ export interface UpdateConfigurationProfileCommandOutput extends ConfigurationPr
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>There was an internal failure in the AppConfig service.</p>
+ *
+ * There was an internal failure in the AppConfig service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource could not be found.</p>
+ *
+ * The requested resource could not be found.
  *
  * @throws {@link AppConfigServiceException}
- * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * Base exception class for all service exceptions from AppConfig service.
  *
  * @example To update a configuration profile
  * ```javascript

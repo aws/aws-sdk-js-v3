@@ -23,11 +23,10 @@ export interface GetReusableDelegationSetLimitCommandInput extends GetReusableDe
 export interface GetReusableDelegationSetLimitCommandOutput extends GetReusableDelegationSetLimitResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the maximum number of hosted zones that you can associate with the specified
- * 			reusable delegation set.</p>
- *          <p>For the default limit, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the
- * 				<i>Amazon Route 53 Developer Guide</i>. To request a higher limit,
- * 				<a href="https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-route53">open a case</a>.</p>
+ * Gets the maximum number of hosted zones that you can associate with the specified reusable delegation set.
+ *
+ * For the default limit, see [Limits](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html) in the *Amazon Route 53 Developer Guide*. To request a higher limit, [open a case](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-route53).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,14 +58,16 @@ export interface GetReusableDelegationSetLimitCommandOutput extends GetReusableD
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link NoSuchDelegationSet} (client fault)
- *  <p>A reusable delegation set with the specified ID does not exist.</p>
+ *
+ * A reusable delegation set with the specified ID does not exist.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @public
  */

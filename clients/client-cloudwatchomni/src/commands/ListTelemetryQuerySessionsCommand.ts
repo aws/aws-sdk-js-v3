@@ -70,8 +70,8 @@ export interface ListTelemetryQuerySessionsCommandOutput extends ListTelemetryQu
  *  A parameter is specified incorrectly.
  *
  * @throws {@link CloudWatchOmniServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchOmni service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchOmni service.
  *
  * @example List telemetry query sessions
  * ```javascript

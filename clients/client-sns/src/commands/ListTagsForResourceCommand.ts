@@ -23,8 +23,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>List all tags added to the specified Amazon SNS topic. For an overview, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html">Amazon SNS Tags</a> in the
- *                 <i>Amazon Simple Notification Service Developer Guide</i>.</p>
+ * List all tags added to the specified Amazon SNS topic. For an overview, see [Amazon SNS Tags](https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html) in the *Amazon Simple Notification Service Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,27 +56,28 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
  *
  * @throws {@link AuthorizationErrorException} (client fault)
- *  <p>Indicates that the user has been denied access to the requested resource.</p>
+ *
+ * Indicates that the user has been denied access to the requested resource.
  *
  * @throws {@link ConcurrentAccessException} (client fault)
- *  <p>Can't perform multiple operations on a tag simultaneously. Perform the operations
- *             sequentially.</p>
+ *
+ * Can't perform multiple operations on a tag simultaneously. Perform the operations sequentially.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Indicates that a request parameter does not comply with the associated
- *             constraints.</p>
+ *
+ * Indicates that a request parameter does not comply with the associated constraints.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Can’t perform the action on the specified resource. Make sure that the resource
- *             exists.</p>
+ *
+ * Can’t perform the action on the specified resource. Make sure that the resource exists.
  *
  * @throws {@link TagPolicyException} (client fault)
- *  <p>The request doesn't comply with the IAM tag policy. Correct your request and then
- *             retry it.</p>
+ *
+ * The request doesn't comply with the IAM tag policy. Correct your request and then retry it.
  *
  * @throws {@link SNSServiceException}
- * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * Base exception class for all service exceptions from SNS service.
  *
  * @public
  */

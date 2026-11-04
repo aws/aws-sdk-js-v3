@@ -23,13 +23,8 @@ export interface ListReviewPolicyResultsForHITCommandInput extends ListReviewPol
 export interface ListReviewPolicyResultsForHITCommandOutput extends ListReviewPolicyResultsForHITResponse, __MetadataBearer {}
 
 /**
- * <p>
- *             The <code>ListReviewPolicyResultsForHIT</code> operation retrieves the computed results
- *             and the actions taken in the course of executing your Review Policies for a given HIT.
- *             For information about how to specify Review Policies when you call CreateHIT,
- *             see Review Policies. The ListReviewPolicyResultsForHIT operation can return results for both
- *             Assignment-level and HIT-level review results.
- *         </p>
+ * The `ListReviewPolicyResultsForHIT` operation retrieves the computed results and the actions taken in the course of executing your Review Policies for a given HIT. For information about how to specify Review Policies when you call CreateHIT, see Review Policies. The ListReviewPolicyResultsForHIT operation can return results for both Assignment-level and HIT-level review results.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -150,14 +145,16 @@ export interface ListReviewPolicyResultsForHITCommandOutput extends ListReviewPo
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
  *
  * @throws {@link RequestError} (client fault)
- *  <p>Your request is invalid.</p>
+ *
+ * Your request is invalid.
  *
  * @throws {@link ServiceFault} (server fault)
- *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
+ * Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.
  *
  * @throws {@link MTurkServiceException}
- * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * Base exception class for all service exceptions from MTurk service.
  *
  * @public
  */

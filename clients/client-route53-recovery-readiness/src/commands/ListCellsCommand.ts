@@ -23,7 +23,8 @@ export interface ListCellsCommandInput extends ListCellsRequest {}
 export interface ListCellsCommandOutput extends ListCellsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the cells for an account.</p>
+ * Lists the cells for an account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,8 +79,8 @@ export interface ListCellsCommandOutput extends ListCellsResponse, __MetadataBea
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
  * @throws {@link Route53RecoveryReadinessServiceException}
- * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
+ * Base exception class for all service exceptions from Route53RecoveryReadiness service.
  *
  * @public
  */

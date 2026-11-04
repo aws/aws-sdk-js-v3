@@ -23,25 +23,13 @@ export interface UpdateMediaStorageConfigurationCommandInput extends UpdateMedia
 export interface UpdateMediaStorageConfigurationCommandOutput extends UpdateMediaStorageConfigurationOutput, __MetadataBearer {}
 
 /**
- * <p>Associates a <code>SignalingChannel</code> to a stream to store the media. There are
- *             two signaling modes that you can specify :</p>
- *          <ul>
- *             <li>
- *                <p>If <code>StorageStatus</code> is enabled, the data will be stored in the
- *                         <code>StreamARN</code> provided. In order for WebRTC Ingestion to work, the stream must have data retention
- *                     enabled.</p>
- *             </li>
- *             <li>
- *                <p>If <code>StorageStatus</code> is disabled, no data will be stored, and the
- *                         <code>StreamARN</code> parameter will not be needed. </p>
- *             </li>
- *          </ul>
- *          <important>
- *             <p>If <code>StorageStatus</code> is enabled, direct peer-to-peer (master-viewer) connections no
- *                 longer occur. Peers connect directly to the storage session. You must call the
- *                     <code>JoinStorageSession</code> API to trigger an SDP offer send and establish a
- *                 connection between a peer and the storage session. </p>
- *          </important>
+ * Associates a `SignalingChannel` to a stream to store the media. There are two signaling modes that you can specify :
+ *
+ * - If `StorageStatus` is enabled, the data will be stored in the `StreamARN` provided. In order for WebRTC Ingestion to work, the stream must have data retention enabled.
+ * - If `StorageStatus` is disabled, no data will be stored, and the `StreamARN` parameter will not be needed.
+ *
+ * > **Important:** If `StorageStatus` is enabled, direct peer-to-peer (master-viewer) connections no longer occur. Peers connect directly to the storage session. You must call the `JoinStorageSession` API to trigger an SDP offer send and establish a connection between a peer and the storage session.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,44 +58,36 @@ export interface UpdateMediaStorageConfigurationCommandOutput extends UpdateMedi
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have required permissions to perform this operation.</p>
+ *
+ * You do not have required permissions to perform this operation.
  *
  * @throws {@link ClientLimitExceededException} (client fault)
- *  <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
- *             allowed client calls. Try making the call later.</p>
+ *
+ * Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>The value for this input parameter is invalid.</p>
+ *
+ * The value for this input parameter is invalid.
  *
  * @throws {@link NoDataRetentionException} (client fault)
- *  <p>The Stream data retention in hours is equal to zero.</p>
+ *
+ * The Stream data retention in hours is equal to zero.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>When the input <code>StreamARN</code> or <code>ChannelARN</code>
- *             in <code>CLOUD_STORAGE_MODE</code> is already mapped to a different
- *             Kinesis Video Stream resource, or if the provided input <code>StreamARN</code>
- *             or <code>ChannelARN</code> is not in Active status, try one of the following : </p>
- *          <ol>
- *             <li>
- *                <p>The <code>DescribeMediaStorageConfiguration</code> API to determine what the stream given channel is mapped to.
- *             </p>
- *             </li>
- *             <li>
- *                <p>The <code>DescribeMappedResourceConfiguration</code> API to determine the channel that the given stream is mapped to.
- *             </p>
- *             </li>
- *             <li>
- *                <p>The <code>DescribeStream</code> or <code>DescribeSignalingChannel</code> API to determine the status of the resource.
- *             </p>
- *             </li>
- *          </ol>
+ *
+ * When the input `StreamARN` or `ChannelARN` in `CLOUD_STORAGE_MODE` is already mapped to a different Kinesis Video Stream resource, or if the provided input `StreamARN` or `ChannelARN` is not in Active status, try one of the following :
+ *
+ * 1. The `DescribeMediaStorageConfiguration` API to determine what the stream given channel is mapped to.
+ * 2. The `DescribeMappedResourceConfiguration` API to determine the channel that the given stream is mapped to.
+ * 3. The `DescribeStream` or `DescribeSignalingChannel` API to determine the status of the resource.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+ *
+ * Amazon Kinesis Video Streams can't find the stream that you specified.
  *
  * @throws {@link KinesisVideoServiceException}
- * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ * Base exception class for all service exceptions from KinesisVideo service.
  *
  * @public
  */

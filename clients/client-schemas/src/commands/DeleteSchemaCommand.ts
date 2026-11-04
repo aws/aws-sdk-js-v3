@@ -23,7 +23,8 @@ export interface DeleteSchemaCommandInput extends DeleteSchemaRequest {}
 export interface DeleteSchemaCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Delete a schema definition.</p>
+ * Delete a schema definition.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,8 +62,8 @@ export interface DeleteSchemaCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *
  * @throws {@link SchemasServiceException}
- * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
+ * Base exception class for all service exceptions from Schemas service.
  *
  * @public
  */

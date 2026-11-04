@@ -6,7 +6,8 @@ import type { ValidationExceptionReason } from "./enums";
 import type { ValidationExceptionField } from "./models_0";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>An unexpected error occurred during the processing of your request.</p>
+ * An unexpected error occurred during the processing of your request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -48,7 +50,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -69,7 +72,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -77,13 +81,15 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Provides a single, overarching explanation for the validation failure.</p>
+   * Provides a single, overarching explanation for the validation failure.
+   *
    * @public
    */
   reason: ValidationExceptionReason | undefined;
 
   /**
-   * <p>Lists each problematic field and why it failed validation.</p>
+   * Lists each problematic field and why it failed validation.
+   *
    * @public
    */
   fieldList?: ValidationExceptionField[] | undefined;

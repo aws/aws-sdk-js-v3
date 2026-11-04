@@ -23,10 +23,10 @@ export interface ModifyReplicationInstanceCommandInput extends ModifyReplication
 export interface ModifyReplicationInstanceCommandOutput extends ModifyReplicationInstanceResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies the replication instance to apply new settings. You can change one or more
- *          parameters by specifying these parameters and the new values in the request.</p>
- *          <p>Some settings are applied during the maintenance window.</p>
- *          <p></p>
+ * Modifies the replication instance to apply new settings. You can change one or more parameters by specifying these parameters and the new values in the request.
+ *
+ * Some settings are applied during the maintenance window.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -137,30 +137,36 @@ export interface ModifyReplicationInstanceCommandOutput extends ModifyReplicatio
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedFault} (client fault)
- *  <p>DMS was denied access to the endpoint. Check that the
- *             role is correctly configured.</p>
+ *
+ * DMS was denied access to the endpoint. Check that the role is correctly configured.
  *
  * @throws {@link InsufficientResourceCapacityFault} (client fault)
- *  <p>There are not enough resources allocated to the database migration.</p>
+ *
+ * There are not enough resources allocated to the database migration.
  *
  * @throws {@link InvalidResourceStateFault} (client fault)
- *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
+ * The resource is in a state that prevents it from being used for database migration.
  *
  * @throws {@link ResourceAlreadyExistsFault} (client fault)
- *  <p>The resource you are attempting to create already exists.</p>
+ *
+ * The resource you are attempting to create already exists.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link StorageQuotaExceededFault} (client fault)
- *  <p>The storage quota has been exceeded.</p>
+ *
+ * The storage quota has been exceeded.
  *
  * @throws {@link UpgradeDependencyFailureFault} (client fault)
- *  <p>An upgrade dependency is preventing the database migration.</p>
+ *
+ * An upgrade dependency is preventing the database migration.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @example Modify replication instance
  * ```javascript

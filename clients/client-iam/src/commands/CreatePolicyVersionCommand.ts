@@ -23,14 +23,12 @@ export interface CreatePolicyVersionCommandInput extends CreatePolicyVersionRequ
 export interface CreatePolicyVersionCommandOutput extends CreatePolicyVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new version of the specified managed policy. To update a managed policy, you
- *             create a new policy version. A managed policy can have up to five versions. If the
- *             policy has five versions, you must delete an existing version using <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeletePolicyVersion.html">DeletePolicyVersion</a> before you create a new version.</p>
- *          <p>Optionally, you can set the new version as the policy's default version. The default
- *             version is the version that is in effect for the IAM users, groups, and roles to which
- *             the policy is attached.</p>
- *          <p>For more information about managed policy versions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for managed
- *                 policies</a> in the <i>IAM User Guide</i>.</p>
+ * Creates a new version of the specified managed policy. To update a managed policy, you create a new policy version. A managed policy can have up to five versions. If the policy has five versions, you must delete an existing version using [DeletePolicyVersion](https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeletePolicyVersion.html) before you create a new version.
+ *
+ * Optionally, you can set the new version as the policy's default version. The default version is the version that is in effect for the IAM users, groups, and roles to which the policy is attached.
+ *
+ * For more information about managed policy versions, see [Versioning for managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html) in the *IAM User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,28 +62,28 @@ export interface CreatePolicyVersionCommandOutput extends CreatePolicyVersionRes
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
- *       input parameter.</p>
+ *
+ * The request was rejected because an invalid or out-of-range value was supplied for an input parameter.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current
- *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+ *
+ * The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.
  *
  * @throws {@link MalformedPolicyDocumentException} (client fault)
- *  <p>The request was rejected because the policy document was malformed. The error message
- *       describes the specific error.</p>
+ *
+ * The request was rejected because the policy document was malformed. The error message describes the specific error.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @public
  */

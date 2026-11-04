@@ -491,7 +491,8 @@ export interface MedicalImaging {
 }
 
 /**
- * <p>This is the <i>AWS HealthImaging API Reference</i>. For an introduction to the service, see <a href="https://docs.aws.amazon.com/healthimaging/latest/devguide/what-is.html">What is AWS HealthImaging?</a> in the <i>AWS HealthImaging Developer Guide</i>.</p>
+ * This is the *AWS HealthImaging API Reference*. For an introduction to the service, see [What is AWS HealthImaging?](https://docs.aws.amazon.com/healthimaging/latest/devguide/what-is.html) in the *AWS HealthImaging Developer Guide*.
+ *
  * @public
  */
 export class MedicalImaging extends MedicalImagingClient implements MedicalImaging {}

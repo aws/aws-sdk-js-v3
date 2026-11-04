@@ -23,7 +23,8 @@ export interface DeleteProcessingJobCommandInput extends DeleteProcessingJobRequ
 export interface DeleteProcessingJobCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a processing job. After Amazon SageMaker deletes a processing job, all of the metadata for the processing job is lost. You can delete only processing jobs that are in a terminal state (<code>Stopped</code>, <code>Failed</code>, or <code>Completed</code>). You cannot delete a job that is in the <code>InProgress</code> or <code>Stopping</code> state. After deleting the job, you can reuse its name to create another processing job.</p>
+ * Deletes a processing job. After Amazon SageMaker deletes a processing job, all of the metadata for the processing job is lost. You can delete only processing jobs that are in a terminal state (`Stopped`, `Failed`, or `Completed`). You cannot delete a job that is in the `InProgress` or `Stopping` state. After deleting the job, you can reuse its name to create another processing job.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,14 +49,16 @@ export interface DeleteProcessingJobCommandOutput extends __MetadataBearer {}
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceInUse} (client fault)
- *  <p>Resource being accessed is in use.</p>
+ *
+ * Resource being accessed is in use.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Resource being access is not found.</p>
+ *
+ * Resource being access is not found.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

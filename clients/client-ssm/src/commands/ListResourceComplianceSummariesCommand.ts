@@ -23,9 +23,8 @@ export interface ListResourceComplianceSummariesCommandInput extends ListResourc
 export interface ListResourceComplianceSummariesCommandOutput extends ListResourceComplianceSummariesResult, __MetadataBearer {}
 
 /**
- * <p>Returns a resource-level summary count. The summary includes information about compliant and
- *    non-compliant statuses and detailed compliance-item severity counts, according to the filter
- *    criteria you specify.</p>
+ * Returns a resource-level summary count. The summary includes information about compliant and non-compliant statuses and detailed compliance-item severity counts, according to the filter criteria you specify.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -98,17 +97,20 @@ export interface ListResourceComplianceSummariesCommandOutput extends ListResour
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidFilter} (client fault)
- *  <p>The filter name isn't valid. Verify that you entered the correct name and try again.</p>
+ *
+ * The filter name isn't valid. Verify that you entered the correct name and try again.
  *
  * @throws {@link InvalidNextToken} (client fault)
- *  <p>The specified token isn't valid.</p>
+ *
+ * The specified token isn't valid.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

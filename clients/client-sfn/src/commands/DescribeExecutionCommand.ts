@@ -23,13 +23,14 @@ export interface DescribeExecutionCommandInput extends DescribeExecutionInput {}
 export interface DescribeExecutionCommandOutput extends DescribeExecutionOutput, __MetadataBearer {}
 
 /**
- * <p>Provides information about a state machine execution, such as the state machine associated with the execution, the execution input and output, and relevant execution metadata. If you've <a href="https://docs.aws.amazon.com/step-functions/latest/dg/redrive-executions.html">redriven</a> an execution, you can use this API action to return information about the redrives of that execution. In addition, you can use this API action to return the Map Run Amazon Resource Name (ARN) if the execution was dispatched by a Map Run.</p>
- *          <p>If you specify a version or alias ARN when you call the <a>StartExecution</a>
- *       API action, <code>DescribeExecution</code> returns that ARN.</p>
- *          <note>
- *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
- *          </note>
- *          <p>Executions of an <code>EXPRESS</code> state machine aren't supported by <code>DescribeExecution</code> unless a Map Run dispatched them.</p>
+ * Provides information about a state machine execution, such as the state machine associated with the execution, the execution input and output, and relevant execution metadata. If you've [redriven](https://docs.aws.amazon.com/step-functions/latest/dg/redrive-executions.html) an execution, you can use this API action to return information about the redrives of that execution. In addition, you can use this API action to return the Map Run Amazon Resource Name (ARN) if the execution was dispatched by a Map Run.
+ *
+ * If you specify a version or alias ARN when you call the StartExecution API action, `DescribeExecution` returns that ARN.
+ *
+ * > **Note:** This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.
+ *
+ * Executions of an `EXPRESS` state machine aren't supported by `DescribeExecution` unless a Map Run dispatched them.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,23 +81,28 @@ export interface DescribeExecutionCommandOutput extends DescribeExecutionOutput,
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
  * @throws {@link ExecutionDoesNotExist} (client fault)
- *  <p>The specified execution does not exist.</p>
+ *
+ * The specified execution does not exist.
  *
  * @throws {@link InvalidArn} (client fault)
- *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * The provided Amazon Resource Name (ARN) is not valid.
  *
  * @throws {@link KmsAccessDeniedException} (client fault)
- *  <p>Either your KMS key policy or API caller does not have the required permissions.</p>
+ *
+ * Either your KMS key policy or API caller does not have the required permissions.
  *
  * @throws {@link KmsInvalidStateException} (client fault)
- *  <p>The KMS key is not in valid state, for example: Disabled or Deleted.</p>
+ *
+ * The KMS key is not in valid state, for example: Disabled or Deleted.
  *
  * @throws {@link KmsThrottlingException} (client fault)
- *  <p>Received when KMS returns <code>ThrottlingException</code> for a KMS call that Step Functions makes on behalf of the caller.</p>
+ *
+ * Received when KMS returns `ThrottlingException` for a KMS call that Step Functions makes on behalf of the caller.
  *
  * @throws {@link SFNServiceException}
- * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * Base exception class for all service exceptions from SFN service.
  *
  * @public
  */

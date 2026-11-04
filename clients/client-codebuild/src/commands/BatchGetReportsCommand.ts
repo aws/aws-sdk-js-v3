@@ -23,9 +23,8 @@ export interface BatchGetReportsCommandInput extends BatchGetReportsInput {}
 export interface BatchGetReportsCommandOutput extends BatchGetReportsOutput, __MetadataBearer {}
 
 /**
- * <p>
- *       Returns an array of reports.
- *     </p>
+ * Returns an array of reports.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,11 +94,12 @@ export interface BatchGetReportsCommandOutput extends BatchGetReportsOutput, __M
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input value that was provided is not valid.</p>
+ *
+ * The input value that was provided is not valid.
  *
  * @throws {@link CodeBuildServiceException}
- * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * Base exception class for all service exceptions from CodeBuild service.
  *
  * @public
  */

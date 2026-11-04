@@ -23,7 +23,8 @@ export interface DeleteResourcePolicyCommandInput extends DeleteResourcePolicyRe
 export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a <a href="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html">resource-based policy</a> from a Lambda resource.</p>
+ * Deletes a [resource-based policy](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html) from a Lambda resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,26 +50,35 @@ export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One of the parameters in the request is not valid.</p>
+ *
+ * One of the parameters in the request is not valid.
  *
  * @throws {@link PreconditionFailedException} (client fault)
- *  <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias.</p> <ul> <li> <p> <b>For AddPermission and RemovePermission API operations:</b> Call <code>GetPolicy</code> to retrieve the latest RevisionId for your resource.</p> </li> <li> <p> <b>For all other API operations:</b> Call <code>GetFunction</code> or <code>GetAlias</code> to retrieve the latest RevisionId for your resource.</p> </li> </ul>
+ *
+ * The RevisionId provided does not match the latest RevisionId for the Lambda function or alias.
+ *
+ * - **For AddPermission and RemovePermission API operations:** Call `GetPolicy` to retrieve the latest RevisionId for your resource.
+ * - **For all other API operations:** Call `GetFunction` or `GetAlias` to retrieve the latest RevisionId for your resource.
  *
  * @throws {@link ResourceConflictException} (client fault)
- *  <p>The resource already exists, or another operation is in progress.</p>
+ *
+ * The resource already exists, or another operation is in progress.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource specified in the request does not exist.</p>
+ *
+ * The resource specified in the request does not exist.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>The Lambda service encountered an internal error.</p>
+ *
+ * The Lambda service encountered an internal error.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
+ *
+ * The request throughput limit was exceeded. For more information, see [Lambda quotas](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests).
  *
  * @throws {@link LambdaServiceException}
- * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * Base exception class for all service exceptions from Lambda service.
  *
  * @public
  */

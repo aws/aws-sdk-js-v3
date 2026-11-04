@@ -23,7 +23,8 @@ export interface ListServicesCommandInput extends ListServicesInput {}
 export interface ListServicesCommandOutput extends ListServicesOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of services that have been discovered by Application Signals. A service represents a minimum logical and transactional unit that completes a business function. Services are discovered through Application Signals instrumentation.</p>
+ * Returns a list of services that have been discovered by Application Signals. A service represents a minimum logical and transactional unit that completes a business function. Services are discovered through Application Signals instrumentation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,14 +92,16 @@ export interface ListServicesCommandOutput extends ListServicesOutput, __Metadat
  * @see {@link ApplicationSignalsClientResolvedConfig | config} for ApplicationSignalsClient's `config` shape.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled because of quota limits.</p>
+ *
+ * The request was throttled because of quota limits.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The resource is not valid.</p>
+ *
+ * The resource is not valid.
  *
  * @throws {@link ApplicationSignalsServiceException}
- * <p>Base exception class for all service exceptions from ApplicationSignals service.</p>
  *
+ * Base exception class for all service exceptions from ApplicationSignals service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface CreateCustomActionCommandInput extends CreateCustomActionReques
 export interface CreateCustomActionCommandOutput extends CreateCustomActionResult, __MetadataBearer {}
 
 /**
- * <p>Creates a custom action that can be invoked as an alias or as a button on a notification.</p>
+ * Creates a custom action that can be invoked as an alias or as a button on a notification.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,23 +78,28 @@ export interface CreateCustomActionCommandOutput extends CreateCustomActionResul
  * @see {@link ChatbotClientResolvedConfig | config} for ChatbotClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>There was an issue processing your request.</p>
+ *
+ * There was an issue processing your request.
  *
  * @throws {@link InternalServiceError} (server fault)
- *  <p>Unexpected error during processing of request.</p>
+ *
+ * Unexpected error during processing of request.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+ *
+ * Your request input doesn't meet the constraints required by AWS Chatbot.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You have exceeded a service limit for AWS Chatbot.</p>
+ *
+ * You have exceeded a service limit for AWS Chatbot.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The request was rejected because it doesn't have valid credentials for the target resource.</p>
+ *
+ * The request was rejected because it doesn't have valid credentials for the target resource.
  *
  * @throws {@link ChatbotServiceException}
- * <p>Base exception class for all service exceptions from Chatbot service.</p>
  *
+ * Base exception class for all service exceptions from Chatbot service.
  *
  * @example Create an alias that invokes a Lambda function
  * ```javascript

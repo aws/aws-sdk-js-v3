@@ -23,7 +23,8 @@ export interface ListReportsCommandInput extends ListReportsRequest {}
 export interface ListReportsCommandOutput extends ListReportsResponse, __MetadataBearer {}
 
 /**
- * <p>List available reports.</p>
+ * List available reports.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,26 +71,32 @@ export interface ListReportsCommandOutput extends ListReportsResponse, __Metadat
  * @see {@link ArtifactClientResolvedConfig | config} for ArtifactClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * User does not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unknown server exception has occurred.</p>
+ *
+ * An unknown server exception has occurred.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Request references a resource which does not exist.</p>
+ *
+ * Request references a resource which does not exist.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Request would cause a service quota to be exceeded.</p>
+ *
+ * Request would cause a service quota to be exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Request was denied due to request throttling.</p>
+ *
+ * Request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Request fails to satisfy the constraints specified by an AWS service.</p>
+ *
+ * Request fails to satisfy the constraints specified by an AWS service.
  *
  * @throws {@link ArtifactServiceException}
- * <p>Base exception class for all service exceptions from Artifact service.</p>
  *
+ * Base exception class for all service exceptions from Artifact service.
  *
  * @example Invoke ListReports operation
  * ```javascript

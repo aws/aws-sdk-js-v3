@@ -26,7 +26,8 @@ export interface CreateNotificationConfigurationCommandInput extends CreateNotif
 export interface CreateNotificationConfigurationCommandOutput extends CreateNotificationConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new <code>NotificationConfiguration</code>.</p>
+ * Creates a new `NotificationConfiguration`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,26 +60,32 @@ export interface CreateNotificationConfigurationCommandOutput extends CreateNoti
  * @see {@link NotificationsClientResolvedConfig | config} for NotificationsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * User does not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ *
+ * Updating or deleting a resource can cause an inconsistent state.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error during processing of request.</p>
+ *
+ * Unexpected error during processing of request.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Request would cause a service quota to be exceeded.</p>
+ *
+ * Request would cause a service quota to be exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Request was denied due to request throttling. </p>
+ *
+ * Request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>This exception is thrown when the notification event fails validation.</p>
+ *
+ * This exception is thrown when the notification event fails validation.
  *
  * @throws {@link NotificationsServiceException}
- * <p>Base exception class for all service exceptions from Notifications service.</p>
  *
+ * Base exception class for all service exceptions from Notifications service.
  *
  * @public
  */

@@ -23,11 +23,10 @@ export interface StartAttachedFileUploadCommandInput extends StartAttachedFileUp
 export interface StartAttachedFileUploadCommandOutput extends StartAttachedFileUploadResponse, __MetadataBearer {}
 
 /**
- * <p>Provides a pre-signed Amazon S3 URL in response for uploading your content.</p>
- *          <important>
- *             <p>You may only use this API to upload attachments to a <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Connect Customer Case</a>, <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html">Connect Customer Email</a>, or
- *      <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-getting-started-tasks.html">Connect Customer Task</a>. </p>
- *          </important>
+ * Provides a pre-signed Amazon S3 URL in response for uploading your content.
+ *
+ * > **Important:** You may only use this API to upload attachments to a [Connect Customer Case](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html), [Connect Customer Email](https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html), or [Connect Customer Task](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-getting-started-tasks.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,26 +80,32 @@ export interface StartAttachedFileUploadCommandOutput extends StartAttachedFileU
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceConflictException} (client fault)
- *  <p>A resource already has that name.</p>
+ *
+ * A resource already has that name.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The service quota has been exceeded.</p>
+ *
+ * The service quota has been exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

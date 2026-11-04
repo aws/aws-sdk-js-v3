@@ -24,7 +24,8 @@ export interface CreateFlowVersionCommandInput extends CreateFlowVersionRequest 
 export interface CreateFlowVersionCommandOutput extends CreateFlowVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a version of the flow that you can deploy. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-deploy.html">Deploy a flow in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
+ * Creates a version of the flow that you can deploy. For more information, see [Deploy a flow in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-deploy.html) in the Amazon Bedrock User Guide.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -504,29 +505,36 @@ export interface CreateFlowVersionCommandOutput extends CreateFlowVersionRespons
  * @see {@link BedrockAgentClientResolvedConfig | config} for BedrockAgentClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request is denied because of missing access permissions.</p>
+ *
+ * The request is denied because of missing access permissions.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>There was a conflict performing an operation.</p>
+ *
+ * There was a conflict performing an operation.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
+ *
+ * The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The number of requests exceeds the service quota. Resubmit your request later.</p>
+ *
+ * The number of requests exceeds the service quota. Resubmit your request later.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
+ * The number of requests exceeds the limit. Resubmit your request later.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Input validation failed. Check your request parameters and retry the request.</p>
+ *
+ * Input validation failed. Check your request parameters and retry the request.
  *
  * @throws {@link BedrockAgentServiceException}
- * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ * Base exception class for all service exceptions from BedrockAgent service.
  *
  * @public
  */

@@ -23,24 +23,16 @@ export interface GetEvidenceFileUploadUrlCommandInput extends GetEvidenceFileUpl
 export interface GetEvidenceFileUploadUrlCommandOutput extends GetEvidenceFileUploadUrlResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a presigned Amazon S3 URL that can be used to upload a file as manual
- *          evidence. For instructions on how to use this operation, see <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#how-to-upload-manual-evidence-files">Upload a file from your browser </a> in the <i>Audit Manager User
- *             Guide</i>.</p>
- *          <p>The following restrictions apply to this operation:</p>
- *          <ul>
- *             <li>
- *                <p>Maximum size of an individual evidence file: 100 MB</p>
- *             </li>
- *             <li>
- *                <p>Number of daily manual evidence uploads per control: 100</p>
- *             </li>
- *             <li>
- *                <p>Supported file formats: See <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#supported-manual-evidence-files">Supported file types for manual evidence</a> in the <i>Audit Manager User Guide</i>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>For more information about Audit Manager service restrictions, see <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html">Quotas and
- *             restrictions for Audit Manager</a>.</p>
+ * Creates a presigned Amazon S3 URL that can be used to upload a file as manual evidence. For instructions on how to use this operation, see [Upload a file from your browser](https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#how-to-upload-manual-evidence-files) in the *Audit Manager User Guide*.
+ *
+ * The following restrictions apply to this operation:
+ *
+ * - Maximum size of an individual evidence file: 100 MB
+ * - Number of daily manual evidence uploads per control: 100
+ * - Supported file formats: See [Supported file types for manual evidence](https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#supported-manual-evidence-files) in the *Audit Manager User Guide*
+ *
+ * For more information about Audit Manager service restrictions, see [Quotas and restrictions for Audit Manager](https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,22 +60,24 @@ export interface GetEvidenceFileUploadUrlCommandOutput extends GetEvidenceFileUp
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p> Your account isn't registered with Audit Manager. Check the delegated
- *          administrator setup on the Audit Manager settings page, and try again. </p>
+ *
+ * Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> An internal service error occurred during the processing of your request. Try again
- *          later. </p>
+ *
+ * An internal service error occurred during the processing of your request. Try again later.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> The request has invalid or missing parameters. </p>
+ *
+ * The request has invalid or missing parameters.
  *
  * @throws {@link AuditManagerServiceException}
- * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * Base exception class for all service exceptions from AuditManager service.
  *
  * @public
  */

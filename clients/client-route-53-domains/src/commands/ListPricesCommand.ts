@@ -23,31 +23,16 @@ export interface ListPricesCommandInput extends ListPricesRequest {}
 export interface ListPricesCommandOutput extends ListPricesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the following prices for either all the TLDs supported by Route 53, or
- * 			the specified TLD:</p>
- *          <ul>
- *             <li>
- *                <p>Registration</p>
- *             </li>
- *             <li>
- *                <p>Transfer</p>
- *             </li>
- *             <li>
- *                <p>Owner change</p>
- *             </li>
- *             <li>
- *                <p>Renewal</p>
- *             </li>
- *             <li>
- *                <p>Restoration</p>
- *             </li>
- *          </ul>
- *          <note>
- *             <p>The prices that <code>ListPrices</code> returns are the standard rates for a TLD.
- * 					<code>ListPrices</code> doesn't return registry premium prices, which apply to
- * 				individual domain names rather than to a TLD. To get accurate pricing for a specific
- * 				domain name, including premium prices, call <code>GetDomainPrices</code>.</p>
- *          </note>
+ * Lists the following prices for either all the TLDs supported by Route 53, or the specified TLD:
+ *
+ * - Registration
+ * - Transfer
+ * - Owner change
+ * - Renewal
+ * - Restoration
+ *
+ * > **Note:** The prices that `ListPrices` returns are the standard rates for a TLD. `ListPrices` doesn't return registry premium prices, which apply to individual domain names rather than to a TLD. To get accurate pricing for a specific domain name, including premium prices, call `GetDomainPrices`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -106,17 +91,16 @@ export interface ListPricesCommandOutput extends ListPricesResponse, __MetadataB
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The requested item is not acceptable. For example, for APIs that accept a domain name,
- * 			the request might specify a domain name that doesn't belong to the account that
- * 			submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the
- * 			password might be invalid.</p>
+ *
+ * The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For `AcceptDomainTransferFromAnotherAwsAccount`, the password might be invalid.
  *
  * @throws {@link UnsupportedTLD} (client fault)
- *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+ *
+ * Amazon Route 53 does not support this top-level domain (TLD).
  *
  * @throws {@link Route53DomainsServiceException}
- * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ * Base exception class for all service exceptions from Route53Domains service.
  *
  * @public
  */

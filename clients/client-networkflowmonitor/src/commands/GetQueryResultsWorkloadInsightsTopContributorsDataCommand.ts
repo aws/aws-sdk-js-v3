@@ -26,7 +26,16 @@ export interface GetQueryResultsWorkloadInsightsTopContributorsDataCommandInput 
 export interface GetQueryResultsWorkloadInsightsTopContributorsDataCommandOutput extends GetQueryResultsWorkloadInsightsTopContributorsDataOutput, __MetadataBearer {}
 
 /**
- * <p>Return the data for a query with the Network Flow Monitor query interface. Specify the query that you want to return results for by providing a query ID and a scope ID.</p> <p>This query returns the data for top contributors for workload insights for a specific scope. Workload insights provide a high level view of network flow performance data collected by agents for a scope. To return just the top contributors, see <code>GetQueryResultsWorkloadInsightsTopContributors</code>.</p> <p>Create a query ID for this call by calling the corresponding API call to start the query, <code>StartQueryWorkloadInsightsTopContributorsData</code>. Use the scope ID that was returned for your account by <code>CreateScope</code>.</p> <p>Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type. Top contributors can be across all workload insights, for a given scope, or for a specific monitor. Use the applicable call for the top contributors that you want to be returned.</p> <p>The top contributor network flows overall are for a specific metric type, for example, the number of retransmissions.</p>
+ * Return the data for a query with the Network Flow Monitor query interface. Specify the query that you want to return results for by providing a query ID and a scope ID.
+ *
+ * This query returns the data for top contributors for workload insights for a specific scope. Workload insights provide a high level view of network flow performance data collected by agents for a scope. To return just the top contributors, see `GetQueryResultsWorkloadInsightsTopContributors`.
+ *
+ * Create a query ID for this call by calling the corresponding API call to start the query, `StartQueryWorkloadInsightsTopContributorsData`. Use the scope ID that was returned for your account by `CreateScope`.
+ *
+ * Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type. Top contributors can be across all workload insights, for a given scope, or for a specific monitor. Use the applicable call for the top contributors that you want to be returned.
+ *
+ * The top contributor network flows overall are for a specific metric type, for example, the number of retransmissions.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,26 +77,32 @@ export interface GetQueryResultsWorkloadInsightsTopContributorsDataCommandOutput
  * @see {@link NetworkFlowMonitorClientResolvedConfig | config} for NetworkFlowMonitorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * You don't have sufficient permission to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error occurred.</p>
+ *
+ * An internal error occurred.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request specifies a resource that doesn't exist.</p>
+ *
+ * The request specifies a resource that doesn't exist.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request exceeded a service quota.</p>
+ *
+ * The request exceeded a service quota.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Invalid request.</p>
+ *
+ * Invalid request.
  *
  * @throws {@link NetworkFlowMonitorServiceException}
- * <p>Base exception class for all service exceptions from NetworkFlowMonitor service.</p>
  *
+ * Base exception class for all service exceptions from NetworkFlowMonitor service.
  *
  * @public
  */

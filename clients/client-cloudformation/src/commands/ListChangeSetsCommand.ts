@@ -23,9 +23,8 @@ export interface ListChangeSetsCommandInput extends ListChangeSetsInput {}
 export interface ListChangeSetsCommandOutput extends ListChangeSetsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the ID and status of each active change set for a stack. For example, CloudFormation
- *       lists change sets that are in the <code>CREATE_IN_PROGRESS</code> or
- *         <code>CREATE_PENDING</code> state.</p>
+ * Returns the ID and status of each active change set for a stack. For example, CloudFormation lists change sets that are in the `CREATE_IN_PROGRESS` or `CREATE_PENDING` state.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,8 +69,8 @@ export interface ListChangeSetsCommandOutput extends ListChangeSetsOutput, __Met
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

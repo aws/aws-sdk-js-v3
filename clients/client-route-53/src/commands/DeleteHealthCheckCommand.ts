@@ -23,21 +23,12 @@ export interface DeleteHealthCheckCommandInput extends DeleteHealthCheckRequest 
 export interface DeleteHealthCheckCommandOutput extends DeleteHealthCheckResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a health check.</p>
- *          <important>
- *             <p>Amazon Route 53 does not prevent you from deleting a health check even if the
- * 				health check is associated with one or more resource record sets. If you delete a
- * 				health check and you don't update the associated resource record sets, the future
- * 				status of the health check can't be predicted and may change. This will affect the
- * 				routing of DNS queries for your DNS failover configuration. For more information,
- * 				see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating-deleting.html#health-checks-deleting.html">Replacing and Deleting Health Checks</a> in the <i>Amazon Route 53
- * 					Developer Guide</i>.</p>
- *          </important>
- *          <p>If you're using Cloud Map and you configured Cloud Map to create a Route 53
- * 			health check when you register an instance, you can't use the Route 53
- * 				<code>DeleteHealthCheck</code> command to delete the health check. The health check
- * 			is deleted automatically when you deregister the instance; there can be a delay of
- * 			several hours before the health check is deleted from Route 53. </p>
+ * Deletes a health check.
+ *
+ * > **Important:** Amazon Route 53 does not prevent you from deleting a health check even if the health check is associated with one or more resource record sets. If you delete a health check and you don't update the associated resource record sets, the future status of the health check can't be predicted and may change. This will affect the routing of DNS queries for your DNS failover configuration. For more information, see [Replacing and Deleting Health Checks](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating-deleting.html#health-checks-deleting.html) in the *Amazon Route 53 Developer Guide*.
+ *
+ * If you're using Cloud Map and you configured Cloud Map to create a Route 53 health check when you register an instance, you can't use the Route 53 `DeleteHealthCheck` command to delete the health check. The health check is deleted automatically when you deregister the instance; there can be a delay of several hours before the health check is deleted from Route 53.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,17 +53,20 @@ export interface DeleteHealthCheckCommandOutput extends DeleteHealthCheckRespons
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link HealthCheckInUse} (client fault)
- *  <p>This error code is not in use.</p>
+ *
+ * This error code is not in use.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link NoSuchHealthCheck} (client fault)
- *  <p>No health check exists with the specified ID.</p>
+ *
+ * No health check exists with the specified ID.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @public
  */

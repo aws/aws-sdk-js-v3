@@ -26,7 +26,8 @@ export interface DescribeHyperParameterTuningJobCommandInput extends DescribeHyp
 export interface DescribeHyperParameterTuningJobCommandOutput extends DescribeHyperParameterTuningJobResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a description of a hyperparameter tuning job, depending on the fields selected. These fields can include the name, Amazon Resource Name (ARN), job status of your tuning job and more.</p>
+ * Returns a description of a hyperparameter tuning job, depending on the fields selected. These fields can include the name, Amazon Resource Name (ARN), job status of your tuning job and more.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -540,11 +541,12 @@ export interface DescribeHyperParameterTuningJobCommandOutput extends DescribeHy
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Resource being access is not found.</p>
+ *
+ * Resource being access is not found.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

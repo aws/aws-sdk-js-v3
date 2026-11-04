@@ -23,7 +23,8 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Removes a tag from a resource.</p>
+ * Removes a tag from a resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,11 +52,12 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @see {@link IoTSecureTunnelingClientResolvedConfig | config} for IoTSecureTunnelingClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Thrown when an operation is attempted on a resource that does not exist.</p>
+ *
+ * Thrown when an operation is attempted on a resource that does not exist.
  *
  * @throws {@link IoTSecureTunnelingServiceException}
- * <p>Base exception class for all service exceptions from IoTSecureTunneling service.</p>
  *
+ * Base exception class for all service exceptions from IoTSecureTunneling service.
  *
  * @public
  */

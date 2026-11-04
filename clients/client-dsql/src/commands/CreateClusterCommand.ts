@@ -23,7 +23,49 @@ export interface CreateClusterCommandInput extends CreateClusterInput {}
 export interface CreateClusterCommandOutput extends CreateClusterOutput, __MetadataBearer {}
 
 /**
- * <p>The CreateCluster API allows you to create both single-Region clusters and multi-Region clusters. With the addition of the <i>multiRegionProperties</i> parameter, you can create a cluster with witness Region support and establish peer relationships with clusters in other Regions during creation.</p> <note> <p>Creating multi-Region clusters requires additional IAM permissions beyond those needed for single-Region clusters, as detailed in the <b>Required permissions</b> section below.</p> </note> <p> <b>Required permissions</b> </p> <dl> <dt>dsql:CreateCluster</dt> <dd> <p>Required to create a cluster.</p> <p>Resources: <code>arn:aws:dsql:region:account-id:cluster/*</code> </p> </dd> <dt>dsql:TagResource</dt> <dd> <p>Permission to add tags to a resource.</p> <p>Resources: <code>arn:aws:dsql:region:account-id:cluster/*</code> </p> </dd> <dt>dsql:PutMultiRegionProperties</dt> <dd> <p>Permission to configure multi-Region properties for a cluster.</p> <p>Resources: <code>arn:aws:dsql:region:account-id:cluster/*</code> </p> </dd> <dt>dsql:AddPeerCluster</dt> <dd> <p>When specifying <code>multiRegionProperties.clusters</code>, permission to add peer clusters.</p> <p>Resources:</p> <ul> <li> <p>Local cluster: <code>arn:aws:dsql:region:account-id:cluster/*</code> </p> </li> <li> <p>Each peer cluster: exact ARN of each specified peer cluster</p> </li> </ul> </dd> <dt>dsql:PutWitnessRegion</dt> <dd> <p>When specifying <code>multiRegionProperties.witnessRegion</code>, permission to set a witness Region. This permission is checked both in the cluster Region and in the witness Region.</p> <p>Resources: <code>arn:aws:dsql:region:account-id:cluster/*</code> </p> <p>Condition Keys: <code>dsql:WitnessRegion</code> (matching the specified witness region)</p> </dd> </dl> <important> <ul> <li> <p>The witness Region specified in <code>multiRegionProperties.witnessRegion</code> cannot be the same as the cluster's Region.</p> </li> </ul> </important>
+ * The CreateCluster API allows you to create both single-Region clusters and multi-Region clusters. With the addition of the *multiRegionProperties* parameter, you can create a cluster with witness Region support and establish peer relationships with clusters in other Regions during creation.
+ *
+ * > **Note:** Creating multi-Region clusters requires additional IAM permissions beyond those needed for single-Region clusters, as detailed in the **Required permissions** section below.
+ *
+ * **Required permissions**
+ *
+ * - **dsql:CreateCluster**
+ *
+ *   Required to create a cluster.
+ *
+ *   Resources: `arn:aws:dsql:region:account-id:cluster/*`
+ *
+ * - **dsql:TagResource**
+ *
+ *   Permission to add tags to a resource.
+ *
+ *   Resources: `arn:aws:dsql:region:account-id:cluster/*`
+ *
+ * - **dsql:PutMultiRegionProperties**
+ *
+ *   Permission to configure multi-Region properties for a cluster.
+ *
+ *   Resources: `arn:aws:dsql:region:account-id:cluster/*`
+ *
+ * - **dsql:AddPeerCluster**
+ *
+ *   When specifying `multiRegionProperties.clusters`, permission to add peer clusters.
+ *
+ *   Resources:
+ *
+ *   - Local cluster: `arn:aws:dsql:region:account-id:cluster/*`
+ *   - Each peer cluster: exact ARN of each specified peer cluster
+ *
+ * - **dsql:PutWitnessRegion**
+ *
+ *   When specifying `multiRegionProperties.witnessRegion`, permission to set a witness Region. This permission is checked both in the cluster Region and in the witness Region.
+ *
+ *   Resources: `arn:aws:dsql:region:account-id:cluster/*`
+ *
+ *   Condition Keys: `dsql:WitnessRegion` (matching the specified witness region)
+ *
+ * > **Important:** - The witness Region specified in `multiRegionProperties.witnessRegion` cannot be the same as the cluster's Region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,26 +121,32 @@ export interface CreateClusterCommandOutput extends CreateClusterOutput, __Metad
  * @see {@link DSQLClientResolvedConfig | config} for DSQLClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The submitted action has conflicts.</p>
+ *
+ * The submitted action has conflicts.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The service limit was exceeded.</p>
+ *
+ * The service limit was exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input failed to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link DSQLServiceException}
- * <p>Base exception class for all service exceptions from DSQL service.</p>
  *
+ * Base exception class for all service exceptions from DSQL service.
  *
  * @example Create Cluster
  * ```javascript

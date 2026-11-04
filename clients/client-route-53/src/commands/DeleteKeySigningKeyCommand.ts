@@ -23,12 +23,12 @@ export interface DeleteKeySigningKeyCommandInput extends DeleteKeySigningKeyRequ
 export interface DeleteKeySigningKeyCommandOutput extends DeleteKeySigningKeyResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a key-signing key (KSK). Before you can delete a KSK, you must deactivate it.
- * 			The KSK must be deactivated before you can delete it regardless of whether the hosted
- * 			zone is enabled for DNSSEC signing.</p>
- *          <p>You can use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeactivateKeySigningKey.html">DeactivateKeySigningKey</a> to deactivate the key before you delete it.</p>
- *          <p>Use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetDNSSEC.html">GetDNSSEC</a> to verify that the KSK is in an <code>INACTIVE</code>
- * 			status.</p>
+ * Deletes a key-signing key (KSK). Before you can delete a KSK, you must deactivate it. The KSK must be deactivated before you can delete it regardless of whether the hosted zone is enabled for DNSSEC signing.
+ *
+ * You can use [DeactivateKeySigningKey](https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeactivateKeySigningKey.html) to deactivate the key before you delete it.
+ *
+ * Use [GetDNSSEC](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetDNSSEC.html) to verify that the KSK is in an `INACTIVE` status.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,30 +61,32 @@ export interface DeleteKeySigningKeyCommandOutput extends DeleteKeySigningKeyRes
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link ConcurrentModification} (client fault)
- *  <p>Another user submitted a request to create, update, or delete the object at the same
- * 			time that you did. Retry the request. </p>
+ *
+ * Another user submitted a request to create, update, or delete the object at the same time that you did. Retry the request.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link InvalidKeySigningKeyStatus} (client fault)
- *  <p>The key-signing key (KSK) status isn't valid or another KSK has the status
- * 				<code>INTERNAL_FAILURE</code>.</p>
+ *
+ * The key-signing key (KSK) status isn't valid or another KSK has the status `INTERNAL_FAILURE`.
  *
  * @throws {@link InvalidKMSArn} (client fault)
- *  <p>The KeyManagementServiceArn that you specified isn't valid to use with DNSSEC
- * 			signing.</p>
+ *
+ * The KeyManagementServiceArn that you specified isn't valid to use with DNSSEC signing.
  *
  * @throws {@link InvalidSigningStatus} (client fault)
- *  <p>Your hosted zone status isn't valid for this operation. In the hosted zone, change the
- * 			status to enable <code>DNSSEC</code> or disable <code>DNSSEC</code>.</p>
+ *
+ * Your hosted zone status isn't valid for this operation. In the hosted zone, change the status to enable `DNSSEC` or disable `DNSSEC`.
  *
  * @throws {@link NoSuchKeySigningKey} (client fault)
- *  <p>The specified key-signing key (KSK) doesn't exist.</p>
+ *
+ * The specified key-signing key (KSK) doesn't exist.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @public
  */

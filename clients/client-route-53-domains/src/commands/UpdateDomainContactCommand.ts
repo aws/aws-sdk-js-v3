@@ -23,12 +23,10 @@ export interface UpdateDomainContactCommandInput extends UpdateDomainContactRequ
 export interface UpdateDomainContactCommandOutput extends UpdateDomainContactResponse, __MetadataBearer {}
 
 /**
- * <p>This operation updates the contact information for a particular domain. You must
- * 			specify information for at least one contact: registrant, administrator, or
- * 			technical.</p>
- *          <p>If the update is successful, this method returns an operation ID that you can use to
- * 			track the progress and completion of the operation. If the request is not completed
- * 			successfully, the domain registrant will be notified by email.</p>
+ * This operation updates the contact information for a particular domain. You must specify information for at least one contact: registrant, administrator, or technical.
+ *
+ * If the update is successful, this method returns an operation ID that you can use to track the progress and completion of the operation. If the request is not completed successfully, the domain registrant will be notified by email.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -143,27 +141,28 @@ export interface UpdateDomainContactCommandOutput extends UpdateDomainContactRes
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
  *
  * @throws {@link DuplicateRequest} (client fault)
- *  <p>The request is already in progress for the domain.</p>
+ *
+ * The request is already in progress for the domain.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The requested item is not acceptable. For example, for APIs that accept a domain name,
- * 			the request might specify a domain name that doesn't belong to the account that
- * 			submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the
- * 			password might be invalid.</p>
+ *
+ * The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For `AcceptDomainTransferFromAnotherAwsAccount`, the password might be invalid.
  *
  * @throws {@link OperationLimitExceeded} (client fault)
- *  <p>The number of operations or jobs running exceeded the allowed threshold for the
- * 			account.</p>
+ *
+ * The number of operations or jobs running exceeded the allowed threshold for the account.
  *
  * @throws {@link TLDRulesViolation} (client fault)
- *  <p>The top-level domain does not support this operation.</p>
+ *
+ * The top-level domain does not support this operation.
  *
  * @throws {@link UnsupportedTLD} (client fault)
- *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+ *
+ * Amazon Route 53 does not support this top-level domain (TLD).
  *
  * @throws {@link Route53DomainsServiceException}
- * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ * Base exception class for all service exceptions from Route53Domains service.
  *
  * @public
  */

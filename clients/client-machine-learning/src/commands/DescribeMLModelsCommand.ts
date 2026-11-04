@@ -23,7 +23,8 @@ export interface DescribeMLModelsCommandInput extends DescribeMLModelsInput {}
 export interface DescribeMLModelsCommandOutput extends DescribeMLModelsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of <code>MLModel</code> that match the search criteria in the request.</p>
+ * Returns a list of `MLModel` that match the search criteria in the request.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,14 +91,16 @@ export interface DescribeMLModelsCommandOutput extends DescribeMLModelsOutput, _
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An error on the server occurred when trying to process a request.</p>
+ *
+ * An error on the server occurred when trying to process a request.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+ *
+ * An error on the client occurred. Typically, the cause is an invalid input value.
  *
  * @throws {@link MachineLearningServiceException}
- * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ * Base exception class for all service exceptions from MachineLearning service.
  *
  * @public
  */

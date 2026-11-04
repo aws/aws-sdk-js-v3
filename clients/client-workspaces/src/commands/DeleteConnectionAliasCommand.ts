@@ -23,22 +23,12 @@ export interface DeleteConnectionAliasCommandInput extends DeleteConnectionAlias
 export interface DeleteConnectionAliasCommandOutput extends DeleteConnectionAliasResult, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified connection alias. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html">
- *             Cross-Region Redirection for Amazon WorkSpaces</a>.</p>
- *          <important>
- *             <p>
- *                <b>If you will no longer be using a fully qualified domain name
- *                (FQDN) as the registration code for your WorkSpaces users, you must take certain
- *                precautions to prevent potential security issues.</b> For more information,
- *             see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html#cross-region-redirection-security-considerations"> Security Considerations if You Stop Using Cross-Region Redirection</a>.</p>
- *          </important>
- *          <note>
- *             <p>To delete a connection alias that has been shared, the shared account must first
- *             disassociate the connection alias from any directories it has been associated with. Then
- *             you must unshare the connection alias from the account it has been shared with. You can
- *             delete a connection alias only after it is no longer shared with any accounts or
- *             associated with any directories.</p>
- *          </note>
+ * Deletes the specified connection alias. For more information, see [Cross-Region Redirection for Amazon WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html).
+ *
+ * > **Important:** **If you will no longer be using a fully qualified domain name (FQDN) as the registration code for your WorkSpaces users, you must take certain precautions to prevent potential security issues.** For more information, see [Security Considerations if You Stop Using Cross-Region Redirection](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html#cross-region-redirection-security-considerations).
+ *
+ * > **Note:** To delete a connection alias that has been shared, the shared account must first disassociate the connection alias from any directories it has been associated with. Then you must unshare the connection alias from the account it has been shared with. You can delete a connection alias only after it is no longer shared with any accounts or associated with any directories.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,26 +53,32 @@ export interface DeleteConnectionAliasCommandOutput extends DeleteConnectionAlia
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The user is not authorized to access a resource.</p>
+ *
+ * The user is not authorized to access a resource.
  *
  * @throws {@link InvalidParameterValuesException} (client fault)
- *  <p>One or more parameter values are not valid.</p>
+ *
+ * One or more parameter values are not valid.
  *
  * @throws {@link InvalidResourceStateException} (client fault)
- *  <p>The state of the resource is not valid for this operation.</p>
+ *
+ * The state of the resource is not valid for this operation.
  *
  * @throws {@link OperationNotSupportedException} (client fault)
- *  <p>This operation is not supported.</p>
+ *
+ * This operation is not supported.
  *
  * @throws {@link ResourceAssociatedException} (client fault)
- *  <p>The resource is associated with a directory.</p>
+ *
+ * The resource is associated with a directory.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link WorkSpacesServiceException}
- * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * Base exception class for all service exceptions from WorkSpaces service.
  *
  * @public
  */

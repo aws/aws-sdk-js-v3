@@ -26,9 +26,8 @@ export interface RejectCapacityReservationBillingOwnershipCommandInput extends R
 export interface RejectCapacityReservationBillingOwnershipCommandOutput extends RejectCapacityReservationBillingOwnershipResult, __MetadataBearer {}
 
 /**
- * <p>Rejects a request to assign billing of the available capacity of a shared Capacity
- * 			Reservation to your account. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/assign-billing.html"> Billing assignment for shared
- * 					Amazon EC2 Capacity Reservations</a>.</p>
+ * Rejects a request to assign billing of the available capacity of a shared Capacity Reservation to your account. For more information, see [Billing assignment for shared Amazon EC2 Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/assign-billing.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,8 +55,8 @@ export interface RejectCapacityReservationBillingOwnershipCommandOutput extends 
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

@@ -23,7 +23,14 @@ export interface DeleteTrainingSessionCommandInput extends DeleteTrainingSession
 export interface DeleteTrainingSessionCommandOutput extends DeleteTrainingSessionResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a training session. You must stop a running session before deleting it. Use the <code>StopTrainingSession</code> operation to stop the session first.</p> <p>The following operations are related to <code>DeleteTrainingSession</code>:</p> <ul> <li> <p> <code>CreateTrainingSession</code> </p> </li> <li> <p> <code>DescribeTrainingSession</code> </p> </li> <li> <p> <code>StopTrainingSession</code> </p> </li> </ul>
+ * Deletes a training session. You must stop a running session before deleting it. Use the `StopTrainingSession` operation to stop the session first.
+ *
+ * The following operations are related to `DeleteTrainingSession`:
+ *
+ * - `CreateTrainingSession`
+ * - `DescribeTrainingSession`
+ * - `StopTrainingSession`
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,11 +55,12 @@ export interface DeleteTrainingSessionCommandOutput extends DeleteTrainingSessio
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Resource being access is not found.</p>
+ *
+ * Resource being access is not found.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

@@ -23,11 +23,10 @@ export interface CreateLocationFsxLustreCommandInput extends CreateLocationFsxLu
 export interface CreateLocationFsxLustreCommandOutput extends CreateLocationFsxLustreResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a transfer <i>location</i> for an Amazon FSx for Lustre file
- *       system. DataSync can use this location as a source or destination for
- *       transferring data.</p>
- *          <p>Before you begin, make sure that you understand how DataSync
- *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-lustre-location.html#create-lustre-location-access">accesses FSx for Lustre file systems</a>.</p>
+ * Creates a transfer *location* for an Amazon FSx for Lustre file system. DataSync can use this location as a source or destination for transferring data.
+ *
+ * Before you begin, make sure that you understand how DataSync [accesses FSx for Lustre file systems](https://docs.aws.amazon.com/datasync/latest/userguide/create-lustre-location.html#create-lustre-location-access).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,15 +63,16 @@ export interface CreateLocationFsxLustreCommandOutput extends CreateLocationFsxL
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception is thrown when an error occurs in the DataSync
- *       service.</p>
+ *
+ * This exception is thrown when an error occurs in the DataSync service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * This exception is thrown when the client submits a malformed request.
  *
  * @throws {@link DataSyncServiceException}
- * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * Base exception class for all service exceptions from DataSync service.
  *
  * @public
  */

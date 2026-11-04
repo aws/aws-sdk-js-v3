@@ -4,8 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { EFSServiceException as __BaseException } from "./EFSServiceException";
 
 /**
- * <p>Returned if the access point that you are trying to create already exists, with the
- *             creation token you provided in the request.</p>
+ * Returned if the access point that you are trying to create already exists, with the creation token you provided in the request.
+ *
  * @public
  */
 export class AccessPointAlreadyExists extends __BaseException {
@@ -13,18 +13,15 @@ export class AccessPointAlreadyExists extends __BaseException {
   readonly name = "AccessPointAlreadyExists" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error code is a string that uniquely identifies an error condition.
-   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   * The error code is a string that uniquely identifies an error condition. It is meant to be read and understood by programs that detect and handle errors by type.
+   *
    * @public
    */
   ErrorCode: string | undefined;
 
   /**
-   * <p>The error message contains a generic description of the error
-   *         condition in English. It is intended for a human audience. Simple programs display the message directly
-   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
-   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
-   *         more likely to ignore the error message.</p>
+   * The error message contains a generic description of the error condition in English. It is intended for a human audience. Simple programs display the message directly to the end user if they encounter an error condition they don't know how or don't care to handle. Sophisticated programs with more exhaustive error handling and proper internationalization are more likely to ignore the error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -47,8 +44,8 @@ export class AccessPointAlreadyExists extends __BaseException {
 }
 
 /**
- * <p>Returned if the Amazon Web Services account has already created the maximum number of access points
- *             allowed per file system. For more informaton, see <a href="https://docs.aws.amazon.com/efs/latest/ug/limits.html#limits-efs-resources-per-account-per-region">https://docs.aws.amazon.com/efs/latest/ug/limits.html#limits-efs-resources-per-account-per-region</a>.</p>
+ * Returned if the Amazon Web Services account has already created the maximum number of access points allowed per file system. For more informaton, see [https://docs.aws.amazon.com/efs/latest/ug/limits.html#limits-efs-resources-per-account-per-region](https://docs.aws.amazon.com/efs/latest/ug/limits.html#limits-efs-resources-per-account-per-region).
+ *
  * @public
  */
 export class AccessPointLimitExceeded extends __BaseException {
@@ -56,18 +53,15 @@ export class AccessPointLimitExceeded extends __BaseException {
   readonly name = "AccessPointLimitExceeded" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error code is a string that uniquely identifies an error condition.
-   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   * The error code is a string that uniquely identifies an error condition. It is meant to be read and understood by programs that detect and handle errors by type.
+   *
    * @public
    */
   ErrorCode: string | undefined;
 
   /**
-   * <p>The error message contains a generic description of the error
-   *         condition in English. It is intended for a human audience. Simple programs display the message directly
-   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
-   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
-   *         more likely to ignore the error message.</p>
+   * The error message contains a generic description of the error condition in English. It is intended for a human audience. Simple programs display the message directly to the end user if they encounter an error condition they don't know how or don't care to handle. Sophisticated programs with more exhaustive error handling and proper internationalization are more likely to ignore the error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -87,8 +81,8 @@ export class AccessPointLimitExceeded extends __BaseException {
 }
 
 /**
- * <p>Returned if the specified <code>AccessPointId</code> value doesn't exist in the
- *             requester's Amazon Web Services account.</p>
+ * Returned if the specified `AccessPointId` value doesn't exist in the requester's Amazon Web Services account.
+ *
  * @public
  */
 export class AccessPointNotFound extends __BaseException {
@@ -96,18 +90,15 @@ export class AccessPointNotFound extends __BaseException {
   readonly name = "AccessPointNotFound" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error code is a string that uniquely identifies an error condition.
-   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   * The error code is a string that uniquely identifies an error condition. It is meant to be read and understood by programs that detect and handle errors by type.
+   *
    * @public
    */
   ErrorCode: string | undefined;
 
   /**
-   * <p>The error message contains a generic description of the error
-   *         condition in English. It is intended for a human audience. Simple programs display the message directly
-   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
-   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
-   *         more likely to ignore the error message.</p>
+   * The error message contains a generic description of the error condition in English. It is intended for a human audience. Simple programs display the message directly to the end user if they encounter an error condition they don't know how or don't care to handle. Sophisticated programs with more exhaustive error handling and proper internationalization are more likely to ignore the error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -127,9 +118,8 @@ export class AccessPointNotFound extends __BaseException {
 }
 
 /**
- * <p>Returned if the Availability Zone that was specified for a mount target is
- *             different from the Availability Zone that was specified for One Zone storage.
- *             For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html">Regional and One Zone storage redundancy</a>.</p>
+ * Returned if the Availability Zone that was specified for a mount target is different from the Availability Zone that was specified for One Zone storage. For more information, see [Regional and One Zone storage redundancy](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html).
+ *
  * @public
  */
 export class AvailabilityZonesMismatch extends __BaseException {
@@ -137,18 +127,15 @@ export class AvailabilityZonesMismatch extends __BaseException {
   readonly name = "AvailabilityZonesMismatch" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error code is a string that uniquely identifies an error condition.
-   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   * The error code is a string that uniquely identifies an error condition. It is meant to be read and understood by programs that detect and handle errors by type.
+   *
    * @public
    */
   ErrorCode?: string | undefined;
 
   /**
-   * <p>The error message contains a generic description of the error
-   *         condition in English. It is intended for a human audience. Simple programs display the message directly
-   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
-   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
-   *         more likely to ignore the error message.</p>
+   * The error message contains a generic description of the error condition in English. It is intended for a human audience. Simple programs display the message directly to the end user if they encounter an error condition they don't know how or don't care to handle. Sophisticated programs with more exhaustive error handling and proper internationalization are more likely to ignore the error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -168,8 +155,8 @@ export class AvailabilityZonesMismatch extends __BaseException {
 }
 
 /**
- * <p>Returned if the request is malformed or contains an error such as an invalid
- *             parameter value or a missing required parameter.</p>
+ * Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.
+ *
  * @public
  */
 export class BadRequest extends __BaseException {
@@ -177,18 +164,15 @@ export class BadRequest extends __BaseException {
   readonly name = "BadRequest" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error code is a string that uniquely identifies an error condition.
-   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   * The error code is a string that uniquely identifies an error condition. It is meant to be read and understood by programs that detect and handle errors by type.
+   *
    * @public
    */
   ErrorCode: string | undefined;
 
   /**
-   * <p>The error message contains a generic description of the error
-   *         condition in English. It is intended for a human audience. Simple programs display the message directly
-   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
-   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
-   *         more likely to ignore the error message.</p>
+   * The error message contains a generic description of the error condition in English. It is intended for a human audience. Simple programs display the message directly to the end user if they encounter an error condition they don't know how or don't care to handle. Sophisticated programs with more exhaustive error handling and proper internationalization are more likely to ignore the error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -208,7 +192,8 @@ export class BadRequest extends __BaseException {
 }
 
 /**
- * <p>Returned if the source file system in a replication is encrypted but the destination file system is unencrypted.</p>
+ * Returned if the source file system in a replication is encrypted but the destination file system is unencrypted.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -216,18 +201,15 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error code is a string that uniquely identifies an error condition.
-   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   * The error code is a string that uniquely identifies an error condition. It is meant to be read and understood by programs that detect and handle errors by type.
+   *
    * @public
    */
   ErrorCode?: string | undefined;
 
   /**
-   * <p>The error message contains a generic description of the error
-   *         condition in English. It is intended for a human audience. Simple programs display the message directly
-   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
-   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
-   *         more likely to ignore the error message.</p>
+   * The error message contains a generic description of the error condition in English. It is intended for a human audience. Simple programs display the message directly to the end user if they encounter an error condition they don't know how or don't care to handle. Sophisticated programs with more exhaustive error handling and proper internationalization are more likely to ignore the error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -247,8 +229,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the
- *             requester's Amazon Web Services account.</p>
+ * Returned if the specified `FileSystemId` value doesn't exist in the requester's Amazon Web Services account.
+ *
  * @public
  */
 export class FileSystemNotFound extends __BaseException {
@@ -256,18 +238,15 @@ export class FileSystemNotFound extends __BaseException {
   readonly name = "FileSystemNotFound" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error code is a string that uniquely identifies an error condition.
-   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   * The error code is a string that uniquely identifies an error condition. It is meant to be read and understood by programs that detect and handle errors by type.
+   *
    * @public
    */
   ErrorCode: string | undefined;
 
   /**
-   * <p>The error message contains a generic description of the error
-   *         condition in English. It is intended for a human audience. Simple programs display the message directly
-   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
-   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
-   *         more likely to ignore the error message.</p>
+   * The error message contains a generic description of the error condition in English. It is intended for a human audience. Simple programs display the message directly to the end user if they encounter an error condition they don't know how or don't care to handle. Sophisticated programs with more exhaustive error handling and proper internationalization are more likely to ignore the error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -287,7 +266,8 @@ export class FileSystemNotFound extends __BaseException {
 }
 
 /**
- * <p>Returned if the file system's lifecycle state is not "available".</p>
+ * Returned if the file system's lifecycle state is not "available".
+ *
  * @public
  */
 export class IncorrectFileSystemLifeCycleState extends __BaseException {
@@ -295,18 +275,15 @@ export class IncorrectFileSystemLifeCycleState extends __BaseException {
   readonly name = "IncorrectFileSystemLifeCycleState" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error code is a string that uniquely identifies an error condition.
-   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   * The error code is a string that uniquely identifies an error condition. It is meant to be read and understood by programs that detect and handle errors by type.
+   *
    * @public
    */
   ErrorCode: string | undefined;
 
   /**
-   * <p>The error message contains a generic description of the error
-   *         condition in English. It is intended for a human audience. Simple programs display the message directly
-   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
-   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
-   *         more likely to ignore the error message.</p>
+   * The error message contains a generic description of the error condition in English. It is intended for a human audience. Simple programs display the message directly to the end user if they encounter an error condition they don't know how or don't care to handle. Sophisticated programs with more exhaustive error handling and proper internationalization are more likely to ignore the error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -326,7 +303,8 @@ export class IncorrectFileSystemLifeCycleState extends __BaseException {
 }
 
 /**
- * <p>Returned if an error occurred on the server side.</p>
+ * Returned if an error occurred on the server side.
+ *
  * @public
  */
 export class InternalServerError extends __BaseException {
@@ -334,18 +312,15 @@ export class InternalServerError extends __BaseException {
   readonly name = "InternalServerError" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>The error code is a string that uniquely identifies an error condition.
-   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   * The error code is a string that uniquely identifies an error condition. It is meant to be read and understood by programs that detect and handle errors by type.
+   *
    * @public
    */
   ErrorCode: string | undefined;
 
   /**
-   * <p>The error message contains a generic description of the error
-   *         condition in English. It is intended for a human audience. Simple programs display the message directly
-   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
-   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
-   *         more likely to ignore the error message.</p>
+   * The error message contains a generic description of the error condition in English. It is intended for a human audience. Simple programs display the message directly to the end user if they encounter an error condition they don't know how or don't care to handle. Sophisticated programs with more exhaustive error handling and proper internationalization are more likely to ignore the error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -365,9 +340,8 @@ export class InternalServerError extends __BaseException {
 }
 
 /**
- * <p>Returned when the <code>CreateAccessPoint</code> API action is called too quickly and
- *             the number of Access Points on the file system is nearing the
- *             <a href="https://docs.aws.amazon.com/efs/latest/ug/limits.html#limits-efs-resources-per-account-per-region">limit of 120</a>.</p>
+ * Returned when the `CreateAccessPoint` API action is called too quickly and the number of Access Points on the file system is nearing the [limit of 120](https://docs.aws.amazon.com/efs/latest/ug/limits.html#limits-efs-resources-per-account-per-region).
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -375,18 +349,15 @@ export class ThrottlingException extends __BaseException {
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error code is a string that uniquely identifies an error condition.
-   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   * The error code is a string that uniquely identifies an error condition. It is meant to be read and understood by programs that detect and handle errors by type.
+   *
    * @public
    */
   ErrorCode?: string | undefined;
 
   /**
-   * <p>The error message contains a generic description of the error
-   *         condition in English. It is intended for a human audience. Simple programs display the message directly
-   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
-   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
-   *         more likely to ignore the error message.</p>
+   * The error message contains a generic description of the error condition in English. It is intended for a human audience. Simple programs display the message directly to the end user if they encounter an error condition they don't know how or don't care to handle. Sophisticated programs with more exhaustive error handling and proper internationalization are more likely to ignore the error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -406,8 +377,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>Returned if the file system you are trying to create already exists, with the
- *             creation token you provided.</p>
+ * Returned if the file system you are trying to create already exists, with the creation token you provided.
+ *
  * @public
  */
 export class FileSystemAlreadyExists extends __BaseException {
@@ -415,18 +386,15 @@ export class FileSystemAlreadyExists extends __BaseException {
   readonly name = "FileSystemAlreadyExists" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error code is a string that uniquely identifies an error condition.
-   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   * The error code is a string that uniquely identifies an error condition. It is meant to be read and understood by programs that detect and handle errors by type.
+   *
    * @public
    */
   ErrorCode: string | undefined;
 
   /**
-   * <p>The error message contains a generic description of the error
-   *         condition in English. It is intended for a human audience. Simple programs display the message directly
-   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
-   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
-   *         more likely to ignore the error message.</p>
+   * The error message contains a generic description of the error condition in English. It is intended for a human audience. Simple programs display the message directly to the end user if they encounter an error condition they don't know how or don't care to handle. Sophisticated programs with more exhaustive error handling and proper internationalization are more likely to ignore the error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -449,8 +417,8 @@ export class FileSystemAlreadyExists extends __BaseException {
 }
 
 /**
- * <p>Returned if the Amazon Web Services account has already created the maximum number of file systems
- *             allowed per account.</p>
+ * Returned if the Amazon Web Services account has already created the maximum number of file systems allowed per account.
+ *
  * @public
  */
 export class FileSystemLimitExceeded extends __BaseException {
@@ -458,18 +426,15 @@ export class FileSystemLimitExceeded extends __BaseException {
   readonly name = "FileSystemLimitExceeded" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error code is a string that uniquely identifies an error condition.
-   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   * The error code is a string that uniquely identifies an error condition. It is meant to be read and understood by programs that detect and handle errors by type.
+   *
    * @public
    */
   ErrorCode: string | undefined;
 
   /**
-   * <p>The error message contains a generic description of the error
-   *         condition in English. It is intended for a human audience. Simple programs display the message directly
-   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
-   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
-   *         more likely to ignore the error message.</p>
+   * The error message contains a generic description of the error condition in English. It is intended for a human audience. Simple programs display the message directly to the end user if they encounter an error condition they don't know how or don't care to handle. Sophisticated programs with more exhaustive error handling and proper internationalization are more likely to ignore the error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -489,11 +454,8 @@ export class FileSystemLimitExceeded extends __BaseException {
 }
 
 /**
- * <p>Returned if there's not enough capacity to provision additional throughput. This value
- *             might be returned when you try to create a file system in provisioned throughput mode,
- *             when you attempt to increase the provisioned throughput of an existing file system, or
- *             when you attempt to change an existing file system from Bursting Throughput to
- *             Provisioned Throughput mode. Try again later.</p>
+ * Returned if there's not enough capacity to provision additional throughput. This value might be returned when you try to create a file system in provisioned throughput mode, when you attempt to increase the provisioned throughput of an existing file system, or when you attempt to change an existing file system from Bursting Throughput to Provisioned Throughput mode. Try again later.
+ *
  * @public
  */
 export class InsufficientThroughputCapacity extends __BaseException {
@@ -501,18 +463,15 @@ export class InsufficientThroughputCapacity extends __BaseException {
   readonly name = "InsufficientThroughputCapacity" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>The error code is a string that uniquely identifies an error condition.
-   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   * The error code is a string that uniquely identifies an error condition. It is meant to be read and understood by programs that detect and handle errors by type.
+   *
    * @public
    */
   ErrorCode: string | undefined;
 
   /**
-   * <p>The error message contains a generic description of the error
-   *         condition in English. It is intended for a human audience. Simple programs display the message directly
-   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
-   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
-   *         more likely to ignore the error message.</p>
+   * The error message contains a generic description of the error condition in English. It is intended for a human audience. Simple programs display the message directly to the end user if they encounter an error condition they don't know how or don't care to handle. Sophisticated programs with more exhaustive error handling and proper internationalization are more likely to ignore the error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -532,8 +491,8 @@ export class InsufficientThroughputCapacity extends __BaseException {
 }
 
 /**
- * <p>Returned if the throughput mode or amount of provisioned throughput can't be changed
- *             because the throughput limit of 1024 MiB/s has been reached.</p>
+ * Returned if the throughput mode or amount of provisioned throughput can't be changed because the throughput limit of 1024 MiB/s has been reached.
+ *
  * @public
  */
 export class ThroughputLimitExceeded extends __BaseException {
@@ -541,18 +500,15 @@ export class ThroughputLimitExceeded extends __BaseException {
   readonly name = "ThroughputLimitExceeded" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error code is a string that uniquely identifies an error condition.
-   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   * The error code is a string that uniquely identifies an error condition. It is meant to be read and understood by programs that detect and handle errors by type.
+   *
    * @public
    */
   ErrorCode: string | undefined;
 
   /**
-   * <p>The error message contains a generic description of the error
-   *         condition in English. It is intended for a human audience. Simple programs display the message directly
-   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
-   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
-   *         more likely to ignore the error message.</p>
+   * The error message contains a generic description of the error condition in English. It is intended for a human audience. Simple programs display the message directly to the end user if they encounter an error condition they don't know how or don't care to handle. Sophisticated programs with more exhaustive error handling and proper internationalization are more likely to ignore the error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -572,7 +528,8 @@ export class ThroughputLimitExceeded extends __BaseException {
 }
 
 /**
- * <p>Returned if the requested Amazon EFS functionality is not available in the specified Availability Zone.</p>
+ * Returned if the requested Amazon EFS functionality is not available in the specified Availability Zone.
+ *
  * @public
  */
 export class UnsupportedAvailabilityZone extends __BaseException {
@@ -580,18 +537,15 @@ export class UnsupportedAvailabilityZone extends __BaseException {
   readonly name = "UnsupportedAvailabilityZone" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error code is a string that uniquely identifies an error condition.
-   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   * The error code is a string that uniquely identifies an error condition. It is meant to be read and understood by programs that detect and handle errors by type.
+   *
    * @public
    */
   ErrorCode: string | undefined;
 
   /**
-   * <p>The error message contains a generic description of the error
-   *         condition in English. It is intended for a human audience. Simple programs display the message directly
-   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
-   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
-   *         more likely to ignore the error message.</p>
+   * The error message contains a generic description of the error condition in English. It is intended for a human audience. Simple programs display the message directly to the end user if they encounter an error condition they don't know how or don't care to handle. Sophisticated programs with more exhaustive error handling and proper internationalization are more likely to ignore the error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -611,8 +565,8 @@ export class UnsupportedAvailabilityZone extends __BaseException {
 }
 
 /**
- * <p>Returned if the request specified an <code>IpAddress</code> that is already in use
- *             in the subnet.</p>
+ * Returned if the request specified an `IpAddress` that is already in use in the subnet.
+ *
  * @public
  */
 export class IpAddressInUse extends __BaseException {
@@ -620,18 +574,15 @@ export class IpAddressInUse extends __BaseException {
   readonly name = "IpAddressInUse" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error code is a string that uniquely identifies an error condition.
-   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   * The error code is a string that uniquely identifies an error condition. It is meant to be read and understood by programs that detect and handle errors by type.
+   *
    * @public
    */
   ErrorCode: string | undefined;
 
   /**
-   * <p>The error message contains a generic description of the error
-   *         condition in English. It is intended for a human audience. Simple programs display the message directly
-   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
-   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
-   *         more likely to ignore the error message.</p>
+   * The error message contains a generic description of the error condition in English. It is intended for a human audience. Simple programs display the message directly to the end user if they encounter an error condition they don't know how or don't care to handle. Sophisticated programs with more exhaustive error handling and proper internationalization are more likely to ignore the error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -651,8 +602,8 @@ export class IpAddressInUse extends __BaseException {
 }
 
 /**
- * <p>Returned if the mount target would violate one of the specified restrictions based
- *             on the file system's existing mount targets.</p>
+ * Returned if the mount target would violate one of the specified restrictions based on the file system's existing mount targets.
+ *
  * @public
  */
 export class MountTargetConflict extends __BaseException {
@@ -660,18 +611,15 @@ export class MountTargetConflict extends __BaseException {
   readonly name = "MountTargetConflict" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error code is a string that uniquely identifies an error condition.
-   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   * The error code is a string that uniquely identifies an error condition. It is meant to be read and understood by programs that detect and handle errors by type.
+   *
    * @public
    */
   ErrorCode: string | undefined;
 
   /**
-   * <p>The error message contains a generic description of the error
-   *         condition in English. It is intended for a human audience. Simple programs display the message directly
-   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
-   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
-   *         more likely to ignore the error message.</p>
+   * The error message contains a generic description of the error condition in English. It is intended for a human audience. Simple programs display the message directly to the end user if they encounter an error condition they don't know how or don't care to handle. Sophisticated programs with more exhaustive error handling and proper internationalization are more likely to ignore the error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -691,12 +639,8 @@ export class MountTargetConflict extends __BaseException {
 }
 
 /**
- * <p>The calling account has reached the limit for elastic network interfaces for the
- *             specific Amazon Web Services Region. Either delete some network interfaces or request
- *             that the account quota be raised. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC Quotas</a>
- *             in the <i>Amazon VPC User Guide</i> (see the <b>Network
- *                 interfaces per Region</b> entry in the <b>Network
- *                 interfaces</b> table). </p>
+ * The calling account has reached the limit for elastic network interfaces for the specific Amazon Web Services Region. Either delete some network interfaces or request that the account quota be raised. For more information, see [Amazon VPC Quotas](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html) in the *Amazon VPC User Guide* (see the **Network interfaces per Region** entry in the **Network interfaces** table).
+ *
  * @public
  */
 export class NetworkInterfaceLimitExceeded extends __BaseException {
@@ -704,18 +648,15 @@ export class NetworkInterfaceLimitExceeded extends __BaseException {
   readonly name = "NetworkInterfaceLimitExceeded" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error code is a string that uniquely identifies an error condition.
-   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   * The error code is a string that uniquely identifies an error condition. It is meant to be read and understood by programs that detect and handle errors by type.
+   *
    * @public
    */
   ErrorCode: string | undefined;
 
   /**
-   * <p>The error message contains a generic description of the error
-   *         condition in English. It is intended for a human audience. Simple programs display the message directly
-   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
-   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
-   *         more likely to ignore the error message.</p>
+   * The error message contains a generic description of the error condition in English. It is intended for a human audience. Simple programs display the message directly to the end user if they encounter an error condition they don't know how or don't care to handle. Sophisticated programs with more exhaustive error handling and proper internationalization are more likely to ignore the error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -735,8 +676,8 @@ export class NetworkInterfaceLimitExceeded extends __BaseException {
 }
 
 /**
- * <p>Returned if <code>IpAddress</code> was not specified in the request and there are
- *             no free IP addresses in the subnet.</p>
+ * Returned if `IpAddress` was not specified in the request and there are no free IP addresses in the subnet.
+ *
  * @public
  */
 export class NoFreeAddressesInSubnet extends __BaseException {
@@ -744,18 +685,15 @@ export class NoFreeAddressesInSubnet extends __BaseException {
   readonly name = "NoFreeAddressesInSubnet" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error code is a string that uniquely identifies an error condition.
-   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   * The error code is a string that uniquely identifies an error condition. It is meant to be read and understood by programs that detect and handle errors by type.
+   *
    * @public
    */
   ErrorCode: string | undefined;
 
   /**
-   * <p>The error message contains a generic description of the error
-   *         condition in English. It is intended for a human audience. Simple programs display the message directly
-   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
-   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
-   *         more likely to ignore the error message.</p>
+   * The error message contains a generic description of the error condition in English. It is intended for a human audience. Simple programs display the message directly to the end user if they encounter an error condition they don't know how or don't care to handle. Sophisticated programs with more exhaustive error handling and proper internationalization are more likely to ignore the error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -775,12 +713,8 @@ export class NoFreeAddressesInSubnet extends __BaseException {
 }
 
 /**
- * <p>Returned if the number of <code>SecurityGroups</code> specified in the request is
- *             greater than the limit, which is based on account quota.  Either delete some security groups
- *             or request that the account quota be raised. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC Quotas</a>
- *             in the <i>Amazon VPC User Guide</i> (see the <b>Security Groups</b>
- *             table).
- *         </p>
+ * Returned if the number of `SecurityGroups` specified in the request is greater than the limit, which is based on account quota. Either delete some security groups or request that the account quota be raised. For more information, see [Amazon VPC Quotas](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html) in the *Amazon VPC User Guide* (see the **Security Groups** table).
+ *
  * @public
  */
 export class SecurityGroupLimitExceeded extends __BaseException {
@@ -788,18 +722,15 @@ export class SecurityGroupLimitExceeded extends __BaseException {
   readonly name = "SecurityGroupLimitExceeded" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error code is a string that uniquely identifies an error condition.
-   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   * The error code is a string that uniquely identifies an error condition. It is meant to be read and understood by programs that detect and handle errors by type.
+   *
    * @public
    */
   ErrorCode: string | undefined;
 
   /**
-   * <p>The error message contains a generic description of the error
-   *         condition in English. It is intended for a human audience. Simple programs display the message directly
-   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
-   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
-   *         more likely to ignore the error message.</p>
+   * The error message contains a generic description of the error condition in English. It is intended for a human audience. Simple programs display the message directly to the end user if they encounter an error condition they don't know how or don't care to handle. Sophisticated programs with more exhaustive error handling and proper internationalization are more likely to ignore the error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -819,8 +750,8 @@ export class SecurityGroupLimitExceeded extends __BaseException {
 }
 
 /**
- * <p>Returned if one of the specified security groups doesn't exist in the subnet's
- *             virtual private cloud (VPC).</p>
+ * Returned if one of the specified security groups doesn't exist in the subnet's virtual private cloud (VPC).
+ *
  * @public
  */
 export class SecurityGroupNotFound extends __BaseException {
@@ -828,18 +759,15 @@ export class SecurityGroupNotFound extends __BaseException {
   readonly name = "SecurityGroupNotFound" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error code is a string that uniquely identifies an error condition.
-   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   * The error code is a string that uniquely identifies an error condition. It is meant to be read and understood by programs that detect and handle errors by type.
+   *
    * @public
    */
   ErrorCode: string | undefined;
 
   /**
-   * <p>The error message contains a generic description of the error
-   *         condition in English. It is intended for a human audience. Simple programs display the message directly
-   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
-   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
-   *         more likely to ignore the error message.</p>
+   * The error message contains a generic description of the error condition in English. It is intended for a human audience. Simple programs display the message directly to the end user if they encounter an error condition they don't know how or don't care to handle. Sophisticated programs with more exhaustive error handling and proper internationalization are more likely to ignore the error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -859,8 +787,8 @@ export class SecurityGroupNotFound extends __BaseException {
 }
 
 /**
- * <p>Returned if there is no subnet with ID <code>SubnetId</code> provided in the
- *             request.</p>
+ * Returned if there is no subnet with ID `SubnetId` provided in the request.
+ *
  * @public
  */
 export class SubnetNotFound extends __BaseException {
@@ -868,18 +796,15 @@ export class SubnetNotFound extends __BaseException {
   readonly name = "SubnetNotFound" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error code is a string that uniquely identifies an error condition.
-   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   * The error code is a string that uniquely identifies an error condition. It is meant to be read and understood by programs that detect and handle errors by type.
+   *
    * @public
    */
   ErrorCode: string | undefined;
 
   /**
-   * <p>The error message contains a generic description of the error
-   *         condition in English. It is intended for a human audience. Simple programs display the message directly
-   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
-   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
-   *         more likely to ignore the error message.</p>
+   * The error message contains a generic description of the error condition in English. It is intended for a human audience. Simple programs display the message directly to the end user if they encounter an error condition they don't know how or don't care to handle. Sophisticated programs with more exhaustive error handling and proper internationalization are more likely to ignore the error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -899,8 +824,8 @@ export class SubnetNotFound extends __BaseException {
 }
 
 /**
- * <p>Returned if the specified file system does not have a replication
- *             configuration.</p>
+ * Returned if the specified file system does not have a replication configuration.
+ *
  * @public
  */
 export class ReplicationNotFound extends __BaseException {
@@ -908,17 +833,15 @@ export class ReplicationNotFound extends __BaseException {
   readonly name = "ReplicationNotFound" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>ReplicationNotFound</p>
+   * ReplicationNotFound
+   *
    * @public
    */
   ErrorCode?: string | undefined;
 
   /**
-   * <p>The error message contains a generic description of the error
-   *         condition in English. It is intended for a human audience. Simple programs display the message directly
-   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
-   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
-   *         more likely to ignore the error message.</p>
+   * The error message contains a generic description of the error condition in English. It is intended for a human audience. Simple programs display the message directly to the end user if they encounter an error condition they don't know how or don't care to handle. Sophisticated programs with more exhaustive error handling and proper internationalization are more likely to ignore the error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -938,7 +861,8 @@ export class ReplicationNotFound extends __BaseException {
 }
 
 /**
- * <p>Returned if the Backup service is not available in the Amazon Web Services Region in which the request was made.</p>
+ * Returned if the Backup service is not available in the Amazon Web Services Region in which the request was made.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -946,18 +870,15 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error code is a string that uniquely identifies an error condition.
-   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   * The error code is a string that uniquely identifies an error condition. It is meant to be read and understood by programs that detect and handle errors by type.
+   *
    * @public
    */
   ErrorCode: string | undefined;
 
   /**
-   * <p>The error message contains a generic description of the error
-   *         condition in English. It is intended for a human audience. Simple programs display the message directly
-   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
-   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
-   *         more likely to ignore the error message.</p>
+   * The error message contains a generic description of the error condition in English. It is intended for a human audience. Simple programs display the message directly to the end user if they encounter an error condition they don't know how or don't care to handle. Sophisticated programs with more exhaustive error handling and proper internationalization are more likely to ignore the error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -977,7 +898,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>Returned if a file system has mount targets.</p>
+ * Returned if a file system has mount targets.
+ *
  * @public
  */
 export class FileSystemInUse extends __BaseException {
@@ -985,18 +907,15 @@ export class FileSystemInUse extends __BaseException {
   readonly name = "FileSystemInUse" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error code is a string that uniquely identifies an error condition.
-   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   * The error code is a string that uniquely identifies an error condition. It is meant to be read and understood by programs that detect and handle errors by type.
+   *
    * @public
    */
   ErrorCode: string | undefined;
 
   /**
-   * <p>The error message contains a generic description of the error
-   *         condition in English. It is intended for a human audience. Simple programs display the message directly
-   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
-   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
-   *         more likely to ignore the error message.</p>
+   * The error message contains a generic description of the error condition in English. It is intended for a human audience. Simple programs display the message directly to the end user if they encounter an error condition they don't know how or don't care to handle. Sophisticated programs with more exhaustive error handling and proper internationalization are more likely to ignore the error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1016,8 +935,8 @@ export class FileSystemInUse extends __BaseException {
 }
 
 /**
- * <p>The service timed out trying to fulfill the request, and the client should try the
- *             call again.</p>
+ * The service timed out trying to fulfill the request, and the client should try the call again.
+ *
  * @public
  */
 export class DependencyTimeout extends __BaseException {
@@ -1025,18 +944,15 @@ export class DependencyTimeout extends __BaseException {
   readonly name = "DependencyTimeout" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>The error code is a string that uniquely identifies an error condition.
-   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   * The error code is a string that uniquely identifies an error condition. It is meant to be read and understood by programs that detect and handle errors by type.
+   *
    * @public
    */
   ErrorCode: string | undefined;
 
   /**
-   * <p>The error message contains a generic description of the error
-   *         condition in English. It is intended for a human audience. Simple programs display the message directly
-   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
-   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
-   *         more likely to ignore the error message.</p>
+   * The error message contains a generic description of the error condition in English. It is intended for a human audience. Simple programs display the message directly to the end user if they encounter an error condition they don't know how or don't care to handle. Sophisticated programs with more exhaustive error handling and proper internationalization are more likely to ignore the error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1056,8 +972,8 @@ export class DependencyTimeout extends __BaseException {
 }
 
 /**
- * <p>Returned if there is no mount target with the specified ID found in the
- *             caller's Amazon Web Services account.</p>
+ * Returned if there is no mount target with the specified ID found in the caller's Amazon Web Services account.
+ *
  * @public
  */
 export class MountTargetNotFound extends __BaseException {
@@ -1065,18 +981,15 @@ export class MountTargetNotFound extends __BaseException {
   readonly name = "MountTargetNotFound" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error code is a string that uniquely identifies an error condition.
-   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   * The error code is a string that uniquely identifies an error condition. It is meant to be read and understood by programs that detect and handle errors by type.
+   *
    * @public
    */
   ErrorCode: string | undefined;
 
   /**
-   * <p>The error message contains a generic description of the error
-   *         condition in English. It is intended for a human audience. Simple programs display the message directly
-   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
-   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
-   *         more likely to ignore the error message.</p>
+   * The error message contains a generic description of the error condition in English. It is intended for a human audience. Simple programs display the message directly to the end user if they encounter an error condition they don't know how or don't care to handle. Sophisticated programs with more exhaustive error handling and proper internationalization are more likely to ignore the error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1096,7 +1009,8 @@ export class MountTargetNotFound extends __BaseException {
 }
 
 /**
- * <p>Returned if <code>no backup</code> is specified for a One Zone EFS file system.</p>
+ * Returned if `no backup` is specified for a One Zone EFS file system.
+ *
  * @public
  */
 export class PolicyNotFound extends __BaseException {
@@ -1104,18 +1018,15 @@ export class PolicyNotFound extends __BaseException {
   readonly name = "PolicyNotFound" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error code is a string that uniquely identifies an error condition.
-   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   * The error code is a string that uniquely identifies an error condition. It is meant to be read and understood by programs that detect and handle errors by type.
+   *
    * @public
    */
   ErrorCode?: string | undefined;
 
   /**
-   * <p>The error message contains a generic description of the error
-   *         condition in English. It is intended for a human audience. Simple programs display the message directly
-   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
-   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
-   *         more likely to ignore the error message.</p>
+   * The error message contains a generic description of the error condition in English. It is intended for a human audience. Simple programs display the message directly to the end user if they encounter an error condition they don't know how or don't care to handle. Sophisticated programs with more exhaustive error handling and proper internationalization are more likely to ignore the error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1135,8 +1046,8 @@ export class PolicyNotFound extends __BaseException {
 }
 
 /**
- * <p>Returned if the mount target is not in the correct state for the
- *             operation.</p>
+ * Returned if the mount target is not in the correct state for the operation.
+ *
  * @public
  */
 export class IncorrectMountTargetState extends __BaseException {
@@ -1144,18 +1055,15 @@ export class IncorrectMountTargetState extends __BaseException {
   readonly name = "IncorrectMountTargetState" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error code is a string that uniquely identifies an error condition.
-   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   * The error code is a string that uniquely identifies an error condition. It is meant to be read and understood by programs that detect and handle errors by type.
+   *
    * @public
    */
   ErrorCode: string | undefined;
 
   /**
-   * <p>The error message contains a generic description of the error
-   *         condition in English. It is intended for a human audience. Simple programs display the message directly
-   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
-   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
-   *         more likely to ignore the error message.</p>
+   * The error message contains a generic description of the error condition in English. It is intended for a human audience. Simple programs display the message directly to the end user if they encounter an error condition they don't know how or don't care to handle. Sophisticated programs with more exhaustive error handling and proper internationalization are more likely to ignore the error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1175,9 +1083,8 @@ export class IncorrectMountTargetState extends __BaseException {
 }
 
 /**
- * <p>Returned if the <code>FileSystemPolicy</code> is malformed or contains an error such
- *             as a parameter value that is not valid or a missing required parameter. Returned in the
- *             case of a policy lockout safety check error.</p>
+ * Returned if the `FileSystemPolicy` is malformed or contains an error such as a parameter value that is not valid or a missing required parameter. Returned in the case of a policy lockout safety check error.
+ *
  * @public
  */
 export class InvalidPolicyException extends __BaseException {
@@ -1185,18 +1092,15 @@ export class InvalidPolicyException extends __BaseException {
   readonly name = "InvalidPolicyException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error code is a string that uniquely identifies an error condition.
-   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   * The error code is a string that uniquely identifies an error condition. It is meant to be read and understood by programs that detect and handle errors by type.
+   *
    * @public
    */
   ErrorCode?: string | undefined;
 
   /**
-   * <p>The error message contains a generic description of the error
-   *         condition in English. It is intended for a human audience. Simple programs display the message directly
-   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
-   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
-   *         more likely to ignore the error message.</p>
+   * The error message contains a generic description of the error condition in English. It is intended for a human audience. Simple programs display the message directly to the end user if they encounter an error condition they don't know how or don't care to handle. Sophisticated programs with more exhaustive error handling and proper internationalization are more likely to ignore the error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1216,8 +1120,8 @@ export class InvalidPolicyException extends __BaseException {
 }
 
 /**
- * <p>Returned if you don’t wait at least 24 hours before either changing the throughput mode, or
- *             decreasing the Provisioned Throughput value.</p>
+ * Returned if you don’t wait at least 24 hours before either changing the throughput mode, or decreasing the Provisioned Throughput value.
+ *
  * @public
  */
 export class TooManyRequests extends __BaseException {
@@ -1225,18 +1129,15 @@ export class TooManyRequests extends __BaseException {
   readonly name = "TooManyRequests" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error code is a string that uniquely identifies an error condition.
-   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   * The error code is a string that uniquely identifies an error condition. It is meant to be read and understood by programs that detect and handle errors by type.
+   *
    * @public
    */
   ErrorCode: string | undefined;
 
   /**
-   * <p>The error message contains a generic description of the error
-   *         condition in English. It is intended for a human audience. Simple programs display the message directly
-   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
-   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
-   *         more likely to ignore the error message.</p>
+   * The error message contains a generic description of the error condition in English. It is intended for a human audience. Simple programs display the message directly to the end user if they encounter an error condition they don't know how or don't care to handle. Sophisticated programs with more exhaustive error handling and proper internationalization are more likely to ignore the error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1256,7 +1157,8 @@ export class TooManyRequests extends __BaseException {
 }
 
 /**
- * <p>Returned if the file system is already included in a replication configuration.></p>
+ * Returned if the file system is already included in a replication configuration.>
+ *
  * @public
  */
 export class ReplicationAlreadyExists extends __BaseException {
@@ -1264,18 +1166,15 @@ export class ReplicationAlreadyExists extends __BaseException {
   readonly name = "ReplicationAlreadyExists" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error code is a string that uniquely identifies an error condition.
-   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   * The error code is a string that uniquely identifies an error condition. It is meant to be read and understood by programs that detect and handle errors by type.
+   *
    * @public
    */
   ErrorCode?: string | undefined;
 
   /**
-   * <p>The error message contains a generic description of the error
-   *         condition in English. It is intended for a human audience. Simple programs display the message directly
-   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
-   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
-   *         more likely to ignore the error message.</p>
+   * The error message contains a generic description of the error condition in English. It is intended for a human audience. Simple programs display the message directly to the end user if they encounter an error condition they don't know how or don't care to handle. Sophisticated programs with more exhaustive error handling and proper internationalization are more likely to ignore the error message.
+   *
    * @public
    */
   Message?: string | undefined;

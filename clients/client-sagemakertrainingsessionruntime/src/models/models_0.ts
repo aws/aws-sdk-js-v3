@@ -4,253 +4,295 @@ import type { DocumentType as __DocumentType, StreamingBlobTypes } from "@smithy
 import type { EncodedTextChunkType, LossFnName, RequestStatus, StopReason } from "./enums";
 
 /**
- * <p>The Adam optimizer hyperparameters used during an optimizer step.</p>
+ * The Adam optimizer hyperparameters used during an optimizer step.
+ *
  * @public
  */
 export interface AdamParamsConfig {
   /**
-   * <p>The learning rate for the optimizer. Must be greater than 0.</p>
+   * The learning rate for the optimizer. Must be greater than 0.
+   *
    * @public
    */
   learningRate: number | undefined;
 
   /**
-   * <p>The exponential decay rate for the first moment estimates.</p>
+   * The exponential decay rate for the first moment estimates.
+   *
    * @public
    */
   beta1?: number | undefined;
 
   /**
-   * <p>The exponential decay rate for the second moment estimates.</p>
+   * The exponential decay rate for the second moment estimates.
+   *
    * @public
    */
   beta2?: number | undefined;
 
   /**
-   * <p>A small constant added to the denominator for numerical stability.</p>
+   * A small constant added to the denominator for numerical stability.
+   *
    * @public
    */
   eps?: number | undefined;
 
   /**
-   * <p>The weight decay (L2 regularization) coefficient.</p>
+   * The weight decay (L2 regularization) coefficient.
+   *
    * @public
    */
   weightDecay?: number | undefined;
 
   /**
-   * <p>The maximum gradient norm for gradient clipping. Gradients are scaled down if their norm exceeds this value.</p>
+   * The maximum gradient norm for gradient clipping. Gradients are scaled down if their norm exceeds this value.
+   *
    * @public
    */
   gradClipNorm?: number | undefined;
 
   /**
-   * <p>The learning rate multiplier for LoRA+ B matrices relative to A matrices. When set, B matrices use <code>learningRate * loraPlusLrRatio</code> while A matrices use the base learning rate.</p>
+   * The learning rate multiplier for LoRA+ B matrices relative to A matrices. When set, B matrices use `learningRate * loraPlusLrRatio` while A matrices use the base learning rate.
+   *
    * @public
    */
   loraPlusLrRatio?: number | undefined;
 }
 
 /**
- * <p>A chunk of pre-tokenized text represented as a list of token IDs.</p>
+ * A chunk of pre-tokenized text represented as a list of token IDs.
+ *
  * @public
  */
 export interface EncodedTextChunk {
   /**
-   * <p>The token IDs representing the encoded text.</p>
+   * The token IDs representing the encoded text.
+   *
    * @public
    */
   tokens: number[] | undefined;
 
   /**
-   * <p>The type of the chunk encoding.</p>
+   * The type of the chunk encoding.
+   *
    * @public
    */
   type: EncodedTextChunkType | undefined;
 }
 
 /**
- * <p>The tokenized model input composed of ordered encoded text chunks.</p>
+ * The tokenized model input composed of ordered encoded text chunks.
+ *
  * @public
  */
 export interface ModelInput {
   /**
-   * <p>The ordered list of encoded text chunks forming the input sequence.</p>
+   * The ordered list of encoded text chunks forming the input sequence.
+   *
    * @public
    */
   chunks: EncodedTextChunk[] | undefined;
 }
 
 /**
- * <p>The configuration for computing log-probabilities of prompt tokens without generating new text.</p>
+ * The configuration for computing log-probabilities of prompt tokens without generating new text.
+ *
  * @public
  */
 export interface ComputeLogprobsConfig {
   /**
-   * <p>The input prompt whose token log-probabilities will be computed.</p>
+   * The input prompt whose token log-probabilities will be computed.
+   *
    * @public
    */
   prompt: ModelInput | undefined;
 
   /**
-   * <p>The ARN of the model package whose checkpoint this operation should run against. Must be a valid SageMaker model package ARN in the format <code>arn:aws:sagemaker:REGION:ACCOUNT:model-package/PACKAGE_NAME/VERSION</code>. When absent, the operation runs against the session's latest checkpoint.</p>
+   * The ARN of the model package whose checkpoint this operation should run against. Must be a valid SageMaker model package ARN in the format `arn:aws:sagemaker:REGION:ACCOUNT:model-package/PACKAGE_NAME/VERSION`. When absent, the operation runs against the session's latest checkpoint.
+   *
    * @public
    */
   modelPackageArn?: string | undefined;
 }
 
 /**
- * <p>The result of a compute-logprobs operation.</p>
+ * The result of a compute-logprobs operation.
+ *
  * @public
  */
 export interface ComputeLogprobsResult {
   /**
-   * <p>The per-token log-probabilities for the input prompt.</p>
+   * The per-token log-probabilities for the input prompt.
+   *
    * @public
    */
   logprobs: number[] | undefined;
 }
 
 /**
- * <p>A tensor with data, data type, and shape metadata.</p>
+ * A tensor with data, data type, and shape metadata.
+ *
  * @public
  */
 export interface TensorData {
   /**
-   * <p>The raw tensor data as JSON. The format is determined by the <code>dtype</code> field: integer arrays for <code>int64</code>, floating-point arrays for <code>float32</code>.</p>
+   * The raw tensor data as JSON. The format is determined by the `dtype` field: integer arrays for `int64`, floating-point arrays for `float32`.
+   *
    * @public
    */
   data: __DocumentType | undefined;
 
   /**
-   * <p>The data type of the tensor elements, such as <code>int64</code> or <code>float32</code>.</p>
+   * The data type of the tensor elements, such as `int64` or `float32`.
+   *
    * @public
    */
   dtype: string | undefined;
 
   /**
-   * <p>The dimensions of the tensor, such as [batch_size, seq_length].</p>
+   * The dimensions of the tensor, such as [batch_size, seq_length].
+   *
    * @public
    */
   shape?: number[] | undefined;
 }
 
 /**
- * <p>A single training datum containing model input and optional loss function inputs.</p>
+ * A single training datum containing model input and optional loss function inputs.
+ *
  * @public
  */
 export interface Datum {
   /**
-   * <p>The tokenized input to feed to the model.</p>
+   * The tokenized input to feed to the model.
+   *
    * @public
    */
   modelInput: ModelInput | undefined;
 
   /**
-   * <p>The tensor inputs for the loss function, keyed by name. Unsupported keys are rejected. Supported keys: <code>target_tokens</code>, <code>weights</code>, <code>advantages</code>, <code>logprobs</code>, <code>ref_log_prob</code>, <code>temperature</code>. Required keys depend on the loss function type: SFT (<code>cross_entropy</code>) requires <code>target_tokens</code> and <code>weights</code>; RL (<code>ppo</code>, <code>cispo</code>, <code>importance_sampling</code>) requires <code>target_tokens</code>, <code>weights</code>, <code>advantages</code>, and <code>logprobs</code>.</p>
+   * The tensor inputs for the loss function, keyed by name. Unsupported keys are rejected. Supported keys: `target_tokens`, `weights`, `advantages`, `logprobs`, `ref_log_prob`, `temperature`. Required keys depend on the loss function type: SFT (`cross_entropy`) requires `target_tokens` and `weights`; RL (`ppo`, `cispo`, `importance_sampling`) requires `target_tokens`, `weights`, `advantages`, and `logprobs`.
+   *
    * @public
    */
   lossFnInputs?: Record<string, TensorData> | undefined;
 }
 
 /**
- * <p>The configuration for loading model weights for inference and sampling without restoring optimizer state.</p>
+ * The configuration for loading model weights for inference and sampling without restoring optimizer state.
+ *
  * @public
  */
 export interface LoadWeightsForSamplingConfig {
   /**
-   * <p>The ARN of the model package containing the weights to load for sampling. Must be a valid SageMaker model package ARN in the format <code>arn:aws:sagemaker:REGION:ACCOUNT:model-package/PACKAGE_NAME/VERSION</code>. The model package must belong to the same AWS account as the training session.</p>
+   * The ARN of the model package containing the weights to load for sampling. Must be a valid SageMaker model package ARN in the format `arn:aws:sagemaker:REGION:ACCOUNT:model-package/PACKAGE_NAME/VERSION`. The model package must belong to the same AWS account as the training session.
+   *
    * @public
    */
   modelPackageArn: string | undefined;
 }
 
 /**
- * <p>The parameters controlling the text generation sampling strategy.</p>
+ * The parameters controlling the text generation sampling strategy.
+ *
  * @public
  */
 export interface SamplingParams {
   /**
-   * <p>The maximum number of tokens to generate per sample.</p>
+   * The maximum number of tokens to generate per sample.
+   *
    * @public
    */
   maxTokens: number | undefined;
 
   /**
-   * <p>The sampling temperature controlling randomness. Higher values produce more diverse outputs.</p>
+   * The sampling temperature controlling randomness. Higher values produce more diverse outputs.
+   *
    * @public
    */
   temperature?: number | undefined;
 
   /**
-   * <p>The number of highest-probability vocabulary tokens to keep for top-k filtering. Set to -1 to disable.</p>
+   * The number of highest-probability vocabulary tokens to keep for top-k filtering. Set to -1 to disable.
+   *
    * @public
    */
   topK?: number | undefined;
 
   /**
-   * <p>The cumulative probability threshold for nucleus (top-p) sampling. Only tokens with cumulative probability below this threshold are considered.</p>
+   * The cumulative probability threshold for nucleus (top-p) sampling. Only tokens with cumulative probability below this threshold are considered.
+   *
    * @public
    */
   topP?: number | undefined;
 
   /**
-   * <p>The random seed for reproducible sampling. When set, the same seed with the same input produces deterministic outputs.</p>
+   * The random seed for reproducible sampling. When set, the same seed with the same input produces deterministic outputs.
+   *
    * @public
    */
   seed?: number | undefined;
 
   /**
-   * <p>The list of stop sequences that terminate generation when encountered in the output.</p>
+   * The list of stop sequences that terminate generation when encountered in the output.
+   *
    * @public
    */
   stop?: string[] | undefined;
 }
 
 /**
- * <p>The configuration for generating text samples from the model.</p>
+ * The configuration for generating text samples from the model.
+ *
  * @public
  */
 export interface SampleConfig {
   /**
-   * <p>The input prompt to send to the model for text generation.</p>
+   * The input prompt to send to the model for text generation.
+   *
    * @public
    */
   prompt: ModelInput | undefined;
 
   /**
-   * <p>The number of independent samples to generate for the prompt.</p>
+   * The number of independent samples to generate for the prompt.
+   *
    * @public
    */
   numSamples: number | undefined;
 
   /**
-   * <p>The parameters controlling the sampling strategy.</p>
+   * The parameters controlling the sampling strategy.
+   *
    * @public
    */
   samplingParams: SamplingParams | undefined;
 
   /**
-   * <p>Specifies whether to include per-token log-probabilities for the input prompt in the response.</p>
+   * Specifies whether to include per-token log-probabilities for the input prompt in the response.
+   *
    * @public
    */
   includePromptLogprobs?: boolean | undefined;
 
   /**
-   * <p>The number of top-k log-probabilities to return per prompt token.</p>
+   * The number of top-k log-probabilities to return per prompt token.
+   *
    * @public
    */
   topkPromptLogprobs?: number | undefined;
 
   /**
-   * <p>The ARN of the model package whose checkpoint this sample should run against. Must be a valid SageMaker model package ARN in the format <code>arn:aws:sagemaker:REGION:ACCOUNT:model-package/PACKAGE_NAME/VERSION</code>. When absent, the sample runs against the session's latest checkpoint.</p>
+   * The ARN of the model package whose checkpoint this sample should run against. Must be a valid SageMaker model package ARN in the format `arn:aws:sagemaker:REGION:ACCOUNT:model-package/PACKAGE_NAME/VERSION`. When absent, the sample runs against the session's latest checkpoint.
+   *
    * @public
    */
   modelPackageArn?: string | undefined;
 }
 
 /**
- * <p>The configuration for a sampling operation. Exactly one member must be set to specify the operation type.</p>
+ * The configuration for a sampling operation. Exactly one member must be set to specify the operation type.
+ *
  * @public
  */
 export type SampleOperationConfig =
@@ -264,7 +306,8 @@ export type SampleOperationConfig =
  */
 export namespace SampleOperationConfig {
   /**
-   * <p>The configuration for generating text samples from the model.</p>
+   * The configuration for generating text samples from the model.
+   *
    * @public
    */
   export interface SampleMember {
@@ -275,7 +318,8 @@ export namespace SampleOperationConfig {
   }
 
   /**
-   * <p>The configuration for computing log-probabilities of prompt tokens without generating new text.</p>
+   * The configuration for computing log-probabilities of prompt tokens without generating new text.
+   *
    * @public
    */
   export interface ComputeLogprobsMember {
@@ -286,7 +330,8 @@ export namespace SampleOperationConfig {
   }
 
   /**
-   * <p>The configuration for loading model weights for inference and sampling without restoring optimizer state.</p>
+   * The configuration for loading model weights for inference and sampling without restoring optimizer state.
+   *
    * @public
    */
   export interface LoadWeightsForSamplingMember {
@@ -323,13 +368,15 @@ export namespace SampleOperationConfig {
  */
 export interface ExecuteSamplingOperationInput {
   /**
-   * <p>The name of the training session to sample from.</p>
+   * The name of the training session to sample from.
+   *
    * @public
    */
   trainingSessionName: string | undefined;
 
   /**
-   * <p>The configuration for the sample operation. Specify either a sample configuration to generate text or a computeLogprobs configuration to compute token log-probabilities.</p>
+   * The configuration for the sample operation. Specify either a sample configuration to generate text or a computeLogprobs configuration to compute token log-probabilities.
+   *
    * @public
    */
   operationConfig: SampleOperationConfig | undefined;
@@ -340,122 +387,142 @@ export interface ExecuteSamplingOperationInput {
  */
 export interface ExecuteSamplingOperationOutput {
   /**
-   * <p>The unique identifier for the submitted sample operation. Use this identifier with <code>GetSamplingOperationResult</code> to retrieve the operation status and result.</p>
+   * The unique identifier for the submitted sample operation. Use this identifier with `GetSamplingOperationResult` to retrieve the operation status and result.
+   *
    * @public
    */
   operationId: string | undefined;
 }
 
 /**
- * <p>The configuration for a forward-only pass through the model. This computes loss values without computing gradients.</p>
+ * The configuration for a forward-only pass through the model. This computes loss values without computing gradients.
+ *
  * @public
  */
 export interface ForwardConfig {
   /**
-   * <p>The name of the loss function to evaluate during the forward pass.</p>
+   * The name of the loss function to evaluate during the forward pass.
+   *
    * @public
    */
   lossFnName: LossFnName | undefined;
 
   /**
-   * <p>The list of input data to feed through the model. Must contain at least one datum, and each datum must have a non-empty modelInput with at least one chunk.</p>
+   * The list of input data to feed through the model. Must contain at least one datum, and each datum must have a non-empty modelInput with at least one chunk.
+   *
    * @public
    */
   datumList: Datum[] | undefined;
 
   /**
-   * <p>Additional loss function configuration passed to the engine. Supported keys are <code>clip_low_threshold</code> (valid range: 0 to 1) and <code>clip_high_threshold</code> (valid range: 1 to 10). Unsupported keys are rejected.</p>
+   * Additional loss function configuration passed to the engine. Supported keys are `clip_low_threshold` (valid range: 0 to 1) and `clip_high_threshold` (valid range: 1 to 10). Unsupported keys are rejected.
+   *
    * @public
    */
   lossFnConfig?: __DocumentType | undefined;
 }
 
 /**
- * <p>The configuration for a forward and backward pass through the model. This computes both loss values and gradients for use in subsequent optimizer steps.</p>
+ * The configuration for a forward and backward pass through the model. This computes both loss values and gradients for use in subsequent optimizer steps.
+ *
  * @public
  */
 export interface ForwardBackwardConfig {
   /**
-   * <p>The name of the loss function to evaluate during the forward-backward pass.</p>
+   * The name of the loss function to evaluate during the forward-backward pass.
+   *
    * @public
    */
   lossFnName: LossFnName | undefined;
 
   /**
-   * <p>The list of input data to feed through the model. Must contain at least one datum, and each datum must have a non-empty modelInput with at least one chunk.</p>
+   * The list of input data to feed through the model. Must contain at least one datum, and each datum must have a non-empty modelInput with at least one chunk.
+   *
    * @public
    */
   datumList: Datum[] | undefined;
 
   /**
-   * <p>Additional loss function configuration passed to the engine. Supported keys are <code>clip_low_threshold</code> (valid range: 0 to 1) and <code>clip_high_threshold</code> (valid range: 1 to 10). Unsupported keys are rejected.</p>
+   * Additional loss function configuration passed to the engine. Supported keys are `clip_low_threshold` (valid range: 0 to 1) and `clip_high_threshold` (valid range: 1 to 10). Unsupported keys are rejected.
+   *
    * @public
    */
   lossFnConfig?: __DocumentType | undefined;
 }
 
 /**
- * <p>The configuration for loading training state from a previously saved checkpoint. This restores model weights and optionally optimizer state.</p>
+ * The configuration for loading training state from a previously saved checkpoint. This restores model weights and optionally optimizer state.
+ *
  * @public
  */
 export interface LoadStateConfig {
   /**
-   * <p>The ARN of the model package containing the checkpoint to load. Must be a valid SageMaker model package ARN in the format <code>arn:aws:sagemaker:REGION:ACCOUNT:model-package/PACKAGE_NAME/VERSION</code>. Model package group ARNs are not accepted.</p>
+   * The ARN of the model package containing the checkpoint to load. Must be a valid SageMaker model package ARN in the format `arn:aws:sagemaker:REGION:ACCOUNT:model-package/PACKAGE_NAME/VERSION`. Model package group ARNs are not accepted.
+   *
    * @public
    */
   modelPackageArn: string | undefined;
 
   /**
-   * <p>Specifies whether to also restore the optimizer state alongside model weights. When true, optimizer state is restored to resume training from where it left off.</p>
+   * Specifies whether to also restore the optimizer state alongside model weights. When true, optimizer state is restored to resume training from where it left off.
+   *
    * @public
    */
   loadOptimizer: boolean | undefined;
 }
 
 /**
- * <p>The configuration for an optimizer step that updates model weights using gradients accumulated from previous forward-backward passes.</p>
+ * The configuration for an optimizer step that updates model weights using gradients accumulated from previous forward-backward passes.
+ *
  * @public
  */
 export interface OptimizerStepConfig {
   /**
-   * <p>The Adam optimizer hyperparameters for this step.</p>
+   * The Adam optimizer hyperparameters for this step.
+   *
    * @public
    */
   adamParamsConfig: AdamParamsConfig | undefined;
 }
 
 /**
- * <p>The configuration for saving full training state, including model weights and optimizer state. Use this to create resumable checkpoints.</p>
+ * The configuration for saving full training state, including model weights and optimizer state. Use this to create resumable checkpoints.
+ *
  * @public
  */
 export interface SaveStateConfig {
   /**
-   * <p>A human-readable description for the saved state checkpoint.</p>
+   * A human-readable description for the saved state checkpoint.
+   *
    * @public
    */
   description?: string | undefined;
 }
 
 /**
- * <p>The configuration for saving model weights as a checkpoint.</p>
+ * The configuration for saving model weights as a checkpoint.
+ *
  * @public
  */
 export interface SaveWeightsConfig {
   /**
-   * <p>Specifies whether to merge LoRA adapter weights into the base model before saving. When true, the saved checkpoint contains the full merged model weights.</p>
+   * Specifies whether to merge LoRA adapter weights into the base model before saving. When true, the saved checkpoint contains the full merged model weights.
+   *
    * @public
    */
   mergeWeights?: boolean | undefined;
 
   /**
-   * <p>A human-readable description for the saved checkpoint.</p>
+   * A human-readable description for the saved checkpoint.
+   *
    * @public
    */
   description?: string | undefined;
 }
 
 /**
- * <p>The configuration for a training operation. Exactly one member must be set to specify the operation type and its parameters.</p>
+ * The configuration for a training operation. Exactly one member must be set to specify the operation type and its parameters.
+ *
  * @public
  */
 export type OperationConfig =
@@ -472,7 +539,8 @@ export type OperationConfig =
  */
 export namespace OperationConfig {
   /**
-   * <p>The configuration for a forward-only pass through the model without gradient computation.</p>
+   * The configuration for a forward-only pass through the model without gradient computation.
+   *
    * @public
    */
   export interface ForwardMember {
@@ -486,7 +554,8 @@ export namespace OperationConfig {
   }
 
   /**
-   * <p>The configuration for a forward and backward pass that computes gradients.</p>
+   * The configuration for a forward and backward pass that computes gradients.
+   *
    * @public
    */
   export interface ForwardBackwardMember {
@@ -500,7 +569,8 @@ export namespace OperationConfig {
   }
 
   /**
-   * <p>The configuration for an optimizer step that updates model weights using accumulated gradients.</p>
+   * The configuration for an optimizer step that updates model weights using accumulated gradients.
+   *
    * @public
    */
   export interface OptimizerStepMember {
@@ -514,7 +584,8 @@ export namespace OperationConfig {
   }
 
   /**
-   * <p>The configuration for saving model weights as a checkpoint.</p>
+   * The configuration for saving model weights as a checkpoint.
+   *
    * @public
    */
   export interface SaveWeightsMember {
@@ -528,7 +599,8 @@ export namespace OperationConfig {
   }
 
   /**
-   * <p>The configuration for saving full training state, including model weights and optimizer state.</p>
+   * The configuration for saving full training state, including model weights and optimizer state.
+   *
    * @public
    */
   export interface SaveStateMember {
@@ -542,7 +614,8 @@ export namespace OperationConfig {
   }
 
   /**
-   * <p>The configuration for loading training state from a previously saved checkpoint.</p>
+   * The configuration for loading training state from a previously saved checkpoint.
+   *
    * @public
    */
   export interface LoadStateMember {
@@ -588,25 +661,29 @@ export namespace OperationConfig {
  */
 export interface ExecuteTrainingOperationInput {
   /**
-   * <p>The name of the training session to submit the operation to.</p>
+   * The name of the training session to submit the operation to.
+   *
    * @public
    */
   trainingSessionName: string | undefined;
 
   /**
-   * <p>The monotonically increasing sequence number that determines execution order. The training session processes operations strictly in sequence number order. If a gap exists, the session blocks until the missing operation arrives or times out. Must be at least 1.</p>
+   * The monotonically increasing sequence number that determines execution order. The training session processes operations strictly in sequence number order. If a gap exists, the session blocks until the missing operation arrives or times out. Must be at least 1.
+   *
    * @public
    */
   sequenceNumber: number | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure that the operation completes no more than one time. If you retry a request with the same client token and the same parameters, the service ignores the request but does not return an error.</p>
+   * A unique, case-sensitive identifier that you provide to ensure that the operation completes no more than one time. If you retry a request with the same client token and the same parameters, the service ignores the request but does not return an error.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The configuration that specifies the type and parameters of the training operation. Exactly one member of the union must be set.</p>
+   * The configuration that specifies the type and parameters of the training operation. Exactly one member of the union must be set.
+   *
    * @public
    */
   operationConfig: OperationConfig | undefined;
@@ -617,79 +694,92 @@ export interface ExecuteTrainingOperationInput {
  */
 export interface ExecuteTrainingOperationOutput {
   /**
-   * <p>The unique identifier for the submitted operation. Use this identifier with <code>GetTrainingOperationResult</code> to retrieve the operation status and result.</p>
+   * The unique identifier for the submitted operation. Use this identifier with `GetTrainingOperationResult` to retrieve the operation status and result.
+   *
    * @public
    */
   operationId: string | undefined;
 }
 
 /**
- * <p>The token usage statistics for training operations.</p>
+ * The token usage statistics for training operations.
+ *
  * @public
  */
 export interface TrainingTokenUsage {
   /**
-   * <p>The number of training tokens consumed by the operation.</p>
+   * The number of training tokens consumed by the operation.
+   *
    * @public
    */
   trainingTokens?: number | undefined;
 }
 
 /**
- * <p>The result of a forward and backward pass through the model, including computed gradients.</p>
+ * The result of a forward and backward pass through the model, including computed gradients.
+ *
  * @public
  */
 export interface ForwardBackwardResult {
   /**
-   * <p>The data type of the loss function output tensors.</p>
+   * The data type of the loss function output tensors.
+   *
    * @public
    */
   lossFnOutputType?: string | undefined;
 
   /**
-   * <p>The loss function output tensors, keyed by name.</p>
+   * The loss function output tensors, keyed by name.
+   *
    * @public
    */
   lossFnOutputs?: Record<string, TensorData>[] | undefined;
 
   /**
-   * <p>The training metrics emitted by the engine, such as loss values.</p>
+   * The training metrics emitted by the engine, such as loss values.
+   *
    * @public
    */
   metrics?: Record<string, number> | undefined;
 
   /**
-   * <p>The token usage statistics for metering.</p>
+   * The token usage statistics for metering.
+   *
    * @public
    */
   tokenUsage?: TrainingTokenUsage | undefined;
 }
 
 /**
- * <p>The result of a forward-only pass through the model.</p>
+ * The result of a forward-only pass through the model.
+ *
  * @public
  */
 export interface ForwardResult {
   /**
-   * <p>The data type of the loss function output tensors.</p>
+   * The data type of the loss function output tensors.
+   *
    * @public
    */
   lossFnOutputType?: string | undefined;
 
   /**
-   * <p>The loss function output tensors, keyed by name.</p>
+   * The loss function output tensors, keyed by name.
+   *
    * @public
    */
   lossFnOutputs?: Record<string, TensorData>[] | undefined;
 
   /**
-   * <p>The training metrics emitted by the engine, such as loss values.</p>
+   * The training metrics emitted by the engine, such as loss values.
+   *
    * @public
    */
   metrics?: Record<string, number> | undefined;
 
   /**
-   * <p>The token usage statistics for metering.</p>
+   * The token usage statistics for metering.
+   *
    * @public
    */
   tokenUsage?: TrainingTokenUsage | undefined;
@@ -700,116 +790,135 @@ export interface ForwardResult {
  */
 export interface GetSamplingOperationResultInput {
   /**
-   * <p>The name of the training session that owns the sample operation.</p>
+   * The name of the training session that owns the sample operation.
+   *
    * @public
    */
   trainingSessionName: string | undefined;
 
   /**
-   * <p>The unique identifier of the sample operation to retrieve, returned by <code>ExecuteSamplingOperation</code>.</p>
+   * The unique identifier of the sample operation to retrieve, returned by `ExecuteSamplingOperation`.
+   *
    * @public
    */
   operationId: string | undefined;
 }
 
 /**
- * <p>The result of loading weights for sampling. An empty response indicates success.</p>
+ * The result of loading weights for sampling. An empty response indicates success.
+ *
  * @public
  */
 export interface LoadWeightsForSamplingResult {}
 
 /**
- * <p>The token usage statistics for a sample generation.</p>
+ * The token usage statistics for a sample generation.
+ *
  * @public
  */
 export interface SampleTokenUsage {
   /**
-   * <p>The number of tokens in the input prompt (prefill phase).</p>
+   * The number of tokens in the input prompt (prefill phase).
+   *
    * @public
    */
   prefill: number | undefined;
 
   /**
-   * <p>The number of tokens generated (decode phase).</p>
+   * The number of tokens generated (decode phase).
+   *
    * @public
    */
   decode: number | undefined;
 }
 
 /**
- * <p>A single generated sequence from the model.</p>
+ * A single generated sequence from the model.
+ *
  * @public
  */
 export interface SampledSequence {
   /**
-   * <p>The reason why generation stopped. A value of <code>stop</code> indicates a stop sequence was encountered. A value of <code>length</code> indicates the maximum token limit was reached.</p>
+   * The reason why generation stopped. A value of `stop` indicates a stop sequence was encountered. A value of `length` indicates the maximum token limit was reached.
+   *
    * @public
    */
   stopReason: StopReason | undefined;
 
   /**
-   * <p>The token IDs of the generated sequence.</p>
+   * The token IDs of the generated sequence.
+   *
    * @public
    */
   tokens: number[] | undefined;
 
   /**
-   * <p>The per-token log-probabilities for the generated tokens.</p>
+   * The per-token log-probabilities for the generated tokens.
+   *
    * @public
    */
   logprobs?: number[] | undefined;
 
   /**
-   * <p>The token usage statistics for this individual sample.</p>
+   * The token usage statistics for this individual sample.
+   *
    * @public
    */
   tokenUsage?: SampleTokenUsage | undefined;
 }
 
 /**
- * <p>The log-probability for a single token.</p>
+ * The log-probability for a single token.
+ *
  * @public
  */
 export interface TokenLogprob {
   /**
-   * <p>The vocabulary token ID.</p>
+   * The vocabulary token ID.
+   *
    * @public
    */
   tokenId: number | undefined;
 
   /**
-   * <p>The log-probability of the token.</p>
+   * The log-probability of the token.
+   *
    * @public
    */
   logprob: number | undefined;
 }
 
 /**
- * <p>The response containing generated samples and optional log-probabilities.</p>
+ * The response containing generated samples and optional log-probabilities.
+ *
  * @public
  */
 export interface SampleResponse {
   /**
-   * <p>The list of generated sequences.</p>
+   * The list of generated sequences.
+   *
    * @public
    */
   sequences: SampledSequence[] | undefined;
 
   /**
-   * <p>The per-token log-probabilities for the input prompt. Populated only when <code>includePromptLogprobs</code> is true.</p>
+   * The per-token log-probabilities for the input prompt. Populated only when `includePromptLogprobs` is true.
+   *
    * @public
    */
   promptLogprobs?: number[] | undefined;
 
   /**
-   * <p>The top-k log-probabilities per prompt token, as a list of lists. Populated only when <code>topkPromptLogprobs</code> is greater than 0.</p>
+   * The top-k log-probabilities per prompt token, as a list of lists. Populated only when `topkPromptLogprobs` is greater than 0.
+   *
    * @public
    */
   topkPromptLogprobs?: TokenLogprob[][] | undefined;
 }
 
 /**
- * <p>The result of a completed sampling operation. Exactly one member is populated, corresponding to the operation type that was submitted.</p>
+ * The result of a completed sampling operation. Exactly one member is populated, corresponding to the operation type that was submitted.
+ *
  * @public
  */
 export type SampleOperationResult =
@@ -823,7 +932,8 @@ export type SampleOperationResult =
  */
 export namespace SampleOperationResult {
   /**
-   * <p>The generated text samples from the model.</p>
+   * The generated text samples from the model.
+   *
    * @public
    */
   export interface SampleMember {
@@ -834,7 +944,8 @@ export namespace SampleOperationResult {
   }
 
   /**
-   * <p>The computed log-probabilities for the prompt tokens.</p>
+   * The computed log-probabilities for the prompt tokens.
+   *
    * @public
    */
   export interface ComputeLogprobsMember {
@@ -845,7 +956,8 @@ export namespace SampleOperationResult {
   }
 
   /**
-   * <p>The result from loading weights for sampling.</p>
+   * The result from loading weights for sampling.
+   *
    * @public
    */
   export interface LoadWeightsForSamplingMember {
@@ -882,19 +994,22 @@ export namespace SampleOperationResult {
  */
 export interface GetSamplingOperationResultOutput {
   /**
-   * <p>The current status of the sample operation. Possible values are <code>Pending</code>, <code>InProgress</code>, <code>Completed</code>, or <code>Failed</code>.</p>
+   * The current status of the sample operation. Possible values are `Pending`, `InProgress`, `Completed`, or `Failed`.
+   *
    * @public
    */
   status: RequestStatus | undefined;
 
   /**
-   * <p>The result payload of the sample operation. The service populates this field only when the status is <code>Completed</code>.</p>
+   * The result payload of the sample operation. The service populates this field only when the status is `Completed`.
+   *
    * @public
    */
   operationResult?: SampleOperationResult | undefined;
 
   /**
-   * <p>A message describing why the sample operation failed. The service populates this field only when the status is <code>Failed</code>.</p>
+   * A message describing why the sample operation failed. The service populates this field only when the status is `Failed`.
+   *
    * @public
    */
   errorDetails?: string | undefined;
@@ -905,62 +1020,72 @@ export interface GetSamplingOperationResultOutput {
  */
 export interface GetTrainingOperationResultInput {
   /**
-   * <p>The name of the training session that owns the operation.</p>
+   * The name of the training session that owns the operation.
+   *
    * @public
    */
   trainingSessionName: string | undefined;
 
   /**
-   * <p>The unique identifier of the operation to retrieve, returned by <code>ExecuteTrainingOperation</code>.</p>
+   * The unique identifier of the operation to retrieve, returned by `ExecuteTrainingOperation`.
+   *
    * @public
    */
   operationId: string | undefined;
 }
 
 /**
- * <p>The result of loading training state. An empty response indicates success.</p>
+ * The result of loading training state. An empty response indicates success.
+ *
  * @public
  */
 export interface LoadStateResult {}
 
 /**
- * <p>The result of an optimizer step.</p>
+ * The result of an optimizer step.
+ *
  * @public
  */
 export interface OptimizerStepResult {
   /**
-   * <p>The training metrics emitted by the engine after the optimizer step.</p>
+   * The training metrics emitted by the engine after the optimizer step.
+   *
    * @public
    */
   metrics?: Record<string, number> | undefined;
 }
 
 /**
- * <p>The result of saving full training state.</p>
+ * The result of saving full training state.
+ *
  * @public
  */
 export interface SaveStateResult {
   /**
-   * <p>The ARN of the model package created for the saved state checkpoint.</p>
+   * The ARN of the model package created for the saved state checkpoint.
+   *
    * @public
    */
   modelPackageArn: string | undefined;
 }
 
 /**
- * <p>The result of saving model weights.</p>
+ * The result of saving model weights.
+ *
  * @public
  */
 export interface SaveWeightsResult {
   /**
-   * <p>The ARN of the model package created for the saved weights.</p>
+   * The ARN of the model package created for the saved weights.
+   *
    * @public
    */
   modelPackageArn?: string | undefined;
 }
 
 /**
- * <p>The result of a completed training operation. Exactly one member is populated, corresponding to the operation type that was submitted.</p>
+ * The result of a completed training operation. Exactly one member is populated, corresponding to the operation type that was submitted.
+ *
  * @public
  */
 export type OperationResult =
@@ -977,7 +1102,8 @@ export type OperationResult =
  */
 export namespace OperationResult {
   /**
-   * <p>The result from a forward-only pass.</p>
+   * The result from a forward-only pass.
+   *
    * @public
    */
   export interface ForwardMember {
@@ -991,7 +1117,8 @@ export namespace OperationResult {
   }
 
   /**
-   * <p>The result from a forward and backward pass.</p>
+   * The result from a forward and backward pass.
+   *
    * @public
    */
   export interface ForwardBackwardMember {
@@ -1005,7 +1132,8 @@ export namespace OperationResult {
   }
 
   /**
-   * <p>The result from an optimizer step.</p>
+   * The result from an optimizer step.
+   *
    * @public
    */
   export interface OptimizerStepMember {
@@ -1019,7 +1147,8 @@ export namespace OperationResult {
   }
 
   /**
-   * <p>The result from saving model weights.</p>
+   * The result from saving model weights.
+   *
    * @public
    */
   export interface SaveWeightsMember {
@@ -1033,7 +1162,8 @@ export namespace OperationResult {
   }
 
   /**
-   * <p>The result from saving full training state.</p>
+   * The result from saving full training state.
+   *
    * @public
    */
   export interface SaveStateMember {
@@ -1047,7 +1177,8 @@ export namespace OperationResult {
   }
 
   /**
-   * <p>The result from loading training state.</p>
+   * The result from loading training state.
+   *
    * @public
    */
   export interface LoadStateMember {
@@ -1093,25 +1224,29 @@ export namespace OperationResult {
  */
 export interface GetTrainingOperationResultOutput {
   /**
-   * <p>The current status of the operation. Possible values are <code>Pending</code>, <code>InProgress</code>, <code>Completed</code>, <code>Failed</code>, or <code>Skipped</code>.</p>
+   * The current status of the operation. Possible values are `Pending`, `InProgress`, `Completed`, `Failed`, or `Skipped`.
+   *
    * @public
    */
   status: RequestStatus | undefined;
 
   /**
-   * <p>The result payload of the operation. The service populates this field only when the status is <code>Completed</code>. The populated member of the union corresponds to the operation type that was submitted.</p>
+   * The result payload of the operation. The service populates this field only when the status is `Completed`. The populated member of the union corresponds to the operation type that was submitted.
+   *
    * @public
    */
   operationResult?: OperationResult | undefined;
 
   /**
-   * <p>A message describing why the operation failed. The service populates this field only when the status is <code>Failed</code>.</p>
+   * A message describing why the operation failed. The service populates this field only when the status is `Failed`.
+   *
    * @public
    */
   errorDetails?: string | undefined;
 
   /**
-   * <p>The token usage statistics for metering purposes. The service populates this field for forward and forwardBackward operations upon completion.</p>
+   * The token usage statistics for metering purposes. The service populates this field for forward and forwardBackward operations upon completion.
+   *
    * @public
    */
   tokenUsage?: TrainingTokenUsage | undefined;
@@ -1122,31 +1257,36 @@ export interface GetTrainingOperationResultOutput {
  */
 export interface SampleTrainingSessionInput {
   /**
-   * <p>The name of the training session whose model to invoke.</p>
+   * The name of the training session whose model to invoke.
+   *
    * @public
    */
   trainingSessionName: string | undefined;
 
   /**
-   * <p>The MIME type of the input data in the request body.</p>
+   * The MIME type of the input data in the request body.
+   *
    * @public
    */
   contentType?: string | undefined;
 
   /**
-   * <p>The desired MIME type of the inference body in the response.</p>
+   * The desired MIME type of the inference body in the response.
+   *
    * @public
    */
   accept?: string | undefined;
 
   /**
-   * <p>The ARN of the model package whose checkpoint to invoke.</p>
+   * The ARN of the model package whose checkpoint to invoke.
+   *
    * @public
    */
   modelPackageArn?: string | undefined;
 
   /**
-   * <p>The raw inference request body.</p>
+   * The raw inference request body.
+   *
    * @public
    */
   body?: Uint8Array | undefined;
@@ -1157,13 +1297,15 @@ export interface SampleTrainingSessionInput {
  */
 export interface SampleTrainingSessionOutput {
   /**
-   * <p>The MIME type of the inference result in the response body.</p>
+   * The MIME type of the inference result in the response body.
+   *
    * @public
    */
   contentType?: string | undefined;
 
   /**
-   * <p>The raw inference response body from the model.</p>
+   * The raw inference response body from the model.
+   *
    * @public
    */
   body: Uint8Array | undefined;
@@ -1174,31 +1316,36 @@ export interface SampleTrainingSessionOutput {
  */
 export interface SampleTrainingSessionWithResponseStreamInput {
   /**
-   * <p>The name of the training session whose model to invoke.</p>
+   * The name of the training session whose model to invoke.
+   *
    * @public
    */
   trainingSessionName: string | undefined;
 
   /**
-   * <p>The MIME type of the input data in the request body.</p>
+   * The MIME type of the input data in the request body.
+   *
    * @public
    */
   contentType?: string | undefined;
 
   /**
-   * <p>The desired MIME type of the inference body in the response.</p>
+   * The desired MIME type of the inference body in the response.
+   *
    * @public
    */
   accept?: string | undefined;
 
   /**
-   * <p>The ARN of the model package whose checkpoint to invoke.</p>
+   * The ARN of the model package whose checkpoint to invoke.
+   *
    * @public
    */
   modelPackageArn?: string | undefined;
 
   /**
-   * <p>The raw inference request body.</p>
+   * The raw inference request body.
+   *
    * @public
    */
   body?: Uint8Array | undefined;
@@ -1209,13 +1356,15 @@ export interface SampleTrainingSessionWithResponseStreamInput {
  */
 export interface SampleTrainingSessionWithResponseStreamOutput {
   /**
-   * <p>The MIME type of the streaming inference result.</p>
+   * The MIME type of the streaming inference result.
+   *
    * @public
    */
   contentType?: string | undefined;
 
   /**
-   * <p>The streaming inference response from the model, delivered as a series of chunks.</p>
+   * The streaming inference response from the model, delivered as a series of chunks.
+   *
    * @public
    */
   body: StreamingBlobTypes | undefined;

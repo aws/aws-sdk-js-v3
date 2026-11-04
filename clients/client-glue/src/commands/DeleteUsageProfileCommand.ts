@@ -23,7 +23,8 @@ export interface DeleteUsageProfileCommandInput extends DeleteUsageProfileReques
 export interface DeleteUsageProfileCommandOutput extends DeleteUsageProfileResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the Glue specified usage profile.</p>
+ * Deletes the Glue specified usage profile.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,20 +49,24 @@ export interface DeleteUsageProfileCommandOutput extends DeleteUsageProfileRespo
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationNotSupportedException} (client fault)
- *  <p>The operation is not available in the region.</p>
+ *
+ * The operation is not available in the region.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface CreateHubContentPresignedUrlsCommandInput extends CreateHubCont
 export interface CreateHubContentPresignedUrlsCommandOutput extends CreateHubContentPresignedUrlsResponse, __MetadataBearer {}
 
 /**
- * <p>Creates presigned URLs for accessing hub content artifacts. This operation generates time-limited, secure URLs that allow direct download of model artifacts and associated files from Amazon SageMaker hub content, including gated models that require end-user license agreement acceptance.</p>
+ * Creates presigned URLs for accessing hub content artifacts. This operation generates time-limited, secure URLs that allow direct download of model artifacts and associated files from Amazon SageMaker hub content, including gated models that require end-user license agreement acceptance.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,8 +66,8 @@ export interface CreateHubContentPresignedUrlsCommandOutput extends CreateHubCon
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

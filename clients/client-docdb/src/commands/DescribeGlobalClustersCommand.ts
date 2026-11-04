@@ -23,10 +23,10 @@ export interface DescribeGlobalClustersCommandInput extends DescribeGlobalCluste
 export interface DescribeGlobalClustersCommandOutput extends GlobalClustersMessage, __MetadataBearer {}
 
 /**
- * <p>Returns information about Amazon DocumentDB global  clusters. This API supports pagination.</p>
- *          <note>
- *             <p>This action only applies to Amazon DocumentDB clusters.</p>
- *          </note>
+ * Returns information about Amazon DocumentDB global clusters. This API supports pagination.
+ *
+ * > **Note:** This action only applies to Amazon DocumentDB clusters.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -98,11 +98,12 @@ export interface DescribeGlobalClustersCommandOutput extends GlobalClustersMessa
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  * @throws {@link GlobalClusterNotFoundFault} (client fault)
- *  <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global cluster.</p>
+ *
+ * The `GlobalClusterIdentifier` doesn't refer to an existing global cluster.
  *
  * @throws {@link DocDBServiceException}
- * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * Base exception class for all service exceptions from DocDB service.
  *
  * @public
  */

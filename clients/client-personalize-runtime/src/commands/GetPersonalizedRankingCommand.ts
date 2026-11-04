@@ -23,12 +23,10 @@ export interface GetPersonalizedRankingCommandInput extends GetPersonalizedRanki
 export interface GetPersonalizedRankingCommandOutput extends GetPersonalizedRankingResponse, __MetadataBearer {}
 
 /**
- * <p>Re-ranks a list of recommended items for the given user. The first item in the list is
- *       deemed the most likely item to be of interest to the user.</p>
- *          <note>
- *             <p>The solution backing the campaign must have been created using a recipe of type
- *         PERSONALIZED_RANKING.</p>
- *          </note>
+ * Re-ranks a list of recommended items for the given user. The first item in the list is deemed the most likely item to be of interest to the user.
+ *
+ * > **Note:** The solution backing the campaign must have been created using a recipe of type PERSONALIZED_RANKING.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,14 +82,16 @@ export interface GetPersonalizedRankingCommandOutput extends GetPersonalizedRank
  * @see {@link PersonalizeRuntimeClientResolvedConfig | config} for PersonalizeRuntimeClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * Provide a valid value for the field or parameter.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link PersonalizeRuntimeServiceException}
- * <p>Base exception class for all service exceptions from PersonalizeRuntime service.</p>
  *
+ * Base exception class for all service exceptions from PersonalizeRuntime service.
  *
  * @public
  */

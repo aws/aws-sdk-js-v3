@@ -23,39 +23,19 @@ export interface DescribeEventsCommandInput extends DescribeEventsInput {}
 export interface DescribeEventsCommandOutput extends DescribeEventsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns CloudFormation events based on flexible query criteria. Groups events by operation ID,
- *       enabling you to focus on individual stack operations during deployment.</p>
- *          <p>An operation is any action performed on a stack, including stack lifecycle actions
- *       (Create, Update, Delete, Rollback), change set creation, nested stack creation, and automatic
- *       rollbacks triggered by failures. Each operation has a unique identifier (Operation ID) and
- *       represents a discrete change attempt on the stack.</p>
- *          <p>Returns different types of events including:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <b>Progress events</b> - Status updates during stack operation
- *           execution.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Validation errors</b> - Failures from CloudFormation Early
- *           Validations.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Provisioning errors</b> - Resource creation and update
- *           failures.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Hook invocation errors</b> - Failures from CloudFormation
- *           Hook during stack operations.</p>
- *             </li>
- *          </ul>
- *          <note>
- *             <p>One of <code>ChangeSetName</code>, <code>OperationId</code> or <code>StackName</code>
- *         must be specified as input.</p>
- *          </note>
+ * Returns CloudFormation events based on flexible query criteria. Groups events by operation ID, enabling you to focus on individual stack operations during deployment.
+ *
+ * An operation is any action performed on a stack, including stack lifecycle actions (Create, Update, Delete, Rollback), change set creation, nested stack creation, and automatic rollbacks triggered by failures. Each operation has a unique identifier (Operation ID) and represents a discrete change attempt on the stack.
+ *
+ * Returns different types of events including:
+ *
+ * - **Progress events** - Status updates during stack operation execution.
+ * - **Validation errors** - Failures from CloudFormation Early Validations.
+ * - **Provisioning errors** - Resource creation and update failures.
+ * - **Hook invocation errors** - Failures from CloudFormation Hook during stack operations.
+ *
+ * > **Note:** One of `ChangeSetName`, `OperationId` or `StackName` must be specified as input.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -119,8 +99,8 @@ export interface DescribeEventsCommandOutput extends DescribeEventsOutput, __Met
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface ListExportErrorsCommandInput extends ListExportErrorsRequest {}
 export interface ListExportErrorsCommandOutput extends ListExportErrorsResponse, __MetadataBearer {}
 
 /**
- * <p>List export errors.</p>
+ * List export errors.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,14 +61,16 @@ export interface ListExportErrorsCommandOutput extends ListExportErrorsResponse,
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
  * @throws {@link UninitializedAccountException} (client fault)
- *  <p>Uninitialized account exception.</p>
+ *
+ * Uninitialized account exception.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Validate exception.</p>
+ *
+ * Validate exception.
  *
  * @throws {@link MgnServiceException}
- * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * Base exception class for all service exceptions from Mgn service.
  *
  * @public
  */

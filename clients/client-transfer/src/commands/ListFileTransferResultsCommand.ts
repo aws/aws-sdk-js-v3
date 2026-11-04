@@ -23,7 +23,10 @@ export interface ListFileTransferResultsCommandInput extends ListFileTransferRes
 export interface ListFileTransferResultsCommandOutput extends ListFileTransferResultsResponse, __MetadataBearer {}
 
 /**
- * <p> Returns real-time updates and detailed information on the status of each individual file being transferred in a specific file transfer operation. You specify the file transfer by providing its <code>ConnectorId</code> and its <code>TransferId</code>.</p> <note> <p>File transfer results are available up to 7 days after an operation has been requested.</p> </note>
+ * Returns real-time updates and detailed information on the status of each individual file being transferred in a specific file transfer operation. You specify the file transfer by providing its `ConnectorId` and its `TransferId`.
+ *
+ * > **Note:** File transfer results are available up to 7 days after an operation has been requested.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,20 +64,24 @@ export interface ListFileTransferResultsCommandOutput extends ListFileTransferRe
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
  *
  * @throws {@link InternalServiceError} (server fault)
- *  <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+ *
+ * This exception is thrown when an error occurs in the Transfer Family service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * This exception is thrown when the client submits a malformed request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+ *
+ * This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+ *
+ * The request has failed because the Amazon Web ServicesTransfer Family service is not available.
  *
  * @throws {@link TransferServiceException}
- * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * Base exception class for all service exceptions from Transfer service.
  *
  * @public
  */

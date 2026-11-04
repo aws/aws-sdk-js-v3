@@ -23,8 +23,10 @@ export interface ListEdgeAgentConfigurationsCommandInput extends ListEdgeAgentCo
 export interface ListEdgeAgentConfigurationsCommandOutput extends ListEdgeAgentConfigurationsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns an array of edge configurations associated with the specified Edge Agent.</p>
- *          <p>In the request, you must specify the Edge Agent <code>HubDeviceArn</code>.</p>
+ * Returns an array of edge configurations associated with the specified Edge Agent.
+ *
+ * In the request, you must specify the Edge Agent `HubDeviceArn`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,18 +92,20 @@ export interface ListEdgeAgentConfigurationsCommandOutput extends ListEdgeAgentC
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
  *
  * @throws {@link ClientLimitExceededException} (client fault)
- *  <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
- *             allowed client calls. Try making the call later.</p>
+ *
+ * Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>The value for this input parameter is invalid.</p>
+ *
+ * The value for this input parameter is invalid.
  *
  * @throws {@link NotAuthorizedException} (client fault)
- *  <p>The caller is not authorized to perform this operation.</p>
+ *
+ * The caller is not authorized to perform this operation.
  *
  * @throws {@link KinesisVideoServiceException}
- * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ * Base exception class for all service exceptions from KinesisVideo service.
  *
  * @public
  */

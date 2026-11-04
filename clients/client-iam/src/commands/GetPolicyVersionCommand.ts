@@ -23,24 +23,18 @@ export interface GetPolicyVersionCommandInput extends GetPolicyVersionRequest {}
 export interface GetPolicyVersionCommandOutput extends GetPolicyVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about the specified version of the specified managed policy,
- *             including the policy document.</p>
- *          <note>
- *             <p>Policies returned by this operation are URL-encoded compliant
- *     with <a href="https://tools.ietf.org/html/rfc3986">RFC 3986</a>. You can use a URL
- *     decoding method to convert the policy back to plain JSON text. For example, if you use Java, you
- *     can use the <code>decode</code> method of the <code>java.net.URLDecoder</code> utility class in
- *     the Java SDK. Other languages and SDKs provide similar functionality, and some SDKs do this decoding
- *     automatically.</p>
- *          </note>
- *          <p>To list the available versions for a policy, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListPolicyVersions.html">ListPolicyVersions</a>.</p>
- *          <p>This operation retrieves information about managed policies. To retrieve information
- *             about an inline policy that is embedded in a user, group, or role, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetUserPolicy.html">GetUserPolicy</a>, <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetGroupPolicy.html">GetGroupPolicy</a>, or
- *                 <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetRolePolicy.html">GetRolePolicy</a>.</p>
- *          <p>For more information about the types of policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
- *                 policies</a> in the <i>IAM User Guide</i>.</p>
- *          <p>For more information about managed policy versions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for managed
- *                 policies</a> in the <i>IAM User Guide</i>.</p>
+ * Retrieves information about the specified version of the specified managed policy, including the policy document.
+ *
+ * > **Note:** Policies returned by this operation are URL-encoded compliant with [RFC 3986](https://tools.ietf.org/html/rfc3986). You can use a URL decoding method to convert the policy back to plain JSON text. For example, if you use Java, you can use the `decode` method of the `java.net.URLDecoder` utility class in the Java SDK. Other languages and SDKs provide similar functionality, and some SDKs do this decoding automatically.
+ *
+ * To list the available versions for a policy, use [ListPolicyVersions](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListPolicyVersions.html).
+ *
+ * This operation retrieves information about managed policies. To retrieve information about an inline policy that is embedded in a user, group, or role, use [GetUserPolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetUserPolicy.html), [GetGroupPolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetGroupPolicy.html), or [GetRolePolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetRolePolicy.html).
+ *
+ * For more information about the types of policies, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *IAM User Guide*.
+ *
+ * For more information about managed policy versions, see [Versioning for managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html) in the *IAM User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,20 +67,20 @@ export interface GetPolicyVersionCommandOutput extends GetPolicyVersionResponse,
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
- *       input parameter.</p>
+ *
+ * The request was rejected because an invalid or out-of-range value was supplied for an input parameter.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @public
  */

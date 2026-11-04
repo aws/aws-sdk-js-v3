@@ -23,7 +23,8 @@ export interface DeleteAuthenticationProfileCommandInput extends DeleteAuthentic
 export interface DeleteAuthenticationProfileCommandOutput extends DeleteAuthenticationProfileResult, __MetadataBearer {}
 
 /**
- * <p>Deletes an authentication profile.</p>
+ * Deletes an authentication profile.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,15 +51,16 @@ export interface DeleteAuthenticationProfileCommandOutput extends DeleteAuthenti
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link AuthenticationProfileNotFoundFault} (client fault)
- *  <p>The authentication profile can't be found.</p>
+ *
+ * The authentication profile can't be found.
  *
  * @throws {@link InvalidAuthenticationProfileRequestFault} (client fault)
- *  <p>The authentication profile request is not valid. The profile name can't be null or empty.
- *             The authentication profile API operation must be available in the Amazon Web Services Region.</p>
+ *
+ * The authentication profile request is not valid. The profile name can't be null or empty. The authentication profile API operation must be available in the Amazon Web Services Region.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

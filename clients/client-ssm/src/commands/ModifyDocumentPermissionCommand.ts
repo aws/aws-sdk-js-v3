@@ -23,10 +23,8 @@ export interface ModifyDocumentPermissionCommandInput extends ModifyDocumentPerm
 export interface ModifyDocumentPermissionCommandOutput extends ModifyDocumentPermissionResponse, __MetadataBearer {}
 
 /**
- * <p>Shares a Amazon Web Services Systems Manager document (SSM document)publicly or privately. If you share a document
- *    privately, you must specify the Amazon Web Services user IDs for those people who can use the document. If
- *    you share a document publicly, you must specify <i>All</i> as the account
- *    ID.</p>
+ * Shares a Amazon Web Services Systems Manager document (SSM document)publicly or privately. If you share a document privately, you must specify the Amazon Web Services user IDs for those people who can use the document. If you share a document publicly, you must specify *All* as the account ID.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,29 +57,32 @@ export interface ModifyDocumentPermissionCommandOutput extends ModifyDocumentPer
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link DocumentLimitExceeded} (client fault)
- *  <p>You can have at most 500 active SSM documents.</p>
+ *
+ * You can have at most 500 active SSM documents.
  *
  * @throws {@link DocumentPermissionLimit} (client fault)
- *  <p>The document can't be shared with more Amazon Web Services accounts. You can specify a maximum of 20
- *    accounts per API operation to share a private document.</p>
- *          <p>By default, you can share a private document with a maximum of 1,000 accounts and publicly
- *    share up to five documents.</p>
- *          <p>If you need to increase the quota for privately or publicly shared Systems Manager documents, contact
- *    Amazon Web Services Support.</p>
+ *
+ * The document can't be shared with more Amazon Web Services accounts. You can specify a maximum of 20 accounts per API operation to share a private document.
+ *
+ * By default, you can share a private document with a maximum of 1,000 accounts and publicly share up to five documents.
+ *
+ * If you need to increase the quota for privately or publicly shared Systems Manager documents, contact Amazon Web Services Support.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidDocument} (client fault)
- *  <p>The specified SSM document doesn't exist.</p>
+ *
+ * The specified SSM document doesn't exist.
  *
  * @throws {@link InvalidPermissionType} (client fault)
- *  <p>The permission type isn't supported. <i>Share</i> is the only supported
- *    permission type.</p>
+ *
+ * The permission type isn't supported. *Share* is the only supported permission type.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

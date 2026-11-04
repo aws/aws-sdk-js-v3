@@ -23,25 +23,16 @@ export interface DeleteTableCommandInput extends DeleteTableInput {}
 export interface DeleteTableCommandOutput extends DeleteTableOutput, __MetadataBearer {}
 
 /**
- * <p>The <code>DeleteTable</code> operation deletes a table and all of its items. After a
- *                 <code>DeleteTable</code> request, the specified table is in the
- *                 <code>DELETING</code> state until DynamoDB completes the deletion. If the table is
- *             in the <code>ACTIVE</code> state, you can delete it. If a table is in
- *                 <code>CREATING</code> or <code>UPDATING</code> states, then DynamoDB returns a
- *                 <code>ResourceInUseException</code>. If the specified table does not exist, DynamoDB
- *             returns a <code>ResourceNotFoundException</code>. If table is already in the
- *                 <code>DELETING</code> state, no error is returned. </p>
- *          <note>
- *             <p>DynamoDB might continue to accept data read and write operations, such as
- *                     <code>GetItem</code> and <code>PutItem</code>, on a table in the
- *                     <code>DELETING</code> state until the table deletion is complete. For the full
- *                 list of table states, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TableDescription.html#DDB-Type-TableDescription-TableStatus">TableStatus</a>.</p>
- *          </note>
- *          <p>When you delete a table, any indexes on that table are also deleted.</p>
- *          <p>If you have DynamoDB Streams enabled on the table, then the corresponding stream on
- *             that table goes into the <code>DISABLED</code> state, and the stream is automatically
- *             deleted after 24 hours.</p>
- *          <p>Use the <code>DescribeTable</code> action to check the status of the table. </p>
+ * The `DeleteTable` operation deletes a table and all of its items. After a `DeleteTable` request, the specified table is in the `DELETING` state until DynamoDB completes the deletion. If the table is in the `ACTIVE` state, you can delete it. If a table is in `CREATING` or `UPDATING` states, then DynamoDB returns a `ResourceInUseException`. If the specified table does not exist, DynamoDB returns a `ResourceNotFoundException`. If table is already in the `DELETING` state, no error is returned.
+ *
+ * > **Note:** DynamoDB might continue to accept data read and write operations, such as `GetItem` and `PutItem`, on a table in the `DELETING` state until the table deletion is complete. For the full list of table states, see [TableStatus](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TableDescription.html#DDB-Type-TableDescription-TableStatus).
+ *
+ * When you delete a table, any indexes on that table are also deleted.
+ *
+ * If you have DynamoDB Streams enabled on the table, then the corresponding stream on that table goes into the `DISABLED` state, and the stream is automatically deleted after 24 hours.
+ *
+ * Use the `DescribeTable` action to check the status of the table.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -274,52 +265,44 @@ export interface DeleteTableCommandOutput extends DeleteTableOutput, __MetadataB
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidEndpointException} (client fault)
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>There is no limit to the number of daily on-demand backups that can be taken. </p>
- *          <p>For most purposes, up to 500 simultaneous table operations are allowed per account.
- *             These operations include <code>CreateTable</code>, <code>UpdateTable</code>,
- *                 <code>DeleteTable</code>,<code>UpdateTimeToLive</code>,
- *                 <code>RestoreTableFromBackup</code>, and <code>RestoreTableToPointInTime</code>. </p>
- *          <p>When you are creating a table with one or more secondary indexes, you can have up
- *             to 250 such requests running at a time. However, if the table or index specifications
- *             are complex, then DynamoDB might temporarily reduce the number of concurrent
- *             operations.</p>
- *          <p>When importing into DynamoDB, up to 50 simultaneous import table operations are
- *             allowed per account.</p>
- *          <p>There is a soft account quota of 2,500 tables.</p>
- *          <p>GetRecords was called with a value of more than 1000 for the limit request
- *             parameter.</p>
- *          <p>More than 2 processes are reading from the same streams shard at the same time.
- *             Exceeding this limit may result in request throttling.</p>
+ *
+ * There is no limit to the number of daily on-demand backups that can be taken.
+ *
+ * For most purposes, up to 500 simultaneous table operations are allowed per account. These operations include `CreateTable`, `UpdateTable`, `DeleteTable`,`UpdateTimeToLive`, `RestoreTableFromBackup`, and `RestoreTableToPointInTime`.
+ *
+ * When you are creating a table with one or more secondary indexes, you can have up to 250 such requests running at a time. However, if the table or index specifications are complex, then DynamoDB might temporarily reduce the number of concurrent operations.
+ *
+ * When importing into DynamoDB, up to 50 simultaneous import table operations are allowed per account.
+ *
+ * There is a soft account quota of 2,500 tables.
+ *
+ * GetRecords was called with a value of more than 1000 for the limit request parameter.
+ *
+ * More than 2 processes are reading from the same streams shard at the same time. Exceeding this limit may result in request throttling.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The operation conflicts with the resource's availability. For example:</p>
- *          <ul>
- *             <li>
- *                <p>You attempted to recreate an existing table.</p>
- *             </li>
- *             <li>
- *                <p>You tried to delete a table currently in the <code>CREATING</code>
- *                     state.</p>
- *             </li>
- *             <li>
- *                <p>You tried to update a resource that was already being updated.</p>
- *             </li>
- *          </ul>
- *          <p>When appropriate, wait for the ongoing update to complete and attempt the request
- *             again.</p>
+ *
+ * The operation conflicts with the resource's availability. For example:
+ *
+ * - You attempted to recreate an existing table.
+ * - You tried to delete a table currently in the `CREATING` state.
+ * - You tried to update a resource that was already being updated.
+ *
+ * When appropriate, wait for the ongoing update to complete and attempt the request again.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The operation tried to access a nonexistent table or index. The resource might not
- *             be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+ *
+ * The operation tried to access a nonexistent table or index. The resource might not be specified correctly, or its status might not be `ACTIVE`.
  *
  * @throws {@link DynamoDBServiceException}
- * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * Base exception class for all service exceptions from DynamoDB service.
  *
  * @example To delete a table
  * ```javascript

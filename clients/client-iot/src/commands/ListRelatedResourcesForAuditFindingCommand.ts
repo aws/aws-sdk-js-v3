@@ -26,43 +26,20 @@ export interface ListRelatedResourcesForAuditFindingCommandInput extends ListRel
 export interface ListRelatedResourcesForAuditFindingCommandOutput extends ListRelatedResourcesForAuditFindingResponse, __MetadataBearer {}
 
 /**
- * <p>The related resources of an Audit finding.
- *       The following resources can be returned from calling this API:</p>
- *          <ul>
- *             <li>
- *                <p>DEVICE_CERTIFICATE</p>
- *             </li>
- *             <li>
- *                <p>CA_CERTIFICATE</p>
- *             </li>
- *             <li>
- *                <p>IOT_POLICY</p>
- *             </li>
- *             <li>
- *                <p>COGNITO_IDENTITY_POOL</p>
- *             </li>
- *             <li>
- *                <p>CLIENT_ID</p>
- *             </li>
- *             <li>
- *                <p>ACCOUNT_SETTINGS</p>
- *             </li>
- *             <li>
- *                <p>ROLE_ALIAS</p>
- *             </li>
- *             <li>
- *                <p>IAM_ROLE</p>
- *             </li>
- *             <li>
- *                <p>ISSUER_CERTIFICATE</p>
- *             </li>
- *          </ul>
- *          <note>
- *             <p>This API is similar to DescribeAuditFinding's <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_DescribeAuditFinding.html">RelatedResources</a>
- *       but provides pagination and is not limited to 10 resources.
- *       When calling <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_DescribeAuditFinding.html">DescribeAuditFinding</a> for the intermediate CA revoked for
- *       active device certificates check, RelatedResources will not be populated. You must use this API, ListRelatedResourcesForAuditFinding, to list the certificates.</p>
- *          </note>
+ * The related resources of an Audit finding. The following resources can be returned from calling this API:
+ *
+ * - DEVICE_CERTIFICATE
+ * - CA_CERTIFICATE
+ * - IOT_POLICY
+ * - COGNITO_IDENTITY_POOL
+ * - CLIENT_ID
+ * - ACCOUNT_SETTINGS
+ * - ROLE_ALIAS
+ * - IAM_ROLE
+ * - ISSUER_CERTIFICATE
+ *
+ * > **Note:** This API is similar to DescribeAuditFinding's [RelatedResources](https://docs.aws.amazon.com/iot/latest/apireference/API_DescribeAuditFinding.html) but provides pagination and is not limited to 10 resources. When calling [DescribeAuditFinding](https://docs.aws.amazon.com/iot/latest/apireference/API_DescribeAuditFinding.html) for the intermediate CA revoked for active device certificates check, RelatedResources will not be populated. You must use this API, ListRelatedResourcesForAuditFinding, to list the certificates.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -118,20 +95,24 @@ export interface ListRelatedResourcesForAuditFindingCommandOutput extends ListRe
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An unexpected error has occurred.</p>
+ *
+ * An unexpected error has occurred.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The rate exceeds the limit.</p>
+ *
+ * The rate exceeds the limit.
  *
  * @throws {@link IoTServiceException}
- * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * Base exception class for all service exceptions from IoT service.
  *
  * @public
  */

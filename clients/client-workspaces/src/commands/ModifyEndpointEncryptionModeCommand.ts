@@ -23,8 +23,8 @@ export interface ModifyEndpointEncryptionModeCommandInput extends ModifyEndpoint
 export interface ModifyEndpointEncryptionModeCommandOutput extends ModifyEndpointEncryptionModeResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies the endpoint encryption mode that allows you to configure the specified
- *          directory between Standard TLS and FIPS 140-2 validated mode. </p>
+ * Modifies the endpoint encryption mode that allows you to configure the specified directory between Standard TLS and FIPS 140-2 validated mode.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,17 +50,20 @@ export interface ModifyEndpointEncryptionModeCommandOutput extends ModifyEndpoin
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The user is not authorized to access a resource.</p>
+ *
+ * The user is not authorized to access a resource.
  *
  * @throws {@link OperationNotSupportedException} (client fault)
- *  <p>This operation is not supported.</p>
+ *
+ * This operation is not supported.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link WorkSpacesServiceException}
- * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * Base exception class for all service exceptions from WorkSpaces service.
  *
  * @public
  */

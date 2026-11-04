@@ -23,9 +23,8 @@ export interface DeleteCacheParameterGroupCommandInput extends DeleteCacheParame
 export interface DeleteCacheParameterGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified cache parameter group. You cannot delete a cache parameter group
- *             if it is associated with any cache clusters. You cannot delete the default cache
- *             parameter groups in your account.</p>
+ * Deletes the specified cache parameter group. You cannot delete a cache parameter group if it is associated with any cache clusters. You cannot delete the default cache parameter groups in your account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,22 +49,24 @@ export interface DeleteCacheParameterGroupCommandOutput extends __MetadataBearer
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link CacheParameterGroupNotFoundFault} (client fault)
- *  <p>The requested cache parameter group name does not refer to an existing cache parameter
- *             group.</p>
+ *
+ * The requested cache parameter group name does not refer to an existing cache parameter group.
  *
  * @throws {@link InvalidCacheParameterGroupStateFault} (client fault)
- *  <p>The current state of the cache parameter group does not allow the requested operation
- *             to occur.</p>
+ *
+ * The current state of the cache parameter group does not allow the requested operation to occur.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * Two or more incompatible parameters were specified.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @example DeleteCacheParameterGroup
  * ```javascript

@@ -23,14 +23,12 @@ export interface PutImageCommandInput extends PutImageRequest {}
 export interface PutImageCommandOutput extends PutImageResponse, __MetadataBearer {}
 
 /**
- * <p>Creates or updates the image manifest and tags associated with an image.</p>
- *          <p>When an image is pushed and all new image layers have been uploaded, the PutImage API
- *             is called once to create or update the image manifest and the tags associated with the
- *             image.</p>
- *          <note>
- *             <p>This operation is used by the Amazon ECR proxy and is not generally used by
- *         customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p>
- *          </note>
+ * Creates or updates the image manifest and tags associated with an image.
+ *
+ * When an image is pushed and all new image layers have been uploaded, the PutImage API is called once to create or update the image manifest and the tags associated with the image.
+ *
+ * > **Note:** This operation is used by the Amazon ECR proxy and is not generally used by customers for pulling and pushing images. In most cases, you should use the `docker` CLI to pull, tag, and push images.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,46 +69,48 @@ export interface PutImageCommandOutput extends PutImageResponse, __MetadataBeare
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
  * @throws {@link ImageAlreadyExistsException} (client fault)
- *  <p>The specified image has already been pushed, and there were no changes to the manifest
- *             or image tag after the last push.</p>
+ *
+ * The specified image has already been pushed, and there were no changes to the manifest or image tag after the last push.
  *
  * @throws {@link ImageDigestDoesNotMatchException} (client fault)
- *  <p>The specified image digest does not match the digest that Amazon ECR calculated for the
- *             image.</p>
+ *
+ * The specified image digest does not match the digest that Amazon ECR calculated for the image.
  *
  * @throws {@link ImageTagAlreadyExistsException} (client fault)
- *  <p>The specified image is tagged with a tag that already exists. The repository is
- *             configured for tag immutability.</p>
+ *
+ * The specified image is tagged with a tag that already exists. The repository is configured for tag immutability.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link KmsException} (client fault)
- *  <p>The operation failed due to a KMS exception.</p>
+ *
+ * The operation failed due to a KMS exception.
  *
  * @throws {@link LayersNotFoundException} (client fault)
- *  <p>The specified layers could not be found, or the specified layer is not valid for this
- *             repository.</p>
+ *
+ * The specified layers could not be found, or the specified layer is not valid for this repository.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The operation did not succeed because it would have exceeded a service limit for your
- *             account. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html">Amazon ECR service quotas</a> in
- *             the Amazon Elastic Container Registry User Guide.</p>
+ *
+ * The operation did not succeed because it would have exceeded a service limit for your account. For more information, see [Amazon ECR service quotas](https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html) in the Amazon Elastic Container Registry User Guide.
  *
  * @throws {@link ReferencedImagesNotFoundException} (client fault)
- *  <p>The manifest list is referencing an image that does not exist.</p>
+ *
+ * The manifest list is referencing an image that does not exist.
  *
  * @throws {@link RepositoryNotFoundException} (client fault)
- *  <p>The specified repository could not be found. Check the spelling of the specified
- *             repository and ensure that you are performing operations on the correct registry.</p>
+ *
+ * The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link ECRServiceException}
- * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * Base exception class for all service exceptions from ECR service.
  *
  * @public
  */

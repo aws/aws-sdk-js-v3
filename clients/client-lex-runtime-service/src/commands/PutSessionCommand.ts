@@ -25,11 +25,10 @@ export interface PutSessionCommandOutput extends Omit<PutSessionResponse, "audio
 }
 
 /**
- * <p>Creates a new session or modifies an existing session with an Amazon Lex
- *       bot. Use this operation to enable your application to set the state of the
- *       bot.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/how-session-api.html">Managing
- *         Sessions</a>.</p>
+ * Creates a new session or modifies an existing session with an Amazon Lex bot. Use this operation to enable your application to set the state of the bot.
+ *
+ * For more information, see [Managing Sessions](https://docs.aws.amazon.com/lex/latest/dg/how-session-api.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -112,53 +111,44 @@ export interface PutSessionCommandOutput extends Omit<PutSessionResponse, "audio
  * @see {@link LexRuntimeServiceClientResolvedConfig | config} for LexRuntimeServiceClient's `config` shape.
  *
  * @throws {@link BadGatewayException} (server fault)
- *  <p>Either the Amazon Lex bot is still building, or one of the dependent
- *       services (Amazon Polly, AWS Lambda) failed with an internal service
- *       error.</p>
+ *
+ * Either the Amazon Lex bot is still building, or one of the dependent services (Amazon Polly, AWS Lambda) failed with an internal service error.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p> Request validation failed, there is no usable message in the context,
- *       or the bot build failed, is still in progress, or contains unbuilt
- *       changes. </p>
+ *
+ * Request validation failed, there is no usable message in the context, or the bot build failed, is still in progress, or contains unbuilt changes.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p> Two clients are using the same AWS account, Amazon Lex bot, and user
- *       ID. </p>
+ *
+ * Two clients are using the same AWS account, Amazon Lex bot, and user ID.
  *
  * @throws {@link DependencyFailedException} (client fault)
- *  <p> One of the dependencies, such as AWS Lambda or Amazon Polly, threw an
- *       exception. For example, </p>
- *          <ul>
- *             <li>
- *                <p>If Amazon Lex does not have sufficient permissions to call a Lambda
- *           function.</p>
- *             </li>
- *             <li>
- *                <p>If a Lambda function takes longer than 30 seconds to
- *           execute.</p>
- *             </li>
- *             <li>
- *                <p>If a fulfillment Lambda function returns a <code>Delegate</code>
- *           dialog action without removing any slot values.</p>
- *             </li>
- *          </ul>
+ *
+ * One of the dependencies, such as AWS Lambda or Amazon Polly, threw an exception. For example,
+ *
+ * - If Amazon Lex does not have sufficient permissions to call a Lambda function.
+ * - If a Lambda function takes longer than 30 seconds to execute.
+ * - If a fulfillment Lambda function returns a `Delegate` dialog action without removing any slot values.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>Internal service error. Retry the call.</p>
+ *
+ * Internal service error. Retry the call.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>Exceeded a limit.</p>
+ *
+ * Exceeded a limit.
  *
  * @throws {@link NotAcceptableException} (client fault)
- *  <p>The accept header in the request does not have a valid value.</p>
+ *
+ * The accept header in the request does not have a valid value.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource (such as the Amazon Lex bot or an alias) that is referred
- *       to is not found.</p>
+ *
+ * The resource (such as the Amazon Lex bot or an alias) that is referred to is not found.
  *
  * @throws {@link LexRuntimeServiceServiceException}
- * <p>Base exception class for all service exceptions from LexRuntimeService service.</p>
  *
+ * Base exception class for all service exceptions from LexRuntimeService service.
  *
  * @public
  */

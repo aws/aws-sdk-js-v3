@@ -23,7 +23,14 @@ export interface RebootDBClusterCommandInput extends RebootDBClusterMessage {}
 export interface RebootDBClusterCommandOutput extends RebootDBClusterResult, __MetadataBearer {}
 
 /**
- * <p>You might need to reboot your DB cluster, usually for maintenance reasons. For example, if you make certain modifications, or if you change the DB cluster parameter group associated with the DB cluster, reboot the DB cluster for the changes to take effect.</p> <p>Rebooting a DB cluster restarts the database engine service. Rebooting a DB cluster results in a momentary outage, during which the DB cluster status is set to rebooting.</p> <p>Use this operation only for a non-Aurora Multi-AZ DB cluster.</p> <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB cluster deployments</a> in the <i>Amazon RDS User Guide.</i> </p>
+ * You might need to reboot your DB cluster, usually for maintenance reasons. For example, if you make certain modifications, or if you change the DB cluster parameter group associated with the DB cluster, reboot the DB cluster for the changes to take effect.
+ *
+ * Rebooting a DB cluster restarts the database engine service. Rebooting a DB cluster results in a momentary outage, during which the DB cluster status is set to rebooting.
+ *
+ * Use this operation only for a non-Aurora Multi-AZ DB cluster.
+ *
+ * For more information on Multi-AZ DB clusters, see [Multi-AZ DB cluster deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html) in the *Amazon RDS User Guide.*
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -245,17 +252,20 @@ export interface RebootDBClusterCommandOutput extends RebootDBClusterResult, __M
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *
+ * `DBClusterIdentifier` doesn't refer to an existing DB cluster.
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
- *  <p>The requested operation can't be performed while the cluster is in this state.</p>
+ *
+ * The requested operation can't be performed while the cluster is in this state.
  *
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
- *  <p>The DB instance isn't in a valid state.</p>
+ *
+ * The DB instance isn't in a valid state.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @public
  */

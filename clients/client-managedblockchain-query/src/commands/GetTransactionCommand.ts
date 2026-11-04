@@ -23,13 +23,10 @@ export interface GetTransactionCommandInput extends GetTransactionInput {}
 export interface GetTransactionCommandOutput extends GetTransactionOutput, __MetadataBearer {}
 
 /**
- * <p>Gets the details of a transaction.</p>
- *          <note>
- *             <p>This action will return transaction details for all transactions
- *          that are <i>confirmed</i> on the blockchain, even if they have not reached
- *          <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ambq-dg/key-concepts.html#finality">finality</a>.
- *       </p>
- *          </note>
+ * Gets the details of a transaction.
+ *
+ * > **Note:** This action will return transaction details for all transactions that are *confirmed* on the blockchain, even if they have not reached [finality](https://docs.aws.amazon.com/managed-blockchain/latest/ambq-dg/key-concepts.html#finality).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,29 +76,32 @@ export interface GetTransactionCommandOutput extends GetTransactionOutput, __Met
  * @see {@link ManagedBlockchainQueryClientResolvedConfig | config} for ManagedBlockchainQueryClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The Amazon Web Services account doesn’t have access to this resource. </p>
+ *
+ * The Amazon Web Services account doesn’t have access to this resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an internal error in the service.</p>
+ *
+ * The request processing has failed because of an internal error in the service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource was not found.</p>
+ *
+ * The resource was not found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The service quota has been exceeded for this resource.</p>
+ *
+ * The service quota has been exceeded for this resource.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request or operation couldn't be performed because a service is throttling
- *       requests. The most common source of throttling errors is when you create resources
- *       that exceed your service limit for this resource type. Request a limit increase or
- *       delete unused resources, if possible.</p>
+ *
+ * The request or operation couldn't be performed because a service is throttling requests. The most common source of throttling errors is when you create resources that exceed your service limit for this resource type. Request a limit increase or delete unused resources, if possible.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The resource passed is invalid.</p>
+ *
+ * The resource passed is invalid.
  *
  * @throws {@link ManagedBlockchainQueryServiceException}
- * <p>Base exception class for all service exceptions from ManagedBlockchainQuery service.</p>
  *
+ * Base exception class for all service exceptions from ManagedBlockchainQuery service.
  *
  * @public
  */

@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { RekognitionStreamingServiceException as __BaseException } from "./RekognitionStreamingServiceException";
 
 /**
- * <p>Occurs when the client isn't authorized to perform the action.</p>
+ * Occurs when the client isn't authorized to perform the action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -29,7 +30,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Unexpected error during processing of request.</p>
+ * Unexpected error during processing of request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -54,7 +56,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>Occurs when a request would cause a service quota to be exceeded.</p>
+ * Occurs when a request would cause a service quota to be exceeded.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -79,7 +82,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>Service-wide throttling to recover from an operational event or service is not able to scale.</p>
+ * Service-wide throttling to recover from an operational event or service is not able to scale.
+ *
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -104,8 +108,8 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>A request was denied due to request throttling. Occurs when too many requests were made by a user
- *        (exceeding their service quota), the service isn't able to scale, or a service-wide throttling was done to recover from an operational event.</p>
+ * A request was denied due to request throttling. Occurs when too many requests were made by a user (exceeding their service quota), the service isn't able to scale, or a service-wide throttling was done to recover from an operational event.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -130,11 +134,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by the service. Potential reasons
- *       inlcude: video quality or size is invalid, video container format not supported, video does
- *       not have enough information - no person detected in video, request couldn't be parsed or is
- *       invalid, session has expired or is invalid, S3 bucket is invalid/in another AWS region, KMS
- *       Key is invalid.</p>
+ * The input fails to satisfy the constraints specified by the service. Potential reasons inlcude: video quality or size is invalid, video container format not supported, video does not have enough information - no person detected in video, request couldn't be parsed or is invalid, session has expired or is invalid, S3 bucket is invalid/in another AWS region, KMS Key is invalid.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -159,7 +160,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>Occurs when the given <code>sessionId</code> is not found.</p>
+ * Occurs when the given `sessionId` is not found.
+ *
  * @public
  */
 export class SessionNotFoundException extends __BaseException {

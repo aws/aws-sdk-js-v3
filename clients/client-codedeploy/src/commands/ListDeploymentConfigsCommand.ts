@@ -23,7 +23,8 @@ export interface ListDeploymentConfigsCommandInput extends ListDeploymentConfigs
 export interface ListDeploymentConfigsCommandOutput extends ListDeploymentConfigsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the deployment configurations with the user or Amazon Web Services account.</p>
+ * Lists the deployment configurations with the user or Amazon Web Services account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,11 +54,12 @@ export interface ListDeploymentConfigsCommandOutput extends ListDeploymentConfig
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The next token was specified in an invalid format.</p>
+ *
+ * The next token was specified in an invalid format.
  *
  * @throws {@link CodeDeployServiceException}
- * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * Base exception class for all service exceptions from CodeDeploy service.
  *
  * @public
  */

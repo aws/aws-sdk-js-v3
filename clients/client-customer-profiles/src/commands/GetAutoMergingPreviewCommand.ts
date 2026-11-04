@@ -23,19 +23,12 @@ export interface GetAutoMergingPreviewCommandInput extends GetAutoMergingPreview
 export interface GetAutoMergingPreviewCommandOutput extends GetAutoMergingPreviewResponse, __MetadataBearer {}
 
 /**
- * <p>Tests the auto-merging settings of your Identity Resolution Job without merging your data. It randomly
- *          selects a sample of matching groups from the existing matching results, and applies the
- *          automerging settings that you provided. You can then view the number of profiles in the
- *          sample, the number of matches, and the number of profiles identified to be merged. This
- *          enables you to evaluate the accuracy of the attributes in your matching list. </p>
- *          <p>You can't view which profiles are matched and would be merged.</p>
- *          <important>
- *             <p>We strongly recommend you use this API to do a dry run of the automerging process
- *             before running the Identity Resolution Job. Include <b>at least</b> two matching
- *             attributes. If your matching list includes too few attributes (such as only
- *                <code>FirstName</code> or only <code>LastName</code>), there may be a large number of
- *             matches. This increases the chances of erroneous merges.</p>
- *          </important>
+ * Tests the auto-merging settings of your Identity Resolution Job without merging your data. It randomly selects a sample of matching groups from the existing matching results, and applies the automerging settings that you provided. You can then view the number of profiles in the sample, the number of matches, and the number of profiles identified to be merged. This enables you to evaluate the accuracy of the attributes in your matching list.
+ *
+ * You can't view which profiles are matched and would be merged.
+ *
+ * > **Important:** We strongly recommend you use this API to do a dry run of the automerging process before running the Identity Resolution Job. Include **at least** two matching attributes. If your matching list includes too few attributes (such as only `FirstName` or only `LastName`), there may be a large number of matches. This increases the chances of erroneous merges.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,23 +70,28 @@ export interface GetAutoMergingPreviewCommandOutput extends GetAutoMergingPrevie
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource does not exist, or access was denied.</p>
+ *
+ * The requested resource does not exist, or access was denied.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>You exceeded the maximum number of requests.</p>
+ *
+ * You exceeded the maximum number of requests.
  *
  * @throws {@link CustomerProfilesServiceException}
- * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * Base exception class for all service exceptions from CustomerProfiles service.
  *
  * @public
  */

@@ -26,10 +26,8 @@ export interface DeleteVpcEndpointServiceConfigurationsCommandInput extends Dele
 export interface DeleteVpcEndpointServiceConfigurationsCommandOutput extends DeleteVpcEndpointServiceConfigurationsResult, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified VPC endpoint service configurations. Before you can delete
- *             an endpoint service configuration, you must reject any <code>Available</code> or
- *             <code>PendingAcceptance</code> interface endpoint connections that are attached to
- *             the service.</p>
+ * Deletes the specified VPC endpoint service configurations. Before you can delete an endpoint service configuration, you must reject any `Available` or `PendingAcceptance` interface endpoint connections that are attached to the service.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,8 +65,8 @@ export interface DeleteVpcEndpointServiceConfigurationsCommandOutput extends Del
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

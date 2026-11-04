@@ -23,15 +23,14 @@ export interface PutDedicatedIpInPoolCommandInput extends PutDedicatedIpInPoolRe
 export interface PutDedicatedIpInPoolCommandOutput extends PutDedicatedIpInPoolResponse, __MetadataBearer {}
 
 /**
- * <p>Move a dedicated IP address to an existing dedicated IP pool.</p>
- *          <note>
- *             <p>The dedicated IP address that you specify must already exist, and must be
- *                 associated with your Amazon Web Services account.
+ * Move a dedicated IP address to an existing dedicated IP pool.
  *
- *             </p>
- *             <p>The dedicated IP pool you specify must already exist. You can create a new pool by
- *                 using the <code>CreateDedicatedIpPool</code> operation.</p>
- *          </note>
+ * > **Note:**
+ * >
+ * > The dedicated IP address that you specify must already exist, and must be associated with your Amazon Web Services account.
+ * >
+ * > The dedicated IP pool you specify must already exist. You can create a new pool by using the `CreateDedicatedIpPool` operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,17 +56,20 @@ export interface PutDedicatedIpInPoolCommandOutput extends PutDedicatedIpInPoolR
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * The resource you attempted to access doesn't exist.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Too many requests have been made to the operation.</p>
+ *
+ * Too many requests have been made to the operation.
  *
  * @throws {@link SESv2ServiceException}
- * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * Base exception class for all service exceptions from SESv2 service.
  *
  * @public
  */

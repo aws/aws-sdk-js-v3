@@ -23,12 +23,10 @@ export interface StopReplicationBackfillCommandInput extends StopReplicationBack
 export interface StopReplicationBackfillCommandOutput extends StopReplicationBackfillResponse, __MetadataBearer {}
 
 /**
- * <p>Stops an in progress replication backfill for a registry. The backfill to stop is
- *             identified by the <code>replicationBackfillId</code> returned by the <a>StartReplicationBackfill</a> operation.</p>
- *          <note>
- *             <p>Images that have already been replicated are not affected, and replications that
- *                 are already in progress continue to completion.</p>
- *          </note>
+ * Stops an in progress replication backfill for a registry. The backfill to stop is identified by the `replicationBackfillId` returned by the StartReplicationBackfill operation.
+ *
+ * > **Note:** Images that have already been replicated are not affected, and replications that are already in progress continue to completion.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,28 +61,28 @@ export interface StopReplicationBackfillCommandOutput extends StopReplicationBac
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link ReplicationBackfillInvalidStatusException} (client fault)
- *  <p>The requested operation can't be performed on the replication backfill because it is
- *             not in a valid status for that operation. For example, you can't stop a replication
- *             backfill that has already reached a terminal status. Use the <a>DescribeReplicationBackfillResults</a> operation to check the current status
- *             before retrying.</p>
+ *
+ * The requested operation can't be performed on the replication backfill because it is not in a valid status for that operation. For example, you can't stop a replication backfill that has already reached a terminal status. Use the DescribeReplicationBackfillResults operation to check the current status before retrying.
  *
  * @throws {@link ReplicationBackfillNotFoundException} (client fault)
- *  <p>The specified replication backfill could not be found. Check the specified replication
- *             backfill ID and ensure that you are operating on the correct registry.</p>
+ *
+ * The specified replication backfill could not be found. Check the specified replication backfill ID and ensure that you are operating on the correct registry.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>There was an exception validating this request.</p>
+ *
+ * There was an exception validating this request.
  *
  * @throws {@link ECRServiceException}
- * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * Base exception class for all service exceptions from ECR service.
  *
  * @public
  */

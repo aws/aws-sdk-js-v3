@@ -23,7 +23,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the tags for the specified resource.</p>
+ * Lists the tags for the specified resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,18 +53,20 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link DLMClientResolvedConfig | config} for DLMClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The service failed in an unexpected way.</p>
+ *
+ * The service failed in an unexpected way.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Bad request. The request is missing required parameters or has invalid
- * 			parameters.</p>
+ *
+ * Bad request. The request is missing required parameters or has invalid parameters.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A requested resource was not found.</p>
+ *
+ * A requested resource was not found.
  *
  * @throws {@link DLMServiceException}
- * <p>Base exception class for all service exceptions from DLM service.</p>
  *
+ * Base exception class for all service exceptions from DLM service.
  *
  * @public
  */

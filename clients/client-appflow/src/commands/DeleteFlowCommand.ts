@@ -23,8 +23,8 @@ export interface DeleteFlowCommandInput extends DeleteFlowRequest {}
 export interface DeleteFlowCommandOutput extends DeleteFlowResponse, __MetadataBearer {}
 
 /**
- * <p> Enables your application to delete an existing flow. Before deleting the flow, Amazon AppFlow validates the request by checking the flow configuration and status. You can
- *       delete flows one at a time. </p>
+ * Enables your application to delete an existing flow. Before deleting the flow, Amazon AppFlow validates the request by checking the flow configuration and status. You can delete flows one at a time.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,20 +50,20 @@ export interface DeleteFlowCommandOutput extends DeleteFlowResponse, __MetadataB
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p> There was a conflict when processing the request (for example, a flow with the given name
- *       already exists within the account. Check for conflicting resource names and try again. </p>
+ *
+ * There was a conflict when processing the request (for example, a flow with the given name already exists within the account. Check for conflicting resource names and try again.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> An internal service error occurred during the processing of your request. Try again
- *       later. </p>
+ *
+ * An internal service error occurred during the processing of your request. Try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The resource specified in the request (such as the source or destination connector
- *       profile) is not found. </p>
+ *
+ * The resource specified in the request (such as the source or destination connector profile) is not found.
  *
  * @throws {@link AppflowServiceException}
- * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ * Base exception class for all service exceptions from Appflow service.
  *
  * @public
  */

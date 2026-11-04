@@ -23,7 +23,7 @@ export interface UndeploySystemInstanceCommandInput extends UndeploySystemInstan
 export interface UndeploySystemInstanceCommandOutput extends UndeploySystemInstanceResponse, __MetadataBearer {}
 
 /**
- * <p>Removes a system instance from its target (Cloud or Greengrass).</p>
+ * Removes a system instance from its target (Cloud or Greengrass).
  *
  * @deprecated since: 2022-08-30.
  * @example
@@ -62,23 +62,18 @@ export interface UndeploySystemInstanceCommandOutput extends UndeploySystemInsta
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p></p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p></p>
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p></p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p></p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p></p>
  *
  * @throws {@link IoTThingsGraphServiceException}
- * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ * Base exception class for all service exceptions from IoTThingsGraph service.
  *
  * @public
  */

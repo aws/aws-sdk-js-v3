@@ -23,9 +23,10 @@ export interface DescribeFlowLogsCommandInput extends DescribeFlowLogsRequest {}
 export interface DescribeFlowLogsCommandOutput extends DescribeFlowLogsResult, __MetadataBearer {}
 
 /**
- * <p>Describes one or more flow logs.</p>
- *          <p>To view the published flow log records, you must view the log destination. For example,
- *             the CloudWatch Logs log group, the Amazon S3 bucket, or the Kinesis Data Firehose delivery stream.</p>
+ * Describes one or more flow logs.
+ *
+ * To view the published flow log records, you must view the log destination. For example, the CloudWatch Logs log group, the Amazon S3 bucket, or the Kinesis Data Firehose delivery stream.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -102,8 +103,8 @@ export interface DescribeFlowLogsCommandOutput extends DescribeFlowLogsResult, _
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

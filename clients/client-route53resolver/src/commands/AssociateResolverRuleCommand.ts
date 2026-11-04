@@ -23,10 +23,8 @@ export interface AssociateResolverRuleCommandInput extends AssociateResolverRule
 export interface AssociateResolverRuleCommandOutput extends AssociateResolverRuleResponse, __MetadataBearer {}
 
 /**
- * <p>Associates a Resolver rule with a VPC. When you associate a rule with a VPC, Resolver forwards all DNS queries
- * 			for the domain name that is specified in the rule and that originate in the VPC. The queries are forwarded to the
- * 			IP addresses for the DNS resolvers that are specified in the rule. For more information about rules, see
- * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_CreateResolverRule.html">CreateResolverRule</a>. </p>
+ * Associates a Resolver rule with a VPC. When you associate a rule with a VPC, Resolver forwards all DNS queries for the domain name that is specified in the rule and that originate in the VPC. The queries are forwarded to the IP addresses for the DNS resolvers that are specified in the rule. For more information about rules, see [CreateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_CreateResolverRule.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,32 +60,40 @@ export interface AssociateResolverRuleCommandOutput extends AssociateResolverRul
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
  *
  * @throws {@link InternalServiceErrorException} (client fault)
- *  <p>We encountered an unknown error. Try again in a few minutes.</p>
+ *
+ * We encountered an unknown error. Try again in a few minutes.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters in this request are not valid.</p>
+ *
+ * One or more parameters in this request are not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is invalid.</p>
+ *
+ * The request is invalid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request caused one or more limits to be exceeded.</p>
+ *
+ * The request caused one or more limits to be exceeded.
  *
  * @throws {@link ResourceExistsException} (client fault)
- *  <p>The resource that you tried to create already exists.</p>
+ *
+ * The resource that you tried to create already exists.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource doesn't exist.</p>
+ *
+ * The specified resource doesn't exist.
  *
  * @throws {@link ResourceUnavailableException} (client fault)
- *  <p>The specified resource isn't available.</p>
+ *
+ * The specified resource isn't available.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled. Try again in a few minutes.</p>
+ *
+ * The request was throttled. Try again in a few minutes.
  *
  * @throws {@link Route53ResolverServiceException}
- * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * Base exception class for all service exceptions from Route53Resolver service.
  *
  * @public
  */

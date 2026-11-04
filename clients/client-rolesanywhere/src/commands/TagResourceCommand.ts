@@ -23,7 +23,10 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Attaches tags to a resource.</p> <p> <b>Required permissions: </b> <code>rolesanywhere:TagResource</code>. </p>
+ * Attaches tags to a resource.
+ *
+ * **Required permissions:** `rolesanywhere:TagResource`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,20 +57,24 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>Too many tags.</p>
+ *
+ * Too many tags.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Validation exception error.</p>
+ *
+ * Validation exception error.
  *
  * @throws {@link RolesAnywhereServiceException}
- * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
+ * Base exception class for all service exceptions from RolesAnywhere service.
  *
  * @public
  */

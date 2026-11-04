@@ -23,11 +23,10 @@ export interface DisableSnapshotCopyCommandInput extends DisableSnapshotCopyMess
 export interface DisableSnapshotCopyCommandOutput extends DisableSnapshotCopyResult, __MetadataBearer {}
 
 /**
- * <p>Disables the automatic copying of snapshots from one region to another region for a
- *             specified cluster.</p>
- *          <p>If your cluster and its snapshots are encrypted using an encrypted symmetric key
- *             from Key Management Service, use <a>DeleteSnapshotCopyGrant</a> to delete the grant that
- *             grants Amazon Redshift permission to the key in the destination region. </p>
+ * Disables the automatic copying of snapshots from one region to another region for a specified cluster.
+ *
+ * If your cluster and its snapshots are encrypted using an encrypted symmetric key from Key Management Service, use DeleteSnapshotCopyGrant to delete the grant that grants Amazon Redshift permission to the key in the destination region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -258,24 +257,28 @@ export interface DisableSnapshotCopyCommandOutput extends DisableSnapshotCopyRes
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
- *         </p>
+ *
+ * The `ClusterIdentifier` parameter does not refer to an existing cluster.
  *
  * @throws {@link InvalidClusterStateFault} (client fault)
- *  <p>The specified cluster is not in the <code>available</code> state. </p>
+ *
+ * The specified cluster is not in the `available` state.
  *
  * @throws {@link SnapshotCopyAlreadyDisabledFault} (client fault)
- *  <p>The cluster already has cross-region snapshot copy disabled.</p>
+ *
+ * The cluster already has cross-region snapshot copy disabled.
  *
  * @throws {@link UnauthorizedOperation} (client fault)
- *  <p>Your account is not authorized to perform the requested operation.</p>
+ *
+ * Your account is not authorized to perform the requested operation.
  *
  * @throws {@link UnsupportedOperationFault} (client fault)
- *  <p>The requested operation isn't supported.</p>
+ *
+ * The requested operation isn't supported.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

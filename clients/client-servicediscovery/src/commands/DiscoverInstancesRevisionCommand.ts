@@ -23,7 +23,8 @@ export interface DiscoverInstancesRevisionCommandInput extends DiscoverInstances
 export interface DiscoverInstancesRevisionCommandOutput extends DiscoverInstancesRevisionResponse, __MetadataBearer {}
 
 /**
- * <p>Discovers the increasing revision associated with an instance.</p>
+ * Discovers the increasing revision associated with an instance.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,24 +53,24 @@ export interface DiscoverInstancesRevisionCommandOutput extends DiscoverInstance
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>One or more specified values aren't valid. For example, a required value might be missing, a
- *    numeric value might be outside the allowed range, or a string value might exceed length
- *    constraints.</p>
+ *
+ * One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range, or a string value might exceed length constraints.
  *
  * @throws {@link NamespaceNotFound} (client fault)
- *  <p>No namespace exists with the specified ID.</p>
+ *
+ * No namespace exists with the specified ID.
  *
  * @throws {@link RequestLimitExceeded} (client fault)
- *  <p>The operation can't be completed because you've reached the quota for the number of
- *    requests. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/throttling.html">Cloud Map API request throttling quota</a> in the
- *     <i>Cloud Map Developer Guide</i>.</p>
+ *
+ * The operation can't be completed because you've reached the quota for the number of requests. For more information, see [Cloud Map API request throttling quota](https://docs.aws.amazon.com/cloud-map/latest/dg/throttling.html) in the *Cloud Map Developer Guide*.
  *
  * @throws {@link ServiceNotFound} (client fault)
- *  <p>No service exists with the specified ID.</p>
+ *
+ * No service exists with the specified ID.
  *
  * @throws {@link ServiceDiscoveryServiceException}
- * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
+ * Base exception class for all service exceptions from ServiceDiscovery service.
  *
  * @example Discover instances revision using owner account
  * ```javascript

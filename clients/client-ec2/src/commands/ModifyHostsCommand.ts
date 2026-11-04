@@ -23,15 +23,10 @@ export interface ModifyHostsCommandInput extends ModifyHostsRequest {}
 export interface ModifyHostsCommandOutput extends ModifyHostsResult, __MetadataBearer {}
 
 /**
- * <p>Modify the auto-placement setting of a Dedicated Host. When auto-placement is enabled,
- *             any instances that you launch with a tenancy of <code>host</code> but without a specific
- *             host ID are placed onto any available Dedicated Host in your account that has
- *             auto-placement enabled. When auto-placement is disabled, you need to provide a host ID
- *             to have the instance launch onto a specific host. If no host ID is provided, the
- *             instance is launched onto a suitable host with auto-placement enabled.</p>
- *          <p>You can also use this API action to modify a Dedicated Host to support either multiple
- *             instance types in an instance family, or to support a specific instance type
- *             only.</p>
+ * Modify the auto-placement setting of a Dedicated Host. When auto-placement is enabled, any instances that you launch with a tenancy of `host` but without a specific host ID are placed onto any available Dedicated Host in your account that has auto-placement enabled. When auto-placement is disabled, you need to provide a host ID to have the instance launch onto a specific host. If no host ID is provided, the instance is launched onto a suitable host with auto-placement enabled.
+ *
+ * You can also use this API action to modify a Dedicated Host to support either multiple instance types in an instance family, or to support a specific instance type only.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,8 +71,8 @@ export interface ModifyHostsCommandOutput extends ModifyHostsResult, __MetadataB
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

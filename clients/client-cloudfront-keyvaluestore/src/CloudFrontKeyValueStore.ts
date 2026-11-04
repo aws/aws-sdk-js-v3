@@ -159,7 +159,8 @@ export interface CloudFrontKeyValueStore {
 }
 
 /**
- * <p>Amazon CloudFront KeyValueStore Service to View and Update Data in a KVS Resource</p>
+ * Amazon CloudFront KeyValueStore Service to View and Update Data in a KVS Resource
+ *
  * @public
  */
 export class CloudFrontKeyValueStore extends CloudFrontKeyValueStoreClient implements CloudFrontKeyValueStore {}

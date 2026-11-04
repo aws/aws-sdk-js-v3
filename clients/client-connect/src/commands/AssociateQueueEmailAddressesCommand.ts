@@ -23,27 +23,16 @@ export interface AssociateQueueEmailAddressesCommandInput extends AssociateQueue
 export interface AssociateQueueEmailAddressesCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Associates a set of email addresses with a queue to enable agents to select different "From" (system) email addresses when replying to inbound email contacts or initiating outbound email contacts. This allows agents to handle email contacts across different brands and business units within the same queue.</p>
- *          <p>
- *             <b>Important things to know</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>You can associate up to 49 additional email addresses with a single queue, plus 1 default outbound email address, for a total of 50.</p>
- *             </li>
- *             <li>
- *                <p>The email addresses must already exist in the Connect Customer instance before they can be associated with a queue.</p>
- *             </li>
- *             <li>
- *                <p>Agents will be able to select from these associated email addresses when handling email contacts in the queue.</p>
- *             </li>
- *             <li>
- *                <p>For inbound email contacts, agents can select from email addresses associated with the queue where the contact was accepted.</p>
- *             </li>
- *             <li>
- *                <p>For outbound email contacts, agents can select from email addresses associated with their default outbound queue configured in their routing profile.</p>
- *             </li>
- *          </ul>
+ * Associates a set of email addresses with a queue to enable agents to select different "From" (system) email addresses when replying to inbound email contacts or initiating outbound email contacts. This allows agents to handle email contacts across different brands and business units within the same queue.
+ *
+ * **Important things to know**
+ *
+ * - You can associate up to 49 additional email addresses with a single queue, plus 1 default outbound email address, for a total of 50.
+ * - The email addresses must already exist in the Connect Customer instance before they can be associated with a queue.
+ * - Agents will be able to select from these associated email addresses when handling email contacts in the queue.
+ * - For inbound email contacts, agents can select from email addresses associated with the queue where the contact was accepted.
+ * - For outbound email contacts, agents can select from email addresses associated with their default outbound queue configured in their routing profile.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,29 +64,36 @@ export interface AssociateQueueEmailAddressesCommandOutput extends __MetadataBea
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The allowed limit for the resource has been exceeded.</p>
+ *
+ * The allowed limit for the resource has been exceeded.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

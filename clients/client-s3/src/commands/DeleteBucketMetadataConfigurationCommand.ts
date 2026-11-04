@@ -23,53 +23,25 @@ export interface DeleteBucketMetadataConfigurationCommandInput extends DeleteBuc
 export interface DeleteBucketMetadataConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p> Deletes an S3 Metadata configuration from a general purpose bucket. For more information, see
- *       <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html">Accelerating
- *         data discovery with S3 Metadata</a> in the <i>Amazon S3 User Guide</i>. </p>
- *          <note>
- *             <p>You can use the V2 <code>DeleteBucketMetadataConfiguration</code> API operation with V1 or V2
- *             metadata configurations. However, if you try to use the V1
- *             <code>DeleteBucketMetadataTableConfiguration</code> API operation with V2 configurations, you
- *             will receive an HTTP <code>405 Method Not Allowed</code> error.</p>
- *          </note>
- *          <dl>
- *             <dt>Permissions</dt>
- *             <dd>
- *                <p>To use this operation, you must have the
- *             <code>s3:DeleteBucketMetadataTableConfiguration</code> permission. For more information, see
- *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html">Setting up permissions for configuring metadata tables</a> in the
- *             <i>Amazon S3 User Guide</i>. </p>
- *                <note>
- *                   <p>The IAM policy action name is the same for the V1 and V2 API operations.</p>
- *                </note>
- *             </dd>
- *          </dl>
- *          <p>The following operations are related to <code>DeleteBucketMetadataConfiguration</code>:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html">CreateBucketMetadataConfiguration</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketMetadataConfiguration.html">GetBucketMetadataConfiguration</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UpdateBucketMetadataInventoryTableConfiguration.html">UpdateBucketMetadataInventoryTableConfiguration</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UpdateBucketMetadataJournalTableConfiguration.html">UpdateBucketMetadataJournalTableConfiguration</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
+ * Deletes an S3 Metadata configuration from a general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) in the *Amazon S3 User Guide*.
+ *
+ * > **Note:** You can use the V2 `DeleteBucketMetadataConfiguration` API operation with V1 or V2 metadata configurations. However, if you try to use the V1 `DeleteBucketMetadataTableConfiguration` API operation with V2 configurations, you will receive an HTTP `405 Method Not Allowed` error.
+ *
+ * - **Permissions**
+ *
+ *   To use this operation, you must have the `s3:DeleteBucketMetadataTableConfiguration` permission. For more information, see [Setting up permissions for configuring metadata tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html) in the *Amazon S3 User Guide*.
+ *
+ *   > **Note:** The IAM policy action name is the same for the V1 and V2 API operations.
+ *
+ * The following operations are related to `DeleteBucketMetadataConfiguration`:
+ *
+ * - [CreateBucketMetadataConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html)
+ * - [GetBucketMetadataConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketMetadataConfiguration.html)
+ * - [UpdateBucketMetadataInventoryTableConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_UpdateBucketMetadataInventoryTableConfiguration.html)
+ * - [UpdateBucketMetadataJournalTableConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_UpdateBucketMetadataJournalTableConfiguration.html)
+ *
+ * > **Important:** You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,8 +67,8 @@ export interface DeleteBucketMetadataConfigurationCommandOutput extends __Metada
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  * @throws {@link S3ServiceException}
- * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * Base exception class for all service exceptions from S3 service.
  *
  * @public
  */

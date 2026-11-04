@@ -5,10 +5,8 @@ import type { ExceptionResourceType } from "./enums";
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
 
 /**
- * <p>You don't have access to this item. The provided credentials couldn't be
- * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
- * 			correct permissions, and that you are using the correct credentials.</p>
+ * You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -17,7 +15,8 @@ export class AccessDeniedException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The Amazon Web Services request ID for this request.</p>
+   * The Amazon Web Services request ID for this request.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -37,7 +36,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>An internal failure occurred.</p>
+ * An internal failure occurred.
+ *
  * @public
  */
 export class InternalFailureException extends __BaseException {
@@ -46,7 +46,8 @@ export class InternalFailureException extends __BaseException {
   readonly $fault = "server" as const;
   Message?: string | undefined;
   /**
-   * <p>The Amazon Web Services request ID for this request.</p>
+   * The Amazon Web Services request ID for this request.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -66,7 +67,8 @@ export class InternalFailureException extends __BaseException {
 }
 
 /**
- * <p>One or more parameters has a value that isn't valid.</p>
+ * One or more parameters has a value that isn't valid.
+ *
  * @public
  */
 export class InvalidParameterValueException extends __BaseException {
@@ -75,7 +77,8 @@ export class InvalidParameterValueException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The Amazon Web Services request ID for this request.</p>
+   * The Amazon Web Services request ID for this request.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -95,7 +98,8 @@ export class InvalidParameterValueException extends __BaseException {
 }
 
 /**
- * <p>One or more resources can't be found.</p>
+ * One or more resources can't be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -104,13 +108,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The resource type for this request.</p>
+   * The resource type for this request.
+   *
    * @public
    */
   ResourceType?: ExceptionResourceType | undefined;
 
   /**
-   * <p>The Amazon Web Services request ID for this request.</p>
+   * The Amazon Web Services request ID for this request.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -131,7 +137,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Access is throttled.</p>
+ * Access is throttled.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -140,7 +147,8 @@ export class ThrottlingException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The Amazon Web Services request ID for this request.</p>
+   * The Amazon Web Services request ID for this request.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -160,7 +168,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>You don't have this feature activated for your account. To fix this issue, contact Amazon Web Services support.</p>
+ * You don't have this feature activated for your account. To fix this issue, contact Amazon Web Services support.
+ *
  * @public
  */
 export class InvalidRequestException extends __BaseException {
@@ -169,7 +178,8 @@ export class InvalidRequestException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The Amazon Web Services request ID for this request.</p>
+   * The Amazon Web Services request ID for this request.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -189,7 +199,8 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * <p>A limit is exceeded.</p>
+ * A limit is exceeded.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -198,13 +209,15 @@ export class LimitExceededException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>Limit exceeded.</p>
+   * Limit exceeded.
+   *
    * @public
    */
   ResourceType?: ExceptionResourceType | undefined;
 
   /**
-   * <p>The Amazon Web Services request ID for this request.</p>
+   * The Amazon Web Services request ID for this request.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -225,7 +238,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>One or more preconditions aren't met.</p>
+ * One or more preconditions aren't met.
+ *
  * @public
  */
 export class PreconditionNotMetException extends __BaseException {
@@ -234,7 +248,8 @@ export class PreconditionNotMetException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The Amazon Web Services request ID for this request.</p>
+   * The Amazon Web Services request ID for this request.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -254,7 +269,8 @@ export class PreconditionNotMetException extends __BaseException {
 }
 
 /**
- * <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ * Updating or deleting a resource can cause an inconsistent state.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -263,7 +279,8 @@ export class ConflictException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The Amazon Web Services request ID for this request.</p>
+   * The Amazon Web Services request ID for this request.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -283,7 +300,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The resource specified already exists. </p>
+ * The resource specified already exists.
+ *
  * @public
  */
 export class ResourceExistsException extends __BaseException {
@@ -292,13 +310,15 @@ export class ResourceExistsException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The resource type for this request.</p>
+   * The resource type for this request.
+   *
    * @public
    */
   ResourceType?: ExceptionResourceType | undefined;
 
   /**
-   * <p>The Amazon Web Services request ID for this request.</p>
+   * The Amazon Web Services request ID for this request.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -319,8 +339,8 @@ export class ResourceExistsException extends __BaseException {
 }
 
 /**
- * <p>A resource is already in a state that indicates an operation is happening that must complete
- * 			before a new update can be applied.</p>
+ * A resource is already in a state that indicates an operation is happening that must complete before a new update can be applied.
+ *
  * @public
  */
 export class ConcurrentUpdatingException extends __BaseException {
@@ -345,7 +365,8 @@ export class ConcurrentUpdatingException extends __BaseException {
 }
 
 /**
- * <p>This resource is currently unavailable.</p>
+ * This resource is currently unavailable.
+ *
  * @public
  */
 export class ResourceUnavailableException extends __BaseException {
@@ -354,13 +375,15 @@ export class ResourceUnavailableException extends __BaseException {
   readonly $fault = "server" as const;
   Message?: string | undefined;
   /**
-   * <p>The resource type for this request.</p>
+   * The resource type for this request.
+   *
    * @public
    */
   ResourceType?: ExceptionResourceType | undefined;
 
   /**
-   * <p>The Amazon Web Services request ID for this request.</p>
+   * The Amazon Web Services request ID for this request.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -381,10 +404,8 @@ export class ResourceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>This error indicates that you are calling an operation on an Amazon Quick Suite
- * 			subscription where the edition doesn't include support for that operation. Amazon
- * 			Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and
- * 			capability is available in every edition.</p>
+ * This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.
+ *
  * @public
  */
 export class UnsupportedUserEditionException extends __BaseException {
@@ -393,7 +414,8 @@ export class UnsupportedUserEditionException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The Amazon Web Services request ID for this request.</p>
+   * The Amazon Web Services request ID for this request.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -413,7 +435,8 @@ export class UnsupportedUserEditionException extends __BaseException {
 }
 
 /**
- * <p>An internal service exception.</p>
+ * An internal service exception.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -436,7 +459,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>An exception thrown when an invalid parameter value is provided for dataset operations.</p>
+ * An exception thrown when an invalid parameter value is provided for dataset operations.
+ *
  * @public
  */
 export class InvalidDataSetParameterValueException extends __BaseException {
@@ -445,7 +469,8 @@ export class InvalidDataSetParameterValueException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The Amazon Web Services request ID for this request.</p>
+   * The Amazon Web Services request ID for this request.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -465,7 +490,8 @@ export class InvalidDataSetParameterValueException extends __BaseException {
 }
 
 /**
- * <p>The customer managed key that is registered to your Amazon Quick Sight account is unavailable.</p>
+ * The customer managed key that is registered to your Amazon Quick Sight account is unavailable.
+ *
  * @public
  */
 export class CustomerManagedKeyUnavailableException extends __BaseException {
@@ -474,7 +500,8 @@ export class CustomerManagedKeyUnavailableException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
+   * The Amazon Web Services request ID for this operation.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -494,7 +521,8 @@ export class CustomerManagedKeyUnavailableException extends __BaseException {
 }
 
 /**
- * <p>One or more parameter has a value that isn't valid.</p>
+ * One or more parameter has a value that isn't valid.
+ *
  * @public
  */
 export class InvalidParameterException extends __BaseException {
@@ -503,7 +531,8 @@ export class InvalidParameterException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The Amazon Web Services request ID for this request.</p>
+   * The Amazon Web Services request ID for this request.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -523,7 +552,8 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>The <code>NextToken</code> value isn't valid.</p>
+ * The `NextToken` value isn't valid.
+ *
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -532,7 +562,8 @@ export class InvalidNextTokenException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The Amazon Web Services request ID for this request.</p>
+   * The Amazon Web Services request ID for this request.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -552,8 +583,8 @@ export class InvalidNextTokenException extends __BaseException {
 }
 
 /**
- * <p>The domain specified isn't on the allow list. All domains for embedded dashboards must be
- * 			added to the approved list by an Amazon Quick Suite admin.</p>
+ * The domain specified isn't on the allow list. All domains for embedded dashboards must be added to the approved list by an Amazon Quick Suite admin.
+ *
  * @public
  */
 export class DomainNotWhitelistedException extends __BaseException {
@@ -562,7 +593,8 @@ export class DomainNotWhitelistedException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The Amazon Web Services request ID for this request.</p>
+   * The Amazon Web Services request ID for this request.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -582,8 +614,8 @@ export class DomainNotWhitelistedException extends __BaseException {
 }
 
 /**
- * <p>The number of minutes specified for the lifetime of a session isn't valid. The session
- * 			lifetime must be 15-600 minutes.</p>
+ * The number of minutes specified for the lifetime of a session isn't valid. The session lifetime must be 15-600 minutes.
+ *
  * @public
  */
 export class SessionLifetimeInMinutesInvalidException extends __BaseException {
@@ -592,7 +624,8 @@ export class SessionLifetimeInMinutesInvalidException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The Amazon Web Services request ID for this request.</p>
+   * The Amazon Web Services request ID for this request.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -612,15 +645,10 @@ export class SessionLifetimeInMinutesInvalidException extends __BaseException {
 }
 
 /**
- * <p>This error indicates that you are calling an embedding operation in Amazon Quick Sight
- * 			without the required pricing plan on your Amazon Web Services account. Before you can use embedding
- * 			for anonymous users, a Quick Suite administrator needs to add capacity pricing to Quick Sight. You
- * 		    can do this on the <b>Manage Quick Suite</b> page. </p>
- *          <p>After capacity pricing is added, you can use the
- *             <code>
- *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GetDashboardEmbedUrl.html">GetDashboardEmbedUrl</a>
- *             </code> API operation with the
- *             <code>--identity-type ANONYMOUS</code> option.</p>
+ * This error indicates that you are calling an embedding operation in Amazon Quick Sight without the required pricing plan on your Amazon Web Services account. Before you can use embedding for anonymous users, a Quick Suite administrator needs to add capacity pricing to Quick Sight. You can do this on the **Manage Quick Suite** page.
+ *
+ * After capacity pricing is added, you can use the `GetDashboardEmbedUrl` API operation with the `--identity-type ANONYMOUS` option.
+ *
  * @public
  */
 export class UnsupportedPricingPlanException extends __BaseException {
@@ -629,7 +657,8 @@ export class UnsupportedPricingPlanException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The Amazon Web Services request ID for this request.</p>
+   * The Amazon Web Services request ID for this request.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -649,9 +678,8 @@ export class UnsupportedPricingPlanException extends __BaseException {
 }
 
 /**
- * <p>The user with the provided name isn't found. This error can happen in any operation
- * 			that requires finding a user based on a provided user name, such as
- * 				<code>DeleteUser</code>, <code>DescribeUser</code>, and so on.</p>
+ * The user with the provided name isn't found. This error can happen in any operation that requires finding a user based on a provided user name, such as `DeleteUser`, `DescribeUser`, and so on.
+ *
  * @public
  */
 export class QuickSightUserNotFoundException extends __BaseException {
@@ -660,7 +688,8 @@ export class QuickSightUserNotFoundException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The Amazon Web Services request ID for this request.</p>
+   * The Amazon Web Services request ID for this request.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -680,8 +709,8 @@ export class QuickSightUserNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The identity type specified isn't supported. Supported identity types include
- * 				<code>IAM</code> and <code>QUICKSIGHT</code>.</p>
+ * The identity type specified isn't supported. Supported identity types include `IAM` and `QUICKSIGHT`.
+ *
  * @public
  */
 export class IdentityTypeNotSupportedException extends __BaseException {
@@ -690,7 +719,8 @@ export class IdentityTypeNotSupportedException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The Amazon Web Services request ID for this request.</p>
+   * The Amazon Web Services request ID for this request.
+   *
    * @public
    */
   RequestId?: string | undefined;

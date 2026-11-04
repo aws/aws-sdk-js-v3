@@ -23,22 +23,12 @@ export interface TerminateJobsCommandInput extends TerminateJobsRequest {}
 export interface TerminateJobsCommandOutput extends TerminateJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Terminates up to 50 jobs in a job queue. This is a bulk version of <a>TerminateJob</a>. Jobs that are in the <code>STARTING</code> or
- *         <code>RUNNING</code> state are terminated, which causes them to transition to
- *         <code>FAILED</code>. Jobs that have not progressed to the <code>STARTING</code> state are
- *       cancelled.</p>
- *          <p>Batch reports the result for each job individually in the response. Jobs that
- *       were processed successfully are reported in the <code>successful</code> list. Jobs that
- *       encountered errors are reported in the <code>errors</code> list. The response returns an
- *       HTTP status code of <code>200</code> even when some jobs encountered errors, so check the
- *       <code>errors</code> list. Jobs that can't be found are treated as successfully
- *       processed.</p>
- *          <important>
- *             <p>This operation requires <code>batch:TerminateJob</code> permission for each job in the
- *         request. There is no separate <code>batch:TerminateJobs</code> IAM action. If a caller's IAM
- *         policy grants <code>batch:TerminateJob</code>, they can use both the singular
- *         <a>TerminateJob</a> and bulk <code>TerminateJobs</code> operations.</p>
- *          </important>
+ * Terminates up to 50 jobs in a job queue. This is a bulk version of TerminateJob. Jobs that are in the `STARTING` or `RUNNING` state are terminated, which causes them to transition to `FAILED`. Jobs that have not progressed to the `STARTING` state are cancelled.
+ *
+ * Batch reports the result for each job individually in the response. Jobs that were processed successfully are reported in the `successful` list. Jobs that encountered errors are reported in the `errors` list. The response returns an HTTP status code of `200` even when some jobs encountered errors, so check the `errors` list. Jobs that can't be found are treated as successfully processed.
+ *
+ * > **Important:** This operation requires `batch:TerminateJob` permission for each job in the request. There is no separate `batch:TerminateJobs` IAM action. If a caller's IAM policy grants `batch:TerminateJob`, they can use both the singular TerminateJob and bulk `TerminateJobs` operations.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,16 +67,16 @@ export interface TerminateJobsCommandOutput extends TerminateJobsResponse, __Met
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf
- *    of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier
- *    that's not valid.</p>
+ *
+ * These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server issue.</p>
+ *
+ * These errors are usually caused by a server issue.
  *
  * @throws {@link BatchServiceException}
- * <p>Base exception class for all service exceptions from Batch service.</p>
  *
+ * Base exception class for all service exceptions from Batch service.
  *
  * @example To terminate multiple jobs
  * ```javascript

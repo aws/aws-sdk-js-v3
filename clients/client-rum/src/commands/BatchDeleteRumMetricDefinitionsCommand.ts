@@ -26,7 +26,12 @@ export interface BatchDeleteRumMetricDefinitionsCommandInput extends BatchDelete
 export interface BatchDeleteRumMetricDefinitionsCommandOutput extends BatchDeleteRumMetricDefinitionsResponse, __MetadataBearer {}
 
 /**
- * <p>Removes the specified metrics from being sent to an extended metrics destination.</p> <p>If some metric definition IDs specified in a <code>BatchDeleteRumMetricDefinitions</code> operations are not valid, those metric definitions fail and return errors, but all valid metric definition IDs in the same operation are still deleted.</p> <p>The maximum number of metric definitions that you can specify in one <code>BatchDeleteRumMetricDefinitions</code> operation is 200.</p>
+ * Removes the specified metrics from being sent to an extended metrics destination.
+ *
+ * If some metric definition IDs specified in a `BatchDeleteRumMetricDefinitions` operations are not valid, those metric definitions fail and return errors, but all valid metric definition IDs in the same operation are still deleted.
+ *
+ * The maximum number of metric definitions that you can specify in one `BatchDeleteRumMetricDefinitions` operation is 200.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,26 +72,32 @@ export interface BatchDeleteRumMetricDefinitionsCommandOutput extends BatchDelet
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permissions to perform this action.</p>
+ *
+ * You don't have sufficient permissions to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>This operation attempted to create a resource that already exists.</p>
+ *
+ * This operation attempted to create a resource that already exists.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal service exception.</p>
+ *
+ * Internal service exception.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource not found.</p>
+ *
+ * Resource not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled because of quota limits.</p>
+ *
+ * The request was throttled because of quota limits.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One of the arguments for the request is not valid.</p>
+ *
+ * One of the arguments for the request is not valid.
  *
  * @throws {@link RUMServiceException}
- * <p>Base exception class for all service exceptions from RUM service.</p>
  *
+ * Base exception class for all service exceptions from RUM service.
  *
  * @public
  */

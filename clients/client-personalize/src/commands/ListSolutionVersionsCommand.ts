@@ -23,9 +23,8 @@ export interface ListSolutionVersionsCommandInput extends ListSolutionVersionsRe
 export interface ListSolutionVersionsCommandOutput extends ListSolutionVersionsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of solution versions for the given solution. When a solution is not
- *       specified, all the solution versions associated with the account are listed. The response
- *       provides the properties for each solution version, including the Amazon Resource Name (ARN).</p>
+ * Returns a list of solution versions for the given solution. When a solution is not specified, all the solution versions associated with the account are listed. The response provides the properties for each solution version, including the Amazon Resource Name (ARN).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,17 +64,20 @@ export interface ListSolutionVersionsCommandOutput extends ListSolutionVersionsR
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * Provide a valid value for the field or parameter.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The token is not valid.</p>
+ *
+ * The token is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Could not find the specified resource.</p>
+ *
+ * Could not find the specified resource.
  *
  * @throws {@link PersonalizeServiceException}
- * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * Base exception class for all service exceptions from Personalize service.
  *
  * @public
  */

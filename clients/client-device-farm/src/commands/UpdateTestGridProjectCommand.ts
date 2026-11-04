@@ -23,7 +23,8 @@ export interface UpdateTestGridProjectCommandInput extends UpdateTestGridProject
 export interface UpdateTestGridProjectCommandOutput extends UpdateTestGridProjectResult, __MetadataBearer {}
 
 /**
- * <p>Change details of a project.</p>
+ * Change details of a project.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,21 +76,24 @@ export interface UpdateTestGridProjectCommandOutput extends UpdateTestGridProjec
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
  * @throws {@link ArgumentException} (client fault)
- *  <p>An invalid argument was specified.</p>
+ *
+ * An invalid argument was specified.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal exception was raised in the service. Contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a> if you see this
- *          error. </p>
+ *
+ * An internal exception was raised in the service. Contact [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com) if you see this error.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>A limit was exceeded.</p>
+ *
+ * A limit was exceeded.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The specified entity was not found.</p>
+ *
+ * The specified entity was not found.
  *
  * @throws {@link DeviceFarmServiceException}
- * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * Base exception class for all service exceptions from DeviceFarm service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface DescribeInboundIntegrationsCommandInput extends DescribeInbound
 export interface DescribeInboundIntegrationsCommandOutput extends InboundIntegrationsMessage, __MetadataBearer {}
 
 /**
- * <p>Returns a list of inbound integrations.</p>
+ * Returns a list of inbound integrations.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,17 +69,20 @@ export interface DescribeInboundIntegrationsCommandOutput extends InboundIntegra
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link IntegrationNotFoundFault} (client fault)
- *  <p>The integration can't be found.</p>
+ *
+ * The integration can't be found.
  *
  * @throws {@link InvalidNamespaceFault} (client fault)
- *  <p>The namespace isn't valid because the namespace doesn't exist. Provide a valid namespace.</p>
+ *
+ * The namespace isn't valid because the namespace doesn't exist. Provide a valid namespace.
  *
  * @throws {@link UnsupportedOperationFault} (client fault)
- *  <p>The requested operation isn't supported.</p>
+ *
+ * The requested operation isn't supported.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

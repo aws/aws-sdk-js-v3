@@ -23,7 +23,8 @@ export interface ListProcessingJobsCommandInput extends ListProcessingJobsReques
 export interface ListProcessingJobsCommandOutput extends ListProcessingJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists processing jobs that satisfy various filters.</p>
+ * Lists processing jobs that satisfy various filters.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,8 +72,8 @@ export interface ListProcessingJobsCommandOutput extends ListProcessingJobsRespo
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

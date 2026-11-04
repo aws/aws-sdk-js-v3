@@ -23,13 +23,10 @@ export interface PollForThirdPartyJobsCommandInput extends PollForThirdPartyJobs
 export interface PollForThirdPartyJobsCommandOutput extends PollForThirdPartyJobsOutput, __MetadataBearer {}
 
 /**
- * <p>Determines whether there are any third party jobs for a job worker to act on. Used
- *             for partner actions only.</p>
- *          <important>
- *             <p>When this API is called, CodePipeline returns temporary credentials for
- *                 the S3 bucket used to store artifacts for the pipeline, if the action requires
- *                 access to that S3 bucket for input or output artifacts.</p>
- *          </important>
+ * Determines whether there are any third party jobs for a job worker to act on. Used for partner actions only.
+ *
+ * > **Important:** When this API is called, CodePipeline returns temporary credentials for the S3 bucket used to store artifacts for the pipeline, if the action requires access to that S3 bucket for input or output artifacts.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,14 +64,16 @@ export interface PollForThirdPartyJobsCommandOutput extends PollForThirdPartyJob
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  * @throws {@link ActionTypeNotFoundException} (client fault)
- *  <p>The specified action type cannot be found.</p>
+ *
+ * The specified action type cannot be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The validation was specified in an invalid format.</p>
+ *
+ * The validation was specified in an invalid format.
  *
  * @throws {@link CodePipelineServiceException}
- * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * Base exception class for all service exceptions from CodePipeline service.
  *
  * @public
  */

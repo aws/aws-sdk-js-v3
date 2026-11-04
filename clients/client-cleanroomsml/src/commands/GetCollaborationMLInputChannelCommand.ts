@@ -23,7 +23,8 @@ export interface GetCollaborationMLInputChannelCommandInput extends GetCollabora
 export interface GetCollaborationMLInputChannelCommandOutput extends GetCollaborationMLInputChannelResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about a specific ML input channel in a collaboration.</p>
+ * Returns information about a specific ML input channel in a collaboration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -115,20 +116,24 @@ export interface GetCollaborationMLInputChannelCommandOutput extends GetCollabor
  * @see {@link CleanRoomsMLClientResolvedConfig | config} for CleanRoomsMLClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource you are requesting does not exist.</p>
+ *
+ * The resource you are requesting does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request parameters for this request are incorrect.</p>
+ *
+ * The request parameters for this request are incorrect.
  *
  * @throws {@link CleanRoomsMLServiceException}
- * <p>Base exception class for all service exceptions from CleanRoomsML service.</p>
  *
+ * Base exception class for all service exceptions from CleanRoomsML service.
  *
  * @public
  */

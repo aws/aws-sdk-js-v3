@@ -23,68 +23,32 @@ export interface DescribeCustomKeyStoresCommandInput extends DescribeCustomKeySt
 export interface DescribeCustomKeyStoresCommandOutput extends DescribeCustomKeyStoresResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key stores</a> in the account and Region.</p>
- *          <p> This operation is part of the custom key stores feature in KMS, which
- * combines the convenience and extensive integration of KMS with the isolation and control of a
- * key store that you own and manage.</p>
- *          <p>By default, this operation returns information about all custom key stores in the account
- *       and Region. To get only information about a particular custom key store, use either the
- *         <code>CustomKeyStoreName</code> or <code>CustomKeyStoreId</code> parameter (but not
- *       both).</p>
- *          <p>To determine whether the custom key store is connected to its CloudHSM cluster or external
- *       key store proxy, use the <code>ConnectionState</code> element in the response. If an attempt
- *       to connect the custom key store failed, the <code>ConnectionState</code> value is
- *         <code>FAILED</code> and the <code>ConnectionErrorCode</code> element in the response
- *       indicates the cause of the failure. For help interpreting the
- *       <code>ConnectionErrorCode</code>, see <a>CustomKeyStoresListEntry</a>.</p>
- *          <p>Custom key stores have a <code>DISCONNECTED</code> connection state if the key store has
- *       never been connected or you used the <a>DisconnectCustomKeyStore</a> operation to
- *       disconnect it. Otherwise, the connection state is CONNECTED. If your custom key store
- *       connection state is <code>CONNECTED</code> but you are having trouble using it, verify that
- *       the backing store is active and available. For an CloudHSM key store, verify that the associated
- *       CloudHSM cluster is active and contains the minimum number of HSMs required for the operation, if
- *       any. For an external key store, verify that the external key store proxy and its associated
- *       external key manager are reachable and enabled.</p>
- *          <p> For help repairing your CloudHSM key store, see the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html">Troubleshooting CloudHSM key stores</a>. For help
- *       repairing your external key store, see the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/xks-troubleshooting.html">Troubleshooting external key stores</a>.
- *       Both topics are in the <i>Key Management Service Developer Guide</i>.</p>
- *          <p>
- *             <b>Cross-account use</b>: No. You cannot perform this operation on a custom key store in a different Amazon Web Services account.</p>
- *          <p>
- *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:DescribeCustomKeyStores</a> (IAM policy)</p>
- *          <p>
- *             <b>Related operations:</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>ConnectCustomKeyStore</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>CreateCustomKeyStore</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteCustomKeyStore</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DisconnectCustomKeyStore</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateCustomKeyStore</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
+ * Gets information about [custom key stores](https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html) in the account and Region.
+ *
+ * This operation is part of the custom key stores feature in KMS, which combines the convenience and extensive integration of KMS with the isolation and control of a key store that you own and manage.
+ *
+ * By default, this operation returns information about all custom key stores in the account and Region. To get only information about a particular custom key store, use either the `CustomKeyStoreName` or `CustomKeyStoreId` parameter (but not both).
+ *
+ * To determine whether the custom key store is connected to its CloudHSM cluster or external key store proxy, use the `ConnectionState` element in the response. If an attempt to connect the custom key store failed, the `ConnectionState` value is `FAILED` and the `ConnectionErrorCode` element in the response indicates the cause of the failure. For help interpreting the `ConnectionErrorCode`, see CustomKeyStoresListEntry.
+ *
+ * Custom key stores have a `DISCONNECTED` connection state if the key store has never been connected or you used the DisconnectCustomKeyStore operation to disconnect it. Otherwise, the connection state is CONNECTED. If your custom key store connection state is `CONNECTED` but you are having trouble using it, verify that the backing store is active and available. For an CloudHSM key store, verify that the associated CloudHSM cluster is active and contains the minimum number of HSMs required for the operation, if any. For an external key store, verify that the external key store proxy and its associated external key manager are reachable and enabled.
+ *
+ * For help repairing your CloudHSM key store, see the [Troubleshooting CloudHSM key stores](https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html). For help repairing your external key store, see the [Troubleshooting external key stores](https://docs.aws.amazon.com/kms/latest/developerguide/xks-troubleshooting.html). Both topics are in the *Key Management Service Developer Guide*.
+ *
+ * **Cross-account use**: No. You cannot perform this operation on a custom key store in a different Amazon Web Services account.
+ *
+ * **Required permissions**: [kms:DescribeCustomKeyStores](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (IAM policy)
+ *
+ * **Related operations:**
+ *
+ * - ConnectCustomKeyStore
+ * - CreateCustomKeyStore
+ * - DeleteCustomKeyStore
+ * - DisconnectCustomKeyStore
+ * - UpdateCustomKeyStore
+ *
+ * **Eventual consistency**: The KMS API follows an eventual consistency model. For more information, see [KMS eventual consistency](https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -135,20 +99,20 @@ export interface DescribeCustomKeyStoresCommandOutput extends DescribeCustomKeyS
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
  * @throws {@link CustomKeyStoreNotFoundException} (client fault)
- *  <p>The request was rejected because KMS cannot find a custom key store with the specified
- *       key store name or ID.</p>
+ *
+ * The request was rejected because KMS cannot find a custom key store with the specified key store name or ID.
  *
  * @throws {@link InvalidMarkerException} (client fault)
- *  <p>The request was rejected because the marker that specifies where pagination should next
- *       begin is not valid.</p>
+ *
+ * The request was rejected because the marker that specifies where pagination should next begin is not valid.
  *
  * @throws {@link KMSInternalException} (server fault)
- *  <p>The request was rejected because an internal exception occurred. The request can be
- *       retried.</p>
+ *
+ * The request was rejected because an internal exception occurred. The request can be retried.
  *
  * @throws {@link KMSServiceException}
- * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * Base exception class for all service exceptions from KMS service.
  *
  * @example To get detailed information about custom key stores in the account and Region
  * ```javascript

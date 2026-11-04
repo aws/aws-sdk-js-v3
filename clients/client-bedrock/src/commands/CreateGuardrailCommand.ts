@@ -23,7 +23,19 @@ export interface CreateGuardrailCommandInput extends CreateGuardrailRequest {}
 export interface CreateGuardrailCommandOutput extends CreateGuardrailResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a guardrail to block topics and to implement safeguards for your generative AI applications.</p> <p>You can configure the following policies in a guardrail to avoid undesirable and harmful content, filter out denied topics and words, and remove sensitive information for privacy protection.</p> <ul> <li> <p> <b>Content filters</b> - Adjust filter strengths to block input prompts or model responses containing harmful content.</p> </li> <li> <p> <b>Denied topics</b> - Define a set of topics that are undesirable in the context of your application. These topics will be blocked if detected in user queries or model responses.</p> </li> <li> <p> <b>Word filters</b> - Configure filters to block undesirable words, phrases, and profanity. Such words can include offensive terms, competitor names etc.</p> </li> <li> <p> <b>Sensitive information filters</b> - Block or mask sensitive information such as personally identifiable information (PII) or custom regex in user inputs and model responses.</p> </li> </ul> <p>In addition to the above policies, you can also configure the messages to be returned to the user if a user input or model response is in violation of the policies defined in the guardrail.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html">Amazon Bedrock Guardrails</a> in the <i>Amazon Bedrock User Guide</i>.</p>
+ * Creates a guardrail to block topics and to implement safeguards for your generative AI applications.
+ *
+ * You can configure the following policies in a guardrail to avoid undesirable and harmful content, filter out denied topics and words, and remove sensitive information for privacy protection.
+ *
+ * - **Content filters** - Adjust filter strengths to block input prompts or model responses containing harmful content.
+ * - **Denied topics** - Define a set of topics that are undesirable in the context of your application. These topics will be blocked if detected in user queries or model responses.
+ * - **Word filters** - Configure filters to block undesirable words, phrases, and profanity. Such words can include offensive terms, competitor names etc.
+ * - **Sensitive information filters** - Block or mask sensitive information such as personally identifiable information (PII) or custom regex in user inputs and model responses.
+ *
+ * In addition to the above policies, you can also configure the messages to be returned to the user if a user input or model response is in violation of the policies defined in the guardrail.
+ *
+ * For more information, see [Amazon Bedrock Guardrails](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html) in the *Amazon Bedrock User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -171,32 +183,40 @@ export interface CreateGuardrailCommandOutput extends CreateGuardrailResponse, _
  * @see {@link BedrockClientResolvedConfig | config} for BedrockClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request is denied because of missing access permissions.</p>
+ *
+ * The request is denied because of missing access permissions.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Error occurred because of a conflict while performing an operation.</p>
+ *
+ * Error occurred because of a conflict while performing an operation.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
+ *
+ * The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The number of requests exceeds the service quota. Resubmit your request later.</p>
+ *
+ * The number of requests exceeds the service quota. Resubmit your request later.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
+ * The number of requests exceeds the limit. Resubmit your request later.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>The request contains more tags than can be associated with a resource (50 tags per resource). The maximum number of tags includes both existing tags and those included in your current request. </p>
+ *
+ * The request contains more tags than can be associated with a resource (50 tags per resource). The maximum number of tags includes both existing tags and those included in your current request.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Input validation failed. Check your request parameters and retry the request.</p>
+ *
+ * Input validation failed. Check your request parameters and retry the request.
  *
  * @throws {@link BedrockServiceException}
- * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ * Base exception class for all service exceptions from Bedrock service.
  *
  * @public
  */

@@ -23,12 +23,10 @@ export interface ListPipelineExecutionsCommandInput extends ListPipelineExecutio
 export interface ListPipelineExecutionsCommandOutput extends ListPipelineExecutionsOutput, __MetadataBearer {}
 
 /**
- * <p>Gets a summary of the most recent executions for a pipeline.</p>
- *          <note>
- *             <p>When applying the filter for pipeline executions that have succeeded in the stage,
- *                 the operation returns all executions in the current pipeline version beginning on
- *                 February 1, 2024.</p>
- *          </note>
+ * Gets a summary of the most recent executions for a pipeline.
+ *
+ * > **Note:** When applying the filter for pipeline executions that have succeeded in the stage, the operation returns all executions in the current pipeline version beginning on February 1, 2024.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,18 +89,20 @@ export interface ListPipelineExecutionsCommandOutput extends ListPipelineExecuti
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The next token was specified in an invalid format. Make sure that the next token
- *             you provide is the token returned by a previous call.</p>
+ *
+ * The next token was specified in an invalid format. Make sure that the next token you provide is the token returned by a previous call.
  *
  * @throws {@link PipelineNotFoundException} (client fault)
- *  <p>The pipeline was specified in an invalid format or cannot be found.</p>
+ *
+ * The pipeline was specified in an invalid format or cannot be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The validation was specified in an invalid format.</p>
+ *
+ * The validation was specified in an invalid format.
  *
  * @throws {@link CodePipelineServiceException}
- * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * Base exception class for all service exceptions from CodePipeline service.
  *
  * @public
  */

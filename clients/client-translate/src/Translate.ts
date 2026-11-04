@@ -517,7 +517,8 @@ export interface Translate {
 }
 
 /**
- * <p>Provides translation of the input content from the source language to the target language.</p>
+ * Provides translation of the input content from the source language to the target language.
+ *
  * @public
  */
 export class Translate extends TranslateClient implements Translate {}

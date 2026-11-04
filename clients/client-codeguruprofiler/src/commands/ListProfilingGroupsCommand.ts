@@ -23,13 +23,8 @@ export interface ListProfilingGroupsCommandInput extends ListProfilingGroupsRequ
 export interface ListProfilingGroupsCommandOutput extends ListProfilingGroupsResponse, __MetadataBearer {}
 
 /**
- * <p>
- *          Returns a list of profiling groups. The profiling groups are returned as
- *          <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html">
- *                <code>ProfilingGroupDescription</code>
- *             </a>
- *          objects.
- *       </p>
+ * Returns a list of profiling groups. The profiling groups are returned as [`ProfilingGroupDescription`](https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html) objects.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,14 +79,16 @@ export interface ListProfilingGroupsCommandOutput extends ListProfilingGroupsRes
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The server encountered an internal error and is unable to complete the request.</p>
+ *
+ * The server encountered an internal error and is unable to complete the request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link CodeGuruProfilerServiceException}
- * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
+ * Base exception class for all service exceptions from CodeGuruProfiler service.
  *
  * @public
  */

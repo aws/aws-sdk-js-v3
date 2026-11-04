@@ -23,13 +23,10 @@ export interface SearchSampleQueriesCommandInput extends SearchSampleQueriesRequ
 export interface SearchSampleQueriesCommandOutput extends SearchSampleQueriesResponse, __MetadataBearer {}
 
 /**
- * <important>
- *             <p>CloudTrail Lake will no longer be open to new customers starting May 31, 2026. If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-service-availability-change.html">CloudTrail Lake availability change</a>.</p>
- *          </important>
- *          <p>
- *          Searches sample queries and returns a list of sample queries that are sorted by relevance.
- *          To search for sample queries, provide a natural language <code>SearchPhrase</code> in English.
- *       </p>
+ * > **Important:** CloudTrail Lake will no longer be open to new customers starting May 31, 2026. If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [CloudTrail Lake availability change](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-service-availability-change.html).
+ *
+ * Searches sample queries and returns a list of sample queries that are sorted by relevance. To search for sample queries, provide a natural language `SearchPhrase` in English.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,17 +63,20 @@ export interface SearchSampleQueriesCommandOutput extends SearchSampleQueriesRes
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The request includes a parameter that is not valid.</p>
+ *
+ * The request includes a parameter that is not valid.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * This exception is thrown when the requested operation is not permitted.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>This exception is thrown when the requested operation is not supported.</p>
+ *
+ * This exception is thrown when the requested operation is not supported.
  *
  * @throws {@link CloudTrailServiceException}
- * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * Base exception class for all service exceptions from CloudTrail service.
  *
  * @public
  */

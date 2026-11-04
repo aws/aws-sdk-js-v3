@@ -23,16 +23,11 @@ export interface DescribeTagsCommandInput extends DescribeTagsRequest {}
 export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>DEPRECATED - The <code>DescribeTags</code> action is deprecated and not maintained. To view
- *         tags associated with EFS resources, use the <code>ListTagsForResource</code> API
- *         action.</p>
- *          </note>
- *          <p>Returns the tags associated with a file system. The order of tags returned in the
- *       response of one <code>DescribeTags</code> call and the order of tags returned across the
- *       responses of a multiple-call iteration (when using pagination) is unspecified. </p>
- *          <p> This operation requires permissions for the
- *         <code>elasticfilesystem:DescribeTags</code> action. </p>
+ * > **Note:** DEPRECATED - The `DescribeTags` action is deprecated and not maintained. To view tags associated with EFS resources, use the `ListTagsForResource` API action.
+ *
+ * Returns the tags associated with a file system. The order of tags returned in the response of one `DescribeTags` call and the order of tags returned across the responses of a multiple-call iteration (when using pagination) is unspecified.
+ *
+ * This operation requires permissions for the `elasticfilesystem:DescribeTags` action.
  *
  * @deprecated Use ListTagsForResource.
  * @example
@@ -70,19 +65,20 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __Metad
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>Returned if the request is malformed or contains an error such as an invalid
- *             parameter value or a missing required parameter.</p>
+ *
+ * Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.
  *
  * @throws {@link FileSystemNotFound} (client fault)
- *  <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the
- *             requester's Amazon Web Services account.</p>
+ *
+ * Returned if the specified `FileSystemId` value doesn't exist in the requester's Amazon Web Services account.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Returned if an error occurred on the server side.</p>
+ *
+ * Returned if an error occurred on the server side.
  *
  * @throws {@link EFSServiceException}
- * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * Base exception class for all service exceptions from EFS service.
  *
  * @example To describe the tags for a file system
  * ```javascript

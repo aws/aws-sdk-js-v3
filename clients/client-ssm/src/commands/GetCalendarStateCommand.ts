@@ -23,15 +23,12 @@ export interface GetCalendarStateCommandInput extends GetCalendarStateRequest {}
 export interface GetCalendarStateCommandOutput extends GetCalendarStateResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the state of a Amazon Web Services Systems Manager change calendar at the current time or a specified time. If
- *    you specify a time, <code>GetCalendarState</code> returns the state of the calendar at that
- *    specific time, and returns the next time that the change calendar state will transition. If you
- *    don't specify a time, <code>GetCalendarState</code> uses the current time. Change Calendar
- *    entries have two possible states: <code>OPEN</code> or <code>CLOSED</code>.</p>
- *          <p>If you specify more than one calendar in a request, the command returns the status of
- *     <code>OPEN</code> only if all calendars in the request are open. If one or more calendars in the
- *    request are closed, the status returned is <code>CLOSED</code>.</p>
- *          <p>For more information about Change Calendar, a tool in Amazon Web Services Systems Manager, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar.html">Amazon Web Services Systems Manager Change Calendar</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+ * Gets the state of a Amazon Web Services Systems Manager change calendar at the current time or a specified time. If you specify a time, `GetCalendarState` returns the state of the calendar at that specific time, and returns the next time that the change calendar state will transition. If you don't specify a time, `GetCalendarState` uses the current time. Change Calendar entries have two possible states: `OPEN` or `CLOSED`.
+ *
+ * If you specify more than one calendar in a request, the command returns the status of `OPEN` only if all calendars in the request are open. If one or more calendars in the request are closed, the status returned is `CLOSED`.
+ *
+ * For more information about Change Calendar, a tool in Amazon Web Services Systems Manager, see [Amazon Web Services Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar.html) in the *Amazon Web Services Systems Manager User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,21 +60,24 @@ export interface GetCalendarStateCommandOutput extends GetCalendarStateResponse,
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidDocument} (client fault)
- *  <p>The specified SSM document doesn't exist.</p>
+ *
+ * The specified SSM document doesn't exist.
  *
  * @throws {@link InvalidDocumentType} (client fault)
- *  <p>The SSM document type isn't valid. Valid document types are described in the
- *     <code>DocumentType</code> property.</p>
+ *
+ * The SSM document type isn't valid. Valid document types are described in the `DocumentType` property.
  *
  * @throws {@link UnsupportedCalendarException} (client fault)
- *  <p>The calendar entry contained in the specified SSM document isn't supported.</p>
+ *
+ * The calendar entry contained in the specified SSM document isn't supported.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

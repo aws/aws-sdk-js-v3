@@ -26,7 +26,8 @@ export interface ListServiceQuotaIncreaseRequestsInTemplateCommandInput extends 
 export interface ListServiceQuotaIncreaseRequestsInTemplateCommandOutput extends ListServiceQuotaIncreaseRequestsInTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the quota increase requests in the specified quota request template.</p>
+ * Lists the quota increase requests in the specified quota request template.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,34 +69,40 @@ export interface ListServiceQuotaIncreaseRequestsInTemplateCommandOutput extends
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permission to perform this action.</p>
+ *
+ * You do not have sufficient permission to perform this action.
  *
  * @throws {@link AWSServiceAccessNotEnabledException} (client fault)
- *  <p>The action you attempted is not allowed unless Service Access with Service Quotas is enabled in
- *             your organization.</p>
+ *
+ * The action you attempted is not allowed unless Service Access with Service Quotas is enabled in your organization.
  *
  * @throws {@link DependencyAccessDeniedException} (client fault)
- *  <p>You can't perform this action because a dependency does not have access.</p>
+ *
+ * You can't perform this action because a dependency does not have access.
  *
  * @throws {@link IllegalArgumentException} (client fault)
- *  <p>Invalid input was provided.</p>
+ *
+ * Invalid input was provided.
  *
  * @throws {@link NoAvailableOrganizationException} (client fault)
- *  <p>The Amazon Web Services account making this call is not a member of an organization.</p>
+ *
+ * The Amazon Web Services account making this call is not a member of an organization.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>Something went wrong.</p>
+ *
+ * Something went wrong.
  *
  * @throws {@link TemplatesNotAvailableInRegionException} (client fault)
- *  <p>The Service Quotas template is not available in this Amazon Web Services Region.</p>
+ *
+ * The Service Quotas template is not available in this Amazon Web Services Region.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Due to throttling, the request was denied. Slow down the rate of request calls, or
- *             request an increase for this quota.</p>
+ *
+ * Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.
  *
  * @throws {@link ServiceQuotasServiceException}
- * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>
  *
+ * Base exception class for all service exceptions from ServiceQuotas service.
  *
  * @public
  */

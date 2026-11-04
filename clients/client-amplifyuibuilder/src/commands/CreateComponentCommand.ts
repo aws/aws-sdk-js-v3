@@ -23,7 +23,8 @@ export interface CreateComponentCommandInput extends CreateComponentRequest {}
 export interface CreateComponentCommandOutput extends CreateComponentResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new component for an Amplify app.</p>
+ * Creates a new component for an Amplify app.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -484,21 +485,24 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error has occurred. Please retry your request.</p>
+ *
+ * An internal error has occurred. Please retry your request.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+ *
+ * An invalid or out-of-range value was supplied for the input parameter.
  *
  * @throws {@link ResourceConflictException} (client fault)
- *  <p>The resource specified in the request conflicts with an existing resource.</p>
+ *
+ * The resource specified in the request conflicts with an existing resource.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You exceeded your service quota. Service quotas, also referred to as limits, are the
- *       maximum number of service resources or operations for your Amazon Web Services account. </p>
+ *
+ * You exceeded your service quota. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your Amazon Web Services account.
  *
  * @throws {@link AmplifyUIBuilderServiceException}
- * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ * Base exception class for all service exceptions from AmplifyUIBuilder service.
  *
  * @public
  */

@@ -23,21 +23,12 @@ export interface CreateEventSubscriptionCommandInput extends CreateEventSubscrip
 export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscriptionResponse, __MetadataBearer {}
 
 /**
- * <p> Creates an DMS event notification subscription. </p>
- *          <p>You can specify the type of source (<code>SourceType</code>) you want to be notified of,
- *          provide a list of DMS source IDs (<code>SourceIds</code>) that triggers the events, and
- *          provide a list of event categories (<code>EventCategories</code>) for events you want to be
- *          notified of. If you specify both the <code>SourceType</code> and <code>SourceIds</code>,
- *          such as <code>SourceType = replication-instance</code> and <code>SourceIdentifier =
- *             my-replinstance</code>, you will be notified of all the replication instance events for
- *          the specified source. If you specify a <code>SourceType</code> but don't specify a
- *             <code>SourceIdentifier</code>, you receive notice of the events for that source type for
- *          all your DMS sources. If you don't specify either <code>SourceType</code> nor
- *             <code>SourceIdentifier</code>, you will be notified of events generated from all DMS
- *          sources belonging to your customer account.</p>
- *          <p>For more information about DMS events, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html">Working with Events and
- *             Notifications</a> in the <i>Database Migration Service User Guide.</i>
- *          </p>
+ * Creates an DMS event notification subscription.
+ *
+ * You can specify the type of source (`SourceType`) you want to be notified of, provide a list of DMS source IDs (`SourceIds`) that triggers the events, and provide a list of event categories (`EventCategories`) for events you want to be notified of. If you specify both the `SourceType` and `SourceIds`, such as `SourceType = replication-instance` and `SourceIdentifier = my-replinstance`, you will be notified of all the replication instance events for the specified source. If you specify a `SourceType` but don't specify a `SourceIdentifier`, you receive notice of the events for that source type for all your DMS sources. If you don't specify either `SourceType` nor `SourceIdentifier`, you will be notified of events generated from all DMS sources belonging to your customer account.
+ *
+ * For more information about DMS events, see [Working with Events and Notifications](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html) in the *Database Migration Service User Guide.*
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,38 +85,48 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link KMSAccessDeniedFault} (client fault)
- *  <p>The ciphertext references a key that doesn't exist or that the DMS account doesn't have access to.</p>
+ *
+ * The ciphertext references a key that doesn't exist or that the DMS account doesn't have access to.
  *
  * @throws {@link KMSDisabledFault} (client fault)
- *  <p>The specified KMS key isn't enabled.</p>
+ *
+ * The specified KMS key isn't enabled.
  *
  * @throws {@link KMSInvalidStateFault} (client fault)
- *  <p>The state of the specified KMS resource isn't valid for this request.</p>
+ *
+ * The state of the specified KMS resource isn't valid for this request.
  *
  * @throws {@link KMSNotFoundFault} (client fault)
- *  <p>The specified KMS entity or resource can't be found.</p>
+ *
+ * The specified KMS entity or resource can't be found.
  *
  * @throws {@link KMSThrottlingFault} (client fault)
- *  <p>This request triggered KMS request throttling.</p>
+ *
+ * This request triggered KMS request throttling.
  *
  * @throws {@link ResourceAlreadyExistsFault} (client fault)
- *  <p>The resource you are attempting to create already exists.</p>
+ *
+ * The resource you are attempting to create already exists.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link ResourceQuotaExceededFault} (client fault)
- *  <p>The quota for this resource quota has been exceeded.</p>
+ *
+ * The quota for this resource quota has been exceeded.
  *
  * @throws {@link SNSInvalidTopicFault} (client fault)
- *  <p>The SNS topic is invalid.</p>
+ *
+ * The SNS topic is invalid.
  *
  * @throws {@link SNSNoAuthorizationFault} (client fault)
- *  <p>You are not authorized for the SNS subscription.</p>
+ *
+ * You are not authorized for the SNS subscription.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @public
  */

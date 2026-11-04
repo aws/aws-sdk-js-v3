@@ -23,9 +23,12 @@ export interface AllocateTransitVirtualInterfaceCommandInput extends AllocateTra
 export interface AllocateTransitVirtualInterfaceCommandOutput extends AllocateTransitVirtualInterfaceResult, __MetadataBearer {}
 
 /**
- * <p>Provisions a transit virtual interface to be owned by the specified Amazon Web Services account. Use this type of interface to connect a transit gateway to your Direct Connect gateway.</p>
- *          <p>The owner of a connection provisions a transit virtual interface to be owned by the specified Amazon Web Services account.</p>
- *          <p>After you create a transit virtual interface, it must be confirmed by the owner using <a>ConfirmTransitVirtualInterface</a>. Until this step has been completed, the transit virtual interface is in the <code>requested</code> state and is not available to handle traffic.</p>
+ * Provisions a transit virtual interface to be owned by the specified Amazon Web Services account. Use this type of interface to connect a transit gateway to your Direct Connect gateway.
+ *
+ * The owner of a connection provisions a transit virtual interface to be owned by the specified Amazon Web Services account.
+ *
+ * After you create a transit virtual interface, it must be confirmed by the owner using ConfirmTransitVirtualInterface. Until this step has been completed, the transit virtual interface is in the `requested` state and is not available to handle traffic.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -125,23 +128,28 @@ export interface AllocateTransitVirtualInterfaceCommandOutput extends AllocateTr
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  * @throws {@link DirectConnectClientException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link DirectConnectServerException} (server fault)
- *  <p>A server-side error occurred.</p>
+ *
+ * A server-side error occurred.
  *
  * @throws {@link DuplicateTagKeysException} (client fault)
- *  <p>A tag key was specified more than once.</p>
+ *
+ * A tag key was specified more than once.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The rate limiter limit has been exceeded for the connection. You cannot add more rate limiters to virtual interfaces on this connection.</p>
+ *
+ * The rate limiter limit has been exceeded for the connection. You cannot add more rate limiters to virtual interfaces on this connection.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>You have reached the limit on the number of tags that can be assigned.</p>
+ *
+ * You have reached the limit on the number of tags that can be assigned.
  *
  * @throws {@link DirectConnectServiceException}
- * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * Base exception class for all service exceptions from DirectConnect service.
  *
  * @public
  */

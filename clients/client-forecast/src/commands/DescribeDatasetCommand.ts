@@ -23,26 +23,14 @@ export interface DescribeDatasetCommandInput extends DescribeDatasetRequest {}
 export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, __MetadataBearer {}
 
 /**
- * <p>Describes an Amazon Forecast dataset created using the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDataset.html">CreateDataset</a> operation.</p>
- *          <p>In addition to listing the parameters specified in the <code>CreateDataset</code> request,
- *       this operation includes the following dataset properties:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>CreationTime</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>LastModificationTime</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Status</code>
- *                </p>
- *             </li>
- *          </ul>
+ * Describes an Amazon Forecast dataset created using the [CreateDataset](https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDataset.html) operation.
+ *
+ * In addition to listing the parameters specified in the `CreateDataset` request, this operation includes the following dataset properties:
+ *
+ * - `CreationTime`
+ * - `LastModificationTime`
+ * - `Status`
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,16 +76,16 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>We can't process the request because it includes an invalid value or a value that exceeds
- *       the valid range.</p>
+ *
+ * We can't process the request because it includes an invalid value or a value that exceeds the valid range.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
- *       again.</p>
+ *
+ * We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.
  *
  * @throws {@link ForecastServiceException}
- * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * Base exception class for all service exceptions from Forecast service.
  *
  * @public
  */

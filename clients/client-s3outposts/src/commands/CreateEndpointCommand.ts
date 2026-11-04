@@ -23,24 +23,15 @@ export interface CreateEndpointCommandInput extends CreateEndpointRequest {}
 export interface CreateEndpointCommandOutput extends CreateEndpointResult, __MetadataBearer {}
 
 /**
- * <p>Creates an endpoint and associates it with the specified Outpost.</p>
- *          <note>
- *             <p>It can take up to 5 minutes for this action to finish.</p>
- *          </note>
- *          <p></p>
- *          <p>Related actions include:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html">DeleteEndpoint</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_ListEndpoints.html">ListEndpoints</a>
- *                </p>
- *             </li>
- *          </ul>
+ * Creates an endpoint and associates it with the specified Outpost.
+ *
+ * > **Note:** It can take up to 5 minutes for this action to finish.
+ *
+ * Related actions include:
+ *
+ * - [DeleteEndpoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html)
+ * - [ListEndpoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_ListEndpoints.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,29 +62,36 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResult, __Met
  * @see {@link S3OutpostsClientResolvedConfig | config} for S3OutpostsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access was denied for this action.</p>
+ *
+ * Access was denied for this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>There was a conflict with this action, and it could not be completed.</p>
+ *
+ * There was a conflict with this action, and it could not be completed.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>There was an exception with the internal server.</p>
+ *
+ * There was an exception with the internal server.
  *
  * @throws {@link OutpostOfflineException} (client fault)
- *  <p>The service link connection to your Outposts home Region is down. Check your connection and try again.</p>
+ *
+ * The service link connection to your Outposts home Region is down. Check your connection and try again.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource was not found.</p>
+ *
+ * The requested resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>There was an exception validating this data.</p>
+ *
+ * There was an exception validating this data.
  *
  * @throws {@link S3OutpostsServiceException}
- * <p>Base exception class for all service exceptions from S3Outposts service.</p>
  *
+ * Base exception class for all service exceptions from S3Outposts service.
  *
  * @public
  */

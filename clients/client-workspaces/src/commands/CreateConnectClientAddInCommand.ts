@@ -23,9 +23,10 @@ export interface CreateConnectClientAddInCommandInput extends CreateConnectClien
 export interface CreateConnectClientAddInCommandOutput extends CreateConnectClientAddInResult, __MetadataBearer {}
 
 /**
- * <p>Creates a client-add-in for Connect Customer within a directory. You can create only
- *          one Connect Customer client add-in within a directory.</p>
- *          <p>This client add-in allows WorkSpaces users to seamlessly connect to Connect Customer.</p>
+ * Creates a client-add-in for Connect Customer within a directory. You can create only one Connect Customer client add-in within a directory.
+ *
+ * This client add-in allows WorkSpaces users to seamlessly connect to Connect Customer.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,23 +55,28 @@ export interface CreateConnectClientAddInCommandOutput extends CreateConnectClie
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The user is not authorized to access a resource.</p>
+ *
+ * The user is not authorized to access a resource.
  *
  * @throws {@link InvalidParameterValuesException} (client fault)
- *  <p>One or more parameter values are not valid.</p>
+ *
+ * One or more parameter values are not valid.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>The specified resource already exists.</p>
+ *
+ * The specified resource already exists.
  *
  * @throws {@link ResourceCreationFailedException} (client fault)
- *  <p>The resource could not be created.</p>
+ *
+ * The resource could not be created.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link WorkSpacesServiceException}
- * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * Base exception class for all service exceptions from WorkSpaces service.
  *
  * @public
  */

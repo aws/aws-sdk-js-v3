@@ -23,12 +23,12 @@ export interface SetDesiredCapacityCommandInput extends SetDesiredCapacityType {
 export interface SetDesiredCapacityCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Sets the size of the specified Auto Scaling group.</p>
- *          <p>If a scale-in activity occurs as a result of a new <code>DesiredCapacity</code> value
- *             that is lower than the current size of the group, the Auto Scaling group uses its termination
- *             policy to determine which instances to terminate. </p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scaling-manually.html">Manual
- *                 scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ * Sets the size of the specified Auto Scaling group.
+ *
+ * If a scale-in activity occurs as a result of a new `DesiredCapacity` value that is lower than the current size of the group, the Auto Scaling group uses its termination policy to determine which instances to terminate.
+ *
+ * For more information, see [Manual scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scaling-manually.html) in the *Amazon EC2 Auto Scaling User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,16 +55,16 @@ export interface SetDesiredCapacityCommandOutput extends __MetadataBearer {}
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  * @throws {@link ResourceContentionFault} (server fault)
- *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
- *             instance, or load balancer).</p>
+ *
+ * You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).
  *
  * @throws {@link ScalingActivityInProgressFault} (client fault)
- *  <p>The operation can't be performed because there are scaling activities in
- *             progress.</p>
+ *
+ * The operation can't be performed because there are scaling activities in progress.
  *
  * @throws {@link AutoScalingServiceException}
- * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from AutoScaling service.
  *
  * @example To set the desired capacity for an Auto Scaling group
  * ```javascript

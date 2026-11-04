@@ -23,7 +23,13 @@ export interface ListJobsCommandInput extends ListJobsRequest {}
 export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists jobs in a specified category. You can filter results by creation time, last modified time, name, and status. Results are sorted by the field you specify in <code>SortBy</code>. Use pagination to retrieve large result sets efficiently.</p> <p>The following operations are related to <code>ListJobs</code>:</p> <ul> <li> <p> <code>CreateJob</code> </p> </li> <li> <p> <code>DescribeJob</code> </p> </li> </ul>
+ * Lists jobs in a specified category. You can filter results by creation time, last modified time, name, and status. Results are sorted by the field you specify in `SortBy`. Use pagination to retrieve large result sets efficiently.
+ *
+ * The following operations are related to `ListJobs`:
+ *
+ * - `CreateJob`
+ * - `DescribeJob`
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,8 +78,8 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

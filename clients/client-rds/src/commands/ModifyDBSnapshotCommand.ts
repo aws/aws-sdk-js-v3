@@ -23,7 +23,10 @@ export interface ModifyDBSnapshotCommandInput extends ModifyDBSnapshotMessage {}
 export interface ModifyDBSnapshotCommandOutput extends ModifyDBSnapshotResult, __MetadataBearer {}
 
 /**
- * <p>Updates a manual DB snapshot with a new engine version. The snapshot can be encrypted or unencrypted, but not shared or public. </p> <p>Amazon RDS supports upgrading DB snapshots for MariaDB, MySQL, PostgreSQL, and Oracle. This operation doesn't apply to RDS Custom or RDS for Db2.</p>
+ * Updates a manual DB snapshot with a new engine version. The snapshot can be encrypted or unencrypted, but not shared or public.
+ *
+ * Amazon RDS supports upgrading DB snapshots for MariaDB, MySQL, PostgreSQL, and Oracle. This operation doesn't apply to RDS Custom or RDS for Db2.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -114,17 +117,20 @@ export interface ModifyDBSnapshotCommandOutput extends ModifyDBSnapshotResult, _
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBSnapshotNotFoundFault} (client fault)
- *  <p> <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
+ *
+ * `DBSnapshotIdentifier` doesn't refer to an existing DB snapshot.
  *
  * @throws {@link InvalidDBSnapshotStateFault} (client fault)
- *  <p>The state of the DB snapshot doesn't allow deletion.</p>
+ *
+ * The state of the DB snapshot doesn't allow deletion.
  *
  * @throws {@link KMSKeyNotAccessibleFault} (client fault)
- *  <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+ *
+ * An error occurred accessing an Amazon Web Services KMS key.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To modify a DB snapshot
  * ```javascript

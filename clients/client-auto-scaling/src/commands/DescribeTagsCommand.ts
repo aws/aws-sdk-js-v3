@@ -23,15 +23,14 @@ export interface DescribeTagsCommandInput extends DescribeTagsType {}
 export interface DescribeTagsCommandOutput extends TagsType, __MetadataBearer {}
 
 /**
- * <p>Describes the specified tags.</p>
- *          <p>You can use filters to limit the results. For example, you can query for the tags for
- *             a specific Auto Scaling group. You can specify multiple values for a filter. A tag must match at
- *             least one of the specified values for it to be included in the results.</p>
- *          <p>You can also specify multiple filters. The result includes information for a
- *             particular tag only if it matches all the filters. If there's no match, no special
- *             message is returned.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-tagging.html">Tag Auto Scaling groups and
- *                 instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ * Describes the specified tags.
+ *
+ * You can use filters to limit the results. For example, you can query for the tags for a specific Auto Scaling group. You can specify multiple values for a filter. A tag must match at least one of the specified values for it to be included in the results.
+ *
+ * You can also specify multiple filters. The result includes information for a particular tag only if it matches all the filters. If there's no match, no special message is returned.
+ *
+ * For more information, see [Tag Auto Scaling groups and instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-tagging.html) in the *Amazon EC2 Auto Scaling User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,15 +75,16 @@ export interface DescribeTagsCommandOutput extends TagsType, __MetadataBearer {}
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  * @throws {@link InvalidNextToken} (client fault)
- *  <p>The <code>NextToken</code> value is not valid.</p>
+ *
+ * The `NextToken` value is not valid.
  *
  * @throws {@link ResourceContentionFault} (server fault)
- *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
- *             instance, or load balancer).</p>
+ *
+ * You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).
  *
  * @throws {@link AutoScalingServiceException}
- * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from AutoScaling service.
  *
  * @example To describe tags
  * ```javascript

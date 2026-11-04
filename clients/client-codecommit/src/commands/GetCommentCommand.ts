@@ -23,11 +23,10 @@ export interface GetCommentCommandInput extends GetCommentInput {}
 export interface GetCommentCommandOutput extends GetCommentOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the content of a comment made on a change, file, or commit in a repository. </p>
- *          <note>
- *             <p>Reaction counts might include numbers from user identities who were deleted after the reaction was made. For a count of
- *         reactions from active identities, use GetCommentReactions.</p>
- *          </note>
+ * Returns the content of a comment made on a change, file, or commit in a repository.
+ *
+ * > **Note:** Reaction counts might include numbers from user identities who were deleted after the reaction was made. For a count of reactions from active identities, use GetCommentReactions.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,36 +68,44 @@ export interface GetCommentCommandOutput extends GetCommentOutput, __MetadataBea
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  * @throws {@link CommentDeletedException} (client fault)
- *  <p>This comment has already been deleted. You cannot edit or delete a deleted comment.</p>
+ *
+ * This comment has already been deleted. You cannot edit or delete a deleted comment.
  *
  * @throws {@link CommentDoesNotExistException} (client fault)
- *  <p>No comment exists with the provided ID. Verify that you have used the correct ID, and
- *             then try again.</p>
+ *
+ * No comment exists with the provided ID. Verify that you have used the correct ID, and then try again.
  *
  * @throws {@link CommentIdRequiredException} (client fault)
- *  <p>The comment ID is missing or null. A comment ID is required.</p>
+ *
+ * The comment ID is missing or null. A comment ID is required.
  *
  * @throws {@link EncryptionIntegrityChecksFailedException} (server fault)
- *  <p>An encryption integrity check failed.</p>
+ *
+ * An encryption integrity check failed.
  *
  * @throws {@link EncryptionKeyAccessDeniedException} (client fault)
- *  <p>An encryption key could not be accessed.</p>
+ *
+ * An encryption key could not be accessed.
  *
  * @throws {@link EncryptionKeyDisabledException} (client fault)
- *  <p>The encryption key is disabled.</p>
+ *
+ * The encryption key is disabled.
  *
  * @throws {@link EncryptionKeyNotFoundException} (client fault)
- *  <p>No encryption key was found.</p>
+ *
+ * No encryption key was found.
  *
  * @throws {@link EncryptionKeyUnavailableException} (client fault)
- *  <p>The encryption key is not available.</p>
+ *
+ * The encryption key is not available.
  *
  * @throws {@link InvalidCommentIdException} (client fault)
- *  <p>The comment ID is not in a valid format. Make sure that you have provided the full comment ID.</p>
+ *
+ * The comment ID is not in a valid format. Make sure that you have provided the full comment ID.
  *
  * @throws {@link CodeCommitServiceException}
- * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * Base exception class for all service exceptions from CodeCommit service.
  *
  * @public
  */

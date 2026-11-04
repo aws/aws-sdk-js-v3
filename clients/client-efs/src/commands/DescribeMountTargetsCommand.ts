@@ -23,13 +23,10 @@ export interface DescribeMountTargetsCommandInput extends DescribeMountTargetsRe
 export interface DescribeMountTargetsCommandOutput extends DescribeMountTargetsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the descriptions of all the current mount targets, or a specific mount target,
- *       for a file system. When requesting all of the current mount targets, the order of mount
- *       targets returned in the response is unspecified.</p>
- *          <p>This operation requires permissions for the
- *         <code>elasticfilesystem:DescribeMountTargets</code> action, on either the file system ID
- *       that you specify in <code>FileSystemId</code>, or on the file system of the mount target that
- *       you specify in <code>MountTargetId</code>.</p>
+ * Returns the descriptions of all the current mount targets, or a specific mount target, for a file system. When requesting all of the current mount targets, the order of mount targets returned in the response is unspecified.
+ *
+ * This operation requires permissions for the `elasticfilesystem:DescribeMountTargets` action, on either the file system ID that you specify in `FileSystemId`, or on the file system of the mount target that you specify in `MountTargetId`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,27 +73,28 @@ export interface DescribeMountTargetsCommandOutput extends DescribeMountTargetsR
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
  * @throws {@link AccessPointNotFound} (client fault)
- *  <p>Returned if the specified <code>AccessPointId</code> value doesn't exist in the
- *             requester's Amazon Web Services account.</p>
+ *
+ * Returned if the specified `AccessPointId` value doesn't exist in the requester's Amazon Web Services account.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>Returned if the request is malformed or contains an error such as an invalid
- *             parameter value or a missing required parameter.</p>
+ *
+ * Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.
  *
  * @throws {@link FileSystemNotFound} (client fault)
- *  <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the
- *             requester's Amazon Web Services account.</p>
+ *
+ * Returned if the specified `FileSystemId` value doesn't exist in the requester's Amazon Web Services account.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Returned if an error occurred on the server side.</p>
+ *
+ * Returned if an error occurred on the server side.
  *
  * @throws {@link MountTargetNotFound} (client fault)
- *  <p>Returned if there is no mount target with the specified ID found in the
- *             caller's Amazon Web Services account.</p>
+ *
+ * Returned if there is no mount target with the specified ID found in the caller's Amazon Web Services account.
  *
  * @throws {@link EFSServiceException}
- * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * Base exception class for all service exceptions from EFS service.
  *
  * @example To describe the mount targets for a file system
  * ```javascript

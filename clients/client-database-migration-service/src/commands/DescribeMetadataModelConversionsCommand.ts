@@ -26,15 +26,12 @@ export interface DescribeMetadataModelConversionsCommandInput extends DescribeMe
 export interface DescribeMetadataModelConversionsCommandOutput extends DescribeMetadataModelConversionsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a paginated list of metadata model conversion requests for a migration
- *          project, initiated by
- *          <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartMetadataModelConversion.html">StartMetadataModelConversion</a>.</p>
- *          <p>To cancel a queued or in-progress request, call
- *          <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_CancelMetadataModelConversion.html">CancelMetadataModelConversion</a>.</p>
- *          <p>
- *             <b>Required permissions:</b>
- *             <code>dms:ListMetadataModelConversions</code>. For more information, see
- *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
+ * Returns a paginated list of metadata model conversion requests for a migration project, initiated by [StartMetadataModelConversion](https://docs.aws.amazon.com/dms/latest/APIReference/API_StartMetadataModelConversion.html).
+ *
+ * To cancel a queued or in-progress request, call [CancelMetadataModelConversion](https://docs.aws.amazon.com/dms/latest/APIReference/API_CancelMetadataModelConversion.html).
+ *
+ * **Required permissions:** `dms:ListMetadataModelConversions`. For more information, see [Actions, resources, and condition keys for Database Migration Service](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -97,11 +94,12 @@ export interface DescribeMetadataModelConversionsCommandOutput extends DescribeM
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @example Retrieve the status of metadata model conversions
  * ```javascript

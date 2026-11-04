@@ -23,8 +23,8 @@ export interface ListRoomsCommandInput extends ListRoomsRequest {}
 export interface ListRoomsCommandOutput extends ListRoomsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets summary information about all your rooms in the AWS region where the API request is
- *          processed. Results are sorted in descending order of <code>updateTime</code>.</p>
+ * Gets summary information about all your rooms in the AWS region where the API request is processed. Results are sorted in descending order of `updateTime`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,17 +74,14 @@ export interface ListRoomsCommandOutput extends ListRoomsResponse, __MetadataBea
  * @see {@link IvschatClientResolvedConfig | config} for IvschatClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p/>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p/>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p/>
  *
  * @throws {@link IvschatServiceException}
- * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
+ * Base exception class for all service exceptions from Ivschat service.
  *
  * @public
  */

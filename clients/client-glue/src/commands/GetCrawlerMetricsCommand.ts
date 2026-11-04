@@ -23,7 +23,8 @@ export interface GetCrawlerMetricsCommandInput extends GetCrawlerMetricsRequest 
 export interface GetCrawlerMetricsCommandOutput extends GetCrawlerMetricsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves metrics about specified crawlers.</p>
+ * Retrieves metrics about specified crawlers.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,11 +67,12 @@ export interface GetCrawlerMetricsCommandOutput extends GetCrawlerMetricsRespons
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

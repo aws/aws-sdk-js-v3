@@ -23,15 +23,12 @@ export interface DescribeSecretCommandInput extends DescribeSecretRequest {}
 export interface DescribeSecretCommandOutput extends DescribeSecretResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the details of a secret. It does not include the encrypted secret value.
- *             Secrets Manager only returns fields that have a value in the response. </p>
- *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
- *          <p>
- *             <b>Required permissions:
- *                 </b>
- *             <code>secretsmanager:DescribeSecret</code>. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
- *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
- *       and access control in Secrets Manager</a>. </p>
+ * Retrieves the details of a secret. It does not include the encrypted secret value. Secrets Manager only returns fields that have a value in the response.
+ *
+ * Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see [Logging Secrets Manager events with CloudTrail](https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html).
+ *
+ * **Required permissions:** `secretsmanager:DescribeSecret`. For more information, see [IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions) and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -104,17 +101,20 @@ export interface DescribeSecretCommandOutput extends DescribeSecretResponse, __M
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
  *
  * @throws {@link InternalServiceError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The parameter name or value is invalid.</p>
+ *
+ * The parameter name or value is invalid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Secrets Manager can't find the resource that you asked for.</p>
+ *
+ * Secrets Manager can't find the resource that you asked for.
  *
  * @throws {@link SecretsManagerServiceException}
- * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
+ * Base exception class for all service exceptions from SecretsManager service.
  *
  * @public
  */

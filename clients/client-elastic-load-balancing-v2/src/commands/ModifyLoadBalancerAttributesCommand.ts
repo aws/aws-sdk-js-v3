@@ -23,10 +23,10 @@ export interface ModifyLoadBalancerAttributesCommandInput extends ModifyLoadBala
 export interface ModifyLoadBalancerAttributesCommandOutput extends ModifyLoadBalancerAttributesOutput, __MetadataBearer {}
 
 /**
- * <p>Modifies the specified attributes of the specified Application Load Balancer, Network Load
- *       Balancer, or Gateway Load Balancer.</p>
- *          <p>If any of the specified attributes can't be modified as requested, the call fails. Any
- *       existing attributes that you do not modify retain their current values.</p>
+ * Modifies the specified attributes of the specified Application Load Balancer, Network Load Balancer, or Gateway Load Balancer.
+ *
+ * If any of the specified attributes can't be modified as requested, the call fails. Any existing attributes that you do not modify retain their current values.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,14 +64,16 @@ export interface ModifyLoadBalancerAttributesCommandOutput extends ModifyLoadBal
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
  * @throws {@link InvalidConfigurationRequestException} (client fault)
- *  <p>The requested configuration is not valid.</p>
+ *
+ * The requested configuration is not valid.
  *
  * @throws {@link LoadBalancerNotFoundException} (client fault)
- *  <p>The specified load balancer does not exist.</p>
+ *
+ * The specified load balancer does not exist.
  *
  * @throws {@link ElasticLoadBalancingV2ServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancingV2 service.
  *
  * @example To enable deletion protection
  * ```javascript

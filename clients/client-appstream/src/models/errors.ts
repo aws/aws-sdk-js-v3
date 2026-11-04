@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { AppStreamServiceException as __BaseException } from "./AppStreamServiceException";
 
 /**
- * <p>An API error occurred. Wait a few minutes and try again.</p>
+ * An API error occurred. Wait a few minutes and try again.
+ *
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
@@ -12,7 +13,8 @@ export class ConcurrentModificationException extends __BaseException {
   readonly name = "ConcurrentModificationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error message in the exception.</p>
+   * The error message in the exception.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -31,7 +33,8 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
- * <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+ * Indicates an incorrect combination of parameters, or a missing parameter.
+ *
  * @public
  */
 export class InvalidParameterCombinationException extends __BaseException {
@@ -39,7 +42,8 @@ export class InvalidParameterCombinationException extends __BaseException {
   readonly name = "InvalidParameterCombinationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error message in the exception.</p>
+   * The error message in the exception.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -58,7 +62,8 @@ export class InvalidParameterCombinationException extends __BaseException {
 }
 
 /**
- * <p>The requested limit exceeds the permitted limit for an account.</p>
+ * The requested limit exceeds the permitted limit for an account.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -66,7 +71,8 @@ export class LimitExceededException extends __BaseException {
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error message in the exception.</p>
+   * The error message in the exception.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -85,7 +91,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The attempted operation is not permitted.</p>
+ * The attempted operation is not permitted.
+ *
  * @public
  */
 export class OperationNotPermittedException extends __BaseException {
@@ -93,7 +100,8 @@ export class OperationNotPermittedException extends __BaseException {
   readonly name = "OperationNotPermittedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error message in the exception.</p>
+   * The error message in the exception.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -112,7 +120,8 @@ export class OperationNotPermittedException extends __BaseException {
 }
 
 /**
- * <p>The specified resource was not found.</p>
+ * The specified resource was not found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -120,7 +129,8 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error message in the exception.</p>
+   * The error message in the exception.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -139,7 +149,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The entitlement can't be found.</p>
+ * The entitlement can't be found.
+ *
  * @public
  */
 export class EntitlementNotFoundException extends __BaseException {
@@ -147,7 +158,8 @@ export class EntitlementNotFoundException extends __BaseException {
   readonly name = "EntitlementNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error message in the exception.</p>
+   * The error message in the exception.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -166,7 +178,8 @@ export class EntitlementNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The image can't be updated because it's not compatible for updates.</p>
+ * The image can't be updated because it's not compatible for updates.
+ *
  * @public
  */
 export class IncompatibleImageException extends __BaseException {
@@ -174,7 +187,8 @@ export class IncompatibleImageException extends __BaseException {
   readonly name = "IncompatibleImageException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error message in the exception.</p>
+   * The error message in the exception.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -193,7 +207,8 @@ export class IncompatibleImageException extends __BaseException {
 }
 
 /**
- * <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
+ * The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support.
+ *
  * @public
  */
 export class InvalidAccountStatusException extends __BaseException {
@@ -201,7 +216,8 @@ export class InvalidAccountStatusException extends __BaseException {
   readonly name = "InvalidAccountStatusException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error message in the exception.</p>
+   * The error message in the exception.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -220,7 +236,8 @@ export class InvalidAccountStatusException extends __BaseException {
 }
 
 /**
- * <p>The specified resource already exists.</p>
+ * The specified resource already exists.
+ *
  * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -228,7 +245,8 @@ export class ResourceAlreadyExistsException extends __BaseException {
   readonly name = "ResourceAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error message in the exception.</p>
+   * The error message in the exception.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -247,7 +265,8 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The specified resource exists and is not in use, but isn't available.</p>
+ * The specified resource exists and is not in use, but isn't available.
+ *
  * @public
  */
 export class ResourceNotAvailableException extends __BaseException {
@@ -255,7 +274,8 @@ export class ResourceNotAvailableException extends __BaseException {
   readonly name = "ResourceNotAvailableException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error message in the exception.</p>
+   * The error message in the exception.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -274,7 +294,8 @@ export class ResourceNotAvailableException extends __BaseException {
 }
 
 /**
- * <p>The specified role is invalid.</p>
+ * The specified role is invalid.
+ *
  * @public
  */
 export class InvalidRoleException extends __BaseException {
@@ -282,7 +303,8 @@ export class InvalidRoleException extends __BaseException {
   readonly name = "InvalidRoleException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error message in the exception.</p>
+   * The error message in the exception.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -301,7 +323,8 @@ export class InvalidRoleException extends __BaseException {
 }
 
 /**
- * <p>WorkSpaces Applications can’t process the request right now because the Describe calls from your AWS account are being throttled by Amazon EC2. Try again later.</p>
+ * WorkSpaces Applications can’t process the request right now because the Describe calls from your AWS account are being throttled by Amazon EC2. Try again later.
+ *
  * @public
  */
 export class RequestLimitExceededException extends __BaseException {
@@ -309,7 +332,8 @@ export class RequestLimitExceededException extends __BaseException {
   readonly name = "RequestLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error message in the exception.</p>
+   * The error message in the exception.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -328,7 +352,8 @@ export class RequestLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The entitlement already exists.</p>
+ * The entitlement already exists.
+ *
  * @public
  */
 export class EntitlementAlreadyExistsException extends __BaseException {
@@ -336,7 +361,8 @@ export class EntitlementAlreadyExistsException extends __BaseException {
   readonly name = "EntitlementAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error message in the exception.</p>
+   * The error message in the exception.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -355,7 +381,8 @@ export class EntitlementAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The exception that is thrown when a dry run operation is requested. This indicates that the validation checks have been performed successfully, but no actual resources were created or modified.</p>
+ * The exception that is thrown when a dry run operation is requested. This indicates that the validation checks have been performed successfully, but no actual resources were created or modified.
+ *
  * @public
  */
 export class DryRunOperationException extends __BaseException {
@@ -363,7 +390,8 @@ export class DryRunOperationException extends __BaseException {
   readonly name = "DryRunOperationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error message in the exception.</p>
+   * The error message in the exception.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -382,7 +410,8 @@ export class DryRunOperationException extends __BaseException {
 }
 
 /**
- * <p>The specified resource is in use.</p>
+ * The specified resource is in use.
+ *
  * @public
  */
 export class ResourceInUseException extends __BaseException {
@@ -390,7 +419,8 @@ export class ResourceInUseException extends __BaseException {
   readonly name = "ResourceInUseException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error message in the exception.</p>
+   * The error message in the exception.
+   *
    * @public
    */
   Message?: string | undefined;

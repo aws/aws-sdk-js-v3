@@ -23,21 +23,14 @@ export interface StartChangeSetCommandInput extends StartChangeSetRequest {}
 export interface StartChangeSetCommandOutput extends StartChangeSetResponse, __MetadataBearer {}
 
 /**
- * <p>Allows you to request changes for your entities. Within a single
- *                 <code>ChangeSet</code>, you can't start the same change type against the same entity
- *             multiple times. Additionally, when a <code>ChangeSet</code> is running, all the entities
- *             targeted by the different changes are locked until the change set has completed (either
- *             succeeded, cancelled, or failed). If you try to start a change set containing a change
- *             against an entity that is already locked, you will receive a
- *                 <code>ResourceInUseException</code> error.</p>
- *          <p>For example, you can't start the <code>ChangeSet</code> described in the <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_StartChangeSet.html#API_StartChangeSet_Examples">example</a> later in this topic because it contains two changes to run the same
- *             change type (<code>AddRevisions</code>) against the same entity
- *                 (<code>entity-id@1</code>).</p>
- *          <p>For more information about working with change sets, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets"> Working with change sets</a>. For information about change types for
- *             single-AMI products, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#working-with-single-AMI-products">Working with single-AMI products</a>. Also, for more information about change
- *             types available for container-based products, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/container-products.html#working-with-container-products">Working with container products</a>.</p>
- *          <p>To download "DetailsDocument" shapes, see <a href="https://github.com/awslabs/aws-marketplace-catalog-api-shapes-for-python">Python</a>
- *             and <a href="https://github.com/awslabs/aws-marketplace-catalog-api-shapes-for-java/tree/main">Java</a> shapes on GitHub.</p>
+ * Allows you to request changes for your entities. Within a single `ChangeSet`, you can't start the same change type against the same entity multiple times. Additionally, when a `ChangeSet` is running, all the entities targeted by the different changes are locked until the change set has completed (either succeeded, cancelled, or failed). If you try to start a change set containing a change against an entity that is already locked, you will receive a `ResourceInUseException` error.
+ *
+ * For example, you can't start the `ChangeSet` described in the [example](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_StartChangeSet.html#API_StartChangeSet_Examples) later in this topic because it contains two changes to run the same change type (`AddRevisions`) against the same entity (`entity-id@1`).
+ *
+ * For more information about working with change sets, see [Working with change sets](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets). For information about change types for single-AMI products, see [Working with single-AMI products](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#working-with-single-AMI-products). Also, for more information about change types available for container-based products, see [Working with container products](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/container-products.html#working-with-container-products).
+ *
+ * To download "DetailsDocument" shapes, see [Python](https://github.com/awslabs/aws-marketplace-catalog-api-shapes-for-python) and [Java](https://github.com/awslabs/aws-marketplace-catalog-api-shapes-for-java/tree/main) shapes on GitHub.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -92,34 +85,46 @@ export interface StartChangeSetCommandOutput extends StartChangeSetResponse, __M
  * @see {@link MarketplaceCatalogClientResolvedConfig | config} for MarketplaceCatalogClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access is denied.</p>
- *          <p>HTTP status code: 403</p>
+ *
+ * Access is denied.
+ *
+ * HTTP status code: 403
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>There was an internal service exception.</p>
- *          <p>HTTP status code: 500</p>
+ *
+ * There was an internal service exception.
+ *
+ * HTTP status code: 500
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The resource is currently in use.</p>
+ *
+ * The resource is currently in use.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource wasn't found.</p>
- *          <p>HTTP status code: 404</p>
+ *
+ * The specified resource wasn't found.
+ *
+ * HTTP status code: 404
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The maximum number of open requests per account has been exceeded.</p>
+ *
+ * The maximum number of open requests per account has been exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Too many requests.</p>
- *          <p>HTTP status code: 429</p>
+ *
+ * Too many requests.
+ *
+ * HTTP status code: 429
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An error occurred during validation.</p>
- *          <p>HTTP status code: 422</p>
+ *
+ * An error occurred during validation.
+ *
+ * HTTP status code: 422
  *
  * @throws {@link MarketplaceCatalogServiceException}
- * <p>Base exception class for all service exceptions from MarketplaceCatalog service.</p>
  *
+ * Base exception class for all service exceptions from MarketplaceCatalog service.
  *
  * @public
  */

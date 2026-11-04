@@ -23,7 +23,8 @@ export interface ListTemplatesCommandInput extends ListMigrationWorkflowTemplate
 export interface ListTemplatesCommandOutput extends ListMigrationWorkflowTemplatesResponse, __MetadataBearer {}
 
 /**
- * <p>List the templates available in Migration Hub Orchestrator to create a migration workflow.</p>
+ * List the templates available in Migration Hub Orchestrator to create a migration workflow.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,17 +61,20 @@ export interface ListTemplatesCommandOutput extends ListMigrationWorkflowTemplat
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error has occurred.</p>
+ *
+ * An internal error has occurred.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link MigrationHubOrchestratorServiceException}
- * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
+ * Base exception class for all service exceptions from MigrationHubOrchestrator service.
  *
  * @public
  */

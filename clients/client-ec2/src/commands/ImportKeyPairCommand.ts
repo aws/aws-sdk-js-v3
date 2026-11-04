@@ -23,9 +23,10 @@ export interface ImportKeyPairCommandInput extends ImportKeyPairRequest {}
 export interface ImportKeyPairCommandOutput extends ImportKeyPairResult, __MetadataBearer {}
 
 /**
- * <p>Imports the public key from an RSA or ED25519 key pair that you created using a third-party tool.
- *         You give Amazon Web Services only the public key. The private key is never transferred between you and Amazon Web Services.</p>
- *          <p>For more information about the requirements for importing a key pair, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html#how-to-generate-your-own-key-and-import-it-to-aws">Create a key pair and import the public key to Amazon EC2</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * Imports the public key from an RSA or ED25519 key pair that you created using a third-party tool. You give Amazon Web Services only the public key. The private key is never transferred between you and Amazon Web Services.
+ *
+ * For more information about the requirements for importing a key pair, see [Create a key pair and import the public key to Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html#how-to-generate-your-own-key-and-import-it-to-aws) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,8 +74,8 @@ export interface ImportKeyPairCommandOutput extends ImportKeyPairResult, __Metad
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

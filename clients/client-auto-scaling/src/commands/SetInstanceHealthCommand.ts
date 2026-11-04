@@ -23,10 +23,10 @@ export interface SetInstanceHealthCommandInput extends SetInstanceHealthQuery {}
 export interface SetInstanceHealthCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Sets the health status of the specified instance.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/set-up-a-custom-health-check.html">Set up a custom
- *                 health check for your Auto Scaling group</a> in the
- *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ * Sets the health status of the specified instance.
+ *
+ * For more information, see [Set up a custom health check for your Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/set-up-a-custom-health-check.html) in the *Amazon EC2 Auto Scaling User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,12 +53,12 @@ export interface SetInstanceHealthCommandOutput extends __MetadataBearer {}
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  * @throws {@link ResourceContentionFault} (server fault)
- *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
- *             instance, or load balancer).</p>
+ *
+ * You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).
  *
  * @throws {@link AutoScalingServiceException}
- * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from AutoScaling service.
  *
  * @example To set the health status of an instance
  * ```javascript

@@ -23,19 +23,10 @@ export interface EvictFilesFailingUploadCommandInput extends EvictFilesFailingUp
 export interface EvictFilesFailingUploadCommandOutput extends EvictFilesFailingUploadOutput, __MetadataBearer {}
 
 /**
- * <p>Starts a process that cleans the specified file share's cache of file entries that are
- *          failing upload to Amazon S3. This API operation reports success if the request is
- *          received with valid arguments, and there are no other cache clean operations currently
- *          in-progress for the specified file share. After a successful request, the cache clean
- *          operation occurs asynchronously and reports progress using CloudWatch logs and
- *          notifications.</p>
- *          <important>
- *             <p>If <code>ForceRemove</code> is set to <code>True</code>, the cache clean operation
- *             will delete file data from the gateway which might otherwise be recoverable. We
- *             recommend using this operation only after all other methods to clear files failing
- *             upload have been exhausted, and if your business need outweighs the potential data
- *             loss.</p>
- *          </important>
+ * Starts a process that cleans the specified file share's cache of file entries that are failing upload to Amazon S3. This API operation reports success if the request is received with valid arguments, and there are no other cache clean operations currently in-progress for the specified file share. After a successful request, the cache clean operation occurs asynchronously and reports progress using CloudWatch logs and notifications.
+ *
+ * > **Important:** If `ForceRemove` is set to `True`, the cache clean operation will delete file data from the gateway which might otherwise be recoverable. We recommend using this operation only after all other methods to clear files failing upload have been exhausted, and if your business need outweighs the potential data loss.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,16 +54,16 @@ export interface EvictFilesFailingUploadCommandOutput extends EvictFilesFailingU
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @public
  */

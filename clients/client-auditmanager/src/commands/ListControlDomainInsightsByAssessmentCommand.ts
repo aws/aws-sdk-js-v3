@@ -26,19 +26,12 @@ export interface ListControlDomainInsightsByAssessmentCommandInput extends ListC
 export interface ListControlDomainInsightsByAssessmentCommandOutput extends ListControlDomainInsightsByAssessmentResponse, __MetadataBearer {}
 
 /**
- * <p>Lists analytics data for control domains within a specified active assessment.</p>
- *          <p>Audit Manager supports the control domains that are provided by Amazon Web Services
- *          Control Catalog. For information about how to find a list of available control domains, see
- *             <a href="https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListDomains.html">
- *                <code>ListDomains</code>
- *             </a> in the Amazon Web Services Control
- *          Catalog API Reference.</p>
- *          <note>
- *             <p>A control domain is listed only if at least one of the controls within that domain
- *             collected evidence on the <code>lastUpdated</code> date of
- *                <code>controlDomainInsights</code>. If this condition isn’t met, no data is listed
- *             for that domain.</p>
- *          </note>
+ * Lists analytics data for control domains within a specified active assessment.
+ *
+ * Audit Manager supports the control domains that are provided by Amazon Web Services Control Catalog. For information about how to find a list of available control domains, see [`ListDomains`](https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListDomains.html) in the Amazon Web Services Control Catalog API Reference.
+ *
+ * > **Note:** A control domain is listed only if at least one of the controls within that domain collected evidence on the `lastUpdated` date of `controlDomainInsights`. If this condition isn’t met, no data is listed for that domain.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,22 +74,24 @@ export interface ListControlDomainInsightsByAssessmentCommandOutput extends List
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p> Your account isn't registered with Audit Manager. Check the delegated
- *          administrator setup on the Audit Manager settings page, and try again. </p>
+ *
+ * Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> An internal service error occurred during the processing of your request. Try again
- *          later. </p>
+ *
+ * An internal service error occurred during the processing of your request. Try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The resource that's specified in the request can't be found. </p>
+ *
+ * The resource that's specified in the request can't be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> The request has invalid or missing parameters. </p>
+ *
+ * The request has invalid or missing parameters.
  *
  * @throws {@link AuditManagerServiceException}
- * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * Base exception class for all service exceptions from AuditManager service.
  *
  * @public
  */

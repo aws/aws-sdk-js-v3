@@ -23,8 +23,8 @@ export interface UpdateTaskCommandInput extends UpdateTaskRequest {}
 export interface UpdateTaskCommandOutput extends UpdateTaskResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the configuration of a <i>task</i>, which defines where and how
- *         DataSync transfers your data.</p>
+ * Updates the configuration of a *task*, which defines where and how DataSync transfers your data.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -123,15 +123,16 @@ export interface UpdateTaskCommandOutput extends UpdateTaskResponse, __MetadataB
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception is thrown when an error occurs in the DataSync
- *       service.</p>
+ *
+ * This exception is thrown when an error occurs in the DataSync service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * This exception is thrown when the client submits a malformed request.
  *
  * @throws {@link DataSyncServiceException}
- * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * Base exception class for all service exceptions from DataSync service.
  *
  * @public
  */

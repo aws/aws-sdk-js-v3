@@ -23,7 +23,10 @@ export interface UpdateApplicationCommandInput extends UpdateApplicationInput {}
 export interface UpdateApplicationCommandOutput extends UpdateApplicationOutput, __MetadataBearer {}
 
 /**
- * <p> Updates the mutable configuration settings for a Amazon GameLift Streams application resource. You can change the <code>Description</code>, <code>ApplicationLogOutputUri</code>, and <code>ApplicationLogPaths</code>. </p> <p>To update application settings, specify the application ID and provide the new values. If the operation is successful, it returns the complete updated set of settings for the application.</p>
+ * Updates the mutable configuration settings for a Amazon GameLift Streams application resource. You can change the `Description`, `ApplicationLogOutputUri`, and `ApplicationLogPaths`.
+ *
+ * To update application settings, specify the application ID and provide the new values. If the operation is successful, it returns the complete updated set of settings for the application.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,23 +83,28 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationOutput,
  * @see {@link GameLiftStreamsClientResolvedConfig | config} for GameLiftStreamsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have the required permissions to access this Amazon GameLift Streams resource. Correct the permissions before you try again.</p>
+ *
+ * You don't have the required permissions to access this Amazon GameLift Streams resource. Correct the permissions before you try again.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The service encountered an internal error and is unable to complete the request.</p>
+ *
+ * The service encountered an internal error and is unable to complete the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource specified in the request was not found. Correct the request before you try again.</p>
+ *
+ * The resource specified in the request was not found. Correct the request before you try again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. Retry the request after the suggested wait time.</p>
+ *
+ * The request was denied due to request throttling. Retry the request after the suggested wait time.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One or more parameter values in the request fail to satisfy the specified constraints. Correct the invalid parameter values before retrying the request.</p>
+ *
+ * One or more parameter values in the request fail to satisfy the specified constraints. Correct the invalid parameter values before retrying the request.
  *
  * @throws {@link GameLiftStreamsServiceException}
- * <p>Base exception class for all service exceptions from GameLiftStreams service.</p>
  *
+ * Base exception class for all service exceptions from GameLiftStreams service.
  *
  * @public
  */

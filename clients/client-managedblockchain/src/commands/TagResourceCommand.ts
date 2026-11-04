@@ -23,10 +23,14 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Adds or overwrites the specified tags for the specified Amazon Managed Blockchain resource. Each tag consists of a key and optional value.</p>
- *          <p>When you specify a tag key that already exists, the tag value is overwritten with the new value. Use <code>UntagResource</code> to remove tag keys.</p>
- *          <p>A resource can have up to 50 tags. If you try to create more than 50 tags for a resource, your request fails and returns an error.</p>
- *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
+ * Adds or overwrites the specified tags for the specified Amazon Managed Blockchain resource. Each tag consists of a key and optional value.
+ *
+ * When you specify a tag key that already exists, the tag value is overwritten with the new value. Use `UntagResource` to remove tag keys.
+ *
+ * A resource can have up to 50 tags. If you try to create more than 50 tags for a resource, your request fails and returns an error.
+ *
+ * For more information about tags, see [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html) in the *Amazon Managed Blockchain Ethereum Developer Guide*, or [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html) in the *Amazon Managed Blockchain Hyperledger Fabric Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,23 +58,26 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+ *
+ * The action or operation requested is invalid. Verify that the action is typed correctly.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A requested resource doesn't exist. It may have been deleted or referenced incorrectly.</p>
+ *
+ * A requested resource doesn't exist. It may have been deleted or referenced incorrectly.
  *
  * @throws {@link ResourceNotReadyException} (client fault)
- *  <p>The requested resource exists but isn't in a status that can complete the operation.</p>
+ *
+ * The requested resource exists but isn't in a status that can complete the operation.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p></p>
  *
  * @throws {@link ManagedBlockchainServiceException}
- * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ * Base exception class for all service exceptions from ManagedBlockchain service.
  *
  * @public
  */

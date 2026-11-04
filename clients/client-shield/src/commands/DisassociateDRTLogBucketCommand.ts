@@ -23,7 +23,8 @@ export interface DisassociateDRTLogBucketCommandInput extends DisassociateDRTLog
 export interface DisassociateDRTLogBucketCommandOutput extends DisassociateDRTLogBucketResponse, __MetadataBearer {}
 
 /**
- * <p>Removes the Shield Response Team's (SRT) access to the specified Amazon S3 bucket containing the logs that you shared previously.</p>
+ * Removes the Shield Response Team's (SRT) access to the specified Amazon S3 bucket containing the logs that you shared previously.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,27 +49,32 @@ export interface DisassociateDRTLogBucketCommandOutput extends DisassociateDRTLo
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
  *
  * @throws {@link AccessDeniedForDependencyException} (client fault)
- *  <p>In order to grant the necessary access to the Shield Response Team (SRT) the user submitting the request must have the <code>iam:PassRole</code> permission. This error indicates the user did not have the appropriate permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">Granting a User Permissions to Pass a Role to an Amazon Web Services Service</a>. </p>
+ *
+ * In order to grant the necessary access to the Shield Response Team (SRT) the user submitting the request must have the `iam:PassRole` permission. This error indicates the user did not have the appropriate permissions. For more information, see [Granting a User Permissions to Pass a Role to an Amazon Web Services Service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html).
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+ *
+ * Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.
  *
  * @throws {@link InvalidOperationException} (client fault)
- *  <p>Exception that indicates that the operation would not cause any change to occur.</p>
+ *
+ * Exception that indicates that the operation would not cause any change to occur.
  *
  * @throws {@link NoAssociatedRoleException} (client fault)
- *  <p>The ARN of the role that you specified does not exist.</p>
+ *
+ * The ARN of the role that you specified does not exist.
  *
  * @throws {@link OptimisticLockException} (client fault)
- *  <p>Exception that indicates that the resource state has been modified by another
- *          client. Retrieve the resource and then retry your request.</p>
+ *
+ * Exception that indicates that the resource state has been modified by another client. Retrieve the resource and then retry your request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+ *
+ * Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties.
  *
  * @throws {@link ShieldServiceException}
- * <p>Base exception class for all service exceptions from Shield service.</p>
  *
+ * Base exception class for all service exceptions from Shield service.
  *
  * @public
  */

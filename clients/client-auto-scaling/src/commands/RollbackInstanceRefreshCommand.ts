@@ -23,30 +23,18 @@ export interface RollbackInstanceRefreshCommandInput extends RollbackInstanceRef
 export interface RollbackInstanceRefreshCommandOutput extends RollbackInstanceRefreshAnswer, __MetadataBearer {}
 
 /**
- * <p>Cancels an instance refresh that is in progress and rolls back any changes that it
- *             made. Amazon EC2 Auto Scaling replaces any instances that were replaced during the instance refresh.
- *             This restores your Auto Scaling group to the configuration that it was using before the start of
- *             the instance refresh. </p>
- *          <p>This operation is part of the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">instance refresh
- *                 feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling group
- *             after you make configuration changes.</p>
- *          <p>A rollback is not supported in the following situations: </p>
- *          <ul>
- *             <li>
- *                <p>There is no desired configuration specified for the instance refresh.</p>
- *             </li>
- *             <li>
- *                <p>The Auto Scaling group has a launch template that uses an Amazon Web Services Systems Manager parameter instead
- *                     of an AMI ID for the <code>ImageId</code> property.</p>
- *             </li>
- *             <li>
- *                <p>The Auto Scaling group uses the launch template's <code>$Latest</code> or
- *                         <code>$Default</code> version.</p>
- *             </li>
- *          </ul>
- *          <p>When you receive a successful response from this operation, Amazon EC2 Auto Scaling immediately
- *             begins replacing instances. You can check the status of this operation through the
- *             <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeInstanceRefreshes.html">DescribeInstanceRefreshes</a> API operation. </p>
+ * Cancels an instance refresh that is in progress and rolls back any changes that it made. Amazon EC2 Auto Scaling replaces any instances that were replaced during the instance refresh. This restores your Auto Scaling group to the configuration that it was using before the start of the instance refresh.
+ *
+ * This operation is part of the [instance refresh feature](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html) in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling group after you make configuration changes.
+ *
+ * A rollback is not supported in the following situations:
+ *
+ * - There is no desired configuration specified for the instance refresh.
+ * - The Auto Scaling group has a launch template that uses an Amazon Web Services Systems Manager parameter instead of an AMI ID for the `ImageId` property.
+ * - The Auto Scaling group uses the launch template's `$Latest` or `$Default` version.
+ *
+ * When you receive a successful response from this operation, Amazon EC2 Auto Scaling immediately begins replacing instances. You can check the status of this operation through the [DescribeInstanceRefreshes](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeInstanceRefreshes.html) API operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,28 +61,24 @@ export interface RollbackInstanceRefreshCommandOutput extends RollbackInstanceRe
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  * @throws {@link ActiveInstanceRefreshNotFoundFault} (client fault)
- *  <p>The request failed because an active instance refresh or rollback for the specified
- *             Auto Scaling group was not found.</p>
+ *
+ * The request failed because an active instance refresh or rollback for the specified Auto Scaling group was not found.
  *
  * @throws {@link IrreversibleInstanceRefreshFault} (client fault)
- *  <p>The request failed because a desired configuration was not found or an incompatible
- *             launch template (uses a Systems Manager parameter instead of an AMI ID) or launch
- *             template version (<code>$Latest</code> or <code>$Default</code>) is present on the Auto Scaling
- *             group.</p>
+ *
+ * The request failed because a desired configuration was not found or an incompatible launch template (uses a Systems Manager parameter instead of an AMI ID) or launch template version (`$Latest` or `$Default`) is present on the Auto Scaling group.
  *
  * @throws {@link LimitExceededFault} (client fault)
- *  <p>You have already reached a limit for your Amazon EC2 Auto Scaling
- *             resources (for example, Auto Scaling groups, launch configurations, or lifecycle hooks). For
- *             more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html">DescribeAccountLimits</a> in the <i>Amazon EC2 Auto Scaling API
- *             Reference</i>.</p>
+ *
+ * You have already reached a limit for your Amazon EC2 Auto Scaling resources (for example, Auto Scaling groups, launch configurations, or lifecycle hooks). For more information, see [DescribeAccountLimits](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html) in the *Amazon EC2 Auto Scaling API Reference*.
  *
  * @throws {@link ResourceContentionFault} (server fault)
- *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
- *             instance, or load balancer).</p>
+ *
+ * You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).
  *
  * @throws {@link AutoScalingServiceException}
- * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from AutoScaling service.
  *
  * @public
  */

@@ -4,9 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { KendraRankingServiceException as __BaseException } from "./KendraRankingServiceException";
 
 /**
- * <p>You don’t have sufficient access to perform this action.
- *             Please ensure you have the required permission policies
- *             and user accounts and try again.</p>
+ * You don’t have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -29,8 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>A conflict occurred with the request. Please fix any
- *             inconsistencies with your resources and try again.</p>
+ * A conflict occurred with the request. Please fix any inconsistencies with your resources and try again.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -53,11 +52,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>An issue occurred with the internal server used for
- *             your Amazon Kendra Intelligent Ranking service.
- *             Please wait a few minutes and try again, or contact
- *             <a href="http://aws.amazon.com/contact-us/">Support</a>
- *             for help.</p>
+ * An issue occurred with the internal server used for your Amazon Kendra Intelligent Ranking service. Please wait a few minutes and try again, or contact [Support](http://aws.amazon.com/contact-us/) for help.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -80,11 +76,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>You have exceeded the set limits for your
- *             Amazon Kendra Intelligent Ranking service. Please
- *             see <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas</a>
- *             for more information, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> to inquire about
- *             an increase of limits.</p>
+ * You have exceeded the set limits for your Amazon Kendra Intelligent Ranking service. Please see [Quotas](https://docs.aws.amazon.com/kendra/latest/dg/quotas.html) for more information, or contact [Support](http://aws.amazon.com/contact-us/) to inquire about an increase of limits.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -107,8 +100,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.
- *             Please reduce the number of requests and try again.</p>
+ * The request was denied due to request throttling. Please reduce the number of requests and try again.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -131,9 +124,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints set by
- *             the Amazon Kendra Intelligent Ranking service.
- *             Please provide the correct input and try again.</p>
+ * The input fails to satisfy the constraints set by the Amazon Kendra Intelligent Ranking service. Please provide the correct input and try again.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -156,9 +148,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The resource you want to use doesn't exist. Please
- *             check you have provided the correct resource and try
- *             again.</p>
+ * The resource you want to use doesn't exist. Please check you have provided the correct resource and try again.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -181,9 +172,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The resource you want to use is unavailable. Please
- *             check you have provided the correct resource
- *             information and try again.</p>
+ * The resource you want to use is unavailable. Please check you have provided the correct resource information and try again.
+ *
  * @public
  */
 export class ResourceUnavailableException extends __BaseException {

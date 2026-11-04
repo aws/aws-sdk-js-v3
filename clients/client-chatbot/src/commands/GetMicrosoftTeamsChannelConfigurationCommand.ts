@@ -23,7 +23,8 @@ export interface GetMicrosoftTeamsChannelConfigurationCommandInput extends GetTe
 export interface GetMicrosoftTeamsChannelConfigurationCommandOutput extends GetTeamsChannelConfigurationResult, __MetadataBearer {}
 
 /**
- * <p>Returns a Microsoft Teams channel configuration in an AWS account.</p>
+ * Returns a Microsoft Teams channel configuration in an AWS account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,17 +76,20 @@ export interface GetMicrosoftTeamsChannelConfigurationCommandOutput extends GetT
  * @see {@link ChatbotClientResolvedConfig | config} for ChatbotClient's `config` shape.
  *
  * @throws {@link GetTeamsChannelConfigurationException} (server fault)
- *  <p>We can’t process your request right now because of a server issue. Try again later.</p>
+ *
+ * We can’t process your request right now because of a server issue. Try again later.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+ *
+ * Your request input doesn't meet the constraints required by AWS Chatbot.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+ *
+ * Your request input doesn't meet the constraints required by AWS Chatbot.
  *
  * @throws {@link ChatbotServiceException}
- * <p>Base exception class for all service exceptions from Chatbot service.</p>
  *
+ * Base exception class for all service exceptions from Chatbot service.
  *
  * @public
  */

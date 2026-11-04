@@ -26,7 +26,8 @@ export interface BatchUpdateRecommendationResourceExclusionCommandInput extends 
 export interface BatchUpdateRecommendationResourceExclusionCommandOutput extends BatchUpdateRecommendationResourceExclusionResponse, __MetadataBearer {}
 
 /**
- * <p>Update one or more exclusion statuses for a list of recommendation resources. This API supports up to 25 unique recommendation resource ARNs per request. This API currently doesn't support prioritized recommendation resources. This API updates global recommendations, eliminating the need to call the API in each AWS Region. After submitting an exclusion update, note that it might take a few minutes for the changes to be reflected in the system.</p>
+ * Update one or more exclusion statuses for a list of recommendation resources. This API supports up to 25 unique recommendation resource ARNs per request. This API currently doesn't support prioritized recommendation resources. This API updates global recommendations, eliminating the need to call the API in each AWS Region. After submitting an exclusion update, note that it might take a few minutes for the changes to be reflected in the system.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,23 +65,28 @@ export interface BatchUpdateRecommendationResourceExclusionCommandOutput extends
  * @see {@link TrustedAdvisorClientResolvedConfig | config} for TrustedAdvisorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Exception that access has been denied due to insufficient access</p>
+ *
+ * Exception that access has been denied due to insufficient access
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Exception that the request was denied due to conflictions in state</p>
+ *
+ * Exception that the request was denied due to conflictions in state
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Exception to notify that an unexpected internal error occurred during processing of the request</p>
+ *
+ * Exception to notify that an unexpected internal error occurred during processing of the request
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Exception to notify that requests are being throttled</p>
+ *
+ * Exception to notify that requests are being throttled
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Exception that the request failed to satisfy service constraints</p>
+ *
+ * Exception that the request failed to satisfy service constraints
  *
  * @throws {@link TrustedAdvisorServiceException}
- * <p>Base exception class for all service exceptions from TrustedAdvisor service.</p>
  *
+ * Base exception class for all service exceptions from TrustedAdvisor service.
  *
  * @example Batch updates the exclusion status for a list of recommendation resources
  * ```javascript

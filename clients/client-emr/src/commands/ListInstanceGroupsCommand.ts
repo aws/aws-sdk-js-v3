@@ -23,7 +23,8 @@ export interface ListInstanceGroupsCommandInput extends ListInstanceGroupsInput 
 export interface ListInstanceGroupsCommandOutput extends ListInstanceGroupsOutput, __MetadataBearer {}
 
 /**
- * <p>Provides all available details about the instance groups in a cluster.</p>
+ * Provides all available details about the instance groups in a cluster.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -165,15 +166,16 @@ export interface ListInstanceGroupsCommandOutput extends ListInstanceGroupsOutpu
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Amazon EMR
- *          service.</p>
+ *
+ * This exception occurs when there is an internal failure in the Amazon EMR service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>This exception occurs when there is something wrong with user input.</p>
+ *
+ * This exception occurs when there is something wrong with user input.
  *
  * @throws {@link EMRServiceException}
- * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * Base exception class for all service exceptions from EMR service.
  *
  * @public
  */

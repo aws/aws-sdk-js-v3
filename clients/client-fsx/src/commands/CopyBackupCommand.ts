@@ -23,27 +23,16 @@ export interface CopyBackupCommandInput extends CopyBackupRequest {}
 export interface CopyBackupCommandOutput extends CopyBackupResponse, __MetadataBearer {}
 
 /**
- * <p>Copies an existing backup within the same Amazon Web Services account to another Amazon Web Services Region
- *          (cross-Region copy) or within the same Amazon Web Services Region (in-Region copy). You can have up to five
- *          backup copy requests in progress to a single destination Region per account.</p>
- *          <p>You can use cross-Region backup copies for cross-Region disaster recovery. You can
- *          periodically take backups and copy them to another Region so that in the event of a
- *          disaster in the primary Region, you can restore from backup and recover availability
- *          quickly in the other Region. You can make cross-Region copies only within your Amazon Web Services partition. A partition is a grouping of Regions. Amazon Web Services currently
- *          has three partitions: <code>aws</code> (Standard Regions), <code>aws-cn</code> (China
- *          Regions), and <code>aws-us-gov</code> (Amazon Web Services GovCloud [US] Regions).</p>
- *          <p>You can also use backup copies to clone your file dataset to another Region or within
- *          the same Region.</p>
- *          <p>You can use the <code>SourceRegion</code> parameter to specify the Amazon Web Services Region
- *          from which the backup will be copied. For example, if you make the call from the
- *          <code>us-west-1</code> Region and want to copy a backup from the <code>us-east-2</code>
- *          Region, you specify <code>us-east-2</code> in the <code>SourceRegion</code> parameter
- *          to make a cross-Region copy. If you don't specify a Region, the backup copy is
- *          created in the same Region where the request is sent from (in-Region copy).</p>
- *          <p>For more information about creating backup copies, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/using-backups.html#copy-backups"> Copying backups</a>
- *          in the <i>Amazon FSx for Windows User Guide</i>, <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/using-backups-fsx.html#copy-backups">Copying backups</a> in the <i>Amazon FSx for Lustre User
- *             Guide</i>, and <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/using-backups.html#copy-backups">Copying backups</a> in the <i>Amazon FSx for OpenZFS User
- *             Guide</i>.</p>
+ * Copies an existing backup within the same Amazon Web Services account to another Amazon Web Services Region (cross-Region copy) or within the same Amazon Web Services Region (in-Region copy). You can have up to five backup copy requests in progress to a single destination Region per account.
+ *
+ * You can use cross-Region backup copies for cross-Region disaster recovery. You can periodically take backups and copy them to another Region so that in the event of a disaster in the primary Region, you can restore from backup and recover availability quickly in the other Region. You can make cross-Region copies only within your Amazon Web Services partition. A partition is a grouping of Regions. Amazon Web Services currently has three partitions: `aws` (Standard Regions), `aws-cn` (China Regions), and `aws-us-gov` (Amazon Web Services GovCloud [US] Regions).
+ *
+ * You can also use backup copies to clone your file dataset to another Region or within the same Region.
+ *
+ * You can use the `SourceRegion` parameter to specify the Amazon Web Services Region from which the backup will be copied. For example, if you make the call from the `us-west-1` Region and want to copy a backup from the `us-east-2` Region, you specify `us-east-2` in the `SourceRegion` parameter to make a cross-Region copy. If you don't specify a Region, the backup copy is created in the same Region where the request is sent from (in-Region copy).
+ *
+ * For more information about creating backup copies, see [Copying backups](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/using-backups.html#copy-backups) in the *Amazon FSx for Windows User Guide*, [Copying backups](https://docs.aws.amazon.com/fsx/latest/LustreGuide/using-backups-fsx.html#copy-backups) in the *Amazon FSx for Lustre User Guide*, and [Copying backups](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/using-backups.html#copy-backups) in the *Amazon FSx for OpenZFS User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -716,49 +705,52 @@ export interface CopyBackupCommandOutput extends CopyBackupResponse, __MetadataB
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
  * @throws {@link BackupNotFound} (client fault)
- *  <p>No Amazon FSx backups were found based upon the supplied parameters.</p>
+ *
+ * No Amazon FSx backups were found based upon the supplied parameters.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * A generic error indicating a failure with a client request.
  *
  * @throws {@link IncompatibleParameterError} (client fault)
- *  <p>The error returned when a second request is received with the same client request
- *             token but different parameters settings. A client request token should always uniquely
- *             identify a single request.</p>
+ *
+ * The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request.
  *
  * @throws {@link IncompatibleRegionForMultiAZ} (client fault)
- *  <p>Amazon FSx doesn't support Multi-AZ Windows File Server copy backup in the
- *          destination Region, so the copied backup can't be restored.</p>
+ *
+ * Amazon FSx doesn't support Multi-AZ Windows File Server copy backup in the destination Region, so the copied backup can't be restored.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * A generic error indicating a server-side failure.
  *
  * @throws {@link InvalidDestinationKmsKey} (client fault)
- *  <p>The Key Management Service (KMS) key of the destination backup is not
- *          valid.</p>
+ *
+ * The Key Management Service (KMS) key of the destination backup is not valid.
  *
  * @throws {@link InvalidRegion} (client fault)
- *  <p>The Region provided for <code>SourceRegion</code> is not valid or is in a different
- *             Amazon Web Services partition.</p>
+ *
+ * The Region provided for `SourceRegion` is not valid or is in a different Amazon Web Services partition.
  *
  * @throws {@link InvalidSourceKmsKey} (client fault)
- *  <p>The Key Management Service (KMS) key of the source backup is not
- *          valid.</p>
+ *
+ * The Key Management Service (KMS) key of the source backup is not valid.
  *
  * @throws {@link ServiceLimitExceeded} (client fault)
- *  <p>An error indicating that a particular service limit was exceeded. You can increase
- *             some service limits by contacting Amazon Web Services Support.</p>
+ *
+ * An error indicating that a particular service limit was exceeded. You can increase some service limits by contacting Amazon Web Services Support.
  *
  * @throws {@link SourceBackupUnavailable} (client fault)
- *  <p>The request was rejected because the lifecycle status of the source backup isn't
- *             <code>AVAILABLE</code>.</p>
+ *
+ * The request was rejected because the lifecycle status of the source backup isn't `AVAILABLE`.
  *
  * @throws {@link UnsupportedOperation} (client fault)
- *  <p>The requested operation is not supported for this resource or API.</p>
+ *
+ * The requested operation is not supported for this resource or API.
  *
  * @throws {@link FSxServiceException}
- * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * Base exception class for all service exceptions from FSx service.
  *
  * @example To copy a backup
  * ```javascript

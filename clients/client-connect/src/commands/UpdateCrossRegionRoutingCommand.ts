@@ -23,14 +23,10 @@ export interface UpdateCrossRegionRoutingCommandInput extends UpdateCrossRegionR
 export interface UpdateCrossRegionRoutingCommandOutput extends UpdateCrossRegionRoutingResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the cross-region routing configuration for an Amazon Connect Global Resiliency instance enabled
- *    for global routing. When invoked with <code>IsolatedAll</code> set to <code>true</code>, this operation disables
- *    cross-region routing, meaning contacts originating in one Region will no longer be routed to agents in
- *    another Region.</p>
- *          <note>
- *             <p>This operation is available only for Amazon Connect Global Resiliency instances enabled for global routing. Reporting and contact
- *    search continue to operate globally after you use this operation.</p>
- *          </note>
+ * Updates the cross-region routing configuration for an Amazon Connect Global Resiliency instance enabled for global routing. When invoked with `IsolatedAll` set to `true`, this operation disables cross-region routing, meaning contacts originating in one Region will no longer be routed to agents in another Region.
+ *
+ * > **Note:** This operation is available only for Amazon Connect Global Resiliency instances enabled for global routing. Reporting and contact search continue to operate globally after you use this operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,26 +52,32 @@ export interface UpdateCrossRegionRoutingCommandOutput extends UpdateCrossRegion
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceConflictException} (client fault)
- *  <p>A resource already has that name.</p>
+ *
+ * A resource already has that name.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

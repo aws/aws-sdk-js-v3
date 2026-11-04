@@ -23,22 +23,14 @@ export interface ImportFirewallDomainsCommandInput extends ImportFirewallDomains
 export interface ImportFirewallDomainsCommandOutput extends ImportFirewallDomainsResponse, __MetadataBearer {}
 
 /**
- * <p>Imports domain names from a file into a domain list, for use in a DNS firewall rule group. </p>
- *          <p>Each domain specification in your domain list must satisfy the following
- * 	requirements: </p>
- *          <ul>
- *             <li>
- *                <p>It can optionally start with <code>*</code> (asterisk).</p>
- *             </li>
- *             <li>
- *                <p>With the exception of the optional starting asterisk, it must only contain
- *       	   the following characters: <code>A-Z</code>, <code>a-z</code>,
- *       	   <code>0-9</code>, <code>-</code> (hyphen).</p>
- *             </li>
- *             <li>
- *                <p>It must be from 1-255 characters in length. </p>
- *             </li>
- *          </ul>
+ * Imports domain names from a file into a domain list, for use in a DNS firewall rule group.
+ *
+ * Each domain specification in your domain list must satisfy the following requirements:
+ *
+ * - It can optionally start with `*` (asterisk).
+ * - With the exception of the optional starting asterisk, it must only contain the following characters: `A-Z`, `a-z`, `0-9`, `-` (hyphen).
+ * - It must be from 1-255 characters in length.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,34 +62,38 @@ export interface ImportFirewallDomainsCommandOutput extends ImportFirewallDomain
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p>
- *          <p>This error can also be thrown when a customer has reached the 5120 character limit for a
- * 			resource policy for CloudWatch Logs.</p>
+ *
+ * The current account doesn't have the IAM permissions required to perform the specified Resolver operation.
+ *
+ * This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The requested state transition isn't valid. For example, you can't delete a firewall
- * 			domain list if it is in the process of being deleted, or you can't import domains into a
- * 			domain list that is in the process of being deleted.</p>
+ *
+ * The requested state transition isn't valid. For example, you can't delete a firewall domain list if it is in the process of being deleted, or you can't import domains into a domain list that is in the process of being deleted.
  *
  * @throws {@link InternalServiceErrorException} (client fault)
- *  <p>We encountered an unknown error. Try again in a few minutes.</p>
+ *
+ * We encountered an unknown error. Try again in a few minutes.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request caused one or more limits to be exceeded.</p>
+ *
+ * The request caused one or more limits to be exceeded.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource doesn't exist.</p>
+ *
+ * The specified resource doesn't exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled. Try again in a few minutes.</p>
+ *
+ * The request was throttled. Try again in a few minutes.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>You have provided an invalid command. If you ran the <code>UpdateFirewallDomains</code> request. supported values are <code>ADD</code>,
- * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+ *
+ * You have provided an invalid command. If you ran the `UpdateFirewallDomains` request. supported values are `ADD`, `REMOVE`, or `REPLACE` a domain.
  *
  * @throws {@link Route53ResolverServiceException}
- * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * Base exception class for all service exceptions from Route53Resolver service.
  *
  * @public
  */

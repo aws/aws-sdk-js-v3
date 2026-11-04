@@ -23,7 +23,8 @@ export interface UpdateSecurityRequirementPackCommandInput extends UpdateSecurit
 export interface UpdateSecurityRequirementPackCommandOutput extends UpdateSecurityRequirementPackOutput, __MetadataBearer {}
 
 /**
- * <p>Updates a security requirement pack. For customer managed packs, both metadata and status can be updated. For AWS managed packs, only status can be updated.</p>
+ * Updates a security requirement pack. For customer managed packs, both metadata and status can be updated. For AWS managed packs, only status can be updated.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,26 +57,32 @@ export interface UpdateSecurityRequirementPackCommandOutput extends UpdateSecuri
  * @see {@link SecurityAgentClientResolvedConfig | config} for SecurityAgentClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be completed due to a conflict with the current state of the resource.</p>
+ *
+ * The request could not be completed due to a conflict with the current state of the resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred during the processing of your request.</p>
+ *
+ * An unexpected error occurred during the processing of your request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found. Verify that the resource identifier is correct and that the resource exists in the specified agent space or account.</p>
+ *
+ * The specified resource was not found. Verify that the resource identifier is correct and that the resource exists in the specified agent space or account.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the service.</p>
+ *
+ * The input fails to satisfy the constraints specified by the service.
  *
  * @throws {@link SecurityAgentServiceException}
- * <p>Base exception class for all service exceptions from SecurityAgent service.</p>
  *
+ * Base exception class for all service exceptions from SecurityAgent service.
  *
  * @public
  */

@@ -23,12 +23,8 @@ export interface ListHITsForQualificationTypeCommandInput extends ListHITsForQua
 export interface ListHITsForQualificationTypeCommandOutput extends ListHITsForQualificationTypeResponse, __MetadataBearer {}
 
 /**
- * <p>
- *             The <code>ListHITsForQualificationType</code> operation returns the HITs that use
- *             the given Qualification type for a Qualification requirement.
- *             The operation returns HITs of any status, except for HITs that have been deleted
- *             with the <code>DeleteHIT</code> operation or that have been auto-deleted.
- *         </p>
+ * The `ListHITsForQualificationType` operation returns the HITs that use the given Qualification type for a Qualification requirement. The operation returns HITs of any status, except for HITs that have been deleted with the `DeleteHIT` operation or that have been auto-deleted.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -99,14 +95,16 @@ export interface ListHITsForQualificationTypeCommandOutput extends ListHITsForQu
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
  *
  * @throws {@link RequestError} (client fault)
- *  <p>Your request is invalid.</p>
+ *
+ * Your request is invalid.
  *
  * @throws {@link ServiceFault} (server fault)
- *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
+ * Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.
  *
  * @throws {@link MTurkServiceException}
- * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * Base exception class for all service exceptions from MTurk service.
  *
  * @public
  */

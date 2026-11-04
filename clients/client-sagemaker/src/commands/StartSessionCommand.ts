@@ -23,7 +23,8 @@ export interface StartSessionCommandInput extends StartSessionRequest {}
 export interface StartSessionCommandOutput extends StartSessionResponse, __MetadataBearer {}
 
 /**
- * <p>Initiates a remote connection session between a local integrated development environments (IDEs) and a remote SageMaker space.</p>
+ * Initiates a remote connection session between a local integrated development environments (IDEs) and a remote SageMaker space.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,14 +53,16 @@ export interface StartSessionCommandOutput extends StartSessionResponse, __Metad
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+ *
+ * You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Resource being access is not found.</p>
+ *
+ * Resource being access is not found.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

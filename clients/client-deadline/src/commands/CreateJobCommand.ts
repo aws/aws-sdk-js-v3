@@ -23,7 +23,7 @@ export interface CreateJobCommandInput extends CreateJobRequest {}
 export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBearer {}
 
 /**
- * Creates a job. A job is a set of instructions that Deadline Cloud uses to schedule and run work on available workers. For more information, see <a href="https://docs.aws.amazon.com/deadline-cloud/latest/userguide/deadline-cloud-jobs.html">Deadline Cloud jobs</a>.
+ * Creates a job. A job is a set of instructions that Deadline Cloud uses to schedule and run work on available workers. For more information, see [Deadline Cloud jobs](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/deadline-cloud-jobs.html).
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -129,8 +129,8 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *  The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.
  *
  * @throws {@link DeadlineServiceException}
- * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ * Base exception class for all service exceptions from Deadline service.
  *
  * @public
  */

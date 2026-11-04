@@ -23,17 +23,14 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Assigns one or more tags (key-value pairs) to the specified pipe. Tags can help you
- *          organize and categorize your resources. You can also use them to scope user permissions by
- *          granting a user permission to access or change only resources with certain tag
- *          values.</p>
- *          <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly
- *          as strings of characters.</p>
- *          <p>You can use the <code>TagResource</code> action with a pipe that already has tags. If
- *          you specify a new tag key, this tag is appended to the list of tags associated with the
- *          pipe. If you specify a tag key that is already associated with the pipe, the new tag value
- *          that you specify replaces the previous value for that tag.</p>
- *          <p>You can associate as many as 50 tags with a pipe.</p>
+ * Assigns one or more tags (key-value pairs) to the specified pipe. Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
+ *
+ * Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.
+ *
+ * You can use the `TagResource` action with a pipe that already has tags. If you specify a new tag key, this tag is appended to the list of tags associated with the pipe. If you specify a tag key that is already associated with the pipe, the new tag value that you specify replaces the previous value for that tag.
+ *
+ * You can associate as many as 50 tags with a pipe.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,17 +58,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link PipesClientResolvedConfig | config} for PipesClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * This exception occurs due to unexpected causes.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>An entity that you specified does not exist.</p>
+ *
+ * An entity that you specified does not exist.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Indicates that an error has occurred while performing a validate operation.</p>
+ *
+ * Indicates that an error has occurred while performing a validate operation.
  *
  * @throws {@link PipesServiceException}
- * <p>Base exception class for all service exceptions from Pipes service.</p>
  *
+ * Base exception class for all service exceptions from Pipes service.
  *
  * @public
  */

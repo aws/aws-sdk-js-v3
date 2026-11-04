@@ -23,7 +23,8 @@ export interface StartCutoverCommandInput extends StartCutoverRequest {}
 export interface StartCutoverCommandOutput extends StartCutoverResponse, __MetadataBearer {}
 
 /**
- * <p>Launches a Cutover Instance for specific Source Servers. This command starts a LAUNCH job whose initiatedBy property is StartCutover and changes the SourceServer.lifeCycle.state property to CUTTING_OVER.</p>
+ * Launches a Cutover Instance for specific Source Servers. This command starts a LAUNCH job whose initiatedBy property is StartCutover and changes the SourceServer.lifeCycle.state property to CUTTING_OVER.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -104,17 +105,20 @@ export interface StartCutoverCommandOutput extends StartCutoverResponse, __Metad
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+ *
+ * The request could not be completed due to a conflict with the current state of the target resource.
  *
  * @throws {@link UninitializedAccountException} (client fault)
- *  <p>Uninitialized account exception.</p>
+ *
+ * Uninitialized account exception.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Validate exception.</p>
+ *
+ * Validate exception.
  *
  * @throws {@link MgnServiceException}
- * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * Base exception class for all service exceptions from Mgn service.
  *
  * @public
  */

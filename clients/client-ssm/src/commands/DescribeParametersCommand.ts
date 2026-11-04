@@ -23,23 +23,14 @@ export interface DescribeParametersCommandInput extends DescribeParametersReques
 export interface DescribeParametersCommandOutput extends DescribeParametersResult, __MetadataBearer {}
 
 /**
- * <p>Lists the parameters in your Amazon Web Services account or the parameters shared with you when you enable
- *    the <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeParameters.html#systemsmanager-DescribeParameters-request-Shared">Shared</a> option.</p>
- *          <p>Request results are returned on a best-effort basis. If you specify <code>MaxResults</code>
- *    in the request, the response includes information up to the limit specified. The number of items
- *    returned, however, can be between zero and the value of <code>MaxResults</code>. If the service
- *    reaches an internal limit while processing the results, it stops the operation and returns the
- *    matching values up to that point and a <code>NextToken</code>. You can specify the
- *     <code>NextToken</code> in a subsequent call to get the next set of results.</p>
- *          <p>Parameter names can't contain spaces. The service removes any spaces specified for the
- *    beginning or end of a parameter name. If the specified name for a parameter contains spaces
- *    between characters, the request fails with a <code>ValidationException</code> error.</p>
- *          <important>
- *             <p>If you change the KMS key alias for the KMS key used to encrypt a parameter,
- *     then you must also update the key alias the parameter uses to reference KMS. Otherwise,
- *      <code>DescribeParameters</code> retrieves whatever the original key alias was
- *     referencing.</p>
- *          </important>
+ * Lists the parameters in your Amazon Web Services account or the parameters shared with you when you enable the [Shared](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeParameters.html#systemsmanager-DescribeParameters-request-Shared) option.
+ *
+ * Request results are returned on a best-effort basis. If you specify `MaxResults` in the request, the response includes information up to the limit specified. The number of items returned, however, can be between zero and the value of `MaxResults`. If the service reaches an internal limit while processing the results, it stops the operation and returns the matching values up to that point and a `NextToken`. You can specify the `NextToken` in a subsequent call to get the next set of results.
+ *
+ * Parameter names can't contain spaces. The service removes any spaces specified for the beginning or end of a parameter name. If the specified name for a parameter contains spaces between characters, the request fails with a `ValidationException` error.
+ *
+ * > **Important:** If you change the KMS key alias for the KMS key used to encrypt a parameter, then you must also update the key alias the parameter uses to reference KMS. Otherwise, `DescribeParameters` retrieves whatever the original key alias was referencing.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -107,24 +98,28 @@ export interface DescribeParametersCommandOutput extends DescribeParametersResul
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidFilterKey} (client fault)
- *  <p>The specified key isn't valid.</p>
+ *
+ * The specified key isn't valid.
  *
  * @throws {@link InvalidFilterOption} (client fault)
- *  <p>The specified filter option isn't valid. Valid options are Equals and BeginsWith. For Path
- *    filter, valid options are Recursive and OneLevel.</p>
+ *
+ * The specified filter option isn't valid. Valid options are Equals and BeginsWith. For Path filter, valid options are Recursive and OneLevel.
  *
  * @throws {@link InvalidFilterValue} (client fault)
- *  <p>The filter value isn't valid. Verify the value and try again.</p>
+ *
+ * The filter value isn't valid. Verify the value and try again.
  *
  * @throws {@link InvalidNextToken} (client fault)
- *  <p>The specified token isn't valid.</p>
+ *
+ * The specified token isn't valid.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

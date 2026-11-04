@@ -23,7 +23,8 @@ export interface GetModelTemplateCommandInput extends GetModelTemplateRequest {}
 export interface GetModelTemplateCommandOutput extends GetModelTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a model template.</p>
+ * Gets a model template.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,14 +52,16 @@ export interface GetModelTemplateCommandOutput extends GetModelTemplateResponse,
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource specified in the request was not found. See the message field for more information.</p>
+ *
+ * The resource specified in the request was not found. See the message field for more information.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
+ *
+ * A limit has been exceeded. See the accompanying error message for details.
  *
  * @throws {@link ApiGatewayV2ServiceException}
- * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ * Base exception class for all service exceptions from ApiGatewayV2 service.
  *
  * @public
  */

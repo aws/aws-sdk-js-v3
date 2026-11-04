@@ -26,15 +26,12 @@ export interface DescribeAffectedAccountsForOrganizationCommandInput extends Des
 export interface DescribeAffectedAccountsForOrganizationCommandOutput extends DescribeAffectedAccountsForOrganizationResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of accounts in the organization from Organizations that are affected by the
- *          provided event. For more information about the different types of Health events, see
- *             <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html">Event</a>. </p>
- *          <p>Before you can call this operation, you must first enable Health to work with
- *          Organizations. To do this, call the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html">EnableHealthServiceAccessForOrganization</a> operation from your organization's
- *          management account.</p>
- *          <note>
- *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the next request to return more results.</p>
- *          </note>
+ * Returns a list of accounts in the organization from Organizations that are affected by the provided event. For more information about the different types of Health events, see [Event](https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html).
+ *
+ * Before you can call this operation, you must first enable Health to work with Organizations. To do this, call the [EnableHealthServiceAccessForOrganization](https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html) operation from your organization's management account.
+ *
+ * > **Note:** This API operation uses pagination. Specify the `nextToken` parameter in the next request to return more results.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,11 +64,12 @@ export interface DescribeAffectedAccountsForOrganizationCommandOutput extends De
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
  *
  * @throws {@link InvalidPaginationToken} (client fault)
- *  <p>The specified pagination token (<code>nextToken</code>) is not valid.</p>
+ *
+ * The specified pagination token (`nextToken`) is not valid.
  *
  * @throws {@link HealthServiceException}
- * <p>Base exception class for all service exceptions from Health service.</p>
  *
+ * Base exception class for all service exceptions from Health service.
  *
  * @public
  */

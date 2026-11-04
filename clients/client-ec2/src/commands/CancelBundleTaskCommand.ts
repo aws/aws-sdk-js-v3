@@ -23,11 +23,10 @@ export interface CancelBundleTaskCommandInput extends CancelBundleTaskRequest {}
 export interface CancelBundleTaskCommandOutput extends CancelBundleTaskResult, __MetadataBearer {}
 
 /**
- * <p>Cancels a bundling operation for an instance store-backed Windows instance.</p>
- *          <note>
- *             <p>CancelBundleTask is no longer supported because <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_BundleInstance.html">BundleInstance</a>,
- *         the operation it cancels, is no longer supported.</p>
- *          </note>
+ * Cancels a bundling operation for an instance store-backed Windows instance.
+ *
+ * > **Note:** CancelBundleTask is no longer supported because [BundleInstance](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_BundleInstance.html), the operation it cancels, is no longer supported.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,8 +74,8 @@ export interface CancelBundleTaskCommandOutput extends CancelBundleTaskResult, _
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

@@ -23,7 +23,16 @@ export interface ListCustomModelDeploymentsCommandInput extends ListCustomModelD
 export interface ListCustomModelDeploymentsCommandOutput extends ListCustomModelDeploymentsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists custom model deployments in your account. You can filter the results by creation time, name, status, and associated model. Use this operation to manage and monitor your custom model deployments.</p> <p>We recommend using pagination to ensure that the operation returns quickly and successfully.</p> <p>The following actions are related to the <code>ListCustomModelDeployments</code> operation:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateCustomModelDeployment.html">CreateCustomModelDeployment</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetCustomModelDeployment.html">GetCustomModelDeployment</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_DeleteCustomModelDeployment.html">DeleteCustomModelDeployment</a> </p> </li> </ul>
+ * Lists custom model deployments in your account. You can filter the results by creation time, name, status, and associated model. Use this operation to manage and monitor your custom model deployments.
+ *
+ * We recommend using pagination to ensure that the operation returns quickly and successfully.
+ *
+ * The following actions are related to the `ListCustomModelDeployments` operation:
+ *
+ * - [CreateCustomModelDeployment](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateCustomModelDeployment.html)
+ * - [GetCustomModelDeployment](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetCustomModelDeployment.html)
+ * - [DeleteCustomModelDeployment](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_DeleteCustomModelDeployment.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,20 +78,24 @@ export interface ListCustomModelDeploymentsCommandOutput extends ListCustomModel
  * @see {@link BedrockClientResolvedConfig | config} for BedrockClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request is denied because of missing access permissions.</p>
+ *
+ * The request is denied because of missing access permissions.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
+ * The number of requests exceeds the limit. Resubmit your request later.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Input validation failed. Check your request parameters and retry the request.</p>
+ *
+ * Input validation failed. Check your request parameters and retry the request.
  *
  * @throws {@link BedrockServiceException}
- * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ * Base exception class for all service exceptions from Bedrock service.
  *
  * @public
  */

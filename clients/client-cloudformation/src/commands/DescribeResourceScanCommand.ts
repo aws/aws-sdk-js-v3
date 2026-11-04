@@ -23,7 +23,8 @@ export interface DescribeResourceScanCommandInput extends DescribeResourceScanIn
 export interface DescribeResourceScanCommandOutput extends DescribeResourceScanOutput, __MetadataBearer {}
 
 /**
- * <p>Describes details of a resource scan.</p>
+ * Describes details of a resource scan.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,11 +68,12 @@ export interface DescribeResourceScanCommandOutput extends DescribeResourceScanO
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link ResourceScanNotFoundException} (client fault)
- *  <p>The resource scan was not found.</p>
+ *
+ * The resource scan was not found.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

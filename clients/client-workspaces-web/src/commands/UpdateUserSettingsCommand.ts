@@ -23,7 +23,8 @@ export interface UpdateUserSettingsCommandInput extends UpdateUserSettingsReques
 export interface UpdateUserSettingsCommandOutput extends UpdateUserSettingsResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the user settings.</p>
+ * Updates the user settings.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -185,23 +186,28 @@ export interface UpdateUserSettingsCommandOutput extends UpdateUserSettingsRespo
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access is denied.</p>
+ *
+ * Access is denied.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>There is an internal server error.</p>
+ *
+ * There is an internal server error.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource cannot be found.</p>
+ *
+ * The resource cannot be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>There is a throttling error.</p>
+ *
+ * There is a throttling error.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>There is a validation error.</p>
+ *
+ * There is a validation error.
  *
  * @throws {@link WorkSpacesWebServiceException}
- * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ * Base exception class for all service exceptions from WorkSpacesWeb service.
  *
  * @public
  */

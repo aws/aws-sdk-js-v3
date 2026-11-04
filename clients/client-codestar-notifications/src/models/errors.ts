@@ -4,9 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { CodestarNotificationsServiceException as __BaseException } from "./CodestarNotificationsServiceException";
 
 /**
- * <p>
- *             CodeStar Notifications can't create the notification rule because you do not have sufficient
- *       permissions.</p>
+ * CodeStar Notifications can't create the notification rule because you do not have sufficient permissions.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -29,9 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>
- *             CodeStar Notifications can't complete the request because the resource is being modified by
- *       another process. Wait a few minutes and try again.</p>
+ * CodeStar Notifications can't complete the request because the resource is being modified by another process. Wait a few minutes and try again.
+ *
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
@@ -54,7 +52,8 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
- * <p>Some or all of the configuration is incomplete, missing, or not valid.</p>
+ * Some or all of the configuration is incomplete, missing, or not valid.
+ *
  * @public
  */
 export class ConfigurationException extends __BaseException {
@@ -77,9 +76,8 @@ export class ConfigurationException extends __BaseException {
 }
 
 /**
- * <p>One of the CodeStar Notifications limits has been exceeded. Limits apply to
- *             accounts, notification rules, notifications, resources, and targets. For more
- *             information, see Limits.</p>
+ * One of the CodeStar Notifications limits has been exceeded. Limits apply to accounts, notification rules, notifications, resources, and targets. For more information, see Limits.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -102,8 +100,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>A resource with the same name or ID already exists. Notification rule names must be
- *             unique in your Amazon Web Services account.</p>
+ * A resource with the same name or ID already exists. Notification rule names must be unique in your Amazon Web Services account.
+ *
  * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -126,7 +124,8 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>One or more parameter values are not valid.</p>
+ * One or more parameter values are not valid.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -149,8 +148,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>
- *             CodeStar Notifications can't find a resource that matches the provided ARN. </p>
+ * CodeStar Notifications can't find a resource that matches the provided ARN.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -173,7 +172,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The value for the enumeration token used in the request to return the next batch of the results is not valid. </p>
+ * The value for the enumeration token used in the request to return the next batch of the results is not valid.
+ *
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {

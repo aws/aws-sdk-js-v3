@@ -23,8 +23,10 @@ export interface DeregisterResourceCommandInput extends DeregisterResourceReques
 export interface DeregisterResourceCommandOutput extends DeregisterResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Deregisters the resource as managed by the Data Catalog.</p>
- *          <p>When you deregister a path, Lake Formation removes the path from the inline policy attached to your service-linked role.</p>
+ * Deregisters the resource as managed by the Data Catalog.
+ *
+ * When you deregister a path, Lake Formation removes the path from the inline policy attached to your service-linked role.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,20 +51,24 @@ export interface DeregisterResourceCommandOutput extends DeregisterResourceRespo
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist.</p>
+ *
+ * A specified entity does not exist.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link LakeFormationServiceException}
- * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * Base exception class for all service exceptions from LakeFormation service.
  *
  * @public
  */

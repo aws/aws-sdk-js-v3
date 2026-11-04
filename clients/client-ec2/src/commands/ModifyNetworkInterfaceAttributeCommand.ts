@@ -23,9 +23,8 @@ export interface ModifyNetworkInterfaceAttributeCommandInput extends ModifyNetwo
 export interface ModifyNetworkInterfaceAttributeCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Modifies the specified network interface attribute. You can specify only one attribute
- *             at a time. You can use this action to attach and detach security groups from an existing
- *             EC2 instance.</p>
+ * Modifies the specified network interface attribute. You can specify only one attribute at a time. You can use this action to attach and detach security groups from an existing EC2 instance.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,8 +81,8 @@ export interface ModifyNetworkInterfaceAttributeCommandOutput extends __Metadata
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To modify the attachment attribute of a network interface
  * ```javascript

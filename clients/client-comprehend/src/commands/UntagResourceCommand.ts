@@ -23,7 +23,8 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Removes a specific tag associated with an Amazon Comprehend resource. </p>
+ * Removes a specific tag associated with an Amazon Comprehend resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,25 +52,28 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Concurrent modification of the tags associated with an Amazon Comprehend resource is not
- *       supported. </p>
+ *
+ * Concurrent modification of the tags associated with an Amazon Comprehend resource is not supported.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is invalid.</p>
+ *
+ * The request is invalid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+ *
+ * The specified resource ARN was not found. Check the ARN and try your request again.
  *
  * @throws {@link TooManyTagKeysException} (client fault)
- *  <p>The request contains more tag keys than can be associated with a resource (50 tag keys per
- *       resource).</p>
+ *
+ * The request contains more tag keys than can be associated with a resource (50 tag keys per resource).
  *
  * @throws {@link ComprehendServiceException}
- * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * Base exception class for all service exceptions from Comprehend service.
  *
  * @public
  */

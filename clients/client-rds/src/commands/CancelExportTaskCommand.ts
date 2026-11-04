@@ -23,7 +23,8 @@ export interface CancelExportTaskCommandInput extends CancelExportTaskMessage {}
 export interface CancelExportTaskCommandOutput extends ExportTask, __MetadataBearer {}
 
 /**
- * <p>Cancels an export task in progress that is exporting a snapshot or cluster to Amazon S3. Any data that has already been written to the S3 bucket isn't removed.</p>
+ * Cancels an export task in progress that is exporting a snapshot or cluster to Amazon S3. Any data that has already been written to the S3 bucket isn't removed.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,14 +68,16 @@ export interface CancelExportTaskCommandOutput extends ExportTask, __MetadataBea
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link ExportTaskNotFoundFault} (client fault)
- *  <p>The export task doesn't exist.</p>
+ *
+ * The export task doesn't exist.
  *
  * @throws {@link InvalidExportTaskStateFault} (client fault)
- *  <p>You can't cancel an export task that has completed.</p>
+ *
+ * You can't cancel an export task that has completed.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To cancel a snapshot export to Amazon S3
  * ```javascript

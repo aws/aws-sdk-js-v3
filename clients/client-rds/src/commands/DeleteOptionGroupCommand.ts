@@ -23,7 +23,8 @@ export interface DeleteOptionGroupCommandInput extends DeleteOptionGroupMessage 
 export interface DeleteOptionGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an existing option group.</p>
+ * Deletes an existing option group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,14 +49,16 @@ export interface DeleteOptionGroupCommandOutput extends __MetadataBearer {}
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link InvalidOptionGroupStateFault} (client fault)
- *  <p>The option group isn't in the <i>available</i> state.</p>
+ *
+ * The option group isn't in the *available* state.
  *
  * @throws {@link OptionGroupNotFoundFault} (client fault)
- *  <p>The specified option group could not be found.</p>
+ *
+ * The specified option group could not be found.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To delete an option group
  * ```javascript

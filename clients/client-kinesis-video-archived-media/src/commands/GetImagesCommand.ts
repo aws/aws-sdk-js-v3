@@ -23,8 +23,8 @@ export interface GetImagesCommandInput extends GetImagesInput {}
 export interface GetImagesCommandOutput extends GetImagesOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of images corresponding to each timestamp for a given time range,
- *             sampling interval, and image format configuration.</p>
+ * Retrieves a list of images corresponding to each timestamp for a given time range, sampling interval, and image format configuration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,36 +71,30 @@ export interface GetImagesCommandOutput extends GetImagesOutput, __MetadataBeare
  * @see {@link KinesisVideoArchivedMediaClientResolvedConfig | config} for KinesisVideoArchivedMediaClient's `config` shape.
  *
  * @throws {@link ClientLimitExceededException} (client fault)
- *  <p>Kinesis Video Streams has throttled the request because you have exceeded a limit. Try making the call later. For information about limits, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/limits.html">Kinesis Video Streams Limits</a>.</p>
+ *
+ * Kinesis Video Streams has throttled the request because you have exceeded a limit. Try making the call later. For information about limits, see [Kinesis Video Streams Limits](http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/limits.html).
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be
- *             used.</p>
+ *
+ * A specified parameter exceeds its restrictions, is not supported, or can't be used.
  *
  * @throws {@link NoDataRetentionException} (client fault)
- *  <p>
- *             <code>GetImages</code> was requested for a stream that does not retain data (that is, has
- *             a <code>DataRetentionInHours</code> of 0). </p>
+ *
+ * `GetImages` was requested for a stream that does not retain data (that is, has a `DataRetentionInHours` of 0).
  *
  * @throws {@link NotAuthorizedException} (client fault)
- *  <p>Status Code: 403, The caller is not authorized to perform an operation on the given
- *             stream, or the token has expired.</p>
+ *
+ * Status Code: 403, The caller is not authorized to perform an operation on the given stream, or the token has expired.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>
- *             <code>GetImages</code> will throw this error when Kinesis Video Streams can't find the stream
- *             that you specified.</p>
- *          <p>
- *             <code>GetHLSStreamingSessionURL</code> and <code>GetDASHStreamingSessionURL</code> throw
- *             this error if a session with a <code>PlaybackMode</code> of <code>ON_DEMAND</code> or
- *                 <code>LIVE_REPLAY</code>is requested for a stream that has no fragments within the
- *             requested time range, or if a session with a <code>PlaybackMode</code> of
- *                 <code>LIVE</code> is requested for a stream that has no fragments within the last 30
- *             seconds.</p>
+ *
+ * `GetImages` will throw this error when Kinesis Video Streams can't find the stream that you specified.
+ *
+ * `GetHLSStreamingSessionURL` and `GetDASHStreamingSessionURL` throw this error if a session with a `PlaybackMode` of `ON_DEMAND` or `LIVE_REPLAY`is requested for a stream that has no fragments within the requested time range, or if a session with a `PlaybackMode` of `LIVE` is requested for a stream that has no fragments within the last 30 seconds.
  *
  * @throws {@link KinesisVideoArchivedMediaServiceException}
- * <p>Base exception class for all service exceptions from KinesisVideoArchivedMedia service.</p>
  *
+ * Base exception class for all service exceptions from KinesisVideoArchivedMedia service.
  *
  * @public
  */

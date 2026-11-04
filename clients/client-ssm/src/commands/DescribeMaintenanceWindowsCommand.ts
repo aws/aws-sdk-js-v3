@@ -23,7 +23,8 @@ export interface DescribeMaintenanceWindowsCommandInput extends DescribeMaintena
 export interface DescribeMaintenanceWindowsCommandOutput extends DescribeMaintenanceWindowsResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves the maintenance windows in an Amazon Web Services account.</p>
+ * Retrieves the maintenance windows in an Amazon Web Services account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,11 +76,12 @@ export interface DescribeMaintenanceWindowsCommandOutput extends DescribeMainten
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

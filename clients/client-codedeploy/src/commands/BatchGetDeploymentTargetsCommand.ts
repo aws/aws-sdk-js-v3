@@ -23,33 +23,15 @@ export interface BatchGetDeploymentTargetsCommandInput extends BatchGetDeploymen
 export interface BatchGetDeploymentTargetsCommandOutput extends BatchGetDeploymentTargetsOutput, __MetadataBearer {}
 
 /**
- * <p> Returns an array of one or more targets associated with a deployment. This method
- *             works with all compute types and should be used instead of the deprecated
- *                 <code>BatchGetDeploymentInstances</code>. The maximum number of targets that can be
- *             returned is 25.</p>
- *          <p> The type of targets returned depends on the deployment's compute platform or
- *             deployment method: </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <b>EC2/On-premises</b>: Information about Amazon EC2 instance targets. </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Lambda</b>: Information about
- *                         Lambda functions targets. </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Amazon ECS</b>: Information about Amazon ECS service targets. </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>CloudFormation</b>: Information about
- *                     targets of blue/green deployments initiated by a CloudFormation stack
- *                     update.</p>
- *             </li>
- *          </ul>
+ * Returns an array of one or more targets associated with a deployment. This method works with all compute types and should be used instead of the deprecated `BatchGetDeploymentInstances`. The maximum number of targets that can be returned is 25.
+ *
+ * The type of targets returned depends on the deployment's compute platform or deployment method:
+ *
+ * - **EC2/On-premises**: Information about Amazon EC2 instance targets.
+ * - **Lambda**: Information about Lambda functions targets.
+ * - **Amazon ECS**: Information about Amazon ECS service targets.
+ * - **CloudFormation**: Information about targets of blue/green deployments initiated by a CloudFormation stack update.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -190,38 +172,44 @@ export interface BatchGetDeploymentTargetsCommandOutput extends BatchGetDeployme
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  * @throws {@link DeploymentDoesNotExistException} (client fault)
- *  <p>The deployment with the user or Amazon Web Services account does not exist.</p>
+ *
+ * The deployment with the user or Amazon Web Services account does not exist.
  *
  * @throws {@link DeploymentIdRequiredException} (client fault)
- *  <p>At least one deployment ID must be specified.</p>
+ *
+ * At least one deployment ID must be specified.
  *
  * @throws {@link DeploymentNotStartedException} (client fault)
- *  <p>The specified deployment has not started.</p>
+ *
+ * The specified deployment has not started.
  *
  * @throws {@link DeploymentTargetDoesNotExistException} (client fault)
- *  <p> The provided target ID does not belong to the attempted deployment. </p>
+ *
+ * The provided target ID does not belong to the attempted deployment.
  *
  * @throws {@link DeploymentTargetIdRequiredException} (client fault)
- *  <p> A deployment target ID was not provided. </p>
+ *
+ * A deployment target ID was not provided.
  *
  * @throws {@link DeploymentTargetListSizeExceededException} (client fault)
- *  <p> The maximum number of targets that can be associated with an Amazon ECS or
- *                 Lambda deployment was exceeded. The target list of both types of
- *             deployments must have exactly one item. This exception does not apply to EC2/On-premises
- *             deployments. </p>
+ *
+ * The maximum number of targets that can be associated with an Amazon ECS or Lambda deployment was exceeded. The target list of both types of deployments must have exactly one item. This exception does not apply to EC2/On-premises deployments.
  *
  * @throws {@link InstanceDoesNotExistException} (client fault)
- *  <p>The specified instance does not exist in the deployment group.</p>
+ *
+ * The specified instance does not exist in the deployment group.
  *
  * @throws {@link InvalidDeploymentIdException} (client fault)
- *  <p>At least one of the deployment IDs was specified in an invalid format.</p>
+ *
+ * At least one of the deployment IDs was specified in an invalid format.
  *
  * @throws {@link InvalidDeploymentTargetIdException} (client fault)
- *  <p> The target ID provided was not valid. </p>
+ *
+ * The target ID provided was not valid.
  *
  * @throws {@link CodeDeployServiceException}
- * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * Base exception class for all service exceptions from CodeDeploy service.
  *
  * @public
  */

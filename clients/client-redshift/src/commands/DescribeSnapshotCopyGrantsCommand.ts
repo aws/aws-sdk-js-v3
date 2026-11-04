@@ -23,13 +23,10 @@ export interface DescribeSnapshotCopyGrantsCommandInput extends DescribeSnapshot
 export interface DescribeSnapshotCopyGrantsCommandOutput extends SnapshotCopyGrantMessage, __MetadataBearer {}
 
 /**
- * <p>Returns a list of snapshot copy grants owned by the Amazon Web Services account in the destination
- *             region.</p>
- *          <p>
- * For more information about managing snapshot copy grants, go to
- * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html">Amazon Redshift Database Encryption</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.
- * </p>
+ * Returns a list of snapshot copy grants owned by the Amazon Web Services account in the destination region.
+ *
+ * For more information about managing snapshot copy grants, go to [Amazon Redshift Database Encryption](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html) in the *Amazon Redshift Cluster Management Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,15 +73,16 @@ export interface DescribeSnapshotCopyGrantsCommandOutput extends SnapshotCopyGra
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link InvalidTagFault} (client fault)
- *  <p>The tag is invalid.</p>
+ *
+ * The tag is invalid.
  *
  * @throws {@link SnapshotCopyGrantNotFoundFault} (client fault)
- *  <p>The specified snapshot copy grant can't be found. Make sure that the name is typed
- *             correctly and that the grant exists in the destination region.</p>
+ *
+ * The specified snapshot copy grant can't be found. Make sure that the name is typed correctly and that the grant exists in the destination region.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

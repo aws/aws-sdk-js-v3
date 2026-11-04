@@ -23,7 +23,10 @@ export interface UpdateCrlCommandInput extends UpdateCrlRequest {}
 export interface UpdateCrlCommandOutput extends CrlDetailResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the certificate revocation list (CRL). A CRL is a list of certificates that have been revoked by the issuing certificate authority (CA). IAM Roles Anywhere validates against the CRL before issuing credentials.</p> <p> <b>Required permissions: </b> <code>rolesanywhere:UpdateCrl</code>. </p>
+ * Updates the certificate revocation list (CRL). A CRL is a list of certificates that have been revoked by the issuing certificate authority (CA). IAM Roles Anywhere validates against the CRL before issuing credentials.
+ *
+ * **Required permissions:** `rolesanywhere:UpdateCrl`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,17 +64,20 @@ export interface UpdateCrlCommandOutput extends CrlDetailResponse, __MetadataBea
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Validation exception error.</p>
+ *
+ * Validation exception error.
  *
  * @throws {@link RolesAnywhereServiceException}
- * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
+ * Base exception class for all service exceptions from RolesAnywhere service.
  *
  * @public
  */

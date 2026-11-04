@@ -26,8 +26,8 @@ export interface UpdatePullRequestApprovalRuleContentCommandInput extends Update
 export interface UpdatePullRequestApprovalRuleContentCommandOutput extends UpdatePullRequestApprovalRuleContentOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the structure of an approval rule created specifically for a pull request. For example, you can change the number of required approvers and
- *             the approval pool for approvers. </p>
+ * Updates the structure of an approval rule created specifically for a pull request. For example, you can change the number of required approvers and the approval pool for approvers.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,57 +69,72 @@ export interface UpdatePullRequestApprovalRuleContentCommandOutput extends Updat
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  * @throws {@link ApprovalRuleContentRequiredException} (client fault)
- *  <p>The content for the approval rule is empty. You must provide some content for an approval rule. The content cannot be null.</p>
+ *
+ * The content for the approval rule is empty. You must provide some content for an approval rule. The content cannot be null.
  *
  * @throws {@link ApprovalRuleDoesNotExistException} (client fault)
- *  <p>The specified approval rule does not exist.</p>
+ *
+ * The specified approval rule does not exist.
  *
  * @throws {@link ApprovalRuleNameRequiredException} (client fault)
- *  <p>An approval rule name is required, but was not specified.</p>
+ *
+ * An approval rule name is required, but was not specified.
  *
  * @throws {@link CannotModifyApprovalRuleFromTemplateException} (client fault)
- *  <p>The approval rule cannot be modified for the pull request because it was created by an
- *             approval rule template and applied to the pull request automatically.</p>
+ *
+ * The approval rule cannot be modified for the pull request because it was created by an approval rule template and applied to the pull request automatically.
  *
  * @throws {@link EncryptionIntegrityChecksFailedException} (server fault)
- *  <p>An encryption integrity check failed.</p>
+ *
+ * An encryption integrity check failed.
  *
  * @throws {@link EncryptionKeyAccessDeniedException} (client fault)
- *  <p>An encryption key could not be accessed.</p>
+ *
+ * An encryption key could not be accessed.
  *
  * @throws {@link EncryptionKeyDisabledException} (client fault)
- *  <p>The encryption key is disabled.</p>
+ *
+ * The encryption key is disabled.
  *
  * @throws {@link EncryptionKeyNotFoundException} (client fault)
- *  <p>No encryption key was found.</p>
+ *
+ * No encryption key was found.
  *
  * @throws {@link EncryptionKeyUnavailableException} (client fault)
- *  <p>The encryption key is not available.</p>
+ *
+ * The encryption key is not available.
  *
  * @throws {@link InvalidApprovalRuleContentException} (client fault)
- *  <p>The content for the approval rule is not valid.</p>
+ *
+ * The content for the approval rule is not valid.
  *
  * @throws {@link InvalidApprovalRuleNameException} (client fault)
- *  <p>The name for the approval rule is not valid.</p>
+ *
+ * The name for the approval rule is not valid.
  *
  * @throws {@link InvalidPullRequestIdException} (client fault)
- *  <p>The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.</p>
+ *
+ * The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.
  *
  * @throws {@link InvalidRuleContentSha256Exception} (client fault)
- *  <p>The SHA-256 hash signature for the rule content is not valid.</p>
+ *
+ * The SHA-256 hash signature for the rule content is not valid.
  *
  * @throws {@link PullRequestAlreadyClosedException} (client fault)
- *  <p>The pull request status cannot be updated because it is already closed.</p>
+ *
+ * The pull request status cannot be updated because it is already closed.
  *
  * @throws {@link PullRequestDoesNotExistException} (client fault)
- *  <p>The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.</p>
+ *
+ * The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.
  *
  * @throws {@link PullRequestIdRequiredException} (client fault)
- *  <p>A pull request ID is required, but none was provided.</p>
+ *
+ * A pull request ID is required, but none was provided.
  *
  * @throws {@link CodeCommitServiceException}
- * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * Base exception class for all service exceptions from CodeCommit service.
  *
  * @public
  */

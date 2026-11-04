@@ -23,7 +23,8 @@ export interface UpdateIdentityProviderSettingsCommandInput extends UpdateIdenti
 export interface UpdateIdentityProviderSettingsCommandOutput extends UpdateIdentityProviderSettingsResponse, __MetadataBearer {}
 
 /**
- * <p>Updates additional product configuration settings for the registered identity provider.</p>
+ * Updates additional product configuration settings for the registered identity provider.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -124,20 +125,24 @@ export interface UpdateIdentityProviderSettingsCommandOutput extends UpdateIdent
  * @see {@link LicenseManagerUserSubscriptionsClientResolvedConfig | config} for LicenseManagerUserSubscriptionsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * You don't have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An exception occurred with the service.</p>
+ *
+ * An exception occurred with the service.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied because of request throttling. Retry the request.</p>
+ *
+ * The request was denied because of request throttling. Retry the request.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A parameter is not valid.</p>
+ *
+ * A parameter is not valid.
  *
  * @throws {@link LicenseManagerUserSubscriptionsServiceException}
- * <p>Base exception class for all service exceptions from LicenseManagerUserSubscriptions service.</p>
  *
+ * Base exception class for all service exceptions from LicenseManagerUserSubscriptions service.
  *
  * @public
  */

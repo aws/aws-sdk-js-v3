@@ -23,35 +23,20 @@ export interface ListAccessPointsCommandInput extends ListAccessPointsRequest {}
 export interface ListAccessPointsCommandOutput extends ListAccessPointsResult, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This operation is not supported by directory buckets.</p>
- *          </note>
- *          <p>Returns a list of the access points. You can retrieve up to 1,000 access points per call. If the call
- *          returns more than 1,000 access points (or the number specified in <code>maxResults</code>,
- *          whichever is less), the response will include a continuation token that you can use to list
- *          the additional access points.</p>
- *          <p>Returns only access points attached to S3 buckets by default. To return all access points specify
- *             <code>DataSourceType</code> as <code>ALL</code>.</p>
- *          <p></p>
- *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPoint.html#API_control_GetAccessPoint_Examples">Examples</a> section.</p>
- *          <p>The following actions are related to <code>ListAccessPoints</code>:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessPoint.html">CreateAccessPoint</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPoint.html">DeleteAccessPoint</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPoint.html">GetAccessPoint</a>
- *                </p>
- *             </li>
- *          </ul>
+ * > **Note:** This operation is not supported by directory buckets.
+ *
+ * Returns a list of the access points. You can retrieve up to 1,000 access points per call. If the call returns more than 1,000 access points (or the number specified in `maxResults`, whichever is less), the response will include a continuation token that you can use to list the additional access points.
+ *
+ * Returns only access points attached to S3 buckets by default. To return all access points specify `DataSourceType` as `ALL`.
+ *
+ * All Amazon S3 on Outposts REST API requests for this action require an additional parameter of `x-amz-outpost-id` to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of `s3-control`. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the `x-amz-outpost-id` derived by using the access point ARN, see the [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPoint.html#API_control_GetAccessPoint_Examples) section.
+ *
+ * The following actions are related to `ListAccessPoints`:
+ *
+ * - [CreateAccessPoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessPoint.html)
+ * - [DeleteAccessPoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPoint.html)
+ * - [GetAccessPoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPoint.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -98,8 +83,8 @@ export interface ListAccessPointsCommandOutput extends ListAccessPointsResult, _
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
  * @throws {@link S3ControlServiceException}
- * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * Base exception class for all service exceptions from S3Control service.
  *
  * @public
  */

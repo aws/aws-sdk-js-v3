@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>Recovery readiness</p>
+ * Recovery readiness
  *
  * @packageDocumentation
  */

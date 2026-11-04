@@ -23,33 +23,14 @@ export interface PutResourcePolicyCommandInput extends PutResourcePolicyRequest 
 export interface PutResourcePolicyCommandOutput extends PutResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates or updates a resource policy allowing other Amazon Web Services services to put
- *       log events to this account, such as Amazon Route 53. This API has the following
- *       restrictions:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <b>Supported actions</b> - Policy only supports
- *             <code>logs:PutLogEvents</code> and <code>logs:CreateLogStream </code> actions</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Supported principals</b> - Policy only applies when
- *           operations are invoked by Amazon Web Services service principals (not IAM
- *           users, roles, or cross-account principals)</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Policy limits</b> - An account can have a maximum of 10
- *           policies without resourceARN and one per LogGroup resourceARN</p>
- *             </li>
- *          </ul>
- *          <important>
- *             <p>Resource policies with actions invoked by non-Amazon Web Services service principals
- *         (such as IAM users, roles, or other Amazon Web Services accounts) will not be
- *         enforced. For access control involving these principals, use the IAM
- *         policies.</p>
- *          </important>
+ * Creates or updates a resource policy allowing other Amazon Web Services services to put log events to this account, such as Amazon Route 53. This API has the following restrictions:
+ *
+ * - **Supported actions** - Policy only supports `logs:PutLogEvents` and `logs:CreateLogStream` actions
+ * - **Supported principals** - Policy only applies when operations are invoked by Amazon Web Services service principals (not IAM users, roles, or cross-account principals)
+ * - **Policy limits** - An account can have a maximum of 10 policies without resourceARN and one per LogGroup resourceARN
+ *
+ * > **Important:** Resource policies with actions invoked by non-Amazon Web Services service principals (such as IAM users, roles, or other Amazon Web Services accounts) will not be enforced. For access control involving these principals, use the IAM policies.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,23 +68,28 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is specified incorrectly.</p>
+ *
+ * A parameter is specified incorrectly.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You have reached the maximum number of resources that can be created.</p>
+ *
+ * You have reached the maximum number of resources that can be created.
  *
  * @throws {@link OperationAbortedException} (client fault)
- *  <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+ *
+ * Multiple concurrent requests to update the same resource were in conflict.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service cannot complete the request.</p>
+ *
+ * The service cannot complete the request.
  *
  * @throws {@link CloudWatchLogsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchLogs service.
  *
  * @public
  */

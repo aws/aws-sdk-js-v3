@@ -23,11 +23,10 @@ export interface CreateVpnGatewayCommandInput extends CreateVpnGatewayRequest {}
 export interface CreateVpnGatewayCommandOutput extends CreateVpnGatewayResult, __MetadataBearer {}
 
 /**
- * <p>Creates a virtual private gateway. A virtual private gateway is the endpoint on the
- *             VPC side of your VPN connection. You can create a virtual private gateway before
- *             creating the VPC itself.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
- *                 User Guide</i>.</p>
+ * Creates a virtual private gateway. A virtual private gateway is the endpoint on the VPC side of your VPN connection. You can create a virtual private gateway before creating the VPC itself.
+ *
+ * For more information, see [Amazon Web Services Site-to-Site VPN](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) in the *Amazon Web Services Site-to-Site VPN User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,8 +85,8 @@ export interface CreateVpnGatewayCommandOutput extends CreateVpnGatewayResult, _
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

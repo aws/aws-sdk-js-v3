@@ -23,7 +23,8 @@ export interface CreateConfigurationCommandInput extends CreateConfigurationRequ
 export interface CreateConfigurationCommandOutput extends CreateConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new MSK configuration.</p>
+ * Creates a new MSK configuration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,29 +64,36 @@ export interface CreateConfigurationCommandOutput extends CreateConfigurationRes
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link KafkaServiceException}
- * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ * Base exception class for all service exceptions from Kafka service.
  *
  * @public
  */

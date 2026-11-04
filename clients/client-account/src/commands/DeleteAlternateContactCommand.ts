@@ -23,7 +23,12 @@ export interface DeleteAlternateContactCommandInput extends DeleteAlternateConta
 export interface DeleteAlternateContactCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified alternate contact from an Amazon Web Services account.</p> <p>For complete details about how to use the alternate contact operations, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact-alternate.html">Update the alternate contacts for your Amazon Web Services account</a>.</p> <note> <p>Before you can update the alternate contact information for an Amazon Web Services account that is managed by Organizations, you must first enable integration between Amazon Web Services Account Management and Organizations. For more information, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/using-orgs-trusted-access.html">Enable trusted access for Amazon Web Services Account Management</a>.</p> </note>
+ * Deletes the specified alternate contact from an Amazon Web Services account.
+ *
+ * For complete details about how to use the alternate contact operations, see [Update the alternate contacts for your Amazon Web Services account](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact-alternate.html).
+ *
+ * > **Note:** Before you can update the alternate contact information for an Amazon Web Services account that is managed by Organizations, you must first enable integration between Amazon Web Services Account Management and Organizations. For more information, see [Enable trusted access for Amazon Web Services Account Management](https://docs.aws.amazon.com/accounts/latest/reference/using-orgs-trusted-access.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,23 +54,28 @@ export interface DeleteAlternateContactCommandOutput extends __MetadataBearer {}
  * @see {@link AccountClientResolvedConfig | config} for AccountClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The operation failed because the calling identity doesn't have the minimum required permissions.</p>
+ *
+ * The operation failed because the calling identity doesn't have the minimum required permissions.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The operation failed because of an error internal to Amazon Web Services. Try your operation again later.</p>
+ *
+ * The operation failed because of an error internal to Amazon Web Services. Try your operation again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The operation failed because it specified a resource that can't be found.</p>
+ *
+ * The operation failed because it specified a resource that can't be found.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The operation failed because it was called too frequently and exceeded a throttle limit.</p>
+ *
+ * The operation failed because it was called too frequently and exceeded a throttle limit.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The operation failed because one of the input parameters was invalid.</p>
+ *
+ * The operation failed because one of the input parameters was invalid.
  *
  * @throws {@link AccountServiceException}
- * <p>Base exception class for all service exceptions from Account service.</p>
  *
+ * Base exception class for all service exceptions from Account service.
  *
  * @public
  */

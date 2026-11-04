@@ -4,12 +4,14 @@ import { AutomaticJsonStringConversion as __AutomaticJsonStringConversion } from
 import type { FilterType } from "./enums";
 
 /**
- * <p>The values of a given attribute, such as <code>Throughput Optimized HDD</code> or <code>Provisioned IOPS</code> for the <code>Amazon EC2</code> <code>volumeType</code> attribute.</p>
+ * The values of a given attribute, such as `Throughput Optimized HDD` or `Provisioned IOPS` for the `Amazon EC2` `volumeType` attribute.
+ *
  * @public
  */
 export interface AttributeValue {
   /**
-   * <p>The specific value of an <code>attributeName</code>.</p>
+   * The specific value of an `attributeName`.
+   *
    * @public
    */
   Value?: string | undefined;
@@ -20,43 +22,52 @@ export interface AttributeValue {
  */
 export interface DescribeServicesRequest {
   /**
-   * <p>The code for the service whose information you want to retrieve, such as <code>AmazonEC2</code>. You can use the <code>ServiceCode</code> to filter the results in a <code>GetProducts</code> call. To retrieve a list of all services, leave this blank.</p>
+   * The code for the service whose information you want to retrieve, such as `AmazonEC2`. You can use the `ServiceCode` to filter the results in a `GetProducts` call. To retrieve a list of all services, leave this blank.
+   *
    * @public
    */
   ServiceCode?: string | undefined;
 
   /**
-   * <p>The format version that you want the response to be in.</p> <p>Valid values are: <code>aws_v1</code> </p>
+   * The format version that you want the response to be in.
+   *
+   * Valid values are: `aws_v1`
+   *
    * @public
    */
   FormatVersion?: string | undefined;
 
   /**
-   * <p>The pagination token that indicates the next set of results that you want to retrieve.</p>
+   * The pagination token that indicates the next set of results that you want to retrieve.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results that you want returned in the response.</p>
+   * The maximum number of results that you want returned in the response.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>The metadata for a service, such as the service code and available attribute names.</p>
+ * The metadata for a service, such as the service code and available attribute names.
+ *
  * @public
  */
 export interface Service {
   /**
-   * <p>The code for the Amazon Web Services service.</p>
+   * The code for the Amazon Web Services service.
+   *
    * @public
    */
   ServiceCode: string | undefined;
 
   /**
-   * <p>The attributes that are available for this service.</p>
+   * The attributes that are available for this service.
+   *
    * @public
    */
   AttributeNames?: string[] | undefined;
@@ -67,19 +78,22 @@ export interface Service {
  */
 export interface DescribeServicesResponse {
   /**
-   * <p>The service metadata for the service or services in the response.</p>
+   * The service metadata for the service or services in the response.
+   *
    * @public
    */
   Services?: Service[] | undefined;
 
   /**
-   * <p>The format version of the response. For example, <code>aws_v1</code>.</p>
+   * The format version of the response. For example, `aws_v1`.
+   *
    * @public
    */
   FormatVersion?: string | undefined;
 
   /**
-   * <p>The pagination token for the next set of retrievable results.</p>
+   * The pagination token for the next set of retrievable results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -90,25 +104,29 @@ export interface DescribeServicesResponse {
  */
 export interface GetAttributeValuesRequest {
   /**
-   * <p>The service code for the service whose attributes you want to retrieve. For example, if you want the retrieve an EC2 attribute, use <code>AmazonEC2</code>.</p>
+   * The service code for the service whose attributes you want to retrieve. For example, if you want the retrieve an EC2 attribute, use `AmazonEC2`.
+   *
    * @public
    */
   ServiceCode: string | undefined;
 
   /**
-   * <p>The name of the attribute that you want to retrieve the values for, such as <code>volumeType</code>.</p>
+   * The name of the attribute that you want to retrieve the values for, such as `volumeType`.
+   *
    * @public
    */
   AttributeName: string | undefined;
 
   /**
-   * <p>The pagination token that indicates the next set of results that you want to retrieve.</p>
+   * The pagination token that indicates the next set of results that you want to retrieve.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in response.</p>
+   * The maximum number of results to return in response.
+   *
    * @public
    */
   MaxResults?: number | undefined;
@@ -119,13 +137,15 @@ export interface GetAttributeValuesRequest {
  */
 export interface GetAttributeValuesResponse {
   /**
-   * <p>The list of values for an attribute. For example, <code>Throughput Optimized HDD</code> and <code>Provisioned IOPS</code> are two available values for the <code>AmazonEC2</code> <code>volumeType</code>.</p>
+   * The list of values for an attribute. For example, `Throughput Optimized HDD` and `Provisioned IOPS` are two available values for the `AmazonEC2` `volumeType`.
+   *
    * @public
    */
   AttributeValues?: AttributeValue[] | undefined;
 
   /**
-   * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   * The pagination token that indicates the next set of results to retrieve.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -136,13 +156,15 @@ export interface GetAttributeValuesResponse {
  */
 export interface GetPriceListFileUrlRequest {
   /**
-   * <p>The unique identifier that maps to where your Price List files are located. <code>PriceListArn</code> can be obtained from the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_ListPriceLists.html">ListPriceLists</a> response. </p>
+   * The unique identifier that maps to where your Price List files are located. `PriceListArn` can be obtained from the [ListPriceLists](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_ListPriceLists.html) response.
+   *
    * @public
    */
   PriceListArn: string | undefined;
 
   /**
-   * <p>The format that you want to retrieve your Price List files in. The <code>FileFormat</code> can be obtained from the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_ListPriceLists.html">ListPriceLists</a> response. </p>
+   * The format that you want to retrieve your Price List files in. The `FileFormat` can be obtained from the [ListPriceLists](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_ListPriceLists.html) response.
+   *
    * @public
    */
   FileFormat: string | undefined;
@@ -153,31 +175,48 @@ export interface GetPriceListFileUrlRequest {
  */
 export interface GetPriceListFileUrlResponse {
   /**
-   * <p>The URL to download your Price List file from. </p>
+   * The URL to download your Price List file from.
+   *
    * @public
    */
   Url?: string | undefined;
 }
 
 /**
- * <p>The constraints that you want all returned products to match.</p>
+ * The constraints that you want all returned products to match.
+ *
  * @public
  */
 export interface Filter {
   /**
-   * <p>The type of filter that you want to use.</p> <p>Valid values are:</p> <ul> <li> <p> <code>TERM_MATCH</code>: Returns only products that match both the given filter field and the given value.</p> </li> <li> <p> <code>EQUALS</code>: Returns products that have a field value exactly matching the provided value.</p> </li> <li> <p> <code>CONTAINS</code>: Returns products where the field value contains the provided value as a substring.</p> </li> <li> <p> <code>ANY_OF</code>: Returns products where the field value is any of the provided values.</p> </li> <li> <p> <code>NONE_OF</code>: Returns products where the field value is not any of the provided values.</p> </li> </ul>
+   * The type of filter that you want to use.
+   *
+   * Valid values are:
+   *
+   * - `TERM_MATCH`: Returns only products that match both the given filter field and the given value.
+   * - `EQUALS`: Returns products that have a field value exactly matching the provided value.
+   * - `CONTAINS`: Returns products where the field value contains the provided value as a substring.
+   * - `ANY_OF`: Returns products where the field value is any of the provided values.
+   * - `NONE_OF`: Returns products where the field value is not any of the provided values.
+   *
    * @public
    */
   Type: FilterType | undefined;
 
   /**
-   * <p>The product metadata field that you want to filter on. You can filter by just the service code to see all products for a specific service, filter by just the attribute name to see a specific attribute for multiple services, or use both a service code and an attribute name to retrieve only products that match both fields.</p> <p>Valid values include: <code>ServiceCode</code>, and all attribute names</p> <p>For example, you can filter by the <code>AmazonEC2</code> service code and the <code>volumeType</code> attribute name to get the prices for only Amazon EC2 volumes.</p>
+   * The product metadata field that you want to filter on. You can filter by just the service code to see all products for a specific service, filter by just the attribute name to see a specific attribute for multiple services, or use both a service code and an attribute name to retrieve only products that match both fields.
+   *
+   * Valid values include: `ServiceCode`, and all attribute names
+   *
+   * For example, you can filter by the `AmazonEC2` service code and the `volumeType` attribute name to get the prices for only Amazon EC2 volumes.
+   *
    * @public
    */
   Field: string | undefined;
 
   /**
-   * <p>The service code or attribute value that you want to filter by. If you're filtering by service code this is the actual service code, such as <code>AmazonEC2</code>. If you're filtering by attribute name, this is the attribute value that you want the returned products to match, such as a <code>Provisioned IOPS</code> volume.</p>
+   * The service code or attribute value that you want to filter by. If you're filtering by service code this is the actual service code, such as `AmazonEC2`. If you're filtering by attribute name, this is the attribute value that you want the returned products to match, such as a `Provisioned IOPS` volume.
+   *
    * @public
    */
   Value: string | undefined;
@@ -188,31 +227,38 @@ export interface Filter {
  */
 export interface GetProductsRequest {
   /**
-   * <p>The code for the service whose products you want to retrieve. </p>
+   * The code for the service whose products you want to retrieve.
+   *
    * @public
    */
   ServiceCode: string | undefined;
 
   /**
-   * <p>The list of filters that limit the returned products. only products that match all filters are returned.</p>
+   * The list of filters that limit the returned products. only products that match all filters are returned.
+   *
    * @public
    */
   Filters?: Filter[] | undefined;
 
   /**
-   * <p>The format version that you want the response to be in.</p> <p>Valid values are: <code>aws_v1</code> </p>
+   * The format version that you want the response to be in.
+   *
+   * Valid values are: `aws_v1`
+   *
    * @public
    */
   FormatVersion?: string | undefined;
 
   /**
-   * <p>The pagination token that indicates the next set of results that you want to retrieve.</p>
+   * The pagination token that indicates the next set of results that you want to retrieve.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in the response.</p>
+   * The maximum number of results to return in the response.
+   *
    * @public
    */
   MaxResults?: number | undefined;
@@ -223,19 +269,22 @@ export interface GetProductsRequest {
  */
 export interface GetProductsResponse {
   /**
-   * <p>The format version of the response. For example, aws_v1.</p>
+   * The format version of the response. For example, aws_v1.
+   *
    * @public
    */
   FormatVersion?: string | undefined;
 
   /**
-   * <p>The list of products that match your filters. The list contains both the product metadata and the price information.</p>
+   * The list of products that match your filters. The list contains both the product metadata and the price information.
+   *
    * @public
    */
   PriceList?: __AutomaticJsonStringConversion | string[] | undefined;
 
   /**
-   * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   * The pagination token that indicates the next set of results to retrieve.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -246,67 +295,84 @@ export interface GetProductsResponse {
  */
 export interface ListPriceListsRequest {
   /**
-   * <p>The service code or the Savings Plans service code for the attributes that you want to retrieve. For example, to get the list of applicable Amazon EC2 price lists, use <code>AmazonEC2</code>. For a full list of service codes containing On-Demand and Reserved Instance (RI) pricing, use the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_DescribeServices.html#awscostmanagement-pricing_DescribeServices-request-FormatVersion">DescribeServices</a> API.</p> <p>To retrieve the Reserved Instance and Compute Savings Plans price lists, use <code>ComputeSavingsPlans</code>. </p> <p>To retrieve Machine Learning Savings Plans price lists, use <code>MachineLearningSavingsPlans</code>. </p>
+   * The service code or the Savings Plans service code for the attributes that you want to retrieve. For example, to get the list of applicable Amazon EC2 price lists, use `AmazonEC2`. For a full list of service codes containing On-Demand and Reserved Instance (RI) pricing, use the [DescribeServices](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_DescribeServices.html#awscostmanagement-pricing_DescribeServices-request-FormatVersion) API.
+   *
+   * To retrieve the Reserved Instance and Compute Savings Plans price lists, use `ComputeSavingsPlans`.
+   *
+   * To retrieve Machine Learning Savings Plans price lists, use `MachineLearningSavingsPlans`.
+   *
    * @public
    */
   ServiceCode: string | undefined;
 
   /**
-   * <p>The date that the Price List file prices are effective from. </p>
+   * The date that the Price List file prices are effective from.
+   *
    * @public
    */
   EffectiveDate: Date | undefined;
 
   /**
-   * <p>This is used to filter the Price List by Amazon Web Services Region. For example, to get the price list only for the <code>US East (N. Virginia)</code> Region, use <code>us-east-1</code>. If nothing is specified, you retrieve price lists for all applicable Regions. The available <code>RegionCode</code> list can be retrieved from <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_GetAttributeValues.html">GetAttributeValues</a> API.</p>
+   * This is used to filter the Price List by Amazon Web Services Region. For example, to get the price list only for the `US East (N. Virginia)` Region, use `us-east-1`. If nothing is specified, you retrieve price lists for all applicable Regions. The available `RegionCode` list can be retrieved from [GetAttributeValues](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_GetAttributeValues.html) API.
+   *
    * @public
    */
   RegionCode?: string | undefined;
 
   /**
-   * <p>The three alphabetical character ISO-4217 currency code that the Price List files are denominated in. </p>
+   * The three alphabetical character ISO-4217 currency code that the Price List files are denominated in.
+   *
    * @public
    */
   CurrencyCode: string | undefined;
 
   /**
-   * <p>The pagination token that indicates the next set of results that you want to retrieve. </p>
+   * The pagination token that indicates the next set of results that you want to retrieve.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in the response. </p>
+   * The maximum number of results to return in the response.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p> <i> <b>This feature is in preview release and is subject to change. Your use of Amazon Web Services Price List API is subject to the Beta Service Participation terms of the <a href="https://aws.amazon.com/service-terms/">Amazon Web Services Service Terms</a> (Section 1.10).</b> </i> </p> <p>This is the type of price list references that match your request. </p>
+ * ***This feature is in preview release and is subject to change. Your use of Amazon Web Services Price List API is subject to the Beta Service Participation terms of the [Amazon Web Services Service Terms](https://aws.amazon.com/service-terms/) (Section 1.10).***
+ *
+ * This is the type of price list references that match your request.
+ *
  * @public
  */
 export interface PriceList {
   /**
-   * <p>The unique identifier that maps to where your Price List files are located. <code>PriceListArn</code> can be obtained from the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_ListPriceLists.html"> <code>ListPriceList</code> </a> response. </p>
+   * The unique identifier that maps to where your Price List files are located. `PriceListArn` can be obtained from the [`ListPriceList`](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_ListPriceLists.html) response.
+   *
    * @public
    */
   PriceListArn?: string | undefined;
 
   /**
-   * <p>This is used to filter the Price List by Amazon Web Services Region. For example, to get the price list only for the <code>US East (N. Virginia)</code> Region, use <code>us-east-1</code>. If nothing is specified, you retrieve price lists for all applicable Regions. The available <code>RegionCode</code> list can be retrieved from <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_GetAttributeValues.html"> <code>GetAttributeValues</code> </a> API. </p>
+   * This is used to filter the Price List by Amazon Web Services Region. For example, to get the price list only for the `US East (N. Virginia)` Region, use `us-east-1`. If nothing is specified, you retrieve price lists for all applicable Regions. The available `RegionCode` list can be retrieved from [`GetAttributeValues`](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_GetAttributeValues.html) API.
+   *
    * @public
    */
   RegionCode?: string | undefined;
 
   /**
-   * <p>The three alphabetical character ISO-4217 currency code the Price List files are denominated in. </p>
+   * The three alphabetical character ISO-4217 currency code the Price List files are denominated in.
+   *
    * @public
    */
   CurrencyCode?: string | undefined;
 
   /**
-   * <p>The format you want to retrieve your Price List files. The <code>FileFormat</code> can be obtained from the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_ListPriceLists.html"> <code>ListPriceList</code> </a> response. </p>
+   * The format you want to retrieve your Price List files. The `FileFormat` can be obtained from the [`ListPriceList`](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_ListPriceLists.html) response.
+   *
    * @public
    */
   FileFormats?: string[] | undefined;
@@ -317,13 +383,15 @@ export interface PriceList {
  */
 export interface ListPriceListsResponse {
   /**
-   * <p>The type of price list references that match your request. </p>
+   * The type of price list references that match your request.
+   *
    * @public
    */
   PriceLists?: PriceList[] | undefined;
 
   /**
-   * <p>The pagination token that indicates the next set of results to retrieve. </p>
+   * The pagination token that indicates the next set of results to retrieve.
+   *
    * @public
    */
   NextToken?: string | undefined;

@@ -23,7 +23,13 @@ export interface ListJobSchemaVersionsCommandInput extends ListJobSchemaVersions
 export interface ListJobSchemaVersionsCommandOutput extends ListJobSchemaVersionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists available configuration schema versions for a specified job category. Use the schema versions with <code>DescribeJobSchemaVersion</code> to retrieve the full schema document.</p> <p>The following operations are related to <code>ListJobSchemaVersions</code>:</p> <ul> <li> <p> <code>DescribeJobSchemaVersion</code> </p> </li> <li> <p> <code>CreateJob</code> </p> </li> </ul>
+ * Lists available configuration schema versions for a specified job category. Use the schema versions with `DescribeJobSchemaVersion` to retrieve the full schema document.
+ *
+ * The following operations are related to `ListJobSchemaVersions`:
+ *
+ * - `DescribeJobSchemaVersion`
+ * - `CreateJob`
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,11 +63,12 @@ export interface ListJobSchemaVersionsCommandOutput extends ListJobSchemaVersion
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Resource being access is not found.</p>
+ *
+ * Resource being access is not found.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

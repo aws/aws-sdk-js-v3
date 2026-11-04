@@ -26,30 +26,15 @@ export interface MoveCapacityReservationInstancesCommandInput extends MoveCapaci
 export interface MoveCapacityReservationInstancesCommandOutput extends MoveCapacityReservationInstancesResult, __MetadataBearer {}
 
 /**
- * <p>Move available capacity from a source Capacity Reservation to a destination Capacity
- * 			Reservation. The source Capacity Reservation and the destination Capacity Reservation
- * 			must be <code>active</code>, owned by your Amazon Web Services account, and share the following: </p>
- *          <ul>
- *             <li>
- *                <p>Instance type</p>
- *             </li>
- *             <li>
- *                <p>Platform</p>
- *             </li>
- *             <li>
- *                <p>Availability Zone</p>
- *             </li>
- *             <li>
- *                <p>Tenancy</p>
- *             </li>
- *             <li>
- *                <p>Placement group</p>
- *             </li>
- *             <li>
- *                <p>Capacity Reservation end time - <code>At specific time</code> or
- * 						<code>Manually</code>.</p>
- *             </li>
- *          </ul>
+ * Move available capacity from a source Capacity Reservation to a destination Capacity Reservation. The source Capacity Reservation and the destination Capacity Reservation must be `active`, owned by your Amazon Web Services account, and share the following:
+ *
+ * - Instance type
+ * - Platform
+ * - Availability Zone
+ * - Tenancy
+ * - Placement group
+ * - Capacity Reservation end time - `At specific time` or `Manually`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -228,8 +213,8 @@ export interface MoveCapacityReservationInstancesCommandOutput extends MoveCapac
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

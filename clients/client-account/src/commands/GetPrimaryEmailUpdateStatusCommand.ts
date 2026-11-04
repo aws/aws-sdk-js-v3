@@ -23,7 +23,8 @@ export interface GetPrimaryEmailUpdateStatusCommandInput extends GetPrimaryEmail
 export interface GetPrimaryEmailUpdateStatusCommandOutput extends GetPrimaryEmailUpdateStatusResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the status of the most recent primary email update for the specified account. For complete details about how to update the primary email address, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-root-user-email.html">Update the primary email address for your AWS account</a>.</p>
+ * Retrieves the status of the most recent primary email update for the specified account. For complete details about how to update the primary email address, see [Update the primary email address for your AWS account](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-root-user-email.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,23 +52,28 @@ export interface GetPrimaryEmailUpdateStatusCommandOutput extends GetPrimaryEmai
  * @see {@link AccountClientResolvedConfig | config} for AccountClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The operation failed because the calling identity doesn't have the minimum required permissions.</p>
+ *
+ * The operation failed because the calling identity doesn't have the minimum required permissions.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The operation failed because of an error internal to Amazon Web Services. Try your operation again later.</p>
+ *
+ * The operation failed because of an error internal to Amazon Web Services. Try your operation again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The operation failed because it specified a resource that can't be found.</p>
+ *
+ * The operation failed because it specified a resource that can't be found.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The operation failed because it was called too frequently and exceeded a throttle limit.</p>
+ *
+ * The operation failed because it was called too frequently and exceeded a throttle limit.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The operation failed because one of the input parameters was invalid.</p>
+ *
+ * The operation failed because one of the input parameters was invalid.
  *
  * @throws {@link AccountServiceException}
- * <p>Base exception class for all service exceptions from Account service.</p>
  *
+ * Base exception class for all service exceptions from Account service.
  *
  * @public
  */

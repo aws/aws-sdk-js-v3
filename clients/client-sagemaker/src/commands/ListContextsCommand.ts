@@ -23,7 +23,8 @@ export interface ListContextsCommandInput extends ListContextsRequest {}
 export interface ListContextsCommandOutput extends ListContextsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the contexts in your account and their properties.</p>
+ * Lists the contexts in your account and their properties.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,11 +72,12 @@ export interface ListContextsCommandOutput extends ListContextsResponse, __Metad
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Resource being access is not found.</p>
+ *
+ * Resource being access is not found.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

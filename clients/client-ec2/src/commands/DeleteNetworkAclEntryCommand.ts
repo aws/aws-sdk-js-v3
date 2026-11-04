@@ -23,7 +23,8 @@ export interface DeleteNetworkAclEntryCommandInput extends DeleteNetworkAclEntry
 export interface DeleteNetworkAclEntryCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified ingress or egress entry (rule) from the specified network ACL.</p>
+ * Deletes the specified ingress or egress entry (rule) from the specified network ACL.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,8 +52,8 @@ export interface DeleteNetworkAclEntryCommandOutput extends __MetadataBearer {}
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To delete a network ACL entry
  * ```javascript

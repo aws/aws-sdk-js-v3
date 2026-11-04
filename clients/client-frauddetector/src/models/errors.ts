@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { FraudDetectorServiceException as __BaseException } from "./FraudDetectorServiceException";
 
 /**
- * <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+ * An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as `PutExternalModel`, that specifies a role that is not in your account.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>An exception indicating an internal server error.</p>
+ * An exception indicating an internal server error.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -46,7 +48,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>An exception indicating a throttling error.</p>
+ * An exception indicating a throttling error.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -67,7 +70,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>An exception indicating a specified value is not allowed.</p>
+ * An exception indicating a specified value is not allowed.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -88,7 +92,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>An exception indicating the specified resource was not found.</p>
+ * An exception indicating the specified resource was not found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -109,7 +114,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>An exception indicating there was a conflict during a delete operation.</p>
+ * An exception indicating there was a conflict during a delete operation.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -130,7 +136,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>An exception indicating that the attached customer-owned (external) model threw an exception when Amazon Fraud Detector invoked the model.</p>
+ * An exception indicating that the attached customer-owned (external) model threw an exception when Amazon Fraud Detector invoked the model.
+ *
  * @public
  */
 export class ResourceUnavailableException extends __BaseException {

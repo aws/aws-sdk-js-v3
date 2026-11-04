@@ -23,44 +23,28 @@ export interface GetBucketOwnershipControlsCommandInput extends GetBucketOwnersh
 export interface GetBucketOwnershipControlsCommandOutput extends GetBucketOwnershipControlsOutput, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This operation is not supported for directory buckets.</p>
- *          </note>
- *          <p>Retrieves <code>OwnershipControls</code> for an Amazon S3 bucket. To use this operation, you must have
- *       the <code>s3:GetBucketOwnershipControls</code> permission. For more information about Amazon S3 permissions,
- *       see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html">Specifying
- *         permissions in a policy</a>. </p>
- *          <note>
- *             <p>A bucket doesn't have <code>OwnershipControls</code> settings in the following cases:</p>
- *             <ul>
- *                <li>
- *                   <p>The bucket was created before the <code>BucketOwnerEnforced</code> ownership setting was
- *             introduced and you've never explicitly applied this value</p>
- *                </li>
- *                <li>
- *                   <p>You've manually deleted the bucket ownership control value using the
- *               <code>DeleteBucketOwnershipControls</code> API operation.</p>
- *                </li>
- *             </ul>
- *             <p>By default, Amazon S3 sets <code>OwnershipControls</code> for all newly created buckets.</p>
- *          </note>
- *          <p>For information about Amazon S3 Object Ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Using Object Ownership</a>. </p>
- *          <p>The following operations are related to <code>GetBucketOwnershipControls</code>:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>PutBucketOwnershipControls</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteBucketOwnershipControls</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
+ * > **Note:** This operation is not supported for directory buckets.
+ *
+ * Retrieves `OwnershipControls` for an Amazon S3 bucket. To use this operation, you must have the `s3:GetBucketOwnershipControls` permission. For more information about Amazon S3 permissions, see [Specifying permissions in a policy](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html).
+ *
+ * > **Note:**
+ * >
+ * > A bucket doesn't have `OwnershipControls` settings in the following cases:
+ * >
+ * > - The bucket was created before the `BucketOwnerEnforced` ownership setting was introduced and you've never explicitly applied this value
+ * > - You've manually deleted the bucket ownership control value using the `DeleteBucketOwnershipControls` API operation.
+ * >
+ * > By default, Amazon S3 sets `OwnershipControls` for all newly created buckets.
+ *
+ * For information about Amazon S3 Object Ownership, see [Using Object Ownership](https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html).
+ *
+ * The following operations are related to `GetBucketOwnershipControls`:
+ *
+ * - PutBucketOwnershipControls
+ * - DeleteBucketOwnershipControls
+ *
+ * > **Important:** You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,8 +78,8 @@ export interface GetBucketOwnershipControlsCommandOutput extends GetBucketOwners
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  * @throws {@link S3ServiceException}
- * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * Base exception class for all service exceptions from S3 service.
  *
  * @public
  */

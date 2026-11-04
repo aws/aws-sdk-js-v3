@@ -5,7 +5,8 @@ import type { ValidationExceptionField } from "./models_0";
 import { SecurityAgentServiceException as __BaseException } from "./SecurityAgentServiceException";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -26,7 +27,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>An unexpected error occurred during the processing of your request.</p>
+ * An unexpected error occurred during the processing of your request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -47,7 +49,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The specified resource was not found. Verify that the resource identifier is correct and that the resource exists in the specified agent space or account.</p>
+ * The specified resource was not found. Verify that the resource identifier is correct and that the resource exists in the specified agent space or account.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -68,7 +71,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -76,13 +80,15 @@ export class ThrottlingException extends __BaseException {
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Service code for throttling limit.</p>
+   * Service code for throttling limit.
+   *
    * @public
    */
   serviceCode?: string | undefined;
 
   /**
-   * <p>Quota code for throttling limit.</p>
+   * Quota code for throttling limit.
+   *
    * @public
    */
   quotaCode?: string | undefined;
@@ -103,7 +109,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by the service.</p>
+ * The input fails to satisfy the constraints specified by the service.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -111,7 +118,8 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A list of specific failures encountered during validation.</p>
+   * A list of specific failures encountered during validation.
+   *
    * @public
    */
   fieldList?: ValidationExceptionField[] | undefined;
@@ -131,7 +139,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The request could not be completed due to a conflict with the current state of the resource.</p>
+ * The request could not be completed due to a conflict with the current state of the resource.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -152,7 +161,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The request exceeds a service quota. Review your current usage and request a quota increase if needed.</p>
+ * The request exceeds a service quota. Review your current usage and request a quota increase if needed.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {

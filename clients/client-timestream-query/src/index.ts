@@ -1,9 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <fullname>Amazon Timestream Query
- *         </fullname>
- *          <p></p>
+ * Amazon Timestream Query
  *
  * @packageDocumentation
  */

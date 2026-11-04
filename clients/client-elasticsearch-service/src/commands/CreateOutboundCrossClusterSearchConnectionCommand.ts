@@ -26,7 +26,8 @@ export interface CreateOutboundCrossClusterSearchConnectionCommandInput extends 
 export interface CreateOutboundCrossClusterSearchConnectionCommandOutput extends CreateOutboundCrossClusterSearchConnectionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new cross-cluster search connection from a source domain to a destination domain.</p>
+ * Creates a new cross-cluster search connection from a source domain to a destination domain.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,20 +79,24 @@ export interface CreateOutboundCrossClusterSearchConnectionCommandOutput extends
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
  *
  * @throws {@link DisabledOperationException} (client fault)
- *  <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+ *
+ * An error occured because the client wanted to access a not supported operation. Gives http status code of 409.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>An exception for trying to create more than allowed resources or sub-resources. Gives http status code of 409.</p>
+ *
+ * An exception for trying to create more than allowed resources or sub-resources. Gives http status code of 409.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>An exception for creating a resource that already exists. Gives http status code of 400.</p>
+ *
+ * An exception for creating a resource that already exists. Gives http status code of 400.
  *
  * @throws {@link ElasticsearchServiceServiceException}
- * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ * Base exception class for all service exceptions from ElasticsearchService service.
  *
  * @public
  */

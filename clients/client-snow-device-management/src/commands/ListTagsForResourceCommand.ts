@@ -23,7 +23,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceInpu
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of tags for a managed device or task.</p>
+ * Returns a list of tags for a managed device or task.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,17 +53,20 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @see {@link SnowDeviceManagementClientResolvedConfig | config} for SnowDeviceManagementClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred while processing the request.</p>
+ *
+ * An unexpected error occurred while processing the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request references a resource that doesn't exist.</p>
+ *
+ * The request references a resource that doesn't exist.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link SnowDeviceManagementServiceException}
- * <p>Base exception class for all service exceptions from SnowDeviceManagement service.</p>
  *
+ * Base exception class for all service exceptions from SnowDeviceManagement service.
  *
  * @public
  */

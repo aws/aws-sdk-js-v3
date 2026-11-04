@@ -23,27 +23,12 @@ export interface CreateSchemaCommandInput extends CreateSchemaRequest {}
 export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new schema in a development state. A schema can exist in three
- *       phases:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <i>Development:</i> This is a mutable phase of the schema. All new
- *           schemas are in the development phase. Once the schema is finalized, it can be
- *           published.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <i>Published:</i> Published schemas are immutable and have a version
- *           associated with them.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <i>Applied:</i> Applied schemas are mutable in a way that allows you
- *           to add new schema facets. You can also add new, nonrequired attributes to existing schema
- *           facets. You can apply only published schemas to directories. </p>
- *             </li>
- *          </ul>
+ * Creates a new schema in a development state. A schema can exist in three phases:
+ *
+ * - *Development:* This is a mutable phase of the schema. All new schemas are in the development phase. Once the schema is finalized, it can be published.
+ * - *Published:* Published schemas are immutable and have a version associated with them.
+ * - *Applied:* Applied schemas are mutable in a way that allows you to add new schema facets. You can also add new, nonrequired attributes to existing schema facets. You can apply only published schemas to directories.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,31 +55,36 @@ export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __Metad
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+ *
+ * Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling ListDirectories and check your permissions.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href="http://status.aws.amazon.com/">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+ *
+ * Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the [AWS Service Health Dashboard](http://status.aws.amazon.com/) site to see if there are any operational issues with the service.
  *
  * @throws {@link InvalidArnException} (client fault)
- *  <p>Indicates that the provided ARN value is not valid.</p>
+ *
+ * Indicates that the provided ARN value is not valid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>Indicates that limits are exceeded. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html">Limits</a> for more information.</p>
+ *
+ * Indicates that limits are exceeded. See [Limits](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html) for more information.
  *
  * @throws {@link RetryableConflictException} (client fault)
- *  <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+ *
+ * Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.
  *
  * @throws {@link SchemaAlreadyExistsException} (client fault)
- *  <p>Indicates that a schema could not be created due to a naming conflict. Please select a
- *       different name and then try again.</p>
+ *
+ * Indicates that a schema could not be created due to a naming conflict. Please select a different name and then try again.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Indicates that your request is malformed in some manner. See the exception
- *       message.</p>
+ *
+ * Indicates that your request is malformed in some manner. See the exception message.
  *
  * @throws {@link CloudDirectoryServiceException}
- * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * Base exception class for all service exceptions from CloudDirectory service.
  *
  * @example To create a schema
  * ```javascript

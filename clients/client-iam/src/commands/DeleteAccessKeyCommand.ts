@@ -23,11 +23,10 @@ export interface DeleteAccessKeyCommandInput extends DeleteAccessKeyRequest {}
 export interface DeleteAccessKeyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the access key pair associated with the specified IAM user.</p>
- *          <p>If you do not specify a user name, IAM determines the user name implicitly based on
- *             the Amazon Web Services access key ID signing the request. This operation works for access keys under
- *             the Amazon Web Services account. Consequently, you can use this operation to manage Amazon Web Services account root
- *             user credentials even if the Amazon Web Services account has no associated users.</p>
+ * Deletes the access key pair associated with the specified IAM user.
+ *
+ * If you do not specify a user name, IAM determines the user name implicitly based on the Amazon Web Services access key ID signing the request. This operation works for access keys under the Amazon Web Services account. Consequently, you can use this operation to manage Amazon Web Services account root user credentials even if the Amazon Web Services account has no associated users.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,20 +52,20 @@ export interface DeleteAccessKeyCommandOutput extends __MetadataBearer {}
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current
- *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+ *
+ * The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @example To delete an access key for an IAM user
  * ```javascript

@@ -23,13 +23,12 @@ export interface WithdrawByoipCidrCommandInput extends WithdrawByoipCidrRequest 
 export interface WithdrawByoipCidrCommandOutput extends WithdrawByoipCidrResponse, __MetadataBearer {}
 
 /**
- * <p>Stops advertising an address range that is provisioned as an address pool.
- * 			You can perform this operation at most once every 10 seconds, even if you specify different address
- * 			ranges each time.</p>
- *          <p>It can take a few minutes before traffic to the specified addresses stops routing to Amazon Web Services because of
- * 			propagation delays.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring your own
- * 			IP addresses (BYOIP)</a> in the <i>Global Accelerator Developer Guide</i>.</p>
+ * Stops advertising an address range that is provisioned as an address pool. You can perform this operation at most once every 10 seconds, even if you specify different address ranges each time.
+ *
+ * It can take a few minutes before traffic to the specified addresses stops routing to Amazon Web Services because of propagation delays.
+ *
+ * For more information, see [Bring your own IP addresses (BYOIP)](https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html) in the *Global Accelerator Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,24 +64,28 @@ export interface WithdrawByoipCidrCommandOutput extends WithdrawByoipCidrRespons
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have access permission.</p>
+ *
+ * You don't have access permission.
  *
  * @throws {@link ByoipCidrNotFoundException} (client fault)
- *  <p>The CIDR that you specified was not found or is incorrect.</p>
+ *
+ * The CIDR that you specified was not found or is incorrect.
  *
  * @throws {@link IncorrectCidrStateException} (client fault)
- *  <p>The CIDR that you specified is not valid for this action. For example, the state of the CIDR might be
- * 		incorrect for this action.</p>
+ *
+ * The CIDR that you specified is not valid for this action. For example, the state of the CIDR might be incorrect for this action.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * There was an internal error for Global Accelerator.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>An argument that you specified is invalid.</p>
+ *
+ * An argument that you specified is invalid.
  *
  * @throws {@link GlobalAcceleratorServiceException}
- * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * Base exception class for all service exceptions from GlobalAccelerator service.
  *
  * @public
  */

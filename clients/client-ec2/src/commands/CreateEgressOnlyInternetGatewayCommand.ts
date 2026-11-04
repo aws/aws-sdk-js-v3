@@ -23,10 +23,8 @@ export interface CreateEgressOnlyInternetGatewayCommandInput extends CreateEgres
 export interface CreateEgressOnlyInternetGatewayCommandOutput extends CreateEgressOnlyInternetGatewayResult, __MetadataBearer {}
 
 /**
- * <p>[IPv6 only] Creates an egress-only internet gateway for your VPC. An egress-only
- * 			internet gateway is used to enable outbound communication over IPv6 from instances in
- * 			your VPC to the internet, and prevents hosts outside of your VPC from initiating an IPv6
- * 			connection with your instance.</p>
+ * [IPv6 only] Creates an egress-only internet gateway for your VPC. An egress-only internet gateway is used to enable outbound communication over IPv6 from instances in your VPC to the internet, and prevents hosts outside of your VPC from initiating an IPv6 connection with your instance.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,8 +79,8 @@ export interface CreateEgressOnlyInternetGatewayCommandOutput extends CreateEgre
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

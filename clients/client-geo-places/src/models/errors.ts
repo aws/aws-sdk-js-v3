@@ -6,7 +6,8 @@ import { GeoPlacesServiceException as __BaseException } from "./GeoPlacesService
 import type { ValidationExceptionField } from "./models_0";
 
 /**
- * <p>You don't have sufficient access to perform this action.</p>
+ * You don't have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -29,7 +30,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ * The request processing has failed because of an unknown error, exception or failure.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -53,7 +55,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -77,7 +80,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ * The input fails to satisfy the constraints specified by an AWS service.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -86,13 +90,15 @@ export class ValidationException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p>Test stub for reason</p>
+   * Test stub for reason
+   *
    * @public
    */
   Reason: ValidationExceptionReason | undefined;
 
   /**
-   * <p>Test stub for FieldList.</p>
+   * Test stub for FieldList.
+   *
    * @public
    */
   FieldList: ValidationExceptionField[] | undefined;

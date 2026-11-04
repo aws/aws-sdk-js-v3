@@ -23,8 +23,8 @@ export interface ListReplaysCommandInput extends ListReplaysRequest {}
 export interface ListReplaysCommandOutput extends ListReplaysResponse, __MetadataBearer {}
 
 /**
- * <p>Lists your replays. You can either list all the replays or you can provide a prefix to
- *       match to the replay names. Filter parameters are exclusive.</p>
+ * Lists your replays. You can either list all the replays or you can provide a prefix to match to the replay names. Filter parameters are exclusive.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,11 +68,12 @@ export interface ListReplaysCommandOutput extends ListReplaysResponse, __Metadat
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * This exception occurs due to unexpected causes.
  *
  * @throws {@link EventBridgeServiceException}
- * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ * Base exception class for all service exceptions from EventBridge service.
  *
  * @public
  */

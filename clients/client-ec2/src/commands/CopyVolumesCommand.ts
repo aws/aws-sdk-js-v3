@@ -23,9 +23,8 @@ export interface CopyVolumesCommandInput extends CopyVolumesRequest {}
 export interface CopyVolumesCommandOutput extends CopyVolumesResult, __MetadataBearer {}
 
 /**
- * <p>Creates a crash-consistent, point-in-time copy of an existing Amazon EBS volume within the same
- *       Availability Zone. The volume copy can be attached to an Amazon EC2 instance once it reaches the
- *       <code>available</code> state. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-copying-volume.html">Copy an Amazon EBS volume</a>.</p>
+ * Creates a crash-consistent, point-in-time copy of an existing Amazon EBS volume within the same Availability Zone. The volume copy can be attached to an Amazon EC2 instance once it reaches the `available` state. For more information, see [Copy an Amazon EBS volume](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-copying-volume.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -119,8 +118,8 @@ export interface CopyVolumesCommandOutput extends CopyVolumesResult, __MetadataB
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

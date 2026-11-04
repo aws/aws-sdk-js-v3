@@ -23,7 +23,8 @@ export interface StopFleetCommandInput extends StopFleetRequest {}
 export interface StopFleetCommandOutput extends StopFleetResult, __MetadataBearer {}
 
 /**
- * <p>Stops the specified fleet.</p>
+ * Stops the specified fleet.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,14 +49,16 @@ export interface StopFleetCommandOutput extends StopFleetResult, __MetadataBeare
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>An API error occurred. Wait a few minutes and try again.</p>
+ *
+ * An API error occurred. Wait a few minutes and try again.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link AppStreamServiceException}
- * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * Base exception class for all service exceptions from AppStream service.
  *
  * @public
  */

@@ -23,13 +23,10 @@ export interface DeleteMessageBatchCommandInput extends DeleteMessageBatchReques
 export interface DeleteMessageBatchCommandOutput extends DeleteMessageBatchResult, __MetadataBearer {}
 
 /**
- * <p>Deletes up to ten messages from the specified queue. This is a batch version of
- *                     <code>
- *                <a>DeleteMessage</a>.</code> The result of the action on each
- *             message is reported individually in the response.</p>
- *          <important>
- *             <p>Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of <code>200</code>.</p>
- *          </important>
+ * Deletes up to ten messages from the specified queue. This is a batch version of `DeleteMessage.` The result of the action on each message is reported individually in the response.
+ *
+ * > **Important:** Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of `200`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,49 +71,47 @@ export interface DeleteMessageBatchCommandOutput extends DeleteMessageBatchResul
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
  * @throws {@link BatchEntryIdsNotDistinct} (client fault)
- *  <p>Two or more batch entries in the request have the same <code>Id</code>.</p>
+ *
+ * Two or more batch entries in the request have the same `Id`.
  *
  * @throws {@link EmptyBatchRequest} (client fault)
- *  <p>The batch request doesn't contain any entries.</p>
+ *
+ * The batch request doesn't contain any entries.
  *
  * @throws {@link InvalidAddress} (client fault)
- *  <p>The specified ID is invalid.</p>
+ *
+ * The specified ID is invalid.
  *
  * @throws {@link InvalidBatchEntryId} (client fault)
- *  <p>The <code>Id</code> of a batch entry in a batch request doesn't abide by the
- *             specification.</p>
+ *
+ * The `Id` of a batch entry in a batch request doesn't abide by the specification.
  *
  * @throws {@link InvalidSecurity} (client fault)
- *  <p>The request was not made over HTTPS or did not use SigV4 for signing.</p>
+ *
+ * The request was not made over HTTPS or did not use SigV4 for signing.
  *
  * @throws {@link QueueDoesNotExist} (client fault)
- *  <p>Ensure that the <code>QueueUrl</code> is correct and that the queue has not been
- *             deleted.</p>
+ *
+ * Ensure that the `QueueUrl` is correct and that the queue has not been deleted.
  *
  * @throws {@link RequestThrottled} (client fault)
- *  <p>The request was denied due to request throttling.</p>
- *          <ul>
- *             <li>
- *                <p>Exceeds the permitted request rate for the queue or for the recipient of the
- *                     request.</p>
- *             </li>
- *             <li>
- *                <p>Ensure that the request rate is within the Amazon SQS limits for
- *                     sending messages. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-quotas.html#quotas-requests">Amazon SQS quotas</a> in the <i>Amazon SQS
- *                         Developer Guide</i>.</p>
- *             </li>
- *          </ul>
+ *
+ * The request was denied due to request throttling.
+ *
+ * - Exceeds the permitted request rate for the queue or for the recipient of the request.
+ * - Ensure that the request rate is within the Amazon SQS limits for sending messages. For more information, see [Amazon SQS quotas](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-quotas.html#quotas-requests) in the *Amazon SQS Developer Guide*.
  *
  * @throws {@link TooManyEntriesInBatchRequest} (client fault)
- *  <p>The batch request contains more entries than permissible. For Amazon SQS, the
- *             maximum number of entries you can include in a single <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessageBatch.html">SendMessageBatch</a>, <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteMessageBatch.html">DeleteMessageBatch</a>, or <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ChangeMessageVisibilityBatch.html">ChangeMessageVisibilityBatch</a> request is 10.</p>
+ *
+ * The batch request contains more entries than permissible. For Amazon SQS, the maximum number of entries you can include in a single [SendMessageBatch](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessageBatch.html), [DeleteMessageBatch](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteMessageBatch.html), or [ChangeMessageVisibilityBatch](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ChangeMessageVisibilityBatch.html) request is 10.
  *
  * @throws {@link UnsupportedOperation} (client fault)
- *  <p>Error code 400. Unsupported operation.</p>
+ *
+ * Error code 400. Unsupported operation.
  *
  * @throws {@link SQSServiceException}
- * <p>Base exception class for all service exceptions from SQS service.</p>
  *
+ * Base exception class for all service exceptions from SQS service.
  *
  * @public
  */

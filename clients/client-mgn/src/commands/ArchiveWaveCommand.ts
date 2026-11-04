@@ -23,7 +23,8 @@ export interface ArchiveWaveCommandInput extends ArchiveWaveRequest {}
 export interface ArchiveWaveCommandOutput extends Wave, __MetadataBearer {}
 
 /**
- * <p>Archive wave.</p>
+ * Archive wave.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,20 +68,24 @@ export interface ArchiveWaveCommandOutput extends Wave, __MetadataBearer {}
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+ *
+ * The request could not be completed due to a conflict with the current state of the target resource.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource not found exception.</p>
+ *
+ * Resource not found exception.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request could not be completed because it exceeded the service quota.</p>
+ *
+ * The request could not be completed because it exceeded the service quota.
  *
  * @throws {@link UninitializedAccountException} (client fault)
- *  <p>Uninitialized account exception.</p>
+ *
+ * Uninitialized account exception.
  *
  * @throws {@link MgnServiceException}
- * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * Base exception class for all service exceptions from Mgn service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface ListIpRoutesCommandInput extends ListIpRoutesRequest {}
 export interface ListIpRoutesCommandOutput extends ListIpRoutesResult, __MetadataBearer {}
 
 /**
- * <p>Lists the address blocks that you have added to a directory.</p>
+ * Lists the address blocks that you have added to a directory.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,23 +64,28 @@ export interface ListIpRoutesCommandOutput extends ListIpRoutesResult, __Metadat
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>A client exception has occurred.</p>
+ *
+ * A client exception has occurred.
  *
  * @throws {@link EntityDoesNotExistException} (client fault)
- *  <p>The specified entity could not be found.</p>
+ *
+ * The specified entity could not be found.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The <code>NextToken</code> value is not valid.</p>
+ *
+ * The `NextToken` value is not valid.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * An exception has occurred in Directory Service.
  *
  * @throws {@link DirectoryServiceServiceException}
- * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * Base exception class for all service exceptions from DirectoryService service.
  *
  * @example To list IP routes
  * ```javascript

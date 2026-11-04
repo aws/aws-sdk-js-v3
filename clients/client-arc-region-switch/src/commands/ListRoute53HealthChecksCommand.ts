@@ -23,7 +23,8 @@ export interface ListRoute53HealthChecksCommandInput extends ListRoute53HealthCh
 export interface ListRoute53HealthChecksCommandOutput extends ListRoute53HealthChecksResponse, __MetadataBearer {}
 
 /**
- * <p>List the Amazon Route 53 health checks.</p>
+ * List the Amazon Route 53 health checks.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,20 +64,30 @@ export interface ListRoute53HealthChecksCommandOutput extends ListRoute53HealthC
  * @see {@link ARCRegionSwitchClientResolvedConfig | config} for ARCRegionSwitchClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p> <p>HTTP Status Code: 403</p>
+ *
+ * You do not have sufficient access to perform this action.
+ *
+ * HTTP Status Code: 403
  *
  * @throws {@link IllegalArgumentException} (client fault)
- *  <p>The request processing has an invalid argument.</p>
+ *
+ * The request processing has an invalid argument.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception, or failure.</p> <p>HTTP Status Code: 500</p>
+ *
+ * The request processing has failed because of an unknown error, exception, or failure.
+ *
+ * HTTP Status Code: 500
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p> <p>HTTP Status Code: 404</p>
+ *
+ * The specified resource was not found.
+ *
+ * HTTP Status Code: 404
  *
  * @throws {@link ARCRegionSwitchServiceException}
- * <p>Base exception class for all service exceptions from ARCRegionSwitch service.</p>
  *
+ * Base exception class for all service exceptions from ARCRegionSwitch service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface ListRecoveryGroupsCommandInput extends ListRecoveryGroupsReques
 export interface ListRecoveryGroupsCommandOutput extends ListRecoveryGroupsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the recovery groups in an account.</p>
+ * Lists the recovery groups in an account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,8 +76,8 @@ export interface ListRecoveryGroupsCommandOutput extends ListRecoveryGroupsRespo
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
  * @throws {@link Route53RecoveryReadinessServiceException}
- * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
+ * Base exception class for all service exceptions from Route53RecoveryReadiness service.
  *
  * @public
  */

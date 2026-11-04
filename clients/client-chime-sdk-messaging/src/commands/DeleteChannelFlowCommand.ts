@@ -23,11 +23,10 @@ export interface DeleteChannelFlowCommandInput extends DeleteChannelFlowRequest 
 export interface DeleteChannelFlowCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a channel flow, an irreversible process. This is a developer API.</p>
- *          <note>
- *             <p> This API works only when the channel flow is not associated with any channel. To get a list of all channels that a channel flow is associated with, use the
- *            <code>ListChannelsAssociatedWithChannelFlow</code> API. Use the <code>DisassociateChannelFlow</code> API to disassociate a channel flow from all channels. </p>
- *          </note>
+ * Deletes a channel flow, an irreversible process. This is a developer API.
+ *
+ * > **Note:** This API works only when the channel flow is not associated with any channel. To get a list of all channels that a channel flow is associated with, use the `ListChannelsAssociatedWithChannelFlow` API. Use the `DisassociateChannelFlow` API to disassociate a channel flow from all channels.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,30 +51,36 @@ export interface DeleteChannelFlowCommandOutput extends __MetadataBearer {}
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * The input parameters don't match the service's restrictions.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of conflict in the current state of the
- *          resource.</p>
+ *
+ * The request could not be processed because of conflict in the current state of the resource.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * The client is permanently forbidden from making the request.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The service encountered an unexpected error.</p>
+ *
+ * The service encountered an unexpected error.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is currently unavailable.</p>
+ *
+ * The service is currently unavailable.
  *
  * @throws {@link ThrottledClientException} (client fault)
- *  <p>The client exceeded its request rate limit.</p>
+ *
+ * The client exceeded its request rate limit.
  *
  * @throws {@link UnauthorizedClientException} (client fault)
- *  <p>The client is not currently authorized to make the request.</p>
+ *
+ * The client is not currently authorized to make the request.
  *
  * @throws {@link ChimeSDKMessagingServiceException}
- * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * Base exception class for all service exceptions from ChimeSDKMessaging service.
  *
  * @public
  */

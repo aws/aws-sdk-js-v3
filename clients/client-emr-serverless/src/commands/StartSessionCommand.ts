@@ -23,7 +23,8 @@ export interface StartSessionCommandInput extends StartSessionRequest {}
 export interface StartSessionCommandOutput extends StartSessionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates and starts a new session on the specified application. The application must be in the <code>STARTED</code> state or have <code>AutoStart</code> enabled, and have interactive sessions enabled. This operation is supported for EMR release 7.13.0 and later.</p>
+ * Creates and starts a new session on the specified application. The application must be in the `STARTED` state or have `AutoStart` enabled, and have interactive sessions enabled. This operation is supported for EMR release 7.13.0 and later.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,23 +79,28 @@ export interface StartSessionCommandOutput extends StartSessionResponse, __Metad
  * @see {@link EMRServerlessClientResolvedConfig | config} for EMRServerlessClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of conflict in the current state of the resource.</p>
+ *
+ * The request could not be processed because of conflict in the current state of the resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The maximum number of resources per account has been reached.</p>
+ *
+ * The maximum number of resources per account has been reached.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link EMRServerlessServiceException}
- * <p>Base exception class for all service exceptions from EMRServerless service.</p>
  *
+ * Base exception class for all service exceptions from EMRServerless service.
  *
  * @public
  */

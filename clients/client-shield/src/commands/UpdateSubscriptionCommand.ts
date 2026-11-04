@@ -23,11 +23,10 @@ export interface UpdateSubscriptionCommandInput extends UpdateSubscriptionReques
 export interface UpdateSubscriptionCommandOutput extends UpdateSubscriptionResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the details of an existing subscription. Only enter values for parameters you want to change. Empty parameters are not updated.</p>
- *          <note>
- *             <p>For accounts that are members of an Organizations organization, Shield Advanced subscriptions are billed against the organization's payer account,
- *               regardless of whether the payer account itself is subscribed. </p>
- *          </note>
+ * Updates the details of an existing subscription. Only enter values for parameters you want to change. Empty parameters are not updated.
+ *
+ * > **Note:** For accounts that are members of an Organizations organization, Shield Advanced subscriptions are billed against the organization's payer account, regardless of whether the payer account itself is subscribed.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,24 +51,28 @@ export interface UpdateSubscriptionCommandOutput extends UpdateSubscriptionRespo
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+ *
+ * Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Exception that indicates that the parameters passed to the API are invalid. If available, this exception includes details in additional properties. </p>
+ *
+ * Exception that indicates that the parameters passed to the API are invalid. If available, this exception includes details in additional properties.
  *
  * @throws {@link LockedSubscriptionException} (client fault)
- *  <p>You are trying to update a subscription that has not yet completed the 1-year commitment. You can change the <code>AutoRenew</code> parameter during the last 30 days of your subscription. This exception indicates that you are attempting to change <code>AutoRenew</code> prior to that period.</p>
+ *
+ * You are trying to update a subscription that has not yet completed the 1-year commitment. You can change the `AutoRenew` parameter during the last 30 days of your subscription. This exception indicates that you are attempting to change `AutoRenew` prior to that period.
  *
  * @throws {@link OptimisticLockException} (client fault)
- *  <p>Exception that indicates that the resource state has been modified by another
- *          client. Retrieve the resource and then retry your request.</p>
+ *
+ * Exception that indicates that the resource state has been modified by another client. Retrieve the resource and then retry your request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+ *
+ * Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties.
  *
  * @throws {@link ShieldServiceException}
- * <p>Base exception class for all service exceptions from Shield service.</p>
  *
+ * Base exception class for all service exceptions from Shield service.
  *
  * @public
  */

@@ -23,8 +23,8 @@ export interface CreateLoggingConfigurationCommandInput extends CreateLoggingCon
 export interface CreateLoggingConfigurationCommandOutput extends CreateLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a logging configuration that allows clients to store and record sent
- *          messages.</p>
+ * Creates a logging configuration that allows clients to store and record sent messages.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,26 +84,20 @@ export interface CreateLoggingConfigurationCommandOutput extends CreateLoggingCo
  * @see {@link IvschatClientResolvedConfig | config} for IvschatClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p/>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p/>
  *
  * @throws {@link PendingVerification} (client fault)
- *  <p/>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p/>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p/>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p/>
  *
  * @throws {@link IvschatServiceException}
- * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
+ * Base exception class for all service exceptions from Ivschat service.
  *
  * @public
  */

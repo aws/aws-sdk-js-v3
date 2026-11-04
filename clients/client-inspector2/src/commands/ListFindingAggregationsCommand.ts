@@ -23,7 +23,8 @@ export interface ListFindingAggregationsCommandInput extends ListFindingAggregat
 export interface ListFindingAggregationsCommandOutput extends ListFindingAggregationsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists aggregated finding data for your environment based on specific criteria.</p>
+ * Lists aggregated finding data for your environment based on specific criteria.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -474,17 +475,20 @@ export interface ListFindingAggregationsCommandOutput extends ListFindingAggrega
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+ *
+ * The request has failed due to an internal failure of the Amazon Inspector service.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The limit on the number of requests per second was exceeded.</p>
+ *
+ * The limit on the number of requests per second was exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+ *
+ * The request has failed validation due to missing required fields or having invalid inputs.
  *
  * @throws {@link Inspector2ServiceException}
- * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * Base exception class for all service exceptions from Inspector2 service.
  *
  * @public
  */

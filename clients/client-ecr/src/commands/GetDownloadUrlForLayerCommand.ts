@@ -23,14 +23,12 @@ export interface GetDownloadUrlForLayerCommandInput extends GetDownloadUrlForLay
 export interface GetDownloadUrlForLayerCommandOutput extends GetDownloadUrlForLayerResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the pre-signed Amazon S3 download URL corresponding to an image layer. You can
- *             only get URLs for image layers that are referenced in an image.</p>
- *          <p>When an image is pulled, the GetDownloadUrlForLayer API is called once per image layer
- *             that is not already cached.</p>
- *          <note>
- *             <p>This operation is used by the Amazon ECR proxy and is not generally used by
- *         customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p>
- *          </note>
+ * Retrieves the pre-signed Amazon S3 download URL corresponding to an image layer. You can only get URLs for image layers that are referenced in an image.
+ *
+ * When an image is pulled, the GetDownloadUrlForLayer API is called once per image layer that is not already cached.
+ *
+ * > **Note:** This operation is used by the Amazon ECR proxy and is not generally used by customers for pulling and pushing images. In most cases, you should use the `docker` CLI to pull, tag, and push images.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,31 +58,32 @@ export interface GetDownloadUrlForLayerCommandOutput extends GetDownloadUrlForLa
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link LayerInaccessibleException} (client fault)
- *  <p>The specified layer is not available because it is not associated with an image.
- *             Unassociated image layers may be cleaned up at any time.</p>
+ *
+ * The specified layer is not available because it is not associated with an image. Unassociated image layers may be cleaned up at any time.
  *
  * @throws {@link LayersNotFoundException} (client fault)
- *  <p>The specified layers could not be found, or the specified layer is not valid for this
- *             repository.</p>
+ *
+ * The specified layers could not be found, or the specified layer is not valid for this repository.
  *
  * @throws {@link RepositoryNotFoundException} (client fault)
- *  <p>The specified repository could not be found. Check the spelling of the specified
- *             repository and ensure that you are performing operations on the correct registry.</p>
+ *
+ * The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link UnableToGetUpstreamLayerException} (client fault)
- *  <p>There was an issue getting the upstream layer matching the pull through cache
- *             rule.</p>
+ *
+ * There was an issue getting the upstream layer matching the pull through cache rule.
  *
  * @throws {@link ECRServiceException}
- * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * Base exception class for all service exceptions from ECR service.
  *
  * @public
  */

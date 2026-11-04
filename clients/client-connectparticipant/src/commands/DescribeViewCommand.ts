@@ -23,8 +23,10 @@ export interface DescribeViewCommandInput extends DescribeViewRequest {}
 export interface DescribeViewCommandOutput extends DescribeViewResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the view for the specified view token.</p>
- *          <p>For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Connect Customer Chat security best practices</a>. </p>
+ * Retrieves the view for the specified view token.
+ *
+ * For security recommendations, see [Connect Customer Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,23 +66,28 @@ export interface DescribeViewCommandOutput extends DescribeViewResponse, __Metad
  * @see {@link ConnectParticipantClientResolvedConfig | config} for ConnectParticipantClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Amazon Connect service.</p>
+ *
+ * This exception occurs when there is an internal failure in the Amazon Connect service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource was not found.</p>
+ *
+ * The resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
+ *
+ * The input fails to satisfy the constraints specified by Amazon Connect.
  *
  * @throws {@link ConnectParticipantServiceException}
- * <p>Base exception class for all service exceptions from ConnectParticipant service.</p>
  *
+ * Base exception class for all service exceptions from ConnectParticipant service.
  *
  * @public
  */

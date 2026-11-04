@@ -11,25 +11,29 @@ import type {
 } from "./enums";
 
 /**
- * <p>Error information when an act fails to execute successfully.</p>
+ * Error information when an act fails to execute successfully.
+ *
  * @public
  */
 export interface ActError {
   /**
-   * <p>A human-readable description of the error that occurred.</p>
+   * A human-readable description of the error that occurred.
+   *
    * @public
    */
   message: string | undefined;
 
   /**
-   * <p>The type or category of error that occurred.</p>
+   * The type or category of error that occurred.
+   *
    * @public
    */
   type?: string | undefined;
 }
 
 /**
- * <p>The schema definition for tool input parameters.</p>
+ * The schema definition for tool input parameters.
+ *
  * @public
  */
 export type ToolInputSchema =
@@ -41,7 +45,8 @@ export type ToolInputSchema =
  */
 export namespace ToolInputSchema {
   /**
-   * <p>The JSON schema that defines the expected input format for the tool.</p>
+   * The JSON schema that defines the expected input format for the tool.
+   *
    * @public
    */
   export interface JsonMember {
@@ -68,24 +73,28 @@ export namespace ToolInputSchema {
 }
 
 /**
- * <p>Specification for a tool that acts can invoke, including its name, description, and input schema.</p>
+ * Specification for a tool that acts can invoke, including its name, description, and input schema.
+ *
  * @public
  */
 export interface ToolSpec {
   /**
-   * <p>The unique name of the tool that acts will use to invoke it.</p>
+   * The unique name of the tool that acts will use to invoke it.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description of what the tool does and how it should be used.</p>
+   * A description of what the tool does and how it should be used.
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p>The JSON schema that defines the expected input format for the tool.</p>
+   * The JSON schema that defines the expected input format for the tool.
+   *
    * @public
    */
   inputSchema: ToolInputSchema | undefined;
@@ -96,37 +105,43 @@ export interface ToolSpec {
  */
 export interface CreateActRequest {
   /**
-   * <p>The name of the workflow definition containing the session.</p>
+   * The name of the workflow definition containing the session.
+   *
    * @public
    */
   workflowDefinitionName: string | undefined;
 
   /**
-   * <p>The unique identifier of the workflow run containing the session.</p>
+   * The unique identifier of the workflow run containing the session.
+   *
    * @public
    */
   workflowRunId: string | undefined;
 
   /**
-   * <p>The unique identifier of the session to create the act in.</p>
+   * The unique identifier of the session to create the act in.
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The task description that defines what the act should accomplish.</p>
+   * The task description that defines what the act should accomplish.
+   *
    * @public
    */
   task: string | undefined;
 
   /**
-   * <p>A list of tool specifications that the act can invoke to complete its task.</p>
+   * A list of tool specifications that the act can invoke to complete its task.
+   *
    * @public
    */
   toolSpecs?: ToolSpec[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -137,38 +152,44 @@ export interface CreateActRequest {
  */
 export interface CreateActResponse {
   /**
-   * <p>The unique identifier for the created act.</p>
+   * The unique identifier for the created act.
+   *
    * @public
    */
   actId: string | undefined;
 
   /**
-   * <p>The initial status of the act after creation.</p>
+   * The initial status of the act after creation.
+   *
    * @public
    */
   status: ActStatus | undefined;
 }
 
 /**
- * <p>Information about a field that failed validation.</p>
+ * Information about a field that failed validation.
+ *
  * @public
  */
 export interface ValidationExceptionField {
   /**
-   * <p>The name of the field that failed validation.</p>
+   * The name of the field that failed validation.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description of the validation error for this field.</p>
+   * A description of the validation error for this field.
+   *
    * @public
    */
   message: string | undefined;
 }
 
 /**
- * <p>Content returned from a tool call execution.</p>
+ * Content returned from a tool call execution.
+ *
  * @public
  */
 export type CallResultContent =
@@ -180,7 +201,8 @@ export type CallResultContent =
  */
 export namespace CallResultContent {
   /**
-   * <p>Text content returned from the tool execution.</p>
+   * Text content returned from the tool execution.
+   *
    * @public
    */
   export interface TextMember {
@@ -207,18 +229,21 @@ export namespace CallResultContent {
 }
 
 /**
- * <p>The result returned from executing a tool call.</p>
+ * The result returned from executing a tool call.
+ *
  * @public
  */
 export interface CallResult {
   /**
-   * <p>The identifier of the tool call that this result corresponds to.</p>
+   * The identifier of the tool call that this result corresponds to.
+   *
    * @public
    */
   callId?: string | undefined;
 
   /**
-   * <p>The content returned by the tool execution, which can include text or other media types.</p>
+   * The content returned by the tool execution, which can include text or other media types.
+   *
    * @public
    */
   content: CallResultContent[] | undefined;
@@ -229,61 +254,71 @@ export interface CallResult {
  */
 export interface InvokeActStepRequest {
   /**
-   * <p>The name of the workflow definition containing the act.</p>
+   * The name of the workflow definition containing the act.
+   *
    * @public
    */
   workflowDefinitionName: string | undefined;
 
   /**
-   * <p>The unique identifier of the workflow run containing the act.</p>
+   * The unique identifier of the workflow run containing the act.
+   *
    * @public
    */
   workflowRunId: string | undefined;
 
   /**
-   * <p>The unique identifier of the session containing the act.</p>
+   * The unique identifier of the session containing the act.
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The unique identifier of the act to invoke the next step for.</p>
+   * The unique identifier of the act to invoke the next step for.
+   *
    * @public
    */
   actId: string | undefined;
 
   /**
-   * <p>The results from previous tool calls that the act requested.</p>
+   * The results from previous tool calls that the act requested.
+   *
    * @public
    */
   callResults: CallResult[] | undefined;
 
   /**
-   * <p>The identifier of the previous step, used for tracking execution flow.</p>
+   * The identifier of the previous step, used for tracking execution flow.
+   *
    * @public
    */
   previousStepId?: string | undefined;
 }
 
 /**
- * <p>A request for the client to execute a specific tool with given parameters.</p>
+ * A request for the client to execute a specific tool with given parameters.
+ *
  * @public
  */
 export interface Call {
   /**
-   * <p>A unique identifier for this tool call, used to match results back to requests.</p>
+   * A unique identifier for this tool call, used to match results back to requests.
+   *
    * @public
    */
   callId: string | undefined;
 
   /**
-   * <p>The input parameters for the tool call, formatted according to the tool's schema.</p>
+   * The input parameters for the tool call, formatted according to the tool's schema.
+   *
    * @public
    */
   input: __DocumentType | undefined;
 
   /**
-   * <p>The name of the tool to invoke, following the pattern 'tool.\{toolName\}' or 'browser.\{browserAction\}'.</p>
+   * The name of the tool to invoke, following the pattern 'tool.\{toolName\}' or 'browser.\{browserAction\}'.
+   *
    * @public
    */
   name: string | undefined;
@@ -294,13 +329,15 @@ export interface Call {
  */
 export interface InvokeActStepResponse {
   /**
-   * <p>A list of tool calls that the act wants to execute in this step.</p>
+   * A list of tool calls that the act wants to execute in this step.
+   *
    * @public
    */
   calls: Call[] | undefined;
 
   /**
-   * <p>The unique identifier for this execution step.</p>
+   * The unique identifier for this execution step.
+   *
    * @public
    */
   stepId: string | undefined;
@@ -311,103 +348,120 @@ export interface InvokeActStepResponse {
  */
 export interface ListActsRequest {
   /**
-   * <p>The name of the workflow definition containing the session.</p>
+   * The name of the workflow definition containing the session.
+   *
    * @public
    */
   workflowDefinitionName: string | undefined;
 
   /**
-   * <p>The unique identifier of the workflow run containing the session.</p>
+   * The unique identifier of the workflow run containing the session.
+   *
    * @public
    */
   workflowRunId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the session to list acts for.</p>
+   * The unique identifier of the session to list acts for.
+   *
    * @public
    */
   sessionId?: string | undefined;
 
   /**
-   * <p>The maximum number of acts to return in a single response.</p>
+   * The maximum number of acts to return in a single response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for retrieving the next page of results.</p>
+   * The token for retrieving the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The sort order for the returned acts (ascending or descending).</p>
+   * The sort order for the returned acts (ascending or descending).
+   *
    * @public
    */
   sortOrder?: SortOrder | undefined;
 }
 
 /**
- * <p>Information about where trace data is stored for debugging and monitoring.</p>
+ * Information about where trace data is stored for debugging and monitoring.
+ *
  * @public
  */
 export interface TraceLocation {
   /**
-   * <p>The type of storage location for the trace data.</p>
+   * The type of storage location for the trace data.
+   *
    * @public
    */
   locationType: TraceLocationType | undefined;
 
   /**
-   * <p>The specific location where the trace data is stored.</p>
+   * The specific location where the trace data is stored.
+   *
    * @public
    */
   location: string | undefined;
 }
 
 /**
- * <p>Summary information about an act, including its status and execution timing.</p>
+ * Summary information about an act, including its status and execution timing.
+ *
  * @public
  */
 export interface ActSummary {
   /**
-   * <p>The unique identifier of the workflow run containing this act.</p>
+   * The unique identifier of the workflow run containing this act.
+   *
    * @public
    */
   workflowRunId: string | undefined;
 
   /**
-   * <p>The unique identifier of the session containing this act.</p>
+   * The unique identifier of the session containing this act.
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The unique identifier of the act.</p>
+   * The unique identifier of the act.
+   *
    * @public
    */
   actId: string | undefined;
 
   /**
-   * <p>The current execution status of the act.</p>
+   * The current execution status of the act.
+   *
    * @public
    */
   status: ActStatus | undefined;
 
   /**
-   * <p>The timestamp when the act started execution.</p>
+   * The timestamp when the act started execution.
+   *
    * @public
    */
   startedAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the act completed execution, if applicable.</p>
+   * The timestamp when the act completed execution, if applicable.
+   *
    * @public
    */
   endedAt?: Date | undefined;
 
   /**
-   * <p>The location where trace information for this act is stored.</p>
+   * The location where trace information for this act is stored.
+   *
    * @public
    */
   traceLocation?: TraceLocation | undefined;
@@ -418,13 +472,15 @@ export interface ActSummary {
  */
 export interface ListActsResponse {
   /**
-   * <p>A list of summary information for acts in the session.</p>
+   * A list of summary information for acts in the session.
+   *
    * @public
    */
   actSummaries: ActSummary[] | undefined;
 
   /**
-   * <p>The token for retrieving the next page of results, if available.</p>
+   * The token for retrieving the next page of results, if available.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -435,37 +491,43 @@ export interface ListActsResponse {
  */
 export interface UpdateActRequest {
   /**
-   * <p>The name of the workflow definition containing the act.</p>
+   * The name of the workflow definition containing the act.
+   *
    * @public
    */
   workflowDefinitionName: string | undefined;
 
   /**
-   * <p>The unique identifier of the workflow run containing the act.</p>
+   * The unique identifier of the workflow run containing the act.
+   *
    * @public
    */
   workflowRunId: string | undefined;
 
   /**
-   * <p>The unique identifier of the session containing the act.</p>
+   * The unique identifier of the session containing the act.
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The unique identifier of the act to update.</p>
+   * The unique identifier of the act to update.
+   *
    * @public
    */
   actId: string | undefined;
 
   /**
-   * <p>The new status to set for the act.</p>
+   * The new status to set for the act.
+   *
    * @public
    */
   status: ActStatus | undefined;
 
   /**
-   * <p>Error information to associate with the act, if applicable.</p>
+   * Error information to associate with the act, if applicable.
+   *
    * @public
    */
   error?: ActError | undefined;
@@ -481,91 +543,106 @@ export interface UpdateActResponse {}
  */
 export interface ListModelsRequest {
   /**
-   * <p>The client compatibility version to filter models by compatibility.</p>
+   * The client compatibility version to filter models by compatibility.
+   *
    * @public
    */
   clientCompatibilityVersion: number | undefined;
 }
 
 /**
- * <p>Information about client compatibility and supported model versions.</p>
+ * Information about client compatibility and supported model versions.
+ *
  * @public
  */
 export interface CompatibilityInformation {
   /**
-   * <p>The client compatibility version that was requested.</p>
+   * The client compatibility version that was requested.
+   *
    * @public
    */
   clientCompatibilityVersion: number | undefined;
 
   /**
-   * <p>A list of model IDs that are supported for the client compatibility version.</p>
+   * A list of model IDs that are supported for the client compatibility version.
+   *
    * @public
    */
   supportedModelIds: string[] | undefined;
 
   /**
-   * <p>Additional information about compatibility requirements or recommendations.</p>
+   * Additional information about compatibility requirements or recommendations.
+   *
    * @public
    */
   message?: string | undefined;
 }
 
 /**
- * <p>An alias that provides a stable reference to a model version.</p>
+ * An alias that provides a stable reference to a model version.
+ *
  * @public
  */
 export interface ModelAlias {
   /**
-   * <p>The name of the model alias.</p>
+   * The name of the model alias.
+   *
    * @public
    */
   aliasName: string | undefined;
 
   /**
-   * <p>The model ID that this alias currently points to.</p>
+   * The model ID that this alias currently points to.
+   *
    * @public
    */
   latestModelId: string | undefined;
 
   /**
-   * <p>The resolved model ID after alias resolution.</p>
+   * The resolved model ID after alias resolution.
+   *
    * @public
    */
   resolvedModelId?: string | undefined;
 }
 
 /**
- * <p>Lifecycle information for an AI model.</p>
+ * Lifecycle information for an AI model.
+ *
  * @public
  */
 export interface ModelLifecycle {
   /**
-   * <p>The current lifecycle status of the model.</p>
+   * The current lifecycle status of the model.
+   *
    * @public
    */
   status: ModelStatus | undefined;
 }
 
 /**
- * <p>Summary information about an available AI model.</p>
+ * Summary information about an available AI model.
+ *
  * @public
  */
 export interface ModelSummary {
   /**
-   * <p>The unique identifier of the model.</p>
+   * The unique identifier of the model.
+   *
    * @public
    */
   modelId: string | undefined;
 
   /**
-   * <p>The lifecycle information for the model.</p>
+   * The lifecycle information for the model.
+   *
    * @public
    */
   modelLifecycle: ModelLifecycle | undefined;
 
   /**
-   * <p>The minimum client compatibility version required to use this model.</p>
+   * The minimum client compatibility version required to use this model.
+   *
    * @public
    */
   minimumCompatibilityVersion: number | undefined;
@@ -576,19 +653,22 @@ export interface ModelSummary {
  */
 export interface ListModelsResponse {
   /**
-   * <p>A list of available AI models with their status and compatibility information.</p>
+   * A list of available AI models with their status and compatibility information.
+   *
    * @public
    */
   modelSummaries: ModelSummary[] | undefined;
 
   /**
-   * <p>A list of model aliases that provide stable references to model versions.</p>
+   * A list of model aliases that provide stable references to model versions.
+   *
    * @public
    */
   modelAliases: ModelAlias[] | undefined;
 
   /**
-   * <p>Information about client compatibility and supported models.</p>
+   * Information about client compatibility and supported models.
+   *
    * @public
    */
   compatibilityInformation: CompatibilityInformation | undefined;
@@ -599,19 +679,22 @@ export interface ListModelsResponse {
  */
 export interface CreateSessionRequest {
   /**
-   * <p>The name of the workflow definition containing the workflow run.</p>
+   * The name of the workflow definition containing the workflow run.
+   *
    * @public
    */
   workflowDefinitionName: string | undefined;
 
   /**
-   * <p>The unique identifier of the workflow run to create the session in.</p>
+   * The unique identifier of the workflow run to create the session in.
+   *
    * @public
    */
   workflowRunId: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -622,7 +705,8 @@ export interface CreateSessionRequest {
  */
 export interface CreateSessionResponse {
   /**
-   * <p>The unique identifier for the created session.</p>
+   * The unique identifier for the created session.
+   *
    * @public
    */
   sessionId: string | undefined;
@@ -633,43 +717,50 @@ export interface CreateSessionResponse {
  */
 export interface ListSessionsRequest {
   /**
-   * <p>The name of the workflow definition containing the workflow run.</p>
+   * The name of the workflow definition containing the workflow run.
+   *
    * @public
    */
   workflowDefinitionName: string | undefined;
 
   /**
-   * <p>The unique identifier of the workflow run to list sessions for.</p>
+   * The unique identifier of the workflow run to list sessions for.
+   *
    * @public
    */
   workflowRunId: string | undefined;
 
   /**
-   * <p>The maximum number of sessions to return in a single response.</p>
+   * The maximum number of sessions to return in a single response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for retrieving the next page of results.</p>
+   * The token for retrieving the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The sort order for the returned sessions (ascending or descending).</p>
+   * The sort order for the returned sessions (ascending or descending).
+   *
    * @public
    */
   sortOrder?: SortOrder | undefined;
 }
 
 /**
- * <p>Summary information about a session within a workflow run.</p>
+ * Summary information about a session within a workflow run.
+ *
  * @public
  */
 export interface SessionSummary {
   /**
-   * <p>The unique identifier of the session.</p>
+   * The unique identifier of the session.
+   *
    * @public
    */
   sessionId: string | undefined;
@@ -680,31 +771,36 @@ export interface SessionSummary {
  */
 export interface ListSessionsResponse {
   /**
-   * <p>A list of summary information for sessions in the workflow run.</p>
+   * A list of summary information for sessions in the workflow run.
+   *
    * @public
    */
   sessionSummaries: SessionSummary[] | undefined;
 
   /**
-   * <p>The token for retrieving the next page of results, if available.</p>
+   * The token for retrieving the next page of results, if available.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Configuration settings for exporting workflow execution data and logs to Amazon Simple Storage Service (Amazon S3).</p>
+ * Configuration settings for exporting workflow execution data and logs to Amazon Simple Storage Service (Amazon S3).
+ *
  * @public
  */
 export interface WorkflowExportConfig {
   /**
-   * <p>The name of your Amazon S3 bucket, that Nova Act uses to export your workflow data. Note that the IAM role used to access Nova Act must also have write permissions to this bucket.</p>
+   * The name of your Amazon S3 bucket, that Nova Act uses to export your workflow data. Note that the IAM role used to access Nova Act must also have write permissions to this bucket.
+   *
    * @public
    */
   s3BucketName: string | undefined;
 
   /**
-   * <p>An optional prefix for Amazon S3 object keys to organize exported data.</p>
+   * An optional prefix for Amazon S3 object keys to organize exported data.
+   *
    * @public
    */
   s3KeyPrefix?: string | undefined;
@@ -715,25 +811,29 @@ export interface WorkflowExportConfig {
  */
 export interface CreateWorkflowDefinitionRequest {
   /**
-   * <p>The name of the workflow definition. Must be unique within your account and region.</p>
+   * The name of the workflow definition. Must be unique within your account and region.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>An optional description of the workflow definition's purpose and functionality.</p>
+   * An optional description of the workflow definition's purpose and functionality.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Configuration for exporting workflow execution data to Amazon Simple Storage Service.</p>
+   * Configuration for exporting workflow execution data to Amazon Simple Storage Service.
+   *
    * @public
    */
   exportConfig?: WorkflowExportConfig | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -744,7 +844,8 @@ export interface CreateWorkflowDefinitionRequest {
  */
 export interface CreateWorkflowDefinitionResponse {
   /**
-   * <p>The current status of the workflow definition after creation.</p>
+   * The current status of the workflow definition after creation.
+   *
    * @public
    */
   status: WorkflowDefinitionStatus | undefined;
@@ -755,7 +856,8 @@ export interface CreateWorkflowDefinitionResponse {
  */
 export interface DeleteWorkflowDefinitionRequest {
   /**
-   * <p>The name of the workflow definition to delete.</p>
+   * The name of the workflow definition to delete.
+   *
    * @public
    */
   workflowDefinitionName: string | undefined;
@@ -766,7 +868,8 @@ export interface DeleteWorkflowDefinitionRequest {
  */
 export interface DeleteWorkflowDefinitionResponse {
   /**
-   * <p>The status of the workflow definition after deletion request.</p>
+   * The status of the workflow definition after deletion request.
+   *
    * @public
    */
   status: WorkflowDefinitionStatus | undefined;
@@ -777,7 +880,8 @@ export interface DeleteWorkflowDefinitionResponse {
  */
 export interface GetWorkflowDefinitionRequest {
   /**
-   * <p>The name of the workflow definition to retrieve.</p>
+   * The name of the workflow definition to retrieve.
+   *
    * @public
    */
   workflowDefinitionName: string | undefined;
@@ -788,37 +892,43 @@ export interface GetWorkflowDefinitionRequest {
  */
 export interface GetWorkflowDefinitionResponse {
   /**
-   * <p>The name of the workflow definition.</p>
+   * The name of the workflow definition.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the workflow definition.</p>
+   * The Amazon Resource Name (ARN) of the workflow definition.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The timestamp when the workflow definition was created.</p>
+   * The timestamp when the workflow definition was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The description of the workflow definition.</p>
+   * The description of the workflow definition.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The export configuration for the workflow definition.</p>
+   * The export configuration for the workflow definition.
+   *
    * @public
    */
   exportConfig?: WorkflowExportConfig | undefined;
 
   /**
-   * <p>The current status of the workflow definition.</p>
+   * The current status of the workflow definition.
+   *
    * @public
    */
   status: WorkflowDefinitionStatus | undefined;
@@ -829,49 +939,57 @@ export interface GetWorkflowDefinitionResponse {
  */
 export interface ListWorkflowDefinitionsRequest {
   /**
-   * <p>The maximum number of workflow definitions to return in a single response.</p>
+   * The maximum number of workflow definitions to return in a single response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for retrieving the next page of results.</p>
+   * The token for retrieving the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The sort order for the returned workflow definitions (ascending or descending).</p>
+   * The sort order for the returned workflow definitions (ascending or descending).
+   *
    * @public
    */
   sortOrder?: SortOrder | undefined;
 }
 
 /**
- * <p>Summary information about a workflow definition, used in list operations.</p>
+ * Summary information about a workflow definition, used in list operations.
+ *
  * @public
  */
 export interface WorkflowDefinitionSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the workflow definition.</p>
+   * The Amazon Resource Name (ARN) of the workflow definition.
+   *
    * @public
    */
   workflowDefinitionArn: string | undefined;
 
   /**
-   * <p>The name of the workflow definition.</p>
+   * The name of the workflow definition.
+   *
    * @public
    */
   workflowDefinitionName: string | undefined;
 
   /**
-   * <p>The timestamp when the workflow definition was created.</p>
+   * The timestamp when the workflow definition was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The current status of the workflow definition.</p>
+   * The current status of the workflow definition.
+   *
    * @public
    */
   status: WorkflowDefinitionStatus | undefined;
@@ -882,31 +1000,36 @@ export interface WorkflowDefinitionSummary {
  */
 export interface ListWorkflowDefinitionsResponse {
   /**
-   * <p>A list of summary information for workflow definitions.</p>
+   * A list of summary information for workflow definitions.
+   *
    * @public
    */
   workflowDefinitionSummaries: WorkflowDefinitionSummary[] | undefined;
 
   /**
-   * <p>The token for retrieving the next page of results, if available.</p>
+   * The token for retrieving the next page of results, if available.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Information about the client making API requests, used for compatibility checking.</p>
+ * Information about the client making API requests, used for compatibility checking.
+ *
  * @public
  */
 export interface ClientInfo {
   /**
-   * <p>The compatibility version of the client, used to ensure API compatibility.</p>
+   * The compatibility version of the client, used to ensure API compatibility.
+   *
    * @public
    */
   compatibilityVersion: number | undefined;
 
   /**
-   * <p>The version of the SDK being used by the client.</p>
+   * The version of the SDK being used by the client.
+   *
    * @public
    */
   sdkVersion?: string | undefined;
@@ -917,31 +1040,36 @@ export interface ClientInfo {
  */
 export interface CreateWorkflowRunRequest {
   /**
-   * <p>The name of the workflow definition to execute.</p>
+   * The name of the workflow definition to execute.
+   *
    * @public
    */
   workflowDefinitionName: string | undefined;
 
   /**
-   * <p>The ID of the AI model to use for workflow execution.</p>
+   * The ID of the AI model to use for workflow execution.
+   *
    * @public
    */
   modelId: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The CloudWatch log group name for storing workflow execution logs.</p>
+   * The CloudWatch log group name for storing workflow execution logs.
+   *
    * @public
    */
   logGroupName?: string | undefined;
 
   /**
-   * <p>Information about the client making the request, including compatibility version and SDK version.</p>
+   * Information about the client making the request, including compatibility version and SDK version.
+   *
    * @public
    */
   clientInfo: ClientInfo | undefined;
@@ -952,13 +1080,15 @@ export interface CreateWorkflowRunRequest {
  */
 export interface CreateWorkflowRunResponse {
   /**
-   * <p>The unique identifier for the created workflow run.</p>
+   * The unique identifier for the created workflow run.
+   *
    * @public
    */
   workflowRunId: string | undefined;
 
   /**
-   * <p>The initial status of the workflow run after creation.</p>
+   * The initial status of the workflow run after creation.
+   *
    * @public
    */
   status: WorkflowRunStatus | undefined;
@@ -969,13 +1099,15 @@ export interface CreateWorkflowRunResponse {
  */
 export interface DeleteWorkflowRunRequest {
   /**
-   * <p>The name of the workflow definition containing the workflow run.</p>
+   * The name of the workflow definition containing the workflow run.
+   *
    * @public
    */
   workflowDefinitionName: string | undefined;
 
   /**
-   * <p>The unique identifier of the workflow run to delete.</p>
+   * The unique identifier of the workflow run to delete.
+   *
    * @public
    */
   workflowRunId: string | undefined;
@@ -986,7 +1118,8 @@ export interface DeleteWorkflowRunRequest {
  */
 export interface DeleteWorkflowRunResponse {
   /**
-   * <p>The status of the workflow run after deletion request.</p>
+   * The status of the workflow run after deletion request.
+   *
    * @public
    */
   status: WorkflowRunStatus | undefined;
@@ -997,13 +1130,15 @@ export interface DeleteWorkflowRunResponse {
  */
 export interface GetWorkflowRunRequest {
   /**
-   * <p>The name of the workflow definition containing the workflow run.</p>
+   * The name of the workflow definition containing the workflow run.
+   *
    * @public
    */
   workflowDefinitionName: string | undefined;
 
   /**
-   * <p>The unique identifier of the workflow run to retrieve.</p>
+   * The unique identifier of the workflow run to retrieve.
+   *
    * @public
    */
   workflowRunId: string | undefined;
@@ -1014,43 +1149,50 @@ export interface GetWorkflowRunRequest {
  */
 export interface GetWorkflowRunResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the workflow run.</p>
+   * The Amazon Resource Name (ARN) of the workflow run.
+   *
    * @public
    */
   workflowRunArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the workflow run.</p>
+   * The unique identifier of the workflow run.
+   *
    * @public
    */
   workflowRunId: string | undefined;
 
   /**
-   * <p>The current execution status of the workflow run.</p>
+   * The current execution status of the workflow run.
+   *
    * @public
    */
   status: WorkflowRunStatus | undefined;
 
   /**
-   * <p>The timestamp when the workflow run started execution.</p>
+   * The timestamp when the workflow run started execution.
+   *
    * @public
    */
   startedAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the workflow run completed execution, if applicable.</p>
+   * The timestamp when the workflow run completed execution, if applicable.
+   *
    * @public
    */
   endedAt?: Date | undefined;
 
   /**
-   * <p>The ID of the AI model being used for this workflow run.</p>
+   * The ID of the AI model being used for this workflow run.
+   *
    * @public
    */
   modelId: string | undefined;
 
   /**
-   * <p>The CloudWatch log group name for this workflow run's logs.</p>
+   * The CloudWatch log group name for this workflow run's logs.
+   *
    * @public
    */
   logGroupName?: string | undefined;
@@ -1061,67 +1203,78 @@ export interface GetWorkflowRunResponse {
  */
 export interface ListWorkflowRunsRequest {
   /**
-   * <p>The name of the workflow definition to list workflow runs for.</p>
+   * The name of the workflow definition to list workflow runs for.
+   *
    * @public
    */
   workflowDefinitionName: string | undefined;
 
   /**
-   * <p>The maximum number of workflow runs to return in a single response.</p>
+   * The maximum number of workflow runs to return in a single response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for retrieving the next page of results.</p>
+   * The token for retrieving the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The sort order for the returned workflow runs (ascending or descending).</p>
+   * The sort order for the returned workflow runs (ascending or descending).
+   *
    * @public
    */
   sortOrder?: SortOrder | undefined;
 }
 
 /**
- * <p>Summary information about a workflow run, including execution status and timing.</p>
+ * Summary information about a workflow run, including execution status and timing.
+ *
  * @public
  */
 export interface WorkflowRunSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the workflow run.</p>
+   * The Amazon Resource Name (ARN) of the workflow run.
+   *
    * @public
    */
   workflowRunArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the workflow run.</p>
+   * The unique identifier of the workflow run.
+   *
    * @public
    */
   workflowRunId: string | undefined;
 
   /**
-   * <p>The current execution status of the workflow run.</p>
+   * The current execution status of the workflow run.
+   *
    * @public
    */
   status: WorkflowRunStatus | undefined;
 
   /**
-   * <p>The timestamp when the workflow run started execution.</p>
+   * The timestamp when the workflow run started execution.
+   *
    * @public
    */
   startedAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the workflow run completed execution, if applicable.</p>
+   * The timestamp when the workflow run completed execution, if applicable.
+   *
    * @public
    */
   endedAt?: Date | undefined;
 
   /**
-   * <p>The location where trace information for this workflow run is stored.</p>
+   * The location where trace information for this workflow run is stored.
+   *
    * @public
    */
   traceLocation?: TraceLocation | undefined;
@@ -1132,13 +1285,15 @@ export interface WorkflowRunSummary {
  */
 export interface ListWorkflowRunsResponse {
   /**
-   * <p>A list of summary information for workflow runs.</p>
+   * A list of summary information for workflow runs.
+   *
    * @public
    */
   workflowRunSummaries: WorkflowRunSummary[] | undefined;
 
   /**
-   * <p>The token for retrieving the next page of results, if available.</p>
+   * The token for retrieving the next page of results, if available.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1149,19 +1304,22 @@ export interface ListWorkflowRunsResponse {
  */
 export interface UpdateWorkflowRunRequest {
   /**
-   * <p>The name of the workflow definition containing the workflow run.</p>
+   * The name of the workflow definition containing the workflow run.
+   *
    * @public
    */
   workflowDefinitionName: string | undefined;
 
   /**
-   * <p>The unique identifier of the workflow run to update.</p>
+   * The unique identifier of the workflow run to update.
+   *
    * @public
    */
   workflowRunId: string | undefined;
 
   /**
-   * <p>The new status to set for the workflow run.</p>
+   * The new status to set for the workflow run.
+   *
    * @public
    */
   status: WorkflowRunStatus | undefined;

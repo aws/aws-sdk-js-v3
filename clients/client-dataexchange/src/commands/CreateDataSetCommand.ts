@@ -23,7 +23,8 @@ export interface CreateDataSetCommandInput extends CreateDataSetRequest {}
 export interface CreateDataSetCommandOutput extends CreateDataSetResponse, __MetadataBearer {}
 
 /**
- * <p>This operation creates a data set.</p>
+ * This operation creates a data set.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,23 +71,28 @@ export interface CreateDataSetCommandOutput extends CreateDataSetResponse, __Met
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to the resource is denied.</p>
+ *
+ * Access to the resource is denied.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An exception occurred with the service.</p>
+ *
+ * An exception occurred with the service.
  *
  * @throws {@link ServiceLimitExceededException} (client fault)
- *  <p>The request has exceeded the quotas imposed by the service.</p>
+ *
+ * The request has exceeded the quotas imposed by the service.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The limit on the number of requests per second was exceeded.</p>
+ *
+ * The limit on the number of requests per second was exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request was invalid.</p>
+ *
+ * The request was invalid.
  *
  * @throws {@link DataExchangeServiceException}
- * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ * Base exception class for all service exceptions from DataExchange service.
  *
  * @public
  */

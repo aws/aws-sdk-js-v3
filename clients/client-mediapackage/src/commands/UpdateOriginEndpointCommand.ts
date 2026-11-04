@@ -390,8 +390,8 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *  The parameters sent in the request are not valid.
  *
  * @throws {@link MediaPackageServiceException}
- * <p>Base exception class for all service exceptions from MediaPackage service.</p>
  *
+ * Base exception class for all service exceptions from MediaPackage service.
  *
  * @public
  */

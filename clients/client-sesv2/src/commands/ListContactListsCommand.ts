@@ -23,9 +23,10 @@ export interface ListContactListsCommandInput extends ListContactListsRequest {}
 export interface ListContactListsCommandOutput extends ListContactListsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all of the contact lists available.</p>
- *          <p>If your output includes a "NextToken" field with a string value, this indicates there may be additional
- *             contacts on the filtered list - regardless of the number of contacts returned.</p>
+ * Lists all of the contact lists available.
+ *
+ * If your output includes a "NextToken" field with a string value, this indicates there may be additional contacts on the filtered list - regardless of the number of contacts returned.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,14 +60,16 @@ export interface ListContactListsCommandOutput extends ListContactListsResponse,
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Too many requests have been made to the operation.</p>
+ *
+ * Too many requests have been made to the operation.
  *
  * @throws {@link SESv2ServiceException}
- * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * Base exception class for all service exceptions from SESv2 service.
  *
  * @public
  */

@@ -23,7 +23,10 @@ export interface PutResourcePolicyCommandInput extends PutResourcePolicyRequest 
 export interface PutResourcePolicyCommandOutput extends PutResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Adds a <a href="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html">resource-based policy</a> to a Lambda resource. Resource-based policies grant access to other <a href="https://docs.aws.amazon.com/lambda/latest/dg/permissions-function-cross-account.html">Amazon Web Services accounts</a>, <a href="https://docs.aws.amazon.com/lambda/latest/dg/permissions-function-organization.html">organizations</a>, or <a href="https://docs.aws.amazon.com/lambda/latest/dg/permissions-function-services.html">services</a>. Resource-based policies apply to a single Lambda resource (for example, a function, function version, or function alias).</p> <important> <p>This operation replaces any existing policy on the Lambda resource. If you previously added permissions using the <a>AddPermission</a> operation, the new policy overwrites those permissions.</p> </important>
+ * Adds a [resource-based policy](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html) to a Lambda resource. Resource-based policies grant access to other [Amazon Web Services accounts](https://docs.aws.amazon.com/lambda/latest/dg/permissions-function-cross-account.html), [organizations](https://docs.aws.amazon.com/lambda/latest/dg/permissions-function-organization.html), or [services](https://docs.aws.amazon.com/lambda/latest/dg/permissions-function-services.html). Resource-based policies apply to a single Lambda resource (for example, a function, function version, or function alias).
+ *
+ * > **Important:** This operation replaces any existing policy on the Lambda resource. If you previously added permissions using the AddPermission operation, the new policy overwrites those permissions.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,32 +56,43 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One of the parameters in the request is not valid.</p>
+ *
+ * One of the parameters in the request is not valid.
  *
  * @throws {@link PolicyLengthExceededException} (client fault)
- *  <p>The permissions policy for the resource is too large. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
+ *
+ * The permissions policy for the resource is too large. For more information, see [Lambda quotas](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html).
  *
  * @throws {@link PreconditionFailedException} (client fault)
- *  <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias.</p> <ul> <li> <p> <b>For AddPermission and RemovePermission API operations:</b> Call <code>GetPolicy</code> to retrieve the latest RevisionId for your resource.</p> </li> <li> <p> <b>For all other API operations:</b> Call <code>GetFunction</code> or <code>GetAlias</code> to retrieve the latest RevisionId for your resource.</p> </li> </ul>
+ *
+ * The RevisionId provided does not match the latest RevisionId for the Lambda function or alias.
+ *
+ * - **For AddPermission and RemovePermission API operations:** Call `GetPolicy` to retrieve the latest RevisionId for your resource.
+ * - **For all other API operations:** Call `GetFunction` or `GetAlias` to retrieve the latest RevisionId for your resource.
  *
  * @throws {@link PublicPolicyException} (client fault)
- *  <p>The resource-based policy you tried to add to the Lambda resource would grant public access to it, which isn't allowed.</p>
+ *
+ * The resource-based policy you tried to add to the Lambda resource would grant public access to it, which isn't allowed.
  *
  * @throws {@link ResourceConflictException} (client fault)
- *  <p>The resource already exists, or another operation is in progress.</p>
+ *
+ * The resource already exists, or another operation is in progress.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource specified in the request does not exist.</p>
+ *
+ * The resource specified in the request does not exist.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>The Lambda service encountered an internal error.</p>
+ *
+ * The Lambda service encountered an internal error.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
+ *
+ * The request throughput limit was exceeded. For more information, see [Lambda quotas](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests).
  *
  * @throws {@link LambdaServiceException}
- * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * Base exception class for all service exceptions from Lambda service.
  *
  * @public
  */

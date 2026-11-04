@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { EMRServerlessServiceException as __BaseException } from "./EMRServerlessServiceException";
 
 /**
- * <p>The request could not be processed because of conflict in the current state of the resource.</p>
+ * The request could not be processed because of conflict in the current state of the resource.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -25,7 +26,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>Request processing failed because of an error or failure with the service.</p>
+ * Request processing failed because of an error or failure with the service.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -46,7 +48,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The specified resource was not found.</p>
+ * The specified resource was not found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -67,7 +70,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -88,7 +92,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The maximum number of resources per account has been reached.</p>
+ * The maximum number of resources per account has been reached.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {

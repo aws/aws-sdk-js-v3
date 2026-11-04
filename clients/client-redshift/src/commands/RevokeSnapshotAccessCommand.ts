@@ -23,13 +23,10 @@ export interface RevokeSnapshotAccessCommandInput extends RevokeSnapshotAccessMe
 export interface RevokeSnapshotAccessCommandOutput extends RevokeSnapshotAccessResult, __MetadataBearer {}
 
 /**
- * <p>Removes the ability of the specified  Amazon Web Services account to restore the specified
- *             snapshot. If the account is currently restoring the snapshot, the restore will run to
- *             completion.</p>
- *          <p>
- * For more information about working with snapshots, go to
- * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon Redshift Snapshots</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
+ * Removes the ability of the specified Amazon Web Services account to restore the specified snapshot. If the account is currently restoring the snapshot, the restore will run to completion.
+ *
+ * For more information about working with snapshots, go to [Amazon Redshift Snapshots](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html) in the *Amazon Redshift Cluster Management Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -109,22 +106,24 @@ export interface RevokeSnapshotAccessCommandOutput extends RevokeSnapshotAccessR
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link AccessToSnapshotDeniedFault} (client fault)
- *  <p>The owner of the specified snapshot has not authorized your account to access the
- *             snapshot.</p>
+ *
+ * The owner of the specified snapshot has not authorized your account to access the snapshot.
  *
  * @throws {@link AuthorizationNotFoundFault} (client fault)
- *  <p>The specified CIDR IP range or EC2 security group is not authorized for the
- *             specified cluster security group.</p>
+ *
+ * The specified CIDR IP range or EC2 security group is not authorized for the specified cluster security group.
  *
  * @throws {@link ClusterSnapshotNotFoundFault} (client fault)
- *  <p>The snapshot identifier does not refer to an existing cluster snapshot.</p>
+ *
+ * The snapshot identifier does not refer to an existing cluster snapshot.
  *
  * @throws {@link UnsupportedOperationFault} (client fault)
- *  <p>The requested operation isn't supported.</p>
+ *
+ * The requested operation isn't supported.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

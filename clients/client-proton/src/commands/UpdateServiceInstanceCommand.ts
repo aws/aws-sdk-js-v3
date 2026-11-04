@@ -23,16 +23,15 @@ export interface UpdateServiceInstanceCommandInput extends UpdateServiceInstance
 export interface UpdateServiceInstanceCommandOutput extends UpdateServiceInstanceOutput, __MetadataBearer {}
 
 /**
- * <p>Update a service instance.</p>
- *          <p>There are a few modes for updating a service instance. The <code>deploymentType</code>
- *       field defines the mode.</p>
- *          <note>
- *             <p>You can't update a service instance while its deployment status, or the deployment
- *         status of a component attached to it, is <code>IN_PROGRESS</code>.</p>
- *             <p>For more information about components, see
- *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
- *   <i>Proton User Guide</i>.</p>
- *          </note>
+ * Update a service instance.
+ *
+ * There are a few modes for updating a service instance. The `deploymentType` field defines the mode.
+ *
+ * > **Note:**
+ * >
+ * > You can't update a service instance while its deployment status, or the deployment status of a component attached to it, is `IN_PROGRESS`.
+ * >
+ * > For more information about components, see [Proton components](https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html) in the *Proton User Guide*.
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example
@@ -84,26 +83,32 @@ export interface UpdateServiceInstanceCommandOutput extends UpdateServiceInstanc
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>There <i>isn't</i> sufficient access for performing this action.</p>
+ *
+ * There *isn't* sufficient access for performing this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request <i>couldn't</i> be made due to a conflicting operation or resource.</p>
+ *
+ * The request *couldn't* be made due to a conflicting operation or resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request failed to register with the service.</p>
+ *
+ * The request failed to register with the service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource <i>wasn't</i> found.</p>
+ *
+ * The requested resource *wasn't* found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+ *
+ * The input is invalid or an out-of-range value was supplied for the input parameter.
  *
  * @throws {@link ProtonServiceException}
- * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * Base exception class for all service exceptions from Proton service.
  *
  * @public
  */

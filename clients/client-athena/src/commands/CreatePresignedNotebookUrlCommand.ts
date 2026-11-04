@@ -23,11 +23,8 @@ export interface CreatePresignedNotebookUrlCommandInput extends CreatePresignedN
 export interface CreatePresignedNotebookUrlCommandOutput extends CreatePresignedNotebookUrlResponse, __MetadataBearer {}
 
 /**
- * <p>Gets an authentication token and the URL at which the notebook can be accessed. During
- *             programmatic access, <code>CreatePresignedNotebookUrl</code> must be called every 10
- *             minutes to refresh the authentication token. For information about granting programmatic
- *             access, see <a href="https://docs.aws.amazon.com/athena/latest/ug/setting-up.html#setting-up-grant-programmatic-access">Grant
- *                 programmatic access</a>.</p>
+ * Gets an authentication token and the URL at which the notebook can be accessed. During programmatic access, `CreatePresignedNotebookUrl` must be called every 10 minutes to refresh the authentication token. For information about granting programmatic access, see [Grant programmatic access](https://docs.aws.amazon.com/athena/latest/ug/setting-up.html#setting-up-grant-programmatic-access).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,19 +53,20 @@ export interface CreatePresignedNotebookUrlCommandOutput extends CreatePresigned
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Indicates a platform issue, which may be due to a transient condition or
- *             outage.</p>
+ *
+ * Indicates a platform issue, which may be due to a transient condition or outage.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Indicates that something is wrong with the input to the request. For example, a
- *             required parameter may be missing or out of range.</p>
+ *
+ * Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A resource, such as a workgroup, was not found.</p>
+ *
+ * A resource, such as a workgroup, was not found.
  *
  * @throws {@link AthenaServiceException}
- * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * Base exception class for all service exceptions from Athena service.
  *
  * @public
  */

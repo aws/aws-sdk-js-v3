@@ -23,13 +23,10 @@ export interface RebootDBInstanceCommandInput extends RebootDBInstanceMessage {}
 export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, __MetadataBearer {}
 
 /**
- * <p>You might need to reboot your instance, usually for maintenance reasons. For
- *             example, if you make certain changes, or if you change the cluster parameter group
- *             that is associated with the instance, you must reboot the instance for the changes to
- *             take effect. </p>
- *          <p>Rebooting an instance restarts the database engine service. Rebooting an instance
- *             results in a momentary outage, during which the instance status is set to
- *                 <i>rebooting</i>. </p>
+ * You might need to reboot your instance, usually for maintenance reasons. For example, if you make certain changes, or if you change the cluster parameter group that is associated with the instance, you must reboot the instance for the changes to take effect.
+ *
+ * Rebooting an instance restarts the database engine service. Rebooting an instance results in a momentary outage, during which the instance status is set to *rebooting*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -149,16 +146,16 @@ export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, _
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p>
- *             <code>DBInstanceIdentifier</code> doesn't refer to an existing instance. </p>
+ *
+ * `DBInstanceIdentifier` doesn't refer to an existing instance.
  *
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
- *  <p> The specified instance isn't in the <i>available</i> state.
- *         </p>
+ *
+ * The specified instance isn't in the *available* state.
  *
  * @throws {@link DocDBServiceException}
- * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * Base exception class for all service exceptions from DocDB service.
  *
  * @public
  */

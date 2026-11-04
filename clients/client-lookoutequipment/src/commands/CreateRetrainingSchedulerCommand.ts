@@ -23,7 +23,8 @@ export interface CreateRetrainingSchedulerCommandInput extends CreateRetrainingS
 export interface CreateRetrainingSchedulerCommandOutput extends CreateRetrainingSchedulerResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a retraining scheduler on the specified model. </p>
+ * Creates a retraining scheduler on the specified model.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,31 +58,32 @@ export interface CreateRetrainingSchedulerCommandOutput extends CreateRetraining
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request could not be completed because you do not have access to the resource.
- *       </p>
+ *
+ * The request could not be completed because you do not have access to the resource.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p> The request could not be completed due to a conflict with the current state of the
- *          target resource. </p>
+ *
+ * The request could not be completed due to a conflict with the current state of the target resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> Processing of the request has failed because of an unknown error, exception or failure.
- *       </p>
+ *
+ * Processing of the request has failed because of an unknown error, exception or failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The resource requested could not be found. Verify the resource ID and retry your
- *          request. </p>
+ *
+ * The resource requested could not be found. Verify the resource ID and retry your request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services
- *          service that's being utilized. </p>
+ *
+ * The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized.
  *
  * @throws {@link LookoutEquipmentServiceException}
- * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * Base exception class for all service exceptions from LookoutEquipment service.
  *
  * @example Creates a retraining scheduler with a specific start date
  * ```javascript

@@ -23,7 +23,8 @@ export interface CreateAIGuardrailCommandInput extends CreateAIGuardrailRequest 
 export interface CreateAIGuardrailCommandOutput extends CreateAIGuardrailResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon Q in Connect AI Guardrail.</p>
+ * Creates an Amazon Q in Connect AI Guardrail.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -188,29 +189,36 @@ export interface CreateAIGuardrailCommandOutput extends CreateAIGuardrailRespons
  * @see {@link QConnectClientResolvedConfig | config} for QConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of conflict in the current state of the resource. For example, if you're using a <code>Create</code> API (such as <code>CreateAssistant</code>) that accepts name, a conflicting resource (usually with the same name) is being created or mutated.</p>
+ *
+ * The request could not be processed because of conflict in the current state of the resource. For example, if you're using a `Create` API (such as `CreateAssistant`) that accepts name, a conflicting resource (usually with the same name) is being created or mutated.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You've exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use service quotas to request a service quota increase.</p>
+ *
+ * You've exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use service quotas to request a service quota increase.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>You do not have permission to perform this action.</p>
+ *
+ * You do not have permission to perform this action.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by a service.</p>
+ *
+ * The input fails to satisfy the constraints specified by a service.
  *
  * @throws {@link QConnectServiceException}
- * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ * Base exception class for all service exceptions from QConnect service.
  *
  * @public
  */

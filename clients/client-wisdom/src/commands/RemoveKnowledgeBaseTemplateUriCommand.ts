@@ -23,7 +23,8 @@ export interface RemoveKnowledgeBaseTemplateUriCommandInput extends RemoveKnowle
 export interface RemoveKnowledgeBaseTemplateUriCommandOutput extends RemoveKnowledgeBaseTemplateUriResponse, __MetadataBearer {}
 
 /**
- * <p>Removes a URI template from a knowledge base.</p>
+ * Removes a URI template from a knowledge base.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,17 +49,20 @@ export interface RemoveKnowledgeBaseTemplateUriCommandOutput extends RemoveKnowl
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by a service.</p>
+ *
+ * The input fails to satisfy the constraints specified by a service.
  *
  * @throws {@link WisdomServiceException}
- * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ * Base exception class for all service exceptions from Wisdom service.
  *
  * @public
  */

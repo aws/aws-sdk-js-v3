@@ -23,7 +23,10 @@ export interface ListOperationEventsCommandInput extends ListOperationEventsInpu
 export interface ListOperationEventsCommandOutput extends ListOperationEventsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of operations events.</p> <p>Available parameters include <code>OperationID</code>, as well as optional parameters <code>MaxResults</code>, <code>NextToken</code>, and <code>Filters</code>.</p>
+ * Returns a list of operations events.
+ *
+ * Available parameters include `OperationID`, as well as optional parameters `MaxResults`, `NextToken`, and `Filters`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,14 +74,16 @@ export interface ListOperationEventsCommandOutput extends ListOperationEventsOut
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error has occurred.</p>
+ *
+ * An internal error has occurred.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service. </p>
+ *
+ * The input fails to satisfy the constraints specified by an AWS service.
  *
  * @throws {@link SsmSapServiceException}
- * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
+ * Base exception class for all service exceptions from SsmSap service.
  *
  * @public
  */

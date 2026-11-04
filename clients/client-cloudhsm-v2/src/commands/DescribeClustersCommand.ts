@@ -23,14 +23,12 @@ export interface DescribeClustersCommandInput extends DescribeClustersRequest {}
 export interface DescribeClustersCommandOutput extends DescribeClustersResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about CloudHSM clusters.</p>
- *          <p>This is a paginated operation, which means that each response might contain only a
- *       subset of all the clusters. When the response contains only a subset of clusters, it includes
- *       a <code>NextToken</code> value. Use this value in a subsequent <code>DescribeClusters</code>
- *       request to get more clusters. When you receive a response with no <code>NextToken</code> (or
- *       an empty or null value), that means there are no more clusters to get.</p>
- *          <p>
- *             <b>Cross-account use:</b> No. You cannot perform this operation on CloudHSM clusters in a different Amazon Web Services account.</p>
+ * Gets information about CloudHSM clusters.
+ *
+ * This is a paginated operation, which means that each response might contain only a subset of all the clusters. When the response contains only a subset of clusters, it includes a `NextToken` value. Use this value in a subsequent `DescribeClusters` request to get more clusters. When you receive a response with no `NextToken` (or an empty or null value), that means there are no more clusters to get.
+ *
+ * **Cross-account use:** No. You cannot perform this operation on CloudHSM clusters in a different Amazon Web Services account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -114,25 +112,28 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  * @see {@link CloudHSMV2ClientResolvedConfig | config} for CloudHSMV2Client's `config` shape.
  *
  * @throws {@link CloudHsmAccessDeniedException} (client fault)
- *  <p>The request was rejected because the requester does not have permission to perform the
- *       requested operation.</p>
+ *
+ * The request was rejected because the requester does not have permission to perform the requested operation.
  *
  * @throws {@link CloudHsmInternalFailureException} (server fault)
- *  <p>The request was rejected because of an CloudHSM internal failure. The request can
- *       be retried.</p>
+ *
+ * The request was rejected because of an CloudHSM internal failure. The request can be retried.
  *
  * @throws {@link CloudHsmInvalidRequestException} (client fault)
- *  <p>The request was rejected because it is not a valid request.</p>
+ *
+ * The request was rejected because it is not a valid request.
  *
  * @throws {@link CloudHsmServiceException} (client fault)
- *  <p>The request was rejected because an error occurred.</p>
+ *
+ * The request was rejected because an error occurred.
  *
  * @throws {@link CloudHsmTagException} (client fault)
- *  <p>The request was rejected because of a tagging failure. Verify the tag conditions in all applicable policies, and then retry the request.</p>
+ *
+ * The request was rejected because of a tagging failure. Verify the tag conditions in all applicable policies, and then retry the request.
  *
  * @throws {@link CloudHSMV2ServiceException}
- * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
+ * Base exception class for all service exceptions from CloudHSMV2 service.
  *
  * @public
  */

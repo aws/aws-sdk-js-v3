@@ -23,10 +23,10 @@ export interface DescribeConfigurationSetCommandInput extends DescribeConfigurat
 export interface DescribeConfigurationSetCommandOutput extends DescribeConfigurationSetResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the details of the specified configuration set. For information about using
- *             configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity.html">Amazon SES Developer
- *             Guide</a>.</p>
- *          <p>You can execute this operation no more than once per second.</p>
+ * Returns the details of the specified configuration set. For information about using configuration sets, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity.html).
+ *
+ * You can execute this operation no more than once per second.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,11 +94,12 @@ export interface DescribeConfigurationSetCommandOutput extends DescribeConfigura
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link ConfigurationSetDoesNotExistException} (client fault)
- *  <p>Indicates that the configuration set does not exist.</p>
+ *
+ * Indicates that the configuration set does not exist.
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @public
  */

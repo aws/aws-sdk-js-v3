@@ -26,7 +26,8 @@ export interface DescribeApplicationFleetAssociationsCommandInput extends Descri
 export interface DescribeApplicationFleetAssociationsCommandOutput extends DescribeApplicationFleetAssociationsResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list that describes one or more application fleet associations. Either ApplicationArn or FleetName must be specified.</p>
+ * Retrieves a list that describes one or more application fleet associations. Either ApplicationArn or FleetName must be specified.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,14 +63,16 @@ export interface DescribeApplicationFleetAssociationsCommandOutput extends Descr
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+ *
+ * Indicates an incorrect combination of parameters, or a missing parameter.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>The attempted operation is not permitted.</p>
+ *
+ * The attempted operation is not permitted.
  *
  * @throws {@link AppStreamServiceException}
- * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * Base exception class for all service exceptions from AppStream service.
  *
  * @public
  */

@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { EC2InstanceConnectServiceException as __BaseException } from "./EC2InstanceConnectServiceException";
 
 /**
- * <p>Either your AWS credentials are not valid or you do not have access to the EC2 instance.</p>
+ * Either your AWS credentials are not valid or you do not have access to the EC2 instance.
+ *
  * @public
  */
 export class AuthException extends __BaseException {
@@ -27,7 +28,8 @@ export class AuthException extends __BaseException {
 }
 
 /**
- * <p>The specified instance was not found.</p>
+ * The specified instance was not found.
+ *
  * @public
  */
 export class EC2InstanceNotFoundException extends __BaseException {
@@ -50,9 +52,8 @@ export class EC2InstanceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Unable to connect because the instance is not in a valid state.
- *             Connecting to a stopped or terminated instance is not supported. If the instance is stopped,
- *             start your instance, and try to connect again.</p>
+ * Unable to connect because the instance is not in a valid state. Connecting to a stopped or terminated instance is not supported. If the instance is stopped, start your instance, and try to connect again.
+ *
  * @public
  */
 export class EC2InstanceStateInvalidException extends __BaseException {
@@ -75,8 +76,8 @@ export class EC2InstanceStateInvalidException extends __BaseException {
 }
 
 /**
- * <p>The instance type is not supported for connecting via the serial console. Only Nitro
- *             instance types are currently supported.</p>
+ * The instance type is not supported for connecting via the serial console. Only Nitro instance types are currently supported.
+ *
  * @public
  */
 export class EC2InstanceTypeInvalidException extends __BaseException {
@@ -99,7 +100,8 @@ export class EC2InstanceTypeInvalidException extends __BaseException {
 }
 
 /**
- * <p>The instance is currently unavailable. Wait a few minutes and try again.</p>
+ * The instance is currently unavailable. Wait a few minutes and try again.
+ *
  * @public
  */
 export class EC2InstanceUnavailableException extends __BaseException {
@@ -122,7 +124,8 @@ export class EC2InstanceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>One of the parameters is not valid.</p>
+ * One of the parameters is not valid.
+ *
  * @public
  */
 export class InvalidArgsException extends __BaseException {
@@ -145,9 +148,8 @@ export class InvalidArgsException extends __BaseException {
 }
 
 /**
- * <p>Your account is not authorized to use the EC2 Serial Console. To authorize your
- *             account, run the EnableSerialConsoleAccess API. For more information, see
- *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableSerialConsoleAccess.html">EnableSerialConsoleAccess</a> in the <i>Amazon EC2 API Reference</i>.</p>
+ * Your account is not authorized to use the EC2 Serial Console. To authorize your account, run the EnableSerialConsoleAccess API. For more information, see [EnableSerialConsoleAccess](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableSerialConsoleAccess.html) in the *Amazon EC2 API Reference*.
+ *
  * @public
  */
 export class SerialConsoleAccessDisabledException extends __BaseException {
@@ -170,7 +172,8 @@ export class SerialConsoleAccessDisabledException extends __BaseException {
 }
 
 /**
- * <p>The instance currently has 1 active serial console session. Only 1 session is supported at a time.</p>
+ * The instance currently has 1 active serial console session. Only 1 session is supported at a time.
+ *
  * @public
  */
 export class SerialConsoleSessionLimitExceededException extends __BaseException {
@@ -193,7 +196,8 @@ export class SerialConsoleSessionLimitExceededException extends __BaseException 
 }
 
 /**
- * <p>Unable to start a serial console session. Please try again.</p>
+ * Unable to start a serial console session. Please try again.
+ *
  * @public
  */
 export class SerialConsoleSessionUnavailableException extends __BaseException {
@@ -216,7 +220,8 @@ export class SerialConsoleSessionUnavailableException extends __BaseException {
 }
 
 /**
- * <p>Your instance's BIOS version is unsupported for serial console connection. Reboot your instance to update its BIOS, and then try again to connect.</p>
+ * Your instance's BIOS version is unsupported for serial console connection. Reboot your instance to update its BIOS, and then try again to connect.
+ *
  * @public
  */
 export class SerialConsoleSessionUnsupportedException extends __BaseException {
@@ -239,7 +244,8 @@ export class SerialConsoleSessionUnsupportedException extends __BaseException {
 }
 
 /**
- * <p>The service encountered an error. Follow the instructions in the error message and try again.</p>
+ * The service encountered an error. Follow the instructions in the error message and try again.
+ *
  * @public
  */
 export class ServiceException extends __BaseException {
@@ -262,8 +268,8 @@ export class ServiceException extends __BaseException {
 }
 
 /**
- * <p>The requests were made too frequently and have been throttled. Wait a while and try again.
- *             To increase the limit on your request frequency, contact AWS Support.</p>
+ * The requests were made too frequently and have been throttled. Wait a while and try again. To increase the limit on your request frequency, contact AWS Support.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {

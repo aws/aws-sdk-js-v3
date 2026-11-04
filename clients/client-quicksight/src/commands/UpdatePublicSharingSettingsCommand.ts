@@ -23,31 +23,21 @@ export interface UpdatePublicSharingSettingsCommandInput extends UpdatePublicSha
 export interface UpdatePublicSharingSettingsCommandOutput extends UpdatePublicSharingSettingsResponse, __MetadataBearer {}
 
 /**
- * <important>
- *             <p>This API controls public sharing settings for your entire Quick Sight account, affecting
- *                 data security and access. When you enable public sharing:</p>
- *             <ul>
- *                <li>
- *                   <p>Dashboards can be shared publicly</p>
- *                </li>
- *                <li>
- *                   <p>This setting affects your entire Amazon Web Services account and all Quick Sight
- *                         users</p>
- *                </li>
- *             </ul>
- *             <p>
- *                <b>Before proceeding:</b> Ensure you understand the
- *                 security implications and have proper IAM permissions
- *                 configured.</p>
- *          </important>
- *          <p>Use the <code>UpdatePublicSharingSettings</code> operation to turn on or turn off the
- *             public sharing settings of an Amazon Quick Sight dashboard.</p>
- *          <p>To use this operation, turn on session capacity pricing for your Amazon Quick Sight
- *             account.</p>
- *          <p>Before you can turn on public sharing on your account, make sure to give public
- *             sharing permissions to an administrative user in the Identity and Access Management (IAM) console. For more information on using IAM with Amazon
- *             Quick Sight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/security_iam_service-with-iam.html">Using Quick with IAM</a> in the <i>Amazon Quick Sight
- *                 User Guide</i>.</p>
+ * > **Important:**
+ * >
+ * > This API controls public sharing settings for your entire Quick Sight account, affecting data security and access. When you enable public sharing:
+ * >
+ * > - Dashboards can be shared publicly
+ * > - This setting affects your entire Amazon Web Services account and all Quick Sight users
+ * >
+ * > **Before proceeding:** Ensure you understand the security implications and have proper IAM permissions configured.
+ *
+ * Use the `UpdatePublicSharingSettings` operation to turn on or turn off the public sharing settings of an Amazon Quick Sight dashboard.
+ *
+ * To use this operation, turn on session capacity pricing for your Amazon Quick Sight account.
+ *
+ * Before you can turn on public sharing on your account, make sure to give public sharing permissions to an administrative user in the Identity and Access Management (IAM) console. For more information on using IAM with Amazon Quick Sight, see [Using Quick with IAM](https://docs.aws.amazon.com/quicksight/latest/user/security_iam_service-with-iam.html) in the *Amazon Quick Sight User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,37 +66,34 @@ export interface UpdatePublicSharingSettingsCommandOutput extends UpdatePublicSh
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have access to this item. The provided credentials couldn't be
- * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
- * 			correct permissions, and that you are using the correct credentials.</p>
+ *
+ * You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An internal failure occurred.</p>
+ *
+ * An internal failure occurred.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more parameters has a value that isn't valid.</p>
+ *
+ * One or more parameters has a value that isn't valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>One or more resources can't be found.</p>
+ *
+ * One or more resources can't be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Access is throttled.</p>
+ *
+ * Access is throttled.
  *
  * @throws {@link UnsupportedPricingPlanException} (client fault)
- *  <p>This error indicates that you are calling an embedding operation in Amazon Quick Sight
- * 			without the required pricing plan on your Amazon Web Services account. Before you can use embedding
- * 			for anonymous users, a Quick Suite administrator needs to add capacity pricing to Quick Sight. You
- * 		    can do this on the <b>Manage Quick Suite</b> page. </p>
- *          <p>After capacity pricing is added, you can use the
- *             <code>
- *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GetDashboardEmbedUrl.html">GetDashboardEmbedUrl</a>
- *             </code> API operation with the
- *             <code>--identity-type ANONYMOUS</code> option.</p>
+ *
+ * This error indicates that you are calling an embedding operation in Amazon Quick Sight without the required pricing plan on your Amazon Web Services account. Before you can use embedding for anonymous users, a Quick Suite administrator needs to add capacity pricing to Quick Sight. You can do this on the **Manage Quick Suite** page.
+ *
+ * After capacity pricing is added, you can use the `GetDashboardEmbedUrl` API operation with the `--identity-type ANONYMOUS` option.
  *
  * @throws {@link QuickSightServiceException}
- * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * Base exception class for all service exceptions from QuickSight service.
  *
  * @public
  */

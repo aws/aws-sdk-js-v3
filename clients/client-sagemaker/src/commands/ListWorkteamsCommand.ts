@@ -23,7 +23,8 @@ export interface ListWorkteamsCommandInput extends ListWorkteamsRequest {}
 export interface ListWorkteamsCommandOutput extends ListWorkteamsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a list of private work teams that you have defined in a region. The list may be empty if no work team satisfies the filter specified in the <code>NameContains</code> parameter.</p>
+ * Gets a list of private work teams that you have defined in a region. The list may be empty if no work team satisfies the filter specified in the `NameContains` parameter.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,8 +94,8 @@ export interface ListWorkteamsCommandOutput extends ListWorkteamsResponse, __Met
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceInpu
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the tags associated with the specified resource</p>
+ * Lists the tags associated with the specified resource
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,8 +53,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @see {@link ConnectHealthClientResolvedConfig | config} for ConnectHealthClient's `config` shape.
  *
  * @throws {@link ConnectHealthServiceException}
- * <p>Base exception class for all service exceptions from ConnectHealth service.</p>
  *
+ * Base exception class for all service exceptions from ConnectHealth service.
  *
  * @public
  */

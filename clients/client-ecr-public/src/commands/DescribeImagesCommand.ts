@@ -23,14 +23,10 @@ export interface DescribeImagesCommandInput extends DescribeImagesRequest {}
 export interface DescribeImagesCommandOutput extends DescribeImagesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns metadata that's related to the images in a repository in a public
- *          registry.</p>
- *          <note>
- *             <p>Beginning with Docker version 1.9, the Docker client compresses image layers before
- *             pushing them to a V2 Docker registry. The output of the <code>docker images</code>
- *             command shows the uncompressed image size. Therefore, it might return a larger image
- *             size than the image sizes that are returned by <a>DescribeImages</a>.</p>
- *          </note>
+ * Returns metadata that's related to the images in a repository in a public registry.
+ *
+ * > **Note:** Beginning with Docker version 1.9, the Docker client compresses image layers before pushing them to a V2 Docker registry. The output of the `docker images` command shows the uncompressed image size. Therefore, it might return a larger image size than the image sizes that are returned by DescribeImages.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,25 +76,28 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResponse, __M
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.
  *
  * @throws {@link ImageNotFoundException} (client fault)
- *  <p>The image requested doesn't exist in the specified repository.</p>
+ *
+ * The image requested doesn't exist in the specified repository.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *          request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link RepositoryNotFoundException} (client fault)
- *  <p>The specified repository can't be found. Check the spelling of the specified repository
- *          and ensure that you're performing operations on the correct registry.</p>
+ *
+ * The specified repository can't be found. Check the spelling of the specified repository and ensure that you're performing operations on the correct registry.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link UnsupportedCommandException} (client fault)
- *  <p>The action isn't supported in this Region.</p>
+ *
+ * The action isn't supported in this Region.
  *
  * @throws {@link ECRPUBLICServiceException}
- * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
+ * Base exception class for all service exceptions from ECRPUBLIC service.
  *
  * @public
  */

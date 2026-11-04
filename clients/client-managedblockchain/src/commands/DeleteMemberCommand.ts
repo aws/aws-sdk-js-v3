@@ -23,8 +23,10 @@ export interface DeleteMemberCommandInput extends DeleteMemberInput {}
 export interface DeleteMemberCommandOutput extends DeleteMemberOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes a member. Deleting a member removes the member and all associated resources from the network. <code>DeleteMember</code> can only be called for a specified <code>MemberId</code> if the principal performing the action is associated with the Amazon Web Services account that owns the member. In all other cases, the <code>DeleteMember</code> action is carried out as the result of an approved proposal to remove a member. If <code>MemberId</code> is the last member in a network specified by the last Amazon Web Services account, the network is deleted also.</p>
- *          <p>Applies only to Hyperledger Fabric.</p>
+ * Deletes a member. Deleting a member removes the member and all associated resources from the network. `DeleteMember` can only be called for a specified `MemberId` if the principal performing the action is associated with the Amazon Web Services account that owns the member. In all other cases, the `DeleteMember` action is carried out as the result of an approved proposal to remove a member. If `MemberId` is the last member in a network specified by the last Amazon Web Services account, the network is deleted also.
+ *
+ * Applies only to Hyperledger Fabric.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,29 +52,32 @@ export interface DeleteMemberCommandOutput extends DeleteMemberOutput, __Metadat
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * You don't have sufficient access to perform this action.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+ *
+ * The action or operation requested is invalid. Verify that the action is typed correctly.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A requested resource doesn't exist. It may have been deleted or referenced incorrectly.</p>
+ *
+ * A requested resource doesn't exist. It may have been deleted or referenced incorrectly.
  *
  * @throws {@link ResourceNotReadyException} (client fault)
- *  <p>The requested resource exists but isn't in a status that can complete the operation.</p>
+ *
+ * The requested resource exists but isn't in a status that can complete the operation.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request or operation couldn't be performed because a service is
- *          throttling requests. The most common source of throttling errors is
- *          creating resources that exceed your service limit for this resource type.
- *          Request a limit increase or delete unused resources if possible.</p>
+ *
+ * The request or operation couldn't be performed because a service is throttling requests. The most common source of throttling errors is creating resources that exceed your service limit for this resource type. Request a limit increase or delete unused resources if possible.
  *
  * @throws {@link ManagedBlockchainServiceException}
- * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ * Base exception class for all service exceptions from ManagedBlockchain service.
  *
  * @public
  */

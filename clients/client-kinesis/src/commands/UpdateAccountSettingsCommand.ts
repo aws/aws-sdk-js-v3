@@ -23,19 +23,15 @@ export interface UpdateAccountSettingsCommandInput extends UpdateAccountSettings
 export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSettingsOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the account-level settings for Amazon Kinesis Data Streams.</p>
- *          <p>Updating account settings is a synchronous operation. Upon receiving the request, Kinesis Data Streams will return immediately with your account’s updated settings.</p>
- *          <p>
- *             <b>API limits</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>Certain account configurations have minimum commitment windows. Attempting to update your settings prior to the end of the minimum commitment window might have certain restrictions.</p>
- *             </li>
- *             <li>
- *                <p>This API has a call limit of 5 transactions per second (TPS) for each Amazon Web Services account. TPS over 5 will initiate the <code>LimitExceededException</code>.</p>
- *             </li>
- *          </ul>
+ * Updates the account-level settings for Amazon Kinesis Data Streams.
+ *
+ * Updating account settings is a synchronous operation. Upon receiving the request, Kinesis Data Streams will return immediately with your account’s updated settings.
+ *
+ * **API limits**
+ *
+ * - Certain account configurations have minimum commitment windows. Attempting to update your settings prior to the end of the minimum commitment window might have certain restrictions.
+ * - This API has a call limit of 5 transactions per second (TPS) for each Amazon Web Services account. TPS over 5 will initiate the `LimitExceededException`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,21 +65,20 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
- *             For more information, see the returned message.</p>
+ *
+ * A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
- *             stream requests exceeds the maximum number allowed. </p>
+ *
+ * The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Specifies that you tried to invoke this API for a data stream with the on-demand
- *             capacity mode. This API is only supported for data streams with the provisioned capacity
- *             mode. </p>
+ *
+ * Specifies that you tried to invoke this API for a data stream with the on-demand capacity mode. This API is only supported for data streams with the provisioned capacity mode.
  *
  * @throws {@link KinesisServiceException}
- * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * Base exception class for all service exceptions from Kinesis service.
  *
  * @public
  */

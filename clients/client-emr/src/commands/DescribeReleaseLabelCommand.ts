@@ -23,9 +23,8 @@ export interface DescribeReleaseLabelCommandInput extends DescribeReleaseLabelIn
 export interface DescribeReleaseLabelCommandOutput extends DescribeReleaseLabelOutput, __MetadataBearer {}
 
 /**
- * <p>Provides Amazon EMR release label details, such as the releases available the
- *          Region where the API request is run, and the available applications for a specific Amazon EMR release label. Can also list Amazon EMR releases that support a
- *          specified version of Spark.</p>
+ * Provides Amazon EMR release label details, such as the releases available the Region where the API request is run, and the available applications for a specific Amazon EMR release label. Can also list Amazon EMR releases that support a specified version of Spark.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,15 +65,16 @@ export interface DescribeReleaseLabelCommandOutput extends DescribeReleaseLabelO
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Amazon EMR
- *          service.</p>
+ *
+ * This exception occurs when there is an internal failure in the Amazon EMR service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>This exception occurs when there is something wrong with user input.</p>
+ *
+ * This exception occurs when there is something wrong with user input.
  *
  * @throws {@link EMRServiceException}
- * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * Base exception class for all service exceptions from EMR service.
  *
  * @public
  */

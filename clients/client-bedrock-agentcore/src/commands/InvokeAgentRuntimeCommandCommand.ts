@@ -23,7 +23,12 @@ export interface InvokeAgentRuntimeCommandCommandInput extends InvokeAgentRuntim
 export interface InvokeAgentRuntimeCommandCommandOutput extends InvokeAgentRuntimeCommandResponse, __MetadataBearer {}
 
 /**
- * <p>Executes a command in a runtime session container and streams the output back to the caller. This operation allows you to run shell commands within the agent runtime environment and receive real-time streaming responses including standard output and standard error.</p> <p>To invoke a command, you must specify the agent runtime ARN and a runtime session ID. The command execution supports streaming responses, allowing you to receive output as it becomes available through <code>contentStart</code>, <code>contentDelta</code>, and <code>contentStop</code> events.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:InvokeAgentRuntimeCommand</code> permission.</p>
+ * Executes a command in a runtime session container and streams the output back to the caller. This operation allows you to run shell commands within the agent runtime environment and receive real-time streaming responses including standard output and standard error.
+ *
+ * To invoke a command, you must specify the agent runtime ARN and a runtime session ID. The command execution supports streaming responses, allowing you to receive output as it becomes available through `contentStart`, `contentDelta`, and `contentStop` events.
+ *
+ * To use this operation, you must have the `bedrock-agentcore:InvokeAgentRuntimeCommand` permission.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -110,32 +115,40 @@ export interface InvokeAgentRuntimeCommandCommandOutput extends InvokeAgentRunti
  * @see {@link BedrockAgentCoreClientResolvedConfig | config} for BedrockAgentCoreClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+ *
+ * The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The exception that occurs when the service encounters an unexpected internal error. This is a temporary condition that will resolve itself with retries. We recommend implementing exponential backoff retry logic in your application.</p>
+ *
+ * The exception that occurs when the service encounters an unexpected internal error. This is a temporary condition that will resolve itself with retries. We recommend implementing exponential backoff retry logic in your application.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+ *
+ * The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.
  *
  * @throws {@link RetryableConflictException} (client fault)
- *  <p>The exception that occurs when there is a retryable conflict performing an operation. This is a temporary condition that may resolve itself with retries. We recommend implementing exponential backoff retry logic in your application.</p>
+ *
+ * The exception that occurs when there is a retryable conflict performing an operation. This is a temporary condition that may resolve itself with retries. We recommend implementing exponential backoff retry logic in your application.
  *
  * @throws {@link RuntimeClientError} (client fault)
- *  <p>The exception that occurs when there is an error in the runtime client. This can happen due to network issues, invalid configuration, or other client-side problems. Check the error message for specific details about the error.</p>
+ *
+ * The exception that occurs when there is an error in the runtime client. This can happen due to network issues, invalid configuration, or other client-side problems. Check the error message for specific details about the error.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
+ *
+ * The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The exception that occurs when the request was denied due to request throttling. This happens when you exceed the allowed request rate for an operation. Reduce the frequency of requests or implement exponential backoff retry logic in your application.</p>
+ *
+ * The exception that occurs when the request was denied due to request throttling. This happens when you exceed the allowed request rate for an operation. Reduce the frequency of requests or implement exponential backoff retry logic in your application.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+ *
+ * The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.
  *
  * @throws {@link BedrockAgentCoreServiceException}
- * <p>Base exception class for all service exceptions from BedrockAgentCore service.</p>
  *
+ * Base exception class for all service exceptions from BedrockAgentCore service.
  *
  * @public
  */

@@ -23,10 +23,10 @@ export interface DescribeTerminationPolicyTypesCommandInput {}
 export interface DescribeTerminationPolicyTypesCommandOutput extends DescribeTerminationPolicyTypesAnswer, __MetadataBearer {}
 
 /**
- * <p>Describes the termination policies supported by Amazon EC2 Auto Scaling.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html">Configure
- *                 termination policies for Amazon EC2 Auto Scaling</a> in the
- *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ * Describes the termination policies supported by Amazon EC2 Auto Scaling.
+ *
+ * For more information, see [Configure termination policies for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html) in the *Amazon EC2 Auto Scaling User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,12 +53,12 @@ export interface DescribeTerminationPolicyTypesCommandOutput extends DescribeTer
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  * @throws {@link ResourceContentionFault} (server fault)
- *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
- *             instance, or load balancer).</p>
+ *
+ * You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).
  *
  * @throws {@link AutoScalingServiceException}
- * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from AutoScaling service.
  *
  * @example To describe termination policy types
  * ```javascript

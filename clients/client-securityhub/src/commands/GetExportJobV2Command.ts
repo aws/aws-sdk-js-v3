@@ -24,8 +24,10 @@ export interface GetExportJobV2CommandInput extends GetExportJobV2Request {}
 export interface GetExportJobV2CommandOutput extends GetExportJobV2Response, __MetadataBearer {}
 
 /**
- * <p>Returns the details of a single findings export job, including its current <code>Status</code>, the <code>Destination</code> it writes to, the <code>OutputConfiguration</code> it was started with, and its <code>StartedAt</code> and <code>EndedAt</code> timestamps. Use this operation to poll an export job that you started with <code>StartExportJobV2</code> until it reaches a terminal state (<code>SUCCEEDED</code>, <code>FAILED</code>, or <code>CANCELLED</code>).</p>
- *          <p>If the job failed, the response includes a <code>FailureCode</code> and <code>FailureMessage</code> that describe the reason. Input values such as <code>Scopes</code> and <code>Filters</code> are echoed back as they were submitted, with relative date ranges returned unresolved. If no export job matches the <code>ExportJobId</code> that you provide, this operation returns a <code>ResourceNotFoundException</code>.</p>
+ * Returns the details of a single findings export job, including its current `Status`, the `Destination` it writes to, the `OutputConfiguration` it was started with, and its `StartedAt` and `EndedAt` timestamps. Use this operation to poll an export job that you started with `StartExportJobV2` until it reaches a terminal state (`SUCCEEDED`, `FAILED`, or `CANCELLED`).
+ *
+ * If the job failed, the response includes a `FailureCode` and `FailureMessage` that describe the reason. Input values such as `Scopes` and `Filters` are echoed back as they were submitted, with relative date ranges returned unresolved. If no export job matches the `ExportJobId` that you provide, this operation returns a `ResourceNotFoundException`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -218,27 +220,28 @@ export interface GetExportJobV2CommandOutput extends GetExportJobV2Response, __M
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permission to perform the action specified in the request.</p>
+ *
+ * You don't have permission to perform the action specified in the request.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>
- *          The request has failed due to an internal failure of the service.
- *       </p>
+ *
+ * The request has failed due to an internal failure of the service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request was rejected because we can't find the specified resource.</p>
+ *
+ * The request was rejected because we can't find the specified resource.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>
- *          The limit on the number of requests per second was exceeded.
- *       </p>
+ *
+ * The limit on the number of requests per second was exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request has failed validation because it's missing required fields or has invalid inputs.</p>
+ *
+ * The request has failed validation because it's missing required fields or has invalid inputs.
  *
  * @throws {@link SecurityHubServiceException}
- * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * Base exception class for all service exceptions from SecurityHub service.
  *
  * @example Example – Getting the details of a failed export job
  * ```javascript

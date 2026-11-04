@@ -23,15 +23,10 @@ export interface ListVolumesCommandInput extends ListVolumesInput {}
 export interface ListVolumesCommandOutput extends ListVolumesOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the iSCSI stored volumes of a gateway. Results are sorted by volume ARN. The
- *          response includes only the volume ARNs. If you want additional volume information, use the
- *             <a>DescribeStorediSCSIVolumes</a> or the <a>DescribeCachediSCSIVolumes</a> API.</p>
- *          <p>The operation supports pagination. By default, the operation returns a maximum of up to
- *          100 volumes. You can optionally specify the <code>Limit</code> field in the body to limit
- *          the number of volumes in the response. If the number of volumes returned in the response is
- *          truncated, the response includes a Marker field. You can use this Marker value in your
- *          subsequent request to retrieve the next set of volumes. This operation is only supported in
- *          the cached volume and stored volume gateway types.</p>
+ * Lists the iSCSI stored volumes of a gateway. Results are sorted by volume ARN. The response includes only the volume ARNs. If you want additional volume information, use the DescribeStorediSCSIVolumes or the DescribeCachediSCSIVolumes API.
+ *
+ * The operation supports pagination. By default, the operation returns a maximum of up to 100 volumes. You can optionally specify the `Limit` field in the body to limit the number of volumes in the response. If the number of volumes returned in the response is truncated, the response includes a Marker field. You can use this Marker value in your subsequent request to retrieve the next set of volumes. This operation is only supported in the cached volume and stored volume gateway types.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,16 +67,16 @@ export interface ListVolumesCommandOutput extends ListVolumesOutput, __MetadataB
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @example To list the iSCSI stored volumes of a gateway
  * ```javascript

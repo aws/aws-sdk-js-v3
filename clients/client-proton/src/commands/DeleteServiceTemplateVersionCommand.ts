@@ -23,15 +23,9 @@ export interface DeleteServiceTemplateVersionCommandInput extends DeleteServiceT
 export interface DeleteServiceTemplateVersionCommandOutput extends DeleteServiceTemplateVersionOutput, __MetadataBearer {}
 
 /**
- * <p>If no other minor versions of a service template exist, delete a major version of the
- *       service template if it's not the <code>Recommended</code> version. Delete the
- *         <code>Recommended</code> version of the service template if no other major versions or minor
- *       versions of the service template exist. A major version of a service template is a version
- *       that <i>isn't</i> backwards compatible.</p>
- *          <p>Delete a minor version of a service template if it's not the <code>Recommended</code>
- *       version. Delete a <code>Recommended</code> minor version of the service template if no other
- *       minor versions of the service template exist. A minor version of a service template is a
- *       version that's backwards compatible.</p>
+ * If no other minor versions of a service template exist, delete a major version of the service template if it's not the `Recommended` version. Delete the `Recommended` version of the service template if no other major versions or minor versions of the service template exist. A major version of a service template is a version that *isn't* backwards compatible.
+ *
+ * Delete a minor version of a service template if it's not the `Recommended` version. Delete a `Recommended` minor version of the service template if no other minor versions of the service template exist. A minor version of a service template is a version that's backwards compatible.
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example
@@ -83,26 +77,32 @@ export interface DeleteServiceTemplateVersionCommandOutput extends DeleteService
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>There <i>isn't</i> sufficient access for performing this action.</p>
+ *
+ * There *isn't* sufficient access for performing this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request <i>couldn't</i> be made due to a conflicting operation or resource.</p>
+ *
+ * The request *couldn't* be made due to a conflicting operation or resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request failed to register with the service.</p>
+ *
+ * The request failed to register with the service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource <i>wasn't</i> found.</p>
+ *
+ * The requested resource *wasn't* found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+ *
+ * The input is invalid or an out-of-range value was supplied for the input parameter.
  *
  * @throws {@link ProtonServiceException}
- * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * Base exception class for all service exceptions from Proton service.
  *
  * @public
  */

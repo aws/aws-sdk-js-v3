@@ -23,44 +23,31 @@ export interface UpdateWebACLCommandInput extends UpdateWebACLRequest {}
 export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the specified <a>WebACL</a>. While updating a web ACL, WAF provides
- *          continuous coverage to the resources that you have associated with the web ACL. </p>
- *          <note>
- *             <p>This operation completely replaces the mutable specifications that you already have for the web ACL with the ones that you provide to this call. </p>
- *             <p>To modify a web ACL, do the following: </p>
- *             <ol>
- *                <li>
- *                   <p>Retrieve it by calling <a>GetWebACL</a>
- *                   </p>
- *                </li>
- *                <li>
- *                   <p>Update its settings as needed</p>
- *                </li>
- *                <li>
- *                   <p>Provide the complete web ACL specification to this call</p>
- *                </li>
- *             </ol>
- *          </note>
- *          <p> A web ACL defines a collection of rules to use to inspect and control web requests. Each rule has a statement that defines what to look for in web requests and an action that WAF applies to requests that match the statement. In the web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a web ACL can be a combination of the types <a>Rule</a>, <a>RuleGroup</a>, and managed rule group. You can associate a web ACL with one or more Amazon Web Services resources to protect. The resource types include Amazon CloudFront distribution, Amazon API Gateway REST API, Application Load Balancer, AppSync GraphQL API, Amazon Cognito user pool, App Runner service, Amplify application, Amazon Web Services Verified Access instance, and Amazon Bedrock AgentCore Gateway.  </p>
- *          <p>
- *             <b>Temporary inconsistencies during updates</b>
- *          </p>
- *          <p>When you create or change a web ACL or other WAF resources, the changes take a small amount of time to propagate to all areas where the resources are stored. The propagation time can be from a few seconds to a number of minutes. </p>
- *          <p>The following are examples of the temporary inconsistencies that you might notice during change propagation: </p>
- *          <ul>
- *             <li>
- *                <p>After you create a web ACL, if you try to associate it with a resource, you might get an exception indicating that the web ACL is unavailable. </p>
- *             </li>
- *             <li>
- *                <p>After you add a rule group to a web ACL, the new rule group rules might be in effect in one area where the web ACL is used and not in another.</p>
- *             </li>
- *             <li>
- *                <p>After you change a rule action setting, you might see the old action in some places and the new action in others. </p>
- *             </li>
- *             <li>
- *                <p>After you add an IP address to an IP set that is in use in a blocking rule, the new address might be blocked in one area while still allowed in another.</p>
- *             </li>
- *          </ul>
+ * Updates the specified WebACL. While updating a web ACL, WAF provides continuous coverage to the resources that you have associated with the web ACL.
+ *
+ * > **Note:**
+ * >
+ * > This operation completely replaces the mutable specifications that you already have for the web ACL with the ones that you provide to this call.
+ * >
+ * > To modify a web ACL, do the following:
+ * >
+ * > 1. Retrieve it by calling GetWebACL
+ * > 2. Update its settings as needed
+ * > 3. Provide the complete web ACL specification to this call
+ *
+ * A web ACL defines a collection of rules to use to inspect and control web requests. Each rule has a statement that defines what to look for in web requests and an action that WAF applies to requests that match the statement. In the web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a web ACL can be a combination of the types Rule, RuleGroup, and managed rule group. You can associate a web ACL with one or more Amazon Web Services resources to protect. The resource types include Amazon CloudFront distribution, Amazon API Gateway REST API, Application Load Balancer, AppSync GraphQL API, Amazon Cognito user pool, App Runner service, Amplify application, Amazon Web Services Verified Access instance, and Amazon Bedrock AgentCore Gateway.
+ *
+ * **Temporary inconsistencies during updates**
+ *
+ * When you create or change a web ACL or other WAF resources, the changes take a small amount of time to propagate to all areas where the resources are stored. The propagation time can be from a few seconds to a number of minutes.
+ *
+ * The following are examples of the temporary inconsistencies that you might notice during change propagation:
+ *
+ * - After you create a web ACL, if you try to associate it with a resource, you might get an exception indicating that the web ACL is unavailable.
+ * - After you add a rule group to a web ACL, the new rule group rules might be in effect in one area where the web ACL is used and not in another.
+ * - After you change a rule action setting, you might see the old action in some places and the new action in others.
+ * - After you add an IP address to an IP set that is in use in a blocking rule, the new address might be blocked in one area while still allowed in another.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -1245,93 +1232,69 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
  *
  * @throws {@link WAFConfigurationWarningException} (client fault)
- *  <p>The operation failed because you are inspecting the web request body, headers, or
- *          cookies without specifying how to handle oversize components. Rules that inspect the body
- *          must either provide an <code>OversizeHandling</code> configuration or they must be preceded
- *          by a <code>SizeConstraintStatement</code> that blocks the body content from being too
- *          large. Rules that inspect the headers or cookies must provide an
- *             <code>OversizeHandling</code> configuration. </p>
- *          <p>Provide the handling configuration and retry your operation.</p>
- *          <p>Alternately, you can suppress this warning by adding the following tag to the resource
- *          that you provide to this operation: <code>Tag</code>
- *             (key:<code>WAF:OversizeFieldsHandlingConstraintOptOut</code>,
- *          value:<code>true</code>).</p>
+ *
+ * The operation failed because you are inspecting the web request body, headers, or cookies without specifying how to handle oversize components. Rules that inspect the body must either provide an `OversizeHandling` configuration or they must be preceded by a `SizeConstraintStatement` that blocks the body content from being too large. Rules that inspect the headers or cookies must provide an `OversizeHandling` configuration.
+ *
+ * Provide the handling configuration and retry your operation.
+ *
+ * Alternately, you can suppress this warning by adding the following tag to the resource that you provide to this operation: `Tag` (key:`WAF:OversizeFieldsHandlingConstraintOptOut`, value:`true`).
  *
  * @throws {@link WAFDuplicateItemException} (client fault)
- *  <p>WAF couldn’t perform the operation because the resource that you tried to save is
- *          a duplicate of an existing one.</p>
+ *
+ * WAF couldn’t perform the operation because the resource that you tried to save is a duplicate of an existing one.
  *
  * @throws {@link WAFExpiredManagedRuleGroupVersionException} (client fault)
- *  <p>The operation failed because the specified version for the managed rule group has
- *          expired. You can retrieve the available versions for the managed rule group by calling
- *             <a>ListAvailableManagedRuleGroupVersions</a>.</p>
+ *
+ * The operation failed because the specified version for the managed rule group has expired. You can retrieve the available versions for the managed rule group by calling ListAvailableManagedRuleGroupVersions.
  *
  * @throws {@link WAFFeatureNotIncludedInPricingPlanException} (client fault)
- *  <p>The operation failed because the specified WAF feature isn't supported by the CloudFront pricing plan associated with the web ACL.</p>
+ *
+ * The operation failed because the specified WAF feature isn't supported by the CloudFront pricing plan associated with the web ACL.
  *
  * @throws {@link WAFInternalErrorException} (server fault)
- *  <p>Your request is valid, but WAF couldn’t perform the operation because of a system
- *          problem. Retry your request. </p>
+ *
+ * Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request.
  *
  * @throws {@link WAFInvalidOperationException} (client fault)
- *  <p>The operation isn't valid. </p>
+ *
+ * The operation isn't valid.
  *
  * @throws {@link WAFInvalidParameterException} (client fault)
- *  <p>The operation failed because WAF didn't recognize a parameter in the request. For
- *          example: </p>
- *          <ul>
- *             <li>
- *                <p>You specified a parameter name or value that isn't valid.</p>
- *             </li>
- *             <li>
- *                <p>Your nested statement isn't valid. You might have tried to nest a statement that
- *                can’t be nested. </p>
- *             </li>
- *             <li>
- *                <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that
- *                isn't among the types available at <a>DefaultAction</a>.</p>
- *             </li>
- *             <li>
- *                <p>Your request references an ARN that is malformed, or corresponds to a resource
- *                with which a web ACL can't be associated.</p>
- *             </li>
- *          </ul>
+ *
+ * The operation failed because WAF didn't recognize a parameter in the request. For example:
+ *
+ * - You specified a parameter name or value that isn't valid.
+ * - Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested.
+ * - You tried to update a `WebACL` with a `DefaultAction` that isn't among the types available at DefaultAction.
+ * - Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.
  *
  * @throws {@link WAFInvalidResourceException} (client fault)
- *  <p>WAF couldn’t perform the operation because the resource that you requested isn’t
- *          valid. Check the resource, and try again.</p>
+ *
+ * WAF couldn’t perform the operation because the resource that you requested isn’t valid. Check the resource, and try again.
  *
  * @throws {@link WAFLimitsExceededException} (client fault)
- *  <p>WAF couldn’t perform the operation because you exceeded your resource limit. For
- *          example, the maximum number of <code>WebACL</code> objects that you can create for an Amazon Web Services
- *          account. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF quotas</a> in the
- *             <i>WAF Developer Guide</i>.</p>
+ *
+ * WAF couldn’t perform the operation because you exceeded your resource limit. For example, the maximum number of `WebACL` objects that you can create for an Amazon Web Services account. For more information, see [WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the *WAF Developer Guide*.
  *
  * @throws {@link WAFNonexistentItemException} (client fault)
- *  <p>WAF couldn’t perform the operation because your resource doesn't exist.
- *        If you've just created a resource that you're using in this operation, you might
- *        just need to wait a few minutes. It can take from a few seconds to a number of minutes
- *        for changes to propagate. </p>
+ *
+ * WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate.
  *
  * @throws {@link WAFOptimisticLockException} (client fault)
- *  <p>WAF couldn’t save your changes because you tried to update or delete a resource
- *          that has changed since you last retrieved it. Get the resource again, make any changes you
- *          need to make to the new copy, and retry your operation. </p>
+ *
+ * WAF couldn’t save your changes because you tried to update or delete a resource that has changed since you last retrieved it. Get the resource again, make any changes you need to make to the new copy, and retry your operation.
  *
  * @throws {@link WAFSubscriptionNotFoundException} (client fault)
- *  <p>You tried to use a managed rule group that's available by subscription, but you aren't
- *          subscribed to it yet. </p>
+ *
+ * You tried to use a managed rule group that's available by subscription, but you aren't subscribed to it yet.
  *
  * @throws {@link WAFUnavailableEntityException} (client fault)
- *  <p>WAF couldn’t retrieve a resource that you specified for this operation.
- *        If you've just created a resource that you're using in this operation, you might
- *        just need to wait a few minutes. It can take from a few seconds to a number of minutes
- *        for changes to propagate. Verify the resource specifications in your request
- *        parameters and then retry the operation.</p>
+ *
+ * WAF couldn’t retrieve a resource that you specified for this operation. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. Verify the resource specifications in your request parameters and then retry the operation.
  *
  * @throws {@link WAFV2ServiceException}
- * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * Base exception class for all service exceptions from WAFV2 service.
  *
  * @public
  */

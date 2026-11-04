@@ -23,7 +23,12 @@ export interface DescribeDBCapacityReservationsCommandInput extends DescribeDBCa
 export interface DescribeDBCapacityReservationsCommandOutput extends DescribeDBCapacityReservationsResponse, __MetadataBearer {}
 
 /**
- * <p>Describes one or more DB capacity reservations. A DB capacity reservation reserves capacity for Amazon RDS DB instances in one or more Availability Zones.</p> <p>If you don't specify a <code>DBCapacityReservationIdentifier</code>, this operation returns information about all DB capacity reservations for your Amazon Web Services account.</p> <p>This operation supports pagination.</p>
+ * Describes one or more DB capacity reservations. A DB capacity reservation reserves capacity for Amazon RDS DB instances in one or more Availability Zones.
+ *
+ * If you don't specify a `DBCapacityReservationIdentifier`, this operation returns information about all DB capacity reservations for your Amazon Web Services account.
+ *
+ * This operation supports pagination.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,11 +96,12 @@ export interface DescribeDBCapacityReservationsCommandOutput extends DescribeDBC
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBCapacityReservationNotFoundFault} (client fault)
- *  <p> <code>DBCapacityReservationIdentifier</code> doesn't refer to an existing DB capacity reservation.</p>
+ *
+ * `DBCapacityReservationIdentifier` doesn't refer to an existing DB capacity reservation.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To describe a DB capacity reservation
  * ```javascript

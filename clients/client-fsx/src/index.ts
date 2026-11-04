@@ -1,8 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>Amazon FSx is a fully managed service that makes it easy for storage and
- *             application administrators to launch and use shared file storage.</p>
+ * Amazon FSx is a fully managed service that makes it easy for storage and application administrators to launch and use shared file storage.
  *
  * @packageDocumentation
  */

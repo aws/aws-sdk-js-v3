@@ -23,66 +23,32 @@ export interface CreateDatasetCommandInput extends CreateDatasetRequest {}
 export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an empty dataset and adds it to the specified dataset group.
- *       Use <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html">CreateDatasetImportJob</a> to import your training data to a
- *       dataset.</p>
- *          <p>There are 5 types of datasets:</p>
- *          <ul>
- *             <li>
- *                <p>Item interactions</p>
- *             </li>
- *             <li>
- *                <p>Items</p>
- *             </li>
- *             <li>
- *                <p>Users</p>
- *             </li>
- *             <li>
- *                <p>Action interactions</p>
- *             </li>
- *             <li>
- *                <p>Actions</p>
- *             </li>
- *          </ul>
- *          <p>Each dataset type has an associated schema with required field types.
- *       Only the <code>Item interactions</code> dataset is required in order to train a
- *       model (also referred to as creating a solution).</p>
- *          <p>A dataset can be in one of the following states:</p>
- *          <ul>
- *             <li>
- *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE
- *           FAILED</p>
- *             </li>
- *             <li>
- *                <p>DELETE PENDING > DELETE IN_PROGRESS</p>
- *             </li>
- *          </ul>
- *          <p>To get the status of the dataset, call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataset.html">DescribeDataset</a>.</p>
- *          <p class="title">
- *             <b>Related APIs</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html">CreateDatasetGroup</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListDatasets.html">ListDatasets</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataset.html">DescribeDataset</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteDataset.html">DeleteDataset</a>
- *                </p>
- *             </li>
- *          </ul>
+ * Creates an empty dataset and adds it to the specified dataset group. Use [CreateDatasetImportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html) to import your training data to a dataset.
+ *
+ * There are 5 types of datasets:
+ *
+ * - Item interactions
+ * - Items
+ * - Users
+ * - Action interactions
+ * - Actions
+ *
+ * Each dataset type has an associated schema with required field types. Only the `Item interactions` dataset is required in order to train a model (also referred to as creating a solution).
+ *
+ * A dataset can be in one of the following states:
+ *
+ * - CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
+ * - DELETE PENDING > DELETE IN_PROGRESS
+ *
+ * To get the status of the dataset, call [DescribeDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataset.html).
+ *
+ * **Related APIs**
+ *
+ * - [CreateDatasetGroup](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html)
+ * - [ListDatasets](https://docs.aws.amazon.com/personalize/latest/dg/API_ListDatasets.html)
+ * - [DescribeDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataset.html)
+ * - [DeleteDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteDataset.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -118,26 +84,32 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * Provide a valid value for the field or parameter.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The limit on the number of requests per second has been exceeded.</p>
+ *
+ * The limit on the number of requests per second has been exceeded.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>The specified resource already exists.</p>
+ *
+ * The specified resource already exists.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is in use.</p>
+ *
+ * The specified resource is in use.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Could not find the specified resource.</p>
+ *
+ * Could not find the specified resource.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
+ *
+ * You have exceeded the maximum number of tags you can apply to this resource.
  *
  * @throws {@link PersonalizeServiceException}
- * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * Base exception class for all service exceptions from Personalize service.
  *
  * @public
  */

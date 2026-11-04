@@ -26,7 +26,8 @@ export interface ListBillScenarioCommitmentModificationsCommandInput extends Lis
 export interface ListBillScenarioCommitmentModificationsCommandOutput extends ListBillScenarioCommitmentModificationsResponse, __MetadataBearer {}
 
 /**
- * <p> Lists the commitment modifications associated with a bill scenario. </p>
+ * Lists the commitment modifications associated with a bill scenario.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,26 +79,32 @@ export interface ListBillScenarioCommitmentModificationsCommandOutput extends Li
  * @see {@link BCMPricingCalculatorClientResolvedConfig | config} for BCMPricingCalculatorClient's `config` shape.
  *
  * @throws {@link DataUnavailableException} (client fault)
- *  <p> The requested data is currently unavailable. </p>
+ *
+ * The requested data is currently unavailable.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The specified resource was not found. </p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p> You do not have sufficient access to perform this action. </p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> An internal error has occurred. Retry your request, but if the problem persists, contact Amazon Web Services support. </p>
+ *
+ * An internal error has occurred. Retry your request, but if the problem persists, contact Amazon Web Services support.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p> The request was denied due to request throttling. </p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> The input provided fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+ *
+ * The input provided fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link BCMPricingCalculatorServiceException}
- * <p>Base exception class for all service exceptions from BCMPricingCalculator service.</p>
  *
+ * Base exception class for all service exceptions from BCMPricingCalculator service.
  *
  * @public
  */

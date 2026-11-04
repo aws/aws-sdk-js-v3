@@ -23,7 +23,8 @@ export interface StopDurableExecutionCommandInput extends StopDurableExecutionRe
 export interface StopDurableExecutionCommandOutput extends StopDurableExecutionResponse, __MetadataBearer {}
 
 /**
- * <p>Stops a running <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html">durable execution</a>. The execution transitions to STOPPED status and cannot be resumed. Any in-progress operations are terminated.</p>
+ * Stops a running [durable execution](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html). The execution transitions to STOPPED status and cannot be resumed. Any in-progress operations are terminated.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,32 +59,40 @@ export interface StopDurableExecutionCommandOutput extends StopDurableExecutionR
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One of the parameters in the request is not valid.</p>
+ *
+ * One of the parameters in the request is not valid.
  *
  * @throws {@link KMSAccessDeniedException} (server fault)
- *  <p>Lambda couldn't decrypt the environment variables because KMS access was denied. Check the Lambda function's KMS permissions.</p>
+ *
+ * Lambda couldn't decrypt the environment variables because KMS access was denied. Check the Lambda function's KMS permissions.
  *
  * @throws {@link KMSDisabledException} (server fault)
- *  <p>Lambda couldn't decrypt the environment variables because the KMS key used is disabled. Check the Lambda function's KMS key settings.</p>
+ *
+ * Lambda couldn't decrypt the environment variables because the KMS key used is disabled. Check the Lambda function's KMS key settings.
  *
  * @throws {@link KMSInvalidStateException} (server fault)
- *  <p>Lambda couldn't decrypt the environment variables because the state of the KMS key used is not valid for Decrypt. Check the function's KMS key settings.</p>
+ *
+ * Lambda couldn't decrypt the environment variables because the state of the KMS key used is not valid for Decrypt. Check the function's KMS key settings.
  *
  * @throws {@link KMSNotFoundException} (server fault)
- *  <p>Lambda couldn't decrypt the environment variables because the KMS key was not found. Check the function's KMS key settings.</p>
+ *
+ * Lambda couldn't decrypt the environment variables because the KMS key was not found. Check the function's KMS key settings.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource specified in the request does not exist.</p>
+ *
+ * The resource specified in the request does not exist.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>The Lambda service encountered an internal error.</p>
+ *
+ * The Lambda service encountered an internal error.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
+ *
+ * The request throughput limit was exceeded. For more information, see [Lambda quotas](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests).
  *
  * @throws {@link LambdaServiceException}
- * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * Base exception class for all service exceptions from Lambda service.
  *
  * @public
  */

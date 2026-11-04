@@ -23,16 +23,13 @@ export interface UpdateConnectionCommandInput extends UpdateConnectionRequest {}
 export interface UpdateConnectionCommandOutput extends Connection, __MetadataBearer {}
 
 /**
- * <p>Updates the Direct Connect connection configuration.</p>
- *          <p>You can update the following parameters for a connection:</p>
- *          <ul>
- *             <li>
- *                <p>The connection name</p>
- *             </li>
- *             <li>
- *                <p>The connection's MAC Security (MACsec) encryption mode.</p>
- *             </li>
- *          </ul>
+ * Updates the Direct Connect connection configuration.
+ *
+ * You can update the following parameters for a connection:
+ *
+ * - The connection name
+ * - The connection's MAC Security (MACsec) encryption mode.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -106,14 +103,16 @@ export interface UpdateConnectionCommandOutput extends Connection, __MetadataBea
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  * @throws {@link DirectConnectClientException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link DirectConnectServerException} (server fault)
- *  <p>A server-side error occurred.</p>
+ *
+ * A server-side error occurred.
  *
  * @throws {@link DirectConnectServiceException}
- * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * Base exception class for all service exceptions from DirectConnect service.
  *
  * @public
  */

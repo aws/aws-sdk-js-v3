@@ -23,7 +23,10 @@ export interface PutAuthPolicyCommandInput extends PutAuthPolicyRequest {}
 export interface PutAuthPolicyCommandOutput extends PutAuthPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates or updates the auth policy. The policy string in JSON must not contain newlines or blank lines.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/auth-policies.html">Auth policies</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
+ * Creates or updates the auth policy. The policy string in JSON must not contain newlines or blank lines.
+ *
+ * For more information, see [Auth policies](https://docs.aws.amazon.com/vpc-lattice/latest/ug/auth-policies.html) in the *Amazon VPC Lattice User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,23 +55,28 @@ export interface PutAuthPolicyCommandOutput extends PutAuthPolicyResponse, __Met
  * @see {@link VPCLatticeClientResolvedConfig | config} for VPCLatticeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The user does not have sufficient access to perform this action.</p>
+ *
+ * The user does not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred while processing the request.</p>
+ *
+ * An unexpected error occurred while processing the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request references a resource that does not exist.</p>
+ *
+ * The request references a resource that does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The limit on the number of requests per second was exceeded.</p>
+ *
+ * The limit on the number of requests per second was exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input does not satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link VPCLatticeServiceException}
- * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * Base exception class for all service exceptions from VPCLattice service.
  *
  * @public
  */

@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { IvsServiceException as __BaseException } from "./IvsServiceException";
 
 /**
- * <p>User does not have sufficient access to perform this action.</p>
+ * User does not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -12,55 +13,48 @@ export class AccessDeniedException extends __BaseException {
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p/>
    * @public
    */
   accessControlAllowOrigin?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   accessControlExposeHeaders?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   cacheControl?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   contentSecurityPolicy?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   strictTransportSecurity?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   xContentTypeOptions?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   xFrameOptions?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   xAmznErrorType?: string | undefined;
 
   /**
-   * <p>User does not have sufficient access to perform this action.</p>
+   * User does not have sufficient access to perform this action.
+   *
    * @public
    */
   exceptionMessage?: string | undefined;
@@ -87,7 +81,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The service is temporarily unavailable.</p>
+ * The service is temporarily unavailable.
+ *
  * @public
  */
 export class ServiceUnavailable extends __BaseException {
@@ -95,55 +90,48 @@ export class ServiceUnavailable extends __BaseException {
   readonly name = "ServiceUnavailable" as const;
   readonly $fault = "server" as const;
   /**
-   * <p/>
    * @public
    */
   accessControlAllowOrigin?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   accessControlExposeHeaders?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   cacheControl?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   contentSecurityPolicy?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   strictTransportSecurity?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   xContentTypeOptions?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   xFrameOptions?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   xAmznErrorType?: string | undefined;
 
   /**
-   * <p>The service is temporarily unavailable.</p>
+   * The service is temporarily unavailable.
+   *
    * @public
    */
   exceptionMessage?: string | undefined;
@@ -170,7 +158,8 @@ export class ServiceUnavailable extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -178,55 +167,48 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p/>
    * @public
    */
   accessControlAllowOrigin?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   accessControlExposeHeaders?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   cacheControl?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   contentSecurityPolicy?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   strictTransportSecurity?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   xContentTypeOptions?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   xFrameOptions?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   xAmznErrorType?: string | undefined;
 
   /**
-   * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+   * The input fails to satisfy the constraints specified by an Amazon Web Services service.
+   *
    * @public
    */
   exceptionMessage?: string | undefined;
@@ -253,7 +235,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>Your account is pending verification.</p>
+ * Your account is pending verification.
+ *
  * @public
  */
 export class PendingVerification extends __BaseException {
@@ -261,55 +244,48 @@ export class PendingVerification extends __BaseException {
   readonly name = "PendingVerification" as const;
   readonly $fault = "client" as const;
   /**
-   * <p/>
    * @public
    */
   accessControlAllowOrigin?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   accessControlExposeHeaders?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   cacheControl?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   contentSecurityPolicy?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   strictTransportSecurity?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   xContentTypeOptions?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   xFrameOptions?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   xAmznErrorType?: string | undefined;
 
   /**
-   * <p> Your account is pending verification. </p>
+   * Your account is pending verification.
+   *
    * @public
    */
   exceptionMessage?: string | undefined;
@@ -336,7 +312,8 @@ export class PendingVerification extends __BaseException {
 }
 
 /**
- * <p>Request was denied due to request throttling.</p>
+ * Request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -344,55 +321,48 @@ export class ThrottlingException extends __BaseException {
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p/>
    * @public
    */
   accessControlAllowOrigin?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   accessControlExposeHeaders?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   cacheControl?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   contentSecurityPolicy?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   strictTransportSecurity?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   xContentTypeOptions?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   xFrameOptions?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   xAmznErrorType?: string | undefined;
 
   /**
-   * <p>Request was denied due to request throttling.</p>
+   * Request was denied due to request throttling.
+   *
    * @public
    */
   exceptionMessage?: string | undefined;
@@ -419,7 +389,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ * Updating or deleting a resource can cause an inconsistent state.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -427,55 +398,48 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p/>
    * @public
    */
   accessControlAllowOrigin?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   accessControlExposeHeaders?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   cacheControl?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   contentSecurityPolicy?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   strictTransportSecurity?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   xContentTypeOptions?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   xFrameOptions?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   xAmznErrorType?: string | undefined;
 
   /**
-   * <p>Updating or deleting a resource can cause an inconsistent state.</p>
+   * Updating or deleting a resource can cause an inconsistent state.
+   *
    * @public
    */
   exceptionMessage?: string | undefined;
@@ -502,7 +466,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>Unexpected error during processing of request.</p>
+ * Unexpected error during processing of request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -510,55 +475,48 @@ export class InternalServerException extends __BaseException {
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p/>
    * @public
    */
   accessControlAllowOrigin?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   accessControlExposeHeaders?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   cacheControl?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   contentSecurityPolicy?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   strictTransportSecurity?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   xContentTypeOptions?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   xFrameOptions?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   xAmznErrorType?: string | undefined;
 
   /**
-   * <p>Unexpected error during processing of request.</p>
+   * Unexpected error during processing of request.
+   *
    * @public
    */
   exceptionMessage?: string | undefined;
@@ -585,7 +543,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>Request references a resource which does not exist.</p>
+ * Request references a resource which does not exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -593,55 +552,48 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p/>
    * @public
    */
   accessControlAllowOrigin?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   accessControlExposeHeaders?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   cacheControl?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   contentSecurityPolicy?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   strictTransportSecurity?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   xContentTypeOptions?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   xFrameOptions?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   xAmznErrorType?: string | undefined;
 
   /**
-   * <p>Request references a resource which does not exist.</p>
+   * Request references a resource which does not exist.
+   *
    * @public
    */
   exceptionMessage?: string | undefined;
@@ -668,7 +620,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Request would cause a service quota to be exceeded.</p>
+ * Request would cause a service quota to be exceeded.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -676,55 +629,48 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p/>
    * @public
    */
   accessControlAllowOrigin?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   accessControlExposeHeaders?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   cacheControl?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   contentSecurityPolicy?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   strictTransportSecurity?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   xContentTypeOptions?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   xFrameOptions?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   xAmznErrorType?: string | undefined;
 
   /**
-   * <p>Request would cause a service quota to be exceeded.</p>
+   * Request would cause a service quota to be exceeded.
+   *
    * @public
    */
   exceptionMessage?: string | undefined;
@@ -751,7 +697,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The stream is offline for the given channel ARN.</p>
+ * The stream is offline for the given channel ARN.
+ *
  * @public
  */
 export class ChannelNotBroadcasting extends __BaseException {
@@ -759,55 +706,48 @@ export class ChannelNotBroadcasting extends __BaseException {
   readonly name = "ChannelNotBroadcasting" as const;
   readonly $fault = "client" as const;
   /**
-   * <p/>
    * @public
    */
   accessControlAllowOrigin?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   accessControlExposeHeaders?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   cacheControl?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   contentSecurityPolicy?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   strictTransportSecurity?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   xContentTypeOptions?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   xFrameOptions?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   xAmznErrorType?: string | undefined;
 
   /**
-   * <p>The stream is offline for the given channel ARN.</p>
+   * The stream is offline for the given channel ARN.
+   *
    * @public
    */
   exceptionMessage?: string | undefined;
@@ -834,7 +774,8 @@ export class ChannelNotBroadcasting extends __BaseException {
 }
 
 /**
- * <p>The stream is temporarily unavailable.</p>
+ * The stream is temporarily unavailable.
+ *
  * @public
  */
 export class StreamUnavailable extends __BaseException {
@@ -842,55 +783,48 @@ export class StreamUnavailable extends __BaseException {
   readonly name = "StreamUnavailable" as const;
   readonly $fault = "server" as const;
   /**
-   * <p/>
    * @public
    */
   accessControlAllowOrigin?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   accessControlExposeHeaders?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   cacheControl?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   contentSecurityPolicy?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   strictTransportSecurity?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   xContentTypeOptions?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   xFrameOptions?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   xAmznErrorType?: string | undefined;
 
   /**
-   * <p>The stream is temporarily unavailable.</p>
+   * The stream is temporarily unavailable.
+   *
    * @public
    */
   exceptionMessage?: string | undefined;

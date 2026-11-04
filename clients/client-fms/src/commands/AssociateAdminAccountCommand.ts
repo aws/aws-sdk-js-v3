@@ -23,8 +23,10 @@ export interface AssociateAdminAccountCommandInput extends AssociateAdminAccount
 export interface AssociateAdminAccountCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Sets a Firewall Manager default administrator account. The Firewall Manager default administrator account can manage third-party firewalls and has full administrative scope that allows administration of all policy types, accounts, organizational units, and Regions. This account must be a member account of the organization in Organizations whose resources you want to protect.</p>
- *          <p>For information about working with Firewall Manager administrator accounts, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/fms-administrators.html">Managing Firewall Manager administrators</a> in the <i>Firewall Manager Developer Guide</i>.</p>
+ * Sets a Firewall Manager default administrator account. The Firewall Manager default administrator account can manage third-party firewalls and has full administrative scope that allows administration of all policy types, accounts, organizational units, and Regions. This account must be a member account of the organization in Organizations whose resources you want to protect.
+ *
+ * For information about working with Firewall Manager administrator accounts, see [Managing Firewall Manager administrators](https://docs.aws.amazon.com/organizations/latest/userguide/fms-administrators.html) in the *Firewall Manager Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,31 +51,28 @@ export interface AssociateAdminAccountCommandOutput extends __MetadataBearer {}
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
  *
  * @throws {@link InternalErrorException} (client fault)
- *  <p>The operation failed because of a system problem, even though the request was valid. Retry
- *       your request.</p>
+ *
+ * The operation failed because of a system problem, even though the request was valid. Retry your request.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The parameters of the request were invalid.</p>
+ *
+ * The parameters of the request were invalid.
  *
  * @throws {@link InvalidOperationException} (client fault)
- *  <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have
- *         submitted an <code>AssociateAdminAccount</code> request for an account ID that
- *             was already set as the Firewall Manager administrator. Or you might have tried to access a Region
- *   that's disabled by default, and that you need to enable for the Firewall Manager
- *   administrator account and for Organizations before you can access it.</p>
+ *
+ * The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have submitted an `AssociateAdminAccount` request for an account ID that was already set as the Firewall Manager administrator. Or you might have tried to access a Region that's disabled by default, and that you need to enable for the Firewall Manager administrator account and for Organizations before you can access it.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The operation exceeds a resource limit, for example, the maximum number of
- *         <code>policy</code> objects that you can create for an Amazon Web Services account. For more information,
- *       see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-limits.html">Firewall
- *         Manager Limits</a> in the <i>WAF Developer Guide</i>.</p>
+ *
+ * The operation exceeds a resource limit, for example, the maximum number of `policy` objects that you can create for an Amazon Web Services account. For more information, see [Firewall Manager Limits](https://docs.aws.amazon.com/waf/latest/developerguide/fms-limits.html) in the *WAF Developer Guide*.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link FMSServiceException}
- * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ * Base exception class for all service exceptions from FMS service.
  *
  * @public
  */

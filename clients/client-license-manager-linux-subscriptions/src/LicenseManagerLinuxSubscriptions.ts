@@ -320,8 +320,8 @@ export interface LicenseManagerLinuxSubscriptions {
 }
 
 /**
- * <p>With License Manager, you can discover and track your commercial Linux subscriptions on running
- *       Amazon EC2 instances.</p>
+ * With License Manager, you can discover and track your commercial Linux subscriptions on running Amazon EC2 instances.
+ *
  * @public
  */
 export class LicenseManagerLinuxSubscriptions extends LicenseManagerLinuxSubscriptionsClient implements LicenseManagerLinuxSubscriptions {}

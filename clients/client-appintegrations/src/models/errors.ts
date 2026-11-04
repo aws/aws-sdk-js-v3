@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { AppIntegrationsServiceException as __BaseException } from "./AppIntegrationsServiceException";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>A resource with the specified name already exists.</p>
+ * A resource with the specified name already exists.
+ *
  * @public
  */
 export class DuplicateResourceException extends __BaseException {
@@ -50,7 +52,8 @@ export class DuplicateResourceException extends __BaseException {
 }
 
 /**
- * <p>Request processing failed due to an error or failure with the service.</p>
+ * Request processing failed due to an error or failure with the service.
+ *
  * @public
  */
 export class InternalServiceError extends __BaseException {
@@ -73,7 +76,8 @@ export class InternalServiceError extends __BaseException {
 }
 
 /**
- * <p>The request is not valid. </p>
+ * The request is not valid.
+ *
  * @public
  */
 export class InvalidRequestException extends __BaseException {
@@ -96,7 +100,8 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * <p>The allowed quota for the resource has been exceeded.</p>
+ * The allowed quota for the resource has been exceeded.
+ *
  * @public
  */
 export class ResourceQuotaExceededException extends __BaseException {
@@ -119,7 +124,8 @@ export class ResourceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The throttling limit has been exceeded.</p>
+ * The throttling limit has been exceeded.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -142,7 +148,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The operation is not supported.</p>
+ * The operation is not supported.
+ *
  * @public
  */
 export class UnsupportedOperationException extends __BaseException {
@@ -165,7 +172,8 @@ export class UnsupportedOperationException extends __BaseException {
 }
 
 /**
- * <p>The specified resource was not found.</p>
+ * The specified resource was not found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -188,7 +196,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request conflicts with the current state of the resource. Verify the application's current state and retry the request.</p>
+ * The request conflicts with the current state of the resource. Verify the application's current state and retry the request.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {

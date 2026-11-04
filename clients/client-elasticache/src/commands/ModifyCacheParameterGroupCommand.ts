@@ -23,8 +23,8 @@ export interface ModifyCacheParameterGroupCommandInput extends ModifyCacheParame
 export interface ModifyCacheParameterGroupCommandOutput extends CacheParameterGroupNameMessage, __MetadataBearer {}
 
 /**
- * <p>Modifies the parameters of a cache parameter group. You can modify up to 20 parameters
- *             in a single request by submitting a list parameter name and value pairs.</p>
+ * Modifies the parameters of a cache parameter group. You can modify up to 20 parameters in a single request by submitting a list parameter name and value pairs.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,25 +57,28 @@ export interface ModifyCacheParameterGroupCommandOutput extends CacheParameterGr
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link CacheParameterGroupNotFoundFault} (client fault)
- *  <p>The requested cache parameter group name does not refer to an existing cache parameter
- *             group.</p>
+ *
+ * The requested cache parameter group name does not refer to an existing cache parameter group.
  *
  * @throws {@link InvalidCacheParameterGroupStateFault} (client fault)
- *  <p>The current state of the cache parameter group does not allow the requested operation
- *             to occur.</p>
+ *
+ * The current state of the cache parameter group does not allow the requested operation to occur.
  *
  * @throws {@link InvalidGlobalReplicationGroupStateFault} (client fault)
- *  <p>The Global datastore is not available or in primary-only state.</p>
+ *
+ * The Global datastore is not available or in primary-only state.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * Two or more incompatible parameters were specified.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @example ModifyCacheParameterGroup
  * ```javascript

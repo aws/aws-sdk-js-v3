@@ -23,12 +23,10 @@ export interface DeleteClientBrandingCommandInput extends DeleteClientBrandingRe
 export interface DeleteClientBrandingCommandOutput extends DeleteClientBrandingResult, __MetadataBearer {}
 
 /**
- * <p>Deletes customized client branding. Client branding allows you to customize your
- *          WorkSpace's client login portal. You can tailor your login portal company logo, the support
- *          email address, support link, link to reset password, and a custom message for users trying
- *          to sign in.</p>
- *          <p>After you delete your customized client branding, your login portal reverts to the
- *          default client branding.</p>
+ * Deletes customized client branding. Client branding allows you to customize your WorkSpace's client login portal. You can tailor your login portal company logo, the support email address, support link, link to reset password, and a custom message for users trying to sign in.
+ *
+ * After you delete your customized client branding, your login portal reverts to the default client branding.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,17 +54,20 @@ export interface DeleteClientBrandingCommandOutput extends DeleteClientBrandingR
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The user is not authorized to access a resource.</p>
+ *
+ * The user is not authorized to access a resource.
  *
  * @throws {@link InvalidParameterValuesException} (client fault)
- *  <p>One or more parameter values are not valid.</p>
+ *
+ * One or more parameter values are not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link WorkSpacesServiceException}
- * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * Base exception class for all service exceptions from WorkSpaces service.
  *
  * @public
  */

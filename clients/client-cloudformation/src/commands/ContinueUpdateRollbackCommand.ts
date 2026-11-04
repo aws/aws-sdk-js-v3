@@ -23,21 +23,14 @@ export interface ContinueUpdateRollbackCommandInput extends ContinueUpdateRollba
 export interface ContinueUpdateRollbackCommandOutput extends ContinueUpdateRollbackOutput, __MetadataBearer {}
 
 /**
- * <p>Continues rolling back a stack from <code>UPDATE_ROLLBACK_FAILED</code> to
- *         <code>UPDATE_ROLLBACK_COMPLETE</code> state. Depending on the cause of the failure, you can
- *       manually fix the error and continue the rollback. By continuing the rollback, you can return
- *       your stack to a working state (the <code>UPDATE_ROLLBACK_COMPLETE</code> state) and then try
- *       to update the stack again.</p>
- *          <p>A stack enters the <code>UPDATE_ROLLBACK_FAILED</code> state when CloudFormation can't roll
- *       back all changes after a failed stack update. For example, this might occur when a stack
- *       attempts to roll back to an old database that was deleted outside of CloudFormation. Because
- *       CloudFormation doesn't know the instance was deleted, it assumes the instance still exists and
- *       attempts to roll back to it, causing the update rollback to fail.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html">Continue rolling back an update</a> in the <i>CloudFormation User Guide</i>. For
- *       information for troubleshooting a failed update rollback, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed">Update rollback failed</a>.</p>
- *          <p>
- *             <code>ForceRollback</code> and <code>ResourcesToSkip</code> are mutually exclusive.
- *       For details, see <a>ContinueUpdateRollbackInput$ForceRollback</a>.</p>
+ * Continues rolling back a stack from `UPDATE_ROLLBACK_FAILED` to `UPDATE_ROLLBACK_COMPLETE` state. Depending on the cause of the failure, you can manually fix the error and continue the rollback. By continuing the rollback, you can return your stack to a working state (the `UPDATE_ROLLBACK_COMPLETE` state) and then try to update the stack again.
+ *
+ * A stack enters the `UPDATE_ROLLBACK_FAILED` state when CloudFormation can't roll back all changes after a failed stack update. For example, this might occur when a stack attempts to roll back to an old database that was deleted outside of CloudFormation. Because CloudFormation doesn't know the instance was deleted, it assumes the instance still exists and attempts to roll back to it, causing the update rollback to fail.
+ *
+ * For more information, see [Continue rolling back an update](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html) in the *CloudFormation User Guide*. For information for troubleshooting a failed update rollback, see [Update rollback failed](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed).
+ *
+ * `ForceRollback` and `ResourcesToSkip` are mutually exclusive. For details, see ContinueUpdateRollbackInput$ForceRollback.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,11 +61,12 @@ export interface ContinueUpdateRollbackCommandOutput extends ContinueUpdateRollb
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link TokenAlreadyExistsException} (client fault)
- *  <p>A client request token already exists.</p>
+ *
+ * A client request token already exists.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

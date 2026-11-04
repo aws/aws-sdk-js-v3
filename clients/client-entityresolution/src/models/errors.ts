@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { EntityResolutionServiceException as __BaseException } from "./EntityResolutionServiceException";
 
 /**
- * <p>You do not have sufficient access to perform this action. </p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request couldn't be processed because of conflict in the current state of the resource. Example: Workflow already exists, Schema already exists, Workflow is currently running, etc. </p>
+ * The request couldn't be processed because of conflict in the current state of the resource. Example: Workflow already exists, Schema already exists, Workflow is currently running, etc.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -46,7 +48,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+ * This exception occurs when there is an internal failure in the Entity Resolution service.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -68,7 +71,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The resource couldn't be found. </p>
+ * The resource couldn't be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -89,7 +93,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling. </p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -113,7 +118,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
+ * The input fails to satisfy the constraints specified by Entity Resolution.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -134,7 +140,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because it attempted to create resources beyond the current Entity Resolution account limits. The error message describes the limit exceeded. </p>
+ * The request was rejected because it attempted to create resources beyond the current Entity Resolution account limits. The error message describes the limit exceeded.
+ *
  * @public
  */
 export class ExceedsLimitException extends __BaseException {
@@ -142,13 +149,15 @@ export class ExceedsLimitException extends __BaseException {
   readonly name = "ExceedsLimitException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The name of the quota that has been breached.</p>
+   * The name of the quota that has been breached.
+   *
    * @public
    */
   quotaName?: string | undefined;
 
   /**
-   * <p>The current quota value for the customers.</p>
+   * The current quota value for the customers.
+   *
    * @public
    */
   quotaValue?: number | undefined;

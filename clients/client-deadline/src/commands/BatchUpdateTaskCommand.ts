@@ -23,7 +23,7 @@ export interface BatchUpdateTaskCommandInput extends BatchUpdateTaskRequest {}
 export interface BatchUpdateTaskCommandOutput extends BatchUpdateTaskResponse, __MetadataBearer {}
 
 /**
- * Updates multiple tasks in a single request. This is a batch version of the <code>UpdateTask</code> API.
+ * Updates multiple tasks in a single request. This is a batch version of the `UpdateTask` API.
  *
  * The result of updating each task is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200.
  *
@@ -85,8 +85,8 @@ export interface BatchUpdateTaskCommandOutput extends BatchUpdateTaskResponse, _
  *  The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.
  *
  * @throws {@link DeadlineServiceException}
- * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ * Base exception class for all service exceptions from Deadline service.
  *
  * @example Update multiple tasks in a single request
  * ```javascript

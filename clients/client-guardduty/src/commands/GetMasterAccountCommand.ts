@@ -23,7 +23,7 @@ export interface GetMasterAccountCommandInput extends GetMasterAccountRequest {}
 export interface GetMasterAccountCommandOutput extends GetMasterAccountResponse, __MetadataBearer {}
 
 /**
- * <p>Provides the details for the GuardDuty administrator account associated with the current GuardDuty member account.</p>
+ * Provides the details for the GuardDuty administrator account associated with the current GuardDuty member account.
  *
  * @deprecated This operation is deprecated, use GetAdministratorAccount instead.
  * @example
@@ -57,14 +57,16 @@ export interface GetMasterAccountCommandOutput extends GetMasterAccountResponse,
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>A bad request exception object.</p>
+ *
+ * A bad request exception object.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>An internal server error exception object.</p>
+ *
+ * An internal server error exception object.
  *
  * @throws {@link GuardDutyServiceException}
- * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * Base exception class for all service exceptions from GuardDuty service.
  *
  * @public
  */

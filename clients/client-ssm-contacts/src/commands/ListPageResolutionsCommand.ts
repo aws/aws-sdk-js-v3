@@ -23,11 +23,8 @@ export interface ListPageResolutionsCommandInput extends ListPageResolutionsRequ
 export interface ListPageResolutionsCommandOutput extends ListPageResolutionsResult, __MetadataBearer {}
 
 /**
- * <p>Returns the resolution path of an engagement. For example, the escalation plan engaged
- *          in an incident might target an on-call schedule that includes several contacts in a
- *          rotation, but just one contact on-call when the incident starts. The resolution path
- *          indicates the hierarchy of <i>escalation plan > on-call schedule >
- *             contact</i>.</p>
+ * Returns the resolution path of an engagement. For example, the escalation plan engaged in an incident might target an on-call schedule that includes several contacts in a rotation, but just one contact on-call when the incident starts. The resolution path indicates the hierarchy of *escalation plan > on-call schedule > contact*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,24 +59,28 @@ export interface ListPageResolutionsCommandOutput extends ListPageResolutionsRes
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this operation.</p>
+ *
+ * You don't have sufficient access to perform this operation.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error occurred while processing the request.</p>
+ *
+ * Unexpected error occurred while processing the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Request references a resource that doesn't exist.</p>
+ *
+ * Request references a resource that doesn't exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
- *          service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link SSMContactsServiceException}
- * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ * Base exception class for all service exceptions from SSMContacts service.
  *
  * @public
  */

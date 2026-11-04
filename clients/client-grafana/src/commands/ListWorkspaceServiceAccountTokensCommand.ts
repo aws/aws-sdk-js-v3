@@ -26,7 +26,12 @@ export interface ListWorkspaceServiceAccountTokensCommandInput extends ListWorks
 export interface ListWorkspaceServiceAccountTokensCommandOutput extends ListWorkspaceServiceAccountTokensResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of tokens for a workspace service account.</p> <note> <p>This does not return the key for each token. You cannot access keys after they are created. To create a new key, delete the token and recreate it.</p> </note> <p>Service accounts are only available for workspaces that are compatible with Grafana version 9 and above.</p>
+ * Returns a list of tokens for a workspace service account.
+ *
+ * > **Note:** This does not return the key for each token. You cannot access keys after they are created. To create a new key, delete the token and recreate it.
+ *
+ * Service accounts are only available for workspaces that are compatible with Grafana version 9 and above.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,26 +72,32 @@ export interface ListWorkspaceServiceAccountTokensCommandOutput extends ListWork
  * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action. </p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A resource was in an inconsistent state during an update or a deletion.</p>
+ *
+ * A resource was in an inconsistent state during an update or a deletion.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error while processing the request. Retry the request.</p>
+ *
+ * Unexpected error while processing the request. Retry the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request references a resource that does not exist.</p>
+ *
+ * The request references a resource that does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied because of request throttling. Retry the request.</p>
+ *
+ * The request was denied because of request throttling. Retry the request.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The value of a parameter in the request caused an error.</p>
+ *
+ * The value of a parameter in the request caused an error.
  *
  * @throws {@link GrafanaServiceException}
- * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
+ * Base exception class for all service exceptions from Grafana service.
  *
  * @public
  */

@@ -23,12 +23,10 @@ export interface UpdateDatasetGroupCommandInput extends UpdateDatasetGroupReques
 export interface UpdateDatasetGroupCommandOutput extends UpdateDatasetGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Replaces the datasets in a dataset group with the specified datasets.</p>
- *          <note>
- *             <p>The <code>Status</code> of the dataset group must be <code>ACTIVE</code> before you can
- *         use the dataset group to create a predictor. Use the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetGroup.html">DescribeDatasetGroup</a>
- *         operation to get the status.</p>
- *          </note>
+ * Replaces the datasets in a dataset group with the specified datasets.
+ *
+ * > **Note:** The `Status` of the dataset group must be `ACTIVE` before you can use the dataset group to create a predictor. Use the [DescribeDatasetGroup](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetGroup.html) operation to get the status.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,19 +54,20 @@ export interface UpdateDatasetGroupCommandOutput extends UpdateDatasetGroupRespo
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>We can't process the request because it includes an invalid value or a value that exceeds
- *       the valid range.</p>
+ *
+ * We can't process the request because it includes an invalid value or a value that exceeds the valid range.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is in use.</p>
+ *
+ * The specified resource is in use.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
- *       again.</p>
+ *
+ * We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.
  *
  * @throws {@link ForecastServiceException}
- * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * Base exception class for all service exceptions from Forecast service.
  *
  * @public
  */

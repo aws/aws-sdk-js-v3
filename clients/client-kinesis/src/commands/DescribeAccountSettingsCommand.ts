@@ -23,8 +23,10 @@ export interface DescribeAccountSettingsCommandInput extends DescribeAccountSett
 export interface DescribeAccountSettingsCommandOutput extends DescribeAccountSettingsOutput, __MetadataBearer {}
 
 /**
- * <p>Describes the account-level settings for Amazon Kinesis Data Streams. This operation returns information about the minimum throughput billing commitments and other account-level configurations.</p>
- *          <p>This API has a call limit of 5 transactions per second (TPS) for each Amazon Web Services account. TPS over 5 will initiate the <code>LimitExceededException</code>.</p>
+ * Describes the account-level settings for Amazon Kinesis Data Streams. This operation returns information about the minimum throughput billing commitments and other account-level configurations.
+ *
+ * This API has a call limit of 5 transactions per second (TPS) for each Amazon Web Services account. TPS over 5 will initiate the `LimitExceededException`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,12 +56,12 @@ export interface DescribeAccountSettingsCommandOutput extends DescribeAccountSet
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
- *             stream requests exceeds the maximum number allowed. </p>
+ *
+ * The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed.
  *
  * @throws {@link KinesisServiceException}
- * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * Base exception class for all service exceptions from Kinesis service.
  *
  * @public
  */

@@ -23,10 +23,8 @@ export interface DescribeEventsCommandInput extends DescribeEventsMessage {}
 export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBearer {}
 
 /**
- * <p>Returns events related to clusters, security groups, snapshots, and parameter
- *             groups for the past 14 days. Events specific to a particular cluster, security group,
- *             snapshot or parameter group can be obtained by providing the name as a parameter. By
- *             default, the past hour of events are returned.</p>
+ * Returns events related to clusters, security groups, snapshots, and parameter groups for the past 14 days. Events specific to a particular cluster, security group, snapshot or parameter group can be obtained by providing the name as a parameter. By default, the past hour of events are returned.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,8 +70,8 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

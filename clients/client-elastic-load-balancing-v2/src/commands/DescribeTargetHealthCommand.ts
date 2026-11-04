@@ -23,7 +23,8 @@ export interface DescribeTargetHealthCommandInput extends DescribeTargetHealthIn
 export interface DescribeTargetHealthCommandOutput extends DescribeTargetHealthOutput, __MetadataBearer {}
 
 /**
- * <p>Describes the health of the specified targets or all of your targets.</p>
+ * Describes the health of the specified targets or all of your targets.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,19 +86,20 @@ export interface DescribeTargetHealthCommandOutput extends DescribeTargetHealthO
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
  * @throws {@link HealthUnavailableException} (server fault)
- *  <p>The health of the specified targets could not be retrieved due to an internal
- *       error.</p>
+ *
+ * The health of the specified targets could not be retrieved due to an internal error.
  *
  * @throws {@link InvalidTargetException} (client fault)
- *  <p>The specified target does not exist, is not in the same VPC as the target group, or has an
- *       unsupported instance type.</p>
+ *
+ * The specified target does not exist, is not in the same VPC as the target group, or has an unsupported instance type.
  *
  * @throws {@link TargetGroupNotFoundException} (client fault)
- *  <p>The specified target group does not exist.</p>
+ *
+ * The specified target group does not exist.
  *
  * @throws {@link ElasticLoadBalancingV2ServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancingV2 service.
  *
  * @example To describe the health of the targets for a target group
  * ```javascript

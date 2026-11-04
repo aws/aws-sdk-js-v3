@@ -23,10 +23,10 @@ export interface UpdateDefaultBranchCommandInput extends UpdateDefaultBranchInpu
 export interface UpdateDefaultBranchCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Sets or changes the default branch name for the specified repository.</p>
- *          <note>
- *             <p>If you use this operation to change the default branch name to the current default branch name, a success message is returned even though the default branch did not change.</p>
- *          </note>
+ * Sets or changes the default branch name for the specified repository.
+ *
+ * > **Note:** If you use this operation to change the default branch name to the current default branch name, a success message is returned even though the default branch did not change.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,46 +52,54 @@ export interface UpdateDefaultBranchCommandOutput extends __MetadataBearer {}
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  * @throws {@link BranchDoesNotExistException} (client fault)
- *  <p>The specified branch does not exist.</p>
+ *
+ * The specified branch does not exist.
  *
  * @throws {@link BranchNameRequiredException} (client fault)
- *  <p>A branch name is required, but was not specified.</p>
+ *
+ * A branch name is required, but was not specified.
  *
  * @throws {@link EncryptionIntegrityChecksFailedException} (server fault)
- *  <p>An encryption integrity check failed.</p>
+ *
+ * An encryption integrity check failed.
  *
  * @throws {@link EncryptionKeyAccessDeniedException} (client fault)
- *  <p>An encryption key could not be accessed.</p>
+ *
+ * An encryption key could not be accessed.
  *
  * @throws {@link EncryptionKeyDisabledException} (client fault)
- *  <p>The encryption key is disabled.</p>
+ *
+ * The encryption key is disabled.
  *
  * @throws {@link EncryptionKeyNotFoundException} (client fault)
- *  <p>No encryption key was found.</p>
+ *
+ * No encryption key was found.
  *
  * @throws {@link EncryptionKeyUnavailableException} (client fault)
- *  <p>The encryption key is not available.</p>
+ *
+ * The encryption key is not available.
  *
  * @throws {@link InvalidBranchNameException} (client fault)
- *  <p>The specified reference name is not valid.</p>
+ *
+ * The specified reference name is not valid.
  *
  * @throws {@link InvalidRepositoryNameException} (client fault)
- *  <p>A specified repository name is not valid.</p>
- *          <note>
- *             <p>This exception occurs only when a specified repository name is not valid. Other
- *                 exceptions occur when a required repository parameter is missing, or when a
- *                 specified repository does not exist.</p>
- *          </note>
+ *
+ * A specified repository name is not valid.
+ *
+ * > **Note:** This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.
  *
  * @throws {@link RepositoryDoesNotExistException} (client fault)
- *  <p>The specified repository does not exist.</p>
+ *
+ * The specified repository does not exist.
  *
  * @throws {@link RepositoryNameRequiredException} (client fault)
- *  <p>A repository name is required, but was not specified.</p>
+ *
+ * A repository name is required, but was not specified.
  *
  * @throws {@link CodeCommitServiceException}
- * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * Base exception class for all service exceptions from CodeCommit service.
  *
  * @public
  */

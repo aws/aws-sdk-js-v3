@@ -23,7 +23,8 @@ export interface BatchDeleteEvaluationJobCommandInput extends BatchDeleteEvaluat
 export interface BatchDeleteEvaluationJobCommandOutput extends BatchDeleteEvaluationJobResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a batch of evaluation jobs. An evaluation job can only be deleted if it has following status <code>FAILED</code>, <code>COMPLETED</code>, and <code>STOPPED</code>. You can request up to 25 model evaluation jobs be deleted in a single request.</p>
+ * Deletes a batch of evaluation jobs. An evaluation job can only be deleted if it has following status `FAILED`, `COMPLETED`, and `STOPPED`. You can request up to 25 model evaluation jobs be deleted in a single request.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,26 +65,32 @@ export interface BatchDeleteEvaluationJobCommandOutput extends BatchDeleteEvalua
  * @see {@link BedrockClientResolvedConfig | config} for BedrockClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request is denied because of missing access permissions.</p>
+ *
+ * The request is denied because of missing access permissions.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Error occurred because of a conflict while performing an operation.</p>
+ *
+ * Error occurred because of a conflict while performing an operation.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
+ *
+ * The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
+ * The number of requests exceeds the limit. Resubmit your request later.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Input validation failed. Check your request parameters and retry the request.</p>
+ *
+ * Input validation failed. Check your request parameters and retry the request.
  *
  * @throws {@link BedrockServiceException}
- * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ * Base exception class for all service exceptions from Bedrock service.
  *
  * @example Delete evaluation jobs
  * ```javascript

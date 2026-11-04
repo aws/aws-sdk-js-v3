@@ -23,11 +23,12 @@ export interface WithdrawByoipCidrCommandInput extends WithdrawByoipCidrRequest 
 export interface WithdrawByoipCidrCommandOutput extends WithdrawByoipCidrResult, __MetadataBearer {}
 
 /**
- * <p>Stops advertising an address range that is provisioned as an address pool.</p>
- *          <p>You can perform this operation at most once every 10 seconds, even if you specify different
- *          address ranges each time.</p>
- *          <p>It can take a few minutes before traffic to the specified addresses stops routing to Amazon Web Services
- *           because of BGP propagation delays.</p>
+ * Stops advertising an address range that is provisioned as an address pool.
+ *
+ * You can perform this operation at most once every 10 seconds, even if you specify different address ranges each time.
+ *
+ * It can take a few minutes before traffic to the specified addresses stops routing to Amazon Web Services because of BGP propagation delays.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,8 +73,8 @@ export interface WithdrawByoipCidrCommandOutput extends WithdrawByoipCidrResult,
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

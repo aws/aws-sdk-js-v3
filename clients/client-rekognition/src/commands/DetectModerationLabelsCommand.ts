@@ -23,21 +23,16 @@ export interface DetectModerationLabelsCommandInput extends DetectModerationLabe
 export interface DetectModerationLabelsCommandOutput extends DetectModerationLabelsResponse, __MetadataBearer {}
 
 /**
- * <p>Detects unsafe content in a specified JPEG or PNG format image. Use
- *         <code>DetectModerationLabels</code> to moderate images depending on your requirements. For
- *       example, you might want to filter images that contain nudity, but not images containing
- *       suggestive content.</p>
- *          <p>To filter images, use the labels returned by <code>DetectModerationLabels</code> to
- *       determine which types of content are appropriate.</p>
- *          <p>For information about moderation labels, see Detecting Unsafe Content in the
- *       Amazon Rekognition Developer Guide.</p>
- *          <p>You pass the input image either as base64-encoded image bytes or as a reference to an
- *       image in an Amazon S3 bucket. If you use the
- *       AWS
- *       CLI to call Amazon Rekognition operations, passing image bytes is not
- *       supported. The image must be either a PNG or JPEG formatted file. </p>
- *          <p>You can specify an adapter to use when retrieving label predictions by providing a
- *         <code>ProjectVersionArn</code> to the <code>ProjectVersion</code> argument.</p>
+ * Detects unsafe content in a specified JPEG or PNG format image. Use `DetectModerationLabels` to moderate images depending on your requirements. For example, you might want to filter images that contain nudity, but not images containing suggestive content.
+ *
+ * To filter images, use the labels returned by `DetectModerationLabels` to determine which types of content are appropriate.
+ *
+ * For information about moderation labels, see Detecting Unsafe Content in the Amazon Rekognition Developer Guide.
+ *
+ * You pass the input image either as base64-encoded image bytes or as a reference to an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes is not supported. The image must be either a PNG or JPEG formatted file.
+ *
+ * You can specify an adapter to use when retrieving label predictions by providing a `ProjectVersionArn` to the `ProjectVersion` argument.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -104,48 +99,52 @@ export interface DetectModerationLabelsCommandOutput extends DetectModerationLab
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You are not authorized to perform the action.</p>
+ *
+ * You are not authorized to perform the action.
  *
  * @throws {@link HumanLoopQuotaExceededException} (client fault)
- *  <p>The number of in-progress human reviews you have has exceeded the number allowed.</p>
+ *
+ * The number of in-progress human reviews you have has exceeded the number allowed.
  *
  * @throws {@link ImageTooLargeException} (client fault)
- *  <p>The input image size exceeds the allowed limit. If you are calling
- *       DetectProtectiveEquipment, the image size or resolution exceeds the allowed limit. For more
- *       information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide.
- *     </p>
+ *
+ * The input image size exceeds the allowed limit. If you are calling DetectProtectiveEquipment, the image size or resolution exceeds the allowed limit. For more information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * Amazon Rekognition experienced a service issue. Try your call again.
  *
  * @throws {@link InvalidImageFormatException} (client fault)
- *  <p>The provided image format is not supported. </p>
+ *
+ * The provided image format is not supported.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
- *       operation again.</p>
+ *
+ * Input parameter violated a constraint. Validate your parameter before calling the API operation again.
  *
  * @throws {@link InvalidS3ObjectException} (client fault)
- *  <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
+ *
+ * Amazon Rekognition is unable to access the S3 object specified in the request.
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
- *  <p>The number of requests exceeded your throughput limit. If you want to increase this
- *       limit, contact Amazon Rekognition.</p>
+ *
+ * The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource specified in the request cannot be found.</p>
+ *
+ * The resource specified in the request cannot be found.
  *
  * @throws {@link ResourceNotReadyException} (client fault)
- *  <p>The requested resource isn't ready. For example,
- *          this exception occurs when you call <code>DetectCustomLabels</code> with a
- *          model version that isn't deployed. </p>
+ *
+ * The requested resource isn't ready. For example, this exception occurs when you call `DetectCustomLabels` with a model version that isn't deployed.
  *
  * @throws {@link ThrottlingException} (server fault)
- *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
+ * Amazon Rekognition is temporarily unable to process the request. Try your call again.
  *
  * @throws {@link RekognitionServiceException}
- * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * Base exception class for all service exceptions from Rekognition service.
  *
  * @public
  */

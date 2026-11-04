@@ -23,10 +23,12 @@ export interface EnableFastSnapshotRestoresCommandInput extends EnableFastSnapsh
 export interface EnableFastSnapshotRestoresCommandOutput extends EnableFastSnapshotRestoresResult, __MetadataBearer {}
 
 /**
- * <p>Enables fast snapshot restores for the specified snapshots in the specified Availability Zones.</p>
- *          <p>You get the full benefit of fast snapshot restores after they enter the <code>enabled</code> state.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-fast-snapshot-restore.html">Amazon EBS fast snapshot
- *       restore</a> in the <i>Amazon EBS User Guide</i>.</p>
+ * Enables fast snapshot restores for the specified snapshots in the specified Availability Zones.
+ *
+ * You get the full benefit of fast snapshot restores after they enter the `enabled` state.
+ *
+ * For more information, see [Amazon EBS fast snapshot restore](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-fast-snapshot-restore.html) in the *Amazon EBS User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -92,8 +94,8 @@ export interface EnableFastSnapshotRestoresCommandOutput extends EnableFastSnaps
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

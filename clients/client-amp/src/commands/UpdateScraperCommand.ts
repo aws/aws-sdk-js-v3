@@ -23,7 +23,10 @@ export interface UpdateScraperCommandInput extends UpdateScraperRequest {}
 export interface UpdateScraperCommandOutput extends UpdateScraperResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an existing scraper.</p> <p>You can't use this function to update the source from which the scraper is collecting metrics. To change the source, delete the scraper and create a new one.</p>
+ * Updates an existing scraper.
+ *
+ * You can't use this function to update the source from which the scraper is collecting metrics. To change the source, delete the scraper and create a new one.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,29 +89,36 @@ export interface UpdateScraperCommandOutput extends UpdateScraperResponse, __Met
  * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request would cause an inconsistent state.</p>
+ *
+ * The request would cause an inconsistent state.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred during the processing of the request.</p>
+ *
+ * An unexpected error occurred during the processing of the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request references a resources that doesn't exist.</p>
+ *
+ * The request references a resources that doesn't exist.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Completing the request would cause a service quota to be exceeded.</p>
+ *
+ * Completing the request would cause a service quota to be exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link AmpServiceException}
- * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ * Base exception class for all service exceptions from Amp service.
  *
  * @example UpdateScraper with all optional parameters
  * ```javascript

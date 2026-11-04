@@ -26,8 +26,8 @@ export interface DescribeReplicationTableStatisticsCommandInput extends Describe
 export interface DescribeReplicationTableStatisticsCommandOutput extends DescribeReplicationTableStatisticsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns table and schema statistics for one or more provisioned replications that use a
- *          given DMS Serverless replication configuration.</p>
+ * Returns table and schema statistics for one or more provisioned replications that use a given DMS Serverless replication configuration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -97,14 +97,16 @@ export interface DescribeReplicationTableStatisticsCommandOutput extends Describ
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link InvalidResourceStateFault} (client fault)
- *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
+ * The resource is in a state that prevents it from being used for database migration.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @public
  */

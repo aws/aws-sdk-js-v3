@@ -26,7 +26,8 @@ export interface AddSourceIdentifierToSubscriptionCommandInput extends AddSource
 export interface AddSourceIdentifierToSubscriptionCommandOutput extends AddSourceIdentifierToSubscriptionResult, __MetadataBearer {}
 
 /**
- * <p>Adds a source identifier to an existing event notification subscription.</p>
+ * Adds a source identifier to an existing event notification subscription.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,14 +70,16 @@ export interface AddSourceIdentifierToSubscriptionCommandOutput extends AddSourc
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  * @throws {@link SourceNotFoundFault} (client fault)
- *  <p>The source could not be found.</p>
+ *
+ * The source could not be found.
  *
  * @throws {@link SubscriptionNotFoundFault} (client fault)
- *  <p>The designated subscription could not be found.</p>
+ *
+ * The designated subscription could not be found.
  *
  * @throws {@link NeptuneServiceException}
- * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * Base exception class for all service exceptions from Neptune service.
  *
  * @public
  */

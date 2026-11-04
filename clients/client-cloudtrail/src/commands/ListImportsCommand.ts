@@ -23,11 +23,10 @@ export interface ListImportsCommandInput extends ListImportsRequest {}
 export interface ListImportsCommandOutput extends ListImportsResponse, __MetadataBearer {}
 
 /**
- * <important>
- *             <p>CloudTrail Lake will no longer be open to new customers starting May 31, 2026. If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-service-availability-change.html">CloudTrail Lake availability change</a>.</p>
- *          </important>
- *          <p> Returns information on all imports, or a select set of imports by
- *             <code>ImportStatus</code> or <code>Destination</code>. </p>
+ * > **Important:** CloudTrail Lake will no longer be open to new customers starting May 31, 2026. If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [CloudTrail Lake availability change](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-service-availability-change.html).
+ *
+ * Returns information on all imports, or a select set of imports by `ImportStatus` or `Destination`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,25 +67,28 @@ export interface ListImportsCommandOutput extends ListImportsResponse, __Metadat
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
  * @throws {@link EventDataStoreARNInvalidException} (client fault)
- *  <p>The specified event data store ARN is not valid or does not map to an event data store
- *          in your account.</p>
+ *
+ * The specified event data store ARN is not valid or does not map to an event data store in your account.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>A token that is not valid, or a token that was previously used in a request with
- *          different parameters. This exception is thrown if the token is not valid.</p>
+ *
+ * A token that is not valid, or a token that was previously used in a request with different parameters. This exception is thrown if the token is not valid.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The request includes a parameter that is not valid.</p>
+ *
+ * The request includes a parameter that is not valid.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * This exception is thrown when the requested operation is not permitted.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>This exception is thrown when the requested operation is not supported.</p>
+ *
+ * This exception is thrown when the requested operation is not supported.
  *
  * @throws {@link CloudTrailServiceException}
- * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * Base exception class for all service exceptions from CloudTrail service.
  *
  * @public
  */

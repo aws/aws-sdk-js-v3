@@ -23,13 +23,13 @@ export interface DisassociateFromMasterAccountCommandInput extends DisassociateF
 export interface DisassociateFromMasterAccountCommandOutput extends DisassociateFromMasterAccountResponse, __MetadataBearer {}
 
 /**
- * <p>This method is deprecated. Instead, use <code>DisassociateFromAdministratorAccount</code>.</p>
- *          <p>The Security Hub CSPM console continues to use <code>DisassociateFromMasterAccount</code>. It will eventually change to use <code>DisassociateFromAdministratorAccount</code>. Any IAM policies that specifically control access to this function must continue to use <code>DisassociateFromMasterAccount</code>. You should also add <code>DisassociateFromAdministratorAccount</code> to your policies to ensure that the correct permissions are in place after the console begins to use <code>DisassociateFromAdministratorAccount</code>.</p>
- *          <p>Disassociates the current Security Hub CSPM member account from the associated administrator
- *          account.</p>
- *          <p>This operation is only used by accounts that are not part of an organization. For
- *          organization accounts, only the administrator account can
- *          disassociate a member account.</p>
+ * This method is deprecated. Instead, use `DisassociateFromAdministratorAccount`.
+ *
+ * The Security Hub CSPM console continues to use `DisassociateFromMasterAccount`. It will eventually change to use `DisassociateFromAdministratorAccount`. Any IAM policies that specifically control access to this function must continue to use `DisassociateFromMasterAccount`. You should also add `DisassociateFromAdministratorAccount` to your policies to ensure that the correct permissions are in place after the console begins to use `DisassociateFromAdministratorAccount`.
+ *
+ * Disassociates the current Security Hub CSPM member account from the associated administrator account.
+ *
+ * This operation is only used by accounts that are not part of an organization. For organization accounts, only the administrator account can disassociate a member account.
  *
  * @deprecated This API has been deprecated, use DisassociateFromAdministratorAccount API instead.
  * @example
@@ -54,25 +54,28 @@ export interface DisassociateFromMasterAccountCommandOutput extends Disassociate
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>Internal server error.</p>
+ *
+ * Internal server error.
  *
  * @throws {@link InvalidAccessException} (client fault)
- *  <p>The account doesn't have permission to perform this action.</p>
+ *
+ * The account doesn't have permission to perform this action.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because you supplied an invalid or out-of-range value for an
- *          input parameter.</p>
+ *
+ * The request was rejected because you supplied an invalid or out-of-range value for an input parameter.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
- *          account or throttling limits. The error code describes the limit exceeded.</p>
+ *
+ * The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request was rejected because we can't find the specified resource.</p>
+ *
+ * The request was rejected because we can't find the specified resource.
  *
  * @throws {@link SecurityHubServiceException}
- * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * Base exception class for all service exceptions from SecurityHub service.
  *
  * @public
  */

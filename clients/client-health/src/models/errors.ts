@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { HealthServiceException as __BaseException } from "./HealthServiceException";
 
 /**
- * <p>The specified pagination token (<code>nextToken</code>) is not valid.</p>
+ * The specified pagination token (`nextToken`) is not valid.
+ *
  * @public
  */
 export class InvalidPaginationToken extends __BaseException {
@@ -25,7 +26,8 @@ export class InvalidPaginationToken extends __BaseException {
 }
 
 /**
- * <p>The specified locale is not supported.</p>
+ * The specified locale is not supported.
+ *
  * @public
  */
 export class UnsupportedLocale extends __BaseException {
@@ -46,9 +48,8 @@ export class UnsupportedLocale extends __BaseException {
 }
 
 /**
- * <p>
- *             <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html">EnableHealthServiceAccessForOrganization</a> is already in progress. Wait for the
- *          action to complete before trying again. To get the current status, use the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeHealthServiceStatusForOrganization.html">DescribeHealthServiceStatusForOrganization</a> operation.</p>
+ * [EnableHealthServiceAccessForOrganization](https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html) is already in progress. Wait for the action to complete before trying again. To get the current status, use the [DescribeHealthServiceStatusForOrganization](https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeHealthServiceStatusForOrganization.html) operation.
+ *
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {

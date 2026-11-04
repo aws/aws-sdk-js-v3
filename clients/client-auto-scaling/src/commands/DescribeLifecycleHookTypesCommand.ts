@@ -23,20 +23,13 @@ export interface DescribeLifecycleHookTypesCommandInput {}
 export interface DescribeLifecycleHookTypesCommandOutput extends DescribeLifecycleHookTypesAnswer, __MetadataBearer {}
 
 /**
- * <p>Describes the available types of lifecycle hooks.</p>
- *          <p>The following hook types are supported:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>autoscaling:EC2_INSTANCE_LAUNCHING</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>autoscaling:EC2_INSTANCE_TERMINATING</code>
- *                </p>
- *             </li>
- *          </ul>
+ * Describes the available types of lifecycle hooks.
+ *
+ * The following hook types are supported:
+ *
+ * - `autoscaling:EC2_INSTANCE_LAUNCHING`
+ * - `autoscaling:EC2_INSTANCE_TERMINATING`
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,12 +56,12 @@ export interface DescribeLifecycleHookTypesCommandOutput extends DescribeLifecyc
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  * @throws {@link ResourceContentionFault} (server fault)
- *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
- *             instance, or load balancer).</p>
+ *
+ * You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).
  *
  * @throws {@link AutoScalingServiceException}
- * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from AutoScaling service.
  *
  * @example To describe the available types of lifecycle hooks
  * ```javascript

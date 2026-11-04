@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p> The Amazon SageMaker AI runtime HTTP/2 API. </p>
+ * The Amazon SageMaker AI runtime HTTP/2 API.
  *
  * @packageDocumentation
  */

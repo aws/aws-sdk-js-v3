@@ -23,10 +23,10 @@ export interface DeleteApplicationVersionCommandInput extends DeleteApplicationV
 export interface DeleteApplicationVersionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified version from the specified application.</p>
- *          <note>
- *             <p>You cannot delete an application version that is associated with a running environment.</p>
- *          </note>
+ * Deletes the specified version from the specified application.
+ *
+ * > **Note:** You cannot delete an application version that is associated with a running environment.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,34 +53,28 @@ export interface DeleteApplicationVersionCommandOutput extends __MetadataBearer 
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  * @throws {@link InsufficientPrivilegesException} (client fault)
- *  <p>The specified account does not have sufficient privileges for one or more Amazon Web Services services.</p>
+ *
+ * The specified account does not have sufficient privileges for one or more Amazon Web Services services.
  *
  * @throws {@link OperationInProgressException} (client fault)
- *  <p>Unable to perform the specified operation because another operation that effects an
- *       element in this activity is already in progress.</p>
+ *
+ * Unable to perform the specified operation because another operation that effects an element in this activity is already in progress.
  *
  * @throws {@link S3LocationNotInServiceRegionException} (client fault)
- *  <p>The specified S3 bucket does not belong to the S3 region in which the service is
- *       running. The following regions are supported:</p>
- *          <ul>
- *             <li>
- *                <p>IAD/us-east-1</p>
- *             </li>
- *             <li>
- *                <p>PDX/us-west-2</p>
- *             </li>
- *             <li>
- *                <p>DUB/eu-west-1</p>
- *             </li>
- *          </ul>
+ *
+ * The specified S3 bucket does not belong to the S3 region in which the service is running. The following regions are supported:
+ *
+ * - IAD/us-east-1
+ * - PDX/us-west-2
+ * - DUB/eu-west-1
  *
  * @throws {@link SourceBundleDeletionException} (client fault)
- *  <p>Unable to delete the Amazon S3 source bundle associated with the application version.
- *       The application version was deleted successfully.</p>
+ *
+ * Unable to delete the Amazon S3 source bundle associated with the application version. The application version was deleted successfully.
  *
  * @throws {@link ElasticBeanstalkSyntheticServiceException}
- * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * Base exception class for all service exceptions from ElasticBeanstalk service.
  *
  * @example To delete an application version
  * ```javascript

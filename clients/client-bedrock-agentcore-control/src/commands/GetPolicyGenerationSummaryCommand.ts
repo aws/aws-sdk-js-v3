@@ -23,7 +23,8 @@ export interface GetPolicyGenerationSummaryCommandInput extends GetPolicyGenerat
 export interface GetPolicyGenerationSummaryCommandOutput extends GetPolicyGenerationSummaryResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a metadata-only summary of a specific policy generation request without decrypting customer content. This lightweight read operation returns resource identifiers, status, timestamps, and findings, but does not include status reasons. Because this operation does not require access to the customer's KMS key, it is suitable for resource discovery, inventory, and integration scenarios where only metadata is needed.</p>
+ * Retrieves a metadata-only summary of a specific policy generation request without decrypting customer content. This lightweight read operation returns resource identifiers, status, timestamps, and findings, but does not include status reasons. Because this operation does not require access to the customer's KMS key, it is suitable for resource discovery, inventory, and integration scenarios where only metadata is needed.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,23 +62,28 @@ export interface GetPolicyGenerationSummaryCommandOutput extends GetPolicyGenera
  * @see {@link BedrockAgentCoreControlClientResolvedConfig | config} for BedrockAgentCoreControlClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>This exception is thrown when a request is denied per access permissions</p>
+ *
+ * This exception is thrown when a request is denied per access permissions
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception is thrown if there was an unexpected error during processing of request</p>
+ *
+ * This exception is thrown if there was an unexpected error during processing of request
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when a resource referenced by the operation does not exist</p>
+ *
+ * This exception is thrown when a resource referenced by the operation does not exist
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>This exception is thrown when the number of requests exceeds the limit</p>
+ *
+ * This exception is thrown when the number of requests exceeds the limit
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the service.</p>
+ *
+ * The input fails to satisfy the constraints specified by the service.
  *
  * @throws {@link BedrockAgentCoreControlServiceException}
- * <p>Base exception class for all service exceptions from BedrockAgentCoreControl service.</p>
  *
+ * Base exception class for all service exceptions from BedrockAgentCoreControl service.
  *
  * @public
  */

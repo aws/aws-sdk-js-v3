@@ -23,7 +23,8 @@ export interface CreatePaymentConnectorCommandInput extends CreatePaymentConnect
 export interface CreatePaymentConnectorCommandOutput extends CreatePaymentConnectorResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new payment connector for a payment manager. A payment connector integrates with a supported payment provider to enable payment processing capabilities.</p>
+ * Creates a new payment connector for a payment manager. A payment connector integrates with a supported payment provider to enable payment processing capabilities.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,32 +82,40 @@ export interface CreatePaymentConnectorCommandOutput extends CreatePaymentConnec
  * @see {@link BedrockAgentCoreControlClientResolvedConfig | config} for BedrockAgentCoreControlClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>This exception is thrown when a request is denied per access permissions</p>
+ *
+ * This exception is thrown when a request is denied per access permissions
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>This exception is thrown when there is a conflict performing an operation</p>
+ *
+ * This exception is thrown when there is a conflict performing an operation
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception is thrown if there was an unexpected error during processing of request</p>
+ *
+ * This exception is thrown if there was an unexpected error during processing of request
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when a resource referenced by the operation does not exist</p>
+ *
+ * This exception is thrown when a resource referenced by the operation does not exist
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>This exception is thrown when a request is made beyond the service quota</p>
+ *
+ * This exception is thrown when a request is made beyond the service quota
  *
  * @throws {@link SubscriptionRequiredException} (client fault)
- *  <p>The request failed because it requires an active Amazon Web Services Marketplace subscription that is not present. Subscribe to the required product in Amazon Web Services Marketplace and try again.</p>
+ *
+ * The request failed because it requires an active Amazon Web Services Marketplace subscription that is not present. Subscribe to the required product in Amazon Web Services Marketplace and try again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>This exception is thrown when the number of requests exceeds the limit</p>
+ *
+ * This exception is thrown when the number of requests exceeds the limit
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the service.</p>
+ *
+ * The input fails to satisfy the constraints specified by the service.
  *
  * @throws {@link BedrockAgentCoreControlServiceException}
- * <p>Base exception class for all service exceptions from BedrockAgentCoreControl service.</p>
  *
+ * Base exception class for all service exceptions from BedrockAgentCoreControl service.
  *
  * @public
  */

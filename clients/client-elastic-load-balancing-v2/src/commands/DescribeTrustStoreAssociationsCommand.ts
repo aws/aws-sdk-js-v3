@@ -23,7 +23,8 @@ export interface DescribeTrustStoreAssociationsCommandInput extends DescribeTrus
 export interface DescribeTrustStoreAssociationsCommandOutput extends DescribeTrustStoreAssociationsOutput, __MetadataBearer {}
 
 /**
- * <p>Describes all resources associated with the specified trust store.</p>
+ * Describes all resources associated with the specified trust store.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,11 +58,12 @@ export interface DescribeTrustStoreAssociationsCommandOutput extends DescribeTru
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
  * @throws {@link TrustStoreNotFoundException} (client fault)
- *  <p>The specified trust store does not exist.</p>
+ *
+ * The specified trust store does not exist.
  *
  * @throws {@link ElasticLoadBalancingV2ServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancingV2 service.
  *
  * @public
  */

@@ -23,46 +23,25 @@ export interface ListObjectVersionsCommandInput extends ListObjectVersionsReques
 export interface ListObjectVersionsCommandOutput extends ListObjectVersionsOutput, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This operation is not supported for directory buckets.</p>
- *          </note>
- *          <p>Returns metadata about all versions of the objects in a bucket. You can also use request parameters
- *       as selection criteria to return metadata about a subset of all the object versions.</p>
- *          <important>
- *             <p> To use this operation, you must have permission to perform the <code>s3:ListBucketVersions</code>
- *         action. Be aware of the name difference. </p>
- *          </important>
- *          <note>
- *             <p> A <code>200 OK</code> response can contain valid or invalid XML. Make sure to design your
- *         application to parse the contents of the response and handle it appropriately.</p>
- *          </note>
- *          <p>To use this operation, you must have READ access to the bucket.</p>
- *          <p>The following operations are related to <code>ListObjectVersions</code>:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html">ListObjectsV2</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html">PutObject</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html">DeleteObject</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
+ * > **Note:** This operation is not supported for directory buckets.
+ *
+ * Returns metadata about all versions of the objects in a bucket. You can also use request parameters as selection criteria to return metadata about a subset of all the object versions.
+ *
+ * > **Important:** To use this operation, you must have permission to perform the `s3:ListBucketVersions` action. Be aware of the name difference.
+ *
+ * > **Note:** A `200 OK` response can contain valid or invalid XML. Make sure to design your application to parse the contents of the response and handle it appropriately.
+ *
+ * To use this operation, you must have READ access to the bucket.
+ *
+ * The following operations are related to `ListObjectVersions`:
+ *
+ * - [ListObjectsV2](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html)
+ * - [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
+ * - [PutObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
+ * - [DeleteObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
+ *
+ * > **Important:** You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -150,8 +129,8 @@ export interface ListObjectVersionsCommandOutput extends ListObjectVersionsOutpu
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  * @throws {@link S3ServiceException}
- * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * Base exception class for all service exceptions from S3 service.
  *
  * @example To list object versions
  * ```javascript

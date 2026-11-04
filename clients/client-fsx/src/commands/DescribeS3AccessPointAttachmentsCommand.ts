@@ -26,15 +26,12 @@ export interface DescribeS3AccessPointAttachmentsCommandInput extends DescribeS3
 export interface DescribeS3AccessPointAttachmentsCommandOutput extends DescribeS3AccessPointAttachmentsResponse, __MetadataBearer {}
 
 /**
- * <p>Describes one or more S3 access points attached to Amazon FSx volumes.</p>
- *          <p>The requester requires the following permission to perform this action:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>fsx:DescribeS3AccessPointAttachments</code>
- *                </p>
- *             </li>
- *          </ul>
+ * Describes one or more S3 access points attached to Amazon FSx volumes.
+ *
+ * The requester requires the following permission to perform this action:
+ *
+ * - `fsx:DescribeS3AccessPointAttachments`
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -116,20 +113,24 @@ export interface DescribeS3AccessPointAttachmentsCommandOutput extends DescribeS
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * A generic error indicating a failure with a client request.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * A generic error indicating a server-side failure.
  *
  * @throws {@link S3AccessPointAttachmentNotFound} (client fault)
- *  <p>The access point specified was not found.</p>
+ *
+ * The access point specified was not found.
  *
  * @throws {@link UnsupportedOperation} (client fault)
- *  <p>The requested operation is not supported for this resource or API.</p>
+ *
+ * The requested operation is not supported for this resource or API.
  *
  * @throws {@link FSxServiceException}
- * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * Base exception class for all service exceptions from FSx service.
  *
  * @public
  */

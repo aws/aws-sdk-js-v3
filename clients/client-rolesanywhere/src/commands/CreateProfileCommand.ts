@@ -23,7 +23,10 @@ export interface CreateProfileCommandInput extends CreateProfileRequest {}
 export interface CreateProfileCommandOutput extends ProfileDetailResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a <i>profile</i>, a list of the roles that Roles Anywhere service is trusted to assume. You use profiles to intersect permissions with IAM managed policies.</p> <p> <b>Required permissions: </b> <code>rolesanywhere:CreateProfile</code>. </p>
+ * Creates a *profile*, a list of the roles that Roles Anywhere service is trusted to assume. You use profiles to intersect permissions with IAM managed policies.
+ *
+ * **Required permissions:** `rolesanywhere:CreateProfile`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,14 +98,16 @@ export interface CreateProfileCommandOutput extends ProfileDetailResponse, __Met
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Validation exception error.</p>
+ *
+ * Validation exception error.
  *
  * @throws {@link RolesAnywhereServiceException}
- * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
+ * Base exception class for all service exceptions from RolesAnywhere service.
  *
  * @public
  */

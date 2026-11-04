@@ -23,7 +23,8 @@ export interface UpdateRetrievalInstructionCommandInput extends UpdateRetrievalI
 export interface UpdateRetrievalInstructionCommandOutput extends UpdateRetrievalInstructionResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the content of a retrieval instruction. The update is processed asynchronously; the stored content is a candidate until content review passes, and the served content does not change while the update is in flight. The service rejects the request with ConflictException while lastTransitionStatus is CREATING or UPDATING.</p>
+ * Updates the content of a retrieval instruction. The update is processed asynchronously; the stored content is a candidate until content review passes, and the served content does not change while the update is in flight. The service rejects the request with ConflictException while lastTransitionStatus is CREATING or UPDATING.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,26 +64,32 @@ export interface UpdateRetrievalInstructionCommandOutput extends UpdateRetrieval
  * @see {@link BedrockAgentClientResolvedConfig | config} for BedrockAgentClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request is denied because of missing access permissions.</p>
+ *
+ * The request is denied because of missing access permissions.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>There was a conflict performing an operation.</p>
+ *
+ * There was a conflict performing an operation.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
+ *
+ * The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
+ * The number of requests exceeds the limit. Resubmit your request later.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Input validation failed. Check your request parameters and retry the request.</p>
+ *
+ * Input validation failed. Check your request parameters and retry the request.
  *
  * @throws {@link BedrockAgentServiceException}
- * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ * Base exception class for all service exceptions from BedrockAgent service.
  *
  * @public
  */

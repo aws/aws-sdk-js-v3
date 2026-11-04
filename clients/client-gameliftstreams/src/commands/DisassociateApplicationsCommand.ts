@@ -23,7 +23,10 @@ export interface DisassociateApplicationsCommandInput extends DisassociateApplic
 export interface DisassociateApplicationsCommandOutput extends DisassociateApplicationsOutput, __MetadataBearer {}
 
 /**
- * <p> When you disassociate, or unlink, an application from a stream group, you can no longer stream this application by using that stream group's allocated compute resources. Any streams in process will continue until they terminate, which helps avoid interrupting an end-user's stream. Amazon GameLift Streams will not initiate new streams in the stream group using the disassociated application. The disassociate action does not affect the stream capacity of a stream group. To disassociate an application, the stream group must be in <code>ACTIVE</code> status. </p> <p> If you disassociate the default application, Amazon GameLift Streams will automatically choose a new default application from the remaining associated applications. To change which application is the default application, call <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_UpdateStreamGroup.html">UpdateStreamGroup</a> and specify a new <code>DefaultApplicationIdentifier</code>. </p>
+ * When you disassociate, or unlink, an application from a stream group, you can no longer stream this application by using that stream group's allocated compute resources. Any streams in process will continue until they terminate, which helps avoid interrupting an end-user's stream. Amazon GameLift Streams will not initiate new streams in the stream group using the disassociated application. The disassociate action does not affect the stream capacity of a stream group. To disassociate an application, the stream group must be in `ACTIVE` status.
+ *
+ * If you disassociate the default application, Amazon GameLift Streams will automatically choose a new default application from the remaining associated applications. To change which application is the default application, call [UpdateStreamGroup](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_UpdateStreamGroup.html) and specify a new `DefaultApplicationIdentifier`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,23 +59,28 @@ export interface DisassociateApplicationsCommandOutput extends DisassociateAppli
  * @see {@link GameLiftStreamsClientResolvedConfig | config} for GameLiftStreamsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have the required permissions to access this Amazon GameLift Streams resource. Correct the permissions before you try again.</p>
+ *
+ * You don't have the required permissions to access this Amazon GameLift Streams resource. Correct the permissions before you try again.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The service encountered an internal error and is unable to complete the request.</p>
+ *
+ * The service encountered an internal error and is unable to complete the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource specified in the request was not found. Correct the request before you try again.</p>
+ *
+ * The resource specified in the request was not found. Correct the request before you try again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. Retry the request after the suggested wait time.</p>
+ *
+ * The request was denied due to request throttling. Retry the request after the suggested wait time.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One or more parameter values in the request fail to satisfy the specified constraints. Correct the invalid parameter values before retrying the request.</p>
+ *
+ * One or more parameter values in the request fail to satisfy the specified constraints. Correct the invalid parameter values before retrying the request.
  *
  * @throws {@link GameLiftStreamsServiceException}
- * <p>Base exception class for all service exceptions from GameLiftStreams service.</p>
  *
+ * Base exception class for all service exceptions from GameLiftStreams service.
  *
  * @public
  */

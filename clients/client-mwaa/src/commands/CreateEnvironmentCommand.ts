@@ -23,7 +23,8 @@ export interface CreateEnvironmentCommandInput extends CreateEnvironmentInput {}
 export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput, __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon Managed Workflows for Apache Airflow (Amazon MWAA) environment.</p>
+ * Creates an Amazon Managed Workflows for Apache Airflow (Amazon MWAA) environment.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -106,17 +107,20 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
  * @see {@link MWAAClientResolvedConfig | config} for MWAAClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>InternalServerException: An internal error has occurred.</p>
+ *
+ * InternalServerException: An internal error has occurred.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>ServiceUnavailableException: The service is currently unavailable.</p>
+ *
+ * ServiceUnavailableException: The service is currently unavailable.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>ValidationException: The provided input is not valid.</p>
+ *
+ * ValidationException: The provided input is not valid.
  *
  * @throws {@link MWAAServiceException}
- * <p>Base exception class for all service exceptions from MWAA service.</p>
  *
+ * Base exception class for all service exceptions from MWAA service.
  *
  * @public
  */

@@ -6,7 +6,8 @@ import {
 } from "./Route53RecoveryControlConfigServiceException";
 
 /**
- * <p>403 response - You do not have sufficient access to perform this action.</p>
+ * 403 response - You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -29,7 +30,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>409 response - ConflictException. You might be using a predefined variable.</p>
+ * 409 response - ConflictException. You might be using a predefined variable.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -52,7 +54,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>500 response - InternalServiceError. Temporary service error. Retry the request.</p>
+ * 500 response - InternalServiceError. Temporary service error. Retry the request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -75,7 +78,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>404 response - MalformedQueryString. The query string contains a syntax error or resource not found.</p>
+ * 404 response - MalformedQueryString. The query string contains a syntax error or resource not found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -98,7 +102,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>402 response - You attempted to create more resources than the service allows based on service quotas.</p>
+ * 402 response - You attempted to create more resources than the service allows based on service quotas.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -121,7 +126,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>429 response - LimitExceededException or TooManyRequestsException.</p>
+ * 429 response - LimitExceededException or TooManyRequestsException.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -144,7 +150,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
+ * 400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {

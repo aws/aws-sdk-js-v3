@@ -23,7 +23,10 @@ export interface UpdateShareInvitationCommandInput extends UpdateShareInvitation
 export interface UpdateShareInvitationCommandOutput extends UpdateShareInvitationOutput, __MetadataBearer {}
 
 /**
- * <p>Update a workload or custom lens share invitation.</p> <note> <p>This API operation can be called independently of any resource. Previous documentation implied that a workload ARN must be specified.</p> </note>
+ * Update a workload or custom lens share invitation.
+ *
+ * > **Note:** This API operation can be called independently of any resource. Previous documentation implied that a workload ARN must be specified.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,26 +62,32 @@ export interface UpdateShareInvitationCommandOutput extends UpdateShareInvitatio
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * User does not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The resource has already been processed, was deleted, or is too large.</p>
+ *
+ * The resource has already been processed, was deleted, or is too large.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>There is a problem with the Well-Architected Tool API service.</p>
+ *
+ * There is a problem with the Well-Architected Tool API service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource was not found.</p>
+ *
+ * The requested resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Request was denied due to request throttling.</p>
+ *
+ * Request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The user input is not valid.</p>
+ *
+ * The user input is not valid.
  *
  * @throws {@link WellArchitectedServiceException}
- * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ * Base exception class for all service exceptions from WellArchitected service.
  *
  * @public
  */

@@ -26,13 +26,10 @@ export interface DescribeReplicationBackfillResultsCommandInput extends Describe
 export interface DescribeReplicationBackfillResultsCommandOutput extends DescribeReplicationBackfillResultsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the status, progress, and per-image results for a replication backfill. The
- *             backfill to describe is identified by the <code>replicationBackfillId</code> returned by
- *             the <a>StartReplicationBackfill</a> operation.</p>
- *          <note>
- *             <p>The per-image results are available only after the replication backfill reaches a
- *                 terminal status.</p>
- *          </note>
+ * Returns the status, progress, and per-image results for a replication backfill. The backfill to describe is identified by the `replicationBackfillId` returned by the StartReplicationBackfill operation.
+ *
+ * > **Note:** The per-image results are available only after the replication backfill reaches a terminal status.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,22 +92,24 @@ export interface DescribeReplicationBackfillResultsCommandOutput extends Describ
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link ReplicationBackfillNotFoundException} (client fault)
- *  <p>The specified replication backfill could not be found. Check the specified replication
- *             backfill ID and ensure that you are operating on the correct registry.</p>
+ *
+ * The specified replication backfill could not be found. Check the specified replication backfill ID and ensure that you are operating on the correct registry.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>There was an exception validating this request.</p>
+ *
+ * There was an exception validating this request.
  *
  * @throws {@link ECRServiceException}
- * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * Base exception class for all service exceptions from ECR service.
  *
  * @public
  */

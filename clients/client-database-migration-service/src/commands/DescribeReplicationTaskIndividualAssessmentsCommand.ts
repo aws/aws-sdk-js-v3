@@ -26,9 +26,10 @@ export interface DescribeReplicationTaskIndividualAssessmentsCommandInput extend
 export interface DescribeReplicationTaskIndividualAssessmentsCommandOutput extends DescribeReplicationTaskIndividualAssessmentsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a paginated list of individual assessments based on filter settings.</p>
- *          <p>These filter settings can specify a combination of premigration assessment runs,
- *          migration tasks, and assessment status values.</p>
+ * Returns a paginated list of individual assessments based on filter settings.
+ *
+ * These filter settings can specify a combination of premigration assessment runs, migration tasks, and assessment status values.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,11 +74,12 @@ export interface DescribeReplicationTaskIndividualAssessmentsCommandOutput exten
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @public
  */

@@ -23,54 +23,27 @@ export interface GetBucketLifecycleConfigurationCommandInput extends GetBucketLi
 export interface GetBucketLifecycleConfigurationCommandOutput extends GetBucketLifecycleConfigurationResult, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This action gets an Amazon S3 on Outposts bucket's lifecycle configuration. To get an S3
- *             bucket's lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html">GetBucketLifecycleConfiguration</a> in the <i>Amazon S3 API Reference</i>.
- *          </p>
- *          </note>
- *          <p>Returns the lifecycle configuration information set on the Outposts bucket. For more
- *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> and for
- *          information about lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html"> Object Lifecycle
- *             Management</a> in <i>Amazon S3 User Guide</i>.</p>
- *          <p>To use this action, you must have permission to perform the
- *             <code>s3-outposts:GetLifecycleConfiguration</code> action. The Outposts bucket owner
- *          has this permission, by default. The bucket owner can grant this permission to others. For
- *          more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
- *             Access Permissions to Your Amazon S3 Resources</a>.</p>
- *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketLifecycleConfiguration.html#API_control_GetBucketLifecycleConfiguration_Examples">Examples</a> section.</p>
- *          <p>
- *             <code>GetBucketLifecycleConfiguration</code> has the following special error:</p>
- *          <ul>
- *             <li>
- *                <p>Error code: <code>NoSuchLifecycleConfiguration</code>
- *                </p>
- *                <ul>
- *                   <li>
- *                      <p>Description: The lifecycle configuration does not exist.</p>
- *                   </li>
- *                   <li>
- *                      <p>HTTP Status Code: 404 Not Found</p>
- *                   </li>
- *                   <li>
- *                      <p>SOAP Fault Code Prefix: Client</p>
- *                   </li>
- *                </ul>
- *             </li>
- *          </ul>
- *          <p>The following actions are related to
- *          <code>GetBucketLifecycleConfiguration</code>:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketLifecycleConfiguration.html">PutBucketLifecycleConfiguration</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketLifecycleConfiguration.html">DeleteBucketLifecycleConfiguration</a>
- *                </p>
- *             </li>
- *          </ul>
+ * > **Note:** This action gets an Amazon S3 on Outposts bucket's lifecycle configuration. To get an S3 bucket's lifecycle configuration, see [GetBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html) in the *Amazon S3 API Reference*.
+ *
+ * Returns the lifecycle configuration information set on the Outposts bucket. For more information, see [Using Amazon S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html) and for information about lifecycle configuration, see [Object Lifecycle Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) in *Amazon S3 User Guide*.
+ *
+ * To use this action, you must have permission to perform the `s3-outposts:GetLifecycleConfiguration` action. The Outposts bucket owner has this permission, by default. The bucket owner can grant this permission to others. For more information about permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources) and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html).
+ *
+ * All Amazon S3 on Outposts REST API requests for this action require an additional parameter of `x-amz-outpost-id` to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of `s3-control`. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the `x-amz-outpost-id` derived by using the access point ARN, see the [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketLifecycleConfiguration.html#API_control_GetBucketLifecycleConfiguration_Examples) section.
+ *
+ * `GetBucketLifecycleConfiguration` has the following special error:
+ *
+ * - Error code: `NoSuchLifecycleConfiguration`
+ *
+ *   - Description: The lifecycle configuration does not exist.
+ *   - HTTP Status Code: 404 Not Found
+ *   - SOAP Fault Code Prefix: Client
+ *
+ * The following actions are related to `GetBucketLifecycleConfiguration`:
+ *
+ * - [PutBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketLifecycleConfiguration.html)
+ * - [DeleteBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketLifecycleConfiguration.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -148,8 +121,8 @@ export interface GetBucketLifecycleConfigurationCommandOutput extends GetBucketL
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
  * @throws {@link S3ControlServiceException}
- * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * Base exception class for all service exceptions from S3Control service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface GetAccessTokenCommandInput extends GetAccessTokenRequest {}
 export interface GetAccessTokenCommandOutput extends GetAccessTokenResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a credentials set to be used with just-in-time node access.</p>
+ * Returns a credentials set to be used with just-in-time node access.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,25 +57,28 @@ export interface GetAccessTokenCommandOutput extends GetAccessTokenResponse, __M
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The requester doesn't have permissions to perform the requested operation.</p>
+ *
+ * The requester doesn't have permissions to perform the requested operation.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified parameter to be shared could not be found.</p>
+ *
+ * The specified parameter to be shared could not be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request or operation couldn't be performed because the service is throttling
- *    requests.</p>
+ *
+ * The request or operation couldn't be performed because the service is throttling requests.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. Verify that you entered valid contents for the command and try
- *    again.</p>
+ *
+ * The request isn't valid. Verify that you entered valid contents for the command and try again.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

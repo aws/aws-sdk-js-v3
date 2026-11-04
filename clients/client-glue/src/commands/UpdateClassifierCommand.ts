@@ -23,9 +23,8 @@ export interface UpdateClassifierCommandInput extends UpdateClassifierRequest {}
 export interface UpdateClassifierCommandOutput extends UpdateClassifierResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies an existing classifier (a <code>GrokClassifier</code>,
- *       an <code>XMLClassifier</code>, a <code>JsonClassifier</code>, or a <code>CsvClassifier</code>, depending on
- *       which field is present).</p>
+ * Modifies an existing classifier (a `GrokClassifier`, an `XMLClassifier`, a `JsonClassifier`, or a `CsvClassifier`, depending on which field is present).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,20 +79,24 @@ export interface UpdateClassifierCommandOutput extends UpdateClassifierResponse,
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link VersionMismatchException} (client fault)
- *  <p>There was a version conflict.</p>
+ *
+ * There was a version conflict.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

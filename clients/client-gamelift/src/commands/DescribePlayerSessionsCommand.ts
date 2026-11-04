@@ -23,36 +23,24 @@ export interface DescribePlayerSessionsCommandInput extends DescribePlayerSessio
 export interface DescribePlayerSessionsCommandOutput extends DescribePlayerSessionsOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
- *          <p>Retrieves properties for one or more player sessions. </p>
- *          <p>This action can be used in the following ways: </p>
- *          <ul>
- *             <li>
- *                <p>To retrieve a specific player session, provide the player session ID
- *                     only.</p>
- *             </li>
- *             <li>
- *                <p>To retrieve all player sessions in a game session, provide the game session ID
- *                     only.</p>
- *             </li>
- *             <li>
- *                <p>To retrieve all player sessions for a specific player, provide a player ID
- *                     only.</p>
- *             </li>
- *          </ul>
- *          <p>To request player sessions, specify either a player session ID, game session ID, or
- *             player ID. You can filter this request by player session status. If you provide
- *             a specific <code>PlayerSessionId</code> or <code>PlayerId</code>, Amazon GameLift Servers ignores the filter criteria.
- *             Use the pagination parameters to retrieve results as a set of sequential pages. </p>
- *          <p>If successful, a <code>PlayerSession</code> object is returned for each session that
- *             matches the request.</p>
- *          <p>
- *             <b>Related actions</b>
- *          </p>
- *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
- *          </p>
+ * **This API works with the following fleet types:** EC2, Anywhere, Container
+ *
+ * Retrieves properties for one or more player sessions.
+ *
+ * This action can be used in the following ways:
+ *
+ * - To retrieve a specific player session, provide the player session ID only.
+ * - To retrieve all player sessions in a game session, provide the game session ID only.
+ * - To retrieve all player sessions for a specific player, provide a player ID only.
+ *
+ * To request player sessions, specify either a player session ID, game session ID, or player ID. You can filter this request by player session status. If you provide a specific `PlayerSessionId` or `PlayerId`, Amazon GameLift Servers ignores the filter criteria. Use the pagination parameters to retrieve results as a set of sequential pages.
+ *
+ * If successful, a `PlayerSession` object is returned for each session that matches the request.
+ *
+ * **Related actions**
+ *
+ * [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -100,22 +88,24 @@ export interface DescribePlayerSessionsCommandOutput extends DescribePlayerSessi
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an unrecoverable internal failure while processing the
- *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
- *             values before retrying.</p>
+ *
+ * One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resource was not found. The resource was either not created yet or deleted.</p>
+ *
+ * The requested resource was not found. The resource was either not created yet or deleted.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * The client failed authentication. Clients should not retry such requests.
  *
  * @throws {@link GameLiftServiceException}
- * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * Base exception class for all service exceptions from GameLift service.
  *
  * @public
  */

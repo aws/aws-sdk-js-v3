@@ -23,46 +23,22 @@ export interface StartMedicalScribeStreamCommandInput extends StartMedicalScribe
 export interface StartMedicalScribeStreamCommandOutput extends StartMedicalScribeStreamResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a bidirectional HTTP/2 stream, where audio is streamed to
- *       Amazon Web Services HealthScribe
- *       and the transcription results are streamed to your application.</p>
- *          <p>When you start a stream, you first specify the stream configuration in a <code>MedicalScribeConfigurationEvent</code>.
- *       This event includes channel definitions, encryption settings, medical scribe context, and post-stream analytics settings, such as the output configuration for aggregated transcript and clinical note generation. These are additional
- *       streaming session configurations beyond those provided in your initial start request headers. Whether you are starting a new session or resuming an existing session,
- *       your first event must be a <code>MedicalScribeConfigurationEvent</code>. </p>
- *          <p>
- *       After you send a <code>MedicalScribeConfigurationEvent</code>, you start <code>AudioEvents</code> and Amazon Web Services HealthScribe
- *       responds with real-time transcription results. When you are finished, to start processing the results with the post-stream analytics, send a <code>MedicalScribeSessionControlEvent</code> with a <code>Type</code> of
- *       <code>END_OF_SESSION</code> and Amazon Web Services HealthScribe starts the analytics.
- *     </p>
- *          <p>You can pause or resume streaming.
- *      To pause streaming, complete the input stream without sending the
- *       <code>MedicalScribeSessionControlEvent</code>.
- *       To resume streaming, call the <code>StartMedicalScribeStream</code> and specify the same SessionId you used to start the stream.
- *     </p>
- *          <p>The following parameters are required:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>language-code</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>media-encoding</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>media-sample-rate-hertz</code>
- *                </p>
- *             </li>
- *          </ul>
- *          <p></p>
- *          <p>For more information on streaming with
- *       Amazon Web Services HealthScribe,
- *       see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/health-scribe-streaming.html">Amazon Web Services HealthScribe</a>.
- *     </p>
+ * Starts a bidirectional HTTP/2 stream, where audio is streamed to Amazon Web Services HealthScribe and the transcription results are streamed to your application.
+ *
+ * When you start a stream, you first specify the stream configuration in a `MedicalScribeConfigurationEvent`. This event includes channel definitions, encryption settings, medical scribe context, and post-stream analytics settings, such as the output configuration for aggregated transcript and clinical note generation. These are additional streaming session configurations beyond those provided in your initial start request headers. Whether you are starting a new session or resuming an existing session, your first event must be a `MedicalScribeConfigurationEvent`.
+ *
+ * After you send a `MedicalScribeConfigurationEvent`, you start `AudioEvents` and Amazon Web Services HealthScribe responds with real-time transcription results. When you are finished, to start processing the results with the post-stream analytics, send a `MedicalScribeSessionControlEvent` with a `Type` of `END_OF_SESSION` and Amazon Web Services HealthScribe starts the analytics.
+ *
+ * You can pause or resume streaming. To pause streaming, complete the input stream without sending the `MedicalScribeSessionControlEvent`. To resume streaming, call the `StartMedicalScribeStream` and specify the same SessionId you used to start the stream.
+ *
+ * The following parameters are required:
+ *
+ * - `language-code`
+ * - `media-encoding`
+ * - `media-sample-rate-hertz`
+ *
+ * For more information on streaming with Amazon Web Services HealthScribe, see [Amazon Web Services HealthScribe](https://docs.aws.amazon.com/transcribe/latest/dg/health-scribe-streaming.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -170,31 +146,28 @@ export interface StartMedicalScribeStreamCommandOutput extends StartMedicalScrib
  * @see {@link TranscribeStreamingClientResolvedConfig | config} for TranscribeStreamingClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>One or more arguments to the <code>StartStreamTranscription</code>,
- *       <code>StartMedicalStreamTranscription</code>, or <code>StartCallAnalyticsStreamTranscription</code>
- *       operation was not valid. For example, <code>MediaEncoding</code> or <code>LanguageCode</code>
- *       used unsupported values. Check the specified parameters and try your request again.</p>
+ *
+ * One or more arguments to the `StartStreamTranscription`, `StartMedicalStreamTranscription`, or `StartCallAnalyticsStreamTranscription` operation was not valid. For example, `MediaEncoding` or `LanguageCode` used unsupported values. Check the specified parameters and try your request again.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A new stream started with the same session ID. The current stream has been terminated.</p>
+ *
+ * A new stream started with the same session ID. The current stream has been terminated.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>A problem occurred while processing the audio. Amazon Transcribe terminated
- *       processing.</p>
+ *
+ * A problem occurred while processing the audio. Amazon Transcribe terminated processing.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>Your client has exceeded one of the Amazon Transcribe limits, typically the concurrent stream
- *       service quota. This error can also occur if a stream exceeds the maximum session duration. In rare
- *       cases, this error can also occur if you increase your number of concurrent streams too quickly.
- *       Reduce your number of concurrent streams and try your request again using an exponential backoff
- *       strategy.</p>
+ *
+ * Your client has exceeded one of the Amazon Transcribe limits, typically the concurrent stream service quota. This error can also occur if a stream exceeds the maximum session duration. In rare cases, this error can also occur if you increase your number of concurrent streams too quickly. Reduce your number of concurrent streams and try your request again using an exponential backoff strategy.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is currently unavailable. Try your request later.</p>
+ *
+ * The service is currently unavailable. Try your request later.
  *
  * @throws {@link TranscribeStreamingServiceException}
- * <p>Base exception class for all service exceptions from TranscribeStreaming service.</p>
  *
+ * Base exception class for all service exceptions from TranscribeStreaming service.
  *
  * @public
  */

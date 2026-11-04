@@ -25,13 +25,15 @@ import type {
  */
 export interface AcceptAdministratorInvitationRequest {
   /**
-   * <p>The account ID of the Security Hub CSPM administrator account that sent the invitation.</p>
+   * The account ID of the Security Hub CSPM administrator account that sent the invitation.
+   *
    * @public
    */
   AdministratorId: string | undefined;
 
   /**
-   * <p>The identifier of the invitation sent from the Security Hub CSPM administrator account.</p>
+   * The identifier of the invitation sent from the Security Hub CSPM administrator account.
+   *
    * @public
    */
   InvitationId: string | undefined;
@@ -47,13 +49,15 @@ export interface AcceptAdministratorInvitationResponse {}
  */
 export interface AcceptInvitationRequest {
   /**
-   * <p>The account ID of the Security Hub CSPM administrator account that sent the invitation.</p>
+   * The account ID of the Security Hub CSPM administrator account that sent the invitation.
+   *
    * @public
    */
   MasterId: string | undefined;
 
   /**
-   * <p>The identifier of the invitation sent from the Security Hub CSPM administrator account.</p>
+   * The identifier of the invitation sent from the Security Hub CSPM administrator account.
+   *
    * @public
    */
   InvitationId: string | undefined;
@@ -65,13063 +69,12492 @@ export interface AcceptInvitationRequest {
 export interface AcceptInvitationResponse {}
 
 /**
- * <p>The details of an Amazon Web Services account.</p>
+ * The details of an Amazon Web Services account.
+ *
  * @public
  */
 export interface AccountDetails {
   /**
-   * <p>The ID of an Amazon Web Services account.</p>
+   * The ID of an Amazon Web Services account.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The email of an Amazon Web Services account.</p>
+   * The email of an Amazon Web Services account.
+   *
    * @public
    */
   Email?: string | undefined;
 }
 
 /**
- * <p>The free trial period for a Security Hub feature, and whether the trial is currently active.</p>
+ * The free trial period for a Security Hub feature, and whether the trial is currently active.
+ *
  * @public
  */
 export interface FreeTrialStatus {
   /**
-   * <p>The feature that the free trial period applies to. Valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SECURITY_HUB_V2</code> specifies Security Hub.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SECURITY_HUB_V2_MULTI_CLOUD_AZURE</code> specifies Security Hub coverage for Microsoft Azure resources.</p>
-   *             </li>
-   *          </ul>
+   * The feature that the free trial period applies to. Valid values:
+   *
+   * - `SECURITY_HUB_V2` specifies Security Hub.
+   * - `SECURITY_HUB_V2_MULTI_CLOUD_AZURE` specifies Security Hub coverage for Microsoft Azure resources.
+   *
    * @public
    */
   FeatureType: FreeTrialType | undefined;
 
   /**
-   * <p>Specifies whether the free trial period is currently active. Valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ACTIVE</code> specifies that the free trial period is ongoing.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INACTIVE</code> specifies that the free trial period has ended, or that it never started.</p>
-   *             </li>
-   *          </ul>
-   *          <p>To determine whether a trial has expired, compare <code>ExpiresAt</code> to the current time.</p>
+   * Specifies whether the free trial period is currently active. Valid values:
+   *
+   * - `ACTIVE` specifies that the free trial period is ongoing.
+   * - `INACTIVE` specifies that the free trial period has ended, or that it never started.
+   *
+   * To determine whether a trial has expired, compare `ExpiresAt` to the current time.
+   *
    * @public
    */
   Status: FreeTrialStatusValue | undefined;
 
   /**
-   * <p>The date and time at which the free trial period began.</p>
+   * The date and time at which the free trial period began.
+   *
    * @public
    */
   StartedAt: Date | undefined;
 
   /**
-   * <p>The date and time at which the free trial period ends.</p>
+   * The date and time at which the free trial period ends.
+   *
    * @public
    */
   ExpiresAt: Date | undefined;
 }
 
 /**
- * <p>The free trial status of each Security Hub feature for an account.</p>
+ * The free trial status of each Security Hub feature for an account.
+ *
  * @public
  */
 export interface AccountFreeTrialStatus {
   /**
-   * <p>The Amazon Web Services account identifier that the free trial statuses apply to.</p>
+   * The Amazon Web Services account identifier that the free trial statuses apply to.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The date and time at which Security Hub evaluated the free trial statuses for this account. Every status in <code>FreeTrialStatuses</code> reflects this point in time.</p>
+   * The date and time at which Security Hub evaluated the free trial statuses for this account. Every status in `FreeTrialStatuses` reflects this point in time.
+   *
    * @public
    */
   EvaluatedAt: Date | undefined;
 
   /**
-   * <p>An array of free trial statuses, one for each feature that has a free trial period for the account. The array is empty if the account has no free trial to report.</p>
+   * An array of free trial statuses, one for each feature that has a free trial period for the account. The array is empty if the account has no free trial to report.
+   *
    * @public
    */
   FreeTrialStatuses: FreeTrialStatus[] | undefined;
 }
 
 /**
- * <p>Provided if <code>CallerType</code> is <code>domain</code>. It provides information
- *          about the DNS domain that issued the API call.</p>
+ * Provided if `CallerType` is `domain`. It provides information about the DNS domain that issued the API call.
+ *
  * @public
  */
 export interface AwsApiCallActionDomainDetails {
   /**
-   * <p>The name of the DNS domain that issued the API call.</p>
-   *          <p>Length Constraints: 128.</p>
+   * The name of the DNS domain that issued the API call.
+   *
+   * Length Constraints: 128.
+   *
    * @public
    */
   Domain?: string | undefined;
 }
 
 /**
- * <p>Information about a city.</p>
+ * Information about a city.
+ *
  * @public
  */
 export interface City {
   /**
-   * <p>The name of the city.</p>
+   * The name of the city.
+   *
    * @public
    */
   CityName?: string | undefined;
 }
 
 /**
- * <p>Information about a country.</p>
+ * Information about a country.
+ *
  * @public
  */
 export interface Country {
   /**
-   * <p>The 2-letter ISO 3166 country code for the country.</p>
+   * The 2-letter ISO 3166 country code for the country.
+   *
    * @public
    */
   CountryCode?: string | undefined;
 
   /**
-   * <p>The name of the country.</p>
+   * The name of the country.
+   *
    * @public
    */
   CountryName?: string | undefined;
 }
 
 /**
- * <p>Provides the latitude and longitude coordinates of a location.</p>
+ * Provides the latitude and longitude coordinates of a location.
+ *
  * @public
  */
 export interface GeoLocation {
   /**
-   * <p>The longitude of the location.</p>
+   * The longitude of the location.
+   *
    * @public
    */
   Lon?: number | undefined;
 
   /**
-   * <p>The latitude of the location.</p>
+   * The latitude of the location.
+   *
    * @public
    */
   Lat?: number | undefined;
 }
 
 /**
- * <p>Provides information about an internet provider.</p>
+ * Provides information about an internet provider.
+ *
  * @public
  */
 export interface IpOrganizationDetails {
   /**
-   * <p>The Autonomous System Number (ASN) of the internet provider</p>
+   * The Autonomous System Number (ASN) of the internet provider
+   *
    * @public
    */
   Asn?: number | undefined;
 
   /**
-   * <p>The name of the organization that registered the ASN.</p>
+   * The name of the organization that registered the ASN.
+   *
    * @public
    */
   AsnOrg?: string | undefined;
 
   /**
-   * <p>The ISP information for the internet provider.</p>
+   * The ISP information for the internet provider.
+   *
    * @public
    */
   Isp?: string | undefined;
 
   /**
-   * <p>The name of the internet provider.</p>
+   * The name of the internet provider.
+   *
    * @public
    */
   Org?: string | undefined;
 }
 
 /**
- * <p>For <code>AwsApiAction</code>, <code>NetworkConnectionAction</code>, and
- *             <code>PortProbeAction</code>, <code>RemoteIpDetails</code> provides information about
- *          the remote IP address that was involved in the action.</p>
+ * For `AwsApiAction`, `NetworkConnectionAction`, and `PortProbeAction`, `RemoteIpDetails` provides information about the remote IP address that was involved in the action.
+ *
  * @public
  */
 export interface ActionRemoteIpDetails {
   /**
-   * <p>The IP address.</p>
+   * The IP address.
+   *
    * @public
    */
   IpAddressV4?: string | undefined;
 
   /**
-   * <p>The internet service provider (ISP) organization associated with the remote IP
-   *          address.</p>
+   * The internet service provider (ISP) organization associated with the remote IP address.
+   *
    * @public
    */
   Organization?: IpOrganizationDetails | undefined;
 
   /**
-   * <p>The country where the remote IP address is located.</p>
+   * The country where the remote IP address is located.
+   *
    * @public
    */
   Country?: Country | undefined;
 
   /**
-   * <p>The city where the remote IP address is located.</p>
+   * The city where the remote IP address is located.
+   *
    * @public
    */
   City?: City | undefined;
 
   /**
-   * <p>The coordinates of the location of the remote IP address.</p>
+   * The coordinates of the location of the remote IP address.
+   *
    * @public
    */
   GeoLocation?: GeoLocation | undefined;
 }
 
 /**
- * <p>Provided if <code>ActionType</code> is <code>AWS_API_CALL</code>. It provides details
- *          about the API call that was detected.</p>
+ * Provided if `ActionType` is `AWS_API_CALL`. It provides details about the API call that was detected.
+ *
  * @public
  */
 export interface AwsApiCallAction {
   /**
-   * <p>The name of the API method that was issued.</p>
-   *          <p>Length Constraints: 128.</p>
+   * The name of the API method that was issued.
+   *
+   * Length Constraints: 128.
+   *
    * @public
    */
   Api?: string | undefined;
 
   /**
-   * <p>The name of the Amazon Web Services service that the API method belongs to.</p>
-   *          <p>Length Constraints: 128.</p>
+   * The name of the Amazon Web Services service that the API method belongs to.
+   *
+   * Length Constraints: 128.
+   *
    * @public
    */
   ServiceName?: string | undefined;
 
   /**
-   * <p>Indicates whether the API call originated from a remote IP address
-   *             (<code>remoteip</code>) or from a DNS domain (<code>domain</code>).</p>
+   * Indicates whether the API call originated from a remote IP address (`remoteip`) or from a DNS domain (`domain`).
+   *
    * @public
    */
   CallerType?: string | undefined;
 
   /**
-   * <p>Provided if <code>CallerType</code> is <code>remoteip</code>. Provides information about
-   *          the remote IP address that the API call originated from.</p>
+   * Provided if `CallerType` is `remoteip`. Provides information about the remote IP address that the API call originated from.
+   *
    * @public
    */
   RemoteIpDetails?: ActionRemoteIpDetails | undefined;
 
   /**
-   * <p>Provided if <code>CallerType</code> is <code>domain</code>. Provides information about
-   *          the DNS domain that the API call originated from.</p>
+   * Provided if `CallerType` is `domain`. Provides information about the DNS domain that the API call originated from.
+   *
    * @public
    */
   DomainDetails?: AwsApiCallActionDomainDetails | undefined;
 
   /**
-   * <p>Identifies the resources that were affected by the API call.</p>
+   * Identifies the resources that were affected by the API call.
+   *
    * @public
    */
   AffectedResources?: Record<string, string> | undefined;
 
   /**
-   * <p>A timestamp that indicates when the API call was first
-   *          observed.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * A timestamp that indicates when the API call was first observed.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   FirstSeen?: string | undefined;
 
   /**
-   * <p>A timestamp that indicates when the API call was most recently
-   *          observed.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * A timestamp that indicates when the API call was most recently observed.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   LastSeen?: string | undefined;
 }
 
 /**
- * <p>Provided if <code>ActionType</code> is <code>DNS_REQUEST</code>. It provides details
- *          about the DNS request that was detected.</p>
+ * Provided if `ActionType` is `DNS_REQUEST`. It provides details about the DNS request that was detected.
+ *
  * @public
  */
 export interface DnsRequestAction {
   /**
-   * <p>The DNS domain that is associated with the DNS request.</p>
-   *          <p>Length Constraints: 128.</p>
+   * The DNS domain that is associated with the DNS request.
+   *
+   * Length Constraints: 128.
+   *
    * @public
    */
   Domain?: string | undefined;
 
   /**
-   * <p>The protocol that was used for the DNS request.</p>
-   *          <p>Length Constraints: Minimum length of 1. Maximum length of 64.</p>
+   * The protocol that was used for the DNS request.
+   *
+   * Length Constraints: Minimum length of 1. Maximum length of 64.
+   *
    * @public
    */
   Protocol?: string | undefined;
 
   /**
-   * <p>Indicates whether the DNS request was blocked.</p>
+   * Indicates whether the DNS request was blocked.
+   *
    * @public
    */
   Blocked?: boolean | undefined;
 }
 
 /**
- * <p>For <code>NetworkConnectionAction</code> and <code>PortProbeDetails</code>,
- *             <code>LocalPortDetails</code> provides information about the local port that was
- *          involved in the action.</p>
+ * For `NetworkConnectionAction` and `PortProbeDetails`, `LocalPortDetails` provides information about the local port that was involved in the action.
+ *
  * @public
  */
 export interface ActionLocalPortDetails {
   /**
-   * <p>The number of the port.</p>
+   * The number of the port.
+   *
    * @public
    */
   Port?: number | undefined;
 
   /**
-   * <p>The port name of the local connection.</p>
-   *          <p>Length Constraints: 128.</p>
+   * The port name of the local connection.
+   *
+   * Length Constraints: 128.
+   *
    * @public
    */
   PortName?: string | undefined;
 }
 
 /**
- * <p>Provides information about the remote port that was involved in an attempted network
- *          connection.</p>
+ * Provides information about the remote port that was involved in an attempted network connection.
+ *
  * @public
  */
 export interface ActionRemotePortDetails {
   /**
-   * <p>The number of the port.</p>
+   * The number of the port.
+   *
    * @public
    */
   Port?: number | undefined;
 
   /**
-   * <p>The port name of the remote connection.</p>
-   *          <p>Length Constraints: 128.</p>
+   * The port name of the remote connection.
+   *
+   * Length Constraints: 128.
+   *
    * @public
    */
   PortName?: string | undefined;
 }
 
 /**
- * <p>Provided if <code>ActionType</code> is <code>NETWORK_CONNECTION</code>. It provides
- *          details about the attempted network connection that was detected.</p>
+ * Provided if `ActionType` is `NETWORK_CONNECTION`. It provides details about the attempted network connection that was detected.
+ *
  * @public
  */
 export interface NetworkConnectionAction {
   /**
-   * <p>The direction of the network connection request (<code>IN</code> or
-   *          <code>OUT</code>).</p>
+   * The direction of the network connection request (`IN` or `OUT`).
+   *
    * @public
    */
   ConnectionDirection?: string | undefined;
 
   /**
-   * <p>Information about the remote IP address that issued the network connection
-   *          request.</p>
+   * Information about the remote IP address that issued the network connection request.
+   *
    * @public
    */
   RemoteIpDetails?: ActionRemoteIpDetails | undefined;
 
   /**
-   * <p>Information about the port on the remote IP address.</p>
+   * Information about the port on the remote IP address.
+   *
    * @public
    */
   RemotePortDetails?: ActionRemotePortDetails | undefined;
 
   /**
-   * <p>Information about the port on the EC2 instance.</p>
+   * Information about the port on the EC2 instance.
+   *
    * @public
    */
   LocalPortDetails?: ActionLocalPortDetails | undefined;
 
   /**
-   * <p>The protocol used to make the network connection request.</p>
-   *          <p>Length Constraints: Minimum length of 1. Maximum length of 64.</p>
+   * The protocol used to make the network connection request.
+   *
+   * Length Constraints: Minimum length of 1. Maximum length of 64.
+   *
    * @public
    */
   Protocol?: string | undefined;
 
   /**
-   * <p>Indicates whether the network connection attempt was blocked.</p>
+   * Indicates whether the network connection attempt was blocked.
+   *
    * @public
    */
   Blocked?: boolean | undefined;
 }
 
 /**
- * <p>Provides information about the IP address where the scanned port is located.</p>
+ * Provides information about the IP address where the scanned port is located.
+ *
  * @public
  */
 export interface ActionLocalIpDetails {
   /**
-   * <p>The IP address.</p>
+   * The IP address.
+   *
    * @public
    */
   IpAddressV4?: string | undefined;
 }
 
 /**
- * <p>A port scan that was part of the port probe. For each scan, PortProbeDetails provides
- *          information about the local IP address and port that were scanned, and the remote IP
- *          address that the scan originated from.</p>
+ * A port scan that was part of the port probe. For each scan, PortProbeDetails provides information about the local IP address and port that were scanned, and the remote IP address that the scan originated from.
+ *
  * @public
  */
 export interface PortProbeDetail {
   /**
-   * <p>Provides information about the port that was scanned.</p>
+   * Provides information about the port that was scanned.
+   *
    * @public
    */
   LocalPortDetails?: ActionLocalPortDetails | undefined;
 
   /**
-   * <p>Provides information about the IP address where the scanned port is located.</p>
+   * Provides information about the IP address where the scanned port is located.
+   *
    * @public
    */
   LocalIpDetails?: ActionLocalIpDetails | undefined;
 
   /**
-   * <p>Provides information about the remote IP address that performed the scan.</p>
+   * Provides information about the remote IP address that performed the scan.
+   *
    * @public
    */
   RemoteIpDetails?: ActionRemoteIpDetails | undefined;
 }
 
 /**
- * <p>Provided if <code>ActionType</code> is <code>PORT_PROBE</code>. It provides details
- *          about the attempted port probe that was detected.</p>
+ * Provided if `ActionType` is `PORT_PROBE`. It provides details about the attempted port probe that was detected.
+ *
  * @public
  */
 export interface PortProbeAction {
   /**
-   * <p>Information about the ports affected by the port probe.</p>
+   * Information about the ports affected by the port probe.
+   *
    * @public
    */
   PortProbeDetails?: PortProbeDetail[] | undefined;
 
   /**
-   * <p>Indicates whether the port probe was blocked.</p>
+   * Indicates whether the port probe was blocked.
+   *
    * @public
    */
   Blocked?: boolean | undefined;
 }
 
 /**
- * <p>Provides details about one of the following actions that affects or that was taken on a resource:</p>
- *          <ul>
- *             <li>
- *                <p>A remote IP address issued an Amazon Web Services API call</p>
- *             </li>
- *             <li>
- *                <p>A DNS request was received</p>
- *             </li>
- *             <li>
- *                <p>A remote IP address attempted to connect to an EC2 instance</p>
- *             </li>
- *             <li>
- *                <p>A remote IP address attempted a port probe on an EC2 instance</p>
- *             </li>
- *          </ul>
+ * Provides details about one of the following actions that affects or that was taken on a resource:
+ *
+ * - A remote IP address issued an Amazon Web Services API call
+ * - A DNS request was received
+ * - A remote IP address attempted to connect to an EC2 instance
+ * - A remote IP address attempted a port probe on an EC2 instance
+ *
  * @public
  */
 export interface Action {
   /**
-   * <p>The type of action that was detected. The possible action types are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>NETWORK_CONNECTION</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS_API_CALL</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DNS_REQUEST</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PORT_PROBE</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The type of action that was detected. The possible action types are:
+   *
+   * - `NETWORK_CONNECTION`
+   * - `AWS_API_CALL`
+   * - `DNS_REQUEST`
+   * - `PORT_PROBE`
+   *
    * @public
    */
   ActionType?: string | undefined;
 
   /**
-   * <p>Included if <code>ActionType</code> is <code>NETWORK_CONNECTION</code>. Provides details
-   *          about the network connection that was detected.</p>
+   * Included if `ActionType` is `NETWORK_CONNECTION`. Provides details about the network connection that was detected.
+   *
    * @public
    */
   NetworkConnectionAction?: NetworkConnectionAction | undefined;
 
   /**
-   * <p>Included if <code>ActionType</code> is <code>AWS_API_CALL</code>. Provides details about
-   *          the API call that was detected. </p>
+   * Included if `ActionType` is `AWS_API_CALL`. Provides details about the API call that was detected.
+   *
    * @public
    */
   AwsApiCallAction?: AwsApiCallAction | undefined;
 
   /**
-   * <p>Included if <code>ActionType</code> is <code>DNS_REQUEST</code>. Provides details about
-   *          the DNS request that was detected. </p>
+   * Included if `ActionType` is `DNS_REQUEST`. Provides details about the DNS request that was detected.
+   *
    * @public
    */
   DnsRequestAction?: DnsRequestAction | undefined;
 
   /**
-   * <p>Included if <code>ActionType</code> is <code>PORT_PROBE</code>. Provides details about
-   *          the port probe that was detected. </p>
+   * Included if `ActionType` is `PORT_PROBE`. Provides details about the port probe that was detected.
+   *
    * @public
    */
   PortProbeAction?: PortProbeAction | undefined;
 }
 
 /**
- * <p>The updated note.</p>
+ * The updated note.
+ *
  * @public
  */
 export interface NoteUpdate {
   /**
-   * <p>The updated note text.</p>
+   * The updated note text.
+   *
    * @public
    */
   Text: string | undefined;
 
   /**
-   * <p>The principal that updated the note.</p>
+   * The principal that updated the note.
+   *
    * @public
    */
   UpdatedBy: string | undefined;
 }
 
 /**
- * <p>Details about a related finding.</p>
+ * Details about a related finding.
+ *
  * @public
  */
 export interface RelatedFinding {
   /**
-   * <p>The ARN of the product that generated a related finding.</p>
+   * The ARN of the product that generated a related finding.
+   *
    * @public
    */
   ProductArn: string | undefined;
 
   /**
-   * <p>The product-generated identifier for a related finding.</p>
+   * The product-generated identifier for a related finding.
+   *
    * @public
    */
   Id: string | undefined;
 }
 
 /**
- * <p>Updates to the severity information for a finding.</p>
+ * Updates to the severity information for a finding.
+ *
  * @public
  */
 export interface SeverityUpdate {
   /**
-   * <p>The normalized severity for the finding. This attribute is to be deprecated in favor of
-   *             <code>Label</code>.</p>
-   *          <p>If you provide <code>Normalized</code> and don't provide <code>Label</code>,
-   *             <code>Label</code> is set automatically as follows.</p>
-   *          <ul>
-   *             <li>
-   *                <p>0 - <code>INFORMATIONAL</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>1–39 - <code>LOW</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>40–69 - <code>MEDIUM</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>70–89 - <code>HIGH</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>90–100 - <code>CRITICAL</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The normalized severity for the finding. This attribute is to be deprecated in favor of `Label`.
+   *
+   * If you provide `Normalized` and don't provide `Label`, `Label` is set automatically as follows.
+   *
+   * - 0 - `INFORMATIONAL`
+   * - 1–39 - `LOW`
+   * - 40–69 - `MEDIUM`
+   * - 70–89 - `HIGH`
+   * - 90–100 - `CRITICAL`
+   *
    * @public
    */
   Normalized?: number | undefined;
 
   /**
-   * <p>The native severity as defined by the Amazon Web Services service or integrated partner product that
-   *          generated the finding.</p>
+   * The native severity as defined by the Amazon Web Services service or integrated partner product that generated the finding.
+   *
    * @public
    */
   Product?: number | undefined;
 
   /**
-   * <p>The severity value of the finding. The allowed values are the following.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>INFORMATIONAL</code> - No issue was found.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LOW</code> - The issue does not require action on its own.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MEDIUM</code> - The issue must be addressed but not urgently.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>HIGH</code> - The issue must be addressed as a priority.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CRITICAL</code> - The issue must be remediated immediately to avoid it
-   *                escalating.</p>
-   *             </li>
-   *          </ul>
+   * The severity value of the finding. The allowed values are the following.
+   *
+   * - `INFORMATIONAL` - No issue was found.
+   * - `LOW` - The issue does not require action on its own.
+   * - `MEDIUM` - The issue must be addressed but not urgently.
+   * - `HIGH` - The issue must be addressed as a priority.
+   * - `CRITICAL` - The issue must be remediated immediately to avoid it escalating.
+   *
    * @public
    */
   Label?: SeverityLabel | undefined;
 }
 
 /**
- * <p>Used to update information about the investigation into the finding.</p>
+ * Used to update information about the investigation into the finding.
+ *
  * @public
  */
 export interface WorkflowUpdate {
   /**
-   * <p>The status of the investigation into the finding. The workflow status is specific to an individual finding. It does not affect the generation of new findings. For example, setting the workflow status to <code>SUPPRESSED</code> or <code>RESOLVED</code> does not prevent a new finding for the same issue.</p>
-   *          <p>The allowed values are the following.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>NEW</code> - The initial state of a finding, before it is reviewed.</p>
-   *                <p>Security Hub CSPM also resets <code>WorkFlowStatus</code> from <code>NOTIFIED</code> or
-   *                   <code>RESOLVED</code> to <code>NEW</code> in the following cases:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>The record state changes from <code>ARCHIVED</code> to
-   *                      <code>ACTIVE</code>.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>The compliance status changes from <code>PASSED</code> to either
-   *                         <code>WARNING</code>, <code>FAILED</code>, or
-   *                      <code>NOT_AVAILABLE</code>.</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NOTIFIED</code> - Indicates that you notified the resource owner about the
-   *                security issue. Used when the initial reviewer is not the resource owner, and needs
-   *                intervention from the resource owner.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RESOLVED</code> - The finding was reviewed and remediated and is now
-   *                considered resolved.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SUPPRESSED</code> - Indicates that you reviewed the finding and don't believe that any action is needed. The finding is no longer updated.</p>
-   *             </li>
-   *          </ul>
+   * The status of the investigation into the finding. The workflow status is specific to an individual finding. It does not affect the generation of new findings. For example, setting the workflow status to `SUPPRESSED` or `RESOLVED` does not prevent a new finding for the same issue.
+   *
+   * The allowed values are the following.
+   *
+   * - `NEW` - The initial state of a finding, before it is reviewed.
+   *
+   *   Security Hub CSPM also resets `WorkFlowStatus` from `NOTIFIED` or `RESOLVED` to `NEW` in the following cases:
+   *
+   *   - The record state changes from `ARCHIVED` to `ACTIVE`.
+   *   - The compliance status changes from `PASSED` to either `WARNING`, `FAILED`, or `NOT_AVAILABLE`.
+   * - `NOTIFIED` - Indicates that you notified the resource owner about the security issue. Used when the initial reviewer is not the resource owner, and needs intervention from the resource owner.
+   * - `RESOLVED` - The finding was reviewed and remediated and is now considered resolved.
+   * - `SUPPRESSED` - Indicates that you reviewed the finding and don't believe that any action is needed. The finding is no longer updated.
+   *
    * @public
    */
   Status?: WorkflowStatus | undefined;
 }
 
 /**
- * <p>
- *          Identifies the finding fields that the automation rule action updates when a finding matches the defined criteria.
- *       </p>
+ * Identifies the finding fields that the automation rule action updates when a finding matches the defined criteria.
+ *
  * @public
  */
 export interface AutomationRulesFindingFieldsUpdate {
   /**
-   * <p>The updated note.</p>
+   * The updated note.
+   *
    * @public
    */
   Note?: NoteUpdate | undefined;
 
   /**
-   * <p>Updates to the severity information for a finding.</p>
+   * Updates to the severity information for a finding.
+   *
    * @public
    */
   Severity?: SeverityUpdate | undefined;
 
   /**
-   * <p>
-   *          The rule action updates the <code>VerificationState</code> field of a finding.
-   *       </p>
+   * The rule action updates the `VerificationState` field of a finding.
+   *
    * @public
    */
   VerificationState?: VerificationState | undefined;
 
   /**
-   * <p>
-   *          The rule action updates the <code>Confidence</code> field of a finding.
-   *       </p>
+   * The rule action updates the `Confidence` field of a finding.
+   *
    * @public
    */
   Confidence?: number | undefined;
 
   /**
-   * <p>
-   *          The rule action updates the <code>Criticality</code> field of a finding.
-   *       </p>
+   * The rule action updates the `Criticality` field of a finding.
+   *
    * @public
    */
   Criticality?: number | undefined;
 
   /**
-   * <p>
-   *          The rule action updates the <code>Types</code> field of a finding.
-   *       </p>
+   * The rule action updates the `Types` field of a finding.
+   *
    * @public
    */
   Types?: string[] | undefined;
 
   /**
-   * <p>
-   *          The rule action updates the <code>UserDefinedFields</code> field of a finding.
-   *       </p>
+   * The rule action updates the `UserDefinedFields` field of a finding.
+   *
    * @public
    */
   UserDefinedFields?: Record<string, string> | undefined;
 
   /**
-   * <p>Used to update information about the investigation into the finding.</p>
+   * Used to update information about the investigation into the finding.
+   *
    * @public
    */
   Workflow?: WorkflowUpdate | undefined;
 
   /**
-   * <p>
-   *             The rule action updates the <code>RelatedFindings</code> field of a finding.
-   *         </p>
+   * The rule action updates the `RelatedFindings` field of a finding.
+   *
    * @public
    */
   RelatedFindings?: RelatedFinding[] | undefined;
 }
 
 /**
- * <p>
- *          One or more actions that Security Hub CSPM takes when a finding matches the defined criteria
- *          of a rule.
- *       </p>
+ * One or more actions that Security Hub CSPM takes when a finding matches the defined criteria of a rule.
+ *
  * @public
  */
 export interface AutomationRulesAction {
   /**
-   * <p>
-   *          Specifies the type of action that Security Hub CSPM takes when a finding matches the defined criteria of a rule.
-   *       </p>
+   * Specifies the type of action that Security Hub CSPM takes when a finding matches the defined criteria of a rule.
+   *
    * @public
    */
   Type?: AutomationRulesActionType | undefined;
 
   /**
-   * <p>
-   *          Specifies that the automation rule action is an update to a finding field.
-   *       </p>
+   * Specifies that the automation rule action is an update to a finding field.
+   *
    * @public
    */
   FindingFieldsUpdate?: AutomationRulesFindingFieldsUpdate | undefined;
 }
 
 /**
- * <p>An <code>ActionTarget</code> object.</p>
+ * An `ActionTarget` object.
+ *
  * @public
  */
 export interface ActionTarget {
   /**
-   * <p>The ARN for the target action.</p>
+   * The ARN for the target action.
+   *
    * @public
    */
   ActionTargetArn: string | undefined;
 
   /**
-   * <p>The name of the action target.</p>
+   * The name of the action target.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The description of the target action.</p>
+   * The description of the target action.
+   *
    * @public
    */
   Description: string | undefined;
 }
 
 /**
- * <p>
- *             Contains information about the authenticated session used by the threat actor identified in an Amazon GuardDuty Extended Threat Detection attack sequence. GuardDuty generates an attack
- *             sequence finding when multiple events align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in Security Hub CSPM, you
- * 				must have GuardDuty enabled. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html">GuardDuty Extended Threat Detection </a> in the <i>Amazon GuardDuty User Guide</i>.</p>
+ * Contains information about the authenticated session used by the threat actor identified in an Amazon GuardDuty Extended Threat Detection attack sequence. GuardDuty generates an attack sequence finding when multiple events align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in Security Hub CSPM, you must have GuardDuty enabled. For more information, see [GuardDuty Extended Threat Detection](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html) in the *Amazon GuardDuty User Guide*.
+ *
  * @public
  */
 export interface ActorSession {
   /**
-   * <p>
-   *             Unique identifier of the session.
-   *         </p>
+   * Unique identifier of the session.
+   *
    * @public
    */
   Uid?: string | undefined;
 
   /**
-   * <p>
-   *             Indicates whether multi-factor authentication (MFA) was used for authentication during the session.</p>
-   *          <p>In CloudTrail, you can find this value as <code>userIdentity.sessionContext.attributes.mfaAuthenticated</code>.</p>
+   * Indicates whether multi-factor authentication (MFA) was used for authentication during the session.
+   *
+   * In CloudTrail, you can find this value as `userIdentity.sessionContext.attributes.mfaAuthenticated`.
+   *
    * @public
    */
   MfaStatus?: ActorSessionMfaStatus | undefined;
 
   /**
-   * <p>The timestamp for when the session was created.
-   *         </p>
-   *          <p>In CloudTrail, you can find this value as <code>userIdentity.sessionContext.attributes.creationDate</code>.</p>
+   * The timestamp for when the session was created.
+   *
+   * In CloudTrail, you can find this value as `userIdentity.sessionContext.attributes.creationDate`.
+   *
    * @public
    */
   CreatedTime?: number | undefined;
 
   /**
-   * <p>
-   *             The issuer of the session.
-   *         </p>
-   *          <p>In CloudTrail, you can find this value as <code>userIdentity.sessionContext.sessionIssuer.arn</code>.</p>
+   * The issuer of the session.
+   *
+   * In CloudTrail, you can find this value as `userIdentity.sessionContext.sessionIssuer.arn`.
+   *
    * @public
    */
   Issuer?: string | undefined;
 }
 
 /**
- * <p>
- *             Provides Amazon Web Services account information of the user involved in an Amazon GuardDuty Extended Threat Detection attack sequence. GuardDuty generates an attack
- *             sequence finding when multiple events align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in Security Hub CSPM, you
- * 				must have GuardDuty enabled. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html">GuardDuty Extended Threat Detection </a> in the <i>Amazon GuardDuty User Guide</i>.
- *         </p>
+ * Provides Amazon Web Services account information of the user involved in an Amazon GuardDuty Extended Threat Detection attack sequence. GuardDuty generates an attack sequence finding when multiple events align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in Security Hub CSPM, you must have GuardDuty enabled. For more information, see [GuardDuty Extended Threat Detection](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html) in the *Amazon GuardDuty User Guide*.
+ *
  * @public
  */
 export interface UserAccount {
   /**
-   * <p>
-   *             The unique identifier of the user account involved in the attack sequence.
-   *         </p>
+   * The unique identifier of the user account involved in the attack sequence.
+   *
    * @public
    */
   Uid?: string | undefined;
 
   /**
-   * <p>
-   *             The name of the user account involved in the attack sequence.
-   *         </p>
+   * The name of the user account involved in the attack sequence.
+   *
    * @public
    */
   Name?: string | undefined;
 }
 
 /**
- * <p>
- *             Contains information about the credentials used by the threat actor identified in an Amazon GuardDuty Extended Threat Detection attack sequence. GuardDuty generates an attack
- *             sequence finding when multiple events align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in Security Hub CSPM, you
- * 				must have GuardDuty enabled. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html">GuardDuty Extended Threat Detection </a> in the <i>Amazon GuardDuty User Guide</i>.</p>
+ * Contains information about the credentials used by the threat actor identified in an Amazon GuardDuty Extended Threat Detection attack sequence. GuardDuty generates an attack sequence finding when multiple events align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in Security Hub CSPM, you must have GuardDuty enabled. For more information, see [GuardDuty Extended Threat Detection](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html) in the *Amazon GuardDuty User Guide*.
+ *
  * @public
  */
 export interface ActorUser {
   /**
-   * <p>
-   *             The name of the threat actor.
-   *         </p>
+   * The name of the threat actor.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>
-   *             The unique identifier of the threat actor.
-   *         </p>
+   * The unique identifier of the threat actor.
+   *
    * @public
    */
   Uid?: string | undefined;
 
   /**
-   * <p>
-   *             The type of user.
-   *         </p>
+   * The type of user.
+   *
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p>
-   *             Unique identifier of the threat actor’s user credentials.
-   *         </p>
+   * Unique identifier of the threat actor’s user credentials.
+   *
    * @public
    */
   CredentialUid?: string | undefined;
 
   /**
-   * <p>
-   *             The account of the threat actor.
-   *         </p>
+   * The account of the threat actor.
+   *
    * @public
    */
   Account?: UserAccount | undefined;
 }
 
 /**
- * <p>
- *             Information about the threat actor identified in an Amazon GuardDuty Extended Threat Detection attack sequence. GuardDuty generates an attack
- *             sequence finding when multiple events align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in Security Hub CSPM, you
- * 				must have GuardDuty enabled. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html">GuardDuty Extended Threat Detection </a> in the <i>Amazon GuardDuty User Guide</i>.</p>
+ * Information about the threat actor identified in an Amazon GuardDuty Extended Threat Detection attack sequence. GuardDuty generates an attack sequence finding when multiple events align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in Security Hub CSPM, you must have GuardDuty enabled. For more information, see [GuardDuty Extended Threat Detection](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html) in the *Amazon GuardDuty User Guide*.
+ *
  * @public
  */
 export interface Actor {
   /**
-   * <p>
-   *             The ID of the threat actor.
-   *         </p>
+   * The ID of the threat actor.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>
-   *             Contains information about the user credentials used by the threat actor.</p>
+   * Contains information about the user credentials used by the threat actor.
+   *
    * @public
    */
   User?: ActorUser | undefined;
 
   /**
-   * <p>
-   *             Contains information about the user session where the activity initiated.</p>
+   * Contains information about the user session where the activity initiated.
+   *
    * @public
    */
   Session?: ActorSession | undefined;
 }
 
 /**
- * <p>An adjustment to the CVSS metric.</p>
+ * An adjustment to the CVSS metric.
+ *
  * @public
  */
 export interface Adjustment {
   /**
-   * <p>The metric to adjust.</p>
+   * The metric to adjust.
+   *
    * @public
    */
   Metric?: string | undefined;
 
   /**
-   * <p>The reason for the adjustment.</p>
+   * The reason for the adjustment.
+   *
    * @public
    */
   Reason?: string | undefined;
 }
 
 /**
- * <p>Represents a Security Hub CSPM administrator account designated by an organization management
- *          account.</p>
+ * Represents a Security Hub CSPM administrator account designated by an organization management account.
+ *
  * @public
  */
 export interface AdminAccount {
   /**
-   * <p>The Amazon Web Services account identifier of the Security Hub CSPM administrator account.</p>
+   * The Amazon Web Services account identifier of the Security Hub CSPM administrator account.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The current status of the Security Hub CSPM administrator account. Indicates whether the account is
-   *          currently enabled as a Security Hub CSPM administrator.</p>
+   * The current status of the Security Hub CSPM administrator account. Indicates whether the account is currently enabled as a Security Hub CSPM administrator.
+   *
    * @public
    */
   Status?: AdminStatus | undefined;
 }
 
 /**
- * <p>Specifies a cross-Region data aggregation configuration, including the aggregation Region and any linked Regions.</p>
+ * Specifies a cross-Region data aggregation configuration, including the aggregation Region and any linked Regions.
+ *
  * @public
  */
 export interface AggregatorV2 {
   /**
-   * <p>The ARN of the aggregatorV2.</p>
+   * The ARN of the aggregatorV2.
+   *
    * @public
    */
   AggregatorV2Arn?: string | undefined;
 }
 
 /**
- * <p>Contains information about self-hosted AI resources and their host resources. The fields that are present depend on the role of the resource.</p>
- *          <p>On a self-hosted AI resource (a resource with a <code>SelfHosted::AI::</code> resource type, such as <code>SelfHosted::AI::Model</code> or <code>SelfHosted::AI::Agent</code>), the <code>HostResourceGuid</code> and <code>HostResourceType</code> fields link the resource to its host. The <code>CanonicalId</code> field identifies what the resource is, enabling aggregation of identical resources across multiple hosts.</p>
- *          <p>On a host resource (such as an Amazon EC2 instance), the <code>SelfHostedAI*ResourceCount</code> fields contain the count for each <code>ResourceSubCategory</code> and the total count of self-hosted AI resources detected on the host.</p>
+ * Contains information about self-hosted AI resources and their host resources. The fields that are present depend on the role of the resource.
+ *
+ * On a self-hosted AI resource (a resource with a `SelfHosted::AI::` resource type, such as `SelfHosted::AI::Model` or `SelfHosted::AI::Agent`), the `HostResourceGuid` and `HostResourceType` fields link the resource to its host. The `CanonicalId` field identifies what the resource is, enabling aggregation of identical resources across multiple hosts.
+ *
+ * On a host resource (such as an Amazon EC2 instance), the `SelfHostedAI*ResourceCount` fields contain the count for each `ResourceSubCategory` and the total count of self-hosted AI resources detected on the host.
+ *
  * @public
  */
 export interface AIDetails {
   /**
-   * <p>The identifier of the host resource that hosts the self-hosted AI resource. Present only on self-hosted AI resources.</p>
+   * The identifier of the host resource that hosts the self-hosted AI resource. Present only on self-hosted AI resources.
+   *
    * @public
    */
   HostResourceGuid?: string | undefined;
 
   /**
-   * <p>The <code>ResourceType</code> of the host resource that hosts the self-hosted AI resource, such as <code>AWS::EC2::Instance</code>. Present only on self-hosted AI resources.</p>
+   * The `ResourceType` of the host resource that hosts the self-hosted AI resource, such as `AWS::EC2::Instance`. Present only on self-hosted AI resources.
+   *
    * @public
    */
   HostResourceType?: string | undefined;
 
   /**
-   * <p>The canonical identifier for the AI resource, independent of where it is deployed. Multiple occurrences of the same resource on different hosts share the same <code>CanonicalId</code>. For model resources, the value follows the format <code>model/<purl></code>, such as <code>model/pkg:huggingface/meta-llama/llama-3-8b</code>. Present only on self-hosted AI resources.</p>
+   * The canonical identifier for the AI resource, independent of where it is deployed. Multiple occurrences of the same resource on different hosts share the same `CanonicalId`. For model resources, the value follows the format `model/<purl>`, such as `model/pkg:huggingface/meta-llama/llama-3-8b`. Present only on self-hosted AI resources.
+   *
    * @public
    */
   CanonicalId?: string | undefined;
 
   /**
-   * <p>The number of self-hosted AI resources of <code>ResourceSubCategory</code>
-   *             <code>Model</code> detected on the host resource. Present only on host resources.</p>
+   * The number of self-hosted AI resources of `ResourceSubCategory` `Model` detected on the host resource. Present only on host resources.
+   *
    * @public
    */
   SelfHostedAIModelResourceCount?: number | undefined;
 
   /**
-   * <p>The number of self-hosted AI resources of <code>ResourceSubCategory</code>
-   *             <code>Agent</code> detected on the host resource. Present only on host resources.</p>
+   * The number of self-hosted AI resources of `ResourceSubCategory` `Agent` detected on the host resource. Present only on host resources.
+   *
    * @public
    */
   SelfHostedAIAgentResourceCount?: number | undefined;
 
   /**
-   * <p>The number of self-hosted AI resources of <code>ResourceSubCategory</code>
-   *             <code>ModelServing</code> detected on the host resource. Present only on host resources.</p>
+   * The number of self-hosted AI resources of `ResourceSubCategory` `ModelServing` detected on the host resource. Present only on host resources.
+   *
    * @public
    */
   SelfHostedAIModelServingResourceCount?: number | undefined;
 
   /**
-   * <p>The number of self-hosted AI resources of <code>ResourceSubCategory</code>
-   *             <code>ExternalEndpoint</code> detected on the host resource. Present only on host resources.</p>
+   * The number of self-hosted AI resources of `ResourceSubCategory` `ExternalEndpoint` detected on the host resource. Present only on host resources.
+   *
    * @public
    */
   SelfHostedAIExternalEndpointResourceCount?: number | undefined;
 
   /**
-   * <p>The number of self-hosted AI resources of <code>ResourceSubCategory</code>
-   *             <code>Development</code> detected on the host resource. Present only on host resources.</p>
+   * The number of self-hosted AI resources of `ResourceSubCategory` `Development` detected on the host resource. Present only on host resources.
+   *
    * @public
    */
   SelfHostedAIDevelopmentResourceCount?: number | undefined;
 
   /**
-   * <p>The number of self-hosted AI resources of <code>ResourceSubCategory</code>
-   *             <code>AgentFramework</code> detected on the host resource. Present only on host resources.</p>
+   * The number of self-hosted AI resources of `ResourceSubCategory` `AgentFramework` detected on the host resource. Present only on host resources.
+   *
    * @public
    */
   SelfHostedAIAgentFrameworkResourceCount?: number | undefined;
 
   /**
-   * <p>The number of self-hosted AI resources of <code>ResourceSubCategory</code>
-   *             <code>AgentToolsAndIdentity</code> detected on the host resource. Present only on host resources.</p>
+   * The number of self-hosted AI resources of `ResourceSubCategory` `AgentToolsAndIdentity` detected on the host resource. Present only on host resources.
+   *
    * @public
    */
   SelfHostedAIAgentToolsAndIdentityResourceCount?: number | undefined;
 
   /**
-   * <p>The total number of all self-hosted AI resources detected on the host resource. Present only on host resources.</p>
+   * The total number of all self-hosted AI resources detected on the host resource. Present only on host resources.
+   *
    * @public
    */
   SelfHostedTotalAIResourceCount?: number | undefined;
 }
 
 /**
- * <p>
- *          Information about an enabled security standard in which a security control is enabled.
- *       </p>
+ * Information about an enabled security standard in which a security control is enabled.
+ *
  * @public
  */
 export interface AssociatedStandard {
   /**
-   * <p>The unique identifier of a standard in which a control is enabled. This field consists of the resource portion of the
-   *          Amazon Resource Name (ARN) returned for a standard in the <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html">DescribeStandards</a> API response.
-   *       </p>
+   * The unique identifier of a standard in which a control is enabled. This field consists of the resource portion of the Amazon Resource Name (ARN) returned for a standard in the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API response.
+   *
    * @public
    */
   StandardsId?: string | undefined;
 }
 
 /**
- * <p>
- *             Options for filtering the <code>ListConfigurationPolicyAssociations</code> response. You can filter by the Amazon Resource Name (ARN) or
- *             universally unique identifier (UUID) of a configuration policy, <code>AssociationType</code>, or <code>AssociationStatus</code>.
- *         </p>
+ * Options for filtering the `ListConfigurationPolicyAssociations` response. You can filter by the Amazon Resource Name (ARN) or universally unique identifier (UUID) of a configuration policy, `AssociationType`, or `AssociationStatus`.
+ *
  * @public
  */
 export interface AssociationFilters {
   /**
-   * <p>
-   *             The ARN or UUID of the configuration policy.
-   *         </p>
+   * The ARN or UUID of the configuration policy.
+   *
    * @public
    */
   ConfigurationPolicyId?: string | undefined;
 
   /**
-   * <p>
-   *             Indicates whether the association between a target and a configuration was directly applied by the
-   *             Security Hub CSPM delegated administrator or inherited from a parent.
-   *         </p>
+   * Indicates whether the association between a target and a configuration was directly applied by the Security Hub CSPM delegated administrator or inherited from a parent.
+   *
    * @public
    */
   AssociationType?: AssociationType | undefined;
 
   /**
-   * <p>
-   *             The current status of the association between a target and a configuration policy.
-   *         </p>
+   * The current status of the association between a target and a configuration policy.
+   *
    * @public
    */
   AssociationStatus?: ConfigurationPolicyAssociationStatus | undefined;
 }
 
 /**
- * <p>
- *          Describes the state of an association between a route table and a subnet or gateway.
- *       </p>
+ * Describes the state of an association between a route table and a subnet or gateway.
+ *
  * @public
  */
 export interface AssociationStateDetails {
   /**
-   * <p>
-   *          The state of the association.
-   *       </p>
+   * The state of the association.
+   *
    * @public
    */
   State?: string | undefined;
 
   /**
-   * <p>
-   *          The status message, if applicable.
-   *       </p>
+   * The status message, if applicable.
+   *
    * @public
    */
   StatusMessage?: string | undefined;
 }
 
 /**
- * <p>
- *          The associations between a route table and one or more subnets or a gateway.
- *       </p>
+ * The associations between a route table and one or more subnets or a gateway.
+ *
  * @public
  */
 export interface AssociationSetDetails {
   /**
-   * <p>
-   *          The state of the association between a route table and a subnet or gateway.
-   *       </p>
+   * The state of the association between a route table and a subnet or gateway.
+   *
    * @public
    */
   AssociationState?: AssociationStateDetails | undefined;
 
   /**
-   * <p>
-   *          The ID of the internet gateway or virtual private gateway.
-   *       </p>
+   * The ID of the internet gateway or virtual private gateway.
+   *
    * @public
    */
   GatewayId?: string | undefined;
 
   /**
-   * <p>
-   *          Indicates whether this is the main route table.
-   *       </p>
+   * Indicates whether this is the main route table.
+   *
    * @public
    */
   Main?: boolean | undefined;
 
   /**
-   * <p>
-   *          The ID of the association.
-   *       </p>
+   * The ID of the association.
+   *
    * @public
    */
   RouteTableAssociationId?: string | undefined;
 
   /**
-   * <p>
-   *          The ID of the route table.
-   *       </p>
+   * The ID of the route table.
+   *
    * @public
    */
   RouteTableId?: string | undefined;
 
   /**
-   * <p>
-   *          The ID of the subnet. A subnet ID is not returned for an implicit association.
-   *       </p>
+   * The ID of the subnet. A subnet ID is not returned for an implicit association.
+   *
    * @public
    */
   SubnetId?: string | undefined;
 }
 
 /**
- * <p>Defines the settings and parameters required for integrating external security tools and services.</p>
+ * Defines the settings and parameters required for integrating external security tools and services.
+ *
  * @public
  */
 export interface ExternalIntegrationConfiguration {
   /**
-   * <p>The ARN of the connector that establishes the integration.</p>
+   * The ARN of the connector that establishes the integration.
+   *
    * @public
    */
   ConnectorArn?: string | undefined;
 }
 
 /**
- * <p>Allows you to define the structure for modifying specific fields in security findings.</p>
+ * Allows you to define the structure for modifying specific fields in security findings.
+ *
  * @public
  */
 export interface AutomationRulesFindingFieldsUpdateV2 {
   /**
-   * <p>The severity level to be assigned to findings that match the automation rule criteria.</p>
+   * The severity level to be assigned to findings that match the automation rule criteria.
+   *
    * @public
    */
   SeverityId?: number | undefined;
 
   /**
-   * <p>Notes or contextual information for findings that are modified by the automation rule.</p>
+   * Notes or contextual information for findings that are modified by the automation rule.
+   *
    * @public
    */
   Comment?: string | undefined;
 
   /**
-   * <p>The status to be applied to findings that match automation rule criteria.</p>
+   * The status to be applied to findings that match automation rule criteria.
+   *
    * @public
    */
   StatusId?: number | undefined;
 }
 
 /**
- * <p>Allows you to define the structure for modifying specific fields of resources.</p>
+ * Allows you to define the structure for modifying specific fields of resources.
+ *
  * @public
  */
 export interface AutomationRulesResourceFieldsUpdateV2 {
   /**
-   * <p>The criticality level to be assigned to resources that match the automation rule criteria.</p>
+   * The criticality level to be assigned to resources that match the automation rule criteria.
+   *
    * @public
    */
   Criticality: ResourceCriticality | undefined;
 }
 
 /**
- * <p>Allows you to configure automated responses.</p>
+ * Allows you to configure automated responses.
+ *
  * @public
  */
 export interface AutomationRulesActionV2 {
   /**
-   * <p>The category of action to be executed by the automation rule.</p>
+   * The category of action to be executed by the automation rule.
+   *
    * @public
    */
   Type: AutomationRulesActionTypeV2 | undefined;
 
   /**
-   * <p>The changes to be applied to fields in a security finding when an automation rule is triggered.</p>
+   * The changes to be applied to fields in a security finding when an automation rule is triggered.
+   *
    * @public
    */
   FindingFieldsUpdate?: AutomationRulesFindingFieldsUpdateV2 | undefined;
 
   /**
-   * <p>The settings for integrating automation rule actions with external systems or service.</p>
+   * The settings for integrating automation rule actions with external systems or service.
+   *
    * @public
    */
   ExternalIntegrationConfiguration?: ExternalIntegrationConfiguration | undefined;
 
   /**
-   * <p>The changes to be applied to resource fields when an automation rule is triggered.</p>
+   * The changes to be applied to resource fields when an automation rule is triggered.
+   *
    * @public
    */
   ResourceFieldsUpdate?: AutomationRulesResourceFieldsUpdateV2 | undefined;
 }
 
 /**
- * <p>Allows you to customize security response workflows.</p>
+ * Allows you to customize security response workflows.
+ *
  * @public
  */
 export interface AutomationRulesActionTypeObjectV2 {
   /**
-   * <p>The category of action to be executed by the automation rule.</p>
+   * The category of action to be executed by the automation rule.
+   *
    * @public
    */
   Type?: AutomationRulesActionTypeV2 | undefined;
 }
 
 /**
- * <p>A string filter for filtering Security Hub CSPM findings.</p>
+ * A string filter for filtering Security Hub CSPM findings.
+ *
  * @public
  */
 export interface StringFilter {
   /**
-   * <p>The string filter value. Filter values are case sensitive. For example, the product name
-   *          for control-based findings is <code>Security Hub CSPM</code>. If you provide <code>security hub</code>
-   *          as the filter value, there's no match.</p>
+   * The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is `Security Hub CSPM`. If you provide `security hub` as the filter value, there's no match.
+   *
    * @public
    */
   Value?: string | undefined;
 
   /**
-   * <p>The condition to apply to a string value when filtering Security Hub CSPM findings.</p>
-   *          <p>To search for values that have the filter value, use one of the following comparison operators:</p>
-   *          <ul>
-   *             <li>
-   *                <p>To search for values that include the filter value, use <code>CONTAINS</code>. For example, the
-   *                filter <code>Title CONTAINS CloudFront</code> matches findings that have a <code>Title</code> that
-   *                includes the string <code>CloudFront</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To search for values that contain a word matching the filter value, regardless of case, use <code>CONTAINS_WORD</code>. For example,
-   *                the filter <code>Title CONTAINS_WORD lambda</code> matches a finding whose <code>Title</code> is <code>GuardDuty Lambda Protection</code>, because
-   *                the <code>Title</code> contains the word Lambda. Including special characters in the filter value might produce unexpected search results.</p>
-   *             </li>
-   *             <li>
-   *                <p>To search for values that exactly match the filter value, use <code>EQUALS</code>. For example,
-   *                the filter <code>AwsAccountId EQUALS 123456789012</code> only matches findings that have an account ID of
-   *                <code>123456789012</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To search for values that start with the filter value, use <code>PREFIX</code>. For example, the
-   *                filter <code>ResourceRegion PREFIX us</code> matches findings that have a <code>ResourceRegion</code> that starts
-   *                with <code>us</code>. A <code>ResourceRegion</code> that starts with a different value, such as <code>af</code>,
-   *                <code>ap</code>, or <code>ca</code>, doesn't match.</p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *             <code>CONTAINS</code>, <code>EQUALS</code>, and <code>PREFIX</code> filters on the same field are joined by
-   *            <code>OR</code>. A finding matches if it matches any one of those filters. For example, the filters <code>Title CONTAINS CloudFront OR
-   *                Title CONTAINS CloudWatch</code> match a finding that includes either <code>CloudFront</code>,
-   *            <code>CloudWatch</code>, or both strings in the title.</p>
-   *          <p>To search for values that don’t have the filter value, use one of the following comparison operators:</p>
-   *          <ul>
-   *             <li>
-   *                <p>To search for values that exclude the filter value, use <code>NOT_CONTAINS</code>. For example, the
-   *                filter <code>Title NOT_CONTAINS CloudFront</code> matches findings that have a <code>Title</code> that
-   *                excludes the string CloudFront.</p>
-   *             </li>
-   *             <li>
-   *                <p>To search for values other than the filter value, use <code>NOT_EQUALS</code>. For
-   *                example, the filter <code>AwsAccountId NOT_EQUALS 123456789012</code> only matches findings that have an account
-   *                ID other than <code>123456789012</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To search for values that don't start with the filter value, use <code>PREFIX_NOT_EQUALS</code>. For
-   *                example, the filter <code>ResourceRegion PREFIX_NOT_EQUALS us</code> matches findings with a
-   *                <code>ResourceRegion</code> that starts with a value other than <code>us</code>.</p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *             <code>NOT_CONTAINS</code>, <code>NOT_EQUALS</code>, and <code>PREFIX_NOT_EQUALS</code> filters on the same field
-   *            are joined by <code>AND</code>. A finding matches only if it matches all of those filters. For example, the filters <code>Title NOT_CONTAINS CloudFront AND
-   *                Title NOT_CONTAINS CloudWatch</code> match a finding that excludes both <code>CloudFront</code> and
-   *            <code>CloudWatch</code> in the title.</p>
-   *          <p>You can’t have both a <code>CONTAINS</code> filter and a <code>NOT_CONTAINS</code> filter on the same field. Similarly,
-   *             you can't provide both an <code>EQUALS</code> filter and a <code>NOT_EQUALS</code> or
-   *            <code>PREFIX_NOT_EQUALS</code> filter on the same field. Combining filters in this way returns an error. <code>CONTAINS</code> filters
-   *            can only be used with other <code>CONTAINS</code> filters. <code>NOT_CONTAINS</code> filters can only be used with
-   *            other <code>NOT_CONTAINS</code> filters. </p>
-   *          <p>You can combine <code>PREFIX</code> filters with <code>NOT_EQUALS</code> or <code>PREFIX_NOT_EQUALS</code> filters for the same field.
-   *            Security Hub CSPM first processes the <code>PREFIX</code> filters, and then the <code>NOT_EQUALS</code> or <code>PREFIX_NOT_EQUALS</code> filters.</p>
-   *          <p>For example, for the following filters, Security Hub CSPM first identifies findings that have resource types
-   *            that start with either <code>AwsIam</code> or <code>AwsEc2</code>. It then excludes findings that have a resource
-   *            type of <code>AwsIamPolicy</code> and findings that have a resource type of <code>AwsEc2NetworkInterface</code>.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ResourceType PREFIX AwsIam</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ResourceType PREFIX AwsEc2</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ResourceType NOT_EQUALS AwsIamPolicy</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ResourceType NOT_EQUALS AwsEc2NetworkInterface</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>The <code>CONTAINS</code> operator works with automation rules V1 and V2.
-   *           The <code>NOT_CONTAINS</code> operator works only with automation rules V1.
-   *           The <code>CONTAINS_WORD</code> operator works only in the <code>GetFindingsV2</code>, <code>GetFindingStatisticsV2</code>, <code>GetResourcesV2</code>, and <code>GetResourcesStatisticsV2</code> APIs.
-   *           For more information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html">Automation rules</a> in the <i>Security Hub CSPM User Guide</i>.</p>
+   * The condition to apply to a string value when filtering Security Hub CSPM findings.
+   *
+   * To search for values that have the filter value, use one of the following comparison operators:
+   *
+   * - To search for values that include the filter value, use `CONTAINS`. For example, the filter `Title CONTAINS CloudFront` matches findings that have a `Title` that includes the string `CloudFront`.
+   * - To search for values that contain a word matching the filter value, regardless of case, use `CONTAINS_WORD`. For example, the filter `Title CONTAINS_WORD lambda` matches a finding whose `Title` is `GuardDuty Lambda Protection`, because the `Title` contains the word Lambda. Including special characters in the filter value might produce unexpected search results.
+   * - To search for values that exactly match the filter value, use `EQUALS`. For example, the filter `AwsAccountId EQUALS 123456789012` only matches findings that have an account ID of `123456789012`.
+   * - To search for values that start with the filter value, use `PREFIX`. For example, the filter `ResourceRegion PREFIX us` matches findings that have a `ResourceRegion` that starts with `us`. A `ResourceRegion` that starts with a different value, such as `af`, `ap`, or `ca`, doesn't match.
+   *
+   * `CONTAINS`, `EQUALS`, and `PREFIX` filters on the same field are joined by `OR`. A finding matches if it matches any one of those filters. For example, the filters `Title CONTAINS CloudFront OR Title CONTAINS CloudWatch` match a finding that includes either `CloudFront`, `CloudWatch`, or both strings in the title.
+   *
+   * To search for values that don’t have the filter value, use one of the following comparison operators:
+   *
+   * - To search for values that exclude the filter value, use `NOT_CONTAINS`. For example, the filter `Title NOT_CONTAINS CloudFront` matches findings that have a `Title` that excludes the string CloudFront.
+   * - To search for values other than the filter value, use `NOT_EQUALS`. For example, the filter `AwsAccountId NOT_EQUALS 123456789012` only matches findings that have an account ID other than `123456789012`.
+   * - To search for values that don't start with the filter value, use `PREFIX_NOT_EQUALS`. For example, the filter `ResourceRegion PREFIX_NOT_EQUALS us` matches findings with a `ResourceRegion` that starts with a value other than `us`.
+   *
+   * `NOT_CONTAINS`, `NOT_EQUALS`, and `PREFIX_NOT_EQUALS` filters on the same field are joined by `AND`. A finding matches only if it matches all of those filters. For example, the filters `Title NOT_CONTAINS CloudFront AND Title NOT_CONTAINS CloudWatch` match a finding that excludes both `CloudFront` and `CloudWatch` in the title.
+   *
+   * You can’t have both a `CONTAINS` filter and a `NOT_CONTAINS` filter on the same field. Similarly, you can't provide both an `EQUALS` filter and a `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filter on the same field. Combining filters in this way returns an error. `CONTAINS` filters can only be used with other `CONTAINS` filters. `NOT_CONTAINS` filters can only be used with other `NOT_CONTAINS` filters.
+   *
+   * You can combine `PREFIX` filters with `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters for the same field. Security Hub CSPM first processes the `PREFIX` filters, and then the `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters.
+   *
+   * For example, for the following filters, Security Hub CSPM first identifies findings that have resource types that start with either `AwsIam` or `AwsEc2`. It then excludes findings that have a resource type of `AwsIamPolicy` and findings that have a resource type of `AwsEc2NetworkInterface`.
+   *
+   * - `ResourceType PREFIX AwsIam`
+   * - `ResourceType PREFIX AwsEc2`
+   * - `ResourceType NOT_EQUALS AwsIamPolicy`
+   * - `ResourceType NOT_EQUALS AwsEc2NetworkInterface`
+   *
+   * The `CONTAINS` operator works with automation rules V1 and V2. The `NOT_CONTAINS` operator works only with automation rules V1. The `CONTAINS_WORD` operator works only in the `GetFindingsV2`, `GetFindingStatisticsV2`, `GetResourcesV2`, and `GetResourcesStatisticsV2` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *Security Hub CSPM User Guide*.
+   *
    * @public
    */
   Comparison?: StringFilterComparison | undefined;
 }
 
 /**
- * <p>A number filter for querying findings.</p>
+ * A number filter for querying findings.
+ *
  * @public
  */
 export interface NumberFilter {
   /**
-   * <p>The greater-than-equal condition to be applied to a single field when querying for
-   *          findings. </p>
+   * The greater-than-equal condition to be applied to a single field when querying for findings.
+   *
    * @public
    */
   Gte?: number | undefined;
 
   /**
-   * <p>The less-than-equal condition to be applied to a single field when querying for
-   *          findings. </p>
+   * The less-than-equal condition to be applied to a single field when querying for findings.
+   *
    * @public
    */
   Lte?: number | undefined;
 
   /**
-   * <p>The equal-to condition to be applied to a single field when querying for
-   *          findings.</p>
+   * The equal-to condition to be applied to a single field when querying for findings.
+   *
    * @public
    */
   Eq?: number | undefined;
 
   /**
-   * <p>
-   *             The greater-than condition to be applied to a single field when querying for findings.
-   *         </p>
+   * The greater-than condition to be applied to a single field when querying for findings.
+   *
    * @public
    */
   Gt?: number | undefined;
 
   /**
-   * <p>
-   *             The less-than condition to be applied to a single field when querying for findings.
-   *         </p>
+   * The less-than condition to be applied to a single field when querying for findings.
+   *
    * @public
    */
   Lt?: number | undefined;
 }
 
 /**
- * <p>A date range for the date filter.</p>
+ * A date range for the date filter.
+ *
  * @public
  */
 export interface DateRange {
   /**
-   * <p>A date range value for the date filter.</p>
+   * A date range value for the date filter.
+   *
    * @public
    */
   Value?: number | undefined;
 
   /**
-   * <p>A date range unit for the date filter.</p>
+   * A date range unit for the date filter.
+   *
    * @public
    */
   Unit?: DateRangeUnit | undefined;
 
   /**
-   * <p>The condition to apply to a date range filter. If you specify <code>WITHIN</code>, Security Hub filters for dates within the specified date range. If you specify <code>OLDER_THAN</code>, Security Hub filters for dates before the specified date range. If you don't specify a value, the default is <code>WITHIN</code>.</p>
+   * The condition to apply to a date range filter. If you specify `WITHIN`, Security Hub filters for dates within the specified date range. If you specify `OLDER_THAN`, Security Hub filters for dates before the specified date range. If you don't specify a value, the default is `WITHIN`.
+   *
    * @public
    */
   Comparison?: DateRangeComparison | undefined;
 }
 
 /**
- * <p>A date filter for querying findings.</p>
+ * A date filter for querying findings.
+ *
  * @public
  */
 export interface DateFilter {
   /**
-   * <p>A timestamp that provides the start date for the date filter.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * A timestamp that provides the start date for the date filter.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   Start?: string | undefined;
 
   /**
-   * <p>A timestamp that provides the end date for the date filter.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * A timestamp that provides the end date for the date filter.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   End?: string | undefined;
 
   /**
-   * <p>A date range for the date filter.</p>
+   * A date range for the date filter.
+   *
    * @public
    */
   DateRange?: DateRange | undefined;
 }
 
 /**
- * <p>A map filter for filtering Security Hub CSPM findings. Each map filter provides the field to check for, the
- *          value to check for, and the comparison operator.</p>
+ * A map filter for filtering Security Hub CSPM findings. Each map filter provides the field to check for, the value to check for, and the comparison operator.
+ *
  * @public
  */
 export interface MapFilter {
   /**
-   * <p>The key of the map filter. For example, for <code>ResourceTags</code>, <code>Key</code>
-   *          identifies the name of the tag. For <code>UserDefinedFields</code>, <code>Key</code> is the
-   *          name of the field.</p>
+   * The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
+   *
    * @public
    */
   Key?: string | undefined;
 
   /**
-   * <p>The value for the key in the map filter. Filter values are case sensitive. For example,
-   *          one of the values for a tag called <code>Department</code> might be <code>Security</code>.
-   *          If you provide <code>security</code> as the filter value, then there's no match.</p>
+   * The value for the key in the map filter. Filter values are case sensitive. For example, one of the values for a tag called `Department` might be `Security`. If you provide `security` as the filter value, then there's no match.
+   *
    * @public
    */
   Value?: string | undefined;
 
   /**
-   * <p>The condition to apply to the key value when filtering Security Hub CSPM findings with a map
-   *          filter.</p>
-   *          <p>To search for values that have the filter value, use one of the following comparison operators:</p>
-   *          <ul>
-   *             <li>
-   *                <p>To search for values that include the filter value, use <code>CONTAINS</code>. For example, for the
-   *                <code>ResourceTags</code> field, the filter <code>Department CONTAINS Security</code> matches findings that
-   *                include the value <code>Security</code> for the <code>Department</code> tag. In the same example, a finding with a value of
-   *                <code>Security team</code> for the <code>Department</code> tag is a match.</p>
-   *             </li>
-   *             <li>
-   *                <p>To search for values that exactly match the filter value, use <code>EQUALS</code>. For example, for
-   *                the <code>ResourceTags</code> field, the filter <code>Department EQUALS Security</code> matches findings that
-   *                have the value <code>Security</code> for the <code>Department</code> tag.</p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *             <code>CONTAINS</code> and <code>EQUALS</code> filters on the same field are joined by <code>OR</code>. A
-   *            finding matches if it matches any one of those filters. For example, the filters <code>Department CONTAINS Security OR
-   *                Department CONTAINS Finance</code> match a finding that includes either <code>Security</code>,
-   *            <code>Finance</code>, or both values.</p>
-   *          <p>To search for values that don't have the filter value, use one of the following comparison operators:</p>
-   *          <ul>
-   *             <li>
-   *                <p>To search for values that exclude the filter value, use <code>NOT_CONTAINS</code>. For example, for
-   *                the <code>ResourceTags</code> field, the filter <code>Department NOT_CONTAINS Finance</code> matches findings
-   *                that exclude the value <code>Finance</code> for the <code>Department</code> tag.</p>
-   *             </li>
-   *             <li>
-   *                <p>To search for values other than the filter value, use <code>NOT_EQUALS</code>. For example, for the
-   *                <code>ResourceTags</code> field, the filter <code>Department NOT_EQUALS Finance</code> matches findings that
-   *                don’t have the value <code>Finance</code> for the <code>Department</code> tag.</p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *             <code>NOT_CONTAINS</code> and <code>NOT_EQUALS</code> filters on the same field are joined by <code>AND</code>.
-   *            A finding matches only if it matches all of those filters. For example, the filters <code>Department NOT_CONTAINS Security AND
-   *                Department NOT_CONTAINS Finance</code> match a finding that excludes both the <code>Security</code> and
-   *            <code>Finance</code> values.</p>
-   *          <p>
-   *             <code>CONTAINS</code> filters can only be used with other <code>CONTAINS</code> filters. <code>NOT_CONTAINS</code>
-   *            filters can only be used with other <code>NOT_CONTAINS</code> filters.</p>
-   *          <p>You can’t have both a <code>CONTAINS</code> filter and a <code>NOT_CONTAINS</code> filter on the same field.
-   *            Similarly, you can’t have both an <code>EQUALS</code> filter and a <code>NOT_EQUALS</code> filter on the same field.
-   *             Combining filters in this way returns an error.
-   *        </p>
-   *          <p>
-   *             <code>CONTAINS</code> and <code>NOT_CONTAINS</code> operators can be used only with automation rules. For more information,
-   *            see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html">Automation rules</a> in the <i>Security Hub CSPM User Guide</i>.</p>
+   * The condition to apply to the key value when filtering Security Hub CSPM findings with a map filter.
+   *
+   * To search for values that have the filter value, use one of the following comparison operators:
+   *
+   * - To search for values that include the filter value, use `CONTAINS`. For example, for the `ResourceTags` field, the filter `Department CONTAINS Security` matches findings that include the value `Security` for the `Department` tag. In the same example, a finding with a value of `Security team` for the `Department` tag is a match.
+   * - To search for values that exactly match the filter value, use `EQUALS`. For example, for the `ResourceTags` field, the filter `Department EQUALS Security` matches findings that have the value `Security` for the `Department` tag.
+   *
+   * `CONTAINS` and `EQUALS` filters on the same field are joined by `OR`. A finding matches if it matches any one of those filters. For example, the filters `Department CONTAINS Security OR Department CONTAINS Finance` match a finding that includes either `Security`, `Finance`, or both values.
+   *
+   * To search for values that don't have the filter value, use one of the following comparison operators:
+   *
+   * - To search for values that exclude the filter value, use `NOT_CONTAINS`. For example, for the `ResourceTags` field, the filter `Department NOT_CONTAINS Finance` matches findings that exclude the value `Finance` for the `Department` tag.
+   * - To search for values other than the filter value, use `NOT_EQUALS`. For example, for the `ResourceTags` field, the filter `Department NOT_EQUALS Finance` matches findings that don’t have the value `Finance` for the `Department` tag.
+   *
+   * `NOT_CONTAINS` and `NOT_EQUALS` filters on the same field are joined by `AND`. A finding matches only if it matches all of those filters. For example, the filters `Department NOT_CONTAINS Security AND Department NOT_CONTAINS Finance` match a finding that excludes both the `Security` and `Finance` values.
+   *
+   * `CONTAINS` filters can only be used with other `CONTAINS` filters. `NOT_CONTAINS` filters can only be used with other `NOT_CONTAINS` filters.
+   *
+   * You can’t have both a `CONTAINS` filter and a `NOT_CONTAINS` filter on the same field. Similarly, you can’t have both an `EQUALS` filter and a `NOT_EQUALS` filter on the same field. Combining filters in this way returns an error.
+   *
+   * `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *Security Hub CSPM User Guide*.
+   *
    * @public
    */
   Comparison?: MapFilterComparison | undefined;
 }
 
 /**
- * <p>
- *          The criteria that determine which findings a rule applies to.
- *       </p>
+ * The criteria that determine which findings a rule applies to.
+ *
  * @public
  */
 export interface AutomationRulesFindingFilters {
   /**
-   * <p>
-   *          The Amazon Resource Name (ARN) for a third-party product that generated a finding in
-   *          Security Hub CSPM.
-   *       </p>
-   *          <p>
-   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
-   *    	</p>
+   * The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub CSPM.
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *
    * @public
    */
   ProductArn?: StringFilter[] | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID in which a finding was generated.</p>
-   *          <p>
-   *    		Array Members: Minimum number of 1 item. Maximum number of 100 items.
-   *    	</p>
+   * The Amazon Web Services account ID in which a finding was generated.
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 100 items.
+   *
    * @public
    */
   AwsAccountId?: StringFilter[] | undefined;
 
   /**
-   * <p>
-   *          The product-specific identifier for a finding.
-   *       </p>
-   *          <p>
-   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
-   *    	</p>
+   * The product-specific identifier for a finding.
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *
    * @public
    */
   Id?: StringFilter[] | undefined;
 
   /**
-   * <p>
-   *          The identifier for the solution-specific component that
-   *          generated a finding.
-   *       </p>
-   *          <p>
-   *       		Array Members: Minimum number of 1 item. Maximum number of 100 items.
-   *       	</p>
+   * The identifier for the solution-specific component that generated a finding.
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 100 items.
+   *
    * @public
    */
   GeneratorId?: StringFilter[] | undefined;
 
   /**
-   * <p> One or more finding types in the format of namespace/category/classifier that classify
-   *          a finding. For a list of namespaces, classifiers, and categories, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html">Types
-   *             taxonomy for ASFF</a> in the <i>Security Hub CSPM User Guide</i>.</p>
-   *          <p>
-   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
-   *    	</p>
+   * One or more finding types in the format of namespace/category/classifier that classify a finding. For a list of namespaces, classifiers, and categories, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *Security Hub CSPM User Guide*.
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *
    * @public
    */
   Type?: StringFilter[] | undefined;
 
   /**
-   * <p>
-   *          A timestamp that indicates when the potential security issue captured by a
-   *          finding was first observed by the security findings product.
-   *       </p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
-   *          <p>
-   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
-   *    	</p>
+   * A timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings product.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *
    * @public
    */
   FirstObservedAt?: DateFilter[] | undefined;
 
   /**
-   * <p>
-   *           A timestamp that indicates when the security findings provider most recently observed a change in the resource that is involved in the finding.
-   *       </p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
-   *          <p>
-   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
-   *    	</p>
+   * A timestamp that indicates when the security findings provider most recently observed a change in the resource that is involved in the finding.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *
    * @public
    */
   LastObservedAt?: DateFilter[] | undefined;
 
   /**
-   * <p>
-   *          A timestamp that indicates when this finding record was created.
-   *       </p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
-   *          <p>
-   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
-   *    	</p>
+   * A timestamp that indicates when this finding record was created.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *
    * @public
    */
   CreatedAt?: DateFilter[] | undefined;
 
   /**
-   * <p>
-   *          A timestamp that indicates when the finding record was most recently updated.
-   *       </p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
-   *          <p>
-   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
-   *    	</p>
+   * A timestamp that indicates when the finding record was most recently updated.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *
    * @public
    */
   UpdatedAt?: DateFilter[] | undefined;
 
   /**
-   * <p>The likelihood that a finding accurately identifies the behavior or issue that it was
-   *          intended to identify. <code>Confidence</code> is scored on a 0–100 basis using a ratio
-   *          scale. A value of <code>0</code> means 0 percent confidence, and a value of
-   *             <code>100</code> means 100 percent confidence. For example, a data exfiltration
-   *          detection based on a statistical deviation of network traffic has low confidence because an
-   *          actual exfiltration hasn't been verified. For more information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-confidence">Confidence</a> in the <i>Security Hub CSPM User Guide</i>.</p>
-   *          <p>
-   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
-   *    	</p>
+   * The likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. `Confidence` is scored on a 0–100 basis using a ratio scale. A value of `0` means 0 percent confidence, and a value of `100` means 100 percent confidence. For example, a data exfiltration detection based on a statistical deviation of network traffic has low confidence because an actual exfiltration hasn't been verified. For more information, see [Confidence](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-confidence) in the *Security Hub CSPM User Guide*.
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *
    * @public
    */
   Confidence?: NumberFilter[] | undefined;
 
   /**
-   * <p>
-   *          The level of importance that is assigned to the resources that are associated with a
-   *          finding. <code>Criticality</code> is scored on a 0–100 basis, using a ratio scale that supports
-   *          only full integers. A score of <code>0</code> means that the underlying resources have no
-   *          criticality, and a score of <code>100</code> is reserved for the most critical resources. For
-   *       more information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-criticality">Criticality</a> in the <i>Security Hub CSPM User Guide</i>.</p>
-   *          <p>
-   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
-   *    	</p>
+   * The level of importance that is assigned to the resources that are associated with a finding. `Criticality` is scored on a 0–100 basis, using a ratio scale that supports only full integers. A score of `0` means that the underlying resources have no criticality, and a score of `100` is reserved for the most critical resources. For more information, see [Criticality](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-criticality) in the *Security Hub CSPM User Guide*.
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *
    * @public
    */
   Criticality?: NumberFilter[] | undefined;
 
   /**
-   * <p>
-   *          A finding's title.
-   *       </p>
-   *          <p>
-   *    		Array Members: Minimum number of 1 item. Maximum number of 100 items.
-   *    	</p>
+   * A finding's title.
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 100 items.
+   *
    * @public
    */
   Title?: StringFilter[] | undefined;
 
   /**
-   * <p>
-   *          A finding's description.
-   *       </p>
-   *          <p>
-   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
-   *    	</p>
+   * A finding's description.
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *
    * @public
    */
   Description?: StringFilter[] | undefined;
 
   /**
-   * <p>
-   *          Provides a URL that links to a page about the current finding in the finding product.
-   *       </p>
-   *          <p>
-   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
-   *    	</p>
+   * Provides a URL that links to a page about the current finding in the finding product.
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *
    * @public
    */
   SourceUrl?: StringFilter[] | undefined;
 
   /**
-   * <p>
-   *          Provides the name of the product that generated the finding. For
-   *          control-based findings, the product name is Security Hub CSPM.
-   *       </p>
-   *          <p>
-   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
-   *    	</p>
+   * Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub CSPM.
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *
    * @public
    */
   ProductName?: StringFilter[] | undefined;
 
   /**
-   * <p>
-   *          The name of the company for the product that generated the finding.
-   *          For control-based findings, the company is Amazon Web Services.
-   *       </p>
-   *          <p>
-   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
-   *    	</p>
+   * The name of the company for the product that generated the finding. For control-based findings, the company is Amazon Web Services.
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *
    * @public
    */
   CompanyName?: StringFilter[] | undefined;
 
   /**
-   * <p>
-   *          The severity value of the finding.
-   *       </p>
-   *          <p>
-   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
-   *    	</p>
+   * The severity value of the finding.
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *
    * @public
    */
   SeverityLabel?: StringFilter[] | undefined;
 
   /**
-   * <p>
-   *          The type of resource that the finding pertains to.
-   *       </p>
-   *          <p>
-   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
-   *    	</p>
+   * The type of resource that the finding pertains to.
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *
    * @public
    */
   ResourceType?: StringFilter[] | undefined;
 
   /**
-   * <p>
-   *          The identifier for the given resource type. For Amazon Web Services resources that are identified by
-   *          Amazon Resource Names (ARNs), this is the ARN. For Amazon Web Services resources that lack ARNs,
-   *          this is the identifier as defined by the Amazon Web Services service that created the resource.
-   *          For non-Amazon Web Services resources, this is a unique identifier that is associated with the
-   *          resource.
-   *       </p>
-   *          <p>
-   *    		Array Members: Minimum number of 1 item. Maximum number of 100 items.
-   *    	</p>
+   * The identifier for the given resource type. For Amazon Web Services resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For Amazon Web Services resources that lack ARNs, this is the identifier as defined by the Amazon Web Services service that created the resource. For non-Amazon Web Services resources, this is a unique identifier that is associated with the resource.
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 100 items.
+   *
    * @public
    */
   ResourceId?: StringFilter[] | undefined;
 
   /**
-   * <p>
-   *          The partition in which the resource that the finding pertains to is located.
-   *          A partition is a group of Amazon Web Services Regions. Each Amazon Web Services account is scoped to one partition.
-   *       </p>
-   *          <p>
-   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
-   *    	</p>
+   * The partition in which the resource that the finding pertains to is located. A partition is a group of Amazon Web Services Regions. Each Amazon Web Services account is scoped to one partition.
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *
    * @public
    */
   ResourcePartition?: StringFilter[] | undefined;
 
   /**
-   * <p>
-   *          The Amazon Web Services Region where the resource that a finding pertains to is located.
-   *       </p>
-   *          <p>
-   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
-   *    	</p>
+   * The Amazon Web Services Region where the resource that a finding pertains to is located.
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *
    * @public
    */
   ResourceRegion?: StringFilter[] | undefined;
 
   /**
-   * <p>
-   *          A list of Amazon Web Services tags associated with a resource at the time the finding was processed.
-   *       </p>
-   *          <p>
-   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
-   *    	</p>
+   * A list of Amazon Web Services tags associated with a resource at the time the finding was processed.
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *
    * @public
    */
   ResourceTags?: MapFilter[] | undefined;
 
   /**
-   * <p>
-   *          Custom fields and values about the resource that a finding pertains to.
-   *       </p>
-   *          <p>
-   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
-   *    	</p>
+   * Custom fields and values about the resource that a finding pertains to.
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *
    * @public
    */
   ResourceDetailsOther?: MapFilter[] | undefined;
 
   /**
-   * <p>
-   *          The result of a security check. This field is only used for findings generated
-   *          from controls.
-   *       </p>
-   *          <p>
-   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
-   *    	</p>
+   * The result of a security check. This field is only used for findings generated from controls.
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *
    * @public
    */
   ComplianceStatus?: StringFilter[] | undefined;
 
   /**
-   * <p> The security control ID for which a finding was generated. Security control IDs are the same across standards.</p>
-   *          <p>
-   *     		Array Members: Minimum number of 1 item. Maximum number of 20 items.
-   *     	</p>
+   * The security control ID for which a finding was generated. Security control IDs are the same across standards.
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *
    * @public
    */
   ComplianceSecurityControlId?: StringFilter[] | undefined;
 
   /**
-   * <p>The unique identifier of a standard in which a control is enabled. This field consists of the resource portion of
-   *             the Amazon Resource Name (ARN) returned for a standard in the <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html">DescribeStandards</a> API response.</p>
-   *          <p>
-   *     		Array Members: Minimum number of 1 item. Maximum number of 20 items.
-   *     	</p>
+   * The unique identifier of a standard in which a control is enabled. This field consists of the resource portion of the Amazon Resource Name (ARN) returned for a standard in the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API response.
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *
    * @public
    */
   ComplianceAssociatedStandardsId?: StringFilter[] | undefined;
 
   /**
-   * <p>
-   *          Provides the veracity of a finding.
-   *       </p>
-   *          <p>
-   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
-   *    	</p>
+   * Provides the veracity of a finding.
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *
    * @public
    */
   VerificationState?: StringFilter[] | undefined;
 
   /**
-   * <p>
-   *          Provides information about the status of the investigation into a finding.
-   *       </p>
-   *          <p>
-   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
-   *    	</p>
+   * Provides information about the status of the investigation into a finding.
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *
    * @public
    */
   WorkflowStatus?: StringFilter[] | undefined;
 
   /**
-   * <p>
-   *          Provides the current state of a finding.
-   *       </p>
-   *          <p>
-   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
-   *    	</p>
+   * Provides the current state of a finding.
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *
    * @public
    */
   RecordState?: StringFilter[] | undefined;
 
   /**
-   * <p>
-   *          The ARN for the product that generated a related finding.
-   *       </p>
-   *          <p>
-   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
-   *    	</p>
+   * The ARN for the product that generated a related finding.
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *
    * @public
    */
   RelatedFindingsProductArn?: StringFilter[] | undefined;
 
   /**
-   * <p>
-   *          The product-generated identifier for a related finding.
-   *       </p>
-   *          <p>
-   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
-   *    	</p>
+   * The product-generated identifier for a related finding.
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *
    * @public
    */
   RelatedFindingsId?: StringFilter[] | undefined;
 
   /**
-   * <p>
-   *          The text of a user-defined note that's added to a finding.
-   *       </p>
-   *          <p>
-   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
-   *    	</p>
+   * The text of a user-defined note that's added to a finding.
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *
    * @public
    */
   NoteText?: StringFilter[] | undefined;
 
   /**
-   * <p>
-   *          The timestamp of when the note was updated.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
-   *          <p>
-   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
-   *    	</p>
+   * The timestamp of when the note was updated.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *
    * @public
    */
   NoteUpdatedAt?: DateFilter[] | undefined;
 
   /**
-   * <p>
-   *          The principal that created a note.
-   *       </p>
-   *          <p>
-   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
-   *    	</p>
+   * The principal that created a note.
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *
    * @public
    */
   NoteUpdatedBy?: StringFilter[] | undefined;
 
   /**
-   * <p>
-   *             A list of user-defined name and value string pairs added to a finding.
-   *         </p>
-   *          <p>
-   *     		Array Members: Minimum number of 1 item. Maximum number of 20 items.
-   *     	</p>
+   * A list of user-defined name and value string pairs added to a finding.
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *
    * @public
    */
   UserDefinedFields?: MapFilter[] | undefined;
 
   /**
-   * <p>
-   *             The Amazon Resource Name (ARN) of the application that is related to a finding.
-   *         </p>
-   *          <p>
-   *             Array Members: Minimum number of 1 item. Maximum number of 20 items.
-   *         </p>
+   * The Amazon Resource Name (ARN) of the application that is related to a finding.
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *
    * @public
    */
   ResourceApplicationArn?: StringFilter[] | undefined;
 
   /**
-   * <p>
-   *             The name of the application that is related to a finding.
-   *         </p>
-   *          <p>
-   *             Array Members: Minimum number of 1 item. Maximum number of 20 items.
-   *         </p>
+   * The name of the application that is related to a finding.
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *
    * @public
    */
   ResourceApplicationName?: StringFilter[] | undefined;
 
   /**
-   * <p>The name of the Amazon Web Services account in which a finding was generated.
-   *         </p>
-   *          <p>
-   *             Array Members: Minimum number of 1 item. Maximum number of 20 items.
-   *         </p>
+   * The name of the Amazon Web Services account in which a finding was generated.
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *
    * @public
    */
   AwsAccountName?: StringFilter[] | undefined;
 
   /**
-   * <p>The cloud provider that the resource belongs to. Valid values are <code>AWS</code> and <code>Azure</code>.</p>
+   * The cloud provider that the resource belongs to. Valid values are `AWS` and `Azure`.
+   *
    * @public
    */
   ResourceProvider?: StringFilter[] | undefined;
 
   /**
-   * <p>The unique identifier of the account that owns the resource that the finding applies to, for example, Azure Subscription Id or Amazon Web Services Account Id</p>
+   * The unique identifier of the account that owns the resource that the finding applies to, for example, Azure Subscription Id or Amazon Web Services Account Id
+   *
    * @public
    */
   ResourceOwnerAccountId?: StringFilter[] | undefined;
 
   /**
-   * <p>The unique identifier of the organization that owns the resource that the finding applies to, for example, Azure Tenant Id</p>
+   * The unique identifier of the organization that owns the resource that the finding applies to, for example, Azure Tenant Id
+   *
    * @public
    */
   ResourceOwnerOrgId?: StringFilter[] | undefined;
 }
 
 /**
- * <p>
- *          Defines the configuration of an automation rule.
- *       </p>
+ * Defines the configuration of an automation rule.
+ *
  * @public
  */
 export interface AutomationRulesConfig {
   /**
-   * <p>
-   *          The Amazon Resource Name (ARN) of a rule.
-   *       </p>
+   * The Amazon Resource Name (ARN) of a rule.
+   *
    * @public
    */
   RuleArn?: string | undefined;
 
   /**
-   * <p>
-   *          Whether the rule is active after it is created. If
-   *          this parameter is equal to <code>ENABLED</code>, Security Hub CSPM starts applying the rule to findings
-   *          and finding updates after the rule is created.
-   *       </p>
+   * Whether the rule is active after it is created. If this parameter is equal to `ENABLED`, Security Hub CSPM starts applying the rule to findings and finding updates after the rule is created.
+   *
    * @public
    */
   RuleStatus?: RuleStatus | undefined;
 
   /**
-   * <p> An integer ranging from 1 to 1000 that represents the order in which the rule action is
-   *          applied to findings. Security Hub CSPM applies rules with lower values for this parameter
-   *          first. </p>
+   * An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub CSPM applies rules with lower values for this parameter first.
+   *
    * @public
    */
   RuleOrder?: number | undefined;
 
   /**
-   * <p>
-   *          The name of the rule.
-   *       </p>
+   * The name of the rule.
+   *
    * @public
    */
   RuleName?: string | undefined;
 
   /**
-   * <p>
-   *          A description of the rule.
-   *       </p>
+   * A description of the rule.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding
-   *             matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub CSPM applies the rule action to a finding that matches
-   *             the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
-   *         </p>
+   * Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub CSPM applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
+   *
    * @public
    */
   IsTerminal?: boolean | undefined;
 
   /**
-   * <p>
-   *          A set of <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html">Amazon Web Services
-   *              Security Finding Format</a> finding field attributes and corresponding expected values that
-   *          Security Hub CSPM uses to filter findings. If a rule is enabled and a finding matches the conditions specified in
-   *          this parameter, Security Hub CSPM applies the rule action to the finding.
-   *       </p>
+   * A set of [Amazon Web Services Security Finding Format](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that Security Hub CSPM uses to filter findings. If a rule is enabled and a finding matches the conditions specified in this parameter, Security Hub CSPM applies the rule action to the finding.
+   *
    * @public
    */
   Criteria?: AutomationRulesFindingFilters | undefined;
 
   /**
-   * <p>
-   *          One or more actions to update finding fields if a finding matches the defined criteria
-   *          of the rule.
-   *       </p>
+   * One or more actions to update finding fields if a finding matches the defined criteria of the rule.
+   *
    * @public
    */
   Actions?: AutomationRulesAction[] | undefined;
 
   /**
-   * <p>
-   *          A timestamp that indicates when the rule was created.
-   *       </p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * A timestamp that indicates when the rule was created.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>
-   *          A timestamp that indicates when the rule was most recently updated.
-   *       </p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * A timestamp that indicates when the rule was most recently updated.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
 
   /**
-   * <p>
-   *          The principal that created a rule.
-   *       </p>
+   * The principal that created a rule.
+   *
    * @public
    */
   CreatedBy?: string | undefined;
 }
 
 /**
- * <p>
- *          Metadata for automation rules in the calling account. The response includes rules
- *          with a <code>RuleStatus</code> of <code>ENABLED</code> and <code>DISABLED</code>.
- *       </p>
+ * Metadata for automation rules in the calling account. The response includes rules with a `RuleStatus` of `ENABLED` and `DISABLED`.
+ *
  * @public
  */
 export interface AutomationRulesMetadata {
   /**
-   * <p>
-   *          The Amazon Resource Name (ARN) for the rule.
-   *       </p>
+   * The Amazon Resource Name (ARN) for the rule.
+   *
    * @public
    */
   RuleArn?: string | undefined;
 
   /**
-   * <p>
-   *          Whether the rule is active after it is created. If
-   *          this parameter is equal to <code>ENABLED</code>, Security Hub CSPM starts applying the rule to findings
-   *          and finding updates after the rule is created. To change the value of this
-   *          parameter after creating a rule, use <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateAutomationRules.html">
-   *                <code>BatchUpdateAutomationRules</code>
-   *             </a>.
-   *       </p>
+   * Whether the rule is active after it is created. If this parameter is equal to `ENABLED`, Security Hub CSPM starts applying the rule to findings and finding updates after the rule is created. To change the value of this parameter after creating a rule, use [`BatchUpdateAutomationRules`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateAutomationRules.html).
+   *
    * @public
    */
   RuleStatus?: RuleStatus | undefined;
 
   /**
-   * <p>An integer ranging from 1 to 1000 that represents the order in which the rule action is
-   *          applied to findings. Security Hub CSPM applies rules with lower values for this parameter
-   *          first. </p>
+   * An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub CSPM applies rules with lower values for this parameter first.
+   *
    * @public
    */
   RuleOrder?: number | undefined;
 
   /**
-   * <p>
-   *          The name of the rule.
-   *       </p>
+   * The name of the rule.
+   *
    * @public
    */
   RuleName?: string | undefined;
 
   /**
-   * <p>
-   *          A description of the rule.
-   *       </p>
+   * A description of the rule.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding
-   *             matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub CSPM applies the rule action to a finding that matches
-   *             the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
-   *         </p>
+   * Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub CSPM applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
+   *
    * @public
    */
   IsTerminal?: boolean | undefined;
 
   /**
-   * <p>
-   *          A timestamp that indicates when the rule was created.
-   *       </p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * A timestamp that indicates when the rule was created.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>
-   *          A timestamp that indicates when the rule was most recently updated.
-   *       </p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * A timestamp that indicates when the rule was most recently updated.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
 
   /**
-   * <p>
-   *          The principal that created a rule.
-   *       </p>
+   * The principal that created a rule.
+   *
    * @public
    */
   CreatedBy?: string | undefined;
 }
 
 /**
- * <p>Includes essential metadata information about automation rules.</p>
+ * Includes essential metadata information about automation rules.
+ *
  * @public
  */
 export interface AutomationRulesMetadataV2 {
   /**
-   * <p>The ARN of the automation rule.</p>
+   * The ARN of the automation rule.
+   *
    * @public
    */
   RuleArn?: string | undefined;
 
   /**
-   * <p>The ID of the automation rule.</p>
+   * The ID of the automation rule.
+   *
    * @public
    */
   RuleId?: string | undefined;
 
   /**
-   * <p>The value for the rule priority.</p>
+   * The value for the rule priority.
+   *
    * @public
    */
   RuleOrder?: number | undefined;
 
   /**
-   * <p>The name of the automation rule.</p>
+   * The name of the automation rule.
+   *
    * @public
    */
   RuleName?: string | undefined;
 
   /**
-   * <p>The status of the automation rule.</p>
+   * The status of the automation rule.
+   *
    * @public
    */
   RuleStatus?: RuleStatusV2 | undefined;
 
   /**
-   * <p>An explanation for the purpose and funcitonality of the automation rule.</p>
+   * An explanation for the purpose and funcitonality of the automation rule.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The list of action to be performed when the rule criteria is met.</p>
+   * The list of action to be performed when the rule criteria is met.
+   *
    * @public
    */
   Actions?: AutomationRulesActionTypeObjectV2[] | undefined;
 
   /**
-   * <p>The timestamp for when the automation rule was created.</p>
+   * The timestamp for when the automation rule was created.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp for the most recent modification to the automation rule.</p>
+   * The timestamp for the most recent modification to the automation rule.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
 }
 
 /**
- * <p>Information about an Availability Zone.</p>
+ * Information about an Availability Zone.
+ *
  * @public
  */
 export interface AvailabilityZone {
   /**
-   * <p>The name of the Availability Zone.</p>
+   * The name of the Availability Zone.
+   *
    * @public
    */
   ZoneName?: string | undefined;
 
   /**
-   * <p>The ID of the subnet. You can specify one subnet per Availability Zone.</p>
+   * The ID of the subnet. You can specify one subnet per Availability Zone.
+   *
    * @public
    */
   SubnetId?: string | undefined;
 }
 
 /**
- * <p>
- *             Provides details about broker encryption options.
- *         </p>
+ * Provides details about broker encryption options.
+ *
  * @public
  */
 export interface AwsAmazonMqBrokerEncryptionOptionsDetails {
   /**
-   * <p>
-   *             The KMS key that’s used to encrypt your data at rest. If not provided, Amazon MQ will use a
-   *             default KMS key to encrypt your data.
-   *         </p>
+   * The KMS key that’s used to encrypt your data at rest. If not provided, Amazon MQ will use a default KMS key to encrypt your data.
+   *
    * @public
    */
   KmsKeyId?: string | undefined;
 
   /**
-   * <p>
-   *             Specifies that an KMS key should be used for at-rest encryption. Set to <code>true</code> by default
-   *             if no value is provided (for example, for RabbitMQ brokers).
-   *         </p>
+   * Specifies that an KMS key should be used for at-rest encryption. Set to `true` by default if no value is provided (for example, for RabbitMQ brokers).
+   *
    * @public
    */
   UseAwsOwnedKey?: boolean | undefined;
 }
 
 /**
- * <p>
- *             The metadata of the Lightweight Directory Access Protocol (LDAP) server used to authenticate and authorize
- *             connections to the broker. This is an optional failover server.
- *         </p>
+ * The metadata of the Lightweight Directory Access Protocol (LDAP) server used to authenticate and authorize connections to the broker. This is an optional failover server.
+ *
  * @public
  */
 export interface AwsAmazonMqBrokerLdapServerMetadataDetails {
   /**
-   * <p>
-   *             Specifies the location of the LDAP server, such as Amazon Web Services Directory Service for Microsoft Active Directory.
-   *         </p>
+   * Specifies the location of the LDAP server, such as Amazon Web Services Directory Service for Microsoft Active Directory.
+   *
    * @public
    */
   Hosts?: string[] | undefined;
 
   /**
-   * <p>
-   *             The distinguished name of the node in the directory information tree (DIT) to search for roles or groups.
-   *         </p>
+   * The distinguished name of the node in the directory information tree (DIT) to search for roles or groups.
+   *
    * @public
    */
   RoleBase?: string | undefined;
 
   /**
-   * <p>
-   *             The group name attribute in a role entry whose value is the name of that role.
-   *         </p>
+   * The group name attribute in a role entry whose value is the name of that role.
+   *
    * @public
    */
   RoleName?: string | undefined;
 
   /**
-   * <p>
-   *             The LDAP search filter used to find roles within the <code>roleBase</code>.
-   *         </p>
+   * The LDAP search filter used to find roles within the `roleBase`.
+   *
    * @public
    */
   RoleSearchMatching?: string | undefined;
 
   /**
-   * <p>
-   *             The directory search scope for the role. If set to <code>true</code>, the scope is to search the entire subtree.
-   *         </p>
+   * The directory search scope for the role. If set to `true`, the scope is to search the entire subtree.
+   *
    * @public
    */
   RoleSearchSubtree?: boolean | undefined;
 
   /**
-   * <p>
-   *             A username for the service account, which is an account in your LDAP server that has access to initiate a connection.
-   *         </p>
+   * A username for the service account, which is an account in your LDAP server that has access to initiate a connection.
+   *
    * @public
    */
   ServiceAccountUsername?: string | undefined;
 
   /**
-   * <p>
-   *             Selects a particular subtree of the directory information tree (DIT) to search for user entries.
-   *         </p>
+   * Selects a particular subtree of the directory information tree (DIT) to search for user entries.
+   *
    * @public
    */
   UserBase?: string | undefined;
 
   /**
-   * <p>
-   *             The name of the LDAP attribute in the user's directory entry for the user's group membership. </p>
+   * The name of the LDAP attribute in the user's directory entry for the user's group membership.
+   *
    * @public
    */
   UserRoleName?: string | undefined;
 
   /**
-   * <p>
-   *             The LDAP search filter used to find users within the <code>userBase</code>.
-   *         </p>
+   * The LDAP search filter used to find users within the `userBase`.
+   *
    * @public
    */
   UserSearchMatching?: string | undefined;
 
   /**
-   * <p>
-   *             The directory search scope for the user. If set to true, the scope is to search the entire subtree.
-   *         </p>
+   * The directory search scope for the user. If set to true, the scope is to search the entire subtree.
+   *
    * @public
    */
   UserSearchSubtree?: boolean | undefined;
 }
 
 /**
- * <p>
- *             Provides information about logs to be activated for the specified broker.
- *         </p>
+ * Provides information about logs to be activated for the specified broker.
+ *
  * @public
  */
 export interface AwsAmazonMqBrokerLogsPendingDetails {
   /**
-   * <p>
-   *             Activates audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged. Doesn't apply
-   *             to RabbitMQ brokers.
-   *         </p>
+   * Activates audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged. Doesn't apply to RabbitMQ brokers.
+   *
    * @public
    */
   Audit?: boolean | undefined;
 
   /**
-   * <p>
-   *             Activates general logging.
-   *         </p>
+   * Activates general logging.
+   *
    * @public
    */
   General?: boolean | undefined;
 }
 
 /**
- * <p>
- *             Provides information about logs to be activated for the specified broker.
- *         </p>
+ * Provides information about logs to be activated for the specified broker.
+ *
  * @public
  */
 export interface AwsAmazonMqBrokerLogsDetails {
   /**
-   * <p>
-   *             Activates audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged. Doesn't apply to RabbitMQ brokers.
-   *         </p>
+   * Activates audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged. Doesn't apply to RabbitMQ brokers.
+   *
    * @public
    */
   Audit?: boolean | undefined;
 
   /**
-   * <p>
-   *             Activates general logging.
-   *         </p>
+   * Activates general logging.
+   *
    * @public
    */
   General?: boolean | undefined;
 
   /**
-   * <p>
-   *             The location of the CloudWatch Logs log group where audit logs are sent.
-   *         </p>
+   * The location of the CloudWatch Logs log group where audit logs are sent.
+   *
    * @public
    */
   AuditLogGroup?: string | undefined;
 
   /**
-   * <p>
-   *             The location of the CloudWatch Logs log group where general logs are sent.
-   *         </p>
+   * The location of the CloudWatch Logs log group where general logs are sent.
+   *
    * @public
    */
   GeneralLogGroup?: string | undefined;
 
   /**
-   * <p>
-   *             The list of information about logs that are to be turned on for the specified broker.
-   *         </p>
+   * The list of information about logs that are to be turned on for the specified broker.
+   *
    * @public
    */
   Pending?: AwsAmazonMqBrokerLogsPendingDetails | undefined;
 }
 
 /**
- * <p>
- *             The scheduled time period (UTC) during which Amazon MQ begins to apply pending updates or patches to the broker.
- *         </p>
+ * The scheduled time period (UTC) during which Amazon MQ begins to apply pending updates or patches to the broker.
+ *
  * @public
  */
 export interface AwsAmazonMqBrokerMaintenanceWindowStartTimeDetails {
   /**
-   * <p>
-   *             The day of the week on which the maintenance window falls.
-   *         </p>
+   * The day of the week on which the maintenance window falls.
+   *
    * @public
    */
   DayOfWeek?: string | undefined;
 
   /**
-   * <p>
-   *             The time, in 24-hour format, on which the maintenance window falls.
-   *         </p>
+   * The time, in 24-hour format, on which the maintenance window falls.
+   *
    * @public
    */
   TimeOfDay?: string | undefined;
 
   /**
-   * <p>
-   *             The time zone in either the Country/City format or the UTC offset format. UTC is the default format.
-   *         </p>
+   * The time zone in either the Country/City format or the UTC offset format. UTC is the default format.
+   *
    * @public
    */
   TimeZone?: string | undefined;
 }
 
 /**
- * <p>
- *             Provides details about the broker usernames for the specified broker. Doesn't apply to RabbitMQ brokers.
- *         </p>
+ * Provides details about the broker usernames for the specified broker. Doesn't apply to RabbitMQ brokers.
+ *
  * @public
  */
 export interface AwsAmazonMqBrokerUsersDetails {
   /**
-   * <p>
-   *             The type of change pending for the broker user.
-   *         </p>
+   * The type of change pending for the broker user.
+   *
    * @public
    */
   PendingChange?: string | undefined;
 
   /**
-   * <p>
-   *             The username of the broker user.
-   *         </p>
+   * The username of the broker user.
+   *
    * @public
    */
   Username?: string | undefined;
 }
 
 /**
- * <p>
- *             Provides details about an Amazon MQ message broker. A message broker allows software applications and
- *             components to communicate using various programming languages, operating systems, and formal messaging protocols.
- *         </p>
+ * Provides details about an Amazon MQ message broker. A message broker allows software applications and components to communicate using various programming languages, operating systems, and formal messaging protocols.
+ *
  * @public
  */
 export interface AwsAmazonMqBrokerDetails {
   /**
-   * <p>
-   *             The authentication strategy used to secure the broker. The default is <code>SIMPLE</code>.
-   *         </p>
+   * The authentication strategy used to secure the broker. The default is `SIMPLE`.
+   *
    * @public
    */
   AuthenticationStrategy?: string | undefined;
 
   /**
-   * <p>
-   *             Whether automatically upgrade new minor versions for brokers, as new versions are released and supported by Amazon MQ.
-   *             Automatic upgrades occur during the scheduled maintenance window of the broker or after a manual broker reboot.
-   *         </p>
+   * Whether automatically upgrade new minor versions for brokers, as new versions are released and supported by Amazon MQ. Automatic upgrades occur during the scheduled maintenance window of the broker or after a manual broker reboot.
+   *
    * @public
    */
   AutoMinorVersionUpgrade?: boolean | undefined;
 
   /**
-   * <p>
-   *             The Amazon Resource Name (ARN) of the broker.
-   *         </p>
+   * The Amazon Resource Name (ARN) of the broker.
+   *
    * @public
    */
   BrokerArn?: string | undefined;
 
   /**
-   * <p>The broker's name.
-   *         </p>
+   * The broker's name.
+   *
    * @public
    */
   BrokerName?: string | undefined;
 
   /**
-   * <p>
-   *             The broker's deployment mode.
-   *         </p>
+   * The broker's deployment mode.
+   *
    * @public
    */
   DeploymentMode?: string | undefined;
 
   /**
-   * <p>
-   *             Encryption options for the broker. Doesn’t apply to RabbitMQ brokers.
-   *         </p>
+   * Encryption options for the broker. Doesn’t apply to RabbitMQ brokers.
+   *
    * @public
    */
   EncryptionOptions?: AwsAmazonMqBrokerEncryptionOptionsDetails | undefined;
 
   /**
-   * <p>
-   *             The type of broker engine.
-   *         </p>
+   * The type of broker engine.
+   *
    * @public
    */
   EngineType?: string | undefined;
 
   /**
-   * <p>
-   *             The version of the broker engine.
-   *         </p>
+   * The version of the broker engine.
+   *
    * @public
    */
   EngineVersion?: string | undefined;
 
   /**
-   * <p>
-   *             The broker's instance type.
-   *         </p>
+   * The broker's instance type.
+   *
    * @public
    */
   HostInstanceType?: string | undefined;
 
   /**
-   * <p>
-   *             The unique ID that Amazon MQ generates for the broker.
-   *         </p>
+   * The unique ID that Amazon MQ generates for the broker.
+   *
    * @public
    */
   BrokerId?: string | undefined;
 
   /**
-   * <p>
-   *             The metadata of the Lightweight Directory Access Protocol (LDAP) server used to authenticate and authorize connections to the broker. This is an optional failover server.
-   *         </p>
+   * The metadata of the Lightweight Directory Access Protocol (LDAP) server used to authenticate and authorize connections to the broker. This is an optional failover server.
+   *
    * @public
    */
   LdapServerMetadata?: AwsAmazonMqBrokerLdapServerMetadataDetails | undefined;
 
   /**
-   * <p>
-   *             Turns on Amazon CloudWatch logging for brokers.
-   *         </p>
+   * Turns on Amazon CloudWatch logging for brokers.
+   *
    * @public
    */
   Logs?: AwsAmazonMqBrokerLogsDetails | undefined;
 
   /**
-   * <p>
-   *             The scheduled time period (UTC) during which Amazon MQ begins to apply pending updates or patches to the broker.
-   *         </p>
+   * The scheduled time period (UTC) during which Amazon MQ begins to apply pending updates or patches to the broker.
+   *
    * @public
    */
   MaintenanceWindowStartTime?: AwsAmazonMqBrokerMaintenanceWindowStartTimeDetails | undefined;
 
   /**
-   * <p>
-   *             Permits connections from applications outside of the VPC that hosts the broker's subnets.
-   *         </p>
+   * Permits connections from applications outside of the VPC that hosts the broker's subnets.
+   *
    * @public
    */
   PubliclyAccessible?: boolean | undefined;
 
   /**
-   * <p>
-   *             The list of rules (one minimum, 125 maximum) that authorize connections to brokers.
-   *         </p>
+   * The list of rules (one minimum, 125 maximum) that authorize connections to brokers.
+   *
    * @public
    */
   SecurityGroups?: string[] | undefined;
 
   /**
-   * <p>
-   *             The broker's storage type.
-   *         </p>
+   * The broker's storage type.
+   *
    * @public
    */
   StorageType?: string | undefined;
 
   /**
-   * <p>
-   *             The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones.
-   *         </p>
+   * The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones.
+   *
    * @public
    */
   SubnetIds?: string[] | undefined;
 
   /**
-   * <p>
-   *             The list of all broker usernames for the specified broker. Doesn't apply to RabbitMQ brokers.
-   *         </p>
+   * The list of all broker usernames for the specified broker. Doesn't apply to RabbitMQ brokers.
+   *
    * @public
    */
   Users?: AwsAmazonMqBrokerUsersDetails[] | undefined;
 }
 
 /**
- * <p>Contains information about settings for logging access for the stage.</p>
+ * Contains information about settings for logging access for the stage.
+ *
  * @public
  */
 export interface AwsApiGatewayAccessLogSettings {
   /**
-   * <p>A single-line format of the access logs of data, as specified by selected
-   *             <code>$context</code> variables. The format must include at least
-   *             <code>$context.requestId</code>.</p>
+   * A single-line format of the access logs of data, as specified by selected `$context` variables. The format must include at least `$context.requestId`.
+   *
    * @public
    */
   Format?: string | undefined;
 
   /**
-   * <p>The ARN of the CloudWatch Logs log group that receives the access logs.</p>
+   * The ARN of the CloudWatch Logs log group that receives the access logs.
+   *
    * @public
    */
   DestinationArn?: string | undefined;
 }
 
 /**
- * <p>Contains information about settings for canary deployment in the stage.</p>
+ * Contains information about settings for canary deployment in the stage.
+ *
  * @public
  */
 export interface AwsApiGatewayCanarySettings {
   /**
-   * <p>The percentage of traffic that is diverted to a canary deployment.</p>
+   * The percentage of traffic that is diverted to a canary deployment.
+   *
    * @public
    */
   PercentTraffic?: number | undefined;
 
   /**
-   * <p>The deployment identifier for the canary deployment.</p>
+   * The deployment identifier for the canary deployment.
+   *
    * @public
    */
   DeploymentId?: string | undefined;
 
   /**
-   * <p>Stage variables that are overridden in the canary release deployment. The variables
-   *          include new stage variables that are introduced in the canary.</p>
-   *          <p>Each variable is represented as a string-to-string map between the stage variable name
-   *          and the variable value.</p>
+   * Stage variables that are overridden in the canary release deployment. The variables include new stage variables that are introduced in the canary.
+   *
+   * Each variable is represented as a string-to-string map between the stage variable name and the variable value.
+   *
    * @public
    */
   StageVariableOverrides?: Record<string, string> | undefined;
 
   /**
-   * <p>Indicates whether the canary deployment uses the stage cache.</p>
+   * Indicates whether the canary deployment uses the stage cache.
+   *
    * @public
    */
   UseStageCache?: boolean | undefined;
 }
 
 /**
- * <p>Contains information about the endpoints for the API.</p>
+ * Contains information about the endpoints for the API.
+ *
  * @public
  */
 export interface AwsApiGatewayEndpointConfiguration {
   /**
-   * <p>A list of endpoint types for the REST API.</p>
-   *          <p>For an edge-optimized API, the endpoint type is <code>EDGE</code>. For a Regional API,
-   *          the endpoint type is <code>REGIONAL</code>. For a private API, the endpoint type is
-   *             <code>PRIVATE</code>.</p>
+   * A list of endpoint types for the REST API.
+   *
+   * For an edge-optimized API, the endpoint type is `EDGE`. For a Regional API, the endpoint type is `REGIONAL`. For a private API, the endpoint type is `PRIVATE`.
+   *
    * @public
    */
   Types?: string[] | undefined;
 }
 
 /**
- * <p>Defines settings for a method for the stage.</p>
+ * Defines settings for a method for the stage.
+ *
  * @public
  */
 export interface AwsApiGatewayMethodSettings {
   /**
-   * <p>Indicates whether CloudWatch metrics are enabled for the method. </p>
+   * Indicates whether CloudWatch metrics are enabled for the method.
+   *
    * @public
    */
   MetricsEnabled?: boolean | undefined;
 
   /**
-   * <p>The logging level for this method. The logging level affects the log entries that are
-   *          pushed to CloudWatch Logs.</p>
-   *          <p>If the logging level is <code>ERROR</code>, then the logs only include error-level
-   *          entries.</p>
-   *          <p>If the logging level is <code>INFO</code>, then the logs include both <code>ERROR</code>
-   *          events and extra informational events.</p>
-   *          <p>Valid values: <code>OFF</code> | <code>ERROR</code> | <code>INFO</code>
-   *          </p>
+   * The logging level for this method. The logging level affects the log entries that are pushed to CloudWatch Logs.
+   *
+   * If the logging level is `ERROR`, then the logs only include error-level entries.
+   *
+   * If the logging level is `INFO`, then the logs include both `ERROR` events and extra informational events.
+   *
+   * Valid values: `OFF` | `ERROR` | `INFO`
+   *
    * @public
    */
   LoggingLevel?: string | undefined;
 
   /**
-   * <p>Indicates whether data trace logging is enabled for the method. Data trace logging
-   *          affects the log entries that are pushed to CloudWatch Logs.</p>
+   * Indicates whether data trace logging is enabled for the method. Data trace logging affects the log entries that are pushed to CloudWatch Logs.
+   *
    * @public
    */
   DataTraceEnabled?: boolean | undefined;
 
   /**
-   * <p>The throttling burst limit for the method.</p>
+   * The throttling burst limit for the method.
+   *
    * @public
    */
   ThrottlingBurstLimit?: number | undefined;
 
   /**
-   * <p>The throttling rate limit for the method.</p>
+   * The throttling rate limit for the method.
+   *
    * @public
    */
   ThrottlingRateLimit?: number | undefined;
 
   /**
-   * <p>Indicates whether responses are cached and returned for requests. For responses to be
-   *          cached, a cache cluster must be enabled on the stage.</p>
+   * Indicates whether responses are cached and returned for requests. For responses to be cached, a cache cluster must be enabled on the stage.
+   *
    * @public
    */
   CachingEnabled?: boolean | undefined;
 
   /**
-   * <p>Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL,
-   *          the longer the response is cached.</p>
+   * Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response is cached.
+   *
    * @public
    */
   CacheTtlInSeconds?: number | undefined;
 
   /**
-   * <p>Indicates whether the cached responses are encrypted. </p>
+   * Indicates whether the cached responses are encrypted.
+   *
    * @public
    */
   CacheDataEncrypted?: boolean | undefined;
 
   /**
-   * <p>Indicates whether authorization is required for a cache invalidation request.</p>
+   * Indicates whether authorization is required for a cache invalidation request.
+   *
    * @public
    */
   RequireAuthorizationForCacheControl?: boolean | undefined;
 
   /**
-   * <p>Indicates how to handle unauthorized requests for cache invalidation.</p>
-   *          <p>Valid values: <code>FAIL_WITH_403</code> | <code>SUCCEED_WITH_RESPONSE_HEADER</code> |
-   *             <code>SUCCEED_WITHOUT_RESPONSE_HEADER</code>
-   *          </p>
+   * Indicates how to handle unauthorized requests for cache invalidation.
+   *
+   * Valid values: `FAIL_WITH_403` | `SUCCEED_WITH_RESPONSE_HEADER` | `SUCCEED_WITHOUT_RESPONSE_HEADER`
+   *
    * @public
    */
   UnauthorizedCacheControlHeaderStrategy?: string | undefined;
 
   /**
-   * <p>The HTTP method. You can use an asterisk (*) as a wildcard to apply method settings to
-   *          multiple methods.</p>
+   * The HTTP method. You can use an asterisk (*) as a wildcard to apply method settings to multiple methods.
+   *
    * @public
    */
   HttpMethod?: string | undefined;
 
   /**
-   * <p>The resource path for this method. Forward slashes (/) are encoded as ~1 . The initial
-   *          slash must include a forward slash.</p>
-   *          <p>For example, the path value <code>/resource/subresource</code> must be encoded as
-   *             <code>/~1resource~1subresource</code>.</p>
-   *          <p>To specify the root path, use only a slash (/). You can use an asterisk (*) as a
-   *          wildcard to apply method settings to multiple methods.</p>
+   * The resource path for this method. Forward slashes (/) are encoded as ~1 . The initial slash must include a forward slash.
+   *
+   * For example, the path value `/resource/subresource` must be encoded as `/~1resource~1subresource`.
+   *
+   * To specify the root path, use only a slash (/). You can use an asterisk (*) as a wildcard to apply method settings to multiple methods.
+   *
    * @public
    */
   ResourcePath?: string | undefined;
 }
 
 /**
- * <p>Contains information about a REST API in version 1 of Amazon API Gateway.</p>
+ * Contains information about a REST API in version 1 of Amazon API Gateway.
+ *
  * @public
  */
 export interface AwsApiGatewayRestApiDetails {
   /**
-   * <p>The identifier of the REST API.</p>
+   * The identifier of the REST API.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The name of the REST API.</p>
+   * The name of the REST API.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>A description of the REST API.</p>
+   * A description of the REST API.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Indicates when the API was created.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * Indicates when the API was created.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   CreatedDate?: string | undefined;
 
   /**
-   * <p>The version identifier for the REST API.</p>
+   * The version identifier for the REST API.
+   *
    * @public
    */
   Version?: string | undefined;
 
   /**
-   * <p>The list of binary media types supported by the REST API.</p>
+   * The list of binary media types supported by the REST API.
+   *
    * @public
    */
   BinaryMediaTypes?: string[] | undefined;
 
   /**
-   * <p>The minimum size in bytes of a payload before compression is enabled.</p>
-   *          <p>If <code>null</code>, then compression is disabled.</p>
-   *          <p>If 0, then all payloads are compressed.</p>
+   * The minimum size in bytes of a payload before compression is enabled.
+   *
+   * If `null`, then compression is disabled.
+   *
+   * If 0, then all payloads are compressed.
+   *
    * @public
    */
   MinimumCompressionSize?: number | undefined;
 
   /**
-   * <p>The source of the API key for metering requests according to a usage plan.</p>
-   *          <p>
-   *             <code>HEADER</code> indicates whether to read the API key from the X-API-Key header of a
-   *          request.</p>
-   *          <p>
-   *             <code>AUTHORIZER</code> indicates whether to read the API key from the
-   *             <code>UsageIdentifierKey</code> from a custom authorizer.</p>
+   * The source of the API key for metering requests according to a usage plan.
+   *
+   * `HEADER` indicates whether to read the API key from the X-API-Key header of a request.
+   *
+   * `AUTHORIZER` indicates whether to read the API key from the `UsageIdentifierKey` from a custom authorizer.
+   *
    * @public
    */
   ApiKeySource?: string | undefined;
 
   /**
-   * <p>The endpoint configuration of the REST API.</p>
+   * The endpoint configuration of the REST API.
+   *
    * @public
    */
   EndpointConfiguration?: AwsApiGatewayEndpointConfiguration | undefined;
 }
 
 /**
- * <p>Provides information about a version 1 Amazon API Gateway stage.</p>
+ * Provides information about a version 1 Amazon API Gateway stage.
+ *
  * @public
  */
 export interface AwsApiGatewayStageDetails {
   /**
-   * <p>The identifier of the deployment that the stage points to.</p>
+   * The identifier of the deployment that the stage points to.
+   *
    * @public
    */
   DeploymentId?: string | undefined;
 
   /**
-   * <p>The identifier of the client certificate for the stage.</p>
+   * The identifier of the client certificate for the stage.
+   *
    * @public
    */
   ClientCertificateId?: string | undefined;
 
   /**
-   * <p>The name of the stage.</p>
+   * The name of the stage.
+   *
    * @public
    */
   StageName?: string | undefined;
 
   /**
-   * <p>A description of the stage.</p>
+   * A description of the stage.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Indicates whether a cache cluster is enabled for the stage.</p>
+   * Indicates whether a cache cluster is enabled for the stage.
+   *
    * @public
    */
   CacheClusterEnabled?: boolean | undefined;
 
   /**
-   * <p>If a cache cluster is enabled, the size of the cache cluster.</p>
+   * If a cache cluster is enabled, the size of the cache cluster.
+   *
    * @public
    */
   CacheClusterSize?: string | undefined;
 
   /**
-   * <p>If a cache cluster is enabled, the status of the cache cluster.</p>
+   * If a cache cluster is enabled, the status of the cache cluster.
+   *
    * @public
    */
   CacheClusterStatus?: string | undefined;
 
   /**
-   * <p>Defines the method settings for the stage.</p>
+   * Defines the method settings for the stage.
+   *
    * @public
    */
   MethodSettings?: AwsApiGatewayMethodSettings[] | undefined;
 
   /**
-   * <p>A map that defines the stage variables for the stage.</p>
-   *          <p>Variable names can have alphanumeric and underscore characters.</p>
-   *          <p>Variable values can contain the following characters:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Uppercase and lowercase letters</p>
-   *             </li>
-   *             <li>
-   *                <p>Numbers</p>
-   *             </li>
-   *             <li>
-   *                <p>Special characters -._~:/?#&=,</p>
-   *             </li>
-   *          </ul>
+   * A map that defines the stage variables for the stage.
+   *
+   * Variable names can have alphanumeric and underscore characters.
+   *
+   * Variable values can contain the following characters:
+   *
+   * - Uppercase and lowercase letters
+   * - Numbers
+   * - Special characters -._~:/?#&=,
+   *
    * @public
    */
   Variables?: Record<string, string> | undefined;
 
   /**
-   * <p>The version of the API documentation that is associated with the stage.</p>
+   * The version of the API documentation that is associated with the stage.
+   *
    * @public
    */
   DocumentationVersion?: string | undefined;
 
   /**
-   * <p>Settings for logging access for the stage.</p>
+   * Settings for logging access for the stage.
+   *
    * @public
    */
   AccessLogSettings?: AwsApiGatewayAccessLogSettings | undefined;
 
   /**
-   * <p>Information about settings for canary deployment in the stage.</p>
+   * Information about settings for canary deployment in the stage.
+   *
    * @public
    */
   CanarySettings?: AwsApiGatewayCanarySettings | undefined;
 
   /**
-   * <p>Indicates whether active tracing with X-Ray is enabled for the stage.</p>
+   * Indicates whether active tracing with X-Ray is enabled for the stage.
+   *
    * @public
    */
   TracingEnabled?: boolean | undefined;
 
   /**
-   * <p>Indicates when the stage was created.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * Indicates when the stage was created.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   CreatedDate?: string | undefined;
 
   /**
-   * <p>Indicates when the stage was most recently updated.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * Indicates when the stage was most recently updated.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   LastUpdatedDate?: string | undefined;
 
   /**
-   * <p>The ARN of the web ACL associated with the stage.</p>
+   * The ARN of the web ACL associated with the stage.
+   *
    * @public
    */
   WebAclArn?: string | undefined;
 }
 
 /**
- * <p>Contains the cross-origin resource sharing (CORS) configuration for the API. CORS is
- *          only supported for HTTP APIs.</p>
+ * Contains the cross-origin resource sharing (CORS) configuration for the API. CORS is only supported for HTTP APIs.
+ *
  * @public
  */
 export interface AwsCorsConfiguration {
   /**
-   * <p>The allowed origins for CORS requests.</p>
+   * The allowed origins for CORS requests.
+   *
    * @public
    */
   AllowOrigins?: string[] | undefined;
 
   /**
-   * <p>Indicates whether the CORS request includes credentials.</p>
+   * Indicates whether the CORS request includes credentials.
+   *
    * @public
    */
   AllowCredentials?: boolean | undefined;
 
   /**
-   * <p>The exposed headers for CORS requests.</p>
+   * The exposed headers for CORS requests.
+   *
    * @public
    */
   ExposeHeaders?: string[] | undefined;
 
   /**
-   * <p>The number of seconds for which the browser caches preflight request results.</p>
+   * The number of seconds for which the browser caches preflight request results.
+   *
    * @public
    */
   MaxAge?: number | undefined;
 
   /**
-   * <p>The allowed methods for CORS requests.</p>
+   * The allowed methods for CORS requests.
+   *
    * @public
    */
   AllowMethods?: string[] | undefined;
 
   /**
-   * <p>The allowed headers for CORS requests.</p>
+   * The allowed headers for CORS requests.
+   *
    * @public
    */
   AllowHeaders?: string[] | undefined;
 }
 
 /**
- * <p>Contains information about a version 2 API in Amazon API Gateway.</p>
+ * Contains information about a version 2 API in Amazon API Gateway.
+ *
  * @public
  */
 export interface AwsApiGatewayV2ApiDetails {
   /**
-   * <p>The URI of the API. </p>
-   *          <p>Uses the format
-   *                <code>
-   *                <i><api-id></i>.execute-api.<i><region></i>.amazonaws.com</code>
-   *          </p>
-   *          <p>The stage name is typically appended to the URI to form a complete path to a deployed
-   *          API stage.</p>
+   * The URI of the API.
+   *
+   * Uses the format `<api-id>.execute-api.<region>.amazonaws.com`
+   *
+   * The stage name is typically appended to the URI to form a complete path to a deployed API stage.
+   *
    * @public
    */
   ApiEndpoint?: string | undefined;
 
   /**
-   * <p>The identifier of the API.</p>
+   * The identifier of the API.
+   *
    * @public
    */
   ApiId?: string | undefined;
 
   /**
-   * <p>An API key selection expression. Supported only for WebSocket APIs. </p>
+   * An API key selection expression. Supported only for WebSocket APIs.
+   *
    * @public
    */
   ApiKeySelectionExpression?: string | undefined;
 
   /**
-   * <p>Indicates when the API was created.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * Indicates when the API was created.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   CreatedDate?: string | undefined;
 
   /**
-   * <p>A description of the API.</p>
+   * A description of the API.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The version identifier for the API.</p>
+   * The version identifier for the API.
+   *
    * @public
    */
   Version?: string | undefined;
 
   /**
-   * <p>The name of the API.</p>
+   * The name of the API.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The API protocol for the API.</p>
-   *          <p>Valid values: <code>WEBSOCKET</code> | <code>HTTP</code>
-   *          </p>
+   * The API protocol for the API.
+   *
+   * Valid values: `WEBSOCKET` | `HTTP`
+   *
    * @public
    */
   ProtocolType?: string | undefined;
 
   /**
-   * <p>The route selection expression for the API.</p>
-   *          <p>For HTTP APIs, must be <code>$\{request.method\} $\{request.path\}</code>. This is the
-   *          default value for HTTP APIs.</p>
-   *          <p>For WebSocket APIs, there is no default value.</p>
+   * The route selection expression for the API.
+   *
+   * For HTTP APIs, must be `$\{request.method\} $\{request.path\}`. This is the default value for HTTP APIs.
+   *
+   * For WebSocket APIs, there is no default value.
+   *
    * @public
    */
   RouteSelectionExpression?: string | undefined;
 
   /**
-   * <p>A cross-origin resource sharing (CORS) configuration. Supported only for HTTP
-   *          APIs.</p>
+   * A cross-origin resource sharing (CORS) configuration. Supported only for HTTP APIs.
+   *
    * @public
    */
   CorsConfiguration?: AwsCorsConfiguration | undefined;
 }
 
 /**
- * <p>Contains route settings for a stage.</p>
+ * Contains route settings for a stage.
+ *
  * @public
  */
 export interface AwsApiGatewayV2RouteSettings {
   /**
-   * <p>Indicates whether detailed metrics are enabled.</p>
+   * Indicates whether detailed metrics are enabled.
+   *
    * @public
    */
   DetailedMetricsEnabled?: boolean | undefined;
 
   /**
-   * <p>The logging level. The logging level affects the log entries that are pushed to
-   *          CloudWatch Logs. Supported only for WebSocket APIs.</p>
-   *          <p>If the logging level is <code>ERROR</code>, then the logs only include error-level
-   *          entries.</p>
-   *          <p>If the logging level is <code>INFO</code>, then the logs include both <code>ERROR</code>
-   *          events and extra informational events.</p>
-   *          <p>Valid values: <code>OFF</code> | <code>ERROR</code> | <code>INFO</code>
-   *          </p>
+   * The logging level. The logging level affects the log entries that are pushed to CloudWatch Logs. Supported only for WebSocket APIs.
+   *
+   * If the logging level is `ERROR`, then the logs only include error-level entries.
+   *
+   * If the logging level is `INFO`, then the logs include both `ERROR` events and extra informational events.
+   *
+   * Valid values: `OFF` | `ERROR` | `INFO`
+   *
    * @public
    */
   LoggingLevel?: string | undefined;
 
   /**
-   * <p>Indicates whether data trace logging is enabled. Data trace logging affects the log
-   *          entries that are pushed to CloudWatch Logs. Supported only for WebSocket APIs.</p>
+   * Indicates whether data trace logging is enabled. Data trace logging affects the log entries that are pushed to CloudWatch Logs. Supported only for WebSocket APIs.
+   *
    * @public
    */
   DataTraceEnabled?: boolean | undefined;
 
   /**
-   * <p>The throttling burst limit.</p>
+   * The throttling burst limit.
+   *
    * @public
    */
   ThrottlingBurstLimit?: number | undefined;
 
   /**
-   * <p>The throttling rate limit.</p>
+   * The throttling rate limit.
+   *
    * @public
    */
   ThrottlingRateLimit?: number | undefined;
 }
 
 /**
- * <p>Contains information about a version 2 stage for Amazon API Gateway.</p>
+ * Contains information about a version 2 stage for Amazon API Gateway.
+ *
  * @public
  */
 export interface AwsApiGatewayV2StageDetails {
   /**
-   * <p>The identifier of a client certificate for a stage. Supported only for WebSocket API calls.</p>
+   * The identifier of a client certificate for a stage. Supported only for WebSocket API calls.
+   *
    * @public
    */
   ClientCertificateId?: string | undefined;
 
   /**
-   * <p>Indicates when the stage was created.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * Indicates when the stage was created.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   CreatedDate?: string | undefined;
 
   /**
-   * <p>The description of the stage.</p>
+   * The description of the stage.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Default route settings for the stage.</p>
+   * Default route settings for the stage.
+   *
    * @public
    */
   DefaultRouteSettings?: AwsApiGatewayV2RouteSettings | undefined;
 
   /**
-   * <p>The identifier of the deployment that the stage is associated with. </p>
+   * The identifier of the deployment that the stage is associated with.
+   *
    * @public
    */
   DeploymentId?: string | undefined;
 
   /**
-   * <p>Indicates when the stage was most recently updated.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * Indicates when the stage was most recently updated.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   LastUpdatedDate?: string | undefined;
 
   /**
-   * <p>The route settings for the stage.</p>
+   * The route settings for the stage.
+   *
    * @public
    */
   RouteSettings?: AwsApiGatewayV2RouteSettings | undefined;
 
   /**
-   * <p>The name of the stage.</p>
+   * The name of the stage.
+   *
    * @public
    */
   StageName?: string | undefined;
 
   /**
-   * <p>A map that defines the stage variables for the stage.</p>
-   *          <p>Variable names can have alphanumeric and underscore characters.</p>
-   *          <p>Variable values can contain the following characters:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Uppercase and lowercase letters</p>
-   *             </li>
-   *             <li>
-   *                <p>Numbers</p>
-   *             </li>
-   *             <li>
-   *                <p>Special characters -._~:/?#&=,</p>
-   *             </li>
-   *          </ul>
+   * A map that defines the stage variables for the stage.
+   *
+   * Variable names can have alphanumeric and underscore characters.
+   *
+   * Variable values can contain the following characters:
+   *
+   * - Uppercase and lowercase letters
+   * - Numbers
+   * - Special characters -._~:/?#&=,
+   *
    * @public
    */
   StageVariables?: Record<string, string> | undefined;
 
   /**
-   * <p>Information about settings for logging access for the stage.</p>
+   * Information about settings for logging access for the stage.
+   *
    * @public
    */
   AccessLogSettings?: AwsApiGatewayAccessLogSettings | undefined;
 
   /**
-   * <p>Indicates whether updates to an API automatically trigger a new deployment.</p>
+   * Indicates whether updates to an API automatically trigger a new deployment.
+   *
    * @public
    */
   AutoDeploy?: boolean | undefined;
 
   /**
-   * <p>The status of the last deployment of a stage. Supported only if the stage has automatic
-   *          deployment enabled.</p>
+   * The status of the last deployment of a stage. Supported only if the stage has automatic deployment enabled.
+   *
    * @public
    */
   LastDeploymentStatusMessage?: string | undefined;
 
   /**
-   * <p>Indicates whether the stage is managed by API Gateway.</p>
+   * Indicates whether the stage is managed by API Gateway.
+   *
    * @public
    */
   ApiGatewayManaged?: boolean | undefined;
 }
 
 /**
- * <p>
- *             Specifies the authorization configuration for using an Lambda function with your AppSync
- *             GraphQL API endpoint.
- *         </p>
+ * Specifies the authorization configuration for using an Lambda function with your AppSync GraphQL API endpoint.
+ *
  * @public
  */
 export interface AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails {
   /**
-   * <p>
-   *             The number of seconds a response should be cached for. The default is 5 minutes (300 seconds).
-   *         </p>
+   * The number of seconds a response should be cached for. The default is 5 minutes (300 seconds).
+   *
    * @public
    */
   AuthorizerResultTtlInSeconds?: number | undefined;
 
   /**
-   * <p>
-   *             The Amazon Resource Name (ARN) of the Lambda function to be called for authorization. This can be a
-   *             standard Lambda ARN, a version ARN (.../v3), or an alias ARN.
-   *         </p>
+   * The Amazon Resource Name (ARN) of the Lambda function to be called for authorization. This can be a standard Lambda ARN, a version ARN (.../v3), or an alias ARN.
+   *
    * @public
    */
   AuthorizerUri?: string | undefined;
 
   /**
-   * <p>
-   *             A regular expression for validation of tokens before the Lambda function is called.
-   *         </p>
+   * A regular expression for validation of tokens before the Lambda function is called.
+   *
    * @public
    */
   IdentityValidationExpression?: string | undefined;
 }
 
 /**
- * <p>
- *             Specifies the authorization configuration for using an OpenID Connect compliant service with your AppSync GraphQL
- *             API endpoint.
- *         </p>
+ * Specifies the authorization configuration for using an OpenID Connect compliant service with your AppSync GraphQL API endpoint.
+ *
  * @public
  */
 export interface AwsAppSyncGraphQlApiOpenIdConnectConfigDetails {
   /**
-   * <p>
-   *             The number of milliseconds that a token is valid after being authenticated.
-   *         </p>
+   * The number of milliseconds that a token is valid after being authenticated.
+   *
    * @public
    */
   AuthTtL?: number | undefined;
 
   /**
-   * <p>
-   *             The client identifier of the relying party at the OpenID identity provider. This identifier is typically obtained
-   *             when the relying party is registered with the OpenID identity provider. You can specify a regular expression so that
-   *             AppSync can validate against multiple client identifiers at a time.
-   *         </p>
+   * The client identifier of the relying party at the OpenID identity provider. This identifier is typically obtained when the relying party is registered with the OpenID identity provider. You can specify a regular expression so that AppSync can validate against multiple client identifiers at a time.
+   *
    * @public
    */
   ClientId?: string | undefined;
 
   /**
-   * <p>
-   *             The number of milliseconds that a token is valid after it's issued to a user.
-   *         </p>
+   * The number of milliseconds that a token is valid after it's issued to a user.
+   *
    * @public
    */
   IatTtL?: number | undefined;
 
   /**
-   * <p>
-   *             The issuer for the OIDC configuration. The issuer returned by discovery must exactly match the value of <code>iss</code>
-   *             in the ID token.
-   *         </p>
+   * The issuer for the OIDC configuration. The issuer returned by discovery must exactly match the value of `iss` in the ID token.
+   *
    * @public
    */
   Issuer?: string | undefined;
 }
 
 /**
- * <p>
- *             Specifies the authorization configuration for using Amazon Cognito user pools with your AppSync GraphQL API
- *             endpoint.
- *         </p>
+ * Specifies the authorization configuration for using Amazon Cognito user pools with your AppSync GraphQL API endpoint.
+ *
  * @public
  */
 export interface AwsAppSyncGraphQlApiUserPoolConfigDetails {
   /**
-   * <p>
-   *             A regular expression for validating the incoming Amazon Cognito user pools app client ID. If this value isn't set, no
-   *             filtering is applied.
-   *         </p>
+   * A regular expression for validating the incoming Amazon Cognito user pools app client ID. If this value isn't set, no filtering is applied.
+   *
    * @public
    */
   AppIdClientRegex?: string | undefined;
 
   /**
-   * <p>
-   *             The Amazon Web Services Region in which the user pool was created.
-   *         </p>
+   * The Amazon Web Services Region in which the user pool was created.
+   *
    * @public
    */
   AwsRegion?: string | undefined;
 
   /**
-   * <p>
-   *             The action that you want your GraphQL API to take when a request that uses Amazon Cognito user pools
-   *             authentication doesn't match the Amazon Cognito user pools configuration.
-   *         </p>
+   * The action that you want your GraphQL API to take when a request that uses Amazon Cognito user pools authentication doesn't match the Amazon Cognito user pools configuration.
+   *
    * @public
    */
   DefaultAction?: string | undefined;
 
   /**
-   * <p>
-   *             The user pool ID.
-   *         </p>
+   * The user pool ID.
+   *
    * @public
    */
   UserPoolId?: string | undefined;
 }
 
 /**
- * <p>
- *             A list of additional authentication providers for the GraphqlApi API.
- *         </p>
+ * A list of additional authentication providers for the GraphqlApi API.
+ *
  * @public
  */
 export interface AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetails {
   /**
-   * <p>
-   *             The type of security configuration for your GraphQL API: API key, Identity and Access Management (IAM), OpenID Connect (OIDC), Amazon Cognito user pools, or Lambda.
-   *         </p>
+   * The type of security configuration for your GraphQL API: API key, Identity and Access Management (IAM), OpenID Connect (OIDC), Amazon Cognito user pools, or Lambda.
+   *
    * @public
    */
   AuthenticationType?: string | undefined;
 
   /**
-   * <p>
-   *             The configuration for Lambda function authorization.
-   *         </p>
+   * The configuration for Lambda function authorization.
+   *
    * @public
    */
   LambdaAuthorizerConfig?: AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails | undefined;
 
   /**
-   * <p>
-   *             The OpenID Connect configuration.
-   *         </p>
+   * The OpenID Connect configuration.
+   *
    * @public
    */
   OpenIdConnectConfig?: AwsAppSyncGraphQlApiOpenIdConnectConfigDetails | undefined;
 
   /**
-   * <p>
-   *             The Amazon Cognito user pools configuration.
-   *         </p>
+   * The Amazon Cognito user pools configuration.
+   *
    * @public
    */
   UserPoolConfig?: AwsAppSyncGraphQlApiUserPoolConfigDetails | undefined;
 }
 
 /**
- * <p>
- *             Specifies the logging configuration when writing GraphQL operations and tracing to Amazon CloudWatch for an
- *             AppSync GraphQL API.
- *         </p>
+ * Specifies the logging configuration when writing GraphQL operations and tracing to Amazon CloudWatch for an AppSync GraphQL API.
+ *
  * @public
  */
 export interface AwsAppSyncGraphQlApiLogConfigDetails {
   /**
-   * <p>
-   *             The Amazon Resource Name (ARN) of the service role that AppSync assumes to publish to CloudWatch Logs
-   *             in your account.
-   *         </p>
+   * The Amazon Resource Name (ARN) of the service role that AppSync assumes to publish to CloudWatch Logs in your account.
+   *
    * @public
    */
   CloudWatchLogsRoleArn?: string | undefined;
 
   /**
-   * <p>
-   *             Set to <code>TRUE</code> to exclude sections that contain information such as headers, context, and evaluated mapping templates,
-   *             regardless of logging level.
-   *         </p>
+   * Set to `TRUE` to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging level.
+   *
    * @public
    */
   ExcludeVerboseContent?: boolean | undefined;
 
   /**
-   * <p>
-   *             The field logging level.
-   *         </p>
+   * The field logging level.
+   *
    * @public
    */
   FieldLogLevel?: string | undefined;
 }
 
 /**
- * <p>
- *             Provides details about an AppSync Graph QL API, which lets you query multiple databases, microservices, and APIs from a single GraphQL endpoint.
- *         </p>
+ * Provides details about an AppSync Graph QL API, which lets you query multiple databases, microservices, and APIs from a single GraphQL endpoint.
+ *
  * @public
  */
 export interface AwsAppSyncGraphQlApiDetails {
   /**
-   * <p>
-   *             The unique identifier for the API.
-   *         </p>
+   * The unique identifier for the API.
+   *
    * @public
    */
   ApiId?: string | undefined;
 
   /**
-   * <p>The unique identifier for the API.</p>
+   * The unique identifier for the API.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>
    * Specifies the authorization configuration for using an OpenID Connect compliant service with an AppSync GraphQL API endpoint.
-   * </p>
+   *
    * @public
    */
   OpenIdConnectConfig?: AwsAppSyncGraphQlApiOpenIdConnectConfigDetails | undefined;
 
   /**
-   * <p>
    * The API name.
-   * </p>
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>
    * Specifies the configuration for Lambda function authorization.
-   * </p>
+   *
    * @public
    */
   LambdaAuthorizerConfig?: AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails | undefined;
 
   /**
-   * <p>
    * Indicates whether to use X-Ray tracing for the GraphQL API.
-   * </p>
+   *
    * @public
    */
   XrayEnabled?: boolean | undefined;
 
   /**
-   * <p>
    * The Amazon Resource Name (ARN) of the API.
-   * </p>
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>
    * The Amazon Cognito user pools configuration.
-   * </p>
+   *
    * @public
    */
   UserPoolConfig?: AwsAppSyncGraphQlApiUserPoolConfigDetails | undefined;
 
   /**
-   * <p>
    * The type of security configuration for your GraphQL API: API key, Identity and Access Management (IAM), OpenID Connect (OIDC), Amazon Cognito user pools, or Lambda.
-   * </p>
+   *
    * @public
    */
   AuthenticationType?: string | undefined;
 
   /**
-   * <p>
-   *             The Amazon CloudWatch Logs configuration.
-   *         </p>
+   * The Amazon CloudWatch Logs configuration.
+   *
    * @public
    */
   LogConfig?: AwsAppSyncGraphQlApiLogConfigDetails | undefined;
 
   /**
-   * <p>
-   *             A list of additional authentication providers for the GraphQL API.
-   *         </p>
+   * A list of additional authentication providers for the GraphQL API.
+   *
    * @public
    */
   AdditionalAuthenticationProviders?: AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetails[] | undefined;
 
   /**
-   * <p>
-   *             The Amazon Resource Name (ARN) of the WAF web access control list (web ACL) associated with this
-   *             GraphQL API, if one exists.
-   *         </p>
+   * The Amazon Resource Name (ARN) of the WAF web access control list (web ACL) associated with this GraphQL API, if one exists.
+   *
    * @public
    */
   WafWebAclArn?: string | undefined;
 }
 
 /**
- * <p>
- *             Specifies the method used to encrypt the user’s data stores in the Athena workgroup.
- *         </p>
+ * Specifies the method used to encrypt the user’s data stores in the Athena workgroup.
+ *
  * @public
  */
 export interface AwsAthenaWorkGroupConfigurationResultConfigurationEncryptionConfigurationDetails {
   /**
-   * <p>
-   *             Indicates whether Amazon Simple Storage Service (Amazon S3) server-side encryption with Amazon S3 managed
-   *             keys (SSE_S3), server-side encryption with KMS keys (SSE_KMS), or client-side encryption with
-   *             KMS customer managed keys (CSE_KMS) is used.
-   *         </p>
+   * Indicates whether Amazon Simple Storage Service (Amazon S3) server-side encryption with Amazon S3 managed keys (SSE_S3), server-side encryption with KMS keys (SSE_KMS), or client-side encryption with KMS customer managed keys (CSE_KMS) is used.
+   *
    * @public
    */
   EncryptionOption?: string | undefined;
 
   /**
-   * <p>
-   *             For <code>SSE_KMS</code> and <code>CSE_KMS</code>, this is the KMS key Amazon Resource Name (ARN) or ID.
-   *         </p>
+   * For `SSE_KMS` and `CSE_KMS`, this is the KMS key Amazon Resource Name (ARN) or ID.
+   *
    * @public
    */
   KmsKey?: string | undefined;
 }
 
 /**
- * <p>
- *             The location in Amazon Simple Storage Service (Amazon S3) where query and calculation results are stored and the encryption option, if any,
- *             used for query and calculation results. These are known as client-side settings. If workgroup settings override
- *             client-side settings, then the query uses the workgroup settings.
- *         </p>
+ * The location in Amazon Simple Storage Service (Amazon S3) where query and calculation results are stored and the encryption option, if any, used for query and calculation results. These are known as client-side settings. If workgroup settings override client-side settings, then the query uses the workgroup settings.
+ *
  * @public
  */
 export interface AwsAthenaWorkGroupConfigurationResultConfigurationDetails {
   /**
-   * <p>
-   *             Specifies the method used to encrypt the user’s data stores in the Athena workgroup.
-   *         </p>
+   * Specifies the method used to encrypt the user’s data stores in the Athena workgroup.
+   *
    * @public
    */
   EncryptionConfiguration?: AwsAthenaWorkGroupConfigurationResultConfigurationEncryptionConfigurationDetails | undefined;
 }
 
 /**
- * <p>
- *             The configuration of the workgroup, which includes the location in Amazon Simple Storage Service (Amazon S3) where
- *             query results are stored, the encryption option, if any, used for query results, whether Amazon CloudWatch
- *             metrics are enabled for the workgroup, and the limit for the amount of bytes scanned (cutoff) per query, if it is
- *             specified.
- *         </p>
+ * The configuration of the workgroup, which includes the location in Amazon Simple Storage Service (Amazon S3) where query results are stored, the encryption option, if any, used for query results, whether Amazon CloudWatch metrics are enabled for the workgroup, and the limit for the amount of bytes scanned (cutoff) per query, if it is specified.
+ *
  * @public
  */
 export interface AwsAthenaWorkGroupConfigurationDetails {
   /**
-   * <p>
-   *             The location in Amazon S3 where query and calculation results are stored and the
-   *             encryption option, if any, used for query and calculation results. These are known as client-side settings. If
-   *             workgroup settings override client-side settings, then the query uses the workgroup settings.</p>
+   * The location in Amazon S3 where query and calculation results are stored and the encryption option, if any, used for query and calculation results. These are known as client-side settings. If workgroup settings override client-side settings, then the query uses the workgroup settings.
+   *
    * @public
    */
   ResultConfiguration?: AwsAthenaWorkGroupConfigurationResultConfigurationDetails | undefined;
 }
 
 /**
- * <p>
- *             Provides information about an Amazon Athena workgroup.
- *         </p>
+ * Provides information about an Amazon Athena workgroup.
+ *
  * @public
  */
 export interface AwsAthenaWorkGroupDetails {
   /**
-   * <p>
-   *             The workgroup name.
-   *         </p>
+   * The workgroup name.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>
-   *             The workgroup description.
-   *         </p>
+   * The workgroup description.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>
-   *             Whether the workgroup is enabled or disabled.
-   *         </p>
+   * Whether the workgroup is enabled or disabled.
+   *
    * @public
    */
   State?: string | undefined;
 
   /**
-   * <p>
-   *             The configuration of the workgroup, which includes the location in Amazon Simple Storage Service (Amazon S3)
-   *             where query results are stored, the encryption option, if any, used for query results, whether
-   *             Amazon CloudWatch metrics are enabled for the workgroup, and the limit for the amount of bytes scanned
-   *             (cutoff) per query, if it is specified.
-   *         </p>
+   * The configuration of the workgroup, which includes the location in Amazon Simple Storage Service (Amazon S3) where query results are stored, the encryption option, if any, used for query results, whether Amazon CloudWatch metrics are enabled for the workgroup, and the limit for the amount of bytes scanned (cutoff) per query, if it is specified.
+   *
    * @public
    */
   Configuration?: AwsAthenaWorkGroupConfigurationDetails | undefined;
 }
 
 /**
- * <p>An Availability Zone for the automatic scaling group.</p>
+ * An Availability Zone for the automatic scaling group.
+ *
  * @public
  */
 export interface AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails {
   /**
-   * <p>The name of the Availability Zone.</p>
+   * The name of the Availability Zone.
+   *
    * @public
    */
   Value?: string | undefined;
 }
 
 /**
- * <p>Details about the launch template to use.</p>
+ * Details about the launch template to use.
+ *
  * @public
  */
 export interface AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification {
   /**
-   * <p>The identifier of the launch template. You must specify either <code>LaunchTemplateId</code> or <code>LaunchTemplateName</code>.</p>
+   * The identifier of the launch template. You must specify either `LaunchTemplateId` or `LaunchTemplateName`.
+   *
    * @public
    */
   LaunchTemplateId?: string | undefined;
 
   /**
-   * <p>The name of the launch template. You must specify either <code>LaunchTemplateId</code> or <code>LaunchTemplateName</code>.</p>
+   * The name of the launch template. You must specify either `LaunchTemplateId` or `LaunchTemplateName`.
+   *
    * @public
    */
   LaunchTemplateName?: string | undefined;
 
   /**
-   * <p>Identifies the version of the launch template. You can specify a version identifier, or use the values <code>$Latest</code> or <code>$Default</code>.</p>
+   * Identifies the version of the launch template. You can specify a version identifier, or use the values `$Latest` or `$Default`.
+   *
    * @public
    */
   Version?: string | undefined;
 }
 
 /**
- * <p>Information about the instances distribution.</p>
+ * Information about the instances distribution.
+ *
  * @public
  */
 export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails {
   /**
-   * <p>How to allocate instance types to fulfill On-Demand capacity. The valid value is <code>prioritized</code>.</p>
+   * How to allocate instance types to fulfill On-Demand capacity. The valid value is `prioritized`.
+   *
    * @public
    */
   OnDemandAllocationStrategy?: string | undefined;
 
   /**
-   * <p>The minimum amount of the Auto Scaling group's capacity that must be fulfilled by On-Demand Instances.</p>
+   * The minimum amount of the Auto Scaling group's capacity that must be fulfilled by On-Demand Instances.
+   *
    * @public
    */
   OnDemandBaseCapacity?: number | undefined;
 
   /**
-   * <p>The percentage of On-Demand Instances and Spot Instances for additional capacity beyond <code>OnDemandBaseCapacity</code>.</p>
+   * The percentage of On-Demand Instances and Spot Instances for additional capacity beyond `OnDemandBaseCapacity`.
+   *
    * @public
    */
   OnDemandPercentageAboveBaseCapacity?: number | undefined;
 
   /**
-   * <p>How to allocate instances across Spot Instance pools. Valid values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>lowest-price</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>capacity-optimized</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>capacity-optimized-prioritized</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * How to allocate instances across Spot Instance pools. Valid values are as follows:
+   *
+   * - `lowest-price`
+   * - `capacity-optimized`
+   * - `capacity-optimized-prioritized`
+   *
    * @public
    */
   SpotAllocationStrategy?: string | undefined;
 
   /**
-   * <p>The number of Spot Instance pools across which to allocate your Spot Instances.</p>
+   * The number of Spot Instance pools across which to allocate your Spot Instances.
+   *
    * @public
    */
   SpotInstancePools?: number | undefined;
 
   /**
-   * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance.</p>
+   * The maximum price per unit hour that you are willing to pay for a Spot Instance.
+   *
    * @public
    */
   SpotMaxPrice?: string | undefined;
 }
 
 /**
- * <p>Details about the launch template to use for a mixed instances policy.</p>
+ * Details about the launch template to use for a mixed instances policy.
+ *
  * @public
  */
 export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification {
   /**
-   * <p>The identifier of the launch template. You must specify either <code>LaunchTemplateId</code> or <code>LaunchTemplateName</code>.</p>
+   * The identifier of the launch template. You must specify either `LaunchTemplateId` or `LaunchTemplateName`.
+   *
    * @public
    */
   LaunchTemplateId?: string | undefined;
 
   /**
-   * <p>The name of the launch template. You must specify either <code>LaunchTemplateId</code> or <code>LaunchTemplateName</code>.</p>
+   * The name of the launch template. You must specify either `LaunchTemplateId` or `LaunchTemplateName`.
+   *
    * @public
    */
   LaunchTemplateName?: string | undefined;
 
   /**
-   * <p>Identifies the version of the launch template. You can specify a version identifier, or use the values <code>$Latest</code> or <code>$Default</code>.</p>
+   * Identifies the version of the launch template. You can specify a version identifier, or use the values `$Latest` or `$Default`.
+   *
    * @public
    */
   Version?: string | undefined;
 }
 
 /**
- * <p>Property values to use to override the values in the launch template.</p>
+ * Property values to use to override the values in the launch template.
+ *
  * @public
  */
 export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails {
   /**
-   * <p>The instance type. For example, <code>m3.xlarge</code>.</p>
+   * The instance type. For example, `m3.xlarge`.
+   *
    * @public
    */
   InstanceType?: string | undefined;
 
   /**
-   * <p>The number of capacity units provided by the specified instance type in terms of virtual CPUs, memory, storage, throughput, or other relative performance characteristic.</p>
+   * The number of capacity units provided by the specified instance type in terms of virtual CPUs, memory, storage, throughput, or other relative performance characteristic.
+   *
    * @public
    */
   WeightedCapacity?: string | undefined;
 }
 
 /**
- * <p>Describes a launch template and overrides for a mixed instances policy.</p>
+ * Describes a launch template and overrides for a mixed instances policy.
+ *
  * @public
  */
 export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails {
   /**
-   * <p>The launch template to use for a mixed instances policy.</p>
+   * The launch template to use for a mixed instances policy.
+   *
    * @public
    */
   LaunchTemplateSpecification?: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification | undefined;
 
   /**
-   * <p>Property values to use to override the values in the launch template.</p>
+   * Property values to use to override the values in the launch template.
+   *
    * @public
    */
   Overrides?: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails[] | undefined;
 }
 
 /**
- * <p>The mixed instances policy for the automatic scaling group.</p>
+ * The mixed instances policy for the automatic scaling group.
+ *
  * @public
  */
 export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails {
   /**
-   * <p>The instances distribution. The instances distribution specifies the distribution of On-Demand Instances and Spot Instances, the maximum price to pay for Spot Instances, and how the Auto Scaling group allocates instance types to fulfill On-Demand and Spot capacity.</p>
+   * The instances distribution. The instances distribution specifies the distribution of On-Demand Instances and Spot Instances, the maximum price to pay for Spot Instances, and how the Auto Scaling group allocates instance types to fulfill On-Demand and Spot capacity.
+   *
    * @public
    */
   InstancesDistribution?: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails | undefined;
 
   /**
-   * <p>The launch template to use and the instance types (overrides) to use to provision EC2 instances to fulfill On-Demand and Spot capacities.</p>
+   * The launch template to use and the instance types (overrides) to use to provision EC2 instances to fulfill On-Demand and Spot capacities.
+   *
    * @public
    */
   LaunchTemplate?: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails | undefined;
 }
 
 /**
- * <p>Provides details about an auto scaling group.</p>
+ * Provides details about an auto scaling group.
+ *
  * @public
  */
 export interface AwsAutoScalingAutoScalingGroupDetails {
   /**
-   * <p>The name of the launch configuration.</p>
+   * The name of the launch configuration.
+   *
    * @public
    */
   LaunchConfigurationName?: string | undefined;
 
   /**
-   * <p>The list of load balancers associated with the group.</p>
+   * The list of load balancers associated with the group.
+   *
    * @public
    */
   LoadBalancerNames?: string[] | undefined;
 
   /**
-   * <p>The service to use for the health checks. Valid values are <code>EC2</code> or <code>ELB</code>.</p>
+   * The service to use for the health checks. Valid values are `EC2` or `ELB`.
+   *
    * @public
    */
   HealthCheckType?: string | undefined;
 
   /**
-   * <p>The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before it checks the
-   *          health status of an EC2 instance that has come into service.</p>
+   * The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before it checks the health status of an EC2 instance that has come into service.
+   *
    * @public
    */
   HealthCheckGracePeriod?: number | undefined;
 
   /**
-   * <p>Indicates when the auto scaling group was created.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * Indicates when the auto scaling group was created.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   CreatedTime?: string | undefined;
 
   /**
-   * <p>The mixed instances policy for the automatic scaling group.</p>
+   * The mixed instances policy for the automatic scaling group.
+   *
    * @public
    */
   MixedInstancesPolicy?: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails | undefined;
 
   /**
-   * <p>The list of Availability Zones for the automatic scaling group.</p>
+   * The list of Availability Zones for the automatic scaling group.
+   *
    * @public
    */
   AvailabilityZones?: AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails[] | undefined;
 
   /**
-   * <p>The launch template to use.</p>
+   * The launch template to use.
+   *
    * @public
    */
   LaunchTemplate?: AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification | undefined;
 
   /**
-   * <p>Indicates whether capacity rebalancing is enabled.
-   *       </p>
+   * Indicates whether capacity rebalancing is enabled.
+   *
    * @public
    */
   CapacityRebalance?: boolean | undefined;
 }
 
 /**
- * <p>Parameters that are used to automatically set up EBS volumes when an instance is launched.</p>
+ * Parameters that are used to automatically set up EBS volumes when an instance is launched.
+ *
  * @public
  */
 export interface AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails {
   /**
-   * <p>Whether to delete the volume when the instance is terminated.</p>
+   * Whether to delete the volume when the instance is terminated.
+   *
    * @public
    */
   DeleteOnTermination?: boolean | undefined;
 
   /**
-   * <p>Whether to encrypt the volume.</p>
+   * Whether to encrypt the volume.
+   *
    * @public
    */
   Encrypted?: boolean | undefined;
 
   /**
-   * <p>The number of input/output (I/O) operations per second (IOPS) to provision for the volume.</p>
-   *          <p>Only supported for <code>gp3</code> or <code>io1</code> volumes. Required for <code>io1</code> volumes. Not used with <code>standard</code>, <code>gp2</code>, <code>st1</code>, or <code>sc1</code> volumes.</p>
+   * The number of input/output (I/O) operations per second (IOPS) to provision for the volume.
+   *
+   * Only supported for `gp3` or `io1` volumes. Required for `io1` volumes. Not used with `standard`, `gp2`, `st1`, or `sc1` volumes.
+   *
    * @public
    */
   Iops?: number | undefined;
 
   /**
-   * <p>The snapshot ID of the volume to use.</p>
-   *          <p>You must specify either <code>VolumeSize</code> or <code>SnapshotId</code>.</p>
+   * The snapshot ID of the volume to use.
+   *
+   * You must specify either `VolumeSize` or `SnapshotId`.
+   *
    * @public
    */
   SnapshotId?: string | undefined;
 
   /**
-   * <p>The volume size, in GiBs. The following are the supported volumes sizes for each volume type:</p>
-   *          <ul>
-   *             <li>
-   *                <p>gp2 and gp3: 1-16,384</p>
-   *             </li>
-   *             <li>
-   *                <p>io1: 4-16,384</p>
-   *             </li>
-   *             <li>
-   *                <p>st1 and sc1: 125-16,384</p>
-   *             </li>
-   *             <li>
-   *                <p>standard: 1-1,024</p>
-   *             </li>
-   *          </ul>
-   *          <p>You must specify either <code>SnapshotId</code> or <code>VolumeSize</code>. If you specify both <code>SnapshotId</code> and <code>VolumeSize</code>, the volume size must be equal or greater than the size of the snapshot.</p>
+   * The volume size, in GiBs. The following are the supported volumes sizes for each volume type:
+   *
+   * - gp2 and gp3: 1-16,384
+   * - io1: 4-16,384
+   * - st1 and sc1: 125-16,384
+   * - standard: 1-1,024
+   *
+   * You must specify either `SnapshotId` or `VolumeSize`. If you specify both `SnapshotId` and `VolumeSize`, the volume size must be equal or greater than the size of the snapshot.
+   *
    * @public
    */
   VolumeSize?: number | undefined;
 
   /**
-   * <p>The volume type. Valid values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>gp2</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>gp3</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>io1</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>sc1</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>st1</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>standard</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The volume type. Valid values are as follows:
+   *
+   * - `gp2`
+   * - `gp3`
+   * - `io1`
+   * - `sc1`
+   * - `st1`
+   * - `standard`
+   *
    * @public
    */
   VolumeType?: string | undefined;
 }
 
 /**
- * <p>A block device for the instance.</p>
+ * A block device for the instance.
+ *
  * @public
  */
 export interface AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails {
   /**
-   * <p>The device name that is exposed to the EC2 instance. For example, <code>/dev/sdh</code> or <code>xvdh</code>.</p>
+   * The device name that is exposed to the EC2 instance. For example, `/dev/sdh` or `xvdh`.
+   *
    * @public
    */
   DeviceName?: string | undefined;
 
   /**
-   * <p>Parameters that are used to automatically set up Amazon EBS volumes when an instance is launched.</p>
+   * Parameters that are used to automatically set up Amazon EBS volumes when an instance is launched.
+   *
    * @public
    */
   Ebs?: AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails | undefined;
 
   /**
-   * <p>Whether to suppress the device that is included in the block device mapping of the Amazon Machine Image (AMI).</p>
-   *          <p>If <code>NoDevice</code> is <code>true</code>, then you cannot specify <code>Ebs</code>.></p>
+   * Whether to suppress the device that is included in the block device mapping of the Amazon Machine Image (AMI).
+   *
+   * If `NoDevice` is `true`, then you cannot specify `Ebs`.>
+   *
    * @public
    */
   NoDevice?: boolean | undefined;
 
   /**
-   * <p>The name of the virtual device (for example, <code>ephemeral0</code>).</p>
-   *          <p>You can provide either <code>VirtualName</code> or <code>Ebs</code>, but not both.</p>
+   * The name of the virtual device (for example, `ephemeral0`).
+   *
+   * You can provide either `VirtualName` or `Ebs`, but not both.
+   *
    * @public
    */
   VirtualName?: string | undefined;
 }
 
 /**
- * <p>Information about the type of monitoring for instances in the group.</p>
+ * Information about the type of monitoring for instances in the group.
+ *
  * @public
  */
 export interface AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails {
   /**
-   * <p>If set to <code>true</code>, then instances in the group launch with detailed
-   *          monitoring.</p>
-   *          <p>If set to <code>false</code>, then instances in the group launch with basic
-   *          monitoring.</p>
+   * If set to `true`, then instances in the group launch with detailed monitoring.
+   *
+   * If set to `false`, then instances in the group launch with basic monitoring.
+   *
    * @public
    */
   Enabled?: boolean | undefined;
 }
 
 /**
- * <p>The metadata options for the instances.</p>
+ * The metadata options for the instances.
+ *
  * @public
  */
 export interface AwsAutoScalingLaunchConfigurationMetadataOptions {
   /**
-   * <p>Enables or disables the HTTP metadata endpoint on your instances. By default, the metadata endpoint is enabled.</p>
+   * Enables or disables the HTTP metadata endpoint on your instances. By default, the metadata endpoint is enabled.
+   *
    * @public
    */
   HttpEndpoint?: string | undefined;
 
   /**
-   * <p>The HTTP <code>PUT</code> response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel.</p>
+   * The HTTP `PUT` response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel.
+   *
    * @public
    */
   HttpPutResponseHopLimit?: number | undefined;
 
   /**
-   * <p>Indicates whether token usage is <code>required</code> or <code>optional</code> for metadata requests. By default, token usage is <code>optional</code>.</p>
+   * Indicates whether token usage is `required` or `optional` for metadata requests. By default, token usage is `optional`.
+   *
    * @public
    */
   HttpTokens?: string | undefined;
 }
 
 /**
- * <p>Details about a launch configuration.</p>
+ * Details about a launch configuration.
+ *
  * @public
  */
 export interface AwsAutoScalingLaunchConfigurationDetails {
   /**
-   * <p>For Auto Scaling groups that run in a VPC, specifies whether to assign a public IP address to the group's instances.</p>
+   * For Auto Scaling groups that run in a VPC, specifies whether to assign a public IP address to the group's instances.
+   *
    * @public
    */
   AssociatePublicIpAddress?: boolean | undefined;
 
   /**
-   * <p>Specifies the block devices for the instance.</p>
+   * Specifies the block devices for the instance.
+   *
    * @public
    */
   BlockDeviceMappings?: AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails[] | undefined;
 
   /**
-   * <p>The identifier of a ClassicLink-enabled VPC that EC2-Classic instances are linked to.</p>
+   * The identifier of a ClassicLink-enabled VPC that EC2-Classic instances are linked to.
+   *
    * @public
    */
   ClassicLinkVpcId?: string | undefined;
 
   /**
-   * <p>The identifiers of one or more security groups for the VPC that is specified in <code>ClassicLinkVPCId</code>.</p>
+   * The identifiers of one or more security groups for the VPC that is specified in `ClassicLinkVPCId`.
+   *
    * @public
    */
   ClassicLinkVpcSecurityGroups?: string[] | undefined;
 
   /**
-   * <p>The creation date and time for the launch configuration.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * The creation date and time for the launch configuration.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   CreatedTime?: string | undefined;
 
   /**
-   * <p>Whether the launch configuration is optimized for Amazon EBS I/O.</p>
+   * Whether the launch configuration is optimized for Amazon EBS I/O.
+   *
    * @public
    */
   EbsOptimized?: boolean | undefined;
 
   /**
-   * <p>The name or the ARN of the instance profile associated with the IAM role for the
-   *          instance. The instance profile contains the IAM role.</p>
+   * The name or the ARN of the instance profile associated with the IAM role for the instance. The instance profile contains the IAM role.
+   *
    * @public
    */
   IamInstanceProfile?: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Machine Image (AMI) that is used to launch EC2
-   *          instances.</p>
+   * The identifier of the Amazon Machine Image (AMI) that is used to launch EC2 instances.
+   *
    * @public
    */
   ImageId?: string | undefined;
 
   /**
-   * <p>Indicates the type of monitoring for instances in the group.</p>
+   * Indicates the type of monitoring for instances in the group.
+   *
    * @public
    */
   InstanceMonitoring?: AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails | undefined;
 
   /**
-   * <p>The instance type for the instances.</p>
+   * The instance type for the instances.
+   *
    * @public
    */
   InstanceType?: string | undefined;
 
   /**
-   * <p>The identifier of the kernel associated with the AMI.</p>
+   * The identifier of the kernel associated with the AMI.
+   *
    * @public
    */
   KernelId?: string | undefined;
 
   /**
-   * <p>The name of the key pair.</p>
+   * The name of the key pair.
+   *
    * @public
    */
   KeyName?: string | undefined;
 
   /**
-   * <p>The name of the launch configuration.</p>
+   * The name of the launch configuration.
+   *
    * @public
    */
   LaunchConfigurationName?: string | undefined;
 
   /**
-   * <p>The tenancy of the instance. An instance with <code>dedicated</code> tenancy runs on
-   *          isolated, single-tenant hardware and can only be launched into a VPC.</p>
+   * The tenancy of the instance. An instance with `dedicated` tenancy runs on isolated, single-tenant hardware and can only be launched into a VPC.
+   *
    * @public
    */
   PlacementTenancy?: string | undefined;
 
   /**
-   * <p>The identifier of the RAM disk associated with the AMI.</p>
+   * The identifier of the RAM disk associated with the AMI.
+   *
    * @public
    */
   RamdiskId?: string | undefined;
 
   /**
-   * <p>The security groups to assign to the instances in the Auto Scaling group.</p>
+   * The security groups to assign to the instances in the Auto Scaling group.
+   *
    * @public
    */
   SecurityGroups?: string[] | undefined;
 
   /**
-   * <p>The maximum hourly price to be paid for any Spot Instance that is launched to fulfill the
-   *          request.</p>
+   * The maximum hourly price to be paid for any Spot Instance that is launched to fulfill the request.
+   *
    * @public
    */
   SpotPrice?: string | undefined;
 
   /**
-   * <p>The user data to make available to the launched EC2 instances. Must be base64-encoded
-   *          text.</p>
+   * The user data to make available to the launched EC2 instances. Must be base64-encoded text.
+   *
    * @public
    */
   UserData?: string | undefined;
 
   /**
-   * <p>The metadata options for the instances.</p>
+   * The metadata options for the instances.
+   *
    * @public
    */
   MetadataOptions?: AwsAutoScalingLaunchConfigurationMetadataOptions | undefined;
 }
 
 /**
- * <p>Provides a list of backup options for each resource type.
- *       </p>
+ * Provides a list of backup options for each resource type.
+ *
  * @public
  */
 export interface AwsBackupBackupPlanAdvancedBackupSettingsDetails {
   /**
-   * <p>Specifies the backup option for a selected resource. This option is only available for Windows
-   * Volume Shadow Copy Service (VSS) backup jobs. Valid values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Set to <code>WindowsVSS: enabled</code> to enable the WindowsVSS backup option and create a Windows VSS backup.</p>
-   *             </li>
-   *             <li>
-   *                <p>Set to <code>WindowsVSS: disabled</code> to create a regular backup. The <code>WindowsVSS</code> option is not enabled by default.</p>
-   *             </li>
-   *          </ul>
+   * Specifies the backup option for a selected resource. This option is only available for Windows Volume Shadow Copy Service (VSS) backup jobs. Valid values are as follows:
+   *
+   * - Set to `WindowsVSS: enabled` to enable the WindowsVSS backup option and create a Windows VSS backup.
+   * - Set to `WindowsVSS: disabled` to create a regular backup. The `WindowsVSS` option is not enabled by default.
+   *
    * @public
    */
   BackupOptions?: Record<string, string> | undefined;
 
   /**
-   * <p>The name of a resource type. The only supported resource type is Amazon EC2 instances with Windows VSS.</p>
-   *          <p>The only valid value is <code>EC2</code>.</p>
+   * The name of a resource type. The only supported resource type is Amazon EC2 instances with Windows VSS.
+   *
+   * The only valid value is `EC2`.
+   *
    * @public
    */
   ResourceType?: string | undefined;
 }
 
 /**
- * <p>Provides lifecycle details for the backup plan. A lifecycle defines when a backup is transitioned to cold storage and when it expires.
- *       </p>
+ * Provides lifecycle details for the backup plan. A lifecycle defines when a backup is transitioned to cold storage and when it expires.
+ *
  * @public
  */
 export interface AwsBackupBackupPlanLifecycleDetails {
   /**
-   * <p>Specifies the number of days after creation that a recovery point is deleted. Must be greater than 90 days plus <code>MoveToColdStorageAfterDays</code>.
-   *       </p>
+   * Specifies the number of days after creation that a recovery point is deleted. Must be greater than 90 days plus `MoveToColdStorageAfterDays`.
+   *
    * @public
    */
   DeleteAfterDays?: number | undefined;
 
   /**
-   * <p>Specifies the number of days after creation that a recovery point is moved to cold storage.
-   *       </p>
+   * Specifies the number of days after creation that a recovery point is moved to cold storage.
+   *
    * @public
    */
   MoveToColdStorageAfterDays?: number | undefined;
 }
 
 /**
- * <p>An array of <code>CopyAction</code> objects, each of which contains details of the copy operation.
- *       </p>
+ * An array of `CopyAction` objects, each of which contains details of the copy operation.
+ *
  * @public
  */
 export interface AwsBackupBackupPlanRuleCopyActionsDetails {
   /**
-   * <p>An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
-   *       </p>
+   * An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
+   *
    * @public
    */
   DestinationBackupVaultArn?: string | undefined;
 
   /**
-   * <p>Defines when a protected resource is transitioned to cold storage and when it expires.
-   *             Backup transitions and expires backups automatically according to the
-   *          lifecycle that you define. If you don't specify a lifecycle, Backup applies
-   *          the lifecycle policy of the source backup to the destination backup.</p>
-   *          <p>Backups transitioned to cold storage must be stored in cold storage for a minimum of 90 days.</p>
+   * Defines when a protected resource is transitioned to cold storage and when it expires. Backup transitions and expires backups automatically according to the lifecycle that you define. If you don't specify a lifecycle, Backup applies the lifecycle policy of the source backup to the destination backup.
+   *
+   * Backups transitioned to cold storage must be stored in cold storage for a minimum of 90 days.
+   *
    * @public
    */
   Lifecycle?: AwsBackupBackupPlanLifecycleDetails | undefined;
 }
 
 /**
- * <p>Provides details about an array of <code>BackupRule</code> objects, each of which specifies a scheduled task that is used to back up a selection of resources.
- *       </p>
+ * Provides details about an array of `BackupRule` objects, each of which specifies a scheduled task that is used to back up a selection of resources.
+ *
  * @public
  */
 export interface AwsBackupBackupPlanRuleDetails {
   /**
-   * <p>The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the Amazon Web Services account used to create them and the Amazon Web Services Region  where they are created. They consist of letters, numbers, and hyphens.
-   *       </p>
+   * The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the Amazon Web Services account used to create them and the Amazon Web Services Region where they are created. They consist of letters, numbers, and hyphens.
+   *
    * @public
    */
   TargetBackupVault?: string | undefined;
 
   /**
-   * <p>A value in minutes after a backup is scheduled before a job will be canceled if it doesn't start successfully.
-   *       </p>
+   * A value in minutes after a backup is scheduled before a job will be canceled if it doesn't start successfully.
+   *
    * @public
    */
   StartWindowMinutes?: number | undefined;
 
   /**
-   * <p>A cron expression in UTC specifying when Backup initiates a backup job.
-   *       </p>
+   * A cron expression in UTC specifying when Backup initiates a backup job.
+   *
    * @public
    */
   ScheduleExpression?: string | undefined;
 
   /**
-   * <p>A display name for a backup rule. Must contain 1 to 50 alphanumeric or '-_.' characters. </p>
+   * A display name for a backup rule. Must contain 1 to 50 alphanumeric or '-_.' characters.
+   *
    * @public
    */
   RuleName?: string | undefined;
 
   /**
-   * <p>Uniquely identifies a rule that is used to schedule the backup of a selection of resources.
-   *       </p>
+   * Uniquely identifies a rule that is used to schedule the backup of a selection of resources.
+   *
    * @public
    */
   RuleId?: string | undefined;
 
   /**
-   * <p>Specifies whether Backup creates continuous backups capable of point-in-time restore (PITR).
-   *       </p>
+   * Specifies whether Backup creates continuous backups capable of point-in-time restore (PITR).
+   *
    * @public
    */
   EnableContinuousBackup?: boolean | undefined;
 
   /**
-   * <p>A value in minutes after a backup job is successfully started before it must be completed, or it is canceled by Backup.
-   *       </p>
+   * A value in minutes after a backup job is successfully started before it must be completed, or it is canceled by Backup.
+   *
    * @public
    */
   CompletionWindowMinutes?: number | undefined;
 
   /**
-   * <p>An array of <code>CopyAction</code> objects, each of which contains details of the
-   *          copy operation. </p>
+   * An array of `CopyAction` objects, each of which contains details of the copy operation.
+   *
    * @public
    */
   CopyActions?: AwsBackupBackupPlanRuleCopyActionsDetails[] | undefined;
 
   /**
-   * <p>Defines when a protected resource is transitioned to cold storage and when it expires. Backup transitions and expires backups automatically according to the lifecycle that you define. If you don't specify a lifecycle, Backup applies the lifecycle policy of the source backup to the destination backup.</p>
-   *          <p>Backups transitioned to cold storage must be stored in cold storage for a minimum of 90 days.</p>
+   * Defines when a protected resource is transitioned to cold storage and when it expires. Backup transitions and expires backups automatically according to the lifecycle that you define. If you don't specify a lifecycle, Backup applies the lifecycle policy of the source backup to the destination backup.
+   *
+   * Backups transitioned to cold storage must be stored in cold storage for a minimum of 90 days.
+   *
    * @public
    */
   Lifecycle?: AwsBackupBackupPlanLifecycleDetails | undefined;
 }
 
 /**
- * <p>Provides details about an Backup backup plan and an array of <code>BackupRule</code> objects, each of which specifies a backup rule.
- *       </p>
+ * Provides details about an Backup backup plan and an array of `BackupRule` objects, each of which specifies a backup rule.
+ *
  * @public
  */
 export interface AwsBackupBackupPlanBackupPlanDetails {
   /**
-   * <p>The display name of a backup plan.
-   *       </p>
+   * The display name of a backup plan.
+   *
    * @public
    */
   BackupPlanName?: string | undefined;
 
   /**
-   * <p>A list of backup options for each resource type.
-   *       </p>
+   * A list of backup options for each resource type.
+   *
    * @public
    */
   AdvancedBackupSettings?: AwsBackupBackupPlanAdvancedBackupSettingsDetails[] | undefined;
 
   /**
-   * <p>An array of <code>BackupRule</code> objects, each of which specifies a scheduled task that is used to back up a selection of resources.
-   *       </p>
+   * An array of `BackupRule` objects, each of which specifies a scheduled task that is used to back up a selection of resources.
+   *
    * @public
    */
   BackupPlanRule?: AwsBackupBackupPlanRuleDetails[] | undefined;
 }
 
 /**
- * <p>Provides details about an Backup backup plan and an array of <code>BackupRule</code> objects, each of which specifies a backup rule.
- *       </p>
+ * Provides details about an Backup backup plan and an array of `BackupRule` objects, each of which specifies a backup rule.
+ *
  * @public
  */
 export interface AwsBackupBackupPlanDetails {
   /**
-   * <p>Uniquely identifies the backup plan to be associated with the selection of resources.
-   *       </p>
+   * Uniquely identifies the backup plan to be associated with the selection of resources.
+   *
    * @public
    */
   BackupPlan?: AwsBackupBackupPlanBackupPlanDetails | undefined;
 
   /**
-   * <p>An Amazon Resource Name (ARN) that uniquely identifies the backup plan.
-   *       </p>
+   * An Amazon Resource Name (ARN) that uniquely identifies the backup plan.
+   *
    * @public
    */
   BackupPlanArn?: string | undefined;
 
   /**
-   * <p>A unique ID for the backup plan.
-   *       </p>
+   * A unique ID for the backup plan.
+   *
    * @public
    */
   BackupPlanId?: string | undefined;
 
   /**
-   * <p>Unique, randomly generated, Unicode, UTF-8 encoded strings. Version IDs cannot be edited.
-   *       </p>
+   * Unique, randomly generated, Unicode, UTF-8 encoded strings. Version IDs cannot be edited.
+   *
    * @public
    */
   VersionId?: string | undefined;
 }
 
 /**
- * <p>Provides details about the Amazon SNS event notifications for the specified backup vault.
- *       </p>
+ * Provides details about the Amazon SNS event notifications for the specified backup vault.
+ *
  * @public
  */
 export interface AwsBackupBackupVaultNotificationsDetails {
   /**
-   * <p>An array of events that indicate the status of jobs to back up resources to the backup vault.
-   * The following events are supported:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BACKUP_JOB_STARTED | BACKUP_JOB_COMPLETED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>COPY_JOB_STARTED | COPY_JOB_SUCCESSFUL | COPY_JOB_FAILED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RESTORE_JOB_STARTED | RESTORE_JOB_COMPLETED | RECOVERY_POINT_MODIFIED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>S3_BACKUP_OBJECT_FAILED | S3_RESTORE_OBJECT_FAILED</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * An array of events that indicate the status of jobs to back up resources to the backup vault. The following events are supported:
+   *
+   * - `BACKUP_JOB_STARTED | BACKUP_JOB_COMPLETED`
+   * - `COPY_JOB_STARTED | COPY_JOB_SUCCESSFUL | COPY_JOB_FAILED`
+   * - `RESTORE_JOB_STARTED | RESTORE_JOB_COMPLETED | RECOVERY_POINT_MODIFIED`
+   * - `S3_BACKUP_OBJECT_FAILED | S3_RESTORE_OBJECT_FAILED`
+   *
    * @public
    */
   BackupVaultEvents?: string[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) that uniquely identifies the Amazon SNS topic for
-   *          a backup vault's events. </p>
+   * The Amazon Resource Name (ARN) that uniquely identifies the Amazon SNS topic for a backup vault's events.
+   *
    * @public
    */
   SnsTopicArn?: string | undefined;
 }
 
 /**
- * <p>Provides details about an Backup backup vault. In Backup, a backup vault is
- * a container that stores and organizes your backups.
- *       </p>
+ * Provides details about an Backup backup vault. In Backup, a backup vault is a container that stores and organizes your backups.
+ *
  * @public
  */
 export interface AwsBackupBackupVaultDetails {
   /**
-   * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup vault.
-   *       </p>
+   * An Amazon Resource Name (ARN) that uniquely identifies a backup vault.
+   *
    * @public
    */
   BackupVaultArn?: string | undefined;
 
   /**
-   * <p>The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the
-   * Amazon Web Services account used to create them and the Amazon Web Services Region where they are created.
-   * They consist of lowercase letters, numbers, and hyphens.
-   *       </p>
+   * The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the Amazon Web Services account used to create them and the Amazon Web Services Region where they are created. They consist of lowercase letters, numbers, and hyphens.
+   *
    * @public
    */
   BackupVaultName?: string | undefined;
 
   /**
-   * <p>The unique ARN associated with the server-side encryption key. You can specify a key to encrypt your backups from services that support
-   * full Backup management. If you don't specify a key, Backup creates an KMS key for you by default.
-   *       </p>
+   * The unique ARN associated with the server-side encryption key. You can specify a key to encrypt your backups from services that support full Backup management. If you don't specify a key, Backup creates an KMS key for you by default.
+   *
    * @public
    */
   EncryptionKeyArn?: string | undefined;
 
   /**
-   * <p>The Amazon SNS event notifications for the specified backup vault.
-   *       </p>
+   * The Amazon SNS event notifications for the specified backup vault.
+   *
    * @public
    */
   Notifications?: AwsBackupBackupVaultNotificationsDetails | undefined;
 
   /**
-   * <p>A resource-based policy that is used to manage access permissions on the target backup vault.
-   *       </p>
+   * A resource-based policy that is used to manage access permissions on the target backup vault.
+   *
    * @public
    */
   AccessPolicy?: string | undefined;
 }
 
 /**
- * <p>Specifies how long in days before a recovery point transitions to cold storage or is deleted.
- *       </p>
+ * Specifies how long in days before a recovery point transitions to cold storage or is deleted.
+ *
  * @public
  */
 export interface AwsBackupRecoveryPointCalculatedLifecycleDetails {
   /**
-   * <p>Specifies the number of days after creation that a recovery point is deleted. Must be greater
-   * than 90 days plus <code>MoveToColdStorageAfterDays</code>.
-   *       </p>
+   * Specifies the number of days after creation that a recovery point is deleted. Must be greater than 90 days plus `MoveToColdStorageAfterDays`.
+   *
    * @public
    */
   DeleteAt?: string | undefined;
 
   /**
-   * <p>Specifies the number of days after creation that a recovery point is moved to cold storage.
-   *       </p>
+   * Specifies the number of days after creation that a recovery point is moved to cold storage.
+   *
    * @public
    */
   MoveToColdStorageAt?: string | undefined;
 }
 
 /**
- * <p>Contains information about the backup plan and rule that Backup used to initiate the recovery point backup.
- *       </p>
+ * Contains information about the backup plan and rule that Backup used to initiate the recovery point backup.
+ *
  * @public
  */
 export interface AwsBackupRecoveryPointCreatedByDetails {
   /**
-   * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup plan.
-   *       </p>
+   * An Amazon Resource Name (ARN) that uniquely identifies a backup plan.
+   *
    * @public
    */
   BackupPlanArn?: string | undefined;
 
   /**
-   * <p>Uniquely identifies a backup plan.
-   *       </p>
+   * Uniquely identifies a backup plan.
+   *
    * @public
    */
   BackupPlanId?: string | undefined;
 
   /**
-   * <p>Unique, randomly generated, Unicode, UTF-8 encoded strings that are at most
-   * 1,024 bytes long. Version IDs cannot be edited.
-   *       </p>
+   * Unique, randomly generated, Unicode, UTF-8 encoded strings that are at most 1,024 bytes long. Version IDs cannot be edited.
+   *
    * @public
    */
   BackupPlanVersion?: string | undefined;
 
   /**
-   * <p>Uniquely identifies a rule used to schedule the backup of a selection of resources.
-   *       </p>
+   * Uniquely identifies a rule used to schedule the backup of a selection of resources.
+   *
    * @public
    */
   BackupRuleId?: string | undefined;
 }
 
 /**
- * <p>Contains an array of Transition objects specifying how long in days before a recovery point transitions to cold storage or is deleted.
- *       </p>
+ * Contains an array of Transition objects specifying how long in days before a recovery point transitions to cold storage or is deleted.
+ *
  * @public
  */
 export interface AwsBackupRecoveryPointLifecycleDetails {
   /**
-   * <p>Specifies the number of days after creation that a recovery point is deleted. Must be greater
-   * than 90 days plus <code>MoveToColdStorageAfterDays</code>.
-   *       </p>
+   * Specifies the number of days after creation that a recovery point is deleted. Must be greater than 90 days plus `MoveToColdStorageAfterDays`.
+   *
    * @public
    */
   DeleteAfterDays?: number | undefined;
 
   /**
-   * <p>Specifies the number of days after creation that a recovery point is moved to cold storage.
-   *       </p>
+   * Specifies the number of days after creation that a recovery point is moved to cold storage.
+   *
    * @public
    */
   MoveToColdStorageAfterDays?: number | undefined;
 }
 
 /**
- * <p>Contains detailed information about the recovery points stored in an Backup backup vault.
- * A backup, or recovery point, represents the content of a resource at a specified time.
- *       </p>
+ * Contains detailed information about the recovery points stored in an Backup backup vault. A backup, or recovery point, represents the content of a resource at a specified time.
+ *
  * @public
  */
 export interface AwsBackupRecoveryPointDetails {
   /**
-   * <p>The size, in bytes, of a backup.
-   *       </p>
+   * The size, in bytes, of a backup.
+   *
    * @public
    */
   BackupSizeInBytes?: number | undefined;
 
   /**
-   * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup vault.
-   *       </p>
+   * An Amazon Resource Name (ARN) that uniquely identifies a backup vault.
+   *
    * @public
    */
   BackupVaultArn?: string | undefined;
 
   /**
-   * <p>The name of a logical container where backups are stored. Backup vaults are identified by names
-   * that are unique to the Amazon Web Services account used to create them and the Amazon Web Services Region
-   * where they are created. They consist of lowercase letters, numbers, and hyphens.
-   *       </p>
+   * The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the Amazon Web Services account used to create them and the Amazon Web Services Region where they are created. They consist of lowercase letters, numbers, and hyphens.
+   *
    * @public
    */
   BackupVaultName?: string | undefined;
 
   /**
-   * <p>A <code>CalculatedLifecycle</code> object containing <code>DeleteAt</code> and <code>MoveToColdStorageAt</code> timestamps.
-   *       </p>
+   * A `CalculatedLifecycle` object containing `DeleteAt` and `MoveToColdStorageAt` timestamps.
+   *
    * @public
    */
   CalculatedLifecycle?: AwsBackupRecoveryPointCalculatedLifecycleDetails | undefined;
 
   /**
-   * <p>The date and time that a job to create a recovery point is completed, in Unix format and UTC.
-   * The value of <code>CompletionDate</code> is accurate to milliseconds. For example, the value 1516925490.087
-   * represents Friday, January 26, 2018 12:11:30.087 AM.
-   *       </p>
+   * The date and time that a job to create a recovery point is completed, in Unix format and UTC. The value of `CompletionDate` is accurate to milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.
+   *
    * @public
    */
   CompletionDate?: string | undefined;
 
   /**
-   * <p>Contains identifying information about the creation of a recovery point, including the
-   * <code>BackupPlanArn</code>, <code>BackupPlanId</code>, <code>BackupPlanVersion</code>, and <code>BackupRuleId</code>
-   * of the backup plan that is used to create it.
-   *       </p>
+   * Contains identifying information about the creation of a recovery point, including the `BackupPlanArn`, `BackupPlanId`, `BackupPlanVersion`, and `BackupRuleId` of the backup plan that is used to create it.
+   *
    * @public
    */
   CreatedBy?: AwsBackupRecoveryPointCreatedByDetails | undefined;
 
   /**
-   * <p>The date and time a recovery point is created, in Unix format and UTC. The value of <code>CreationDate</code>
-   * is accurate to milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.
-   *       </p>
+   * The date and time a recovery point is created, in Unix format and UTC. The value of `CreationDate` is accurate to milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.
+   *
    * @public
    */
   CreationDate?: string | undefined;
 
   /**
-   * <p>The ARN for the server-side encryption key that is used to protect your backups.
-   *       </p>
+   * The ARN for the server-side encryption key that is used to protect your backups.
+   *
    * @public
    */
   EncryptionKeyArn?: string | undefined;
 
   /**
-   * <p>Specifies the IAM role ARN used to create the target recovery point
-   *       </p>
+   * Specifies the IAM role ARN used to create the target recovery point
+   *
    * @public
    */
   IamRoleArn?: string | undefined;
 
   /**
-   * <p>A Boolean value that is returned as <code>TRUE</code> if the specified recovery point is
-   * encrypted, or <code>FALSE</code> if the recovery point is not encrypted.
-   *       </p>
+   * A Boolean value that is returned as `TRUE` if the specified recovery point is encrypted, or `FALSE` if the recovery point is not encrypted.
+   *
    * @public
    */
   IsEncrypted?: boolean | undefined;
 
   /**
-   * <p>The date and time that a recovery point was last restored, in Unix format and UTC. The value of
-   * <code>LastRestoreTime</code> is accurate to milliseconds. For example, the value 1516925490.087 represents
-   * Friday, January 26, 2018 12:11:30.087 AM.
-   *       </p>
+   * The date and time that a recovery point was last restored, in Unix format and UTC. The value of `LastRestoreTime` is accurate to milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.
+   *
    * @public
    */
   LastRestoreTime?: string | undefined;
 
   /**
-   * <p>The lifecycle defines when a protected resource is transitioned to cold storage and when it
-   * expires. Backup transitions and expires backups automatically according to the lifecycle that
-   * you define
-   *       </p>
+   * The lifecycle defines when a protected resource is transitioned to cold storage and when it expires. Backup transitions and expires backups automatically according to the lifecycle that you define
+   *
    * @public
    */
   Lifecycle?: AwsBackupRecoveryPointLifecycleDetails | undefined;
 
   /**
-   * <p>An ARN that uniquely identifies a recovery point.
-   *       </p>
+   * An ARN that uniquely identifies a recovery point.
+   *
    * @public
    */
   RecoveryPointArn?: string | undefined;
 
   /**
-   * <p>An ARN that uniquely identifies a resource. The format of the ARN depends on the resource type.
-   *       </p>
+   * An ARN that uniquely identifies a resource. The format of the ARN depends on the resource type.
+   *
    * @public
    */
   ResourceArn?: string | undefined;
 
   /**
-   * <p>The type of Amazon Web Services resource saved as a recovery point, such as an Amazon EBS volume or an Amazon RDS database.
-   *       </p>
+   * The type of Amazon Web Services resource saved as a recovery point, such as an Amazon EBS volume or an Amazon RDS database.
+   *
    * @public
    */
   ResourceType?: string | undefined;
 
   /**
-   * <p>The ARN for the backup vault where the recovery point was originally copied from. If the recovery
-   * point is restored to the same account, this value will be null.
-   *       </p>
+   * The ARN for the backup vault where the recovery point was originally copied from. If the recovery point is restored to the same account, this value will be null.
+   *
    * @public
    */
   SourceBackupVaultArn?: string | undefined;
 
   /**
-   * <p>A status code specifying the state of the recovery point. Valid values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>COMPLETED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETING</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>EXPIRED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PARTIAL</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * A status code specifying the state of the recovery point. Valid values are as follows:
+   *
+   * - `COMPLETED`
+   * - `DELETING`
+   * - `EXPIRED`
+   * - `PARTIAL`
+   *
    * @public
    */
   Status?: string | undefined;
 
   /**
-   * <p>A message explaining the reason of the recovery point deletion failure.
-   *       </p>
+   * A message explaining the reason of the recovery point deletion failure.
+   *
    * @public
    */
   StatusMessage?: string | undefined;
 
   /**
-   * <p>Specifies the storage class of the recovery point. Valid values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>COLD</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>WARM</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * Specifies the storage class of the recovery point. Valid values are as follows:
+   *
+   * - `COLD`
+   * - `DELETED`
+   * - `WARM`
+   *
    * @public
    */
   StorageClass?: string | undefined;
 }
 
 /**
- * <p>Provides details about the CNAME record that is added to the DNS database for domain
- *          validation.</p>
+ * Provides details about the CNAME record that is added to the DNS database for domain validation.
+ *
  * @public
  */
 export interface AwsCertificateManagerCertificateResourceRecord {
   /**
-   * <p>The name of the resource.</p>
+   * The name of the resource.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The type of resource.</p>
+   * The type of resource.
+   *
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p>The value of the resource.</p>
+   * The value of the resource.
+   *
    * @public
    */
   Value?: string | undefined;
 }
 
 /**
- * <p>Contains information about one of the following:</p>
- *          <ul>
- *             <li>
- *                <p>The initial validation of each domain name that occurs as a result of the
- *                   <code>RequestCertificate</code> request</p>
- *             </li>
- *             <li>
- *                <p>The validation of each domain name in the certificate, as it pertains to Certificate Manager managed renewal</p>
- *             </li>
- *          </ul>
+ * Contains information about one of the following:
+ *
+ * - The initial validation of each domain name that occurs as a result of the `RequestCertificate` request
+ * - The validation of each domain name in the certificate, as it pertains to Certificate Manager managed renewal
+ *
  * @public
  */
 export interface AwsCertificateManagerCertificateDomainValidationOption {
   /**
-   * <p>A fully qualified domain name (FQDN) in the certificate.</p>
+   * A fully qualified domain name (FQDN) in the certificate.
+   *
    * @public
    */
   DomainName?: string | undefined;
 
   /**
-   * <p>The CNAME record that is added to the DNS database for domain validation.</p>
+   * The CNAME record that is added to the DNS database for domain validation.
+   *
    * @public
    */
   ResourceRecord?: AwsCertificateManagerCertificateResourceRecord | undefined;
 
   /**
-   * <p>The domain name that Certificate Manager uses to send domain validation
-   *          emails.</p>
+   * The domain name that Certificate Manager uses to send domain validation emails.
+   *
    * @public
    */
   ValidationDomain?: string | undefined;
 
   /**
-   * <p>A list of email addresses that Certificate Manager uses to send domain validation
-   *          emails.</p>
+   * A list of email addresses that Certificate Manager uses to send domain validation emails.
+   *
    * @public
    */
   ValidationEmails?: string[] | undefined;
 
   /**
-   * <p>The method used to validate the domain name.</p>
+   * The method used to validate the domain name.
+   *
    * @public
    */
   ValidationMethod?: string | undefined;
 
   /**
-   * <p>The validation status of the domain name.</p>
+   * The validation status of the domain name.
+   *
    * @public
    */
   ValidationStatus?: string | undefined;
 }
 
 /**
- * <p>Contains information about an extended key usage X.509 v3 extension object.</p>
+ * Contains information about an extended key usage X.509 v3 extension object.
+ *
  * @public
  */
 export interface AwsCertificateManagerCertificateExtendedKeyUsage {
   /**
-   * <p>The name of an extension value. Indicates the purpose for which the certificate public
-   *          key can be used.</p>
+   * The name of an extension value. Indicates the purpose for which the certificate public key can be used.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>An object identifier (OID) for the extension value.</p>
-   *          <p>The format is numbers separated by periods.</p>
+   * An object identifier (OID) for the extension value.
+   *
+   * The format is numbers separated by periods.
+   *
    * @public
    */
   OId?: string | undefined;
 }
 
 /**
- * <p>Contains information about a key usage X.509 v3 extension object.</p>
+ * Contains information about a key usage X.509 v3 extension object.
+ *
  * @public
  */
 export interface AwsCertificateManagerCertificateKeyUsage {
   /**
-   * <p>The key usage extension name.</p>
+   * The key usage extension name.
+   *
    * @public
    */
   Name?: string | undefined;
 }
 
 /**
- * <p>Contains other options for the certificate.</p>
+ * Contains other options for the certificate.
+ *
  * @public
  */
 export interface AwsCertificateManagerCertificateOptions {
   /**
-   * <p>Whether to add the certificate to a transparency log.</p>
-   *          <p>Valid values: <code>DISABLED</code> | <code>ENABLED</code>
-   *          </p>
+   * Whether to add the certificate to a transparency log.
+   *
+   * Valid values: `DISABLED` | `ENABLED`
+   *
    * @public
    */
   CertificateTransparencyLoggingPreference?: string | undefined;
 }
 
 /**
- * <p>Contains information about the Certificate Manager managed renewal for an
- *             <code>AMAZON_ISSUED</code> certificate.</p>
+ * Contains information about the Certificate Manager managed renewal for an `AMAZON_ISSUED` certificate.
+ *
  * @public
  */
 export interface AwsCertificateManagerCertificateRenewalSummary {
   /**
-   * <p>Information about the validation of each domain name in the certificate, as it pertains
-   *          to Certificate Manager managed renewal. Provided only when the certificate type is
-   *             <code>AMAZON_ISSUED</code>.</p>
+   * Information about the validation of each domain name in the certificate, as it pertains to Certificate Manager managed renewal. Provided only when the certificate type is `AMAZON_ISSUED`.
+   *
    * @public
    */
   DomainValidationOptions?: AwsCertificateManagerCertificateDomainValidationOption[] | undefined;
 
   /**
-   * <p>The status of the Certificate Manager managed renewal of the certificate.</p>
-   *          <p>Valid values: <code>PENDING_AUTO_RENEWAL</code> | <code>PENDING_VALIDATION</code> |
-   *             <code>SUCCESS</code> | <code>FAILED</code>
-   *          </p>
+   * The status of the Certificate Manager managed renewal of the certificate.
+   *
+   * Valid values: `PENDING_AUTO_RENEWAL` | `PENDING_VALIDATION` | `SUCCESS` | `FAILED`
+   *
    * @public
    */
   RenewalStatus?: string | undefined;
 
   /**
-   * <p>The reason that a renewal request was unsuccessful. This attribute is used only when <code>RenewalStatus</code> is <code>FAILED</code>.</p>
-   *          <p>Valid values: <code>NO_AVAILABLE_CONTACTS</code> |
-   *             <code>ADDITIONAL_VERIFICATION_REQUIRED</code> | <code>DOMAIN_NOT_ALLOWED</code> |
-   *             <code>INVALID_PUBLIC_DOMAIN</code> | <code>DOMAIN_VALIDATION_DENIED</code> |
-   *             <code>CAA_ERROR</code> | <code>PCA_LIMIT_EXCEEDED</code> | <code>PCA_INVALID_ARN</code>
-   *          | <code>PCA_INVALID_STATE</code> | <code>PCA_REQUEST_FAILED</code> |
-   *             <code>PCA_NAME_CONSTRAINTS_VALIDATION</code> | <code>PCA_RESOURCE_NOT_FOUND</code> |
-   *             <code>PCA_INVALID_ARGS</code> | <code>PCA_INVALID_DURATION</code> |
-   *             <code>PCA_ACCESS_DENIED</code> | <code>SLR_NOT_FOUND</code> | <code>OTHER</code>
-   *          </p>
+   * The reason that a renewal request was unsuccessful. This attribute is used only when `RenewalStatus` is `FAILED`.
+   *
+   * Valid values: `NO_AVAILABLE_CONTACTS` | `ADDITIONAL_VERIFICATION_REQUIRED` | `DOMAIN_NOT_ALLOWED` | `INVALID_PUBLIC_DOMAIN` | `DOMAIN_VALIDATION_DENIED` | `CAA_ERROR` | `PCA_LIMIT_EXCEEDED` | `PCA_INVALID_ARN` | `PCA_INVALID_STATE` | `PCA_REQUEST_FAILED` | `PCA_NAME_CONSTRAINTS_VALIDATION` | `PCA_RESOURCE_NOT_FOUND` | `PCA_INVALID_ARGS` | `PCA_INVALID_DURATION` | `PCA_ACCESS_DENIED` | `SLR_NOT_FOUND` | `OTHER`
+   *
    * @public
    */
   RenewalStatusReason?: string | undefined;
 
   /**
-   * <p>Indicates when the renewal summary was last updated.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * Indicates when the renewal summary was last updated.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   UpdatedAt?: string | undefined;
 }
 
 /**
- * <p>Provides details about an Certificate Manager certificate.</p>
+ * Provides details about an Certificate Manager certificate.
+ *
  * @public
  */
 export interface AwsCertificateManagerCertificateDetails {
   /**
-   * <p>The ARN of the private certificate authority (CA) that will be used to issue the
-   *          certificate.</p>
+   * The ARN of the private certificate authority (CA) that will be used to issue the certificate.
+   *
    * @public
    */
   CertificateAuthorityArn?: string | undefined;
 
   /**
-   * <p>Indicates when the certificate was requested.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * Indicates when the certificate was requested.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   CreatedAt?: string | undefined;
 
   /**
-   * <p>The fully qualified domain name (FQDN), such as www.example.com, that is secured by the
-   *          certificate.</p>
+   * The fully qualified domain name (FQDN), such as www.example.com, that is secured by the certificate.
+   *
    * @public
    */
   DomainName?: string | undefined;
 
   /**
-   * <p>Contains information about the initial validation of each domain name that occurs as a
-   *          result of the <code>RequestCertificate</code> request.</p>
-   *          <p>Only provided if the certificate type is <code>AMAZON_ISSUED</code>.</p>
+   * Contains information about the initial validation of each domain name that occurs as a result of the `RequestCertificate` request.
+   *
+   * Only provided if the certificate type is `AMAZON_ISSUED`.
+   *
    * @public
    */
   DomainValidationOptions?: AwsCertificateManagerCertificateDomainValidationOption[] | undefined;
 
   /**
-   * <p>Contains a list of Extended Key Usage X.509 v3 extension objects. Each object specifies
-   *          a purpose for which the certificate public key can be used and consists of a name and an
-   *          object identifier (OID).</p>
+   * Contains a list of Extended Key Usage X.509 v3 extension objects. Each object specifies a purpose for which the certificate public key can be used and consists of a name and an object identifier (OID).
+   *
    * @public
    */
   ExtendedKeyUsages?: AwsCertificateManagerCertificateExtendedKeyUsage[] | undefined;
 
   /**
-   * <p>For a failed certificate request, the reason for the failure.</p>
-   *          <p>Valid values: <code>NO_AVAILABLE_CONTACTS</code> |
-   *             <code>ADDITIONAL_VERIFICATION_REQUIRED</code> | <code>DOMAIN_NOT_ALLOWED</code> |
-   *             <code>INVALID_PUBLIC_DOMAIN</code> | <code>DOMAIN_VALIDATION_DENIED</code> |
-   *             <code>CAA_ERROR</code> | <code>PCA_LIMIT_EXCEEDED</code> | <code>PCA_INVALID_ARN</code>
-   *          | <code>PCA_INVALID_STATE</code> | <code>PCA_REQUEST_FAILED</code> |
-   *             <code>PCA_NAME_CONSTRAINTS_VALIDATION</code> | <code>PCA_RESOURCE_NOT_FOUND</code> |
-   *             <code>PCA_INVALID_ARGS</code> | <code>PCA_INVALID_DURATION</code> |
-   *             <code>PCA_ACCESS_DENIED</code> | <code>SLR_NOT_FOUND</code> | <code>OTHER</code>
-   *          </p>
+   * For a failed certificate request, the reason for the failure.
+   *
+   * Valid values: `NO_AVAILABLE_CONTACTS` | `ADDITIONAL_VERIFICATION_REQUIRED` | `DOMAIN_NOT_ALLOWED` | `INVALID_PUBLIC_DOMAIN` | `DOMAIN_VALIDATION_DENIED` | `CAA_ERROR` | `PCA_LIMIT_EXCEEDED` | `PCA_INVALID_ARN` | `PCA_INVALID_STATE` | `PCA_REQUEST_FAILED` | `PCA_NAME_CONSTRAINTS_VALIDATION` | `PCA_RESOURCE_NOT_FOUND` | `PCA_INVALID_ARGS` | `PCA_INVALID_DURATION` | `PCA_ACCESS_DENIED` | `SLR_NOT_FOUND` | `OTHER`
+   *
    * @public
    */
   FailureReason?: string | undefined;
 
   /**
-   * <p>Indicates when the certificate was imported. Provided if the certificate type is
-   *             <code>IMPORTED</code>.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * Indicates when the certificate was imported. Provided if the certificate type is `IMPORTED`.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   ImportedAt?: string | undefined;
 
   /**
-   * <p>The list of ARNs for the Amazon Web Services resources that use the certificate.</p>
+   * The list of ARNs for the Amazon Web Services resources that use the certificate.
+   *
    * @public
    */
   InUseBy?: string[] | undefined;
 
   /**
-   * <p>Indicates when the certificate was issued. Provided if the certificate type is
-   *             <code>AMAZON_ISSUED</code>.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * Indicates when the certificate was issued. Provided if the certificate type is `AMAZON_ISSUED`.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   IssuedAt?: string | undefined;
 
   /**
-   * <p>The name of the certificate authority that issued and signed the certificate.</p>
+   * The name of the certificate authority that issued and signed the certificate.
+   *
    * @public
    */
   Issuer?: string | undefined;
 
   /**
-   * <p>The algorithm that was used to generate the public-private key pair.</p>
-   *          <p>Valid values: <code>RSA_2048</code> | <code>RSA_1024</code> |<code> RSA_4096</code> |
-   *             <code>EC_prime256v1</code> | <code>EC_secp384r1</code> |
-   *          <code>EC_secp521r1</code>
-   *          </p>
+   * The algorithm that was used to generate the public-private key pair.
+   *
+   * Valid values: `RSA_2048` | `RSA_1024` |`RSA_4096` | `EC_prime256v1` | `EC_secp384r1` | `EC_secp521r1`
+   *
    * @public
    */
   KeyAlgorithm?: string | undefined;
 
   /**
-   * <p>A list of key usage X.509 v3 extension objects.</p>
+   * A list of key usage X.509 v3 extension objects.
+   *
    * @public
    */
   KeyUsages?: AwsCertificateManagerCertificateKeyUsage[] | undefined;
 
   /**
-   * <p>The time after which the certificate becomes invalid.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * The time after which the certificate becomes invalid.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   NotAfter?: string | undefined;
 
   /**
-   * <p>The time before which the certificate is not valid.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * The time before which the certificate is not valid.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   NotBefore?: string | undefined;
 
   /**
-   * <p>Provides a value that specifies whether to add the certificate to a transparency
-   *          log.</p>
+   * Provides a value that specifies whether to add the certificate to a transparency log.
+   *
    * @public
    */
   Options?: AwsCertificateManagerCertificateOptions | undefined;
 
   /**
-   * <p>Whether the certificate is eligible for renewal.</p>
-   *          <p>Valid values: <code>ELIGIBLE</code> | <code>INELIGIBLE</code>
-   *          </p>
+   * Whether the certificate is eligible for renewal.
+   *
+   * Valid values: `ELIGIBLE` | `INELIGIBLE`
+   *
    * @public
    */
   RenewalEligibility?: string | undefined;
 
   /**
-   * <p>Information about the status of the Certificate Manager managed renewal for the
-   *          certificate. Provided only when the certificate type is <code>AMAZON_ISSUED</code>.</p>
+   * Information about the status of the Certificate Manager managed renewal for the certificate. Provided only when the certificate type is `AMAZON_ISSUED`.
+   *
    * @public
    */
   RenewalSummary?: AwsCertificateManagerCertificateRenewalSummary | undefined;
 
   /**
-   * <p>The serial number of the certificate.</p>
+   * The serial number of the certificate.
+   *
    * @public
    */
   Serial?: string | undefined;
 
   /**
-   * <p>The algorithm that was used to sign the certificate.</p>
+   * The algorithm that was used to sign the certificate.
+   *
    * @public
    */
   SignatureAlgorithm?: string | undefined;
 
   /**
-   * <p>The status of the certificate.</p>
-   *          <p>Valid values: <code>PENDING_VALIDATION</code> | <code>ISSUED</code> |
-   *             <code>INACTIVE</code> | <code>EXPIRED</code> | <code>VALIDATION_TIMED_OUT</code> |
-   *             <code>REVOKED</code> | <code>FAILED</code>
-   *          </p>
+   * The status of the certificate.
+   *
+   * Valid values: `PENDING_VALIDATION` | `ISSUED` | `INACTIVE` | `EXPIRED` | `VALIDATION_TIMED_OUT` | `REVOKED` | `FAILED`
+   *
    * @public
    */
   Status?: string | undefined;
 
   /**
-   * <p>The name of the entity that is associated with the public key contained in the
-   *          certificate.</p>
+   * The name of the entity that is associated with the public key contained in the certificate.
+   *
    * @public
    */
   Subject?: string | undefined;
 
   /**
-   * <p>One or more domain names (subject alternative names) included in the certificate. This
-   *          list contains the domain names that are bound to the public key that is contained in the
-   *          certificate.</p>
-   *          <p>The subject alternative names include the canonical domain name (CN) of the certificate
-   *          and additional domain names that can be used to connect to the website.</p>
+   * One or more domain names (subject alternative names) included in the certificate. This list contains the domain names that are bound to the public key that is contained in the certificate.
+   *
+   * The subject alternative names include the canonical domain name (CN) of the certificate and additional domain names that can be used to connect to the website.
+   *
    * @public
    */
   SubjectAlternativeNames?: string[] | undefined;
 
   /**
-   * <p>The source of the certificate. For certificates that Certificate Manager provides,
-   *             <code>Type</code> is <code>AMAZON_ISSUED</code>. For certificates that are imported with
-   *             <code>ImportCertificate</code>, <code>Type</code> is <code>IMPORTED</code>.</p>
-   *          <p>Valid values: <code>IMPORTED</code> | <code>AMAZON_ISSUED</code> |
-   *          <code>PRIVATE</code>
-   *          </p>
+   * The source of the certificate. For certificates that Certificate Manager provides, `Type` is `AMAZON_ISSUED`. For certificates that are imported with `ImportCertificate`, `Type` is `IMPORTED`.
+   *
+   * Valid values: `IMPORTED` | `AMAZON_ISSUED` | `PRIVATE`
+   *
    * @public
    */
   Type?: string | undefined;
 }
 
 /**
- * <p>Provides information about the stack's conformity to its expected template configuration.
- *       </p>
+ * Provides information about the stack's conformity to its expected template configuration.
+ *
  * @public
  */
 export interface AwsCloudFormationStackDriftInformationDetails {
   /**
-   * <p>Status of the stack's actual configuration compared to its expected template configuration.
-   *       </p>
+   * Status of the stack's actual configuration compared to its expected template configuration.
+   *
    * @public
    */
   StackDriftStatus?: string | undefined;
 }
 
 /**
- * <p>Provides information about the CloudFormation stack output.
- *       </p>
+ * Provides information about the CloudFormation stack output.
+ *
  * @public
  */
 export interface AwsCloudFormationStackOutputsDetails {
   /**
-   * <p>A user-defined description associated with the output.
-   *       </p>
+   * A user-defined description associated with the output.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The key associated with the output.
-   *       </p>
+   * The key associated with the output.
+   *
    * @public
    */
   OutputKey?: string | undefined;
 
   /**
-   * <p>The value associated with the output.
-   *       </p>
+   * The value associated with the output.
+   *
    * @public
    */
   OutputValue?: string | undefined;
 }
 
 /**
- * <p>Nests a stack as a resource in a top-level template. Nested stacks are stacks created as resources for
- * another stack.</p>
+ * Nests a stack as a resource in a top-level template. Nested stacks are stacks created as resources for another stack.
+ *
  * @public
  */
 export interface AwsCloudFormationStackDetails {
   /**
-   * <p>The capabilities allowed in the stack.
-   *       </p>
+   * The capabilities allowed in the stack.
+   *
    * @public
    */
   Capabilities?: string[] | undefined;
 
   /**
-   * <p>The time at which the stack was created. </p>
+   * The time at which the stack was created.
+   *
    * @public
    */
   CreationTime?: string | undefined;
 
   /**
-   * <p>A user-defined description associated with the stack.
-   *       </p>
+   * A user-defined description associated with the stack.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Boolean to enable or disable rollback on stack creation failures.
-   *       </p>
+   * Boolean to enable or disable rollback on stack creation failures.
+   *
    * @public
    */
   DisableRollback?: boolean | undefined;
 
   /**
-   * <p>Information about whether a stack's actual configuration differs, or has drifted, from its expected
-   * configuration, as defined in the stack template and any values specified as template parameters.
-   *       </p>
+   * Information about whether a stack's actual configuration differs, or has drifted, from its expected configuration, as defined in the stack template and any values specified as template parameters.
+   *
    * @public
    */
   DriftInformation?: AwsCloudFormationStackDriftInformationDetails | undefined;
 
   /**
-   * <p>Whether termination protection is enabled for the stack.
-   *       </p>
+   * Whether termination protection is enabled for the stack.
+   *
    * @public
    */
   EnableTerminationProtection?: boolean | undefined;
 
   /**
-   * <p>The time the nested stack was last updated. This field will only be returned if the stack has been
-   * updated at least once.</p>
+   * The time the nested stack was last updated. This field will only be returned if the stack has been updated at least once.
+   *
    * @public
    */
   LastUpdatedTime?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the Amazon SNS topic to which stack-related events are published.
-   *       </p>
+   * The Amazon Resource Names (ARNs) of the Amazon SNS topic to which stack-related events are published.
+   *
    * @public
    */
   NotificationArns?: string[] | undefined;
 
   /**
-   * <p>A list of output structures.
-   *       </p>
+   * A list of output structures.
+   *
    * @public
    */
   Outputs?: AwsCloudFormationStackOutputsDetails[] | undefined;
 
   /**
-   * <p>The ARN of an IAM role that's associated with the stack.
-   *       </p>
+   * The ARN of an IAM role that's associated with the stack.
+   *
    * @public
    */
   RoleArn?: string | undefined;
 
   /**
-   * <p>Unique identifier of the stack.
-   *       </p>
+   * Unique identifier of the stack.
+   *
    * @public
    */
   StackId?: string | undefined;
 
   /**
-   * <p>The name associated with the stack.
-   *       </p>
+   * The name associated with the stack.
+   *
    * @public
    */
   StackName?: string | undefined;
 
   /**
-   * <p>Current status of the stack.
-   *       </p>
+   * Current status of the stack.
+   *
    * @public
    */
   StackStatus?: string | undefined;
 
   /**
-   * <p>Success or failure message associated with the stack status.
-   *       </p>
+   * Success or failure message associated with the stack status.
+   *
    * @public
    */
   StackStatusReason?: string | undefined;
 
   /**
-   * <p>The length of time, in minutes, that CloudFormation waits for the nested stack to reach
-   * the <code>CREATE_COMPLETE</code> state.
-   *       </p>
+   * The length of time, in minutes, that CloudFormation waits for the nested stack to reach the `CREATE_COMPLETE` state.
+   *
    * @public
    */
   TimeoutInMinutes?: number | undefined;
 }
 
 /**
- * <p>Information about a cache behavior for the distribution.</p>
+ * Information about a cache behavior for the distribution.
+ *
  * @public
  */
 export interface AwsCloudFrontDistributionCacheBehavior {
   /**
-   * <p>The protocol that viewers can use to access the files in an origin. You can specify the
-   *          following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>allow-all</code> - Viewers can use HTTP or HTTPS.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>redirect-to-https</code> - CloudFront responds to HTTP requests with an HTTP
-   *                status code of 301 (Moved Permanently) and the HTTPS URL. The viewer then uses the
-   *                new URL to resubmit.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>https-only</code> - CloudFront responds to HTTP request with an HTTP status
-   *                code of 403 (Forbidden).</p>
-   *             </li>
-   *          </ul>
+   * The protocol that viewers can use to access the files in an origin. You can specify the following options:
+   *
+   * - `allow-all` - Viewers can use HTTP or HTTPS.
+   * - `redirect-to-https` - CloudFront responds to HTTP requests with an HTTP status code of 301 (Moved Permanently) and the HTTPS URL. The viewer then uses the new URL to resubmit.
+   * - `https-only` - CloudFront responds to HTTP request with an HTTP status code of 403 (Forbidden).
+   *
    * @public
    */
   ViewerProtocolPolicy?: string | undefined;
 }
 
 /**
- * <p>Provides information about caching for the CloudFront distribution.</p>
+ * Provides information about caching for the CloudFront distribution.
+ *
  * @public
  */
 export interface AwsCloudFrontDistributionCacheBehaviors {
   /**
-   * <p>The cache behaviors for the distribution.</p>
+   * The cache behaviors for the distribution.
+   *
    * @public
    */
   Items?: AwsCloudFrontDistributionCacheBehavior[] | undefined;
 }
 
 /**
- * <p>Contains information about the default cache configuration for the CloudFront distribution.</p>
+ * Contains information about the default cache configuration for the CloudFront distribution.
+ *
  * @public
  */
 export interface AwsCloudFrontDistributionDefaultCacheBehavior {
   /**
-   * <p>The protocol that viewers can use to access the files in an origin. You can specify the
-   *          following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>allow-all</code> - Viewers can use HTTP or HTTPS.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>redirect-to-https</code> - CloudFront responds to HTTP requests with an HTTP
-   *                status code of 301 (Moved Permanently) and the HTTPS URL. The viewer then uses the
-   *                new URL to resubmit.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>https-only</code> - CloudFront responds to HTTP request with an HTTP status
-   *                code of 403 (Forbidden).</p>
-   *             </li>
-   *          </ul>
+   * The protocol that viewers can use to access the files in an origin. You can specify the following options:
+   *
+   * - `allow-all` - Viewers can use HTTP or HTTPS.
+   * - `redirect-to-https` - CloudFront responds to HTTP requests with an HTTP status code of 301 (Moved Permanently) and the HTTPS URL. The viewer then uses the new URL to resubmit.
+   * - `https-only` - CloudFront responds to HTTP request with an HTTP status code of 403 (Forbidden).
+   *
    * @public
    */
   ViewerProtocolPolicy?: string | undefined;
 }
 
 /**
- * <p>A complex type that controls whether access logs are written for the CloudFront distribution.</p>
+ * A complex type that controls whether access logs are written for the CloudFront distribution.
+ *
  * @public
  */
 export interface AwsCloudFrontDistributionLogging {
   /**
-   * <p>The S3 bucket to store the access logs in.</p>
+   * The S3 bucket to store the access logs in.
+   *
    * @public
    */
   Bucket?: string | undefined;
 
   /**
-   * <p>With this field, you can enable or disable the selected distribution.</p>
+   * With this field, you can enable or disable the selected distribution.
+   *
    * @public
    */
   Enabled?: boolean | undefined;
 
   /**
-   * <p>Specifies whether you want CloudFront to include cookies in access logs.</p>
+   * Specifies whether you want CloudFront to include cookies in access logs.
+   *
    * @public
    */
   IncludeCookies?: boolean | undefined;
 
   /**
-   * <p>An optional string that you want CloudFront to use as a prefix to the access log
-   *          filenames for this distribution.</p>
+   * An optional string that you want CloudFront to use as a prefix to the access log filenames for this distribution.
+   *
    * @public
    */
   Prefix?: string | undefined;
 }
 
 /**
- * <p>The status codes that cause an origin group to fail over.</p>
+ * The status codes that cause an origin group to fail over.
+ *
  * @public
  */
 export interface AwsCloudFrontDistributionOriginGroupFailoverStatusCodes {
   /**
-   * <p>The list of status code values that can cause a failover to the next origin.</p>
+   * The list of status code values that can cause a failover to the next origin.
+   *
    * @public
    */
   Items?: number[] | undefined;
 
   /**
-   * <p>The number of status codes that can cause a failover.</p>
+   * The number of status codes that can cause a failover.
+   *
    * @public
    */
   Quantity?: number | undefined;
 }
 
 /**
- * <p>Provides information about when an origin group fails over.</p>
+ * Provides information about when an origin group fails over.
+ *
  * @public
  */
 export interface AwsCloudFrontDistributionOriginGroupFailover {
   /**
-   * <p>Information about the status codes that cause an origin group to fail over.</p>
+   * Information about the status codes that cause an origin group to fail over.
+   *
    * @public
    */
   StatusCodes?: AwsCloudFrontDistributionOriginGroupFailoverStatusCodes | undefined;
 }
 
 /**
- * <p>Information about an origin group for the CloudFront distribution.</p>
+ * Information about an origin group for the CloudFront distribution.
+ *
  * @public
  */
 export interface AwsCloudFrontDistributionOriginGroup {
   /**
-   * <p>Provides the criteria for an origin group to fail over.</p>
+   * Provides the criteria for an origin group to fail over.
+   *
    * @public
    */
   FailoverCriteria?: AwsCloudFrontDistributionOriginGroupFailover | undefined;
 }
 
 /**
- * <p>Provides information about origin groups that are associated with the CloudFront distribution.</p>
+ * Provides information about origin groups that are associated with the CloudFront distribution.
+ *
  * @public
  */
 export interface AwsCloudFrontDistributionOriginGroups {
   /**
-   * <p>The list of origin groups.</p>
+   * The list of origin groups.
+   *
    * @public
    */
   Items?: AwsCloudFrontDistributionOriginGroup[] | undefined;
 }
 
 /**
- * <p>A complex type that contains information about the SSL/TLS protocols that CloudFront can use
- * when establishing an HTTPS connection with your origin.
- *       </p>
+ * A complex type that contains information about the SSL/TLS protocols that CloudFront can use when establishing an HTTPS connection with your origin.
+ *
  * @public
  */
 export interface AwsCloudFrontDistributionOriginSslProtocols {
   /**
-   * <p>A list that contains allowed SSL/TLS protocols for this distribution.
-   *       </p>
+   * A list that contains allowed SSL/TLS protocols for this distribution.
+   *
    * @public
    */
   Items?: string[] | undefined;
 
   /**
-   * <p>The number of SSL/TLS protocols that you want to allow CloudFront to use when establishing
-   * an HTTPS connection with this origin.
-   *       </p>
+   * The number of SSL/TLS protocols that you want to allow CloudFront to use when establishing an HTTPS connection with this origin.
+   *
    * @public
    */
   Quantity?: number | undefined;
 }
 
 /**
- * <p>A custom origin. A custom origin is any origin that is not an Amazon S3 bucket, with one exception. An Amazon S3 bucket that is <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html">configured with
- *             static website hosting</a> is a custom origin. </p>
+ * A custom origin. A custom origin is any origin that is not an Amazon S3 bucket, with one exception. An Amazon S3 bucket that is [configured with static website hosting](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html) is a custom origin.
+ *
  * @public
  */
 export interface AwsCloudFrontDistributionOriginCustomOriginConfig {
   /**
-   * <p>The HTTP port that CloudFront uses to connect to the origin.
-   *       </p>
+   * The HTTP port that CloudFront uses to connect to the origin.
+   *
    * @public
    */
   HttpPort?: number | undefined;
 
   /**
-   * <p>The HTTPS port that CloudFront uses to connect to the origin.
-   *       </p>
+   * The HTTPS port that CloudFront uses to connect to the origin.
+   *
    * @public
    */
   HttpsPort?: number | undefined;
 
   /**
-   * <p>Specifies how long, in seconds, CloudFront persists its connection to the origin.
-   *       </p>
+   * Specifies how long, in seconds, CloudFront persists its connection to the origin.
+   *
    * @public
    */
   OriginKeepaliveTimeout?: number | undefined;
 
   /**
-   * <p>Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin.
-   *       </p>
+   * Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin.
+   *
    * @public
    */
   OriginProtocolPolicy?: string | undefined;
 
   /**
-   * <p>Specifies how long, in seconds, CloudFront waits for a response from the origin.
-   *       </p>
+   * Specifies how long, in seconds, CloudFront waits for a response from the origin.
+   *
    * @public
    */
   OriginReadTimeout?: number | undefined;
 
   /**
-   * <p>Specifies the minimum SSL/TLS protocol that CloudFront uses when connecting to your origin over HTTPS.
-   *       </p>
+   * Specifies the minimum SSL/TLS protocol that CloudFront uses when connecting to your origin over HTTPS.
+   *
    * @public
    */
   OriginSslProtocols?: AwsCloudFrontDistributionOriginSslProtocols | undefined;
 }
 
 /**
- * <p>Information about an origin that is an Amazon S3 bucket that is not configured with static website
- *          hosting.</p>
+ * Information about an origin that is an Amazon S3 bucket that is not configured with static website hosting.
+ *
  * @public
  */
 export interface AwsCloudFrontDistributionOriginS3OriginConfig {
   /**
-   * <p>The CloudFront origin access identity to associate with the origin.</p>
+   * The CloudFront origin access identity to associate with the origin.
+   *
    * @public
    */
   OriginAccessIdentity?: string | undefined;
 }
 
 /**
- * <p>A complex type that describes the
- *             Amazon S3 bucket, HTTP server (for example, a web server),
- *             or other server from which CloudFront gets your files.</p>
+ * A complex type that describes the Amazon S3 bucket, HTTP server (for example, a web server), or other server from which CloudFront gets your files.
+ *
  * @public
  */
 export interface AwsCloudFrontDistributionOriginItem {
   /**
-   * <p>Amazon S3 origins: The DNS name of the S3 bucket from which you want
-   *             CloudFront to get objects for this origin.</p>
+   * Amazon S3 origins: The DNS name of the S3 bucket from which you want CloudFront to get objects for this origin.
+   *
    * @public
    */
   DomainName?: string | undefined;
 
   /**
-   * <p>A unique identifier for the origin or origin group.</p>
+   * A unique identifier for the origin or origin group.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>An optional element that causes CloudFront to request your content from a
-   *          directory in your Amazon S3 bucket or your custom origin.</p>
+   * An optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin.
+   *
    * @public
    */
   OriginPath?: string | undefined;
 
   /**
-   * <p>An origin that is an S3 bucket that is not configured with static website
-   *          hosting.</p>
+   * An origin that is an S3 bucket that is not configured with static website hosting.
+   *
    * @public
    */
   S3OriginConfig?: AwsCloudFrontDistributionOriginS3OriginConfig | undefined;
 
   /**
-   * <p>An origin that is not an Amazon S3 bucket, with one exception.
-   * If the Amazon S3 bucket is configured with static website hosting, use this attribute.
-   * If the Amazon S3 bucket is not configured with static website hosting, use the <code>S3OriginConfig</code> type instead.
-   *       </p>
+   * An origin that is not an Amazon S3 bucket, with one exception. If the Amazon S3 bucket is configured with static website hosting, use this attribute. If the Amazon S3 bucket is not configured with static website hosting, use the `S3OriginConfig` type instead.
+   *
    * @public
    */
   CustomOriginConfig?: AwsCloudFrontDistributionOriginCustomOriginConfig | undefined;
 }
 
 /**
- * <p>A complex type that contains information about origins and origin groups for this CloudFront distribution.</p>
+ * A complex type that contains information about origins and origin groups for this CloudFront distribution.
+ *
  * @public
  */
 export interface AwsCloudFrontDistributionOrigins {
   /**
-   * <p>A complex type that contains origins or origin groups for this distribution.</p>
+   * A complex type that contains origins or origin groups for this distribution.
+   *
    * @public
    */
   Items?: AwsCloudFrontDistributionOriginItem[] | undefined;
 }
 
 /**
- * <p>Provides information about the TLS/SSL configuration that the CloudFront distribution uses to communicate with viewers.</p>
+ * Provides information about the TLS/SSL configuration that the CloudFront distribution uses to communicate with viewers.
+ *
  * @public
  */
 export interface AwsCloudFrontDistributionViewerCertificate {
   /**
-   * <p>The ARN of the ACM certificate. Used if the certificate is stored in ACM. If you provide an ACM certificate ARN, you must also provide <code>MinimumCertificateVersion</code> and <code>SslSupportMethod</code>.</p>
+   * The ARN of the ACM certificate. Used if the certificate is stored in ACM. If you provide an ACM certificate ARN, you must also provide `MinimumCertificateVersion` and `SslSupportMethod`.
+   *
    * @public
    */
   AcmCertificateArn?: string | undefined;
 
   /**
-   * <p>The identifier of the certificate. Note that in CloudFront, this attribute is deprecated.</p>
+   * The identifier of the certificate. Note that in CloudFront, this attribute is deprecated.
+   *
    * @public
    */
   Certificate?: string | undefined;
 
   /**
-   * <p>The source of the certificate identified by <code>Certificate</code>. Note that in CloudFront, this attribute is deprecated.</p>
+   * The source of the certificate identified by `Certificate`. Note that in CloudFront, this attribute is deprecated.
+   *
    * @public
    */
   CertificateSource?: string | undefined;
 
   /**
-   * <p>Whether the distribution uses the CloudFront domain name. If set to <code>false</code>, then you provide either <code>AcmCertificateArn</code> or <code>IamCertificateId</code>.</p>
+   * Whether the distribution uses the CloudFront domain name. If set to `false`, then you provide either `AcmCertificateArn` or `IamCertificateId`.
+   *
    * @public
    */
   CloudFrontDefaultCertificate?: boolean | undefined;
 
   /**
-   * <p>The identifier of the IAM certificate. Used if the certificate is stored in IAM. If you provide <code>IamCertificateId</code>, then you also must provide <code>MinimumProtocolVersion</code> and <code>SslSupportMethod</code>.</p>
+   * The identifier of the IAM certificate. Used if the certificate is stored in IAM. If you provide `IamCertificateId`, then you also must provide `MinimumProtocolVersion` and `SslSupportMethod`.
+   *
    * @public
    */
   IamCertificateId?: string | undefined;
 
   /**
-   * <p>The security policy that CloudFront uses for HTTPS connections with viewers. If <code>SslSupportMethod</code> is <code>sni-only</code>, then <code>MinimumProtocolVersion</code> must be <code>TLSv1</code> or higher.</p>
+   * The security policy that CloudFront uses for HTTPS connections with viewers. If `SslSupportMethod` is `sni-only`, then `MinimumProtocolVersion` must be `TLSv1` or higher.
+   *
    * @public
    */
   MinimumProtocolVersion?: string | undefined;
 
   /**
-   * <p>The viewers that the distribution accepts HTTPS connections from.</p>
+   * The viewers that the distribution accepts HTTPS connections from.
+   *
    * @public
    */
   SslSupportMethod?: string | undefined;
 }
 
 /**
- * <p>A CloudFront distribution configuration.</p>
+ * A CloudFront distribution configuration.
+ *
  * @public
  */
 export interface AwsCloudFrontDistributionDetails {
   /**
-   * <p>Provides information about the cache configuration for the distribution.</p>
+   * Provides information about the cache configuration for the distribution.
+   *
    * @public
    */
   CacheBehaviors?: AwsCloudFrontDistributionCacheBehaviors | undefined;
 
   /**
-   * <p>The default cache behavior for the configuration.</p>
+   * The default cache behavior for the configuration.
+   *
    * @public
    */
   DefaultCacheBehavior?: AwsCloudFrontDistributionDefaultCacheBehavior | undefined;
 
   /**
-   * <p>The object that CloudFront sends in response to requests from the origin (for example,
-   *          index.html) when a viewer requests the root URL for the distribution
-   *          (http://www.example.com) instead of an object in your distribution
-   *          (http://www.example.com/product-description.html). </p>
+   * The object that CloudFront sends in response to requests from the origin (for example, index.html) when a viewer requests the root URL for the distribution (http://www.example.com) instead of an object in your distribution (http://www.example.com/product-description.html).
+   *
    * @public
    */
   DefaultRootObject?: string | undefined;
 
   /**
-   * <p>The domain name corresponding to the distribution.</p>
+   * The domain name corresponding to the distribution.
+   *
    * @public
    */
   DomainName?: string | undefined;
 
   /**
-   * <p>The entity tag is a hash of the object.</p>
+   * The entity tag is a hash of the object.
+   *
    * @public
    */
   ETag?: string | undefined;
 
   /**
-   * <p>Indicates when that the distribution was last modified.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * Indicates when that the distribution was last modified.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   LastModifiedTime?: string | undefined;
 
   /**
-   * <p>A complex type that controls whether access logs are written for the distribution.</p>
+   * A complex type that controls whether access logs are written for the distribution.
+   *
    * @public
    */
   Logging?: AwsCloudFrontDistributionLogging | undefined;
 
   /**
-   * <p>A complex type that contains information about origins for this distribution.</p>
+   * A complex type that contains information about origins for this distribution.
+   *
    * @public
    */
   Origins?: AwsCloudFrontDistributionOrigins | undefined;
 
   /**
-   * <p>Provides information about the origin groups in the distribution.</p>
+   * Provides information about the origin groups in the distribution.
+   *
    * @public
    */
   OriginGroups?: AwsCloudFrontDistributionOriginGroups | undefined;
 
   /**
-   * <p>Provides information about the TLS/SSL configuration that the distribution uses to communicate with viewers.</p>
+   * Provides information about the TLS/SSL configuration that the distribution uses to communicate with viewers.
+   *
    * @public
    */
   ViewerCertificate?: AwsCloudFrontDistributionViewerCertificate | undefined;
 
   /**
-   * <p>Indicates the current status of the distribution.</p>
+   * Indicates the current status of the distribution.
+   *
    * @public
    */
   Status?: string | undefined;
 
   /**
-   * <p>A unique identifier that specifies the WAF web ACL, if any, to associate with this distribution.</p>
+   * A unique identifier that specifies the WAF web ACL, if any, to associate with this distribution.
+   *
    * @public
    */
   WebAclId?: string | undefined;
 }
 
 /**
- * <p>Provides details about a CloudTrail trail.</p>
+ * Provides details about a CloudTrail trail.
+ *
  * @public
  */
 export interface AwsCloudTrailTrailDetails {
   /**
-   * <p>The ARN of the log group that CloudTrail logs are delivered to.</p>
+   * The ARN of the log group that CloudTrail logs are delivered to.
+   *
    * @public
    */
   CloudWatchLogsLogGroupArn?: string | undefined;
 
   /**
-   * <p>The ARN of the role that the CloudWatch Events endpoint assumes when it writes to the log
-   *          group.</p>
+   * The ARN of the role that the CloudWatch Events endpoint assumes when it writes to the log group.
+   *
    * @public
    */
   CloudWatchLogsRoleArn?: string | undefined;
 
   /**
-   * <p>Indicates whether the trail has custom event selectors.</p>
+   * Indicates whether the trail has custom event selectors.
+   *
    * @public
    */
   HasCustomEventSelectors?: boolean | undefined;
 
   /**
-   * <p>The Region where the trail was created.</p>
+   * The Region where the trail was created.
+   *
    * @public
    */
   HomeRegion?: string | undefined;
 
   /**
-   * <p>Indicates whether the trail publishes events from global services such as IAM to the log
-   *          files.</p>
+   * Indicates whether the trail publishes events from global services such as IAM to the log files.
+   *
    * @public
    */
   IncludeGlobalServiceEvents?: boolean | undefined;
 
   /**
-   * <p>Indicates whether the trail applies only to the current Region or to all Regions.</p>
+   * Indicates whether the trail applies only to the current Region or to all Regions.
+   *
    * @public
    */
   IsMultiRegionTrail?: boolean | undefined;
 
   /**
-   * <p>Whether the trail is created for all accounts in an organization in Organizations,
-   *          or only for the current Amazon Web Services account.</p>
+   * Whether the trail is created for all accounts in an organization in Organizations, or only for the current Amazon Web Services account.
+   *
    * @public
    */
   IsOrganizationTrail?: boolean | undefined;
 
   /**
-   * <p>The KMS key ID to use to encrypt the logs.</p>
+   * The KMS key ID to use to encrypt the logs.
+   *
    * @public
    */
   KmsKeyId?: string | undefined;
 
   /**
-   * <p>Indicates whether CloudTrail log file validation is enabled.</p>
+   * Indicates whether CloudTrail log file validation is enabled.
+   *
    * @public
    */
   LogFileValidationEnabled?: boolean | undefined;
 
   /**
-   * <p>The name of the trail.</p>
+   * The name of the trail.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The name of the S3 bucket where the log files are published.</p>
+   * The name of the S3 bucket where the log files are published.
+   *
    * @public
    */
   S3BucketName?: string | undefined;
 
   /**
-   * <p>The S3 key prefix. The key prefix is added after the name of the S3 bucket where the log
-   *          files are published.</p>
+   * The S3 key prefix. The key prefix is added after the name of the S3 bucket where the log files are published.
+   *
    * @public
    */
   S3KeyPrefix?: string | undefined;
 
   /**
-   * <p>The ARN of the SNS topic that is used for notifications of log file delivery.</p>
+   * The ARN of the SNS topic that is used for notifications of log file delivery.
+   *
    * @public
    */
   SnsTopicArn?: string | undefined;
 
   /**
-   * <p>The name of the SNS topic that is used for notifications of log file delivery.</p>
+   * The name of the SNS topic that is used for notifications of log file delivery.
+   *
    * @public
    */
   SnsTopicName?: string | undefined;
 
   /**
-   * <p>The ARN of the trail.</p>
+   * The ARN of the trail.
+   *
    * @public
    */
   TrailArn?: string | undefined;
 }
 
 /**
- * <p>Details about the dimensions for the metric associated with the alarm.
- *       </p>
+ * Details about the dimensions for the metric associated with the alarm.
+ *
  * @public
  */
 export interface AwsCloudWatchAlarmDimensionsDetails {
   /**
-   * <p>The name of a dimension.
-   *       </p>
+   * The name of a dimension.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The value of a dimension.
-   *       </p>
+   * The value of a dimension.
+   *
    * @public
    */
   Value?: string | undefined;
 }
 
 /**
- * <p>Specifies an alarm and associates it with the specified metric or metric math expression.
- *       </p>
+ * Specifies an alarm and associates it with the specified metric or metric math expression.
+ *
  * @public
  */
 export interface AwsCloudWatchAlarmDetails {
   /**
-   * <p>Indicates whether actions should be executed during any changes to the alarm state.
-   *       </p>
+   * Indicates whether actions should be executed during any changes to the alarm state.
+   *
    * @public
    */
   ActionsEnabled?: boolean | undefined;
 
   /**
-   * <p>The list of actions, specified as Amazon Resource Names (ARNs) to execute when this alarm transitions into an <code>ALARM</code> state from any other
-   *          state. </p>
+   * The list of actions, specified as Amazon Resource Names (ARNs) to execute when this alarm transitions into an `ALARM` state from any other state.
+   *
    * @public
    */
   AlarmActions?: string[] | undefined;
 
   /**
-   * <p>The ARN of the alarm.
-   *       </p>
+   * The ARN of the alarm.
+   *
    * @public
    */
   AlarmArn?: string | undefined;
 
   /**
-   * <p>The time stamp of the last update to the alarm configuration.
-   *       </p>
+   * The time stamp of the last update to the alarm configuration.
+   *
    * @public
    */
   AlarmConfigurationUpdatedTimestamp?: string | undefined;
 
   /**
-   * <p>The description of the alarm.
-   *       </p>
+   * The description of the alarm.
+   *
    * @public
    */
   AlarmDescription?: string | undefined;
 
   /**
-   * <p>The name of the alarm. If you don't specify a name, CloudFront generates a unique physical ID
-   * and uses that ID for the alarm name.
-   *       </p>
+   * The name of the alarm. If you don't specify a name, CloudFront generates a unique physical ID and uses that ID for the alarm name.
+   *
    * @public
    */
   AlarmName?: string | undefined;
 
   /**
-   * <p>The arithmetic operation to use when comparing the specified statistic and threshold. The specified
-   * statistic value is used as the first operand.
-   *       </p>
+   * The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.
+   *
    * @public
    */
   ComparisonOperator?: string | undefined;
 
   /**
-   * <p>The number of datapoints that must be breaching to trigger the alarm.
-   *       </p>
+   * The number of datapoints that must be breaching to trigger the alarm.
+   *
    * @public
    */
   DatapointsToAlarm?: number | undefined;
 
   /**
-   * <p>The dimensions for the metric associated with the alarm.
-   *       </p>
+   * The dimensions for the metric associated with the alarm.
+   *
    * @public
    */
   Dimensions?: AwsCloudWatchAlarmDimensionsDetails[] | undefined;
 
   /**
-   * <p>Used only for alarms based on percentiles. If <code>ignore</code>, the alarm state does not change during
-   * periods with too few data points to be statistically significant. If <code>evaluate</code> or this parameter is not used,
-   * the alarm is always evaluated and possibly changes state no matter how many data points are available.
-   *       </p>
+   * Used only for alarms based on percentiles. If `ignore`, the alarm state does not change during periods with too few data points to be statistically significant. If `evaluate` or this parameter is not used, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+   *
    * @public
    */
   EvaluateLowSampleCountPercentile?: string | undefined;
 
   /**
-   * <p>The number of periods over which data is compared to the specified threshold.
-   *       </p>
+   * The number of periods over which data is compared to the specified threshold.
+   *
    * @public
    */
   EvaluationPeriods?: number | undefined;
 
   /**
-   * <p>The percentile statistic for the metric associated with the alarm.
-   *       </p>
+   * The percentile statistic for the metric associated with the alarm.
+   *
    * @public
    */
   ExtendedStatistic?: string | undefined;
 
   /**
-   * <p>The actions to execute when this alarm transitions to the <code>INSUFFICIENT_DATA</code> state from
-   * any other state. Each action is specified as an ARN.
-   *       </p>
+   * The actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state. Each action is specified as an ARN.
+   *
    * @public
    */
   InsufficientDataActions?: string[] | undefined;
 
   /**
-   * <p>The name of the metric associated with the alarm. This is required for an alarm based on a metric.
-   * For an alarm based on a math expression, you use <code>Metrics</code> instead and you can't specify <code>MetricName</code>.
-   *       </p>
+   * The name of the metric associated with the alarm. This is required for an alarm based on a metric. For an alarm based on a math expression, you use `Metrics` instead and you can't specify `MetricName`.
+   *
    * @public
    */
   MetricName?: string | undefined;
 
   /**
-   * <p>The namespace of the metric associated with the alarm. This is required for an alarm based on a
-   * metric. For an alarm based on a math expression, you can't specify <code>Namespace</code> and you use
-   * <code>Metrics</code> instead.
-   *       </p>
+   * The namespace of the metric associated with the alarm. This is required for an alarm based on a metric. For an alarm based on a math expression, you can't specify `Namespace` and you use `Metrics` instead.
+   *
    * @public
    */
   Namespace?: string | undefined;
 
   /**
-   * <p>The actions to execute when this alarm transitions to the <code>OK</code> state from any other state.
-   * Each action is specified as an ARN.
-   *       </p>
+   * The actions to execute when this alarm transitions to the `OK` state from any other state. Each action is specified as an ARN.
+   *
    * @public
    */
   OkActions?: string[] | undefined;
 
   /**
-   * <p>The period, in seconds, over which the statistic is applied. This is required for an alarm based on a
-   * metric.
-   *       </p>
+   * The period, in seconds, over which the statistic is applied. This is required for an alarm based on a metric.
+   *
    * @public
    */
   Period?: number | undefined;
 
   /**
-   * <p>The statistic for the metric associated with the alarm, other than percentile. For percentile statistics, use <code>ExtendedStatistic</code>.</p>
-   *          <p>For an alarm based on a metric, you must specify either <code>Statistic</code> or <code>ExtendedStatistic</code> but not both.</p>
-   *          <p>For an alarm based on a math expression, you can't specify <code>Statistic</code>. Instead, you use <code>Metrics</code>.</p>
+   * The statistic for the metric associated with the alarm, other than percentile. For percentile statistics, use `ExtendedStatistic`.
+   *
+   * For an alarm based on a metric, you must specify either `Statistic` or `ExtendedStatistic` but not both.
+   *
+   * For an alarm based on a math expression, you can't specify `Statistic`. Instead, you use `Metrics`.
+   *
    * @public
    */
   Statistic?: string | undefined;
 
   /**
-   * <p>The value to compare with the specified statistic.
-   *       </p>
+   * The value to compare with the specified statistic.
+   *
    * @public
    */
   Threshold?: number | undefined;
 
   /**
-   * <p>n an alarm based on an anomaly detection model, this is the ID of the <code>ANOMALY_DETECTION_BAND</code> function used as the threshold for the alarm.
-   *       </p>
+   * n an alarm based on an anomaly detection model, this is the ID of the `ANOMALY_DETECTION_BAND` function used as the threshold for the alarm.
+   *
    * @public
    */
   ThresholdMetricId?: string | undefined;
 
   /**
-   * <p>Sets how this alarm is to handle missing data points.
-   *       </p>
+   * Sets how this alarm is to handle missing data points.
+   *
    * @public
    */
   TreatMissingData?: string | undefined;
 
   /**
-   * <p>The unit of the metric associated with the alarm.
-   *       </p>
+   * The unit of the metric associated with the alarm.
+   *
    * @public
    */
   Unit?: string | undefined;
 }
 
 /**
- * <p>Information about the build artifacts for the CodeBuild project.</p>
+ * Information about the build artifacts for the CodeBuild project.
+ *
  * @public
  */
 export interface AwsCodeBuildProjectArtifactsDetails {
   /**
-   * <p>An identifier for the artifact definition.</p>
+   * An identifier for the artifact definition.
+   *
    * @public
    */
   ArtifactIdentifier?: string | undefined;
 
   /**
-   * <p>Indicates whether to disable encryption on the artifact. Only valid when <code>Type</code> is <code>S3</code>.</p>
+   * Indicates whether to disable encryption on the artifact. Only valid when `Type` is `S3`.
+   *
    * @public
    */
   EncryptionDisabled?: boolean | undefined;
 
   /**
-   * <p>Only used when <code>Type</code> is <code>S3</code>. The name of the S3 bucket where the artifact is located.</p>
+   * Only used when `Type` is `S3`. The name of the S3 bucket where the artifact is located.
+   *
    * @public
    */
   Location?: string | undefined;
 
   /**
-   * <p>Only used when Type is S3. The name of the artifact. Used with <code>NamepaceType</code> and <code>Path</code> to determine the pattern for storing the artifact.</p>
+   * Only used when Type is S3. The name of the artifact. Used with `NamepaceType` and `Path` to determine the pattern for storing the artifact.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>Only used when <code>Type</code> is <code>S3</code>. The value to use for the namespace. Used with <code>Name</code> and <code>Path</code> to determine the pattern for storing the artifact.</p>
+   * Only used when `Type` is `S3`. The value to use for the namespace. Used with `Name` and `Path` to determine the pattern for storing the artifact.
+   *
    * @public
    */
   NamespaceType?: string | undefined;
 
   /**
-   * <p>Whether the name specified in the buildspec file overrides the artifact name.</p>
+   * Whether the name specified in the buildspec file overrides the artifact name.
+   *
    * @public
    */
   OverrideArtifactName?: boolean | undefined;
 
   /**
-   * <p>Only used when <code>Type</code> is <code>S3</code>. The type of output artifact to create.</p>
+   * Only used when `Type` is `S3`. The type of output artifact to create.
+   *
    * @public
    */
   Packaging?: string | undefined;
 
   /**
-   * <p>Only used when <code>Type</code> is <code>S3</code>. The path to the artifact. Used with <code>Name</code> and <code>NamespaceType</code> to determine the pattern for storing the artifact.</p>
+   * Only used when `Type` is `S3`. The path to the artifact. Used with `Name` and `NamespaceType` to determine the pattern for storing the artifact.
+   *
    * @public
    */
   Path?: string | undefined;
 
   /**
-   * <p>The type of build artifact.</p>
+   * The type of build artifact.
+   *
    * @public
    */
   Type?: string | undefined;
 }
 
 /**
- * <p>Information about an environment variable that is available to builds for the build project.</p>
+ * Information about an environment variable that is available to builds for the build project.
+ *
  * @public
  */
 export interface AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails {
   /**
-   * <p>The name of the environment variable.</p>
+   * The name of the environment variable.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The type of environment variable.</p>
+   * The type of environment variable.
+   *
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p>The value of the environment variable.</p>
+   * The value of the environment variable.
+   *
    * @public
    */
   Value?: string | undefined;
 }
 
 /**
- * <p>The credentials for access to a private registry.</p>
+ * The credentials for access to a private registry.
+ *
  * @public
  */
 export interface AwsCodeBuildProjectEnvironmentRegistryCredential {
   /**
-   * <p>The ARN or name of credentials created using Secrets Manager.</p>
-   *          <note>
-   *             <p>The credential can use the name of the credentials only if they exist in your current
-   *             Amazon Web Services Region. </p>
-   *          </note>
+   * The ARN or name of credentials created using Secrets Manager.
+   *
+   * > **Note:** The credential can use the name of the credentials only if they exist in your current Amazon Web Services Region.
+   *
    * @public
    */
   Credential?: string | undefined;
 
   /**
-   * <p>The service that created the credentials to access a private Docker registry.</p>
-   *          <p>The valid value,<code> SECRETS_MANAGER</code>, is for Secrets Manager.</p>
+   * The service that created the credentials to access a private Docker registry.
+   *
+   * The valid value,`SECRETS_MANAGER`, is for Secrets Manager.
+   *
    * @public
    */
   CredentialProvider?: string | undefined;
 }
 
 /**
- * <p>Information about the build environment for this build project.</p>
+ * Information about the build environment for this build project.
+ *
  * @public
  */
 export interface AwsCodeBuildProjectEnvironment {
   /**
-   * <p>The certificate to use with this build project.</p>
+   * The certificate to use with this build project.
+   *
    * @public
    */
   Certificate?: string | undefined;
 
   /**
-   * <p>A set of environment variables to make available to builds for the build project.</p>
+   * A set of environment variables to make available to builds for the build project.
+   *
    * @public
    */
   EnvironmentVariables?: AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails[] | undefined;
 
   /**
-   * <p>Whether to allow the Docker daemon to run inside a Docker container. Set to <code>true</code> if the build project is used to build Docker images.</p>
+   * Whether to allow the Docker daemon to run inside a Docker container. Set to `true` if the build project is used to build Docker images.
+   *
    * @public
    */
   PrivilegedMode?: boolean | undefined;
 
   /**
-   * <p>The type of credentials CodeBuild uses to pull images in your build.</p>
-   *          <p>Valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CODEBUILD</code> specifies that CodeBuild uses its own credentials. This
-   *                requires that you modify your ECR repository policy to trust the CodeBuild
-   *                service principal.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SERVICE_ROLE</code> specifies that CodeBuild uses your build project's
-   *                service role.</p>
-   *             </li>
-   *          </ul>
-   *          <p>When you use a cross-account or private registry image, you must use
-   *             <code>SERVICE_ROLE</code> credentials. When you use an CodeBuild curated image, you
-   *          must use <code>CODEBUILD</code> credentials.</p>
+   * The type of credentials CodeBuild uses to pull images in your build.
+   *
+   * Valid values:
+   *
+   * - `CODEBUILD` specifies that CodeBuild uses its own credentials. This requires that you modify your ECR repository policy to trust the CodeBuild service principal.
+   * - `SERVICE_ROLE` specifies that CodeBuild uses your build project's service role.
+   *
+   * When you use a cross-account or private registry image, you must use `SERVICE_ROLE` credentials. When you use an CodeBuild curated image, you must use `CODEBUILD` credentials.
+   *
    * @public
    */
   ImagePullCredentialsType?: string | undefined;
 
   /**
-   * <p>The credentials for access to a private registry.</p>
+   * The credentials for access to a private registry.
+   *
    * @public
    */
   RegistryCredential?: AwsCodeBuildProjectEnvironmentRegistryCredential | undefined;
 
   /**
-   * <p>The type of build environment to use for related builds.</p>
-   *          <p>The environment type <code>ARM_CONTAINER</code> is available only in Regions US East (N.
-   *          Virginia), US East (Ohio), US West (Oregon), Europe (Ireland), Asia Pacific (Mumbai), Asia
-   *          Pacific (Tokyo), Asia Pacific (Sydney), and Europe (Frankfurt).</p>
-   *          <p>The environment type <code>LINUX_CONTAINER</code> with compute type
-   *          build.general1.2xlarge is available only in Regions US East (N. Virginia), US East (N.
-   *          Virginia), US West (Oregon), Canada (Central), Europe (Ireland), Europe (London), Europe
-   *          (Frankfurt), Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Singapore), Asia
-   *          Pacific (Sydney), China (Beijing), and China (Ningxia).</p>
-   *          <p>The environment type <code>LINUX_GPU_CONTAINER</code> is available only in Regions US
-   *          East (N. Virginia), US East (N. Virginia), US West (Oregon), Canada (Central), Europe
-   *          (Ireland), Europe (London), Europe (Frankfurt), Asia Pacific (Tokyo), Asia Pacific (Seoul),
-   *          Asia Pacific (Singapore), Asia Pacific (Sydney), China (Beijing), and China
-   *          (Ningxia).</p>
-   *          <p>Valid values: <code>WINDOWS_CONTAINER</code> | <code>LINUX_CONTAINER</code> |
-   *             <code>LINUX_GPU_CONTAINER</code> | <code>ARM_CONTAINER</code>
-   *          </p>
+   * The type of build environment to use for related builds.
+   *
+   * The environment type `ARM_CONTAINER` is available only in Regions US East (N. Virginia), US East (Ohio), US West (Oregon), Europe (Ireland), Asia Pacific (Mumbai), Asia Pacific (Tokyo), Asia Pacific (Sydney), and Europe (Frankfurt).
+   *
+   * The environment type `LINUX_CONTAINER` with compute type build.general1.2xlarge is available only in Regions US East (N. Virginia), US East (N. Virginia), US West (Oregon), Canada (Central), Europe (Ireland), Europe (London), Europe (Frankfurt), Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Singapore), Asia Pacific (Sydney), China (Beijing), and China (Ningxia).
+   *
+   * The environment type `LINUX_GPU_CONTAINER` is available only in Regions US East (N. Virginia), US East (N. Virginia), US West (Oregon), Canada (Central), Europe (Ireland), Europe (London), Europe (Frankfurt), Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Singapore), Asia Pacific (Sydney), China (Beijing), and China (Ningxia).
+   *
+   * Valid values: `WINDOWS_CONTAINER` | `LINUX_CONTAINER` | `LINUX_GPU_CONTAINER` | `ARM_CONTAINER`
+   *
    * @public
    */
   Type?: string | undefined;
 }
 
 /**
- * <p>Information about CloudWatch Logs for the build project.</p>
+ * Information about CloudWatch Logs for the build project.
+ *
  * @public
  */
 export interface AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails {
   /**
-   * <p>The group name of the logs in CloudWatch Logs.</p>
+   * The group name of the logs in CloudWatch Logs.
+   *
    * @public
    */
   GroupName?: string | undefined;
 
   /**
-   * <p>The current status of the logs in CloudWatch Logs for a build project.</p>
+   * The current status of the logs in CloudWatch Logs for a build project.
+   *
    * @public
    */
   Status?: string | undefined;
 
   /**
-   * <p>The prefix of the stream name of the CloudWatch Logs.</p>
+   * The prefix of the stream name of the CloudWatch Logs.
+   *
    * @public
    */
   StreamName?: string | undefined;
 }
 
 /**
- * <p>Information about logs built to an S3 bucket for a build project.</p>
+ * Information about logs built to an S3 bucket for a build project.
+ *
  * @public
  */
 export interface AwsCodeBuildProjectLogsConfigS3LogsDetails {
   /**
-   * <p>Whether to disable encryption of the S3 build log output.</p>
+   * Whether to disable encryption of the S3 build log output.
+   *
    * @public
    */
   EncryptionDisabled?: boolean | undefined;
 
   /**
-   * <p>The ARN of the S3 bucket and the path prefix for S3 logs.</p>
+   * The ARN of the S3 bucket and the path prefix for S3 logs.
+   *
    * @public
    */
   Location?: string | undefined;
 
   /**
-   * <p>The current status of the S3 build logs.</p>
+   * The current status of the S3 build logs.
+   *
    * @public
    */
   Status?: string | undefined;
 }
 
 /**
- * <p>Information about logs for the build project.</p>
+ * Information about logs for the build project.
+ *
  * @public
  */
 export interface AwsCodeBuildProjectLogsConfigDetails {
   /**
-   * <p>Information about CloudWatch Logs for the build project.</p>
+   * Information about CloudWatch Logs for the build project.
+   *
    * @public
    */
   CloudWatchLogs?: AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails | undefined;
 
   /**
-   * <p>Information about logs built to an S3 bucket for a build project.</p>
+   * Information about logs built to an S3 bucket for a build project.
+   *
    * @public
    */
   S3Logs?: AwsCodeBuildProjectLogsConfigS3LogsDetails | undefined;
 }
 
 /**
- * <p>Information about the build input source code for this build project.</p>
+ * Information about the build input source code for this build project.
+ *
  * @public
  */
 export interface AwsCodeBuildProjectSource {
   /**
-   * <p>The type of repository that contains the source code to be built. Valid values
-   *          are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BITBUCKET</code> - The source code is in a Bitbucket repository.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CODECOMMIT</code> - The source code is in an CodeCommit
-   *                repository.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CODEPIPELINE</code> - The source code settings are specified in the source
-   *                action of a pipeline in CodePipeline.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>GITHUB</code> - The source code is in a GitHub repository.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>GITHUB_ENTERPRISE</code> - The source code is in a GitHub Enterprise
-   *                repository.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NO_SOURCE</code> - The project does not have input source code.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>S3</code> - The source code is in an S3 input bucket. </p>
-   *             </li>
-   *          </ul>
+   * The type of repository that contains the source code to be built. Valid values are:
+   *
+   * - `BITBUCKET` - The source code is in a Bitbucket repository.
+   * - `CODECOMMIT` - The source code is in an CodeCommit repository.
+   * - `CODEPIPELINE` - The source code settings are specified in the source action of a pipeline in CodePipeline.
+   * - `GITHUB` - The source code is in a GitHub repository.
+   * - `GITHUB_ENTERPRISE` - The source code is in a GitHub Enterprise repository.
+   * - `NO_SOURCE` - The project does not have input source code.
+   * - `S3` - The source code is in an S3 input bucket.
+   *
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p>Information about the location of the source code to be built.</p>
-   *          <p>Valid values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>For source code settings that are specified in the source action of a pipeline in
-   *                CodePipeline, location should not be specified. If it is specified, CodePipeline ignores it. This is because CodePipeline uses the settings in a
-   *                pipeline's source action instead of this value.</p>
-   *             </li>
-   *             <li>
-   *                <p>For source code in an CodeCommit repository, the HTTPS clone URL to the
-   *                repository that contains the source code and the build spec file (for example,
-   *                   <code>https://git-codecommit.region-ID.amazonaws.com/v1/repos/repo-name</code>
-   *                ).</p>
-   *             </li>
-   *             <li>
-   *                <p>For source code in an S3 input bucket, one of the following.</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>The path to the ZIP file that contains the source code (for example,
-   *                         <code>bucket-name/path/to/object-name.zip</code>).</p>
-   *                   </li>
-   *                   <li>
-   *                      <p> The path to the folder that contains the source code (for example,
-   *                         <code>bucket-name/path/to/source-code/folder/</code>).</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>For source code in a GitHub repository, the HTTPS clone URL to the repository that
-   *                contains the source and the build spec file.</p>
-   *             </li>
-   *             <li>
-   *                <p>For source code in a Bitbucket repository, the HTTPS clone URL to the repository
-   *                that contains the source and the build spec file. </p>
-   *             </li>
-   *          </ul>
+   * Information about the location of the source code to be built.
+   *
+   * Valid values include:
+   *
+   * - For source code settings that are specified in the source action of a pipeline in CodePipeline, location should not be specified. If it is specified, CodePipeline ignores it. This is because CodePipeline uses the settings in a pipeline's source action instead of this value.
+   * - For source code in an CodeCommit repository, the HTTPS clone URL to the repository that contains the source code and the build spec file (for example, `https://git-codecommit.region-ID.amazonaws.com/v1/repos/repo-name` ).
+   * - For source code in an S3 input bucket, one of the following.
+   *
+   *   - The path to the ZIP file that contains the source code (for example, `bucket-name/path/to/object-name.zip`).
+   *   - The path to the folder that contains the source code (for example, `bucket-name/path/to/source-code/folder/`).
+   * - For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec file.
+   * - For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec file.
+   *
    * @public
    */
   Location?: string | undefined;
 
   /**
-   * <p>Information about the Git clone depth for the build project.</p>
+   * Information about the Git clone depth for the build project.
+   *
    * @public
    */
   GitCloneDepth?: number | undefined;
 
   /**
-   * <p>Whether to ignore SSL warnings while connecting to the project source code.</p>
+   * Whether to ignore SSL warnings while connecting to the project source code.
+   *
    * @public
    */
   InsecureSsl?: boolean | undefined;
 }
 
 /**
- * <p>Information about the VPC configuration that CodeBuild accesses.</p>
+ * Information about the VPC configuration that CodeBuild accesses.
+ *
  * @public
  */
 export interface AwsCodeBuildProjectVpcConfig {
   /**
-   * <p>The ID of the VPC.</p>
+   * The ID of the VPC.
+   *
    * @public
    */
   VpcId?: string | undefined;
 
   /**
-   * <p>A list of one or more subnet IDs in your VPC.</p>
+   * A list of one or more subnet IDs in your VPC.
+   *
    * @public
    */
   Subnets?: string[] | undefined;
 
   /**
-   * <p>A list of one or more security group IDs in your VPC.</p>
+   * A list of one or more security group IDs in your VPC.
+   *
    * @public
    */
   SecurityGroupIds?: string[] | undefined;
 }
 
 /**
- * <p>Information about an CodeBuild project.</p>
+ * Information about an CodeBuild project.
+ *
  * @public
  */
 export interface AwsCodeBuildProjectDetails {
   /**
-   * <p>The KMS key used to encrypt the
-   *          build output artifacts.</p>
-   *          <p>You can specify either the ARN of the KMS key or, if available, the
-   *          KMS key alias (using the format alias/alias-name). </p>
+   * The KMS key used to encrypt the build output artifacts.
+   *
+   * You can specify either the ARN of the KMS key or, if available, the KMS key alias (using the format alias/alias-name).
+   *
    * @public
    */
   EncryptionKey?: string | undefined;
 
   /**
-   * <p>Information about the build artifacts for the CodeBuild project.</p>
+   * Information about the build artifacts for the CodeBuild project.
+   *
    * @public
    */
   Artifacts?: AwsCodeBuildProjectArtifactsDetails[] | undefined;
 
   /**
-   * <p>Information about the build environment for this build project.</p>
+   * Information about the build environment for this build project.
+   *
    * @public
    */
   Environment?: AwsCodeBuildProjectEnvironment | undefined;
 
   /**
-   * <p>The name of the build project.</p>
+   * The name of the build project.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>Information about the build input source code for this build project.</p>
+   * Information about the build input source code for this build project.
+   *
    * @public
    */
   Source?: AwsCodeBuildProjectSource | undefined;
 
   /**
-   * <p>The ARN of the IAM role that enables CodeBuild to interact with dependent Amazon Web Services
-   *          services on behalf of the Amazon Web Services account.</p>
+   * The ARN of the IAM role that enables CodeBuild to interact with dependent Amazon Web Services services on behalf of the Amazon Web Services account.
+   *
    * @public
    */
   ServiceRole?: string | undefined;
 
   /**
-   * <p>Information about logs for the build project.</p>
+   * Information about logs for the build project.
+   *
    * @public
    */
   LogsConfig?: AwsCodeBuildProjectLogsConfigDetails | undefined;
 
   /**
-   * <p>Information about the VPC configuration that CodeBuild accesses.</p>
+   * Information about the VPC configuration that CodeBuild accesses.
+   *
    * @public
    */
   VpcConfig?: AwsCodeBuildProjectVpcConfig | undefined;
 
   /**
-   * <p>Information about the secondary artifacts for the CodeBuild project.</p>
+   * Information about the secondary artifacts for the CodeBuild project.
+   *
    * @public
    */
   SecondaryArtifacts?: AwsCodeBuildProjectArtifactsDetails[] | undefined;
 }
 
 /**
- * <p>
- *             Provides details about an Database Migration Service (DMS) endpoint. An endpoint provides connection, data
- *             store type, and location information about your data store.
- *         </p>
+ * Provides details about an Database Migration Service (DMS) endpoint. An endpoint provides connection, data store type, and location information about your data store.
+ *
  * @public
  */
 export interface AwsDmsEndpointDetails {
   /**
-   * <p>
-   *             The Amazon Resource Name (ARN) for the SSL certificate that encrypts connections between the DMS endpoint and the
-   *             replication instance.
-   *         </p>
+   * The Amazon Resource Name (ARN) for the SSL certificate that encrypts connections between the DMS endpoint and the replication instance.
+   *
    * @public
    */
   CertificateArn?: string | undefined;
 
   /**
-   * <p>
-   *             The name of the endpoint database.</p>
+   * The name of the endpoint database.
+   *
    * @public
    */
   DatabaseName?: string | undefined;
 
   /**
-   * <p>
-   *             The Amazon Resource Name (ARN) of the endpoint.
-   *         </p>
+   * The Amazon Resource Name (ARN) of the endpoint.
+   *
    * @public
    */
   EndpointArn?: string | undefined;
 
   /**
-   * <p>
-   *             The database endpoint identifier.
-   *         </p>
+   * The database endpoint identifier.
+   *
    * @public
    */
   EndpointIdentifier?: string | undefined;
 
   /**
-   * <p>
-   *             The type of endpoint. Valid values are source and target.
-   *         </p>
+   * The type of endpoint. Valid values are source and target.
+   *
    * @public
    */
   EndpointType?: string | undefined;
 
   /**
-   * <p>
-   *             The type of engine for the endpoint, depending on the <code>EndpointType</code> value.
-   *         </p>
+   * The type of engine for the endpoint, depending on the `EndpointType` value.
+   *
    * @public
    */
   EngineName?: string | undefined;
 
   /**
-   * <p>
-   *             A value that can be used for cross-account validation.
-   *         </p>
+   * A value that can be used for cross-account validation.
+   *
    * @public
    */
   ExternalId?: string | undefined;
 
   /**
-   * <p>
-   *             Additional attributes associated with the connection.
-   *         </p>
+   * Additional attributes associated with the connection.
+   *
    * @public
    */
   ExtraConnectionAttributes?: string | undefined;
 
   /**
-   * <p>
-   *             An DMS key identifier that is used to encrypt the connection parameters for the endpoint.
-   *             If you don't specify a value for the <code>KmsKeyId</code> parameter, then DMS uses your default
-   *             encryption key. KMS creates the default encryption key for your Amazon Web Services account. Your
-   *             Amazon Web Services account has a different default encryption key for each Amazon Web Services Region.</p>
+   * An DMS key identifier that is used to encrypt the connection parameters for the endpoint. If you don't specify a value for the `KmsKeyId` parameter, then DMS uses your default encryption key. KMS creates the default encryption key for your Amazon Web Services account. Your Amazon Web Services account has a different default encryption key for each Amazon Web Services Region.
+   *
    * @public
    */
   KmsKeyId?: string | undefined;
 
   /**
-   * <p>
-   *             The port used to access the endpoint.
-   *         </p>
+   * The port used to access the endpoint.
+   *
    * @public
    */
   Port?: number | undefined;
 
   /**
-   * <p>
-   *             The name of the server where the endpoint database resides.</p>
+   * The name of the server where the endpoint database resides.
+   *
    * @public
    */
   ServerName?: string | undefined;
 
   /**
-   * <p>
-   *             The SSL mode used to connect to the endpoint. The default is none.</p>
+   * The SSL mode used to connect to the endpoint. The default is none.
+   *
    * @public
    */
   SslMode?: string | undefined;
 
   /**
-   * <p>
-   *             The user name to be used to log in to the endpoint database.
-   *         </p>
+   * The user name to be used to log in to the endpoint database.
+   *
    * @public
    */
   Username?: string | undefined;
 }
 
 /**
- * <p>
- *             Provides details about the replication subnet group.</p>
+ * Provides details about the replication subnet group.
+ *
  * @public
  */
 export interface AwsDmsReplicationInstanceReplicationSubnetGroupDetails {
   /**
-   * <p>
-   *             The identifier of the replication subnet group.
-   *         </p>
+   * The identifier of the replication subnet group.
+   *
    * @public
    */
   ReplicationSubnetGroupIdentifier?: string | undefined;
 }
 
 /**
- * <p>
- *             Provides details about the virtual private cloud (VPC) security group that’s associated with the replication instance.</p>
+ * Provides details about the virtual private cloud (VPC) security group that’s associated with the replication instance.
+ *
  * @public
  */
 export interface AwsDmsReplicationInstanceVpcSecurityGroupsDetails {
   /**
-   * <p>
-   *             The identifier of the VPC security group that’s associated with the replication instance.
-   *         </p>
+   * The identifier of the VPC security group that’s associated with the replication instance.
+   *
    * @public
    */
   VpcSecurityGroupId?: string | undefined;
 }
 
 /**
- * <p>
- *             Provides details about an Database Migration Service (DMS) replication instance. DMS uses a replication instance to connect to
- *             your source data store, read the source data, and format the data for consumption by the target data store.
- *         </p>
+ * Provides details about an Database Migration Service (DMS) replication instance. DMS uses a replication instance to connect to your source data store, read the source data, and format the data for consumption by the target data store.
+ *
  * @public
  */
 export interface AwsDmsReplicationInstanceDetails {
   /**
-   * <p>
-   *             The amount of storage (in gigabytes) that is allocated for the replication instance.
-   *         </p>
+   * The amount of storage (in gigabytes) that is allocated for the replication instance.
+   *
    * @public
    */
   AllocatedStorage?: number | undefined;
 
   /**
-   * <p>
-   *         Indicates whether minor engine upgrades are applied automatically to the replication instance during the maintenance
-   *         window.
-   *         </p>
+   * Indicates whether minor engine upgrades are applied automatically to the replication instance during the maintenance window.
+   *
    * @public
    */
   AutoMinorVersionUpgrade?: boolean | undefined;
 
   /**
-   * <p>
-   *             The Availability Zone that the replication instance is created in. The default value is a random, system-chosen
-   *             Availability Zone in the endpoint's Amazon Web Services Region, such as <code>us-east-1d</code>.</p>
+   * The Availability Zone that the replication instance is created in. The default value is a random, system-chosen Availability Zone in the endpoint's Amazon Web Services Region, such as `us-east-1d`.
+   *
    * @public
    */
   AvailabilityZone?: string | undefined;
 
   /**
-   * <p>
-   *             The engine version number of the replication instance. If an engine version number is not specified when a
-   *             replication instance is created, the default is the latest engine version available.
-   *         </p>
+   * The engine version number of the replication instance. If an engine version number is not specified when a replication instance is created, the default is the latest engine version available.
+   *
    * @public
    */
   EngineVersion?: string | undefined;
 
   /**
-   * <p>
-   *             An KMS key identifier that is used to encrypt the data on the replication instance. If you don't
-   *             specify a value for the <code>KmsKeyId</code> parameter, DMS uses your default encryption key.
-   *             KMS creates the default encryption key for your Amazon Web Services account. Your
-   *             Amazon Web Services account has a different default encryption key for each Amazon Web Services Region.</p>
+   * An KMS key identifier that is used to encrypt the data on the replication instance. If you don't specify a value for the `KmsKeyId` parameter, DMS uses your default encryption key. KMS creates the default encryption key for your Amazon Web Services account. Your Amazon Web Services account has a different default encryption key for each Amazon Web Services Region.
+   *
    * @public
    */
   KmsKeyId?: string | undefined;
 
   /**
-   * <p>
-   *             Specifies whether the replication instance is deployed across multiple Availability Zones (AZs). You can't set the
-   *             <code>AvailabilityZone</code> parameter if the <code>MultiAZ</code> parameter is set to <code>true</code>.</p>
+   * Specifies whether the replication instance is deployed across multiple Availability Zones (AZs). You can't set the `AvailabilityZone` parameter if the `MultiAZ` parameter is set to `true`.
+   *
    * @public
    */
   MultiAZ?: boolean | undefined;
 
   /**
-   * <p>
-   *             The maintenance window times for the replication instance. Upgrades to the replication instance are performed during
-   *             this time.</p>
+   * The maintenance window times for the replication instance. Upgrades to the replication instance are performed during this time.
+   *
    * @public
    */
   PreferredMaintenanceWindow?: string | undefined;
 
   /**
-   * <p>
-   *             Specifies the accessibility options for the replication instance. A value of <code>true</code> represents an instance
-   *             with a public IP address. A value of <code>false</code> represents an instance with a private IP address. The default
-   *             value is <code>true</code>.</p>
+   * Specifies the accessibility options for the replication instance. A value of `true` represents an instance with a public IP address. A value of `false` represents an instance with a private IP address. The default value is `true`.
+   *
    * @public
    */
   PubliclyAccessible?: boolean | undefined;
 
   /**
-   * <p>
-   *             The compute and memory capacity of the replication instance as defined for the specified replication instance class. </p>
+   * The compute and memory capacity of the replication instance as defined for the specified replication instance class.
+   *
    * @public
    */
   ReplicationInstanceClass?: string | undefined;
 
   /**
-   * <p>
-   *             The replication instance identifier.</p>
+   * The replication instance identifier.
+   *
    * @public
    */
   ReplicationInstanceIdentifier?: string | undefined;
 
   /**
-   * <p>
-   *             The subnet group for the replication instance.</p>
+   * The subnet group for the replication instance.
+   *
    * @public
    */
   ReplicationSubnetGroup?: AwsDmsReplicationInstanceReplicationSubnetGroupDetails | undefined;
 
   /**
-   * <p>
-   *             The virtual private cloud (VPC) security group for the replication instance.</p>
+   * The virtual private cloud (VPC) security group for the replication instance.
+   *
    * @public
    */
   VpcSecurityGroups?: AwsDmsReplicationInstanceVpcSecurityGroupsDetails[] | undefined;
 }
 
 /**
- * <p>
- *             Provides details about an Database Migration Service (DMS) replication task. A replication task moves a set of data from the
- *             source endpoint to the target endpoint.</p>
+ * Provides details about an Database Migration Service (DMS) replication task. A replication task moves a set of data from the source endpoint to the target endpoint.
+ *
  * @public
  */
 export interface AwsDmsReplicationTaskDetails {
   /**
-   * <p>
-   *             Indicates when you want a change data capture (CDC) operation to start. <code>CCdcStartPosition</code> or
-   *             <code>CCdcStartTime</code> specifies when you want a CDC operation to start. Only a value for one of these fields
-   *             is included.</p>
+   * Indicates when you want a change data capture (CDC) operation to start. `CCdcStartPosition` or `CCdcStartTime` specifies when you want a CDC operation to start. Only a value for one of these fields is included.
+   *
    * @public
    */
   CdcStartPosition?: string | undefined;
 
   /**
-   * <p>
-   *             Indicates the start time for a CDC operation. <code>CdcStartPosition</code> or <code>CCdcStartTime</code> specifies
-   *             when you want a CDC operation to start. Only a value for one of these fields is included.</p>
+   * Indicates the start time for a CDC operation. `CdcStartPosition` or `CCdcStartTime` specifies when you want a CDC operation to start. Only a value for one of these fields is included.
+   *
    * @public
    */
   CdcStartTime?: string | undefined;
 
   /**
-   * <p>
-   *             Indicates when you want a CDC operation to stop. The value can be either server time or commit time.</p>
+   * Indicates when you want a CDC operation to stop. The value can be either server time or commit time.
+   *
    * @public
    */
   CdcStopPosition?: string | undefined;
 
   /**
-   * <p>
-   *             The migration type.
-   *         </p>
+   * The migration type.
+   *
    * @public
    */
   MigrationType?: string | undefined;
 
   /**
-   * <p>
-   *             The identifier of the replication task.</p>
+   * The identifier of the replication task.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>
-   *             A display name for the resource identifier at the end of the <code>EndpointArn</code> response parameter.
-   *             If you don't specify a <code>ResourceIdentifier</code> value, DMS generates a default identifier value for
-   *             the end of <code>EndpointArn</code>.</p>
+   * A display name for the resource identifier at the end of the `EndpointArn` response parameter. If you don't specify a `ResourceIdentifier` value, DMS generates a default identifier value for the end of `EndpointArn`.
+   *
    * @public
    */
   ResourceIdentifier?: string | undefined;
 
   /**
-   * <p>
-   *             The Amazon Resource Name (ARN) of a replication instance.
-   *         </p>
+   * The Amazon Resource Name (ARN) of a replication instance.
+   *
    * @public
    */
   ReplicationInstanceArn?: string | undefined;
 
   /**
-   * <p>
-   *             The user-defined replication task identifier or name.</p>
+   * The user-defined replication task identifier or name.
+   *
    * @public
    */
   ReplicationTaskIdentifier?: string | undefined;
 
   /**
-   * <p>
-   *             The settings for the replication task.</p>
+   * The settings for the replication task.
+   *
    * @public
    */
   ReplicationTaskSettings?: string | undefined;
 
   /**
-   * <p>
-   *             The ARN of the source endpoint.</p>
+   * The ARN of the source endpoint.
+   *
    * @public
    */
   SourceEndpointArn?: string | undefined;
 
   /**
-   * <p>
-   *             The table mappings for the replication task, in JSON format.</p>
+   * The table mappings for the replication task, in JSON format.
+   *
    * @public
    */
   TableMappings?: string | undefined;
 
   /**
-   * <p>
-   *             The ARN of the target endpoint.</p>
+   * The ARN of the target endpoint.
+   *
    * @public
    */
   TargetEndpointArn?: string | undefined;
 
   /**
-   * <p>
-   *             Supplemental information that the task requires to migrate the data for certain source and target endpoints.</p>
+   * Supplemental information that the task requires to migrate the data for certain source and target endpoints.
+   *
    * @public
    */
   TaskData?: string | undefined;
 }
 
 /**
- * <p>Contains a definition of an attribute for the table.</p>
+ * Contains a definition of an attribute for the table.
+ *
  * @public
  */
 export interface AwsDynamoDbTableAttributeDefinition {
   /**
-   * <p>The name of the attribute.</p>
+   * The name of the attribute.
+   *
    * @public
    */
   AttributeName?: string | undefined;
 
   /**
-   * <p>The type of the attribute.</p>
+   * The type of the attribute.
+   *
    * @public
    */
   AttributeType?: string | undefined;
 }
 
 /**
- * <p>Provides information about the billing for read/write capacity on the table.</p>
+ * Provides information about the billing for read/write capacity on the table.
+ *
  * @public
  */
 export interface AwsDynamoDbTableBillingModeSummary {
   /**
-   * <p>The method used to charge for read and write throughput and to manage capacity.</p>
+   * The method used to charge for read and write throughput and to manage capacity.
+   *
    * @public
    */
   BillingMode?: string | undefined;
 
   /**
-   * <p>If the billing mode is <code>PAY_PER_REQUEST</code>, indicates when the billing mode was
-   *          set to that value.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * If the billing mode is `PAY_PER_REQUEST`, indicates when the billing mode was set to that value.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   LastUpdateToPayPerRequestDateTime?: string | undefined;
 }
 
 /**
- * <p>A component of the key schema for the DynamoDB table, a global secondary index, or a
- *          local secondary index.</p>
+ * A component of the key schema for the DynamoDB table, a global secondary index, or a local secondary index.
+ *
  * @public
  */
 export interface AwsDynamoDbTableKeySchema {
   /**
-   * <p>The name of the key schema attribute.</p>
+   * The name of the key schema attribute.
+   *
    * @public
    */
   AttributeName?: string | undefined;
 
   /**
-   * <p>The type of key used for the key schema attribute. Valid values are <code>HASH</code> or <code>RANGE</code>.</p>
+   * The type of key used for the key schema attribute. Valid values are `HASH` or `RANGE`.
+   *
    * @public
    */
   KeyType?: string | undefined;
 }
 
 /**
- * <p>For global and local secondary indexes, identifies the attributes that are copied from
- *          the table into the index.</p>
+ * For global and local secondary indexes, identifies the attributes that are copied from the table into the index.
+ *
  * @public
  */
 export interface AwsDynamoDbTableProjection {
   /**
-   * <p>The nonkey attributes that are projected into the index. For each attribute, provide the
-   *          attribute name.</p>
+   * The nonkey attributes that are projected into the index. For each attribute, provide the attribute name.
+   *
    * @public
    */
   NonKeyAttributes?: string[] | undefined;
 
   /**
-   * <p>The types of attributes that are projected into the index. Valid values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ALL</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INCLUDE</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>KEYS_ONLY</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The types of attributes that are projected into the index. Valid values are as follows:
+   *
+   * - `ALL`
+   * - `INCLUDE`
+   * - `KEYS_ONLY`
+   *
    * @public
    */
   ProjectionType?: string | undefined;
 }
 
 /**
- * <p>Information about the provisioned throughput for the table or for a global secondary
- *          index.</p>
+ * Information about the provisioned throughput for the table or for a global secondary index.
+ *
  * @public
  */
 export interface AwsDynamoDbTableProvisionedThroughput {
   /**
-   * <p>Indicates when the provisioned throughput was last decreased.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * Indicates when the provisioned throughput was last decreased.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   LastDecreaseDateTime?: string | undefined;
 
   /**
-   * <p>Indicates when the provisioned throughput was last increased.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * Indicates when the provisioned throughput was last increased.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   LastIncreaseDateTime?: string | undefined;
 
   /**
-   * <p>The number of times during the current UTC calendar day that the provisioned throughput
-   *          was decreased.</p>
+   * The number of times during the current UTC calendar day that the provisioned throughput was decreased.
+   *
    * @public
    */
   NumberOfDecreasesToday?: number | undefined;
 
   /**
-   * <p>The maximum number of strongly consistent reads consumed per second before DynamoDB
-   *          returns a <code>ThrottlingException</code>.</p>
+   * The maximum number of strongly consistent reads consumed per second before DynamoDB returns a `ThrottlingException`.
+   *
    * @public
    */
   ReadCapacityUnits?: number | undefined;
 
   /**
-   * <p>The maximum number of writes consumed per second before DynamoDB returns a
-   *             <code>ThrottlingException</code>.</p>
+   * The maximum number of writes consumed per second before DynamoDB returns a `ThrottlingException`.
+   *
    * @public
    */
   WriteCapacityUnits?: number | undefined;
 }
 
 /**
- * <p>Information abut a global secondary index for the table.</p>
+ * Information abut a global secondary index for the table.
+ *
  * @public
  */
 export interface AwsDynamoDbTableGlobalSecondaryIndex {
   /**
-   * <p>Whether the index is currently backfilling.</p>
+   * Whether the index is currently backfilling.
+   *
    * @public
    */
   Backfilling?: boolean | undefined;
 
   /**
-   * <p>The ARN of the index.</p>
+   * The ARN of the index.
+   *
    * @public
    */
   IndexArn?: string | undefined;
 
   /**
-   * <p>The name of the index.</p>
+   * The name of the index.
+   *
    * @public
    */
   IndexName?: string | undefined;
 
   /**
-   * <p>The total size in bytes of the index.</p>
+   * The total size in bytes of the index.
+   *
    * @public
    */
   IndexSizeBytes?: number | undefined;
 
   /**
-   * <p>The current status of the index.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ACTIVE</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATING</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETING</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATING</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The current status of the index.
+   *
+   * - `ACTIVE`
+   * - `CREATING`
+   * - `DELETING`
+   * - `UPDATING`
+   *
    * @public
    */
   IndexStatus?: string | undefined;
 
   /**
-   * <p>The number of items in the index.</p>
+   * The number of items in the index.
+   *
    * @public
    */
   ItemCount?: number | undefined;
 
   /**
-   * <p>The key schema for the index.</p>
+   * The key schema for the index.
+   *
    * @public
    */
   KeySchema?: AwsDynamoDbTableKeySchema[] | undefined;
 
   /**
-   * <p>Attributes that are copied from the table into an index.</p>
+   * Attributes that are copied from the table into an index.
+   *
    * @public
    */
   Projection?: AwsDynamoDbTableProjection | undefined;
 
   /**
-   * <p>Information about the provisioned throughput settings for the indexes.</p>
+   * Information about the provisioned throughput settings for the indexes.
+   *
    * @public
    */
   ProvisionedThroughput?: AwsDynamoDbTableProvisionedThroughput | undefined;
 }
 
 /**
- * <p>Information about a local secondary index for a DynamoDB table.</p>
+ * Information about a local secondary index for a DynamoDB table.
+ *
  * @public
  */
 export interface AwsDynamoDbTableLocalSecondaryIndex {
   /**
-   * <p>The ARN of the index.</p>
+   * The ARN of the index.
+   *
    * @public
    */
   IndexArn?: string | undefined;
 
   /**
-   * <p>The name of the index.</p>
+   * The name of the index.
+   *
    * @public
    */
   IndexName?: string | undefined;
 
   /**
-   * <p>The complete key schema for the index.</p>
+   * The complete key schema for the index.
+   *
    * @public
    */
   KeySchema?: AwsDynamoDbTableKeySchema[] | undefined;
 
   /**
-   * <p>Attributes that are copied from the table into the index. These are in addition to the
-   *          primary key attributes and index key attributes, which are automatically projected.</p>
+   * Attributes that are copied from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+   *
    * @public
    */
   Projection?: AwsDynamoDbTableProjection | undefined;
 }
 
 /**
- * <p>Replica-specific configuration for the provisioned throughput.</p>
+ * Replica-specific configuration for the provisioned throughput.
+ *
  * @public
  */
 export interface AwsDynamoDbTableProvisionedThroughputOverride {
   /**
-   * <p>The read capacity units for the replica.</p>
+   * The read capacity units for the replica.
+   *
    * @public
    */
   ReadCapacityUnits?: number | undefined;
 }
 
 /**
- * <p>Information about a global secondary index for a DynamoDB table replica.</p>
+ * Information about a global secondary index for a DynamoDB table replica.
+ *
  * @public
  */
 export interface AwsDynamoDbTableReplicaGlobalSecondaryIndex {
   /**
-   * <p>The name of the index.</p>
+   * The name of the index.
+   *
    * @public
    */
   IndexName?: string | undefined;
 
   /**
-   * <p>Replica-specific configuration for the provisioned throughput for the index.</p>
+   * Replica-specific configuration for the provisioned throughput for the index.
+   *
    * @public
    */
   ProvisionedThroughputOverride?: AwsDynamoDbTableProvisionedThroughputOverride | undefined;
 }
 
 /**
- * <p>Information about a replica of a DynamoDB table.</p>
+ * Information about a replica of a DynamoDB table.
+ *
  * @public
  */
 export interface AwsDynamoDbTableReplica {
   /**
-   * <p>List of global secondary indexes for the replica.</p>
+   * List of global secondary indexes for the replica.
+   *
    * @public
    */
   GlobalSecondaryIndexes?: AwsDynamoDbTableReplicaGlobalSecondaryIndex[] | undefined;
 
   /**
-   * <p>The identifier of the KMS key that will be used for KMS
-   *          encryption for the replica.</p>
+   * The identifier of the KMS key that will be used for KMS encryption for the replica.
+   *
    * @public
    */
   KmsMasterKeyId?: string | undefined;
 
   /**
-   * <p>Replica-specific configuration for the provisioned throughput.</p>
+   * Replica-specific configuration for the provisioned throughput.
+   *
    * @public
    */
   ProvisionedThroughputOverride?: AwsDynamoDbTableProvisionedThroughputOverride | undefined;
 
   /**
-   * <p>The name of the Region where the replica is located.</p>
+   * The name of the Region where the replica is located.
+   *
    * @public
    */
   RegionName?: string | undefined;
 
   /**
-   * <p>The current status of the replica. Valid values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ACTIVE</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATING</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_FAILED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETING</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATING</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The current status of the replica. Valid values are as follows:
+   *
+   * - `ACTIVE`
+   * - `CREATING`
+   * - `CREATION_FAILED`
+   * - `DELETING`
+   * - `UPDATING`
+   *
    * @public
    */
   ReplicaStatus?: string | undefined;
 
   /**
-   * <p>Detailed information about the replica status.</p>
+   * Detailed information about the replica status.
+   *
    * @public
    */
   ReplicaStatusDescription?: string | undefined;
 }
 
 /**
- * <p>Information about the restore for the table.</p>
+ * Information about the restore for the table.
+ *
  * @public
  */
 export interface AwsDynamoDbTableRestoreSummary {
   /**
-   * <p>The ARN of the source backup from which the table was restored.</p>
+   * The ARN of the source backup from which the table was restored.
+   *
    * @public
    */
   SourceBackupArn?: string | undefined;
 
   /**
-   * <p>The ARN of the source table for the backup.</p>
+   * The ARN of the source table for the backup.
+   *
    * @public
    */
   SourceTableArn?: string | undefined;
 
   /**
-   * <p>Indicates the point in time that the table was restored to.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * Indicates the point in time that the table was restored to.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   RestoreDateTime?: string | undefined;
 
   /**
-   * <p>Whether a restore is currently in progress.</p>
+   * Whether a restore is currently in progress.
+   *
    * @public
    */
   RestoreInProgress?: boolean | undefined;
 }
 
 /**
- * <p>Information about the server-side encryption for the table.</p>
+ * Information about the server-side encryption for the table.
+ *
  * @public
  */
 export interface AwsDynamoDbTableSseDescription {
   /**
-   * <p>If the key is inaccessible, the date and time when DynamoDB detected that the key was
-   *          inaccessible.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * If the key is inaccessible, the date and time when DynamoDB detected that the key was inaccessible.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   InaccessibleEncryptionDateTime?: string | undefined;
 
   /**
-   * <p>The status of the server-side encryption.</p>
+   * The status of the server-side encryption.
+   *
    * @public
    */
   Status?: string | undefined;
 
   /**
-   * <p>The type of server-side encryption.</p>
+   * The type of server-side encryption.
+   *
    * @public
    */
   SseType?: string | undefined;
 
   /**
-   * <p>The ARN of the KMS key that is used for the KMS
-   *          encryption.</p>
+   * The ARN of the KMS key that is used for the KMS encryption.
+   *
    * @public
    */
   KmsMasterKeyArn?: string | undefined;
 }
 
 /**
- * <p>The current DynamoDB Streams configuration for the table.</p>
+ * The current DynamoDB Streams configuration for the table.
+ *
  * @public
  */
 export interface AwsDynamoDbTableStreamSpecification {
   /**
-   * <p>Indicates whether DynamoDB Streams is enabled on the table.</p>
+   * Indicates whether DynamoDB Streams is enabled on the table.
+   *
    * @public
    */
   StreamEnabled?: boolean | undefined;
 
   /**
-   * <p>Determines the information that is written to the table.</p>
+   * Determines the information that is written to the table.
+   *
    * @public
    */
   StreamViewType?: string | undefined;
 }
 
 /**
- * <p>Provides details about a DynamoDB table.</p>
+ * Provides details about a DynamoDB table.
+ *
  * @public
  */
 export interface AwsDynamoDbTableDetails {
   /**
-   * <p>A list of attribute definitions for the table.</p>
+   * A list of attribute definitions for the table.
+   *
    * @public
    */
   AttributeDefinitions?: AwsDynamoDbTableAttributeDefinition[] | undefined;
 
   /**
-   * <p>Information about the billing for read/write capacity on the table.</p>
+   * Information about the billing for read/write capacity on the table.
+   *
    * @public
    */
   BillingModeSummary?: AwsDynamoDbTableBillingModeSummary | undefined;
 
   /**
-   * <p>Indicates when the table was created.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * Indicates when the table was created.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   CreationDateTime?: string | undefined;
 
   /**
-   * <p>List of global secondary indexes for the table.</p>
+   * List of global secondary indexes for the table.
+   *
    * @public
    */
   GlobalSecondaryIndexes?: AwsDynamoDbTableGlobalSecondaryIndex[] | undefined;
 
   /**
-   * <p>The version of global tables being used.</p>
+   * The version of global tables being used.
+   *
    * @public
    */
   GlobalTableVersion?: string | undefined;
 
   /**
-   * <p>The number of items in the table.</p>
+   * The number of items in the table.
+   *
    * @public
    */
   ItemCount?: number | undefined;
 
   /**
-   * <p>The primary key structure for the table.</p>
+   * The primary key structure for the table.
+   *
    * @public
    */
   KeySchema?: AwsDynamoDbTableKeySchema[] | undefined;
 
   /**
-   * <p>The ARN of the latest stream for the table.</p>
+   * The ARN of the latest stream for the table.
+   *
    * @public
    */
   LatestStreamArn?: string | undefined;
 
   /**
-   * <p>The label of the latest stream. The label is not a unique identifier.</p>
+   * The label of the latest stream. The label is not a unique identifier.
+   *
    * @public
    */
   LatestStreamLabel?: string | undefined;
 
   /**
-   * <p>The list of local secondary indexes for the table.</p>
+   * The list of local secondary indexes for the table.
+   *
    * @public
    */
   LocalSecondaryIndexes?: AwsDynamoDbTableLocalSecondaryIndex[] | undefined;
 
   /**
-   * <p>Information about the provisioned throughput for the table.</p>
+   * Information about the provisioned throughput for the table.
+   *
    * @public
    */
   ProvisionedThroughput?: AwsDynamoDbTableProvisionedThroughput | undefined;
 
   /**
-   * <p>The list of replicas of this table.</p>
+   * The list of replicas of this table.
+   *
    * @public
    */
   Replicas?: AwsDynamoDbTableReplica[] | undefined;
 
   /**
-   * <p>Information about the restore for the table.</p>
+   * Information about the restore for the table.
+   *
    * @public
    */
   RestoreSummary?: AwsDynamoDbTableRestoreSummary | undefined;
 
   /**
-   * <p>Information about the server-side encryption for the table.</p>
+   * Information about the server-side encryption for the table.
+   *
    * @public
    */
   SseDescription?: AwsDynamoDbTableSseDescription | undefined;
 
   /**
-   * <p>The current DynamoDB Streams configuration for the table.</p>
+   * The current DynamoDB Streams configuration for the table.
+   *
    * @public
    */
   StreamSpecification?: AwsDynamoDbTableStreamSpecification | undefined;
 
   /**
-   * <p>The identifier of the table.</p>
+   * The identifier of the table.
+   *
    * @public
    */
   TableId?: string | undefined;
 
   /**
-   * <p>The name of the table.</p>
+   * The name of the table.
+   *
    * @public
    */
   TableName?: string | undefined;
 
   /**
-   * <p>The total size of the table in bytes.</p>
+   * The total size of the table in bytes.
+   *
    * @public
    */
   TableSizeBytes?: number | undefined;
 
   /**
-   * <p>The current status of the table. Valid values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ACTIVE</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ARCHIVED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ARCHIVING</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATING</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETING</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATING</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The current status of the table. Valid values are as follows:
+   *
+   * - `ACTIVE`
+   * - `ARCHIVED`
+   * - `ARCHIVING`
+   * - `CREATING`
+   * - `DELETING`
+   * - `INACCESSIBLE_ENCRYPTION_CREDENTIALS`
+   * - `UPDATING`
+   *
    * @public
    */
   TableStatus?: string | undefined;
 
   /**
-   * <p>
-   *             Indicates whether deletion protection is to be enabled (true) or disabled (false) on the table.
-   *         </p>
+   * Indicates whether deletion protection is to be enabled (true) or disabled (false) on the table.
+   *
    * @public
    */
   DeletionProtectionEnabled?: boolean | undefined;
 }
 
 /**
- * <p>
- *             Provides details about an Active Directory that’s used to authenticate an Client VPN endpoint.
- *         </p>
+ * Provides details about an Active Directory that’s used to authenticate an Client VPN endpoint.
+ *
  * @public
  */
 export interface AwsEc2ClientVpnEndpointAuthenticationOptionsActiveDirectoryDetails {
   /**
-   * <p>
-   *             The ID of the Active Directory used for authentication.
-   *         </p>
+   * The ID of the Active Directory used for authentication.
+   *
    * @public
    */
   DirectoryId?: string | undefined;
 }
 
 /**
- * <p>
- *             Describes the IAM SAML identity providers used for federated authentication.
- *         </p>
+ * Describes the IAM SAML identity providers used for federated authentication.
+ *
  * @public
  */
 export interface AwsEc2ClientVpnEndpointAuthenticationOptionsFederatedAuthenticationDetails {
   /**
-   * <p>
-   *             The Amazon Resource Name (ARN) of the IAM SAML identity provider.
-   *         </p>
+   * The Amazon Resource Name (ARN) of the IAM SAML identity provider.
+   *
    * @public
    */
   SamlProviderArn?: string | undefined;
 
   /**
-   * <p>
-   *             The Amazon Resource Name (ARN) of the IAM SAML identity provider for the self-service portal.
-   *         </p>
+   * The Amazon Resource Name (ARN) of the IAM SAML identity provider for the self-service portal.
+   *
    * @public
    */
   SelfServiceSamlProviderArn?: string | undefined;
 }
 
 /**
- * <p>
- *             Information about the client certificate used for authentication.
- *         </p>
+ * Information about the client certificate used for authentication.
+ *
  * @public
  */
 export interface AwsEc2ClientVpnEndpointAuthenticationOptionsMutualAuthenticationDetails {
   /**
-   * <p>
-   *             The Amazon Resource Name (ARN) of the client certificate.
-   *         </p>
+   * The Amazon Resource Name (ARN) of the client certificate.
+   *
    * @public
    */
   ClientRootCertificateChain?: string | undefined;
 }
 
 /**
- * <p>
- *             Information about the authentication method used by the Client VPN endpoint.
- *         </p>
+ * Information about the authentication method used by the Client VPN endpoint.
+ *
  * @public
  */
 export interface AwsEc2ClientVpnEndpointAuthenticationOptionsDetails {
   /**
-   * <p>
-   *             The authentication type used.
-   *         </p>
+   * The authentication type used.
+   *
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p>
-   *             Information about the Active Directory, if applicable. With Active Directory authentication, clients are authenticated
-   *             against existing Active Directory groups.
-   *         </p>
+   * Information about the Active Directory, if applicable. With Active Directory authentication, clients are authenticated against existing Active Directory groups.
+   *
    * @public
    */
   ActiveDirectory?: AwsEc2ClientVpnEndpointAuthenticationOptionsActiveDirectoryDetails | undefined;
 
   /**
-   * <p>
-   *             Information about the authentication certificates, if applicable.</p>
+   * Information about the authentication certificates, if applicable.
+   *
    * @public
    */
   MutualAuthentication?: AwsEc2ClientVpnEndpointAuthenticationOptionsMutualAuthenticationDetails | undefined;
 
   /**
-   * <p>
-   *             Information about the IAM SAML identity provider, if applicable.</p>
+   * Information about the IAM SAML identity provider, if applicable.
+   *
    * @public
    */
   FederatedAuthentication?: AwsEc2ClientVpnEndpointAuthenticationOptionsFederatedAuthenticationDetails | undefined;
 }
 
 /**
- * <p>
- *             Describes the status of the Client VPN endpoint attribute.
- *         </p>
+ * Describes the status of the Client VPN endpoint attribute.
+ *
  * @public
  */
 export interface AwsEc2ClientVpnEndpointClientConnectOptionsStatusDetails {
   /**
-   * <p>
-   *             The status code.
-   *         </p>
+   * The status code.
+   *
    * @public
    */
   Code?: string | undefined;
 
   /**
-   * <p>
-   *             The status message.
-   *         </p>
+   * The status message.
+   *
    * @public
    */
   Message?: string | undefined;
 }
 
 /**
- * <p>
- *             The options for managing connection authorization for new client connections.
- *         </p>
+ * The options for managing connection authorization for new client connections.
+ *
  * @public
  */
 export interface AwsEc2ClientVpnEndpointClientConnectOptionsDetails {
   /**
-   * <p>
-   *             Indicates whether client connect options are enabled.
-   *         </p>
+   * Indicates whether client connect options are enabled.
+   *
    * @public
    */
   Enabled?: boolean | undefined;
 
   /**
-   * <p>
-   *             The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
-   *         </p>
+   * The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
+   *
    * @public
    */
   LambdaFunctionArn?: string | undefined;
 
   /**
-   * <p>
-   *             The status of any updates to the client connect options.
-   *         </p>
+   * The status of any updates to the client connect options.
+   *
    * @public
    */
   Status?: AwsEc2ClientVpnEndpointClientConnectOptionsStatusDetails | undefined;
 }
 
 /**
- * <p>
- *             Options for enabling a customizable text banner that will be displayed on Amazon Web Services provided clients when a
- *             VPN session is established.
- *         </p>
+ * Options for enabling a customizable text banner that will be displayed on Amazon Web Services provided clients when a VPN session is established.
+ *
  * @public
  */
 export interface AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetails {
   /**
-   * <p>
-   *             Current state of text banner feature.
-   *         </p>
+   * Current state of text banner feature.
+   *
    * @public
    */
   Enabled?: boolean | undefined;
 
   /**
-   * <p>
-   *             Customizable text that will be displayed in a banner on Amazon Web Services provided clients when a VPN session is
-   *             established.
-   *         </p>
+   * Customizable text that will be displayed in a banner on Amazon Web Services provided clients when a VPN session is established.
+   *
    * @public
    */
   BannerText?: string | undefined;
 }
 
 /**
- * <p>
- *             Information about the client connection logging options for the Client VPN endpoint.
- *         </p>
+ * Information about the client connection logging options for the Client VPN endpoint.
+ *
  * @public
  */
 export interface AwsEc2ClientVpnEndpointConnectionLogOptionsDetails {
   /**
-   * <p>
-   *             Indicates whether client connection logging is enabled for the Client VPN endpoint.
-   *         </p>
+   * Indicates whether client connection logging is enabled for the Client VPN endpoint.
+   *
    * @public
    */
   Enabled?: boolean | undefined;
 
   /**
-   * <p>
-   *             The name of the Amazon CloudWatch Logs log group to which connection logging data is published.
-   *         </p>
+   * The name of the Amazon CloudWatch Logs log group to which connection logging data is published.
+   *
    * @public
    */
   CloudwatchLogGroup?: string | undefined;
 
   /**
-   * <p>
-   *             The name of the Amazon CloudWatch Logs log stream to which connection logging data is published.
-   *         </p>
+   * The name of the Amazon CloudWatch Logs log stream to which connection logging data is published.
+   *
    * @public
    */
   CloudwatchLogStream?: string | undefined;
 }
 
 /**
- * <p>
- *             Describes an Client VPN endpoint. A Client VPN endpoint is the resource that you create and
- *             configure to enable and manage client VPN sessions. It's the termination point for all client VPN sessions.
- *         </p>
+ * Describes an Client VPN endpoint. A Client VPN endpoint is the resource that you create and configure to enable and manage client VPN sessions. It's the termination point for all client VPN sessions.
+ *
  * @public
  */
 export interface AwsEc2ClientVpnEndpointDetails {
   /**
-   * <p>
-   *             The ID of the Client VPN endpoint.
-   *         </p>
+   * The ID of the Client VPN endpoint.
+   *
    * @public
    */
   ClientVpnEndpointId?: string | undefined;
 
   /**
-   * <p>
-   *             A brief description of the endpoint.
-   *         </p>
+   * A brief description of the endpoint.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>
-   *             The IPv4 address range, in CIDR notation, from which client IP addresses are assigned.
-   *         </p>
+   * The IPv4 address range, in CIDR notation, from which client IP addresses are assigned.
+   *
    * @public
    */
   ClientCidrBlock?: string | undefined;
 
   /**
-   * <p>
-   *             Information about the DNS servers to be used for DNS resolution.
-   *         </p>
+   * Information about the DNS servers to be used for DNS resolution.
+   *
    * @public
    */
   DnsServer?: string[] | undefined;
 
   /**
-   * <p>
-   *             Indicates whether split-tunnel is enabled in the Client VPN endpoint.
-   *         </p>
+   * Indicates whether split-tunnel is enabled in the Client VPN endpoint.
+   *
    * @public
    */
   SplitTunnel?: boolean | undefined;
 
   /**
-   * <p>
-   *             The transport protocol used by the Client VPN endpoint.
-   *         </p>
+   * The transport protocol used by the Client VPN endpoint.
+   *
    * @public
    */
   TransportProtocol?: string | undefined;
 
   /**
-   * <p>
-   *             The port number for the Client VPN endpoint.
-   *         </p>
+   * The port number for the Client VPN endpoint.
+   *
    * @public
    */
   VpnPort?: number | undefined;
 
   /**
-   * <p>
-   *             The Amazon Resource Name (ARN) of the server certificate.
-   *         </p>
+   * The Amazon Resource Name (ARN) of the server certificate.
+   *
    * @public
    */
   ServerCertificateArn?: string | undefined;
 
   /**
-   * <p>
-   *             Information about the authentication method used by the Client VPN endpoint.
-   *         </p>
+   * Information about the authentication method used by the Client VPN endpoint.
+   *
    * @public
    */
   AuthenticationOptions?: AwsEc2ClientVpnEndpointAuthenticationOptionsDetails[] | undefined;
 
   /**
-   * <p>
-   *             Information about the client connection logging options for the Client VPN endpoint.
-   *         </p>
+   * Information about the client connection logging options for the Client VPN endpoint.
+   *
    * @public
    */
   ConnectionLogOptions?: AwsEc2ClientVpnEndpointConnectionLogOptionsDetails | undefined;
 
   /**
-   * <p>
-   *             The IDs of the security groups for the target network.
-   *         </p>
+   * The IDs of the security groups for the target network.
+   *
    * @public
    */
   SecurityGroupIdSet?: string[] | undefined;
 
   /**
-   * <p>
-   *             The ID of the VPC.
-   *         </p>
+   * The ID of the VPC.
+   *
    * @public
    */
   VpcId?: string | undefined;
 
   /**
-   * <p>
-   *             The URL of the self-service portal.
-   *         </p>
+   * The URL of the self-service portal.
+   *
    * @public
    */
   SelfServicePortalUrl?: string | undefined;
 
   /**
-   * <p>
-   *             The options for managing connection authorization for new client connections.
-   *         </p>
+   * The options for managing connection authorization for new client connections.
+   *
    * @public
    */
   ClientConnectOptions?: AwsEc2ClientVpnEndpointClientConnectOptionsDetails | undefined;
 
   /**
-   * <p>
-   *             The maximum VPN session duration time in hours.
-   *         </p>
+   * The maximum VPN session duration time in hours.
+   *
    * @public
    */
   SessionTimeoutHours?: number | undefined;
 
   /**
-   * <p>
-   *             Options for enabling a customizable text banner that will be displayed on Amazon Web Services provided clients when a
-   *             VPN session is established.
-   *         </p>
+   * Options for enabling a customizable text banner that will be displayed on Amazon Web Services provided clients when a VPN session is established.
+   *
    * @public
    */
   ClientLoginBannerOptions?: AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetails | undefined;
 }
 
 /**
- * <p>Information about an Elastic IP address.</p>
+ * Information about an Elastic IP address.
+ *
  * @public
  */
 export interface AwsEc2EipDetails {
   /**
-   * <p>The identifier of the EC2 instance.</p>
+   * The identifier of the EC2 instance.
+   *
    * @public
    */
   InstanceId?: string | undefined;
 
   /**
-   * <p>A public IP address that is associated with the EC2 instance.</p>
+   * A public IP address that is associated with the EC2 instance.
+   *
    * @public
    */
   PublicIp?: string | undefined;
 
   /**
-   * <p>The identifier that Amazon Web Services assigns to represent the allocation of the Elastic IP address
-   *          for use with Amazon VPC.</p>
+   * The identifier that Amazon Web Services assigns to represent the allocation of the Elastic IP address for use with Amazon VPC.
+   *
    * @public
    */
   AllocationId?: string | undefined;
 
   /**
-   * <p>The identifier that represents the association of the Elastic IP address with an EC2
-   *          instance.</p>
+   * The identifier that represents the association of the Elastic IP address with an EC2 instance.
+   *
    * @public
    */
   AssociationId?: string | undefined;
 
   /**
-   * <p>The domain in which to allocate the address.</p>
-   *          <p>If the address is for use with EC2 instances in a VPC, then <code>Domain</code> is
-   *             <code>vpc</code>. Otherwise, <code>Domain</code> is <code>standard</code>. </p>
+   * The domain in which to allocate the address.
+   *
+   * If the address is for use with EC2 instances in a VPC, then `Domain` is `vpc`. Otherwise, `Domain` is `standard`.
+   *
    * @public
    */
   Domain?: string | undefined;
 
   /**
-   * <p>The identifier of an IP address pool. This parameter allows Amazon EC2 to select an IP
-   *          address from the address pool.</p>
+   * The identifier of an IP address pool. This parameter allows Amazon EC2 to select an IP address from the address pool.
+   *
    * @public
    */
   PublicIpv4Pool?: string | undefined;
 
   /**
-   * <p>The name of the location from which the Elastic IP address is advertised.</p>
+   * The name of the location from which the Elastic IP address is advertised.
+   *
    * @public
    */
   NetworkBorderGroup?: string | undefined;
 
   /**
-   * <p>The identifier of the network interface.</p>
+   * The identifier of the network interface.
+   *
    * @public
    */
   NetworkInterfaceId?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the owner of the network interface.</p>
+   * The Amazon Web Services account ID of the owner of the network interface.
+   *
    * @public
    */
   NetworkInterfaceOwnerId?: string | undefined;
 
   /**
-   * <p>The private IP address that is associated with the Elastic IP address.</p>
+   * The private IP address that is associated with the Elastic IP address.
+   *
    * @public
    */
   PrivateIpAddress?: string | undefined;
 }
 
 /**
- * <p>Metadata options that allow you to configure and secure the Amazon EC2 instance.</p>
+ * Metadata options that allow you to configure and secure the Amazon EC2 instance.
+ *
  * @public
  */
 export interface AwsEc2InstanceMetadataOptions {
   /**
-   * <p>Enables or disables the HTTP metadata endpoint on the instance.
-   *       </p>
+   * Enables or disables the HTTP metadata endpoint on the instance.
+   *
    * @public
    */
   HttpEndpoint?: string | undefined;
 
   /**
-   * <p>Enables or disables the IPv6 endpoint for the instance metadata service.
-   *       </p>
+   * Enables or disables the IPv6 endpoint for the instance metadata service.
+   *
    * @public
    */
   HttpProtocolIpv6?: string | undefined;
 
   /**
-   * <p>The desired HTTP PUT response hop limit for instance metadata requests.
-   *          The larger the number, the further instance metadata requests can travel.
-   *       </p>
+   * The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel.
+   *
    * @public
    */
   HttpPutResponseHopLimit?: number | undefined;
 
   /**
-   * <p>The state of token usage for your instance metadata requests.
-   *       </p>
+   * The state of token usage for your instance metadata requests.
+   *
    * @public
    */
   HttpTokens?: string | undefined;
 
   /**
-   * <p>Specifies whether to allow access to instance tags from the instance metadata.
-   *       </p>
+   * Specifies whether to allow access to instance tags from the instance metadata.
+   *
    * @public
    */
   InstanceMetadataTags?: string | undefined;
 }
 
 /**
- * <p>
- *          The type of monitoring that’s turned on for an Amazon EC2 instance.
- *       </p>
+ * The type of monitoring that’s turned on for an Amazon EC2 instance.
+ *
  * @public
  */
 export interface AwsEc2InstanceMonitoringDetails {
   /**
-   * <p>
-   *          Indicates whether detailed monitoring is turned on. Otherwise, basic monitoring is turned on.
-   *       </p>
+   * Indicates whether detailed monitoring is turned on. Otherwise, basic monitoring is turned on.
+   *
    * @public
    */
   State?: string | undefined;
 }
 
 /**
- * <p>Identifies a network interface for the Amazon EC2 instance.</p>
+ * Identifies a network interface for the Amazon EC2 instance.
+ *
  * @public
  */
 export interface AwsEc2InstanceNetworkInterfacesDetails {
   /**
-   * <p>The identifier of the network interface. The details are in a corresponding <code>AwsEc2NetworkInterfacesDetails</code> object.</p>
+   * The identifier of the network interface. The details are in a corresponding `AwsEc2NetworkInterfacesDetails` object.
+   *
    * @public
    */
   NetworkInterfaceId?: string | undefined;
 }
 
 /**
- * <p>The details of an Amazon EC2 instance.</p>
+ * The details of an Amazon EC2 instance.
+ *
  * @public
  */
 export interface AwsEc2InstanceDetails {
   /**
-   * <p>The instance type of the instance. </p>
+   * The instance type of the instance.
+   *
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p>The Amazon Machine Image (AMI) ID of the instance.</p>
+   * The Amazon Machine Image (AMI) ID of the instance.
+   *
    * @public
    */
   ImageId?: string | undefined;
 
   /**
-   * <p>The IPv4 addresses associated with the instance.</p>
+   * The IPv4 addresses associated with the instance.
+   *
    * @public
    */
   IpV4Addresses?: string[] | undefined;
 
   /**
-   * <p>The IPv6 addresses associated with the instance.</p>
+   * The IPv6 addresses associated with the instance.
+   *
    * @public
    */
   IpV6Addresses?: string[] | undefined;
 
   /**
-   * <p>The key name associated with the instance.</p>
+   * The key name associated with the instance.
+   *
    * @public
    */
   KeyName?: string | undefined;
 
   /**
-   * <p>The IAM profile ARN of the instance.</p>
+   * The IAM profile ARN of the instance.
+   *
    * @public
    */
   IamInstanceProfileArn?: string | undefined;
 
   /**
-   * <p>The identifier of the VPC that the instance was launched in.</p>
+   * The identifier of the VPC that the instance was launched in.
+   *
    * @public
    */
   VpcId?: string | undefined;
 
   /**
-   * <p>The identifier of the subnet that the instance was launched in.</p>
+   * The identifier of the subnet that the instance was launched in.
+   *
    * @public
    */
   SubnetId?: string | undefined;
 
   /**
-   * <p>Indicates when the instance was launched.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * Indicates when the instance was launched.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   LaunchedAt?: string | undefined;
 
   /**
-   * <p>The identifiers of the network interfaces for the EC2 instance. The details for each network interface are in a corresponding <code>AwsEc2NetworkInterfacesDetails</code> object.</p>
+   * The identifiers of the network interfaces for the EC2 instance. The details for each network interface are in a corresponding `AwsEc2NetworkInterfacesDetails` object.
+   *
    * @public
    */
   NetworkInterfaces?: AwsEc2InstanceNetworkInterfacesDetails[] | undefined;
 
   /**
-   * <p>The virtualization type of the Amazon Machine Image (AMI) required to launch the instance.
-   *       </p>
+   * The virtualization type of the Amazon Machine Image (AMI) required to launch the instance.
+   *
    * @public
    */
   VirtualizationType?: string | undefined;
 
   /**
-   * <p>Details about the metadata options for the Amazon EC2 instance.
-   *       </p>
+   * Details about the metadata options for the Amazon EC2 instance.
+   *
    * @public
    */
   MetadataOptions?: AwsEc2InstanceMetadataOptions | undefined;
 
   /**
-   * <p>
-   *          Describes the type of monitoring that’s turned on for an instance.
-   *       </p>
+   * Describes the type of monitoring that’s turned on for an instance.
+   *
    * @public
    */
   Monitoring?: AwsEc2InstanceMonitoringDetails | undefined;
 }
 
 /**
- * <p>
- *          Parameters for a block device for an Amazon Elastic Block Store (Amazon EBS) volume in an Amazon EC2 launch template.
- *       </p>
+ * Parameters for a block device for an Amazon Elastic Block Store (Amazon EBS) volume in an Amazon EC2 launch template.
+ *
  * @public
  */
 export interface AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails {
   /**
-   * <p>
-   *          Indicates whether the EBS volume is deleted on instance termination.
-   *       </p>
+   * Indicates whether the EBS volume is deleted on instance termination.
+   *
    * @public
    */
   DeleteOnTermination?: boolean | undefined;
 
   /**
-   * <p>
-   *          Indicates whether the EBS volume is encrypted. Encrypted volumes can only be
-   *          attached to instances that support Amazon EBS encryption. If you're creating a
-   *          volume from a snapshot, you can't specify an encryption value.
-   *       </p>
+   * Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you're creating a volume from a snapshot, you can't specify an encryption value.
+   *
    * @public
    */
   Encrypted?: boolean | undefined;
 
   /**
-   * <p>
-   *          The number of I/O operations per second (IOPS).
-   *       </p>
+   * The number of I/O operations per second (IOPS).
+   *
    * @public
    */
   Iops?: number | undefined;
 
   /**
-   * <p>
-   *          The Amazon Resource Name (ARN) of the symmetric Key Management Service (KMS) customer managed key
-   *          used for encryption.
-   *       </p>
+   * The Amazon Resource Name (ARN) of the symmetric Key Management Service (KMS) customer managed key used for encryption.
+   *
    * @public
    */
   KmsKeyId?: string | undefined;
 
   /**
-   * <p>
-   *          The ID of the EBS snapshot.
-   *       </p>
+   * The ID of the EBS snapshot.
+   *
    * @public
    */
   SnapshotId?: string | undefined;
 
   /**
-   * <p>
-   *          The throughput to provision for a gp3 volume, with a maximum of 1,000 MiB/s.
-   *       </p>
+   * The throughput to provision for a gp3 volume, with a maximum of 1,000 MiB/s.
+   *
    * @public
    */
   Throughput?: number | undefined;
 
   /**
-   * <p>
-   *          The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.
-   *       </p>
+   * The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.
+   *
    * @public
    */
   VolumeSize?: number | undefined;
 
   /**
-   * <p>
-   *          The volume type.
-   *       </p>
+   * The volume type.
+   *
    * @public
    */
   VolumeType?: string | undefined;
 }
 
 /**
- * <p>
- *          Information about a block device mapping for an Amazon Elastic Compute Cloud (Amazon EC2) launch template.
- *       </p>
+ * Information about a block device mapping for an Amazon Elastic Compute Cloud (Amazon EC2) launch template.
+ *
  * @public
  */
 export interface AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails {
   /**
-   * <p>
-   *          The device name.
-   *       </p>
+   * The device name.
+   *
    * @public
    */
   DeviceName?: string | undefined;
 
   /**
-   * <p>
-   *          Parameters used to automatically set up Amazon EBS volumes when the instance is
-   *          launched.
-   *       </p>
+   * Parameters used to automatically set up Amazon EBS volumes when the instance is launched.
+   *
    * @public
    */
   Ebs?: AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails | undefined;
 
   /**
-   * <p>
-   *          Omits the device from the block device mapping when an empty string is specified.
-   *       </p>
+   * Omits the device from the block device mapping when an empty string is specified.
+   *
    * @public
    */
   NoDevice?: string | undefined;
 
   /**
-   * <p>
-   *          The virtual device name (ephemeralN). Instance store volumes are numbered starting
-   *          from 0. An instance type with 2 available instance store volumes can specify mappings
-   *          for <code>ephemeral0</code> and <code>ephemeral1</code>. The number of available instance store volumes depends
-   *          on the instance type.
-   *       </p>
+   * The virtual device name (ephemeralN). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for `ephemeral0` and `ephemeral1`. The number of available instance store volumes depends on the instance type.
+   *
    * @public
    */
   VirtualName?: string | undefined;
 }
 
 /**
- * <p>
- *          Information about the target Capacity Reservation or Capacity Reservation group in which to run an Amazon EC2 instance.
- *       </p>
+ * Information about the target Capacity Reservation or Capacity Reservation group in which to run an Amazon EC2 instance.
+ *
  * @public
  */
 export interface AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetails {
   /**
-   * <p>
-   *          The ID of the Capacity Reservation in which to run the instance.
-   *       </p>
+   * The ID of the Capacity Reservation in which to run the instance.
+   *
    * @public
    */
   CapacityReservationId?: string | undefined;
 
   /**
-   * <p>
-   *          The Amazon Resource Name (ARN) of the Capacity Reservation resource group in which to run the instance.
-   *       </p>
+   * The Amazon Resource Name (ARN) of the Capacity Reservation resource group in which to run the instance.
+   *
    * @public
    */
   CapacityReservationResourceGroupArn?: string | undefined;
 }
 
 /**
- * <p>
- *          Specifies the Capacity Reservation targeting option of an Amazon EC2 instance.
- *       </p>
+ * Specifies the Capacity Reservation targeting option of an Amazon EC2 instance.
+ *
  * @public
  */
 export interface AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetails {
   /**
-   * <p>
-   *          Indicates the instance's Capacity Reservation preferences. If equal to <code>open</code>, the instance can run in any open Capacity Reservation that has matching attributes (instance type, platform, Availability Zone). If equal to <code>none</code>, the instance avoids running in a Capacity Reservation even if one is available. The instance runs in On-Demand capacity.
+   * Indicates the instance's Capacity Reservation preferences. If equal to `open`, the instance can run in any open Capacity Reservation that has matching attributes (instance type, platform, Availability Zone). If equal to `none`, the instance avoids running in a Capacity Reservation even if one is available. The instance runs in On-Demand capacity.
    *
-   *       </p>
    * @public
    */
   CapacityReservationPreference?: string | undefined;
 
   /**
-   * <p>
-   *          Specifies a target Capacity Reservation.
-   *       </p>
+   * Specifies a target Capacity Reservation.
+   *
    * @public
    */
   CapacityReservationTarget?: AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetails | undefined;
 }
 
 /**
- * <p>
- *          Specifies the CPU options for an Amazon EC2 instance. For more information, see
- *          <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html">Optimize CPU options</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
- *       </p>
+ * Specifies the CPU options for an Amazon EC2 instance. For more information, see [Optimize CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *Amazon Elastic Compute Cloud User Guide*.
+ *
  * @public
  */
 export interface AwsEc2LaunchTemplateDataCpuOptionsDetails {
   /**
-   * <p>
-   *          The number of CPU cores for the instance.
-   *       </p>
+   * The number of CPU cores for the instance.
+   *
    * @public
    */
   CoreCount?: number | undefined;
 
   /**
-   * <p>
-   *          The number of threads per CPU core. A value of <code>1</code> disables multithreading for the instance,
-   *          The default value is <code>2</code>.
-   *       </p>
+   * The number of threads per CPU core. A value of `1` disables multithreading for the instance, The default value is `2`.
+   *
    * @public
    */
   ThreadsPerCore?: number | undefined;
 }
 
 /**
- * <p>
- *          Specifies the credit option for CPU usage of a T2, T3, or T3a Amazon EC2 instance.
- *       </p>
+ * Specifies the credit option for CPU usage of a T2, T3, or T3a Amazon EC2 instance.
+ *
  * @public
  */
 export interface AwsEc2LaunchTemplateDataCreditSpecificationDetails {
   /**
-   * <p>
-   *          The credit option for CPU usage of a T instance.
-   *       </p>
+   * The credit option for CPU usage of a T instance.
+   *
    * @public
    */
   CpuCredits?: string | undefined;
 }
 
 /**
- * <p>
- *          Provides details about an Elastic Graphics specification for an Amazon EC2 launch template.
- *       </p>
+ * Provides details about an Elastic Graphics specification for an Amazon EC2 launch template.
+ *
  * @public
  */
 export interface AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetails {
   /**
-   * <p>
-   *          The type of Elastic Graphics accelerator.
-   *       </p>
+   * The type of Elastic Graphics accelerator.
+   *
    * @public
    */
   Type?: string | undefined;
 }
 
 /**
- * <p>
- *          Provides details for an Amazon Elastic Inference accelerator.
- *       </p>
+ * Provides details for an Amazon Elastic Inference accelerator.
+ *
  * @public
  */
 export interface AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails {
   /**
-   * <p>
-   *          The number of Elastic Inference accelerators to attach to the instance.
-   *       </p>
+   * The number of Elastic Inference accelerators to attach to the instance.
+   *
    * @public
    */
   Count?: number | undefined;
 
   /**
-   * <p>
-   *          The type of Elastic Inference accelerator.
-   *       </p>
+   * The type of Elastic Inference accelerator.
+   *
    * @public
    */
   Type?: string | undefined;
 }
 
 /**
- * <p>
- *          Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves.
- *       </p>
+ * Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves.
+ *
  * @public
  */
 export interface AwsEc2LaunchTemplateDataEnclaveOptionsDetails {
   /**
-   * <p>
-   *          If this parameter is set to <code>true</code>, the instance is enabled for Amazon Web Services Nitro Enclaves.
-   *       </p>
+   * If this parameter is set to `true`, the instance is enabled for Amazon Web Services Nitro Enclaves.
+   *
    * @public
    */
   Enabled?: boolean | undefined;
 }
 
 /**
- * <p>
- *          Specifies whether your Amazon EC2 instance is configured for hibernation.
- *       </p>
+ * Specifies whether your Amazon EC2 instance is configured for hibernation.
+ *
  * @public
  */
 export interface AwsEc2LaunchTemplateDataHibernationOptionsDetails {
   /**
-   * <p>
-   *          If you set this parameter to <code>true</code>, the instance is enabled for hibernation.
-   *       </p>
+   * If you set this parameter to `true`, the instance is enabled for hibernation.
+   *
    * @public
    */
   Configured?: boolean | undefined;
 }
 
 /**
- * <p>
- *          Provides details for an Identity and Access Management (IAM) instance profile, which is a container for an IAM role for your instance.
- *       </p>
+ * Provides details for an Identity and Access Management (IAM) instance profile, which is a container for an IAM role for your instance.
+ *
  * @public
  */
 export interface AwsEc2LaunchTemplateDataIamInstanceProfileDetails {
   /**
-   * <p>
-   *          The Amazon Resource Name (ARN) of the instance profile.
-   *       </p>
+   * The Amazon Resource Name (ARN) of the instance profile.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>
-   *          The name of the instance profile.
-   *       </p>
+   * The name of the instance profile.
+   *
    * @public
    */
   Name?: string | undefined;
 }
 
 /**
- * <p>
- *          Provides details about the market (purchasing) options for Spot Instances.
- *       </p>
+ * Provides details about the market (purchasing) options for Spot Instances.
+ *
  * @public
  */
 export interface AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetails {
   /**
-   * <p>
-   *          Deprecated.
-   *       </p>
+   * Deprecated.
+   *
    * @public
    */
   BlockDurationMinutes?: number | undefined;
 
   /**
-   * <p>
-   *          The behavior when a Spot Instance is interrupted.
-   *       </p>
+   * The behavior when a Spot Instance is interrupted.
+   *
    * @public
    */
   InstanceInterruptionBehavior?: string | undefined;
 
   /**
-   * <p>
-   *          The maximum hourly price you're willing to pay for the Spot Instances.
-   *       </p>
+   * The maximum hourly price you're willing to pay for the Spot Instances.
+   *
    * @public
    */
   MaxPrice?: string | undefined;
 
   /**
-   * <p>
-   *          The Spot Instance request type.
-   *       </p>
+   * The Spot Instance request type.
+   *
    * @public
    */
   SpotInstanceType?: string | undefined;
 
   /**
-   * <p>
-   *          The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ), for persistent requests.
-   *       </p>
+   * The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ), for persistent requests.
+   *
    * @public
    */
   ValidUntil?: string | undefined;
 }
 
 /**
- * <p>
- *          Provides details about the market (purchasing) option for an Amazon EC2 instance.
- *       </p>
+ * Provides details about the market (purchasing) option for an Amazon EC2 instance.
+ *
  * @public
  */
 export interface AwsEc2LaunchTemplateDataInstanceMarketOptionsDetails {
   /**
-   * <p>
-   *          The market type.
-   *       </p>
+   * The market type.
+   *
    * @public
    */
   MarketType?: string | undefined;
 
   /**
-   * <p>
-   *          The options for Spot Instances.
-   *       </p>
+   * The options for Spot Instances.
+   *
    * @public
    */
   SpotOptions?: AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetails | undefined;
 }
 
 /**
- * <p>
- *          The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon Web Services Inferentia chips) on an Amazon EC2 instance.
- *       </p>
+ * The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon Web Services Inferentia chips) on an Amazon EC2 instance.
+ *
  * @public
  */
 export interface AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetails {
   /**
-   * <p>
-   *          The maximum number of accelerators. If this parameter isn't specified, there's no maximum limit. To exclude accelerator-enabled instance types, set <code>Max</code> to <code>0</code>.
-   *       </p>
+   * The maximum number of accelerators. If this parameter isn't specified, there's no maximum limit. To exclude accelerator-enabled instance types, set `Max` to `0`.
+   *
    * @public
    */
   Max?: number | undefined;
 
   /**
-   * <p>
-   *          The minimum number of accelerators. If this parameter isn't specified, there's no minimum limit.
-   *       </p>
+   * The minimum number of accelerators. If this parameter isn't specified, there's no minimum limit.
+   *
    * @public
    */
   Min?: number | undefined;
 }
 
 /**
- * <p>
- *          The minimum and maximum amount of memory, in MiB, for the accelerators on an Amazon EC2 instance.
- *       </p>
+ * The minimum and maximum amount of memory, in MiB, for the accelerators on an Amazon EC2 instance.
+ *
  * @public
  */
 export interface AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetails {
   /**
-   * <p>
-   *          The maximum amount of memory, in MiB. If this parameter isn't specified, there's no maximum limit.
-   *       </p>
+   * The maximum amount of memory, in MiB. If this parameter isn't specified, there's no maximum limit.
+   *
    * @public
    */
   Max?: number | undefined;
 
   /**
-   * <p>
-   *          The minimum amount of memory, in MiB. If <code>0</code> is specified, there's no maximum limit.
-   *       </p>
+   * The minimum amount of memory, in MiB. If `0` is specified, there's no maximum limit.
+   *
    * @public
    */
   Min?: number | undefined;
 }
 
 /**
- * <p>
- *          The minimum and maximum baseline bandwidth to Amazon Elastic Block Store (Amazon EBS), in Mbps. For more information,
- *          see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html">Amazon EBS–optimized instances </a> in the <i>Amazon EC2 User Guide</i>.
- *       </p>
+ * The minimum and maximum baseline bandwidth to Amazon Elastic Block Store (Amazon EBS), in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide*.
+ *
  * @public
  */
 export interface AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetails {
   /**
-   * <p>
-   *          The maximum baseline bandwidth, in Mbps. If this parameter is omitted, there's no maximum limit.
-   *       </p>
+   * The maximum baseline bandwidth, in Mbps. If this parameter is omitted, there's no maximum limit.
+   *
    * @public
    */
   Max?: number | undefined;
 
   /**
-   * <p>
-   *          The minimum baseline bandwidth, in Mbps. If this parameter is omitted, there's no minimum limit.
-   *       </p>
+   * The minimum baseline bandwidth, in Mbps. If this parameter is omitted, there's no minimum limit.
+   *
    * @public
    */
   Min?: number | undefined;
 }
 
 /**
- * <p>
- *          The minimum and maximum amount of memory per vCPU, in GiB.
- *       </p>
+ * The minimum and maximum amount of memory per vCPU, in GiB.
+ *
  * @public
  */
 export interface AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetails {
   /**
-   * <p>
-   *          The maximum amount of memory per vCPU, in GiB. If this parameter is omitted, there's no maximum limit.
-   *       </p>
+   * The maximum amount of memory per vCPU, in GiB. If this parameter is omitted, there's no maximum limit.
+   *
    * @public
    */
   Max?: number | undefined;
 
   /**
-   * <p>
-   *          The minimum amount of memory per vCPU, in GiB. If this parameter is omitted, there's no maximum limit.
-   *       </p>
+   * The minimum amount of memory per vCPU, in GiB. If this parameter is omitted, there's no maximum limit.
+   *
    * @public
    */
   Min?: number | undefined;
 }
 
 /**
- * <p>
- *          The minimum and maximum amount of memory, in MiB, for an Amazon EC2 instance.
- *       </p>
+ * The minimum and maximum amount of memory, in MiB, for an Amazon EC2 instance.
+ *
  * @public
  */
 export interface AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetails {
   /**
-   * <p>
-   *          The maximum amount of memory, in MiB.
-   *       </p>
+   * The maximum amount of memory, in MiB.
+   *
    * @public
    */
   Max?: number | undefined;
 
   /**
-   * <p>
-   *          The minimum amount of memory, in MiB.
-   *       </p>
+   * The minimum amount of memory, in MiB.
+   *
    * @public
    */
   Min?: number | undefined;
 }
 
 /**
- * <p>
- *          The minimum and maximum number of network interfaces to be attached to an Amazon EC2 instance.
- *       </p>
+ * The minimum and maximum number of network interfaces to be attached to an Amazon EC2 instance.
+ *
  * @public
  */
 export interface AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetails {
   /**
-   * <p>
-   *          The maximum number of network interfaces.
-   *       </p>
+   * The maximum number of network interfaces.
+   *
    * @public
    */
   Max?: number | undefined;
 
   /**
-   * <p>
-   *          The minimum number of network interfaces.
-   *       </p>
+   * The minimum number of network interfaces.
+   *
    * @public
    */
   Min?: number | undefined;
 }
 
 /**
- * <p>
- *          The minimum and maximum amount of total local storage, in GB, that an Amazon EC2 instance uses.
- *       </p>
+ * The minimum and maximum amount of total local storage, in GB, that an Amazon EC2 instance uses.
+ *
  * @public
  */
 export interface AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetails {
   /**
-   * <p>
-   *          The maximum amount of total local storage, in GB.
-   *       </p>
+   * The maximum amount of total local storage, in GB.
+   *
    * @public
    */
   Max?: number | undefined;
 
   /**
-   * <p>
-   *          The minimum amount of total local storage, in GB.
-   *       </p>
+   * The minimum amount of total local storage, in GB.
+   *
    * @public
    */
   Min?: number | undefined;
 }
 
 /**
- * <p>
- *          The minimum and maximum number of vCPUs for an Amazon EC2 instance.
- *       </p>
+ * The minimum and maximum number of vCPUs for an Amazon EC2 instance.
+ *
  * @public
  */
 export interface AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetails {
   /**
-   * <p>
-   *          The maximum number of vCPUs.
-   *       </p>
+   * The maximum number of vCPUs.
+   *
    * @public
    */
   Max?: number | undefined;
 
   /**
-   * <p>
-   *          The minimum number of vCPUs.
-   *       </p>
+   * The minimum number of vCPUs.
+   *
    * @public
    */
   Min?: number | undefined;
 }
 
 /**
- * <p>
- *          The attributes for the Amazon EC2 instance types.
- *       </p>
+ * The attributes for the Amazon EC2 instance types.
+ *
  * @public
  */
 export interface AwsEc2LaunchTemplateDataInstanceRequirementsDetails {
   /**
-   * <p>
-   *          The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon Web Services Inferentia chips) on an instance.
-   *       </p>
+   * The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon Web Services Inferentia chips) on an instance.
+   *
    * @public
    */
   AcceleratorCount?: AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetails | undefined;
 
   /**
-   * <p>Indicates whether instance types must have accelerators by specific manufacturers.
-   *       </p>
+   * Indicates whether instance types must have accelerators by specific manufacturers.
+   *
    * @public
    */
   AcceleratorManufacturers?: string[] | undefined;
 
   /**
-   * <p>
-   *          The accelerators that must be on the instance type.
-   *       </p>
+   * The accelerators that must be on the instance type.
+   *
    * @public
    */
   AcceleratorNames?: string[] | undefined;
 
   /**
-   * <p>
-   *          The minimum and maximum amount of total accelerator memory, in MiB.
-   *       </p>
+   * The minimum and maximum amount of total accelerator memory, in MiB.
+   *
    * @public
    */
   AcceleratorTotalMemoryMiB?: AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetails | undefined;
 
   /**
-   * <p>The accelerator types that must be on the instance type.
-   *       </p>
+   * The accelerator types that must be on the instance type.
+   *
    * @public
    */
   AcceleratorTypes?: string[] | undefined;
 
   /**
-   * <p>Indicates whether bare metal instance types must be included, excluded, or required.
-   *       </p>
+   * Indicates whether bare metal instance types must be included, excluded, or required.
+   *
    * @public
    */
   BareMetal?: string | undefined;
 
   /**
-   * <p>
-   *          The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html">Amazon EBS optimized instances</a> in the <i>Amazon EC2 User Guide</i>.
-   *       </p>
+   * The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide*.
+   *
    * @public
    */
   BaselineEbsBandwidthMbps?: AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetails | undefined;
 
   /**
-   * <p>
-   *          Indicates whether burstable performance T instance types are included, excluded, or required. For more information, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable performance instances</a> in the <i>Amazon EC2 User Guide</i>.
-   *       </p>
+   * Indicates whether burstable performance T instance types are included, excluded, or required. For more information, [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) in the *Amazon EC2 User Guide*.
+   *
    * @public
    */
   BurstablePerformance?: string | undefined;
 
   /**
-   * <p>
-   *          The CPU manufacturers to include.
-   *       </p>
+   * The CPU manufacturers to include.
+   *
    * @public
    */
   CpuManufacturers?: string[] | undefined;
 
   /**
-   * <p>
-   *          The instance types to exclude.
-   *       </p>
+   * The instance types to exclude.
+   *
    * @public
    */
   ExcludedInstanceTypes?: string[] | undefined;
 
   /**
-   * <p>
-   *          Indicates whether current or previous generation instance types are included.
-   *       </p>
+   * Indicates whether current or previous generation instance types are included.
+   *
    * @public
    */
   InstanceGenerations?: string[] | undefined;
 
   /**
-   * <p>
-   *          Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html">Amazon EC2 instance store</a> in the <i>Amazon EC2 User Guide</i>.
-   *       </p>
+   * Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, see [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide*.
+   *
    * @public
    */
   LocalStorage?: string | undefined;
 
   /**
-   * <p>
-   *          The type of local storage that is required.
-   *       </p>
+   * The type of local storage that is required.
+   *
    * @public
    */
   LocalStorageTypes?: string[] | undefined;
 
   /**
-   * <p>
-   *          The minimum and maximum amount of memory per vCPU, in GiB.
-   *       </p>
+   * The minimum and maximum amount of memory per vCPU, in GiB.
+   *
    * @public
    */
   MemoryGiBPerVCpu?: AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetails | undefined;
 
   /**
-   * <p>
-   *          The minimum and maximum amount of memory, in MiB.
-   *       </p>
+   * The minimum and maximum amount of memory, in MiB.
+   *
    * @public
    */
   MemoryMiB?: AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetails | undefined;
 
   /**
-   * <p>
-   *          The minimum and maximum number of network interfaces.
-   *       </p>
+   * The minimum and maximum number of network interfaces.
+   *
    * @public
    */
   NetworkInterfaceCount?: AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetails | undefined;
 
   /**
-   * <p> The price protection threshold for On-Demand Instances. This is the maximum you'll pay
-   *          for an On-Demand Instance, expressed as a percentage above the least expensive current
-   *          generation M, C, or R instance type with your specified attributes. When Amazon EC2 selects
-   *          instance types with your attributes, it excludes instance types priced above your
-   *          threshold.</p>
-   *          <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>
-   *          <p>A high value, such as <code>999999</code>, turns off price protection.</p>
+   * The price protection threshold for On-Demand Instances. This is the maximum you'll pay for an On-Demand Instance, expressed as a percentage above the least expensive current generation M, C, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance types priced above your threshold.
+   *
+   * The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+   *
+   * A high value, such as `999999`, turns off price protection.
+   *
    * @public
    */
   OnDemandMaxPricePercentageOverLowestPrice?: number | undefined;
 
   /**
-   * <p>
-   *          Indicates whether instance types must support hibernation for On-Demand Instances.
-   *       </p>
+   * Indicates whether instance types must support hibernation for On-Demand Instances.
+   *
    * @public
    */
   RequireHibernateSupport?: boolean | undefined;
 
   /**
-   * <p> The price protection threshold for Spot Instances. This is the maximum you'll pay for a
-   *          Spot Instance, expressed as a percentage above the least expensive current generation M, C,
-   *          or R instance type with your specified attributes. When Amazon EC2 selects instance
-   *          types with your attributes, it excludes instance types priced above your threshold. </p>
-   *          <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>
-   *          <p>A high value, such as <code>999999</code>, turns off price protection.</p>
+   * The price protection threshold for Spot Instances. This is the maximum you'll pay for a Spot Instance, expressed as a percentage above the least expensive current generation M, C, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance types priced above your threshold.
+   *
+   * The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+   *
+   * A high value, such as `999999`, turns off price protection.
+   *
    * @public
    */
   SpotMaxPricePercentageOverLowestPrice?: number | undefined;
 
   /**
-   * <p>
-   *          The minimum and maximum amount of total local storage, in GB.
-   *       </p>
+   * The minimum and maximum amount of total local storage, in GB.
+   *
    * @public
    */
   TotalLocalStorageGB?: AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetails | undefined;
 
   /**
-   * <p>
-   *          The minimum and maximum number of vCPUs.
-   *       </p>
+   * The minimum and maximum number of vCPUs.
+   *
    * @public
    */
   VCpuCount?: AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetails | undefined;
 }
 
 /**
- * <p>
- *          Provides details about the license configuration for an Amazon EC2 instance.
- *       </p>
+ * Provides details about the license configuration for an Amazon EC2 instance.
+ *
  * @public
  */
 export interface AwsEc2LaunchTemplateDataLicenseSetDetails {
   /**
-   * <p>
-   *          The Amazon Resource Name (ARN) of the license configuration.
-   *       </p>
+   * The Amazon Resource Name (ARN) of the license configuration.
+   *
    * @public
    */
   LicenseConfigurationArn?: string | undefined;
 }
 
 /**
- * <p>
- *          The maintenance options of an Amazon EC2 instance.
- *       </p>
+ * The maintenance options of an Amazon EC2 instance.
+ *
  * @public
  */
 export interface AwsEc2LaunchTemplateDataMaintenanceOptionsDetails {
   /**
-   * <p>
-   *          Disables the automatic recovery behavior of your instance or sets it to default.
-   *       </p>
+   * Disables the automatic recovery behavior of your instance or sets it to default.
+   *
    * @public
    */
   AutoRecovery?: string | undefined;
 }
 
 /**
- * <p>
- *          Specifies the metadata options for an Amazon EC2 instance.
- *       </p>
+ * Specifies the metadata options for an Amazon EC2 instance.
+ *
  * @public
  */
 export interface AwsEc2LaunchTemplateDataMetadataOptionsDetails {
   /**
-   * <p> Enables or disables the HTTP metadata endpoint on your instances. If the parameter is
-   *          not specified, the default state is enabled, and you won't be able to access your instance
-   *          metadata. </p>
+   * Enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is enabled, and you won't be able to access your instance metadata.
+   *
    * @public
    */
   HttpEndpoint?: string | undefined;
 
   /**
-   * <p>
-   *          Enables or disables the IPv6 endpoint for the instance metadata service.
-   *       </p>
+   * Enables or disables the IPv6 endpoint for the instance metadata service.
+   *
    * @public
    */
   HttpProtocolIpv6?: string | undefined;
 
   /**
-   * <p>
-   *          The state of token usage for your instance metadata requests.
-   *       </p>
+   * The state of token usage for your instance metadata requests.
+   *
    * @public
    */
   HttpTokens?: string | undefined;
 
   /**
-   * <p>
-   *          The desired HTTP PUT response hop limit for instance metadata requests. The larger
-   *          the number, the further instance metadata requests can travel.
-   *       </p>
+   * The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel.
+   *
    * @public
    */
   HttpPutResponseHopLimit?: number | undefined;
 
   /**
-   * <p>
-   *          When set to <code>enabled</code>, this parameter allows access to instance tags from the instance metadata. When set to <code>disabled</code>, it turns off access to instance tags from the instance metadata. For more information, see
-   * <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS">Work with instance tags in instance metadata</a> in the <i>Amazon EC2 User Guide</i>.
-   *       </p>
+   * When set to `enabled`, this parameter allows access to instance tags from the instance metadata. When set to `disabled`, it turns off access to instance tags from the instance metadata. For more information, see [Work with instance tags in instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS) in the *Amazon EC2 User Guide*.
+   *
    * @public
    */
   InstanceMetadataTags?: string | undefined;
 }
 
 /**
- * <p>
- *          The monitoring for an Amazon EC2 instance.
- *       </p>
+ * The monitoring for an Amazon EC2 instance.
+ *
  * @public
  */
 export interface AwsEc2LaunchTemplateDataMonitoringDetails {
   /**
-   * <p>
-   *          Enables detailed monitoring when <code>true</code> is specified. Otherwise, basic monitoring is enabled.
-   *          For more information about detailed monitoring, see
-   *          <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch-new.html">Enable or turn off detailed monitoring for your instances</a> in the <i>Amazon EC2 User Guide</i>.
-   *       </p>
+   * Enables detailed monitoring when `true` is specified. Otherwise, basic monitoring is enabled. For more information about detailed monitoring, see [Enable or turn off detailed monitoring for your instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch-new.html) in the *Amazon EC2 User Guide*.
+   *
    * @public
    */
   Enabled?: boolean | undefined;
 }
 
 /**
- * <p>
- *          Provides details on one or more IPv4 prefixes for a network interface.
- *       </p>
+ * Provides details on one or more IPv4 prefixes for a network interface.
+ *
  * @public
  */
 export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetails {
   /**
-   * <p>
-   *          The IPv4 prefix. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html">Assigning prefixes to Amazon EC2 network interfaces</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-   *       </p>
+   * The IPv4 prefix. For more information, see [Assigning prefixes to Amazon EC2 network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon Elastic Compute Cloud User Guide*.
+   *
    * @public
    */
   Ipv4Prefix?: string | undefined;
 }
 
 /**
- * <p>
- *          Specifies an IPv6 address in an Amazon EC2 launch template.
- *       </p>
+ * Specifies an IPv6 address in an Amazon EC2 launch template.
+ *
  * @public
  */
 export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetails {
   /**
-   * <p>
-   *          One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet.
-   *       </p>
+   * One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet.
+   *
    * @public
    */
   Ipv6Address?: string | undefined;
 }
 
 /**
- * <p>
- *          Provides details on one or more IPv6 prefixes to be assigned to the network interface.
- *       </p>
+ * Provides details on one or more IPv6 prefixes to be assigned to the network interface.
+ *
  * @public
  */
 export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetails {
   /**
-   * <p>
-   *          The IPv6 prefix.
-   *       </p>
+   * The IPv6 prefix.
+   *
    * @public
    */
   Ipv6Prefix?: string | undefined;
 }
 
 /**
- * <p>
- *          One or more private IPv4 addresses.
- *       </p>
+ * One or more private IPv4 addresses.
+ *
  * @public
  */
 export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetails {
   /**
-   * <p>
-   *          Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary.
-   *       </p>
+   * Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary.
+   *
    * @public
    */
   Primary?: boolean | undefined;
 
   /**
-   * <p>
-   *          The private IPv4 address.
-   *       </p>
+   * The private IPv4 address.
+   *
    * @public
    */
   PrivateIpAddress?: string | undefined;
 }
 
 /**
- * <p>
- *          One or more network interfaces to attach to an Amazon EC2 instance. If you specify a network interface, you must specify
- *          security groups and subnets as part of the network interface.
- *       </p>
+ * One or more network interfaces to attach to an Amazon EC2 instance. If you specify a network interface, you must specify security groups and subnets as part of the network interface.
+ *
  * @public
  */
 export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails {
   /**
-   * <p>
-   *          Indicates whether to associate a Carrier IP address with eth0 for a new network interface.
-   *          You use this option when you launch an instance in a Wavelength Zone and want to
-   *          associate a Carrier IP address with the network interface. For more information, see
-   *          <a href="https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip">Carrier IP address</a> in the <i>Wavelength Developer Guide</i>.
-   *       </p>
+   * Indicates whether to associate a Carrier IP address with eth0 for a new network interface. You use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. For more information, see [Carrier IP address](https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip) in the *Wavelength Developer Guide*.
+   *
    * @public
    */
   AssociateCarrierIpAddress?: boolean | undefined;
 
   /**
-   * <p>
-   *          Associates a public IPv4 address with eth0 for a new network interface.
-   *       </p>
+   * Associates a public IPv4 address with eth0 for a new network interface.
+   *
    * @public
    */
   AssociatePublicIpAddress?: boolean | undefined;
 
   /**
-   * <p>
-   *          Indicates whether the network interface is deleted when the instance is terminated.
-   *       </p>
+   * Indicates whether the network interface is deleted when the instance is terminated.
+   *
    * @public
    */
   DeleteOnTermination?: boolean | undefined;
 
   /**
-   * <p>
-   *          A description for the network interface.
-   *       </p>
+   * A description for the network interface.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>
-   *          The device index for the network interface attachment.
-   *       </p>
+   * The device index for the network interface attachment.
+   *
    * @public
    */
   DeviceIndex?: number | undefined;
 
   /**
-   * <p>
-   *          The IDs of one or more security groups.
-   *       </p>
+   * The IDs of one or more security groups.
+   *
    * @public
    */
   Groups?: string[] | undefined;
 
   /**
-   * <p>
-   *          The type of network interface.
-   *       </p>
+   * The type of network interface.
+   *
    * @public
    */
   InterfaceType?: string | undefined;
 
   /**
-   * <p>
-   *          The number of IPv4 prefixes to be automatically assigned to the network interface.
-   *          You cannot use this option if you use the <code>Ipv4Prefixes</code> option.
-   *       </p>
+   * The number of IPv4 prefixes to be automatically assigned to the network interface. You cannot use this option if you use the `Ipv4Prefixes` option.
+   *
    * @public
    */
   Ipv4PrefixCount?: number | undefined;
 
   /**
-   * <p>
-   *          One or more IPv4 prefixes to be assigned to the network interface. You cannot use
-   *          this option if you use the <code>Ipv4PrefixCount</code> option.
-   *       </p>
+   * One or more IPv4 prefixes to be assigned to the network interface. You cannot use this option if you use the `Ipv4PrefixCount` option.
+   *
    * @public
    */
   Ipv4Prefixes?: AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetails[] | undefined;
 
   /**
-   * <p>
-   *          The number of IPv6 addresses to assign to a network interface. Amazon EC2
-   *          automatically selects the IPv6 addresses from the subnet range. You can't use this
-   *          option if you use <code>Ipv6Addresses</code>.
-   *       </p>
+   * The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can't use this option if you use `Ipv6Addresses`.
+   *
    * @public
    */
   Ipv6AddressCount?: number | undefined;
 
   /**
-   * <p>
-   *          One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet.
-   *          You can't use this option if you use <code>Ipv6AddressCount</code>.
-   *       </p>
+   * One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you use `Ipv6AddressCount`.
+   *
    * @public
    */
   Ipv6Addresses?: AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetails[] | undefined;
 
   /**
-   * <p>
-   *          The number of IPv6 prefixes to be automatically assigned to the network interface.
-   *          You cannot use this option if you use the <code>Ipv6Prefix</code> option.
-   *       </p>
+   * The number of IPv6 prefixes to be automatically assigned to the network interface. You cannot use this option if you use the `Ipv6Prefix` option.
+   *
    * @public
    */
   Ipv6PrefixCount?: number | undefined;
 
   /**
-   * <p>
-   *          One or more IPv6 prefixes to be assigned to the network interface. You cannot use
-   *          this option if you use the <code>Ipv6PrefixCount</code> option.
-   *       </p>
+   * One or more IPv6 prefixes to be assigned to the network interface. You cannot use this option if you use the `Ipv6PrefixCount` option.
+   *
    * @public
    */
   Ipv6Prefixes?: AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetails[] | undefined;
 
   /**
-   * <p>
-   *          The index of the network card. Some instance types support multiple network cards.
-   *          The primary network interface must be assigned to network card index <code>0</code>. The default
-   *          is network card index <code>0</code>.
-   *       </p>
+   * The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index `0`. The default is network card index `0`.
+   *
    * @public
    */
   NetworkCardIndex?: number | undefined;
 
   /**
-   * <p>
-   *          The ID of the network interface.
-   *       </p>
+   * The ID of the network interface.
+   *
    * @public
    */
   NetworkInterfaceId?: string | undefined;
 
   /**
-   * <p>
-   *          The primary private IPv4 address of the network interface.
-   *       </p>
+   * The primary private IPv4 address of the network interface.
+   *
    * @public
    */
   PrivateIpAddress?: string | undefined;
 
   /**
-   * <p>
-   *          One or more private IPv4 addresses.
-   *       </p>
+   * One or more private IPv4 addresses.
+   *
    * @public
    */
   PrivateIpAddresses?: AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetails[] | undefined;
 
   /**
-   * <p>
-   *          The number of secondary private IPv4 addresses to assign to a network interface.
-   *       </p>
+   * The number of secondary private IPv4 addresses to assign to a network interface.
+   *
    * @public
    */
   SecondaryPrivateIpAddressCount?: number | undefined;
 
   /**
-   * <p>
-   *          The ID of the subnet for the network interface.
-   *       </p>
+   * The ID of the subnet for the network interface.
+   *
    * @public
    */
   SubnetId?: string | undefined;
 }
 
 /**
- * <p>
- *          Provides details about the placement of an Amazon EC2 instance.
- *       </p>
+ * Provides details about the placement of an Amazon EC2 instance.
+ *
  * @public
  */
 export interface AwsEc2LaunchTemplateDataPlacementDetails {
   /**
-   * <p>
-   *          The affinity setting for an instance on an EC2 Dedicated Host.
-   *       </p>
+   * The affinity setting for an instance on an EC2 Dedicated Host.
+   *
    * @public
    */
   Affinity?: string | undefined;
 
   /**
-   * <p>
-   *          The Availability Zone for the instance.
-   *       </p>
+   * The Availability Zone for the instance.
+   *
    * @public
    */
   AvailabilityZone?: string | undefined;
 
   /**
-   * <p>
-   *          The name of the placement group for the instance.
-   *       </p>
+   * The name of the placement group for the instance.
+   *
    * @public
    */
   GroupName?: string | undefined;
 
   /**
-   * <p>
-   *          The ID of the Dedicated Host for the instance.
-   *       </p>
+   * The ID of the Dedicated Host for the instance.
+   *
    * @public
    */
   HostId?: string | undefined;
 
   /**
-   * <p>
-   *          The Amazon Resource Name (ARN) of the host resource group in which to launch the instances.
-   *       </p>
+   * The Amazon Resource Name (ARN) of the host resource group in which to launch the instances.
+   *
    * @public
    */
   HostResourceGroupArn?: string | undefined;
 
   /**
-   * <p>
-   *          The number of the partition the instance should launch in.
-   *       </p>
+   * The number of the partition the instance should launch in.
+   *
    * @public
    */
   PartitionNumber?: number | undefined;
 
   /**
-   * <p>
-   *          Reserved for future use.
-   *       </p>
+   * Reserved for future use.
+   *
    * @public
    */
   SpreadDomain?: string | undefined;
 
   /**
-   * <p>
-   *          The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware.
-   *       </p>
+   * The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware.
+   *
    * @public
    */
   Tenancy?: string | undefined;
 }
 
 /**
- * <p>
- *          Describes the options for Amazon EC2 instance hostnames.
- *       </p>
+ * Describes the options for Amazon EC2 instance hostnames.
+ *
  * @public
  */
 export interface AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails {
   /**
-   * <p>
-   *          Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
-   *       </p>
+   * Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+   *
    * @public
    */
   EnableResourceNameDnsAAAARecord?: boolean | undefined;
 
   /**
-   * <p>
-   *          Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
-   *       </p>
+   * Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+   *
    * @public
    */
   EnableResourceNameDnsARecord?: boolean | undefined;
 
   /**
-   * <p>
-   *          The type of hostname for EC2 instances.
-   *       </p>
+   * The type of hostname for EC2 instances.
+   *
    * @public
    */
   HostnameType?: string | undefined;
 }
 
 /**
- * <p>
- *          The information to include in an Amazon Elastic Compute Cloud (Amazon EC2) launch template.
- *       </p>
+ * The information to include in an Amazon Elastic Compute Cloud (Amazon EC2) launch template.
+ *
  * @public
  */
 export interface AwsEc2LaunchTemplateDataDetails {
   /**
-   * <p>
-   *          Information about a block device mapping for an Amazon EC2 launch template.
-   *       </p>
+   * Information about a block device mapping for an Amazon EC2 launch template.
+   *
    * @public
    */
   BlockDeviceMappingSet?: AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails[] | undefined;
 
   /**
-   * <p>
-   *          Specifies an instance's Capacity Reservation targeting option. You can specify only
-   *          one option at a time.
-   *       </p>
+   * Specifies an instance's Capacity Reservation targeting option. You can specify only one option at a time.
+   *
    * @public
    */
   CapacityReservationSpecification?: AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetails | undefined;
 
   /**
-   * <p>
-   *          Specifies the CPU options for an instance. For more information, see
-   *          <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html">Optimize CPU options</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-   *       </p>
+   * Specifies the CPU options for an instance. For more information, see [Optimize CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *Amazon Elastic Compute Cloud User Guide*.
+   *
    * @public
    */
   CpuOptions?: AwsEc2LaunchTemplateDataCpuOptionsDetails | undefined;
 
   /**
-   * <p>
-   *          Specifies the credit option for CPU usage of a T2, T3, or T3a instance.
-   *       </p>
+   * Specifies the credit option for CPU usage of a T2, T3, or T3a instance.
+   *
    * @public
    */
   CreditSpecification?: AwsEc2LaunchTemplateDataCreditSpecificationDetails | undefined;
 
   /**
-   * <p>
-   *          Indicates whether to enable the instance for stop protection. For more information,
-   *          see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection">Enable stop protection</a> in the <i>Amazon EC2 User Guide</i>.
-   *       </p>
+   * Indicates whether to enable the instance for stop protection. For more information, see [Enable stop protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection) in the *Amazon EC2 User Guide*.
+   *
    * @public
    */
   DisableApiStop?: boolean | undefined;
 
   /**
-   * <p>
-   *          If you set this parameter to <code>true</code>, you can't terminate the instance using the Amazon EC2 console, CLI, or API. If set to <code>true</code>, you can.
-   *       </p>
+   * If you set this parameter to `true`, you can't terminate the instance using the Amazon EC2 console, CLI, or API. If set to `true`, you can.
+   *
    * @public
    */
   DisableApiTermination?: boolean | undefined;
 
   /**
-   * <p>
-   *          Indicates whether the instance is optimized for Amazon EBS I/O.
-   *       </p>
+   * Indicates whether the instance is optimized for Amazon EBS I/O.
+   *
    * @public
    */
   EbsOptimized?: boolean | undefined;
 
   /**
-   * <p>
-   *          Provides details about Elastic Graphics accelerators to associate with the instance.
-   *       </p>
+   * Provides details about Elastic Graphics accelerators to associate with the instance.
+   *
    * @public
    */
   ElasticGpuSpecificationSet?: AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetails[] | undefined;
 
   /**
-   * <p>
-   *          The Amazon Elastic Inference accelerator for the instance.
-   *       </p>
+   * The Amazon Elastic Inference accelerator for the instance.
+   *
    * @public
    */
   ElasticInferenceAcceleratorSet?: AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails[] | undefined;
 
   /**
-   * <p>
-   *          Indicates whether the Amazon EC2 instance is enabled for Amazon Web Services Nitro Enclaves.
-   *       </p>
+   * Indicates whether the Amazon EC2 instance is enabled for Amazon Web Services Nitro Enclaves.
+   *
    * @public
    */
   EnclaveOptions?: AwsEc2LaunchTemplateDataEnclaveOptionsDetails | undefined;
 
   /**
-   * <p>
-   *          Specifies whether your Amazon EC2 instance is configured for hibernation.
-   *       </p>
+   * Specifies whether your Amazon EC2 instance is configured for hibernation.
+   *
    * @public
    */
   HibernationOptions?: AwsEc2LaunchTemplateDataHibernationOptionsDetails | undefined;
 
   /**
-   * <p>
-   *          The name or Amazon Resource Name (ARN) of an IAM instance profile.
-   *       </p>
+   * The name or Amazon Resource Name (ARN) of an IAM instance profile.
+   *
    * @public
    */
   IamInstanceProfile?: AwsEc2LaunchTemplateDataIamInstanceProfileDetails | undefined;
 
   /**
-   * <p>
-   *          The ID of the Amazon Machine Image (AMI).
-   *       </p>
+   * The ID of the Amazon Machine Image (AMI).
+   *
    * @public
    */
   ImageId?: string | undefined;
 
   /**
-   * <p>
-   *          Provides the options for specifying the instance initiated shutdown behavior.
-   *       </p>
+   * Provides the options for specifying the instance initiated shutdown behavior.
+   *
    * @public
    */
   InstanceInitiatedShutdownBehavior?: string | undefined;
 
   /**
-   * <p>
-   *          Specifies the market (purchasing) option for an instance.
-   *       </p>
+   * Specifies the market (purchasing) option for an instance.
+   *
    * @public
    */
   InstanceMarketOptions?: AwsEc2LaunchTemplateDataInstanceMarketOptionsDetails | undefined;
 
   /**
-   * <p>
-   *          The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance
-   *          types with these attributes. If you specify <code>InstanceRequirements</code>, you can't specify <code>InstanceType</code>.
-   *       </p>
+   * The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes. If you specify `InstanceRequirements`, you can't specify `InstanceType`.
+   *
    * @public
    */
   InstanceRequirements?: AwsEc2LaunchTemplateDataInstanceRequirementsDetails | undefined;
 
   /**
-   * <p>
-   *          The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>. If you specify <code>InstanceType</code>, you can't
-   *          specify <code>InstanceRequirements</code>.
-   *       </p>
+   * The instance type. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide*. If you specify `InstanceType`, you can't specify `InstanceRequirements`.
+   *
    * @public
    */
   InstanceType?: string | undefined;
 
   /**
-   * <p>
-   *          The ID of the kernel.
-   *       </p>
+   * The ID of the kernel.
+   *
    * @public
    */
   KernelId?: string | undefined;
 
   /**
-   * <p>
-   *          The name of the key pair that allows users to connect to the instance.
-   *       </p>
+   * The name of the key pair that allows users to connect to the instance.
+   *
    * @public
    */
   KeyName?: string | undefined;
 
   /**
-   * <p>
-   *          Specifies a license configuration for an instance.
-   *       </p>
+   * Specifies a license configuration for an instance.
+   *
    * @public
    */
   LicenseSet?: AwsEc2LaunchTemplateDataLicenseSetDetails[] | undefined;
 
   /**
-   * <p>
-   *          The maintenance options of your instance.
-   *       </p>
+   * The maintenance options of your instance.
+   *
    * @public
    */
   MaintenanceOptions?: AwsEc2LaunchTemplateDataMaintenanceOptionsDetails | undefined;
 
   /**
-   * <p>
-   *          The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance metadata and user data</a> in the <i>Amazon EC2 User Guide</i>.
-   *       </p>
+   * The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide*.
+   *
    * @public
    */
   MetadataOptions?: AwsEc2LaunchTemplateDataMetadataOptionsDetails | undefined;
 
   /**
-   * <p>
-   *          The monitoring for the instance.
-   *       </p>
+   * The monitoring for the instance.
+   *
    * @public
    */
   Monitoring?: AwsEc2LaunchTemplateDataMonitoringDetails | undefined;
 
   /**
-   * <p>
-   *          Specifies the parameters for a network interface that is attached to the instance.
-   *       </p>
+   * Specifies the parameters for a network interface that is attached to the instance.
+   *
    * @public
    */
   NetworkInterfaceSet?: AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails[] | undefined;
 
   /**
-   * <p>
-   *          Specifies the placement of an instance.
-   *       </p>
+   * Specifies the placement of an instance.
+   *
    * @public
    */
   Placement?: AwsEc2LaunchTemplateDataPlacementDetails | undefined;
 
   /**
-   * <p>
-   *          The options for the instance hostname.
-   *       </p>
+   * The options for the instance hostname.
+   *
    * @public
    */
   PrivateDnsNameOptions?: AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails | undefined;
 
   /**
-   * <p>
-   *          The ID of the RAM disk.
-   *       </p>
+   * The ID of the RAM disk.
+   *
    * @public
    */
   RamDiskId?: string | undefined;
 
   /**
-   * <p>
-   *          One or more security group IDs.
-   *       </p>
+   * One or more security group IDs.
+   *
    * @public
    */
   SecurityGroupIdSet?: string[] | undefined;
 
   /**
-   * <p>
-   *          One or more security group names. For a nondefault VPC, you must use security group IDs instead. You cannot specify both a security group ID and security name in the same request.
-   *       </p>
+   * One or more security group names. For a nondefault VPC, you must use security group IDs instead. You cannot specify both a security group ID and security name in the same request.
+   *
    * @public
    */
   SecurityGroupSet?: string[] | undefined;
 
   /**
-   * <p>
-   *          The user data to make available to the instance.
-   *       </p>
+   * The user data to make available to the instance.
+   *
    * @public
    */
   UserData?: string | undefined;
 }
 
 /**
- * <p>
- *          Specifies the properties for creating an Amazon Elastic Compute Cloud (Amazon EC2) launch template.
- *       </p>
+ * Specifies the properties for creating an Amazon Elastic Compute Cloud (Amazon EC2) launch template.
+ *
  * @public
  */
 export interface AwsEc2LaunchTemplateDetails {
   /**
-   * <p>
-   *          A name for the launch template.
-   *       </p>
+   * A name for the launch template.
+   *
    * @public
    */
   LaunchTemplateName?: string | undefined;
 
   /**
-   * <p>
-   *          An ID for the launch template.
-   *       </p>
+   * An ID for the launch template.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>
-   *          The information to include in the launch template.
-   *       </p>
+   * The information to include in the launch template.
+   *
    * @public
    */
   LaunchTemplateData?: AwsEc2LaunchTemplateDataDetails | undefined;
 
   /**
-   * <p>
-   *          The default version of the launch template.
-   *       </p>
+   * The default version of the launch template.
+   *
    * @public
    */
   DefaultVersionNumber?: number | undefined;
 
   /**
-   * <p>
-   *          The latest version of the launch template.
-   *       </p>
+   * The latest version of the launch template.
+   *
    * @public
    */
   LatestVersionNumber?: number | undefined;
 }
 
 /**
- * <p>An association between the network ACL and a subnet.</p>
+ * An association between the network ACL and a subnet.
+ *
  * @public
  */
 export interface AwsEc2NetworkAclAssociation {
   /**
-   * <p>The identifier of the association between the network ACL and the subnet.</p>
+   * The identifier of the association between the network ACL and the subnet.
+   *
    * @public
    */
   NetworkAclAssociationId?: string | undefined;
 
   /**
-   * <p>The identifier of the network ACL.</p>
+   * The identifier of the network ACL.
+   *
    * @public
    */
   NetworkAclId?: string | undefined;
 
   /**
-   * <p>The identifier of the subnet that is associated with the network ACL.</p>
+   * The identifier of the subnet that is associated with the network ACL.
+   *
    * @public
    */
   SubnetId?: string | undefined;
 }
 
 /**
- * <p>An Internet Control Message Protocol (ICMP) type and code.</p>
+ * An Internet Control Message Protocol (ICMP) type and code.
+ *
  * @public
  */
 export interface IcmpTypeCode {
   /**
-   * <p>The ICMP code for which to deny or allow access. To deny or allow all codes, use the
-   *          value <code>-1</code>.</p>
+   * The ICMP code for which to deny or allow access. To deny or allow all codes, use the value `-1`.
+   *
    * @public
    */
   Code?: number | undefined;
 
   /**
-   * <p>The ICMP type for which to deny or allow access. To deny or allow all types, use the
-   *          value <code>-1</code>.</p>
+   * The ICMP type for which to deny or allow access. To deny or allow all types, use the value `-1`.
+   *
    * @public
    */
   Type?: number | undefined;
 }
 
 /**
- * <p>A range of ports.</p>
+ * A range of ports.
+ *
  * @public
  */
 export interface PortRangeFromTo {
   /**
-   * <p>The first port in the port range.</p>
+   * The first port in the port range.
+   *
    * @public
    */
   From?: number | undefined;
 
   /**
-   * <p>The last port in the port range.</p>
+   * The last port in the port range.
+   *
    * @public
    */
   To?: number | undefined;
 }
 
 /**
- * <p>A rule for the network ACL. Each rule allows or denies access based on the IP address, traffic direction, port, and protocol.</p>
+ * A rule for the network ACL. Each rule allows or denies access based on the IP address, traffic direction, port, and protocol.
+ *
  * @public
  */
 export interface AwsEc2NetworkAclEntry {
   /**
-   * <p>The IPV4 network range for which to deny or allow access.</p>
+   * The IPV4 network range for which to deny or allow access.
+   *
    * @public
    */
   CidrBlock?: string | undefined;
 
   /**
-   * <p>Whether the rule is an egress rule. An egress rule is a rule that applies to traffic that leaves the subnet.</p>
+   * Whether the rule is an egress rule. An egress rule is a rule that applies to traffic that leaves the subnet.
+   *
    * @public
    */
   Egress?: boolean | undefined;
 
   /**
-   * <p>The Internet Control Message Protocol (ICMP) type and code for which to deny or allow access.</p>
+   * The Internet Control Message Protocol (ICMP) type and code for which to deny or allow access.
+   *
    * @public
    */
   IcmpTypeCode?: IcmpTypeCode | undefined;
 
   /**
-   * <p>The IPV6 network range for which to deny or allow access.</p>
+   * The IPV6 network range for which to deny or allow access.
+   *
    * @public
    */
   Ipv6CidrBlock?: string | undefined;
 
   /**
-   * <p>For TCP or UDP protocols, the range of ports that the rule applies to.</p>
+   * For TCP or UDP protocols, the range of ports that the rule applies to.
+   *
    * @public
    */
   PortRange?: PortRangeFromTo | undefined;
 
   /**
-   * <p>The protocol that the rule applies to. To deny or allow access to all protocols, use the
-   *          value <code>-1</code>.</p>
+   * The protocol that the rule applies to. To deny or allow access to all protocols, use the value `-1`.
+   *
    * @public
    */
   Protocol?: string | undefined;
 
   /**
-   * <p>Whether the rule is used to allow access or deny access.</p>
+   * Whether the rule is used to allow access or deny access.
+   *
    * @public
    */
   RuleAction?: string | undefined;
 
   /**
-   * <p>The rule number. The rules are processed in order by their number.</p>
+   * The rule number. The rules are processed in order by their number.
+   *
    * @public
    */
   RuleNumber?: number | undefined;
 }
 
 /**
- * <p>Contains details about an Amazon EC2 network access control list (ACL).</p>
+ * Contains details about an Amazon EC2 network access control list (ACL).
+ *
  * @public
  */
 export interface AwsEc2NetworkAclDetails {
   /**
-   * <p>Whether this is the default network ACL for the VPC.</p>
+   * Whether this is the default network ACL for the VPC.
+   *
    * @public
    */
   IsDefault?: boolean | undefined;
 
   /**
-   * <p>The identifier of the network ACL.</p>
+   * The identifier of the network ACL.
+   *
    * @public
    */
   NetworkAclId?: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Web Services account that owns the network ACL.</p>
+   * The identifier of the Amazon Web Services account that owns the network ACL.
+   *
    * @public
    */
   OwnerId?: string | undefined;
 
   /**
-   * <p>The identifier of the VPC for the network ACL.</p>
+   * The identifier of the VPC for the network ACL.
+   *
    * @public
    */
   VpcId?: string | undefined;
 
   /**
-   * <p>Associations between the network ACL and subnets.</p>
+   * Associations between the network ACL and subnets.
+   *
    * @public
    */
   Associations?: AwsEc2NetworkAclAssociation[] | undefined;
 
   /**
-   * <p>The set of rules in the network ACL.</p>
+   * The set of rules in the network ACL.
+   *
    * @public
    */
   Entries?: AwsEc2NetworkAclEntry[] | undefined;
 }
 
 /**
- * <p>Information about the network interface attachment.</p>
+ * Information about the network interface attachment.
+ *
  * @public
  */
 export interface AwsEc2NetworkInterfaceAttachment {
   /**
-   * <p>Indicates when the attachment initiated.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * Indicates when the attachment initiated.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   AttachTime?: string | undefined;
 
   /**
-   * <p>The identifier of the network interface attachment</p>
+   * The identifier of the network interface attachment
+   *
    * @public
    */
   AttachmentId?: string | undefined;
 
   /**
-   * <p>Indicates whether the network interface is deleted when the instance is
-   *          terminated.</p>
+   * Indicates whether the network interface is deleted when the instance is terminated.
+   *
    * @public
    */
   DeleteOnTermination?: boolean | undefined;
 
   /**
-   * <p>The device index of the network interface attachment on the instance.</p>
+   * The device index of the network interface attachment on the instance.
+   *
    * @public
    */
   DeviceIndex?: number | undefined;
 
   /**
-   * <p>The ID of the instance.</p>
+   * The ID of the instance.
+   *
    * @public
    */
   InstanceId?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the owner of the instance.</p>
+   * The Amazon Web Services account ID of the owner of the instance.
+   *
    * @public
    */
   InstanceOwnerId?: string | undefined;
 
   /**
-   * <p>The attachment state.</p>
-   *          <p>Valid values: <code>attaching</code> | <code>attached</code> | <code>detaching</code> |
-   *             <code>detached</code>
-   *          </p>
+   * The attachment state.
+   *
+   * Valid values: `attaching` | `attached` | `detaching` | `detached`
+   *
    * @public
    */
   Status?: string | undefined;
 }
 
 /**
- * <p>Provides information about an IPV6 address that is associated with the network
- *          interface.</p>
+ * Provides information about an IPV6 address that is associated with the network interface.
+ *
  * @public
  */
 export interface AwsEc2NetworkInterfaceIpV6AddressDetail {
   /**
-   * <p>The IPV6 address.</p>
+   * The IPV6 address.
+   *
    * @public
    */
   IpV6Address?: string | undefined;
 }
 
 /**
- * <p>Provides information about a private IPv4 address that is with the network
- *          interface.</p>
+ * Provides information about a private IPv4 address that is with the network interface.
+ *
  * @public
  */
 export interface AwsEc2NetworkInterfacePrivateIpAddressDetail {
   /**
-   * <p>The IP address.</p>
+   * The IP address.
+   *
    * @public
    */
   PrivateIpAddress?: string | undefined;
 
   /**
-   * <p>The private DNS name for the IP address.</p>
+   * The private DNS name for the IP address.
+   *
    * @public
    */
   PrivateDnsName?: string | undefined;
 }
 
 /**
- * <p>A security group associated with the network interface.</p>
+ * A security group associated with the network interface.
+ *
  * @public
  */
 export interface AwsEc2NetworkInterfaceSecurityGroup {
   /**
-   * <p>The name of the security group.</p>
+   * The name of the security group.
+   *
    * @public
    */
   GroupName?: string | undefined;
 
   /**
-   * <p>The ID of the security group.</p>
+   * The ID of the security group.
+   *
    * @public
    */
   GroupId?: string | undefined;
 }
 
 /**
- * <p>Details about the network interface</p>
+ * Details about the network interface
+ *
  * @public
  */
 export interface AwsEc2NetworkInterfaceDetails {
   /**
-   * <p>The network interface attachment.</p>
+   * The network interface attachment.
+   *
    * @public
    */
   Attachment?: AwsEc2NetworkInterfaceAttachment | undefined;
 
   /**
-   * <p>The ID of the network interface.</p>
+   * The ID of the network interface.
+   *
    * @public
    */
   NetworkInterfaceId?: string | undefined;
 
   /**
-   * <p>Security groups for the network interface.</p>
+   * Security groups for the network interface.
+   *
    * @public
    */
   SecurityGroups?: AwsEc2NetworkInterfaceSecurityGroup[] | undefined;
 
   /**
-   * <p>Indicates whether traffic to or from the instance is validated.</p>
+   * Indicates whether traffic to or from the instance is validated.
+   *
    * @public
    */
   SourceDestCheck?: boolean | undefined;
 
   /**
-   * <p>The IPv6 addresses associated with the network interface.</p>
+   * The IPv6 addresses associated with the network interface.
+   *
    * @public
    */
   IpV6Addresses?: AwsEc2NetworkInterfaceIpV6AddressDetail[] | undefined;
 
   /**
-   * <p>The private IPv4 addresses associated with the network interface.</p>
+   * The private IPv4 addresses associated with the network interface.
+   *
    * @public
    */
   PrivateIpAddresses?: AwsEc2NetworkInterfacePrivateIpAddressDetail[] | undefined;
 
   /**
-   * <p>The public DNS name of the network interface.</p>
+   * The public DNS name of the network interface.
+   *
    * @public
    */
   PublicDnsName?: string | undefined;
 
   /**
-   * <p>The address of the Elastic IP address bound to the network interface.</p>
+   * The address of the Elastic IP address bound to the network interface.
+   *
    * @public
    */
   PublicIp?: string | undefined;
 }
 
 /**
- * <p>
- *          Describes a virtual private gateway propagating route.
- *       </p>
+ * Describes a virtual private gateway propagating route.
+ *
  * @public
  */
 export interface PropagatingVgwSetDetails {
   /**
-   * <p>
-   *          The ID of the virtual private gateway.
-   *       </p>
+   * The ID of the virtual private gateway.
+   *
    * @public
    */
   GatewayId?: string | undefined;
 }
 
 /**
- * <p>
- *          Provides details about the routes in the route table.
- *       </p>
+ * Provides details about the routes in the route table.
+ *
  * @public
  */
 export interface RouteSetDetails {
   /**
-   * <p>
-   *          The ID of the carrier gateway.
-   *       </p>
+   * The ID of the carrier gateway.
+   *
    * @public
    */
   CarrierGatewayId?: string | undefined;
 
   /**
-   * <p>
-   *          The Amazon Resource Name (ARN) of the core network.
-   *       </p>
+   * The Amazon Resource Name (ARN) of the core network.
+   *
    * @public
    */
   CoreNetworkArn?: string | undefined;
 
   /**
-   * <p>
-   *          The IPv4 CIDR block used for the destination match.
-   *       </p>
+   * The IPv4 CIDR block used for the destination match.
+   *
    * @public
    */
   DestinationCidrBlock?: string | undefined;
 
   /**
-   * <p>
-   *          The IPv6 CIDR block used for the destination match.
-   *       </p>
+   * The IPv6 CIDR block used for the destination match.
+   *
    * @public
    */
   DestinationIpv6CidrBlock?: string | undefined;
 
   /**
-   * <p>
-   *          The prefix of the destination Amazon Web Services service.
-   *       </p>
+   * The prefix of the destination Amazon Web Services service.
+   *
    * @public
    */
   DestinationPrefixListId?: string | undefined;
 
   /**
-   * <p>
-   *          The ID of the egress-only internet gateway.
-   *       </p>
+   * The ID of the egress-only internet gateway.
+   *
    * @public
    */
   EgressOnlyInternetGatewayId?: string | undefined;
 
   /**
-   * <p>
-   *          The ID of a gateway attached to your VPC.
-   *       </p>
+   * The ID of a gateway attached to your VPC.
+   *
    * @public
    */
   GatewayId?: string | undefined;
 
   /**
-   * <p>
-   *          The ID of a NAT instance in your VPC.
-   *       </p>
+   * The ID of a NAT instance in your VPC.
+   *
    * @public
    */
   InstanceId?: string | undefined;
 
   /**
-   * <p>
-   *          The ID of the Amazon Web Services account that owns the instance.
-   *       </p>
+   * The ID of the Amazon Web Services account that owns the instance.
+   *
    * @public
    */
   InstanceOwnerId?: string | undefined;
 
   /**
-   * <p>
-   *          The ID of the local gateway.
-   *       </p>
+   * The ID of the local gateway.
+   *
    * @public
    */
   LocalGatewayId?: string | undefined;
 
   /**
-   * <p>
-   *          The ID of a NAT gateway.
-   *       </p>
+   * The ID of a NAT gateway.
+   *
    * @public
    */
   NatGatewayId?: string | undefined;
 
   /**
-   * <p>
-   *          The ID of the network interface.
-   *       </p>
+   * The ID of the network interface.
+   *
    * @public
    */
   NetworkInterfaceId?: string | undefined;
 
   /**
-   * <p>
-   *          Describes how the route was created.
-   *       </p>
+   * Describes how the route was created.
+   *
    * @public
    */
   Origin?: string | undefined;
 
   /**
-   * <p>
-   *          The state of the route.
-   *       </p>
+   * The state of the route.
+   *
    * @public
    */
   State?: string | undefined;
 
   /**
-   * <p>
-   *          The ID of a transit gateway.
-   *       </p>
+   * The ID of a transit gateway.
+   *
    * @public
    */
   TransitGatewayId?: string | undefined;
 
   /**
-   * <p>
-   *          The ID of a VPC peering connection.
-   *       </p>
+   * The ID of a VPC peering connection.
+   *
    * @public
    */
   VpcPeeringConnectionId?: string | undefined;
 }
 
 /**
- * <p>
- *          Provides details about a route table for the specified VPC.
- *       </p>
+ * Provides details about a route table for the specified VPC.
+ *
  * @public
  */
 export interface AwsEc2RouteTableDetails {
   /**
-   * <p>
-   *          The associations between a route table and one or more subnets or a gateway.
-   *       </p>
+   * The associations between a route table and one or more subnets or a gateway.
+   *
    * @public
    */
   AssociationSet?: AssociationSetDetails[] | undefined;
 
   /**
-   * <p>
-   *          The ID of the Amazon Web Services account that owns the route table.
-   *       </p>
+   * The ID of the Amazon Web Services account that owns the route table.
+   *
    * @public
    */
   OwnerId?: string | undefined;
 
   /**
-   * <p>
-   *          Describes a virtual private gateway propagating route.
-   *       </p>
+   * Describes a virtual private gateway propagating route.
+   *
    * @public
    */
   PropagatingVgwSet?: PropagatingVgwSetDetails[] | undefined;
 
   /**
-   * <p>
-   *          The ID of the route table.
-   *       </p>
+   * The ID of the route table.
+   *
    * @public
    */
   RouteTableId?: string | undefined;
 
   /**
-   * <p>
-   *          The routes in the route table.
-   *       </p>
+   * The routes in the route table.
+   *
    * @public
    */
   RouteSet?: RouteSetDetails[] | undefined;
 
   /**
-   * <p>
-   *          The ID of the virtual private cloud (VPC).
-   *       </p>
+   * The ID of the virtual private cloud (VPC).
+   *
    * @public
    */
   VpcId?: string | undefined;
 }
 
 /**
- * <p>A range of IPv4 addresses.</p>
+ * A range of IPv4 addresses.
+ *
  * @public
  */
 export interface AwsEc2SecurityGroupIpRange {
   /**
-   * <p>The IPv4 CIDR range. You can specify either a CIDR range or a source security group, but
-   *          not both. To specify a single IPv4 address, use the /32 prefix length.</p>
+   * The IPv4 CIDR range. You can specify either a CIDR range or a source security group, but not both. To specify a single IPv4 address, use the /32 prefix length.
+   *
    * @public
    */
   CidrIp?: string | undefined;
 }
 
 /**
- * <p>A range of IPv6 addresses.</p>
+ * A range of IPv6 addresses.
+ *
  * @public
  */
 export interface AwsEc2SecurityGroupIpv6Range {
   /**
-   * <p>The IPv6 CIDR range. You can specify either a CIDR range or a source security group, but
-   *          not both. To specify a single IPv6 address, use the /128 prefix length.</p>
+   * The IPv6 CIDR range. You can specify either a CIDR range or a source security group, but not both. To specify a single IPv6 address, use the /128 prefix length.
+   *
    * @public
    */
   CidrIpv6?: string | undefined;
 }
 
 /**
- * <p>A prefix list ID.</p>
+ * A prefix list ID.
+ *
  * @public
  */
 export interface AwsEc2SecurityGroupPrefixListId {
   /**
-   * <p>The ID of the prefix.</p>
+   * The ID of the prefix.
+   *
    * @public
    */
   PrefixListId?: string | undefined;
 }
 
 /**
- * <p>A relationship between a security group and a user.</p>
+ * A relationship between a security group and a user.
+ *
  * @public
  */
 export interface AwsEc2SecurityGroupUserIdGroupPair {
   /**
-   * <p>The ID of the security group.</p>
+   * The ID of the security group.
+   *
    * @public
    */
   GroupId?: string | undefined;
 
   /**
-   * <p>The name of the security group.</p>
+   * The name of the security group.
+   *
    * @public
    */
   GroupName?: string | undefined;
 
   /**
-   * <p>The status of a VPC peering connection, if applicable.</p>
+   * The status of a VPC peering connection, if applicable.
+   *
    * @public
    */
   PeeringStatus?: string | undefined;
 
   /**
-   * <p>The ID of an Amazon Web Services account.</p>
-   *          <p>For a referenced security group in another VPC, the account ID of the referenced
-   *          security group is returned in the response. If the referenced security group is deleted,
-   *          this value is not returned.</p>
-   *          <p>[EC2-Classic] Required when adding or removing rules that reference a security group in
-   *          another VPC. </p>
+   * The ID of an Amazon Web Services account.
+   *
+   * For a referenced security group in another VPC, the account ID of the referenced security group is returned in the response. If the referenced security group is deleted, this value is not returned.
+   *
+   * [EC2-Classic] Required when adding or removing rules that reference a security group in another VPC.
+   *
    * @public
    */
   UserId?: string | undefined;
 
   /**
-   * <p>The ID of the VPC for the referenced security group, if applicable.</p>
+   * The ID of the VPC for the referenced security group, if applicable.
+   *
    * @public
    */
   VpcId?: string | undefined;
 
   /**
-   * <p>The ID of the VPC peering connection, if applicable.</p>
+   * The ID of the VPC peering connection, if applicable.
+   *
    * @public
    */
   VpcPeeringConnectionId?: string | undefined;
 }
 
 /**
- * <p>An IP permission for an EC2 security group.</p>
+ * An IP permission for an EC2 security group.
+ *
  * @public
  */
 export interface AwsEc2SecurityGroupIpPermission {
   /**
-   * <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>,
-   *             <code>icmpv6</code>) or number.</p>
-   *          <p>[VPC only] Use <code>-1</code> to specify all protocols.</p>
-   *          <p>When authorizing security group rules, specifying <code>-1</code>
-   *          or a protocol number other than <code>tcp</code>, <code>udp</code>, <code>icmp</code>, or
-   *             <code>icmpv6</code> allows traffic on all ports, regardless of any port range you
-   *          specify.</p>
-   *          <p>For <code>tcp</code>, <code>udp</code>, and <code>icmp</code>, you must specify a port
-   *          range.</p>
-   *          <p>For <code>icmpv6</code>, the port range is optional. If you omit the port range, traffic
-   *          for all types and codes is allowed. </p>
+   * The IP protocol name (`tcp`, `udp`, `icmp`, `icmpv6`) or number.
+   *
+   * [VPC only] Use `-1` to specify all protocols.
+   *
+   * When authorizing security group rules, specifying `-1` or a protocol number other than `tcp`, `udp`, `icmp`, or `icmpv6` allows traffic on all ports, regardless of any port range you specify.
+   *
+   * For `tcp`, `udp`, and `icmp`, you must specify a port range.
+   *
+   * For `icmpv6`, the port range is optional. If you omit the port range, traffic for all types and codes is allowed.
+   *
    * @public
    */
   IpProtocol?: string | undefined;
 
   /**
-   * <p>The start of the port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type
-   *          number.</p>
-   *          <p>A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you
-   *          must specify all codes. </p>
+   * The start of the port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number.
+   *
+   * A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+   *
    * @public
    */
   FromPort?: number | undefined;
 
   /**
-   * <p>The end of the port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.</p>
-   *          <p>A value of <code>-1</code> indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all
-   *          codes.</p>
+   * The end of the port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+   *
+   * A value of `-1` indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+   *
    * @public
    */
   ToPort?: number | undefined;
 
   /**
-   * <p>The security group and Amazon Web Services account ID pairs.</p>
+   * The security group and Amazon Web Services account ID pairs.
+   *
    * @public
    */
   UserIdGroupPairs?: AwsEc2SecurityGroupUserIdGroupPair[] | undefined;
 
   /**
-   * <p>The IPv4 ranges.</p>
+   * The IPv4 ranges.
+   *
    * @public
    */
   IpRanges?: AwsEc2SecurityGroupIpRange[] | undefined;
 
   /**
-   * <p>The IPv6 ranges.</p>
+   * The IPv6 ranges.
+   *
    * @public
    */
   Ipv6Ranges?: AwsEc2SecurityGroupIpv6Range[] | undefined;
 
   /**
-   * <p>[VPC only] The prefix list IDs for an Amazon Web Services service. With outbound rules, this is the Amazon Web Services
-   *          service to access through a VPC endpoint from instances associated with the security
-   *          group.</p>
+   * [VPC only] The prefix list IDs for an Amazon Web Services service. With outbound rules, this is the Amazon Web Services service to access through a VPC endpoint from instances associated with the security group.
+   *
    * @public
    */
   PrefixListIds?: AwsEc2SecurityGroupPrefixListId[] | undefined;
 }
 
 /**
- * <p>Details about an Amazon EC2 security group.</p>
+ * Details about an Amazon EC2 security group.
+ *
  * @public
  */
 export interface AwsEc2SecurityGroupDetails {
   /**
-   * <p>The name of the security group.</p>
+   * The name of the security group.
+   *
    * @public
    */
   GroupName?: string | undefined;
 
   /**
-   * <p>The ID of the security group.</p>
+   * The ID of the security group.
+   *
    * @public
    */
   GroupId?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the owner of the security group.</p>
+   * The Amazon Web Services account ID of the owner of the security group.
+   *
    * @public
    */
   OwnerId?: string | undefined;
 
   /**
-   * <p>[VPC only] The ID of the VPC for the security group.</p>
+   * [VPC only] The ID of the VPC for the security group.
+   *
    * @public
    */
   VpcId?: string | undefined;
 
   /**
-   * <p>The inbound rules associated with the security group.</p>
+   * The inbound rules associated with the security group.
+   *
    * @public
    */
   IpPermissions?: AwsEc2SecurityGroupIpPermission[] | undefined;
 
   /**
-   * <p>[VPC only] The outbound rules associated with the security group.</p>
+   * [VPC only] The outbound rules associated with the security group.
+   *
    * @public
    */
   IpPermissionsEgress?: AwsEc2SecurityGroupIpPermission[] | undefined;
 }
 
 /**
- * <p>An IPV6 CIDR block association.</p>
+ * An IPV6 CIDR block association.
+ *
  * @public
  */
 export interface Ipv6CidrBlockAssociation {
   /**
-   * <p>The association ID for the IPv6 CIDR block.</p>
+   * The association ID for the IPv6 CIDR block.
+   *
    * @public
    */
   AssociationId?: string | undefined;
 
   /**
-   * <p>The IPv6 CIDR block.</p>
+   * The IPv6 CIDR block.
+   *
    * @public
    */
   Ipv6CidrBlock?: string | undefined;
 
   /**
-   * <p>Information about the state of the CIDR block. Valid values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>associating</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>associated</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>disassociating</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>disassociated</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>failed</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>failing</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * Information about the state of the CIDR block. Valid values are as follows:
+   *
+   * - `associating`
+   * - `associated`
+   * - `disassociating`
+   * - `disassociated`
+   * - `failed`
+   * - `failing`
+   *
    * @public
    */
   CidrBlockState?: string | undefined;
 }
 
 /**
- * <p>Contains information about a subnet in Amazon EC2.</p>
+ * Contains information about a subnet in Amazon EC2.
+ *
  * @public
  */
 export interface AwsEc2SubnetDetails {
   /**
-   * <p>Whether to assign an IPV6 address to a network interface that is created in this subnet.</p>
+   * Whether to assign an IPV6 address to a network interface that is created in this subnet.
+   *
    * @public
    */
   AssignIpv6AddressOnCreation?: boolean | undefined;
 
   /**
-   * <p>The Availability Zone for the subnet.</p>
+   * The Availability Zone for the subnet.
+   *
    * @public
    */
   AvailabilityZone?: string | undefined;
 
   /**
-   * <p>The identifier of the Availability Zone for the subnet.</p>
+   * The identifier of the Availability Zone for the subnet.
+   *
    * @public
    */
   AvailabilityZoneId?: string | undefined;
 
   /**
-   * <p>The number of available IPV4 addresses in the subnet. Does not include addresses for stopped instances.</p>
+   * The number of available IPV4 addresses in the subnet. Does not include addresses for stopped instances.
+   *
    * @public
    */
   AvailableIpAddressCount?: number | undefined;
 
   /**
-   * <p>The IPV4 CIDR block that is assigned to the subnet.</p>
+   * The IPV4 CIDR block that is assigned to the subnet.
+   *
    * @public
    */
   CidrBlock?: string | undefined;
 
   /**
-   * <p>Whether this subnet is the default subnet for the Availability Zone.</p>
+   * Whether this subnet is the default subnet for the Availability Zone.
+   *
    * @public
    */
   DefaultForAz?: boolean | undefined;
 
   /**
-   * <p>Whether instances in this subnet receive a public IP address.</p>
+   * Whether instances in this subnet receive a public IP address.
+   *
    * @public
    */
   MapPublicIpOnLaunch?: boolean | undefined;
 
   /**
-   * <p>The identifier of the Amazon Web Services account that owns the subnet.</p>
+   * The identifier of the Amazon Web Services account that owns the subnet.
+   *
    * @public
    */
   OwnerId?: string | undefined;
 
   /**
-   * <p>The current state of the subnet. Valid values are <code>available</code> or <code>pending</code>.</p>
+   * The current state of the subnet. Valid values are `available` or `pending`.
+   *
    * @public
    */
   State?: string | undefined;
 
   /**
-   * <p>The ARN of the subnet.</p>
+   * The ARN of the subnet.
+   *
    * @public
    */
   SubnetArn?: string | undefined;
 
   /**
-   * <p>The identifier of the subnet.</p>
+   * The identifier of the subnet.
+   *
    * @public
    */
   SubnetId?: string | undefined;
 
   /**
-   * <p>The identifier of the VPC that contains the subnet.</p>
+   * The identifier of the VPC that contains the subnet.
+   *
    * @public
    */
   VpcId?: string | undefined;
 
   /**
-   * <p>The IPV6 CIDR blocks that are associated with the subnet.</p>
+   * The IPV6 CIDR blocks that are associated with the subnet.
+   *
    * @public
    */
   Ipv6CidrBlockAssociationSet?: Ipv6CidrBlockAssociation[] | undefined;
 }
 
 /**
- * <p>Information about an Amazon Web Services Amazon EC2 Transit Gateway that interconnects
- * virtual private clouds (VPCs) and on-premises networks.
- *       </p>
+ * Information about an Amazon Web Services Amazon EC2 Transit Gateway that interconnects virtual private clouds (VPCs) and on-premises networks.
+ *
  * @public
  */
 export interface AwsEc2TransitGatewayDetails {
   /**
-   * <p>The ID of the transit gateway.
-   *       </p>
+   * The ID of the transit gateway.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The description of the transit gateway.
-   *       </p>
+   * The description of the transit gateway.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Turn on or turn off automatic propagation of routes to the default propagation route table.
-   *       </p>
+   * Turn on or turn off automatic propagation of routes to the default propagation route table.
+   *
    * @public
    */
   DefaultRouteTablePropagation?: string | undefined;
 
   /**
-   * <p>Turn on or turn off automatic acceptance of attachment requests.
-   *       </p>
+   * Turn on or turn off automatic acceptance of attachment requests.
+   *
    * @public
    */
   AutoAcceptSharedAttachments?: string | undefined;
 
   /**
-   * <p>Turn on or turn off automatic association with the default association route table.
-   *       </p>
+   * Turn on or turn off automatic association with the default association route table.
+   *
    * @public
    */
   DefaultRouteTableAssociation?: string | undefined;
 
   /**
-   * <p>The transit gateway Classless Inter-Domain Routing (CIDR) blocks.
-   *       </p>
+   * The transit gateway Classless Inter-Domain Routing (CIDR) blocks.
+   *
    * @public
    */
   TransitGatewayCidrBlocks?: string[] | undefined;
 
   /**
-   * <p>The ID of the default association route table.
-   *       </p>
+   * The ID of the default association route table.
+   *
    * @public
    */
   AssociationDefaultRouteTableId?: string | undefined;
 
   /**
-   * <p>The ID of the default propagation route table.
-   *       </p>
+   * The ID of the default propagation route table.
+   *
    * @public
    */
   PropagationDefaultRouteTableId?: string | undefined;
 
   /**
-   * <p>Turn on or turn off Equal Cost Multipath Protocol (ECMP) support.
-   *       </p>
+   * Turn on or turn off Equal Cost Multipath Protocol (ECMP) support.
+   *
    * @public
    */
   VpnEcmpSupport?: string | undefined;
 
   /**
-   * <p>Turn on or turn off DNS support.
-   *       </p>
+   * Turn on or turn off DNS support.
+   *
    * @public
    */
   DnsSupport?: string | undefined;
 
   /**
-   * <p>Indicates whether multicast is supported on the transit gateway.
-   *       </p>
+   * Indicates whether multicast is supported on the transit gateway.
+   *
    * @public
    */
   MulticastSupport?: string | undefined;
 
   /**
-   * <p>A private Autonomous System Number (ASN) for the Amazon side of a BGP session.
-   *       </p>
+   * A private Autonomous System Number (ASN) for the Amazon side of a BGP session.
+   *
    * @public
    */
   AmazonSideAsn?: number | undefined;
 }
 
 /**
- * <p>An attachment to an Amazon EC2 volume.</p>
+ * An attachment to an Amazon EC2 volume.
+ *
  * @public
  */
 export interface AwsEc2VolumeAttachment {
   /**
-   * <p>The datetime when the attachment initiated.</p>
+   * The datetime when the attachment initiated.
+   *
    * @public
    */
   AttachTime?: string | undefined;
 
   /**
-   * <p>Whether the EBS volume is deleted when the EC2 instance is terminated.</p>
+   * Whether the EBS volume is deleted when the EC2 instance is terminated.
+   *
    * @public
    */
   DeleteOnTermination?: boolean | undefined;
 
   /**
-   * <p>The identifier of the EC2 instance.</p>
+   * The identifier of the EC2 instance.
+   *
    * @public
    */
   InstanceId?: string | undefined;
 
   /**
-   * <p>The attachment state of the volume. Valid values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>attaching</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>attached</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>busy</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>detaching</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>detached</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The attachment state of the volume. Valid values are as follows:
+   *
+   * - `attaching`
+   * - `attached`
+   * - `busy`
+   * - `detaching`
+   * - `detached`
+   *
    * @public
    */
   Status?: string | undefined;
 }
 
 /**
- * <p>Details about an EC2 volume.</p>
+ * Details about an EC2 volume.
+ *
  * @public
  */
 export interface AwsEc2VolumeDetails {
   /**
-   * <p>Indicates when the volume was created.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * Indicates when the volume was created.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   CreateTime?: string | undefined;
 
   /**
-   * <p>The device name for the volume that is attached to the instance.
-   *       </p>
+   * The device name for the volume that is attached to the instance.
+   *
    * @public
    */
   DeviceName?: string | undefined;
 
   /**
-   * <p>Specifies whether the volume is encrypted.</p>
+   * Specifies whether the volume is encrypted.
+   *
    * @public
    */
   Encrypted?: boolean | undefined;
 
   /**
-   * <p>The size of the volume, in GiBs.</p>
+   * The size of the volume, in GiBs.
+   *
    * @public
    */
   Size?: number | undefined;
 
   /**
-   * <p>The snapshot from which the volume was created.</p>
+   * The snapshot from which the volume was created.
+   *
    * @public
    */
   SnapshotId?: string | undefined;
 
   /**
-   * <p>The volume state. Valid values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>available</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>creating</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>deleted</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>deleting</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>error</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>in-use</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The volume state. Valid values are as follows:
+   *
+   * - `available`
+   * - `creating`
+   * - `deleted`
+   * - `deleting`
+   * - `error`
+   * - `in-use`
+   *
    * @public
    */
   Status?: string | undefined;
 
   /**
-   * <p>The ARN of the KMS key that was
-   *          used to protect the volume encryption key for the volume.</p>
+   * The ARN of the KMS key that was used to protect the volume encryption key for the volume.
+   *
    * @public
    */
   KmsKeyId?: string | undefined;
 
   /**
-   * <p>The volume attachments.</p>
+   * The volume attachments.
+   *
    * @public
    */
   Attachments?: AwsEc2VolumeAttachment[] | undefined;
 
   /**
-   * <p>The ID of the volume.
-   *       </p>
+   * The ID of the volume.
+   *
    * @public
    */
   VolumeId?: string | undefined;
 
   /**
-   * <p>The volume type.
-   *       </p>
+   * The volume type.
+   *
    * @public
    */
   VolumeType?: string | undefined;
 
   /**
-   * <p>Indicates whether the volume was scanned or skipped.
-   *       </p>
+   * Indicates whether the volume was scanned or skipped.
+   *
    * @public
    */
   VolumeScanStatus?: string | undefined;
 }
 
 /**
- * <p>An IPv4 CIDR block association.</p>
+ * An IPv4 CIDR block association.
+ *
  * @public
  */
 export interface CidrBlockAssociation {
   /**
-   * <p>The association ID for the IPv4 CIDR block.</p>
+   * The association ID for the IPv4 CIDR block.
+   *
    * @public
    */
   AssociationId?: string | undefined;
 
   /**
-   * <p>The IPv4 CIDR block.</p>
+   * The IPv4 CIDR block.
+   *
    * @public
    */
   CidrBlock?: string | undefined;
 
   /**
-   * <p>Information about the state of the IPv4 CIDR block.</p>
+   * Information about the state of the IPv4 CIDR block.
+   *
    * @public
    */
   CidrBlockState?: string | undefined;
 }
 
 /**
- * <p>Details about an EC2 VPC.</p>
+ * Details about an EC2 VPC.
+ *
  * @public
  */
 export interface AwsEc2VpcDetails {
   /**
-   * <p>Information about the IPv4 CIDR blocks associated with the VPC.</p>
+   * Information about the IPv4 CIDR blocks associated with the VPC.
+   *
    * @public
    */
   CidrBlockAssociationSet?: CidrBlockAssociation[] | undefined;
 
   /**
-   * <p>Information about the IPv6 CIDR blocks associated with the VPC.</p>
+   * Information about the IPv6 CIDR blocks associated with the VPC.
+   *
    * @public
    */
   Ipv6CidrBlockAssociationSet?: Ipv6CidrBlockAssociation[] | undefined;
 
   /**
-   * <p>The identifier of the set of Dynamic Host Configuration Protocol (DHCP) options that are
-   *          associated with the VPC. If the default options are associated with the VPC, then this is
-   *          default.</p>
+   * The identifier of the set of Dynamic Host Configuration Protocol (DHCP) options that are associated with the VPC. If the default options are associated with the VPC, then this is default.
+   *
    * @public
    */
   DhcpOptionsId?: string | undefined;
 
   /**
-   * <p>The current state of the VPC. Valid values are <code>available</code> or <code>pending</code>.</p>
+   * The current state of the VPC. Valid values are `available` or `pending`.
+   *
    * @public
    */
   State?: string | undefined;
 }
 
 /**
- * <p>The service type information for a VPC endpoint service.</p>
+ * The service type information for a VPC endpoint service.
+ *
  * @public
  */
 export interface AwsEc2VpcEndpointServiceServiceTypeDetails {
   /**
-   * <p>The type of service.</p>
+   * The type of service.
+   *
    * @public
    */
   ServiceType?: string | undefined;
 }
 
 /**
- * <p>Contains details about the service configuration for a VPC endpoint service.</p>
+ * Contains details about the service configuration for a VPC endpoint service.
+ *
  * @public
  */
 export interface AwsEc2VpcEndpointServiceDetails {
   /**
-   * <p>Whether requests from other Amazon Web Services accounts to create an endpoint to the service must first be accepted.</p>
+   * Whether requests from other Amazon Web Services accounts to create an endpoint to the service must first be accepted.
+   *
    * @public
    */
   AcceptanceRequired?: boolean | undefined;
 
   /**
-   * <p>The Availability Zones where the service is available.</p>
+   * The Availability Zones where the service is available.
+   *
    * @public
    */
   AvailabilityZones?: string[] | undefined;
 
   /**
-   * <p>The DNS names for the service.</p>
+   * The DNS names for the service.
+   *
    * @public
    */
   BaseEndpointDnsNames?: string[] | undefined;
 
   /**
-   * <p>Whether the service manages its VPC endpoints.</p>
+   * Whether the service manages its VPC endpoints.
+   *
    * @public
    */
   ManagesVpcEndpoints?: boolean | undefined;
 
   /**
-   * <p>The ARNs of the Gateway Load Balancers for the service.</p>
+   * The ARNs of the Gateway Load Balancers for the service.
+   *
    * @public
    */
   GatewayLoadBalancerArns?: string[] | undefined;
 
   /**
-   * <p>The ARNs of the Network Load Balancers for the service.</p>
+   * The ARNs of the Network Load Balancers for the service.
+   *
    * @public
    */
   NetworkLoadBalancerArns?: string[] | undefined;
 
   /**
-   * <p>The private DNS name for the service.</p>
+   * The private DNS name for the service.
+   *
    * @public
    */
   PrivateDnsName?: string | undefined;
 
   /**
-   * <p>The identifier of the service.</p>
+   * The identifier of the service.
+   *
    * @public
    */
   ServiceId?: string | undefined;
 
   /**
-   * <p>The name of the service.</p>
+   * The name of the service.
+   *
    * @public
    */
   ServiceName?: string | undefined;
 
   /**
-   * <p>The current state of the service. Valid values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Available</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Deleted</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Deleting</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Failed</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Pending</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The current state of the service. Valid values are as follows:
+   *
+   * - `Available`
+   * - `Deleted`
+   * - `Deleting`
+   * - `Failed`
+   * - `Pending`
+   *
    * @public
    */
   ServiceState?: string | undefined;
 
   /**
-   * <p>The types for the service.</p>
+   * The types for the service.
+   *
    * @public
    */
   ServiceType?: AwsEc2VpcEndpointServiceServiceTypeDetails[] | undefined;
 }
 
 /**
- * <p>Provides details about the IPv4 CIDR blocks for the VPC.
- *       </p>
+ * Provides details about the IPv4 CIDR blocks for the VPC.
+ *
  * @public
  */
 export interface VpcInfoCidrBlockSetDetails {
   /**
-   * <p>The IPv4 CIDR block for the VPC.
-   *       </p>
+   * The IPv4 CIDR block for the VPC.
+   *
    * @public
    */
   CidrBlock?: string | undefined;
 }
 
 /**
- * <p>Provides details about the IPv6 CIDR blocks for the VPC.
- *       </p>
+ * Provides details about the IPv6 CIDR blocks for the VPC.
+ *
  * @public
  */
 export interface VpcInfoIpv6CidrBlockSetDetails {
   /**
-   * <p>The IPv6 CIDR block for the VPC.
-   *       </p>
+   * The IPv6 CIDR block for the VPC.
+   *
    * @public
    */
   Ipv6CidrBlock?: string | undefined;
 }
 
 /**
- * <p>Provides information about the VPC peering connection options for the accepter or requester VPC.
- *       </p>
+ * Provides information about the VPC peering connection options for the accepter or requester VPC.
+ *
  * @public
  */
 export interface VpcInfoPeeringOptionsDetails {
   /**
-   * <p>Indicates whether a local VPC can resolve public DNS hostnames to private IP addresses when queried from instances in a peer VPC.
-   *       </p>
+   * Indicates whether a local VPC can resolve public DNS hostnames to private IP addresses when queried from instances in a peer VPC.
+   *
    * @public
    */
   AllowDnsResolutionFromRemoteVpc?: boolean | undefined;
 
   /**
-   * <p>Indicates whether a local ClassicLink connection can communicate with the peer VPC over the VPC peering connection.
-   *       </p>
+   * Indicates whether a local ClassicLink connection can communicate with the peer VPC over the VPC peering connection.
+   *
    * @public
    */
   AllowEgressFromLocalClassicLinkToRemoteVpc?: boolean | undefined;
 
   /**
-   * <p>Indicates whether a local VPC can communicate with a ClassicLink connection in the peer VPC over the VPC peering connection.
-   *       </p>
+   * Indicates whether a local VPC can communicate with a ClassicLink connection in the peer VPC over the VPC peering connection.
+   *
    * @public
    */
   AllowEgressFromLocalVpcToRemoteClassicLink?: boolean | undefined;
 }
 
 /**
- * <p>Describes a VPC in a VPC peering connection.
- *       </p>
+ * Describes a VPC in a VPC peering connection.
+ *
  * @public
  */
 export interface AwsEc2VpcPeeringConnectionVpcInfoDetails {
   /**
-   * <p>The IPv4 CIDR block for the VPC.
-   *       </p>
+   * The IPv4 CIDR block for the VPC.
+   *
    * @public
    */
   CidrBlock?: string | undefined;
 
   /**
-   * <p>Information about the IPv4 CIDR blocks for the VPC.
-   *       </p>
+   * Information about the IPv4 CIDR blocks for the VPC.
+   *
    * @public
    */
   CidrBlockSet?: VpcInfoCidrBlockSetDetails[] | undefined;
 
   /**
-   * <p>The IPv6 CIDR block for the VPC.
-   *       </p>
+   * The IPv6 CIDR block for the VPC.
+   *
    * @public
    */
   Ipv6CidrBlockSet?: VpcInfoIpv6CidrBlockSetDetails[] | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services account that owns the VPC.
-   *       </p>
+   * The ID of the Amazon Web Services account that owns the VPC.
+   *
    * @public
    */
   OwnerId?: string | undefined;
 
   /**
-   * <p>Information about the VPC peering connection options for the accepter or requester VPC.
-   *       </p>
+   * Information about the VPC peering connection options for the accepter or requester VPC.
+   *
    * @public
    */
   PeeringOptions?: VpcInfoPeeringOptionsDetails | undefined;
 
   /**
-   * <p>The Amazon Web Services Region in which the VPC is located.
-   *       </p>
+   * The Amazon Web Services Region in which the VPC is located.
+   *
    * @public
    */
   Region?: string | undefined;
 
   /**
-   * <p>The ID of the VPC.
-   *       </p>
+   * The ID of the VPC.
+   *
    * @public
    */
   VpcId?: string | undefined;
 }
 
 /**
- * <p>Details about the status of the VPC peering connection.
- *       </p>
+ * Details about the status of the VPC peering connection.
+ *
  * @public
  */
 export interface AwsEc2VpcPeeringConnectionStatusDetails {
   /**
-   * <p>The status of the VPC peering connection.
-   *       </p>
+   * The status of the VPC peering connection.
+   *
    * @public
    */
   Code?: string | undefined;
 
   /**
-   * <p>A message that provides more information about the status, if applicable.
-   *       </p>
+   * A message that provides more information about the status, if applicable.
+   *
    * @public
    */
   Message?: string | undefined;
 }
 
 /**
- * <p>Provides information about a VPC peering connection between two VPCs: a requester VPC that you own and an
- * accepter VPC with which to create the connection.
- *       </p>
+ * Provides information about a VPC peering connection between two VPCs: a requester VPC that you own and an accepter VPC with which to create the connection.
+ *
  * @public
  */
 export interface AwsEc2VpcPeeringConnectionDetails {
   /**
-   * <p>Information about the accepter VPC.
-   *       </p>
+   * Information about the accepter VPC.
+   *
    * @public
    */
   AccepterVpcInfo?: AwsEc2VpcPeeringConnectionVpcInfoDetails | undefined;
 
   /**
-   * <p>The time at which an unaccepted VPC peering connection will expire.
-   *       </p>
+   * The time at which an unaccepted VPC peering connection will expire.
+   *
    * @public
    */
   ExpirationTime?: string | undefined;
 
   /**
-   * <p>Information about the requester VPC.
-   *       </p>
+   * Information about the requester VPC.
+   *
    * @public
    */
   RequesterVpcInfo?: AwsEc2VpcPeeringConnectionVpcInfoDetails | undefined;
 
   /**
-   * <p>The status of the VPC peering connection.
-   *       </p>
+   * The status of the VPC peering connection.
+   *
    * @public
    */
   Status?: AwsEc2VpcPeeringConnectionStatusDetails | undefined;
 
   /**
-   * <p>The ID of the VPC peering connection.
-   *       </p>
+   * The ID of the VPC peering connection.
+   *
    * @public
    */
   VpcPeeringConnectionId?: string | undefined;
 }
 
 /**
- * <p>The VPN tunnel options.</p>
+ * The VPN tunnel options.
+ *
  * @public
  */
 export interface AwsEc2VpnConnectionOptionsTunnelOptionsDetails {
   /**
-   * <p>The number of seconds after which a Dead Peer Detection (DPD) timeout occurs.</p>
+   * The number of seconds after which a Dead Peer Detection (DPD) timeout occurs.
+   *
    * @public
    */
   DpdTimeoutSeconds?: number | undefined;
 
   /**
-   * <p>The Internet Key Exchange (IKE) versions that are permitted for the VPN tunnel.</p>
+   * The Internet Key Exchange (IKE) versions that are permitted for the VPN tunnel.
+   *
    * @public
    */
   IkeVersions?: string[] | undefined;
 
   /**
-   * <p>The external IP address of the VPN tunnel.</p>
+   * The external IP address of the VPN tunnel.
+   *
    * @public
    */
   OutsideIpAddress?: string | undefined;
 
   /**
-   * <p>The permitted Diffie-Hellman group numbers for the VPN tunnel for phase 1 IKE
-   *          negotiations.</p>
+   * The permitted Diffie-Hellman group numbers for the VPN tunnel for phase 1 IKE negotiations.
+   *
    * @public
    */
   Phase1DhGroupNumbers?: number[] | undefined;
 
   /**
-   * <p>The permitted encryption algorithms for the VPN tunnel for phase 1 IKE
-   *          negotiations.</p>
+   * The permitted encryption algorithms for the VPN tunnel for phase 1 IKE negotiations.
+   *
    * @public
    */
   Phase1EncryptionAlgorithms?: string[] | undefined;
 
   /**
-   * <p>The permitted integrity algorithms for the VPN tunnel for phase 1 IKE
-   *          negotiations.</p>
+   * The permitted integrity algorithms for the VPN tunnel for phase 1 IKE negotiations.
+   *
    * @public
    */
   Phase1IntegrityAlgorithms?: string[] | undefined;
 
   /**
-   * <p>The lifetime for phase 1 of the IKE negotiation, in seconds.</p>
+   * The lifetime for phase 1 of the IKE negotiation, in seconds.
+   *
    * @public
    */
   Phase1LifetimeSeconds?: number | undefined;
 
   /**
-   * <p>The permitted Diffie-Hellman group numbers for the VPN tunnel for phase 2 IKE
-   *          negotiations.</p>
+   * The permitted Diffie-Hellman group numbers for the VPN tunnel for phase 2 IKE negotiations.
+   *
    * @public
    */
   Phase2DhGroupNumbers?: number[] | undefined;
 
   /**
-   * <p>The permitted encryption algorithms for the VPN tunnel for phase 2 IKE
-   *          negotiations.</p>
+   * The permitted encryption algorithms for the VPN tunnel for phase 2 IKE negotiations.
+   *
    * @public
    */
   Phase2EncryptionAlgorithms?: string[] | undefined;
 
   /**
-   * <p>The permitted integrity algorithms for the VPN tunnel for phase 2 IKE
-   *          negotiations.</p>
+   * The permitted integrity algorithms for the VPN tunnel for phase 2 IKE negotiations.
+   *
    * @public
    */
   Phase2IntegrityAlgorithms?: string[] | undefined;
 
   /**
-   * <p>The lifetime for phase 2 of the IKE negotiation, in seconds.</p>
+   * The lifetime for phase 2 of the IKE negotiation, in seconds.
+   *
    * @public
    */
   Phase2LifetimeSeconds?: number | undefined;
 
   /**
-   * <p>The preshared key to establish initial authentication between the virtual private gateway
-   *          and the customer gateway.</p>
+   * The preshared key to establish initial authentication between the virtual private gateway and the customer gateway.
+   *
    * @public
    */
   PreSharedKey?: string | undefined;
 
   /**
-   * <p>The percentage of the rekey window, which is determined by
-   *          <code>RekeyMarginTimeSeconds</code> during which the rekey time is randomly selected.</p>
+   * The percentage of the rekey window, which is determined by `RekeyMarginTimeSeconds` during which the rekey time is randomly selected.
+   *
    * @public
    */
   RekeyFuzzPercentage?: number | undefined;
 
   /**
-   * <p>The margin time, in seconds, before the phase 2 lifetime expires, during which the Amazon Web Services
-   *          side of the VPN connection performs an IKE rekey.</p>
+   * The margin time, in seconds, before the phase 2 lifetime expires, during which the Amazon Web Services side of the VPN connection performs an IKE rekey.
+   *
    * @public
    */
   RekeyMarginTimeSeconds?: number | undefined;
 
   /**
-   * <p>The number of packets in an IKE replay window.</p>
+   * The number of packets in an IKE replay window.
+   *
    * @public
    */
   ReplayWindowSize?: number | undefined;
 
   /**
-   * <p>The range of inside IPv4 addresses for the tunnel.</p>
+   * The range of inside IPv4 addresses for the tunnel.
+   *
    * @public
    */
   TunnelInsideCidr?: string | undefined;
 }
 
 /**
- * <p>VPN connection options.</p>
+ * VPN connection options.
+ *
  * @public
  */
 export interface AwsEc2VpnConnectionOptionsDetails {
   /**
-   * <p>Whether the VPN connection uses static routes only.</p>
+   * Whether the VPN connection uses static routes only.
+   *
    * @public
    */
   StaticRoutesOnly?: boolean | undefined;
 
   /**
-   * <p>The VPN tunnel options.</p>
+   * The VPN tunnel options.
+   *
    * @public
    */
   TunnelOptions?: AwsEc2VpnConnectionOptionsTunnelOptionsDetails[] | undefined;
 }
 
 /**
- * <p>A static routes associated with
- *          the VPN connection.</p>
+ * A static routes associated with the VPN connection.
+ *
  * @public
  */
 export interface AwsEc2VpnConnectionRoutesDetails {
   /**
-   * <p>The CIDR block associated with the local subnet of the customer data center.</p>
+   * The CIDR block associated with the local subnet of the customer data center.
+   *
    * @public
    */
   DestinationCidrBlock?: string | undefined;
 
   /**
-   * <p>The current state of the static route.</p>
+   * The current state of the static route.
+   *
    * @public
    */
   State?: string | undefined;
 }
 
 /**
- * <p>Information about the VPN tunnel.</p>
+ * Information about the VPN tunnel.
+ *
  * @public
  */
 export interface AwsEc2VpnConnectionVgwTelemetryDetails {
   /**
-   * <p>The number of accepted routes.</p>
+   * The number of accepted routes.
+   *
    * @public
    */
   AcceptedRouteCount?: number | undefined;
 
   /**
-   * <p>The ARN of the VPN tunnel endpoint certificate.</p>
+   * The ARN of the VPN tunnel endpoint certificate.
+   *
    * @public
    */
   CertificateArn?: string | undefined;
 
   /**
-   * <p>The date and time of the last change in status.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * The date and time of the last change in status.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   LastStatusChange?: string | undefined;
 
   /**
-   * <p>The Internet-routable IP address of the virtual private gateway's outside
-   *          interface.</p>
+   * The Internet-routable IP address of the virtual private gateway's outside interface.
+   *
    * @public
    */
   OutsideIpAddress?: string | undefined;
 
   /**
-   * <p>The status of the VPN tunnel. Valid values are <code>DOWN</code> or <code>UP</code>.</p>
+   * The status of the VPN tunnel. Valid values are `DOWN` or `UP`.
+   *
    * @public
    */
   Status?: string | undefined;
 
   /**
-   * <p>If an error occurs, a description of the error.</p>
+   * If an error occurs, a description of the error.
+   *
    * @public
    */
   StatusMessage?: string | undefined;
 }
 
 /**
- * <p>Details about an Amazon EC2 VPN
- *          connection.</p>
+ * Details about an Amazon EC2 VPN connection.
+ *
  * @public
  */
 export interface AwsEc2VpnConnectionDetails {
   /**
-   * <p>The identifier of the VPN connection.</p>
+   * The identifier of the VPN connection.
+   *
    * @public
    */
   VpnConnectionId?: string | undefined;
 
   /**
-   * <p>The current state of the VPN connection. Valid values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>available</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>deleted</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>deleting</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>pending</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The current state of the VPN connection. Valid values are as follows:
+   *
+   * - `available`
+   * - `deleted`
+   * - `deleting`
+   * - `pending`
+   *
    * @public
    */
   State?: string | undefined;
 
   /**
-   * <p>The identifier of the customer gateway that is at your end of the VPN connection.</p>
+   * The identifier of the customer gateway that is at your end of the VPN connection.
+   *
    * @public
    */
   CustomerGatewayId?: string | undefined;
 
   /**
-   * <p>The configuration information for the VPN connection's customer gateway, in the native XML
-   *          format.</p>
+   * The configuration information for the VPN connection's customer gateway, in the native XML format.
+   *
    * @public
    */
   CustomerGatewayConfiguration?: string | undefined;
 
   /**
-   * <p>The type of VPN connection.</p>
+   * The type of VPN connection.
+   *
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p>The identifier of the virtual private gateway that is at the Amazon Web Services side of the VPN
-   *          connection.</p>
+   * The identifier of the virtual private gateway that is at the Amazon Web Services side of the VPN connection.
+   *
    * @public
    */
   VpnGatewayId?: string | undefined;
 
   /**
-   * <p>The category of the VPN connection. <code>VPN</code> indicates an Amazon Web Services VPN connection. <code>VPN-Classic</code>
-   *          indicates an Amazon Web Services Classic VPN connection.</p>
+   * The category of the VPN connection. `VPN` indicates an Amazon Web Services VPN connection. `VPN-Classic` indicates an Amazon Web Services Classic VPN connection.
+   *
    * @public
    */
   Category?: string | undefined;
 
   /**
-   * <p>Information about the VPN tunnel.</p>
+   * Information about the VPN tunnel.
+   *
    * @public
    */
   VgwTelemetry?: AwsEc2VpnConnectionVgwTelemetryDetails[] | undefined;
 
   /**
-   * <p>The VPN connection options.</p>
+   * The VPN connection options.
+   *
    * @public
    */
   Options?: AwsEc2VpnConnectionOptionsDetails | undefined;
 
   /**
-   * <p>The static routes that are associated with the VPN connection.</p>
+   * The static routes that are associated with the VPN connection.
+   *
    * @public
    */
   Routes?: AwsEc2VpnConnectionRoutesDetails[] | undefined;
 
   /**
-   * <p>The identifier of the transit gateway that is associated with the VPN connection.</p>
+   * The identifier of the transit gateway that is associated with the VPN connection.
+   *
    * @public
    */
   TransitGatewayId?: string | undefined;
 }
 
 /**
- * <p>Information about an Amazon ECR image.</p>
+ * Information about an Amazon ECR image.
+ *
  * @public
  */
 export interface AwsEcrContainerImageDetails {
   /**
-   * <p>The Amazon Web Services account identifier that is associated with the registry that the image belongs
-   *          to.</p>
+   * The Amazon Web Services account identifier that is associated with the registry that the image belongs to.
+   *
    * @public
    */
   RegistryId?: string | undefined;
 
   /**
-   * <p>The name of the repository that the image belongs to.</p>
+   * The name of the repository that the image belongs to.
+   *
    * @public
    */
   RepositoryName?: string | undefined;
 
   /**
-   * <p>The architecture of the image. Valid values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>arm64</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>i386</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>x86_64</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The architecture of the image. Valid values are as follows:
+   *
+   * - `arm64`
+   * - `i386`
+   * - `x86_64`
+   *
    * @public
    */
   Architecture?: string | undefined;
 
   /**
-   * <p>The sha256 digest of the image manifest.</p>
+   * The sha256 digest of the image manifest.
+   *
    * @public
    */
   ImageDigest?: string | undefined;
 
   /**
-   * <p>The list of tags that are associated with the image.</p>
+   * The list of tags that are associated with the image.
+   *
    * @public
    */
   ImageTags?: string[] | undefined;
 
   /**
-   * <p>The date and time when the image was pushed to the repository.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * The date and time when the image was pushed to the repository.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   ImagePublishedAt?: string | undefined;
 }
 
 /**
- * <p>The image scanning configuration for a repository.</p>
+ * The image scanning configuration for a repository.
+ *
  * @public
  */
 export interface AwsEcrRepositoryImageScanningConfigurationDetails {
   /**
-   * <p>Whether to scan images after they are pushed to a repository.</p>
+   * Whether to scan images after they are pushed to a repository.
+   *
    * @public
    */
   ScanOnPush?: boolean | undefined;
 }
 
 /**
- * <p>Information about the lifecycle policy for the repository.</p>
+ * Information about the lifecycle policy for the repository.
+ *
  * @public
  */
 export interface AwsEcrRepositoryLifecyclePolicyDetails {
   /**
-   * <p>The text of the lifecycle policy.</p>
+   * The text of the lifecycle policy.
+   *
    * @public
    */
   LifecyclePolicyText?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account identifier that is associated with the registry that contains the repository.</p>
+   * The Amazon Web Services account identifier that is associated with the registry that contains the repository.
+   *
    * @public
    */
   RegistryId?: string | undefined;
 }
 
 /**
- * <p>Provides information about an Amazon Elastic Container Registry repository.</p>
+ * Provides information about an Amazon Elastic Container Registry repository.
+ *
  * @public
  */
 export interface AwsEcrRepositoryDetails {
   /**
-   * <p>The ARN of the repository.</p>
+   * The ARN of the repository.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The image scanning configuration for a repository.</p>
+   * The image scanning configuration for a repository.
+   *
    * @public
    */
   ImageScanningConfiguration?: AwsEcrRepositoryImageScanningConfigurationDetails | undefined;
 
   /**
-   * <p>The tag mutability setting for the repository. Valid values are <code>IMMUTABLE</code> or <code>MUTABLE</code>.</p>
+   * The tag mutability setting for the repository. Valid values are `IMMUTABLE` or `MUTABLE`.
+   *
    * @public
    */
   ImageTagMutability?: string | undefined;
 
   /**
-   * <p>Information about the lifecycle policy for the repository.</p>
+   * Information about the lifecycle policy for the repository.
+   *
    * @public
    */
   LifecyclePolicy?: AwsEcrRepositoryLifecyclePolicyDetails | undefined;
 
   /**
-   * <p>The name of the repository.</p>
+   * The name of the repository.
+   *
    * @public
    */
   RepositoryName?: string | undefined;
 
   /**
-   * <p>The text of the repository policy.</p>
+   * The text of the repository policy.
+   *
    * @public
    */
   RepositoryPolicyText?: string | undefined;
 }
 
 /**
- * <p>Indicates whether to enable CloudWatch Container Insights for the ECS cluster.</p>
+ * Indicates whether to enable CloudWatch Container Insights for the ECS cluster.
+ *
  * @public
  */
 export interface AwsEcsClusterClusterSettingsDetails {
   /**
-   * <p>The name of the setting. The valid value is <code>containerInsights</code>.</p>
+   * The name of the setting. The valid value is `containerInsights`.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The value of the setting. Valid values are <code>disabled</code> or <code>enabled</code>.</p>
+   * The value of the setting. Valid values are `disabled` or `enabled`.
+   *
    * @public
    */
   Value?: string | undefined;
 }
 
 /**
- * <p>The log configuration for the results of the run command actions.</p>
+ * The log configuration for the results of the run command actions.
+ *
  * @public
  */
 export interface AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails {
   /**
-   * <p>Whether to enable encryption on the CloudWatch logs.</p>
+   * Whether to enable encryption on the CloudWatch logs.
+   *
    * @public
    */
   CloudWatchEncryptionEnabled?: boolean | undefined;
 
   /**
-   * <p>The name of the CloudWatch log group to send the logs to.</p>
+   * The name of the CloudWatch log group to send the logs to.
+   *
    * @public
    */
   CloudWatchLogGroupName?: string | undefined;
 
   /**
-   * <p>The name of the S3 bucket to send logs to.</p>
+   * The name of the S3 bucket to send logs to.
+   *
    * @public
    */
   S3BucketName?: string | undefined;
 
   /**
-   * <p>Whether to encrypt the logs that are sent to the S3 bucket.</p>
+   * Whether to encrypt the logs that are sent to the S3 bucket.
+   *
    * @public
    */
   S3EncryptionEnabled?: boolean | undefined;
 
   /**
-   * <p>Identifies the folder in the S3 bucket to send the logs to.</p>
+   * Identifies the folder in the S3 bucket to send the logs to.
+   *
    * @public
    */
   S3KeyPrefix?: string | undefined;
 }
 
 /**
- * <p>Contains the run command configuration for the cluster.</p>
+ * Contains the run command configuration for the cluster.
+ *
  * @public
  */
 export interface AwsEcsClusterConfigurationExecuteCommandConfigurationDetails {
   /**
-   * <p>The identifier of the KMS key that is used to encrypt the data between the local client and the container.</p>
+   * The identifier of the KMS key that is used to encrypt the data between the local client and the container.
+   *
    * @public
    */
   KmsKeyId?: string | undefined;
 
   /**
-   * <p>The log configuration for the results of the run command actions. Required if <code>Logging</code> is <code>NONE</code>.</p>
+   * The log configuration for the results of the run command actions. Required if `Logging` is `NONE`.
+   *
    * @public
    */
   LogConfiguration?: AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails | undefined;
 
   /**
-   * <p>The log setting to use for redirecting logs for run command results.</p>
+   * The log setting to use for redirecting logs for run command results.
+   *
    * @public
    */
   Logging?: string | undefined;
 }
 
 /**
- * <p>The run command configuration for the cluster.</p>
+ * The run command configuration for the cluster.
+ *
  * @public
  */
 export interface AwsEcsClusterConfigurationDetails {
   /**
-   * <p>Contains the run command configuration for the cluster.</p>
+   * Contains the run command configuration for the cluster.
+   *
    * @public
    */
   ExecuteCommandConfiguration?: AwsEcsClusterConfigurationExecuteCommandConfigurationDetails | undefined;
 }
 
 /**
- * <p>The default capacity provider strategy for the cluster. The default capacity provider strategy is used when services or tasks are run without a specified launch type or capacity provider strategy.</p>
+ * The default capacity provider strategy for the cluster. The default capacity provider strategy is used when services or tasks are run without a specified launch type or capacity provider strategy.
+ *
  * @public
  */
 export interface AwsEcsClusterDefaultCapacityProviderStrategyDetails {
   /**
-   * <p>The minimum number of tasks to run on the specified capacity provider.</p>
+   * The minimum number of tasks to run on the specified capacity provider.
+   *
    * @public
    */
   Base?: number | undefined;
 
   /**
-   * <p>The name of the capacity provider.</p>
+   * The name of the capacity provider.
+   *
    * @public
    */
   CapacityProvider?: string | undefined;
 
   /**
-   * <p>The relative percentage of the total number of tasks launched that should use the capacity provider.</p>
+   * The relative percentage of the total number of tasks launched that should use the capacity provider.
+   *
    * @public
    */
   Weight?: number | undefined;
 }
 
 /**
- * <p>Provides details about an Amazon ECS cluster.</p>
+ * Provides details about an Amazon ECS cluster.
+ *
  * @public
  */
 export interface AwsEcsClusterDetails {
   /**
-   * <p>The Amazon Resource Name (ARN) that identifies the cluster.
-   *       </p>
+   * The Amazon Resource Name (ARN) that identifies the cluster.
+   *
    * @public
    */
   ClusterArn?: string | undefined;
 
   /**
-   * <p>The number of services that are running on the cluster in an <code>ACTIVE</code> state. You can view these services with the Amazon ECS <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServices.html">
-   *                <code>ListServices</code>
-   *             </a> API operation.
-   *       </p>
+   * The number of services that are running on the cluster in an `ACTIVE` state. You can view these services with the Amazon ECS [`ListServices`](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServices.html) API operation.
+   *
    * @public
    */
   ActiveServicesCount?: number | undefined;
 
   /**
-   * <p>The short name of one or more capacity providers to associate with the cluster.</p>
+   * The short name of one or more capacity providers to associate with the cluster.
+   *
    * @public
    */
   CapacityProviders?: string[] | undefined;
 
   /**
-   * <p>The setting to use to create the cluster. Specifically used to configure whether to enable CloudWatch Container Insights for the cluster.</p>
+   * The setting to use to create the cluster. Specifically used to configure whether to enable CloudWatch Container Insights for the cluster.
+   *
    * @public
    */
   ClusterSettings?: AwsEcsClusterClusterSettingsDetails[] | undefined;
 
   /**
-   * <p>The run command configuration for the cluster.</p>
+   * The run command configuration for the cluster.
+   *
    * @public
    */
   Configuration?: AwsEcsClusterConfigurationDetails | undefined;
 
   /**
-   * <p>The default capacity provider strategy for the cluster. The default capacity provider strategy is used when services or tasks are run without a specified launch type or capacity provider strategy.</p>
+   * The default capacity provider strategy for the cluster. The default capacity provider strategy is used when services or tasks are run without a specified launch type or capacity provider strategy.
+   *
    * @public
    */
   DefaultCapacityProviderStrategy?: AwsEcsClusterDefaultCapacityProviderStrategyDetails[] | undefined;
 
   /**
-   * <p>A name that you use to identify your cluster.
-   *       </p>
+   * A name that you use to identify your cluster.
+   *
    * @public
    */
   ClusterName?: string | undefined;
 
   /**
-   * <p>The number of container instances registered into the cluster. This includes container instances in both <code>ACTIVE</code> and <code>DRAINING</code> status.
-   *       </p>
+   * The number of container instances registered into the cluster. This includes container instances in both `ACTIVE` and `DRAINING` status.
+   *
    * @public
    */
   RegisteredContainerInstancesCount?: number | undefined;
 
   /**
-   * <p>The number of tasks in the cluster that are in the <code>RUNNING</code> state.
-   *       </p>
+   * The number of tasks in the cluster that are in the `RUNNING` state.
+   *
    * @public
    */
   RunningTasksCount?: number | undefined;
 
   /**
-   * <p>The status of the cluster.
-   *       </p>
+   * The status of the cluster.
+   *
    * @public
    */
   Status?: string | undefined;
 }
 
 /**
- * <p>Details for a volume mount point that's used in a container definition.
- *       </p>
+ * Details for a volume mount point that's used in a container definition.
+ *
  * @public
  */
 export interface AwsMountPoint {
   /**
-   * <p>The name of the volume to mount. Must be a volume name referenced in the <code>name</code> parameter
-   * of task definition <code>volume</code>.
-   *       </p>
+   * The name of the volume to mount. Must be a volume name referenced in the `name` parameter of task definition `volume`.
+   *
    * @public
    */
   SourceVolume?: string | undefined;
 
   /**
-   * <p>The path on the container to mount the host volume at.
-   *       </p>
+   * The path on the container to mount the host volume at.
+   *
    * @public
    */
   ContainerPath?: string | undefined;
 }
 
 /**
- * <p>Provides information about an Amazon ECS container.
- *       </p>
+ * Provides information about an Amazon ECS container.
+ *
  * @public
  */
 export interface AwsEcsContainerDetails {
   /**
-   * <p>The name of the container.
-   *       </p>
+   * The name of the container.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The image used for the container.
-   *       </p>
+   * The image used for the container.
+   *
    * @public
    */
   Image?: string | undefined;
 
   /**
-   * <p>The mount points for data volumes in your container.
-   *       </p>
+   * The mount points for data volumes in your container.
+   *
    * @public
    */
   MountPoints?: AwsMountPoint[] | undefined;
 
   /**
-   * <p>When this parameter is true, the container is given elevated privileges on the host container instance
-   * (similar to the root user).
-   *       </p>
+   * When this parameter is true, the container is given elevated privileges on the host container instance (similar to the root user).
+   *
    * @public
    */
   Privileged?: boolean | undefined;
 }
 
 /**
- * <p>Strategy item for the capacity provider strategy that the service uses.</p>
+ * Strategy item for the capacity provider strategy that the service uses.
+ *
  * @public
  */
 export interface AwsEcsServiceCapacityProviderStrategyDetails {
   /**
-   * <p>The minimum number of tasks to run on the capacity provider. Only one strategy item can specify a value for <code>Base</code>.</p>
-   *          <p>The value must be between 0 and 100000.</p>
+   * The minimum number of tasks to run on the capacity provider. Only one strategy item can specify a value for `Base`.
+   *
+   * The value must be between 0 and 100000.
+   *
    * @public
    */
   Base?: number | undefined;
 
   /**
-   * <p>The short name of the capacity provider.</p>
+   * The short name of the capacity provider.
+   *
    * @public
    */
   CapacityProvider?: string | undefined;
 
   /**
-   * <p>The relative percentage of the total number of tasks that should use the capacity provider.</p>
-   *          <p>If no weight is specified, the default value is 0. At least one capacity provider must have a weight greater than 0.</p>
-   *          <p>The value can be between 0 and 1000.</p>
+   * The relative percentage of the total number of tasks that should use the capacity provider.
+   *
+   * If no weight is specified, the default value is 0. At least one capacity provider must have a weight greater than 0.
+   *
+   * The value can be between 0 and 1000.
+   *
    * @public
    */
   Weight?: number | undefined;
 }
 
 /**
- * <p>Determines whether a service deployment fails if a service cannot reach a steady state.</p>
+ * Determines whether a service deployment fails if a service cannot reach a steady state.
+ *
  * @public
  */
 export interface AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails {
   /**
-   * <p>Whether to enable the deployment circuit breaker logic for the service.</p>
+   * Whether to enable the deployment circuit breaker logic for the service.
+   *
    * @public
    */
   Enable?: boolean | undefined;
 
   /**
-   * <p>Whether to roll back the service if a service deployment fails. If rollback is enabled, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.</p>
+   * Whether to roll back the service if a service deployment fails. If rollback is enabled, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
+   *
    * @public
    */
   Rollback?: boolean | undefined;
 }
 
 /**
- * <p>Optional deployment parameters for the service.</p>
+ * Optional deployment parameters for the service.
+ *
  * @public
  */
 export interface AwsEcsServiceDeploymentConfigurationDetails {
   /**
-   * <p>Determines whether a service deployment fails if a service cannot reach a steady state.</p>
+   * Determines whether a service deployment fails if a service cannot reach a steady state.
+   *
    * @public
    */
   DeploymentCircuitBreaker?: AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails | undefined;
 
   /**
-   * <p>For a service that uses the rolling update (<code>ECS</code>) deployment type, the maximum number of tasks in a service that are allowed in the <code>RUNNING</code> or <code>PENDING</code> state during a deployment, and for tasks that use the EC2 launch type, when any container instances are in the <code>DRAINING</code> state. Provided as a percentage of the desired number of tasks. The default value is 200%.</p>
-   *          <p>For a service that uses the blue/green (<code>CODE_DEPLOY</code>) or <code>EXTERNAL</code> deployment types, and tasks that use the EC2 launch type, the maximum number of tasks in the service that remain in the <code>RUNNING</code> state while the container instances are in the <code>DRAINING</code> state.</p>
-   *          <p>For the Fargate launch type, the maximum percent value is not used.</p>
+   * For a service that uses the rolling update (`ECS`) deployment type, the maximum number of tasks in a service that are allowed in the `RUNNING` or `PENDING` state during a deployment, and for tasks that use the EC2 launch type, when any container instances are in the `DRAINING` state. Provided as a percentage of the desired number of tasks. The default value is 200%.
+   *
+   * For a service that uses the blue/green (`CODE_DEPLOY`) or `EXTERNAL` deployment types, and tasks that use the EC2 launch type, the maximum number of tasks in the service that remain in the `RUNNING` state while the container instances are in the `DRAINING` state.
+   *
+   * For the Fargate launch type, the maximum percent value is not used.
+   *
    * @public
    */
   MaximumPercent?: number | undefined;
 
   /**
-   * <p>For a service that uses the rolling update (<code>ECS</code>) deployment type, the minimum number of tasks in a service that must remain in the <code>RUNNING</code> state during a deployment, and while any container instances are in the <code>DRAINING</code> state if the service contains tasks using the EC2 launch type. Expressed as a percentage of the desired number of tasks. The default value is 100%.</p>
-   *          <p>For a service that uses the blue/green (<code>CODE_DEPLOY</code>) or <code>EXTERNAL</code> deployment types and tasks that use the EC2 launch type, the minimum number of the tasks in the service that remain in the <code>RUNNING</code> state while the container instances are in the <code>DRAINING</code> state.</p>
-   *          <p>For the Fargate launch type, the minimum healthy percent value is not used.</p>
+   * For a service that uses the rolling update (`ECS`) deployment type, the minimum number of tasks in a service that must remain in the `RUNNING` state during a deployment, and while any container instances are in the `DRAINING` state if the service contains tasks using the EC2 launch type. Expressed as a percentage of the desired number of tasks. The default value is 100%.
+   *
+   * For a service that uses the blue/green (`CODE_DEPLOY`) or `EXTERNAL` deployment types and tasks that use the EC2 launch type, the minimum number of the tasks in the service that remain in the `RUNNING` state while the container instances are in the `DRAINING` state.
+   *
+   * For the Fargate launch type, the minimum healthy percent value is not used.
+   *
    * @public
    */
   MinimumHealthyPercent?: number | undefined;
 }
 
 /**
- * <p>Information about the deployment controller type that the service uses.</p>
+ * Information about the deployment controller type that the service uses.
+ *
  * @public
  */
 export interface AwsEcsServiceDeploymentControllerDetails {
   /**
-   * <p>The rolling update (<code>ECS</code>) deployment type replaces the current running version of the container with the latest version.</p>
-   *          <p>The blue/green (<code>CODE_DEPLOY</code>) deployment type uses the blue/green deployment model that is powered by CodeDeploy. This deployment model a new deployment of a service can be verified before production traffic is sent to it.</p>
-   *          <p>The external (<code>EXTERNAL</code>) deployment type allows the use of any third-party deployment controller for full control over the deployment process for an Amazon ECS service.</p>
-   *          <p>Valid values: <code>ECS</code> | <code>CODE_DEPLOY</code> | <code>EXTERNAL</code>
-   *          </p>
+   * The rolling update (`ECS`) deployment type replaces the current running version of the container with the latest version.
+   *
+   * The blue/green (`CODE_DEPLOY`) deployment type uses the blue/green deployment model that is powered by CodeDeploy. This deployment model a new deployment of a service can be verified before production traffic is sent to it.
+   *
+   * The external (`EXTERNAL`) deployment type allows the use of any third-party deployment controller for full control over the deployment process for an Amazon ECS service.
+   *
+   * Valid values: `ECS` | `CODE_DEPLOY` | `EXTERNAL`
+   *
    * @public
    */
   Type?: string | undefined;
 }
 
 /**
- * <p>Information about a load balancer that the service uses.</p>
+ * Information about a load balancer that the service uses.
+ *
  * @public
  */
 export interface AwsEcsServiceLoadBalancersDetails {
   /**
-   * <p>The name of the container to associate with the load balancer.</p>
+   * The name of the container to associate with the load balancer.
+   *
    * @public
    */
   ContainerName?: string | undefined;
 
   /**
-   * <p>The port on the container to associate with the load balancer. This port must correspond to a <code>containerPort</code> in the task definition the tasks in the service are using. For tasks that use the EC2 launch type, the container instance they are launched on must allow ingress traffic on the <code>hostPort</code> of the port mapping.</p>
+   * The port on the container to associate with the load balancer. This port must correspond to a `containerPort` in the task definition the tasks in the service are using. For tasks that use the EC2 launch type, the container instance they are launched on must allow ingress traffic on the `hostPort` of the port mapping.
+   *
    * @public
    */
   ContainerPort?: number | undefined;
 
   /**
-   * <p>The name of the load balancer to associate with the Amazon ECS service or task set.</p>
-   *          <p>Only specified when using a Classic Load Balancer. For an Application Load Balancer or a Network Load Balancer, the load balancer name is omitted.</p>
+   * The name of the load balancer to associate with the Amazon ECS service or task set.
+   *
+   * Only specified when using a Classic Load Balancer. For an Application Load Balancer or a Network Load Balancer, the load balancer name is omitted.
+   *
    * @public
    */
   LoadBalancerName?: string | undefined;
 
   /**
-   * <p>The ARN of the Elastic Load Balancing target group or groups associated with a service or task set.</p>
-   *          <p>Only specified when using an Application Load Balancer or a Network Load Balancer. For a Classic Load Balancer, the target group ARN is omitted.</p>
+   * The ARN of the Elastic Load Balancing target group or groups associated with a service or task set.
+   *
+   * Only specified when using an Application Load Balancer or a Network Load Balancer. For a Classic Load Balancer, the target group ARN is omitted.
+   *
    * @public
    */
   TargetGroupArn?: string | undefined;
 }
 
 /**
- * <p>For tasks that use the <code>awsvpc</code> networking mode, the VPC subnet and security group configuration.</p>
+ * For tasks that use the `awsvpc` networking mode, the VPC subnet and security group configuration.
+ *
  * @public
  */
 export interface AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails {
   /**
-   * <p>Whether the task's elastic network interface receives a public IP address. The default value is <code>DISABLED</code>.</p>
-   *          <p>Valid values: <code>ENABLED</code> | <code>DISABLED</code>
-   *          </p>
+   * Whether the task's elastic network interface receives a public IP address. The default value is `DISABLED`.
+   *
+   * Valid values: `ENABLED` | `DISABLED`
+   *
    * @public
    */
   AssignPublicIp?: string | undefined;
 
   /**
-   * <p>The IDs of the security groups associated with the task or service.</p>
-   *          <p>You can provide up to five security groups.</p>
+   * The IDs of the security groups associated with the task or service.
+   *
+   * You can provide up to five security groups.
+   *
    * @public
    */
   SecurityGroups?: string[] | undefined;
 
   /**
-   * <p>The IDs of the subnets associated with the task or service.</p>
-   *          <p>You can provide up to 16 subnets.</p>
+   * The IDs of the subnets associated with the task or service.
+   *
+   * You can provide up to 16 subnets.
+   *
    * @public
    */
   Subnets?: string[] | undefined;
 }
 
 /**
- * <p>For tasks that use the <code>awsvpc</code> networking mode, the VPC subnet and security group configuration.</p>
+ * For tasks that use the `awsvpc` networking mode, the VPC subnet and security group configuration.
+ *
  * @public
  */
 export interface AwsEcsServiceNetworkConfigurationDetails {
   /**
-   * <p>The VPC subnet and security group configuration.</p>
+   * The VPC subnet and security group configuration.
+   *
    * @public
    */
   AwsVpcConfiguration?: AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails | undefined;
 }
 
 /**
- * <p>A placement constraint for the tasks in the service.</p>
+ * A placement constraint for the tasks in the service.
+ *
  * @public
  */
 export interface AwsEcsServicePlacementConstraintsDetails {
   /**
-   * <p>A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is <code>distinctInstance</code>.</p>
+   * A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is `distinctInstance`.
+   *
    * @public
    */
   Expression?: string | undefined;
 
   /**
-   * <p>The type of constraint. Use <code>distinctInstance</code> to run each task in a particular group on a different container instance. Use <code>memberOf</code> to restrict the selection to a group of valid candidates.</p>
-   *          <p>Valid values: <code>distinctInstance</code> | <code>memberOf</code>
-   *          </p>
+   * The type of constraint. Use `distinctInstance` to run each task in a particular group on a different container instance. Use `memberOf` to restrict the selection to a group of valid candidates.
+   *
+   * Valid values: `distinctInstance` | `memberOf`
+   *
    * @public
    */
   Type?: string | undefined;
 }
 
 /**
- * <p>A placement strategy that determines how to place the tasks for the service.</p>
+ * A placement strategy that determines how to place the tasks for the service.
+ *
  * @public
  */
 export interface AwsEcsServicePlacementStrategiesDetails {
   /**
-   * <p>The field to apply the placement strategy against.</p>
-   *          <p>For the <code>spread</code> placement strategy, valid values are <code>instanceId</code> (or <code>host</code>, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as <code>attribute:ecs.availability-zone</code>.</p>
-   *          <p>For the <code>binpack</code> placement strategy, valid values are <code>cpu</code> and <code>memory</code>.</p>
-   *          <p>For the <code>random</code> placement strategy, this attribute is not used.</p>
+   * The field to apply the placement strategy against.
+   *
+   * For the `spread` placement strategy, valid values are `instanceId` (or `host`, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as `attribute:ecs.availability-zone`.
+   *
+   * For the `binpack` placement strategy, valid values are `cpu` and `memory`.
+   *
+   * For the `random` placement strategy, this attribute is not used.
+   *
    * @public
    */
   Field?: string | undefined;
 
   /**
-   * <p>The type of placement strategy.</p>
-   *          <p>The <code>random</code> placement strategy randomly places tasks on available candidates.</p>
-   *          <p>The <code>spread</code> placement strategy spreads placement across available candidates evenly based on the value of <code>Field</code>.</p>
-   *          <p>The <code>binpack</code> strategy places tasks on available candidates that have the least available amount of the resource that is specified in <code>Field</code>.</p>
-   *          <p>Valid values: <code>random</code> | <code>spread</code> | <code>binpack</code>
-   *          </p>
+   * The type of placement strategy.
+   *
+   * The `random` placement strategy randomly places tasks on available candidates.
+   *
+   * The `spread` placement strategy spreads placement across available candidates evenly based on the value of `Field`.
+   *
+   * The `binpack` strategy places tasks on available candidates that have the least available amount of the resource that is specified in `Field`.
+   *
+   * Valid values: `random` | `spread` | `binpack`
+   *
    * @public
    */
   Type?: string | undefined;
 }
 
 /**
- * <p>Information about a service discovery registry to assign to the service.</p>
+ * Information about a service discovery registry to assign to the service.
+ *
  * @public
  */
 export interface AwsEcsServiceServiceRegistriesDetails {
   /**
-   * <p>The container name value to use for the service discovery service.</p>
-   *          <p>If the task definition uses the <code>bridge</code> or <code>host</code> network mode, you must specify <code>ContainerName</code> and <code>ContainerPort</code>.</p>
-   *          <p>If the task definition uses the <code>awsvpc</code> network mode and a type SRV DNS record, you must specify either <code>ContainerName</code> and <code>ContainerPort</code>, or <code>Port</code> , but not both.</p>
+   * The container name value to use for the service discovery service.
+   *
+   * If the task definition uses the `bridge` or `host` network mode, you must specify `ContainerName` and `ContainerPort`.
+   *
+   * If the task definition uses the `awsvpc` network mode and a type SRV DNS record, you must specify either `ContainerName` and `ContainerPort`, or `Port` , but not both.
+   *
    * @public
    */
   ContainerName?: string | undefined;
 
   /**
-   * <p>The port value to use for the service discovery service.</p>
-   *          <p>If the task definition uses the <code>bridge</code> or <code>host</code> network mode, you must specify <code>ContainerName</code> and <code>ContainerPort</code>.</p>
-   *          <p>If the task definition uses the <code>awsvpc</code> network mode and a type SRV DNS record, you must specify either <code>ContainerName</code> and <code>ContainerPort</code>, or <code>Port</code> , but not both.</p>
+   * The port value to use for the service discovery service.
+   *
+   * If the task definition uses the `bridge` or `host` network mode, you must specify `ContainerName` and `ContainerPort`.
+   *
+   * If the task definition uses the `awsvpc` network mode and a type SRV DNS record, you must specify either `ContainerName` and `ContainerPort`, or `Port` , but not both.
+   *
    * @public
    */
   ContainerPort?: number | undefined;
 
   /**
-   * <p>The port value to use for a service discovery service that specifies an SRV record. This field can be used if both the <code>awsvpc</code>awsvpc network mode and SRV records are used.</p>
+   * The port value to use for a service discovery service that specifies an SRV record. This field can be used if both the `awsvpc`awsvpc network mode and SRV records are used.
+   *
    * @public
    */
   Port?: number | undefined;
 
   /**
-   * <p>The ARN of the service registry.</p>
+   * The ARN of the service registry.
+   *
    * @public
    */
   RegistryArn?: string | undefined;
 }
 
 /**
- * <p>Provides details about a service within an ECS cluster.</p>
+ * Provides details about a service within an ECS cluster.
+ *
  * @public
  */
 export interface AwsEcsServiceDetails {
   /**
-   * <p>The capacity provider strategy that the service uses.</p>
+   * The capacity provider strategy that the service uses.
+   *
    * @public
    */
   CapacityProviderStrategy?: AwsEcsServiceCapacityProviderStrategyDetails[] | undefined;
 
   /**
-   * <p>The ARN of the cluster that hosts the service.</p>
+   * The ARN of the cluster that hosts the service.
+   *
    * @public
    */
   Cluster?: string | undefined;
 
   /**
-   * <p>Deployment parameters for the service. Includes the number of tasks that run and the order in which to start and stop tasks.</p>
+   * Deployment parameters for the service. Includes the number of tasks that run and the order in which to start and stop tasks.
+   *
    * @public
    */
   DeploymentConfiguration?: AwsEcsServiceDeploymentConfigurationDetails | undefined;
 
   /**
-   * <p>Contains the deployment controller type that the service uses.</p>
+   * Contains the deployment controller type that the service uses.
+   *
    * @public
    */
   DeploymentController?: AwsEcsServiceDeploymentControllerDetails | undefined;
 
   /**
-   * <p>The number of instantiations of the task definition to run on the service.</p>
+   * The number of instantiations of the task definition to run on the service.
+   *
    * @public
    */
   DesiredCount?: number | undefined;
 
   /**
-   * <p>Whether to enable Amazon ECS managed tags for the tasks in the service.</p>
+   * Whether to enable Amazon ECS managed tags for the tasks in the service.
+   *
    * @public
    */
   EnableEcsManagedTags?: boolean | undefined;
 
   /**
-   * <p>Whether the execute command functionality is enabled for the service.</p>
+   * Whether the execute command functionality is enabled for the service.
+   *
    * @public
    */
   EnableExecuteCommand?: boolean | undefined;
 
   /**
-   * <p>After a task starts, the amount of time in seconds that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks.</p>
+   * After a task starts, the amount of time in seconds that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks.
+   *
    * @public
    */
   HealthCheckGracePeriodSeconds?: number | undefined;
 
   /**
-   * <p>The launch type that the service uses.</p>
-   *          <p>Valid values: <code>EC2</code> | <code>FARGATE</code> | <code>EXTERNAL</code>
-   *          </p>
+   * The launch type that the service uses.
+   *
+   * Valid values: `EC2` | `FARGATE` | `EXTERNAL`
+   *
    * @public
    */
   LaunchType?: string | undefined;
 
   /**
-   * <p>Information about the load balancers that the service uses.</p>
+   * Information about the load balancers that the service uses.
+   *
    * @public
    */
   LoadBalancers?: AwsEcsServiceLoadBalancersDetails[] | undefined;
 
   /**
-   * <p>The name of the service.</p>
+   * The name of the service.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>For tasks that use the <code>awsvpc</code> networking mode, the VPC subnet and security group configuration.</p>
+   * For tasks that use the `awsvpc` networking mode, the VPC subnet and security group configuration.
+   *
    * @public
    */
   NetworkConfiguration?: AwsEcsServiceNetworkConfigurationDetails | undefined;
 
   /**
-   * <p>The placement constraints for the tasks in the service.</p>
+   * The placement constraints for the tasks in the service.
+   *
    * @public
    */
   PlacementConstraints?: AwsEcsServicePlacementConstraintsDetails[] | undefined;
 
   /**
-   * <p>Information about how tasks for the service are placed.</p>
+   * Information about how tasks for the service are placed.
+   *
    * @public
    */
   PlacementStrategies?: AwsEcsServicePlacementStrategiesDetails[] | undefined;
 
   /**
-   * <p>The platform version on which to run the service. Only specified for tasks that are hosted on Fargate. If a platform version is not specified, the <code>LATEST</code> platform version is used by default.</p>
+   * The platform version on which to run the service. Only specified for tasks that are hosted on Fargate. If a platform version is not specified, the `LATEST` platform version is used by default.
+   *
    * @public
    */
   PlatformVersion?: string | undefined;
 
   /**
-   * <p>Indicates whether to propagate the tags from the task definition to the task or from the service to the task. If no value is provided, then tags are not propagated.</p>
-   *          <p>Valid values: <code>TASK_DEFINITION</code> | <code>SERVICE</code>
-   *          </p>
+   * Indicates whether to propagate the tags from the task definition to the task or from the service to the task. If no value is provided, then tags are not propagated.
+   *
+   * Valid values: `TASK_DEFINITION` | `SERVICE`
+   *
    * @public
    */
   PropagateTags?: string | undefined;
 
   /**
-   * <p>The ARN of the IAM role that is associated with the service. The role allows the Amazon ECS container agent to register container instances with an Elastic Load Balancing load balancer.</p>
+   * The ARN of the IAM role that is associated with the service. The role allows the Amazon ECS container agent to register container instances with an Elastic Load Balancing load balancer.
+   *
    * @public
    */
   Role?: string | undefined;
 
   /**
-   * <p>The scheduling strategy to use for the service.</p>
-   *          <p>The <code>REPLICA</code> scheduling strategy places and maintains the desired number of tasks across the cluster. By default, the service scheduler spreads tasks across Availability Zones. Task placement strategies and constraints are used to customize task placement decisions.</p>
-   *          <p>The <code>DAEMON</code> scheduling strategy deploys exactly one task on each active container instance that meets all of the task placement constraints that are specified in the cluster. The service scheduler also evaluates the task placement constraints for running tasks and stops tasks that don't meet the placement constraints.</p>
-   *          <p>Valid values: <code>REPLICA</code> | <code>DAEMON</code>
-   *          </p>
+   * The scheduling strategy to use for the service.
+   *
+   * The `REPLICA` scheduling strategy places and maintains the desired number of tasks across the cluster. By default, the service scheduler spreads tasks across Availability Zones. Task placement strategies and constraints are used to customize task placement decisions.
+   *
+   * The `DAEMON` scheduling strategy deploys exactly one task on each active container instance that meets all of the task placement constraints that are specified in the cluster. The service scheduler also evaluates the task placement constraints for running tasks and stops tasks that don't meet the placement constraints.
+   *
+   * Valid values: `REPLICA` | `DAEMON`
+   *
    * @public
    */
   SchedulingStrategy?: string | undefined;
 
   /**
-   * <p>The ARN of the service.</p>
+   * The ARN of the service.
+   *
    * @public
    */
   ServiceArn?: string | undefined;
 
   /**
-   * <p>The name of the service.</p>
-   *          <p>The name can contain up to 255 characters. It can use letters, numbers, underscores, and hyphens.</p>
+   * The name of the service.
+   *
+   * The name can contain up to 255 characters. It can use letters, numbers, underscores, and hyphens.
+   *
    * @public
    */
   ServiceName?: string | undefined;
 
   /**
-   * <p>Information about the service discovery registries to assign to the service.</p>
+   * Information about the service discovery registries to assign to the service.
+   *
    * @public
    */
   ServiceRegistries?: AwsEcsServiceServiceRegistriesDetails[] | undefined;
 
   /**
-   * <p>The task definition to use for tasks in the service.</p>
+   * The task definition to use for tasks in the service.
+   *
    * @public
    */
   TaskDefinition?: string | undefined;
 }
 
 /**
- * <p>A dependency that is defined for container startup and shutdown.</p>
+ * A dependency that is defined for container startup and shutdown.
+ *
  * @public
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails {
   /**
-   * <p>The dependency condition of the dependent container. Indicates the required status of the dependent container before the current container can start. Valid values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>COMPLETE</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>HEALTHY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SUCCESS</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>START</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The dependency condition of the dependent container. Indicates the required status of the dependent container before the current container can start. Valid values are as follows:
+   *
+   * - `COMPLETE`
+   * - `HEALTHY`
+   * - `SUCCESS`
+   * - `START`
+   *
    * @public
    */
   Condition?: string | undefined;
 
   /**
-   * <p>The name of the dependent container.</p>
+   * The name of the dependent container.
+   *
    * @public
    */
   ContainerName?: string | undefined;
 }
 
 /**
- * <p>An environment variable to pass to the container.</p>
+ * An environment variable to pass to the container.
+ *
  * @public
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails {
   /**
-   * <p>The name of the environment variable.</p>
+   * The name of the environment variable.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The value of the environment variable.</p>
+   * The value of the environment variable.
+   *
    * @public
    */
   Value?: string | undefined;
 }
 
 /**
- * <p>A file that contain environment variables to pass to a container.</p>
+ * A file that contain environment variables to pass to a container.
+ *
  * @public
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails {
   /**
-   * <p>The type of environment file. The valid value is <code>s3</code>.</p>
+   * The type of environment file. The valid value is `s3`.
+   *
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p>The ARN of the S3 object that contains the environment variable file.</p>
+   * The ARN of the S3 object that contains the environment variable file.
+   *
    * @public
    */
   Value?: string | undefined;
 }
 
 /**
- * <p>A hostname and IP address mapping to append to the <b>/etc/hosts</b> file on the container.</p>
+ * A hostname and IP address mapping to append to the **\/etc/hosts** file on the container.
+ *
  * @public
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails {
   /**
-   * <p>The hostname to use in the <b>/etc/hosts</b> entry.</p>
+   * The hostname to use in the **\/etc/hosts** entry.
+   *
    * @public
    */
   Hostname?: string | undefined;
 
   /**
-   * <p>The IP address to use in the <b>/etc/hosts</b> entry.</p>
+   * The IP address to use in the **\/etc/hosts** entry.
+   *
    * @public
    */
   IpAddress?: string | undefined;
 }
 
 /**
- * <p>The FireLens configuration for the container. The configuration specifies and configures a log router for container logs.</p>
+ * The FireLens configuration for the container. The configuration specifies and configures a log router for container logs.
+ *
  * @public
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails {
   /**
-   * <p>The options to use to configure the log router.</p>
-   *          <p>The valid option keys are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>enable-ecs-log-metadata</code>. The value can be <code>true</code> or
-   *                <code>false</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>config-file-type</code>. The value can be <code>s3</code> or
-   *                <code>file</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>config-file-value</code>. The value is either an S3 ARN or a file path.</p>
-   *             </li>
-   *          </ul>
+   * The options to use to configure the log router.
+   *
+   * The valid option keys are as follows:
+   *
+   * - `enable-ecs-log-metadata`. The value can be `true` or `false`.
+   * - `config-file-type`. The value can be `s3` or `file`.
+   * - `config-file-value`. The value is either an S3 ARN or a file path.
+   *
    * @public
    */
   Options?: Record<string, string> | undefined;
 
   /**
-   * <p>The log router to use. Valid values are <code>fluentbit</code> or <code>fluentd</code>.</p>
+   * The log router to use. Valid values are `fluentbit` or `fluentd`.
+   *
    * @public
    */
   Type?: string | undefined;
 }
 
 /**
- * <p>The container health check command and associated configuration parameters for the container.</p>
+ * The container health check command and associated configuration parameters for the container.
+ *
  * @public
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails {
   /**
-   * <p>The command that the container runs to determine whether it is healthy.</p>
+   * The command that the container runs to determine whether it is healthy.
+   *
    * @public
    */
   Command?: string[] | undefined;
 
   /**
-   * <p>The time period in seconds between each health check execution. The default value is 30 seconds.</p>
+   * The time period in seconds between each health check execution. The default value is 30 seconds.
+   *
    * @public
    */
   Interval?: number | undefined;
 
   /**
-   * <p>The number of times to retry a failed health check before the container is considered unhealthy. The default value is 3.</p>
+   * The number of times to retry a failed health check before the container is considered unhealthy. The default value is 3.
+   *
    * @public
    */
   Retries?: number | undefined;
 
   /**
-   * <p>The optional grace period in seconds that allows containers time to bootstrap before failed health checks count towards the maximum number of retries.</p>
+   * The optional grace period in seconds that allows containers time to bootstrap before failed health checks count towards the maximum number of retries.
+   *
    * @public
    */
   StartPeriod?: number | undefined;
 
   /**
-   * <p>The time period in seconds to wait for a health check to succeed before it is considered a failure. The default value is 5.</p>
+   * The time period in seconds to wait for a health check to succeed before it is considered a failure. The default value is 5.
+   *
    * @public
    */
   Timeout?: number | undefined;
 }
 
 /**
- * <p>The Linux capabilities for the container that are added to or dropped from the default configuration provided by Docker.</p>
+ * The Linux capabilities for the container that are added to or dropped from the default configuration provided by Docker.
+ *
  * @public
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails {
   /**
-   * <p>The Linux capabilities for the container that are added to the default configuration provided by Docker. Valid values are as follows:</p>
-   *          <p>Valid values: <code>"ALL"</code> | <code>"AUDIT_CONTROL"</code> |<code> "AUDIT_WRITE"</code> |
-   *    		<code>"BLOCK_SUSPEND"</code> | <code>"CHOWN"</code> | <code>"DAC_OVERRIDE"</code> |
-   *    		<code>"DAC_READ_SEARCH"</code> | <code>"FOWNER"</code> | <code>"FSETID"</code> |
-   *    		<code>"IPC_LOCK"</code> | <code>"IPC_OWNER"</code> | <code>"KILL"</code> |
-   *    		<code>"LEASE"</code> | <code>"LINUX_IMMUTABLE"</code> | <code>"MAC_ADMIN"</code> |<code>
-   *    			"MAC_OVERRIDE"</code> | <code>"MKNOD"</code> | <code>"NET_ADMIN"</code> |
-   *    		<code>"NET_BIND_SERVICE"</code> | <code>"NET_BROADCAST"</code> | <code>"NET_RAW"</code> |
-   *    		<code>"SETFCAP"</code> | <code>"SETGID"</code> | <code>"SETPCAP"</code> |
-   *    		<code>"SETUID"</code> | <code>"SYS_ADMIN"</code> | <code>"SYS_BOOT"</code> |
-   *    		<code>"SYS_CHROOT"</code> | <code>"SYS_MODULE"</code> | <code>"SYS_NICE"</code> |
-   *    		<code>"SYS_PACCT"</code> | <code>"SYS_PTRACE"</code> | <code>"SYS_RAWIO"</code> |
-   *    		<code>"SYS_RESOURCE"</code> | <code>"SYS_TIME"</code> | <code>"SYS_TTY_CONFIG"</code> |
-   *    		<code>"SYSLOG"</code> | <code>"WAKE_ALARM"</code>
-   *          </p>
+   * The Linux capabilities for the container that are added to the default configuration provided by Docker. Valid values are as follows:
+   *
+   * Valid values: `"ALL"` | `"AUDIT_CONTROL"` |`"AUDIT_WRITE"` | `"BLOCK_SUSPEND"` | `"CHOWN"` | `"DAC_OVERRIDE"` | `"DAC_READ_SEARCH"` | `"FOWNER"` | `"FSETID"` | `"IPC_LOCK"` | `"IPC_OWNER"` | `"KILL"` | `"LEASE"` | `"LINUX_IMMUTABLE"` | `"MAC_ADMIN"` |`"MAC_OVERRIDE"` | `"MKNOD"` | `"NET_ADMIN"` | `"NET_BIND_SERVICE"` | `"NET_BROADCAST"` | `"NET_RAW"` | `"SETFCAP"` | `"SETGID"` | `"SETPCAP"` | `"SETUID"` | `"SYS_ADMIN"` | `"SYS_BOOT"` | `"SYS_CHROOT"` | `"SYS_MODULE"` | `"SYS_NICE"` | `"SYS_PACCT"` | `"SYS_PTRACE"` | `"SYS_RAWIO"` | `"SYS_RESOURCE"` | `"SYS_TIME"` | `"SYS_TTY_CONFIG"` | `"SYSLOG"` | `"WAKE_ALARM"`
+   *
    * @public
    */
   Add?: string[] | undefined;
 
   /**
-   * <p>The Linux capabilities for the container that are dropped from the default configuration provided by Docker.</p>
-   *          <p>Valid values: <code>"ALL"</code> | <code>"AUDIT_CONTROL"</code> |<code> "AUDIT_WRITE"</code> |
-   *    		<code>"BLOCK_SUSPEND"</code> | <code>"CHOWN"</code> | <code>"DAC_OVERRIDE"</code> |
-   *    		<code>"DAC_READ_SEARCH"</code> | <code>"FOWNER"</code> | <code>"FSETID"</code> |
-   *    		<code>"IPC_LOCK"</code> | <code>"IPC_OWNER"</code> | <code>"KILL"</code> |
-   *    		<code>"LEASE"</code> | <code>"LINUX_IMMUTABLE"</code> | <code>"MAC_ADMIN"</code> |<code>
-   *    			"MAC_OVERRIDE"</code> | <code>"MKNOD"</code> | <code>"NET_ADMIN"</code> |
-   *    		<code>"NET_BIND_SERVICE"</code> | <code>"NET_BROADCAST"</code> | <code>"NET_RAW"</code> |
-   *    		<code>"SETFCAP"</code> | <code>"SETGID"</code> | <code>"SETPCAP"</code> |
-   *    		<code>"SETUID"</code> | <code>"SYS_ADMIN"</code> | <code>"SYS_BOOT"</code> |
-   *    		<code>"SYS_CHROOT"</code> | <code>"SYS_MODULE"</code> | <code>"SYS_NICE"</code> |
-   *    		<code>"SYS_PACCT"</code> | <code>"SYS_PTRACE"</code> | <code>"SYS_RAWIO"</code> |
-   *    		<code>"SYS_RESOURCE"</code> | <code>"SYS_TIME"</code> | <code>"SYS_TTY_CONFIG"</code> |
-   *    		<code>"SYSLOG"</code> | <code>"WAKE_ALARM"</code>
-   *          </p>
+   * The Linux capabilities for the container that are dropped from the default configuration provided by Docker.
+   *
+   * Valid values: `"ALL"` | `"AUDIT_CONTROL"` |`"AUDIT_WRITE"` | `"BLOCK_SUSPEND"` | `"CHOWN"` | `"DAC_OVERRIDE"` | `"DAC_READ_SEARCH"` | `"FOWNER"` | `"FSETID"` | `"IPC_LOCK"` | `"IPC_OWNER"` | `"KILL"` | `"LEASE"` | `"LINUX_IMMUTABLE"` | `"MAC_ADMIN"` |`"MAC_OVERRIDE"` | `"MKNOD"` | `"NET_ADMIN"` | `"NET_BIND_SERVICE"` | `"NET_BROADCAST"` | `"NET_RAW"` | `"SETFCAP"` | `"SETGID"` | `"SETPCAP"` | `"SETUID"` | `"SYS_ADMIN"` | `"SYS_BOOT"` | `"SYS_CHROOT"` | `"SYS_MODULE"` | `"SYS_NICE"` | `"SYS_PACCT"` | `"SYS_PTRACE"` | `"SYS_RAWIO"` | `"SYS_RESOURCE"` | `"SYS_TIME"` | `"SYS_TTY_CONFIG"` | `"SYSLOG"` | `"WAKE_ALARM"`
+   *
    * @public
    */
   Drop?: string[] | undefined;
 }
 
 /**
- * <p>A host device to expose to the container.</p>
+ * A host device to expose to the container.
+ *
  * @public
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails {
   /**
-   * <p>The path inside the container at which to expose the host device.</p>
+   * The path inside the container at which to expose the host device.
+   *
    * @public
    */
   ContainerPath?: string | undefined;
 
   /**
-   * <p>The path for the device on the host container instance.</p>
+   * The path for the device on the host container instance.
+   *
    * @public
    */
   HostPath?: string | undefined;
 
   /**
-   * <p>The explicit permissions to provide to the container for the device. By default, the container has permissions for read, write, and <code>mknod</code> for the device.</p>
+   * The explicit permissions to provide to the container for the device. By default, the container has permissions for read, write, and `mknod` for the device.
+   *
    * @public
    */
   Permissions?: string[] | undefined;
 }
 
 /**
- * <p>The container path, mount options, and size (in MiB) of a tmpfs mount.</p>
+ * The container path, mount options, and size (in MiB) of a tmpfs mount.
+ *
  * @public
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails {
   /**
-   * <p>The absolute file path where the tmpfs volume is to be mounted.</p>
+   * The absolute file path where the tmpfs volume is to be mounted.
+   *
    * @public
    */
   ContainerPath?: string | undefined;
 
   /**
-   * <p>The list of tmpfs volume mount options.</p>
-   *          <p>Valid values: <code>"defaults"</code> | <code>"ro"</code> | <code>"rw"</code> | <code>"suid"</code> |
-   *    		<code>"nosuid"</code> | <code>"dev"</code> | <code>"nodev"</code> |<code> "exec"</code> |
-   *    		<code>"noexec"</code> | <code>"sync"</code> | <code>"async"</code> | <code>"dirsync"</code>
-   *    		| <code>"remount"</code> | <code>"mand"</code> | <code>"nomand"</code> | <code>"atime"</code>
-   *    		| <code>"noatime"</code> | <code>"diratime"</code> | <code>"nodiratime"</code> |
-   *    		<code>"bind"</code> | <code>"rbind"</code> | <code>"unbindable"</code> |
-   *    		<code>"runbindable"</code> | <code>"private"</code> | <code>"rprivate"</code> |
-   *    		<code>"shared"</code> | <code>"rshared"</code> | <code>"slave"</code> |
-   *    		<code>"rslave"</code> | <code>"relatime"</code> | <code>"norelatime"</code> |
-   *    		<code>"strictatime"</code> | <code>"nostrictatime"</code> |<code> "mode"</code> |
-   *    		<code>"uid"</code> | <code>"gid"</code> | <code>"nr_inodes"</code> |<code>
-   *    			"nr_blocks"</code> | <code>"mpol"</code>
-   *          </p>
+   * The list of tmpfs volume mount options.
+   *
+   * Valid values: `"defaults"` | `"ro"` | `"rw"` | `"suid"` | `"nosuid"` | `"dev"` | `"nodev"` |`"exec"` | `"noexec"` | `"sync"` | `"async"` | `"dirsync"` | `"remount"` | `"mand"` | `"nomand"` | `"atime"` | `"noatime"` | `"diratime"` | `"nodiratime"` | `"bind"` | `"rbind"` | `"unbindable"` | `"runbindable"` | `"private"` | `"rprivate"` | `"shared"` | `"rshared"` | `"slave"` | `"rslave"` | `"relatime"` | `"norelatime"` | `"strictatime"` | `"nostrictatime"` |`"mode"` | `"uid"` | `"gid"` | `"nr_inodes"` |`"nr_blocks"` | `"mpol"`
+   *
    * @public
    */
   MountOptions?: string[] | undefined;
 
   /**
-   * <p>The maximum size (in MiB) of the tmpfs volume.</p>
+   * The maximum size (in MiB) of the tmpfs volume.
+   *
    * @public
    */
   Size?: number | undefined;
 }
 
 /**
- * <p>>Linux-specific modifications that are applied to the container, such as Linux kernel capabilities.</p>
+ * >Linux-specific modifications that are applied to the container, such as Linux kernel capabilities.
+ *
  * @public
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails {
   /**
-   * <p>The Linux capabilities for the container that are added to or dropped from the default configuration provided by Docker.</p>
+   * The Linux capabilities for the container that are added to or dropped from the default configuration provided by Docker.
+   *
    * @public
    */
   Capabilities?: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails | undefined;
 
   /**
-   * <p>The host devices to expose to the container.</p>
+   * The host devices to expose to the container.
+   *
    * @public
    */
   Devices?: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails[] | undefined;
 
   /**
-   * <p>Whether to run an <code>init</code> process inside the container that forwards signals and reaps processes. </p>
+   * Whether to run an `init` process inside the container that forwards signals and reaps processes.
+   *
    * @public
    */
   InitProcessEnabled?: boolean | undefined;
 
   /**
-   * <p>The total amount of swap memory (in MiB) that a container can use.</p>
+   * The total amount of swap memory (in MiB) that a container can use.
+   *
    * @public
    */
   MaxSwap?: number | undefined;
 
   /**
-   * <p>The value for the size (in MiB) of the <b>/dev/shm</b> volume.</p>
+   * The value for the size (in MiB) of the **\/dev/shm** volume.
+   *
    * @public
    */
   SharedMemorySize?: number | undefined;
 
   /**
-   * <p>Configures the container's memory swappiness behavior. Determines how aggressively pages are swapped. The higher the value, the more aggressive the swappiness. The default is 60.</p>
+   * Configures the container's memory swappiness behavior. Determines how aggressively pages are swapped. The higher the value, the more aggressive the swappiness. The default is 60.
+   *
    * @public
    */
   Swappiness?: number | undefined;
 
   /**
-   * <p>The container path, mount options, and size (in MiB) of the tmpfs mount.</p>
+   * The container path, mount options, and size (in MiB) of the tmpfs mount.
+   *
    * @public
    */
   Tmpfs?: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails[] | undefined;
 }
 
 /**
- * <p>A secret to pass to the log configuration.</p>
+ * A secret to pass to the log configuration.
+ *
  * @public
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails {
   /**
-   * <p>The name of the secret.</p>
+   * The name of the secret.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The secret to expose to the container.</p>
-   *          <p>The value is either the full ARN of the Secrets Manager secret or the full ARN of the
-   *          parameter in the Systems Manager Parameter Store.</p>
+   * The secret to expose to the container.
+   *
+   * The value is either the full ARN of the Secrets Manager secret or the full ARN of the parameter in the Systems Manager Parameter Store.
+   *
    * @public
    */
   ValueFrom?: string | undefined;
 }
 
 /**
- * <p>The log configuration specification for the container.</p>
+ * The log configuration specification for the container.
+ *
  * @public
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails {
   /**
-   * <p>The log driver to use for the container.</p>
-   *          <p>Valid values on Fargate are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>awsfirelens</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>awslogs</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>splunk</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>Valid values on Amazon EC2 are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>awsfirelens</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>awslogs</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>fluentd</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>gelf</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>journald</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>json-file</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>logentries</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>splunk</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>syslog</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The log driver to use for the container.
+   *
+   * Valid values on Fargate are as follows:
+   *
+   * - `awsfirelens`
+   * - `awslogs`
+   * - `splunk`
+   *
+   * Valid values on Amazon EC2 are as follows:
+   *
+   * - `awsfirelens`
+   * - `awslogs`
+   * - `fluentd`
+   * - `gelf`
+   * - `journald`
+   * - `json-file`
+   * - `logentries`
+   * - `splunk`
+   * - `syslog`
+   *
    * @public
    */
   LogDriver?: string | undefined;
 
   /**
-   * <p>The configuration options to send to the log driver. Requires version 1.19 of the Docker Remote API or greater on your container instance.</p>
+   * The configuration options to send to the log driver. Requires version 1.19 of the Docker Remote API or greater on your container instance.
+   *
    * @public
    */
   Options?: Record<string, string> | undefined;
 
   /**
-   * <p>The secrets to pass to the log configuration.</p>
+   * The secrets to pass to the log configuration.
+   *
    * @public
    */
   SecretOptions?: AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails[] | undefined;
 }
 
 /**
- * <p>A mount point for the data volumes in the container.</p>
+ * A mount point for the data volumes in the container.
+ *
  * @public
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails {
   /**
-   * <p>The path on the container to mount the host volume at.</p>
+   * The path on the container to mount the host volume at.
+   *
    * @public
    */
   ContainerPath?: string | undefined;
 
   /**
-   * <p>Whether the container has read-only access to the volume.</p>
+   * Whether the container has read-only access to the volume.
+   *
    * @public
    */
   ReadOnly?: boolean | undefined;
 
   /**
-   * <p>The name of the volume to mount. Must match the name of a volume listed in <code>VolumeDetails</code> for the task definition.</p>
+   * The name of the volume to mount. Must match the name of a volume listed in `VolumeDetails` for the task definition.
+   *
    * @public
    */
   SourceVolume?: string | undefined;
 }
 
 /**
- * <p>A port mapping for the container.</p>
+ * A port mapping for the container.
+ *
  * @public
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails {
   /**
-   * <p>The port number on the container that is bound to the user-specified or automatically assigned host port.</p>
+   * The port number on the container that is bound to the user-specified or automatically assigned host port.
+   *
    * @public
    */
   ContainerPort?: number | undefined;
 
   /**
-   * <p>The port number on the container instance to reserve for the container.</p>
+   * The port number on the container instance to reserve for the container.
+   *
    * @public
    */
   HostPort?: number | undefined;
 
   /**
-   * <p>The protocol used for the port mapping. The default is <code>tcp</code>.</p>
+   * The protocol used for the port mapping. The default is `tcp`.
+   *
    * @public
    */
   Protocol?: string | undefined;
 }
 
 /**
- * <p>The private repository authentication credentials to use.</p>
+ * The private repository authentication credentials to use.
+ *
  * @public
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails {
   /**
-   * <p>The ARN of the secret that contains the private repository credentials.</p>
+   * The ARN of the secret that contains the private repository credentials.
+   *
    * @public
    */
   CredentialsParameter?: string | undefined;
 }
 
 /**
- * <p>A resource to assign to a container.</p>
+ * A resource to assign to a container.
+ *
  * @public
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails {
   /**
-   * <p>The type of resource to assign to a container. Valid values are <code>GPU</code> or <code>InferenceAccelerator</code>.</p>
+   * The type of resource to assign to a container. Valid values are `GPU` or `InferenceAccelerator`.
+   *
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p>The value for the specified resource type.</p>
-   *          <p>For <code>GPU</code>, the value is the number of physical GPUs the Amazon ECS container agent
-   *          reserves for the container.</p>
-   *          <p>For <code>InferenceAccelerator</code>, the value should match the <code>DeviceName</code>
-   *          attribute of an entry in <code>InferenceAccelerators</code>.</p>
+   * The value for the specified resource type.
+   *
+   * For `GPU`, the value is the number of physical GPUs the Amazon ECS container agent reserves for the container.
+   *
+   * For `InferenceAccelerator`, the value should match the `DeviceName` attribute of an entry in `InferenceAccelerators`.
+   *
    * @public
    */
   Value?: string | undefined;
 }
 
 /**
- * <p>A secret to pass to the container.</p>
+ * A secret to pass to the container.
+ *
  * @public
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails {
   /**
-   * <p>The name of the secret.</p>
+   * The name of the secret.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The secret to expose to the container. The value is either the full ARN of the Secrets Manager
-   *          secret or the full ARN of the parameter in the Systems Manager Parameter Store.</p>
+   * The secret to expose to the container. The value is either the full ARN of the Secrets Manager secret or the full ARN of the parameter in the Systems Manager Parameter Store.
+   *
    * @public
    */
   ValueFrom?: string | undefined;
 }
 
 /**
- * <p>A namespaced kernel parameter to set in the container.</p>
+ * A namespaced kernel parameter to set in the container.
+ *
  * @public
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails {
   /**
-   * <p>The namespaced kernel parameter for which to set a value.</p>
+   * The namespaced kernel parameter for which to set a value.
+   *
    * @public
    */
   Namespace?: string | undefined;
 
   /**
-   * <p>The value of the parameter.</p>
+   * The value of the parameter.
+   *
    * @public
    */
   Value?: string | undefined;
 }
 
 /**
- * <p>A ulimit to set in the container.</p>
+ * A ulimit to set in the container.
+ *
  * @public
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails {
   /**
-   * <p>The hard limit for the ulimit type.</p>
+   * The hard limit for the ulimit type.
+   *
    * @public
    */
   HardLimit?: number | undefined;
 
   /**
-   * <p>The type of the ulimit. Valid values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>core</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>cpu</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>data</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>fsize</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>locks</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>memlock</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>msgqueue</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>nice</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>nofile</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>nproc</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>rss</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>rtprio</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>rttime</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>sigpending</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>stack</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The type of the ulimit. Valid values are as follows:
+   *
+   * - `core`
+   * - `cpu`
+   * - `data`
+   * - `fsize`
+   * - `locks`
+   * - `memlock`
+   * - `msgqueue`
+   * - `nice`
+   * - `nofile`
+   * - `nproc`
+   * - `rss`
+   * - `rtprio`
+   * - `rttime`
+   * - `sigpending`
+   * - `stack`
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The soft limit for the ulimit type.</p>
+   * The soft limit for the ulimit type.
+   *
    * @public
    */
   SoftLimit?: number | undefined;
 }
 
 /**
- * <p>A data volume to mount from another container.</p>
+ * A data volume to mount from another container.
+ *
  * @public
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails {
   /**
-   * <p>Whether the container has read-only access to the volume.</p>
+   * Whether the container has read-only access to the volume.
+   *
    * @public
    */
   ReadOnly?: boolean | undefined;
 
   /**
-   * <p>The name of another container within the same task definition from which to mount volumes.</p>
+   * The name of another container within the same task definition from which to mount volumes.
+   *
    * @public
    */
   SourceContainer?: string | undefined;
 }
 
 /**
- * <p>A container definition that describes a container in the task.</p>
+ * A container definition that describes a container in the task.
+ *
  * @public
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsDetails {
   /**
-   * <p>The command that is passed to the container.</p>
+   * The command that is passed to the container.
+   *
    * @public
    */
   Command?: string[] | undefined;
 
   /**
-   * <p>The number of CPU units reserved for the container.</p>
+   * The number of CPU units reserved for the container.
+   *
    * @public
    */
   Cpu?: number | undefined;
 
   /**
-   * <p>The dependencies that are defined for container startup and shutdown.</p>
+   * The dependencies that are defined for container startup and shutdown.
+   *
    * @public
    */
   DependsOn?: AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails[] | undefined;
 
   /**
-   * <p>Whether to disable networking within the container.</p>
+   * Whether to disable networking within the container.
+   *
    * @public
    */
   DisableNetworking?: boolean | undefined;
 
   /**
-   * <p>A list of DNS search domains that are presented to the container.</p>
+   * A list of DNS search domains that are presented to the container.
+   *
    * @public
    */
   DnsSearchDomains?: string[] | undefined;
 
   /**
-   * <p>A list of DNS servers that are presented to the container.</p>
+   * A list of DNS servers that are presented to the container.
+   *
    * @public
    */
   DnsServers?: string[] | undefined;
 
   /**
-   * <p>A key-value map of labels to add to the container.</p>
+   * A key-value map of labels to add to the container.
+   *
    * @public
    */
   DockerLabels?: Record<string, string> | undefined;
 
   /**
-   * <p>A list of strings to provide custom labels for SELinux and AppArmor multi-level security systems.</p>
+   * A list of strings to provide custom labels for SELinux and AppArmor multi-level security systems.
+   *
    * @public
    */
   DockerSecurityOptions?: string[] | undefined;
 
   /**
-   * <p>The entry point that is passed to the container.</p>
+   * The entry point that is passed to the container.
+   *
    * @public
    */
   EntryPoint?: string[] | undefined;
 
   /**
-   * <p>The environment variables to pass to a container.</p>
+   * The environment variables to pass to a container.
+   *
    * @public
    */
   Environment?: AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails[] | undefined;
 
   /**
-   * <p>A list of files containing the environment variables to pass to a container.</p>
+   * A list of files containing the environment variables to pass to a container.
+   *
    * @public
    */
   EnvironmentFiles?: AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails[] | undefined;
 
   /**
-   * <p>Whether the container is essential. All tasks must have at least one essential container.</p>
+   * Whether the container is essential. All tasks must have at least one essential container.
+   *
    * @public
    */
   Essential?: boolean | undefined;
 
   /**
-   * <p>A list of hostnames and IP address mappings to append to the <b>/etc/hosts</b> file on the container.</p>
+   * A list of hostnames and IP address mappings to append to the **\/etc/hosts** file on the container.
+   *
    * @public
    */
   ExtraHosts?: AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails[] | undefined;
 
   /**
-   * <p>The FireLens configuration for the container. Specifies and configures a log router for container logs.</p>
+   * The FireLens configuration for the container. Specifies and configures a log router for container logs.
+   *
    * @public
    */
   FirelensConfiguration?: AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails | undefined;
 
   /**
-   * <p>The container health check command and associated configuration parameters for the container.</p>
+   * The container health check command and associated configuration parameters for the container.
+   *
    * @public
    */
   HealthCheck?: AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails | undefined;
 
   /**
-   * <p>The hostname to use for the container.</p>
+   * The hostname to use for the container.
+   *
    * @public
    */
   Hostname?: string | undefined;
 
   /**
-   * <p>The image used to start the container.</p>
+   * The image used to start the container.
+   *
    * @public
    */
   Image?: string | undefined;
 
   /**
-   * <p>If set to true, then containerized applications can be deployed that require <code>stdin</code> or a <code>tty</code> to be allocated.</p>
+   * If set to true, then containerized applications can be deployed that require `stdin` or a `tty` to be allocated.
+   *
    * @public
    */
   Interactive?: boolean | undefined;
 
   /**
-   * <p>A list of links for the container in the form <code>
-   *                <i>container_name</i>:<i>alias</i>
-   *             </code>. Allows containers to communicate with each other without the need for port mappings.</p>
+   * A list of links for the container in the form `container_name:alias`. Allows containers to communicate with each other without the need for port mappings.
+   *
    * @public
    */
   Links?: string[] | undefined;
 
   /**
-   * <p>Linux-specific modifications that are applied to the container, such as Linux kernel capabilities.</p>
+   * Linux-specific modifications that are applied to the container, such as Linux kernel capabilities.
+   *
    * @public
    */
   LinuxParameters?: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails | undefined;
 
   /**
-   * <p>The log configuration specification for the container.</p>
+   * The log configuration specification for the container.
+   *
    * @public
    */
   LogConfiguration?: AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails | undefined;
 
   /**
-   * <p>The amount (in MiB) of memory to present to the container. If the container attempts to exceed the memory specified here, the container is shut down. The total amount of memory reserved for all containers within a task must be lower than the task memory value, if one is specified.</p>
+   * The amount (in MiB) of memory to present to the container. If the container attempts to exceed the memory specified here, the container is shut down. The total amount of memory reserved for all containers within a task must be lower than the task memory value, if one is specified.
+   *
    * @public
    */
   Memory?: number | undefined;
 
   /**
-   * <p>The soft limit (in MiB) of memory to reserve for the container.</p>
+   * The soft limit (in MiB) of memory to reserve for the container.
+   *
    * @public
    */
   MemoryReservation?: number | undefined;
 
   /**
-   * <p>The mount points for the data volumes in the container.</p>
+   * The mount points for the data volumes in the container.
+   *
    * @public
    */
   MountPoints?: AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails[] | undefined;
 
   /**
-   * <p>The name of the container.</p>
+   * The name of the container.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The list of port mappings for the container.</p>
+   * The list of port mappings for the container.
+   *
    * @public
    */
   PortMappings?: AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails[] | undefined;
 
   /**
-   * <p>Whether the container is given elevated privileges on the host container instance. The elevated privileges are similar to the root user.</p>
+   * Whether the container is given elevated privileges on the host container instance. The elevated privileges are similar to the root user.
+   *
    * @public
    */
   Privileged?: boolean | undefined;
 
   /**
-   * <p>Whether to allocate a TTY to the container.</p>
+   * Whether to allocate a TTY to the container.
+   *
    * @public
    */
   PseudoTerminal?: boolean | undefined;
 
   /**
-   * <p>Whether the container is given read-only access to its root file system.</p>
+   * Whether the container is given read-only access to its root file system.
+   *
    * @public
    */
   ReadonlyRootFilesystem?: boolean | undefined;
 
   /**
-   * <p>The private repository authentication credentials to use.</p>
+   * The private repository authentication credentials to use.
+   *
    * @public
    */
   RepositoryCredentials?: AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails | undefined;
 
   /**
-   * <p>The type and amount of a resource to assign to a container. The only supported resource is a GPU.</p>
+   * The type and amount of a resource to assign to a container. The only supported resource is a GPU.
+   *
    * @public
    */
   ResourceRequirements?: AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails[] | undefined;
 
   /**
-   * <p>The secrets to pass to the container.</p>
+   * The secrets to pass to the container.
+   *
    * @public
    */
   Secrets?: AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails[] | undefined;
 
   /**
-   * <p>The number of seconds to wait before giving up on resolving dependencies for a container. </p>
+   * The number of seconds to wait before giving up on resolving dependencies for a container.
+   *
    * @public
    */
   StartTimeout?: number | undefined;
 
   /**
-   * <p>The number of seconds to wait before the container is stopped if it doesn't shut down normally on its own.</p>
+   * The number of seconds to wait before the container is stopped if it doesn't shut down normally on its own.
+   *
    * @public
    */
   StopTimeout?: number | undefined;
 
   /**
-   * <p>A list of namespaced kernel parameters to set in the container.</p>
+   * A list of namespaced kernel parameters to set in the container.
+   *
    * @public
    */
   SystemControls?: AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails[] | undefined;
 
   /**
-   * <p>A list of ulimits to set in the container. </p>
+   * A list of ulimits to set in the container.
+   *
    * @public
    */
   Ulimits?: AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails[] | undefined;
 
   /**
-   * <p>The user to use inside the container.</p>
-   *          <p>The value can use one of the following formats.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>
-   *                      <i>user</i>
-   *                   </code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>
-   *                      <i>user</i>
-   *                   </code>:<code>
-   *                      <i>group</i>
-   *                   </code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>
-   *                      <i>uid</i>
-   *                   </code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>
-   *                      <i>uid</i>
-   *                   </code>:<code>
-   *                      <i>gid</i>
-   *                   </code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>
-   *                      <i>user</i>
-   *                   </code>:<code>
-   *                      <i>gid</i>
-   *                   </code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>
-   *                      <i>uid</i>
-   *                   </code>:<code>
-   *                      <i>group</i>
-   *                   </code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The user to use inside the container.
+   *
+   * The value can use one of the following formats.
+   *
+   * - `user`
+   * - `user`:`group`
+   * - `uid`
+   * - `uid`:`gid`
+   * - `user`:`gid`
+   * - `uid`:`group`
+   *
    * @public
    */
   User?: string | undefined;
 
   /**
-   * <p>Data volumes to mount from another container.</p>
+   * Data volumes to mount from another container.
+   *
    * @public
    */
   VolumesFrom?: AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails[] | undefined;
 
   /**
-   * <p>The working directory in which to run commands inside the container.</p>
+   * The working directory in which to run commands inside the container.
+   *
    * @public
    */
   WorkingDirectory?: string | undefined;
 }
 
 /**
- * <p>An Elastic Inference accelerator to use
- *          for the containers in the task.</p>
+ * An Elastic Inference accelerator to use for the containers in the task.
+ *
  * @public
  */
 export interface AwsEcsTaskDefinitionInferenceAcceleratorsDetails {
   /**
-   * <p>The Elastic Inference accelerator device name.</p>
+   * The Elastic Inference accelerator device name.
+   *
    * @public
    */
   DeviceName?: string | undefined;
 
   /**
-   * <p>The Elastic Inference accelerator type to use.</p>
+   * The Elastic Inference accelerator type to use.
+   *
    * @public
    */
   DeviceType?: string | undefined;
 }
 
 /**
- * <p>A placement constraint object to use for tasks.</p>
+ * A placement constraint object to use for tasks.
+ *
  * @public
  */
 export interface AwsEcsTaskDefinitionPlacementConstraintsDetails {
   /**
-   * <p>A cluster query language expression to apply to the constraint.</p>
+   * A cluster query language expression to apply to the constraint.
+   *
    * @public
    */
   Expression?: string | undefined;
 
   /**
-   * <p>The type of constraint.</p>
+   * The type of constraint.
+   *
    * @public
    */
   Type?: string | undefined;
 }
 
 /**
- * <p>A network configuration parameter to provide to the Container Network Interface (CNI) plugin.</p>
+ * A network configuration parameter to provide to the Container Network Interface (CNI) plugin.
+ *
  * @public
  */
 export interface AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails {
   /**
-   * <p>The name of the property.</p>
+   * The name of the property.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The value of the property.</p>
+   * The value of the property.
+   *
    * @public
    */
   Value?: string | undefined;

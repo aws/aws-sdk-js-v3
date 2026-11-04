@@ -23,17 +23,16 @@ export interface GetFederationTokenCommandInput extends GetFederationTokenReques
 export interface GetFederationTokenCommandOutput extends GetFederationTokenResponse, __MetadataBearer {}
 
 /**
- * <p>Supports SAML sign-in for Connect Customer. Retrieves a token for federation. The token is for the Connect Customer user which corresponds to the IAM credentials that were used to invoke this action. </p>
- *          <p>For more information about how SAML sign-in works in Connect Customer, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/configure-saml.html ">Configure SAML with IAM for Connect Customer
- *     in the <i>Connect Customer Administrator Guide</i>.</a>
- *          </p>
- *          <note>
- *             <p>This API doesn't support root users. If you try to invoke GetFederationToken with root credentials, an error
- *     message similar to the following one appears: </p>
- *             <p>
- *                <code>Provided identity: Principal: .... User: .... cannot be used for federation with Connect Customer</code>
- *             </p>
- *          </note>
+ * Supports SAML sign-in for Connect Customer. Retrieves a token for federation. The token is for the Connect Customer user which corresponds to the IAM credentials that were used to invoke this action.
+ *
+ * For more information about how SAML sign-in works in Connect Customer, see [Configure SAML with IAM for Connect Customer in the *Connect Customer Administrator Guide*.](https://docs.aws.amazon.com/connect/latest/adminguide/configure-saml.html)
+ *
+ * > **Note:**
+ * >
+ * > This API doesn't support root users. If you try to invoke GetFederationToken with root credentials, an error message similar to the following one appears:
+ * >
+ * > `Provided identity: Principal: .... User: .... cannot be used for federation with Connect Customer`
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,29 +67,36 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link DuplicateResourceException} (client fault)
- *  <p>A resource with the specified name already exists.</p>
+ *
+ * A resource with the specified name already exists.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link UserNotFoundException} (client fault)
- *  <p>No user with the specified credentials was found in the Connect Customer instance.</p>
+ *
+ * No user with the specified credentials was found in the Connect Customer instance.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

@@ -26,8 +26,8 @@ export interface PurchaseReservedCacheNodesOfferingCommandInput extends Purchase
 export interface PurchaseReservedCacheNodesOfferingCommandOutput extends PurchaseReservedCacheNodesOfferingResult, __MetadataBearer {}
 
 /**
- * <p>Allows you to purchase a reserved cache node offering. Reserved nodes are not eligible
- *             for cancellation and are non-refundable. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/reserved-nodes.html">Managing Costs with Reserved Nodes</a>.</p>
+ * Allows you to purchase a reserved cache node offering. Reserved nodes are not eligible for cancellation and are non-refundable. For more information, see [Managing Costs with Reserved Nodes](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/reserved-nodes.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,29 +81,32 @@ export interface PurchaseReservedCacheNodesOfferingCommandOutput extends Purchas
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * Two or more incompatible parameters were specified.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link ReservedCacheNodeAlreadyExistsFault} (client fault)
- *  <p>You already have a reservation with the given identifier.</p>
+ *
+ * You already have a reservation with the given identifier.
  *
  * @throws {@link ReservedCacheNodeQuotaExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the user's cache node
- *             quota.</p>
+ *
+ * The request cannot be processed because it would exceed the user's cache node quota.
  *
  * @throws {@link ReservedCacheNodesOfferingNotFoundFault} (client fault)
- *  <p>The requested cache node offering does not exist.</p>
+ *
+ * The requested cache node offering does not exist.
  *
  * @throws {@link TagQuotaPerResourceExceeded} (client fault)
- *  <p>The request cannot be processed because it would cause the resource to have more than
- *             the allowed number of tags. The maximum number of tags permitted on a resource is
- *             50.</p>
+ *
+ * The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @example PurchaseReservedCacheNodesOfferings
  * ```javascript

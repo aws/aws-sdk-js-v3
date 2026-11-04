@@ -23,7 +23,8 @@ export interface DescribePatchGroupsCommandInput extends DescribePatchGroupsRequ
 export interface DescribePatchGroupsCommandOutput extends DescribePatchGroupsResult, __MetadataBearer {}
 
 /**
- * <p>Lists all patch groups that have been registered with patch baselines.</p>
+ * Lists all patch groups that have been registered with patch baselines.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,11 +72,12 @@ export interface DescribePatchGroupsCommandOutput extends DescribePatchGroupsRes
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

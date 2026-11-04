@@ -23,13 +23,12 @@ export interface ListCollectionsCommandInput extends ListCollectionsRequest {}
 export interface ListCollectionsCommandOutput extends ListCollectionsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns list of collection IDs in your account. If the result is truncated, the
- *       response also provides a <code>NextToken</code> that you can use in the subsequent request to
- *       fetch the next set of collection IDs.</p>
- *          <p>For an example, see Listing collections in the Amazon Rekognition Developer
- *       Guide.</p>
- *          <p>This operation requires permissions to perform the
- *         <code>rekognition:ListCollections</code> action.</p>
+ * Returns list of collection IDs in your account. If the result is truncated, the response also provides a `NextToken` that you can use in the subsequent request to fetch the next set of collection IDs.
+ *
+ * For an example, see Listing collections in the Amazon Rekognition Developer Guide.
+ *
+ * This operation requires permissions to perform the `rekognition:ListCollections` action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,31 +62,36 @@ export interface ListCollectionsCommandOutput extends ListCollectionsResponse, _
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You are not authorized to perform the action.</p>
+ *
+ * You are not authorized to perform the action.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * Amazon Rekognition experienced a service issue. Try your call again.
  *
  * @throws {@link InvalidPaginationTokenException} (client fault)
- *  <p>Pagination token in the request is not valid.</p>
+ *
+ * Pagination token in the request is not valid.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
- *       operation again.</p>
+ *
+ * Input parameter violated a constraint. Validate your parameter before calling the API operation again.
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
- *  <p>The number of requests exceeded your throughput limit. If you want to increase this
- *       limit, contact Amazon Rekognition.</p>
+ *
+ * The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource specified in the request cannot be found.</p>
+ *
+ * The resource specified in the request cannot be found.
  *
  * @throws {@link ThrottlingException} (server fault)
- *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
+ * Amazon Rekognition is temporarily unable to process the request. Try your call again.
  *
  * @throws {@link RekognitionServiceException}
- * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * Base exception class for all service exceptions from Rekognition service.
  *
  * @example To list the collections
  * ```javascript

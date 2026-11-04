@@ -23,7 +23,8 @@ export interface GetEventsConfigurationCommandInput extends GetEventsConfigurati
 export interface GetEventsConfigurationCommandOutput extends GetEventsConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Gets details for an events configuration that allows a bot to receive outgoing events, such as an HTTPS endpoint or Lambda function ARN.</p>
+ * Gets details for an events configuration that allows a bot to receive outgoing events, such as an HTTPS endpoint or Lambda function ARN.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,29 +56,36 @@ export interface GetEventsConfigurationCommandOutput extends GetEventsConfigurat
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * The input parameters don't match the service's restrictions.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * The client is permanently forbidden from making the request.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>One or more of the resources in the request does not exist in the system.</p>
+ *
+ * One or more of the resources in the request does not exist in the system.
  *
  * @throws {@link ResourceLimitExceededException} (client fault)
- *  <p>The request exceeds the resource limit.</p>
+ *
+ * The request exceeds the resource limit.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The service encountered an unexpected error.</p>
+ *
+ * The service encountered an unexpected error.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is currently unavailable.</p>
+ *
+ * The service is currently unavailable.
  *
  * @throws {@link UnauthorizedClientException} (client fault)
- *  <p>The client is not currently authorized to make the request.</p>
+ *
+ * The client is not currently authorized to make the request.
  *
  * @throws {@link ChimeServiceException}
- * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * Base exception class for all service exceptions from Chime service.
  *
  * @public
  */

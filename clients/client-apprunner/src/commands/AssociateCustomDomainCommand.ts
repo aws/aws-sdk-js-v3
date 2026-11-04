@@ -23,11 +23,10 @@ export interface AssociateCustomDomainCommandInput extends AssociateCustomDomain
 export interface AssociateCustomDomainCommandOutput extends AssociateCustomDomainResponse, __MetadataBearer {}
 
 /**
- * <p>Associate your own domain name with the App Runner subdomain URL of your App Runner service.</p>
- *          <p>After you call <code>AssociateCustomDomain</code> and receive a successful response, use the information in the <a>CustomDomain</a> record
- *       that's returned to add CNAME records to your Domain Name System (DNS). For each mapped domain name, add a mapping to the target App Runner subdomain and one or
- *       more certificate validation records. App Runner then performs DNS validation to verify that you own or control the domain name that you associated. App Runner tracks
- *       domain validity in a certificate stored in <a href="https://docs.aws.amazon.com/acm/latest/userguide">AWS Certificate Manager (ACM)</a>.</p>
+ * Associate your own domain name with the App Runner subdomain URL of your App Runner service.
+ *
+ * After you call `AssociateCustomDomain` and receive a successful response, use the information in the CustomDomain record that's returned to add CNAME records to your Domain Name System (DNS). For each mapped domain name, add a mapping to the target App Runner subdomain and one or more certificate validation records. App Runner then performs DNS validation to verify that you own or control the domain name that you associated. App Runner tracks domain validity in a certificate stored in [AWS Certificate Manager (ACM)](https://docs.aws.amazon.com/acm/latest/userguide).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,17 +76,20 @@ export interface AssociateCustomDomainCommandOutput extends AssociateCustomDomai
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>An unexpected service exception occurred.</p>
+ *
+ * An unexpected service exception occurred.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+ *
+ * One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.
  *
  * @throws {@link InvalidStateException} (client fault)
- *  <p>You can't perform this action when the resource is in its current state.</p>
+ *
+ * You can't perform this action when the resource is in its current state.
  *
  * @throws {@link AppRunnerServiceException}
- * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ * Base exception class for all service exceptions from AppRunner service.
  *
  * @public
  */

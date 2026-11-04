@@ -23,9 +23,8 @@ export interface DeleteWorkspaceImageCommandInput extends DeleteWorkspaceImageRe
 export interface DeleteWorkspaceImageCommandOutput extends DeleteWorkspaceImageResult, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified image from your account. To delete an image, you must first delete
- *          any bundles that are associated with the image and unshare the image if it is shared with
- *          other accounts. </p>
+ * Deletes the specified image from your account. To delete an image, you must first delete any bundles that are associated with the image and unshare the image if it is shared with other accounts.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,17 +49,20 @@ export interface DeleteWorkspaceImageCommandOutput extends DeleteWorkspaceImageR
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The user is not authorized to access a resource.</p>
+ *
+ * The user is not authorized to access a resource.
  *
  * @throws {@link InvalidResourceStateException} (client fault)
- *  <p>The state of the resource is not valid for this operation.</p>
+ *
+ * The state of the resource is not valid for this operation.
  *
  * @throws {@link ResourceAssociatedException} (client fault)
- *  <p>The resource is associated with a directory.</p>
+ *
+ * The resource is associated with a directory.
  *
  * @throws {@link WorkSpacesServiceException}
- * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * Base exception class for all service exceptions from WorkSpaces service.
  *
  * @public
  */

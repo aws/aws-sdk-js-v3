@@ -23,7 +23,8 @@ export interface DisassociateEipFromVlanCommandInput extends DisassociateEipFrom
 export interface DisassociateEipFromVlanCommandOutput extends DisassociateEipFromVlanResponse, __MetadataBearer {}
 
 /**
- * <p>Disassociates an Elastic IP address from a public HCX VLAN. This operation is only allowed for public HCX VLANs at this time.</p>
+ * Disassociates an Elastic IP address from a public HCX VLAN. This operation is only allowed for public HCX VLANs at this time.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,17 +73,20 @@ export interface DisassociateEipFromVlanCommandOutput extends DisassociateEipFro
  * @see {@link EvsClientResolvedConfig | config} for EvsClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a <code>state</code> of <code>DELETED</code>.</p>
+ *
+ * A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a `state` of `DELETED`.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The operation could not be performed because the service is throttling requests. This exception is thrown when the service endpoint receives too many concurrent requests.</p>
+ *
+ * The operation could not be performed because the service is throttling requests. This exception is thrown when the service endpoint receives too many concurrent requests.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+ *
+ * The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.
  *
  * @throws {@link EvsServiceException}
- * <p>Base exception class for all service exceptions from Evs service.</p>
  *
+ * Base exception class for all service exceptions from Evs service.
  *
  * @public
  */

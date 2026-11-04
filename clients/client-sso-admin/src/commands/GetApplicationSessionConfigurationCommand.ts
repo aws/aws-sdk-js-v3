@@ -26,7 +26,10 @@ export interface GetApplicationSessionConfigurationCommandInput extends GetAppli
 export interface GetApplicationSessionConfigurationCommandOutput extends GetApplicationSessionConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the session configuration for an application in IAM Identity Center.</p> <p>The session configuration determines how users can access an application. This includes whether user background sessions are enabled. User background sessions allow users to start a job on a supported Amazon Web Services managed application without having to remain signed in to an active session while the job runs.</p>
+ * Retrieves the session configuration for an application in IAM Identity Center.
+ *
+ * The session configuration determines how users can access an application. This includes whether user background sessions are enabled. User background sessions allow users to start a job on a supported Amazon Web Services managed application without having to remain signed in to an active session while the job runs.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,23 +56,28 @@ export interface GetApplicationSessionConfigurationCommandOutput extends GetAppl
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+ *
+ * The request processing has failed because of an unknown error, exception, or failure with an internal server.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Indicates that a requested resource is not found.</p>
+ *
+ * Indicates that a requested resource is not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+ *
+ * Indicates that the principal has crossed the throttling limits of the API operations.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request failed because it contains a syntax error.</p>
+ *
+ * The request failed because it contains a syntax error.
  *
  * @throws {@link SSOAdminServiceException}
- * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * Base exception class for all service exceptions from SSOAdmin service.
  *
  * @public
  */

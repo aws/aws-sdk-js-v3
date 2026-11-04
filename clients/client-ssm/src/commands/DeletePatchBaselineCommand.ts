@@ -23,7 +23,8 @@ export interface DeletePatchBaselineCommandInput extends DeletePatchBaselineRequ
 export interface DeletePatchBaselineCommandOutput extends DeletePatchBaselineResult, __MetadataBearer {}
 
 /**
- * <p>Deletes a patch baseline.</p>
+ * Deletes a patch baseline.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,15 +51,16 @@ export interface DeletePatchBaselineCommandOutput extends DeletePatchBaselineRes
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>Error returned if an attempt is made to delete a patch baseline that is registered for a
- *    patch group.</p>
+ *
+ * Error returned if an attempt is made to delete a patch baseline that is registered for a patch group.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

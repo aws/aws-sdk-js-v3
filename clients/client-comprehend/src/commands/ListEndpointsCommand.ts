@@ -23,8 +23,8 @@ export interface ListEndpointsCommandInput extends ListEndpointsRequest {}
 export interface ListEndpointsCommandOutput extends ListEndpointsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a list of all existing endpoints that you've created.
- *       For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
+ * Gets a list of all existing endpoints that you've created. For information about endpoints, see [Managing endpoints](https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,17 +74,20 @@ export interface ListEndpointsCommandOutput extends ListEndpointsResponse, __Met
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is invalid.</p>
+ *
+ * The request is invalid.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
+ * The number of requests exceeds the limit. Resubmit your request later.
  *
  * @throws {@link ComprehendServiceException}
- * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * Base exception class for all service exceptions from Comprehend service.
  *
  * @public
  */

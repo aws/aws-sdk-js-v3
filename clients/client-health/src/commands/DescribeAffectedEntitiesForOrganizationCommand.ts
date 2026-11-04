@@ -26,25 +26,17 @@ export interface DescribeAffectedEntitiesForOrganizationCommandInput extends Des
 export interface DescribeAffectedEntitiesForOrganizationCommandOutput extends DescribeAffectedEntitiesForOrganizationResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of entities that have been affected by one or more events for one or more
- *          accounts in your organization in Organizations, based on the filter criteria. Entities can refer
- *          to individual customer resources, groups of customer resources, or any other construct,
- *          depending on the Amazon Web Services service.</p>
- *          <p>At least one event Amazon Resource Name (ARN) and account ID are required.</p>
- *          <p>Before you can call this operation, you must first enable Health to work with
- *          Organizations. To do this, call the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html">EnableHealthServiceAccessForOrganization</a> operation from your organization's
- *          management account.</p>
- *          <note>
- *             <ul>
- *                <li>
- *                   <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the next request to return more results.</p>
- *                </li>
- *                <li>
- *                   <p>This operation doesn't support resource-level permissions. You can't use this operation to allow or deny access to specific Health events. For more
- *                   information, see <a href="https://docs.aws.amazon.com/health/latest/ug/security_iam_id-based-policy-examples.html#resource-action-based-conditions">Resource- and action-based conditions</a> in the <i>Health User Guide</i>.</p>
- *                </li>
- *             </ul>
- *          </note>
+ * Returns a list of entities that have been affected by one or more events for one or more accounts in your organization in Organizations, based on the filter criteria. Entities can refer to individual customer resources, groups of customer resources, or any other construct, depending on the Amazon Web Services service.
+ *
+ * At least one event Amazon Resource Name (ARN) and account ID are required.
+ *
+ * Before you can call this operation, you must first enable Health to work with Organizations. To do this, call the [EnableHealthServiceAccessForOrganization](https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html) operation from your organization's management account.
+ *
+ * > **Note:**
+ * >
+ * > - This API operation uses pagination. Specify the `nextToken` parameter in the next request to return more results.
+ * > - This operation doesn't support resource-level permissions. You can't use this operation to allow or deny access to specific Health events. For more information, see [Resource- and action-based conditions](https://docs.aws.amazon.com/health/latest/ug/security_iam_id-based-policy-examples.html#resource-action-based-conditions) in the *Health User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -113,14 +105,16 @@ export interface DescribeAffectedEntitiesForOrganizationCommandOutput extends De
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
  *
  * @throws {@link InvalidPaginationToken} (client fault)
- *  <p>The specified pagination token (<code>nextToken</code>) is not valid.</p>
+ *
+ * The specified pagination token (`nextToken`) is not valid.
  *
  * @throws {@link UnsupportedLocale} (client fault)
- *  <p>The specified locale is not supported.</p>
+ *
+ * The specified locale is not supported.
  *
  * @throws {@link HealthServiceException}
- * <p>Base exception class for all service exceptions from Health service.</p>
  *
+ * Base exception class for all service exceptions from Health service.
  *
  * @public
  */

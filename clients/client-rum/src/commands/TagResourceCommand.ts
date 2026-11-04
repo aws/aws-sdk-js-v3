@@ -23,7 +23,18 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Assigns one or more tags (key-value pairs) to the specified CloudWatch RUM resource. Currently, the only resources that can be tagged app monitors.</p> <p>Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.</p> <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p> <p>You can use the <code>TagResource</code> action with a resource that already has tags. If you specify a new tag key for the resource, this tag is appended to the list of tags associated with the alarm. If you specify a tag key that is already associated with the resource, the new tag value that you specify replaces the previous value for that tag.</p> <p>You can associate as many as 50 tags with a resource.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
+ * Assigns one or more tags (key-value pairs) to the specified CloudWatch RUM resource. Currently, the only resources that can be tagged app monitors.
+ *
+ * Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
+ *
+ * Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.
+ *
+ * You can use the `TagResource` action with a resource that already has tags. If you specify a new tag key for the resource, this tag is appended to the list of tags associated with the alarm. If you specify a tag key that is already associated with the resource, the new tag value that you specify replaces the previous value for that tag.
+ *
+ * You can associate as many as 50 tags with a resource.
+ *
+ * For more information, see [Tagging Amazon Web Services resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,17 +62,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal service exception.</p>
+ *
+ * Internal service exception.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource not found.</p>
+ *
+ * Resource not found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One of the arguments for the request is not valid.</p>
+ *
+ * One of the arguments for the request is not valid.
  *
  * @throws {@link RUMServiceException}
- * <p>Base exception class for all service exceptions from RUM service.</p>
  *
+ * Base exception class for all service exceptions from RUM service.
  *
  * @public
  */

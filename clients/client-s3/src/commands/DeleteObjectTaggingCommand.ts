@@ -23,32 +23,21 @@ export interface DeleteObjectTaggingCommandInput extends DeleteObjectTaggingRequ
 export interface DeleteObjectTaggingCommandOutput extends DeleteObjectTaggingOutput, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This operation is not supported for directory buckets.</p>
- *          </note>
- *          <p>Removes the entire tag set from the specified object. For more information about managing object
- *       tags, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html"> Object
- *         Tagging</a>.</p>
- *          <p>To use this operation, you must have permission to perform the <code>s3:DeleteObjectTagging</code>
- *       action.</p>
- *          <p>To delete tags of a specific object version, add the <code>versionId</code> query parameter in the
- *       request. You will need permission for the <code>s3:DeleteObjectVersionTagging</code> action.</p>
- *          <p>The following operations are related to <code>DeleteObjectTagging</code>:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectTagging.html">PutObjectTagging</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html">GetObjectTagging</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
+ * > **Note:** This operation is not supported for directory buckets.
+ *
+ * Removes the entire tag set from the specified object. For more information about managing object tags, see [Object Tagging](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html).
+ *
+ * To use this operation, you must have permission to perform the `s3:DeleteObjectTagging` action.
+ *
+ * To delete tags of a specific object version, add the `versionId` query parameter in the request. You will need permission for the `s3:DeleteObjectVersionTagging` action.
+ *
+ * The following operations are related to `DeleteObjectTagging`:
+ *
+ * - [PutObjectTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectTagging.html)
+ * - [GetObjectTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html)
+ *
+ * > **Important:** You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,8 +67,8 @@ export interface DeleteObjectTaggingCommandOutput extends DeleteObjectTaggingOut
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  * @throws {@link S3ServiceException}
- * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * Base exception class for all service exceptions from S3 service.
  *
  * @example To remove tag set from an object
  * ```javascript

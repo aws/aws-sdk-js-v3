@@ -23,8 +23,8 @@ export interface DescribeEventCategoriesCommandInput extends DescribeEventCatego
 export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMessage, __MetadataBearer {}
 
 /**
- * <p>Displays a list of categories for all event source types, or, if specified, for a
- *             specified source type. </p>
+ * Displays a list of categories for all event source types, or, if specified, for a specified source type.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,8 +66,8 @@ export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMes
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  * @throws {@link DocDBServiceException}
- * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * Base exception class for all service exceptions from DocDB service.
  *
  * @public
  */

@@ -4,8 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { AutoScalingServiceException as __BaseException } from "./AutoScalingServiceException";
 
 /**
- * <p>The request failed because an active instance refresh or rollback for the specified
- *             Auto Scaling group was not found.</p>
+ * The request failed because an active instance refresh or rollback for the specified Auto Scaling group was not found.
+ *
  * @public
  */
 export class ActiveInstanceRefreshNotFoundFault extends __BaseException {
@@ -26,7 +26,8 @@ export class ActiveInstanceRefreshNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>You already have an Auto Scaling group or launch configuration with this name.</p>
+ * You already have an Auto Scaling group or launch configuration with this name.
+ *
  * @public
  */
 export class AlreadyExistsFault extends __BaseException {
@@ -47,8 +48,8 @@ export class AlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
- *             instance, or load balancer).</p>
+ * You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).
+ *
  * @public
  */
 export class ResourceContentionFault extends __BaseException {
@@ -69,7 +70,8 @@ export class ResourceContentionFault extends __BaseException {
 }
 
 /**
- * <p>The service-linked role is not yet ready for use.</p>
+ * The service-linked role is not yet ready for use.
+ *
  * @public
  */
 export class ServiceLinkedRoleFailure extends __BaseException {
@@ -90,8 +92,8 @@ export class ServiceLinkedRoleFailure extends __BaseException {
 }
 
 /**
- * <p>The request failed because an active instance refresh already exists for the specified
- *             Auto Scaling group.</p>
+ * The request failed because an active instance refresh already exists for the specified Auto Scaling group.
+ *
  * @public
  */
 export class InstanceRefreshInProgressFault extends __BaseException {
@@ -112,10 +114,8 @@ export class InstanceRefreshInProgressFault extends __BaseException {
 }
 
 /**
- * <p>You have already reached a limit for your Amazon EC2 Auto Scaling
- *             resources (for example, Auto Scaling groups, launch configurations, or lifecycle hooks). For
- *             more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html">DescribeAccountLimits</a> in the <i>Amazon EC2 Auto Scaling API
- *             Reference</i>.</p>
+ * You have already reached a limit for your Amazon EC2 Auto Scaling resources (for example, Auto Scaling groups, launch configurations, or lifecycle hooks). For more information, see [DescribeAccountLimits](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html) in the *Amazon EC2 Auto Scaling API Reference*.
+ *
  * @public
  */
 export class LimitExceededFault extends __BaseException {
@@ -136,7 +136,8 @@ export class LimitExceededFault extends __BaseException {
 }
 
 /**
- * <p>The operation can't be performed because the resource is in use.</p>
+ * The operation can't be performed because the resource is in use.
+ *
  * @public
  */
 export class ResourceInUseFault extends __BaseException {
@@ -157,8 +158,8 @@ export class ResourceInUseFault extends __BaseException {
 }
 
 /**
- * <p>The operation can't be performed because there are scaling activities in
- *             progress.</p>
+ * The operation can't be performed because there are scaling activities in progress.
+ *
  * @public
  */
 export class ScalingActivityInProgressFault extends __BaseException {
@@ -179,7 +180,8 @@ export class ScalingActivityInProgressFault extends __BaseException {
 }
 
 /**
- * <p>The <code>NextToken</code> value is not valid.</p>
+ * The `NextToken` value is not valid.
+ *
  * @public
  */
 export class InvalidNextToken extends __BaseException {
@@ -200,11 +202,8 @@ export class InvalidNextToken extends __BaseException {
 }
 
 /**
- * <p>
- *             The service is currently processing another request with the same client token. Retry
- *             the request with the same client token—the in-flight operation will complete and return
- *             its result.
- *         </p>
+ * The service is currently processing another request with the same client token. Retry the request with the same client token—the in-flight operation will complete and return its result.
+ *
  * @public
  */
 export class IdempotentCallInProgressFault extends __BaseException {
@@ -227,9 +226,8 @@ export class IdempotentCallInProgressFault extends __BaseException {
 }
 
 /**
- * <p>
- *             Indicates that the parameters in the current request do not match the parameters from a previous request with the same client token within the idempotency window.
- *         </p>
+ * Indicates that the parameters in the current request do not match the parameters from a previous request with the same client token within the idempotency window.
+ *
  * @public
  */
 export class IdempotentParameterMismatchError extends __BaseException {
@@ -252,10 +250,8 @@ export class IdempotentParameterMismatchError extends __BaseException {
 }
 
 /**
- * <p>The request failed because a desired configuration was not found or an incompatible
- *             launch template (uses a Systems Manager parameter instead of an AMI ID) or launch
- *             template version (<code>$Latest</code> or <code>$Default</code>) is present on the Auto Scaling
- *             group.</p>
+ * The request failed because a desired configuration was not found or an incompatible launch template (uses a Systems Manager parameter instead of an AMI ID) or launch template version (`$Latest` or `$Default`) is present on the Auto Scaling group.
+ *
  * @public
  */
 export class IrreversibleInstanceRefreshFault extends __BaseException {

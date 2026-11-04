@@ -23,9 +23,10 @@ export interface CreateRouteTableCommandInput extends CreateRouteTableRequest {}
 export interface CreateRouteTableCommandOutput extends CreateRouteTableResult, __MetadataBearer {}
 
 /**
- * <p>Creates a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route tables</a> in the
- * 				<i>Amazon VPC User Guide</i>.</p>
+ * Creates a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet.
+ *
+ * For more information, see [Route tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html) in the *Amazon VPC User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -117,8 +118,8 @@ export interface CreateRouteTableCommandOutput extends CreateRouteTableResult, _
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To create a route table
  * ```javascript

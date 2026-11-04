@@ -26,7 +26,8 @@ export interface DescribeCertificateAuthorityAuditReportCommandInput extends Des
 export interface DescribeCertificateAuthorityAuditReportCommandOutput extends DescribeCertificateAuthorityAuditReportResponse, __MetadataBearer {}
 
 /**
- * <p>Lists information about a specific audit report created by calling the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html">CreateCertificateAuthorityAuditReport</a> action. Audit information is created every time the certificate authority (CA) private key is used. The private key is used when you call the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html">IssueCertificate</a> action or the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_RevokeCertificate.html">RevokeCertificate</a> action. </p>
+ * Lists information about a specific audit report created by calling the [CreateCertificateAuthorityAuditReport](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html) action. Audit information is created every time the certificate authority (CA) private key is used. The private key is used when you call the [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html) action or the [RevokeCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_RevokeCertificate.html) action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,17 +58,20 @@ export interface DescribeCertificateAuthorityAuditReportCommandOutput extends De
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
  *
  * @throws {@link InvalidArgsException} (client fault)
- *  <p>One or more of the specified arguments was not valid.</p>
+ *
+ * One or more of the specified arguments was not valid.
  *
  * @throws {@link InvalidArnException} (client fault)
- *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+ *
+ * The requested Amazon Resource Name (ARN) does not refer to an existing resource.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy cannot be found.</p>
+ *
+ * A resource such as a private CA, S3 bucket, certificate, audit report, or policy cannot be found.
  *
  * @throws {@link ACMPCAServiceException}
- * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
+ * Base exception class for all service exceptions from ACMPCA service.
  *
  * @public
  */

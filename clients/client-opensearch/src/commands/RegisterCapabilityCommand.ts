@@ -23,7 +23,8 @@ export interface RegisterCapabilityCommandInput extends RegisterCapabilityReques
 export interface RegisterCapabilityCommandOutput extends RegisterCapabilityResponse, __MetadataBearer {}
 
 /**
- * <p>Registers a capability for an OpenSearch UI application. Use this operation to enable specific capabilities, such as AI features, for a given application. The capability configuration defines the type and settings of the capability to register. For more information about the AI features, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/application-ai-assistant.html">Agentic AI for OpenSearch UI</a>.</p>
+ * Registers a capability for an OpenSearch UI application. Use this operation to enable specific capabilities, such as AI features, for a given application. The capability configuration defines the type and settings of the capability to register. For more information about the AI features, see [Agentic AI for OpenSearch UI](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/application-ai-assistant.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,29 +60,36 @@ export interface RegisterCapabilityCommandOutput extends RegisterCapabilityRespo
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>An error occurred because you don't have permissions to access the resource.</p>
+ *
+ * An error occurred because you don't have permissions to access the resource.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>An error occurred because the client attempts to remove a resource that is currently in use.</p>
+ *
+ * An error occurred because the client attempts to remove a resource that is currently in use.
  *
  * @throws {@link DisabledOperationException} (client fault)
- *  <p>An error occured because the client wanted to access an unsupported operation.</p>
+ *
+ * An error occured because the client wanted to access an unsupported operation.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+ *
+ * Request processing failed because of an unknown error, exception, or internal failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+ *
+ * An exception for accessing or deleting a resource that doesn't exist.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>An exception for when a request would cause a service quota to be exceeded.</p>
+ *
+ * An exception for when a request would cause a service quota to be exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+ *
+ * An exception for accessing or deleting a resource that doesn't exist.
  *
  * @throws {@link OpenSearchServiceException}
- * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * Base exception class for all service exceptions from OpenSearch service.
  *
  * @public
  */

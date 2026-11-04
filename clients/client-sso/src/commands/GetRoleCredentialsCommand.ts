@@ -23,8 +23,8 @@ export interface GetRoleCredentialsCommandInput extends GetRoleCredentialsReques
 export interface GetRoleCredentialsCommandOutput extends GetRoleCredentialsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the STS short-term credentials for a given role name that is assigned to the
- *       user.</p>
+ * Returns the STS short-term credentials for a given role name that is assigned to the user.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,23 +58,24 @@ export interface GetRoleCredentialsCommandOutput extends GetRoleCredentialsRespo
  * @see {@link SSOClientResolvedConfig | config} for SSOClient's `config` shape.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Indicates that a problem occurred with the input to the request. For example, a required
- *       parameter might be missing or out of range.</p>
+ *
+ * Indicates that a problem occurred with the input to the request. For example, a required parameter might be missing or out of range.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource doesn't exist.</p>
+ *
+ * The specified resource doesn't exist.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Indicates that the request is being made too frequently and is more than what the server
- *       can handle.</p>
+ *
+ * Indicates that the request is being made too frequently and is more than what the server can handle.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>Indicates that the request is not authorized. This can happen due to an invalid access
- *       token in the request.</p>
+ *
+ * Indicates that the request is not authorized. This can happen due to an invalid access token in the request.
  *
  * @throws {@link SSOServiceException}
- * <p>Base exception class for all service exceptions from SSO service.</p>
  *
+ * Base exception class for all service exceptions from SSO service.
  *
  * @public
  */

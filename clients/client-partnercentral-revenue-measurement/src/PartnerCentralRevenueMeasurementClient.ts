@@ -369,7 +369,8 @@ export type PartnerCentralRevenueMeasurementClientResolvedConfigType = __SmithyR
 export interface PartnerCentralRevenueMeasurementClientResolvedConfig extends PartnerCentralRevenueMeasurementClientResolvedConfigType {}
 
 /**
- * <p>AWS Partner Central Revenue Measurement API for creating, managing, and tracking revenue attributions and their allocations with deal entities such as offers and opportunities.</p>
+ * AWS Partner Central Revenue Measurement API for creating, managing, and tracking revenue attributions and their allocations with deal entities such as offers and opportunities.
+ *
  * @public
  */
 export class PartnerCentralRevenueMeasurementClient extends __Client<

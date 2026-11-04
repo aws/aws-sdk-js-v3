@@ -23,7 +23,12 @@ export interface StartQueryMonitorTopContributorsCommandInput extends StartQuery
 export interface StartQueryMonitorTopContributorsCommandOutput extends StartQueryMonitorTopContributorsOutput, __MetadataBearer {}
 
 /**
- * <p>Create a query that you can use with the Network Flow Monitor query interface to return the top contributors for a monitor. Specify the monitor that you want to create the query for. </p> <p>The call returns a query ID that you can use with <a href="https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_GetQueryResultsMonitorTopContributors.html"> GetQueryResultsMonitorTopContributors</a> to run the query and return the top contributors for a specific monitor.</p> <p>Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type. Top contributors can be across all workload insights, for a given scope, or for a specific monitor. Use the applicable APIs for the top contributors that you want to be returned.</p>
+ * Create a query that you can use with the Network Flow Monitor query interface to return the top contributors for a monitor. Specify the monitor that you want to create the query for.
+ *
+ * The call returns a query ID that you can use with [GetQueryResultsMonitorTopContributors](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_GetQueryResultsMonitorTopContributors.html) to run the query and return the top contributors for a specific monitor.
+ *
+ * Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type. Top contributors can be across all workload insights, for a given scope, or for a specific monitor. Use the applicable APIs for the top contributors that you want to be returned.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,23 +60,28 @@ export interface StartQueryMonitorTopContributorsCommandOutput extends StartQuer
  * @see {@link NetworkFlowMonitorClientResolvedConfig | config} for NetworkFlowMonitorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * You don't have sufficient permission to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error occurred.</p>
+ *
+ * An internal error occurred.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request exceeded a service quota.</p>
+ *
+ * The request exceeded a service quota.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Invalid request.</p>
+ *
+ * Invalid request.
  *
  * @throws {@link NetworkFlowMonitorServiceException}
- * <p>Base exception class for all service exceptions from NetworkFlowMonitor service.</p>
  *
+ * Base exception class for all service exceptions from NetworkFlowMonitor service.
  *
  * @public
  */

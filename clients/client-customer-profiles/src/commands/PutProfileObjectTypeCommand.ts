@@ -23,9 +23,10 @@ export interface PutProfileObjectTypeCommandInput extends PutProfileObjectTypeRe
 export interface PutProfileObjectTypeCommandOutput extends PutProfileObjectTypeResponse, __MetadataBearer {}
 
 /**
- * <p>Defines a ProfileObjectType.</p>
- *          <p>To add or remove tags on an existing ObjectType, see <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_TagResource.html">
- *             TagResource</a>/<a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UntagResource.html">UntagResource</a>.</p>
+ * Defines a ProfileObjectType.
+ *
+ * To add or remove tags on an existing ObjectType, see [TagResource](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_TagResource.html)/[UntagResource](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UntagResource.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -116,23 +117,28 @@ export interface PutProfileObjectTypeCommandOutput extends PutProfileObjectTypeR
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource does not exist, or access was denied.</p>
+ *
+ * The requested resource does not exist, or access was denied.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>You exceeded the maximum number of requests.</p>
+ *
+ * You exceeded the maximum number of requests.
  *
  * @throws {@link CustomerProfilesServiceException}
- * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * Base exception class for all service exceptions from CustomerProfiles service.
  *
  * @public
  */

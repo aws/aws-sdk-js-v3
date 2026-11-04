@@ -23,10 +23,10 @@ export interface DeleteAccessPointCommandInput extends DeleteAccessPointRequest 
 export interface DeleteAccessPointCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified access point. After deletion is complete, new clients can no
- *       longer connect to the access points. Clients connected to the access point at the time of
- *       deletion will continue to function until they terminate their connection.</p>
- *          <p>This operation requires permissions for the <code>elasticfilesystem:DeleteAccessPoint</code> action.</p>
+ * Deletes the specified access point. After deletion is complete, new clients can no longer connect to the access points. Clients connected to the access point at the time of deletion will continue to function until they terminate their connection.
+ *
+ * This operation requires permissions for the `elasticfilesystem:DeleteAccessPoint` action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,19 +51,20 @@ export interface DeleteAccessPointCommandOutput extends __MetadataBearer {}
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
  * @throws {@link AccessPointNotFound} (client fault)
- *  <p>Returned if the specified <code>AccessPointId</code> value doesn't exist in the
- *             requester's Amazon Web Services account.</p>
+ *
+ * Returned if the specified `AccessPointId` value doesn't exist in the requester's Amazon Web Services account.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>Returned if the request is malformed or contains an error such as an invalid
- *             parameter value or a missing required parameter.</p>
+ *
+ * Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Returned if an error occurred on the server side.</p>
+ *
+ * Returned if an error occurred on the server side.
  *
  * @throws {@link EFSServiceException}
- * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * Base exception class for all service exceptions from EFS service.
  *
  * @public
  */

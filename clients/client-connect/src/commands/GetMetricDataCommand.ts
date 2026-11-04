@@ -23,15 +23,12 @@ export interface GetMetricDataCommandInput extends GetMetricDataRequest {}
 export interface GetMetricDataCommandOutput extends GetMetricDataResponse, __MetadataBearer {}
 
 /**
- * <p>Gets historical metric data from the specified Connect Customer instance.</p>
- *          <p>For a description of each historical metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics definitions</a> in the <i>Connect Customer Administrator Guide</i>.</p>
- *          <note>
- *             <p>We recommend using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html">GetMetricDataV2</a> API. It provides more flexibility, features, and the ability to query longer time ranges
- *     than <code>GetMetricData</code>. Use it to retrieve historical agent and contact metrics for the last 3 months, at
- *     varying intervals. You can also use it to build custom dashboards to measure historical queue and agent performance.
- *     For example, you can track the number of incoming contacts for the last 7 days, with data split by day, to see how
- *     contact volume changed per day of the week.</p>
- *          </note>
+ * Gets historical metric data from the specified Connect Customer instance.
+ *
+ * For a description of each historical metric, see [Metrics definitions](https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html) in the *Connect Customer Administrator Guide*.
+ *
+ * > **Note:** We recommend using the [GetMetricDataV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html) API. It provides more flexibility, features, and the ability to query longer time ranges than `GetMetricData`. Use it to retrieve historical agent and contact metrics for the last 3 months, at varying intervals. You can also use it to build custom dashboards to measure historical queue and agent performance. For example, you can track the number of incoming contacts for the last 7 days, with data split by day, to see how contact volume changed per day of the week.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -135,23 +132,28 @@ export interface GetMetricDataCommandOutput extends GetMetricDataResponse, __Met
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

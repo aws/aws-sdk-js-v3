@@ -23,7 +23,8 @@ export interface UpdateUserCommandInput extends UpdateUserRequest {}
 export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataBearer {}
 
 /**
- * <p>Changes user password(s) and/or access string.</p>
+ * Changes user password(s) and/or access string.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,20 +71,24 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>The specified parameter combination is not valid.</p>
+ *
+ * The specified parameter combination is not valid.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The specified parameter value is not valid.</p>
+ *
+ * The specified parameter value is not valid.
  *
  * @throws {@link InvalidUserStateFault} (client fault)
- *  <p>The user is not in a valid state for the requested operation.</p>
+ *
+ * The user is not in a valid state for the requested operation.
  *
  * @throws {@link UserNotFoundFault} (client fault)
- *  <p>The specified user does not exist.</p>
+ *
+ * The specified user does not exist.
  *
  * @throws {@link MemoryDBServiceException}
- * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * Base exception class for all service exceptions from MemoryDB service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface GetResourcesTrendsV2CommandInput extends GetResourcesTrendsV2Re
 export interface GetResourcesTrendsV2CommandOutput extends GetResourcesTrendsV2Response, __MetadataBearer {}
 
 /**
- * <p>Returns resource trend data based on the specified criteria. This operation helps you analyze patterns and changes in resource compliance over time.</p>
+ * Returns resource trend data based on the specified criteria. This operation helps you analyze patterns and changes in resource compliance over time.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -96,24 +97,24 @@ export interface GetResourcesTrendsV2CommandOutput extends GetResourcesTrendsV2R
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permission to perform the action specified in the request.</p>
+ *
+ * You don't have permission to perform the action specified in the request.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>
- *          The request has failed due to an internal failure of the service.
- *       </p>
+ *
+ * The request has failed due to an internal failure of the service.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>
- *          The limit on the number of requests per second was exceeded.
- *       </p>
+ *
+ * The limit on the number of requests per second was exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request has failed validation because it's missing required fields or has invalid inputs.</p>
+ *
+ * The request has failed validation because it's missing required fields or has invalid inputs.
  *
  * @throws {@link SecurityHubServiceException}
- * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * Base exception class for all service exceptions from SecurityHub service.
  *
  * @public
  */

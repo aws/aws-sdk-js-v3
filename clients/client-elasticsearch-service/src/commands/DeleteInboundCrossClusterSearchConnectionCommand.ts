@@ -26,7 +26,8 @@ export interface DeleteInboundCrossClusterSearchConnectionCommandInput extends D
 export interface DeleteInboundCrossClusterSearchConnectionCommandOutput extends DeleteInboundCrossClusterSearchConnectionResponse, __MetadataBearer {}
 
 /**
- * <p>Allows the destination domain owner to delete an existing inbound cross-cluster search connection.</p>
+ * Allows the destination domain owner to delete an existing inbound cross-cluster search connection.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,14 +70,16 @@ export interface DeleteInboundCrossClusterSearchConnectionCommandOutput extends 
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
  *
  * @throws {@link DisabledOperationException} (client fault)
- *  <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+ *
+ * An error occured because the client wanted to access a not supported operation. Gives http status code of 409.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+ *
+ * An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.
  *
  * @throws {@link ElasticsearchServiceServiceException}
- * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ * Base exception class for all service exceptions from ElasticsearchService service.
  *
  * @public
  */

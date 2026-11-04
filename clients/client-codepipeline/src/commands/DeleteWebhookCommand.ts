@@ -23,10 +23,8 @@ export interface DeleteWebhookCommandInput extends DeleteWebhookInput {}
 export interface DeleteWebhookCommandOutput extends DeleteWebhookOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes a previously created webhook by name. Deleting the webhook stops CodePipeline from starting a pipeline every time an external event occurs. The API
- *             returns successfully when trying to delete a webhook that is already deleted. If a
- *             deleted webhook is re-created by calling PutWebhook with the same name, it will have a
- *             different URL.</p>
+ * Deletes a previously created webhook by name. Deleting the webhook stops CodePipeline from starting a pipeline every time an external event occurs. The API returns successfully when trying to delete a webhook that is already deleted. If a deleted webhook is re-created by calling PutWebhook with the same name, it will have a different URL.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,14 +49,16 @@ export interface DeleteWebhookCommandOutput extends DeleteWebhookOutput, __Metad
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Unable to modify the tag due to a simultaneous update request.</p>
+ *
+ * Unable to modify the tag due to a simultaneous update request.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The validation was specified in an invalid format.</p>
+ *
+ * The validation was specified in an invalid format.
  *
  * @throws {@link CodePipelineServiceException}
- * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * Base exception class for all service exceptions from CodePipeline service.
  *
  * @public
  */

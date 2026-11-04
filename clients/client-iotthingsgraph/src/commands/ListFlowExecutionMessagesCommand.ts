@@ -23,7 +23,7 @@ export interface ListFlowExecutionMessagesCommandInput extends ListFlowExecution
 export interface ListFlowExecutionMessagesCommandOutput extends ListFlowExecutionMessagesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of objects that contain information about events in a flow execution.</p>
+ * Returns a list of objects that contain information about events in a flow execution.
  *
  * @deprecated since: 2022-08-30.
  * @example
@@ -62,20 +62,16 @@ export interface ListFlowExecutionMessagesCommandOutput extends ListFlowExecutio
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p></p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p></p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p></p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p></p>
  *
  * @throws {@link IoTThingsGraphServiceException}
- * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ * Base exception class for all service exceptions from IoTThingsGraph service.
  *
  * @public
  */

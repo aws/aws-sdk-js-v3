@@ -23,11 +23,12 @@ export interface DescribeIpamPoolAllocationsCommandInput extends DescribeIpamPoo
 export interface DescribeIpamPoolAllocationsCommandOutput extends DescribeIpamPoolAllocationsResult, __MetadataBearer {}
 
 /**
- * <p>Describes IPAM pool allocations. You can describe all allocations owned by you across all pools, or you can describe specific allocations by ID.</p>
- *          <p>If you specify <code>IpamPoolAllocationIds</code>, the results include only the specified allocations. If you do not specify <code>IpamPoolAllocationIds</code>, the results include all allocations owned by you. You can use <code>Filters</code> to narrow the results.</p>
- *          <note>
- *             <p>This action returns only allocations directly owned by you. To view all allocations in a pool you own or that has been shared with you, including allocations owned by other accounts, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolAllocations.html">GetIpamPoolAllocations</a>.</p>
- *          </note>
+ * Describes IPAM pool allocations. You can describe all allocations owned by you across all pools, or you can describe specific allocations by ID.
+ *
+ * If you specify `IpamPoolAllocationIds`, the results include only the specified allocations. If you do not specify `IpamPoolAllocationIds`, the results include all allocations owned by you. You can use `Filters` to narrow the results.
+ *
+ * > **Note:** This action returns only allocations directly owned by you. To view all allocations in a pool you own or that has been shared with you, including allocations owned by other accounts, use [GetIpamPoolAllocations](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolAllocations.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,8 +85,8 @@ export interface DescribeIpamPoolAllocationsCommandOutput extends DescribeIpamPo
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

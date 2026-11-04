@@ -23,7 +23,8 @@ export interface DescribeDataSharesForProducerCommandInput extends DescribeDataS
 export interface DescribeDataSharesForProducerCommandOutput extends DescribeDataSharesForProducerResult, __MetadataBearer {}
 
 /**
- * <p>Returns a list of datashares when the account identifier being called is a producer account identifier.</p>
+ * Returns a list of datashares when the account identifier being called is a producer account identifier.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,11 +74,12 @@ export interface DescribeDataSharesForProducerCommandOutput extends DescribeData
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link InvalidNamespaceFault} (client fault)
- *  <p>The namespace isn't valid because the namespace doesn't exist. Provide a valid namespace.</p>
+ *
+ * The namespace isn't valid because the namespace doesn't exist. Provide a valid namespace.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

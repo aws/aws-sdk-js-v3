@@ -23,10 +23,8 @@ export interface ModifyVpnTunnelOptionsCommandInput extends ModifyVpnTunnelOptio
 export interface ModifyVpnTunnelOptionsCommandOutput extends ModifyVpnTunnelOptionsResult, __MetadataBearer {}
 
 /**
- * <p>Modifies the options for a VPN tunnel in an Amazon Web Services Site-to-Site VPN connection. You can modify
- *             multiple options for a tunnel in a single request, but you can only modify one tunnel at
- *             a time. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPNTunnels.html">Site-to-Site VPN tunnel options for your Site-to-Site VPN
- *                 connection</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p>
+ * Modifies the options for a VPN tunnel in an Amazon Web Services Site-to-Site VPN connection. You can modify multiple options for a tunnel in a single request, but you can only modify one tunnel at a time. For more information, see [Site-to-Site VPN tunnel options for your Site-to-Site VPN connection](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPNTunnels.html) in the *Amazon Web Services Site-to-Site VPN User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -227,8 +225,8 @@ export interface ModifyVpnTunnelOptionsCommandOutput extends ModifyVpnTunnelOpti
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

@@ -26,13 +26,16 @@ export interface GetObjectTypeAttributeStatisticsCommandInput extends GetObjectT
 export interface GetObjectTypeAttributeStatisticsCommandOutput extends GetObjectTypeAttributeStatisticsResponse, __MetadataBearer {}
 
 /**
- * <p>The GetObjectTypeAttributeValues API delivers statistical insights about attributes within a specific object type, but is exclusively available for domains with data store enabled. This API performs daily calculations to provide statistical information about your attribute values, helping you understand patterns and trends in your data. The statistical calculations are performed once per day, providing a consistent snapshot of your attribute data characteristics.</p>
- *          <note>
- *             <p>You'll receive null values in two scenarios: </p>
- *             <p>During the first period after enabling data vault (unless a calculation cycle occurs, which happens once daily).</p>
- *             <p>For attributes that don't contain numeric values.
- *       </p>
- *          </note>
+ * The GetObjectTypeAttributeValues API delivers statistical insights about attributes within a specific object type, but is exclusively available for domains with data store enabled. This API performs daily calculations to provide statistical information about your attribute values, helping you understand patterns and trends in your data. The statistical calculations are performed once per day, providing a consistent snapshot of your attribute data characteristics.
+ *
+ * > **Note:**
+ * >
+ * > You'll receive null values in two scenarios:
+ * >
+ * > During the first period after enabling data vault (unless a calculation cycle occurs, which happens once daily).
+ * >
+ * > For attributes that don't contain numeric values.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,23 +77,28 @@ export interface GetObjectTypeAttributeStatisticsCommandOutput extends GetObject
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource does not exist, or access was denied.</p>
+ *
+ * The requested resource does not exist, or access was denied.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>You exceeded the maximum number of requests.</p>
+ *
+ * You exceeded the maximum number of requests.
  *
  * @throws {@link CustomerProfilesServiceException}
- * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * Base exception class for all service exceptions from CustomerProfiles service.
  *
  * @public
  */

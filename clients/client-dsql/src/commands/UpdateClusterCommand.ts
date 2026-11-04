@@ -23,7 +23,62 @@ export interface UpdateClusterCommandInput extends UpdateClusterInput {}
 export interface UpdateClusterCommandOutput extends UpdateClusterOutput, __MetadataBearer {}
 
 /**
- * <p>The <i>UpdateCluster</i> API allows you to modify both single-Region and multi-Region cluster configurations. With the <i>multiRegionProperties</i> parameter, you can add or modify witness Region support and manage peer relationships with clusters in other Regions.</p> <note> <p>Note that updating multi-Region clusters requires additional IAM permissions beyond those needed for standard cluster updates, as detailed in the Permissions section.</p> </note> <p> <b>Required permissions</b> </p> <dl> <dt>dsql:UpdateCluster</dt> <dd> <p>Permission to update a DSQL cluster.</p> <p>Resources: <code>arn:aws:dsql:<i>region</i>:<i>account-id</i>:cluster/<i>cluster-id</i> </code> </p> </dd> </dl> <dl> <dt>dsql:PutMultiRegionProperties</dt> <dd> <p>Permission to configure multi-Region properties for a cluster.</p> <p>Resources: <code>arn:aws:dsql:<i>region</i>:<i>account-id</i>:cluster/<i>cluster-id</i> </code> </p> </dd> </dl> <dl> <dt>dsql:GetCluster</dt> <dd> <p>Permission to retrieve cluster information.</p> <p>Resources: <code>arn:aws:dsql:<i>region</i>:<i>account-id</i>:cluster/<i>cluster-id</i> </code> </p> </dd> <dt>dsql:AddPeerCluster</dt> <dd> <p>Permission to add peer clusters.</p> <p>Resources:</p> <ul> <li> <p>Local cluster: <code>arn:aws:dsql:<i>region</i>:<i>account-id</i>:cluster/<i>cluster-id</i> </code> </p> </li> <li> <p>Each peer cluster: exact ARN of each specified peer cluster</p> </li> </ul> </dd> <dt>dsql:RemovePeerCluster</dt> <dd> <p>Permission to remove peer clusters. When you list peer clusters in <code>multiRegionProperties.clusters</code>, you need this permission for each current peer cluster that your list omits.</p> <p>Resources:</p> <ul> <li> <p>Each removed peer cluster: exact ARN of each removed peer cluster, in its own Region</p> </li> </ul> </dd> </dl> <dl> <dt>dsql:PutWitnessRegion</dt> <dd> <p>Permission to set a witness Region.</p> <p>Resources: <code>arn:aws:dsql:<i>region</i>:<i>account-id</i>:cluster/<i>cluster-id</i> </code> </p> <p>Condition Keys: dsql:WitnessRegion (matching the specified witness Region)</p> <p> <b>This permission is checked both in the cluster Region and in the witness Region.</b> </p> </dd> </dl> <important> <ul> <li> <p>The witness Region specified in <code>multiRegionProperties.witnessRegion</code> cannot be the same as the cluster's Region.</p> </li> <li> <p>When you list peer clusters in <code>multiRegionProperties.clusters</code>, you need <code>dsql:AddPeerCluster</code> for every peer cluster in your request. You need <code>dsql:RemovePeerCluster</code> only for the peer clusters that the update removes.</p> </li> </ul> </important>
+ * The *UpdateCluster* API allows you to modify both single-Region and multi-Region cluster configurations. With the *multiRegionProperties* parameter, you can add or modify witness Region support and manage peer relationships with clusters in other Regions.
+ *
+ * > **Note:** Note that updating multi-Region clusters requires additional IAM permissions beyond those needed for standard cluster updates, as detailed in the Permissions section.
+ *
+ * **Required permissions**
+ *
+ * - **dsql:UpdateCluster**
+ *
+ *   Permission to update a DSQL cluster.
+ *
+ *   Resources: `arn:aws:dsql:region:account-id:cluster/cluster-id`
+ *
+ * - **dsql:PutMultiRegionProperties**
+ *
+ *   Permission to configure multi-Region properties for a cluster.
+ *
+ *   Resources: `arn:aws:dsql:region:account-id:cluster/cluster-id`
+ *
+ * - **dsql:GetCluster**
+ *
+ *   Permission to retrieve cluster information.
+ *
+ *   Resources: `arn:aws:dsql:region:account-id:cluster/cluster-id`
+ *
+ * - **dsql:AddPeerCluster**
+ *
+ *   Permission to add peer clusters.
+ *
+ *   Resources:
+ *
+ *   - Local cluster: `arn:aws:dsql:region:account-id:cluster/cluster-id`
+ *   - Each peer cluster: exact ARN of each specified peer cluster
+ *
+ * - **dsql:RemovePeerCluster**
+ *
+ *   Permission to remove peer clusters. When you list peer clusters in `multiRegionProperties.clusters`, you need this permission for each current peer cluster that your list omits.
+ *
+ *   Resources:
+ *
+ *   - Each removed peer cluster: exact ARN of each removed peer cluster, in its own Region
+ *
+ * - **dsql:PutWitnessRegion**
+ *
+ *   Permission to set a witness Region.
+ *
+ *   Resources: `arn:aws:dsql:region:account-id:cluster/cluster-id`
+ *
+ *   Condition Keys: dsql:WitnessRegion (matching the specified witness Region)
+ *
+ *   **This permission is checked both in the cluster Region and in the witness Region.**
+ *
+ * > **Important:**
+ * >
+ * > - The witness Region specified in `multiRegionProperties.witnessRegion` cannot be the same as the cluster's Region.
+ * > - When you list peer clusters in `multiRegionProperties.clusters`, you need `dsql:AddPeerCluster` for every peer cluster in your request. You need `dsql:RemovePeerCluster` only for the peer clusters that the update removes.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,26 +117,32 @@ export interface UpdateClusterCommandOutput extends UpdateClusterOutput, __Metad
  * @see {@link DSQLClientResolvedConfig | config} for DSQLClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The submitted action has conflicts.</p>
+ *
+ * The submitted action has conflicts.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input failed to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link DSQLServiceException}
- * <p>Base exception class for all service exceptions from DSQL service.</p>
  *
+ * Base exception class for all service exceptions from DSQL service.
  *
  * @example Update Cluster
  * ```javascript

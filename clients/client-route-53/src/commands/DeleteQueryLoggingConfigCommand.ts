@@ -23,10 +23,10 @@ export interface DeleteQueryLoggingConfigCommandInput extends DeleteQueryLogging
 export interface DeleteQueryLoggingConfigCommandOutput extends DeleteQueryLoggingConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a configuration for DNS query logging. If you delete a configuration, Amazon
- * 			Route 53 stops sending query logs to CloudWatch Logs. Route 53 doesn't delete any logs
- * 			that are already in CloudWatch Logs.</p>
- *          <p>For more information about DNS query logs, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateQueryLoggingConfig.html">CreateQueryLoggingConfig</a>.</p>
+ * Deletes a configuration for DNS query logging. If you delete a configuration, Amazon Route 53 stops sending query logs to CloudWatch Logs. Route 53 doesn't delete any logs that are already in CloudWatch Logs.
+ *
+ * For more information about DNS query logs, see [CreateQueryLoggingConfig](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateQueryLoggingConfig.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,18 +51,20 @@ export interface DeleteQueryLoggingConfigCommandOutput extends DeleteQueryLoggin
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link ConcurrentModification} (client fault)
- *  <p>Another user submitted a request to create, update, or delete the object at the same
- * 			time that you did. Retry the request. </p>
+ *
+ * Another user submitted a request to create, update, or delete the object at the same time that you did. Retry the request.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link NoSuchQueryLoggingConfig} (client fault)
- *  <p>There is no DNS query logging configuration with the specified ID.</p>
+ *
+ * There is no DNS query logging configuration with the specified ID.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @public
  */

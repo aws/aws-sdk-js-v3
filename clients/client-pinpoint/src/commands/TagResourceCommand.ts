@@ -23,7 +23,8 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Adds one or more tags (keys and values) to an application, campaign, message template, or segment.</p>
+ * Adds one or more tags (keys and values) to an application, campaign, message template, or segment.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,8 +54,8 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
  *
  * @throws {@link PinpointServiceException}
- * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * Base exception class for all service exceptions from Pinpoint service.
  *
  * @public
  */

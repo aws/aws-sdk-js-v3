@@ -23,8 +23,8 @@ export interface ListResourceScanRelatedResourcesCommandInput extends ListResour
 export interface ListResourceScanRelatedResourcesCommandOutput extends ListResourceScanRelatedResourcesOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the related resources for a list of resources from a resource scan. The response
- *       indicates whether each returned resource is already managed by CloudFormation.</p>
+ * Lists the related resources for a list of resources from a resource scan. The response indicates whether each returned resource is already managed by CloudFormation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,14 +70,16 @@ export interface ListResourceScanRelatedResourcesCommandOutput extends ListResou
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link ResourceScanInProgressException} (client fault)
- *  <p>A resource scan is currently in progress. Only one can be run at a time for an account in a Region.</p>
+ *
+ * A resource scan is currently in progress. Only one can be run at a time for an account in a Region.
  *
  * @throws {@link ResourceScanNotFoundException} (client fault)
- *  <p>The resource scan was not found.</p>
+ *
+ * The resource scan was not found.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @example To list resource scan related resources
  * ```javascript

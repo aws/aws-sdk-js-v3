@@ -23,31 +23,20 @@ export interface DescribeStreamCommandInput extends DescribeStreamInput {}
 export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __MetadataBearer {}
 
 /**
- * <p>Describes the specified Kinesis data stream.</p>
- *          <note>
- *             <p>This API has been revised. It's highly recommended that you use the <a>DescribeStreamSummary</a> API to get a summarized description of the
- *                 specified Kinesis data stream and the <a>ListShards</a> API to list the
- *                 shards in a specified data stream and obtain information about each shard. </p>
- *          </note>
- *          <note>
- *             <p>When invoking this API, you must use either the <code>StreamARN</code> or the
- *                     <code>StreamName</code> parameter, or both. It is recommended that you use the
- *                     <code>StreamARN</code> input parameter when you invoke this API.</p>
- *          </note>
- *          <p>The information returned includes the stream name, Amazon Resource Name (ARN),
- *             creation time, enhanced metric configuration, and shard map. The shard map is an array
- *             of shard objects. For each shard object, there is the hash key and sequence number
- *             ranges that the shard spans, and the IDs of any earlier shards that played in a role in
- *             creating the shard. Every record ingested in the stream is identified by a sequence
- *             number, which is assigned when the record is put into the stream.</p>
- *          <p>You can limit the number of shards returned by each call. For more information, see
- *                 <a href="https://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-retrieve-shards.html">Retrieving
- *                 Shards from a Stream</a> in the <i>Amazon Kinesis Data Streams Developer
- *                 Guide</i>.</p>
- *          <p>There are no guarantees about the chronological order shards returned. To process
- *             shards in chronological order, use the ID of the parent shard to track the lineage to
- *             the oldest shard.</p>
- *          <p>This operation has a limit of 10 transactions per second per account.</p>
+ * Describes the specified Kinesis data stream.
+ *
+ * > **Note:** This API has been revised. It's highly recommended that you use the DescribeStreamSummary API to get a summarized description of the specified Kinesis data stream and the ListShards API to list the shards in a specified data stream and obtain information about each shard.
+ *
+ * > **Note:** When invoking this API, you must use either the `StreamARN` or the `StreamName` parameter, or both. It is recommended that you use the `StreamARN` input parameter when you invoke this API.
+ *
+ * The information returned includes the stream name, Amazon Resource Name (ARN), creation time, enhanced metric configuration, and shard map. The shard map is an array of shard objects. For each shard object, there is the hash key and sequence number ranges that the shard spans, and the IDs of any earlier shards that played in a role in creating the shard. Every record ingested in the stream is identified by a sequence number, which is assigned when the record is put into the stream.
+ *
+ * You can limit the number of shards returned by each call. For more information, see [Retrieving Shards from a Stream](https://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-retrieve-shards.html) in the *Amazon Kinesis Data Streams Developer Guide*.
+ *
+ * There are no guarantees about the chronological order shards returned. To process shards in chronological order, use the ID of the parent shard to track the lineage to the oldest shard.
+ *
+ * This operation has a limit of 10 transactions per second per account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -112,24 +101,24 @@ export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __Met
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Specifies that you do not have the permissions required to perform this
- *             operation.</p>
+ *
+ * Specifies that you do not have the permissions required to perform this operation.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
- *             For more information, see the returned message.</p>
+ *
+ * A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
- *             stream requests exceeds the maximum number allowed. </p>
+ *
+ * The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource could not be found. The stream might not be specified
- *             correctly.</p>
+ *
+ * The requested resource could not be found. The stream might not be specified correctly.
  *
  * @throws {@link KinesisServiceException}
- * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * Base exception class for all service exceptions from Kinesis service.
  *
  * @public
  */

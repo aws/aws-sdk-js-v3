@@ -26,8 +26,8 @@ export interface DescribeReservedNodeExchangeStatusCommandInput extends Describe
 export interface DescribeReservedNodeExchangeStatusCommandOutput extends DescribeReservedNodeExchangeStatusOutputMessage, __MetadataBearer {}
 
 /**
- * <p>Returns exchange status details and associated metadata for a reserved-node
- *             exchange. Statuses include such values as in progress and requested.</p>
+ * Returns exchange status details and associated metadata for a reserved-node exchange. Statuses include such values as in progress and requested.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,17 +70,20 @@ export interface DescribeReservedNodeExchangeStatusCommandOutput extends Describ
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ReservedNodeExchangeNotFoundFault} (client fault)
- *  <p>The reserved-node exchange status wasn't found.</p>
+ *
+ * The reserved-node exchange status wasn't found.
  *
  * @throws {@link ReservedNodeNotFoundFault} (client fault)
- *  <p>The specified reserved compute node not found.</p>
+ *
+ * The specified reserved compute node not found.
  *
  * @throws {@link UnsupportedOperationFault} (client fault)
- *  <p>The requested operation isn't supported.</p>
+ *
+ * The requested operation isn't supported.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

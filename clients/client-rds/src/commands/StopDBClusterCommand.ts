@@ -23,7 +23,12 @@ export interface StopDBClusterCommandInput extends StopDBClusterMessage {}
 export interface StopDBClusterCommandOutput extends StopDBClusterResult, __MetadataBearer {}
 
 /**
- * <p>Stops an Amazon Aurora DB cluster. When you stop a DB cluster, Aurora retains the DB cluster's metadata, including its endpoints and DB parameter groups. Aurora also retains the transaction logs so you can do a point-in-time restore if necessary.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-cluster-stop-start.html"> Stopping and Starting an Aurora Cluster</a> in the <i>Amazon Aurora User Guide</i>.</p> <note> <p>This operation only applies to Aurora DB clusters.</p> </note>
+ * Stops an Amazon Aurora DB cluster. When you stop a DB cluster, Aurora retains the DB cluster's metadata, including its endpoints and DB parameter groups. Aurora also retains the transaction logs so you can do a point-in-time restore if necessary.
+ *
+ * For more information, see [Stopping and Starting an Aurora Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-cluster-stop-start.html) in the *Amazon Aurora User Guide*.
+ *
+ * > **Note:** This operation only applies to Aurora DB clusters.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -245,20 +250,24 @@ export interface StopDBClusterCommandOutput extends StopDBClusterResult, __Metad
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *
+ * `DBClusterIdentifier` doesn't refer to an existing DB cluster.
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
- *  <p>The requested operation can't be performed while the cluster is in this state.</p>
+ *
+ * The requested operation can't be performed while the cluster is in this state.
  *
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
- *  <p>The DB instance isn't in a valid state.</p>
+ *
+ * The DB instance isn't in a valid state.
  *
  * @throws {@link InvalidDBShardGroupStateFault} (client fault)
- *  <p>The DB shard group must be in the available state.</p>
+ *
+ * The DB shard group must be in the available state.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To stop a DB cluster
  * ```javascript

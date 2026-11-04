@@ -23,7 +23,8 @@ export interface PutPortfolioPreferencesCommandInput extends PutPortfolioPrefere
 export interface PutPortfolioPreferencesCommandOutput extends PutPortfolioPreferencesResponse, __MetadataBearer {}
 
 /**
- * <p> Saves the specified migration and modernization preferences. </p>
+ * Saves the specified migration and modernization preferences.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,25 +96,28 @@ export interface PutPortfolioPreferencesCommandOutput extends PutPortfolioPrefer
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p> The user does not have permission to perform the action. Check the
- *       AWS Identity and Access Management (IAM) policy associated with this user.</p>
+ *
+ * The user does not have permission to perform the action. Check the AWS Identity and Access Management (IAM) policy associated with this user.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p> Exception to indicate that there is an ongoing task when a new task is created. Return
- *       when once the existing tasks are complete. </p>
+ *
+ * Exception to indicate that there is an ongoing task when a new task is created. Return when once the existing tasks are complete.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> The server experienced an internal error. Try again. </p>
+ *
+ * The server experienced an internal error. Try again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p> The request was denied due to request throttling. </p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> The request body isn't valid. </p>
+ *
+ * The request body isn't valid.
  *
  * @throws {@link MigrationHubStrategyServiceException}
- * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
+ * Base exception class for all service exceptions from MigrationHubStrategy service.
  *
  * @public
  */

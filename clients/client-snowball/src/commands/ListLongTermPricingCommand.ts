@@ -23,7 +23,8 @@ export interface ListLongTermPricingCommandInput extends ListLongTermPricingRequ
 export interface ListLongTermPricingCommandOutput extends ListLongTermPricingResult, __MetadataBearer {}
 
 /**
- * <p>Lists all long-term pricing types.</p>
+ * Lists all long-term pricing types.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,17 +68,16 @@ export interface ListLongTermPricingCommandOutput extends ListLongTermPricingRes
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The <code>NextToken</code> string was altered unexpectedly, and the operation has
- *       stopped. Run the operation without changing the <code>NextToken</code> string, and try
- *       again.</p>
+ *
+ * The `NextToken` string was altered unexpectedly, and the operation has stopped. Run the operation without changing the `NextToken` string, and try again.
  *
  * @throws {@link InvalidResourceException} (client fault)
- *  <p>The specified resource can't be found. Check the information you provided in your last
- *       request, and try again.</p>
+ *
+ * The specified resource can't be found. Check the information you provided in your last request, and try again.
  *
  * @throws {@link SnowballServiceException}
- * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ * Base exception class for all service exceptions from Snowball service.
  *
  * @public
  */

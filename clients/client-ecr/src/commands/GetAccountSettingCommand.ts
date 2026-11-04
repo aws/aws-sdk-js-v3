@@ -23,7 +23,8 @@ export interface GetAccountSettingCommandInput extends GetAccountSettingRequest 
 export interface GetAccountSettingCommandOutput extends GetAccountSettingResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the account setting value for the specified setting name.</p>
+ * Retrieves the account setting value for the specified setting name.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,18 +52,20 @@ export interface GetAccountSettingCommandOutput extends GetAccountSettingRespons
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>There was an exception validating this request.</p>
+ *
+ * There was an exception validating this request.
  *
  * @throws {@link ECRServiceException}
- * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * Base exception class for all service exceptions from ECR service.
  *
  * @public
  */

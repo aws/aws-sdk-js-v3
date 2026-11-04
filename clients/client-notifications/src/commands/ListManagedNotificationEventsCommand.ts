@@ -23,7 +23,8 @@ export interface ListManagedNotificationEventsCommandInput extends ListManagedNo
 export interface ListManagedNotificationEventsCommandOutput extends ListManagedNotificationEventsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of Managed Notification Events according to specified filters, ordered by creation time in reverse chronological order (newest first).</p>
+ * Returns a list of Managed Notification Events according to specified filters, ordered by creation time in reverse chronological order (newest first).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -123,20 +124,24 @@ export interface ListManagedNotificationEventsCommandOutput extends ListManagedN
  * @see {@link NotificationsClientResolvedConfig | config} for NotificationsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * User does not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error during processing of request.</p>
+ *
+ * Unexpected error during processing of request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Request was denied due to request throttling. </p>
+ *
+ * Request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>This exception is thrown when the notification event fails validation.</p>
+ *
+ * This exception is thrown when the notification event fails validation.
  *
  * @throws {@link NotificationsServiceException}
- * <p>Base exception class for all service exceptions from Notifications service.</p>
  *
+ * Base exception class for all service exceptions from Notifications service.
  *
  * @public
  */

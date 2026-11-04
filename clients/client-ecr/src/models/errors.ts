@@ -4,8 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { ECRServiceException as __BaseException } from "./ECRServiceException";
 
 /**
- * <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
+ * The specified parameter is invalid. Review the available parameters for the API request.
+ *
  * @public
  */
 export class InvalidParameterException extends __BaseException {
@@ -26,8 +26,8 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>The specified repository could not be found. Check the spelling of the specified
- *             repository and ensure that you are performing operations on the correct registry.</p>
+ * The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.
+ *
  * @public
  */
 export class RepositoryNotFoundException extends __BaseException {
@@ -48,7 +48,8 @@ export class RepositoryNotFoundException extends __BaseException {
 }
 
 /**
- * <p>These errors are usually caused by a server-side issue.</p>
+ * These errors are usually caused by a server-side issue.
+ *
  * @public
  */
 export class ServerException extends __BaseException {
@@ -69,9 +70,8 @@ export class ServerException extends __BaseException {
 }
 
 /**
- * <p>The operation did not succeed because it would have exceeded a service limit for your
- *             account. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html">Amazon ECR service quotas</a> in
- *             the Amazon Elastic Container Registry User Guide.</p>
+ * The operation did not succeed because it would have exceeded a service limit for your account. For more information, see [Amazon ECR service quotas](https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html) in the Amazon Elastic Container Registry User Guide.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -92,9 +92,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The image or images were unable to be pulled using the pull through cache rule. This
- *             is usually caused because of an issue with the Secrets Manager secret containing the credentials
- *             for the upstream registry.</p>
+ * The image or images were unable to be pulled using the pull through cache rule. This is usually caused because of an issue with the Secrets Manager secret containing the credentials for the upstream registry.
+ *
  * @public
  */
 export class UnableToGetUpstreamImageException extends __BaseException {
@@ -115,7 +114,8 @@ export class UnableToGetUpstreamImageException extends __BaseException {
 }
 
 /**
- * <p>There was an exception validating this request.</p>
+ * There was an exception validating this request.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -136,7 +136,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The specified layer upload does not contain any layer parts.</p>
+ * The specified layer upload does not contain any layer parts.
+ *
  * @public
  */
 export class EmptyUploadException extends __BaseException {
@@ -157,8 +158,8 @@ export class EmptyUploadException extends __BaseException {
 }
 
 /**
- * <p>The layer digest calculation performed by Amazon ECR upon receipt of the image layer does
- *             not match the digest specified.</p>
+ * The layer digest calculation performed by Amazon ECR upon receipt of the image layer does not match the digest specified.
+ *
  * @public
  */
 export class InvalidLayerException extends __BaseException {
@@ -179,7 +180,8 @@ export class InvalidLayerException extends __BaseException {
 }
 
 /**
- * <p>The operation failed due to a KMS exception.</p>
+ * The operation failed due to a KMS exception.
+ *
  * @public
  */
 export class KmsException extends __BaseException {
@@ -187,7 +189,8 @@ export class KmsException extends __BaseException {
   readonly name = "KmsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error code returned by KMS.</p>
+   * The error code returned by KMS.
+   *
    * @public
    */
   kmsError?: string | undefined;
@@ -207,7 +210,8 @@ export class KmsException extends __BaseException {
 }
 
 /**
- * <p>The image layer already exists in the associated repository.</p>
+ * The image layer already exists in the associated repository.
+ *
  * @public
  */
 export class LayerAlreadyExistsException extends __BaseException {
@@ -228,7 +232,8 @@ export class LayerAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>Layer parts must be at least 5 MiB in size.</p>
+ * Layer parts must be at least 5 MiB in size.
+ *
  * @public
  */
 export class LayerPartTooSmallException extends __BaseException {
@@ -249,8 +254,8 @@ export class LayerPartTooSmallException extends __BaseException {
 }
 
 /**
- * <p>The upload could not be found, or the specified upload ID is not valid for this
- *             repository.</p>
+ * The upload could not be found, or the specified upload ID is not valid for this repository.
+ *
  * @public
  */
 export class UploadNotFoundException extends __BaseException {
@@ -271,8 +276,8 @@ export class UploadNotFoundException extends __BaseException {
 }
 
 /**
- * <p>A pull through cache rule with these settings already exists for the private
- *             registry.</p>
+ * A pull through cache rule with these settings already exists for the private registry.
+ *
  * @public
  */
 export class PullThroughCacheRuleAlreadyExistsException extends __BaseException {
@@ -293,8 +298,8 @@ export class PullThroughCacheRuleAlreadyExistsException extends __BaseException 
 }
 
 /**
- * <p>The ARN of the secret specified in the pull through cache rule was not found. Update
- *             the pull through cache rule with a valid secret ARN and try again.</p>
+ * The ARN of the secret specified in the pull through cache rule was not found. Update the pull through cache rule with a valid secret ARN and try again.
+ *
  * @public
  */
 export class SecretNotFoundException extends __BaseException {
@@ -315,8 +320,8 @@ export class SecretNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The secret is unable to be accessed. Verify the resource permissions for the secret
- *             and try again.</p>
+ * The secret is unable to be accessed. Verify the resource permissions for the secret and try again.
+ *
  * @public
  */
 export class UnableToAccessSecretException extends __BaseException {
@@ -337,8 +342,8 @@ export class UnableToAccessSecretException extends __BaseException {
 }
 
 /**
- * <p>The secret is accessible but is unable to be decrypted. Verify the resource
- *             permisisons and try again.</p>
+ * The secret is accessible but is unable to be decrypted. Verify the resource permisisons and try again.
+ *
  * @public
  */
 export class UnableToDecryptSecretValueException extends __BaseException {
@@ -359,7 +364,8 @@ export class UnableToDecryptSecretValueException extends __BaseException {
 }
 
 /**
- * <p>The specified upstream registry isn't supported.</p>
+ * The specified upstream registry isn't supported.
+ *
  * @public
  */
 export class UnsupportedUpstreamRegistryException extends __BaseException {
@@ -380,8 +386,8 @@ export class UnsupportedUpstreamRegistryException extends __BaseException {
 }
 
 /**
- * <p>An invalid parameter has been specified. Tag keys can have a maximum character length of 128 characters, and tag values can have
- *             a maximum length of 256 characters.</p>
+ * An invalid parameter has been specified. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
+ *
  * @public
  */
 export class InvalidTagParameterException extends __BaseException {
@@ -402,7 +408,8 @@ export class InvalidTagParameterException extends __BaseException {
 }
 
 /**
- * <p>The specified repository already exists in the specified registry.</p>
+ * The specified repository already exists in the specified registry.
+ *
  * @public
  */
 export class RepositoryAlreadyExistsException extends __BaseException {
@@ -423,8 +430,8 @@ export class RepositoryAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The list of tags on the repository is over the limit. The maximum number of tags that
- *             can be applied to a repository is 50.</p>
+ * The list of tags on the repository is over the limit. The maximum number of tags that can be applied to a repository is 50.
+ *
  * @public
  */
 export class TooManyTagsException extends __BaseException {
@@ -445,8 +452,8 @@ export class TooManyTagsException extends __BaseException {
 }
 
 /**
- * <p>The repository creation template already exists. Specify a unique prefix and try
- *             again.</p>
+ * The repository creation template already exists. Specify a unique prefix and try again.
+ *
  * @public
  */
 export class TemplateAlreadyExistsException extends __BaseException {
@@ -467,8 +474,8 @@ export class TemplateAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The lifecycle policy could not be found, and no policy is set to the
- *             repository.</p>
+ * The lifecycle policy could not be found, and no policy is set to the repository.
+ *
  * @public
  */
 export class LifecyclePolicyNotFoundException extends __BaseException {
@@ -489,8 +496,8 @@ export class LifecyclePolicyNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The pull through cache rule was not found. Specify a valid pull through cache rule and
- *             try again.</p>
+ * The pull through cache rule was not found. Specify a valid pull through cache rule and try again.
+ *
  * @public
  */
 export class PullThroughCacheRuleNotFoundException extends __BaseException {
@@ -511,7 +518,8 @@ export class PullThroughCacheRuleNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The registry doesn't have an associated registry policy.</p>
+ * The registry doesn't have an associated registry policy.
+ *
  * @public
  */
 export class RegistryPolicyNotFoundException extends __BaseException {
@@ -532,8 +540,8 @@ export class RegistryPolicyNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The specified repository contains images. To delete a repository that contains images,
- *             you must force the deletion with the <code>force</code> parameter.</p>
+ * The specified repository contains images. To delete a repository that contains images, you must force the deletion with the `force` parameter.
+ *
  * @public
  */
 export class RepositoryNotEmptyException extends __BaseException {
@@ -554,8 +562,8 @@ export class RepositoryNotEmptyException extends __BaseException {
 }
 
 /**
- * <p>The specified repository creation template can't be found. Verify the registry ID and
- *             prefix and try again.</p>
+ * The specified repository creation template can't be found. Verify the registry ID and prefix and try again.
+ *
  * @public
  */
 export class TemplateNotFoundException extends __BaseException {
@@ -576,8 +584,8 @@ export class TemplateNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The specified repository and registry combination does not have an associated
- *             repository policy.</p>
+ * The specified repository and registry combination does not have an associated repository policy.
+ *
  * @public
  */
 export class RepositoryPolicyNotFoundException extends __BaseException {
@@ -598,8 +606,8 @@ export class RepositoryPolicyNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The specified signing configuration was not found. This occurs when
- *             attempting to retrieve or delete a signing configuration that does not exist.</p>
+ * The specified signing configuration was not found. This occurs when attempting to retrieve or delete a signing configuration that does not exist.
+ *
  * @public
  */
 export class SigningConfigurationNotFoundException extends __BaseException {
@@ -620,7 +628,8 @@ export class SigningConfigurationNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The specified pull time update exclusion was not found.</p>
+ * The specified pull time update exclusion was not found.
+ *
  * @public
  */
 export class ExclusionNotFoundException extends __BaseException {
@@ -641,7 +650,8 @@ export class ExclusionNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The image requested does not exist in the specified repository.</p>
+ * The image requested does not exist in the specified repository.
+ *
  * @public
  */
 export class ImageNotFoundException extends __BaseException {
@@ -662,8 +672,8 @@ export class ImageNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The specified image scan could not be found. Ensure that image scanning is enabled on
- *             the repository and try again.</p>
+ * The specified image scan could not be found. Ensure that image scanning is enabled on the repository and try again.
+ *
  * @public
  */
 export class ScanNotFoundException extends __BaseException {
@@ -684,8 +694,8 @@ export class ScanNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The specified replication backfill could not be found. Check the specified replication
- *             backfill ID and ensure that you are operating on the correct registry.</p>
+ * The specified replication backfill could not be found. Check the specified replication backfill ID and ensure that you are operating on the correct registry.
+ *
  * @public
  */
 export class ReplicationBackfillNotFoundException extends __BaseException {
@@ -706,8 +716,8 @@ export class ReplicationBackfillNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The specified layer is not available because it is not associated with an image.
- *             Unassociated image layers may be cleaned up at any time.</p>
+ * The specified layer is not available because it is not associated with an image. Unassociated image layers may be cleaned up at any time.
+ *
  * @public
  */
 export class LayerInaccessibleException extends __BaseException {
@@ -728,8 +738,8 @@ export class LayerInaccessibleException extends __BaseException {
 }
 
 /**
- * <p>The specified layers could not be found, or the specified layer is not valid for this
- *             repository.</p>
+ * The specified layers could not be found, or the specified layer is not valid for this repository.
+ *
  * @public
  */
 export class LayersNotFoundException extends __BaseException {
@@ -750,8 +760,8 @@ export class LayersNotFoundException extends __BaseException {
 }
 
 /**
- * <p>There was an issue getting the upstream layer matching the pull through cache
- *             rule.</p>
+ * There was an issue getting the upstream layer matching the pull through cache rule.
+ *
  * @public
  */
 export class UnableToGetUpstreamLayerException extends __BaseException {
@@ -772,7 +782,8 @@ export class UnableToGetUpstreamLayerException extends __BaseException {
 }
 
 /**
- * <p>There is no dry run for this repository.</p>
+ * There is no dry run for this repository.
+ *
  * @public
  */
 export class LifecyclePolicyPreviewNotFoundException extends __BaseException {
@@ -793,9 +804,8 @@ export class LifecyclePolicyPreviewNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The referrer or referrers were unable to be listed using the pull through cache rule. This
- *             is usually caused because of an issue with the Secrets Manager secret containing the credentials
- *             for the upstream registry.</p>
+ * The referrer or referrers were unable to be listed using the pull through cache rule. This is usually caused because of an issue with the Secrets Manager secret containing the credentials for the upstream registry.
+ *
  * @public
  */
 export class UnableToListUpstreamImageReferrersException extends __BaseException {
@@ -816,8 +826,8 @@ export class UnableToListUpstreamImageReferrersException extends __BaseException
 }
 
 /**
- * <p>The specified image has already been pushed, and there were no changes to the manifest
- *             or image tag after the last push.</p>
+ * The specified image has already been pushed, and there were no changes to the manifest or image tag after the last push.
+ *
  * @public
  */
 export class ImageAlreadyExistsException extends __BaseException {
@@ -838,8 +848,8 @@ export class ImageAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The specified image digest does not match the digest that Amazon ECR calculated for the
- *             image.</p>
+ * The specified image digest does not match the digest that Amazon ECR calculated for the image.
+ *
  * @public
  */
 export class ImageDigestDoesNotMatchException extends __BaseException {
@@ -860,8 +870,8 @@ export class ImageDigestDoesNotMatchException extends __BaseException {
 }
 
 /**
- * <p>The specified image is tagged with a tag that already exists. The repository is
- *             configured for tag immutability.</p>
+ * The specified image is tagged with a tag that already exists. The repository is configured for tag immutability.
+ *
  * @public
  */
 export class ImageTagAlreadyExistsException extends __BaseException {
@@ -882,7 +892,8 @@ export class ImageTagAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The manifest list is referencing an image that does not exist.</p>
+ * The manifest list is referencing an image that does not exist.
+ *
  * @public
  */
 export class ReferencedImagesNotFoundException extends __BaseException {
@@ -903,7 +914,8 @@ export class ReferencedImagesNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The operation did not succeed because the account is managed by a organization policy.</p>
+ * The operation did not succeed because the account is managed by a organization policy.
+ *
  * @public
  */
 export class BlockedByOrganizationPolicyException extends __BaseException {
@@ -924,7 +936,8 @@ export class BlockedByOrganizationPolicyException extends __BaseException {
 }
 
 /**
- * <p>The specified pull time update exclusion already exists for the registry.</p>
+ * The specified pull time update exclusion already exists for the registry.
+ *
  * @public
  */
 export class ExclusionAlreadyExistsException extends __BaseException {
@@ -945,7 +958,8 @@ export class ExclusionAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The specified image is archived and cannot be scanned.</p>
+ * The specified image is archived and cannot be scanned.
+ *
  * @public
  */
 export class ImageArchivedException extends __BaseException {
@@ -966,7 +980,8 @@ export class ImageArchivedException extends __BaseException {
 }
 
 /**
- * <p>The image is of a type that cannot be scanned.</p>
+ * The image is of a type that cannot be scanned.
+ *
  * @public
  */
 export class UnsupportedImageTypeException extends __BaseException {
@@ -987,8 +1002,8 @@ export class UnsupportedImageTypeException extends __BaseException {
 }
 
 /**
- * <p>The previous lifecycle policy preview request has not completed. Wait and try
- *             again.</p>
+ * The previous lifecycle policy preview request has not completed. Wait and try again.
+ *
  * @public
  */
 export class LifecyclePolicyPreviewInProgressException extends __BaseException {
@@ -1009,11 +1024,8 @@ export class LifecyclePolicyPreviewInProgressException extends __BaseException {
 }
 
 /**
- * <p>A replication backfill is already in progress for the specified destination Region.
- *             This occurs because only one replication backfill can be in progress for a given
- *             destination Region at a time. Wait for the in progress backfill to reach a terminal
- *             status, or stop it with the <a>StopReplicationBackfill</a> operation, before
- *             starting another one.</p>
+ * A replication backfill is already in progress for the specified destination Region. This occurs because only one replication backfill can be in progress for a given destination Region at a time. Wait for the in progress backfill to reach a terminal status, or stop it with the StopReplicationBackfill operation, before starting another one.
+ *
  * @public
  */
 export class ReplicationBackfillInProgressException extends __BaseException {
@@ -1034,10 +1046,8 @@ export class ReplicationBackfillInProgressException extends __BaseException {
 }
 
 /**
- * <p>The requested operation can't be performed on the replication backfill because it is
- *             not in a valid status for that operation. For example, you can't stop a replication
- *             backfill that has already reached a terminal status. Use the <a>DescribeReplicationBackfillResults</a> operation to check the current status
- *             before retrying.</p>
+ * The requested operation can't be performed on the replication backfill because it is not in a valid status for that operation. For example, you can't stop a replication backfill that has already reached a terminal status. Use the DescribeReplicationBackfillResults operation to check the current status before retrying.
+ *
  * @public
  */
 export class ReplicationBackfillInvalidStatusException extends __BaseException {
@@ -1058,7 +1068,8 @@ export class ReplicationBackfillInvalidStatusException extends __BaseException {
 }
 
 /**
- * <p>The requested image storage class update is not supported.</p>
+ * The requested image storage class update is not supported.
+ *
  * @public
  */
 export class ImageStorageClassUpdateNotSupportedException extends __BaseException {
@@ -1079,8 +1090,8 @@ export class ImageStorageClassUpdateNotSupportedException extends __BaseExceptio
 }
 
 /**
- * <p>The layer part size is not valid, or the first byte specified is not consecutive to
- *             the last byte of a previous layer part upload.</p>
+ * The layer part size is not valid, or the first byte specified is not consecutive to the last byte of a previous layer part upload.
+ *
  * @public
  */
 export class InvalidLayerPartException extends __BaseException {
@@ -1088,26 +1099,29 @@ export class InvalidLayerPartException extends __BaseException {
   readonly name = "InvalidLayerPartException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The registry ID associated with the exception.</p>
+   * The registry ID associated with the exception.
+   *
    * @public
    */
   registryId?: string | undefined;
 
   /**
-   * <p>The repository name associated with the exception.</p>
+   * The repository name associated with the exception.
+   *
    * @public
    */
   repositoryName?: string | undefined;
 
   /**
-   * <p>The upload ID associated with the exception.</p>
+   * The upload ID associated with the exception.
+   *
    * @public
    */
   uploadId?: string | undefined;
 
   /**
-   * <p>The last valid byte received from the layer part upload that is associated with the
-   *             exception.</p>
+   * The last valid byte received from the layer part upload that is associated with the exception.
+   *
    * @public
    */
   lastValidByteReceived?: number | undefined;

@@ -23,10 +23,10 @@ export interface DescribeCapacityBlockOfferingsCommandInput extends DescribeCapa
 export interface DescribeCapacityBlockOfferingsCommandOutput extends DescribeCapacityBlockOfferingsResult, __MetadataBearer {}
 
 /**
- * <p>Describes Capacity Block offerings available for purchase in the Amazon Web Services Region that you're currently using. With Capacity Blocks, you can
- * 			purchase a specific GPU instance type or EC2 UltraServer for a period of time.</p>
- *          <p>To search for an available Capacity Block offering, you specify a reservation duration
- * 			and instance count.</p>
+ * Describes Capacity Block offerings available for purchase in the Amazon Web Services Region that you're currently using. With Capacity Blocks, you can purchase a specific GPU instance type or EC2 UltraServer for a period of time.
+ *
+ * To search for an available Capacity Block offering, you specify a reservation duration and instance count.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,8 +81,8 @@ export interface DescribeCapacityBlockOfferingsCommandOutput extends DescribeCap
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

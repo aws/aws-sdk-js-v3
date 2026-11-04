@@ -28,7 +28,7 @@ export type FreeTrialFeatureResult = (typeof FreeTrialFeatureResult)[keyof typeo
  */
 export const ActivityType = {
   /**
-   * <p>The observed activity is an API call.</p>
+   * The observed activity is an API call.
    */
   API_CALL: "API_CALL",
 } as const;
@@ -367,7 +367,7 @@ export const FeatureAdditionalConfiguration = {
   ECS_FARGATE_AGENT_MANAGEMENT: "ECS_FARGATE_AGENT_MANAGEMENT",
   EKS_ADDON_MANAGEMENT: "EKS_ADDON_MANAGEMENT",
   /**
-   * <p>RDS Data Activity Monitoring, which monitors data activity on supported Amazon RDS database engines to detect potentially unauthorized access to your data.</p>
+   * RDS Data Activity Monitoring, which monitors data activity on supported Amazon RDS database engines to detect potentially unauthorized access to your data.
    */
   RDS_DATA_RISK: "RDS_DATA_RISK",
 } as const;
@@ -643,7 +643,7 @@ export const OrgFeatureAdditionalConfiguration = {
   ECS_FARGATE_AGENT_MANAGEMENT: "ECS_FARGATE_AGENT_MANAGEMENT",
   EKS_ADDON_MANAGEMENT: "EKS_ADDON_MANAGEMENT",
   /**
-   * <p>RDS Data Activity Monitoring, which monitors data activity on supported Amazon RDS database engines to detect potentially unauthorized access to your data.</p>
+   * RDS Data Activity Monitoring, which monitors data activity on supported Amazon RDS database engines to detect potentially unauthorized access to your data.
    */
   RDS_DATA_RISK: "RDS_DATA_RISK",
 } as const;
@@ -796,39 +796,39 @@ export const FindingResourceType = {
   ACCESS_KEY: "ACCESS_KEY",
   AUTOSCALING_AUTO_SCALING_GROUP: "AUTOSCALING_AUTO_SCALING_GROUP",
   /**
-   * <p>An application-scoped Amazon Bedrock inference profile used to track invocation usage.</p>
+   * An application-scoped Amazon Bedrock inference profile used to track invocation usage.
    */
   BEDROCK_APPLICATION_INFERENCE_PROFILE: "BEDROCK_APPLICATION_INFERENCE_PROFILE",
   /**
-   * <p>An Amazon Bedrock custom model fine-tuned by the customer.</p>
+   * An Amazon Bedrock custom model fine-tuned by the customer.
    */
   BEDROCK_CUSTOM_MODEL: "BEDROCK_CUSTOM_MODEL",
   /**
-   * <p>A deployment of an Amazon Bedrock custom model.</p>
+   * A deployment of an Amazon Bedrock custom model.
    */
   BEDROCK_CUSTOM_MODEL_DEPLOYMENT: "BEDROCK_CUSTOM_MODEL_DEPLOYMENT",
   /**
-   * <p>An Amazon Bedrock guardrail evaluated during a model invocation.</p>
+   * An Amazon Bedrock guardrail evaluated during a model invocation.
    */
   BEDROCK_GUARDRAIL: "BEDROCK_GUARDRAIL",
   /**
-   * <p>An Amazon Bedrock imported model brought in from an external source.</p>
+   * An Amazon Bedrock imported model brought in from an external source.
    */
   BEDROCK_IMPORTED_MODEL: "BEDROCK_IMPORTED_MODEL",
   /**
-   * <p>An Amazon Bedrock inference profile that routes model invocations across Regions.</p>
+   * An Amazon Bedrock inference profile that routes model invocations across Regions.
    */
   BEDROCK_INFERENCE_PROFILE: "BEDROCK_INFERENCE_PROFILE",
   /**
-   * <p>A managed prompt stored in Amazon Bedrock Prompt Management.</p>
+   * A managed prompt stored in Amazon Bedrock Prompt Management.
    */
   BEDROCK_PROMPT: "BEDROCK_PROMPT",
   /**
-   * <p>An Amazon Bedrock prompt router that selects a model per request.</p>
+   * An Amazon Bedrock prompt router that selects a model per request.
    */
   BEDROCK_PROMPT_ROUTER: "BEDROCK_PROMPT_ROUTER",
   /**
-   * <p>An Amazon Bedrock model with provisioned throughput.</p>
+   * An Amazon Bedrock model with provisioned throughput.
    */
   BEDROCK_PROVISIONED_MODEL: "BEDROCK_PROVISIONED_MODEL",
   CLOUDFORMATION_STACK: "CLOUDFORMATION_STACK",
@@ -846,7 +846,7 @@ export const FindingResourceType = {
   S3_BUCKET: "S3_BUCKET",
   S3_OBJECT: "S3_OBJECT",
   /**
-   * <p>An Amazon SageMaker inference endpoint.</p>
+   * An Amazon SageMaker inference endpoint.
    */
   SAGEMAKER_ENDPOINT: "SAGEMAKER_ENDPOINT",
 } as const;
@@ -1371,19 +1371,19 @@ export const UsageFeature = {
   FLOW_LOGS: "FLOW_LOGS",
   LAMBDA_NETWORK_LOGS: "LAMBDA_NETWORK_LOGS",
   /**
-   * <p>Usage attributed to RDS Data Activity Monitoring for Amazon Aurora DSQL Limitless databases.</p>
+   * Usage attributed to RDS Data Activity Monitoring for Amazon Aurora DSQL Limitless databases.
    */
   RDS_DATA_ACTIVITY_DBI_PROTECTION_LIMITLESS: "RDS_DATA_ACTIVITY_DBI_PROTECTION_LIMITLESS",
   /**
-   * <p>Usage attributed to RDS Data Activity Monitoring for provisioned Amazon RDS databases.</p>
+   * Usage attributed to RDS Data Activity Monitoring for provisioned Amazon RDS databases.
    */
   RDS_DATA_ACTIVITY_DBI_PROTECTION_PROVISIONED: "RDS_DATA_ACTIVITY_DBI_PROTECTION_PROVISIONED",
   /**
-   * <p>Usage attributed to RDS Data Activity Monitoring for Amazon Aurora Serverless databases.</p>
+   * Usage attributed to RDS Data Activity Monitoring for Amazon Aurora Serverless databases.
    */
   RDS_DATA_ACTIVITY_DBI_PROTECTION_SERVERLESS: "RDS_DATA_ACTIVITY_DBI_PROTECTION_SERVERLESS",
   /**
-   * <p>Usage attributed to RDS Protection database infrastructure monitoring for Amazon Aurora DSQL Limitless databases.</p>
+   * Usage attributed to RDS Protection database infrastructure monitoring for Amazon Aurora DSQL Limitless databases.
    */
   RDS_DBI_PROTECTION_LIMITLESS: "RDS_DBI_PROTECTION_LIMITLESS",
   RDS_DBI_PROTECTION_PROVISIONED: "RDS_DBI_PROTECTION_PROVISIONED",

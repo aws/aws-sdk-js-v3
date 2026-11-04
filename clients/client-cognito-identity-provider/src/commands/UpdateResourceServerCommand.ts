@@ -23,32 +23,19 @@ export interface UpdateResourceServerCommandInput extends UpdateResourceServerRe
 export interface UpdateResourceServerCommandOutput extends UpdateResourceServerResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the name and scopes of a resource server. All other fields are read-only. For
- *             more information about resource servers, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-define-resource-servers.html">Access control with resource servers</a>.</p>
- *          <important>
- *             <p>If you don't provide a value for an attribute, it is set to the default
- *                 value.</p>
- *          </important>
- *          <note>
- *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
- *     this operation, you must use IAM credentials to authorize requests, and you must
- *     grant yourself the corresponding IAM permission in a policy.</p>
- *             <p class="title">
- *                <b>Learn more</b>
- *             </p>
- *             <ul>
- *                <li>
- *                   <p>
- *                      <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html">Signing Amazon Web Services API Requests</a>
- *                   </p>
- *                </li>
- *                <li>
- *                   <p>
- *                      <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using the Amazon Cognito user pools API and user pool endpoints</a>
- *                   </p>
- *                </li>
- *             </ul>
- *          </note>
+ * Updates the name and scopes of a resource server. All other fields are read-only. For more information about resource servers, see [Access control with resource servers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-define-resource-servers.html).
+ *
+ * > **Important:** If you don't provide a value for an attribute, it is set to the default value.
+ *
+ * > **Note:**
+ * >
+ * > Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.
+ * >
+ * > **Learn more**
+ * >
+ * > - [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+ * > - [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,29 +80,32 @@ export interface UpdateResourceServerCommandOutput extends UpdateResourceServerR
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * This exception is thrown when Amazon Cognito encounters an internal error.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
- *             parameter.</p>
+ *
+ * This exception is thrown when the Amazon Cognito service encounters an invalid parameter.
  *
  * @throws {@link NotAuthorizedException} (client fault)
- *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * This exception is thrown when a user isn't authorized.
  *
  * @throws {@link OperationNotEnabledException} (client fault)
- *  <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+ *
+ * This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
- *             resource.</p>
+ *
+ * This exception is thrown when the Amazon Cognito service can't find the requested resource.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>This exception is thrown when the user has made too many requests for a given
- *             operation.</p>
+ *
+ * This exception is thrown when the user has made too many requests for a given operation.
  *
  * @throws {@link CognitoIdentityProviderServiceException}
- * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * Base exception class for all service exceptions from CognitoIdentityProvider service.
  *
  * @public
  */

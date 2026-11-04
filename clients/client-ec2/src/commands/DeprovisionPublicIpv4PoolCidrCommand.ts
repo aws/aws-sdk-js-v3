@@ -23,7 +23,8 @@ export interface DeprovisionPublicIpv4PoolCidrCommandInput extends DeprovisionPu
 export interface DeprovisionPublicIpv4PoolCidrCommandOutput extends DeprovisionPublicIpv4PoolCidrResult, __MetadataBearer {}
 
 /**
- * <p>Deprovision a CIDR from a public IPv4 pool.</p>
+ * Deprovision a CIDR from a public IPv4 pool.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,8 +56,8 @@ export interface DeprovisionPublicIpv4PoolCidrCommandOutput extends DeprovisionP
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

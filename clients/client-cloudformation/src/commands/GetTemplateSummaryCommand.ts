@@ -23,14 +23,12 @@ export interface GetTemplateSummaryCommandInput extends GetTemplateSummaryInput 
 export interface GetTemplateSummaryCommandOutput extends GetTemplateSummaryOutput, __MetadataBearer {}
 
 /**
- * <p>Returns information about a new or existing template. The <code>GetTemplateSummary</code>
- *       action is useful for viewing parameter information, such as default parameter values and
- *       parameter types, before you create or update a stack or StackSet.</p>
- *          <p>You can use the <code>GetTemplateSummary</code> action when you submit a template, or you
- *       can get template information for a StackSet, or a running or deleted stack.</p>
- *          <p>For deleted stacks, <code>GetTemplateSummary</code> returns the template information for
- *       up to 90 days after the stack has been deleted. If the template doesn't exist, a
- *         <code>ValidationError</code> is returned.</p>
+ * Returns information about a new or existing template. The `GetTemplateSummary` action is useful for viewing parameter information, such as default parameter values and parameter types, before you create or update a stack or StackSet.
+ *
+ * You can use the `GetTemplateSummary` action when you submit a template, or you can get template information for a StackSet, or a running or deleted stack.
+ *
+ * For deleted stacks, `GetTemplateSummary` returns the template information for up to 90 days after the stack has been deleted. If the template doesn't exist, a `ValidationError` is returned.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -106,11 +104,12 @@ export interface GetTemplateSummaryCommandOutput extends GetTemplateSummaryOutpu
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link StackSetNotFoundException} (client fault)
- *  <p>The specified StackSet doesn't exist.</p>
+ *
+ * The specified StackSet doesn't exist.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

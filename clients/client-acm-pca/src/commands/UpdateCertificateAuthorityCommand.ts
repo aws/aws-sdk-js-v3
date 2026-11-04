@@ -23,7 +23,10 @@ export interface UpdateCertificateAuthorityCommandInput extends UpdateCertificat
 export interface UpdateCertificateAuthorityCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Updates the status or configuration of a private certificate authority (CA). Your private CA must be in the <code>ACTIVE</code> or <code>DISABLED</code> state before you can update it. You can disable a private CA that is in the <code>ACTIVE</code> state or make a CA that is in the <code>DISABLED</code> state active again.</p> <note> <p>Both Amazon Web Services Private CA and the IAM principal must have permission to write to the S3 bucket that you specify. If the IAM principal making the call does not have permission to write to the bucket, then an exception is thrown. For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/crl-planning.html#s3-policies">Access policies for CRLs in Amazon S3</a>.</p> </note>
+ * Updates the status or configuration of a private certificate authority (CA). Your private CA must be in the `ACTIVE` or `DISABLED` state before you can update it. You can disable a private CA that is in the `ACTIVE` state or make a CA that is in the `DISABLED` state active again.
+ *
+ * > **Note:** Both Amazon Web Services Private CA and the IAM principal must have permission to write to the S3 bucket that you specify. If the IAM principal making the call does not have permission to write to the bucket, then an exception is thrown. For more information, see [Access policies for CRLs in Amazon S3](https://docs.aws.amazon.com/privateca/latest/userguide/crl-planning.html#s3-policies).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,26 +70,32 @@ export interface UpdateCertificateAuthorityCommandOutput extends __MetadataBeare
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>A previous update to your private CA is still ongoing.</p>
+ *
+ * A previous update to your private CA is still ongoing.
  *
  * @throws {@link InvalidArgsException} (client fault)
- *  <p>One or more of the specified arguments was not valid.</p>
+ *
+ * One or more of the specified arguments was not valid.
  *
  * @throws {@link InvalidArnException} (client fault)
- *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+ *
+ * The requested Amazon Resource Name (ARN) does not refer to an existing resource.
  *
  * @throws {@link InvalidPolicyException} (client fault)
- *  <p>The resource policy is invalid or is missing a required statement. For general information about IAM policy and statement structure, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json">Overview of JSON Policies</a>.</p>
+ *
+ * The resource policy is invalid or is missing a required statement. For general information about IAM policy and statement structure, see [Overview of JSON Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json).
  *
  * @throws {@link InvalidStateException} (client fault)
- *  <p>The state of the private CA does not allow this action to occur.</p>
+ *
+ * The state of the private CA does not allow this action to occur.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy cannot be found.</p>
+ *
+ * A resource such as a private CA, S3 bucket, certificate, audit report, or policy cannot be found.
  *
  * @throws {@link ACMPCAServiceException}
- * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
+ * Base exception class for all service exceptions from ACMPCA service.
  *
  * @public
  */

@@ -23,14 +23,14 @@ export interface ImportVolumeCommandInput extends ImportVolumeRequest {}
 export interface ImportVolumeCommandOutput extends ImportVolumeResult, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This API action supports only single-volume VMs. To import multi-volume VMs, use
- *    <a>ImportImage</a> instead. To import a disk to a snapshot, use
- *    <a>ImportSnapshot</a> instead.</p>
- *          </note>
- *          <p>Creates an import volume task using metadata from the specified disk image.</p>
- *          <p>For information about the import manifest referenced by this API action, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html">VM Import Manifest</a>.</p>
- *          <p>This API action is not supported by the Command Line Interface (CLI).</p>
+ * > **Note:** This API action supports only single-volume VMs. To import multi-volume VMs, use ImportImage instead. To import a disk to a snapshot, use ImportSnapshot instead.
+ *
+ * Creates an import volume task using metadata from the specified disk image.
+ *
+ * For information about the import manifest referenced by this API action, see [VM Import Manifest](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html).
+ *
+ * This API action is not supported by the Command Line Interface (CLI).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -120,8 +120,8 @@ export interface ImportVolumeCommandOutput extends ImportVolumeResult, __Metadat
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

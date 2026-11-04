@@ -23,18 +23,12 @@ export interface CreateEvaluationCommandInput extends CreateEvaluationInput {}
 export interface CreateEvaluationCommandOutput extends CreateEvaluationOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a new <code>Evaluation</code> of an <code>MLModel</code>. An <code>MLModel</code> is evaluated on a set of observations associated to a <code>DataSource</code>. Like a <code>DataSource</code>
- *           for an <code>MLModel</code>, the <code>DataSource</code> for an <code>Evaluation</code> contains values for the <code>Target Variable</code>. The <code>Evaluation</code> compares the predicted result for each observation to the actual outcome and provides a
- *             summary so that you know how effective the <code>MLModel</code> functions on the test
- *           data. Evaluation generates a relevant performance metric, such as BinaryAUC, RegressionRMSE or MulticlassAvgFScore based on the corresponding <code>MLModelType</code>: <code>BINARY</code>, <code>REGRESSION</code> or <code>MULTICLASS</code>.
+ * Creates a new `Evaluation` of an `MLModel`. An `MLModel` is evaluated on a set of observations associated to a `DataSource`. Like a `DataSource` for an `MLModel`, the `DataSource` for an `Evaluation` contains values for the `Target Variable`. The `Evaluation` compares the predicted result for each observation to the actual outcome and provides a summary so that you know how effective the `MLModel` functions on the test data. Evaluation generates a relevant performance metric, such as BinaryAUC, RegressionRMSE or MulticlassAvgFScore based on the corresponding `MLModelType`: `BINARY`, `REGRESSION` or `MULTICLASS`.
  *
- *         </p>
- *         <p>
- *             <code>CreateEvaluation</code> is an asynchronous operation. In response to <code>CreateEvaluation</code>, Amazon Machine Learning (Amazon ML) immediately
- *             returns and sets the evaluation status to <code>PENDING</code>. After the <code>Evaluation</code> is created and ready for use,
- *             Amazon ML sets the status to <code>COMPLETED</code>.
- *         </p>
- *         <p>You can use the <code>GetEvaluation</code> operation to check progress of the evaluation during the creation operation.</p>
+ * `CreateEvaluation` is an asynchronous operation. In response to `CreateEvaluation`, Amazon Machine Learning (Amazon ML) immediately returns and sets the evaluation status to `PENDING`. After the `Evaluation` is created and ready for use, Amazon ML sets the status to `COMPLETED`.
+ *
+ * You can use the `GetEvaluation` operation to check progress of the evaluation during the creation operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,17 +58,20 @@ export interface CreateEvaluationCommandOutput extends CreateEvaluationOutput, _
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
  *
  * @throws {@link IdempotentParameterMismatchException} (client fault)
- *  <p>A second request to use or change an object was not allowed. This can result from retrying a request using a parameter that was not present in the original request.</p>
+ *
+ * A second request to use or change an object was not allowed. This can result from retrying a request using a parameter that was not present in the original request.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An error on the server occurred when trying to process a request.</p>
+ *
+ * An error on the server occurred when trying to process a request.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+ *
+ * An error on the client occurred. Typically, the cause is an invalid input value.
  *
  * @throws {@link MachineLearningServiceException}
- * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ * Base exception class for all service exceptions from MachineLearning service.
  *
  * @public
  */

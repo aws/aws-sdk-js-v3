@@ -26,15 +26,12 @@ export interface GetDeclarativePoliciesReportSummaryCommandInput extends GetDecl
 export interface GetDeclarativePoliciesReportSummaryCommandOutput extends GetDeclarativePoliciesReportSummaryResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves a summary of the account status report.</p>
- *          <p>To view the full report, download it from the Amazon S3 bucket where it was saved.
- *             Reports are accessible only when they have the <code>complete</code> status. Reports
- *             with other statuses (<code>running</code>, <code>cancelled</code>, or
- *             <code>error</code>) are not available in the S3 bucket. For more information about
- *             downloading objects from an S3 bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/download-objects.html">Downloading objects</a> in
- *             the <i>Amazon Simple Storage Service User Guide</i>.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_declarative_status-report.html">Generating the account status report for declarative policies</a> in the
- *                 <i>Amazon Web Services Organizations User Guide</i>.</p>
+ * Retrieves a summary of the account status report.
+ *
+ * To view the full report, download it from the Amazon S3 bucket where it was saved. Reports are accessible only when they have the `complete` status. Reports with other statuses (`running`, `cancelled`, or `error`) are not available in the S3 bucket. For more information about downloading objects from an S3 bucket, see [Downloading objects](https://docs.aws.amazon.com/AmazonS3/latest/userguide/download-objects.html) in the *Amazon Simple Storage Service User Guide*.
+ *
+ * For more information, see [Generating the account status report for declarative policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_declarative_status-report.html) in the *Amazon Web Services Organizations User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,8 +81,8 @@ export interface GetDeclarativePoliciesReportSummaryCommandOutput extends GetDec
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

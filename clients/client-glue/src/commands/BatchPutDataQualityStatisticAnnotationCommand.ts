@@ -26,9 +26,8 @@ export interface BatchPutDataQualityStatisticAnnotationCommandInput extends Batc
 export interface BatchPutDataQualityStatisticAnnotationCommandOutput extends BatchPutDataQualityStatisticAnnotationResponse, __MetadataBearer {}
 
 /**
- * <p>Annotate datapoints over time for a specific data quality statistic.
- *         The API requires both profileID and statisticID as part of the InclusionAnnotation input.
- *         The API only works for a single statisticId across multiple profiles.</p>
+ * Annotate datapoints over time for a specific data quality statistic. The API requires both profileID and statisticID as part of the InclusionAnnotation input. The API only works for a single statisticId across multiple profiles.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,20 +67,24 @@ export interface BatchPutDataQualityStatisticAnnotationCommandOutput extends Bat
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
- *  <p>A resource numerical limit was exceeded.</p>
+ *
+ * A resource numerical limit was exceeded.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

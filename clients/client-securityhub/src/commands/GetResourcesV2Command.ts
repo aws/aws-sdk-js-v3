@@ -23,11 +23,16 @@ export interface GetResourcesV2CommandInput extends GetResourcesV2Request {}
 export interface GetResourcesV2CommandOutput extends GetResourcesV2Response, __MetadataBearer {}
 
 /**
- * <p>Returns a list of resources.</p>
- *          <p>You can use the <code>Scopes</code> parameter to define the data boundary for the query. Currently, <code>Scopes</code> supports <code>AwsOrganizations</code>, which lets you retrieve resources from your entire organization or from specific organizational units. Only the delegated administrator account can use <code>Scopes</code>.</p>
- *          <p>You can use the <code>Filters</code> parameter to refine results based on resource attributes. You can use <code>Scopes</code> and <code>Filters</code> independently or together. When both are provided, <code>Scopes</code> narrows the data set first, and then <code>Filters</code> refines results within that scoped data set.</p>
- *          <p>For AI/ML resources, the response includes the <code>ResourceSubCategory</code> field. For self-hosted AI resources and their host resources, the response also includes <code>ResourceInfo</code> with AI-specific details. Self-hosted AI resources use a <code>ResourceType</code> with the <code>SelfHosted::AI::</code> prefix, such as <code>SelfHosted::AI::Model</code>, <code>SelfHosted::AI::Agent</code>, <code>SelfHosted::AI::InferenceEndpoint</code>, and <code>SelfHosted::AI::ExternalEndpoint</code>.</p>
- *          <p>If you filter by <code>ResourceSubCategory</code>, you must also include a <code>ResourceCategory</code> string filter with comparison set to <code>EQUALS</code> and value <code>AI/ML</code> in the same request.</p>
+ * Returns a list of resources.
+ *
+ * You can use the `Scopes` parameter to define the data boundary for the query. Currently, `Scopes` supports `AwsOrganizations`, which lets you retrieve resources from your entire organization or from specific organizational units. Only the delegated administrator account can use `Scopes`.
+ *
+ * You can use the `Filters` parameter to refine results based on resource attributes. You can use `Scopes` and `Filters` independently or together. When both are provided, `Scopes` narrows the data set first, and then `Filters` refines results within that scoped data set.
+ *
+ * For AI/ML resources, the response includes the `ResourceSubCategory` field. For self-hosted AI resources and their host resources, the response also includes `ResourceInfo` with AI-specific details. Self-hosted AI resources use a `ResourceType` with the `SelfHosted::AI::` prefix, such as `SelfHosted::AI::Model`, `SelfHosted::AI::Agent`, `SelfHosted::AI::InferenceEndpoint`, and `SelfHosted::AI::ExternalEndpoint`.
+ *
+ * If you filter by `ResourceSubCategory`, you must also include a `ResourceCategory` string filter with comparison set to `EQUALS` and value `AI/ML` in the same request.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -240,36 +245,40 @@ export interface GetResourcesV2CommandOutput extends GetResourcesV2Response, __M
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permission to perform the action specified in the request.</p>
+ *
+ * You don't have permission to perform the action specified in the request.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request causes conflict with the current state of the service resource.</p>
+ *
+ * The request causes conflict with the current state of the service resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>
- *          The request has failed due to an internal failure of the service.
- *       </p>
+ *
+ * The request has failed due to an internal failure of the service.
  *
  * @throws {@link OrganizationalUnitNotFoundException} (client fault)
- *  <p>The request failed because one or more organizational units specified in the request don't exist within the caller's organization.</p>
+ *
+ * The request failed because one or more organizational units specified in the request don't exist within the caller's organization.
  *
  * @throws {@link OrganizationNotFoundException} (client fault)
- *  <p>The request failed because one or more organizations specified in the request don't exist or don't belong to the caller's organization.</p>
+ *
+ * The request failed because one or more organizations specified in the request don't exist or don't belong to the caller's organization.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request was rejected because we can't find the specified resource.</p>
+ *
+ * The request was rejected because we can't find the specified resource.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>
- *          The limit on the number of requests per second was exceeded.
- *       </p>
+ *
+ * The limit on the number of requests per second was exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request has failed validation because it's missing required fields or has invalid inputs.</p>
+ *
+ * The request has failed validation because it's missing required fields or has invalid inputs.
  *
  * @throws {@link SecurityHubServiceException}
- * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * Base exception class for all service exceptions from SecurityHub service.
  *
  * @public
  */

@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { PersonalizeEventsServiceException as __BaseException } from "./PersonalizeEventsServiceException";
 
 /**
- * <p>Provide a valid value for the field or parameter.</p>
+ * Provide a valid value for the field or parameter.
+ *
  * @public
  */
 export class InvalidInputException extends __BaseException {
@@ -25,7 +26,8 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
- * <p>The specified resource is in use.</p>
+ * The specified resource is in use.
+ *
  * @public
  */
 export class ResourceInUseException extends __BaseException {
@@ -46,7 +48,8 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
- * <p>Could not find the specified resource.</p>
+ * Could not find the specified resource.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {

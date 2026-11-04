@@ -23,8 +23,8 @@ export interface DescribeSubnetGroupsCommandInput extends DescribeSubnetGroupsRe
 export interface DescribeSubnetGroupsCommandOutput extends DescribeSubnetGroupsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of subnet group descriptions. If a subnet group name is specified,
- *             the list will contain only the description of that group.</p>
+ * Returns a list of subnet group descriptions. If a subnet group name is specified, the list will contain only the description of that group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,15 +74,16 @@ export interface DescribeSubnetGroupsCommandOutput extends DescribeSubnetGroupsR
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
- *  <p>The specified service linked role (SLR) was not found.</p>
+ *
+ * The specified service linked role (SLR) was not found.
  *
  * @throws {@link SubnetGroupNotFoundFault} (client fault)
- *  <p>The requested subnet group name does not refer to an existing subnet
- *             group.</p>
+ *
+ * The requested subnet group name does not refer to an existing subnet group.
  *
  * @throws {@link DAXServiceException}
- * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ * Base exception class for all service exceptions from DAX service.
  *
  * @public
  */

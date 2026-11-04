@@ -26,21 +26,14 @@ export interface StartMetadataModelExportAsScriptCommandInput extends StartMetad
 export interface StartMetadataModelExportAsScriptCommandOutput extends StartMetadataModelExportAsScriptResponse, __MetadataBearer {}
 
 /**
- * <p>Queues an export of metadata models (database objects such as tables, views, and
- *          procedures) as a data definition language (DDL) script. The script is stored as a ZIP
- *          archive in the Amazon S3 bucket associated with the migration project. If other requests
- *          created by <code>Start*</code> operations are already in the migration project's queue,
- *          the export begins after they complete.</p>
- *          <p>When exporting from the target metadata tree, the export applies only to metadata
- *          models created by conversion. Metadata models imported from the database are
- *          skipped.</p>
- *          <p>To check the status of the export request, call
- *          <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeMetadataModelExportsAsScript.html">DescribeMetadataModelExportsAsScript</a> using the returned
- *          <code>RequestIdentifier</code> as a filter.</p>
- *          <p>
- *             <b>Required permissions:</b>
- *             <code>dms:StartMetadataModelExportAsScripts</code>. For more information, see
- *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
+ * Queues an export of metadata models (database objects such as tables, views, and procedures) as a data definition language (DDL) script. The script is stored as a ZIP archive in the Amazon S3 bucket associated with the migration project. If other requests created by `Start*` operations are already in the migration project's queue, the export begins after they complete.
+ *
+ * When exporting from the target metadata tree, the export applies only to metadata models created by conversion. Metadata models imported from the database are skipped.
+ *
+ * To check the status of the export request, call [DescribeMetadataModelExportsAsScript](https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeMetadataModelExportsAsScript.html) using the returned `RequestIdentifier` as a filter.
+ *
+ * **Required permissions:** `dms:StartMetadataModelExportAsScripts`. For more information, see [Actions, resources, and condition keys for Database Migration Service](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,34 +63,40 @@ export interface StartMetadataModelExportAsScriptCommandOutput extends StartMeta
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedFault} (client fault)
- *  <p>DMS was denied access to the endpoint. Check that the
- *             role is correctly configured.</p>
+ *
+ * DMS was denied access to the endpoint. Check that the role is correctly configured.
  *
  * @throws {@link InvalidResourceStateFault} (client fault)
- *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
+ * The resource is in a state that prevents it from being used for database migration.
  *
  * @throws {@link KMSKeyNotAccessibleFault} (client fault)
- *  <p>DMS cannot access the KMS key.</p>
+ *
+ * DMS cannot access the KMS key.
  *
  * @throws {@link ResourceAlreadyExistsFault} (client fault)
- *  <p>The resource you are attempting to create already exists.</p>
+ *
+ * The resource you are attempting to create already exists.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link ResourceQuotaExceededFault} (client fault)
- *  <p>The quota for this resource quota has been exceeded.</p>
+ *
+ * The quota for this resource quota has been exceeded.
  *
  * @throws {@link S3AccessDeniedFault} (client fault)
- *  <p>Insufficient privileges are preventing access to an Amazon S3 object.</p>
+ *
+ * Insufficient privileges are preventing access to an Amazon S3 object.
  *
  * @throws {@link S3ResourceNotFoundFault} (client fault)
- *  <p>A specified Amazon S3 bucket, bucket folder, or other object can't be
- *             found.</p>
+ *
+ * A specified Amazon S3 bucket, bucket folder, or other object can't be found.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @example Export converted metadata models as DDL scripts
  * ```javascript

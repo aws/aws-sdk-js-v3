@@ -23,8 +23,8 @@ export interface PutEventsCommandInput extends PutEventsRequest {}
 export interface PutEventsCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Records item interaction event data. For more information see
- *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/recording-item-interaction-events.html">Recording item interaction events</a>.</p>
+ * Records item interaction event data. For more information see [Recording item interaction events](https://docs.aws.amazon.com/personalize/latest/dg/recording-item-interaction-events.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,11 +68,12 @@ export interface PutEventsCommandOutput extends __MetadataBearer {}
  * @see {@link PersonalizeEventsClientResolvedConfig | config} for PersonalizeEventsClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * Provide a valid value for the field or parameter.
  *
  * @throws {@link PersonalizeEventsServiceException}
- * <p>Base exception class for all service exceptions from PersonalizeEvents service.</p>
  *
+ * Base exception class for all service exceptions from PersonalizeEvents service.
  *
  * @public
  */

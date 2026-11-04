@@ -23,7 +23,8 @@ export interface DescribeAttackCommandInput extends DescribeAttackRequest {}
 export interface DescribeAttackCommandOutput extends DescribeAttackResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the details of a DDoS attack. </p>
+ * Describes the details of a DDoS attack.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -106,14 +107,16 @@ export interface DescribeAttackCommandOutput extends DescribeAttackResponse, __M
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Exception that indicates the specified <code>AttackId</code> does not exist, or the requester does not have the appropriate permissions to access the <code>AttackId</code>.</p>
+ *
+ * Exception that indicates the specified `AttackId` does not exist, or the requester does not have the appropriate permissions to access the `AttackId`.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+ *
+ * Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.
  *
  * @throws {@link ShieldServiceException}
- * <p>Base exception class for all service exceptions from Shield service.</p>
  *
+ * Base exception class for all service exceptions from Shield service.
  *
  * @public
  */

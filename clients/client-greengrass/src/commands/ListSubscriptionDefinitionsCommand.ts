@@ -65,8 +65,8 @@ export interface ListSubscriptionDefinitionsCommandOutput extends ListSubscripti
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
  * @throws {@link GreengrassServiceException}
- * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * Base exception class for all service exceptions from Greengrass service.
  *
  * @public
  */

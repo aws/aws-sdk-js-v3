@@ -82,8 +82,8 @@ export interface ListTelemetryFieldsCommandOutput extends ListTelemetryFieldsRes
  *  A parameter is specified incorrectly.
  *
  * @throws {@link CloudWatchOmniServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchOmni service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchOmni service.
  *
  * @example List fields for a dataset
  * ```javascript

@@ -1623,7 +1623,8 @@ export interface Location {
 }
 
 /**
- * <p>"Suite of geospatial services including Maps, Places, Routes, Tracking, and Geofencing"</p>
+ * "Suite of geospatial services including Maps, Places, Routes, Tracking, and Geofencing"
+ *
  * @public
  */
 export class Location extends LocationClient implements Location {}

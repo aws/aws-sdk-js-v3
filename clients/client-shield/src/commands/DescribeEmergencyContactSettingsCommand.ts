@@ -26,7 +26,8 @@ export interface DescribeEmergencyContactSettingsCommandInput extends DescribeEm
 export interface DescribeEmergencyContactSettingsCommandOutput extends DescribeEmergencyContactSettingsResponse, __MetadataBearer {}
 
 /**
- * <p>A list of email addresses and phone numbers that the Shield Response Team (SRT) can use to contact you if you have proactive engagement enabled, for escalations to the SRT and to initiate proactive customer support.</p>
+ * A list of email addresses and phone numbers that the Shield Response Team (SRT) can use to contact you if you have proactive engagement enabled, for escalations to the SRT and to initiate proactive customer support.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,14 +58,16 @@ export interface DescribeEmergencyContactSettingsCommandOutput extends DescribeE
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+ *
+ * Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+ *
+ * Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties.
  *
  * @throws {@link ShieldServiceException}
- * <p>Base exception class for all service exceptions from Shield service.</p>
  *
+ * Base exception class for all service exceptions from Shield service.
  *
  * @public
  */

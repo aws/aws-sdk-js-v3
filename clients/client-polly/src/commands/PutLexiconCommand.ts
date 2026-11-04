@@ -23,12 +23,10 @@ export interface PutLexiconCommandInput extends PutLexiconInput {}
 export interface PutLexiconCommandOutput extends PutLexiconOutput, __MetadataBearer {}
 
 /**
- * <p>Stores a pronunciation lexicon in an Amazon Web Services Region. If
- *       a lexicon with the same name already exists in the region, it is
- *       overwritten by the new lexicon. Lexicon operations have eventual
- *       consistency, therefore, it might take some time before the lexicon is
- *       available to the SynthesizeSpeech operation.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
+ * Stores a pronunciation lexicon in an Amazon Web Services Region. If a lexicon with the same name already exists in the region, it is overwritten by the new lexicon. Lexicon operations have eventual consistency, therefore, it might take some time before the lexicon is available to the SynthesizeSpeech operation.
+ *
+ * For more information, see [Managing Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,39 +52,36 @@ export interface PutLexiconCommandOutput extends PutLexiconOutput, __MetadataBea
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
  *
  * @throws {@link InvalidLexiconException} (client fault)
- *  <p>Amazon Polly can't find the specified lexicon. Verify that the lexicon's
- *       name is spelled correctly, and then try again.</p>
+ *
+ * Amazon Polly can't find the specified lexicon. Verify that the lexicon's name is spelled correctly, and then try again.
  *
  * @throws {@link LexiconSizeExceededException} (client fault)
- *  <p>The maximum size of the specified lexicon would be exceeded by this
- *       operation.</p>
+ *
+ * The maximum size of the specified lexicon would be exceeded by this operation.
  *
  * @throws {@link MaxLexemeLengthExceededException} (client fault)
- *  <p>The maximum size of the lexeme would be exceeded by this
- *       operation.</p>
+ *
+ * The maximum size of the lexeme would be exceeded by this operation.
  *
  * @throws {@link MaxLexiconsNumberExceededException} (client fault)
- *  <p>The maximum number of lexicons would be exceeded by this
- *       operation.</p>
+ *
+ * The maximum number of lexicons would be exceeded by this operation.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>An unknown condition has caused a service failure.</p>
+ *
+ * An unknown condition has caused a service failure.
  *
  * @throws {@link UnsupportedPlsAlphabetException} (client fault)
- *  <p>The alphabet specified by the lexicon is not a supported alphabet.
- *       Valid values are <code>ipa</code>, <code>x-sampa</code>,
- *       <code>x-amazon-pinyin</code>, <code>x-amazon-jyutping</code>,
- *       <code>x-amazon-pron-kana</code>, and
- *       <code>x-amazon-yomigana</code>. Replace the unsupported alphabet
- *       with one of the valid values and resubmit your request.</p>
+ *
+ * The alphabet specified by the lexicon is not a supported alphabet. Valid values are `ipa`, `x-sampa`, `x-amazon-pinyin`, `x-amazon-jyutping`, `x-amazon-pron-kana`, and `x-amazon-yomigana`. Replace the unsupported alphabet with one of the valid values and resubmit your request.
  *
  * @throws {@link UnsupportedPlsLanguageException} (client fault)
- *  <p>The language specified in the lexicon is unsupported. For a list of
- *       supported languages, see <a href="https://docs.aws.amazon.com/polly/latest/dg/API_LexiconAttributes.html">Lexicon Attributes</a>.</p>
+ *
+ * The language specified in the lexicon is unsupported. For a list of supported languages, see [Lexicon Attributes](https://docs.aws.amazon.com/polly/latest/dg/API_LexiconAttributes.html).
  *
  * @throws {@link PollyServiceException}
- * <p>Base exception class for all service exceptions from Polly service.</p>
  *
+ * Base exception class for all service exceptions from Polly service.
  *
  * @example To save a lexicon
  * ```javascript

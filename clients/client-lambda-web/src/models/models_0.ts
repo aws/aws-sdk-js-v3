@@ -12,1086 +12,1368 @@ import type {
 } from "./enums";
 
 /**
- * <p>The quotas that apply to web functions in your account in the current AWS Region.</p>
+ * The quotas that apply to web functions in your account in the current AWS Region.
+ *
  * @public
  */
 export interface AccountQuotas {
   /**
-   * <p>The maximum total number of Arm vCPUs that you can allocate across all of your web functions in the current AWS Region.</p>
+   * The maximum total number of Arm vCPUs that you can allocate across all of your web functions in the current AWS Region.
+   *
    * @public
    */
   maxTotalArmVCpus: number | undefined;
 
   /**
-   * <p>The maximum number of requests per second allowed across all of your web function endpoints in your account in the current AWS Region.</p>
+   * The maximum number of requests per second allowed across all of your web function endpoints in your account in the current AWS Region.
+   *
    * @public
    */
   maxTotalRateLimit: number | undefined;
 
   /**
-   * <p>The maximum number of revisions that a single web function can have.</p>
+   * The maximum number of revisions that a single web function can have.
+   *
    * @public
    */
   maxRevisionsPerFunction: number | undefined;
 
   /**
-   * <p>The maximum number of endpoints that a single web function can have.</p>
+   * The maximum number of endpoints that a single web function can have.
+   *
    * @public
    */
   maxEndpointsPerFunction: number | undefined;
 }
 
 /**
- * <p>Contains your current web function usage for the current AWS Region.</p>
+ * Contains your current web function usage for the current AWS Region.
+ *
  * @public
  */
 export interface AccountUsage {
   /**
-   * <p>The number of web functions in your account in the current AWS Region. This count includes web functions in all states, not only functions in the <code>Active</code> state.</p>
+   * The number of web functions in your account in the current AWS Region. This count includes web functions in all states, not only functions in the `Active` state.
+   *
    * @public
    */
   functionCount: number | undefined;
 }
 
 /**
- * <p>The Amazon S3 location of a deployment artifact.</p>
+ * The Amazon S3 location of a deployment artifact.
+ *
  * @public
  */
 export interface S3Object {
   /**
-   * <p>The name of the Amazon S3 bucket.</p>
+   * The name of the Amazon S3 bucket.
+   *
    * @public
    */
   bucket: string | undefined;
 
   /**
-   * <p>The Amazon S3 object key.</p>
+   * The Amazon S3 object key.
+   *
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>The version ID of the Amazon S3 object.</p>
+   * The version ID of the Amazon S3 object.
+   *
    * @public
    */
   versionId?: string | undefined;
 }
 
 /**
- * <p>The code configuration specifying the location of the deployment artifact.</p>
+ * The code configuration specifying the location of the deployment artifact.
+ *
  * @public
  */
 export interface CodeConfig {
   /**
-   * <p>The Amazon S3 location of the deployment artifact.</p>
+   * The Amazon S3 location of the deployment artifact.
+   *
    * @public
    */
   s3Object: S3Object | undefined;
 }
 
 /**
- * <p>The runtime configuration for a web function revision.</p>
+ * The runtime configuration for a web function revision.
+ *
  * @public
  */
 export interface RuntimeConfig {
   /**
-   * <p>The runtime identifier for the web function (for example, a Node.js runtime identifier).</p>
+   * The runtime identifier for the web function (for example, a Node.js runtime identifier).
+   *
    * @public
    */
   runtime: string | undefined;
 }
 
 /**
- * <p>The build configuration for a web function revision, including code location and runtime settings.</p>
+ * The build configuration for a web function revision, including code location and runtime settings.
+ *
  * @public
  */
 export interface BuildConfig {
   /**
-   * <p>The code configuration specifying where the deployment artifact is stored.</p>
+   * The code configuration specifying where the deployment artifact is stored.
+   *
    * @public
    */
   codeConfig: CodeConfig | undefined;
 
   /**
-   * <p>The runtime configuration for the revision.</p>
+   * The runtime configuration for the revision.
+   *
    * @public
    */
   runtimeConfig: RuntimeConfig | undefined;
 }
 
 /**
- * <p>The scaling configuration for a web function endpoint.</p>
+ * The scaling configuration for a web function endpoint.
+ *
  * @public
  */
 export interface ScalingConfig {
   /**
-   * <p>The maximum number of concurrent execution environments for the endpoint. Minimum value of 2, maximum value of 10000. There is no default value. If you don't specify a value, the scaling configuration is absent from the response. On an update, omit <code>scalingConfig</code> to keep the current value, or specify an empty object to clear a previously set value.</p>
+   * The maximum number of concurrent execution environments for the endpoint. Minimum value of 2, maximum value of 10000. There is no default value. If you don't specify a value, the scaling configuration is absent from the response. On an update, omit `scalingConfig` to keep the current value, or specify an empty object to clear a previously set value.
+   *
    * @public
    */
   maxEnvironments?: number | undefined;
 }
 
 /**
- * <p>The throttling configuration for a web function endpoint.</p>
+ * The throttling configuration for a web function endpoint.
+ *
  * @public
  */
 export interface ThrottleConfig {
   /**
-   * <p>The maximum request rate per second for the endpoint. The value must be one of the following supported values: <code>0</code>, <code>100</code>, <code>200</code>, <code>300</code>, <code>400</code>, <code>500</code>, <code>600</code>, <code>700</code>, <code>800</code>, <code>900</code>, <code>1000</code>, <code>2000</code>, <code>3000</code>, <code>4000</code>, <code>5000</code>, <code>6000</code>, <code>7000</code>, <code>8000</code>, <code>9000</code>, or <code>10000</code>. The maximum effective value is also bounded by your account-level maximum total rate limit. There is no default value. If you don't specify a value, the throttling configuration is absent from the response. On an update, omit <code>throttleConfig</code> to keep the current value, or specify an empty object to clear a previously set value.</p>
+   * The maximum request rate per second for the endpoint. The value must be one of the following supported values: `0`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`, `1000`, `2000`, `3000`, `4000`, `5000`, `6000`, `7000`, `8000`, `9000`, or `10000`. The maximum effective value is also bounded by your account-level maximum total rate limit. There is no default value. If you don't specify a value, the throttling configuration is absent from the response. On an update, omit `throttleConfig` to keep the current value, or specify an empty object to clear a previously set value.
+   *
    * @public
    */
   rateLimit?: number | undefined;
 }
 
 /**
- * <p>The configuration for a web function endpoint.</p>
+ * The configuration for a web function endpoint.
+ *
  * @public
  */
 export interface EndpointConfig {
   /**
-   * <p>The name of the endpoint. The name can contain letters, numbers, hyphens (-), and underscores (_), and can't begin or end with a hyphen or an underscore. The name is limited to 64 characters in length.</p>
+   * The name of the endpoint. The name can contain letters, numbers, hyphens (-), and underscores (_), and can't begin or end with a hyphen or an underscore. The name is limited to 64 characters in length.
+   *
    * @public
    */
   endpointName: string | undefined;
 
   /**
-   * <p>A description of the endpoint.</p>
+   * A description of the endpoint.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The type of endpoint. Determines how traffic is served and routed across Regions.</p> <p>Valid values:</p> <ul> <li> <p> <code>HomeRegion</code> – Serves traffic from the Region where you created the web function.</p> </li> <li> <p> <code>MultiRegion</code> – Replicates across the Regions that you choose and routes each request to the nearest one.</p> </li> <li> <p> <code>PerRegion</code> – Creates a separate endpoint in each Region that you choose.</p> </li> </ul>
+   * The type of endpoint. Determines how traffic is served and routed across Regions.
+   *
+   * Valid values:
+   *
+   * - `HomeRegion` – Serves traffic from the Region where you created the web function.
+   * - `MultiRegion` – Replicates across the Regions that you choose and routes each request to the nearest one.
+   * - `PerRegion` – Creates a separate endpoint in each Region that you choose.
+   *
    * @public
    */
   endpointType: EndpointType | undefined;
 
   /**
-   * <p>The authorization type for the endpoint.</p> <p>Valid values:</p> <ul> <li> <p> <code>ApplicationManaged</code> – Your application handles authorization.</p> </li> <li> <p> <code>IamAuth</code> – Lambda uses IAM to authorize requests, which must be signed with Signature Version 4 (SigV4).</p> </li> </ul>
+   * The authorization type for the endpoint.
+   *
+   * Valid values:
+   *
+   * - `ApplicationManaged` – Your application handles authorization.
+   * - `IamAuth` – Lambda uses IAM to authorize requests, which must be signed with Signature Version 4 (SigV4).
+   *
    * @public
    */
   authType: AuthType | undefined;
 
   /**
-   * <p>The auto-deployment mode for the endpoint. If you don't specify a value, the default is <code>Disabled</code>, and this default is returned in the response.</p> <p>Valid values:</p> <ul> <li> <p> <code>LatestRevision</code> – The endpoint automatically serves the newest revision.</p> </li> <li> <p> <code>Disabled</code> – Revision routing stays fixed until you change it.</p> </li> </ul>
+   * The auto-deployment mode for the endpoint. If you don't specify a value, the default is `Disabled`, and this default is returned in the response.
+   *
+   * Valid values:
+   *
+   * - `LatestRevision` – The endpoint automatically serves the newest revision.
+   * - `Disabled` – Revision routing stays fixed until you change it.
+   *
    * @public
    */
   autoDeploymentMode?: AutoDeploymentMode | undefined;
 
   /**
-   * <p>The list of Regions for the endpoint. Required when the endpoint type is <code>MultiRegion</code> or <code>PerRegion</code>: specify at least one Region other than the Region where you create the endpoint (the home Region). The home Region is added automatically if you don't include it; specifying only the home Region isn't allowed. When the endpoint type is <code>HomeRegion</code>, omit this field or specify only the home Region.</p>
+   * The list of Regions for the endpoint. Required when the endpoint type is `MultiRegion` or `PerRegion`: specify at least one Region other than the Region where you create the endpoint (the home Region). The home Region is added automatically if you don't include it; specifying only the home Region isn't allowed. When the endpoint type is `HomeRegion`, omit this field or specify only the home Region.
+   *
    * @public
    */
   regions?: string[] | undefined;
 
   /**
-   * <p>The scaling configuration for the endpoint.</p>
+   * The scaling configuration for the endpoint.
+   *
    * @public
    */
   scalingConfig?: ScalingConfig | undefined;
 
   /**
-   * <p>The throttling configuration for the endpoint.</p>
+   * The throttling configuration for the endpoint.
+   *
    * @public
    */
   throttleConfig?: ThrottleConfig | undefined;
 }
 
 /**
- * <p>The logging configuration for a web function revision.</p>
+ * The logging configuration for a web function revision.
+ *
  * @public
  */
 export interface LoggingConfig {
   /**
-   * <p>The name of the Amazon CloudWatch Logs log group the web function sends logs to. If you don't specify a value, the default is <code>/aws/lambda/web/\{functionName\}</code>, and this default is returned in the response.</p>
+   * The name of the Amazon CloudWatch Logs log group the web function sends logs to. If you don't specify a value, the default is `/aws/lambda/web/\{functionName\}`, and this default is returned in the response.
+   *
    * @public
    */
   logGroup?: string | undefined;
 
   /**
-   * <p>The log level for application logs emitted by the web function. If you don't specify a value, the default is <code>INFO</code>, and this default is returned in the response.</p>
+   * The log level for application logs emitted by the web function. If you don't specify a value, the default is `INFO`, and this default is returned in the response.
+   *
    * @public
    */
   applicationLogLevel?: ApplicationLogLevel | undefined;
 
   /**
-   * <p>The log level for system logs emitted by the Lambda runtime. If you don't specify a value, the default is <code>INFO</code>, and this default is returned in the response.</p>
+   * The log level for system logs emitted by the Lambda runtime. If you don't specify a value, the default is `INFO`, and this default is returned in the response.
+   *
    * @public
    */
   systemLogLevel?: SystemLogLevel | undefined;
 }
 
 /**
- * <p>The telemetry configuration for a web function revision.</p>
+ * The telemetry configuration for a web function revision.
+ *
  * @public
  */
 export interface TelemetryConfig {
   /**
-   * <p>The logging configuration for the web function.</p>
+   * The logging configuration for the web function.
+   *
    * @public
    */
   loggingConfig?: LoggingConfig | undefined;
 }
 
 /**
- * <p>The service configuration for a web function revision, including execution role, timeout, VPC network access, concurrency, and telemetry settings.</p>
+ * The service configuration for a web function revision, including execution role, timeout, VPC network access, concurrency, and telemetry settings.
+ *
  * @public
  */
 export interface ServiceConfig {
   /**
-   * <p>The ARN of the IAM role that the web function assumes when it runs. This role provides permissions to access AWS services and resources.</p>
+   * The ARN of the IAM role that the web function assumes when it runs. This role provides permissions to access AWS services and resources.
+   *
    * @public
    */
   executionRoleArn: string | undefined;
 
   /**
-   * <p>The amount of time (in seconds) that Lambda allows the web function to run before stopping it. Minimum value of 3, maximum value of 900. If you don't specify a value, the default is 30, and this default is returned in the response.</p>
+   * The amount of time (in seconds) that Lambda allows the web function to run before stopping it. Minimum value of 3, maximum value of 900. If you don't specify a value, the default is 30, and this default is returned in the response.
+   *
    * @public
    */
   timeoutSeconds?: number | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Lambda network connector that gives the web function access to resources in your VPC. You must specify the fully qualified ARN, including the connector version, which pins the revision to that version. If the network connector is deleted, invocations of revisions that reference it fail. Revisions that specify a network connector support only <code>HomeRegion</code> endpoints, not <code>MultiRegion</code> or <code>PerRegion</code>.</p>
+   * The Amazon Resource Name (ARN) of the Lambda network connector that gives the web function access to resources in your VPC. You must specify the fully qualified ARN, including the connector version, which pins the revision to that version. If the network connector is deleted, invocations of revisions that reference it fail. Revisions that specify a network connector support only `HomeRegion` endpoints, not `MultiRegion` or `PerRegion`.
+   *
    * @public
    */
   egressNetworkConnectorArn?: string | undefined;
 
   /**
-   * <p>The maximum number of concurrent requests handled per execution environment. Minimum value of 1, maximum value of 128. If you don't specify a value, the default is 64, and this default is returned in the response.</p>
+   * The maximum number of concurrent requests handled per execution environment. Minimum value of 1, maximum value of 128. If you don't specify a value, the default is 64, and this default is returned in the response.
+   *
    * @public
    */
   maxConcurrencyPerEnvironment?: number | undefined;
 
   /**
-   * <p>A map of environment variable key-value pairs available to the web function at runtime. Environment variable values are sensitive.</p>
+   * A map of environment variable key-value pairs available to the web function at runtime. Environment variable values are sensitive.
+   *
    * @public
    */
   environmentVariables?: Record<string, string> | undefined;
 
   /**
-   * <p>The telemetry configuration for the web function, including logging settings.</p>
+   * The telemetry configuration for the web function, including logging settings.
+   *
    * @public
    */
   telemetryConfig?: TelemetryConfig | undefined;
 }
 
 /**
- * <p>The configuration for a web function revision, including code build settings and service configuration.</p>
+ * The configuration for a web function revision, including code build settings and service configuration.
+ *
  * @public
  */
 export interface RevisionConfig {
   /**
-   * <p>A description of the revision.</p>
+   * A description of the revision.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key used to encrypt the revision's code and environment variables.</p>
+   * The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key used to encrypt the revision's code and environment variables.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The build configuration for the revision.</p>
+   * The build configuration for the revision.
+   *
    * @public
    */
   buildConfig: BuildConfig | undefined;
 
   /**
-   * <p>The service configuration for the revision.</p>
+   * The service configuration for the revision.
+   *
    * @public
    */
   serviceConfig: ServiceConfig | undefined;
 }
 
 /**
- * <p>The request to create a web function.</p>
+ * The request to create a web function.
+ *
  * @public
  */
 export interface CreateWebFunctionRequest {
   /**
-   * <p>The name of the web function. The name can contain letters, numbers, hyphens (-), and underscores (_), and can't begin or end with a hyphen or an underscore. The name is limited to 64 characters in length.</p>
+   * The name of the web function. The name can contain letters, numbers, hyphens (-), and underscores (_), and can't begin or end with a hyphen or an underscore. The name is limited to 64 characters in length.
+   *
    * @public
    */
   functionName: string | undefined;
 
   /**
-   * <p>The configuration for the initial revision of the web function, including code and service settings.</p>
+   * The configuration for the initial revision of the web function, including code and service settings.
+   *
    * @public
    */
   revisionConfig?: RevisionConfig | undefined;
 
   /**
-   * <p>The configuration for the initial endpoint of the web function.</p>
+   * The configuration for the initial endpoint of the web function.
+   *
    * @public
    */
   endpointConfig?: EndpointConfig | undefined;
 
   /**
-   * <p>A map of tag keys and values to apply to the web function.</p>
+   * A map of tag keys and values to apply to the web function.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Specifies a revision and its traffic weight for an endpoint. You can assign weights to up to two revisions to split traffic for canary or blue-green deployments.</p>
+ * Specifies a revision and its traffic weight for an endpoint. You can assign weights to up to two revisions to split traffic for canary or blue-green deployments.
+ *
  * @public
  */
 export interface RevisionWeight {
   /**
-   * <p>The identifier of the revision.</p>
+   * The identifier of the revision.
+   *
    * @public
    */
   revisionId: string | undefined;
 
   /**
-   * <p>The percentage of traffic to route to this revision. Minimum value of 1, maximum value of 100.</p>
+   * The percentage of traffic to route to this revision. Minimum value of 1, maximum value of 100.
+   *
    * @public
    */
   weight: number | undefined;
 }
 
 /**
- * <p>A summary of a web function endpoint.</p>
+ * A summary of a web function endpoint.
+ *
  * @public
  */
 export interface FunctionEndpointSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
+   * The Amazon Resource Name (ARN) of the endpoint.
+   *
    * @public
    */
   endpointArn: string | undefined;
 
   /**
-   * <p>The name of the endpoint.</p>
+   * The name of the endpoint.
+   *
    * @public
    */
   endpointName: string | undefined;
 
   /**
-   * <p>A description of the endpoint.</p>
+   * A description of the endpoint.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The type of the endpoint.</p>
+   * The type of the endpoint.
+   *
    * @public
    */
   endpointType: EndpointType | undefined;
 
   /**
-   * <p>The domain name of the endpoint.</p>
+   * The domain name of the endpoint.
+   *
    * @public
    */
   domainName: string | undefined;
 
   /**
-   * <p>The authorization type for the endpoint.</p>
+   * The authorization type for the endpoint.
+   *
    * @public
    */
   authType: AuthType | undefined;
 
   /**
-   * <p>The auto-deployment mode for the endpoint.</p>
+   * The auto-deployment mode for the endpoint.
+   *
    * @public
    */
   autoDeploymentMode: AutoDeploymentMode | undefined;
 
   /**
-   * <p>The revision weights for the endpoint.</p>
+   * The revision weights for the endpoint.
+   *
    * @public
    */
   revisionWeights: RevisionWeight[] | undefined;
 
   /**
-   * <p>The list of Regions for the endpoint.</p>
+   * The list of Regions for the endpoint.
+   *
    * @public
    */
   regions: string[] | undefined;
 
   /**
-   * <p>The scaling configuration for the endpoint. This field is absent if the endpoint has no scaling configuration.</p>
+   * The scaling configuration for the endpoint. This field is absent if the endpoint has no scaling configuration.
+   *
    * @public
    */
   scalingConfig?: ScalingConfig | undefined;
 
   /**
-   * <p>The throttling configuration for the endpoint. This field is absent if the endpoint has no throttling configuration.</p>
+   * The throttling configuration for the endpoint. This field is absent if the endpoint has no throttling configuration.
+   *
    * @public
    */
   throttleConfig?: ThrottleConfig | undefined;
 
   /**
-   * <p>The current state of the endpoint.</p>
+   * The current state of the endpoint.
+   *
    * @public
    */
   state: EndpointState | undefined;
 
   /**
-   * <p>The reason for the current state of the endpoint.</p>
+   * The reason for the current state of the endpoint.
+   *
    * @public
    */
   stateReason: string | undefined;
 
   /**
-   * <p>The status of the most recent update to the endpoint.</p>
+   * The status of the most recent update to the endpoint.
+   *
    * @public
    */
   updateStatus?: EndpointUpdateStatus | undefined;
 
   /**
-   * <p>The reason for the current update status of the endpoint.</p>
+   * The reason for the current update status of the endpoint.
+   *
    * @public
    */
   updateStatusReason?: string | undefined;
 
   /**
-   * <p>The date and time the endpoint was created.</p>
+   * The date and time the endpoint was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The date and time the endpoint was last updated.</p>
+   * The date and time the endpoint was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 }
 
 /**
- * <p>A summary of a web function revision.</p>
+ * A summary of a web function revision.
+ *
  * @public
  */
 export interface FunctionRevisionSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the revision.</p>
+   * The Amazon Resource Name (ARN) of the revision.
+   *
    * @public
    */
   revisionArn: string | undefined;
 
   /**
-   * <p>The identifier of the revision.</p>
+   * The identifier of the revision.
+   *
    * @public
    */
   revisionId: string | undefined;
 
   /**
-   * <p>A description of the revision.</p>
+   * A description of the revision.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The current state of the revision.</p>
+   * The current state of the revision.
+   *
    * @public
    */
   state: RevisionState | undefined;
 
   /**
-   * <p>The reason for the current state of the revision.</p>
+   * The reason for the current state of the revision.
+   *
    * @public
    */
   stateReason: string | undefined;
 
   /**
-   * <p>The date and time the revision was created.</p>
+   * The date and time the revision was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 }
 
 /**
- * <p>Contains details about the created web function.</p>
+ * Contains details about the created web function.
+ *
  * @public
  */
 export interface CreateWebFunctionResponse {
   /**
-   * <p>The name of the web function.</p>
+   * The name of the web function.
+   *
    * @public
    */
   functionName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the web function.</p>
+   * The Amazon Resource Name (ARN) of the web function.
+   *
    * @public
    */
   functionArn: string | undefined;
 
   /**
-   * <p>The current state of the web function.</p>
+   * The current state of the web function.
+   *
    * @public
    */
   state: FunctionState | undefined;
 
   /**
-   * <p>The reason for the current state of the web function.</p>
+   * The reason for the current state of the web function.
+   *
    * @public
    */
   stateReason: string | undefined;
 
   /**
-   * <p>The date and time the web function was created.</p>
+   * The date and time the web function was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The date and time the web function was last updated.</p>
+   * The date and time the web function was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>A summary of the initial revision created with the web function.</p>
+   * A summary of the initial revision created with the web function.
+   *
    * @public
    */
   revision?: FunctionRevisionSummary | undefined;
 
   /**
-   * <p>A summary of the initial endpoint created with the web function.</p>
+   * A summary of the initial endpoint created with the web function.
+   *
    * @public
    */
   endpoint?: FunctionEndpointSummary | undefined;
 
   /**
-   * <p>A map of tag keys and values associated with the web function.</p>
+   * A map of tag keys and values associated with the web function.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>The request to create a web function endpoint.</p>
+ * The request to create a web function endpoint.
+ *
  * @public
  */
 export interface CreateWebFunctionEndpointRequest {
   /**
-   * <p>The web function to create the endpoint for.</p> <p>You can specify either of the following:</p> <ul> <li> <p>The function name, for example <code>my-function</code>.</p> </li> <li> <p>The function ARN.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The web function to create the endpoint for.
+   *
+   * You can specify either of the following:
+   *
+   * - The function name, for example `my-function`.
+   * - The function ARN.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   functionName: string | undefined;
 
   /**
-   * <p>The name of the endpoint to create. The name can contain letters, numbers, hyphens (-), and underscores (_), and can't begin or end with a hyphen or an underscore. The name is limited to 64 characters in length.</p>
+   * The name of the endpoint to create. The name can contain letters, numbers, hyphens (-), and underscores (_), and can't begin or end with a hyphen or an underscore. The name is limited to 64 characters in length.
+   *
    * @public
    */
   endpointName: string | undefined;
 
   /**
-   * <p>A description of the endpoint.</p>
+   * A description of the endpoint.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The type of endpoint to create. Determines how traffic is served and routed across Regions.</p> <p>Valid values:</p> <ul> <li> <p> <code>HomeRegion</code> – Serves traffic from the Region where you created the web function.</p> </li> <li> <p> <code>MultiRegion</code> – Replicates across the Regions that you choose and routes each request to the nearest one.</p> </li> <li> <p> <code>PerRegion</code> – Creates a separate endpoint in each Region that you choose.</p> </li> </ul>
+   * The type of endpoint to create. Determines how traffic is served and routed across Regions.
+   *
+   * Valid values:
+   *
+   * - `HomeRegion` – Serves traffic from the Region where you created the web function.
+   * - `MultiRegion` – Replicates across the Regions that you choose and routes each request to the nearest one.
+   * - `PerRegion` – Creates a separate endpoint in each Region that you choose.
+   *
    * @public
    */
   endpointType: EndpointType | undefined;
 
   /**
-   * <p>The authorization type for the endpoint.</p> <p>Valid values:</p> <ul> <li> <p> <code>ApplicationManaged</code> – Your application handles authorization.</p> </li> <li> <p> <code>IamAuth</code> – Lambda uses IAM to authorize requests, which must be signed with Signature Version 4 (SigV4).</p> </li> </ul>
+   * The authorization type for the endpoint.
+   *
+   * Valid values:
+   *
+   * - `ApplicationManaged` – Your application handles authorization.
+   * - `IamAuth` – Lambda uses IAM to authorize requests, which must be signed with Signature Version 4 (SigV4).
+   *
    * @public
    */
   authType: AuthType | undefined;
 
   /**
-   * <p>The auto-deployment mode for the endpoint. Controls whether the endpoint automatically serves the newest revision. If you don't specify a value, the default is <code>Disabled</code>, and this default is returned in the response.</p> <p>Valid values:</p> <ul> <li> <p> <code>LatestRevision</code> – The endpoint automatically serves the newest revision.</p> </li> <li> <p> <code>Disabled</code> – Revision routing stays fixed until you change it.</p> </li> </ul>
+   * The auto-deployment mode for the endpoint. Controls whether the endpoint automatically serves the newest revision. If you don't specify a value, the default is `Disabled`, and this default is returned in the response.
+   *
+   * Valid values:
+   *
+   * - `LatestRevision` – The endpoint automatically serves the newest revision.
+   * - `Disabled` – Revision routing stays fixed until you change it.
+   *
    * @public
    */
   autoDeploymentMode?: AutoDeploymentMode | undefined;
 
   /**
-   * <p>A list of revision weights that determine how traffic is distributed across revisions. You can specify up to two revisions for canary or blue-green deployments.</p>
+   * A list of revision weights that determine how traffic is distributed across revisions. You can specify up to two revisions for canary or blue-green deployments.
+   *
    * @public
    */
   revisionWeights?: RevisionWeight[] | undefined;
 
   /**
-   * <p>The list of Regions for the endpoint. Required when the endpoint type is <code>MultiRegion</code> or <code>PerRegion</code>: specify at least one Region other than the Region where you create the endpoint (the home Region). The home Region is added automatically if you don't include it; specifying only the home Region isn't allowed. When the endpoint type is <code>HomeRegion</code>, omit this field or specify only the home Region.</p>
+   * The list of Regions for the endpoint. Required when the endpoint type is `MultiRegion` or `PerRegion`: specify at least one Region other than the Region where you create the endpoint (the home Region). The home Region is added automatically if you don't include it; specifying only the home Region isn't allowed. When the endpoint type is `HomeRegion`, omit this field or specify only the home Region.
+   *
    * @public
    */
   regions?: string[] | undefined;
 
   /**
-   * <p>The scaling configuration for the endpoint. There is no default value. If you don't specify a scaling configuration, it is absent from the response.</p>
+   * The scaling configuration for the endpoint. There is no default value. If you don't specify a scaling configuration, it is absent from the response.
+   *
    * @public
    */
   scalingConfig?: ScalingConfig | undefined;
 
   /**
-   * <p>The throttling configuration for the endpoint. There is no default value. If you don't specify a throttling configuration, it is absent from the response.</p>
+   * The throttling configuration for the endpoint. There is no default value. If you don't specify a throttling configuration, it is absent from the response.
+   *
    * @public
    */
   throttleConfig?: ThrottleConfig | undefined;
 }
 
 /**
- * <p>Represents the endpoint configuration and state in a specific Region.</p>
+ * Represents the endpoint configuration and state in a specific Region.
+ *
  * @public
  */
 export interface RegionalEndpoint {
   /**
-   * <p>The domain name of the regional endpoint.</p>
+   * The domain name of the regional endpoint.
+   *
    * @public
    */
   domainName?: string | undefined;
 
   /**
-   * <p>The authorization type for the regional endpoint.</p>
+   * The authorization type for the regional endpoint.
+   *
    * @public
    */
   authType: AuthType | undefined;
 
   /**
-   * <p>The revision weights for the regional endpoint.</p>
+   * The revision weights for the regional endpoint.
+   *
    * @public
    */
   revisionWeights: RevisionWeight[] | undefined;
 
   /**
-   * <p>The scaling configuration for the regional endpoint. This field is absent if the endpoint has no scaling configuration.</p>
+   * The scaling configuration for the regional endpoint. This field is absent if the endpoint has no scaling configuration.
+   *
    * @public
    */
   scalingConfig?: ScalingConfig | undefined;
 
   /**
-   * <p>The throttling configuration for the regional endpoint. This field is absent if the endpoint has no throttling configuration.</p>
+   * The throttling configuration for the regional endpoint. This field is absent if the endpoint has no throttling configuration.
+   *
    * @public
    */
   throttleConfig?: ThrottleConfig | undefined;
 
   /**
-   * <p>The current state of the regional endpoint.</p>
+   * The current state of the regional endpoint.
+   *
    * @public
    */
   state: EndpointState | undefined;
 
   /**
-   * <p>The reason for the current state of the regional endpoint.</p>
+   * The reason for the current state of the regional endpoint.
+   *
    * @public
    */
   stateReason: string | undefined;
 
   /**
-   * <p>The status of the most recent update to the regional endpoint.</p>
+   * The status of the most recent update to the regional endpoint.
+   *
    * @public
    */
   updateStatus?: EndpointUpdateStatus | undefined;
 
   /**
-   * <p>The reason for the current update status of the regional endpoint.</p>
+   * The reason for the current update status of the regional endpoint.
+   *
    * @public
    */
   updateStatusReason?: string | undefined;
 }
 
 /**
- * <p>Contains details about the created endpoint.</p>
+ * Contains details about the created endpoint.
+ *
  * @public
  */
 export interface CreateWebFunctionEndpointResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the web function.</p>
+   * The Amazon Resource Name (ARN) of the web function.
+   *
    * @public
    */
   functionArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
+   * The Amazon Resource Name (ARN) of the endpoint.
+   *
    * @public
    */
   endpointArn: string | undefined;
 
   /**
-   * <p>The name of the endpoint.</p>
+   * The name of the endpoint.
+   *
    * @public
    */
   endpointName: string | undefined;
 
   /**
-   * <p>The description of the endpoint.</p>
+   * The description of the endpoint.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The type of a web function endpoint.</p> <p>Valid values:</p> <ul> <li> <p> <code>HomeRegion</code> – Serves traffic from the Region where you created the web function.</p> </li> <li> <p> <code>MultiRegion</code> – Replicates across the Regions that you choose and routes each request to the nearest one.</p> </li> <li> <p> <code>PerRegion</code> – Creates a separate endpoint in each Region that you choose.</p> </li> </ul>
+   * The type of a web function endpoint.
+   *
+   * Valid values:
+   *
+   * - `HomeRegion` – Serves traffic from the Region where you created the web function.
+   * - `MultiRegion` – Replicates across the Regions that you choose and routes each request to the nearest one.
+   * - `PerRegion` – Creates a separate endpoint in each Region that you choose.
+   *
    * @public
    */
   endpointType: EndpointType | undefined;
 
   /**
-   * <p>The domain name assigned to the endpoint.</p>
+   * The domain name assigned to the endpoint.
+   *
    * @public
    */
   domainName: string | undefined;
 
   /**
-   * <p>The authorization type for a web function endpoint.</p> <p>Valid values:</p> <ul> <li> <p> <code>ApplicationManaged</code> – Your application handles authorization.</p> </li> <li> <p> <code>IamAuth</code> – Lambda uses IAM to authorize requests, which must be signed with Signature Version 4 (SigV4).</p> </li> </ul>
+   * The authorization type for a web function endpoint.
+   *
+   * Valid values:
+   *
+   * - `ApplicationManaged` – Your application handles authorization.
+   * - `IamAuth` – Lambda uses IAM to authorize requests, which must be signed with Signature Version 4 (SigV4).
+   *
    * @public
    */
   authType: AuthType | undefined;
 
   /**
-   * <p>The auto-deployment mode for a web function endpoint.</p> <p>Valid values:</p> <ul> <li> <p> <code>LatestRevision</code> – The endpoint automatically serves the newest revision.</p> </li> <li> <p> <code>Disabled</code> – Revision routing stays fixed until you change it.</p> </li> </ul>
+   * The auto-deployment mode for a web function endpoint.
+   *
+   * Valid values:
+   *
+   * - `LatestRevision` – The endpoint automatically serves the newest revision.
+   * - `Disabled` – Revision routing stays fixed until you change it.
+   *
    * @public
    */
   autoDeploymentMode: AutoDeploymentMode | undefined;
 
   /**
-   * <p>The traffic distribution across revisions for the endpoint. Each entry maps a revision to a weight from 1 to 100.</p>
+   * The traffic distribution across revisions for the endpoint. Each entry maps a revision to a weight from 1 to 100.
+   *
    * @public
    */
   revisionWeights: RevisionWeight[] | undefined;
 
   /**
-   * <p>The Regions configured for the endpoint.</p>
+   * The Regions configured for the endpoint.
+   *
    * @public
    */
   regions: string[] | undefined;
 
   /**
-   * <p>The scaling configuration for a web function endpoint.</p>
+   * The scaling configuration for a web function endpoint.
+   *
    * @public
    */
   scalingConfig?: ScalingConfig | undefined;
 
   /**
-   * <p>The throttling configuration for a web function endpoint.</p>
+   * The throttling configuration for a web function endpoint.
+   *
    * @public
    */
   throttleConfig?: ThrottleConfig | undefined;
 
   /**
-   * <p>The current state of the endpoint.</p>
+   * The current state of the endpoint.
+   *
    * @public
    */
   state: EndpointState | undefined;
 
   /**
-   * <p>The reason for the current state of the endpoint.</p>
+   * The reason for the current state of the endpoint.
+   *
    * @public
    */
   stateReason: string | undefined;
 
   /**
-   * <p>The status of the most recent update to an endpoint. Possible values:</p> <ul> <li> <p> <code>InProgress</code> – The update is in progress.</p> </li> <li> <p> <code>Successful</code> – The update completed successfully.</p> </li> <li> <p> <code>Failed</code> – The update failed.</p> </li> </ul>
+   * The status of the most recent update to an endpoint. Possible values:
+   *
+   * - `InProgress` – The update is in progress.
+   * - `Successful` – The update completed successfully.
+   * - `Failed` – The update failed.
+   *
    * @public
    */
   updateStatus?: EndpointUpdateStatus | undefined;
 
   /**
-   * <p>The reason for the endpoint's most recent update status.</p>
+   * The reason for the endpoint's most recent update status.
+   *
    * @public
    */
   updateStatusReason?: string | undefined;
 
   /**
-   * <p>The list of regional endpoint configurations.</p>
+   * The list of regional endpoint configurations.
+   *
    * @public
    */
   regionalEndpoints: Record<string, RegionalEndpoint> | undefined;
 
   /**
-   * <p>The date and time the endpoint was created.</p>
+   * The date and time the endpoint was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The date and time the endpoint was last updated.</p>
+   * The date and time the endpoint was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 }
 
 /**
- * <p>The request to create a web function revision.</p>
+ * The request to create a web function revision.
+ *
  * @public
  */
 export interface CreateWebFunctionRevisionRequest {
   /**
-   * <p>The web function.</p> <p>You can specify either of the following:</p> <ul> <li> <p>The function name, for example <code>my-function</code>.</p> </li> <li> <p>The function ARN.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The web function.
+   *
+   * You can specify either of the following:
+   *
+   * - The function name, for example `my-function`.
+   * - The function ARN.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   functionName: string | undefined;
 
   /**
-   * <p>A description of the revision.</p>
+   * A description of the revision.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key used to encrypt the revision's code and environment variables.</p>
+   * The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key used to encrypt the revision's code and environment variables.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The build configuration for the revision, including code location and runtime settings.</p>
+   * The build configuration for the revision, including code location and runtime settings.
+   *
    * @public
    */
   buildConfig: BuildConfig | undefined;
 
   /**
-   * <p>The service configuration for the revision, including execution role, timeout, and concurrency settings.</p>
+   * The service configuration for the revision, including execution role, timeout, and concurrency settings.
+   *
    * @public
    */
   serviceConfig: ServiceConfig | undefined;
 }
 
 /**
- * <p>A single error encountered while creating or reading a web function revision. The error describes the affected attribute, an error code, and a human-readable message. This structure is present only when the revision has errors.</p>
+ * A single error encountered while creating or reading a web function revision. The error describes the affected attribute, an error code, and a human-readable message. This structure is present only when the revision has errors.
+ *
  * @public
  */
 export interface RevisionError {
   /**
-   * <p>The name of the revision attribute that the error applies to.</p>
+   * The name of the revision attribute that the error applies to.
+   *
    * @public
    */
   attribute: string | undefined;
 
   /**
-   * <p>A short, machine-readable code that identifies the error.</p>
+   * A short, machine-readable code that identifies the error.
+   *
    * @public
    */
   errorCode: string | undefined;
 
   /**
-   * <p>A human-readable message describing the error.</p>
+   * A human-readable message describing the error.
+   *
    * @public
    */
   errorMessage: string | undefined;
 }
 
 /**
- * <p>Contains details about the created revision.</p>
+ * Contains details about the created revision.
+ *
  * @public
  */
 export interface CreateWebFunctionRevisionResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the web function.</p>
+   * The Amazon Resource Name (ARN) of the web function.
+   *
    * @public
    */
   functionArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the revision.</p>
+   * The Amazon Resource Name (ARN) of the revision.
+   *
    * @public
    */
   revisionArn: string | undefined;
 
   /**
-   * <p>The identifier of the revision.</p>
+   * The identifier of the revision.
+   *
    * @public
    */
   revisionId: string | undefined;
 
   /**
-   * <p>The description of the revision.</p>
+   * The description of the revision.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS KMS key used to encrypt the revision's code and environment variables.</p>
+   * The Amazon Resource Name (ARN) of the AWS KMS key used to encrypt the revision's code and environment variables.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The build configuration for a web function revision, including code location and runtime settings.</p>
+   * The build configuration for a web function revision, including code location and runtime settings.
+   *
    * @public
    */
   buildConfig: BuildConfig | undefined;
 
   /**
-   * <p>The service configuration for a web function revision, including execution role, timeout, VPC network access, concurrency, and telemetry settings.</p>
+   * The service configuration for a web function revision, including execution role, timeout, VPC network access, concurrency, and telemetry settings.
+   *
    * @public
    */
   serviceConfig: ServiceConfig | undefined;
 
   /**
-   * <p>The current state of the revision.</p>
+   * The current state of the revision.
+   *
    * @public
    */
   state: RevisionState | undefined;
 
   /**
-   * <p>The reason for the current state of the revision.</p>
+   * The reason for the current state of the revision.
+   *
    * @public
    */
   stateReason: string | undefined;
 
   /**
-   * <p>A list of errors encountered during revision creation. This field is absent when the revision has no errors.</p>
+   * A list of errors encountered during revision creation. This field is absent when the revision has no errors.
+   *
    * @public
    */
   errors?: RevisionError[] | undefined;
 
   /**
-   * <p>The date and time the revision was created.</p>
+   * The date and time the revision was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 }
 
 /**
- * <p>The request to delete a resource-based policy.</p>
+ * The request to delete a resource-based policy.
+ *
  * @public
  */
 export interface DeleteResourcePolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the web function.</p>
+   * The Amazon Resource Name (ARN) of the web function.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The revision ID of the policy. Use this to prevent deleting a policy that has been updated since you last retrieved it. If you don't specify a value, the policy is deleted regardless of its current revision.</p>
+   * The revision ID of the policy. Use this to prevent deleting a policy that has been updated since you last retrieved it. If you don't specify a value, the policy is deleted regardless of its current revision.
+   *
    * @public
    */
   revisionId?: string | undefined;
 }
 
 /**
- * <p>The request to delete a web function.</p>
+ * The request to delete a web function.
+ *
  * @public
  */
 export interface DeleteWebFunctionRequest {
   /**
-   * <p>The web function to delete.</p> <p>You can specify either of the following:</p> <ul> <li> <p>The function name, for example <code>my-function</code>.</p> </li> <li> <p>The function ARN.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The web function to delete.
+   *
+   * You can specify either of the following:
+   *
+   * - The function name, for example `my-function`.
+   * - The function ARN.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   functionName: string | undefined;
 }
 
 /**
- * <p>The request to delete a web function endpoint.</p>
+ * The request to delete a web function endpoint.
+ *
  * @public
  */
 export interface DeleteWebFunctionEndpointRequest {
   /**
-   * <p>The web function.</p> <p>You can specify either of the following:</p> <ul> <li> <p>The function name, for example <code>my-function</code>.</p> </li> <li> <p>The function ARN.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The web function.
+   *
+   * You can specify either of the following:
+   *
+   * - The function name, for example `my-function`.
+   * - The function ARN.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   functionName: string | undefined;
 
   /**
-   * <p>The endpoint to delete.</p> <p>You can specify either of the following:</p> <ul> <li> <p>The endpoint name, for example <code>my-endpoint</code>.</p> </li> <li> <p>The endpoint ARN.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the endpoint name, it is limited to 64 characters in length.</p>
+   * The endpoint to delete.
+   *
+   * You can specify either of the following:
+   *
+   * - The endpoint name, for example `my-endpoint`.
+   * - The endpoint ARN.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the endpoint name, it is limited to 64 characters in length.
+   *
    * @public
    */
   endpointName: string | undefined;
 }
 
 /**
- * <p>The request to delete a web function revision.</p>
+ * The request to delete a web function revision.
+ *
  * @public
  */
 export interface DeleteWebFunctionRevisionRequest {
   /**
-   * <p>The web function.</p> <p>You can specify either of the following:</p> <ul> <li> <p>The function name, for example <code>my-function</code>.</p> </li> <li> <p>The function ARN.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The web function.
+   *
+   * You can specify either of the following:
+   *
+   * - The function name, for example `my-function`.
+   * - The function ARN.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   functionName: string | undefined;
 
   /**
-   * <p>The revision to delete.</p> <p>You can specify either of the following:</p> <ul> <li> <p>The revision identifier.</p> </li> <li> <p>The revision ARN.</p> </li> </ul> <p>The length constraint applies only to the full ARN.</p>
+   * The revision to delete.
+   *
+   * You can specify either of the following:
+   *
+   * - The revision identifier.
+   * - The revision ARN.
+   *
+   * The length constraint applies only to the full ARN.
+   *
    * @public
    */
   revisionId: string | undefined;
 }
 
 /**
- * <p>A filter to apply when listing resources.</p>
+ * A filter to apply when listing resources.
+ *
  * @public
  */
 export interface Filter {
   /**
-   * <p>The name of the filter field.</p>
+   * The name of the filter field.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The values to match for the filter.</p>
+   * The values to match for the filter.
+   *
    * @public
    */
   values: string[] | undefined;
 }
 
 /**
- * <p>A summary of a web function.</p>
+ * A summary of a web function.
+ *
  * @public
  */
 export interface FunctionSummary {
   /**
-   * <p>The name of the web function.</p>
+   * The name of the web function.
+   *
    * @public
    */
   functionName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the web function.</p>
+   * The Amazon Resource Name (ARN) of the web function.
+   *
    * @public
    */
   functionArn: string | undefined;
 
   /**
-   * <p>The current state of the web function.</p>
+   * The current state of the web function.
+   *
    * @public
    */
   state: FunctionState | undefined;
 
   /**
-   * <p>The reason for the current state of the web function.</p>
+   * The reason for the current state of the web function.
+   *
    * @public
    */
   stateReason: string | undefined;
 
   /**
-   * <p>The date and time the web function was created.</p>
+   * The date and time the web function was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The date and time the web function was last updated.</p>
+   * The date and time the web function was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 }
 
 /**
- * <p>The request to retrieve a resource-based policy.</p>
+ * The request to retrieve a resource-based policy.
+ *
  * @public
  */
 export interface GetResourcePolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the web function.</p>
+   * The Amazon Resource Name (ARN) of the web function.
+   *
    * @public
    */
   resourceArn: string | undefined;
 }
 
 /**
- * <p>Contains the resource-based policy and its revision ID.</p>
+ * Contains the resource-based policy and its revision ID.
+ *
  * @public
  */
 export interface GetResourcePolicyResponse {
   /**
-   * <p>The JSON-formatted resource-based policy attached to the web function.</p>
+   * The JSON-formatted resource-based policy attached to the web function.
+   *
    * @public
    */
   policy: string | undefined;
 
   /**
-   * <p>The revision ID of the policy.</p>
+   * The revision ID of the policy.
+   *
    * @public
    */
   revisionId: string | undefined;
@@ -1103,714 +1385,946 @@ export interface GetResourcePolicyResponse {
 export interface GetWebAccountSettingsRequest {}
 
 /**
- * <p>Contains your AWS Lambda Web Functions account quotas and usage for the current AWS Region.</p>
+ * Contains your AWS Lambda Web Functions account quotas and usage for the current AWS Region.
+ *
  * @public
  */
 export interface GetWebAccountSettingsResponse {
   /**
-   * <p>The quotas that apply to web functions in your account in the current AWS Region.</p>
+   * The quotas that apply to web functions in your account in the current AWS Region.
+   *
    * @public
    */
   accountQuotas: AccountQuotas | undefined;
 
   /**
-   * <p>The current web function usage for your account in the current AWS Region.</p>
+   * The current web function usage for your account in the current AWS Region.
+   *
    * @public
    */
   accountUsage: AccountUsage | undefined;
 }
 
 /**
- * <p>The request to retrieve a web function.</p>
+ * The request to retrieve a web function.
+ *
  * @public
  */
 export interface GetWebFunctionRequest {
   /**
-   * <p>The web function to retrieve.</p> <p>You can specify either of the following:</p> <ul> <li> <p>The function name, for example <code>my-function</code>.</p> </li> <li> <p>The function ARN.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The web function to retrieve.
+   *
+   * You can specify either of the following:
+   *
+   * - The function name, for example `my-function`.
+   * - The function ARN.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   functionName: string | undefined;
 }
 
 /**
- * <p>Contains details about the web function.</p>
+ * Contains details about the web function.
+ *
  * @public
  */
 export interface GetWebFunctionResponse {
   /**
-   * <p>The name of the web function.</p>
+   * The name of the web function.
+   *
    * @public
    */
   functionName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the web function.</p>
+   * The Amazon Resource Name (ARN) of the web function.
+   *
    * @public
    */
   functionArn: string | undefined;
 
   /**
-   * <p>The current state of the web function.</p>
+   * The current state of the web function.
+   *
    * @public
    */
   state: FunctionState | undefined;
 
   /**
-   * <p>The reason for the current state of the web function.</p>
+   * The reason for the current state of the web function.
+   *
    * @public
    */
   stateReason: string | undefined;
 
   /**
-   * <p>The date and time the web function was created.</p>
+   * The date and time the web function was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The date and time the web function was last updated.</p>
+   * The date and time the web function was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 }
 
 /**
- * <p>The request to retrieve a web function endpoint.</p>
+ * The request to retrieve a web function endpoint.
+ *
  * @public
  */
 export interface GetWebFunctionEndpointRequest {
   /**
-   * <p>The web function.</p> <p>You can specify either of the following:</p> <ul> <li> <p>The function name, for example <code>my-function</code>.</p> </li> <li> <p>The function ARN.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The web function.
+   *
+   * You can specify either of the following:
+   *
+   * - The function name, for example `my-function`.
+   * - The function ARN.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   functionName: string | undefined;
 
   /**
-   * <p>The endpoint to retrieve.</p> <p>You can specify either of the following:</p> <ul> <li> <p>The endpoint name, for example <code>my-endpoint</code>.</p> </li> <li> <p>The endpoint ARN.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the endpoint name, it is limited to 64 characters in length.</p>
+   * The endpoint to retrieve.
+   *
+   * You can specify either of the following:
+   *
+   * - The endpoint name, for example `my-endpoint`.
+   * - The endpoint ARN.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the endpoint name, it is limited to 64 characters in length.
+   *
    * @public
    */
   endpointName: string | undefined;
 }
 
 /**
- * <p>Contains details about the web function endpoint.</p>
+ * Contains details about the web function endpoint.
+ *
  * @public
  */
 export interface GetWebFunctionEndpointResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the web function.</p>
+   * The Amazon Resource Name (ARN) of the web function.
+   *
    * @public
    */
   functionArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
+   * The Amazon Resource Name (ARN) of the endpoint.
+   *
    * @public
    */
   endpointArn: string | undefined;
 
   /**
-   * <p>The name of the endpoint.</p>
+   * The name of the endpoint.
+   *
    * @public
    */
   endpointName: string | undefined;
 
   /**
-   * <p>The description of the endpoint.</p>
+   * The description of the endpoint.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The type of a web function endpoint.</p> <p>Valid values:</p> <ul> <li> <p> <code>HomeRegion</code> – Serves traffic from the Region where you created the web function.</p> </li> <li> <p> <code>MultiRegion</code> – Replicates across the Regions that you choose and routes each request to the nearest one.</p> </li> <li> <p> <code>PerRegion</code> – Creates a separate endpoint in each Region that you choose.</p> </li> </ul>
+   * The type of a web function endpoint.
+   *
+   * Valid values:
+   *
+   * - `HomeRegion` – Serves traffic from the Region where you created the web function.
+   * - `MultiRegion` – Replicates across the Regions that you choose and routes each request to the nearest one.
+   * - `PerRegion` – Creates a separate endpoint in each Region that you choose.
+   *
    * @public
    */
   endpointType: EndpointType | undefined;
 
   /**
-   * <p>The domain name assigned to the endpoint.</p>
+   * The domain name assigned to the endpoint.
+   *
    * @public
    */
   domainName: string | undefined;
 
   /**
-   * <p>The authorization type for a web function endpoint.</p> <p>Valid values:</p> <ul> <li> <p> <code>ApplicationManaged</code> – Your application handles authorization.</p> </li> <li> <p> <code>IamAuth</code> – Lambda uses IAM to authorize requests, which must be signed with Signature Version 4 (SigV4).</p> </li> </ul>
+   * The authorization type for a web function endpoint.
+   *
+   * Valid values:
+   *
+   * - `ApplicationManaged` – Your application handles authorization.
+   * - `IamAuth` – Lambda uses IAM to authorize requests, which must be signed with Signature Version 4 (SigV4).
+   *
    * @public
    */
   authType: AuthType | undefined;
 
   /**
-   * <p>The auto-deployment mode for a web function endpoint.</p> <p>Valid values:</p> <ul> <li> <p> <code>LatestRevision</code> – The endpoint automatically serves the newest revision.</p> </li> <li> <p> <code>Disabled</code> – Revision routing stays fixed until you change it.</p> </li> </ul>
+   * The auto-deployment mode for a web function endpoint.
+   *
+   * Valid values:
+   *
+   * - `LatestRevision` – The endpoint automatically serves the newest revision.
+   * - `Disabled` – Revision routing stays fixed until you change it.
+   *
    * @public
    */
   autoDeploymentMode: AutoDeploymentMode | undefined;
 
   /**
-   * <p>The traffic distribution across revisions for the endpoint. Each entry maps a revision to a weight from 1 to 100.</p>
+   * The traffic distribution across revisions for the endpoint. Each entry maps a revision to a weight from 1 to 100.
+   *
    * @public
    */
   revisionWeights: RevisionWeight[] | undefined;
 
   /**
-   * <p>The Regions configured for the endpoint.</p>
+   * The Regions configured for the endpoint.
+   *
    * @public
    */
   regions: string[] | undefined;
 
   /**
-   * <p>The scaling configuration for a web function endpoint.</p>
+   * The scaling configuration for a web function endpoint.
+   *
    * @public
    */
   scalingConfig?: ScalingConfig | undefined;
 
   /**
-   * <p>The throttling configuration for a web function endpoint.</p>
+   * The throttling configuration for a web function endpoint.
+   *
    * @public
    */
   throttleConfig?: ThrottleConfig | undefined;
 
   /**
-   * <p>The current state of the endpoint.</p>
+   * The current state of the endpoint.
+   *
    * @public
    */
   state: EndpointState | undefined;
 
   /**
-   * <p>The reason for the current state of the endpoint.</p>
+   * The reason for the current state of the endpoint.
+   *
    * @public
    */
   stateReason: string | undefined;
 
   /**
-   * <p>The status of the most recent update to an endpoint. Possible values:</p> <ul> <li> <p> <code>InProgress</code> – The update is in progress.</p> </li> <li> <p> <code>Successful</code> – The update completed successfully.</p> </li> <li> <p> <code>Failed</code> – The update failed.</p> </li> </ul>
+   * The status of the most recent update to an endpoint. Possible values:
+   *
+   * - `InProgress` – The update is in progress.
+   * - `Successful` – The update completed successfully.
+   * - `Failed` – The update failed.
+   *
    * @public
    */
   updateStatus?: EndpointUpdateStatus | undefined;
 
   /**
-   * <p>The reason for the endpoint's most recent update status.</p>
+   * The reason for the endpoint's most recent update status.
+   *
    * @public
    */
   updateStatusReason?: string | undefined;
 
   /**
-   * <p>The list of regional endpoint configurations.</p>
+   * The list of regional endpoint configurations.
+   *
    * @public
    */
   regionalEndpoints: Record<string, RegionalEndpoint> | undefined;
 
   /**
-   * <p>The date and time the endpoint was created.</p>
+   * The date and time the endpoint was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The date and time the endpoint was last updated.</p>
+   * The date and time the endpoint was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 }
 
 /**
- * <p>The request to retrieve a web function revision.</p>
+ * The request to retrieve a web function revision.
+ *
  * @public
  */
 export interface GetWebFunctionRevisionRequest {
   /**
-   * <p>The web function.</p> <p>You can specify either of the following:</p> <ul> <li> <p>The function name, for example <code>my-function</code>.</p> </li> <li> <p>The function ARN.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The web function.
+   *
+   * You can specify either of the following:
+   *
+   * - The function name, for example `my-function`.
+   * - The function ARN.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   functionName: string | undefined;
 
   /**
-   * <p>The revision to retrieve.</p> <p>You can specify either of the following:</p> <ul> <li> <p>The revision identifier.</p> </li> <li> <p>The revision ARN.</p> </li> </ul> <p>The length constraint applies only to the full ARN.</p>
+   * The revision to retrieve.
+   *
+   * You can specify either of the following:
+   *
+   * - The revision identifier.
+   * - The revision ARN.
+   *
+   * The length constraint applies only to the full ARN.
+   *
    * @public
    */
   revisionId: string | undefined;
 }
 
 /**
- * <p>Contains details about the web function revision.</p>
+ * Contains details about the web function revision.
+ *
  * @public
  */
 export interface GetWebFunctionRevisionResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the web function.</p>
+   * The Amazon Resource Name (ARN) of the web function.
+   *
    * @public
    */
   functionArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the revision.</p>
+   * The Amazon Resource Name (ARN) of the revision.
+   *
    * @public
    */
   revisionArn: string | undefined;
 
   /**
-   * <p>The identifier of the revision.</p>
+   * The identifier of the revision.
+   *
    * @public
    */
   revisionId: string | undefined;
 
   /**
-   * <p>The description of the revision.</p>
+   * The description of the revision.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS KMS key used to encrypt the revision's code and environment variables.</p>
+   * The Amazon Resource Name (ARN) of the AWS KMS key used to encrypt the revision's code and environment variables.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The build configuration for a web function revision, including code location and runtime settings.</p>
+   * The build configuration for a web function revision, including code location and runtime settings.
+   *
    * @public
    */
   buildConfig: BuildConfig | undefined;
 
   /**
-   * <p>The service configuration for a web function revision, including execution role, timeout, VPC network access, concurrency, and telemetry settings.</p>
+   * The service configuration for a web function revision, including execution role, timeout, VPC network access, concurrency, and telemetry settings.
+   *
    * @public
    */
   serviceConfig: ServiceConfig | undefined;
 
   /**
-   * <p>The current state of the revision.</p>
+   * The current state of the revision.
+   *
    * @public
    */
   state: RevisionState | undefined;
 
   /**
-   * <p>The reason for the current state of the revision.</p>
+   * The reason for the current state of the revision.
+   *
    * @public
    */
   stateReason: string | undefined;
 
   /**
-   * <p>A list of errors encountered during revision creation. This field is absent when the revision has no errors.</p>
+   * A list of errors encountered during revision creation. This field is absent when the revision has no errors.
+   *
    * @public
    */
   errors?: RevisionError[] | undefined;
 
   /**
-   * <p>The date and time the revision was created.</p>
+   * The date and time the revision was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 }
 
 /**
- * <p>The request to list tags for a resource.</p>
+ * The request to list tags for a resource.
+ *
  * @public
  */
 export interface ListTagsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the web function.</p>
+   * The Amazon Resource Name (ARN) of the web function.
+   *
    * @public
    */
   resource: string | undefined;
 }
 
 /**
- * <p>Contains the list of tags.</p>
+ * Contains the list of tags.
+ *
  * @public
  */
 export interface ListTagsResponse {
   /**
-   * <p>A map of tag keys and values associated with the web function.</p>
+   * A map of tag keys and values associated with the web function.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>The request to add or update a resource-based policy.</p>
+ * The request to add or update a resource-based policy.
+ *
  * @public
  */
 export interface PutResourcePolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the web function.</p>
+   * The Amazon Resource Name (ARN) of the web function.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The JSON-formatted resource-based policy to attach to the web function.</p>
+   * The JSON-formatted resource-based policy to attach to the web function.
+   *
    * @public
    */
   policy: string | undefined;
 
   /**
-   * <p>The revision ID of the existing policy. Use this to prevent conflicts when updating a policy concurrently. If you don't specify a value, the update proceeds without checking the current revision.</p>
+   * The revision ID of the existing policy. Use this to prevent conflicts when updating a policy concurrently. If you don't specify a value, the update proceeds without checking the current revision.
+   *
    * @public
    */
   revisionId?: string | undefined;
 }
 
 /**
- * <p>Contains the resource-based policy and its revision ID.</p>
+ * Contains the resource-based policy and its revision ID.
+ *
  * @public
  */
 export interface PutResourcePolicyResponse {
   /**
-   * <p>The JSON-formatted resource-based policy attached to the web function.</p>
+   * The JSON-formatted resource-based policy attached to the web function.
+   *
    * @public
    */
   policy: string | undefined;
 
   /**
-   * <p>The revision ID of the policy. Use this value in subsequent <code>PutResourcePolicy</code> or <code>DeleteResourcePolicy</code> requests to prevent conflicts.</p>
+   * The revision ID of the policy. Use this value in subsequent `PutResourcePolicy` or `DeleteResourcePolicy` requests to prevent conflicts.
+   *
    * @public
    */
   revisionId: string | undefined;
 }
 
 /**
- * <p>The request to add tags to a resource.</p>
+ * The request to add tags to a resource.
+ *
  * @public
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the web function.</p>
+   * The Amazon Resource Name (ARN) of the web function.
+   *
    * @public
    */
   resource: string | undefined;
 
   /**
-   * <p>A map of tag keys and values to add to the web function.</p>
+   * A map of tag keys and values to add to the web function.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
 }
 
 /**
- * <p>The request to remove tags from a resource.</p>
+ * The request to remove tags from a resource.
+ *
  * @public
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the web function.</p>
+   * The Amazon Resource Name (ARN) of the web function.
+   *
    * @public
    */
   resource: string | undefined;
 
   /**
-   * <p>A list of tag keys to remove from the web function.</p>
+   * A list of tag keys to remove from the web function.
+   *
    * @public
    */
   tagKeys: string[] | undefined;
 }
 
 /**
- * <p>The request to list web functions.</p>
+ * The request to list web functions.
+ *
  * @public
  */
 export interface ListWebFunctionsRequest {
   /**
-   * <p>A list of filters to apply to the results. The only supported filter name is <code>state</code>. If you don't specify a filter, the operation returns all web functions.</p>
+   * A list of filters to apply to the results. The only supported filter name is `state`. If you don't specify a filter, the operation returns all web functions.
+   *
    * @public
    */
   filters?: Filter[] | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. Minimum value of 1, maximum value of 50. Default is 50.</p>
+   * The maximum number of results to return in a single call. Minimum value of 1, maximum value of 50. Default is 50.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The pagination token that's returned by a previous request to retrieve the next page of results.</p>
+   * The pagination token that's returned by a previous request to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Contains the list of web functions.</p>
+ * Contains the list of web functions.
+ *
  * @public
  */
 export interface ListWebFunctionsResponse {
   /**
-   * <p>A list of web function summaries.</p>
+   * A list of web function summaries.
+   *
    * @public
    */
   functions: FunctionSummary[] | undefined;
 
   /**
-   * <p>The pagination token that's included if more results are available. Use this value as the <code>nextToken</code> request parameter in a subsequent call to retrieve the next page of results.</p>
+   * The pagination token that's included if more results are available. Use this value as the `nextToken` request parameter in a subsequent call to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>The request to list web function endpoints.</p>
+ * The request to list web function endpoints.
+ *
  * @public
  */
 export interface ListWebFunctionEndpointsRequest {
   /**
-   * <p>The web function.</p> <p>You can specify either of the following:</p> <ul> <li> <p>The function name, for example <code>my-function</code>.</p> </li> <li> <p>The function ARN.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The web function.
+   *
+   * You can specify either of the following:
+   *
+   * - The function name, for example `my-function`.
+   * - The function ARN.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   functionName: string | undefined;
 
   /**
-   * <p>A list of filters to apply to the results. Supported filter names: <code>authType</code>, <code>autoDeploymentMode</code>, <code>endpointType</code>, <code>state</code>, and <code>updateStatus</code>. If you don't specify a filter, the operation returns all endpoints for the web function.</p>
+   * A list of filters to apply to the results. Supported filter names: `authType`, `autoDeploymentMode`, `endpointType`, `state`, and `updateStatus`. If you don't specify a filter, the operation returns all endpoints for the web function.
+   *
    * @public
    */
   filters?: Filter[] | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. Minimum value of 1, maximum value of 50. Default is 50.</p>
+   * The maximum number of results to return in a single call. Minimum value of 1, maximum value of 50. Default is 50.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The pagination token that's returned by a previous request to retrieve the next page of results.</p>
+   * The pagination token that's returned by a previous request to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Contains the list of web function endpoints.</p>
+ * Contains the list of web function endpoints.
+ *
  * @public
  */
 export interface ListWebFunctionEndpointsResponse {
   /**
-   * <p>A list of endpoint summaries for the web function.</p>
+   * A list of endpoint summaries for the web function.
+   *
    * @public
    */
   endpoints: FunctionEndpointSummary[] | undefined;
 
   /**
-   * <p>The pagination token that's included if more results are available. Use this value as the <code>nextToken</code> request parameter in a subsequent call to retrieve the next page of results.</p>
+   * The pagination token that's included if more results are available. Use this value as the `nextToken` request parameter in a subsequent call to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>The request to update a web function endpoint.</p>
+ * The request to update a web function endpoint.
+ *
  * @public
  */
 export interface UpdateWebFunctionEndpointRequest {
   /**
-   * <p>The web function.</p> <p>You can specify either of the following:</p> <ul> <li> <p>The function name, for example <code>my-function</code>.</p> </li> <li> <p>The function ARN.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The web function.
+   *
+   * You can specify either of the following:
+   *
+   * - The function name, for example `my-function`.
+   * - The function ARN.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   functionName: string | undefined;
 
   /**
-   * <p>The endpoint to update.</p> <p>You can specify either of the following:</p> <ul> <li> <p>The endpoint name, for example <code>my-endpoint</code>.</p> </li> <li> <p>The endpoint ARN.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the endpoint name, it is limited to 64 characters in length.</p>
+   * The endpoint to update.
+   *
+   * You can specify either of the following:
+   *
+   * - The endpoint name, for example `my-endpoint`.
+   * - The endpoint ARN.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the endpoint name, it is limited to 64 characters in length.
+   *
    * @public
    */
   endpointName: string | undefined;
 
   /**
-   * <p>A description of the endpoint. Omit this field to keep the current description.</p>
+   * A description of the endpoint. Omit this field to keep the current description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The authorization type for the endpoint. Omit this field to keep the current authorization type.</p> <p>Valid values:</p> <ul> <li> <p> <code>ApplicationManaged</code> – Your application handles authorization.</p> </li> <li> <p> <code>IamAuth</code> – Lambda uses IAM to authorize requests, which must be signed with Signature Version 4 (SigV4).</p> </li> </ul>
+   * The authorization type for the endpoint. Omit this field to keep the current authorization type.
+   *
+   * Valid values:
+   *
+   * - `ApplicationManaged` – Your application handles authorization.
+   * - `IamAuth` – Lambda uses IAM to authorize requests, which must be signed with Signature Version 4 (SigV4).
+   *
    * @public
    */
   authType?: AuthType | undefined;
 
   /**
-   * <p>The auto-deployment mode for the endpoint. Omit this field to keep the current auto-deployment mode.</p> <p>Valid values:</p> <ul> <li> <p> <code>LatestRevision</code> – The endpoint automatically serves the newest revision.</p> </li> <li> <p> <code>Disabled</code> – Revision routing stays fixed until you change it.</p> </li> </ul>
+   * The auto-deployment mode for the endpoint. Omit this field to keep the current auto-deployment mode.
+   *
+   * Valid values:
+   *
+   * - `LatestRevision` – The endpoint automatically serves the newest revision.
+   * - `Disabled` – Revision routing stays fixed until you change it.
+   *
    * @public
    */
   autoDeploymentMode?: AutoDeploymentMode | undefined;
 
   /**
-   * <p>A list of revision weights that determine how traffic is distributed across revisions.</p>
+   * A list of revision weights that determine how traffic is distributed across revisions.
+   *
    * @public
    */
   revisionWeights?: RevisionWeight[] | undefined;
 
   /**
-   * <p>The scaling configuration for the endpoint. Omit this field to keep the current scaling configuration. To clear a previously set <code>maxEnvironments</code> value, specify an empty object.</p>
+   * The scaling configuration for the endpoint. Omit this field to keep the current scaling configuration. To clear a previously set `maxEnvironments` value, specify an empty object.
+   *
    * @public
    */
   scalingConfig?: ScalingConfig | undefined;
 
   /**
-   * <p>The throttling configuration for the endpoint. Omit this field to keep the current throttling configuration. To clear a previously set <code>rateLimit</code> value, specify an empty object.</p>
+   * The throttling configuration for the endpoint. Omit this field to keep the current throttling configuration. To clear a previously set `rateLimit` value, specify an empty object.
+   *
    * @public
    */
   throttleConfig?: ThrottleConfig | undefined;
 }
 
 /**
- * <p>Contains details about the updated endpoint.</p>
+ * Contains details about the updated endpoint.
+ *
  * @public
  */
 export interface UpdateWebFunctionEndpointResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the web function.</p>
+   * The Amazon Resource Name (ARN) of the web function.
+   *
    * @public
    */
   functionArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
+   * The Amazon Resource Name (ARN) of the endpoint.
+   *
    * @public
    */
   endpointArn: string | undefined;
 
   /**
-   * <p>The name of the endpoint.</p>
+   * The name of the endpoint.
+   *
    * @public
    */
   endpointName: string | undefined;
 
   /**
-   * <p>The description of the endpoint.</p>
+   * The description of the endpoint.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The type of a web function endpoint.</p> <p>Valid values:</p> <ul> <li> <p> <code>HomeRegion</code> – Serves traffic from the Region where you created the web function.</p> </li> <li> <p> <code>MultiRegion</code> – Replicates across the Regions that you choose and routes each request to the nearest one.</p> </li> <li> <p> <code>PerRegion</code> – Creates a separate endpoint in each Region that you choose.</p> </li> </ul>
+   * The type of a web function endpoint.
+   *
+   * Valid values:
+   *
+   * - `HomeRegion` – Serves traffic from the Region where you created the web function.
+   * - `MultiRegion` – Replicates across the Regions that you choose and routes each request to the nearest one.
+   * - `PerRegion` – Creates a separate endpoint in each Region that you choose.
+   *
    * @public
    */
   endpointType: EndpointType | undefined;
 
   /**
-   * <p>The domain name assigned to the endpoint.</p>
+   * The domain name assigned to the endpoint.
+   *
    * @public
    */
   domainName: string | undefined;
 
   /**
-   * <p>The authorization type for a web function endpoint.</p> <p>Valid values:</p> <ul> <li> <p> <code>ApplicationManaged</code> – Your application handles authorization.</p> </li> <li> <p> <code>IamAuth</code> – Lambda uses IAM to authorize requests, which must be signed with Signature Version 4 (SigV4).</p> </li> </ul>
+   * The authorization type for a web function endpoint.
+   *
+   * Valid values:
+   *
+   * - `ApplicationManaged` – Your application handles authorization.
+   * - `IamAuth` – Lambda uses IAM to authorize requests, which must be signed with Signature Version 4 (SigV4).
+   *
    * @public
    */
   authType: AuthType | undefined;
 
   /**
-   * <p>The auto-deployment mode for a web function endpoint.</p> <p>Valid values:</p> <ul> <li> <p> <code>LatestRevision</code> – The endpoint automatically serves the newest revision.</p> </li> <li> <p> <code>Disabled</code> – Revision routing stays fixed until you change it.</p> </li> </ul>
+   * The auto-deployment mode for a web function endpoint.
+   *
+   * Valid values:
+   *
+   * - `LatestRevision` – The endpoint automatically serves the newest revision.
+   * - `Disabled` – Revision routing stays fixed until you change it.
+   *
    * @public
    */
   autoDeploymentMode: AutoDeploymentMode | undefined;
 
   /**
-   * <p>The traffic distribution across revisions for the endpoint. Each entry maps a revision to a weight from 1 to 100.</p>
+   * The traffic distribution across revisions for the endpoint. Each entry maps a revision to a weight from 1 to 100.
+   *
    * @public
    */
   revisionWeights: RevisionWeight[] | undefined;
 
   /**
-   * <p>The Regions configured for the endpoint.</p>
+   * The Regions configured for the endpoint.
+   *
    * @public
    */
   regions: string[] | undefined;
 
   /**
-   * <p>The scaling configuration for a web function endpoint.</p>
+   * The scaling configuration for a web function endpoint.
+   *
    * @public
    */
   scalingConfig?: ScalingConfig | undefined;
 
   /**
-   * <p>The throttling configuration for a web function endpoint.</p>
+   * The throttling configuration for a web function endpoint.
+   *
    * @public
    */
   throttleConfig?: ThrottleConfig | undefined;
 
   /**
-   * <p>The current state of the endpoint.</p>
+   * The current state of the endpoint.
+   *
    * @public
    */
   state: EndpointState | undefined;
 
   /**
-   * <p>The reason for the current state of the endpoint.</p>
+   * The reason for the current state of the endpoint.
+   *
    * @public
    */
   stateReason: string | undefined;
 
   /**
-   * <p>The status of the most recent update to an endpoint. Possible values:</p> <ul> <li> <p> <code>InProgress</code> – The update is in progress.</p> </li> <li> <p> <code>Successful</code> – The update completed successfully.</p> </li> <li> <p> <code>Failed</code> – The update failed.</p> </li> </ul>
+   * The status of the most recent update to an endpoint. Possible values:
+   *
+   * - `InProgress` – The update is in progress.
+   * - `Successful` – The update completed successfully.
+   * - `Failed` – The update failed.
+   *
    * @public
    */
   updateStatus?: EndpointUpdateStatus | undefined;
 
   /**
-   * <p>The reason for the endpoint's most recent update status.</p>
+   * The reason for the endpoint's most recent update status.
+   *
    * @public
    */
   updateStatusReason?: string | undefined;
 
   /**
-   * <p>The list of regional endpoint configurations.</p>
+   * The list of regional endpoint configurations.
+   *
    * @public
    */
   regionalEndpoints: Record<string, RegionalEndpoint> | undefined;
 
   /**
-   * <p>The date and time the endpoint was created.</p>
+   * The date and time the endpoint was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The date and time the endpoint was last updated.</p>
+   * The date and time the endpoint was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 }
 
 /**
- * <p>The request to list web function revisions.</p>
+ * The request to list web function revisions.
+ *
  * @public
  */
 export interface ListWebFunctionRevisionsRequest {
   /**
-   * <p>The web function.</p> <p>You can specify either of the following:</p> <ul> <li> <p>The function name, for example <code>my-function</code>.</p> </li> <li> <p>The function ARN.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The web function.
+   *
+   * You can specify either of the following:
+   *
+   * - The function name, for example `my-function`.
+   * - The function ARN.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   functionName: string | undefined;
 
   /**
-   * <p>A list of filters to apply to the results. The only supported filter name is <code>state</code>. If you don't specify a filter, the operation returns all revisions for the web function.</p>
+   * A list of filters to apply to the results. The only supported filter name is `state`. If you don't specify a filter, the operation returns all revisions for the web function.
+   *
    * @public
    */
   filters?: Filter[] | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. Minimum value of 1, maximum value of 50. Default is 50.</p>
+   * The maximum number of results to return in a single call. Minimum value of 1, maximum value of 50. Default is 50.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The pagination token that's returned by a previous request to retrieve the next page of results.</p>
+   * The pagination token that's returned by a previous request to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Contains the list of web function revisions.</p>
+ * Contains the list of web function revisions.
+ *
  * @public
  */
 export interface ListWebFunctionRevisionsResponse {
   /**
-   * <p>A list of revision summaries for the web function.</p>
+   * A list of revision summaries for the web function.
+   *
    * @public
    */
   revisions: FunctionRevisionSummary[] | undefined;
 
   /**
-   * <p>The pagination token that's included if more results are available. Use this value as the <code>nextToken</code> request parameter in a subsequent call to retrieve the next page of results.</p>
+   * The pagination token that's included if more results are available. Use this value as the `nextToken` request parameter in a subsequent call to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;

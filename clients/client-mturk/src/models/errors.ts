@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { MTurkServiceException as __BaseException } from "./MTurkServiceException";
 
 /**
- * <p>Your request is invalid.</p>
+ * Your request is invalid.
+ *
  * @public
  */
 export class RequestError extends __BaseException {
@@ -29,7 +30,8 @@ export class RequestError extends __BaseException {
 }
 
 /**
- * <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ * Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.
+ *
  * @public
  */
 export class ServiceFault extends __BaseException {

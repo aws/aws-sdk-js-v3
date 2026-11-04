@@ -23,7 +23,10 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the tags associated with a Route 53 Global Resolver resource.</p> <important> <p>Route 53 Global Resolver is a global service that supports resolvers in multiple Amazon Web Services Regions but you must specify the US East (Ohio) Region to create, update, or otherwise work with Route 53 Global Resolver resources. That is, for example, specify <code>--region us-east-2</code> on Amazon Web Services CLI commands.</p> </important>
+ * Lists the tags associated with a Route 53 Global Resolver resource.
+ *
+ * > **Important:** Route 53 Global Resolver is a global service that supports resolvers in multiple Amazon Web Services Regions but you must specify the US East (Ohio) Region to create, update, or otherwise work with Route 53 Global Resolver resources. That is, for example, specify `--region us-east-2` on Amazon Web Services CLI commands.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,11 +55,12 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link Route53GlobalResolverClientResolvedConfig | config} for Route53GlobalResolverClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found. Verify the resource ID and try again.</p>
+ *
+ * The specified resource was not found. Verify the resource ID and try again.
  *
  * @throws {@link Route53GlobalResolverServiceException}
- * <p>Base exception class for all service exceptions from Route53GlobalResolver service.</p>
  *
+ * Base exception class for all service exceptions from Route53GlobalResolver service.
  *
  * @public
  */

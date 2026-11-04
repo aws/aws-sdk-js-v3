@@ -23,8 +23,8 @@ export interface CreateSipRuleCommandInput extends CreateSipRuleRequest {}
 export interface CreateSipRuleCommandOutput extends CreateSipRuleResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a SIP rule, which can be used to run a SIP media application as a target for a specific trigger type. For more information about SIP rules, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/ag/manage-sip-applications.html">Managing SIP media applications
- *            and rules</a> in the <i>Amazon Chime SDK Administrator Guide</i>.</p>
+ * Creates a SIP rule, which can be used to run a SIP media application as a target for a specific trigger type. For more information about SIP rules, see [Managing SIP media applications and rules](https://docs.aws.amazon.com/chime-sdk/latest/ag/manage-sip-applications.html) in the *Amazon Chime SDK Administrator Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,35 +76,44 @@ export interface CreateSipRuleCommandOutput extends CreateSipRuleResponse, __Met
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have the permissions needed to run this action.</p>
+ *
+ * You don't have the permissions needed to run this action.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * The input parameters don't match the service's restrictions.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Multiple instances of the same request were made simultaneously.</p>
+ *
+ * Multiple instances of the same request were made simultaneously.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * The client is permanently forbidden from making the request.
  *
  * @throws {@link ResourceLimitExceededException} (client fault)
- *  <p>The request exceeds the resource limit.</p>
+ *
+ * The request exceeds the resource limit.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The service encountered an unexpected error.</p>
+ *
+ * The service encountered an unexpected error.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is currently unavailable.</p>
+ *
+ * The service is currently unavailable.
  *
  * @throws {@link ThrottledClientException} (client fault)
- *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
+ * The number of customer requests exceeds the request rate limit.
  *
  * @throws {@link UnauthorizedClientException} (client fault)
- *  <p>The client isn't authorized to request a resource.</p>
+ *
+ * The client isn't authorized to request a resource.
  *
  * @throws {@link ChimeSDKVoiceServiceException}
- * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * Base exception class for all service exceptions from ChimeSDKVoice service.
  *
  * @public
  */

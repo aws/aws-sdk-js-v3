@@ -23,7 +23,12 @@ export interface CreateNetworkConnectorCommandInput extends CreateNetworkConnect
 export interface CreateNetworkConnectorCommandOutput extends CreateNetworkConnectorResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a network connector that enables Lambda compute resources to route outbound traffic through your Amazon VPC. The network connector provisions elastic network interfaces (ENIs) in the subnets you specify, providing a managed network path to private resources such as databases, caches, and internal APIs.</p> <p>This operation is asynchronous. The network connector starts in <code>PENDING</code> state while ENIs are provisioned in your VPC (provisioning typically takes up to 10 minutes). Use <code>GetNetworkConnector</code> to poll the connector state until it reaches <code>ACTIVE</code>. Once active, you can attach the connector to supported Lambda compute resources — such as MicroVMs and WebFunctions — at run time. For how to attach a connector, see the documentation for the specific compute type.</p> <p>This operation is idempotent when you provide a <code>ClientToken</code> — if you retry a request that completed successfully using the same client token, the operation returns the existing connector without creating a duplicate.</p>
+ * Creates a network connector that enables Lambda compute resources to route outbound traffic through your Amazon VPC. The network connector provisions elastic network interfaces (ENIs) in the subnets you specify, providing a managed network path to private resources such as databases, caches, and internal APIs.
+ *
+ * This operation is asynchronous. The network connector starts in `PENDING` state while ENIs are provisioned in your VPC (provisioning typically takes up to 10 minutes). Use `GetNetworkConnector` to poll the connector state until it reaches `ACTIVE`. Once active, you can attach the connector to supported Lambda compute resources — such as MicroVMs and WebFunctions — at run time. For how to attach a connector, see the documentation for the specific compute type.
+ *
+ * This operation is idempotent when you provide a `ClientToken` — if you retry a request that completed successfully using the same client token, the operation returns the existing connector without creating a duplicate.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -89,23 +94,28 @@ export interface CreateNetworkConnectorCommandOutput extends CreateNetworkConnec
  * @see {@link LambdaCoreClientResolvedConfig | config} for LambdaCoreClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One of the parameters in the request is not valid. Check the error message for details about which parameter failed validation.</p>
+ *
+ * One of the parameters in the request is not valid. Check the error message for details about which parameter failed validation.
  *
  * @throws {@link NetworkConnectorLimitExceededException} (client fault)
- *  <p>The request would exceed a network connector limit. For <code>CreateNetworkConnector</code>, the account has reached the maximum number of network connectors allowed. For <code>UpdateNetworkConnector</code>, the connector has reached the maximum number of versions allowed.</p>
+ *
+ * The request would exceed a network connector limit. For `CreateNetworkConnector`, the account has reached the maximum number of network connectors allowed. For `UpdateNetworkConnector`, the connector has reached the maximum number of versions allowed.
  *
  * @throws {@link ResourceConflictException} (client fault)
- *  <p>The request could not be completed due to a conflict with the current state of the resource. For example, attempting to update a connector that is not in <code>ACTIVE</code> state.</p>
+ *
+ * The request could not be completed due to a conflict with the current state of the resource. For example, attempting to update a connector that is not in `ACTIVE` state.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>An internal service error occurred. Retry the request with exponential backoff.</p>
+ *
+ * An internal service error occurred. Retry the request with exponential backoff.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The request was throttled due to exceeding the allowed request rate. Retry the request after a brief wait using exponential backoff.</p>
+ *
+ * The request was throttled due to exceeding the allowed request rate. Retry the request after a brief wait using exponential backoff.
  *
  * @throws {@link LambdaCoreServiceException}
- * <p>Base exception class for all service exceptions from LambdaCore service.</p>
  *
+ * Base exception class for all service exceptions from LambdaCore service.
  *
  * @public
  */

@@ -23,18 +23,16 @@ export interface DescribeStoreImageTasksCommandInput extends DescribeStoreImageT
 export interface DescribeStoreImageTasksCommandOutput extends DescribeStoreImageTasksResult, __MetadataBearer {}
 
 /**
- * <p>Describes the progress of the AMI store tasks. You can describe the store tasks for
- *       specified AMIs. If you don't specify the AMIs, you get a paginated list of store tasks from
- *       the last 31 days.</p>
- *          <p>For each AMI task, the response indicates if the task is <code>InProgress</code>,
- *       <code>Completed</code>, or <code>Failed</code>. For tasks <code>InProgress</code>, the
- *       response shows the estimated progress as a percentage.</p>
- *          <p>Tasks are listed in reverse chronological order. Currently, only tasks from the past 31
- *       days can be viewed.</p>
- *          <p>To use this API, you must have the required permissions. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-ami-store-restore.html#ami-s3-permissions">Permissions for storing and restoring AMIs using S3</a> in the
- *         <i>Amazon EC2 User Guide</i>.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html">Store and restore an AMI using
- *         S3</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * Describes the progress of the AMI store tasks. You can describe the store tasks for specified AMIs. If you don't specify the AMIs, you get a paginated list of store tasks from the last 31 days.
+ *
+ * For each AMI task, the response indicates if the task is `InProgress`, `Completed`, or `Failed`. For tasks `InProgress`, the response shows the estimated progress as a percentage.
+ *
+ * Tasks are listed in reverse chronological order. Currently, only tasks from the past 31 days can be viewed.
+ *
+ * To use this API, you must have the required permissions. For more information, see [Permissions for storing and restoring AMIs using S3](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-ami-store-restore.html#ami-s3-permissions) in the *Amazon EC2 User Guide*.
+ *
+ * For more information, see [Store and restore an AMI using S3](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,8 +83,8 @@ export interface DescribeStoreImageTasksCommandOutput extends DescribeStoreImage
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

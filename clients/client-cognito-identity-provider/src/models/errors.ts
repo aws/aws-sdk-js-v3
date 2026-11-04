@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { CognitoIdentityProviderServiceException as __BaseException } from "./CognitoIdentityProviderServiceException";
 
 /**
- * <p>This exception is thrown when you don't have sufficient permissions to perform the requested operation.</p>
+ * This exception is thrown when you don't have sufficient permissions to perform the requested operation.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ * This exception is thrown when Amazon Cognito encounters an internal error.
+ *
  * @public
  */
 export class InternalErrorException extends __BaseException {
@@ -46,8 +48,8 @@ export class InternalErrorException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the Amazon Cognito service encounters an invalid
- *             parameter.</p>
+ * This exception is thrown when the Amazon Cognito service encounters an invalid parameter.
+ *
  * @public
  */
 export class InvalidParameterException extends __BaseException {
@@ -55,7 +57,8 @@ export class InvalidParameterException extends __BaseException {
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The reason code of the exception.</p>
+   * The reason code of the exception.
+   *
    * @public
    */
   reasonCode?: string | undefined;
@@ -75,7 +78,8 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when a user isn't authorized.</p>
+ * This exception is thrown when a user isn't authorized.
+ *
  * @public
  */
 export class NotAuthorizedException extends __BaseException {
@@ -96,7 +100,8 @@ export class NotAuthorizedException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+ * This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.
+ *
  * @public
  */
 export class OperationNotEnabledException extends __BaseException {
@@ -117,8 +122,8 @@ export class OperationNotEnabledException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the Amazon Cognito service can't find the requested
- *             resource.</p>
+ * This exception is thrown when the Amazon Cognito service can't find the requested resource.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -139,8 +144,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the user has made too many requests for a given
- *             operation.</p>
+ * This exception is thrown when the user has made too many requests for a given operation.
+ *
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
@@ -161,8 +166,8 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when you're trying to modify a user pool while a user import
- *             job is in progress for that pool.</p>
+ * This exception is thrown when you're trying to modify a user pool while a user import job is in progress for that pool.
+ *
  * @public
  */
 export class UserImportInProgressException extends __BaseException {
@@ -183,7 +188,8 @@ export class UserImportInProgressException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when Amazon Cognito encounters an internal server error.</p>
+ * This exception is thrown when Amazon Cognito encounters an internal server error.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -204,8 +210,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services
- *             resource.</p>
+ * This exception is thrown when a user exceeds the limit for a requested Amazon Web Services resource.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -226,7 +232,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when a user isn't found.</p>
+ * This exception is thrown when a user isn't found.
+ *
  * @public
  */
 export class UserNotFoundException extends __BaseException {
@@ -247,7 +254,8 @@ export class UserNotFoundException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when Amazon Cognito encounters an invalid Lambda response.</p>
+ * This exception is thrown when Amazon Cognito encounters an invalid Lambda response.
+ *
  * @public
  */
 export class InvalidLambdaResponseException extends __BaseException {
@@ -268,8 +276,8 @@ export class InvalidLambdaResponseException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the user has made too many failed attempts for a given
- *             action, such as sign-in.</p>
+ * This exception is thrown when the user has made too many failed attempts for a given action, such as sign-in.
+ *
  * @public
  */
 export class TooManyFailedAttemptsException extends __BaseException {
@@ -290,8 +298,8 @@ export class TooManyFailedAttemptsException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when Amazon Cognito encounters an unexpected exception with
- *             Lambda.</p>
+ * This exception is thrown when Amazon Cognito encounters an unexpected exception with Lambda.
+ *
  * @public
  */
 export class UnexpectedLambdaException extends __BaseException {
@@ -312,8 +320,8 @@ export class UnexpectedLambdaException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the Amazon Cognito service encounters a user validation exception
- *             with the Lambda service.</p>
+ * This exception is thrown when the Amazon Cognito service encounters a user validation exception with the Lambda service.
+ *
  * @public
  */
 export class UserLambdaValidationException extends __BaseException {
@@ -334,8 +342,8 @@ export class UserLambdaValidationException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when a verification code fails to deliver
- *             successfully.</p>
+ * This exception is thrown when a verification code fails to deliver successfully.
+ *
  * @public
  */
 export class CodeDeliveryFailureException extends __BaseException {
@@ -356,7 +364,8 @@ export class CodeDeliveryFailureException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when Amazon Cognito encounters an invalid password.</p>
+ * This exception is thrown when Amazon Cognito encounters an invalid password.
+ *
  * @public
  */
 export class InvalidPasswordException extends __BaseException {
@@ -377,8 +386,8 @@ export class InvalidPasswordException extends __BaseException {
 }
 
 /**
- * <p>This exception is returned when the role provided for SMS configuration doesn't have
- *             permission to publish using Amazon SNS.</p>
+ * This exception is returned when the role provided for SMS configuration doesn't have permission to publish using Amazon SNS.
+ *
  * @public
  */
 export class InvalidSmsRoleAccessPolicyException extends __BaseException {
@@ -399,10 +408,8 @@ export class InvalidSmsRoleAccessPolicyException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the trust relationship is not valid for the role
- *             provided for SMS configuration. This can happen if you don't trust
- *                 <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does
- *             not match what is provided in the SMS configuration for the user pool.</p>
+ * This exception is thrown when the trust relationship is not valid for the role provided for SMS configuration. This can happen if you don't trust `cognito-idp.amazonaws.com` or the external ID provided in the role does not match what is provided in the SMS configuration for the user pool.
+ *
  * @public
  */
 export class InvalidSmsRoleTrustRelationshipException extends __BaseException {
@@ -423,7 +430,8 @@ export class InvalidSmsRoleTrustRelationshipException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when a precondition is not met.</p>
+ * This exception is thrown when a precondition is not met.
+ *
  * @public
  */
 export class PreconditionNotMetException extends __BaseException {
@@ -444,7 +452,8 @@ export class PreconditionNotMetException extends __BaseException {
 }
 
 /**
- * <p>The request failed because the user is in an unsupported state.</p>
+ * The request failed because the user is in an unsupported state.
+ *
  * @public
  */
 export class UnsupportedUserStateException extends __BaseException {
@@ -465,8 +474,8 @@ export class UnsupportedUserStateException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when Amazon Cognito encounters a user name that already
- *             exists in the user pool.</p>
+ * This exception is thrown when Amazon Cognito encounters a user name that already exists in the user pool.
+ *
  * @public
  */
 export class UsernameExistsException extends __BaseException {
@@ -487,7 +496,8 @@ export class UsernameExistsException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when a user isn't confirmed successfully.</p>
+ * This exception is thrown when a user isn't confirmed successfully.
+ *
  * @public
  */
 export class UserNotConfirmedException extends __BaseException {
@@ -508,11 +518,8 @@ export class UserNotConfirmedException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when a user tries to confirm the account with an email
- *             address or phone number that has already been supplied as an alias for a different user
- *             profile. This exception indicates that an account with this email address or phone
- *             already exists in a user pool that you've configured to use email address or phone
- *             number as a sign-in alias.</p>
+ * This exception is thrown when a user tries to confirm the account with an email address or phone number that has already been supplied as an alias for a different user profile. This exception indicates that an account with this email address or phone already exists in a user pool that you've configured to use email address or phone number as a sign-in alias.
+ *
  * @public
  */
 export class AliasExistsException extends __BaseException {
@@ -533,7 +540,8 @@ export class AliasExistsException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the user pool configuration is not valid.</p>
+ * This exception is thrown when the user pool configuration is not valid.
+ *
  * @public
  */
 export class InvalidUserPoolConfigurationException extends __BaseException {
@@ -554,20 +562,13 @@ export class InvalidUserPoolConfigurationException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when a feature that you attempted to use or configure
- *             isn't included in your user pool's current feature plan. This can occur
- *             when:</p>
- *          <ul>
- *             <li>
- *                <p>You configure a feature that your feature plan doesn't support.</p>
- *             </li>
- *             <li>
- *                <p>You make a request that uses a feature that requires a higher feature
- *                     plan.</p>
- *             </li>
- *          </ul>
- *          <p>To resolve this issue, upgrade your user pool to a feature plan that includes the
- *             feature.</p>
+ * This exception is thrown when a feature that you attempted to use or configure isn't included in your user pool's current feature plan. This can occur when:
+ *
+ * - You configure a feature that your feature plan doesn't support.
+ * - You make a request that uses a feature that requires a higher feature plan.
+ *
+ * To resolve this issue, upgrade your user pool to a feature plan that includes the feature.
+ *
  * @public
  */
 export class FeatureUnavailableInTierException extends __BaseException {
@@ -588,8 +589,8 @@ export class FeatureUnavailableInTierException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when Amazon Cognito isn't allowed to use your email identity. HTTP
- *             status code: 400.</p>
+ * This exception is thrown when Amazon Cognito isn't allowed to use your email identity. HTTP status code: 400.
+ *
  * @public
  */
 export class InvalidEmailRoleAccessPolicyException extends __BaseException {
@@ -610,8 +611,8 @@ export class InvalidEmailRoleAccessPolicyException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when Amazon Cognito can't find a multi-factor authentication
- *             (MFA) method.</p>
+ * This exception is thrown when Amazon Cognito can't find a multi-factor authentication (MFA) method.
+ *
  * @public
  */
 export class MFAMethodNotFoundException extends __BaseException {
@@ -632,7 +633,8 @@ export class MFAMethodNotFoundException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when a password reset is required.</p>
+ * This exception is thrown when a password reset is required.
+ *
  * @public
  */
 export class PasswordResetRequiredException extends __BaseException {
@@ -653,8 +655,8 @@ export class PasswordResetRequiredException extends __BaseException {
 }
 
 /**
- * <p>Exception that is thrown when you attempt to perform an operation that isn't enabled
- *             for the user pool client.</p>
+ * Exception that is thrown when you attempt to perform an operation that isn't enabled for the user pool client.
+ *
  * @public
  */
 export class UnsupportedOperationException extends __BaseException {
@@ -675,7 +677,8 @@ export class UnsupportedOperationException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when user pool add-ons aren't enabled.</p>
+ * This exception is thrown when user pool add-ons aren't enabled.
+ *
  * @public
  */
 export class UserPoolAddOnNotEnabledException extends __BaseException {
@@ -696,8 +699,8 @@ export class UserPoolAddOnNotEnabledException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown if the provided code doesn't match what the server was
- *             expecting.</p>
+ * This exception is thrown if the provided code doesn't match what the server was expecting.
+ *
  * @public
  */
 export class CodeMismatchException extends __BaseException {
@@ -718,7 +721,8 @@ export class CodeMismatchException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown if a code has expired.</p>
+ * This exception is thrown if a code has expired.
+ *
  * @public
  */
 export class ExpiredCodeException extends __BaseException {
@@ -739,8 +743,8 @@ export class ExpiredCodeException extends __BaseException {
 }
 
 /**
- * <p>The message returned when a user's new password matches a previous password and
- *             doesn't comply with the password-history policy.</p>
+ * The message returned when a user's new password matches a previous password and doesn't comply with the password-history policy.
+ *
  * @public
  */
 export class PasswordHistoryPolicyViolationException extends __BaseException {
@@ -761,8 +765,8 @@ export class PasswordHistoryPolicyViolationException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the software token time-based one-time password (TOTP)
- *             multi-factor authentication (MFA) isn't activated for the user pool.</p>
+ * This exception is thrown when the software token time-based one-time password (TOTP) multi-factor authentication (MFA) isn't activated for the user pool.
+ *
  * @public
  */
 export class SoftwareTokenMFANotFoundException extends __BaseException {
@@ -783,8 +787,8 @@ export class SoftwareTokenMFANotFoundException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown if two or more modifications are happening
- *             concurrently.</p>
+ * This exception is thrown if two or more modifications are happening concurrently.
+ *
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
@@ -805,8 +809,8 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when WAF doesn't allow your request based on a web
- *             ACL that's associated with your user pool.</p>
+ * This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.
+ *
  * @public
  */
 export class ForbiddenException extends __BaseException {
@@ -827,8 +831,8 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the challenge from <code>StartWebAuthn</code>
- *             registration has expired.</p>
+ * This exception is thrown when the challenge from `StartWebAuthn` registration has expired.
+ *
  * @public
  */
 export class WebAuthnChallengeNotFoundException extends __BaseException {
@@ -849,8 +853,8 @@ export class WebAuthnChallengeNotFoundException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the access token is for a different client than the one
- *             in the original <code>StartWebAuthnRegistration</code> request.</p>
+ * This exception is thrown when the access token is for a different client than the one in the original `StartWebAuthnRegistration` request.
+ *
  * @public
  */
 export class WebAuthnClientMismatchException extends __BaseException {
@@ -871,8 +875,8 @@ export class WebAuthnClientMismatchException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when a user presents passkey credentials from an unsupported
- *             device or provider.</p>
+ * This exception is thrown when a user presents passkey credentials from an unsupported device or provider.
+ *
  * @public
  */
 export class WebAuthnCredentialNotSupportedException extends __BaseException {
@@ -893,8 +897,8 @@ export class WebAuthnCredentialNotSupportedException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the passkey feature isn't enabled for the user
- *             pool.</p>
+ * This exception is thrown when the passkey feature isn't enabled for the user pool.
+ *
  * @public
  */
 export class WebAuthnNotEnabledException extends __BaseException {
@@ -915,8 +919,8 @@ export class WebAuthnNotEnabledException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the passkey credential's registration origin does not
- *             align with the user pool relying party id.</p>
+ * This exception is thrown when the passkey credential's registration origin does not align with the user pool relying party id.
+ *
  * @public
  */
 export class WebAuthnOriginNotAllowedException extends __BaseException {
@@ -937,8 +941,8 @@ export class WebAuthnOriginNotAllowedException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the given passkey credential is associated with a
- *             different relying party ID than the user pool relying party ID.</p>
+ * This exception is thrown when the given passkey credential is associated with a different relying party ID than the user pool relying party ID.
+ *
  * @public
  */
 export class WebAuthnRelyingPartyMismatchException extends __BaseException {
@@ -959,8 +963,8 @@ export class WebAuthnRelyingPartyMismatchException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when a user attempts to confirm a device with a device key
- *             that already exists.</p>
+ * This exception is thrown when a user attempts to confirm a device with a device key that already exists.
+ *
  * @public
  */
 export class DeviceKeyExistsException extends __BaseException {
@@ -981,8 +985,8 @@ export class DeviceKeyExistsException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when Amazon Cognito encounters a group that already exists in the user
- *             pool.</p>
+ * This exception is thrown when Amazon Cognito encounters a group that already exists in the user pool.
+ *
  * @public
  */
 export class GroupExistsException extends __BaseException {
@@ -1003,8 +1007,8 @@ export class GroupExistsException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the provider is already supported by the user
- *             pool.</p>
+ * This exception is thrown when the provider is already supported by the user pool.
+ *
  * @public
  */
 export class DuplicateProviderException extends __BaseException {
@@ -1025,8 +1029,8 @@ export class DuplicateProviderException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when you attempt to apply a managed login branding style to
- *             an app client that already has an assigned style.</p>
+ * This exception is thrown when you attempt to apply a managed login branding style to an app client that already has an assigned style.
+ *
  * @public
  */
 export class ManagedLoginBrandingExistsException extends __BaseException {
@@ -1047,8 +1051,8 @@ export class ManagedLoginBrandingExistsException extends __BaseException {
 }
 
 /**
- * <p>Terms document names must be unique to the app client. This exception is thrown when
- *             you attempt to create terms documents with a duplicate <code>TermsName</code>.</p>
+ * Terms document names must be unique to the app client. This exception is thrown when you attempt to create terms documents with a duplicate `TermsName`.
+ *
  * @public
  */
 export class TermsExistsException extends __BaseException {
@@ -1069,8 +1073,8 @@ export class TermsExistsException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when you've attempted to change your feature plan but
- *             the operation isn't permitted.</p>
+ * This exception is thrown when you've attempted to change your feature plan but the operation isn't permitted.
+ *
  * @public
  */
 export class TierChangeNotAllowedException extends __BaseException {
@@ -1091,7 +1095,8 @@ export class TierChangeNotAllowedException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when a user pool tag can't be set or updated.</p>
+ * This exception is thrown when a user pool tag can't be set or updated.
+ *
  * @public
  */
 export class UserPoolTaggingException extends __BaseException {
@@ -1112,7 +1117,8 @@ export class UserPoolTaggingException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the specified OAuth flow is not valid.</p>
+ * This exception is thrown when the specified OAuth flow is not valid.
+ *
  * @public
  */
 export class InvalidOAuthFlowException extends __BaseException {
@@ -1133,7 +1139,8 @@ export class InvalidOAuthFlowException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the specified scope doesn't exist.</p>
+ * This exception is thrown when the specified scope doesn't exist.
+ *
  * @public
  */
 export class ScopeDoesNotExistException extends __BaseException {
@@ -1154,7 +1161,8 @@ export class ScopeDoesNotExistException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the specified identifier isn't supported.</p>
+ * This exception is thrown when the specified identifier isn't supported.
+ *
  * @public
  */
 export class UnsupportedIdentityProviderException extends __BaseException {
@@ -1175,8 +1183,8 @@ export class UnsupportedIdentityProviderException extends __BaseException {
 }
 
 /**
- * <p>This exception is throw when your application requests token refresh with a refresh
- *             token that has been invalidated by refresh-token rotation.</p>
+ * This exception is throw when your application requests token refresh with a refresh token that has been invalidated by refresh-token rotation.
+ *
  * @public
  */
 export class RefreshTokenReuseException extends __BaseException {
@@ -1197,8 +1205,8 @@ export class RefreshTokenReuseException extends __BaseException {
 }
 
 /**
- * <p>Exception that is thrown when the request isn't authorized. This can happen due to an
- *             invalid access token in the request.</p>
+ * Exception that is thrown when the request isn't authorized. This can happen due to an invalid access token in the request.
+ *
  * @public
  */
 export class UnauthorizedException extends __BaseException {
@@ -1219,7 +1227,8 @@ export class UnauthorizedException extends __BaseException {
 }
 
 /**
- * <p>Exception that is thrown when an unsupported token is passed to an operation.</p>
+ * Exception that is thrown when an unsupported token is passed to an operation.
+ *
  * @public
  */
 export class UnsupportedTokenTypeException extends __BaseException {
@@ -1240,8 +1249,8 @@ export class UnsupportedTokenTypeException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when a user pool doesn't have a configured relying party
- *             id or a user pool domain.</p>
+ * This exception is thrown when a user pool doesn't have a configured relying party id or a user pool domain.
+ *
  * @public
  */
 export class WebAuthnConfigurationMissingException extends __BaseException {
@@ -1262,7 +1271,8 @@ export class WebAuthnConfigurationMissingException extends __BaseException {
 }
 
 /**
- * <p>The request exceeded your account's service quota. To increase your limit, use  or submit a Service Quotas increase request.</p>
+ * The request exceeded your account's service quota. To increase your limit, use or submit a Service Quotas increase request.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -1283,8 +1293,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when there is a code mismatch and the service fails to
- *             configure the software token TOTP multi-factor authentication (MFA).</p>
+ * This exception is thrown when there is a code mismatch and the service fails to configure the software token TOTP multi-factor authentication (MFA).
+ *
  * @public
  */
 export class EnableSoftwareTokenMFAException extends __BaseException {

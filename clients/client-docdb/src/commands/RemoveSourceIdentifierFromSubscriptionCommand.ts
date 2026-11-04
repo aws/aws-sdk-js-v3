@@ -26,8 +26,8 @@ export interface RemoveSourceIdentifierFromSubscriptionCommandInput extends Remo
 export interface RemoveSourceIdentifierFromSubscriptionCommandOutput extends RemoveSourceIdentifierFromSubscriptionResult, __MetadataBearer {}
 
 /**
- * <p>Removes a source identifier from an existing Amazon DocumentDB event notification
- *             subscription.</p>
+ * Removes a source identifier from an existing Amazon DocumentDB event notification subscription.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,14 +70,16 @@ export interface RemoveSourceIdentifierFromSubscriptionCommandOutput extends Rem
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  * @throws {@link SourceNotFoundFault} (client fault)
- *  <p>The requested source could not be found. </p>
+ *
+ * The requested source could not be found.
  *
  * @throws {@link SubscriptionNotFoundFault} (client fault)
- *  <p>The subscription name does not exist. </p>
+ *
+ * The subscription name does not exist.
  *
  * @throws {@link DocDBServiceException}
- * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * Base exception class for all service exceptions from DocDB service.
  *
  * @public
  */

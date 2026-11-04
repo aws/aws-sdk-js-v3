@@ -26,8 +26,10 @@ export interface ImportClientVpnClientCertificateRevocationListCommandInput exte
 export interface ImportClientVpnClientCertificateRevocationListCommandOutput extends ImportClientVpnClientCertificateRevocationListResult, __MetadataBearer {}
 
 /**
- * <p>Uploads a client certificate revocation list to the specified Client VPN endpoint. Uploading a client certificate revocation list overwrites the existing client certificate revocation list.</p>
- *          <p>Uploading a client certificate revocation list resets existing client connections.</p>
+ * Uploads a client certificate revocation list to the specified Client VPN endpoint. Uploading a client certificate revocation list overwrites the existing client certificate revocation list.
+ *
+ * Uploading a client certificate revocation list resets existing client connections.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,8 +58,8 @@ export interface ImportClientVpnClientCertificateRevocationListCommandOutput ext
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

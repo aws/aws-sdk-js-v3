@@ -23,7 +23,12 @@ export interface CreateDBClusterSnapshotCommandInput extends CreateDBClusterSnap
 export interface CreateDBClusterSnapshotCommandOutput extends CreateDBClusterSnapshotResult, __MetadataBearer {}
 
 /**
- * <p>Creates a snapshot of a DB cluster.</p> <p>For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html"> What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p> <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB cluster deployments</a> in the <i>Amazon RDS User Guide</i>.</p>
+ * Creates a snapshot of a DB cluster.
+ *
+ * For more information on Amazon Aurora, see [What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html) in the *Amazon Aurora User Guide*.
+ *
+ * For more information on Multi-AZ DB clusters, see [Multi-AZ DB cluster deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html) in the *Amazon RDS User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,23 +99,28 @@ export interface CreateDBClusterSnapshotCommandOutput extends CreateDBClusterSna
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *
+ * `DBClusterIdentifier` doesn't refer to an existing DB cluster.
  *
  * @throws {@link DBClusterSnapshotAlreadyExistsFault} (client fault)
- *  <p>The user already has a DB cluster snapshot with the given identifier.</p>
+ *
+ * The user already has a DB cluster snapshot with the given identifier.
  *
  * @throws {@link InvalidDBClusterSnapshotStateFault} (client fault)
- *  <p>The supplied value isn't a valid DB cluster snapshot state.</p>
+ *
+ * The supplied value isn't a valid DB cluster snapshot state.
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
- *  <p>The requested operation can't be performed while the cluster is in this state.</p>
+ *
+ * The requested operation can't be performed while the cluster is in this state.
  *
  * @throws {@link SnapshotQuotaExceededFault} (client fault)
- *  <p>The request would result in the user exceeding the allowed number of DB snapshots.</p>
+ *
+ * The request would result in the user exceeding the allowed number of DB snapshots.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To create a DB cluster snapshot
  * ```javascript

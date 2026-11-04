@@ -26,7 +26,8 @@ export interface DescribeCustomWorkspaceImageImportCommandInput extends Describe
 export interface DescribeCustomWorkspaceImageImportCommandOutput extends DescribeCustomWorkspaceImageImportResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about a WorkSpace BYOL image being imported via ImportCustomWorkspaceImage.</p>
+ * Retrieves information about a WorkSpace BYOL image being imported via ImportCustomWorkspaceImage.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,14 +72,16 @@ export interface DescribeCustomWorkspaceImageImportCommandOutput extends Describ
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The user is not authorized to access a resource.</p>
+ *
+ * The user is not authorized to access a resource.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link WorkSpacesServiceException}
- * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * Base exception class for all service exceptions from WorkSpaces service.
  *
  * @public
  */

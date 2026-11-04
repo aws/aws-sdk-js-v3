@@ -23,7 +23,8 @@ export interface ListConnectionFunctionsCommandInput extends ListConnectionFunct
 export interface ListConnectionFunctionsCommandOutput extends ListConnectionFunctionsResult, __MetadataBearer {}
 
 /**
- * <p>Lists connection functions.</p>
+ * Lists connection functions.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,17 +76,20 @@ export interface ListConnectionFunctionsCommandOutput extends ListConnectionFunc
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link AccessDenied} (client fault)
- *  <p>Access denied.</p>
+ *
+ * Access denied.
  *
  * @throws {@link InvalidArgument} (client fault)
- *  <p>An argument is invalid.</p>
+ *
+ * An argument is invalid.
  *
  * @throws {@link UnsupportedOperation} (client fault)
- *  <p>This operation is not supported in this Amazon Web Services Region.</p>
+ *
+ * This operation is not supported in this Amazon Web Services Region.
  *
  * @throws {@link CloudFrontServiceException}
- * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * Base exception class for all service exceptions from CloudFront service.
  *
  * @public
  */

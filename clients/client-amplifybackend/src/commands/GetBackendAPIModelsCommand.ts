@@ -23,7 +23,8 @@ export interface GetBackendAPIModelsCommandInput extends GetBackendAPIModelsRequ
 export interface GetBackendAPIModelsCommandOutput extends GetBackendAPIModelsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a model introspection schema for an existing backend API resource.</p>
+ * Gets a model introspection schema for an existing backend API resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,20 +55,24 @@ export interface GetBackendAPIModelsCommandOutput extends GetBackendAPIModelsRes
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>An error returned if a request is not formed properly.</p>
+ *
+ * An error returned if a request is not formed properly.
  *
  * @throws {@link GatewayTimeoutException} (server fault)
- *  <p>An error returned if there's a temporary issue with the service.</p>
+ *
+ * An error returned if there's a temporary issue with the service.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>An error returned when a specific resource type is not found.</p>
+ *
+ * An error returned when a specific resource type is not found.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>An error that is returned when a limit of a specific type has been exceeded.</p>
+ *
+ * An error that is returned when a limit of a specific type has been exceeded.
  *
  * @throws {@link AmplifyBackendServiceException}
- * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
+ * Base exception class for all service exceptions from AmplifyBackend service.
  *
  * @public
  */

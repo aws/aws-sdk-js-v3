@@ -23,41 +23,26 @@ export interface DetectCustomLabelsCommandInput extends DetectCustomLabelsReques
 export interface DetectCustomLabelsCommandOutput extends DetectCustomLabelsResponse, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This operation applies only to Amazon Rekognition Custom Labels.</p>
- *          </note>
- *          <p>Detects custom labels in a supplied image by using an Amazon Rekognition Custom Labels model. </p>
- *          <p>You specify which version of a model version to use by using the <code>ProjectVersionArn</code> input
- *       parameter. </p>
- *          <p>You pass the input image as base64-encoded image bytes or as a reference to an image in
- *          an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, passing
- *          image bytes is not supported. The image must be either a PNG or JPEG formatted file. </p>
- *          <p> For each object that the model version detects on an image, the API returns a
- *          (<code>CustomLabel</code>) object in an array (<code>CustomLabels</code>).
- *          Each <code>CustomLabel</code> object provides the label name (<code>Name</code>), the level
- *          of confidence that the image contains the object (<code>Confidence</code>), and
- *          object location information, if it exists,  for the label on the image (<code>Geometry</code>). </p>
- *          <p>To filter labels that are returned, specify a value for <code>MinConfidence</code>.
- *          <code>DetectCustomLabelsLabels</code> only returns labels with a confidence that's higher than
- *          the specified value.
+ * > **Note:** This operation applies only to Amazon Rekognition Custom Labels.
  *
- *          The value of <code>MinConfidence</code> maps to the assumed threshold values
- *          created during training. For more information, see <i>Assumed threshold</i>
- *          in the Amazon Rekognition Custom Labels Developer Guide.
- *          Amazon Rekognition Custom Labels metrics expresses an assumed threshold as a floating point value between 0-1. The range of
- *          <code>MinConfidence</code> normalizes the threshold value to a percentage value (0-100). Confidence
- *          responses from <code>DetectCustomLabels</code> are also returned as a percentage.
- *          You can use <code>MinConfidence</code> to change the precision and recall or your model.
- *          For more information, see
- *          <i>Analyzing an image</i> in the Amazon Rekognition Custom Labels Developer Guide. </p>
- *          <p>If you don't specify a value for <code>MinConfidence</code>,  <code>DetectCustomLabels</code>
- *       returns labels based on the assumed threshold of each label.</p>
- *          <p>This is a stateless API operation. That is, the operation does not persist any
- *          data.</p>
- *          <p>This operation requires permissions to perform the
- *          <code>rekognition:DetectCustomLabels</code> action. </p>
- *          <p>For more information, see
- *       <i>Analyzing an image</i> in the Amazon Rekognition Custom Labels Developer Guide. </p>
+ * Detects custom labels in a supplied image by using an Amazon Rekognition Custom Labels model.
+ *
+ * You specify which version of a model version to use by using the `ProjectVersionArn` input parameter.
+ *
+ * You pass the input image as base64-encoded image bytes or as a reference to an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes is not supported. The image must be either a PNG or JPEG formatted file.
+ *
+ * For each object that the model version detects on an image, the API returns a (`CustomLabel`) object in an array (`CustomLabels`). Each `CustomLabel` object provides the label name (`Name`), the level of confidence that the image contains the object (`Confidence`), and object location information, if it exists, for the label on the image (`Geometry`).
+ *
+ * To filter labels that are returned, specify a value for `MinConfidence`. `DetectCustomLabelsLabels` only returns labels with a confidence that's higher than the specified value. The value of `MinConfidence` maps to the assumed threshold values created during training. For more information, see *Assumed threshold* in the Amazon Rekognition Custom Labels Developer Guide. Amazon Rekognition Custom Labels metrics expresses an assumed threshold as a floating point value between 0-1. The range of `MinConfidence` normalizes the threshold value to a percentage value (0-100). Confidence responses from `DetectCustomLabels` are also returned as a percentage. You can use `MinConfidence` to change the precision and recall or your model. For more information, see *Analyzing an image* in the Amazon Rekognition Custom Labels Developer Guide.
+ *
+ * If you don't specify a value for `MinConfidence`, `DetectCustomLabels` returns labels based on the assumed threshold of each label.
+ *
+ * This is a stateless API operation. That is, the operation does not persist any data.
+ *
+ * This operation requires permissions to perform the `rekognition:DetectCustomLabels` action.
+ *
+ * For more information, see *Analyzing an image* in the Amazon Rekognition Custom Labels Developer Guide.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -113,52 +98,52 @@ export interface DetectCustomLabelsCommandOutput extends DetectCustomLabelsRespo
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You are not authorized to perform the action.</p>
+ *
+ * You are not authorized to perform the action.
  *
  * @throws {@link ImageTooLargeException} (client fault)
- *  <p>The input image size exceeds the allowed limit. If you are calling
- *       DetectProtectiveEquipment, the image size or resolution exceeds the allowed limit. For more
- *       information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide.
- *     </p>
+ *
+ * The input image size exceeds the allowed limit. If you are calling DetectProtectiveEquipment, the image size or resolution exceeds the allowed limit. For more information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * Amazon Rekognition experienced a service issue. Try your call again.
  *
  * @throws {@link InvalidImageFormatException} (client fault)
- *  <p>The provided image format is not supported. </p>
+ *
+ * The provided image format is not supported.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
- *       operation again.</p>
+ *
+ * Input parameter violated a constraint. Validate your parameter before calling the API operation again.
  *
  * @throws {@link InvalidS3ObjectException} (client fault)
- *  <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
+ *
+ * Amazon Rekognition is unable to access the S3 object specified in the request.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs
- *             concurrently, subsequent calls to start operations (ex:
- *             <code>StartLabelDetection</code>) will raise a <code>LimitExceededException</code>
- *             exception (HTTP status code: 400) until the number of concurrently running jobs is below
- *             the Amazon Rekognition service limit. </p>
+ *
+ * An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs concurrently, subsequent calls to start operations (ex: `StartLabelDetection`) will raise a `LimitExceededException` exception (HTTP status code: 400) until the number of concurrently running jobs is below the Amazon Rekognition service limit.
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
- *  <p>The number of requests exceeded your throughput limit. If you want to increase this
- *       limit, contact Amazon Rekognition.</p>
+ *
+ * The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource specified in the request cannot be found.</p>
+ *
+ * The resource specified in the request cannot be found.
  *
  * @throws {@link ResourceNotReadyException} (client fault)
- *  <p>The requested resource isn't ready. For example,
- *          this exception occurs when you call <code>DetectCustomLabels</code> with a
- *          model version that isn't deployed. </p>
+ *
+ * The requested resource isn't ready. For example, this exception occurs when you call `DetectCustomLabels` with a model version that isn't deployed.
  *
  * @throws {@link ThrottlingException} (server fault)
- *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
+ * Amazon Rekognition is temporarily unable to process the request. Try your call again.
  *
  * @throws {@link RekognitionServiceException}
- * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * Base exception class for all service exceptions from Rekognition service.
  *
  * @example To detect custom labels in an image with an Amazon Rekognition Custom Labels model
  * ```javascript

@@ -23,7 +23,10 @@ export interface SearchTextCommandInput extends SearchTextRequest {}
 export interface SearchTextCommandOutput extends SearchTextResponse, __MetadataBearer {}
 
 /**
- * <p> <code>SearchText</code> searches for geocode and place information. You can then complete a follow-up query suggested from the <code>Suggest</code> API via a query id.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/search-text.html">Search Text</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+ * `SearchText` searches for geocode and place information. You can then complete a follow-up query suggested from the `Suggest` API via a query id.
+ *
+ * For more information, see [Search Text](https://docs.aws.amazon.com/location/latest/developerguide/search-text.html) in the *Amazon Location Service Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -311,20 +314,24 @@ export interface SearchTextCommandOutput extends SearchTextResponse, __MetadataB
  * @see {@link GeoPlacesClientResolvedConfig | config} for GeoPlacesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * You don't have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an AWS service.
  *
  * @throws {@link GeoPlacesServiceException}
- * <p>Base exception class for all service exceptions from GeoPlaces service.</p>
  *
+ * Base exception class for all service exceptions from GeoPlaces service.
  *
  * @public
  */

@@ -23,12 +23,10 @@ export interface PutInsightRuleCommandInput extends PutInsightRuleInput {}
 export interface PutInsightRuleCommandOutput extends PutInsightRuleOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a Contributor Insights rule. Rules evaluate log events in a CloudWatch Logs
- *             log group, enabling you to find contributor data for the log events in that log group.
- *             For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights.html">Using Contributor
- *                 Insights to Analyze High-Cardinality Data</a>.</p>
- *          <p>If you create a rule, delete it, and then re-create it with the same name, historical
- *             data from the first time the rule was created might not be available.</p>
+ * Creates a Contributor Insights rule. Rules evaluate log events in a CloudWatch Logs log group, enabling you to find contributor data for the log events in that log group. For more information, see [Using Contributor Insights to Analyze High-Cardinality Data](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights.html).
+ *
+ * If you create a rule, delete it, and then re-create it with the same name, historical data from the first time the rule was created might not be available.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,17 +60,20 @@ export interface PutInsightRuleCommandOutput extends PutInsightRuleOutput, __Met
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value of an input parameter is bad or out-of-range.</p>
+ *
+ * The value of an input parameter is bad or out-of-range.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The operation exceeded one or more limits.</p>
+ *
+ * The operation exceeded one or more limits.
  *
  * @throws {@link MissingRequiredParameterException} (client fault)
- *  <p>An input parameter that is required is missing.</p>
+ *
+ * An input parameter that is required is missing.
  *
  * @throws {@link CloudWatchServiceException}
- * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatch service.
  *
  * @public
  */

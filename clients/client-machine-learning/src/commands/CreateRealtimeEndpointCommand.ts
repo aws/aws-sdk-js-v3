@@ -23,7 +23,8 @@ export interface CreateRealtimeEndpointCommandInput extends CreateRealtimeEndpoi
 export interface CreateRealtimeEndpointCommandOutput extends CreateRealtimeEndpointOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a real-time endpoint for the <code>MLModel</code>. The endpoint contains the URI of the <code>MLModel</code>; that is, the location to send real-time prediction requests for the specified <code>MLModel</code>.</p>
+ * Creates a real-time endpoint for the `MLModel`. The endpoint contains the URI of the `MLModel`; that is, the location to send real-time prediction requests for the specified `MLModel`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,17 +57,20 @@ export interface CreateRealtimeEndpointCommandOutput extends CreateRealtimeEndpo
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An error on the server occurred when trying to process a request.</p>
+ *
+ * An error on the server occurred when trying to process a request.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+ *
+ * An error on the client occurred. Typically, the cause is an invalid input value.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A specified resource cannot be located.</p>
+ *
+ * A specified resource cannot be located.
  *
  * @throws {@link MachineLearningServiceException}
- * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ * Base exception class for all service exceptions from MachineLearning service.
  *
  * @public
  */

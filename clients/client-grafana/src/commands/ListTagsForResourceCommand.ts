@@ -23,7 +23,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>The <code>ListTagsForResource</code> operation returns the tags that are associated with the Amazon Managed Service for Grafana resource specified by the <code>resourceArn</code>. Currently, the only resource that can be tagged is a workspace. </p>
+ * The `ListTagsForResource` operation returns the tags that are associated with the Amazon Managed Service for Grafana resource specified by the `resourceArn`. Currently, the only resource that can be tagged is a workspace.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,23 +53,28 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action. </p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error while processing the request. Retry the request.</p>
+ *
+ * Unexpected error while processing the request. Retry the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request references a resource that does not exist.</p>
+ *
+ * The request references a resource that does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied because of request throttling. Retry the request.</p>
+ *
+ * The request was denied because of request throttling. Retry the request.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The value of a parameter in the request caused an error.</p>
+ *
+ * The value of a parameter in the request caused an error.
  *
  * @throws {@link GrafanaServiceException}
- * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
+ * Base exception class for all service exceptions from Grafana service.
  *
  * @public
  */

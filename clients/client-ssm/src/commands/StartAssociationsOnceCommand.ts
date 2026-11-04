@@ -23,8 +23,8 @@ export interface StartAssociationsOnceCommandInput extends StartAssociationsOnce
 export interface StartAssociationsOnceCommandOutput extends StartAssociationsOnceResult, __MetadataBearer {}
 
 /**
- * <p>Runs an association immediately and only one time. This operation can be helpful when
- *    troubleshooting associations.</p>
+ * Runs an association immediately and only one time. This operation can be helpful when troubleshooting associations.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,14 +51,16 @@ export interface StartAssociationsOnceCommandOutput extends StartAssociationsOnc
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link AssociationDoesNotExist} (client fault)
- *  <p>The specified association doesn't exist.</p>
+ *
+ * The specified association doesn't exist.
  *
  * @throws {@link InvalidAssociation} (client fault)
- *  <p>The association isn't valid or doesn't exist. </p>
+ *
+ * The association isn't valid or doesn't exist.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

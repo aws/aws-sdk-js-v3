@@ -26,15 +26,10 @@ export interface GetDeployablePatchSnapshotForInstanceCommandInput extends GetDe
 export interface GetDeployablePatchSnapshotForInstanceCommandOutput extends GetDeployablePatchSnapshotForInstanceResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves the current snapshot for the patch baseline the managed node uses. This API is
- *    primarily used by the <code>AWS-RunPatchBaseline</code> Systems Manager document (SSM document).</p>
- *          <note>
- *             <p>If you run the command locally, such as with the Command Line Interface (CLI), the system attempts to use your local Amazon Web Services credentials and the operation fails. To avoid
- *     this, you can run the command in the Amazon Web Services Systems Manager console. Use Run Command, a tool in Amazon Web Services Systems Manager,
- *     with an SSM document that enables you to target a managed node with a script or command. For
- *     example, run the command using the <code>AWS-RunShellScript</code> document or the
- *      <code>AWS-RunPowerShellScript</code> document.</p>
- *          </note>
+ * Retrieves the current snapshot for the patch baseline the managed node uses. This API is primarily used by the `AWS-RunPatchBaseline` Systems Manager document (SSM document).
+ *
+ * > **Note:** If you run the command locally, such as with the Command Line Interface (CLI), the system attempts to use your local Amazon Web Services credentials and the operation fails. To avoid this, you can run the command in the Amazon Web Services Systems Manager console. Use Run Command, a tool in Amazon Web Services Systems Manager, with an SSM document that enables you to target a managed node with a script or command. For example, run the command using the `AWS-RunShellScript` document or the `AWS-RunPowerShellScript` document.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -118,21 +113,20 @@ export interface GetDeployablePatchSnapshotForInstanceCommandOutput extends GetD
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link UnsupportedFeatureRequiredException} (client fault)
- *  <p>Patching for applications released by Microsoft is only available on EC2 instances and
- *    advanced instances. To patch applications released by Microsoft on on-premises servers and VMs,
- *    you must enable advanced instances. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances-advanced.html">Turning on
- *     the advanced-instances tier</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+ *
+ * Patching for applications released by Microsoft is only available on EC2 instances and advanced instances. To patch applications released by Microsoft on on-premises servers and VMs, you must enable advanced instances. For more information, see [Turning on the advanced-instances tier](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances-advanced.html) in the *Amazon Web Services Systems Manager User Guide*.
  *
  * @throws {@link UnsupportedOperatingSystem} (client fault)
- *  <p>The operating systems you specified isn't supported, or the operation isn't supported for
- *    the operating system.</p>
+ *
+ * The operating systems you specified isn't supported, or the operation isn't supported for the operating system.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

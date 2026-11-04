@@ -23,7 +23,18 @@ export interface BatchExecuteStatementCommandInput extends BatchExecuteStatement
 export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatementResponse, __MetadataBearer {}
 
 /**
- * <p>Runs a batch SQL statement over an array of data.</p> <p>You can run bulk update and insert operations for multiple records using a DML statement with different parameter sets. Bulk operations can provide a significant performance improvement over individual insert and update operations.</p> <note> <p>If a call isn't part of a transaction because it doesn't include the <code>transactionID</code> parameter, changes that result from the call are committed automatically.</p> <p>There isn't a fixed upper limit on the number of parameter sets. However, the maximum size of the HTTP request submitted through the Data API is 4 MiB. If the request exceeds this limit, the Data API returns an error and doesn't process the request. This 4-MiB limit includes the size of the HTTP headers and the JSON notation in the request. Thus, the number of parameter sets that you can include depends on a combination of factors, such as the size of the SQL statement and the size of each parameter set.</p> <p>The response size limit is 1 MiB. If the call returns more than 1 MiB of response data, the call is terminated.</p> </note>
+ * Runs a batch SQL statement over an array of data.
+ *
+ * You can run bulk update and insert operations for multiple records using a DML statement with different parameter sets. Bulk operations can provide a significant performance improvement over individual insert and update operations.
+ *
+ * > **Note:**
+ * >
+ * > If a call isn't part of a transaction because it doesn't include the `transactionID` parameter, changes that result from the call are committed automatically.
+ * >
+ * > There isn't a fixed upper limit on the number of parameter sets. However, the maximum size of the HTTP request submitted through the Data API is 4 MiB. If the request exceeds this limit, the Data API returns an error and doesn't process the request. This 4-MiB limit includes the size of the HTTP headers and the JSON notation in the request. Thus, the number of parameter sets that you can include depends on a combination of factors, such as the size of the SQL statement and the size of each parameter set.
+ * >
+ * > The response size limit is 1 MiB. If the call returns more than 1 MiB of response data, the call is terminated.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -150,53 +161,72 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  * @see {@link RDSDataClientResolvedConfig | config} for RDSDataClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * You don't have sufficient access to perform this action.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>There is an error in the call or in a SQL statement. This exception is deprecated.</p>
+ *
+ * There is an error in the call or in a SQL statement. This exception is deprecated.
  *
  * @throws {@link DatabaseErrorException} (client fault)
- *  <p>There was an error in processing the SQL statement.</p>
+ *
+ * There was an error in processing the SQL statement.
  *
  * @throws {@link DatabaseNotFoundException} (client fault)
- *  <p>The DB cluster doesn't have a DB instance.</p>
+ *
+ * The DB cluster doesn't have a DB instance.
  *
  * @throws {@link DatabaseResumingException} (client fault)
- *  <p>A request was cancelled because the Aurora Serverless DB instance was paused. The Data API request automatically resumes the DB instance. Wait a few seconds and try again.</p>
+ *
+ * A request was cancelled because the Aurora Serverless DB instance was paused. The Data API request automatically resumes the DB instance. Wait a few seconds and try again.
  *
  * @throws {@link DatabaseUnavailableException} (server fault)
- *  <p>The writer instance in the DB cluster isn't available.</p>
+ *
+ * The writer instance in the DB cluster isn't available.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>There are insufficient privileges to make the call.</p>
+ *
+ * There are insufficient privileges to make the call.
  *
  * @throws {@link HttpEndpointNotEnabledException} (client fault)
- *  <p>The HTTP endpoint for using RDS Data API isn't enabled for the DB cluster.</p>
+ *
+ * The HTTP endpoint for using RDS Data API isn't enabled for the DB cluster.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>An internal error occurred.</p>
+ *
+ * An internal error occurred.
  *
  * @throws {@link InvalidResourceStateException} (client fault)
- *  <p>The resource is in an invalid state.</p>
+ *
+ * The resource is in an invalid state.
  *
  * @throws {@link InvalidSecretException} (client fault)
- *  <p>The Secrets Manager secret used with the request isn't valid.</p>
+ *
+ * The Secrets Manager secret used with the request isn't valid.
  *
  * @throws {@link SecretsErrorException} (client fault)
- *  <p>There was a problem with the Secrets Manager secret used with the request, caused by one of the following conditions:</p> <ul> <li> <p>RDS Data API timed out retrieving the secret.</p> </li> <li> <p>The secret provided wasn't found.</p> </li> <li> <p>The secret couldn't be decrypted.</p> </li> </ul>
+ *
+ * There was a problem with the Secrets Manager secret used with the request, caused by one of the following conditions:
+ *
+ * - RDS Data API timed out retrieving the secret.
+ * - The secret provided wasn't found.
+ * - The secret couldn't be decrypted.
  *
  * @throws {@link ServiceUnavailableError} (server fault)
- *  <p>The service specified by the <code>resourceArn</code> parameter isn't available.</p>
+ *
+ * The service specified by the `resourceArn` parameter isn't available.
  *
  * @throws {@link StatementTimeoutException} (client fault)
- *  <p>The execution of the SQL statement timed out.</p>
+ *
+ * The execution of the SQL statement timed out.
  *
  * @throws {@link TransactionNotFoundException} (client fault)
- *  <p>The transaction ID wasn't found.</p>
+ *
+ * The transaction ID wasn't found.
  *
  * @throws {@link RDSDataServiceException}
- * <p>Base exception class for all service exceptions from RDSData service.</p>
  *
+ * Base exception class for all service exceptions from RDSData service.
  *
  * @public
  */

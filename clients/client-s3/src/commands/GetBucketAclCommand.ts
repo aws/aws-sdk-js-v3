@@ -23,36 +23,22 @@ export interface GetBucketAclCommandInput extends GetBucketAclRequest {}
 export interface GetBucketAclCommandOutput extends GetBucketAclOutput, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This operation is not supported for directory buckets.</p>
- *          </note>
- *          <p>This implementation of the <code>GET</code> action uses the <code>acl</code> subresource to return
- *       the access control list (ACL) of a bucket. To use <code>GET</code> to return the ACL of the bucket, you
- *       must have the <code>READ_ACP</code> access to the bucket. If <code>READ_ACP</code> permission is granted
- *       to the anonymous user, you can return the ACL of the bucket without using an authorization
- *       header.</p>
- *          <p>When you use this API operation with an access point, provide the alias of the access point in place of the bucket name.</p>
- *          <p>When you use this API operation with an Object Lambda access point, provide the alias of the Object Lambda access point in place of the bucket name.
- * If the Object Lambda access point alias in a request is not valid, the error code <code>InvalidAccessPointAliasError</code> is returned.
- * For more information about <code>InvalidAccessPointAliasError</code>, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList">List of
- *             Error Codes</a>.</p>
- *          <note>
- *             <p>If your bucket uses the bucket owner enforced setting for S3 Object Ownership, requests to read
- *         ACLs are still supported and return the <code>bucket-owner-full-control</code> ACL with the owner
- *         being the account that created the bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html"> Controlling object ownership and
- *           disabling ACLs</a> in the <i>Amazon S3 User Guide</i>.</p>
- *          </note>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
- *          <p>The following operations are related to <code>GetBucketAcl</code>:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html">ListObjects</a>
- *                </p>
- *             </li>
- *          </ul>
+ * > **Note:** This operation is not supported for directory buckets.
+ *
+ * This implementation of the `GET` action uses the `acl` subresource to return the access control list (ACL) of a bucket. To use `GET` to return the ACL of the bucket, you must have the `READ_ACP` access to the bucket. If `READ_ACP` permission is granted to the anonymous user, you can return the ACL of the bucket without using an authorization header.
+ *
+ * When you use this API operation with an access point, provide the alias of the access point in place of the bucket name.
+ *
+ * When you use this API operation with an Object Lambda access point, provide the alias of the Object Lambda access point in place of the bucket name. If the Object Lambda access point alias in a request is not valid, the error code `InvalidAccessPointAliasError` is returned. For more information about `InvalidAccessPointAliasError`, see [List of Error Codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList).
+ *
+ * > **Note:** If your bucket uses the bucket owner enforced setting for S3 Object Ownership, requests to read ACLs are still supported and return the `bucket-owner-full-control` ACL with the owner being the account that created the bucket. For more information, see [Controlling object ownership and disabling ACLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html) in the *Amazon S3 User Guide*.
+ *
+ * > **Important:** You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
+ *
+ * The following operations are related to `GetBucketAcl`:
+ *
+ * - [ListObjects](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,8 +81,8 @@ export interface GetBucketAclCommandOutput extends GetBucketAclOutput, __Metadat
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  * @throws {@link S3ServiceException}
- * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * Base exception class for all service exceptions from S3 service.
  *
  * @public
  */

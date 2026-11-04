@@ -23,7 +23,8 @@ export interface DeclineInvitationsCommandInput extends DeclineInvitationsReques
 export interface DeclineInvitationsCommandOutput extends DeclineInvitationsResponse, __MetadataBearer {}
 
 /**
- * <p>Declines invitations sent to the current member account by Amazon Web Services accounts specified by their account IDs.</p>
+ * Declines invitations sent to the current member account by Amazon Web Services accounts specified by their account IDs.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,14 +58,16 @@ export interface DeclineInvitationsCommandOutput extends DeclineInvitationsRespo
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>A bad request exception object.</p>
+ *
+ * A bad request exception object.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>An internal server error exception object.</p>
+ *
+ * An internal server error exception object.
  *
  * @throws {@link GuardDutyServiceException}
- * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * Base exception class for all service exceptions from GuardDuty service.
  *
  * @public
  */

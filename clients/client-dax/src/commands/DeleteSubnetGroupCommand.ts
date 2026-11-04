@@ -23,11 +23,10 @@ export interface DeleteSubnetGroupCommandInput extends DeleteSubnetGroupRequest 
 export interface DeleteSubnetGroupCommandOutput extends DeleteSubnetGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a subnet group.</p>
- *          <note>
- *             <p>You cannot delete a subnet group if it is associated with any DAX
- *                 clusters.</p>
- *          </note>
+ * Deletes a subnet group.
+ *
+ * > **Note:** You cannot delete a subnet group if it is associated with any DAX clusters.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,18 +53,20 @@ export interface DeleteSubnetGroupCommandOutput extends DeleteSubnetGroupRespons
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
- *  <p>The specified service linked role (SLR) was not found.</p>
+ *
+ * The specified service linked role (SLR) was not found.
  *
  * @throws {@link SubnetGroupInUseFault} (client fault)
- *  <p>The specified subnet group is currently in use.</p>
+ *
+ * The specified subnet group is currently in use.
  *
  * @throws {@link SubnetGroupNotFoundFault} (client fault)
- *  <p>The requested subnet group name does not refer to an existing subnet
- *             group.</p>
+ *
+ * The requested subnet group name does not refer to an existing subnet group.
  *
  * @throws {@link DAXServiceException}
- * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ * Base exception class for all service exceptions from DAX service.
  *
  * @public
  */

@@ -26,13 +26,12 @@ export interface SetLoadBalancerPoliciesOfListenerCommandInput extends SetLoadBa
 export interface SetLoadBalancerPoliciesOfListenerCommandOutput extends SetLoadBalancerPoliciesOfListenerOutput, __MetadataBearer {}
 
 /**
- * <p>Replaces the current set of policies for the specified load balancer port with the specified set of policies.</p>
- *         <p>To enable back-end server authentication, use <a>SetLoadBalancerPoliciesForBackendServer</a>.</p>
- *         <p>For more information about setting policies, see
- *             <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/ssl-config-update.html">Update the SSL Negotiation Configuration</a>,
- *             <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-duration">Duration-Based Session Stickiness</a>, and
- *             <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-application">Application-Controlled Session Stickiness</a>
- *             in the <i>Classic Load Balancers Guide</i>.</p>
+ * Replaces the current set of policies for the specified load balancer port with the specified set of policies.
+ *
+ * To enable back-end server authentication, use SetLoadBalancerPoliciesForBackendServer.
+ *
+ * For more information about setting policies, see [Update the SSL Negotiation Configuration](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/ssl-config-update.html), [Duration-Based Session Stickiness](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-duration), and [Application-Controlled Session Stickiness](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-application) in the *Classic Load Balancers Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,20 +60,24 @@ export interface SetLoadBalancerPoliciesOfListenerCommandOutput extends SetLoadB
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
  * @throws {@link AccessPointNotFoundException} (client fault)
- *  <p>The specified load balancer does not exist.</p>
+ *
+ * The specified load balancer does not exist.
  *
  * @throws {@link InvalidConfigurationRequestException} (client fault)
- *  <p>The requested configuration change is not valid.</p>
+ *
+ * The requested configuration change is not valid.
  *
  * @throws {@link ListenerNotFoundException} (client fault)
- *  <p>The load balancer does not have a listener configured at the specified port.</p>
+ *
+ * The load balancer does not have a listener configured at the specified port.
  *
  * @throws {@link PolicyNotFoundException} (client fault)
- *  <p>One or more of the specified policies do not exist.</p>
+ *
+ * One or more of the specified policies do not exist.
  *
  * @throws {@link ElasticLoadBalancingServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancing service.
  *
  * @example To replace the policies associated with a listener
  * ```javascript

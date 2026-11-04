@@ -23,12 +23,10 @@ export interface CreateClusterSnapshotCommandInput extends CreateClusterSnapshot
 export interface CreateClusterSnapshotCommandOutput extends CreateClusterSnapshotResult, __MetadataBearer {}
 
 /**
- * <p>Creates a manual snapshot of the specified cluster. The cluster must be in the
- *                 <code>available</code> state. </p>
- *          <p>
- * For more information about working with snapshots, go to
- * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon Redshift Snapshots</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
+ * Creates a manual snapshot of the specified cluster. The cluster must be in the `available` state.
+ *
+ * For more information about working with snapshots, go to [Amazon Redshift Snapshots](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html) in the *Amazon Redshift Cluster Management Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -113,33 +111,38 @@ export interface CreateClusterSnapshotCommandOutput extends CreateClusterSnapsho
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
- *         </p>
+ *
+ * The `ClusterIdentifier` parameter does not refer to an existing cluster.
  *
  * @throws {@link ClusterSnapshotAlreadyExistsFault} (client fault)
- *  <p>The value specified as a snapshot identifier is already used by an existing
- *             snapshot.</p>
+ *
+ * The value specified as a snapshot identifier is already used by an existing snapshot.
  *
  * @throws {@link ClusterSnapshotQuotaExceededFault} (client fault)
- *  <p>The request would result in the user exceeding the allowed number of cluster
- *             snapshots.</p>
+ *
+ * The request would result in the user exceeding the allowed number of cluster snapshots.
  *
  * @throws {@link InvalidClusterStateFault} (client fault)
- *  <p>The specified cluster is not in the <code>available</code> state. </p>
+ *
+ * The specified cluster is not in the `available` state.
  *
  * @throws {@link InvalidRetentionPeriodFault} (client fault)
- *  <p>The retention period specified is either in the past or is not a valid value.</p>
- *          <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+ *
+ * The retention period specified is either in the past or is not a valid value.
+ *
+ * The value must be either -1 or an integer between 1 and 3,653.
  *
  * @throws {@link InvalidTagFault} (client fault)
- *  <p>The tag is invalid.</p>
+ *
+ * The tag is invalid.
  *
  * @throws {@link TagLimitExceededFault} (client fault)
- *  <p>You have exceeded the number of tags allowed.</p>
+ *
+ * You have exceeded the number of tags allowed.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

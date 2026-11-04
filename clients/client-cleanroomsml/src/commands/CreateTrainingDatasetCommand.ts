@@ -23,7 +23,8 @@ export interface CreateTrainingDatasetCommandInput extends CreateTrainingDataset
 export interface CreateTrainingDatasetCommandOutput extends CreateTrainingDatasetResponse, __MetadataBearer {}
 
 /**
- * <p>Defines the information necessary to create a training dataset. In Clean Rooms ML, the <code>TrainingDataset</code> is metadata that points to a Glue table, which is read only during <code>AudienceModel</code> creation.</p>
+ * Defines the information necessary to create a training dataset. In Clean Rooms ML, the `TrainingDataset` is metadata that points to a Glue table, which is read only during `AudienceModel` creation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,20 +78,24 @@ export interface CreateTrainingDatasetCommandOutput extends CreateTrainingDatase
  * @see {@link CleanRoomsMLClientResolvedConfig | config} for CleanRoomsMLClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>You can't complete this action because another resource depends on this resource.</p>
+ *
+ * You can't complete this action because another resource depends on this resource.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request parameters for this request are incorrect.</p>
+ *
+ * The request parameters for this request are incorrect.
  *
  * @throws {@link CleanRoomsMLServiceException}
- * <p>Base exception class for all service exceptions from CleanRoomsML service.</p>
  *
+ * Base exception class for all service exceptions from CleanRoomsML service.
  *
  * @public
  */

@@ -23,7 +23,10 @@ export interface GetRealtimeLogConfigCommandInput extends GetRealtimeLogConfigRe
 export interface GetRealtimeLogConfigCommandOutput extends GetRealtimeLogConfigResult, __MetadataBearer {}
 
 /**
- * <p>Gets a real-time log configuration.</p> <p>To get a real-time log configuration, you can provide the configuration's name or its Amazon Resource Name (ARN). You must provide at least one. If you provide both, CloudFront uses the name to identify the real-time log configuration to get.</p>
+ * Gets a real-time log configuration.
+ *
+ * To get a real-time log configuration, you can provide the configuration's name or its Amazon Resource Name (ARN). You must provide at least one. If you provide both, CloudFront uses the name to identify the real-time log configuration to get.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,17 +70,20 @@ export interface GetRealtimeLogConfigCommandOutput extends GetRealtimeLogConfigR
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link AccessDenied} (client fault)
- *  <p>Access denied.</p>
+ *
+ * Access denied.
  *
  * @throws {@link InvalidArgument} (client fault)
- *  <p>An argument is invalid.</p>
+ *
+ * An argument is invalid.
  *
  * @throws {@link NoSuchRealtimeLogConfig} (client fault)
- *  <p>The real-time log configuration does not exist.</p>
+ *
+ * The real-time log configuration does not exist.
  *
  * @throws {@link CloudFrontServiceException}
- * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * Base exception class for all service exceptions from CloudFront service.
  *
  * @public
  */

@@ -23,7 +23,10 @@ export interface GetIdentityPoolConfigurationCommandInput extends GetIdentityPoo
 export interface GetIdentityPoolConfigurationCommandOutput extends GetIdentityPoolConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the configuration settings of an identity pool.</p><p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
+ * Gets the configuration settings of an identity pool.
+ *
+ * This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.
+ *
  *       <examples>
  *          <example>
  *             <name>GetIdentityPoolConfiguration</name>
@@ -127,8 +130,8 @@ export interface GetIdentityPoolConfigurationCommandOutput extends GetIdentityPo
  *       throttled.
  *
  * @throws {@link CognitoSyncServiceException}
- * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
+ * Base exception class for all service exceptions from CognitoSync service.
  *
  * @public
  */

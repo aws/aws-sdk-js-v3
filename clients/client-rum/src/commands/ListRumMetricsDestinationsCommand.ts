@@ -23,7 +23,10 @@ export interface ListRumMetricsDestinationsCommandInput extends ListRumMetricsDe
 export interface ListRumMetricsDestinationsCommandOutput extends ListRumMetricsDestinationsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of destinations that you have created to receive RUM extended metrics, for the specified app monitor.</p> <p>For more information about extended metrics, see <a href="https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_AddRumMetrcs.html">AddRumMetrics</a>.</p>
+ * Returns a list of destinations that you have created to receive RUM extended metrics, for the specified app monitor.
+ *
+ * For more information about extended metrics, see [AddRumMetrics](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_AddRumMetrcs.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,20 +62,24 @@ export interface ListRumMetricsDestinationsCommandOutput extends ListRumMetricsD
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permissions to perform this action.</p>
+ *
+ * You don't have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal service exception.</p>
+ *
+ * Internal service exception.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource not found.</p>
+ *
+ * Resource not found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One of the arguments for the request is not valid.</p>
+ *
+ * One of the arguments for the request is not valid.
  *
  * @throws {@link RUMServiceException}
- * <p>Base exception class for all service exceptions from RUM service.</p>
  *
+ * Base exception class for all service exceptions from RUM service.
  *
  * @public
  */

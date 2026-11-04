@@ -23,7 +23,8 @@ export interface RestoreTableFromRecoveryPointCommandInput extends RestoreTableF
 export interface RestoreTableFromRecoveryPointCommandOutput extends RestoreTableFromRecoveryPointResponse, __MetadataBearer {}
 
 /**
- * <p>Restores a table from a recovery point to your Amazon Redshift Serverless instance. You can't use this operation to restore tables with interleaved sort keys.</p>
+ * Restores a table from a recovery point to your Amazon Redshift Serverless instance. You can't use this operation to restore tables with interleaved sort keys.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,20 +77,24 @@ export interface RestoreTableFromRecoveryPointCommandOutput extends RestoreTable
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The submitted action has conflicts.</p>
+ *
+ * The submitted action has conflicts.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input failed to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link RedshiftServerlessServiceException}
- * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ * Base exception class for all service exceptions from RedshiftServerless service.
  *
  * @public
  */

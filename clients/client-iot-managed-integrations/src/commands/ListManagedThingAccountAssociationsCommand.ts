@@ -26,7 +26,8 @@ export interface ListManagedThingAccountAssociationsCommandInput extends ListMan
 export interface ListManagedThingAccountAssociationsCommandOutput extends ListManagedThingAccountAssociationsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all account associations for a specific managed thing.</p>
+ * Lists all account associations for a specific managed thing.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,20 +64,24 @@ export interface ListManagedThingAccountAssociationsCommandOutput extends ListMa
  * @see {@link IoTManagedIntegrationsClientResolvedConfig | config} for IoTManagedIntegrationsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>User is not authorized.</p>
+ *
+ * User is not authorized.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+ *
+ * Internal error from the service that indicates an unexpected error or that the service is unavailable.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The rate exceeds the limit.</p>
+ *
+ * The rate exceeds the limit.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A validation error occurred when performing the API request.</p>
+ *
+ * A validation error occurred when performing the API request.
  *
  * @throws {@link IoTManagedIntegrationsServiceException}
- * <p>Base exception class for all service exceptions from IoTManagedIntegrations service.</p>
  *
+ * Base exception class for all service exceptions from IoTManagedIntegrations service.
  *
  * @public
  */

@@ -23,11 +23,10 @@ export interface UpdateStreamModeCommandInput extends UpdateStreamModeInput {}
 export interface UpdateStreamModeCommandOutput extends __MetadataBearer {}
 
 /**
- * <p> Updates the capacity mode of the data stream. Currently, in Kinesis Data Streams, you
- *             can choose between an <b>on-demand</b> capacity mode and a
- *                 <b>provisioned</b> capacity mode for your data stream.
- *         </p>
- *          <p>If you'd still like to proactively scale your on-demand data stream’s capacity, you can unlock the warm throughput feature for on-demand data streams by enabling <code>MinimumThroughputBillingCommitment</code> for your account. Once your account has <code>MinimumThroughputBillingCommitment</code> enabled, you can specify the warm throughput in MiB per second that your stream can support in writes.</p>
+ * Updates the capacity mode of the data stream. Currently, in Kinesis Data Streams, you can choose between an **on-demand** capacity mode and a **provisioned** capacity mode for your data stream.
+ *
+ * If you'd still like to proactively scale your on-demand data stream’s capacity, you can unlock the warm throughput feature for on-demand data streams by enabling `MinimumThroughputBillingCommitment` for your account. Once your account has `MinimumThroughputBillingCommitment` enabled, you can specify the warm throughput in MiB per second that your stream can support in writes.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,29 +56,28 @@ export interface UpdateStreamModeCommandOutput extends __MetadataBearer {}
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
- *             For more information, see the returned message.</p>
+ *
+ * A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
- *             stream requests exceeds the maximum number allowed. </p>
+ *
+ * The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The resource is not available for this operation. For successful operation, the
- *             resource must be in the <code>ACTIVE</code> state.</p>
+ *
+ * The resource is not available for this operation. For successful operation, the resource must be in the `ACTIVE` state.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource could not be found. The stream might not be specified
- *             correctly.</p>
+ *
+ * The requested resource could not be found. The stream might not be specified correctly.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Specifies that you tried to invoke this API for a data stream with the on-demand
- *             capacity mode. This API is only supported for data streams with the provisioned capacity
- *             mode. </p>
+ *
+ * Specifies that you tried to invoke this API for a data stream with the on-demand capacity mode. This API is only supported for data streams with the provisioned capacity mode.
  *
  * @throws {@link KinesisServiceException}
- * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * Base exception class for all service exceptions from Kinesis service.
  *
  * @public
  */

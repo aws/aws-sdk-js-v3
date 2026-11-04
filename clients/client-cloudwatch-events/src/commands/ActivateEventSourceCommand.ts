@@ -23,8 +23,8 @@ export interface ActivateEventSourceCommandInput extends ActivateEventSourceRequ
 export interface ActivateEventSourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Activates a partner event source that has been deactivated. Once activated, your matching
- *       event bus will start receiving events from the event source.</p>
+ * Activates a partner event source that has been deactivated. Once activated, your matching event bus will start receiving events from the event source.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,23 +49,28 @@ export interface ActivateEventSourceCommandOutput extends __MetadataBearer {}
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+ *
+ * There is concurrent modification on a rule, target, archive, or replay.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * This exception occurs due to unexpected causes.
  *
  * @throws {@link InvalidStateException} (client fault)
- *  <p>The specified state is not a valid state for an event source.</p>
+ *
+ * The specified state is not a valid state for an event source.
  *
  * @throws {@link OperationDisabledException} (client fault)
- *  <p>The operation you are attempting is not available in this region.</p>
+ *
+ * The operation you are attempting is not available in this region.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An entity that you specified does not exist.</p>
+ *
+ * An entity that you specified does not exist.
  *
  * @throws {@link CloudWatchEventsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchEvents service.
  *
  * @public
  */

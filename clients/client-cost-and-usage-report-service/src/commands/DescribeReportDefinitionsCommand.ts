@@ -23,7 +23,8 @@ export interface DescribeReportDefinitionsCommandInput extends DescribeReportDef
 export interface DescribeReportDefinitionsCommandOutput extends DescribeReportDefinitionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the Amazon Web Services Cost and Usage Report available to this account.</p>
+ * Lists the Amazon Web Services Cost and Usage Report available to this account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,11 +76,12 @@ export interface DescribeReportDefinitionsCommandOutput extends DescribeReportDe
  * @see {@link CostAndUsageReportServiceClientResolvedConfig | config} for CostAndUsageReportServiceClient's `config` shape.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>An error on the server occurred during the processing of your request. Try again later.</p>
+ *
+ * An error on the server occurred during the processing of your request. Try again later.
  *
  * @throws {@link CostAndUsageReportServiceServiceException}
- * <p>Base exception class for all service exceptions from CostAndUsageReportService service.</p>
  *
+ * Base exception class for all service exceptions from CostAndUsageReportService service.
  *
  * @example To list the AWS Cost and Usage reports for the account.
  * ```javascript

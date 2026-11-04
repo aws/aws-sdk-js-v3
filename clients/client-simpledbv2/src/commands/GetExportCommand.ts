@@ -70,8 +70,8 @@ export interface GetExportCommandOutput extends GetExportResponse, __MetadataBea
  *  Export with specified ARN does not exist.
  *
  * @throws {@link SimpleDBv2ServiceException}
- * <p>Base exception class for all service exceptions from SimpleDBv2 service.</p>
  *
+ * Base exception class for all service exceptions from SimpleDBv2 service.
  *
  * @example Get export details
  * ```javascript

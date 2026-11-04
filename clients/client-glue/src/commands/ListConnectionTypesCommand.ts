@@ -23,9 +23,10 @@ export interface ListConnectionTypesCommandInput extends ListConnectionTypesRequ
 export interface ListConnectionTypesCommandOutput extends ListConnectionTypesResponse, __MetadataBearer {}
 
 /**
- * <p>The <code>ListConnectionTypes</code> API provides a discovery mechanism to learn available connection types in Glue. The response contains a list of connection types with high-level details of what is supported for each connection type, including both built-in connection types and custom connection types registered via <code>RegisterConnectionType</code>. The connection types listed are the set of supported options for the <code>ConnectionType</code> value in the <code>CreateConnection</code> API.</p>
- *          <p>See also: <code>DescribeConnectionType</code>, <code>RegisterConnectionType</code>, <code>DeleteConnectionType</code>
- *          </p>
+ * The `ListConnectionTypes` API provides a discovery mechanism to learn available connection types in Glue. The response contains a list of connection types with high-level details of what is supported for each connection type, including both built-in connection types and custom connection types registered via `RegisterConnectionType`. The connection types listed are the set of supported options for the `ConnectionType` value in the `CreateConnection` API.
+ *
+ * See also: `DescribeConnectionType`, `RegisterConnectionType`, `DeleteConnectionType`
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,14 +85,16 @@ export interface ListConnectionTypesCommandOutput extends ListConnectionTypesRes
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to a resource was denied.</p>
+ *
+ * Access to a resource was denied.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

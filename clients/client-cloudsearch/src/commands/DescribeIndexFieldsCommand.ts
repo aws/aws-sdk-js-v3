@@ -23,9 +23,8 @@ export interface DescribeIndexFieldsCommandInput extends DescribeIndexFieldsRequ
 export interface DescribeIndexFieldsCommandOutput extends DescribeIndexFieldsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about the index fields configured for the search domain.
- *       Can be limited to specific fields by name.  By default, shows all fields and includes any pending changes to the configuration. Set the <code>Deployed</code> option to <code>true</code> to show the active configuration and exclude pending changes. For more information,
- *       see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html" target="_blank">Getting Domain Information</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+ * Gets information about the index fields configured for the search domain. Can be limited to specific fields by name. By default, shows all fields and includes any pending changes to the configuration. Set the `Deployed` option to `true` to show the active configuration and exclude pending changes. For more information, see [Getting Domain Information](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html) in the *Amazon CloudSearch Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -153,18 +152,20 @@ export interface DescribeIndexFieldsCommandOutput extends DescribeIndexFieldsRes
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
  *
  * @throws {@link BaseException} (client fault)
- *  <p>An error occurred while processing the request.</p>
+ *
+ * An error occurred while processing the request.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>An internal error occurred while processing the request. If this problem persists,
- *       report an issue from the <a href="http://status.aws.amazon.com/" target="_blank">Service Health Dashboard</a>.</p>
+ *
+ * An internal error occurred while processing the request. If this problem persists, report an issue from the [Service Health Dashboard](http://status.aws.amazon.com/).
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
+ *
+ * The request was rejected because it attempted to reference a resource that does not exist.
  *
  * @throws {@link CloudSearchServiceException}
- * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
+ * Base exception class for all service exceptions from CloudSearch service.
  *
  * @public
  */

@@ -23,10 +23,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceInpu
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Gets information about Amazon Web Servicestags for a specified Amazon Resource Name (ARN) in CodeCommit. For a list of valid resources in CodeCommit, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">
- *                CodeCommit Resources and Operations</a> in the<i>
- *                CodeCommit User
- *                 Guide</i>.</p>
+ * Gets information about Amazon Web Servicestags for a specified Amazon Resource Name (ARN) in CodeCommit. For a list of valid resources in CodeCommit, see [CodeCommit Resources and Operations](https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats) in the *CodeCommit User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,31 +55,26 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  * @throws {@link InvalidRepositoryNameException} (client fault)
- *  <p>A specified repository name is not valid.</p>
- *          <note>
- *             <p>This exception occurs only when a specified repository name is not valid. Other
- *                 exceptions occur when a required repository parameter is missing, or when a
- *                 specified repository does not exist.</p>
- *          </note>
+ *
+ * A specified repository name is not valid.
+ *
+ * > **Note:** This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.
  *
  * @throws {@link InvalidResourceArnException} (client fault)
- *  <p>The value for the resource ARN is not valid. For more information about resources in CodeCommit, see
- *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">
- *                CodeCommit Resources and Operations</a>
- *             in the CodeCommit User Guide.</p>
+ *
+ * The value for the resource ARN is not valid. For more information about resources in CodeCommit, see [CodeCommit Resources and Operations](https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats) in the CodeCommit User Guide.
  *
  * @throws {@link RepositoryDoesNotExistException} (client fault)
- *  <p>The specified repository does not exist.</p>
+ *
+ * The specified repository does not exist.
  *
  * @throws {@link ResourceArnRequiredException} (client fault)
- *  <p>A valid Amazon Resource Name (ARN) for an CodeCommit resource is required. For a list of valid resources in CodeCommit, see
- *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">
- *                CodeCommit Resources and Operations</a>
- *             in the CodeCommit User Guide.</p>
+ *
+ * A valid Amazon Resource Name (ARN) for an CodeCommit resource is required. For a list of valid resources in CodeCommit, see [CodeCommit Resources and Operations](https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats) in the CodeCommit User Guide.
  *
  * @throws {@link CodeCommitServiceException}
- * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * Base exception class for all service exceptions from CodeCommit service.
  *
  * @public
  */

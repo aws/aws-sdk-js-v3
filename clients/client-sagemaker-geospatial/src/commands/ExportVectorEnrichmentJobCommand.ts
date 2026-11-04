@@ -23,7 +23,8 @@ export interface ExportVectorEnrichmentJobCommandInput extends ExportVectorEnric
 export interface ExportVectorEnrichmentJobCommandOutput extends ExportVectorEnrichmentJobOutput, __MetadataBearer {}
 
 /**
- * <p>Use this operation to copy results of a Vector Enrichment job to an Amazon S3 location.</p>
+ * Use this operation to copy results of a Vector Enrichment job to an Amazon S3 location.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,29 +68,36 @@ export interface ExportVectorEnrichmentJobCommandOutput extends ExportVectorEnri
  * @see {@link SageMakerGeospatialClientResolvedConfig | config} for SageMakerGeospatialClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ *
+ * Updating or deleting a resource can cause an inconsistent state.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception, or failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request references a resource which does not exist.</p>
+ *
+ * The request references a resource which does not exist.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You have exceeded the service quota.</p>
+ *
+ * You have exceeded the service quota.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link SageMakerGeospatialServiceException}
- * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
+ * Base exception class for all service exceptions from SageMakerGeospatial service.
  *
  * @public
  */

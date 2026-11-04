@@ -23,7 +23,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>List the tags for an AWS Device Farm resource.</p>
+ * List the tags for an AWS Device Farm resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,17 +56,20 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
  * @throws {@link ArgumentException} (client fault)
- *  <p>An invalid argument was specified.</p>
+ *
+ * An invalid argument was specified.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The specified entity was not found.</p>
+ *
+ * The specified entity was not found.
  *
  * @throws {@link TagOperationException} (client fault)
- *  <p>The operation was not successful. Try again.</p>
+ *
+ * The operation was not successful. Try again.
  *
  * @throws {@link DeviceFarmServiceException}
- * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * Base exception class for all service exceptions from DeviceFarm service.
  *
  * @public
  */

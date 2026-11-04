@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>This section contains documentation for the Amazon Lex V2 Runtime V2 API operations.</p>
+ * This section contains documentation for the Amazon Lex V2 Runtime V2 API operations.
  *
  * @packageDocumentation
  */

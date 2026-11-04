@@ -23,11 +23,12 @@ export interface DescribeTrafficSourcesCommandInput extends DescribeTrafficSourc
 export interface DescribeTrafficSourcesCommandOutput extends DescribeTrafficSourcesResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about the traffic sources for the specified Auto Scaling group.</p>
- *          <p>You can optionally provide a traffic source type. If you provide a traffic source
- *             type, then the results only include that traffic source type.</p>
- *          <p>If you do not provide a traffic source type, then the results include all the traffic
- *             sources for the specified Auto Scaling group. </p>
+ * Gets information about the traffic sources for the specified Auto Scaling group.
+ *
+ * You can optionally provide a traffic source type. If you provide a traffic source type, then the results only include that traffic source type.
+ *
+ * If you do not provide a traffic source type, then the results include all the traffic sources for the specified Auto Scaling group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,15 +66,16 @@ export interface DescribeTrafficSourcesCommandOutput extends DescribeTrafficSour
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  * @throws {@link InvalidNextToken} (client fault)
- *  <p>The <code>NextToken</code> value is not valid.</p>
+ *
+ * The `NextToken` value is not valid.
  *
  * @throws {@link ResourceContentionFault} (server fault)
- *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
- *             instance, or load balancer).</p>
+ *
+ * You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).
  *
  * @throws {@link AutoScalingServiceException}
- * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from AutoScaling service.
  *
  * @example To describe the target groups for an Auto Scaling group
  * ```javascript

@@ -23,13 +23,10 @@ export interface UnsubscribeCommandInput extends UnsubscribeInput {}
 export interface UnsubscribeCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a subscription. If the subscription requires authentication for deletion, only
- *             the owner of the subscription or the topic's owner can unsubscribe, and an Amazon Web Services
- *             signature is required. If the <code>Unsubscribe</code> call does not require
- *             authentication and the requester is not the subscription owner, a final cancellation
- *             message is delivered to the endpoint, so that the endpoint owner can easily resubscribe
- *             to the topic if the <code>Unsubscribe</code> request was unintended.</p>
- *          <p>This action is throttled at 100 transactions per second (TPS).</p>
+ * Deletes a subscription. If the subscription requires authentication for deletion, only the owner of the subscription or the topic's owner can unsubscribe, and an Amazon Web Services signature is required. If the `Unsubscribe` call does not require authentication and the requester is not the subscription owner, a final cancellation message is delivered to the endpoint, so that the endpoint owner can easily resubscribe to the topic if the `Unsubscribe` request was unintended.
+ *
+ * This action is throttled at 100 transactions per second (TPS).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,25 +51,28 @@ export interface UnsubscribeCommandOutput extends __MetadataBearer {}
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
  *
  * @throws {@link AuthorizationErrorException} (client fault)
- *  <p>Indicates that the user has been denied access to the requested resource.</p>
+ *
+ * Indicates that the user has been denied access to the requested resource.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>Indicates an internal service error.</p>
+ *
+ * Indicates an internal service error.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Indicates that a request parameter does not comply with the associated
- *             constraints.</p>
+ *
+ * Indicates that a request parameter does not comply with the associated constraints.
  *
  * @throws {@link InvalidSecurityException} (client fault)
- *  <p>The credential signature isn't valid. You must use an HTTPS endpoint and sign your
- *             request using Signature Version 4.</p>
+ *
+ * The credential signature isn't valid. You must use an HTTPS endpoint and sign your request using Signature Version 4.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>Indicates that the requested resource does not exist.</p>
+ *
+ * Indicates that the requested resource does not exist.
  *
  * @throws {@link SNSServiceException}
- * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * Base exception class for all service exceptions from SNS service.
  *
  * @public
  */

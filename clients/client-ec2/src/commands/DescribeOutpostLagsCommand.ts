@@ -23,10 +23,10 @@ export interface DescribeOutpostLagsCommandInput extends DescribeOutpostLagsRequ
 export interface DescribeOutpostLagsCommandOutput extends DescribeOutpostLagsResult, __MetadataBearer {}
 
 /**
- * <p>Describes the Outposts link aggregation groups (LAGs).</p>
- *          <note>
- *             <p>LAGs are only available for second-generation Outposts racks at this time.</p>
- *          </note>
+ * Describes the Outposts link aggregation groups (LAGs).
+ *
+ * > **Note:** LAGs are only available for second-generation Outposts racks at this time.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,8 +86,8 @@ export interface DescribeOutpostLagsCommandOutput extends DescribeOutpostLagsRes
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

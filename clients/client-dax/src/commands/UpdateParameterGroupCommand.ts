@@ -23,8 +23,8 @@ export interface UpdateParameterGroupCommandInput extends UpdateParameterGroupRe
 export interface UpdateParameterGroupCommandOutput extends UpdateParameterGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies the parameters of a parameter group. You can modify up to 20 parameters in
- *             a single request by submitting a list parameter name and value pairs.</p>
+ * Modifies the parameters of a parameter group. You can modify up to 20 parameters in a single request by submitting a list parameter name and value pairs.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,23 +60,28 @@ export interface UpdateParameterGroupCommandOutput extends UpdateParameterGroupR
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * Two or more incompatible parameters were specified.
  *
  * @throws {@link InvalidParameterGroupStateFault} (client fault)
- *  <p>One or more parameters in a parameter group are in an invalid state.</p>
+ *
+ * One or more parameters in a parameter group are in an invalid state.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link ParameterGroupNotFoundFault} (client fault)
- *  <p>The specified parameter group does not exist.</p>
+ *
+ * The specified parameter group does not exist.
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
- *  <p>The specified service linked role (SLR) was not found.</p>
+ *
+ * The specified service linked role (SLR) was not found.
  *
  * @throws {@link DAXServiceException}
- * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ * Base exception class for all service exceptions from DAX service.
  *
  * @public
  */

@@ -23,43 +23,28 @@ export interface SearchFacesByImageCommandInput extends SearchFacesByImageReques
 export interface SearchFacesByImageCommandOutput extends SearchFacesByImageResponse, __MetadataBearer {}
 
 /**
- * <p>For a given input image, first detects the largest face in the image, and then searches
- *       the specified collection for matching faces. The operation compares the features of the input
- *       face with faces in the specified collection. </p>
- *          <note>
- *             <p>To search for all faces in an input image, you might first call the <a>IndexFaces</a> operation, and then use the face IDs returned in subsequent calls
- *         to the <a>SearchFaces</a> operation. </p>
- *             <p> You can also call the <code>DetectFaces</code> operation and use the bounding boxes
- *         in the response to make face crops, which then you can pass in to the
- *           <code>SearchFacesByImage</code> operation. </p>
- *          </note>
- *          <p>You pass the input image either as base64-encoded image bytes or as a reference to an
- *       image in an Amazon S3 bucket. If you use the
- *       AWS
- *       CLI to call Amazon Rekognition operations, passing image bytes is not
- *       supported. The image must be either a PNG or JPEG formatted file. </p>
- *          <p> The response returns an array of faces that match, ordered by similarity score with
- *       the highest similarity first. More specifically, it is an array of metadata for each face
- *       match found. Along with the metadata, the response also includes a <code>similarity</code>
- *       indicating how similar the face is to the input face. In the response, the operation also
- *       returns the bounding box (and a confidence level that the bounding box contains a face) of the
- *       face that Amazon Rekognition used for the input image. </p>
- *          <p>If no faces are detected in the input image, <code>SearchFacesByImage</code> returns an
- *         <code>InvalidParameterException</code> error. </p>
- *          <p>For an example, Searching for a Face Using an Image in the Amazon Rekognition
- *       Developer Guide.</p>
- *          <p>The <code>QualityFilter</code> input parameter allows you to filter out detected faces
- *       that don’t meet a required quality bar. The quality bar is based on a variety of common use
- *       cases. Use <code>QualityFilter</code> to set the quality bar for filtering by specifying
- *         <code>LOW</code>, <code>MEDIUM</code>, or <code>HIGH</code>. If you do not want to filter
- *       detected faces, specify <code>NONE</code>. The default value is <code>NONE</code>.</p>
- *          <note>
- *             <p>To use quality filtering, you need a collection associated with version 3 of the face
- *         model or higher. To get the version of the face model associated with a collection, call
- *           <a>DescribeCollection</a>. </p>
- *          </note>
- *          <p>This operation requires permissions to perform the
- *         <code>rekognition:SearchFacesByImage</code> action.</p>
+ * For a given input image, first detects the largest face in the image, and then searches the specified collection for matching faces. The operation compares the features of the input face with faces in the specified collection.
+ *
+ * > **Note:**
+ * >
+ * > To search for all faces in an input image, you might first call the IndexFaces operation, and then use the face IDs returned in subsequent calls to the SearchFaces operation.
+ * >
+ * > You can also call the `DetectFaces` operation and use the bounding boxes in the response to make face crops, which then you can pass in to the `SearchFacesByImage` operation.
+ *
+ * You pass the input image either as base64-encoded image bytes or as a reference to an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes is not supported. The image must be either a PNG or JPEG formatted file.
+ *
+ * The response returns an array of faces that match, ordered by similarity score with the highest similarity first. More specifically, it is an array of metadata for each face match found. Along with the metadata, the response also includes a `similarity` indicating how similar the face is to the input face. In the response, the operation also returns the bounding box (and a confidence level that the bounding box contains a face) of the face that Amazon Rekognition used for the input image.
+ *
+ * If no faces are detected in the input image, `SearchFacesByImage` returns an `InvalidParameterException` error.
+ *
+ * For an example, Searching for a Face Using an Image in the Amazon Rekognition Developer Guide.
+ *
+ * The `QualityFilter` input parameter allows you to filter out detected faces that don’t meet a required quality bar. The quality bar is based on a variety of common use cases. Use `QualityFilter` to set the quality bar for filtering by specifying `LOW`, `MEDIUM`, or `HIGH`. If you do not want to filter detected faces, specify `NONE`. The default value is `NONE`.
+ *
+ * > **Note:** To use quality filtering, you need a collection associated with version 3 of the face model or higher. To get the version of the face model associated with a collection, call DescribeCollection.
+ *
+ * This operation requires permissions to perform the `rekognition:SearchFacesByImage` action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -123,40 +108,44 @@ export interface SearchFacesByImageCommandOutput extends SearchFacesByImageRespo
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You are not authorized to perform the action.</p>
+ *
+ * You are not authorized to perform the action.
  *
  * @throws {@link ImageTooLargeException} (client fault)
- *  <p>The input image size exceeds the allowed limit. If you are calling
- *       DetectProtectiveEquipment, the image size or resolution exceeds the allowed limit. For more
- *       information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide.
- *     </p>
+ *
+ * The input image size exceeds the allowed limit. If you are calling DetectProtectiveEquipment, the image size or resolution exceeds the allowed limit. For more information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * Amazon Rekognition experienced a service issue. Try your call again.
  *
  * @throws {@link InvalidImageFormatException} (client fault)
- *  <p>The provided image format is not supported. </p>
+ *
+ * The provided image format is not supported.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
- *       operation again.</p>
+ *
+ * Input parameter violated a constraint. Validate your parameter before calling the API operation again.
  *
  * @throws {@link InvalidS3ObjectException} (client fault)
- *  <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
+ *
+ * Amazon Rekognition is unable to access the S3 object specified in the request.
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
- *  <p>The number of requests exceeded your throughput limit. If you want to increase this
- *       limit, contact Amazon Rekognition.</p>
+ *
+ * The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource specified in the request cannot be found.</p>
+ *
+ * The resource specified in the request cannot be found.
  *
  * @throws {@link ThrottlingException} (server fault)
- *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
+ * Amazon Rekognition is temporarily unable to process the request. Try your call again.
  *
  * @throws {@link RekognitionServiceException}
- * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * Base exception class for all service exceptions from Rekognition service.
  *
  * @example To search for faces matching a supplied image
  * ```javascript

@@ -64,8 +64,8 @@ export interface DeleteConfigurationSetEventDestinationCommandOutput extends Del
  *  You've issued too many requests to the resource. Wait a few minutes, and then try again.
  *
  * @throws {@link PinpointSMSVoiceServiceException}
- * <p>Base exception class for all service exceptions from PinpointSMSVoice service.</p>
  *
+ * Base exception class for all service exceptions from PinpointSMSVoice service.
  *
  * @public
  */

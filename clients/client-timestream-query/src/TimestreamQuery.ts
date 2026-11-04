@@ -408,9 +408,8 @@ export interface TimestreamQuery {
 }
 
 /**
- * <fullname>Amazon Timestream Query
- *         </fullname>
- *          <p></p>
+ * Amazon Timestream Query
+ *
  * @public
  */
 export class TimestreamQuery extends TimestreamQueryClient implements TimestreamQuery {}

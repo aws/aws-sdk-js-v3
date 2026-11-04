@@ -23,7 +23,7 @@ export interface DeleteSubscriptionCommandInput extends DeleteSubscriptionReques
 export interface DeleteSubscriptionCommandOutput extends DeleteSubscriptionResponse, __MetadataBearer {}
 
 /**
- * <p>Removes Shield Advanced from an account. Shield Advanced requires a 1-year subscription commitment. You cannot delete a subscription prior to the completion of that commitment. </p>
+ * Removes Shield Advanced from an account. Shield Advanced requires a 1-year subscription commitment. You cannot delete a subscription prior to the completion of that commitment.
  *
  * @deprecated deprecated.
  * @example
@@ -48,17 +48,20 @@ export interface DeleteSubscriptionCommandOutput extends DeleteSubscriptionRespo
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+ *
+ * Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.
  *
  * @throws {@link LockedSubscriptionException} (client fault)
- *  <p>You are trying to update a subscription that has not yet completed the 1-year commitment. You can change the <code>AutoRenew</code> parameter during the last 30 days of your subscription. This exception indicates that you are attempting to change <code>AutoRenew</code> prior to that period.</p>
+ *
+ * You are trying to update a subscription that has not yet completed the 1-year commitment. You can change the `AutoRenew` parameter during the last 30 days of your subscription. This exception indicates that you are attempting to change `AutoRenew` prior to that period.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+ *
+ * Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties.
  *
  * @throws {@link ShieldServiceException}
- * <p>Base exception class for all service exceptions from Shield service.</p>
  *
+ * Base exception class for all service exceptions from Shield service.
  *
  * @public
  */

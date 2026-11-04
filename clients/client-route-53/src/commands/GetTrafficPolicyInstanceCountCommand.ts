@@ -23,8 +23,8 @@ export interface GetTrafficPolicyInstanceCountCommandInput extends GetTrafficPol
 export interface GetTrafficPolicyInstanceCountCommandOutput extends GetTrafficPolicyInstanceCountResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the number of traffic policy instances that are associated with the current
- * 				Amazon Web Services account.</p>
+ * Gets the number of traffic policy instances that are associated with the current Amazon Web Services account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,8 +49,8 @@ export interface GetTrafficPolicyInstanceCountCommandOutput extends GetTrafficPo
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @public
  */

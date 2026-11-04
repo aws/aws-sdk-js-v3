@@ -23,8 +23,8 @@ export interface TestMetricFilterCommandInput extends TestMetricFilterRequest {}
 export interface TestMetricFilterCommandOutput extends TestMetricFilterResponse, __MetadataBearer {}
 
 /**
- * <p>Tests the filter pattern of a metric filter against a sample of log event messages. You
- *       can use this operation to validate the correctness of a metric filter pattern.</p>
+ * Tests the filter pattern of a metric filter against a sample of log event messages. You can use this operation to validate the correctness of a metric filter pattern.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,14 +62,16 @@ export interface TestMetricFilterCommandOutput extends TestMetricFilterResponse,
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is specified incorrectly.</p>
+ *
+ * A parameter is specified incorrectly.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service cannot complete the request.</p>
+ *
+ * The service cannot complete the request.
  *
  * @throws {@link CloudWatchLogsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchLogs service.
  *
  * @public
  */

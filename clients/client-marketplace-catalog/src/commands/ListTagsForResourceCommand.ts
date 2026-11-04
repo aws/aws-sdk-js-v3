@@ -23,7 +23,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all tags that have been added to a resource (either an <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#catalog-api-entities">entity</a> or <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets">change set</a>).</p>
+ * Lists all tags that have been added to a resource (either an [entity](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#catalog-api-entities) or [change set](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets)).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,28 +57,38 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link MarketplaceCatalogClientResolvedConfig | config} for MarketplaceCatalogClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access is denied.</p>
- *          <p>HTTP status code: 403</p>
+ *
+ * Access is denied.
+ *
+ * HTTP status code: 403
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>There was an internal service exception.</p>
- *          <p>HTTP status code: 500</p>
+ *
+ * There was an internal service exception.
+ *
+ * HTTP status code: 500
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource wasn't found.</p>
- *          <p>HTTP status code: 404</p>
+ *
+ * The specified resource wasn't found.
+ *
+ * HTTP status code: 404
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Too many requests.</p>
- *          <p>HTTP status code: 429</p>
+ *
+ * Too many requests.
+ *
+ * HTTP status code: 429
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An error occurred during validation.</p>
- *          <p>HTTP status code: 422</p>
+ *
+ * An error occurred during validation.
+ *
+ * HTTP status code: 422
  *
  * @throws {@link MarketplaceCatalogServiceException}
- * <p>Base exception class for all service exceptions from MarketplaceCatalog service.</p>
  *
+ * Base exception class for all service exceptions from MarketplaceCatalog service.
  *
  * @public
  */

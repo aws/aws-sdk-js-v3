@@ -23,48 +23,25 @@ export interface CreateUserPoolCommandInput extends CreateUserPoolRequest {}
 export interface CreateUserPoolCommandOutput extends CreateUserPoolResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new Amazon Cognito user pool. This operation sets basic and advanced configuration
- *             options.</p>
- *          <important>
- *             <p>If you don't provide a value for an attribute, Amazon Cognito sets it to its default value.</p>
- *          </important>
- *          <note>
- *             <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
- *             require you to register an origination phone number before you can send SMS messages
- *             to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a
- *             phone number with <a href="https://console.aws.amazon.com/pinpoint/home/">Amazon Pinpoint</a>.
- *             Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
- *             receive SMS messages might not be able to sign up, activate their accounts, or sign
- *             in.</p>
- *             <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
- *             Amazon Simple Notification Service might place your account in the SMS sandbox. In <i>
- *                   <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox
- *                     mode</a>
- *                </i>, you can send messages only to verified phone
- *             numbers. After you test your app while in the sandbox environment, you can move out
- *             of the sandbox and into production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito
- *                 Developer Guide</i>.</p>
- *          </note>
- *          <note>
- *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
- *     this operation, you must use IAM credentials to authorize requests, and you must
- *     grant yourself the corresponding IAM permission in a policy.</p>
- *             <p class="title">
- *                <b>Learn more</b>
- *             </p>
- *             <ul>
- *                <li>
- *                   <p>
- *                      <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html">Signing Amazon Web Services API Requests</a>
- *                   </p>
- *                </li>
- *                <li>
- *                   <p>
- *                      <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using the Amazon Cognito user pools API and user pool endpoints</a>
- *                   </p>
- *                </li>
- *             </ul>
- *          </note>
+ * Creates a new Amazon Cognito user pool. This operation sets basic and advanced configuration options.
+ *
+ * > **Important:** If you don't provide a value for an attribute, Amazon Cognito sets it to its default value.
+ *
+ * > **Note:**
+ * >
+ * > This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers require you to register an origination phone number before you can send SMS messages to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a phone number with [Amazon Pinpoint](https://console.aws.amazon.com/pinpoint/home/). Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must receive SMS messages might not be able to sign up, activate their accounts, or sign in.
+ * >
+ * > If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service, Amazon Simple Notification Service might place your account in the SMS sandbox. In *[sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html)* , you can send messages only to verified phone numbers. After you test your app while in the sandbox environment, you can move out of the sandbox and into production. For more information, see [SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html) in the *Amazon Cognito Developer Guide*.
+ *
+ * > **Note:**
+ * >
+ * > Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.
+ * >
+ * > **Learn more**
+ * >
+ * > - [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+ * > - [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -417,63 +394,57 @@ export interface CreateUserPoolCommandOutput extends CreateUserPoolResponse, __M
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
  * @throws {@link FeatureUnavailableInTierException} (client fault)
- *  <p>This exception is thrown when a feature that you attempted to use or configure
- *             isn't included in your user pool's current feature plan. This can occur
- *             when:</p>
- *          <ul>
- *             <li>
- *                <p>You configure a feature that your feature plan doesn't support.</p>
- *             </li>
- *             <li>
- *                <p>You make a request that uses a feature that requires a higher feature
- *                     plan.</p>
- *             </li>
- *          </ul>
- *          <p>To resolve this issue, upgrade your user pool to a feature plan that includes the
- *             feature.</p>
+ *
+ * This exception is thrown when a feature that you attempted to use or configure isn't included in your user pool's current feature plan. This can occur when:
+ *
+ * - You configure a feature that your feature plan doesn't support.
+ * - You make a request that uses a feature that requires a higher feature plan.
+ *
+ * To resolve this issue, upgrade your user pool to a feature plan that includes the feature.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * This exception is thrown when Amazon Cognito encounters an internal error.
  *
  * @throws {@link InvalidEmailRoleAccessPolicyException} (client fault)
- *  <p>This exception is thrown when Amazon Cognito isn't allowed to use your email identity. HTTP
- *             status code: 400.</p>
+ *
+ * This exception is thrown when Amazon Cognito isn't allowed to use your email identity. HTTP status code: 400.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
- *             parameter.</p>
+ *
+ * This exception is thrown when the Amazon Cognito service encounters an invalid parameter.
  *
  * @throws {@link InvalidSmsRoleAccessPolicyException} (client fault)
- *  <p>This exception is returned when the role provided for SMS configuration doesn't have
- *             permission to publish using Amazon SNS.</p>
+ *
+ * This exception is returned when the role provided for SMS configuration doesn't have permission to publish using Amazon SNS.
  *
  * @throws {@link InvalidSmsRoleTrustRelationshipException} (client fault)
- *  <p>This exception is thrown when the trust relationship is not valid for the role
- *             provided for SMS configuration. This can happen if you don't trust
- *                 <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does
- *             not match what is provided in the SMS configuration for the user pool.</p>
+ *
+ * This exception is thrown when the trust relationship is not valid for the role provided for SMS configuration. This can happen if you don't trust `cognito-idp.amazonaws.com` or the external ID provided in the role does not match what is provided in the SMS configuration for the user pool.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services
- *             resource.</p>
+ *
+ * This exception is thrown when a user exceeds the limit for a requested Amazon Web Services resource.
  *
  * @throws {@link NotAuthorizedException} (client fault)
- *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * This exception is thrown when a user isn't authorized.
  *
  * @throws {@link TierChangeNotAllowedException} (client fault)
- *  <p>This exception is thrown when you've attempted to change your feature plan but
- *             the operation isn't permitted.</p>
+ *
+ * This exception is thrown when you've attempted to change your feature plan but the operation isn't permitted.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>This exception is thrown when the user has made too many requests for a given
- *             operation.</p>
+ *
+ * This exception is thrown when the user has made too many requests for a given operation.
  *
  * @throws {@link UserPoolTaggingException} (client fault)
- *  <p>This exception is thrown when a user pool tag can't be set or updated.</p>
+ *
+ * This exception is thrown when a user pool tag can't be set or updated.
  *
  * @throws {@link CognitoIdentityProviderServiceException}
- * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * Base exception class for all service exceptions from CognitoIdentityProvider service.
  *
  * @example Example user pool with email and username sign-in
  * ```javascript

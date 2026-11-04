@@ -23,7 +23,8 @@ export interface UpdateLimitCommandInput extends UpdateLimitRequest {}
 export interface UpdateLimitCommandOutput extends UpdateLimitResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the properties of the specified limit. </p>
+ * Updates the properties of the specified limit.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,8 +68,8 @@ export interface UpdateLimitCommandOutput extends UpdateLimitResponse, __Metadat
  *  The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.
  *
  * @throws {@link DeadlineServiceException}
- * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ * Base exception class for all service exceptions from Deadline service.
  *
  * @public
  */

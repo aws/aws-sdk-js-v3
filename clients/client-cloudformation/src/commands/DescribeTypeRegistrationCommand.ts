@@ -23,13 +23,12 @@ export interface DescribeTypeRegistrationCommandInput extends DescribeTypeRegist
 export interface DescribeTypeRegistrationCommandOutput extends DescribeTypeRegistrationOutput, __MetadataBearer {}
 
 /**
- * <p>Returns information about an extension's registration, including its current status and
- *       type and version identifiers.</p>
- *          <p>When you initiate a registration request using <a>RegisterType</a>, you can
- *       then use <a>DescribeTypeRegistration</a> to monitor the progress of that
- *       registration request.</p>
- *          <p>Once the registration request has completed, use <a>DescribeType</a> to return
- *       detailed information about an extension.</p>
+ * Returns information about an extension's registration, including its current status and type and version identifiers.
+ *
+ * When you initiate a registration request using RegisterType, you can then use DescribeTypeRegistration to monitor the progress of that registration request.
+ *
+ * Once the registration request has completed, use DescribeType to return detailed information about an extension.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,11 +58,12 @@ export interface DescribeTypeRegistrationCommandOutput extends DescribeTypeRegis
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link CFNRegistryException} (client fault)
- *  <p>An error occurred during a CloudFormation registry operation.</p>
+ *
+ * An error occurred during a CloudFormation registry operation.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

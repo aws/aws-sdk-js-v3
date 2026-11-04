@@ -23,7 +23,8 @@ export interface ModifyTenantDatabaseCommandInput extends ModifyTenantDatabaseMe
 export interface ModifyTenantDatabaseCommandOutput extends ModifyTenantDatabaseResult, __MetadataBearer {}
 
 /**
- * <p>Modifies an existing tenant database in a DB instance. You can change the tenant database name or the master user password. This operation is supported only for RDS for Oracle CDB instances using the multi-tenant configuration.</p>
+ * Modifies an existing tenant database in a DB instance. You can change the tenant database name or the master user password. This operation is supported only for RDS for Oracle CDB instances using the multi-tenant configuration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,23 +84,28 @@ export interface ModifyTenantDatabaseCommandOutput extends ModifyTenantDatabaseR
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *
+ * `DBInstanceIdentifier` doesn't refer to an existing DB instance.
  *
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
- *  <p>The DB instance isn't in a valid state.</p>
+ *
+ * The DB instance isn't in a valid state.
  *
  * @throws {@link KMSKeyNotAccessibleFault} (client fault)
- *  <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+ *
+ * An error occurred accessing an Amazon Web Services KMS key.
  *
  * @throws {@link TenantDatabaseAlreadyExistsFault} (client fault)
- *  <p>You attempted to either create a tenant database that already exists or modify a tenant database to use the name of an existing tenant database.</p>
+ *
+ * You attempted to either create a tenant database that already exists or modify a tenant database to use the name of an existing tenant database.
  *
  * @throws {@link TenantDatabaseNotFoundFault} (client fault)
- *  <p>The specified tenant database wasn't found in the DB instance.</p>
+ *
+ * The specified tenant database wasn't found in the DB instance.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface GetCertificateCommandInput extends GetCertificateRequest {}
 export interface GetCertificateCommandOutput extends GetCertificateResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a certificate and its certificate chain. The certificate may be either a public or private certificate issued using the ACM <code>RequestCertificate</code> action, or a certificate imported into ACM using the <code>ImportCertificate</code> action. The chain consists of the certificate of the issuing CA and the intermediate certificates of any other subordinate CAs. All of the certificates are base64 encoded. You can use <a href="https://wiki.openssl.org/index.php/Command_Line_Utilities">OpenSSL</a> to decode the certificates and inspect individual fields.</p>
+ * Retrieves a certificate and its certificate chain. The certificate may be either a public or private certificate issued using the ACM `RequestCertificate` action, or a certificate imported into ACM using the `ImportCertificate` action. The chain consists of the certificate of the issuing CA and the intermediate certificates of any other subordinate CAs. All of the certificates are base64 encoded. You can use [OpenSSL](https://wiki.openssl.org/index.php/Command_Line_Utilities) to decode the certificates and inspect individual fields.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,20 +52,24 @@ export interface GetCertificateCommandOutput extends GetCertificateResponse, __M
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
  *
  * @throws {@link InvalidArnException} (client fault)
- *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+ *
+ * The requested Amazon Resource Name (ARN) does not refer to an existing resource.
  *
  * @throws {@link RequestInProgressException} (client fault)
- *  <p>The certificate request is in process and the certificate in your account has not yet been issued.</p>
+ *
+ * The certificate request is in process and the certificate in your account has not yet been issued.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified certificate cannot be found in the caller's account or the caller's account cannot be found.</p>
+ *
+ * The specified certificate cannot be found in the caller's account or the caller's account cannot be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The supplied input failed to satisfy constraints of an Amazon Web Services service.</p>
+ *
+ * The supplied input failed to satisfy constraints of an Amazon Web Services service.
  *
  * @throws {@link ACMServiceException}
- * <p>Base exception class for all service exceptions from ACM service.</p>
  *
+ * Base exception class for all service exceptions from ACM service.
  *
  * @public
  */

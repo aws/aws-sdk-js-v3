@@ -23,7 +23,10 @@ export interface UpdateSourceServerReplicationTypeCommandInput extends UpdateSou
 export interface UpdateSourceServerReplicationTypeCommandOutput extends SourceServer, __MetadataBearer {}
 
 /**
- * <p>Allows you to change between the AGENT_BASED replication type and the SNAPSHOT_SHIPPING replication type. </p> <p>SNAPSHOT_SHIPPING should be used for agentless replication.</p>
+ * Allows you to change between the AGENT_BASED replication type and the SNAPSHOT_SHIPPING replication type.
+ *
+ * SNAPSHOT_SHIPPING should be used for agentless replication.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -178,20 +181,24 @@ export interface UpdateSourceServerReplicationTypeCommandOutput extends SourceSe
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+ *
+ * The request could not be completed due to a conflict with the current state of the target resource.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource not found exception.</p>
+ *
+ * Resource not found exception.
  *
  * @throws {@link UninitializedAccountException} (client fault)
- *  <p>Uninitialized account exception.</p>
+ *
+ * Uninitialized account exception.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Validate exception.</p>
+ *
+ * Validate exception.
  *
  * @throws {@link MgnServiceException}
- * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * Base exception class for all service exceptions from Mgn service.
  *
  * @public
  */

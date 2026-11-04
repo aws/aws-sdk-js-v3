@@ -23,7 +23,8 @@ export interface DisassociateFromConfigurationCommandInput extends DisassociateF
 export interface DisassociateFromConfigurationCommandOutput extends DisassociateFromConfigurationResult, __MetadataBearer {}
 
 /**
- * <p>Unlink a resource, for example a custom action, from a channel configuration.</p>
+ * Unlink a resource, for example a custom action, from a channel configuration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,17 +50,20 @@ export interface DisassociateFromConfigurationCommandOutput extends Disassociate
  * @see {@link ChatbotClientResolvedConfig | config} for ChatbotClient's `config` shape.
  *
  * @throws {@link InternalServiceError} (server fault)
- *  <p>Unexpected error during processing of request.</p>
+ *
+ * Unexpected error during processing of request.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+ *
+ * Your request input doesn't meet the constraints required by AWS Chatbot.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The request was rejected because it doesn't have valid credentials for the target resource.</p>
+ *
+ * The request was rejected because it doesn't have valid credentials for the target resource.
  *
  * @throws {@link ChatbotServiceException}
- * <p>Base exception class for all service exceptions from Chatbot service.</p>
  *
+ * Base exception class for all service exceptions from Chatbot service.
  *
  * @example Disassociate a custom action from a configuration
  * ```javascript

@@ -23,9 +23,8 @@ export interface StartCrawlerCommandInput extends StartCrawlerRequest {}
 export interface StartCrawlerCommandOutput extends StartCrawlerResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a crawl using the specified crawler, regardless
- *       of what is scheduled. If the crawler is already running, returns a
- *       <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-exceptions.html#aws-glue-api-exceptions-CrawlerRunningException">CrawlerRunningException</a>.</p>
+ * Starts a crawl using the specified crawler, regardless of what is scheduled. If the crawler is already running, returns a [CrawlerRunningException](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-exceptions.html#aws-glue-api-exceptions-CrawlerRunningException).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,17 +49,20 @@ export interface StartCrawlerCommandOutput extends StartCrawlerResponse, __Metad
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link CrawlerRunningException} (client fault)
- *  <p>The operation cannot be performed because the crawler is already running.</p>
+ *
+ * The operation cannot be performed because the crawler is already running.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

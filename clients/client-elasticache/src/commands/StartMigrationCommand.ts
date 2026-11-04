@@ -23,7 +23,8 @@ export interface StartMigrationCommandInput extends StartMigrationMessage {}
 export interface StartMigrationCommandOutput extends StartMigrationResponse, __MetadataBearer {}
 
 /**
- * <p>Starts the migration of data.</p>
+ * Starts the migration of data.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -223,39 +224,48 @@ export interface StartMigrationCommandOutput extends StartMigrationResponse, __M
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link InvalidCacheClusterStateFault} (client fault)
- *  <p>The requested cluster is not in the <code>available</code> state.</p>
+ *
+ * The requested cluster is not in the `available` state.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * Two or more incompatible parameters were specified.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link InvalidReplicationGroupStateFault} (client fault)
- *  <p>The requested replication group is not in the <code>available</code> state.</p>
+ *
+ * The requested replication group is not in the `available` state.
  *
  * @throws {@link InvalidServerlessCacheStateFault} (client fault)
- *  <p>The account for these credentials is not currently active.</p>
+ *
+ * The account for these credentials is not currently active.
  *
  * @throws {@link MigrationHealthFault} (client fault)
- *  <p>The migration is not healthy. Check the events for this serverless cache for more details. For
- *             <code>CompleteMigration</code>, set <code>Force</code> to true to bypass this check.</p>
+ *
+ * The migration is not healthy. Check the events for this serverless cache for more details. For `CompleteMigration`, set `Force` to true to bypass this check.
  *
  * @throws {@link ReplicationGroupAlreadyUnderMigrationFault} (client fault)
- *  <p>The targeted replication group is not available. </p>
+ *
+ * The targeted replication group is not available.
  *
  * @throws {@link ReplicationGroupNotFoundFault} (client fault)
- *  <p>The specified replication group does not exist.</p>
+ *
+ * The specified replication group does not exist.
  *
  * @throws {@link ServerlessCacheNotFoundFault} (client fault)
- *  <p>The serverless cache was not found or does not exist.</p>
+ *
+ * The serverless cache was not found or does not exist.
  *
  * @throws {@link ServerlessCacheNotUnderMigrationFault} (client fault)
- *  <p>The serverless cache is not currently under migration.</p>
+ *
+ * The serverless cache is not currently under migration.
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @public
  */

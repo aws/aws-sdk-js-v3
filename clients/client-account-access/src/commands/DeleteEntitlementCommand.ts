@@ -23,7 +23,8 @@ export interface DeleteEntitlementCommandInput extends DeleteEntitlementRequest 
 export interface DeleteEntitlementCommandOutput extends DeleteEntitlementResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an entitlement from an account access manager application. This operation is idempotent; deleting an entitlement that has already been deleted does not return an error.</p>
+ * Deletes an entitlement from an account access manager application. This operation is idempotent; deleting an entitlement that has already been deleted does not return an error.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,26 +50,32 @@ export interface DeleteEntitlementCommandOutput extends DeleteEntitlementRespons
  * @see {@link AccountAccessClientResolvedConfig | config} for AccountAccessClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this operation.</p>
+ *
+ * You do not have sufficient access to perform this operation.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request conflicts with the current state of the resource.</p>
+ *
+ * The request conflicts with the current state of the resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal service error occurred. Try your request again later.</p>
+ *
+ * An internal service error occurred. Try your request again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist. Verify that the resource identifier is correct and that the resource exists in the current Region.</p>
+ *
+ * The specified resource does not exist. Verify that the resource identifier is correct and that the resource exists in the current Region.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. Try your request again later.</p>
+ *
+ * The request was denied due to request throttling. Try your request again later.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by the service. Check your request parameters and retry the request.</p>
+ *
+ * The input does not satisfy the constraints specified by the service. Check your request parameters and retry the request.
  *
  * @throws {@link AccountAccessServiceException}
- * <p>Base exception class for all service exceptions from AccountAccess service.</p>
  *
+ * Base exception class for all service exceptions from AccountAccess service.
  *
  * @public
  */

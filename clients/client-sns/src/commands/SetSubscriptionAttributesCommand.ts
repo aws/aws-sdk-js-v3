@@ -23,8 +23,8 @@ export interface SetSubscriptionAttributesCommandInput extends SetSubscriptionAt
 export interface SetSubscriptionAttributesCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Allows a subscription owner to set an attribute of the subscription to a new
- *             value.</p>
+ * Allows a subscription owner to set an attribute of the subscription to a new value.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,29 +51,32 @@ export interface SetSubscriptionAttributesCommandOutput extends __MetadataBearer
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
  *
  * @throws {@link AuthorizationErrorException} (client fault)
- *  <p>Indicates that the user has been denied access to the requested resource.</p>
+ *
+ * Indicates that the user has been denied access to the requested resource.
  *
  * @throws {@link FilterPolicyLimitExceededException} (client fault)
- *  <p>Indicates that the number of filter polices in your Amazon Web Services account exceeds the limit. To
- *             add more filter polices, submit an Amazon SNS Limit Increase case in the Amazon Web Services Support
- *             Center.</p>
+ *
+ * Indicates that the number of filter polices in your Amazon Web Services account exceeds the limit. To add more filter polices, submit an Amazon SNS Limit Increase case in the Amazon Web Services Support Center.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>Indicates an internal service error.</p>
+ *
+ * Indicates an internal service error.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Indicates that a request parameter does not comply with the associated
- *             constraints.</p>
+ *
+ * Indicates that a request parameter does not comply with the associated constraints.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>Indicates that the requested resource does not exist.</p>
+ *
+ * Indicates that the requested resource does not exist.
  *
  * @throws {@link ReplayLimitExceededException} (client fault)
- *  <p>Indicates that the request parameter has exceeded the maximum number of concurrent message replays.</p>
+ *
+ * Indicates that the request parameter has exceeded the maximum number of concurrent message replays.
  *
  * @throws {@link SNSServiceException}
- * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * Base exception class for all service exceptions from SNS service.
  *
  * @public
  */

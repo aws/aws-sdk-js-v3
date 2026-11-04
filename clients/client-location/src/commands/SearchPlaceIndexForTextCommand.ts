@@ -23,7 +23,23 @@ export interface SearchPlaceIndexForTextCommandInput extends SearchPlaceIndexFor
 export interface SearchPlaceIndexForTextCommandOutput extends SearchPlaceIndexForTextResponse, __MetadataBearer {}
 
 /**
- * <important> <p>This operation is no longer current and may be deprecated in the future. We recommend you upgrade to <a href="/location/latest/APIReference/API_geoplaces_Geocode.html"> <code>Geocode</code> </a> or <a href="/location/latest/APIReference/API_geoplaces_SearchText.html"> <code>SearchText</code> </a> unless you require Grab data.</p> <ul> <li> <p> <code>SearchPlaceIndexForText</code> is part of a previous Amazon Location Service Places API (version 1) which has been superseded by a more intuitive, powerful, and complete API (version 2).</p> </li> <li> <p>The version 2 <code>Geocode</code> operation gives better results in the address geocoding use case, while the version 2 <code>SearchText</code> operation gives better results when searching for businesses and points of interest.</p> </li> <li> <p>If you are using an Amazon Web Services SDK or the Amazon Web Services CLI, note that the Places API version 2 is found under <code>geo-places</code> or <code>geo_places</code>, not under <code>location</code>.</p> </li> <li> <p>Since Grab is not yet fully supported in Places API version 2, we recommend you continue using API version 1 when using Grab.</p> </li> </ul> </important> <p>Geocodes free-form text, such as an address, name, city, or region to allow you to search for Places or points of interest. </p> <p>Optional parameters let you narrow your search results by bounding box or country, or bias your search toward a specific position on the globe.</p> <note> <p>You can search for places near a given position using <code>BiasPosition</code>, or filter results within a bounding box using <code>FilterBBox</code>. Providing both parameters simultaneously returns an error.</p> </note> <p>Search results are returned in order of highest to lowest relevance.</p>
+ * > **Important:**
+ * >
+ * > This operation is no longer current and may be deprecated in the future. We recommend you upgrade to [`Geocode`](/location/latest/APIReference/API_geoplaces_Geocode.html) or [`SearchText`](/location/latest/APIReference/API_geoplaces_SearchText.html) unless you require Grab data.
+ * >
+ * > - `SearchPlaceIndexForText` is part of a previous Amazon Location Service Places API (version 1) which has been superseded by a more intuitive, powerful, and complete API (version 2).
+ * > - The version 2 `Geocode` operation gives better results in the address geocoding use case, while the version 2 `SearchText` operation gives better results when searching for businesses and points of interest.
+ * > - If you are using an Amazon Web Services SDK or the Amazon Web Services CLI, note that the Places API version 2 is found under `geo-places` or `geo_places`, not under `location`.
+ * > - Since Grab is not yet fully supported in Places API version 2, we recommend you continue using API version 1 when using Grab.
+ *
+ * Geocodes free-form text, such as an address, name, city, or region to allow you to search for Places or points of interest.
+ *
+ * Optional parameters let you narrow your search results by bounding box or country, or bias your search toward a specific position on the globe.
+ *
+ * > **Note:** You can search for places near a given position using `BiasPosition`, or filter results within a bounding box using `FilterBBox`. Providing both parameters simultaneously returns an error.
+ *
+ * Search results are returned in order of highest to lowest relevance.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -123,23 +139,28 @@ export interface SearchPlaceIndexForTextCommandOutput extends SearchPlaceIndexFo
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+ *
+ * The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+ *
+ * The request has failed to process because of an unknown server error, exception, or failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource that you've entered was not found in your AWS account.</p>
+ *
+ * The resource that you've entered was not found in your AWS account.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied because of request throttling.</p>
+ *
+ * The request was denied because of request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input failed to meet the constraints specified by the AWS service. </p>
+ *
+ * The input failed to meet the constraints specified by the AWS service.
  *
  * @throws {@link LocationServiceException}
- * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * Base exception class for all service exceptions from Location service.
  *
  * @public
  */

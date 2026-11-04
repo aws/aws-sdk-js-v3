@@ -23,11 +23,14 @@ export interface ListManagedRuleSetsCommandInput extends ListManagedRuleSetsRequ
 export interface ListManagedRuleSetsCommandOutput extends ListManagedRuleSetsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the managed rule sets that you own. </p>
- *          <note>
- *             <p>This is intended for use only by vendors of managed rule sets. Vendors are Amazon Web Services and Amazon Web Services Marketplace sellers. </p>
- *             <p>Vendors, you can use the managed rule set APIs to provide controlled rollout of your versioned managed rule group offerings for your customers. The APIs are <code>ListManagedRuleSets</code>, <code>GetManagedRuleSet</code>, <code>PutManagedRuleSetVersions</code>, and <code>UpdateManagedRuleSetVersionExpiryDate</code>.</p>
- *          </note>
+ * Retrieves the managed rule sets that you own.
+ *
+ * > **Note:**
+ * >
+ * > This is intended for use only by vendors of managed rule sets. Vendors are Amazon Web Services and Amazon Web Services Marketplace sellers.
+ * >
+ * > Vendors, you can use the managed rule set APIs to provide controlled rollout of your versioned managed rule group offerings for your customers. The APIs are `ListManagedRuleSets`, `GetManagedRuleSet`, `PutManagedRuleSetVersions`, and `UpdateManagedRuleSetVersionExpiryDate`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,36 +69,25 @@ export interface ListManagedRuleSetsCommandOutput extends ListManagedRuleSetsRes
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
  *
  * @throws {@link WAFInternalErrorException} (server fault)
- *  <p>Your request is valid, but WAF couldn’t perform the operation because of a system
- *          problem. Retry your request. </p>
+ *
+ * Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request.
  *
  * @throws {@link WAFInvalidOperationException} (client fault)
- *  <p>The operation isn't valid. </p>
+ *
+ * The operation isn't valid.
  *
  * @throws {@link WAFInvalidParameterException} (client fault)
- *  <p>The operation failed because WAF didn't recognize a parameter in the request. For
- *          example: </p>
- *          <ul>
- *             <li>
- *                <p>You specified a parameter name or value that isn't valid.</p>
- *             </li>
- *             <li>
- *                <p>Your nested statement isn't valid. You might have tried to nest a statement that
- *                can’t be nested. </p>
- *             </li>
- *             <li>
- *                <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that
- *                isn't among the types available at <a>DefaultAction</a>.</p>
- *             </li>
- *             <li>
- *                <p>Your request references an ARN that is malformed, or corresponds to a resource
- *                with which a web ACL can't be associated.</p>
- *             </li>
- *          </ul>
+ *
+ * The operation failed because WAF didn't recognize a parameter in the request. For example:
+ *
+ * - You specified a parameter name or value that isn't valid.
+ * - Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested.
+ * - You tried to update a `WebACL` with a `DefaultAction` that isn't among the types available at DefaultAction.
+ * - Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.
  *
  * @throws {@link WAFV2ServiceException}
- * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * Base exception class for all service exceptions from WAFV2 service.
  *
  * @public
  */

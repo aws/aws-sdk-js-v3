@@ -23,7 +23,8 @@ export interface ExecuteTrainingOperationCommandInput extends ExecuteTrainingOpe
 export interface ExecuteTrainingOperationCommandOutput extends ExecuteTrainingOperationOutput, __MetadataBearer {}
 
 /**
- * <p>Submits an asynchronous training operation to the specified training session. The service executes operations in sequence number order. The session must be in <code>Running</code> or <code>Blocked</code> state. Use <code>GetTrainingOperationResult</code> to poll for the result. Supported operation types: <code>forward</code>, <code>forwardBackward</code>, <code>optimizerStep</code>, <code>saveWeights</code>, <code>saveState</code>, and <code>loadState</code>.</p>
+ * Submits an asynchronous training operation to the specified training session. The service executes operations in sequence number order. The session must be in `Running` or `Blocked` state. Use `GetTrainingOperationResult` to poll for the result. Supported operation types: `forward`, `forwardBackward`, `optimizerStep`, `saveWeights`, `saveState`, and `loadState`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -130,23 +131,28 @@ export interface ExecuteTrainingOperationCommandOutput extends ExecuteTrainingOp
  * @see {@link SageMakerTrainingSessionRuntimeClientResolvedConfig | config} for SageMakerTrainingSessionRuntimeClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The training session is in a state that cannot accept new operations. The session must be in <code>Running</code> or <code>Blocked</code> state to accept requests.</p>
+ *
+ * The training session is in a state that cannot accept new operations. The session must be in `Running` or `Blocked` state to accept requests.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal service error occurred. Retry the request using exponential backoff.</p>
+ *
+ * An internal service error occurred. Retry the request using exponential backoff.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified training session or operation does not exist, or the operation does not belong to the specified training session.</p>
+ *
+ * The specified training session or operation does not exist, or the operation does not belong to the specified training session.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled. Retry the request after a brief wait using exponential backoff.</p>
+ *
+ * The request was throttled. Retry the request after a brief wait using exponential backoff.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request is not valid. Check the request syntax and parameters. Examples include invalid sequence numbers, malformed client tokens, missing required fields, or invalid operation configuration.</p>
+ *
+ * The request is not valid. Check the request syntax and parameters. Examples include invalid sequence numbers, malformed client tokens, missing required fields, or invalid operation configuration.
  *
  * @throws {@link SageMakerTrainingSessionRuntimeServiceException}
- * <p>Base exception class for all service exceptions from SageMakerTrainingSessionRuntime service.</p>
  *
+ * Base exception class for all service exceptions from SageMakerTrainingSessionRuntime service.
  *
  * @example Run a forward and backward pass
  * ```javascript

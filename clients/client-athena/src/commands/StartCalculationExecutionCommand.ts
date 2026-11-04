@@ -23,14 +23,10 @@ export interface StartCalculationExecutionCommandInput extends StartCalculationE
 export interface StartCalculationExecutionCommandOutput extends StartCalculationExecutionResponse, __MetadataBearer {}
 
 /**
- * <p>Submits calculations for execution within a session. You can supply the code to run as
- *             an inline code block within the request.</p>
- *          <note>
- *             <p>The request syntax requires the <a>StartCalculationExecutionRequest$CodeBlock</a> parameter or the <a>CalculationConfiguration$CodeBlock</a> parameter, but not both. Because
- *                     <a>CalculationConfiguration$CodeBlock</a> is deprecated, use the
- *                     <a>StartCalculationExecutionRequest$CodeBlock</a> parameter
- *                 instead.</p>
- *          </note>
+ * Submits calculations for execution within a session. You can supply the code to run as an inline code block within the request.
+ *
+ * > **Note:** The request syntax requires the StartCalculationExecutionRequest$CodeBlock parameter or the CalculationConfiguration$CodeBlock parameter, but not both. Because CalculationConfiguration$CodeBlock is deprecated, use the StartCalculationExecutionRequest$CodeBlock parameter instead.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,19 +60,20 @@ export interface StartCalculationExecutionCommandOutput extends StartCalculation
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Indicates a platform issue, which may be due to a transient condition or
- *             outage.</p>
+ *
+ * Indicates a platform issue, which may be due to a transient condition or outage.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Indicates that something is wrong with the input to the request. For example, a
- *             required parameter may be missing or out of range.</p>
+ *
+ * Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A resource, such as a workgroup, was not found.</p>
+ *
+ * A resource, such as a workgroup, was not found.
  *
  * @throws {@link AthenaServiceException}
- * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * Base exception class for all service exceptions from Athena service.
  *
  * @public
  */

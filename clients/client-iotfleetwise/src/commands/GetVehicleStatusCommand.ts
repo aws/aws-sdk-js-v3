@@ -23,8 +23,8 @@ export interface GetVehicleStatusCommandInput extends GetVehicleStatusRequest {}
 export interface GetVehicleStatusCommandOutput extends GetVehicleStatusResponse, __MetadataBearer {}
 
 /**
- * <p> Retrieves information about the status of campaigns, decoder manifests, or state templates
- *             associated with a vehicle.</p>
+ * Retrieves information about the status of campaigns, decoder manifests, or state templates associated with a vehicle.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,23 +60,28 @@ export interface GetVehicleStatusCommandOutput extends GetVehicleStatusResponse,
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * You don't have sufficient permission to perform this action.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource wasn't found.</p>
+ *
+ * The resource wasn't found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request couldn't be completed due to throttling.</p>
+ *
+ * The request couldn't be completed due to throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request couldn't be completed because the server temporarily failed.</p>
+ *
+ * The request couldn't be completed because the server temporarily failed.
  *
  * @throws {@link IoTFleetWiseServiceException}
- * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * Base exception class for all service exceptions from IoTFleetWise service.
  *
  * @public
  */

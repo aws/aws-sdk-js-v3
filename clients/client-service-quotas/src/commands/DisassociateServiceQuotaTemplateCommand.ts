@@ -26,9 +26,8 @@ export interface DisassociateServiceQuotaTemplateCommandInput extends Disassocia
 export interface DisassociateServiceQuotaTemplateCommandOutput extends DisassociateServiceQuotaTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Disables your quota request template. After a template is disabled, the quota increase
- *             requests in the template are not applied to new Amazon Web Services accounts in your organization.
- *             Disabling a quota request template does not apply its quota increase requests.</p>
+ * Disables your quota request template. After a template is disabled, the quota increase requests in the template are not applied to new Amazon Web Services accounts in your organization. Disabling a quota request template does not apply its quota increase requests.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,34 +50,40 @@ export interface DisassociateServiceQuotaTemplateCommandOutput extends Disassoci
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permission to perform this action.</p>
+ *
+ * You do not have sufficient permission to perform this action.
  *
  * @throws {@link AWSServiceAccessNotEnabledException} (client fault)
- *  <p>The action you attempted is not allowed unless Service Access with Service Quotas is enabled in
- *             your organization.</p>
+ *
+ * The action you attempted is not allowed unless Service Access with Service Quotas is enabled in your organization.
  *
  * @throws {@link DependencyAccessDeniedException} (client fault)
- *  <p>You can't perform this action because a dependency does not have access.</p>
+ *
+ * You can't perform this action because a dependency does not have access.
  *
  * @throws {@link NoAvailableOrganizationException} (client fault)
- *  <p>The Amazon Web Services account making this call is not a member of an organization.</p>
+ *
+ * The Amazon Web Services account making this call is not a member of an organization.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>Something went wrong.</p>
+ *
+ * Something went wrong.
  *
  * @throws {@link ServiceQuotaTemplateNotInUseException} (client fault)
- *  <p>The quota request template is not associated with your organization.</p>
+ *
+ * The quota request template is not associated with your organization.
  *
  * @throws {@link TemplatesNotAvailableInRegionException} (client fault)
- *  <p>The Service Quotas template is not available in this Amazon Web Services Region.</p>
+ *
+ * The Service Quotas template is not available in this Amazon Web Services Region.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Due to throttling, the request was denied. Slow down the rate of request calls, or
- *             request an increase for this quota.</p>
+ *
+ * Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.
  *
  * @throws {@link ServiceQuotasServiceException}
- * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>
  *
+ * Base exception class for all service exceptions from ServiceQuotas service.
  *
  * @public
  */

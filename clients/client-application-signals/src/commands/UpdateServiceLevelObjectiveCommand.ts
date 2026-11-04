@@ -23,7 +23,10 @@ export interface UpdateServiceLevelObjectiveCommandInput extends UpdateServiceLe
 export interface UpdateServiceLevelObjectiveCommandOutput extends UpdateServiceLevelObjectiveOutput, __MetadataBearer {}
 
 /**
- * <p>Updates an existing service level objective (SLO). If you omit parameters, the previous values of those parameters are retained. </p> <p>You cannot change from a period-based SLO to a request-based SLO, or change from a request-based SLO to a period-based SLO.</p>
+ * Updates an existing service level objective (SLO). If you omit parameters, the previous values of those parameters are retained.
+ *
+ * You cannot change from a period-based SLO to a request-based SLO, or change from a request-based SLO to a period-based SLO.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -441,17 +444,20 @@ export interface UpdateServiceLevelObjectiveCommandOutput extends UpdateServiceL
  * @see {@link ApplicationSignalsClientResolvedConfig | config} for ApplicationSignalsClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource not found.</p>
+ *
+ * Resource not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled because of quota limits.</p>
+ *
+ * The request was throttled because of quota limits.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The resource is not valid.</p>
+ *
+ * The resource is not valid.
  *
  * @throws {@link ApplicationSignalsServiceException}
- * <p>Base exception class for all service exceptions from ApplicationSignals service.</p>
  *
+ * Base exception class for all service exceptions from ApplicationSignals service.
  *
  * @public
  */

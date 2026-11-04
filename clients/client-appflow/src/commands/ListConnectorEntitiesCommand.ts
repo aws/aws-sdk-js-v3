@@ -23,10 +23,8 @@ export interface ListConnectorEntitiesCommandInput extends ListConnectorEntities
 export interface ListConnectorEntitiesCommandOutput extends ListConnectorEntitiesResponse, __MetadataBearer {}
 
 /**
- * <p> Returns the list of available connector entities supported by Amazon AppFlow. For
- *       example, you can query Salesforce for <i>Account</i> and
- *         <i>Opportunity</i> entities, or query ServiceNow for the
- *         <i>Incident</i> entity. </p>
+ * Returns the list of available connector entities supported by Amazon AppFlow. For example, you can query Salesforce for *Account* and *Opportunity* entities, or query ServiceNow for the *Incident* entity.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,25 +65,28 @@ export interface ListConnectorEntitiesCommandOutput extends ListConnectorEntitie
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
  *
  * @throws {@link ConnectorAuthenticationException} (client fault)
- *  <p> An error occurred when authenticating with the connector endpoint. </p>
+ *
+ * An error occurred when authenticating with the connector endpoint.
  *
  * @throws {@link ConnectorServerException} (client fault)
- *  <p> An error occurred when retrieving data from the connector endpoint. </p>
+ *
+ * An error occurred when retrieving data from the connector endpoint.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> An internal service error occurred during the processing of your request. Try again
- *       later. </p>
+ *
+ * An internal service error occurred during the processing of your request. Try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The resource specified in the request (such as the source or destination connector
- *       profile) is not found. </p>
+ *
+ * The resource specified in the request (such as the source or destination connector profile) is not found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> The request has invalid or missing parameters. </p>
+ *
+ * The request has invalid or missing parameters.
  *
  * @throws {@link AppflowServiceException}
- * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ * Base exception class for all service exceptions from Appflow service.
  *
  * @public
  */

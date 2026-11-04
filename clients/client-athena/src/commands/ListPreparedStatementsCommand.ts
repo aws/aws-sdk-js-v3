@@ -23,7 +23,8 @@ export interface ListPreparedStatementsCommandInput extends ListPreparedStatemen
 export interface ListPreparedStatementsCommandOutput extends ListPreparedStatementsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the prepared statements in the specified workgroup.</p>
+ * Lists the prepared statements in the specified workgroup.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,16 +59,16 @@ export interface ListPreparedStatementsCommandOutput extends ListPreparedStateme
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Indicates a platform issue, which may be due to a transient condition or
- *             outage.</p>
+ *
+ * Indicates a platform issue, which may be due to a transient condition or outage.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Indicates that something is wrong with the input to the request. For example, a
- *             required parameter may be missing or out of range.</p>
+ *
+ * Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.
  *
  * @throws {@link AthenaServiceException}
- * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * Base exception class for all service exceptions from Athena service.
  *
  * @public
  */

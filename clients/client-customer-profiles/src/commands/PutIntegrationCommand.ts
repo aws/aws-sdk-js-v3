@@ -23,12 +23,12 @@ export interface PutIntegrationCommandInput extends PutIntegrationRequest {}
 export interface PutIntegrationCommandOutput extends PutIntegrationResponse, __MetadataBearer {}
 
 /**
- * <p>Adds an integration between the service and a third-party service, which includes
- *          Amazon AppFlow and Amazon Connect.</p>
- *          <p>An integration can belong to only one domain.</p>
- *          <p>To add or remove tags on an existing Integration, see <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_TagResource.html"> TagResource
- *             </a>/<a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UntagResource.html">
- *          UntagResource</a>.</p>
+ * Adds an integration between the service and a third-party service, which includes Amazon AppFlow and Amazon Connect.
+ *
+ * An integration can belong to only one domain.
+ *
+ * To add or remove tags on an existing Integration, see [TagResource](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_TagResource.html)/[UntagResource](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UntagResource.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -150,23 +150,28 @@ export interface PutIntegrationCommandOutput extends PutIntegrationResponse, __M
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource does not exist, or access was denied.</p>
+ *
+ * The requested resource does not exist, or access was denied.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>You exceeded the maximum number of requests.</p>
+ *
+ * You exceeded the maximum number of requests.
  *
  * @throws {@link CustomerProfilesServiceException}
- * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * Base exception class for all service exceptions from CustomerProfiles service.
  *
  * @public
  */

@@ -23,30 +23,16 @@ export interface TransferContactCommandInput extends TransferContactRequest {}
 export interface TransferContactCommandOutput extends TransferContactResponse, __MetadataBearer {}
 
 /**
- * <p>Transfers <code>TASK</code> or <code>EMAIL</code>
- *     contacts from one agent or queue to another agent or queue at any point after a contact is
- *    created. You can transfer a contact to another queue by providing the flow which orchestrates the contact to the
- *    destination queue. This gives you more control over contact handling and helps you adhere to the service level
- *    agreement (SLA) guaranteed to your customers.</p>
- *          <p>Note the following requirements:</p>
- *          <ul>
- *             <li>
- *                <p>Transfer is only supported for <code>TASK</code> and <code>EMAIL</code> contacts.</p>
- *             </li>
- *             <li>
- *                <p>Do not use both <code>QueueId</code> and <code>UserId</code> in the same call.</p>
- *             </li>
- *             <li>
- *                <p>The following flow types are supported: Inbound flow, Transfer to agent flow, and Transfer to queue
- *      flow.</p>
- *             </li>
- *             <li>
- *                <p>The <code>TransferContact</code> API can be called only on active contacts.</p>
- *             </li>
- *             <li>
- *                <p>A contact cannot be transferred more than 11 times.</p>
- *             </li>
- *          </ul>
+ * Transfers `TASK` or `EMAIL` contacts from one agent or queue to another agent or queue at any point after a contact is created. You can transfer a contact to another queue by providing the flow which orchestrates the contact to the destination queue. This gives you more control over contact handling and helps you adhere to the service level agreement (SLA) guaranteed to your customers.
+ *
+ * Note the following requirements:
+ *
+ * - Transfer is only supported for `TASK` and `EMAIL` contacts.
+ * - Do not use both `QueueId` and `UserId` in the same call.
+ * - The following flow types are supported: Inbound flow, Transfer to agent flow, and Transfer to queue flow.
+ * - The `TransferContact` API can be called only on active contacts.
+ * - A contact cannot be transferred more than 11 times.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,29 +65,36 @@ export interface TransferContactCommandOutput extends TransferContactResponse, _
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link IdempotencyException} (client fault)
- *  <p>An entity with the same name already exists.</p>
+ *
+ * An entity with the same name already exists.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The service quota has been exceeded.</p>
+ *
+ * The service quota has been exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

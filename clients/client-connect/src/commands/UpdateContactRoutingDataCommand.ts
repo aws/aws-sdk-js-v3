@@ -24,16 +24,10 @@ export interface UpdateContactRoutingDataCommandInput extends UpdateContactRouti
 export interface UpdateContactRoutingDataCommandOutput extends UpdateContactRoutingDataResponse, __MetadataBearer {}
 
 /**
- * <p>Updates routing priority and age on the contact (<b>QueuePriority</b> and <b>QueueTimeAdjustmentInSeconds</b>). These properties can be used to change a customer's position
- *    in the queue. For example, you can move a contact to the back of the queue by setting a lower routing priority
- *    relative to other contacts in queue; or you can move a contact to the front of the queue by increasing the routing
- *    age which will make the contact look artificially older and therefore higher up in the first-in-first-out routing
- *    order. Note that adjusting the routing age of a contact affects only its position in queue, and not its actual queue
- *    wait time as reported through metrics. These properties can also be updated by using <a href="https://docs.aws.amazon.com/connect/latest/adminguide/change-routing-priority.html">the Set routing priority / age flow
- *    block</a>.</p>
- *          <note>
- *             <p>Either <b>QueuePriority</b> or <b>QueueTimeAdjustmentInSeconds</b> should be provided within the request body, but not both.</p>
- *          </note>
+ * Updates routing priority and age on the contact (**QueuePriority** and **QueueTimeAdjustmentInSeconds**). These properties can be used to change a customer's position in the queue. For example, you can move a contact to the back of the queue by setting a lower routing priority relative to other contacts in queue; or you can move a contact to the front of the queue by increasing the routing age which will make the contact look artificially older and therefore higher up in the first-in-first-out routing order. Note that adjusting the routing age of a contact affects only its position in queue, and not its actual queue wait time as reported through metrics. These properties can also be updated by using [the Set routing priority / age flow block](https://docs.aws.amazon.com/connect/latest/adminguide/change-routing-priority.html).
+ *
+ * > **Note:** Either **QueuePriority** or **QueueTimeAdjustmentInSeconds** should be provided within the request body, but not both.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -153,29 +147,36 @@ export interface UpdateContactRoutingDataCommandOutput extends UpdateContactRout
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidActiveRegionException} (client fault)
- *  <p>This exception occurs when an API request is made to a non-active region in an Amazon Connect instance configured with Amazon Connect Global Resiliency. For example, if the active region is US West (Oregon) and a request is made to US East (N. Virginia), the exception will be returned.</p>
+ *
+ * This exception occurs when an API request is made to a non-active region in an Amazon Connect instance configured with Amazon Connect Global Resiliency. For example, if the active region is US West (Oregon) and a request is made to US East (N. Virginia), the exception will be returned.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link ResourceConflictException} (client fault)
- *  <p>A resource already has that name.</p>
+ *
+ * A resource already has that name.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

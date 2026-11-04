@@ -23,7 +23,8 @@ export interface DeleteStreamGroupCommandInput extends DeleteStreamGroupInput {}
 export interface DeleteStreamGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Permanently deletes all compute resources and information related to a stream group. To delete a stream group, specify the unique stream group identifier. During the deletion process, the stream group's status is <code>DELETING</code>. This operation stops streams in progress and prevents new streams from starting. As a best practice, before deleting the stream group, call <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_ListStreamSessions.html">ListStreamSessions</a> to check for streams in progress and take action to stop them. When you delete a stream group, any application associations referring to that stream group are automatically removed.</p>
+ * Permanently deletes all compute resources and information related to a stream group. To delete a stream group, specify the unique stream group identifier. During the deletion process, the stream group's status is `DELETING`. This operation stops streams in progress and prevents new streams from starting. As a best practice, before deleting the stream group, call [ListStreamSessions](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_ListStreamSessions.html) to check for streams in progress and take action to stop them. When you delete a stream group, any application associations referring to that stream group are automatically removed.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,26 +49,32 @@ export interface DeleteStreamGroupCommandOutput extends __MetadataBearer {}
  * @see {@link GameLiftStreamsClientResolvedConfig | config} for GameLiftStreamsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have the required permissions to access this Amazon GameLift Streams resource. Correct the permissions before you try again.</p>
+ *
+ * You don't have the required permissions to access this Amazon GameLift Streams resource. Correct the permissions before you try again.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p>
+ *
+ * The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The service encountered an internal error and is unable to complete the request.</p>
+ *
+ * The service encountered an internal error and is unable to complete the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource specified in the request was not found. Correct the request before you try again.</p>
+ *
+ * The resource specified in the request was not found. Correct the request before you try again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. Retry the request after the suggested wait time.</p>
+ *
+ * The request was denied due to request throttling. Retry the request after the suggested wait time.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One or more parameter values in the request fail to satisfy the specified constraints. Correct the invalid parameter values before retrying the request.</p>
+ *
+ * One or more parameter values in the request fail to satisfy the specified constraints. Correct the invalid parameter values before retrying the request.
  *
  * @throws {@link GameLiftStreamsServiceException}
- * <p>Base exception class for all service exceptions from GameLiftStreams service.</p>
  *
+ * Base exception class for all service exceptions from GameLiftStreams service.
  *
  * @public
  */

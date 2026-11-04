@@ -23,7 +23,8 @@ export interface ListVpcConnectionsCommandInput extends ListVpcConnectionsReques
 export interface ListVpcConnectionsCommandOutput extends ListVpcConnectionsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of all the VPC connections in this Region.</p>
+ * Returns a list of all the VPC connections in this Region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,23 +62,28 @@ export interface ListVpcConnectionsCommandOutput extends ListVpcConnectionsRespo
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link KafkaServiceException}
- * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ * Base exception class for all service exceptions from Kafka service.
  *
  * @public
  */

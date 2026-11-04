@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { ChatbotServiceException as __BaseException } from "./ChatbotServiceException";
 
 /**
- * <p>Unexpected error during processing of request.</p>
+ * Unexpected error during processing of request.
+ *
  * @public
  */
 export class InternalServiceError extends __BaseException {
@@ -27,7 +28,8 @@ export class InternalServiceError extends __BaseException {
 }
 
 /**
- * <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+ * Your request input doesn't meet the constraints required by AWS Chatbot.
+ *
  * @public
  */
 export class InvalidRequestException extends __BaseException {
@@ -48,7 +50,8 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because it doesn't have valid credentials for the target resource.</p>
+ * The request was rejected because it doesn't have valid credentials for the target resource.
+ *
  * @public
  */
 export class UnauthorizedException extends __BaseException {
@@ -69,7 +72,8 @@ export class UnauthorizedException extends __BaseException {
 }
 
 /**
- * <p>There was an issue processing your request.</p>
+ * There was an issue processing your request.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -90,7 +94,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>We can’t process your request right now because of a server issue. Try again later.</p>
+ * We can’t process your request right now because of a server issue. Try again later.
+ *
  * @public
  */
 export class CreateChimeWebhookConfigurationException extends __BaseException {
@@ -113,7 +118,8 @@ export class CreateChimeWebhookConfigurationException extends __BaseException {
 }
 
 /**
- * <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+ * Your request input doesn't meet the constraints required by AWS Chatbot.
+ *
  * @public
  */
 export class InvalidParameterException extends __BaseException {
@@ -134,7 +140,8 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>You have exceeded a service limit for AWS Chatbot.</p>
+ * You have exceeded a service limit for AWS Chatbot.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -155,7 +162,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>We can’t process your request right now because of a server issue. Try again later.</p>
+ * We can’t process your request right now because of a server issue. Try again later.
+ *
  * @public
  */
 export class CreateTeamsChannelConfigurationException extends __BaseException {
@@ -178,7 +186,8 @@ export class CreateTeamsChannelConfigurationException extends __BaseException {
 }
 
 /**
- * <p>We can’t process your request right now because of a server issue. Try again later.</p>
+ * We can’t process your request right now because of a server issue. Try again later.
+ *
  * @public
  */
 export class CreateSlackChannelConfigurationException extends __BaseException {
@@ -201,7 +210,8 @@ export class CreateSlackChannelConfigurationException extends __BaseException {
 }
 
 /**
- * <p>We were unable to find the resource for your request</p>
+ * We were unable to find the resource for your request
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -224,7 +234,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>We can’t process your request right now because of a server issue. Try again later.</p>
+ * We can’t process your request right now because of a server issue. Try again later.
+ *
  * @public
  */
 export class DeleteChimeWebhookConfigurationException extends __BaseException {
@@ -247,7 +258,8 @@ export class DeleteChimeWebhookConfigurationException extends __BaseException {
 }
 
 /**
- * <p>We can’t process your request right now because of a server issue. Try again later.</p>
+ * We can’t process your request right now because of a server issue. Try again later.
+ *
  * @public
  */
 export class DeleteTeamsChannelConfigurationException extends __BaseException {
@@ -270,7 +282,8 @@ export class DeleteTeamsChannelConfigurationException extends __BaseException {
 }
 
 /**
- * <p>We can’t process your request right now because of a server issue. Try again later.</p>
+ * We can’t process your request right now because of a server issue. Try again later.
+ *
  * @public
  */
 export class DeleteTeamsConfiguredTeamException extends __BaseException {
@@ -293,7 +306,8 @@ export class DeleteTeamsConfiguredTeamException extends __BaseException {
 }
 
 /**
- * <p>We can’t process your request right now because of a server issue. Try again later.</p>
+ * We can’t process your request right now because of a server issue. Try again later.
+ *
  * @public
  */
 export class DeleteMicrosoftTeamsUserIdentityException extends __BaseException {
@@ -316,7 +330,8 @@ export class DeleteMicrosoftTeamsUserIdentityException extends __BaseException {
 }
 
 /**
- * <p>We can’t process your request right now because of a server issue. Try again later.</p>
+ * We can’t process your request right now because of a server issue. Try again later.
+ *
  * @public
  */
 export class DeleteSlackChannelConfigurationException extends __BaseException {
@@ -339,7 +354,8 @@ export class DeleteSlackChannelConfigurationException extends __BaseException {
 }
 
 /**
- * <p>We can’t process your request right now because of a server issue. Try again later.</p>
+ * We can’t process your request right now because of a server issue. Try again later.
+ *
  * @public
  */
 export class DeleteSlackUserIdentityException extends __BaseException {
@@ -362,7 +378,8 @@ export class DeleteSlackUserIdentityException extends __BaseException {
 }
 
 /**
- * <p>There was an issue deleting your Slack workspace.</p>
+ * There was an issue deleting your Slack workspace.
+ *
  * @public
  */
 export class DeleteSlackWorkspaceAuthorizationFault extends __BaseException {
@@ -385,7 +402,8 @@ export class DeleteSlackWorkspaceAuthorizationFault extends __BaseException {
 }
 
 /**
- * <p>We can’t process your request right now because of a server issue. Try again later.</p>
+ * We can’t process your request right now because of a server issue. Try again later.
+ *
  * @public
  */
 export class DescribeChimeWebhookConfigurationsException extends __BaseException {
@@ -408,7 +426,8 @@ export class DescribeChimeWebhookConfigurationsException extends __BaseException
 }
 
 /**
- * <p>We can’t process your request right now because of a server issue. Try again later.</p>
+ * We can’t process your request right now because of a server issue. Try again later.
+ *
  * @public
  */
 export class DescribeSlackChannelConfigurationsException extends __BaseException {
@@ -431,7 +450,8 @@ export class DescribeSlackChannelConfigurationsException extends __BaseException
 }
 
 /**
- * <p>We can’t process your request right now because of a server issue. Try again later.</p>
+ * We can’t process your request right now because of a server issue. Try again later.
+ *
  * @public
  */
 export class DescribeSlackUserIdentitiesException extends __BaseException {
@@ -454,7 +474,8 @@ export class DescribeSlackUserIdentitiesException extends __BaseException {
 }
 
 /**
- * <p>We can’t process your request right now because of a server issue. Try again later.</p>
+ * We can’t process your request right now because of a server issue. Try again later.
+ *
  * @public
  */
 export class DescribeSlackWorkspacesException extends __BaseException {
@@ -477,7 +498,8 @@ export class DescribeSlackWorkspacesException extends __BaseException {
 }
 
 /**
- * <p>We can’t process your request right now because of a server issue. Try again later.</p>
+ * We can’t process your request right now because of a server issue. Try again later.
+ *
  * @public
  */
 export class GetAccountPreferencesException extends __BaseException {
@@ -500,7 +522,8 @@ export class GetAccountPreferencesException extends __BaseException {
 }
 
 /**
- * <p>We can’t process your request right now because of a server issue. Try again later.</p>
+ * We can’t process your request right now because of a server issue. Try again later.
+ *
  * @public
  */
 export class GetTeamsChannelConfigurationException extends __BaseException {
@@ -523,7 +546,8 @@ export class GetTeamsChannelConfigurationException extends __BaseException {
 }
 
 /**
- * <p>We can’t process your request right now because of a server issue. Try again later.</p>
+ * We can’t process your request right now because of a server issue. Try again later.
+ *
  * @public
  */
 export class ListTeamsChannelConfigurationsException extends __BaseException {
@@ -546,7 +570,8 @@ export class ListTeamsChannelConfigurationsException extends __BaseException {
 }
 
 /**
- * <p>We can’t process your request right now because of a server issue. Try again later.</p>
+ * We can’t process your request right now because of a server issue. Try again later.
+ *
  * @public
  */
 export class ListMicrosoftTeamsConfiguredTeamsException extends __BaseException {
@@ -569,7 +594,8 @@ export class ListMicrosoftTeamsConfiguredTeamsException extends __BaseException 
 }
 
 /**
- * <p>We can’t process your request right now because of a server issue. Try again later.</p>
+ * We can’t process your request right now because of a server issue. Try again later.
+ *
  * @public
  */
 export class ListMicrosoftTeamsUserIdentitiesException extends __BaseException {
@@ -592,7 +618,8 @@ export class ListMicrosoftTeamsUserIdentitiesException extends __BaseException {
 }
 
 /**
- * <p>We can’t process your request right now because of a server issue. Try again later.</p>
+ * We can’t process your request right now because of a server issue. Try again later.
+ *
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -613,7 +640,8 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>The supplied list of tags contains too many tags.</p>
+ * The supplied list of tags contains too many tags.
+ *
  * @public
  */
 export class TooManyTagsException extends __BaseException {
@@ -634,7 +662,8 @@ export class TooManyTagsException extends __BaseException {
 }
 
 /**
- * <p>We can’t process your request right now because of a server issue. Try again later.</p>
+ * We can’t process your request right now because of a server issue. Try again later.
+ *
  * @public
  */
 export class UpdateAccountPreferencesException extends __BaseException {
@@ -657,7 +686,8 @@ export class UpdateAccountPreferencesException extends __BaseException {
 }
 
 /**
- * <p>We can’t process your request right now because of a server issue. Try again later.</p>
+ * We can’t process your request right now because of a server issue. Try again later.
+ *
  * @public
  */
 export class UpdateChimeWebhookConfigurationException extends __BaseException {
@@ -680,7 +710,8 @@ export class UpdateChimeWebhookConfigurationException extends __BaseException {
 }
 
 /**
- * <p>We can’t process your request right now because of a server issue. Try again later.</p>
+ * We can’t process your request right now because of a server issue. Try again later.
+ *
  * @public
  */
 export class UpdateTeamsChannelConfigurationException extends __BaseException {
@@ -703,7 +734,8 @@ export class UpdateTeamsChannelConfigurationException extends __BaseException {
 }
 
 /**
- * <p>We can’t process your request right now because of a server issue. Try again later.</p>
+ * We can’t process your request right now because of a server issue. Try again later.
+ *
  * @public
  */
 export class UpdateSlackChannelConfigurationException extends __BaseException {

@@ -23,8 +23,10 @@ export interface DeleteTagOptionCommandInput extends DeleteTagOptionInput {}
 export interface DeleteTagOptionCommandOutput extends DeleteTagOptionOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified TagOption.</p>
- *          <p>You cannot delete a TagOption if it is associated with a product or portfolio.</p>
+ * Deletes the specified TagOption.
+ *
+ * You cannot delete a TagOption if it is associated with a product or portfolio.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,19 +51,20 @@ export interface DeleteTagOptionCommandOutput extends DeleteTagOptionOutput, __M
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>A resource that is currently in use. Ensure that the resource is not in use and retry the operation.</p>
+ *
+ * A resource that is currently in use. Ensure that the resource is not in use and retry the operation.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link TagOptionNotMigratedException} (client fault)
- *  <p>An operation requiring TagOptions failed because the TagOptions migration process has
- *          not been performed for this account. Use the Amazon Web Services Management Console to perform the migration
- *          process before retrying the operation.</p>
+ *
+ * An operation requiring TagOptions failed because the TagOptions migration process has not been performed for this account. Use the Amazon Web Services Management Console to perform the migration process before retrying the operation.
  *
  * @throws {@link ServiceCatalogServiceException}
- * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * Base exception class for all service exceptions from ServiceCatalog service.
  *
  * @public
  */

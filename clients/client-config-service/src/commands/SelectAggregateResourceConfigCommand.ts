@@ -23,18 +23,16 @@ export interface SelectAggregateResourceConfigCommandInput extends SelectAggrega
 export interface SelectAggregateResourceConfigCommandOutput extends SelectAggregateResourceConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Accepts a structured query language (SQL) SELECT command and an aggregator to query configuration state of Amazon Web Services resources across multiple accounts and regions,
- * 			performs the corresponding search, and returns resource configurations matching the properties.</p>
- *          <p>For more information about query components, see the
- * 			<a href="https://docs.aws.amazon.com/config/latest/developerguide/query-components.html">
- *                <b>Query Components</b>
- *             </a> section in the <i>Config Developer Guide</i>.</p>
- *          <note>
- *             <p>If you run an aggregation query (i.e., using <code>GROUP BY</code> or using aggregate functions such as <code>COUNT</code>; e.g., <code>SELECT resourceId, COUNT(*) WHERE resourceType = 'AWS::IAM::Role' GROUP BY resourceId</code>)
- * 				and do not specify the <code>MaxResults</code> or the <code>Limit</code> query parameters, the default page size is set to 500.</p>
- *             <p>If you run a non-aggregation query (i.e., not using <code>GROUP BY</code> or aggregate function; e.g., <code>SELECT * WHERE resourceType = 'AWS::IAM::Role'</code>)
- * 				and do not specify the <code>MaxResults</code> or the <code>Limit</code> query parameters, the default page size is set to 25.</p>
- *          </note>
+ * Accepts a structured query language (SQL) SELECT command and an aggregator to query configuration state of Amazon Web Services resources across multiple accounts and regions, performs the corresponding search, and returns resource configurations matching the properties.
+ *
+ * For more information about query components, see the [**Query Components**](https://docs.aws.amazon.com/config/latest/developerguide/query-components.html) section in the *Config Developer Guide*.
+ *
+ * > **Note:**
+ * >
+ * > If you run an aggregation query (i.e., using `GROUP BY` or using aggregate functions such as `COUNT`; e.g., `SELECT resourceId, COUNT(*) WHERE resourceType = 'AWS::IAM::Role' GROUP BY resourceId`) and do not specify the `MaxResults` or the `Limit` query parameters, the default page size is set to 500.
+ * >
+ * > If you run a non-aggregation query (i.e., not using `GROUP BY` or aggregate function; e.g., `SELECT * WHERE resourceType = 'AWS::IAM::Role'`) and do not specify the `MaxResults` or the `Limit` query parameters, the default page size is set to 25.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,22 +73,24 @@ export interface SelectAggregateResourceConfigCommandOutput extends SelectAggreg
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  * @throws {@link InvalidExpressionException} (client fault)
- *  <p>The syntax of the query is incorrect.</p>
+ *
+ * The syntax of the query is incorrect.
  *
  * @throws {@link InvalidLimitException} (client fault)
- *  <p>The specified limit is outside the allowable range.</p>
+ *
+ * The specified limit is outside the allowable range.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The specified next token is not valid. Specify the
- * 				<code>nextToken</code> string that was returned in the previous
- * 			response to get the next page of results.</p>
+ *
+ * The specified next token is not valid. Specify the `nextToken` string that was returned in the previous response to get the next page of results.
  *
  * @throws {@link NoSuchConfigurationAggregatorException} (client fault)
- *  <p>You have specified a configuration aggregator that does not exist.</p>
+ *
+ * You have specified a configuration aggregator that does not exist.
  *
  * @throws {@link ConfigServiceServiceException}
- * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * Base exception class for all service exceptions from ConfigService service.
  *
  * @public
  */

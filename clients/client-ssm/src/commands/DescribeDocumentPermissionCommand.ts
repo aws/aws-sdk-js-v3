@@ -23,9 +23,8 @@ export interface DescribeDocumentPermissionCommandInput extends DescribeDocument
 export interface DescribeDocumentPermissionCommandOutput extends DescribeDocumentPermissionResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the permissions for a Amazon Web Services Systems Manager document (SSM document). If you created the
- *    document, you are the owner. If a document is shared, it can either be shared privately (by
- *    specifying a user's Amazon Web Services account ID) or publicly (<i>All</i>). </p>
+ * Describes the permissions for a Amazon Web Services Systems Manager document (SSM document). If you created the document, you are the owner. If a document is shared, it can either be shared privately (by specifying a user's Amazon Web Services account ID) or publicly (*All*).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,25 +63,28 @@ export interface DescribeDocumentPermissionCommandOutput extends DescribeDocumen
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidDocument} (client fault)
- *  <p>The specified SSM document doesn't exist.</p>
+ *
+ * The specified SSM document doesn't exist.
  *
  * @throws {@link InvalidDocumentOperation} (client fault)
- *  <p>You attempted to delete a document while it is still shared. You must stop sharing the
- *    document before you can delete it.</p>
+ *
+ * You attempted to delete a document while it is still shared. You must stop sharing the document before you can delete it.
  *
  * @throws {@link InvalidNextToken} (client fault)
- *  <p>The specified token isn't valid.</p>
+ *
+ * The specified token isn't valid.
  *
  * @throws {@link InvalidPermissionType} (client fault)
- *  <p>The permission type isn't supported. <i>Share</i> is the only supported
- *    permission type.</p>
+ *
+ * The permission type isn't supported. *Share* is the only supported permission type.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

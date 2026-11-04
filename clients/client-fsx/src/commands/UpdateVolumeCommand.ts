@@ -23,7 +23,8 @@ export interface UpdateVolumeCommandInput extends UpdateVolumeRequest {}
 export interface UpdateVolumeCommandOutput extends UpdateVolumeResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the configuration of an Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS volume.</p>
+ * Updates the configuration of an Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS volume.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -724,25 +725,28 @@ export interface UpdateVolumeCommandOutput extends UpdateVolumeResponse, __Metad
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * A generic error indicating a failure with a client request.
  *
  * @throws {@link IncompatibleParameterError} (client fault)
- *  <p>The error returned when a second request is received with the same client request
- *             token but different parameters settings. A client request token should always uniquely
- *             identify a single request.</p>
+ *
+ * The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * A generic error indicating a server-side failure.
  *
  * @throws {@link MissingVolumeConfiguration} (client fault)
- *  <p>A volume configuration is required for this operation.</p>
+ *
+ * A volume configuration is required for this operation.
  *
  * @throws {@link VolumeNotFound} (client fault)
- *  <p>No Amazon FSx volumes were found based upon the supplied parameters.</p>
+ *
+ * No Amazon FSx volumes were found based upon the supplied parameters.
  *
  * @throws {@link FSxServiceException}
- * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * Base exception class for all service exceptions from FSx service.
  *
  * @public
  */

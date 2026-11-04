@@ -23,12 +23,10 @@ export interface CreateProtectionCommandInput extends CreateProtectionRequest {}
 export interface CreateProtectionCommandOutput extends CreateProtectionResponse, __MetadataBearer {}
 
 /**
- * <p>Enables Shield Advanced for a specific Amazon Web Services resource. The resource can be an Amazon CloudFront distribution, Amazon Route 53 hosted zone, Global Accelerator standard accelerator, Elastic IP Address, Application Load Balancer, or a Classic Load Balancer. You can protect Amazon EC2 instances and Network Load Balancers by association with protected Amazon EC2 Elastic IP addresses.</p>
- *          <p>You can add protection to only a single resource with each <code>CreateProtection</code> request. You can add protection to multiple resources
- *           at once through the Shield Advanced console at <a href="https://console.aws.amazon.com/wafv2/shieldv2#/">https://console.aws.amazon.com/wafv2/shieldv2#/</a>.
- *               For more information see
- *           <a href="https://docs.aws.amazon.com/waf/latest/developerguide/getting-started-ddos.html">Getting Started with Shield Advanced</a>
- *               and <a href="https://docs.aws.amazon.com/waf/latest/developerguide/configure-new-protection.html">Adding Shield Advanced protection to Amazon Web Services resources</a>.</p>
+ * Enables Shield Advanced for a specific Amazon Web Services resource. The resource can be an Amazon CloudFront distribution, Amazon Route 53 hosted zone, Global Accelerator standard accelerator, Elastic IP Address, Application Load Balancer, or a Classic Load Balancer. You can protect Amazon EC2 instances and Network Load Balancers by association with protected Amazon EC2 Elastic IP addresses.
+ *
+ * You can add protection to only a single resource with each `CreateProtection` request. You can add protection to multiple resources at once through the Shield Advanced console at [https://console.aws.amazon.com/wafv2/shieldv2#/](https://console.aws.amazon.com/wafv2/shieldv2#/). For more information see [Getting Started with Shield Advanced](https://docs.aws.amazon.com/waf/latest/developerguide/getting-started-ddos.html) and [Adding Shield Advanced protection to Amazon Web Services resources](https://docs.aws.amazon.com/waf/latest/developerguide/configure-new-protection.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,33 +60,40 @@ export interface CreateProtectionCommandOutput extends CreateProtectionResponse,
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+ *
+ * Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.
  *
  * @throws {@link InvalidOperationException} (client fault)
- *  <p>Exception that indicates that the operation would not cause any change to occur.</p>
+ *
+ * Exception that indicates that the operation would not cause any change to occur.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Exception that indicates that the parameters passed to the API are invalid. If available, this exception includes details in additional properties. </p>
+ *
+ * Exception that indicates that the parameters passed to the API are invalid. If available, this exception includes details in additional properties.
  *
  * @throws {@link InvalidResourceException} (client fault)
- *  <p>Exception that indicates that the resource is invalid. You might not have access to the resource, or the resource might not exist.</p>
+ *
+ * Exception that indicates that the resource is invalid. You might not have access to the resource, or the resource might not exist.
  *
  * @throws {@link LimitsExceededException} (client fault)
- *  <p>Exception that indicates that the operation would exceed a limit.</p>
+ *
+ * Exception that indicates that the operation would exceed a limit.
  *
  * @throws {@link OptimisticLockException} (client fault)
- *  <p>Exception that indicates that the resource state has been modified by another
- *          client. Retrieve the resource and then retry your request.</p>
+ *
+ * Exception that indicates that the resource state has been modified by another client. Retrieve the resource and then retry your request.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>Exception indicating the specified resource already exists. If available, this exception includes details in additional properties. </p>
+ *
+ * Exception indicating the specified resource already exists. If available, this exception includes details in additional properties.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+ *
+ * Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties.
  *
  * @throws {@link ShieldServiceException}
- * <p>Base exception class for all service exceptions from Shield service.</p>
  *
+ * Base exception class for all service exceptions from Shield service.
  *
  * @public
  */

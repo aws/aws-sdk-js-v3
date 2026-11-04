@@ -26,7 +26,8 @@ export interface DescribeIpamInternetRegistryAssociationsCommandInput extends De
 export interface DescribeIpamInternetRegistryAssociationsCommandOutput extends DescribeIpamInternetRegistryAssociationsResult, __MetadataBearer {}
 
 /**
- * <p>Describes one or more IPAM internet registry associations. We recommend using pagination to ensure that the operation returns quickly and successfully.</p>
+ * Describes one or more IPAM internet registry associations. We recommend using pagination to ensure that the operation returns quickly and successfully.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,8 +88,8 @@ export interface DescribeIpamInternetRegistryAssociationsCommandOutput extends D
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

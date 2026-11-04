@@ -23,7 +23,8 @@ export interface GetResolverCommandInput extends GetResolverRequest {}
 export interface GetResolverCommandOutput extends GetResolverResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a <code>Resolver</code> object.</p>
+ * Retrieves a `Resolver` object.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,19 +86,20 @@ export interface GetResolverCommandOutput extends GetResolverResponse, __Metadat
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Another modification is in progress at this time and it must complete before you can
- *          make your change.</p>
+ *
+ * Another modification is in progress at this time and it must complete before you can make your change.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource specified in the request was not found. Check the resource, and then try
- *          again.</p>
+ *
+ * The resource specified in the request was not found. Check the resource, and then try again.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>You aren't authorized to perform this operation.</p>
+ *
+ * You aren't authorized to perform this operation.
  *
  * @throws {@link AppSyncServiceException}
- * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * Base exception class for all service exceptions from AppSync service.
  *
  * @public
  */

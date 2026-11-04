@@ -23,37 +23,22 @@ export interface CopySnapshotCommandInput extends CopySnapshotRequest {}
 export interface CopySnapshotCommandOutput extends CopySnapshotResult, __MetadataBearer {}
 
 /**
- * <p>Creates an exact copy of an Amazon EBS snapshot.</p>
- *          <p>The location of the source snapshot determines whether you can copy it or not,
- *       and the allowed destinations for the snapshot copy.</p>
- *          <ul>
- *             <li>
- *                <p>If the source snapshot is in a Region, you can copy it within that Region,
- *           to another Region, to an Outpost associated with that Region, or to a Local
- *           Zone in that Region.</p>
- *             </li>
- *             <li>
- *                <p>If the source snapshot is in a Local Zone, you can copy it within that Local Zone,
- *           to another Local Zone in the same zone group, or to the parent Region of the Local
- *           Zone.</p>
- *             </li>
- *             <li>
- *                <p>If the source snapshot is on an Outpost, you can't copy it.</p>
- *             </li>
- *          </ul>
- *          <p>When copying snapshots to a Region, the encryption outcome for the snapshot copy depends on the
- *       Amazon EBS encryption by default setting for the destination Region, the encryption status of the source
- *       snapshot, and the encryption parameters you specify in the request. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-copy-snapshot.html#creating-encrypted-snapshots">
- *         Encryption and snapshot copying</a>.</p>
- *          <p>Snapshots copied to an Outpost must be encrypted. Unencrypted snapshots are not supported
- *       on Outposts. For more information, <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#considerations">
- *         Amazon EBS local snapshots on Outposts</a>.</p>
- *          <note>
- *             <p>Snapshots copies have an arbitrary source volume ID. Do not use this volume ID for
- *         any purpose.</p>
- *          </note>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-copy-snapshot.html">Copy an Amazon EBS snapshot</a> in the
- *         <i>Amazon EBS User Guide</i>.</p>
+ * Creates an exact copy of an Amazon EBS snapshot.
+ *
+ * The location of the source snapshot determines whether you can copy it or not, and the allowed destinations for the snapshot copy.
+ *
+ * - If the source snapshot is in a Region, you can copy it within that Region, to another Region, to an Outpost associated with that Region, or to a Local Zone in that Region.
+ * - If the source snapshot is in a Local Zone, you can copy it within that Local Zone, to another Local Zone in the same zone group, or to the parent Region of the Local Zone.
+ * - If the source snapshot is on an Outpost, you can't copy it.
+ *
+ * When copying snapshots to a Region, the encryption outcome for the snapshot copy depends on the Amazon EBS encryption by default setting for the destination Region, the encryption status of the source snapshot, and the encryption parameters you specify in the request. For more information, see [Encryption and snapshot copying](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-copy-snapshot.html#creating-encrypted-snapshots).
+ *
+ * Snapshots copied to an Outpost must be encrypted. Unencrypted snapshots are not supported on Outposts. For more information, [Amazon EBS local snapshots on Outposts](https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#considerations).
+ *
+ * > **Note:** Snapshots copies have an arbitrary source volume ID. Do not use this volume ID for any purpose.
+ *
+ * For more information, see [Copy an Amazon EBS snapshot](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-copy-snapshot.html) in the *Amazon EBS User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -107,8 +92,8 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To copy a snapshot
  * ```javascript

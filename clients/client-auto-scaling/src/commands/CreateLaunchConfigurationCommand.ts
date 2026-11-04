@@ -23,19 +23,14 @@ export interface CreateLaunchConfigurationCommandInput extends CreateLaunchConfi
 export interface CreateLaunchConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Creates a launch configuration.</p>
- *          <p>If you exceed your maximum limit of launch configurations, the call fails. To query
- *             this limit, call the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html">DescribeAccountLimits</a> API.
- *             For information about updating this limit, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html">Quotas for
- *             Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-configurations.html">Launch
- *                 configurations</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
- *          <note>
- *             <p>Amazon EC2 Auto Scaling configures instances launched as part of an Auto Scaling group using either a
- *                 launch template or a launch configuration. We strongly recommend that you do not use
- *                 launch configurations. They do not provide full functionality for Amazon EC2 Auto Scaling or Amazon EC2.
- *                 For information about using launch templates, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-templates.html">Launch templates</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
- *          </note>
+ * Creates a launch configuration.
+ *
+ * If you exceed your maximum limit of launch configurations, the call fails. To query this limit, call the [DescribeAccountLimits](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html) API. For information about updating this limit, see [Quotas for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html) in the *Amazon EC2 Auto Scaling User Guide*.
+ *
+ * For more information, see [Launch configurations](https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-configurations.html) in the *Amazon EC2 Auto Scaling User Guide*.
+ *
+ * > **Note:** Amazon EC2 Auto Scaling configures instances launched as part of an Auto Scaling group using either a launch template or a launch configuration. We strongly recommend that you do not use launch configurations. They do not provide full functionality for Amazon EC2 Auto Scaling or Amazon EC2. For information about using launch templates, see [Launch templates](https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-templates.html) in the *Amazon EC2 Auto Scaling User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -103,21 +98,20 @@ export interface CreateLaunchConfigurationCommandOutput extends __MetadataBearer
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  * @throws {@link AlreadyExistsFault} (client fault)
- *  <p>You already have an Auto Scaling group or launch configuration with this name.</p>
+ *
+ * You already have an Auto Scaling group or launch configuration with this name.
  *
  * @throws {@link LimitExceededFault} (client fault)
- *  <p>You have already reached a limit for your Amazon EC2 Auto Scaling
- *             resources (for example, Auto Scaling groups, launch configurations, or lifecycle hooks). For
- *             more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html">DescribeAccountLimits</a> in the <i>Amazon EC2 Auto Scaling API
- *             Reference</i>.</p>
+ *
+ * You have already reached a limit for your Amazon EC2 Auto Scaling resources (for example, Auto Scaling groups, launch configurations, or lifecycle hooks). For more information, see [DescribeAccountLimits](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html) in the *Amazon EC2 Auto Scaling API Reference*.
  *
  * @throws {@link ResourceContentionFault} (server fault)
- *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
- *             instance, or load balancer).</p>
+ *
+ * You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).
  *
  * @throws {@link AutoScalingServiceException}
- * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from AutoScaling service.
  *
  * @example To create a launch configuration
  * ```javascript

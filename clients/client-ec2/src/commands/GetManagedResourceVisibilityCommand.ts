@@ -23,8 +23,8 @@ export interface GetManagedResourceVisibilityCommandInput extends GetManagedReso
 export interface GetManagedResourceVisibilityCommandOutput extends GetManagedResourceVisibilityResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves the managed resource visibility configuration for the account. The response
- *             indicates whether managed resources are hidden or visible by default.</p>
+ * Retrieves the managed resource visibility configuration for the account. The response indicates whether managed resources are hidden or visible by default.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,8 +53,8 @@ export interface GetManagedResourceVisibilityCommandOutput extends GetManagedRes
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

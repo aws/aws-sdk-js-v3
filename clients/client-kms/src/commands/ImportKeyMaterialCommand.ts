@@ -23,137 +23,59 @@ export interface ImportKeyMaterialCommandInput extends ImportKeyMaterialRequest 
 export interface ImportKeyMaterialCommandOutput extends ImportKeyMaterialResponse, __MetadataBearer {}
 
 /**
- * <p>Imports or reimports key material into an existing KMS key that was created without key
- *       material. You can also use this operation to set or update the expiration model and expiration
- *       date of the imported key material.</p>
- *          <p>By default, KMS creates KMS keys with key material that it generates. You can also
- *       generate and import your own key material. For more information about importing key material,
- *       see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing key
- *         material</a>.</p>
- *          <p>For asymmetric and HMAC keys, you cannot change the key material after the initial import.
- *       You can import multiple key materials into symmetric encryption keys and rotate the key
- *       material on demand using <code>RotateKeyOnDemand</code>.</p>
- *          <p>You can import new key materials into multi-Region symmetric encryption keys. To do so, you must
- *       import the new key material into the primary Region key. Then you can import the same key
- *       materials into the replica Region keys. You cannot directly import new key material into
- *       the replica Region keys.</p>
- *          <p>To import new key material for a multi-Region symmetric key, you’ll need to complete the
- *       following:</p>
- *          <ol>
- *             <li>
- *                <p>Call <code>ImportKeyMaterial</code> on the primary Region key with the
- *             <code>ImportType</code>set to <code>NEW_KEY_MATERIAL</code>.</p>
- *             </li>
- *             <li>
- *                <p>Call <code>ImportKeyMaterial</code> on the replica Region key with the
- *             <code>ImportType</code> set to <code>EXISTING_KEY_MATERIAL</code> using the same key
- *             material imported to the primary Region key. You must do this for every replica
- *             Region key before you can perform the <a>RotateKeyOnDemand</a> operation
- *             on the primary Region key.</p>
- *             </li>
- *          </ol>
- *          <p>After you import key material, you can <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-import-key-material.html#reimport-key-material">reimport
- *         the same key material</a> into that KMS key or, if the key supports on-demand rotation,
- *       import new key material. You can use the <code>ImportType</code> parameter to indicate whether
- *       you are importing new key material or re-importing previously imported key material. You might
- *       reimport key material to replace key material that expired or key material that you deleted.
- *       You might also reimport key material to change the expiration model or expiration date of the
- *       key material.</p>
- *          <p>Each time you import key material into KMS, you can determine whether
- *         (<code>ExpirationModel</code>) and when (<code>ValidTo</code>) the key material expires. To
- *       change the expiration of your key material, you must import it again, either by calling
- *         <code>ImportKeyMaterial</code> or using the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-import-key-material.html#importing-keys-import-key-material-console">import features</a> of the KMS console.</p>
- *          <p>Before you call <code>ImportKeyMaterial</code>, complete these steps:</p>
- *          <ul>
- *             <li>
- *                <p>Create or identify a KMS key with <code>EXTERNAL</code> origin, which indicates that
- *           the KMS key is designed for imported key material. </p>
- *                <p>To create a new KMS key for imported key material, call the <a>CreateKey</a> operation with an <code>Origin</code> value of <code>EXTERNAL</code>. You can create a
- *           symmetric encryption KMS key, HMAC KMS key, asymmetric encryption KMS key, asymmetric key
- *           agreement key, or asymmetric signing KMS key. You can also import key material into a
- *             <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">multi-Region key</a> of any supported type. However, you can't import key material
- *           into a KMS key in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key store</a>.</p>
- *             </li>
- *             <li>
- *                <p>Call the <a>GetParametersForImport</a> operation to get a public key and
- *           import token set for importing key material. </p>
- *             </li>
- *             <li>
- *                <p>Use the public key in the <a>GetParametersForImport</a> response to encrypt
- *           your key material.</p>
- *             </li>
- *          </ul>
- *          <p>Then, in an <code>ImportKeyMaterial</code> request, you submit your encrypted key
- *       material and import token. When calling this operation, you must specify the following
- *       values:</p>
- *          <ul>
- *             <li>
- *                <p>The key ID or key ARN of the KMS key to associate with the imported key material. Its
- *             <code>Origin</code> must be <code>EXTERNAL</code> and its <code>KeyState</code> must be
- *             <code>PendingImport</code> or <code>Enabled</code>. You cannot perform this operation on
- *             a KMS key in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key store</a>, or on a KMS key in a different Amazon Web Services account. To get the
- *             <code>Origin</code> and <code>KeyState</code> of a KMS key, call <a>DescribeKey</a>.</p>
- *             </li>
- *             <li>
- *                <p>The encrypted key material. </p>
- *             </li>
- *             <li>
- *                <p>The import token that <a>GetParametersForImport</a> returned. You must use
- *           a public key and token from the same <code>GetParametersForImport</code> response.</p>
- *             </li>
- *             <li>
- *                <p>Whether the key material expires (<code>ExpirationModel</code>) and, if so, when
- *             (<code>ValidTo</code>). For help with this choice, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-import-key-material.html#importing-keys-expiration">Setting an expiration time</a> in the <i>Key Management Service Developer Guide</i>.</p>
- *                <p>If you set an expiration date, KMS deletes the key material from the KMS key on the
- *           specified date, making the KMS key unusable. To use the KMS key in cryptographic
- *           operations again, you must reimport the same key material. However, you can delete and
- *           reimport the key material at any time, including before the key material expires. Each
- *           time you reimport, you can eliminate or reset the expiration time.</p>
- *             </li>
- *          </ul>
- *          <p>When this operation is successful, the state of the KMS key changes to <code>Enabled</code>,
- *       and you can use the KMS key in cryptographic operations. For symmetric encryption keys, you will
- *       need to import all of the key materials associated with the KMS key to change its state to
- *       <code>Enabled</code>. Use the <code>ListKeyRotations</code> operation to list the ID and import
- *       state of each key material associated with a KMS key.</p>
- *          <p>If this operation fails, use the exception to help determine the problem. If the error is
- *       related to the key material, the import token, or wrapping key, use <a>GetParametersForImport</a> to get a new public key and import token for the KMS key
- *       and repeat the import procedure. For help, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-conceptual.html">Create a KMS key with imported key
- *         material</a> in the <i>Key Management Service Developer Guide</i>.</p>
- *          <p>The KMS key that you use for this operation must be in a compatible key state. For
- * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
- *          <p>
- *             <b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account.</p>
- *          <p>
- *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ImportKeyMaterial</a> (key policy)</p>
- *          <p>
- *             <b>Related operations:</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>DeleteImportedKeyMaterial</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>GetParametersForImport</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListKeyRotations</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>RotateKeyOnDemand</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
+ * Imports or reimports key material into an existing KMS key that was created without key material. You can also use this operation to set or update the expiration model and expiration date of the imported key material.
+ *
+ * By default, KMS creates KMS keys with key material that it generates. You can also generate and import your own key material. For more information about importing key material, see [Importing key material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html).
+ *
+ * For asymmetric and HMAC keys, you cannot change the key material after the initial import. You can import multiple key materials into symmetric encryption keys and rotate the key material on demand using `RotateKeyOnDemand`.
+ *
+ * You can import new key materials into multi-Region symmetric encryption keys. To do so, you must import the new key material into the primary Region key. Then you can import the same key materials into the replica Region keys. You cannot directly import new key material into the replica Region keys.
+ *
+ * To import new key material for a multi-Region symmetric key, you’ll need to complete the following:
+ *
+ * 1. Call `ImportKeyMaterial` on the primary Region key with the `ImportType`set to `NEW_KEY_MATERIAL`.
+ * 2. Call `ImportKeyMaterial` on the replica Region key with the `ImportType` set to `EXISTING_KEY_MATERIAL` using the same key material imported to the primary Region key. You must do this for every replica Region key before you can perform the RotateKeyOnDemand operation on the primary Region key.
+ *
+ * After you import key material, you can [reimport the same key material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-import-key-material.html#reimport-key-material) into that KMS key or, if the key supports on-demand rotation, import new key material. You can use the `ImportType` parameter to indicate whether you are importing new key material or re-importing previously imported key material. You might reimport key material to replace key material that expired or key material that you deleted. You might also reimport key material to change the expiration model or expiration date of the key material.
+ *
+ * Each time you import key material into KMS, you can determine whether (`ExpirationModel`) and when (`ValidTo`) the key material expires. To change the expiration of your key material, you must import it again, either by calling `ImportKeyMaterial` or using the [import features](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-import-key-material.html#importing-keys-import-key-material-console) of the KMS console.
+ *
+ * Before you call `ImportKeyMaterial`, complete these steps:
+ *
+ * - Create or identify a KMS key with `EXTERNAL` origin, which indicates that the KMS key is designed for imported key material.
+ *
+ *   To create a new KMS key for imported key material, call the CreateKey operation with an `Origin` value of `EXTERNAL`. You can create a symmetric encryption KMS key, HMAC KMS key, asymmetric encryption KMS key, asymmetric key agreement key, or asymmetric signing KMS key. You can also import key material into a [multi-Region key](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html) of any supported type. However, you can't import key material into a KMS key in a [custom key store](https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html).
+ * - Call the GetParametersForImport operation to get a public key and import token set for importing key material.
+ * - Use the public key in the GetParametersForImport response to encrypt your key material.
+ *
+ * Then, in an `ImportKeyMaterial` request, you submit your encrypted key material and import token. When calling this operation, you must specify the following values:
+ *
+ * - The key ID or key ARN of the KMS key to associate with the imported key material. Its `Origin` must be `EXTERNAL` and its `KeyState` must be `PendingImport` or `Enabled`. You cannot perform this operation on a KMS key in a [custom key store](https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html), or on a KMS key in a different Amazon Web Services account. To get the `Origin` and `KeyState` of a KMS key, call DescribeKey.
+ * - The encrypted key material.
+ * - The import token that GetParametersForImport returned. You must use a public key and token from the same `GetParametersForImport` response.
+ * - Whether the key material expires (`ExpirationModel`) and, if so, when (`ValidTo`). For help with this choice, see [Setting an expiration time](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-import-key-material.html#importing-keys-expiration) in the *Key Management Service Developer Guide*.
+ *
+ *   If you set an expiration date, KMS deletes the key material from the KMS key on the specified date, making the KMS key unusable. To use the KMS key in cryptographic operations again, you must reimport the same key material. However, you can delete and reimport the key material at any time, including before the key material expires. Each time you reimport, you can eliminate or reset the expiration time.
+ *
+ * When this operation is successful, the state of the KMS key changes to `Enabled`, and you can use the KMS key in cryptographic operations. For symmetric encryption keys, you will need to import all of the key materials associated with the KMS key to change its state to `Enabled`. Use the `ListKeyRotations` operation to list the ID and import state of each key material associated with a KMS key.
+ *
+ * If this operation fails, use the exception to help determine the problem. If the error is related to the key material, the import token, or wrapping key, use GetParametersForImport to get a new public key and import token for the KMS key and repeat the import procedure. For help, see [Create a KMS key with imported key material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-conceptual.html) in the *Key Management Service Developer Guide*.
+ *
+ * The KMS key that you use for this operation must be in a compatible key state. For details, see [Key states of KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the *Key Management Service Developer Guide*.
+ *
+ * **Cross-account use**: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account.
+ *
+ * **Required permissions**: [kms:ImportKeyMaterial](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy)
+ *
+ * **Related operations:**
+ *
+ * - DeleteImportedKeyMaterial
+ * - GetParametersForImport
+ * - ListKeyRotations
+ * - RotateKeyOnDemand
+ *
+ * **Eventual consistency**: The KMS API follows an eventual consistency model. For more information, see [KMS eventual consistency](https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -188,73 +110,59 @@ export interface ImportKeyMaterialCommandOutput extends ImportKeyMaterialRespons
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
  * @throws {@link DependencyTimeoutException} (server fault)
- *  <p>The system timed out while trying to fulfill the request. You can retry the
- *       request.</p>
+ *
+ * The system timed out while trying to fulfill the request. You can retry the request.
  *
  * @throws {@link ExpiredImportTokenException} (client fault)
- *  <p>The request was rejected because the specified import token is expired. Use <a>GetParametersForImport</a> to get a new import token and public key, use the new
- *       public key to encrypt the key material, and then try the request again.</p>
+ *
+ * The request was rejected because the specified import token is expired. Use GetParametersForImport to get a new import token and public key, use the new public key to encrypt the key material, and then try the request again.
  *
  * @throws {@link IncorrectKeyMaterialException} (client fault)
- *  <p>The request was rejected because the key material in the request is, expired, invalid, or
- *       does not meet expectations. For example, it is not the same key material that was previously
- *       imported or KMS expected new key material but the key material being imported is already
- *       associated with the KMS key.</p>
+ *
+ * The request was rejected because the key material in the request is, expired, invalid, or does not meet expectations. For example, it is not the same key material that was previously imported or KMS expected new key material but the key material being imported is already associated with the KMS key.
  *
  * @throws {@link InvalidArnException} (client fault)
- *  <p>The request was rejected because a specified ARN, or an ARN in a key policy, is not
- *       valid.</p>
+ *
+ * The request was rejected because a specified ARN, or an ARN in a key policy, is not valid.
  *
  * @throws {@link InvalidCiphertextException} (client fault)
- *  <p>From the <a>Decrypt</a> or <a>ReEncrypt</a> operation, the request
- *       was rejected because the specified ciphertext, or additional authenticated data incorporated
- *       into the ciphertext, such as the encryption context, is corrupted, missing, or otherwise
- *       invalid.</p>
- *          <p>From the <a>ImportKeyMaterial</a> operation, the request was rejected because
- *       KMS could not decrypt the encrypted (wrapped) key material. </p>
- *          <p>From the <a>Decapsulate</a> operation, the request was rejected because the
- *       length of the <code>SharedSecretCiphertextBlob</code> is inconsistent with the specified ML-KEM
- *       key spec.</p>
+ *
+ * From the Decrypt or ReEncrypt operation, the request was rejected because the specified ciphertext, or additional authenticated data incorporated into the ciphertext, such as the encryption context, is corrupted, missing, or otherwise invalid.
+ *
+ * From the ImportKeyMaterial operation, the request was rejected because KMS could not decrypt the encrypted (wrapped) key material.
+ *
+ * From the Decapsulate operation, the request was rejected because the length of the `SharedSecretCiphertextBlob` is inconsistent with the specified ML-KEM key spec.
  *
  * @throws {@link InvalidImportTokenException} (client fault)
- *  <p>The request was rejected because the provided import token is invalid or is associated
- *       with a different KMS key.</p>
+ *
+ * The request was rejected because the provided import token is invalid or is associated with a different KMS key.
  *
  * @throws {@link KMSInternalException} (server fault)
- *  <p>The request was rejected because an internal exception occurred. The request can be
- *       retried.</p>
+ *
+ * The request was rejected because an internal exception occurred. The request can be retried.
  *
  * @throws {@link KMSInvalidStateException} (client fault)
- *  <p>The request was rejected because the state of the specified resource is not valid for this
- *       request.</p>
- *          <p>This exceptions means one of the following:</p>
- *          <ul>
- *             <li>
- *                <p>The key state of the KMS key is not compatible with the operation. </p>
- *                <p>To find the key state, use the <a>DescribeKey</a> operation. For more
- *           information about which key states are compatible with each KMS operation, see
- *           <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>
- *                      <i>Key Management Service Developer Guide</i>
- *                   </i>.</p>
- *             </li>
- *             <li>
- *                <p>For cryptographic operations on KMS keys in custom key stores, this exception
- *           represents a general failure with many possible causes. To identify the cause, see the
- *           error message that accompanies the exception.</p>
- *             </li>
- *          </ul>
+ *
+ * The request was rejected because the state of the specified resource is not valid for this request.
+ *
+ * This exceptions means one of the following:
+ *
+ * - The key state of the KMS key is not compatible with the operation.
+ *
+ *   To find the key state, use the DescribeKey operation. For more information about which key states are compatible with each KMS operation, see [Key states of KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the **Key Management Service Developer Guide** .
+ * - For cryptographic operations on KMS keys in custom key stores, this exception represents a general failure with many possible causes. To identify the cause, see the error message that accompanies the exception.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The request was rejected because the specified entity or resource could not be
- *       found.</p>
+ *
+ * The request was rejected because the specified entity or resource could not be found.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>The request was rejected because a specified parameter is not supported or a specified
- *       resource is not valid for this operation.</p>
+ *
+ * The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation.
  *
  * @throws {@link KMSServiceException}
- * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * Base exception class for all service exceptions from KMS service.
  *
  * @example To import key material into a KMS key
  * ```javascript

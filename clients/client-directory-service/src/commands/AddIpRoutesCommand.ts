@@ -23,14 +23,10 @@ export interface AddIpRoutesCommandInput extends AddIpRoutesRequest {}
 export interface AddIpRoutesCommandOutput extends AddIpRoutesResult, __MetadataBearer {}
 
 /**
- * <p>If the DNS server for your self-managed domain uses a publicly addressable IP address,
- *          you must add a CIDR address block to correctly route traffic to and from your Microsoft AD
- *          on Amazon Web Services. <i>AddIpRoutes</i> adds this address block. You can
- *          also use <i>AddIpRoutes</i> to facilitate routing traffic that uses public IP
- *          ranges from your Microsoft AD on Amazon Web Services to a peer VPC. </p>
- *          <p>Before you call <i>AddIpRoutes</i>, ensure that all of the required
- *          permissions have been explicitly granted through a policy. For details about what
- *          permissions are required to run the <i>AddIpRoutes</i> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">Directory Service API Permissions: Actions, Resources, and Conditions Reference</a>.</p>
+ * If the DNS server for your self-managed domain uses a publicly addressable IP address, you must add a CIDR address block to correctly route traffic to and from your Microsoft AD on Amazon Web Services. *AddIpRoutes* adds this address block. You can also use *AddIpRoutes* to facilitate routing traffic that uses public IP ranges from your Microsoft AD on Amazon Web Services to a peer VPC.
+ *
+ * Before you call *AddIpRoutes*, ensure that all of the required permissions have been explicitly granted through a policy. For details about what permissions are required to run the *AddIpRoutes* operation, see [Directory Service API Permissions: Actions, Resources, and Conditions Reference](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,30 +59,36 @@ export interface AddIpRoutesCommandOutput extends AddIpRoutesResult, __MetadataB
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>A client exception has occurred.</p>
+ *
+ * A client exception has occurred.
  *
  * @throws {@link DirectoryUnavailableException} (client fault)
- *  <p>The specified directory is unavailable.</p>
+ *
+ * The specified directory is unavailable.
  *
  * @throws {@link EntityAlreadyExistsException} (client fault)
- *  <p>The specified entity already exists.</p>
+ *
+ * The specified entity already exists.
  *
  * @throws {@link EntityDoesNotExistException} (client fault)
- *  <p>The specified entity could not be found.</p>
+ *
+ * The specified entity could not be found.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link IpRouteLimitExceededException} (client fault)
- *  <p>The maximum allowed number of IP addresses was exceeded. The default limit is 100 IP
- *          address blocks.</p>
+ *
+ * The maximum allowed number of IP addresses was exceeded. The default limit is 100 IP address blocks.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * An exception has occurred in Directory Service.
  *
  * @throws {@link DirectoryServiceServiceException}
- * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * Base exception class for all service exceptions from DirectoryService service.
  *
  * @example To add a CIDR address block that routes traffic for Microsoft AD
  * ```javascript

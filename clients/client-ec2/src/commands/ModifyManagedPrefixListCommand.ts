@@ -23,11 +23,12 @@ export interface ModifyManagedPrefixListCommandInput extends ModifyManagedPrefix
 export interface ModifyManagedPrefixListCommandOutput extends ModifyManagedPrefixListResult, __MetadataBearer {}
 
 /**
- * <p>Modifies the specified managed prefix list.</p>
- *          <p>Adding or removing entries in a prefix list creates a new version of the prefix list.
- *             Changing the name of the prefix list does not affect the version.</p>
- *          <p>If you specify a current version number that does not match the true current version
- *             number, the request fails.</p>
+ * Modifies the specified managed prefix list.
+ *
+ * Adding or removing entries in a prefix list creates a new version of the prefix list. Changing the name of the prefix list does not affect the version.
+ *
+ * If you specify a current version number that does not match the true current version number, the request fails.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,8 +89,8 @@ export interface ModifyManagedPrefixListCommandOutput extends ModifyManagedPrefi
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

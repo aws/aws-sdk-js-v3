@@ -2,42 +2,49 @@
 import type { AddressFamily, MonitorState, ProbeState, Protocol } from "./enums";
 
 /**
- * <p>Creates a monitor probe.</p>
+ * Creates a monitor probe.
+ *
  * @public
  */
 export interface CreateMonitorProbeInput {
   /**
-   * <p>The ARN of the subnet.</p>
+   * The ARN of the subnet.
+   *
    * @public
    */
   sourceArn: string | undefined;
 
   /**
-   * <p>The destination IP address. This must be either <code>IPV4</code> or <code>IPV6</code>.</p>
+   * The destination IP address. This must be either `IPV4` or `IPV6`.
+   *
    * @public
    */
   destination: string | undefined;
 
   /**
-   * <p>The port associated with the <code>destination</code>. This is required only if the <code>protocol</code> is <code>TCP</code> and must be a number between <code>1</code> and <code>65536</code>.</p>
+   * The port associated with the `destination`. This is required only if the `protocol` is `TCP` and must be a number between `1` and `65536`.
+   *
    * @public
    */
   destinationPort?: number | undefined;
 
   /**
-   * <p>The protocol used for the network traffic between the <code>source</code> and <code>destination</code>. This must be either <code>TCP</code> or <code>ICMP</code>.</p>
+   * The protocol used for the network traffic between the `source` and `destination`. This must be either `TCP` or `ICMP`.
+   *
    * @public
    */
   protocol: Protocol | undefined;
 
   /**
-   * <p>The size of the packets sent between the source and destination. This must be a number between <code>56</code> and <code>8500</code>.</p>
+   * The size of the packets sent between the source and destination. This must be a number between `56` and `8500`.
+   *
    * @public
    */
   packetSize?: number | undefined;
 
   /**
-   * <p>The list of key-value pairs created and assigned to the monitor.</p>
+   * The list of key-value pairs created and assigned to the monitor.
+   *
    * @public
    */
   probeTags?: Record<string, string> | undefined;
@@ -48,33 +55,36 @@ export interface CreateMonitorProbeInput {
  */
 export interface CreateMonitorInput {
   /**
-   * <p>The name identifying the monitor. It can contain only letters, underscores (_), or dashes (-), and can be up to 200 characters.</p>
+   * The name identifying the monitor. It can contain only letters, underscores (_), or dashes (-), and can be up to 200 characters.
+   *
    * @public
    */
   monitorName: string | undefined;
 
   /**
-   * <p>Displays a list of all of the probes created for a monitor.</p>
+   * Displays a list of all of the probes created for a monitor.
+   *
    * @public
    */
   probes?: CreateMonitorProbeInput[] | undefined;
 
   /**
-   * <p>The time, in seconds, that metrics are aggregated and sent to Amazon CloudWatch. Valid
-   *             values are either <code>30</code> or <code>60</code>.  <code>60</code> is the default if
-   *             no period is chosen.</p>
+   * The time, in seconds, that metrics are aggregated and sent to Amazon CloudWatch. Valid values are either `30` or `60`. `60` is the default if no period is chosen.
+   *
    * @public
    */
   aggregationPeriod?: number | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier to ensure the idempotency of the request. Only returned if a client token was provided in the request.</p>
+   * Unique, case-sensitive identifier to ensure the idempotency of the request. Only returned if a client token was provided in the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The list of key-value pairs created and assigned to the monitor.</p>
+   * The list of key-value pairs created and assigned to the monitor.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -85,74 +95,85 @@ export interface CreateMonitorInput {
  */
 export interface CreateMonitorOutput {
   /**
-   * <p>The ARN of the monitor.</p>
+   * The ARN of the monitor.
+   *
    * @public
    */
   monitorArn: string | undefined;
 
   /**
-   * <p>The name of the monitor.</p>
+   * The name of the monitor.
+   *
    * @public
    */
   monitorName: string | undefined;
 
   /**
-   * <p>The state of the monitor.</p>
+   * The state of the monitor.
+   *
    * @public
    */
   state: MonitorState | undefined;
 
   /**
-   * <p>The number of seconds that metrics are aggregated by and sent to Amazon CloudWatch.
-   *             This will be either <code>30</code> or <code>60</code>. </p>
+   * The number of seconds that metrics are aggregated by and sent to Amazon CloudWatch. This will be either `30` or `60`.
+   *
    * @public
    */
   aggregationPeriod?: number | undefined;
 
   /**
-   * <p>The list of key-value pairs assigned to the monitor.</p>
+   * The list of key-value pairs assigned to the monitor.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Defines a probe when creating a probe or monitor.</p>
+ * Defines a probe when creating a probe or monitor.
+ *
  * @public
  */
 export interface ProbeInput {
   /**
-   * <p>The ARN of the subnet.</p>
+   * The ARN of the subnet.
+   *
    * @public
    */
   sourceArn: string | undefined;
 
   /**
-   * <p>The destination IP address. This must be either <code>IPV4</code> or <code>IPV6</code>.</p>
+   * The destination IP address. This must be either `IPV4` or `IPV6`.
+   *
    * @public
    */
   destination: string | undefined;
 
   /**
-   * <p>The port associated with the <code>destination</code>. This is required only if the <code>protocol</code> is <code>TCP</code> and must be a number between <code>1</code> and <code>65536</code>.</p>
+   * The port associated with the `destination`. This is required only if the `protocol` is `TCP` and must be a number between `1` and `65536`.
+   *
    * @public
    */
   destinationPort?: number | undefined;
 
   /**
-   * <p>The protocol used for the network traffic between the <code>source</code> and <code>destination</code>. This must be either <code>TCP</code> or <code>ICMP</code>.</p>
+   * The protocol used for the network traffic between the `source` and `destination`. This must be either `TCP` or `ICMP`.
+   *
    * @public
    */
   protocol: Protocol | undefined;
 
   /**
-   * <p>The size of the packets sent between the source and destination. This must be a number between <code>56</code> and <code>8500</code>.</p>
+   * The size of the packets sent between the source and destination. This must be a number between `56` and `8500`.
+   *
    * @public
    */
   packetSize?: number | undefined;
 
   /**
-   * <p>The list of key-value pairs created and assigned to the monitor.</p>
+   * The list of key-value pairs created and assigned to the monitor.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -163,25 +184,29 @@ export interface ProbeInput {
  */
 export interface CreateProbeInput {
   /**
-   * <p>The name of the monitor to associated with the probe. </p>
+   * The name of the monitor to associated with the probe.
+   *
    * @public
    */
   monitorName: string | undefined;
 
   /**
-   * <p>Describes the details of an individual probe for a monitor.</p>
+   * Describes the details of an individual probe for a monitor.
+   *
    * @public
    */
   probe: ProbeInput | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier to ensure the idempotency of the request. Only returned if a client token was provided in the request.</p>
+   * Unique, case-sensitive identifier to ensure the idempotency of the request. Only returned if a client token was provided in the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The list of key-value pairs created and assigned to the probe.</p>
+   * The list of key-value pairs created and assigned to the probe.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -192,79 +217,92 @@ export interface CreateProbeInput {
  */
 export interface CreateProbeOutput {
   /**
-   * <p>The ID of the probe for which details are returned.</p>
+   * The ID of the probe for which details are returned.
+   *
    * @public
    */
   probeId?: string | undefined;
 
   /**
-   * <p>The ARN of the probe.</p>
+   * The ARN of the probe.
+   *
    * @public
    */
   probeArn?: string | undefined;
 
   /**
-   * <p>The ARN of the probe.</p>
+   * The ARN of the probe.
+   *
    * @public
    */
   sourceArn: string | undefined;
 
   /**
-   * <p>The destination IP address for the monitor. This must be either an IPv4 or IPv6 address.</p>
+   * The destination IP address for the monitor. This must be either an IPv4 or IPv6 address.
+   *
    * @public
    */
   destination: string | undefined;
 
   /**
-   * <p>The port associated with the <code>destination</code>. This is required only if the <code>protocol</code> is <code>TCP</code> and must be a number between <code>1</code> and <code>65536</code>.</p>
+   * The port associated with the `destination`. This is required only if the `protocol` is `TCP` and must be a number between `1` and `65536`.
+   *
    * @public
    */
   destinationPort?: number | undefined;
 
   /**
-   * <p>The protocol used for the network traffic between the <code>source</code> and <code>destination</code>. This must be either <code>TCP</code> or <code>ICMP</code>.</p>
+   * The protocol used for the network traffic between the `source` and `destination`. This must be either `TCP` or `ICMP`.
+   *
    * @public
    */
   protocol: Protocol | undefined;
 
   /**
-   * <p>The size of the packets sent between the source and destination. This must be a number between <code>56</code> and <code>8500</code>.</p>
+   * The size of the packets sent between the source and destination. This must be a number between `56` and `8500`.
+   *
    * @public
    */
   packetSize?: number | undefined;
 
   /**
-   * <p>Indicates whether the IP address is <code>IPV4</code> or <code>IPV6</code>.</p>
+   * Indicates whether the IP address is `IPV4` or `IPV6`.
+   *
    * @public
    */
   addressFamily?: AddressFamily | undefined;
 
   /**
-   * <p>The ID of the source VPC or subnet.</p>
+   * The ID of the source VPC or subnet.
+   *
    * @public
    */
   vpcId?: string | undefined;
 
   /**
-   * <p>The state of the probe.</p>
+   * The state of the probe.
+   *
    * @public
    */
   state?: ProbeState | undefined;
 
   /**
-   * <p>The time and date that the probe was created.</p>
+   * The time and date that the probe was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The time and date when the probe was last modified. </p>
+   * The time and date when the probe was last modified.
+   *
    * @public
    */
   modifiedAt?: Date | undefined;
 
   /**
-   * <p>The list of key-value pairs assigned to the probe.</p>
+   * The list of key-value pairs assigned to the probe.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -275,7 +313,8 @@ export interface CreateProbeOutput {
  */
 export interface DeleteMonitorInput {
   /**
-   * <p>The name of the monitor to delete.  </p>
+   * The name of the monitor to delete.
+   *
    * @public
    */
   monitorName: string | undefined;
@@ -291,13 +330,15 @@ export interface DeleteMonitorOutput {}
  */
 export interface DeleteProbeInput {
   /**
-   * <p>The name of the monitor to delete. </p>
+   * The name of the monitor to delete.
+   *
    * @public
    */
   monitorName: string | undefined;
 
   /**
-   * <p>The ID of the probe to delete. </p>
+   * The ID of the probe to delete.
+   *
    * @public
    */
   probeId: string | undefined;
@@ -313,91 +354,106 @@ export interface DeleteProbeOutput {}
  */
 export interface GetMonitorInput {
   /**
-   * <p>The name of the monitor that details are returned for.</p>
+   * The name of the monitor that details are returned for.
+   *
    * @public
    */
   monitorName: string | undefined;
 }
 
 /**
- * <p>Describes information about a network monitor probe.</p>
+ * Describes information about a network monitor probe.
+ *
  * @public
  */
 export interface Probe {
   /**
-   * <p>The ID of the probe.</p>
+   * The ID of the probe.
+   *
    * @public
    */
   probeId?: string | undefined;
 
   /**
-   * <p>The ARN of the probe.</p>
+   * The ARN of the probe.
+   *
    * @public
    */
   probeArn?: string | undefined;
 
   /**
-   * <p>The ARN of the probe source subnet.</p>
+   * The ARN of the probe source subnet.
+   *
    * @public
    */
   sourceArn: string | undefined;
 
   /**
-   * <p>The destination for the probe. This should be either an <code>IPV4</code> or <code>IPV6</code>.</p>
+   * The destination for the probe. This should be either an `IPV4` or `IPV6`.
+   *
    * @public
    */
   destination: string | undefined;
 
   /**
-   * <p>The destination port for the probe. This is required only if the <code>protocol</code> is <code>TCP</code> and must be a number between <code>1</code> and <code>65536</code>.</p>
+   * The destination port for the probe. This is required only if the `protocol` is `TCP` and must be a number between `1` and `65536`.
+   *
    * @public
    */
   destinationPort?: number | undefined;
 
   /**
-   * <p>The network protocol for the destination. This can be either <code>TCP</code> or <code>ICMP</code>. If the protocol is <code>TCP</code>, then <code>port</code> is also required.</p>
+   * The network protocol for the destination. This can be either `TCP` or `ICMP`. If the protocol is `TCP`, then `port` is also required.
+   *
    * @public
    */
   protocol: Protocol | undefined;
 
   /**
-   * <p>The size of the packets traveling between the <code>source</code> and <code>destination</code>. This must be a number between <code>56</code> and </p>
+   * The size of the packets traveling between the `source` and `destination`. This must be a number between `56` and
+   *
    * @public
    */
   packetSize?: number | undefined;
 
   /**
-   * <p>The IPv4 or IPv6 address for the probe.</p>
+   * The IPv4 or IPv6 address for the probe.
+   *
    * @public
    */
   addressFamily?: AddressFamily | undefined;
 
   /**
-   * <p>The ID of the source VPC subnet.</p>
+   * The ID of the source VPC subnet.
+   *
    * @public
    */
   vpcId?: string | undefined;
 
   /**
-   * <p>The state of the probe.</p>
+   * The state of the probe.
+   *
    * @public
    */
   state?: ProbeState | undefined;
 
   /**
-   * <p>The time and date the probe was created.</p>
+   * The time and date the probe was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The time and date that the probe was last modified.</p>
+   * The time and date that the probe was last modified.
+   *
    * @public
    */
   modifiedAt?: Date | undefined;
 
   /**
-   * <p>The list of key-value pairs created and assigned to the probe.</p>
+   * The list of key-value pairs created and assigned to the probe.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -408,49 +464,57 @@ export interface Probe {
  */
 export interface GetMonitorOutput {
   /**
-   * <p>The ARN of the selected monitor.</p>
+   * The ARN of the selected monitor.
+   *
    * @public
    */
   monitorArn: string | undefined;
 
   /**
-   * <p>The name of the monitor. </p>
+   * The name of the monitor.
+   *
    * @public
    */
   monitorName: string | undefined;
 
   /**
-   * <p>Lists the status of the <code>state</code> of each monitor. </p>
+   * Lists the status of the `state` of each monitor.
+   *
    * @public
    */
   state: MonitorState | undefined;
 
   /**
-   * <p>The aggregation period for the specified monitor.</p>
+   * The aggregation period for the specified monitor.
+   *
    * @public
    */
   aggregationPeriod: number | undefined;
 
   /**
-   * <p>The list of key-value pairs assigned to the monitor.</p>
+   * The list of key-value pairs assigned to the monitor.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The details about each probe associated with that monitor. </p>
+   * The details about each probe associated with that monitor.
+   *
    * @public
    */
   probes?: Probe[] | undefined;
 
   /**
-   * <p>The time and date when the monitor was created.</p>
+   * The time and date when the monitor was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The time and date when the monitor was last modified.</p>
+   * The time and date when the monitor was last modified.
+   *
    * @public
    */
   modifiedAt: Date | undefined;
@@ -461,13 +525,15 @@ export interface GetMonitorOutput {
  */
 export interface GetProbeInput {
   /**
-   * <p>The name of the monitor associated with the probe. Run <code>ListMonitors</code> to get a list of monitor names.</p>
+   * The name of the monitor associated with the probe. Run `ListMonitors` to get a list of monitor names.
+   *
    * @public
    */
   monitorName: string | undefined;
 
   /**
-   * <p>The ID of the probe to get information about. Run <code>GetMonitor</code> action to get a list of probes and probe IDs for the  monitor.</p>
+   * The ID of the probe to get information about. Run `GetMonitor` action to get a list of probes and probe IDs for the monitor.
+   *
    * @public
    */
   probeId: string | undefined;
@@ -478,79 +544,92 @@ export interface GetProbeInput {
  */
 export interface GetProbeOutput {
   /**
-   * <p>The ID of the probe for which details are returned.</p>
+   * The ID of the probe for which details are returned.
+   *
    * @public
    */
   probeId?: string | undefined;
 
   /**
-   * <p>The ARN of the probe.</p>
+   * The ARN of the probe.
+   *
    * @public
    */
   probeArn?: string | undefined;
 
   /**
-   * <p>The ARN of the probe.</p>
+   * The ARN of the probe.
+   *
    * @public
    */
   sourceArn: string | undefined;
 
   /**
-   * <p>The destination IP address for the monitor. This must be either an IPv4 or IPv6 address.</p>
+   * The destination IP address for the monitor. This must be either an IPv4 or IPv6 address.
+   *
    * @public
    */
   destination: string | undefined;
 
   /**
-   * <p>The port associated with the <code>destination</code>. This is required only if the <code>protocol</code> is <code>TCP</code> and must be a number between <code>1</code> and <code>65536</code>.</p>
+   * The port associated with the `destination`. This is required only if the `protocol` is `TCP` and must be a number between `1` and `65536`.
+   *
    * @public
    */
   destinationPort?: number | undefined;
 
   /**
-   * <p>The protocol used for the network traffic between the <code>source</code> and <code>destination</code>. This must be either <code>TCP</code> or <code>ICMP</code>.</p>
+   * The protocol used for the network traffic between the `source` and `destination`. This must be either `TCP` or `ICMP`.
+   *
    * @public
    */
   protocol: Protocol | undefined;
 
   /**
-   * <p>The size of the packets sent between the source and destination. This must be a number between <code>56</code> and <code>8500</code>.</p>
+   * The size of the packets sent between the source and destination. This must be a number between `56` and `8500`.
+   *
    * @public
    */
   packetSize?: number | undefined;
 
   /**
-   * <p>Indicates whether the IP address is <code>IPV4</code> or <code>IPV6</code>.</p>
+   * Indicates whether the IP address is `IPV4` or `IPV6`.
+   *
    * @public
    */
   addressFamily?: AddressFamily | undefined;
 
   /**
-   * <p>The ID of the source VPC or subnet.</p>
+   * The ID of the source VPC or subnet.
+   *
    * @public
    */
   vpcId?: string | undefined;
 
   /**
-   * <p>The state of the probe.</p>
+   * The state of the probe.
+   *
    * @public
    */
   state?: ProbeState | undefined;
 
   /**
-   * <p>The time and date that the probe was created.</p>
+   * The time and date that the probe was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The time and date that the probe was last modified.</p>
+   * The time and date that the probe was last modified.
+   *
    * @public
    */
   modifiedAt?: Date | undefined;
 
   /**
-   * <p>The list of key-value pairs assigned to the probe.</p>
+   * The list of key-value pairs assigned to the probe.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -561,58 +640,66 @@ export interface GetProbeOutput {
  */
 export interface ListMonitorsInput {
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   *          <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are
-   *       returned.</p>
+   * The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned `nextToken` value.
+   *
+   * If `MaxResults` is given a value larger than 100, only 100 results are returned.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The list of all monitors and their states.</p>
+   * The list of all monitors and their states.
+   *
    * @public
    */
   state?: string | undefined;
 }
 
 /**
- * <p>Displays summary information about a monitor.</p>
+ * Displays summary information about a monitor.
+ *
  * @public
  */
 export interface MonitorSummary {
   /**
-   * <p>The ARN of the monitor.</p>
+   * The ARN of the monitor.
+   *
    * @public
    */
   monitorArn: string | undefined;
 
   /**
-   * <p>The name of the monitor.</p>
+   * The name of the monitor.
+   *
    * @public
    */
   monitorName: string | undefined;
 
   /**
-   * <p>The state of the monitor.</p>
+   * The state of the monitor.
+   *
    * @public
    */
   state: MonitorState | undefined;
 
   /**
-   * <p>The time, in seconds, that metrics are collected and sent to Amazon CloudWatch. Valid values are either <code>30</code> or <code>60</code>.</p>
+   * The time, in seconds, that metrics are collected and sent to Amazon CloudWatch. Valid values are either `30` or `60`.
+   *
    * @public
    */
   aggregationPeriod?: number | undefined;
 
   /**
-   * <p>The list of key-value pairs assigned to the monitor.</p>
+   * The list of key-value pairs assigned to the monitor.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -623,13 +710,15 @@ export interface MonitorSummary {
  */
 export interface ListMonitorsOutput {
   /**
-   * <p>Lists individual details about each of your monitors.</p>
+   * Lists individual details about each of your monitors.
+   *
    * @public
    */
   monitors: MonitorSummary[] | undefined;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -640,7 +729,8 @@ export interface ListMonitorsOutput {
  */
 export interface ListTagsForResourceInput {
   /**
-   * <p>The </p>
+   * The
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -651,7 +741,8 @@ export interface ListTagsForResourceInput {
  */
 export interface ListTagsForResourceOutput {
   /**
-   * <p>Lists the tags assigned to the resource.</p>
+   * Lists the tags assigned to the resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -662,13 +753,15 @@ export interface ListTagsForResourceOutput {
  */
 export interface UpdateMonitorInput {
   /**
-   * <p>The name of the monitor to update. </p>
+   * The name of the monitor to update.
+   *
    * @public
    */
   monitorName: string | undefined;
 
   /**
-   * <p>The aggregation time, in seconds, to change to. This must be either <code>30</code> or <code>60</code>. </p>
+   * The aggregation time, in seconds, to change to. This must be either `30` or `60`.
+   *
    * @public
    */
   aggregationPeriod: number | undefined;
@@ -679,31 +772,36 @@ export interface UpdateMonitorInput {
  */
 export interface UpdateMonitorOutput {
   /**
-   * <p>The ARN of the monitor that was updated.</p>
+   * The ARN of the monitor that was updated.
+   *
    * @public
    */
   monitorArn: string | undefined;
 
   /**
-   * <p>The name of the monitor that was updated.</p>
+   * The name of the monitor that was updated.
+   *
    * @public
    */
   monitorName: string | undefined;
 
   /**
-   * <p>The state of the updated monitor.</p>
+   * The state of the updated monitor.
+   *
    * @public
    */
   state: MonitorState | undefined;
 
   /**
-   * <p>The changed aggregation period.</p>
+   * The changed aggregation period.
+   *
    * @public
    */
   aggregationPeriod?: number | undefined;
 
   /**
-   * <p>The list of key-value pairs associated with the monitor.</p>
+   * The list of key-value pairs associated with the monitor.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -714,43 +812,50 @@ export interface UpdateMonitorOutput {
  */
 export interface UpdateProbeInput {
   /**
-   * <p>The name of the monitor that the probe was updated for.</p>
+   * The name of the monitor that the probe was updated for.
+   *
    * @public
    */
   monitorName: string | undefined;
 
   /**
-   * <p>The ID of the probe to update.</p>
+   * The ID of the probe to update.
+   *
    * @public
    */
   probeId: string | undefined;
 
   /**
-   * <p>The state of the probe update.</p>
+   * The state of the probe update.
+   *
    * @public
    */
   state?: ProbeState | undefined;
 
   /**
-   * <p>The updated IP address for the probe destination. This must be either an IPv4 or IPv6 address.</p>
+   * The updated IP address for the probe destination. This must be either an IPv4 or IPv6 address.
+   *
    * @public
    */
   destination?: string | undefined;
 
   /**
-   * <p>The updated port for the probe destination. This is required only if the <code>protocol</code> is <code>TCP</code> and must be a number between <code>1</code> and <code>65536</code>.</p>
+   * The updated port for the probe destination. This is required only if the `protocol` is `TCP` and must be a number between `1` and `65536`.
+   *
    * @public
    */
   destinationPort?: number | undefined;
 
   /**
-   * <p>The updated network protocol for the destination. This can be either <code>TCP</code> or <code>ICMP</code>. If the protocol is <code>TCP</code>, then <code>port</code> is also required.</p>
+   * The updated network protocol for the destination. This can be either `TCP` or `ICMP`. If the protocol is `TCP`, then `port` is also required.
+   *
    * @public
    */
   protocol?: Protocol | undefined;
 
   /**
-   * <p>he updated packets size for network traffic between the source and destination. This must be a number between <code>56</code> and <code>8500</code>.</p>
+   * he updated packets size for network traffic between the source and destination. This must be a number between `56` and `8500`.
+   *
    * @public
    */
   packetSize?: number | undefined;
@@ -761,79 +866,92 @@ export interface UpdateProbeInput {
  */
 export interface UpdateProbeOutput {
   /**
-   * <p>The updated ID of the probe.</p>
+   * The updated ID of the probe.
+   *
    * @public
    */
   probeId?: string | undefined;
 
   /**
-   * <p>The updated ARN of the probe.</p>
+   * The updated ARN of the probe.
+   *
    * @public
    */
   probeArn?: string | undefined;
 
   /**
-   * <p>The updated ARN of the source subnet.</p>
+   * The updated ARN of the source subnet.
+   *
    * @public
    */
   sourceArn: string | undefined;
 
   /**
-   * <p>The updated destination IP address for the probe.</p>
+   * The updated destination IP address for the probe.
+   *
    * @public
    */
   destination: string | undefined;
 
   /**
-   * <p>The updated destination port. This must be a number between <code>1</code> and <code>65536</code>.</p>
+   * The updated destination port. This must be a number between `1` and `65536`.
+   *
    * @public
    */
   destinationPort?: number | undefined;
 
   /**
-   * <p>The updated protocol for the probe.</p>
+   * The updated protocol for the probe.
+   *
    * @public
    */
   protocol: Protocol | undefined;
 
   /**
-   * <p>The updated packet size for the probe. </p>
+   * The updated packet size for the probe.
+   *
    * @public
    */
   packetSize?: number | undefined;
 
   /**
-   * <p>The updated IP address family. This must be either <code>IPV4</code> or <code>IPV6</code>.</p>
+   * The updated IP address family. This must be either `IPV4` or `IPV6`.
+   *
    * @public
    */
   addressFamily?: AddressFamily | undefined;
 
   /**
-   * <p>The updated ID of the source VPC subnet ID.</p>
+   * The updated ID of the source VPC subnet ID.
+   *
    * @public
    */
   vpcId?: string | undefined;
 
   /**
-   * <p>The state of the updated probe.</p>
+   * The state of the updated probe.
+   *
    * @public
    */
   state?: ProbeState | undefined;
 
   /**
-   * <p>The time and date that the probe was created.</p>
+   * The time and date that the probe was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The time and date that the probe was last updated.</p>
+   * The time and date that the probe was last updated.
+   *
    * @public
    */
   modifiedAt?: Date | undefined;
 
   /**
-   * <p>Update tags for a probe.</p>
+   * Update tags for a probe.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -844,13 +962,15 @@ export interface UpdateProbeOutput {
  */
 export interface TagResourceInput {
   /**
-   * <p>The ARN of the monitor or probe to tag.</p>
+   * The ARN of the monitor or probe to tag.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The list of key-value pairs assigned to the monitor or probe.</p>
+   * The list of key-value pairs assigned to the monitor or probe.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -866,13 +986,15 @@ export interface TagResourceOutput {}
  */
 export interface UntagResourceInput {
   /**
-   * <p>The ARN of the monitor or probe that the tag should be removed from. </p>
+   * The ARN of the monitor or probe that the tag should be removed from.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The key-value pa</p>
+   * The key-value pa
+   *
    * @public
    */
   tagKeys: string[] | undefined;

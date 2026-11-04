@@ -23,9 +23,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all tags associated with a given Amazon Translate resource.
- *       For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/tagging.html">
- *         Tagging your resources</a>.</p>
+ * Lists all tags associated with a given Amazon Translate resource. For more information, see [Tagging your resources](https://docs.aws.amazon.com/translate/latest/dg/tagging.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,20 +56,20 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value of the parameter is not valid. Review the value of the parameter you are using
- *       to correct it, and then retry your operation.</p>
+ *
+ * The value of the parameter is not valid. Review the value of the parameter you are using to correct it, and then retry your operation.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource you are looking for has not been found. Review the resource you're looking
- *       for and see if a different resource will accomplish your needs before retrying the revised
- *       request.</p>
+ *
+ * The resource you are looking for has not been found. Review the resource you're looking for and see if a different resource will accomplish your needs before retrying the revised request.
  *
  * @throws {@link TranslateServiceException}
- * <p>Base exception class for all service exceptions from Translate service.</p>
  *
+ * Base exception class for all service exceptions from Translate service.
  *
  * @public
  */

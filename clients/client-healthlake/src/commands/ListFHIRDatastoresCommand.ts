@@ -23,7 +23,8 @@ export interface ListFHIRDatastoresCommandInput extends ListFHIRDatastoresReques
 export interface ListFHIRDatastoresCommandOutput extends ListFHIRDatastoresResponse, __MetadataBearer {}
 
 /**
- * <p>List all FHIR-enabled data stores in a user’s account, regardless of data store status.</p>
+ * List all FHIR-enabled data stores in a user’s account, regardless of data store status.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -110,17 +111,20 @@ export interface ListFHIRDatastoresCommandOutput extends ListFHIRDatastoresRespo
  * @see {@link HealthLakeClientResolvedConfig | config} for HealthLakeClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unknown internal error occurred in the service.</p>
+ *
+ * An unknown internal error occurred in the service.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The user has exceeded their maximum number of allowed calls to the given API. </p>
+ *
+ * The user has exceeded their maximum number of allowed calls to the given API.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The user input parameter was invalid.</p>
+ *
+ * The user input parameter was invalid.
  *
  * @throws {@link HealthLakeServiceException}
- * <p>Base exception class for all service exceptions from HealthLake service.</p>
  *
+ * Base exception class for all service exceptions from HealthLake service.
  *
  * @public
  */

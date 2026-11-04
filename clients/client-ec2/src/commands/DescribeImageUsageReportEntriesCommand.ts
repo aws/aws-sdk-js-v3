@@ -23,10 +23,10 @@ export interface DescribeImageUsageReportEntriesCommandInput extends DescribeIma
 export interface DescribeImageUsageReportEntriesCommandOutput extends DescribeImageUsageReportEntriesResult, __MetadataBearer {}
 
 /**
- * <p>Describes the entries in image usage reports, showing how your images are used across
- *       other Amazon Web Services accounts.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/your-ec2-ami-usage.html">View your AMI usage</a> in the
- *       <i>Amazon EC2 User Guide</i>.</p>
+ * Describes the entries in image usage reports, showing how your images are used across other Amazon Web Services accounts.
+ *
+ * For more information, see [View your AMI usage](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/your-ec2-ami-usage.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,8 +79,8 @@ export interface DescribeImageUsageReportEntriesCommandOutput extends DescribeIm
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

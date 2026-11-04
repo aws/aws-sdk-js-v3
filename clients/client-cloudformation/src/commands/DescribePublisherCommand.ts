@@ -23,25 +23,15 @@ export interface DescribePublisherCommandInput extends DescribePublisherInput {}
 export interface DescribePublisherCommandOutput extends DescribePublisherOutput, __MetadataBearer {}
 
 /**
- * <p>Returns information about a CloudFormation extension publisher.</p>
- *          <p>If you don't supply a <code>PublisherId</code>, and you have registered as an extension
- *       publisher, <code>DescribePublisher</code> returns information about your own publisher
- *       account.</p>
- *          <p>For more information about registering as a publisher, see:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterPublisher.html">RegisterPublisher</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html">Publishing extensions
- *             to make them available for public use</a> in the
- *             <i>CloudFormation Command Line Interface (CLI) User Guide</i>
- *                </p>
- *             </li>
- *          </ul>
+ * Returns information about a CloudFormation extension publisher.
+ *
+ * If you don't supply a `PublisherId`, and you have registered as an extension publisher, `DescribePublisher` returns information about your own publisher account.
+ *
+ * For more information about registering as a publisher, see:
+ *
+ * - [RegisterPublisher](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterPublisher.html)
+ * - [Publishing extensions to make them available for public use](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html) in the *CloudFormation Command Line Interface (CLI) User Guide*
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,11 +61,12 @@ export interface DescribePublisherCommandOutput extends DescribePublisherOutput,
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link CFNRegistryException} (client fault)
- *  <p>An error occurred during a CloudFormation registry operation.</p>
+ *
+ * An error occurred during a CloudFormation registry operation.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

@@ -23,44 +23,23 @@ export interface CreateStreamProcessorCommandInput extends CreateStreamProcessor
 export interface CreateStreamProcessorCommandOutput extends CreateStreamProcessorResponse, __MetadataBearer {}
 
 /**
- * <important>
- *             <p>Service availability notice: Streaming Video and Bulk Image Analysis is no longer available to new customers. For more information, see
- * <a href="https://docs.aws.amazon.com/rekognition/latest/dg/rekognition-availability-changes.html">Rekognition feature availability changes</a>.</p>
- *             <p>
- *                <b>This change does not impact the availability of other Amazon Rekognition features.</b>
- *             </p>
- *          </important>
- *          <p>Creates an Amazon Rekognition stream processor that you can use to detect and recognize faces or to detect labels in a streaming video.</p>
- *          <p>Amazon Rekognition Video is a consumer of live video from Amazon Kinesis Video Streams. There are two different settings for stream processors in Amazon Rekognition: detecting faces and detecting labels.</p>
- *          <ul>
- *             <li>
- *                <p>If you are creating a stream processor for detecting faces, you provide as input a Kinesis video stream
- *                         (<code>Input</code>) and a Kinesis data stream (<code>Output</code>) stream for receiving
- *                     the output. You must use the <code>FaceSearch</code> option in
- *                         <code>Settings</code>, specifying the collection that contains the faces you
- *                     want to recognize. After you have finished analyzing a streaming video, use
- *                         <a>StopStreamProcessor</a> to stop processing.</p>
- *             </li>
- *             <li>
- *                <p>If you are creating a stream processor to detect labels, you provide as input a Kinesis video stream
- *                         (<code>Input</code>), Amazon S3 bucket information (<code>Output</code>), and an
- *                     Amazon SNS topic ARN (<code>NotificationChannel</code>). You can also provide a KMS
- *                     key ID to encrypt the data sent to your Amazon S3 bucket. You specify what you want
- *                     to detect by using the <code>ConnectedHome</code> option in settings, and
- *                     selecting one of the following: <code>PERSON</code>, <code>PET</code>,
- *                         <code>PACKAGE</code>, <code>ALL</code> You can also specify where in the
- *                     frame you want Amazon Rekognition to monitor with <code>RegionsOfInterest</code>. When
- *                     you run the <a>StartStreamProcessor</a> operation on a label
- *                     detection stream processor, you input start and stop information to determine
- *                     the length of the processing time.</p>
- *             </li>
- *          </ul>
- *          <p>
- *             Use <code>Name</code> to assign an identifier for the stream processor. You use <code>Name</code>
- *             to manage the stream processor. For example, you can start processing the source video by calling <a>StartStreamProcessor</a> with
- *             the <code>Name</code> field. </p>
- *          <p>This operation requires permissions to perform the
- *             <code>rekognition:CreateStreamProcessor</code> action. If you want to tag your stream processor, you also require permission to perform the <code>rekognition:TagResource</code> operation.</p>
+ * > **Important:**
+ * >
+ * > Service availability notice: Streaming Video and Bulk Image Analysis is no longer available to new customers. For more information, see [Rekognition feature availability changes](https://docs.aws.amazon.com/rekognition/latest/dg/rekognition-availability-changes.html).
+ * >
+ * > **This change does not impact the availability of other Amazon Rekognition features.**
+ *
+ * Creates an Amazon Rekognition stream processor that you can use to detect and recognize faces or to detect labels in a streaming video.
+ *
+ * Amazon Rekognition Video is a consumer of live video from Amazon Kinesis Video Streams. There are two different settings for stream processors in Amazon Rekognition: detecting faces and detecting labels.
+ *
+ * - If you are creating a stream processor for detecting faces, you provide as input a Kinesis video stream (`Input`) and a Kinesis data stream (`Output`) stream for receiving the output. You must use the `FaceSearch` option in `Settings`, specifying the collection that contains the faces you want to recognize. After you have finished analyzing a streaming video, use StopStreamProcessor to stop processing.
+ * - If you are creating a stream processor to detect labels, you provide as input a Kinesis video stream (`Input`), Amazon S3 bucket information (`Output`), and an Amazon SNS topic ARN (`NotificationChannel`). You can also provide a KMS key ID to encrypt the data sent to your Amazon S3 bucket. You specify what you want to detect by using the `ConnectedHome` option in settings, and selecting one of the following: `PERSON`, `PET`, `PACKAGE`, `ALL` You can also specify where in the frame you want Amazon Rekognition to monitor with `RegionsOfInterest`. When you run the StartStreamProcessor operation on a label detection stream processor, you input start and stop information to determine the length of the processing time.
+ *
+ * Use `Name` to assign an identifier for the stream processor. You use `Name` to manage the stream processor. For example, you can start processing the source video by calling StartStreamProcessor with the `Name` field.
+ *
+ * This operation requires permissions to perform the `rekognition:CreateStreamProcessor` action. If you want to tag your stream processor, you also require permission to perform the `rekognition:TagResource` operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -140,40 +119,40 @@ export interface CreateStreamProcessorCommandOutput extends CreateStreamProcesso
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You are not authorized to perform the action.</p>
+ *
+ * You are not authorized to perform the action.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * Amazon Rekognition experienced a service issue. Try your call again.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
- *       operation again.</p>
+ *
+ * Input parameter violated a constraint. Validate your parameter before calling the API operation again.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs
- *             concurrently, subsequent calls to start operations (ex:
- *             <code>StartLabelDetection</code>) will raise a <code>LimitExceededException</code>
- *             exception (HTTP status code: 400) until the number of concurrently running jobs is below
- *             the Amazon Rekognition service limit. </p>
+ *
+ * An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs concurrently, subsequent calls to start operations (ex: `StartLabelDetection`) will raise a `LimitExceededException` exception (HTTP status code: 400) until the number of concurrently running jobs is below the Amazon Rekognition service limit.
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
- *  <p>The number of requests exceeded your throughput limit. If you want to increase this
- *       limit, contact Amazon Rekognition.</p>
+ *
+ * The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is already being used.</p>
+ *
+ * The specified resource is already being used.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p></p>
- *          <p>The size of the collection exceeds the allowed limit. For more information,
- *       see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
+ *
+ * The size of the collection exceeds the allowed limit. For more information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide.
  *
  * @throws {@link ThrottlingException} (server fault)
- *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
+ * Amazon Rekognition is temporarily unable to process the request. Try your call again.
  *
  * @throws {@link RekognitionServiceException}
- * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * Base exception class for all service exceptions from Rekognition service.
  *
  * @public
  */

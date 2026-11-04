@@ -23,7 +23,8 @@ export interface ListIndexesForMembersCommandInput extends ListIndexesForMembers
 export interface ListIndexesForMembersCommandOutput extends ListIndexesForMembersOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of a member's indexes in all Amazon Web Services Regions that are currently collecting resource information for Amazon Web Services Resource Explorer. Only the management account or a delegated administrator with service access enabled can invoke this API call. </p>
+ * Retrieves a list of a member's indexes in all Amazon Web Services Regions that are currently collecting resource information for Amazon Web Services Resource Explorer. Only the management account or a delegated administrator with service access enabled can invoke this API call.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,20 +63,24 @@ export interface ListIndexesForMembersCommandOutput extends ListIndexesForMember
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The credentials that you used to call this operation don't have the minimum required permissions.</p>
+ *
+ * The credentials that you used to call this operation don't have the minimum required permissions.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request failed because of internal service error. Try your request again later.</p>
+ *
+ * The request failed because of internal service error. Try your request again later.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request failed because you exceeded a rate limit for this operation. For more information, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/quotas.html">Quotas for Resource Explorer</a>.</p>
+ *
+ * The request failed because you exceeded a rate limit for this operation. For more information, see [Quotas for Resource Explorer](https://docs.aws.amazon.com/resource-explorer/latest/userguide/quotas.html).
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax for the operation, and try again.</p>
+ *
+ * You provided an invalid value for one of the operation's parameters. Check the syntax for the operation, and try again.
  *
  * @throws {@link ResourceExplorer2ServiceException}
- * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
+ * Base exception class for all service exceptions from ResourceExplorer2 service.
  *
  * @public
  */

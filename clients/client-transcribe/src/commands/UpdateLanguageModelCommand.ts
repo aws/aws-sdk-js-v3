@@ -23,15 +23,12 @@ export interface UpdateLanguageModelCommandInput extends UpdateLanguageModelRequ
 export interface UpdateLanguageModelCommandOutput extends UpdateLanguageModelResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the encryption configuration for an existing custom language model. You can
- *             use this operation to change the KMS key used to encrypt your model artifacts. The model
- *             artifacts are re-encrypted in place. No model training is required.</p>
- *          <p>Your custom language model must not be in the <code>IN_PROGRESS</code> state when you
- *             call this operation. You cannot submit another update while a previous update is in
- *             progress. Use  to check the current state of
- *             your model.</p>
- *          <p>Your custom language model remains available for transcription jobs while the update
- *             is being processed.</p>
+ * Updates the encryption configuration for an existing custom language model. You can use this operation to change the KMS key used to encrypt your model artifacts. The model artifacts are re-encrypted in place. No model training is required.
+ *
+ * Your custom language model must not be in the `IN_PROGRESS` state when you call this operation. You cannot submit another update while a previous update is in progress. Use to check the current state of your model.
+ *
+ * Your custom language model remains available for transcription jobs while the update is being processed.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,30 +64,28 @@ export interface UpdateLanguageModelCommandOutput extends UpdateLanguageModelRes
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>Your request didn't pass one or more validation tests. This can occur when the entity
- *             you're trying to delete doesn't exist or if it's in a non-terminal state (such as
- *                 <code>IN PROGRESS</code>). See the exception message field for more
- *             information.</p>
+ *
+ * Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as `IN PROGRESS`). See the exception message field for more information.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A resource already exists with this name. Resource names must be unique within an
- *                 Amazon Web Services account.</p>
+ *
+ * A resource already exists with this name. Resource names must be unique within an Amazon Web Services account.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>There was an internal error. Check the error message, correct the issue, and try your
- *             request again.</p>
+ *
+ * There was an internal error. Check the error message, correct the issue, and try your request again.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You've either sent too many requests or your input file is too long. Wait before
- *             retrying your request, or use a smaller file and try your request again.</p>
+ *
+ * You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>We can't find the requested resource. Check that the specified name is correct and try
- *             your request again.</p>
+ *
+ * We can't find the requested resource. Check that the specified name is correct and try your request again.
  *
  * @throws {@link TranscribeServiceException}
- * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * Base exception class for all service exceptions from Transcribe service.
  *
  * @public
  */

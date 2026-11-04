@@ -23,7 +23,8 @@ export interface DescribeUsersCommandInput extends DescribeUsersMessage {}
 export interface DescribeUsersCommandOutput extends DescribeUsersResult, __MetadataBearer {}
 
 /**
- * <p>Returns a list of users.</p>
+ * Returns a list of users.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,17 +80,20 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResult, __Metad
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * Two or more incompatible parameters were specified.
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
- *  <p>The specified service linked role (SLR) was not found.</p>
+ *
+ * The specified service linked role (SLR) was not found.
  *
  * @throws {@link UserNotFoundFault} (client fault)
- *  <p>The user does not exist or could not be found.</p>
+ *
+ * The user does not exist or could not be found.
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @public
  */

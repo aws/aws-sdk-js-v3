@@ -23,20 +23,12 @@ export interface MergeDeveloperIdentitiesCommandInput extends MergeDeveloperIden
 export interface MergeDeveloperIdentitiesCommandOutput extends MergeDeveloperIdentitiesResponse, __MetadataBearer {}
 
 /**
- * <p>Merges two users having different <code>IdentityId</code>s, existing in the same
- *          identity pool, and identified by the same developer provider. You can use this action to
- *          request that discrete users be merged and identified as a single user in the Cognito
- *          environment. Cognito associates the given source user (<code>SourceUserIdentifier</code>)
- *          with the <code>IdentityId</code> of the <code>DestinationUserIdentifier</code>. Only
- *          developer-authenticated users can be merged. If the users to be merged are associated with
- *          the same public provider, but as two different users, an exception will be
- *          thrown.</p>
- *          <p>The number of linked logins is limited to 20. So, the number of linked logins for the
- *          source user, <code>SourceUserIdentifier</code>, and the destination user,
- *             <code>DestinationUserIdentifier</code>, together should not be larger than 20.
- *          Otherwise, an exception will be thrown.</p>
- *          <p>You must use Amazon Web Services developer credentials to call this
- *          operation.</p>
+ * Merges two users having different `IdentityId`s, existing in the same identity pool, and identified by the same developer provider. You can use this action to request that discrete users be merged and identified as a single user in the Cognito environment. Cognito associates the given source user (`SourceUserIdentifier`) with the `IdentityId` of the `DestinationUserIdentifier`. Only developer-authenticated users can be merged. If the users to be merged are associated with the same public provider, but as two different users, an exception will be thrown.
+ *
+ * The number of linked logins is limited to 20. So, the number of linked logins for the source user, `SourceUserIdentifier`, and the destination user, `DestinationUserIdentifier`, together should not be larger than 20. Otherwise, an exception will be thrown.
+ *
+ * You must use Amazon Web Services developer credentials to call this operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,28 +58,32 @@ export interface MergeDeveloperIdentitiesCommandOutput extends MergeDeveloperIde
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>Thrown when the service encounters an error during processing the request.</p>
+ *
+ * Thrown when the service encounters an error during processing the request.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Thrown for missing or bad input parameter(s).</p>
+ *
+ * Thrown for missing or bad input parameter(s).
  *
  * @throws {@link NotAuthorizedException} (client fault)
- *  <p>Thrown when a user is not authorized to access the requested resource.</p>
+ *
+ * Thrown when a user is not authorized to access the requested resource.
  *
  * @throws {@link ResourceConflictException} (client fault)
- *  <p>Thrown when a user tries to use a login which is already linked to another
- *          account.</p>
+ *
+ * Thrown when a user tries to use a login which is already linked to another account.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Thrown when the requested resource (for example, a dataset or record) does not
- *          exist.</p>
+ *
+ * Thrown when the requested resource (for example, a dataset or record) does not exist.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Thrown when a request is throttled.</p>
+ *
+ * Thrown when a request is throttled.
  *
  * @throws {@link CognitoIdentityServiceException}
- * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ * Base exception class for all service exceptions from CognitoIdentity service.
  *
  * @public
  */

@@ -23,7 +23,12 @@ export interface CreateEventCommandInput extends CreateEventInput {}
 export interface CreateEventCommandOutput extends CreateEventOutput, __MetadataBearer {}
 
 /**
- * <p>Creates an event in an AgentCore Memory resource. Events represent interactions or activities that occur within a session and are associated with specific actors.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:CreateEvent</code> permission.</p> <p>This operation is subject to request rate limiting.</p>
+ * Creates an event in an AgentCore Memory resource. Events represent interactions or activities that occur within a session and are associated with specific actors.
+ *
+ * To use this operation, you must have the `bedrock-agentcore:CreateEvent` permission.
+ *
+ * This operation is subject to request rate limiting.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -112,32 +117,40 @@ export interface CreateEventCommandOutput extends CreateEventOutput, __MetadataB
  * @see {@link BedrockAgentCoreClientResolvedConfig | config} for BedrockAgentCoreClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+ *
+ * The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by AgentCore. Check your input values and try again.</p>
+ *
+ * The input fails to satisfy the constraints specified by AgentCore. Check your input values and try again.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+ *
+ * The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.
  *
  * @throws {@link RetryableConflictException} (client fault)
- *  <p>The exception that occurs when there is a retryable conflict performing an operation. This is a temporary condition that may resolve itself with retries. We recommend implementing exponential backoff retry logic in your application.</p>
+ *
+ * The exception that occurs when there is a retryable conflict performing an operation. This is a temporary condition that may resolve itself with retries. We recommend implementing exponential backoff retry logic in your application.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>The service encountered an internal error. Try your request again later.</p>
+ *
+ * The service encountered an internal error. Try your request again later.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
+ *
+ * The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.
  *
  * @throws {@link ThrottledException} (client fault)
- *  <p>The request was denied due to request throttling. Reduce the frequency of requests and try again.</p>
+ *
+ * The request was denied due to request throttling. Reduce the frequency of requests and try again.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+ *
+ * The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.
  *
  * @throws {@link BedrockAgentCoreServiceException}
- * <p>Base exception class for all service exceptions from BedrockAgentCore service.</p>
  *
+ * Base exception class for all service exceptions from BedrockAgentCore service.
  *
  * @public
  */

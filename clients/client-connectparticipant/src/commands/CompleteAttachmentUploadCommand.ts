@@ -23,17 +23,14 @@ export interface CompleteAttachmentUploadCommandInput extends CompleteAttachment
 export interface CompleteAttachmentUploadCommandOutput extends CompleteAttachmentUploadResponse, __MetadataBearer {}
 
 /**
- * <p>Allows you to confirm that the attachment has been uploaded using the pre-signed URL
- *             provided in StartAttachmentUpload API. A conflict exception is thrown when an attachment
- *             with that identifier is already being uploaded.</p>
- *          <p>For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Connect Customer Chat security best practices</a>. </p>
- *          <note>
- *             <p>
- *                <code>ConnectionToken</code> is used for invoking this API instead of
- *                     <code>ParticipantToken</code>.</p>
- *          </note>
- *          <p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4
- *                     authentication</a>.</p>
+ * Allows you to confirm that the attachment has been uploaded using the pre-signed URL provided in StartAttachmentUpload API. A conflict exception is thrown when an attachment with that identifier is already being uploaded.
+ *
+ * For security recommendations, see [Connect Customer Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
+ *
+ * > **Note:** `ConnectionToken` is used for invoking this API instead of `ParticipantToken`.
+ *
+ * The Amazon Connect Participant Service APIs do not use [Signature Version 4 authentication](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,27 +59,32 @@ export interface CompleteAttachmentUploadCommandOutput extends CompleteAttachmen
  * @see {@link ConnectParticipantClientResolvedConfig | config} for ConnectParticipantClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The requested operation conflicts with the current state of a service resource
- *             associated with the request. </p>
+ *
+ * The requested operation conflicts with the current state of a service resource associated with the request.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Amazon Connect service.</p>
+ *
+ * This exception occurs when there is an internal failure in the Amazon Connect service.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The number of attachments per contact exceeds the quota.</p>
+ *
+ * The number of attachments per contact exceeds the quota.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
+ *
+ * The input fails to satisfy the constraints specified by Amazon Connect.
  *
  * @throws {@link ConnectParticipantServiceException}
- * <p>Base exception class for all service exceptions from ConnectParticipant service.</p>
  *
+ * Base exception class for all service exceptions from ConnectParticipant service.
  *
  * @public
  */

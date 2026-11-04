@@ -23,11 +23,10 @@ export interface GetTargetSelectionRulesCommandInput extends GetTargetSelectionR
 export interface GetTargetSelectionRulesCommandOutput extends GetTargetSelectionRulesResponse, __MetadataBearer {}
 
 /**
- * <p>Converts source selection rules into their target counterparts for schema conversion operations.</p>
- *          <p>
- *             <b>Required permissions:</b>
- *             <code>dms:GetTargetSelectionRules</code>. For more information, see
- *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
+ * Converts source selection rules into their target counterparts for schema conversion operations.
+ *
+ * **Required permissions:** `dms:GetTargetSelectionRules`. For more information, see [Actions, resources, and condition keys for Database Migration Service](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,18 +54,20 @@ export interface GetTargetSelectionRulesCommandOutput extends GetTargetSelection
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedFault} (client fault)
- *  <p>DMS was denied access to the endpoint. Check that the
- *             role is correctly configured.</p>
+ *
+ * DMS was denied access to the endpoint. Check that the role is correctly configured.
  *
  * @throws {@link InvalidResourceStateFault} (client fault)
- *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
+ * The resource is in a state that prevents it from being used for database migration.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @example Convert source selection rules to target selection rules
  * ```javascript

@@ -23,7 +23,8 @@ export interface ListEntitlementsCommandInput extends ListEntitlementsRequest {}
 export interface ListEntitlementsCommandOutput extends ListEntitlementsResponse, __MetadataBearer {}
 
 /**
- * <p> Displays a list of all entitlements that have been granted to this account. This request returns 20 results per page.</p>
+ * Displays a list of all entitlements that have been granted to this account. This request returns 20 results per page.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,20 +59,24 @@ export interface ListEntitlementsCommandOutput extends ListEntitlementsResponse,
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>This exception is thrown if the request contains a semantic error. The precise meaning depends on the API, and is documented in the error message. </p>
+ *
+ * This exception is thrown if the request contains a semantic error. The precise meaning depends on the API, and is documented in the error message.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>The server encountered an internal error and is unable to complete the request. </p>
+ *
+ * The server encountered an internal error and is unable to complete the request.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is currently unavailable or busy. </p>
+ *
+ * The service is currently unavailable or busy.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The request was denied due to request throttling. </p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link MediaConnectServiceException}
- * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
+ * Base exception class for all service exceptions from MediaConnect service.
  *
  * @public
  */

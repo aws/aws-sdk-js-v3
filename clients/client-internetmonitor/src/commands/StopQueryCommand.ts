@@ -23,7 +23,8 @@ export interface StopQueryCommandInput extends StopQueryInput {}
 export interface StopQueryCommandOutput extends StopQueryOutput, __MetadataBearer {}
 
 /**
- * <p>Stop a query that is progress for a specific monitor.</p>
+ * Stop a query that is progress for a specific monitor.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,23 +50,28 @@ export interface StopQueryCommandOutput extends StopQueryOutput, __MetadataBeare
  * @see {@link InternetMonitorClientResolvedConfig | config} for InternetMonitorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * You don't have sufficient permission to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error occurred.</p>
+ *
+ * An internal error occurred.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request exceeded a service quota.</p>
+ *
+ * The request exceeded a service quota.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Invalid request.</p>
+ *
+ * Invalid request.
  *
  * @throws {@link InternetMonitorServiceException}
- * <p>Base exception class for all service exceptions from InternetMonitor service.</p>
  *
+ * Base exception class for all service exceptions from InternetMonitor service.
  *
  * @public
  */

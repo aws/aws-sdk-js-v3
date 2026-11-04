@@ -23,7 +23,8 @@ export interface ConfigureLogsForChannelCommandInput extends ConfigureLogsForCha
 export interface ConfigureLogsForChannelCommandOutput extends ConfigureLogsForChannelResponse, __MetadataBearer {}
 
 /**
- * <p>Configures Amazon CloudWatch log settings for a channel.</p>
+ * Configures Amazon CloudWatch log settings for a channel.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,8 +57,8 @@ export interface ConfigureLogsForChannelCommandOutput extends ConfigureLogsForCh
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
  * @throws {@link MediaTailorServiceException}
- * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ * Base exception class for all service exceptions from MediaTailor service.
  *
  * @public
  */

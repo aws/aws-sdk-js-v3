@@ -23,10 +23,8 @@ export interface UpdateWorkspaceCommandInput extends UpdateWorkspaceRequest {}
 export interface UpdateWorkspaceCommandOutput extends UpdateWorkspaceResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a workspace. You can update only workspaces in the <code>ACTIVE</code> or
- *       <code>FAILED</code> state. Fields that you omit from the request are left unchanged. To
- *       recover a workspace in the <code>FAILED</code> state, call this operation and supply its
- *       encryption configuration again.</p>
+ * Updates a workspace. You can update only workspaces in the `ACTIVE` or `FAILED` state. Fields that you omit from the request are left unchanged. To recover a workspace in the `FAILED` state, call this operation and supply its encryption configuration again.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,31 +63,34 @@ export interface UpdateWorkspaceCommandOutput extends UpdateWorkspaceResponse, _
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access is denied.</p>
+ *
+ * Access is denied.
  *
  * @throws {@link ConflictingOperationException} (client fault)
- *  <p>Your request has conflicting operations. This can occur if you're trying to perform more
- *       than one operation on the same resource at the same time.</p>
+ *
+ * Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>IoT SiteWise can't process your request right now. Try again later.</p>
+ *
+ * IoT SiteWise can't process your request right now. Try again later.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *       unsupported characters. Check your request and try again.</p>
+ *
+ * The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource can't be found.</p>
+ *
+ * The requested resource can't be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Your request exceeded a rate limit. For example, you might have exceeded the number of
- *       IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so
- *       on.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ *
+ * Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.
+ *
+ * For more information, see [Quotas](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html) in the *IoT SiteWise User Guide*.
  *
  * @throws {@link IoTSiteWiseServiceException}
- * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * Base exception class for all service exceptions from IoTSiteWise service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface AbortEnvironmentUpdateCommandInput extends AbortEnvironmentUpda
 export interface AbortEnvironmentUpdateCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Cancels in-progress environment configuration update or application version deployment.</p>
+ * Cancels in-progress environment configuration update or application version deployment.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,11 +50,12 @@ export interface AbortEnvironmentUpdateCommandOutput extends __MetadataBearer {}
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  * @throws {@link InsufficientPrivilegesException} (client fault)
- *  <p>The specified account does not have sufficient privileges for one or more Amazon Web Services services.</p>
+ *
+ * The specified account does not have sufficient privileges for one or more Amazon Web Services services.
  *
  * @throws {@link ElasticBeanstalkSyntheticServiceException}
- * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * Base exception class for all service exceptions from ElasticBeanstalk service.
  *
  * @example To abort a deployment
  * ```javascript

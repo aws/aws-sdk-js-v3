@@ -23,11 +23,8 @@ export interface GetTokensFromRefreshTokenCommandInput extends GetTokensFromRefr
 export interface GetTokensFromRefreshTokenCommandOutput extends GetTokensFromRefreshTokenResponse, __MetadataBearer {}
 
 /**
- * <p>Given a refresh token, issues new ID, access, and optionally refresh tokens for the
- *             user who owns the submitted token. This operation issues a new refresh token and
- *             invalidates the original refresh token after an optional grace period when refresh token
- *             rotation is enabled. If refresh token rotation is disabled, issues new ID and access
- *             tokens only.</p>
+ * Given a refresh token, issues new ID, access, and optionally refresh tokens for the user who owns the submitted token. This operation issues a new refresh token and invalidates the original refresh token after an optional grace period when refresh token rotation is enabled. If refresh token rotation is disabled, issues new ID and access tokens only.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,51 +67,56 @@ export interface GetTokensFromRefreshTokenCommandOutput extends GetTokensFromRef
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>This exception is thrown when WAF doesn't allow your request based on a web
- *             ACL that's associated with your user pool.</p>
+ *
+ * This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * This exception is thrown when Amazon Cognito encounters an internal error.
  *
  * @throws {@link InvalidLambdaResponseException} (client fault)
- *  <p>This exception is thrown when Amazon Cognito encounters an invalid Lambda response.</p>
+ *
+ * This exception is thrown when Amazon Cognito encounters an invalid Lambda response.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
- *             parameter.</p>
+ *
+ * This exception is thrown when the Amazon Cognito service encounters an invalid parameter.
  *
  * @throws {@link NotAuthorizedException} (client fault)
- *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * This exception is thrown when a user isn't authorized.
  *
  * @throws {@link OperationNotEnabledException} (client fault)
- *  <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+ *
+ * This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.
  *
  * @throws {@link RefreshTokenReuseException} (client fault)
- *  <p>This exception is throw when your application requests token refresh with a refresh
- *             token that has been invalidated by refresh-token rotation.</p>
+ *
+ * This exception is throw when your application requests token refresh with a refresh token that has been invalidated by refresh-token rotation.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
- *             resource.</p>
+ *
+ * This exception is thrown when the Amazon Cognito service can't find the requested resource.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>This exception is thrown when the user has made too many requests for a given
- *             operation.</p>
+ *
+ * This exception is thrown when the user has made too many requests for a given operation.
  *
  * @throws {@link UnexpectedLambdaException} (client fault)
- *  <p>This exception is thrown when Amazon Cognito encounters an unexpected exception with
- *             Lambda.</p>
+ *
+ * This exception is thrown when Amazon Cognito encounters an unexpected exception with Lambda.
  *
  * @throws {@link UserLambdaValidationException} (client fault)
- *  <p>This exception is thrown when the Amazon Cognito service encounters a user validation exception
- *             with the Lambda service.</p>
+ *
+ * This exception is thrown when the Amazon Cognito service encounters a user validation exception with the Lambda service.
  *
  * @throws {@link UserNotFoundException} (client fault)
- *  <p>This exception is thrown when a user isn't found.</p>
+ *
+ * This exception is thrown when a user isn't found.
  *
  * @throws {@link CognitoIdentityProviderServiceException}
- * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * Base exception class for all service exceptions from CognitoIdentityProvider service.
  *
  * @public
  */

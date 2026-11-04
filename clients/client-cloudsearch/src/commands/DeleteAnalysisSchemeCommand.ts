@@ -23,7 +23,8 @@ export interface DeleteAnalysisSchemeCommandInput extends DeleteAnalysisSchemeRe
 export interface DeleteAnalysisSchemeCommandOutput extends DeleteAnalysisSchemeResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an analysis scheme. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html" target="_blank">Configuring Analysis Schemes</a> in the <i>Amazon CloudSearch Developer Guide</i>. </p>
+ * Deletes an analysis scheme. For more information, see [Configuring Analysis Schemes](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html) in the *Amazon CloudSearch Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,24 +71,28 @@ export interface DeleteAnalysisSchemeCommandOutput extends DeleteAnalysisSchemeR
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
  *
  * @throws {@link BaseException} (client fault)
- *  <p>An error occurred while processing the request.</p>
+ *
+ * An error occurred while processing the request.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>An internal error occurred while processing the request. If this problem persists,
- *       report an issue from the <a href="http://status.aws.amazon.com/" target="_blank">Service Health Dashboard</a>.</p>
+ *
+ * An internal error occurred while processing the request. If this problem persists, report an issue from the [Service Health Dashboard](http://status.aws.amazon.com/).
  *
  * @throws {@link InvalidTypeException} (client fault)
- *  <p>The request was rejected because it specified an invalid type definition.</p>
+ *
+ * The request was rejected because it specified an invalid type definition.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
+ *
+ * The request was rejected because it attempted to reference a resource that does not exist.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request was rejected because it has invalid parameters.</p>
+ *
+ * The request was rejected because it has invalid parameters.
  *
  * @throws {@link CloudSearchServiceException}
- * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
+ * Base exception class for all service exceptions from CloudSearch service.
  *
  * @public
  */

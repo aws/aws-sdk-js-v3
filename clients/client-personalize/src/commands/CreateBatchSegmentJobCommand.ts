@@ -23,9 +23,8 @@ export interface CreateBatchSegmentJobCommandInput extends CreateBatchSegmentJob
 export interface CreateBatchSegmentJobCommandOutput extends CreateBatchSegmentJobResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a batch segment job. The operation can handle up to 50 million records and the
- *       input file must be in JSON format. For more information, see
- *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/recommendations-batch.html">Getting batch recommendations and user segments</a>.</p>
+ * Creates a batch segment job. The operation can handle up to 50 million records and the input file must be in JSON format. For more information, see [Getting batch recommendations and user segments](https://docs.aws.amazon.com/personalize/latest/dg/recommendations-batch.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,26 +73,32 @@ export interface CreateBatchSegmentJobCommandOutput extends CreateBatchSegmentJo
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * Provide a valid value for the field or parameter.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The limit on the number of requests per second has been exceeded.</p>
+ *
+ * The limit on the number of requests per second has been exceeded.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>The specified resource already exists.</p>
+ *
+ * The specified resource already exists.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is in use.</p>
+ *
+ * The specified resource is in use.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Could not find the specified resource.</p>
+ *
+ * Could not find the specified resource.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
+ *
+ * You have exceeded the maximum number of tags you can apply to this resource.
  *
  * @throws {@link PersonalizeServiceException}
- * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * Base exception class for all service exceptions from Personalize service.
  *
  * @public
  */

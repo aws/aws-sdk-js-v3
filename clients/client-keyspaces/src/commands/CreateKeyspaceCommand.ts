@@ -23,7 +23,12 @@ export interface CreateKeyspaceCommandInput extends CreateKeyspaceRequest {}
 export interface CreateKeyspaceCommandOutput extends CreateKeyspaceResponse, __MetadataBearer {}
 
 /**
- * <p>The <code>CreateKeyspace</code> operation adds a new keyspace to your account. In an Amazon Web Services account, keyspace names must be unique within each Region.</p> <p> <code>CreateKeyspace</code> is an asynchronous operation. You can monitor the creation status of the new keyspace by using the <code>GetKeyspace</code> operation.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/getting-started.keyspaces.html">Create a keyspace</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+ * The `CreateKeyspace` operation adds a new keyspace to your account. In an Amazon Web Services account, keyspace names must be unique within each Region.
+ *
+ * `CreateKeyspace` is an asynchronous operation. You can monitor the creation status of the new keyspace by using the `GetKeyspace` operation.
+ *
+ * For more information, see [Create a keyspace](https://docs.aws.amazon.com/keyspaces/latest/devguide/getting-started.keyspaces.html) in the *Amazon Keyspaces Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,23 +67,28 @@ export interface CreateKeyspaceCommandOutput extends CreateKeyspaceResponse, __M
  * @see {@link KeyspacesClientResolvedConfig | config} for KeyspacesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access permissions to perform this action. </p>
+ *
+ * You don't have sufficient access permissions to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Amazon Keyspaces couldn't complete the requested action. This error may occur if you try to perform an action and the same or a different action is already in progress, or if you try to create a resource that already exists. </p>
+ *
+ * Amazon Keyspaces couldn't complete the requested action. This error may occur if you try to perform an action and the same or a different action is already in progress, or if you try to create a resource that already exists.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Amazon Keyspaces was unable to fully process this request because of an internal server error.</p>
+ *
+ * Amazon Keyspaces was unable to fully process this request because of an internal server error.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The operation exceeded the service quota for this resource. For more information on service quotas, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html">Quotas</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+ *
+ * The operation exceeded the service quota for this resource. For more information on service quotas, see [Quotas](https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html) in the *Amazon Keyspaces Developer Guide*.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The operation failed due to an invalid or malformed request.</p>
+ *
+ * The operation failed due to an invalid or malformed request.
  *
  * @throws {@link KeyspacesServiceException}
- * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
+ * Base exception class for all service exceptions from Keyspaces service.
  *
  * @public
  */

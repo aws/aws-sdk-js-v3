@@ -23,12 +23,10 @@ export interface CreatePermissionVersionCommandInput extends CreatePermissionVer
 export interface CreatePermissionVersionCommandOutput extends CreatePermissionVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new version of the specified customer managed permission. The new version is automatically set as
- *             the default version of the customer managed permission. New resource shares automatically use the default
- *             permission. Existing resource shares continue to use their original permission versions,
- *             but you can use <a>ReplacePermissionAssociations</a> to update them.</p>
- *          <p>If the specified customer managed permission already has the maximum of 5 versions, then
- *             you must delete one of the existing versions before you can create a new one.</p>
+ * Creates a new version of the specified customer managed permission. The new version is automatically set as the default version of the customer managed permission. New resource shares automatically use the default permission. Existing resource shares continue to use their original permission versions, but you can use ReplacePermissionAssociations to update them.
+ *
+ * If the specified customer managed permission already has the maximum of 5 versions, then you must delete one of the existing versions before you can create a new one.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,44 +75,48 @@ export interface CreatePermissionVersionCommandOutput extends CreatePermissionVe
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
  *
  * @throws {@link IdempotentParameterMismatchException} (client fault)
- *  <p>The operation failed because the client token input parameter matched one that was
- *             used with a previous call to the operation, but at least one of the other input
- *             parameters is different from the previous call.</p>
+ *
+ * The operation failed because the client token input parameter matched one that was used with a previous call to the operation, but at least one of the other input parameters is different from the previous call.
  *
  * @throws {@link InvalidClientTokenException} (client fault)
- *  <p>The operation failed because the specified client token isn't valid.</p>
+ *
+ * The operation failed because the specified client token isn't valid.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The operation failed because a parameter you specified isn't valid.</p>
+ *
+ * The operation failed because a parameter you specified isn't valid.
  *
  * @throws {@link InvalidPolicyException} (client fault)
- *  <p>The operation failed because a policy you specified isn't valid.</p>
+ *
+ * The operation failed because a policy you specified isn't valid.
  *
  * @throws {@link MalformedArnException} (client fault)
- *  <p>The operation failed because the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> has a format that isn't
- *             valid.</p>
+ *
+ * The operation failed because the specified [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) has a format that isn't valid.
  *
  * @throws {@link MalformedPolicyTemplateException} (client fault)
- *  <p>The operation failed because the policy template that you provided isn't valid.</p>
+ *
+ * The operation failed because the policy template that you provided isn't valid.
  *
  * @throws {@link PermissionVersionsLimitExceededException} (client fault)
- *  <p>The operation failed because it would exceed the limit for the number of versions you
- *             can have for a permission. To view the limits for your Amazon Web Services account, see the <a href="https://console.aws.amazon.com/servicequotas/home/services/ram/quotas">RAM page in the
- *                 Service Quotas console</a>.</p>
+ *
+ * The operation failed because it would exceed the limit for the number of versions you can have for a permission. To view the limits for your Amazon Web Services account, see the [RAM page in the Service Quotas console](https://console.aws.amazon.com/servicequotas/home/services/ram/quotas).
  *
  * @throws {@link ServerInternalException} (server fault)
- *  <p>The operation failed because the service could not respond to the request due to an
- *             internal problem. Try again later.</p>
+ *
+ * The operation failed because the service could not respond to the request due to an internal problem. Try again later.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The operation failed because the service isn't available. Try again later.</p>
+ *
+ * The operation failed because the service isn't available. Try again later.
  *
  * @throws {@link UnknownResourceException} (client fault)
- *  <p>The operation failed because a specified resource couldn't be found.</p>
+ *
+ * The operation failed because a specified resource couldn't be found.
  *
  * @throws {@link RAMServiceException}
- * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ * Base exception class for all service exceptions from RAM service.
  *
  * @public
  */

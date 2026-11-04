@@ -23,7 +23,16 @@ export interface GetAgreementTermsCommandInput extends GetAgreementTermsInput {}
 export interface GetAgreementTermsCommandOutput extends GetAgreementTermsOutput, __MetadataBearer {}
 
 /**
- * <p>Obtains details about the terms in an agreement that you participated in as proposer or acceptor.</p> <p>The details include:</p> <ul> <li> <p> <code>TermType</code> – The type of term, such as <code>LegalTerm</code>, <code>RenewalTerm</code>, or <code>ConfigurableUpfrontPricingTerm</code>.</p> </li> <li> <p> <code>TermID</code> – The ID of the particular term, which is common between offer and agreement.</p> </li> <li> <p> <code>TermPayload</code> – The key information contained in the term, such as the EULA for <code>LegalTerm</code> or pricing and dimensions for various pricing terms, such as <code>ConfigurableUpfrontPricingTerm</code> or <code>UsageBasedPricingTerm</code>.</p> </li> </ul> <ul> <li> <p> <code>Configuration</code> – The buyer/acceptor's selection at the time of agreement creation, such as the number of units purchased for a dimension or setting the <code>EnableAutoRenew</code> flag.</p> </li> </ul>
+ * Obtains details about the terms in an agreement that you participated in as proposer or acceptor.
+ *
+ * The details include:
+ *
+ * - `TermType` – The type of term, such as `LegalTerm`, `RenewalTerm`, or `ConfigurableUpfrontPricingTerm`.
+ * - `TermID` – The ID of the particular term, which is common between offer and agreement.
+ * - `TermPayload` – The key information contained in the term, such as the EULA for `LegalTerm` or pricing and dimensions for various pricing terms, such as `ConfigurableUpfrontPricingTerm` or `UsageBasedPricingTerm`.
+ *
+ * - `Configuration` – The buyer/acceptor's selection at the time of agreement creation, such as the number of units purchased for a dimension or setting the `EnableAutoRenew` flag.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -220,23 +229,28 @@ export interface GetAgreementTermsCommandOutput extends GetAgreementTermsOutput,
  * @see {@link MarketplaceAgreementClientResolvedConfig | config} for MarketplaceAgreementClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * User does not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error during processing of request.</p>
+ *
+ * Unexpected error during processing of request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Request references a resource which does not exist.</p>
+ *
+ * Request references a resource which does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Request was denied due to request throttling.</p>
+ *
+ * Request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the service.</p>
+ *
+ * The input fails to satisfy the constraints specified by the service.
  *
  * @throws {@link MarketplaceAgreementServiceException}
- * <p>Base exception class for all service exceptions from MarketplaceAgreement service.</p>
  *
+ * Base exception class for all service exceptions from MarketplaceAgreement service.
  *
  * @public
  */

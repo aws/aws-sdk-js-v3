@@ -23,11 +23,10 @@ export interface UploadSSHPublicKeyCommandInput extends UploadSSHPublicKeyReques
 export interface UploadSSHPublicKeyCommandOutput extends UploadSSHPublicKeyResponse, __MetadataBearer {}
 
 /**
- * <p>Uploads an SSH public key and associates it with the specified IAM user.</p>
- *          <p>The SSH public key uploaded by this operation can be used only for authenticating the
- *             associated IAM user to an CodeCommit repository. For more information about using SSH keys
- *             to authenticate to an CodeCommit repository, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html">Set up CodeCommit for
- *                 SSH connections</a> in the <i>CodeCommit User Guide</i>.</p>
+ * Uploads an SSH public key and associates it with the specified IAM user.
+ *
+ * The SSH public key uploaded by this operation can be used only for authenticating the associated IAM user to an CodeCommit repository. For more information about using SSH keys to authenticate to an CodeCommit repository, see [Set up CodeCommit for SSH connections](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html) in the *CodeCommit User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,27 +61,28 @@ export interface UploadSSHPublicKeyCommandOutput extends UploadSSHPublicKeyRespo
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link DuplicateSSHPublicKeyException} (client fault)
- *  <p>The request was rejected because the SSH public key is already associated with the
- *       specified IAM user.</p>
+ *
+ * The request was rejected because the SSH public key is already associated with the specified IAM user.
  *
  * @throws {@link InvalidPublicKeyException} (client fault)
- *  <p>The request was rejected because the public key is malformed or otherwise invalid.</p>
+ *
+ * The request was rejected because the public key is malformed or otherwise invalid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current
- *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+ *
+ * The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link UnrecognizedPublicKeyEncodingException} (client fault)
- *  <p>The request was rejected because the public key encoding format is unsupported or
- *       unrecognized.</p>
+ *
+ * The request was rejected because the public key encoding format is unsupported or unrecognized.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @public
  */

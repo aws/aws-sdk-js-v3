@@ -23,7 +23,10 @@ export interface PutAccountSettingsCommandInput extends PutAccountSettingsReques
 export interface PutAccountSettingsCommandOutput extends PutAccountSettingsResponse, __MetadataBearer {}
 
 /**
- * <p>Creates or updates account-level EVS settings for your Amazon Web Services account in the specified Amazon Web Services Region.</p> <p>EVS settings included in the request are created or overwritten. Settings omitted from the request retain their current values.</p>
+ * Creates or updates account-level EVS settings for your Amazon Web Services account in the specified Amazon Web Services Region.
+ *
+ * EVS settings included in the request are created or overwritten. Settings omitted from the request retain their current values.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,17 +63,20 @@ export interface PutAccountSettingsCommandOutput extends PutAccountSettingsRespo
  * @see {@link EvsClientResolvedConfig | config} for EvsClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The operation could not be performed because the service is throttling requests. This exception is thrown when the service endpoint receives too many concurrent requests.</p>
+ *
+ * The operation could not be performed because the service is throttling requests. This exception is thrown when the service endpoint receives too many concurrent requests.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+ *
+ * The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.
  *
  * @throws {@link EvsServiceException}
- * <p>Base exception class for all service exceptions from Evs service.</p>
  *
+ * Base exception class for all service exceptions from Evs service.
  *
  * @public
  */

@@ -26,11 +26,10 @@ export interface EnableReachabilityAnalyzerOrganizationSharingCommandInput exten
 export interface EnableReachabilityAnalyzerOrganizationSharingCommandOutput extends EnableReachabilityAnalyzerOrganizationSharingResult, __MetadataBearer {}
 
 /**
- * <p>Establishes a trust relationship between Reachability Analyzer and Organizations.
- *          This operation must be performed by the management account for the organization.</p>
- *          <p>After you establish a trust relationship, a user in the management account or
- *          a delegated administrator account can run a cross-account analysis using resources
- *          from the member accounts.</p>
+ * Establishes a trust relationship between Reachability Analyzer and Organizations. This operation must be performed by the management account for the organization.
+ *
+ * After you establish a trust relationship, a user in the management account or a delegated administrator account can run a cross-account analysis using resources from the member accounts.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,8 +56,8 @@ export interface EnableReachabilityAnalyzerOrganizationSharingCommandOutput exte
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

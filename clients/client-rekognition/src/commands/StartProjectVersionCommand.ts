@@ -23,19 +23,16 @@ export interface StartProjectVersionCommandInput extends StartProjectVersionRequ
 export interface StartProjectVersionCommandOutput extends StartProjectVersionResponse, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This operation applies only to Amazon Rekognition Custom Labels.</p>
- *          </note>
- *          <p>Starts the running of the version of a model. Starting a model takes a while to
- *          complete. To check the current state of the model, use <a>DescribeProjectVersions</a>. </p>
- *          <p>Once the model is running, you can detect custom labels in new images by calling
- *          <a>DetectCustomLabels</a>.</p>
- *          <note>
- *             <p>You are charged for the amount of time that the model is running. To stop a running
- *       model, call <a>StopProjectVersion</a>.</p>
- *          </note>
- *          <p>This operation requires permissions to perform the
- *          <code>rekognition:StartProjectVersion</code> action.</p>
+ * > **Note:** This operation applies only to Amazon Rekognition Custom Labels.
+ *
+ * Starts the running of the version of a model. Starting a model takes a while to complete. To check the current state of the model, use DescribeProjectVersions.
+ *
+ * Once the model is running, you can detect custom labels in new images by calling DetectCustomLabels.
+ *
+ * > **Note:** You are charged for the amount of time that the model is running. To stop a running model, call StopProjectVersion.
+ *
+ * This operation requires permissions to perform the `rekognition:StartProjectVersion` action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,38 +61,40 @@ export interface StartProjectVersionCommandOutput extends StartProjectVersionRes
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You are not authorized to perform the action.</p>
+ *
+ * You are not authorized to perform the action.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * Amazon Rekognition experienced a service issue. Try your call again.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
- *       operation again.</p>
+ *
+ * Input parameter violated a constraint. Validate your parameter before calling the API operation again.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs
- *             concurrently, subsequent calls to start operations (ex:
- *             <code>StartLabelDetection</code>) will raise a <code>LimitExceededException</code>
- *             exception (HTTP status code: 400) until the number of concurrently running jobs is below
- *             the Amazon Rekognition service limit. </p>
+ *
+ * An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs concurrently, subsequent calls to start operations (ex: `StartLabelDetection`) will raise a `LimitExceededException` exception (HTTP status code: 400) until the number of concurrently running jobs is below the Amazon Rekognition service limit.
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
- *  <p>The number of requests exceeded your throughput limit. If you want to increase this
- *       limit, contact Amazon Rekognition.</p>
+ *
+ * The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is already being used.</p>
+ *
+ * The specified resource is already being used.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource specified in the request cannot be found.</p>
+ *
+ * The resource specified in the request cannot be found.
  *
  * @throws {@link ThrottlingException} (server fault)
- *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
+ * Amazon Rekognition is temporarily unable to process the request. Try your call again.
  *
  * @throws {@link RekognitionServiceException}
- * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * Base exception class for all service exceptions from Rekognition service.
  *
  * @example To start an Amazon Rekognition Custom Labels model
  * ```javascript

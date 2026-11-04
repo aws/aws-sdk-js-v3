@@ -23,27 +23,20 @@ export interface ListRolesCommandInput extends ListRolesRequest {}
 export interface ListRolesCommandOutput extends ListRolesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the IAM roles that have the specified path prefix. If there are none, the
- *             operation returns an empty list. For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM roles</a> in the
- *                 <i>IAM User Guide</i>.</p>
- *          <note>
- *             <p>IAM resource-listing operations return a subset of the available
- *    attributes for the resource. This operation does not return the following attributes, even though they are an attribute of the returned object:</p>
- *             <ul>
- *                <li>
- *                   <p>PermissionsBoundary</p>
- *                </li>
- *                <li>
- *                   <p>RoleLastUsed</p>
- *                </li>
- *                <li>
- *                   <p>Tags</p>
- *                </li>
- *             </ul>
- *             <p>To view all of the information for a role, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetRole.html">GetRole</a>.</p>
- *          </note>
- *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
- *             parameters.</p>
+ * Lists the IAM roles that have the specified path prefix. If there are none, the operation returns an empty list. For more information about roles, see [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) in the *IAM User Guide*.
+ *
+ * > **Note:**
+ * >
+ * > IAM resource-listing operations return a subset of the available attributes for the resource. This operation does not return the following attributes, even though they are an attribute of the returned object:
+ * >
+ * > - PermissionsBoundary
+ * > - RoleLastUsed
+ * > - Tags
+ * >
+ * > To view all of the information for a role, see [GetRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetRole.html).
+ *
+ * You can paginate the results using the `MaxItems` and `Marker` parameters.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -103,12 +96,12 @@ export interface ListRolesCommandOutput extends ListRolesResponse, __MetadataBea
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @public
  */

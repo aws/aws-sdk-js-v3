@@ -23,13 +23,10 @@ export interface UpdateVirtualInterfaceAttributesCommandInput extends UpdateVirt
 export interface UpdateVirtualInterfaceAttributesCommandOutput extends VirtualInterface, __MetadataBearer {}
 
 /**
- * <p>Updates the specified attributes of the specified virtual private interface.</p>
- *          <p>Setting the MTU of a virtual interface to 8500 (jumbo frames) can cause an update to
- *       the underlying physical connection if it wasn't updated to support jumbo frames. Updating
- *       the connection disrupts network connectivity for all virtual interfaces associated with
- *       the connection for up to 30 seconds. To check whether your connection supports jumbo
- *       frames, call <a>DescribeConnections</a>. To check whether your virtual
- *       interface supports jumbo frames, call <a>DescribeVirtualInterfaces</a>.</p>
+ * Updates the specified attributes of the specified virtual private interface.
+ *
+ * Setting the MTU of a virtual interface to 8500 (jumbo frames) can cause an update to the underlying physical connection if it wasn't updated to support jumbo frames. Updating the connection disrupts network connectivity for all virtual interfaces associated with the connection for up to 30 seconds. To check whether your connection supports jumbo frames, call DescribeConnections. To check whether your virtual interface supports jumbo frames, call DescribeVirtualInterfaces.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -114,14 +111,16 @@ export interface UpdateVirtualInterfaceAttributesCommandOutput extends VirtualIn
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  * @throws {@link DirectConnectClientException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link DirectConnectServerException} (server fault)
- *  <p>A server-side error occurred.</p>
+ *
+ * A server-side error occurred.
  *
  * @throws {@link DirectConnectServiceException}
- * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * Base exception class for all service exceptions from DirectConnect service.
  *
  * @public
  */

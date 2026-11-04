@@ -23,7 +23,8 @@ export interface DeletePrefetchScheduleCommandInput extends DeletePrefetchSchedu
 export interface DeletePrefetchScheduleCommandOutput extends DeletePrefetchScheduleResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a prefetch schedule for a specific playback configuration. If you call <code>DeletePrefetchSchedule</code> on an expired prefetch schedule, MediaTailor returns an HTTP 404 status code. For more information about ad prefetching, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/prefetching-ads.html">Using ad prefetching</a> in the <i>MediaTailor User Guide</i>.</p>
+ * Deletes a prefetch schedule for a specific playback configuration. If you call `DeletePrefetchSchedule` on an expired prefetch schedule, MediaTailor returns an HTTP 404 status code. For more information about ad prefetching, see [Using ad prefetching](https://docs.aws.amazon.com/mediatailor/latest/ug/prefetching-ads.html) in the *MediaTailor User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,8 +50,8 @@ export interface DeletePrefetchScheduleCommandOutput extends DeletePrefetchSched
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
  * @throws {@link MediaTailorServiceException}
- * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ * Base exception class for all service exceptions from MediaTailor service.
  *
  * @public
  */

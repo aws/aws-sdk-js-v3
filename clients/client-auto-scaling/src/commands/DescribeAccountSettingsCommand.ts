@@ -23,9 +23,8 @@ export interface DescribeAccountSettingsCommandInput extends DescribeAccountSett
 export interface DescribeAccountSettingsCommandOutput extends DescribeAccountSettingsAnswer, __MetadataBearer {}
 
 /**
- * <p>
- *             Describes the current Amazon EC2 Auto Scaling account settings for your account. Account settings are a framework that allows you to enable or disable features for your account. The framework also gives you visibility into features that will be enforced by a given date, providing a time window to prepare for backwards-incompatible changes.
- *         </p>
+ * Describes the current Amazon EC2 Auto Scaling account settings for your account. Account settings are a framework that allows you to enable or disable features for your account. The framework also gives you visibility into features that will be enforced by a given date, providing a time window to prepare for backwards-incompatible changes.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,11 +63,12 @@ export interface DescribeAccountSettingsCommandOutput extends DescribeAccountSet
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  * @throws {@link InvalidNextToken} (client fault)
- *  <p>The <code>NextToken</code> value is not valid.</p>
+ *
+ * The `NextToken` value is not valid.
  *
  * @throws {@link AutoScalingServiceException}
- * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from AutoScaling service.
  *
  * @public
  */

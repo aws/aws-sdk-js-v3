@@ -23,7 +23,8 @@ export interface StopDiscovererCommandInput extends StopDiscovererRequest {}
 export interface StopDiscovererCommandOutput extends StopDiscovererResponse, __MetadataBearer {}
 
 /**
- * <p>Stops the discoverer</p>
+ * Stops the discoverer
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,8 +64,8 @@ export interface StopDiscovererCommandOutput extends StopDiscovererResponse, __M
  * @throws {@link UnauthorizedException} (client fault)
  *
  * @throws {@link SchemasServiceException}
- * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
+ * Base exception class for all service exceptions from Schemas service.
  *
  * @public
  */

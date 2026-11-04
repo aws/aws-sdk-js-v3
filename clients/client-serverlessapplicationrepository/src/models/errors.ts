@@ -6,7 +6,8 @@ import {
 } from "./ServerlessApplicationRepositoryServiceException";
 
 /**
- * <p>One of the parameters in the request is invalid.</p>
+ * One of the parameters in the request is invalid.
+ *
  * @public
  */
 export class BadRequestException extends __BaseException {
@@ -14,13 +15,15 @@ export class BadRequestException extends __BaseException {
   readonly name = "BadRequestException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>400</p>
+   * 400
+   *
    * @public
    */
   ErrorCode?: string | undefined;
 
   /**
-   * <p>One of the parameters in the request is invalid.</p>
+   * One of the parameters in the request is invalid.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -40,7 +43,8 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * <p>The resource already exists.</p>
+ * The resource already exists.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -48,13 +52,15 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>409</p>
+   * 409
+   *
    * @public
    */
   ErrorCode?: string | undefined;
 
   /**
-   * <p>The resource already exists.</p>
+   * The resource already exists.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -74,7 +80,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The client is not authenticated.</p>
+ * The client is not authenticated.
+ *
  * @public
  */
 export class ForbiddenException extends __BaseException {
@@ -82,13 +89,15 @@ export class ForbiddenException extends __BaseException {
   readonly name = "ForbiddenException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>403</p>
+   * 403
+   *
    * @public
    */
   ErrorCode?: string | undefined;
 
   /**
-   * <p>The client is not authenticated.</p>
+   * The client is not authenticated.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -108,7 +117,8 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
- * <p>The AWS Serverless Application Repository service encountered an internal error.</p>
+ * The AWS Serverless Application Repository service encountered an internal error.
+ *
  * @public
  */
 export class InternalServerErrorException extends __BaseException {
@@ -116,13 +126,15 @@ export class InternalServerErrorException extends __BaseException {
   readonly name = "InternalServerErrorException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>500</p>
+   * 500
+   *
    * @public
    */
   ErrorCode?: string | undefined;
 
   /**
-   * <p>The AWS Serverless Application Repository service encountered an internal error.</p>
+   * The AWS Serverless Application Repository service encountered an internal error.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -142,7 +154,8 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
- * <p>The client is sending more than the allowed number of requests per unit of time.</p>
+ * The client is sending more than the allowed number of requests per unit of time.
+ *
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
@@ -150,13 +163,15 @@ export class TooManyRequestsException extends __BaseException {
   readonly name = "TooManyRequestsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>429</p>
+   * 429
+   *
    * @public
    */
   ErrorCode?: string | undefined;
 
   /**
-   * <p>The client is sending more than the allowed number of requests per unit of time.</p>
+   * The client is sending more than the allowed number of requests per unit of time.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -176,7 +191,8 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * <p>The resource (for example, an access policy statement) specified in the request doesn't exist.</p>
+ * The resource (for example, an access policy statement) specified in the request doesn't exist.
+ *
  * @public
  */
 export class NotFoundException extends __BaseException {
@@ -184,13 +200,15 @@ export class NotFoundException extends __BaseException {
   readonly name = "NotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>404</p>
+   * 404
+   *
    * @public
    */
   ErrorCode?: string | undefined;
 
   /**
-   * <p>The resource (for example, an access policy statement) specified in the request doesn't exist.</p>
+   * The resource (for example, an access policy statement) specified in the request doesn't exist.
+   *
    * @public
    */
   Message?: string | undefined;

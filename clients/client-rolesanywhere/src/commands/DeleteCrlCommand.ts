@@ -23,7 +23,10 @@ export interface DeleteCrlCommandInput extends ScalarCrlRequest {}
 export interface DeleteCrlCommandOutput extends CrlDetailResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a certificate revocation list (CRL).</p> <p> <b>Required permissions: </b> <code>rolesanywhere:DeleteCrl</code>. </p>
+ * Deletes a certificate revocation list (CRL).
+ *
+ * **Required permissions:** `rolesanywhere:DeleteCrl`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,14 +62,16 @@ export interface DeleteCrlCommandOutput extends CrlDetailResponse, __MetadataBea
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link RolesAnywhereServiceException}
- * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
+ * Base exception class for all service exceptions from RolesAnywhere service.
  *
  * @public
  */

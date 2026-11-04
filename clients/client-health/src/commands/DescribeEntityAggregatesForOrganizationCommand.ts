@@ -26,7 +26,8 @@ export interface DescribeEntityAggregatesForOrganizationCommandInput extends Des
 export interface DescribeEntityAggregatesForOrganizationCommandOutput extends DescribeEntityAggregatesForOrganizationResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of entity aggregates for your Organizations that are affected by each of the specified events.</p>
+ * Returns a list of entity aggregates for your Organizations that are affected by each of the specified events.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,8 +76,8 @@ export interface DescribeEntityAggregatesForOrganizationCommandOutput extends De
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
  *
  * @throws {@link HealthServiceException}
- * <p>Base exception class for all service exceptions from Health service.</p>
  *
+ * Base exception class for all service exceptions from Health service.
  *
  * @public
  */

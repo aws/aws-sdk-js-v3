@@ -23,9 +23,8 @@ export interface ListDeploymentsCommandInput extends ListDeploymentsRequest {}
 export interface ListDeploymentsCommandOutput extends ListDeploymentsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of all deployments of a specific application. A deployment is a
- *          combination of a specific application and a specific version of that application. Each
- *          deployment is mapped to a particular application version.</p>
+ * Returns a list of all deployments of a specific application. A deployment is a combination of a specific application and a specific version of that application. Each deployment is mapped to a particular application version.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,23 +64,28 @@ export interface ListDeploymentsCommandOutput extends ListDeploymentsResponse, _
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The account or role doesn't have the right permissions to make the request.</p>
+ *
+ * The account or role doesn't have the right permissions to make the request.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred during the processing of the request.</p>
+ *
+ * An unexpected error occurred during the processing of the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The number of requests made exceeds the limit.</p>
+ *
+ * The number of requests made exceeds the limit.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One or more parameters provided in the request is not valid.</p>
+ *
+ * One or more parameters provided in the request is not valid.
  *
  * @throws {@link M2ServiceException}
- * <p>Base exception class for all service exceptions from M2 service.</p>
  *
+ * Base exception class for all service exceptions from M2 service.
  *
  * @public
  */

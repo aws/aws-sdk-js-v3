@@ -26,11 +26,12 @@ export interface SetLoadBalancerListenerSSLCertificateCommandInput extends SetLo
 export interface SetLoadBalancerListenerSSLCertificateCommandOutput extends SetLoadBalancerListenerSSLCertificateOutput, __MetadataBearer {}
 
 /**
- * <p>Sets the certificate that terminates the specified listener's SSL connections. The specified certificate replaces any prior certificate that was used on the same load balancer and port.</p>
+ * Sets the certificate that terminates the specified listener's SSL connections. The specified certificate replaces any prior certificate that was used on the same load balancer and port.
  *
- *         <p>For more information about updating your SSL certificate, see
- *             <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-update-ssl-cert.html">Replace the SSL Certificate for Your Load Balancer</a>
- *                 in the <i>Classic Load Balancers Guide</i>.</p>
+ *
+ *
+ * For more information about updating your SSL certificate, see [Replace the SSL Certificate for Your Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-update-ssl-cert.html) in the *Classic Load Balancers Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,25 +58,28 @@ export interface SetLoadBalancerListenerSSLCertificateCommandOutput extends SetL
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
  * @throws {@link AccessPointNotFoundException} (client fault)
- *  <p>The specified load balancer does not exist.</p>
+ *
+ * The specified load balancer does not exist.
  *
  * @throws {@link CertificateNotFoundException} (client fault)
- *  <p>The specified ARN does not refer to a valid SSL certificate in AWS Identity and Access Management (IAM)
- *             or AWS Certificate Manager (ACM). Note that if you recently uploaded the certificate to IAM, this error might
- *             indicate that the certificate is not fully available yet.</p>
+ *
+ * The specified ARN does not refer to a valid SSL certificate in AWS Identity and Access Management (IAM) or AWS Certificate Manager (ACM). Note that if you recently uploaded the certificate to IAM, this error might indicate that the certificate is not fully available yet.
  *
  * @throws {@link InvalidConfigurationRequestException} (client fault)
- *  <p>The requested configuration change is not valid.</p>
+ *
+ * The requested configuration change is not valid.
  *
  * @throws {@link ListenerNotFoundException} (client fault)
- *  <p>The load balancer does not have a listener configured at the specified port.</p>
+ *
+ * The load balancer does not have a listener configured at the specified port.
  *
  * @throws {@link UnsupportedProtocolException} (client fault)
- *  <p>The specified protocol or signature version is not supported.</p>
+ *
+ * The specified protocol or signature version is not supported.
  *
  * @throws {@link ElasticLoadBalancingServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancing service.
  *
  * @example To update the SSL certificate for an HTTPS listener
  * ```javascript

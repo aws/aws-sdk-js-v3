@@ -23,9 +23,8 @@ export interface RegisterClientCommandInput extends RegisterClientRequest {}
 export interface RegisterClientCommandOutput extends RegisterClientResponse, __MetadataBearer {}
 
 /**
- * <p>Registers a public client with IAM Identity Center. This allows clients to perform authorization using
- *       the authorization code grant with Proof Key for Code Exchange (PKCE) or the device
- *       code grant.</p>
+ * Registers a public client with IAM Identity Center. This allows clients to perform authorization using the authorization code grant with Proof Key for Code Exchange (PKCE) or the device code grant.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,34 +68,36 @@ export interface RegisterClientCommandOutput extends RegisterClientResponse, __M
  * @see {@link SSOOIDCClientResolvedConfig | config} for SSOOIDCClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Indicates that an error from the service occurred while trying to process a
- *       request.</p>
+ *
+ * Indicates that an error from the service occurred while trying to process a request.
  *
  * @throws {@link InvalidClientMetadataException} (client fault)
- *  <p>Indicates that the client information sent in the request during registration is
- *       invalid.</p>
+ *
+ * Indicates that the client information sent in the request during registration is invalid.
  *
  * @throws {@link InvalidRedirectUriException} (client fault)
- *  <p>Indicates that one or more redirect URI in the request is not supported for this
- *       operation.</p>
+ *
+ * Indicates that one or more redirect URI in the request is not supported for this operation.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Indicates that something is wrong with the input to the request. For example, a required
- *       parameter might be missing or out of range.</p>
+ *
+ * Indicates that something is wrong with the input to the request. For example, a required parameter might be missing or out of range.
  *
  * @throws {@link InvalidScopeException} (client fault)
- *  <p>Indicates that the scope provided in the request is invalid.</p>
+ *
+ * Indicates that the scope provided in the request is invalid.
  *
  * @throws {@link SlowDownException} (client fault)
- *  <p>Indicates that the client is making the request too frequently and is more than the
- *       service can handle. </p>
+ *
+ * Indicates that the client is making the request too frequently and is more than the service can handle.
  *
  * @throws {@link UnsupportedGrantTypeException} (client fault)
- *  <p>Indicates that the grant type in the request is not supported by the service.</p>
+ *
+ * Indicates that the grant type in the request is not supported by the service.
  *
  * @throws {@link SSOOIDCServiceException}
- * <p>Base exception class for all service exceptions from SSOOIDC service.</p>
  *
+ * Base exception class for all service exceptions from SSOOIDC service.
  *
  * @example Call OAuth/OIDC /register-client endpoint
  * ```javascript

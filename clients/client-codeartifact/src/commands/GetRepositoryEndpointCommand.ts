@@ -23,52 +23,17 @@ export interface GetRepositoryEndpointCommandInput extends GetRepositoryEndpoint
 export interface GetRepositoryEndpointCommandOutput extends GetRepositoryEndpointResult, __MetadataBearer {}
 
 /**
- * <p>
- *       Returns the endpoint of a repository for a specific package format. A repository has one endpoint for each
- *       package format:
- *     </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>cargo</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>generic</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>maven</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>npm</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>nuget</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>pypi</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>ruby</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>swift</code>
- *                </p>
- *             </li>
- *          </ul>
+ * Returns the endpoint of a repository for a specific package format. A repository has one endpoint for each package format:
+ *
+ * - `cargo`
+ * - `generic`
+ * - `maven`
+ * - `npm`
+ * - `nuget`
+ * - `pypi`
+ * - `ruby`
+ * - `swift`
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -99,31 +64,28 @@ export interface GetRepositoryEndpointCommandOutput extends GetRepositoryEndpoin
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>
- *         The operation did not succeed because of an unauthorized access attempt.
- *       </p>
+ *
+ * The operation did not succeed because of an unauthorized access attempt.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+ *
+ * The operation did not succeed because of an error that occurred inside CodeArtifact.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>
- *       The operation did not succeed because the resource requested is not found in the service.
- *     </p>
+ *
+ * The operation did not succeed because the resource requested is not found in the service.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>
- *       The operation did not succeed because too many requests are sent to the service.
- *     </p>
+ *
+ * The operation did not succeed because too many requests are sent to the service.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>
- *       The operation did not succeed because a parameter in the request was sent with an invalid value.
- *     </p>
+ *
+ * The operation did not succeed because a parameter in the request was sent with an invalid value.
  *
  * @throws {@link CodeartifactServiceException}
- * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ * Base exception class for all service exceptions from Codeartifact service.
  *
  * @public
  */

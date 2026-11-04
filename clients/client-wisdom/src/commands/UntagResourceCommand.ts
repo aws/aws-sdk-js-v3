@@ -23,7 +23,8 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Removes the specified tags from the specified resource.</p>
+ * Removes the specified tags from the specified resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,11 +52,12 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link WisdomServiceException}
- * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ * Base exception class for all service exceptions from Wisdom service.
  *
  * @public
  */

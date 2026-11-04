@@ -23,7 +23,8 @@ export interface CreateDomainCommandInput extends CreateDomainInput {}
 export interface CreateDomainCommandOutput extends CreateDomainOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a new Domain for managing HealthAgent resources.</p>
+ * Creates a new Domain for managing HealthAgent resources.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,11 +75,12 @@ export interface CreateDomainCommandOutput extends CreateDomainOutput, __Metadat
  * @see {@link ConnectHealthClientResolvedConfig | config} for ConnectHealthClient's `config` shape.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request exceeds a service quota.</p>
+ *
+ * The request exceeds a service quota.
  *
  * @throws {@link ConnectHealthServiceException}
- * <p>Base exception class for all service exceptions from ConnectHealth service.</p>
  *
+ * Base exception class for all service exceptions from ConnectHealth service.
  *
  * @public
  */

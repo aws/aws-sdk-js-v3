@@ -23,7 +23,20 @@ export interface RestoreDBClusterFromSnapshotCommandInput extends RestoreDBClust
 export interface RestoreDBClusterFromSnapshotCommandOutput extends RestoreDBClusterFromSnapshotResult, __MetadataBearer {}
 
 /**
- * <p>Creates a new DB cluster from a DB snapshot or DB cluster snapshot.</p> <p>The target DB cluster is created from the source snapshot with a default configuration. If you don't specify a security group, the new DB cluster is associated with the default security group.</p> <p>You can use the <code>EnableVPCNetworking</code> and <code>EnableInternetAccessGateway</code> parameters together to restore an Aurora PostgreSQL cluster without VPC networking and with internet-based connectivity. These two parameters must always be specified together. Set <code>EnableVPCNetworking</code> to <code>false</code> to disable the VPC network interface (ENI) for the cluster. <code>EnableInternetAccessGateway</code> enables internet-based connectivity through an internet access gateway. IAM database authentication is required and must be enabled using <code>EnableIAMDatabaseAuthentication</code>. Once the cluster is restored, you need to modify the DB cluster to update <code>MasterUserAuthenticationType</code> to <code>iam-db-auth</code>. </p> <p>You can use the <code>AssociatedRoles</code> parameter to associate one or more Amazon Web Services Identity and Access Management (IAM) roles with an Aurora DB cluster when you restore it from a snapshot.</p> <note> <p>This operation only restores the DB cluster, not the DB instances for that DB cluster. You must invoke the <code>CreateDBInstance</code> operation to create DB instances for the restored DB cluster, specifying the identifier of the restored DB cluster in <code>DBClusterIdentifier</code>. You can create DB instances only after the <code>RestoreDBClusterFromSnapshot</code> operation has completed and the DB cluster is available.</p> </note> <p>For more information on Amazon Aurora DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html"> What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p> <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB cluster deployments</a> in the <i>Amazon RDS User Guide.</i> </p>
+ * Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
+ *
+ * The target DB cluster is created from the source snapshot with a default configuration. If you don't specify a security group, the new DB cluster is associated with the default security group.
+ *
+ * You can use the `EnableVPCNetworking` and `EnableInternetAccessGateway` parameters together to restore an Aurora PostgreSQL cluster without VPC networking and with internet-based connectivity. These two parameters must always be specified together. Set `EnableVPCNetworking` to `false` to disable the VPC network interface (ENI) for the cluster. `EnableInternetAccessGateway` enables internet-based connectivity through an internet access gateway. IAM database authentication is required and must be enabled using `EnableIAMDatabaseAuthentication`. Once the cluster is restored, you need to modify the DB cluster to update `MasterUserAuthenticationType` to `iam-db-auth`.
+ *
+ * You can use the `AssociatedRoles` parameter to associate one or more Amazon Web Services Identity and Access Management (IAM) roles with an Aurora DB cluster when you restore it from a snapshot.
+ *
+ * > **Note:** This operation only restores the DB cluster, not the DB instances for that DB cluster. You must invoke the `CreateDBInstance` operation to create DB instances for the restored DB cluster, specifying the identifier of the restored DB cluster in `DBClusterIdentifier`. You can create DB instances only after the `RestoreDBClusterFromSnapshot` operation has completed and the DB cluster is available.
+ *
+ * For more information on Amazon Aurora DB clusters, see [What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html) in the *Amazon Aurora User Guide*.
+ *
+ * For more information on Multi-AZ DB clusters, see [Multi-AZ DB cluster deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html) in the *Amazon RDS User Guide.*
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -326,80 +339,104 @@ export interface RestoreDBClusterFromSnapshotCommandOutput extends RestoreDBClus
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBClusterAlreadyExistsFault} (client fault)
- *  <p>The user already has a DB cluster with the given identifier.</p>
+ *
+ * The user already has a DB cluster with the given identifier.
  *
  * @throws {@link DBClusterParameterGroupNotFoundFault} (client fault)
- *  <p> <code>DBClusterParameterGroupName</code> doesn't refer to an existing DB cluster parameter group.</p>
+ *
+ * `DBClusterParameterGroupName` doesn't refer to an existing DB cluster parameter group.
  *
  * @throws {@link DBClusterQuotaExceededFault} (client fault)
- *  <p>The user attempted to create a new DB cluster and the user has already reached the maximum allowed DB cluster quota.</p>
+ *
+ * The user attempted to create a new DB cluster and the user has already reached the maximum allowed DB cluster quota.
  *
  * @throws {@link DBClusterRoleQuotaExceededFault} (client fault)
- *  <p>You have exceeded the maximum number of IAM roles that can be associated with the specified DB cluster.</p>
+ *
+ * You have exceeded the maximum number of IAM roles that can be associated with the specified DB cluster.
  *
  * @throws {@link DBClusterSnapshotNotFoundFault} (client fault)
- *  <p> <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing DB cluster snapshot.</p>
+ *
+ * `DBClusterSnapshotIdentifier` doesn't refer to an existing DB cluster snapshot.
  *
  * @throws {@link DBSnapshotNotFoundFault} (client fault)
- *  <p> <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
+ *
+ * `DBSnapshotIdentifier` doesn't refer to an existing DB snapshot.
  *
  * @throws {@link DBSubnetGroupDoesNotCoverEnoughAZs} (client fault)
- *  <p>Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
+ *
+ * Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.
  *
  * @throws {@link DBSubnetGroupNotFoundFault} (client fault)
- *  <p> <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.</p>
+ *
+ * `DBSubnetGroupName` doesn't refer to an existing DB subnet group.
  *
  * @throws {@link DomainNotFoundFault} (client fault)
- *  <p> <code>Domain</code> doesn't refer to an existing Active Directory domain.</p>
+ *
+ * `Domain` doesn't refer to an existing Active Directory domain.
  *
  * @throws {@link InsufficientDBClusterCapacityFault} (client fault)
- *  <p>The DB cluster doesn't have enough capacity for the current operation.</p>
+ *
+ * The DB cluster doesn't have enough capacity for the current operation.
  *
  * @throws {@link InsufficientDBInstanceCapacityFault} (client fault)
- *  <p>The specified DB instance class isn't available in the specified Availability Zone.</p>
+ *
+ * The specified DB instance class isn't available in the specified Availability Zone.
  *
  * @throws {@link InsufficientStorageClusterCapacityFault} (client fault)
- *  <p>There is insufficient storage available for the current action. You might be able to resolve this error by updating your subnet group to use different Availability Zones that have more storage available.</p>
+ *
+ * There is insufficient storage available for the current action. You might be able to resolve this error by updating your subnet group to use different Availability Zones that have more storage available.
  *
  * @throws {@link InvalidDBClusterSnapshotStateFault} (client fault)
- *  <p>The supplied value isn't a valid DB cluster snapshot state.</p>
+ *
+ * The supplied value isn't a valid DB cluster snapshot state.
  *
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
- *  <p>The DB instance isn't in a valid state.</p>
+ *
+ * The DB instance isn't in a valid state.
  *
  * @throws {@link InvalidDBSnapshotStateFault} (client fault)
- *  <p>The state of the DB snapshot doesn't allow deletion.</p>
+ *
+ * The state of the DB snapshot doesn't allow deletion.
  *
  * @throws {@link InvalidRestoreFault} (client fault)
- *  <p>Cannot restore from VPC backup to non-VPC DB instance.</p>
+ *
+ * Cannot restore from VPC backup to non-VPC DB instance.
  *
  * @throws {@link InvalidSubnet} (client fault)
- *  <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
+ *
+ * The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.
  *
  * @throws {@link InvalidVPCNetworkStateFault} (client fault)
- *  <p>The DB subnet group doesn't cover all Availability Zones after it's created because of users' change.</p>
+ *
+ * The DB subnet group doesn't cover all Availability Zones after it's created because of users' change.
  *
  * @throws {@link KMSKeyNotAccessibleFault} (client fault)
- *  <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+ *
+ * An error occurred accessing an Amazon Web Services KMS key.
  *
  * @throws {@link NetworkTypeNotSupported} (client fault)
- *  <p>The network type is invalid for the DB instance. Valid nework type values are <code>IPV4</code> and <code>DUAL</code>.</p>
+ *
+ * The network type is invalid for the DB instance. Valid nework type values are `IPV4` and `DUAL`.
  *
  * @throws {@link OptionGroupNotFoundFault} (client fault)
- *  <p>The specified option group could not be found.</p>
+ *
+ * The specified option group could not be found.
  *
  * @throws {@link StorageQuotaExceededFault} (client fault)
- *  <p>The request would result in the user exceeding the allowed amount of storage available across all DB instances.</p>
+ *
+ * The request would result in the user exceeding the allowed amount of storage available across all DB instances.
  *
  * @throws {@link StorageTypeNotSupportedFault} (client fault)
- *  <p>The specified <code>StorageType</code> can't be associated with the DB instance.</p>
+ *
+ * The specified `StorageType` can't be associated with the DB instance.
  *
  * @throws {@link VpcEncryptionControlViolationException} (client fault)
- *  <p>The operation violates VPC encryption control settings. Make sure that your DB instance type supports the Nitro encryption-in-transit capability, or modify your VPC's encryption controls to not enforce encryption-in-transit.</p>
+ *
+ * The operation violates VPC encryption control settings. Make sure that your DB instance type supports the Nitro encryption-in-transit capability, or modify your VPC's encryption controls to not enforce encryption-in-transit.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To restore a DB cluster from a snapshot
  * ```javascript

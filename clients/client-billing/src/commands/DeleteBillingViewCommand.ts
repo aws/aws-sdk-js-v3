@@ -23,7 +23,8 @@ export interface DeleteBillingViewCommandInput extends DeleteBillingViewRequest 
 export interface DeleteBillingViewCommandOutput extends DeleteBillingViewResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified billing view.</p>
+ * Deletes the specified billing view.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,23 +52,28 @@ export interface DeleteBillingViewCommandOutput extends DeleteBillingViewRespons
  * @see {@link BillingClientResolvedConfig | config} for BillingClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * You don't have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p> The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
+ *
+ * The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing failed because of an unknown error, exception, or failure. </p>
+ *
+ * The request processing failed because of an unknown error, exception, or failure.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. </p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link BillingServiceException}
- * <p>Base exception class for all service exceptions from Billing service.</p>
  *
+ * Base exception class for all service exceptions from Billing service.
  *
  * @example Invoke DeleteBillingView
  * ```javascript

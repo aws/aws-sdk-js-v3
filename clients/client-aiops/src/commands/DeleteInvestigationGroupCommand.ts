@@ -23,7 +23,8 @@ export interface DeleteInvestigationGroupCommandInput extends DeleteInvestigatio
 export interface DeleteInvestigationGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified investigation group from your account. You can currently have one investigation group per Region in your account. After you delete an investigation group, you can later create a new investigation group in the same Region.</p>
+ * Deletes the specified investigation group from your account. You can currently have one investigation group per Region in your account. After you delete an investigation group, you can later create a new investigation group in the same Region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,29 +49,36 @@ export interface DeleteInvestigationGroupCommandOutput extends __MetadataBearer 
  * @see {@link AIOpsClientResolvedConfig | config} for AIOpsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permissions to perform this action.</p>
+ *
+ * You don't have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. You can try again later.</p>
+ *
+ * An internal server error occurred. You can try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource doesn't exist.</p>
+ *
+ * The specified resource doesn't exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled because of quota limits. You can try again later.</p>
+ *
+ * The request was throttled because of quota limits. You can try again later.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>This operation couldn't be completed because of a conflict in resource states.</p>
+ *
+ * This operation couldn't be completed because of a conflict in resource states.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>Access id denied for this operation, or this operation is not valid for the specified resource.</p>
+ *
+ * Access id denied for this operation, or this operation is not valid for the specified resource.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>This operation or its parameters aren't formatted correctly.</p>
+ *
+ * This operation or its parameters aren't formatted correctly.
  *
  * @throws {@link AIOpsServiceException}
- * <p>Base exception class for all service exceptions from AIOps service.</p>
  *
+ * Base exception class for all service exceptions from AIOps service.
  *
  * @public
  */

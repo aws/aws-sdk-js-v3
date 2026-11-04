@@ -23,37 +23,32 @@ export interface PutRemediationConfigurationsCommandInput extends PutRemediation
 export interface PutRemediationConfigurationsCommandOutput extends PutRemediationConfigurationsResponse, __MetadataBearer {}
 
 /**
- * <p>Adds or updates the remediation configuration with a specific Config rule with the
- * 			selected target or action.
- * 			The API creates the <code>RemediationConfiguration</code> object for the Config rule.
- * 		The Config rule must already exist for you to add a remediation configuration.
- * 		The target (SSM document) must exist and have permissions to use the target. </p>
- *          <note>
- *             <p>
- *                <b>Be aware of backward incompatible changes</b>
- *             </p>
- *             <p>If you make backward incompatible changes to the SSM document,
- * 			you must call this again to ensure the remediations can run.</p>
- *             <p>This API does not support adding remediation configurations for service-linked Config Rules such as Organization Config rules,
- * 				the rules deployed by conformance packs, and rules deployed by Amazon Web Services Security Hub.</p>
- *          </note>
- *          <note>
- *             <p>
- *                <b>Required fields</b>
- *             </p>
- *             <p>For manual remediation configuration, you need to provide a value for <code>automationAssumeRole</code> or use a value in the <code>assumeRole</code>field  to remediate your resources. The SSM automation document can use either as long as it maps to a valid parameter.</p>
- *             <p>However, for automatic remediation configuration, the only valid <code>assumeRole</code> field value is <code>AutomationAssumeRole</code> and you need to provide a value for <code>AutomationAssumeRole</code> to remediate your resources.</p>
- *          </note>
- *          <note>
- *             <p>
- *                <b>Auto remediation can be initiated even for compliant resources</b>
- *             </p>
- *             <p>If you enable auto remediation for a specific Config rule using the <a href="https://docs.aws.amazon.com/config/latest/APIReference/emAPI_PutRemediationConfigurations.html">PutRemediationConfigurations</a> API or the Config console,
- * 				it initiates the remediation process for all non-compliant resources for that specific rule.
- * 				The auto remediation process relies on the compliance data snapshot which is captured on a periodic basis.
- * 				Any non-compliant resource that is updated between the snapshot schedule will continue to be remediated based on the last known compliance data snapshot.</p>
- *             <p>This means that in some cases auto remediation can be initiated even for compliant resources, since the bootstrap processor uses a database that can have stale evaluation results based on the last known compliance data snapshot.</p>
- *          </note>
+ * Adds or updates the remediation configuration with a specific Config rule with the selected target or action. The API creates the `RemediationConfiguration` object for the Config rule. The Config rule must already exist for you to add a remediation configuration. The target (SSM document) must exist and have permissions to use the target.
+ *
+ * > **Note:**
+ * >
+ * > **Be aware of backward incompatible changes**
+ * >
+ * > If you make backward incompatible changes to the SSM document, you must call this again to ensure the remediations can run.
+ * >
+ * > This API does not support adding remediation configurations for service-linked Config Rules such as Organization Config rules, the rules deployed by conformance packs, and rules deployed by Amazon Web Services Security Hub.
+ *
+ * > **Note:**
+ * >
+ * > **Required fields**
+ * >
+ * > For manual remediation configuration, you need to provide a value for `automationAssumeRole` or use a value in the `assumeRole`field to remediate your resources. The SSM automation document can use either as long as it maps to a valid parameter.
+ * >
+ * > However, for automatic remediation configuration, the only valid `assumeRole` field value is `AutomationAssumeRole` and you need to provide a value for `AutomationAssumeRole` to remediate your resources.
+ *
+ * > **Note:**
+ * >
+ * > **Auto remediation can be initiated even for compliant resources**
+ * >
+ * > If you enable auto remediation for a specific Config rule using the [PutRemediationConfigurations](https://docs.aws.amazon.com/config/latest/APIReference/emAPI_PutRemediationConfigurations.html) API or the Config console, it initiates the remediation process for all non-compliant resources for that specific rule. The auto remediation process relies on the compliance data snapshot which is captured on a periodic basis. Any non-compliant resource that is updated between the snapshot schedule will continue to be remediated based on the last known compliance data snapshot.
+ * >
+ * > This means that in some cases auto remediation can be initiated even for compliant resources, since the bootstrap processor uses a database that can have stale evaluation results based on the last known compliance data snapshot.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -147,43 +142,26 @@ export interface PutRemediationConfigurationsCommandOutput extends PutRemediatio
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  * @throws {@link InsufficientPermissionsException} (client fault)
- *  <p>Indicates one of the following errors:</p>
- *          <ul>
- *             <li>
- *                <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigRule.html">PutConfigRule</a>, the rule cannot be created because the IAM role assigned to Config lacks permissions to perform the config:Put* action.</p>
- *             </li>
- *             <li>
- *                <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigRule.html">PutConfigRule</a>, the Lambda function cannot be invoked. Check the function ARN, and check the function's permissions.</p>
- *             </li>
- *             <li>
- *                <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutOrganizationConfigRule.html">PutOrganizationConfigRule</a>, organization Config rule cannot be created because you do not have permissions to call IAM <code>GetRole</code> action or create a service-linked role.</p>
- *             </li>
- *             <li>
- *                <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConformancePack.html">PutConformancePack</a> and <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutOrganizationConformancePack.html">PutOrganizationConformancePack</a>, a conformance pack cannot be created because you do not have the following permissions: </p>
- *                <ul>
- *                   <li>
- *                      <p>You do not have permission to call IAM <code>GetRole</code> action or create a service-linked role.</p>
- *                   </li>
- *                   <li>
- *                      <p>You do not have permission to read Amazon S3 bucket or call SSM:GetDocument.</p>
- *                   </li>
- *                </ul>
- *             </li>
- *             <li>
- *                <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutServiceLinkedConfigurationRecorder.html">PutServiceLinkedConfigurationRecorder</a>, a service-linked configuration recorder cannot be created because you do not have the following permissions: IAM <code>CreateServiceLinkedRole</code>.</p>
- *             </li>
- *             <li>
- *                <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConnector.html">PutConnector</a>, a connector cannot be created because you do not have the following permissions: IAM <code>CreateServiceLinkedRole</code>.</p>
- *             </li>
- *          </ul>
+ *
+ * Indicates one of the following errors:
+ *
+ * - For [PutConfigRule](https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigRule.html), the rule cannot be created because the IAM role assigned to Config lacks permissions to perform the config:Put* action.
+ * - For [PutConfigRule](https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigRule.html), the Lambda function cannot be invoked. Check the function ARN, and check the function's permissions.
+ * - For [PutOrganizationConfigRule](https://docs.aws.amazon.com/config/latest/APIReference/API_PutOrganizationConfigRule.html), organization Config rule cannot be created because you do not have permissions to call IAM `GetRole` action or create a service-linked role.
+ * - For [PutConformancePack](https://docs.aws.amazon.com/config/latest/APIReference/API_PutConformancePack.html) and [PutOrganizationConformancePack](https://docs.aws.amazon.com/config/latest/APIReference/API_PutOrganizationConformancePack.html), a conformance pack cannot be created because you do not have the following permissions:
+ *
+ *   - You do not have permission to call IAM `GetRole` action or create a service-linked role.
+ *   - You do not have permission to read Amazon S3 bucket or call SSM:GetDocument.
+ * - For [PutServiceLinkedConfigurationRecorder](https://docs.aws.amazon.com/config/latest/APIReference/API_PutServiceLinkedConfigurationRecorder.html), a service-linked configuration recorder cannot be created because you do not have the following permissions: IAM `CreateServiceLinkedRole`.
+ * - For [PutConnector](https://docs.aws.amazon.com/config/latest/APIReference/API_PutConnector.html), a connector cannot be created because you do not have the following permissions: IAM `CreateServiceLinkedRole`.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more of the specified parameters are not valid. Verify
- * 			that your parameters are valid and try again.</p>
+ *
+ * One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.
  *
  * @throws {@link ConfigServiceServiceException}
- * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * Base exception class for all service exceptions from ConfigService service.
  *
  * @public
  */

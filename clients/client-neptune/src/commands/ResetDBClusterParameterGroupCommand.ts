@@ -23,14 +23,10 @@ export interface ResetDBClusterParameterGroupCommandInput extends ResetDBCluster
 export interface ResetDBClusterParameterGroupCommandOutput extends DBClusterParameterGroupNameMessage, __MetadataBearer {}
 
 /**
- * <p> Modifies the parameters of a DB cluster parameter group to the default value. To reset
- *       specific parameters submit a list of the following: <code>ParameterName</code> and
- *       <code>ApplyMethod</code>. To reset the entire DB cluster parameter group, specify the
- *       <code>DBClusterParameterGroupName</code> and <code>ResetAllParameters</code> parameters.</p>
- *          <p> When resetting the entire group, dynamic parameters are updated immediately and static
- *       parameters are set to <code>pending-reboot</code> to take effect on the next DB instance
- *       restart or <a>RebootDBInstance</a> request. You must call <a>RebootDBInstance</a> for every DB instance in your DB cluster
- *       that you want the updated static parameter to apply to.</p>
+ * Modifies the parameters of a DB cluster parameter group to the default value. To reset specific parameters submit a list of the following: `ParameterName` and `ApplyMethod`. To reset the entire DB cluster parameter group, specify the `DBClusterParameterGroupName` and `ResetAllParameters` parameters.
+ *
+ * When resetting the entire group, dynamic parameters are updated immediately and static parameters are set to `pending-reboot` to take effect on the next DB instance restart or RebootDBInstance request. You must call RebootDBInstance for every DB instance in your DB cluster that you want the updated static parameter to apply to.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,17 +68,16 @@ export interface ResetDBClusterParameterGroupCommandOutput extends DBClusterPara
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  * @throws {@link DBParameterGroupNotFoundFault} (client fault)
- *  <p>
- *             <i>DBParameterGroupName</i> does not refer to an
- *       existing DB parameter group.</p>
+ *
+ * *DBParameterGroupName* does not refer to an existing DB parameter group.
  *
  * @throws {@link InvalidDBParameterGroupStateFault} (client fault)
- *  <p>The DB parameter group is in use or is in an invalid state. If you are attempting to
- *       delete the parameter group, you cannot delete it when the parameter group is in this state.</p>
+ *
+ * The DB parameter group is in use or is in an invalid state. If you are attempting to delete the parameter group, you cannot delete it when the parameter group is in this state.
  *
  * @throws {@link NeptuneServiceException}
- * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * Base exception class for all service exceptions from Neptune service.
  *
  * @public
  */

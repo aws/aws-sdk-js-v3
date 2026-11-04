@@ -23,7 +23,8 @@ export interface DescribeKeyValueStoreCommandInput extends DescribeKeyValueStore
 export interface DescribeKeyValueStoreCommandOutput extends DescribeKeyValueStoreResult, __MetadataBearer {}
 
 /**
- * <p>Specifies the key value store and its configuration.</p>
+ * Specifies the key value store and its configuration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,20 +59,24 @@ export interface DescribeKeyValueStoreCommandOutput extends DescribeKeyValueStor
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link AccessDenied} (client fault)
- *  <p>Access denied.</p>
+ *
+ * Access denied.
  *
  * @throws {@link EntityNotFound} (client fault)
- *  <p>The entity was not found.</p>
+ *
+ * The entity was not found.
  *
  * @throws {@link InvalidArgument} (client fault)
- *  <p>An argument is invalid.</p>
+ *
+ * An argument is invalid.
  *
  * @throws {@link UnsupportedOperation} (client fault)
- *  <p>This operation is not supported in this Amazon Web Services Region.</p>
+ *
+ * This operation is not supported in this Amazon Web Services Region.
  *
  * @throws {@link CloudFrontServiceException}
- * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * Base exception class for all service exceptions from CloudFront service.
  *
  * @example To describe a KeyValueStore
  * ```javascript

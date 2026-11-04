@@ -23,7 +23,8 @@ export interface CreateDBInstanceCommandInput extends CreateDBInstanceMessage {}
 export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, __MetadataBearer {}
 
 /**
- * <p>Creates a new instance.</p>
+ * Creates a new instance.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -159,62 +160,70 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  * @throws {@link AuthorizationNotFoundFault} (client fault)
- *  <p>The specified CIDR IP or Amazon EC2 security group isn't authorized for the specified security group.</p>
- *          <p>Amazon DocumentDB also might not be authorized to perform necessary actions on your behalf using IAM.</p>
+ *
+ * The specified CIDR IP or Amazon EC2 security group isn't authorized for the specified security group.
+ *
+ * Amazon DocumentDB also might not be authorized to perform necessary actions on your behalf using IAM.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p>
- *             <code>DBClusterIdentifier</code> doesn't refer to an existing cluster. </p>
+ *
+ * `DBClusterIdentifier` doesn't refer to an existing cluster.
  *
  * @throws {@link DBInstanceAlreadyExistsFault} (client fault)
- *  <p>You already have a instance with the given identifier.</p>
+ *
+ * You already have a instance with the given identifier.
  *
  * @throws {@link DBParameterGroupNotFoundFault} (client fault)
- *  <p>
- *             <code>DBParameterGroupName</code> doesn't refer to an existing parameter group. </p>
+ *
+ * `DBParameterGroupName` doesn't refer to an existing parameter group.
  *
  * @throws {@link DBSecurityGroupNotFoundFault} (client fault)
- *  <p>
- *             <code>DBSecurityGroupName</code> doesn't refer to an existing security group. </p>
+ *
+ * `DBSecurityGroupName` doesn't refer to an existing security group.
  *
  * @throws {@link DBSubnetGroupDoesNotCoverEnoughAZs} (client fault)
- *  <p>Subnets in the subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
+ *
+ * Subnets in the subnet group should cover at least two Availability Zones unless there is only one Availability Zone.
  *
  * @throws {@link DBSubnetGroupNotFoundFault} (client fault)
- *  <p>
- *             <code>DBSubnetGroupName</code> doesn't refer to an existing subnet group. </p>
+ *
+ * `DBSubnetGroupName` doesn't refer to an existing subnet group.
  *
  * @throws {@link InstanceQuotaExceededFault} (client fault)
- *  <p>The request would cause you to exceed the allowed number of instances.</p>
+ *
+ * The request would cause you to exceed the allowed number of instances.
  *
  * @throws {@link InsufficientDBInstanceCapacityFault} (client fault)
- *  <p>The specified instance class isn't available in the specified Availability Zone.</p>
+ *
+ * The specified instance class isn't available in the specified Availability Zone.
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
- *  <p>The cluster isn't in a valid state.</p>
+ *
+ * The cluster isn't in a valid state.
  *
  * @throws {@link InvalidSubnet} (client fault)
- *  <p>The requested subnet is not valid, or multiple subnets were requested that are not all
- *             in a common virtual private cloud (VPC).</p>
+ *
+ * The requested subnet is not valid, or multiple subnets were requested that are not all in a common virtual private cloud (VPC).
  *
  * @throws {@link InvalidVPCNetworkStateFault} (client fault)
- *  <p>The subnet group doesn't cover all Availability Zones after it is created
- *             because of changes that were made.</p>
+ *
+ * The subnet group doesn't cover all Availability Zones after it is created because of changes that were made.
  *
  * @throws {@link KMSKeyNotAccessibleFault} (client fault)
- *  <p>An error occurred when accessing an KMS key.</p>
+ *
+ * An error occurred when accessing an KMS key.
  *
  * @throws {@link StorageQuotaExceededFault} (client fault)
- *  <p>The request would cause you to exceed the allowed amount of storage available across
- *             all instances.</p>
+ *
+ * The request would cause you to exceed the allowed amount of storage available across all instances.
  *
  * @throws {@link StorageTypeNotSupportedFault} (client fault)
- *  <p>Storage of the specified <code>StorageType</code> can't be associated with the DB
- *             instance. </p>
+ *
+ * Storage of the specified `StorageType` can't be associated with the DB instance.
  *
  * @throws {@link DocDBServiceException}
- * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * Base exception class for all service exceptions from DocDB service.
  *
  * @public
  */

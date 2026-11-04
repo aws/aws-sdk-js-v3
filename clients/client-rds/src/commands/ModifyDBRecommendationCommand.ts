@@ -23,7 +23,8 @@ export interface ModifyDBRecommendationCommandInput extends ModifyDBRecommendati
 export interface ModifyDBRecommendationCommandOutput extends DBRecommendationMessage, __MetadataBearer {}
 
 /**
- * <p>Updates the recommendation status and recommended action status for the specified recommendation.</p>
+ * Updates the recommendation status and recommended action status for the specified recommendation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -174,8 +175,8 @@ export interface ModifyDBRecommendationCommandOutput extends DBRecommendationMes
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @public
  */

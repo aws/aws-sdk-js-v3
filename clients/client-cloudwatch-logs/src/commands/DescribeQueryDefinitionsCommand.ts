@@ -23,11 +23,10 @@ export interface DescribeQueryDefinitionsCommandInput extends DescribeQueryDefin
 export interface DescribeQueryDefinitionsCommandOutput extends DescribeQueryDefinitionsResponse, __MetadataBearer {}
 
 /**
- * <p>This operation returns a paginated list of your saved CloudWatch Logs Insights query
- *       definitions. You can retrieve query definitions from the current account or from a source
- *       account that is linked to the current account.</p>
- *          <p>You can use the <code>queryDefinitionNamePrefix</code> parameter to limit the results to
- *       only the query definitions that have names that start with a certain string.</p>
+ * This operation returns a paginated list of your saved CloudWatch Logs Insights query definitions. You can retrieve query definitions from the current account or from a source account that is linked to the current account.
+ *
+ * You can use the `queryDefinitionNamePrefix` parameter to limit the results to only the query definitions that have names that start with a certain string.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,14 +75,16 @@ export interface DescribeQueryDefinitionsCommandOutput extends DescribeQueryDefi
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is specified incorrectly.</p>
+ *
+ * A parameter is specified incorrectly.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service cannot complete the request.</p>
+ *
+ * The service cannot complete the request.
  *
  * @throws {@link CloudWatchLogsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchLogs service.
  *
  * @public
  */

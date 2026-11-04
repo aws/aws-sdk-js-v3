@@ -26,10 +26,8 @@ export interface DeleteNetworkInterfacePermissionCommandInput extends DeleteNetw
 export interface DeleteNetworkInterfacePermissionCommandOutput extends DeleteNetworkInterfacePermissionResult, __MetadataBearer {}
 
 /**
- * <p>Deletes a permission for a network interface. By default, you cannot delete the
- *             permission if the account for which you're removing the permission has attached the
- *             network interface to an instance. However, you can force delete the permission,
- *             regardless of any attachment.</p>
+ * Deletes a permission for a network interface. By default, you cannot delete the permission if the account for which you're removing the permission has attached the network interface to an instance. However, you can force delete the permission, regardless of any attachment.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,8 +56,8 @@ export interface DeleteNetworkInterfacePermissionCommandOutput extends DeleteNet
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

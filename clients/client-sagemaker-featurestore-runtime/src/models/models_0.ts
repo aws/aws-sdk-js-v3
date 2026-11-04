@@ -2,27 +2,28 @@
 import type { DeletionMode, ExpirationTimeResponse, TargetStore, TtlDurationUnit } from "./enums";
 
 /**
- * <p>The identifier that identifies the batch of Records you are retrieving in a
- *          batch.</p>
+ * The identifier that identifies the batch of Records you are retrieving in a batch.
+ *
  * @public
  */
 export interface BatchGetRecordIdentifier {
   /**
-   * <p>The name or Amazon Resource Name (ARN) of the <code>FeatureGroup</code> containing the
-   *          records you are retrieving in a batch.</p>
+   * The name or Amazon Resource Name (ARN) of the `FeatureGroup` containing the records you are retrieving in a batch.
+   *
    * @public
    */
   FeatureGroupName: string | undefined;
 
   /**
-   * <p>The value for a list of record identifiers in string format.</p>
+   * The value for a list of record identifiers in string format.
+   *
    * @public
    */
   RecordIdentifiersValueAsString: string[] | undefined;
 
   /**
-   * <p>List of names of Features to be retrieved. If not specified, the latest value for all
-   *          the Features are returned.</p>
+   * List of names of Features to be retrieved. If not specified, the latest value for all the Features are returned.
+   *
    * @public
    */
   FeatureNames?: string[] | undefined;
@@ -33,113 +34,113 @@ export interface BatchGetRecordIdentifier {
  */
 export interface BatchGetRecordRequest {
   /**
-   * <p>A list containing the name or Amazon Resource Name (ARN) of the
-   *             <code>FeatureGroup</code>, the list of names of <code>Feature</code>s to be retrieved,
-   *          and the corresponding <code>RecordIdentifier</code> values as strings.</p>
+   * A list containing the name or Amazon Resource Name (ARN) of the `FeatureGroup`, the list of names of `Feature`s to be retrieved, and the corresponding `RecordIdentifier` values as strings.
+   *
    * @public
    */
   Identifiers: BatchGetRecordIdentifier[] | undefined;
 
   /**
-   * <p>Parameter to request <code>ExpiresAt</code> in response. If <code>Enabled</code>,
-   *             <code>BatchGetRecord</code> will return the value of <code>ExpiresAt</code>, if it is
-   *          not null. If <code>Disabled</code> and null, <code>BatchGetRecord</code> will return
-   *          null.</p>
+   * Parameter to request `ExpiresAt` in response. If `Enabled`, `BatchGetRecord` will return the value of `ExpiresAt`, if it is not null. If `Disabled` and null, `BatchGetRecord` will return null.
+   *
    * @public
    */
   ExpirationTimeResponse?: ExpirationTimeResponse | undefined;
 }
 
 /**
- * <p>The error that has occurred when attempting to retrieve a batch of Records.</p>
+ * The error that has occurred when attempting to retrieve a batch of Records.
+ *
  * @public
  */
 export interface BatchGetRecordError {
   /**
-   * <p>The name of the feature group that the record belongs to.</p>
+   * The name of the feature group that the record belongs to.
+   *
    * @public
    */
   FeatureGroupName: string | undefined;
 
   /**
-   * <p>The value for the <code>RecordIdentifier</code> in string format of a Record from a
-   *             <code>FeatureGroup</code> that is causing an error when attempting to be
-   *          retrieved.</p>
+   * The value for the `RecordIdentifier` in string format of a Record from a `FeatureGroup` that is causing an error when attempting to be retrieved.
+   *
    * @public
    */
   RecordIdentifierValueAsString: string | undefined;
 
   /**
-   * <p>The error code of an error that has occurred when attempting to retrieve a batch of
-   *          Records. For more information on errors, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_GetRecord.html#API_feature_store_GetRecord_Errors">Errors</a>.</p>
+   * The error code of an error that has occurred when attempting to retrieve a batch of Records. For more information on errors, see [Errors](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_GetRecord.html#API_feature_store_GetRecord_Errors).
+   *
    * @public
    */
   ErrorCode: string | undefined;
 
   /**
-   * <p>The error message of an error that has occurred when attempting to retrieve a record in
-   *          the batch.</p>
+   * The error message of an error that has occurred when attempting to retrieve a record in the batch.
+   *
    * @public
    */
   ErrorMessage: string | undefined;
 }
 
 /**
- * <p>The value associated with a feature.</p>
+ * The value associated with a feature.
+ *
  * @public
  */
 export interface FeatureValue {
   /**
-   * <p>The name of a feature that a feature value corresponds to.</p>
+   * The name of a feature that a feature value corresponds to.
+   *
    * @public
    */
   FeatureName: string | undefined;
 
   /**
-   * <p>The value in string format associated with a feature. Used when your
-   *             <code>CollectionType</code> is <code>None</code>. Note that features types can be
-   *             <code>String</code>, <code>Integral</code>, or <code>Fractional</code>. This value
-   *          represents all three types as a string.</p>
+   * The value in string format associated with a feature. Used when your `CollectionType` is `None`. Note that features types can be `String`, `Integral`, or `Fractional`. This value represents all three types as a string.
+   *
    * @public
    */
   ValueAsString?: string | undefined;
 
   /**
-   * <p>The list of values in string format associated with a feature. Used when your
-   *             <code>CollectionType</code> is a <code>List</code>, <code>Set</code>, or
-   *             <code>Vector</code>. Note that features types can be <code>String</code>,
-   *             <code>Integral</code>, or <code>Fractional</code>. These values represents all three
-   *          types as a string.</p>
+   * The list of values in string format associated with a feature. Used when your `CollectionType` is a `List`, `Set`, or `Vector`. Note that features types can be `String`, `Integral`, or `Fractional`. These values represents all three types as a string.
+   *
    * @public
    */
   ValueAsStringList?: string[] | undefined;
 }
 
 /**
- * <p>The output of records that have been retrieved in a batch.</p>
+ * The output of records that have been retrieved in a batch.
+ *
  * @public
  */
 export interface BatchGetRecordResultDetail {
   /**
-   * <p>The <code>FeatureGroupName</code> containing Records you retrieved in a batch.</p>
+   * The `FeatureGroupName` containing Records you retrieved in a batch.
+   *
    * @public
    */
   FeatureGroupName: string | undefined;
 
   /**
-   * <p>The value of the record identifier in string format.</p>
+   * The value of the record identifier in string format.
+   *
    * @public
    */
   RecordIdentifierValueAsString: string | undefined;
 
   /**
-   * <p>The <code>Record</code> retrieved.</p>
+   * The `Record` retrieved.
+   *
    * @public
    */
   Record: FeatureValue[] | undefined;
 
   /**
-   * <p>The <code>ExpiresAt</code> ISO string of the requested record.</p>
+   * The `ExpiresAt` ISO string of the requested record.
+   *
    * @public
    */
   ExpiresAt?: string | undefined;
@@ -150,78 +151,78 @@ export interface BatchGetRecordResultDetail {
  */
 export interface BatchGetRecordResponse {
   /**
-   * <p>A list of Records you requested to be retrieved in batch.</p>
+   * A list of Records you requested to be retrieved in batch.
+   *
    * @public
    */
   Records: BatchGetRecordResultDetail[] | undefined;
 
   /**
-   * <p>A list of errors that have occurred when retrieving a batch of Records.</p>
+   * A list of errors that have occurred when retrieving a batch of Records.
+   *
    * @public
    */
   Errors: BatchGetRecordError[] | undefined;
 
   /**
-   * <p>A unprocessed list of <code>FeatureGroup</code> names, with their corresponding
-   *             <code>RecordIdentifier</code> value, and Feature name.</p>
+   * A unprocessed list of `FeatureGroup` names, with their corresponding `RecordIdentifier` value, and Feature name.
+   *
    * @public
    */
   UnprocessedIdentifiers: BatchGetRecordIdentifier[] | undefined;
 }
 
 /**
- * <p>Time to live duration, where the record is hard deleted after the expiration time is
- *          reached; <code>ExpiresAt</code> = <code>EventTime</code> + <code>TtlDuration</code>. For
- *          information on HardDelete, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_DeleteRecord.html">DeleteRecord</a> API in the Amazon SageMaker API Reference guide.</p>
+ * Time to live duration, where the record is hard deleted after the expiration time is reached; `ExpiresAt` = `EventTime` + `TtlDuration`. For information on HardDelete, see the [DeleteRecord](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_DeleteRecord.html) API in the Amazon SageMaker API Reference guide.
+ *
  * @public
  */
 export interface TtlDuration {
   /**
-   * <p>
-   *             <code>TtlDuration</code> time unit.</p>
+   * `TtlDuration` time unit.
+   *
    * @public
    */
   Unit: TtlDurationUnit | undefined;
 
   /**
-   * <p>
-   *             <code>TtlDuration</code> time value.</p>
+   * `TtlDuration` time value.
+   *
    * @public
    */
   Value: number | undefined;
 }
 
 /**
- * <p>An entry to write as part of a <code>BatchWriteRecord</code> request.</p>
+ * An entry to write as part of a `BatchWriteRecord` request.
+ *
  * @public
  */
 export interface BatchWriteRecordEntry {
   /**
-   * <p>The name or Amazon Resource Name (ARN) of the <code>FeatureGroup</code> to write the
-   *          record to.</p>
+   * The name or Amazon Resource Name (ARN) of the `FeatureGroup` to write the record to.
+   *
    * @public
    */
   FeatureGroupName: string | undefined;
 
   /**
-   * <p>List of FeatureValues to be inserted. This will be a full over-write.</p>
+   * List of FeatureValues to be inserted. This will be a full over-write.
+   *
    * @public
    */
   Record: FeatureValue[] | undefined;
 
   /**
-   * <p>A list of stores to which you're adding the record. By default, Feature Store adds the
-   *          record to all of the stores that you're using for the
-   *             <code>FeatureGroup</code>.</p>
+   * A list of stores to which you're adding the record. By default, Feature Store adds the record to all of the stores that you're using for the `FeatureGroup`.
+   *
    * @public
    */
   TargetStores?: TargetStore[] | undefined;
 
   /**
-   * <p>Time to live duration for this entry, where the record is hard deleted after the
-   *          expiration time is reached; <code>ExpiresAt</code> = <code>EventTime</code> +
-   *             <code>TtlDuration</code>. This overrides the request level
-   *          <code>TtlDuration</code>.</p>
+   * Time to live duration for this entry, where the record is hard deleted after the expiration time is reached; `ExpiresAt` = `EventTime` + `TtlDuration`. This overrides the request level `TtlDuration`.
+   *
    * @public
    */
   TtlDuration?: TtlDuration | undefined;
@@ -232,40 +233,43 @@ export interface BatchWriteRecordEntry {
  */
 export interface BatchWriteRecordRequest {
   /**
-   * <p>A list of records to write. Each entry specifies the <code>FeatureGroup</code>, the
-   *          record data, and optionally target stores and a TTL duration.</p>
+   * A list of records to write. Each entry specifies the `FeatureGroup`, the record data, and optionally target stores and a TTL duration.
+   *
    * @public
    */
   Entries: BatchWriteRecordEntry[] | undefined;
 
   /**
-   * <p>Time to live duration applied to all entries in the batch that do not specify their own
-   *             <code>TtlDuration</code>; <code>ExpiresAt</code> = <code>EventTime</code> +
-   *             <code>TtlDuration</code>. For information on HardDelete, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_DeleteRecord.html">DeleteRecord</a> API in the Amazon SageMaker API Reference guide.</p>
+   * Time to live duration applied to all entries in the batch that do not specify their own `TtlDuration`; `ExpiresAt` = `EventTime` + `TtlDuration`. For information on HardDelete, see the [DeleteRecord](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_DeleteRecord.html) API in the Amazon SageMaker API Reference guide.
+   *
    * @public
    */
   TtlDuration?: TtlDuration | undefined;
 }
 
 /**
- * <p>The error that has occurred when attempting to write a record in a batch.</p>
+ * The error that has occurred when attempting to write a record in a batch.
+ *
  * @public
  */
 export interface BatchWriteRecordError {
   /**
-   * <p>The entry that failed to be written.</p>
+   * The entry that failed to be written.
+   *
    * @public
    */
   Entry: BatchWriteRecordEntry | undefined;
 
   /**
-   * <p>The error code for the failed record write.</p>
+   * The error code for the failed record write.
+   *
    * @public
    */
   ErrorCode: string | undefined;
 
   /**
-   * <p>The error message for the failed record write.</p>
+   * The error message for the failed record write.
+   *
    * @public
    */
   ErrorMessage: string | undefined;
@@ -276,13 +280,15 @@ export interface BatchWriteRecordError {
  */
 export interface BatchWriteRecordResponse {
   /**
-   * <p>A list of errors that occurred when writing records in the batch.</p>
+   * A list of errors that occurred when writing records in the batch.
+   *
    * @public
    */
   Errors: BatchWriteRecordError[] | undefined;
 
   /**
-   * <p>A list of entries that were not processed. These entries can be retried.</p>
+   * A list of entries that were not processed. These entries can be retried.
+   *
    * @public
    */
   UnprocessedEntries: BatchWriteRecordEntry[] | undefined;
@@ -293,37 +299,36 @@ export interface BatchWriteRecordResponse {
  */
 export interface DeleteRecordRequest {
   /**
-   * <p>The name or Amazon Resource Name (ARN) of the feature group to delete the record from.
-   *       </p>
+   * The name or Amazon Resource Name (ARN) of the feature group to delete the record from.
+   *
    * @public
    */
   FeatureGroupName: string | undefined;
 
   /**
-   * <p>The value for the <code>RecordIdentifier</code> that uniquely identifies the record, in
-   *          string format. </p>
+   * The value for the `RecordIdentifier` that uniquely identifies the record, in string format.
+   *
    * @public
    */
   RecordIdentifierValueAsString: string | undefined;
 
   /**
-   * <p>Timestamp indicating when the deletion event occurred. <code>EventTime</code> can be
-   *          used to query data at a certain point in time.</p>
+   * Timestamp indicating when the deletion event occurred. `EventTime` can be used to query data at a certain point in time.
+   *
    * @public
    */
   EventTime: string | undefined;
 
   /**
-   * <p>A list of stores from which you're deleting the record. By default, Feature Store
-   *          deletes the record from all of the stores that you're using for the
-   *             <code>FeatureGroup</code>.</p>
+   * A list of stores from which you're deleting the record. By default, Feature Store deletes the record from all of the stores that you're using for the `FeatureGroup`.
+   *
    * @public
    */
   TargetStores?: TargetStore[] | undefined;
 
   /**
-   * <p>The name of the deletion mode for deleting the record. By default, the deletion mode is
-   *          set to <code>SoftDelete</code>.</p>
+   * The name of the deletion mode for deleting the record. By default, the deletion mode is set to `SoftDelete`.
+   *
    * @public
    */
   DeletionMode?: DeletionMode | undefined;
@@ -334,30 +339,29 @@ export interface DeleteRecordRequest {
  */
 export interface GetRecordRequest {
   /**
-   * <p>The name or Amazon Resource Name (ARN) of the feature group from which you want to
-   *          retrieve a record.</p>
+   * The name or Amazon Resource Name (ARN) of the feature group from which you want to retrieve a record.
+   *
    * @public
    */
   FeatureGroupName: string | undefined;
 
   /**
-   * <p>The value that corresponds to <code>RecordIdentifier</code> type and uniquely identifies
-   *          the record in the <code>FeatureGroup</code>. </p>
+   * The value that corresponds to `RecordIdentifier` type and uniquely identifies the record in the `FeatureGroup`.
+   *
    * @public
    */
   RecordIdentifierValueAsString: string | undefined;
 
   /**
-   * <p>List of names of Features to be retrieved. If not specified, the latest value for all
-   *          the Features are returned.</p>
+   * List of names of Features to be retrieved. If not specified, the latest value for all the Features are returned.
+   *
    * @public
    */
   FeatureNames?: string[] | undefined;
 
   /**
-   * <p>Parameter to request <code>ExpiresAt</code> in response. If <code>Enabled</code>,
-   *             <code>GetRecord</code> will return the value of <code>ExpiresAt</code>, if it is not
-   *          null. If <code>Disabled</code> and null, <code>GetRecord</code> will return null.</p>
+   * Parameter to request `ExpiresAt` in response. If `Enabled`, `GetRecord` will return the value of `ExpiresAt`, if it is not null. If `Disabled` and null, `GetRecord` will return null.
+   *
    * @public
    */
   ExpirationTimeResponse?: ExpirationTimeResponse | undefined;
@@ -368,13 +372,15 @@ export interface GetRecordRequest {
  */
 export interface GetRecordResponse {
   /**
-   * <p>The record you requested. A list of <code>FeatureValues</code>.</p>
+   * The record you requested. A list of `FeatureValues`.
+   *
    * @public
    */
   Record?: FeatureValue[] | undefined;
 
   /**
-   * <p>The <code>ExpiresAt</code> ISO string of the requested record.</p>
+   * The `ExpiresAt` ISO string of the requested record.
+   *
    * @public
    */
   ExpiresAt?: string | undefined;
@@ -385,26 +391,29 @@ export interface GetRecordResponse {
  */
 export interface ListRecordsRequest {
   /**
-   * <p>The name or Amazon Resource Name (ARN) of the feature group to list records from.</p>
+   * The name or Amazon Resource Name (ARN) of the feature group to list records from.
+   *
    * @public
    */
   FeatureGroupName: string | undefined;
 
   /**
-   * <p>The maximum number of record identifiers to return in a single page of results. For the <code>InMemory</code> tier, this value is a hint and not a strict requirement. The response may contain more or fewer results than the specified <code>MaxResults</code>.</p>
+   * The maximum number of record identifiers to return in a single page of results. For the `InMemory` tier, this value is a hint and not a strict requirement. The response may contain more or fewer results than the specified `MaxResults`.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>A token to resume pagination of <code>ListRecords</code> results.</p>
+   * A token to resume pagination of `ListRecords` results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>If set to <code>true</code>, the result includes records that have been soft
-   *          deleted.</p>
+   * If set to `true`, the result includes records that have been soft deleted.
+   *
    * @public
    */
   IncludeSoftDeletedRecords?: boolean | undefined;
@@ -415,15 +424,15 @@ export interface ListRecordsRequest {
  */
 export interface ListRecordsResponse {
   /**
-   * <p>A list of record identifier values for the records stored in the
-   *             <code>OnlineStore</code>.</p>
+   * A list of record identifier values for the records stored in the `OnlineStore`.
+   *
    * @public
    */
   RecordIdentifiers: string[] | undefined;
 
   /**
-   * <p>A token to resume pagination if the response includes more record identifiers than
-   *             <code>MaxResults</code>.</p>
+   * A token to resume pagination if the response includes more record identifiers than `MaxResults`.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -434,41 +443,33 @@ export interface ListRecordsResponse {
  */
 export interface PutRecordRequest {
   /**
-   * <p>The name or Amazon Resource Name (ARN) of the feature group that you want to insert the
-   *          record into.</p>
+   * The name or Amazon Resource Name (ARN) of the feature group that you want to insert the record into.
+   *
    * @public
    */
   FeatureGroupName: string | undefined;
 
   /**
-   * <p>List of FeatureValues to be inserted. This will be a full over-write. If you only want
-   *          to update few of the feature values, do the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Use <code>GetRecord</code> to retrieve the latest record.</p>
-   *             </li>
-   *             <li>
-   *                <p>Update the record returned from <code>GetRecord</code>. </p>
-   *             </li>
-   *             <li>
-   *                <p>Use <code>PutRecord</code> to update feature values.</p>
-   *             </li>
-   *          </ul>
+   * List of FeatureValues to be inserted. This will be a full over-write. If you only want to update few of the feature values, do the following:
+   *
+   * - Use `GetRecord` to retrieve the latest record.
+   * - Update the record returned from `GetRecord`.
+   * - Use `PutRecord` to update feature values.
+   *
    * @public
    */
   Record: FeatureValue[] | undefined;
 
   /**
-   * <p>A list of stores to which you're adding the record. By default, Feature Store adds the
-   *          record to all of the stores that you're using for the <code>FeatureGroup</code>.</p>
+   * A list of stores to which you're adding the record. By default, Feature Store adds the record to all of the stores that you're using for the `FeatureGroup`.
+   *
    * @public
    */
   TargetStores?: TargetStore[] | undefined;
 
   /**
-   * <p>Time to live duration, where the record is hard deleted after the expiration time is
-   *          reached; <code>ExpiresAt</code> = <code>EventTime</code> + <code>TtlDuration</code>. For
-   *          information on HardDelete, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_DeleteRecord.html">DeleteRecord</a> API in the Amazon SageMaker API Reference guide.</p>
+   * Time to live duration, where the record is hard deleted after the expiration time is reached; `ExpiresAt` = `EventTime` + `TtlDuration`. For information on HardDelete, see the [DeleteRecord](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_DeleteRecord.html) API in the Amazon SageMaker API Reference guide.
+   *
    * @public
    */
   TtlDuration?: TtlDuration | undefined;
@@ -479,46 +480,39 @@ export interface PutRecordRequest {
  */
 export interface UpdateRecordRequest {
   /**
-   * <p>The identifier for the feature group that contains the record to update. You can
-   *          specify one of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>The feature group name.</p>
-   *             </li>
-   *             <li>
-   *                <p>The feature group Amazon Resource Name (ARN).</p>
-   *             </li>
-   *          </ul>
+   * The identifier for the feature group that contains the record to update. You can specify one of the following:
+   *
+   * - The feature group name.
+   * - The feature group Amazon Resource Name (ARN).
+   *
    * @public
    */
   FeatureGroupName: string | undefined;
 
   /**
-   * <p>The value that uniquely identifies the record in the feature group. This must
-   *          match the value defined by the feature group's record identifier feature.</p>
+   * The value that uniquely identifies the record in the feature group. This must match the value defined by the feature group's record identifier feature.
+   *
    * @public
    */
   RecordIdentifierValueAsString: string | undefined;
 
   /**
-   * <p>The feature values to write to the record.</p>
+   * The feature values to write to the record.
+   *
    * @public
    */
   Features: FeatureValue[] | undefined;
 
   /**
-   * <p>The target stores for the record update. By default, Amazon SageMaker Feature
-   *          Store updates the record in all stores associated with the
-   *             <code>FeatureGroup</code>.</p>
+   * The target stores for the record update. By default, Amazon SageMaker Feature Store updates the record in all stores associated with the `FeatureGroup`.
+   *
    * @public
    */
   TargetStores?: TargetStore[] | undefined;
 
   /**
-   * <p>The time-to-live (TTL) duration for the record. Amazon SageMaker Feature Store
-   *          deletes the record when <code>EventTime</code> + <code>TtlDuration</code>
-   *          elapses. If you omit this parameter, the record's existing TTL setting remains
-   *          unchanged. For information about <code>HardDelete</code>, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_DeleteRecord.html">DeleteRecord</a> operation in the Amazon SageMaker API Reference.</p>
+   * The time-to-live (TTL) duration for the record. Amazon SageMaker Feature Store deletes the record when `EventTime` + `TtlDuration` elapses. If you omit this parameter, the record's existing TTL setting remains unchanged. For information about `HardDelete`, see the [DeleteRecord](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_DeleteRecord.html) operation in the Amazon SageMaker API Reference.
+   *
    * @public
    */
   TtlDuration?: TtlDuration | undefined;

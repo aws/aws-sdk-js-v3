@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { CloudControlServiceException as __BaseException } from "./CloudControlServiceException";
 
 /**
- * <p>The resource with the name requested already exists.</p>
+ * The resource with the name requested already exists.
+ *
  * @public
  */
 export class AlreadyExistsException extends __BaseException {
@@ -27,7 +28,8 @@ export class AlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The resource is currently being modified by another operation.</p>
+ * The resource is currently being modified by another operation.
+ *
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
@@ -50,7 +52,8 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
- * <p>A resource operation with the specified request token can't be found.</p>
+ * A resource operation with the specified request token can't be found.
+ *
  * @public
  */
 export class RequestTokenNotFoundException extends __BaseException {
@@ -73,9 +76,10 @@ export class RequestTokenNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The specified client token has already been used in another resource request.</p>
- *          <p>It's best practice for client tokens to be unique for each resource operation request.
- *       However, client token expire after 36 hours.</p>
+ * The specified client token has already been used in another resource request.
+ *
+ * It's best practice for client tokens to be unique for each resource operation request. However, client token expire after 36 hours.
+ *
  * @public
  */
 export class ClientTokenConflictException extends __BaseException {
@@ -98,7 +102,8 @@ export class ClientTokenConflictException extends __BaseException {
 }
 
 /**
- * <p>Another resource operation is currently being performed on this resource.</p>
+ * Another resource operation is currently being performed on this resource.
+ *
  * @public
  */
 export class ConcurrentOperationException extends __BaseException {
@@ -121,8 +126,8 @@ export class ConcurrentOperationException extends __BaseException {
 }
 
 /**
- * <p>The resource handler has returned that the downstream service generated an error that
- *       doesn't map to any other handler error code.</p>
+ * The resource handler has returned that the downstream service generated an error that doesn't map to any other handler error code.
+ *
  * @public
  */
 export class GeneralServiceException extends __BaseException {
@@ -145,8 +150,8 @@ export class GeneralServiceException extends __BaseException {
 }
 
 /**
- * <p>The resource handler has failed without a returning a more specific error code. This can
- *       include timeouts.</p>
+ * The resource handler has failed without a returning a more specific error code. This can include timeouts.
+ *
  * @public
  */
 export class HandlerFailureException extends __BaseException {
@@ -169,8 +174,8 @@ export class HandlerFailureException extends __BaseException {
 }
 
 /**
- * <p>The resource handler has returned that an unexpected error occurred within the resource
- *       handler.</p>
+ * The resource handler has returned that an unexpected error occurred within the resource handler.
+ *
  * @public
  */
 export class HandlerInternalFailureException extends __BaseException {
@@ -193,8 +198,8 @@ export class HandlerInternalFailureException extends __BaseException {
 }
 
 /**
- * <p>The resource handler has returned that the credentials provided by the user are
- *       invalid.</p>
+ * The resource handler has returned that the credentials provided by the user are invalid.
+ *
  * @public
  */
 export class InvalidCredentialsException extends __BaseException {
@@ -217,8 +222,8 @@ export class InvalidCredentialsException extends __BaseException {
 }
 
 /**
- * <p>The resource handler has returned that invalid input from the user has generated a generic
- *       exception.</p>
+ * The resource handler has returned that invalid input from the user has generated a generic exception.
+ *
  * @public
  */
 export class InvalidRequestException extends __BaseException {
@@ -241,8 +246,8 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * <p>The resource handler has returned that the request couldn't be completed due to networking
- *       issues, such as a failure to receive a response from the server.</p>
+ * The resource handler has returned that the request couldn't be completed due to networking issues, such as a failure to receive a response from the server.
+ *
  * @public
  */
 export class NetworkFailureException extends __BaseException {
@@ -265,8 +270,8 @@ export class NetworkFailureException extends __BaseException {
 }
 
 /**
- * <p>The resource handler has returned that the downstream resource failed to complete all of
- *       its ready-state checks.</p>
+ * The resource handler has returned that the downstream resource failed to complete all of its ready-state checks.
+ *
  * @public
  */
 export class NotStabilizedException extends __BaseException {
@@ -289,8 +294,8 @@ export class NotStabilizedException extends __BaseException {
 }
 
 /**
- * <p>One or more properties included in this resource operation are defined as create-only, and
- *       therefore can't be updated.</p>
+ * One or more properties included in this resource operation are defined as create-only, and therefore can't be updated.
+ *
  * @public
  */
 export class NotUpdatableException extends __BaseException {
@@ -313,9 +318,8 @@ export class NotUpdatableException extends __BaseException {
 }
 
 /**
- * <p>Cloud Control API hasn't received a valid response from the resource handler, due to a configuration
- *       error. This includes issues such as the resource handler returning an invalid response, or
- *       timing out.</p>
+ * Cloud Control API hasn't received a valid response from the resource handler, due to a configuration error. This includes issues such as the resource handler returning an invalid response, or timing out.
+ *
  * @public
  */
 export class PrivateTypeException extends __BaseException {
@@ -338,9 +342,8 @@ export class PrivateTypeException extends __BaseException {
 }
 
 /**
- * <p>The resource is temporarily unavailable to be acted upon. For example, if the resource is
- *       currently undergoing an operation and can't be acted upon until that operation is
- *       finished.</p>
+ * The resource is temporarily unavailable to be acted upon. For example, if the resource is currently undergoing an operation and can't be acted upon until that operation is finished.
+ *
  * @public
  */
 export class ResourceConflictException extends __BaseException {
@@ -363,7 +366,8 @@ export class ResourceConflictException extends __BaseException {
 }
 
 /**
- * <p>A resource with the specified identifier can't be found.</p>
+ * A resource with the specified identifier can't be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -386,8 +390,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The resource handler has returned that the downstream service returned an internal error,
- *       typically with a <code>5XX HTTP</code> status code.</p>
+ * The resource handler has returned that the downstream service returned an internal error, typically with a `5XX HTTP` status code.
+ *
  * @public
  */
 export class ServiceInternalErrorException extends __BaseException {
@@ -410,8 +414,8 @@ export class ServiceInternalErrorException extends __BaseException {
 }
 
 /**
- * <p>The resource handler has returned that a non-transient resource limit was reached on the
- *       service side.</p>
+ * The resource handler has returned that a non-transient resource limit was reached on the service side.
+ *
  * @public
  */
 export class ServiceLimitExceededException extends __BaseException {
@@ -434,7 +438,8 @@ export class ServiceLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -457,7 +462,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The specified extension doesn't exist in the CloudFormation registry.</p>
+ * The specified extension doesn't exist in the CloudFormation registry.
+ *
  * @public
  */
 export class TypeNotFoundException extends __BaseException {
@@ -480,7 +486,8 @@ export class TypeNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The specified resource doesn't support this resource operation.</p>
+ * The specified resource doesn't support this resource operation.
+ *
  * @public
  */
 export class UnsupportedActionException extends __BaseException {

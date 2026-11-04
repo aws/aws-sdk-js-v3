@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { MailManagerServiceException as __BaseException } from "./MailManagerServiceException";
 
 /**
- * <p>Occurs when a user is denied access to a specific resource or action.</p>
+ * Occurs when a user is denied access to a specific resource or action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+ * The request configuration has conflicts. For details, see the accompanying error message.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -50,7 +52,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>Occurs when a requested resource is not found.</p>
+ * Occurs when a requested resource is not found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -73,7 +76,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Occurs when an operation exceeds a predefined service quota or limit.</p>
+ * Occurs when an operation exceeds a predefined service quota or limit.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -96,7 +100,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request validation has failed. For details, see the accompanying error message.</p>
+ * The request validation has failed. For details, see the accompanying error message.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -119,7 +124,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.</p>
+ * Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {

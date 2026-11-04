@@ -23,10 +23,10 @@ export interface CreateNetworkInsightsPathCommandInput extends CreateNetworkInsi
 export interface CreateNetworkInsightsPathCommandOutput extends CreateNetworkInsightsPathResult, __MetadataBearer {}
 
 /**
- * <p>Creates a path to analyze for reachability.</p>
- *          <p>Reachability Analyzer enables you to analyze and debug network reachability between
- *           two resources in your virtual private cloud (VPC). For more information, see the
- *           <a href="https://docs.aws.amazon.com/vpc/latest/reachability/">Reachability Analyzer Guide</a>.</p>
+ * Creates a path to analyze for reachability.
+ *
+ * Reachability Analyzer enables you to analyze and debug network reachability between two resources in your virtual private cloud (VPC). For more information, see the [Reachability Analyzer Guide](https://docs.aws.amazon.com/vpc/latest/reachability/).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -137,8 +137,8 @@ export interface CreateNetworkInsightsPathCommandOutput extends CreateNetworkIns
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

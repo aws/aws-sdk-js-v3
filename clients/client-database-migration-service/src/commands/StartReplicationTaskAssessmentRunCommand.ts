@@ -26,13 +26,10 @@ export interface StartReplicationTaskAssessmentRunCommandInput extends StartRepl
 export interface StartReplicationTaskAssessmentRunCommandOutput extends StartReplicationTaskAssessmentRunResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a new premigration assessment run for one or more individual assessments of a
- *          migration task.</p>
- *          <p>The assessments that you can specify depend on the source and target database engine and
- *          the migration type defined for the given task. To run this operation, your migration task
- *          must already be created. After you run this operation, you can review the status of each
- *          individual assessment. You can also run the migration task manually after the assessment
- *          run and its individual assessments complete.</p>
+ * Starts a new premigration assessment run for one or more individual assessments of a migration task.
+ *
+ * The assessments that you can specify depend on the source and target database engine and the migration type defined for the given task. To run this operation, your migration task must already be created. After you run this operation, you can review the status of each individual assessment. You can also run the migration task manually after the assessment run and its individual assessments complete.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -103,46 +100,56 @@ export interface StartReplicationTaskAssessmentRunCommandOutput extends StartRep
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedFault} (client fault)
- *  <p>DMS was denied access to the endpoint. Check that the
- *             role is correctly configured.</p>
+ *
+ * DMS was denied access to the endpoint. Check that the role is correctly configured.
  *
  * @throws {@link InvalidResourceStateFault} (client fault)
- *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
+ * The resource is in a state that prevents it from being used for database migration.
  *
  * @throws {@link KMSAccessDeniedFault} (client fault)
- *  <p>The ciphertext references a key that doesn't exist or that the DMS account doesn't have access to.</p>
+ *
+ * The ciphertext references a key that doesn't exist or that the DMS account doesn't have access to.
  *
  * @throws {@link KMSDisabledFault} (client fault)
- *  <p>The specified KMS key isn't enabled.</p>
+ *
+ * The specified KMS key isn't enabled.
  *
  * @throws {@link KMSFault} (client fault)
- *  <p>An Key Management Service (KMS) error is preventing access to KMS.</p>
+ *
+ * An Key Management Service (KMS) error is preventing access to KMS.
  *
  * @throws {@link KMSInvalidStateFault} (client fault)
- *  <p>The state of the specified KMS resource isn't valid for this request.</p>
+ *
+ * The state of the specified KMS resource isn't valid for this request.
  *
  * @throws {@link KMSKeyNotAccessibleFault} (client fault)
- *  <p>DMS cannot access the KMS key.</p>
+ *
+ * DMS cannot access the KMS key.
  *
  * @throws {@link KMSNotFoundFault} (client fault)
- *  <p>The specified KMS entity or resource can't be found.</p>
+ *
+ * The specified KMS entity or resource can't be found.
  *
  * @throws {@link ResourceAlreadyExistsFault} (client fault)
- *  <p>The resource you are attempting to create already exists.</p>
+ *
+ * The resource you are attempting to create already exists.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link S3AccessDeniedFault} (client fault)
- *  <p>Insufficient privileges are preventing access to an Amazon S3 object.</p>
+ *
+ * Insufficient privileges are preventing access to an Amazon S3 object.
  *
  * @throws {@link S3ResourceNotFoundFault} (client fault)
- *  <p>A specified Amazon S3 bucket, bucket folder, or other object can't be
- *             found.</p>
+ *
+ * A specified Amazon S3 bucket, bucket folder, or other object can't be found.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @public
  */

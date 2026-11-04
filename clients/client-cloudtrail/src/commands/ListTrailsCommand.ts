@@ -23,7 +23,8 @@ export interface ListTrailsCommandInput extends ListTrailsRequest {}
 export interface ListTrailsCommandOutput extends ListTrailsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists trails that are in the current account.</p>
+ * Lists trails that are in the current account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,14 +58,16 @@ export interface ListTrailsCommandOutput extends ListTrailsResponse, __MetadataB
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * This exception is thrown when the requested operation is not permitted.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>This exception is thrown when the requested operation is not supported.</p>
+ *
+ * This exception is thrown when the requested operation is not supported.
  *
  * @throws {@link CloudTrailServiceException}
- * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * Base exception class for all service exceptions from CloudTrail service.
  *
  * @public
  */

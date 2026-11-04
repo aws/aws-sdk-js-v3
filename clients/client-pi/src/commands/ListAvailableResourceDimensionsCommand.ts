@@ -26,7 +26,8 @@ export interface ListAvailableResourceDimensionsCommandInput extends ListAvailab
 export interface ListAvailableResourceDimensionsCommandOutput extends ListAvailableResourceDimensionsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieve the dimensions that can be queried for each specified metric type on a specified DB instance.</p>
+ * Retrieve the dimensions that can be queried for each specified metric type on a specified DB instance.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,17 +78,20 @@ export interface ListAvailableResourceDimensionsCommandOutput extends ListAvaila
  * @see {@link PIClientResolvedConfig | config} for PIClient's `config` shape.
  *
  * @throws {@link InternalServiceError} (server fault)
- *  <p>The request failed due to an unknown error.</p>
+ *
+ * The request failed due to an unknown error.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>One of the arguments provided is invalid for this request.</p>
+ *
+ * One of the arguments provided is invalid for this request.
  *
  * @throws {@link NotAuthorizedException} (client fault)
- *  <p>The user is not authorized to perform this request.</p>
+ *
+ * The user is not authorized to perform this request.
  *
  * @throws {@link PIServiceException}
- * <p>Base exception class for all service exceptions from PI service.</p>
  *
+ * Base exception class for all service exceptions from PI service.
  *
  * @public
  */

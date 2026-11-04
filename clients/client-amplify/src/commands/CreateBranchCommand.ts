@@ -23,7 +23,8 @@ export interface CreateBranchCommandInput extends CreateBranchRequest {}
 export interface CreateBranchCommandOutput extends CreateBranchResult, __MetadataBearer {}
 
 /**
- * <p> Creates a new branch for an Amplify app. </p>
+ * Creates a new branch for an Amplify app.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -117,26 +118,32 @@ export interface CreateBranchCommandOutput extends CreateBranchResult, __Metadat
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>A request contains unexpected data. </p>
+ *
+ * A request contains unexpected data.
  *
  * @throws {@link DependentServiceFailureException} (server fault)
- *  <p>An operation failed because a dependent service threw an exception. </p>
+ *
+ * An operation failed because a dependent service threw an exception.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>The service failed to perform an operation due to an internal issue. </p>
+ *
+ * The service failed to perform an operation due to an internal issue.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>A resource could not be created because service quotas were exceeded. </p>
+ *
+ * A resource could not be created because service quotas were exceeded.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>An entity was not found during an operation. </p>
+ *
+ * An entity was not found during an operation.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>An operation failed due to a lack of access. </p>
+ *
+ * An operation failed due to a lack of access.
  *
  * @throws {@link AmplifyServiceException}
- * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ * Base exception class for all service exceptions from Amplify service.
  *
  * @public
  */

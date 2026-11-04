@@ -23,9 +23,8 @@ export interface DescribeSigningJobCommandInput extends DescribeSigningJobReques
 export interface DescribeSigningJobCommandOutput extends DescribeSigningJobResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about a specific code signing job. You specify the job by using the
- * 				<code>jobId</code> value that is returned by the <a>StartSigningJob</a>
- * 			operation. </p>
+ * Returns information about a specific code signing job. You specify the job by using the `jobId` value that is returned by the StartSigningJob operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,21 +94,26 @@ export interface DescribeSigningJobCommandOutput extends DescribeSigningJobRespo
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>An internal error occurred.</p>
+ *
+ * An internal error occurred.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A specified resource could not be found.</p>
+ *
+ * A specified resource could not be found.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The allowed number of job-signing requests has been exceeded.</p>
- *          <p>This error supersedes the error <code>ThrottlingException</code>.</p>
+ *
+ * The allowed number of job-signing requests has been exceeded.
+ *
+ * This error supersedes the error `ThrottlingException`.
  *
  * @throws {@link SignerServiceException}
- * <p>Base exception class for all service exceptions from Signer service.</p>
  *
+ * Base exception class for all service exceptions from Signer service.
  *
  * @public
  */

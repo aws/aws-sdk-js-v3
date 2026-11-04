@@ -23,8 +23,10 @@ export interface DescribeStandardsCommandInput extends DescribeStandardsRequest 
 export interface DescribeStandardsCommandOutput extends DescribeStandardsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of the available standards in Security Hub CSPM.</p>
- *          <p>For each standard, the results include the standard ARN, the name, and a description. </p>
+ * Returns a list of the available standards in Security Hub CSPM.
+ *
+ * For each standard, the results include the standard ARN, the name, and a description.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,18 +70,20 @@ export interface DescribeStandardsCommandOutput extends DescribeStandardsRespons
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>Internal server error.</p>
+ *
+ * Internal server error.
  *
  * @throws {@link InvalidAccessException} (client fault)
- *  <p>The account doesn't have permission to perform this action.</p>
+ *
+ * The account doesn't have permission to perform this action.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because you supplied an invalid or out-of-range value for an
- *          input parameter.</p>
+ *
+ * The request was rejected because you supplied an invalid or out-of-range value for an input parameter.
  *
  * @throws {@link SecurityHubServiceException}
- * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * Base exception class for all service exceptions from SecurityHub service.
  *
  * @example To get available Azure security standards
  * ```javascript

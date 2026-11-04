@@ -26,21 +26,18 @@ export interface DescribeMatchmakingConfigurationsCommandInput extends DescribeM
 export interface DescribeMatchmakingConfigurationsCommandOutput extends DescribeMatchmakingConfigurationsOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
- *          <p>Retrieves the details of FlexMatch matchmaking configurations. </p>
- *          <p>This operation offers the following options: (1) retrieve all matchmaking
- *             configurations, (2) retrieve configurations for a specified list, or (3) retrieve all
- *             configurations that use a specified rule set name. When requesting multiple items, use
- *             the pagination parameters to retrieve results as a set of sequential pages. </p>
- *          <p>If successful, a configuration is returned for each requested name. When specifying a
- *             list of names, only configurations that currently exist are returned. </p>
- *          <p>
- *             <b>Learn more</b>
- *          </p>
- *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/matchmaker-build.html"> Setting up FlexMatch matchmakers</a>
- *          </p>
+ * **This API works with the following fleet types:** EC2, Anywhere, Container
+ *
+ * Retrieves the details of FlexMatch matchmaking configurations.
+ *
+ * This operation offers the following options: (1) retrieve all matchmaking configurations, (2) retrieve configurations for a specified list, or (3) retrieve all configurations that use a specified rule set name. When requesting multiple items, use the pagination parameters to retrieve results as a set of sequential pages.
+ *
+ * If successful, a configuration is returned for each requested name. When specifying a list of names, only configurations that currently exist are returned.
+ *
+ * **Learn more**
+ *
+ * [Setting up FlexMatch matchmakers](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/matchmaker-build.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -100,19 +97,20 @@ export interface DescribeMatchmakingConfigurationsCommandOutput extends Describe
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an unrecoverable internal failure while processing the
- *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
- *             values before retrying.</p>
+ *
+ * One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.
  *
  * @throws {@link UnsupportedRegionException} (client fault)
- *  <p>The requested operation is not supported in the Region specified.</p>
+ *
+ * The requested operation is not supported in the Region specified.
  *
  * @throws {@link GameLiftServiceException}
- * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * Base exception class for all service exceptions from GameLift service.
  *
  * @public
  */

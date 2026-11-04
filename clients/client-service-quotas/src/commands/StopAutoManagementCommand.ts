@@ -23,9 +23,8 @@ export interface StopAutoManagementCommandInput extends StopAutoManagementReques
 export interface StopAutoManagementCommandOutput extends StopAutoManagementResponse, __MetadataBearer {}
 
 /**
- * <p>Stops <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/automatic-management.html">Service Quotas Automatic Management</a> for an Amazon Web Services account and removes all associated
- *             configurations. Automatic Management monitors your Service Quotas utilization and notifies you before you
- *             run out of your allocated quotas.</p>
+ * Stops [Service Quotas Automatic Management](https://docs.aws.amazon.com/servicequotas/latest/userguide/automatic-management.html) for an Amazon Web Services account and removes all associated configurations. Automatic Management monitors your Service Quotas utilization and notifies you before you run out of your allocated quotas.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,24 +47,28 @@ export interface StopAutoManagementCommandOutput extends StopAutoManagementRespo
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permission to perform this action.</p>
+ *
+ * You do not have sufficient permission to perform this action.
  *
  * @throws {@link IllegalArgumentException} (client fault)
- *  <p>Invalid input was provided.</p>
+ *
+ * Invalid input was provided.
  *
  * @throws {@link NoSuchResourceException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>Something went wrong.</p>
+ *
+ * Something went wrong.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Due to throttling, the request was denied. Slow down the rate of request calls, or
- *             request an increase for this quota.</p>
+ *
+ * Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.
  *
  * @throws {@link ServiceQuotasServiceException}
- * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>
  *
+ * Base exception class for all service exceptions from ServiceQuotas service.
  *
  * @public
  */

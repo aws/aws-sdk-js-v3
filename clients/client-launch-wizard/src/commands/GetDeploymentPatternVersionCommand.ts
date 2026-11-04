@@ -23,7 +23,8 @@ export interface GetDeploymentPatternVersionCommandInput extends GetDeploymentPa
 export interface GetDeploymentPatternVersionCommandOutput extends GetDeploymentPatternVersionOutput, __MetadataBearer {}
 
 /**
- * <p>Returns information about a deployment pattern version.</p>
+ * Returns information about a deployment pattern version.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,14 +59,16 @@ export interface GetDeploymentPatternVersionCommandOutput extends GetDeploymentP
  * @see {@link LaunchWizardClientResolvedConfig | config} for LaunchWizardClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error has occurred. Retry your request, but if the problem persists, contact us with details by posting a question on <a href="https://repost.aws/">re:Post</a>.</p>
+ *
+ * An internal error has occurred. Retry your request, but if the problem persists, contact us with details by posting a question on [re:Post](https://repost.aws/).
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified workload or deployment resource can't be found.</p>
+ *
+ * The specified workload or deployment resource can't be found.
  *
  * @throws {@link LaunchWizardServiceException}
- * <p>Base exception class for all service exceptions from LaunchWizard service.</p>
  *
+ * Base exception class for all service exceptions from LaunchWizard service.
  *
  * @public
  */

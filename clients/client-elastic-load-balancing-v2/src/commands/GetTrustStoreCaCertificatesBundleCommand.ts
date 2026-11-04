@@ -26,9 +26,10 @@ export interface GetTrustStoreCaCertificatesBundleCommandInput extends GetTrustS
 export interface GetTrustStoreCaCertificatesBundleCommandOutput extends GetTrustStoreCaCertificatesBundleOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves the ca certificate bundle.</p>
- *          <p>This action returns a pre-signed S3 URI which is
- *       active for ten minutes.</p>
+ * Retrieves the ca certificate bundle.
+ *
+ * This action returns a pre-signed S3 URI which is active for ten minutes.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,11 +56,12 @@ export interface GetTrustStoreCaCertificatesBundleCommandOutput extends GetTrust
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
  * @throws {@link TrustStoreNotFoundException} (client fault)
- *  <p>The specified trust store does not exist.</p>
+ *
+ * The specified trust store does not exist.
  *
  * @throws {@link ElasticLoadBalancingV2ServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancingV2 service.
  *
  * @public
  */

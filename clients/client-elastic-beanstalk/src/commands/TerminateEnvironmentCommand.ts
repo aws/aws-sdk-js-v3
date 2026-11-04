@@ -23,7 +23,8 @@ export interface TerminateEnvironmentCommandInput extends TerminateEnvironmentMe
 export interface TerminateEnvironmentCommandOutput extends EnvironmentDescription, __MetadataBearer {}
 
 /**
- * <p>Terminates the specified environment.</p>
+ * Terminates the specified environment.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,11 +94,12 @@ export interface TerminateEnvironmentCommandOutput extends EnvironmentDescriptio
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  * @throws {@link InsufficientPrivilegesException} (client fault)
- *  <p>The specified account does not have sufficient privileges for one or more Amazon Web Services services.</p>
+ *
+ * The specified account does not have sufficient privileges for one or more Amazon Web Services services.
  *
  * @throws {@link ElasticBeanstalkSyntheticServiceException}
- * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * Base exception class for all service exceptions from ElasticBeanstalk service.
  *
  * @example To terminate an environment
  * ```javascript

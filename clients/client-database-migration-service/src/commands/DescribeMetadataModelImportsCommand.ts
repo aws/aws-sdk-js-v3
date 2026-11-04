@@ -23,13 +23,10 @@ export interface DescribeMetadataModelImportsCommandInput extends DescribeMetada
 export interface DescribeMetadataModelImportsCommandOutput extends DescribeMetadataModelImportsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a paginated list of metadata model import requests for a migration
- *          project, initiated by
- *          <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartMetadataModelImport.html">StartMetadataModelImport</a>.</p>
- *          <p>
- *             <b>Required permissions:</b>
- *             <code>dms:DescribeMetadataModelImports</code>. For more information, see
- *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
+ * Returns a paginated list of metadata model import requests for a migration project, initiated by [StartMetadataModelImport](https://docs.aws.amazon.com/dms/latest/APIReference/API_StartMetadataModelImport.html).
+ *
+ * **Required permissions:** `dms:DescribeMetadataModelImports`. For more information, see [Actions, resources, and condition keys for Database Migration Service](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -92,11 +89,12 @@ export interface DescribeMetadataModelImportsCommandOutput extends DescribeMetad
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @example Retrieve the status of metadata model imports
  * ```javascript

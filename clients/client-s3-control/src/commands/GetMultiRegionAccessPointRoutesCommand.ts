@@ -23,40 +23,18 @@ export interface GetMultiRegionAccessPointRoutesCommandInput extends GetMultiReg
 export interface GetMultiRegionAccessPointRoutesCommandOutput extends GetMultiRegionAccessPointRoutesResult, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This operation is not supported by directory buckets.</p>
- *          </note>
- *          <p>Returns the routing configuration for a Multi-Region Access Point, indicating which Regions are active or
- *          passive.</p>
- *          <p>To obtain routing control changes and failover requests, use the Amazon S3 failover control
- *          infrastructure endpoints in these five Amazon Web Services Regions:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>us-east-1</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>us-west-2</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>ap-southeast-2</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>ap-northeast-1</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>eu-west-1</code>
- *                </p>
- *             </li>
- *          </ul>
+ * > **Note:** This operation is not supported by directory buckets.
+ *
+ * Returns the routing configuration for a Multi-Region Access Point, indicating which Regions are active or passive.
+ *
+ * To obtain routing control changes and failover requests, use the Amazon S3 failover control infrastructure endpoints in these five Amazon Web Services Regions:
+ *
+ * - `us-east-1`
+ * - `us-west-2`
+ * - `ap-southeast-2`
+ * - `ap-northeast-1`
+ * - `eu-west-1`
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,8 +69,8 @@ export interface GetMultiRegionAccessPointRoutesCommandOutput extends GetMultiRe
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
  * @throws {@link S3ControlServiceException}
- * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * Base exception class for all service exceptions from S3Control service.
  *
  * @public
  */

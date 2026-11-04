@@ -23,10 +23,10 @@ export interface DeleteDBClusterSnapshotCommandInput extends DeleteDBClusterSnap
 export interface DeleteDBClusterSnapshotCommandOutput extends DeleteDBClusterSnapshotResult, __MetadataBearer {}
 
 /**
- * <p>Deletes a cluster snapshot. If the snapshot is being copied, the copy operation is terminated.</p>
- *          <note>
- *             <p>The cluster snapshot must be in the <code>available</code> state to be deleted.</p>
- *          </note>
+ * Deletes a cluster snapshot. If the snapshot is being copied, the copy operation is terminated.
+ *
+ * > **Note:** The cluster snapshot must be in the `available` state to be deleted.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,15 +74,16 @@ export interface DeleteDBClusterSnapshotCommandOutput extends DeleteDBClusterSna
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  * @throws {@link DBClusterSnapshotNotFoundFault} (client fault)
- *  <p>
- *             <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing cluster snapshot. </p>
+ *
+ * `DBClusterSnapshotIdentifier` doesn't refer to an existing cluster snapshot.
  *
  * @throws {@link InvalidDBClusterSnapshotStateFault} (client fault)
- *  <p>The provided value isn't a valid cluster snapshot state.</p>
+ *
+ * The provided value isn't a valid cluster snapshot state.
  *
  * @throws {@link DocDBServiceException}
- * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * Base exception class for all service exceptions from DocDB service.
  *
  * @public
  */

@@ -23,16 +23,12 @@ export interface DescribeAvailabilityZonesCommandInput extends DescribeAvailabil
 export interface DescribeAvailabilityZonesCommandOutput extends DescribeAvailabilityZonesResult, __MetadataBearer {}
 
 /**
- * <p>Describes the Availability Zones, Local Zones, and Wavelength Zones that are available to
- *       you.</p>
- *          <p>For more information about Availability Zones, Local Zones, and Wavelength Zones, see
- *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">Regions and zones</a>
- *       in the <i>Amazon EC2 User Guide</i>.</p>
- *          <note>
- *             <p>The order of the elements in the response, including those within nested
- *         structures, might vary. Applications should not assume the elements appear in a
- *         particular order.</p>
- *          </note>
+ * Describes the Availability Zones, Local Zones, and Wavelength Zones that are available to you.
+ *
+ * For more information about Availability Zones, Local Zones, and Wavelength Zones, see [Regions and zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html) in the *Amazon EC2 User Guide*.
+ *
+ * > **Note:** The order of the elements in the response, including those within nested structures, might vary. Applications should not assume the elements appear in a particular order.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -103,8 +99,8 @@ export interface DescribeAvailabilityZonesCommandOutput extends DescribeAvailabi
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To describe your Availability Zones
  * ```javascript

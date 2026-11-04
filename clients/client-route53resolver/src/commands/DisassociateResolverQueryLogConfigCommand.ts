@@ -26,21 +26,15 @@ export interface DisassociateResolverQueryLogConfigCommandInput extends Disassoc
 export interface DisassociateResolverQueryLogConfigCommandOutput extends DisassociateResolverQueryLogConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Disassociates a VPC from a query logging configuration.</p>
- *          <note>
- *             <p>Before you can delete a query logging configuration, you must first disassociate all VPCs
- * 				from the configuration. If you used Resource Access Manager (RAM) to share a
- * 				query logging configuration with other accounts, VPCs can be disassociated from the
- * 				configuration in the following ways:</p>
- *             <ul>
- *                <li>
- *                   <p>The accounts that you shared the configuration with can disassociate VPCs from the configuration.</p>
- *                </li>
- *                <li>
- *                   <p>You can stop sharing the configuration.</p>
- *                </li>
- *             </ul>
- *          </note>
+ * Disassociates a VPC from a query logging configuration.
+ *
+ * > **Note:**
+ * >
+ * > Before you can delete a query logging configuration, you must first disassociate all VPCs from the configuration. If you used Resource Access Manager (RAM) to share a query logging configuration with other accounts, VPCs can be disassociated from the configuration in the following ways:
+ * >
+ * > - The accounts that you shared the configuration with can disassociate VPCs from the configuration.
+ * > - You can stop sharing the configuration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,28 +70,34 @@ export interface DisassociateResolverQueryLogConfigCommandOutput extends Disasso
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p>
- *          <p>This error can also be thrown when a customer has reached the 5120 character limit for a
- * 			resource policy for CloudWatch Logs.</p>
+ *
+ * The current account doesn't have the IAM permissions required to perform the specified Resolver operation.
+ *
+ * This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.
  *
  * @throws {@link InternalServiceErrorException} (client fault)
- *  <p>We encountered an unknown error. Try again in a few minutes.</p>
+ *
+ * We encountered an unknown error. Try again in a few minutes.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters in this request are not valid.</p>
+ *
+ * One or more parameters in this request are not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is invalid.</p>
+ *
+ * The request is invalid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource doesn't exist.</p>
+ *
+ * The specified resource doesn't exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled. Try again in a few minutes.</p>
+ *
+ * The request was throttled. Try again in a few minutes.
  *
  * @throws {@link Route53ResolverServiceException}
- * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * Base exception class for all service exceptions from Route53Resolver service.
  *
  * @public
  */

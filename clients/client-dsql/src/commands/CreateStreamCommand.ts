@@ -23,7 +23,28 @@ export interface CreateStreamCommandInput extends CreateStreamInput {}
 export interface CreateStreamCommandOutput extends CreateStreamOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a new change data capture (CDC) stream for a cluster. The stream captures database changes and delivers them to the specified target destination.</p> <p> <b>Required permissions</b> </p> <dl> <dt>dsql:CreateStream</dt> <dd> <p>Permission to create a new stream.</p> <p>Resources: <code>arn:aws:dsql:region:account-id:cluster/cluster-id</code> </p> </dd> <dt>iam:PassRole</dt> <dd> <p>Permission to pass the IAM role specified in the target definition to the service.</p> <p>Resources: ARN of the IAM role specified in <code>targetDefinition.kinesis.roleArn</code> </p> </dd> <dt>kms:Decrypt</dt> <dd> <p>Required when the cluster uses a customer managed KMS key (CMK). Permission to decrypt data using the cluster's CMK.</p> <p>Resources: ARN of the KMS key used by the cluster</p> </dd> </dl>
+ * Creates a new change data capture (CDC) stream for a cluster. The stream captures database changes and delivers them to the specified target destination.
+ *
+ * **Required permissions**
+ *
+ * - **dsql:CreateStream**
+ *
+ *   Permission to create a new stream.
+ *
+ *   Resources: `arn:aws:dsql:region:account-id:cluster/cluster-id`
+ *
+ * - **iam:PassRole**
+ *
+ *   Permission to pass the IAM role specified in the target definition to the service.
+ *
+ *   Resources: ARN of the IAM role specified in `targetDefinition.kinesis.roleArn`
+ *
+ * - **kms:Decrypt**
+ *
+ *   Required when the cluster uses a customer managed KMS key (CMK). Permission to decrypt data using the cluster's CMK.
+ *
+ *   Resources: ARN of the KMS key used by the cluster
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,29 +89,36 @@ export interface CreateStreamCommandOutput extends CreateStreamOutput, __Metadat
  * @see {@link DSQLClientResolvedConfig | config} for DSQLClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The submitted action has conflicts.</p>
+ *
+ * The submitted action has conflicts.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The service limit was exceeded.</p>
+ *
+ * The service limit was exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input failed to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link DSQLServiceException}
- * <p>Base exception class for all service exceptions from DSQL service.</p>
  *
+ * Base exception class for all service exceptions from DSQL service.
  *
  * @public
  */

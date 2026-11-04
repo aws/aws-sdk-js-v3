@@ -23,26 +23,16 @@ export interface CreateNatGatewayCommandInput extends CreateNatGatewayRequest {}
 export interface CreateNatGatewayCommandOutput extends CreateNatGatewayResult, __MetadataBearer {}
 
 /**
- * <p>Creates a NAT gateway in the specified subnet. This action creates a network interface
- *           in the specified subnet with a private IP address from the IP address range of the
- *           subnet. You can create either a public NAT gateway or a private NAT gateway.</p>
- *          <p>With a public NAT gateway, internet-bound traffic from a private subnet can be routed
- *           to the NAT gateway, so that instances in a private subnet can connect to the internet.</p>
- *          <p>With a private NAT gateway, private communication is routed across VPCs and on-premises
- *             networks through a transit gateway or virtual private gateway. Common use cases include
- *             running large workloads behind a small pool of allowlisted IPv4 addresses, preserving
- *             private IPv4 addresses, and communicating between overlapping networks.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">NAT gateways</a> in the <i>Amazon VPC User Guide</i>.</p>
- *          <important>
- *             <p>When you create a public NAT gateway and assign it an EIP or secondary EIPs,
- *           the network border group of the EIPs must match the network border group of the Availability Zone (AZ)
- *           that the public NAT gateway is in. If it's not the same, the NAT gateway will fail to launch.
- *           You can see the network border group for the subnet's AZ by viewing the details of the subnet.
- *           Similarly, you can view the network border group of an EIP by viewing the details of the EIP address.
- *           For more information about network border groups and EIPs, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/WorkWithEIPs.html">Allocate an Elastic IP address</a>
- *           in the <i>Amazon VPC User Guide</i>.
- *       </p>
- *          </important>
+ * Creates a NAT gateway in the specified subnet. This action creates a network interface in the specified subnet with a private IP address from the IP address range of the subnet. You can create either a public NAT gateway or a private NAT gateway.
+ *
+ * With a public NAT gateway, internet-bound traffic from a private subnet can be routed to the NAT gateway, so that instances in a private subnet can connect to the internet.
+ *
+ * With a private NAT gateway, private communication is routed across VPCs and on-premises networks through a transit gateway or virtual private gateway. Common use cases include running large workloads behind a small pool of allowlisted IPv4 addresses, preserving private IPv4 addresses, and communicating between overlapping networks.
+ *
+ * For more information, see [NAT gateways](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html) in the *Amazon VPC User Guide*.
+ *
+ * > **Important:** When you create a public NAT gateway and assign it an EIP or secondary EIPs, the network border group of the EIPs must match the network border group of the Availability Zone (AZ) that the public NAT gateway is in. If it's not the same, the NAT gateway will fail to launch. You can see the network border group for the subnet's AZ by viewing the details of the subnet. Similarly, you can view the network border group of an EIP by viewing the details of the EIP address. For more information about network border groups and EIPs, see [Allocate an Elastic IP address](https://docs.aws.amazon.com/vpc/latest/userguide/WorkWithEIPs.html) in the *Amazon VPC User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -156,8 +146,8 @@ export interface CreateNatGatewayCommandOutput extends CreateNatGatewayResult, _
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To create a NAT gateway
  * ```javascript

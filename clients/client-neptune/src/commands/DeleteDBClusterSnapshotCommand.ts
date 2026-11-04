@@ -23,12 +23,10 @@ export interface DeleteDBClusterSnapshotCommandInput extends DeleteDBClusterSnap
 export interface DeleteDBClusterSnapshotCommandOutput extends DeleteDBClusterSnapshotResult, __MetadataBearer {}
 
 /**
- * <p>Deletes a DB cluster snapshot. If the snapshot is being copied, the copy operation is
- *       terminated.</p>
- *          <note>
- *             <p>The DB cluster snapshot must be in the <code>available</code> state to be
- *         deleted.</p>
- *          </note>
+ * Deletes a DB cluster snapshot. If the snapshot is being copied, the copy operation is terminated.
+ *
+ * > **Note:** The DB cluster snapshot must be in the `available` state to be deleted.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,16 +77,16 @@ export interface DeleteDBClusterSnapshotCommandOutput extends DeleteDBClusterSna
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  * @throws {@link DBClusterSnapshotNotFoundFault} (client fault)
- *  <p>
- *             <i>DBClusterSnapshotIdentifier</i> does not refer to an existing
- *       DB cluster snapshot.</p>
+ *
+ * *DBClusterSnapshotIdentifier* does not refer to an existing DB cluster snapshot.
  *
  * @throws {@link InvalidDBClusterSnapshotStateFault} (client fault)
- *  <p>The supplied value is not a valid DB cluster snapshot state.</p>
+ *
+ * The supplied value is not a valid DB cluster snapshot state.
  *
  * @throws {@link NeptuneServiceException}
- * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * Base exception class for all service exceptions from Neptune service.
  *
  * @public
  */

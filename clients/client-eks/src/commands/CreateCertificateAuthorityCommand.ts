@@ -23,29 +23,14 @@ export interface CreateCertificateAuthorityCommandInput extends CreateCertificat
 export interface CreateCertificateAuthorityCommandOutput extends CreateCertificateAuthorityResponse, __MetadataBearer {}
 
 /**
- * <p>Appends a successor certificate authority (CA) to your cluster, beginning the CA
- *             rotation process.</p>
- *          <p>A cluster certificate authority is the root of trust for your cluster's control plane.
- *             It signs the certificates that secure communication between the Kubernetes API server and its
- *             clients, and its public certificate is distributed to your cluster's trust bundle so that
- *             worker nodes and clients can verify the API server's identity. Each cluster can have at
- *             most two certificate authorities at a time: the outgoing CA that's currently signing (its
- *                 <code>signingStatus</code> is <code>IN_USE</code>) and one successor CA
- *             (<code>signingStatus</code> of <code>NOT_USED</code>) that you can later activate to
- *             complete the rotation.</p>
- *          <p>Appending a successor CA adds its public certificate to the cluster's trust bundle so
- *             that the cluster trusts both CAs simultaneously (the dual trust period), but it doesn't
- *             begin signing certificates. Amazon EKS then distributes the successor CA to the Amazon Web Services managed
- *             components in your cluster; you can track this through the CA's
- *                 <code>distributionStatus</code>. The successor CA can't be activated until its
- *                 <code>distributionStatus</code> is <code>COMPLETE</code>. To activate it as the
- *             cluster's signer, use <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_ActivateCertificateAuthority.html">
- *                <code>ActivateCertificateAuthority</code>
- *             </a>. This is an asynchronous operation
- *             that returns an <code>update</code> object. If you don't append a successor CA yourself,
- *             Amazon EKS appends one automatically before the outgoing CA approaches expiration.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/certificate-authority-rotation.html">Rotate the Amazon EKS
- *                 cluster certificate authority</a> in the <i>Amazon EKS User Guide</i>.</p>
+ * Appends a successor certificate authority (CA) to your cluster, beginning the CA rotation process.
+ *
+ * A cluster certificate authority is the root of trust for your cluster's control plane. It signs the certificates that secure communication between the Kubernetes API server and its clients, and its public certificate is distributed to your cluster's trust bundle so that worker nodes and clients can verify the API server's identity. Each cluster can have at most two certificate authorities at a time: the outgoing CA that's currently signing (its `signingStatus` is `IN_USE`) and one successor CA (`signingStatus` of `NOT_USED`) that you can later activate to complete the rotation.
+ *
+ * Appending a successor CA adds its public certificate to the cluster's trust bundle so that the cluster trusts both CAs simultaneously (the dual trust period), but it doesn't begin signing certificates. Amazon EKS then distributes the successor CA to the Amazon Web Services managed components in your cluster; you can track this through the CA's `distributionStatus`. The successor CA can't be activated until its `distributionStatus` is `COMPLETE`. To activate it as the cluster's signer, use [`ActivateCertificateAuthority`](https://docs.aws.amazon.com/eks/latest/APIReference/API_ActivateCertificateAuthority.html). This is an asynchronous operation that returns an `update` object. If you don't append a successor CA yourself, Amazon EKS appends one automatically before the outgoing CA approaches expiration.
+ *
+ * For more information, see [Rotate the Amazon EKS cluster certificate authority](https://docs.aws.amazon.com/eks/latest/userguide/certificate-authority-rotation.html) in the *Amazon EKS User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -106,30 +91,32 @@ export interface CreateCertificateAuthorityCommandOutput extends CreateCertifica
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is in use.</p>
+ *
+ * The specified resource is in use.
  *
  * @throws {@link ResourceLimitExceededException} (client fault)
- *  <p>You have encountered a service limit on the specified resource.</p>
+ *
+ * You have encountered a service limit on the specified resource.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource could not be found. You can view your available clusters with
- *                 <code>ListClusters</code>. You can view your available managed node groups with
- *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region
- *             specific.</p>
+ *
+ * The specified resource could not be found. You can view your available clusters with `ListClusters`. You can view your available managed node groups with `ListNodegroups`. Amazon EKS clusters and node groups are Amazon Web Services Region specific.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is unavailable. Back off and retry the operation.</p>
+ *
+ * The service is unavailable. Back off and retry the operation.
  *
  * @throws {@link EKSServiceException}
- * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * Base exception class for all service exceptions from EKS service.
  *
  * @public
  */

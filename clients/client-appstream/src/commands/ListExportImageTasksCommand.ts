@@ -23,7 +23,8 @@ export interface ListExportImageTasksCommandInput extends ListExportImageTasksRe
 export interface ListExportImageTasksCommandOutput extends ListExportImageTasksResult, __MetadataBearer {}
 
 /**
- * <p>Lists export image tasks, with optional filtering and pagination. Use this operation to monitor the status of multiple export operations.</p>
+ * Lists export image tasks, with optional filtering and pagination. Use this operation to monitor the status of multiple export operations.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,11 +80,12 @@ export interface ListExportImageTasksCommandOutput extends ListExportImageTasksR
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>The attempted operation is not permitted.</p>
+ *
+ * The attempted operation is not permitted.
  *
  * @throws {@link AppStreamServiceException}
- * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * Base exception class for all service exceptions from AppStream service.
  *
  * @public
  */

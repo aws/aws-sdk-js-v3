@@ -23,7 +23,8 @@ export interface DescribeDomainEndpointOptionsCommandInput extends DescribeDomai
 export interface DescribeDomainEndpointOptionsCommandOutput extends DescribeDomainEndpointOptionsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the domain's endpoint options, specifically whether all requests to the domain must arrive over HTTPS. For more information, see  <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-domain-endpoint-options.html" target="_blank">Configuring Domain Endpoint Options</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+ * Returns the domain's endpoint options, specifically whether all requests to the domain must arrive over HTTPS. For more information, see [Configuring Domain Endpoint Options](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-domain-endpoint-options.html) in the *Amazon CloudSearch Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,24 +64,28 @@ export interface DescribeDomainEndpointOptionsCommandOutput extends DescribeDoma
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
  *
  * @throws {@link BaseException} (client fault)
- *  <p>An error occurred while processing the request.</p>
+ *
+ * An error occurred while processing the request.
  *
  * @throws {@link DisabledOperationException} (client fault)
- *  <p>The request was rejected because it attempted an operation which is not enabled.</p>
+ *
+ * The request was rejected because it attempted an operation which is not enabled.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>An internal error occurred while processing the request. If this problem persists,
- *       report an issue from the <a href="http://status.aws.amazon.com/" target="_blank">Service Health Dashboard</a>.</p>
+ *
+ * An internal error occurred while processing the request. If this problem persists, report an issue from the [Service Health Dashboard](http://status.aws.amazon.com/).
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because a resource limit has already been met.</p>
+ *
+ * The request was rejected because a resource limit has already been met.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
+ *
+ * The request was rejected because it attempted to reference a resource that does not exist.
  *
  * @throws {@link CloudSearchServiceException}
- * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
+ * Base exception class for all service exceptions from CloudSearch service.
  *
  * @public
  */

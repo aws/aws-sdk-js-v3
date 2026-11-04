@@ -26,16 +26,10 @@ export interface EnableInstanceSqlHaStandbyDetectionsCommandInput extends Enable
 export interface EnableInstanceSqlHaStandbyDetectionsCommandOutput extends EnableInstanceSqlHaStandbyDetectionsResult, __MetadataBearer {}
 
 /**
- * <p>Enable Amazon EC2 instances running in an SQL Server High Availability cluster for SQL Server High Availability
- *       instance standby detection monitoring. Once enabled, Amazon Web Services monitors the metadata for
- *       the instances to determine whether they are active or standby nodes in the SQL Server High Availability cluster.
- *       If the instances are determined to be standby failover nodes, Amazon Web Services
- *       automatically applies SQL Server licensing fee waiver for those instances.</p>
- *          <p>To register an instance, it must be running a Windows SQL Server license-included
- *       AMI and have the Amazon Web Services Systems Manager agent installed and running. Only Windows Server 2019 and later
- *       and SQL Server (Standard and Enterprise editions) 2017 and later are supported. For more
- *       information, see <a href="https://docs.aws.amazon.com/sql-server-ec2/latest/userguide/prerequisites-and-requirements.html">
- *         Prerequisites for using SQL Server High Availability instance standby detection</a>.</p>
+ * Enable Amazon EC2 instances running in an SQL Server High Availability cluster for SQL Server High Availability instance standby detection monitoring. Once enabled, Amazon Web Services monitors the metadata for the instances to determine whether they are active or standby nodes in the SQL Server High Availability cluster. If the instances are determined to be standby failover nodes, Amazon Web Services automatically applies SQL Server licensing fee waiver for those instances.
+ *
+ * To register an instance, it must be running a Windows SQL Server license-included AMI and have the Amazon Web Services Systems Manager agent installed and running. Only Windows Server 2019 and later and SQL Server (Standard and Enterprise editions) 2017 and later are supported. For more information, see [Prerequisites for using SQL Server High Availability instance standby detection](https://docs.aws.amazon.com/sql-server-ec2/latest/userguide/prerequisites-and-requirements.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,8 +75,8 @@ export interface EnableInstanceSqlHaStandbyDetectionsCommandOutput extends Enabl
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

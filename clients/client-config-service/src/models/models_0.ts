@@ -44,629 +44,657 @@ import type {
 } from "./enums";
 
 /**
- * <p>A collection of accounts and regions.</p>
+ * A collection of accounts and regions.
+ *
  * @public
  */
 export interface AccountAggregationSource {
   /**
-   * <p>The 12-digit account ID of the account being aggregated.
-   * 		</p>
+   * The 12-digit account ID of the account being aggregated.
+   *
    * @public
    */
   AccountIds: string[] | undefined;
 
   /**
-   * <p>If true, aggregate existing Config regions and future
-   * 			regions.</p>
+   * If true, aggregate existing Config regions and future regions.
+   *
    * @public
    */
   AllAwsRegions?: boolean | undefined;
 
   /**
-   * <p>The source regions being aggregated.</p>
+   * The source regions being aggregated.
+   *
    * @public
    */
   AwsRegions?: string[] | undefined;
 }
 
 /**
- * <p>The number of Amazon Web Services resources or Config rules responsible for
- * 			the current compliance of the item, up to a maximum
- * 			number.</p>
+ * The number of Amazon Web Services resources or Config rules responsible for the current compliance of the item, up to a maximum number.
+ *
  * @public
  */
 export interface ComplianceContributorCount {
   /**
-   * <p>The number of Amazon Web Services resources or Config rules responsible for
-   * 			the current compliance of the item.</p>
+   * The number of Amazon Web Services resources or Config rules responsible for the current compliance of the item.
+   *
    * @public
    */
   CappedCount?: number | undefined;
 
   /**
-   * <p>Indicates whether the maximum count is reached.</p>
+   * Indicates whether the maximum count is reached.
+   *
    * @public
    */
   CapExceeded?: boolean | undefined;
 }
 
 /**
- * <p>Indicates whether an Amazon Web Services resource or Config rule is
- * 			compliant and provides the number of contributors that affect the
- * 			compliance.</p>
+ * Indicates whether an Amazon Web Services resource or Config rule is compliant and provides the number of contributors that affect the compliance.
+ *
  * @public
  */
 export interface Compliance {
   /**
-   * <p>Indicates whether an Amazon Web Services resource or Config rule is
-   * 			compliant.</p>
-   *          <p>A resource is compliant if it complies with all of the Config rules that evaluate it. A resource is noncompliant if it does
-   * 			not comply with one or more of these rules.</p>
-   *          <p>A rule is compliant if all of the resources that the rule
-   * 			evaluates comply with it. A rule is noncompliant if any of these
-   * 			resources do not comply.</p>
-   *          <p>Config returns the <code>INSUFFICIENT_DATA</code> value
-   * 			when no evaluation results are available for the Amazon Web Services resource or Config rule.</p>
-   *          <p>For the <code>Compliance</code> data type, Config supports
-   * 			only <code>COMPLIANT</code>, <code>NON_COMPLIANT</code>, and
-   * 				<code>INSUFFICIENT_DATA</code> values. Config does not
-   * 			support the <code>NOT_APPLICABLE</code> value for the
-   * 				<code>Compliance</code> data type.</p>
+   * Indicates whether an Amazon Web Services resource or Config rule is compliant.
+   *
+   * A resource is compliant if it complies with all of the Config rules that evaluate it. A resource is noncompliant if it does not comply with one or more of these rules.
+   *
+   * A rule is compliant if all of the resources that the rule evaluates comply with it. A rule is noncompliant if any of these resources do not comply.
+   *
+   * Config returns the `INSUFFICIENT_DATA` value when no evaluation results are available for the Amazon Web Services resource or Config rule.
+   *
+   * For the `Compliance` data type, Config supports only `COMPLIANT`, `NON_COMPLIANT`, and `INSUFFICIENT_DATA` values. Config does not support the `NOT_APPLICABLE` value for the `Compliance` data type.
+   *
    * @public
    */
   ComplianceType?: ComplianceType | undefined;
 
   /**
-   * <p>The number of Amazon Web Services resources or Config rules that cause a
-   * 			result of <code>NON_COMPLIANT</code>, up to a maximum
-   * 			number.</p>
+   * The number of Amazon Web Services resources or Config rules that cause a result of `NON_COMPLIANT`, up to a maximum number.
+   *
    * @public
    */
   ComplianceContributorCount?: ComplianceContributorCount | undefined;
 }
 
 /**
- * <p>Indicates whether an Config rule is compliant based on
- * 			account ID, region, compliance, and rule name.</p>
- *          <p>A rule is compliant if all of the resources that the rule
- * 			evaluated comply with it. It is noncompliant if any of these
- * 			resources do not comply.</p>
+ * Indicates whether an Config rule is compliant based on account ID, region, compliance, and rule name.
+ *
+ * A rule is compliant if all of the resources that the rule evaluated comply with it. It is noncompliant if any of these resources do not comply.
+ *
  * @public
  */
 export interface AggregateComplianceByConfigRule {
   /**
-   * <p>The name of the Config rule.</p>
+   * The name of the Config rule.
+   *
    * @public
    */
   ConfigRuleName?: string | undefined;
 
   /**
-   * <p>Indicates whether an Amazon Web Services resource or Config rule is
-   * 			compliant and provides the number of contributors that affect the
-   * 			compliance.</p>
+   * Indicates whether an Amazon Web Services resource or Config rule is compliant and provides the number of contributors that affect the compliance.
+   *
    * @public
    */
   Compliance?: Compliance | undefined;
 
   /**
-   * <p>The 12-digit account ID of the source account.</p>
+   * The 12-digit account ID of the source account.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The source region from where the data is aggregated.</p>
+   * The source region from where the data is aggregated.
+   *
    * @public
    */
   AwsRegion?: string | undefined;
 }
 
 /**
- * <p>Provides the number of compliant and noncompliant rules within a conformance pack.
- * 			Also provides the compliance status of the conformance pack and the total rule count which includes compliant rules, noncompliant rules, and rules that cannot be evaluated due to insufficient data.</p>
- *          <p>A conformance pack is compliant if all of the rules in a conformance packs are compliant. It is noncompliant if any of the rules are not compliant.
- * 			The compliance status of a conformance pack is INSUFFICIENT_DATA only if all rules within a conformance pack cannot be evaluated due to insufficient data.
- * 			If some of the rules in a conformance pack are compliant but the compliance status of other rules in that same conformance pack is INSUFFICIENT_DATA, the conformance pack shows compliant.</p>
+ * Provides the number of compliant and noncompliant rules within a conformance pack. Also provides the compliance status of the conformance pack and the total rule count which includes compliant rules, noncompliant rules, and rules that cannot be evaluated due to insufficient data.
+ *
+ * A conformance pack is compliant if all of the rules in a conformance packs are compliant. It is noncompliant if any of the rules are not compliant. The compliance status of a conformance pack is INSUFFICIENT_DATA only if all rules within a conformance pack cannot be evaluated due to insufficient data. If some of the rules in a conformance pack are compliant but the compliance status of other rules in that same conformance pack is INSUFFICIENT_DATA, the conformance pack shows compliant.
+ *
  * @public
  */
 export interface AggregateConformancePackCompliance {
   /**
-   * <p>The compliance status of the conformance pack.</p>
+   * The compliance status of the conformance pack.
+   *
    * @public
    */
   ComplianceType?: ConformancePackComplianceType | undefined;
 
   /**
-   * <p>The number of compliant Config Rules.</p>
+   * The number of compliant Config Rules.
+   *
    * @public
    */
   CompliantRuleCount?: number | undefined;
 
   /**
-   * <p>The number of noncompliant Config Rules.</p>
+   * The number of noncompliant Config Rules.
+   *
    * @public
    */
   NonCompliantRuleCount?: number | undefined;
 
   /**
-   * <p>Total number of compliant rules, noncompliant rules, and the rules that do not have any applicable resources to evaluate upon resulting in insufficient data.</p>
+   * Total number of compliant rules, noncompliant rules, and the rules that do not have any applicable resources to evaluate upon resulting in insufficient data.
+   *
    * @public
    */
   TotalRuleCount?: number | undefined;
 }
 
 /**
- * <p>Provides aggregate compliance of the conformance pack. Indicates whether a conformance pack is compliant based on the name of the conformance pack, account ID, and region.</p>
- *          <p>A conformance pack is compliant if all of the rules in a conformance packs are compliant. It is noncompliant if any of the rules are not compliant.
- * 			The compliance status of a conformance pack is INSUFFICIENT_DATA only if all rules within a conformance pack cannot be evaluated due to insufficient data.
- * 			If some of the rules in a conformance pack are compliant but the compliance status of other rules in that same conformance pack is INSUFFICIENT_DATA, the conformance pack shows
- * 			compliant.</p>
+ * Provides aggregate compliance of the conformance pack. Indicates whether a conformance pack is compliant based on the name of the conformance pack, account ID, and region.
+ *
+ * A conformance pack is compliant if all of the rules in a conformance packs are compliant. It is noncompliant if any of the rules are not compliant. The compliance status of a conformance pack is INSUFFICIENT_DATA only if all rules within a conformance pack cannot be evaluated due to insufficient data. If some of the rules in a conformance pack are compliant but the compliance status of other rules in that same conformance pack is INSUFFICIENT_DATA, the conformance pack shows compliant.
+ *
  * @public
  */
 export interface AggregateComplianceByConformancePack {
   /**
-   * <p>The name of the conformance pack.</p>
+   * The name of the conformance pack.
+   *
    * @public
    */
   ConformancePackName?: string | undefined;
 
   /**
-   * <p>The compliance status of the conformance pack.</p>
+   * The compliance status of the conformance pack.
+   *
    * @public
    */
   Compliance?: AggregateConformancePackCompliance | undefined;
 
   /**
-   * <p>The 12-digit Amazon Web Services account ID of the source account.</p>
+   * The 12-digit Amazon Web Services account ID of the source account.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The source Amazon Web Services Region from where the data is aggregated.</p>
+   * The source Amazon Web Services Region from where the data is aggregated.
+   *
    * @public
    */
   AwsRegion?: string | undefined;
 }
 
 /**
- * <p>The number of Config rules or Amazon Web Services resources that are
- * 			compliant and noncompliant.</p>
+ * The number of Config rules or Amazon Web Services resources that are compliant and noncompliant.
+ *
  * @public
  */
 export interface ComplianceSummary {
   /**
-   * <p>The number of Config rules or Amazon Web Services resources that are
-   * 			compliant, up to a maximum of 25 for rules and 100 for
-   * 			resources.</p>
+   * The number of Config rules or Amazon Web Services resources that are compliant, up to a maximum of 25 for rules and 100 for resources.
+   *
    * @public
    */
   CompliantResourceCount?: ComplianceContributorCount | undefined;
 
   /**
-   * <p>The number of Config rules or Amazon Web Services resources that are
-   * 			noncompliant, up to a maximum of 25 for rules and 100 for
-   * 			resources.</p>
+   * The number of Config rules or Amazon Web Services resources that are noncompliant, up to a maximum of 25 for rules and 100 for resources.
+   *
    * @public
    */
   NonCompliantResourceCount?: ComplianceContributorCount | undefined;
 
   /**
-   * <p>The time that Config created the compliance
-   * 			summary.</p>
+   * The time that Config created the compliance summary.
+   *
    * @public
    */
   ComplianceSummaryTimestamp?: Date | undefined;
 }
 
 /**
- * <p>Returns the number of compliant and noncompliant rules for one
- * 			or more accounts and regions in an aggregator.</p>
+ * Returns the number of compliant and noncompliant rules for one or more accounts and regions in an aggregator.
+ *
  * @public
  */
 export interface AggregateComplianceCount {
   /**
-   * <p>The 12-digit account ID or region based on the GroupByKey
-   * 			value.</p>
+   * The 12-digit account ID or region based on the GroupByKey value.
+   *
    * @public
    */
   GroupName?: string | undefined;
 
   /**
-   * <p>The number of compliant and noncompliant Config
-   * 			rules.</p>
+   * The number of compliant and noncompliant Config rules.
+   *
    * @public
    */
   ComplianceSummary?: ComplianceSummary | undefined;
 }
 
 /**
- * <p>The number of conformance packs that are compliant and noncompliant.</p>
+ * The number of conformance packs that are compliant and noncompliant.
+ *
  * @public
  */
 export interface AggregateConformancePackComplianceCount {
   /**
-   * <p>Number of compliant conformance packs.</p>
+   * Number of compliant conformance packs.
+   *
    * @public
    */
   CompliantConformancePackCount?: number | undefined;
 
   /**
-   * <p>Number of noncompliant conformance packs.</p>
+   * Number of noncompliant conformance packs.
+   *
    * @public
    */
   NonCompliantConformancePackCount?: number | undefined;
 }
 
 /**
- * <p>Filters the conformance packs based on an account ID, region, compliance type, and the name of the conformance pack.</p>
+ * Filters the conformance packs based on an account ID, region, compliance type, and the name of the conformance pack.
+ *
  * @public
  */
 export interface AggregateConformancePackComplianceFilters {
   /**
-   * <p>The name of the conformance pack.</p>
+   * The name of the conformance pack.
+   *
    * @public
    */
   ConformancePackName?: string | undefined;
 
   /**
-   * <p>The compliance status of the conformance pack.</p>
+   * The compliance status of the conformance pack.
+   *
    * @public
    */
   ComplianceType?: ConformancePackComplianceType | undefined;
 
   /**
-   * <p>The 12-digit Amazon Web Services account ID of the source account.</p>
+   * The 12-digit Amazon Web Services account ID of the source account.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The source Amazon Web Services Region from where the data is aggregated.</p>
+   * The source Amazon Web Services Region from where the data is aggregated.
+   *
    * @public
    */
   AwsRegion?: string | undefined;
 }
 
 /**
- * <p>Provides a summary of compliance based on either account ID or region. </p>
+ * Provides a summary of compliance based on either account ID or region.
+ *
  * @public
  */
 export interface AggregateConformancePackComplianceSummary {
   /**
-   * <p>Returns an <code>AggregateConformancePackComplianceCount</code> object. </p>
+   * Returns an `AggregateConformancePackComplianceCount` object.
+   *
    * @public
    */
   ComplianceSummary?: AggregateConformancePackComplianceCount | undefined;
 
   /**
-   * <p>Groups the result based on Amazon Web Services account ID or Amazon Web Services Region.</p>
+   * Groups the result based on Amazon Web Services account ID or Amazon Web Services Region.
+   *
    * @public
    */
   GroupName?: string | undefined;
 }
 
 /**
- * <p>Filters the results based on account ID and region. </p>
+ * Filters the results based on account ID and region.
+ *
  * @public
  */
 export interface AggregateConformancePackComplianceSummaryFilters {
   /**
-   * <p>The 12-digit Amazon Web Services account ID of the source account.</p>
+   * The 12-digit Amazon Web Services account ID of the source account.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The source Amazon Web Services Region from where the data is aggregated.</p>
+   * The source Amazon Web Services Region from where the data is aggregated.
+   *
    * @public
    */
   AwsRegion?: string | undefined;
 }
 
 /**
- * <p>The current sync status between the source and the aggregator
- * 			account.</p>
+ * The current sync status between the source and the aggregator account.
+ *
  * @public
  */
 export interface AggregatedSourceStatus {
   /**
-   * <p>The source account ID or an organization.</p>
+   * The source account ID or an organization.
+   *
    * @public
    */
   SourceId?: string | undefined;
 
   /**
-   * <p>The source account or an organization.</p>
+   * The source account or an organization.
+   *
    * @public
    */
   SourceType?: AggregatedSourceType | undefined;
 
   /**
-   * <p>The region authorized to collect aggregated data.</p>
+   * The region authorized to collect aggregated data.
+   *
    * @public
    */
   AwsRegion?: string | undefined;
 
   /**
-   * <p>Filters the last updated status type.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Valid value FAILED indicates errors while moving
-   * 					data.</p>
-   *             </li>
-   *             <li>
-   *                <p>Valid value SUCCEEDED indicates the data was
-   * 					successfully moved.</p>
-   *             </li>
-   *             <li>
-   *                <p>Valid value OUTDATED indicates the data is not the most
-   * 					recent.</p>
-   *             </li>
-   *          </ul>
+   * Filters the last updated status type.
+   *
+   * - Valid value FAILED indicates errors while moving data.
+   * - Valid value SUCCEEDED indicates the data was successfully moved.
+   * - Valid value OUTDATED indicates the data is not the most recent.
+   *
    * @public
    */
   LastUpdateStatus?: AggregatedSourceStatusType | undefined;
 
   /**
-   * <p>The time of the last update.</p>
+   * The time of the last update.
+   *
    * @public
    */
   LastUpdateTime?: Date | undefined;
 
   /**
-   * <p>The error code that Config returned when the source account
-   * 			aggregation last failed.</p>
+   * The error code that Config returned when the source account aggregation last failed.
+   *
    * @public
    */
   LastErrorCode?: string | undefined;
 
   /**
-   * <p>The message indicating that the source account aggregation
-   * 			failed due to an error.</p>
+   * The message indicating that the source account aggregation failed due to an error.
+   *
    * @public
    */
   LastErrorMessage?: string | undefined;
 }
 
 /**
- * <p>Identifies an Config rule that evaluated an Amazon Web Services resource,
- * 			and provides the type and ID of the resource that the rule
- * 			evaluated.</p>
+ * Identifies an Config rule that evaluated an Amazon Web Services resource, and provides the type and ID of the resource that the rule evaluated.
+ *
  * @public
  */
 export interface EvaluationResultQualifier {
   /**
-   * <p>The name of the Config rule that was used in the
-   * 			evaluation.</p>
+   * The name of the Config rule that was used in the evaluation.
+   *
    * @public
    */
   ConfigRuleName?: string | undefined;
 
   /**
-   * <p>The type of Amazon Web Services resource that was evaluated.</p>
+   * The type of Amazon Web Services resource that was evaluated.
+   *
    * @public
    */
   ResourceType?: string | undefined;
 
   /**
-   * <p>The ID of the evaluated Amazon Web Services resource.</p>
+   * The ID of the evaluated Amazon Web Services resource.
+   *
    * @public
    */
   ResourceId?: string | undefined;
 
   /**
-   * <p>The mode of an evaluation. The valid values are Detective or Proactive.</p>
+   * The mode of an evaluation. The valid values are Detective or Proactive.
+   *
    * @public
    */
   EvaluationMode?: EvaluationMode | undefined;
 }
 
 /**
- * <p>Uniquely identifies an evaluation result.</p>
+ * Uniquely identifies an evaluation result.
+ *
  * @public
  */
 export interface EvaluationResultIdentifier {
   /**
-   * <p>Identifies an Config rule used to evaluate an Amazon Web Services resource,
-   * 			and provides the type and ID of the evaluated resource.</p>
+   * Identifies an Config rule used to evaluate an Amazon Web Services resource, and provides the type and ID of the evaluated resource.
+   *
    * @public
    */
   EvaluationResultQualifier?: EvaluationResultQualifier | undefined;
 
   /**
-   * <p>The time of the event that triggered the evaluation of your Amazon Web Services
-   * 			resources. The time can indicate when Config delivered a
-   * 			configuration item change notification, or it can indicate when Config delivered the configuration snapshot, depending on which
-   * 			event triggered the evaluation.</p>
+   * The time of the event that triggered the evaluation of your Amazon Web Services resources. The time can indicate when Config delivered a configuration item change notification, or it can indicate when Config delivered the configuration snapshot, depending on which event triggered the evaluation.
+   *
    * @public
    */
   OrderingTimestamp?: Date | undefined;
 
   /**
-   * <p>A Unique ID for an evaluation result.</p>
+   * A Unique ID for an evaluation result.
+   *
    * @public
    */
   ResourceEvaluationId?: string | undefined;
 }
 
 /**
- * <p>The details of an Config evaluation for an account ID and
- * 			region in an aggregator. Provides the Amazon Web Services resource that was
- * 			evaluated, the compliance of the resource, related time stamps, and
- * 			supplementary information. </p>
+ * The details of an Config evaluation for an account ID and region in an aggregator. Provides the Amazon Web Services resource that was evaluated, the compliance of the resource, related time stamps, and supplementary information.
+ *
  * @public
  */
 export interface AggregateEvaluationResult {
   /**
-   * <p>Uniquely identifies the evaluation result.</p>
+   * Uniquely identifies the evaluation result.
+   *
    * @public
    */
   EvaluationResultIdentifier?: EvaluationResultIdentifier | undefined;
 
   /**
-   * <p>The resource compliance status.</p>
-   *          <p>For the <code>AggregationEvaluationResult</code> data type, Config supports only the <code>COMPLIANT</code> and
-   * 				<code>NON_COMPLIANT</code>. Config does not support the
-   * 				<code>NOT_APPLICABLE</code> and <code>INSUFFICIENT_DATA</code>
-   * 			value.</p>
+   * The resource compliance status.
+   *
+   * For the `AggregationEvaluationResult` data type, Config supports only the `COMPLIANT` and `NON_COMPLIANT`. Config does not support the `NOT_APPLICABLE` and `INSUFFICIENT_DATA` value.
+   *
    * @public
    */
   ComplianceType?: ComplianceType | undefined;
 
   /**
-   * <p>The time when Config recorded the aggregate evaluation
-   * 			result.</p>
+   * The time when Config recorded the aggregate evaluation result.
+   *
    * @public
    */
   ResultRecordedTime?: Date | undefined;
 
   /**
-   * <p>The time when the Config rule evaluated the Amazon Web Services
-   * 			resource.</p>
+   * The time when the Config rule evaluated the Amazon Web Services resource.
+   *
    * @public
    */
   ConfigRuleInvokedTime?: Date | undefined;
 
   /**
-   * <p>Supplementary information about how the agrregate evaluation
-   * 			determined the compliance.</p>
+   * Supplementary information about how the agrregate evaluation determined the compliance.
+   *
    * @public
    */
   Annotation?: string | undefined;
 
   /**
-   * <p>The 12-digit account ID of the source account.</p>
+   * The 12-digit account ID of the source account.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The source region from where the data is aggregated.</p>
+   * The source region from where the data is aggregated.
+   *
    * @public
    */
   AwsRegion?: string | undefined;
 }
 
 /**
- * <p>The details that identify a resource that is collected by Config aggregator, including the resource type, ID, (if available) the custom resource name, the source account, and source region.</p>
+ * The details that identify a resource that is collected by Config aggregator, including the resource type, ID, (if available) the custom resource name, the source account, and source region.
+ *
  * @public
  */
 export interface AggregateResourceIdentifier {
   /**
-   * <p>The 12-digit account ID of the source account.</p>
+   * The 12-digit account ID of the source account.
+   *
    * @public
    */
   SourceAccountId: string | undefined;
 
   /**
-   * <p>The source region where data is aggregated.</p>
+   * The source region where data is aggregated.
+   *
    * @public
    */
   SourceRegion: string | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services resource.</p>
+   * The ID of the Amazon Web Services resource.
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>The type of the Amazon Web Services resource.</p>
+   * The type of the Amazon Web Services resource.
+   *
    * @public
    */
   ResourceType: ResourceType | undefined;
 
   /**
-   * <p>The name of the Amazon Web Services resource.</p>
+   * The name of the Amazon Web Services resource.
+   *
    * @public
    */
   ResourceName?: string | undefined;
 }
 
 /**
- * <p>An object that represents the authorizations granted to
- * 			aggregator accounts and regions.</p>
+ * An object that represents the authorizations granted to aggregator accounts and regions.
+ *
  * @public
  */
 export interface AggregationAuthorization {
   /**
-   * <p>The Amazon Resource Name (ARN) of the aggregation
-   * 			object.</p>
+   * The Amazon Resource Name (ARN) of the aggregation object.
+   *
    * @public
    */
   AggregationAuthorizationArn?: string | undefined;
 
   /**
-   * <p>The 12-digit account ID of the account authorized to aggregate
-   * 			data.</p>
+   * The 12-digit account ID of the account authorized to aggregate data.
+   *
    * @public
    */
   AuthorizedAccountId?: string | undefined;
 
   /**
-   * <p>The region authorized to collect aggregated data.</p>
+   * The region authorized to collect aggregated data.
+   *
    * @public
    */
   AuthorizedAwsRegion?: string | undefined;
 
   /**
-   * <p>The time stamp when the aggregation authorization was
-   * 			created.</p>
+   * The time stamp when the aggregation authorization was created.
+   *
    * @public
    */
   CreationTime?: Date | undefined;
 }
 
 /**
- * <p>An object to filter the configuration recorders based on the resource types in scope for recording.</p>
+ * An object to filter the configuration recorders based on the resource types in scope for recording.
+ *
  * @public
  */
 export interface AggregatorFilterResourceType {
   /**
-   * <p>The type of resource type filter to apply. <code>INCLUDE</code> specifies that the list of resource types in the <code>Value</code> field will be aggregated and no other resource types will be filtered.</p>
+   * The type of resource type filter to apply. `INCLUDE` specifies that the list of resource types in the `Value` field will be aggregated and no other resource types will be filtered.
+   *
    * @public
    */
   Type?: AggregatorFilterType | undefined;
 
   /**
-   * <p>Comma-separate list of resource types to filter your aggregated configuration recorders.</p>
+   * Comma-separate list of resource types to filter your aggregated configuration recorders.
+   *
    * @public
    */
   Value?: string[] | undefined;
 }
 
 /**
- * <p>An object to filter service-linked configuration recorders in an aggregator based on the linked Amazon Web Services service.</p>
+ * An object to filter service-linked configuration recorders in an aggregator based on the linked Amazon Web Services service.
+ *
  * @public
  */
 export interface AggregatorFilterServicePrincipal {
   /**
-   * <p>The type of service principal filter to apply. <code>INCLUDE</code> specifies that the list of service principals in the <code>Value</code> field will be aggregated and no other service principals will be filtered.</p>
+   * The type of service principal filter to apply. `INCLUDE` specifies that the list of service principals in the `Value` field will be aggregated and no other service principals will be filtered.
+   *
    * @public
    */
   Type?: AggregatorFilterType | undefined;
 
   /**
-   * <p>Comma-separated list of service principals for the linked Amazon Web Services services to filter your aggregated service-linked configuration recorders.</p>
+   * Comma-separated list of service principals for the linked Amazon Web Services services to filter your aggregated service-linked configuration recorders.
+   *
    * @public
    */
   Value?: string[] | undefined;
 }
 
 /**
- * <p>An object to filter the data you specify for an aggregator.</p>
+ * An object to filter the data you specify for an aggregator.
+ *
  * @public
  */
 export interface AggregatorFilters {
   /**
-   * <p>An object to filter the configuration recorders based on the resource types in scope for recording.</p>
+   * An object to filter the configuration recorders based on the resource types in scope for recording.
+   *
    * @public
    */
   ResourceType?: AggregatorFilterResourceType | undefined;
 
   /**
-   * <p>An object to filter service-linked configuration recorders in an aggregator based on the linked Amazon Web Services service.</p>
+   * An object to filter service-linked configuration recorders in an aggregator based on the linked Amazon Web Services service.
+   *
    * @public
    */
   ServicePrincipal?: AggregatorFilterServicePrincipal | undefined;
@@ -677,611 +705,498 @@ export interface AggregatorFilters {
  */
 export interface AssociateResourceTypesRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the specified configuration recorder.</p>
+   * The Amazon Resource Name (ARN) of the specified configuration recorder.
+   *
    * @public
    */
   ConfigurationRecorderArn: string | undefined;
 
   /**
-   * <p>The list of resource types you want to add to the recording group of the specified configuration recorder.</p>
+   * The list of resource types you want to add to the recording group of the specified configuration recorder.
+   *
    * @public
    */
   ResourceTypes: ResourceType[] | undefined;
 }
 
 /**
- * <p>Specifies whether the configuration recorder excludes certain resource types from being recorded.
- * 			Use the <code>resourceTypes</code> field to enter a comma-separated list of resource types you want to exclude from recording.</p>
- *          <p>By default, when Config adds support for a new resource type in the Region where you set up the configuration recorder,
- * 			including global resource types, Config starts recording resources of that type automatically.</p>
- *          <note>
- *             <p>
- *                <b>How to use the exclusion recording strategy </b>
- *             </p>
- *             <p>To use this option, you must set the <code>useOnly</code>
- * 				field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html">RecordingStrategy</a>
- * 				to <code>EXCLUSION_BY_RESOURCE_TYPES</code>.</p>
- *             <p>Config will then record configuration changes for all supported resource types, except the resource types that you specify to exclude from being recorded.</p>
- *             <p>
- *                <b>Global resource types and the exclusion recording strategy </b>
- *             </p>
- *             <p>Unless specifically listed as exclusions,
- * 				<code>AWS::RDS::GlobalCluster</code> will be recorded automatically in all supported  Config Regions were the configuration recorder is enabled.</p>
- *             <p>IAM users, groups, roles, and customer managed policies will be recorded in the Region where you set up the configuration recorder if that is a Region where Config was available before February 2022.
- * 				You cannot be record the global IAM resouce types in Regions supported by Config after February 2022. For a list of those Regions,
- * 				see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-all">Recording Amazon Web Services Resources | Global Resources</a>.</p>
- *          </note>
+ * Specifies whether the configuration recorder excludes certain resource types from being recorded. Use the `resourceTypes` field to enter a comma-separated list of resource types you want to exclude from recording.
+ *
+ * By default, when Config adds support for a new resource type in the Region where you set up the configuration recorder, including global resource types, Config starts recording resources of that type automatically.
+ *
+ * > **Note:**
+ * >
+ * > **How to use the exclusion recording strategy**
+ * >
+ * > To use this option, you must set the `useOnly` field of [RecordingStrategy](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html) to `EXCLUSION_BY_RESOURCE_TYPES`.
+ * >
+ * > Config will then record configuration changes for all supported resource types, except the resource types that you specify to exclude from being recorded.
+ * >
+ * > **Global resource types and the exclusion recording strategy**
+ * >
+ * > Unless specifically listed as exclusions, `AWS::RDS::GlobalCluster` will be recorded automatically in all supported Config Regions were the configuration recorder is enabled.
+ * >
+ * > IAM users, groups, roles, and customer managed policies will be recorded in the Region where you set up the configuration recorder if that is a Region where Config was available before February 2022. You cannot be record the global IAM resouce types in Regions supported by Config after February 2022. For a list of those Regions, see [Recording Amazon Web Services Resources | Global Resources](https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-all).
+ *
  * @public
  */
 export interface ExclusionByResourceTypes {
   /**
-   * <p>A comma-separated list of resource types to exclude from recording by the configuration
-   * 			recorder.</p>
+   * A comma-separated list of resource types to exclude from recording by the configuration recorder.
+   *
    * @public
    */
   resourceTypes?: ResourceType[] | undefined;
 }
 
 /**
- * <p>Specifies the recording strategy of the configuration recorder.</p>
+ * Specifies the recording strategy of the configuration recorder.
+ *
  * @public
  */
 export interface RecordingStrategy {
   /**
-   * <p>The recording strategy for the configuration recorder.</p>
-   *          <ul>
-   *             <li>
-   *                <p>If you set this option to <code>ALL_SUPPORTED_RESOURCE_TYPES</code>, Config records configuration changes for all supported resource types, excluding the global IAM resource types.
-   * 				You also must set the <code>allSupported</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a> to <code>true</code>.
-   * 				When Config adds support for a new resource type, Config automatically starts recording resources of that type. For a list of supported resource types,
-   * 				see <a href="https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources">Supported Resource Types</a> in the <i>Config developer guide</i>.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you set this option to <code>INCLUSION_BY_RESOURCE_TYPES</code>, Config records
-   * 					configuration changes for only the resource types that you specify in the
-   * 						<code>resourceTypes</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you set this option to <code>EXCLUSION_BY_RESOURCE_TYPES</code>, Config records
-   * 					configuration changes for all supported resource types, except the resource
-   * 					types that you specify to exclude from being recorded in the
-   * 						<code>resourceTypes</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_ExclusionByResourceTypes.html">ExclusionByResourceTypes</a>.</p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <p>
-   *                <b>Required and optional fields</b>
-   *             </p>
-   *             <p>The <code>recordingStrategy</code> field is optional when you set the
-   * 			<code>allSupported</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a> to <code>true</code>.</p>
-   *             <p>The <code>recordingStrategy</code> field is optional when you list resource types in the
-   * 				<code>resourceTypes</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a>.</p>
-   *             <p>The <code>recordingStrategy</code> field is required if you list resource types to exclude from recording in the <code>resourceTypes</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_ExclusionByResourceTypes.html">ExclusionByResourceTypes</a>.</p>
-   *          </note>
-   *          <note>
-   *             <p>
-   *                <b>Overriding fields</b>
-   *             </p>
-   *             <p>If you choose <code>EXCLUSION_BY_RESOURCE_TYPES</code> for the recording strategy, the <code>exclusionByResourceTypes</code> field will override other properties in the request.</p>
-   *             <p>For example, even if you set <code>includeGlobalResourceTypes</code> to false, global IAM resource types will still be automatically
-   * 			recorded in this option unless those resource types are specifically listed as exclusions in the <code>resourceTypes</code> field of <code>exclusionByResourceTypes</code>.</p>
-   *          </note>
-   *          <note>
-   *             <p>
-   *                <b>Global resource types and the exclusion recording strategy</b>
-   *             </p>
-   *             <p>By default, if you choose the <code>EXCLUSION_BY_RESOURCE_TYPES</code> recording strategy,
-   * 				when Config adds support for a new resource type in the Region where you set up the configuration recorder, including global resource types,
-   * 				Config starts recording resources of that type automatically.</p>
-   *             <p>Unless specifically listed as exclusions,
-   * 				<code>AWS::RDS::GlobalCluster</code> will be recorded automatically in all supported Config Regions were the configuration recorder is enabled.</p>
-   *             <p>IAM users, groups, roles, and customer managed policies will be recorded in the Region where you set up the configuration recorder if that is a Region where Config was available before February 2022.
-   * 				You cannot be record the global IAM resouce types in Regions supported by Config after February 2022. This list where you cannot record the global IAM resource types includes the following Regions:</p>
-   *             <ul>
-   *                <li>
-   *                   <p>Asia Pacific (Hyderabad)</p>
-   *                </li>
-   *                <li>
-   *                   <p>Asia Pacific (Melbourne)</p>
-   *                </li>
-   *                <li>
-   *                   <p>Canada West (Calgary)</p>
-   *                </li>
-   *                <li>
-   *                   <p>Europe (Spain)</p>
-   *                </li>
-   *                <li>
-   *                   <p>Europe (Zurich)</p>
-   *                </li>
-   *                <li>
-   *                   <p>Israel (Tel Aviv)</p>
-   *                </li>
-   *                <li>
-   *                   <p>Middle East (UAE)</p>
-   *                </li>
-   *             </ul>
-   *          </note>
+   * The recording strategy for the configuration recorder.
+   *
+   * - If you set this option to `ALL_SUPPORTED_RESOURCE_TYPES`, Config records configuration changes for all supported resource types, excluding the global IAM resource types. You also must set the `allSupported` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html) to `true`. When Config adds support for a new resource type, Config automatically starts recording resources of that type. For a list of supported resource types, see [Supported Resource Types](https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources) in the *Config developer guide*.
+   * - If you set this option to `INCLUSION_BY_RESOURCE_TYPES`, Config records configuration changes for only the resource types that you specify in the `resourceTypes` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html).
+   * - If you set this option to `EXCLUSION_BY_RESOURCE_TYPES`, Config records configuration changes for all supported resource types, except the resource types that you specify to exclude from being recorded in the `resourceTypes` field of [ExclusionByResourceTypes](https://docs.aws.amazon.com/config/latest/APIReference/API_ExclusionByResourceTypes.html).
+   *
+   * > **Note:**
+   * >
+   * > **Required and optional fields**
+   * >
+   * > The `recordingStrategy` field is optional when you set the `allSupported` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html) to `true`.
+   * >
+   * > The `recordingStrategy` field is optional when you list resource types in the `resourceTypes` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html).
+   * >
+   * > The `recordingStrategy` field is required if you list resource types to exclude from recording in the `resourceTypes` field of [ExclusionByResourceTypes](https://docs.aws.amazon.com/config/latest/APIReference/API_ExclusionByResourceTypes.html).
+   *
+   * > **Note:**
+   * >
+   * > **Overriding fields**
+   * >
+   * > If you choose `EXCLUSION_BY_RESOURCE_TYPES` for the recording strategy, the `exclusionByResourceTypes` field will override other properties in the request.
+   * >
+   * > For example, even if you set `includeGlobalResourceTypes` to false, global IAM resource types will still be automatically recorded in this option unless those resource types are specifically listed as exclusions in the `resourceTypes` field of `exclusionByResourceTypes`.
+   *
+   * > **Note:**
+   * >
+   * > **Global resource types and the exclusion recording strategy**
+   * >
+   * > By default, if you choose the `EXCLUSION_BY_RESOURCE_TYPES` recording strategy, when Config adds support for a new resource type in the Region where you set up the configuration recorder, including global resource types, Config starts recording resources of that type automatically.
+   * >
+   * > Unless specifically listed as exclusions, `AWS::RDS::GlobalCluster` will be recorded automatically in all supported Config Regions were the configuration recorder is enabled.
+   * >
+   * > IAM users, groups, roles, and customer managed policies will be recorded in the Region where you set up the configuration recorder if that is a Region where Config was available before February 2022. You cannot be record the global IAM resouce types in Regions supported by Config after February 2022. This list where you cannot record the global IAM resource types includes the following Regions:
+   * >
+   * > - Asia Pacific (Hyderabad)
+   * > - Asia Pacific (Melbourne)
+   * > - Canada West (Calgary)
+   * > - Europe (Spain)
+   * > - Europe (Zurich)
+   * > - Israel (Tel Aviv)
+   * > - Middle East (UAE)
+   *
    * @public
    */
   useOnly?: RecordingStrategyType | undefined;
 }
 
 /**
- * <p>Specifies which resource types Config
- * 			records for configuration changes. By default, Config records configuration changes for all current and future supported resource types in the Amazon Web Services Region where you have enabled Config,
- * 			excluding the global IAM resource types: IAM users, groups, roles, and customer managed policies.</p>
- *          <p>In the recording group, you specify whether you want to record all supported current and future supported resource types or to include or exclude specific resources types.
- * 			For a list of supported resource types, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources">Supported Resource Types</a> in the <i>Config developer guide</i>.</p>
- *          <p>If you don't want Config to record all current and future supported resource types (excluding the global IAM resource types), use one of the following recording strategies:</p>
- *          <ol>
- *             <li>
- *                <p>
- *                   <b>Record all current and future resource types with exclusions</b> (<code>EXCLUSION_BY_RESOURCE_TYPES</code>), or</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Record specific resource types</b> (<code>INCLUSION_BY_RESOURCE_TYPES</code>).</p>
- *             </li>
- *          </ol>
- *          <p>If you use the recording strategy to <b>Record all current and future resource types</b> (<code>ALL_SUPPORTED_RESOURCE_TYPES</code>),
- * 			you can use the flag <code>includeGlobalResourceTypes</code> to include the global IAM resource types in your recording.</p>
- *          <important>
- *             <p>
- *                <b>Aurora global clusters are recorded in all enabled Regions</b>
- *             </p>
- *             <p>The <code>AWS::RDS::GlobalCluster</code> resource type
- * 				will be recorded in all supported Config Regions where the configuration recorder is enabled.</p>
- *             <p>If you do not want to record <code>AWS::RDS::GlobalCluster</code> in all enabled Regions, use the <code>EXCLUSION_BY_RESOURCE_TYPES</code> or <code>INCLUSION_BY_RESOURCE_TYPES</code> recording strategy.</p>
- *          </important>
+ * Specifies which resource types Config records for configuration changes. By default, Config records configuration changes for all current and future supported resource types in the Amazon Web Services Region where you have enabled Config, excluding the global IAM resource types: IAM users, groups, roles, and customer managed policies.
+ *
+ * In the recording group, you specify whether you want to record all supported current and future supported resource types or to include or exclude specific resources types. For a list of supported resource types, see [Supported Resource Types](https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources) in the *Config developer guide*.
+ *
+ * If you don't want Config to record all current and future supported resource types (excluding the global IAM resource types), use one of the following recording strategies:
+ *
+ * 1. **Record all current and future resource types with exclusions** (`EXCLUSION_BY_RESOURCE_TYPES`), or
+ * 2. **Record specific resource types** (`INCLUSION_BY_RESOURCE_TYPES`).
+ *
+ * If you use the recording strategy to **Record all current and future resource types** (`ALL_SUPPORTED_RESOURCE_TYPES`), you can use the flag `includeGlobalResourceTypes` to include the global IAM resource types in your recording.
+ *
+ * > **Important:**
+ * >
+ * > **Aurora global clusters are recorded in all enabled Regions**
+ * >
+ * > The `AWS::RDS::GlobalCluster` resource type will be recorded in all supported Config Regions where the configuration recorder is enabled.
+ * >
+ * > If you do not want to record `AWS::RDS::GlobalCluster` in all enabled Regions, use the `EXCLUSION_BY_RESOURCE_TYPES` or `INCLUSION_BY_RESOURCE_TYPES` recording strategy.
+ *
  * @public
  */
 export interface RecordingGroup {
   /**
-   * <p>Specifies whether Config records configuration changes for all supported resource types, excluding the global IAM resource types.</p>
-   *          <p>If you set this field to <code>true</code>, when Config
-   * 			adds support for a new resource type, Config starts recording resources of that type automatically.</p>
-   *          <p>If you set this field to <code>true</code>,
-   * 			you cannot enumerate specific resource types to record in the <code>resourceTypes</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a>, or to exclude in the <code>resourceTypes</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_ExclusionByResourceTypes.html">ExclusionByResourceTypes</a>.</p>
-   *          <note>
-   *             <p>
-   *                <b>Region availability</b>
-   *             </p>
-   *             <p>Check <a href="https://docs.aws.amazon.com/config/latest/developerguide/what-is-resource-config-coverage.html">Resource Coverage by Region Availability</a>
-   * 				to see if a resource type is supported in the Amazon Web Services Region where you set up Config.</p>
-   *          </note>
+   * Specifies whether Config records configuration changes for all supported resource types, excluding the global IAM resource types.
+   *
+   * If you set this field to `true`, when Config adds support for a new resource type, Config starts recording resources of that type automatically.
+   *
+   * If you set this field to `true`, you cannot enumerate specific resource types to record in the `resourceTypes` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html), or to exclude in the `resourceTypes` field of [ExclusionByResourceTypes](https://docs.aws.amazon.com/config/latest/APIReference/API_ExclusionByResourceTypes.html).
+   *
+   * > **Note:**
+   * >
+   * > **Region availability**
+   * >
+   * > Check [Resource Coverage by Region Availability](https://docs.aws.amazon.com/config/latest/developerguide/what-is-resource-config-coverage.html) to see if a resource type is supported in the Amazon Web Services Region where you set up Config.
+   *
    * @public
    */
   allSupported?: boolean | undefined;
 
   /**
-   * <p>This option is a bundle which only applies to the global IAM resource types:
-   * 			IAM users, groups, roles, and customer managed policies. These global IAM resource types can only be recorded
-   * 			by Config in Regions where Config was available before February 2022.
-   * 			You cannot be record the global IAM resouce types in Regions supported by Config after February 2022. For a list of those Regions,
-   * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-all">Recording Amazon Web Services Resources | Global Resources</a>.</p>
-   *          <important>
-   *             <p>
-   *                <b>Aurora global clusters are recorded in all enabled Regions</b>
-   *             </p>
-   *             <p>The <code>AWS::RDS::GlobalCluster</code> resource type will be recorded in all supported Config Regions where the configuration recorder is enabled, even if <code>includeGlobalResourceTypes</code> is set<code>false</code>.
-   * 				The <code>includeGlobalResourceTypes</code> option is a bundle which only applies to IAM users, groups, roles, and customer managed policies.
-   * 			</p>
-   *             <p>If you do not want to record <code>AWS::RDS::GlobalCluster</code> in all enabled Regions, use one of the following recording strategies:</p>
-   *             <ol>
-   *                <li>
-   *                   <p>
-   *                      <b>Record all current and future resource types with exclusions</b> (<code>EXCLUSION_BY_RESOURCE_TYPES</code>), or</p>
-   *                </li>
-   *                <li>
-   *                   <p>
-   *                      <b>Record specific resource types</b> (<code>INCLUSION_BY_RESOURCE_TYPES</code>).</p>
-   *                </li>
-   *             </ol>
-   *             <p>For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-all">Selecting Which Resources are Recorded</a> in the <i>Config developer guide</i>.</p>
-   *          </important>
-   *          <important>
-   *             <p>
-   *                <b>includeGlobalResourceTypes and the exclusion recording strategy</b>
-   *             </p>
-   *             <p>The <code>includeGlobalResourceTypes</code> field has no impact on the <code>EXCLUSION_BY_RESOURCE_TYPES</code> recording strategy.
-   * 				This means that the global IAM resource types (IAM users, groups, roles, and customer managed policies) will
-   * 				not be automatically added as exclusions for <code>exclusionByResourceTypes</code> when <code>includeGlobalResourceTypes</code> is set to <code>false</code>.</p>
-   *             <p>The <code>includeGlobalResourceTypes</code> field should only be used to modify the <code>AllSupported</code> field, as the default for
-   * 				the <code>AllSupported</code> field is to record configuration changes for all supported resource types excluding the global
-   * 				IAM resource types. To include the global IAM resource types when <code>AllSupported</code> is set to <code>true</code>, make sure to set <code>includeGlobalResourceTypes</code> to <code>true</code>.</p>
-   *             <p>To exclude the global IAM resource types for the <code>EXCLUSION_BY_RESOURCE_TYPES</code> recording strategy, you need to manually add them to the <code>resourceTypes</code> field of <code>exclusionByResourceTypes</code>.</p>
-   *          </important>
-   *          <note>
-   *             <p>
-   *                <b>Required and optional fields</b>
-   *             </p>
-   *             <p>Before you set this field to <code>true</code>,
-   * 			set the <code>allSupported</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a> to
-   * 			<code>true</code>. Optionally, you can set the <code>useOnly</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html">RecordingStrategy</a> to <code>ALL_SUPPORTED_RESOURCE_TYPES</code>.</p>
-   *          </note>
-   *          <note>
-   *             <p>
-   *                <b>Overriding fields</b>
-   *             </p>
-   *             <p>If you set this field to <code>false</code> but list global IAM resource types in the <code>resourceTypes</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a>,
-   * 			Config will still record configuration changes for those specified resource types <i>regardless</i> of if you set the <code>includeGlobalResourceTypes</code> field to false.</p>
-   *             <p>If you do not want to record configuration changes to the global IAM resource types (IAM users, groups, roles, and customer managed policies), make sure to not list them in the <code>resourceTypes</code> field
-   * 			in addition to setting the <code>includeGlobalResourceTypes</code> field to false.</p>
-   *          </note>
+   * This option is a bundle which only applies to the global IAM resource types: IAM users, groups, roles, and customer managed policies. These global IAM resource types can only be recorded by Config in Regions where Config was available before February 2022. You cannot be record the global IAM resouce types in Regions supported by Config after February 2022. For a list of those Regions, see [Recording Amazon Web Services Resources | Global Resources](https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-all).
+   *
+   * > **Important:**
+   * >
+   * > **Aurora global clusters are recorded in all enabled Regions**
+   * >
+   * > The `AWS::RDS::GlobalCluster` resource type will be recorded in all supported Config Regions where the configuration recorder is enabled, even if `includeGlobalResourceTypes` is set`false`. The `includeGlobalResourceTypes` option is a bundle which only applies to IAM users, groups, roles, and customer managed policies.
+   * >
+   * > If you do not want to record `AWS::RDS::GlobalCluster` in all enabled Regions, use one of the following recording strategies:
+   * >
+   * > 1. **Record all current and future resource types with exclusions** (`EXCLUSION_BY_RESOURCE_TYPES`), or
+   * > 2. **Record specific resource types** (`INCLUSION_BY_RESOURCE_TYPES`).
+   * >
+   * > For more information, see [Selecting Which Resources are Recorded](https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-all) in the *Config developer guide*.
+   *
+   * > **Important:**
+   * >
+   * > **includeGlobalResourceTypes and the exclusion recording strategy**
+   * >
+   * > The `includeGlobalResourceTypes` field has no impact on the `EXCLUSION_BY_RESOURCE_TYPES` recording strategy. This means that the global IAM resource types (IAM users, groups, roles, and customer managed policies) will not be automatically added as exclusions for `exclusionByResourceTypes` when `includeGlobalResourceTypes` is set to `false`.
+   * >
+   * > The `includeGlobalResourceTypes` field should only be used to modify the `AllSupported` field, as the default for the `AllSupported` field is to record configuration changes for all supported resource types excluding the global IAM resource types. To include the global IAM resource types when `AllSupported` is set to `true`, make sure to set `includeGlobalResourceTypes` to `true`.
+   * >
+   * > To exclude the global IAM resource types for the `EXCLUSION_BY_RESOURCE_TYPES` recording strategy, you need to manually add them to the `resourceTypes` field of `exclusionByResourceTypes`.
+   *
+   * > **Note:**
+   * >
+   * > **Required and optional fields**
+   * >
+   * > Before you set this field to `true`, set the `allSupported` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html) to `true`. Optionally, you can set the `useOnly` field of [RecordingStrategy](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html) to `ALL_SUPPORTED_RESOURCE_TYPES`.
+   *
+   * > **Note:**
+   * >
+   * > **Overriding fields**
+   * >
+   * > If you set this field to `false` but list global IAM resource types in the `resourceTypes` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html), Config will still record configuration changes for those specified resource types *regardless* of if you set the `includeGlobalResourceTypes` field to false.
+   * >
+   * > If you do not want to record configuration changes to the global IAM resource types (IAM users, groups, roles, and customer managed policies), make sure to not list them in the `resourceTypes` field in addition to setting the `includeGlobalResourceTypes` field to false.
+   *
    * @public
    */
   includeGlobalResourceTypes?: boolean | undefined;
 
   /**
-   * <p>A comma-separated list that specifies which resource types Config
-   * 			records.</p>
-   *          <p>For a list of valid <code>resourceTypes</code> values, see the
-   * 				<b>Resource Type Value</b> column in
-   * 				<a href="https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources">Supported Amazon Web Services resource Types</a> in the <i>Config developer guide</i>.</p>
-   *          <note>
-   *             <p>
-   *                <b>Required and optional fields</b>
-   *             </p>
-   *             <p>Optionally, you can set the <code>useOnly</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html">RecordingStrategy</a> to <code>INCLUSION_BY_RESOURCE_TYPES</code>.</p>
-   *             <p>To record all configuration changes,
-   * 				set the <code>allSupported</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a> to
-   * 				<code>true</code>, and either omit this field or don't specify any resource types in this field. If you set the <code>allSupported</code> field to <code>false</code> and specify values for <code>resourceTypes</code>,
-   * 				when Config adds support for a new type of resource,
-   * 				it will not record resources of that type unless you manually add that type to your recording group.</p>
-   *          </note>
-   *          <note>
-   *             <p>
-   *                <b>Region availability</b>
-   *             </p>
-   *             <p>Before specifying a resource type for Config to track,
-   * 				check <a href="https://docs.aws.amazon.com/config/latest/developerguide/what-is-resource-config-coverage.html">Resource Coverage by Region Availability</a>
-   * 				to see if the resource type is supported in the Amazon Web Services Region where you set up Config.
-   * 				If a resource type is supported by Config in at least one Region,
-   * 				you can enable the recording of that resource type in all Regions supported by Config,
-   * 				even if the specified resource type is not supported in the Amazon Web Services Region where you set up Config.</p>
-   *          </note>
+   * A comma-separated list that specifies which resource types Config records.
+   *
+   * For a list of valid `resourceTypes` values, see the **Resource Type Value** column in [Supported Amazon Web Services resource Types](https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources) in the *Config developer guide*.
+   *
+   * > **Note:**
+   * >
+   * > **Required and optional fields**
+   * >
+   * > Optionally, you can set the `useOnly` field of [RecordingStrategy](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html) to `INCLUSION_BY_RESOURCE_TYPES`.
+   * >
+   * > To record all configuration changes, set the `allSupported` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html) to `true`, and either omit this field or don't specify any resource types in this field. If you set the `allSupported` field to `false` and specify values for `resourceTypes`, when Config adds support for a new type of resource, it will not record resources of that type unless you manually add that type to your recording group.
+   *
+   * > **Note:**
+   * >
+   * > **Region availability**
+   * >
+   * > Before specifying a resource type for Config to track, check [Resource Coverage by Region Availability](https://docs.aws.amazon.com/config/latest/developerguide/what-is-resource-config-coverage.html) to see if the resource type is supported in the Amazon Web Services Region where you set up Config. If a resource type is supported by Config in at least one Region, you can enable the recording of that resource type in all Regions supported by Config, even if the specified resource type is not supported in the Amazon Web Services Region where you set up Config.
+   *
    * @public
    */
   resourceTypes?: ResourceType[] | undefined;
 
   /**
-   * <p>An object that specifies how Config excludes resource types from being recorded by the configuration recorder.</p>
-   *          <note>
-   *             <p>
-   *                <b>Required fields</b>
-   *             </p>
-   *             <p>To use this option, you must set the <code>useOnly</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html">RecordingStrategy</a> to <code>EXCLUSION_BY_RESOURCE_TYPES</code>.</p>
-   *          </note>
+   * An object that specifies how Config excludes resource types from being recorded by the configuration recorder.
+   *
+   * > **Note:**
+   * >
+   * > **Required fields**
+   * >
+   * > To use this option, you must set the `useOnly` field of [RecordingStrategy](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html) to `EXCLUSION_BY_RESOURCE_TYPES`.
+   *
    * @public
    */
   exclusionByResourceTypes?: ExclusionByResourceTypes | undefined;
 
   /**
-   * <p>An object that specifies the recording strategy for the configuration recorder.</p>
-   *          <ul>
-   *             <li>
-   *                <p>If you set the <code>useOnly</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html">RecordingStrategy</a> to <code>ALL_SUPPORTED_RESOURCE_TYPES</code>, Config records configuration changes for all supported resource types, excluding the global IAM resource types. You also must set the <code>allSupported</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a> to <code>true</code>. When Config adds support for a new resource type, Config automatically starts recording resources of that type.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you set the <code>useOnly</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html">RecordingStrategy</a> to <code>INCLUSION_BY_RESOURCE_TYPES</code>, Config records configuration changes for only the resource types you specify in the <code>resourceTypes</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you set the <code>useOnly</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html">RecordingStrategy</a> to <code>EXCLUSION_BY_RESOURCE_TYPES</code>, Config records configuration changes for all supported resource types
-   * 				except the resource types that you specify to exclude from being recorded in the <code>resourceTypes</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_ExclusionByResourceTypes.html">ExclusionByResourceTypes</a>.</p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <p>
-   *                <b>Required and optional fields</b>
-   *             </p>
-   *             <p>The <code>recordingStrategy</code> field is optional when you set the
-   * 			<code>allSupported</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a> to <code>true</code>.</p>
-   *             <p>The <code>recordingStrategy</code> field is optional when you list resource types in the
-   * 				<code>resourceTypes</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a>.</p>
-   *             <p>The <code>recordingStrategy</code> field is required if you list resource types to exclude from recording in the <code>resourceTypes</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_ExclusionByResourceTypes.html">ExclusionByResourceTypes</a>.</p>
-   *          </note>
-   *          <note>
-   *             <p>
-   *                <b>Overriding fields</b>
-   *             </p>
-   *             <p>If you choose <code>EXCLUSION_BY_RESOURCE_TYPES</code> for the recording strategy, the <code>exclusionByResourceTypes</code> field will override other properties in the request.</p>
-   *             <p>For example, even if you set <code>includeGlobalResourceTypes</code> to false, global IAM resource types will still be automatically
-   * 			recorded in this option unless those resource types are specifically listed as exclusions in the <code>resourceTypes</code> field of <code>exclusionByResourceTypes</code>.</p>
-   *          </note>
-   *          <note>
-   *             <p>
-   *                <b>Global resources types and the resource exclusion recording strategy</b>
-   *             </p>
-   *             <p>By default, if you choose the <code>EXCLUSION_BY_RESOURCE_TYPES</code> recording strategy,
-   * 			when Config adds support for a new resource type in the Region where you set up the configuration recorder, including global resource types,
-   * 			Config starts recording resources of that type automatically.</p>
-   *             <p>Unless specifically listed as exclusions,
-   * 				<code>AWS::RDS::GlobalCluster</code> will be recorded automatically in all supported Config Regions were the configuration recorder is enabled.</p>
-   *             <p>IAM users, groups, roles, and customer managed policies will be recorded in the Region where you set up the configuration recorder if that is a Region where Config  was available before February 2022.
-   * 				You cannot be record the global IAM resouce types in Regions supported by Config after February 2022. For a list of those Regions,
-   * 				see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-all">Recording Amazon Web Services Resources | Global Resources</a>.</p>
-   *          </note>
+   * An object that specifies the recording strategy for the configuration recorder.
+   *
+   * - If you set the `useOnly` field of [RecordingStrategy](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html) to `ALL_SUPPORTED_RESOURCE_TYPES`, Config records configuration changes for all supported resource types, excluding the global IAM resource types. You also must set the `allSupported` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html) to `true`. When Config adds support for a new resource type, Config automatically starts recording resources of that type.
+   * - If you set the `useOnly` field of [RecordingStrategy](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html) to `INCLUSION_BY_RESOURCE_TYPES`, Config records configuration changes for only the resource types you specify in the `resourceTypes` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html).
+   * - If you set the `useOnly` field of [RecordingStrategy](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html) to `EXCLUSION_BY_RESOURCE_TYPES`, Config records configuration changes for all supported resource types except the resource types that you specify to exclude from being recorded in the `resourceTypes` field of [ExclusionByResourceTypes](https://docs.aws.amazon.com/config/latest/APIReference/API_ExclusionByResourceTypes.html).
+   *
+   * > **Note:**
+   * >
+   * > **Required and optional fields**
+   * >
+   * > The `recordingStrategy` field is optional when you set the `allSupported` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html) to `true`.
+   * >
+   * > The `recordingStrategy` field is optional when you list resource types in the `resourceTypes` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html).
+   * >
+   * > The `recordingStrategy` field is required if you list resource types to exclude from recording in the `resourceTypes` field of [ExclusionByResourceTypes](https://docs.aws.amazon.com/config/latest/APIReference/API_ExclusionByResourceTypes.html).
+   *
+   * > **Note:**
+   * >
+   * > **Overriding fields**
+   * >
+   * > If you choose `EXCLUSION_BY_RESOURCE_TYPES` for the recording strategy, the `exclusionByResourceTypes` field will override other properties in the request.
+   * >
+   * > For example, even if you set `includeGlobalResourceTypes` to false, global IAM resource types will still be automatically recorded in this option unless those resource types are specifically listed as exclusions in the `resourceTypes` field of `exclusionByResourceTypes`.
+   *
+   * > **Note:**
+   * >
+   * > **Global resources types and the resource exclusion recording strategy**
+   * >
+   * > By default, if you choose the `EXCLUSION_BY_RESOURCE_TYPES` recording strategy, when Config adds support for a new resource type in the Region where you set up the configuration recorder, including global resource types, Config starts recording resources of that type automatically.
+   * >
+   * > Unless specifically listed as exclusions, `AWS::RDS::GlobalCluster` will be recorded automatically in all supported Config Regions were the configuration recorder is enabled.
+   * >
+   * > IAM users, groups, roles, and customer managed policies will be recorded in the Region where you set up the configuration recorder if that is a Region where Config was available before February 2022. You cannot be record the global IAM resouce types in Regions supported by Config after February 2022. For a list of those Regions, see [Recording Amazon Web Services Resources | Global Resources](https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-all).
+   *
    * @public
    */
   recordingStrategy?: RecordingStrategy | undefined;
 }
 
 /**
- * <p>An object for you to specify your overrides for the recording mode.</p>
+ * An object for you to specify your overrides for the recording mode.
+ *
  * @public
  */
 export interface RecordingModeOverride {
   /**
-   * <p>A description that you provide for the override.</p>
+   * A description that you provide for the override.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>A comma-separated list that specifies which resource types Config
-   * 			includes in the override.</p>
-   *          <important>
-   *             <p>Daily recording cannot be specified for the following resource types:</p>
-   *             <ul>
-   *                <li>
-   *                   <p>
-   *                      <code>AWS::Config::ResourceCompliance</code>
-   *                   </p>
-   *                </li>
-   *                <li>
-   *                   <p>
-   *                      <code>AWS::Config::ConformancePackCompliance</code>
-   *                   </p>
-   *                </li>
-   *                <li>
-   *                   <p>
-   *                      <code>AWS::Config::ConfigurationRecorder</code>
-   *                   </p>
-   *                </li>
-   *             </ul>
-   *          </important>
+   * A comma-separated list that specifies which resource types Config includes in the override.
+   *
+   * > **Important:**
+   * >
+   * > Daily recording cannot be specified for the following resource types:
+   * >
+   * > - `AWS::Config::ResourceCompliance`
+   * > - `AWS::Config::ConformancePackCompliance`
+   * > - `AWS::Config::ConfigurationRecorder`
+   *
    * @public
    */
   resourceTypes: ResourceType[] | undefined;
 
   /**
-   * <p>The recording frequency that will be applied to all the resource types specified in the override.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Continuous recording allows you to record configuration changes continuously whenever a change occurs.</p>
-   *             </li>
-   *             <li>
-   *                <p>Daily recording allows you to receive a configuration item (CI) representing the most recent state of your resources over the last 24-hour period, only if it’s different from the previous CI recorded.
-   * 			</p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <p>Firewall Manager depends on continuous recording to monitor your resources. If you are using Firewall Manager,
-   * 			it is recommended that you set the recording frequency to Continuous.</p>
-   *          </note>
+   * The recording frequency that will be applied to all the resource types specified in the override.
+   *
+   * - Continuous recording allows you to record configuration changes continuously whenever a change occurs.
+   * - Daily recording allows you to receive a configuration item (CI) representing the most recent state of your resources over the last 24-hour period, only if it’s different from the previous CI recorded.
+   *
+   * > **Note:** Firewall Manager depends on continuous recording to monitor your resources. If you are using Firewall Manager, it is recommended that you set the recording frequency to Continuous.
+   *
    * @public
    */
   recordingFrequency: RecordingFrequency | undefined;
 }
 
 /**
- * <p>Specifies the default recording frequency that Config uses to record configuration changes.
- * 			
- * 			Config supports <i>Continuous recording</i> and <i>Daily recording</i>.</p>
- *          <ul>
- *             <li>
- *                <p>Continuous recording allows you to record configuration changes continuously whenever a change occurs.</p>
- *             </li>
- *             <li>
- *                <p>Daily recording allows you to receive a configuration item (CI) representing the most recent state of your resources over the last 24-hour period, only if it’s different from the previous CI recorded.
- * 			</p>
- *             </li>
- *          </ul>
- *          <note>
- *             <p>Firewall Manager depends on continuous recording to monitor your resources. If you are using Firewall Manager,
- * 			it is recommended that you set the recording frequency to Continuous.</p>
- *          </note>
- *          <p>You can also override the recording frequency for specific resource types.</p>
+ * Specifies the default recording frequency that Config uses to record configuration changes. Config supports *Continuous recording* and *Daily recording*.
+ *
+ * - Continuous recording allows you to record configuration changes continuously whenever a change occurs.
+ * - Daily recording allows you to receive a configuration item (CI) representing the most recent state of your resources over the last 24-hour period, only if it’s different from the previous CI recorded.
+ *
+ * > **Note:** Firewall Manager depends on continuous recording to monitor your resources. If you are using Firewall Manager, it is recommended that you set the recording frequency to Continuous.
+ *
+ * You can also override the recording frequency for specific resource types.
+ *
  * @public
  */
 export interface RecordingMode {
   /**
-   * <p>The default recording frequency that Config uses to record configuration changes.</p>
-   *          <important>
-   *             <p>Daily recording cannot be specified for the following resource types:</p>
-   *             <ul>
-   *                <li>
-   *                   <p>
-   *                      <code>AWS::Config::ResourceCompliance</code>
-   *                   </p>
-   *                </li>
-   *                <li>
-   *                   <p>
-   *                      <code>AWS::Config::ConformancePackCompliance</code>
-   *                   </p>
-   *                </li>
-   *                <li>
-   *                   <p>
-   *                      <code>AWS::Config::ConfigurationRecorder</code>
-   *                   </p>
-   *                </li>
-   *             </ul>
-   *             <p>For the <b>allSupported</b> (<code>ALL_SUPPORTED_RESOURCE_TYPES</code>) recording strategy, these resource types will be set to Continuous recording.</p>
-   *          </important>
+   * The default recording frequency that Config uses to record configuration changes.
+   *
+   * > **Important:**
+   * >
+   * > Daily recording cannot be specified for the following resource types:
+   * >
+   * > - `AWS::Config::ResourceCompliance`
+   * > - `AWS::Config::ConformancePackCompliance`
+   * > - `AWS::Config::ConfigurationRecorder`
+   * >
+   * > For the **allSupported** (`ALL_SUPPORTED_RESOURCE_TYPES`) recording strategy, these resource types will be set to Continuous recording.
+   *
    * @public
    */
   recordingFrequency: RecordingFrequency | undefined;
 
   /**
-   * <p>An array of <code>recordingModeOverride</code> objects for you to specify your overrides for the recording mode.
-   * 			The <code>recordingModeOverride</code> object in the <code>recordingModeOverrides</code> array consists of three fields: a <code>description</code>, the new <code>recordingFrequency</code>, and an array of <code>resourceTypes</code> to override.</p>
+   * An array of `recordingModeOverride` objects for you to specify your overrides for the recording mode. The `recordingModeOverride` object in the `recordingModeOverrides` array consists of three fields: a `description`, the new `recordingFrequency`, and an array of `resourceTypes` to override.
+   *
    * @public
    */
   recordingModeOverrides?: RecordingModeOverride[] | undefined;
 }
 
 /**
- * <p>Specifies the scope of resources to record from a third-party cloud service provider.</p>
+ * Specifies the scope of resources to record from a third-party cloud service provider.
+ *
  * @public
  */
 export interface ScopeConfiguration {
   /**
-   * <p>The type of scope for the third-party cloud resources. Valid values include <code>tenant</code> and <code>subscription</code>.</p>
+   * The type of scope for the third-party cloud resources. Valid values include `tenant` and `subscription`.
+   *
    * @public
    */
   scopeType: string | undefined;
 
   /**
-   * <p>The list of specific scope values for the third-party cloud resources. For example, a list of Azure subscriptions or management groups.</p>
+   * The list of specific scope values for the third-party cloud resources. For example, a list of Azure subscriptions or management groups.
+   *
    * @public
    */
   scopeValues?: string[] | undefined;
 
   /**
-   * <p>Specifies whether to record resources from all supported regions for the third-party cloud service provider.</p>
+   * Specifies whether to record resources from all supported regions for the third-party cloud service provider.
+   *
    * @public
    */
   allRegions: boolean | undefined;
 
   /**
-   * <p>The list of regions from the third-party cloud service provider to include when recording resources. Used when <code>allRegions</code> is set to <code>false</code>.</p>
+   * The list of regions from the third-party cloud service provider to include when recording resources. Used when `allRegions` is set to `false`.
+   *
    * @public
    */
   includedRegions?: string[] | undefined;
 }
 
 /**
- * <p>Records configuration changes to the resource types in scope.</p>
- *          <p>For more information about the configuration recorder,
- * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html">
- *                <b>Working with the Configuration Recorder</b>
- *             </a> in the <i>Config Developer Guide</i>.</p>
+ * Records configuration changes to the resource types in scope.
+ *
+ * For more information about the configuration recorder, see [**Working with the Configuration Recorder**](https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html) in the *Config Developer Guide*.
+ *
  * @public
  */
 export interface ConfigurationRecorder {
   /**
-   * <p>The Amazon Resource Name (ARN) of the specified configuration recorder.</p>
+   * The Amazon Resource Name (ARN) of the specified configuration recorder.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The name of the configuration recorder.</p>
-   *          <p>For customer managed configuration recorders, Config automatically assigns the name of "default" when creating a configuration recorder if you do not specify a name at creation time.</p>
-   *          <p>For service-linked configuration recorders, Config automatically assigns a name that has the prefix "<code>AWSConfigurationRecorderFor</code>" to a new service-linked configuration recorder.</p>
-   *          <note>
-   *             <p>
-   *                <b>Changing the name of a configuration recorder</b>
-   *             </p>
-   *             <p>To change the name of the customer managed configuration recorder, you must delete it and create a new customer managed configuration recorder with a new name.</p>
-   *             <p>You cannot change the name of a service-linked configuration recorder.</p>
-   *          </note>
+   * The name of the configuration recorder.
+   *
+   * For customer managed configuration recorders, Config automatically assigns the name of "default" when creating a configuration recorder if you do not specify a name at creation time.
+   *
+   * For service-linked configuration recorders, Config automatically assigns a name that has the prefix "`AWSConfigurationRecorderFor`" to a new service-linked configuration recorder.
+   *
+   * > **Note:**
+   * >
+   * > **Changing the name of a configuration recorder**
+   * >
+   * > To change the name of the customer managed configuration recorder, you must delete it and create a new customer managed configuration recorder with a new name.
+   * >
+   * > You cannot change the name of a service-linked configuration recorder.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role assumed by Config and used by the specified configuration recorder.</p>
-   *          <note>
-   *             <p>
-   *                <b>The server will reject a request without a defined <code>roleARN</code> for the configuration recorder</b>
-   *             </p>
-   *             <p>While the API model does not require this field, the server will reject a request without a defined <code>roleARN</code> for the configuration recorder.</p>
-   *             <p>
-   *                <b>Policies and compliance results</b>
-   *             </p>
-   *             <p>
-   *                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html">IAM policies</a>
-   * 				and <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html">other policies managed in Organizations</a>
-   * 				can impact whether Config
-   * 				has permissions to record configuration changes for your resources. Additionally, rules directly evaluate the configuration of a resource and rules don't take into account these policies when running evaluations.
-   * 				Make sure that the policies in effect align with how you intend to use Config.</p>
-   *             <p>
-   *                <b>Keep Minimum Permisions When Reusing an IAM role</b>
-   *             </p>
-   *             <p>If you use an Amazon Web Services service that uses Config, such as Security Hub CSPM or
-   * 				Control Tower, and an IAM role has already been created, make sure that the
-   * 				IAM role that you use when setting up Config keeps the same minimum
-   * 				permissions as the pre-existing IAM role. You must do this to ensure that the
-   * 				other Amazon Web Services service continues to run as expected. </p>
-   *             <p>For example, if Control Tower has an IAM role that allows Config to read
-   * 				S3 objects, make sure that the same permissions are granted
-   * 				to the IAM role you use when setting up Config. Otherwise, it may
-   * 				interfere with how Control Tower operates.</p>
-   *             <p>
-   *                <b>The service-linked IAM role for Config must be used for service-linked configuration recorders</b>
-   *             </p>
-   *             <p>For service-linked configuration recorders, you must use the service-linked IAM role for Config: <a href="https://docs.aws.amazon.com/config/latest/developerguide/using-service-linked-roles.html">AWSServiceRoleForConfig</a>.</p>
-   *          </note>
+   * The Amazon Resource Name (ARN) of the IAM role assumed by Config and used by the specified configuration recorder.
+   *
+   * > **Note:**
+   * >
+   * > **The server will reject a request without a defined `roleARN` for the configuration recorder**
+   * >
+   * > While the API model does not require this field, the server will reject a request without a defined `roleARN` for the configuration recorder.
+   * >
+   * > **Policies and compliance results**
+   * >
+   * > [IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html) and [other policies managed in Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html) can impact whether Config has permissions to record configuration changes for your resources. Additionally, rules directly evaluate the configuration of a resource and rules don't take into account these policies when running evaluations. Make sure that the policies in effect align with how you intend to use Config.
+   * >
+   * > **Keep Minimum Permisions When Reusing an IAM role**
+   * >
+   * > If you use an Amazon Web Services service that uses Config, such as Security Hub CSPM or Control Tower, and an IAM role has already been created, make sure that the IAM role that you use when setting up Config keeps the same minimum permissions as the pre-existing IAM role. You must do this to ensure that the other Amazon Web Services service continues to run as expected.
+   * >
+   * > For example, if Control Tower has an IAM role that allows Config to read S3 objects, make sure that the same permissions are granted to the IAM role you use when setting up Config. Otherwise, it may interfere with how Control Tower operates.
+   * >
+   * > **The service-linked IAM role for Config must be used for service-linked configuration recorders**
+   * >
+   * > For service-linked configuration recorders, you must use the service-linked IAM role for Config: [AWSServiceRoleForConfig](https://docs.aws.amazon.com/config/latest/developerguide/using-service-linked-roles.html).
+   *
    * @public
    */
   roleARN?: string | undefined;
 
   /**
-   * <p>Specifies which resource types are in scope for the configuration recorder to record.</p>
-   *          <note>
-   *             <p>
-   *                <b> High Number of Config Evaluations</b>
-   *             </p>
-   *             <p>You might notice increased activity in your account during your initial month recording with Config when compared to subsequent months. During the
-   * 				initial bootstrapping process, Config runs evaluations on all the resources in your account that you have selected
-   * 				for Config to record.</p>
-   *             <p>If you are running ephemeral workloads, you may see increased activity from Config as it records configuration changes associated with creating and deleting these
-   * 				temporary resources. An <i>ephemeral workload</i> is a temporary use of computing resources that are loaded
-   * 				and run when needed. Examples include Amazon Elastic Compute Cloud (Amazon EC2)
-   * 				Spot Instances, Amazon EMR jobs, and Auto Scaling.</p>
-   *             <p>If you want to avoid the increased activity from running ephemeral workloads, you can set up the configuration recorder to exclude these resource types from being recorded, or run these types of workloads in a separate account with Config turned off to avoid
-   * 				increased configuration recording and rule evaluations.</p>
-   *          </note>
+   * Specifies which resource types are in scope for the configuration recorder to record.
+   *
+   * > **Note:**
+   * >
+   * > **High Number of Config Evaluations**
+   * >
+   * > You might notice increased activity in your account during your initial month recording with Config when compared to subsequent months. During the initial bootstrapping process, Config runs evaluations on all the resources in your account that you have selected for Config to record.
+   * >
+   * > If you are running ephemeral workloads, you may see increased activity from Config as it records configuration changes associated with creating and deleting these temporary resources. An *ephemeral workload* is a temporary use of computing resources that are loaded and run when needed. Examples include Amazon Elastic Compute Cloud (Amazon EC2) Spot Instances, Amazon EMR jobs, and Auto Scaling.
+   * >
+   * > If you want to avoid the increased activity from running ephemeral workloads, you can set up the configuration recorder to exclude these resource types from being recorded, or run these types of workloads in a separate account with Config turned off to avoid increased configuration recording and rule evaluations.
+   *
    * @public
    */
   recordingGroup?: RecordingGroup | undefined;
 
   /**
-   * <p>Specifies the default recording frequency for the configuration recorder.
-   * 			
-   * 			Config supports <i>Continuous recording</i> and <i>Daily recording</i>.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Continuous recording allows you to record configuration changes continuously whenever a change occurs.</p>
-   *             </li>
-   *             <li>
-   *                <p>Daily recording allows you to receive a configuration item (CI) representing the most recent state of your resources over the last 24-hour period, only if it’s different from the previous CI recorded.
-   * 			</p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <p>
-   *                <b>Some resource types require continuous recording</b>
-   *             </p>
-   *             <p>Firewall Manager depends on continuous recording to monitor your resources. If you are using Firewall Manager,
-   * 			it is recommended that you set the recording frequency to Continuous.</p>
-   *          </note>
-   *          <p>You can also override the recording frequency for specific resource types.</p>
+   * Specifies the default recording frequency for the configuration recorder. Config supports *Continuous recording* and *Daily recording*.
+   *
+   * - Continuous recording allows you to record configuration changes continuously whenever a change occurs.
+   * - Daily recording allows you to receive a configuration item (CI) representing the most recent state of your resources over the last 24-hour period, only if it’s different from the previous CI recorded.
+   *
+   * > **Note:**
+   * >
+   * > **Some resource types require continuous recording**
+   * >
+   * > Firewall Manager depends on continuous recording to monitor your resources. If you are using Firewall Manager, it is recommended that you set the recording frequency to Continuous.
+   *
+   * You can also override the recording frequency for specific resource types.
+   *
    * @public
    */
   recordingMode?: RecordingMode | undefined;
 
   /**
-   * <p>Specifies whether the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigurationItem.html">ConfigurationItems</a> in scope for the specified configuration recorder are recorded for free (<code>INTERNAL</code>) or if it impacts the costs to your bill (<code>PAID</code>).</p>
+   * Specifies whether the [ConfigurationItems](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigurationItem.html) in scope for the specified configuration recorder are recorded for free (`INTERNAL`) or if it impacts the costs to your bill (`PAID`).
+   *
    * @public
    */
   recordingScope?: RecordingScope | undefined;
 
   /**
-   * <p>For service-linked configuration recorders, specifies the linked Amazon Web Services service for the configuration recorder.</p>
+   * For service-linked configuration recorders, specifies the linked Amazon Web Services service for the configuration recorder.
+   *
    * @public
    */
   servicePrincipal?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the connector that specifies the connection between a third-party cloud service provider and Config.</p>
+   * The Amazon Resource Name (ARN) of the connector that specifies the connection between a third-party cloud service provider and Config.
+   *
    * @public
    */
   connectorArn?: string | undefined;
 
   /**
-   * <p>Specifies the scope of resources to record from the third-party cloud service provider connected through the connector.</p>
+   * Specifies the scope of resources to record from the third-party cloud service provider connected through the connector.
+   *
    * @public
    */
   scopeConfiguration?: ScopeConfiguration | undefined;
@@ -1292,164 +1207,162 @@ export interface ConfigurationRecorder {
  */
 export interface AssociateResourceTypesResponse {
   /**
-   * <p>Records configuration changes to the resource types in scope.</p>
-   *          <p>For more information about the configuration recorder,
-   * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html">
-   *                <b>Working with the Configuration Recorder</b>
-   *             </a> in the <i>Config Developer Guide</i>.</p>
+   * Records configuration changes to the resource types in scope.
+   *
+   * For more information about the configuration recorder, see [**Working with the Configuration Recorder**](https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html) in the *Config Developer Guide*.
+   *
    * @public
    */
   ConfigurationRecorder: ConfigurationRecorder | undefined;
 }
 
 /**
- * <p>The configuration details for connecting to Microsoft Azure.</p>
+ * The configuration details for connecting to Microsoft Azure.
+ *
  * @public
  */
 export interface AzureConnectorConfiguration {
   /**
-   * <p>The Azure tenant identifier.</p>
+   * The Azure tenant identifier.
+   *
    * @public
    */
   tenantIdentifier: string | undefined;
 
   /**
-   * <p>The Azure client identifier.</p>
+   * The Azure client identifier.
+   *
    * @public
    */
   clientIdentifier: string | undefined;
 }
 
 /**
- * <p>The detailed configurations of a specified resource.</p>
+ * The detailed configurations of a specified resource.
+ *
  * @public
  */
 export interface BaseConfigurationItem {
   /**
-   * <p>The version number of the resource configuration.</p>
+   * The version number of the resource configuration.
+   *
    * @public
    */
   version?: string | undefined;
 
   /**
-   * <p>The 12-digit Amazon Web Services account ID associated with the resource.</p>
+   * The 12-digit Amazon Web Services account ID associated with the resource.
+   *
    * @public
    */
   accountId?: string | undefined;
 
   /**
-   * <p>The time when the recording of configuration changes was initiated for the resource.</p>
+   * The time when the recording of configuration changes was initiated for the resource.
+   *
    * @public
    */
   configurationItemCaptureTime?: Date | undefined;
 
   /**
-   * <p>The configuration item status. Valid values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>OK – The resource configuration has been updated.</p>
-   *             </li>
-   *             <li>
-   *                <p>ResourceDiscovered – The resource was newly discovered.</p>
-   *             </li>
-   *             <li>
-   *                <p>ResourceNotRecorded – The resource was discovered, but its configuration was not recorded since the recorder doesn't record resources of this type.</p>
-   *             </li>
-   *             <li>
-   *                <p>ResourceDeleted – The resource was deleted</p>
-   *             </li>
-   *             <li>
-   *                <p>ResourceDeletedNotRecorded – The resource was deleted, but its configuration was not recorded since the recorder doesn't record resources of this type.</p>
-   *             </li>
-   *          </ul>
+   * The configuration item status. Valid values include:
+   *
+   * - OK – The resource configuration has been updated.
+   * - ResourceDiscovered – The resource was newly discovered.
+   * - ResourceNotRecorded – The resource was discovered, but its configuration was not recorded since the recorder doesn't record resources of this type.
+   * - ResourceDeleted – The resource was deleted
+   * - ResourceDeletedNotRecorded – The resource was deleted, but its configuration was not recorded since the recorder doesn't record resources of this type.
+   *
    * @public
    */
   configurationItemStatus?: ConfigurationItemStatus | undefined;
 
   /**
-   * <p>An identifier that indicates the ordering of the configuration
-   * 			items of a resource.</p>
+   * An identifier that indicates the ordering of the configuration items of a resource.
+   *
    * @public
    */
   configurationStateId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The type of Amazon Web Services resource.</p>
+   * The type of Amazon Web Services resource.
+   *
    * @public
    */
   resourceType?: ResourceType | undefined;
 
   /**
-   * <p>The ID of the resource (for example., sg-xxxxxx).</p>
+   * The ID of the resource (for example., sg-xxxxxx).
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>The custom name of the resource, if available.</p>
+   * The custom name of the resource, if available.
+   *
    * @public
    */
   resourceName?: string | undefined;
 
   /**
-   * <p>The region where the resource resides.</p>
+   * The region where the resource resides.
+   *
    * @public
    */
   awsRegion?: string | undefined;
 
   /**
-   * <p>The Availability Zone associated with the resource.</p>
+   * The Availability Zone associated with the resource.
+   *
    * @public
    */
   availabilityZone?: string | undefined;
 
   /**
-   * <p>The time stamp when the resource was created.</p>
+   * The time stamp when the resource was created.
+   *
    * @public
    */
   resourceCreationTime?: Date | undefined;
 
   /**
-   * <p>A JSON-encoded string that contains the contents for the resource configuration. This string needs to be deserialized using <code>json.loads()</code> before you can access the contents.
-   * </p>
+   * A JSON-encoded string that contains the contents for the resource configuration. This string needs to be deserialized using `json.loads()` before you can access the contents.
+   *
    * @public
    */
   configuration?: string | undefined;
 
   /**
-   * <p>A string to string map that contains additional contents for the resource configuration.Config returns this field for certain
-   * 			resource types to supplement the information returned for the
-   * 			<code>configuration</code> field.</p>
-   *          <p>This string needs to be deserialized using <code>json.loads()</code> before you can access the contents.</p>
+   * A string to string map that contains additional contents for the resource configuration.Config returns this field for certain resource types to supplement the information returned for the `configuration` field.
+   *
+   * This string needs to be deserialized using `json.loads()` before you can access the contents.
+   *
    * @public
    */
   supplementaryConfiguration?: Record<string, string> | undefined;
 
   /**
-   * <p>The recording frequency that Config uses to record configuration changes for the resource.</p>
-   *          <note>
-   *             <p>This field only appears in the API response when <code>DAILY</code> recording is enabled for a resource type.
-   * 				If this field is not present, <code>CONTINUOUS</code> recording is enabled for that resource type. For more information on daily recording and continuous recording, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-recording-frequency">Recording Frequency</a> in the <i>Config
-   * 						Developer Guide</i>.</p>
-   *          </note>
+   * The recording frequency that Config uses to record configuration changes for the resource.
+   *
+   * > **Note:** This field only appears in the API response when `DAILY` recording is enabled for a resource type. If this field is not present, `CONTINUOUS` recording is enabled for that resource type. For more information on daily recording and continuous recording, see [Recording Frequency](https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-recording-frequency) in the *Config Developer Guide*.
+   *
    * @public
    */
   recordingFrequency?: RecordingFrequency | undefined;
 
   /**
-   * <p>The time when configuration changes for the resource were delivered.</p>
-   *          <note>
-   *             <p>This field is optional and is not guaranteed to be present in a configuration item  (CI). If you are using daily recording,
-   * 			this field will be populated. However, if you are using continuous recording,
-   * 			this field will be omitted since the delivery time is instantaneous as the CI is available right away. For more information on daily recording and continuous recording, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-recording-frequency">Recording Frequency</a> in the <i>Config
-   * 					Developer Guide</i>.</p>
-   *          </note>
+   * The time when configuration changes for the resource were delivered.
+   *
+   * > **Note:** This field is optional and is not guaranteed to be present in a configuration item (CI). If you are using daily recording, this field will be populated. However, if you are using continuous recording, this field will be omitted since the delivery time is instantaneous as the CI is available right away. For more information on daily recording and continuous recording, see [Recording Frequency](https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-recording-frequency) in the *Config Developer Guide*.
+   *
    * @public
    */
   configurationItemDeliveryTime?: Date | undefined;
@@ -1460,13 +1373,15 @@ export interface BaseConfigurationItem {
  */
 export interface BatchGetAggregateResourceConfigRequest {
   /**
-   * <p>The name of the configuration aggregator.</p>
+   * The name of the configuration aggregator.
+   *
    * @public
    */
   ConfigurationAggregatorName: string | undefined;
 
   /**
-   * <p>A list of aggregate ResourceIdentifiers objects. </p>
+   * A list of aggregate ResourceIdentifiers objects.
+   *
    * @public
    */
   ResourceIdentifiers: AggregateResourceIdentifier[] | undefined;
@@ -1477,32 +1392,36 @@ export interface BatchGetAggregateResourceConfigRequest {
  */
 export interface BatchGetAggregateResourceConfigResponse {
   /**
-   * <p>A list that contains the current configuration of one or more resources.</p>
+   * A list that contains the current configuration of one or more resources.
+   *
    * @public
    */
   BaseConfigurationItems?: BaseConfigurationItem[] | undefined;
 
   /**
-   * <p>A list of resource identifiers that were not processed with current scope. The list is empty if all the resources are processed.</p>
+   * A list of resource identifiers that were not processed with current scope. The list is empty if all the resources are processed.
+   *
    * @public
    */
   UnprocessedResourceIdentifiers?: AggregateResourceIdentifier[] | undefined;
 }
 
 /**
- * <p>The details that identify a resource within Config, including
- * 			the resource type and resource ID.</p>
+ * The details that identify a resource within Config, including the resource type and resource ID.
+ *
  * @public
  */
 export interface ResourceKey {
   /**
-   * <p>The resource type.</p>
+   * The resource type.
+   *
    * @public
    */
   resourceType: ResourceType | undefined;
 
   /**
-   * <p>The ID of the resource (for example., sg-xxxxxx). </p>
+   * The ID of the resource (for example., sg-xxxxxx).
+   *
    * @public
    */
   resourceId: string | undefined;
@@ -1513,9 +1432,8 @@ export interface ResourceKey {
  */
 export interface BatchGetResourceConfigRequest {
   /**
-   * <p>A list of resource keys to be processed with the current
-   * 			request. Each element in the list consists of the resource type and
-   * 			resource ID.</p>
+   * A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID.
+   *
    * @public
    */
   resourceKeys: ResourceKey[] | undefined;
@@ -1526,1644 +1444,1599 @@ export interface BatchGetResourceConfigRequest {
  */
 export interface BatchGetResourceConfigResponse {
   /**
-   * <p>A list that contains the current configuration of one or more
-   * 			resources.</p>
+   * A list that contains the current configuration of one or more resources.
+   *
    * @public
    */
   baseConfigurationItems?: BaseConfigurationItem[] | undefined;
 
   /**
-   * <p>A list of resource keys that were not processed with the
-   * 			current response. The unprocessesResourceKeys value is in the same
-   * 			form as ResourceKeys, so the value can be directly provided to a
-   * 			subsequent BatchGetResourceConfig operation.
-   * 			
-   * 			If there are no unprocessed resource keys, the response contains an
-   * 			empty unprocessedResourceKeys list. </p>
+   * A list of resource keys that were not processed with the current response. The unprocessesResourceKeys value is in the same form as ResourceKeys, so the value can be directly provided to a subsequent BatchGetResourceConfig operation. If there are no unprocessed resource keys, the response contains an empty unprocessedResourceKeys list.
+   *
    * @public
    */
   unprocessedResourceKeys?: ResourceKey[] | undefined;
 }
 
 /**
- * <p>Indicates whether an Config rule is compliant. A rule is
- * 			compliant if all of the resources that the rule evaluated comply
- * 			with it. A rule is noncompliant if any of these resources do not
- * 			comply.</p>
+ * Indicates whether an Config rule is compliant. A rule is compliant if all of the resources that the rule evaluated comply with it. A rule is noncompliant if any of these resources do not comply.
+ *
  * @public
  */
 export interface ComplianceByConfigRule {
   /**
-   * <p>The name of the Config rule.</p>
+   * The name of the Config rule.
+   *
    * @public
    */
   ConfigRuleName?: string | undefined;
 
   /**
-   * <p>Indicates whether the Config rule is compliant.</p>
+   * Indicates whether the Config rule is compliant.
+   *
    * @public
    */
   Compliance?: Compliance | undefined;
 }
 
 /**
- * <p>Indicates whether an Amazon Web Services resource that is evaluated according
- * 			to one or more Config rules is compliant. A resource is
- * 			compliant if it complies with all of the rules that evaluate it. A
- * 			resource is noncompliant if it does not comply with one or more of
- * 			these rules.</p>
+ * Indicates whether an Amazon Web Services resource that is evaluated according to one or more Config rules is compliant. A resource is compliant if it complies with all of the rules that evaluate it. A resource is noncompliant if it does not comply with one or more of these rules.
+ *
  * @public
  */
 export interface ComplianceByResource {
   /**
-   * <p>The type of the Amazon Web Services resource that was evaluated.</p>
+   * The type of the Amazon Web Services resource that was evaluated.
+   *
    * @public
    */
   ResourceType?: string | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services resource that was evaluated.</p>
+   * The ID of the Amazon Web Services resource that was evaluated.
+   *
    * @public
    */
   ResourceId?: string | undefined;
 
   /**
-   * <p>Indicates whether the Amazon Web Services resource complies with all of the Config rules that evaluated it.</p>
+   * Indicates whether the Amazon Web Services resource complies with all of the Config rules that evaluated it.
+   *
    * @public
    */
   Compliance?: Compliance | undefined;
 }
 
 /**
- * <p>The number of Amazon Web Services resources of a specific type that are
- * 			compliant or noncompliant, up to a maximum of 100 for
- * 			each.</p>
+ * The number of Amazon Web Services resources of a specific type that are compliant or noncompliant, up to a maximum of 100 for each.
+ *
  * @public
  */
 export interface ComplianceSummaryByResourceType {
   /**
-   * <p>The type of Amazon Web Services resource.</p>
+   * The type of Amazon Web Services resource.
+   *
    * @public
    */
   ResourceType?: string | undefined;
 
   /**
-   * <p>The number of Amazon Web Services resources that are compliant or noncompliant,
-   * 			up to a maximum of 100 for each.</p>
+   * The number of Amazon Web Services resources that are compliant or noncompliant, up to a maximum of 100 for each.
+   *
    * @public
    */
   ComplianceSummary?: ComplianceSummary | undefined;
 }
 
 /**
- * <p>Provides status of the delivery of the snapshot or the
- * 			configuration history to the specified Amazon S3 bucket. Also
- * 			provides the status of notifications about the Amazon S3 delivery to
- * 			the specified Amazon SNS topic.</p>
+ * Provides status of the delivery of the snapshot or the configuration history to the specified Amazon S3 bucket. Also provides the status of notifications about the Amazon S3 delivery to the specified Amazon SNS topic.
+ *
  * @public
  */
 export interface ConfigExportDeliveryInfo {
   /**
-   * <p>Status of the last attempted delivery.</p>
+   * Status of the last attempted delivery.
+   *
    * @public
    */
   lastStatus?: DeliveryStatus | undefined;
 
   /**
-   * <p>The error code from the last attempted delivery.</p>
+   * The error code from the last attempted delivery.
+   *
    * @public
    */
   lastErrorCode?: string | undefined;
 
   /**
-   * <p>The error message from the last attempted delivery.</p>
+   * The error message from the last attempted delivery.
+   *
    * @public
    */
   lastErrorMessage?: string | undefined;
 
   /**
-   * <p>The time of the last attempted delivery.</p>
+   * The time of the last attempted delivery.
+   *
    * @public
    */
   lastAttemptTime?: Date | undefined;
 
   /**
-   * <p>The time of the last successful delivery.</p>
+   * The time of the last successful delivery.
+   *
    * @public
    */
   lastSuccessfulTime?: Date | undefined;
 
   /**
-   * <p>The time that the next delivery occurs.</p>
+   * The time that the next delivery occurs.
+   *
    * @public
    */
   nextDeliveryTime?: Date | undefined;
 }
 
 /**
- * <p>The configuration object for Config rule evaluation mode. The supported valid values are Detective or Proactive.</p>
+ * The configuration object for Config rule evaluation mode. The supported valid values are Detective or Proactive.
+ *
  * @public
  */
 export interface EvaluationModeConfiguration {
   /**
-   * <p>The mode of an evaluation. The valid values are Detective or Proactive.</p>
+   * The mode of an evaluation. The valid values are Detective or Proactive.
+   *
    * @public
    */
   Mode?: EvaluationMode | undefined;
 }
 
 /**
- * <p>Defines which resources trigger an evaluation for an Config
- * 			rule. The scope can include one or more resource types, a
- * 			combination of a tag key and value, or a combination of one resource
- * 			type and one resource ID. Specify a scope to constrain which
- * 			resources trigger an evaluation for a rule. Otherwise, evaluations
- * 			for the rule are triggered when any resource in your recording group
- * 			changes in configuration.</p>
+ * Defines which resources trigger an evaluation for an Config rule. The scope can include one or more resource types, a combination of a tag key and value, or a combination of one resource type and one resource ID. Specify a scope to constrain which resources trigger an evaluation for a rule. Otherwise, evaluations for the rule are triggered when any resource in your recording group changes in configuration.
+ *
  * @public
  */
 export interface Scope {
   /**
-   * <p>The resource types of only those Amazon Web Services resources that you want to
-   * 			trigger an evaluation for the rule. You can only specify one type if
-   * 			you also specify a resource ID for
-   * 			<code>ComplianceResourceId</code>.</p>
+   * The resource types of only those Amazon Web Services resources that you want to trigger an evaluation for the rule. You can only specify one type if you also specify a resource ID for `ComplianceResourceId`.
+   *
    * @public
    */
   ComplianceResourceTypes?: string[] | undefined;
 
   /**
-   * <p>The tag key that is applied to only those Amazon Web Services resources that
-   * 			you want to trigger an evaluation for the rule.</p>
+   * The tag key that is applied to only those Amazon Web Services resources that you want to trigger an evaluation for the rule.
+   *
    * @public
    */
   TagKey?: string | undefined;
 
   /**
-   * <p>The tag value applied to only those Amazon Web Services resources that you want
-   * 			to trigger an evaluation for the rule. If you specify a value for
-   * 				<code>TagValue</code>, you must also specify a value for
-   * 				<code>TagKey</code>.</p>
+   * The tag value applied to only those Amazon Web Services resources that you want to trigger an evaluation for the rule. If you specify a value for `TagValue`, you must also specify a value for `TagKey`.
+   *
    * @public
    */
   TagValue?: string | undefined;
 
   /**
-   * <p>The ID of the only Amazon Web Services resource that you want to trigger an
-   * 			evaluation for the rule. If you specify a resource ID, you must
-   * 			specify one resource type for
-   * 			<code>ComplianceResourceTypes</code>.</p>
+   * The ID of the only Amazon Web Services resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for `ComplianceResourceTypes`.
+   *
    * @public
    */
   ComplianceResourceId?: string | undefined;
 
   /**
-   * <p>The service principals of the Amazon Web Services services for the rule.</p>
-   *          <note>
-   *             <p>The field is populated only if the service-linked rule is created by a service. The field is empty if you create your own rule.</p>
-   *          </note>
+   * The service principals of the Amazon Web Services services for the rule.
+   *
+   * > **Note:** The field is populated only if the service-linked rule is created by a service. The field is empty if you create your own rule.
+   *
    * @public
    */
   ServicePrincipals?: string[] | undefined;
 }
 
 /**
- * <p>Provides the runtime system, policy definition, and whether debug logging enabled. You can
- * 			specify the following CustomPolicyDetails parameter values
- * 			only
- * 			for Config Custom Policy rules.</p>
+ * Provides the runtime system, policy definition, and whether debug logging enabled. You can specify the following CustomPolicyDetails parameter values only for Config Custom Policy rules.
+ *
  * @public
  */
 export interface CustomPolicyDetails {
   /**
-   * <p>The runtime system for your Config Custom Policy rule. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the <a href="https://github.com/aws-cloudformation/cloudformation-guard">Guard GitHub
-   * 					Repository</a>.</p>
+   * The runtime system for your Config Custom Policy rule. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the [Guard GitHub Repository](https://github.com/aws-cloudformation/cloudformation-guard).
+   *
    * @public
    */
   PolicyRuntime: string | undefined;
 
   /**
-   * <p>The policy definition containing the logic for your Config Custom Policy rule.</p>
+   * The policy definition containing the logic for your Config Custom Policy rule.
+   *
    * @public
    */
   PolicyText: string | undefined;
 
   /**
-   * <p>The boolean expression for enabling debug logging for your Config Custom Policy rule. The default value is <code>false</code>.</p>
+   * The boolean expression for enabling debug logging for your Config Custom Policy rule. The default value is `false`.
+   *
    * @public
    */
   EnableDebugLogDelivery?: boolean | undefined;
 }
 
 /**
- * <p>Provides the source and the message types that trigger Config to evaluate your Amazon Web Services resources against a rule. It also
- * 			provides the frequency with which you want Config to run
- * 			evaluations for the rule if the trigger type is periodic. You can
- * 			specify the parameter values for <code>SourceDetail</code> only for
- * 			custom rules. </p>
+ * Provides the source and the message types that trigger Config to evaluate your Amazon Web Services resources against a rule. It also provides the frequency with which you want Config to run evaluations for the rule if the trigger type is periodic. You can specify the parameter values for `SourceDetail` only for custom rules.
+ *
  * @public
  */
 export interface SourceDetail {
   /**
-   * <p>The source of the event, such as an Amazon Web Services service, that triggers
-   * 			Config to evaluate your Amazon Web Services resources.</p>
+   * The source of the event, such as an Amazon Web Services service, that triggers Config to evaluate your Amazon Web Services resources.
+   *
    * @public
    */
   EventSource?: EventSource | undefined;
 
   /**
-   * <p>The type of notification that triggers Config to run an
-   * 			evaluation for a rule. You can specify the following notification
-   * 			types:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ConfigurationItemChangeNotification</code> - Triggers
-   * 					an evaluation when Config delivers a configuration item
-   * 					as a result of a resource change.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OversizedConfigurationItemChangeNotification</code>
-   * 					- Triggers an evaluation when Config delivers an
-   * 					oversized configuration item. Config may generate this
-   * 					notification type when a resource changes and the
-   * 					notification exceeds the maximum size allowed by Amazon
-   * 					SNS.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ScheduledNotification</code> - Triggers a
-   * 					periodic evaluation at the frequency specified for
-   * 						<code>MaximumExecutionFrequency</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ConfigurationSnapshotDeliveryCompleted</code> -
-   * 					Triggers a periodic evaluation when Config delivers a
-   * 					configuration snapshot.</p>
-   *             </li>
-   *          </ul>
-   *          <p>If you want your custom rule to be triggered by configuration
-   * 			changes, specify two SourceDetail objects, one for
-   * 				<code>ConfigurationItemChangeNotification</code> and one for
-   * 				<code>OversizedConfigurationItemChangeNotification</code>.</p>
+   * The type of notification that triggers Config to run an evaluation for a rule. You can specify the following notification types:
+   *
+   * - `ConfigurationItemChangeNotification` - Triggers an evaluation when Config delivers a configuration item as a result of a resource change.
+   * - `OversizedConfigurationItemChangeNotification` - Triggers an evaluation when Config delivers an oversized configuration item. Config may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.
+   * - `ScheduledNotification` - Triggers a periodic evaluation at the frequency specified for `MaximumExecutionFrequency`.
+   * - `ConfigurationSnapshotDeliveryCompleted` - Triggers a periodic evaluation when Config delivers a configuration snapshot.
+   *
+   * If you want your custom rule to be triggered by configuration changes, specify two SourceDetail objects, one for `ConfigurationItemChangeNotification` and one for `OversizedConfigurationItemChangeNotification`.
+   *
    * @public
    */
   MessageType?: MessageType | undefined;
 
   /**
-   * <p>The frequency at which you want Config to run evaluations
-   * 			for a custom rule with a periodic trigger. If you specify a value
-   * 			for <code>MaximumExecutionFrequency</code>, then
-   * 				<code>MessageType</code> must use the
-   * 				<code>ScheduledNotification</code> value.</p>
-   *          <note>
-   *             <p>By default, rules with a periodic trigger are evaluated
-   * 				every 24 hours. To change the frequency, specify a valid value
-   * 				for the <code>MaximumExecutionFrequency</code>
-   * 				parameter.</p>
-   *             <p>Based on the valid value you choose, Config runs
-   * 				evaluations once for each valid value. For example, if you
-   * 				choose <code>Three_Hours</code>, Config runs evaluations
-   * 				once every three hours. In this case, <code>Three_Hours</code>
-   * 				is the frequency of this rule. </p>
-   *          </note>
+   * The frequency at which you want Config to run evaluations for a custom rule with a periodic trigger. If you specify a value for `MaximumExecutionFrequency`, then `MessageType` must use the `ScheduledNotification` value.
+   *
+   * > **Note:**
+   * >
+   * > By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the `MaximumExecutionFrequency` parameter.
+   * >
+   * > Based on the valid value you choose, Config runs evaluations once for each valid value. For example, if you choose `Three_Hours`, Config runs evaluations once every three hours. In this case, `Three_Hours` is the frequency of this rule.
+   *
    * @public
    */
   MaximumExecutionFrequency?: MaximumExecutionFrequency | undefined;
 }
 
 /**
- * <p>Provides the CustomPolicyDetails, the rule owner (<code>Amazon Web Services</code> for managed rules, <code>CUSTOM_POLICY</code> for Custom Policy rules, and <code>CUSTOM_LAMBDA</code> for Custom Lambda rules), the rule
- * 			identifier, and the events that cause the evaluation of your Amazon Web Services
- * 			resources.</p>
+ * Provides the CustomPolicyDetails, the rule owner (`Amazon Web Services` for managed rules, `CUSTOM_POLICY` for Custom Policy rules, and `CUSTOM_LAMBDA` for Custom Lambda rules), the rule identifier, and the events that cause the evaluation of your Amazon Web Services resources.
+ *
  * @public
  */
 export interface Source {
   /**
-   * <p>Indicates whether Amazon Web Services or the customer owns and manages the Config rule.</p>
-   *          <p>Config Managed Rules are predefined rules owned by Amazon Web Services. For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html">Config Managed Rules</a> in the <i>Config developer guide</i>.</p>
-   *          <p>Config Custom Rules are rules that you can develop either with Guard (<code>CUSTOM_POLICY</code>) or Lambda (<code>CUSTOM_LAMBDA</code>). For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html">Config Custom Rules </a> in the <i>Config developer guide</i>.</p>
+   * Indicates whether Amazon Web Services or the customer owns and manages the Config rule.
+   *
+   * Config Managed Rules are predefined rules owned by Amazon Web Services. For more information, see [Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html) in the *Config developer guide*.
+   *
+   * Config Custom Rules are rules that you can develop either with Guard (`CUSTOM_POLICY`) or Lambda (`CUSTOM_LAMBDA`). For more information, see [Config Custom Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html) in the *Config developer guide*.
+   *
    * @public
    */
   Owner: Owner | undefined;
 
   /**
-   * <p>For Config Managed rules, a predefined identifier from a
-   * 			list. For example, <code>IAM_PASSWORD_POLICY</code> is a managed
-   * 			rule. To reference a managed rule, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html">List of Config Managed Rules</a>.</p>
-   *          <p>For Config Custom Lambda rules, the identifier is the Amazon Resource Name
-   * 			(ARN) of the rule's Lambda function, such as
-   * 			<code>arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name</code>.</p>
-   *          <p>For Config Custom Policy rules, this field will be ignored.</p>
+   * For Config Managed rules, a predefined identifier from a list. For example, `IAM_PASSWORD_POLICY` is a managed rule. To reference a managed rule, see [List of Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html).
+   *
+   * For Config Custom Lambda rules, the identifier is the Amazon Resource Name (ARN) of the rule's Lambda function, such as `arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name`.
+   *
+   * For Config Custom Policy rules, this field will be ignored.
+   *
    * @public
    */
   SourceIdentifier?: string | undefined;
 
   /**
-   * <p>Provides the source and the message types that cause Config to evaluate your Amazon Web Services resources against a rule. It also provides the frequency with which you want Config to run evaluations for the rule if the trigger type is periodic.</p>
-   *          <p>If the owner is set to <code>CUSTOM_POLICY</code>, the only acceptable values for the Config rule trigger message type are <code>ConfigurationItemChangeNotification</code> and <code>OversizedConfigurationItemChangeNotification</code>.</p>
+   * Provides the source and the message types that cause Config to evaluate your Amazon Web Services resources against a rule. It also provides the frequency with which you want Config to run evaluations for the rule if the trigger type is periodic.
+   *
+   * If the owner is set to `CUSTOM_POLICY`, the only acceptable values for the Config rule trigger message type are `ConfigurationItemChangeNotification` and `OversizedConfigurationItemChangeNotification`.
+   *
    * @public
    */
   SourceDetails?: SourceDetail[] | undefined;
 
   /**
-   * <p>Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to <code>CUSTOM_POLICY</code>.</p>
+   * Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to `CUSTOM_POLICY`.
+   *
    * @public
    */
   CustomPolicyDetails?: CustomPolicyDetails | undefined;
 }
 
 /**
- * <p>Config rules evaluate the configuration settings of your Amazon Web Services resources. A rule can run when Config detects a configuration change to
- * 			an Amazon Web Services resource or at a periodic frequency that you choose (for
- * 			example, every 24 hours). There are two types of rules: <i>Config Managed Rules</i> and <i>Config Custom Rules</i>.</p>
- *          <p>Config Managed Rules are predefined,
- * 				customizable rules created by Config. For a list of managed rules, see
- * 				<a href="https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html">List of Config
- * 					Managed Rules</a>.</p>
- *          <p>Config Custom Rules are rules that you create from scratch. There are two ways to create Config custom rules: with Lambda functions
- * 				(<a href="https://docs.aws.amazon.com/config/latest/developerguide/gettingstarted-concepts.html#gettingstarted-concepts-function"> Lambda Developer Guide</a>) and with Guard (<a href="https://github.com/aws-cloudformation/cloudformation-guard">Guard GitHub
- * 						Repository</a>), a policy-as-code language.
- * 				
- * 				Config custom rules created with Lambda
- * 				are called <i>Config Custom Lambda Rules</i> and Config custom rules created with
- * 				Guard are called <i>Config Custom Policy Rules</i>.</p>
- *          <p>For more information about developing and using Config
- * 			rules, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html">Evaluating Resource with Config Rules</a>
- * 			in the <i>Config Developer Guide</i>.</p>
- *          <note>
- *             <p>You can use the Amazon Web Services CLI and Amazon Web Services SDKs if you want to create
- * 				a rule that triggers evaluations for your resources when Config delivers the configuration snapshot. For more
- * 				information, see <a>ConfigSnapshotDeliveryProperties</a>.</p>
- *          </note>
+ * Config rules evaluate the configuration settings of your Amazon Web Services resources. A rule can run when Config detects a configuration change to an Amazon Web Services resource or at a periodic frequency that you choose (for example, every 24 hours). There are two types of rules: *Config Managed Rules* and *Config Custom Rules*.
+ *
+ * Config Managed Rules are predefined, customizable rules created by Config. For a list of managed rules, see [List of Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html).
+ *
+ * Config Custom Rules are rules that you create from scratch. There are two ways to create Config custom rules: with Lambda functions ([Lambda Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/gettingstarted-concepts.html#gettingstarted-concepts-function)) and with Guard ([Guard GitHub Repository](https://github.com/aws-cloudformation/cloudformation-guard)), a policy-as-code language. Config custom rules created with Lambda are called *Config Custom Lambda Rules* and Config custom rules created with Guard are called *Config Custom Policy Rules*.
+ *
+ * For more information about developing and using Config rules, see [Evaluating Resource with Config Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html) in the *Config Developer Guide*.
+ *
+ * > **Note:** You can use the Amazon Web Services CLI and Amazon Web Services SDKs if you want to create a rule that triggers evaluations for your resources when Config delivers the configuration snapshot. For more information, see ConfigSnapshotDeliveryProperties.
+ *
  * @public
  */
 export interface ConfigRule {
   /**
-   * <p>The name that you assign to the Config rule. The name is
-   * 			required if you are adding a new rule.</p>
+   * The name that you assign to the Config rule. The name is required if you are adding a new rule.
+   *
    * @public
    */
   ConfigRuleName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Config
-   * 			rule.</p>
+   * The Amazon Resource Name (ARN) of the Config rule.
+   *
    * @public
    */
   ConfigRuleArn?: string | undefined;
 
   /**
-   * <p>The ID of the Config rule.</p>
+   * The ID of the Config rule.
+   *
    * @public
    */
   ConfigRuleId?: string | undefined;
 
   /**
-   * <p>The description that you provide for the Config
-   * 			rule.</p>
+   * The description that you provide for the Config rule.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Defines which resources can trigger an evaluation for the rule.
-   * 			The scope can include one or more resource types, a combination of
-   * 			one resource type and one resource ID, or a combination of a tag key
-   * 			and value. Specify a scope to constrain the resources that can
-   * 			trigger an evaluation for the rule. If you do not specify a scope,
-   * 			evaluations are triggered when any resource in the recording group
-   * 			changes.</p>
+   * Defines which resources can trigger an evaluation for the rule. The scope can include one or more resource types, a combination of one resource type and one resource ID, or a combination of a tag key and value. Specify a scope to constrain the resources that can trigger an evaluation for the rule. If you do not specify a scope, evaluations are triggered when any resource in the recording group changes.
+   *
    * @public
    */
   Scope?: Scope | undefined;
 
   /**
-   * <p>Provides the rule owner (<code>Amazon Web Services</code> for managed rules, <code>CUSTOM_POLICY</code> for Custom Policy rules, and <code>CUSTOM_LAMBDA</code> for Custom Lambda rules), the rule identifier,
-   * 			and the notifications that cause the function to evaluate your Amazon Web Services
-   * 			resources.</p>
+   * Provides the rule owner (`Amazon Web Services` for managed rules, `CUSTOM_POLICY` for Custom Policy rules, and `CUSTOM_LAMBDA` for Custom Lambda rules), the rule identifier, and the notifications that cause the function to evaluate your Amazon Web Services resources.
+   *
    * @public
    */
   Source: Source | undefined;
 
   /**
-   * <p>A string, in JSON format, that is passed to the Config rule
-   * 			Lambda function.</p>
+   * A string, in JSON format, that is passed to the Config rule Lambda function.
+   *
    * @public
    */
   InputParameters?: string | undefined;
 
   /**
-   * <p>The maximum frequency with which Config runs evaluations
-   * 			for a rule. You can specify a value for
-   * 				<code>MaximumExecutionFrequency</code> when:</p>
-   *          <ul>
-   *             <li>
-   *                <p>This is for an Config managed rule that is triggered at
-   * 					a periodic frequency.</p>
-   *             </li>
-   *             <li>
-   *                <p>Your custom rule is triggered when Config delivers
-   * 					the configuration snapshot. For more information, see <a>ConfigSnapshotDeliveryProperties</a>.</p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <p>By default, rules with a periodic trigger are evaluated
-   * 				every 24 hours. To change the frequency, specify a valid value
-   * 				for the <code>MaximumExecutionFrequency</code>
-   * 				parameter.</p>
-   *          </note>
+   * The maximum frequency with which Config runs evaluations for a rule. You can specify a value for `MaximumExecutionFrequency` when:
+   *
+   * - This is for an Config managed rule that is triggered at a periodic frequency.
+   * - Your custom rule is triggered when Config delivers the configuration snapshot. For more information, see ConfigSnapshotDeliveryProperties.
+   *
+   * > **Note:** By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the `MaximumExecutionFrequency` parameter.
+   *
    * @public
    */
   MaximumExecutionFrequency?: MaximumExecutionFrequency | undefined;
 
   /**
-   * <p>Indicates whether the Config rule is active or is currently
-   * 			being deleted by Config. It can also indicate the evaluation
-   * 			status for the Config rule.</p>
-   *          <p>Config sets the state of the rule to
-   * 				<code>EVALUATING</code> temporarily after you use the
-   * 				<code>StartConfigRulesEvaluation</code> request to evaluate your
-   * 			resources against the Config rule.</p>
-   *          <p>Config sets the state of the rule to
-   * 				<code>DELETING_RESULTS</code> temporarily after you use the
-   * 				<code>DeleteEvaluationResults</code> request to delete the
-   * 			current evaluation results for the Config rule.</p>
-   *          <p>Config temporarily sets the state of a rule to
-   * 				<code>DELETING</code> after you use the
-   * 				<code>DeleteConfigRule</code> request to delete the rule. After
-   * 			Config deletes the rule, the rule and all of its evaluations are
-   * 			erased and are no longer available.</p>
+   * Indicates whether the Config rule is active or is currently being deleted by Config. It can also indicate the evaluation status for the Config rule.
+   *
+   * Config sets the state of the rule to `EVALUATING` temporarily after you use the `StartConfigRulesEvaluation` request to evaluate your resources against the Config rule.
+   *
+   * Config sets the state of the rule to `DELETING_RESULTS` temporarily after you use the `DeleteEvaluationResults` request to delete the current evaluation results for the Config rule.
+   *
+   * Config temporarily sets the state of a rule to `DELETING` after you use the `DeleteConfigRule` request to delete the rule. After Config deletes the rule, the rule and all of its evaluations are erased and are no longer available.
+   *
    * @public
    */
   ConfigRuleState?: ConfigRuleState | undefined;
 
   /**
-   * <p>Service principal name of the service that created the
-   * 			rule.</p>
-   *          <note>
-   *             <p>The field is populated only if the service-linked rule is
-   * 				created by a service. The field is empty if you create your own
-   * 				rule.</p>
-   *          </note>
+   * Service principal name of the service that created the rule.
+   *
+   * > **Note:** The field is populated only if the service-linked rule is created by a service. The field is empty if you create your own rule.
+   *
    * @public
    */
   CreatedBy?: string | undefined;
 
   /**
-   * <p>The modes the Config rule can be evaluated in. The valid values are distinct objects. By default, the value is Detective evaluation mode only.</p>
+   * The modes the Config rule can be evaluated in. The valid values are distinct objects. By default, the value is Detective evaluation mode only.
+   *
    * @public
    */
   EvaluationModes?: EvaluationModeConfiguration[] | undefined;
 
   /**
-   * <p>Indicates whether you can get <a>Evaluation</a>s for the Config rule. You can get <a>Evaluation</a>s for the Amazon Web Services Config rule if this value is <code>EXTERNAL</code>. You cannot get <a>Evaluation</a>s for the Amazon Web Services Config rule if this value is <code>INTERNAL</code>.</p>
+   * Indicates whether you can get Evaluations for the Config rule. You can get Evaluations for the Amazon Web Services Config rule if this value is `EXTERNAL`. You cannot get Evaluations for the Amazon Web Services Config rule if this value is `INTERNAL`.
+   *
    * @public
    */
   RuleEvaluationVisibility?: RuleEvaluationVisibility | undefined;
 }
 
 /**
- * <p>Filters the compliance results based on account ID, region,
- * 			compliance type, and rule name.</p>
+ * Filters the compliance results based on account ID, region, compliance type, and rule name.
+ *
  * @public
  */
 export interface ConfigRuleComplianceFilters {
   /**
-   * <p>The name of the Config rule.</p>
+   * The name of the Config rule.
+   *
    * @public
    */
   ConfigRuleName?: string | undefined;
 
   /**
-   * <p>The rule compliance status.</p>
-   *          <p>For the <code>ConfigRuleComplianceFilters</code> data type, Config supports only <code>COMPLIANT</code> and
-   * 				<code>NON_COMPLIANT</code>. Config does not support the
-   * 				<code>NOT_APPLICABLE</code> and the
-   * 				<code>INSUFFICIENT_DATA</code> values.</p>
+   * The rule compliance status.
+   *
+   * For the `ConfigRuleComplianceFilters` data type, Config supports only `COMPLIANT` and `NON_COMPLIANT`. Config does not support the `NOT_APPLICABLE` and the `INSUFFICIENT_DATA` values.
+   *
    * @public
    */
   ComplianceType?: ComplianceType | undefined;
 
   /**
-   * <p>The 12-digit account ID of the source account.
-   * 			</p>
+   * The 12-digit account ID of the source account.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The source region where the data is aggregated.
-   * 			</p>
+   * The source region where the data is aggregated.
+   *
    * @public
    */
   AwsRegion?: string | undefined;
 }
 
 /**
- * <p>Filters the results based on the account IDs and
- * 			regions.</p>
+ * Filters the results based on the account IDs and regions.
+ *
  * @public
  */
 export interface ConfigRuleComplianceSummaryFilters {
   /**
-   * <p>The 12-digit account ID of the source account.</p>
+   * The 12-digit account ID of the source account.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The source region where the data is aggregated.</p>
+   * The source region where the data is aggregated.
+   *
    * @public
    */
   AwsRegion?: string | undefined;
 }
 
 /**
- * <p>Status information for your Config Managed rules and Config Custom Policy rules. The
- * 			status includes information such as the last time the rule ran, the
- * 			last time it failed, and the related error for the last
- * 			failure.</p>
- *          <p>This operation does not return status information about Config Custom Lambda rules.</p>
+ * Status information for your Config Managed rules and Config Custom Policy rules. The status includes information such as the last time the rule ran, the last time it failed, and the related error for the last failure.
+ *
+ * This operation does not return status information about Config Custom Lambda rules.
+ *
  * @public
  */
 export interface ConfigRuleEvaluationStatus {
   /**
-   * <p>The name of the Config rule.</p>
+   * The name of the Config rule.
+   *
    * @public
    */
   ConfigRuleName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Config
-   * 			rule.</p>
+   * The Amazon Resource Name (ARN) of the Config rule.
+   *
    * @public
    */
   ConfigRuleArn?: string | undefined;
 
   /**
-   * <p>The ID of the Config rule.</p>
+   * The ID of the Config rule.
+   *
    * @public
    */
   ConfigRuleId?: string | undefined;
 
   /**
-   * <p>The time that Config last successfully invoked the Config rule to evaluate your Amazon Web Services resources.</p>
+   * The time that Config last successfully invoked the Config rule to evaluate your Amazon Web Services resources.
+   *
    * @public
    */
   LastSuccessfulInvocationTime?: Date | undefined;
 
   /**
-   * <p>The time that Config last failed to invoke the Config
-   * 			rule to evaluate your Amazon Web Services resources.</p>
+   * The time that Config last failed to invoke the Config rule to evaluate your Amazon Web Services resources.
+   *
    * @public
    */
   LastFailedInvocationTime?: Date | undefined;
 
   /**
-   * <p>The time that Config last successfully evaluated your Amazon Web Services
-   * 			resources against the rule.</p>
+   * The time that Config last successfully evaluated your Amazon Web Services resources against the rule.
+   *
    * @public
    */
   LastSuccessfulEvaluationTime?: Date | undefined;
 
   /**
-   * <p>The time that Config last failed to evaluate your Amazon Web Services
-   * 			resources against the rule.</p>
+   * The time that Config last failed to evaluate your Amazon Web Services resources against the rule.
+   *
    * @public
    */
   LastFailedEvaluationTime?: Date | undefined;
 
   /**
-   * <p>The time that you first activated the Config
-   * 			rule.</p>
+   * The time that you first activated the Config rule.
+   *
    * @public
    */
   FirstActivatedTime?: Date | undefined;
 
   /**
-   * <p>The time that you last turned off the Config rule.</p>
+   * The time that you last turned off the Config rule.
+   *
    * @public
    */
   LastDeactivatedTime?: Date | undefined;
 
   /**
-   * <p>The error code that Config returned when the rule last
-   * 			failed.</p>
+   * The error code that Config returned when the rule last failed.
+   *
    * @public
    */
   LastErrorCode?: string | undefined;
 
   /**
-   * <p>The error message that Config returned when the rule last
-   * 			failed.</p>
+   * The error message that Config returned when the rule last failed.
+   *
    * @public
    */
   LastErrorMessage?: string | undefined;
 
   /**
-   * <p>Indicates whether Config has evaluated your resources
-   * 			against the rule at least once.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>true</code> - Config has evaluated your Amazon Web Services
-   * 					resources against the rule at least once.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>false</code> - Config has not finished evaluating your Amazon Web Services resources against the
-   * 					rule
-   * 					at least once.</p>
-   *             </li>
-   *          </ul>
+   * Indicates whether Config has evaluated your resources against the rule at least once.
+   *
+   * - `true` - Config has evaluated your Amazon Web Services resources against the rule at least once.
+   * - `false` - Config has not finished evaluating your Amazon Web Services resources against the rule at least once.
+   *
    * @public
    */
   FirstEvaluationStarted?: boolean | undefined;
 
   /**
-   * <p>The status of the last attempted delivery of a debug log for your Config Custom Policy rules. Either <code>Successful</code> or <code>Failed</code>.</p>
+   * The status of the last attempted delivery of a debug log for your Config Custom Policy rules. Either `Successful` or `Failed`.
+   *
    * @public
    */
   LastDebugLogDeliveryStatus?: string | undefined;
 
   /**
-   * <p>The reason Config was not able to deliver a debug log. This is for the last
-   * 			failed attempt to retrieve a debug log for your Config Custom Policy rules.</p>
+   * The reason Config was not able to deliver a debug log. This is for the last failed attempt to retrieve a debug log for your Config Custom Policy rules.
+   *
    * @public
    */
   LastDebugLogDeliveryStatusReason?: string | undefined;
 
   /**
-   * <p>The time Config last attempted to deliver a debug log for your Config Custom Policy rules.</p>
+   * The time Config last attempted to deliver a debug log for your Config Custom Policy rules.
+   *
    * @public
    */
   LastDebugLogDeliveryTime?: Date | undefined;
 }
 
 /**
- * <p>Provides options for how often Config delivers
- * 			configuration snapshots to the Amazon S3 bucket in your delivery
- * 			channel.</p>
- *          <p>The frequency for a rule that triggers evaluations for your
- * 			resources when Config delivers the configuration snapshot is set
- * 			by one of two values, depending on which is less frequent:</p>
- *          <ul>
- *             <li>
- *                <p>The value for the <code>deliveryFrequency</code>
- * 					parameter within the delivery channel configuration, which
- * 					sets how often Config delivers configuration snapshots.
- * 					This value also sets how often Config invokes
- * 					evaluations for Config rules.</p>
- *             </li>
- *             <li>
- *                <p>The value for the
- * 						<code>MaximumExecutionFrequency</code> parameter, which
- * 					sets the maximum frequency with which Config invokes
- * 					evaluations for the rule. For more information, see <a>ConfigRule</a>.</p>
- *             </li>
- *          </ul>
- *          <p>If the <code>deliveryFrequency</code> value is less frequent
- * 			than the <code>MaximumExecutionFrequency</code> value for a rule,
- * 			Config invokes the rule only as often as the
- * 				<code>deliveryFrequency</code> value.</p>
- *          <ol>
- *             <li>
- *                <p>For example, you want your rule to run evaluations when
- * 					Config delivers the configuration snapshot.</p>
- *             </li>
- *             <li>
- *                <p>You specify the <code>MaximumExecutionFrequency</code>
- * 					value for <code>Six_Hours</code>. </p>
- *             </li>
- *             <li>
- *                <p>You then specify the delivery channel
- * 						<code>deliveryFrequency</code> value for
- * 						<code>TwentyFour_Hours</code>.</p>
- *             </li>
- *             <li>
- *                <p>Because the value for <code>deliveryFrequency</code> is
- * 					less frequent than <code>MaximumExecutionFrequency</code>,
- * 					Config invokes evaluations for the rule every 24 hours.
- * 				</p>
- *             </li>
- *          </ol>
- *          <p>You should set the <code>MaximumExecutionFrequency</code> value
- * 			to be at least as frequent as the <code>deliveryFrequency</code>
- * 			value. You can view the <code>deliveryFrequency</code> value by
- * 			using the <code>DescribeDeliveryChannnels</code> action.</p>
- *          <p>To update the <code>deliveryFrequency</code> with which Config delivers your configuration snapshots, use the
- * 				<code>PutDeliveryChannel</code> action.</p>
+ * Provides options for how often Config delivers configuration snapshots to the Amazon S3 bucket in your delivery channel.
+ *
+ * The frequency for a rule that triggers evaluations for your resources when Config delivers the configuration snapshot is set by one of two values, depending on which is less frequent:
+ *
+ * - The value for the `deliveryFrequency` parameter within the delivery channel configuration, which sets how often Config delivers configuration snapshots. This value also sets how often Config invokes evaluations for Config rules.
+ * - The value for the `MaximumExecutionFrequency` parameter, which sets the maximum frequency with which Config invokes evaluations for the rule. For more information, see ConfigRule.
+ *
+ * If the `deliveryFrequency` value is less frequent than the `MaximumExecutionFrequency` value for a rule, Config invokes the rule only as often as the `deliveryFrequency` value.
+ *
+ * 1. For example, you want your rule to run evaluations when Config delivers the configuration snapshot.
+ * 2. You specify the `MaximumExecutionFrequency` value for `Six_Hours`.
+ * 3. You then specify the delivery channel `deliveryFrequency` value for `TwentyFour_Hours`.
+ * 4. Because the value for `deliveryFrequency` is less frequent than `MaximumExecutionFrequency`, Config invokes evaluations for the rule every 24 hours.
+ *
+ * You should set the `MaximumExecutionFrequency` value to be at least as frequent as the `deliveryFrequency` value. You can view the `deliveryFrequency` value by using the `DescribeDeliveryChannnels` action.
+ *
+ * To update the `deliveryFrequency` with which Config delivers your configuration snapshots, use the `PutDeliveryChannel` action.
+ *
  * @public
  */
 export interface ConfigSnapshotDeliveryProperties {
   /**
-   * <p>The frequency with which Config delivers configuration
-   * 			snapshots.</p>
+   * The frequency with which Config delivers configuration snapshots.
+   *
    * @public
    */
   deliveryFrequency?: MaximumExecutionFrequency | undefined;
 }
 
 /**
- * <p>A list that contains the status of the delivery of the
- * 			configuration stream notification to the Amazon SNS topic.</p>
+ * A list that contains the status of the delivery of the configuration stream notification to the Amazon SNS topic.
+ *
  * @public
  */
 export interface ConfigStreamDeliveryInfo {
   /**
-   * <p>Status of the last attempted delivery.</p>
-   *          <p>
-   *             <b>Note</b> Providing an SNS topic on a
-   * 				<a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DeliveryChannel.html">DeliveryChannel</a> for Config is optional. If the SNS
-   * 			delivery is turned off, the last status will be <b>Not_Applicable</b>.</p>
+   * Status of the last attempted delivery.
+   *
+   * **Note** Providing an SNS topic on a [DeliveryChannel](https://docs.aws.amazon.com/config/latest/APIReference/API_DeliveryChannel.html) for Config is optional. If the SNS delivery is turned off, the last status will be **Not_Applicable**.
+   *
    * @public
    */
   lastStatus?: DeliveryStatus | undefined;
 
   /**
-   * <p>The error code from the last attempted delivery.</p>
+   * The error code from the last attempted delivery.
+   *
    * @public
    */
   lastErrorCode?: string | undefined;
 
   /**
-   * <p>The error message from the last attempted delivery.</p>
+   * The error message from the last attempted delivery.
+   *
    * @public
    */
   lastErrorMessage?: string | undefined;
 
   /**
-   * <p>The time from the last status change.</p>
+   * The time from the last status change.
+   *
    * @public
    */
   lastStatusChangeTime?: Date | undefined;
 }
 
 /**
- * <p>This object contains regions to set up the aggregator and an IAM
- * 			role to retrieve organization details.</p>
+ * This object contains regions to set up the aggregator and an IAM role to retrieve organization details.
+ *
  * @public
  */
 export interface OrganizationAggregationSource {
   /**
-   * <p>ARN of the IAM role used to retrieve Amazon Web Services Organization details
-   * 			associated with the aggregator account.</p>
+   * ARN of the IAM role used to retrieve Amazon Web Services Organization details associated with the aggregator account.
+   *
    * @public
    */
   RoleArn: string | undefined;
 
   /**
-   * <p>The source regions being aggregated.</p>
+   * The source regions being aggregated.
+   *
    * @public
    */
   AwsRegions?: string[] | undefined;
 
   /**
-   * <p>If true, aggregate existing Config regions and future
-   * 			regions.</p>
+   * If true, aggregate existing Config regions and future regions.
+   *
    * @public
    */
   AllAwsRegions?: boolean | undefined;
 }
 
 /**
- * <p>The details about the configuration aggregator, including
- * 			information about source accounts, regions, and metadata of the
- * 			aggregator. </p>
+ * The details about the configuration aggregator, including information about source accounts, regions, and metadata of the aggregator.
+ *
  * @public
  */
 export interface ConfigurationAggregator {
   /**
-   * <p>The name of the aggregator.</p>
+   * The name of the aggregator.
+   *
    * @public
    */
   ConfigurationAggregatorName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the aggregator.</p>
+   * The Amazon Resource Name (ARN) of the aggregator.
+   *
    * @public
    */
   ConfigurationAggregatorArn?: string | undefined;
 
   /**
-   * <p>Provides a list of source accounts and regions to be
-   * 			aggregated.</p>
+   * Provides a list of source accounts and regions to be aggregated.
+   *
    * @public
    */
   AccountAggregationSources?: AccountAggregationSource[] | undefined;
 
   /**
-   * <p>Provides an organization and list of regions to be
-   * 			aggregated.</p>
+   * Provides an organization and list of regions to be aggregated.
+   *
    * @public
    */
   OrganizationAggregationSource?: OrganizationAggregationSource | undefined;
 
   /**
-   * <p>The time stamp when the configuration aggregator was
-   * 			created.</p>
+   * The time stamp when the configuration aggregator was created.
+   *
    * @public
    */
   CreationTime?: Date | undefined;
 
   /**
-   * <p>The time of the last update.</p>
+   * The time of the last update.
+   *
    * @public
    */
   LastUpdatedTime?: Date | undefined;
 
   /**
-   * <p>Amazon Web Services service that created the configuration aggregator.</p>
+   * Amazon Web Services service that created the configuration aggregator.
+   *
    * @public
    */
   CreatedBy?: string | undefined;
 
   /**
-   * <p>An object to filter the data you specify for an aggregator.</p>
+   * An object to filter the data you specify for an aggregator.
+   *
    * @public
    */
   AggregatorFilters?: AggregatorFilters | undefined;
 }
 
 /**
- * <p>The relationship of the related resource to the main
- * 			resource.</p>
+ * The relationship of the related resource to the main resource.
+ *
  * @public
  */
 export interface Relationship {
   /**
-   * <p>The resource type of the related resource.</p>
+   * The resource type of the related resource.
+   *
    * @public
    */
   resourceType?: ResourceType | undefined;
 
   /**
-   * <p>The ID of the related resource (for example,
-   * 				<code>sg-xxxxxx</code>).</p>
+   * The ID of the related resource (for example, `sg-xxxxxx`).
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>The custom name of the related resource, if
-   * 			available.</p>
+   * The custom name of the related resource, if available.
+   *
    * @public
    */
   resourceName?: string | undefined;
 
   /**
-   * <p>The type of relationship with the related resource.</p>
+   * The type of relationship with the related resource.
+   *
    * @public
    */
   relationshipName?: string | undefined;
 }
 
 /**
- * <p>A list that contains detailed configurations of a specified
- * 			resource.</p>
+ * A list that contains detailed configurations of a specified resource.
+ *
  * @public
  */
 export interface ConfigurationItem {
   /**
-   * <p>The version number of the resource configuration.</p>
+   * The version number of the resource configuration.
+   *
    * @public
    */
   version?: string | undefined;
 
   /**
-   * <p>The 12-digit Amazon Web Services account ID associated with the
-   * 			resource.</p>
+   * The 12-digit Amazon Web Services account ID associated with the resource.
+   *
    * @public
    */
   accountId?: string | undefined;
 
   /**
-   * <p>The time when the recording of configuration changes was
-   * 			initiated for the resource.</p>
+   * The time when the recording of configuration changes was initiated for the resource.
+   *
    * @public
    */
   configurationItemCaptureTime?: Date | undefined;
 
   /**
-   * <p>The configuration item status. Valid values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>OK – The resource configuration has been updated</p>
-   *             </li>
-   *             <li>
-   *                <p>ResourceDiscovered – The resource was newly discovered</p>
-   *             </li>
-   *             <li>
-   *                <p>ResourceNotRecorded – The resource was discovered but its configuration was not recorded since the recorder doesn't record resources of this type</p>
-   *             </li>
-   *             <li>
-   *                <p>ResourceDeleted – The resource was deleted</p>
-   *             </li>
-   *             <li>
-   *                <p>ResourceDeletedNotRecorded – The resource was deleted but its configuration was not recorded since the recorder doesn't  record resources of this type</p>
-   *             </li>
-   *          </ul>
+   * The configuration item status. Valid values include:
+   *
+   * - OK – The resource configuration has been updated
+   * - ResourceDiscovered – The resource was newly discovered
+   * - ResourceNotRecorded – The resource was discovered but its configuration was not recorded since the recorder doesn't record resources of this type
+   * - ResourceDeleted – The resource was deleted
+   * - ResourceDeletedNotRecorded – The resource was deleted but its configuration was not recorded since the recorder doesn't record resources of this type
+   *
    * @public
    */
   configurationItemStatus?: ConfigurationItemStatus | undefined;
 
   /**
-   * <p>An identifier that indicates the ordering of the configuration
-   * 			items of a resource.</p>
+   * An identifier that indicates the ordering of the configuration items of a resource.
+   *
    * @public
    */
   configurationStateId?: string | undefined;
 
   /**
-   * <p>Unique MD5 hash that represents the configuration item's
-   * 			state.</p>
-   *          <p>You can use MD5 hash to compare the states of two or more
-   * 			configuration items that are associated with the same
-   * 			resource.</p>
+   * Unique MD5 hash that represents the configuration item's state.
+   *
+   * You can use MD5 hash to compare the states of two or more configuration items that are associated with the same resource.
+   *
    * @public
    */
   configurationItemMD5Hash?: string | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) associated with the resource.</p>
+   * Amazon Resource Name (ARN) associated with the resource.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The type of Amazon Web Services resource.</p>
+   * The type of Amazon Web Services resource.
+   *
    * @public
    */
   resourceType?: ResourceType | undefined;
 
   /**
-   * <p>The ID of the resource (for example,
-   * 			<code>sg-xxxxxx</code>).</p>
+   * The ID of the resource (for example, `sg-xxxxxx`).
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>The custom name of the resource, if available.</p>
+   * The custom name of the resource, if available.
+   *
    * @public
    */
   resourceName?: string | undefined;
 
   /**
-   * <p>The region where the resource resides.</p>
+   * The region where the resource resides.
+   *
    * @public
    */
   awsRegion?: string | undefined;
 
   /**
-   * <p>The Availability Zone associated with the resource.</p>
+   * The Availability Zone associated with the resource.
+   *
    * @public
    */
   availabilityZone?: string | undefined;
 
   /**
-   * <p>The time stamp when the resource was created.</p>
+   * The time stamp when the resource was created.
+   *
    * @public
    */
   resourceCreationTime?: Date | undefined;
 
   /**
-   * <p>A mapping of key value tags associated with the
-   * 			resource.</p>
+   * A mapping of key value tags associated with the resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>A list of CloudTrail event IDs.</p>
-   *          <p>A populated field indicates that the current configuration was
-   * 			initiated by the events recorded in the CloudTrail log. For more
-   * 			information about CloudTrail, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html">What Is CloudTrail</a>.</p>
-   *          <p>An empty field indicates that the current configuration was not
-   * 			initiated by any event. As of Version 1.3, the relatedEvents field is empty.
-   * 			You can access the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_LookupEvents.html">LookupEvents API</a> in the <i>CloudTrail API Reference</i> to retrieve the events for the resource.</p>
+   * A list of CloudTrail event IDs.
+   *
+   * A populated field indicates that the current configuration was initiated by the events recorded in the CloudTrail log. For more information about CloudTrail, see [What Is CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html).
+   *
+   * An empty field indicates that the current configuration was not initiated by any event. As of Version 1.3, the relatedEvents field is empty. You can access the [LookupEvents API](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_LookupEvents.html) in the *CloudTrail API Reference* to retrieve the events for the resource.
+   *
    * @public
    */
   relatedEvents?: string[] | undefined;
 
   /**
-   * <p>A list of related Amazon Web Services resources.</p>
+   * A list of related Amazon Web Services resources.
+   *
    * @public
    */
   relationships?: Relationship[] | undefined;
 
   /**
-   * <p>A JSON-encoded string that contains the contents for the resource configuration. This string needs to be deserialized using <code>json.loads()</code> before you can access the contents.</p>
+   * A JSON-encoded string that contains the contents for the resource configuration. This string needs to be deserialized using `json.loads()` before you can access the contents.
+   *
    * @public
    */
   configuration?: string | undefined;
 
   /**
-   * <p>A string to string map that contains additional contents for the resource configuration.Config returns this field for certain
-   * 			resource types to supplement the information returned for the
-   * 			<code>configuration</code> field.</p>
-   *          <p>This string to string map needs to be deserialized using <code>json.loads()</code> before you can accessing the contents.</p>
+   * A string to string map that contains additional contents for the resource configuration.Config returns this field for certain resource types to supplement the information returned for the `configuration` field.
+   *
+   * This string to string map needs to be deserialized using `json.loads()` before you can accessing the contents.
+   *
    * @public
    */
   supplementaryConfiguration?: Record<string, string> | undefined;
 
   /**
-   * <p>The recording frequency that Config uses to record configuration changes for the resource.</p>
-   *          <note>
-   *             <p>This field only appears in the API response when <code>DAILY</code> recording is enabled for a resource type.
-   * 				If this field is not present, <code>CONTINUOUS</code> recording is enabled for that resource type. For more information on daily recording and continuous recording, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-recording-frequency">Recording Frequency</a> in the <i>Config
-   * 						Developer Guide</i>.</p>
-   *          </note>
+   * The recording frequency that Config uses to record configuration changes for the resource.
+   *
+   * > **Note:** This field only appears in the API response when `DAILY` recording is enabled for a resource type. If this field is not present, `CONTINUOUS` recording is enabled for that resource type. For more information on daily recording and continuous recording, see [Recording Frequency](https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-recording-frequency) in the *Config Developer Guide*.
+   *
    * @public
    */
   recordingFrequency?: RecordingFrequency | undefined;
 
   /**
-   * <p>The time when configuration changes for the resource were delivered.</p>
-   *          <note>
-   *             <p>This field is optional and is not guaranteed to be present in a configuration item  (CI). If you are using daily recording,
-   * 			this field will be populated. However, if you are using continuous recording,
-   * 			this field will be omitted since the delivery time is instantaneous as the CI is available right away.</p>
-   *             <p>For more information on daily recording and continuous recording, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-recording-frequency">Recording Frequency</a> in the <i>Config
-   * 					Developer Guide</i>.</p>
-   *          </note>
+   * The time when configuration changes for the resource were delivered.
+   *
+   * > **Note:**
+   * >
+   * > This field is optional and is not guaranteed to be present in a configuration item (CI). If you are using daily recording, this field will be populated. However, if you are using continuous recording, this field will be omitted since the delivery time is instantaneous as the CI is available right away.
+   * >
+   * > For more information on daily recording and continuous recording, see [Recording Frequency](https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-recording-frequency) in the *Config Developer Guide*.
+   *
    * @public
    */
   configurationItemDeliveryTime?: Date | undefined;
 }
 
 /**
- * <p>Filters configuration recorders by recording scope.</p>
+ * Filters configuration recorders by recording scope.
+ *
  * @public
  */
 export interface ConfigurationRecorderFilter {
   /**
-   * <p>The name of the type of filter. Currently, only <code>recordingScope</code> is supported.</p>
+   * The name of the type of filter. Currently, only `recordingScope` is supported.
+   *
    * @public
    */
   filterName?: ConfigurationRecorderFilterName | undefined;
 
   /**
-   * <p>The value of the filter. For <code>recordingScope</code>, valid values include: <code>INTERNAL</code> and <code>PAID</code>.</p>
-   *          <p>
-   *             <code>INTERNAL</code> indicates that the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigurationItem.html">ConfigurationItems</a> in scope for the configuration recorder are recorded for free.</p>
-   *          <p>
-   *             <code>PAID</code> indicates that the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigurationItem.html">ConfigurationItems</a> in scope for the configuration recorder impact the costs to your bill.</p>
+   * The value of the filter. For `recordingScope`, valid values include: `INTERNAL` and `PAID`.
+   *
+   * `INTERNAL` indicates that the [ConfigurationItems](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigurationItem.html) in scope for the configuration recorder are recorded for free.
+   *
+   * `PAID` indicates that the [ConfigurationItems](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigurationItem.html) in scope for the configuration recorder impact the costs to your bill.
+   *
    * @public
    */
   filterValue?: string[] | undefined;
 }
 
 /**
- * <p>The current status of the configuration recorder.</p>
- *          <p>For a detailed status of recording events over time, add your Config events to CloudWatch metrics and use CloudWatch metrics.</p>
+ * The current status of the configuration recorder.
+ *
+ * For a detailed status of recording events over time, add your Config events to CloudWatch metrics and use CloudWatch metrics.
+ *
  * @public
  */
 export interface ConfigurationRecorderStatus {
   /**
-   * <p>The Amazon Resource Name (ARN) of the configuration recorder.</p>
+   * The Amazon Resource Name (ARN) of the configuration recorder.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The name of the configuration recorder.</p>
+   * The name of the configuration recorder.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The time the recorder was last started.</p>
+   * The time the recorder was last started.
+   *
    * @public
    */
   lastStartTime?: Date | undefined;
 
   /**
-   * <p>The time the recorder was last stopped.</p>
+   * The time the recorder was last stopped.
+   *
    * @public
    */
   lastStopTime?: Date | undefined;
 
   /**
-   * <p>Specifies whether or not the recorder is currently
-   * 			recording.</p>
+   * Specifies whether or not the recorder is currently recording.
+   *
    * @public
    */
   recording?: boolean | undefined;
 
   /**
-   * <p>The status of the latest recording event processed by the recorder.</p>
+   * The status of the latest recording event processed by the recorder.
+   *
    * @public
    */
   lastStatus?: RecorderStatus | undefined;
 
   /**
-   * <p>The latest error code from when the recorder last failed.</p>
+   * The latest error code from when the recorder last failed.
+   *
    * @public
    */
   lastErrorCode?: string | undefined;
 
   /**
-   * <p>The latest error message from when the recorder last failed.</p>
+   * The latest error message from when the recorder last failed.
+   *
    * @public
    */
   lastErrorMessage?: string | undefined;
 
   /**
-   * <p>The time of the latest change in status of an recording event processed by the recorder.</p>
+   * The time of the latest change in status of an recording event processed by the recorder.
+   *
    * @public
    */
   lastStatusChangeTime?: Date | undefined;
 
   /**
-   * <p>For service-linked configuration recorders, the service principal of the linked Amazon Web Services service.</p>
+   * For service-linked configuration recorders, the service principal of the linked Amazon Web Services service.
+   *
    * @public
    */
   servicePrincipal?: string | undefined;
 }
 
 /**
- * <p>A summary of a configuration recorder, including the <code>arn</code>, <code>name</code>, <code>servicePrincipal</code>, <code>recordingScope</code>, and <code>provider</code>.</p>
+ * A summary of a configuration recorder, including the `arn`, `name`, `servicePrincipal`, `recordingScope`, and `provider`.
+ *
  * @public
  */
 export interface ConfigurationRecorderSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the configuration recorder.</p>
+   * The Amazon Resource Name (ARN) of the configuration recorder.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The name of the configuration recorder.</p>
+   * The name of the configuration recorder.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>For service-linked configuration recorders, indicates which Amazon Web Services service the configuration recorder is linked to.</p>
+   * For service-linked configuration recorders, indicates which Amazon Web Services service the configuration recorder is linked to.
+   *
    * @public
    */
   servicePrincipal?: string | undefined;
 
   /**
-   * <p>Indicates whether the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigurationItem.html">ConfigurationItems</a> in scope for the configuration recorder are recorded for free (<code>INTERNAL</code>) or if you are charged a service fee for recording (<code>PAID</code>).</p>
+   * Indicates whether the [ConfigurationItems](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigurationItem.html) in scope for the configuration recorder are recorded for free (`INTERNAL`) or if you are charged a service fee for recording (`PAID`).
+   *
    * @public
    */
   recordingScope: RecordingScope | undefined;
 
   /**
-   * <p>For service-linked configuration recorders that record resources from a third-party cloud service provider, indicates the cloud service provider. Currently, <code>AZURE</code> is supported.</p>
+   * For service-linked configuration recorders that record resources from a third-party cloud service provider, indicates the cloud service provider. Currently, `AZURE` is supported.
+   *
    * @public
    */
   provider?: Provider | undefined;
 }
 
 /**
- * <p>Filters the conformance pack by compliance types and Config rule names.</p>
+ * Filters the conformance pack by compliance types and Config rule names.
+ *
  * @public
  */
 export interface ConformancePackComplianceFilters {
   /**
-   * <p>Filters the results by Config rule names.</p>
+   * Filters the results by Config rule names.
+   *
    * @public
    */
   ConfigRuleNames?: string[] | undefined;
 
   /**
-   * <p>Filters the results by compliance.</p>
-   *          <p>The allowed values are <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>. <code>INSUFFICIENT_DATA</code> is not supported.</p>
+   * Filters the results by compliance.
+   *
+   * The allowed values are `COMPLIANT` and `NON_COMPLIANT`. `INSUFFICIENT_DATA` is not supported.
+   *
    * @public
    */
   ComplianceType?: ConformancePackComplianceType | undefined;
 }
 
 /**
- * <p>A compliance score is the percentage of the number of compliant rule-resource combinations in a conformance pack compared to the number of total possible rule-resource combinations in the conformance pack.
- * 			This metric provides you with a high-level view of the compliance state of your conformance packs. You can use it to identify, investigate, and understand
- * 			the level of compliance in your conformance packs.</p>
+ * A compliance score is the percentage of the number of compliant rule-resource combinations in a conformance pack compared to the number of total possible rule-resource combinations in the conformance pack. This metric provides you with a high-level view of the compliance state of your conformance packs. You can use it to identify, investigate, and understand the level of compliance in your conformance packs.
+ *
  * @public
  */
 export interface ConformancePackComplianceScore {
   /**
-   * <p>Compliance score for the conformance pack. Conformance packs with no evaluation results will have a compliance score of <code>INSUFFICIENT_DATA</code>.</p>
+   * Compliance score for the conformance pack. Conformance packs with no evaluation results will have a compliance score of `INSUFFICIENT_DATA`.
+   *
    * @public
    */
   Score?: string | undefined;
 
   /**
-   * <p>The name of the conformance pack.</p>
+   * The name of the conformance pack.
+   *
    * @public
    */
   ConformancePackName?: string | undefined;
 
   /**
-   * <p>The time that the conformance pack compliance score was last updated.</p>
+   * The time that the conformance pack compliance score was last updated.
+   *
    * @public
    */
   LastUpdatedTime?: Date | undefined;
 }
 
 /**
- * <p>A list of filters to apply to the conformance pack compliance score result set. </p>
+ * A list of filters to apply to the conformance pack compliance score result set.
+ *
  * @public
  */
 export interface ConformancePackComplianceScoresFilters {
   /**
-   * <p>The names of the conformance packs whose compliance scores you want to include in the conformance pack compliance score result set.
-   * 			You can include up to 25 conformance packs in the <code>ConformancePackNames</code> array of strings, each with a character limit of 256 characters for the conformance pack name.</p>
+   * The names of the conformance packs whose compliance scores you want to include in the conformance pack compliance score result set. You can include up to 25 conformance packs in the `ConformancePackNames` array of strings, each with a character limit of 256 characters for the conformance pack name.
+   *
    * @public
    */
   ConformancePackNames: string[] | undefined;
 }
 
 /**
- * <p>Summary includes the name and status of the conformance pack.</p>
+ * Summary includes the name and status of the conformance pack.
+ *
  * @public
  */
 export interface ConformancePackComplianceSummary {
   /**
-   * <p>The name of the conformance pack name.</p>
+   * The name of the conformance pack name.
+   *
    * @public
    */
   ConformancePackName: string | undefined;
 
   /**
-   * <p>The status of the conformance pack.</p>
+   * The status of the conformance pack.
+   *
    * @public
    */
   ConformancePackComplianceStatus: ConformancePackComplianceType | undefined;
 }
 
 /**
- * <p>Input parameters in the form of key-value pairs for the conformance pack, both of which you define.
- * 			Keys can have a maximum character length of 255 characters, and values can have a maximum length of 4096 characters.</p>
+ * Input parameters in the form of key-value pairs for the conformance pack, both of which you define. Keys can have a maximum character length of 255 characters, and values can have a maximum length of 4096 characters.
+ *
  * @public
  */
 export interface ConformancePackInputParameter {
   /**
-   * <p>One part of a key-value pair.</p>
+   * One part of a key-value pair.
+   *
    * @public
    */
   ParameterName: string | undefined;
 
   /**
-   * <p>Another part of the key-value pair. </p>
+   * Another part of the key-value pair.
+   *
    * @public
    */
   ParameterValue: string | undefined;
 }
 
 /**
- * <p>This API allows you to create a conformance pack template with an Amazon Web Services Systems Manager document (SSM document).
- * 			To deploy a conformance pack using an SSM document, first create an SSM document with conformance pack content, and then provide the <code>DocumentName</code> in the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConformancePack.html">PutConformancePack API</a>. You can also provide the <code>DocumentVersion</code>.</p>
- *          <p>The <code>TemplateSSMDocumentDetails</code> object contains the name of the SSM document and the version of the SSM document.</p>
+ * This API allows you to create a conformance pack template with an Amazon Web Services Systems Manager document (SSM document). To deploy a conformance pack using an SSM document, first create an SSM document with conformance pack content, and then provide the `DocumentName` in the [PutConformancePack API](https://docs.aws.amazon.com/config/latest/APIReference/API_PutConformancePack.html). You can also provide the `DocumentVersion`.
+ *
+ * The `TemplateSSMDocumentDetails` object contains the name of the SSM document and the version of the SSM document.
+ *
  * @public
  */
 export interface TemplateSSMDocumentDetails {
   /**
-   * <p>The name or Amazon Resource Name (ARN) of the SSM document to use to create a conformance pack.
-   * 			If you use the document name, Config checks only your account and Amazon Web Services Region for the SSM document.</p>
+   * The name or Amazon Resource Name (ARN) of the SSM document to use to create a conformance pack. If you use the document name, Config checks only your account and Amazon Web Services Region for the SSM document.
+   *
    * @public
    */
   DocumentName: string | undefined;
 
   /**
-   * <p>The version of the SSM document to use to create a conformance pack. By default, Config uses the latest version.</p>
-   *          <note>
-   *             <p>This field is optional.</p>
-   *          </note>
+   * The version of the SSM document to use to create a conformance pack. By default, Config uses the latest version.
+   *
+   * > **Note:** This field is optional.
+   *
    * @public
    */
   DocumentVersion?: string | undefined;
 }
 
 /**
- * <p>Returns details of a conformance pack. A conformance pack is a collection of Config rules and remediation actions that can be easily deployed in an account and a region.</p>
+ * Returns details of a conformance pack. A conformance pack is a collection of Config rules and remediation actions that can be easily deployed in an account and a region.
+ *
  * @public
  */
 export interface ConformancePackDetail {
   /**
-   * <p>Name of the conformance pack.</p>
+   * Name of the conformance pack.
+   *
    * @public
    */
   ConformancePackName: string | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) of the conformance pack.</p>
+   * Amazon Resource Name (ARN) of the conformance pack.
+   *
    * @public
    */
   ConformancePackArn: string | undefined;
 
   /**
-   * <p>ID of the conformance pack.</p>
+   * ID of the conformance pack.
+   *
    * @public
    */
   ConformancePackId: string | undefined;
 
   /**
-   * <p>The name of the Amazon S3 bucket where Config stores conformance pack templates. </p>
-   *          <note>
-   *             <p>This field is optional.</p>
-   *          </note>
+   * The name of the Amazon S3 bucket where Config stores conformance pack templates.
+   *
+   * > **Note:** This field is optional.
+   *
    * @public
    */
   DeliveryS3Bucket?: string | undefined;
 
   /**
-   * <p>The prefix for the Amazon S3 bucket.</p>
-   *          <note>
-   *             <p>This field is optional.</p>
-   *          </note>
+   * The prefix for the Amazon S3 bucket.
+   *
+   * > **Note:** This field is optional.
+   *
    * @public
    */
   DeliveryS3KeyPrefix?: string | undefined;
 
   /**
-   * <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
+   * A list of `ConformancePackInputParameter` objects.
+   *
    * @public
    */
   ConformancePackInputParameters?: ConformancePackInputParameter[] | undefined;
 
   /**
-   * <p>The last time a conformation pack update was requested. </p>
+   * The last time a conformation pack update was requested.
+   *
    * @public
    */
   LastUpdateRequestedTime?: Date | undefined;
 
   /**
-   * <p>The Amazon Web Services service that created the conformance pack.</p>
+   * The Amazon Web Services service that created the conformance pack.
+   *
    * @public
    */
   CreatedBy?: string | undefined;
 
   /**
-   * <p>An object that contains the name or Amazon Resource Name (ARN) of the Amazon Web Services Systems Manager document (SSM document) and the version of the SSM document that is used to create a conformance pack.</p>
+   * An object that contains the name or Amazon Resource Name (ARN) of the Amazon Web Services Systems Manager document (SSM document) and the version of the SSM document that is used to create a conformance pack.
+   *
    * @public
    */
   TemplateSSMDocumentDetails?: TemplateSSMDocumentDetails | undefined;
 }
 
 /**
- * <p>Filters a conformance pack by Config rule names, compliance types, Amazon Web Services resource types, and resource IDs.</p>
+ * Filters a conformance pack by Config rule names, compliance types, Amazon Web Services resource types, and resource IDs.
+ *
  * @public
  */
 export interface ConformancePackEvaluationFilters {
   /**
-   * <p>Filters the results by Config rule names.</p>
+   * Filters the results by Config rule names.
+   *
    * @public
    */
   ConfigRuleNames?: string[] | undefined;
 
   /**
-   * <p>Filters the results by compliance.</p>
-   *          <p>The allowed values are <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>. <code>INSUFFICIENT_DATA</code> is not supported.</p>
+   * Filters the results by compliance.
+   *
+   * The allowed values are `COMPLIANT` and `NON_COMPLIANT`. `INSUFFICIENT_DATA` is not supported.
+   *
    * @public
    */
   ComplianceType?: ConformancePackComplianceType | undefined;
 
   /**
-   * <p>Filters the results by the resource type (for example, <code>"AWS::EC2::Instance"</code>). </p>
+   * Filters the results by the resource type (for example, `"AWS::EC2::Instance"`).
+   *
    * @public
    */
   ResourceType?: string | undefined;
 
   /**
-   * <p>Filters the results by resource IDs.</p>
-   *          <note>
-   *             <p>This is valid only when you provide resource type. If there is no resource type, you will see an error.</p>
-   *          </note>
+   * Filters the results by resource IDs.
+   *
+   * > **Note:** This is valid only when you provide resource type. If there is no resource type, you will see an error.
+   *
    * @public
    */
   ResourceIds?: string[] | undefined;
 }
 
 /**
- * <p>The details of a conformance pack evaluation. Provides Config rule and Amazon Web Services resource type that was evaluated, the compliance of the conformance pack, related time stamps, and supplementary information. </p>
+ * The details of a conformance pack evaluation. Provides Config rule and Amazon Web Services resource type that was evaluated, the compliance of the conformance pack, related time stamps, and supplementary information.
+ *
  * @public
  */
 export interface ConformancePackEvaluationResult {
   /**
-   * <p>The compliance type. The allowed values are <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>. <code>INSUFFICIENT_DATA</code> is not supported.</p>
+   * The compliance type. The allowed values are `COMPLIANT` and `NON_COMPLIANT`. `INSUFFICIENT_DATA` is not supported.
+   *
    * @public
    */
   ComplianceType: ConformancePackComplianceType | undefined;
 
   /**
-   * <p>Uniquely identifies an evaluation result.</p>
+   * Uniquely identifies an evaluation result.
+   *
    * @public
    */
   EvaluationResultIdentifier: EvaluationResultIdentifier | undefined;
 
   /**
-   * <p>The time when Config rule evaluated Amazon Web Services resource.</p>
+   * The time when Config rule evaluated Amazon Web Services resource.
+   *
    * @public
    */
   ConfigRuleInvokedTime: Date | undefined;
 
   /**
-   * <p>The time when Config recorded the evaluation result. </p>
+   * The time when Config recorded the evaluation result.
+   *
    * @public
    */
   ResultRecordedTime: Date | undefined;
 
   /**
-   * <p>Supplementary information about how the evaluation determined the compliance. </p>
+   * Supplementary information about how the evaluation determined the compliance.
+   *
    * @public
    */
   Annotation?: string | undefined;
 }
 
 /**
- * <p>Compliance information of one or more Config rules within a conformance pack. You can filter using Config rule names and compliance types.</p>
+ * Compliance information of one or more Config rules within a conformance pack. You can filter using Config rule names and compliance types.
+ *
  * @public
  */
 export interface ConformancePackRuleCompliance {
   /**
-   * <p>Name of the Config rule.</p>
+   * Name of the Config rule.
+   *
    * @public
    */
   ConfigRuleName?: string | undefined;
 
   /**
-   * <p>Compliance of the Config rule.</p>
+   * Compliance of the Config rule.
+   *
    * @public
    */
   ComplianceType?: ConformancePackComplianceType | undefined;
 
   /**
-   * <p>Controls for the conformance pack. A control is a process to prevent or detect problems while meeting objectives.
-   * 			A control can align with a specific compliance regime or map to internal controls defined by an organization.</p>
+   * Controls for the conformance pack. A control is a process to prevent or detect problems while meeting objectives. A control can align with a specific compliance regime or map to internal controls defined by an organization.
+   *
    * @public
    */
   Controls?: string[] | undefined;
 }
 
 /**
- * <p>Status details of a conformance pack.</p>
+ * Status details of a conformance pack.
+ *
  * @public
  */
 export interface ConformancePackStatusDetail {
   /**
-   * <p>Name of the conformance pack.</p>
+   * Name of the conformance pack.
+   *
    * @public
    */
   ConformancePackName: string | undefined;
 
   /**
-   * <p>ID of the conformance pack.</p>
+   * ID of the conformance pack.
+   *
    * @public
    */
   ConformancePackId: string | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) of comformance pack.</p>
+   * Amazon Resource Name (ARN) of comformance pack.
+   *
    * @public
    */
   ConformancePackArn: string | undefined;
 
   /**
-   * <p>Indicates deployment status of conformance pack.</p>
-   *          <p>Config sets the state of the conformance pack to:</p>
-   *          <ul>
-   *             <li>
-   *                <p>CREATE_IN_PROGRESS when a conformance pack creation is in progress for an account.</p>
-   *             </li>
-   *             <li>
-   *                <p>CREATE_COMPLETE when a conformance pack has been successfully created in your account.</p>
-   *             </li>
-   *             <li>
-   *                <p>CREATE_FAILED when a conformance pack creation failed in your account.</p>
-   *             </li>
-   *             <li>
-   *                <p>DELETE_IN_PROGRESS when a conformance pack deletion is in progress. </p>
-   *             </li>
-   *             <li>
-   *                <p>DELETE_FAILED when a conformance pack deletion failed in your account.</p>
-   *             </li>
-   *          </ul>
+   * Indicates deployment status of conformance pack.
+   *
+   * Config sets the state of the conformance pack to:
+   *
+   * - CREATE_IN_PROGRESS when a conformance pack creation is in progress for an account.
+   * - CREATE_COMPLETE when a conformance pack has been successfully created in your account.
+   * - CREATE_FAILED when a conformance pack creation failed in your account.
+   * - DELETE_IN_PROGRESS when a conformance pack deletion is in progress.
+   * - DELETE_FAILED when a conformance pack deletion failed in your account.
+   *
    * @public
    */
   ConformancePackState: ConformancePackState | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) of CloudFormation stack. </p>
+   * Amazon Resource Name (ARN) of CloudFormation stack.
+   *
    * @public
    */
   StackArn: string | undefined;
 
   /**
-   * <p>The reason of conformance pack creation failure.</p>
+   * The reason of conformance pack creation failure.
+   *
    * @public
    */
   ConformancePackStatusReason?: string | undefined;
 
   /**
-   * <p>Last time when conformation pack creation and update was requested.</p>
+   * Last time when conformation pack creation and update was requested.
+   *
    * @public
    */
   LastUpdateRequestedTime: Date | undefined;
 
   /**
-   * <p>Last time when conformation pack creation and update was successful.</p>
+   * Last time when conformation pack creation and update was successful.
+   *
    * @public
    */
   LastUpdateCompletedTime?: Date | undefined;
 }
 
 /**
- * <p>The provider-specific configuration for connecting to the third-party cloud service provider. You must specify exactly one provider configuration.</p>
+ * The provider-specific configuration for connecting to the third-party cloud service provider. You must specify exactly one provider configuration.
+ *
  * @public
  */
 export interface ConnectorConfiguration {
   /**
-   * <p>The configuration for an Azure connector.</p>
+   * The configuration for an Azure connector.
+   *
    * @public
    */
   azure?: AzureConnectorConfiguration | undefined;
 }
 
 /**
- * <p>The details of the connector, including the connector configuration and connector ARN.</p>
+ * The details of the connector, including the connector configuration and connector ARN.
+ *
  * @public
  */
 export interface Connector {
   /**
-   * <p>The name of the connector.</p>
+   * The name of the connector.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the connector.</p>
+   * The Amazon Resource Name (ARN) of the connector.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The provider-specific configuration for connecting to the third-party cloud service provider.</p>
+   * The provider-specific configuration for connecting to the third-party cloud service provider.
+   *
    * @public
    */
   connectorConfiguration: ConnectorConfiguration | undefined;
 
   /**
-   * <p>The date and time that the connector was created.</p>
+   * The date and time that the connector was created.
+   *
    * @public
    */
   createdTime: Date | undefined;
 }
 
 /**
- * <p>Filters connectors based on the connector provider.</p>
+ * Filters connectors based on the connector provider.
+ *
  * @public
  */
 export interface ConnectorFilter {
   /**
-   * <p>The name of the filter. Currently, only <code>provider</code> is supported.</p>
+   * The name of the filter. Currently, only `provider` is supported.
+   *
    * @public
    */
   filterName?: ConnectorFilterName | undefined;
 
   /**
-   * <p>The value of the filter. For <code>provider</code>, valid values include: <code>AZURE</code>.</p>
+   * The value of the filter. For `provider`, valid values include: `AZURE`.
+   *
    * @public
    */
   filterValues?: string[] | undefined;
 }
 
 /**
- * <p>A summary of a connector.</p>
+ * A summary of a connector.
+ *
  * @public
  */
 export interface ConnectorSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the connector.</p>
+   * The Amazon Resource Name (ARN) of the connector.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The name of the connector.</p>
+   * The name of the connector.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The third-party cloud service provider. Currently, <code>AZURE</code> is supported.</p>
+   * The third-party cloud service provider. Currently, `AZURE` is supported.
+   *
    * @public
    */
   provider: Provider | undefined;
 
   /**
-   * <p>The Azure tenant identifier for the connector.</p>
+   * The Azure tenant identifier for the connector.
+   *
    * @public
    */
   tenantIdentifier: string | undefined;
 
   /**
-   * <p>The date and time that the connector was created.</p>
+   * The date and time that the connector was created.
+   *
    * @public
    */
   createdTime: Date | undefined;
@@ -3174,27 +3047,27 @@ export interface ConnectorSummary {
  */
 export interface DeleteAggregationAuthorizationRequest {
   /**
-   * <p>The 12-digit account ID of the account authorized to aggregate
-   * 			data.</p>
+   * The 12-digit account ID of the account authorized to aggregate data.
+   *
    * @public
    */
   AuthorizedAccountId: string | undefined;
 
   /**
-   * <p>The region authorized to collect aggregated data.</p>
+   * The region authorized to collect aggregated data.
+   *
    * @public
    */
   AuthorizedAwsRegion: string | undefined;
 }
 
 /**
- * <p></p>
  * @public
  */
 export interface DeleteConfigRuleRequest {
   /**
-   * <p>The name of the Config rule that you want to
-   * 			delete.</p>
+   * The name of the Config rule that you want to delete.
+   *
    * @public
    */
   ConfigRuleName: string | undefined;
@@ -3205,21 +3078,22 @@ export interface DeleteConfigRuleRequest {
  */
 export interface DeleteConfigurationAggregatorRequest {
   /**
-   * <p>The name of the configuration aggregator.</p>
+   * The name of the configuration aggregator.
+   *
    * @public
    */
   ConfigurationAggregatorName: string | undefined;
 }
 
 /**
- * <p>The request object for the
- * 				<code>DeleteConfigurationRecorder</code> operation.</p>
+ * The request object for the `DeleteConfigurationRecorder` operation.
+ *
  * @public
  */
 export interface DeleteConfigurationRecorderRequest {
   /**
-   * <p>The name of the customer managed configuration recorder that you want to delete. You can
-   * 			retrieve the name of your configuration recorders by using the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html">DescribeConfigurationRecorders</a> operation.</p>
+   * The name of the customer managed configuration recorder that you want to delete. You can retrieve the name of your configuration recorders by using the [DescribeConfigurationRecorders](https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html) operation.
+   *
    * @public
    */
   ConfigurationRecorderName: string | undefined;
@@ -3230,7 +3104,8 @@ export interface DeleteConfigurationRecorderRequest {
  */
 export interface DeleteConformancePackRequest {
   /**
-   * <p>Name of the conformance pack you want to delete.</p>
+   * Name of the conformance pack you want to delete.
+   *
    * @public
    */
   ConformancePackName: string | undefined;
@@ -3241,42 +3116,42 @@ export interface DeleteConformancePackRequest {
  */
 export interface DeleteConnectorRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the connector that you want to delete.</p>
+   * The Amazon Resource Name (ARN) of the connector that you want to delete.
+   *
    * @public
    */
   Arn: string | undefined;
 }
 
 /**
- * <p>The input for the <a>DeleteDeliveryChannel</a>
- * 			action. The action accepts the following data, in JSON format.
- * 		</p>
+ * The input for the DeleteDeliveryChannel action. The action accepts the following data, in JSON format.
+ *
  * @public
  */
 export interface DeleteDeliveryChannelRequest {
   /**
-   * <p>The name of the delivery channel that you want to delete.</p>
+   * The name of the delivery channel that you want to delete.
+   *
    * @public
    */
   DeliveryChannelName: string | undefined;
 }
 
 /**
- * <p></p>
  * @public
  */
 export interface DeleteEvaluationResultsRequest {
   /**
-   * <p>The name of the Config rule for which you want to delete
-   * 			the evaluation results.</p>
+   * The name of the Config rule for which you want to delete the evaluation results.
+   *
    * @public
    */
   ConfigRuleName: string | undefined;
 }
 
 /**
- * <p>The output when you delete the evaluation results for the
- * 			specified Config rule.</p>
+ * The output when you delete the evaluation results for the specified Config rule.
+ *
  * @public
  */
 export interface DeleteEvaluationResultsResponse {}
@@ -3286,7 +3161,8 @@ export interface DeleteEvaluationResultsResponse {}
  */
 export interface DeleteOrganizationConfigRuleRequest {
   /**
-   * <p>The name of organization Config rule that you want to delete.</p>
+   * The name of organization Config rule that you want to delete.
+   *
    * @public
    */
   OrganizationConfigRuleName: string | undefined;
@@ -3297,7 +3173,8 @@ export interface DeleteOrganizationConfigRuleRequest {
  */
 export interface DeleteOrganizationConformancePackRequest {
   /**
-   * <p>The name of organization conformance pack that you want to delete.</p>
+   * The name of organization conformance pack that you want to delete.
+   *
    * @public
    */
   OrganizationConformancePackName: string | undefined;
@@ -3308,14 +3185,15 @@ export interface DeleteOrganizationConformancePackRequest {
  */
 export interface DeletePendingAggregationRequestRequest {
   /**
-   * <p>The 12-digit account ID of the account requesting to aggregate
-   * 			data.</p>
+   * The 12-digit account ID of the account requesting to aggregate data.
+   *
    * @public
    */
   RequesterAccountId: string | undefined;
 
   /**
-   * <p>The region requesting to aggregate data.</p>
+   * The region requesting to aggregate data.
+   *
    * @public
    */
   RequesterAwsRegion: string | undefined;
@@ -3326,13 +3204,15 @@ export interface DeletePendingAggregationRequestRequest {
  */
 export interface DeleteRemediationConfigurationRequest {
   /**
-   * <p>The name of the Config rule for which you want to delete remediation configuration.</p>
+   * The name of the Config rule for which you want to delete remediation configuration.
+   *
    * @public
    */
   ConfigRuleName: string | undefined;
 
   /**
-   * <p>The type of a resource.</p>
+   * The type of a resource.
+   *
    * @public
    */
   ResourceType?: string | undefined;
@@ -3344,18 +3224,21 @@ export interface DeleteRemediationConfigurationRequest {
 export interface DeleteRemediationConfigurationResponse {}
 
 /**
- * <p>The details that identify a resource within Config, including the resource type and resource ID. </p>
+ * The details that identify a resource within Config, including the resource type and resource ID.
+ *
  * @public
  */
 export interface RemediationExceptionResourceKey {
   /**
-   * <p>The type of a resource.</p>
+   * The type of a resource.
+   *
    * @public
    */
   ResourceType?: string | undefined;
 
   /**
-   * <p>The ID of the resource (for example., sg-xxxxxx).</p>
+   * The ID of the resource (for example., sg-xxxxxx).
+   *
    * @public
    */
   ResourceId?: string | undefined;
@@ -3366,31 +3249,36 @@ export interface RemediationExceptionResourceKey {
  */
 export interface DeleteRemediationExceptionsRequest {
   /**
-   * <p>The name of the Config rule for which you want to delete remediation exception configuration.</p>
+   * The name of the Config rule for which you want to delete remediation exception configuration.
+   *
    * @public
    */
   ConfigRuleName: string | undefined;
 
   /**
-   * <p>An exception list of resource exception keys to be processed with the current request. Config adds exception for each resource key. For example, Config adds 3 exceptions for 3 resource keys. </p>
+   * An exception list of resource exception keys to be processed with the current request. Config adds exception for each resource key. For example, Config adds 3 exceptions for 3 resource keys.
+   *
    * @public
    */
   ResourceKeys: RemediationExceptionResourceKey[] | undefined;
 }
 
 /**
- * <p>List of each of the failed delete remediation exceptions with specific reasons.</p>
+ * List of each of the failed delete remediation exceptions with specific reasons.
+ *
  * @public
  */
 export interface FailedDeleteRemediationExceptionsBatch {
   /**
-   * <p>Returns a failure message for delete remediation exception. For example, Config creates an exception due to an internal error.</p>
+   * Returns a failure message for delete remediation exception. For example, Config creates an exception due to an internal error.
+   *
    * @public
    */
   FailureMessage?: string | undefined;
 
   /**
-   * <p>Returns remediation exception resource key object of the failed items.</p>
+   * Returns remediation exception resource key object of the failed items.
+   *
    * @public
    */
   FailedItems?: RemediationExceptionResourceKey[] | undefined;
@@ -3401,7 +3289,8 @@ export interface FailedDeleteRemediationExceptionsBatch {
  */
 export interface DeleteRemediationExceptionsResponse {
   /**
-   * <p>Returns a list of failed delete remediation exceptions batch objects. Each object in the batch consists of a list of failed items and failure messages.</p>
+   * Returns a list of failed delete remediation exceptions batch objects. Each object in the batch consists of a list of failed items and failure messages.
+   *
    * @public
    */
   FailedBatches?: FailedDeleteRemediationExceptionsBatch[] | undefined;
@@ -3412,13 +3301,15 @@ export interface DeleteRemediationExceptionsResponse {
  */
 export interface DeleteResourceConfigRequest {
   /**
-   * <p>The type of the resource.</p>
+   * The type of the resource.
+   *
    * @public
    */
   ResourceType: string | undefined;
 
   /**
-   * <p>Unique identifier of the resource.</p>
+   * Unique identifier of the resource.
+   *
    * @public
    */
   ResourceId: string | undefined;
@@ -3429,7 +3320,8 @@ export interface DeleteResourceConfigRequest {
  */
 export interface DeleteRetentionConfigurationRequest {
   /**
-   * <p>The name of the retention configuration to delete.</p>
+   * The name of the retention configuration to delete.
+   *
    * @public
    */
   RetentionConfigurationName: string | undefined;
@@ -3440,13 +3332,15 @@ export interface DeleteRetentionConfigurationRequest {
  */
 export interface DeleteServiceLinkedConfigurationRecorderRequest {
   /**
-   * <p>The service principal of the Amazon Web Services service for the service-linked configuration recorder that you want to delete. This field is only supported for Amazon Web Services service principals. For third-party service-linked configuration recorders, use <code>Arn</code> instead.</p>
+   * The service principal of the Amazon Web Services service for the service-linked configuration recorder that you want to delete. This field is only supported for Amazon Web Services service principals. For third-party service-linked configuration recorders, use `Arn` instead.
+   *
    * @public
    */
   ServicePrincipal?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service-linked configuration recorder that you want to delete. For third-party service-linked configuration recorders, you must use <code>Arn</code>. You must specify exactly one of <code>Arn</code> or <code>ServicePrincipal</code>.</p>
+   * The Amazon Resource Name (ARN) of the service-linked configuration recorder that you want to delete. For third-party service-linked configuration recorders, you must use `Arn`. You must specify exactly one of `Arn` or `ServicePrincipal`.
+   *
    * @public
    */
   Arn?: string | undefined;
@@ -3457,13 +3351,15 @@ export interface DeleteServiceLinkedConfigurationRecorderRequest {
  */
 export interface DeleteServiceLinkedConfigurationRecorderResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the specified configuration recorder.</p>
+   * The Amazon Resource Name (ARN) of the specified configuration recorder.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The name of the specified configuration recorder.</p>
+   * The name of the specified configuration recorder.
+   *
    * @public
    */
   Name: string | undefined;
@@ -3474,7 +3370,8 @@ export interface DeleteServiceLinkedConfigurationRecorderResponse {
  */
 export interface DeleteStoredQueryRequest {
   /**
-   * <p>The name of the query that you want to delete.</p>
+   * The name of the query that you want to delete.
+   *
    * @public
    */
   QueryName: string | undefined;
@@ -3486,123 +3383,118 @@ export interface DeleteStoredQueryRequest {
 export interface DeleteStoredQueryResponse {}
 
 /**
- * <p>The input for the <a>DeliverConfigSnapshot</a>
- * 			action.</p>
+ * The input for the DeliverConfigSnapshot action.
+ *
  * @public
  */
 export interface DeliverConfigSnapshotRequest {
   /**
-   * <p>The name of the delivery channel through which the snapshot is
-   * 			delivered.</p>
+   * The name of the delivery channel through which the snapshot is delivered.
+   *
    * @public
    */
   deliveryChannelName: string | undefined;
 }
 
 /**
- * <p>The output for the <a>DeliverConfigSnapshot</a>
- * 			action, in JSON format.</p>
+ * The output for the DeliverConfigSnapshot action, in JSON format.
+ *
  * @public
  */
 export interface DeliverConfigSnapshotResponse {
   /**
-   * <p>The ID of the snapshot that is being created.</p>
+   * The ID of the snapshot that is being created.
+   *
    * @public
    */
   configSnapshotId?: string | undefined;
 }
 
 /**
- * <p>The channel through which Config delivers notifications and
- * 			updated configuration states.</p>
+ * The channel through which Config delivers notifications and updated configuration states.
+ *
  * @public
  */
 export interface DeliveryChannel {
   /**
-   * <p>The name of the delivery channel. By default, Config
-   * 			assigns the name "default" when creating the delivery channel. To
-   * 			change the delivery channel name, you must use the
-   * 			DeleteDeliveryChannel action to delete your current delivery
-   * 			channel, and then you must use the PutDeliveryChannel command to
-   * 			create a delivery channel that has the desired name.</p>
+   * The name of the delivery channel. By default, Config assigns the name "default" when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The name of the Amazon S3 bucket to which Config delivers
-   * 			configuration snapshots and configuration history files.</p>
-   *          <p>If you specify a bucket that belongs to another Amazon Web Services account,
-   * 			that bucket must have policies that grant access permissions to Config. For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html">Permissions for the Amazon S3 Bucket</a> in the <i>Config
-   * 			Developer Guide</i>.</p>
+   * The name of the Amazon S3 bucket to which Config delivers configuration snapshots and configuration history files.
+   *
+   * If you specify a bucket that belongs to another Amazon Web Services account, that bucket must have policies that grant access permissions to Config. For more information, see [Permissions for the Amazon S3 Bucket](https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html) in the *Config Developer Guide*.
+   *
    * @public
    */
   s3BucketName?: string | undefined;
 
   /**
-   * <p>The prefix for the specified Amazon S3 bucket.</p>
+   * The prefix for the specified Amazon S3 bucket.
+   *
    * @public
    */
   s3KeyPrefix?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Key Management Service (KMS ) KMS key (KMS key) used to encrypt objects delivered by Config.
-   * 			Must belong to the same Region as the destination S3 bucket.</p>
+   * The Amazon Resource Name (ARN) of the Key Management Service (KMS ) KMS key (KMS key) used to encrypt objects delivered by Config. Must belong to the same Region as the destination S3 bucket.
+   *
    * @public
    */
   s3KmsKeyArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to which
-   * 			Config sends notifications about configuration
-   * 			changes.</p>
-   *          <p>If you choose a topic from another account, the topic must have
-   * 			policies that grant access permissions to Config. For more
-   * 			information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html">Permissions for the Amazon SNS Topic</a> in the <i>Config
-   * 			Developer Guide</i>.</p>
+   * The Amazon Resource Name (ARN) of the Amazon SNS topic to which Config sends notifications about configuration changes.
+   *
+   * If you choose a topic from another account, the topic must have policies that grant access permissions to Config. For more information, see [Permissions for the Amazon SNS Topic](https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html) in the *Config Developer Guide*.
+   *
    * @public
    */
   snsTopicARN?: string | undefined;
 
   /**
-   * <p>The options for how often Config delivers configuration
-   * 			snapshots to the Amazon S3 bucket.</p>
+   * The options for how often Config delivers configuration snapshots to the Amazon S3 bucket.
+   *
    * @public
    */
   configSnapshotDeliveryProperties?: ConfigSnapshotDeliveryProperties | undefined;
 }
 
 /**
- * <p>The status of a specified delivery channel.</p>
- *          <p>Valid values: <code>Success</code> | <code>Failure</code>
- *          </p>
+ * The status of a specified delivery channel.
+ *
+ * Valid values: `Success` | `Failure`
+ *
  * @public
  */
 export interface DeliveryChannelStatus {
   /**
-   * <p>The name of the delivery channel.</p>
+   * The name of the delivery channel.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>A list containing the status of the delivery of the snapshot to
-   * 			the specified Amazon S3 bucket.</p>
+   * A list containing the status of the delivery of the snapshot to the specified Amazon S3 bucket.
+   *
    * @public
    */
   configSnapshotDeliveryInfo?: ConfigExportDeliveryInfo | undefined;
 
   /**
-   * <p>A list that contains the status of the delivery of the
-   * 			configuration history to the specified Amazon S3 bucket.</p>
+   * A list that contains the status of the delivery of the configuration history to the specified Amazon S3 bucket.
+   *
    * @public
    */
   configHistoryDeliveryInfo?: ConfigExportDeliveryInfo | undefined;
 
   /**
-   * <p>A list containing the status of the delivery of the
-   * 			configuration stream notification to the specified Amazon SNS
-   * 			topic.</p>
+   * A list containing the status of the delivery of the configuration stream notification to the specified Amazon SNS topic.
+   *
    * @public
    */
   configStreamDeliveryInfo?: ConfigStreamDeliveryInfo | undefined;
@@ -3613,30 +3505,29 @@ export interface DeliveryChannelStatus {
  */
 export interface DescribeAggregateComplianceByConfigRulesRequest {
   /**
-   * <p>The name of the configuration aggregator.</p>
+   * The name of the configuration aggregator.
+   *
    * @public
    */
   ConfigurationAggregatorName: string | undefined;
 
   /**
-   * <p>Filters the results by ConfigRuleComplianceFilters object.
-   * 		</p>
+   * Filters the results by ConfigRuleComplianceFilters object.
+   *
    * @public
    */
   Filters?: ConfigRuleComplianceFilters | undefined;
 
   /**
-   * <p>The maximum number of evaluation results returned on each page.
-   * 			The default is
-   * 			maximum.
-   * 			If you specify 0, Config uses the default.</p>
+   * The maximum number of evaluation results returned on each page. The default is maximum. If you specify 0, Config uses the default.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use
-   * 			to get the next page of results in a paginated response.</p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3647,15 +3538,15 @@ export interface DescribeAggregateComplianceByConfigRulesRequest {
  */
 export interface DescribeAggregateComplianceByConfigRulesResponse {
   /**
-   * <p>Returns a list of AggregateComplianceByConfigRule
-   * 			object.</p>
+   * Returns a list of AggregateComplianceByConfigRule object.
+   *
    * @public
    */
   AggregateComplianceByConfigRules?: AggregateComplianceByConfigRule[] | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use
-   * 			to get the next page of results in a paginated response.</p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3666,25 +3557,29 @@ export interface DescribeAggregateComplianceByConfigRulesResponse {
  */
 export interface DescribeAggregateComplianceByConformancePacksRequest {
   /**
-   * <p>The name of the configuration aggregator.</p>
+   * The name of the configuration aggregator.
+   *
    * @public
    */
   ConfigurationAggregatorName: string | undefined;
 
   /**
-   * <p>Filters the result by <code>AggregateConformancePackComplianceFilters</code> object.</p>
+   * Filters the result by `AggregateConformancePackComplianceFilters` object.
+   *
    * @public
    */
   Filters?: AggregateConformancePackComplianceFilters | undefined;
 
   /**
-   * <p>The maximum number of conformance packs compliance details returned on each page. The default is maximum. If you specify 0, Config uses the default. </p>
+   * The maximum number of conformance packs compliance details returned on each page. The default is maximum. If you specify 0, Config uses the default.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3695,13 +3590,15 @@ export interface DescribeAggregateComplianceByConformancePacksRequest {
  */
 export interface DescribeAggregateComplianceByConformancePacksResponse {
   /**
-   * <p>Returns the <code>AggregateComplianceByConformancePack</code> object.</p>
+   * Returns the `AggregateComplianceByConformancePack` object.
+   *
    * @public
    */
   AggregateComplianceByConformancePacks?: AggregateComplianceByConformancePack[] | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3712,16 +3609,15 @@ export interface DescribeAggregateComplianceByConformancePacksResponse {
  */
 export interface DescribeAggregationAuthorizationsRequest {
   /**
-   * <p>The maximum number of AggregationAuthorizations returned on
-   * 			each page. The default is maximum. If you specify 0, Config uses
-   * 			the default.</p>
+   * The maximum number of AggregationAuthorizations returned on each page. The default is maximum. If you specify 0, Config uses the default.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use
-   * 			to get the next page of results in a paginated response.</p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3732,252 +3628,234 @@ export interface DescribeAggregationAuthorizationsRequest {
  */
 export interface DescribeAggregationAuthorizationsResponse {
   /**
-   * <p>Returns a list of authorizations granted to various aggregator
-   * 			accounts and regions.</p>
+   * Returns a list of authorizations granted to various aggregator accounts and regions.
+   *
    * @public
    */
   AggregationAuthorizations?: AggregationAuthorization[] | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use
-   * 			to get the next page of results in a paginated response.</p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p></p>
  * @public
  */
 export interface DescribeComplianceByConfigRuleRequest {
   /**
-   * <p>Specify one or more Config rule names to filter the results
-   * 			by rule.</p>
+   * Specify one or more Config rule names to filter the results by rule.
+   *
    * @public
    */
   ConfigRuleNames?: string[] | undefined;
 
   /**
-   * <p>Filters the results by compliance.</p>
+   * Filters the results by compliance.
+   *
    * @public
    */
   ComplianceTypes?: ComplianceType[] | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page
-   * 			that you use to get the next page of results in a paginated
-   * 			response.</p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p></p>
  * @public
  */
 export interface DescribeComplianceByConfigRuleResponse {
   /**
-   * <p>Indicates whether each of the specified Config rules is
-   * 			compliant.</p>
+   * Indicates whether each of the specified Config rules is compliant.
+   *
    * @public
    */
   ComplianceByConfigRules?: ComplianceByConfigRule[] | undefined;
 
   /**
-   * <p>The string that you use in a subsequent request to get the next
-   * 			page of results in a paginated response.</p>
+   * The string that you use in a subsequent request to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p></p>
  * @public
  */
 export interface DescribeComplianceByResourceRequest {
   /**
-   * <p>The types of Amazon Web Services resources for which you want compliance
-   * 			information (for example, <code>AWS::EC2::Instance</code>). For this operation, you can specify that the resource type is an Amazon Web Services account by
-   * 			specifying <code>AWS::::Account</code>.</p>
+   * The types of Amazon Web Services resources for which you want compliance information (for example, `AWS::EC2::Instance`). For this operation, you can specify that the resource type is an Amazon Web Services account by specifying `AWS::::Account`.
+   *
    * @public
    */
   ResourceType?: string | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services resource for which you want compliance
-   * 			information. You can specify only one resource ID. If you specify a
-   * 			resource ID, you must also specify a type for
-   * 				<code>ResourceType</code>.</p>
+   * The ID of the Amazon Web Services resource for which you want compliance information. You can specify only one resource ID. If you specify a resource ID, you must also specify a type for `ResourceType`.
+   *
    * @public
    */
   ResourceId?: string | undefined;
 
   /**
-   * <p>Filters the results by compliance.</p>
+   * Filters the results by compliance.
+   *
    * @public
    */
   ComplianceTypes?: ComplianceType[] | undefined;
 
   /**
-   * <p>The maximum number of evaluation results returned on each page.
-   * 			The default is 10. You cannot specify a number greater than 100. If
-   * 			you specify 0, Config uses the default.</p>
+   * The maximum number of evaluation results returned on each page. The default is 10. You cannot specify a number greater than 100. If you specify 0, Config uses the default.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page
-   * 			that you use to get the next page of results in a paginated
-   * 			response.</p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p></p>
  * @public
  */
 export interface DescribeComplianceByResourceResponse {
   /**
-   * <p>Indicates whether the specified Amazon Web Services resource complies with all
-   * 			of the Config rules that evaluate it.</p>
+   * Indicates whether the specified Amazon Web Services resource complies with all of the Config rules that evaluate it.
+   *
    * @public
    */
   ComplianceByResources?: ComplianceByResource[] | undefined;
 
   /**
-   * <p>The string that you use in a subsequent request to get the next
-   * 			page of results in a paginated response.</p>
+   * The string that you use in a subsequent request to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p></p>
  * @public
  */
 export interface DescribeConfigRuleEvaluationStatusRequest {
   /**
-   * <p>The name of the Config managed rules for which you want
-   * 			status information. If you do not specify any names, Config
-   * 			returns status information for all Config managed rules that you
-   * 			use.</p>
+   * The name of the Config managed rules for which you want status information. If you do not specify any names, Config returns status information for all Config managed rules that you use.
+   *
    * @public
    */
   ConfigRuleNames?: string[] | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page
-   * 			that you use to get the next page of results in a paginated
-   * 			response.</p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The number of rule evaluation results that you want
-   * 			returned.</p>
-   *          <p>This parameter is required if the rule limit for your account
-   * 			is more than the default of 1000 rules.</p>
-   *          <p>For information about requesting a rule limit increase, see
-   * 				<a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_config">Config Limits</a> in the <i>Amazon Web Services General
-   * 				Reference Guide</i>.</p>
+   * The number of rule evaluation results that you want returned.
+   *
+   * This parameter is required if the rule limit for your account is more than the default of 1000 rules.
+   *
+   * For information about requesting a rule limit increase, see [Config Limits](http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_config) in the *Amazon Web Services General Reference Guide*.
+   *
    * @public
    */
   Limit?: number | undefined;
 }
 
 /**
- * <p></p>
  * @public
  */
 export interface DescribeConfigRuleEvaluationStatusResponse {
   /**
-   * <p>Status information about your Config managed rules.</p>
+   * Status information about your Config managed rules.
+   *
    * @public
    */
   ConfigRulesEvaluationStatus?: ConfigRuleEvaluationStatus[] | undefined;
 
   /**
-   * <p>The string that you use in a subsequent request to get the next
-   * 			page of results in a paginated response.</p>
+   * The string that you use in a subsequent request to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Returns a filtered list of Detective or Proactive Config rules. By default, if the filter is not defined, this API returns an unfiltered list. For more information on Detective or Proactive Config rules,
- * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config-rules.html">
- *                <b>Evaluation Mode</b>
- *             </a> in the <i>Config Developer Guide</i>.</p>
+ * Returns a filtered list of Detective or Proactive Config rules. By default, if the filter is not defined, this API returns an unfiltered list. For more information on Detective or Proactive Config rules, see [**Evaluation Mode**](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config-rules.html) in the *Config Developer Guide*.
+ *
  * @public
  */
 export interface DescribeConfigRulesFilters {
   /**
-   * <p>The mode of an evaluation. The valid values are Detective or Proactive.</p>
+   * The mode of an evaluation. The valid values are Detective or Proactive.
+   *
    * @public
    */
   EvaluationMode?: EvaluationMode | undefined;
 
   /**
-   * <p>Filters the results by <code>RuleEvaluationVisibility</code>.</p>
+   * Filters the results by `RuleEvaluationVisibility`.
+   *
    * @public
    */
   RuleEvaluationVisibility?: RuleEvaluationVisibility | undefined;
 }
 
 /**
- * <p></p>
  * @public
  */
 export interface DescribeConfigRulesRequest {
   /**
-   * <p>The names of the Config rules for which you want details.
-   * 			If you do not specify any names, Config returns details for all
-   * 			your rules.</p>
+   * The names of the Config rules for which you want details. If you do not specify any names, Config returns details for all your rules.
+   *
    * @public
    */
   ConfigRuleNames?: string[] | undefined;
 
   /**
-   * <p>Returns a list of Detective or Proactive Config rules. By default, this API returns an unfiltered list. For more information on Detective or Proactive Config rules,
-   * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config-rules.html">
-   *                <b>Evaluation Mode</b>
-   *             </a> in the <i>Config Developer Guide</i>.</p>
+   * Returns a list of Detective or Proactive Config rules. By default, this API returns an unfiltered list. For more information on Detective or Proactive Config rules, see [**Evaluation Mode**](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config-rules.html) in the *Config Developer Guide*.
+   *
    * @public
    */
   Filters?: DescribeConfigRulesFilters | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page
-   * 			that you use to get the next page of results in a paginated
-   * 			response.</p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p></p>
  * @public
  */
 export interface DescribeConfigRulesResponse {
   /**
-   * <p>The details about your Config rules.</p>
+   * The details about your Config rules.
+   *
    * @public
    */
   ConfigRules?: ConfigRule[] | undefined;
 
   /**
-   * <p>The string that you use in a subsequent request to get the next
-   * 			page of results in a paginated response.</p>
+   * The string that you use in a subsequent request to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3988,22 +3866,22 @@ export interface DescribeConfigRulesResponse {
  */
 export interface DescribeConfigurationAggregatorsRequest {
   /**
-   * <p>The name of the configuration aggregators.</p>
+   * The name of the configuration aggregators.
+   *
    * @public
    */
   ConfigurationAggregatorNames?: string[] | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use
-   * 			to get the next page of results in a paginated response.</p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of configuration aggregators returned on
-   * 			each page. The default is maximum. If you specify 0, Config uses
-   * 			the default.</p>
+   * The maximum number of configuration aggregators returned on each page. The default is maximum. If you specify 0, Config uses the default.
+   *
    * @public
    */
   Limit?: number | undefined;
@@ -4014,14 +3892,15 @@ export interface DescribeConfigurationAggregatorsRequest {
  */
 export interface DescribeConfigurationAggregatorsResponse {
   /**
-   * <p>Returns a ConfigurationAggregators object.</p>
+   * Returns a ConfigurationAggregators object.
+   *
    * @public
    */
   ConfigurationAggregators?: ConfigurationAggregator[] | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use
-   * 			to get the next page of results in a paginated response.</p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -4032,42 +3911,33 @@ export interface DescribeConfigurationAggregatorsResponse {
  */
 export interface DescribeConfigurationAggregatorSourcesStatusRequest {
   /**
-   * <p>The name of the configuration aggregator.</p>
+   * The name of the configuration aggregator.
+   *
    * @public
    */
   ConfigurationAggregatorName: string | undefined;
 
   /**
-   * <p>Filters the status type.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Valid value FAILED indicates errors while moving
-   * 					data.</p>
-   *             </li>
-   *             <li>
-   *                <p>Valid value SUCCEEDED indicates the data was
-   * 					successfully moved.</p>
-   *             </li>
-   *             <li>
-   *                <p>Valid value OUTDATED indicates the data is not the most
-   * 					recent.</p>
-   *             </li>
-   *          </ul>
+   * Filters the status type.
+   *
+   * - Valid value FAILED indicates errors while moving data.
+   * - Valid value SUCCEEDED indicates the data was successfully moved.
+   * - Valid value OUTDATED indicates the data is not the most recent.
+   *
    * @public
    */
   UpdateStatus?: AggregatedSourceStatusType[] | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use
-   * 			to get the next page of results in a paginated response.</p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of AggregatorSourceStatus returned on each
-   * 			page. The default is maximum. If you specify 0, Config uses the
-   * 			default.</p>
+   * The maximum number of AggregatorSourceStatus returned on each page. The default is maximum. If you specify 0, Config uses the default.
+   *
    * @public
    */
   Limit?: number | undefined;
@@ -4078,99 +3948,103 @@ export interface DescribeConfigurationAggregatorSourcesStatusRequest {
  */
 export interface DescribeConfigurationAggregatorSourcesStatusResponse {
   /**
-   * <p>Returns an AggregatedSourceStatus object.
-   * 			</p>
+   * Returns an AggregatedSourceStatus object.
+   *
    * @public
    */
   AggregatedSourceStatusList?: AggregatedSourceStatus[] | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use
-   * 			to get the next page of results in a paginated response.</p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>The input for the <a>DescribeConfigurationRecorders</a> action.</p>
+ * The input for the DescribeConfigurationRecorders action.
+ *
  * @public
  */
 export interface DescribeConfigurationRecordersRequest {
   /**
-   * <p>A list of names of the configuration recorders that you want to specify.</p>
-   *          <note>
-   *             <p>When making a request to this operation, you can only specify one configuration recorder.</p>
-   *          </note>
+   * A list of names of the configuration recorders that you want to specify.
+   *
+   * > **Note:** When making a request to this operation, you can only specify one configuration recorder.
+   *
    * @public
    */
   ConfigurationRecorderNames?: string[] | undefined;
 
   /**
-   * <p>For service-linked configuration recorders, you can use the service principal of the linked Amazon Web Services service to specify the configuration recorder. This field is only supported for Amazon Web Services service principals. For third-party service-linked configuration recorders, use <code>Arn</code> instead.</p>
+   * For service-linked configuration recorders, you can use the service principal of the linked Amazon Web Services service to specify the configuration recorder. This field is only supported for Amazon Web Services service principals. For third-party service-linked configuration recorders, use `Arn` instead.
+   *
    * @public
    */
   ServicePrincipal?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the configuration recorder that you want to specify.</p>
+   * The Amazon Resource Name (ARN) of the configuration recorder that you want to specify.
+   *
    * @public
    */
   Arn?: string | undefined;
 }
 
 /**
- * <p>The output for the <a>DescribeConfigurationRecorders</a> action.</p>
+ * The output for the DescribeConfigurationRecorders action.
+ *
  * @public
  */
 export interface DescribeConfigurationRecordersResponse {
   /**
-   * <p>A list that contains the descriptions of the specified
-   * 			configuration recorders.</p>
+   * A list that contains the descriptions of the specified configuration recorders.
+   *
    * @public
    */
   ConfigurationRecorders?: ConfigurationRecorder[] | undefined;
 }
 
 /**
- * <p>The input for the <a>DescribeConfigurationRecorderStatus</a>
- * 			action.</p>
+ * The input for the DescribeConfigurationRecorderStatus action.
+ *
  * @public
  */
 export interface DescribeConfigurationRecorderStatusRequest {
   /**
-   * <p>The name of the configuration recorder. If the name is not
-   * 			specified, the operation returns the status for the customer managed configuration recorder configured for the
-   * 			account, if applicable.</p>
-   *          <note>
-   *             <p>When making a request to this operation, you can only specify one configuration recorder.</p>
-   *          </note>
+   * The name of the configuration recorder. If the name is not specified, the operation returns the status for the customer managed configuration recorder configured for the account, if applicable.
+   *
+   * > **Note:** When making a request to this operation, you can only specify one configuration recorder.
+   *
    * @public
    */
   ConfigurationRecorderNames?: string[] | undefined;
 
   /**
-   * <p>For service-linked configuration recorders, you can use the service principal of the linked Amazon Web Services service to specify the configuration recorder. This field is only supported for Amazon Web Services service principals. For third-party service-linked configuration recorders, use <code>Arn</code> instead.</p>
+   * For service-linked configuration recorders, you can use the service principal of the linked Amazon Web Services service to specify the configuration recorder. This field is only supported for Amazon Web Services service principals. For third-party service-linked configuration recorders, use `Arn` instead.
+   *
    * @public
    */
   ServicePrincipal?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the configuration recorder that you want to specify.</p>
+   * The Amazon Resource Name (ARN) of the configuration recorder that you want to specify.
+   *
    * @public
    */
   Arn?: string | undefined;
 }
 
 /**
- * <p>The output for the <a>DescribeConfigurationRecorderStatus</a> action, in JSON
- * 			format.</p>
+ * The output for the DescribeConfigurationRecorderStatus action, in JSON format.
+ *
  * @public
  */
 export interface DescribeConfigurationRecorderStatusResponse {
   /**
-   * <p>A list that contains status of the specified
-   * 			recorders.</p>
+   * A list that contains status of the specified recorders.
+   *
    * @public
    */
   ConfigurationRecordersStatus?: ConfigurationRecorderStatus[] | undefined;
@@ -4181,25 +4055,29 @@ export interface DescribeConfigurationRecorderStatusResponse {
  */
 export interface DescribeConformancePackComplianceRequest {
   /**
-   * <p>Name of the conformance pack.</p>
+   * Name of the conformance pack.
+   *
    * @public
    */
   ConformancePackName: string | undefined;
 
   /**
-   * <p>A <code>ConformancePackComplianceFilters</code> object.</p>
+   * A `ConformancePackComplianceFilters` object.
+   *
    * @public
    */
   Filters?: ConformancePackComplianceFilters | undefined;
 
   /**
-   * <p>The maximum number of Config rules within a conformance pack are returned on each page.</p>
+   * The maximum number of Config rules within a conformance pack are returned on each page.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
+   * The `nextToken` string returned in a previous request that you use to request the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -4210,19 +4088,22 @@ export interface DescribeConformancePackComplianceRequest {
  */
 export interface DescribeConformancePackComplianceResponse {
   /**
-   * <p>Name of the conformance pack.</p>
+   * Name of the conformance pack.
+   *
    * @public
    */
   ConformancePackName: string | undefined;
 
   /**
-   * <p>Returns a list of <code>ConformancePackRuleCompliance</code> objects.</p>
+   * Returns a list of `ConformancePackRuleCompliance` objects.
+   *
    * @public
    */
   ConformancePackRuleComplianceList: ConformancePackRuleCompliance[] | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
+   * The `nextToken` string returned in a previous request that you use to request the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -4233,19 +4114,22 @@ export interface DescribeConformancePackComplianceResponse {
  */
 export interface DescribeConformancePacksRequest {
   /**
-   * <p>Comma-separated list of conformance pack names for which you want details. If you do not specify any names, Config returns details for all your conformance packs. </p>
+   * Comma-separated list of conformance pack names for which you want details. If you do not specify any names, Config returns details for all your conformance packs.
+   *
    * @public
    */
   ConformancePackNames?: string[] | undefined;
 
   /**
-   * <p>The maximum number of conformance packs returned on each page.</p>
+   * The maximum number of conformance packs returned on each page.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
+   * The `nextToken` string returned in a previous request that you use to request the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -4256,13 +4140,15 @@ export interface DescribeConformancePacksRequest {
  */
 export interface DescribeConformancePacksResponse {
   /**
-   * <p>Returns a list of <code>ConformancePackDetail</code> objects.</p>
+   * Returns a list of `ConformancePackDetail` objects.
+   *
    * @public
    */
   ConformancePackDetails?: ConformancePackDetail[] | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
+   * The `nextToken` string returned in a previous request that you use to request the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -4273,19 +4159,22 @@ export interface DescribeConformancePacksResponse {
  */
 export interface DescribeConformancePackStatusRequest {
   /**
-   * <p>Comma-separated list of conformance pack names.</p>
+   * Comma-separated list of conformance pack names.
+   *
    * @public
    */
   ConformancePackNames?: string[] | undefined;
 
   /**
-   * <p>The maximum number of conformance packs status returned on each page.</p>
+   * The maximum number of conformance packs status returned on each page.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
+   * The `nextToken` string returned in a previous request that you use to request the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -4296,66 +4185,71 @@ export interface DescribeConformancePackStatusRequest {
  */
 export interface DescribeConformancePackStatusResponse {
   /**
-   * <p>A list of <code>ConformancePackStatusDetail</code> objects.</p>
+   * A list of `ConformancePackStatusDetail` objects.
+   *
    * @public
    */
   ConformancePackStatusDetails?: ConformancePackStatusDetail[] | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
+   * The `nextToken` string returned in a previous request that you use to request the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>The input for the <a>DescribeDeliveryChannels</a>
- * 			action.</p>
+ * The input for the DescribeDeliveryChannels action.
+ *
  * @public
  */
 export interface DescribeDeliveryChannelsRequest {
   /**
-   * <p>A list of delivery channel names.</p>
+   * A list of delivery channel names.
+   *
    * @public
    */
   DeliveryChannelNames?: string[] | undefined;
 }
 
 /**
- * <p>The output for the <a>DescribeDeliveryChannels</a>
- * 			action.</p>
+ * The output for the DescribeDeliveryChannels action.
+ *
  * @public
  */
 export interface DescribeDeliveryChannelsResponse {
   /**
-   * <p>A list that contains the descriptions of the specified delivery
-   * 			channel.</p>
+   * A list that contains the descriptions of the specified delivery channel.
+   *
    * @public
    */
   DeliveryChannels?: DeliveryChannel[] | undefined;
 }
 
 /**
- * <p>The input for the <a>DeliveryChannelStatus</a>
- * 			action.</p>
+ * The input for the DeliveryChannelStatus action.
+ *
  * @public
  */
 export interface DescribeDeliveryChannelStatusRequest {
   /**
-   * <p>A list of delivery channel names.</p>
+   * A list of delivery channel names.
+   *
    * @public
    */
   DeliveryChannelNames?: string[] | undefined;
 }
 
 /**
- * <p>The output for the <a>DescribeDeliveryChannelStatus</a> action.</p>
+ * The output for the DescribeDeliveryChannelStatus action.
+ *
  * @public
  */
 export interface DescribeDeliveryChannelStatusResponse {
   /**
-   * <p>A list that contains the status of a specified delivery
-   * 			channel.</p>
+   * A list that contains the status of a specified delivery channel.
+   *
    * @public
    */
   DeliveryChannelsStatus?: DeliveryChannelStatus[] | undefined;
@@ -4366,302 +4260,299 @@ export interface DescribeDeliveryChannelStatusResponse {
  */
 export interface DescribeOrganizationConfigRulesRequest {
   /**
-   * <p>The names of organization Config rules for which you want details. If you do not specify any names, Config returns details for all your organization Config rules.</p>
+   * The names of organization Config rules for which you want details. If you do not specify any names, Config returns details for all your organization Config rules.
+   *
    * @public
    */
   OrganizationConfigRuleNames?: string[] | undefined;
 
   /**
-   * <p>The maximum number of organization Config rules returned on each page. If you do no specify a number, Config uses the default. The default is 100.</p>
+   * The maximum number of organization Config rules returned on each page. If you do no specify a number, Config uses the default. The default is 100.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p> metadata for your organization Config Custom Policy rule including the runtime system in use, which accounts have debug logging enabled, and
- * 			other custom rule metadata such as resource type, resource ID of Amazon Web Services
- * 			resource, and organization trigger types that trigger Config to evaluate
- * 				Amazon Web Services resources against a rule.</p>
+ * metadata for your organization Config Custom Policy rule including the runtime system in use, which accounts have debug logging enabled, and other custom rule metadata such as resource type, resource ID of Amazon Web Services resource, and organization trigger types that trigger Config to evaluate Amazon Web Services resources against a rule.
+ *
  * @public
  */
 export interface OrganizationCustomPolicyRuleMetadataNoPolicy {
   /**
-   * <p>The description that you provide for your organization Config Custom Policy rule.</p>
+   * The description that you provide for your organization Config Custom Policy rule.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The type of notification that triggers Config to run an evaluation for a rule.
-   * 			For Config Custom Policy rules, Config supports change
-   * 			triggered notification types:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ConfigurationItemChangeNotification</code> - Triggers an evaluation when Config delivers a configuration item as a result of a resource change.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OversizedConfigurationItemChangeNotification</code> - Triggers an evaluation when Config delivers an oversized configuration item.
-   * 				Config may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.</p>
-   *             </li>
-   *          </ul>
+   * The type of notification that triggers Config to run an evaluation for a rule. For Config Custom Policy rules, Config supports change triggered notification types:
+   *
+   * - `ConfigurationItemChangeNotification` - Triggers an evaluation when Config delivers a configuration item as a result of a resource change.
+   * - `OversizedConfigurationItemChangeNotification` - Triggers an evaluation when Config delivers an oversized configuration item. Config may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.
+   *
    * @public
    */
   OrganizationConfigRuleTriggerTypes?: OrganizationConfigRuleTriggerTypeNoSN[] | undefined;
 
   /**
-   * <p>A string, in JSON format, that is passed to your organization Config Custom Policy rule.</p>
+   * A string, in JSON format, that is passed to your organization Config Custom Policy rule.
+   *
    * @public
    */
   InputParameters?: string | undefined;
 
   /**
-   * <p>The maximum frequency with which Config runs evaluations for a rule. Your
-   * 			Config Custom Policy rule is triggered when Config delivers
-   * 			the configuration snapshot. For more information, see <a>ConfigSnapshotDeliveryProperties</a>.</p>
+   * The maximum frequency with which Config runs evaluations for a rule. Your Config Custom Policy rule is triggered when Config delivers the configuration snapshot. For more information, see ConfigSnapshotDeliveryProperties.
+   *
    * @public
    */
   MaximumExecutionFrequency?: MaximumExecutionFrequency | undefined;
 
   /**
-   * <p>The type of the Amazon Web Services resource that was evaluated.</p>
+   * The type of the Amazon Web Services resource that was evaluated.
+   *
    * @public
    */
   ResourceTypesScope?: string[] | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services resource that was evaluated.</p>
+   * The ID of the Amazon Web Services resource that was evaluated.
+   *
    * @public
    */
   ResourceIdScope?: string | undefined;
 
   /**
-   * <p>One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.</p>
+   * One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.
+   *
    * @public
    */
   TagKeyScope?: string | undefined;
 
   /**
-   * <p>The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).</p>
+   * The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).
+   *
    * @public
    */
   TagValueScope?: string | undefined;
 
   /**
-   * <p>The runtime system for your organization Config Custom Policy rules. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the <a href="https://github.com/aws-cloudformation/cloudformation-guard">Guard GitHub
-   * 			Repository</a>.</p>
+   * The runtime system for your organization Config Custom Policy rules. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the [Guard GitHub Repository](https://github.com/aws-cloudformation/cloudformation-guard).
+   *
    * @public
    */
   PolicyRuntime?: string | undefined;
 
   /**
-   * <p>A list of accounts that you can enable debug logging for your organization Config Custom Policy rule. List is null when debug logging is enabled for all accounts.</p>
+   * A list of accounts that you can enable debug logging for your organization Config Custom Policy rule. List is null when debug logging is enabled for all accounts.
+   *
    * @public
    */
   DebugLogDeliveryAccounts?: string[] | undefined;
 }
 
 /**
- * <p>An object that specifies organization custom rule metadata such as resource type, resource ID of Amazon Web Services resource, Lambda function ARN,
- * 			and organization trigger types that trigger Config to evaluate your Amazon Web Services resources against a rule.
- * 			It also provides the frequency with which you want Config to run evaluations for the rule if the trigger type is periodic.</p>
+ * An object that specifies organization custom rule metadata such as resource type, resource ID of Amazon Web Services resource, Lambda function ARN, and organization trigger types that trigger Config to evaluate your Amazon Web Services resources against a rule. It also provides the frequency with which you want Config to run evaluations for the rule if the trigger type is periodic.
+ *
  * @public
  */
 export interface OrganizationCustomRuleMetadata {
   /**
-   * <p>The description that you provide for your organization Config rule.</p>
+   * The description that you provide for your organization Config rule.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The lambda function ARN.</p>
+   * The lambda function ARN.
+   *
    * @public
    */
   LambdaFunctionArn: string | undefined;
 
   /**
-   * <p>The type of notification that triggers Config to run an evaluation for a rule. You can specify the following notification types:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ConfigurationItemChangeNotification</code> - Triggers an evaluation when Config delivers a configuration item as a result of a resource change.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OversizedConfigurationItemChangeNotification</code> - Triggers an evaluation when Config delivers an oversized configuration item.
-   * 			         	Config may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ScheduledNotification</code> - Triggers a periodic evaluation at the frequency specified for <code>MaximumExecutionFrequency</code>.</p>
-   *             </li>
-   *          </ul>
+   * The type of notification that triggers Config to run an evaluation for a rule. You can specify the following notification types:
+   *
+   * - `ConfigurationItemChangeNotification` - Triggers an evaluation when Config delivers a configuration item as a result of a resource change.
+   * - `OversizedConfigurationItemChangeNotification` - Triggers an evaluation when Config delivers an oversized configuration item. Config may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.
+   * - `ScheduledNotification` - Triggers a periodic evaluation at the frequency specified for `MaximumExecutionFrequency`.
+   *
    * @public
    */
   OrganizationConfigRuleTriggerTypes: OrganizationConfigRuleTriggerType[] | undefined;
 
   /**
-   * <p>A string, in JSON format, that is passed to your organization Config rule Lambda function.</p>
+   * A string, in JSON format, that is passed to your organization Config rule Lambda function.
+   *
    * @public
    */
   InputParameters?: string | undefined;
 
   /**
-   * <p>The maximum frequency with which Config runs evaluations for a rule.
-   * 			Your custom rule is triggered when Config delivers the configuration snapshot. For more information, see <a>ConfigSnapshotDeliveryProperties</a>.</p>
-   *          <note>
-   *             <p>By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid
-   * 			value for the <code>MaximumExecutionFrequency</code> parameter.</p>
-   *          </note>
+   * The maximum frequency with which Config runs evaluations for a rule. Your custom rule is triggered when Config delivers the configuration snapshot. For more information, see ConfigSnapshotDeliveryProperties.
+   *
+   * > **Note:** By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the `MaximumExecutionFrequency` parameter.
+   *
    * @public
    */
   MaximumExecutionFrequency?: MaximumExecutionFrequency | undefined;
 
   /**
-   * <p>The type of the Amazon Web Services resource that was evaluated.</p>
+   * The type of the Amazon Web Services resource that was evaluated.
+   *
    * @public
    */
   ResourceTypesScope?: string[] | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services resource that was evaluated.</p>
+   * The ID of the Amazon Web Services resource that was evaluated.
+   *
    * @public
    */
   ResourceIdScope?: string | undefined;
 
   /**
-   * <p>One part of a key-value pair that make up a tag.
-   * 			A key is a general label that acts like a category for more specific tag values. </p>
+   * One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.
+   *
    * @public
    */
   TagKeyScope?: string | undefined;
 
   /**
-   * <p>The optional part of a key-value pair that make up a tag.
-   * 			A value acts as a descriptor within a tag category (key). </p>
+   * The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).
+   *
    * @public
    */
   TagValueScope?: string | undefined;
 }
 
 /**
- * <p>An object that specifies organization managed rule metadata such as resource type and ID of Amazon Web Services resource along with the rule identifier.
- * 			It also provides the frequency with which you want Config to run evaluations for the rule if the trigger type is periodic.</p>
+ * An object that specifies organization managed rule metadata such as resource type and ID of Amazon Web Services resource along with the rule identifier. It also provides the frequency with which you want Config to run evaluations for the rule if the trigger type is periodic.
+ *
  * @public
  */
 export interface OrganizationManagedRuleMetadata {
   /**
-   * <p>The description that you provide for your organization Config rule.</p>
+   * The description that you provide for your organization Config rule.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>For organization config managed rules, a predefined identifier from a
-   * 			list. For example, <code>IAM_PASSWORD_POLICY</code> is a managed
-   * 			rule. To reference a managed rule, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html">Using Config managed rules</a>.</p>
+   * For organization config managed rules, a predefined identifier from a list. For example, `IAM_PASSWORD_POLICY` is a managed rule. To reference a managed rule, see [Using Config managed rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).
+   *
    * @public
    */
   RuleIdentifier: string | undefined;
 
   /**
-   * <p>A string, in JSON format, that is passed to your organization Config rule Lambda function.</p>
+   * A string, in JSON format, that is passed to your organization Config rule Lambda function.
+   *
    * @public
    */
   InputParameters?: string | undefined;
 
   /**
-   * <p>The maximum frequency with which Config runs evaluations for a rule. This is for an Config managed rule that is triggered at a periodic frequency.</p>
-   *          <note>
-   *             <p>By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid
-   * 			value for the <code>MaximumExecutionFrequency</code> parameter.</p>
-   *          </note>
+   * The maximum frequency with which Config runs evaluations for a rule. This is for an Config managed rule that is triggered at a periodic frequency.
+   *
+   * > **Note:** By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the `MaximumExecutionFrequency` parameter.
+   *
    * @public
    */
   MaximumExecutionFrequency?: MaximumExecutionFrequency | undefined;
 
   /**
-   * <p>The type of the Amazon Web Services resource that was evaluated.</p>
+   * The type of the Amazon Web Services resource that was evaluated.
+   *
    * @public
    */
   ResourceTypesScope?: string[] | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services resource that was evaluated.</p>
+   * The ID of the Amazon Web Services resource that was evaluated.
+   *
    * @public
    */
   ResourceIdScope?: string | undefined;
 
   /**
-   * <p>One part of a key-value pair that make up a tag.
-   * 			A key is a general label that acts like a category for more specific tag values. </p>
+   * One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.
+   *
    * @public
    */
   TagKeyScope?: string | undefined;
 
   /**
-   * <p>The optional part of a key-value pair that make up a tag.
-   * 			A value acts as a descriptor within a tag category (key).</p>
+   * The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).
+   *
    * @public
    */
   TagValueScope?: string | undefined;
 }
 
 /**
- * <p>An organization Config rule that has information about Config rules that Config creates in member accounts.</p>
+ * An organization Config rule that has information about Config rules that Config creates in member accounts.
+ *
  * @public
  */
 export interface OrganizationConfigRule {
   /**
-   * <p>The name that you assign to organization Config rule.</p>
+   * The name that you assign to organization Config rule.
+   *
    * @public
    */
   OrganizationConfigRuleName: string | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) of organization Config rule.</p>
+   * Amazon Resource Name (ARN) of organization Config rule.
+   *
    * @public
    */
   OrganizationConfigRuleArn: string | undefined;
 
   /**
-   * <p>An <code>OrganizationManagedRuleMetadata</code> object.</p>
+   * An `OrganizationManagedRuleMetadata` object.
+   *
    * @public
    */
   OrganizationManagedRuleMetadata?: OrganizationManagedRuleMetadata | undefined;
 
   /**
-   * <p>An <code>OrganizationCustomRuleMetadata</code> object.</p>
+   * An `OrganizationCustomRuleMetadata` object.
+   *
    * @public
    */
   OrganizationCustomRuleMetadata?: OrganizationCustomRuleMetadata | undefined;
 
   /**
-   * <p>A comma-separated list of accounts excluded from organization Config rule.</p>
+   * A comma-separated list of accounts excluded from organization Config rule.
+   *
    * @public
    */
   ExcludedAccounts?: string[] | undefined;
 
   /**
-   * <p>The timestamp of the last update.</p>
+   * The timestamp of the last update.
+   *
    * @public
    */
   LastUpdateTime?: Date | undefined;
 
   /**
-   * <p>An
-   * 			object that specifies metadata for your organization's Config Custom Policy rule. The metadata includes the runtime system in use, which accounts have
-   * 			debug logging enabled, and other custom rule metadata, such as resource type, resource
-   * 			ID of Amazon Web Services resource, and organization trigger types that initiate Config to evaluate Amazon Web Services resources against a rule.</p>
+   * An object that specifies metadata for your organization's Config Custom Policy rule. The metadata includes the runtime system in use, which accounts have debug logging enabled, and other custom rule metadata, such as resource type, resource ID of Amazon Web Services resource, and organization trigger types that initiate Config to evaluate Amazon Web Services resources against a rule.
+   *
    * @public
    */
   OrganizationCustomPolicyRuleMetadata?: OrganizationCustomPolicyRuleMetadataNoPolicy | undefined;
@@ -4672,13 +4563,15 @@ export interface OrganizationConfigRule {
  */
 export interface DescribeOrganizationConfigRulesResponse {
   /**
-   * <p>Returns a list of <code>OrganizationConfigRule</code> objects.</p>
+   * Returns a list of `OrganizationConfigRule` objects.
+   *
    * @public
    */
   OrganizationConfigRules?: OrganizationConfigRule[] | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -4689,97 +4582,76 @@ export interface DescribeOrganizationConfigRulesResponse {
  */
 export interface DescribeOrganizationConfigRuleStatusesRequest {
   /**
-   * <p>The names of organization Config rules for which you want status details. If you do not specify any names, Config returns details for all your organization Config rules.</p>
+   * The names of organization Config rules for which you want status details. If you do not specify any names, Config returns details for all your organization Config rules.
+   *
    * @public
    */
   OrganizationConfigRuleNames?: string[] | undefined;
 
   /**
-   * <p>The maximum number of <code>OrganizationConfigRuleStatuses</code> returned on each page. If you do no specify a number, Config uses the default. The default is 100.</p>
+   * The maximum number of `OrganizationConfigRuleStatuses` returned on each page. If you do no specify a number, Config uses the default. The default is 100.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Returns the status for an organization Config rule in an organization.</p>
+ * Returns the status for an organization Config rule in an organization.
+ *
  * @public
  */
 export interface OrganizationConfigRuleStatus {
   /**
-   * <p>The name that you assign to organization Config rule.</p>
+   * The name that you assign to organization Config rule.
+   *
    * @public
    */
   OrganizationConfigRuleName: string | undefined;
 
   /**
-   * <p>Indicates deployment status of an organization Config rule.
-   * 			When management account calls PutOrganizationConfigRule action for the first time, Config rule status is created in all the member accounts.
-   * 			When management account calls PutOrganizationConfigRule action for the second time, Config rule status is updated in all the member accounts. Additionally, Config rule status is updated when one or more member accounts join or leave an organization.
-   * 			Config rule status is deleted when the management account deletes OrganizationConfigRule in all the member accounts and disables service access for <code>config-multiaccountsetup.amazonaws.com</code>.</p>
-   *          <p>Config sets the state of the rule to:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CREATE_SUCCESSFUL</code> when an organization Config rule has been successfully created in all the member accounts. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATE_IN_PROGRESS</code> when an organization Config rule creation is in progress.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATE_FAILED</code> when an organization Config rule creation failed in one or more member accounts within that organization.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETE_FAILED</code> when an organization Config rule deletion failed in one or more member accounts within that organization.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETE_IN_PROGRESS</code> when an organization Config rule deletion is in progress.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETE_SUCCESSFUL</code> when an organization Config rule has been successfully deleted from all the member accounts.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_SUCCESSFUL</code> when an organization Config rule has been successfully updated in all the member accounts.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_IN_PROGRESS</code> when an organization Config rule update is in progress.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_FAILED</code> when an organization Config rule update failed in one or more member accounts within that organization.</p>
-   *             </li>
-   *          </ul>
+   * Indicates deployment status of an organization Config rule. When management account calls PutOrganizationConfigRule action for the first time, Config rule status is created in all the member accounts. When management account calls PutOrganizationConfigRule action for the second time, Config rule status is updated in all the member accounts. Additionally, Config rule status is updated when one or more member accounts join or leave an organization. Config rule status is deleted when the management account deletes OrganizationConfigRule in all the member accounts and disables service access for `config-multiaccountsetup.amazonaws.com`.
+   *
+   * Config sets the state of the rule to:
+   *
+   * - `CREATE_SUCCESSFUL` when an organization Config rule has been successfully created in all the member accounts.
+   * - `CREATE_IN_PROGRESS` when an organization Config rule creation is in progress.
+   * - `CREATE_FAILED` when an organization Config rule creation failed in one or more member accounts within that organization.
+   * - `DELETE_FAILED` when an organization Config rule deletion failed in one or more member accounts within that organization.
+   * - `DELETE_IN_PROGRESS` when an organization Config rule deletion is in progress.
+   * - `DELETE_SUCCESSFUL` when an organization Config rule has been successfully deleted from all the member accounts.
+   * - `UPDATE_SUCCESSFUL` when an organization Config rule has been successfully updated in all the member accounts.
+   * - `UPDATE_IN_PROGRESS` when an organization Config rule update is in progress.
+   * - `UPDATE_FAILED` when an organization Config rule update failed in one or more member accounts within that organization.
+   *
    * @public
    */
   OrganizationRuleStatus: OrganizationRuleStatus | undefined;
 
   /**
-   * <p>An error code that is returned when organization Config rule creation or deletion has failed.</p>
+   * An error code that is returned when organization Config rule creation or deletion has failed.
+   *
    * @public
    */
   ErrorCode?: string | undefined;
 
   /**
-   * <p>An error message indicating that organization Config rule creation or deletion failed due to an error.</p>
+   * An error message indicating that organization Config rule creation or deletion failed due to an error.
+   *
    * @public
    */
   ErrorMessage?: string | undefined;
 
   /**
-   * <p>The timestamp of the last update.</p>
+   * The timestamp of the last update.
+   *
    * @public
    */
   LastUpdateTime?: Date | undefined;
@@ -4790,13 +4662,15 @@ export interface OrganizationConfigRuleStatus {
  */
 export interface DescribeOrganizationConfigRuleStatusesResponse {
   /**
-   * <p>A list of <code>OrganizationConfigRuleStatus</code> objects.</p>
+   * A list of `OrganizationConfigRuleStatus` objects.
+   *
    * @public
    */
   OrganizationConfigRuleStatuses?: OrganizationConfigRuleStatus[] | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -4807,75 +4681,82 @@ export interface DescribeOrganizationConfigRuleStatusesResponse {
  */
 export interface DescribeOrganizationConformancePacksRequest {
   /**
-   * <p>The name that you assign to an organization conformance pack.</p>
+   * The name that you assign to an organization conformance pack.
+   *
    * @public
    */
   OrganizationConformancePackNames?: string[] | undefined;
 
   /**
-   * <p>The maximum number of organization config packs returned on each page. If you do no specify a
-   * 			number, Config uses the default. The default is 100.</p>
+   * The maximum number of organization config packs returned on each page. If you do no specify a number, Config uses the default. The default is 100.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>The nextToken string returned on a previous page that you use to get the next page of results in a
-   * 			paginated response.</p>
+   * The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>An organization conformance pack that has information about conformance packs that Config creates in member accounts. </p>
+ * An organization conformance pack that has information about conformance packs that Config creates in member accounts.
+ *
  * @public
  */
 export interface OrganizationConformancePack {
   /**
-   * <p>The name you assign to an organization conformance pack.</p>
+   * The name you assign to an organization conformance pack.
+   *
    * @public
    */
   OrganizationConformancePackName: string | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) of organization conformance pack.</p>
+   * Amazon Resource Name (ARN) of organization conformance pack.
+   *
    * @public
    */
   OrganizationConformancePackArn: string | undefined;
 
   /**
-   * <p>The name of the Amazon S3 bucket where Config stores conformance pack templates.  </p>
-   *          <note>
-   *             <p>This field is optional.</p>
-   *          </note>
+   * The name of the Amazon S3 bucket where Config stores conformance pack templates.
+   *
+   * > **Note:** This field is optional.
+   *
    * @public
    */
   DeliveryS3Bucket?: string | undefined;
 
   /**
-   * <p>Any folder structure you want to add to an Amazon S3 bucket.</p>
-   *          <note>
-   *             <p>This field is optional.</p>
-   *          </note>
+   * Any folder structure you want to add to an Amazon S3 bucket.
+   *
+   * > **Note:** This field is optional.
+   *
    * @public
    */
   DeliveryS3KeyPrefix?: string | undefined;
 
   /**
-   * <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
+   * A list of `ConformancePackInputParameter` objects.
+   *
    * @public
    */
   ConformancePackInputParameters?: ConformancePackInputParameter[] | undefined;
 
   /**
-   * <p>A comma-separated list of accounts excluded from organization conformance pack.</p>
+   * A comma-separated list of accounts excluded from organization conformance pack.
+   *
    * @public
    */
   ExcludedAccounts?: string[] | undefined;
 
   /**
-   * <p>Last time when organization conformation pack was updated.</p>
+   * Last time when organization conformation pack was updated.
+   *
    * @public
    */
   LastUpdateTime: Date | undefined;
@@ -4886,14 +4767,15 @@ export interface OrganizationConformancePack {
  */
 export interface DescribeOrganizationConformancePacksResponse {
   /**
-   * <p>Returns a list of OrganizationConformancePacks objects.</p>
+   * Returns a list of OrganizationConformancePacks objects.
+   *
    * @public
    */
   OrganizationConformancePacks?: OrganizationConformancePack[] | undefined;
 
   /**
-   * <p>The nextToken string returned on a previous page that you use to get the next page of results in a
-   * 			paginated response.</p>
+   * The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -4904,105 +4786,76 @@ export interface DescribeOrganizationConformancePacksResponse {
  */
 export interface DescribeOrganizationConformancePackStatusesRequest {
   /**
-   * <p>The names of organization conformance packs for which you want status details.
-   * 			If you do not specify any names, Config returns details for all your organization conformance packs. </p>
+   * The names of organization conformance packs for which you want status details. If you do not specify any names, Config returns details for all your organization conformance packs.
+   *
    * @public
    */
   OrganizationConformancePackNames?: string[] | undefined;
 
   /**
-   * <p>The maximum number of OrganizationConformancePackStatuses returned on each page.
-   * 			If you do no specify a number, Config uses the default. The default is 100. </p>
+   * The maximum number of OrganizationConformancePackStatuses returned on each page. If you do no specify a number, Config uses the default. The default is 100.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response. </p>
+   * The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Returns the status for an organization conformance pack in an organization.</p>
+ * Returns the status for an organization conformance pack in an organization.
+ *
  * @public
  */
 export interface OrganizationConformancePackStatus {
   /**
-   * <p>The name that you assign to organization conformance pack.</p>
+   * The name that you assign to organization conformance pack.
+   *
    * @public
    */
   OrganizationConformancePackName: string | undefined;
 
   /**
-   * <p>Indicates deployment status of an organization conformance pack.
-   * 			When management account calls PutOrganizationConformancePack for the first time,
-   * 			conformance pack status is created in all the member accounts.
-   * 			When management account calls PutOrganizationConformancePack for the second time,
-   * 			conformance pack status is updated in all the member accounts.
-   * 			Additionally, conformance pack status is updated when one or more member accounts join or leave an
-   * 			organization.
-   * 			Conformance pack status is deleted when the management account deletes
-   * 			OrganizationConformancePack in all the member accounts and disables service
-   * 			access for <code>config-multiaccountsetup.amazonaws.com</code>.</p>
-   *          <p>Config sets the state of the conformance pack to:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CREATE_SUCCESSFUL</code> when an organization conformance pack has been successfully created in all the member accounts. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATE_IN_PROGRESS</code> when an organization conformance pack creation is in progress.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATE_FAILED</code> when an organization conformance pack creation failed in one or more member accounts within that organization.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETE_FAILED</code> when an organization conformance pack deletion failed in one or more member accounts within that organization.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETE_IN_PROGRESS</code> when an organization conformance pack deletion is in progress.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETE_SUCCESSFUL</code> when an organization conformance pack has been successfully deleted from all the member accounts.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_SUCCESSFUL</code> when an organization conformance pack has been successfully updated in all the member accounts.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_IN_PROGRESS</code> when an organization conformance pack update is in progress.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_FAILED</code> when an organization conformance pack update failed in one or more member accounts within that organization.</p>
-   *             </li>
-   *          </ul>
+   * Indicates deployment status of an organization conformance pack. When management account calls PutOrganizationConformancePack for the first time, conformance pack status is created in all the member accounts. When management account calls PutOrganizationConformancePack for the second time, conformance pack status is updated in all the member accounts. Additionally, conformance pack status is updated when one or more member accounts join or leave an organization. Conformance pack status is deleted when the management account deletes OrganizationConformancePack in all the member accounts and disables service access for `config-multiaccountsetup.amazonaws.com`.
+   *
+   * Config sets the state of the conformance pack to:
+   *
+   * - `CREATE_SUCCESSFUL` when an organization conformance pack has been successfully created in all the member accounts.
+   * - `CREATE_IN_PROGRESS` when an organization conformance pack creation is in progress.
+   * - `CREATE_FAILED` when an organization conformance pack creation failed in one or more member accounts within that organization.
+   * - `DELETE_FAILED` when an organization conformance pack deletion failed in one or more member accounts within that organization.
+   * - `DELETE_IN_PROGRESS` when an organization conformance pack deletion is in progress.
+   * - `DELETE_SUCCESSFUL` when an organization conformance pack has been successfully deleted from all the member accounts.
+   * - `UPDATE_SUCCESSFUL` when an organization conformance pack has been successfully updated in all the member accounts.
+   * - `UPDATE_IN_PROGRESS` when an organization conformance pack update is in progress.
+   * - `UPDATE_FAILED` when an organization conformance pack update failed in one or more member accounts within that organization.
+   *
    * @public
    */
   Status: OrganizationResourceStatus | undefined;
 
   /**
-   * <p>An error code that is returned when organization conformance pack creation or deletion has failed in a member account. </p>
+   * An error code that is returned when organization conformance pack creation or deletion has failed in a member account.
+   *
    * @public
    */
   ErrorCode?: string | undefined;
 
   /**
-   * <p>An error message indicating that organization conformance pack creation or deletion failed due to an error. </p>
+   * An error message indicating that organization conformance pack creation or deletion failed due to an error.
+   *
    * @public
    */
   ErrorMessage?: string | undefined;
 
   /**
-   * <p>The timestamp of the last update.</p>
+   * The timestamp of the last update.
+   *
    * @public
    */
   LastUpdateTime?: Date | undefined;
@@ -5013,13 +4866,15 @@ export interface OrganizationConformancePackStatus {
  */
 export interface DescribeOrganizationConformancePackStatusesResponse {
   /**
-   * <p>A list of <code>OrganizationConformancePackStatus</code> objects. </p>
+   * A list of `OrganizationConformancePackStatus` objects.
+   *
    * @public
    */
   OrganizationConformancePackStatuses?: OrganizationConformancePackStatus[] | undefined;
 
   /**
-   * <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response. </p>
+   * The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -5030,37 +4885,36 @@ export interface DescribeOrganizationConformancePackStatusesResponse {
  */
 export interface DescribePendingAggregationRequestsRequest {
   /**
-   * <p>The maximum number of evaluation results returned on each page.
-   * 			The default is maximum. If you specify 0, Config uses the
-   * 			default.</p>
+   * The maximum number of evaluation results returned on each page. The default is maximum. If you specify 0, Config uses the default.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use
-   * 			to get the next page of results in a paginated response.</p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>An object that represents the account ID and region of an
- * 			aggregator account that is requesting authorization but is not yet
- * 			authorized.</p>
+ * An object that represents the account ID and region of an aggregator account that is requesting authorization but is not yet authorized.
+ *
  * @public
  */
 export interface PendingAggregationRequest {
   /**
-   * <p>The 12-digit account ID of the account requesting to aggregate
-   * 			data.</p>
+   * The 12-digit account ID of the account requesting to aggregate data.
+   *
    * @public
    */
   RequesterAccountId?: string | undefined;
 
   /**
-   * <p>The region requesting to aggregate data. </p>
+   * The region requesting to aggregate data.
+   *
    * @public
    */
   RequesterAwsRegion?: string | undefined;
@@ -5071,14 +4925,15 @@ export interface PendingAggregationRequest {
  */
 export interface DescribePendingAggregationRequestsResponse {
   /**
-   * <p>Returns a PendingAggregationRequests object.</p>
+   * Returns a PendingAggregationRequests object.
+   *
    * @public
    */
   PendingAggregationRequests?: PendingAggregationRequest[] | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use
-   * 			to get the next page of results in a paginated response.</p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -5089,171 +4944,189 @@ export interface DescribePendingAggregationRequestsResponse {
  */
 export interface DescribeRemediationConfigurationsRequest {
   /**
-   * <p>A list of Config rule names of remediation configurations for which you want details. </p>
+   * A list of Config rule names of remediation configurations for which you want details.
+   *
    * @public
    */
   ConfigRuleNames: string[] | undefined;
 }
 
 /**
- * <p>Amazon Web Services Systems Manager (SSM) specific remediation controls.</p>
+ * Amazon Web Services Systems Manager (SSM) specific remediation controls.
+ *
  * @public
  */
 export interface SsmControls {
   /**
-   * <p>The maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. You can specify a percentage, such as 10%. The default value is 10. </p>
+   * The maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. You can specify a percentage, such as 10%. The default value is 10.
+   *
    * @public
    */
   ConcurrentExecutionRatePercentage?: number | undefined;
 
   /**
-   * <p>The percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule.
-   * 			You can specify a percentage of errors, for example 10%. If you do not specifiy a percentage, the default is 50%.
-   * 			For example, if you set the ErrorPercentage to 40% for 10 non-compliant resources, then SSM stops running the automations when the fifth error is received. </p>
+   * The percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. You can specify a percentage of errors, for example 10%. If you do not specifiy a percentage, the default is 50%. For example, if you set the ErrorPercentage to 40% for 10 non-compliant resources, then SSM stops running the automations when the fifth error is received.
+   *
    * @public
    */
   ErrorPercentage?: number | undefined;
 }
 
 /**
- * <p>The controls that Config uses for executing remediations.</p>
+ * The controls that Config uses for executing remediations.
+ *
  * @public
  */
 export interface ExecutionControls {
   /**
-   * <p>A SsmControls object.</p>
+   * A SsmControls object.
+   *
    * @public
    */
   SsmControls?: SsmControls | undefined;
 }
 
 /**
- * <p>The dynamic value of the resource.</p>
+ * The dynamic value of the resource.
+ *
  * @public
  */
 export interface ResourceValue {
   /**
-   * <p>The value is a resource ID.</p>
+   * The value is a resource ID.
+   *
    * @public
    */
   Value: ResourceValueType | undefined;
 }
 
 /**
- * <p>The static value of the resource.</p>
+ * The static value of the resource.
+ *
  * @public
  */
 export interface StaticValue {
   /**
-   * <p>A list of values. For example, the ARN of the assumed role. </p>
+   * A list of values. For example, the ARN of the assumed role.
+   *
    * @public
    */
   Values: string[] | undefined;
 }
 
 /**
- * <p>The value is either a dynamic (resource) value or a static value. You must select either a dynamic value or a static value.</p>
+ * The value is either a dynamic (resource) value or a static value. You must select either a dynamic value or a static value.
+ *
  * @public
  */
 export interface RemediationParameterValue {
   /**
-   * <p>The value is dynamic and changes at run-time.</p>
+   * The value is dynamic and changes at run-time.
+   *
    * @public
    */
   ResourceValue?: ResourceValue | undefined;
 
   /**
-   * <p>The value is static and does not change at run-time.</p>
+   * The value is static and does not change at run-time.
+   *
    * @public
    */
   StaticValue?: StaticValue | undefined;
 }
 
 /**
- * <p>An object that represents the details about the remediation configuration that includes the remediation action, parameters, and data to execute the action.</p>
+ * An object that represents the details about the remediation configuration that includes the remediation action, parameters, and data to execute the action.
+ *
  * @public
  */
 export interface RemediationConfiguration {
   /**
-   * <p>The name of the Config rule.</p>
+   * The name of the Config rule.
+   *
    * @public
    */
   ConfigRuleName: string | undefined;
 
   /**
-   * <p>The type of the target. Target executes remediation. For example, SSM document.</p>
+   * The type of the target. Target executes remediation. For example, SSM document.
+   *
    * @public
    */
   TargetType: RemediationTargetType | undefined;
 
   /**
-   * <p>Target ID is the name of the SSM document.</p>
+   * Target ID is the name of the SSM document.
+   *
    * @public
    */
   TargetId: string | undefined;
 
   /**
-   * <p>Version of the target. For example, version of the SSM document.</p>
-   *          <note>
-   *             <p>If you make backward incompatible changes to the SSM document,
-   * 			you must call PutRemediationConfiguration API again to ensure the remediations can run.</p>
-   *          </note>
+   * Version of the target. For example, version of the SSM document.
+   *
+   * > **Note:** If you make backward incompatible changes to the SSM document, you must call PutRemediationConfiguration API again to ensure the remediations can run.
+   *
    * @public
    */
   TargetVersion?: string | undefined;
 
   /**
-   * <p>An object of the RemediationParameterValue.</p>
+   * An object of the RemediationParameterValue.
+   *
    * @public
    */
   Parameters?: Record<string, RemediationParameterValue> | undefined;
 
   /**
-   * <p>The type of a resource. </p>
+   * The type of a resource.
+   *
    * @public
    */
   ResourceType?: string | undefined;
 
   /**
-   * <p>The remediation is triggered automatically.</p>
+   * The remediation is triggered automatically.
+   *
    * @public
    */
   Automatic?: boolean | undefined;
 
   /**
-   * <p>An ExecutionControls object.</p>
+   * An ExecutionControls object.
+   *
    * @public
    */
   ExecutionControls?: ExecutionControls | undefined;
 
   /**
-   * <p>The maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.</p>
-   *          <p>For example, if you specify MaximumAutomaticAttempts as 5 with RetryAttemptSeconds as 50 seconds,
-   * 			
-   * 			Config will put a RemediationException on your behalf for the failing resource after the 5th failed attempt within 50 seconds.</p>
+   * The maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
+   *
+   * For example, if you specify MaximumAutomaticAttempts as 5 with RetryAttemptSeconds as 50 seconds, Config will put a RemediationException on your behalf for the failing resource after the 5th failed attempt within 50 seconds.
+   *
    * @public
    */
   MaximumAutomaticAttempts?: number | undefined;
 
   /**
-   * <p>Time window to determine whether or not to add a remediation exception to prevent infinite remediation attempts.
-   * 			If <code>MaximumAutomaticAttempts</code> remediation attempts have been made under <code>RetryAttemptSeconds</code>, a remediation exception will be added to the resource.
-   * 			If you do not select a number, the default is 60 seconds.
-   * 		</p>
-   *          <p>For example, if you specify <code>RetryAttemptSeconds</code> as 50 seconds and <code>MaximumAutomaticAttempts</code> as 5,
-   * 			Config will run auto-remediations 5 times within 50 seconds before adding a remediation exception to the resource.</p>
+   * Time window to determine whether or not to add a remediation exception to prevent infinite remediation attempts. If `MaximumAutomaticAttempts` remediation attempts have been made under `RetryAttemptSeconds`, a remediation exception will be added to the resource. If you do not select a number, the default is 60 seconds.
+   *
+   * For example, if you specify `RetryAttemptSeconds` as 50 seconds and `MaximumAutomaticAttempts` as 5, Config will run auto-remediations 5 times within 50 seconds before adding a remediation exception to the resource.
+   *
    * @public
    */
   RetryAttemptSeconds?: number | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) of remediation configuration.</p>
+   * Amazon Resource Name (ARN) of remediation configuration.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>Name of the service that owns the service-linked rule, if applicable.</p>
+   * Name of the service that owns the service-linked rule, if applicable.
+   *
    * @public
    */
   CreatedByService?: string | undefined;
@@ -5264,7 +5137,8 @@ export interface RemediationConfiguration {
  */
 export interface DescribeRemediationConfigurationsResponse {
   /**
-   * <p>Returns a remediation configuration object.</p>
+   * Returns a remediation configuration object.
+   *
    * @public
    */
   RemediationConfigurations?: RemediationConfiguration[] | undefined;
@@ -5275,61 +5149,71 @@ export interface DescribeRemediationConfigurationsResponse {
  */
 export interface DescribeRemediationExceptionsRequest {
   /**
-   * <p>The name of the Config rule.</p>
+   * The name of the Config rule.
+   *
    * @public
    */
   ConfigRuleName: string | undefined;
 
   /**
-   * <p>An exception list of resource exception keys to be processed with the current request. Config adds exception for each resource key. For example, Config adds 3 exceptions for 3 resource keys. </p>
+   * An exception list of resource exception keys to be processed with the current request. Config adds exception for each resource key. For example, Config adds 3 exceptions for 3 resource keys.
+   *
    * @public
    */
   ResourceKeys?: RemediationExceptionResourceKey[] | undefined;
 
   /**
-   * <p>The maximum number of RemediationExceptionResourceKey returned on each page. The default is 25. If you specify 0, Config uses the default.</p>
+   * The maximum number of RemediationExceptionResourceKey returned on each page. The default is 25. If you specify 0, Config uses the default.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
+   * The `nextToken` string returned in a previous request that you use to request the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>An object that represents the details about the remediation exception. The details include the rule name, an explanation of an exception, the time when the exception will be deleted, the resource ID, and resource type. </p>
+ * An object that represents the details about the remediation exception. The details include the rule name, an explanation of an exception, the time when the exception will be deleted, the resource ID, and resource type.
+ *
  * @public
  */
 export interface RemediationException {
   /**
-   * <p>The name of the Config rule.</p>
+   * The name of the Config rule.
+   *
    * @public
    */
   ConfigRuleName: string | undefined;
 
   /**
-   * <p>The type of a resource.</p>
+   * The type of a resource.
+   *
    * @public
    */
   ResourceType: string | undefined;
 
   /**
-   * <p>The ID of the resource (for example., sg-xxxxxx).</p>
+   * The ID of the resource (for example., sg-xxxxxx).
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>An explanation of an remediation exception.</p>
+   * An explanation of an remediation exception.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The time when the remediation exception will be deleted.</p>
+   * The time when the remediation exception will be deleted.
+   *
    * @public
    */
   ExpirationTime?: Date | undefined;
@@ -5340,13 +5224,15 @@ export interface RemediationException {
  */
 export interface DescribeRemediationExceptionsResponse {
   /**
-   * <p>Returns a list of remediation exception objects.</p>
+   * Returns a list of remediation exception objects.
+   *
    * @public
    */
   RemediationExceptions?: RemediationException[] | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
+   * The `nextToken` string returned in a previous request that you use to request the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -5357,98 +5243,113 @@ export interface DescribeRemediationExceptionsResponse {
  */
 export interface DescribeRemediationExecutionStatusRequest {
   /**
-   * <p>The name of the Config rule.</p>
+   * The name of the Config rule.
+   *
    * @public
    */
   ConfigRuleName: string | undefined;
 
   /**
-   * <p>A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID. </p>
+   * A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID.
+   *
    * @public
    */
   ResourceKeys?: ResourceKey[] | undefined;
 
   /**
-   * <p>The maximum number of RemediationExecutionStatuses returned on each page. The default is maximum. If you specify 0, Config uses the default. </p>
+   * The maximum number of RemediationExecutionStatuses returned on each page. The default is maximum. If you specify 0, Config uses the default.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Name of the step from the SSM document.</p>
+ * Name of the step from the SSM document.
+ *
  * @public
  */
 export interface RemediationExecutionStep {
   /**
-   * <p>The details of the step.</p>
+   * The details of the step.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The valid status of the step.</p>
+   * The valid status of the step.
+   *
    * @public
    */
   State?: RemediationExecutionStepState | undefined;
 
   /**
-   * <p>An error message if the step was interrupted during execution.</p>
+   * An error message if the step was interrupted during execution.
+   *
    * @public
    */
   ErrorMessage?: string | undefined;
 
   /**
-   * <p>The time when the step started.</p>
+   * The time when the step started.
+   *
    * @public
    */
   StartTime?: Date | undefined;
 
   /**
-   * <p>The time when the step stopped.</p>
+   * The time when the step stopped.
+   *
    * @public
    */
   StopTime?: Date | undefined;
 }
 
 /**
- * <p>Provides details of the current status of the invoked remediation action for that resource.</p>
+ * Provides details of the current status of the invoked remediation action for that resource.
+ *
  * @public
  */
 export interface RemediationExecutionStatus {
   /**
-   * <p>The details that identify a resource within Config, including
-   * 			the resource type and resource ID.</p>
+   * The details that identify a resource within Config, including the resource type and resource ID.
+   *
    * @public
    */
   ResourceKey?: ResourceKey | undefined;
 
   /**
-   * <p>ENUM of the values.</p>
+   * ENUM of the values.
+   *
    * @public
    */
   State?: RemediationExecutionState | undefined;
 
   /**
-   * <p>Details of every step.</p>
+   * Details of every step.
+   *
    * @public
    */
   StepDetails?: RemediationExecutionStep[] | undefined;
 
   /**
-   * <p>Start time when the remediation was executed.</p>
+   * Start time when the remediation was executed.
+   *
    * @public
    */
   InvocationTime?: Date | undefined;
 
   /**
-   * <p>The time when the remediation execution was last updated.</p>
+   * The time when the remediation execution was last updated.
+   *
    * @public
    */
   LastUpdatedTime?: Date | undefined;
@@ -5459,13 +5360,15 @@ export interface RemediationExecutionStatus {
  */
 export interface DescribeRemediationExecutionStatusResponse {
   /**
-   * <p>Returns a list of remediation execution statuses objects.</p>
+   * Returns a list of remediation execution statuses objects.
+   *
    * @public
    */
   RemediationExecutionStatuses?: RemediationExecutionStatus[] | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -5476,42 +5379,40 @@ export interface DescribeRemediationExecutionStatusResponse {
  */
 export interface DescribeRetentionConfigurationsRequest {
   /**
-   * <p>A list of names of retention configurations for which you want
-   * 			details. If you do not specify a name, Config returns details
-   * 			for all the retention configurations for that account.</p>
-   *          <note>
-   *             <p>Currently, Config supports only one retention
-   * 				configuration per region in your account.</p>
-   *          </note>
+   * A list of names of retention configurations for which you want details. If you do not specify a name, Config returns details for all the retention configurations for that account.
+   *
+   * > **Note:** Currently, Config supports only one retention configuration per region in your account.
+   *
    * @public
    */
   RetentionConfigurationNames?: string[] | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page
-   * 			that you use to get the next page of results in a paginated
-   * 			response. </p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>An object with the name of the retention configuration and the retention period in days. The object stores the configuration for data retention in Config.</p>
+ * An object with the name of the retention configuration and the retention period in days. The object stores the configuration for data retention in Config.
+ *
  * @public
  */
 export interface RetentionConfiguration {
   /**
-   * <p>The name of the retention configuration object.</p>
+   * The name of the retention configuration object.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>Number of days Config stores your historical information.</p>
-   *          <note>
-   *             <p>Currently, only applicable to the configuration item history.</p>
-   *          </note>
+   * Number of days Config stores your historical information.
+   *
+   * > **Note:** Currently, only applicable to the configuration item history.
+   *
    * @public
    */
   RetentionPeriodInDays: number | undefined;
@@ -5522,15 +5423,15 @@ export interface RetentionConfiguration {
  */
 export interface DescribeRetentionConfigurationsResponse {
   /**
-   * <p>Returns a retention configuration object.</p>
+   * Returns a retention configuration object.
+   *
    * @public
    */
   RetentionConfigurations?: RetentionConfiguration[] | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page
-   * 			that you use to get the next page of results in a paginated
-   * 			response. </p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -5541,13 +5442,15 @@ export interface DescribeRetentionConfigurationsResponse {
  */
 export interface DisassociateResourceTypesRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the specified configuration recorder.</p>
+   * The Amazon Resource Name (ARN) of the specified configuration recorder.
+   *
    * @public
    */
   ConfigurationRecorderArn: string | undefined;
 
   /**
-   * <p>The list of resource types you want to remove from the recording group of the specified configuration recorder.</p>
+   * The list of resource types you want to remove from the recording group of the specified configuration recorder.
+   *
    * @public
    */
   ResourceTypes: ResourceType[] | undefined;
@@ -5558,233 +5461,240 @@ export interface DisassociateResourceTypesRequest {
  */
 export interface DisassociateResourceTypesResponse {
   /**
-   * <p>Records configuration changes to the resource types in scope.</p>
-   *          <p>For more information about the configuration recorder,
-   * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html">
-   *                <b>Working with the Configuration Recorder</b>
-   *             </a> in the <i>Config Developer Guide</i>.</p>
+   * Records configuration changes to the resource types in scope.
+   *
+   * For more information about the configuration recorder, see [**Working with the Configuration Recorder**](https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html) in the *Config Developer Guide*.
+   *
    * @public
    */
   ConfigurationRecorder: ConfigurationRecorder | undefined;
 }
 
 /**
- * <p>Identifies an Amazon Web Services resource and indicates whether it complies
- * 			with the Config rule that it was evaluated against.</p>
+ * Identifies an Amazon Web Services resource and indicates whether it complies with the Config rule that it was evaluated against.
+ *
  * @public
  */
 export interface Evaluation {
   /**
-   * <p>The type of Amazon Web Services resource that was evaluated.</p>
+   * The type of Amazon Web Services resource that was evaluated.
+   *
    * @public
    */
   ComplianceResourceType: string | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services resource that was evaluated.</p>
+   * The ID of the Amazon Web Services resource that was evaluated.
+   *
    * @public
    */
   ComplianceResourceId: string | undefined;
 
   /**
-   * <p>Indicates whether the Amazon Web Services resource complies with the Config
-   * 			rule that it was evaluated against.</p>
-   *          <p>For the <code>Evaluation</code> data type, Config supports
-   * 			only the <code>COMPLIANT</code>, <code>NON_COMPLIANT</code>, and
-   * 				<code>NOT_APPLICABLE</code> values. Config does not support
-   * 			the <code>INSUFFICIENT_DATA</code> value for this data
-   * 			type.</p>
-   *          <p>Similarly, Config does not accept
-   * 				<code>INSUFFICIENT_DATA</code> as the value for
-   * 				<code>ComplianceType</code> from a <code>PutEvaluations</code>
-   * 			request. For example, an Lambda function for a custom Config
-   * 			rule cannot pass an <code>INSUFFICIENT_DATA</code> value to Config.</p>
+   * Indicates whether the Amazon Web Services resource complies with the Config rule that it was evaluated against.
+   *
+   * For the `Evaluation` data type, Config supports only the `COMPLIANT`, `NON_COMPLIANT`, and `NOT_APPLICABLE` values. Config does not support the `INSUFFICIENT_DATA` value for this data type.
+   *
+   * Similarly, Config does not accept `INSUFFICIENT_DATA` as the value for `ComplianceType` from a `PutEvaluations` request. For example, an Lambda function for a custom Config rule cannot pass an `INSUFFICIENT_DATA` value to Config.
+   *
    * @public
    */
   ComplianceType: ComplianceType | undefined;
 
   /**
-   * <p>Supplementary information about how the evaluation determined
-   * 			the compliance.</p>
+   * Supplementary information about how the evaluation determined the compliance.
+   *
    * @public
    */
   Annotation?: string | undefined;
 
   /**
-   * <p>The time of the event in Config that triggered the
-   * 			evaluation. For event-based evaluations, the time indicates when Config created the configuration item that triggered the evaluation.
-   * 			For periodic evaluations, the time indicates when Config
-   * 			triggered the evaluation at the frequency that you specified (for
-   * 			example, every 24 hours).</p>
+   * The time of the event in Config that triggered the evaluation. For event-based evaluations, the time indicates when Config created the configuration item that triggered the evaluation. For periodic evaluations, the time indicates when Config triggered the evaluation at the frequency that you specified (for example, every 24 hours).
+   *
    * @public
    */
   OrderingTimestamp: Date | undefined;
 }
 
 /**
- * <p>Use EvaluationContext to group independently initiated proactive resource evaluations. For example, CFN Stack.
- * 			If you want to check just a resource definition, you do not need to provide evaluation context.</p>
+ * Use EvaluationContext to group independently initiated proactive resource evaluations. For example, CFN Stack. If you want to check just a resource definition, you do not need to provide evaluation context.
+ *
  * @public
  */
 export interface EvaluationContext {
   /**
-   * <p>A unique EvaluationContextIdentifier ID for an EvaluationContext.</p>
+   * A unique EvaluationContextIdentifier ID for an EvaluationContext.
+   *
    * @public
    */
   EvaluationContextIdentifier?: string | undefined;
 }
 
 /**
- * <p>The details of an Config evaluation. Provides the Amazon Web Services
- * 			resource that was evaluated, the compliance of the resource, related
- * 			time stamps, and supplementary information.</p>
+ * The details of an Config evaluation. Provides the Amazon Web Services resource that was evaluated, the compliance of the resource, related time stamps, and supplementary information.
+ *
  * @public
  */
 export interface EvaluationResult {
   /**
-   * <p>Uniquely identifies the evaluation result.</p>
+   * Uniquely identifies the evaluation result.
+   *
    * @public
    */
   EvaluationResultIdentifier?: EvaluationResultIdentifier | undefined;
 
   /**
-   * <p>Indicates whether the Amazon Web Services resource complies with the Config
-   * 			rule that evaluated it.</p>
-   *          <p>For the <code>EvaluationResult</code> data type, Config
-   * 			supports only the <code>COMPLIANT</code>,
-   * 			<code>NON_COMPLIANT</code>, and <code>NOT_APPLICABLE</code> values.
-   * 			Config does not support the <code>INSUFFICIENT_DATA</code> value
-   * 			for the <code>EvaluationResult</code> data type.</p>
+   * Indicates whether the Amazon Web Services resource complies with the Config rule that evaluated it.
+   *
+   * For the `EvaluationResult` data type, Config supports only the `COMPLIANT`, `NON_COMPLIANT`, and `NOT_APPLICABLE` values. Config does not support the `INSUFFICIENT_DATA` value for the `EvaluationResult` data type.
+   *
    * @public
    */
   ComplianceType?: ComplianceType | undefined;
 
   /**
-   * <p>The time when Config recorded the evaluation
-   * 			result.</p>
+   * The time when Config recorded the evaluation result.
+   *
    * @public
    */
   ResultRecordedTime?: Date | undefined;
 
   /**
-   * <p>The time when the Config rule evaluated the Amazon Web Services
-   * 			resource.</p>
+   * The time when the Config rule evaluated the Amazon Web Services resource.
+   *
    * @public
    */
   ConfigRuleInvokedTime?: Date | undefined;
 
   /**
-   * <p>Supplementary information about how the evaluation determined
-   * 			the compliance.</p>
+   * Supplementary information about how the evaluation determined the compliance.
+   *
    * @public
    */
   Annotation?: string | undefined;
 
   /**
-   * <p>An encrypted token that associates an evaluation with an Config rule. The token identifies the rule, the Amazon Web Services resource being
-   * 			evaluated, and the event that triggered the evaluation.</p>
+   * An encrypted token that associates an evaluation with an Config rule. The token identifies the rule, the Amazon Web Services resource being evaluated, and the event that triggered the evaluation.
+   *
    * @public
    */
   ResultToken?: string | undefined;
 }
 
 /**
- * <p>Returns status details of an evaluation.</p>
+ * Returns status details of an evaluation.
+ *
  * @public
  */
 export interface EvaluationStatus {
   /**
-   * <p>The status of an execution. The valid values are In_Progress, Succeeded or Failed. </p>
+   * The status of an execution. The valid values are In_Progress, Succeeded or Failed.
+   *
    * @public
    */
   Status: ResourceEvaluationStatus | undefined;
 
   /**
-   * <p>An explanation for failed execution status.</p>
+   * An explanation for failed execution status.
+   *
    * @public
    */
   FailureReason?: string | undefined;
 }
 
 /**
- * <p>Identifies an Amazon Web Services resource and indicates whether it complies with the Config rule that it was evaluated against.</p>
+ * Identifies an Amazon Web Services resource and indicates whether it complies with the Config rule that it was evaluated against.
+ *
  * @public
  */
 export interface ExternalEvaluation {
   /**
-   * <p>The evaluated compliance resource type. Config accepts <code>AWS::::Account</code> resource type.</p>
+   * The evaluated compliance resource type. Config accepts `AWS::::Account` resource type.
+   *
    * @public
    */
   ComplianceResourceType: string | undefined;
 
   /**
-   * <p>The evaluated compliance resource ID. Config accepts only Amazon Web Services account ID.</p>
+   * The evaluated compliance resource ID. Config accepts only Amazon Web Services account ID.
+   *
    * @public
    */
   ComplianceResourceId: string | undefined;
 
   /**
-   * <p>The compliance of the Amazon Web Services resource. The valid values are <code>COMPLIANT, NON_COMPLIANT, </code> and <code>NOT_APPLICABLE</code>.</p>
+   * The compliance of the Amazon Web Services resource. The valid values are `COMPLIANT, NON_COMPLIANT,` and `NOT_APPLICABLE`.
+   *
    * @public
    */
   ComplianceType: ComplianceType | undefined;
 
   /**
-   * <p>Supplementary information about the reason of compliance. For example, this task was completed on a specific date.</p>
+   * Supplementary information about the reason of compliance. For example, this task was completed on a specific date.
+   *
    * @public
    */
   Annotation?: string | undefined;
 
   /**
-   * <p>The time when the compliance was recorded. </p>
+   * The time when the compliance was recorded.
+   *
    * @public
    */
   OrderingTimestamp: Date | undefined;
 }
 
 /**
- * <p>List of each of the failed remediations with specific reasons.</p>
+ * List of each of the failed remediations with specific reasons.
+ *
  * @public
  */
 export interface FailedRemediationBatch {
   /**
-   * <p>Returns a failure message. For example, the resource is already compliant.</p>
+   * Returns a failure message. For example, the resource is already compliant.
+   *
    * @public
    */
   FailureMessage?: string | undefined;
 
   /**
-   * <p>Returns remediation configurations of the failed items.</p>
+   * Returns remediation configurations of the failed items.
+   *
    * @public
    */
   FailedItems?: RemediationConfiguration[] | undefined;
 }
 
 /**
- * <p>List of each of the failed remediation exceptions with specific reasons.</p>
+ * List of each of the failed remediation exceptions with specific reasons.
+ *
  * @public
  */
 export interface FailedRemediationExceptionBatch {
   /**
-   * <p>Returns a failure message. For example, the auto-remediation has failed.</p>
+   * Returns a failure message. For example, the auto-remediation has failed.
+   *
    * @public
    */
   FailureMessage?: string | undefined;
 
   /**
-   * <p>Returns remediation exception resource key object of the failed items.</p>
+   * Returns remediation exception resource key object of the failed items.
+   *
    * @public
    */
   FailedItems?: RemediationException[] | undefined;
 }
 
 /**
- * <p>Details about the fields such as name of the field.</p>
+ * Details about the fields such as name of the field.
+ *
  * @public
  */
 export interface FieldInfo {
   /**
-   * <p>Name of the field.</p>
+   * Name of the field.
+   *
    * @public
    */
   Name?: string | undefined;
@@ -5795,55 +5705,52 @@ export interface FieldInfo {
  */
 export interface GetAggregateComplianceDetailsByConfigRuleRequest {
   /**
-   * <p>The name of the configuration aggregator.</p>
+   * The name of the configuration aggregator.
+   *
    * @public
    */
   ConfigurationAggregatorName: string | undefined;
 
   /**
-   * <p>The name of the Config rule for which you want compliance
-   * 			information.</p>
+   * The name of the Config rule for which you want compliance information.
+   *
    * @public
    */
   ConfigRuleName: string | undefined;
 
   /**
-   * <p>The 12-digit account ID of the source account.</p>
+   * The 12-digit account ID of the source account.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The source region from where the data is aggregated.</p>
+   * The source region from where the data is aggregated.
+   *
    * @public
    */
   AwsRegion: string | undefined;
 
   /**
-   * <p>The resource compliance status.</p>
-   *          <note>
-   *             <p>For the
-   * 					<code>GetAggregateComplianceDetailsByConfigRuleRequest</code>
-   * 				data type, Config supports only the <code>COMPLIANT</code>
-   * 				and <code>NON_COMPLIANT</code>. Config does not support the
-   * 					<code>NOT_APPLICABLE</code> and
-   * 					<code>INSUFFICIENT_DATA</code> values.</p>
-   *          </note>
+   * The resource compliance status.
+   *
+   * > **Note:** For the `GetAggregateComplianceDetailsByConfigRuleRequest` data type, Config supports only the `COMPLIANT` and `NON_COMPLIANT`. Config does not support the `NOT_APPLICABLE` and `INSUFFICIENT_DATA` values.
+   *
    * @public
    */
   ComplianceType?: ComplianceType | undefined;
 
   /**
-   * <p>The maximum number of evaluation results returned on each page.
-   * 			The default is 50. You cannot specify a number greater than 100. If
-   * 			you specify 0, Config uses the default.</p>
+   * The maximum number of evaluation results returned on each page. The default is 50. You cannot specify a number greater than 100. If you specify 0, Config uses the default.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use
-   * 			to get the next page of results in a paginated response.</p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -5854,14 +5761,15 @@ export interface GetAggregateComplianceDetailsByConfigRuleRequest {
  */
 export interface GetAggregateComplianceDetailsByConfigRuleResponse {
   /**
-   * <p>Returns an AggregateEvaluationResults object.</p>
+   * Returns an AggregateEvaluationResults object.
+   *
    * @public
    */
   AggregateEvaluationResults?: AggregateEvaluationResult[] | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use
-   * 			to get the next page of results in a paginated response.</p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -5872,35 +5780,36 @@ export interface GetAggregateComplianceDetailsByConfigRuleResponse {
  */
 export interface GetAggregateConfigRuleComplianceSummaryRequest {
   /**
-   * <p>The name of the configuration aggregator.</p>
+   * The name of the configuration aggregator.
+   *
    * @public
    */
   ConfigurationAggregatorName: string | undefined;
 
   /**
-   * <p>Filters the results based on the
-   * 			ConfigRuleComplianceSummaryFilters object.</p>
+   * Filters the results based on the ConfigRuleComplianceSummaryFilters object.
+   *
    * @public
    */
   Filters?: ConfigRuleComplianceSummaryFilters | undefined;
 
   /**
-   * <p>Groups the result based on ACCOUNT_ID or AWS_REGION.</p>
+   * Groups the result based on ACCOUNT_ID or AWS_REGION.
+   *
    * @public
    */
   GroupByKey?: ConfigRuleComplianceSummaryGroupKey | undefined;
 
   /**
-   * <p>The maximum number of evaluation results returned on each page.
-   * 			The default is 1000. You cannot specify a number greater than 1000.
-   * 			If you specify 0, Config uses the default.</p>
+   * The maximum number of evaluation results returned on each page. The default is 1000. You cannot specify a number greater than 1000. If you specify 0, Config uses the default.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use
-   * 			to get the next page of results in a paginated response.</p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -5911,20 +5820,22 @@ export interface GetAggregateConfigRuleComplianceSummaryRequest {
  */
 export interface GetAggregateConfigRuleComplianceSummaryResponse {
   /**
-   * <p>Groups the result based on ACCOUNT_ID or AWS_REGION.</p>
+   * Groups the result based on ACCOUNT_ID or AWS_REGION.
+   *
    * @public
    */
   GroupByKey?: string | undefined;
 
   /**
-   * <p>Returns a list of AggregateComplianceCounts object.</p>
+   * Returns a list of AggregateComplianceCounts object.
+   *
    * @public
    */
   AggregateComplianceCounts?: AggregateComplianceCount[] | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use
-   * 			to get the next page of results in a paginated response.</p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -5935,31 +5846,36 @@ export interface GetAggregateConfigRuleComplianceSummaryResponse {
  */
 export interface GetAggregateConformancePackComplianceSummaryRequest {
   /**
-   * <p>The name of the configuration aggregator.</p>
+   * The name of the configuration aggregator.
+   *
    * @public
    */
   ConfigurationAggregatorName: string | undefined;
 
   /**
-   * <p>Filters the results based on the <code>AggregateConformancePackComplianceSummaryFilters</code> object.</p>
+   * Filters the results based on the `AggregateConformancePackComplianceSummaryFilters` object.
+   *
    * @public
    */
   Filters?: AggregateConformancePackComplianceSummaryFilters | undefined;
 
   /**
-   * <p>Groups the result based on Amazon Web Services account ID or Amazon Web Services Region.</p>
+   * Groups the result based on Amazon Web Services account ID or Amazon Web Services Region.
+   *
    * @public
    */
   GroupByKey?: AggregateConformancePackComplianceSummaryGroupKey | undefined;
 
   /**
-   * <p>The maximum number of results returned on each page. The default is maximum. If you specify 0, Config uses the default.</p>
+   * The maximum number of results returned on each page. The default is maximum. If you specify 0, Config uses the default.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -5970,43 +5886,50 @@ export interface GetAggregateConformancePackComplianceSummaryRequest {
  */
 export interface GetAggregateConformancePackComplianceSummaryResponse {
   /**
-   * <p>Returns a list of <code>AggregateConformancePackComplianceSummary</code> object.</p>
+   * Returns a list of `AggregateConformancePackComplianceSummary` object.
+   *
    * @public
    */
   AggregateConformancePackComplianceSummaries?: AggregateConformancePackComplianceSummary[] | undefined;
 
   /**
-   * <p>Groups the result based on Amazon Web Services account ID or Amazon Web Services Region.</p>
+   * Groups the result based on Amazon Web Services account ID or Amazon Web Services Region.
+   *
    * @public
    */
   GroupByKey?: string | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Filters the resource count based on account ID, region, and resource type.</p>
+ * Filters the resource count based on account ID, region, and resource type.
+ *
  * @public
  */
 export interface ResourceCountFilters {
   /**
-   * <p>The type of the Amazon Web Services resource.</p>
+   * The type of the Amazon Web Services resource.
+   *
    * @public
    */
   ResourceType?: ResourceType | undefined;
 
   /**
-   * <p>The 12-digit ID of the account.</p>
+   * The 12-digit ID of the account.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The region where the account is located.</p>
+   * The region where the account is located.
+   *
    * @public
    */
   Region?: string | undefined;
@@ -6017,49 +5940,57 @@ export interface ResourceCountFilters {
  */
 export interface GetAggregateDiscoveredResourceCountsRequest {
   /**
-   * <p>The name of the configuration aggregator.</p>
+   * The name of the configuration aggregator.
+   *
    * @public
    */
   ConfigurationAggregatorName: string | undefined;
 
   /**
-   * <p>Filters the results based on the <code>ResourceCountFilters</code> object.</p>
+   * Filters the results based on the `ResourceCountFilters` object.
+   *
    * @public
    */
   Filters?: ResourceCountFilters | undefined;
 
   /**
-   * <p>The key to group the resource counts.</p>
+   * The key to group the resource counts.
+   *
    * @public
    */
   GroupByKey?: ResourceCountGroupKey | undefined;
 
   /**
-   * <p>The maximum number of <a>GroupedResourceCount</a> objects returned on each page. The default is 1000. You cannot specify a number greater than 1000. If you specify 0, Config uses the default.</p>
+   * The maximum number of GroupedResourceCount objects returned on each page. The default is 1000. You cannot specify a number greater than 1000. If you specify 0, Config uses the default.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>The count of resources that are grouped by the group name.</p>
+ * The count of resources that are grouped by the group name.
+ *
  * @public
  */
 export interface GroupedResourceCount {
   /**
-   * <p>The name of the group that can be region, account ID, or resource type. For example, region1, region2 if the region was chosen as <code>GroupByKey</code>.</p>
+   * The name of the group that can be region, account ID, or resource type. For example, region1, region2 if the region was chosen as `GroupByKey`.
+   *
    * @public
    */
   GroupName: string | undefined;
 
   /**
-   * <p>The number of resources in the group.</p>
+   * The number of resources in the group.
+   *
    * @public
    */
   ResourceCount: number | undefined;
@@ -6070,25 +6001,29 @@ export interface GroupedResourceCount {
  */
 export interface GetAggregateDiscoveredResourceCountsResponse {
   /**
-   * <p>The total number of resources that are present in an aggregator with the filters that you provide.</p>
+   * The total number of resources that are present in an aggregator with the filters that you provide.
+   *
    * @public
    */
   TotalDiscoveredResources: number | undefined;
 
   /**
-   * <p>The key passed into the request object. If <code>GroupByKey</code> is not provided, the result will be empty.</p>
+   * The key passed into the request object. If `GroupByKey` is not provided, the result will be empty.
+   *
    * @public
    */
   GroupByKey?: string | undefined;
 
   /**
-   * <p>Returns a list of GroupedResourceCount objects.</p>
+   * Returns a list of GroupedResourceCount objects.
+   *
    * @public
    */
   GroupedResourceCounts?: GroupedResourceCount[] | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -6099,13 +6034,15 @@ export interface GetAggregateDiscoveredResourceCountsResponse {
  */
 export interface GetAggregateResourceConfigRequest {
   /**
-   * <p>The name of the configuration aggregator.</p>
+   * The name of the configuration aggregator.
+   *
    * @public
    */
   ConfigurationAggregatorName: string | undefined;
 
   /**
-   * <p>An object that identifies aggregate resource.</p>
+   * An object that identifies aggregate resource.
+   *
    * @public
    */
   ResourceIdentifier: AggregateResourceIdentifier | undefined;
@@ -6116,175 +6053,163 @@ export interface GetAggregateResourceConfigRequest {
  */
 export interface GetAggregateResourceConfigResponse {
   /**
-   * <p>Returns a <code>ConfigurationItem</code> object.</p>
+   * Returns a `ConfigurationItem` object.
+   *
    * @public
    */
   ConfigurationItem?: ConfigurationItem | undefined;
 }
 
 /**
- * <p></p>
  * @public
  */
 export interface GetComplianceDetailsByConfigRuleRequest {
   /**
-   * <p>The name of the Config rule for which you want compliance
-   * 			information.</p>
+   * The name of the Config rule for which you want compliance information.
+   *
    * @public
    */
   ConfigRuleName: string | undefined;
 
   /**
-   * <p>Filters the results by compliance.</p>
-   *          <p>
-   *             <code>INSUFFICIENT_DATA</code> is a valid <code>ComplianceType</code> that is returned when an Config rule cannot be evaluated. However, <code>INSUFFICIENT_DATA</code> cannot be used as a <code>ComplianceType</code> for filtering results.</p>
+   * Filters the results by compliance.
+   *
+   * `INSUFFICIENT_DATA` is a valid `ComplianceType` that is returned when an Config rule cannot be evaluated. However, `INSUFFICIENT_DATA` cannot be used as a `ComplianceType` for filtering results.
+   *
    * @public
    */
   ComplianceTypes?: ComplianceType[] | undefined;
 
   /**
-   * <p>The maximum number of evaluation results returned on each page.
-   * 			The default is 10. You cannot specify a number greater than 100. If
-   * 			you specify 0, Config uses the default.</p>
+   * The maximum number of evaluation results returned on each page. The default is 10. You cannot specify a number greater than 100. If you specify 0, Config uses the default.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page
-   * 			that you use to get the next page of results in a paginated
-   * 			response.</p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p></p>
  * @public
  */
 export interface GetComplianceDetailsByConfigRuleResponse {
   /**
-   * <p>Indicates whether the Amazon Web Services resource complies with the specified
-   * 			Config rule.</p>
+   * Indicates whether the Amazon Web Services resource complies with the specified Config rule.
+   *
    * @public
    */
   EvaluationResults?: EvaluationResult[] | undefined;
 
   /**
-   * <p>The string that you use in a subsequent request to get the next
-   * 			page of results in a paginated response.</p>
+   * The string that you use in a subsequent request to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p></p>
  * @public
  */
 export interface GetComplianceDetailsByResourceRequest {
   /**
-   * <p>The type of the Amazon Web Services resource for which you want compliance
-   * 			information.</p>
+   * The type of the Amazon Web Services resource for which you want compliance information.
+   *
    * @public
    */
   ResourceType?: string | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services resource for which you want compliance
-   * 			information.</p>
+   * The ID of the Amazon Web Services resource for which you want compliance information.
+   *
    * @public
    */
   ResourceId?: string | undefined;
 
   /**
-   * <p>Filters the results by compliance.</p>
-   *          <p>
-   *             <code>INSUFFICIENT_DATA</code> is a valid <code>ComplianceType</code> that is returned when an Config rule cannot be evaluated. However, <code>INSUFFICIENT_DATA</code> cannot be used as a <code>ComplianceType</code> for filtering results.</p>
+   * Filters the results by compliance.
+   *
+   * `INSUFFICIENT_DATA` is a valid `ComplianceType` that is returned when an Config rule cannot be evaluated. However, `INSUFFICIENT_DATA` cannot be used as a `ComplianceType` for filtering results.
+   *
    * @public
    */
   ComplianceTypes?: ComplianceType[] | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page
-   * 			that you use to get the next page of results in a paginated
-   * 			response.</p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The unique ID of Amazon Web Services resource execution for which you want to retrieve evaluation results. </p>
-   *          <note>
-   *             <p>You need to only provide either a <code>ResourceEvaluationID</code> or a <code>ResourceID </code>and <code>ResourceType</code>.</p>
-   *          </note>
+   * The unique ID of Amazon Web Services resource execution for which you want to retrieve evaluation results.
+   *
+   * > **Note:** You need to only provide either a `ResourceEvaluationID` or a `ResourceID`and `ResourceType`.
+   *
    * @public
    */
   ResourceEvaluationId?: string | undefined;
 }
 
 /**
- * <p></p>
  * @public
  */
 export interface GetComplianceDetailsByResourceResponse {
   /**
-   * <p>Indicates whether the specified Amazon Web Services resource complies each Config rule.</p>
+   * Indicates whether the specified Amazon Web Services resource complies each Config rule.
+   *
    * @public
    */
   EvaluationResults?: EvaluationResult[] | undefined;
 
   /**
-   * <p>The string that you use in a subsequent request to get the next
-   * 			page of results in a paginated response.</p>
+   * The string that you use in a subsequent request to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p></p>
  * @public
  */
 export interface GetComplianceSummaryByConfigRuleResponse {
   /**
-   * <p>The number of Config rules that are compliant and the
-   * 			number that are noncompliant, up to a maximum of 25 for
-   * 			each.</p>
+   * The number of Config rules that are compliant and the number that are noncompliant, up to a maximum of 25 for each.
+   *
    * @public
    */
   ComplianceSummary?: ComplianceSummary | undefined;
 }
 
 /**
- * <p></p>
  * @public
  */
 export interface GetComplianceSummaryByResourceTypeRequest {
   /**
-   * <p>Specify one or more resource types to get the number of
-   * 			resources that are compliant and the number that are noncompliant
-   * 			for each resource type.</p>
-   *          <p>For this request, you can specify an Amazon Web Services resource type such as
-   * 				<code>AWS::EC2::Instance</code>. You can specify that the
-   * 			resource type is an Amazon Web Services account by specifying
-   * 				<code>AWS::::Account</code>.</p>
+   * Specify one or more resource types to get the number of resources that are compliant and the number that are noncompliant for each resource type.
+   *
+   * For this request, you can specify an Amazon Web Services resource type such as `AWS::EC2::Instance`. You can specify that the resource type is an Amazon Web Services account by specifying `AWS::::Account`.
+   *
    * @public
    */
   ResourceTypes?: string[] | undefined;
 }
 
 /**
- * <p></p>
  * @public
  */
 export interface GetComplianceSummaryByResourceTypeResponse {
   /**
-   * <p>The number of resources that are compliant and the number that
-   * 			are noncompliant. If one or more resource types were provided with
-   * 			the request, the numbers are returned for each resource type. The
-   * 			maximum number returned is 100.</p>
+   * The number of resources that are compliant and the number that are noncompliant. If one or more resource types were provided with the request, the numbers are returned for each resource type. The maximum number returned is 100.
+   *
    * @public
    */
   ComplianceSummariesByResourceType?: ComplianceSummaryByResourceType[] | undefined;
@@ -6295,25 +6220,29 @@ export interface GetComplianceSummaryByResourceTypeResponse {
  */
 export interface GetConformancePackComplianceDetailsRequest {
   /**
-   * <p>Name of the conformance pack.</p>
+   * Name of the conformance pack.
+   *
    * @public
    */
   ConformancePackName: string | undefined;
 
   /**
-   * <p>A <code>ConformancePackEvaluationFilters</code> object.</p>
+   * A `ConformancePackEvaluationFilters` object.
+   *
    * @public
    */
   Filters?: ConformancePackEvaluationFilters | undefined;
 
   /**
-   * <p>The maximum number of evaluation results returned on each page. If you do no specify a number, Config uses the default. The default is 100.</p>
+   * The maximum number of evaluation results returned on each page. If you do no specify a number, Config uses the default. The default is 100.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
+   * The `nextToken` string returned in a previous request that you use to request the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -6324,19 +6253,22 @@ export interface GetConformancePackComplianceDetailsRequest {
  */
 export interface GetConformancePackComplianceDetailsResponse {
   /**
-   * <p>Name of the conformance pack.</p>
+   * Name of the conformance pack.
+   *
    * @public
    */
   ConformancePackName: string | undefined;
 
   /**
-   * <p>Returns a list of <code>ConformancePackEvaluationResult</code> objects.</p>
+   * Returns a list of `ConformancePackEvaluationResult` objects.
+   *
    * @public
    */
   ConformancePackRuleEvaluationResults?: ConformancePackEvaluationResult[] | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
+   * The `nextToken` string returned in a previous request that you use to request the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -6347,19 +6279,22 @@ export interface GetConformancePackComplianceDetailsResponse {
  */
 export interface GetConformancePackComplianceSummaryRequest {
   /**
-   * <p>Names of conformance packs.</p>
+   * Names of conformance packs.
+   *
    * @public
    */
   ConformancePackNames: string[] | undefined;
 
   /**
-   * <p>The maximum number of conformance packs returned on each page.</p>
+   * The maximum number of conformance packs returned on each page.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+   * The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -6370,13 +6305,15 @@ export interface GetConformancePackComplianceSummaryRequest {
  */
 export interface GetConformancePackComplianceSummaryResponse {
   /**
-   * <p>A list of <code>ConformancePackComplianceSummary</code> objects. </p>
+   * A list of `ConformancePackComplianceSummary` objects.
+   *
    * @public
    */
   ConformancePackComplianceSummaryList?: ConformancePackComplianceSummary[] | undefined;
 
   /**
-   * <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+   * The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -6387,7 +6324,8 @@ export interface GetConformancePackComplianceSummaryResponse {
  */
 export interface GetConnectorRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the connector.</p>
+   * The Amazon Resource Name (ARN) of the connector.
+   *
    * @public
    */
   Arn: string | undefined;
@@ -6398,7 +6336,8 @@ export interface GetConnectorRequest {
  */
 export interface GetConnectorResponse {
   /**
-   * <p>The details of the specified connector.</p>
+   * The details of the specified connector.
+   *
    * @public
    */
   Connector: Connector | undefined;
@@ -6409,7 +6348,8 @@ export interface GetConnectorResponse {
  */
 export interface GetCustomRulePolicyRequest {
   /**
-   * <p>The name of your Config Custom Policy rule.</p>
+   * The name of your Config Custom Policy rule.
+   *
    * @public
    */
   ConfigRuleName?: string | undefined;
@@ -6420,7 +6360,8 @@ export interface GetCustomRulePolicyRequest {
  */
 export interface GetCustomRulePolicyResponse {
   /**
-   * <p>The policy definition containing the logic for your Config Custom Policy rule.</p>
+   * The policy definition containing the logic for your Config Custom Policy rule.
+   *
    * @public
    */
   PolicyText?: string | undefined;
@@ -6431,56 +6372,47 @@ export interface GetCustomRulePolicyResponse {
  */
 export interface GetDiscoveredResourceCountsRequest {
   /**
-   * <p>The comma-separated list that specifies the resource types that
-   * 			you want Config to return (for example,
-   * 				<code>"AWS::EC2::Instance"</code>,
-   * 			<code>"AWS::IAM::User"</code>).</p>
-   *          <p>If a value for <code>resourceTypes</code> is not specified, Config returns all resource types that Config is recording in
-   * 			the region for your account.</p>
-   *          <note>
-   *             <p>If the configuration recorder is turned off, Config
-   * 				returns an empty list of <a>ResourceCount</a>
-   * 				objects. If the configuration recorder is not recording a
-   * 				specific resource type (for example, S3 buckets), that resource
-   * 				type is not returned in the list of <a>ResourceCount</a> objects.</p>
-   *          </note>
+   * The comma-separated list that specifies the resource types that you want Config to return (for example, `"AWS::EC2::Instance"`, `"AWS::IAM::User"`).
+   *
+   * If a value for `resourceTypes` is not specified, Config returns all resource types that Config is recording in the region for your account.
+   *
+   * > **Note:** If the configuration recorder is turned off, Config returns an empty list of ResourceCount objects. If the configuration recorder is not recording a specific resource type (for example, S3 buckets), that resource type is not returned in the list of ResourceCount objects.
+   *
    * @public
    */
   resourceTypes?: string[] | undefined;
 
   /**
-   * <p>The maximum number of <a>ResourceCount</a> objects
-   * 			returned on each page. The default is 100. You cannot specify a
-   * 			number greater than 100. If you specify 0, Config uses the
-   * 			default.</p>
+   * The maximum number of ResourceCount objects returned on each page. The default is 100. You cannot specify a number greater than 100. If you specify 0, Config uses the default.
+   *
    * @public
    */
   limit?: number | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page
-   * 			that you use to get the next page of results in a paginated
-   * 			response.</p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>An object that contains the resource type and the number of
- * 			resources.</p>
+ * An object that contains the resource type and the number of resources.
+ *
  * @public
  */
 export interface ResourceCount {
   /**
-   * <p>The resource type (for example,
-   * 				<code>"AWS::EC2::Instance"</code>).</p>
+   * The resource type (for example, `"AWS::EC2::Instance"`).
+   *
    * @public
    */
   resourceType?: ResourceType | undefined;
 
   /**
-   * <p>The number of resources.</p>
+   * The number of resources.
+   *
    * @public
    */
   count?: number | undefined;
@@ -6491,107 +6423,61 @@ export interface ResourceCount {
  */
 export interface GetDiscoveredResourceCountsResponse {
   /**
-   * <p>The total number of resources that Config is recording in
-   * 			the region for your account. If you specify resource types in the
-   * 			request, Config returns only the total number of resources for
-   * 			those resource types.</p>
-   *          <p class="title">
-   *             <b>Example</b>
-   *          </p>
-   *          <ol>
-   *             <li>
-   *                <p>Config is recording three resource types in the US
-   * 					East (Ohio) Region for your account: 25 EC2 instances, 20
-   * 					IAM users, and 15 S3 buckets, for a total of 60
-   * 					resources.</p>
-   *             </li>
-   *             <li>
-   *                <p>You make a call to the
-   * 						<code>GetDiscoveredResourceCounts</code> action and
-   * 					specify the resource type,
-   * 						<code>"AWS::EC2::Instances"</code>, in the
-   * 					request.</p>
-   *             </li>
-   *             <li>
-   *                <p>Config returns 25 for
-   * 						<code>totalDiscoveredResources</code>.</p>
-   *             </li>
-   *          </ol>
+   * The total number of resources that Config is recording in the region for your account. If you specify resource types in the request, Config returns only the total number of resources for those resource types.
+   *
+   * **Example**
+   *
+   * 1. Config is recording three resource types in the US East (Ohio) Region for your account: 25 EC2 instances, 20 IAM users, and 15 S3 buckets, for a total of 60 resources.
+   * 2. You make a call to the `GetDiscoveredResourceCounts` action and specify the resource type, `"AWS::EC2::Instances"`, in the request.
+   * 3. Config returns 25 for `totalDiscoveredResources`.
+   *
    * @public
    */
   totalDiscoveredResources?: number | undefined;
 
   /**
-   * <p>The list of <code>ResourceCount</code> objects. Each object is
-   * 			listed in descending order by the number of resources.</p>
+   * The list of `ResourceCount` objects. Each object is listed in descending order by the number of resources.
+   *
    * @public
    */
   resourceCounts?: ResourceCount[] | undefined;
 
   /**
-   * <p>The string that you use in a subsequent request to get the next
-   * 			page of results in a paginated response.</p>
+   * The string that you use in a subsequent request to get the next page of results in a paginated response.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Status filter object to filter results based on specific member account ID or status type for an organization Config rule. </p>
+ * Status filter object to filter results based on specific member account ID or status type for an organization Config rule.
+ *
  * @public
  */
 export interface StatusDetailFilters {
   /**
-   * <p>The 12-digit account ID of the member account within an organization.</p>
+   * The 12-digit account ID of the member account within an organization.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>Indicates deployment status for Config rule in the member account.
-   * 			When management account calls <code>PutOrganizationConfigRule</code> action for the first time, Config rule status is created in the member account.
-   * 			When management account calls <code>PutOrganizationConfigRule</code> action for the second time, Config rule status is updated in the member account.
-   * 			Config rule status is deleted when the management account deletes <code>OrganizationConfigRule</code> and disables service access for <code>config-multiaccountsetup.amazonaws.com</code>.
-   * 			</p>
-   *          <p>Config sets the state of the rule to:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CREATE_SUCCESSFUL</code> when Config rule has been created in the member account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATE_IN_PROGRESS</code> when Config rule is being created in the member account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATE_FAILED</code> when Config rule creation has failed in the member account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETE_FAILED</code> when Config rule deletion has failed in the member account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETE_IN_PROGRESS</code> when Config rule is being deleted in the member account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETE_SUCCESSFUL</code> when Config rule has been deleted in the member account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_SUCCESSFUL</code> when Config rule has been updated in the member account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_IN_PROGRESS</code> when Config rule is being updated in the member account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_FAILED</code> when Config rule deletion has failed in the member account.</p>
-   *             </li>
-   *          </ul>
+   * Indicates deployment status for Config rule in the member account. When management account calls `PutOrganizationConfigRule` action for the first time, Config rule status is created in the member account. When management account calls `PutOrganizationConfigRule` action for the second time, Config rule status is updated in the member account. Config rule status is deleted when the management account deletes `OrganizationConfigRule` and disables service access for `config-multiaccountsetup.amazonaws.com`.
+   *
+   * Config sets the state of the rule to:
+   *
+   * - `CREATE_SUCCESSFUL` when Config rule has been created in the member account.
+   * - `CREATE_IN_PROGRESS` when Config rule is being created in the member account.
+   * - `CREATE_FAILED` when Config rule creation has failed in the member account.
+   * - `DELETE_FAILED` when Config rule deletion has failed in the member account.
+   * - `DELETE_IN_PROGRESS` when Config rule is being deleted in the member account.
+   * - `DELETE_SUCCESSFUL` when Config rule has been deleted in the member account.
+   * - `UPDATE_SUCCESSFUL` when Config rule has been updated in the member account.
+   * - `UPDATE_IN_PROGRESS` when Config rule is being updated in the member account.
+   * - `UPDATE_FAILED` when Config rule deletion has failed in the member account.
+   *
    * @public
    */
   MemberAccountRuleStatus?: MemberAccountRuleStatus | undefined;
@@ -6602,110 +6488,90 @@ export interface StatusDetailFilters {
  */
 export interface GetOrganizationConfigRuleDetailedStatusRequest {
   /**
-   * <p>The name of your organization Config rule for which you want status details for member accounts.</p>
+   * The name of your organization Config rule for which you want status details for member accounts.
+   *
    * @public
    */
   OrganizationConfigRuleName: string | undefined;
 
   /**
-   * <p>A <code>StatusDetailFilters</code> object.</p>
+   * A `StatusDetailFilters` object.
+   *
    * @public
    */
   Filters?: StatusDetailFilters | undefined;
 
   /**
-   * <p>The maximum number of <code>OrganizationConfigRuleDetailedStatus</code> returned on each page. If you do not specify a number, Config uses the default. The default is 100.</p>
+   * The maximum number of `OrganizationConfigRuleDetailedStatus` returned on each page. If you do not specify a number, Config uses the default. The default is 100.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Organization Config rule creation or deletion status in each member account. This includes the name of the rule, the status, error code and error message when the rule creation or deletion failed.</p>
+ * Organization Config rule creation or deletion status in each member account. This includes the name of the rule, the status, error code and error message when the rule creation or deletion failed.
+ *
  * @public
  */
 export interface MemberAccountStatus {
   /**
-   * <p>The 12-digit account ID of a member account.</p>
+   * The 12-digit account ID of a member account.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The name of Config rule deployed in the member account.</p>
+   * The name of Config rule deployed in the member account.
+   *
    * @public
    */
   ConfigRuleName: string | undefined;
 
   /**
-   * <p>Indicates deployment status for Config rule in the member account.
-   * 			When management account calls <code>PutOrganizationConfigRule</code> action for the first time, Config rule status is created in the member account.
-   * 			When management account calls <code>PutOrganizationConfigRule</code> action for the second time, Config rule status is updated in the member account.
-   * 			Config rule status is deleted when the management account deletes <code>OrganizationConfigRule</code> and disables service access for <code>config-multiaccountsetup.amazonaws.com</code>.
-   * 		</p>
-   *          <p> Config sets the state of the rule to:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CREATE_SUCCESSFUL</code> when Config rule has been created in the member account. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATE_IN_PROGRESS</code> when Config rule is being created in the member account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATE_FAILED</code> when Config rule creation has failed in the member account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETE_FAILED</code> when Config rule deletion has failed in the member account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETE_IN_PROGRESS</code> when Config rule is being deleted in the member account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETE_SUCCESSFUL</code> when Config rule has been deleted in the member account. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_SUCCESSFUL</code> when Config rule has been updated in the member account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_IN_PROGRESS</code> when Config rule is being updated in the member account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_FAILED</code> when Config rule deletion has failed in the member account.</p>
-   *             </li>
-   *          </ul>
+   * Indicates deployment status for Config rule in the member account. When management account calls `PutOrganizationConfigRule` action for the first time, Config rule status is created in the member account. When management account calls `PutOrganizationConfigRule` action for the second time, Config rule status is updated in the member account. Config rule status is deleted when the management account deletes `OrganizationConfigRule` and disables service access for `config-multiaccountsetup.amazonaws.com`.
+   *
+   * Config sets the state of the rule to:
+   *
+   * - `CREATE_SUCCESSFUL` when Config rule has been created in the member account.
+   * - `CREATE_IN_PROGRESS` when Config rule is being created in the member account.
+   * - `CREATE_FAILED` when Config rule creation has failed in the member account.
+   * - `DELETE_FAILED` when Config rule deletion has failed in the member account.
+   * - `DELETE_IN_PROGRESS` when Config rule is being deleted in the member account.
+   * - `DELETE_SUCCESSFUL` when Config rule has been deleted in the member account.
+   * - `UPDATE_SUCCESSFUL` when Config rule has been updated in the member account.
+   * - `UPDATE_IN_PROGRESS` when Config rule is being updated in the member account.
+   * - `UPDATE_FAILED` when Config rule deletion has failed in the member account.
+   *
    * @public
    */
   MemberAccountRuleStatus: MemberAccountRuleStatus | undefined;
 
   /**
-   * <p>An error code that is returned when Config rule creation or deletion failed in the member account.</p>
+   * An error code that is returned when Config rule creation or deletion failed in the member account.
+   *
    * @public
    */
   ErrorCode?: string | undefined;
 
   /**
-   * <p>An error message indicating that Config rule account creation or deletion has failed due to an error in the member account.</p>
+   * An error message indicating that Config rule account creation or deletion has failed due to an error in the member account.
+   *
    * @public
    */
   ErrorMessage?: string | undefined;
 
   /**
-   * <p>The timestamp of the last status update.</p>
+   * The timestamp of the last status update.
+   *
    * @public
    */
   LastUpdateTime?: Date | undefined;
@@ -6716,74 +6582,48 @@ export interface MemberAccountStatus {
  */
 export interface GetOrganizationConfigRuleDetailedStatusResponse {
   /**
-   * <p>A list of <code>MemberAccountStatus</code> objects.</p>
+   * A list of `MemberAccountStatus` objects.
+   *
    * @public
    */
   OrganizationConfigRuleDetailedStatus?: MemberAccountStatus[] | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Status filter object to filter results based on specific member account ID or status type for an organization conformance pack.</p>
+ * Status filter object to filter results based on specific member account ID or status type for an organization conformance pack.
+ *
  * @public
  */
 export interface OrganizationResourceDetailedStatusFilters {
   /**
-   * <p>The 12-digit account ID of the member account within an organization.</p>
+   * The 12-digit account ID of the member account within an organization.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>Indicates deployment status for conformance pack in a member account.
-   * 			When management account calls <code>PutOrganizationConformancePack</code> action for the first time, conformance pack status is created in the member account.
-   * 			When management account calls <code>PutOrganizationConformancePack</code> action for the second time, conformance pack status is updated in the member account.
-   * 			Conformance pack status is deleted when the management account deletes <code>OrganizationConformancePack</code> and disables service access for <code>config-multiaccountsetup.amazonaws.com</code>.
-   * 		</p>
-   *          <p> Config sets the state of the conformance pack to:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CREATE_SUCCESSFUL</code> when conformance pack has been created in the member account. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATE_IN_PROGRESS</code> when conformance pack is being created in the member account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATE_FAILED</code> when conformance pack creation has failed in the member account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETE_FAILED</code> when conformance pack deletion has failed in the member account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETE_IN_PROGRESS</code> when conformance pack is being deleted in the member account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETE_SUCCESSFUL</code> when conformance pack has been deleted in the member account. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_SUCCESSFUL</code> when conformance pack has been updated in the member account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_IN_PROGRESS</code> when conformance pack is being updated in the member account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_FAILED</code> when conformance pack deletion has failed in the member account.</p>
-   *             </li>
-   *          </ul>
+   * Indicates deployment status for conformance pack in a member account. When management account calls `PutOrganizationConformancePack` action for the first time, conformance pack status is created in the member account. When management account calls `PutOrganizationConformancePack` action for the second time, conformance pack status is updated in the member account. Conformance pack status is deleted when the management account deletes `OrganizationConformancePack` and disables service access for `config-multiaccountsetup.amazonaws.com`.
+   *
+   * Config sets the state of the conformance pack to:
+   *
+   * - `CREATE_SUCCESSFUL` when conformance pack has been created in the member account.
+   * - `CREATE_IN_PROGRESS` when conformance pack is being created in the member account.
+   * - `CREATE_FAILED` when conformance pack creation has failed in the member account.
+   * - `DELETE_FAILED` when conformance pack deletion has failed in the member account.
+   * - `DELETE_IN_PROGRESS` when conformance pack is being deleted in the member account.
+   * - `DELETE_SUCCESSFUL` when conformance pack has been deleted in the member account.
+   * - `UPDATE_SUCCESSFUL` when conformance pack has been updated in the member account.
+   * - `UPDATE_IN_PROGRESS` when conformance pack is being updated in the member account.
+   * - `UPDATE_FAILED` when conformance pack deletion has failed in the member account.
+   *
    * @public
    */
   Status?: OrganizationResourceDetailedStatus | undefined;
@@ -6794,115 +6634,90 @@ export interface OrganizationResourceDetailedStatusFilters {
  */
 export interface GetOrganizationConformancePackDetailedStatusRequest {
   /**
-   * <p>The name of organization conformance pack for which you want status details for member accounts.</p>
+   * The name of organization conformance pack for which you want status details for member accounts.
+   *
    * @public
    */
   OrganizationConformancePackName: string | undefined;
 
   /**
-   * <p>An <code>OrganizationResourceDetailedStatusFilters</code> object.</p>
+   * An `OrganizationResourceDetailedStatusFilters` object.
+   *
    * @public
    */
   Filters?: OrganizationResourceDetailedStatusFilters | undefined;
 
   /**
-   * <p>The maximum number of <code>OrganizationConformancePackDetailedStatuses</code> returned on each page.
-   * 			If you do not specify a number, Config uses the default. The default is 100. </p>
+   * The maximum number of `OrganizationConformancePackDetailedStatuses` returned on each page. If you do not specify a number, Config uses the default. The default is 100.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response. </p>
+   * The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Organization conformance pack creation or deletion status in each member account.
- * 			This includes the name of the conformance pack, the status, error code and error message
- * 			when the conformance pack creation or deletion failed. </p>
+ * Organization conformance pack creation or deletion status in each member account. This includes the name of the conformance pack, the status, error code and error message when the conformance pack creation or deletion failed.
+ *
  * @public
  */
 export interface OrganizationConformancePackDetailedStatus {
   /**
-   * <p>The 12-digit account ID of a member account.</p>
+   * The 12-digit account ID of a member account.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The name of conformance pack deployed in the member account.</p>
+   * The name of conformance pack deployed in the member account.
+   *
    * @public
    */
   ConformancePackName: string | undefined;
 
   /**
-   * <p>Indicates deployment status for conformance pack in a member account.
-   * 			When management account calls <code>PutOrganizationConformancePack</code> action for the first time, conformance pack status is created in the member account.
-   * 			When management account calls <code>PutOrganizationConformancePack</code> action for the second time, conformance pack status is updated in the member account.
-   * 			Conformance pack status is deleted when the management account deletes <code>OrganizationConformancePack</code> and disables service access for <code>config-multiaccountsetup.amazonaws.com</code>.
-   * 		</p>
-   *          <p> Config sets the state of the conformance pack to:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CREATE_SUCCESSFUL</code> when conformance pack has been created in the member account. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATE_IN_PROGRESS</code> when conformance pack is being created in the member account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATE_FAILED</code> when conformance pack creation has failed in the member account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETE_FAILED</code> when conformance pack deletion has failed in the member account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETE_IN_PROGRESS</code> when conformance pack is being deleted in the member account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETE_SUCCESSFUL</code> when conformance pack has been deleted in the member account. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_SUCCESSFUL</code> when conformance pack has been updated in the member account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_IN_PROGRESS</code> when conformance pack is being updated in the member account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_FAILED</code> when conformance pack deletion has failed in the member account.</p>
-   *             </li>
-   *          </ul>
+   * Indicates deployment status for conformance pack in a member account. When management account calls `PutOrganizationConformancePack` action for the first time, conformance pack status is created in the member account. When management account calls `PutOrganizationConformancePack` action for the second time, conformance pack status is updated in the member account. Conformance pack status is deleted when the management account deletes `OrganizationConformancePack` and disables service access for `config-multiaccountsetup.amazonaws.com`.
+   *
+   * Config sets the state of the conformance pack to:
+   *
+   * - `CREATE_SUCCESSFUL` when conformance pack has been created in the member account.
+   * - `CREATE_IN_PROGRESS` when conformance pack is being created in the member account.
+   * - `CREATE_FAILED` when conformance pack creation has failed in the member account.
+   * - `DELETE_FAILED` when conformance pack deletion has failed in the member account.
+   * - `DELETE_IN_PROGRESS` when conformance pack is being deleted in the member account.
+   * - `DELETE_SUCCESSFUL` when conformance pack has been deleted in the member account.
+   * - `UPDATE_SUCCESSFUL` when conformance pack has been updated in the member account.
+   * - `UPDATE_IN_PROGRESS` when conformance pack is being updated in the member account.
+   * - `UPDATE_FAILED` when conformance pack deletion has failed in the member account.
+   *
    * @public
    */
   Status: OrganizationResourceDetailedStatus | undefined;
 
   /**
-   * <p>An error code that is returned when conformance pack creation or
-   * 			deletion failed in the member account. </p>
+   * An error code that is returned when conformance pack creation or deletion failed in the member account.
+   *
    * @public
    */
   ErrorCode?: string | undefined;
 
   /**
-   * <p>An error message indicating that conformance pack account creation or deletion
-   * 			has failed due to an error in the member account. </p>
+   * An error message indicating that conformance pack account creation or deletion has failed due to an error in the member account.
+   *
    * @public
    */
   ErrorMessage?: string | undefined;
 
   /**
-   * <p>The timestamp of the last status update.</p>
+   * The timestamp of the last status update.
+   *
    * @public
    */
   LastUpdateTime?: Date | undefined;
@@ -6913,13 +6728,15 @@ export interface OrganizationConformancePackDetailedStatus {
  */
 export interface GetOrganizationConformancePackDetailedStatusResponse {
   /**
-   * <p>A list of <code>OrganizationConformancePackDetailedStatus</code> objects. </p>
+   * A list of `OrganizationConformancePackDetailedStatus` objects.
+   *
    * @public
    */
   OrganizationConformancePackDetailedStatuses?: OrganizationConformancePackDetailedStatus[] | undefined;
 
   /**
-   * <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response. </p>
+   * The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -6930,7 +6747,8 @@ export interface GetOrganizationConformancePackDetailedStatusResponse {
  */
 export interface GetOrganizationCustomRulePolicyRequest {
   /**
-   * <p>The name of your organization Config Custom Policy rule. </p>
+   * The name of your organization Config Custom Policy rule.
+   *
    * @public
    */
   OrganizationConfigRuleName: string | undefined;
@@ -6941,88 +6759,85 @@ export interface GetOrganizationCustomRulePolicyRequest {
  */
 export interface GetOrganizationCustomRulePolicyResponse {
   /**
-   * <p>The policy definition containing the logic for your organization Config Custom Policy rule.</p>
+   * The policy definition containing the logic for your organization Config Custom Policy rule.
+   *
    * @public
    */
   PolicyText?: string | undefined;
 }
 
 /**
- * <p>The input for the <a>GetResourceConfigHistory</a>
- * 			action.</p>
+ * The input for the GetResourceConfigHistory action.
+ *
  * @public
  */
 export interface GetResourceConfigHistoryRequest {
   /**
-   * <p>The resource type.</p>
+   * The resource type.
+   *
    * @public
    */
   resourceType: ResourceType | undefined;
 
   /**
-   * <p>The ID of the resource (for example.,
-   * 			<code>sg-xxxxxx</code>).</p>
+   * The ID of the resource (for example., `sg-xxxxxx`).
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The chronologically latest time in the time range for which the history requested. If not specified,
-   * 			current time is taken.</p>
+   * The chronologically latest time in the time range for which the history requested. If not specified, current time is taken.
+   *
    * @public
    */
   laterTime?: Date | undefined;
 
   /**
-   * <p>The chronologically earliest time in the time range for which the history requested. If not
-   * 			specified, the action returns paginated results that contain
-   * 			configuration items that start when the first configuration item was
-   * 			recorded.</p>
+   * The chronologically earliest time in the time range for which the history requested. If not specified, the action returns paginated results that contain configuration items that start when the first configuration item was recorded.
+   *
    * @public
    */
   earlierTime?: Date | undefined;
 
   /**
-   * <p>The chronological order for configuration items listed. By
-   * 			default, the results are listed in reverse chronological
-   * 			order.</p>
+   * The chronological order for configuration items listed. By default, the results are listed in reverse chronological order.
+   *
    * @public
    */
   chronologicalOrder?: ChronologicalOrder | undefined;
 
   /**
-   * <p>The maximum number of configuration items returned on each
-   * 			page. The default is 10. You cannot specify a number greater than
-   * 			100. If you specify 0, Config uses the default.</p>
+   * The maximum number of configuration items returned on each page. The default is 10. You cannot specify a number greater than 100. If you specify 0, Config uses the default.
+   *
    * @public
    */
   limit?: number | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page
-   * 			that you use to get the next page of results in a paginated
-   * 			response.</p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>The output for the <a>GetResourceConfigHistory</a>
- * 			action.</p>
+ * The output for the GetResourceConfigHistory action.
+ *
  * @public
  */
 export interface GetResourceConfigHistoryResponse {
   /**
-   * <p>An array of <code>ConfigurationItems</code> Objects. Contatins the configuration history for one or more
-   * 			resources.</p>
+   * An array of `ConfigurationItems` Objects. Contatins the configuration history for one or more resources.
+   *
    * @public
    */
   configurationItems?: ConfigurationItem[] | undefined;
 
   /**
-   * <p>The string that you use in a subsequent request to get the next
-   * 			page of results in a paginated response.</p>
+   * The string that you use in a subsequent request to get the next page of results in a paginated response.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -7033,44 +6848,49 @@ export interface GetResourceConfigHistoryResponse {
  */
 export interface GetResourceEvaluationSummaryRequest {
   /**
-   * <p>The unique <code>ResourceEvaluationId</code> of Amazon Web Services resource execution for which you want to retrieve the evaluation summary.</p>
+   * The unique `ResourceEvaluationId` of Amazon Web Services resource execution for which you want to retrieve the evaluation summary.
+   *
    * @public
    */
   ResourceEvaluationId: string | undefined;
 }
 
 /**
- * <p>Returns information about the resource being evaluated.</p>
+ * Returns information about the resource being evaluated.
+ *
  * @public
  */
 export interface ResourceDetails {
   /**
-   * <p>A unique resource ID for an evaluation.</p>
+   * A unique resource ID for an evaluation.
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>The type of resource being evaluated.</p>
+   * The type of resource being evaluated.
+   *
    * @public
    */
   ResourceType: string | undefined;
 
   /**
-   * <p>The resource definition to be evaluated as per the resource configuration schema type.</p>
+   * The resource definition to be evaluated as per the resource configuration schema type.
+   *
    * @public
    */
   ResourceConfiguration: string | undefined;
 
   /**
-   * <p>The schema type of the resource configuration.</p>
-   *          <note>
-   *             <p>You can find the
-   * 			<a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html">Resource type schema</a>, or <code>CFN_RESOURCE_SCHEMA</code>, in "<i>Amazon Web Services public extensions</i>" within the CloudFormation registry or with the following CLI commmand:
-   * 			<code>aws cloudformation describe-type --type-name "AWS::S3::Bucket" --type RESOURCE</code>.</p>
-   *             <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html#registry-view">Managing extensions through the CloudFormation registry</a>
-   * 				and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services resource and property types reference</a> in the CloudFormation User Guide.</p>
-   *          </note>
+   * The schema type of the resource configuration.
+   *
+   * > **Note:**
+   * >
+   * > You can find the [Resource type schema](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html), or `CFN_RESOURCE_SCHEMA`, in "*Amazon Web Services public extensions*" within the CloudFormation registry or with the following CLI commmand: `aws cloudformation describe-type --type-name "AWS::S3::Bucket" --type RESOURCE`.
+   * >
+   * > For more information, see [Managing extensions through the CloudFormation registry](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html#registry-view) and [Amazon Web Services resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html) in the CloudFormation User Guide.
+   *
    * @public
    */
   ResourceConfigurationSchemaType?: ResourceConfigurationSchemaType | undefined;
@@ -7081,43 +6901,50 @@ export interface ResourceDetails {
  */
 export interface GetResourceEvaluationSummaryResponse {
   /**
-   * <p>The unique <code>ResourceEvaluationId</code> of Amazon Web Services resource execution for which you want to retrieve the evaluation summary.</p>
+   * The unique `ResourceEvaluationId` of Amazon Web Services resource execution for which you want to retrieve the evaluation summary.
+   *
    * @public
    */
   ResourceEvaluationId?: string | undefined;
 
   /**
-   * <p>Lists results of the mode that you requested to retrieve the resource evaluation summary. The valid values are Detective or Proactive.</p>
+   * Lists results of the mode that you requested to retrieve the resource evaluation summary. The valid values are Detective or Proactive.
+   *
    * @public
    */
   EvaluationMode?: EvaluationMode | undefined;
 
   /**
-   * <p>Returns an <code>EvaluationStatus</code> object.</p>
+   * Returns an `EvaluationStatus` object.
+   *
    * @public
    */
   EvaluationStatus?: EvaluationStatus | undefined;
 
   /**
-   * <p>The start timestamp when Config rule starts evaluating compliance for the provided resource details.</p>
+   * The start timestamp when Config rule starts evaluating compliance for the provided resource details.
+   *
    * @public
    */
   EvaluationStartTimestamp?: Date | undefined;
 
   /**
-   * <p>The compliance status of the resource evaluation summary.</p>
+   * The compliance status of the resource evaluation summary.
+   *
    * @public
    */
   Compliance?: ComplianceType | undefined;
 
   /**
-   * <p>Returns an <code>EvaluationContext</code> object.</p>
+   * Returns an `EvaluationContext` object.
+   *
    * @public
    */
   EvaluationContext?: EvaluationContext | undefined;
 
   /**
-   * <p>Returns a <code>ResourceDetails</code> object.</p>
+   * Returns a `ResourceDetails` object.
+   *
    * @public
    */
   ResourceDetails?: ResourceDetails | undefined;
@@ -7128,50 +6955,50 @@ export interface GetResourceEvaluationSummaryResponse {
  */
 export interface GetStoredQueryRequest {
   /**
-   * <p>The name of the query.</p>
+   * The name of the query.
+   *
    * @public
    */
   QueryName: string | undefined;
 }
 
 /**
- * <p>Provides the details of a stored query.</p>
+ * Provides the details of a stored query.
+ *
  * @public
  */
 export interface StoredQuery {
   /**
-   * <p>The ID of the query.</p>
+   * The ID of the query.
+   *
    * @public
    */
   QueryId?: string | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) of the query. For example, arn:partition:service:region:account-id:resource-type/resource-name/resource-id.</p>
+   * Amazon Resource Name (ARN) of the query. For example, arn:partition:service:region:account-id:resource-type/resource-name/resource-id.
+   *
    * @public
    */
   QueryArn?: string | undefined;
 
   /**
-   * <p>The name of the query.</p>
+   * The name of the query.
+   *
    * @public
    */
   QueryName: string | undefined;
 
   /**
-   * <p>A unique description for the query.</p>
+   * A unique description for the query.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The expression of the query. For example, <code>SELECT
-   * 			resourceId,
-   * 			resourceType,
-   * 			supplementaryConfiguration.BucketVersioningConfiguration.status
-   * 			WHERE
-   * 			resourceType = 'AWS::S3::Bucket'
-   * 			AND supplementaryConfiguration.BucketVersioningConfiguration.status = 'Off'.</code>
-   *          </p>
+   * The expression of the query. For example, `SELECT resourceId, resourceType, supplementaryConfiguration.BucketVersioningConfiguration.status WHERE resourceType = 'AWS::S3::Bucket' AND supplementaryConfiguration.BucketVersioningConfiguration.status = 'Off'.`
+   *
    * @public
    */
   Expression?: string | undefined;
@@ -7182,37 +7009,43 @@ export interface StoredQuery {
  */
 export interface GetStoredQueryResponse {
   /**
-   * <p>Returns a <code>StoredQuery</code> object.</p>
+   * Returns a `StoredQuery` object.
+   *
    * @public
    */
   StoredQuery?: StoredQuery | undefined;
 }
 
 /**
- * <p>Filters the results by resource account ID, region, resource ID, and resource name.</p>
+ * Filters the results by resource account ID, region, resource ID, and resource name.
+ *
  * @public
  */
 export interface ResourceFilters {
   /**
-   * <p>The 12-digit source account ID.</p>
+   * The 12-digit source account ID.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The ID of the resource.</p>
+   * The ID of the resource.
+   *
    * @public
    */
   ResourceId?: string | undefined;
 
   /**
-   * <p>The name of the resource.</p>
+   * The name of the resource.
+   *
    * @public
    */
   ResourceName?: string | undefined;
 
   /**
-   * <p>The source region.</p>
+   * The source region.
+   *
    * @public
    */
   Region?: string | undefined;
@@ -7223,31 +7056,36 @@ export interface ResourceFilters {
  */
 export interface ListAggregateDiscoveredResourcesRequest {
   /**
-   * <p>The name of the configuration aggregator. </p>
+   * The name of the configuration aggregator.
+   *
    * @public
    */
   ConfigurationAggregatorName: string | undefined;
 
   /**
-   * <p>The type of resources that you want Config to list in the response.</p>
+   * The type of resources that you want Config to list in the response.
+   *
    * @public
    */
   ResourceType: ResourceType | undefined;
 
   /**
-   * <p>Filters the results based on the <code>ResourceFilters</code> object.</p>
+   * Filters the results based on the `ResourceFilters` object.
+   *
    * @public
    */
   Filters?: ResourceFilters | undefined;
 
   /**
-   * <p>The maximum number of resource identifiers returned on each page. You cannot specify a number greater than 100. If you specify 0, Config uses the default.</p>
+   * The maximum number of resource identifiers returned on each page. You cannot specify a number greater than 100. If you specify 0, Config uses the default.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -7258,13 +7096,15 @@ export interface ListAggregateDiscoveredResourcesRequest {
  */
 export interface ListAggregateDiscoveredResourcesResponse {
   /**
-   * <p>Returns a list of <code>ResourceIdentifiers</code> objects.</p>
+   * Returns a list of `ResourceIdentifiers` objects.
+   *
    * @public
    */
   ResourceIdentifiers?: AggregateResourceIdentifier[] | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -7275,19 +7115,22 @@ export interface ListAggregateDiscoveredResourcesResponse {
  */
 export interface ListConfigurationRecordersRequest {
   /**
-   * <p>Filters the results based on a list of <code>ConfigurationRecorderFilter</code> objects that you specify.</p>
+   * Filters the results based on a list of `ConfigurationRecorderFilter` objects that you specify.
+   *
    * @public
    */
   Filters?: ConfigurationRecorderFilter[] | undefined;
 
   /**
-   * <p>The maximum number of results to include in the response.</p>
+   * The maximum number of results to include in the response.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The <code>NextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+   * The `NextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -7298,13 +7141,15 @@ export interface ListConfigurationRecordersRequest {
  */
 export interface ListConfigurationRecordersResponse {
   /**
-   * <p>A list of <code>ConfigurationRecorderSummary</code> objects that includes.</p>
+   * A list of `ConfigurationRecorderSummary` objects that includes.
+   *
    * @public
    */
   ConfigurationRecorderSummaries: ConfigurationRecorderSummary[] | undefined;
 
   /**
-   * <p>The <code>NextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+   * The `NextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -7315,35 +7160,42 @@ export interface ListConfigurationRecordersResponse {
  */
 export interface ListConformancePackComplianceScoresRequest {
   /**
-   * <p>Filters the results based on the <code>ConformancePackComplianceScoresFilters</code>.</p>
+   * Filters the results based on the `ConformancePackComplianceScoresFilters`.
+   *
    * @public
    */
   Filters?: ConformancePackComplianceScoresFilters | undefined;
 
   /**
-   * <p>Determines the order in which conformance pack compliance scores are sorted. Either in ascending or descending order.</p>
-   *          <p>By default, conformance pack compliance scores are sorted in alphabetical order by name of the conformance pack. Conformance pack compliance scores are sorted in reverse alphabetical order if you enter <code>DESCENDING</code>.</p>
-   *          <p>You can sort conformance pack compliance scores by the numerical value of the compliance score by entering <code>SCORE</code> in the <code>SortBy</code> action. When compliance scores are sorted by <code>SCORE</code>, conformance packs with a compliance score of <code>INSUFFICIENT_DATA</code> will be last when sorting by ascending order and first when sorting by descending order.</p>
+   * Determines the order in which conformance pack compliance scores are sorted. Either in ascending or descending order.
+   *
+   * By default, conformance pack compliance scores are sorted in alphabetical order by name of the conformance pack. Conformance pack compliance scores are sorted in reverse alphabetical order if you enter `DESCENDING`.
+   *
+   * You can sort conformance pack compliance scores by the numerical value of the compliance score by entering `SCORE` in the `SortBy` action. When compliance scores are sorted by `SCORE`, conformance packs with a compliance score of `INSUFFICIENT_DATA` will be last when sorting by ascending order and first when sorting by descending order.
+   *
    * @public
    */
   SortOrder?: SortOrder | undefined;
 
   /**
-   * <p>Sorts your conformance pack compliance scores in either ascending or descending order, depending on <code>SortOrder</code>.</p>
-   *          <p>By default, conformance pack compliance scores are sorted in alphabetical order by name of the conformance pack.
-   * 			Enter <code>SCORE</code>, to sort conformance pack compliance scores by the numerical value of the compliance score.</p>
+   * Sorts your conformance pack compliance scores in either ascending or descending order, depending on `SortOrder`.
+   *
+   * By default, conformance pack compliance scores are sorted in alphabetical order by name of the conformance pack. Enter `SCORE`, to sort conformance pack compliance scores by the numerical value of the compliance score.
+   *
    * @public
    */
   SortBy?: SortBy | undefined;
 
   /**
-   * <p>The maximum number of conformance pack compliance scores returned on each page.</p>
+   * The maximum number of conformance pack compliance scores returned on each page.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string in a prior request that you can use to get the paginated response for the next set of conformance pack compliance scores.</p>
+   * The `nextToken` string in a prior request that you can use to get the paginated response for the next set of conformance pack compliance scores.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -7354,13 +7206,15 @@ export interface ListConformancePackComplianceScoresRequest {
  */
 export interface ListConformancePackComplianceScoresResponse {
   /**
-   * <p>The <code>nextToken</code> string that you can use to get the next page of results in a paginated response.</p>
+   * The `nextToken` string that you can use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>A list of <code>ConformancePackComplianceScore</code> objects.</p>
+   * A list of `ConformancePackComplianceScore` objects.
+   *
    * @public
    */
   ConformancePackComplianceScores: ConformancePackComplianceScore[] | undefined;
@@ -7371,19 +7225,22 @@ export interface ListConformancePackComplianceScoresResponse {
  */
 export interface ListConnectorsRequest {
   /**
-   * <p>The maximum number of results to include in the response.</p>
+   * The maximum number of results to include in the response.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The <code>NextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+   * The `NextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>Filters the results based on a list of <code>ConnectorFilter</code> objects that you specify.</p>
+   * Filters the results based on a list of `ConnectorFilter` objects that you specify.
+   *
    * @public
    */
   Filters?: ConnectorFilter[] | undefined;
@@ -7394,162 +7251,167 @@ export interface ListConnectorsRequest {
  */
 export interface ListConnectorsResponse {
   /**
-   * <p>A list of <code>ConnectorSummary</code> objects.</p>
+   * A list of `ConnectorSummary` objects.
+   *
    * @public
    */
   ConnectorSummaries: ConnectorSummary[] | undefined;
 
   /**
-   * <p>The <code>NextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+   * The `NextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p></p>
  * @public
  */
 export interface ListDiscoveredResourcesRequest {
   /**
-   * <p>The type of resources that you want Config to list in the
-   * 			response.</p>
+   * The type of resources that you want Config to list in the response.
+   *
    * @public
    */
   resourceType: ResourceType | undefined;
 
   /**
-   * <p>The IDs of only those resources that you want Config to
-   * 			list in the response. If you do not specify this parameter, Config lists all resources of the specified type that it has
-   * 			discovered. You can list a minimum of 1 resourceID and a maximum of 20 resourceIds.</p>
+   * The IDs of only those resources that you want Config to list in the response. If you do not specify this parameter, Config lists all resources of the specified type that it has discovered. You can list a minimum of 1 resourceID and a maximum of 20 resourceIds.
+   *
    * @public
    */
   resourceIds?: string[] | undefined;
 
   /**
-   * <p>The custom name of only those resources that you want Config to list in the response. If you do not specify this
-   * 			parameter, Config lists all resources of the specified type that
-   * 			it has discovered.</p>
+   * The custom name of only those resources that you want Config to list in the response. If you do not specify this parameter, Config lists all resources of the specified type that it has discovered.
+   *
    * @public
    */
   resourceName?: string | undefined;
 
   /**
-   * <p>The maximum number of resource identifiers returned on each
-   * 			page. The default is 100. You cannot specify a number greater than
-   * 			100. If you specify 0, Config uses the default.</p>
+   * The maximum number of resource identifiers returned on each page. The default is 100. You cannot specify a number greater than 100. If you specify 0, Config uses the default.
+   *
    * @public
    */
   limit?: number | undefined;
 
   /**
-   * <p>Specifies whether Config includes deleted resources in the
-   * 			results. By default, deleted resources are not included.</p>
+   * Specifies whether Config includes deleted resources in the results. By default, deleted resources are not included.
+   *
    * @public
    */
   includeDeletedResources?: boolean | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page
-   * 			that you use to get the next page of results in a paginated
-   * 			response.</p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>The details that identify a resource that is discovered by Config, including the resource type, ID, and (if available) the
- * 			custom resource name.</p>
+ * The details that identify a resource that is discovered by Config, including the resource type, ID, and (if available) the custom resource name.
+ *
  * @public
  */
 export interface ResourceIdentifier {
   /**
-   * <p>The type of resource.</p>
+   * The type of resource.
+   *
    * @public
    */
   resourceType?: ResourceType | undefined;
 
   /**
-   * <p>The ID of the resource (for example,
-   * 			<code>sg-xxxxxx</code>).</p>
+   * The ID of the resource (for example, `sg-xxxxxx`).
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>The custom name of the resource (if available).</p>
+   * The custom name of the resource (if available).
+   *
    * @public
    */
   resourceName?: string | undefined;
 
   /**
-   * <p>The time that the resource was deleted.</p>
+   * The time that the resource was deleted.
+   *
    * @public
    */
   resourceDeletionTime?: Date | undefined;
 }
 
 /**
- * <p></p>
  * @public
  */
 export interface ListDiscoveredResourcesResponse {
   /**
-   * <p>The details that identify a resource that is discovered by Config, including the resource type, ID, and (if available) the
-   * 			custom resource name.</p>
+   * The details that identify a resource that is discovered by Config, including the resource type, ID, and (if available) the custom resource name.
+   *
    * @public
    */
   resourceIdentifiers?: ResourceIdentifier[] | undefined;
 
   /**
-   * <p>The string that you use in a subsequent request to get the next
-   * 			page of results in a paginated response.</p>
+   * The string that you use in a subsequent request to get the next page of results in a paginated response.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Filters evaluation results based on start and end times.</p>
+ * Filters evaluation results based on start and end times.
+ *
  * @public
  */
 export interface TimeWindow {
   /**
-   * <p>The start time of an execution.</p>
+   * The start time of an execution.
+   *
    * @public
    */
   StartTime?: Date | undefined;
 
   /**
-   * <p>The end time of an execution. The end time must be after the start date.</p>
+   * The end time of an execution. The end time must be after the start date.
+   *
    * @public
    */
   EndTime?: Date | undefined;
 }
 
 /**
- * <p>Returns details of a resource evaluation based on the selected filter.</p>
+ * Returns details of a resource evaluation based on the selected filter.
+ *
  * @public
  */
 export interface ResourceEvaluationFilters {
   /**
-   * <p>Filters all resource evaluations results based on an evaluation mode.</p>
-   *          <important>
-   *             <p>Currently, <code>DECTECTIVE</code> is not supported as a valid value. Ignore other documentation stating otherwise.</p>
-   *          </important>
+   * Filters all resource evaluations results based on an evaluation mode.
+   *
+   * > **Important:** Currently, `DECTECTIVE` is not supported as a valid value. Ignore other documentation stating otherwise.
+   *
    * @public
    */
   EvaluationMode?: EvaluationMode | undefined;
 
   /**
-   * <p>Returns a <code>TimeWindow</code> object.</p>
+   * Returns a `TimeWindow` object.
+   *
    * @public
    */
   TimeWindow?: TimeWindow | undefined;
 
   /**
-   * <p>Filters evaluations for a given infrastructure deployment. For example: CFN Stack.</p>
+   * Filters evaluations for a given infrastructure deployment. For example: CFN Stack.
+   *
    * @public
    */
   EvaluationContextIdentifier?: string | undefined;
@@ -7560,44 +7422,50 @@ export interface ResourceEvaluationFilters {
  */
 export interface ListResourceEvaluationsRequest {
   /**
-   * <p>Returns a <code>ResourceEvaluationFilters</code> object.</p>
+   * Returns a `ResourceEvaluationFilters` object.
+   *
    * @public
    */
   Filters?: ResourceEvaluationFilters | undefined;
 
   /**
-   * <p>The maximum number of evaluations returned on each page. The default is 10.
-   * 			You cannot specify a number greater than 100. If you specify 0, Config uses the default.</p>
+   * The maximum number of evaluations returned on each page. The default is 10. You cannot specify a number greater than 100. If you specify 0, Config uses the default.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Returns details of a resource evaluation.</p>
+ * Returns details of a resource evaluation.
+ *
  * @public
  */
 export interface ResourceEvaluation {
   /**
-   * <p>The ResourceEvaluationId of a evaluation.</p>
+   * The ResourceEvaluationId of a evaluation.
+   *
    * @public
    */
   ResourceEvaluationId?: string | undefined;
 
   /**
-   * <p>The mode of an evaluation. The valid values are Detective or Proactive.</p>
+   * The mode of an evaluation. The valid values are Detective or Proactive.
+   *
    * @public
    */
   EvaluationMode?: EvaluationMode | undefined;
 
   /**
-   * <p>The starting time of an execution.</p>
+   * The starting time of an execution.
+   *
    * @public
    */
   EvaluationStartTimestamp?: Date | undefined;
@@ -7608,13 +7476,15 @@ export interface ResourceEvaluation {
  */
 export interface ListResourceEvaluationsResponse {
   /**
-   * <p>Returns a <code>ResourceEvaluations</code> object.</p>
+   * Returns a `ResourceEvaluations` object.
+   *
    * @public
    */
   ResourceEvaluations?: ResourceEvaluation[] | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -7625,43 +7495,50 @@ export interface ListResourceEvaluationsResponse {
  */
 export interface ListStoredQueriesRequest {
   /**
-   * <p>The nextToken string returned in a previous request that you use to request the next page of results in a paginated response.</p>
+   * The nextToken string returned in a previous request that you use to request the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to be returned with a single call.</p>
+   * The maximum number of results to be returned with a single call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>Returns details of a specific query. </p>
+ * Returns details of a specific query.
+ *
  * @public
  */
 export interface StoredQueryMetadata {
   /**
-   * <p>The ID of the query. </p>
+   * The ID of the query.
+   *
    * @public
    */
   QueryId: string | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) of the query. For example, arn:partition:service:region:account-id:resource-type/resource-name/resource-id.</p>
+   * Amazon Resource Name (ARN) of the query. For example, arn:partition:service:region:account-id:resource-type/resource-name/resource-id.
+   *
    * @public
    */
   QueryArn: string | undefined;
 
   /**
-   * <p>The name of the query.</p>
+   * The name of the query.
+   *
    * @public
    */
   QueryName: string | undefined;
 
   /**
-   * <p>A unique description for the query.</p>
+   * A unique description for the query.
+   *
    * @public
    */
   Description?: string | undefined;
@@ -7672,15 +7549,15 @@ export interface StoredQueryMetadata {
  */
 export interface ListStoredQueriesResponse {
   /**
-   * <p>A list of <code>StoredQueryMetadata</code> objects.</p>
+   * A list of `StoredQueryMetadata` objects.
+   *
    * @public
    */
   StoredQueryMetadata?: StoredQueryMetadata[] | undefined;
 
   /**
-   * <p>If the previous paginated request didn't return all of the remaining results, the response object's <code>NextToken</code> parameter value is set to a token.
-   * 			To retrieve the next set of results, call this operation again and assign that token to the request object's <code>NextToken</code> parameter.
-   * 			If there are no remaining results, the previous response object's <code>NextToken</code> parameter is set to <code>null</code>. </p>
+   * If the previous paginated request didn't return all of the remaining results, the response object's `NextToken` parameter value is set to a token. To retrieve the next set of results, call this operation again and assign that token to the request object's `NextToken` parameter. If there are no remaining results, the previous response object's `NextToken` parameter is set to `null`.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -7691,86 +7568,53 @@ export interface ListStoredQueriesResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. The following resources are supported:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ConfigurationRecorder</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ConfigRule</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OrganizationConfigRule</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ConformancePack</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OrganizationConformancePack</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ConfigurationAggregator</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AggregationAuthorization</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>StoredQuery</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Connector</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. The following resources are supported:
+   *
+   * - `ConfigurationRecorder`
+   * - `ConfigRule`
+   * - `OrganizationConfigRule`
+   * - `ConformancePack`
+   * - `OrganizationConformancePack`
+   * - `ConfigurationAggregator`
+   * - `AggregationAuthorization`
+   * - `StoredQuery`
+   * - `Connector`
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>The maximum number of tags returned on each page. The limit maximum is 50. You cannot specify a number greater than 50. If you specify 0, Config uses the default. </p>
+   * The maximum number of tags returned on each page. The limit maximum is 50. You cannot specify a number greater than 50. If you specify 0, Config uses the default.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>The tags for the resource. The metadata that you apply to a resource to help you categorize and organize them.
- * 			Each tag consists of a key and an optional value, both of which you define.
- * 			Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.</p>
+ * The tags for the resource. The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
+ *
  * @public
  */
 export interface Tag {
   /**
-   * <p>One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.</p>
+   * One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.
+   *
    * @public
    */
   Key?: string | undefined;
 
   /**
-   * <p>The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).</p>
+   * The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).
+   *
    * @public
    */
   Value?: string | undefined;
@@ -7781,105 +7625,102 @@ export interface Tag {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>The tags for the resource.</p>
+   * The tags for the resource.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
+   * The `nextToken` string returned on a previous page that you use to get the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>An
- * 			object that specifies metadata for your organization's Config Custom Policy rule. The metadata includes the runtime system in use, which accounts have
- * 			debug logging enabled, and other custom rule metadata, such as resource type, resource
- * 			ID of Amazon Web Services resource, and organization trigger types that initiate Config to evaluate Amazon Web Services resources against a rule.</p>
+ * An object that specifies metadata for your organization's Config Custom Policy rule. The metadata includes the runtime system in use, which accounts have debug logging enabled, and other custom rule metadata, such as resource type, resource ID of Amazon Web Services resource, and organization trigger types that initiate Config to evaluate Amazon Web Services resources against a rule.
+ *
  * @public
  */
 export interface OrganizationCustomPolicyRuleMetadata {
   /**
-   * <p>The description that you provide for your organization Config Custom Policy rule.</p>
+   * The description that you provide for your organization Config Custom Policy rule.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The type of notification that initiates Config to run an evaluation for a rule.
-   * 			For Config Custom Policy rules, Config supports change-initiated notification types:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ConfigurationItemChangeNotification</code> - Initiates an evaluation when Config delivers a configuration item as a result of a resource
-   * 					change.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OversizedConfigurationItemChangeNotification</code> - Initiates an evaluation when
-   * 						Config delivers an oversized configuration item. Config may generate this notification type when a resource changes and the
-   * 					notification exceeds the maximum size allowed by Amazon SNS.</p>
-   *             </li>
-   *          </ul>
+   * The type of notification that initiates Config to run an evaluation for a rule. For Config Custom Policy rules, Config supports change-initiated notification types:
+   *
+   * - `ConfigurationItemChangeNotification` - Initiates an evaluation when Config delivers a configuration item as a result of a resource change.
+   * - `OversizedConfigurationItemChangeNotification` - Initiates an evaluation when Config delivers an oversized configuration item. Config may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.
+   *
    * @public
    */
   OrganizationConfigRuleTriggerTypes?: OrganizationConfigRuleTriggerTypeNoSN[] | undefined;
 
   /**
-   * <p>A string, in JSON format, that is passed to your organization Config Custom Policy rule.</p>
+   * A string, in JSON format, that is passed to your organization Config Custom Policy rule.
+   *
    * @public
    */
   InputParameters?: string | undefined;
 
   /**
-   * <p>The maximum frequency with which Config runs evaluations for a rule. Your
-   * 			Config Custom Policy rule is triggered when Config delivers
-   * 			the configuration snapshot. For more information, see <a>ConfigSnapshotDeliveryProperties</a>.</p>
+   * The maximum frequency with which Config runs evaluations for a rule. Your Config Custom Policy rule is triggered when Config delivers the configuration snapshot. For more information, see ConfigSnapshotDeliveryProperties.
+   *
    * @public
    */
   MaximumExecutionFrequency?: MaximumExecutionFrequency | undefined;
 
   /**
-   * <p>The type of the Amazon Web Services resource that was evaluated.</p>
+   * The type of the Amazon Web Services resource that was evaluated.
+   *
    * @public
    */
   ResourceTypesScope?: string[] | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services resource that was evaluated.</p>
+   * The ID of the Amazon Web Services resource that was evaluated.
+   *
    * @public
    */
   ResourceIdScope?: string | undefined;
 
   /**
-   * <p>One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.</p>
+   * One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.
+   *
    * @public
    */
   TagKeyScope?: string | undefined;
 
   /**
-   * <p>The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).</p>
+   * The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).
+   *
    * @public
    */
   TagValueScope?: string | undefined;
 
   /**
-   * <p>The runtime system for your organization Config Custom Policy rules. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the <a href="https://github.com/aws-cloudformation/cloudformation-guard">Guard GitHub
-   * 			Repository</a>.</p>
+   * The runtime system for your organization Config Custom Policy rules. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the [Guard GitHub Repository](https://github.com/aws-cloudformation/cloudformation-guard).
+   *
    * @public
    */
   PolicyRuntime: string | undefined;
 
   /**
-   * <p>The policy definition containing the logic for your organization Config Custom Policy rule.</p>
+   * The policy definition containing the logic for your organization Config Custom Policy rule.
+   *
    * @public
    */
   PolicyText: string | undefined;
 
   /**
-   * <p>A list of accounts that you can enable debug logging for your organization Config Custom Policy rule. List is null when debug logging is enabled for all accounts.</p>
+   * A list of accounts that you can enable debug logging for your organization Config Custom Policy rule. List is null when debug logging is enabled for all accounts.
+   *
    * @public
    */
   DebugLogDeliveryAccounts?: string[] | undefined;
@@ -7890,19 +7731,22 @@ export interface OrganizationCustomPolicyRuleMetadata {
  */
 export interface PutAggregationAuthorizationRequest {
   /**
-   * <p>The 12-digit account ID of the account authorized to aggregate data.</p>
+   * The 12-digit account ID of the account authorized to aggregate data.
+   *
    * @public
    */
   AuthorizedAccountId: string | undefined;
 
   /**
-   * <p>The region authorized to collect aggregated data.</p>
+   * The region authorized to collect aggregated data.
+   *
    * @public
    */
   AuthorizedAwsRegion: string | undefined;
 
   /**
-   * <p>An array of tag object.</p>
+   * An array of tag object.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -7913,9 +7757,8 @@ export interface PutAggregationAuthorizationRequest {
  */
 export interface PutAggregationAuthorizationResponse {
   /**
-   * <p>Returns an AggregationAuthorization object.
-   * 			
-   * 		</p>
+   * Returns an AggregationAuthorization object.
+   *
    * @public
    */
   AggregationAuthorization?: AggregationAuthorization | undefined;
@@ -7926,13 +7769,15 @@ export interface PutAggregationAuthorizationResponse {
  */
 export interface PutConfigRuleRequest {
   /**
-   * <p>The rule that you want to add to your account.</p>
+   * The rule that you want to add to your account.
+   *
    * @public
    */
   ConfigRule: ConfigRule | undefined;
 
   /**
-   * <p>An array of tag object.</p>
+   * An array of tag object.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -7943,33 +7788,36 @@ export interface PutConfigRuleRequest {
  */
 export interface PutConfigurationAggregatorRequest {
   /**
-   * <p>The name of the configuration aggregator.</p>
+   * The name of the configuration aggregator.
+   *
    * @public
    */
   ConfigurationAggregatorName: string | undefined;
 
   /**
-   * <p>A list of AccountAggregationSource object.
-   * 			
-   * 		</p>
+   * A list of AccountAggregationSource object.
+   *
    * @public
    */
   AccountAggregationSources?: AccountAggregationSource[] | undefined;
 
   /**
-   * <p>An OrganizationAggregationSource object.</p>
+   * An OrganizationAggregationSource object.
+   *
    * @public
    */
   OrganizationAggregationSource?: OrganizationAggregationSource | undefined;
 
   /**
-   * <p>An array of tag object.</p>
+   * An array of tag object.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>An object to filter configuration recorders in an aggregator. Either <code>ResourceType</code> or <code>ServicePrincipal</code> is required.</p>
+   * An object to filter configuration recorders in an aggregator. Either `ResourceType` or `ServicePrincipal` is required.
+   *
    * @public
    */
   AggregatorFilters?: AggregatorFilters | undefined;
@@ -7980,26 +7828,29 @@ export interface PutConfigurationAggregatorRequest {
  */
 export interface PutConfigurationAggregatorResponse {
   /**
-   * <p>Returns a ConfigurationAggregator object.</p>
+   * Returns a ConfigurationAggregator object.
+   *
    * @public
    */
   ConfigurationAggregator?: ConfigurationAggregator | undefined;
 }
 
 /**
- * <p>The input for the <a>PutConfigurationRecorder</a>
- * 			action.</p>
+ * The input for the PutConfigurationRecorder action.
+ *
  * @public
  */
 export interface PutConfigurationRecorderRequest {
   /**
-   * <p>An object for the configuration recorder. A configuration recorder records configuration changes for the resource types in scope.</p>
+   * An object for the configuration recorder. A configuration recorder records configuration changes for the resource types in scope.
+   *
    * @public
    */
   ConfigurationRecorder: ConfigurationRecorder | undefined;
 
   /**
-   * <p>The tags for the customer managed configuration recorder. Each tag consists of a key and an optional value, both of which you define.</p>
+   * The tags for the customer managed configuration recorder. Each tag consists of a key and an optional value, both of which you define.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -8010,62 +7861,65 @@ export interface PutConfigurationRecorderRequest {
  */
 export interface PutConformancePackRequest {
   /**
-   * <p>The unique name of the conformance pack you want to deploy.</p>
+   * The unique name of the conformance pack you want to deploy.
+   *
    * @public
    */
   ConformancePackName: string | undefined;
 
   /**
-   * <p>The location of the file containing the template body (<code>s3://bucketname/prefix</code>). The uri must point to a conformance pack template (max size: 300 KB) that is located in an Amazon S3 bucket in the same Region as the conformance pack. </p>
-   *          <note>
-   *             <p>You must have access to read Amazon S3 bucket.
-   * 			In addition, in order to ensure a successful deployment, the template object must not be in an <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html">archived storage class</a> if this parameter is passed.</p>
-   *          </note>
+   * The location of the file containing the template body (`s3://bucketname/prefix`). The uri must point to a conformance pack template (max size: 300 KB) that is located in an Amazon S3 bucket in the same Region as the conformance pack.
+   *
+   * > **Note:** You must have access to read Amazon S3 bucket. In addition, in order to ensure a successful deployment, the template object must not be in an [archived storage class](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html) if this parameter is passed.
+   *
    * @public
    */
   TemplateS3Uri?: string | undefined;
 
   /**
-   * <p>A string that contains the full conformance pack template body. The structure containing the template body has a minimum length of 1 byte and a maximum length of 51,200 bytes.</p>
-   *          <note>
-   *             <p>You can use a YAML template with two resource types: Config rule (<code>AWS::Config::ConfigRule</code>) and remediation action (<code>AWS::Config::RemediationConfiguration</code>).</p>
-   *          </note>
+   * A string that contains the full conformance pack template body. The structure containing the template body has a minimum length of 1 byte and a maximum length of 51,200 bytes.
+   *
+   * > **Note:** You can use a YAML template with two resource types: Config rule (`AWS::Config::ConfigRule`) and remediation action (`AWS::Config::RemediationConfiguration`).
+   *
    * @public
    */
   TemplateBody?: string | undefined;
 
   /**
-   * <p>The name of the Amazon S3 bucket where Config stores conformance pack templates.</p>
-   *          <note>
-   *             <p>This field is optional.</p>
-   *          </note>
+   * The name of the Amazon S3 bucket where Config stores conformance pack templates.
+   *
+   * > **Note:** This field is optional.
+   *
    * @public
    */
   DeliveryS3Bucket?: string | undefined;
 
   /**
-   * <p>The prefix for the Amazon S3 bucket. </p>
-   *          <note>
-   *             <p>This field is optional.</p>
-   *          </note>
+   * The prefix for the Amazon S3 bucket.
+   *
+   * > **Note:** This field is optional.
+   *
    * @public
    */
   DeliveryS3KeyPrefix?: string | undefined;
 
   /**
-   * <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
+   * A list of `ConformancePackInputParameter` objects.
+   *
    * @public
    */
   ConformancePackInputParameters?: ConformancePackInputParameter[] | undefined;
 
   /**
-   * <p>An object of type <code>TemplateSSMDocumentDetails</code>, which contains the name or the Amazon Resource Name (ARN) of the Amazon Web Services Systems Manager document (SSM document) and the version of the SSM document that is used to create a conformance pack.</p>
+   * An object of type `TemplateSSMDocumentDetails`, which contains the name or the Amazon Resource Name (ARN) of the Amazon Web Services Systems Manager document (SSM document) and the version of the SSM document that is used to create a conformance pack.
+   *
    * @public
    */
   TemplateSSMDocumentDetails?: TemplateSSMDocumentDetails | undefined;
 
   /**
-   * <p>The tags for the conformance pack. Each tag consists of a key and an optional value, both of which you define.</p>
+   * The tags for the conformance pack. Each tag consists of a key and an optional value, both of which you define.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -8076,7 +7930,8 @@ export interface PutConformancePackRequest {
  */
 export interface PutConformancePackResponse {
   /**
-   * <p>ARN of the conformance pack.</p>
+   * ARN of the conformance pack.
+   *
    * @public
    */
   ConformancePackArn?: string | undefined;
@@ -8087,13 +7942,15 @@ export interface PutConformancePackResponse {
  */
 export interface PutConnectorRequest {
   /**
-   * <p>The provider-specific configuration for connecting to the third-party cloud service provider.</p>
+   * The provider-specific configuration for connecting to the third-party cloud service provider.
+   *
    * @public
    */
   ConnectorConfiguration: ConnectorConfiguration | undefined;
 
   /**
-   * <p>The tags for the connector. Each tag consists of a key and an optional value, both of which you define.</p>
+   * The tags for the connector. Each tag consists of a key and an optional value, both of which you define.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -8104,71 +7961,62 @@ export interface PutConnectorRequest {
  */
 export interface PutConnectorResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the connector.</p>
+   * The Amazon Resource Name (ARN) of the connector.
+   *
    * @public
    */
   Arn: string | undefined;
 }
 
 /**
- * <p>The input for the <a>PutDeliveryChannel</a>
- * 			action.</p>
+ * The input for the PutDeliveryChannel action.
+ *
  * @public
  */
 export interface PutDeliveryChannelRequest {
   /**
-   * <p>An object for the delivery channel. A delivery channel sends notifications and updated configuration states.
-   * 		</p>
+   * An object for the delivery channel. A delivery channel sends notifications and updated configuration states.
+   *
    * @public
    */
   DeliveryChannel: DeliveryChannel | undefined;
 }
 
 /**
- * <p></p>
  * @public
  */
 export interface PutEvaluationsRequest {
   /**
-   * <p>The assessments that the Lambda function performs. Each
-   * 			evaluation identifies an Amazon Web Services resource and indicates whether it
-   * 			complies with the Config rule that invokes the Lambda
-   * 			function.</p>
+   * The assessments that the Lambda function performs. Each evaluation identifies an Amazon Web Services resource and indicates whether it complies with the Config rule that invokes the Lambda function.
+   *
    * @public
    */
   Evaluations?: Evaluation[] | undefined;
 
   /**
-   * <p>An encrypted token that associates an evaluation with an Config rule. Identifies the rule and the event that triggered the
-   * 			evaluation.</p>
+   * An encrypted token that associates an evaluation with an Config rule. Identifies the rule and the event that triggered the evaluation.
+   *
    * @public
    */
   ResultToken: string | undefined;
 
   /**
-   * <p>Use this parameter to specify a test run for
-   * 			<code>PutEvaluations</code>. You can verify whether your Lambda function will deliver evaluation results to Config. No
-   * 			updates occur to your existing evaluations, and evaluation results
-   * 			are not sent to Config.</p>
-   *          <note>
-   *             <p>When <code>TestMode</code> is <code>true</code>,
-   * 					<code>PutEvaluations</code> doesn't require a valid value
-   * 				for the <code>ResultToken</code> parameter, but the value cannot
-   * 				be null.</p>
-   *          </note>
+   * Use this parameter to specify a test run for `PutEvaluations`. You can verify whether your Lambda function will deliver evaluation results to Config. No updates occur to your existing evaluations, and evaluation results are not sent to Config.
+   *
+   * > **Note:** When `TestMode` is `true`, `PutEvaluations` doesn't require a valid value for the `ResultToken` parameter, but the value cannot be null.
+   *
    * @public
    */
   TestMode?: boolean | undefined;
 }
 
 /**
- * <p></p>
  * @public
  */
 export interface PutEvaluationsResponse {
   /**
-   * <p>Requests that failed because of a client or server
-   * 			error.</p>
+   * Requests that failed because of a client or server error.
+   *
    * @public
    */
   FailedEvaluations?: Evaluation[] | undefined;
@@ -8179,13 +8027,15 @@ export interface PutEvaluationsResponse {
  */
 export interface PutExternalEvaluationRequest {
   /**
-   * <p>The name of the Config rule.</p>
+   * The name of the Config rule.
+   *
    * @public
    */
   ConfigRuleName: string | undefined;
 
   /**
-   * <p>An <code>ExternalEvaluation</code> object that provides details about compliance.</p>
+   * An `ExternalEvaluation` object that provides details about compliance.
+   *
    * @public
    */
   ExternalEvaluation: ExternalEvaluation | undefined;
@@ -8201,43 +8051,43 @@ export interface PutExternalEvaluationResponse {}
  */
 export interface PutOrganizationConfigRuleRequest {
   /**
-   * <p>The name that you assign to an organization Config rule.</p>
+   * The name that you assign to an organization Config rule.
+   *
    * @public
    */
   OrganizationConfigRuleName: string | undefined;
 
   /**
-   * <p>An <code>OrganizationManagedRuleMetadata</code> object. This object specifies organization
-   * 			managed rule metadata such as resource type and ID of Amazon Web Services resource along with the rule identifier.
-   * 			It also provides the frequency with which you want Config to run evaluations for the rule if the trigger type is periodic.</p>
+   * An `OrganizationManagedRuleMetadata` object. This object specifies organization managed rule metadata such as resource type and ID of Amazon Web Services resource along with the rule identifier. It also provides the frequency with which you want Config to run evaluations for the rule if the trigger type is periodic.
+   *
    * @public
    */
   OrganizationManagedRuleMetadata?: OrganizationManagedRuleMetadata | undefined;
 
   /**
-   * <p>An <code>OrganizationCustomRuleMetadata</code> object. This object specifies organization custom rule metadata such as resource type,
-   * 			resource ID of Amazon Web Services resource, Lambda function ARN, and organization trigger types that trigger Config to evaluate your Amazon Web Services resources against a rule.
-   * 			It also provides the frequency with which you want Config to run evaluations for the rule if the trigger type is periodic.</p>
+   * An `OrganizationCustomRuleMetadata` object. This object specifies organization custom rule metadata such as resource type, resource ID of Amazon Web Services resource, Lambda function ARN, and organization trigger types that trigger Config to evaluate your Amazon Web Services resources against a rule. It also provides the frequency with which you want Config to run evaluations for the rule if the trigger type is periodic.
+   *
    * @public
    */
   OrganizationCustomRuleMetadata?: OrganizationCustomRuleMetadata | undefined;
 
   /**
-   * <p>A comma-separated list of accounts that you want to exclude from an organization Config rule.</p>
+   * A comma-separated list of accounts that you want to exclude from an organization Config rule.
+   *
    * @public
    */
   ExcludedAccounts?: string[] | undefined;
 
   /**
-   * <p>An <code>OrganizationCustomPolicyRuleMetadata</code> object. This object specifies metadata for your organization's Config Custom Policy rule. The metadata includes the runtime system in use, which accounts have debug
-   * 			logging enabled, and other custom rule metadata, such as resource type, resource ID of
-   * 			Amazon Web Services resource, and organization trigger types that initiate Config to evaluate Amazon Web Services resources against a rule.</p>
+   * An `OrganizationCustomPolicyRuleMetadata` object. This object specifies metadata for your organization's Config Custom Policy rule. The metadata includes the runtime system in use, which accounts have debug logging enabled, and other custom rule metadata, such as resource type, resource ID of Amazon Web Services resource, and organization trigger types that initiate Config to evaluate Amazon Web Services resources against a rule.
+   *
    * @public
    */
   OrganizationCustomPolicyRuleMetadata?: OrganizationCustomPolicyRuleMetadata | undefined;
 
   /**
-   * <p>The tags for the organization Config rule. Each tag consists of a key and an optional value, both of which you define.</p>
+   * The tags for the organization Config rule. Each tag consists of a key and an optional value, both of which you define.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -8248,7 +8098,8 @@ export interface PutOrganizationConfigRuleRequest {
  */
 export interface PutOrganizationConfigRuleResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of an organization Config rule.</p>
+   * The Amazon Resource Name (ARN) of an organization Config rule.
+   *
    * @public
    */
   OrganizationConfigRuleArn?: string | undefined;
@@ -8259,61 +8110,63 @@ export interface PutOrganizationConfigRuleResponse {
  */
 export interface PutOrganizationConformancePackRequest {
   /**
-   * <p>Name of the organization conformance pack you want to create.</p>
+   * Name of the organization conformance pack you want to create.
+   *
    * @public
    */
   OrganizationConformancePackName: string | undefined;
 
   /**
-   * <p>Location of file containing the template body. The uri must point to the conformance pack template
-   * 			(max size: 300 KB).</p>
-   *          <note>
-   *             <p>You must have access to read Amazon S3 bucket.
-   * 			In addition, in order to ensure a successful deployment, the template object must not be in an <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html">archived storage class</a> if this parameter is passed.</p>
-   *          </note>
+   * Location of file containing the template body. The uri must point to the conformance pack template (max size: 300 KB).
+   *
+   * > **Note:** You must have access to read Amazon S3 bucket. In addition, in order to ensure a successful deployment, the template object must not be in an [archived storage class](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html) if this parameter is passed.
+   *
    * @public
    */
   TemplateS3Uri?: string | undefined;
 
   /**
-   * <p>A string that contains the full conformance pack template body. Structure containing the template body
-   * 			with a minimum length of 1 byte and a maximum length of 51,200 bytes.</p>
+   * A string that contains the full conformance pack template body. Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes.
+   *
    * @public
    */
   TemplateBody?: string | undefined;
 
   /**
-   * <p>The name of the Amazon S3 bucket where Config stores conformance pack templates.</p>
-   *          <note>
-   *             <p>This field is optional. If used, it must be prefixed with <code>awsconfigconforms</code>.</p>
-   *          </note>
+   * The name of the Amazon S3 bucket where Config stores conformance pack templates.
+   *
+   * > **Note:** This field is optional. If used, it must be prefixed with `awsconfigconforms`.
+   *
    * @public
    */
   DeliveryS3Bucket?: string | undefined;
 
   /**
-   * <p>The prefix for the Amazon S3 bucket.</p>
-   *          <note>
-   *             <p>This field is optional.</p>
-   *          </note>
+   * The prefix for the Amazon S3 bucket.
+   *
+   * > **Note:** This field is optional.
+   *
    * @public
    */
   DeliveryS3KeyPrefix?: string | undefined;
 
   /**
-   * <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
+   * A list of `ConformancePackInputParameter` objects.
+   *
    * @public
    */
   ConformancePackInputParameters?: ConformancePackInputParameter[] | undefined;
 
   /**
-   * <p>A list of Amazon Web Services accounts to be excluded from an organization conformance pack while deploying a conformance pack.</p>
+   * A list of Amazon Web Services accounts to be excluded from an organization conformance pack while deploying a conformance pack.
+   *
    * @public
    */
   ExcludedAccounts?: string[] | undefined;
 
   /**
-   * <p>The tags for the organization conformance pack. Each tag consists of a key and an optional value, both of which you define.</p>
+   * The tags for the organization conformance pack. Each tag consists of a key and an optional value, both of which you define.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -8324,7 +8177,8 @@ export interface PutOrganizationConformancePackRequest {
  */
 export interface PutOrganizationConformancePackResponse {
   /**
-   * <p>ARN of the organization conformance pack.</p>
+   * ARN of the organization conformance pack.
+   *
    * @public
    */
   OrganizationConformancePackArn?: string | undefined;
@@ -8335,7 +8189,8 @@ export interface PutOrganizationConformancePackResponse {
  */
 export interface PutRemediationConfigurationsRequest {
   /**
-   * <p>A list of remediation configuration objects.</p>
+   * A list of remediation configuration objects.
+   *
    * @public
    */
   RemediationConfigurations: RemediationConfiguration[] | undefined;
@@ -8346,7 +8201,8 @@ export interface PutRemediationConfigurationsRequest {
  */
 export interface PutRemediationConfigurationsResponse {
   /**
-   * <p>Returns a list of failed remediation batch objects.</p>
+   * Returns a list of failed remediation batch objects.
+   *
    * @public
    */
   FailedBatches?: FailedRemediationBatch[] | undefined;
@@ -8357,25 +8213,29 @@ export interface PutRemediationConfigurationsResponse {
  */
 export interface PutRemediationExceptionsRequest {
   /**
-   * <p>The name of the Config rule for which you want to create remediation exception.</p>
+   * The name of the Config rule for which you want to create remediation exception.
+   *
    * @public
    */
   ConfigRuleName: string | undefined;
 
   /**
-   * <p>An exception list of resource exception keys to be processed with the current request. Config adds exception for each resource key. For example, Config adds 3 exceptions for 3 resource keys. </p>
+   * An exception list of resource exception keys to be processed with the current request. Config adds exception for each resource key. For example, Config adds 3 exceptions for 3 resource keys.
+   *
    * @public
    */
   ResourceKeys: RemediationExceptionResourceKey[] | undefined;
 
   /**
-   * <p>The message contains an explanation of the exception.</p>
+   * The message contains an explanation of the exception.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The exception is automatically deleted after the expiration date.</p>
+   * The exception is automatically deleted after the expiration date.
+   *
    * @public
    */
   ExpirationTime?: Date | undefined;
@@ -8386,7 +8246,8 @@ export interface PutRemediationExceptionsRequest {
  */
 export interface PutRemediationExceptionsResponse {
   /**
-   * <p>Returns a list of failed remediation exceptions batch objects. Each object in the batch consists of a list of failed items and failure messages.</p>
+   * Returns a list of failed remediation exceptions batch objects. Each object in the batch consists of a list of failed items and failure messages.
+   *
    * @public
    */
   FailedBatches?: FailedRemediationExceptionBatch[] | undefined;
@@ -8397,47 +8258,49 @@ export interface PutRemediationExceptionsResponse {
  */
 export interface PutResourceConfigRequest {
   /**
-   * <p>The type of the resource. The custom resource type must be registered with CloudFormation. </p>
-   *          <note>
-   *             <p>You cannot use the organization names “amzn”, “amazon”, “alexa”, “custom” with custom resource types. It is the first part of the ResourceType up to the first ::.</p>
-   *          </note>
+   * The type of the resource. The custom resource type must be registered with CloudFormation.
+   *
+   * > **Note:** You cannot use the organization names “amzn”, “amazon”, “alexa”, “custom” with custom resource types. It is the first part of the ResourceType up to the first ::.
+   *
    * @public
    */
   ResourceType: string | undefined;
 
   /**
-   * <p>Version of the schema registered for the ResourceType in CloudFormation.</p>
+   * Version of the schema registered for the ResourceType in CloudFormation.
+   *
    * @public
    */
   SchemaVersionId: string | undefined;
 
   /**
-   * <p>Unique identifier of the resource.</p>
+   * Unique identifier of the resource.
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>Name of the resource.</p>
+   * Name of the resource.
+   *
    * @public
    */
   ResourceName?: string | undefined;
 
   /**
-   * <p>The configuration object of the resource in valid JSON format. It must match the schema registered with CloudFormation.</p>
-   *          <note>
-   *             <p>The configuration JSON must not exceed 64 KB.</p>
-   *          </note>
+   * The configuration object of the resource in valid JSON format. It must match the schema registered with CloudFormation.
+   *
+   * > **Note:** The configuration JSON must not exceed 64 KB.
+   *
    * @public
    */
   Configuration: string | undefined;
 
   /**
-   * <p>Tags associated with the resource.</p>
-   *          <note>
-   *             <p>This field is not to be confused with the Amazon Web Services-wide tag feature for Amazon Web Services resources.
-   * 			Tags for <code>PutResourceConfig</code> are tags that you supply for the configuration items of your custom resources.</p>
-   *          </note>
+   * Tags associated with the resource.
+   *
+   * > **Note:** This field is not to be confused with the Amazon Web Services-wide tag feature for Amazon Web Services resources. Tags for `PutResourceConfig` are tags that you supply for the configuration items of your custom resources.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -8448,12 +8311,10 @@ export interface PutResourceConfigRequest {
  */
 export interface PutRetentionConfigurationRequest {
   /**
-   * <p>Number of days Config stores your historical
-   * 			information.</p>
-   *          <note>
-   *             <p>Currently, only applicable to the configuration item
-   * 				history.</p>
-   *          </note>
+   * Number of days Config stores your historical information.
+   *
+   * > **Note:** Currently, only applicable to the configuration item history.
+   *
    * @public
    */
   RetentionPeriodInDays: number | undefined;
@@ -8464,7 +8325,8 @@ export interface PutRetentionConfigurationRequest {
  */
 export interface PutRetentionConfigurationResponse {
   /**
-   * <p>Returns a retention configuration object.</p>
+   * Returns a retention configuration object.
+   *
    * @public
    */
   RetentionConfiguration?: RetentionConfiguration | undefined;
@@ -8475,13 +8337,15 @@ export interface PutRetentionConfigurationResponse {
  */
 export interface PutServiceLinkedConfigurationRecorderRequest {
   /**
-   * <p>The service principal of the Amazon Web Services service for the service-linked configuration recorder that you want to create.</p>
+   * The service principal of the Amazon Web Services service for the service-linked configuration recorder that you want to create.
+   *
    * @public
    */
   ServicePrincipal: string | undefined;
 
   /**
-   * <p>The tags for a service-linked configuration recorder. Each tag consists of a key and an optional value, both of which you define.</p>
+   * The tags for a service-linked configuration recorder. Each tag consists of a key and an optional value, both of which you define.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -8492,14 +8356,17 @@ export interface PutServiceLinkedConfigurationRecorderRequest {
  */
 export interface PutServiceLinkedConfigurationRecorderResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the specified configuration recorder.</p>
+   * The Amazon Resource Name (ARN) of the specified configuration recorder.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The name of the specified configuration recorder.</p>
-   *          <p>For service-linked configuration recorders, Config automatically assigns a name that has the prefix "<code>AWSConfigurationRecorderFor</code>" to the new service-linked configuration recorder.</p>
+   * The name of the specified configuration recorder.
+   *
+   * For service-linked configuration recorders, Config automatically assigns a name that has the prefix "`AWSConfigurationRecorderFor`" to the new service-linked configuration recorder.
+   *
    * @public
    */
   Name?: string | undefined;
@@ -8510,18 +8377,17 @@ export interface PutServiceLinkedConfigurationRecorderResponse {
  */
 export interface PutStoredQueryRequest {
   /**
-   * <p>A list of <code>StoredQuery</code> objects.
-   * 			The mandatory fields are <code>QueryName</code> and <code>Expression</code>.</p>
-   *          <note>
-   *             <p>When you are creating a query, you must provide a query name and an expression.
-   * 			When you are updating a query, you must provide a query name but updating the description is optional.</p>
-   *          </note>
+   * A list of `StoredQuery` objects. The mandatory fields are `QueryName` and `Expression`.
+   *
+   * > **Note:** When you are creating a query, you must provide a query name and an expression. When you are updating a query, you must provide a query name but updating the description is optional.
+   *
    * @public
    */
   StoredQuery: StoredQuery | undefined;
 
   /**
-   * <p>A list of <code>Tags</code> object.</p>
+   * A list of `Tags` object.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -8532,8 +8398,8 @@ export interface PutStoredQueryRequest {
  */
 export interface PutStoredQueryResponse {
   /**
-   * <p>Amazon Resource Name (ARN) of the query.
-   * 			For example, arn:partition:service:region:account-id:resource-type/resource-name/resource-id.</p>
+   * Amazon Resource Name (ARN) of the query. For example, arn:partition:service:region:account-id:resource-type/resource-name/resource-id.
+   *
    * @public
    */
   QueryArn?: string | undefined;
@@ -8544,25 +8410,29 @@ export interface PutStoredQueryResponse {
  */
 export interface PutThirdPartyServiceLinkedConfigurationRecorderRequest {
   /**
-   * <p>The service principal of the Amazon Web Services service for the service-linked configuration recorder that you want to create.</p>
+   * The service principal of the Amazon Web Services service for the service-linked configuration recorder that you want to create.
+   *
    * @public
    */
   ServicePrincipal: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the connector that specifies the connection between the third-party cloud service provider and Config. The specified connector must exist.</p>
+   * The Amazon Resource Name (ARN) of the connector that specifies the connection between the third-party cloud service provider and Config. The specified connector must exist.
+   *
    * @public
    */
   ConnectorArn: string | undefined;
 
   /**
-   * <p>Specifies the scope of resources to record from the third-party cloud service provider.</p>
+   * Specifies the scope of resources to record from the third-party cloud service provider.
+   *
    * @public
    */
   ScopeConfiguration: ScopeConfiguration | undefined;
 
   /**
-   * <p>The tags for a service-linked configuration recorder. Each tag consists of a key and an optional value, both of which you define.</p>
+   * The tags for a service-linked configuration recorder. Each tag consists of a key and an optional value, both of which you define.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -8573,25 +8443,29 @@ export interface PutThirdPartyServiceLinkedConfigurationRecorderRequest {
  */
 export interface PutThirdPartyServiceLinkedConfigurationRecorderResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the specified configuration recorder.</p>
+   * The Amazon Resource Name (ARN) of the specified configuration recorder.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The name of the specified configuration recorder.</p>
+   * The name of the specified configuration recorder.
+   *
    * @public
    */
   Name: string | undefined;
 }
 
 /**
- * <p>Details about the query.</p>
+ * Details about the query.
+ *
  * @public
  */
 export interface QueryInfo {
   /**
-   * <p>Returns a <code>FieldInfo</code> object.</p>
+   * Returns a `FieldInfo` object.
+   *
    * @public
    */
   SelectFields?: FieldInfo[] | undefined;
@@ -8602,31 +8476,36 @@ export interface QueryInfo {
  */
 export interface SelectAggregateResourceConfigRequest {
   /**
-   * <p>The SQL query SELECT command. </p>
+   * The SQL query SELECT command.
+   *
    * @public
    */
   Expression: string | undefined;
 
   /**
-   * <p>The name of the configuration aggregator.</p>
+   * The name of the configuration aggregator.
+   *
    * @public
    */
   ConfigurationAggregatorName: string | undefined;
 
   /**
-   * <p>The maximum number of query results returned on each page. </p>
+   * The maximum number of query results returned on each page.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>The maximum number of query results returned on each page. Config also allows the Limit request parameter.</p>
+   * The maximum number of query results returned on each page. Config also allows the Limit request parameter.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The nextToken string returned in a previous request that you use to request the next page of results in a paginated response. </p>
+   * The nextToken string returned in a previous request that you use to request the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -8637,19 +8516,22 @@ export interface SelectAggregateResourceConfigRequest {
  */
 export interface SelectAggregateResourceConfigResponse {
   /**
-   * <p>Returns the results for the SQL query.</p>
+   * Returns the results for the SQL query.
+   *
    * @public
    */
   Results?: string[] | undefined;
 
   /**
-   * <p>Details about the query.</p>
+   * Details about the query.
+   *
    * @public
    */
   QueryInfo?: QueryInfo | undefined;
 
   /**
-   * <p>The nextToken string returned in a previous request that you use to request the next page of results in a paginated response. </p>
+   * The nextToken string returned in a previous request that you use to request the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -8660,19 +8542,22 @@ export interface SelectAggregateResourceConfigResponse {
  */
 export interface SelectResourceConfigRequest {
   /**
-   * <p>The SQL query <code>SELECT</code> command.</p>
+   * The SQL query `SELECT` command.
+   *
    * @public
    */
   Expression: string | undefined;
 
   /**
-   * <p>The maximum number of query results returned on each page. </p>
+   * The maximum number of query results returned on each page.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response. </p>
+   * The `nextToken` string returned in a previous request that you use to request the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -8683,51 +8568,55 @@ export interface SelectResourceConfigRequest {
  */
 export interface SelectResourceConfigResponse {
   /**
-   * <p>Returns the results for the SQL query.</p>
+   * Returns the results for the SQL query.
+   *
    * @public
    */
   Results?: string[] | undefined;
 
   /**
-   * <p>Returns the <code>QueryInfo</code> object.</p>
+   * Returns the `QueryInfo` object.
+   *
    * @public
    */
   QueryInfo?: QueryInfo | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response. </p>
+   * The `nextToken` string returned in a previous request that you use to request the next page of results in a paginated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p></p>
  * @public
  */
 export interface StartConfigRulesEvaluationRequest {
   /**
-   * <p>The list of names of Config rules that you want to run
-   * 			evaluations for.</p>
+   * The list of names of Config rules that you want to run evaluations for.
+   *
    * @public
    */
   ConfigRuleNames?: string[] | undefined;
 }
 
 /**
- * <p>The output when you start the evaluation for the specified Config rule.</p>
+ * The output when you start the evaluation for the specified Config rule.
+ *
  * @public
  */
 export interface StartConfigRulesEvaluationResponse {}
 
 /**
- * <p>The input for the <a>StartConfigurationRecorder</a>
- * 			operation.</p>
+ * The input for the StartConfigurationRecorder operation.
+ *
  * @public
  */
 export interface StartConfigurationRecorderRequest {
   /**
-   * <p>The name of the customer managed configuration recorder that you want to start.</p>
+   * The name of the customer managed configuration recorder that you want to start.
+   *
    * @public
    */
   ConfigurationRecorderName: string | undefined;
@@ -8738,13 +8627,15 @@ export interface StartConfigurationRecorderRequest {
  */
 export interface StartRemediationExecutionRequest {
   /**
-   * <p>The list of names of Config rules that you want to run remediation execution for.</p>
+   * The list of names of Config rules that you want to run remediation execution for.
+   *
    * @public
    */
   ConfigRuleName: string | undefined;
 
   /**
-   * <p>A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID. </p>
+   * A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID.
+   *
    * @public
    */
   ResourceKeys: ResourceKey[] | undefined;
@@ -8755,13 +8646,15 @@ export interface StartRemediationExecutionRequest {
  */
 export interface StartRemediationExecutionResponse {
   /**
-   * <p>Returns a failure message. For example, the resource is already compliant.</p>
+   * Returns a failure message. For example, the resource is already compliant.
+   *
    * @public
    */
   FailureMessage?: string | undefined;
 
   /**
-   * <p>For resources that have failed to start execution, the API returns a resource key object.</p>
+   * For resources that have failed to start execution, the API returns a resource key object.
+   *
    * @public
    */
   FailedItems?: ResourceKey[] | undefined;
@@ -8772,43 +8665,40 @@ export interface StartRemediationExecutionResponse {
  */
 export interface StartResourceEvaluationRequest {
   /**
-   * <p>Returns a <code>ResourceDetails</code> object.</p>
+   * Returns a `ResourceDetails` object.
+   *
    * @public
    */
   ResourceDetails: ResourceDetails | undefined;
 
   /**
-   * <p>Returns an <code>EvaluationContext</code> object.</p>
+   * Returns an `EvaluationContext` object.
+   *
    * @public
    */
   EvaluationContext?: EvaluationContext | undefined;
 
   /**
-   * <p>The mode of an evaluation.</p>
-   *          <note>
-   *             <p>The only valid value for this API is <code>PROACTIVE</code>.</p>
-   *          </note>
+   * The mode of an evaluation.
+   *
+   * > **Note:** The only valid value for this API is `PROACTIVE`.
+   *
    * @public
    */
   EvaluationMode: EvaluationMode | undefined;
 
   /**
-   * <p>The timeout for an evaluation. The default is 900 seconds. You cannot specify a number greater than 3600. If you specify 0, Config uses the default.</p>
+   * The timeout for an evaluation. The default is 900 seconds. You cannot specify a number greater than 3600. If you specify 0, Config uses the default.
+   *
    * @public
    */
   EvaluationTimeout?: number | undefined;
 
   /**
-   * <p>A client token is a unique, case-sensitive string of up to 64 ASCII characters.
-   * 			To make an idempotent API request using one of these actions, specify a client token in the request.</p>
-   *          <note>
-   *             <p>Avoid reusing the same client token for other API requests. If you retry
-   * 				a request that completed successfully using the same client token and the same
-   * 				parameters, the retry succeeds without performing any further actions. If you retry
-   * 				a successful request using the same client token, but one or more of the parameters
-   * 				are different, other than the Region or Availability Zone, the retry fails with an
-   * 				IdempotentParameterMismatch error.</p>
-   *          </note>
+   * A client token is a unique, case-sensitive string of up to 64 ASCII characters. To make an idempotent API request using one of these actions, specify a client token in the request.
+   *
+   * > **Note:** Avoid reusing the same client token for other API requests. If you retry a request that completed successfully using the same client token and the same parameters, the retry succeeds without performing any further actions. If you retry a successful request using the same client token, but one or more of the parameters are different, other than the Region or Availability Zone, the retry fails with an IdempotentParameterMismatch error.
+   *
    * @public
    */
   ClientToken?: string | undefined;
@@ -8819,20 +8709,22 @@ export interface StartResourceEvaluationRequest {
  */
 export interface StartResourceEvaluationResponse {
   /**
-   * <p>A
-   * 			unique ResourceEvaluationId that is associated with a single execution.</p>
+   * A unique ResourceEvaluationId that is associated with a single execution.
+   *
    * @public
    */
   ResourceEvaluationId?: string | undefined;
 }
 
 /**
- * <p>The input for the <a>StopConfigurationRecorder</a> operation.</p>
+ * The input for the StopConfigurationRecorder operation.
+ *
  * @public
  */
 export interface StopConfigurationRecorderRequest {
   /**
-   * <p>The name of the customer managed configuration recorder that you want to stop.</p>
+   * The name of the customer managed configuration recorder that you want to stop.
+   *
    * @public
    */
   ConfigurationRecorderName: string | undefined;
@@ -8843,60 +8735,25 @@ export interface StopConfigurationRecorderRequest {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. The following resources are supported:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ConfigurationRecorder</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ConfigRule</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OrganizationConfigRule</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ConformancePack</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OrganizationConformancePack</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ConfigurationAggregator</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AggregationAuthorization</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>StoredQuery</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Connector</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. The following resources are supported:
+   *
+   * - `ConfigurationRecorder`
+   * - `ConfigRule`
+   * - `OrganizationConfigRule`
+   * - `ConformancePack`
+   * - `OrganizationConformancePack`
+   * - `ConfigurationAggregator`
+   * - `AggregationAuthorization`
+   * - `StoredQuery`
+   * - `Connector`
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>An array of tag object.</p>
+   * An array of tag object.
+   *
    * @public
    */
   Tags: Tag[] | undefined;
@@ -8907,60 +8764,25 @@ export interface TagResourceRequest {
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. The following resources are supported:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ConfigurationRecorder</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ConfigRule</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OrganizationConfigRule</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ConformancePack</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OrganizationConformancePack</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ConfigurationAggregator</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AggregationAuthorization</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>StoredQuery</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Connector</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. The following resources are supported:
+   *
+   * - `ConfigurationRecorder`
+   * - `ConfigRule`
+   * - `OrganizationConfigRule`
+   * - `ConformancePack`
+   * - `OrganizationConformancePack`
+   * - `ConfigurationAggregator`
+   * - `AggregationAuthorization`
+   * - `StoredQuery`
+   * - `Connector`
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>The keys of the tags to be removed.</p>
+   * The keys of the tags to be removed.
+   *
    * @public
    */
   TagKeys: string[] | undefined;

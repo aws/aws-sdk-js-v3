@@ -23,14 +23,10 @@ export interface AssociateHostedConnectionCommandInput extends AssociateHostedCo
 export interface AssociateHostedConnectionCommandOutput extends Connection, __MetadataBearer {}
 
 /**
- * <p>Associates a hosted connection and its virtual interfaces with a link aggregation
- *       group (LAG) or interconnect. If the target interconnect or LAG has an existing hosted
- *       connection with a conflicting VLAN number or IP address, the operation fails. This
- *       action temporarily interrupts the hosted connection's connectivity to Amazon Web Services
- *       as it is being migrated.</p>
- *          <note>
- *             <p>Intended for use by Direct Connect Partners only.</p>
- *          </note>
+ * Associates a hosted connection and its virtual interfaces with a link aggregation group (LAG) or interconnect. If the target interconnect or LAG has an existing hosted connection with a conflicting VLAN number or IP address, the operation fails. This action temporarily interrupts the hosted connection's connectivity to Amazon Web Services as it is being migrated.
+ *
+ * > **Note:** Intended for use by Direct Connect Partners only.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -103,14 +99,16 @@ export interface AssociateHostedConnectionCommandOutput extends Connection, __Me
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  * @throws {@link DirectConnectClientException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link DirectConnectServerException} (server fault)
- *  <p>A server-side error occurred.</p>
+ *
+ * A server-side error occurred.
  *
  * @throws {@link DirectConnectServiceException}
- * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * Base exception class for all service exceptions from DirectConnect service.
  *
  * @public
  */

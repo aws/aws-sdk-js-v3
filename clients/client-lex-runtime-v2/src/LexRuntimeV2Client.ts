@@ -325,7 +325,8 @@ export type LexRuntimeV2ClientResolvedConfigType = __SmithyResolvedConfiguration
 export interface LexRuntimeV2ClientResolvedConfig extends LexRuntimeV2ClientResolvedConfigType {}
 
 /**
- * <p>This section contains documentation for the Amazon Lex V2 Runtime V2 API operations.</p>
+ * This section contains documentation for the Amazon Lex V2 Runtime V2 API operations.
+ *
  * @public
  */
 export class LexRuntimeV2Client extends __Client<

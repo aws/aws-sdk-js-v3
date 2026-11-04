@@ -23,29 +23,14 @@ export interface ListStackSetsCommandInput extends ListStackSetsInput {}
 export interface ListStackSetsCommandOutput extends ListStackSetsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns summary information about StackSets that are associated with the user.</p>
- *          <note>
- *             <p>This API provides <i>strongly consistent</i> reads meaning it will always
- *         return the most up-to-date data.</p>
- *          </note>
- *          <ul>
- *             <li>
- *                <p>[Self-managed permissions] If you set the <code>CallAs</code> parameter to
- *             <code>SELF</code> while signed in to your Amazon Web Services account, <code>ListStackSets</code>
- *           returns all self-managed StackSets in your Amazon Web Services account.</p>
- *             </li>
- *             <li>
- *                <p>[Service-managed permissions] If you set the <code>CallAs</code> parameter to
- *             <code>SELF</code> while signed in to the organization's management account,
- *             <code>ListStackSets</code> returns all StackSets in the management account.</p>
- *             </li>
- *             <li>
- *                <p>[Service-managed permissions] If you set the <code>CallAs</code> parameter to
- *             <code>DELEGATED_ADMIN</code> while signed in to your member account,
- *             <code>ListStackSets</code> returns all StackSets with service-managed permissions in the
- *             management account.</p>
- *             </li>
- *          </ul>
+ * Returns summary information about StackSets that are associated with the user.
+ *
+ * > **Note:** This API provides *strongly consistent* reads meaning it will always return the most up-to-date data.
+ *
+ * - [Self-managed permissions] If you set the `CallAs` parameter to `SELF` while signed in to your Amazon Web Services account, `ListStackSets` returns all self-managed StackSets in your Amazon Web Services account.
+ * - [Service-managed permissions] If you set the `CallAs` parameter to `SELF` while signed in to the organization's management account, `ListStackSets` returns all StackSets in the management account.
+ * - [Service-managed permissions] If you set the `CallAs` parameter to `DELEGATED_ADMIN` while signed in to your member account, `ListStackSets` returns all StackSets with service-managed permissions in the management account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -96,8 +81,8 @@ export interface ListStackSetsCommandOutput extends ListStackSetsOutput, __Metad
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

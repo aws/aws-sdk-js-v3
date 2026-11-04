@@ -23,18 +23,16 @@ export interface RebootCacheClusterCommandInput extends RebootCacheClusterMessag
 export interface RebootCacheClusterCommandOutput extends RebootCacheClusterResult, __MetadataBearer {}
 
 /**
- * <p>Reboots some, or all, of the cache nodes within a provisioned cluster. This operation
- *             applies any modified cache parameter groups to the cluster. The reboot operation takes
- *             place as soon as possible, and results in a momentary outage to the cluster. During the
- *             reboot, the cluster status is set to REBOOTING.</p>
- *          <p>The reboot causes the contents of the cache (for each cache node being rebooted) to be
- *             lost.</p>
- *          <p>When the reboot is complete, a cluster event is created.</p>
- *          <p>Rebooting a cluster is currently supported on Memcached, Valkey and Redis OSS (cluster mode
- *             disabled) clusters. Rebooting is not supported on Valkey or Redis OSS (cluster mode enabled)
- *             clusters.</p>
- *          <p>If you make changes to parameters that require a Valkey or Redis OSS (cluster mode enabled) cluster
- *             reboot for the changes to be applied, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/nodes.rebooting.html">Rebooting a Cluster</a> for an alternate process.</p>
+ * Reboots some, or all, of the cache nodes within a provisioned cluster. This operation applies any modified cache parameter groups to the cluster. The reboot operation takes place as soon as possible, and results in a momentary outage to the cluster. During the reboot, the cluster status is set to REBOOTING.
+ *
+ * The reboot causes the contents of the cache (for each cache node being rebooted) to be lost.
+ *
+ * When the reboot is complete, a cluster event is created.
+ *
+ * Rebooting a cluster is currently supported on Memcached, Valkey and Redis OSS (cluster mode disabled) clusters. Rebooting is not supported on Valkey or Redis OSS (cluster mode enabled) clusters.
+ *
+ * If you make changes to parameters that require a Valkey or Redis OSS (cluster mode enabled) cluster reboot for the changes to be applied, see [Rebooting a Cluster](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/nodes.rebooting.html) for an alternate process.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -179,14 +177,16 @@ export interface RebootCacheClusterCommandOutput extends RebootCacheClusterResul
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link CacheClusterNotFoundFault} (client fault)
- *  <p>The requested cluster ID does not refer to an existing cluster.</p>
+ *
+ * The requested cluster ID does not refer to an existing cluster.
  *
  * @throws {@link InvalidCacheClusterStateFault} (client fault)
- *  <p>The requested cluster is not in the <code>available</code> state.</p>
+ *
+ * The requested cluster is not in the `available` state.
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @example RebootCacheCluster
  * ```javascript

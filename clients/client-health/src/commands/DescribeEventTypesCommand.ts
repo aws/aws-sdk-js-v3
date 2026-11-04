@@ -23,13 +23,12 @@ export interface DescribeEventTypesCommandInput extends DescribeEventTypesReques
 export interface DescribeEventTypesCommandOutput extends DescribeEventTypesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the event types that meet the specified filter criteria. You can use this API
- *          operation to find information about the Health event, such as the category, Amazon Web Services service, and event code. The metadata for each event appears in the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventType.html">EventType</a> object. </p>
- *          <p>If you don't specify a filter criteria, the API operation returns all event types, in no
- *          particular order. </p>
- *          <note>
- *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the next request to return more results.</p>
- *          </note>
+ * Returns the event types that meet the specified filter criteria. You can use this API operation to find information about the Health event, such as the category, Amazon Web Services service, and event code. The metadata for each event appears in the [EventType](https://docs.aws.amazon.com/health/latest/APIReference/API_EventType.html) object.
+ *
+ * If you don't specify a filter criteria, the API operation returns all event types, in no particular order.
+ *
+ * > **Note:** This API operation uses pagination. Specify the `nextToken` parameter in the next request to return more results.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,14 +85,16 @@ export interface DescribeEventTypesCommandOutput extends DescribeEventTypesRespo
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
  *
  * @throws {@link InvalidPaginationToken} (client fault)
- *  <p>The specified pagination token (<code>nextToken</code>) is not valid.</p>
+ *
+ * The specified pagination token (`nextToken`) is not valid.
  *
  * @throws {@link UnsupportedLocale} (client fault)
- *  <p>The specified locale is not supported.</p>
+ *
+ * The specified locale is not supported.
  *
  * @throws {@link HealthServiceException}
- * <p>Base exception class for all service exceptions from Health service.</p>
  *
+ * Base exception class for all service exceptions from Health service.
  *
  * @public
  */

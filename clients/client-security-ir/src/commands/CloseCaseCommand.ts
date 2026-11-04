@@ -23,7 +23,8 @@ export interface CloseCaseCommandInput extends CloseCaseRequest {}
 export interface CloseCaseCommandOutput extends CloseCaseResponse, __MetadataBearer {}
 
 /**
- * <p>Closes an existing case.</p>
+ * Closes an existing case.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,38 +52,28 @@ export interface CloseCaseCommandOutput extends CloseCaseResponse, __MetadataBea
  * @see {@link SecurityIRClientResolvedConfig | config} for SecurityIRClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p/>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p/>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p/>
  *
  * @throws {@link InvalidTokenException} (client fault)
- *  <p/>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p/>
  *
  * @throws {@link SecurityIncidentResponseNotActiveException} (client fault)
- *  <p/>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p/>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p/>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p/>
  *
  * @throws {@link SecurityIRServiceException}
- * <p>Base exception class for all service exceptions from SecurityIR service.</p>
  *
+ * Base exception class for all service exceptions from SecurityIR service.
  *
- * @example Invoke CloseCase
- * ```javascript
+ * @example Invoke CloseCase```javascript
  * //
  * const input = {
  *   caseId: "8403556009"

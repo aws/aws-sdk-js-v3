@@ -23,7 +23,8 @@ export interface UpdateSyncBlockerCommandInput extends UpdateSyncBlockerInput {}
 export interface UpdateSyncBlockerCommandOutput extends UpdateSyncBlockerOutput, __MetadataBearer {}
 
 /**
- * <p>Allows you to update the status of a sync blocker, resolving the blocker and allowing syncing to continue.</p>
+ * Allows you to update the status of a sync blocker, resolving the blocker and allowing syncing to continue.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,29 +70,36 @@ export interface UpdateSyncBlockerCommandOutput extends UpdateSyncBlockerOutput,
  * @see {@link CodeStarConnectionsClientResolvedConfig | config} for CodeStarConnectionsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Received an internal server exception. Try again later.</p>
+ *
+ * Received an internal server exception. Try again later.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input is not valid. Verify that the action is typed correctly.</p>
+ *
+ * The input is not valid. Verify that the action is typed correctly.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource not found. Verify the connection resource ARN and try again.</p>
+ *
+ * Resource not found. Verify the connection resource ARN and try again.
  *
  * @throws {@link RetryLatestCommitFailedException} (server fault)
- *  <p>Retrying the latest commit failed. Try again later.</p>
+ *
+ * Retrying the latest commit failed. Try again later.
  *
  * @throws {@link SyncBlockerDoesNotExistException} (client fault)
- *  <p>Unable to continue. The sync blocker does not exist.</p>
+ *
+ * Unable to continue. The sync blocker does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link CodeStarConnectionsServiceException}
- * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ * Base exception class for all service exceptions from CodeStarConnections service.
  *
  * @public
  */

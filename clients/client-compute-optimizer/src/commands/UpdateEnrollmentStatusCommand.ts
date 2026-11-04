@@ -23,14 +23,14 @@ export interface UpdateEnrollmentStatusCommandInput extends UpdateEnrollmentStat
 export interface UpdateEnrollmentStatusCommandOutput extends UpdateEnrollmentStatusResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the enrollment (opt in and opt out) status of an account to the Compute Optimizer service.</p>
- *          <p>If the account is a management account of an organization, this action can also be
- *             used to enroll member accounts of the organization.</p>
- *          <p>You must have the appropriate permissions to opt in to Compute Optimizer, to view its
- *             recommendations, and to opt out. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/security-iam.html">Controlling access with Amazon Web Services Identity and Access Management</a> in the <i>Compute Optimizer User Guide</i>.</p>
- *          <p>When you opt in, Compute Optimizer automatically creates a service-linked role in your
- *             account to access its data. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/using-service-linked-roles.html">Using
- *                 Service-Linked Roles for Compute Optimizer</a> in the <i>Compute Optimizer User Guide</i>.</p>
+ * Updates the enrollment (opt in and opt out) status of an account to the Compute Optimizer service.
+ *
+ * If the account is a management account of an organization, this action can also be used to enroll member accounts of the organization.
+ *
+ * You must have the appropriate permissions to opt in to Compute Optimizer, to view its recommendations, and to opt out. For more information, see [Controlling access with Amazon Web Services Identity and Access Management](https://docs.aws.amazon.com/compute-optimizer/latest/ug/security-iam.html) in the *Compute Optimizer User Guide*.
+ *
+ * When you opt in, Compute Optimizer automatically creates a service-linked role in your account to access its data. For more information, see [Using Service-Linked Roles for Compute Optimizer](https://docs.aws.amazon.com/compute-optimizer/latest/ug/using-service-linked-roles.html) in the *Compute Optimizer User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,27 +59,32 @@ export interface UpdateEnrollmentStatusCommandOutput extends UpdateEnrollmentSta
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error has occurred. Try your call again.</p>
+ *
+ * An internal error has occurred. Try your call again.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value supplied for the input parameter is out of range or not valid.</p>
+ *
+ * The value supplied for the input parameter is out of range or not valid.
  *
  * @throws {@link MissingAuthenticationToken} (client fault)
- *  <p>The request must contain either a valid (registered) Amazon Web Services access key ID
- *             or X.509 certificate.</p>
+ *
+ * The request must contain either a valid (registered) Amazon Web Services access key ID or X.509 certificate.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The request has failed due to a temporary failure of the server.</p>
+ *
+ * The request has failed due to a temporary failure of the server.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ComputeOptimizerServiceException}
- * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ * Base exception class for all service exceptions from ComputeOptimizer service.
  *
  * @public
  */

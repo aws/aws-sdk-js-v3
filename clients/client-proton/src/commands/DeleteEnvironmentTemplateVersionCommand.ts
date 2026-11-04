@@ -23,12 +23,9 @@ export interface DeleteEnvironmentTemplateVersionCommandInput extends DeleteEnvi
 export interface DeleteEnvironmentTemplateVersionCommandOutput extends DeleteEnvironmentTemplateVersionOutput, __MetadataBearer {}
 
 /**
- * <p>If no other minor versions of an environment template exist, delete a major version of the environment template if it's not the
- *         <code>Recommended</code> version. Delete the <code>Recommended</code> version of the environment template if no other major versions or minor versions
- *       of the environment template exist. A major version of an environment template is a version that's not backward compatible.</p>
- *          <p>Delete a minor version of an environment template if it <i>isn't</i> the <code>Recommended</code> version. Delete a
- *         <code>Recommended</code> minor version of the environment template if no other minor versions of the environment template exist. A minor version of an
- *       environment template is a version that's backward compatible.</p>
+ * If no other minor versions of an environment template exist, delete a major version of the environment template if it's not the `Recommended` version. Delete the `Recommended` version of the environment template if no other major versions or minor versions of the environment template exist. A major version of an environment template is a version that's not backward compatible.
+ *
+ * Delete a minor version of an environment template if it *isn't* the `Recommended` version. Delete a `Recommended` minor version of the environment template if no other minor versions of the environment template exist. A minor version of an environment template is a version that's backward compatible.
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example
@@ -71,26 +68,32 @@ export interface DeleteEnvironmentTemplateVersionCommandOutput extends DeleteEnv
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>There <i>isn't</i> sufficient access for performing this action.</p>
+ *
+ * There *isn't* sufficient access for performing this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request <i>couldn't</i> be made due to a conflicting operation or resource.</p>
+ *
+ * The request *couldn't* be made due to a conflicting operation or resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request failed to register with the service.</p>
+ *
+ * The request failed to register with the service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource <i>wasn't</i> found.</p>
+ *
+ * The requested resource *wasn't* found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+ *
+ * The input is invalid or an out-of-range value was supplied for the input parameter.
  *
  * @throws {@link ProtonServiceException}
- * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * Base exception class for all service exceptions from Proton service.
  *
  * @public
  */

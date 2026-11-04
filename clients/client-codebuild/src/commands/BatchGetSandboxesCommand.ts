@@ -23,7 +23,8 @@ export interface BatchGetSandboxesCommandInput extends BatchGetSandboxesInput {}
 export interface BatchGetSandboxesCommandOutput extends BatchGetSandboxesOutput, __MetadataBearer {}
 
 /**
- * <p>Gets information about the sandbox status.</p>
+ * Gets information about the sandbox status.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -235,11 +236,12 @@ export interface BatchGetSandboxesCommandOutput extends BatchGetSandboxesOutput,
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input value that was provided is not valid.</p>
+ *
+ * The input value that was provided is not valid.
  *
  * @throws {@link CodeBuildServiceException}
- * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * Base exception class for all service exceptions from CodeBuild service.
  *
  * @public
  */

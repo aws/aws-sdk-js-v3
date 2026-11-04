@@ -23,15 +23,12 @@ export interface ListCustomRoutingPortMappingsCommandInput extends ListCustomRou
 export interface ListCustomRoutingPortMappingsCommandOutput extends ListCustomRoutingPortMappingsResponse, __MetadataBearer {}
 
 /**
- * <p>Provides a complete mapping from the public accelerator IP address and port to destination EC2 instance
- * 		IP addresses and ports in the virtual public cloud (VPC) subnet endpoint for a custom routing accelerator.
- * 		For each subnet endpoint that you add, Global Accelerator creates a new static port mapping for the accelerator. The port
- * 	    mappings don't change after Global Accelerator generates them, so you can retrieve and cache the full mapping on your servers. </p>
- *          <p>If you remove a subnet from your accelerator, Global Accelerator removes (reclaims) the port mappings. If you add a subnet to
- *         your accelerator, Global Accelerator creates new port mappings (the existing ones don't change). If you add or remove EC2 instances
- *         in your subnet, the port mappings don't change, because the mappings are created when you add the subnet to Global Accelerator.</p>
- *          <p>The mappings also include a flag for each destination denoting which destination IP addresses and
- * 		ports are allowed or denied traffic.</p>
+ * Provides a complete mapping from the public accelerator IP address and port to destination EC2 instance IP addresses and ports in the virtual public cloud (VPC) subnet endpoint for a custom routing accelerator. For each subnet endpoint that you add, Global Accelerator creates a new static port mapping for the accelerator. The port mappings don't change after Global Accelerator generates them, so you can retrieve and cache the full mapping on your servers.
+ *
+ * If you remove a subnet from your accelerator, Global Accelerator removes (reclaims) the port mappings. If you add a subnet to your accelerator, Global Accelerator creates new port mappings (the existing ones don't change). If you add or remove EC2 instances in your subnet, the port mappings don't change, because the mappings are created when you add the subnet to Global Accelerator.
+ *
+ * The mappings also include a flag for each destination denoting which destination IP addresses and ports are allowed or denied traffic.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,23 +73,28 @@ export interface ListCustomRoutingPortMappingsCommandOutput extends ListCustomRo
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
  * @throws {@link AcceleratorNotFoundException} (client fault)
- *  <p>The accelerator that you specified doesn't exist.</p>
+ *
+ * The accelerator that you specified doesn't exist.
  *
  * @throws {@link EndpointGroupNotFoundException} (client fault)
- *  <p>The endpoint group that you specified doesn't exist.</p>
+ *
+ * The endpoint group that you specified doesn't exist.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * There was an internal error for Global Accelerator.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>An argument that you specified is invalid.</p>
+ *
+ * An argument that you specified is invalid.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>There isn't another item to return.</p>
+ *
+ * There isn't another item to return.
  *
  * @throws {@link GlobalAcceleratorServiceException}
- * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * Base exception class for all service exceptions from GlobalAccelerator service.
  *
  * @public
  */

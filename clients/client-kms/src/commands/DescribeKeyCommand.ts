@@ -23,90 +23,37 @@ export interface DescribeKeyCommandInput extends DescribeKeyRequest {}
 export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __MetadataBearer {}
 
 /**
- * <p>Provides detailed information about a KMS key. You can run <code>DescribeKey</code> on a
- *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-mgn-key">customer
- *         managed key</a> or an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key">Amazon Web Services managed key</a>.</p>
- *          <p>This detailed information includes the key ARN, creation date (and deletion date, if
- *       applicable), the key state, and the origin and expiration date (if any) of the key material.
- *       It includes fields, like <code>KeySpec</code>, that help you distinguish different types of
- *       KMS keys. It also displays the key usage (encryption, signing, or generating and verifying
- *       MACs) and the algorithms that the KMS key supports. </p>
- *          <p>For <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">multi-Region keys</a>, <code>DescribeKey</code> displays the primary key and all
- *       related replica keys. For KMS keys in <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-cloudhsm.html">CloudHSM key stores</a>, it includes information
- *       about the key store, such as the key store ID and the CloudHSM cluster ID. For KMS keys in <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html">external key stores</a>,
- *       it includes the custom key store ID and the ID of the external key.</p>
- *          <p>
- *             <code>DescribeKey</code> does not return the following information:</p>
- *          <ul>
- *             <li>
- *                <p>Aliases associated with the KMS key. To get this information, use <a>ListAliases</a>.</p>
- *             </li>
- *             <li>
- *                <p>Whether automatic key rotation is enabled on the KMS key. To get this information, use
- *             <a>GetKeyRotationStatus</a>. Also, some key states prevent a KMS key from
- *           being automatically rotated. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#rotate-keys-how-it-works">How key rotation
- *             works</a> in the <i>Key Management Service Developer Guide</i>.</p>
- *             </li>
- *             <li>
- *                <p>Tags on the KMS key. To get this information, use <a>ListResourceTags</a>.</p>
- *             </li>
- *             <li>
- *                <p>Key policies and grants on the KMS key. To get this information, use <a>GetKeyPolicy</a> and <a>ListGrants</a>.</p>
- *             </li>
- *          </ul>
- *          <p>In general, <code>DescribeKey</code> is a non-mutating operation. It returns data about
- *       KMS keys, but doesn't change them. However, Amazon Web Services services use <code>DescribeKey</code> to
- *       create <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key">Amazon Web Services
- *         managed keys</a> from a <i>predefined Amazon Web Services alias</i> with no key
- *       ID.</p>
- *          <p>
- *             <b>Cross-account use</b>: Yes. To perform this operation with a KMS key in a different Amazon Web Services account, specify
- *   the key ARN or alias ARN in the value of the <code>KeyId</code> parameter.</p>
- *          <p>
- *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:DescribeKey</a> (key policy)</p>
- *          <p>
- *             <b>Related operations:</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>GetKeyPolicy</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>GetKeyRotationStatus</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListAliases</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListGrants</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListKeys</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListResourceTags</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListRetirableGrants</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
+ * Provides detailed information about a KMS key. You can run `DescribeKey` on a [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-mgn-key) or an [Amazon Web Services managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key).
+ *
+ * This detailed information includes the key ARN, creation date (and deletion date, if applicable), the key state, and the origin and expiration date (if any) of the key material. It includes fields, like `KeySpec`, that help you distinguish different types of KMS keys. It also displays the key usage (encryption, signing, or generating and verifying MACs) and the algorithms that the KMS key supports.
+ *
+ * For [multi-Region keys](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html), `DescribeKey` displays the primary key and all related replica keys. For KMS keys in [CloudHSM key stores](https://docs.aws.amazon.com/kms/latest/developerguide/keystore-cloudhsm.html), it includes information about the key store, such as the key store ID and the CloudHSM cluster ID. For KMS keys in [external key stores](https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html), it includes the custom key store ID and the ID of the external key.
+ *
+ * `DescribeKey` does not return the following information:
+ *
+ * - Aliases associated with the KMS key. To get this information, use ListAliases.
+ * - Whether automatic key rotation is enabled on the KMS key. To get this information, use GetKeyRotationStatus. Also, some key states prevent a KMS key from being automatically rotated. For details, see [How key rotation works](https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#rotate-keys-how-it-works) in the *Key Management Service Developer Guide*.
+ * - Tags on the KMS key. To get this information, use ListResourceTags.
+ * - Key policies and grants on the KMS key. To get this information, use GetKeyPolicy and ListGrants.
+ *
+ * In general, `DescribeKey` is a non-mutating operation. It returns data about KMS keys, but doesn't change them. However, Amazon Web Services services use `DescribeKey` to create [Amazon Web Services managed keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key) from a *predefined Amazon Web Services alias* with no key ID.
+ *
+ * **Cross-account use**: Yes. To perform this operation with a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN in the value of the `KeyId` parameter.
+ *
+ * **Required permissions**: [kms:DescribeKey](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy)
+ *
+ * **Related operations:**
+ *
+ * - GetKeyPolicy
+ * - GetKeyRotationStatus
+ * - ListAliases
+ * - ListGrants
+ * - ListKeys
+ * - ListResourceTags
+ * - ListRetirableGrants
+ *
+ * **Eventual consistency**: The KMS API follows an eventual consistency model. For more information, see [KMS eventual consistency](https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -188,24 +135,24 @@ export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __Metadat
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
  * @throws {@link DependencyTimeoutException} (server fault)
- *  <p>The system timed out while trying to fulfill the request. You can retry the
- *       request.</p>
+ *
+ * The system timed out while trying to fulfill the request. You can retry the request.
  *
  * @throws {@link InvalidArnException} (client fault)
- *  <p>The request was rejected because a specified ARN, or an ARN in a key policy, is not
- *       valid.</p>
+ *
+ * The request was rejected because a specified ARN, or an ARN in a key policy, is not valid.
  *
  * @throws {@link KMSInternalException} (server fault)
- *  <p>The request was rejected because an internal exception occurred. The request can be
- *       retried.</p>
+ *
+ * The request was rejected because an internal exception occurred. The request can be retried.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The request was rejected because the specified entity or resource could not be
- *       found.</p>
+ *
+ * The request was rejected because the specified entity or resource could not be found.
  *
  * @throws {@link KMSServiceException}
- * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * Base exception class for all service exceptions from KMS service.
  *
  * @example To get details about a KMS key in an AWS CloudHSM key store
  * ```javascript

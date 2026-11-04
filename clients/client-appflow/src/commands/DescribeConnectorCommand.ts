@@ -23,9 +23,8 @@ export interface DescribeConnectorCommandInput extends DescribeConnectorRequest 
 export interface DescribeConnectorCommandOutput extends DescribeConnectorResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the given custom connector registered in your Amazon Web Services account. This
- *       API can be used for custom connectors that are registered in your account and also for Amazon
- *       authored connectors.</p>
+ * Describes the given custom connector registered in your Amazon Web Services account. This API can be used for custom connectors that are registered in your account and also for Amazon authored connectors.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -219,19 +218,20 @@ export interface DescribeConnectorCommandOutput extends DescribeConnectorRespons
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> An internal service error occurred during the processing of your request. Try again
- *       later. </p>
+ *
+ * An internal service error occurred during the processing of your request. Try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The resource specified in the request (such as the source or destination connector
- *       profile) is not found. </p>
+ *
+ * The resource specified in the request (such as the source or destination connector profile) is not found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> The request has invalid or missing parameters. </p>
+ *
+ * The request has invalid or missing parameters.
  *
  * @throws {@link AppflowServiceException}
- * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ * Base exception class for all service exceptions from Appflow service.
  *
  * @public
  */

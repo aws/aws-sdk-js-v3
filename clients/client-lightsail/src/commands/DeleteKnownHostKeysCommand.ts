@@ -23,15 +23,10 @@ export interface DeleteKnownHostKeysCommandInput extends DeleteKnownHostKeysRequ
 export interface DeleteKnownHostKeysCommandOutput extends DeleteKnownHostKeysResult, __MetadataBearer {}
 
 /**
- * <p>Deletes the known host key or certificate used by the Amazon Lightsail browser-based SSH or
- *       RDP clients to authenticate an instance. This operation enables the Lightsail browser-based
- *       SSH or RDP clients to connect to the instance after a host key mismatch.</p>
- *          <important>
- *             <p>Perform this operation only if you were expecting the host key or certificate mismatch
- *         or if you are familiar with the new host key or certificate on the instance. For more
- *         information, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-troubleshooting-browser-based-ssh-rdp-client-connection">Troubleshooting connection issues when using the Amazon Lightsail browser-based SSH or RDP
- *           client</a>.</p>
- *          </important>
+ * Deletes the known host key or certificate used by the Amazon Lightsail browser-based SSH or RDP clients to authenticate an instance. This operation enables the Lightsail browser-based SSH or RDP clients to connect to the instance after a host key mismatch.
+ *
+ * > **Important:** Perform this operation only if you were expecting the host key or certificate mismatch or if you are familiar with the new host key or certificate on the instance. For more information, see [Troubleshooting connection issues when using the Amazon Lightsail browser-based SSH or RDP client](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-troubleshooting-browser-based-ssh-rdp-client-connection).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,42 +71,42 @@ export interface DeleteKnownHostKeysCommandOutput extends DeleteKnownHostKeysRes
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
- *       credentials to access a resource.</p>
+ *
+ * Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.
  *
  * @throws {@link AccountSetupInProgressException} (client fault)
- *  <p>Lightsail throws this exception when an account is still in the setup in progress
- *       state.</p>
+ *
+ * Lightsail throws this exception when an account is still in the setup in progress state.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>Lightsail throws this exception when user input does not conform to the validation rules
- *       of an input field.</p>
- *          <note>
- *             <p>Domain and distribution APIs are only available in the N. Virginia
- *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
- *         Region configuration to <code>us-east-1</code> to create, view, or edit these
- *         resources.</p>
- *          </note>
+ *
+ * Lightsail throws this exception when user input does not conform to the validation rules of an input field.
+ *
+ * > **Note:** Domain and distribution APIs are only available in the N. Virginia (`us-east-1`) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to `us-east-1` to create, view, or edit these resources.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>Lightsail throws this exception when it cannot find a resource.</p>
+ *
+ * Lightsail throws this exception when it cannot find a resource.
  *
  * @throws {@link OperationFailureException} (client fault)
- *  <p>Lightsail throws this exception when an operation fails to execute.</p>
+ *
+ * Lightsail throws this exception when an operation fails to execute.
  *
  * @throws {@link RegionSetupInProgressException} (client fault)
- *  <p>Lightsail throws this exception when an operation is performed on resources in an opt-in
- *       Region that is currently being set up.</p>
+ *
+ * Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>A general service exception.</p>
+ *
+ * A general service exception.
  *
  * @throws {@link UnauthenticatedException} (client fault)
- *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
+ * Lightsail throws this exception when the user has not been authenticated.
  *
  * @throws {@link LightsailServiceException}
- * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * Base exception class for all service exceptions from Lightsail service.
  *
  * @public
  */

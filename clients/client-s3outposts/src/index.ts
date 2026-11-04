@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>Amazon S3 on Outposts provides access to S3 on Outposts operations.</p>
+ * Amazon S3 on Outposts provides access to S3 on Outposts operations.
  *
  * @packageDocumentation
  */

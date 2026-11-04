@@ -23,7 +23,8 @@ export interface UpdateDeploymentStrategyCommandInput extends UpdateDeploymentSt
 export interface UpdateDeploymentStrategyCommandOutput extends DeploymentStrategy, __MetadataBearer {}
 
 /**
- * <p>Updates a deployment strategy.</p>
+ * Updates a deployment strategy.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,17 +63,20 @@ export interface UpdateDeploymentStrategyCommandOutput extends DeploymentStrateg
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>There was an internal failure in the AppConfig service.</p>
+ *
+ * There was an internal failure in the AppConfig service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource could not be found.</p>
+ *
+ * The requested resource could not be found.
  *
  * @throws {@link AppConfigServiceException}
- * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * Base exception class for all service exceptions from AppConfig service.
  *
  * @example To update a deployment strategy
  * ```javascript

@@ -23,7 +23,8 @@ export interface UntagResourceCommandInput extends UntagResourceInput {}
 export interface UntagResourceCommandOutput extends UntagResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Removes the specified tags from the specified resource.</p>
+ * Removes the specified tags from the specified resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,20 +52,24 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * @see {@link NeptuneGraphClientResolvedConfig | config} for NeptuneGraphClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>A failure occurred on the server.</p>
+ *
+ * A failure occurred on the server.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A specified resource could not be located.</p>
+ *
+ * A specified resource could not be located.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The exception was interrupted by throttling.</p>
+ *
+ * The exception was interrupted by throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A resource could not be validated.</p>
+ *
+ * A resource could not be validated.
  *
  * @throws {@link NeptuneGraphServiceException}
- * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ * Base exception class for all service exceptions from NeptuneGraph service.
  *
  * @public
  */

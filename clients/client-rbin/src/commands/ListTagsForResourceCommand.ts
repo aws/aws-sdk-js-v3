@@ -23,7 +23,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the tags assigned to a retention rule.</p>
+ * Lists the tags assigned to a retention rule.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,17 +56,20 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link RbinClientResolvedConfig | config} for RbinClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The service could not respond to the request due to an internal problem.</p>
+ *
+ * The service could not respond to the request due to an internal problem.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One or more of the parameters in the request is not valid.</p>
+ *
+ * One or more of the parameters in the request is not valid.
  *
  * @throws {@link RbinServiceException}
- * <p>Base exception class for all service exceptions from Rbin service.</p>
  *
+ * Base exception class for all service exceptions from Rbin service.
  *
  * @public
  */

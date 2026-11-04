@@ -4,8 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { SSOServiceException as __BaseException } from "./SSOServiceException";
 
 /**
- * <p>Indicates that a problem occurred with the input to the request. For example, a required
- *       parameter might be missing or out of range.</p>
+ * Indicates that a problem occurred with the input to the request. For example, a required parameter might be missing or out of range.
+ *
  * @public
  */
 export class InvalidRequestException extends __BaseException {
@@ -26,7 +26,8 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * <p>The specified resource doesn't exist.</p>
+ * The specified resource doesn't exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -47,8 +48,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the request is being made too frequently and is more than what the server
- *       can handle.</p>
+ * Indicates that the request is being made too frequently and is more than what the server can handle.
+ *
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
@@ -69,8 +70,8 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the request is not authorized. This can happen due to an invalid access
- *       token in the request.</p>
+ * Indicates that the request is not authorized. This can happen due to an invalid access token in the request.
+ *
  * @public
  */
 export class UnauthorizedException extends __BaseException {

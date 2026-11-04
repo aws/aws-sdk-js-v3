@@ -23,9 +23,8 @@ export interface DeleteQuotaShareCommandInput extends DeleteQuotaShareRequest {}
 export interface DeleteQuotaShareCommandOutput extends DeleteQuotaShareResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified quota share. You must first disable submissions for the share by
- *       updating the state to <code>DISABLED</code> using the <a>UpdateQuotaShare</a> operation.
- *       All jobs in the share are eventually terminated when you delete a quota share.</p>
+ * Deletes the specified quota share. You must first disable submissions for the share by updating the state to `DISABLED` using the UpdateQuotaShare operation. All jobs in the share are eventually terminated when you delete a quota share.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,16 +49,16 @@ export interface DeleteQuotaShareCommandOutput extends DeleteQuotaShareResponse,
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf
- *    of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier
- *    that's not valid.</p>
+ *
+ * These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server issue.</p>
+ *
+ * These errors are usually caused by a server issue.
  *
  * @throws {@link BatchServiceException}
- * <p>Base exception class for all service exceptions from Batch service.</p>
  *
+ * Base exception class for all service exceptions from Batch service.
  *
  * @public
  */

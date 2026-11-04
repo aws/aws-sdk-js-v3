@@ -23,10 +23,10 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Applies a <i>tag</i> to an Amazon Web Services resource. Tags are
- *       key-value pairs that can help you manage, filter, and search for your resources.</p>
- *          <p>These include DataSync resources, such as locations, tasks, and task
- *       executions.</p>
+ * Applies a *tag* to an Amazon Web Services resource. Tags are key-value pairs that can help you manage, filter, and search for your resources.
+ *
+ * These include DataSync resources, such as locations, tasks, and task executions.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,15 +57,16 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception is thrown when an error occurs in the DataSync
- *       service.</p>
+ *
+ * This exception is thrown when an error occurs in the DataSync service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * This exception is thrown when the client submits a malformed request.
  *
  * @throws {@link DataSyncServiceException}
- * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * Base exception class for all service exceptions from DataSync service.
  *
  * @public
  */

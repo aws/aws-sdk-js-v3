@@ -23,7 +23,8 @@ export interface ListDistributionsCommandInput extends ListDistributionsRequest 
 export interface ListDistributionsCommandOutput extends ListDistributionsResult, __MetadataBearer {}
 
 /**
- * <p>List CloudFront distributions.</p>
+ * List CloudFront distributions.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -381,11 +382,12 @@ export interface ListDistributionsCommandOutput extends ListDistributionsResult,
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link InvalidArgument} (client fault)
- *  <p>An argument is invalid.</p>
+ *
+ * An argument is invalid.
  *
  * @throws {@link CloudFrontServiceException}
- * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * Base exception class for all service exceptions from CloudFront service.
  *
  * @public
  */

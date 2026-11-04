@@ -58,11 +58,11 @@ export type AcceleratorType = (typeof AcceleratorType)[keyof typeof AcceleratorT
  */
 export const AccessType = {
   /**
-   * <p>The resource is private and reachable only from within the VPC.</p>
+   * The resource is private and reachable only from within the VPC.
    */
   PRIVATE: "PRIVATE",
   /**
-   * <p>The resource is publicly accessible from the internet.</p>
+   * The resource is publicly accessible from the internet.
    */
   PUBLIC: "PUBLIC",
 } as const;
@@ -386,15 +386,15 @@ export type TargetType = (typeof TargetType)[keyof typeof TargetType];
  */
 export const GpuSharingMode = {
   /**
-   * <p>One container has exclusive use of the GPU. Amazon ECS assigns GPUs this way to containers that specify <code>value</code> instead of <code>sharingStrategy</code> for the <code>GPU</code> resource type.</p>
+   * One container has exclusive use of the GPU. Amazon ECS assigns GPUs this way to containers that specify `value` instead of `sharingStrategy` for the `GPU` resource type.
    */
   DEDICATED: "DEDICATED",
   /**
-   * <p>No containers are assigned to the GPU, and all of its memory is available.</p>
+   * No containers are assigned to the GPU, and all of its memory is available.
    */
   IDLE: "IDLE",
   /**
-   * <p>One or more containers share the GPU by using NVIDIA Multi-Process Service (MPS). While the GPU is in this mode, Amazon ECS assigns it only to containers that use the <code>nvidiaMps</code> sharing strategy.</p>
+   * One or more containers share the GPU by using NVIDIA Multi-Process Service (MPS). While the GPU is in this mode, Amazon ECS assigns it only to containers that use the `nvidiaMps` sharing strategy.
    */
   NVIDIA_MPS: "NVIDIA_MPS",
 } as const;
@@ -725,11 +725,11 @@ export type UlimitName = (typeof UlimitName)[keyof typeof UlimitName];
  */
 export const DaemonIpcMode = {
   /**
-   * <p>The daemon gets its own isolated IPC namespace.</p>
+   * The daemon gets its own isolated IPC namespace.
    */
   NONE: "none",
   /**
-   * <p>The daemon shares the IPC namespace with co-located tasks on the same container instance.</p>
+   * The daemon shares the IPC namespace with co-located tasks on the same container instance.
    */
   SHARED: "shared",
 } as const;
@@ -744,11 +744,11 @@ export type DaemonIpcMode = (typeof DaemonIpcMode)[keyof typeof DaemonIpcMode];
  */
 export const DaemonPidMode = {
   /**
-   * <p>The daemon gets its own isolated PID namespace.</p>
+   * The daemon gets its own isolated PID namespace.
    */
   NONE: "none",
   /**
-   * <p>The daemon shares the PID namespace with co-located tasks on the same container instance.</p>
+   * The daemon shares the PID namespace with co-located tasks on the same container instance.
    */
   SHARED: "shared",
 } as const;
@@ -1075,11 +1075,11 @@ export type TaskDefinitionField = (typeof TaskDefinitionField)[keyof typeof Task
  */
 export const GatewayClusterAssociationStatus = {
   /**
-   * <p>The association is active.</p>
+   * The association is active.
    */
   ACTIVE: "ACTIVE",
   /**
-   * <p>The association is being removed and remains in this state until all gateway routes for the cluster are removed.</p>
+   * The association is being removed and remains in this state until all gateway routes for the cluster are removed.
    */
   DISASSOCIATING: "DISASSOCIATING",
   INACTIVE: "INACTIVE",
@@ -1096,15 +1096,15 @@ export type GatewayClusterAssociationStatus =
  */
 export const GatewayAlbDesyncMitigationMode = {
   /**
-   * <p>The load balancers allow through most requests but drop those that pose a significant security risk.</p>
+   * The load balancers allow through most requests but drop those that pose a significant security risk.
    */
   DEFENSIVE: "defensive",
   /**
-   * <p>The load balancers forward requests that are considered ambiguous but allow them to be monitored.</p>
+   * The load balancers forward requests that are considered ambiguous but allow them to be monitored.
    */
   MONITOR: "monitor",
   /**
-   * <p>The load balancers allow through only requests that comply with HTTP/1.1.</p>
+   * The load balancers allow through only requests that comply with HTTP/1.1.
    */
   STRICTEST: "strictest",
 } as const;
@@ -1120,15 +1120,15 @@ export type GatewayAlbDesyncMitigationMode =
  */
 export const GatewayElbIpAddressType = {
   /**
-   * <p>The load balancers use both IPv4 and IPv6 addresses.</p>
+   * The load balancers use both IPv4 and IPv6 addresses.
    */
   DUALSTACK: "dualstack",
   /**
-   * <p>The load balancers use IPv6 addresses and private IPv4 addresses, without public IPv4 addresses.</p>
+   * The load balancers use IPv6 addresses and private IPv4 addresses, without public IPv4 addresses.
    */
   DUALSTACK_WITHOUT_PUBLIC_IPV4: "dualstack-without-public-ipv4",
   /**
-   * <p>The load balancers use IPv4 addresses only.</p>
+   * The load balancers use IPv4 addresses only.
    */
   IPV4: "ipv4",
 } as const;
@@ -1143,11 +1143,11 @@ export type GatewayElbIpAddressType = (typeof GatewayElbIpAddressType)[keyof typ
  */
 export const GatewayAlbProtocol = {
   /**
-   * <p>The listener uses HTTP.</p>
+   * The listener uses HTTP.
    */
   HTTP: "HTTP",
   /**
-   * <p>The listener uses HTTPS.</p>
+   * The listener uses HTTPS.
    */
   HTTPS: "HTTPS",
 } as const;
@@ -1162,11 +1162,11 @@ export type GatewayAlbProtocol = (typeof GatewayAlbProtocol)[keyof typeof Gatewa
  */
 export const GatewayElbScheme = {
   /**
-   * <p>The load balancers are internal.</p>
+   * The load balancers are internal.
    */
   INTERNAL: "internal",
   /**
-   * <p>The load balancers are internet-facing.</p>
+   * The load balancers are internet-facing.
    */
   INTERNET_FACING: "internet-facing",
 } as const;
@@ -1181,11 +1181,11 @@ export type GatewayElbScheme = (typeof GatewayElbScheme)[keyof typeof GatewayElb
  */
 export const PropagateGatewayTags = {
   /**
-   * <p>Tags on the gateway are propagated to the infrastructure that the gateway manages.</p>
+   * Tags on the gateway are propagated to the infrastructure that the gateway manages.
    */
   GATEWAY: "GATEWAY",
   /**
-   * <p>Tags aren't propagated to managed infrastructure.</p>
+   * Tags aren't propagated to managed infrastructure.
    */
   NONE: "NONE",
 } as const;
@@ -1200,23 +1200,23 @@ export type PropagateGatewayTags = (typeof PropagateGatewayTags)[keyof typeof Pr
  */
 export const GatewayStatus = {
   /**
-   * <p>The gateway is active and available for use.</p>
+   * The gateway is active and available for use.
    */
   ACTIVE: "ACTIVE",
   /**
-   * <p>The gateway is deleted.</p>
+   * The gateway is deleted.
    */
   DELETED: "DELETED",
   /**
-   * <p>The update to the gateway completed successfully.</p>
+   * The update to the gateway completed successfully.
    */
   UPDATE_COMPLETE: "UPDATE_COMPLETE",
   /**
-   * <p>The update to the gateway failed. See <code>statusReason</code> for details.</p>
+   * The update to the gateway failed. See `statusReason` for details.
    */
   UPDATE_FAILED: "UPDATE_FAILED",
   /**
-   * <p>An update to the gateway is in progress.</p>
+   * An update to the gateway is in progress.
    */
   UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
 } as const;
@@ -1231,31 +1231,31 @@ export type GatewayStatus = (typeof GatewayStatus)[keyof typeof GatewayStatus];
  */
 export const GatewayRouteStatus = {
   /**
-   * <p>The gateway route is active and routing traffic.</p>
+   * The gateway route is active and routing traffic.
    */
   ACTIVE: "ACTIVE",
   /**
-   * <p>The gateway route couldn't be created.</p>
+   * The gateway route couldn't be created.
    */
   CREATE_FAILED: "CREATE_FAILED",
   /**
-   * <p>The gateway route is being created.</p>
+   * The gateway route is being created.
    */
   CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
   /**
-   * <p>The gateway route couldn't be deleted.</p>
+   * The gateway route couldn't be deleted.
    */
   DELETE_FAILED: "DELETE_FAILED",
   /**
-   * <p>The gateway route is being deleted.</p>
+   * The gateway route is being deleted.
    */
   DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
   /**
-   * <p>The gateway route couldn't be updated.</p>
+   * The gateway route couldn't be updated.
    */
   UPDATE_FAILED: "UPDATE_FAILED",
   /**
-   * <p>The gateway route is being updated.</p>
+   * The gateway route is being updated.
    */
   UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
 } as const;
@@ -1300,15 +1300,15 @@ export type ServiceDeploymentRollbackMonitorsStatus =
  */
 export const ThresholdType = {
   /**
-   * <p>Amazon ECS calculates the failure threshold by multiplying <code>value</code> by the latest service desired count, then clamping the result to a minimum of <code>3</code> and a maximum of <code>200</code>. This is the default threshold type, with a default <code>value</code> of <code>50</code>.</p>
+   * Amazon ECS calculates the failure threshold by multiplying `value` by the latest service desired count, then clamping the result to a minimum of `3` and a maximum of `200`. This is the default threshold type, with a default `value` of `50`.
    */
   BOUNDED_PERCENT: "BOUNDED_PERCENT",
   /**
-   * <p>Amazon ECS uses the integer provided in <code>value</code> directly as the failure threshold.</p>
+   * Amazon ECS uses the integer provided in `value` directly as the failure threshold.
    */
   COUNT: "COUNT",
   /**
-   * <p>Amazon ECS calculates the failure threshold by multiplying <code>value</code> by the latest service desired count, without applying the <code>3</code>-to-<code>200</code> bounds. Use this when the desired count is large enough that the calculated threshold should be allowed to exceed <code>200</code>.</p>
+   * Amazon ECS calculates the failure threshold by multiplying `value` by the latest service desired count, without applying the `3`-to-`200` bounds. Use this when the desired count is large enough that the calculated threshold should be allowed to exceed `200`.
    */
   UNBOUNDED_PERCENT: "UNBOUNDED_PERCENT",
 } as const;
@@ -1515,11 +1515,11 @@ export type DeploymentControllerType = (typeof DeploymentControllerType)[keyof t
  */
 export const GatewayConnectorHealthCheckProtocol = {
   /**
-   * <p>The gateway performs health checks over HTTP.</p>
+   * The gateway performs health checks over HTTP.
    */
   HTTP: "HTTP",
   /**
-   * <p>The gateway performs health checks over HTTPS.</p>
+   * The gateway performs health checks over HTTPS.
    */
   HTTPS: "HTTPS",
 } as const;

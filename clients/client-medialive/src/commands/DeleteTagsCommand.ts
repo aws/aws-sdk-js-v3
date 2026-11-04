@@ -63,8 +63,8 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  *  Placeholder documentation for NotFoundException
  *
  * @throws {@link MediaLiveServiceException}
- * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * Base exception class for all service exceptions from MediaLive service.
  *
  * @public
  */

@@ -23,10 +23,12 @@ export interface DetachLoadBalancerFromSubnetsCommandInput extends DetachLoadBal
 export interface DetachLoadBalancerFromSubnetsCommandOutput extends DetachLoadBalancerFromSubnetsOutput, __MetadataBearer {}
 
 /**
- * <p>Removes the specified subnets from the set of configured subnets for the load balancer.</p>
- *         <p>After a subnet is removed, all EC2 instances registered with the load balancer
- *             in the removed subnet go into the <code>OutOfService</code> state. Then,
- *             the load balancer balances the traffic among the remaining routable subnets.</p>
+ * Removes the specified subnets from the set of configured subnets for the load balancer.
+ *
+ *
+ *
+ * After a subnet is removed, all EC2 instances registered with the load balancer in the removed subnet go into the `OutOfService` state. Then, the load balancer balances the traffic among the remaining routable subnets.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,14 +60,16 @@ export interface DetachLoadBalancerFromSubnetsCommandOutput extends DetachLoadBa
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
  * @throws {@link AccessPointNotFoundException} (client fault)
- *  <p>The specified load balancer does not exist.</p>
+ *
+ * The specified load balancer does not exist.
  *
  * @throws {@link InvalidConfigurationRequestException} (client fault)
- *  <p>The requested configuration change is not valid.</p>
+ *
+ * The requested configuration change is not valid.
  *
  * @throws {@link ElasticLoadBalancingServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancing service.
  *
  * @example To detach a load balancer from a subnet
  * ```javascript

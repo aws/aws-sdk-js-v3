@@ -23,7 +23,8 @@ export interface DescribeDBRecommendationsCommandInput extends DescribeDBRecomme
 export interface DescribeDBRecommendationsCommandOutput extends DBRecommendationsMessage, __MetadataBearer {}
 
 /**
- * <p>Describes the recommendations to resolve the issues for your DB instances, DB clusters, and DB parameter groups.</p>
+ * Describes the recommendations to resolve the issues for your DB instances, DB clusters, and DB parameter groups.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -181,8 +182,8 @@ export interface DescribeDBRecommendationsCommandOutput extends DBRecommendation
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @public
  */

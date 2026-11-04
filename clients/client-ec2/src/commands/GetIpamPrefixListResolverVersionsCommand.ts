@@ -26,39 +26,33 @@ export interface GetIpamPrefixListResolverVersionsCommandInput extends GetIpamPr
 export interface GetIpamPrefixListResolverVersionsCommandOutput extends GetIpamPrefixListResolverVersionsResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves version information for an IPAM prefix list resolver.</p>
- *          <p>Each version is a snapshot of what CIDRs matched your rules at that moment in time. The version number increments every time the CIDR list
- * changes due to infrastructure changes.</p>
- *          <p>
- *             <b>Version example:</b>
- *          </p>
- *          <p>
- *             <b>Initial State (Version 1)</b>
- *          </p>
- *          <p>Production environment:</p>
- *          <ul>
- *             <li>
- *                <p>vpc-prod-web (10.1.0.0/16) - tagged env=prod</p>
- *             </li>
- *             <li>
- *                <p>vpc-prod-db (10.2.0.0/16) - tagged env=prod</p>
- *             </li>
- *          </ul>
- *          <p>Resolver rule: Include all VPCs tagged env=prod</p>
- *          <p>
- *             <b>Version 1 CIDRs:</b> 10.1.0.0/16, 10.2.0.0/16</p>
- *          <p>
- *             <b>Infrastructure Change (Version 2)</b>
- *          </p>
- *          <p>New VPC added:</p>
- *          <ul>
- *             <li>
- *                <p>vpc-prod-api (10.3.0.0/16) - tagged env=prod</p>
- *             </li>
- *          </ul>
- *          <p>IPAM automatically detects the change and creates a new version.</p>
- *          <p>
- *             <b>Version 2 CIDRs:</b> 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16</p>
+ * Retrieves version information for an IPAM prefix list resolver.
+ *
+ * Each version is a snapshot of what CIDRs matched your rules at that moment in time. The version number increments every time the CIDR list changes due to infrastructure changes.
+ *
+ * **Version example:**
+ *
+ * **Initial State (Version 1)**
+ *
+ * Production environment:
+ *
+ * - vpc-prod-web (10.1.0.0/16) - tagged env=prod
+ * - vpc-prod-db (10.2.0.0/16) - tagged env=prod
+ *
+ * Resolver rule: Include all VPCs tagged env=prod
+ *
+ * **Version 1 CIDRs:** 10.1.0.0/16, 10.2.0.0/16
+ *
+ * **Infrastructure Change (Version 2)**
+ *
+ * New VPC added:
+ *
+ * - vpc-prod-api (10.3.0.0/16) - tagged env=prod
+ *
+ * IPAM automatically detects the change and creates a new version.
+ *
+ * **Version 2 CIDRs:** 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -104,8 +98,8 @@ export interface GetIpamPrefixListResolverVersionsCommandOutput extends GetIpamP
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

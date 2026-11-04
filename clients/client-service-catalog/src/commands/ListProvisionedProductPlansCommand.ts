@@ -23,7 +23,8 @@ export interface ListProvisionedProductPlansCommandInput extends ListProvisioned
 export interface ListProvisionedProductPlansCommandOutput extends ListProvisionedProductPlansOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the plans for the specified provisioned product or all plans to which the user has access.</p>
+ * Lists the plans for the specified provisioned product or all plans to which the user has access.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,14 +68,16 @@ export interface ListProvisionedProductPlansCommandOutput extends ListProvisione
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  * @throws {@link InvalidParametersException} (client fault)
- *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * One or more parameters provided to the operation are not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ServiceCatalogServiceException}
- * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * Base exception class for all service exceptions from ServiceCatalog service.
  *
  * @public
  */

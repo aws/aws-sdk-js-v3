@@ -23,9 +23,8 @@ export interface DescribeConfigurationTemplatesCommandInput extends DescribeConf
 export interface DescribeConfigurationTemplatesCommandOutput extends DescribeConfigurationTemplatesResponse, __MetadataBearer {}
 
 /**
- * <p>Use this operation to return the valid and default values that are used when creating
- *       delivery sources, delivery destinations, and deliveries. For more information about
- *       deliveries, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html">CreateDelivery</a>.</p>
+ * Use this operation to return the valid and default values that are used when creating delivery sources, delivery destinations, and deliveries. For more information about deliveries, see [CreateDelivery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -113,20 +112,24 @@ export interface DescribeConfigurationTemplatesCommandOutput extends DescribeCon
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service cannot complete the request.</p>
+ *
+ * The service cannot complete the request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled because of quota limits.</p>
+ *
+ * The request was throttled because of quota limits.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One of the parameters for the request is not valid.</p>
+ *
+ * One of the parameters for the request is not valid.
  *
  * @throws {@link CloudWatchLogsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchLogs service.
  *
  * @public
  */

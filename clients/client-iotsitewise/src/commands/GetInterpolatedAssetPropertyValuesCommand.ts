@@ -26,21 +26,15 @@ export interface GetInterpolatedAssetPropertyValuesCommandInput extends GetInter
 export interface GetInterpolatedAssetPropertyValuesCommandOutput extends GetInterpolatedAssetPropertyValuesResponse, __MetadataBearer {}
 
 /**
- * <p>Get interpolated values for an asset property for a specified time interval, during a
- *       period of time. If your time series is missing data points during the specified time interval,
- *       you can use interpolation to estimate the missing data.</p>
- *          <p>For example, you can use this operation to return the interpolated temperature values for
- *       a wind turbine every 24 hours over a duration of 7 days.</p>
- *          <p>To identify an asset property, you must specify one of the following:</p>
- *          <ul>
- *             <li>
- *                <p>The <code>assetId</code> and <code>propertyId</code> of an asset property.</p>
- *             </li>
- *             <li>
- *                <p>A <code>propertyAlias</code>, which is a data stream alias (for example,
- *           <code>/company/windfarm/3/turbine/7/temperature</code>). To define an asset property's alias, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html">UpdateAssetProperty</a>.</p>
- *             </li>
- *          </ul>
+ * Get interpolated values for an asset property for a specified time interval, during a period of time. If your time series is missing data points during the specified time interval, you can use interpolation to estimate the missing data.
+ *
+ * For example, you can use this operation to return the interpolated temperature values for a wind turbine every 24 hours over a duration of 7 days.
+ *
+ * To identify an asset property, you must specify one of the following:
+ *
+ * - The `assetId` and `propertyId` of an asset property.
+ * - A `propertyAlias`, which is a data stream alias (for example, `/company/windfarm/3/turbine/7/temperature`). To define an asset property's alias, see [UpdateAssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -96,27 +90,30 @@ export interface GetInterpolatedAssetPropertyValuesCommandOutput extends GetInte
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>IoT SiteWise can't process your request right now. Try again later.</p>
+ *
+ * IoT SiteWise can't process your request right now. Try again later.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *       unsupported characters. Check your request and try again.</p>
+ *
+ * The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource can't be found.</p>
+ *
+ * The requested resource can't be found.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The requested service is unavailable.</p>
+ *
+ * The requested service is unavailable.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Your request exceeded a rate limit. For example, you might have exceeded the number of
- *       IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so
- *       on.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ *
+ * Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.
+ *
+ * For more information, see [Quotas](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html) in the *IoT SiteWise User Guide*.
  *
  * @throws {@link IoTSiteWiseServiceException}
- * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * Base exception class for all service exceptions from IoTSiteWise service.
  *
  * @public
  */

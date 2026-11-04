@@ -31,7 +31,10 @@ export type GetTileCommandOutputType = Omit<GetTileResponse, "Blob"> & {
 export interface GetTileCommandOutput extends GetTileCommandOutputType, __MetadataBearer {}
 
 /**
- * <p> <code>GetTile</code> returns a tile. Map tiles are used by clients to render a map. They're addressed using a grid arrangement with an X coordinate, Y coordinate, and Z (zoom) level.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/tiles.html">Tiles</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+ * `GetTile` returns a tile. Map tiles are used by clients to render a map. They're addressed using a grid arrangement with an X coordinate, Y coordinate, and Z (zoom) level.
+ *
+ * For more information, see [Tiles](https://docs.aws.amazon.com/location/latest/developerguide/tiles.html) in the *Amazon Location Service Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,23 +72,28 @@ export interface GetTileCommandOutput extends GetTileCommandOutputType, __Metada
  * @see {@link GeoMapsClientResolvedConfig | config} for GeoMapsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+ *
+ * The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Exception thrown when the associated resource could not be found.</p>
+ *
+ * Exception thrown when the associated resource could not be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an AWS service.
  *
  * @throws {@link GeoMapsServiceException}
- * <p>Base exception class for all service exceptions from GeoMaps service.</p>
  *
+ * Base exception class for all service exceptions from GeoMaps service.
  *
  * @public
  */

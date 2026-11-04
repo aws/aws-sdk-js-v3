@@ -23,7 +23,12 @@ export interface ResetTokenVaultKeyMaterialCommandInput extends ResetTokenVaultK
 export interface ResetTokenVaultKeyMaterialCommandOutput extends ResetTokenVaultKeyMaterialResponse, __MetadataBearer {}
 
 /**
- * <p>Resets the key material for a token vault whose customer managed KMS key has been deleted, and re-encrypts the token vault with an Amazon Web Services managed key so that you can use the token vault again.</p> <important> <p>This operation can't be undone. The reset permanently deletes the OAuth2 access tokens and refresh tokens stored in the token vault, including tokens obtained through all supported flows. After the reset, your agents must complete these flows again to get new tokens, and for user-delegated flows your users must authorize access again. The reset doesn't delete your credential providers or their configuration.</p> </important> <p>You can reset a token vault only if its customer managed key has been deleted. If the key still exists, including when it's disabled or scheduled for deletion, this operation returns a <code>ValidationException</code>. To use the token vault again, enable the key or cancel its scheduled deletion in KMS. To switch to a different key, use <code>SetTokenVaultCMK</code>.</p>
+ * Resets the key material for a token vault whose customer managed KMS key has been deleted, and re-encrypts the token vault with an Amazon Web Services managed key so that you can use the token vault again.
+ *
+ * > **Important:** This operation can't be undone. The reset permanently deletes the OAuth2 access tokens and refresh tokens stored in the token vault, including tokens obtained through all supported flows. After the reset, your agents must complete these flows again to get new tokens, and for user-delegated flows your users must authorize access again. The reset doesn't delete your credential providers or their configuration.
+ *
+ * You can reset a token vault only if its customer managed key has been deleted. If the key still exists, including when it's disabled or scheduled for deletion, this operation returns a `ValidationException`. To use the token vault again, enable the key or cancel its scheduled deletion in KMS. To switch to a different key, use `SetTokenVaultCMK`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,29 +60,36 @@ export interface ResetTokenVaultKeyMaterialCommandOutput extends ResetTokenVault
  * @see {@link BedrockAgentCoreControlClientResolvedConfig | config} for BedrockAgentCoreControlClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>This exception is thrown when a request is denied per access permissions</p>
+ *
+ * This exception is thrown when a request is denied per access permissions
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>This exception is thrown when there is a conflict performing an operation</p>
+ *
+ * This exception is thrown when there is a conflict performing an operation
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception is thrown if there was an unexpected error during processing of request</p>
+ *
+ * This exception is thrown if there was an unexpected error during processing of request
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when a resource referenced by the operation does not exist</p>
+ *
+ * This exception is thrown when a resource referenced by the operation does not exist
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>This exception is thrown when the number of requests exceeds the limit</p>
+ *
+ * This exception is thrown when the number of requests exceeds the limit
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>This exception is thrown when the JWT bearer token is invalid or not found for OAuth bearer token based access</p>
+ *
+ * This exception is thrown when the JWT bearer token is invalid or not found for OAuth bearer token based access
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the service.</p>
+ *
+ * The input fails to satisfy the constraints specified by the service.
  *
  * @throws {@link BedrockAgentCoreControlServiceException}
- * <p>Base exception class for all service exceptions from BedrockAgentCoreControl service.</p>
  *
+ * Base exception class for all service exceptions from BedrockAgentCoreControl service.
  *
  * @public
  */

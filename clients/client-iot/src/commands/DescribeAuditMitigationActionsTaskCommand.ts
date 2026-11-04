@@ -26,7 +26,8 @@ export interface DescribeAuditMitigationActionsTaskCommandInput extends Describe
 export interface DescribeAuditMitigationActionsTaskCommandOutput extends DescribeAuditMitigationActionsTaskResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about an audit mitigation task that is used to apply mitigation actions to a set of audit findings. Properties include the actions being applied, the audit checks to which they're being applied, the task status, and aggregated task statistics.</p>
+ * Gets information about an audit mitigation task that is used to apply mitigation actions to a set of audit findings. Properties include the actions being applied, the audit checks to which they're being applied, the task status, and aggregated task statistics.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -111,20 +112,24 @@ export interface DescribeAuditMitigationActionsTaskCommandOutput extends Describ
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An unexpected error has occurred.</p>
+ *
+ * An unexpected error has occurred.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The rate exceeds the limit.</p>
+ *
+ * The rate exceeds the limit.
  *
  * @throws {@link IoTServiceException}
- * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * Base exception class for all service exceptions from IoT service.
  *
  * @public
  */

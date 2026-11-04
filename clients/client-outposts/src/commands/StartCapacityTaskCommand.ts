@@ -23,8 +23,8 @@ export interface StartCapacityTaskCommandInput extends StartCapacityTaskInput {}
 export interface StartCapacityTaskCommandOutput extends StartCapacityTaskOutput, __MetadataBearer {}
 
 /**
- * <p>Starts the specified capacity task. You can have one active capacity task for each order
- *       and each Outpost.</p>
+ * Starts the specified capacity task. You can have one active capacity task for each order and each Outpost.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -102,23 +102,28 @@ export interface StartCapacityTaskCommandOutput extends StartCapacityTaskOutput,
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have permission to perform this operation.</p>
+ *
+ * You do not have permission to perform this operation.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting this resource can cause an inconsistent state.</p>
+ *
+ * Updating or deleting this resource can cause an inconsistent state.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error has occurred.</p>
+ *
+ * An internal error has occurred.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The specified request is not valid.</p>
+ *
+ * The specified request is not valid.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A parameter is not valid.</p>
+ *
+ * A parameter is not valid.
  *
  * @throws {@link OutpostsServiceException}
- * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ * Base exception class for all service exceptions from Outposts service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface DescribeProductsV2CommandInput extends DescribeProductsV2Reques
 export interface DescribeProductsV2CommandOutput extends DescribeProductsV2Response, __MetadataBearer {}
 
 /**
- * <p>Gets information about the product integration.</p>
+ * Gets information about the product integration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,27 +68,28 @@ export interface DescribeProductsV2CommandOutput extends DescribeProductsV2Respo
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permission to perform the action specified in the request.</p>
+ *
+ * You don't have permission to perform the action specified in the request.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request causes conflict with the current state of the service resource.</p>
+ *
+ * The request causes conflict with the current state of the service resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>
- *          The request has failed due to an internal failure of the service.
- *       </p>
+ *
+ * The request has failed due to an internal failure of the service.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>
- *          The limit on the number of requests per second was exceeded.
- *       </p>
+ *
+ * The limit on the number of requests per second was exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request has failed validation because it's missing required fields or has invalid inputs.</p>
+ *
+ * The request has failed validation because it's missing required fields or has invalid inputs.
  *
  * @throws {@link SecurityHubServiceException}
- * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * Base exception class for all service exceptions from SecurityHub service.
  *
  * @public
  */

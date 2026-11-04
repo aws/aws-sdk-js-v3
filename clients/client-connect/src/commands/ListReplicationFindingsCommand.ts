@@ -23,10 +23,8 @@ export interface ListReplicationFindingsCommandInput extends ListReplicationFind
 export interface ListReplicationFindingsCommandOutput extends ListReplicationFindingsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists replication findings for resources of a specified resource type in a specified
- *    Connect Customer instance. A replication finding describes a single resource whose replication
- *    to one or more Regions is incomplete or has encountered an error. Results are returned in pages.
- *    This operation is available only for instances that are set up for Global Resiliency.</p>
+ * Lists replication findings for resources of a specified resource type in a specified Connect Customer instance. A replication finding describes a single resource whose replication to one or more Regions is incomplete or has encountered an error. Results are returned in pages. This operation is available only for instances that are set up for Global Resiliency.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,23 +79,28 @@ export interface ListReplicationFindingsCommandOutput extends ListReplicationFin
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

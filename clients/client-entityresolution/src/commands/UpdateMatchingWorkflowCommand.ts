@@ -23,7 +23,10 @@ export interface UpdateMatchingWorkflowCommandInput extends UpdateMatchingWorkfl
 export interface UpdateMatchingWorkflowCommandOutput extends UpdateMatchingWorkflowOutput, __MetadataBearer {}
 
 /**
- * <p>Updates an existing matching workflow. The workflow must already exist for this operation to succeed.</p> <important> <p>For workflows where <code>resolutionType</code> is <code>PROVIDER</code>, incremental processing is not supported. </p> </important>
+ * Updates an existing matching workflow. The workflow must already exist for this operation to succeed.
+ *
+ * > **Important:** For workflows where `resolutionType` is `PROVIDER`, incremental processing is not supported.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -176,23 +179,28 @@ export interface UpdateMatchingWorkflowCommandOutput extends UpdateMatchingWorkf
  * @see {@link EntityResolutionClientResolvedConfig | config} for EntityResolutionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action. </p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+ *
+ * This exception occurs when there is an internal failure in the Entity Resolution service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource couldn't be found. </p>
+ *
+ * The resource couldn't be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. </p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
+ *
+ * The input fails to satisfy the constraints specified by Entity Resolution.
  *
  * @throws {@link EntityResolutionServiceException}
- * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
+ * Base exception class for all service exceptions from EntityResolution service.
  *
  * @public
  */

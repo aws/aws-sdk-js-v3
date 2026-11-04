@@ -23,7 +23,8 @@ export interface ListIngestionDestinationsCommandInput extends ListIngestionDest
 export interface ListIngestionDestinationsCommandOutput extends ListIngestionDestinationsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of all ingestion destinations configured for an ingestion.</p>
+ * Returns a list of all ingestion destinations configured for an ingestion.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,24 +59,28 @@ export interface ListIngestionDestinationsCommandOutput extends ListIngestionDes
  * @see {@link AppFabricClientResolvedConfig | config} for AppFabricClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You are not authorized to perform this operation.</p>
+ *
+ * You are not authorized to perform this operation.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception, or failure
- *          with an internal server.</p>
+ *
+ * The request processing has failed because of an unknown error, exception, or failure with an internal server.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request rate exceeds the limit.</p>
+ *
+ * The request rate exceeds the limit.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request has invalid or missing parameters.</p>
+ *
+ * The request has invalid or missing parameters.
  *
  * @throws {@link AppFabricServiceException}
- * <p>Base exception class for all service exceptions from AppFabric service.</p>
  *
+ * Base exception class for all service exceptions from AppFabric service.
  *
  * @public
  */

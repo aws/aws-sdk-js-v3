@@ -23,20 +23,12 @@ export interface DeleteEventDataStoreCommandInput extends DeleteEventDataStoreRe
 export interface DeleteEventDataStoreCommandOutput extends DeleteEventDataStoreResponse, __MetadataBearer {}
 
 /**
- * <important>
- *             <p>CloudTrail Lake will no longer be open to new customers starting May 31, 2026. If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-service-availability-change.html">CloudTrail Lake availability change</a>.</p>
- *          </important>
- *          <p>Disables the event data store specified by <code>EventDataStore</code>, which accepts an
- *          event data store ARN. After you run <code>DeleteEventDataStore</code>, the event data store
- *          enters a <code>PENDING_DELETION</code> state, and is automatically deleted after a wait
- *          period of seven days. <code>TerminationProtectionEnabled</code> must be set to
- *             <code>False</code> on the event data store and the <code>FederationStatus</code> must be <code>DISABLED</code>.
- *          You cannot delete an event data store if <code>TerminationProtectionEnabled</code>
- *          is <code>True</code> or the <code>FederationStatus</code> is <code>ENABLED</code>.</p>
- *          <p>After you run <code>DeleteEventDataStore</code> on an event data store, you cannot run
- *             <code>ListQueries</code>, <code>DescribeQuery</code>, or <code>GetQueryResults</code> on
- *          queries that are using an event data store in a <code>PENDING_DELETION</code> state. An
- *          event data store in the <code>PENDING_DELETION</code> state does not incur costs.</p>
+ * > **Important:** CloudTrail Lake will no longer be open to new customers starting May 31, 2026. If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [CloudTrail Lake availability change](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-service-availability-change.html).
+ *
+ * Disables the event data store specified by `EventDataStore`, which accepts an event data store ARN. After you run `DeleteEventDataStore`, the event data store enters a `PENDING_DELETION` state, and is automatically deleted after a wait period of seven days. `TerminationProtectionEnabled` must be set to `False` on the event data store and the `FederationStatus` must be `DISABLED`. You cannot delete an event data store if `TerminationProtectionEnabled` is `True` or the `FederationStatus` is `ENABLED`.
+ *
+ * After you run `DeleteEventDataStore` on an event data store, you cannot run `ListQueries`, `DescribeQuery`, or `GetQueryResults` on queries that are using an event data store in a `PENDING_DELETION` state. An event data store in the `PENDING_DELETION` state does not incur costs.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,65 +53,64 @@ export interface DeleteEventDataStoreCommandOutput extends DeleteEventDataStoreR
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
  * @throws {@link ChannelExistsForEDSException} (client fault)
- *  <p>This exception is thrown when the specified event data store cannot yet be deleted because it
- *          is in use by a channel.</p>
+ *
+ * This exception is thrown when the specified event data store cannot yet be deleted because it is in use by a channel.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>This exception is thrown when the specified resource is not ready for an operation. This
- *          can occur when you try to run an operation on a resource before CloudTrail has time
- *          to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the
- *          operation again.</p>
+ *
+ * This exception is thrown when the specified resource is not ready for an operation. This can occur when you try to run an operation on a resource before CloudTrail has time to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the operation again.
  *
  * @throws {@link EventDataStoreARNInvalidException} (client fault)
- *  <p>The specified event data store ARN is not valid or does not map to an event data store
- *          in your account.</p>
+ *
+ * The specified event data store ARN is not valid or does not map to an event data store in your account.
  *
  * @throws {@link EventDataStoreFederationEnabledException} (client fault)
- *  <p>
- *         You cannot delete the event data store because Lake query federation is enabled. To delete the event data store, run the <code>DisableFederation</code> operation to
- *          disable Lake query federation on the event data store.
- *       </p>
+ *
+ * You cannot delete the event data store because Lake query federation is enabled. To delete the event data store, run the `DisableFederation` operation to disable Lake query federation on the event data store.
  *
  * @throws {@link EventDataStoreHasOngoingImportException} (client fault)
- *  <p> This exception is thrown when you try to update or delete an event data store that
- *          currently has an import in progress. </p>
+ *
+ * This exception is thrown when you try to update or delete an event data store that currently has an import in progress.
  *
  * @throws {@link EventDataStoreNotFoundException} (client fault)
- *  <p>The specified event data store was not found.</p>
+ *
+ * The specified event data store was not found.
  *
  * @throws {@link EventDataStoreTerminationProtectedException} (client fault)
- *  <p>The event data store cannot be deleted because termination protection is enabled for
- *          it.</p>
+ *
+ * The event data store cannot be deleted because termination protection is enabled for it.
  *
  * @throws {@link InactiveEventDataStoreException} (client fault)
- *  <p>The event data store is inactive.</p>
+ *
+ * The event data store is inactive.
  *
  * @throws {@link InsufficientDependencyServiceAccessPermissionException} (client fault)
- *  <p>This exception is thrown when the IAM identity that is used to create
- *          the organization resource lacks one or more required permissions for creating an
- *          organization resource in a required service.</p>
+ *
+ * This exception is thrown when the IAM identity that is used to create the organization resource lacks one or more required permissions for creating an organization resource in a required service.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The request includes a parameter that is not valid.</p>
+ *
+ * The request includes a parameter that is not valid.
  *
  * @throws {@link NoManagementAccountSLRExistsException} (client fault)
- *  <p> This exception is thrown when the management account does not have a service-linked
- *          role. </p>
+ *
+ * This exception is thrown when the management account does not have a service-linked role.
  *
  * @throws {@link NotOrganizationMasterAccountException} (client fault)
- *  <p>This exception is thrown when the Amazon Web Services account making the request to
- *          create or update an organization trail or event data store is not the management account
- *          for an organization in Organizations. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a> or <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-organizations.html">Organization event data stores</a>.</p>
+ *
+ * This exception is thrown when the Amazon Web Services account making the request to create or update an organization trail or event data store is not the management account for an organization in Organizations. For more information, see [Prepare For Creating a Trail For Your Organization](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html) or [Organization event data stores](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-organizations.html).
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * This exception is thrown when the requested operation is not permitted.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>This exception is thrown when the requested operation is not supported.</p>
+ *
+ * This exception is thrown when the requested operation is not supported.
  *
  * @throws {@link CloudTrailServiceException}
- * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * Base exception class for all service exceptions from CloudTrail service.
  *
  * @public
  */

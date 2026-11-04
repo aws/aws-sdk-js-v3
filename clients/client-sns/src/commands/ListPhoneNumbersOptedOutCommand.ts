@@ -23,14 +23,10 @@ export interface ListPhoneNumbersOptedOutCommandInput extends ListPhoneNumbersOp
 export interface ListPhoneNumbersOptedOutCommandOutput extends ListPhoneNumbersOptedOutResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of phone numbers that are opted out, meaning you cannot send SMS
- *             messages to them.</p>
- *          <p>The results for <code>ListPhoneNumbersOptedOut</code> are paginated, and each page
- *             returns up to 100 phone numbers. If additional phone numbers are available after the
- *             first page of results, then a <code>NextToken</code> string will be returned. To receive
- *             the next page, you call <code>ListPhoneNumbersOptedOut</code> again using the
- *                 <code>NextToken</code> string received from the previous call. When there are no
- *             more records to return, <code>NextToken</code> will be null.</p>
+ * Returns a list of phone numbers that are opted out, meaning you cannot send SMS messages to them.
+ *
+ * The results for `ListPhoneNumbersOptedOut` are paginated, and each page returns up to 100 phone numbers. If additional phone numbers are available after the first page of results, then a `NextToken` string will be returned. To receive the next page, you call `ListPhoneNumbersOptedOut` again using the `NextToken` string received from the previous call. When there are no more records to return, `NextToken` will be null.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,21 +56,24 @@ export interface ListPhoneNumbersOptedOutCommandOutput extends ListPhoneNumbersO
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
  *
  * @throws {@link AuthorizationErrorException} (client fault)
- *  <p>Indicates that the user has been denied access to the requested resource.</p>
+ *
+ * Indicates that the user has been denied access to the requested resource.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>Indicates an internal service error.</p>
+ *
+ * Indicates an internal service error.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Indicates that a request parameter does not comply with the associated
- *             constraints.</p>
+ *
+ * Indicates that a request parameter does not comply with the associated constraints.
  *
  * @throws {@link ThrottledException} (client fault)
- *  <p>Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.</p>
+ *
+ * Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.
  *
  * @throws {@link SNSServiceException}
- * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * Base exception class for all service exceptions from SNS service.
  *
  * @public
  */

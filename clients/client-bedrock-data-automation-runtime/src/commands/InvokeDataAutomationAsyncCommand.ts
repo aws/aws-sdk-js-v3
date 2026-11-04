@@ -110,8 +110,8 @@ export interface InvokeDataAutomationAsyncCommandOutput extends InvokeDataAutoma
  *  This exception will be thrown when customer provided invalid parameters.
  *
  * @throws {@link BedrockDataAutomationRuntimeServiceException}
- * <p>Base exception class for all service exceptions from BedrockDataAutomationRuntime service.</p>
  *
+ * Base exception class for all service exceptions from BedrockDataAutomationRuntime service.
  *
  * @public
  */

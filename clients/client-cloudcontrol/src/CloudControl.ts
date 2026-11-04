@@ -251,8 +251,8 @@ export interface CloudControl {
 }
 
 /**
- * <p>For more information about Amazon Web Services Cloud Control API, see the <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/what-is-cloudcontrolapi.html">Amazon Web Services Cloud Control API User
- *         Guide</a>.</p>
+ * For more information about Amazon Web Services Cloud Control API, see the [Amazon Web Services Cloud Control API User Guide](https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/what-is-cloudcontrolapi.html).
+ *
  * @public
  */
 export class CloudControl extends CloudControlClient implements CloudControl {}

@@ -23,7 +23,8 @@ export interface PutCaseEventConfigurationCommandInput extends PutCaseEventConfi
 export interface PutCaseEventConfigurationCommandOutput extends PutCaseEventConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Adds case event publishing configuration. For a complete list of fields you can add to the event message, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-fields.html">Create case fields</a> in the <i>Amazon Connect Administrator Guide</i> </p>
+ * Adds case event publishing configuration. For a complete list of fields you can add to the event message, see [Create case fields](https://docs.aws.amazon.com/connect/latest/adminguide/case-fields.html) in the *Amazon Connect Administrator Guide*
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,26 +64,32 @@ export interface PutCaseEventConfigurationCommandOutput extends PutCaseEventConf
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+ *
+ * The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>We couldn't process your request because of an issue with the server. Try again later.</p>
+ *
+ * We couldn't process your request because of an issue with the server. Try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>We couldn't find the requested resource. Check that your resources exists and were created in the same Amazon Web Services Region as your request, and try your request again.</p>
+ *
+ * We couldn't find the requested resource. Check that your resources exists and were created in the same Amazon Web Services Region as your request, and try your request again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The rate has been exceeded for this API. Please try again after a few minutes.</p>
+ *
+ * The rate has been exceeded for this API. Please try again after a few minutes.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. Check the syntax and try again.</p>
+ *
+ * The request isn't valid. Check the syntax and try again.
  *
  * @throws {@link ConnectCasesServiceException}
- * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ * Base exception class for all service exceptions from ConnectCases service.
  *
  * @public
  */

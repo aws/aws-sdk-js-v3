@@ -23,17 +23,12 @@ export interface UpdateDataLakeCommandInput extends UpdateDataLakeRequest {}
 export interface UpdateDataLakeCommandOutput extends UpdateDataLakeResponse, __MetadataBearer {}
 
 /**
- * <p>You can use <code>UpdateDataLake</code> to specify where to store your security data, how it should
- *          be encrypted at rest and for how long. You can add a <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/manage-regions.html#add-rollup-region">Rollup
- *             Region</a> to consolidate data from multiple Amazon Web Services Regions, replace
- *          default encryption (SSE-S3) with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">Customer Manged Key</a>,
- *          or specify transition and expiration actions through storage <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/lifecycle-management.html">Lifecycle management</a>. The <code>UpdateDataLake</code> API works as an "upsert" operation that performs an insert if the specified item or record does not exist, or an update if it
- *          already exists. Security Lake securely stores your data at rest using Amazon Web Services encryption solutions. For more details, see <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/data-protection.html">Data protection in Amazon Security Lake</a>.</p>
- *          <p>For example, omitting the key <code>encryptionConfiguration</code> from a Region that is
- *          included in an update call that currently uses KMS will leave that Region's KMS key in
- *          place, but specifying <code>encryptionConfiguration: \{kmsKeyId: 'S3_MANAGED_KEY'\}</code>
- *          for that same Region will reset the key to <code>S3-managed</code>.</p>
- *          <p>For more details about lifecycle management and how to update retention settings for one or more Regions after enabling Security Lake, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/lifecycle-management.html">Amazon Security Lake User Guide</a>. </p>
+ * You can use `UpdateDataLake` to specify where to store your security data, how it should be encrypted at rest and for how long. You can add a [Rollup Region](https://docs.aws.amazon.com/security-lake/latest/userguide/manage-regions.html#add-rollup-region) to consolidate data from multiple Amazon Web Services Regions, replace default encryption (SSE-S3) with [Customer Manged Key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk), or specify transition and expiration actions through storage [Lifecycle management](https://docs.aws.amazon.com/security-lake/latest/userguide/lifecycle-management.html). The `UpdateDataLake` API works as an "upsert" operation that performs an insert if the specified item or record does not exist, or an update if it already exists. Security Lake securely stores your data at rest using Amazon Web Services encryption solutions. For more details, see [Data protection in Amazon Security Lake](https://docs.aws.amazon.com/security-lake/latest/userguide/data-protection.html).
+ *
+ * For example, omitting the key `encryptionConfiguration` from a Region that is included in an update call that currently uses KMS will leave that Region's KMS key in place, but specifying `encryptionConfiguration: \{kmsKeyId: 'S3_MANAGED_KEY'\}` for that same Region will reset the key to `S3-managed`.
+ *
+ * For more details about lifecycle management and how to update retention settings for one or more Regions after enabling Security Lake, see the [Amazon Security Lake User Guide](https://docs.aws.amazon.com/security-lake/latest/userguide/lifecycle-management.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -120,33 +115,32 @@ export interface UpdateDataLakeCommandOutput extends UpdateDataLakeResponse, __M
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action. Access denied errors appear when Amazon Security Lake explicitly or implicitly denies an authorization
- *          request. An explicit denial occurs when a policy contains a Deny statement for the specific
- *          Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also
- *          no applicable Allow statement.</p>
+ *
+ * You do not have sufficient access to perform this action. Access denied errors appear when Amazon Security Lake explicitly or implicitly denies an authorization request. An explicit denial occurs when a policy contains a Deny statement for the specific Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also no applicable Allow statement.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+ *
+ * The request is malformed or contains an error such as an invalid parameter value or a missing required parameter.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Occurs when a conflict with a previous successful write is detected. This generally
- *          occurs when the previous write did not have time to propagate to the host serving the
- *          current request. A retry (with appropriate backoff logic) is the recommended response to
- *          this exception.</p>
+ *
+ * Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal service exceptions are sometimes caused by transient issues. Before you start
- *          troubleshooting, perform the operation again.</p>
+ *
+ * Internal service exceptions are sometimes caused by transient issues. Before you start troubleshooting, perform the operation again.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The limit on the number of requests per second was exceeded.</p>
+ *
+ * The limit on the number of requests per second was exceeded.
  *
  * @throws {@link SecurityLakeServiceException}
- * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ * Base exception class for all service exceptions from SecurityLake service.
  *
  * @public
  */

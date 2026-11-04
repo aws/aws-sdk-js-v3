@@ -23,16 +23,14 @@ export interface PutStoredQueryCommandInput extends PutStoredQueryRequest {}
 export interface PutStoredQueryCommandOutput extends PutStoredQueryResponse, __MetadataBearer {}
 
 /**
- * <p>Saves a new query or updates an existing saved query. The <code>QueryName</code> must be unique for a single Amazon Web Services account and a single Amazon Web Services Region.
- * 			You can create upto 300 queries in a single Amazon Web Services account and a single Amazon Web Services Region.</p>
- *          <note>
- *             <p>
- *                <b>Tags are added at creation and cannot be updated</b>
- *             </p>
- *             <p>
- *                <code>PutStoredQuery</code> is an idempotent API. Subsequent requests won’t create a duplicate resource if one was already created. If a following request has different <code>tags</code> values,
- * 			Config will ignore these differences and treat it as an idempotent request of the previous. In this case, <code>tags</code> will not be updated, even if they are different.</p>
- *          </note>
+ * Saves a new query or updates an existing saved query. The `QueryName` must be unique for a single Amazon Web Services account and a single Amazon Web Services Region. You can create upto 300 queries in a single Amazon Web Services account and a single Amazon Web Services Region.
+ *
+ * > **Note:**
+ * >
+ * > **Tags are added at creation and cannot be updated**
+ * >
+ * > `PutStoredQuery` is an idempotent API. Subsequent requests won’t create a duplicate resource if one was already created. If a following request has different `tags` values, Config will ignore these differences and treat it as an idempotent request of the previous. In this case, `tags` will not be updated, even if they are different.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,62 +69,42 @@ export interface PutStoredQueryCommandOutput extends PutStoredQueryResponse, __M
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  * @throws {@link ResourceConcurrentModificationException} (client fault)
- *  <p>Two users are trying to modify the same query at the same time. Wait for a moment and try again.</p>
+ *
+ * Two users are trying to modify the same query at the same time. Wait for a moment and try again.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>You have reached the limit of the number of tags you can use.
- * 			For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
- *                <b>Service Limits</b>
- *             </a> in the <i>Config Developer Guide</i>.</p>
+ *
+ * You have reached the limit of the number of tags you can use. For more information, see [**Service Limits**](https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html) in the *Config Developer Guide*.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p>
- *          <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html">PutStoredQuery</a>, one of the following errors:</p>
- *          <ul>
- *             <li>
- *                <p>There are missing required fields.</p>
- *             </li>
- *             <li>
- *                <p>The input value fails the validation.</p>
- *             </li>
- *             <li>
- *                <p>You are trying to create more than 300 queries.</p>
- *             </li>
- *          </ul>
- *          <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html">DescribeConfigurationRecorders</a> and <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html">DescribeConfigurationRecorderStatus</a>, one of the following errors:</p>
- *          <ul>
- *             <li>
- *                <p>You have specified more than one configuration recorder.</p>
- *             </li>
- *             <li>
- *                <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p>
- *             </li>
- *          </ul>
- *          <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html">AssociateResourceTypes</a> and <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html">DisassociateResourceTypes</a>, one of the following errors:</p>
- *          <ul>
- *             <li>
- *                <p>Your configuraiton recorder has a recording strategy that does not allow the association or disassociation of resource types.</p>
- *             </li>
- *             <li>
- *                <p>One or more of the specified resource types are already associated or disassociated with the configuration recorder.</p>
- *             </li>
- *             <li>
- *                <p>For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.</p>
- *             </li>
- *          </ul>
- *          <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteServiceLinkedConfigurationRecorder.html">DeleteServiceLinkedConfigurationRecorder</a>, one of the following errors:</p>
- *          <ul>
- *             <li>
- *                <p>You have provided both <code>Arn</code> and <code>ServicePrincipal</code>. Only one of <code>Arn</code> or <code>ServicePrincipal</code> can be specified.</p>
- *             </li>
- *             <li>
- *                <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p>
- *             </li>
- *          </ul>
+ *
+ * The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.
+ *
+ * For [PutStoredQuery](https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html), one of the following errors:
+ *
+ * - There are missing required fields.
+ * - The input value fails the validation.
+ * - You are trying to create more than 300 queries.
+ *
+ * For [DescribeConfigurationRecorders](https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html) and [DescribeConfigurationRecorderStatus](https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html), one of the following errors:
+ *
+ * - You have specified more than one configuration recorder.
+ * - You have provided a service principal for service-linked configuration recorder that is not valid.
+ *
+ * For [AssociateResourceTypes](https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html) and [DisassociateResourceTypes](https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html), one of the following errors:
+ *
+ * - Your configuraiton recorder has a recording strategy that does not allow the association or disassociation of resource types.
+ * - One or more of the specified resource types are already associated or disassociated with the configuration recorder.
+ * - For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.
+ *
+ * For [DeleteServiceLinkedConfigurationRecorder](https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteServiceLinkedConfigurationRecorder.html), one of the following errors:
+ *
+ * - You have provided both `Arn` and `ServicePrincipal`. Only one of `Arn` or `ServicePrincipal` can be specified.
+ * - You have provided a service principal for service-linked configuration recorder that is not valid.
  *
  * @throws {@link ConfigServiceServiceException}
- * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * Base exception class for all service exceptions from ConfigService service.
  *
  * @public
  */

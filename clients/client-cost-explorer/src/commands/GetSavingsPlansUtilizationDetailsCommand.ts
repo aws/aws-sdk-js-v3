@@ -26,18 +26,10 @@ export interface GetSavingsPlansUtilizationDetailsCommandInput extends GetSaving
 export interface GetSavingsPlansUtilizationDetailsCommandOutput extends GetSavingsPlansUtilizationDetailsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves attribute data along with aggregate utilization and savings data for a given
- *       time period. This doesn't support granular or grouped data (daily/monthly) in response. You
- *       can't retrieve data by dates in a single response similar to
- *         <code>GetSavingsPlanUtilization</code>, but you have the option to make multiple calls to
- *         <code>GetSavingsPlanUtilizationDetails</code> by providing individual dates. You can use
- *         <code>GetDimensionValues</code> in <code>SAVINGS_PLANS</code> to determine the possible
- *       dimension values.</p>
- *          <note>
- *             <p>
- *                <code>GetSavingsPlanUtilizationDetails</code> internally groups data by
- *           <code>SavingsPlansArn</code>.</p>
- *          </note>
+ * Retrieves attribute data along with aggregate utilization and savings data for a given time period. This doesn't support granular or grouped data (daily/monthly) in response. You can't retrieve data by dates in a single response similar to `GetSavingsPlanUtilization`, but you have the option to make multiple calls to `GetSavingsPlanUtilizationDetails` by providing individual dates. You can use `GetDimensionValues` in `SAVINGS_PLANS` to determine the possible dimension values.
+ *
+ * > **Note:** `GetSavingsPlanUtilizationDetails` internally groups data by `SavingsPlansArn`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -201,17 +193,20 @@ export interface GetSavingsPlansUtilizationDetailsCommandOutput extends GetSavin
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
  * @throws {@link DataUnavailableException} (client fault)
- *  <p>The requested data is unavailable.</p>
+ *
+ * The requested data is unavailable.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The pagination token is invalid. Try again without a pagination token.</p>
+ *
+ * The pagination token is invalid. Try again without a pagination token.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ * You made too many calls in a short period of time. Try again later.
  *
  * @throws {@link CostExplorerServiceException}
- * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * Base exception class for all service exceptions from CostExplorer service.
  *
  * @public
  */

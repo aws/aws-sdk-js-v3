@@ -23,11 +23,9 @@ export interface ListTagsLogGroupCommandInput extends ListTagsLogGroupRequest {}
 export interface ListTagsLogGroupCommandOutput extends ListTagsLogGroupResponse, __MetadataBearer {}
 
 /**
- * <important>
- *             <p>The ListTagsLogGroup operation is on the path to deprecation. We recommend that you use
- *           <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a> instead.</p>
- *          </important>
- *          <p>Lists the tags for the specified log group.</p>
+ * > **Important:** The ListTagsLogGroup operation is on the path to deprecation. We recommend that you use [ListTagsForResource](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsForResource.html) instead.
+ *
+ * Lists the tags for the specified log group.
  *
  * @deprecated Please use the generic tagging API ListTagsForResource.
  * @example
@@ -58,14 +56,16 @@ export interface ListTagsLogGroupCommandOutput extends ListTagsLogGroupResponse,
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service cannot complete the request.</p>
+ *
+ * The service cannot complete the request.
  *
  * @throws {@link CloudWatchLogsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchLogs service.
  *
  * @public
  */

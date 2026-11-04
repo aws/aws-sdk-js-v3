@@ -23,8 +23,8 @@ export interface ResetResourceLogLevelCommandInput extends ResetResourceLogLevel
 export interface ResetResourceLogLevelCommandOutput extends ResetResourceLogLevelResponse, __MetadataBearer {}
 
 /**
- * <p>Removes the log-level override, if any, for a specific resource ID and resource type.
- *             It can be used for a wireless device, a wireless gateway, or a FUOTA task.</p>
+ * Removes the log-level override, if any, for a specific resource ID and resource type. It can be used for a wireless device, a wireless gateway, or a FUOTA task.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,23 +50,28 @@ export interface ResetResourceLogLevelCommandOutput extends ResetResourceLogLeve
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>User does not have permission to perform this action.</p>
+ *
+ * User does not have permission to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred while processing a request.</p>
+ *
+ * An unexpected error occurred while processing a request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource does not exist.</p>
+ *
+ * Resource does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied because it exceeded the allowed API request rate.</p>
+ *
+ * The request was denied because it exceeded the allowed API request rate.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input did not meet the specified constraints.</p>
+ *
+ * The input did not meet the specified constraints.
  *
  * @throws {@link IoTWirelessServiceException}
- * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * Base exception class for all service exceptions from IoTWireless service.
  *
  * @public
  */

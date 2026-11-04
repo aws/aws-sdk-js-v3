@@ -23,7 +23,10 @@ export interface ListInstrumentationConfigurationsCommandInput extends ListInstr
 export interface ListInstrumentationConfigurationsCommandOutput extends InstrumentationConfigurationsPage, __MetadataBearer {}
 
 /**
- * <p>Returns all active instrumentation configurations for a service and environment. SDKs use this operation to sync configurations and apply client-side filters locally.</p> <p>Include the previous <code>SyncedAt</code> value to perform incremental syncs. When no changes are detected, the response sets <code>Changed</code> to <code>false</code> and omits configuration details.</p>
+ * Returns all active instrumentation configurations for a service and environment. SDKs use this operation to sync configurations and apply client-side filters locally.
+ *
+ * Include the previous `SyncedAt` value to perform incremental syncs. When no changes are detected, the response sets `Changed` to `false` and omits configuration details.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -108,17 +111,20 @@ export interface ListInstrumentationConfigurationsCommandOutput extends Instrume
  * @see {@link ApplicationSignalsClientResolvedConfig | config} for ApplicationSignalsClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource not found.</p>
+ *
+ * Resource not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled because of quota limits.</p>
+ *
+ * The request was throttled because of quota limits.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The resource is not valid.</p>
+ *
+ * The resource is not valid.
  *
  * @throws {@link ApplicationSignalsServiceException}
- * <p>Base exception class for all service exceptions from ApplicationSignals service.</p>
  *
+ * Base exception class for all service exceptions from ApplicationSignals service.
  *
  * @public
  */

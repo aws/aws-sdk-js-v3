@@ -23,31 +23,21 @@ export interface BatchPutAssetPropertyValueCommandInput extends BatchPutAssetPro
 export interface BatchPutAssetPropertyValueCommandOutput extends BatchPutAssetPropertyValueResponse, __MetadataBearer {}
 
 /**
- * <p>Sends a list of asset property values to IoT SiteWise. Each value is a timestamp-quality-value
- *       (TQV) data point. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ingest-api.html">Ingesting data using the API</a> in the
- *         <i>IoT SiteWise User Guide</i>.</p>
- *          <p>To identify an asset property, you must specify one of the following:</p>
- *          <ul>
- *             <li>
- *                <p>The <code>assetId</code> and <code>propertyId</code> of an asset property.</p>
- *             </li>
- *             <li>
- *                <p>A <code>propertyAlias</code>, which is a data stream alias (for example,
- *           <code>/company/windfarm/3/turbine/7/temperature</code>). To define an asset property's alias, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html">UpdateAssetProperty</a>.</p>
- *             </li>
- *          </ul>
- *          <important>
- *             <p>With respect to Unix epoch time, IoT SiteWise accepts only TQVs that have a timestamp of no more
- *         than 7 days in the past and no more than 10 minutes in the future. IoT SiteWise rejects timestamps
- *         outside of the inclusive range of [-7 days, +10 minutes] and returns a
- *           <code>TimestampOutOfRangeException</code> error.</p>
- *             <p>For each asset property, IoT SiteWise overwrites TQVs with duplicate timestamps unless the newer
- *         TQV has a different quality. For example, if you store a TQV <code>\{T1, GOOD, V1\}</code>,
- *         then storing <code>\{T1, GOOD, V2\}</code> replaces the existing TQV.</p>
- *          </important>
- *          <p>IoT SiteWise authorizes access to each <code>BatchPutAssetPropertyValue</code> entry individually.
- *       For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-batchputassetpropertyvalue-action">BatchPutAssetPropertyValue authorization</a> in the
- *       <i>IoT SiteWise User Guide</i>.</p>
+ * Sends a list of asset property values to IoT SiteWise. Each value is a timestamp-quality-value (TQV) data point. For more information, see [Ingesting data using the API](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ingest-api.html) in the *IoT SiteWise User Guide*.
+ *
+ * To identify an asset property, you must specify one of the following:
+ *
+ * - The `assetId` and `propertyId` of an asset property.
+ * - A `propertyAlias`, which is a data stream alias (for example, `/company/windfarm/3/turbine/7/temperature`). To define an asset property's alias, see [UpdateAssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html).
+ *
+ * > **Important:**
+ * >
+ * > With respect to Unix epoch time, IoT SiteWise accepts only TQVs that have a timestamp of no more than 7 days in the past and no more than 10 minutes in the future. IoT SiteWise rejects timestamps outside of the inclusive range of [-7 days, +10 minutes] and returns a `TimestampOutOfRangeException` error.
+ * >
+ * > For each asset property, IoT SiteWise overwrites TQVs with duplicate timestamps unless the newer TQV has a different quality. For example, if you store a TQV `\{T1, GOOD, V1\}`, then storing `\{T1, GOOD, V2\}` replaces the existing TQV.
+ *
+ * IoT SiteWise authorizes access to each `BatchPutAssetPropertyValue` entry individually. For more information, see [BatchPutAssetPropertyValue authorization](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-batchputassetpropertyvalue-action) in the *IoT SiteWise User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -116,37 +106,40 @@ export interface BatchPutAssetPropertyValueCommandOutput extends BatchPutAssetPr
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  * @throws {@link ConflictingOperationException} (client fault)
- *  <p>Your request has conflicting operations. This can occur if you're trying to perform more
- *       than one operation on the same resource at the same time.</p>
+ *
+ * Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>IoT SiteWise can't process your request right now. Try again later.</p>
+ *
+ * IoT SiteWise can't process your request right now. Try again later.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *       unsupported characters. Check your request and try again.</p>
+ *
+ * The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You've reached the quota for a resource. For example, this can occur if you're trying to
- *       associate more than the allowed number of child assets or attempting to create more than the
- *       allowed number of properties for an asset model.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ *
+ * You've reached the quota for a resource. For example, this can occur if you're trying to associate more than the allowed number of child assets or attempting to create more than the allowed number of properties for an asset model.
+ *
+ * For more information, see [Quotas](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html) in the *IoT SiteWise User Guide*.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource can't be found.</p>
+ *
+ * The requested resource can't be found.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The requested service is unavailable.</p>
+ *
+ * The requested service is unavailable.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Your request exceeded a rate limit. For example, you might have exceeded the number of
- *       IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so
- *       on.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ *
+ * Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.
+ *
+ * For more information, see [Quotas](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html) in the *IoT SiteWise User Guide*.
  *
  * @throws {@link IoTSiteWiseServiceException}
- * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * Base exception class for all service exceptions from IoTSiteWise service.
  *
  * @public
  */

@@ -26,7 +26,8 @@ export interface CreatePaymentCredentialProviderCommandInput extends CreatePayme
 export interface CreatePaymentCredentialProviderCommandOutput extends CreatePaymentCredentialProviderResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new payment credential provider for storing authentication credentials used by payment connectors to communicate with external payment providers.</p>
+ * Creates a new payment credential provider for storing authentication credentials used by payment connectors to communicate with external payment providers.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -121,41 +122,52 @@ export interface CreatePaymentCredentialProviderCommandOutput extends CreatePaym
  * @see {@link BedrockAgentCoreControlClientResolvedConfig | config} for BedrockAgentCoreControlClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>This exception is thrown when a request is denied per access permissions</p>
+ *
+ * This exception is thrown when a request is denied per access permissions
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>This exception is thrown when there is a conflict performing an operation</p>
+ *
+ * This exception is thrown when there is a conflict performing an operation
  *
  * @throws {@link DecryptionFailure} (client fault)
- *  <p>Exception thrown when decryption of a secret fails.</p>
+ *
+ * Exception thrown when decryption of a secret fails.
  *
  * @throws {@link EncryptionFailure} (client fault)
- *  <p>Exception thrown when encryption of a secret fails.</p>
+ *
+ * Exception thrown when encryption of a secret fails.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception is thrown if there was an unexpected error during processing of request</p>
+ *
+ * This exception is thrown if there was an unexpected error during processing of request
  *
  * @throws {@link ResourceLimitExceededException} (client fault)
- *  <p>Exception thrown when a resource limit is exceeded.</p>
+ *
+ * Exception thrown when a resource limit is exceeded.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when a resource referenced by the operation does not exist</p>
+ *
+ * This exception is thrown when a resource referenced by the operation does not exist
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>This exception is thrown when a request is made beyond the service quota</p>
+ *
+ * This exception is thrown when a request is made beyond the service quota
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>This exception is thrown when the number of requests exceeds the limit</p>
+ *
+ * This exception is thrown when the number of requests exceeds the limit
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>This exception is thrown when the JWT bearer token is invalid or not found for OAuth bearer token based access</p>
+ *
+ * This exception is thrown when the JWT bearer token is invalid or not found for OAuth bearer token based access
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the service.</p>
+ *
+ * The input fails to satisfy the constraints specified by the service.
  *
  * @throws {@link BedrockAgentCoreControlServiceException}
- * <p>Base exception class for all service exceptions from BedrockAgentCoreControl service.</p>
  *
+ * Base exception class for all service exceptions from BedrockAgentCoreControl service.
  *
  * @public
  */

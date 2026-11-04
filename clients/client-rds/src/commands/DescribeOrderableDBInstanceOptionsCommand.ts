@@ -23,7 +23,8 @@ export interface DescribeOrderableDBInstanceOptionsCommandInput extends Describe
 export interface DescribeOrderableDBInstanceOptionsCommandOutput extends OrderableDBInstanceOptionsMessage, __MetadataBearer {}
 
 /**
- * <p>Describes the orderable DB instance options for a specified DB engine.</p>
+ * Describes the orderable DB instance options for a specified DB engine.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -139,8 +140,8 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput extends Orderab
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To describe orderable DB instance options
  * ```javascript

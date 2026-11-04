@@ -6,7 +6,8 @@ import type { ValidationExceptionReason } from "./enums";
 import type { ValidationExceptionField } from "./models_0";
 
 /**
- * <p>An exception that occurs when there are not sufficient permissions to perform an action.</p>
+ * An exception that occurs when there are not sufficient permissions to perform an action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>There was an access conflict.</p>
+ * There was an access conflict.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -35,13 +37,15 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The ID of the resource where there was an access conflict.</p>
+   * The ID of the resource where there was an access conflict.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The type of the resource where there was an access conflict.</p>
+   * The type of the resource where there was an access conflict.
+   *
    * @public
    */
   resourceType: string | undefined;
@@ -62,7 +66,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>There was an internal server error.</p>
+ * There was an internal server error.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -84,7 +89,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The specified resource could not be located.</p>
+ * The specified resource could not be located.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -92,13 +98,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The ID of the resource that could not be located.</p>
+   * The ID of the resource that could not be located.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The type of the resource that could not be found.</p>
+   * The type of the resource that could not be found.
+   *
    * @public
    */
   resourceType: string | undefined;
@@ -119,7 +127,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>ThrottlingException will be thrown when request was denied due to request throttling.</p>
+ * ThrottlingException will be thrown when request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -128,7 +137,8 @@ export class ThrottlingException extends __BaseException {
   readonly $fault = "client" as const;
   $retryable = {};
   /**
-   * <p>The number of seconds to wait before retrying the operation.</p>
+   * The number of seconds to wait before retrying the operation.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -148,7 +158,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>A structure defining a validation exception.</p>
+ * A structure defining a validation exception.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -156,14 +167,15 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The reason why the validation exception occurred (one of <code>unknownOperation</code>,
-   *       <code>cannotParse</code>, <code>fieldValidationFailed</code>, or <code>other</code>).</p>
+   * The reason why the validation exception occurred (one of `unknownOperation`, `cannotParse`, `fieldValidationFailed`, or `other`).
+   *
    * @public
    */
   reason: ValidationExceptionReason | undefined;
 
   /**
-   * <p>A list of the fields in which the validation exception occurred.</p>
+   * A list of the fields in which the validation exception occurred.
+   *
    * @public
    */
   fieldList?: ValidationExceptionField[] | undefined;
@@ -184,7 +196,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The service quota for the action was exceeded.</p>
+ * The service quota for the action was exceeded.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {

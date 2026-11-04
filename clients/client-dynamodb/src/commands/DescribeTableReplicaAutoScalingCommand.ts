@@ -23,7 +23,8 @@ export interface DescribeTableReplicaAutoScalingCommandInput extends DescribeTab
 export interface DescribeTableReplicaAutoScalingCommandOutput extends DescribeTableReplicaAutoScalingOutput, __MetadataBearer {}
 
 /**
- * <p>Describes auto scaling settings across replicas of the global table at once.</p>
+ * Describes auto scaling settings across replicas of the global table at once.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -133,15 +134,16 @@ export interface DescribeTableReplicaAutoScalingCommandOutput extends DescribeTa
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The operation tried to access a nonexistent table or index. The resource might not
- *             be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+ *
+ * The operation tried to access a nonexistent table or index. The resource might not be specified correctly, or its status might not be `ACTIVE`.
  *
  * @throws {@link DynamoDBServiceException}
- * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * Base exception class for all service exceptions from DynamoDB service.
  *
  * @public
  */

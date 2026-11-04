@@ -23,7 +23,8 @@ export interface CreateMultiRegionClusterCommandInput extends CreateMultiRegionC
 export interface CreateMultiRegionClusterCommandOutput extends CreateMultiRegionClusterResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new multi-Region cluster.</p>
+ * Creates a new multi-Region cluster.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,26 +83,32 @@ export interface CreateMultiRegionClusterCommandOutput extends CreateMultiRegion
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  * @throws {@link ClusterQuotaForCustomerExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the maximum number of clusters allowed for this customer.</p>
+ *
+ * The request cannot be processed because it would exceed the maximum number of clusters allowed for this customer.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>The specified parameter combination is not valid.</p>
+ *
+ * The specified parameter combination is not valid.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The specified parameter value is not valid.</p>
+ *
+ * The specified parameter value is not valid.
  *
  * @throws {@link MultiRegionClusterAlreadyExistsFault} (client fault)
- *  <p>A multi-Region cluster with the specified name already exists.</p>
+ *
+ * A multi-Region cluster with the specified name already exists.
  *
  * @throws {@link MultiRegionParameterGroupNotFoundFault} (client fault)
- *  <p>The specified multi-Region parameter group does not exist.</p>
+ *
+ * The specified multi-Region parameter group does not exist.
  *
  * @throws {@link TagQuotaPerResourceExceeded} (client fault)
- *  <p>The request cannot be processed because it would exceed the maximum number of tags allowed per resource.</p>
+ *
+ * The request cannot be processed because it would exceed the maximum number of tags allowed per resource.
  *
  * @throws {@link MemoryDBServiceException}
- * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * Base exception class for all service exceptions from MemoryDB service.
  *
  * @public
  */

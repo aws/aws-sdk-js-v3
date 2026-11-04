@@ -23,7 +23,8 @@ export interface ImportCatalogToGlueCommandInput extends ImportCatalogToGlueRequ
 export interface ImportCatalogToGlueCommandOutput extends ImportCatalogToGlueResponse, __MetadataBearer {}
 
 /**
- * <p>Imports an existing Amazon Athena Data Catalog to Glue.</p>
+ * Imports an existing Amazon Athena Data Catalog to Glue.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,14 +49,16 @@ export interface ImportCatalogToGlueCommandOutput extends ImportCatalogToGlueRes
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

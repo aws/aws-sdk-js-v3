@@ -23,7 +23,8 @@ export interface UpdatePublicDnsNamespaceCommandInput extends UpdatePublicDnsNam
 export interface UpdatePublicDnsNamespaceCommandOutput extends UpdatePublicDnsNamespaceResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a public DNS namespace.</p>
+ * Updates a public DNS namespace.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,23 +62,24 @@ export interface UpdatePublicDnsNamespaceCommandOutput extends UpdatePublicDnsNa
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
  * @throws {@link DuplicateRequest} (client fault)
- *  <p>The operation is already in progress.</p>
+ *
+ * The operation is already in progress.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>One or more specified values aren't valid. For example, a required value might be missing, a
- *    numeric value might be outside the allowed range, or a string value might exceed length
- *    constraints.</p>
+ *
+ * One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range, or a string value might exceed length constraints.
  *
  * @throws {@link NamespaceNotFound} (client fault)
- *  <p>No namespace exists with the specified ID.</p>
+ *
+ * No namespace exists with the specified ID.
  *
  * @throws {@link ResourceInUse} (client fault)
- *  <p>The specified resource can't be deleted because it contains other resources. For example,
- *    you can't delete a service that contains any instances.</p>
+ *
+ * The specified resource can't be deleted because it contains other resources. For example, you can't delete a service that contains any instances.
  *
  * @throws {@link ServiceDiscoveryServiceException}
- * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
+ * Base exception class for all service exceptions from ServiceDiscovery service.
  *
  * @example To update a public DNS namespace
  * ```javascript

@@ -23,7 +23,10 @@ export interface DeleteGlobalClusterCommandInput extends DeleteGlobalClusterMess
 export interface DeleteGlobalClusterCommandOutput extends DeleteGlobalClusterResult, __MetadataBearer {}
 
 /**
- * <p>Deletes a global database cluster. The primary and secondary clusters must already be detached or destroyed first.</p> <note> <p>This action only applies to Aurora DB clusters.</p> </note>
+ * Deletes a global database cluster. The primary and secondary clusters must already be detached or destroyed first.
+ *
+ * > **Note:** This action only applies to Aurora DB clusters.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,14 +89,16 @@ export interface DeleteGlobalClusterCommandOutput extends DeleteGlobalClusterRes
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link GlobalClusterNotFoundFault} (client fault)
- *  <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster.</p>
+ *
+ * The `GlobalClusterIdentifier` doesn't refer to an existing global database cluster.
  *
  * @throws {@link InvalidGlobalClusterStateFault} (client fault)
- *  <p>The global cluster is in an invalid state and can't perform the requested operation.</p>
+ *
+ * The global cluster is in an invalid state and can't perform the requested operation.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To delete a global DB cluster
  * ```javascript

@@ -23,7 +23,8 @@ export interface ListGroupingAttributeDefinitionsCommandInput extends ListGroupi
 export interface ListGroupingAttributeDefinitionsCommandOutput extends ListGroupingAttributeDefinitionsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the current grouping configuration for this account, including all custom grouping attribute definitions that have been configured. These definitions determine how services are logically grouped based on telemetry attributes, Amazon Web Services tags, or predefined mappings.</p>
+ * Returns the current grouping configuration for this account, including all custom grouping attribute definitions that have been configured. These definitions determine how services are logically grouped based on telemetry attributes, Amazon Web Services tags, or predefined mappings.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,17 +63,20 @@ export interface ListGroupingAttributeDefinitionsCommandOutput extends ListGroup
  * @see {@link ApplicationSignalsClientResolvedConfig | config} for ApplicationSignalsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permissions to perform this action.</p>
+ *
+ * You don't have sufficient permissions to perform this action.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled because of quota limits.</p>
+ *
+ * The request was throttled because of quota limits.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The resource is not valid.</p>
+ *
+ * The resource is not valid.
  *
  * @throws {@link ApplicationSignalsServiceException}
- * <p>Base exception class for all service exceptions from ApplicationSignals service.</p>
  *
+ * Base exception class for all service exceptions from ApplicationSignals service.
  *
  * @public
  */

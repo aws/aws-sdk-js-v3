@@ -23,21 +23,12 @@ export interface GetBotsCommandInput extends GetBotsRequest {}
 export interface GetBotsCommandOutput extends GetBotsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns bot information as follows: </p>
- *          <ul>
- *             <li>
- *                <p>If you provide the <code>nameContains</code> field, the
- *           response includes information for the <code>$LATEST</code> version of
- *           all bots whose name contains the specified string.</p>
- *             </li>
- *             <li>
- *                <p>If you don't specify the <code>nameContains</code> field, the
- *           operation returns information about the <code>$LATEST</code> version
- *           of all of your bots.</p>
- *             </li>
- *          </ul>
- *          <p>This operation requires permission for the <code>lex:GetBots</code>
- *       action.</p>
+ * Returns bot information as follows:
+ *
+ * - If you provide the `nameContains` field, the response includes information for the `$LATEST` version of all bots whose name contains the specified string.
+ * - If you don't specify the `nameContains` field, the operation returns information about the `$LATEST` version of all of your bots.
+ *
+ * This operation requires permission for the `lex:GetBots` action.
  *
  * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @example
@@ -78,23 +69,24 @@ export interface GetBotsCommandOutput extends GetBotsResponse, __MetadataBearer 
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request is not well formed. For example, a value is invalid or
- *       a required field is missing. Check the field values, and try
- *       again.</p>
+ *
+ * The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An internal Amazon Lex error occurred. Try your request again.</p>
+ *
+ * An internal Amazon Lex error occurred. Try your request again.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request exceeded a limit. Try your request again.</p>
+ *
+ * The request exceeded a limit. Try your request again.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource specified in the request was not found. Check the
- *       resource and try again.</p>
+ *
+ * The resource specified in the request was not found. Check the resource and try again.
  *
  * @throws {@link LexModelBuildingServiceServiceException}
- * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * Base exception class for all service exceptions from LexModelBuildingService service.
  *
  * @example To get a list of bots
  * ```javascript

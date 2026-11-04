@@ -23,7 +23,12 @@ export interface StartFlowExecutionCommandInput extends StartFlowExecutionReques
 export interface StartFlowExecutionCommandOutput extends StartFlowExecutionResponse, __MetadataBearer {}
 
 /**
- * <p>Starts an execution of an Amazon Bedrock flow. Unlike flows that run until completion or time out after five minutes, flow executions let you run flows asynchronously for longer durations. Flow executions also yield control so that your application can perform other tasks.</p> <p>This operation returns an Amazon Resource Name (ARN) that you can use to track and manage your flow execution.</p> <note> <p>Flow executions is in preview release for Amazon Bedrock and is subject to change.</p> </note>
+ * Starts an execution of an Amazon Bedrock flow. Unlike flows that run until completion or time out after five minutes, flow executions let you run flows asynchronously for longer durations. Flow executions also yield control so that your application can perform other tasks.
+ *
+ * This operation returns an Amazon Resource Name (ARN) that you can use to track and manage your flow execution.
+ *
+ * > **Note:** Flow executions is in preview release for Amazon Bedrock and is subject to change.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,35 +72,44 @@ export interface StartFlowExecutionCommandOutput extends StartFlowExecutionRespo
  * @see {@link BedrockAgentRuntimeClientResolvedConfig | config} for BedrockAgentRuntimeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request is denied because of missing access permissions. Check your permissions and retry your request.</p>
+ *
+ * The request is denied because of missing access permissions. Check your permissions and retry your request.
  *
  * @throws {@link BadGatewayException} (server fault)
- *  <p>There was an issue with a dependency due to a server issue. Retry your request.</p>
+ *
+ * There was an issue with a dependency due to a server issue. Retry your request.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>There was a conflict performing an operation. Resolve the conflict and retry your request.</p>
+ *
+ * There was a conflict performing an operation. Resolve the conflict and retry your request.
  *
  * @throws {@link DependencyFailedException} (client fault)
- *  <p>There was an issue with a dependency. Check the resource configurations and retry the request.</p>
+ *
+ * There was an issue with a dependency. Check the resource configurations and retry the request.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
+ *
+ * The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The number of requests exceeds the service quota. Resubmit your request later.</p>
+ *
+ * The number of requests exceeds the service quota. Resubmit your request later.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
+ * The number of requests exceeds the limit. Resubmit your request later.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Input validation failed. Check your request parameters and retry the request.</p>
+ *
+ * Input validation failed. Check your request parameters and retry the request.
  *
  * @throws {@link BedrockAgentRuntimeServiceException}
- * <p>Base exception class for all service exceptions from BedrockAgentRuntime service.</p>
  *
+ * Base exception class for all service exceptions from BedrockAgentRuntime service.
  *
  * @public
  */

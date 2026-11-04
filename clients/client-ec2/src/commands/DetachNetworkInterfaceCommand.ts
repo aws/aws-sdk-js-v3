@@ -23,7 +23,8 @@ export interface DetachNetworkInterfaceCommandInput extends DetachNetworkInterfa
 export interface DetachNetworkInterfaceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Detaches a network interface from an instance.</p>
+ * Detaches a network interface from an instance.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,8 +51,8 @@ export interface DetachNetworkInterfaceCommandOutput extends __MetadataBearer {}
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To detach a network interface from an instance
  * ```javascript

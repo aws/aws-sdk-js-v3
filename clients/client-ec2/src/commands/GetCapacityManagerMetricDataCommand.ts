@@ -23,10 +23,8 @@ export interface GetCapacityManagerMetricDataCommandInput extends GetCapacityMan
 export interface GetCapacityManagerMetricDataCommandOutput extends GetCapacityManagerMetricDataResult, __MetadataBearer {}
 
 /**
- * <p>
- * Retrieves capacity usage metrics for your EC2 resources. Returns time-series data for metrics like unused capacity, utilization rates, and costs
- * across On-Demand, Spot, and Capacity Reservations. Data can be grouped and filtered by various dimensions such as region, account, and instance family.
- * </p>
+ * Retrieves capacity usage metrics for your EC2 resources. Returns time-series data for metrics like unused capacity, utilization rates, and costs across On-Demand, Spot, and Capacity Reservations. Data can be grouped and filtered by various dimensions such as region, account, and instance family.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -112,8 +110,8 @@ export interface GetCapacityManagerMetricDataCommandOutput extends GetCapacityMa
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

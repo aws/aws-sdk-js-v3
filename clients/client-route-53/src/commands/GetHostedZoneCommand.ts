@@ -23,11 +23,10 @@ export interface GetHostedZoneCommandInput extends GetHostedZoneRequest {}
 export interface GetHostedZoneCommandOutput extends GetHostedZoneResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about a specified hosted zone including the four name servers
- * 			assigned to the hosted zone.</p>
- *          <p>
- *             <code></code> returns the VPCs associated with the specified hosted zone and does not reflect the VPC
- * 			associations by Route 53 Profiles. To get the associations to a Profile, call the <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_ListProfileAssociations.html">ListProfileAssociations</a> API.</p>
+ * Gets information about a specified hosted zone including the four name servers assigned to the hosted zone.
+ *
+ * returns the VPCs associated with the specified hosted zone and does not reflect the VPC associations by Route 53 Profiles. To get the associations to a Profile, call the [ListProfileAssociations](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_ListProfileAssociations.html) API.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,14 +85,16 @@ export interface GetHostedZoneCommandOutput extends GetHostedZoneResponse, __Met
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link NoSuchHostedZone} (client fault)
- *  <p>No hosted zone exists with the ID that you specified.</p>
+ *
+ * No hosted zone exists with the ID that you specified.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @example To get information about a hosted zone
  * ```javascript

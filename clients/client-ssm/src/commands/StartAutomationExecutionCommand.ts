@@ -23,7 +23,8 @@ export interface StartAutomationExecutionCommandInput extends StartAutomationExe
 export interface StartAutomationExecutionCommandOutput extends StartAutomationExecutionResult, __MetadataBearer {}
 
 /**
- * <p>Initiates execution of an Automation runbook.</p>
+ * Initiates execution of an Automation runbook.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -126,34 +127,36 @@ export interface StartAutomationExecutionCommandOutput extends StartAutomationEx
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link AutomationDefinitionNotFoundException} (client fault)
- *  <p>An Automation runbook with the specified name couldn't be found.</p>
+ *
+ * An Automation runbook with the specified name couldn't be found.
  *
  * @throws {@link AutomationDefinitionVersionNotFoundException} (client fault)
- *  <p>An Automation runbook with the specified name and version couldn't be found.</p>
+ *
+ * An Automation runbook with the specified name and version couldn't be found.
  *
  * @throws {@link AutomationExecutionLimitExceededException} (client fault)
- *  <p>The number of simultaneously running Automation executions exceeded the allowable
- *    limit.</p>
+ *
+ * The number of simultaneously running Automation executions exceeded the allowable limit.
  *
  * @throws {@link IdempotentParameterMismatch} (client fault)
- *  <p>Error returned when an idempotent operation is retried and the parameters don't match the
- *    original call to the API with the same idempotency token. </p>
+ *
+ * Error returned when an idempotent operation is retried and the parameters don't match the original call to the API with the same idempotency token.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidAutomationExecutionParametersException} (client fault)
- *  <p>The supplied parameters for invoking the specified Automation runbook are incorrect. For
- *    example, they may not match the set of parameters permitted for the specified Automation
- *    document.</p>
+ *
+ * The supplied parameters for invoking the specified Automation runbook are incorrect. For example, they may not match the set of parameters permitted for the specified Automation document.
  *
  * @throws {@link InvalidTarget} (client fault)
- *  <p>The target isn't valid or doesn't exist. It might not be configured for Systems Manager or you might
- *    not have permission to perform the operation.</p>
+ *
+ * The target isn't valid or doesn't exist. It might not be configured for Systems Manager or you might not have permission to perform the operation.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

@@ -23,11 +23,10 @@ export interface ListPredictorsCommandInput extends ListPredictorsRequest {}
 export interface ListPredictorsCommandOutput extends ListPredictorsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of predictors created using the <a>CreateAutoPredictor</a> or
- *         <a>CreatePredictor</a> operations. For each predictor, this operation returns a
- *       summary of its properties, including its Amazon Resource Name (ARN). </p>
- *          <p>You can retrieve the complete set of properties by using the ARN with the <a>DescribeAutoPredictor</a> and <a>DescribePredictor</a> operations. You
- *       can filter the list using an array of <a>Filter</a> objects.</p>
+ * Returns a list of predictors created using the CreateAutoPredictor or CreatePredictor operations. For each predictor, this operation returns a summary of its properties, including its Amazon Resource Name (ARN).
+ *
+ * You can retrieve the complete set of properties by using the ARN with the DescribeAutoPredictor and DescribePredictor operations. You can filter the list using an array of Filter objects.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,15 +77,16 @@ export interface ListPredictorsCommandOutput extends ListPredictorsResponse, __M
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>We can't process the request because it includes an invalid value or a value that exceeds
- *       the valid range.</p>
+ *
+ * We can't process the request because it includes an invalid value or a value that exceeds the valid range.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The token is not valid. Tokens expire after 24 hours.</p>
+ *
+ * The token is not valid. Tokens expire after 24 hours.
  *
  * @throws {@link ForecastServiceException}
- * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * Base exception class for all service exceptions from Forecast service.
  *
  * @public
  */

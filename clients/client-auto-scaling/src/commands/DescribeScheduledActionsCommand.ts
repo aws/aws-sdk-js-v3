@@ -23,10 +23,10 @@ export interface DescribeScheduledActionsCommandInput extends DescribeScheduledA
 export interface DescribeScheduledActionsCommandOutput extends ScheduledActionsType, __MetadataBearer {}
 
 /**
- * <p>Gets information about the scheduled actions that haven't run or that have not reached
- *             their end time.</p>
- *          <p>To describe the scaling activities for scheduled actions that have already run, call
- *             the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeScalingActivities.html">DescribeScalingActivities</a> API.</p>
+ * Gets information about the scheduled actions that haven't run or that have not reached their end time.
+ *
+ * To describe the scaling activities for scheduled actions that have already run, call the [DescribeScalingActivities](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeScalingActivities.html) API.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,15 +75,16 @@ export interface DescribeScheduledActionsCommandOutput extends ScheduledActionsT
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  * @throws {@link InvalidNextToken} (client fault)
- *  <p>The <code>NextToken</code> value is not valid.</p>
+ *
+ * The `NextToken` value is not valid.
  *
  * @throws {@link ResourceContentionFault} (server fault)
- *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
- *             instance, or load balancer).</p>
+ *
+ * You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).
  *
  * @throws {@link AutoScalingServiceException}
- * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from AutoScaling service.
  *
  * @example To describe scheduled actions
  * ```javascript

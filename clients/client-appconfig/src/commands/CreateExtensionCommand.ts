@@ -23,30 +23,16 @@ export interface CreateExtensionCommandInput extends CreateExtensionRequest {}
 export interface CreateExtensionCommandOutput extends Extension, __MetadataBearer {}
 
 /**
- * <p>Creates an AppConfig extension. An extension augments your ability to inject
- *          logic or behavior at different points during the AppConfig workflow of creating
- *          or deploying a configuration.</p>
- *          <p>You can create your own extensions or use the Amazon Web Services authored extensions provided by
- *             AppConfig. For an AppConfig extension that uses Lambda, you must create a Lambda function to perform any computation and processing
- *          defined in the extension. If you plan to create custom versions of the Amazon Web Services
- *          authored notification extensions, you only need to specify an Amazon Resource Name (ARN) in
- *          the <code>Uri</code> field for the new extension version.</p>
- *          <ul>
- *             <li>
- *                <p>For a custom EventBridge notification extension, enter the ARN of the EventBridge
- *                default events in the <code>Uri</code> field.</p>
- *             </li>
- *             <li>
- *                <p>For a custom Amazon SNS notification extension, enter the ARN of an Amazon SNS
- *                topic in the <code>Uri</code> field.</p>
- *             </li>
- *             <li>
- *                <p>For a custom Amazon SQS notification extension, enter the ARN of an Amazon SQS
- *                message queue in the <code>Uri</code> field. </p>
- *             </li>
- *          </ul>
- *          <p>For more information about extensions, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Extending
- *             workflows</a> in the <i>AppConfig User Guide</i>.</p>
+ * Creates an AppConfig extension. An extension augments your ability to inject logic or behavior at different points during the AppConfig workflow of creating or deploying a configuration.
+ *
+ * You can create your own extensions or use the Amazon Web Services authored extensions provided by AppConfig. For an AppConfig extension that uses Lambda, you must create a Lambda function to perform any computation and processing defined in the extension. If you plan to create custom versions of the Amazon Web Services authored notification extensions, you only need to specify an Amazon Resource Name (ARN) in the `Uri` field for the new extension version.
+ *
+ * - For a custom EventBridge notification extension, enter the ARN of the EventBridge default events in the `Uri` field.
+ * - For a custom Amazon SNS notification extension, enter the ARN of an Amazon SNS topic in the `Uri` field.
+ * - For a custom Amazon SQS notification extension, enter the ARN of an Amazon SQS message queue in the `Uri` field.
+ *
+ * For more information about extensions, see [Extending workflows](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html) in the *AppConfig User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -116,26 +102,28 @@ export interface CreateExtensionCommandOutput extends Extension, __MetadataBeare
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of conflict in the current state of the
- *          resource.</p>
+ *
+ * The request could not be processed because of conflict in the current state of the resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>There was an internal failure in the AppConfig service.</p>
+ *
+ * There was an internal failure in the AppConfig service.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The number of one more AppConfig resources exceeds the maximum allowed. Verify that your
- *          environment doesn't exceed the following service quotas:</p>
- *          <p>Applications: 100 max</p>
- *          <p>To resolve this issue, you can delete one or more resources and try again. Or, you can
- *          request a quota increase. For more information about quotas and to request an increase, see
- *             <a href="https://docs.aws.amazon.com/general/latest/gr/appconfig.html#limits_appconfig">Service quotas for AppConfig</a> in the Amazon Web Services General Reference.</p>
+ *
+ * The number of one more AppConfig resources exceeds the maximum allowed. Verify that your environment doesn't exceed the following service quotas:
+ *
+ * Applications: 100 max
+ *
+ * To resolve this issue, you can delete one or more resources and try again. Or, you can request a quota increase. For more information about quotas and to request an increase, see [Service quotas for AppConfig](https://docs.aws.amazon.com/general/latest/gr/appconfig.html#limits_appconfig) in the Amazon Web Services General Reference.
  *
  * @throws {@link AppConfigServiceException}
- * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * Base exception class for all service exceptions from AppConfig service.
  *
  * @public
  */

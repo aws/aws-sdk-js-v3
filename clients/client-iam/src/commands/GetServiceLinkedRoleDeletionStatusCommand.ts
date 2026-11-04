@@ -26,11 +26,8 @@ export interface GetServiceLinkedRoleDeletionStatusCommandInput extends GetServi
 export interface GetServiceLinkedRoleDeletionStatusCommandOutput extends GetServiceLinkedRoleDeletionStatusResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the status of your service-linked role deletion. After you use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteServiceLinkedRole.html">DeleteServiceLinkedRole</a> to submit a service-linked role for deletion, you
- *             can use the <code>DeletionTaskId</code> parameter in
- *                 <code>GetServiceLinkedRoleDeletionStatus</code> to check the status of the deletion.
- *             If the deletion fails, this operation returns the reason that it failed, if that
- *             information is returned by the service.</p>
+ * Retrieves the status of your service-linked role deletion. After you use [DeleteServiceLinkedRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteServiceLinkedRole.html) to submit a service-linked role for deletion, you can use the `DeletionTaskId` parameter in `GetServiceLinkedRoleDeletionStatus` to check the status of the deletion. If the deletion fails, this operation returns the reason that it failed, if that information is returned by the service.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,20 +65,20 @@ export interface GetServiceLinkedRoleDeletionStatusCommandOutput extends GetServ
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
- *       input parameter.</p>
+ *
+ * The request was rejected because an invalid or out-of-range value was supplied for an input parameter.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @public
  */

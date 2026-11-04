@@ -23,9 +23,10 @@ export interface PutPartnerEventsCommandInput extends PutPartnerEventsRequest {}
 export interface PutPartnerEventsCommandOutput extends PutPartnerEventsResponse, __MetadataBearer {}
 
 /**
- * <p>This is used by SaaS partners to write events to a customer's partner event bus. Amazon Web Services customers do not use this operation.</p>
- *          <p>For information on calculating event batch size, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-putevent-size.html">Calculating EventBridge PutEvents event
- *         entry size</a> in the <i>EventBridge User Guide</i>.</p>
+ * This is used by SaaS partners to write events to a customer's partner event bus. Amazon Web Services customers do not use this operation.
+ *
+ * For information on calculating event batch size, see [Calculating EventBridge PutEvents event entry size](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-putevent-size.html) in the *EventBridge User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,14 +70,16 @@ export interface PutPartnerEventsCommandOutput extends PutPartnerEventsResponse,
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * This exception occurs due to unexpected causes.
  *
  * @throws {@link OperationDisabledException} (client fault)
- *  <p>The operation you are attempting is not available in this region.</p>
+ *
+ * The operation you are attempting is not available in this region.
  *
  * @throws {@link EventBridgeServiceException}
- * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ * Base exception class for all service exceptions from EventBridge service.
  *
  * @public
  */

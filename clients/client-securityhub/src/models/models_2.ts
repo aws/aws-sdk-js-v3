@@ -196,2581 +196,2525 @@ import type {
 } from "./models_1";
 
 /**
- * <p>Provides information about a WAF rule. This rule specifies the web requests that you want to allow, block, or count.
- *       </p>
+ * Provides information about a WAF rule. This rule specifies the web requests that you want to allow, block, or count.
+ *
  * @public
  */
 export interface AwsWafRuleDetails {
   /**
-   * <p>The name of the metrics for this rule.
-   *       </p>
+   * The name of the metrics for this rule.
+   *
    * @public
    */
   MetricName?: string | undefined;
 
   /**
-   * <p>A descriptive name for the rule.
-   *       </p>
+   * A descriptive name for the rule.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>Specifies the <code>ByteMatchSet</code>, <code>IPSet</code>, <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>,
-   *          <code>RegexMatchSet</code>, <code>GeoMatchSet</code>, and <code>SizeConstraintSet</code> objects that you want to add to a rule and,
-   *          for each object, indicates whether you want to negate the settings.
-   *       </p>
+   * Specifies the `ByteMatchSet`, `IPSet`, `SqlInjectionMatchSet`, `XssMatchSet`, `RegexMatchSet`, `GeoMatchSet`, and `SizeConstraintSet` objects that you want to add to a rule and, for each object, indicates whether you want to negate the settings.
+   *
    * @public
    */
   PredicateList?: AwsWafRulePredicateListDetails[] | undefined;
 
   /**
-   * <p>The ID of the WAF rule.
-   *       </p>
+   * The ID of the WAF rule.
+   *
    * @public
    */
   RuleId?: string | undefined;
 }
 
 /**
- * <p>Provides information about what action WAF should take on a web request when it matches the criteria defined in the rule.
- *       </p>
+ * Provides information about what action WAF should take on a web request when it matches the criteria defined in the rule.
+ *
  * @public
  */
 export interface AwsWafRuleGroupRulesActionDetails {
   /**
-   * <p>The action that WAF should take on a web request when it matches the rule's
-   *          statement.</p>
+   * The action that WAF should take on a web request when it matches the rule's statement.
+   *
    * @public
    */
   Type?: string | undefined;
 }
 
 /**
- * <p>Provides information about the rules attached to the rule group. These rules identify the web requests that you want to
- *          allow, block, or count.
- *       </p>
+ * Provides information about the rules attached to the rule group. These rules identify the web requests that you want to allow, block, or count.
+ *
  * @public
  */
 export interface AwsWafRuleGroupRulesDetails {
   /**
-   * <p>Provides information about what action WAF should take on a web request when it matches the criteria defined in the rule.
-   *       </p>
+   * Provides information about what action WAF should take on a web request when it matches the criteria defined in the rule.
+   *
    * @public
    */
   Action?: AwsWafRuleGroupRulesActionDetails | undefined;
 
   /**
-   * <p>If you define more than one rule in a web ACL, WAF evaluates each request against the rules in order
-   *          based on the value of <code>Priority</code>.</p>
+   * If you define more than one rule in a web ACL, WAF evaluates each request against the rules in order based on the value of `Priority`.
+   *
    * @public
    */
   Priority?: number | undefined;
 
   /**
-   * <p>The rule ID for a rule.
-   *       </p>
+   * The rule ID for a rule.
+   *
    * @public
    */
   RuleId?: string | undefined;
 
   /**
-   * <p>The type of rule.
-   *       </p>
+   * The type of rule.
+   *
    * @public
    */
   Type?: string | undefined;
 }
 
 /**
- * <p>Provides information about an WAF rule group. A rule group is a collection of rules for inspecting and controlling web requests.
- *       </p>
+ * Provides information about an WAF rule group. A rule group is a collection of rules for inspecting and controlling web requests.
+ *
  * @public
  */
 export interface AwsWafRuleGroupDetails {
   /**
-   * <p>The name of the metrics for this rule group.
-   *       </p>
+   * The name of the metrics for this rule group.
+   *
    * @public
    */
   MetricName?: string | undefined;
 
   /**
-   * <p>The name of the rule group.
-   *       </p>
+   * The name of the rule group.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The ID of the rule group.
-   *       </p>
+   * The ID of the rule group.
+   *
    * @public
    */
   RuleGroupId?: string | undefined;
 
   /**
-   * <p>Provides information about the rules attached to the rule group. These rules identify the web requests that you want to
-   * allow, block, or count.
-   *       </p>
+   * Provides information about the rules attached to the rule group. These rules identify the web requests that you want to allow, block, or count.
+   *
    * @public
    */
   Rules?: AwsWafRuleGroupRulesDetails[] | undefined;
 }
 
 /**
- * <p>
- *          A custom header for custom request and response handling.
- *       </p>
+ * A custom header for custom request and response handling.
+ *
  * @public
  */
 export interface AwsWafv2CustomHttpHeader {
   /**
-   * <p>
-   *          The name of the custom header.
-   *       </p>
+   * The name of the custom header.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>
-   *          The value of the custom header.
-   *       </p>
+   * The value of the custom header.
+   *
    * @public
    */
   Value?: string | undefined;
 }
 
 /**
- * <p>
- *          Custom request handling behavior that inserts custom headers into a web request. WAF uses custom request handling when the rule action doesn't block the request.
- *       </p>
+ * Custom request handling behavior that inserts custom headers into a web request. WAF uses custom request handling when the rule action doesn't block the request.
+ *
  * @public
  */
 export interface AwsWafv2CustomRequestHandlingDetails {
   /**
-   * <p>
-   *          The HTTP headers to insert into the request.
-   *       </p>
+   * The HTTP headers to insert into the request.
+   *
    * @public
    */
   InsertHeaders?: AwsWafv2CustomHttpHeader[] | undefined;
 }
 
 /**
- * <p>
- *          Specifies that WAF should allow the request and optionally defines additional custom handling for the request.
- *       </p>
+ * Specifies that WAF should allow the request and optionally defines additional custom handling for the request.
+ *
  * @public
  */
 export interface AwsWafv2ActionAllowDetails {
   /**
-   * <p>
-   *          Defines custom handling for the web request. For information about customizing web requests and responses, see
-   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the <i>WAF Developer Guide.</i>.
-   *       </p>
+   * Defines custom handling for the web request. For information about customizing web requests and responses, see [Customizing web requests and responses in WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *WAF Developer Guide.*.
+   *
    * @public
    */
   CustomRequestHandling?: AwsWafv2CustomRequestHandlingDetails | undefined;
 }
 
 /**
- * <p>
- *          A custom response to send to the client. You can define a custom response for rule actions and default web ACL actions that are set to block.
- *       </p>
+ * A custom response to send to the client. You can define a custom response for rule actions and default web ACL actions that are set to block.
+ *
  * @public
  */
 export interface AwsWafv2CustomResponseDetails {
   /**
-   * <p>
-   *          References the response body that you want WAF to return to the web request client. You can define a custom response for a rule action or a default web ACL action that is set to block.
-   *       </p>
+   * References the response body that you want WAF to return to the web request client. You can define a custom response for a rule action or a default web ACL action that is set to block.
+   *
    * @public
    */
   CustomResponseBodyKey?: string | undefined;
 
   /**
-   * <p>
-   *          The HTTP status code to return to the client. For a list of status codes that you can use in your custom responses, see
-   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/customizing-the-response-status-codes.html">Supported status codes for custom response</a> in the <i>WAF Developer Guide.</i>
-   *          </p>
+   * The HTTP status code to return to the client. For a list of status codes that you can use in your custom responses, see [Supported status codes for custom response](https://docs.aws.amazon.com/waf/latest/developerguide/customizing-the-response-status-codes.html) in the *WAF Developer Guide.*
+   *
    * @public
    */
   ResponseCode?: number | undefined;
 
   /**
-   * <p>
-   *          The HTTP headers to use in the response.
-   *       </p>
+   * The HTTP headers to use in the response.
+   *
    * @public
    */
   ResponseHeaders?: AwsWafv2CustomHttpHeader[] | undefined;
 }
 
 /**
- * <p>
- *          Specifies that WAF should block the request and optionally defines additional custom handling for the response to the web request.
- *       </p>
+ * Specifies that WAF should block the request and optionally defines additional custom handling for the response to the web request.
+ *
  * @public
  */
 export interface AwsWafv2ActionBlockDetails {
   /**
-   * <p>
-   *          Defines a custom response for the web request. For information, see
-   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the <i>WAF Developer Guide.</i>.
-   *       </p>
+   * Defines a custom response for the web request. For information, see [Customizing web requests and responses in WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *WAF Developer Guide.*.
+   *
    * @public
    */
   CustomResponse?: AwsWafv2CustomResponseDetails | undefined;
 }
 
 /**
- * <p>
- *          Specifies that WAF should run a CAPTCHA check against the request.
- *       </p>
+ * Specifies that WAF should run a CAPTCHA check against the request.
+ *
  * @public
  */
 export interface AwsWafv2RulesActionCaptchaDetails {
   /**
-   * <p>
-   *          Defines custom handling for the web request, used when the CAPTCHA inspection determines that the request's token is valid and unexpired. For more information,
-   *          see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the <i>WAF Developer Guide.</i>.
-   *       </p>
+   * Defines custom handling for the web request, used when the CAPTCHA inspection determines that the request's token is valid and unexpired. For more information, see [Customizing web requests and responses in WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *WAF Developer Guide.*.
+   *
    * @public
    */
   CustomRequestHandling?: AwsWafv2CustomRequestHandlingDetails | undefined;
 }
 
 /**
- * <p>
- *          Specifies that WAF should count the request.
- *       </p>
+ * Specifies that WAF should count the request.
+ *
  * @public
  */
 export interface AwsWafv2RulesActionCountDetails {
   /**
-   * <p>
-   *          Defines custom handling for the web request. For more information,
-   *          see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the <i>WAF Developer Guide.</i>.
-   *       </p>
+   * Defines custom handling for the web request. For more information, see [Customizing web requests and responses in WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *WAF Developer Guide.*.
+   *
    * @public
    */
   CustomRequestHandling?: AwsWafv2CustomRequestHandlingDetails | undefined;
 }
 
 /**
- * <p>
- *          The action that WAF should take on a web request when it matches a rule's statement.
- *          Settings at the web ACL level can override the rule action setting.
- *       </p>
+ * The action that WAF should take on a web request when it matches a rule's statement. Settings at the web ACL level can override the rule action setting.
+ *
  * @public
  */
 export interface AwsWafv2RulesActionDetails {
   /**
-   * <p>
-   *          Instructs WAF to allow the web request.
-   *       </p>
+   * Instructs WAF to allow the web request.
+   *
    * @public
    */
   Allow?: AwsWafv2ActionAllowDetails | undefined;
 
   /**
-   * <p>
-   *          Instructs WAF to block the web request.
-   *       </p>
+   * Instructs WAF to block the web request.
+   *
    * @public
    */
   Block?: AwsWafv2ActionBlockDetails | undefined;
 
   /**
-   * <p>
-   *          Instructs WAF to run a CAPTCHA check against the web request.
-   *       </p>
+   * Instructs WAF to run a CAPTCHA check against the web request.
+   *
    * @public
    */
   Captcha?: AwsWafv2RulesActionCaptchaDetails | undefined;
 
   /**
-   * <p>
-   *          Instructs WAF to count the web request and then continue evaluating the request using the remaining rules in the web ACL.
-   *       </p>
+   * Instructs WAF to count the web request and then continue evaluating the request using the remaining rules in the web ACL.
+   *
    * @public
    */
   Count?: AwsWafv2RulesActionCountDetails | undefined;
 }
 
 /**
- * <p>
- *          Defines and enables Amazon CloudWatch metrics and web request sample collection.
- *       </p>
+ * Defines and enables Amazon CloudWatch metrics and web request sample collection.
+ *
  * @public
  */
 export interface AwsWafv2VisibilityConfigDetails {
   /**
-   * <p>
-   *          A boolean indicating whether the associated resource sends metrics to Amazon CloudWatch. For the list of available
-   *          metrics, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics">WAF metrics and dimensions</a> in the <i>WAF Developer Guide</i>.
-   *       </p>
+   * A boolean indicating whether the associated resource sends metrics to Amazon CloudWatch. For the list of available metrics, see [WAF metrics and dimensions](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics) in the *WAF Developer Guide*.
+   *
    * @public
    */
   CloudWatchMetricsEnabled?: boolean | undefined;
 
   /**
-   * <p>
-   *          A name of the Amazon CloudWatch metric.
-   *       </p>
+   * A name of the Amazon CloudWatch metric.
+   *
    * @public
    */
   MetricName?: string | undefined;
 
   /**
-   * <p>
-   *          A boolean indicating whether WAF should store a sampling of the web requests that match the rules.
-   *          You can view the sampled requests through the WAF console.
-   *       </p>
+   * A boolean indicating whether WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the WAF console.
+   *
    * @public
    */
   SampledRequestsEnabled?: boolean | undefined;
 }
 
 /**
- * <p>
- *          Provides details about rules in a rule group. A rule identifies web requests that you want to allow, block, or count. Each rule includes one top-level Statement that WAF uses to identify matching web requests, and parameters that govern how WAF handles them.
- *       </p>
+ * Provides details about rules in a rule group. A rule identifies web requests that you want to allow, block, or count. Each rule includes one top-level Statement that WAF uses to identify matching web requests, and parameters that govern how WAF handles them.
+ *
  * @public
  */
 export interface AwsWafv2RulesDetails {
   /**
-   * <p>
-   *          The action that WAF should take on a web request when it matches the rule statement. Settings at the web ACL level can override the rule action setting.
-   *       </p>
+   * The action that WAF should take on a web request when it matches the rule statement. Settings at the web ACL level can override the rule action setting.
+   *
    * @public
    */
   Action?: AwsWafv2RulesActionDetails | undefined;
 
   /**
-   * <p>
-   *          The name of the rule.
-   *       </p>
+   * The name of the rule.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>
-   *          The action to use in the place of the action that results from the rule group evaluation.
-   *       </p>
+   * The action to use in the place of the action that results from the rule group evaluation.
+   *
    * @public
    */
   OverrideAction?: string | undefined;
 
   /**
-   * <p>
-   *          If you define more than one Rule in a WebACL, WAF evaluates each request against the Rules in order based on the value of <code>Priority</code>.
-   *          WAF processes rules with lower priority first. The priorities don't need to be consecutive, but they must all be different.
-   *       </p>
+   * If you define more than one Rule in a WebACL, WAF evaluates each request against the Rules in order based on the value of `Priority`. WAF processes rules with lower priority first. The priorities don't need to be consecutive, but they must all be different.
+   *
    * @public
    */
   Priority?: number | undefined;
 
   /**
-   * <p>
-   *          Defines and enables Amazon CloudWatch metrics and web request sample collection.
-   *       </p>
+   * Defines and enables Amazon CloudWatch metrics and web request sample collection.
+   *
    * @public
    */
   VisibilityConfig?: AwsWafv2VisibilityConfigDetails | undefined;
 }
 
 /**
- * <p>
- *          Details about an WAFv2 rule group.
- *       </p>
+ * Details about an WAFv2 rule group.
+ *
  * @public
  */
 export interface AwsWafv2RuleGroupDetails {
   /**
-   * <p>
-   *          The web ACL capacity units (WCUs) required for this rule group.
-   *       </p>
+   * The web ACL capacity units (WCUs) required for this rule group.
+   *
    * @public
    */
   Capacity?: number | undefined;
 
   /**
-   * <p>
-   *          A description of the rule group that helps with identification.
-   *       </p>
+   * A description of the rule group that helps with identification.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>
-   *          A unique identifier for the rule group.
-   *       </p>
+   * A unique identifier for the rule group.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>
-   *          The name of the rule group. You cannot change the name of a rule group after you create it.
-   *       </p>
+   * The name of the rule group. You cannot change the name of a rule group after you create it.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>
-   *          The Amazon Resource Name (ARN) of the entity.
-   *       </p>
+   * The Amazon Resource Name (ARN) of the entity.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>
-   *          The Rule statements used to identify the web requests that you want to allow, block, or count. Each rule includes one
-   *          top-level statement that WAF uses to identify matching web requests, and parameters that govern how
-   *          WAF handles them.
-   *       </p>
+   * The Rule statements used to identify the web requests that you want to allow, block, or count. Each rule includes one top-level statement that WAF uses to identify matching web requests, and parameters that govern how WAF handles them.
+   *
    * @public
    */
   Rules?: AwsWafv2RulesDetails[] | undefined;
 
   /**
-   * <p>
-   *          Specifies whether the rule group is for an Amazon CloudFront distribution or for a regional application.
-   *          A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync
-   *          GraphQL API, or an Amazon Cognito user pool.
-   *       </p>
+   * Specifies whether the rule group is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, or an Amazon Cognito user pool.
+   *
    * @public
    */
   Scope?: string | undefined;
 
   /**
-   * <p>
-   *          Defines and enables Amazon CloudWatch metrics and web request sample collection.
-   *       </p>
+   * Defines and enables Amazon CloudWatch metrics and web request sample collection.
+   *
    * @public
    */
   VisibilityConfig?: AwsWafv2VisibilityConfigDetails | undefined;
 }
 
 /**
- * <p>
- *          Used for CAPTCHA and challenge token settings. Determines how long a CAPTCHA or challenge timestamp remains valid after WAF updates it for a successful CAPTCHA or challenge response.
- *       </p>
+ * Used for CAPTCHA and challenge token settings. Determines how long a CAPTCHA or challenge timestamp remains valid after WAF updates it for a successful CAPTCHA or challenge response.
+ *
  * @public
  */
 export interface AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetails {
   /**
-   * <p>
-   *          The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by WAF.
-   *       </p>
+   * The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by WAF.
+   *
    * @public
    */
   ImmunityTime?: number | undefined;
 }
 
 /**
- * <p>
- *          Specifies how WAF should handle CAPTCHA evaluations for rules that don't have their own <code>CaptchaConfig</code> settings.
- *       </p>
+ * Specifies how WAF should handle CAPTCHA evaluations for rules that don't have their own `CaptchaConfig` settings.
+ *
  * @public
  */
 export interface AwsWafv2WebAclCaptchaConfigDetails {
   /**
-   * <p>
-   *          Determines how long a CAPTCHA timestamp in the token remains valid after the client successfully solves a CAPTCHA puzzle.
-   *       </p>
+   * Determines how long a CAPTCHA timestamp in the token remains valid after the client successfully solves a CAPTCHA puzzle.
+   *
    * @public
    */
   ImmunityTimeProperty?: AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetails | undefined;
 }
 
 /**
- * <p>
- *          Specifies the action that Amazon CloudFront or WAF takes when a web request matches the conditions in the rule.
- *       </p>
+ * Specifies the action that Amazon CloudFront or WAF takes when a web request matches the conditions in the rule.
+ *
  * @public
  */
 export interface AwsWafv2WebAclActionDetails {
   /**
-   * <p>
-   *          Specifies that WAF should allow requests by default.
-   *       </p>
+   * Specifies that WAF should allow requests by default.
+   *
    * @public
    */
   Allow?: AwsWafv2ActionAllowDetails | undefined;
 
   /**
-   * <p>
-   *          Specifies that WAF should block requests by default.
-   *       </p>
+   * Specifies that WAF should block requests by default.
+   *
    * @public
    */
   Block?: AwsWafv2ActionBlockDetails | undefined;
 }
 
 /**
- * <p>
- *          Details about an WAFv2 web Access Control List (ACL).
- *       </p>
+ * Details about an WAFv2 web Access Control List (ACL).
+ *
  * @public
  */
 export interface AwsWafv2WebAclDetails {
   /**
-   * <p>
-   *          The name of the web ACL.
-   *       </p>
+   * The name of the web ACL.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>
-   *          The Amazon Resource Name (ARN) of the web ACL that you want to associate with the resource.
-   *       </p>
+   * The Amazon Resource Name (ARN) of the web ACL that you want to associate with the resource.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>
-   *          Indicates whether this web ACL is managed by Firewall Manager.
-   *       </p>
+   * Indicates whether this web ACL is managed by Firewall Manager.
+   *
    * @public
    */
   ManagedbyFirewallManager?: boolean | undefined;
 
   /**
-   * <p>
-   *          A unique identifier for the web ACL.
-   *       </p>
+   * A unique identifier for the web ACL.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>
-   *          The web ACL capacity units (WCUs) currently being used by this web ACL.
-   *       </p>
+   * The web ACL capacity units (WCUs) currently being used by this web ACL.
+   *
    * @public
    */
   Capacity?: number | undefined;
 
   /**
-   * <p>
-   *          Specifies how WAF should handle CAPTCHA evaluations for rules that don't have their own
-   *          <code>CaptchaConfig</code> settings.
-   *       </p>
+   * Specifies how WAF should handle CAPTCHA evaluations for rules that don't have their own `CaptchaConfig` settings.
+   *
    * @public
    */
   CaptchaConfig?: AwsWafv2WebAclCaptchaConfigDetails | undefined;
 
   /**
-   * <p>
-   *          The action to perform if none of the Rules contained in the web ACL match.
-   *       </p>
+   * The action to perform if none of the Rules contained in the web ACL match.
+   *
    * @public
    */
   DefaultAction?: AwsWafv2WebAclActionDetails | undefined;
 
   /**
-   * <p>
-   *          A description of the web ACL that helps with identification.
-   *       </p>
+   * A description of the web ACL that helps with identification.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>
-   *          The Rule statements used to identify the web requests that you want to allow, block, or count. Each rule includes one
-   *          top-level statement that WAF uses to identify matching web requests, and parameters that govern how
-   *          WAF handles them.
-   *       </p>
+   * The Rule statements used to identify the web requests that you want to allow, block, or count. Each rule includes one top-level statement that WAF uses to identify matching web requests, and parameters that govern how WAF handles them.
+   *
    * @public
    */
   Rules?: AwsWafv2RulesDetails[] | undefined;
 
   /**
-   * <p>
-   *          Defines and enables Amazon CloudWatch metrics and web request sample collection.
-   *       </p>
+   * Defines and enables Amazon CloudWatch metrics and web request sample collection.
+   *
    * @public
    */
   VisibilityConfig?: AwsWafv2VisibilityConfigDetails | undefined;
 }
 
 /**
- * <p>Details about the action that CloudFront or WAF takes when a web request matches the
- *          conditions in the rule. </p>
+ * Details about the action that CloudFront or WAF takes when a web request matches the conditions in the rule.
+ *
  * @public
  */
 export interface WafAction {
   /**
-   * <p>Specifies how you want WAF to respond to requests that match the settings in a
-   *          rule.</p>
-   *          <p>Valid settings include the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ALLOW</code> - WAF allows requests</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>BLOCK</code> - WAF blocks requests</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>COUNT</code> - WAF increments a counter of the requests that
-   *                match all of the conditions in the rule. WAF then continues to inspect
-   *                the web request based on the remaining rules in the web ACL. You can't specify
-   *                   <code>COUNT</code> for the default action for a web ACL.</p>
-   *             </li>
-   *          </ul>
+   * Specifies how you want WAF to respond to requests that match the settings in a rule.
+   *
+   * Valid settings include the following:
+   *
+   * - `ALLOW` - WAF allows requests
+   * - `BLOCK` - WAF blocks requests
+   * - `COUNT` - WAF increments a counter of the requests that match all of the conditions in the rule. WAF then continues to inspect the web request based on the remaining rules in the web ACL. You can't specify `COUNT` for the default action for a web ACL.
+   *
    * @public
    */
   Type?: string | undefined;
 }
 
 /**
- * <p>Details about a rule to exclude from a rule group.</p>
+ * Details about a rule to exclude from a rule group.
+ *
  * @public
  */
 export interface WafExcludedRule {
   /**
-   * <p>The unique identifier for the rule to exclude from the rule group.</p>
+   * The unique identifier for the rule to exclude from the rule group.
+   *
    * @public
    */
   RuleId?: string | undefined;
 }
 
 /**
- * <p>Details about an override action for a rule.</p>
+ * Details about an override action for a rule.
+ *
  * @public
  */
 export interface WafOverrideAction {
   /**
-   * <p>
-   *             <code>COUNT</code> overrides the action specified by the individual rule within a
-   *             <code>RuleGroup</code> .</p>
-   *          <p>If set to <code>NONE</code>, the rule's action takes place.</p>
+   * `COUNT` overrides the action specified by the individual rule within a `RuleGroup` .
+   *
+   * If set to `NONE`, the rule's action takes place.
+   *
    * @public
    */
   Type?: string | undefined;
 }
 
 /**
- * <p>Details for a rule in an WAF web ACL.</p>
+ * Details for a rule in an WAF web ACL.
+ *
  * @public
  */
 export interface AwsWafWebAclRule {
   /**
-   * <p>Specifies the action that CloudFront or WAF takes when a web request matches the
-   *          conditions in the rule. </p>
+   * Specifies the action that CloudFront or WAF takes when a web request matches the conditions in the rule.
+   *
    * @public
    */
   Action?: WafAction | undefined;
 
   /**
-   * <p>Rules to exclude from a rule group.</p>
+   * Rules to exclude from a rule group.
+   *
    * @public
    */
   ExcludedRules?: WafExcludedRule[] | undefined;
 
   /**
-   * <p>Use the <code>OverrideAction</code> to test your <code>RuleGroup</code>.</p>
-   *          <p>Any rule in a <code>RuleGroup</code> can potentially block a request. If you set the <code>OverrideAction</code> to
-   *             <code>None</code>, the <code>RuleGroup</code> blocks a request if any individual rule in the <code>RuleGroup</code>
-   *          matches the request and is configured to block that request.</p>
-   *          <p>However, if you first want to test the <code>RuleGroup</code>,
-   *          set the <code>OverrideAction</code> to <code>Count</code>. The <code>RuleGroup</code>
-   *          then overrides any block action specified by individual rules contained within the group.
-   *          Instead of blocking matching requests, those requests are counted.</p>
-   *          <p>
-   *             <code>ActivatedRule</code>|<code>OverrideAction</code> applies only when updating or
-   *          adding a <code>RuleGroup</code>
-   *          to a web ACL. In this case you don't use <code>ActivatedRule</code>
-   *             <code>Action</code>. For all other update requests,
-   *             <code>ActivatedRule</code>
-   *             <code>Action</code> is used instead of <code>ActivatedRule</code>
-   *             <code>OverrideAction</code>.</p>
+   * Use the `OverrideAction` to test your `RuleGroup`.
+   *
+   * Any rule in a `RuleGroup` can potentially block a request. If you set the `OverrideAction` to `None`, the `RuleGroup` blocks a request if any individual rule in the `RuleGroup` matches the request and is configured to block that request.
+   *
+   * However, if you first want to test the `RuleGroup`, set the `OverrideAction` to `Count`. The `RuleGroup` then overrides any block action specified by individual rules contained within the group. Instead of blocking matching requests, those requests are counted.
+   *
+   * `ActivatedRule`|`OverrideAction` applies only when updating or adding a `RuleGroup` to a web ACL. In this case you don't use `ActivatedRule` `Action`. For all other update requests, `ActivatedRule` `Action` is used instead of `ActivatedRule` `OverrideAction`.
+   *
    * @public
    */
   OverrideAction?: WafOverrideAction | undefined;
 
   /**
-   * <p>Specifies the order in which the rules in a web
-   *          ACL are evaluated. Rules with a lower value for <code>Priority</code> are
-   *          evaluated before rules with a higher value. The value must be a unique integer. If you add
-   *          multiple rules to a web ACL, the values don't need to be consecutive.</p>
+   * Specifies the order in which the rules in a web ACL are evaluated. Rules with a lower value for `Priority` are evaluated before rules with a higher value. The value must be a unique integer. If you add multiple rules to a web ACL, the values don't need to be consecutive.
+   *
    * @public
    */
   Priority?: number | undefined;
 
   /**
-   * <p>The identifier for a rule.</p>
+   * The identifier for a rule.
+   *
    * @public
    */
   RuleId?: string | undefined;
 
   /**
-   * <p>The rule type.</p>
-   *          <p>Valid values: <code>REGULAR</code> | <code>RATE_BASED</code> | <code>GROUP</code>
-   *          </p>
-   *          <p>The default is <code>REGULAR</code>.</p>
+   * The rule type.
+   *
+   * Valid values: `REGULAR` | `RATE_BASED` | `GROUP`
+   *
+   * The default is `REGULAR`.
+   *
    * @public
    */
   Type?: string | undefined;
 }
 
 /**
- * <p>Provides information about an WAF web access control list (web ACL).</p>
+ * Provides information about an WAF web access control list (web ACL).
+ *
  * @public
  */
 export interface AwsWafWebAclDetails {
   /**
-   * <p>A friendly name or description of the web ACL. You can't change the name of a web ACL  after you create it.</p>
+   * A friendly name or description of the web ACL. You can't change the name of a web ACL after you create it.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The action to perform if none of the rules contained in the web ACL match.</p>
+   * The action to perform if none of the rules contained in the web ACL match.
+   *
    * @public
    */
   DefaultAction?: string | undefined;
 
   /**
-   * <p>An array that contains the action for each rule in a web ACL, the priority of the rule, and the ID of the rule.</p>
+   * An array that contains the action for each rule in a web ACL, the priority of the rule, and the ID of the rule.
+   *
    * @public
    */
   Rules?: AwsWafWebAclRule[] | undefined;
 
   /**
-   * <p>A unique identifier for a web ACL.</p>
+   * A unique identifier for a web ACL.
+   *
    * @public
    */
   WebAclId?: string | undefined;
 }
 
 /**
- * <p>Information about the encryption configuration for X-Ray.</p>
+ * Information about the encryption configuration for X-Ray.
+ *
  * @public
  */
 export interface AwsXrayEncryptionConfigDetails {
   /**
-   * <p>The identifier of the KMS key that is used for encryption. Provided if <code>Type</code> is <code>KMS</code>.</p>
+   * The identifier of the KMS key that is used for encryption. Provided if `Type` is `KMS`.
+   *
    * @public
    */
   KeyId?: string | undefined;
 
   /**
-   * <p>The current status of the encryption configuration. Valid values are <code>ACTIVE</code> or <code>UPDATING</code>.</p>
-   *          <p>When <code>Status</code> is equal to <code>UPDATING</code>, X-Ray might use both the old and new encryption.</p>
+   * The current status of the encryption configuration. Valid values are `ACTIVE` or `UPDATING`.
+   *
+   * When `Status` is equal to `UPDATING`, X-Ray might use both the old and new encryption.
+   *
    * @public
    */
   Status?: string | undefined;
 
   /**
-   * <p>The type of encryption. <code>KMS</code> indicates that the encryption uses KMS keys. <code>NONE</code> indicates the default encryption.</p>
+   * The type of encryption. `KMS` indicates that the encryption uses KMS keys. `NONE` indicates the default encryption.
+   *
    * @public
    */
   Type?: string | undefined;
 }
 
 /**
- * <p>
- *          Details about an external code repository with which you can connect your Amazon Web Services resources.
- *          The connection is established through Amazon Inspector.
- *       </p>
+ * Details about an external code repository with which you can connect your Amazon Web Services resources. The connection is established through Amazon Inspector.
+ *
  * @public
  */
 export interface CodeRepositoryDetails {
   /**
-   * <p>
-   *          The type of repository provider.
-   *       </p>
+   * The type of repository provider.
+   *
    * @public
    */
   ProviderType?: string | undefined;
 
   /**
-   * <p>
-   *          The name of the project in the code repository.
-   *       </p>
+   * The name of the project in the code repository.
+   *
    * @public
    */
   ProjectName?: string | undefined;
 
   /**
-   * <p>
-   *          The Amazon Resource Name (ARN) of the code security integration associated with the repository.
-   *       </p>
+   * The Amazon Resource Name (ARN) of the code security integration associated with the repository.
+   *
    * @public
    */
   CodeSecurityIntegrationArn?: string | undefined;
 }
 
 /**
- * <p>Describes the mounting of a volume in a container.
- *       </p>
+ * Describes the mounting of a volume in a container.
+ *
  * @public
  */
 export interface VolumeMount {
   /**
-   * <p>The name of the volume.
-   *       </p>
+   * The name of the volume.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The path in the container at which the volume should be mounted.
-   *       </p>
+   * The path in the container at which the volume should be mounted.
+   *
    * @public
    */
   MountPath?: string | undefined;
 }
 
 /**
- * <p>Container details related to a finding.</p>
+ * Container details related to a finding.
+ *
  * @public
  */
 export interface ContainerDetails {
   /**
-   * <p>The runtime of the container.
-   *       </p>
+   * The runtime of the container.
+   *
    * @public
    */
   ContainerRuntime?: string | undefined;
 
   /**
-   * <p>The name of the container related to a finding.</p>
+   * The name of the container related to a finding.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The identifier of the container image related to a finding.</p>
+   * The identifier of the container image related to a finding.
+   *
    * @public
    */
   ImageId?: string | undefined;
 
   /**
-   * <p>The name of the container image related to a finding.</p>
+   * The name of the container image related to a finding.
+   *
    * @public
    */
   ImageName?: string | undefined;
 
   /**
-   * <p>Indicates when the container started.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * Indicates when the container started.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   LaunchedAt?: string | undefined;
 
   /**
-   * <p>Provides information about the mounting of a volume in a container.
-   *       </p>
+   * Provides information about the mounting of a volume in a container.
+   *
    * @public
    */
   VolumeMounts?: VolumeMount[] | undefined;
 
   /**
-   * <p>When this parameter is <code>true</code>, the container is given elevated privileges on the host
-   * container instance (similar to the root user).
-   *       </p>
+   * When this parameter is `true`, the container is given elevated privileges on the host container instance (similar to the root user).
+   *
    * @public
    */
   Privileged?: boolean | undefined;
 }
 
 /**
- * <p>Additional details about a resource related to a finding.</p>
- *          <p>To provide the details, use the object that corresponds to the resource type. For
- *          example, if the resource type is <code>AwsEc2Instance</code>, then you use the
- *             <code>AwsEc2Instance</code> object to provide the details.</p>
- *          <p>If the type-specific object does not contain all of the fields you want to populate,
- *          then you use the <code>Other</code> object to populate those additional fields.</p>
- *          <p>You also use the <code>Other</code> object to populate the details when the selected
- *          type does not have a corresponding object.</p>
+ * Additional details about a resource related to a finding.
+ *
+ * To provide the details, use the object that corresponds to the resource type. For example, if the resource type is `AwsEc2Instance`, then you use the `AwsEc2Instance` object to provide the details.
+ *
+ * If the type-specific object does not contain all of the fields you want to populate, then you use the `Other` object to populate those additional fields.
+ *
+ * You also use the `Other` object to populate the details when the selected type does not have a corresponding object.
+ *
  * @public
  */
 export interface ResourceDetails {
   /**
-   * <p>Details for an autoscaling group.</p>
+   * Details for an autoscaling group.
+   *
    * @public
    */
   AwsAutoScalingAutoScalingGroup?: AwsAutoScalingAutoScalingGroupDetails | undefined;
 
   /**
-   * <p>Details for an CodeBuild project.</p>
+   * Details for an CodeBuild project.
+   *
    * @public
    */
   AwsCodeBuildProject?: AwsCodeBuildProjectDetails | undefined;
 
   /**
-   * <p>Details about a CloudFront distribution.</p>
+   * Details about a CloudFront distribution.
+   *
    * @public
    */
   AwsCloudFrontDistribution?: AwsCloudFrontDistributionDetails | undefined;
 
   /**
-   * <p>Details about an EC2 instance related to a finding.</p>
+   * Details about an EC2 instance related to a finding.
+   *
    * @public
    */
   AwsEc2Instance?: AwsEc2InstanceDetails | undefined;
 
   /**
-   * <p>Details for an EC2 network interface.</p>
+   * Details for an EC2 network interface.
+   *
    * @public
    */
   AwsEc2NetworkInterface?: AwsEc2NetworkInterfaceDetails | undefined;
 
   /**
-   * <p>Details for an EC2 security group.</p>
+   * Details for an EC2 security group.
+   *
    * @public
    */
   AwsEc2SecurityGroup?: AwsEc2SecurityGroupDetails | undefined;
 
   /**
-   * <p>Details for an Amazon EC2 volume.</p>
+   * Details for an Amazon EC2 volume.
+   *
    * @public
    */
   AwsEc2Volume?: AwsEc2VolumeDetails | undefined;
 
   /**
-   * <p>Details for an Amazon EC2 VPC.</p>
+   * Details for an Amazon EC2 VPC.
+   *
    * @public
    */
   AwsEc2Vpc?: AwsEc2VpcDetails | undefined;
 
   /**
-   * <p>Details about an Elastic IP address.</p>
+   * Details about an Elastic IP address.
+   *
    * @public
    */
   AwsEc2Eip?: AwsEc2EipDetails | undefined;
 
   /**
-   * <p>Details about a subnet in Amazon EC2.</p>
+   * Details about a subnet in Amazon EC2.
+   *
    * @public
    */
   AwsEc2Subnet?: AwsEc2SubnetDetails | undefined;
 
   /**
-   * <p>Details about an EC2 network access control list (ACL).</p>
+   * Details about an EC2 network access control list (ACL).
+   *
    * @public
    */
   AwsEc2NetworkAcl?: AwsEc2NetworkAclDetails | undefined;
 
   /**
-   * <p>Details about a load balancer.</p>
+   * Details about a load balancer.
+   *
    * @public
    */
   AwsElbv2LoadBalancer?: AwsElbv2LoadBalancerDetails | undefined;
 
   /**
-   * <p>Details about an Elastic Beanstalk environment.</p>
+   * Details about an Elastic Beanstalk environment.
+   *
    * @public
    */
   AwsElasticBeanstalkEnvironment?: AwsElasticBeanstalkEnvironmentDetails | undefined;
 
   /**
-   * <p>Details for an Elasticsearch domain.</p>
+   * Details for an Elasticsearch domain.
+   *
    * @public
    */
   AwsElasticsearchDomain?: AwsElasticsearchDomainDetails | undefined;
 
   /**
-   * <p>Details about an S3 bucket related to a finding.</p>
+   * Details about an S3 bucket related to a finding.
+   *
    * @public
    */
   AwsS3Bucket?: AwsS3BucketDetails | undefined;
 
   /**
-   * <p>Details about the Amazon S3 Public Access Block configuration for an account.</p>
+   * Details about the Amazon S3 Public Access Block configuration for an account.
+   *
    * @public
    */
   AwsS3AccountPublicAccessBlock?: AwsS3AccountPublicAccessBlockDetails | undefined;
 
   /**
-   * <p>Details about an S3 object related to a finding.</p>
+   * Details about an S3 object related to a finding.
+   *
    * @public
    */
   AwsS3Object?: AwsS3ObjectDetails | undefined;
 
   /**
-   * <p>Details about a Secrets Manager secret.</p>
+   * Details about a Secrets Manager secret.
+   *
    * @public
    */
   AwsSecretsManagerSecret?: AwsSecretsManagerSecretDetails | undefined;
 
   /**
-   * <p>Details about an IAM access key related to a finding.</p>
+   * Details about an IAM access key related to a finding.
+   *
    * @public
    */
   AwsIamAccessKey?: AwsIamAccessKeyDetails | undefined;
 
   /**
-   * <p>Details about an IAM user.</p>
+   * Details about an IAM user.
+   *
    * @public
    */
   AwsIamUser?: AwsIamUserDetails | undefined;
 
   /**
-   * <p>Details about an IAM permissions policy.</p>
+   * Details about an IAM permissions policy.
+   *
    * @public
    */
   AwsIamPolicy?: AwsIamPolicyDetails | undefined;
 
   /**
-   * <p>Provides information about a version 2 stage for Amazon API Gateway.</p>
+   * Provides information about a version 2 stage for Amazon API Gateway.
+   *
    * @public
    */
   AwsApiGatewayV2Stage?: AwsApiGatewayV2StageDetails | undefined;
 
   /**
-   * <p>Provides information about a version 2 API in Amazon API Gateway.</p>
+   * Provides information about a version 2 API in Amazon API Gateway.
+   *
    * @public
    */
   AwsApiGatewayV2Api?: AwsApiGatewayV2ApiDetails | undefined;
 
   /**
-   * <p>Details about a DynamoDB table.</p>
+   * Details about a DynamoDB table.
+   *
    * @public
    */
   AwsDynamoDbTable?: AwsDynamoDbTableDetails | undefined;
 
   /**
-   * <p>Provides information about a version 1 Amazon API Gateway stage.</p>
+   * Provides information about a version 1 Amazon API Gateway stage.
+   *
    * @public
    */
   AwsApiGatewayStage?: AwsApiGatewayStageDetails | undefined;
 
   /**
-   * <p>Provides information about a REST API in version 1 of Amazon API Gateway.</p>
+   * Provides information about a REST API in version 1 of Amazon API Gateway.
+   *
    * @public
    */
   AwsApiGatewayRestApi?: AwsApiGatewayRestApiDetails | undefined;
 
   /**
-   * <p>Provides details about a CloudTrail trail.</p>
+   * Provides details about a CloudTrail trail.
+   *
    * @public
    */
   AwsCloudTrailTrail?: AwsCloudTrailTrailDetails | undefined;
 
   /**
-   * <p>Provides information about the state of a patch on an instance based on the patch baseline that was used to patch the instance.</p>
+   * Provides information about the state of a patch on an instance based on the patch baseline that was used to patch the instance.
+   *
    * @public
    */
   AwsSsmPatchCompliance?: AwsSsmPatchComplianceDetails | undefined;
 
   /**
-   * <p>Provides details about an Certificate Manager certificate.</p>
+   * Provides details about an Certificate Manager certificate.
+   *
    * @public
    */
   AwsCertificateManagerCertificate?: AwsCertificateManagerCertificateDetails | undefined;
 
   /**
-   * <p>Contains details about an Amazon Redshift cluster.</p>
+   * Contains details about an Amazon Redshift cluster.
+   *
    * @public
    */
   AwsRedshiftCluster?: AwsRedshiftClusterDetails | undefined;
 
   /**
-   * <p>Contains details about a Classic Load Balancer.</p>
+   * Contains details about a Classic Load Balancer.
+   *
    * @public
    */
   AwsElbLoadBalancer?: AwsElbLoadBalancerDetails | undefined;
 
   /**
-   * <p>Contains details about an IAM group.</p>
+   * Contains details about an IAM group.
+   *
    * @public
    */
   AwsIamGroup?: AwsIamGroupDetails | undefined;
 
   /**
-   * <p>Details about an IAM role.</p>
+   * Details about an IAM role.
+   *
    * @public
    */
   AwsIamRole?: AwsIamRoleDetails | undefined;
 
   /**
-   * <p>Details about an KMS key.</p>
+   * Details about an KMS key.
+   *
    * @public
    */
   AwsKmsKey?: AwsKmsKeyDetails | undefined;
 
   /**
-   * <p>Details about a Lambda function.</p>
+   * Details about a Lambda function.
+   *
    * @public
    */
   AwsLambdaFunction?: AwsLambdaFunctionDetails | undefined;
 
   /**
-   * <p>Details for a Lambda layer version.</p>
+   * Details for a Lambda layer version.
+   *
    * @public
    */
   AwsLambdaLayerVersion?: AwsLambdaLayerVersionDetails | undefined;
 
   /**
-   * <p>Details about an Amazon RDS database instance.</p>
+   * Details about an Amazon RDS database instance.
+   *
    * @public
    */
   AwsRdsDbInstance?: AwsRdsDbInstanceDetails | undefined;
 
   /**
-   * <p>Details about an SNS topic.</p>
+   * Details about an SNS topic.
+   *
    * @public
    */
   AwsSnsTopic?: AwsSnsTopicDetails | undefined;
 
   /**
-   * <p>Details about an SQS queue.</p>
+   * Details about an SQS queue.
+   *
    * @public
    */
   AwsSqsQueue?: AwsSqsQueueDetails | undefined;
 
   /**
-   * <p>Details for an WAF web ACL.</p>
+   * Details for an WAF web ACL.
+   *
    * @public
    */
   AwsWafWebAcl?: AwsWafWebAclDetails | undefined;
 
   /**
-   * <p>Details about an Amazon RDS database snapshot.</p>
+   * Details about an Amazon RDS database snapshot.
+   *
    * @public
    */
   AwsRdsDbSnapshot?: AwsRdsDbSnapshotDetails | undefined;
 
   /**
-   * <p>Details about an Amazon RDS database cluster snapshot.</p>
+   * Details about an Amazon RDS database cluster snapshot.
+   *
    * @public
    */
   AwsRdsDbClusterSnapshot?: AwsRdsDbClusterSnapshotDetails | undefined;
 
   /**
-   * <p>Details about an Amazon RDS database cluster.</p>
+   * Details about an Amazon RDS database cluster.
+   *
    * @public
    */
   AwsRdsDbCluster?: AwsRdsDbClusterDetails | undefined;
 
   /**
-   * <p>Details about an Amazon ECS cluster.</p>
+   * Details about an Amazon ECS cluster.
+   *
    * @public
    */
   AwsEcsCluster?: AwsEcsClusterDetails | undefined;
 
   /**
-   * <p>Provides information about a Docker container that's part of a task.
-   *       </p>
+   * Provides information about a Docker container that's part of a task.
+   *
    * @public
    */
   AwsEcsContainer?: AwsEcsContainerDetails | undefined;
 
   /**
-   * <p>Details about a task definition. A task definition describes the container and volume definitions of an Amazon Elastic Container Service task.</p>
+   * Details about a task definition. A task definition describes the container and volume definitions of an Amazon Elastic Container Service task.
+   *
    * @public
    */
   AwsEcsTaskDefinition?: AwsEcsTaskDefinitionDetails | undefined;
 
   /**
-   * <p>Details about a container resource related to a finding.</p>
+   * Details about a container resource related to a finding.
+   *
    * @public
    */
   Container?: ContainerDetails | undefined;
 
   /**
-   * <p>Details about a resource that are not available in a type-specific details object. Use
-   *          the <code>Other</code> object in the following cases.</p>
-   *          <ul>
-   *             <li>
-   *                <p>The type-specific object does not contain all of the fields that you want to
-   *                populate. In this case, first use the type-specific object to populate those fields.
-   *                Use the <code>Other</code> object to populate the fields that are missing from the
-   *                type-specific object.</p>
-   *             </li>
-   *             <li>
-   *                <p>The resource type does not have a corresponding object. This includes resources
-   *                for which the type is <code>Other</code>. </p>
-   *             </li>
-   *          </ul>
+   * Details about a resource that are not available in a type-specific details object. Use the `Other` object in the following cases.
+   *
+   * - The type-specific object does not contain all of the fields that you want to populate. In this case, first use the type-specific object to populate those fields. Use the `Other` object to populate the fields that are missing from the type-specific object.
+   * - The resource type does not have a corresponding object. This includes resources for which the type is `Other`.
+   *
    * @public
    */
   Other?: Record<string, string> | undefined;
 
   /**
-   * <p>Details about an RDS event notification subscription.</p>
+   * Details about an RDS event notification subscription.
+   *
    * @public
    */
   AwsRdsEventSubscription?: AwsRdsEventSubscriptionDetails | undefined;
 
   /**
-   * <p>Details about a service within an ECS cluster.</p>
+   * Details about a service within an ECS cluster.
+   *
    * @public
    */
   AwsEcsService?: AwsEcsServiceDetails | undefined;
 
   /**
-   * <p>Provides details about a launch configuration.</p>
+   * Provides details about a launch configuration.
+   *
    * @public
    */
   AwsAutoScalingLaunchConfiguration?: AwsAutoScalingLaunchConfigurationDetails | undefined;
 
   /**
-   * <p>Details about an Amazon EC2 VPN connection.</p>
+   * Details about an Amazon EC2 VPN connection.
+   *
    * @public
    */
   AwsEc2VpnConnection?: AwsEc2VpnConnectionDetails | undefined;
 
   /**
-   * <p>Information about an Amazon ECR image.</p>
+   * Information about an Amazon ECR image.
+   *
    * @public
    */
   AwsEcrContainerImage?: AwsEcrContainerImageDetails | undefined;
 
   /**
-   * <p>Details about an Amazon OpenSearch Service domain.</p>
+   * Details about an Amazon OpenSearch Service domain.
+   *
    * @public
    */
   AwsOpenSearchServiceDomain?: AwsOpenSearchServiceDomainDetails | undefined;
 
   /**
-   * <p>Details about the service configuration for a VPC endpoint service.</p>
+   * Details about the service configuration for a VPC endpoint service.
+   *
    * @public
    */
   AwsEc2VpcEndpointService?: AwsEc2VpcEndpointServiceDetails | undefined;
 
   /**
-   * <p>Information about the encryption configuration for X-Ray.</p>
+   * Information about the encryption configuration for X-Ray.
+   *
    * @public
    */
   AwsXrayEncryptionConfig?: AwsXrayEncryptionConfigDetails | undefined;
 
   /**
-   * <p>Details about a rate-based rule for global resources.</p>
+   * Details about a rate-based rule for global resources.
+   *
    * @public
    */
   AwsWafRateBasedRule?: AwsWafRateBasedRuleDetails | undefined;
 
   /**
-   * <p>Details about a rate-based rule for Regional resources.</p>
+   * Details about a rate-based rule for Regional resources.
+   *
    * @public
    */
   AwsWafRegionalRateBasedRule?: AwsWafRegionalRateBasedRuleDetails | undefined;
 
   /**
-   * <p>Information about an Amazon Elastic Container Registry repository.</p>
+   * Information about an Amazon Elastic Container Registry repository.
+   *
    * @public
    */
   AwsEcrRepository?: AwsEcrRepositoryDetails | undefined;
 
   /**
-   * <p>Details about an Amazon EKS cluster.</p>
+   * Details about an Amazon EKS cluster.
+   *
    * @public
    */
   AwsEksCluster?: AwsEksClusterDetails | undefined;
 
   /**
-   * <p>Details about an Network Firewall firewall policy.</p>
+   * Details about an Network Firewall firewall policy.
+   *
    * @public
    */
   AwsNetworkFirewallFirewallPolicy?: AwsNetworkFirewallFirewallPolicyDetails | undefined;
 
   /**
-   * <p>Details about an Network Firewall firewall.</p>
+   * Details about an Network Firewall firewall.
+   *
    * @public
    */
   AwsNetworkFirewallFirewall?: AwsNetworkFirewallFirewallDetails | undefined;
 
   /**
-   * <p>Details about an Network Firewall rule group.</p>
+   * Details about an Network Firewall rule group.
+   *
    * @public
    */
   AwsNetworkFirewallRuleGroup?: AwsNetworkFirewallRuleGroupDetails | undefined;
 
   /**
-   * <p>Details about an Amazon RDS DB security group.</p>
+   * Details about an Amazon RDS DB security group.
+   *
    * @public
    */
   AwsRdsDbSecurityGroup?: AwsRdsDbSecurityGroupDetails | undefined;
 
   /**
-   * <p>Details about an Amazon Kinesis data stream.</p>
+   * Details about an Amazon Kinesis data stream.
+   *
    * @public
    */
   AwsKinesisStream?: AwsKinesisStreamDetails | undefined;
 
   /**
-   * <p>Details about an Amazon EC2 transit gateway that interconnects your virtual private clouds (VPC) and on-premises networks.</p>
+   * Details about an Amazon EC2 transit gateway that interconnects your virtual private clouds (VPC) and on-premises networks.
+   *
    * @public
    */
   AwsEc2TransitGateway?: AwsEc2TransitGatewayDetails | undefined;
 
   /**
-   * <p>Details about an Amazon EFS access point. An access point is an application-specific view into an EFS file system that
-   * applies an operating system user and group, and a file system path, to any file system request made through the access point.
-   *       </p>
+   * Details about an Amazon EFS access point. An access point is an application-specific view into an EFS file system that applies an operating system user and group, and a file system path, to any file system request made through the access point.
+   *
    * @public
    */
   AwsEfsAccessPoint?: AwsEfsAccessPointDetails | undefined;
 
   /**
-   * <p>Details about an CloudFormation stack. A stack is a collection of Amazon Web Services resources that you can manage as a single unit.</p>
+   * Details about an CloudFormation stack. A stack is a collection of Amazon Web Services resources that you can manage as a single unit.
+   *
    * @public
    */
   AwsCloudFormationStack?: AwsCloudFormationStackDetails | undefined;
 
   /**
-   * <p>Details about an Amazon CloudWatch alarm. An alarm allows you to monitor and receive alerts about your Amazon Web Services resources and applications across multiple Regions.</p>
+   * Details about an Amazon CloudWatch alarm. An alarm allows you to monitor and receive alerts about your Amazon Web Services resources and applications across multiple Regions.
+   *
    * @public
    */
   AwsCloudWatchAlarm?: AwsCloudWatchAlarmDetails | undefined;
 
   /**
-   * <p>Details about an Amazon EC2 VPC peering connection. A VPC peering connection is
-   *          a networking connection between two VPCs that enables you to route traffic between them
-   *          privately.
-   *       </p>
+   * Details about an Amazon EC2 VPC peering connection. A VPC peering connection is a networking connection between two VPCs that enables you to route traffic between them privately.
+   *
    * @public
    */
   AwsEc2VpcPeeringConnection?: AwsEc2VpcPeeringConnectionDetails | undefined;
 
   /**
-   * <p>Details about an WAF rule group for Regional resources.
-   *       </p>
+   * Details about an WAF rule group for Regional resources.
+   *
    * @public
    */
   AwsWafRegionalRuleGroup?: AwsWafRegionalRuleGroupDetails | undefined;
 
   /**
-   * <p>Details about an WAF rule for Regional resources.
-   *       </p>
+   * Details about an WAF rule for Regional resources.
+   *
    * @public
    */
   AwsWafRegionalRule?: AwsWafRegionalRuleDetails | undefined;
 
   /**
-   * <p>Details about an WAF web access control list (web ACL) for Regional resources. </p>
+   * Details about an WAF web access control list (web ACL) for Regional resources.
+   *
    * @public
    */
   AwsWafRegionalWebAcl?: AwsWafRegionalWebAclDetails | undefined;
 
   /**
-   * <p>Details about an WAF rule for global resources.
-   *       </p>
+   * Details about an WAF rule for global resources.
+   *
    * @public
    */
   AwsWafRule?: AwsWafRuleDetails | undefined;
 
   /**
-   * <p>Details about an WAF rule group for global resources.
-   *       </p>
+   * Details about an WAF rule group for global resources.
+   *
    * @public
    */
   AwsWafRuleGroup?: AwsWafRuleGroupDetails | undefined;
 
   /**
-   * <p>Details about a task in a cluster. </p>
+   * Details about a task in a cluster.
+   *
    * @public
    */
   AwsEcsTask?: AwsEcsTaskDetails | undefined;
 
   /**
-   * <p>Provides details about an Backup backup vault.
-   *       </p>
+   * Provides details about an Backup backup vault.
+   *
    * @public
    */
   AwsBackupBackupVault?: AwsBackupBackupVaultDetails | undefined;
 
   /**
-   * <p>Provides details about an Backup backup plan.
-   *       </p>
+   * Provides details about an Backup backup plan.
+   *
    * @public
    */
   AwsBackupBackupPlan?: AwsBackupBackupPlanDetails | undefined;
 
   /**
-   * <p>Provides details about an Backup backup, or recovery point.
-   *       </p>
+   * Provides details about an Backup backup, or recovery point.
+   *
    * @public
    */
   AwsBackupRecoveryPoint?: AwsBackupRecoveryPointDetails | undefined;
 
   /**
-   * <p>
-   *          Specifies the properties for creating an Amazon Elastic Compute Cloud (Amazon EC2) launch template.
-   *       </p>
+   * Specifies the properties for creating an Amazon Elastic Compute Cloud (Amazon EC2) launch template.
+   *
    * @public
    */
   AwsEc2LaunchTemplate?: AwsEc2LaunchTemplateDetails | undefined;
 
   /**
-   * <p>
-   *          Provides details about an Amazon SageMaker AI notebook instance.
-   *       </p>
+   * Provides details about an Amazon SageMaker AI notebook instance.
+   *
    * @public
    */
   AwsSageMakerNotebookInstance?: AwsSageMakerNotebookInstanceDetails | undefined;
 
   /**
-   * <p>
-   *          Details about an WAFv2 web Access Control List (ACL).
-   *       </p>
+   * Details about an WAFv2 web Access Control List (ACL).
+   *
    * @public
    */
   AwsWafv2WebAcl?: AwsWafv2WebAclDetails | undefined;
 
   /**
-   * <p>
-   *          Details about an WAFv2 rule group.
-   *       </p>
+   * Details about an WAFv2 rule group.
+   *
    * @public
    */
   AwsWafv2RuleGroup?: AwsWafv2RuleGroupDetails | undefined;
 
   /**
-   * <p>
-   *          Provides details about a route table. A route table contains a set of rules, called routes, that
-   *          determine where to direct network traffic from your subnet or gateway.
-   *       </p>
+   * Provides details about a route table. A route table contains a set of rules, called routes, that determine where to direct network traffic from your subnet or gateway.
+   *
    * @public
    */
   AwsEc2RouteTable?: AwsEc2RouteTableDetails | undefined;
 
   /**
-   * <p>
-   *             Provides details about AppSync message broker. A message broker allows software applications and
-   *             components to communicate using various programming languages, operating systems, and formal messaging protocols.
-   *         </p>
+   * Provides details about AppSync message broker. A message broker allows software applications and components to communicate using various programming languages, operating systems, and formal messaging protocols.
+   *
    * @public
    */
   AwsAmazonMqBroker?: AwsAmazonMqBrokerDetails | undefined;
 
   /**
-   * <p>
-   *             Provides details about an AppSync Graph QL API, which lets you query multiple databases, microservices,
-   *             and APIs from a single GraphQL endpoint.
-   *         </p>
+   * Provides details about an AppSync Graph QL API, which lets you query multiple databases, microservices, and APIs from a single GraphQL endpoint.
+   *
    * @public
    */
   AwsAppSyncGraphQlApi?: AwsAppSyncGraphQlApiDetails | undefined;
 
   /**
-   * <p>
-   *             A schema defines the structure of events that are sent to Amazon EventBridge. Schema registries are containers for
-   *             schemas. They collect and organize schemas so that your schemas are in logical groups.
-   *         </p>
+   * A schema defines the structure of events that are sent to Amazon EventBridge. Schema registries are containers for schemas. They collect and organize schemas so that your schemas are in logical groups.
+   *
    * @public
    */
   AwsEventSchemasRegistry?: AwsEventSchemasRegistryDetails | undefined;
 
   /**
-   * <p>
-   *             Provides details about an Amazon GuardDuty detector. A detector is an object that represents the GuardDuty
-   *             service. A detector is required for GuardDuty to become operational.
-   *         </p>
+   * Provides details about an Amazon GuardDuty detector. A detector is an object that represents the GuardDuty service. A detector is required for GuardDuty to become operational.
+   *
    * @public
    */
   AwsGuardDutyDetector?: AwsGuardDutyDetectorDetails | undefined;
 
   /**
-   * <p>
-   *             Provides details about an Step Functions state machine, which is a workflow consisting of a series of event-driven steps.
-   *         </p>
+   * Provides details about an Step Functions state machine, which is a workflow consisting of a series of event-driven steps.
+   *
    * @public
    */
   AwsStepFunctionStateMachine?: AwsStepFunctionStateMachineDetails | undefined;
 
   /**
-   * <p>
-   *             Provides information about an Amazon Athena workgroup. A workgroup helps you separate users, teams,
-   *             applications, or workloads. It also helps you set limits on data processing and track costs.
-   *         </p>
+   * Provides information about an Amazon Athena workgroup. A workgroup helps you separate users, teams, applications, or workloads. It also helps you set limits on data processing and track costs.
+   *
    * @public
    */
   AwsAthenaWorkGroup?: AwsAthenaWorkGroupDetails | undefined;
 
   /**
-   * <p>
-   *             Provides details about Amazon EventBridge event bus for an endpoint. An event bus is a router that receives events
-   * and delivers them to zero or more destinations, or targets.</p>
+   * Provides details about Amazon EventBridge event bus for an endpoint. An event bus is a router that receives events and delivers them to zero or more destinations, or targets.
+   *
    * @public
    */
   AwsEventsEventbus?: AwsEventsEventbusDetails | undefined;
 
   /**
-   * <p>
-   *             Provides details about an Database Migration Service (DMS) endpoint. An endpoint provides connection, data
-   * store type, and location information about your data store.</p>
+   * Provides details about an Database Migration Service (DMS) endpoint. An endpoint provides connection, data store type, and location information about your data store.
+   *
    * @public
    */
   AwsDmsEndpoint?: AwsDmsEndpointDetails | undefined;
 
   /**
-   * <p>
-   *             Provides details about an Amazon EventBridge global endpoint. The endpoint can improve your application’s
-   * availability by making it Regional-fault tolerant.</p>
+   * Provides details about an Amazon EventBridge global endpoint. The endpoint can improve your application’s availability by making it Regional-fault tolerant.
+   *
    * @public
    */
   AwsEventsEndpoint?: AwsEventsEndpointDetails | undefined;
 
   /**
-   * <p>
-   *             Provides details about an DMS replication task. A replication task moves a set of data from the source
-   * endpoint to the target endpoint.</p>
+   * Provides details about an DMS replication task. A replication task moves a set of data from the source endpoint to the target endpoint.
+   *
    * @public
    */
   AwsDmsReplicationTask?: AwsDmsReplicationTaskDetails | undefined;
 
   /**
-   * <p>
-   *             Provides details about an DMS replication instance. DMS uses a replication instance to connect to your
-   * source data store, read the source data, and format the data for consumption by the target data store.</p>
+   * Provides details about an DMS replication instance. DMS uses a replication instance to connect to your source data store, read the source data, and format the data for consumption by the target data store.
+   *
    * @public
    */
   AwsDmsReplicationInstance?: AwsDmsReplicationInstanceDetails | undefined;
 
   /**
-   * <p>
-   *             Provides details about an Amazon Route 53 hosted zone, including the four name servers assigned to the hosted
-   * zone. A hosted zone represents a collection of records that can be managed together, belonging to a single parent domain name.</p>
+   * Provides details about an Amazon Route 53 hosted zone, including the four name servers assigned to the hosted zone. A hosted zone represents a collection of records that can be managed together, belonging to a single parent domain name.
+   *
    * @public
    */
   AwsRoute53HostedZone?: AwsRoute53HostedZoneDetails | undefined;
 
   /**
-   * <p>
-   *             Provides details about an Amazon Managed Streaming for Apache Kafka (Amazon MSK) cluster.</p>
+   * Provides details about an Amazon Managed Streaming for Apache Kafka (Amazon MSK) cluster.
+   *
    * @public
    */
   AwsMskCluster?: AwsMskClusterDetails | undefined;
 
   /**
-   * <p>
-   *             Provides details about an Amazon Simple Storage Service (Amazon S3) access point. S3 access points are named network
-   *             endpoints that are attached to S3 buckets that you can use to perform S3 object operations.
-   *         </p>
+   * Provides details about an Amazon Simple Storage Service (Amazon S3) access point. S3 access points are named network endpoints that are attached to S3 buckets that you can use to perform S3 object operations.
+   *
    * @public
    */
   AwsS3AccessPoint?: AwsS3AccessPointDetails | undefined;
 
   /**
-   * <p>
-   *             Provides details about an Client VPN endpoint. A Client VPN endpoint is the resource that you
-   *             create and configure to enable and manage client VPN sessions. It's the termination point for all client VPN sessions.
-   *         </p>
+   * Provides details about an Client VPN endpoint. A Client VPN endpoint is the resource that you create and configure to enable and manage client VPN sessions. It's the termination point for all client VPN sessions.
+   *
    * @public
    */
   AwsEc2ClientVpnEndpoint?: AwsEc2ClientVpnEndpointDetails | undefined;
 
   /**
-   * <p>
-   *          Details about an external code repository with which you can connect your Amazon Web Services resources.
-   *          The connection is established through Amazon Inspector.
-   *       </p>
+   * Details about an external code repository with which you can connect your Amazon Web Services resources. The connection is established through Amazon Inspector.
+   *
    * @public
    */
   CodeRepository?: CodeRepositoryDetails | undefined;
 
   /**
-   * <p>Details about an Azure resource that is related to a finding.</p>
+   * Details about an Azure resource that is related to a finding.
+   *
    * @public
    */
   AzureResource?: __DocumentType | undefined;
 }
 
 /**
- * <p>Information about the account that owns a resource, for example, an Azure Subscription or Amazon Web Services Account.</p>
+ * Information about the account that owns a resource, for example, an Azure Subscription or Amazon Web Services Account.
+ *
  * @public
  */
 export interface ResourceOwnerAccount {
   /**
-   * <p>The unique identifier of the account that owns the resource, for example, Azure Subscription Id or Amazon Web Services Account Id.</p>
+   * The unique identifier of the account that owns the resource, for example, Azure Subscription Id or Amazon Web Services Account Id.
+   *
    * @public
    */
   Id?: string | undefined;
 }
 
 /**
- * <p>Information about the organization that owns a resource, for example, an Azure Tenant.</p>
+ * Information about the organization that owns a resource, for example, an Azure Tenant.
+ *
  * @public
  */
 export interface ResourceOwnerOrg {
   /**
-   * <p>The unique identifier of the organization that owns the resource, for example, Azure Tenant Id.</p>
+   * The unique identifier of the organization that owns the resource, for example, Azure Tenant Id.
+   *
    * @public
    */
   Id?: string | undefined;
 }
 
 /**
- * <p>Information about the owner of a resource, including the account and organization that the resource belongs to.</p>
+ * Information about the owner of a resource, including the account and organization that the resource belongs to.
+ *
  * @public
  */
 export interface ResourceOwner {
   /**
-   * <p>Information about the account that owns the resource, for example, an Azure Subscription or Amazon Web Services Account.</p>
+   * Information about the account that owns the resource, for example, an Azure Subscription or Amazon Web Services Account.
+   *
    * @public
    */
   Account?: ResourceOwnerAccount | undefined;
 
   /**
-   * <p>Information about the organization that owns the resource, for example, an Azure Tenant.</p>
+   * Information about the organization that owns the resource, for example, an Azure Tenant.
+   *
    * @public
    */
   Org?: ResourceOwnerOrg | undefined;
 }
 
 /**
- * <p>A resource related to a finding.</p>
+ * A resource related to a finding.
+ *
  * @public
  */
 export interface Resource {
   /**
-   * <p>The type of the resource that details are provided for. If possible, set
-   *             <code>Type</code> to one of the supported resource types. For example, if the resource
-   *          is an EC2 instance, then set <code>Type</code> to <code>AwsEc2Instance</code>.</p>
-   *          <p>If the resource does not match any of the provided types, then set <code>Type</code> to
-   *             <code>Other</code>. </p>
-   *          <p>Length Constraints: Minimum length of 1. Maximum length of 256.</p>
+   * The type of the resource that details are provided for. If possible, set `Type` to one of the supported resource types. For example, if the resource is an EC2 instance, then set `Type` to `AwsEc2Instance`.
+   *
+   * If the resource does not match any of the provided types, then set `Type` to `Other`.
+   *
+   * Length Constraints: Minimum length of 1. Maximum length of 256.
+   *
    * @public
    */
   Type: string | undefined;
 
   /**
-   * <p>The canonical identifier for the given resource type.</p>
+   * The canonical identifier for the given resource type.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The canonical Amazon Web Services partition name that the Region is assigned to.</p>
+   * The canonical Amazon Web Services partition name that the Region is assigned to.
+   *
    * @public
    */
   Partition?: Partition | undefined;
 
   /**
-   * <p>The canonical Amazon Web Services external Region name where this resource is located.</p>
-   *          <p>Length Constraints: Minimum length of 1. Maximum length of 16.</p>
+   * The canonical Amazon Web Services external Region name where this resource is located.
+   *
+   * Length Constraints: Minimum length of 1. Maximum length of 16.
+   *
    * @public
    */
   Region?: string | undefined;
 
   /**
-   * <p>The cloud provider that the resource belongs to. Valid values are <code>AWS</code> and <code>Azure</code>.</p>
+   * The cloud provider that the resource belongs to. Valid values are `AWS` and `Azure`.
+   *
    * @public
    */
   Provider?: CloudProviderName | undefined;
 
   /**
-   * <p>Information about the account and organization that own the resource.</p>
+   * Information about the account and organization that own the resource.
+   *
    * @public
    */
   Owner?: ResourceOwner | undefined;
 
   /**
-   * <p>Identifies the role of the resource in the finding. A resource is either the actor or target of the finding activity,</p>
+   * Identifies the role of the resource in the finding. A resource is either the actor or target of the finding activity,
+   *
    * @public
    */
   ResourceRole?: string | undefined;
 
   /**
-   * <p>A list of Amazon Web Services tags associated with a resource at the time the finding was
-   *           processed. Tags must follow <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions">Amazon Web Services tag naming limits and requirements</a>.</p>
+   * A list of Amazon Web Services tags associated with a resource at the time the finding was processed. Tags must follow [Amazon Web Services tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions).
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Contains information about sensitive data that was detected on the resource.</p>
+   * Contains information about sensitive data that was detected on the resource.
+   *
    * @public
    */
   DataClassification?: DataClassificationDetails | undefined;
 
   /**
-   * <p>Additional details about the resource related to a finding.</p>
+   * Additional details about the resource related to a finding.
+   *
    * @public
    */
   Details?: ResourceDetails | undefined;
 
   /**
-   * <p>
-   *             The name of the application that is related to a finding.
-   *         </p>
+   * The name of the application that is related to a finding.
+   *
    * @public
    */
   ApplicationName?: string | undefined;
 
   /**
-   * <p>
-   *             The Amazon Resource Name (ARN) of the application that is related to a finding.
-   *         </p>
+   * The Amazon Resource Name (ARN) of the application that is related to a finding.
+   *
    * @public
    */
   ApplicationArn?: string | undefined;
 }
 
 /**
- * <p>The severity of the finding.</p>
- *          <p>The finding provider can provide the initial severity. The finding provider can only
- *          update the severity if it hasn't been updated using
- *          <code>BatchUpdateFindings</code>.</p>
- *          <p>The finding must have either <code>Label</code> or <code>Normalized</code> populated. If
- *          only one of these attributes is populated, then Security Hub CSPM automatically populates the other
- *          one. If neither attribute is populated, then the finding is invalid. <code>Label</code> is
- *          the preferred attribute.</p>
+ * The severity of the finding.
+ *
+ * The finding provider can provide the initial severity. The finding provider can only update the severity if it hasn't been updated using `BatchUpdateFindings`.
+ *
+ * The finding must have either `Label` or `Normalized` populated. If only one of these attributes is populated, then Security Hub CSPM automatically populates the other one. If neither attribute is populated, then the finding is invalid. `Label` is the preferred attribute.
+ *
  * @public
  */
 export interface Severity {
   /**
-   * <p>Deprecated. This attribute isn't included in findings. Instead of providing
-   *             <code>Product</code>, provide <code>Original</code>.</p>
-   *          <p>The native severity as defined by the Amazon Web Services service or integrated partner product that
-   *          generated the finding.</p>
+   * Deprecated. This attribute isn't included in findings. Instead of providing `Product`, provide `Original`.
+   *
+   * The native severity as defined by the Amazon Web Services service or integrated partner product that generated the finding.
+   *
    * @public
    */
   Product?: number | undefined;
 
   /**
-   * <p>The severity value of the finding. The allowed values are the following.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>INFORMATIONAL</code> - No issue was found.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LOW</code> - The issue does not require action on its own.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MEDIUM</code> - The issue must be addressed but not urgently.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>HIGH</code> - The issue must be addressed as a priority.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CRITICAL</code> - The issue must be remediated immediately to avoid it
-   *                escalating.</p>
-   *             </li>
-   *          </ul>
-   *          <p>If you provide <code>Normalized</code> and don't provide <code>Label</code>, then
-   *             <code>Label</code> is set automatically as follows. </p>
-   *          <ul>
-   *             <li>
-   *                <p>0 - <code>INFORMATIONAL</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>1–39 - <code>LOW</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>40–69 - <code>MEDIUM</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>70–89 - <code>HIGH</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>90–100 - <code>CRITICAL</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The severity value of the finding. The allowed values are the following.
+   *
+   * - `INFORMATIONAL` - No issue was found.
+   * - `LOW` - The issue does not require action on its own.
+   * - `MEDIUM` - The issue must be addressed but not urgently.
+   * - `HIGH` - The issue must be addressed as a priority.
+   * - `CRITICAL` - The issue must be remediated immediately to avoid it escalating.
+   *
+   * If you provide `Normalized` and don't provide `Label`, then `Label` is set automatically as follows.
+   *
+   * - 0 - `INFORMATIONAL`
+   * - 1–39 - `LOW`
+   * - 40–69 - `MEDIUM`
+   * - 70–89 - `HIGH`
+   * - 90–100 - `CRITICAL`
+   *
    * @public
    */
   Label?: SeverityLabel | undefined;
 
   /**
-   * <p>Deprecated. The normalized severity of a finding.
-   *          Instead of providing <code>Normalized</code>, provide <code>Label</code>.</p>
-   *          <p>The value of <code>Normalized</code> can be an integer between <code>0</code> and <code>100</code>.</p>
-   *          <p>If you provide <code>Label</code> and don't provide <code>Normalized</code>, then
-   *             <code>Normalized</code> is set automatically as follows.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>INFORMATIONAL</code> - 0</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LOW</code> - 1</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MEDIUM</code> - 40</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>HIGH</code> - 70</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CRITICAL</code> - 90</p>
-   *             </li>
-   *          </ul>
+   * Deprecated. The normalized severity of a finding. Instead of providing `Normalized`, provide `Label`.
+   *
+   * The value of `Normalized` can be an integer between `0` and `100`.
+   *
+   * If you provide `Label` and don't provide `Normalized`, then `Normalized` is set automatically as follows.
+   *
+   * - `INFORMATIONAL` - 0
+   * - `LOW` - 1
+   * - `MEDIUM` - 40
+   * - `HIGH` - 70
+   * - `CRITICAL` - 90
+   *
    * @public
    */
   Normalized?: number | undefined;
 
   /**
-   * <p>The native severity from the finding product that generated the finding.</p>
-   *          <p>Length Constraints: Minimum length of 1. Maximum length of 64.</p>
+   * The native severity from the finding product that generated the finding.
+   *
+   * Length Constraints: Minimum length of 1. Maximum length of 64.
+   *
    * @public
    */
   Original?: string | undefined;
 }
 
 /**
- * <p>Details about the threat intelligence related to a finding.</p>
+ * Details about the threat intelligence related to a finding.
+ *
  * @public
  */
 export interface ThreatIntelIndicator {
   /**
-   * <p>The type of threat intelligence indicator.</p>
+   * The type of threat intelligence indicator.
+   *
    * @public
    */
   Type?: ThreatIntelIndicatorType | undefined;
 
   /**
-   * <p>The value of a threat intelligence indicator.</p>
-   *          <p>Length Constraints: Minimum of 1 length. Maximum of 512 length.</p>
+   * The value of a threat intelligence indicator.
+   *
+   * Length Constraints: Minimum of 1 length. Maximum of 512 length.
+   *
    * @public
    */
   Value?: string | undefined;
 
   /**
-   * <p>The category of a threat intelligence indicator.</p>
+   * The category of a threat intelligence indicator.
+   *
    * @public
    */
   Category?: ThreatIntelIndicatorCategory | undefined;
 
   /**
-   * <p>Indicates when the most recent instance of a threat intelligence indicator was
-   *          observed.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * Indicates when the most recent instance of a threat intelligence indicator was observed.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   LastObservedAt?: string | undefined;
 
   /**
-   * <p>The source of the threat intelligence indicator.</p>
-   *          <p>Length Constraints: Minimum of 1 length. Maximum of 64 length.</p>
+   * The source of the threat intelligence indicator.
+   *
+   * Length Constraints: Minimum of 1 length. Maximum of 64 length.
+   *
    * @public
    */
   Source?: string | undefined;
 
   /**
-   * <p>The URL to the page or site where you can get more information about the threat
-   *          intelligence indicator.</p>
+   * The URL to the page or site where you can get more information about the threat intelligence indicator.
+   *
    * @public
    */
   SourceUrl?: string | undefined;
 }
 
 /**
- * <p>Provides information about the file paths that were affected by the threat.
- * 		</p>
+ * Provides information about the file paths that were affected by the threat.
+ *
  * @public
  */
 export interface FilePaths {
   /**
-   * <p>Path to the infected or suspicious file on the resource it was detected on.
-   * 		</p>
-   *          <p>Length Constraints: Minimum of 1 length. Maximum of 128 length.</p>
+   * Path to the infected or suspicious file on the resource it was detected on.
+   *
+   * Length Constraints: Minimum of 1 length. Maximum of 128 length.
+   *
    * @public
    */
   FilePath?: string | undefined;
 
   /**
-   * <p>The name of the infected or suspicious file corresponding to the hash.
-   * 		</p>
-   *          <p>Length Constraints: Minimum of 1 length. Maximum of 128 length.</p>
+   * The name of the infected or suspicious file corresponding to the hash.
+   *
+   * Length Constraints: Minimum of 1 length. Maximum of 128 length.
+   *
    * @public
    */
   FileName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource on which the threat was detected.
-   * 		</p>
-   *          <p>Length Constraints: Minimum of 1 length. Maximum of 128 length.</p>
+   * The Amazon Resource Name (ARN) of the resource on which the threat was detected.
+   *
+   * Length Constraints: Minimum of 1 length. Maximum of 128 length.
+   *
    * @public
    */
   ResourceId?: string | undefined;
 
   /**
-   * <p>The hash value for the infected or suspicious file.
-   * 		</p>
-   *          <p>Length Constraints: Minimum of 1 length. Maximum of 128 length.</p>
+   * The hash value for the infected or suspicious file.
+   *
+   * Length Constraints: Minimum of 1 length. Maximum of 128 length.
+   *
    * @public
    */
   Hash?: string | undefined;
 }
 
 /**
- * <p>Provides information about the threat detected in a security finding and the file paths that were affected by the threat.
- * 		</p>
+ * Provides information about the threat detected in a security finding and the file paths that were affected by the threat.
+ *
  * @public
  */
 export interface Threat {
   /**
-   * <p>The name of the threat.
-   * 		</p>
-   *          <p>Length Constraints: Minimum of 1 length. Maximum of 128 length.</p>
+   * The name of the threat.
+   *
+   * Length Constraints: Minimum of 1 length. Maximum of 128 length.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The severity of the threat.
-   * 		</p>
-   *          <p>Length Constraints: Minimum of 1 length. Maximum of 128 length.</p>
+   * The severity of the threat.
+   *
+   * Length Constraints: Minimum of 1 length. Maximum of 128 length.
+   *
    * @public
    */
   Severity?: string | undefined;
 
   /**
-   * <p>This total number of items in which the threat has been detected.
-   * 		</p>
+   * This total number of items in which the threat has been detected.
+   *
    * @public
    */
   ItemCount?: number | undefined;
 
   /**
-   * <p>Provides information about the file paths that were affected by the threat.
-   * 		</p>
-   *          <p>Array Members: Minimum number of 1 item. Maximum number of 5 items.</p>
+   * Provides information about the file paths that were affected by the threat.
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 5 items.
+   *
    * @public
    */
   FilePaths?: FilePaths[] | undefined;
 }
 
 /**
- * <p>
- *             Provides details about where a code vulnerability is located in your Lambda function.
- *         </p>
+ * Provides details about where a code vulnerability is located in your Lambda function.
+ *
  * @public
  */
 export interface CodeVulnerabilitiesFilePath {
   /**
-   * <p>
-   *         	The line number of the last line of code in which the vulnerability is located.
-   *         </p>
+   * The line number of the last line of code in which the vulnerability is located.
+   *
    * @public
    */
   EndLine?: number | undefined;
 
   /**
-   * <p>
-   *             The name of the file in which the code vulnerability is located.
-   *         </p>
+   * The name of the file in which the code vulnerability is located.
+   *
    * @public
    */
   FileName?: string | undefined;
 
   /**
-   * <p>
-   *             The file path to the code in which the vulnerability is located.
-   *         </p>
+   * The file path to the code in which the vulnerability is located.
+   *
    * @public
    */
   FilePath?: string | undefined;
 
   /**
-   * <p>
-   *             The line number of the first line of code in which the vulnerability is located.
-   *         </p>
+   * The line number of the first line of code in which the vulnerability is located.
+   *
    * @public
    */
   StartLine?: number | undefined;
 }
 
 /**
- * <p>Provides details about the vulnerabilities found in your Lambda function code. This field pertains to findings that
- *             Security Hub CSPM receives from Amazon Inspector.
- *         </p>
+ * Provides details about the vulnerabilities found in your Lambda function code. This field pertains to findings that Security Hub CSPM receives from Amazon Inspector.
+ *
  * @public
  */
 export interface VulnerabilityCodeVulnerabilities {
   /**
-   * <p>
-   *             The Common Weakness Enumeration (CWE) item associated with the detected code vulnerability.
-   *         </p>
+   * The Common Weakness Enumeration (CWE) item associated with the detected code vulnerability.
+   *
    * @public
    */
   Cwes?: string[] | undefined;
 
   /**
-   * <p>
-   *             Provides details about where a code vulnerability is located in your Lambda function.
-   *         </p>
+   * Provides details about where a code vulnerability is located in your Lambda function.
+   *
    * @public
    */
   FilePath?: CodeVulnerabilitiesFilePath | undefined;
 
   /**
-   * <p>
-   *             The Amazon Resource Name (ARN) of the Lambda layer in which the code vulnerability is located.
-   *         </p>
+   * The Amazon Resource Name (ARN) of the Lambda layer in which the code vulnerability is located.
+   *
    * @public
    */
   SourceArn?: string | undefined;
 }
 
 /**
- * <p>CVSS scores from the advisory related to the vulnerability.</p>
+ * CVSS scores from the advisory related to the vulnerability.
+ *
  * @public
  */
 export interface Cvss {
   /**
-   * <p>The version of CVSS for the CVSS score.</p>
+   * The version of CVSS for the CVSS score.
+   *
    * @public
    */
   Version?: string | undefined;
 
   /**
-   * <p>The base CVSS score.</p>
+   * The base CVSS score.
+   *
    * @public
    */
   BaseScore?: number | undefined;
 
   /**
-   * <p>The base scoring vector for the CVSS score.</p>
+   * The base scoring vector for the CVSS score.
+   *
    * @public
    */
   BaseVector?: string | undefined;
 
   /**
-   * <p>The origin of the original CVSS score and vector.</p>
+   * The origin of the original CVSS score and vector.
+   *
    * @public
    */
   Source?: string | undefined;
 
   /**
-   * <p>Adjustments to the CVSS metrics.</p>
+   * Adjustments to the CVSS metrics.
+   *
    * @public
    */
   Adjustments?: Adjustment[] | undefined;
 }
 
 /**
- * <p>A vendor that generates a vulnerability report.</p>
+ * A vendor that generates a vulnerability report.
+ *
  * @public
  */
 export interface VulnerabilityVendor {
   /**
-   * <p>The name of the vendor.</p>
+   * The name of the vendor.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The URL of the vulnerability advisory.</p>
+   * The URL of the vulnerability advisory.
+   *
    * @public
    */
   Url?: string | undefined;
 
   /**
-   * <p>The severity that the vendor assigned to the vulnerability.</p>
+   * The severity that the vendor assigned to the vulnerability.
+   *
    * @public
    */
   VendorSeverity?: string | undefined;
 
   /**
-   * <p>Indicates when the vulnerability advisory was created.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * Indicates when the vulnerability advisory was created.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   VendorCreatedAt?: string | undefined;
 
   /**
-   * <p>Indicates when the vulnerability advisory was last updated.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * Indicates when the vulnerability advisory was last updated.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   VendorUpdatedAt?: string | undefined;
 }
 
 /**
- * <p>Information about a software package.</p>
+ * Information about a software package.
+ *
  * @public
  */
 export interface SoftwarePackage {
   /**
-   * <p>The name of the software package.</p>
+   * The name of the software package.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The version of the software package.</p>
+   * The version of the software package.
+   *
    * @public
    */
   Version?: string | undefined;
 
   /**
-   * <p>The epoch of the software package.</p>
+   * The epoch of the software package.
+   *
    * @public
    */
   Epoch?: string | undefined;
 
   /**
-   * <p>The release of the software package.</p>
+   * The release of the software package.
+   *
    * @public
    */
   Release?: string | undefined;
 
   /**
-   * <p>The architecture used for the software package.</p>
+   * The architecture used for the software package.
+   *
    * @public
    */
   Architecture?: string | undefined;
 
   /**
-   * <p>The source of the package.</p>
+   * The source of the package.
+   *
    * @public
    */
   PackageManager?: string | undefined;
 
   /**
-   * <p>The file system path to the package manager inventory file.</p>
+   * The file system path to the package manager inventory file.
+   *
    * @public
    */
   FilePath?: string | undefined;
 
   /**
-   * <p>The version of the software package in which the vulnerability has been resolved.
-   *       </p>
+   * The version of the software package in which the vulnerability has been resolved.
+   *
    * @public
    */
   FixedInVersion?: string | undefined;
 
   /**
-   * <p>Describes the actions a customer can take to resolve the vulnerability in the software package.
-   *       </p>
+   * Describes the actions a customer can take to resolve the vulnerability in the software package.
+   *
    * @public
    */
   Remediation?: string | undefined;
 
   /**
-   * <p>The source layer hash of the vulnerable package.
-   *       </p>
+   * The source layer hash of the vulnerable package.
+   *
    * @public
    */
   SourceLayerHash?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the source layer.
-   *       </p>
+   * The Amazon Resource Name (ARN) of the source layer.
+   *
    * @public
    */
   SourceLayerArn?: string | undefined;
 }
 
 /**
- * <p>A vulnerability associated with a finding.</p>
+ * A vulnerability associated with a finding.
+ *
  * @public
  */
 export interface Vulnerability {
   /**
-   * <p>The identifier of the vulnerability.</p>
+   * The identifier of the vulnerability.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>List of software packages that have the vulnerability.</p>
+   * List of software packages that have the vulnerability.
+   *
    * @public
    */
   VulnerablePackages?: SoftwarePackage[] | undefined;
 
   /**
-   * <p>CVSS scores from the advisory related to the vulnerability.</p>
+   * CVSS scores from the advisory related to the vulnerability.
+   *
    * @public
    */
   Cvss?: Cvss[] | undefined;
 
   /**
-   * <p>List of vulnerabilities that are related to this vulnerability.</p>
+   * List of vulnerabilities that are related to this vulnerability.
+   *
    * @public
    */
   RelatedVulnerabilities?: string[] | undefined;
 
   /**
-   * <p>Information about the vendor that generates the vulnerability report.</p>
+   * Information about the vendor that generates the vulnerability report.
+   *
    * @public
    */
   Vendor?: VulnerabilityVendor | undefined;
 
   /**
-   * <p>A list of URLs that provide additional information about the vulnerability.</p>
+   * A list of URLs that provide additional information about the vulnerability.
+   *
    * @public
    */
   ReferenceUrls?: string[] | undefined;
 
   /**
-   * <p>Specifies if all vulnerable packages in a finding have a value for <code>FixedInVersion</code>
-   * and <code>Remediation</code>.
-   * This field is evaluated for each vulnerability <code>Id</code> based on the number of vulnerable packages that have a value for both
-   * <code>FixedInVersion</code> and <code>Remediation</code>. Valid values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YES</code> if all vulnerable packages have a value for both <code>FixedInVersion</code> and <code>Remediation</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NO</code> if no vulnerable packages have a value for <code>FixedInVersion</code> and <code>Remediation</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PARTIAL</code> otherwise</p>
-   *             </li>
-   *          </ul>
+   * Specifies if all vulnerable packages in a finding have a value for `FixedInVersion` and `Remediation`. This field is evaluated for each vulnerability `Id` based on the number of vulnerable packages that have a value for both `FixedInVersion` and `Remediation`. Valid values are as follows:
+   *
+   * - `YES` if all vulnerable packages have a value for both `FixedInVersion` and `Remediation`
+   * - `NO` if no vulnerable packages have a value for `FixedInVersion` and `Remediation`
+   * - `PARTIAL` otherwise
+   *
    * @public
    */
   FixAvailable?: VulnerabilityFixAvailable | undefined;
 
   /**
-   * <p>The Exploit Prediction Scoring System (EPSS) score for a finding.
-   * 		</p>
+   * The Exploit Prediction Scoring System (EPSS) score for a finding.
+   *
    * @public
    */
   EpssScore?: number | undefined;
 
   /**
-   * <p>Whether an exploit is available for a finding.
-   * 		</p>
+   * Whether an exploit is available for a finding.
+   *
    * @public
    */
   ExploitAvailable?: VulnerabilityExploitAvailable | undefined;
 
   /**
-   * <p>
-   *             The date and time of the last exploit associated with a finding discovered in your environment.
-   *         </p>
+   * The date and time of the last exploit associated with a finding discovered in your environment.
+   *
    * @public
    */
   LastKnownExploitAt?: string | undefined;
 
   /**
-   * <p>The vulnerabilities found in your Lambda function code. This field pertains to findings that
-   * Security Hub CSPM receives from Amazon Inspector.
-   *         </p>
+   * The vulnerabilities found in your Lambda function code. This field pertains to findings that Security Hub CSPM receives from Amazon Inspector.
+   *
    * @public
    */
   CodeVulnerabilities?: VulnerabilityCodeVulnerabilities[] | undefined;
 }
 
 /**
- * <p>Provides details about the status of the investigation into a finding.</p>
+ * Provides details about the status of the investigation into a finding.
+ *
  * @public
  */
 export interface Workflow {
   /**
-   * <p>The status of the investigation into the finding. The workflow status is specific to an individual finding. It does not affect the generation of new findings. For example, setting the workflow status to <code>SUPPRESSED</code> or <code>RESOLVED</code> does not prevent a new finding for the same issue.</p>
-   *          <p>The allowed values are the following.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>NEW</code> - The initial state of a finding, before it is reviewed.</p>
-   *                <p>Security Hub CSPM also resets the workflow status from <code>NOTIFIED</code> or
-   *                   <code>RESOLVED</code> to <code>NEW</code> in the following cases:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>RecordState</code> changes from <code>ARCHIVED</code> to
-   *                         <code>ACTIVE</code>.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>ComplianceStatus</code> changes from <code>PASSED</code> to either
-   *                         <code>WARNING</code>, <code>FAILED</code>, or
-   *                      <code>NOT_AVAILABLE</code>.</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NOTIFIED</code> - Indicates that you notified the resource owner about the
-   *                security issue. Used when the initial reviewer is not the resource owner, and needs
-   *                intervention from the resource owner.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SUPPRESSED</code> - Indicates that you reviewed the finding and don't believe that any action is needed. The finding is no longer updated.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RESOLVED</code> - The finding was reviewed and remediated and is now
-   *                considered resolved. </p>
-   *             </li>
-   *          </ul>
+   * The status of the investigation into the finding. The workflow status is specific to an individual finding. It does not affect the generation of new findings. For example, setting the workflow status to `SUPPRESSED` or `RESOLVED` does not prevent a new finding for the same issue.
+   *
+   * The allowed values are the following.
+   *
+   * - `NEW` - The initial state of a finding, before it is reviewed.
+   *
+   *   Security Hub CSPM also resets the workflow status from `NOTIFIED` or `RESOLVED` to `NEW` in the following cases:
+   *
+   *   - `RecordState` changes from `ARCHIVED` to `ACTIVE`.
+   *   - `ComplianceStatus` changes from `PASSED` to either `WARNING`, `FAILED`, or `NOT_AVAILABLE`.
+   * - `NOTIFIED` - Indicates that you notified the resource owner about the security issue. Used when the initial reviewer is not the resource owner, and needs intervention from the resource owner.
+   * - `SUPPRESSED` - Indicates that you reviewed the finding and don't believe that any action is needed. The finding is no longer updated.
+   * - `RESOLVED` - The finding was reviewed and remediated and is now considered resolved.
+   *
    * @public
    */
   Status?: WorkflowStatus | undefined;
 }
 
 /**
- * <p>Provides a consistent format for Security Hub CSPM findings.
- *          <code>AwsSecurityFinding</code> format allows you to share findings between Amazon Web Services
- *          security services and third-party solutions.</p>
- *          <note>
- *             <p>A finding is a potential security issue generated either by Amazon Web Services services or by the integrated third-party
- *             solutions and standards checks.</p>
- *          </note>
+ * Provides a consistent format for Security Hub CSPM findings. `AwsSecurityFinding` format allows you to share findings between Amazon Web Services security services and third-party solutions.
+ *
+ * > **Note:** A finding is a potential security issue generated either by Amazon Web Services services or by the integrated third-party solutions and standards checks.
+ *
  * @public
  */
 export interface AwsSecurityFinding {
   /**
-   * <p>The schema version that a finding is formatted for. The value is <code>2018-10-08</code>.</p>
+   * The schema version that a finding is formatted for. The value is `2018-10-08`.
+   *
    * @public
    */
   SchemaVersion: string | undefined;
 
   /**
-   * <p>The security findings provider-specific identifier for a finding.</p>
-   *          <p>Length Constraints: Minimum length of 1. Maximum length of 512.</p>
+   * The security findings provider-specific identifier for a finding.
+   *
+   * Length Constraints: Minimum length of 1. Maximum length of 512.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The ARN generated by Security Hub CSPM that uniquely identifies a product that generates findings.
-   *          This can be the ARN for a third-party product that is integrated with Security Hub CSPM, or the ARN for
-   *          a custom integration.</p>
-   *          <p>Length Constraints: Minimum length of 12. Maximum length of 2048.</p>
+   * The ARN generated by Security Hub CSPM that uniquely identifies a product that generates findings. This can be the ARN for a third-party product that is integrated with Security Hub CSPM, or the ARN for a custom integration.
+   *
+   * Length Constraints: Minimum length of 12. Maximum length of 2048.
+   *
    * @public
    */
   ProductArn: string | undefined;
 
   /**
-   * <p>The name of the product that generated the finding.</p>
-   *          <p>Security Hub CSPM populates this attribute automatically for each finding. You cannot update this attribute with <code>BatchImportFindings</code> or <code>BatchUpdateFindings</code>. The exception to this is a custom integration.</p>
-   *          <p>When you use the Security Hub CSPM console or API to filter findings by product name, you use this attribute.</p>
-   *          <p>Length Constraints: Minimum length of 1. Maximum length of 128.</p>
+   * The name of the product that generated the finding.
+   *
+   * Security Hub CSPM populates this attribute automatically for each finding. You cannot update this attribute with `BatchImportFindings` or `BatchUpdateFindings`. The exception to this is a custom integration.
+   *
+   * When you use the Security Hub CSPM console or API to filter findings by product name, you use this attribute.
+   *
+   * Length Constraints: Minimum length of 1. Maximum length of 128.
+   *
    * @public
    */
   ProductName?: string | undefined;
 
   /**
-   * <p>The name of the company for the product that generated the finding.</p>
-   *          <p>Security Hub CSPM populates this attribute automatically for each finding. You cannot update this attribute with <code>BatchImportFindings</code> or <code>BatchUpdateFindings</code>. The exception to this is a custom integration.</p>
-   *          <p>When you use the Security Hub CSPM console or API to filter findings by company name, you use this attribute.</p>
-   *          <p>Length Constraints: Minimum length of 1. Maximum length of 128.
-   *        </p>
+   * The name of the company for the product that generated the finding.
+   *
+   * Security Hub CSPM populates this attribute automatically for each finding. You cannot update this attribute with `BatchImportFindings` or `BatchUpdateFindings`. The exception to this is a custom integration.
+   *
+   * When you use the Security Hub CSPM console or API to filter findings by company name, you use this attribute.
+   *
+   * Length Constraints: Minimum length of 1. Maximum length of 128.
+   *
    * @public
    */
   CompanyName?: string | undefined;
 
   /**
-   * <p>The Region from which the finding was generated.</p>
-   *          <p>Security Hub CSPM populates this attribute automatically for each finding. You cannot update it using <code>BatchImportFindings</code> or <code>BatchUpdateFindings</code>.</p>
-   *          <p>Length Constraints: Minimum length of 1. Maximum length of 16.
-   *        </p>
+   * The Region from which the finding was generated.
+   *
+   * Security Hub CSPM populates this attribute automatically for each finding. You cannot update it using `BatchImportFindings` or `BatchUpdateFindings`.
+   *
+   * Length Constraints: Minimum length of 1. Maximum length of 16.
+   *
    * @public
    */
   Region?: string | undefined;
 
   /**
-   * <p>The identifier for the solution-specific component (a discrete unit of logic) that
-   *          generated a finding. In various security findings providers' solutions, this generator can
-   *          be called a rule, a check, a detector, a plugin, or something else.</p>
-   *          <p>Length Constraints: Minimum length of 1. Maximum length of 512.</p>
+   * The identifier for the solution-specific component (a discrete unit of logic) that generated a finding. In various security findings providers' solutions, this generator can be called a rule, a check, a detector, a plugin, or something else.
+   *
+   * Length Constraints: Minimum length of 1. Maximum length of 512.
+   *
    * @public
    */
   GeneratorId: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID that a finding is generated in.</p>
-   *          <p>Length Constraints: 12.</p>
+   * The Amazon Web Services account ID that a finding is generated in.
+   *
+   * Length Constraints: 12.
+   *
    * @public
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>One or more finding types in the format of <code>namespace/category/classifier</code>
-   *          that classify a finding.</p>
-   *          <p>Valid namespace values are: Software and Configuration Checks | TTPs | Effects | Unusual
-   *          Behaviors | Sensitive Data Identifications</p>
-   *          <p>Array Members: Maximum number of 50 items.</p>
+   * One or more finding types in the format of `namespace/category/classifier` that classify a finding.
+   *
+   * Valid namespace values are: Software and Configuration Checks | TTPs | Effects | Unusual Behaviors | Sensitive Data Identifications
+   *
+   * Array Members: Maximum number of 50 items.
+   *
    * @public
    */
   Types?: string[] | undefined;
 
   /**
-   * <p>Indicates when the security findings provider first observed the potential security
-   *          issue that a finding captured.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * Indicates when the security findings provider first observed the potential security issue that a finding captured.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   FirstObservedAt?: string | undefined;
 
   /**
-   * <p>Indicates when the security findings provider most recently observed a change in the resource that is involved in the finding.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * Indicates when the security findings provider most recently observed a change in the resource that is involved in the finding.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   LastObservedAt?: string | undefined;
 
   /**
-   * <p>Indicates when the security findings provider created the potential security issue that
-   *          a finding captured.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * Indicates when the security findings provider created the potential security issue that a finding captured.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   CreatedAt: string | undefined;
 
   /**
-   * <p>Indicates when the security findings provider last updated the finding record.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * Indicates when the security findings provider last updated the finding record.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   UpdatedAt: string | undefined;
 
   /**
-   * <p>A finding's severity.</p>
+   * A finding's severity.
+   *
    * @public
    */
   Severity?: Severity | undefined;
 
   /**
-   * <p>A finding's confidence. Confidence is defined as the likelihood that a finding
-   *          accurately identifies the behavior or issue that it was intended to identify.</p>
-   *          <p>Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent
-   *          confidence and 100 means 100 percent confidence.</p>
+   * A finding's confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify.
+   *
+   * Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100 means 100 percent confidence.
+   *
    * @public
    */
   Confidence?: number | undefined;
 
   /**
-   * <p>The level of importance assigned to the resources associated with the finding.</p>
-   *          <p>A score of 0 means that the underlying resources have no criticality, and a score of 100
-   *          is reserved for the most critical resources.</p>
+   * The level of importance assigned to the resources associated with the finding.
+   *
+   * A score of 0 means that the underlying resources have no criticality, and a score of 100 is reserved for the most critical resources.
+   *
    * @public
    */
   Criticality?: number | undefined;
 
   /**
-   * <p>A finding's title. <code>Title</code> is a required property.</p>
-   *          <p>Length Constraints: Minimum length of 1. Maximum length of 256.</p>
+   * A finding's title. `Title` is a required property.
+   *
+   * Length Constraints: Minimum length of 1. Maximum length of 256.
+   *
    * @public
    */
   Title: string | undefined;
 
   /**
-   * <p>A finding's description. <code>Description</code> is a required property.</p>
-   *          <p>Length Constraints: Minimum length of 1. Maximum length of 1024.</p>
+   * A finding's description. `Description` is a required property.
+   *
+   * Length Constraints: Minimum length of 1. Maximum length of 1024.
+   *
    * @public
    */
   Description: string | undefined;
 
   /**
-   * <p>A data type that describes the remediation options for a finding.</p>
+   * A data type that describes the remediation options for a finding.
+   *
    * @public
    */
   Remediation?: Remediation | undefined;
 
   /**
-   * <p>A URL that links to a page about the current finding in the security findings provider's
-   *          solution.</p>
+   * A URL that links to a page about the current finding in the security findings provider's solution.
+   *
    * @public
    */
   SourceUrl?: string | undefined;
 
   /**
-   * <p>A data type where security findings providers can include additional solution-specific
-   *          details that aren't part of the defined <code>AwsSecurityFinding</code> format.</p>
-   *          <p>Can contain up to 50 key-value pairs. For each key-value pair, the key can contain up to 128 characters, and the value can contain up to 2048 characters.</p>
+   * A data type where security findings providers can include additional solution-specific details that aren't part of the defined `AwsSecurityFinding` format.
+   *
+   * Can contain up to 50 key-value pairs. For each key-value pair, the key can contain up to 128 characters, and the value can contain up to 2048 characters.
+   *
    * @public
    */
   ProductFields?: Record<string, string> | undefined;
 
   /**
-   * <p>A list of name/value string pairs associated with the finding. These are custom,
-   *          user-defined fields added to a finding.</p>
-   *          <p>Can contain up to 50 key-value pairs. For each key-value pair, the key can contain up to 128 characters, and the value can contain up to 1024 characters.</p>
+   * A list of name/value string pairs associated with the finding. These are custom, user-defined fields added to a finding.
+   *
+   * Can contain up to 50 key-value pairs. For each key-value pair, the key can contain up to 128 characters, and the value can contain up to 1024 characters.
+   *
    * @public
    */
   UserDefinedFields?: Record<string, string> | undefined;
 
   /**
-   * <p>A list of malware related to a finding.</p>
-   *          <p>Array Members: Maximum number of 5 items.</p>
+   * A list of malware related to a finding.
+   *
+   * Array Members: Maximum number of 5 items.
+   *
    * @public
    */
   Malware?: Malware[] | undefined;
 
   /**
-   * <p>The details of network-related information about a finding.</p>
+   * The details of network-related information about a finding.
+   *
    * @public
    */
   Network?: Network | undefined;
 
   /**
-   * <p>Provides information about a network path that is relevant to a finding. Each entry
-   *          under <code>NetworkPath</code> represents a component of that path.</p>
+   * Provides information about a network path that is relevant to a finding. Each entry under `NetworkPath` represents a component of that path.
+   *
    * @public
    */
   NetworkPath?: NetworkPathComponent[] | undefined;
 
   /**
-   * <p>The details of process-related information about a finding.</p>
+   * The details of process-related information about a finding.
+   *
    * @public
    */
   Process?: ProcessDetails | undefined;
 
   /**
-   * <p>Details about the threat detected in a security finding and the file paths that were affected by the threat.
-   *       </p>
-   *          <p>Array Members: Minimum number of 1 item. Maximum number of 32 items.</p>
+   * Details about the threat detected in a security finding and the file paths that were affected by the threat.
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 32 items.
+   *
    * @public
    */
   Threats?: Threat[] | undefined;
 
   /**
-   * <p>Threat intelligence details related to a finding.</p>
-   *          <p>Array Members: Minimum number of 1 item. Maximum number of 5 items.</p>
+   * Threat intelligence details related to a finding.
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 5 items.
+   *
    * @public
    */
   ThreatIntelIndicators?: ThreatIntelIndicator[] | undefined;
 
   /**
-   * <p>A set of resource data types that describe the resources that the finding refers
-   *          to.</p>
-   *          <p>Array Members: Minimum number of 1 item. Maximum number of 32 items.</p>
+   * A set of resource data types that describe the resources that the finding refers to.
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 32 items.
+   *
    * @public
    */
   Resources: Resource[] | undefined;
 
   /**
-   * <p>This data type is exclusive to findings that are generated as the result of a check run
-   *          against a specific rule in a supported security standard, such as CIS Amazon Web Services Foundations.
-   *          Contains security standard-related finding details.</p>
+   * This data type is exclusive to findings that are generated as the result of a check run against a specific rule in a supported security standard, such as CIS Amazon Web Services Foundations. Contains security standard-related finding details.
+   *
    * @public
    */
   Compliance?: Compliance | undefined;
 
   /**
-   * <p>Indicates the veracity of a finding. </p>
+   * Indicates the veracity of a finding.
+   *
    * @public
    */
   VerificationState?: VerificationState | undefined;
 
   /**
-   * <p>The workflow state of a finding. </p>
+   * The workflow state of a finding.
    *
    * @deprecated This filter is deprecated. Instead, use SeverityLabel or FindingProviderFieldsSeverityLabel.
    * @public
@@ -2778,216 +2722,233 @@ export interface AwsSecurityFinding {
   WorkflowState?: WorkflowState | undefined;
 
   /**
-   * <p>Provides information about the status of the investigation into a finding.</p>
+   * Provides information about the status of the investigation into a finding.
+   *
    * @public
    */
   Workflow?: Workflow | undefined;
 
   /**
-   * <p>The record state of a finding.</p>
+   * The record state of a finding.
+   *
    * @public
    */
   RecordState?: RecordState | undefined;
 
   /**
-   * <p>A list of related findings.</p>
-   *          <p>Array Members: Minimum number of 1 item. Maximum number of 10 items.</p>
+   * A list of related findings.
+   *
+   * Array Members: Minimum number of 1 item. Maximum number of 10 items.
+   *
    * @public
    */
   RelatedFindings?: RelatedFinding[] | undefined;
 
   /**
-   * <p>A user-defined note added to a finding.</p>
+   * A user-defined note added to a finding.
+   *
    * @public
    */
   Note?: Note | undefined;
 
   /**
-   * <p>Provides a list of vulnerabilities associated with the findings.</p>
+   * Provides a list of vulnerabilities associated with the findings.
+   *
    * @public
    */
   Vulnerabilities?: Vulnerability[] | undefined;
 
   /**
-   * <p>Provides an overview of the patch compliance status for an instance against a selected
-   *          compliance standard.</p>
+   * Provides an overview of the patch compliance status for an instance against a selected compliance standard.
+   *
    * @public
    */
   PatchSummary?: PatchSummary | undefined;
 
   /**
-   * <p>Provides details about an action that affects or that was taken on a resource.</p>
+   * Provides details about an action that affects or that was taken on a resource.
+   *
    * @public
    */
   Action?: Action | undefined;
 
   /**
-   * <p>In a <code>BatchImportFindings</code> request, finding providers use <code>FindingProviderFields</code> to provide and update their own values for confidence, criticality, related findings, severity, and types.</p>
+   * In a `BatchImportFindings` request, finding providers use `FindingProviderFields` to provide and update their own values for confidence, criticality, related findings, severity, and types.
+   *
    * @public
    */
   FindingProviderFields?: FindingProviderFields | undefined;
 
   /**
-   * <p>Indicates whether the finding is a sample finding.</p>
+   * Indicates whether the finding is a sample finding.
+   *
    * @public
    */
   Sample?: boolean | undefined;
 
   /**
-   * <p>Provides metadata for the Amazon CodeGuru detector associated with a finding. This field pertains to
-   * findings that relate to Lambda functions. Amazon Inspector identifies policy violations and
-   * vulnerabilities in Lambda function code based on internal detectors developed
-   * in collaboration with Amazon CodeGuru. Security Hub CSPM receives those findings.
-   *         </p>
+   * Provides metadata for the Amazon CodeGuru detector associated with a finding. This field pertains to findings that relate to Lambda functions. Amazon Inspector identifies policy violations and vulnerabilities in Lambda function code based on internal detectors developed in collaboration with Amazon CodeGuru. Security Hub CSPM receives those findings.
+   *
    * @public
    */
   GeneratorDetails?: GeneratorDetails | undefined;
 
   /**
-   * <p>A timestamp that indicates when Security Hub CSPM received a finding and begins to process it.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * A timestamp that indicates when Security Hub CSPM received a finding and begins to process it.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   ProcessedAt?: string | undefined;
 
   /**
-   * <p>The name of the Amazon Web Services account from which a finding was generated.
-   *         </p>
-   *          <p>Length Constraints: Minimum length of 1. Maximum length of 50.
-   *         </p>
+   * The name of the Amazon Web Services account from which a finding was generated.
+   *
+   * Length Constraints: Minimum length of 1. Maximum length of 50.
+   *
    * @public
    */
   AwsAccountName?: string | undefined;
 
   /**
-   * <p>
-   *             Provides details about an Amazon GuardDuty Extended Threat Detection attack sequence. GuardDuty generates an attack
-   *             sequence finding when multiple events align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in Security Hub CSPM, you
-   * 				must have GuardDuty enabled. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html">GuardDuty Extended Threat Detection </a> in the <i>Amazon GuardDuty User Guide</i>.
-   *         </p>
+   * Provides details about an Amazon GuardDuty Extended Threat Detection attack sequence. GuardDuty generates an attack sequence finding when multiple events align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in Security Hub CSPM, you must have GuardDuty enabled. For more information, see [GuardDuty Extended Threat Detection](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html) in the *Amazon GuardDuty User Guide*.
+   *
    * @public
    */
   Detection?: Detection | undefined;
 }
 
 /**
- * <p>A keyword filter for querying findings.</p>
+ * A keyword filter for querying findings.
+ *
  * @public
  */
 export interface KeywordFilter {
   /**
-   * <p>A value for the keyword.</p>
+   * A value for the keyword.
+   *
    * @public
    */
   Value?: string | undefined;
 }
 
 /**
- * <p>The IP filter for querying findings.</p>
+ * The IP filter for querying findings.
+ *
  * @public
  */
 export interface IpFilter {
   /**
-   * <p>A finding's CIDR value.</p>
+   * A finding's CIDR value.
+   *
    * @public
    */
   Cidr?: string | undefined;
 }
 
 /**
- * <p>Boolean filter for querying findings.</p>
+ * Boolean filter for querying findings.
+ *
  * @public
  */
 export interface BooleanFilter {
   /**
-   * <p>The value of the boolean.</p>
+   * The value of the boolean.
+   *
    * @public
    */
   Value?: boolean | undefined;
 }
 
 /**
- * <p>A collection of filters that are applied to all active findings aggregated by Security Hub CSPM.</p>
- *          <p>You can filter by up to ten finding attributes. For each attribute, you can provide up to
- *          20 filter values.</p>
+ * A collection of filters that are applied to all active findings aggregated by Security Hub CSPM.
+ *
+ * You can filter by up to ten finding attributes. For each attribute, you can provide up to 20 filter values.
+ *
  * @public
  */
 export interface AwsSecurityFindingFilters {
   /**
-   * <p>The ARN generated by Security Hub CSPM that uniquely identifies a third-party company
-   *          (security findings provider) after this provider's product (solution that generates
-   *          findings) is registered with Security Hub CSPM.</p>
+   * The ARN generated by Security Hub CSPM that uniquely identifies a third-party company (security findings provider) after this provider's product (solution that generates findings) is registered with Security Hub CSPM.
+   *
    * @public
    */
   ProductArn?: StringFilter[] | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID in which a finding is generated.</p>
+   * The Amazon Web Services account ID in which a finding is generated.
+   *
    * @public
    */
   AwsAccountId?: StringFilter[] | undefined;
 
   /**
-   * <p>The security findings provider-specific identifier for a finding.</p>
+   * The security findings provider-specific identifier for a finding.
+   *
    * @public
    */
   Id?: StringFilter[] | undefined;
 
   /**
-   * <p>The identifier for the solution-specific component (a discrete unit of logic) that
-   *          generated a finding. In various security findings providers' solutions, this generator can
-   *          be called a rule, a check, a detector, a plugin, etc.</p>
+   * The identifier for the solution-specific component (a discrete unit of logic) that generated a finding. In various security findings providers' solutions, this generator can be called a rule, a check, a detector, a plugin, etc.
+   *
    * @public
    */
   GeneratorId?: StringFilter[] | undefined;
 
   /**
-   * <p>The Region from which the finding was generated.</p>
+   * The Region from which the finding was generated.
+   *
    * @public
    */
   Region?: StringFilter[] | undefined;
 
   /**
-   * <p>A finding type in the format of <code>namespace/category/classifier</code> that
-   *          classifies a finding.</p>
+   * A finding type in the format of `namespace/category/classifier` that classifies a finding.
+   *
    * @public
    */
   Type?: StringFilter[] | undefined;
 
   /**
-   * <p>A timestamp that indicates when the security findings provider first
-   *          observed the potential security issue that a finding captured.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * A timestamp that indicates when the security findings provider first observed the potential security issue that a finding captured.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   FirstObservedAt?: DateFilter[] | undefined;
 
   /**
-   * <p>A timestamp that indicates when the security findings provider most recently observed a change in the resource that is involved in the finding.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * A timestamp that indicates when the security findings provider most recently observed a change in the resource that is involved in the finding.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   LastObservedAt?: DateFilter[] | undefined;
 
   /**
-   * <p>A timestamp that indicates when the security findings provider
-   *          created the potential security issue that a finding reflects.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * A timestamp that indicates when the security findings provider created the potential security issue that a finding reflects.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   CreatedAt?: DateFilter[] | undefined;
 
   /**
-   * <p>A timestamp that indicates when the security findings provider last
-   *          updated the finding record.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * A timestamp that indicates when the security findings provider last updated the finding record.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   UpdatedAt?: DateFilter[] | undefined;
 
   /**
-   * <p>The native severity as defined by the security findings provider's solution that
-   *          generated the finding.</p>
+   * The native severity as defined by the security findings provider's solution that generated the finding.
    *
    * @deprecated This filter is deprecated. Instead, use FindingProviderSeverityOriginal.
    * @public
@@ -2995,7 +2956,7 @@ export interface AwsSecurityFindingFilters {
   SeverityProduct?: NumberFilter[] | undefined;
 
   /**
-   * <p>The normalized severity of a finding.</p>
+   * The normalized severity of a finding.
    *
    * @deprecated This filter is deprecated. Instead, use SeverityLabel or FindingProviderFieldsSeverityLabel.
    * @public
@@ -3003,345 +2964,395 @@ export interface AwsSecurityFindingFilters {
   SeverityNormalized?: NumberFilter[] | undefined;
 
   /**
-   * <p>The label of a finding's severity.</p>
+   * The label of a finding's severity.
+   *
    * @public
    */
   SeverityLabel?: StringFilter[] | undefined;
 
   /**
-   * <p>A finding's confidence. Confidence is defined as the likelihood that a finding
-   *          accurately identifies the behavior or issue that it was intended to identify.</p>
-   *          <p>Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent
-   *          confidence and 100 means 100 percent confidence.</p>
+   * A finding's confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify.
+   *
+   * Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100 means 100 percent confidence.
+   *
    * @public
    */
   Confidence?: NumberFilter[] | undefined;
 
   /**
-   * <p>The level of importance assigned to the resources associated with the finding.</p>
-   *          <p>A score of 0 means that the underlying resources have no criticality, and a score of 100
-   *          is reserved for the most critical resources.</p>
+   * The level of importance assigned to the resources associated with the finding.
+   *
+   * A score of 0 means that the underlying resources have no criticality, and a score of 100 is reserved for the most critical resources.
+   *
    * @public
    */
   Criticality?: NumberFilter[] | undefined;
 
   /**
-   * <p>A finding's title.</p>
+   * A finding's title.
+   *
    * @public
    */
   Title?: StringFilter[] | undefined;
 
   /**
-   * <p>A finding's description.</p>
+   * A finding's description.
+   *
    * @public
    */
   Description?: StringFilter[] | undefined;
 
   /**
-   * <p>The recommendation of what to do about the issue described in a finding.</p>
+   * The recommendation of what to do about the issue described in a finding.
+   *
    * @public
    */
   RecommendationText?: StringFilter[] | undefined;
 
   /**
-   * <p>A URL that links to a page about the current finding in the security findings provider's
-   *          solution.</p>
+   * A URL that links to a page about the current finding in the security findings provider's solution.
+   *
    * @public
    */
   SourceUrl?: StringFilter[] | undefined;
 
   /**
-   * <p>A data type where security findings providers can include additional solution-specific
-   *          details that aren't part of the defined <code>AwsSecurityFinding</code> format.</p>
+   * A data type where security findings providers can include additional solution-specific details that aren't part of the defined `AwsSecurityFinding` format.
+   *
    * @public
    */
   ProductFields?: MapFilter[] | undefined;
 
   /**
-   * <p>The name of the solution (product) that generates findings.</p>
+   * The name of the solution (product) that generates findings.
+   *
    * @public
    */
   ProductName?: StringFilter[] | undefined;
 
   /**
-   * <p>The name of the findings provider (company) that owns the solution (product) that
-   *          generates findings.</p>
+   * The name of the findings provider (company) that owns the solution (product) that generates findings.
+   *
    * @public
    */
   CompanyName?: StringFilter[] | undefined;
 
   /**
-   * <p>A list of name/value string pairs associated with the finding. These are custom,
-   *          user-defined fields added to a finding. </p>
+   * A list of name/value string pairs associated with the finding. These are custom, user-defined fields added to a finding.
+   *
    * @public
    */
   UserDefinedFields?: MapFilter[] | undefined;
 
   /**
-   * <p>The name of the malware that was observed.</p>
+   * The name of the malware that was observed.
+   *
    * @public
    */
   MalwareName?: StringFilter[] | undefined;
 
   /**
-   * <p>The type of the malware that was observed.</p>
+   * The type of the malware that was observed.
+   *
    * @public
    */
   MalwareType?: StringFilter[] | undefined;
 
   /**
-   * <p>The filesystem path of the malware that was observed.</p>
+   * The filesystem path of the malware that was observed.
+   *
    * @public
    */
   MalwarePath?: StringFilter[] | undefined;
 
   /**
-   * <p>The state of the malware that was observed.</p>
+   * The state of the malware that was observed.
+   *
    * @public
    */
   MalwareState?: StringFilter[] | undefined;
 
   /**
-   * <p>Indicates the direction of network traffic associated with a finding.</p>
+   * Indicates the direction of network traffic associated with a finding.
+   *
    * @public
    */
   NetworkDirection?: StringFilter[] | undefined;
 
   /**
-   * <p>The protocol of network-related information about a finding.</p>
+   * The protocol of network-related information about a finding.
+   *
    * @public
    */
   NetworkProtocol?: StringFilter[] | undefined;
 
   /**
-   * <p>The source IPv4 address of network-related information about a finding.</p>
+   * The source IPv4 address of network-related information about a finding.
+   *
    * @public
    */
   NetworkSourceIpV4?: IpFilter[] | undefined;
 
   /**
-   * <p>The source IPv6 address of network-related information about a finding.</p>
+   * The source IPv6 address of network-related information about a finding.
+   *
    * @public
    */
   NetworkSourceIpV6?: IpFilter[] | undefined;
 
   /**
-   * <p>The source port of network-related information about a finding.</p>
+   * The source port of network-related information about a finding.
+   *
    * @public
    */
   NetworkSourcePort?: NumberFilter[] | undefined;
 
   /**
-   * <p>The source domain of network-related information about a finding.</p>
+   * The source domain of network-related information about a finding.
+   *
    * @public
    */
   NetworkSourceDomain?: StringFilter[] | undefined;
 
   /**
-   * <p>The source media access control (MAC) address of network-related information about a
-   *          finding.</p>
+   * The source media access control (MAC) address of network-related information about a finding.
+   *
    * @public
    */
   NetworkSourceMac?: StringFilter[] | undefined;
 
   /**
-   * <p>The destination IPv4 address of network-related information about a finding.</p>
+   * The destination IPv4 address of network-related information about a finding.
+   *
    * @public
    */
   NetworkDestinationIpV4?: IpFilter[] | undefined;
 
   /**
-   * <p>The destination IPv6 address of network-related information about a finding.</p>
+   * The destination IPv6 address of network-related information about a finding.
+   *
    * @public
    */
   NetworkDestinationIpV6?: IpFilter[] | undefined;
 
   /**
-   * <p>The destination port of network-related information about a finding.</p>
+   * The destination port of network-related information about a finding.
+   *
    * @public
    */
   NetworkDestinationPort?: NumberFilter[] | undefined;
 
   /**
-   * <p>The destination domain of network-related information about a finding.</p>
+   * The destination domain of network-related information about a finding.
+   *
    * @public
    */
   NetworkDestinationDomain?: StringFilter[] | undefined;
 
   /**
-   * <p>The name of the process.</p>
+   * The name of the process.
+   *
    * @public
    */
   ProcessName?: StringFilter[] | undefined;
 
   /**
-   * <p>The path to the process executable.</p>
+   * The path to the process executable.
+   *
    * @public
    */
   ProcessPath?: StringFilter[] | undefined;
 
   /**
-   * <p>The process ID.</p>
+   * The process ID.
+   *
    * @public
    */
   ProcessPid?: NumberFilter[] | undefined;
 
   /**
-   * <p>The parent process ID. This field accepts positive integers between <code>O</code> and <code>2147483647</code>.</p>
+   * The parent process ID. This field accepts positive integers between `O` and `2147483647`.
+   *
    * @public
    */
   ProcessParentPid?: NumberFilter[] | undefined;
 
   /**
-   * <p>A timestamp that identifies when the process was launched.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * A timestamp that identifies when the process was launched.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   ProcessLaunchedAt?: DateFilter[] | undefined;
 
   /**
-   * <p>A timestamp that identifies when the process was terminated.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * A timestamp that identifies when the process was terminated.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   ProcessTerminatedAt?: DateFilter[] | undefined;
 
   /**
-   * <p>The type of a threat intelligence indicator.</p>
+   * The type of a threat intelligence indicator.
+   *
    * @public
    */
   ThreatIntelIndicatorType?: StringFilter[] | undefined;
 
   /**
-   * <p>The value of a threat intelligence indicator.</p>
+   * The value of a threat intelligence indicator.
+   *
    * @public
    */
   ThreatIntelIndicatorValue?: StringFilter[] | undefined;
 
   /**
-   * <p>The category of a threat intelligence indicator.</p>
+   * The category of a threat intelligence indicator.
+   *
    * @public
    */
   ThreatIntelIndicatorCategory?: StringFilter[] | undefined;
 
   /**
-   * <p>A timestamp that identifies the last observation of a threat intelligence indicator.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * A timestamp that identifies the last observation of a threat intelligence indicator.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   ThreatIntelIndicatorLastObservedAt?: DateFilter[] | undefined;
 
   /**
-   * <p>The source of the threat intelligence.</p>
+   * The source of the threat intelligence.
+   *
    * @public
    */
   ThreatIntelIndicatorSource?: StringFilter[] | undefined;
 
   /**
-   * <p>The URL for more details from the source of the threat intelligence.</p>
+   * The URL for more details from the source of the threat intelligence.
+   *
    * @public
    */
   ThreatIntelIndicatorSourceUrl?: StringFilter[] | undefined;
 
   /**
-   * <p>Specifies the type of the resource that details are provided for.</p>
+   * Specifies the type of the resource that details are provided for.
+   *
    * @public
    */
   ResourceType?: StringFilter[] | undefined;
 
   /**
-   * <p>The canonical identifier for the given resource type.</p>
+   * The canonical identifier for the given resource type.
+   *
    * @public
    */
   ResourceId?: StringFilter[] | undefined;
 
   /**
-   * <p>The canonical Amazon Web Services partition name that the Region is assigned to.</p>
+   * The canonical Amazon Web Services partition name that the Region is assigned to.
+   *
    * @public
    */
   ResourcePartition?: StringFilter[] | undefined;
 
   /**
-   * <p>The canonical Amazon Web Services external Region name where this resource is located.</p>
+   * The canonical Amazon Web Services external Region name where this resource is located.
+   *
    * @public
    */
   ResourceRegion?: StringFilter[] | undefined;
 
   /**
-   * <p>A list of Amazon Web Services tags associated with a resource at the time the finding was
-   *          processed.</p>
+   * A list of Amazon Web Services tags associated with a resource at the time the finding was processed.
+   *
    * @public
    */
   ResourceTags?: MapFilter[] | undefined;
 
   /**
-   * <p>The instance type of the instance.</p>
+   * The instance type of the instance.
+   *
    * @public
    */
   ResourceAwsEc2InstanceType?: StringFilter[] | undefined;
 
   /**
-   * <p>The Amazon Machine Image (AMI) ID of the instance.</p>
+   * The Amazon Machine Image (AMI) ID of the instance.
+   *
    * @public
    */
   ResourceAwsEc2InstanceImageId?: StringFilter[] | undefined;
 
   /**
-   * <p>The IPv4 addresses associated with the instance.</p>
+   * The IPv4 addresses associated with the instance.
+   *
    * @public
    */
   ResourceAwsEc2InstanceIpV4Addresses?: IpFilter[] | undefined;
 
   /**
-   * <p>The IPv6 addresses associated with the instance.</p>
+   * The IPv6 addresses associated with the instance.
+   *
    * @public
    */
   ResourceAwsEc2InstanceIpV6Addresses?: IpFilter[] | undefined;
 
   /**
-   * <p>The key name associated with the instance.</p>
+   * The key name associated with the instance.
+   *
    * @public
    */
   ResourceAwsEc2InstanceKeyName?: StringFilter[] | undefined;
 
   /**
-   * <p>The IAM profile ARN of the instance.</p>
+   * The IAM profile ARN of the instance.
+   *
    * @public
    */
   ResourceAwsEc2InstanceIamInstanceProfileArn?: StringFilter[] | undefined;
 
   /**
-   * <p>The identifier of the VPC that the instance was launched in.</p>
+   * The identifier of the VPC that the instance was launched in.
+   *
    * @public
    */
   ResourceAwsEc2InstanceVpcId?: StringFilter[] | undefined;
 
   /**
-   * <p>The identifier of the subnet that the instance was launched in.</p>
+   * The identifier of the subnet that the instance was launched in.
+   *
    * @public
    */
   ResourceAwsEc2InstanceSubnetId?: StringFilter[] | undefined;
 
   /**
-   * <p>The date and time the instance was launched.</p>
+   * The date and time the instance was launched.
+   *
    * @public
    */
   ResourceAwsEc2InstanceLaunchedAt?: DateFilter[] | undefined;
 
   /**
-   * <p>The canonical user ID of the owner of the S3 bucket.</p>
+   * The canonical user ID of the owner of the S3 bucket.
+   *
    * @public
    */
   ResourceAwsS3BucketOwnerId?: StringFilter[] | undefined;
 
   /**
-   * <p>The display name of the owner of the S3 bucket.</p>
+   * The display name of the owner of the S3 bucket.
+   *
    * @public
    */
   ResourceAwsS3BucketOwnerName?: StringFilter[] | undefined;
 
   /**
-   * <p>The user associated with the IAM access key related to a finding.</p>
+   * The user associated with the IAM access key related to a finding.
    *
    * @deprecated This filter is deprecated. Instead, use ResourceAwsIamAccessKeyPrincipalName.
    * @public
@@ -3349,195 +3360,170 @@ export interface AwsSecurityFindingFilters {
   ResourceAwsIamAccessKeyUserName?: StringFilter[] | undefined;
 
   /**
-   * <p>The name of the principal that is associated with an IAM access key.</p>
+   * The name of the principal that is associated with an IAM access key.
+   *
    * @public
    */
   ResourceAwsIamAccessKeyPrincipalName?: StringFilter[] | undefined;
 
   /**
-   * <p>The status of the IAM access key related to a finding.</p>
+   * The status of the IAM access key related to a finding.
+   *
    * @public
    */
   ResourceAwsIamAccessKeyStatus?: StringFilter[] | undefined;
 
   /**
-   * <p>The creation date/time of the IAM access key related to a finding.</p>
+   * The creation date/time of the IAM access key related to a finding.
+   *
    * @public
    */
   ResourceAwsIamAccessKeyCreatedAt?: DateFilter[] | undefined;
 
   /**
-   * <p>The name of an IAM user.</p>
+   * The name of an IAM user.
+   *
    * @public
    */
   ResourceAwsIamUserUserName?: StringFilter[] | undefined;
 
   /**
-   * <p>The name of the container related to a finding.</p>
+   * The name of the container related to a finding.
+   *
    * @public
    */
   ResourceContainerName?: StringFilter[] | undefined;
 
   /**
-   * <p>The identifier of the image related to a finding.</p>
+   * The identifier of the image related to a finding.
+   *
    * @public
    */
   ResourceContainerImageId?: StringFilter[] | undefined;
 
   /**
-   * <p>The name of the image related to a finding.</p>
+   * The name of the image related to a finding.
+   *
    * @public
    */
   ResourceContainerImageName?: StringFilter[] | undefined;
 
   /**
-   * <p>A timestamp that identifies when the container was started.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * A timestamp that identifies when the container was started.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   ResourceContainerLaunchedAt?: DateFilter[] | undefined;
 
   /**
-   * <p>The details of a resource that doesn't have a specific subfield for the resource type
-   *          defined.</p>
+   * The details of a resource that doesn't have a specific subfield for the resource type defined.
+   *
    * @public
    */
   ResourceDetailsOther?: MapFilter[] | undefined;
 
   /**
-   * <p>Exclusive to findings that are generated as the result of a check run against a specific
-   *          rule in a supported standard, such as CIS Amazon Web Services Foundations. Contains security
-   *          standard-related finding details.</p>
+   * Exclusive to findings that are generated as the result of a check run against a specific rule in a supported standard, such as CIS Amazon Web Services Foundations. Contains security standard-related finding details.
+   *
    * @public
    */
   ComplianceStatus?: StringFilter[] | undefined;
 
   /**
-   * <p>The veracity of a finding.</p>
+   * The veracity of a finding.
+   *
    * @public
    */
   VerificationState?: StringFilter[] | undefined;
 
   /**
-   * <p>The workflow state of a finding.</p>
-   *          <p>Note that this field is deprecated. To search for a finding based on its workflow
-   *          status, use <code>WorkflowStatus</code>.</p>
+   * The workflow state of a finding.
+   *
+   * Note that this field is deprecated. To search for a finding based on its workflow status, use `WorkflowStatus`.
+   *
    * @public
    */
   WorkflowState?: StringFilter[] | undefined;
 
   /**
-   * <p>The status of the investigation into a finding. Allowed values are the following.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>NEW</code> - The initial state of a finding, before it is reviewed.</p>
-   *                <p>Security Hub CSPM also resets the workflow status from <code>NOTIFIED</code> or
-   *                   <code>RESOLVED</code> to <code>NEW</code> in the following cases:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>RecordState</code> changes from <code>ARCHIVED</code> to <code>ACTIVE</code>.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>Compliance.Status</code> changes from <code>PASSED</code> to either <code>WARNING</code>,
-   *                         <code>FAILED</code>, or <code>NOT_AVAILABLE</code>.</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NOTIFIED</code> - Indicates that the resource owner has been notified about
-   *                the security issue. Used when the initial reviewer is not the resource owner, and
-   *                needs intervention from the resource owner.</p>
-   *                <p>If one of the following occurs, the workflow status is changed automatically from
-   *                <code>NOTIFIED</code> to <code>NEW</code>:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>RecordState</code> changes from <code>ARCHIVED</code> to
-   *                      <code>ACTIVE</code>.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>Compliance.Status</code> changes from <code>PASSED</code> to <code>FAILED</code>,
-   *                      <code>WARNING</code>, or <code>NOT_AVAILABLE</code>.</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SUPPRESSED</code> - Indicates that you reviewed the finding and don't believe that any action is
-   *                needed.</p>
-   *                <p>The workflow status of a <code>SUPPRESSED</code> finding does not change if
-   *                <code>RecordState</code> changes from <code>ARCHIVED</code> to
-   *                <code>ACTIVE</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RESOLVED</code> - The finding was reviewed and remediated and is now
-   *                considered resolved. </p>
-   *                <p>The finding remains <code>RESOLVED</code> unless one of the following occurs:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>RecordState</code> changes from <code>ARCHIVED</code> to
-   *                      <code>ACTIVE</code>.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>Compliance.Status</code> changes from <code>PASSED</code> to <code>FAILED</code>,
-   *                      <code>WARNING</code>, or <code>NOT_AVAILABLE</code>.</p>
-   *                   </li>
-   *                </ul>
-   *                <p>In those cases, the workflow status is automatically reset to <code>NEW</code>.</p>
-   *                <p>For findings from controls, if <code>Compliance.Status</code> is <code>PASSED</code>,
-   *                then Security Hub CSPM automatically sets the workflow status to <code>RESOLVED</code>.</p>
-   *             </li>
-   *          </ul>
+   * The status of the investigation into a finding. Allowed values are the following.
+   *
+   * - `NEW` - The initial state of a finding, before it is reviewed.
+   *
+   *   Security Hub CSPM also resets the workflow status from `NOTIFIED` or `RESOLVED` to `NEW` in the following cases:
+   *
+   *   - `RecordState` changes from `ARCHIVED` to `ACTIVE`.
+   *   - `Compliance.Status` changes from `PASSED` to either `WARNING`, `FAILED`, or `NOT_AVAILABLE`.
+   * - `NOTIFIED` - Indicates that the resource owner has been notified about the security issue. Used when the initial reviewer is not the resource owner, and needs intervention from the resource owner.
+   *
+   *   If one of the following occurs, the workflow status is changed automatically from `NOTIFIED` to `NEW`:
+   *
+   *   - `RecordState` changes from `ARCHIVED` to `ACTIVE`.
+   *   - `Compliance.Status` changes from `PASSED` to `FAILED`, `WARNING`, or `NOT_AVAILABLE`.
+   * - `SUPPRESSED` - Indicates that you reviewed the finding and don't believe that any action is needed.
+   *
+   *   The workflow status of a `SUPPRESSED` finding does not change if `RecordState` changes from `ARCHIVED` to `ACTIVE`.
+   * - `RESOLVED` - The finding was reviewed and remediated and is now considered resolved.
+   *
+   *   The finding remains `RESOLVED` unless one of the following occurs:
+   *
+   *   - `RecordState` changes from `ARCHIVED` to `ACTIVE`.
+   *   - `Compliance.Status` changes from `PASSED` to `FAILED`, `WARNING`, or `NOT_AVAILABLE`.
+   *
+   *   In those cases, the workflow status is automatically reset to `NEW`.
+   *
+   *   For findings from controls, if `Compliance.Status` is `PASSED`, then Security Hub CSPM automatically sets the workflow status to `RESOLVED`.
+   *
    * @public
    */
   WorkflowStatus?: StringFilter[] | undefined;
 
   /**
-   * <p>The updated record state for the finding.</p>
+   * The updated record state for the finding.
+   *
    * @public
    */
   RecordState?: StringFilter[] | undefined;
 
   /**
-   * <p>The ARN of the solution that generated a related finding.</p>
+   * The ARN of the solution that generated a related finding.
+   *
    * @public
    */
   RelatedFindingsProductArn?: StringFilter[] | undefined;
 
   /**
-   * <p>The solution-generated identifier for a related finding.</p>
+   * The solution-generated identifier for a related finding.
+   *
    * @public
    */
   RelatedFindingsId?: StringFilter[] | undefined;
 
   /**
-   * <p>The text of a note.</p>
+   * The text of a note.
+   *
    * @public
    */
   NoteText?: StringFilter[] | undefined;
 
   /**
-   * <p>The timestamp of when the note was updated.</p>
+   * The timestamp of when the note was updated.
+   *
    * @public
    */
   NoteUpdatedAt?: DateFilter[] | undefined;
 
   /**
-   * <p>The principal that created a note.</p>
+   * The principal that created a note.
+   *
    * @public
    */
   NoteUpdatedBy?: StringFilter[] | undefined;
 
   /**
-   * <p>A keyword for a finding.</p>
+   * A keyword for a finding.
    *
    * @deprecated The Keyword property is deprecated.
    * @public
@@ -3545,256 +3531,266 @@ export interface AwsSecurityFindingFilters {
   Keyword?: KeywordFilter[] | undefined;
 
   /**
-   * <p>The finding provider value for the finding confidence. Confidence is defined as the likelihood
-   *          that a finding accurately identifies the behavior or issue that it was intended to
-   *          identify.</p>
-   *          <p>Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent
-   *          confidence and 100 means 100 percent confidence.</p>
+   * The finding provider value for the finding confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify.
+   *
+   * Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100 means 100 percent confidence.
+   *
    * @public
    */
   FindingProviderFieldsConfidence?: NumberFilter[] | undefined;
 
   /**
-   * <p>The finding provider value for the level of importance assigned to the resources associated with
-   *          the findings.</p>
-   *          <p>A score of 0 means that the underlying resources have no criticality, and a score of 100
-   *          is reserved for the most critical resources. </p>
+   * The finding provider value for the level of importance assigned to the resources associated with the findings.
+   *
+   * A score of 0 means that the underlying resources have no criticality, and a score of 100 is reserved for the most critical resources.
+   *
    * @public
    */
   FindingProviderFieldsCriticality?: NumberFilter[] | undefined;
 
   /**
-   * <p>The finding identifier of a related finding that is identified by the finding provider.</p>
+   * The finding identifier of a related finding that is identified by the finding provider.
+   *
    * @public
    */
   FindingProviderFieldsRelatedFindingsId?: StringFilter[] | undefined;
 
   /**
-   * <p>The ARN of the solution that generated a related finding that is identified by the finding provider.</p>
+   * The ARN of the solution that generated a related finding that is identified by the finding provider.
+   *
    * @public
    */
   FindingProviderFieldsRelatedFindingsProductArn?: StringFilter[] | undefined;
 
   /**
-   * <p>The finding provider value for the severity label.</p>
+   * The finding provider value for the severity label.
+   *
    * @public
    */
   FindingProviderFieldsSeverityLabel?: StringFilter[] | undefined;
 
   /**
-   * <p>The finding provider's original value for the severity.</p>
+   * The finding provider's original value for the severity.
+   *
    * @public
    */
   FindingProviderFieldsSeverityOriginal?: StringFilter[] | undefined;
 
   /**
-   * <p>One or more finding types that the finding provider assigned to the finding. Uses the format of <code>namespace/category/classifier</code>
-   *          that classify a finding.</p>
-   *          <p>Valid namespace values are: Software and Configuration Checks | TTPs | Effects | Unusual
-   *          Behaviors | Sensitive Data Identifications</p>
+   * One or more finding types that the finding provider assigned to the finding. Uses the format of `namespace/category/classifier` that classify a finding.
+   *
+   * Valid namespace values are: Software and Configuration Checks | TTPs | Effects | Unusual Behaviors | Sensitive Data Identifications
+   *
    * @public
    */
   FindingProviderFieldsTypes?: StringFilter[] | undefined;
 
   /**
-   * <p>Indicates whether or not sample findings are included in the filter results.</p>
+   * Indicates whether or not sample findings are included in the filter results.
+   *
    * @public
    */
   Sample?: BooleanFilter[] | undefined;
 
   /**
-   * <p>
-   *          The unique identifier of a control across standards. Values for this field typically consist of an
-   *          Amazon Web Services service and a number, such as APIGateway.5.
-   *       </p>
+   * The unique identifier of a control across standards. Values for this field typically consist of an Amazon Web Services service and a number, such as APIGateway.5.
+   *
    * @public
    */
   ComplianceSecurityControlId?: StringFilter[] | undefined;
 
   /**
-   * <p>
-   *          The unique identifier of a standard in which a control is enabled. This field consists of the resource portion of the
-   *          Amazon Resource Name (ARN) returned for a standard in the <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html">DescribeStandards</a> API response.
-   *       </p>
+   * The unique identifier of a standard in which a control is enabled. This field consists of the resource portion of the Amazon Resource Name (ARN) returned for a standard in the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API response.
+   *
    * @public
    */
   ComplianceAssociatedStandardsId?: StringFilter[] | undefined;
 
   /**
-   * <p>
-   *             Indicates whether a software vulnerability in your environment has a known exploit. You can filter findings by this
-   *             field only if you use Security Hub CSPM and Amazon Inspector.
-   *         </p>
+   * Indicates whether a software vulnerability in your environment has a known exploit. You can filter findings by this field only if you use Security Hub CSPM and Amazon Inspector.
+   *
    * @public
    */
   VulnerabilitiesExploitAvailable?: StringFilter[] | undefined;
 
   /**
-   * <p>
-   *             Indicates whether a vulnerability is fixed in a newer version of the affected software packages. You can filter
-   *             findings by this field only if you use Security Hub CSPM and Amazon Inspector.
+   * Indicates whether a vulnerability is fixed in a newer version of the affected software packages. You can filter findings by this field only if you use Security Hub CSPM and Amazon Inspector.
    *
-   *         </p>
    * @public
    */
   VulnerabilitiesFixAvailable?: StringFilter[] | undefined;
 
   /**
-   * <p>
-   *             The name of a security control parameter.
-   *         </p>
+   * The name of a security control parameter.
+   *
    * @public
    */
   ComplianceSecurityControlParametersName?: StringFilter[] | undefined;
 
   /**
-   * <p>
-   *             The current value of a security control parameter.
-   *         </p>
+   * The current value of a security control parameter.
+   *
    * @public
    */
   ComplianceSecurityControlParametersValue?: StringFilter[] | undefined;
 
   /**
-   * <p>The name of the Amazon Web Services account in which a finding is generated.</p>
+   * The name of the Amazon Web Services account in which a finding is generated.
+   *
    * @public
    */
   AwsAccountName?: StringFilter[] | undefined;
 
   /**
-   * <p>
-   *             The name of the application that is related to a finding.
-   *         </p>
+   * The name of the application that is related to a finding.
+   *
    * @public
    */
   ResourceApplicationName?: StringFilter[] | undefined;
 
   /**
-   * <p>
-   *             The ARN of the application that is related to a finding.
-   *         </p>
+   * The ARN of the application that is related to a finding.
+   *
    * @public
    */
   ResourceApplicationArn?: StringFilter[] | undefined;
 
   /**
-   * <p>The unique identifier of the account that owns the resource that the finding applies to, for example, Azure Subscription Id or Amazon Web Services Account Id</p>
+   * The unique identifier of the account that owns the resource that the finding applies to, for example, Azure Subscription Id or Amazon Web Services Account Id
+   *
    * @public
    */
   ResourceOwnerAccountId?: StringFilter[] | undefined;
 
   /**
-   * <p>The unique identifier of the organization that owns the resource that the finding applies to, for example, Azure Tenant Id</p>
+   * The unique identifier of the organization that owns the resource that the finding applies to, for example, Azure Tenant Id
+   *
    * @public
    */
   ResourceOwnerOrgId?: StringFilter[] | undefined;
 
   /**
-   * <p>The cloud provider that the resource belongs to. Valid values are <code>AWS</code> and <code>Azure</code>.</p>
+   * The cloud provider that the resource belongs to. Valid values are `AWS` and `Azure`.
+   *
    * @public
    */
   ResourceProvider?: StringFilter[] | undefined;
 }
 
 /**
- * <p>Identifies which finding to get the finding history for.</p>
+ * Identifies which finding to get the finding history for.
+ *
  * @public
  */
 export interface AwsSecurityFindingIdentifier {
   /**
-   * <p>The identifier of the finding that was specified by the finding provider.</p>
+   * The identifier of the finding that was specified by the finding provider.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The ARN generated by Security Hub CSPM that uniquely identifies a product that generates findings.
-   *          This can be the ARN for a third-party product that is integrated with Security Hub CSPM, or the ARN for
-   *          a custom integration.</p>
+   * The ARN generated by Security Hub CSPM that uniquely identifies a product that generates findings. This can be the ARN for a third-party product that is integrated with Security Hub CSPM, or the ARN for a custom integration.
+   *
    * @public
    */
   ProductArn: string | undefined;
 }
 
 /**
- * <p>The scope configuration for an Azure connector, defining the tenant or subscription scope.</p>
+ * The scope configuration for an Azure connector, defining the tenant or subscription scope.
+ *
  * @public
  */
 export interface AzureScopeConfiguration {
   /**
-   * <p>The type of scope. Valid values are <code>tenant</code> and <code>subscription</code>.</p>
+   * The type of scope. Valid values are `tenant` and `subscription`.
+   *
    * @public
    */
   ScopeType: ScopeType | undefined;
 
   /**
-   * <p>The list of scope values, such as subscription IDs, when the scope type is <code>subscription</code>.</p>
+   * The list of scope values, such as subscription IDs, when the scope type is `subscription`.
+   *
    * @public
    */
   ScopeValues?: string[] | undefined;
 }
 
 /**
- * <p>The detailed Azure configuration for a connector.</p>
+ * The detailed Azure configuration for a connector.
+ *
  * @public
  */
 export interface AzureDetail {
   /**
-   * <p>The ARN of the multi-cloud configuration connector used to establish the connection to Azure.</p>
+   * The ARN of the multi-cloud configuration connector used to establish the connection to Azure.
+   *
    * @public
    */
   AWSConfigConnectorArn: string | undefined;
 
   /**
-   * <p>The scope configuration that defines which Azure resources are monitored.</p>
+   * The scope configuration that defines which Azure resources are monitored.
+   *
    * @public
    */
   ScopeConfiguration: AzureScopeConfiguration | undefined;
 
   /**
-   * <p>The list of Azure regions being monitored.</p>
+   * The list of Azure regions being monitored.
+   *
    * @public
    */
   AzureRegions: string[] | undefined;
 }
 
 /**
- * <p>The configuration for connecting to an Azure environment.</p>
+ * The configuration for connecting to an Azure environment.
+ *
  * @public
  */
 export interface AzureProviderConfiguration {
   /**
-   * <p>The ARN of the multi-cloud configuration connector used to establish the connection to Azure.</p>
+   * The ARN of the multi-cloud configuration connector used to establish the connection to Azure.
+   *
    * @public
    */
   AWSConfigConnectorArn: string | undefined;
 
   /**
-   * <p>The scope configuration that defines which Azure resources are monitored.</p>
+   * The scope configuration that defines which Azure resources are monitored.
+   *
    * @public
    */
   ScopeConfiguration: AzureScopeConfiguration | undefined;
 
   /**
-   * <p>The list of Azure regions to monitor.</p>
+   * The list of Azure regions to monitor.
+   *
    * @public
    */
   AzureRegions: string[] | undefined;
 }
 
 /**
- * <p>The configuration for updating an Azure connector's scope and regions.</p>
+ * The configuration for updating an Azure connector's scope and regions.
+ *
  * @public
  */
 export interface AzureUpdateConfiguration {
   /**
-   * <p>The updated scope configuration.</p>
+   * The updated scope configuration.
+   *
    * @public
    */
   ScopeConfiguration: AzureScopeConfiguration | undefined;
 
   /**
-   * <p>The updated list of Azure regions to monitor.</p>
+   * The updated list of Azure regions to monitor.
+   *
    * @public
    */
   AzureRegions: string[] | undefined;
@@ -3805,42 +3801,36 @@ export interface AzureUpdateConfiguration {
  */
 export interface BatchDeleteAutomationRulesRequest {
   /**
-   * <p>
-   *          A list of Amazon Resource Names (ARNs) for the rules that are to be deleted.
-   *       </p>
+   * A list of Amazon Resource Names (ARNs) for the rules that are to be deleted.
+   *
    * @public
    */
   AutomationRulesArns: string[] | undefined;
 }
 
 /**
- * <p>
- *          A list of objects containing <code>RuleArn</code>, <code>ErrorCode</code>, and <code>ErrorMessage</code>. This parameter
- *          tells you which automation rules the request didn't process and why.
- *       </p>
+ * A list of objects containing `RuleArn`, `ErrorCode`, and `ErrorMessage`. This parameter tells you which automation rules the request didn't process and why.
+ *
  * @public
  */
 export interface UnprocessedAutomationRule {
   /**
-   * <p>
-   *          The Amazon Resource Name (ARN) for the unprocessed automation rule.
-   *       </p>
+   * The Amazon Resource Name (ARN) for the unprocessed automation rule.
+   *
    * @public
    */
   RuleArn?: string | undefined;
 
   /**
-   * <p>
-   *          The error code associated with the unprocessed automation rule.
-   *       </p>
+   * The error code associated with the unprocessed automation rule.
+   *
    * @public
    */
   ErrorCode?: number | undefined;
 
   /**
-   * <p>
-   *          An error message describing why a request didn't process a specific rule.
-   *       </p>
+   * An error message describing why a request didn't process a specific rule.
+   *
    * @public
    */
   ErrorMessage?: string | undefined;
@@ -3851,18 +3841,15 @@ export interface UnprocessedAutomationRule {
  */
 export interface BatchDeleteAutomationRulesResponse {
   /**
-   * <p>
-   *          A list of properly processed rule ARNs.
-   *       </p>
+   * A list of properly processed rule ARNs.
+   *
    * @public
    */
   ProcessedAutomationRules?: string[] | undefined;
 
   /**
-   * <p>
-   *          A list of objects containing <code>RuleArn</code>, <code>ErrorCode</code>, and <code>ErrorMessage</code>. This parameter
-   *          tells you which automation rules the request didn't delete and why.
-   *       </p>
+   * A list of objects containing `RuleArn`, `ErrorCode`, and `ErrorMessage`. This parameter tells you which automation rules the request didn't delete and why.
+   *
    * @public
    */
   UnprocessedAutomationRules?: UnprocessedAutomationRule[] | undefined;
@@ -3873,102 +3860,87 @@ export interface BatchDeleteAutomationRulesResponse {
  */
 export interface BatchDisableStandardsRequest {
   /**
-   * <p>The ARNs of the standards subscriptions to disable.</p>
+   * The ARNs of the standards subscriptions to disable.
+   *
    * @public
    */
   StandardsSubscriptionArns: string[] | undefined;
 }
 
 /**
- * <p>The reason for the current status of your subscription to the standard.</p>
+ * The reason for the current status of your subscription to the standard.
+ *
  * @public
  */
 export interface StandardsStatusReason {
   /**
-   * <p>The reason code that represents the reason for the current status of a standard subscription.</p>
+   * The reason code that represents the reason for the current status of a standard subscription.
+   *
    * @public
    */
   StatusReasonCode: StatusReasonCode | undefined;
 }
 
 /**
- * <p>A resource that represents your subscription to a supported standard.</p>
+ * A resource that represents your subscription to a supported standard.
+ *
  * @public
  */
 export interface StandardsSubscription {
   /**
-   * <p>The ARN of the resource that represents your subscription to the standard.</p>
+   * The ARN of the resource that represents your subscription to the standard.
+   *
    * @public
    */
   StandardsSubscriptionArn: string | undefined;
 
   /**
-   * <p>The ARN of the standard.</p>
+   * The ARN of the standard.
+   *
    * @public
    */
   StandardsArn: string | undefined;
 
   /**
-   * <p>A key-value pair of input for the standard.</p>
+   * A key-value pair of input for the standard.
+   *
    * @public
    */
   StandardsInput: Record<string, string> | undefined;
 
   /**
-   * <p>The status of your subscription to the standard. Possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PENDING</code> - The standard is in the process of being enabled. Or the standard is already
-   *                enabled and Security Hub CSPM is adding new controls to the standard.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>READY</code> - The standard is enabled.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INCOMPLETE</code> - The standard could not be enabled completely. One or more errors (<code>StandardsStatusReason</code>)
-   *                occurred when Security Hub CSPM attempted to enable the standard.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETING</code> - The standard is in the process of being disabled.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED</code> - The standard could not be disabled. One or more errors (<code>StandardsStatusReason</code>)
-   *                occurred when Security Hub CSPM attempted to disable the standard.</p>
-   *             </li>
-   *          </ul>
+   * The status of your subscription to the standard. Possible values are:
+   *
+   * - `PENDING` - The standard is in the process of being enabled. Or the standard is already enabled and Security Hub CSPM is adding new controls to the standard.
+   * - `READY` - The standard is enabled.
+   * - `INCOMPLETE` - The standard could not be enabled completely. One or more errors (`StandardsStatusReason`) occurred when Security Hub CSPM attempted to enable the standard.
+   * - `DELETING` - The standard is in the process of being disabled.
+   * - `FAILED` - The standard could not be disabled. One or more errors (`StandardsStatusReason`) occurred when Security Hub CSPM attempted to disable the standard.
+   *
    * @public
    */
   StandardsStatus: StandardsStatus | undefined;
 
   /**
-   * <p>Specifies whether you can retrieve information about and configure individual controls that apply to the standard. Possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>READY_FOR_UPDATES</code> - Controls in the standard can be retrieved and configured.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NOT_READY_FOR_UPDATES</code> - Controls in the standard cannot be retrieved or configured.</p>
-   *             </li>
-   *          </ul>
+   * Specifies whether you can retrieve information about and configure individual controls that apply to the standard. Possible values are:
+   *
+   * - `READY_FOR_UPDATES` - Controls in the standard can be retrieved and configured.
+   * - `NOT_READY_FOR_UPDATES` - Controls in the standard cannot be retrieved or configured.
+   *
    * @public
    */
   StandardsControlsUpdatable?: StandardsControlsUpdatable | undefined;
 
   /**
-   * <p>The reason for the current status.</p>
+   * The reason for the current status.
+   *
    * @public
    */
   StandardsStatusReason?: StandardsStatusReason | undefined;
 
   /**
-   * <p>The cloud provider whose resources the standard evaluates. For example, <code>AWS</code> or <code>Azure</code>.</p>
+   * The cloud provider whose resources the standard evaluates. For example, `AWS` or `Azure`.
+   *
    * @public
    */
   Provider?: StandardsProvider | undefined;
@@ -3979,26 +3951,29 @@ export interface StandardsSubscription {
  */
 export interface BatchDisableStandardsResponse {
   /**
-   * <p>The details of the standards subscriptions that were disabled.</p>
+   * The details of the standards subscriptions that were disabled.
+   *
    * @public
    */
   StandardsSubscriptions?: StandardsSubscription[] | undefined;
 }
 
 /**
- * <p>The standard that you want to enable.</p>
+ * The standard that you want to enable.
+ *
  * @public
  */
 export interface StandardsSubscriptionRequest {
   /**
-   * <p>The ARN of the standard that you want to enable. To view the list of available standards
-   *          and their ARNs, use the <code>DescribeStandards</code> operation.</p>
+   * The ARN of the standard that you want to enable. To view the list of available standards and their ARNs, use the `DescribeStandards` operation.
+   *
    * @public
    */
   StandardsArn: string | undefined;
 
   /**
-   * <p>A key-value pair of input for the standard.</p>
+   * A key-value pair of input for the standard.
+   *
    * @public
    */
   StandardsInput?: Record<string, string> | undefined;
@@ -4009,7 +3984,8 @@ export interface StandardsSubscriptionRequest {
  */
 export interface BatchEnableStandardsRequest {
   /**
-   * <p>The list of standards checks to enable.</p>
+   * The list of standards checks to enable.
+   *
    * @public
    */
   StandardsSubscriptionRequests: StandardsSubscriptionRequest[] | undefined;
@@ -4020,7 +3996,8 @@ export interface BatchEnableStandardsRequest {
  */
 export interface BatchEnableStandardsResponse {
   /**
-   * <p>The details of the standards subscriptions that were enabled.</p>
+   * The details of the standards subscriptions that were enabled.
+   *
    * @public
    */
   StandardsSubscriptions?: StandardsSubscription[] | undefined;
@@ -4031,9 +4008,8 @@ export interface BatchEnableStandardsResponse {
  */
 export interface BatchGetAutomationRulesRequest {
   /**
-   * <p>
-   *          A list of rule ARNs to get details for.
-   *       </p>
+   * A list of rule ARNs to get details for.
+   *
    * @public
    */
   AutomationRulesArns: string[] | undefined;
@@ -4044,28 +4020,23 @@ export interface BatchGetAutomationRulesRequest {
  */
 export interface BatchGetAutomationRulesResponse {
   /**
-   * <p>
-   *          A list of rule details for the provided rule ARNs.
-   *       </p>
+   * A list of rule details for the provided rule ARNs.
+   *
    * @public
    */
   Rules?: AutomationRulesConfig[] | undefined;
 
   /**
-   * <p>
-   *          A list of objects containing <code>RuleArn</code>, <code>ErrorCode</code>, and <code>ErrorMessage</code>. This parameter
-   *          tells you which automation rules the request didn't retrieve and why.
-   *       </p>
+   * A list of objects containing `RuleArn`, `ErrorCode`, and `ErrorMessage`. This parameter tells you which automation rules the request didn't retrieve and why.
+   *
    * @public
    */
   UnprocessedAutomationRules?: UnprocessedAutomationRule[] | undefined;
 }
 
 /**
- * <p>
- *             The target account, organizational unit, or the root that is associated with an Security Hub CSPM configuration. The configuration
- *             can be a configuration policy or self-managed behavior.
- *         </p>
+ * The target account, organizational unit, or the root that is associated with an Security Hub CSPM configuration. The configuration can be a configuration policy or self-managed behavior.
+ *
  * @public
  */
 export type Target =
@@ -4079,9 +4050,8 @@ export type Target =
  */
 export namespace Target {
   /**
-   * <p>
-   *             The Amazon Web Services account ID of the target account.
-   *         </p>
+   * The Amazon Web Services account ID of the target account.
+   *
    * @public
    */
   export interface AccountIdMember {
@@ -4092,9 +4062,8 @@ export namespace Target {
   }
 
   /**
-   * <p>
-   *             The organizational unit ID of the target organizational unit.
-   *         </p>
+   * The organizational unit ID of the target organizational unit.
+   *
    * @public
    */
   export interface OrganizationalUnitIdMember {
@@ -4105,9 +4074,8 @@ export namespace Target {
   }
 
   /**
-   * <p>
-   *             The ID of the organization root.
-   *         </p>
+   * The ID of the organization root.
+   *
    * @public
    */
   export interface RootIdMember {
@@ -4140,18 +4108,14 @@ export namespace Target {
 }
 
 /**
- * <p>
- *             Provides details about the association between an Security Hub CSPM configuration and a target account, organizational unit, or
- *             the root. An association can exist between a target and a configuration policy, or between a target and self-managed
- *             behavior.
- *         </p>
+ * Provides details about the association between an Security Hub CSPM configuration and a target account, organizational unit, or the root. An association can exist between a target and a configuration policy, or between a target and self-managed behavior.
+ *
  * @public
  */
 export interface ConfigurationPolicyAssociation {
   /**
-   * <p>
-   *             The target account, organizational unit, or the root.
-   *         </p>
+   * The target account, organizational unit, or the root.
+   *
    * @public
    */
   Target?: Target | undefined;
@@ -4162,110 +4126,92 @@ export interface ConfigurationPolicyAssociation {
  */
 export interface BatchGetConfigurationPolicyAssociationsRequest {
   /**
-   * <p>
-   *             Specifies one or more target account IDs, organizational unit (OU) IDs, or the root ID to retrieve associations for.
-   *         </p>
+   * Specifies one or more target account IDs, organizational unit (OU) IDs, or the root ID to retrieve associations for.
+   *
    * @public
    */
   ConfigurationPolicyAssociationIdentifiers: ConfigurationPolicyAssociation[] | undefined;
 }
 
 /**
- * <p>
- *             An object that contains the details of a configuration policy association that’s returned in a
- *             <code>ListConfigurationPolicyAssociations</code> request.
- *         </p>
+ * An object that contains the details of a configuration policy association that’s returned in a `ListConfigurationPolicyAssociations` request.
+ *
  * @public
  */
 export interface ConfigurationPolicyAssociationSummary {
   /**
-   * <p>
-   *             The universally unique identifier (UUID) of the configuration policy.
-   *         </p>
+   * The universally unique identifier (UUID) of the configuration policy.
+   *
    * @public
    */
   ConfigurationPolicyId?: string | undefined;
 
   /**
-   * <p>
-   *             The identifier of the target account, organizational unit, or the root.
-   *         </p>
+   * The identifier of the target account, organizational unit, or the root.
+   *
    * @public
    */
   TargetId?: string | undefined;
 
   /**
-   * <p>
-   *             Specifies whether the target is an Amazon Web Services account, organizational unit, or the root.
-   *         </p>
+   * Specifies whether the target is an Amazon Web Services account, organizational unit, or the root.
+   *
    * @public
    */
   TargetType?: TargetType | undefined;
 
   /**
-   * <p>
-   *             Indicates whether the association between the specified target and the configuration was directly applied by the
-   *             Security Hub CSPM delegated administrator or inherited from a parent.
-   *         </p>
+   * Indicates whether the association between the specified target and the configuration was directly applied by the Security Hub CSPM delegated administrator or inherited from a parent.
+   *
    * @public
    */
   AssociationType?: AssociationType | undefined;
 
   /**
-   * <p>
-   *             The date and time, in UTC and ISO 8601 format, that the configuration policy association was last updated.
-   *         </p>
+   * The date and time, in UTC and ISO 8601 format, that the configuration policy association was last updated.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
 
   /**
-   * <p>
-   *             The current status of the association between the specified target and the configuration.
-   *         </p>
+   * The current status of the association between the specified target and the configuration.
+   *
    * @public
    */
   AssociationStatus?: ConfigurationPolicyAssociationStatus | undefined;
 
   /**
-   * <p>
-   *             The explanation for a <code>FAILED</code> value for <code>AssociationStatus</code>.
-   *         </p>
+   * The explanation for a `FAILED` value for `AssociationStatus`.
+   *
    * @public
    */
   AssociationStatusMessage?: string | undefined;
 }
 
 /**
- * <p>
- *             An array of configuration policy associations, one for each configuration policy association identifier, that
- *             was specified in a <code>BatchGetConfigurationPolicyAssociations</code> request but couldn’t be processed due
- *             to an error.
- *         </p>
+ * An array of configuration policy associations, one for each configuration policy association identifier, that was specified in a `BatchGetConfigurationPolicyAssociations` request but couldn’t be processed due to an error.
+ *
  * @public
  */
 export interface UnprocessedConfigurationPolicyAssociation {
   /**
-   * <p>
-   *             Configuration policy association identifiers that were specified in a <code>BatchGetConfigurationPolicyAssociations</code>
-   *             request but couldn’t be processed due to an error.
-   *         </p>
+   * Configuration policy association identifiers that were specified in a `BatchGetConfigurationPolicyAssociations` request but couldn’t be processed due to an error.
+   *
    * @public
    */
   ConfigurationPolicyAssociationIdentifiers?: ConfigurationPolicyAssociation | undefined;
 
   /**
-   * <p>
-   *             An HTTP status code that identifies why the configuration policy association failed.
-   *         </p>
+   * An HTTP status code that identifies why the configuration policy association failed.
+   *
    * @public
    */
   ErrorCode?: string | undefined;
 
   /**
-   * <p>
-   *             A string that identifies why the configuration policy association failed.
-   *         </p>
+   * A string that identifies why the configuration policy association failed.
+   *
    * @public
    */
   ErrorReason?: string | undefined;
@@ -4276,18 +4222,15 @@ export interface UnprocessedConfigurationPolicyAssociation {
  */
 export interface BatchGetConfigurationPolicyAssociationsResponse {
   /**
-   * <p>
-   *             Describes associations for the target accounts, OUs, or the root.
-   *         </p>
+   * Describes associations for the target accounts, OUs, or the root.
+   *
    * @public
    */
   ConfigurationPolicyAssociations?: ConfigurationPolicyAssociationSummary[] | undefined;
 
   /**
-   * <p>
-   *             An array of configuration policy associations, one for each configuration policy association identifier, that was
-   *             specified in the request but couldn’t be processed due to an error.
-   *         </p>
+   * An array of configuration policy associations, one for each configuration policy association identifier, that was specified in the request but couldn’t be processed due to an error.
+   *
    * @public
    */
   UnprocessedConfigurationPolicyAssociations?: UnprocessedConfigurationPolicyAssociation[] | undefined;
@@ -4298,18 +4241,16 @@ export interface BatchGetConfigurationPolicyAssociationsResponse {
  */
 export interface BatchGetSecurityControlsRequest {
   /**
-   * <p> A list of security controls (identified with <code>SecurityControlId</code>,
-   *             <code>SecurityControlArn</code>, or a mix of both parameters). The security control ID
-   *          or Amazon Resource Name (ARN) is the same across standards. </p>
+   * A list of security controls (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters). The security control ID or Amazon Resource Name (ARN) is the same across standards.
+   *
    * @public
    */
   SecurityControlIds: string[] | undefined;
 }
 
 /**
- * <p>
- *             An object that includes the data type of a security control parameter and its current value.
- *         </p>
+ * An object that includes the data type of a security control parameter and its current value.
+ *
  * @public
  */
 export type ParameterValue =
@@ -4328,9 +4269,8 @@ export type ParameterValue =
  */
 export namespace ParameterValue {
   /**
-   * <p>
-   *             A control parameter that is an integer.
-   *         </p>
+   * A control parameter that is an integer.
+   *
    * @public
    */
   export interface IntegerMember {
@@ -4346,9 +4286,8 @@ export namespace ParameterValue {
   }
 
   /**
-   * <p>
-   *             A control parameter that is a list of integers.
-   *         </p>
+   * A control parameter that is a list of integers.
+   *
    * @public
    */
   export interface IntegerListMember {
@@ -4364,9 +4303,8 @@ export namespace ParameterValue {
   }
 
   /**
-   * <p>
-   *             A control parameter that is a double.
-   *         </p>
+   * A control parameter that is a double.
+   *
    * @public
    */
   export interface DoubleMember {
@@ -4382,9 +4320,8 @@ export namespace ParameterValue {
   }
 
   /**
-   * <p>
-   *             A control parameter that is a string.
-   *         </p>
+   * A control parameter that is a string.
+   *
    * @public
    */
   export interface StringMember {
@@ -4400,9 +4337,8 @@ export namespace ParameterValue {
   }
 
   /**
-   * <p>
-   *             A control parameter that is a list of strings.
-   *         </p>
+   * A control parameter that is a list of strings.
+   *
    * @public
    */
   export interface StringListMember {
@@ -4418,9 +4354,8 @@ export namespace ParameterValue {
   }
 
   /**
-   * <p>
-   *             A control parameter that is a boolean.
-   *         </p>
+   * A control parameter that is a boolean.
+   *
    * @public
    */
   export interface BooleanMember {
@@ -4436,9 +4371,8 @@ export namespace ParameterValue {
   }
 
   /**
-   * <p>
-   *             A control parameter that is an enum.
-   *         </p>
+   * A control parameter that is an enum.
+   *
    * @public
    */
   export interface EnumMember {
@@ -4454,9 +4388,8 @@ export namespace ParameterValue {
   }
 
   /**
-   * <p>
-   *             A control parameter that is a list of enums.
-   *         </p>
+   * A control parameter that is a list of enums.
+   *
    * @public
    */
   export interface EnumListMember {
@@ -4504,163 +4437,137 @@ export namespace ParameterValue {
 }
 
 /**
- * <p>
- *             An object that provides the current value of a security control parameter and identifies whether it has been customized.
- *         </p>
+ * An object that provides the current value of a security control parameter and identifies whether it has been customized.
+ *
  * @public
  */
 export interface ParameterConfiguration {
   /**
-   * <p>
-   *             Identifies whether a control parameter uses a custom user-defined value or subscribes to the default
-   *             Security Hub CSPM behavior.</p>
-   *          <p>When <code>ValueType</code> is set equal to <code>DEFAULT</code>, the default
-   *             behavior can be a specific Security Hub CSPM default value, or the default behavior can be to ignore a specific parameter.
-   *             When <code>ValueType</code> is set equal to <code>DEFAULT</code>, Security Hub CSPM ignores user-provided input for
-   *             the <code>Value</code> field.</p>
-   *          <p>When <code>ValueType</code> is set equal to <code>CUSTOM</code>, the <code>Value</code> field can't be empty.</p>
+   * Identifies whether a control parameter uses a custom user-defined value or subscribes to the default Security Hub CSPM behavior.
+   *
+   * When `ValueType` is set equal to `DEFAULT`, the default behavior can be a specific Security Hub CSPM default value, or the default behavior can be to ignore a specific parameter. When `ValueType` is set equal to `DEFAULT`, Security Hub CSPM ignores user-provided input for the `Value` field.
+   *
+   * When `ValueType` is set equal to `CUSTOM`, the `Value` field can't be empty.
+   *
    * @public
    */
   ValueType: ParameterValueType | undefined;
 
   /**
-   * <p>
-   *             The current value of a control parameter.
-   *         </p>
+   * The current value of a control parameter.
+   *
    * @public
    */
   Value?: ParameterValue | undefined;
 }
 
 /**
- * <p>
- *          A security control in Security Hub CSPM describes a security best practice related to a specific resource.
- *       </p>
+ * A security control in Security Hub CSPM describes a security best practice related to a specific resource.
+ *
  * @public
  */
 export interface SecurityControl {
   /**
-   * <p>
-   *          The unique identifier of a security control across standards. Values for this field typically consist of an Amazon Web Services service name and a
-   *          number, such as APIGateway.3.
-   *       </p>
+   * The unique identifier of a security control across standards. Values for this field typically consist of an Amazon Web Services service name and a number, such as APIGateway.3.
+   *
    * @public
    */
   SecurityControlId: string | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) for a security control across standards, such as
-   *             <code>arn:aws:securityhub:eu-central-1:123456789012:security-control/S3.1</code>. This
-   *          parameter doesn't mention a specific standard. </p>
+   * The Amazon Resource Name (ARN) for a security control across standards, such as `arn:aws:securityhub:eu-central-1:123456789012:security-control/S3.1`. This parameter doesn't mention a specific standard.
+   *
    * @public
    */
   SecurityControlArn: string | undefined;
 
   /**
-   * <p>The title of a security control.
-   *       </p>
+   * The title of a security control.
+   *
    * @public
    */
   Title: string | undefined;
 
   /**
-   * <p> The description of a security control across standards. This typically summarizes how
-   *             Security Hub CSPM evaluates the control and the conditions under which it produces a
-   *          failed finding. This parameter doesn't reference a specific standard. </p>
+   * The description of a security control across standards. This typically summarizes how Security Hub CSPM evaluates the control and the conditions under which it produces a failed finding. This parameter doesn't reference a specific standard.
+   *
    * @public
    */
   Description: string | undefined;
 
   /**
-   * <p>
-   *          A link to Security Hub CSPM documentation that explains how to remediate a failed finding for a security control.
-   *       </p>
+   * A link to Security Hub CSPM documentation that explains how to remediate a failed finding for a security control.
+   *
    * @public
    */
   RemediationUrl: string | undefined;
 
   /**
-   * <p>
-   *          The severity of a security control. For more information about how Security Hub CSPM determines control severity, see
-   *          <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/controls-findings-create-update.html#control-findings-severity">Assigning severity to control findings</a> in the
-   *          <i>Security Hub CSPM User Guide</i>.
-   *       </p>
+   * The severity of a security control. For more information about how Security Hub CSPM determines control severity, see [Assigning severity to control findings](https://docs.aws.amazon.com/securityhub/latest/userguide/controls-findings-create-update.html#control-findings-severity) in the *Security Hub CSPM User Guide*.
+   *
    * @public
    */
   SeverityRating: SeverityRating | undefined;
 
   /**
-   * <p>
-   *          The enablement status of a security control in a specific standard.
-   *       </p>
+   * The enablement status of a security control in a specific standard.
+   *
    * @public
    */
   SecurityControlStatus: ControlStatus | undefined;
 
   /**
-   * <p>
-   *             Identifies whether customizable properties of a security control are reflected in Security Hub CSPM findings. A status of
-   * <code>READY</code> indicates that Security Hub CSPM uses the current control parameter values when running security checks of the control.
-   * A status of <code>UPDATING</code> indicates that all security checks might not use the current parameter values.
-   *         </p>
+   * Identifies whether customizable properties of a security control are reflected in Security Hub CSPM findings. A status of `READY` indicates that Security Hub CSPM uses the current control parameter values when running security checks of the control. A status of `UPDATING` indicates that all security checks might not use the current parameter values.
+   *
    * @public
    */
   UpdateStatus?: UpdateStatus | undefined;
 
   /**
-   * <p>
-   *             An object that identifies the name of a control parameter, its current value, and whether it has been customized.
-   *         </p>
+   * An object that identifies the name of a control parameter, its current value, and whether it has been customized.
+   *
    * @public
    */
   Parameters?: Record<string, ParameterConfiguration> | undefined;
 
   /**
-   * <p>
-   *             The most recent reason for updating the customizable properties of a security control. This differs from the
-   *             <code>UpdateReason</code> field of the <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateStandardsControlAssociations.html">
-   *                <code>BatchUpdateStandardsControlAssociations</code>
-   *             </a> API, which tracks the
-   *             reason for updating the enablement status of a control. This field accepts alphanumeric
-   *             characters in addition to white spaces, dashes, and underscores.
-   *         </p>
+   * The most recent reason for updating the customizable properties of a security control. This differs from the `UpdateReason` field of the [`BatchUpdateStandardsControlAssociations`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateStandardsControlAssociations.html) API, which tracks the reason for updating the enablement status of a control. This field accepts alphanumeric characters in addition to white spaces, dashes, and underscores.
+   *
    * @public
    */
   LastUpdateReason?: string | undefined;
 
   /**
-   * <p>The cloud provider whose resources the security control evaluates. For example, <code>AWS</code> or <code>Azure</code>.</p>
+   * The cloud provider whose resources the security control evaluates. For example, `AWS` or `Azure`.
+   *
    * @public
    */
   Provider?: SecurityControlsProvider | undefined;
 }
 
 /**
- * <p> Provides details about a security control for which a response couldn't be returned. </p>
+ * Provides details about a security control for which a response couldn't be returned.
+ *
  * @public
  */
 export interface UnprocessedSecurityControl {
   /**
-   * <p> The control (identified with <code>SecurityControlId</code>,
-   *             <code>SecurityControlArn</code>, or a mix of both parameters) for which a response
-   *          couldn't be returned. </p>
+   * The control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters) for which a response couldn't be returned.
+   *
    * @public
    */
   SecurityControlId: string | undefined;
 
   /**
-   * <p>
-   *          The error code for the unprocessed security control. The <code>NOT_FOUND</code> value has been deprecated and
-   *          replaced by the <code>RESOURCE_NOT_FOUND</code> value.
-   *       </p>
+   * The error code for the unprocessed security control. The `NOT_FOUND` value has been deprecated and replaced by the `RESOURCE_NOT_FOUND` value.
+   *
    * @public
    */
   ErrorCode: UnprocessedErrorCode | undefined;
 
   /**
-   * <p>
-   *          The reason why the security control was unprocessed.
-   *       </p>
+   * The reason why the security control was unprocessed.
+   *
    * @public
    */
   ErrorReason?: string | undefined;
@@ -4671,45 +4578,36 @@ export interface UnprocessedSecurityControl {
  */
 export interface BatchGetSecurityControlsResponse {
   /**
-   * <p>
-   *          An array that returns the identifier, Amazon Resource Name (ARN), and other details about a security control.
-   *          The same information is returned whether the request includes <code>SecurityControlId</code> or <code>SecurityControlArn</code>.
-   *       </p>
+   * An array that returns the identifier, Amazon Resource Name (ARN), and other details about a security control. The same information is returned whether the request includes `SecurityControlId` or `SecurityControlArn`.
+   *
    * @public
    */
   SecurityControls: SecurityControl[] | undefined;
 
   /**
-   * <p>
-   *          A security control (identified with <code>SecurityControlId</code>, <code>SecurityControlArn</code>, or a mix of both parameters) for which
-   *          details cannot be returned.
-   *       </p>
+   * A security control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters) for which details cannot be returned.
+   *
    * @public
    */
   UnprocessedIds?: UnprocessedSecurityControl[] | undefined;
 }
 
 /**
- * <p>
- *          An array with one or more objects that includes a security control (identified with <code>SecurityControlId</code>, <code>SecurityControlArn</code>, or a mix of both parameters)
- *          and the Amazon Resource Name (ARN) of a standard. The security control ID or ARN is the same across standards.
- *       </p>
+ * An array with one or more objects that includes a security control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters) and the Amazon Resource Name (ARN) of a standard. The security control ID or ARN is the same across standards.
+ *
  * @public
  */
 export interface StandardsControlAssociationId {
   /**
-   * <p>
-   *          The unique identifier (identified with <code>SecurityControlId</code>, <code>SecurityControlArn</code>, or a mix of both parameters) of a security
-   *          control across standards.
-   *       </p>
+   * The unique identifier (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters) of a security control across standards.
+   *
    * @public
    */
   SecurityControlId: string | undefined;
 
   /**
-   * <p>
-   *          The ARN of a standard.
-   *       </p>
+   * The ARN of a standard.
+   *
    * @public
    */
   StandardsArn: string | undefined;
@@ -4720,129 +4618,113 @@ export interface StandardsControlAssociationId {
  */
 export interface BatchGetStandardsControlAssociationsRequest {
   /**
-   * <p>
-   *          An array with one or more objects that includes a security control (identified with <code>SecurityControlId</code>, <code>SecurityControlArn</code>, or a mix of both parameters) and the Amazon Resource Name (ARN) of a standard.
-   *          This field is used to query the enablement status of a control in a specified standard. The security control ID or ARN is the same across standards.
-   *       </p>
+   * An array with one or more objects that includes a security control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters) and the Amazon Resource Name (ARN) of a standard. This field is used to query the enablement status of a control in a specified standard. The security control ID or ARN is the same across standards.
+   *
    * @public
    */
   StandardsControlAssociationIds: StandardsControlAssociationId[] | undefined;
 }
 
 /**
- * <p> Provides details about a control's enablement status in a specified standard. </p>
+ * Provides details about a control's enablement status in a specified standard.
+ *
  * @public
  */
 export interface StandardsControlAssociationDetail {
   /**
-   * <p>
-   *          The Amazon Resource Name (ARN) of a security standard.
-   *       </p>
+   * The Amazon Resource Name (ARN) of a security standard.
+   *
    * @public
    */
   StandardsArn: string | undefined;
 
   /**
-   * <p>
-   *          The unique identifier of a security control across standards. Values for this field typically consist of an Amazon Web Services service
-   *          name and a number, such as APIGateway.3.
-   *       </p>
+   * The unique identifier of a security control across standards. Values for this field typically consist of an Amazon Web Services service name and a number, such as APIGateway.3.
+   *
    * @public
    */
   SecurityControlId: string | undefined;
 
   /**
-   * <p> The ARN of a security control across standards, such as
-   *             <code>arn:aws:securityhub:eu-central-1:123456789012:security-control/S3.1</code>. This
-   *          parameter doesn't mention a specific standard. </p>
+   * The ARN of a security control across standards, such as `arn:aws:securityhub:eu-central-1:123456789012:security-control/S3.1`. This parameter doesn't mention a specific standard.
+   *
    * @public
    */
   SecurityControlArn: string | undefined;
 
   /**
-   * <p>
-   *          Specifies whether a control is enabled or disabled in a specified standard.
-   *       </p>
+   * Specifies whether a control is enabled or disabled in a specified standard.
+   *
    * @public
    */
   AssociationStatus: AssociationStatus | undefined;
 
   /**
-   * <p>
-   *          The requirement that underlies a control in the compliance framework related to the standard.
-   *       </p>
+   * The requirement that underlies a control in the compliance framework related to the standard.
+   *
    * @public
    */
   RelatedRequirements?: string[] | undefined;
 
   /**
-   * <p>
-   *          The time at which the enablement status of the control in the specified standard was last updated.
-   *       </p>
+   * The time at which the enablement status of the control in the specified standard was last updated.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
 
   /**
-   * <p>
-   *          The reason for updating the enablement status of a control in a specified standard.
-   *       </p>
+   * The reason for updating the enablement status of a control in a specified standard.
+   *
    * @public
    */
   UpdatedReason?: string | undefined;
 
   /**
-   * <p>
-   *          The title of a control. This field may reference a specific standard.
-   *       </p>
+   * The title of a control. This field may reference a specific standard.
+   *
    * @public
    */
   StandardsControlTitle?: string | undefined;
 
   /**
-   * <p>
-   *          The description of a control. This typically summarizes how Security Hub CSPM evaluates the control and the
-   *          conditions under which it produces a failed finding. This parameter may reference a specific standard.
-   *       </p>
+   * The description of a control. This typically summarizes how Security Hub CSPM evaluates the control and the conditions under which it produces a failed finding. This parameter may reference a specific standard.
+   *
    * @public
    */
   StandardsControlDescription?: string | undefined;
 
   /**
-   * <p> Provides the input parameter that Security Hub CSPM uses to call the <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_UpdateStandardsControl.html">UpdateStandardsControl</a> API. This API can be used to enable or disable a control
-   *          in a specified standard. </p>
+   * Provides the input parameter that Security Hub CSPM uses to call the [UpdateStandardsControl](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_UpdateStandardsControl.html) API. This API can be used to enable or disable a control in a specified standard.
+   *
    * @public
    */
   StandardsControlArns?: string[] | undefined;
 }
 
 /**
- * <p> Provides details about which
- *          control's enablement status couldn't be retrieved in a specified standard when calling <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateStandardsControlAssociations.html">BatchUpdateStandardsControlAssociations</a>. This parameter also provides details
- *          about why the request was unprocessed. </p>
+ * Provides details about which control's enablement status couldn't be retrieved in a specified standard when calling [BatchUpdateStandardsControlAssociations](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateStandardsControlAssociations.html). This parameter also provides details about why the request was unprocessed.
+ *
  * @public
  */
 export interface UnprocessedStandardsControlAssociation {
   /**
-   * <p> An array with one or more objects that includes a security control (identified with
-   *             <code>SecurityControlId</code>, <code>SecurityControlArn</code>, or a mix of both
-   *          parameters) and the Amazon Resource Name (ARN) of a standard. This parameter shows the
-   *          specific controls for which the enablement status couldn't be retrieved in specified standards when
-   *          calling <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateStandardsControlAssociations.html">BatchUpdateStandardsControlAssociations</a>. </p>
+   * An array with one or more objects that includes a security control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters) and the Amazon Resource Name (ARN) of a standard. This parameter shows the specific controls for which the enablement status couldn't be retrieved in specified standards when calling [BatchUpdateStandardsControlAssociations](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateStandardsControlAssociations.html).
+   *
    * @public
    */
   StandardsControlAssociationId: StandardsControlAssociationId | undefined;
 
   /**
-   * <p>The error code for the unprocessed standard and control association. The <code>NOT_FOUND</code> value has been deprecated and
-   *          replaced by the <code>RESOURCE_NOT_FOUND</code> value.
-   *       </p>
+   * The error code for the unprocessed standard and control association. The `NOT_FOUND` value has been deprecated and replaced by the `RESOURCE_NOT_FOUND` value.
+   *
    * @public
    */
   ErrorCode: UnprocessedErrorCode | undefined;
 
   /**
-   * <p>The reason why the standard and control association was unprocessed. </p>
+   * The reason why the standard and control association was unprocessed.
+   *
    * @public
    */
   ErrorReason?: string | undefined;
@@ -4853,18 +4735,15 @@ export interface UnprocessedStandardsControlAssociation {
  */
 export interface BatchGetStandardsControlAssociationsResponse {
   /**
-   * <p>Provides the enablement status of a security control in a specified standard and other details for the control in relation to
-   *          the specified standard.
-   *       </p>
+   * Provides the enablement status of a security control in a specified standard and other details for the control in relation to the specified standard.
+   *
    * @public
    */
   StandardsControlAssociationDetails: StandardsControlAssociationDetail[] | undefined;
 
   /**
-   * <p>
-   *          A security control (identified with <code>SecurityControlId</code>, <code>SecurityControlArn</code>, or a mix of both parameters) whose enablement
-   *          status in a specified standard cannot be returned.
-   *       </p>
+   * A security control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters) whose enablement status in a specified standard cannot be returned.
+   *
    * @public
    */
   UnprocessedAssociations?: UnprocessedStandardsControlAssociation[] | undefined;
@@ -4875,34 +4754,36 @@ export interface BatchGetStandardsControlAssociationsResponse {
  */
 export interface BatchImportFindingsRequest {
   /**
-   * <p>A list of findings to import. To successfully import a finding, it must follow the
-   *             <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html">Amazon Web Services Security Finding Format</a>. Maximum of 100 findings per request.</p>
+   * A list of findings to import. To successfully import a finding, it must follow the [Amazon Web Services Security Finding Format](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html). Maximum of 100 findings per request.
+   *
    * @public
    */
   Findings: AwsSecurityFinding[] | undefined;
 }
 
 /**
- * <p>The list of the findings that cannot be imported. For each finding, the list provides
- *          the error.</p>
+ * The list of the findings that cannot be imported. For each finding, the list provides the error.
+ *
  * @public
  */
 export interface ImportFindingsError {
   /**
-   * <p>The identifier of the finding that could not be updated.</p>
+   * The identifier of the finding that could not be updated.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The code of the error returned by the <code>BatchImportFindings</code> operation.</p>
+   * The code of the error returned by the `BatchImportFindings` operation.
+   *
    * @public
    */
   ErrorCode: string | undefined;
 
   /**
-   * <p>The message of the error returned by the <code>BatchImportFindings</code>
-   *          operation.</p>
+   * The message of the error returned by the `BatchImportFindings` operation.
+   *
    * @public
    */
   ErrorMessage: string | undefined;
@@ -4913,100 +4794,85 @@ export interface ImportFindingsError {
  */
 export interface BatchImportFindingsResponse {
   /**
-   * <p>The number of findings that failed to import.</p>
+   * The number of findings that failed to import.
+   *
    * @public
    */
   FailedCount: number | undefined;
 
   /**
-   * <p>The number of findings that were successfully imported.</p>
+   * The number of findings that were successfully imported.
+   *
    * @public
    */
   SuccessCount: number | undefined;
 
   /**
-   * <p>The list of findings that failed to import.</p>
+   * The list of findings that failed to import.
+   *
    * @public
    */
   FailedFindings?: ImportFindingsError[] | undefined;
 }
 
 /**
- * <p>
- *          Specifies the parameters to update in an existing automation rule.
- *       </p>
+ * Specifies the parameters to update in an existing automation rule.
+ *
  * @public
  */
 export interface UpdateAutomationRulesRequestItem {
   /**
-   * <p>
-   *          The Amazon Resource Name (ARN) for the rule.
-   *       </p>
+   * The Amazon Resource Name (ARN) for the rule.
+   *
    * @public
    */
   RuleArn: string | undefined;
 
   /**
-   * <p>
-   *          Whether the rule is active after it is created. If
-   *          this parameter is equal to <code>ENABLED</code>, Security Hub CSPM starts applying the rule to findings
-   *          and finding updates after the rule is created. To change the value of this
-   *          parameter after creating a rule, use <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateAutomationRules.html">
-   *                <code>BatchUpdateAutomationRules</code>
-   *             </a>.
-   *       </p>
+   * Whether the rule is active after it is created. If this parameter is equal to `ENABLED`, Security Hub CSPM starts applying the rule to findings and finding updates after the rule is created. To change the value of this parameter after creating a rule, use [`BatchUpdateAutomationRules`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateAutomationRules.html).
+   *
    * @public
    */
   RuleStatus?: RuleStatus | undefined;
 
   /**
-   * <p> An integer ranging from 1 to 1000 that represents the order in which the rule action is
-   *          applied to findings. Security Hub CSPM applies rules with lower values for this parameter
-   *          first. </p>
+   * An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub CSPM applies rules with lower values for this parameter first.
+   *
    * @public
    */
   RuleOrder?: number | undefined;
 
   /**
-   * <p>
-   *          A description of the rule.
-   *       </p>
+   * A description of the rule.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>
-   *          The name of the rule.
-   *       </p>
+   * The name of the rule.
+   *
    * @public
    */
   RuleName?: string | undefined;
 
   /**
-   * <p>Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding
-   *             matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub CSPM applies the rule action to a finding that matches
-   *             the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
-   *         </p>
+   * Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub CSPM applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
+   *
    * @public
    */
   IsTerminal?: boolean | undefined;
 
   /**
-   * <p>
-   *          A set of ASFF finding field attributes and corresponding expected values that
-   *          Security Hub CSPM uses to filter findings. If a rule is enabled and a finding matches the conditions specified in
-   *          this parameter, Security Hub CSPM applies the rule action to the finding.
-   *       </p>
+   * A set of ASFF finding field attributes and corresponding expected values that Security Hub CSPM uses to filter findings. If a rule is enabled and a finding matches the conditions specified in this parameter, Security Hub CSPM applies the rule action to the finding.
+   *
    * @public
    */
   Criteria?: AutomationRulesFindingFilters | undefined;
 
   /**
-   * <p>
-   *          One or more actions to update finding fields if a finding matches the conditions
-   *          specified in <code>Criteria</code>.
-   *       </p>
+   * One or more actions to update finding fields if a finding matches the conditions specified in `Criteria`.
+   *
    * @public
    */
   Actions?: AutomationRulesAction[] | undefined;
@@ -5017,10 +4883,8 @@ export interface UpdateAutomationRulesRequestItem {
  */
 export interface BatchUpdateAutomationRulesRequest {
   /**
-   * <p>
-   *          An array of ARNs for the rules that are to be updated. Optionally, you can also include
-   *          <code>RuleStatus</code> and <code>RuleOrder</code>.
-   *       </p>
+   * An array of ARNs for the rules that are to be updated. Optionally, you can also include `RuleStatus` and `RuleOrder`.
+   *
    * @public
    */
   UpdateAutomationRulesRequestItems: UpdateAutomationRulesRequestItem[] | undefined;
@@ -5031,18 +4895,15 @@ export interface BatchUpdateAutomationRulesRequest {
  */
 export interface BatchUpdateAutomationRulesResponse {
   /**
-   * <p>
-   *          A list of properly processed rule ARNs.
-   *       </p>
+   * A list of properly processed rule ARNs.
+   *
    * @public
    */
   ProcessedAutomationRules?: string[] | undefined;
 
   /**
-   * <p>
-   *          A list of objects containing <code>RuleArn</code>, <code>ErrorCode</code>, and <code>ErrorMessage</code>. This parameter
-   *          tells you which automation rules the request didn't update and why.
-   *       </p>
+   * A list of objects containing `RuleArn`, `ErrorCode`, and `ErrorMessage`. This parameter tells you which automation rules the request didn't update and why.
+   *
    * @public
    */
   UnprocessedAutomationRules?: UnprocessedAutomationRule[] | undefined;
@@ -5053,202 +4914,136 @@ export interface BatchUpdateAutomationRulesResponse {
  */
 export interface BatchUpdateFindingsRequest {
   /**
-   * <p>The list of findings to update. <code>BatchUpdateFindings</code> can be used to update
-   *          up to 100 findings at a time.</p>
-   *          <p>For each finding, the list provides the finding identifier and the ARN of the finding
-   *          provider.</p>
+   * The list of findings to update. `BatchUpdateFindings` can be used to update up to 100 findings at a time.
+   *
+   * For each finding, the list provides the finding identifier and the ARN of the finding provider.
+   *
    * @public
    */
   FindingIdentifiers: AwsSecurityFindingIdentifier[] | undefined;
 
   /**
-   * <p>The updated note.</p>
+   * The updated note.
+   *
    * @public
    */
   Note?: NoteUpdate | undefined;
 
   /**
-   * <p>Used to update the finding severity.</p>
+   * Used to update the finding severity.
+   *
    * @public
    */
   Severity?: SeverityUpdate | undefined;
 
   /**
-   * <p>Indicates the veracity of a finding.</p>
-   *          <p>The available values for <code>VerificationState</code> are  as follows.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>UNKNOWN</code> – The default disposition of a security finding</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TRUE_POSITIVE</code> – The security finding is confirmed</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FALSE_POSITIVE</code> – The security finding was determined to be a false
-   *                alarm</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>BENIGN_POSITIVE</code> – A special case of <code>TRUE_POSITIVE</code> where
-   *                the finding doesn't pose any threat, is expected, or both</p>
-   *             </li>
-   *          </ul>
+   * Indicates the veracity of a finding.
+   *
+   * The available values for `VerificationState` are as follows.
+   *
+   * - `UNKNOWN` – The default disposition of a security finding
+   * - `TRUE_POSITIVE` – The security finding is confirmed
+   * - `FALSE_POSITIVE` – The security finding was determined to be a false alarm
+   * - `BENIGN_POSITIVE` – A special case of `TRUE_POSITIVE` where the finding doesn't pose any threat, is expected, or both
+   *
    * @public
    */
   VerificationState?: VerificationState | undefined;
 
   /**
-   * <p>The updated value for the finding confidence. Confidence is defined as the likelihood
-   *          that a finding accurately identifies the behavior or issue that it was intended to
-   *          identify.</p>
-   *          <p>Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent
-   *          confidence and 100 means 100 percent confidence.</p>
+   * The updated value for the finding confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify.
+   *
+   * Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100 means 100 percent confidence.
+   *
    * @public
    */
   Confidence?: number | undefined;
 
   /**
-   * <p>The updated value for the level of importance assigned to the resources associated with
-   *          the findings.</p>
-   *          <p>A score of 0 means that the underlying resources have no criticality, and a score of 100
-   *          is reserved for the most critical resources. </p>
+   * The updated value for the level of importance assigned to the resources associated with the findings.
+   *
+   * A score of 0 means that the underlying resources have no criticality, and a score of 100 is reserved for the most critical resources.
+   *
    * @public
    */
   Criticality?: number | undefined;
 
   /**
-   * <p>One or more finding types in the format of namespace/category/classifier that classify a
-   *          finding.</p>
-   *          <p>Valid namespace values are as follows.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Software and Configuration Checks</p>
-   *             </li>
-   *             <li>
-   *                <p>TTPs</p>
-   *             </li>
-   *             <li>
-   *                <p>Effects</p>
-   *             </li>
-   *             <li>
-   *                <p>Unusual Behaviors</p>
-   *             </li>
-   *             <li>
-   *                <p>Sensitive Data Identifications </p>
-   *             </li>
-   *          </ul>
+   * One or more finding types in the format of namespace/category/classifier that classify a finding.
+   *
+   * Valid namespace values are as follows.
+   *
+   * - Software and Configuration Checks
+   * - TTPs
+   * - Effects
+   * - Unusual Behaviors
+   * - Sensitive Data Identifications
+   *
    * @public
    */
   Types?: string[] | undefined;
 
   /**
-   * <p>A list of name/value string pairs associated with the finding. These are custom,
-   *          user-defined fields added to a finding.</p>
+   * A list of name/value string pairs associated with the finding. These are custom, user-defined fields added to a finding.
+   *
    * @public
    */
   UserDefinedFields?: Record<string, string> | undefined;
 
   /**
-   * <p>Used to update the workflow status of a finding.</p>
-   *          <p>The workflow status indicates the progress of the investigation into the finding. </p>
+   * Used to update the workflow status of a finding.
+   *
+   * The workflow status indicates the progress of the investigation into the finding.
+   *
    * @public
    */
   Workflow?: WorkflowUpdate | undefined;
 
   /**
-   * <p>A list of findings that are related to the updated findings.</p>
+   * A list of findings that are related to the updated findings.
+   *
    * @public
    */
   RelatedFindings?: RelatedFinding[] | undefined;
 }
 
 /**
- * <p>A finding from a <code>BatchUpdateFindings</code> request that Security Hub CSPM was unable to
- *          update.</p>
+ * A finding from a `BatchUpdateFindings` request that Security Hub CSPM was unable to update.
+ *
  * @public
  */
 export interface BatchUpdateFindingsUnprocessedFinding {
   /**
-   * <p>The identifier of the finding that was not updated.</p>
+   * The identifier of the finding that was not updated.
+   *
    * @public
    */
   FindingIdentifier: AwsSecurityFindingIdentifier | undefined;
 
   /**
-   * <p>The code associated with the error. Possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ConcurrentUpdateError</code> - Another request attempted to update the finding while this request was being processed.
-   * This error may also occur if you call <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateFindings.html">
-   *                      <code>BatchUpdateFindings</code>
-   *                   </a>
-   * and <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchImportFindings.html">
-   *                      <code>BatchImportFindings</code>
-   *                   </a> at the same time.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DuplicatedFindingIdentifier</code> - The request included two or more findings with the same <code>FindingIdentifier</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FindingNotFound</code> - The <code>FindingIdentifier</code> included in the request did not match an existing finding.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FindingSizeExceeded</code> - The finding size was greater than the permissible value of 240 KB.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>InternalFailure</code> - An internal service failure occurred when updating the finding.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>InvalidInput</code> - The finding update contained an invalid value that did not satisfy the <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html">Amazon Web Services Security Finding Format</a> syntax.</p>
-   *             </li>
-   *          </ul>
+   * The code associated with the error. Possible values are:
+   *
+   * - `ConcurrentUpdateError` - Another request attempted to update the finding while this request was being processed. This error may also occur if you call [`BatchUpdateFindings`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateFindings.html) and [`BatchImportFindings`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchImportFindings.html) at the same time.
+   * - `DuplicatedFindingIdentifier` - The request included two or more findings with the same `FindingIdentifier`.
+   * - `FindingNotFound` - The `FindingIdentifier` included in the request did not match an existing finding.
+   * - `FindingSizeExceeded` - The finding size was greater than the permissible value of 240 KB.
+   * - `InternalFailure` - An internal service failure occurred when updating the finding.
+   * - `InvalidInput` - The finding update contained an invalid value that did not satisfy the [Amazon Web Services Security Finding Format](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) syntax.
+   *
    * @public
    */
   ErrorCode: string | undefined;
 
   /**
-   * <p>The message associated with the error. Possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Concurrent finding updates detected</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Finding Identifier is duplicated</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Finding Not Found</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Finding size exceeded 240 KB</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Internal service failure</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Invalid Input</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The message associated with the error. Possible values are:
+   *
+   * - `Concurrent finding updates detected`
+   * - `Finding Identifier is duplicated`
+   * - `Finding Not Found`
+   * - `Finding size exceeded 240 KB`
+   * - `Internal service failure`
+   * - `Invalid Input`
+   *
    * @public
    */
   ErrorMessage: string | undefined;
@@ -5259,37 +5054,43 @@ export interface BatchUpdateFindingsUnprocessedFinding {
  */
 export interface BatchUpdateFindingsResponse {
   /**
-   * <p>The list of findings that were updated successfully.</p>
+   * The list of findings that were updated successfully.
+   *
    * @public
    */
   ProcessedFindings: AwsSecurityFindingIdentifier[] | undefined;
 
   /**
-   * <p>The list of findings that were not updated.</p>
+   * The list of findings that were not updated.
+   *
    * @public
    */
   UnprocessedFindings: BatchUpdateFindingsUnprocessedFinding[] | undefined;
 }
 
 /**
- * <p>Provides a standard to identify security findings using OCSF.</p>
+ * Provides a standard to identify security findings using OCSF.
+ *
  * @public
  */
 export interface OcsfFindingIdentifier {
   /**
-   * <p>Finding cloud.account.uid, which is a unique identifier in the Amazon Web Services account..</p>
+   * Finding cloud.account.uid, which is a unique identifier in the Amazon Web Services account..
+   *
    * @public
    */
   CloudAccountUid: string | undefined;
 
   /**
-   * <p>Finding finding_info.uid, which is a unique identifier for the finding from the finding provider.</p>
+   * Finding finding_info.uid, which is a unique identifier for the finding from the finding provider.
+   *
    * @public
    */
   FindingInfoUid: string | undefined;
 
   /**
-   * <p>Finding metadata.product.uid, which is a unique identifier for the product.</p>
+   * Finding metadata.product.uid, which is a unique identifier for the product.
+   *
    * @public
    */
   MetadataProductUid: string | undefined;
@@ -5300,87 +5101,92 @@ export interface OcsfFindingIdentifier {
  */
 export interface BatchUpdateFindingsV2Request {
   /**
-   * <p>The list of finding <code>metadata.uid</code> to indicate findings to update.
-   *          Finding <code>metadata.uid</code> is a globally unique identifier associated with the finding.
-   *          Customers cannot use <code>MetadataUids</code> together with <code>FindingIdentifiers</code>.</p>
+   * The list of finding `metadata.uid` to indicate findings to update. Finding `metadata.uid` is a globally unique identifier associated with the finding. Customers cannot use `MetadataUids` together with `FindingIdentifiers`.
+   *
    * @public
    */
   MetadataUids?: string[] | undefined;
 
   /**
-   * <p>Provides information to identify a specific V2 finding.</p>
+   * Provides information to identify a specific V2 finding.
+   *
    * @public
    */
   FindingIdentifiers?: OcsfFindingIdentifier[] | undefined;
 
   /**
-   * <p>The updated value for a user provided comment about the finding.
-   *          Minimum character length 1.
-   *          Maximum character length 512.</p>
+   * The updated value for a user provided comment about the finding. Minimum character length 1. Maximum character length 512.
+   *
    * @public
    */
   Comment?: string | undefined;
 
   /**
-   * <p>The updated value for the normalized severity identifier.
-   *          The severity ID is an integer with the allowed enum values [0, 1, 2, 3, 4, 5, 6, 99].
-   *          When customer provides the updated severity ID, the string sibling severity will automatically be updated in the finding.</p>
+   * The updated value for the normalized severity identifier. The severity ID is an integer with the allowed enum values [0, 1, 2, 3, 4, 5, 6, 99]. When customer provides the updated severity ID, the string sibling severity will automatically be updated in the finding.
+   *
    * @public
    */
   SeverityId?: number | undefined;
 
   /**
-   * <p>The updated value for the normalized status identifier.
-   *          The status ID is an integer with the allowed enum values [0, 1, 2, 3, 4, 5, 99].
-   *          When customer provides the updated status ID, the string sibling status will automatically be updated in the finding.</p>
+   * The updated value for the normalized status identifier. The status ID is an integer with the allowed enum values [0, 1, 2, 3, 4, 5, 99]. When customer provides the updated status ID, the string sibling status will automatically be updated in the finding.
+   *
    * @public
    */
   StatusId?: number | undefined;
 }
 
 /**
- * <p>The list of findings that were updated.</p>
+ * The list of findings that were updated.
+ *
  * @public
  */
 export interface BatchUpdateFindingsV2ProcessedFinding {
   /**
-   * <p>The finding identifier of a processed finding.</p>
+   * The finding identifier of a processed finding.
+   *
    * @public
    */
   FindingIdentifier?: OcsfFindingIdentifier | undefined;
 
   /**
-   * <p>The metadata.uid of a processed finding.</p>
+   * The metadata.uid of a processed finding.
+   *
    * @public
    */
   MetadataUid?: string | undefined;
 }
 
 /**
- * <p>The list of findings that were not updated.</p>
+ * The list of findings that were not updated.
+ *
  * @public
  */
 export interface BatchUpdateFindingsV2UnprocessedFinding {
   /**
-   * <p>The finding identifier of an unprocessed finding.</p>
+   * The finding identifier of an unprocessed finding.
+   *
    * @public
    */
   FindingIdentifier?: OcsfFindingIdentifier | undefined;
 
   /**
-   * <p>The metadata.uid of an unprocessed finding.</p>
+   * The metadata.uid of an unprocessed finding.
+   *
    * @public
    */
   MetadataUid?: string | undefined;
 
   /**
-   * <p>Indicates the specific type of error preventing successful processing of a finding during a batch update operation.</p>
+   * Indicates the specific type of error preventing successful processing of a finding during a batch update operation.
+   *
    * @public
    */
   ErrorCode?: BatchUpdateFindingsV2UnprocessedFindingErrorCode | undefined;
 
   /**
-   * <p>A detailed description of why a finding could not be processed during a batch update operation.</p>
+   * A detailed description of why a finding could not be processed during a batch update operation.
+   *
    * @public
    */
   ErrorMessage?: string | undefined;
@@ -5391,46 +5197,50 @@ export interface BatchUpdateFindingsV2UnprocessedFinding {
  */
 export interface BatchUpdateFindingsV2Response {
   /**
-   * <p>The list of findings that were updated successfully.</p>
+   * The list of findings that were updated successfully.
+   *
    * @public
    */
   ProcessedFindings: BatchUpdateFindingsV2ProcessedFinding[] | undefined;
 
   /**
-   * <p>The list of V2 findings that were not updated.</p>
+   * The list of V2 findings that were not updated.
+   *
    * @public
    */
   UnprocessedFindings: BatchUpdateFindingsV2UnprocessedFinding[] | undefined;
 }
 
 /**
- * <p>An array of requested updates to the enablement status of controls in specified
- *          standards. The objects in the array include a security control ID, the Amazon Resource Name (ARN) of the standard, the requested
- *          enablement status, and the reason for updating the enablement status.</p>
+ * An array of requested updates to the enablement status of controls in specified standards. The objects in the array include a security control ID, the Amazon Resource Name (ARN) of the standard, the requested enablement status, and the reason for updating the enablement status.
+ *
  * @public
  */
 export interface StandardsControlAssociationUpdate {
   /**
-   * <p>The Amazon Resource Name (ARN) of the standard in which you want to update the
-   *          control's enablement status.</p>
+   * The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
+   *
    * @public
    */
   StandardsArn: string | undefined;
 
   /**
-   * <p>The unique identifier for the security control whose enablement status you want to update.</p>
+   * The unique identifier for the security control whose enablement status you want to update.
+   *
    * @public
    */
   SecurityControlId: string | undefined;
 
   /**
-   * <p>The desired enablement status of the control in the standard.</p>
+   * The desired enablement status of the control in the standard.
+   *
    * @public
    */
   AssociationStatus: AssociationStatus | undefined;
 
   /**
-   * <p>The reason for updating the control's enablement status in the standard.</p>
+   * The reason for updating the control's enablement status in the standard.
+   *
    * @public
    */
   UpdatedReason?: string | undefined;
@@ -5441,42 +5251,38 @@ export interface StandardsControlAssociationUpdate {
  */
 export interface BatchUpdateStandardsControlAssociationsRequest {
   /**
-   * <p>
-   *          Updates the enablement status of a security control in a specified standard.
-   *       </p>
-   *          <p>
-   *          Calls to this operation return a <code>RESOURCE_NOT_FOUND_EXCEPTION</code> error when the standard subscription for the control has <code>StandardsControlsUpdatable</code> value <code>NOT_READY_FOR_UPDATES</code>.
-   *       </p>
+   * Updates the enablement status of a security control in a specified standard.
+   *
+   * Calls to this operation return a `RESOURCE_NOT_FOUND_EXCEPTION` error when the standard subscription for the control has `StandardsControlsUpdatable` value `NOT_READY_FOR_UPDATES`.
+   *
    * @public
    */
   StandardsControlAssociationUpdates: StandardsControlAssociationUpdate[] | undefined;
 }
 
 /**
- * <p>Provides details about which control's enablement status could not be updated in a
- *          specified standard when calling the <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateStandardsControlAssociations.html">BatchUpdateStandardsControlAssociations</a> API. This parameter also provides
- *          details about why the request was unprocessed. </p>
+ * Provides details about which control's enablement status could not be updated in a specified standard when calling the [BatchUpdateStandardsControlAssociations](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateStandardsControlAssociations.html) API. This parameter also provides details about why the request was unprocessed.
+ *
  * @public
  */
 export interface UnprocessedStandardsControlAssociationUpdate {
   /**
-   * <p>An array of control and standard associations for which an update failed when calling
-   *          <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateStandardsControlAssociations.html">BatchUpdateStandardsControlAssociations</a>.
-   *       </p>
+   * An array of control and standard associations for which an update failed when calling [BatchUpdateStandardsControlAssociations](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateStandardsControlAssociations.html).
+   *
    * @public
    */
   StandardsControlAssociationUpdate: StandardsControlAssociationUpdate | undefined;
 
   /**
-   * <p>The error code for the unprocessed update of the control's enablement status in the
-   *          specified standard.  The <code>NOT_FOUND</code> value has been deprecated and
-   *          replaced by the <code>RESOURCE_NOT_FOUND</code> value.</p>
+   * The error code for the unprocessed update of the control's enablement status in the specified standard. The `NOT_FOUND` value has been deprecated and replaced by the `RESOURCE_NOT_FOUND` value.
+   *
    * @public
    */
   ErrorCode: UnprocessedErrorCode | undefined;
 
   /**
-   * <p>The reason why a control's enablement status in the specified standard couldn't be updated. </p>
+   * The reason why a control's enablement status in the specified standard couldn't be updated.
+   *
    * @public
    */
   ErrorReason?: string | undefined;
@@ -5487,26 +5293,22 @@ export interface UnprocessedStandardsControlAssociationUpdate {
  */
 export interface BatchUpdateStandardsControlAssociationsResponse {
   /**
-   * <p>
-   *          A security control (identified with <code>SecurityControlId</code>, <code>SecurityControlArn</code>, or a mix of both parameters) whose enablement status in a specified standard couldn't be updated.
-   *       </p>
+   * A security control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters) whose enablement status in a specified standard couldn't be updated.
+   *
    * @public
    */
   UnprocessedAssociationUpdates?: UnprocessedStandardsControlAssociationUpdate[] | undefined;
 }
 
 /**
- * <p>
- *             The options for customizing a security control parameter with a boolean. For a boolean parameter, the options are
- *             <code>true</code> and <code>false</code>.
- *         </p>
+ * The options for customizing a security control parameter with a boolean. For a boolean parameter, the options are `true` and `false`.
+ *
  * @public
  */
 export interface BooleanConfigurationOptions {
   /**
-   * <p>
-   *             The Security Hub CSPM default value for a boolean parameter.
-   *         </p>
+   * The Security Hub CSPM default value for a boolean parameter.
+   *
    * @public
    */
   DefaultValue?: boolean | undefined;
@@ -5517,7 +5319,8 @@ export interface BooleanConfigurationOptions {
  */
 export interface CancelExportJobV2Request {
   /**
-   * <p>The unique identifier of the export job to cancel. This is the value returned by <code>StartExportJobV2</code>.</p>
+   * The unique identifier of the export job to cancel. This is the value returned by `StartExportJobV2`.
+   *
    * @public
    */
   ExportJobId: string | undefined;
@@ -5528,364 +5331,352 @@ export interface CancelExportJobV2Request {
  */
 export interface CancelExportJobV2Response {
   /**
-   * <p>The unique identifier of the export job.</p>
+   * The unique identifier of the export job.
+   *
    * @public
    */
   ExportJobId: string | undefined;
 
   /**
-   * <p>The state of the export job after the cancel request.</p>
+   * The state of the export job after the cancel request.
+   *
    * @public
    */
   Status: ExportStatus | undefined;
 }
 
 /**
- * <p>Enables filtering of security findings based on boolean field values in OCSF.</p>
+ * Enables filtering of security findings based on boolean field values in OCSF.
+ *
  * @public
  */
 export interface OcsfBooleanFilter {
   /**
-   * <p>The name of the field.</p>
+   * The name of the field.
+   *
    * @public
    */
   FieldName?: OcsfBooleanField | undefined;
 
   /**
-   * <p>Boolean filter for querying findings.</p>
+   * Boolean filter for querying findings.
+   *
    * @public
    */
   Filter?: BooleanFilter | undefined;
 }
 
 /**
- * <p>Enables filtering of security findings based on date and timestamp fields in OCSF.</p>
+ * Enables filtering of security findings based on date and timestamp fields in OCSF.
+ *
  * @public
  */
 export interface OcsfDateFilter {
   /**
-   * <p>The name of the field.</p>
+   * The name of the field.
+   *
    * @public
    */
   FieldName?: OcsfDateField | undefined;
 
   /**
-   * <p>A date filter for querying findings.</p>
+   * A date filter for querying findings.
+   *
    * @public
    */
   Filter?: DateFilter | undefined;
 }
 
 /**
- * <p>The structure for filtering findings based on IP address attributes.</p>
+ * The structure for filtering findings based on IP address attributes.
+ *
  * @public
  */
 export interface OcsfIpFilter {
   /**
-   * <p>The name of the IP address field to filter on.</p>
+   * The name of the IP address field to filter on.
+   *
    * @public
    */
   FieldName?: OcsfIpField | undefined;
 
   /**
-   * <p>The IP filter for querying findings.</p>
+   * The IP filter for querying findings.
+   *
    * @public
    */
   Filter?: IpFilter | undefined;
 }
 
 /**
- * <p>Enables filtering of security findings based on map field values in OCSF.</p>
+ * Enables filtering of security findings based on map field values in OCSF.
+ *
  * @public
  */
 export interface OcsfMapFilter {
   /**
-   * <p>The name of the field.</p>
+   * The name of the field.
+   *
    * @public
    */
   FieldName?: OcsfMapField | undefined;
 
   /**
-   * <p>A map filter for filtering Security Hub CSPM findings. Each map filter provides the field to check for, the
-   *          value to check for, and the comparison operator.</p>
+   * A map filter for filtering Security Hub CSPM findings. Each map filter provides the field to check for, the value to check for, and the comparison operator.
+   *
    * @public
    */
   Filter?: MapFilter | undefined;
 }
 
 /**
- * <p>Enables filtering of security findings based on numerical field values in OCSF.</p>
+ * Enables filtering of security findings based on numerical field values in OCSF.
+ *
  * @public
  */
 export interface OcsfNumberFilter {
   /**
-   * <p>The name of the field.</p>
+   * The name of the field.
+   *
    * @public
    */
   FieldName?: OcsfNumberField | undefined;
 
   /**
-   * <p>A number filter for querying findings.</p>
+   * A number filter for querying findings.
+   *
    * @public
    */
   Filter?: NumberFilter | undefined;
 }
 
 /**
- * <p>Enables filtering of security findings based on string field values in OCSF.</p>
+ * Enables filtering of security findings based on string field values in OCSF.
+ *
  * @public
  */
 export interface OcsfStringFilter {
   /**
-   * <p>The name of the field.</p>
+   * The name of the field.
+   *
    * @public
    */
   FieldName?: OcsfStringField | undefined;
 
   /**
-   * <p>A string filter for filtering Security Hub CSPM findings.</p>
+   * A string filter for filtering Security Hub CSPM findings.
+   *
    * @public
    */
   Filter?: StringFilter | undefined;
 }
 
 /**
- * <p>
- *             The options for customizing a security control parameter that is a double.
- *         </p>
+ * The options for customizing a security control parameter that is a double.
+ *
  * @public
  */
 export interface DoubleConfigurationOptions {
   /**
-   * <p>
-   *             The Security Hub CSPM default value for a control parameter that is a double.
-   *         </p>
+   * The Security Hub CSPM default value for a control parameter that is a double.
+   *
    * @public
    */
   DefaultValue?: number | undefined;
 
   /**
-   * <p>
-   *             The minimum valid value for a control parameter that is a double.
-   *         </p>
+   * The minimum valid value for a control parameter that is a double.
+   *
    * @public
    */
   Min?: number | undefined;
 
   /**
-   * <p>
-   *             The maximum valid value for a control parameter that is a double.
-   *         </p>
+   * The maximum valid value for a control parameter that is a double.
+   *
    * @public
    */
   Max?: number | undefined;
 }
 
 /**
- * <p>
- *             The options for customizing a security control parameter that is an enum.
- *         </p>
+ * The options for customizing a security control parameter that is an enum.
+ *
  * @public
  */
 export interface EnumConfigurationOptions {
   /**
-   * <p>
-   *             The Security Hub CSPM default value for a control parameter that is an enum.
-   *         </p>
+   * The Security Hub CSPM default value for a control parameter that is an enum.
+   *
    * @public
    */
   DefaultValue?: string | undefined;
 
   /**
-   * <p>
-   *             The valid values for a control parameter that is an enum.
-   *         </p>
+   * The valid values for a control parameter that is an enum.
+   *
    * @public
    */
   AllowedValues?: string[] | undefined;
 }
 
 /**
- * <p>
- *             The options for customizing a security control parameter that is a list of enums.
- *         </p>
+ * The options for customizing a security control parameter that is a list of enums.
+ *
  * @public
  */
 export interface EnumListConfigurationOptions {
   /**
-   * <p>
-   *             The Security Hub CSPM default value for a control parameter that is a list of enums.
-   *         </p>
+   * The Security Hub CSPM default value for a control parameter that is a list of enums.
+   *
    * @public
    */
   DefaultValue?: string[] | undefined;
 
   /**
-   * <p>
-   *             The maximum number of list items that an enum list control parameter can accept.
-   *         </p>
+   * The maximum number of list items that an enum list control parameter can accept.
+   *
    * @public
    */
   MaxItems?: number | undefined;
 
   /**
-   * <p>
-   *             The valid values for a control parameter that is a list of enums.
-   *         </p>
+   * The valid values for a control parameter that is a list of enums.
+   *
    * @public
    */
   AllowedValues?: string[] | undefined;
 }
 
 /**
- * <p>
- *             The options for customizing a security control parameter that is an integer.
- *         </p>
+ * The options for customizing a security control parameter that is an integer.
+ *
  * @public
  */
 export interface IntegerConfigurationOptions {
   /**
-   * <p>
-   *             The Security Hub CSPM default value for a control parameter that is an integer.
-   *         </p>
+   * The Security Hub CSPM default value for a control parameter that is an integer.
+   *
    * @public
    */
   DefaultValue?: number | undefined;
 
   /**
-   * <p>
-   *             The minimum valid value for a control parameter that is an integer.
-   *         </p>
+   * The minimum valid value for a control parameter that is an integer.
+   *
    * @public
    */
   Min?: number | undefined;
 
   /**
-   * <p>
-   *             The maximum valid value for a control parameter that is an integer.
-   *         </p>
+   * The maximum valid value for a control parameter that is an integer.
+   *
    * @public
    */
   Max?: number | undefined;
 }
 
 /**
- * <p>
- *             The options for customizing a security control parameter that is a list of integers.
- *         </p>
+ * The options for customizing a security control parameter that is a list of integers.
+ *
  * @public
  */
 export interface IntegerListConfigurationOptions {
   /**
-   * <p>
-   *             The Security Hub CSPM default value for a control parameter that is a list of integers.
-   *         </p>
+   * The Security Hub CSPM default value for a control parameter that is a list of integers.
+   *
    * @public
    */
   DefaultValue?: number[] | undefined;
 
   /**
-   * <p>
-   *             The minimum valid value for a control parameter that is a list of integers.
-   *         </p>
+   * The minimum valid value for a control parameter that is a list of integers.
+   *
    * @public
    */
   Min?: number | undefined;
 
   /**
-   * <p>
-   *             The maximum valid value for a control parameter that is a list of integers.
-   *         </p>
+   * The maximum valid value for a control parameter that is a list of integers.
+   *
    * @public
    */
   Max?: number | undefined;
 
   /**
-   * <p>
-   *             The maximum number of list items that an interger list control parameter can accept.
-   *         </p>
+   * The maximum number of list items that an interger list control parameter can accept.
+   *
    * @public
    */
   MaxItems?: number | undefined;
 }
 
 /**
- * <p>
- *             The options for customizing a security control parameter that is a string.
- *         </p>
+ * The options for customizing a security control parameter that is a string.
+ *
  * @public
  */
 export interface StringConfigurationOptions {
   /**
-   * <p>
-   *             The Security Hub CSPM default value for a control parameter that is a string.
-   *         </p>
+   * The Security Hub CSPM default value for a control parameter that is a string.
+   *
    * @public
    */
   DefaultValue?: string | undefined;
 
   /**
-   * <p>
-   *             An RE2 regular expression that Security Hub CSPM uses to validate a user-provided control parameter string.
-   *         </p>
+   * An RE2 regular expression that Security Hub CSPM uses to validate a user-provided control parameter string.
+   *
    * @public
    */
   Re2Expression?: string | undefined;
 
   /**
-   * <p>
-   *             The description of the RE2 regular expression.
-   *         </p>
+   * The description of the RE2 regular expression.
+   *
    * @public
    */
   ExpressionDescription?: string | undefined;
 }
 
 /**
- * <p>
- *             The options for customizing a security control parameter that is a list of strings.
- *         </p>
+ * The options for customizing a security control parameter that is a list of strings.
+ *
  * @public
  */
 export interface StringListConfigurationOptions {
   /**
-   * <p>
-   *             The Security Hub CSPM default value for a control parameter that is a list of strings.
-   *         </p>
+   * The Security Hub CSPM default value for a control parameter that is a list of strings.
+   *
    * @public
    */
   DefaultValue?: string[] | undefined;
 
   /**
-   * <p>
-   *             An RE2 regular expression that Security Hub CSPM uses to validate a user-provided list of strings for a control
-   *             parameter.
-   *         </p>
+   * An RE2 regular expression that Security Hub CSPM uses to validate a user-provided list of strings for a control parameter.
+   *
    * @public
    */
   Re2Expression?: string | undefined;
 
   /**
-   * <p>
-   *             The maximum number of list items that a string list control parameter can accept.
-   *         </p>
+   * The maximum number of list items that a string list control parameter can accept.
+   *
    * @public
    */
   MaxItems?: number | undefined;
 
   /**
-   * <p>
-   *             The description of the RE2 regular expression.
-   *         </p>
+   * The description of the RE2 regular expression.
+   *
    * @public
    */
   ExpressionDescription?: string | undefined;
 }
 
 /**
- * <p>
- *             The options for customizing a security control parameter.
- *         </p>
+ * The options for customizing a security control parameter.
+ *
  * @public
  */
 export type ConfigurationOptions =
@@ -5904,9 +5695,8 @@ export type ConfigurationOptions =
  */
 export namespace ConfigurationOptions {
   /**
-   * <p>
-   *             The options for customizing a security control parameter that is an integer.
-   *         </p>
+   * The options for customizing a security control parameter that is an integer.
+   *
    * @public
    */
   export interface IntegerMember {
@@ -5922,9 +5712,8 @@ export namespace ConfigurationOptions {
   }
 
   /**
-   * <p>
-   *             The options for customizing a security control parameter that is a list of integers.
-   *         </p>
+   * The options for customizing a security control parameter that is a list of integers.
+   *
    * @public
    */
   export interface IntegerListMember {
@@ -5940,9 +5729,8 @@ export namespace ConfigurationOptions {
   }
 
   /**
-   * <p>
-   *             The options for customizing a security control parameter that is a double.
-   *         </p>
+   * The options for customizing a security control parameter that is a double.
+   *
    * @public
    */
   export interface DoubleMember {
@@ -5958,9 +5746,8 @@ export namespace ConfigurationOptions {
   }
 
   /**
-   * <p>
-   *             The options for customizing a security control parameter that is a string data type.
-   *         </p>
+   * The options for customizing a security control parameter that is a string data type.
+   *
    * @public
    */
   export interface StringMember {
@@ -5976,9 +5763,8 @@ export namespace ConfigurationOptions {
   }
 
   /**
-   * <p>
-   *             The options for customizing a security control parameter that is a list of strings.
-   *         </p>
+   * The options for customizing a security control parameter that is a list of strings.
+   *
    * @public
    */
   export interface StringListMember {
@@ -5994,10 +5780,8 @@ export namespace ConfigurationOptions {
   }
 
   /**
-   * <p>
-   *             The options for customizing a security control parameter that is a boolean. For a boolean parameter, the options are
-   *             <code>true</code> and <code>false</code>.
-   *         </p>
+   * The options for customizing a security control parameter that is a boolean. For a boolean parameter, the options are `true` and `false`.
+   *
    * @public
    */
   export interface BooleanMember {
@@ -6013,9 +5797,8 @@ export namespace ConfigurationOptions {
   }
 
   /**
-   * <p>
-   *             The options for customizing a security control parameter that is an enum.
-   *         </p>
+   * The options for customizing a security control parameter that is an enum.
+   *
    * @public
    */
   export interface EnumMember {
@@ -6031,9 +5814,8 @@ export namespace ConfigurationOptions {
   }
 
   /**
-   * <p>
-   *             The options for customizing a security control parameter that is a list of enums.
-   *         </p>
+   * The options for customizing a security control parameter that is a list of enums.
+   *
    * @public
    */
   export interface EnumListMember {
@@ -6081,125 +5863,127 @@ export namespace ConfigurationOptions {
 }
 
 /**
- * <p>
- *             An object that contains the details of an Security Hub CSPM configuration policy that’s returned in a
- *             <code>ListConfigurationPolicies</code> request.
- *         </p>
+ * An object that contains the details of an Security Hub CSPM configuration policy that’s returned in a `ListConfigurationPolicies` request.
+ *
  * @public
  */
 export interface ConfigurationPolicySummary {
   /**
-   * <p>
-   *             The Amazon Resource Name (ARN) of the configuration policy.
-   *         </p>
+   * The Amazon Resource Name (ARN) of the configuration policy.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>
-   *             The universally unique identifier (UUID) of the configuration policy.
-   *         </p>
+   * The universally unique identifier (UUID) of the configuration policy.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>
-   *             The name of the configuration policy. Alphanumeric characters and the following ASCII characters are permitted:
-   *             <code>-, ., !, *, /</code>.
-   *         </p>
+   * The name of the configuration policy. Alphanumeric characters and the following ASCII characters are permitted: `-, ., !, *, /`.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>
-   *             The description of the configuration policy.
-   *         </p>
+   * The description of the configuration policy.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>
-   *             The date and time, in UTC and ISO 8601 format, that the configuration policy was last updated.
-   *         </p>
+   * The date and time, in UTC and ISO 8601 format, that the configuration policy was last updated.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
 
   /**
-   * <p>
-   *             Indicates whether the service that the configuration policy applies to is enabled in the policy.
-   *         </p>
+   * Indicates whether the service that the configuration policy applies to is enabled in the policy.
+   *
    * @public
    */
   ServiceEnabled?: boolean | undefined;
 }
 
 /**
- * <p>Information about the configuration and status of a Jira Cloud integration.</p>
+ * Information about the configuration and status of a Jira Cloud integration.
+ *
  * @public
  */
 export interface JiraCloudDetail {
   /**
-   * <p>The cloud id of the Jira Cloud.</p>
+   * The cloud id of the Jira Cloud.
+   *
    * @public
    */
   CloudId?: string | undefined;
 
   /**
-   * <p>The projectKey of Jira Cloud.</p>
+   * The projectKey of Jira Cloud.
+   *
    * @public
    */
   ProjectKey?: string | undefined;
 
   /**
-   * <p>The URL domain of your Jira Cloud instance.</p>
+   * The URL domain of your Jira Cloud instance.
+   *
    * @public
    */
   Domain?: string | undefined;
 
   /**
-   * <p>The URL to provide to customers for OAuth auth code flow.</p>
+   * The URL to provide to customers for OAuth auth code flow.
+   *
    * @public
    */
   AuthUrl?: string | undefined;
 
   /**
-   * <p>The status of the authorization between Jira Cloud and the service.</p>
+   * The status of the authorization between Jira Cloud and the service.
+   *
    * @public
    */
   AuthStatus?: ConnectorAuthStatus | undefined;
 }
 
 /**
- * <p>Information about a ServiceNow ITSM integration.</p>
+ * Information about a ServiceNow ITSM integration.
+ *
  * @public
  */
 export interface ServiceNowDetail {
   /**
-   * <p>The instanceName of ServiceNow ITSM.</p>
+   * The instanceName of ServiceNow ITSM.
+   *
    * @public
    */
   InstanceName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the ServiceNow credentials.</p>
+   * The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the ServiceNow credentials.
+   *
    * @public
    */
   SecretArn: string | undefined;
 
   /**
-   * <p>The status of the authorization between ServiceNow and the service.</p>
+   * The status of the authorization between ServiceNow and the service.
+   *
    * @public
    */
   AuthStatus: ConnectorAuthStatus | undefined;
 }
 
 /**
- * <p>The third-party provider detail for a service configuration.</p>
+ * The third-party provider detail for a service configuration.
+ *
  * @public
  */
 export type ProviderDetail =
@@ -6213,7 +5997,8 @@ export type ProviderDetail =
  */
 export namespace ProviderDetail {
   /**
-   * <p>Details about a Jira Cloud integration.</p>
+   * Details about a Jira Cloud integration.
+   *
    * @public
    */
   export interface JiraCloudMember {
@@ -6224,7 +6009,8 @@ export namespace ProviderDetail {
   }
 
   /**
-   * <p>Details about a ServiceNow ITSM integration.</p>
+   * Details about a ServiceNow ITSM integration.
+   *
    * @public
    */
   export interface ServiceNowMember {
@@ -6235,7 +6021,8 @@ export namespace ProviderDetail {
   }
 
   /**
-   * <p>Details about a Microsoft Azure CSPM integration.</p>
+   * Details about a Microsoft Azure CSPM integration.
+   *
    * @public
    */
   export interface AzureMember {
@@ -6268,78 +6055,91 @@ export namespace ProviderDetail {
 }
 
 /**
- * <p>The connectorV2 third-party provider configuration summary.</p>
+ * The connectorV2 third-party provider configuration summary.
+ *
  * @public
  */
 export interface ProviderSummary {
   /**
-   * <p>The name of the provider.</p>
+   * The name of the provider.
+   *
    * @public
    */
   ProviderName?: ConnectorProviderName | undefined;
 
   /**
-   * <p>The status for the connectorV2.</p>
+   * The status for the connectorV2.
+   *
    * @public
    */
   ConnectorStatus?: ConnectorStatus | undefined;
 
   /**
-   * <p>The third-party provider detail for a service configuration.</p>
+   * The third-party provider detail for a service configuration.
+   *
    * @public
    */
   ProviderConfiguration?: ProviderDetail | undefined;
 }
 
 /**
- * <p>A condensed overview of the connectorV2..</p>
+ * A condensed overview of the connectorV2..
+ *
  * @public
  */
 export interface ConnectorSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the connectorV2.</p>
+   * The Amazon Resource Name (ARN) of the connectorV2.
+   *
    * @public
    */
   ConnectorArn?: string | undefined;
 
   /**
-   * <p>The UUID of the connectorV2 to identify connectorV2 resource.</p>
+   * The UUID of the connectorV2 to identify connectorV2 resource.
+   *
    * @public
    */
   ConnectorId: string | undefined;
 
   /**
-   * <p>The Name field contains the user-defined name assigned to the integration connector. This helps identify and manage multiple connectors within Security Hub.</p>
+   * The Name field contains the user-defined name assigned to the integration connector. This helps identify and manage multiple connectors within Security Hub.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The description of the connectorV2.</p>
+   * The description of the connectorV2.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The connectorV2 third party provider configuration summary.</p>
+   * The connectorV2 third party provider configuration summary.
+   *
    * @public
    */
   ProviderSummary: ProviderSummary | undefined;
 
   /**
-   * <p>ISO 8601 UTC timestamp for the time create the connectorV2.</p>
+   * ISO 8601 UTC timestamp for the time create the connectorV2.
+   *
    * @public
    */
   CreatedAt: Date | undefined;
 
   /**
-   * <p>The enablement status of the connector.</p>
+   * The enablement status of the connector.
+   *
    * @public
    */
   EnablementStatus?: EnablementStatus | undefined;
 
   /**
-   * <p>The reason for the current enablement status. Provides additional context when the connector is in a failed state.</p>
+   * The reason for the current enablement status. Provides additional context when the connector is in a failed state.
+   *
    * @public
    */
   EnablementStatusReason?: string | undefined;
@@ -6350,19 +6150,22 @@ export interface ConnectorSummary {
  */
 export interface CreateActionTargetRequest {
   /**
-   * <p>The name of the custom action target. Can contain up to 20 characters.</p>
+   * The name of the custom action target. Can contain up to 20 characters.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The description for the custom action target.</p>
+   * The description for the custom action target.
+   *
    * @public
    */
   Description: string | undefined;
 
   /**
-   * <p>The ID for the custom action target. Can contain up to 20 alphanumeric characters.</p>
+   * The ID for the custom action target. Can contain up to 20 alphanumeric characters.
+   *
    * @public
    */
   Id: string | undefined;
@@ -6373,7 +6176,8 @@ export interface CreateActionTargetRequest {
  */
 export interface CreateActionTargetResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) for the custom action target.</p>
+   * The Amazon Resource Name (ARN) for the custom action target.
+   *
    * @public
    */
   ActionTargetArn: string | undefined;
@@ -6384,25 +6188,29 @@ export interface CreateActionTargetResponse {
  */
 export interface CreateAggregatorV2Request {
   /**
-   * <p>Determines how Regions are linked to an Aggregator V2.</p>
+   * Determines how Regions are linked to an Aggregator V2.
+   *
    * @public
    */
   RegionLinkingMode: string | undefined;
 
   /**
-   * <p>The list of Regions that are linked to the aggregation Region.</p>
+   * The list of Regions that are linked to the aggregation Region.
+   *
    * @public
    */
   LinkedRegions?: string[] | undefined;
 
   /**
-   * <p>A list of key-value pairs to be applied to the AggregatorV2.</p>
+   * A list of key-value pairs to be applied to the AggregatorV2.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>A unique identifier used to ensure idempotency.</p>
+   * A unique identifier used to ensure idempotency.
+   *
    * @public
    */
   ClientToken?: string | undefined;
@@ -6413,25 +6221,29 @@ export interface CreateAggregatorV2Request {
  */
 export interface CreateAggregatorV2Response {
   /**
-   * <p>The ARN of the AggregatorV2.</p>
+   * The ARN of the AggregatorV2.
+   *
    * @public
    */
   AggregatorV2Arn?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region where data is aggregated.</p>
+   * The Amazon Web Services Region where data is aggregated.
+   *
    * @public
    */
   AggregationRegion?: string | undefined;
 
   /**
-   * <p>Determines how Regions are linked to an Aggregator V2.</p>
+   * Determines how Regions are linked to an Aggregator V2.
+   *
    * @public
    */
   RegionLinkingMode?: string | undefined;
 
   /**
-   * <p>The list of Regions that are linked to the aggregation Region.</p>
+   * The list of Regions that are linked to the aggregation Region.
+   *
    * @public
    */
   LinkedRegions?: string[] | undefined;
@@ -6442,74 +6254,57 @@ export interface CreateAggregatorV2Response {
  */
 export interface CreateAutomationRuleRequest {
   /**
-   * <p>
-   *             User-defined tags associated with an automation rule.
-   *         </p>
+   * User-defined tags associated with an automation rule.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>
-   *          Whether the rule is active after it is created. If
-   *          this parameter is equal to <code>ENABLED</code>, Security Hub CSPM starts applying the rule to findings
-   *          and finding updates after the rule is created. To change the value of this
-   *          parameter after creating a rule, use <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateAutomationRules.html">
-   *                <code>BatchUpdateAutomationRules</code>
-   *             </a>.
-   *       </p>
+   * Whether the rule is active after it is created. If this parameter is equal to `ENABLED`, Security Hub CSPM starts applying the rule to findings and finding updates after the rule is created. To change the value of this parameter after creating a rule, use [`BatchUpdateAutomationRules`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateAutomationRules.html).
+   *
    * @public
    */
   RuleStatus?: RuleStatus | undefined;
 
   /**
-   * <p>An integer ranging from 1 to 1000 that represents the order in which the rule action is
-   *          applied to findings. Security Hub CSPM applies rules with lower values for this parameter
-   *          first. </p>
+   * An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub CSPM applies rules with lower values for this parameter first.
+   *
    * @public
    */
   RuleOrder: number | undefined;
 
   /**
-   * <p>
-   *          The name of the rule.
-   *       </p>
+   * The name of the rule.
+   *
    * @public
    */
   RuleName: string | undefined;
 
   /**
-   * <p>
-   *          A description of the rule.
-   *       </p>
+   * A description of the rule.
+   *
    * @public
    */
   Description: string | undefined;
 
   /**
-   * <p>Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding
-   *             matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub CSPM applies the rule action to a finding that matches
-   *             the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
-   *         </p>
+   * Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub CSPM applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
+   *
    * @public
    */
   IsTerminal?: boolean | undefined;
 
   /**
-   * <p>
-   *          A set of ASFF finding field attributes and corresponding expected values that
-   *          Security Hub CSPM uses to filter findings. If a rule is enabled and a finding matches the conditions specified in
-   *          this parameter, Security Hub CSPM applies the rule action to the finding.
-   *       </p>
+   * A set of ASFF finding field attributes and corresponding expected values that Security Hub CSPM uses to filter findings. If a rule is enabled and a finding matches the conditions specified in this parameter, Security Hub CSPM applies the rule action to the finding.
+   *
    * @public
    */
   Criteria: AutomationRulesFindingFilters | undefined;
 
   /**
-   * <p>
-   *          One or more actions to update finding fields if a finding matches the conditions
-   *          specified in <code>Criteria</code>.
-   *       </p>
+   * One or more actions to update finding fields if a finding matches the conditions specified in `Criteria`.
+   *
    * @public
    */
   Actions: AutomationRulesAction[] | undefined;
@@ -6520,82 +6315,92 @@ export interface CreateAutomationRuleRequest {
  */
 export interface CreateAutomationRuleResponse {
   /**
-   * <p>
-   *          The Amazon Resource Name (ARN) of the automation rule that you created.
-   *       </p>
+   * The Amazon Resource Name (ARN) of the automation rule that you created.
+   *
    * @public
    */
   RuleArn?: string | undefined;
 }
 
 /**
- * <p>Enables the filtering of Amazon Web Services resources based on date and timestamp attributes.</p>
+ * Enables the filtering of Amazon Web Services resources based on date and timestamp attributes.
+ *
  * @public
  */
 export interface ResourcesDateFilter {
   /**
-   * <p>The name of the field.</p>
+   * The name of the field.
+   *
    * @public
    */
   FieldName?: ResourcesDateField | undefined;
 
   /**
-   * <p>A date filter for querying findings.</p>
+   * A date filter for querying findings.
+   *
    * @public
    */
   Filter?: DateFilter | undefined;
 }
 
 /**
- * <p>Enables filtering of Amazon Web Services resources based on key-value map attributes.</p>
+ * Enables filtering of Amazon Web Services resources based on key-value map attributes.
+ *
  * @public
  */
 export interface ResourcesMapFilter {
   /**
-   * <p>The name of the field.</p>
+   * The name of the field.
+   *
    * @public
    */
   FieldName?: ResourcesMapField | undefined;
 
   /**
-   * <p>A map filter for filtering Security Hub CSPM findings. Each map filter provides the field to check for, the
-   *          value to check for, and the comparison operator.</p>
+   * A map filter for filtering Security Hub CSPM findings. Each map filter provides the field to check for, the value to check for, and the comparison operator.
+   *
    * @public
    */
   Filter?: MapFilter | undefined;
 }
 
 /**
- * <p>Enables filtering of Amazon Web Services resources based on numerical values.</p>
+ * Enables filtering of Amazon Web Services resources based on numerical values.
+ *
  * @public
  */
 export interface ResourcesNumberFilter {
   /**
-   * <p>The name of the field.</p>
+   * The name of the field.
+   *
    * @public
    */
   FieldName?: ResourcesNumberField | undefined;
 
   /**
-   * <p>A number filter for querying findings.</p>
+   * A number filter for querying findings.
+   *
    * @public
    */
   Filter?: NumberFilter | undefined;
 }
 
 /**
- * <p>Enables filtering of Amazon Web Services resources based on string field values.</p>
+ * Enables filtering of Amazon Web Services resources based on string field values.
+ *
  * @public
  */
 export interface ResourcesStringFilter {
   /**
-   * <p>The name of the field.</p>
+   * The name of the field.
+   *
    * @public
    */
   FieldName?: ResourcesStringField | undefined;
 
   /**
-   * <p>A string filter for filtering Security Hub CSPM findings.</p>
+   * A string filter for filtering Security Hub CSPM findings.
+   *
    * @public
    */
   Filter?: StringFilter | undefined;
@@ -6606,124 +6411,100 @@ export interface ResourcesStringFilter {
  */
 export interface CreateAutomationRuleV2Response {
   /**
-   * <p>The ARN of the V2 automation rule.</p>
+   * The ARN of the V2 automation rule.
+   *
    * @public
    */
   RuleArn?: string | undefined;
 
   /**
-   * <p>The ID of the V2 automation rule.</p>
+   * The ID of the V2 automation rule.
+   *
    * @public
    */
   RuleId?: string | undefined;
 }
 
 /**
- * <p>
- *             A list of security controls and control parameter values that are included in a configuration policy.
- *         </p>
+ * A list of security controls and control parameter values that are included in a configuration policy.
+ *
  * @public
  */
 export interface SecurityControlCustomParameter {
   /**
-   * <p>
-   *             The ID of the security control.
-   *         </p>
+   * The ID of the security control.
+   *
    * @public
    */
   SecurityControlId?: string | undefined;
 
   /**
-   * <p>
-   *             An object that specifies parameter values for a control in a configuration policy.
-   *         </p>
+   * An object that specifies parameter values for a control in a configuration policy.
+   *
    * @public
    */
   Parameters?: Record<string, ParameterConfiguration> | undefined;
 }
 
 /**
- * <p>
- *             An object that defines which security controls are enabled in an Security Hub CSPM configuration policy.
- *             The enablement status of a control is aligned across all of the enabled standards in an account.
- *         </p>
+ * An object that defines which security controls are enabled in an Security Hub CSPM configuration policy. The enablement status of a control is aligned across all of the enabled standards in an account.
+ *
  * @public
  */
 export interface SecurityControlsConfiguration {
   /**
-   * <p>
-   *             A list of security controls that are enabled in the configuration policy. Security Hub CSPM disables all other
-   *             controls (including newly released controls) other than the listed controls.
-   *         </p>
+   * A list of security controls that are enabled in the configuration policy. Security Hub CSPM disables all other controls (including newly released controls) other than the listed controls.
+   *
    * @public
    */
   EnabledSecurityControlIdentifiers?: string[] | undefined;
 
   /**
-   * <p>
-   *             A list of security controls that are disabled in the configuration policy. Security Hub CSPM enables all other
-   *             controls (including newly released controls) other than the listed controls.
-   *         </p>
+   * A list of security controls that are disabled in the configuration policy. Security Hub CSPM enables all other controls (including newly released controls) other than the listed controls.
+   *
    * @public
    */
   DisabledSecurityControlIdentifiers?: string[] | undefined;
 
   /**
-   * <p>
-   *             A list of security controls and control parameter values that are included in a configuration policy.
-   *         </p>
+   * A list of security controls and control parameter values that are included in a configuration policy.
+   *
    * @public
    */
   SecurityControlCustomParameters?: SecurityControlCustomParameter[] | undefined;
 }
 
 /**
- * <p>
- *             An object that defines how Security Hub CSPM is configured. The configuration policy includes whether
- *             Security Hub CSPM is enabled or disabled, a list of enabled security standards, a list of enabled or
- *             disabled security controls, and a list of custom parameter values for specified controls. If you provide a list of security controls that are enabled in the configuration
- *             policy, Security Hub CSPM disables all other controls (including newly released controls). If you provide a
- *             list of security controls that are disabled in the configuration policy, Security Hub CSPM enables all other
- *             controls (including newly released controls).
- *         </p>
+ * An object that defines how Security Hub CSPM is configured. The configuration policy includes whether Security Hub CSPM is enabled or disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls. If you provide a list of security controls that are enabled in the configuration policy, Security Hub CSPM disables all other controls (including newly released controls). If you provide a list of security controls that are disabled in the configuration policy, Security Hub CSPM enables all other controls (including newly released controls).
+ *
  * @public
  */
 export interface SecurityHubPolicy {
   /**
-   * <p>
-   *             Indicates whether Security Hub CSPM is enabled in the policy.
-   *         </p>
+   * Indicates whether Security Hub CSPM is enabled in the policy.
+   *
    * @public
    */
   ServiceEnabled?: boolean | undefined;
 
   /**
-   * <p>
-   *             A list that defines which security standards are enabled in the configuration policy.
-   *         </p>
+   * A list that defines which security standards are enabled in the configuration policy.
+   *
    * @public
    */
   EnabledStandardIdentifiers?: string[] | undefined;
 
   /**
-   * <p>
-   *             An object that defines which security controls are enabled in the configuration policy. The enablement status
-   *             of a control is aligned across all of the enabled standards in an account.
-   *         </p>
+   * An object that defines which security controls are enabled in the configuration policy. The enablement status of a control is aligned across all of the enabled standards in an account.
+   *
    * @public
    */
   SecurityControlsConfiguration?: SecurityControlsConfiguration | undefined;
 }
 
 /**
- * <p>
- *             An object that defines how Security Hub CSPM is configured. It includes whether Security Hub CSPM is
- *             enabled or disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls.
- *             If you provide a list of security controls that are enabled in the configuration policy, Security Hub CSPM
- *             disables all other controls (including newly released controls). If you provide a list of security controls that
- *             are disabled in the configuration policy, Security Hub CSPM enables all other controls (including newly
- *             released controls).
- *         </p>
+ * An object that defines how Security Hub CSPM is configured. It includes whether Security Hub CSPM is enabled or disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls. If you provide a list of security controls that are enabled in the configuration policy, Security Hub CSPM disables all other controls (including newly released controls). If you provide a list of security controls that are disabled in the configuration policy, Security Hub CSPM enables all other controls (including newly released controls).
+ *
  * @public
  */
 export type Policy =
@@ -6735,9 +6516,8 @@ export type Policy =
  */
 export namespace Policy {
   /**
-   * <p>
-   *             The Amazon Web Services service that the configuration policy applies to.
-   *         </p>
+   * The Amazon Web Services service that the configuration policy applies to.
+   *
    * @public
    */
   export interface SecurityHubMember {
@@ -6768,40 +6548,29 @@ export namespace Policy {
  */
 export interface CreateConfigurationPolicyRequest {
   /**
-   * <p>
-   *             The name of the configuration policy. Alphanumeric characters and the following ASCII characters are permitted:
-   *             <code>-, ., !, *, /</code>.
-   *         </p>
+   * The name of the configuration policy. Alphanumeric characters and the following ASCII characters are permitted: `-, ., !, *, /`.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>
-   *             The description of the configuration policy.
-   *         </p>
+   * The description of the configuration policy.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>
-   *             An object that defines how Security Hub CSPM is configured. It includes whether Security Hub CSPM is enabled or
-   *             disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls.
-   *             If you provide a list of security controls that are enabled in the configuration policy, Security Hub CSPM disables all other controls (including newly
-   *             released controls). If you provide a list of security controls that are disabled in the configuration policy, Security Hub CSPM
-   *             enables all other controls (including newly released controls).
-   *         </p>
+   * An object that defines how Security Hub CSPM is configured. It includes whether Security Hub CSPM is enabled or disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls. If you provide a list of security controls that are enabled in the configuration policy, Security Hub CSPM disables all other controls (including newly released controls). If you provide a list of security controls that are disabled in the configuration policy, Security Hub CSPM enables all other controls (including newly released controls).
+   *
    * @public
    */
   ConfigurationPolicy: Policy | undefined;
 
   /**
-   * <p>
-   *             User-defined tags associated with a configuration policy. For more information, see
-   *             <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/tagging-resources.html">Tagging Security Hub CSPM resources</a>
-   *             in the <i>Security Hub CSPM user guide</i>.
-   *         </p>
+   * User-defined tags associated with a configuration policy. For more information, see [Tagging Security Hub CSPM resources](https://docs.aws.amazon.com/securityhub/latest/userguide/tagging-resources.html) in the *Security Hub CSPM user guide*.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -6812,68 +6581,58 @@ export interface CreateConfigurationPolicyRequest {
  */
 export interface CreateConfigurationPolicyResponse {
   /**
-   * <p>
-   *             The Amazon Resource Name (ARN) of the configuration policy.
-   *         </p>
+   * The Amazon Resource Name (ARN) of the configuration policy.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>
-   *             The universally unique identifier (UUID) of the configuration policy.
-   *         </p>
+   * The universally unique identifier (UUID) of the configuration policy.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>
-   *             The name of the configuration policy.
-   *         </p>
+   * The name of the configuration policy.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>
-   *             The description of the configuration policy.
-   *         </p>
+   * The description of the configuration policy.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>
-   *             The date and time, in UTC and ISO 8601 format, that the configuration policy was last updated.
-   *         </p>
+   * The date and time, in UTC and ISO 8601 format, that the configuration policy was last updated.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
 
   /**
-   * <p>
-   *             The date and time, in UTC and ISO 8601 format, that the configuration policy was created.
-   *         </p>
+   * The date and time, in UTC and ISO 8601 format, that the configuration policy was created.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>
-   *             An object that defines how Security Hub CSPM is configured. It includes whether Security Hub CSPM is enabled or disabled, a
-   *             list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls.
-   *             If the request included a list of security controls that are enabled in the configuration policy, Security Hub CSPM disables all other controls (including newly
-   *             released controls). If the request included a list of security controls that are disabled in the configuration policy,
-   *             Security Hub CSPM enables all other controls (including newly released controls).
-   *         </p>
+   * An object that defines how Security Hub CSPM is configured. It includes whether Security Hub CSPM is enabled or disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls. If the request included a list of security controls that are enabled in the configuration policy, Security Hub CSPM disables all other controls (including newly released controls). If the request included a list of security controls that are disabled in the configuration policy, Security Hub CSPM enables all other controls (including newly released controls).
+   *
    * @public
    */
   ConfigurationPolicy?: Policy | undefined;
 }
 
 /**
- * <p>The cloud provider configuration for creating a connector. This is a union type that currently supports Azure.</p>
+ * The cloud provider configuration for creating a connector. This is a union type that currently supports Azure.
+ *
  * @public
  */
 export type CspmProviderConfiguration =
@@ -6885,7 +6644,8 @@ export type CspmProviderConfiguration =
  */
 export namespace CspmProviderConfiguration {
   /**
-   * <p>The Azure provider configuration.</p>
+   * The Azure provider configuration.
+   *
    * @public
    */
   export interface AzureMember {
@@ -6916,31 +6676,36 @@ export namespace CspmProviderConfiguration {
  */
 export interface CreateConnectorRequest {
   /**
-   * <p>The name of the connector. Must be unique within the account.</p>
+   * The name of the connector. Must be unique within the account.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The description of the connector.</p>
+   * The description of the connector.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The configuration for the cloud provider to connect to. Currently supports Azure.</p>
+   * The configuration for the cloud provider to connect to. Currently supports Azure.
+   *
    * @public
    */
   Provider: CspmProviderConfiguration | undefined;
 
   /**
-   * <p>The tags to add to the connector resource.</p>
+   * The tags to add to the connector resource.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>A unique identifier used to ensure idempotency of the request.</p>
+   * A unique identifier used to ensure idempotency of the request.
+   *
    * @public
    */
   ClientToken?: string | undefined;
@@ -6951,62 +6716,72 @@ export interface CreateConnectorRequest {
  */
 export interface CreateConnectorResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the connector.</p>
+   * The Amazon Resource Name (ARN) of the connector.
+   *
    * @public
    */
   ConnectorArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the connector.</p>
+   * The unique identifier of the connector.
+   *
    * @public
    */
   ConnectorId: string | undefined;
 
   /**
-   * <p>The connectivity status of the connector.</p>
+   * The connectivity status of the connector.
+   *
    * @public
    */
   ConnectorStatus?: CspmConnectorStatus | undefined;
 
   /**
-   * <p>The enablement status of the connector.</p>
+   * The enablement status of the connector.
+   *
    * @public
    */
   EnablementStatus?: CspmEnablementStatus | undefined;
 }
 
 /**
- * <p>The initial configuration settings required to establish an integration between Security Hub and Jira Cloud.</p>
+ * The initial configuration settings required to establish an integration between Security Hub and Jira Cloud.
+ *
  * @public
  */
 export interface JiraCloudProviderConfiguration {
   /**
-   * <p>The project key for a JiraCloud instance.</p>
+   * The project key for a JiraCloud instance.
+   *
    * @public
    */
   ProjectKey?: string | undefined;
 }
 
 /**
- * <p>The initial configuration settings required to establish an integration between Security Hub and ServiceNow ITSM.</p>
+ * The initial configuration settings required to establish an integration between Security Hub and ServiceNow ITSM.
+ *
  * @public
  */
 export interface ServiceNowProviderConfiguration {
   /**
-   * <p>The instance name of ServiceNow ITSM.</p>
+   * The instance name of ServiceNow ITSM.
+   *
    * @public
    */
   InstanceName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the ServiceNow credentials.</p>
+   * The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the ServiceNow credentials.
+   *
    * @public
    */
   SecretArn: string | undefined;
 }
 
 /**
- * <p>The initial configuration settings required to establish an integration between Security Hub and third-party provider.</p>
+ * The initial configuration settings required to establish an integration between Security Hub and third-party provider.
+ *
  * @public
  */
 export type ProviderConfiguration =
@@ -7020,7 +6795,8 @@ export type ProviderConfiguration =
  */
 export namespace ProviderConfiguration {
   /**
-   * <p>The configuration settings required to establish an integration with Jira Cloud.</p>
+   * The configuration settings required to establish an integration with Jira Cloud.
+   *
    * @public
    */
   export interface JiraCloudMember {
@@ -7031,7 +6807,8 @@ export namespace ProviderConfiguration {
   }
 
   /**
-   * <p>The configuration settings required to establish an integration with ServiceNow ITSM.</p>
+   * The configuration settings required to establish an integration with ServiceNow ITSM.
+   *
    * @public
    */
   export interface ServiceNowMember {
@@ -7042,7 +6819,8 @@ export namespace ProviderConfiguration {
   }
 
   /**
-   * <p>The configuration settings required to establish a CSPM integration with Microsoft Azure.</p>
+   * The configuration settings required to establish a CSPM integration with Microsoft Azure.
+   *
    * @public
    */
   export interface AzureMember {
@@ -7079,37 +6857,43 @@ export namespace ProviderConfiguration {
  */
 export interface CreateConnectorV2Request {
   /**
-   * <p>The unique name of the connectorV2.</p>
+   * The unique name of the connectorV2.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The description of the connectorV2.</p>
+   * The description of the connectorV2.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The third-party provider’s service configuration.</p>
+   * The third-party provider’s service configuration.
+   *
    * @public
    */
   Provider: ProviderConfiguration | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of KMS key used to encrypt secrets for the connectorV2.</p>
+   * The Amazon Resource Name (ARN) of KMS key used to encrypt secrets for the connectorV2.
+   *
    * @public
    */
   KmsKeyArn?: string | undefined;
 
   /**
-   * <p>The tags to add to the connectorV2 when you create.</p>
+   * The tags to add to the connectorV2 when you create.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>A unique identifier used to ensure idempotency.</p>
+   * A unique identifier used to ensure idempotency.
+   *
    * @public
    */
   ClientToken?: string | undefined;
@@ -7120,31 +6904,36 @@ export interface CreateConnectorV2Request {
  */
 export interface CreateConnectorV2Response {
   /**
-   * <p>The Amazon Resource Name (ARN) of the connectorV2.</p>
+   * The Amazon Resource Name (ARN) of the connectorV2.
+   *
    * @public
    */
   ConnectorArn: string | undefined;
 
   /**
-   * <p>The UUID of the connectorV2 to identify connectorV2 resource.</p>
+   * The UUID of the connectorV2 to identify connectorV2 resource.
+   *
    * @public
    */
   ConnectorId: string | undefined;
 
   /**
-   * <p>The Url provide to customers for OAuth auth code flow.</p>
+   * The Url provide to customers for OAuth auth code flow.
+   *
    * @public
    */
   AuthUrl?: string | undefined;
 
   /**
-   * <p>The current status of the connectorV2.</p>
+   * The current status of the connectorV2.
+   *
    * @public
    */
   ConnectorStatus?: ConnectorStatus | undefined;
 
   /**
-   * <p>The enablement status of the connector after creation.</p>
+   * The enablement status of the connector after creation.
+   *
    * @public
    */
   EnablementStatus?: EnablementStatus | undefined;
@@ -7155,41 +6944,28 @@ export interface CreateConnectorV2Response {
  */
 export interface CreateFindingAggregatorRequest {
   /**
-   * <p>Indicates whether to aggregate findings from all of the available Regions in the current partition. Also determines whether to automatically aggregate findings from new Regions as Security Hub CSPM supports them and you opt into them.</p>
-   *          <p>The selected option also determines how to use the Regions provided in the Regions list.</p>
-   *          <p>The options are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ALL_REGIONS</code> - Aggregates findings from all of the Regions where Security Hub CSPM is enabled. When you choose this option, Security Hub CSPM also automatically aggregates findings from new Regions as Security Hub CSPM supports them and you opt into them.
-   *          </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ALL_REGIONS_EXCEPT_SPECIFIED</code> - Aggregates findings from all of the Regions where Security Hub CSPM is enabled, except for the Regions listed in the <code>Regions</code> parameter. When you choose this option, Security Hub CSPM also automatically aggregates findings from new Regions as Security Hub CSPM supports them and you opt into them.
-   *          </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SPECIFIED_REGIONS</code> - Aggregates findings only from the Regions listed in the <code>Regions</code> parameter. Security Hub CSPM does not automatically aggregate findings from new Regions.
-   *          </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NO_REGIONS</code> - Aggregates no data because no Regions are selected as linked Regions.
-   *           </p>
-   *             </li>
-   *          </ul>
+   * Indicates whether to aggregate findings from all of the available Regions in the current partition. Also determines whether to automatically aggregate findings from new Regions as Security Hub CSPM supports them and you opt into them.
+   *
+   * The selected option also determines how to use the Regions provided in the Regions list.
+   *
+   * The options are as follows:
+   *
+   * - `ALL_REGIONS` - Aggregates findings from all of the Regions where Security Hub CSPM is enabled. When you choose this option, Security Hub CSPM also automatically aggregates findings from new Regions as Security Hub CSPM supports them and you opt into them.
+   * - `ALL_REGIONS_EXCEPT_SPECIFIED` - Aggregates findings from all of the Regions where Security Hub CSPM is enabled, except for the Regions listed in the `Regions` parameter. When you choose this option, Security Hub CSPM also automatically aggregates findings from new Regions as Security Hub CSPM supports them and you opt into them.
+   * - `SPECIFIED_REGIONS` - Aggregates findings only from the Regions listed in the `Regions` parameter. Security Hub CSPM does not automatically aggregate findings from new Regions.
+   * - `NO_REGIONS` - Aggregates no data because no Regions are selected as linked Regions.
+   *
    * @public
    */
   RegionLinkingMode: string | undefined;
 
   /**
-   * <p>If <code>RegionLinkingMode</code> is <code>ALL_REGIONS_EXCEPT_SPECIFIED</code>, then this is a space-separated list of Regions that don't replicate and send findings to the home Region.</p>
-   *          <p>If <code>RegionLinkingMode</code> is <code>SPECIFIED_REGIONS</code>, then this is a space-separated list of Regions that do replicate and send findings to the home Region.
-   *       </p>
-   *          <p>An <code>InvalidInputException</code> error results if you populate this field while <code>RegionLinkingMode</code> is
-   *            <code>NO_REGIONS</code>.</p>
+   * If `RegionLinkingMode` is `ALL_REGIONS_EXCEPT_SPECIFIED`, then this is a space-separated list of Regions that don't replicate and send findings to the home Region.
+   *
+   * If `RegionLinkingMode` is `SPECIFIED_REGIONS`, then this is a space-separated list of Regions that do replicate and send findings to the home Region.
+   *
+   * An `InvalidInputException` error results if you populate this field while `RegionLinkingMode` is `NO_REGIONS`.
+   *
    * @public
    */
   Regions?: string[] | undefined;
@@ -7200,25 +6976,29 @@ export interface CreateFindingAggregatorRequest {
  */
 export interface CreateFindingAggregatorResponse {
   /**
-   * <p>The ARN of the finding aggregator. You use the finding aggregator ARN to retrieve details for, update, and stop cross-Region aggregation.</p>
+   * The ARN of the finding aggregator. You use the finding aggregator ARN to retrieve details for, update, and stop cross-Region aggregation.
+   *
    * @public
    */
   FindingAggregatorArn?: string | undefined;
 
   /**
-   * <p>The home Region. Findings generated in linked Regions are replicated and sent to the home Region.</p>
+   * The home Region. Findings generated in linked Regions are replicated and sent to the home Region.
+   *
    * @public
    */
   FindingAggregationRegion?: string | undefined;
 
   /**
-   * <p>Indicates whether to link all Regions, all Regions except for a list of excluded Regions, or a list of included Regions.</p>
+   * Indicates whether to link all Regions, all Regions except for a list of excluded Regions, or a list of included Regions.
+   *
    * @public
    */
   RegionLinkingMode?: string | undefined;
 
   /**
-   * <p>The list of excluded Regions or included Regions.</p>
+   * The list of excluded Regions or included Regions.
+   *
    * @public
    */
   Regions?: string[] | undefined;
@@ -7229,23 +7009,22 @@ export interface CreateFindingAggregatorResponse {
  */
 export interface CreateInsightRequest {
   /**
-   * <p>The name of the custom insight to create.</p>
+   * The name of the custom insight to create.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>One or more attributes used to filter the findings included in the insight. The insight
-   *          only includes findings that match the criteria defined in the filters.</p>
+   * One or more attributes used to filter the findings included in the insight. The insight only includes findings that match the criteria defined in the filters.
+   *
    * @public
    */
   Filters: AwsSecurityFindingFilters | undefined;
 
   /**
-   * <p>The attribute used to group the findings for the insight. The grouping attribute
-   *          identifies the type of item that the insight applies to. For example, if an insight is
-   *          grouped by resource identifier, then the insight produces a list of resource
-   *          identifiers.</p>
+   * The attribute used to group the findings for the insight. The grouping attribute identifies the type of item that the insight applies to. For example, if an insight is grouped by resource identifier, then the insight produces a list of resource identifiers.
+   *
    * @public
    */
   GroupByAttribute: string | undefined;
@@ -7256,7 +7035,8 @@ export interface CreateInsightRequest {
  */
 export interface CreateInsightResponse {
   /**
-   * <p>The ARN of the insight created.</p>
+   * The ARN of the insight created.
+   *
    * @public
    */
   InsightArn: string | undefined;
@@ -7267,26 +7047,29 @@ export interface CreateInsightResponse {
  */
 export interface CreateMembersRequest {
   /**
-   * <p>The list of accounts to associate with the Security Hub CSPM administrator account. For each account, the
-   *          list includes the account ID and optionally the email address.</p>
+   * The list of accounts to associate with the Security Hub CSPM administrator account. For each account, the list includes the account ID and optionally the email address.
+   *
    * @public
    */
   AccountDetails: AccountDetails[] | undefined;
 }
 
 /**
- * <p>Details about the account that was not processed.</p>
+ * Details about the account that was not processed.
+ *
  * @public
  */
 export interface Result {
   /**
-   * <p>An Amazon Web Services account ID of the account that was not processed.</p>
+   * An Amazon Web Services account ID of the account that was not processed.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The reason that the account was not processed.</p>
+   * The reason that the account was not processed.
+   *
    * @public
    */
   ProcessingResult?: string | undefined;
@@ -7297,8 +7080,8 @@ export interface Result {
  */
 export interface CreateMembersResponse {
   /**
-   * <p>The list of Amazon Web Services accounts that were not processed. For each account, the list includes
-   *          the account ID and the email address.</p>
+   * The list of Amazon Web Services accounts that were not processed. For each account, the list includes the account ID and the email address.
+   *
    * @public
    */
   UnprocessedAccounts?: Result[] | undefined;
@@ -7309,25 +7092,29 @@ export interface CreateMembersResponse {
  */
 export interface CreateTicketV2Request {
   /**
-   * <p>The UUID of the connectorV2 to identify connectorV2 resource.</p>
+   * The UUID of the connectorV2 to identify connectorV2 resource.
+   *
    * @public
    */
   ConnectorId: string | undefined;
 
   /**
-   * <p>The the unique ID for the finding.</p>
+   * The the unique ID for the finding.
+   *
    * @public
    */
   FindingMetadataUid: string | undefined;
 
   /**
-   * <p>The client idempotency token.</p>
+   * The client idempotency token.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The mode for ticket creation. When set to DRYRUN, the ticket is created using a Security Hub owned template test finding to verify the integration is working correctly.</p>
+   * The mode for ticket creation. When set to DRYRUN, the ticket is created using a Security Hub owned template test finding to verify the integration is working correctly.
+   *
    * @public
    */
   Mode?: TicketCreationMode | undefined;
@@ -7338,38 +7125,44 @@ export interface CreateTicketV2Request {
  */
 export interface CreateTicketV2Response {
   /**
-   * <p>The ID for the ticketv2.</p>
+   * The ID for the ticketv2.
+   *
    * @public
    */
   TicketId: string | undefined;
 
   /**
-   * <p>The url to the created ticket.</p>
+   * The url to the created ticket.
+   *
    * @public
    */
   TicketSrcUrl?: string | undefined;
 }
 
 /**
- * <p>Details the source and reason of a criticality.</p>
+ * Details the source and reason of a criticality.
+ *
  * @public
  */
 export interface CriticalitySource {
   /**
-   * <p>The source of the criticality.</p>
+   * The source of the criticality.
+   *
    * @public
    */
   Source: CriticalitySourceType | undefined;
 
   /**
-   * <p>The reason the criticality was assigned.</p>
+   * The reason the criticality was assigned.
+   *
    * @public
    */
   Reason: string | undefined;
 }
 
 /**
- * <p>The detailed cloud provider configuration for a connector. This is a union type that currently supports Azure.</p>
+ * The detailed cloud provider configuration for a connector. This is a union type that currently supports Azure.
+ *
  * @public
  */
 export type CspmProviderDetail =
@@ -7381,7 +7174,8 @@ export type CspmProviderDetail =
  */
 export namespace CspmProviderDetail {
   /**
-   * <p>The Azure provider detail.</p>
+   * The Azure provider detail.
+   *
    * @public
    */
   export interface AzureMember {
@@ -7408,133 +7202,155 @@ export namespace CspmProviderDetail {
 }
 
 /**
- * <p>A summary of the cloud provider configuration for a connector.</p>
+ * A summary of the cloud provider configuration for a connector.
+ *
  * @public
  */
 export interface CspmProviderSummary {
   /**
-   * <p>The name of the cloud provider.</p>
+   * The name of the cloud provider.
+   *
    * @public
    */
   ProviderName?: CspmConnectorProviderName | undefined;
 
   /**
-   * <p>The connectivity status of the connector.</p>
+   * The connectivity status of the connector.
+   *
    * @public
    */
   ConnectorStatus?: CspmConnectorStatus | undefined;
 
   /**
-   * <p>The provider configuration details.</p>
+   * The provider configuration details.
+   *
    * @public
    */
   ProviderConfiguration?: CspmProviderDetail | undefined;
 }
 
 /**
- * <p>A summary of a CSPM connector.</p>
+ * A summary of a CSPM connector.
+ *
  * @public
  */
 export interface CspmConnectorSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the connector.</p>
+   * The Amazon Resource Name (ARN) of the connector.
+   *
    * @public
    */
   ConnectorArn?: string | undefined;
 
   /**
-   * <p>The unique identifier of the connector.</p>
+   * The unique identifier of the connector.
+   *
    * @public
    */
   ConnectorId?: string | undefined;
 
   /**
-   * <p>The name of the connector.</p>
+   * The name of the connector.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The description of the connector.</p>
+   * The description of the connector.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>A summary of the cloud provider configuration for the connector.</p>
+   * A summary of the cloud provider configuration for the connector.
+   *
    * @public
    */
   ProviderSummary?: CspmProviderSummary | undefined;
 
   /**
-   * <p>The ISO 8601 UTC timestamp indicating when the connector was created.</p>
+   * The ISO 8601 UTC timestamp indicating when the connector was created.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The service principal that created the connector.</p>
+   * The service principal that created the connector.
+   *
    * @public
    */
   CreatedBy?: string | undefined;
 
   /**
-   * <p>The enablement status of the connector.</p>
+   * The enablement status of the connector.
+   *
    * @public
    */
   EnablementStatus?: CspmEnablementStatus | undefined;
 }
 
 /**
- * <p>Represents a specific health issue detected for a connector.</p>
+ * Represents a specific health issue detected for a connector.
+ *
  * @public
  */
 export interface HealthIssue {
   /**
-   * <p>The error code that identifies the type of health issue.</p>
+   * The error code that identifies the type of health issue.
+   *
    * @public
    */
   Code: HealthIssueCode | undefined;
 
   /**
-   * <p>A human-readable message that describes the health issue.</p>
+   * A human-readable message that describes the health issue.
+   *
    * @public
    */
   Message: string | undefined;
 }
 
 /**
- * <p>Information about the operational status and health of a CSPM connector.</p>
+ * Information about the operational status and health of a CSPM connector.
+ *
  * @public
  */
 export interface CspmHealthCheck {
   /**
-   * <p>The connectivity status of the connector.</p>
+   * The connectivity status of the connector.
+   *
    * @public
    */
   ConnectorStatus: CspmConnectorStatus | undefined;
 
   /**
-   * <p>A message describing the reason for the current connector status.</p>
+   * A message describing the reason for the current connector status.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The ISO 8601 UTC timestamp indicating when the health status was last checked.</p>
+   * The ISO 8601 UTC timestamp indicating when the health status was last checked.
+   *
    * @public
    */
   LastCheckedAt: Date | undefined;
 
   /**
-   * <p>A list of health issues associated with the connector.</p>
+   * A list of health issues associated with the connector.
+   *
    * @public
    */
   Issues?: HealthIssue[] | undefined;
 }
 
 /**
- * <p>The cloud provider configuration for updating a connector. This is a union type that currently supports Azure.</p>
+ * The cloud provider configuration for updating a connector. This is a union type that currently supports Azure.
+ *
  * @public
  */
 export type CspmProviderUpdateConfiguration =
@@ -7546,7 +7362,8 @@ export type CspmProviderUpdateConfiguration =
  */
 export namespace CspmProviderUpdateConfiguration {
   /**
-   * <p>The Azure update configuration.</p>
+   * The Azure update configuration.
+   *
    * @public
    */
   export interface AzureMember {
@@ -7577,7 +7394,8 @@ export namespace CspmProviderUpdateConfiguration {
  */
 export interface DeclineInvitationsRequest {
   /**
-   * <p>The list of prospective member account IDs for which to decline an invitation.</p>
+   * The list of prospective member account IDs for which to decline an invitation.
+   *
    * @public
    */
   AccountIds: string[] | undefined;
@@ -7588,8 +7406,8 @@ export interface DeclineInvitationsRequest {
  */
 export interface DeclineInvitationsResponse {
   /**
-   * <p>The list of Amazon Web Services accounts that were not processed. For each account, the list includes
-   *          the account ID and the email address.</p>
+   * The list of Amazon Web Services accounts that were not processed. For each account, the list includes the account ID and the email address.
+   *
    * @public
    */
   UnprocessedAccounts?: Result[] | undefined;
@@ -7600,7 +7418,8 @@ export interface DeclineInvitationsResponse {
  */
 export interface DeleteActionTargetRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the custom action target to delete.</p>
+   * The Amazon Resource Name (ARN) of the custom action target to delete.
+   *
    * @public
    */
   ActionTargetArn: string | undefined;
@@ -7611,7 +7430,8 @@ export interface DeleteActionTargetRequest {
  */
 export interface DeleteActionTargetResponse {
   /**
-   * <p>The ARN of the custom action target that was deleted.</p>
+   * The ARN of the custom action target that was deleted.
+   *
    * @public
    */
   ActionTargetArn: string | undefined;
@@ -7622,7 +7442,8 @@ export interface DeleteActionTargetResponse {
  */
 export interface DeleteAggregatorV2Request {
   /**
-   * <p>The ARN of the Aggregator V2.</p>
+   * The ARN of the Aggregator V2.
+   *
    * @public
    */
   AggregatorV2Arn: string | undefined;
@@ -7638,7 +7459,8 @@ export interface DeleteAggregatorV2Response {}
  */
 export interface DeleteAutomationRuleV2Request {
   /**
-   * <p>The ARN of the V2 automation rule.</p>
+   * The ARN of the V2 automation rule.
+   *
    * @public
    */
   Identifier: string | undefined;
@@ -7654,9 +7476,8 @@ export interface DeleteAutomationRuleV2Response {}
  */
 export interface DeleteConfigurationPolicyRequest {
   /**
-   * <p>
-   *             The Amazon Resource Name (ARN) or universally unique identifier (UUID) of the configuration policy.
-   *         </p>
+   * The Amazon Resource Name (ARN) or universally unique identifier (UUID) of the configuration policy.
+   *
    * @public
    */
   Identifier: string | undefined;
@@ -7672,7 +7493,8 @@ export interface DeleteConfigurationPolicyResponse {}
  */
 export interface DeleteConnectorRequest {
   /**
-   * <p>The unique identifier of the connector to delete.</p>
+   * The unique identifier of the connector to delete.
+   *
    * @public
    */
   ConnectorId: string | undefined;
@@ -7683,7 +7505,8 @@ export interface DeleteConnectorRequest {
  */
 export interface DeleteConnectorResponse {
   /**
-   * <p>The enablement status of the connector after the delete request.</p>
+   * The enablement status of the connector after the delete request.
+   *
    * @public
    */
   EnablementStatus?: CspmEnablementStatus | undefined;
@@ -7694,7 +7517,8 @@ export interface DeleteConnectorResponse {
  */
 export interface DeleteConnectorV2Request {
   /**
-   * <p>The UUID of the connectorV2 to identify connectorV2 resource.</p>
+   * The UUID of the connectorV2 to identify connectorV2 resource.
+   *
    * @public
    */
   ConnectorId: string | undefined;
@@ -7705,7 +7529,8 @@ export interface DeleteConnectorV2Request {
  */
 export interface DeleteConnectorV2Response {
   /**
-   * <p>The enablement status of the connector after deletion.</p>
+   * The enablement status of the connector after deletion.
+   *
    * @public
    */
   EnablementStatus?: EnablementStatus | undefined;
@@ -7716,7 +7541,8 @@ export interface DeleteConnectorV2Response {
  */
 export interface DeleteFindingAggregatorRequest {
   /**
-   * <p>The ARN of the finding aggregator to delete. To obtain the ARN, use <code>ListFindingAggregators</code>.</p>
+   * The ARN of the finding aggregator to delete. To obtain the ARN, use `ListFindingAggregators`.
+   *
    * @public
    */
   FindingAggregatorArn: string | undefined;
@@ -7732,7 +7558,8 @@ export interface DeleteFindingAggregatorResponse {}
  */
 export interface DeleteInsightRequest {
   /**
-   * <p>The ARN of the insight to delete.</p>
+   * The ARN of the insight to delete.
+   *
    * @public
    */
   InsightArn: string | undefined;
@@ -7743,7 +7570,8 @@ export interface DeleteInsightRequest {
  */
 export interface DeleteInsightResponse {
   /**
-   * <p>The ARN of the insight that was deleted.</p>
+   * The ARN of the insight that was deleted.
+   *
    * @public
    */
   InsightArn: string | undefined;
@@ -7754,7 +7582,8 @@ export interface DeleteInsightResponse {
  */
 export interface DeleteInvitationsRequest {
   /**
-   * <p>The list of member account IDs that received the invitations you want to delete.</p>
+   * The list of member account IDs that received the invitations you want to delete.
+   *
    * @public
    */
   AccountIds: string[] | undefined;
@@ -7765,8 +7594,8 @@ export interface DeleteInvitationsRequest {
  */
 export interface DeleteInvitationsResponse {
   /**
-   * <p>The list of Amazon Web Services accounts for which the invitations were not deleted. For each account,
-   *          the list includes the account ID and the email address.</p>
+   * The list of Amazon Web Services accounts for which the invitations were not deleted. For each account, the list includes the account ID and the email address.
+   *
    * @public
    */
   UnprocessedAccounts?: Result[] | undefined;
@@ -7777,7 +7606,8 @@ export interface DeleteInvitationsResponse {
  */
 export interface DeleteMembersRequest {
   /**
-   * <p>The list of account IDs for the member accounts to delete.</p>
+   * The list of account IDs for the member accounts to delete.
+   *
    * @public
    */
   AccountIds: string[] | undefined;
@@ -7788,8 +7618,8 @@ export interface DeleteMembersRequest {
  */
 export interface DeleteMembersResponse {
   /**
-   * <p>The list of Amazon Web Services accounts that were not deleted. For each account, the list includes the
-   *          account ID and the email address.</p>
+   * The list of Amazon Web Services accounts that were not deleted. For each account, the list includes the account ID and the email address.
+   *
    * @public
    */
   UnprocessedAccounts?: Result[] | undefined;
@@ -7800,23 +7630,24 @@ export interface DeleteMembersResponse {
  */
 export interface DescribeActionTargetsRequest {
   /**
-   * <p>A list of custom action target ARNs for the custom action targets to retrieve.</p>
+   * A list of custom action target ARNs for the custom action targets to retrieve.
+   *
    * @public
    */
   ActionTargetArns?: string[] | undefined;
 
   /**
-   * <p>The token that is required for pagination. On your first call to the
-   *             <code>DescribeActionTargets</code> operation, set the value of this parameter to
-   *             <code>NULL</code>.</p>
-   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
-   *          parameter to the value returned from the previous response.</p>
+   * The token that is required for pagination. On your first call to the `DescribeActionTargets` operation, set the value of this parameter to `NULL`.
+   *
+   * For subsequent calls to the operation, to continue listing data, set the value of this parameter to the value returned from the previous response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return.</p>
+   * The maximum number of results to return.
+   *
    * @public
    */
   MaxResults?: number | undefined;
@@ -7827,15 +7658,15 @@ export interface DescribeActionTargetsRequest {
  */
 export interface DescribeActionTargetsResponse {
   /**
-   * <p>A list of <code>ActionTarget</code> objects. Each object includes the <code>ActionTargetArn</code>,
-   *             <code>Description</code>, and <code>Name</code> of a custom action target available in
-   *          Security Hub CSPM.</p>
+   * A list of `ActionTarget` objects. Each object includes the `ActionTargetArn`, `Description`, and `Name` of a custom action target available in Security Hub CSPM.
+   *
    * @public
    */
   ActionTargets: ActionTarget[] | undefined;
 
   /**
-   * <p>The pagination token to use to request the next page of results.</p>
+   * The pagination token to use to request the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -7846,7 +7677,8 @@ export interface DescribeActionTargetsResponse {
  */
 export interface DescribeHubRequest {
   /**
-   * <p>The ARN of the Hub resource to retrieve.</p>
+   * The ARN of the Hub resource to retrieve.
+   *
    * @public
    */
   HubArn?: string | undefined;
@@ -7857,42 +7689,37 @@ export interface DescribeHubRequest {
  */
 export interface DescribeHubResponse {
   /**
-   * <p>The ARN of the Hub resource that was retrieved.</p>
+   * The ARN of the Hub resource that was retrieved.
+   *
    * @public
    */
   HubArn?: string | undefined;
 
   /**
-   * <p>The date and time when Security Hub CSPM was enabled in the account.</p>
+   * The date and time when Security Hub CSPM was enabled in the account.
+   *
    * @public
    */
   SubscribedAt?: string | undefined;
 
   /**
-   * <p>Whether to automatically enable new controls when they are added to standards that are
-   *          enabled.</p>
-   *          <p>If set to <code>true</code>, then new controls for enabled standards are enabled
-   *          automatically. If set to <code>false</code>, then new controls are not enabled.</p>
-   *          <p>When you automatically enable new controls, you can interact with the controls in
-   *            the console and programmatically immediately after release. However, automatically enabled controls have a temporary default status of
-   *            <code>DISABLED</code>. It can take up to several days for Security Hub CSPM to process the control release and designate the
-   *            control as <code>ENABLED</code> in your account. During the processing period, you can manually enable or disable a
-   *            control, and Security Hub CSPM will maintain that designation regardless of whether you have <code>AutoEnableControls</code> set to
-   *            <code>true</code>.</p>
+   * Whether to automatically enable new controls when they are added to standards that are enabled.
+   *
+   * If set to `true`, then new controls for enabled standards are enabled automatically. If set to `false`, then new controls are not enabled.
+   *
+   * When you automatically enable new controls, you can interact with the controls in the console and programmatically immediately after release. However, automatically enabled controls have a temporary default status of `DISABLED`. It can take up to several days for Security Hub CSPM to process the control release and designate the control as `ENABLED` in your account. During the processing period, you can manually enable or disable a control, and Security Hub CSPM will maintain that designation regardless of whether you have `AutoEnableControls` set to `true`.
+   *
    * @public
    */
   AutoEnableControls?: boolean | undefined;
 
   /**
-   * <p>Specifies whether the calling account has consolidated control findings turned on. If the value for this field is set to
-   *          <code>SECURITY_CONTROL</code>, Security Hub CSPM generates a single finding for a control check even when the check
-   *          applies to multiple enabled standards.</p>
-   *          <p>If the value for this field is set to <code>STANDARD_CONTROL</code>, Security Hub CSPM generates separate findings
-   *          for a control check when the check applies to multiple enabled standards.</p>
-   *          <p>The value for this field in a member account matches the value in the administrator
-   *          account. For accounts that aren't part of an organization, the default value of this field
-   *          is <code>SECURITY_CONTROL</code> if you enabled Security Hub CSPM on or after February 23,
-   *          2023.</p>
+   * Specifies whether the calling account has consolidated control findings turned on. If the value for this field is set to `SECURITY_CONTROL`, Security Hub CSPM generates a single finding for a control check even when the check applies to multiple enabled standards.
+   *
+   * If the value for this field is set to `STANDARD_CONTROL`, Security Hub CSPM generates separate findings for a control check when the check applies to multiple enabled standards.
+   *
+   * The value for this field in a member account matches the value in the administrator account. For accounts that aren't part of an organization, the default value of this field is `SECURITY_CONTROL` if you enabled Security Hub CSPM on or after February 23, 2023.
+   *
    * @public
    */
   ControlFindingGenerator?: ControlFindingGenerator | undefined;
@@ -7904,48 +7731,32 @@ export interface DescribeHubResponse {
 export interface DescribeOrganizationConfigurationRequest {}
 
 /**
- * <p>
- *             Provides information about the way an organization is configured in Security Hub CSPM.
- *         </p>
+ * Provides information about the way an organization is configured in Security Hub CSPM.
+ *
  * @public
  */
 export interface OrganizationConfiguration {
   /**
-   * <p>
-   *             Indicates whether the organization uses local or central configuration.
-   *         </p>
-   *          <p>If you use local configuration, the
-   *             Security Hub CSPM delegated administrator can set <code>AutoEnable</code> to <code>true</code> and
-   *             <code>AutoEnableStandards</code> to <code>DEFAULT</code>. This automatically enables Security Hub CSPM and
-   *             default security standards in new organization accounts. These new account settings must be set separately in
-   *             each Amazon Web Services Region, and settings may be different in each Region.
-   *         </p>
-   *          <p>
-   *             If you use central configuration, the delegated administrator can create configuration policies. Configuration
-   *             policies can be used to configure Security Hub CSPM, security standards, and security controls in multiple
-   *             accounts and Regions. If you want new organization accounts to use a specific configuration, you can create a
-   *             configuration policy and associate it with the root or specific organizational units (OUs). New accounts will
-   *             inherit the policy from the root or their assigned OU.
-   *         </p>
+   * Indicates whether the organization uses local or central configuration.
+   *
+   * If you use local configuration, the Security Hub CSPM delegated administrator can set `AutoEnable` to `true` and `AutoEnableStandards` to `DEFAULT`. This automatically enables Security Hub CSPM and default security standards in new organization accounts. These new account settings must be set separately in each Amazon Web Services Region, and settings may be different in each Region.
+   *
+   * If you use central configuration, the delegated administrator can create configuration policies. Configuration policies can be used to configure Security Hub CSPM, security standards, and security controls in multiple accounts and Regions. If you want new organization accounts to use a specific configuration, you can create a configuration policy and associate it with the root or specific organizational units (OUs). New accounts will inherit the policy from the root or their assigned OU.
+   *
    * @public
    */
   ConfigurationType?: OrganizationConfigurationConfigurationType | undefined;
 
   /**
-   * <p>
-   *             Describes whether central configuration could be enabled as the <code>ConfigurationType</code> for the
-   *             organization. If your <code>ConfigurationType</code> is local configuration, then the value of <code>Status</code>
-   *             is always <code>ENABLED</code>.
-   *         </p>
+   * Describes whether central configuration could be enabled as the `ConfigurationType` for the organization. If your `ConfigurationType` is local configuration, then the value of `Status` is always `ENABLED`.
+   *
    * @public
    */
   Status?: OrganizationConfigurationStatus | undefined;
 
   /**
-   * <p>
-   *             Provides an explanation if the value of <code>Status</code> is equal to <code>FAILED</code> when <code>ConfigurationType</code>
-   *             is equal to <code>CENTRAL</code>.
-   *         </p>
+   * Provides an explanation if the value of `Status` is equal to `FAILED` when `ConfigurationType` is equal to `CENTRAL`.
+   *
    * @public
    */
   StatusMessage?: string | undefined;
@@ -7956,40 +7767,37 @@ export interface OrganizationConfiguration {
  */
 export interface DescribeOrganizationConfigurationResponse {
   /**
-   * <p>Whether to automatically enable Security Hub CSPM in new member accounts when they join the organization.</p>
-   *          <p>If set to <code>true</code>, then Security Hub CSPM is automatically enabled in new accounts. If set to <code>false</code>,
-   *            then Security Hub CSPM isn't enabled in new accounts automatically. The default value is <code>false</code>.</p>
-   *          <p>If the <code>ConfigurationType</code> of your organization is set to <code>CENTRAL</code>, then this field is set
-   *            to <code>false</code> and can't be changed in the home Region and linked Regions. However, in that case, the delegated administrator can create a configuration
-   *             policy in which Security Hub CSPM is enabled and associate the policy with new organization accounts.</p>
+   * Whether to automatically enable Security Hub CSPM in new member accounts when they join the organization.
+   *
+   * If set to `true`, then Security Hub CSPM is automatically enabled in new accounts. If set to `false`, then Security Hub CSPM isn't enabled in new accounts automatically. The default value is `false`.
+   *
+   * If the `ConfigurationType` of your organization is set to `CENTRAL`, then this field is set to `false` and can't be changed in the home Region and linked Regions. However, in that case, the delegated administrator can create a configuration policy in which Security Hub CSPM is enabled and associate the policy with new organization accounts.
+   *
    * @public
    */
   AutoEnable?: boolean | undefined;
 
   /**
-   * <p>Whether the maximum number of allowed member accounts are already associated with the
-   *          Security Hub CSPM administrator account.</p>
+   * Whether the maximum number of allowed member accounts are already associated with the Security Hub CSPM administrator account.
+   *
    * @public
    */
   MemberAccountLimitReached?: boolean | undefined;
 
   /**
-   * <p>Whether to automatically enable Security Hub CSPM <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-enable-disable.html">default standards</a>
-   *          in new member accounts when they join the organization.</p>
-   *          <p>If equal to <code>DEFAULT</code>, then Security Hub CSPM default standards are automatically enabled for new member
-   *          accounts. If equal to <code>NONE</code>, then default standards are not automatically enabled for new member
-   *           accounts. The default value of this parameter is equal to <code>DEFAULT</code>.</p>
-   *          <p>If the <code>ConfigurationType</code> of your organization is set to <code>CENTRAL</code>, then this field is set
-   *            to <code>NONE</code> and can't be changed in the home Region and linked Regions. However, in that case, the delegated administrator can create a configuration
-   *             policy in which specific security standards are enabled and associate the policy with new organization accounts.</p>
+   * Whether to automatically enable Security Hub CSPM [default standards](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-enable-disable.html) in new member accounts when they join the organization.
+   *
+   * If equal to `DEFAULT`, then Security Hub CSPM default standards are automatically enabled for new member accounts. If equal to `NONE`, then default standards are not automatically enabled for new member accounts. The default value of this parameter is equal to `DEFAULT`.
+   *
+   * If the `ConfigurationType` of your organization is set to `CENTRAL`, then this field is set to `NONE` and can't be changed in the home Region and linked Regions. However, in that case, the delegated administrator can create a configuration policy in which specific security standards are enabled and associate the policy with new organization accounts.
+   *
    * @public
    */
   AutoEnableStandards?: AutoEnableStandards | undefined;
 
   /**
-   * <p>
-   *             Provides information about the way an organization is configured in Security Hub CSPM.
-   *         </p>
+   * Provides information about the way an organization is configured in Security Hub CSPM.
+   *
    * @public
    */
   OrganizationConfiguration?: OrganizationConfiguration | undefined;
@@ -8000,101 +7808,100 @@ export interface DescribeOrganizationConfigurationResponse {
  */
 export interface DescribeProductsRequest {
   /**
-   * <p>The token that is required for pagination. On your first call to the
-   *             <code>DescribeProducts</code> operation, set the value of this parameter to
-   *             <code>NULL</code>.</p>
-   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
-   *          parameter to the value returned from the previous response.</p>
+   * The token that is required for pagination. On your first call to the `DescribeProducts` operation, set the value of this parameter to `NULL`.
+   *
+   * For subsequent calls to the operation, to continue listing data, set the value of this parameter to the value returned from the previous response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return.</p>
+   * The maximum number of results to return.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The ARN of the integration to return.</p>
+   * The ARN of the integration to return.
+   *
    * @public
    */
   ProductArn?: string | undefined;
 }
 
 /**
- * <p>Contains details about a product.</p>
+ * Contains details about a product.
+ *
  * @public
  */
 export interface Product {
   /**
-   * <p>The ARN assigned to the product.</p>
+   * The ARN assigned to the product.
+   *
    * @public
    */
   ProductArn: string | undefined;
 
   /**
-   * <p>The name of the product.</p>
+   * The name of the product.
+   *
    * @public
    */
   ProductName?: string | undefined;
 
   /**
-   * <p>The name of the company that provides the product.</p>
+   * The name of the company that provides the product.
+   *
    * @public
    */
   CompanyName?: string | undefined;
 
   /**
-   * <p>A description of the product.</p>
+   * A description of the product.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The categories assigned to the product.</p>
+   * The categories assigned to the product.
+   *
    * @public
    */
   Categories?: string[] | undefined;
 
   /**
-   * <p>The types of integration that the product supports. Available values are the
-   *          following.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SEND_FINDINGS_TO_SECURITY_HUB</code> - The integration sends
-   *                findings to Security Hub CSPM.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RECEIVE_FINDINGS_FROM_SECURITY_HUB</code> - The integration
-   *                receives findings from Security Hub CSPM.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_FINDINGS_IN_SECURITY_HUB</code> - The integration does not send new findings to Security Hub CSPM, but does make updates to the findings that it receives from Security Hub CSPM.</p>
-   *             </li>
-   *          </ul>
+   * The types of integration that the product supports. Available values are the following.
+   *
+   * - `SEND_FINDINGS_TO_SECURITY_HUB` - The integration sends findings to Security Hub CSPM.
+   * - `RECEIVE_FINDINGS_FROM_SECURITY_HUB` - The integration receives findings from Security Hub CSPM.
+   * - `UPDATE_FINDINGS_IN_SECURITY_HUB` - The integration does not send new findings to Security Hub CSPM, but does make updates to the findings that it receives from Security Hub CSPM.
+   *
    * @public
    */
   IntegrationTypes?: IntegrationType[] | undefined;
 
   /**
-   * <p>For integrations with Amazon Web Services services, the Amazon Web Services Console URL from which to activate the service.</p>
-   *          <p>For integrations with third-party products, the Amazon Web Services Marketplace URL from which to subscribe to or purchase the product.</p>
+   * For integrations with Amazon Web Services services, the Amazon Web Services Console URL from which to activate the service.
+   *
+   * For integrations with third-party products, the Amazon Web Services Marketplace URL from which to subscribe to or purchase the product.
+   *
    * @public
    */
   MarketplaceUrl?: string | undefined;
 
   /**
-   * <p>The URL to the service or product documentation about the integration with Security Hub CSPM, including how to activate the integration.</p>
+   * The URL to the service or product documentation about the integration with Security Hub CSPM, including how to activate the integration.
+   *
    * @public
    */
   ActivationUrl?: string | undefined;
 
   /**
-   * <p>The resource policy associated with the product.</p>
+   * The resource policy associated with the product.
+   *
    * @public
    */
   ProductSubscriptionResourcePolicy?: string | undefined;
@@ -8105,13 +7912,15 @@ export interface Product {
  */
 export interface DescribeProductsResponse {
   /**
-   * <p>A list of products, including details for each product.</p>
+   * A list of products, including details for each product.
+   *
    * @public
    */
   Products: Product[] | undefined;
 
   /**
-   * <p>The pagination token to use to request the next page of results.</p>
+   * The pagination token to use to request the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -8122,69 +7931,78 @@ export interface DescribeProductsResponse {
  */
 export interface DescribeProductsV2Request {
   /**
-   * <p>The token required for pagination.
-   *          On your first call, set the value of this parameter to <code>NULL</code>.
-   *          For subsequent calls, to continue listing data, set the value of this parameter to the value returned in the previous response.</p>
+   * The token required for pagination. On your first call, set the value of this parameter to `NULL`. For subsequent calls, to continue listing data, set the value of this parameter to the value returned in the previous response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return.</p>
+   * The maximum number of results to return.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>Defines the structure for the productV2.</p>
+ * Defines the structure for the productV2.
+ *
  * @public
  */
 export interface ProductV2 {
   /**
-   * <p>The name of the productV2.</p>
+   * The name of the productV2.
+   *
    * @public
    */
   ProductV2Name?: string | undefined;
 
   /**
-   * <p>The name of the organization or vendor that provides the productV2.</p>
+   * The name of the organization or vendor that provides the productV2.
+   *
    * @public
    */
   CompanyName?: string | undefined;
 
   /**
-   * <p>Detailed information about the productV2.</p>
+   * Detailed information about the productV2.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The domains or functional areas the productV2 addresses.</p>
+   * The domains or functional areas the productV2 addresses.
+   *
    * @public
    */
   Categories?: string[] | undefined;
 
   /**
-   * <p>The type of integration.</p>
+   * The type of integration.
+   *
    * @public
    */
   IntegrationV2Types?: IntegrationV2Type[] | undefined;
 
   /**
-   * <p>The console URL where you can purchase or subscribe to products.</p>
+   * The console URL where you can purchase or subscribe to products.
+   *
    * @public
    */
   MarketplaceUrl?: string | undefined;
 
   /**
-   * <p>The URL to the serviceV@ or productV2 documentation about the integration, which includes how to activate the integration.</p>
+   * The URL to the serviceV@ or productV2 documentation about the integration, which includes how to activate the integration.
+   *
    * @public
    */
   ActivationUrl?: string | undefined;
 
   /**
-   * <p>The identifier for the Amazon Web Services Marketplace product associated with this integration.</p>
+   * The identifier for the Amazon Web Services Marketplace product associated with this integration.
+   *
    * @public
    */
   MarketplaceProductId?: string | undefined;
@@ -8195,14 +8013,15 @@ export interface ProductV2 {
  */
 export interface DescribeProductsV2Response {
   /**
-   * <p>Gets information about the product integration.</p>
+   * Gets information about the product integration.
+   *
    * @public
    */
   ProductsV2: ProductV2[] | undefined;
 
   /**
-   * <p>The pagination token to use to request the next page of results.
-   *       Otherwise, this parameter is null.</p>
+   * The pagination token to use to request the next page of results. Otherwise, this parameter is null.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -8214,18 +8033,21 @@ export interface DescribeProductsV2Response {
 export interface DescribeSecurityHubV2Request {}
 
 /**
- * <p>Contains the status and metadata for an opt-in feature.</p>
+ * Contains the status and metadata for an opt-in feature.
+ *
  * @public
  */
 export interface FeatureDetail {
   /**
-   * <p>The current enablement status of the feature. Valid values: <code>ENABLED</code> | <code>DISABLED</code>.</p>
+   * The current enablement status of the feature. Valid values: `ENABLED` | `DISABLED`.
+   *
    * @public
    */
   FeatureStatus?: FeatureStatus | undefined;
 
   /**
-   * <p>The date and time when the feature status was last updated.</p>
+   * The date and time when the feature status was last updated.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
@@ -8236,19 +8058,22 @@ export interface FeatureDetail {
  */
 export interface DescribeSecurityHubV2Response {
   /**
-   * <p>The ARN of the service resource.</p>
+   * The ARN of the service resource.
+   *
    * @public
    */
   HubV2Arn?: string | undefined;
 
   /**
-   * <p>The date and time when the service was enabled in the account.</p>
+   * The date and time when the service was enabled in the account.
+   *
    * @public
    */
   SubscribedAt?: string | undefined;
 
   /**
-   * <p>A map of opt-in features and their current status and metadata for the account in the current Region.</p>
+   * A map of opt-in features and their current status and metadata for the account in the current Region.
+   *
    * @public
    */
   Features?: Record<string, FeatureDetail> | undefined;
@@ -8259,92 +8084,96 @@ export interface DescribeSecurityHubV2Response {
  */
 export interface DescribeStandardsRequest {
   /**
-   * <p>The token that is required for pagination. On your first call to the
-   *             <code>DescribeStandards</code> operation, set the value of this parameter to
-   *             <code>NULL</code>.</p>
-   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
-   *          parameter to the value returned from the previous response.</p>
+   * The token that is required for pagination. On your first call to the `DescribeStandards` operation, set the value of this parameter to `NULL`.
+   *
+   * For subsequent calls to the operation, to continue listing data, set the value of this parameter to the value returned from the previous response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of standards to return.</p>
+   * The maximum number of standards to return.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>A list of cloud providers to filter the standards by. For example, specify <code>Azure</code> to return only standards that evaluate Azure resources.</p>
+   * A list of cloud providers to filter the standards by. For example, specify `Azure` to return only standards that evaluate Azure resources.
+   *
    * @public
    */
   Providers?: StandardsProvider[] | undefined;
 }
 
 /**
- * <p>Provides details about the management of a security standard.</p>
+ * Provides details about the management of a security standard.
+ *
  * @public
  */
 export interface StandardsManagedBy {
   /**
-   * <p>An identifier for the company that manages a specific security standard. For existing
-   *          standards, the value is equal to <code>Amazon Web Services</code>.</p>
+   * An identifier for the company that manages a specific security standard. For existing standards, the value is equal to `Amazon Web Services`.
+   *
    * @public
    */
   Company?: string | undefined;
 
   /**
-   * <p>An identifier for the product that manages a specific security standard. For existing
-   *          standards, the value is equal to the Amazon Web Services service that manages the
-   *          standard.</p>
+   * An identifier for the product that manages a specific security standard. For existing standards, the value is equal to the Amazon Web Services service that manages the standard.
+   *
    * @public
    */
   Product?: string | undefined;
 }
 
 /**
- * <p>Provides information about a specific security standard.</p>
+ * Provides information about a specific security standard.
+ *
  * @public
  */
 export interface Standard {
   /**
-   * <p>The ARN of the standard.</p>
+   * The ARN of the standard.
+   *
    * @public
    */
   StandardsArn?: string | undefined;
 
   /**
-   * <p>The name of the standard.</p>
+   * The name of the standard.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>A description of the standard.</p>
+   * A description of the standard.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Whether the standard is enabled by default. When Security Hub CSPM is enabled from the console, if a
-   *          standard is enabled by default, the check box for that standard is selected by
-   *          default.</p>
-   *          <p>When Security Hub CSPM is enabled using the <code>EnableSecurityHub</code> API operation, the
-   *          standard is enabled by default unless <code>EnableDefaultStandards</code> is set to
-   *             <code>false</code>.</p>
+   * Whether the standard is enabled by default. When Security Hub CSPM is enabled from the console, if a standard is enabled by default, the check box for that standard is selected by default.
+   *
+   * When Security Hub CSPM is enabled using the `EnableSecurityHub` API operation, the standard is enabled by default unless `EnableDefaultStandards` is set to `false`.
+   *
    * @public
    */
   EnabledByDefault?: boolean | undefined;
 
   /**
-   * <p>The cloud provider whose resources the standard evaluates. For example, <code>AWS</code> or <code>Azure</code>.</p>
+   * The cloud provider whose resources the standard evaluates. For example, `AWS` or `Azure`.
+   *
    * @public
    */
   Provider?: StandardsProvider | undefined;
 
   /**
-   * <p>Provides details about the management of a standard.
-   *       </p>
+   * Provides details about the management of a standard.
+   *
    * @public
    */
   StandardsManagedBy?: StandardsManagedBy | undefined;
@@ -8355,13 +8184,15 @@ export interface Standard {
  */
 export interface DescribeStandardsResponse {
   /**
-   * <p>A list of available standards.</p>
+   * A list of available standards.
+   *
    * @public
    */
   Standards?: Standard[] | undefined;
 
   /**
-   * <p>The pagination token to use to request the next page of results.</p>
+   * The pagination token to use to request the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -8372,96 +8203,103 @@ export interface DescribeStandardsResponse {
  */
 export interface DescribeStandardsControlsRequest {
   /**
-   * <p>The ARN of a resource that represents your subscription to a supported standard. To get
-   *          the subscription ARNs of the standards you have enabled, use the <code>GetEnabledStandards</code> operation.</p>
+   * The ARN of a resource that represents your subscription to a supported standard. To get the subscription ARNs of the standards you have enabled, use the `GetEnabledStandards` operation.
+   *
    * @public
    */
   StandardsSubscriptionArn: string | undefined;
 
   /**
-   * <p>The token that is required for pagination. On your first call to the
-   *             <code>DescribeStandardsControls</code> operation, set the value of this parameter to
-   *             <code>NULL</code>.</p>
-   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
-   *          parameter to the value returned from the previous response.</p>
+   * The token that is required for pagination. On your first call to the `DescribeStandardsControls` operation, set the value of this parameter to `NULL`.
+   *
+   * For subsequent calls to the operation, to continue listing data, set the value of this parameter to the value returned from the previous response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of security standard controls to return.</p>
+   * The maximum number of security standard controls to return.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>Details for an individual security standard control.</p>
+ * Details for an individual security standard control.
+ *
  * @public
  */
 export interface StandardsControl {
   /**
-   * <p>The ARN of the security standard control.</p>
+   * The ARN of the security standard control.
+   *
    * @public
    */
   StandardsControlArn?: string | undefined;
 
   /**
-   * <p>The current status of the security standard control. Indicates whether the control is
-   *          enabled or disabled. Security Hub CSPM does not check against disabled controls.</p>
+   * The current status of the security standard control. Indicates whether the control is enabled or disabled. Security Hub CSPM does not check against disabled controls.
+   *
    * @public
    */
   ControlStatus?: ControlStatus | undefined;
 
   /**
-   * <p>The reason provided for the most recent change in status for the control.</p>
+   * The reason provided for the most recent change in status for the control.
+   *
    * @public
    */
   DisabledReason?: string | undefined;
 
   /**
-   * <p>The date and time that the status of the security standard control was most recently
-   *          updated.</p>
+   * The date and time that the status of the security standard control was most recently updated.
+   *
    * @public
    */
   ControlStatusUpdatedAt?: Date | undefined;
 
   /**
-   * <p>The identifier of the security standard control.</p>
+   * The identifier of the security standard control.
+   *
    * @public
    */
   ControlId?: string | undefined;
 
   /**
-   * <p>The title of the security standard control.</p>
+   * The title of the security standard control.
+   *
    * @public
    */
   Title?: string | undefined;
 
   /**
-   * <p>The longer description of the security standard control. Provides information about what
-   *          the control is checking for.</p>
+   * The longer description of the security standard control. Provides information about what the control is checking for.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>A link to remediation information for the control in the Security Hub CSPM user
-   *          documentation.</p>
+   * A link to remediation information for the control in the Security Hub CSPM user documentation.
+   *
    * @public
    */
   RemediationUrl?: string | undefined;
 
   /**
-   * <p>The severity of findings generated from this security standard control.</p>
-   *          <p>The finding severity is based on an assessment of how easy it would be to compromise Amazon Web Services
-   *          resources if the issue is detected.</p>
+   * The severity of findings generated from this security standard control.
+   *
+   * The finding severity is based on an assessment of how easy it would be to compromise Amazon Web Services resources if the issue is detected.
+   *
    * @public
    */
   SeverityRating?: SeverityRating | undefined;
 
   /**
-   * <p>The list of requirements that are related to this control.</p>
+   * The list of requirements that are related to this control.
+   *
    * @public
    */
   RelatedRequirements?: string[] | undefined;
@@ -8472,13 +8310,15 @@ export interface StandardsControl {
  */
 export interface DescribeStandardsControlsResponse {
   /**
-   * <p>A list of security standards controls.</p>
+   * A list of security standards controls.
+   *
    * @public
    */
   Controls?: StandardsControl[] | undefined;
 
   /**
-   * <p>The pagination token to use to request the next page of results.</p>
+   * The pagination token to use to request the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -8489,7 +8329,8 @@ export interface DescribeStandardsControlsResponse {
  */
 export interface DisableImportFindingsForProductRequest {
   /**
-   * <p>The ARN of the integrated product to disable the integration for.</p>
+   * The ARN of the integrated product to disable the integration for.
+   *
    * @public
    */
   ProductSubscriptionArn: string | undefined;
@@ -8505,14 +8346,15 @@ export interface DisableImportFindingsForProductResponse {}
  */
 export interface DisableOrganizationAdminAccountRequest {
   /**
-   * <p>The Amazon Web Services account identifier of the Security Hub CSPM administrator account.</p>
+   * The Amazon Web Services account identifier of the Security Hub CSPM administrator account.
+   *
    * @public
    */
   AdminAccountId: string | undefined;
 
   /**
-   * <p>The feature for which the delegated admin account is disabled.
-   *          Defaults to Security Hub CSPM if not specified.</p>
+   * The feature for which the delegated admin account is disabled. Defaults to Security Hub CSPM if not specified.
+   *
    * @public
    */
   Feature?: SecurityHubFeature | undefined;
@@ -8538,7 +8380,8 @@ export interface DisableSecurityHubResponse {}
  */
 export interface DisableSecurityHubFeatureV2Request {
   /**
-   * <p>The name of the feature to disable.</p>
+   * The name of the feature to disable.
+   *
    * @public
    */
   FeatureName: FeatureName | undefined;
@@ -8584,7 +8427,8 @@ export interface DisassociateFromMasterAccountResponse {}
  */
 export interface DisassociateMembersRequest {
   /**
-   * <p>The account IDs of the member accounts to disassociate from the administrator account.</p>
+   * The account IDs of the member accounts to disassociate from the administrator account.
+   *
    * @public
    */
   AccountIds: string[] | undefined;
@@ -8600,7 +8444,8 @@ export interface DisassociateMembersResponse {}
  */
 export interface EnableImportFindingsForProductRequest {
   /**
-   * <p>The ARN of the product to enable the integration for.</p>
+   * The ARN of the product to enable the integration for.
+   *
    * @public
    */
   ProductArn: string | undefined;
@@ -8611,7 +8456,8 @@ export interface EnableImportFindingsForProductRequest {
  */
 export interface EnableImportFindingsForProductResponse {
   /**
-   * <p>The ARN of your subscription to the product to enable integrations for.</p>
+   * The ARN of your subscription to the product to enable integrations for.
+   *
    * @public
    */
   ProductSubscriptionArn?: string | undefined;
@@ -8622,15 +8468,15 @@ export interface EnableImportFindingsForProductResponse {
  */
 export interface EnableOrganizationAdminAccountRequest {
   /**
-   * <p>The Amazon Web Services account identifier of the account to designate as the Security Hub CSPM administrator
-   *          account.</p>
+   * The Amazon Web Services account identifier of the account to designate as the Security Hub CSPM administrator account.
+   *
    * @public
    */
   AdminAccountId: string | undefined;
 
   /**
-   * <p>The feature for which the delegated admin account is enabled.
-   *          Defaults to Security Hub CSPM if not specified.</p>
+   * The feature for which the delegated admin account is enabled. Defaults to Security Hub CSPM if not specified.
+   *
    * @public
    */
   Feature?: SecurityHubFeature | undefined;
@@ -8641,14 +8487,15 @@ export interface EnableOrganizationAdminAccountRequest {
  */
 export interface EnableOrganizationAdminAccountResponse {
   /**
-   * <p>The Amazon Web Services account identifier of the account to designate as the Security Hub CSPM administrator account.</p>
+   * The Amazon Web Services account identifier of the account to designate as the Security Hub CSPM administrator account.
+   *
    * @public
    */
   AdminAccountId?: string | undefined;
 
   /**
-   * <p>The feature where the delegated administrator is enabled.
-   *       The default is Security Hub CSPM CSPM if no delegated administrator is specified in the request.</p>
+   * The feature where the delegated administrator is enabled. The default is Security Hub CSPM CSPM if no delegated administrator is specified in the request.
+   *
    * @public
    */
   Feature?: SecurityHubFeature | undefined;
@@ -8659,31 +8506,26 @@ export interface EnableOrganizationAdminAccountResponse {
  */
 export interface EnableSecurityHubRequest {
   /**
-   * <p>The tags to add to the hub resource when you enable Security Hub CSPM.</p>
+   * The tags to add to the hub resource when you enable Security Hub CSPM.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Whether to enable the security standards that Security Hub CSPM has designated as automatically
-   *          enabled. If you don't provide a value for <code>EnableDefaultStandards</code>, it is set
-   *          to <code>true</code>. To not enable the automatically enabled standards, set
-   *             <code>EnableDefaultStandards</code> to <code>false</code>.</p>
+   * Whether to enable the security standards that Security Hub CSPM has designated as automatically enabled. If you don't provide a value for `EnableDefaultStandards`, it is set to `true`. To not enable the automatically enabled standards, set `EnableDefaultStandards` to `false`.
+   *
    * @public
    */
   EnableDefaultStandards?: boolean | undefined;
 
   /**
-   * <p>This field, used when enabling Security Hub CSPM, specifies whether the calling account has consolidated control findings turned on.
-   *       If the value for this field is set to
-   *       <code>SECURITY_CONTROL</code>, Security Hub CSPM generates a single finding for a control check even when the check
-   *       applies to multiple enabled standards.</p>
-   *          <p>If the value for this field is set to <code>STANDARD_CONTROL</code>, Security Hub CSPM generates separate findings
-   *       for a control check when the check applies to multiple enabled standards.</p>
-   *          <p>The value for this field in a member account matches the value in the administrator
-   *          account. For accounts that aren't part of an organization, the default value of this field
-   *          is <code>SECURITY_CONTROL</code> if you enabled Security Hub CSPM on or after February 23,
-   *          2023.</p>
+   * This field, used when enabling Security Hub CSPM, specifies whether the calling account has consolidated control findings turned on. If the value for this field is set to `SECURITY_CONTROL`, Security Hub CSPM generates a single finding for a control check even when the check applies to multiple enabled standards.
+   *
+   * If the value for this field is set to `STANDARD_CONTROL`, Security Hub CSPM generates separate findings for a control check when the check applies to multiple enabled standards.
+   *
+   * The value for this field in a member account matches the value in the administrator account. For accounts that aren't part of an organization, the default value of this field is `SECURITY_CONTROL` if you enabled Security Hub CSPM on or after February 23, 2023.
+   *
    * @public
    */
   ControlFindingGenerator?: ControlFindingGenerator | undefined;
@@ -8699,7 +8541,8 @@ export interface EnableSecurityHubResponse {}
  */
 export interface EnableSecurityHubFeatureV2Request {
   /**
-   * <p>The name of the feature to enable.</p>
+   * The name of the feature to enable.
+   *
    * @public
    */
   FeatureName: FeatureName | undefined;
@@ -8715,7 +8558,8 @@ export interface EnableSecurityHubFeatureV2Response {}
  */
 export interface EnableSecurityHubV2Request {
   /**
-   * <p>The tags to add to the hub V2 resource when you enable Security Hub.</p>
+   * The tags to add to the hub V2 resource when you enable Security Hub.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -8726,59 +8570,53 @@ export interface EnableSecurityHubV2Request {
  */
 export interface EnableSecurityHubV2Response {
   /**
-   * <p>The ARN of the V2 resource that was created.</p>
+   * The ARN of the V2 resource that was created.
+   *
    * @public
    */
   HubV2Arn?: string | undefined;
 }
 
 /**
- * <p>The Amazon S3 destination for an export, including the bucket, the Amazon Web Services KMS key used for encryption, and an optional object key prefix.</p>
+ * The Amazon S3 destination for an export, including the bucket, the Amazon Web Services KMS key used for encryption, and an optional object key prefix.
+ *
  * @public
  */
 export interface S3ExportDestination {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon S3 bucket that Security Hub writes the export to. You must own the bucket, and its bucket policy must grant the Security Hub service principal (<code>exportv2.securityhub.amazonaws.com</code>) permission to write objects. For the required bucket policy, see the Examples section of <code>StartExportJobV2</code>.</p>
+   * The Amazon Resource Name (ARN) of the Amazon S3 bucket that Security Hub writes the export to. You must own the bucket, and its bucket policy must grant the Security Hub service principal (`exportv2.securityhub.amazonaws.com`) permission to write objects. For the required bucket policy, see the Examples section of `StartExportJobV2`.
+   *
    * @public
    */
   BucketArn: string | undefined;
 
   /**
-   * <p>The ARN of the Amazon Web Services KMS key that Security Hub uses to encrypt the export objects with server-side encryption. The key policy must allow the Security Hub service principal (<code>exportv2.securityhub.amazonaws.com</code>) to use the key through Amazon S3. For the required key policy, see the Examples section of <code>StartExportJobV2</code>.</p>
-   *          <p>The key must meet all of the following requirements:</p>
-   *          <ul>
-   *             <li>
-   *                <p>It must be a symmetric key with a key usage of <code>ENCRYPT_DECRYPT</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>It must be a single-Region key. Multi-Region keys, whose key IDs begin with <code>mrk-</code>, are rejected.</p>
-   *             </li>
-   *             <li>
-   *                <p>You must specify the full key ARN. Key IDs and aliases are rejected.</p>
-   *             </li>
-   *             <li>
-   *                <p>The key must be in the same Amazon Web Services account as the export job.</p>
-   *             </li>
-   *             <li>
-   *                <p>The key must be in the same Amazon Web Services Region as the export job.</p>
-   *             </li>
-   *             <li>
-   *                <p>The key must be in the <code>aws</code>, <code>aws-cn</code>, or <code>aws-us-gov</code> partition.</p>
-   *             </li>
-   *          </ul>
+   * The ARN of the Amazon Web Services KMS key that Security Hub uses to encrypt the export objects with server-side encryption. The key policy must allow the Security Hub service principal (`exportv2.securityhub.amazonaws.com`) to use the key through Amazon S3. For the required key policy, see the Examples section of `StartExportJobV2`.
+   *
+   * The key must meet all of the following requirements:
+   *
+   * - It must be a symmetric key with a key usage of `ENCRYPT_DECRYPT`.
+   * - It must be a single-Region key. Multi-Region keys, whose key IDs begin with `mrk-`, are rejected.
+   * - You must specify the full key ARN. Key IDs and aliases are rejected.
+   * - The key must be in the same Amazon Web Services account as the export job.
+   * - The key must be in the same Amazon Web Services Region as the export job.
+   * - The key must be in the `aws`, `aws-cn`, or `aws-us-gov` partition.
+   *
    * @public
    */
   KmsKeyArn: string | undefined;
 
   /**
-   * <p>An optional key prefix that Security Hub prepends to the Amazon S3 object keys of the export output. Use a prefix to organize exports within the bucket. The value can be up to 512 characters.</p>
+   * An optional key prefix that Security Hub prepends to the Amazon S3 object keys of the export output. Use a prefix to organize exports within the bucket. The value can be up to 512 characters.
+   *
    * @public
    */
   ObjectPrefix?: string | undefined;
 }
 
 /**
- * <p>Specifies where Security Hub writes the export output. This is a union: you must specify exactly one member. Currently, the only supported member is <code>S3</code>.</p>
+ * Specifies where Security Hub writes the export output. This is a union: you must specify exactly one member. Currently, the only supported member is `S3`.
+ *
  * @public
  */
 export type ExportDestination =
@@ -8790,7 +8628,8 @@ export type ExportDestination =
  */
 export namespace ExportDestination {
   /**
-   * <p>The Amazon Simple Storage Service (Amazon S3) bucket and Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Security Hub uses to write the export.</p>
+   * The Amazon Simple Storage Service (Amazon S3) bucket and Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Security Hub uses to write the export.
+   *
    * @public
    */
   export interface S3Member {
@@ -8817,19 +8656,22 @@ export namespace ExportDestination {
 }
 
 /**
- * <p>A summary of the output configuration for a findings export, returned by <code>ListExportJobsV2</code>. Unlike the configuration returned by <code>GetExportJobV2</code>, it reports only the output format.</p>
+ * A summary of the output configuration for a findings export, returned by `ListExportJobsV2`. Unlike the configuration returned by `GetExportJobV2`, it reports only the output format.
+ *
  * @public
  */
 export interface FindingsOutputSummary {
   /**
-   * <p>The output format of the export. <code>CSV</code> produces comma-separated rows that are suitable for spreadsheets and analysis tools. <code>OCSF_JSON</code> produces newline-delimited JSON records in the Open Cybersecurity Schema Framework (OCSF) format used elsewhere in Security Hub.</p>
+   * The output format of the export. `CSV` produces comma-separated rows that are suitable for spreadsheets and analysis tools. `OCSF_JSON` produces newline-delimited JSON records in the Open Cybersecurity Schema Framework (OCSF) format used elsewhere in Security Hub.
+   *
    * @public
    */
   Format: FindingsExportFormat | undefined;
 }
 
 /**
- * <p>A summary of the output configuration for an export job. The populated member corresponds to the data type that was exported.</p>
+ * A summary of the output configuration for an export job. The populated member corresponds to the data type that was exported.
+ *
  * @public
  */
 export type ExportOutputSummary =
@@ -8841,7 +8683,8 @@ export type ExportOutputSummary =
  */
 export namespace ExportOutputSummary {
   /**
-   * <p>The output configuration summary for a findings export.</p>
+   * The output configuration summary for a findings export.
+   *
    * @public
    */
   export interface FindingsMember {
@@ -8868,367 +8711,314 @@ export namespace ExportOutputSummary {
 }
 
 /**
- * <p>Defines the data boundary for a findings export. Scopes determine which organizational units or organizations to retrieve data from.</p>
- *          <p>Only a delegated administrator can use this structure. If a delegated administrator omits it, the export covers the entire organization; any other caller exports only findings from its own account.</p>
+ * Defines the data boundary for a findings export. Scopes determine which organizational units or organizations to retrieve data from.
+ *
+ * Only a delegated administrator can use this structure. If a delegated administrator omits it, the export covers the entire organization; any other caller exports only findings from its own account.
+ *
  * @public
  */
 export interface ExportScopes {
   /**
-   * <p>A list of Organizations scopes to include in the export. Each entry in the list specifies an organization or organizational unit to include for the delegated administrator's account. If the list specifies multiple entries, the entries are combined using OR logic.</p>
+   * A list of Organizations scopes to include in the export. Each entry in the list specifies an organization or organizational unit to include for the delegated administrator's account. If the list specifies multiple entries, the entries are combined using OR logic.
+   *
    * @public
    */
   AwsOrganizations?: AwsOrganizationScope[] | undefined;
 }
 
 /**
- * <p>A summary of an export job, as returned by <code>ListExportJobsV2</code>.</p>
+ * A summary of an export job, as returned by `ListExportJobsV2`.
+ *
  * @public
  */
 export interface ExportSummary {
   /**
-   * <p>The unique identifier of the export job.</p>
+   * The unique identifier of the export job.
+   *
    * @public
    */
   ExportJobId: string | undefined;
 
   /**
-   * <p>The user-provided name of the export job, if one was specified.</p>
+   * The user-provided name of the export job, if one was specified.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The current state of the export job.</p>
+   * The current state of the export job.
+   *
    * @public
    */
   Status: ExportStatus | undefined;
 
   /**
-   * <p>The category of data that the export job produces.</p>
+   * The category of data that the export job produces.
+   *
    * @public
    */
   DataType: ExportDataType | undefined;
 
   /**
-   * <p>The output configuration of the export job. For findings exports, this reports the output format. Present only for findings exports; absent for other data types.</p>
+   * The output configuration of the export job. For findings exports, this reports the output format. Present only for findings exports; absent for other data types.
+   *
    * @public
    */
   OutputConfiguration?: ExportOutputSummary | undefined;
 
   /**
-   * <p>The organization scopes that the export job was started with, echoed verbatim. Absent if the caller didn't supply <code>Scopes</code>.</p>
+   * The organization scopes that the export job was started with, echoed verbatim. Absent if the caller didn't supply `Scopes`.
+   *
    * @public
    */
   Scopes?: ExportScopes | undefined;
 
   /**
-   * <p>The destination that the export job writes to.</p>
+   * The destination that the export job writes to.
+   *
    * @public
    */
   Destination: ExportDestination | undefined;
 
   /**
-   * <p>A code that classifies why the export job failed. Present only when <code>Status</code> is <code>FAILED</code>.</p>
+   * A code that classifies why the export job failed. Present only when `Status` is `FAILED`.
+   *
    * @public
    */
   FailureCode?: ExportFailureCode | undefined;
 
   /**
-   * <p>A human-readable message about why the export job failed. Present only when <code>Status</code> is <code>FAILED</code>.</p>
+   * A human-readable message about why the export job failed. Present only when `Status` is `FAILED`.
+   *
    * @public
    */
   FailureMessage?: string | undefined;
 
   /**
-   * <p>The time when the export job was created.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * The time when the export job was created.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   StartedAt: Date | undefined;
 
   /**
-   * <p>The time when the export job reached a terminal state. Absent while the job is <code>RUNNING</code>.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * The time when the export job reached a terminal state. Absent while the job is `RUNNING`.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   EndedAt?: Date | undefined;
 }
 
 /**
- * <p>Provides details about an exposure finding and the effect the specific remediation target has on it.</p>
+ * Provides details about an exposure finding and the effect the specific remediation target has on it.
+ *
  * @public
  */
 export interface ExposureFinding {
   /**
-   * <p>The unique identifier (ID) of the Security Hub exposure finding, found under the
-   *          <code>metadata.uid</code> field of the finding.</p>
+   * The unique identifier (ID) of the Security Hub exposure finding, found under the `metadata.uid` field of the finding.
+   *
    * @public
    */
   MetadataUid: string | undefined;
 
   /**
-   * <p>The title of the exposure finding.</p>
+   * The title of the exposure finding.
+   *
    * @public
    */
   Title: string | undefined;
 
   /**
-   * <p>The severity of the exposure finding before the remediation target is resolved.</p>
+   * The severity of the exposure finding before the remediation target is resolved.
+   *
    * @public
    */
   PreviousSeverity: ExposureSeverity | undefined;
 
   /**
-   * <p>The severity of the exposure finding after the remediation target is resolved.</p>
+   * The severity of the exposure finding after the remediation target is resolved.
+   *
    * @public
    */
   ProjectedSeverity: ExposureSeverity | undefined;
 
   /**
-   * <p>The impact resolving a remediation target has on the exposure finding.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Reduces</code> specifies that resolving the remediation target lowers the severity of the exposure finding, but does not resolve it.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Resolves</code> specifies that resolving the remediation target resolves the exposure finding.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Unchanged</code> specifies that resolving the remediation target does not change the severity of the exposure finding.</p>
-   *             </li>
-   *          </ul>
+   * The impact resolving a remediation target has on the exposure finding.
+   *
+   * - `Reduces` specifies that resolving the remediation target lowers the severity of the exposure finding, but does not resolve it.
+   * - `Resolves` specifies that resolving the remediation target resolves the exposure finding.
+   * - `Unchanged` specifies that resolving the remediation target does not change the severity of the exposure finding.
+   *
    * @public
    */
   Impact: ExposureImpact | undefined;
 }
 
 /**
- * <p>A finding aggregator is a Security Hub CSPM resource that specifies cross-Region aggregation settings, including the
- * home Region and any linked Regions.</p>
+ * A finding aggregator is a Security Hub CSPM resource that specifies cross-Region aggregation settings, including the home Region and any linked Regions.
+ *
  * @public
  */
 export interface FindingAggregator {
   /**
-   * <p>The ARN of the finding aggregator. You use the finding aggregator ARN to retrieve details for, update, and delete the finding aggregator.</p>
+   * The ARN of the finding aggregator. You use the finding aggregator ARN to retrieve details for, update, and delete the finding aggregator.
+   *
    * @public
    */
   FindingAggregatorArn?: string | undefined;
 }
 
 /**
- * <p> An array of objects that provides details about a change to a finding, including the
- *                 Amazon Web Services Security Finding Format (ASFF) field that changed, the value of
- *             the field before the change, and the value of the field after the change. </p>
+ * An array of objects that provides details about a change to a finding, including the Amazon Web Services Security Finding Format (ASFF) field that changed, the value of the field before the change, and the value of the field after the change.
+ *
  * @public
  */
 export interface FindingHistoryUpdate {
   /**
-   * <p>
-   *          The ASFF field that changed during the finding change event.
-   *       </p>
+   * The ASFF field that changed during the finding change event.
+   *
    * @public
    */
   UpdatedField?: string | undefined;
 
   /**
-   * <p>
-   *          The value of the ASFF field before the finding change event.
-   *       </p>
+   * The value of the ASFF field before the finding change event.
+   *
    * @public
    */
   OldValue?: string | undefined;
 
   /**
-   * <p>
-   *          The value of the ASFF field after the finding change event. To preserve storage and readability, Security Hub CSPM omits this value
-   *           if <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_FindingHistoryRecord.html">
-   *                <code>FindingHistoryRecord</code>
-   *             </a> exceeds database limits.
-   *       </p>
+   * The value of the ASFF field after the finding change event. To preserve storage and readability, Security Hub CSPM omits this value if [`FindingHistoryRecord`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_FindingHistoryRecord.html) exceeds database limits.
+   *
    * @public
    */
   NewValue?: string | undefined;
 }
 
 /**
- * <p>
- *          Identifies the source of the finding change event.
- *       </p>
+ * Identifies the source of the finding change event.
+ *
  * @public
  */
 export interface FindingHistoryUpdateSource {
   /**
-   * <p>
-   *          Describes the type of finding change event, such as a call to <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchImportFindings.html">
-   *                <code>BatchImportFindings</code>
-   *             </a> (by an integrated Amazon Web Services service or third party partner integration) or <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateFindings.html">
-   *                <code>BatchUpdateFindings</code>
-   *             </a> (by a Security Hub CSPM customer).
-   *       </p>
+   * Describes the type of finding change event, such as a call to [`BatchImportFindings`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchImportFindings.html) (by an integrated Amazon Web Services service or third party partner integration) or [`BatchUpdateFindings`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateFindings.html) (by a Security Hub CSPM customer).
+   *
    * @public
    */
   Type?: FindingHistoryUpdateSourceType | undefined;
 
   /**
-   * <p>
-   *          The identity of the source that initiated the finding change event. For example, the Amazon Resource Name (ARN) of a partner that calls BatchImportFindings or of a customer that calls BatchUpdateFindings.
-   *       </p>
+   * The identity of the source that initiated the finding change event. For example, the Amazon Resource Name (ARN) of a partner that calls BatchImportFindings or of a customer that calls BatchUpdateFindings.
+   *
    * @public
    */
   Identity?: string | undefined;
 }
 
 /**
- * <p>
- *          A list of events that changed the specified finding during the specified time period. Each record represents a single
- *          finding change event.
- *       </p>
+ * A list of events that changed the specified finding during the specified time period. Each record represents a single finding change event.
+ *
  * @public
  */
 export interface FindingHistoryRecord {
   /**
-   * <p>Identifies which finding to get the finding history for.</p>
+   * Identifies which finding to get the finding history for.
+   *
    * @public
    */
   FindingIdentifier?: AwsSecurityFindingIdentifier | undefined;
 
   /**
-   * <p> A timestamp that indicates when Security Hub CSPM
-   *             processed the updated finding record.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * A timestamp that indicates when Security Hub CSPM processed the updated finding record.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   UpdateTime?: Date | undefined;
 
   /**
-   * <p>
-   *          Identifies whether the event marks the creation of a new finding. A value of <code>True</code> means that the finding is
-   *          newly created. A value of <code>False</code> means that the finding isn’t newly created.
-   *       </p>
+   * Identifies whether the event marks the creation of a new finding. A value of `True` means that the finding is newly created. A value of `False` means that the finding isn’t newly created.
+   *
    * @public
    */
   FindingCreated?: boolean | undefined;
 
   /**
-   * <p> Identifies the source of the event that changed the finding. For example, an integrated
-   *                 Amazon Web Services service or third-party partner integration may call <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchImportFindings.html">
-   *                <code>BatchImportFindings</code>
-   *             </a>, or an Security Hub CSPM customer
-   *             may call <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateFindings.html">
-   *                <code>BatchUpdateFindings</code>
-   *             </a>. </p>
+   * Identifies the source of the event that changed the finding. For example, an integrated Amazon Web Services service or third-party partner integration may call [`BatchImportFindings`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchImportFindings.html), or an Security Hub CSPM customer may call [`BatchUpdateFindings`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateFindings.html).
+   *
    * @public
    */
   UpdateSource?: FindingHistoryUpdateSource | undefined;
 
   /**
-   * <p>
-   *          An array of objects that provides details about the finding change event, including the Amazon Web Services Security
-   *          Finding Format (ASFF) field that changed, the value of the field before the change, and the value of the field after
-   *          the change.
-   *       </p>
+   * An array of objects that provides details about the finding change event, including the Amazon Web Services Security Finding Format (ASFF) field that changed, the value of the field before the change, and the value of the field after the change.
+   *
    * @public
    */
   Updates?: FindingHistoryUpdate[] | undefined;
 
   /**
-   * <p>
-   *          A token for pagination purposes. Provide this token in the subsequent request to <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetFindingsHistory.html">
-   *                <code>GetFindingsHistory</code>
-   *             </a> to get
-   *          up to an additional 100 results of history for the same finding that you specified in your initial request.
-   *       </p>
+   * A token for pagination purposes. Provide this token in the subsequent request to [`GetFindingsHistory`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetFindingsHistory.html) to get up to an additional 100 results of history for the same finding that you specified in your initial request.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Defines the data boundary for a findings query. Scopes determine which organizational units or organizations to retrieve data from.</p>
+ * Defines the data boundary for a findings query. Scopes determine which organizational units or organizations to retrieve data from.
+ *
  * @public
  */
 export interface FindingScopes {
   /**
-   * <p>A list of Organizations scopes to include in the query results. Each entry in the list specifies an organization or organizational unit to include for the delegated administrator's account. If the list specifies multiple entries, the entries are combined using OR logic.</p>
+   * A list of Organizations scopes to include in the query results. Each entry in the list specifies an organization or organizational unit to include for the delegated administrator's account. If the list specifies multiple entries, the entries are combined using OR logic.
+   *
    * @public
    */
   AwsOrganizations?: AwsOrganizationScope[] | undefined;
 }
 
 /**
- * <p>A filter for string-based fields in findings trend data.</p>
+ * A filter for string-based fields in findings trend data.
+ *
  * @public
  */
 export interface FindingsTrendsStringFilter {
   /**
-   * <p>The name of the findings field to filter on. You can specify one of the following fields.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>account_id</code> – The Amazon Web Services account ID associated with the finding.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>region</code> – The Amazon Web Services Region associated with the finding.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>finding_types</code> – The finding types associated with the finding.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>finding_status</code> – The status of the finding.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>finding_cve_ids</code> – The Common Vulnerabilities and Exposures (CVE) identifiers associated with the finding.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>finding_compliance_status</code> – The compliance status of the finding.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>finding_control_id</code> – The identifier of the security control associated with the finding.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>finding_class_name</code> – The finding class, such as <code>Compliance Finding</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>finding_provider</code> – The name of the product that generated the finding.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>finding_activity_name</code> – The activity name associated with the finding.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource_cloud_providers</code> – The cloud providers of the resources that the finding is associated with. Valid values are <code>AWS</code> and <code>Azure</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource_regions</code> – The Regions of the associated resources. For an Amazon Web Services resource, this is the Amazon Web Services Region. For an Azure resource, this is the Azure Region, such as <code>eastus</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource_owner_ids</code> – The identifiers of the accounts that own the associated resources. For an Amazon Web Services resource, this is the Amazon Web Services account ID. For an Azure resource, this is the Azure subscription ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource_owner_organization_ids</code> – The identifiers of the organizations that own the associated resources. For an Amazon Web Services resource, this is the Amazon Web Services organization ID. For an Azure resource, this is the Azure tenant ID.</p>
-   *             </li>
-   *          </ul>
+   * The name of the findings field to filter on. You can specify one of the following fields.
+   *
+   * - `account_id` – The Amazon Web Services account ID associated with the finding.
+   * - `region` – The Amazon Web Services Region associated with the finding.
+   * - `finding_types` – The finding types associated with the finding.
+   * - `finding_status` – The status of the finding.
+   * - `finding_cve_ids` – The Common Vulnerabilities and Exposures (CVE) identifiers associated with the finding.
+   * - `finding_compliance_status` – The compliance status of the finding.
+   * - `finding_control_id` – The identifier of the security control associated with the finding.
+   * - `finding_class_name` – The finding class, such as `Compliance Finding`.
+   * - `finding_provider` – The name of the product that generated the finding.
+   * - `finding_activity_name` – The activity name associated with the finding.
+   * - `resource_cloud_providers` – The cloud providers of the resources that the finding is associated with. Valid values are `AWS` and `Azure`.
+   * - `resource_regions` – The Regions of the associated resources. For an Amazon Web Services resource, this is the Amazon Web Services Region. For an Azure resource, this is the Azure Region, such as `eastus`.
+   * - `resource_owner_ids` – The identifiers of the accounts that own the associated resources. For an Amazon Web Services resource, this is the Amazon Web Services account ID. For an Azure resource, this is the Azure subscription ID.
+   * - `resource_owner_organization_ids` – The identifiers of the organizations that own the associated resources. For an Amazon Web Services resource, this is the Amazon Web Services organization ID. For an Azure resource, this is the Azure tenant ID.
+   *
    * @public
    */
   FieldName?: FindingsTrendsStringField | undefined;
 
   /**
-   * <p>A string filter for filtering Security Hub CSPM findings.</p>
+   * A string filter for filtering Security Hub CSPM findings.
+   *
    * @public
    */
   Filter?: StringFilter | undefined;
@@ -9239,7 +9029,8 @@ export interface FindingsTrendsStringFilter {
  */
 export interface GenerateRecommendedPolicyV2Request {
   /**
-   * <p>The unique identifier (ID) of Security Hub OCSF findings found under the <code>metadata.uid</code> field of the finding.</p>
+   * The unique identifier (ID) of Security Hub OCSF findings found under the `metadata.uid` field of the finding.
+   *
    * @public
    */
   MetadataUid: string | undefined;
@@ -9256,30 +9047,35 @@ export interface GenerateRecommendedPolicyV2Response {}
 export interface GetAdministratorAccountRequest {}
 
 /**
- * <p>Details about an invitation.</p>
+ * Details about an invitation.
+ *
  * @public
  */
 export interface Invitation {
   /**
-   * <p>The account ID of the Security Hub CSPM administrator account that the invitation was sent from.</p>
+   * The account ID of the Security Hub CSPM administrator account that the invitation was sent from.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The ID of the invitation sent to the member account.</p>
+   * The ID of the invitation sent to the member account.
+   *
    * @public
    */
   InvitationId?: string | undefined;
 
   /**
-   * <p>The timestamp of when the invitation was sent.</p>
+   * The timestamp of when the invitation was sent.
+   *
    * @public
    */
   InvitedAt?: Date | undefined;
 
   /**
-   * <p>The current status of the association between the member and administrator accounts.</p>
+   * The current status of the association between the member and administrator accounts.
+   *
    * @public
    */
   MemberStatus?: string | undefined;
@@ -9290,7 +9086,8 @@ export interface Invitation {
  */
 export interface GetAdministratorAccountResponse {
   /**
-   * <p>Details about an invitation.</p>
+   * Details about an invitation.
+   *
    * @public
    */
   Administrator?: Invitation | undefined;
@@ -9301,7 +9098,8 @@ export interface GetAdministratorAccountResponse {
  */
 export interface GetAggregatorV2Request {
   /**
-   * <p>The ARN of the Aggregator V2.</p>
+   * The ARN of the Aggregator V2.
+   *
    * @public
    */
   AggregatorV2Arn: string | undefined;
@@ -9312,25 +9110,29 @@ export interface GetAggregatorV2Request {
  */
 export interface GetAggregatorV2Response {
   /**
-   * <p>The ARN of the Aggregator V2.</p>
+   * The ARN of the Aggregator V2.
+   *
    * @public
    */
   AggregatorV2Arn?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region where data is aggregated.</p>
+   * The Amazon Web Services Region where data is aggregated.
+   *
    * @public
    */
   AggregationRegion?: string | undefined;
 
   /**
-   * <p>Determines how Regions are linked to an Aggregator V2.</p>
+   * Determines how Regions are linked to an Aggregator V2.
+   *
    * @public
    */
   RegionLinkingMode?: string | undefined;
 
   /**
-   * <p>The list of Regions that are linked to the aggregation Region.</p>
+   * The list of Regions that are linked to the aggregation Region.
+   *
    * @public
    */
   LinkedRegions?: string[] | undefined;
@@ -9341,7 +9143,8 @@ export interface GetAggregatorV2Response {
  */
 export interface GetAutomationRuleV2Request {
   /**
-   * <p>The ARN of the V2 automation rule.</p>
+   * The ARN of the V2 automation rule.
+   *
    * @public
    */
   Identifier: string | undefined;
@@ -9352,9 +9155,8 @@ export interface GetAutomationRuleV2Request {
  */
 export interface GetConfigurationPolicyRequest {
   /**
-   * <p>
-   *             The Amazon Resource Name (ARN) or universally unique identifier (UUID) of the configuration policy.
-   *         </p>
+   * The Amazon Resource Name (ARN) or universally unique identifier (UUID) of the configuration policy.
+   *
    * @public
    */
   Identifier: string | undefined;
@@ -9365,61 +9167,50 @@ export interface GetConfigurationPolicyRequest {
  */
 export interface GetConfigurationPolicyResponse {
   /**
-   * <p>
-   *             The ARN of the configuration policy.
-   *         </p>
+   * The ARN of the configuration policy.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>
-   *             The UUID of the configuration policy.
-   *         </p>
+   * The UUID of the configuration policy.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>
-   *             The name of the configuration policy.
-   *         </p>
+   * The name of the configuration policy.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>
-   *             The description of the configuration policy.
-   *         </p>
+   * The description of the configuration policy.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>
-   *             The date and time, in UTC and ISO 8601 format, that the configuration policy was last updated.
-   *         </p>
+   * The date and time, in UTC and ISO 8601 format, that the configuration policy was last updated.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
 
   /**
-   * <p>
-   *             The date and time, in UTC and ISO 8601 format, that the configuration policy was created.
-   *         </p>
+   * The date and time, in UTC and ISO 8601 format, that the configuration policy was created.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>
-   *             An object that defines how Security Hub CSPM is configured. It includes whether Security Hub CSPM is enabled or
-   *             disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls.
-   *             If the policy includes a list of security controls that are enabled, Security Hub CSPM disables all other controls (including newly released controls).
-   *             If the policy includes a list of security controls that are disabled, Security Hub CSPM enables all other controls (including
-   *             newly released controls).
-   *         </p>
+   * An object that defines how Security Hub CSPM is configured. It includes whether Security Hub CSPM is enabled or disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls. If the policy includes a list of security controls that are enabled, Security Hub CSPM disables all other controls (including newly released controls). If the policy includes a list of security controls that are disabled, Security Hub CSPM enables all other controls (including newly released controls).
+   *
    * @public
    */
   ConfigurationPolicy?: Policy | undefined;
@@ -9430,9 +9221,8 @@ export interface GetConfigurationPolicyResponse {
  */
 export interface GetConfigurationPolicyAssociationRequest {
   /**
-   * <p>
-   *             The target account ID, organizational unit ID, or the root ID to retrieve the association for.
-   *         </p>
+   * The target account ID, organizational unit ID, or the root ID to retrieve the association for.
+   *
    * @public
    */
   Target: Target | undefined;
@@ -9443,59 +9233,50 @@ export interface GetConfigurationPolicyAssociationRequest {
  */
 export interface GetConfigurationPolicyAssociationResponse {
   /**
-   * <p>
-   *             The universally unique identifier (UUID) of a configuration policy. For self-managed behavior, the value is
-   *             <code>SELF_MANAGED_SECURITY_HUB</code>.
-   *         </p>
+   * The universally unique identifier (UUID) of a configuration policy. For self-managed behavior, the value is `SELF_MANAGED_SECURITY_HUB`.
+   *
    * @public
    */
   ConfigurationPolicyId?: string | undefined;
 
   /**
-   * <p>
-   *             The target account ID, organizational unit ID, or the root ID for which the association is retrieved.
-   *         </p>
+   * The target account ID, organizational unit ID, or the root ID for which the association is retrieved.
+   *
    * @public
    */
   TargetId?: string | undefined;
 
   /**
-   * <p>
-   *             Specifies whether the target is an Amazon Web Services account, organizational unit, or the organization root.
-   *         </p>
+   * Specifies whether the target is an Amazon Web Services account, organizational unit, or the organization root.
+   *
    * @public
    */
   TargetType?: TargetType | undefined;
 
   /**
-   * <p>
-   *             Indicates whether the association between the specified target and the configuration was directly applied by the
-   *             Security Hub CSPM delegated administrator or inherited from a parent.
-   *         </p>
+   * Indicates whether the association between the specified target and the configuration was directly applied by the Security Hub CSPM delegated administrator or inherited from a parent.
+   *
    * @public
    */
   AssociationType?: AssociationType | undefined;
 
   /**
-   * <p>
-   *             The date and time, in UTC and ISO 8601 format, that the configuration policy association was last updated.
-   *         </p>
+   * The date and time, in UTC and ISO 8601 format, that the configuration policy association was last updated.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
 
   /**
-   * <p>
-   *             The current status of the association between the specified target and the configuration.
-   *         </p>
+   * The current status of the association between the specified target and the configuration.
+   *
    * @public
    */
   AssociationStatus?: ConfigurationPolicyAssociationStatus | undefined;
 
   /**
-   * <p>
-   *             The explanation for a <code>FAILED</code> value for <code>AssociationStatus</code>.
-   *         </p>
+   * The explanation for a `FAILED` value for `AssociationStatus`.
+   *
    * @public
    */
   AssociationStatusMessage?: string | undefined;
@@ -9506,7 +9287,8 @@ export interface GetConfigurationPolicyAssociationResponse {
  */
 export interface GetConnectorRequest {
   /**
-   * <p>The unique identifier of the connector to retrieve.</p>
+   * The unique identifier of the connector to retrieve.
+   *
    * @public
    */
   ConnectorId: string | undefined;
@@ -9517,61 +9299,71 @@ export interface GetConnectorRequest {
  */
 export interface GetConnectorResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the connector.</p>
+   * The Amazon Resource Name (ARN) of the connector.
+   *
    * @public
    */
   ConnectorArn?: string | undefined;
 
   /**
-   * <p>The unique identifier of the connector.</p>
+   * The unique identifier of the connector.
+   *
    * @public
    */
   ConnectorId: string | undefined;
 
   /**
-   * <p>The name of the connector.</p>
+   * The name of the connector.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The description of the connector.</p>
+   * The description of the connector.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The ISO 8601 UTC timestamp indicating when the connector was created.</p>
+   * The ISO 8601 UTC timestamp indicating when the connector was created.
+   *
    * @public
    */
   CreatedAt: Date | undefined;
 
   /**
-   * <p>The ISO 8601 UTC timestamp indicating when the connector was last updated.</p>
+   * The ISO 8601 UTC timestamp indicating when the connector was last updated.
+   *
    * @public
    */
   LastUpdatedAt: Date | undefined;
 
   /**
-   * <p>The health status of the connector, including connectivity status and last check time.</p>
+   * The health status of the connector, including connectivity status and last check time.
+   *
    * @public
    */
   Health: CspmHealthCheck | undefined;
 
   /**
-   * <p>The cloud provider configuration details for the connector.</p>
+   * The cloud provider configuration details for the connector.
+   *
    * @public
    */
   ProviderDetail: CspmProviderDetail | undefined;
 
   /**
-   * <p>The service principal that created the connector.</p>
+   * The service principal that created the connector.
+   *
    * @public
    */
   CreatedBy?: string | undefined;
 
   /**
-   * <p>The enablement status of the connector.</p>
+   * The enablement status of the connector.
+   *
    * @public
    */
   EnablementStatus?: CspmEnablementStatus | undefined;
@@ -9582,37 +9374,43 @@ export interface GetConnectorResponse {
  */
 export interface GetConnectorV2Request {
   /**
-   * <p>The UUID of the connectorV2 to identify connectorV2 resource.</p>
+   * The UUID of the connectorV2 to identify connectorV2 resource.
+   *
    * @public
    */
   ConnectorId: string | undefined;
 }
 
 /**
- * <p>Information about the operational status and health of a connectorV2.</p>
+ * Information about the operational status and health of a connectorV2.
+ *
  * @public
  */
 export interface HealthCheck {
   /**
-   * <p>The status of the connectorV2.</p>
+   * The status of the connectorV2.
+   *
    * @public
    */
   ConnectorStatus: ConnectorStatus | undefined;
 
   /**
-   * <p>The message for the reason of connectorStatus change.</p>
+   * The message for the reason of connectorStatus change.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>ISO 8601 UTC timestamp for the time check the health status of the connectorV2.</p>
+   * ISO 8601 UTC timestamp for the time check the health status of the connectorV2.
+   *
    * @public
    */
   LastCheckedAt: Date | undefined;
 
   /**
-   * <p>A list of health issues associated with the connector, including error codes and messages.</p>
+   * A list of health issues associated with the connector, including error codes and messages.
+   *
    * @public
    */
   Issues?: HealthIssue[] | undefined;
@@ -9623,67 +9421,78 @@ export interface HealthCheck {
  */
 export interface GetConnectorV2Response {
   /**
-   * <p>The Amazon Resource Name (ARN) of the connectorV2.</p>
+   * The Amazon Resource Name (ARN) of the connectorV2.
+   *
    * @public
    */
   ConnectorArn?: string | undefined;
 
   /**
-   * <p>The UUID of the connectorV2 to identify connectorV2 resource.</p>
+   * The UUID of the connectorV2 to identify connectorV2 resource.
+   *
    * @public
    */
   ConnectorId: string | undefined;
 
   /**
-   * <p>The name of the connectorV2.</p>
+   * The name of the connectorV2.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The description of the connectorV2.</p>
+   * The description of the connectorV2.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of KMS key used for the connectorV2.</p>
+   * The Amazon Resource Name (ARN) of KMS key used for the connectorV2.
+   *
    * @public
    */
   KmsKeyArn?: string | undefined;
 
   /**
-   * <p>ISO 8601 UTC timestamp for the time create the connectorV2.</p>
+   * ISO 8601 UTC timestamp for the time create the connectorV2.
+   *
    * @public
    */
   CreatedAt: Date | undefined;
 
   /**
-   * <p>ISO 8601 UTC timestamp for the time update the connectorV2 connectorStatus.</p>
+   * ISO 8601 UTC timestamp for the time update the connectorV2 connectorStatus.
+   *
    * @public
    */
   LastUpdatedAt: Date | undefined;
 
   /**
-   * <p>The current health status for connectorV2</p>
+   * The current health status for connectorV2
+   *
    * @public
    */
   Health: HealthCheck | undefined;
 
   /**
-   * <p>The third-party provider detail for a service configuration.</p>
+   * The third-party provider detail for a service configuration.
+   *
    * @public
    */
   ProviderDetail: ProviderDetail | undefined;
 
   /**
-   * <p>The enablement status of the connector.</p>
+   * The enablement status of the connector.
+   *
    * @public
    */
   EnablementStatus?: EnablementStatus | undefined;
 
   /**
-   * <p>The reason for the current enablement status. Provides additional context when the connector is in a failed state.</p>
+   * The reason for the current enablement status. Provides additional context when the connector is in a failed state.
+   *
    * @public
    */
   EnablementStatusReason?: string | undefined;
@@ -9694,29 +9503,31 @@ export interface GetConnectorV2Response {
  */
 export interface GetEnabledStandardsRequest {
   /**
-   * <p>The list of the standards subscription ARNs for the standards to retrieve.</p>
+   * The list of the standards subscription ARNs for the standards to retrieve.
+   *
    * @public
    */
   StandardsSubscriptionArns?: string[] | undefined;
 
   /**
-   * <p>The token that is required for pagination. On your first call to the
-   *             <code>GetEnabledStandards</code> operation, set the value of this parameter to
-   *             <code>NULL</code>.</p>
-   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
-   *          parameter to the value returned from the previous response.</p>
+   * The token that is required for pagination. On your first call to the `GetEnabledStandards` operation, set the value of this parameter to `NULL`.
+   *
+   * For subsequent calls to the operation, to continue listing data, set the value of this parameter to the value returned from the previous response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in the response.</p>
+   * The maximum number of results to return in the response.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>A list of cloud providers to filter the enabled standards by. For example, specify <code>Azure</code> to return only enabled standards that evaluate Azure resources.</p>
+   * A list of cloud providers to filter the enabled standards by. For example, specify `Azure` to return only enabled standards that evaluate Azure resources.
+   *
    * @public
    */
   Providers?: StandardsProvider[] | undefined;
@@ -9727,14 +9538,15 @@ export interface GetEnabledStandardsRequest {
  */
 export interface GetEnabledStandardsResponse {
   /**
-   * <p>The list of <code>StandardsSubscriptions</code> objects that include information about
-   *          the enabled standards.</p>
+   * The list of `StandardsSubscriptions` objects that include information about the enabled standards.
+   *
    * @public
    */
   StandardsSubscriptions?: StandardsSubscription[] | undefined;
 
   /**
-   * <p>The pagination token to use to request the next page of results.</p>
+   * The pagination token to use to request the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -9745,7 +9557,8 @@ export interface GetEnabledStandardsResponse {
  */
 export interface GetExportJobV2Request {
   /**
-   * <p>The unique identifier of the export job to retrieve. This is the value returned by <code>StartExportJobV2</code>.</p>
+   * The unique identifier of the export job to retrieve. This is the value returned by `StartExportJobV2`.
+   *
    * @public
    */
   ExportJobId: string | undefined;
@@ -9756,7 +9569,8 @@ export interface GetExportJobV2Request {
  */
 export interface GetFindingAggregatorRequest {
   /**
-   * <p>The ARN of the finding aggregator to return details for. To obtain the ARN, use <code>ListFindingAggregators</code>.</p>
+   * The ARN of the finding aggregator to return details for. To obtain the ARN, use `ListFindingAggregators`.
+   *
    * @public
    */
   FindingAggregatorArn: string | undefined;
@@ -9767,25 +9581,29 @@ export interface GetFindingAggregatorRequest {
  */
 export interface GetFindingAggregatorResponse {
   /**
-   * <p>The ARN of the finding aggregator.</p>
+   * The ARN of the finding aggregator.
+   *
    * @public
    */
   FindingAggregatorArn?: string | undefined;
 
   /**
-   * <p>The home Region. Findings generated in linked Regions are replicated and sent to the home Region.</p>
+   * The home Region. Findings generated in linked Regions are replicated and sent to the home Region.
+   *
    * @public
    */
   FindingAggregationRegion?: string | undefined;
 
   /**
-   * <p>Indicates whether to link all Regions, all Regions except for a list of excluded Regions, or a list of included Regions.</p>
+   * Indicates whether to link all Regions, all Regions except for a list of excluded Regions, or a list of included Regions.
+   *
    * @public
    */
   RegionLinkingMode?: string | undefined;
 
   /**
-   * <p>The list of excluded Regions or included Regions.</p>
+   * The list of excluded Regions or included Regions.
+   *
    * @public
    */
   Regions?: string[] | undefined;
@@ -9796,56 +9614,44 @@ export interface GetFindingAggregatorResponse {
  */
 export interface GetFindingHistoryRequest {
   /**
-   * <p>Identifies which finding to get the finding history for.</p>
+   * Identifies which finding to get the finding history for.
+   *
    * @public
    */
   FindingIdentifier: AwsSecurityFindingIdentifier | undefined;
 
   /**
-   * <p>A timestamp that indicates the start time of the requested finding history.</p>
-   *          <p>If you provide values for both <code>StartTime</code> and <code>EndTime</code>,
-   *                 Security Hub CSPM returns finding history for the specified time period. If you
-   *             provide a value for <code>StartTime</code> but not for <code>EndTime</code>, Security Hub CSPM returns finding history from the <code>StartTime</code> to the time at
-   *             which the API is called. If you provide a value for <code>EndTime</code> but not for
-   *                 <code>StartTime</code>, Security Hub CSPM returns finding history from the <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsSecurityFindingFilters.html#securityhub-Type-AwsSecurityFindingFilters-CreatedAt">CreatedAt</a> timestamp of the finding to the <code>EndTime</code>. If you
-   *             provide neither <code>StartTime</code> nor <code>EndTime</code>, Security Hub CSPM
-   *             returns finding history from the <code>CreatedAt</code> timestamp of the finding to the time at which
-   *             the API is called. In all of these scenarios, the response is limited to 100 results.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * A timestamp that indicates the start time of the requested finding history.
+   *
+   * If you provide values for both `StartTime` and `EndTime`, Security Hub CSPM returns finding history for the specified time period. If you provide a value for `StartTime` but not for `EndTime`, Security Hub CSPM returns finding history from the `StartTime` to the time at which the API is called. If you provide a value for `EndTime` but not for `StartTime`, Security Hub CSPM returns finding history from the [CreatedAt](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsSecurityFindingFilters.html#securityhub-Type-AwsSecurityFindingFilters-CreatedAt) timestamp of the finding to the `EndTime`. If you provide neither `StartTime` nor `EndTime`, Security Hub CSPM returns finding history from the `CreatedAt` timestamp of the finding to the time at which the API is called. In all of these scenarios, the response is limited to 100 results.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   StartTime?: Date | undefined;
 
   /**
-   * <p>
-   *          An ISO 8601-formatted timestamp that indicates the end time of the requested finding history.</p>
-   *          <p>If you provide values for both <code>StartTime</code> and <code>EndTime</code>,
-   *                 Security Hub CSPM returns finding history for the specified time period. If you
-   *             provide a value for <code>StartTime</code> but not for <code>EndTime</code>, Security Hub CSPM returns finding history from the <code>StartTime</code> to the time at
-   *             which the API is called. If you provide a value for <code>EndTime</code> but not for
-   *                 <code>StartTime</code>, Security Hub CSPM returns finding history from the <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsSecurityFindingFilters.html#securityhub-Type-AwsSecurityFindingFilters-CreatedAt">CreatedAt</a> timestamp of the finding to the <code>EndTime</code>. If you
-   *             provide neither <code>StartTime</code> nor <code>EndTime</code>, Security Hub CSPM
-   *             returns finding history from the <code>CreatedAt</code> timestamp of the finding to the time at which
-   *             the API is called. In all of these scenarios, the response is limited to 100 results.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * An ISO 8601-formatted timestamp that indicates the end time of the requested finding history.
+   *
+   * If you provide values for both `StartTime` and `EndTime`, Security Hub CSPM returns finding history for the specified time period. If you provide a value for `StartTime` but not for `EndTime`, Security Hub CSPM returns finding history from the `StartTime` to the time at which the API is called. If you provide a value for `EndTime` but not for `StartTime`, Security Hub CSPM returns finding history from the [CreatedAt](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsSecurityFindingFilters.html#securityhub-Type-AwsSecurityFindingFilters-CreatedAt) timestamp of the finding to the `EndTime`. If you provide neither `StartTime` nor `EndTime`, Security Hub CSPM returns finding history from the `CreatedAt` timestamp of the finding to the time at which the API is called. In all of these scenarios, the response is limited to 100 results.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   EndTime?: Date | undefined;
 
   /**
-   * <p>
-   *          A token for pagination purposes. Provide <code>NULL</code> as the initial value. In subsequent requests, provide the
-   *          token included in the response to get up to an additional 100 results of finding history. If you don’t provide
-   *          <code>NextToken</code>, Security Hub CSPM returns up to 100 results of finding history for each request.
-   *       </p>
+   * A token for pagination purposes. Provide `NULL` as the initial value. In subsequent requests, provide the token included in the response to get up to an additional 100 results of finding history. If you don’t provide `NextToken`, Security Hub CSPM returns up to 100 results of finding history for each request.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>
-   *          The maximum number of results to be returned. If you don’t provide it, Security Hub CSPM returns up to 100 results of finding history.
-   *       </p>
+   * The maximum number of results to be returned. If you don’t provide it, Security Hub CSPM returns up to 100 results of finding history.
+   *
    * @public
    */
   MaxResults?: number | undefined;
@@ -9856,36 +9662,36 @@ export interface GetFindingHistoryRequest {
  */
 export interface GetFindingHistoryResponse {
   /**
-   * <p>
-   *          A list of events that altered the specified finding during the specified time period.
-   *       </p>
+   * A list of events that altered the specified finding during the specified time period.
+   *
    * @public
    */
   Records?: FindingHistoryRecord[] | undefined;
 
   /**
-   * <p>
-   *          A token for pagination purposes. Provide this token in the subsequent request to <code>GetFindingsHistory</code> to
-   *          get up to an additional 100 results of history for the same finding that you specified in your initial request.
-   *       </p>
+   * A token for pagination purposes. Provide this token in the subsequent request to `GetFindingsHistory` to get up to an additional 100 results of history for the same finding that you specified in your initial request.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>A collection of finding attributes used to sort findings.</p>
+ * A collection of finding attributes used to sort findings.
+ *
  * @public
  */
 export interface SortCriterion {
   /**
-   * <p>The finding attribute used to sort findings.</p>
+   * The finding attribute used to sort findings.
+   *
    * @public
    */
   Field?: string | undefined;
 
   /**
-   * <p>The order used to sort findings.</p>
+   * The order used to sort findings.
+   *
    * @public
    */
   SortOrder?: SortOrder | undefined;
@@ -9896,34 +9702,35 @@ export interface SortCriterion {
  */
 export interface GetFindingsRequest {
   /**
-   * <p>The finding attributes used to define a condition to filter the returned
-   *          findings.</p>
-   *          <p>You can filter by up to 10 finding attributes. For each attribute, you can provide up to
-   *          20 filter values.</p>
-   *          <p>Note that in the available filter fields, <code>WorkflowState</code> is deprecated. To
-   *          search for a finding based on its workflow status, use <code>WorkflowStatus</code>.</p>
+   * The finding attributes used to define a condition to filter the returned findings.
+   *
+   * You can filter by up to 10 finding attributes. For each attribute, you can provide up to 20 filter values.
+   *
+   * Note that in the available filter fields, `WorkflowState` is deprecated. To search for a finding based on its workflow status, use `WorkflowStatus`.
+   *
    * @public
    */
   Filters?: AwsSecurityFindingFilters | undefined;
 
   /**
-   * <p>The finding attributes used to sort the list of returned findings.</p>
+   * The finding attributes used to sort the list of returned findings.
+   *
    * @public
    */
   SortCriteria?: SortCriterion[] | undefined;
 
   /**
-   * <p>The token that is required for pagination. On your first call to the
-   *             <code>GetFindings</code> operation, set the value of this parameter to
-   *          <code>NULL</code>.</p>
-   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
-   *          parameter to the value returned from the previous response.</p>
+   * The token that is required for pagination. On your first call to the `GetFindings` operation, set the value of this parameter to `NULL`.
+   *
+   * For subsequent calls to the operation, to continue listing data, set the value of this parameter to the value returned from the previous response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of findings to return.</p>
+   * The maximum number of findings to return.
+   *
    * @public
    */
   MaxResults?: number | undefined;
@@ -9934,49 +9741,57 @@ export interface GetFindingsRequest {
  */
 export interface GetFindingsResponse {
   /**
-   * <p>The findings that matched the filters specified in the request.</p>
+   * The findings that matched the filters specified in the request.
+   *
    * @public
    */
   Findings: AwsSecurityFinding[] | undefined;
 
   /**
-   * <p>The pagination token to use to request the next page of results.</p>
+   * The pagination token to use to request the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Represents individual aggregated results when grouping security findings for each <code>GroupByField</code>.</p>
+ * Represents individual aggregated results when grouping security findings for each `GroupByField`.
+ *
  * @public
  */
 export interface GroupByValue {
   /**
-   * <p>The value of the field by which findings are grouped.</p>
+   * The value of the field by which findings are grouped.
+   *
    * @public
    */
   FieldValue?: string | undefined;
 
   /**
-   * <p>The number of findings for a specific <code>FieldValue</code> and <code>GroupByField</code>.</p>
+   * The number of findings for a specific `FieldValue` and `GroupByField`.
+   *
    * @public
    */
   Count?: number | undefined;
 }
 
 /**
- * <p>Represents finding statistics grouped by <code>GroupedByField</code>.</p>
+ * Represents finding statistics grouped by `GroupedByField`.
+ *
  * @public
  */
 export interface GroupByResult {
   /**
-   * <p>The attribute by which filtered security findings should be grouped.</p>
+   * The attribute by which filtered security findings should be grouped.
+   *
    * @public
    */
   GroupByField?: string | undefined;
 
   /**
-   * <p>An array of grouped values and their respective counts for each <code>GroupByField</code>.</p>
+   * An array of grouped values and their respective counts for each `GroupByField`.
+   *
    * @public
    */
   GroupByValues?: GroupByValue[] | undefined;
@@ -9987,91 +9802,106 @@ export interface GroupByResult {
  */
 export interface GetFindingStatisticsV2Response {
   /**
-   * <p>Aggregated statistics about security findings based on specified grouping criteria.</p>
+   * Aggregated statistics about security findings based on specified grouping criteria.
+   *
    * @public
    */
   GroupByResults?: GroupByResult[] | undefined;
 }
 
 /**
- * <p>Contains counts of findings grouped by severity level for trend analysis.</p>
+ * Contains counts of findings grouped by severity level for trend analysis.
+ *
  * @public
  */
 export interface SeverityTrendsCount {
   /**
-   * <p>The count of findings with Unknown severity level at this point in the trend timeline.</p>
+   * The count of findings with Unknown severity level at this point in the trend timeline.
+   *
    * @public
    */
   Unknown: number | undefined;
 
   /**
-   * <p>The count of findings with Informational severity level at this point in the trend timeline.</p>
+   * The count of findings with Informational severity level at this point in the trend timeline.
+   *
    * @public
    */
   Informational: number | undefined;
 
   /**
-   * <p>The count of findings with Low severity level at this point in the trend timeline.</p>
+   * The count of findings with Low severity level at this point in the trend timeline.
+   *
    * @public
    */
   Low: number | undefined;
 
   /**
-   * <p>The count of findings with Medium severity level at this point in the trend timeline.</p>
+   * The count of findings with Medium severity level at this point in the trend timeline.
+   *
    * @public
    */
   Medium: number | undefined;
 
   /**
-   * <p>The count of findings with High severity level at this point in the trend timeline.</p>
+   * The count of findings with High severity level at this point in the trend timeline.
+   *
    * @public
    */
   High: number | undefined;
 
   /**
-   * <p>The count of findings with Critical severity level at this point in the trend timeline.</p>
+   * The count of findings with Critical severity level at this point in the trend timeline.
+   *
    * @public
    */
   Critical: number | undefined;
 
   /**
-   * <p>The count of findings with Fatal severity level at this point in the trend timeline.</p>
+   * The count of findings with Fatal severity level at this point in the trend timeline.
+   *
    * @public
    */
   Fatal: number | undefined;
 
   /**
-   * <p>The count of findings with severity levels not fitting into the standard categories at this point in the trend timeline.</p>
+   * The count of findings with severity levels not fitting into the standard categories at this point in the trend timeline.
+   *
    * @public
    */
   Other: number | undefined;
 }
 
 /**
- * <p>Contains the aggregated finding values for a specific point in the findings trend timeline.</p>
+ * Contains the aggregated finding values for a specific point in the findings trend timeline.
+ *
  * @public
  */
 export interface TrendsValues {
   /**
-   * <p>The count of findings organized by severity level for this data point in the trend timeline.</p>
+   * The count of findings organized by severity level for this data point in the trend timeline.
+   *
    * @public
    */
   SeverityTrends: SeverityTrendsCount | undefined;
 }
 
 /**
- * <p>Contains the findings trend metrics data for a specific time point in the requested time period.</p>
+ * Contains the findings trend metrics data for a specific time point in the requested time period.
+ *
  * @public
  */
 export interface TrendsMetricsResult {
   /**
-   * <p>The timestamp for this data point in the findings trend metrics.</p>
+   * The timestamp for this data point in the findings trend metrics.
+   *
    * @public
    */
   Timestamp: Date | undefined;
 
   /**
-   * <p>The finding trend metric values associated with this timestamp, including severity counts.</p>
+   * The finding trend metric values associated with this timestamp, including severity counts.
+   *
    * @public
    */
   TrendsValues: TrendsValues | undefined;
@@ -10082,19 +9912,22 @@ export interface TrendsMetricsResult {
  */
 export interface GetFindingsTrendsV2Response {
   /**
-   * <p>The time interval granularity for the returned trend data.</p>
+   * The time interval granularity for the returned trend data.
+   *
    * @public
    */
   Granularity: GranularityField | undefined;
 
   /**
-   * <p>The collection of time-series trend metrics, including counts of findings by severity across the specified time period.</p>
+   * The collection of time-series trend metrics, including counts of findings by severity across the specified time period.
+   *
    * @public
    */
   TrendsMetrics: TrendsMetricsResult[] | undefined;
 
   /**
-   * <p>The token to use for retrieving the next page of results, if more trend data is available.</p>
+   * The token to use for retrieving the next page of results, if more trend data is available.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -10105,14 +9938,15 @@ export interface GetFindingsTrendsV2Response {
  */
 export interface GetFindingsV2Response {
   /**
-   * <p>An array of security findings returned by the operation.</p>
+   * An array of security findings returned by the operation.
+   *
    * @public
    */
   Findings?: __DocumentType[] | undefined;
 
   /**
-   * <p>The pagination token to use to request the next page of results.
-   *          Otherwise, this parameter is null.</p>
+   * The pagination token to use to request the next page of results. Otherwise, this parameter is null.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -10123,54 +9957,57 @@ export interface GetFindingsV2Response {
  */
 export interface GetInsightResultsRequest {
   /**
-   * <p>The ARN of the insight for which to return results.</p>
+   * The ARN of the insight for which to return results.
+   *
    * @public
    */
   InsightArn: string | undefined;
 }
 
 /**
- * <p>The insight result values returned by the <code>GetInsightResults</code>
- *          operation.</p>
+ * The insight result values returned by the `GetInsightResults` operation.
+ *
  * @public
  */
 export interface InsightResultValue {
   /**
-   * <p>The value of the attribute that the findings are grouped by for the insight whose
-   *          results are returned by the <code>GetInsightResults</code> operation.</p>
+   * The value of the attribute that the findings are grouped by for the insight whose results are returned by the `GetInsightResults` operation.
+   *
    * @public
    */
   GroupByAttributeValue: string | undefined;
 
   /**
-   * <p>The number of findings returned for each <code>GroupByAttributeValue</code>.</p>
+   * The number of findings returned for each `GroupByAttributeValue`.
+   *
    * @public
    */
   Count: number | undefined;
 }
 
 /**
- * <p>The insight results returned by the <code>GetInsightResults</code> operation.</p>
+ * The insight results returned by the `GetInsightResults` operation.
+ *
  * @public
  */
 export interface InsightResults {
   /**
-   * <p>The ARN of the insight whose results are returned by the <code>GetInsightResults</code>
-   *          operation.</p>
+   * The ARN of the insight whose results are returned by the `GetInsightResults` operation.
+   *
    * @public
    */
   InsightArn: string | undefined;
 
   /**
-   * <p>The attribute that the findings are grouped by for the insight whose results are
-   *          returned by the <code>GetInsightResults</code> operation.</p>
+   * The attribute that the findings are grouped by for the insight whose results are returned by the `GetInsightResults` operation.
+   *
    * @public
    */
   GroupByAttribute: string | undefined;
 
   /**
-   * <p>The list of insight result values returned by the <code>GetInsightResults</code>
-   *          operation.</p>
+   * The list of insight result values returned by the `GetInsightResults` operation.
+   *
    * @public
    */
   ResultValues: InsightResultValue[] | undefined;
@@ -10181,7 +10018,8 @@ export interface InsightResults {
  */
 export interface GetInsightResultsResponse {
   /**
-   * <p>The insight results returned by the operation.</p>
+   * The insight results returned by the operation.
+   *
    * @public
    */
   InsightResults: InsightResults | undefined;
@@ -10192,59 +10030,59 @@ export interface GetInsightResultsResponse {
  */
 export interface GetInsightsRequest {
   /**
-   * <p>The ARNs of the insights to describe. If you don't provide any insight ARNs, then
-   *             <code>GetInsights</code> returns all of your custom insights. It does not return any
-   *          managed insights.</p>
+   * The ARNs of the insights to describe. If you don't provide any insight ARNs, then `GetInsights` returns all of your custom insights. It does not return any managed insights.
+   *
    * @public
    */
   InsightArns?: string[] | undefined;
 
   /**
-   * <p>The token that is required for pagination. On your first call to the
-   *             <code>GetInsights</code> operation, set the value of this parameter to
-   *          <code>NULL</code>.</p>
-   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
-   *          parameter to the value returned from the previous response.</p>
+   * The token that is required for pagination. On your first call to the `GetInsights` operation, set the value of this parameter to `NULL`.
+   *
+   * For subsequent calls to the operation, to continue listing data, set the value of this parameter to the value returned from the previous response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of items to return in the response.</p>
+   * The maximum number of items to return in the response.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>Contains information about a Security Hub CSPM insight.</p>
+ * Contains information about a Security Hub CSPM insight.
+ *
  * @public
  */
 export interface Insight {
   /**
-   * <p>The ARN of a Security Hub CSPM insight.</p>
+   * The ARN of a Security Hub CSPM insight.
+   *
    * @public
    */
   InsightArn: string | undefined;
 
   /**
-   * <p>The name of a Security Hub CSPM insight.</p>
+   * The name of a Security Hub CSPM insight.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>One or more attributes used to filter the findings included in the insight. You can filter by up to ten finding attributes. For each attribute, you can provide up to 20 filter values.
-   *             The insight only includes findings that match the criteria defined in the filters.</p>
+   * One or more attributes used to filter the findings included in the insight. You can filter by up to ten finding attributes. For each attribute, you can provide up to 20 filter values. The insight only includes findings that match the criteria defined in the filters.
+   *
    * @public
    */
   Filters: AwsSecurityFindingFilters | undefined;
 
   /**
-   * <p>The grouping attribute for the insight's findings. Indicates how to group the matching
-   *          findings, and identifies the type of item that the insight applies to. For example, if an
-   *          insight is grouped by resource identifier, then the insight produces a list of resource
-   *          identifiers.</p>
+   * The grouping attribute for the insight's findings. Indicates how to group the matching findings, and identifies the type of item that the insight applies to. For example, if an insight is grouped by resource identifier, then the insight produces a list of resource identifiers.
+   *
    * @public
    */
   GroupByAttribute: string | undefined;
@@ -10255,13 +10093,15 @@ export interface Insight {
  */
 export interface GetInsightsResponse {
   /**
-   * <p>The insights returned by the operation.</p>
+   * The insights returned by the operation.
+   *
    * @public
    */
   Insights: Insight[] | undefined;
 
   /**
-   * <p>The pagination token to use to request the next page of results.</p>
+   * The pagination token to use to request the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -10277,8 +10117,8 @@ export interface GetInvitationsCountRequest {}
  */
 export interface GetInvitationsCountResponse {
   /**
-   * <p>The number of all membership invitations sent to this Security Hub CSPM member account, not
-   *          including the currently accepted invitation.</p>
+   * The number of all membership invitations sent to this Security Hub CSPM member account, not including the currently accepted invitation.
+   *
    * @public
    */
   InvitationsCount?: number | undefined;
@@ -10294,8 +10134,8 @@ export interface GetMasterAccountRequest {}
  */
 export interface GetMasterAccountResponse {
   /**
-   * <p>A list of details about the Security Hub CSPM administrator account for the current member account.
-   *       </p>
+   * A list of details about the Security Hub CSPM administrator account for the current member account.
+   *
    * @public
    */
   Master?: Invitation | undefined;
@@ -10306,32 +10146,37 @@ export interface GetMasterAccountResponse {
  */
 export interface GetMembersRequest {
   /**
-   * <p>The list of account IDs for the Security Hub CSPM member accounts to return the details for. </p>
+   * The list of account IDs for the Security Hub CSPM member accounts to return the details for.
+   *
    * @public
    */
   AccountIds: string[] | undefined;
 }
 
 /**
- * <p>The details about a member account.</p>
+ * The details about a member account.
+ *
  * @public
  */
 export interface Member {
   /**
-   * <p>The Amazon Web Services account ID of the member account.</p>
+   * The Amazon Web Services account ID of the member account.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The email address of the member account.</p>
+   * The email address of the member account.
+   *
    * @public
    */
   Email?: string | undefined;
 
   /**
-   * <p>This is replaced by <code>AdministratorID</code>.</p>
-   *          <p>The Amazon Web Services account ID of the Security Hub CSPM administrator account associated with this member account.</p>
+   * This is replaced by `AdministratorID`.
+   *
+   * The Amazon Web Services account ID of the Security Hub CSPM administrator account associated with this member account.
    *
    * @deprecated This field is deprecated, use AdministratorId instead.
    * @public
@@ -10339,65 +10184,39 @@ export interface Member {
   MasterId?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the Security Hub CSPM administrator account associated with this member account.</p>
+   * The Amazon Web Services account ID of the Security Hub CSPM administrator account associated with this member account.
+   *
    * @public
    */
   AdministratorId?: string | undefined;
 
   /**
-   * <p>The status of the relationship between the member account and its administrator account.
-   *       </p>
-   *          <p>The status can have one of the following values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Created</code> - Indicates that the administrator account added the member account,
-   *                but has not yet invited the member account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Invited</code> - Indicates that the administrator account invited the member
-   *                account. The member account has not yet responded to the invitation.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Enabled</code> - Indicates that the member account is currently active. For
-   *                manually invited member accounts, indicates that the member account accepted the
-   *                invitation.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Removed</code> - Indicates that the administrator account disassociated the member
-   *                account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Resigned</code> - Indicates that the member account disassociated themselves
-   *                from the administrator account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Deleted</code> - Indicates that the administrator account deleted the member
-   *                account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AccountSuspended</code> - Indicates that an organization account was suspended from Amazon Web Services at the same time that the administrator account tried to enable the organization account as a member account.</p>
-   *             </li>
-   *          </ul>
+   * The status of the relationship between the member account and its administrator account.
+   *
+   * The status can have one of the following values:
+   *
+   * - `Created` - Indicates that the administrator account added the member account, but has not yet invited the member account.
+   * - `Invited` - Indicates that the administrator account invited the member account. The member account has not yet responded to the invitation.
+   * - `Enabled` - Indicates that the member account is currently active. For manually invited member accounts, indicates that the member account accepted the invitation.
+   * - `Removed` - Indicates that the administrator account disassociated the member account.
+   * - `Resigned` - Indicates that the member account disassociated themselves from the administrator account.
+   * - `Deleted` - Indicates that the administrator account deleted the member account.
+   * - `AccountSuspended` - Indicates that an organization account was suspended from Amazon Web Services at the same time that the administrator account tried to enable the organization account as a member account.
+   *
    * @public
    */
   MemberStatus?: string | undefined;
 
   /**
-   * <p>A timestamp for the date and time when the invitation was sent to the member
-   *          account.</p>
+   * A timestamp for the date and time when the invitation was sent to the member account.
+   *
    * @public
    */
   InvitedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp for the date and time when the member account was updated.</p>
+   * The timestamp for the date and time when the member account was updated.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
@@ -10408,14 +10227,15 @@ export interface Member {
  */
 export interface GetMembersResponse {
   /**
-   * <p>The list of details about the Security Hub CSPM member accounts.</p>
+   * The list of details about the Security Hub CSPM member accounts.
+   *
    * @public
    */
   Members?: Member[] | undefined;
 
   /**
-   * <p>The list of Amazon Web Services accounts that could not be processed. For each account, the list
-   *          includes the account ID and the email address.</p>
+   * The list of Amazon Web Services accounts that could not be processed. For each account, the list includes the account ID and the email address.
+   *
    * @public
    */
   UnprocessedAccounts?: Result[] | undefined;
@@ -10426,40 +10246,43 @@ export interface GetMembersResponse {
  */
 export interface GetRecommendedPolicyV2Request {
   /**
-   * <p>The unique identifier (ID) of Security Hub OCSF findings found under the <code>metadata.uid</code> field of the finding.</p>
+   * The unique identifier (ID) of Security Hub OCSF findings found under the `metadata.uid` field of the finding.
+   *
    * @public
    */
   MetadataUid: string | undefined;
 
   /**
-   * <p>The token used to paginate the <code>RecommendationSteps</code> list returned.
-   *            On your first call to <code>GetRecommendedPolicyV2</code>, omit this parameter or set it
-   *            to <code>NULL</code>. For subsequent calls, use the <code>NextToken</code> value returned in
-   *            the previous response to retrieve the next page of results.</p>
+   * The token used to paginate the `RecommendationSteps` list returned. On your first call to `GetRecommendedPolicyV2`, omit this parameter or set it to `NULL`. For subsequent calls, use the `NextToken` value returned in the previous response to retrieve the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of recommendation steps to return.</p>
+   * The maximum number of recommendation steps to return.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>Contains information about the reason that the retrieval of a recommended policy for a finding failed.</p>
+ * Contains information about the reason that the retrieval of a recommended policy for a finding failed.
+ *
  * @public
  */
 export interface RecommendationError {
   /**
-   * <p>The error code for a failed retrieval of a recommended policy for a finding.</p>
+   * The error code for a failed retrieval of a recommended policy for a finding.
+   *
    * @public
    */
   Code?: string | undefined;
 
   /**
-   * <p>The error message for a failed retrieval of a recommended policy for a finding.</p>
+   * The error message for a failed retrieval of a recommended policy for a finding.
+   *
    * @public
    */
   Message?: string | undefined;

@@ -23,8 +23,8 @@ export interface StopPipelineCommandInput extends StopPipelineRequest {}
 export interface StopPipelineCommandOutput extends StopPipelineResponse, __MetadataBearer {}
 
 /**
- * <p>Stops an OpenSearch Ingestion pipeline. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/pipeline--stop-start.html#pipeline--stop">Stopping
- *     an OpenSearch Ingestion pipeline</a>.</p>
+ * Stops an OpenSearch Ingestion pipeline. For more information, see [Stopping an OpenSearch Ingestion pipeline](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/pipeline--stop-start.html#pipeline--stop).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -117,27 +117,32 @@ export interface StopPipelineCommandOutput extends StopPipelineResponse, __Metad
  * @see {@link OSISClientResolvedConfig | config} for OSISClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permissions to access the resource.</p>
+ *
+ * You don't have permissions to access the resource.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The client attempted to remove a resource that is currently in use.</p>
+ *
+ * The client attempted to remove a resource that is currently in use.
  *
  * @throws {@link DisabledOperationException} (client fault)
- *  <p>Exception is thrown when an operation has been disabled.</p>
+ *
+ * Exception is thrown when an operation has been disabled.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>The request failed because of an unknown error, exception, or failure (the failure is
- *    internal to the service).</p>
+ *
+ * The request failed because of an unknown error, exception, or failure (the failure is internal to the service).
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>You attempted to access or delete a resource that does not exist.</p>
+ *
+ * You attempted to access or delete a resource that does not exist.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An exception for missing or invalid input fields.</p>
+ *
+ * An exception for missing or invalid input fields.
  *
  * @throws {@link OSISServiceException}
- * <p>Base exception class for all service exceptions from OSIS service.</p>
  *
+ * Base exception class for all service exceptions from OSIS service.
  *
  * @public
  */

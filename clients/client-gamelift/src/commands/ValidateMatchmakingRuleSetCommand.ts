@@ -23,22 +23,14 @@ export interface ValidateMatchmakingRuleSetCommandInput extends ValidateMatchmak
 export interface ValidateMatchmakingRuleSetCommandOutput extends ValidateMatchmakingRuleSetOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
- *          <p>Validates the syntax of a matchmaking rule or rule set. This operation checks that the
- *             rule set is using syntactically correct JSON and that it conforms to allowed property
- *             expressions. To validate syntax, provide a rule set JSON string.</p>
- *          <p>
- *             <b>Learn more</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-rulesets.html">Build a rule
- *                         set</a>
- *                </p>
- *             </li>
- *          </ul>
+ * **This API works with the following fleet types:** EC2, Anywhere, Container
+ *
+ * Validates the syntax of a matchmaking rule or rule set. This operation checks that the rule set is using syntactically correct JSON and that it conforms to allowed property expressions. To validate syntax, provide a rule set JSON string.
+ *
+ * **Learn more**
+ *
+ * - [Build a rule set](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-rulesets.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,19 +57,20 @@ export interface ValidateMatchmakingRuleSetCommandOutput extends ValidateMatchma
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an unrecoverable internal failure while processing the
- *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
- *             values before retrying.</p>
+ *
+ * One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.
  *
  * @throws {@link UnsupportedRegionException} (client fault)
- *  <p>The requested operation is not supported in the Region specified.</p>
+ *
+ * The requested operation is not supported in the Region specified.
  *
  * @throws {@link GameLiftServiceException}
- * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * Base exception class for all service exceptions from GameLift service.
  *
  * @public
  */

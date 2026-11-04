@@ -23,11 +23,8 @@ export interface CreateApplicationCommandInput extends CreateApplicationRequest 
 export interface CreateApplicationCommandOutput extends Application, __MetadataBearer {}
 
 /**
- * <p>Creates an application. In AppConfig, an application is simply an
- *          organizational construct like a folder. This organizational construct has a relationship
- *          with some unit of executable code. For example, you could create an application called
- *          MyMobileApp to organize and manage configuration data for a mobile application installed by
- *          your users.</p>
+ * Creates an application. In AppConfig, an application is simply an organizational construct like a folder. This organizational construct has a relationship with some unit of executable code. For example, you could create an application called MyMobileApp to organize and manage configuration data for a mobile application installed by your users.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,22 +57,24 @@ export interface CreateApplicationCommandOutput extends Application, __MetadataB
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>There was an internal failure in the AppConfig service.</p>
+ *
+ * There was an internal failure in the AppConfig service.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The number of one more AppConfig resources exceeds the maximum allowed. Verify that your
- *          environment doesn't exceed the following service quotas:</p>
- *          <p>Applications: 100 max</p>
- *          <p>To resolve this issue, you can delete one or more resources and try again. Or, you can
- *          request a quota increase. For more information about quotas and to request an increase, see
- *             <a href="https://docs.aws.amazon.com/general/latest/gr/appconfig.html#limits_appconfig">Service quotas for AppConfig</a> in the Amazon Web Services General Reference.</p>
+ *
+ * The number of one more AppConfig resources exceeds the maximum allowed. Verify that your environment doesn't exceed the following service quotas:
+ *
+ * Applications: 100 max
+ *
+ * To resolve this issue, you can delete one or more resources and try again. Or, you can request a quota increase. For more information about quotas and to request an increase, see [Service quotas for AppConfig](https://docs.aws.amazon.com/general/latest/gr/appconfig.html#limits_appconfig) in the Amazon Web Services General Reference.
  *
  * @throws {@link AppConfigServiceException}
- * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * Base exception class for all service exceptions from AppConfig service.
  *
  * @example To create an application
  * ```javascript

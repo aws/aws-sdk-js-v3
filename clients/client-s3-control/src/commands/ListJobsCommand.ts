@@ -23,40 +23,19 @@ export interface ListJobsCommandInput extends ListJobsRequest {}
 export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer {}
 
 /**
- * <p>Lists current S3 Batch Operations jobs as well as the jobs that have ended within the last 90
- *          days for the Amazon Web Services account making the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops.html">S3 Batch Operations</a> in the <i>Amazon S3 User Guide</i>.</p>
- *          <dl>
- *             <dt>Permissions</dt>
- *             <dd>
- *                <p>To use the
- *                   <code>ListJobs</code> operation, you must have permission to
- *                   perform the <code>s3:ListJobs</code> action.</p>
- *             </dd>
- *          </dl>
- *          <p>Related actions include:</p>
- *          <p></p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateJob.html">CreateJob</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeJob.html">DescribeJob</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobPriority.html">UpdateJobPriority</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html">UpdateJobStatus</a>
- *                </p>
- *             </li>
- *          </ul>
+ * Lists current S3 Batch Operations jobs as well as the jobs that have ended within the last 90 days for the Amazon Web Services account making the request. For more information, see [S3 Batch Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops.html) in the *Amazon S3 User Guide*.
+ *
+ * - **Permissions**
+ *
+ *   To use the `ListJobs` operation, you must have permission to perform the `s3:ListJobs` action.
+ *
+ * Related actions include:
+ *
+ * - [CreateJob](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateJob.html)
+ * - [DescribeJob](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeJob.html)
+ * - [UpdateJobPriority](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobPriority.html)
+ * - [UpdateJobStatus](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -107,17 +86,14 @@ export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer 
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p></p>
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p></p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p></p>
  *
  * @throws {@link S3ControlServiceException}
- * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * Base exception class for all service exceptions from S3Control service.
  *
  * @public
  */

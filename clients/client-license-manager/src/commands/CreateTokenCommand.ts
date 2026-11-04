@@ -23,10 +23,10 @@ export interface CreateTokenCommandInput extends CreateTokenRequest {}
 export interface CreateTokenCommandOutput extends CreateTokenResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a long-lived token.</p>
- *          <p>A refresh token is a JWT token used to get an access token. With an access token,
- *           you can call AssumeRoleWithWebIdentity to get role credentials that you can use to
- *           call License Manager to manage the specified license.</p>
+ * Creates a long-lived token.
+ *
+ * A refresh token is a JWT token used to get an access token. With an access token, you can call AssumeRoleWithWebIdentity to get role credentials that you can use to call License Manager to manage the specified license.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,33 +63,40 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to resource denied.</p>
+ *
+ * Access to resource denied.
  *
  * @throws {@link AuthorizationException} (client fault)
- *  <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
- *          policy associated with this account.</p>
+ *
+ * The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.
  *
  * @throws {@link RateLimitExceededException} (client fault)
- *  <p>Too many requests have been submitted. Try again after a brief wait.</p>
+ *
+ * Too many requests have been submitted. Try again after a brief wait.
  *
  * @throws {@link RedirectException} (client fault)
- *  <p>This is not the correct Region for the resource. Try again.</p>
+ *
+ * This is not the correct Region for the resource. Try again.
  *
  * @throws {@link ResourceLimitExceededException} (client fault)
- *  <p>Your resource limits have been exceeded.</p>
+ *
+ * Your resource limits have been exceeded.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource cannot be found.</p>
+ *
+ * The resource cannot be found.
  *
  * @throws {@link ServerInternalException} (server fault)
- *  <p>The server experienced an internal error. Try again.</p>
+ *
+ * The server experienced an internal error. Try again.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The provided input is not valid. Try your request again.</p>
+ *
+ * The provided input is not valid. Try your request again.
  *
  * @throws {@link LicenseManagerServiceException}
- * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ * Base exception class for all service exceptions from LicenseManager service.
  *
  * @public
  */

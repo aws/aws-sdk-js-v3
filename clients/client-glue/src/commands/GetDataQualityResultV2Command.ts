@@ -23,7 +23,8 @@ export interface GetDataQualityResultV2CommandInput extends GetDataQualityResult
 export interface GetDataQualityResultV2CommandOutput extends GetDataQualityResultV2Response, __MetadataBearer {}
 
 /**
- * <p>Retrieves the result of a data quality rule evaluation published from any supported data platform.</p>
+ * Retrieves the result of a data quality rule evaluation published from any supported data platform.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -152,20 +153,24 @@ export interface GetDataQualityResultV2CommandOutput extends GetDataQualityResul
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

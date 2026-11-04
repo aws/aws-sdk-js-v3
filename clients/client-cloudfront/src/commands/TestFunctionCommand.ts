@@ -23,7 +23,12 @@ export interface TestFunctionCommandInput extends TestFunctionRequest {}
 export interface TestFunctionCommandOutput extends TestFunctionResult, __MetadataBearer {}
 
 /**
- * <p>Tests a CloudFront function.</p> <p>To test a function, you provide an <i>event object</i> that represents an HTTP request or response that your CloudFront distribution could receive in production. CloudFront runs the function, passing it the event object that you provided, and returns the function's result (the modified event object) in the response. The response also contains function logs and error messages, if any exist. For more information about testing functions, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/managing-functions.html#test-function">Testing functions</a> in the <i>Amazon CloudFront Developer Guide</i>.</p> <p>To test a function, you provide the function's name and version (<code>ETag</code> value) along with the event object. To get the function's name and version, you can use <code>ListFunctions</code> and <code>DescribeFunction</code>.</p>
+ * Tests a CloudFront function.
+ *
+ * To test a function, you provide an *event object* that represents an HTTP request or response that your CloudFront distribution could receive in production. CloudFront runs the function, passing it the event object that you provided, and returns the function's result (the modified event object) in the response. The response also contains function logs and error messages, if any exist. For more information about testing functions, see [Testing functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/managing-functions.html#test-function) in the *Amazon CloudFront Developer Guide*.
+ *
+ * To test a function, you provide the function's name and version (`ETag` value) along with the event object. To get the function's name and version, you can use `ListFunctions` and `DescribeFunction`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,23 +87,28 @@ export interface TestFunctionCommandOutput extends TestFunctionResult, __Metadat
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link InvalidArgument} (client fault)
- *  <p>An argument is invalid.</p>
+ *
+ * An argument is invalid.
  *
  * @throws {@link InvalidIfMatchVersion} (client fault)
- *  <p>The <code>If-Match</code> version is missing or not valid.</p>
+ *
+ * The `If-Match` version is missing or not valid.
  *
  * @throws {@link NoSuchFunctionExists} (client fault)
- *  <p>The function does not exist.</p>
+ *
+ * The function does not exist.
  *
  * @throws {@link TestFunctionFailed} (server fault)
- *  <p>The CloudFront function failed.</p>
+ *
+ * The CloudFront function failed.
  *
  * @throws {@link UnsupportedOperation} (client fault)
- *  <p>This operation is not supported in this Amazon Web Services Region.</p>
+ *
+ * This operation is not supported in this Amazon Web Services Region.
  *
  * @throws {@link CloudFrontServiceException}
- * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * Base exception class for all service exceptions from CloudFront service.
  *
  * @public
  */

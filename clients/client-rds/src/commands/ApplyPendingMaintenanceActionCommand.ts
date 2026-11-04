@@ -23,7 +23,8 @@ export interface ApplyPendingMaintenanceActionCommandInput extends ApplyPendingM
 export interface ApplyPendingMaintenanceActionCommandOutput extends ApplyPendingMaintenanceActionResult, __MetadataBearer {}
 
 /**
- * <p>Applies a pending maintenance action to a resource (for example, to a DB instance).</p>
+ * Applies a pending maintenance action to a resource (for example, to a DB instance).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,17 +65,20 @@ export interface ApplyPendingMaintenanceActionCommandOutput extends ApplyPending
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
- *  <p>The requested operation can't be performed while the cluster is in this state.</p>
+ *
+ * The requested operation can't be performed while the cluster is in this state.
  *
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
- *  <p>The DB instance isn't in a valid state.</p>
+ *
+ * The DB instance isn't in a valid state.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The specified resource ID was not found.</p>
+ *
+ * The specified resource ID was not found.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To apply pending maintenance actions
  * ```javascript

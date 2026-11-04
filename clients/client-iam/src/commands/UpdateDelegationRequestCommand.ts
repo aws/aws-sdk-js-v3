@@ -23,14 +23,10 @@ export interface UpdateDelegationRequestCommandInput extends UpdateDelegationReq
 export interface UpdateDelegationRequestCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Updates an existing delegation request with additional information. When the delegation
- *             request is updated, it reaches the <code>PENDING_APPROVAL</code> state.
- *         </p>
- *          <p>Once a delegation request has an owner, that owner gets a default permission to update the
- *             delegation request. For more details, see
- *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-temporary-delegation.html#temporary-delegation-managing-permissions">
- *                 Managing Permissions for Delegation Requests</a>.
- *         </p>
+ * Updates an existing delegation request with additional information. When the delegation request is updated, it reaches the `PENDING_APPROVAL` state.
+ *
+ * Once a delegation request has an owner, that owner gets a default permission to update the delegation request. For more details, see [Managing Permissions for Delegation Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-temporary-delegation.html#temporary-delegation-managing-permissions).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,24 +52,24 @@ export interface UpdateDelegationRequestCommandOutput extends __MetadataBearer {
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>The request was rejected because multiple requests to change this object were submitted
- *       simultaneously. Wait a few minutes and submit your request again.</p>
+ *
+ * The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
- *       input parameter.</p>
+ *
+ * The request was rejected because an invalid or out-of-range value was supplied for an input parameter.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @public
  */

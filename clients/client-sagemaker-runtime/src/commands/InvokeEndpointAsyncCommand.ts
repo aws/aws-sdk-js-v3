@@ -30,18 +30,14 @@ export interface InvokeEndpointAsyncCommandInput extends InvokeEndpointAsyncComm
 export interface InvokeEndpointAsyncCommandOutput extends InvokeEndpointAsyncOutput, __MetadataBearer {}
 
 /**
- * <p>After you deploy a model into production using Amazon SageMaker AI hosting services,
- *             your client applications use this API to get inferences from the model hosted at the
- *             specified endpoint in an asynchronous manner.</p>
- *          <p>Inference requests sent to this API are enqueued for asynchronous processing. The
- *             processing of the inference request may or may not complete before you receive a
- *             response from this API. The response from this API will not contain the result of the
- *             inference request but contain information about where you can locate it.</p>
- *          <p>Amazon SageMaker AI strips all POST headers except those supported by the API. Amazon SageMaker AI might add
- *     additional headers. You should not rely on the behavior of headers outside those
- *     enumerated in the request syntax. </p>
- *          <p>Calls to <code>InvokeEndpointAsync</code> are authenticated by using Amazon Web Services Signature Version 4. For information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">Authenticating
- *                 Requests (Amazon Web Services Signature Version 4)</a> in the <i>Amazon S3 API Reference</i>.</p>
+ * After you deploy a model into production using Amazon SageMaker AI hosting services, your client applications use this API to get inferences from the model hosted at the specified endpoint in an asynchronous manner.
+ *
+ * Inference requests sent to this API are enqueued for asynchronous processing. The processing of the inference request may or may not complete before you receive a response from this API. The response from this API will not contain the result of the inference request but contain information about where you can locate it.
+ *
+ * Amazon SageMaker AI strips all POST headers except those supported by the API. Amazon SageMaker AI might add additional headers. You should not rely on the behavior of headers outside those enumerated in the request syntax.
+ *
+ * Calls to `InvokeEndpointAsync` are authenticated by using Amazon Web Services Signature Version 4. For information, see [Authenticating Requests (Amazon Web Services Signature Version 4)](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html) in the *Amazon S3 API Reference*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,17 +76,20 @@ export interface InvokeEndpointAsyncCommandOutput extends InvokeEndpointAsyncOut
  * @see {@link SageMakerRuntimeClientResolvedConfig | config} for SageMakerRuntimeClient's `config` shape.
  *
  * @throws {@link InternalFailure} (server fault)
- *  <p> An internal failure occurred. </p>
+ *
+ * An internal failure occurred.
  *
  * @throws {@link ServiceUnavailable} (server fault)
- *  <p> The service is unavailable. Try your call again. </p>
+ *
+ * The service is unavailable. Try your call again.
  *
  * @throws {@link ValidationError} (client fault)
- *  <p> Inspect your request and try again. </p>
+ *
+ * Inspect your request and try again.
  *
  * @throws {@link SageMakerRuntimeServiceException}
- * <p>Base exception class for all service exceptions from SageMakerRuntime service.</p>
  *
+ * Base exception class for all service exceptions from SageMakerRuntime service.
  *
  * @public
  */

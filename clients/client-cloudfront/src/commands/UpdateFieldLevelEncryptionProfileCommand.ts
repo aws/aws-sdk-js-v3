@@ -26,7 +26,8 @@ export interface UpdateFieldLevelEncryptionProfileCommandInput extends UpdateFie
 export interface UpdateFieldLevelEncryptionProfileCommandOutput extends UpdateFieldLevelEncryptionProfileResult, __MetadataBearer {}
 
 /**
- * <p>Update a field-level encryption profile.</p>
+ * Update a field-level encryption profile.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -98,44 +99,56 @@ export interface UpdateFieldLevelEncryptionProfileCommandOutput extends UpdateFi
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link AccessDenied} (client fault)
- *  <p>Access denied.</p>
+ *
+ * Access denied.
  *
  * @throws {@link FieldLevelEncryptionProfileAlreadyExists} (client fault)
- *  <p>The specified profile for field-level encryption already exists.</p>
+ *
+ * The specified profile for field-level encryption already exists.
  *
  * @throws {@link FieldLevelEncryptionProfileSizeExceeded} (client fault)
- *  <p>The maximum size of a profile for field-level encryption was exceeded.</p>
+ *
+ * The maximum size of a profile for field-level encryption was exceeded.
  *
  * @throws {@link IllegalUpdate} (client fault)
- *  <p>The update contains modifications that are not allowed.</p>
+ *
+ * The update contains modifications that are not allowed.
  *
  * @throws {@link InconsistentQuantities} (client fault)
- *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
+ *
+ * The value of `Quantity` and the size of `Items` don't match.
  *
  * @throws {@link InvalidArgument} (client fault)
- *  <p>An argument is invalid.</p>
+ *
+ * An argument is invalid.
  *
  * @throws {@link InvalidIfMatchVersion} (client fault)
- *  <p>The <code>If-Match</code> version is missing or not valid.</p>
+ *
+ * The `If-Match` version is missing or not valid.
  *
  * @throws {@link NoSuchFieldLevelEncryptionProfile} (client fault)
- *  <p>The specified profile for field-level encryption doesn't exist.</p>
+ *
+ * The specified profile for field-level encryption doesn't exist.
  *
  * @throws {@link NoSuchPublicKey} (client fault)
- *  <p>The specified public key doesn't exist.</p>
+ *
+ * The specified public key doesn't exist.
  *
  * @throws {@link PreconditionFailed} (client fault)
- *  <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+ *
+ * The precondition in one or more of the request fields evaluated to `false`.
  *
  * @throws {@link TooManyFieldLevelEncryptionEncryptionEntities} (client fault)
- *  <p>The maximum number of encryption entities for field-level encryption have been created.</p>
+ *
+ * The maximum number of encryption entities for field-level encryption have been created.
  *
  * @throws {@link TooManyFieldLevelEncryptionFieldPatterns} (client fault)
- *  <p>The maximum number of field patterns for field-level encryption have been created.</p>
+ *
+ * The maximum number of field patterns for field-level encryption have been created.
  *
  * @throws {@link CloudFrontServiceException}
- * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * Base exception class for all service exceptions from CloudFront service.
  *
  * @public
  */

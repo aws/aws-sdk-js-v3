@@ -23,16 +23,10 @@ export interface GetFindingHistoryCommandInput extends GetFindingHistoryRequest 
 export interface GetFindingHistoryCommandOutput extends GetFindingHistoryResponse, __MetadataBearer {}
 
 /**
- * <p>
- *          Returns the history of a Security Hub CSPM finding. The history includes changes made to any fields in
- *          the Amazon Web Services Security Finding Format (ASFF) except top-level timestamp fields, such as the <code>CreatedAt</code> and
- *          <code>UpdatedAt</code> fields.
- *       </p>
- *          <p>This operation might return fewer results than the maximum number of results (<code>MaxResults</code>) specified in a request, even
- *          when more results are available. If this occurs, the response includes a <code>NextToken</code> value, which you should use to retrieve
- *          the next set of results in the response. The presence of a <code>NextToken</code> value in a response doesn't necessarily indicate
- *          that the results are incomplete. However, you should continue to specify a <code>NextToken</code> value until you receive a
- *          response that doesn't include this value.</p>
+ * Returns the history of a Security Hub CSPM finding. The history includes changes made to any fields in the Amazon Web Services Security Finding Format (ASFF) except top-level timestamp fields, such as the `CreatedAt` and `UpdatedAt` fields.
+ *
+ * This operation might return fewer results than the maximum number of results (`MaxResults`) specified in a request, even when more results are available. If this occurs, the response includes a `NextToken` value, which you should use to retrieve the next set of results in the response. The presence of a `NextToken` value in a response doesn't necessarily indicate that the results are incomplete. However, you should continue to specify a `NextToken` value until you receive a response that doesn't include this value.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,22 +82,24 @@ export interface GetFindingHistoryCommandOutput extends GetFindingHistoryRespons
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>Internal server error.</p>
+ *
+ * Internal server error.
  *
  * @throws {@link InvalidAccessException} (client fault)
- *  <p>The account doesn't have permission to perform this action.</p>
+ *
+ * The account doesn't have permission to perform this action.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because you supplied an invalid or out-of-range value for an
- *          input parameter.</p>
+ *
+ * The request was rejected because you supplied an invalid or out-of-range value for an input parameter.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
- *          account or throttling limits. The error code describes the limit exceeded.</p>
+ *
+ * The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.
  *
  * @throws {@link SecurityHubServiceException}
- * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * Base exception class for all service exceptions from SecurityHub service.
  *
  * @public
  */

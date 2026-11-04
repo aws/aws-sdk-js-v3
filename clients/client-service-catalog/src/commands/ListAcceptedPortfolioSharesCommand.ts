@@ -23,9 +23,8 @@ export interface ListAcceptedPortfolioSharesCommandInput extends ListAcceptedPor
 export interface ListAcceptedPortfolioSharesCommandOutput extends ListAcceptedPortfolioSharesOutput, __MetadataBearer {}
 
 /**
- * <p>Lists all imported portfolios for which account-to-account shares were accepted by
- *          this account. By specifying the <code>PortfolioShareType</code>, you can list portfolios for which
- *          organizational shares were accepted by this account.</p>
+ * Lists all imported portfolios for which account-to-account shares were accepted by this account. By specifying the `PortfolioShareType`, you can list portfolios for which organizational shares were accepted by this account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,14 +64,16 @@ export interface ListAcceptedPortfolioSharesCommandOutput extends ListAcceptedPo
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  * @throws {@link InvalidParametersException} (client fault)
- *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * One or more parameters provided to the operation are not valid.
  *
  * @throws {@link OperationNotSupportedException} (client fault)
- *  <p>The operation is not supported.</p>
+ *
+ * The operation is not supported.
  *
  * @throws {@link ServiceCatalogServiceException}
- * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * Base exception class for all service exceptions from ServiceCatalog service.
  *
  * @public
  */

@@ -1149,7 +1149,8 @@ export type BedrockAgentCoreControlClientResolvedConfigType = __SmithyResolvedCo
 export interface BedrockAgentCoreControlClientResolvedConfig extends BedrockAgentCoreControlClientResolvedConfigType {}
 
 /**
- * <p>Welcome to the Amazon Bedrock AgentCore Control plane API reference. Control plane actions configure, create, modify, and monitor Amazon Web Services resources.</p>
+ * Welcome to the Amazon Bedrock AgentCore Control plane API reference. Control plane actions configure, create, modify, and monitor Amazon Web Services resources.
+ *
  * @public
  */
 export class BedrockAgentCoreControlClient extends __Client<

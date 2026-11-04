@@ -23,26 +23,15 @@ export interface AddEndpointsCommandInput extends AddEndpointsRequest {}
 export interface AddEndpointsCommandOutput extends AddEndpointsResponse, __MetadataBearer {}
 
 /**
- * <p>Add endpoints to an endpoint group. The <code>AddEndpoints</code> API operation is the recommended option for adding endpoints. The
- * 			alternative options are to add endpoints when you create an endpoint group (with the
- * 			<a href="https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateEndpointGroup.html">CreateEndpointGroup</a> API)
- * 			or when you update an endpoint group (with the
- * 			<a href="https://docs.aws.amazon.com/global-accelerator/latest/api/API_UpdateEndpointGroup.html">UpdateEndpointGroup</a> API). </p>
- *          <p>There are two advantages to using <code>AddEndpoints</code> to add endpoints in Global Accelerator:</p>
- *          <ul>
- *             <li>
- *                <p>It's faster, because Global Accelerator only has to resolve the new endpoints that
- * 					you're adding, rather than resolving new and existing endpoints.</p>
- *             </li>
- *             <li>
- *                <p>It's more convenient, because you don't need to specify the current
- * 					endpoints that are already in the endpoint group, in addition to the new endpoints that
- * 					you want to add.</p>
- *             </li>
- *          </ul>
- *          <p>For information about endpoint types and requirements for endpoints that you can add
- * 			to Global Accelerator, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints.html">
- * 				Endpoints for standard accelerators</a> in the <i>Global Accelerator Developer Guide</i>.</p>
+ * Add endpoints to an endpoint group. The `AddEndpoints` API operation is the recommended option for adding endpoints. The alternative options are to add endpoints when you create an endpoint group (with the [CreateEndpointGroup](https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateEndpointGroup.html) API) or when you update an endpoint group (with the [UpdateEndpointGroup](https://docs.aws.amazon.com/global-accelerator/latest/api/API_UpdateEndpointGroup.html) API).
+ *
+ * There are two advantages to using `AddEndpoints` to add endpoints in Global Accelerator:
+ *
+ * - It's faster, because Global Accelerator only has to resolve the new endpoints that you're adding, rather than resolving new and existing endpoints.
+ * - It's more convenient, because you don't need to specify the current endpoints that are already in the endpoint group, in addition to the new endpoints that you want to add.
+ *
+ * For information about endpoint types and requirements for endpoints that you can add to Global Accelerator, see [Endpoints for standard accelerators](https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints.html) in the *Global Accelerator Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,26 +75,32 @@ export interface AddEndpointsCommandOutput extends AddEndpointsResponse, __Metad
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have access permission.</p>
+ *
+ * You don't have access permission.
  *
  * @throws {@link EndpointGroupNotFoundException} (client fault)
- *  <p>The endpoint group that you specified doesn't exist.</p>
+ *
+ * The endpoint group that you specified doesn't exist.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * There was an internal error for Global Accelerator.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>An argument that you specified is invalid.</p>
+ *
+ * An argument that you specified is invalid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
+ *
+ * Processing your request would cause you to exceed an Global Accelerator limit.
  *
  * @throws {@link TransactionInProgressException} (client fault)
- *  <p>There's already a transaction in progress. Another transaction can't be processed.</p>
+ *
+ * There's already a transaction in progress. Another transaction can't be processed.
  *
  * @throws {@link GlobalAcceleratorServiceException}
- * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * Base exception class for all service exceptions from GlobalAccelerator service.
  *
  * @public
  */

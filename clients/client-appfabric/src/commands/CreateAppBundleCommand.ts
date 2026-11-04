@@ -23,7 +23,8 @@ export interface CreateAppBundleCommandInput extends CreateAppBundleRequest {}
 export interface CreateAppBundleCommandOutput extends CreateAppBundleResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an app bundle to collect data from an application using AppFabric.</p>
+ * Creates an app bundle to collect data from an application using AppFabric.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,27 +61,32 @@ export interface CreateAppBundleCommandOutput extends CreateAppBundleResponse, _
  * @see {@link AppFabricClientResolvedConfig | config} for AppFabricClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You are not authorized to perform this operation.</p>
+ *
+ * You are not authorized to perform this operation.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request has created a conflict. Check the request parameters and try again.</p>
+ *
+ * The request has created a conflict. Check the request parameters and try again.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception, or failure
- *          with an internal server.</p>
+ *
+ * The request processing has failed because of an unknown error, exception, or failure with an internal server.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request exceeds a service quota.</p>
+ *
+ * The request exceeds a service quota.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request rate exceeds the limit.</p>
+ *
+ * The request rate exceeds the limit.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request has invalid or missing parameters.</p>
+ *
+ * The request has invalid or missing parameters.
  *
  * @throws {@link AppFabricServiceException}
- * <p>Base exception class for all service exceptions from AppFabric service.</p>
  *
+ * Base exception class for all service exceptions from AppFabric service.
  *
  * @public
  */

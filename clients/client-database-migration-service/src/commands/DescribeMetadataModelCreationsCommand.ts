@@ -23,15 +23,12 @@ export interface DescribeMetadataModelCreationsCommandInput extends DescribeMeta
 export interface DescribeMetadataModelCreationsCommandOutput extends DescribeMetadataModelCreationsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a paginated list of metadata model creation requests for a migration
- *          project, initiated by
- *          <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartMetadataModelCreation.html">StartMetadataModelCreation</a>.</p>
- *          <p>To cancel a queued or in-progress request, call
- *          <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_CancelMetadataModelCreation.html">CancelMetadataModelCreation</a>.</p>
- *          <p>
- *             <b>Required permissions:</b>
- *             <code>dms:DescribeMetadataModelCreations</code>. For more information, see
- *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
+ * Returns a paginated list of metadata model creation requests for a migration project, initiated by [StartMetadataModelCreation](https://docs.aws.amazon.com/dms/latest/APIReference/API_StartMetadataModelCreation.html).
+ *
+ * To cancel a queued or in-progress request, call [CancelMetadataModelCreation](https://docs.aws.amazon.com/dms/latest/APIReference/API_CancelMetadataModelCreation.html).
+ *
+ * **Required permissions:** `dms:DescribeMetadataModelCreations`. For more information, see [Actions, resources, and condition keys for Database Migration Service](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,15 +91,16 @@ export interface DescribeMetadataModelCreationsCommandOutput extends DescribeMet
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedFault} (client fault)
- *  <p>DMS was denied access to the endpoint. Check that the
- *             role is correctly configured.</p>
+ *
+ * DMS was denied access to the endpoint. Check that the role is correctly configured.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @example Retrieve the status of metadata model creations
  * ```javascript

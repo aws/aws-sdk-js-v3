@@ -23,7 +23,8 @@ export interface DeleteUsageReportSubscriptionCommandInput extends DeleteUsageRe
 export interface DeleteUsageReportSubscriptionCommandOutput extends DeleteUsageReportSubscriptionResult, __MetadataBearer {}
 
 /**
- * <p>Disables usage report generation.</p>
+ * Disables usage report generation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -46,14 +47,16 @@ export interface DeleteUsageReportSubscriptionCommandOutput extends DeleteUsageR
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  * @throws {@link InvalidAccountStatusException} (client fault)
- *  <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
+ *
+ * The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link AppStreamServiceException}
- * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * Base exception class for all service exceptions from AppStream service.
  *
  * @public
  */

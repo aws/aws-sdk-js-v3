@@ -23,12 +23,10 @@ export interface DescribeInstanceProfilesCommandInput extends DescribeInstancePr
 export interface DescribeInstanceProfilesCommandOutput extends DescribeInstanceProfilesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a paginated list of instance profiles for your account in the current
- *          region.</p>
- *          <p>
- *             <b>Required permissions:</b>
- *             <code>dms:ListInstanceProfiles</code>. For more information, see
- *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
+ * Returns a paginated list of instance profiles for your account in the current region.
+ *
+ * **Required permissions:** `dms:ListInstanceProfiles`. For more information, see [Actions, resources, and condition keys for Database Migration Service](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,18 +78,20 @@ export interface DescribeInstanceProfilesCommandOutput extends DescribeInstanceP
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedFault} (client fault)
- *  <p>DMS was denied access to the endpoint. Check that the
- *             role is correctly configured.</p>
+ *
+ * DMS was denied access to the endpoint. Check that the role is correctly configured.
  *
  * @throws {@link FailedDependencyFault} (client fault)
- *  <p>A dependency threw an exception.</p>
+ *
+ * A dependency threw an exception.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @example Describe instance profiles with a filter
  * ```javascript

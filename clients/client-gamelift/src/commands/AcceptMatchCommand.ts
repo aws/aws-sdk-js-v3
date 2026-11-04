@@ -23,43 +23,25 @@ export interface AcceptMatchCommandInput extends AcceptMatchInput {}
 export interface AcceptMatchCommandOutput extends AcceptMatchOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
- *          <p>Registers a player's acceptance or rejection of a proposed FlexMatch match. A
- *             matchmaking configuration may require player acceptance; if so, then matches built with
- *             that configuration cannot be completed unless all players accept the proposed match
- *             within a specified time limit. </p>
- *          <p>When FlexMatch builds a match, all the matchmaking tickets involved in the proposed
- *             match are placed into status <code>REQUIRES_ACCEPTANCE</code>. This is a trigger for
- *             your game to get acceptance from all players in each ticket. Calls to this action are only valid
- *             for tickets that are in this status; calls for tickets not in this status result in an
- *             error.</p>
- *          <p>To register acceptance, specify the ticket ID, one or more players, and an acceptance response.
- *             When all players have accepted, Amazon GameLift Servers advances the matchmaking tickets to status
- *                 <code>PLACING</code>, and attempts to create a new game session for the match. </p>
- *          <p>If any player rejects the match, or if acceptances are not received before a specified
- *             timeout, the proposed match is dropped. Each matchmaking ticket in the failed match is handled as follows: </p>
- *          <ul>
- *             <li>
- *                <p>If the ticket has one or more players who rejected the match or failed to
- *                 respond, the ticket status is set to <code>CANCELLED</code> and processing is
- *                 terminated.</p>
- *             </li>
- *             <li>
- *                <p>If all players in the ticket accepted the match, the ticket
- *                 status is returned to <code>SEARCHING</code> to find a new match. </p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Learn more</b>
- *          </p>
- *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-client.html">
- *                 Add FlexMatch to a game client</a>
- *          </p>
- *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-events.html">
- *                 FlexMatch events</a> (reference)</p>
+ * **This API works with the following fleet types:** EC2, Anywhere, Container
+ *
+ * Registers a player's acceptance or rejection of a proposed FlexMatch match. A matchmaking configuration may require player acceptance; if so, then matches built with that configuration cannot be completed unless all players accept the proposed match within a specified time limit.
+ *
+ * When FlexMatch builds a match, all the matchmaking tickets involved in the proposed match are placed into status `REQUIRES_ACCEPTANCE`. This is a trigger for your game to get acceptance from all players in each ticket. Calls to this action are only valid for tickets that are in this status; calls for tickets not in this status result in an error.
+ *
+ * To register acceptance, specify the ticket ID, one or more players, and an acceptance response. When all players have accepted, Amazon GameLift Servers advances the matchmaking tickets to status `PLACING`, and attempts to create a new game session for the match.
+ *
+ * If any player rejects the match, or if acceptances are not received before a specified timeout, the proposed match is dropped. Each matchmaking ticket in the failed match is handled as follows:
+ *
+ * - If the ticket has one or more players who rejected the match or failed to respond, the ticket status is set to `CANCELLED` and processing is terminated.
+ * - If all players in the ticket accepted the match, the ticket status is returned to `SEARCHING` to find a new match.
+ *
+ * **Learn more**
+ *
+ * [Add FlexMatch to a game client](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-client.html)
+ *
+ * [FlexMatch events](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-events.html) (reference)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,22 +70,24 @@ export interface AcceptMatchCommandOutput extends AcceptMatchOutput, __MetadataB
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an unrecoverable internal failure while processing the
- *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
- *             values before retrying.</p>
+ *
+ * One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resource was not found. The resource was either not created yet or deleted.</p>
+ *
+ * The requested resource was not found. The resource was either not created yet or deleted.
  *
  * @throws {@link UnsupportedRegionException} (client fault)
- *  <p>The requested operation is not supported in the Region specified.</p>
+ *
+ * The requested operation is not supported in the Region specified.
  *
  * @throws {@link GameLiftServiceException}
- * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * Base exception class for all service exceptions from GameLift service.
  *
  * @public
  */

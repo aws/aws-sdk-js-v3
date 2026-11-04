@@ -23,7 +23,8 @@ export interface ListPipelinesCommandInput extends ListPipelinesInput {}
 export interface ListPipelinesCommandOutput extends ListPipelinesOutput, __MetadataBearer {}
 
 /**
- * <p>Gets a summary of all of the pipelines associated with your account.</p>
+ * Gets a summary of all of the pipelines associated with your account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,15 +62,16 @@ export interface ListPipelinesCommandOutput extends ListPipelinesOutput, __Metad
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The next token was specified in an invalid format. Make sure that the next token
- *             you provide is the token returned by a previous call.</p>
+ *
+ * The next token was specified in an invalid format. Make sure that the next token you provide is the token returned by a previous call.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The validation was specified in an invalid format.</p>
+ *
+ * The validation was specified in an invalid format.
  *
  * @throws {@link CodePipelineServiceException}
- * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * Base exception class for all service exceptions from CodePipeline service.
  *
  * @public
  */

@@ -23,21 +23,14 @@ export interface CreateDataRepositoryTaskCommandInput extends CreateDataReposito
 export interface CreateDataRepositoryTaskCommandOutput extends CreateDataRepositoryTaskResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon FSx for Lustre data repository task.
- *             A <code>CreateDataRepositoryTask</code> operation will fail if a data
- *             repository is not linked to the FSx file system.</p>
- *          <p>You use import and export data repository tasks to perform bulk operations between your
- *             FSx for Lustre file system and its linked data repositories. An example of a data repository
- *             task is exporting any data and metadata changes, including POSIX metadata, to files, directories,
- *             and symbolic links (symlinks) from your FSx file system to a linked data repository.</p>
- *          <p>You use release data repository tasks to release data from your file system for files that
- *             are exported to S3. The metadata of released files remains on the file system so users or applications
- *             can still access released files by reading the files again, which will restore data from
- *             Amazon S3 to the FSx for Lustre file system.</p>
- *          <p>To learn more about data repository tasks, see
- *             <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-repository-tasks.html">Data Repository Tasks</a>.
- *             To learn more about linking a data repository to your file system, see
- *             <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-dra-linked-data-repo.html">Linking your file system to an S3 bucket</a>.</p>
+ * Creates an Amazon FSx for Lustre data repository task. A `CreateDataRepositoryTask` operation will fail if a data repository is not linked to the FSx file system.
+ *
+ * You use import and export data repository tasks to perform bulk operations between your FSx for Lustre file system and its linked data repositories. An example of a data repository task is exporting any data and metadata changes, including POSIX metadata, to files, directories, and symbolic links (symlinks) from your FSx file system to a linked data repository.
+ *
+ * You use release data repository tasks to release data from your file system for files that are exported to S3. The metadata of released files remains on the file system so users or applications can still access released files by reading the files again, which will restore data from Amazon S3 to the FSx for Lustre file system.
+ *
+ * To learn more about data repository tasks, see [Data Repository Tasks](https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-repository-tasks.html). To learn more about linking a data repository to your file system, see [Linking your file system to an S3 bucket](https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-dra-linked-data-repo.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -130,33 +123,36 @@ export interface CreateDataRepositoryTaskCommandOutput extends CreateDataReposit
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * A generic error indicating a failure with a client request.
  *
  * @throws {@link DataRepositoryTaskExecuting} (client fault)
- *  <p>An existing data repository task is currently executing on the file system.
- *         Wait until the existing task has completed, then create the new task.</p>
+ *
+ * An existing data repository task is currently executing on the file system. Wait until the existing task has completed, then create the new task.
  *
  * @throws {@link FileSystemNotFound} (client fault)
- *  <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
+ *
+ * No Amazon FSx file systems were found based upon supplied parameters.
  *
  * @throws {@link IncompatibleParameterError} (client fault)
- *  <p>The error returned when a second request is received with the same client request
- *             token but different parameters settings. A client request token should always uniquely
- *             identify a single request.</p>
+ *
+ * The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * A generic error indicating a server-side failure.
  *
  * @throws {@link ServiceLimitExceeded} (client fault)
- *  <p>An error indicating that a particular service limit was exceeded. You can increase
- *             some service limits by contacting Amazon Web Services Support.</p>
+ *
+ * An error indicating that a particular service limit was exceeded. You can increase some service limits by contacting Amazon Web Services Support.
  *
  * @throws {@link UnsupportedOperation} (client fault)
- *  <p>The requested operation is not supported for this resource or API.</p>
+ *
+ * The requested operation is not supported for this resource or API.
  *
  * @throws {@link FSxServiceException}
- * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * Base exception class for all service exceptions from FSx service.
  *
  * @public
  */

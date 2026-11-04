@@ -23,33 +23,17 @@ export interface CreateWorkspacesCommandInput extends CreateWorkspacesRequest {}
 export interface CreateWorkspacesCommandOutput extends CreateWorkspacesResult, __MetadataBearer {}
 
 /**
- * <p>Creates one or more WorkSpaces.</p>
- *          <p>This operation is asynchronous and returns before the WorkSpaces are created.</p>
- *          <note>
- *             <ul>
- *                <li>
- *                   <p>The <code>MANUAL</code> running mode value is only supported by Amazon WorkSpaces
- *                Core. Contact your account team to be allow-listed to use this value. For more
- *                information, see <a href="http://aws.amazon.com/workspaces/core/">Amazon WorkSpaces
- *                   Core</a>.</p>
- *                </li>
- *                <li>
- *                   <p>You don't need to specify the <code>PCOIP</code> protocol for Linux bundles
- *                   because <code>DCV</code> (formerly WSP) is the default protocol for those bundles.</p>
- *                </li>
- *                <li>
- *                   <p>User-decoupled WorkSpaces are only supported by Amazon WorkSpaces
- *                Core.</p>
- *                </li>
- *                <li>
- *                   <p>Review your running mode to ensure you are using one that is optimal for your needs and budget.
- *                   For more information on switching running modes, see
- *                   <a href="http://aws.amazon.com/workspaces-family/workspaces/faqs/#:~:text=Can%20I%20switch%20between%20hourly%20and%20monthly%20billing%20on%20WorkSpaces%20Personal%3F">
- *                      Can I switch between hourly and monthly billing?</a>
- *                   </p>
- *                </li>
- *             </ul>
- *          </note>
+ * Creates one or more WorkSpaces.
+ *
+ * This operation is asynchronous and returns before the WorkSpaces are created.
+ *
+ * > **Note:**
+ * >
+ * > - The `MANUAL` running mode value is only supported by Amazon WorkSpaces Core. Contact your account team to be allow-listed to use this value. For more information, see [Amazon WorkSpaces Core](http://aws.amazon.com/workspaces/core/).
+ * > - You don't need to specify the `PCOIP` protocol for Linux bundles because `DCV` (formerly WSP) is the default protocol for those bundles.
+ * > - User-decoupled WorkSpaces are only supported by Amazon WorkSpaces Core.
+ * > - Review your running mode to ensure you are using one that is optimal for your needs and budget. For more information on switching running modes, see [Can I switch between hourly and monthly billing?](http://aws.amazon.com/workspaces-family/workspaces/faqs/#:~:text=Can%20I%20switch%20between%20hourly%20and%20monthly%20billing%20on%20WorkSpaces%20Personal%3F)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -206,14 +190,16 @@ export interface CreateWorkspacesCommandOutput extends CreateWorkspacesResult, _
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  * @throws {@link InvalidParameterValuesException} (client fault)
- *  <p>One or more parameter values are not valid.</p>
+ *
+ * One or more parameter values are not valid.
  *
  * @throws {@link ResourceLimitExceededException} (client fault)
- *  <p>Your resource limits have been exceeded.</p>
+ *
+ * Your resource limits have been exceeded.
  *
  * @throws {@link WorkSpacesServiceException}
- * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * Base exception class for all service exceptions from WorkSpaces service.
  *
  * @public
  */

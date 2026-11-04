@@ -26,12 +26,10 @@ export interface ListRealtimeContactAnalysisSegmentsV2CommandInput extends ListR
 export interface ListRealtimeContactAnalysisSegmentsV2CommandOutput extends ListRealtimeContactAnalysisSegmentsV2Response, __MetadataBearer {}
 
 /**
- * <p>Provides a list of analysis segments for a real-time chat analysis session. This API supports CHAT channels
- *    only. </p>
- *          <important>
- *             <p>This API does not support VOICE. If you attempt to use it for VOICE, an <code>InvalidRequestException</code>
- *     occurs.</p>
- *          </important>
+ * Provides a list of analysis segments for a real-time chat analysis session. This API supports CHAT channels only.
+ *
+ * > **Important:** This API does not support VOICE. If you attempt to use it for VOICE, an `InvalidRequestException` occurs.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -196,27 +194,32 @@ export interface ListRealtimeContactAnalysisSegmentsV2CommandOutput extends List
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link OutputTypeNotFoundException} (client fault)
- *  <p>Thrown for analyzed content when requested OutputType was not enabled for a given contact. For example, if an
- *    OutputType.Raw was requested for a contact that had `RedactedOnly` Redaction policy set in the flow.</p>
+ *
+ * Thrown for analyzed content when requested OutputType was not enabled for a given contact. For example, if an OutputType.Raw was requested for a contact that had `RedactedOnly` Redaction policy set in the flow.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

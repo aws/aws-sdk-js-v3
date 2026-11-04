@@ -23,9 +23,8 @@ export interface ListComplianceStatusCommandInput extends ListComplianceStatusRe
 export interface ListComplianceStatusCommandOutput extends ListComplianceStatusResponse, __MetadataBearer {}
 
 /**
- * <p>Returns an array of <code>PolicyComplianceStatus</code> objects. Use
- *         <code>PolicyComplianceStatus</code> to get a summary of which member accounts are protected
- *       by the specified policy. </p>
+ * Returns an array of `PolicyComplianceStatus` objects. Use `PolicyComplianceStatus` to get a summary of which member accounts are protected by the specified policy.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,15 +72,16 @@ export interface ListComplianceStatusCommandOutput extends ListComplianceStatusR
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
  *
  * @throws {@link InternalErrorException} (client fault)
- *  <p>The operation failed because of a system problem, even though the request was valid. Retry
- *       your request.</p>
+ *
+ * The operation failed because of a system problem, even though the request was valid. Retry your request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link FMSServiceException}
- * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ * Base exception class for all service exceptions from FMS service.
  *
  * @public
  */

@@ -23,23 +23,12 @@ export interface CreateActivityCommandInput extends CreateActivityInput {}
 export interface CreateActivityCommandOutput extends CreateActivityOutput, __MetadataBearer {}
 
 /**
- * <p>Creates an activity. An activity is a task that you write in any programming language and
- *       host on any machine that has access to Step Functions. Activities must poll Step Functions using the
- *         <code>GetActivityTask</code> API action and respond using <code>SendTask*</code> API
- *       actions. This function lets Step Functions know the existence of your activity and returns an
- *       identifier for use in a state machine and when polling from the activity.</p>
- *          <note>
- *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
- *          </note>
- *          <note>
- *             <p>
- *                <code>CreateActivity</code> is an idempotent API. Subsequent requests won’t create a
- *         duplicate resource if it was already created. <code>CreateActivity</code>'s idempotency
- *         check is based on the activity <code>name</code>. If a following request has different
- *           <code>tags</code> values, Step Functions will ignore these differences and treat it as an
- *         idempotent request of the previous. In this case, <code>tags</code> will not be updated,
- *         even if they are different.</p>
- *          </note>
+ * Creates an activity. An activity is a task that you write in any programming language and host on any machine that has access to Step Functions. Activities must poll Step Functions using the `GetActivityTask` API action and respond using `SendTask*` API actions. This function lets Step Functions know the existence of your activity and returns an identifier for use in a state machine and when polling from the activity.
+ *
+ * > **Note:** This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.
+ *
+ * > **Note:** `CreateActivity` is an idempotent API. Subsequent requests won’t create a duplicate resource if it was already created. `CreateActivity`'s idempotency check is based on the activity `name`. If a following request has different `tags` values, Step Functions will ignore these differences and treat it as an idempotent request of the previous. In this case, `tags` will not be updated, even if they are different.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,31 +67,36 @@ export interface CreateActivityCommandOutput extends CreateActivityOutput, __Met
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
  * @throws {@link ActivityAlreadyExists} (client fault)
- *  <p>Activity already exists. <code>EncryptionConfiguration</code> may not be updated.</p>
+ *
+ * Activity already exists. `EncryptionConfiguration` may not be updated.
  *
  * @throws {@link ActivityLimitExceeded} (client fault)
- *  <p>The maximum number of activities has been reached. Existing activities must be deleted
- *       before a new activity can be created.</p>
+ *
+ * The maximum number of activities has been reached. Existing activities must be deleted before a new activity can be created.
  *
  * @throws {@link InvalidEncryptionConfiguration} (client fault)
- *  <p>Received when <code>encryptionConfiguration</code> is specified but various conditions exist which make the configuration invalid. For example, if <code>type</code> is set to <code>CUSTOMER_MANAGED_KMS_KEY</code>, but <code>kmsKeyId</code> is null, or <code>kmsDataKeyReusePeriodSeconds</code> is not between 60 and 900, or the KMS key is not symmetric or inactive.</p>
+ *
+ * Received when `encryptionConfiguration` is specified but various conditions exist which make the configuration invalid. For example, if `type` is set to `CUSTOMER_MANAGED_KMS_KEY`, but `kmsKeyId` is null, or `kmsDataKeyReusePeriodSeconds` is not between 60 and 900, or the KMS key is not symmetric or inactive.
  *
  * @throws {@link InvalidName} (client fault)
- *  <p>The provided name is not valid.</p>
+ *
+ * The provided name is not valid.
  *
  * @throws {@link KmsAccessDeniedException} (client fault)
- *  <p>Either your KMS key policy or API caller does not have the required permissions.</p>
+ *
+ * Either your KMS key policy or API caller does not have the required permissions.
  *
  * @throws {@link KmsThrottlingException} (client fault)
- *  <p>Received when KMS returns <code>ThrottlingException</code> for a KMS call that Step Functions makes on behalf of the caller.</p>
+ *
+ * Received when KMS returns `ThrottlingException` for a KMS call that Step Functions makes on behalf of the caller.
  *
  * @throws {@link TooManyTags} (client fault)
- *  <p>You've exceeded the number of tags allowed for a resource. See the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html"> Limits Topic</a> in the
- *       Step Functions Developer Guide.</p>
+ *
+ * You've exceeded the number of tags allowed for a resource. See the [Limits Topic](https://docs.aws.amazon.com/step-functions/latest/dg/limits.html) in the Step Functions Developer Guide.
  *
  * @throws {@link SFNServiceException}
- * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * Base exception class for all service exceptions from SFN service.
  *
  * @public
  */

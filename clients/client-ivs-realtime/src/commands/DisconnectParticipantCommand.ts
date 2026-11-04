@@ -23,7 +23,8 @@ export interface DisconnectParticipantCommandInput extends DisconnectParticipant
 export interface DisconnectParticipantCommandOutput extends DisconnectParticipantResponse, __MetadataBearer {}
 
 /**
- * <p>Disconnects a specified participant from a specified stage. If the participant is publishing using an <a>IngestConfiguration</a>, DisconnectParticipant also updates the <code>stageArn</code> in the IngestConfiguration to be an empty string.</p>
+ * Disconnects a specified participant from a specified stage. If the participant is publishing using an IngestConfiguration, DisconnectParticipant also updates the `stageArn` in the IngestConfiguration to be an empty string.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,20 +51,24 @@ export interface DisconnectParticipantCommandOutput extends DisconnectParticipan
  * @see {@link IVSRealTimeClientResolvedConfig | config} for IVSRealTimeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * User does not have sufficient access to perform this action.
  *
  * @throws {@link PendingVerification} (client fault)
- *  <p>Your account is pending verification.</p>
+ *
+ * Your account is pending verification.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Request references a resource which does not exist.</p>
+ *
+ * Request references a resource which does not exist.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link IVSRealTimeServiceException}
- * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ * Base exception class for all service exceptions from IVSRealTime service.
  *
  * @public
  */

@@ -23,9 +23,8 @@ export interface GetCapacityManagerAttributesCommandInput extends GetCapacityMan
 export interface GetCapacityManagerAttributesCommandOutput extends GetCapacityManagerAttributesResult, __MetadataBearer {}
 
 /**
- * <p>
  * Retrieves the current configuration and status of EC2 Capacity Manager for your account, including enablement status, Organizations access settings, and data ingestion status.
- * </p>
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,8 +57,8 @@ export interface GetCapacityManagerAttributesCommandOutput extends GetCapacityMa
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

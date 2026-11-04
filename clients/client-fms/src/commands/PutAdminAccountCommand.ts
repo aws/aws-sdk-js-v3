@@ -23,8 +23,8 @@ export interface PutAdminAccountCommandInput extends PutAdminAccountRequest {}
 export interface PutAdminAccountCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Creates or updates an Firewall Manager administrator account. The account must be a member of the organization that was onboarded to Firewall Manager by <a>AssociateAdminAccount</a>. Only the organization's management account can create an Firewall Manager administrator account. When you create an Firewall Manager administrator account, the service checks to see if the account is already a delegated administrator within Organizations. If the account isn't a delegated administrator, Firewall Manager calls Organizations to delegate the account within Organizations. For more information about administrator accounts within Organizations, see
- *         <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html">Managing the Amazon Web Services Accounts in Your Organization</a>.</p>
+ * Creates or updates an Firewall Manager administrator account. The account must be a member of the organization that was onboarded to Firewall Manager by AssociateAdminAccount. Only the organization's management account can create an Firewall Manager administrator account. When you create an Firewall Manager administrator account, the service checks to see if the account is already a delegated administrator within Organizations. If the account isn't a delegated administrator, Firewall Manager calls Organizations to delegate the account within Organizations. For more information about administrator accounts within Organizations, see [Managing the Amazon Web Services Accounts in Your Organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,28 +77,24 @@ export interface PutAdminAccountCommandOutput extends __MetadataBearer {}
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
  *
  * @throws {@link InternalErrorException} (client fault)
- *  <p>The operation failed because of a system problem, even though the request was valid. Retry
- *       your request.</p>
+ *
+ * The operation failed because of a system problem, even though the request was valid. Retry your request.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The parameters of the request were invalid.</p>
+ *
+ * The parameters of the request were invalid.
  *
  * @throws {@link InvalidOperationException} (client fault)
- *  <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have
- *         submitted an <code>AssociateAdminAccount</code> request for an account ID that
- *             was already set as the Firewall Manager administrator. Or you might have tried to access a Region
- *   that's disabled by default, and that you need to enable for the Firewall Manager
- *   administrator account and for Organizations before you can access it.</p>
+ *
+ * The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have submitted an `AssociateAdminAccount` request for an account ID that was already set as the Firewall Manager administrator. Or you might have tried to access a Region that's disabled by default, and that you need to enable for the Firewall Manager administrator account and for Organizations before you can access it.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The operation exceeds a resource limit, for example, the maximum number of
- *         <code>policy</code> objects that you can create for an Amazon Web Services account. For more information,
- *       see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-limits.html">Firewall
- *         Manager Limits</a> in the <i>WAF Developer Guide</i>.</p>
+ *
+ * The operation exceeds a resource limit, for example, the maximum number of `policy` objects that you can create for an Amazon Web Services account. For more information, see [Firewall Manager Limits](https://docs.aws.amazon.com/waf/latest/developerguide/fms-limits.html) in the *WAF Developer Guide*.
  *
  * @throws {@link FMSServiceException}
- * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ * Base exception class for all service exceptions from FMS service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface UpdateFleetCommandInput extends UpdateFleetInput {}
 export interface UpdateFleetCommandOutput extends UpdateFleetOutput, __MetadataBearer {}
 
 /**
- * <p>Updates a compute fleet.</p>
+ * Updates a compute fleet.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -162,17 +163,20 @@ export interface UpdateFleetCommandOutput extends UpdateFleetOutput, __MetadataB
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
  *
  * @throws {@link AccountLimitExceededException} (client fault)
- *  <p>An Amazon Web Services service limit was exceeded for the calling Amazon Web Services account.</p>
+ *
+ * An Amazon Web Services service limit was exceeded for the calling Amazon Web Services account.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input value that was provided is not valid.</p>
+ *
+ * The input value that was provided is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified Amazon Web Services resource cannot be found.</p>
+ *
+ * The specified Amazon Web Services resource cannot be found.
  *
  * @throws {@link CodeBuildServiceException}
- * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * Base exception class for all service exceptions from CodeBuild service.
  *
  * @public
  */

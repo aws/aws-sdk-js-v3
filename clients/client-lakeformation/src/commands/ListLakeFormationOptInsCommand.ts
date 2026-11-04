@@ -23,7 +23,8 @@ export interface ListLakeFormationOptInsCommandInput extends ListLakeFormationOp
 export interface ListLakeFormationOptInsCommandOutput extends ListLakeFormationOptInsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieve the current list of resources and principals that are opt in to enforce Lake Formation permissions.</p>
+ * Retrieve the current list of resources and principals that are opt in to enforce Lake Formation permissions.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -198,20 +199,24 @@ export interface ListLakeFormationOptInsCommandOutput extends ListLakeFormationO
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to a resource was denied.</p>
+ *
+ * Access to a resource was denied.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link LakeFormationServiceException}
- * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * Base exception class for all service exceptions from LakeFormation service.
  *
  * @public
  */

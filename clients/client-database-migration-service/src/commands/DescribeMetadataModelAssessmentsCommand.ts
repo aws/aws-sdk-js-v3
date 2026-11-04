@@ -26,13 +26,10 @@ export interface DescribeMetadataModelAssessmentsCommandInput extends DescribeMe
 export interface DescribeMetadataModelAssessmentsCommandOutput extends DescribeMetadataModelAssessmentsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a paginated list of metadata model assessment requests for a migration
- *          project, initiated by
- *          <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartMetadataModelAssessment.html">StartMetadataModelAssessment</a>.</p>
- *          <p>
- *             <b>Required permissions:</b>
- *             <code>dms:ListMetadataModelAssessments</code>. For more information, see
- *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
+ * Returns a paginated list of metadata model assessment requests for a migration project, initiated by [StartMetadataModelAssessment](https://docs.aws.amazon.com/dms/latest/APIReference/API_StartMetadataModelAssessment.html).
+ *
+ * **Required permissions:** `dms:ListMetadataModelAssessments`. For more information, see [Actions, resources, and condition keys for Database Migration Service](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,11 +92,12 @@ export interface DescribeMetadataModelAssessmentsCommandOutput extends DescribeM
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @example Retrieve the status of metadata model assessments
  * ```javascript

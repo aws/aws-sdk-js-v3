@@ -124,7 +124,17 @@ export interface GeoMaps {
 }
 
 /**
- * <p> Integrate high-quality base map data into your applications using <a href="https://maplibre.org">MapLibre</a>. Capabilities include: </p> <ul> <li> <p>Access to comprehensive base map data, allowing you to tailor the map display to your specific needs. See <a href="https://docs.aws.amazon.com/location/latest/APIReference/API_geomaps_GetTile.html">GetTile</a>.</p> </li> <li> <p>Multiple pre-designed map styles suited for various application types, such as navigation, logistics, or data visualization. See <a href="https://docs.aws.amazon.com/location/latest/APIReference/API_geomaps_GetStyleDescriptor.html">GetStyleDescriptor</a>.</p> </li> <li> <p>Generation of static map images for scenarios where interactive maps aren't suitable. See <a href="https://docs.aws.amazon.com/location/latest/APIReference/API_geomaps_GetStaticMap.html">GetStaticMap</a>. Use cases include:</p> <ul> <li> <p>Embedding in emails or documents</p> </li> <li> <p>Displaying in low-bandwidth environments</p> </li> <li> <p>Creating printable maps</p> </li> <li> <p>Enhancing application performance by reducing client-side rendering</p> </li> </ul> </li> </ul>
+ * Integrate high-quality base map data into your applications using [MapLibre](https://maplibre.org). Capabilities include:
+ *
+ * - Access to comprehensive base map data, allowing you to tailor the map display to your specific needs. See [GetTile](https://docs.aws.amazon.com/location/latest/APIReference/API_geomaps_GetTile.html).
+ * - Multiple pre-designed map styles suited for various application types, such as navigation, logistics, or data visualization. See [GetStyleDescriptor](https://docs.aws.amazon.com/location/latest/APIReference/API_geomaps_GetStyleDescriptor.html).
+ * - Generation of static map images for scenarios where interactive maps aren't suitable. See [GetStaticMap](https://docs.aws.amazon.com/location/latest/APIReference/API_geomaps_GetStaticMap.html). Use cases include:
+ *
+ *   - Embedding in emails or documents
+ *   - Displaying in low-bandwidth environments
+ *   - Creating printable maps
+ *   - Enhancing application performance by reducing client-side rendering
+ *
  * @public
  */
 export class GeoMaps extends GeoMapsClient implements GeoMaps {}

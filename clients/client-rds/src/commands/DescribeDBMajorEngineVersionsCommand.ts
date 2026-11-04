@@ -23,7 +23,8 @@ export interface DescribeDBMajorEngineVersionsCommandInput extends DescribeDBMaj
 export interface DescribeDBMajorEngineVersionsCommandOutput extends DescribeDBMajorEngineVersionsResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the properties of specific major versions of DB engines.</p>
+ * Describes the properties of specific major versions of DB engines.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,8 +67,8 @@ export interface DescribeDBMajorEngineVersionsCommandOutput extends DescribeDBMa
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @public
  */

@@ -23,8 +23,8 @@ export interface DescribePortfolioShareStatusCommandInput extends DescribePortfo
 export interface DescribePortfolioShareStatusCommandOutput extends DescribePortfolioShareStatusOutput, __MetadataBearer {}
 
 /**
- * <p>Gets the status of the specified portfolio share operation. This API can only be called
- *          by the management account in the organization or by a delegated admin.</p>
+ * Gets the status of the specified portfolio share operation. This API can only be called by the management account in the organization or by a delegated admin.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,17 +68,20 @@ export interface DescribePortfolioShareStatusCommandOutput extends DescribePortf
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  * @throws {@link InvalidParametersException} (client fault)
- *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * One or more parameters provided to the operation are not valid.
  *
  * @throws {@link OperationNotSupportedException} (client fault)
- *  <p>The operation is not supported.</p>
+ *
+ * The operation is not supported.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ServiceCatalogServiceException}
- * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * Base exception class for all service exceptions from ServiceCatalog service.
  *
  * @public
  */

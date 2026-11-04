@@ -23,7 +23,8 @@ export interface GetCommentReactionsCommandInput extends GetCommentReactionsInpu
 export interface GetCommentReactionsCommandOutput extends GetCommentReactionsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns information about reactions to a specified comment ID. Reactions from users who have been deleted will not be included in the count.</p>
+ * Returns information about reactions to a specified comment ID. Reactions from users who have been deleted will not be included in the count.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,30 +67,36 @@ export interface GetCommentReactionsCommandOutput extends GetCommentReactionsOut
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  * @throws {@link CommentDeletedException} (client fault)
- *  <p>This comment has already been deleted. You cannot edit or delete a deleted comment.</p>
+ *
+ * This comment has already been deleted. You cannot edit or delete a deleted comment.
  *
  * @throws {@link CommentDoesNotExistException} (client fault)
- *  <p>No comment exists with the provided ID. Verify that you have used the correct ID, and
- *             then try again.</p>
+ *
+ * No comment exists with the provided ID. Verify that you have used the correct ID, and then try again.
  *
  * @throws {@link CommentIdRequiredException} (client fault)
- *  <p>The comment ID is missing or null. A comment ID is required.</p>
+ *
+ * The comment ID is missing or null. A comment ID is required.
  *
  * @throws {@link InvalidCommentIdException} (client fault)
- *  <p>The comment ID is not in a valid format. Make sure that you have provided the full comment ID.</p>
+ *
+ * The comment ID is not in a valid format. Make sure that you have provided the full comment ID.
  *
  * @throws {@link InvalidContinuationTokenException} (client fault)
- *  <p>The specified continuation token is not valid.</p>
+ *
+ * The specified continuation token is not valid.
  *
  * @throws {@link InvalidMaxResultsException} (client fault)
- *  <p>The specified number of maximum results is not valid.</p>
+ *
+ * The specified number of maximum results is not valid.
  *
  * @throws {@link InvalidReactionUserArnException} (client fault)
- *  <p>The Amazon Resource Name (ARN) of the user or identity is not valid.</p>
+ *
+ * The Amazon Resource Name (ARN) of the user or identity is not valid.
  *
  * @throws {@link CodeCommitServiceException}
- * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * Base exception class for all service exceptions from CodeCommit service.
  *
  * @public
  */

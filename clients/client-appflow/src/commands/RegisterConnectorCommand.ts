@@ -23,9 +23,8 @@ export interface RegisterConnectorCommandInput extends RegisterConnectorRequest 
 export interface RegisterConnectorCommandOutput extends RegisterConnectorResponse, __MetadataBearer {}
 
 /**
- * <p>Registers a new custom connector with your Amazon Web Services account. Before you can
- *       register the connector, you must deploy the associated AWS lambda function in your
- *       account.</p>
+ * Registers a new custom connector with your Amazon Web Services account. Before you can register the connector, you must deploy the associated AWS lambda function in your account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,40 +59,44 @@ export interface RegisterConnectorCommandOutput extends RegisterConnectorRespons
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>AppFlow/Requester has invalid or missing permissions.</p>
+ *
+ * AppFlow/Requester has invalid or missing permissions.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p> There was a conflict when processing the request (for example, a flow with the given name
- *       already exists within the account. Check for conflicting resource names and try again. </p>
+ *
+ * There was a conflict when processing the request (for example, a flow with the given name already exists within the account. Check for conflicting resource names and try again.
  *
  * @throws {@link ConnectorAuthenticationException} (client fault)
- *  <p> An error occurred when authenticating with the connector endpoint. </p>
+ *
+ * An error occurred when authenticating with the connector endpoint.
  *
  * @throws {@link ConnectorServerException} (client fault)
- *  <p> An error occurred when retrieving data from the connector endpoint. </p>
+ *
+ * An error occurred when retrieving data from the connector endpoint.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> An internal service error occurred during the processing of your request. Try again
- *       later. </p>
+ *
+ * An internal service error occurred during the processing of your request. Try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The resource specified in the request (such as the source or destination connector
- *       profile) is not found. </p>
+ *
+ * The resource specified in the request (such as the source or destination connector profile) is not found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p> The request would cause a service quota (such as the number of flows) to be exceeded.
- *     </p>
+ *
+ * The request would cause a service quota (such as the number of flows) to be exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>API calls have exceeded the maximum allowed API request rate per account and per Region.
- *     </p>
+ *
+ * API calls have exceeded the maximum allowed API request rate per account and per Region.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> The request has invalid or missing parameters. </p>
+ *
+ * The request has invalid or missing parameters.
  *
  * @throws {@link AppflowServiceException}
- * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ * Base exception class for all service exceptions from Appflow service.
  *
  * @public
  */

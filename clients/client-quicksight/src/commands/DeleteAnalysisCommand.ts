@@ -23,18 +23,12 @@ export interface DeleteAnalysisCommandInput extends DeleteAnalysisRequest {}
 export interface DeleteAnalysisCommandOutput extends DeleteAnalysisResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an analysis from Amazon Quick Sight. You can optionally include a recovery window during
- *             which you can restore the analysis. If you don't specify a recovery window value, the
- *             operation defaults to 30 days. Amazon Quick Sight attaches a <code>DeletionTime</code> stamp to
- *             the response that specifies the end of the recovery window. At the end of the recovery
- *             window, Amazon Quick Sight deletes the analysis permanently.</p>
- *          <p>At any time before recovery window ends, you can use the <code>RestoreAnalysis</code>
- *             API operation to remove the <code>DeletionTime</code> stamp and cancel the deletion of
- *             the analysis. The analysis remains visible in the API until it's deleted, so you can
- *             describe it but you can't make a template from it.</p>
- *          <p>An analysis that's scheduled for deletion isn't accessible in the Amazon Quick Sight console.
- *             To access it in the console, restore it. Deleting an analysis doesn't delete the
- *             dashboards that you publish from it.</p>
+ * Deletes an analysis from Amazon Quick Sight. You can optionally include a recovery window during which you can restore the analysis. If you don't specify a recovery window value, the operation defaults to 30 days. Amazon Quick Sight attaches a `DeletionTime` stamp to the response that specifies the end of the recovery window. At the end of the recovery window, Amazon Quick Sight deletes the analysis permanently.
+ *
+ * At any time before recovery window ends, you can use the `RestoreAnalysis` API operation to remove the `DeletionTime` stamp and cancel the deletion of the analysis. The analysis remains visible in the API until it's deleted, so you can describe it but you can't make a template from it.
+ *
+ * An analysis that's scheduled for deletion isn't accessible in the Amazon Quick Sight console. To access it in the console, restore it. Deleting an analysis doesn't delete the dashboards that you publish from it.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,29 +62,32 @@ export interface DeleteAnalysisCommandOutput extends DeleteAnalysisResponse, __M
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ *
+ * Updating or deleting a resource can cause an inconsistent state.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An internal failure occurred.</p>
+ *
+ * An internal failure occurred.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more parameters has a value that isn't valid.</p>
+ *
+ * One or more parameters has a value that isn't valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>One or more resources can't be found.</p>
+ *
+ * One or more resources can't be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Access is throttled.</p>
+ *
+ * Access is throttled.
  *
  * @throws {@link UnsupportedUserEditionException} (client fault)
- *  <p>This error indicates that you are calling an operation on an Amazon Quick Suite
- * 			subscription where the edition doesn't include support for that operation. Amazon
- * 			Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and
- * 			capability is available in every edition.</p>
+ *
+ * This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.
  *
  * @throws {@link QuickSightServiceException}
- * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * Base exception class for all service exceptions from QuickSight service.
  *
  * @public
  */

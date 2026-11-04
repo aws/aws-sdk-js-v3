@@ -88,7 +88,6 @@ export interface PersonalizeRuntime {
 }
 
 /**
- * <p></p>
  * @public
  */
 export class PersonalizeRuntime extends PersonalizeRuntimeClient implements PersonalizeRuntime {}

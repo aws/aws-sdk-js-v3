@@ -23,7 +23,8 @@ export interface DeleteSecurityConfigurationCommandInput extends DeleteSecurityC
 export interface DeleteSecurityConfigurationCommandOutput extends DeleteSecurityConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a security configuration.</p>
+ * Deletes a security configuration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,14 +51,16 @@ export interface DeleteSecurityConfigurationCommandOutput extends DeleteSecurity
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This is an internal server exception.</p>
+ *
+ * This is an internal server exception.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>There are invalid parameters in the client request.</p>
+ *
+ * There are invalid parameters in the client request.
  *
  * @throws {@link EMRContainersServiceException}
- * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
+ * Base exception class for all service exceptions from EMRContainers service.
  *
  * @public
  */

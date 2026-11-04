@@ -23,14 +23,10 @@ export interface StartFlowFlushCommandInput extends StartFlowFlushRequest {}
 export interface StartFlowFlushCommandOutput extends StartFlowFlushResponse, __MetadataBearer {}
 
 /**
- * <p>Begins the flushing of traffic from the firewall, according to the filters you define.
- *          When the operation starts, impacted flows are temporarily marked as timed out before the Suricata engine prunes,
- *          or flushes, the flows from the firewall table.</p>
- *          <important>
- *             <p>While the flush completes, impacted flows are processed as midstream traffic. This may result in a
- *             temporary increase in midstream traffic metrics. We recommend that you double check your stream exception policy
- *             before you perform a flush operation.</p>
- *          </important>
+ * Begins the flushing of traffic from the firewall, according to the filters you define. When the operation starts, impacted flows are temporarily marked as timed out before the Suricata engine prunes, or flushes, the flows from the firewall table.
+ *
+ * > **Important:** While the flush completes, impacted flows are processed as midstream traffic. This may result in a temporary increase in midstream traffic metrics. We recommend that you double check your stream exception policy before you perform a flush operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,34 +75,28 @@ export interface StartFlowFlushCommandOutput extends StartFlowFlushResponse, __M
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Your request is valid, but Network Firewall couldn't perform the operation because of a
- *          system problem. Retry your request. </p>
+ *
+ * Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The operation failed because of a problem with your request. Examples include: </p>
- *          <ul>
- *             <li>
- *                <p>You specified an unsupported parameter name or value.</p>
- *             </li>
- *             <li>
- *                <p>You tried to update a property with a value that isn't among the available
- *                types.</p>
- *             </li>
- *             <li>
- *                <p>Your request references an ARN that is malformed, or corresponds to a resource
- *                that isn't valid in the context of the request.</p>
- *             </li>
- *          </ul>
+ *
+ * The operation failed because of a problem with your request. Examples include:
+ *
+ * - You specified an unsupported parameter name or value.
+ * - You tried to update a property with a value that isn't among the available types.
+ * - Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Unable to locate a resource using the parameters that you provided.</p>
+ *
+ * Unable to locate a resource using the parameters that you provided.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Unable to process the request due to throttling limitations.</p>
+ *
+ * Unable to process the request due to throttling limitations.
  *
  * @throws {@link NetworkFirewallServiceException}
- * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ * Base exception class for all service exceptions from NetworkFirewall service.
  *
  * @public
  */

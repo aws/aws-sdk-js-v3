@@ -23,12 +23,10 @@ export interface ResetEbsDefaultKmsKeyIdCommandInput extends ResetEbsDefaultKmsK
 export interface ResetEbsDefaultKmsKeyIdCommandOutput extends ResetEbsDefaultKmsKeyIdResult, __MetadataBearer {}
 
 /**
- * <p>Resets the default KMS key for EBS encryption for your account in this Region
- *       to the Amazon Web Services managed KMS key for EBS.</p>
- *          <p>After resetting the default KMS key to the Amazon Web Services managed KMS key, you can continue to encrypt by a
- *       customer managed KMS key by specifying it when you create the volume. For more information, see
- *       <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html">Amazon EBS encryption</a>
- *       in the <i>Amazon EBS User Guide</i>.</p>
+ * Resets the default KMS key for EBS encryption for your account in this Region to the Amazon Web Services managed KMS key for EBS.
+ *
+ * After resetting the default KMS key to the Amazon Web Services managed KMS key, you can continue to encrypt by a customer managed KMS key by specifying it when you create the volume. For more information, see [Amazon EBS encryption](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html) in the *Amazon EBS User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,8 +53,8 @@ export interface ResetEbsDefaultKmsKeyIdCommandOutput extends ResetEbsDefaultKms
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

@@ -6,7 +6,8 @@ import {
 } from "./MigrationHubRefactorSpacesServiceException";
 
 /**
- * <p>The user does not have sufficient access to perform this action. </p>
+ * The user does not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -29,7 +30,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ * Updating or deleting a resource can cause an inconsistent state.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -38,13 +40,15 @@ export class ConflictException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p>The ID of the resource. </p>
+   * The ID of the resource.
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>The type of resource. </p>
+   * The type of resource.
+   *
    * @public
    */
   ResourceType: string | undefined;
@@ -65,7 +69,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>An unexpected error occurred while processing the request.</p>
+ * An unexpected error occurred while processing the request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -88,7 +93,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The request references a resource that does not exist. </p>
+ * The request references a resource that does not exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -97,13 +103,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p>The ID of the resource. </p>
+   * The ID of the resource.
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>The type of resource. </p>
+   * The type of resource.
+   *
    * @public
    */
   ResourceType: string | undefined;
@@ -124,7 +132,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request would cause a service quota to be exceeded. </p>
+ * The request would cause a service quota to be exceeded.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -133,27 +142,29 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p>The ID of the resource. </p>
+   * The ID of the resource.
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>The type of resource. </p>
+   * The type of resource.
+   *
    * @public
    */
   ResourceType: string | undefined;
 
   /**
-   * <p>Service quota requirement to identify originating quota. Reached throttling quota
-   *       exception. </p>
+   * Service quota requirement to identify originating quota. Reached throttling quota exception.
+   *
    * @public
    */
   QuotaCode?: string | undefined;
 
   /**
-   * <p>Service quota requirement to identify originating service. Reached throttling quota
-   *       exception service code. </p>
+   * Service quota requirement to identify originating service. Reached throttling quota exception service code.
+   *
    * @public
    */
   ServiceCode: string | undefined;
@@ -176,7 +187,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>Request was denied because the request was throttled. </p>
+ * Request was denied because the request was throttled.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -185,21 +197,22 @@ export class ThrottlingException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p>Service quota requirement to identify originating quota. Reached throttling quota
-   *       exception. </p>
+   * Service quota requirement to identify originating quota. Reached throttling quota exception.
+   *
    * @public
    */
   QuotaCode?: string | undefined;
 
   /**
-   * <p>Service quota requirement to identify originating service. Reached throttling quota
-   *       exception service code. </p>
+   * Service quota requirement to identify originating service. Reached throttling quota exception service code.
+   *
    * @public
    */
   ServiceCode?: string | undefined;
 
   /**
-   * <p>The number of seconds to wait before retrying. </p>
+   * The number of seconds to wait before retrying.
+   *
    * @public
    */
   RetryAfterSeconds?: number | undefined;
@@ -221,8 +234,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input does not satisfy the constraints specified by an Amazon Web Service.
- *     </p>
+ * The input does not satisfy the constraints specified by an Amazon Web Service.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -245,7 +258,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The resource policy is not valid.</p>
+ * The resource policy is not valid.
+ *
  * @public
  */
 export class InvalidResourcePolicyException extends __BaseException {

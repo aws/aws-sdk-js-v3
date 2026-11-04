@@ -23,8 +23,8 @@ export interface SetPrincipalTagAttributeMapCommandInput extends SetPrincipalTag
 export interface SetPrincipalTagAttributeMapCommandOutput extends SetPrincipalTagAttributeMapResponse, __MetadataBearer {}
 
 /**
- * <p>You can use this operation to use default (username and clientID) attribute or custom
- *          attribute mappings.</p>
+ * You can use this operation to use default (username and clientID) attribute or custom attribute mappings.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,24 +61,28 @@ export interface SetPrincipalTagAttributeMapCommandOutput extends SetPrincipalTa
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>Thrown when the service encounters an error during processing the request.</p>
+ *
+ * Thrown when the service encounters an error during processing the request.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Thrown for missing or bad input parameter(s).</p>
+ *
+ * Thrown for missing or bad input parameter(s).
  *
  * @throws {@link NotAuthorizedException} (client fault)
- *  <p>Thrown when a user is not authorized to access the requested resource.</p>
+ *
+ * Thrown when a user is not authorized to access the requested resource.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Thrown when the requested resource (for example, a dataset or record) does not
- *          exist.</p>
+ *
+ * Thrown when the requested resource (for example, a dataset or record) does not exist.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Thrown when a request is throttled.</p>
+ *
+ * Thrown when a request is throttled.
  *
  * @throws {@link CognitoIdentityServiceException}
- * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ * Base exception class for all service exceptions from CognitoIdentity service.
  *
  * @public
  */

@@ -23,7 +23,10 @@ export interface RemoveTagsFromResourceCommandInput extends RemoveTagsFromResour
 export interface RemoveTagsFromResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Removes metadata tags from an Amazon RDS resource.</p> <p>For an overview on tagging an Amazon RDS resource, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a> in the <i>Amazon RDS User Guide</i> or <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html">Tagging Amazon Aurora and Amazon RDS Resources</a> in the <i>Amazon Aurora User Guide</i>.</p>
+ * Removes metadata tags from an Amazon RDS resource.
+ *
+ * For an overview on tagging an Amazon RDS resource, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide* or [Tagging Amazon Aurora and Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html) in the *Amazon Aurora User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,53 +54,68 @@ export interface RemoveTagsFromResourceCommandOutput extends __MetadataBearer {}
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link BlueGreenDeploymentNotFoundFault} (client fault)
- *  <p> <code>BlueGreenDeploymentIdentifier</code> doesn't refer to an existing blue/green deployment.</p>
+ *
+ * `BlueGreenDeploymentIdentifier` doesn't refer to an existing blue/green deployment.
  *
  * @throws {@link DBCapacityReservationNotFoundFault} (client fault)
- *  <p> <code>DBCapacityReservationIdentifier</code> doesn't refer to an existing DB capacity reservation.</p>
+ *
+ * `DBCapacityReservationIdentifier` doesn't refer to an existing DB capacity reservation.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *
+ * `DBClusterIdentifier` doesn't refer to an existing DB cluster.
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *
+ * `DBInstanceIdentifier` doesn't refer to an existing DB instance.
  *
  * @throws {@link DBProxyEndpointNotFoundFault} (client fault)
- *  <p>The DB proxy endpoint doesn't exist.</p>
+ *
+ * The DB proxy endpoint doesn't exist.
  *
  * @throws {@link DBProxyNotFoundFault} (client fault)
- *  <p>The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+ *
+ * The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.
  *
  * @throws {@link DBProxyTargetGroupNotFoundFault} (client fault)
- *  <p>The specified target group isn't available for a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+ *
+ * The specified target group isn't available for a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.
  *
  * @throws {@link DBShardGroupNotFoundFault} (client fault)
- *  <p>The specified DB shard group name wasn't found.</p>
+ *
+ * The specified DB shard group name wasn't found.
  *
  * @throws {@link DBSnapshotNotFoundFault} (client fault)
- *  <p> <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
+ *
+ * `DBSnapshotIdentifier` doesn't refer to an existing DB snapshot.
  *
  * @throws {@link DBSnapshotTenantDatabaseNotFoundFault} (client fault)
- *  <p>The specified snapshot tenant database wasn't found.</p>
+ *
+ * The specified snapshot tenant database wasn't found.
  *
  * @throws {@link IntegrationNotFoundFault} (client fault)
- *  <p>The specified integration could not be found.</p>
+ *
+ * The specified integration could not be found.
  *
  * @throws {@link InvalidDBClusterEndpointStateFault} (client fault)
- *  <p>The requested operation can't be performed on the endpoint while the endpoint is in this state.</p>
+ *
+ * The requested operation can't be performed on the endpoint while the endpoint is in this state.
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
- *  <p>The requested operation can't be performed while the cluster is in this state.</p>
+ *
+ * The requested operation can't be performed while the cluster is in this state.
  *
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
- *  <p>The DB instance isn't in a valid state.</p>
+ *
+ * The DB instance isn't in a valid state.
  *
  * @throws {@link TenantDatabaseNotFoundFault} (client fault)
- *  <p>The specified tenant database wasn't found in the DB instance.</p>
+ *
+ * The specified tenant database wasn't found in the DB instance.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To remove tags from a resource
  * ```javascript

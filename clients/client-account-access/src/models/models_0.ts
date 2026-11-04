@@ -2,19 +2,22 @@
 import type { ErrorCode, Status } from "./enums";
 
 /**
- * <p>Specifies the IAM Identity Center instance to use as the identity source for an application.</p>
+ * Specifies the IAM Identity Center instance to use as the identity source for an application.
+ *
  * @public
  */
 export interface IdentityCenter {
   /**
-   * <p>The ARN of the IAM Identity Center instance.</p>
+   * The ARN of the IAM Identity Center instance.
+   *
    * @public
    */
   instanceArn: string | undefined;
 }
 
 /**
- * <p>Specifies the identity source for an account access manager application.</p>
+ * Specifies the identity source for an account access manager application.
+ *
  * @public
  */
 export type IdentitySource =
@@ -26,7 +29,8 @@ export type IdentitySource =
  */
 export namespace IdentitySource {
   /**
-   * <p>The IAM Identity Center instance to use as the identity source.</p>
+   * The IAM Identity Center instance to use as the identity source.
+   *
    * @public
    */
   export interface IdentityCenterMember {
@@ -57,13 +61,15 @@ export namespace IdentitySource {
  */
 export interface CreateApplicationRequest {
   /**
-   * <p>Specifies the identity source for the application. The identity source defines the IAM Identity Center instance that provides principals for entitlements.</p>
+   * Specifies the identity source for the application. The identity source defines the IAM Identity Center instance that provides principals for entitlements.
+   *
    * @public
    */
   identitySource: IdentitySource | undefined;
 
   /**
-   * <p>Specifies the tags to assign to the application.</p>
+   * Specifies the tags to assign to the application.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -74,14 +80,16 @@ export interface CreateApplicationRequest {
  */
 export interface CreateApplicationResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the created application.</p>
+   * The Amazon Resource Name (ARN) of the created application.
+   *
    * @public
    */
   applicationArn: string | undefined;
 }
 
 /**
- * <p>Identifies a user or group from IAM Identity Center.</p>
+ * Identifies a user or group from IAM Identity Center.
+ *
  * @public
  */
 export type IdentityCenterPrincipal =
@@ -94,7 +102,8 @@ export type IdentityCenterPrincipal =
  */
 export namespace IdentityCenterPrincipal {
   /**
-   * <p>The unique identifier of a user in IAM Identity Center.</p>
+   * The unique identifier of a user in IAM Identity Center.
+   *
    * @public
    */
   export interface UserIdMember {
@@ -104,7 +113,8 @@ export namespace IdentityCenterPrincipal {
   }
 
   /**
-   * <p>The unique identifier of a group in IAM Identity Center.</p>
+   * The unique identifier of a group in IAM Identity Center.
+   *
    * @public
    */
   export interface GroupIdMember {
@@ -134,7 +144,8 @@ export namespace IdentityCenterPrincipal {
 }
 
 /**
- * <p>Identifies a principal (user or group) that can be granted entitlements.</p>
+ * Identifies a principal (user or group) that can be granted entitlements.
+ *
  * @public
  */
 export type Principal =
@@ -146,7 +157,8 @@ export type Principal =
  */
 export namespace Principal {
   /**
-   * <p>The IAM Identity Center principal (user or group).</p>
+   * The IAM Identity Center principal (user or group).
+   *
    * @public
    */
   export interface IdentityCenterMember {
@@ -173,25 +185,29 @@ export namespace Principal {
 }
 
 /**
- * <p>Specifies a principal-to-role entitlement that grants an IAM Identity Center principal permission to assume an IAM role.</p>
+ * Specifies a principal-to-role entitlement that grants an IAM Identity Center principal permission to assume an IAM role.
+ *
  * @public
  */
 export interface PrincipalRoleEntitlement {
   /**
-   * <p>The principal (user or group) that is granted access to assume the IAM role.</p>
+   * The principal (user or group) that is granted access to assume the IAM role.
+   *
    * @public
    */
   principal: Principal | undefined;
 
   /**
-   * <p>The ARN of the IAM role that the principal can assume.</p>
+   * The ARN of the IAM role that the principal can assume.
+   *
    * @public
    */
   roleArn: string | undefined;
 }
 
 /**
- * <p>Specifies the entitlement configuration for an account access manager application, defining which principal can assume which IAM role.</p>
+ * Specifies the entitlement configuration for an account access manager application, defining which principal can assume which IAM role.
+ *
  * @public
  */
 export type Entitlement =
@@ -203,7 +219,8 @@ export type Entitlement =
  */
 export namespace Entitlement {
   /**
-   * <p>The principal-to-role mapping for the entitlement.</p>
+   * The principal-to-role mapping for the entitlement.
+   *
    * @public
    */
   export interface PrincipalRoleMember {
@@ -234,13 +251,15 @@ export namespace Entitlement {
  */
 export interface CreateEntitlementRequest {
   /**
-   * <p>Specifies the ARN of the application to create the entitlement for.</p>
+   * Specifies the ARN of the application to create the entitlement for.
+   *
    * @public
    */
   applicationArn: string | undefined;
 
   /**
-   * <p>Specifies the entitlement configuration, including the principal and the IAM role to grant access to.</p>
+   * Specifies the entitlement configuration, including the principal and the IAM role to grant access to.
+   *
    * @public
    */
   entitlement: Entitlement | undefined;
@@ -251,7 +270,8 @@ export interface CreateEntitlementRequest {
  */
 export interface CreateEntitlementResponse {
   /**
-   * <p>The unique identifier of the created entitlement.</p>
+   * The unique identifier of the created entitlement.
+   *
    * @public
    */
   entitlementId: string | undefined;
@@ -262,7 +282,8 @@ export interface CreateEntitlementResponse {
  */
 export interface DeleteApplicationRequest {
   /**
-   * <p>Specifies the ARN of the application to delete.</p>
+   * Specifies the ARN of the application to delete.
+   *
    * @public
    */
   applicationArn: string | undefined;
@@ -278,13 +299,15 @@ export interface DeleteApplicationResponse {}
  */
 export interface DeleteEntitlementRequest {
   /**
-   * <p>Specifies the ARN of the application that the entitlement belongs to.</p>
+   * Specifies the ARN of the application that the entitlement belongs to.
+   *
    * @public
    */
   applicationArn: string | undefined;
 
   /**
-   * <p>Specifies the unique identifier of the entitlement to delete.</p>
+   * Specifies the unique identifier of the entitlement to delete.
+   *
    * @public
    */
   entitlementId: string | undefined;
@@ -300,50 +323,58 @@ export interface DeleteEntitlementResponse {}
  */
 export interface GetApplicationRequest {
   /**
-   * <p>Specifies the ARN of the application to retrieve.</p>
+   * Specifies the ARN of the application to retrieve.
+   *
    * @public
    */
   applicationArn: string | undefined;
 }
 
 /**
- * <p>Contains information about an error that occurred during application processing.</p>
+ * Contains information about an error that occurred during application processing.
+ *
  * @public
  */
 export interface ErrorDetails {
   /**
-   * <p>The error code that identifies the type of error.</p>
+   * The error code that identifies the type of error.
+   *
    * @public
    */
   code: ErrorCode | undefined;
 
   /**
-   * <p>A human-readable message that describes the error.</p>
+   * A human-readable message that describes the error.
+   *
    * @public
    */
   message: string | undefined;
 }
 
 /**
- * <p>Contains detailed information about the IAM Identity Center configuration for an application.</p>
+ * Contains detailed information about the IAM Identity Center configuration for an application.
+ *
  * @public
  */
 export interface IdentityCenterDetails {
   /**
-   * <p>The ARN of the IAM Identity Center instance.</p>
+   * The ARN of the IAM Identity Center instance.
+   *
    * @public
    */
   instanceArn: string | undefined;
 
   /**
-   * <p>The ARN of the IAM Identity Center application created for this account access manager application.</p>
+   * The ARN of the IAM Identity Center application created for this account access manager application.
+   *
    * @public
    */
   applicationArn?: string | undefined;
 }
 
 /**
- * <p>Contains detailed information about the identity source for an application.</p>
+ * Contains detailed information about the identity source for an application.
+ *
  * @public
  */
 export type IdentitySourceDetails =
@@ -355,7 +386,8 @@ export type IdentitySourceDetails =
  */
 export namespace IdentitySourceDetails {
   /**
-   * <p>The IAM Identity Center configuration details for the identity source.</p>
+   * The IAM Identity Center configuration details for the identity source.
+   *
    * @public
    */
   export interface IdentityCenterMember {
@@ -386,43 +418,50 @@ export namespace IdentitySourceDetails {
  */
 export interface GetApplicationResponse {
   /**
-   * <p>The identity source details for the application, including the IAM Identity Center instance configuration.</p>
+   * The identity source details for the application, including the IAM Identity Center instance configuration.
+   *
    * @public
    */
   identitySource: IdentitySourceDetails | undefined;
 
   /**
-   * <p>The current status of the application.</p>
+   * The current status of the application.
+   *
    * @public
    */
   status: Status | undefined;
 
   /**
-   * <p>The tenant identifier associated with the application.</p>
+   * The tenant identifier associated with the application.
+   *
    * @public
    */
   tenantId?: string | undefined;
 
   /**
-   * <p>The date and time when the application was created.</p>
+   * The date and time when the application was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The date and time when the application was last updated.</p>
+   * The date and time when the application was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The tags associated with the application.</p>
+   * The tags associated with the application.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The error details if the application is in a failed state.</p>
+   * The error details if the application is in a failed state.
+   *
    * @public
    */
   error?: ErrorDetails | undefined;
@@ -433,50 +472,58 @@ export interface GetApplicationResponse {
  */
 export interface GetEntitlementRequest {
   /**
-   * <p>Specifies the ARN of the application that the entitlement belongs to.</p>
+   * Specifies the ARN of the application that the entitlement belongs to.
+   *
    * @public
    */
   applicationArn: string | undefined;
 
   /**
-   * <p>Specifies the unique identifier of the entitlement to retrieve.</p>
+   * Specifies the unique identifier of the entitlement to retrieve.
+   *
    * @public
    */
   entitlementId: string | undefined;
 }
 
 /**
- * <p>Contains detailed information about a principal-to-role entitlement, including the target account.</p>
+ * Contains detailed information about a principal-to-role entitlement, including the target account.
+ *
  * @public
  */
 export interface PrincipalRoleEntitlementDetails {
   /**
-   * <p>The principal (user or group) that is granted access to assume the IAM role.</p>
+   * The principal (user or group) that is granted access to assume the IAM role.
+   *
    * @public
    */
   principal: Principal | undefined;
 
   /**
-   * <p>The ARN of the IAM role that the principal can assume.</p>
+   * The ARN of the IAM role that the principal can assume.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>The 12-digit Amazon Web Services account ID where the IAM role resides.</p>
+   * The 12-digit Amazon Web Services account ID where the IAM role resides.
+   *
    * @public
    */
   account: string | undefined;
 
   /**
-   * <p>The friendly name of the Amazon Web Services account where the IAM role resides.</p>
+   * The friendly name of the Amazon Web Services account where the IAM role resides.
+   *
    * @public
    */
   accountName?: string | undefined;
 }
 
 /**
- * <p>Contains detailed information about an entitlement, including the principal, IAM role, and target account.</p>
+ * Contains detailed information about an entitlement, including the principal, IAM role, and target account.
+ *
  * @public
  */
 export type EntitlementDetails =
@@ -488,7 +535,8 @@ export type EntitlementDetails =
  */
 export namespace EntitlementDetails {
   /**
-   * <p>The principal-to-role mapping details for the entitlement, including the target account.</p>
+   * The principal-to-role mapping details for the entitlement, including the target account.
+   *
    * @public
    */
   export interface PrincipalRoleMember {
@@ -519,25 +567,29 @@ export namespace EntitlementDetails {
  */
 export interface GetEntitlementResponse {
   /**
-   * <p>The ARN of the application that the entitlement belongs to.</p>
+   * The ARN of the application that the entitlement belongs to.
+   *
    * @public
    */
   applicationArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the entitlement.</p>
+   * The unique identifier of the entitlement.
+   *
    * @public
    */
   entitlementId: string | undefined;
 
   /**
-   * <p>The entitlement details, including the principal, IAM role, and target account.</p>
+   * The entitlement details, including the principal, IAM role, and target account.
+   *
    * @public
    */
   entitlement: EntitlementDetails | undefined;
 
   /**
-   * <p>The date and time when the entitlement was created.</p>
+   * The date and time when the entitlement was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
@@ -548,43 +600,50 @@ export interface GetEntitlementResponse {
  */
 export interface ListApplicationsRequest {
   /**
-   * <p>Specifies the maximum number of results to return in a single call.</p>
+   * Specifies the maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Specifies the pagination token from a previous call to retrieve the next set of results.</p>
+   * Specifies the pagination token from a previous call to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Contains summary information about an account access manager application.</p>
+ * Contains summary information about an account access manager application.
+ *
  * @public
  */
 export interface ApplicationSummary {
   /**
-   * <p>The ARN of the application.</p>
+   * The ARN of the application.
+   *
    * @public
    */
   applicationArn: string | undefined;
 
   /**
-   * <p>The tenant identifier associated with the application.</p>
+   * The tenant identifier associated with the application.
+   *
    * @public
    */
   tenantId?: string | undefined;
 
   /**
-   * <p>The date and time when the application was created.</p>
+   * The date and time when the application was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The date and time when the application was last updated.</p>
+   * The date and time when the application was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -595,20 +654,23 @@ export interface ApplicationSummary {
  */
 export interface ListApplicationsResponse {
   /**
-   * <p>The list of applications.</p>
+   * The list of applications.
+   *
    * @public
    */
   applications: ApplicationSummary[] | undefined;
 
   /**
-   * <p>The pagination token to use in a subsequent request to retrieve the next set of results. This value is null when there are no more results to return.</p>
+   * The pagination token to use in a subsequent request to retrieve the next set of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Specifies filter criteria for an IAM Identity Center principal.</p>
+ * Specifies filter criteria for an IAM Identity Center principal.
+ *
  * @public
  */
 export type IdentityCenterPrincipalFilter =
@@ -621,7 +683,8 @@ export type IdentityCenterPrincipalFilter =
  */
 export namespace IdentityCenterPrincipalFilter {
   /**
-   * <p>The unique identifier of a user in IAM Identity Center to filter by.</p>
+   * The unique identifier of a user in IAM Identity Center to filter by.
+   *
    * @public
    */
   export interface UserIdMember {
@@ -631,7 +694,8 @@ export namespace IdentityCenterPrincipalFilter {
   }
 
   /**
-   * <p>The unique identifier of a group in IAM Identity Center to filter by.</p>
+   * The unique identifier of a group in IAM Identity Center to filter by.
+   *
    * @public
    */
   export interface GroupIdMember {
@@ -661,7 +725,8 @@ export namespace IdentityCenterPrincipalFilter {
 }
 
 /**
- * <p>Specifies filter criteria for a principal.</p>
+ * Specifies filter criteria for a principal.
+ *
  * @public
  */
 export type PrincipalFilter =
@@ -673,7 +738,8 @@ export type PrincipalFilter =
  */
 export namespace PrincipalFilter {
   /**
-   * <p>The IAM Identity Center principal filter criteria.</p>
+   * The IAM Identity Center principal filter criteria.
+   *
    * @public
    */
   export interface IdentityCenterMember {
@@ -700,36 +766,42 @@ export namespace PrincipalFilter {
 }
 
 /**
- * <p>Specifies filter criteria for principal-to-role entitlements. All specified criteria must match for an entitlement to be returned.</p>
+ * Specifies filter criteria for principal-to-role entitlements. All specified criteria must match for an entitlement to be returned.
+ *
  * @public
  */
 export interface PrincipalRoleEntitlementFilter {
   /**
-   * <p>The principal to filter entitlements by.</p>
+   * The principal to filter entitlements by.
+   *
    * @public
    */
   principal?: PrincipalFilter | undefined;
 
   /**
-   * <p>The IAM role ARN to filter entitlements by.</p>
+   * The IAM role ARN to filter entitlements by.
+   *
    * @public
    */
   roleArn?: string | undefined;
 
   /**
-   * <p>The 12-digit Amazon Web Services account ID to filter entitlements by.</p>
+   * The 12-digit Amazon Web Services account ID to filter entitlements by.
+   *
    * @public
    */
   account?: string | undefined;
 }
 
 /**
- * <p>Specifies filter criteria for listing entitlements.</p>
+ * Specifies filter criteria for listing entitlements.
+ *
  * @public
  */
 export interface EntitlementFilter {
   /**
-   * <p>The principal-to-role filter criteria for narrowing entitlement results.</p>
+   * The principal-to-role filter criteria for narrowing entitlement results.
+   *
    * @public
    */
   principalRole?: PrincipalRoleEntitlementFilter | undefined;
@@ -740,62 +812,72 @@ export interface EntitlementFilter {
  */
 export interface ListEntitlementsRequest {
   /**
-   * <p>Specifies the ARN of the application to list entitlements for.</p>
+   * Specifies the ARN of the application to list entitlements for.
+   *
    * @public
    */
   applicationArn: string | undefined;
 
   /**
-   * <p>Specifies filter criteria to narrow the entitlements returned. You can filter by principal, IAM role, or account.</p>
+   * Specifies filter criteria to narrow the entitlements returned. You can filter by principal, IAM role, or account.
+   *
    * @public
    */
   filter: EntitlementFilter | undefined;
 
   /**
-   * <p>Specifies the pagination token from a previous call to retrieve the next set of results.</p>
+   * Specifies the pagination token from a previous call to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Specifies the maximum number of results to return in a single call.</p>
+   * Specifies the maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Contains summary information about a principal-to-role entitlement.</p>
+ * Contains summary information about a principal-to-role entitlement.
+ *
  * @public
  */
 export interface PrincipalRoleEntitlementSummary {
   /**
-   * <p>The principal (user or group) that is granted access to assume the IAM role.</p>
+   * The principal (user or group) that is granted access to assume the IAM role.
+   *
    * @public
    */
   principal: Principal | undefined;
 
   /**
-   * <p>The ARN of the IAM role that the principal can assume.</p>
+   * The ARN of the IAM role that the principal can assume.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>The 12-digit Amazon Web Services account ID where the IAM role resides.</p>
+   * The 12-digit Amazon Web Services account ID where the IAM role resides.
+   *
    * @public
    */
   account: string | undefined;
 
   /**
-   * <p>The friendly name of the Amazon Web Services account where the IAM role resides.</p>
+   * The friendly name of the Amazon Web Services account where the IAM role resides.
+   *
    * @public
    */
   accountName?: string | undefined;
 }
 
 /**
- * <p>Contains summary information about an entitlement.</p>
+ * Contains summary information about an entitlement.
+ *
  * @public
  */
 export type EntitlementSummary =
@@ -807,7 +889,8 @@ export type EntitlementSummary =
  */
 export namespace EntitlementSummary {
   /**
-   * <p>The principal-to-role mapping summary for the entitlement.</p>
+   * The principal-to-role mapping summary for the entitlement.
+   *
    * @public
    */
   export interface PrincipalRoleMember {
@@ -834,24 +917,28 @@ export namespace EntitlementSummary {
 }
 
 /**
- * <p>Contains information about an entitlement in a list result.</p>
+ * Contains information about an entitlement in a list result.
+ *
  * @public
  */
 export interface EntitlementsListMember {
   /**
-   * <p>The unique identifier of the entitlement.</p>
+   * The unique identifier of the entitlement.
+   *
    * @public
    */
   entitlementId: string | undefined;
 
   /**
-   * <p>The summary information for the entitlement.</p>
+   * The summary information for the entitlement.
+   *
    * @public
    */
   entitlement: EntitlementSummary | undefined;
 
   /**
-   * <p>The date and time when the entitlement was created.</p>
+   * The date and time when the entitlement was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
@@ -862,13 +949,15 @@ export interface EntitlementsListMember {
  */
 export interface ListEntitlementsResponse {
   /**
-   * <p>The list of entitlements for the specified application.</p>
+   * The list of entitlements for the specified application.
+   *
    * @public
    */
   entitlements: EntitlementsListMember[] | undefined;
 
   /**
-   * <p>The pagination token to use in a subsequent request to retrieve the next set of results. This value is null when there are no more results to return.</p>
+   * The pagination token to use in a subsequent request to retrieve the next set of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -879,7 +968,8 @@ export interface ListEntitlementsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>Specifies the ARN of the resource to list tags for.</p>
+   * Specifies the ARN of the resource to list tags for.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -890,7 +980,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>The tags associated with the resource.</p>
+   * The tags associated with the resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -901,13 +992,15 @@ export interface ListTagsForResourceResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>Specifies the ARN of the resource to add tags to.</p>
+   * Specifies the ARN of the resource to add tags to.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>Specifies the tags to add to the resource.</p>
+   * Specifies the tags to add to the resource.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -923,13 +1016,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>Specifies the ARN of the resource to remove tags from.</p>
+   * Specifies the ARN of the resource to remove tags from.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>Specifies the tag keys to remove from the resource.</p>
+   * Specifies the tag keys to remove from the resource.
+   *
    * @public
    */
   tagKeys: string[] | undefined;

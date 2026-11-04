@@ -23,23 +23,14 @@ export interface GetExpenseAnalysisCommandInput extends GetExpenseAnalysisReques
 export interface GetExpenseAnalysisCommandOutput extends GetExpenseAnalysisResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the results for an Amazon Textract asynchronous operation that analyzes invoices and
- *    receipts. Amazon Textract finds contact information, items purchased, and vendor name, from input
- *    invoices and receipts.</p>
- *          <p>You start asynchronous invoice/receipt analysis by calling <a>StartExpenseAnalysis</a>, which returns a job identifier (<code>JobId</code>). Upon
- *    completion of the invoice/receipt analysis, Amazon Textract publishes the completion status to the
- *    Amazon Simple Notification Service (Amazon SNS) topic. This topic must be registered in the initial call to
- *     <code>StartExpenseAnalysis</code>. To get the results of the invoice/receipt analysis operation,
- *    first ensure that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so,
- *    call <code>GetExpenseAnalysis</code>, and pass the job identifier (<code>JobId</code>) from the
- *    initial call to <code>StartExpenseAnalysis</code>.</p>
- *          <p>Use the MaxResults parameter to limit the number of blocks that are returned. If there are
- *    more results than specified in <code>MaxResults</code>, the value of <code>NextToken</code> in
- *    the operation response contains a pagination token for getting the next set of results. To get
- *    the next page of results, call <code>GetExpenseAnalysis</code>, and populate the
- *     <code>NextToken</code> request parameter with the token value that's returned from the previous
- *    call to <code>GetExpenseAnalysis</code>.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/invoices-receipts.html">Analyzing Invoices and Receipts</a>.</p>
+ * Gets the results for an Amazon Textract asynchronous operation that analyzes invoices and receipts. Amazon Textract finds contact information, items purchased, and vendor name, from input invoices and receipts.
+ *
+ * You start asynchronous invoice/receipt analysis by calling StartExpenseAnalysis, which returns a job identifier (`JobId`). Upon completion of the invoice/receipt analysis, Amazon Textract publishes the completion status to the Amazon Simple Notification Service (Amazon SNS) topic. This topic must be registered in the initial call to `StartExpenseAnalysis`. To get the results of the invoice/receipt analysis operation, first ensure that the status value published to the Amazon SNS topic is `SUCCEEDED`. If so, call `GetExpenseAnalysis`, and pass the job identifier (`JobId`) from the initial call to `StartExpenseAnalysis`.
+ *
+ * Use the MaxResults parameter to limit the number of blocks that are returned. If there are more results than specified in `MaxResults`, the value of `NextToken` in the operation response contains a pagination token for getting the next set of results. To get the next page of results, call `GetExpenseAnalysis`, and populate the `NextToken` request parameter with the token value that's returned from the previous call to `GetExpenseAnalysis`.
+ *
+ * For more information, see [Analyzing Invoices and Receipts](https://docs.aws.amazon.com/textract/latest/dg/invoices-receipts.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -248,42 +239,40 @@ export interface GetExpenseAnalysisCommandOutput extends GetExpenseAnalysisRespo
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You aren't authorized to perform the action. Use the Amazon Resource Name (ARN)
- *             of an authorized user or IAM role to perform the operation.</p>
+ *
+ * You aren't authorized to perform the action. Use the Amazon Resource Name (ARN) of an authorized user or IAM role to perform the operation.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Amazon Textract experienced a service issue. Try your call again.</p>
+ *
+ * Amazon Textract experienced a service issue. Try your call again.
  *
  * @throws {@link InvalidJobIdException} (client fault)
- *  <p>An invalid job identifier was passed to an asynchronous analysis operation.</p>
+ *
+ * An invalid job identifier was passed to an asynchronous analysis operation.
  *
  * @throws {@link InvalidKMSKeyException} (client fault)
- *  <p> Indicates you do not have decrypt permissions with the KMS key entered, or the KMS key
- *         was entered incorrectly. </p>
+ *
+ * Indicates you do not have decrypt permissions with the KMS key entered, or the KMS key was entered incorrectly.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>An input parameter violated a constraint. For example, in synchronous operations,
- *        an <code>InvalidParameterException</code> exception occurs
- *       when neither of the <code>S3Object</code> or <code>Bytes</code> values are supplied in the <code>Document</code>
- *       request parameter.
- *        Validate your parameter before calling the API operation again.</p>
+ *
+ * An input parameter violated a constraint. For example, in synchronous operations, an `InvalidParameterException` exception occurs when neither of the `S3Object` or `Bytes` values are supplied in the `Document` request parameter. Validate your parameter before calling the API operation again.
  *
  * @throws {@link InvalidS3ObjectException} (client fault)
- *  <p>Amazon Textract is unable to access the S3 object that's specified in the request.
- *          for more information, <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Configure Access to Amazon S3</a>
- *          For troubleshooting information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/troubleshooting.html">Troubleshooting Amazon S3</a>
- *          </p>
+ *
+ * Amazon Textract is unable to access the S3 object that's specified in the request. for more information, [Configure Access to Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html) For troubleshooting information, see [Troubleshooting Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/troubleshooting.html)
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
- *  <p>The number of requests exceeded your throughput limit. If you want to increase this limit,
- *          contact Amazon Textract.</p>
+ *
+ * The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Textract.
  *
  * @throws {@link ThrottlingException} (server fault)
- *  <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
+ *
+ * Amazon Textract is temporarily unable to process the request. Try your call again.
  *
  * @throws {@link TextractServiceException}
- * <p>Base exception class for all service exceptions from Textract service.</p>
  *
+ * Base exception class for all service exceptions from Textract service.
  *
  * @public
  */

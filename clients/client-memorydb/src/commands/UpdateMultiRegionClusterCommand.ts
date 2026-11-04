@@ -23,7 +23,8 @@ export interface UpdateMultiRegionClusterCommandInput extends UpdateMultiRegionC
 export interface UpdateMultiRegionClusterCommandOutput extends UpdateMultiRegionClusterResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the configuration of an existing multi-Region cluster.</p>
+ * Updates the configuration of an existing multi-Region cluster.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,23 +78,28 @@ export interface UpdateMultiRegionClusterCommandOutput extends UpdateMultiRegion
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  * @throws {@link InvalidMultiRegionClusterStateFault} (client fault)
- *  <p>The requested operation cannot be performed on the multi-Region cluster in its current state.</p>
+ *
+ * The requested operation cannot be performed on the multi-Region cluster in its current state.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>The specified parameter combination is not valid.</p>
+ *
+ * The specified parameter combination is not valid.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The specified parameter value is not valid.</p>
+ *
+ * The specified parameter value is not valid.
  *
  * @throws {@link MultiRegionClusterNotFoundFault} (client fault)
- *  <p>The specified multi-Region cluster does not exist.</p>
+ *
+ * The specified multi-Region cluster does not exist.
  *
  * @throws {@link MultiRegionParameterGroupNotFoundFault} (client fault)
- *  <p>The specified multi-Region parameter group does not exist.</p>
+ *
+ * The specified multi-Region parameter group does not exist.
  *
  * @throws {@link MemoryDBServiceException}
- * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * Base exception class for all service exceptions from MemoryDB service.
  *
  * @public
  */

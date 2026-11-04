@@ -23,43 +23,14 @@ export interface ProvisionProductCommandInput extends ProvisionProductInput {}
 export interface ProvisionProductCommandOutput extends ProvisionProductOutput, __MetadataBearer {}
 
 /**
- * <p>
- *          Provisions the specified product.
- *       </p>
- *          <p>
- *          A provisioned product is a resourced instance
- *          of a product.
- *          For example,
- *          provisioning a product
- *          that's based
- *          on an CloudFormation template
- *          launches an CloudFormation stack and its underlying resources.
- *          You can check the status
- *          of this request
- *          using <a>DescribeRecord</a>.
- *       </p>
- *          <p>
- *          If the request contains a tag key
- *          with an empty list
- *          of values,
- *          there's a tag conflict
- *          for that key.
- *          Don't include conflicted keys
- *          as tags,
- *          or this will cause the error "Parameter validation failed: Missing required parameter in Tags[<i>N</i>]:<i>Value</i>".
- *       </p>
- *          <note>
- *             <p>
- *             When provisioning a product
- *             that's been added
- *             to a portfolio,
- *             you must grant your user, group, or role access
- *             to the portfolio.
- *             For more information,
- *             see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/catalogs_portfolios_users.html">Granting users access</a>
- *             in the <i>Service Catalog User Guide</i>.
- *          </p>
- *          </note>
+ * Provisions the specified product.
+ *
+ * A provisioned product is a resourced instance of a product. For example, provisioning a product that's based on an CloudFormation template launches an CloudFormation stack and its underlying resources. You can check the status of this request using DescribeRecord.
+ *
+ * If the request contains a tag key with an empty list of values, there's a tag conflict for that key. Don't include conflicted keys as tags, or this will cause the error "Parameter validation failed: Missing required parameter in Tags[*N*]:*Value*".
+ *
+ * > **Note:** When provisioning a product that's been added to a portfolio, you must grant your user, group, or role access to the portfolio. For more information, see [Granting users access](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/catalogs_portfolios_users.html) in the *Service Catalog User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -146,17 +117,20 @@ export interface ProvisionProductCommandOutput extends ProvisionProductOutput, _
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  * @throws {@link DuplicateResourceException} (client fault)
- *  <p>The specified resource is a duplicate.</p>
+ *
+ * The specified resource is a duplicate.
  *
  * @throws {@link InvalidParametersException} (client fault)
- *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * One or more parameters provided to the operation are not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ServiceCatalogServiceException}
- * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * Base exception class for all service exceptions from ServiceCatalog service.
  *
  * @public
  */

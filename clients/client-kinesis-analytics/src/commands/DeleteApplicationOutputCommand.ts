@@ -23,12 +23,14 @@ export interface DeleteApplicationOutputCommandInput extends DeleteApplicationOu
 export interface DeleteApplicationOutputCommandOutput extends DeleteApplicationOutputResponse, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
- *          </note>
- *         <p>Deletes output destination configuration from your application configuration. Amazon Kinesis Analytics will no longer write data from the corresponding in-application stream to the external output destination.</p>
- *         <p>This operation requires permissions to perform the
- *             <code>kinesisanalytics:DeleteApplicationOutput</code> action.</p>
+ * > **Note:** This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see [Amazon Kinesis Data Analytics API V2 Documentation](/kinesisanalytics/latest/apiv2/Welcome.html).
+ *
+ *
+ *
+ * Deletes output destination configuration from your application configuration. Amazon Kinesis Analytics will no longer write data from the corresponding in-application stream to the external output destination.
+ *
+ * This operation requires permissions to perform the `kinesisanalytics:DeleteApplicationOutput` action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,23 +57,28 @@ export interface DeleteApplicationOutputCommandOutput extends DeleteApplicationO
  * @see {@link KinesisAnalyticsClientResolvedConfig | config} for KinesisAnalyticsClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.</p>
+ *
+ * Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>Specified input parameter value is invalid.</p>
+ *
+ * Specified input parameter value is invalid.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>Application is not available for this operation.</p>
+ *
+ * Application is not available for this operation.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Specified application can't be found.</p>
+ *
+ * Specified application can't be found.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
+ *
+ * The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation.
  *
  * @throws {@link KinesisAnalyticsServiceException}
- * <p>Base exception class for all service exceptions from KinesisAnalytics service.</p>
  *
+ * Base exception class for all service exceptions from KinesisAnalytics service.
  *
  * @public
  */

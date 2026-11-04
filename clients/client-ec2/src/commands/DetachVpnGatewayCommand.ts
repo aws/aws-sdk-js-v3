@@ -23,12 +23,10 @@ export interface DetachVpnGatewayCommandInput extends DetachVpnGatewayRequest {}
 export interface DetachVpnGatewayCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Detaches a virtual private gateway from a VPC. You do this if you're planning to turn
- *             off the VPC and not use it anymore. You can confirm a virtual private gateway has been
- *             completely detached from a VPC by describing the virtual private gateway (any
- *             attachments to the virtual private gateway are also described).</p>
- *          <p>You must wait for the attachment's state to switch to <code>detached</code> before you
- *             can delete the VPC or attach a different VPC to the virtual private gateway.</p>
+ * Detaches a virtual private gateway from a VPC. You do this if you're planning to turn off the VPC and not use it anymore. You can confirm a virtual private gateway has been completely detached from a VPC by describing the virtual private gateway (any attachments to the virtual private gateway are also described).
+ *
+ * You must wait for the attachment's state to switch to `detached` before you can delete the VPC or attach a different VPC to the virtual private gateway.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,8 +53,8 @@ export interface DetachVpnGatewayCommandOutput extends __MetadataBearer {}
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

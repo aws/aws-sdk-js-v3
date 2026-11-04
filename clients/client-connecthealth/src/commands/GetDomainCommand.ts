@@ -23,7 +23,8 @@ export interface GetDomainCommandInput extends GetDomainInput {}
 export interface GetDomainCommandOutput extends GetDomainOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about a Domain.</p>
+ * Retrieves information about a Domain.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,11 +69,12 @@ export interface GetDomainCommandOutput extends GetDomainOutput, __MetadataBeare
  * @see {@link ConnectHealthClientResolvedConfig | config} for ConnectHealthClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This error is thrown when the requested resource is not found.</p>
+ *
+ * This error is thrown when the requested resource is not found.
  *
  * @throws {@link ConnectHealthServiceException}
- * <p>Base exception class for all service exceptions from ConnectHealth service.</p>
  *
+ * Base exception class for all service exceptions from ConnectHealth service.
  *
  * @public
  */

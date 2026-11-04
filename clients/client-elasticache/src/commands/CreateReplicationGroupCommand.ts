@@ -23,36 +23,22 @@ export interface CreateReplicationGroupCommandInput extends CreateReplicationGro
 export interface CreateReplicationGroupCommandOutput extends CreateReplicationGroupResult, __MetadataBearer {}
 
 /**
- * <p>Creates a Valkey or Redis OSS (cluster mode disabled) or a Valkey or Redis OSS (cluster mode enabled) replication
- *             group.</p>
- *          <p>This API can be used to create a standalone regional replication group or a secondary
- *             replication group associated with a Global datastore.</p>
- *          <p>A Valkey or Redis OSS (cluster mode disabled) replication group is a collection of nodes, where
- *             one of the nodes is a read/write primary and the others are read-only replicas.
- *             Writes to the primary are asynchronously propagated to the replicas.</p>
- *          <p>A Valkey or Redis OSS cluster-mode enabled cluster is comprised of from 1 to 90 shards (API/CLI:
- *             node groups). Each shard has a primary node and up to 5 read-only replica nodes. The
- *             configuration can range from 90 shards and 0 replicas to 15 shards and 5 replicas, which
- *             is the maximum number or replicas allowed. </p>
- *          <p>The node or shard limit can be increased to a maximum of 500 per cluster if the Valkey or Redis OSS
- *             engine version is 5.0.6 or higher. For example, you can choose to configure a 500 node
- *             cluster that ranges between 83 shards (one primary and 5 replicas per shard) and 500
- *             shards (single primary and no replicas). Make sure there are enough available IP
- *             addresses to accommodate the increase. Common pitfalls include the subnets in the subnet
- *             group have too small a CIDR range or the subnets are shared and heavily used by other
- *             clusters. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/SubnetGroups.Creating.html">Creating a Subnet
- *                 Group</a>. For versions below 5.0.6, the limit is 250 per cluster.</p>
- *          <p>To request a limit increase, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">Amazon Service Limits</a> and
- *             choose the limit type <b>Nodes per cluster per instance
- *                 type</b>. </p>
- *          <p>When a Valkey or Redis OSS (cluster mode disabled) replication group has been successfully created,
- *             you can add one or more read replicas to it, up to a total of 5 read replicas. If you
- *             need to increase or decrease the number of node groups (console: shards), you can use scaling.
- *             For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Scaling.html">Scaling self-designed clusters</a> in the <i>ElastiCache User
- *                 Guide</i>.</p>
- *          <note>
- *             <p>This operation is valid for Valkey and Redis OSS only.</p>
- *          </note>
+ * Creates a Valkey or Redis OSS (cluster mode disabled) or a Valkey or Redis OSS (cluster mode enabled) replication group.
+ *
+ * This API can be used to create a standalone regional replication group or a secondary replication group associated with a Global datastore.
+ *
+ * A Valkey or Redis OSS (cluster mode disabled) replication group is a collection of nodes, where one of the nodes is a read/write primary and the others are read-only replicas. Writes to the primary are asynchronously propagated to the replicas.
+ *
+ * A Valkey or Redis OSS cluster-mode enabled cluster is comprised of from 1 to 90 shards (API/CLI: node groups). Each shard has a primary node and up to 5 read-only replica nodes. The configuration can range from 90 shards and 0 replicas to 15 shards and 5 replicas, which is the maximum number or replicas allowed.
+ *
+ * The node or shard limit can be increased to a maximum of 500 per cluster if the Valkey or Redis OSS engine version is 5.0.6 or higher. For example, you can choose to configure a 500 node cluster that ranges between 83 shards (one primary and 5 replicas per shard) and 500 shards (single primary and no replicas). Make sure there are enough available IP addresses to accommodate the increase. Common pitfalls include the subnets in the subnet group have too small a CIDR range or the subnets are shared and heavily used by other clusters. For more information, see [Creating a Subnet Group](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/SubnetGroups.Creating.html). For versions below 5.0.6, the limit is 250 per cluster.
+ *
+ * To request a limit increase, see [Amazon Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) and choose the limit type **Nodes per cluster per instance type**.
+ *
+ * When a Valkey or Redis OSS (cluster mode disabled) replication group has been successfully created, you can add one or more read replicas to it, up to a total of 5 read replicas. If you need to increase or decrease the number of node groups (console: shards), you can use scaling. For more information, see [Scaling self-designed clusters](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Scaling.html) in the *ElastiCache User Guide*.
+ *
+ * > **Note:** This operation is valid for Valkey and Redis OSS only.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -285,75 +271,84 @@ export interface CreateReplicationGroupCommandOutput extends CreateReplicationGr
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link CacheClusterNotFoundFault} (client fault)
- *  <p>The requested cluster ID does not refer to an existing cluster.</p>
+ *
+ * The requested cluster ID does not refer to an existing cluster.
  *
  * @throws {@link CacheParameterGroupNotFoundFault} (client fault)
- *  <p>The requested cache parameter group name does not refer to an existing cache parameter
- *             group.</p>
+ *
+ * The requested cache parameter group name does not refer to an existing cache parameter group.
  *
  * @throws {@link CacheSecurityGroupNotFoundFault} (client fault)
- *  <p>The requested cache security group name does not refer to an existing cache security
- *             group.</p>
+ *
+ * The requested cache security group name does not refer to an existing cache security group.
  *
  * @throws {@link CacheSubnetGroupNotFoundFault} (client fault)
- *  <p>The requested cache subnet group name does not refer to an existing cache subnet
- *             group.</p>
+ *
+ * The requested cache subnet group name does not refer to an existing cache subnet group.
  *
  * @throws {@link ClusterQuotaForCustomerExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the allowed number of clusters
- *             per customer.</p>
+ *
+ * The request cannot be processed because it would exceed the allowed number of clusters per customer.
  *
  * @throws {@link GlobalReplicationGroupNotFoundFault} (client fault)
- *  <p>The Global datastore does not exist</p>
+ *
+ * The Global datastore does not exist
  *
  * @throws {@link InsufficientCacheClusterCapacityFault} (client fault)
- *  <p>The requested cache node type is not available in the specified Availability Zone. For
- *             more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
+ *
+ * The requested cache node type is not available in the specified Availability Zone. For more information, see [InsufficientCacheClusterCapacity](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY) in the ElastiCache User Guide.
  *
  * @throws {@link InvalidCacheClusterStateFault} (client fault)
- *  <p>The requested cluster is not in the <code>available</code> state.</p>
+ *
+ * The requested cluster is not in the `available` state.
  *
  * @throws {@link InvalidGlobalReplicationGroupStateFault} (client fault)
- *  <p>The Global datastore is not available or in primary-only state.</p>
+ *
+ * The Global datastore is not available or in primary-only state.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * Two or more incompatible parameters were specified.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link InvalidUserGroupStateFault} (client fault)
- *  <p>The user group is not in an active state.</p>
+ *
+ * The user group is not in an active state.
  *
  * @throws {@link InvalidVPCNetworkStateFault} (client fault)
- *  <p>The VPC network is in an invalid state.</p>
+ *
+ * The VPC network is in an invalid state.
  *
  * @throws {@link NodeGroupsPerReplicationGroupQuotaExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the maximum allowed number of
- *             node groups (shards) in a single replication group. The default maximum is 90</p>
+ *
+ * The request cannot be processed because it would exceed the maximum allowed number of node groups (shards) in a single replication group. The default maximum is 90
  *
  * @throws {@link NodeQuotaForClusterExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the allowed number of cache
- *             nodes in a single cluster.</p>
+ *
+ * The request cannot be processed because it would exceed the allowed number of cache nodes in a single cluster.
  *
  * @throws {@link NodeQuotaForCustomerExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the allowed number of cache
- *             nodes per customer.</p>
+ *
+ * The request cannot be processed because it would exceed the allowed number of cache nodes per customer.
  *
  * @throws {@link ReplicationGroupAlreadyExistsFault} (client fault)
- *  <p>The specified replication group already exists.</p>
+ *
+ * The specified replication group already exists.
  *
  * @throws {@link TagQuotaPerResourceExceeded} (client fault)
- *  <p>The request cannot be processed because it would cause the resource to have more than
- *             the allowed number of tags. The maximum number of tags permitted on a resource is
- *             50.</p>
+ *
+ * The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.
  *
  * @throws {@link UserGroupNotFoundFault} (client fault)
- *  <p>The user group was not found or does not exist</p>
+ *
+ * The user group was not found or does not exist
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @example CreateCacheReplicationGroup
  * ```javascript

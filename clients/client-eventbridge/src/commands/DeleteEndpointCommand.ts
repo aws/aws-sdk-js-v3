@@ -23,11 +23,8 @@ export interface DeleteEndpointCommandInput extends DeleteEndpointRequest {}
 export interface DeleteEndpointCommandOutput extends DeleteEndpointResponse, __MetadataBearer {}
 
 /**
- * <p>Delete an existing global endpoint. For more information about global endpoints, see
- *         <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html">Making applications Regional-fault tolerant with global endpoints and event
- *         replication</a> in the <i>
- *                <i>Amazon EventBridge User Guide</i>
- *             </i>.</p>
+ * Delete an existing global endpoint. For more information about global endpoints, see [Making applications Regional-fault tolerant with global endpoints and event replication](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html) in the **Amazon EventBridge User Guide** .
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,17 +49,20 @@ export interface DeleteEndpointCommandOutput extends DeleteEndpointResponse, __M
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+ *
+ * There is concurrent modification on a rule, target, archive, or replay.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * This exception occurs due to unexpected causes.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An entity that you specified does not exist.</p>
+ *
+ * An entity that you specified does not exist.
  *
  * @throws {@link EventBridgeServiceException}
- * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ * Base exception class for all service exceptions from EventBridge service.
  *
  * @public
  */

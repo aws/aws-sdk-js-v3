@@ -23,45 +23,25 @@ export interface BatchDeleteRecipeVersionCommandInput extends BatchDeleteRecipeV
 export interface BatchDeleteRecipeVersionCommandOutput extends BatchDeleteRecipeVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes one or more versions of a recipe at a time.</p>
- *          <p>The entire request will be rejected if:</p>
- *          <ul>
- *             <li>
- *                <p>The recipe does not exist.</p>
- *             </li>
- *             <li>
- *                <p>There is an invalid version identifier in the list of versions.</p>
- *             </li>
- *             <li>
- *                <p>The version list is empty.</p>
- *             </li>
- *             <li>
- *                <p>The version list size exceeds 50.</p>
- *             </li>
- *             <li>
- *                <p>The version list contains duplicate entries.</p>
- *             </li>
- *          </ul>
- *          <p>The request will complete successfully, but with partial failures, if:</p>
- *          <ul>
- *             <li>
- *                <p>A version does not exist.</p>
- *             </li>
- *             <li>
- *                <p>A version is being used by a job.</p>
- *             </li>
- *             <li>
- *                <p>You specify <code>LATEST_WORKING</code>, but it's being used by a
- *                     project.</p>
- *             </li>
- *             <li>
- *                <p>The version fails to be deleted.</p>
- *             </li>
- *          </ul>
- *          <p>The <code>LATEST_WORKING</code> version will only be deleted if the recipe has no
- *             other versions. If you try to delete <code>LATEST_WORKING</code> while other versions
- *             exist (or if they can't be deleted), then <code>LATEST_WORKING</code> will be listed as
- *             partial failure in the response.</p>
+ * Deletes one or more versions of a recipe at a time.
+ *
+ * The entire request will be rejected if:
+ *
+ * - The recipe does not exist.
+ * - There is an invalid version identifier in the list of versions.
+ * - The version list is empty.
+ * - The version list size exceeds 50.
+ * - The version list contains duplicate entries.
+ *
+ * The request will complete successfully, but with partial failures, if:
+ *
+ * - A version does not exist.
+ * - A version is being used by a job.
+ * - You specify `LATEST_WORKING`, but it's being used by a project.
+ * - The version fails to be deleted.
+ *
+ * The `LATEST_WORKING` version will only be deleted if the recipe has no other versions. If you try to delete `LATEST_WORKING` while other versions exist (or if they can't be deleted), then `LATEST_WORKING` will be listed as partial failure in the response.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -98,17 +78,20 @@ export interface BatchDeleteRecipeVersionCommandOutput extends BatchDeleteRecipe
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ *
+ * Updating or deleting a resource can cause an inconsistent state.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>One or more resources can't be found.</p>
+ *
+ * One or more resources can't be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input parameters for this request failed validation.</p>
+ *
+ * The input parameters for this request failed validation.
  *
  * @throws {@link DataBrewServiceException}
- * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ * Base exception class for all service exceptions from DataBrew service.
  *
  * @public
  */

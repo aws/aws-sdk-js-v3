@@ -23,19 +23,15 @@ export interface ListAssetsCommandInput extends ListAssetsRequest {}
 export interface ListAssetsCommandOutput extends ListAssetsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a paginated list of asset summaries.</p>
- *          <p>You can use this operation to do the following:</p>
- *          <ul>
- *             <li>
- *                <p>List assets based on a specific asset model.</p>
- *             </li>
- *             <li>
- *                <p>List top-level assets.</p>
- *             </li>
- *          </ul>
- *          <p>You can't use this operation to list all assets. To retrieve summaries for all of your
- *       assets, use <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_ListAssetModels.html">ListAssetModels</a> to get all of your asset model IDs. Then, use ListAssets to get all
- *       assets for each asset model.</p>
+ * Retrieves a paginated list of asset summaries.
+ *
+ * You can use this operation to do the following:
+ *
+ * - List assets based on a specific asset model.
+ * - List top-level assets.
+ *
+ * You can't use this operation to list all assets. To retrieve summaries for all of your assets, use [ListAssetModels](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_ListAssetModels.html) to get all of your asset model IDs. Then, use ListAssets to get all assets for each asset model.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -97,24 +93,26 @@ export interface ListAssetsCommandOutput extends ListAssetsResponse, __MetadataB
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>IoT SiteWise can't process your request right now. Try again later.</p>
+ *
+ * IoT SiteWise can't process your request right now. Try again later.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *       unsupported characters. Check your request and try again.</p>
+ *
+ * The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource can't be found.</p>
+ *
+ * The requested resource can't be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Your request exceeded a rate limit. For example, you might have exceeded the number of
- *       IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so
- *       on.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ *
+ * Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.
+ *
+ * For more information, see [Quotas](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html) in the *IoT SiteWise User Guide*.
  *
  * @throws {@link IoTSiteWiseServiceException}
- * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * Base exception class for all service exceptions from IoTSiteWise service.
  *
  * @public
  */

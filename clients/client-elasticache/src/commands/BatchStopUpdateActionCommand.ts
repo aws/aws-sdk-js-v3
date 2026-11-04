@@ -23,9 +23,8 @@ export interface BatchStopUpdateActionCommandInput extends BatchStopUpdateAction
 export interface BatchStopUpdateActionCommandOutput extends UpdateActionResultsMessage, __MetadataBearer {}
 
 /**
- * <p>Stop the service update. For more information on service updates and stopping them,
- *             see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/stopping-self-service-updates.html">Stopping
- *                 Service Updates</a>.</p>
+ * Stop the service update. For more information on service updates and stopping them, see [Stopping Service Updates](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/stopping-self-service-updates.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,14 +73,16 @@ export interface BatchStopUpdateActionCommandOutput extends UpdateActionResultsM
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link ServiceUpdateNotFoundFault} (client fault)
- *  <p>The service update doesn't exist</p>
+ *
+ * The service update doesn't exist
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @public
  */

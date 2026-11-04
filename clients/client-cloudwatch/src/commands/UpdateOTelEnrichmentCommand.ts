@@ -23,15 +23,10 @@ export interface UpdateOTelEnrichmentCommandInput extends UpdateOTelEnrichmentIn
 export interface UpdateOTelEnrichmentCommandOutput extends UpdateOTelEnrichmentOutput, __MetadataBearer {}
 
 /**
- * <p>Replaces the filters that determine which CloudWatch vended metrics are enriched
- *             with resource ARN and resource tag labels for the account. Enrichment must already be
- *             running for the account. If it is not, this operation returns a
- *                 <code>ResourceNotFoundException</code>. To start enrichment, use <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_StartOTelEnrichment.html">StartOTelEnrichment</a>.</p>
- *          <p>The filters in the request completely replace the stored filters; they are not
- *             merged with them. <code>IncludeFilters</code> and <code>ExcludeFilters</code> are
- *             replaced as a pair, so a request that specifies only <code>IncludeFilters</code> also
- *             clears the stored <code>ExcludeFilters</code>, and a request that specifies neither
- *             clears both.</p>
+ * Replaces the filters that determine which CloudWatch vended metrics are enriched with resource ARN and resource tag labels for the account. Enrichment must already be running for the account. If it is not, this operation returns a `ResourceNotFoundException`. To start enrichment, use [StartOTelEnrichment](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_StartOTelEnrichment.html).
+ *
+ * The filters in the request completely replace the stored filters; they are not merged with them. `IncludeFilters` and `ExcludeFilters` are replaced as a pair, so a request that specifies only `IncludeFilters` also clears the stored `ExcludeFilters`, and a request that specifies neither clears both.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,15 +85,16 @@ export interface UpdateOTelEnrichmentCommandOutput extends UpdateOTelEnrichmentO
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The named resource does not exist.</p>
+ *
+ * The named resource does not exist.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request failed validation. One or more input parameters do not satisfy the
- *             constraints that the operation requires.</p>
+ *
+ * The request failed validation. One or more input parameters do not satisfy the constraints that the operation requires.
  *
  * @throws {@link CloudWatchServiceException}
- * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatch service.
  *
  * @public
  */

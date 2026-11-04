@@ -23,7 +23,10 @@ export interface UpdateTrustedTokenIssuerCommandInput extends UpdateTrustedToken
 export interface UpdateTrustedTokenIssuerCommandOutput extends UpdateTrustedTokenIssuerResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the name of the trusted token issuer, or the path of a source attribute or destination attribute for a trusted token issuer configuration.</p> <note> <p>Updating this trusted token issuer configuration might cause users to lose access to any applications that are configured to use the trusted token issuer.</p> </note>
+ * Updates the name of the trusted token issuer, or the path of a source attribute or destination attribute for a trusted token issuer configuration.
+ *
+ * > **Note:** Updating this trusted token issuer configuration might cause users to lose access to any applications that are configured to use the trusted token issuer.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,26 +59,32 @@ export interface UpdateTrustedTokenIssuerCommandOutput extends UpdateTrustedToke
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+ *
+ * Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+ *
+ * The request processing has failed because of an unknown error, exception, or failure with an internal server.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Indicates that a requested resource is not found.</p>
+ *
+ * Indicates that a requested resource is not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+ *
+ * Indicates that the principal has crossed the throttling limits of the API operations.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request failed because it contains a syntax error.</p>
+ *
+ * The request failed because it contains a syntax error.
  *
  * @throws {@link SSOAdminServiceException}
- * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * Base exception class for all service exceptions from SSOAdmin service.
  *
  * @public
  */

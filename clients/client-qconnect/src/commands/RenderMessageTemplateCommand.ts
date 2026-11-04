@@ -23,7 +23,8 @@ export interface RenderMessageTemplateCommandInput extends RenderMessageTemplate
 export interface RenderMessageTemplateCommandOutput extends RenderMessageTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Renders the Amazon Q in Connect message template based on the attribute values provided and generates the message content. For any variable present in the message template, if the attribute value is neither provided in the attribute request parameter nor the default attribute of the message template, the rendered message content will keep the variable placeholder as it is and return the attribute keys that are missing.</p>
+ * Renders the Amazon Q in Connect message template based on the attribute values provided and generates the message content. For any variable present in the message template, if the attribute value is neither provided in the attribute request parameter nor the default attribute of the message template, the rendered message content will keep the variable placeholder as it is and return the attribute keys that are missing.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -233,20 +234,24 @@ export interface RenderMessageTemplateCommandOutput extends RenderMessageTemplat
  * @see {@link QConnectClientResolvedConfig | config} for QConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by a service.</p>
+ *
+ * The input fails to satisfy the constraints specified by a service.
  *
  * @throws {@link QConnectServiceException}
- * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ * Base exception class for all service exceptions from QConnect service.
  *
  * @public
  */

@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { LakeFormationServiceException as __BaseException } from "./LakeFormationServiceException";
 
 /**
- * <p>Access to a resource was denied.</p>
+ * Access to a resource was denied.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -12,7 +13,8 @@ export class AccessDeniedException extends __BaseException {
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -31,7 +33,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Two processes are trying to modify a resource simultaneously.</p>
+ * Two processes are trying to modify a resource simultaneously.
+ *
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
@@ -39,7 +42,8 @@ export class ConcurrentModificationException extends __BaseException {
   readonly name = "ConcurrentModificationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -58,7 +62,8 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
- * <p>A specified entity does not exist.</p>
+ * A specified entity does not exist.
+ *
  * @public
  */
 export class EntityNotFoundException extends __BaseException {
@@ -66,7 +71,8 @@ export class EntityNotFoundException extends __BaseException {
   readonly name = "EntityNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -85,7 +91,8 @@ export class EntityNotFoundException extends __BaseException {
 }
 
 /**
- * <p>An internal service error occurred.</p>
+ * An internal service error occurred.
+ *
  * @public
  */
 export class InternalServiceException extends __BaseException {
@@ -93,7 +100,8 @@ export class InternalServiceException extends __BaseException {
   readonly name = "InternalServiceException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -112,7 +120,8 @@ export class InternalServiceException extends __BaseException {
 }
 
 /**
- * <p>The input provided was not valid.</p>
+ * The input provided was not valid.
+ *
  * @public
  */
 export class InvalidInputException extends __BaseException {
@@ -120,7 +129,8 @@ export class InvalidInputException extends __BaseException {
   readonly name = "InvalidInputException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -139,7 +149,8 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
- * <p>The operation timed out.</p>
+ * The operation timed out.
+ *
  * @public
  */
 export class OperationTimeoutException extends __BaseException {
@@ -147,7 +158,8 @@ export class OperationTimeoutException extends __BaseException {
   readonly name = "OperationTimeoutException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -166,7 +178,8 @@ export class OperationTimeoutException extends __BaseException {
 }
 
 /**
- * <p>A resource to be created or added already exists.</p>
+ * A resource to be created or added already exists.
+ *
  * @public
  */
 export class AlreadyExistsException extends __BaseException {
@@ -174,7 +187,8 @@ export class AlreadyExistsException extends __BaseException {
   readonly name = "AlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -193,7 +207,8 @@ export class AlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>A resource numerical limit was exceeded.</p>
+ * A resource numerical limit was exceeded.
+ *
  * @public
  */
 export class ResourceNumberLimitExceededException extends __BaseException {
@@ -201,7 +216,8 @@ export class ResourceNumberLimitExceededException extends __BaseException {
   readonly name = "ResourceNumberLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -220,7 +236,8 @@ export class ResourceNumberLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>Contains details about an error related to a transaction commit that was in progress.</p>
+ * Contains details about an error related to a transaction commit that was in progress.
+ *
  * @public
  */
 export class TransactionCommitInProgressException extends __BaseException {
@@ -228,7 +245,8 @@ export class TransactionCommitInProgressException extends __BaseException {
   readonly name = "TransactionCommitInProgressException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the error.</p>
+   * A message describing the error.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -247,7 +265,8 @@ export class TransactionCommitInProgressException extends __BaseException {
 }
 
 /**
- * <p>Contains details about an error where the specified transaction has already been committed and cannot be used for <code>UpdateTableObjects</code>.</p>
+ * Contains details about an error where the specified transaction has already been committed and cannot be used for `UpdateTableObjects`.
+ *
  * @public
  */
 export class TransactionCommittedException extends __BaseException {
@@ -255,7 +274,8 @@ export class TransactionCommittedException extends __BaseException {
   readonly name = "TransactionCommittedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the error.</p>
+   * A message describing the error.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -274,7 +294,8 @@ export class TransactionCommittedException extends __BaseException {
 }
 
 /**
- * <p>Contains details about an error related to a transaction that was cancelled.</p>
+ * Contains details about an error related to a transaction that was cancelled.
+ *
  * @public
  */
 export class TransactionCanceledException extends __BaseException {
@@ -282,7 +303,8 @@ export class TransactionCanceledException extends __BaseException {
   readonly name = "TransactionCanceledException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the error.</p>
+   * A message describing the error.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -301,7 +323,8 @@ export class TransactionCanceledException extends __BaseException {
 }
 
 /**
- * <p>Contains details about an error related to a resource which is not ready for a transaction.</p>
+ * Contains details about an error related to a resource which is not ready for a transaction.
+ *
  * @public
  */
 export class ResourceNotReadyException extends __BaseException {
@@ -309,7 +332,8 @@ export class ResourceNotReadyException extends __BaseException {
   readonly name = "ResourceNotReadyException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the error.</p>
+   * A message describing the error.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -328,7 +352,8 @@ export class ResourceNotReadyException extends __BaseException {
 }
 
 /**
- * <p>Contains details about an error where the query request expired.</p>
+ * Contains details about an error where the query request expired.
+ *
  * @public
  */
 export class ExpiredException extends __BaseException {
@@ -336,7 +361,8 @@ export class ExpiredException extends __BaseException {
   readonly name = "ExpiredException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the error.</p>
+   * A message describing the error.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -355,7 +381,8 @@ export class ExpiredException extends __BaseException {
 }
 
 /**
- * <p>Contains details about an error related to statistics not being ready.</p>
+ * Contains details about an error related to statistics not being ready.
+ *
  * @public
  */
 export class StatisticsNotReadyYetException extends __BaseException {
@@ -363,7 +390,8 @@ export class StatisticsNotReadyYetException extends __BaseException {
   readonly name = "StatisticsNotReadyYetException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the error.</p>
+   * A message describing the error.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -382,7 +410,8 @@ export class StatisticsNotReadyYetException extends __BaseException {
 }
 
 /**
- * <p>Contains details about an error where the query request was throttled.</p>
+ * Contains details about an error where the query request was throttled.
+ *
  * @public
  */
 export class ThrottledException extends __BaseException {
@@ -393,7 +422,8 @@ export class ThrottledException extends __BaseException {
     throttling: true,
   };
   /**
-   * <p>A message describing the error.</p>
+   * A message describing the error.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -412,7 +442,8 @@ export class ThrottledException extends __BaseException {
 }
 
 /**
- * <p>An encryption operation failed.</p>
+ * An encryption operation failed.
+ *
  * @public
  */
 export class GlueEncryptionException extends __BaseException {
@@ -420,7 +451,8 @@ export class GlueEncryptionException extends __BaseException {
   readonly name = "GlueEncryptionException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -439,7 +471,8 @@ export class GlueEncryptionException extends __BaseException {
 }
 
 /**
- * <p>Multiple resources exist with the same Amazon S3 location</p>
+ * Multiple resources exist with the same Amazon S3 location
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -447,7 +480,8 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -466,7 +500,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The engine does not support filtering data based on the enforced permissions. For example, if you call the <code>GetTemporaryGlueTableCredentials</code> operation with <code>SupportedPermissionType</code> equal to <code>ColumnPermission</code>, but cell-level permissions exist on the table, this exception is thrown.</p>
+ * The engine does not support filtering data based on the enforced permissions. For example, if you call the `GetTemporaryGlueTableCredentials` operation with `SupportedPermissionType` equal to `ColumnPermission`, but cell-level permissions exist on the table, this exception is thrown.
+ *
  * @public
  */
 export class PermissionTypeMismatchException extends __BaseException {
@@ -474,7 +509,8 @@ export class PermissionTypeMismatchException extends __BaseException {
   readonly name = "PermissionTypeMismatchException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the problem.</p>
+   * A message describing the problem.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -493,7 +529,8 @@ export class PermissionTypeMismatchException extends __BaseException {
 }
 
 /**
- * <p>Contains details about an error related to work units not being ready.</p>
+ * Contains details about an error related to work units not being ready.
+ *
  * @public
  */
 export class WorkUnitsNotReadyYetException extends __BaseException {
@@ -501,7 +538,8 @@ export class WorkUnitsNotReadyYetException extends __BaseException {
   readonly name = "WorkUnitsNotReadyYetException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the error.</p>
+   * A message describing the error.
+   *
    * @public
    */
   Message?: string | undefined;

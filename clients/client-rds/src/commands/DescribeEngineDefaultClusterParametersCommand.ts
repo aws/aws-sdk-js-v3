@@ -26,7 +26,10 @@ export interface DescribeEngineDefaultClusterParametersCommandInput extends Desc
 export interface DescribeEngineDefaultClusterParametersCommandOutput extends DescribeEngineDefaultClusterParametersResult, __MetadataBearer {}
 
 /**
- * <p>Returns the default engine and system parameter information for the cluster database engine.</p> <p>For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html"> What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
+ * Returns the default engine and system parameter information for the cluster database engine.
+ *
+ * For more information on Amazon Aurora, see [What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html) in the *Amazon Aurora User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,8 +86,8 @@ export interface DescribeEngineDefaultClusterParametersCommandOutput extends Des
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To describe the default engine and system parameter information for the Aurora database engine
  * ```javascript

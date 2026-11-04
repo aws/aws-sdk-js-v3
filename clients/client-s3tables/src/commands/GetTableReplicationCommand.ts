@@ -23,7 +23,12 @@ export interface GetTableReplicationCommandInput extends GetTableReplicationRequ
 export interface GetTableReplicationCommandOutput extends GetTableReplicationResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the replication configuration for a specific table.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:GetTableReplication</code> permission to use this operation.</p> </dd> </dl>
+ * Retrieves the replication configuration for a specific table.
+ *
+ * - **Permissions**
+ *
+ *   You must have the `s3tables:GetTableReplication` permission to use this operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,29 +67,36 @@ export interface GetTableReplicationCommandOutput extends GetTableReplicationRes
  * @see {@link S3TablesClientResolvedConfig | config} for S3TablesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The action cannot be performed because you do not have the required permission.</p>
+ *
+ * The action cannot be performed because you do not have the required permission.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request is invalid or malformed.</p>
+ *
+ * The request is invalid or malformed.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
+ *
+ * The request failed because there is a conflict with a previous write. You can retry the request.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>The caller isn't authorized to make the request.</p>
+ *
+ * The caller isn't authorized to make the request.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>The request failed due to an internal server error.</p>
+ *
+ * The request failed due to an internal server error.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The request was rejected because the specified resource could not be found.</p>
+ *
+ * The request was rejected because the specified resource could not be found.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The limit on the number of requests per second was exceeded.</p>
+ *
+ * The limit on the number of requests per second was exceeded.
  *
  * @throws {@link S3TablesServiceException}
- * <p>Base exception class for all service exceptions from S3Tables service.</p>
  *
+ * Base exception class for all service exceptions from S3Tables service.
  *
  * @public
  */

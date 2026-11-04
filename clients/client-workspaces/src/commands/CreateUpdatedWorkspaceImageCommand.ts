@@ -23,28 +23,16 @@ export interface CreateUpdatedWorkspaceImageCommandInput extends CreateUpdatedWo
 export interface CreateUpdatedWorkspaceImageCommandOutput extends CreateUpdatedWorkspaceImageResult, __MetadataBearer {}
 
 /**
- * <p>Creates a new updated WorkSpace image based on the specified source image. The new
- *          updated WorkSpace image has the latest drivers and other updates required by the
- *          Amazon WorkSpaces components.</p>
- *          <p>To determine which WorkSpace images need to be updated with the latest Amazon WorkSpaces
- *          requirements, use <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImages.html">
- *             DescribeWorkspaceImages</a>.</p>
- *          <note>
- *             <ul>
- *                <li>
- *                   <p>Only Windows 10, Windows Server 2016, and Windows Server 2019 WorkSpace images
- *                   can be programmatically updated at this time.</p>
- *                </li>
- *                <li>
- *                   <p>Microsoft Windows updates and other application updates are not included in the
- *                   update process.</p>
- *                </li>
- *                <li>
- *                   <p>The source WorkSpace image is not deleted. You can delete the source image
- *                   after you've verified your new updated image and created a new bundle. </p>
- *                </li>
- *             </ul>
- *          </note>
+ * Creates a new updated WorkSpace image based on the specified source image. The new updated WorkSpace image has the latest drivers and other updates required by the Amazon WorkSpaces components.
+ *
+ * To determine which WorkSpace images need to be updated with the latest Amazon WorkSpaces requirements, use [DescribeWorkspaceImages](https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImages.html).
+ *
+ * > **Note:**
+ * >
+ * > - Only Windows 10, Windows Server 2016, and Windows Server 2019 WorkSpace images can be programmatically updated at this time.
+ * > - Microsoft Windows updates and other application updates are not included in the update process.
+ * > - The source WorkSpace image is not deleted. You can delete the source image after you've verified your new updated image and created a new bundle.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,29 +67,36 @@ export interface CreateUpdatedWorkspaceImageCommandOutput extends CreateUpdatedW
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The user is not authorized to access a resource.</p>
+ *
+ * The user is not authorized to access a resource.
  *
  * @throws {@link InvalidParameterValuesException} (client fault)
- *  <p>One or more parameter values are not valid.</p>
+ *
+ * One or more parameter values are not valid.
  *
  * @throws {@link InvalidResourceStateException} (client fault)
- *  <p>The state of the resource is not valid for this operation.</p>
+ *
+ * The state of the resource is not valid for this operation.
  *
  * @throws {@link OperationNotSupportedException} (client fault)
- *  <p>This operation is not supported.</p>
+ *
+ * This operation is not supported.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>The specified resource already exists.</p>
+ *
+ * The specified resource already exists.
  *
  * @throws {@link ResourceLimitExceededException} (client fault)
- *  <p>Your resource limits have been exceeded.</p>
+ *
+ * Your resource limits have been exceeded.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link WorkSpacesServiceException}
- * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * Base exception class for all service exceptions from WorkSpaces service.
  *
  * @public
  */

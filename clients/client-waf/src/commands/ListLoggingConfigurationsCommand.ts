@@ -23,15 +23,16 @@ export interface ListLoggingConfigurationsCommandInput extends ListLoggingConfig
 export interface ListLoggingConfigurationsCommandOutput extends ListLoggingConfigurationsResponse, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This is <b>AWS WAF Classic</b> documentation. For
- *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
- *       WAF Classic</a> in the developer guide.</p>
- *             <p>
- *                <b>For the latest version of AWS
- *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
- *          </note>
- *          <p>Returns an array of <a>LoggingConfiguration</a> objects.</p>
+ * > **Note:**
+ * >
+ * > This is **AWS WAF Classic** documentation. For more information, see [AWS WAF Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html) in the developer guide.
+ * >
+ * > **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html). With the latest version, AWS WAF has a single set of endpoints for regional and global use.
+ *
+ *
+ *
+ * Returns an array of LoggingConfiguration objects.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,54 +74,30 @@ export interface ListLoggingConfigurationsCommandOutput extends ListLoggingConfi
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
  * @throws {@link WAFInternalErrorException} (server fault)
- *  <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+ *
+ * The operation failed because of a system problem, even though the request was valid. Retry your request.
  *
  * @throws {@link WAFInvalidParameterException} (client fault)
- *  <p>The operation failed because AWS WAF didn't recognize a parameter in the request. For example:</p>
- * 			      <ul>
- *             <li>
- *                <p>You specified an invalid parameter name.</p>
- *             </li>
- *             <li>
- *                <p>You specified an invalid value.</p>
- *             </li>
- *             <li>
- *                <p>You tried to update an object (<code>ByteMatchSet</code>, <code>IPSet</code>, <code>Rule</code>, or <code>WebACL</code>)
- * 					using an action other than <code>INSERT</code> or <code>DELETE</code>.</p>
- *             </li>
- *             <li>
- *                <p>You tried to create a <code>WebACL</code> with a <code>DefaultAction</code>
- *                   <code>Type</code> other than
- * 					<code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p>
- *             </li>
- *             <li>
- * 		 	           <p>You tried to create a <code>RateBasedRule</code> with a <code>RateKey</code> value other than <code>IP</code>.</p>
- * 		          </li>
- *             <li>
- *                <p>You tried to update a <code>WebACL</code> with a <code>WafAction</code>
- *                   <code>Type</code> other than
- * 					<code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p>
- *             </li>
- *             <li>
- *                <p>You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code>
- *                   <code>Type</code> other than
- * 					HEADER, METHOD, QUERY_STRING, URI, or BODY.</p>
- *             </li>
- *             <li>
- *                <p>You tried to update a <code>ByteMatchSet</code> with a <code>Field</code> of <code>HEADER</code>
- * 					but no value for <code>Data</code>.</p>
- *             </li>
- *             <li>
- * 			   		       <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.</p>
- * 			   	     </li>
- *          </ul>
+ *
+ * The operation failed because AWS WAF didn't recognize a parameter in the request. For example:
+ *
+ * - You specified an invalid parameter name.
+ * - You specified an invalid value.
+ * - You tried to update an object (`ByteMatchSet`, `IPSet`, `Rule`, or `WebACL`) using an action other than `INSERT` or `DELETE`.
+ * - You tried to create a `WebACL` with a `DefaultAction` `Type` other than `ALLOW`, `BLOCK`, or `COUNT`.
+ * - You tried to create a `RateBasedRule` with a `RateKey` value other than `IP`.
+ * - You tried to update a `WebACL` with a `WafAction` `Type` other than `ALLOW`, `BLOCK`, or `COUNT`.
+ * - You tried to update a `ByteMatchSet` with a `FieldToMatch` `Type` other than HEADER, METHOD, QUERY_STRING, URI, or BODY.
+ * - You tried to update a `ByteMatchSet` with a `Field` of `HEADER` but no value for `Data`.
+ * - Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.
  *
  * @throws {@link WAFNonexistentItemException} (client fault)
- *  <p>The operation failed because the referenced object doesn't exist.</p>
+ *
+ * The operation failed because the referenced object doesn't exist.
  *
  * @throws {@link WAFServiceException}
- * <p>Base exception class for all service exceptions from WAF service.</p>
  *
+ * Base exception class for all service exceptions from WAF service.
  *
  * @public
  */

@@ -23,9 +23,10 @@ export interface ListTemplatesCommandInput extends ListTemplatesRequest {}
 export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the email templates present in your Amazon SES account in the current
- *             Amazon Web Services Region.</p>
- *          <p>You can execute this operation no more than once per second.</p>
+ * Lists the email templates present in your Amazon SES account in the current Amazon Web Services Region.
+ *
+ * You can execute this operation no more than once per second.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,8 +60,8 @@ export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __Met
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @public
  */

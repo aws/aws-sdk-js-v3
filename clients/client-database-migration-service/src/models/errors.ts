@@ -6,8 +6,8 @@ import {
 } from "./DatabaseMigrationServiceServiceException";
 
 /**
- * <p>DMS was denied access to the endpoint. Check that the
- *             role is correctly configured.</p>
+ * DMS was denied access to the endpoint. Check that the role is correctly configured.
+ *
  * @public
  */
 export class AccessDeniedFault extends __BaseException {
@@ -28,7 +28,8 @@ export class AccessDeniedFault extends __BaseException {
 }
 
 /**
- * <p>The resource is in a state that prevents it from being used for database migration.</p>
+ * The resource is in a state that prevents it from being used for database migration.
+ *
  * @public
  */
 export class InvalidResourceStateFault extends __BaseException {
@@ -49,7 +50,8 @@ export class InvalidResourceStateFault extends __BaseException {
 }
 
 /**
- * <p>The resource could not be found.</p>
+ * The resource could not be found.
+ *
  * @public
  */
 export class ResourceNotFoundFault extends __BaseException {
@@ -70,7 +72,8 @@ export class ResourceNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>A dependency threw an exception.</p>
+ * A dependency threw an exception.
+ *
  * @public
  */
 export class FailedDependencyFault extends __BaseException {
@@ -91,7 +94,8 @@ export class FailedDependencyFault extends __BaseException {
 }
 
 /**
- * <p>The action or operation requested isn't valid.</p>
+ * The action or operation requested isn't valid.
+ *
  * @public
  */
 export class InvalidOperationFault extends __BaseException {
@@ -112,7 +116,8 @@ export class InvalidOperationFault extends __BaseException {
 }
 
 /**
- * <p>The resource you are attempting to create already exists.</p>
+ * The resource you are attempting to create already exists.
+ *
  * @public
  */
 export class ResourceAlreadyExistsFault extends __BaseException {
@@ -120,7 +125,6 @@ export class ResourceAlreadyExistsFault extends __BaseException {
   readonly name = "ResourceAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
-   * <p></p>
    * @public
    */
   resourceArn?: string | undefined;
@@ -140,7 +144,8 @@ export class ResourceAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The quota for this resource quota has been exceeded.</p>
+ * The quota for this resource quota has been exceeded.
+ *
  * @public
  */
 export class ResourceQuotaExceededFault extends __BaseException {
@@ -161,7 +166,8 @@ export class ResourceQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>DMS cannot access the KMS key.</p>
+ * DMS cannot access the KMS key.
+ *
  * @public
  */
 export class KMSKeyNotAccessibleFault extends __BaseException {
@@ -182,7 +188,8 @@ export class KMSKeyNotAccessibleFault extends __BaseException {
 }
 
 /**
- * <p>Insufficient privileges are preventing access to an Amazon S3 object.</p>
+ * Insufficient privileges are preventing access to an Amazon S3 object.
+ *
  * @public
  */
 export class S3AccessDeniedFault extends __BaseException {
@@ -203,7 +210,8 @@ export class S3AccessDeniedFault extends __BaseException {
 }
 
 /**
- * <p>The ciphertext references a key that doesn't exist or that the DMS account doesn't have access to.</p>
+ * The ciphertext references a key that doesn't exist or that the DMS account doesn't have access to.
+ *
  * @public
  */
 export class KMSAccessDeniedFault extends __BaseException {
@@ -224,7 +232,8 @@ export class KMSAccessDeniedFault extends __BaseException {
 }
 
 /**
- * <p>The specified KMS key isn't enabled.</p>
+ * The specified KMS key isn't enabled.
+ *
  * @public
  */
 export class KMSDisabledFault extends __BaseException {
@@ -245,7 +254,8 @@ export class KMSDisabledFault extends __BaseException {
 }
 
 /**
- * <p>The state of the specified KMS resource isn't valid for this request.</p>
+ * The state of the specified KMS resource isn't valid for this request.
+ *
  * @public
  */
 export class KMSInvalidStateFault extends __BaseException {
@@ -266,7 +276,8 @@ export class KMSInvalidStateFault extends __BaseException {
 }
 
 /**
- * <p>The specified KMS entity or resource can't be found.</p>
+ * The specified KMS entity or resource can't be found.
+ *
  * @public
  */
 export class KMSNotFoundFault extends __BaseException {
@@ -287,7 +298,8 @@ export class KMSNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>This request triggered KMS request throttling.</p>
+ * This request triggered KMS request throttling.
+ *
  * @public
  */
 export class KMSThrottlingFault extends __BaseException {
@@ -308,7 +320,8 @@ export class KMSThrottlingFault extends __BaseException {
 }
 
 /**
- * <p>The SNS topic is invalid.</p>
+ * The SNS topic is invalid.
+ *
  * @public
  */
 export class SNSInvalidTopicFault extends __BaseException {
@@ -329,7 +342,8 @@ export class SNSInvalidTopicFault extends __BaseException {
 }
 
 /**
- * <p>You are not authorized for the SNS subscription.</p>
+ * You are not authorized for the SNS subscription.
+ *
  * @public
  */
 export class SNSNoAuthorizationFault extends __BaseException {
@@ -350,8 +364,8 @@ export class SNSNoAuthorizationFault extends __BaseException {
 }
 
 /**
- * <p>A specified Amazon S3 bucket, bucket folder, or other object can't be
- *             found.</p>
+ * A specified Amazon S3 bucket, bucket folder, or other object can't be found.
+ *
  * @public
  */
 export class S3ResourceNotFoundFault extends __BaseException {
@@ -372,7 +386,8 @@ export class S3ResourceNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The subnet provided isn't valid.</p>
+ * The subnet provided isn't valid.
+ *
  * @public
  */
 export class InvalidSubnet extends __BaseException {
@@ -393,7 +408,8 @@ export class InvalidSubnet extends __BaseException {
 }
 
 /**
- * <p>The replication subnet group does not cover enough Availability Zones (AZs). Edit the replication subnet group and add more AZs.</p>
+ * The replication subnet group does not cover enough Availability Zones (AZs). Edit the replication subnet group and add more AZs.
+ *
  * @public
  */
 export class ReplicationSubnetGroupDoesNotCoverEnoughAZs extends __BaseException {
@@ -414,7 +430,8 @@ export class ReplicationSubnetGroupDoesNotCoverEnoughAZs extends __BaseException
 }
 
 /**
- * <p>There are not enough resources allocated to the database migration.</p>
+ * There are not enough resources allocated to the database migration.
+ *
  * @public
  */
 export class InsufficientResourceCapacityFault extends __BaseException {
@@ -435,7 +452,8 @@ export class InsufficientResourceCapacityFault extends __BaseException {
 }
 
 /**
- * <p>The storage quota has been exceeded.</p>
+ * The storage quota has been exceeded.
+ *
  * @public
  */
 export class StorageQuotaExceededFault extends __BaseException {
@@ -456,7 +474,8 @@ export class StorageQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>The specified collector doesn't exist.</p>
+ * The specified collector doesn't exist.
+ *
  * @public
  */
 export class CollectorNotFoundFault extends __BaseException {
@@ -477,7 +496,8 @@ export class CollectorNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The certificate was not valid.</p>
+ * The certificate was not valid.
+ *
  * @public
  */
 export class InvalidCertificateFault extends __BaseException {
@@ -498,7 +518,8 @@ export class InvalidCertificateFault extends __BaseException {
 }
 
 /**
- * <p>An upgrade dependency is preventing the database migration.</p>
+ * An upgrade dependency is preventing the database migration.
+ *
  * @public
  */
 export class UpgradeDependencyFailureFault extends __BaseException {
@@ -519,7 +540,8 @@ export class UpgradeDependencyFailureFault extends __BaseException {
 }
 
 /**
- * <p>The specified subnet is already in use.</p>
+ * The specified subnet is already in use.
+ *
  * @public
  */
 export class SubnetAlreadyInUse extends __BaseException {
@@ -540,7 +562,8 @@ export class SubnetAlreadyInUse extends __BaseException {
 }
 
 /**
- * <p>An Key Management Service (KMS) error is preventing access to KMS.</p>
+ * An Key Management Service (KMS) error is preventing access to KMS.
+ *
  * @public
  */
 export class KMSFault extends __BaseException {

@@ -23,61 +23,32 @@ export interface DisconnectCustomKeyStoreCommandInput extends DisconnectCustomKe
 export interface DisconnectCustomKeyStoreCommandOutput extends DisconnectCustomKeyStoreResponse, __MetadataBearer {}
 
 /**
- * <p>Disconnects the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key store</a> from its backing key store. This operation disconnects an
- *       CloudHSM key store from its associated CloudHSM cluster or disconnects an external key store from
- *       the external key store proxy that communicates with your external key manager.</p>
- *          <p> This operation is part of the custom key stores feature in KMS, which
- * combines the convenience and extensive integration of KMS with the isolation and control of a
- * key store that you own and manage.</p>
- *          <p>While a custom key store is disconnected, you can manage the custom key store and its KMS
- *       keys, but you cannot create or use its KMS keys. You can reconnect the custom key store at any
- *       time.</p>
- *          <note>
- *             <p>While a custom key store is disconnected, all attempts to create KMS keys in the custom key store or to use existing KMS keys in <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-cryptography.html#cryptographic-operations">cryptographic operations</a> will
- *         fail. This action can prevent users from storing and accessing sensitive data.</p>
- *          </note>
- *          <p>When you disconnect a custom key store, its <code>ConnectionState</code> changes to
- *         <code>Disconnected</code>. To find the connection state of a custom key store, use the <a>DescribeCustomKeyStores</a> operation. To reconnect a custom key store, use the
- *         <a>ConnectCustomKeyStore</a> operation.</p>
- *          <p>If the operation succeeds, it returns a JSON object with no
- * properties.</p>
- *          <p>
- *             <b>Cross-account use</b>: No. You cannot perform this operation on a custom key store in a different Amazon Web Services account.</p>
- *          <p>
- *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:DisconnectCustomKeyStore</a> (IAM policy)</p>
- *          <p>
- *             <b>Related operations:</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>ConnectCustomKeyStore</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>CreateCustomKeyStore</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteCustomKeyStore</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DescribeCustomKeyStores</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateCustomKeyStore</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
+ * Disconnects the [custom key store](https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html) from its backing key store. This operation disconnects an CloudHSM key store from its associated CloudHSM cluster or disconnects an external key store from the external key store proxy that communicates with your external key manager.
+ *
+ * This operation is part of the custom key stores feature in KMS, which combines the convenience and extensive integration of KMS with the isolation and control of a key store that you own and manage.
+ *
+ * While a custom key store is disconnected, you can manage the custom key store and its KMS keys, but you cannot create or use its KMS keys. You can reconnect the custom key store at any time.
+ *
+ * > **Note:** While a custom key store is disconnected, all attempts to create KMS keys in the custom key store or to use existing KMS keys in [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/kms-cryptography.html#cryptographic-operations) will fail. This action can prevent users from storing and accessing sensitive data.
+ *
+ * When you disconnect a custom key store, its `ConnectionState` changes to `Disconnected`. To find the connection state of a custom key store, use the DescribeCustomKeyStores operation. To reconnect a custom key store, use the ConnectCustomKeyStore operation.
+ *
+ * If the operation succeeds, it returns a JSON object with no properties.
+ *
+ * **Cross-account use**: No. You cannot perform this operation on a custom key store in a different Amazon Web Services account.
+ *
+ * **Required permissions**: [kms:DisconnectCustomKeyStore](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (IAM policy)
+ *
+ * **Related operations:**
+ *
+ * - ConnectCustomKeyStore
+ * - CreateCustomKeyStore
+ * - DeleteCustomKeyStore
+ * - DescribeCustomKeyStores
+ * - UpdateCustomKeyStore
+ *
+ * **Eventual consistency**: The KMS API follows an eventual consistency model. For more information, see [KMS eventual consistency](https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -102,54 +73,28 @@ export interface DisconnectCustomKeyStoreCommandOutput extends DisconnectCustomK
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
  * @throws {@link CustomKeyStoreInvalidStateException} (client fault)
- *  <p>The request was rejected because of the <code>ConnectionState</code> of the custom key
- *       store. To get the <code>ConnectionState</code> of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p>
- *          <p>This exception is thrown under the following conditions:</p>
- *          <ul>
- *             <li>
- *                <p>You requested the <a>ConnectCustomKeyStore</a> operation on a custom key
- *           store with a <code>ConnectionState</code> of <code>DISCONNECTING</code> or
- *             <code>FAILED</code>. This operation is valid for all other <code>ConnectionState</code>
- *           values. To reconnect a custom key store in a <code>FAILED</code> state, disconnect it
- *             (<a>DisconnectCustomKeyStore</a>), then connect it
- *             (<code>ConnectCustomKeyStore</code>).</p>
- *             </li>
- *             <li>
- *                <p>You requested the <a>CreateKey</a> operation in a custom key store that is
- *           not connected. This operations is valid only when the custom key store
- *             <code>ConnectionState</code> is <code>CONNECTED</code>.</p>
- *             </li>
- *             <li>
- *                <p>You requested the <a>DisconnectCustomKeyStore</a> operation on a custom key
- *           store with a <code>ConnectionState</code> of <code>DISCONNECTING</code> or
- *             <code>DISCONNECTED</code>. This operation is valid for all other
- *             <code>ConnectionState</code> values.</p>
- *             </li>
- *             <li>
- *                <p>You requested the <a>UpdateCustomKeyStore</a> or <a>DeleteCustomKeyStore</a> operation on a custom key store that is not
- *           disconnected. <code>UpdateCustomKeyStore</code> can be called on a custom key store in the
- *             <code>CONNECTED</code> state only to update <code>NewCustomKeyStoreName</code>.
- *             For all other properties, the custom key store
- *             <code>ConnectionState</code> must be <code>DISCONNECTED</code>.</p>
- *             </li>
- *             <li>
- *                <p>You requested the <a>GenerateRandom</a> operation in an CloudHSM key store
- *           that is not connected. This operation is valid only when the CloudHSM key store
- *             <code>ConnectionState</code> is <code>CONNECTED</code>. </p>
- *             </li>
- *          </ul>
+ *
+ * The request was rejected because of the `ConnectionState` of the custom key store. To get the `ConnectionState` of a custom key store, use the DescribeCustomKeyStores operation.
+ *
+ * This exception is thrown under the following conditions:
+ *
+ * - You requested the ConnectCustomKeyStore operation on a custom key store with a `ConnectionState` of `DISCONNECTING` or `FAILED`. This operation is valid for all other `ConnectionState` values. To reconnect a custom key store in a `FAILED` state, disconnect it (DisconnectCustomKeyStore), then connect it (`ConnectCustomKeyStore`).
+ * - You requested the CreateKey operation in a custom key store that is not connected. This operations is valid only when the custom key store `ConnectionState` is `CONNECTED`.
+ * - You requested the DisconnectCustomKeyStore operation on a custom key store with a `ConnectionState` of `DISCONNECTING` or `DISCONNECTED`. This operation is valid for all other `ConnectionState` values.
+ * - You requested the UpdateCustomKeyStore or DeleteCustomKeyStore operation on a custom key store that is not disconnected. `UpdateCustomKeyStore` can be called on a custom key store in the `CONNECTED` state only to update `NewCustomKeyStoreName`. For all other properties, the custom key store `ConnectionState` must be `DISCONNECTED`.
+ * - You requested the GenerateRandom operation in an CloudHSM key store that is not connected. This operation is valid only when the CloudHSM key store `ConnectionState` is `CONNECTED`.
  *
  * @throws {@link CustomKeyStoreNotFoundException} (client fault)
- *  <p>The request was rejected because KMS cannot find a custom key store with the specified
- *       key store name or ID.</p>
+ *
+ * The request was rejected because KMS cannot find a custom key store with the specified key store name or ID.
  *
  * @throws {@link KMSInternalException} (server fault)
- *  <p>The request was rejected because an internal exception occurred. The request can be
- *       retried.</p>
+ *
+ * The request was rejected because an internal exception occurred. The request can be retried.
  *
  * @throws {@link KMSServiceException}
- * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * Base exception class for all service exceptions from KMS service.
  *
  * @example To disconnect a custom key store from its CloudHSM cluster
  * ```javascript

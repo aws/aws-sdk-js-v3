@@ -23,7 +23,8 @@ export interface GetResourcePolicyCommandInput extends GetResourcePolicyRequest 
 export interface GetResourcePolicyCommandOutput extends GetResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about the specified resource policy. The resource policy is an IAM policy created on behalf of the resource owner when they share a resource.</p>
+ * Retrieves information about the specified resource policy. The resource policy is an IAM policy created on behalf of the resource owner when they share a resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,23 +51,28 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  * @see {@link VPCLatticeClientResolvedConfig | config} for VPCLatticeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The user does not have sufficient access to perform this action.</p>
+ *
+ * The user does not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred while processing the request.</p>
+ *
+ * An unexpected error occurred while processing the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request references a resource that does not exist.</p>
+ *
+ * The request references a resource that does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The limit on the number of requests per second was exceeded.</p>
+ *
+ * The limit on the number of requests per second was exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input does not satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link VPCLatticeServiceException}
- * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * Base exception class for all service exceptions from VPCLattice service.
  *
  * @public
  */

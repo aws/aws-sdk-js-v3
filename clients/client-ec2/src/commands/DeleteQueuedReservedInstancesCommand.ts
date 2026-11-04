@@ -23,7 +23,8 @@ export interface DeleteQueuedReservedInstancesCommandInput extends DeleteQueuedR
 export interface DeleteQueuedReservedInstancesCommandOutput extends DeleteQueuedReservedInstancesResult, __MetadataBearer {}
 
 /**
- * <p>Deletes the queued purchases for the specified Reserved Instances.</p>
+ * Deletes the queued purchases for the specified Reserved Instances.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,8 +67,8 @@ export interface DeleteQueuedReservedInstancesCommandOutput extends DeleteQueued
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

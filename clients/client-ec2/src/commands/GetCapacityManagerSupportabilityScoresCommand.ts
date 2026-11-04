@@ -26,16 +26,12 @@ export interface GetCapacityManagerSupportabilityScoresCommandInput extends GetC
 export interface GetCapacityManagerSupportabilityScoresCommandOutput extends GetCapacityManagerSupportabilityScoresResult, __MetadataBearer {}
 
 /**
- * <p>
- * Scores how well each instance type and Availability Zone combination can support a capacity request, based on current Amazon EC2 capacity.
- * The response includes a score for each combination and an aggregate score for all combinations in the request.
- * This action doesn't launch or reserve instances, and a score doesn't guarantee that a later launch will succeed.
- * </p>
- *          <p>
- * Call this action in the Region where you turned on Capacity Manager. A single request can include Availability Zones in any Region.
- * Real-time supportability checks are available only to Amazon Web Services Support customers on the Unified Operations plan.
- * </p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-manager-supportability.html">Check supportability</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * Scores how well each instance type and Availability Zone combination can support a capacity request, based on current Amazon EC2 capacity. The response includes a score for each combination and an aggregate score for all combinations in the request. This action doesn't launch or reserve instances, and a score doesn't guarantee that a later launch will succeed.
+ *
+ * Call this action in the Region where you turned on Capacity Manager. A single request can include Availability Zones in any Region. Real-time supportability checks are available only to Amazon Web Services Support customers on the Unified Operations plan.
+ *
+ * For more information, see [Check supportability](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-manager-supportability.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -165,8 +161,8 @@ export interface GetCapacityManagerSupportabilityScoresCommandOutput extends Get
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

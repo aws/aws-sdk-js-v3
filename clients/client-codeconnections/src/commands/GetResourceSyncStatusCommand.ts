@@ -23,8 +23,8 @@ export interface GetResourceSyncStatusCommandInput extends GetResourceSyncStatus
 export interface GetResourceSyncStatusCommandOutput extends GetResourceSyncStatusOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the status of the sync with the Git repository for a specific Amazon Web Services
- *       resource.</p>
+ * Returns the status of the sync with the Git repository for a specific Amazon Web Services resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -117,23 +117,28 @@ export interface GetResourceSyncStatusCommandOutput extends GetResourceSyncStatu
  * @see {@link CodeConnectionsClientResolvedConfig | config} for CodeConnectionsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Received an internal server exception. Try again later.</p>
+ *
+ * Received an internal server exception. Try again later.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input is not valid. Verify that the action is typed correctly.</p>
+ *
+ * The input is not valid. Verify that the action is typed correctly.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource not found. Verify the connection resource ARN and try again.</p>
+ *
+ * Resource not found. Verify the connection resource ARN and try again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link CodeConnectionsServiceException}
- * <p>Base exception class for all service exceptions from CodeConnections service.</p>
  *
+ * Base exception class for all service exceptions from CodeConnections service.
  *
  * @public
  */

@@ -26,18 +26,12 @@ export interface EnableApplicationStatusCheckSuppressionCommandInput extends Ena
 export interface EnableApplicationStatusCheckSuppressionCommandOutput extends EnableApplicationStatusCheckSuppressionResult, __MetadataBearer {}
 
 /**
- * <p>Suppresses application status checks for the specified instances. While suppressed, health checks continue to run but do not affect the instance-level application status. The following rules apply:</p>
- *          <ul>
- *             <li>
- *                <p>You can specify a maximum of 100 instance IDs for each request.</p>
- *             </li>
- *             <li>
- *                <p>Use <code>DisableApplicationStatusCheckSuppression</code> to resume normal health check reporting.</p>
- *             </li>
- *             <li>
- *                <p>If you do not specify <code>DurationSeconds</code>, suppression continues indefinitely until you call <code>DisableApplicationStatusCheckSuppression</code>.</p>
- *             </li>
- *          </ul>
+ * Suppresses application status checks for the specified instances. While suppressed, health checks continue to run but do not affect the instance-level application status. The following rules apply:
+ *
+ * - You can specify a maximum of 100 instance IDs for each request.
+ * - Use `DisableApplicationStatusCheckSuppression` to resume normal health check reporting.
+ * - If you do not specify `DurationSeconds`, suppression continues indefinitely until you call `DisableApplicationStatusCheckSuppression`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,8 +77,8 @@ export interface EnableApplicationStatusCheckSuppressionCommandOutput extends En
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To enable application status check suppression
  * ```javascript

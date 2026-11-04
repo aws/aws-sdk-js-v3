@@ -23,7 +23,8 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Adds or updates tags for a Region switch resource. You can assign metadata to your resources in the form of tags, which are key-value pairs.</p>
+ * Adds or updates tags for a Region switch resource. You can assign metadata to your resources in the form of tags, which are key-value pairs.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,14 +52,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link ARCRegionSwitchClientResolvedConfig | config} for ARCRegionSwitchClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception, or failure.</p> <p>HTTP Status Code: 500</p>
+ *
+ * The request processing has failed because of an unknown error, exception, or failure.
+ *
+ * HTTP Status Code: 500
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p> <p>HTTP Status Code: 404</p>
+ *
+ * The specified resource was not found.
+ *
+ * HTTP Status Code: 404
  *
  * @throws {@link ARCRegionSwitchServiceException}
- * <p>Base exception class for all service exceptions from ARCRegionSwitch service.</p>
  *
+ * Base exception class for all service exceptions from ARCRegionSwitch service.
  *
  * @public
  */

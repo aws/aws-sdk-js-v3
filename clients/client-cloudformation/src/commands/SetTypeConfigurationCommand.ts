@@ -23,21 +23,16 @@ export interface SetTypeConfigurationCommandInput extends SetTypeConfigurationIn
 export interface SetTypeConfigurationCommandOutput extends SetTypeConfigurationOutput, __MetadataBearer {}
 
 /**
- * <p>Specifies the configuration data for a CloudFormation extension, such as a resource or Hook,
- *       in the given account and Region.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-set-configuration.html">Edit configuration
- *         data for extensions in your account</a> in the
- *       <i>CloudFormation User Guide</i>.</p>
- *          <p>To view the current configuration data for an extension, refer to the
- *         <code>ConfigurationSchema</code> element of <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html">DescribeType</a>.</p>
- *          <important>
- *             <p>It's strongly recommended that you use dynamic references to restrict sensitive
- *         configuration definitions, such as third-party credentials. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html">Specify values stored in other services using dynamic references</a> in the
- *           <i>CloudFormation User Guide</i>.</p>
- *          </important>
- *          <p>For more information about setting the configuration data for resource types, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-model.html#resource-type-howto-configuration">Defining the account-level configuration of an extension</a> in the
- *         <i>CloudFormation Command Line Interface (CLI) User Guide</i>. For more information about setting the configuration
- *       data for Hooks, see the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/what-is-cloudformation-hooks.html">CloudFormation Hooks User Guide</a>.</p>
+ * Specifies the configuration data for a CloudFormation extension, such as a resource or Hook, in the given account and Region.
+ *
+ * For more information, see [Edit configuration data for extensions in your account](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-set-configuration.html) in the *CloudFormation User Guide*.
+ *
+ * To view the current configuration data for an extension, refer to the `ConfigurationSchema` element of [DescribeType](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html).
+ *
+ * > **Important:** It's strongly recommended that you use dynamic references to restrict sensitive configuration definitions, such as third-party credentials. For more information, see [Specify values stored in other services using dynamic references](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html) in the *CloudFormation User Guide*.
+ *
+ * For more information about setting the configuration data for resource types, see [Defining the account-level configuration of an extension](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-model.html#resource-type-howto-configuration) in the *CloudFormation Command Line Interface (CLI) User Guide*. For more information about setting the configuration data for Hooks, see the [CloudFormation Hooks User Guide](https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/what-is-cloudformation-hooks.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,14 +63,16 @@ export interface SetTypeConfigurationCommandOutput extends SetTypeConfigurationO
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link CFNRegistryException} (client fault)
- *  <p>An error occurred during a CloudFormation registry operation.</p>
+ *
+ * An error occurred during a CloudFormation registry operation.
  *
  * @throws {@link TypeNotFoundException} (client fault)
- *  <p>The specified extension doesn't exist in the CloudFormation registry.</p>
+ *
+ * The specified extension doesn't exist in the CloudFormation registry.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

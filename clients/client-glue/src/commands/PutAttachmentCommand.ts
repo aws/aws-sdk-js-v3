@@ -23,7 +23,8 @@ export interface PutAttachmentCommandInput extends PutAttachmentRequest {}
 export interface PutAttachmentCommandOutput extends PutAttachmentResponse, __MetadataBearer {}
 
 /**
- * <p>Attaches a form to an asset or an iterable form item in Glue Data Catalog. If an attachment with the same name already exists, it is overwritten.</p>
+ * Attaches a form to an asset or an iterable form item in Glue Data Catalog. If an attachment with the same name already exists, it is overwritten.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,26 +61,32 @@ export interface PutAttachmentCommandOutput extends PutAttachmentResponse, __Met
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to a resource was denied.</p>
+ *
+ * Access to a resource was denied.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Two processes are trying to modify a resource simultaneously.</p>
+ *
+ * Two processes are trying to modify a resource simultaneously.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling threshhold was exceeded.</p>
+ *
+ * The throttling threshhold was exceeded.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

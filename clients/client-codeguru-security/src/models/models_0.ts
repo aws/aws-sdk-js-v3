@@ -2,90 +2,105 @@
 import type { AnalysisType, ErrorCode, ScanState, ScanType, Severity, Status } from "./enums";
 
 /**
- * <p>A numeric value corresponding to the severity of a finding, such as the number of open findings or the average time it takes to close findings of a given severity.</p>
+ * A numeric value corresponding to the severity of a finding, such as the number of open findings or the average time it takes to close findings of a given severity.
+ *
  * @public
  */
 export interface FindingMetricsValuePerSeverity {
   /**
-   * <p>A numeric value corresponding to an informational finding.</p>
+   * A numeric value corresponding to an informational finding.
+   *
    * @public
    */
   info?: number | undefined;
 
   /**
-   * <p>A numeric value corresponding to a low severity finding.</p>
+   * A numeric value corresponding to a low severity finding.
+   *
    * @public
    */
   low?: number | undefined;
 
   /**
-   * <p>A numeric value corresponding to a medium severity finding.</p>
+   * A numeric value corresponding to a medium severity finding.
+   *
    * @public
    */
   medium?: number | undefined;
 
   /**
-   * <p>A numeric value corresponding to a high severity finding.</p>
+   * A numeric value corresponding to a high severity finding.
+   *
    * @public
    */
   high?: number | undefined;
 
   /**
-   * <p>A numeric value corresponding to a critical finding.</p>
+   * A numeric value corresponding to a critical finding.
+   *
    * @public
    */
   critical?: number | undefined;
 }
 
 /**
- * <p>A summary of findings metrics for an account on a specified date.</p>
+ * A summary of findings metrics for an account on a specified date.
+ *
  * @public
  */
 export interface AccountFindingsMetric {
   /**
-   * <p>The date from which the findings metrics were retrieved.</p>
+   * The date from which the findings metrics were retrieved.
+   *
    * @public
    */
   date?: Date | undefined;
 
   /**
-   * <p>The number of new findings of each severity on the specified date.</p>
+   * The number of new findings of each severity on the specified date.
+   *
    * @public
    */
   newFindings?: FindingMetricsValuePerSeverity | undefined;
 
   /**
-   * <p>The number of closed findings of each severity on the specified date.</p>
+   * The number of closed findings of each severity on the specified date.
+   *
    * @public
    */
   closedFindings?: FindingMetricsValuePerSeverity | undefined;
 
   /**
-   * <p>The number of open findings of each severity as of the specified date.</p>
+   * The number of open findings of each severity as of the specified date.
+   *
    * @public
    */
   openFindings?: FindingMetricsValuePerSeverity | undefined;
 
   /**
-   * <p>The average time in days it takes to close findings of each severity as of a specified date.</p>
+   * The average time in days it takes to close findings of each severity as of a specified date.
+   *
    * @public
    */
   meanTimeToClose?: FindingMetricsValuePerSeverity | undefined;
 }
 
 /**
- * <p>An object that contains information about a finding and the scan that generated it. </p>
+ * An object that contains information about a finding and the scan that generated it.
+ *
  * @public
  */
 export interface FindingIdentifier {
   /**
-   * <p>The name of the scan that generated the finding. </p>
+   * The name of the scan that generated the finding.
+   *
    * @public
    */
   scanName: string | undefined;
 
   /**
-   * <p>The identifier for a finding.</p>
+   * The identifier for a finding.
+   *
    * @public
    */
   findingId: string | undefined;
@@ -96,199 +111,231 @@ export interface FindingIdentifier {
  */
 export interface BatchGetFindingsRequest {
   /**
-   * <p>A list of finding identifiers. Each identifier consists of a <code>scanName</code> and a <code>findingId</code>. You retrieve the <code>findingId</code> when you call <code>GetFindings</code>.</p>
+   * A list of finding identifiers. Each identifier consists of a `scanName` and a `findingId`. You retrieve the `findingId` when you call `GetFindings`.
+   *
    * @public
    */
   findingIdentifiers: FindingIdentifier[] | undefined;
 }
 
 /**
- * <p>Contains information about the error that caused a finding to fail to be retrieved.</p>
+ * Contains information about the error that caused a finding to fail to be retrieved.
+ *
  * @public
  */
 export interface BatchGetFindingsError {
   /**
-   * <p>The name of the scan that generated the finding.</p>
+   * The name of the scan that generated the finding.
+   *
    * @public
    */
   scanName: string | undefined;
 
   /**
-   * <p>The finding ID of the finding that was not fetched.</p>
+   * The finding ID of the finding that was not fetched.
+   *
    * @public
    */
   findingId: string | undefined;
 
   /**
-   * <p>A code associated with the type of error.</p>
+   * A code associated with the type of error.
+   *
    * @public
    */
   errorCode: ErrorCode | undefined;
 
   /**
-   * <p>Describes the error.</p>
+   * Describes the error.
+   *
    * @public
    */
   message: string | undefined;
 }
 
 /**
- * <p>Information about the recommended course of action to remediate a finding.</p>
+ * Information about the recommended course of action to remediate a finding.
+ *
  * @public
  */
 export interface Recommendation {
   /**
-   * <p>The recommended course of action to remediate the finding.</p>
+   * The recommended course of action to remediate the finding.
+   *
    * @public
    */
   text?: string | undefined;
 
   /**
-   * <p>The URL address to the recommendation for remediating the finding. </p>
+   * The URL address to the recommendation for remediating the finding.
+   *
    * @public
    */
   url?: string | undefined;
 }
 
 /**
- * <p>Information about the suggested code fix to remediate a finding.</p>
+ * Information about the suggested code fix to remediate a finding.
+ *
  * @public
  */
 export interface SuggestedFix {
   /**
-   * <p>A description of the suggested code fix and why it is being suggested. </p>
+   * A description of the suggested code fix and why it is being suggested.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The suggested code fix. If applicable, includes code patch to replace your source code. </p>
+   * The suggested code fix. If applicable, includes code patch to replace your source code.
+   *
    * @public
    */
   code?: string | undefined;
 }
 
 /**
- * <p>Information about how to remediate a finding.</p>
+ * Information about how to remediate a finding.
+ *
  * @public
  */
 export interface Remediation {
   /**
-   * <p>An object that contains information about the recommended course of action to remediate a finding.</p>
+   * An object that contains information about the recommended course of action to remediate a finding.
+   *
    * @public
    */
   recommendation?: Recommendation | undefined;
 
   /**
-   * <p>A list of <code>SuggestedFix</code> objects. Each object contains information about a suggested code fix to remediate the finding.</p>
+   * A list of `SuggestedFix` objects. Each object contains information about a suggested code fix to remediate the finding.
+   *
    * @public
    */
   suggestedFixes?: SuggestedFix[] | undefined;
 }
 
 /**
- * <p>Information about a resource that contains a finding.</p>
+ * Information about a resource that contains a finding.
+ *
  * @public
  */
 export interface Resource {
   /**
-   * <p>The <code>scanName</code> of the scan that was run on the resource.</p>
+   * The `scanName` of the scan that was run on the resource.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The identifier for a section of the resource.</p>
+   * The identifier for a section of the resource.
+   *
    * @public
    */
   subResourceId?: string | undefined;
 }
 
 /**
- * <p>The line of code where a finding was detected.</p>
+ * The line of code where a finding was detected.
+ *
  * @public
  */
 export interface CodeLine {
   /**
-   * <p>The code line number.</p>
+   * The code line number.
+   *
    * @public
    */
   number?: number | undefined;
 
   /**
-   * <p>The code that contains a vulnerability.</p>
+   * The code that contains a vulnerability.
+   *
    * @public
    */
   content?: string | undefined;
 }
 
 /**
- * <p>Information about the location of security vulnerabilities that Amazon CodeGuru Security detected in your code.</p>
+ * Information about the location of security vulnerabilities that Amazon CodeGuru Security detected in your code.
+ *
  * @public
  */
 export interface FilePath {
   /**
-   * <p>The name of the file.</p>
+   * The name of the file.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The path to the resource with the security vulnerability.</p>
+   * The path to the resource with the security vulnerability.
+   *
    * @public
    */
   path?: string | undefined;
 
   /**
-   * <p>The first line number of the code snippet where the security vulnerability appears in your code.</p>
+   * The first line number of the code snippet where the security vulnerability appears in your code.
+   *
    * @public
    */
   startLine?: number | undefined;
 
   /**
-   * <p>The last line number of the code snippet where the security vulnerability appears in your code.</p>
+   * The last line number of the code snippet where the security vulnerability appears in your code.
+   *
    * @public
    */
   endLine?: number | undefined;
 
   /**
-   * <p>A list of <code>CodeLine</code> objects that describe where the security vulnerability appears in your code.</p>
+   * A list of `CodeLine` objects that describe where the security vulnerability appears in your code.
+   *
    * @public
    */
   codeSnippet?: CodeLine[] | undefined;
 }
 
 /**
- * <p>Information about a security vulnerability that Amazon CodeGuru Security detected.</p>
+ * Information about a security vulnerability that Amazon CodeGuru Security detected.
+ *
  * @public
  */
 export interface Vulnerability {
   /**
-   * <p>One or more URL addresses that contain details about a vulnerability.</p>
+   * One or more URL addresses that contain details about a vulnerability.
+   *
    * @public
    */
   referenceUrls?: string[] | undefined;
 
   /**
-   * <p>One or more vulnerabilities that are related to the vulnerability being described.</p>
+   * One or more vulnerabilities that are related to the vulnerability being described.
+   *
    * @public
    */
   relatedVulnerabilities?: string[] | undefined;
 
   /**
-   * <p>The identifier for the vulnerability.</p>
+   * The identifier for the vulnerability.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p> An object that describes the location of the detected security vulnerability in your code.</p>
+   * An object that describes the location of the detected security vulnerability in your code.
+   *
    * @public
    */
   filePath?: FilePath | undefined;
 
   /**
-   * <p>The number of times the vulnerability appears in your code.</p>
+   * The number of times the vulnerability appears in your code.
    *
    * @deprecated This shape is not used.
    * @public
@@ -297,102 +344,119 @@ export interface Vulnerability {
 }
 
 /**
- * <p>Information about a finding that was detected in your code.</p>
+ * Information about a finding that was detected in your code.
+ *
  * @public
  */
 export interface Finding {
   /**
-   * <p>The time when the finding was created.</p>
+   * The time when the finding was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>A description of the finding.</p>
+   * A description of the finding.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The identifier for the component that generated a finding such as AmazonCodeGuruSecurity.</p>
+   * The identifier for the component that generated a finding such as AmazonCodeGuruSecurity.
+   *
    * @public
    */
   generatorId?: string | undefined;
 
   /**
-   * <p>The identifier for a finding.</p>
+   * The identifier for a finding.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The time when the finding was last updated. Findings are updated when you remediate them or when the finding code location changes. </p>
+   * The time when the finding was last updated. Findings are updated when you remediate them or when the finding code location changes.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The type of finding. </p>
+   * The type of finding.
+   *
    * @public
    */
   type?: string | undefined;
 
   /**
-   * <p>The status of the finding. A finding status can be open or closed. </p>
+   * The status of the finding. A finding status can be open or closed.
+   *
    * @public
    */
   status?: Status | undefined;
 
   /**
-   * <p>The resource where Amazon CodeGuru Security detected a finding.</p>
+   * The resource where Amazon CodeGuru Security detected a finding.
+   *
    * @public
    */
   resource?: Resource | undefined;
 
   /**
-   * <p>An object that describes the detected security vulnerability.</p>
+   * An object that describes the detected security vulnerability.
+   *
    * @public
    */
   vulnerability?: Vulnerability | undefined;
 
   /**
-   * <p>The severity of the finding. Severity can be critical, high, medium, low, or informational. For information on severity levels, see <a href="https://docs.aws.amazon.com/codeguru/latest/security-ug/findings-overview.html#severity-distribution">Finding severity</a> in the <i>Amazon CodeGuru Security User Guide</i>.</p>
+   * The severity of the finding. Severity can be critical, high, medium, low, or informational. For information on severity levels, see [Finding severity](https://docs.aws.amazon.com/codeguru/latest/security-ug/findings-overview.html#severity-distribution) in the *Amazon CodeGuru Security User Guide*.
+   *
    * @public
    */
   severity?: Severity | undefined;
 
   /**
-   * <p>An object that contains the details about how to remediate a finding.</p>
+   * An object that contains the details about how to remediate a finding.
+   *
    * @public
    */
   remediation?: Remediation | undefined;
 
   /**
-   * <p>The title of the finding.</p>
+   * The title of the finding.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>One or more tags or categorizations that are associated with a detector. These tags are defined by type, programming language, or other classification such as maintainability or consistency.</p>
+   * One or more tags or categorizations that are associated with a detector. These tags are defined by type, programming language, or other classification such as maintainability or consistency.
+   *
    * @public
    */
   detectorTags?: string[] | undefined;
 
   /**
-   * <p>The identifier for the detector that detected the finding in your code. A detector is a defined rule based on industry standards and AWS best practices. </p>
+   * The identifier for the detector that detected the finding in your code. A detector is a defined rule based on industry standards and AWS best practices.
+   *
    * @public
    */
   detectorId?: string | undefined;
 
   /**
-   * <p>The name of the detector that identified the security vulnerability in your code. </p>
+   * The name of the detector that identified the security vulnerability in your code.
+   *
    * @public
    */
   detectorName?: string | undefined;
 
   /**
-   * <p>The identifier for the rule that generated the finding.</p>
+   * The identifier for the rule that generated the finding.
+   *
    * @public
    */
   ruleId?: string | undefined;
@@ -403,38 +467,44 @@ export interface Finding {
  */
 export interface BatchGetFindingsResponse {
   /**
-   * <p> A list of all findings which were successfully fetched.</p>
+   * A list of all findings which were successfully fetched.
+   *
    * @public
    */
   findings: Finding[] | undefined;
 
   /**
-   * <p>A list of errors for individual findings which were not fetched. Each BatchGetFindingsError contains the <code>scanName</code>, <code>findingId</code>, <code>errorCode</code> and error <code>message</code>.</p>
+   * A list of errors for individual findings which were not fetched. Each BatchGetFindingsError contains the `scanName`, `findingId`, `errorCode` and error `message`.
+   *
    * @public
    */
   failedFindings: BatchGetFindingsError[] | undefined;
 }
 
 /**
- * <p>Information about a validation exception.</p>
+ * Information about a validation exception.
+ *
  * @public
  */
 export interface ValidationExceptionField {
   /**
-   * <p>The name of the exception.</p>
+   * The name of the exception.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Describes the exception.</p>
+   * Describes the exception.
+   *
    * @public
    */
   message: string | undefined;
 }
 
 /**
- * <p>The identifier for a resource object that contains resources to scan. Specifying a codeArtifactId is required to create a scan.</p>
+ * The identifier for a resource object that contains resources to scan. Specifying a codeArtifactId is required to create a scan.
+ *
  * @public
  */
 export type ResourceId =
@@ -446,7 +516,8 @@ export type ResourceId =
  */
 export namespace ResourceId {
   /**
-   * <p>The identifier for the code file uploaded to the resource object. Returned by <code>CreateUploadUrl</code> when you upload resources to be scanned.</p>
+   * The identifier for the code file uploaded to the resource object. Returned by `CreateUploadUrl` when you upload resources to be scanned.
+   *
    * @public
    */
   export interface CodeArtifactIdMember {
@@ -477,37 +548,48 @@ export namespace ResourceId {
  */
 export interface CreateScanRequest {
   /**
-   * <p>The idempotency token for the request. Amazon CodeGuru Security uses this value to prevent the accidental creation of duplicate scans if there are failures and retries.</p>
+   * The idempotency token for the request. Amazon CodeGuru Security uses this value to prevent the accidental creation of duplicate scans if there are failures and retries.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The identifier for the resource object to be scanned.</p>
+   * The identifier for the resource object to be scanned.
+   *
    * @public
    */
   resourceId: ResourceId | undefined;
 
   /**
-   * <p>The unique name that CodeGuru Security uses to track revisions across multiple scans of the same resource. Only allowed for a <code>STANDARD</code> scan type. </p>
+   * The unique name that CodeGuru Security uses to track revisions across multiple scans of the same resource. Only allowed for a `STANDARD` scan type.
+   *
    * @public
    */
   scanName: string | undefined;
 
   /**
-   * <p>The type of scan, either <code>Standard</code> or <code>Express</code>. Defaults to <code>Standard</code> type if missing.</p> <p> <code>Express</code> scans run on limited resources and use a limited set of detectors to analyze your code in near-real time. <code>Standard</code> scans have standard resource limits and use the full set of detectors to analyze your code.</p>
+   * The type of scan, either `Standard` or `Express`. Defaults to `Standard` type if missing.
+   *
+   * `Express` scans run on limited resources and use a limited set of detectors to analyze your code in near-real time. `Standard` scans have standard resource limits and use the full set of detectors to analyze your code.
+   *
    * @public
    */
   scanType?: ScanType | undefined;
 
   /**
-   * <p>The type of analysis you want CodeGuru Security to perform in the scan, either <code>Security</code> or <code>All</code>. The <code>Security</code> type only generates findings related to security. The <code>All</code> type generates both security findings and quality findings. Defaults to <code>Security</code> type if missing.</p>
+   * The type of analysis you want CodeGuru Security to perform in the scan, either `Security` or `All`. The `Security` type only generates findings related to security. The `All` type generates both security findings and quality findings. Defaults to `Security` type if missing.
+   *
    * @public
    */
   analysisType?: AnalysisType | undefined;
 
   /**
-   * <p>An array of key-value pairs used to tag a scan. A tag is a custom attribute label with two parts:</p> <ul> <li> <p>A tag key. For example, <code>CostCenter</code>, <code>Environment</code>, or <code>Secret</code>. Tag keys are case sensitive.</p> </li> <li> <p>An optional tag value field. For example, <code>111122223333</code>, <code>Production</code>, or a team name. Omitting the tag value is the same as using an empty string. Tag values are case sensitive.</p> </li> </ul>
+   * An array of key-value pairs used to tag a scan. A tag is a custom attribute label with two parts:
+   *
+   * - A tag key. For example, `CostCenter`, `Environment`, or `Secret`. Tag keys are case sensitive.
+   * - An optional tag value field. For example, `111122223333`, `Production`, or a team name. Omitting the tag value is the same as using an empty string. Tag values are case sensitive.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -518,31 +600,36 @@ export interface CreateScanRequest {
  */
 export interface CreateScanResponse {
   /**
-   * <p>The name of the scan.</p>
+   * The name of the scan.
+   *
    * @public
    */
   scanName: string | undefined;
 
   /**
-   * <p>UUID that identifies the individual scan run.</p>
+   * UUID that identifies the individual scan run.
+   *
    * @public
    */
   runId: string | undefined;
 
   /**
-   * <p>The identifier for the resource object that contains resources that were scanned.</p>
+   * The identifier for the resource object that contains resources that were scanned.
+   *
    * @public
    */
   resourceId: ResourceId | undefined;
 
   /**
-   * <p>The current state of the scan. Returns either <code>InProgress</code>, <code>Successful</code>, or <code>Failed</code>.</p>
+   * The current state of the scan. Returns either `InProgress`, `Successful`, or `Failed`.
+   *
    * @public
    */
   scanState: ScanState | undefined;
 
   /**
-   * <p>The ARN for the scan name.</p>
+   * The ARN for the scan name.
+   *
    * @public
    */
   scanNameArn?: string | undefined;
@@ -553,7 +640,8 @@ export interface CreateScanResponse {
  */
 export interface CreateUploadUrlRequest {
   /**
-   * <p>The name of the scan that will use the uploaded resource. CodeGuru Security uses the unique scan name to track revisions across multiple scans of the same resource. Use this <code>scanName</code> when you call <code>CreateScan</code> on the code resource you upload to this URL.</p>
+   * The name of the scan that will use the uploaded resource. CodeGuru Security uses the unique scan name to track revisions across multiple scans of the same resource. Use this `scanName` when you call `CreateScan` on the code resource you upload to this URL.
+   *
    * @public
    */
   scanName: string | undefined;
@@ -564,19 +652,22 @@ export interface CreateUploadUrlRequest {
  */
 export interface CreateUploadUrlResponse {
   /**
-   * <p>A pre-signed S3 URL. You can upload the code file you want to scan with the required <code>requestHeaders</code> using any HTTP client.</p>
+   * A pre-signed S3 URL. You can upload the code file you want to scan with the required `requestHeaders` using any HTTP client.
+   *
    * @public
    */
   s3Url: string | undefined;
 
   /**
-   * <p>A set of key-value pairs that contain the required headers when uploading your resource.</p>
+   * A set of key-value pairs that contain the required headers when uploading your resource.
+   *
    * @public
    */
   requestHeaders: Record<string, string> | undefined;
 
   /**
-   * <p>The identifier for the uploaded code resource. Pass this to <code>CreateScan</code> to use the uploaded resources.</p>
+   * The identifier for the uploaded code resource. Pass this to `CreateScan` to use the uploaded resources.
+   *
    * @public
    */
   codeArtifactId: string | undefined;
@@ -588,12 +679,14 @@ export interface CreateUploadUrlResponse {
 export interface GetAccountConfigurationRequest {}
 
 /**
- * <p>Information about the encryption configuration for an account. Required to call <code>UpdateAccountConfiguration</code>.</p>
+ * Information about the encryption configuration for an account. Required to call `UpdateAccountConfiguration`.
+ *
  * @public
  */
 export interface EncryptionConfig {
   /**
-   * <p>The KMS key ARN that is used for encryption. If an AWS-managed key is used for encryption, returns empty.</p>
+   * The KMS key ARN that is used for encryption. If an AWS-managed key is used for encryption, returns empty.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
@@ -604,7 +697,8 @@ export interface EncryptionConfig {
  */
 export interface GetAccountConfigurationResponse {
   /**
-   * <p>An <code>EncryptionConfig</code> object that contains the KMS key ARN that is used for encryption. By default, CodeGuru Security uses an AWS-managed key for encryption. To specify your own key, call <code>UpdateAccountConfiguration</code>. If you do not specify a customer-managed key, returns empty.</p>
+   * An `EncryptionConfig` object that contains the KMS key ARN that is used for encryption. By default, CodeGuru Security uses an AWS-managed key for encryption. To specify your own key, call `UpdateAccountConfiguration`. If you do not specify a customer-managed key, returns empty.
+   *
    * @public
    */
   encryptionConfig: EncryptionConfig | undefined;
@@ -615,25 +709,29 @@ export interface GetAccountConfigurationResponse {
  */
 export interface GetFindingsRequest {
   /**
-   * <p>The name of the scan you want to retrieve findings from.</p>
+   * The name of the scan you want to retrieve findings from.
+   *
    * @public
    */
   scanName: string | undefined;
 
   /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the <code>nextToken</code> value returned from the previous request to continue listing results after the first page.</p>
+   * A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the `nextToken` value returned from the previous request to continue listing results after the first page.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in the response. Use this parameter when paginating results. If additional results exist beyond the number you specify, the <code>nextToken</code> element is returned in the response. Use <code>nextToken</code> in a subsequent request to retrieve additional results. If not specified, returns 1000 results.</p>
+   * The maximum number of results to return in the response. Use this parameter when paginating results. If additional results exist beyond the number you specify, the `nextToken` element is returned in the response. Use `nextToken` in a subsequent request to retrieve additional results. If not specified, returns 1000 results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The status of the findings you want to get. Pass either <code>Open</code>, <code>Closed</code>, or <code>All</code>.</p>
+   * The status of the findings you want to get. Pass either `Open`, `Closed`, or `All`.
+   *
    * @public
    */
   status?: Status | undefined;
@@ -644,13 +742,15 @@ export interface GetFindingsRequest {
  */
 export interface GetFindingsResponse {
   /**
-   * <p>A list of findings generated by the specified scan.</p>
+   * A list of findings generated by the specified scan.
+   *
    * @public
    */
   findings?: Finding[] | undefined;
 
   /**
-   * <p>A pagination token. You can use this in future calls to <code>GetFindings</code> to continue listing results after the current page. </p>
+   * A pagination token. You can use this in future calls to `GetFindings` to continue listing results after the current page.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -661,79 +761,92 @@ export interface GetFindingsResponse {
  */
 export interface GetMetricsSummaryRequest {
   /**
-   * <p>The date you want to retrieve summary metrics from, rounded to the nearest day. The date must be within the past two years.</p>
+   * The date you want to retrieve summary metrics from, rounded to the nearest day. The date must be within the past two years.
+   *
    * @public
    */
   date: Date | undefined;
 }
 
 /**
- * <p>Information about a finding category with open findings.</p>
+ * Information about a finding category with open findings.
+ *
  * @public
  */
 export interface CategoryWithFindingNum {
   /**
-   * <p>The name of the finding category. A finding category is determined by the detector that detected the finding.</p>
+   * The name of the finding category. A finding category is determined by the detector that detected the finding.
+   *
    * @public
    */
   categoryName?: string | undefined;
 
   /**
-   * <p>The number of open findings in the category.</p>
+   * The number of open findings in the category.
+   *
    * @public
    */
   findingNumber?: number | undefined;
 }
 
 /**
- * <p>Information about the number of findings generated by a scan.</p>
+ * Information about the number of findings generated by a scan.
+ *
  * @public
  */
 export interface ScanNameWithFindingNum {
   /**
-   * <p>The name of the scan.</p>
+   * The name of the scan.
+   *
    * @public
    */
   scanName?: string | undefined;
 
   /**
-   * <p>The number of findings generated by a scan.</p>
+   * The number of findings generated by a scan.
+   *
    * @public
    */
   findingNumber?: number | undefined;
 }
 
 /**
- * <p>A summary of metrics for an account as of a specified date.</p>
+ * A summary of metrics for an account as of a specified date.
+ *
  * @public
  */
 export interface MetricsSummary {
   /**
-   * <p>The date from which the metrics summary information was retrieved.</p>
+   * The date from which the metrics summary information was retrieved.
+   *
    * @public
    */
   date?: Date | undefined;
 
   /**
-   * <p>The number of open findings of each severity.</p>
+   * The number of open findings of each severity.
+   *
    * @public
    */
   openFindings?: FindingMetricsValuePerSeverity | undefined;
 
   /**
-   * <p>A list of <code>CategoryWithFindingNum</code> objects for the top 5 finding categories with the most findings.</p>
+   * A list of `CategoryWithFindingNum` objects for the top 5 finding categories with the most findings.
+   *
    * @public
    */
   categoriesWithMostFindings?: CategoryWithFindingNum[] | undefined;
 
   /**
-   * <p>A list of <code>ScanNameWithFindingNum</code> objects for the top 3 scans with the most number of open findings.</p>
+   * A list of `ScanNameWithFindingNum` objects for the top 3 scans with the most number of open findings.
+   *
    * @public
    */
   scansWithMostOpenFindings?: ScanNameWithFindingNum[] | undefined;
 
   /**
-   * <p>A list of <code>ScanNameWithFindingNum</code> objects for the top 3 scans with the most number of open critical findings.</p>
+   * A list of `ScanNameWithFindingNum` objects for the top 3 scans with the most number of open critical findings.
+   *
    * @public
    */
   scansWithMostOpenCriticalFindings?: ScanNameWithFindingNum[] | undefined;
@@ -744,7 +857,8 @@ export interface MetricsSummary {
  */
 export interface GetMetricsSummaryResponse {
   /**
-   * <p>The summary metrics from the specified date.</p>
+   * The summary metrics from the specified date.
+   *
    * @public
    */
   metricsSummary?: MetricsSummary | undefined;
@@ -755,13 +869,15 @@ export interface GetMetricsSummaryResponse {
  */
 export interface GetScanRequest {
   /**
-   * <p>The name of the scan you want to view details about.</p>
+   * The name of the scan you want to view details about.
+   *
    * @public
    */
   scanName: string | undefined;
 
   /**
-   * <p>UUID that identifies the individual scan run you want to view details about. You retrieve this when you call the <code>CreateScan</code> operation. Defaults to the latest scan run if missing.</p>
+   * UUID that identifies the individual scan run you want to view details about. You retrieve this when you call the `CreateScan` operation. Defaults to the latest scan run if missing.
+   *
    * @public
    */
   runId?: string | undefined;
@@ -772,55 +888,64 @@ export interface GetScanRequest {
  */
 export interface GetScanResponse {
   /**
-   * <p>The name of the scan.</p>
+   * The name of the scan.
+   *
    * @public
    */
   scanName: string | undefined;
 
   /**
-   * <p>UUID that identifies the individual scan run.</p>
+   * UUID that identifies the individual scan run.
+   *
    * @public
    */
   runId: string | undefined;
 
   /**
-   * <p>The current state of the scan. Returns either <code>InProgress</code>, <code>Successful</code>, or <code>Failed</code>.</p>
+   * The current state of the scan. Returns either `InProgress`, `Successful`, or `Failed`.
+   *
    * @public
    */
   scanState: ScanState | undefined;
 
   /**
-   * <p>The time the scan was created.</p>
+   * The time the scan was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The type of analysis CodeGuru Security performed in the scan, either <code>Security</code> or <code>All</code>. The <code>Security</code> type only generates findings related to security. The <code>All</code> type generates both security findings and quality findings.</p>
+   * The type of analysis CodeGuru Security performed in the scan, either `Security` or `All`. The `Security` type only generates findings related to security. The `All` type generates both security findings and quality findings.
+   *
    * @public
    */
   analysisType: AnalysisType | undefined;
 
   /**
-   * <p>The time when the scan was last updated. Only available for <code>STANDARD</code> scan types.</p>
+   * The time when the scan was last updated. Only available for `STANDARD` scan types.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The number of times a scan has been re-run on a revised resource.</p>
+   * The number of times a scan has been re-run on a revised resource.
+   *
    * @public
    */
   numberOfRevisions?: number | undefined;
 
   /**
-   * <p>The ARN for the scan name.</p>
+   * The ARN for the scan name.
+   *
    * @public
    */
   scanNameArn?: string | undefined;
 
   /**
-   * <p>Details about the error that causes a scan to fail to be retrieved.</p>
+   * Details about the error that causes a scan to fail to be retrieved.
+   *
    * @public
    */
   errorMessage?: string | undefined;
@@ -831,25 +956,29 @@ export interface GetScanResponse {
  */
 export interface ListFindingsMetricsRequest {
   /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the <code>nextToken</code> value returned from the previous request to continue listing results after the first page.</p>
+   * A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the `nextToken` value returned from the previous request to continue listing results after the first page.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in the response. Use this parameter when paginating results. If additional results exist beyond the number you specify, the <code>nextToken</code> element is returned in the response. Use <code>nextToken</code> in a subsequent request to retrieve additional results. If not specified, returns 1000 results.</p>
+   * The maximum number of results to return in the response. Use this parameter when paginating results. If additional results exist beyond the number you specify, the `nextToken` element is returned in the response. Use `nextToken` in a subsequent request to retrieve additional results. If not specified, returns 1000 results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The start date of the interval which you want to retrieve metrics from. Rounds to the nearest day.</p>
+   * The start date of the interval which you want to retrieve metrics from. Rounds to the nearest day.
+   *
    * @public
    */
   startDate: Date | undefined;
 
   /**
-   * <p>The end date of the interval which you want to retrieve metrics from. Round to the nearest day.</p>
+   * The end date of the interval which you want to retrieve metrics from. Round to the nearest day.
+   *
    * @public
    */
   endDate: Date | undefined;
@@ -860,13 +989,15 @@ export interface ListFindingsMetricsRequest {
  */
 export interface ListFindingsMetricsResponse {
   /**
-   * <p>A list of <code>AccountFindingsMetric</code> objects retrieved from the specified time interval.</p>
+   * A list of `AccountFindingsMetric` objects retrieved from the specified time interval.
+   *
    * @public
    */
   findingsMetrics?: AccountFindingsMetric[] | undefined;
 
   /**
-   * <p>A pagination token. You can use this in future calls to <code>ListFindingMetrics</code> to continue listing results after the current page. </p>
+   * A pagination token. You can use this in future calls to `ListFindingMetrics` to continue listing results after the current page.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -877,55 +1008,64 @@ export interface ListFindingsMetricsResponse {
  */
 export interface ListScansRequest {
   /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the <code>nextToken</code> value returned from the previous request to continue listing results after the first page.</p>
+   * A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the `nextToken` value returned from the previous request to continue listing results after the first page.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in the response. Use this parameter when paginating results. If additional results exist beyond the number you specify, the <code>nextToken</code> element is returned in the response. Use <code>nextToken</code> in a subsequent request to retrieve additional results. If not specified, returns 100 results.</p>
+   * The maximum number of results to return in the response. Use this parameter when paginating results. If additional results exist beyond the number you specify, the `nextToken` element is returned in the response. Use `nextToken` in a subsequent request to retrieve additional results. If not specified, returns 100 results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Information about a scan. </p>
+ * Information about a scan.
+ *
  * @public
  */
 export interface ScanSummary {
   /**
-   * <p>The state of the scan. A scan can be <code>In Progress</code>, <code>Complete</code>, or <code>Failed</code>. </p>
+   * The state of the scan. A scan can be `In Progress`, `Complete`, or `Failed`.
+   *
    * @public
    */
   scanState: ScanState | undefined;
 
   /**
-   * <p> The time when the scan was created. </p>
+   * The time when the scan was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The time the scan was last updated. A scan is updated when it is re-run.</p>
+   * The time the scan was last updated. A scan is updated when it is re-run.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The name of the scan. </p>
+   * The name of the scan.
+   *
    * @public
    */
   scanName: string | undefined;
 
   /**
-   * <p>The identifier for the scan run. </p>
+   * The identifier for the scan run.
+   *
    * @public
    */
   runId: string | undefined;
 
   /**
-   * <p>The ARN for the scan name.</p>
+   * The ARN for the scan name.
+   *
    * @public
    */
   scanNameArn?: string | undefined;
@@ -936,13 +1076,15 @@ export interface ScanSummary {
  */
 export interface ListScansResponse {
   /**
-   * <p>A list of <code>ScanSummary</code> objects with information about all scans in an account.</p>
+   * A list of `ScanSummary` objects with information about all scans in an account.
+   *
    * @public
    */
   summaries?: ScanSummary[] | undefined;
 
   /**
-   * <p>A pagination token. You can use this in future calls to <code>ListScans</code> to continue listing results after the current page.</p>
+   * A pagination token. You can use this in future calls to `ListScans` to continue listing results after the current page.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -953,7 +1095,8 @@ export interface ListScansResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The ARN of the <code>ScanName</code> object. You can retrieve this ARN by calling <code>CreateScan</code>, <code>ListScans</code>, or <code>GetScan</code>.</p>
+   * The ARN of the `ScanName` object. You can retrieve this ARN by calling `CreateScan`, `ListScans`, or `GetScan`.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -964,7 +1107,11 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>An array of key-value pairs used to tag an existing scan. A tag is a custom attribute label with two parts:</p> <ul> <li> <p>A tag key. For example, <code>CostCenter</code>, <code>Environment</code>, or <code>Secret</code>. Tag keys are case sensitive.</p> </li> <li> <p>An optional tag value field. For example, <code>111122223333</code>, <code>Production</code>, or a team name. Omitting the tag value is the same as using an empty string. Tag values are case sensitive.</p> </li> </ul>
+   * An array of key-value pairs used to tag an existing scan. A tag is a custom attribute label with two parts:
+   *
+   * - A tag key. For example, `CostCenter`, `Environment`, or `Secret`. Tag keys are case sensitive.
+   * - An optional tag value field. For example, `111122223333`, `Production`, or a team name. Omitting the tag value is the same as using an empty string. Tag values are case sensitive.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -975,13 +1122,18 @@ export interface ListTagsForResourceResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The ARN of the <code>ScanName</code> object. You can retrieve this ARN by calling <code>CreateScan</code>, <code>ListScans</code>, or <code>GetScan</code>.</p>
+   * The ARN of the `ScanName` object. You can retrieve this ARN by calling `CreateScan`, `ListScans`, or `GetScan`.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>An array of key-value pairs used to tag an existing scan. A tag is a custom attribute label with two parts:</p> <ul> <li> <p>A tag key. For example, <code>CostCenter</code>, <code>Environment</code>, or <code>Secret</code>. Tag keys are case sensitive.</p> </li> <li> <p>An optional tag value field. For example, <code>111122223333</code>, <code>Production</code>, or a team name. Omitting the tag value is the same as using an empty string. Tag values are case sensitive.</p> </li> </ul>
+   * An array of key-value pairs used to tag an existing scan. A tag is a custom attribute label with two parts:
+   *
+   * - A tag key. For example, `CostCenter`, `Environment`, or `Secret`. Tag keys are case sensitive.
+   * - An optional tag value field. For example, `111122223333`, `Production`, or a team name. Omitting the tag value is the same as using an empty string. Tag values are case sensitive.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -997,13 +1149,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The ARN of the <code>ScanName</code> object. You can retrieve this ARN by calling <code>CreateScan</code>, <code>ListScans</code>, or <code>GetScan</code>.</p>
+   * The ARN of the `ScanName` object. You can retrieve this ARN by calling `CreateScan`, `ListScans`, or `GetScan`.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>A list of keys for each tag you want to remove from a scan.</p>
+   * A list of keys for each tag you want to remove from a scan.
+   *
    * @public
    */
   tagKeys: string[] | undefined;
@@ -1019,7 +1173,8 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateAccountConfigurationRequest {
   /**
-   * <p>The customer-managed KMS key ARN you want to use for encryption. If not specified, CodeGuru Security will use an AWS-managed key for encryption. If you previously specified a customer-managed KMS key and want CodeGuru Security to use an AWS-managed key for encryption instead, pass nothing.</p>
+   * The customer-managed KMS key ARN you want to use for encryption. If not specified, CodeGuru Security will use an AWS-managed key for encryption. If you previously specified a customer-managed KMS key and want CodeGuru Security to use an AWS-managed key for encryption instead, pass nothing.
+   *
    * @public
    */
   encryptionConfig: EncryptionConfig | undefined;
@@ -1030,7 +1185,8 @@ export interface UpdateAccountConfigurationRequest {
  */
 export interface UpdateAccountConfigurationResponse {
   /**
-   * <p>An <code>EncryptionConfig</code> object that contains the KMS key ARN that is used for encryption. If you did not specify a customer-managed KMS key in the request, returns empty. </p>
+   * An `EncryptionConfig` object that contains the KMS key ARN that is used for encryption. If you did not specify a customer-managed KMS key in the request, returns empty.
+   *
    * @public
    */
   encryptionConfig: EncryptionConfig | undefined;

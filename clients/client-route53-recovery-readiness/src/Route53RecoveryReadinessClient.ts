@@ -426,7 +426,8 @@ export type Route53RecoveryReadinessClientResolvedConfigType = __SmithyResolvedC
 export interface Route53RecoveryReadinessClientResolvedConfig extends Route53RecoveryReadinessClientResolvedConfigType {}
 
 /**
- * <p>Recovery readiness</p>
+ * Recovery readiness
+ *
  * @public
  */
 export class Route53RecoveryReadinessClient extends __Client<

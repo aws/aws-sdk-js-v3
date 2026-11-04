@@ -26,11 +26,8 @@ export interface DisassociateEnclaveCertificateIamRoleCommandInput extends Disas
 export interface DisassociateEnclaveCertificateIamRoleCommandOutput extends DisassociateEnclaveCertificateIamRoleResult, __MetadataBearer {}
 
 /**
- * <p>Disassociates an IAM role from an Certificate Manager (ACM) certificate. Disassociating an IAM role
- * 			from an ACM certificate removes the Amazon S3 object that contains the certificate, certificate chain, and
- * 			encrypted private key from the Amazon S3 bucket. It also revokes the IAM role's permission to use the
- * 			KMS key used to encrypt the private key. This effectively revokes the role's permission
- * 			to use the certificate.</p>
+ * Disassociates an IAM role from an Certificate Manager (ACM) certificate. Disassociating an IAM role from an ACM certificate removes the Amazon S3 object that contains the certificate, certificate chain, and encrypted private key from the Amazon S3 bucket. It also revokes the IAM role's permission to use the KMS key used to encrypt the private key. This effectively revokes the role's permission to use the certificate.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,8 +56,8 @@ export interface DisassociateEnclaveCertificateIamRoleCommandOutput extends Disa
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

@@ -23,21 +23,14 @@ export interface DetachLoadBalancersCommandInput extends DetachLoadBalancersType
 export interface DetachLoadBalancersCommandOutput extends DetachLoadBalancersResultType, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This API operation is superseded by <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachTrafficSources.html">DetachTrafficSources</a>, which
- *                 can detach multiple traffic sources types. We recommend using
- *                     <code>DetachTrafficSources</code> to simplify how you manage traffic sources.
- *                 However, we continue to support <code>DetachLoadBalancers</code>. You can use both
- *                 the original <code>DetachLoadBalancers</code> API operation and
- *                     <code>DetachTrafficSources</code> on the same Auto Scaling group.</p>
- *          </note>
- *          <p>Detaches one or more Classic Load Balancers from the specified Auto Scaling group.</p>
- *          <p>This operation detaches only Classic Load Balancers. If you have Application Load Balancers, Network Load Balancers, or
- *             Gateway Load Balancers, use the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachLoadBalancerTargetGroups.html">DetachLoadBalancerTargetGroups</a> API instead.</p>
- *          <p>When you detach a load balancer, it enters the <code>Removing</code> state while
- *             deregistering the instances in the group. When all instances are deregistered, then you
- *             can no longer describe the load balancer using the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeLoadBalancers.html">DescribeLoadBalancers</a>
- *             API call. The instances remain running.</p>
+ * > **Note:** This API operation is superseded by [DetachTrafficSources](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachTrafficSources.html), which can detach multiple traffic sources types. We recommend using `DetachTrafficSources` to simplify how you manage traffic sources. However, we continue to support `DetachLoadBalancers`. You can use both the original `DetachLoadBalancers` API operation and `DetachTrafficSources` on the same Auto Scaling group.
+ *
+ * Detaches one or more Classic Load Balancers from the specified Auto Scaling group.
+ *
+ * This operation detaches only Classic Load Balancers. If you have Application Load Balancers, Network Load Balancers, or Gateway Load Balancers, use the [DetachLoadBalancerTargetGroups](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachLoadBalancerTargetGroups.html) API instead.
+ *
+ * When you detach a load balancer, it enters the `Removing` state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the load balancer using the [DescribeLoadBalancers](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeLoadBalancers.html) API call. The instances remain running.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,12 +58,12 @@ export interface DetachLoadBalancersCommandOutput extends DetachLoadBalancersRes
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  * @throws {@link ResourceContentionFault} (server fault)
- *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
- *             instance, or load balancer).</p>
+ *
+ * You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).
  *
  * @throws {@link AutoScalingServiceException}
- * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from AutoScaling service.
  *
  * @example To detach a load balancer from an Auto Scaling group
  * ```javascript

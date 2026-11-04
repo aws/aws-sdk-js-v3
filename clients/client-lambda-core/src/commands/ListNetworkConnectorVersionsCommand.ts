@@ -23,7 +23,10 @@ export interface ListNetworkConnectorVersionsCommandInput extends ListNetworkCon
 export interface ListNetworkConnectorVersionsCommandOutput extends ListNetworkConnectorVersionsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a paginated list of the versions of a network connector. Each configuration update creates a new immutable version; this operation lists those versions for the connector you specify. You can optionally filter results by version state. Use the <code>Marker</code> parameter from a previous response to retrieve the next page of results.</p> <p>Each item in the response includes the version-qualified ARN, version number, current state, and last modified timestamp for that version. To retrieve the current (latest) configuration of the connector, use <code>GetNetworkConnector</code>; to inspect a specific version, call <code>GetNetworkConnector</code> with a version-qualified identifier.</p>
+ * Returns a paginated list of the versions of a network connector. Each configuration update creates a new immutable version; this operation lists those versions for the connector you specify. You can optionally filter results by version state. Use the `Marker` parameter from a previous response to retrieve the next page of results.
+ *
+ * Each item in the response includes the version-qualified ARN, version number, current state, and last modified timestamp for that version. To retrieve the current (latest) configuration of the connector, use `GetNetworkConnector`; to inspect a specific version, call `GetNetworkConnector` with a version-qualified identifier.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,20 +69,24 @@ export interface ListNetworkConnectorVersionsCommandOutput extends ListNetworkCo
  * @see {@link LambdaCoreClientResolvedConfig | config} for LambdaCoreClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One of the parameters in the request is not valid. Check the error message for details about which parameter failed validation.</p>
+ *
+ * One of the parameters in the request is not valid. Check the error message for details about which parameter failed validation.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified network connector does not exist. Verify the identifier (ID, name, or ARN) and Region.</p>
+ *
+ * The specified network connector does not exist. Verify the identifier (ID, name, or ARN) and Region.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>An internal service error occurred. Retry the request with exponential backoff.</p>
+ *
+ * An internal service error occurred. Retry the request with exponential backoff.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The request was throttled due to exceeding the allowed request rate. Retry the request after a brief wait using exponential backoff.</p>
+ *
+ * The request was throttled due to exceeding the allowed request rate. Retry the request after a brief wait using exponential backoff.
  *
  * @throws {@link LambdaCoreServiceException}
- * <p>Base exception class for all service exceptions from LambdaCore service.</p>
  *
+ * Base exception class for all service exceptions from LambdaCore service.
  *
  * @public
  */

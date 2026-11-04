@@ -23,7 +23,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>List the tags for an Amazon EKS resource.</p>
+ * List the tags for an Amazon EKS resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,16 +53,16 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>This exception is thrown if the request contains a semantic error. The precise meaning
- *             will depend on the API, and will be documented in the error message.</p>
+ *
+ * This exception is thrown if the request contains a semantic error. The precise meaning will depend on the API, and will be documented in the error message.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>A service resource associated with the request could not be found. Clients should not
- *             retry such requests.</p>
+ *
+ * A service resource associated with the request could not be found. Clients should not retry such requests.
  *
  * @throws {@link EKSServiceException}
- * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * Base exception class for all service exceptions from EKS service.
  *
  * @example To list tags for a cluster
  * ```javascript

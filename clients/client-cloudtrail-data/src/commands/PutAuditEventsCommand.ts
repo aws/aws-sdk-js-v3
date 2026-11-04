@@ -23,11 +23,8 @@ export interface PutAuditEventsCommandInput extends PutAuditEventsRequest {}
 export interface PutAuditEventsCommandOutput extends PutAuditEventsResponse, __MetadataBearer {}
 
 /**
- * <p>Ingests your application events into CloudTrail Lake. A required parameter,
- *             <code>auditEvents</code>, accepts the JSON records (also called
- *             <i>payload</i>) of events that you want CloudTrail to ingest. You
- *          can add up to 100 of these events (or up to 1 MB) per <code>PutAuditEvents</code>
- *          request.</p>
+ * Ingests your application events into CloudTrail Lake. A required parameter, `auditEvents`, accepts the JSON records (also called *payload*) of events that you want CloudTrail to ingest. You can add up to 100 of these events (or up to 1 MB) per `PutAuditEvents` request.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,27 +71,32 @@ export interface PutAuditEventsCommandOutput extends PutAuditEventsResponse, __M
  * @see {@link CloudTrailDataClientResolvedConfig | config} for CloudTrailDataClient's `config` shape.
  *
  * @throws {@link ChannelInsufficientPermission} (client fault)
- *  <p>The caller's account ID must be the same as the channel owner's account ID.</p>
+ *
+ * The caller's account ID must be the same as the channel owner's account ID.
  *
  * @throws {@link ChannelNotFound} (client fault)
- *  <p>The channel could not be found.</p>
+ *
+ * The channel could not be found.
  *
  * @throws {@link ChannelUnsupportedSchema} (client fault)
- *  <p>The schema type of the event is not supported.</p>
+ *
+ * The schema type of the event is not supported.
  *
  * @throws {@link DuplicatedAuditEventId} (client fault)
- *  <p>Two or more entries in the request have the same event ID.</p>
+ *
+ * Two or more entries in the request have the same event ID.
  *
  * @throws {@link InvalidChannelARN} (client fault)
- *  <p>The specified channel ARN is not a valid
- *          channel ARN.</p>
+ *
+ * The specified channel ARN is not a valid channel ARN.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>The operation requested is not supported in this region or account.</p>
+ *
+ * The operation requested is not supported in this region or account.
  *
  * @throws {@link CloudTrailDataServiceException}
- * <p>Base exception class for all service exceptions from CloudTrailData service.</p>
  *
+ * Base exception class for all service exceptions from CloudTrailData service.
  *
  * @public
  */

@@ -23,20 +23,16 @@ export interface DeleteContainerFleetCommandInput extends DeleteContainerFleetIn
 export interface DeleteContainerFleetCommandOutput extends DeleteContainerFleetOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This API works with the following fleet types:</b> Container</p>
- *          <p>Deletes all resources and information related to a container fleet and shuts down
- *             currently running fleet instances, including those in remote locations. The container
- *             fleet must be in <code>ACTIVE</code> status to be deleted.</p>
- *          <p>To delete a fleet, specify the fleet ID to be terminated. During the deletion process,
- *             the fleet status is changed to <code>DELETING</code>. </p>
- *          <p>
- *             <b>Learn more</b>
- *          </p>
- *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift Servers
- *                 Fleets</a>
- *          </p>
+ * **This API works with the following fleet types:** Container
+ *
+ * Deletes all resources and information related to a container fleet and shuts down currently running fleet instances, including those in remote locations. The container fleet must be in `ACTIVE` status to be deleted.
+ *
+ * To delete a fleet, specify the fleet ID to be terminated. During the deletion process, the fleet status is changed to `DELETING`.
+ *
+ * **Learn more**
+ *
+ * [Setting up Amazon GameLift Servers Fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,30 +57,32 @@ export interface DeleteContainerFleetCommandOutput extends DeleteContainerFleetO
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an unrecoverable internal failure while processing the
- *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
- *             values before retrying.</p>
+ *
+ * One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resource was not found. The resource was either not created yet or deleted.</p>
+ *
+ * The requested resource was not found. The resource was either not created yet or deleted.
  *
  * @throws {@link TaggingFailedException} (client fault)
- *  <p>The requested tagging operation did not succeed. This may be due to invalid tag format
- *             or the maximum tag limit may have been exceeded. Resolve the issue before
- *             retrying.</p>
+ *
+ * The requested tagging operation did not succeed. This may be due to invalid tag format or the maximum tag limit may have been exceeded. Resolve the issue before retrying.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * The client failed authentication. Clients should not retry such requests.
  *
  * @throws {@link UnsupportedRegionException} (client fault)
- *  <p>The requested operation is not supported in the Region specified.</p>
+ *
+ * The requested operation is not supported in the Region specified.
  *
  * @throws {@link GameLiftServiceException}
- * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * Base exception class for all service exceptions from GameLift service.
  *
  * @public
  */

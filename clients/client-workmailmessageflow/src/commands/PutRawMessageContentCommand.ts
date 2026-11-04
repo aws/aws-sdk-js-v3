@@ -23,18 +23,12 @@ export interface PutRawMessageContentCommandInput extends PutRawMessageContentRe
 export interface PutRawMessageContentCommandOutput extends PutRawMessageContentResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the raw content of an in-transit email message, in MIME format.</p>
- *          <p>This example describes how to update in-transit email message. For more information and examples for using this API, see
- *       <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/update-with-lambda.html">
- *         Updating message content with AWS Lambda</a>.</p>
- *          <note>
- *             <p>Updates to an in-transit message only appear when you call <code>PutRawMessageContent</code> from an AWS Lambda function
- *       configured with a  synchronous <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/lambda.html#synchronous-rules">
- *         Run Lambda</a> rule. If you call <code>PutRawMessageContent</code> on a delivered or sent message, the message remains unchanged,
- *       even though <a href="https://docs.aws.amazon.com/workmail/latest/APIReference/API_messageflow_GetRawMessageContent.html">GetRawMessageContent</a> returns an updated
- *         message.
- *     </p>
- *          </note>
+ * Updates the raw content of an in-transit email message, in MIME format.
+ *
+ * This example describes how to update in-transit email message. For more information and examples for using this API, see [Updating message content with AWS Lambda](https://docs.aws.amazon.com/workmail/latest/adminguide/update-with-lambda.html).
+ *
+ * > **Note:** Updates to an in-transit message only appear when you call `PutRawMessageContent` from an AWS Lambda function configured with a synchronous [Run Lambda](https://docs.aws.amazon.com/workmail/latest/adminguide/lambda.html#synchronous-rules) rule. If you call `PutRawMessageContent` on a delivered or sent message, the message remains unchanged, even though [GetRawMessageContent](https://docs.aws.amazon.com/workmail/latest/APIReference/API_messageflow_GetRawMessageContent.html) returns an updated message.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,37 +60,28 @@ export interface PutRawMessageContentCommandOutput extends PutRawMessageContentR
  * @see {@link WorkMailMessageFlowClientResolvedConfig | config} for WorkMailMessageFlowClient's `config` shape.
  *
  * @throws {@link InvalidContentLocation} (client fault)
- *  <p>WorkMail could not access the updated email content. Possible reasons:</p>
- *          <ul>
- *             <li>
- *                <p>You made the request in a region other than your S3 bucket region.</p>
- *             </li>
- *             <li>
- *                <p>The <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-owner-condition.html">S3 bucket owner</a> is not the
- *         same as the calling AWS account.</p>
- *             </li>
- *             <li>
- *                <p>You have an incomplete or missing S3 bucket policy. For more information about policies, see
- *         <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/update-with-lambda.html">
- *           Updating message content with AWS Lambda
- *         </a> in the <i>WorkMail Administrator
- *           Guide</i>.</p>
- *             </li>
- *          </ul>
+ *
+ * WorkMail could not access the updated email content. Possible reasons:
+ *
+ * - You made the request in a region other than your S3 bucket region.
+ * - The [S3 bucket owner](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-owner-condition.html) is not the same as the calling AWS account.
+ * - You have an incomplete or missing S3 bucket policy. For more information about policies, see [Updating message content with AWS Lambda](https://docs.aws.amazon.com/workmail/latest/adminguide/update-with-lambda.html) in the *WorkMail Administrator Guide*.
  *
  * @throws {@link MessageFrozen} (client fault)
- *  <p>The requested email is not eligible for update. This is usually the case for a redirected email.</p>
+ *
+ * The requested email is not eligible for update. This is usually the case for a redirected email.
  *
  * @throws {@link MessageRejected} (client fault)
- *  <p>The requested email could not be updated due to an error in the MIME content. Check the error message for more information about
- *       what caused the error.</p>
+ *
+ * The requested email could not be updated due to an error in the MIME content. Check the error message for more information about what caused the error.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested email message is not found.</p>
+ *
+ * The requested email message is not found.
  *
  * @throws {@link WorkMailMessageFlowServiceException}
- * <p>Base exception class for all service exceptions from WorkMailMessageFlow service.</p>
  *
+ * Base exception class for all service exceptions from WorkMailMessageFlow service.
  *
  * @public
  */

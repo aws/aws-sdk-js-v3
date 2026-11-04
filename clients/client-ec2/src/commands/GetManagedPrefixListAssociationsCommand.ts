@@ -26,7 +26,8 @@ export interface GetManagedPrefixListAssociationsCommandInput extends GetManaged
 export interface GetManagedPrefixListAssociationsCommandOutput extends GetManagedPrefixListAssociationsResult, __MetadataBearer {}
 
 /**
- * <p>Gets information about the resources that are associated with the specified managed prefix list.</p>
+ * Gets information about the resources that are associated with the specified managed prefix list.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,8 +63,8 @@ export interface GetManagedPrefixListAssociationsCommandOutput extends GetManage
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

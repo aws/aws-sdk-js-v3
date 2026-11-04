@@ -23,8 +23,10 @@ export interface GetSMSAttributesCommandInput extends GetSMSAttributesInput {}
 export interface GetSMSAttributesCommandOutput extends GetSMSAttributesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the settings for sending SMS messages from your Amazon Web Services account.</p>
- *          <p>These settings are set with the <code>SetSMSAttributes</code> action.</p>
+ * Returns the settings for sending SMS messages from your Amazon Web Services account.
+ *
+ * These settings are set with the `SetSMSAttributes` action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,21 +57,24 @@ export interface GetSMSAttributesCommandOutput extends GetSMSAttributesResponse,
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
  *
  * @throws {@link AuthorizationErrorException} (client fault)
- *  <p>Indicates that the user has been denied access to the requested resource.</p>
+ *
+ * Indicates that the user has been denied access to the requested resource.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>Indicates an internal service error.</p>
+ *
+ * Indicates an internal service error.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Indicates that a request parameter does not comply with the associated
- *             constraints.</p>
+ *
+ * Indicates that a request parameter does not comply with the associated constraints.
  *
  * @throws {@link ThrottledException} (client fault)
- *  <p>Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.</p>
+ *
+ * Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.
  *
  * @throws {@link SNSServiceException}
- * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * Base exception class for all service exceptions from SNS service.
  *
  * @public
  */

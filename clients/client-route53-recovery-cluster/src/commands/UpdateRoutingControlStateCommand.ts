@@ -23,40 +23,19 @@ export interface UpdateRoutingControlStateCommandInput extends UpdateRoutingCont
 export interface UpdateRoutingControlStateCommandOutput extends UpdateRoutingControlStateResponse, __MetadataBearer {}
 
 /**
- * <p>Set the state of the routing control to reroute traffic. You can set the value to ON or
- * 			OFF. When the state is ON, traffic flows to a cell. When the state is OFF, traffic does not
- * 			flow.</p>
- *          <p>With Route 53 ARC, you can add safety rules for routing controls, which are safeguards for routing
- * 				control state updates that help prevent unexpected outcomes, like fail open traffic routing. However,
- * 				there are scenarios when you might want to bypass the routing control safeguards that are enforced with
- * 				safety rules that you've configured. For example, you might want to fail over quickly for disaster recovery,
- * 				and one or more safety rules might be unexpectedly preventing you from updating a routing control state to
- * 				reroute traffic. In a "break glass" scenario like this, you can override one or more safety rules to change
- * 				a routing control state and fail over your application.</p>
- *          <p>The <code>SafetyRulesToOverride</code> property enables you override one or more safety rules and
- * 				update routing control states. For more information, see
- * 				<a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.override-safety-rule.html">
- * 					Override safety rules to reroute traffic</a> in the Amazon Route 53 Application Recovery Controller Developer Guide.</p>
- *          <p>
- *             <i>You must specify Regional endpoints when you work with API cluster operations
- * 				to get or update routing control states in Route 53 ARC.</i>
- *          </p>
- *          <p>To see a code example for getting a routing control state, including accessing Regional cluster endpoints
- * 				in sequence, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/service_code_examples_actions.html">API examples</a>
- * 				in the Amazon Route 53 Application Recovery Controller Developer Guide.</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.update.html">
- * 					Viewing and updating routing control states</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.html">Working with routing controls overall</a>
- *                </p>
- *             </li>
- *          </ul>
+ * Set the state of the routing control to reroute traffic. You can set the value to ON or OFF. When the state is ON, traffic flows to a cell. When the state is OFF, traffic does not flow.
+ *
+ * With Route 53 ARC, you can add safety rules for routing controls, which are safeguards for routing control state updates that help prevent unexpected outcomes, like fail open traffic routing. However, there are scenarios when you might want to bypass the routing control safeguards that are enforced with safety rules that you've configured. For example, you might want to fail over quickly for disaster recovery, and one or more safety rules might be unexpectedly preventing you from updating a routing control state to reroute traffic. In a "break glass" scenario like this, you can override one or more safety rules to change a routing control state and fail over your application.
+ *
+ * The `SafetyRulesToOverride` property enables you override one or more safety rules and update routing control states. For more information, see [Override safety rules to reroute traffic](https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.override-safety-rule.html) in the Amazon Route 53 Application Recovery Controller Developer Guide.
+ *
+ * *You must specify Regional endpoints when you work with API cluster operations to get or update routing control states in Route 53 ARC.*
+ *
+ * To see a code example for getting a routing control state, including accessing Regional cluster endpoints in sequence, see [API examples](https://docs.aws.amazon.com/r53recovery/latest/dg/service_code_examples_actions.html) in the Amazon Route 53 Application Recovery Controller Developer Guide.
+ *
+ * - [Viewing and updating routing control states](https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.update.html)
+ * - [Working with routing controls overall](https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,29 +64,36 @@ export interface UpdateRoutingControlStateCommandOutput extends UpdateRoutingCon
  * @see {@link Route53RecoveryClusterClientResolvedConfig | config} for Route53RecoveryClusterClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permissions to perform this action.</p>
+ *
+ * You don't have sufficient permissions to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>There was a conflict with this request. Try again.</p>
+ *
+ * There was a conflict with this request. Try again.
  *
  * @throws {@link EndpointTemporarilyUnavailableException} (server fault)
- *  <p>The cluster endpoint isn't available. Try another cluster endpoint.</p>
+ *
+ * The cluster endpoint isn't available. Try another cluster endpoint.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>There was an unexpected error during processing of the request.</p>
+ *
+ * There was an unexpected error during processing of the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request references a routing control or control panel that was not found.</p>
+ *
+ * The request references a routing control or control panel that was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied because of request throttling.</p>
+ *
+ * The request was denied because of request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>There was a validation error on the request.</p>
+ *
+ * There was a validation error on the request.
  *
  * @throws {@link Route53RecoveryClusterServiceException}
- * <p>Base exception class for all service exceptions from Route53RecoveryCluster service.</p>
  *
+ * Base exception class for all service exceptions from Route53RecoveryCluster service.
  *
  * @public
  */

@@ -23,12 +23,10 @@ export interface SetTopicAttributesCommandInput extends SetTopicAttributesInput 
 export interface SetTopicAttributesCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Allows a topic owner to set an attribute of the topic to a new value.</p>
- *          <note>
- *             <p>To remove the ability to change topic permissions, you must deny permissions to
- *                 the <code>AddPermission</code>, <code>RemovePermission</code>, and
- *                     <code>SetTopicAttributes</code> actions in your IAM policy.</p>
- *          </note>
+ * Allows a topic owner to set an attribute of the topic to a new value.
+ *
+ * > **Note:** To remove the ability to change topic permissions, you must deny permissions to the `AddPermission`, `RemovePermission`, and `SetTopicAttributes` actions in your IAM policy.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,25 +53,28 @@ export interface SetTopicAttributesCommandOutput extends __MetadataBearer {}
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
  *
  * @throws {@link AuthorizationErrorException} (client fault)
- *  <p>Indicates that the user has been denied access to the requested resource.</p>
+ *
+ * Indicates that the user has been denied access to the requested resource.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>Indicates an internal service error.</p>
+ *
+ * Indicates an internal service error.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Indicates that a request parameter does not comply with the associated
- *             constraints.</p>
+ *
+ * Indicates that a request parameter does not comply with the associated constraints.
  *
  * @throws {@link InvalidSecurityException} (client fault)
- *  <p>The credential signature isn't valid. You must use an HTTPS endpoint and sign your
- *             request using Signature Version 4.</p>
+ *
+ * The credential signature isn't valid. You must use an HTTPS endpoint and sign your request using Signature Version 4.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>Indicates that the requested resource does not exist.</p>
+ *
+ * Indicates that the requested resource does not exist.
  *
  * @throws {@link SNSServiceException}
- * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * Base exception class for all service exceptions from SNS service.
  *
  * @public
  */

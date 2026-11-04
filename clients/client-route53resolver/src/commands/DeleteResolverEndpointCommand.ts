@@ -23,19 +23,11 @@ export interface DeleteResolverEndpointCommandInput extends DeleteResolverEndpoi
 export interface DeleteResolverEndpointCommandOutput extends DeleteResolverEndpointResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a Resolver endpoint. The effect of deleting a Resolver endpoint depends on whether it's an inbound or an outbound
- * 			Resolver endpoint:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <b>Inbound</b>: DNS queries from your network are no longer routed
- * 				to the DNS service for the specified VPC.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Outbound</b>: DNS queries from a VPC are no longer routed to your network.</p>
- *             </li>
- *          </ul>
+ * Deletes a Resolver endpoint. The effect of deleting a Resolver endpoint depends on whether it's an inbound or an outbound Resolver endpoint:
+ *
+ * - **Inbound**: DNS queries from your network are no longer routed to the DNS service for the specified VPC.
+ * - **Outbound**: DNS queries from a VPC are no longer routed to your network.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,23 +79,28 @@ export interface DeleteResolverEndpointCommandOutput extends DeleteResolverEndpo
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
  *
  * @throws {@link InternalServiceErrorException} (client fault)
- *  <p>We encountered an unknown error. Try again in a few minutes.</p>
+ *
+ * We encountered an unknown error. Try again in a few minutes.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters in this request are not valid.</p>
+ *
+ * One or more parameters in this request are not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is invalid.</p>
+ *
+ * The request is invalid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource doesn't exist.</p>
+ *
+ * The specified resource doesn't exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled. Try again in a few minutes.</p>
+ *
+ * The request was throttled. Try again in a few minutes.
  *
  * @throws {@link Route53ResolverServiceException}
- * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * Base exception class for all service exceptions from Route53Resolver service.
  *
  * @public
  */

@@ -639,7 +639,10 @@ export interface ElementalInference {
 }
 
 /**
- * <p>This is the AWS Elemental Inference REST API Reference. It provides information on the URL, request contents, and response contents of each AWS Elemental Inference REST operation. </p> <p>We assume that you have the IAM permissions that you need to use AWS Elemental Inference via the REST API. We also assume that you are familiar with the features and operations of AWS Elemental Inference as described in <i>AWS Elemental Inference User Guide</i>. </p>
+ * This is the AWS Elemental Inference REST API Reference. It provides information on the URL, request contents, and response contents of each AWS Elemental Inference REST operation.
+ *
+ * We assume that you have the IAM permissions that you need to use AWS Elemental Inference via the REST API. We also assume that you are familiar with the features and operations of AWS Elemental Inference as described in *AWS Elemental Inference User Guide*.
+ *
  * @public
  */
 export class ElementalInference extends ElementalInferenceClient implements ElementalInference {}

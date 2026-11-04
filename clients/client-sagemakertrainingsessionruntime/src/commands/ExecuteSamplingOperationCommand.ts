@@ -23,7 +23,8 @@ export interface ExecuteSamplingOperationCommandInput extends ExecuteSamplingOpe
 export interface ExecuteSamplingOperationCommandOutput extends ExecuteSamplingOperationOutput, __MetadataBearer {}
 
 /**
- * <p>Submits an asynchronous sampling operation to generate text or compute log-probabilities from the model associated with the specified training session. The session must be in <code>Running</code> or <code>Blocked</code> state. Use <code>GetSamplingOperationResult</code> to poll for the result.</p>
+ * Submits an asynchronous sampling operation to generate text or compute log-probabilities from the model associated with the specified training session. The session must be in `Running` or `Blocked` state. Use `GetSamplingOperationResult` to poll for the result.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,23 +95,28 @@ export interface ExecuteSamplingOperationCommandOutput extends ExecuteSamplingOp
  * @see {@link SageMakerTrainingSessionRuntimeClientResolvedConfig | config} for SageMakerTrainingSessionRuntimeClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The training session is in a state that cannot accept new operations. The session must be in <code>Running</code> or <code>Blocked</code> state to accept requests.</p>
+ *
+ * The training session is in a state that cannot accept new operations. The session must be in `Running` or `Blocked` state to accept requests.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal service error occurred. Retry the request using exponential backoff.</p>
+ *
+ * An internal service error occurred. Retry the request using exponential backoff.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified training session or operation does not exist, or the operation does not belong to the specified training session.</p>
+ *
+ * The specified training session or operation does not exist, or the operation does not belong to the specified training session.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled. Retry the request after a brief wait using exponential backoff.</p>
+ *
+ * The request was throttled. Retry the request after a brief wait using exponential backoff.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request is not valid. Check the request syntax and parameters. Examples include invalid sequence numbers, malformed client tokens, missing required fields, or invalid operation configuration.</p>
+ *
+ * The request is not valid. Check the request syntax and parameters. Examples include invalid sequence numbers, malformed client tokens, missing required fields, or invalid operation configuration.
  *
  * @throws {@link SageMakerTrainingSessionRuntimeServiceException}
- * <p>Base exception class for all service exceptions from SageMakerTrainingSessionRuntime service.</p>
  *
+ * Base exception class for all service exceptions from SageMakerTrainingSessionRuntime service.
  *
  * @example Generate samples from a prompt
  * ```javascript

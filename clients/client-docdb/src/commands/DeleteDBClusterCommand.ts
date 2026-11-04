@@ -23,8 +23,8 @@ export interface DeleteDBClusterCommandInput extends DeleteDBClusterMessage {}
 export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __MetadataBearer {}
 
 /**
- * <p>Deletes a previously provisioned cluster. When you delete a cluster, all automated backups for that cluster are deleted and can't be recovered. Manual DB cluster snapshots of the specified cluster are not deleted.</p>
- *          <p></p>
+ * Deletes a previously provisioned cluster. When you delete a cluster, all automated backups for that cluster are deleted and can't be recovered. Manual DB cluster snapshots of the specified cluster are not deleted.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -123,24 +123,28 @@ export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __M
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p>
- *             <code>DBClusterIdentifier</code> doesn't refer to an existing cluster. </p>
+ *
+ * `DBClusterIdentifier` doesn't refer to an existing cluster.
  *
  * @throws {@link DBClusterSnapshotAlreadyExistsFault} (client fault)
- *  <p>You already have a cluster snapshot with the given identifier.</p>
+ *
+ * You already have a cluster snapshot with the given identifier.
  *
  * @throws {@link InvalidDBClusterSnapshotStateFault} (client fault)
- *  <p>The provided value isn't a valid cluster snapshot state.</p>
+ *
+ * The provided value isn't a valid cluster snapshot state.
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
- *  <p>The cluster isn't in a valid state.</p>
+ *
+ * The cluster isn't in a valid state.
  *
  * @throws {@link SnapshotQuotaExceededFault} (client fault)
- *  <p>The request would cause you to exceed the allowed number of snapshots.</p>
+ *
+ * The request would cause you to exceed the allowed number of snapshots.
  *
  * @throws {@link DocDBServiceException}
- * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * Base exception class for all service exceptions from DocDB service.
  *
  * @public
  */

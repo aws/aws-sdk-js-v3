@@ -23,84 +23,37 @@ export interface CreateRecommenderCommandInput extends CreateRecommenderRequest 
 export interface CreateRecommenderCommandOutput extends CreateRecommenderResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a recommender with the recipe (a Domain dataset group use case) you specify.
- *       You create recommenders for a Domain dataset group and specify the recommender's Amazon Resource Name (ARN) when you make a
- *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html">GetRecommendations</a>
- *       request.
- *      </p>
- *          <p>
- *             <b>Minimum recommendation requests per second</b>
- *          </p>
- *          <important>
- *             <p>A high <code>minRecommendationRequestsPerSecond</code> will increase your bill. We recommend starting with 1 for <code>minRecommendationRequestsPerSecond</code> (the default). Track
- *         your usage using Amazon CloudWatch metrics, and increase the <code>minRecommendationRequestsPerSecond</code>
- *         as necessary.</p>
- *          </important>
- *          <p>When you create a recommender, you can configure the recommender's minimum recommendation requests per second. The minimum recommendation requests per second
- *       (<code>minRecommendationRequestsPerSecond</code>) specifies the baseline recommendation request throughput provisioned by
- *       Amazon Personalize. The default minRecommendationRequestsPerSecond is <code>1</code>. A recommendation request is a single <code>GetRecommendations</code> operation.
- *       Request throughput is measured in requests per second and Amazon Personalize uses your requests per second to derive
- *       your requests per hour and the price of your recommender usage.
- *     </p>
- *          <p>
- *       If your requests per second increases beyond
- *       <code>minRecommendationRequestsPerSecond</code>, Amazon Personalize auto-scales the provisioned capacity up and down,
- *       but never below <code>minRecommendationRequestsPerSecond</code>.
- *       There's a short time delay while the capacity is increased that might cause loss of
- *       requests.</p>
- *          <p>
- *       Your bill is the greater of either the minimum requests per hour (based on minRecommendationRequestsPerSecond)
- *       or the actual number of requests. The actual request throughput used is calculated as the average requests/second within a one-hour window.
+ * Creates a recommender with the recipe (a Domain dataset group use case) you specify. You create recommenders for a Domain dataset group and specify the recommender's Amazon Resource Name (ARN) when you make a [GetRecommendations](https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html) request.
  *
- *       We recommend starting with the default <code>minRecommendationRequestsPerSecond</code>, track
- *       your usage using Amazon CloudWatch metrics, and then increase the <code>minRecommendationRequestsPerSecond</code>
- *       as necessary.
- *     </p>
- *          <p>
- *             <b>Status</b>
- *          </p>
- *          <p>A recommender can be in one of the following states:</p>
- *          <ul>
- *             <li>
- *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
- *             </li>
- *             <li>
- *                <p>STOP PENDING > STOP IN_PROGRESS > INACTIVE > START PENDING > START IN_PROGRESS > ACTIVE</p>
- *             </li>
- *             <li>
- *                <p>DELETE PENDING > DELETE IN_PROGRESS</p>
- *             </li>
- *          </ul>
- *          <p>To get the recommender status, call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeRecommender.html">DescribeRecommender</a>.</p>
- *          <note>
- *             <p>Wait until the <code>status</code> of the recommender
- *         is <code>ACTIVE</code> before asking the recommender for recommendations.</p>
- *          </note>
- *          <p class="title">
- *             <b>Related APIs</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListRecommenders.html">ListRecommenders</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeRecommender.html">DescribeRecommender</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_UpdateRecommender.html">UpdateRecommender</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteRecommender.html">DeleteRecommender</a>
- *                </p>
- *             </li>
- *          </ul>
+ * **Minimum recommendation requests per second**
+ *
+ * > **Important:** A high `minRecommendationRequestsPerSecond` will increase your bill. We recommend starting with 1 for `minRecommendationRequestsPerSecond` (the default). Track your usage using Amazon CloudWatch metrics, and increase the `minRecommendationRequestsPerSecond` as necessary.
+ *
+ * When you create a recommender, you can configure the recommender's minimum recommendation requests per second. The minimum recommendation requests per second (`minRecommendationRequestsPerSecond`) specifies the baseline recommendation request throughput provisioned by Amazon Personalize. The default minRecommendationRequestsPerSecond is `1`. A recommendation request is a single `GetRecommendations` operation. Request throughput is measured in requests per second and Amazon Personalize uses your requests per second to derive your requests per hour and the price of your recommender usage.
+ *
+ * If your requests per second increases beyond `minRecommendationRequestsPerSecond`, Amazon Personalize auto-scales the provisioned capacity up and down, but never below `minRecommendationRequestsPerSecond`. There's a short time delay while the capacity is increased that might cause loss of requests.
+ *
+ * Your bill is the greater of either the minimum requests per hour (based on minRecommendationRequestsPerSecond) or the actual number of requests. The actual request throughput used is calculated as the average requests/second within a one-hour window. We recommend starting with the default `minRecommendationRequestsPerSecond`, track your usage using Amazon CloudWatch metrics, and then increase the `minRecommendationRequestsPerSecond` as necessary.
+ *
+ * **Status**
+ *
+ * A recommender can be in one of the following states:
+ *
+ * - CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
+ * - STOP PENDING > STOP IN_PROGRESS > INACTIVE > START PENDING > START IN_PROGRESS > ACTIVE
+ * - DELETE PENDING > DELETE IN_PROGRESS
+ *
+ * To get the recommender status, call [DescribeRecommender](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeRecommender.html).
+ *
+ * > **Note:** Wait until the `status` of the recommender is `ACTIVE` before asking the recommender for recommendations.
+ *
+ * **Related APIs**
+ *
+ * - [ListRecommenders](https://docs.aws.amazon.com/personalize/latest/dg/API_ListRecommenders.html)
+ * - [DescribeRecommender](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeRecommender.html)
+ * - [UpdateRecommender](https://docs.aws.amazon.com/personalize/latest/dg/API_UpdateRecommender.html)
+ * - [DeleteRecommender](https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteRecommender.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -154,26 +107,32 @@ export interface CreateRecommenderCommandOutput extends CreateRecommenderRespons
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * Provide a valid value for the field or parameter.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The limit on the number of requests per second has been exceeded.</p>
+ *
+ * The limit on the number of requests per second has been exceeded.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>The specified resource already exists.</p>
+ *
+ * The specified resource already exists.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is in use.</p>
+ *
+ * The specified resource is in use.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Could not find the specified resource.</p>
+ *
+ * Could not find the specified resource.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
+ *
+ * You have exceeded the maximum number of tags you can apply to this resource.
  *
  * @throws {@link PersonalizeServiceException}
- * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * Base exception class for all service exceptions from Personalize service.
  *
  * @public
  */

@@ -23,51 +23,22 @@ export interface UpdateTableCommandInput extends UpdateTableInput {}
 export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataBearer {}
 
 /**
- * <p>Modifies the provisioned throughput settings, global secondary indexes, DynamoDB
- *             Streams settings, or global table replica settings for a given table.</p>
- *          <p>You can only perform one of the following operations at once:</p>
- *          <ul>
- *             <li>
- *                <p>Modify the provisioned throughput settings of the table.</p>
- *             </li>
- *             <li>
- *                <p>Remove a global secondary index from the table.</p>
- *             </li>
- *             <li>
- *                <p>Create a new global secondary index on the table. After the index begins
- *                     backfilling, you can use <code>UpdateTable</code> to perform other
- *                     operations.</p>
- *             </li>
- *             <li>
- *                <p>Enable or disable disassociation protection for the local global table
- *                     replica.</p>
- *             </li>
- *             <li>
- *                <p>Disassociate the local global table replica and keep it as a standalone
- *                     regional table. The <code>Disassociate</code> action must be the only
- *                     replica update in the request. If the request includes any other update,
- *                     <code>UpdateTable</code> fails with a <code>ValidationException</code> and
- *                     the disassociation does not start.</p>
- *             </li>
- *          </ul>
- *          <p>
- *             <code>UpdateTable</code> is an asynchronous operation; while it's executing, the table
- *             status changes from <code>ACTIVE</code> to <code>UPDATING</code>. While it's
- *                 <code>UPDATING</code>, you can't issue another <code>UpdateTable</code> request.
- *             Use <code>DescribeTable</code> to monitor the table's status.</p>
- *          <p>To use this operation to disassociate a local replica, you must have the
- *             <code>dynamodb:UpdateTable</code> and <code>dynamodb:DisassociateTableReplica</code>
- *             IAM permissions on the local replica. Send disassociation and disassociation
- *             protection requests to the replica's Region using credentials for the account that
- *             owns the replica. For prerequisites and the procedure, see
- *             <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables-disassociate.html">Disassociating a global table replica</a> in the <i>Amazon DynamoDB
- *                 Developer Guide</i>.</p>
- *          <p>To confirm successful disassociation, call <code>DescribeTable</code> in the
- *             replica's Region and verify that <code>TableStatus</code> is <code>ACTIVE</code>
- *             and <code>Replicas</code> is absent or empty. If <code>TableStatus</code> returns to
- *             <code>ACTIVE</code> but the response still includes a <code>Replicas</code> list, the
- *             disassociation did not complete. Check <code>ReplicaStatus</code> for a
- *             replication-permission or encryption-access problem, resolve it, and retry.</p>
+ * Modifies the provisioned throughput settings, global secondary indexes, DynamoDB Streams settings, or global table replica settings for a given table.
+ *
+ * You can only perform one of the following operations at once:
+ *
+ * - Modify the provisioned throughput settings of the table.
+ * - Remove a global secondary index from the table.
+ * - Create a new global secondary index on the table. After the index begins backfilling, you can use `UpdateTable` to perform other operations.
+ * - Enable or disable disassociation protection for the local global table replica.
+ * - Disassociate the local global table replica and keep it as a standalone regional table. The `Disassociate` action must be the only replica update in the request. If the request includes any other update, `UpdateTable` fails with a `ValidationException` and the disassociation does not start.
+ *
+ * `UpdateTable` is an asynchronous operation; while it's executing, the table status changes from `ACTIVE` to `UPDATING`. While it's `UPDATING`, you can't issue another `UpdateTable` request. Use `DescribeTable` to monitor the table's status.
+ *
+ * To use this operation to disassociate a local replica, you must have the `dynamodb:UpdateTable` and `dynamodb:DisassociateTableReplica` IAM permissions on the local replica. Send disassociation and disassociation protection requests to the replica's Region using credentials for the account that owns the replica. For prerequisites and the procedure, see [Disassociating a global table replica](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables-disassociate.html) in the *Amazon DynamoDB Developer Guide*.
+ *
+ * To confirm successful disassociation, call `DescribeTable` in the replica's Region and verify that `TableStatus` is `ACTIVE` and `Replicas` is absent or empty. If `TableStatus` returns to `ACTIVE` but the response still includes a `Replicas` list, the disassociation did not complete. Check `ReplicaStatus` for a replication-permission or encryption-access problem, resolve it, and retry.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -474,52 +445,44 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidEndpointException} (client fault)
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>There is no limit to the number of daily on-demand backups that can be taken. </p>
- *          <p>For most purposes, up to 500 simultaneous table operations are allowed per account.
- *             These operations include <code>CreateTable</code>, <code>UpdateTable</code>,
- *                 <code>DeleteTable</code>,<code>UpdateTimeToLive</code>,
- *                 <code>RestoreTableFromBackup</code>, and <code>RestoreTableToPointInTime</code>. </p>
- *          <p>When you are creating a table with one or more secondary indexes, you can have up
- *             to 250 such requests running at a time. However, if the table or index specifications
- *             are complex, then DynamoDB might temporarily reduce the number of concurrent
- *             operations.</p>
- *          <p>When importing into DynamoDB, up to 50 simultaneous import table operations are
- *             allowed per account.</p>
- *          <p>There is a soft account quota of 2,500 tables.</p>
- *          <p>GetRecords was called with a value of more than 1000 for the limit request
- *             parameter.</p>
- *          <p>More than 2 processes are reading from the same streams shard at the same time.
- *             Exceeding this limit may result in request throttling.</p>
+ *
+ * There is no limit to the number of daily on-demand backups that can be taken.
+ *
+ * For most purposes, up to 500 simultaneous table operations are allowed per account. These operations include `CreateTable`, `UpdateTable`, `DeleteTable`,`UpdateTimeToLive`, `RestoreTableFromBackup`, and `RestoreTableToPointInTime`.
+ *
+ * When you are creating a table with one or more secondary indexes, you can have up to 250 such requests running at a time. However, if the table or index specifications are complex, then DynamoDB might temporarily reduce the number of concurrent operations.
+ *
+ * When importing into DynamoDB, up to 50 simultaneous import table operations are allowed per account.
+ *
+ * There is a soft account quota of 2,500 tables.
+ *
+ * GetRecords was called with a value of more than 1000 for the limit request parameter.
+ *
+ * More than 2 processes are reading from the same streams shard at the same time. Exceeding this limit may result in request throttling.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The operation conflicts with the resource's availability. For example:</p>
- *          <ul>
- *             <li>
- *                <p>You attempted to recreate an existing table.</p>
- *             </li>
- *             <li>
- *                <p>You tried to delete a table currently in the <code>CREATING</code>
- *                     state.</p>
- *             </li>
- *             <li>
- *                <p>You tried to update a resource that was already being updated.</p>
- *             </li>
- *          </ul>
- *          <p>When appropriate, wait for the ongoing update to complete and attempt the request
- *             again.</p>
+ *
+ * The operation conflicts with the resource's availability. For example:
+ *
+ * - You attempted to recreate an existing table.
+ * - You tried to delete a table currently in the `CREATING` state.
+ * - You tried to update a resource that was already being updated.
+ *
+ * When appropriate, wait for the ongoing update to complete and attempt the request again.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The operation tried to access a nonexistent table or index. The resource might not
- *             be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+ *
+ * The operation tried to access a nonexistent table or index. The resource might not be specified correctly, or its status might not be `ACTIVE`.
  *
  * @throws {@link DynamoDBServiceException}
- * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * Base exception class for all service exceptions from DynamoDB service.
  *
  * @example To modify a table's provisioned throughput
  * ```javascript

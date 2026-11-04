@@ -23,7 +23,8 @@ export interface DescribeEvaluationsCommandInput extends DescribeEvaluationsInpu
 export interface DescribeEvaluationsCommandOutput extends DescribeEvaluationsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of <code>DescribeEvaluations</code> that match the search criteria in the request.</p>
+ * Returns a list of `DescribeEvaluations` that match the search criteria in the request.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,14 +83,16 @@ export interface DescribeEvaluationsCommandOutput extends DescribeEvaluationsOut
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An error on the server occurred when trying to process a request.</p>
+ *
+ * An error on the server occurred when trying to process a request.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+ *
+ * An error on the client occurred. Typically, the cause is an invalid input value.
  *
  * @throws {@link MachineLearningServiceException}
- * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ * Base exception class for all service exceptions from MachineLearning service.
  *
  * @public
  */

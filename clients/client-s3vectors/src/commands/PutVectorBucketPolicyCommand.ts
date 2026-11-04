@@ -23,7 +23,12 @@ export interface PutVectorBucketPolicyCommandInput extends PutVectorBucketPolicy
 export interface PutVectorBucketPolicyCommandOutput extends PutVectorBucketPolicyOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a bucket policy for a vector bucket. To specify the bucket, you must use either the vector bucket name or the vector bucket Amazon Resource Name (ARN). </p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3vectors:PutVectorBucketPolicy</code> permission to use this operation. </p> </dd> </dl>
+ * Creates a bucket policy for a vector bucket. To specify the bucket, you must use either the vector bucket name or the vector bucket Amazon Resource Name (ARN).
+ *
+ * - **Permissions**
+ *
+ *   You must have the `s3vectors:PutVectorBucketPolicy` permission to use this operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,29 +55,36 @@ export interface PutVectorBucketPolicyCommandOutput extends PutVectorBucketPolic
  * @see {@link S3VectorsClientResolvedConfig | config} for S3VectorsClient's `config` shape.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The request was rejected because the specified resource can't be found.</p>
+ *
+ * The request was rejected because the specified resource can't be found.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is unavailable. Wait briefly and retry your request. If it continues to fail, increase your waiting time between retries.</p>
+ *
+ * The service is unavailable. Wait briefly and retry your request. If it continues to fail, increase your waiting time between retries.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access denied.</p>
+ *
+ * Access denied.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request failed due to an internal server error.</p>
+ *
+ * The request failed due to an internal server error.
  *
  * @throws {@link RequestTimeoutException} (client fault)
- *  <p>The request timed out. Retry your request.</p>
+ *
+ * The request timed out. Retry your request.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The requested action isn't valid.</p>
+ *
+ * The requested action isn't valid.
  *
  * @throws {@link S3VectorsServiceException}
- * <p>Base exception class for all service exceptions from S3Vectors service.</p>
  *
+ * Base exception class for all service exceptions from S3Vectors service.
  *
  * @public
  */

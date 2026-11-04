@@ -23,12 +23,12 @@ export interface ImportModelCommandInput extends ImportModelRequest {}
 export interface ImportModelCommandOutput extends ImportModelResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new custom model that replicates a source custom model that you import. The
- *       source model can be in your Amazon Web Services account or another one.</p>
- *          <p>If the source model is in another Amazon Web Services account, then it must have a resource-based policy
- *       that authorizes you to import it.</p>
- *          <p>The source model must be in the same Amazon Web Services Region that you're using when you import. You
- *       can't import a model that's in a different Region.</p>
+ * Creates a new custom model that replicates a source custom model that you import. The source model can be in your Amazon Web Services account or another one.
+ *
+ * If the source model is in another Amazon Web Services account, then it must have a resource-based policy that authorizes you to import it.
+ *
+ * The source model must be in the same Amazon Web Services Region that you're using when you import. You can't import a model that's in a different Region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,41 +65,44 @@ export interface ImportModelCommandOutput extends ImportModelResponse, __Metadat
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is invalid.</p>
+ *
+ * The request is invalid.
  *
  * @throws {@link KmsKeyValidationException} (client fault)
- *  <p>The KMS customer managed key (CMK) entered cannot be validated. Verify the key and
- *       re-enter it.</p>
+ *
+ * The KMS customer managed key (CMK) entered cannot be validated. Verify the key and re-enter it.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource name is already in use. Use a different name and try your request
- *       again.</p>
+ *
+ * The specified resource name is already in use. Use a different name and try your request again.
  *
  * @throws {@link ResourceLimitExceededException} (client fault)
- *  <p>The maximum number of resources per account has been exceeded. Review the resources, and
- *       then try your request again.</p>
+ *
+ * The maximum number of resources per account has been exceeded. Review the resources, and then try your request again.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+ *
+ * The specified resource ARN was not found. Check the ARN and try your request again.
  *
  * @throws {@link ResourceUnavailableException} (client fault)
- *  <p>The specified resource is not available. Check the resource and try your request
- *       again.</p>
+ *
+ * The specified resource is not available. Check the resource and try your request again.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
+ * The number of requests exceeds the limit. Resubmit your request later.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>The request contains more tags than can be associated with a resource (50 tags per
- *       resource). The maximum number of tags includes both existing tags and those included in your
- *       current request. </p>
+ *
+ * The request contains more tags than can be associated with a resource (50 tags per resource). The maximum number of tags includes both existing tags and those included in your current request.
  *
  * @throws {@link ComprehendServiceException}
- * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * Base exception class for all service exceptions from Comprehend service.
  *
  * @public
  */

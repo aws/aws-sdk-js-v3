@@ -23,12 +23,10 @@ export interface ListEntityRecognizersCommandInput extends ListEntityRecognizers
 export interface ListEntityRecognizersCommandOutput extends ListEntityRecognizersResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a list of the properties of all entity recognizers that you created, including
- *       recognizers currently in training. Allows you to filter the list of recognizers based on
- *       criteria such as status and submission time. This call returns up to 500 entity recognizers in
- *       the list, with a default number of 100 recognizers in the list.</p>
- *          <p>The results of this list are not in any particular order. Please get the list and sort
- *       locally if needed.</p>
+ * Gets a list of the properties of all entity recognizers that you created, including recognizers currently in training. Allows you to filter the list of recognizers based on criteria such as status and submission time. This call returns up to 500 entity recognizers in the list, with a default number of 100 recognizers in the list.
+ *
+ * The results of this list are not in any particular order. Please get the list and sort locally if needed.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -143,21 +141,24 @@ export interface ListEntityRecognizersCommandOutput extends ListEntityRecognizer
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link InvalidFilterException} (client fault)
- *  <p>The filter specified for the operation is invalid. Specify a different
- *       filter.</p>
+ *
+ * The filter specified for the operation is invalid. Specify a different filter.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is invalid.</p>
+ *
+ * The request is invalid.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
+ * The number of requests exceeds the limit. Resubmit your request later.
  *
  * @throws {@link ComprehendServiceException}
- * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * Base exception class for all service exceptions from Comprehend service.
  *
  * @public
  */

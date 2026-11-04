@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { IAMToolboxServiceException as __BaseException } from "./IAMToolboxServiceException";
 
 /**
- * <p>The caller does not have sufficient access to perform this action.</p>
+ * The caller does not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>An unexpected error occurred while processing the request. Try again.</p>
+ * An unexpected error occurred while processing the request. Try again.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -46,7 +48,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The requested authorization details do not exist in this region or have expired. Verify that the authorization ID from the access denied error message is correct and the call is made in the region where the denial occurred. Ensure that the calling principal belongs to the same account or organization as the original denied request.</p>
+ * The requested authorization details do not exist in this region or have expired. Verify that the authorization ID from the access denied error message is correct and the call is made in the region where the denial occurred. Ensure that the calling principal belongs to the same account or organization as the original denied request.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -67,7 +70,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request is malformed or is missing one or more required parameters. Check the request parameters and try again.</p>
+ * The request is malformed or is missing one or more required parameters. Check the request parameters and try again.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {

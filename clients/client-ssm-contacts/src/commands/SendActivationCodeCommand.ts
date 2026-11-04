@@ -23,9 +23,8 @@ export interface SendActivationCodeCommandInput extends SendActivationCodeReques
 export interface SendActivationCodeCommandOutput extends SendActivationCodeResult, __MetadataBearer {}
 
 /**
- * <p>Sends an activation code to a contact channel. The contact can use this code to activate
- *          the contact channel in the console or with the <code>ActivateChannel</code> operation.
- *          Incident Manager can't engage a contact channel until it has been activated.</p>
+ * Sends an activation code to a contact channel. The contact can use this code to activate the contact channel in the console or with the `ActivateChannel` operation. Incident Manager can't engage a contact channel until it has been activated.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,30 +49,36 @@ export interface SendActivationCodeCommandOutput extends SendActivationCodeResul
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this operation.</p>
+ *
+ * You don't have sufficient access to perform this operation.
  *
  * @throws {@link DataEncryptionException} (client fault)
- *  <p>The operation failed to due an encryption key error.</p>
+ *
+ * The operation failed to due an encryption key error.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error occurred while processing the request.</p>
+ *
+ * Unexpected error occurred while processing the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Request references a resource that doesn't exist.</p>
+ *
+ * Request references a resource that doesn't exist.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Request would cause a service quota to be exceeded.</p>
+ *
+ * Request would cause a service quota to be exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
- *          service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link SSMContactsServiceException}
- * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ * Base exception class for all service exceptions from SSMContacts service.
  *
  * @public
  */

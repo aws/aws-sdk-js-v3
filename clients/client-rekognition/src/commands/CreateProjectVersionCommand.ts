@@ -23,35 +23,22 @@ export interface CreateProjectVersionCommandInput extends CreateProjectVersionRe
 export interface CreateProjectVersionCommandOutput extends CreateProjectVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new version of Amazon Rekognition project (like a Custom Labels model or a custom adapter)
- *          and begins training. Models and adapters are managed as part of a Rekognition project. The
- *          response from <code>CreateProjectVersion</code> is an Amazon Resource Name (ARN) for the
- *          project version. </p>
- *          <p>The FeatureConfig operation argument allows you to configure specific model or adapter
- *          settings. You can provide a description to the project version by using the
- *          VersionDescription argment. Training can take a while to complete. You can get the current
- *          status by calling <a>DescribeProjectVersions</a>. Training completed
- *          successfully if the value of the <code>Status</code> field is
- *             <code>TRAINING_COMPLETED</code>. Once training has successfully completed, call <a>DescribeProjectVersions</a> to get the training results and evaluate the
- *          model.</p>
- *          <p>This operation requires permissions to perform the
- *             <code>rekognition:CreateProjectVersion</code> action.</p>
- *          <note>
- *             <p>
- *                <i>The following applies only to projects with Amazon Rekognition Custom Labels as the chosen
- *                feature:</i>
- *             </p>
- *             <p>You can train a model in a project that doesn't have associated datasets by specifying manifest files in the
- *          <code>TrainingData</code> and <code>TestingData</code> fields.
- *          </p>
- *             <p>If you open the console after training a model with manifest files, Amazon Rekognition Custom Labels creates
- *             the datasets for you using the most recent manifest files. You can no longer train
- *             a model version for the project by specifying manifest files. </p>
- *             <p>Instead of training with a project without associated datasets,
- *             we recommend that you use the manifest
- *             files to create training and test datasets for the project.</p>
- *          </note>
- *          <p></p>
+ * Creates a new version of Amazon Rekognition project (like a Custom Labels model or a custom adapter) and begins training. Models and adapters are managed as part of a Rekognition project. The response from `CreateProjectVersion` is an Amazon Resource Name (ARN) for the project version.
+ *
+ * The FeatureConfig operation argument allows you to configure specific model or adapter settings. You can provide a description to the project version by using the VersionDescription argment. Training can take a while to complete. You can get the current status by calling DescribeProjectVersions. Training completed successfully if the value of the `Status` field is `TRAINING_COMPLETED`. Once training has successfully completed, call DescribeProjectVersions to get the training results and evaluate the model.
+ *
+ * This operation requires permissions to perform the `rekognition:CreateProjectVersion` action.
+ *
+ * > **Note:**
+ * >
+ * > *The following applies only to projects with Amazon Rekognition Custom Labels as the chosen feature:*
+ * >
+ * > You can train a model in a project that doesn't have associated datasets by specifying manifest files in the `TrainingData` and `TestingData` fields.
+ * >
+ * > If you open the console after training a model with manifest files, Amazon Rekognition Custom Labels creates the datasets for you using the most recent manifest files. You can no longer train a model version for the project by specifying manifest files.
+ * >
+ * > Instead of training with a project without associated datasets, we recommend that you use the manifest files to create training and test datasets for the project.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -120,43 +107,44 @@ export interface CreateProjectVersionCommandOutput extends CreateProjectVersionR
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You are not authorized to perform the action.</p>
+ *
+ * You are not authorized to perform the action.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * Amazon Rekognition experienced a service issue. Try your call again.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
- *       operation again.</p>
+ *
+ * Input parameter violated a constraint. Validate your parameter before calling the API operation again.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs
- *             concurrently, subsequent calls to start operations (ex:
- *             <code>StartLabelDetection</code>) will raise a <code>LimitExceededException</code>
- *             exception (HTTP status code: 400) until the number of concurrently running jobs is below
- *             the Amazon Rekognition service limit. </p>
+ *
+ * An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs concurrently, subsequent calls to start operations (ex: `StartLabelDetection`) will raise a `LimitExceededException` exception (HTTP status code: 400) until the number of concurrently running jobs is below the Amazon Rekognition service limit.
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
- *  <p>The number of requests exceeded your throughput limit. If you want to increase this
- *       limit, contact Amazon Rekognition.</p>
+ *
+ * The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is already being used.</p>
+ *
+ * The specified resource is already being used.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource specified in the request cannot be found.</p>
+ *
+ * The resource specified in the request cannot be found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p></p>
- *          <p>The size of the collection exceeds the allowed limit. For more information,
- *       see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
+ *
+ * The size of the collection exceeds the allowed limit. For more information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide.
  *
  * @throws {@link ThrottlingException} (server fault)
- *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
+ * Amazon Rekognition is temporarily unable to process the request. Try your call again.
  *
  * @throws {@link RekognitionServiceException}
- * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * Base exception class for all service exceptions from Rekognition service.
  *
  * @example To train an Amazon Rekognition Custom Labels model
  * ```javascript

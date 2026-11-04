@@ -23,44 +23,19 @@ export interface GetEventSelectorsCommandInput extends GetEventSelectorsRequest 
 export interface GetEventSelectorsCommandOutput extends GetEventSelectorsResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the settings for the event selectors that you configured for your trail. The
- *          information returned for your event selectors includes the following:</p>
- *          <ul>
- *             <li>
- *                <p>If your event selector includes read-only events, write-only events, or all
- *                events. This applies to management events, data events, and network activity events.</p>
- *             </li>
- *             <li>
- *                <p>If your event selector includes management events.</p>
- *             </li>
- *             <li>
- *                <p>If your event selector includes network activity events, the event sources
- *                for which you are logging network activity events.</p>
- *             </li>
- *             <li>
- *                <p>If your event selector includes data events, the resources on which you are
- *                logging data events.</p>
- *             </li>
- *          </ul>
- *          <p>For more information about logging management, data, and network activity events, see the following topics
- *          in the <i>CloudTrail User Guide</i>:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html">Logging management events</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging data events</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-network-events-with-cloudtrail.html">Logging network activity events</a>
- *                </p>
- *             </li>
- *          </ul>
+ * Describes the settings for the event selectors that you configured for your trail. The information returned for your event selectors includes the following:
+ *
+ * - If your event selector includes read-only events, write-only events, or all events. This applies to management events, data events, and network activity events.
+ * - If your event selector includes management events.
+ * - If your event selector includes network activity events, the event sources for which you are logging network activity events.
+ * - If your event selector includes data events, the resources on which you are logging data events.
+ *
+ * For more information about logging management, data, and network activity events, see the following topics in the *CloudTrail User Guide*:
+ *
+ * - [Logging management events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html)
+ * - [Logging data events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html)
+ * - [Logging network activity events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-network-events-with-cloudtrail.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -130,57 +105,46 @@ export interface GetEventSelectorsCommandOutput extends GetEventSelectorsRespons
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
  * @throws {@link CloudTrailARNInvalidException} (client fault)
- *  <p>This exception is thrown when an operation is called with an ARN that is not valid.</p>
- *          <p>The following is the format of a trail ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
- *          </p>
- *          <p>The following is the format of an event data store ARN:
- *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
- *          </p>
- *          <p>The following is the format of a dashboard ARN: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code>
- *          </p>
- *          <p>The following is the format of a channel ARN:
- *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
- *          </p>
+ *
+ * This exception is thrown when an operation is called with an ARN that is not valid.
+ *
+ * The following is the format of a trail ARN: `arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail`
+ *
+ * The following is the format of an event data store ARN: `arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE`
+ *
+ * The following is the format of a dashboard ARN: `arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash`
+ *
+ * The following is the format of a channel ARN: `arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890`
  *
  * @throws {@link InvalidTrailNameException} (client fault)
- *  <p>This exception is thrown when the provided trail name is not valid. Trail names must
- *          meet the following requirements:</p>
- *          <ul>
- *             <li>
- *                <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores
- *                (_), or dashes (-)</p>
- *             </li>
- *             <li>
- *                <p>Start with a letter or number, and end with a letter or number</p>
- *             </li>
- *             <li>
- *                <p>Be between 3 and 128 characters</p>
- *             </li>
- *             <li>
- *                <p>Have no adjacent periods, underscores or dashes. Names like
- *                   <code>my-_namespace</code> and <code>my--namespace</code> are not valid.</p>
- *             </li>
- *             <li>
- *                <p>Not be in IP address format (for example, 192.168.5.4)</p>
- *             </li>
- *          </ul>
+ *
+ * This exception is thrown when the provided trail name is not valid. Trail names must meet the following requirements:
+ *
+ * - Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)
+ * - Start with a letter or number, and end with a letter or number
+ * - Be between 3 and 128 characters
+ * - Have no adjacent periods, underscores or dashes. Names like `my-_namespace` and `my--namespace` are not valid.
+ * - Not be in IP address format (for example, 192.168.5.4)
  *
  * @throws {@link NoManagementAccountSLRExistsException} (client fault)
- *  <p> This exception is thrown when the management account does not have a service-linked
- *          role. </p>
+ *
+ * This exception is thrown when the management account does not have a service-linked role.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * This exception is thrown when the requested operation is not permitted.
  *
  * @throws {@link TrailNotFoundException} (client fault)
- *  <p>This exception is thrown when the trail with the given name is not found.</p>
+ *
+ * This exception is thrown when the trail with the given name is not found.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>This exception is thrown when the requested operation is not supported.</p>
+ *
+ * This exception is thrown when the requested operation is not supported.
  *
  * @throws {@link CloudTrailServiceException}
- * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * Base exception class for all service exceptions from CloudTrail service.
  *
  * @public
  */

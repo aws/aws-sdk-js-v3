@@ -23,8 +23,8 @@ export interface GetAccountAliasCommandInput extends GetAccountAliasRequest {}
 export interface GetAccountAliasCommandOutput extends GetAccountAliasResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves the alias from an Amazon Web Services account ID. The alias appears in the Amazon Web Services Support App page of
- *       the Amazon Web Services Support Center. The alias also appears in Slack messages from the Amazon Web Services Support App.</p>
+ * Retrieves the alias from an Amazon Web Services account ID. The alias appears in the Amazon Web Services Support App page of the Amazon Web Services Support Center. The alias also appears in Slack messages from the Amazon Web Services Support App.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,11 +49,12 @@ export interface GetAccountAliasCommandOutput extends GetAccountAliasResult, __M
  * @see {@link SupportAppClientResolvedConfig | config} for SupportAppClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>We can’t process your request right now because of a server issue. Try again later.</p>
+ *
+ * We can’t process your request right now because of a server issue. Try again later.
  *
  * @throws {@link SupportAppServiceException}
- * <p>Base exception class for all service exceptions from SupportApp service.</p>
  *
+ * Base exception class for all service exceptions from SupportApp service.
  *
  * @public
  */

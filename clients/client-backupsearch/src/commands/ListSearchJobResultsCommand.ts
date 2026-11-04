@@ -23,7 +23,8 @@ export interface ListSearchJobResultsCommandInput extends ListSearchJobResultsIn
 export interface ListSearchJobResultsCommandOutput extends ListSearchJobResultsOutput, __MetadataBearer {}
 
 /**
- * <p>This operation returns a list of a specified search job.</p>
+ * This operation returns a list of a specified search job.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,23 +77,30 @@ export interface ListSearchJobResultsCommandOutput extends ListSearchJobResultsO
  * @see {@link BackupSearchClientResolvedConfig | config} for BackupSearchClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource was not found for this request.</p> <p>Confirm the resource information, such as the ARN or type is correct and exists, then retry the request.</p>
+ *
+ * The resource was not found for this request.
+ *
+ * Confirm the resource information, such as the ARN or type is correct and exists, then retry the request.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by a service.</p>
+ *
+ * The input fails to satisfy the constraints specified by a service.
  *
  * @throws {@link BackupSearchServiceException}
- * <p>Base exception class for all service exceptions from BackupSearch service.</p>
  *
+ * Base exception class for all service exceptions from BackupSearch service.
  *
  * @public
  */

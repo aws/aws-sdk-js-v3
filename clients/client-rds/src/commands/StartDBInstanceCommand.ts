@@ -23,7 +23,12 @@ export interface StartDBInstanceCommandInput extends StartDBInstanceMessage {}
 export interface StartDBInstanceCommandOutput extends StartDBInstanceResult, __MetadataBearer {}
 
 /**
- * <p>Starts an Amazon RDS DB instance that was stopped using the Amazon Web Services console, the stop-db-instance CLI command, or the <code>StopDBInstance</code> operation.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StartInstance.html"> Starting an Amazon RDS DB instance That Was Previously Stopped</a> in the <i>Amazon RDS User Guide.</i> </p> <note> <p>This command doesn't apply to RDS Custom, Aurora MySQL, and Aurora PostgreSQL. For Aurora DB clusters, use <code>StartDBCluster</code> instead.</p> </note>
+ * Starts an Amazon RDS DB instance that was stopped using the Amazon Web Services console, the stop-db-instance CLI command, or the `StopDBInstance` operation.
+ *
+ * For more information, see [Starting an Amazon RDS DB instance That Was Previously Stopped](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StartInstance.html) in the *Amazon RDS User Guide.*
+ *
+ * > **Note:** This command doesn't apply to RDS Custom, Aurora MySQL, and Aurora PostgreSQL. For Aurora DB clusters, use `StartDBCluster` instead.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -305,50 +310,66 @@ export interface StartDBInstanceCommandOutput extends StartDBInstanceResult, __M
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link AuthorizationNotFoundFault} (client fault)
- *  <p>The specified CIDR IP range or Amazon EC2 security group might not be authorized for the specified DB security group.</p> <p>Or, RDS might not be authorized to perform necessary actions using IAM on your behalf.</p>
+ *
+ * The specified CIDR IP range or Amazon EC2 security group might not be authorized for the specified DB security group.
+ *
+ * Or, RDS might not be authorized to perform necessary actions using IAM on your behalf.
  *
  * @throws {@link DBCapacityReservationNotFoundFault} (client fault)
- *  <p> <code>DBCapacityReservationIdentifier</code> doesn't refer to an existing DB capacity reservation.</p>
+ *
+ * `DBCapacityReservationIdentifier` doesn't refer to an existing DB capacity reservation.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *
+ * `DBClusterIdentifier` doesn't refer to an existing DB cluster.
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *
+ * `DBInstanceIdentifier` doesn't refer to an existing DB instance.
  *
  * @throws {@link DBSubnetGroupDoesNotCoverEnoughAZs} (client fault)
- *  <p>Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
+ *
+ * Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.
  *
  * @throws {@link DBSubnetGroupNotFoundFault} (client fault)
- *  <p> <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.</p>
+ *
+ * `DBSubnetGroupName` doesn't refer to an existing DB subnet group.
  *
  * @throws {@link InsufficientDBInstanceCapacityFault} (client fault)
- *  <p>The specified DB instance class isn't available in the specified Availability Zone.</p>
+ *
+ * The specified DB instance class isn't available in the specified Availability Zone.
  *
  * @throws {@link InvalidDBCapacityReservationStateFault} (client fault)
- *  <p>The DB capacity reservation isn't in a valid state.</p>
+ *
+ * The DB capacity reservation isn't in a valid state.
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
- *  <p>The requested operation can't be performed while the cluster is in this state.</p>
+ *
+ * The requested operation can't be performed while the cluster is in this state.
  *
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
- *  <p>The DB instance isn't in a valid state.</p>
+ *
+ * The DB instance isn't in a valid state.
  *
  * @throws {@link InvalidSubnet} (client fault)
- *  <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
+ *
+ * The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.
  *
  * @throws {@link InvalidVPCNetworkStateFault} (client fault)
- *  <p>The DB subnet group doesn't cover all Availability Zones after it's created because of users' change.</p>
+ *
+ * The DB subnet group doesn't cover all Availability Zones after it's created because of users' change.
  *
  * @throws {@link KMSKeyNotAccessibleFault} (client fault)
- *  <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+ *
+ * An error occurred accessing an Amazon Web Services KMS key.
  *
  * @throws {@link VpcEncryptionControlViolationException} (client fault)
- *  <p>The operation violates VPC encryption control settings. Make sure that your DB instance type supports the Nitro encryption-in-transit capability, or modify your VPC's encryption controls to not enforce encryption-in-transit.</p>
+ *
+ * The operation violates VPC encryption control settings. Make sure that your DB instance type supports the Nitro encryption-in-transit capability, or modify your VPC's encryption controls to not enforce encryption-in-transit.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To start a DB instance
  * ```javascript

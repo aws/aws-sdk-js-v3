@@ -23,18 +23,10 @@ export interface GetRoleCommandInput extends GetRoleRequest {}
 export interface GetRoleCommandOutput extends GetRoleResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about the specified role, including the role's path, GUID, ARN,
- *             and the role's trust policy that grants permission to assume the role. For more
- *             information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM roles</a> in the
- *                 <i>IAM User Guide</i>.</p>
- *          <note>
- *             <p>Policies returned by this operation are URL-encoded compliant
- *     with <a href="https://tools.ietf.org/html/rfc3986">RFC 3986</a>. You can use a URL
- *     decoding method to convert the policy back to plain JSON text. For example, if you use Java, you
- *     can use the <code>decode</code> method of the <code>java.net.URLDecoder</code> utility class in
- *     the Java SDK. Other languages and SDKs provide similar functionality, and some SDKs do this decoding
- *     automatically.</p>
- *          </note>
+ * Retrieves information about the specified role, including the role's path, GUID, ARN, and the role's trust policy that grants permission to assume the role. For more information about roles, see [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) in the *IAM User Guide*.
+ *
+ * > **Note:** Policies returned by this operation are URL-encoded compliant with [RFC 3986](https://tools.ietf.org/html/rfc3986). You can use a URL decoding method to convert the policy back to plain JSON text. For example, if you use Java, you can use the `decode` method of the `java.net.URLDecoder` utility class in the Java SDK. Other languages and SDKs provide similar functionality, and some SDKs do this decoding automatically.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,16 +80,16 @@ export interface GetRoleCommandOutput extends GetRoleResponse, __MetadataBearer 
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @example To get information about an IAM role
  * ```javascript

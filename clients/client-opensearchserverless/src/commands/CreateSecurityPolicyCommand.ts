@@ -23,7 +23,8 @@ export interface CreateSecurityPolicyCommandInput extends CreateSecurityPolicyRe
 export interface CreateSecurityPolicyCommandOutput extends CreateSecurityPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a security policy to be used by one or more OpenSearch Serverless collections. Security policies provide access to a collection and its OpenSearch Dashboards endpoint from public networks or specific VPC endpoints. They also allow you to secure a collection with a KMS encryption key. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html">Network access for Amazon OpenSearch Serverless</a> and <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html">Encryption at rest for Amazon OpenSearch Serverless</a>.</p>
+ * Creates a security policy to be used by one or more OpenSearch Serverless collections. Security policies provide access to a collection and its OpenSearch Dashboards endpoint from public networks or specific VPC endpoints. They also allow you to secure a collection with a KMS encryption key. For more information, see [Network access for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html) and [Encryption at rest for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,20 +63,24 @@ export interface CreateSecurityPolicyCommandOutput extends CreateSecurityPolicyR
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>When creating a resource, thrown when a resource with the same name already exists or is being created. When deleting a resource, thrown when the resource is not in the ACTIVE, FAILED, or UPDATE_FAILED state.</p>
+ *
+ * When creating a resource, thrown when a resource with the same name already exists or is being created. When deleting a resource, thrown when the resource is not in the ACTIVE, FAILED, or UPDATE_FAILED state.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Thrown when an error internal to the service occurs while processing a request.</p>
+ *
+ * Thrown when an error internal to the service occurs while processing a request.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Thrown when you attempt to create more resources than the service allows based on service quotas.</p>
+ *
+ * Thrown when you attempt to create more resources than the service allows based on service quotas.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Thrown when the HTTP request contains invalid input or is missing required input.</p>
+ *
+ * Thrown when the HTTP request contains invalid input or is missing required input.
  *
  * @throws {@link OpenSearchServerlessServiceException}
- * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
+ * Base exception class for all service exceptions from OpenSearchServerless service.
  *
  * @public
  */

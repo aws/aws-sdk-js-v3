@@ -5,7 +5,8 @@ import type { ValidationExceptionField } from "./models_0";
 import { PipesServiceException as __BaseException } from "./PipesServiceException";
 
 /**
- * <p>An action you attempted resulted in an exception.</p>
+ * An action you attempted resulted in an exception.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -13,13 +14,15 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The ID of the resource that caused the exception.</p>
+   * The ID of the resource that caused the exception.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The type of resource that caused the exception.</p>
+   * The type of resource that caused the exception.
+   *
    * @public
    */
   resourceType: string | undefined;
@@ -40,7 +43,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>This exception occurs due to unexpected causes.</p>
+ * This exception occurs due to unexpected causes.
+ *
  * @public
  */
 export class InternalException extends __BaseException {
@@ -48,8 +52,8 @@ export class InternalException extends __BaseException {
   readonly name = "InternalException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>The number of seconds to wait before retrying the action that caused the
-   *          exception.</p>
+   * The number of seconds to wait before retrying the action that caused the exception.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -69,7 +73,8 @@ export class InternalException extends __BaseException {
 }
 
 /**
- * <p>An entity that you specified does not exist.</p>
+ * An entity that you specified does not exist.
+ *
  * @public
  */
 export class NotFoundException extends __BaseException {
@@ -90,7 +95,8 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * <p>A quota has been exceeded.</p>
+ * A quota has been exceeded.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -98,25 +104,29 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The ID of the resource that caused the exception.</p>
+   * The ID of the resource that caused the exception.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The type of resource that caused the exception.</p>
+   * The type of resource that caused the exception.
+   *
    * @public
    */
   resourceType: string | undefined;
 
   /**
-   * <p>The identifier of the service that caused the exception.</p>
+   * The identifier of the service that caused the exception.
+   *
    * @public
    */
   serviceCode: string | undefined;
 
   /**
-   * <p>The identifier of the quota that caused the exception.</p>
+   * The identifier of the quota that caused the exception.
+   *
    * @public
    */
   quotaCode: string | undefined;
@@ -139,7 +149,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>An action was throttled.</p>
+ * An action was throttled.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -147,20 +158,22 @@ export class ThrottlingException extends __BaseException {
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The identifier of the service that caused the exception.</p>
+   * The identifier of the service that caused the exception.
+   *
    * @public
    */
   serviceCode?: string | undefined;
 
   /**
-   * <p>The identifier of the quota that caused the exception.</p>
+   * The identifier of the quota that caused the exception.
+   *
    * @public
    */
   quotaCode?: string | undefined;
 
   /**
-   * <p>The number of seconds to wait before retrying the action that caused the
-   *          exception.</p>
+   * The number of seconds to wait before retrying the action that caused the exception.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -182,7 +195,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>Indicates that an error has occurred while performing a validate operation.</p>
+ * Indicates that an error has occurred while performing a validate operation.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -190,8 +204,8 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The list of fields for which validation failed and the corresponding failure
-   *          messages.</p>
+   * The list of fields for which validation failed and the corresponding failure messages.
+   *
    * @public
    */
   fieldList?: ValidationExceptionField[] | undefined;

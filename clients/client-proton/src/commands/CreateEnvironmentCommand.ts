@@ -23,22 +23,14 @@ export interface CreateEnvironmentCommandInput extends CreateEnvironmentInput {}
 export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput, __MetadataBearer {}
 
 /**
- * <p>Deploy a new environment. An Proton environment is created from an environment template that defines infrastructure and resources that can be
- *       shared across services.</p>
- *          <p class="title">
- *             <b>You can provision environments using the following methods:</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>Amazon Web Services-managed provisioning: Proton makes direct calls to provision your resources.</p>
- *             </li>
- *             <li>
- *                <p>Self-managed provisioning: Proton makes pull requests on your repository to provide compiled infrastructure as code (IaC) files that your IaC
- *           engine uses to provision resources.</p>
- *             </li>
- *          </ul>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-environments.html">Environments</a> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html">Provisioning methods</a> in the <i>Proton User
- *         Guide</i>.</p>
+ * Deploy a new environment. An Proton environment is created from an environment template that defines infrastructure and resources that can be shared across services.
+ *
+ * **You can provision environments using the following methods:**
+ *
+ * - Amazon Web Services-managed provisioning: Proton makes direct calls to provision your resources.
+ * - Self-managed provisioning: Proton makes pull requests on your repository to provide compiled infrastructure as code (IaC) files that your IaC engine uses to provision resources.
+ *
+ * For more information, see [Environments](https://docs.aws.amazon.com/proton/latest/userguide/ag-environments.html) and [Provisioning methods](https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html) in the *Proton User Guide*.
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example
@@ -114,30 +106,36 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>There <i>isn't</i> sufficient access for performing this action.</p>
+ *
+ * There *isn't* sufficient access for performing this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request <i>couldn't</i> be made due to a conflicting operation or resource.</p>
+ *
+ * The request *couldn't* be made due to a conflicting operation or resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request failed to register with the service.</p>
+ *
+ * The request failed to register with the service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource <i>wasn't</i> found.</p>
+ *
+ * The requested resource *wasn't* found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>A quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-limits.html">Proton Quotas</a> in
- *       the <i>Proton User Guide</i>.</p>
+ *
+ * A quota was exceeded. For more information, see [Proton Quotas](https://docs.aws.amazon.com/proton/latest/userguide/ag-limits.html) in the *Proton User Guide*.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+ *
+ * The input is invalid or an out-of-range value was supplied for the input parameter.
  *
  * @throws {@link ProtonServiceException}
- * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * Base exception class for all service exceptions from Proton service.
  *
  * @public
  */

@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { SignerDataServiceException as __BaseException } from "./SignerDataServiceException";
 
 /**
- * <p>You do not have sufficient permissions to perform this action.</p>
+ * You do not have sufficient permissions to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>An internal service error occurred.</p>
+ * An internal service error occurred.
+ *
  * @public
  */
 export class InternalServiceErrorException extends __BaseException {
@@ -50,7 +52,8 @@ export class InternalServiceErrorException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
@@ -73,7 +76,8 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * <p>The request contains invalid parameters or is malformed.</p>
+ * The request contains invalid parameters or is malformed.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {

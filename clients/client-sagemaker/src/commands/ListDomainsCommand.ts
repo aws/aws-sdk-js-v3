@@ -23,7 +23,8 @@ export interface ListDomainsCommandInput extends ListDomainsRequest {}
 export interface ListDomainsCommandOutput extends ListDomainsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the domains.</p>
+ * Lists the domains.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,8 +63,8 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

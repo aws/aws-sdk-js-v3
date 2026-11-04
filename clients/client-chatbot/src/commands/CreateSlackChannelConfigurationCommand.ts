@@ -23,7 +23,8 @@ export interface CreateSlackChannelConfigurationCommandInput extends CreateSlack
 export interface CreateSlackChannelConfigurationCommandOutput extends CreateSlackChannelConfigurationResult, __MetadataBearer {}
 
 /**
- * <p>Creates an AWS Chatbot confugration for Slack.</p>
+ * Creates an AWS Chatbot confugration for Slack.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -92,23 +93,28 @@ export interface CreateSlackChannelConfigurationCommandOutput extends CreateSlac
  * @see {@link ChatbotClientResolvedConfig | config} for ChatbotClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>There was an issue processing your request.</p>
+ *
+ * There was an issue processing your request.
  *
  * @throws {@link CreateSlackChannelConfigurationException} (server fault)
- *  <p>We can’t process your request right now because of a server issue. Try again later.</p>
+ *
+ * We can’t process your request right now because of a server issue. Try again later.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+ *
+ * Your request input doesn't meet the constraints required by AWS Chatbot.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+ *
+ * Your request input doesn't meet the constraints required by AWS Chatbot.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You have exceeded a service limit for AWS Chatbot.</p>
+ *
+ * You have exceeded a service limit for AWS Chatbot.
  *
  * @throws {@link ChatbotServiceException}
- * <p>Base exception class for all service exceptions from Chatbot service.</p>
  *
+ * Base exception class for all service exceptions from Chatbot service.
  *
  * @public
  */

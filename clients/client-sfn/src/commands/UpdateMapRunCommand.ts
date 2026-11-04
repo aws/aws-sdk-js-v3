@@ -23,7 +23,8 @@ export interface UpdateMapRunCommandInput extends UpdateMapRunInput {}
 export interface UpdateMapRunCommandOutput extends UpdateMapRunOutput, __MetadataBearer {}
 
 /**
- * <p>Updates an in-progress Map Run's configuration to include changes to the settings that control maximum concurrency and Map Run failure.</p>
+ * Updates an in-progress Map Run's configuration to include changes to the settings that control maximum concurrency and Map Run failure.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,17 +52,20 @@ export interface UpdateMapRunCommandOutput extends UpdateMapRunOutput, __Metadat
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
  * @throws {@link InvalidArn} (client fault)
- *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * The provided Amazon Resource Name (ARN) is not valid.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Could not find the referenced resource.</p>
+ *
+ * Could not find the referenced resource.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input does not satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link SFNServiceException}
- * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * Base exception class for all service exceptions from SFN service.
  *
  * @public
  */

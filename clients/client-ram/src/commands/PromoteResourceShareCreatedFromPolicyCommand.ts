@@ -26,20 +26,12 @@ export interface PromoteResourceShareCreatedFromPolicyCommandInput extends Promo
 export interface PromoteResourceShareCreatedFromPolicyCommandOutput extends PromoteResourceShareCreatedFromPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>When you attach a resource-based policy to a resource, RAM automatically creates
- *             a resource share of <code>featureSet</code>=<code>CREATED_FROM_POLICY</code> with a managed permission that
- *             has the same IAM permissions as the original resource-based policy. However, this type
- *             of managed permission is visible to only the resource share owner, and the associated resource share can't be modified by
- *             using RAM.</p>
- *          <p>This operation promotes the resource share to a <code>STANDARD</code> resource share that is fully
- *             manageable in RAM. When you promote a resource share, you can then manage the resource share in RAM and
- *             it becomes visible to all of the principals you shared it with.</p>
- *          <important>
- *             <p>Before you perform this operation, you should first run <a>PromotePermissionCreatedFromPolicy</a>to ensure that you have an
- *                 appropriate customer managed permission that can be associated with this resource share after its is promoted. If
- *                 this operation can't find a managed permission that exactly matches the existing
- *                     <code>CREATED_FROM_POLICY</code> permission, then this operation fails.</p>
- *          </important>
+ * When you attach a resource-based policy to a resource, RAM automatically creates a resource share of `featureSet`=`CREATED_FROM_POLICY` with a managed permission that has the same IAM permissions as the original resource-based policy. However, this type of managed permission is visible to only the resource share owner, and the associated resource share can't be modified by using RAM.
+ *
+ * This operation promotes the resource share to a `STANDARD` resource share that is fully manageable in RAM. When you promote a resource share, you can then manage the resource share in RAM and it becomes visible to all of the principals you shared it with.
+ *
+ * > **Important:** Before you perform this operation, you should first run PromotePermissionCreatedFromPolicyto ensure that you have an appropriate customer managed permission that can be associated with this resource share after its is promoted. If this operation can't find a managed permission that exactly matches the existing `CREATED_FROM_POLICY` permission, then this operation fails.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,45 +58,48 @@ export interface PromoteResourceShareCreatedFromPolicyCommandOutput extends Prom
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The operation failed because a parameter you specified isn't valid.</p>
+ *
+ * The operation failed because a parameter you specified isn't valid.
  *
  * @throws {@link InvalidStateTransitionException} (client fault)
- *  <p>The operation failed because the requested operation isn't valid for the resource
- *             share in its current state.</p>
+ *
+ * The operation failed because the requested operation isn't valid for the resource share in its current state.
  *
  * @throws {@link MalformedArnException} (client fault)
- *  <p>The operation failed because the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> has a format that isn't
- *             valid.</p>
+ *
+ * The operation failed because the specified [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) has a format that isn't valid.
  *
  * @throws {@link MissingRequiredParameterException} (client fault)
- *  <p>The operation failed because a required input parameter is missing.</p>
+ *
+ * The operation failed because a required input parameter is missing.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>The operation failed because the requested operation isn't permitted.</p>
+ *
+ * The operation failed because the requested operation isn't permitted.
  *
  * @throws {@link ResourceShareLimitExceededException} (client fault)
- *  <p>The operation failed because it would exceed the limit for resource shares for your account. You
- *             can associate up to 100 resources per call. To view the limits for your Amazon Web Services account,
- *             see the <a href="https://console.aws.amazon.com/servicequotas/home/services/ram/quotas">RAM page in
- *                 the Service Quotas console</a>.</p>
+ *
+ * The operation failed because it would exceed the limit for resource shares for your account. You can associate up to 100 resources per call. To view the limits for your Amazon Web Services account, see the [RAM page in the Service Quotas console](https://console.aws.amazon.com/servicequotas/home/services/ram/quotas).
  *
  * @throws {@link ServerInternalException} (server fault)
- *  <p>The operation failed because the service could not respond to the request due to an
- *             internal problem. Try again later.</p>
+ *
+ * The operation failed because the service could not respond to the request due to an internal problem. Try again later.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The operation failed because the service isn't available. Try again later.</p>
+ *
+ * The operation failed because the service isn't available. Try again later.
  *
  * @throws {@link UnknownResourceException} (client fault)
- *  <p>The operation failed because a specified resource couldn't be found.</p>
+ *
+ * The operation failed because a specified resource couldn't be found.
  *
  * @throws {@link UnmatchedPolicyPermissionException} (client fault)
- *  <p>There isn't an existing managed permission defined in RAM that has the same IAM permissions as
- *             the resource-based policy attached to the resource. You should first run <a>PromotePermissionCreatedFromPolicy</a> to create that managed permission.</p>
+ *
+ * There isn't an existing managed permission defined in RAM that has the same IAM permissions as the resource-based policy attached to the resource. You should first run PromotePermissionCreatedFromPolicy to create that managed permission.
  *
  * @throws {@link RAMServiceException}
- * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ * Base exception class for all service exceptions from RAM service.
  *
  * @public
  */

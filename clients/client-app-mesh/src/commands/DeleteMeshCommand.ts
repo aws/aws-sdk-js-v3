@@ -23,9 +23,10 @@ export interface DeleteMeshCommandInput extends DeleteMeshInput {}
 export interface DeleteMeshCommandOutput extends DeleteMeshOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes an existing service mesh.</p>
- *          <p>You must delete all resources (virtual services, routes, virtual routers, and virtual
- *          nodes) in the service mesh before you can delete the mesh itself.</p>
+ * Deletes an existing service mesh.
+ *
+ * You must delete all resources (virtual services, routes, virtual routers, and virtual nodes) in the service mesh before you can delete the mesh itself.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,33 +75,36 @@ export interface DeleteMeshCommandOutput extends DeleteMeshOutput, __MetadataBea
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request syntax was malformed. Check your request syntax and try again.</p>
+ *
+ * The request syntax was malformed. Check your request syntax and try again.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>You don't have permissions to perform this action.</p>
+ *
+ * You don't have permissions to perform this action.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception, or
- *          failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception, or failure.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The specified resource doesn't exist. Check your request syntax and try again.</p>
+ *
+ * The specified resource doesn't exist. Check your request syntax and try again.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>You can't delete the specified resource because it's in use or required by another
- *          resource.</p>
+ *
+ * You can't delete the specified resource because it's in use or required by another resource.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The request has failed due to a temporary failure of the service.</p>
+ *
+ * The request has failed due to a temporary failure of the service.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The maximum request rate permitted by the App Mesh APIs has been exceeded for
- *          your account. For best results, use an increasing or variable sleep interval between
- *          requests.</p>
+ *
+ * The maximum request rate permitted by the App Mesh APIs has been exceeded for your account. For best results, use an increasing or variable sleep interval between requests.
  *
  * @throws {@link AppMeshServiceException}
- * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ * Base exception class for all service exceptions from AppMesh service.
  *
  * @public
  */

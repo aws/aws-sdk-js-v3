@@ -23,7 +23,8 @@ export interface ListProcurementPortalsCommandInput extends ListProcurementPorta
 export interface ListProcurementPortalsCommandOutput extends ListProcurementPortalsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the Amazon Web Services-supported procurement portals for e-invoice delivery and purchase order retrieval. Each entry includes the portal identifier, name, and default feature configurations, which define the supported document and attachment types. For faster, more reliable responses, use pagination.</p>
+ * Returns the Amazon Web Services-supported procurement portals for e-invoice delivery and purchase order retrieval. Each entry includes the portal identifier, name, and default feature configurations, which define the supported document and attachment types. For faster, more reliable responses, use pagination.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,20 +69,24 @@ export interface ListProcurementPortalsCommandOutput extends ListProcurementPort
  * @see {@link InvoicingClientResolvedConfig | config} for InvoicingClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * You don't have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The processing request failed because of an unknown error, exception, or failure. </p>
+ *
+ * The processing request failed because of an unknown error, exception, or failure.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link InvoicingServiceException}
- * <p>Base exception class for all service exceptions from Invoicing service.</p>
  *
+ * Base exception class for all service exceptions from Invoicing service.
  *
  * @example ListProcurementPortals
  * ```javascript

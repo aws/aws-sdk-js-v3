@@ -2966,13 +2966,12 @@ export interface SESv2 {
 }
 
 /**
- * <fullname>Amazon SES API v2</fullname>
- *          <p>
- *             <a href="http://aws.amazon.com/ses">Amazon SES</a> is an Amazon Web Services service that
- *             you can use to send email messages to your customers.</p>
- *          <p>If you're new to Amazon SES API v2, you might find it helpful to review the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/">Amazon Simple Email Service Developer
- *                 Guide</a>. The <i>Amazon SES Developer Guide</i> provides information
- *             and code samples that demonstrate how to use Amazon SES API v2 features programmatically.</p>
+ * Amazon SES API v2
+ *
+ * [Amazon SES](http://aws.amazon.com/ses) is an Amazon Web Services service that you can use to send email messages to your customers.
+ *
+ * If you're new to Amazon SES API v2, you might find it helpful to review the [Amazon Simple Email Service Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/). The *Amazon SES Developer Guide* provides information and code samples that demonstrate how to use Amazon SES API v2 features programmatically.
+ *
  * @public
  */
 export class SESv2 extends SESv2Client implements SESv2 {}

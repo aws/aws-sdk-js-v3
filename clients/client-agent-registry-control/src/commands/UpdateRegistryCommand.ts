@@ -23,7 +23,8 @@ export interface UpdateRegistryCommandInput extends UpdateRegistryRequest {}
 export interface UpdateRegistryCommandOutput extends UpdateRegistryResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an existing registry. This operation uses PATCH semantics: specify only the fields you want to change, and omit the rest to leave them unchanged. Updates are applied asynchronously and the registry transitions to the UPDATING status while they are processed.</p>
+ * Updates an existing registry. This operation uses PATCH semantics: specify only the fields you want to change, and omit the rest to leave them unchanged. Updates are applied asynchronously and the registry transitions to the UPDATING status while they are processed.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -261,29 +262,36 @@ export interface UpdateRegistryCommandOutput extends UpdateRegistryResponse, __M
  * @see {@link AgentRegistryControlClientResolvedConfig | config} for AgentRegistryControlClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The caller is not authorized to perform the requested action.</p>
+ *
+ * The caller is not authorized to perform the requested action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request conflicts with the current state of the resource.</p>
+ *
+ * The request conflicts with the current state of the resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request failed due to an unexpected internal error; the caller may retry.</p>
+ *
+ * The request failed due to an unexpected internal error; the caller may retry.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource was not found.</p>
+ *
+ * The requested resource was not found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would exceed a service quota.</p>
+ *
+ * The request would exceed a service quota.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling; the caller may retry after a delay.</p>
+ *
+ * The request was denied due to request throttling; the caller may retry after a delay.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request failed validation of one or more input fields.</p>
+ *
+ * The request failed validation of one or more input fields.
  *
  * @throws {@link AgentRegistryControlServiceException}
- * <p>Base exception class for all service exceptions from AgentRegistryControl service.</p>
  *
+ * Base exception class for all service exceptions from AgentRegistryControl service.
  *
  * @public
  */

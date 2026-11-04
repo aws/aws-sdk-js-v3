@@ -25,33 +25,18 @@ export interface GetObjectAnnotationCommandOutput extends Omit<GetObjectAnnotati
 }
 
 /**
- * <p>Retrieves an annotation from an Amazon S3 object. To use this operation, you must have the
- *       <code>s3:GetObjectAnnotation</code> permission.</p>
- *          <p>If checksum mode is enabled via the <code>x-amz-checksum-mode</code> header, Amazon S3
- *       returns the stored checksum in the response headers for client-side validation.</p>
- *          <note>
- *             <p>Annotations are not supported by the following features: S3 Inventory Reports,
- *       API Gateway, S3 Storage Lens, Amazon S3 File Gateway, Amazon FSx, S3 on Outposts, and
- *       S3 Express One Zone (directory buckets).</p>
- *          </note>
- *          <p>The following operations are related to <code>GetObjectAnnotation</code>:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectAnnotation.html">PutObjectAnnotation</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectAnnotations.html">ListObjectAnnotations</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectAnnotation.html">DeleteObjectAnnotation</a>
- *                </p>
- *             </li>
- *          </ul>
+ * Retrieves an annotation from an Amazon S3 object. To use this operation, you must have the `s3:GetObjectAnnotation` permission.
+ *
+ * If checksum mode is enabled via the `x-amz-checksum-mode` header, Amazon S3 returns the stored checksum in the response headers for client-side validation.
+ *
+ * > **Note:** Annotations are not supported by the following features: S3 Inventory Reports, API Gateway, S3 Storage Lens, Amazon S3 File Gateway, Amazon FSx, S3 on Outposts, and S3 Express One Zone (directory buckets).
+ *
+ * The following operations are related to `GetObjectAnnotation`:
+ *
+ * - [PutObjectAnnotation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectAnnotation.html)
+ * - [ListObjectAnnotations](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectAnnotations.html)
+ * - [DeleteObjectAnnotation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectAnnotation.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -107,17 +92,20 @@ export interface GetObjectAnnotationCommandOutput extends Omit<GetObjectAnnotati
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  * @throws {@link NoSuchAnnotation} (client fault)
- *  <p>The specified annotation does not exist on this object.</p>
+ *
+ * The specified annotation does not exist on this object.
  *
  * @throws {@link NoSuchBucket} (client fault)
- *  <p>The specified bucket does not exist.</p>
+ *
+ * The specified bucket does not exist.
  *
  * @throws {@link NoSuchKey} (client fault)
- *  <p>The specified key does not exist.</p>
+ *
+ * The specified key does not exist.
  *
  * @throws {@link S3ServiceException}
- * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * Base exception class for all service exceptions from S3 service.
  *
  * @public
  */

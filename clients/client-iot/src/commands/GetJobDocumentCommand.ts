@@ -23,8 +23,10 @@ export interface GetJobDocumentCommandInput extends GetJobDocumentRequest {}
 export interface GetJobDocumentCommandOutput extends GetJobDocumentResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a job document.</p>
- *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetJobDocument</a> action.</p>
+ * Gets a job document.
+ *
+ * Requires permission to access the [GetJobDocument](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,20 +54,24 @@ export interface GetJobDocumentCommandOutput extends GetJobDocumentResponse, __M
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is temporarily unavailable.</p>
+ *
+ * The service is temporarily unavailable.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The rate exceeds the limit.</p>
+ *
+ * The rate exceeds the limit.
  *
  * @throws {@link IoTServiceException}
- * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * Base exception class for all service exceptions from IoT service.
  *
  * @public
  */

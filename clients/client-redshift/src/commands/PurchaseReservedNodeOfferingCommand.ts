@@ -23,15 +23,10 @@ export interface PurchaseReservedNodeOfferingCommandInput extends PurchaseReserv
 export interface PurchaseReservedNodeOfferingCommandOutput extends PurchaseReservedNodeOfferingResult, __MetadataBearer {}
 
 /**
- * <p>Allows you to purchase reserved nodes. Amazon Redshift offers a predefined set of
- *             reserved node offerings. You can purchase one or more of the offerings. You can call the
- *                 <a>DescribeReservedNodeOfferings</a> API to obtain the available reserved
- *             node offerings. You can call this API by providing a specific reserved node offering and
- *             the number of nodes you want to reserve. </p>
- *          <p>
- * For more information about reserved node offerings, go to
- * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html">Purchasing Reserved Nodes</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
+ * Allows you to purchase reserved nodes. Amazon Redshift offers a predefined set of reserved node offerings. You can purchase one or more of the offerings. You can call the DescribeReservedNodeOfferings API to obtain the available reserved node offerings. You can call this API by providing a specific reserved node offering and the number of nodes you want to reserve.
+ *
+ * For more information about reserved node offerings, go to [Purchasing Reserved Nodes](https://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html) in the *Amazon Redshift Cluster Management Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,23 +73,24 @@ export interface PurchaseReservedNodeOfferingCommandOutput extends PurchaseReser
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ReservedNodeAlreadyExistsFault} (client fault)
- *  <p>User already has a reservation with the given identifier.</p>
+ *
+ * User already has a reservation with the given identifier.
  *
  * @throws {@link ReservedNodeOfferingNotFoundFault} (client fault)
- *  <p>Specified offering does not exist.</p>
+ *
+ * Specified offering does not exist.
  *
  * @throws {@link ReservedNodeQuotaExceededFault} (client fault)
- *  <p>Request would exceed the user's compute node quota.
- * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.
- * </p>
+ *
+ * Request would exceed the user's compute node quota. For information about increasing your quota, go to [Limits in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html) in the *Amazon Redshift Cluster Management Guide*.
  *
  * @throws {@link UnsupportedOperationFault} (client fault)
- *  <p>The requested operation isn't supported.</p>
+ *
+ * The requested operation isn't supported.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

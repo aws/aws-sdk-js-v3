@@ -68,19 +68,22 @@ import type {
  */
 export interface ActivateMessageTemplateRequest {
   /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
+   * The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.
+   *
    * @public
    */
   messageTemplateId: string | undefined;
 
   /**
-   * <p>The version number of the message template version to activate.</p>
+   * The version number of the message template version to activate.
+   *
    * @public
    */
   versionNumber: number | undefined;
@@ -91,44 +94,51 @@ export interface ActivateMessageTemplateRequest {
  */
 export interface ActivateMessageTemplateResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the message template.</p>
+   * The Amazon Resource Name (ARN) of the message template.
+   *
    * @public
    */
   messageTemplateArn: string | undefined;
 
   /**
-   * <p>The identifier of the message template.</p>
+   * The identifier of the message template.
+   *
    * @public
    */
   messageTemplateId: string | undefined;
 
   /**
-   * <p>The version number of the message template version that is activated.</p>
+   * The version number of the message template version that is activated.
+   *
    * @public
    */
   versionNumber: number | undefined;
 }
 
 /**
- * <p>Information about an agent.</p>
+ * Information about an agent.
+ *
  * @public
  */
 export interface AgentAttributes {
   /**
-   * <p>The agent’s first name as entered in their Amazon Connect user account.</p>
+   * The agent’s first name as entered in their Amazon Connect user account.
+   *
    * @public
    */
   firstName?: string | undefined;
 
   /**
-   * <p>The agent’s last name as entered in their Amazon Connect user account.</p>
+   * The agent’s last name as entered in their Amazon Connect user account.
+   *
    * @public
    */
   lastName?: string | undefined;
 }
 
 /**
- * <p>A union that identifies a collaborator agent to engage. Specify either an Amazon Connect AI Agent or a third-party agent.</p>
+ * A union that identifies a collaborator agent to engage. Specify either an Amazon Connect AI Agent or a third-party agent.
+ *
  * @public
  */
 export type AgentTarget =
@@ -141,7 +151,8 @@ export type AgentTarget =
  */
 export namespace AgentTarget {
   /**
-   * <p>The identifier of an Amazon Connect AI Agent to use as the collaborator agent.</p>
+   * The identifier of an Amazon Connect AI Agent to use as the collaborator agent.
+   *
    * @public
    */
   export interface AiAgentIdMember {
@@ -151,7 +162,8 @@ export namespace AgentTarget {
   }
 
   /**
-   * <p>The identifier of a third-party agent to use as the collaborator agent.</p>
+   * The identifier of a third-party agent to use as the collaborator agent.
+   *
    * @public
    */
   export interface ApplicationIdMember {
@@ -181,25 +193,29 @@ export namespace AgentTarget {
 }
 
 /**
- * <p>A leaf node condition which can be used to specify a tag condition. </p>
+ * A leaf node condition which can be used to specify a tag condition.
+ *
  * @public
  */
 export interface TagCondition {
   /**
-   * <p>The tag key in the tag condition.</p>
+   * The tag key in the tag condition.
+   *
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>The tag value in the tag condition.</p>
+   * The tag value in the tag condition.
+   *
    * @public
    */
   value?: string | undefined;
 }
 
 /**
- * <p>A list of conditions which would be applied together with an <code>OR</code> condition.</p>
+ * A list of conditions which would be applied together with an `OR` condition.
+ *
  * @public
  */
 export type OrCondition =
@@ -212,7 +228,8 @@ export type OrCondition =
  */
 export namespace OrCondition {
   /**
-   * <p>A list of conditions which would be applied together with an <code>AND</code> condition.</p>
+   * A list of conditions which would be applied together with an `AND` condition.
+   *
    * @public
    */
   export interface AndConditionsMember {
@@ -222,7 +239,8 @@ export namespace OrCondition {
   }
 
   /**
-   * <p>A leaf node condition which can be used to specify a tag condition.</p>
+   * A leaf node condition which can be used to specify a tag condition.
+   *
    * @public
    */
   export interface TagConditionMember {
@@ -252,7 +270,8 @@ export namespace OrCondition {
 }
 
 /**
- * <p>An object that can be used to specify Tag conditions.</p>
+ * An object that can be used to specify Tag conditions.
+ *
  * @public
  */
 export type TagFilter =
@@ -266,7 +285,8 @@ export type TagFilter =
  */
 export namespace TagFilter {
   /**
-   * <p>A leaf node condition which can be used to specify a tag condition.</p>
+   * A leaf node condition which can be used to specify a tag condition.
+   *
    * @public
    */
   export interface TagConditionMember {
@@ -277,7 +297,8 @@ export namespace TagFilter {
   }
 
   /**
-   * <p>A list of conditions which would be applied together with an <code>AND</code> condition.</p>
+   * A list of conditions which would be applied together with an `AND` condition.
+   *
    * @public
    */
   export interface AndConditionsMember {
@@ -288,7 +309,8 @@ export namespace TagFilter {
   }
 
   /**
-   * <p>A list of conditions which would be applied together with an <code>OR</code> condition.</p>
+   * A list of conditions which would be applied together with an `OR` condition.
+   *
    * @public
    */
   export interface OrConditionsMember {
@@ -321,31 +343,36 @@ export namespace TagFilter {
 }
 
 /**
- * <p>The data of the configuration for a <code>KNOWLEDGE_BASE</code> type Amazon Q in Connect Assistant Association.</p>
+ * The data of the configuration for a `KNOWLEDGE_BASE` type Amazon Q in Connect Assistant Association.
+ *
  * @public
  */
 export interface KnowledgeBaseAssociationConfigurationData {
   /**
-   * <p>An object that can be used to specify Tag conditions.</p>
+   * An object that can be used to specify Tag conditions.
+   *
    * @public
    */
   contentTagFilter?: TagFilter | undefined;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The search type to be used against the Knowledge Base for this request. The values can be <code>SEMANTIC</code> which uses vector embeddings or <code>HYBRID</code> which use vector embeddings and raw text</p>
+   * The search type to be used against the Knowledge Base for this request. The values can be `SEMANTIC` which uses vector embeddings or `HYBRID` which use vector embeddings and raw text
+   *
    * @public
    */
   overrideKnowledgeBaseSearchType?: KnowledgeBaseSearchType | undefined;
 }
 
 /**
- * <p>A typed union of the data of the configuration for an Amazon Q in Connect Assistant Association.</p>
+ * A typed union of the data of the configuration for an Amazon Q in Connect Assistant Association.
+ *
  * @public
  */
 export type AssociationConfigurationData =
@@ -357,7 +384,8 @@ export type AssociationConfigurationData =
  */
 export namespace AssociationConfigurationData {
   /**
-   * <p>The data of the configuration for a <code>KNOWLEDGE_BASE</code> type Amazon Q in Connect Assistant Association.</p>
+   * The data of the configuration for a `KNOWLEDGE_BASE` type Amazon Q in Connect Assistant Association.
+   *
    * @public
    */
   export interface KnowledgeBaseAssociationConfigurationDataMember {
@@ -384,301 +412,355 @@ export namespace AssociationConfigurationData {
 }
 
 /**
- * <p>The configuration for an Amazon Q in Connect Assistant Association.</p>
+ * The configuration for an Amazon Q in Connect Assistant Association.
+ *
  * @public
  */
 export interface AssociationConfiguration {
   /**
-   * <p>The identifier of the association for this Association Configuration.</p>
+   * The identifier of the association for this Association Configuration.
+   *
    * @public
    */
   associationId?: string | undefined;
 
   /**
-   * <p>The type of the association for this Association Configuration.</p>
+   * The type of the association for this Association Configuration.
+   *
    * @public
    */
   associationType?: AIAgentAssociationConfigurationType | undefined;
 
   /**
-   * <p>The data of the configuration for an Amazon Q in Connect Assistant Association.</p>
+   * The data of the configuration for an Amazon Q in Connect Assistant Association.
+   *
    * @public
    */
   associationConfigurationData?: AssociationConfigurationData | undefined;
 }
 
 /**
- * <p>The configuration for the <code>ANSWER_RECOMMENDATION</code> AI Agent type.</p>
+ * The configuration for the `ANSWER_RECOMMENDATION` AI Agent type.
+ *
  * @public
  */
 export interface AnswerRecommendationAIAgentConfiguration {
   /**
-   * <p>The AI Prompt identifier for the Intent Labeling prompt used by the <code>ANSWER_RECOMMENDATION</code> AI Agent.</p>
+   * The AI Prompt identifier for the Intent Labeling prompt used by the `ANSWER_RECOMMENDATION` AI Agent.
+   *
    * @public
    */
   intentLabelingGenerationAIPromptId?: string | undefined;
 
   /**
-   * <p>The AI Prompt identifier for the Query Reformulation prompt used by the <code>ANSWER_RECOMMENDATION</code> AI Agent.</p>
+   * The AI Prompt identifier for the Query Reformulation prompt used by the `ANSWER_RECOMMENDATION` AI Agent.
+   *
    * @public
    */
   queryReformulationAIPromptId?: string | undefined;
 
   /**
-   * <p>The AI Prompt identifier for the Answer Generation prompt used by the <code>ANSWER_RECOMMENDATION</code> AI Agent.</p>
+   * The AI Prompt identifier for the Answer Generation prompt used by the `ANSWER_RECOMMENDATION` AI Agent.
+   *
    * @public
    */
   answerGenerationAIPromptId?: string | undefined;
 
   /**
-   * <p>The AI Guardrail identifier for the Answer Generation Guardrail used by the <code>ANSWER_RECOMMENDATION</code> AI Agent.</p>
+   * The AI Guardrail identifier for the Answer Generation Guardrail used by the `ANSWER_RECOMMENDATION` AI Agent.
+   *
    * @public
    */
   answerGenerationAIGuardrailId?: string | undefined;
 
   /**
-   * <p>The association configurations for overriding behavior on this AI Agent.</p>
+   * The association configurations for overriding behavior on this AI Agent.
+   *
    * @public
    */
   associationConfigurations?: AssociationConfiguration[] | undefined;
 
   /**
-   * <p>The locale to which specifies the language and region settings that determine the response language for <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_amazon-q-connect_QueryAssistant.html">QueryAssistant</a>.</p> <note> <p>For more information on supported locales, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/supported-languages.html#qic-notes-languages">Language support for Amazon Q in Connect</a>.</p> </note>
+   * The locale to which specifies the language and region settings that determine the response language for [QueryAssistant](https://docs.aws.amazon.com/connect/latest/APIReference/API_amazon-q-connect_QueryAssistant.html).
+   *
+   * > **Note:** For more information on supported locales, see [Language support for Amazon Q in Connect](https://docs.aws.amazon.com/connect/latest/adminguide/supported-languages.html#qic-notes-languages).
+   *
    * @public
    */
   locale?: string | undefined;
 
   /**
-   * <p>The suggested messages configuration for the Answer Recommendation AI Agent.</p>
+   * The suggested messages configuration for the Answer Recommendation AI Agent.
+   *
    * @public
    */
   suggestedMessages?: string[] | undefined;
 }
 
 /**
- * <p>The configuration for AI Agents of type <code>CASE_SUMMARIZATION</code>.</p>
+ * The configuration for AI Agents of type `CASE_SUMMARIZATION`.
+ *
  * @public
  */
 export interface CaseSummarizationAIAgentConfiguration {
   /**
-   * <p>The AI Prompt identifier used by the Case Summarization AI Agent.</p>
+   * The AI Prompt identifier used by the Case Summarization AI Agent.
+   *
    * @public
    */
   caseSummarizationAIPromptId?: string | undefined;
 
   /**
-   * <p>The AI Guardrail identifier used by the Case Summarization AI Agent.</p>
+   * The AI Guardrail identifier used by the Case Summarization AI Agent.
+   *
    * @public
    */
   caseSummarizationAIGuardrailId?: string | undefined;
 
   /**
-   * <p>The locale setting for the Case Summarization AI Agent.</p>
+   * The locale setting for the Case Summarization AI Agent.
+   *
    * @public
    */
   locale?: string | undefined;
 }
 
 /**
- * <p>Configuration settings for the EMAIL_GENERATIVE_ANSWER AI agent including prompts, locale, and knowledge base associations.</p>
+ * Configuration settings for the EMAIL_GENERATIVE_ANSWER AI agent including prompts, locale, and knowledge base associations.
+ *
  * @public
  */
 export interface EmailGenerativeAnswerAIAgentConfiguration {
   /**
-   * <p>The ID of the System AI prompt used for generating comprehensive knowledge-based answers from email queries.</p>
+   * The ID of the System AI prompt used for generating comprehensive knowledge-based answers from email queries.
+   *
    * @public
    */
   emailGenerativeAnswerAIPromptId?: string | undefined;
 
   /**
-   * <p>The ID of the System AI prompt used for reformulating email queries to optimize knowledge base search results.</p>
+   * The ID of the System AI prompt used for reformulating email queries to optimize knowledge base search results.
+   *
    * @public
    */
   emailQueryReformulationAIPromptId?: string | undefined;
 
   /**
-   * <p>The locale setting for language-specific email processing and response generation (for example, en_US, es_ES).</p>
+   * The locale setting for language-specific email processing and response generation (for example, en_US, es_ES).
+   *
    * @public
    */
   locale?: string | undefined;
 
   /**
-   * <p>Configuration settings for knowledge base associations used by the email generative answer agent.</p>
+   * Configuration settings for knowledge base associations used by the email generative answer agent.
+   *
    * @public
    */
   associationConfigurations?: AssociationConfiguration[] | undefined;
 }
 
 /**
- * <p>Configuration settings for the EMAIL_OVERVIEW AI agent including prompt ID and locale settings.</p>
+ * Configuration settings for the EMAIL_OVERVIEW AI agent including prompt ID and locale settings.
+ *
  * @public
  */
 export interface EmailOverviewAIAgentConfiguration {
   /**
-   * <p>The ID of the System AI prompt used for generating structured email conversation summaries.</p>
+   * The ID of the System AI prompt used for generating structured email conversation summaries.
+   *
    * @public
    */
   emailOverviewAIPromptId?: string | undefined;
 
   /**
-   * <p>The locale setting for language-specific email overview processing (for example, en_US, es_ES).</p>
+   * The locale setting for language-specific email overview processing (for example, en_US, es_ES).
+   *
    * @public
    */
   locale?: string | undefined;
 }
 
 /**
- * <p>Configuration settings for the EMAIL_RESPONSE AI agent including prompts, locale, and knowledge base associations.</p>
+ * Configuration settings for the EMAIL_RESPONSE AI agent including prompts, locale, and knowledge base associations.
+ *
  * @public
  */
 export interface EmailResponseAIAgentConfiguration {
   /**
-   * <p>The ID of the System AI prompt used for generating professional email responses based on knowledge base content.</p>
+   * The ID of the System AI prompt used for generating professional email responses based on knowledge base content.
+   *
    * @public
    */
   emailResponseAIPromptId?: string | undefined;
 
   /**
-   * <p>The ID of the System AI prompt used for reformulating email queries to optimize knowledge base search for response generation.</p>
+   * The ID of the System AI prompt used for reformulating email queries to optimize knowledge base search for response generation.
+   *
    * @public
    */
   emailQueryReformulationAIPromptId?: string | undefined;
 
   /**
-   * <p>The locale setting for language-specific email response generation (for example, en_US, es_ES).</p>
+   * The locale setting for language-specific email response generation (for example, en_US, es_ES).
+   *
    * @public
    */
   locale?: string | undefined;
 
   /**
-   * <p>Configuration settings for knowledge base associations used by the email response agent.</p>
+   * Configuration settings for knowledge base associations used by the email response agent.
+   *
    * @public
    */
   associationConfigurations?: AssociationConfiguration[] | undefined;
 }
 
 /**
- * <p>The configuration for the <code>MANUAL_SEARCH</code> AI Agent type.</p>
+ * The configuration for the `MANUAL_SEARCH` AI Agent type.
+ *
  * @public
  */
 export interface ManualSearchAIAgentConfiguration {
   /**
-   * <p>The AI Prompt identifier for the Answer Generation prompt used by the MANUAL_SEARCH AI Agent.</p>
+   * The AI Prompt identifier for the Answer Generation prompt used by the MANUAL_SEARCH AI Agent.
+   *
    * @public
    */
   answerGenerationAIPromptId?: string | undefined;
 
   /**
-   * <p>The AI Guardrail identifier for the Answer Generation guardrail used by the MANUAL_SEARCH AI Agent.</p>
+   * The AI Guardrail identifier for the Answer Generation guardrail used by the MANUAL_SEARCH AI Agent.
+   *
    * @public
    */
   answerGenerationAIGuardrailId?: string | undefined;
 
   /**
-   * <p>The association configurations for overriding behavior on this AI Agent.</p>
+   * The association configurations for overriding behavior on this AI Agent.
+   *
    * @public
    */
   associationConfigurations?: AssociationConfiguration[] | undefined;
 
   /**
-   * <p>The locale to which specifies the language and region settings that determine the response language for <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_amazon-q-connect_QueryAssistant.html">QueryAssistant</a>.</p> <note> <p>For more information on supported locales, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/supported-languages.html#qic-notes-languages">Language support for Amazon Q in Connect</a>.</p> </note>
+   * The locale to which specifies the language and region settings that determine the response language for [QueryAssistant](https://docs.aws.amazon.com/connect/latest/APIReference/API_amazon-q-connect_QueryAssistant.html).
+   *
+   * > **Note:** For more information on supported locales, see [Language support for Amazon Q in Connect](https://docs.aws.amazon.com/connect/latest/adminguide/supported-languages.html#qic-notes-languages).
+   *
    * @public
    */
   locale?: string | undefined;
 }
 
 /**
- * <p>The configuration for AI Agents of type <code>NOTE_TAKING</code>.</p>
+ * The configuration for AI Agents of type `NOTE_TAKING`.
+ *
  * @public
  */
 export interface NoteTakingAIAgentConfiguration {
   /**
-   * <p>The AI Prompt identifier used by the Note Taking AI Agent.</p>
+   * The AI Prompt identifier used by the Note Taking AI Agent.
+   *
    * @public
    */
   noteTakingAIPromptId?: string | undefined;
 
   /**
-   * <p>The AI Guardrail identifier used by the Note Taking AI Agent.</p>
+   * The AI Guardrail identifier used by the Note Taking AI Agent.
+   *
    * @public
    */
   noteTakingAIGuardrailId?: string | undefined;
 
   /**
-   * <p>The locale setting for language-specific case summarization generation (for example, en_US, es_ES).</p>
+   * The locale setting for language-specific case summarization generation (for example, en_US, es_ES).
+   *
    * @public
    */
   locale?: string | undefined;
 }
 
 /**
- * <p>The instruction that guides how the Orchestration AI Agent works with a collaborator agent.</p>
+ * The instruction that guides how the Orchestration AI Agent works with a collaborator agent.
+ *
  * @public
  */
 export interface MultiAgentInstruction {
   /**
-   * <p>The natural-language instruction that tells the Orchestration AI Agent when and how to engage the collaborator agent.</p>
+   * The natural-language instruction that tells the Orchestration AI Agent when and how to engage the collaborator agent.
+   *
    * @public
    */
   instruction?: string | undefined;
 
   /**
-   * <p>Example interactions that illustrate when the Orchestration AI Agent should engage the collaborator agent.</p>
+   * Example interactions that illustrate when the Orchestration AI Agent should engage the collaborator agent.
+   *
    * @public
    */
   examples?: string[] | undefined;
 }
 
 /**
- * <p>A collaborator agent configuration in which the Orchestration AI Agent invokes the collaborator, resuming when the collaborator returns.</p>
+ * A collaborator agent configuration in which the Orchestration AI Agent invokes the collaborator, resuming when the collaborator returns.
+ *
  * @public
  */
 export interface DelegateAgentConfiguration {
   /**
-   * <p>The collaborator agent to delegate to.</p>
+   * The collaborator agent to delegate to.
+   *
    * @public
    */
   agentTarget: AgentTarget | undefined;
 
   /**
-   * <p>The instruction that tells the Orchestration AI Agent when and how to delegate to this collaborator agent.</p>
+   * The instruction that tells the Orchestration AI Agent when and how to delegate to this collaborator agent.
+   *
    * @public
    */
   instruction?: MultiAgentInstruction | undefined;
 }
 
 /**
- * <p>A collaborator agent configuration in which the Orchestration AI Agent transfers control of the conversation to the collaborator agent.</p>
+ * A collaborator agent configuration in which the Orchestration AI Agent transfers control of the conversation to the collaborator agent.
+ *
  * @public
  */
 export interface HandoffAgentConfiguration {
   /**
-   * <p>The collaborator agent to hand off to.</p>
+   * The collaborator agent to hand off to.
+   *
    * @public
    */
   agentTarget: AgentTarget | undefined;
 
   /**
-   * <p>The instruction that tells the Orchestration AI Agent when and how to hand off to this collaborator agent.</p>
+   * The instruction that tells the Orchestration AI Agent when and how to hand off to this collaborator agent.
+   *
    * @public
    */
   instruction?: MultiAgentInstruction | undefined;
 
   /**
-   * <p>Specifies whether the caller's audio is streamed directly to the collaborator agent and the collaborator's audio response is played back during the handoff. This applies only to voice handoffs.</p>
+   * Specifies whether the caller's audio is streamed directly to the collaborator agent and the collaborator's audio response is played back during the handoff. This applies only to voice handoffs.
+   *
    * @public
    */
   audioStreamingEnabled?: boolean | undefined;
 
   /**
-   * <p>Specifies whether the conversation is handed off to this collaborator agent immediately on the first turn, without any orchestration reasoning. At most one handoff in an AI Agent's configuration can set this to <code>true</code>.</p>
+   * Specifies whether the conversation is handed off to this collaborator agent immediately on the first turn, without any orchestration reasoning. At most one handoff in an AI Agent's configuration can set this to `true`.
+   *
    * @public
    */
   immediateHandoff?: boolean | undefined;
 }
 
 /**
- * <p>A union that configures a single collaborator agent for an Orchestration AI Agent, as either a delegate or a handoff.</p>
+ * A union that configures a single collaborator agent for an Orchestration AI Agent, as either a delegate or a handoff.
+ *
  * @public
  */
 export type MultiAgentConfiguration =
@@ -691,7 +773,8 @@ export type MultiAgentConfiguration =
  */
 export namespace MultiAgentConfiguration {
   /**
-   * <p>Configures the collaborator agent as a delegate that the Orchestration AI Agent invokes while retaining control of the conversation.</p>
+   * Configures the collaborator agent as a delegate that the Orchestration AI Agent invokes while retaining control of the conversation.
+   *
    * @public
    */
   export interface DelegateAgentConfigurationMember {
@@ -701,7 +784,8 @@ export namespace MultiAgentConfiguration {
   }
 
   /**
-   * <p>Configures the collaborator agent as a handoff target that the Orchestration AI Agent transfers control of the conversation to.</p>
+   * Configures the collaborator agent as a handoff target that the Orchestration AI Agent transfers control of the conversation to.
+   *
    * @public
    */
   export interface HandoffAgentConfigurationMember {
@@ -731,97 +815,113 @@ export namespace MultiAgentConfiguration {
 }
 
 /**
- * <p>An annotation that provides additional context or metadata.</p>
+ * An annotation that provides additional context or metadata.
+ *
  * @public
  */
 export interface Annotation {
   /**
-   * <p>The title of the annotation.</p>
+   * The title of the annotation.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>A hint indicating that the annotation contains potentially destructive content.</p>
+   * A hint indicating that the annotation contains potentially destructive content.
+   *
    * @public
    */
   destructiveHint?: boolean | undefined;
 }
 
 /**
- * <p>Instructions for using a tool.</p>
+ * Instructions for using a tool.
+ *
  * @public
  */
 export interface ToolInstruction {
   /**
-   * <p>The instruction text for the tool.</p>
+   * The instruction text for the tool.
+   *
    * @public
    */
   instruction?: string | undefined;
 
   /**
-   * <p>Examples for using the tool.</p>
+   * Examples for using the tool.
+   *
    * @public
    */
   examples?: string[] | undefined;
 }
 
 /**
- * <p>Configuration for tool output handling.</p>
+ * Configuration for tool output handling.
+ *
  * @public
  */
 export interface ToolOutputConfiguration {
   /**
-   * <p>Override the tool output results to different variable name.</p>
+   * Override the tool output results to different variable name.
+   *
    * @public
    */
   outputVariableNameOverride?: string | undefined;
 
   /**
-   * <p>The session data namespace for tool output.</p>
+   * The session data namespace for tool output.
+   *
    * @public
    */
   sessionDataNamespace?: string | undefined;
 }
 
 /**
- * <p>Filter configuration for tool output.</p>
+ * Filter configuration for tool output.
+ *
  * @public
  */
 export interface ToolOutputFilter {
   /**
-   * <p>The JSON path for filtering tool output.</p>
+   * The JSON path for filtering tool output.
+   *
    * @public
    */
   jsonPath: string | undefined;
 
   /**
-   * <p>The output configuration for the filter.</p>
+   * The output configuration for the filter.
+   *
    * @public
    */
   outputConfiguration?: ToolOutputConfiguration | undefined;
 }
 
 /**
- * <p>A constant input value for tool override.</p>
+ * A constant input value for tool override.
+ *
  * @public
  */
 export interface ToolOverrideConstantInputValue {
   /**
-   * <p>Override tool input value with constant values</p>
+   * Override tool input value with constant values
+   *
    * @public
    */
   type: ToolOverrideInputValueType | undefined;
 
   /**
-   * <p>The constant input override value.</p>
+   * The constant input override value.
+   *
    * @public
    */
   value: string | undefined;
 }
 
 /**
- * <p>Configuration for overriding tool input values.</p>
+ * Configuration for overriding tool input values.
+ *
  * @public
  */
 export type ToolOverrideInputValueConfiguration =
@@ -833,7 +933,8 @@ export type ToolOverrideInputValueConfiguration =
  */
 export namespace ToolOverrideInputValueConfiguration {
   /**
-   * <p>Constant input value configuration for tool override.</p>
+   * Constant input value configuration for tool override.
+   *
    * @public
    */
   export interface ConstantMember {
@@ -860,199 +961,232 @@ export namespace ToolOverrideInputValueConfiguration {
 }
 
 /**
- * <p>An input value override for tools.</p>
+ * An input value override for tools.
+ *
  * @public
  */
 export interface ToolOverrideInputValue {
   /**
-   * <p>The JSON path for the input value override.</p>
+   * The JSON path for the input value override.
+   *
    * @public
    */
   jsonPath: string | undefined;
 
   /**
-   * <p>The override input value.</p>
+   * The override input value.
+   *
    * @public
    */
   value: ToolOverrideInputValueConfiguration | undefined;
 }
 
 /**
- * <p>Configuration for user interaction settings.</p>
+ * Configuration for user interaction settings.
+ *
  * @public
  */
 export interface UserInteractionConfiguration {
   /**
-   * <p>Indicates whether user confirmation is required for the interaction.</p>
+   * Indicates whether user confirmation is required for the interaction.
+   *
    * @public
    */
   isUserConfirmationRequired?: boolean | undefined;
 }
 
 /**
- * <p>Configuration settings for a tool used by AI Agents.</p>
+ * Configuration settings for a tool used by AI Agents.
+ *
  * @public
  */
 export interface ToolConfiguration {
   /**
-   * <p>The name of the tool.</p>
+   * The name of the tool.
+   *
    * @public
    */
   toolName: string | undefined;
 
   /**
-   * <p>The type of the tool.</p>
+   * The type of the tool.
+   *
    * @public
    */
   toolType: ToolType | undefined;
 
   /**
-   * <p>The title of the tool configuration.</p>
+   * The title of the tool configuration.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>The identifier of the tool, for example toolName from Model Context Provider server.</p>
+   * The identifier of the tool, for example toolName from Model Context Provider server.
+   *
    * @public
    */
   toolId?: string | undefined;
 
   /**
-   * <p>The description of the tool configuration.</p>
+   * The description of the tool configuration.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Instructions for using the tool.</p>
+   * Instructions for using the tool.
+   *
    * @public
    */
   instruction?: ToolInstruction | undefined;
 
   /**
-   * <p>Override input values for the tool configuration.</p>
+   * Override input values for the tool configuration.
+   *
    * @public
    */
   overrideInputValues?: ToolOverrideInputValue[] | undefined;
 
   /**
-   * <p>Output filters applies to the tool result.</p>
+   * Output filters applies to the tool result.
+   *
    * @public
    */
   outputFilters?: ToolOutputFilter[] | undefined;
 
   /**
-   * <p>The input schema for the tool configuration.</p>
+   * The input schema for the tool configuration.
+   *
    * @public
    */
   inputSchema?: __DocumentType | undefined;
 
   /**
-   * <p>The output schema for the tool configuration.</p>
+   * The output schema for the tool configuration.
+   *
    * @public
    */
   outputSchema?: __DocumentType | undefined;
 
   /**
-   * <p>Annotations for the tool configuration.</p>
+   * Annotations for the tool configuration.
+   *
    * @public
    */
   annotations?: Annotation | undefined;
 
   /**
-   * <p>Configuration for user interaction with the tool.</p>
+   * Configuration for user interaction with the tool.
+   *
    * @public
    */
   userInteractionConfiguration?: UserInteractionConfiguration | undefined;
 }
 
 /**
- * <p>The configuration for AI Agents of type <code>ORCHESTRATION</code>.</p>
+ * The configuration for AI Agents of type `ORCHESTRATION`.
+ *
  * @public
  */
 export interface OrchestrationAIAgentConfiguration {
   /**
-   * <p>The AI Prompt identifier used by the Orchestration AI Agent.</p>
+   * The AI Prompt identifier used by the Orchestration AI Agent.
+   *
    * @public
    */
   orchestrationAIPromptId?: string | undefined;
 
   /**
-   * <p>The AI Guardrail identifier used by the Orchestration AI Agent.</p>
+   * The AI Guardrail identifier used by the Orchestration AI Agent.
+   *
    * @public
    */
   orchestrationAIGuardrailId?: string | undefined;
 
   /**
-   * <p>The tool configurations used by the Orchestration AI Agent.</p>
+   * The tool configurations used by the Orchestration AI Agent.
+   *
    * @public
    */
   toolConfigurations?: ToolConfiguration[] | undefined;
 
   /**
-   * <p>The collaborator agents that the Orchestration AI Agent can work with. Each entry defines another agent that the orchestrator either delegates to or hands the conversation off to.</p>
+   * The collaborator agents that the Orchestration AI Agent can work with. Each entry defines another agent that the orchestrator either delegates to or hands the conversation off to.
+   *
    * @public
    */
   multiAgentConfigurations?: MultiAgentConfiguration[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Connect instance used by the Orchestration AI Agent.</p>
+   * The Amazon Resource Name (ARN) of the Amazon Connect instance used by the Orchestration AI Agent.
+   *
    * @public
    */
   connectInstanceArn?: string | undefined;
 
   /**
-   * <p>The locale setting for the Orchestration AI Agent.</p>
+   * The locale setting for the Orchestration AI Agent.
+   *
    * @public
    */
   locale?: string | undefined;
 
   /**
-   * <p>The JSON schemas that define the structure of the structured data input accepted by the Orchestration AI Agent. The data in a <code>DATA</code> message sent to the agent is validated against these schemas. You can specify at most one schema.</p>
+   * The JSON schemas that define the structure of the structured data input accepted by the Orchestration AI Agent. The data in a `DATA` message sent to the agent is validated against these schemas. You can specify at most one schema.
+   *
    * @public
    */
   inputSchemas?: __DocumentType[] | undefined;
 
   /**
-   * <p>The JSON schemas that define the structure of the structured output generated by the Orchestration AI Agent. You can specify at most one schema.</p>
+   * The JSON schemas that define the structure of the structured output generated by the Orchestration AI Agent. You can specify at most one schema.
+   *
    * @public
    */
   outputSchemas?: __DocumentType[] | undefined;
 }
 
 /**
- * <p>The configuration for AI Agents of type SELF_SERVICE.</p>
+ * The configuration for AI Agents of type SELF_SERVICE.
+ *
  * @public
  */
 export interface SelfServiceAIAgentConfiguration {
   /**
-   * <p>The AI Prompt identifier for the Self Service Pre-Processing prompt used by the SELF_SERVICE AI Agent</p>
+   * The AI Prompt identifier for the Self Service Pre-Processing prompt used by the SELF_SERVICE AI Agent
+   *
    * @public
    */
   selfServicePreProcessingAIPromptId?: string | undefined;
 
   /**
-   * <p>The AI Prompt identifier for the Self Service Answer Generation prompt used by the SELF_SERVICE AI Agent</p>
+   * The AI Prompt identifier for the Self Service Answer Generation prompt used by the SELF_SERVICE AI Agent
+   *
    * @public
    */
   selfServiceAnswerGenerationAIPromptId?: string | undefined;
 
   /**
-   * <p>The AI Guardrail identifier used by the SELF_SERVICE AI Agent.</p>
+   * The AI Guardrail identifier used by the SELF_SERVICE AI Agent.
+   *
    * @public
    */
   selfServiceAIGuardrailId?: string | undefined;
 
   /**
-   * <p>The association configurations for overriding behavior on this AI Agent.</p>
+   * The association configurations for overriding behavior on this AI Agent.
+   *
    * @public
    */
   associationConfigurations?: AssociationConfiguration[] | undefined;
 }
 
 /**
- * <p>A typed union that specifies the configuration based on the type of AI Agent.</p>
+ * A typed union that specifies the configuration based on the type of AI Agent.
+ *
  * @public
  */
 export type AIAgentConfiguration =
@@ -1072,7 +1206,8 @@ export type AIAgentConfiguration =
  */
 export namespace AIAgentConfiguration {
   /**
-   * <p>The configuration for AI Agents of type <code>MANUAL_SEARCH</code>.</p>
+   * The configuration for AI Agents of type `MANUAL_SEARCH`.
+   *
    * @public
    */
   export interface ManualSearchAIAgentConfigurationMember {
@@ -1089,7 +1224,8 @@ export namespace AIAgentConfiguration {
   }
 
   /**
-   * <p>The configuration for AI Agents of type <code>ANSWER_RECOMMENDATION</code>.</p>
+   * The configuration for AI Agents of type `ANSWER_RECOMMENDATION`.
+   *
    * @public
    */
   export interface AnswerRecommendationAIAgentConfigurationMember {
@@ -1106,7 +1242,8 @@ export namespace AIAgentConfiguration {
   }
 
   /**
-   * <p>The configuration for AI Agents of type SELF_SERVICE.</p>
+   * The configuration for AI Agents of type SELF_SERVICE.
+   *
    * @public
    */
   export interface SelfServiceAIAgentConfigurationMember {
@@ -1123,7 +1260,8 @@ export namespace AIAgentConfiguration {
   }
 
   /**
-   * <p>Configuration for the EMAIL_RESPONSE AI agent that generates professional email responses using knowledge base content.</p>
+   * Configuration for the EMAIL_RESPONSE AI agent that generates professional email responses using knowledge base content.
+   *
    * @public
    */
   export interface EmailResponseAIAgentConfigurationMember {
@@ -1140,7 +1278,8 @@ export namespace AIAgentConfiguration {
   }
 
   /**
-   * <p>Configuration for the EMAIL_OVERVIEW AI agent that generates structured overview of email conversations.</p>
+   * Configuration for the EMAIL_OVERVIEW AI agent that generates structured overview of email conversations.
+   *
    * @public
    */
   export interface EmailOverviewAIAgentConfigurationMember {
@@ -1157,7 +1296,8 @@ export namespace AIAgentConfiguration {
   }
 
   /**
-   * <p>Configuration for the EMAIL_GENERATIVE_ANSWER AI agent that provides comprehensive knowledge-based answers for customer queries.</p>
+   * Configuration for the EMAIL_GENERATIVE_ANSWER AI agent that provides comprehensive knowledge-based answers for customer queries.
+   *
    * @public
    */
   export interface EmailGenerativeAnswerAIAgentConfigurationMember {
@@ -1174,7 +1314,8 @@ export namespace AIAgentConfiguration {
   }
 
   /**
-   * <p>The configuration for AI Agents of type <code>ORCHESTRATION</code>.</p>
+   * The configuration for AI Agents of type `ORCHESTRATION`.
+   *
    * @public
    */
   export interface OrchestrationAIAgentConfigurationMember {
@@ -1191,7 +1332,8 @@ export namespace AIAgentConfiguration {
   }
 
   /**
-   * <p>The configuration for AI Agents of type <code>NOTE_TAKING</code>.</p>
+   * The configuration for AI Agents of type `NOTE_TAKING`.
+   *
    * @public
    */
   export interface NoteTakingAIAgentConfigurationMember {
@@ -1208,7 +1350,8 @@ export namespace AIAgentConfiguration {
   }
 
   /**
-   * <p>The configuration for AI Agents of type <code>CASE_SUMMARIZATION</code>.</p>
+   * The configuration for AI Agents of type `CASE_SUMMARIZATION`.
+   *
    * @public
    */
   export interface CaseSummarizationAIAgentConfigurationMember {
@@ -1263,133 +1406,155 @@ export namespace AIAgentConfiguration {
  */
 export interface CreateAIAgentRequest {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>..</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see [Making retries safe with idempotent APIs](http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)..
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The name of the AI Agent.</p>
+   * The name of the AI Agent.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of the AI Agent.</p>
+   * The type of the AI Agent.
+   *
    * @public
    */
   type: AIAgentType | undefined;
 
   /**
-   * <p>The configuration of the AI Agent.</p>
+   * The configuration of the AI Agent.
+   *
    * @public
    */
   configuration: AIAgentConfiguration | undefined;
 
   /**
-   * <p>The visibility status of the AI Agent.</p>
+   * The visibility status of the AI Agent.
+   *
    * @public
    */
   visibilityStatus: VisibilityStatus | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The description of the AI Agent.</p>
+   * The description of the AI Agent.
+   *
    * @public
    */
   description?: string | undefined;
 }
 
 /**
- * <p>The data for the AI Agent.</p>
+ * The data for the AI Agent.
+ *
  * @public
  */
 export interface AIAgentData {
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.</p>
+   * The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
+   *
    * @public
    */
   assistantArn: string | undefined;
 
   /**
-   * <p>The identifier of the AI Agent.</p>
+   * The identifier of the AI Agent.
+   *
    * @public
    */
   aiAgentId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AI agent.</p>
+   * The Amazon Resource Name (ARN) of the AI agent.
+   *
    * @public
    */
   aiAgentArn: string | undefined;
 
   /**
-   * <p>The name of the AI Agent.</p>
+   * The name of the AI Agent.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of the AI Agent.</p>
+   * The type of the AI Agent.
+   *
    * @public
    */
   type: AIAgentType | undefined;
 
   /**
-   * <p>Configuration for the AI Agent.</p>
+   * Configuration for the AI Agent.
+   *
    * @public
    */
   configuration: AIAgentConfiguration | undefined;
 
   /**
-   * <p>The time the AI Agent was last modified.</p>
+   * The time the AI Agent was last modified.
+   *
    * @public
    */
   modifiedTime?: Date | undefined;
 
   /**
-   * <p>The description of the AI Agent.</p>
+   * The description of the AI Agent.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The visibility status of the AI Agent.</p>
+   * The visibility status of the AI Agent.
+   *
    * @public
    */
   visibilityStatus: VisibilityStatus | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Specifies the origin of the AI Agent. <code>SYSTEM</code> for a default AI Agent created by Q in Connect or <code>CUSTOMER</code> for an AI Agent created by calling AI Agent creation APIs. </p>
+   * Specifies the origin of the AI Agent. `SYSTEM` for a default AI Agent created by Q in Connect or `CUSTOMER` for an AI Agent created by calling AI Agent creation APIs.
+   *
    * @public
    */
   origin?: Origin | undefined;
 
   /**
-   * <p>The status of the AI Agent.</p>
+   * The status of the AI Agent.
+   *
    * @public
    */
   status?: Status | undefined;
@@ -1400,7 +1565,8 @@ export interface AIAgentData {
  */
 export interface CreateAIAgentResponse {
   /**
-   * <p>The data of the created AI Agent.</p>
+   * The data of the created AI Agent.
+   *
    * @public
    */
   aiAgent?: AIAgentData | undefined;
@@ -1411,25 +1577,29 @@ export interface CreateAIAgentResponse {
  */
 export interface CreateAIAgentVersionRequest {
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect AI Agent.</p>
+   * The identifier of the Amazon Q in Connect AI Agent.
+   *
    * @public
    */
   aiAgentId: string | undefined;
 
   /**
-   * <p>The modification time of the AI Agent should be tracked for version creation. This field should be specified to avoid version creation when simultaneous update to the underlying AI Agent are possible. The value should be the modifiedTime returned from the request to create or update an AI Agent so that version creation can fail if an update to the AI Agent post the specified modification time has been made.</p>
+   * The modification time of the AI Agent should be tracked for version creation. This field should be specified to avoid version creation when simultaneous update to the underlying AI Agent are possible. The value should be the modifiedTime returned from the request to create or update an AI Agent so that version creation can fail if an update to the AI Agent post the specified modification time has been made.
+   *
    * @public
    */
   modifiedTime?: Date | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>..</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see [Making retries safe with idempotent APIs](http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)..
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -1440,13 +1610,15 @@ export interface CreateAIAgentVersionRequest {
  */
 export interface CreateAIAgentVersionResponse {
   /**
-   * <p>The data of the AI Agent version.</p>
+   * The data of the AI Agent version.
+   *
    * @public
    */
   aiAgent?: AIAgentData | undefined;
 
   /**
-   * <p>The version number of the AI Agent version.</p>
+   * The version number of the AI Agent version.
+   *
    * @public
    */
   versionNumber?: number | undefined;
@@ -1457,13 +1629,15 @@ export interface CreateAIAgentVersionResponse {
  */
 export interface DeleteAIAgentRequest {
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect AI Agent. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect AI Agent. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   aiAgentId: string | undefined;
@@ -1479,19 +1653,22 @@ export interface DeleteAIAgentResponse {}
  */
 export interface DeleteAIAgentVersionRequest {
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect AI Agent. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect AI Agent. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   aiAgentId: string | undefined;
 
   /**
-   * <p>The version number of the AI Agent version.</p>
+   * The version number of the AI Agent version.
+   *
    * @public
    */
   versionNumber: number | undefined;
@@ -1507,13 +1684,15 @@ export interface DeleteAIAgentVersionResponse {}
  */
 export interface GetAIAgentRequest {
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect AI Agent (with or without a version qualifier). Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect AI Agent (with or without a version qualifier). Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   aiAgentId: string | undefined;
@@ -1524,13 +1703,15 @@ export interface GetAIAgentRequest {
  */
 export interface GetAIAgentResponse {
   /**
-   * <p>The data of the AI Agent.</p>
+   * The data of the AI Agent.
+   *
    * @public
    */
   aiAgent?: AIAgentData | undefined;
 
   /**
-   * <p>The version number of the AI Agent version (returned if an AI Agent version was specified via use of a qualifier for the <code>aiAgentId</code> on the request). </p>
+   * The version number of the AI Agent version (returned if an AI Agent version was specified via use of a qualifier for the `aiAgentId` on the request).
+   *
    * @public
    */
   versionNumber?: number | undefined;
@@ -1541,109 +1722,127 @@ export interface GetAIAgentResponse {
  */
 export interface ListAIAgentsRequest {
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The origin of the AI Agents to be listed. <code>SYSTEM</code> for a default AI Agent created by Q in Connect or <code>CUSTOMER</code> for an AI Agent created by calling AI Agent creation APIs. </p>
+   * The origin of the AI Agents to be listed. `SYSTEM` for a default AI Agent created by Q in Connect or `CUSTOMER` for an AI Agent created by calling AI Agent creation APIs.
+   *
    * @public
    */
   origin?: Origin | undefined;
 }
 
 /**
- * <p>The summary of the AI Agent.</p>
+ * The summary of the AI Agent.
+ *
  * @public
  */
 export interface AIAgentSummary {
   /**
-   * <p>The name of the AI Agent.</p>
+   * The name of the AI Agent.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.</p>
+   * The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
+   *
    * @public
    */
   assistantArn: string | undefined;
 
   /**
-   * <p>The identifier of the AI Agent.</p>
+   * The identifier of the AI Agent.
+   *
    * @public
    */
   aiAgentId: string | undefined;
 
   /**
-   * <p>The type of the AI Agent.</p>
+   * The type of the AI Agent.
+   *
    * @public
    */
   type: AIAgentType | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AI agent.</p>
+   * The Amazon Resource Name (ARN) of the AI agent.
+   *
    * @public
    */
   aiAgentArn: string | undefined;
 
   /**
-   * <p>The time the AI Agent was last modified.</p>
+   * The time the AI Agent was last modified.
+   *
    * @public
    */
   modifiedTime?: Date | undefined;
 
   /**
-   * <p>The visibility status of the AI Agent.</p>
+   * The visibility status of the AI Agent.
+   *
    * @public
    */
   visibilityStatus: VisibilityStatus | undefined;
 
   /**
-   * <p>The configuration for the AI Agent.</p>
+   * The configuration for the AI Agent.
+   *
    * @public
    */
   configuration?: AIAgentConfiguration | undefined;
 
   /**
-   * <p>The origin of the AI Agent. <code>SYSTEM</code> for a default AI Agent created by Q in Connect or <code>CUSTOMER</code> for an AI Agent created by calling AI Agent creation APIs.</p>
+   * The origin of the AI Agent. `SYSTEM` for a default AI Agent created by Q in Connect or `CUSTOMER` for an AI Agent created by calling AI Agent creation APIs.
+   *
    * @public
    */
   origin?: Origin | undefined;
 
   /**
-   * <p>The description of the AI Agent.</p>
+   * The description of the AI Agent.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The status of the AI Agent.</p>
+   * The status of the AI Agent.
+   *
    * @public
    */
   status?: Status | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1654,13 +1853,15 @@ export interface AIAgentSummary {
  */
 export interface ListAIAgentsResponse {
   /**
-   * <p>The summaries of AI Agents.</p>
+   * The summaries of AI Agents.
+   *
    * @public
    */
   aiAgentSummaries: AIAgentSummary[] | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1671,49 +1872,57 @@ export interface ListAIAgentsResponse {
  */
 export interface ListAIAgentVersionsRequest {
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect AI Agent for which versions are to be listed.</p>
+   * The identifier of the Amazon Q in Connect AI Agent for which versions are to be listed.
+   *
    * @public
    */
   aiAgentId: string | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The origin of the AI Agent versions to be listed. <code>SYSTEM</code> for a default AI Agent created by Q in Connect or <code>CUSTOMER</code> for an AI Agent created by calling AI Agent creation APIs. </p>
+   * The origin of the AI Agent versions to be listed. `SYSTEM` for a default AI Agent created by Q in Connect or `CUSTOMER` for an AI Agent created by calling AI Agent creation APIs.
+   *
    * @public
    */
   origin?: Origin | undefined;
 }
 
 /**
- * <p>The summary of the AI Agent version.</p>
+ * The summary of the AI Agent version.
+ *
  * @public
  */
 export interface AIAgentVersionSummary {
   /**
-   * <p>The data for the summary of the AI Agent version.</p>
+   * The data for the summary of the AI Agent version.
+   *
    * @public
    */
   aiAgentSummary?: AIAgentSummary | undefined;
 
   /**
-   * <p>The version number for this AI Agent version.</p>
+   * The version number for this AI Agent version.
+   *
    * @public
    */
   versionNumber?: number | undefined;
@@ -1724,13 +1933,15 @@ export interface AIAgentVersionSummary {
  */
 export interface ListAIAgentVersionsResponse {
   /**
-   * <p>The summaries of AI Agent versions.</p>
+   * The summaries of AI Agent versions.
+   *
    * @public
    */
   aiAgentVersionSummaries: AIAgentVersionSummary[] | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1741,37 +1952,43 @@ export interface ListAIAgentVersionsResponse {
  */
 export interface UpdateAIAgentRequest {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>..</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see [Making retries safe with idempotent APIs](http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)..
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect AI Agent.</p>
+   * The identifier of the Amazon Q in Connect AI Agent.
+   *
    * @public
    */
   aiAgentId: string | undefined;
 
   /**
-   * <p>The visbility status of the Amazon Q in Connect AI Agent.</p>
+   * The visbility status of the Amazon Q in Connect AI Agent.
+   *
    * @public
    */
   visibilityStatus: VisibilityStatus | undefined;
 
   /**
-   * <p>The configuration of the Amazon Q in Connect AI Agent.</p>
+   * The configuration of the Amazon Q in Connect AI Agent.
+   *
    * @public
    */
   configuration?: AIAgentConfiguration | undefined;
 
   /**
-   * <p>The description of the Amazon Q in Connect AI Agent.</p>
+   * The description of the Amazon Q in Connect AI Agent.
+   *
    * @public
    */
   description?: string | undefined;
@@ -1782,241 +1999,405 @@ export interface UpdateAIAgentRequest {
  */
 export interface UpdateAIAgentResponse {
   /**
-   * <p>The data of the updated Amazon Q in Connect AI Agent.</p>
+   * The data of the updated Amazon Q in Connect AI Agent.
+   *
    * @public
    */
   aiAgent?: AIAgentData | undefined;
 }
 
 /**
- * <p>A type that specifies the AI Agent ID configuration data when mapping an AI Agents to be used for an AI Agent type on a session or assistant.</p>
+ * A type that specifies the AI Agent ID configuration data when mapping an AI Agents to be used for an AI Agent type on a session or assistant.
+ *
  * @public
  */
 export interface AIAgentConfigurationData {
   /**
-   * <p>The ID of the AI Agent to be configured.</p>
+   * The ID of the AI Agent to be configured.
+   *
    * @public
    */
   aiAgentId: string | undefined;
 
   /**
-   * <p>Indicates whether the AI Agent configured for this AI Agent type is enabled. When this value is omitted or set to true, the configured AI Agent runs; when set to false, the AI Agent ID is retained but no AI Agent runs for the AI Agent type. Setting this value to false is currently supported only for the <code>ANSWER_RECOMMENDATION</code> AI Agent type; other requests to set it to false are rejected with a validation error.</p>
+   * Indicates whether the AI Agent configured for this AI Agent type is enabled. When this value is omitted or set to true, the configured AI Agent runs; when set to false, the AI Agent ID is retained but no AI Agent runs for the AI Agent type. Setting this value to false is currently supported only for the `ANSWER_RECOMMENDATION` AI Agent type; other requests to set it to false are rejected with a validation error.
+   *
    * @public
    */
   enabled?: boolean | undefined;
 }
 
 /**
- * <p>Contains filter strengths for harmful content. AI Guardrail's support the following content filters to detect and filter harmful user inputs and FM-generated outputs.</p> <ul> <li> <p> <b>Hate</b>: Describes input prompts and model responses that discriminate, criticize, insult, denounce, or dehumanize a person or group on the basis of an identity (such as race, ethnicity, gender, religion, sexual orientation, ability, and national origin).</p> </li> <li> <p> <b>Insults</b>: Describes input prompts and model responses that includes demeaning, humiliating, mocking, insulting, or belittling language. This type of language is also labeled as bullying.</p> </li> <li> <p> <b>Sexual</b>: Describes input prompts and model responses that indicates sexual interest, activity, or arousal using direct or indirect references to body parts, physical traits, or sex.</p> </li> <li> <p> <b>Violence</b>: Describes input prompts and model responses that includes glorification of, or threats to inflict physical pain, hurt, or injury toward a person, group, or thing.</p> </li> </ul> <p>Content filtering depends on the confidence classification of user inputs and FM responses across each of the four harmful categories. All input and output statements are classified into one of four confidence levels (NONE, LOW, MEDIUM, HIGH) for each harmful category. For example, if a statement is classified as <i>Hate</i> with HIGH confidence, the likelihood of the statement representing hateful content is high. A single statement can be classified across multiple categories with varying confidence levels. For example, a single statement can be classified as <i>Hate</i> with HIGH confidence, <i> Insults</i> with LOW confidence, <i>Sexual</i> with NONE confidence, and <i>Violence</i> with MEDIUM confidence.</p>
+ * Contains filter strengths for harmful content. AI Guardrail's support the following content filters to detect and filter harmful user inputs and FM-generated outputs.
+ *
+ * - **Hate**: Describes input prompts and model responses that discriminate, criticize, insult, denounce, or dehumanize a person or group on the basis of an identity (such as race, ethnicity, gender, religion, sexual orientation, ability, and national origin).
+ * - **Insults**: Describes input prompts and model responses that includes demeaning, humiliating, mocking, insulting, or belittling language. This type of language is also labeled as bullying.
+ * - **Sexual**: Describes input prompts and model responses that indicates sexual interest, activity, or arousal using direct or indirect references to body parts, physical traits, or sex.
+ * - **Violence**: Describes input prompts and model responses that includes glorification of, or threats to inflict physical pain, hurt, or injury toward a person, group, or thing.
+ *
+ * Content filtering depends on the confidence classification of user inputs and FM responses across each of the four harmful categories. All input and output statements are classified into one of four confidence levels (NONE, LOW, MEDIUM, HIGH) for each harmful category. For example, if a statement is classified as *Hate* with HIGH confidence, the likelihood of the statement representing hateful content is high. A single statement can be classified across multiple categories with varying confidence levels. For example, a single statement can be classified as *Hate* with HIGH confidence, *Insults* with LOW confidence, *Sexual* with NONE confidence, and *Violence* with MEDIUM confidence.
+ *
  * @public
  */
 export interface GuardrailContentFilterConfig {
   /**
-   * <p>The harmful category that the content filter is applied to.</p>
+   * The harmful category that the content filter is applied to.
+   *
    * @public
    */
   type: GuardrailContentFilterType | undefined;
 
   /**
-   * <p>The strength of the content filter to apply to prompts. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.</p>
+   * The strength of the content filter to apply to prompts. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.
+   *
    * @public
    */
   inputStrength: GuardrailFilterStrength | undefined;
 
   /**
-   * <p>The strength of the content filter to apply to model responses. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.</p>
+   * The strength of the content filter to apply to model responses. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.
+   *
    * @public
    */
   outputStrength: GuardrailFilterStrength | undefined;
 }
 
 /**
- * <p>Contains details about how to handle harmful content.</p>
+ * Contains details about how to handle harmful content.
+ *
  * @public
  */
 export interface AIGuardrailContentPolicyConfig {
   /**
-   * <p>Contains the type of the content filter and how strongly it should apply to prompts and model responses.</p>
+   * Contains the type of the content filter and how strongly it should apply to prompts and model responses.
+   *
    * @public
    */
   filtersConfig: GuardrailContentFilterConfig[] | undefined;
 }
 
 /**
- * <p>The filter configuration details for the AI Guardrail's contextual grounding filter.</p>
+ * The filter configuration details for the AI Guardrail's contextual grounding filter.
+ *
  * @public
  */
 export interface GuardrailContextualGroundingFilterConfig {
   /**
-   * <p>The filter type for the AI Guardrail's contextual grounding filter.</p>
+   * The filter type for the AI Guardrail's contextual grounding filter.
+   *
    * @public
    */
   type: GuardrailContextualGroundingFilterType | undefined;
 
   /**
-   * <p>The threshold details for the AI Guardrail's contextual grounding filter.</p>
+   * The threshold details for the AI Guardrail's contextual grounding filter.
+   *
    * @public
    */
   threshold: number | undefined;
 }
 
 /**
- * <p>The policy configuration details for the AI Guardrail's contextual grounding policy.</p>
+ * The policy configuration details for the AI Guardrail's contextual grounding policy.
+ *
  * @public
  */
 export interface AIGuardrailContextualGroundingPolicyConfig {
   /**
-   * <p>The filter configuration details for the AI Guardrails contextual grounding policy.</p>
+   * The filter configuration details for the AI Guardrails contextual grounding policy.
+   *
    * @public
    */
   filtersConfig: GuardrailContextualGroundingFilterConfig[] | undefined;
 }
 
 /**
- * <p>The PII entity to configure for the AI Guardrail.</p>
+ * The PII entity to configure for the AI Guardrail.
+ *
  * @public
  */
 export interface GuardrailPiiEntityConfig {
   /**
-   * <p>Configure AI Guardrail type when the PII entity is detected.</p> <p>The following PIIs are used to block or mask sensitive information:</p> <ul> <li> <p> <b>General</b> </p> <ul> <li> <p> <b>ADDRESS</b> </p> <p>A physical address, such as "100 Main Street, Anytown, USA" or "Suite #12, Building 123". An address can include information such as the street, building, location, city, state, country, county, zip code, precinct, and neighborhood. </p> </li> <li> <p> <b>AGE</b> </p> <p>An individual's age, including the quantity and unit of time. For example, in the phrase "I am 40 years old," Guarrails recognizes "40 years" as an age. </p> </li> <li> <p> <b>NAME</b> </p> <p>An individual's name. This entity type does not include titles, such as Dr., Mr., Mrs., or Miss. AI Guardrail doesn't apply this entity type to names that are part of organizations or addresses. For example, AI Guardrail recognizes the "John Doe Organization" as an organization, and it recognizes "Jane Doe Street" as an address. </p> </li> <li> <p> <b>EMAIL</b> </p> <p>An email address, such as <i>marymajor@email.com</i>.</p> </li> <li> <p> <b>PHONE</b> </p> <p>A phone number. This entity type also includes fax and pager numbers. </p> </li> <li> <p> <b>USERNAME</b> </p> <p>A user name that identifies an account, such as a login name, screen name, nick name, or handle. </p> </li> <li> <p> <b>PASSWORD</b> </p> <p>An alphanumeric string that is used as a password, such as "*<i> very20special#pass*</i>". </p> </li> <li> <p> <b>DRIVER_ID</b> </p> <p>The number assigned to a driver's license, which is an official document permitting an individual to operate one or more motorized vehicles on a public road. A driver's license number consists of alphanumeric characters. </p> </li> <li> <p> <b>LICENSE_PLATE</b> </p> <p>A license plate for a vehicle is issued by the state or country where the vehicle is registered. The format for passenger vehicles is typically five to eight digits, consisting of upper-case letters and numbers. The format varies depending on the location of the issuing state or country. </p> </li> <li> <p> <b>VEHICLE_IDENTIFICATION_NUMBER</b> </p> <p>A Vehicle Identification Number (VIN) uniquely identifies a vehicle. VIN content and format are defined in the <i>ISO 3779</i> specification. Each country has specific codes and formats for VINs. </p> </li> </ul> </li> <li> <p> <b>Finance</b> </p> <ul> <li> <p> <b>CREDIT_DEBIT_CARD_CVV</b> </p> <p>A three-digit card verification code (CVV) that is present on VISA, MasterCard, and Discover credit and debit cards. For American Express credit or debit cards, the CVV is a four-digit numeric code. </p> </li> <li> <p> <b>CREDIT_DEBIT_CARD_EXPIRY</b> </p> <p>The expiration date for a credit or debit card. This number is usually four digits long and is often formatted as <i>month/year</i> or <i>MM/YY</i>. AI Guardrail recognizes expiration dates such as <i>01/21</i>, <i>01/2021</i>, and <i>Jan 2021</i>. </p> </li> <li> <p> <b>CREDIT_DEBIT_CARD_NUMBER</b> </p> <p>The number for a credit or debit card. These numbers can vary from 13 to 16 digits in length. However, Amazon Comprehend also recognizes credit or debit card numbers when only the last four digits are present. </p> </li> <li> <p> <b>PIN</b> </p> <p>A four-digit personal identification number (PIN) with which you can access your bank account. </p> </li> <li> <p> <b>INTERNATIONAL_BANK_ACCOUNT_NUMBER</b> </p> <p>An International Bank Account Number has specific formats in each country. For more information, see <a href="https://www.iban.com/structure"> www.iban.com/structure</a>.</p> </li> <li> <p> <b>SWIFT_CODE</b> </p> <p>A SWIFT code is a standard format of Bank Identifier Code (BIC) used to specify a particular bank or branch. Banks use these codes for money transfers such as international wire transfers.</p> <p>SWIFT codes consist of eight or 11 characters. The 11-digit codes refer to specific branches, while eight-digit codes (or 11-digit codes ending in 'XXX') refer to the head or primary office.</p> </li> </ul> </li> <li> <p> <b>IT</b> </p> <ul> <li> <p> <b>IP_ADDRESS</b> </p> <p>An IPv4 address, such as <i>198.51.100.0</i>. </p> </li> <li> <p> <b>MAC_ADDRESS</b> </p> <p>A <i>media access control</i> (MAC) address is a unique identifier assigned to a network interface controller (NIC). </p> </li> <li> <p> <b>URL</b> </p> <p>A web address, such as <i>www.example.com</i>. </p> </li> <li> <p> <b>AWS_ACCESS_KEY</b> </p> <p>A unique identifier that's associated with a secret access key; you use the access key ID and secret access key to sign programmatic Amazon Web Services requests cryptographically. </p> </li> <li> <p> <b>AWS_SECRET_KEY</b> </p> <p>A unique identifier that's associated with an access key. You use the access key ID and secret access key to sign programmatic Amazon Web Services requests cryptographically. </p> </li> </ul> </li> <li> <p> <b>USA specific</b> </p> <ul> <li> <p> <b>US_BANK_ACCOUNT_NUMBER</b> </p> <p>A US bank account number, which is typically 10 to 12 digits long. </p> </li> <li> <p> <b>US_BANK_ROUTING_NUMBER</b> </p> <p>A US bank account routing number. These are typically nine digits long, </p> </li> <li> <p> <b>US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER</b> </p> <p>A US Individual Taxpayer Identification Number (ITIN) is a nine-digit number that starts with a "9" and contain a "7" or "8" as the fourth digit. An ITIN can be formatted with a space or a dash after the third and forth digits. </p> </li> <li> <p> <b>US_PASSPORT_NUMBER</b> </p> <p>A US passport number. Passport numbers range from six to nine alphanumeric characters. </p> </li> <li> <p> <b>US_SOCIAL_SECURITY_NUMBER</b> </p> <p>A US Social Security Number (SSN) is a nine-digit number that is issued to US citizens, permanent residents, and temporary working residents. </p> </li> </ul> </li> <li> <p> <b>Canada specific</b> </p> <ul> <li> <p> <b>CA_HEALTH_NUMBER</b> </p> <p>A Canadian Health Service Number is a 10-digit unique identifier, required for individuals to access healthcare benefits. </p> </li> <li> <p> <b>CA_SOCIAL_INSURANCE_NUMBER</b> </p> <p>A Canadian Social Insurance Number (SIN) is a nine-digit unique identifier, required for individuals to access government programs and benefits.</p> <p>The SIN is formatted as three groups of three digits, such as <i> 123-456-789</i>. A SIN can be validated through a simple check-digit process called the Luhn algorithm. For more information, see <a href="https://www.wikipedia.org/wiki/Luhn_algorithm">Luhn algorithm</a> on the Wikipedia website.</p> </li> </ul> </li> <li> <p> <b>UK Specific</b> </p> <ul> <li> <p> <b>UK_NATIONAL_HEALTH_SERVICE_NUMBER</b> </p> <p>A UK National Health Service Number is a 10-17 digit number, such as <i>485 555 3456</i>. The current system formats the 10-digit number with spaces after the third and sixth digits. The final digit is an error-detecting checksum.</p> </li> <li> <p> <b>UK_NATIONAL_INSURANCE_NUMBER</b> </p> <p>A UK National Insurance Number (NINO) provides individuals with access to National Insurance (social security) benefits. It is also used for some purposes in the UK tax system.</p> <p>The number is nine digits long and starts with two letters, followed by six numbers and one letter. A NINO can be formatted with a space or a dash after the two letters and after the second, forth, and sixth digits.</p> </li> <li> <p> <b>UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER</b> </p> <p>A UK Unique Taxpayer Reference (UTR) is a 10-digit number that identifies a taxpayer or a business. </p> </li> </ul> </li> <li> <p> <b>Custom</b> </p> <ul> <li> <p> <b>Regex filter</b> - You can use a regular expressions to define patterns for an AI Guardrail to recognize and act upon such as serial number, booking ID etc..</p> </li> </ul> </li> </ul>
+   * Configure AI Guardrail type when the PII entity is detected.
+   *
+   * The following PIIs are used to block or mask sensitive information:
+   *
+   * - **General**
+   *
+   *   - **ADDRESS**
+   *
+   *     A physical address, such as "100 Main Street, Anytown, USA" or "Suite #12, Building 123". An address can include information such as the street, building, location, city, state, country, county, zip code, precinct, and neighborhood.
+   *   - **AGE**
+   *
+   *     An individual's age, including the quantity and unit of time. For example, in the phrase "I am 40 years old," Guarrails recognizes "40 years" as an age.
+   *   - **NAME**
+   *
+   *     An individual's name. This entity type does not include titles, such as Dr., Mr., Mrs., or Miss. AI Guardrail doesn't apply this entity type to names that are part of organizations or addresses. For example, AI Guardrail recognizes the "John Doe Organization" as an organization, and it recognizes "Jane Doe Street" as an address.
+   *   - **EMAIL**
+   *
+   *     An email address, such as *marymajor@email.com*.
+   *   - **PHONE**
+   *
+   *     A phone number. This entity type also includes fax and pager numbers.
+   *   - **USERNAME**
+   *
+   *     A user name that identifies an account, such as a login name, screen name, nick name, or handle.
+   *   - **PASSWORD**
+   *
+   *     An alphanumeric string that is used as a password, such as "* *very20special#pass**".
+   *   - **DRIVER_ID**
+   *
+   *     The number assigned to a driver's license, which is an official document permitting an individual to operate one or more motorized vehicles on a public road. A driver's license number consists of alphanumeric characters.
+   *   - **LICENSE_PLATE**
+   *
+   *     A license plate for a vehicle is issued by the state or country where the vehicle is registered. The format for passenger vehicles is typically five to eight digits, consisting of upper-case letters and numbers. The format varies depending on the location of the issuing state or country.
+   *   - **VEHICLE_IDENTIFICATION_NUMBER**
+   *
+   *     A Vehicle Identification Number (VIN) uniquely identifies a vehicle. VIN content and format are defined in the *ISO 3779* specification. Each country has specific codes and formats for VINs.
+   * - **Finance**
+   *
+   *   - **CREDIT_DEBIT_CARD_CVV**
+   *
+   *     A three-digit card verification code (CVV) that is present on VISA, MasterCard, and Discover credit and debit cards. For American Express credit or debit cards, the CVV is a four-digit numeric code.
+   *   - **CREDIT_DEBIT_CARD_EXPIRY**
+   *
+   *     The expiration date for a credit or debit card. This number is usually four digits long and is often formatted as *month/year* or *MM/YY*. AI Guardrail recognizes expiration dates such as *01/21*, *01/2021*, and *Jan 2021*.
+   *   - **CREDIT_DEBIT_CARD_NUMBER**
+   *
+   *     The number for a credit or debit card. These numbers can vary from 13 to 16 digits in length. However, Amazon Comprehend also recognizes credit or debit card numbers when only the last four digits are present.
+   *   - **PIN**
+   *
+   *     A four-digit personal identification number (PIN) with which you can access your bank account.
+   *   - **INTERNATIONAL_BANK_ACCOUNT_NUMBER**
+   *
+   *     An International Bank Account Number has specific formats in each country. For more information, see [www.iban.com/structure](https://www.iban.com/structure).
+   *   - **SWIFT_CODE**
+   *
+   *     A SWIFT code is a standard format of Bank Identifier Code (BIC) used to specify a particular bank or branch. Banks use these codes for money transfers such as international wire transfers.
+   *
+   *     SWIFT codes consist of eight or 11 characters. The 11-digit codes refer to specific branches, while eight-digit codes (or 11-digit codes ending in 'XXX') refer to the head or primary office.
+   * - **IT**
+   *
+   *   - **IP_ADDRESS**
+   *
+   *     An IPv4 address, such as *198.51.100.0*.
+   *   - **MAC_ADDRESS**
+   *
+   *     A *media access control* (MAC) address is a unique identifier assigned to a network interface controller (NIC).
+   *   - **URL**
+   *
+   *     A web address, such as *www.example.com*.
+   *   - **AWS_ACCESS_KEY**
+   *
+   *     A unique identifier that's associated with a secret access key; you use the access key ID and secret access key to sign programmatic Amazon Web Services requests cryptographically.
+   *   - **AWS_SECRET_KEY**
+   *
+   *     A unique identifier that's associated with an access key. You use the access key ID and secret access key to sign programmatic Amazon Web Services requests cryptographically.
+   * - **USA specific**
+   *
+   *   - **US_BANK_ACCOUNT_NUMBER**
+   *
+   *     A US bank account number, which is typically 10 to 12 digits long.
+   *   - **US_BANK_ROUTING_NUMBER**
+   *
+   *     A US bank account routing number. These are typically nine digits long,
+   *   - **US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER**
+   *
+   *     A US Individual Taxpayer Identification Number (ITIN) is a nine-digit number that starts with a "9" and contain a "7" or "8" as the fourth digit. An ITIN can be formatted with a space or a dash after the third and forth digits.
+   *   - **US_PASSPORT_NUMBER**
+   *
+   *     A US passport number. Passport numbers range from six to nine alphanumeric characters.
+   *   - **US_SOCIAL_SECURITY_NUMBER**
+   *
+   *     A US Social Security Number (SSN) is a nine-digit number that is issued to US citizens, permanent residents, and temporary working residents.
+   * - **Canada specific**
+   *
+   *   - **CA_HEALTH_NUMBER**
+   *
+   *     A Canadian Health Service Number is a 10-digit unique identifier, required for individuals to access healthcare benefits.
+   *   - **CA_SOCIAL_INSURANCE_NUMBER**
+   *
+   *     A Canadian Social Insurance Number (SIN) is a nine-digit unique identifier, required for individuals to access government programs and benefits.
+   *
+   *     The SIN is formatted as three groups of three digits, such as *123-456-789*. A SIN can be validated through a simple check-digit process called the Luhn algorithm. For more information, see [Luhn algorithm](https://www.wikipedia.org/wiki/Luhn_algorithm) on the Wikipedia website.
+   * - **UK Specific**
+   *
+   *   - **UK_NATIONAL_HEALTH_SERVICE_NUMBER**
+   *
+   *     A UK National Health Service Number is a 10-17 digit number, such as *485 555 3456*. The current system formats the 10-digit number with spaces after the third and sixth digits. The final digit is an error-detecting checksum.
+   *   - **UK_NATIONAL_INSURANCE_NUMBER**
+   *
+   *     A UK National Insurance Number (NINO) provides individuals with access to National Insurance (social security) benefits. It is also used for some purposes in the UK tax system.
+   *
+   *     The number is nine digits long and starts with two letters, followed by six numbers and one letter. A NINO can be formatted with a space or a dash after the two letters and after the second, forth, and sixth digits.
+   *   - **UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER**
+   *
+   *     A UK Unique Taxpayer Reference (UTR) is a 10-digit number that identifies a taxpayer or a business.
+   * - **Custom**
+   *
+   *   - **Regex filter** - You can use a regular expressions to define patterns for an AI Guardrail to recognize and act upon such as serial number, booking ID etc..
+   *
    * @public
    */
   type: GuardrailPiiEntityType | undefined;
 
   /**
-   * <p>Configure AI Guardrail's action when the PII entity is detected.</p>
+   * Configure AI Guardrail's action when the PII entity is detected.
+   *
    * @public
    */
   action: GuardrailSensitiveInformationAction | undefined;
 }
 
 /**
- * <p>The regular expression to configure for the AI Guardrail.</p>
+ * The regular expression to configure for the AI Guardrail.
+ *
  * @public
  */
 export interface GuardrailRegexConfig {
   /**
-   * <p>The name of the regular expression to configure for the AI Guardrail.</p>
+   * The name of the regular expression to configure for the AI Guardrail.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the regular expression to configure for the AI Guardrail.</p>
+   * The description of the regular expression to configure for the AI Guardrail.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The regular expression pattern to configure for the AI Guardrail.</p>
+   * The regular expression pattern to configure for the AI Guardrail.
+   *
    * @public
    */
   pattern: string | undefined;
 
   /**
-   * <p>The AI Guardrail action to configure when matching regular expression is detected.</p>
+   * The AI Guardrail action to configure when matching regular expression is detected.
+   *
    * @public
    */
   action: GuardrailSensitiveInformationAction | undefined;
 }
 
 /**
- * <p>Contains details about PII entities and regular expressions to configure for the AI Guardrail.</p>
+ * Contains details about PII entities and regular expressions to configure for the AI Guardrail.
+ *
  * @public
  */
 export interface AIGuardrailSensitiveInformationPolicyConfig {
   /**
-   * <p>A list of PII entities to configure to the AI Guardrail.</p>
+   * A list of PII entities to configure to the AI Guardrail.
+   *
    * @public
    */
   piiEntitiesConfig?: GuardrailPiiEntityConfig[] | undefined;
 
   /**
-   * <p>A list of regular expressions to configure to the AI Guardrail.</p>
+   * A list of regular expressions to configure to the AI Guardrail.
+   *
    * @public
    */
   regexesConfig?: GuardrailRegexConfig[] | undefined;
 }
 
 /**
- * <p>Details about topics for the AI Guardrail to identify and deny.</p>
+ * Details about topics for the AI Guardrail to identify and deny.
+ *
  * @public
  */
 export interface GuardrailTopicConfig {
   /**
-   * <p>The name of the topic to deny.</p>
+   * The name of the topic to deny.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A definition of the topic to deny.</p>
+   * A definition of the topic to deny.
+   *
    * @public
    */
   definition: string | undefined;
 
   /**
-   * <p>A list of prompts, each of which is an example of a prompt that can be categorized as belonging to the topic.</p>
+   * A list of prompts, each of which is an example of a prompt that can be categorized as belonging to the topic.
+   *
    * @public
    */
   examples?: string[] | undefined;
 
   /**
-   * <p>Specifies to deny the topic.</p>
+   * Specifies to deny the topic.
+   *
    * @public
    */
   type: GuardrailTopicType | undefined;
 }
 
 /**
- * <p>Contains details about topics that the AI Guardrail should identify and deny.</p>
+ * Contains details about topics that the AI Guardrail should identify and deny.
+ *
  * @public
  */
 export interface AIGuardrailTopicPolicyConfig {
   /**
-   * <p>A list of policies related to topics that the AI Guardrail should deny.</p>
+   * A list of policies related to topics that the AI Guardrail should deny.
+   *
    * @public
    */
   topicsConfig: GuardrailTopicConfig[] | undefined;
 }
 
 /**
- * <p>The managed word list to configure for the AI Guardrail.</p>
+ * The managed word list to configure for the AI Guardrail.
+ *
  * @public
  */
 export interface GuardrailManagedWordsConfig {
   /**
-   * <p>The managed word type to configure for the AI Guardrail.</p>
+   * The managed word type to configure for the AI Guardrail.
+   *
    * @public
    */
   type: GuardrailManagedWordsType | undefined;
 }
 
 /**
- * <p>A word to configure for the AI Guardrail.</p>
+ * A word to configure for the AI Guardrail.
+ *
  * @public
  */
 export interface GuardrailWordConfig {
   /**
-   * <p>Text of the word configured for the AI Guardrail to block.</p>
+   * Text of the word configured for the AI Guardrail to block.
+   *
    * @public
    */
   text: string | undefined;
 }
 
 /**
- * <p>Contains details about the word policy to configured for the AI Guardrail.</p>
+ * Contains details about the word policy to configured for the AI Guardrail.
+ *
  * @public
  */
 export interface AIGuardrailWordPolicyConfig {
   /**
-   * <p>A list of words to configure for the AI Guardrail.</p>
+   * A list of words to configure for the AI Guardrail.
+   *
    * @public
    */
   wordsConfig?: GuardrailWordConfig[] | undefined;
 
   /**
-   * <p>A list of managed words to configure for the AI Guardrail.</p>
+   * A list of managed words to configure for the AI Guardrail.
+   *
    * @public
    */
   managedWordListsConfig?: GuardrailManagedWordsConfig[] | undefined;
@@ -2027,187 +2408,218 @@ export interface AIGuardrailWordPolicyConfig {
  */
 export interface CreateAIGuardrailRequest {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>..</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see [Making retries safe with idempotent APIs](http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)..
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The name of the AI Guardrail.</p>
+   * The name of the AI Guardrail.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The message to return when the AI Guardrail blocks a prompt.</p>
+   * The message to return when the AI Guardrail blocks a prompt.
+   *
    * @public
    */
   blockedInputMessaging: string | undefined;
 
   /**
-   * <p>The message to return when the AI Guardrail blocks a model response.</p>
+   * The message to return when the AI Guardrail blocks a model response.
+   *
    * @public
    */
   blockedOutputsMessaging: string | undefined;
 
   /**
-   * <p>The visibility status of the AI Guardrail.</p>
+   * The visibility status of the AI Guardrail.
+   *
    * @public
    */
   visibilityStatus: VisibilityStatus | undefined;
 
   /**
-   * <p>A description of the AI Guardrail.</p>
+   * A description of the AI Guardrail.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The topic policies to configure for the AI Guardrail.</p>
+   * The topic policies to configure for the AI Guardrail.
+   *
    * @public
    */
   topicPolicyConfig?: AIGuardrailTopicPolicyConfig | undefined;
 
   /**
-   * <p>The content filter policies to configure for the AI Guardrail.</p>
+   * The content filter policies to configure for the AI Guardrail.
+   *
    * @public
    */
   contentPolicyConfig?: AIGuardrailContentPolicyConfig | undefined;
 
   /**
-   * <p>The word policy you configure for the AI Guardrail.</p>
+   * The word policy you configure for the AI Guardrail.
+   *
    * @public
    */
   wordPolicyConfig?: AIGuardrailWordPolicyConfig | undefined;
 
   /**
-   * <p>The sensitive information policy to configure for the AI Guardrail.</p>
+   * The sensitive information policy to configure for the AI Guardrail.
+   *
    * @public
    */
   sensitiveInformationPolicyConfig?: AIGuardrailSensitiveInformationPolicyConfig | undefined;
 
   /**
-   * <p>The contextual grounding policy configuration used to create an AI Guardrail.</p>
+   * The contextual grounding policy configuration used to create an AI Guardrail.
+   *
    * @public
    */
   contextualGroundingPolicyConfig?: AIGuardrailContextualGroundingPolicyConfig | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>The data for the AI Guardrail</p>
+ * The data for the AI Guardrail
+ *
  * @public
  */
 export interface AIGuardrailData {
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.</p>
+   * The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
+   *
    * @public
    */
   assistantArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AI Guardrail.</p>
+   * The Amazon Resource Name (ARN) of the AI Guardrail.
+   *
    * @public
    */
   aiGuardrailArn: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect AI Guardrail.</p>
+   * The identifier of the Amazon Q in Connect AI Guardrail.
+   *
    * @public
    */
   aiGuardrailId: string | undefined;
 
   /**
-   * <p>The name of the AI Guardrail.</p>
+   * The name of the AI Guardrail.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The visibility status of the AI Guardrail.</p>
+   * The visibility status of the AI Guardrail.
+   *
    * @public
    */
   visibilityStatus: VisibilityStatus | undefined;
 
   /**
-   * <p>The message to return when the AI Guardrail blocks a prompt.</p>
+   * The message to return when the AI Guardrail blocks a prompt.
+   *
    * @public
    */
   blockedInputMessaging: string | undefined;
 
   /**
-   * <p>The message to return when the AI Guardrail blocks a model response.</p>
+   * The message to return when the AI Guardrail blocks a model response.
+   *
    * @public
    */
   blockedOutputsMessaging: string | undefined;
 
   /**
-   * <p>A description of the AI Guardrail.</p>
+   * A description of the AI Guardrail.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Contains details about topics that the AI Guardrail should identify and deny.</p>
+   * Contains details about topics that the AI Guardrail should identify and deny.
+   *
    * @public
    */
   topicPolicyConfig?: AIGuardrailTopicPolicyConfig | undefined;
 
   /**
-   * <p>Contains details about how to handle harmful content.</p>
+   * Contains details about how to handle harmful content.
+   *
    * @public
    */
   contentPolicyConfig?: AIGuardrailContentPolicyConfig | undefined;
 
   /**
-   * <p>Contains details about the word policy to configured for the AI Guardrail.</p>
+   * Contains details about the word policy to configured for the AI Guardrail.
+   *
    * @public
    */
   wordPolicyConfig?: AIGuardrailWordPolicyConfig | undefined;
 
   /**
-   * <p>Contains details about PII entities and regular expressions to configure for the AI Guardrail.</p>
+   * Contains details about PII entities and regular expressions to configure for the AI Guardrail.
+   *
    * @public
    */
   sensitiveInformationPolicyConfig?: AIGuardrailSensitiveInformationPolicyConfig | undefined;
 
   /**
-   * <p>The policy configuration details for the AI Guardrail's contextual grounding policy.</p>
+   * The policy configuration details for the AI Guardrail's contextual grounding policy.
+   *
    * @public
    */
   contextualGroundingPolicyConfig?: AIGuardrailContextualGroundingPolicyConfig | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The status of the AI Guardrail.</p>
+   * The status of the AI Guardrail.
+   *
    * @public
    */
   status?: Status | undefined;
 
   /**
-   * <p>The time the AI Guardrail was last modified.</p>
+   * The time the AI Guardrail was last modified.
+   *
    * @public
    */
   modifiedTime?: Date | undefined;
@@ -2218,7 +2630,8 @@ export interface AIGuardrailData {
  */
 export interface CreateAIGuardrailResponse {
   /**
-   * <p>The data of the AI Guardrail.</p>
+   * The data of the AI Guardrail.
+   *
    * @public
    */
   aiGuardrail?: AIGuardrailData | undefined;
@@ -2229,25 +2642,29 @@ export interface CreateAIGuardrailResponse {
  */
 export interface CreateAIGuardrailVersionRequest {
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect AI Guardrail.</p>
+   * The identifier of the Amazon Q in Connect AI Guardrail.
+   *
    * @public
    */
   aiGuardrailId: string | undefined;
 
   /**
-   * <p>The time the AI Guardrail was last modified.</p>
+   * The time the AI Guardrail was last modified.
+   *
    * @public
    */
   modifiedTime?: Date | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>..</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see [Making retries safe with idempotent APIs](http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)..
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -2258,13 +2675,15 @@ export interface CreateAIGuardrailVersionRequest {
  */
 export interface CreateAIGuardrailVersionResponse {
   /**
-   * <p>The data of the AI Guardrail version.</p>
+   * The data of the AI Guardrail version.
+   *
    * @public
    */
   aiGuardrail?: AIGuardrailData | undefined;
 
   /**
-   * <p>The version number of the AI Guardrail version.</p>
+   * The version number of the AI Guardrail version.
+   *
    * @public
    */
   versionNumber?: number | undefined;
@@ -2275,13 +2694,15 @@ export interface CreateAIGuardrailVersionResponse {
  */
 export interface DeleteAIGuardrailRequest {
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect AI Guardrail. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect AI Guardrail. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   aiGuardrailId: string | undefined;
@@ -2297,19 +2718,22 @@ export interface DeleteAIGuardrailResponse {}
  */
 export interface DeleteAIGuardrailVersionRequest {
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect AI Guardrail.</p>
+   * The identifier of the Amazon Q in Connect AI Guardrail.
+   *
    * @public
    */
   aiGuardrailId: string | undefined;
 
   /**
-   * <p>The version number of the AI Guardrail version to be deleted.</p>
+   * The version number of the AI Guardrail version to be deleted.
+   *
    * @public
    */
   versionNumber: number | undefined;
@@ -2325,13 +2749,15 @@ export interface DeleteAIGuardrailVersionResponse {}
  */
 export interface GetAIGuardrailRequest {
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect AI Guardrail.</p>
+   * The identifier of the Amazon Q in Connect AI Guardrail.
+   *
    * @public
    */
   aiGuardrailId: string | undefined;
@@ -2342,13 +2768,15 @@ export interface GetAIGuardrailRequest {
  */
 export interface GetAIGuardrailResponse {
   /**
-   * <p>The data of the AI Guardrail.</p>
+   * The data of the AI Guardrail.
+   *
    * @public
    */
   aiGuardrail?: AIGuardrailData | undefined;
 
   /**
-   * <p>The version number of the AI Guardrail version (returned if an AI Guardrail version was specified via use of a qualifier for the <code>aiGuardrailId</code> on the request). </p>
+   * The version number of the AI Guardrail version (returned if an AI Guardrail version was specified via use of a qualifier for the `aiGuardrailId` on the request).
+   *
    * @public
    */
   versionNumber?: number | undefined;
@@ -2359,85 +2787,99 @@ export interface GetAIGuardrailResponse {
  */
 export interface ListAIGuardrailsRequest {
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>The summary of the AI Guardrail.</p>
+ * The summary of the AI Guardrail.
+ *
  * @public
  */
 export interface AIGuardrailSummary {
   /**
-   * <p>The name of the AI Guardrail.</p>
+   * The name of the AI Guardrail.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.</p>
+   * The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
+   *
    * @public
    */
   assistantArn: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect AI Guardrail.</p>
+   * The identifier of the Amazon Q in Connect AI Guardrail.
+   *
    * @public
    */
   aiGuardrailId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AI Guardrail.</p>
+   * The Amazon Resource Name (ARN) of the AI Guardrail.
+   *
    * @public
    */
   aiGuardrailArn: string | undefined;
 
   /**
-   * <p>The time the AI Guardrail was last modified.</p>
+   * The time the AI Guardrail was last modified.
+   *
    * @public
    */
   modifiedTime?: Date | undefined;
 
   /**
-   * <p>The visibility status of the AI Guardrail.</p>
+   * The visibility status of the AI Guardrail.
+   *
    * @public
    */
   visibilityStatus: VisibilityStatus | undefined;
 
   /**
-   * <p>A description of the AI Guardrail.</p>
+   * A description of the AI Guardrail.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The status of the AI Guardrail.</p>
+   * The status of the AI Guardrail.
+   *
    * @public
    */
   status?: Status | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -2448,13 +2890,15 @@ export interface AIGuardrailSummary {
  */
 export interface ListAIGuardrailsResponse {
   /**
-   * <p>The summaries of the AI Guardrails.</p>
+   * The summaries of the AI Guardrails.
+   *
    * @public
    */
   aiGuardrailSummaries: AIGuardrailSummary[] | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2465,43 +2909,50 @@ export interface ListAIGuardrailsResponse {
  */
 export interface ListAIGuardrailVersionsRequest {
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect AI Guardrail for which versions are to be listed.</p>
+   * The identifier of the Amazon Q in Connect AI Guardrail for which versions are to be listed.
+   *
    * @public
    */
   aiGuardrailId: string | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>The summary of the AI Guardrail version.</p>
+ * The summary of the AI Guardrail version.
+ *
  * @public
  */
 export interface AIGuardrailVersionSummary {
   /**
-   * <p>The data for the summary of the AI Guardrail version.</p>
+   * The data for the summary of the AI Guardrail version.
+   *
    * @public
    */
   aiGuardrailSummary?: AIGuardrailSummary | undefined;
 
   /**
-   * <p>The version number for this AI Guardrail version.</p>
+   * The version number for this AI Guardrail version.
+   *
    * @public
    */
   versionNumber?: number | undefined;
@@ -2512,13 +2963,15 @@ export interface AIGuardrailVersionSummary {
  */
 export interface ListAIGuardrailVersionsResponse {
   /**
-   * <p>The summaries of the AI Guardrail versions.</p>
+   * The summaries of the AI Guardrail versions.
+   *
    * @public
    */
   aiGuardrailVersionSummaries: AIGuardrailVersionSummary[] | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2529,73 +2982,85 @@ export interface ListAIGuardrailVersionsResponse {
  */
 export interface UpdateAIGuardrailRequest {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>..</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see [Making retries safe with idempotent APIs](http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)..
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect AI Guardrail.</p>
+   * The identifier of the Amazon Q in Connect AI Guardrail.
+   *
    * @public
    */
   aiGuardrailId: string | undefined;
 
   /**
-   * <p>The visibility status of the Amazon Q in Connect AI Guardrail.</p>
+   * The visibility status of the Amazon Q in Connect AI Guardrail.
+   *
    * @public
    */
   visibilityStatus: VisibilityStatus | undefined;
 
   /**
-   * <p>The message to return when the AI Guardrail blocks a prompt.</p>
+   * The message to return when the AI Guardrail blocks a prompt.
+   *
    * @public
    */
   blockedInputMessaging: string | undefined;
 
   /**
-   * <p>The message to return when the AI Guardrail blocks a model response.</p>
+   * The message to return when the AI Guardrail blocks a model response.
+   *
    * @public
    */
   blockedOutputsMessaging: string | undefined;
 
   /**
-   * <p>A description of the AI Guardrail.</p>
+   * A description of the AI Guardrail.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The topic policies to configure for the AI Guardrail.</p>
+   * The topic policies to configure for the AI Guardrail.
+   *
    * @public
    */
   topicPolicyConfig?: AIGuardrailTopicPolicyConfig | undefined;
 
   /**
-   * <p>The content filter policies to configure for the AI Guardrail.</p>
+   * The content filter policies to configure for the AI Guardrail.
+   *
    * @public
    */
   contentPolicyConfig?: AIGuardrailContentPolicyConfig | undefined;
 
   /**
-   * <p>The word policy you configure for the AI Guardrail.</p>
+   * The word policy you configure for the AI Guardrail.
+   *
    * @public
    */
   wordPolicyConfig?: AIGuardrailWordPolicyConfig | undefined;
 
   /**
-   * <p>The sensitive information policy to configure for the AI Guardrail.</p>
+   * The sensitive information policy to configure for the AI Guardrail.
+   *
    * @public
    */
   sensitiveInformationPolicyConfig?: AIGuardrailSensitiveInformationPolicyConfig | undefined;
 
   /**
-   * <p>The contextual grounding policy configuration used to create an AI Guardrail.</p>
+   * The contextual grounding policy configuration used to create an AI Guardrail.
+   *
    * @public
    */
   contextualGroundingPolicyConfig?: AIGuardrailContextualGroundingPolicyConfig | undefined;
@@ -2606,68 +3071,79 @@ export interface UpdateAIGuardrailRequest {
  */
 export interface UpdateAIGuardrailResponse {
   /**
-   * <p>The data of the updated Amazon Q in Connect AI Guardrail.</p>
+   * The data of the updated Amazon Q in Connect AI Guardrail.
+   *
    * @public
    */
   aiGuardrail?: AIGuardrailData | undefined;
 }
 
 /**
- * <p>The assessment information from the AI Guardrail.</p>
+ * The assessment information from the AI Guardrail.
+ *
  * @public
  */
 export interface AIGuardrailAssessment {
   /**
-   * <p>Indicates whether the AI Guardrail blocked the content.</p>
+   * Indicates whether the AI Guardrail blocked the content.
+   *
    * @public
    */
   blocked: boolean | undefined;
 }
 
 /**
- * <p>The configuration for inference parameters when using AI Prompts.</p>
+ * The configuration for inference parameters when using AI Prompts.
+ *
  * @public
  */
 export interface AIPromptInferenceConfiguration {
   /**
-   * <p>The temperature setting for controlling randomness in the generated response.</p>
+   * The temperature setting for controlling randomness in the generated response.
+   *
    * @public
    */
   temperature?: number | undefined;
 
   /**
-   * <p>The top-P sampling parameter for nucleus sampling.</p>
+   * The top-P sampling parameter for nucleus sampling.
+   *
    * @public
    */
   topP?: number | undefined;
 
   /**
-   * <p>The top-K sampling parameter for token selection.</p>
+   * The top-K sampling parameter for token selection.
+   *
    * @public
    */
   topK?: number | undefined;
 
   /**
-   * <p>The maximum number of tokens to generate in the response.</p>
+   * The maximum number of tokens to generate in the response.
+   *
    * @public
    */
   maxTokensToSample?: number | undefined;
 }
 
 /**
- * <p>The configuration for a prompt template that supports full textual prompt configuration using a YAML prompt.</p>
+ * The configuration for a prompt template that supports full textual prompt configuration using a YAML prompt.
+ *
  * @public
  */
 export interface TextFullAIPromptEditTemplateConfiguration {
   /**
-   * <p>The YAML text for the AI Prompt template.</p>
+   * The YAML text for the AI Prompt template.
+   *
    * @public
    */
   text: string | undefined;
 }
 
 /**
- * <p>A typed union that specifies the configuration for a prompt template based on its type.</p>
+ * A typed union that specifies the configuration for a prompt template based on its type.
+ *
  * @public
  */
 export type AIPromptTemplateConfiguration =
@@ -2679,7 +3155,8 @@ export type AIPromptTemplateConfiguration =
  */
 export namespace AIPromptTemplateConfiguration {
   /**
-   * <p>The configuration for a prompt template that supports full textual prompt configuration using a YAML prompt.</p>
+   * The configuration for a prompt template that supports full textual prompt configuration using a YAML prompt.
+   *
    * @public
    */
   export interface TextFullAIPromptEditTemplateConfigurationMember {
@@ -2710,181 +3187,235 @@ export namespace AIPromptTemplateConfiguration {
  */
 export interface CreateAIPromptRequest {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>..</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see [Making retries safe with idempotent APIs](http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)..
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The name of the AI Prompt.</p>
+   * The name of the AI Prompt.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of this AI Prompt.</p>
+   * The type of this AI Prompt.
+   *
    * @public
    */
   type: AIPromptType | undefined;
 
   /**
-   * <p>The configuration of the prompt template for this AI Prompt.</p>
+   * The configuration of the prompt template for this AI Prompt.
+   *
    * @public
    */
   templateConfiguration: AIPromptTemplateConfiguration | undefined;
 
   /**
-   * <p>The visibility status of the AI Prompt.</p>
+   * The visibility status of the AI Prompt.
+   *
    * @public
    */
   visibilityStatus: VisibilityStatus | undefined;
 
   /**
-   * <p>The type of the prompt template for this AI Prompt.</p>
+   * The type of the prompt template for this AI Prompt.
+   *
    * @public
    */
   templateType: AIPromptTemplateType | undefined;
 
   /**
-   * <p>The identifier of the model used for this AI Prompt.</p> <note> <p>For information about which models are supported in each Amazon Web Services Region, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-ai-prompts.html#cli-create-aiprompt">Supported models for system/custom prompts</a>.</p> </note>
+   * The identifier of the model used for this AI Prompt.
+   *
+   * > **Note:** For information about which models are supported in each Amazon Web Services Region, see [Supported models for system/custom prompts](https://docs.aws.amazon.com/connect/latest/adminguide/create-ai-prompts.html#cli-create-aiprompt).
+   *
    * @public
    */
   modelId: string | undefined;
 
   /**
-   * <p>The API Format of the AI Prompt.</p> <p>Recommended values: <code>MESSAGES | TEXT_COMPLETIONS</code> </p> <note> <p>The values <code>ANTHROPIC_CLAUDE_MESSAGES | ANTHROPIC_CLAUDE_TEXT_COMPLETIONS</code> will be deprecated.</p> </note>
+   * The API Format of the AI Prompt.
+   *
+   * Recommended values: `MESSAGES | TEXT_COMPLETIONS`
+   *
+   * > **Note:** The values `ANTHROPIC_CLAUDE_MESSAGES | ANTHROPIC_CLAUDE_TEXT_COMPLETIONS` will be deprecated.
+   *
    * @public
    */
   apiFormat: AIPromptAPIFormat | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The description of the AI Prompt.</p>
+   * The description of the AI Prompt.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The inference configuration for the AI Prompt being created.</p>
+   * The inference configuration for the AI Prompt being created.
+   *
    * @public
    */
   inferenceConfiguration?: AIPromptInferenceConfiguration | undefined;
 }
 
 /**
- * <p>The data for the AI Prompt</p>
+ * The data for the AI Prompt
+ *
  * @public
  */
 export interface AIPromptData {
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.</p>
+   * The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
+   *
    * @public
    */
   assistantArn: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect AI prompt.</p>
+   * The identifier of the Amazon Q in Connect AI prompt.
+   *
    * @public
    */
   aiPromptId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AI Prompt.</p>
+   * The Amazon Resource Name (ARN) of the AI Prompt.
+   *
    * @public
    */
   aiPromptArn: string | undefined;
 
   /**
-   * <p>The name of the AI Prompt</p>
+   * The name of the AI Prompt
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of this AI Prompt.</p>
+   * The type of this AI Prompt.
+   *
    * @public
    */
   type: AIPromptType | undefined;
 
   /**
-   * <p>The type of the prompt template for this AI Prompt.</p>
+   * The type of the prompt template for this AI Prompt.
+   *
    * @public
    */
   templateType: AIPromptTemplateType | undefined;
 
   /**
-   * <p>The identifier of the model used for this AI Prompt. The following model Ids are supported:</p> <ul> <li> <p> <code>anthropic.claude-3-haiku--v1:0</code> </p> </li> <li> <p> <code>apac.amazon.nova-lite-v1:0</code> </p> </li> <li> <p> <code>apac.amazon.nova-micro-v1:0</code> </p> </li> <li> <p> <code>apac.amazon.nova-pro-v1:0</code> </p> </li> <li> <p> <code>apac.anthropic.claude-3-5-sonnet--v2:0</code> </p> </li> <li> <p> <code>apac.anthropic.claude-3-haiku-20240307-v1:0</code> </p> </li> <li> <p> <code>eu.amazon.nova-lite-v1:0</code> </p> </li> <li> <p> <code>eu.amazon.nova-micro-v1:0</code> </p> </li> <li> <p> <code>eu.amazon.nova-pro-v1:0</code> </p> </li> <li> <p> <code>eu.anthropic.claude-3-7-sonnet-20250219-v1:0</code> </p> </li> <li> <p> <code>eu.anthropic.claude-3-haiku-20240307-v1:0</code> </p> </li> <li> <p> <code>us.amazon.nova-lite-v1:0</code> </p> </li> <li> <p> <code>us.amazon.nova-micro-v1:0</code> </p> </li> <li> <p> <code>us.amazon.nova-pro-v1:0</code> </p> </li> <li> <p> <code>us.anthropic.claude-3-5-haiku-20241022-v1:0</code> </p> </li> <li> <p> <code>us.anthropic.claude-3-7-sonnet-20250219-v1:0</code> </p> </li> <li> <p> <code>us.anthropic.claude-3-haiku-20240307-v1:0</code> </p> </li> </ul>
+   * The identifier of the model used for this AI Prompt. The following model Ids are supported:
+   *
+   * - `anthropic.claude-3-haiku--v1:0`
+   * - `apac.amazon.nova-lite-v1:0`
+   * - `apac.amazon.nova-micro-v1:0`
+   * - `apac.amazon.nova-pro-v1:0`
+   * - `apac.anthropic.claude-3-5-sonnet--v2:0`
+   * - `apac.anthropic.claude-3-haiku-20240307-v1:0`
+   * - `eu.amazon.nova-lite-v1:0`
+   * - `eu.amazon.nova-micro-v1:0`
+   * - `eu.amazon.nova-pro-v1:0`
+   * - `eu.anthropic.claude-3-7-sonnet-20250219-v1:0`
+   * - `eu.anthropic.claude-3-haiku-20240307-v1:0`
+   * - `us.amazon.nova-lite-v1:0`
+   * - `us.amazon.nova-micro-v1:0`
+   * - `us.amazon.nova-pro-v1:0`
+   * - `us.anthropic.claude-3-5-haiku-20241022-v1:0`
+   * - `us.anthropic.claude-3-7-sonnet-20250219-v1:0`
+   * - `us.anthropic.claude-3-haiku-20240307-v1:0`
+   *
    * @public
    */
   modelId: string | undefined;
 
   /**
-   * <p>The API format used for this AI Prompt.</p>
+   * The API format used for this AI Prompt.
+   *
    * @public
    */
   apiFormat: AIPromptAPIFormat | undefined;
 
   /**
-   * <p>The configuration of the prompt template for this AI Prompt.</p>
+   * The configuration of the prompt template for this AI Prompt.
+   *
    * @public
    */
   templateConfiguration: AIPromptTemplateConfiguration | undefined;
 
   /**
-   * <p>The configuration for inference parameters when using the AI Prompt.</p>
+   * The configuration for inference parameters when using the AI Prompt.
+   *
    * @public
    */
   inferenceConfiguration?: AIPromptInferenceConfiguration | undefined;
 
   /**
-   * <p>The time the AI Prompt was last modified.</p>
+   * The time the AI Prompt was last modified.
+   *
    * @public
    */
   modifiedTime?: Date | undefined;
 
   /**
-   * <p>The description of the AI Prompt.</p>
+   * The description of the AI Prompt.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The visibility status of the AI Prompt.</p>
+   * The visibility status of the AI Prompt.
+   *
    * @public
    */
   visibilityStatus: VisibilityStatus | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The origin of the AI Prompt. <code>SYSTEM</code> for a default AI Prompt created by Q in Connect or <code>CUSTOMER</code> for an AI Prompt created by calling AI Prompt creation APIs. </p>
+   * The origin of the AI Prompt. `SYSTEM` for a default AI Prompt created by Q in Connect or `CUSTOMER` for an AI Prompt created by calling AI Prompt creation APIs.
+   *
    * @public
    */
   origin?: Origin | undefined;
 
   /**
-   * <p>The status of the AI Prompt.</p>
+   * The status of the AI Prompt.
+   *
    * @public
    */
   status?: Status | undefined;
@@ -2895,7 +3426,8 @@ export interface AIPromptData {
  */
 export interface CreateAIPromptResponse {
   /**
-   * <p>The data of the AI Prompt.</p>
+   * The data of the AI Prompt.
+   *
    * @public
    */
   aiPrompt?: AIPromptData | undefined;
@@ -2906,25 +3438,29 @@ export interface CreateAIPromptResponse {
  */
 export interface CreateAIPromptVersionRequest {
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect AI prompt.</p>
+   * The identifier of the Amazon Q in Connect AI prompt.
+   *
    * @public
    */
   aiPromptId: string | undefined;
 
   /**
-   * <p>The time the AI Prompt was last modified.</p>
+   * The time the AI Prompt was last modified.
+   *
    * @public
    */
   modifiedTime?: Date | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>..</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see [Making retries safe with idempotent APIs](http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)..
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -2935,13 +3471,15 @@ export interface CreateAIPromptVersionRequest {
  */
 export interface CreateAIPromptVersionResponse {
   /**
-   * <p>The data of the AI Prompt version.</p>
+   * The data of the AI Prompt version.
+   *
    * @public
    */
   aiPrompt?: AIPromptData | undefined;
 
   /**
-   * <p>The version number of the AI Prompt version.</p>
+   * The version number of the AI Prompt version.
+   *
    * @public
    */
   versionNumber?: number | undefined;
@@ -2952,13 +3490,15 @@ export interface CreateAIPromptVersionResponse {
  */
 export interface DeleteAIPromptRequest {
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect AI prompt. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect AI prompt. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   aiPromptId: string | undefined;
@@ -2974,19 +3514,22 @@ export interface DeleteAIPromptResponse {}
  */
 export interface DeleteAIPromptVersionRequest {
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect AI prompt.</p>
+   * The identifier of the Amazon Q in Connect AI prompt.
+   *
    * @public
    */
   aiPromptId: string | undefined;
 
   /**
-   * <p>The version number of the AI Prompt version to be deleted.</p>
+   * The version number of the AI Prompt version to be deleted.
+   *
    * @public
    */
   versionNumber: number | undefined;
@@ -3002,13 +3545,15 @@ export interface DeleteAIPromptVersionResponse {}
  */
 export interface GetAIPromptRequest {
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect AI prompt.</p>
+   * The identifier of the Amazon Q in Connect AI prompt.
+   *
    * @public
    */
   aiPromptId: string | undefined;
@@ -3019,13 +3564,15 @@ export interface GetAIPromptRequest {
  */
 export interface GetAIPromptResponse {
   /**
-   * <p>The data of the AI Prompt.</p>
+   * The data of the AI Prompt.
+   *
    * @public
    */
   aiPrompt?: AIPromptData | undefined;
 
   /**
-   * <p>The version number of the AI Prompt version (returned if an AI Prompt version was specified via use of a qualifier for the <code>aiPromptId</code> on the request). </p>
+   * The version number of the AI Prompt version (returned if an AI Prompt version was specified via use of a qualifier for the `aiPromptId` on the request).
+   *
    * @public
    */
   versionNumber?: number | undefined;
@@ -3036,121 +3583,141 @@ export interface GetAIPromptResponse {
  */
 export interface ListAIPromptsRequest {
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The origin of the AI Prompts to be listed. <code>SYSTEM</code> for a default AI Agent created by Q in Connect or <code>CUSTOMER</code> for an AI Agent created by calling AI Agent creation APIs. </p>
+   * The origin of the AI Prompts to be listed. `SYSTEM` for a default AI Agent created by Q in Connect or `CUSTOMER` for an AI Agent created by calling AI Agent creation APIs.
+   *
    * @public
    */
   origin?: Origin | undefined;
 }
 
 /**
- * <p>The summary of the AI Prompt.</p>
+ * The summary of the AI Prompt.
+ *
  * @public
  */
 export interface AIPromptSummary {
   /**
-   * <p>The name of the AI Prompt.</p>
+   * The name of the AI Prompt.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.</p>
+   * The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
+   *
    * @public
    */
   assistantArn: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect AI prompt.</p>
+   * The identifier of the Amazon Q in Connect AI prompt.
+   *
    * @public
    */
   aiPromptId: string | undefined;
 
   /**
-   * <p>The type of this AI Prompt.</p>
+   * The type of this AI Prompt.
+   *
    * @public
    */
   type: AIPromptType | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AI Prompt.</p>
+   * The Amazon Resource Name (ARN) of the AI Prompt.
+   *
    * @public
    */
   aiPromptArn: string | undefined;
 
   /**
-   * <p>The time the AI Prompt was last modified.</p>
+   * The time the AI Prompt was last modified.
+   *
    * @public
    */
   modifiedTime?: Date | undefined;
 
   /**
-   * <p>The type of the prompt template for this AI Prompt.</p>
+   * The type of the prompt template for this AI Prompt.
+   *
    * @public
    */
   templateType: AIPromptTemplateType | undefined;
 
   /**
-   * <p>The identifier of the model used for this AI Prompt. Model Ids supported are: <code>anthropic.claude-3-haiku-20240307-v1:0</code>.</p>
+   * The identifier of the model used for this AI Prompt. Model Ids supported are: `anthropic.claude-3-haiku-20240307-v1:0`.
+   *
    * @public
    */
   modelId: string | undefined;
 
   /**
-   * <p>The API format used for this AI Prompt.</p>
+   * The API format used for this AI Prompt.
+   *
    * @public
    */
   apiFormat: AIPromptAPIFormat | undefined;
 
   /**
-   * <p>The visibility status of the AI Prompt.</p>
+   * The visibility status of the AI Prompt.
+   *
    * @public
    */
   visibilityStatus: VisibilityStatus | undefined;
 
   /**
-   * <p>The origin of the AI Prompt. <code>SYSTEM</code> for a default AI Prompt created by Q in Connect or <code>CUSTOMER</code> for an AI Prompt created by calling AI Prompt creation APIs. </p>
+   * The origin of the AI Prompt. `SYSTEM` for a default AI Prompt created by Q in Connect or `CUSTOMER` for an AI Prompt created by calling AI Prompt creation APIs.
+   *
    * @public
    */
   origin?: Origin | undefined;
 
   /**
-   * <p>The description of the AI Prompt.</p>
+   * The description of the AI Prompt.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The status of the AI Prompt.</p>
+   * The status of the AI Prompt.
+   *
    * @public
    */
   status?: Status | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -3161,13 +3728,15 @@ export interface AIPromptSummary {
  */
 export interface ListAIPromptsResponse {
   /**
-   * <p>The summaries of the AI Prompts.</p>
+   * The summaries of the AI Prompts.
+   *
    * @public
    */
   aiPromptSummaries: AIPromptSummary[] | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -3178,49 +3747,57 @@ export interface ListAIPromptsResponse {
  */
 export interface ListAIPromptVersionsRequest {
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect AI prompt for which versions are to be listed.</p>
+   * The identifier of the Amazon Q in Connect AI prompt for which versions are to be listed.
+   *
    * @public
    */
   aiPromptId: string | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The origin of the AI Prompt versions to be listed. <code>SYSTEM</code> for a default AI Agent created by Q in Connect or <code>CUSTOMER</code> for an AI Agent created by calling AI Agent creation APIs. </p>
+   * The origin of the AI Prompt versions to be listed. `SYSTEM` for a default AI Agent created by Q in Connect or `CUSTOMER` for an AI Agent created by calling AI Agent creation APIs.
+   *
    * @public
    */
   origin?: Origin | undefined;
 }
 
 /**
- * <p>The summary of the AI Prompt version.</p>
+ * The summary of the AI Prompt version.
+ *
  * @public
  */
 export interface AIPromptVersionSummary {
   /**
-   * <p>The date for the summary of the AI Prompt version.</p>
+   * The date for the summary of the AI Prompt version.
+   *
    * @public
    */
   aiPromptSummary?: AIPromptSummary | undefined;
 
   /**
-   * <p>The version number for this AI Prompt version.</p>
+   * The version number for this AI Prompt version.
+   *
    * @public
    */
   versionNumber?: number | undefined;
@@ -3231,13 +3808,15 @@ export interface AIPromptVersionSummary {
  */
 export interface ListAIPromptVersionsResponse {
   /**
-   * <p>The summaries of the AI Prompt versions.</p>
+   * The summaries of the AI Prompt versions.
+   *
    * @public
    */
   aiPromptVersionSummaries: AIPromptVersionSummary[] | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -3248,49 +3827,59 @@ export interface ListAIPromptVersionsResponse {
  */
 export interface UpdateAIPromptRequest {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>..</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see [Making retries safe with idempotent APIs](http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)..
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect AI Prompt.</p>
+   * The identifier of the Amazon Q in Connect AI Prompt.
+   *
    * @public
    */
   aiPromptId: string | undefined;
 
   /**
-   * <p>The visibility status of the Amazon Q in Connect AI prompt.</p>
+   * The visibility status of the Amazon Q in Connect AI prompt.
+   *
    * @public
    */
   visibilityStatus: VisibilityStatus | undefined;
 
   /**
-   * <p>The configuration of the prompt template for this AI Prompt.</p>
+   * The configuration of the prompt template for this AI Prompt.
+   *
    * @public
    */
   templateConfiguration?: AIPromptTemplateConfiguration | undefined;
 
   /**
-   * <p>The description of the Amazon Q in Connect AI Prompt.</p>
+   * The description of the Amazon Q in Connect AI Prompt.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The identifier of the model used for this AI Prompt.</p> <note> <p>For information about which models are supported in each Amazon Web Services Region, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-ai-prompts.html#cli-create-aiprompt">Supported models for system/custom prompts</a>.</p> </note>
+   * The identifier of the model used for this AI Prompt.
+   *
+   * > **Note:** For information about which models are supported in each Amazon Web Services Region, see [Supported models for system/custom prompts](https://docs.aws.amazon.com/connect/latest/adminguide/create-ai-prompts.html#cli-create-aiprompt).
+   *
    * @public
    */
   modelId?: string | undefined;
 
   /**
-   * <p>The updated inference configuration for the AI Prompt.</p>
+   * The updated inference configuration for the AI Prompt.
+   *
    * @public
    */
   inferenceConfiguration?: AIPromptInferenceConfiguration | undefined;
@@ -3301,62 +3890,86 @@ export interface UpdateAIPromptRequest {
  */
 export interface UpdateAIPromptResponse {
   /**
-   * <p>The data of the updated Amazon Q in Connect AI Prompt.</p>
+   * The data of the updated Amazon Q in Connect AI Prompt.
+   *
    * @public
    */
   aiPrompt?: AIPromptData | undefined;
 }
 
 /**
- * <p>Content association data for a <a href="https://docs.aws.amazon.com/connect/latest/adminguide/step-by-step-guided-experiences.html">step-by-step guide</a>.</p>
+ * Content association data for a [step-by-step guide](https://docs.aws.amazon.com/connect/latest/adminguide/step-by-step-guided-experiences.html).
+ *
  * @public
  */
 export interface AmazonConnectGuideAssociationData {
   /**
-   * <p> The Amazon Resource Name (ARN) of an Connect Customer flow. Step-by-step guides are a type of flow.</p>
+   * The Amazon Resource Name (ARN) of an Connect Customer flow. Step-by-step guides are a type of flow.
+   *
    * @public
    */
   flowId?: string | undefined;
 }
 
 /**
- * <p>Configuration information for Amazon AppIntegrations to automatically ingest content.</p>
+ * Configuration information for Amazon AppIntegrations to automatically ingest content.
+ *
  * @public
  */
 export interface AppIntegrationsConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the AppIntegrations DataIntegration to use for ingesting content.</p> <ul> <li> <p> For <a href="https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm"> Salesforce</a>, your AppIntegrations DataIntegration must have an ObjectConfiguration if objectFields is not provided, including at least <code>Id</code>, <code>ArticleNumber</code>, <code>VersionNumber</code>, <code>Title</code>, <code>PublishStatus</code>, and <code>IsDeleted</code> as source fields. </p> </li> <li> <p> For <a href="https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api"> ServiceNow</a>, your AppIntegrations DataIntegration must have an ObjectConfiguration if objectFields is not provided, including at least <code>number</code>, <code>short_description</code>, <code>sys_mod_count</code>, <code>workflow_state</code>, and <code>active</code> as source fields. </p> </li> <li> <p> For <a href="https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/"> Zendesk</a>, your AppIntegrations DataIntegration must have an ObjectConfiguration if <code>objectFields</code> is not provided, including at least <code>id</code>, <code>title</code>, <code>updated_at</code>, and <code>draft</code> as source fields. </p> </li> <li> <p> For <a href="https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/sharepoint-net-server-csom-jsom-and-rest-api-index">SharePoint</a>, your AppIntegrations DataIntegration must have a FileConfiguration, including only file extensions that are among <code>docx</code>, <code>pdf</code>, <code>html</code>, <code>htm</code>, and <code>txt</code>. </p> </li> <li> <p> For <a href="http://aws.amazon.com/s3/">Amazon S3</a>, the ObjectConfiguration and FileConfiguration of your AppIntegrations DataIntegration must be null. The <code>SourceURI</code> of your DataIntegration must use the following format: <code>s3://your_s3_bucket_name</code>.</p> <important> <p>The bucket policy of the corresponding S3 bucket must allow the Amazon Web Services principal <code>app-integrations.amazonaws.com</code> to perform <code>s3:ListBucket</code>, <code>s3:GetObject</code>, and <code>s3:GetBucketLocation</code> against the bucket.</p> </important> </li> </ul>
+   * The Amazon Resource Name (ARN) of the AppIntegrations DataIntegration to use for ingesting content.
+   *
+   * - For [Salesforce](https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm), your AppIntegrations DataIntegration must have an ObjectConfiguration if objectFields is not provided, including at least `Id`, `ArticleNumber`, `VersionNumber`, `Title`, `PublishStatus`, and `IsDeleted` as source fields.
+   * - For [ServiceNow](https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api), your AppIntegrations DataIntegration must have an ObjectConfiguration if objectFields is not provided, including at least `number`, `short_description`, `sys_mod_count`, `workflow_state`, and `active` as source fields.
+   * - For [Zendesk](https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/), your AppIntegrations DataIntegration must have an ObjectConfiguration if `objectFields` is not provided, including at least `id`, `title`, `updated_at`, and `draft` as source fields.
+   * - For [SharePoint](https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/sharepoint-net-server-csom-jsom-and-rest-api-index), your AppIntegrations DataIntegration must have a FileConfiguration, including only file extensions that are among `docx`, `pdf`, `html`, `htm`, and `txt`.
+   * - For [Amazon S3](http://aws.amazon.com/s3/), the ObjectConfiguration and FileConfiguration of your AppIntegrations DataIntegration must be null. The `SourceURI` of your DataIntegration must use the following format: `s3://your_s3_bucket_name`.
+   *
+   *   > **Important:** The bucket policy of the corresponding S3 bucket must allow the Amazon Web Services principal `app-integrations.amazonaws.com` to perform `s3:ListBucket`, `s3:GetObject`, and `s3:GetBucketLocation` against the bucket.
+   *
    * @public
    */
   appIntegrationArn: string | undefined;
 
   /**
-   * <p>The fields from the source that are made available to your agents in Amazon Q in Connect. Optional if ObjectConfiguration is included in the provided DataIntegration. </p> <ul> <li> <p> For <a href="https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm"> Salesforce</a>, you must include at least <code>Id</code>, <code>ArticleNumber</code>, <code>VersionNumber</code>, <code>Title</code>, <code>PublishStatus</code>, and <code>IsDeleted</code>. </p> </li> <li> <p>For <a href="https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api"> ServiceNow</a>, you must include at least <code>number</code>, <code>short_description</code>, <code>sys_mod_count</code>, <code>workflow_state</code>, and <code>active</code>. </p> </li> <li> <p>For <a href="https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/"> Zendesk</a>, you must include at least <code>id</code>, <code>title</code>, <code>updated_at</code>, and <code>draft</code>. </p> </li> </ul> <p>Make sure to include additional fields. These fields are indexed and used to source recommendations. </p>
+   * The fields from the source that are made available to your agents in Amazon Q in Connect. Optional if ObjectConfiguration is included in the provided DataIntegration.
+   *
+   * - For [Salesforce](https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm), you must include at least `Id`, `ArticleNumber`, `VersionNumber`, `Title`, `PublishStatus`, and `IsDeleted`.
+   * - For [ServiceNow](https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api), you must include at least `number`, `short_description`, `sys_mod_count`, `workflow_state`, and `active`.
+   * - For [Zendesk](https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/), you must include at least `id`, `title`, `updated_at`, and `draft`.
+   *
+   * Make sure to include additional fields. These fields are indexed and used to source recommendations.
+   *
    * @public
    */
   objectFields?: string[] | undefined;
 }
 
 /**
- * <p>Configuration for an external Bedrock knowledge base.</p>
+ * Configuration for an external Bedrock knowledge base.
+ *
  * @public
  */
 export interface ExternalBedrockKnowledgeBaseConfig {
   /**
-   * <p>The Amazon Resource Name (ARN) of the external Bedrock knowledge base.</p>
+   * The Amazon Resource Name (ARN) of the external Bedrock knowledge base.
+   *
    * @public
    */
   bedrockKnowledgeBaseArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role used to access the external Bedrock knowledge base.</p>
+   * The Amazon Resource Name (ARN) of the IAM role used to access the external Bedrock knowledge base.
+   *
    * @public
    */
   accessRoleArn: string | undefined;
 }
 
 /**
- * <p>The data that is input into Amazon Q in Connect as a result of the assistant association.</p>
+ * The data that is input into Amazon Q in Connect as a result of the assistant association.
+ *
  * @public
  */
 export type AssistantAssociationInputData =
@@ -3369,7 +3982,8 @@ export type AssistantAssociationInputData =
  */
 export namespace AssistantAssociationInputData {
   /**
-   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge base.</p>
+   * The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge base.
+   *
    * @public
    */
   export interface KnowledgeBaseIdMember {
@@ -3379,7 +3993,8 @@ export namespace AssistantAssociationInputData {
   }
 
   /**
-   * <p>The configuration for an external Bedrock knowledge base association.</p>
+   * The configuration for an external Bedrock knowledge base association.
+   *
    * @public
    */
   export interface ExternalBedrockKnowledgeBaseConfigMember {
@@ -3413,56 +4028,65 @@ export namespace AssistantAssociationInputData {
  */
 export interface CreateAssistantAssociationRequest {
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The type of association.</p>
+   * The type of association.
+   *
    * @public
    */
   associationType: AssociationType | undefined;
 
   /**
-   * <p>The identifier of the associated resource.</p>
+   * The identifier of the associated resource.
+   *
    * @public
    */
   association: AssistantAssociationInputData | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see [Making retries safe with idempotent APIs](http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/).
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Association information about the knowledge base.</p>
+ * Association information about the knowledge base.
+ *
  * @public
  */
 export interface KnowledgeBaseAssociationData {
   /**
-   * <p>The identifier of the knowledge base.</p>
+   * The identifier of the knowledge base.
+   *
    * @public
    */
   knowledgeBaseId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * The Amazon Resource Name (ARN) of the knowledge base.
+   *
    * @public
    */
   knowledgeBaseArn?: string | undefined;
 }
 
 /**
- * <p>The data that is output as a result of the assistant association.</p>
+ * The data that is output as a result of the assistant association.
+ *
  * @public
  */
 export type AssistantAssociationOutputData =
@@ -3475,7 +4099,8 @@ export type AssistantAssociationOutputData =
  */
 export namespace AssistantAssociationOutputData {
   /**
-   * <p>The knowledge base where output data is sent.</p>
+   * The knowledge base where output data is sent.
+   *
    * @public
    */
   export interface KnowledgeBaseAssociationMember {
@@ -3485,7 +4110,8 @@ export namespace AssistantAssociationOutputData {
   }
 
   /**
-   * <p>The configuration for an external Bedrock knowledge base association in the output data.</p>
+   * The configuration for an external Bedrock knowledge base association in the output data.
+   *
    * @public
    */
   export interface ExternalBedrockKnowledgeBaseConfigMember {
@@ -3515,48 +4141,56 @@ export namespace AssistantAssociationOutputData {
 }
 
 /**
- * <p>Information about the assistant association.</p>
+ * Information about the assistant association.
+ *
  * @public
  */
 export interface AssistantAssociationData {
   /**
-   * <p>The identifier of the assistant association.</p>
+   * The identifier of the assistant association.
+   *
    * @public
    */
   assistantAssociationId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the assistant association.</p>
+   * The Amazon Resource Name (ARN) of the assistant association.
+   *
    * @public
    */
   assistantAssociationArn: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant.</p>
+   * The identifier of the Amazon Q in Connect assistant.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.</p>
+   * The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
+   *
    * @public
    */
   assistantArn: string | undefined;
 
   /**
-   * <p>The type of association.</p>
+   * The type of association.
+   *
    * @public
    */
   associationType: AssociationType | undefined;
 
   /**
-   * <p>A union type that currently has a single argument, the knowledge base ID.</p>
+   * A union type that currently has a single argument, the knowledge base ID.
+   *
    * @public
    */
   associationData: AssistantAssociationOutputData | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -3567,7 +4201,8 @@ export interface AssistantAssociationData {
  */
 export interface CreateAssistantAssociationResponse {
   /**
-   * <p>The assistant association.</p>
+   * The assistant association.
+   *
    * @public
    */
   assistantAssociation?: AssistantAssociationData | undefined;
@@ -3578,13 +4213,15 @@ export interface CreateAssistantAssociationResponse {
  */
 export interface DeleteAssistantAssociationRequest {
   /**
-   * <p>The identifier of the assistant association. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the assistant association. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantAssociationId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
@@ -3600,13 +4237,15 @@ export interface DeleteAssistantAssociationResponse {}
  */
 export interface GetAssistantAssociationRequest {
   /**
-   * <p>The identifier of the assistant association. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the assistant association. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantAssociationId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
@@ -3617,7 +4256,8 @@ export interface GetAssistantAssociationRequest {
  */
 export interface GetAssistantAssociationResponse {
   /**
-   * <p>The assistant association.</p>
+   * The assistant association.
+   *
    * @public
    */
   assistantAssociation?: AssistantAssociationData | undefined;
@@ -3628,67 +4268,78 @@ export interface GetAssistantAssociationResponse {
  */
 export interface ListAssistantAssociationsRequest {
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
 }
 
 /**
- * <p>Summary information about the assistant association.</p>
+ * Summary information about the assistant association.
+ *
  * @public
  */
 export interface AssistantAssociationSummary {
   /**
-   * <p>The identifier of the assistant association.</p>
+   * The identifier of the assistant association.
+   *
    * @public
    */
   assistantAssociationId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the assistant association.</p>
+   * The Amazon Resource Name (ARN) of the assistant association.
+   *
    * @public
    */
   assistantAssociationArn: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant.</p>
+   * The identifier of the Amazon Q in Connect assistant.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.</p>
+   * The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
+   *
    * @public
    */
   assistantArn: string | undefined;
 
   /**
-   * <p>The type of association.</p>
+   * The type of association.
+   *
    * @public
    */
   associationType: AssociationType | undefined;
 
   /**
-   * <p>The association data.</p>
+   * The association data.
+   *
    * @public
    */
   associationData: AssistantAssociationOutputData | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -3699,25 +4350,29 @@ export interface AssistantAssociationSummary {
  */
 export interface ListAssistantAssociationsResponse {
   /**
-   * <p>Summary information about assistant associations.</p>
+   * Summary information about assistant associations.
+   *
    * @public
    */
   assistantAssociationSummaries: AssistantAssociationSummary[] | undefined;
 
   /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * If there are additional results, this is the token for the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>The configuration information for the customer managed key used for encryption.</p>
+ * The configuration information for the customer managed key used for encryption.
+ *
  * @public
  */
 export interface ServerSideEncryptionConfiguration {
   /**
-   * <p>The customer managed key used for encryption. For more information about setting up a customer managed key for Amazon Q in Connect, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html">Enable Amazon Q in Connect for your instance</a>. For information about valid ID values, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id">Key identifiers (KeyId)</a>.</p>
+   * The customer managed key used for encryption. For more information about setting up a customer managed key for Amazon Q in Connect, see [Enable Amazon Q in Connect for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html). For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id).
+   *
    * @public
    */
   kmsKeyId?: string | undefined;
@@ -3728,157 +4383,191 @@ export interface ServerSideEncryptionConfiguration {
  */
 export interface CreateAssistantRequest {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see [Making retries safe with idempotent APIs](http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/).
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The name of the assistant.</p>
+   * The name of the assistant.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of assistant.</p>
+   * The type of assistant.
+   *
    * @public
    */
   type: AssistantType | undefined;
 
   /**
-   * <p>The description of the assistant.</p>
+   * The description of the assistant.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The configuration information for the customer managed key used for encryption. </p> <p>The customer managed key must have a policy that allows <code>kms:CreateGrant</code>, <code> kms:DescribeKey</code>, <code>kms:Decrypt</code>, and <code>kms:GenerateDataKey*</code> permissions to the IAM identity using the key to invoke Amazon Q in Connect. To use Amazon Q in Connect with chat, the key policy must also allow <code>kms:Decrypt</code>, <code>kms:GenerateDataKey*</code>, and <code>kms:DescribeKey</code> permissions to the <code>connect.amazonaws.com</code> service principal. </p> <p>For more information about setting up a customer managed key for Amazon Q in Connect, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html">Enable Amazon Q in Connect for your instance</a>.</p>
+   * The configuration information for the customer managed key used for encryption.
+   *
+   * The customer managed key must have a policy that allows `kms:CreateGrant`, `kms:DescribeKey`, `kms:Decrypt`, and `kms:GenerateDataKey*` permissions to the IAM identity using the key to invoke Amazon Q in Connect. To use Amazon Q in Connect with chat, the key policy must also allow `kms:Decrypt`, `kms:GenerateDataKey*`, and `kms:DescribeKey` permissions to the `connect.amazonaws.com` service principal.
+   *
+   * For more information about setting up a customer managed key for Amazon Q in Connect, see [Enable Amazon Q in Connect for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html).
+   *
    * @public
    */
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration | undefined;
 }
 
 /**
- * <p>The capability configuration for an Amazon Q in Connect assistant. </p>
+ * The capability configuration for an Amazon Q in Connect assistant.
+ *
  * @public
  */
 export interface AssistantCapabilityConfiguration {
   /**
-   * <p>The type of Amazon Q in Connect assistant capability. </p>
+   * The type of Amazon Q in Connect assistant capability.
+   *
    * @public
    */
   type?: AssistantCapabilityType | undefined;
 }
 
 /**
- * <p>The configuration information for the Amazon Q in Connect assistant integration.</p>
+ * The configuration information for the Amazon Q in Connect assistant integration.
+ *
  * @public
  */
 export interface AssistantIntegrationConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the integrated Amazon SNS topic used for streaming chat messages.</p>
+   * The Amazon Resource Name (ARN) of the integrated Amazon SNS topic used for streaming chat messages.
+   *
    * @public
    */
   topicIntegrationArn?: string | undefined;
 }
 
 /**
- * <p>An entry in the orchestrator configuration list.</p>
+ * An entry in the orchestrator configuration list.
+ *
  * @public
  */
 export interface OrchestratorConfigurationEntry {
   /**
-   * <p>The identifier of the AI Agent in the orchestrator configuration.</p>
+   * The identifier of the AI Agent in the orchestrator configuration.
+   *
    * @public
    */
   aiAgentId?: string | undefined;
 
   /**
-   * <p>The use case for the orchestrator configuration. (for example Connect.SelfService, Connect.AgentAssistance)</p>
+   * The use case for the orchestrator configuration. (for example Connect.SelfService, Connect.AgentAssistance)
+   *
    * @public
    */
   orchestratorUseCase: string | undefined;
 }
 
 /**
- * <p>The assistant data.</p>
+ * The assistant data.
+ *
  * @public
  */
 export interface AssistantData {
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant.</p>
+   * The identifier of the Amazon Q in Connect assistant.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.</p>
+   * The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
+   *
    * @public
    */
   assistantArn: string | undefined;
 
   /**
-   * <p>The name.</p>
+   * The name.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of assistant.</p>
+   * The type of assistant.
+   *
    * @public
    */
   type: AssistantType | undefined;
 
   /**
-   * <p>The status of the assistant.</p>
+   * The status of the assistant.
+   *
    * @public
    */
   status: AssistantStatus | undefined;
 
   /**
-   * <p>The description.</p>
+   * The description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The configuration information for the customer managed key used for encryption. </p> <p>This KMS key must have a policy that allows <code>kms:CreateGrant</code>, <code>kms:DescribeKey</code>, <code>kms:Decrypt</code>, and <code>kms:GenerateDataKey*</code> permissions to the IAM identity using the key to invoke Amazon Q in Connect. To use Amazon Q in Connect with chat, the key policy must also allow <code>kms:Decrypt</code>, <code>kms:GenerateDataKey*</code>, and <code>kms:DescribeKey</code> permissions to the <code>connect.amazonaws.com</code> service principal. </p> <p>For more information about setting up a customer managed key for Amazon Q in Connect, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html">Enable Amazon Q in Connect for your instance</a>.</p>
+   * The configuration information for the customer managed key used for encryption.
+   *
+   * This KMS key must have a policy that allows `kms:CreateGrant`, `kms:DescribeKey`, `kms:Decrypt`, and `kms:GenerateDataKey*` permissions to the IAM identity using the key to invoke Amazon Q in Connect. To use Amazon Q in Connect with chat, the key policy must also allow `kms:Decrypt`, `kms:GenerateDataKey*`, and `kms:DescribeKey` permissions to the `connect.amazonaws.com` service principal.
+   *
+   * For more information about setting up a customer managed key for Amazon Q in Connect, see [Enable Amazon Q in Connect for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html).
+   *
    * @public
    */
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration | undefined;
 
   /**
-   * <p>The configuration information for the Amazon Q in Connect assistant integration.</p>
+   * The configuration information for the Amazon Q in Connect assistant integration.
+   *
    * @public
    */
   integrationConfiguration?: AssistantIntegrationConfiguration | undefined;
 
   /**
-   * <p>The configuration information for the Amazon Q in Connect assistant capability. </p>
+   * The configuration information for the Amazon Q in Connect assistant capability.
+   *
    * @public
    */
   capabilityConfiguration?: AssistantCapabilityConfiguration | undefined;
 
   /**
-   * <p>The configuration of the AI Agents (mapped by AI Agent Type to AI Agent version) that is set on the Amazon Q in Connect Assistant.</p>
+   * The configuration of the AI Agents (mapped by AI Agent Type to AI Agent version) that is set on the Amazon Q in Connect Assistant.
+   *
    * @public
    */
   aiAgentConfiguration?: Partial<Record<AIAgentType, AIAgentConfigurationData>> | undefined;
 
   /**
-   * <p>The list of orchestrator configurations for the assistant.</p>
+   * The list of orchestrator configurations for the assistant.
+   *
    * @public
    */
   orchestratorConfigurationList?: OrchestratorConfigurationEntry[] | undefined;
@@ -3889,7 +4578,8 @@ export interface AssistantData {
  */
 export interface CreateAssistantResponse {
   /**
-   * <p>Information about the assistant.</p>
+   * Information about the assistant.
+   *
    * @public
    */
   assistant?: AssistantData | undefined;
@@ -3900,7 +4590,8 @@ export interface CreateAssistantResponse {
  */
 export interface DeleteAssistantRequest {
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
@@ -3916,7 +4607,8 @@ export interface DeleteAssistantResponse {}
  */
 export interface GetAssistantRequest {
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
@@ -3927,7 +4619,8 @@ export interface GetAssistantRequest {
  */
 export interface GetAssistantResponse {
   /**
-   * <p>Information about the assistant.</p>
+   * Information about the assistant.
+   *
    * @public
    */
   assistant?: AssistantData | undefined;
@@ -3938,398 +4631,464 @@ export interface GetAssistantResponse {
  */
 export interface GetRecommendationsRequest {
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The duration (in seconds) for which the call waits for a recommendation to be made available before returning. If a recommendation is available, the call returns sooner than <code>WaitTimeSeconds</code>. If no messages are available and the wait time expires, the call returns successfully with an empty list.</p>
+   * The duration (in seconds) for which the call waits for a recommendation to be made available before returning. If a recommendation is available, the call returns sooner than `WaitTimeSeconds`. If no messages are available and the wait time expires, the call returns successfully with an empty list.
+   *
    * @public
    */
   waitTimeSeconds?: number | undefined;
 
   /**
-   * <p>The token for the next set of chunks. Use the value returned in the previous response in the next request to retrieve the next set of chunks.</p>
+   * The token for the next set of chunks. Use the value returned in the previous response in the next request to retrieve the next set of chunks.
+   *
    * @public
    */
   nextChunkToken?: string | undefined;
 
   /**
-   * <p>The type of recommendation being requested.</p>
+   * The type of recommendation being requested.
+   *
    * @public
    */
   recommendationType?: RecommendationType | undefined;
 }
 
 /**
- * <p>Details about case summarization chunk data.</p>
+ * Details about case summarization chunk data.
+ *
  * @public
  */
 export interface CaseSummarizationChunkDataDetails {
   /**
-   * <p>A chunk of the case summarization completion.</p>
+   * A chunk of the case summarization completion.
+   *
    * @public
    */
   completion?: string | undefined;
 
   /**
-   * <p>Token for retrieving the next chunk of streaming summarization data, if available.</p>
+   * Token for retrieving the next chunk of streaming summarization data, if available.
+   *
    * @public
    */
   nextChunkToken?: string | undefined;
 }
 
 /**
- * <p>Details about the source content ranking data.</p>
+ * Details about the source content ranking data.
+ *
  * @public
  */
 export interface RankingData {
   /**
-   * <p>The relevance level of the recommendation.</p>
+   * The relevance level of the recommendation.
+   *
    * @public
    */
   relevanceScore?: number | undefined;
 
   /**
-   * <p>The relevance score of the content.</p>
+   * The relevance score of the content.
+   *
    * @public
    */
   relevanceLevel?: RelevanceLevel | undefined;
 }
 
 /**
- * <p>Offset specification to describe highlighting of document excerpts for rendering search results and recommendations.</p>
+ * Offset specification to describe highlighting of document excerpts for rendering search results and recommendations.
+ *
  * @public
  */
 export interface Highlight {
   /**
-   * <p>The offset for the start of the highlight.</p>
+   * The offset for the start of the highlight.
+   *
    * @public
    */
   beginOffsetInclusive?: number | undefined;
 
   /**
-   * <p>The offset for the end of the highlight.</p>
+   * The offset for the end of the highlight.
+   *
    * @public
    */
   endOffsetExclusive?: number | undefined;
 }
 
 /**
- * <p>The text of the document.</p>
+ * The text of the document.
+ *
  * @public
  */
 export interface DocumentText {
   /**
-   * <p>Text in the document.</p>
+   * Text in the document.
+   *
    * @public
    */
   text?: string | undefined;
 
   /**
-   * <p>Highlights in the document text.</p>
+   * Highlights in the document text.
+   *
    * @public
    */
   highlights?: Highlight[] | undefined;
 }
 
 /**
- * <p>Details about the source content text data.</p>
+ * Details about the source content text data.
+ *
  * @public
  */
 export interface TextData {
   /**
-   * <p>The text of the document.</p>
+   * The text of the document.
+   *
    * @public
    */
   title?: DocumentText | undefined;
 
   /**
-   * <p>The text of the document.</p>
+   * The text of the document.
+   *
    * @public
    */
   excerpt?: DocumentText | undefined;
 }
 
 /**
- * <p>Details about the content data.</p>
+ * Details about the content data.
+ *
  * @public
  */
 export interface ContentDataDetails {
   /**
-   * <p>Details about the content text data.</p>
+   * Details about the content text data.
+   *
    * @public
    */
   textData: TextData | undefined;
 
   /**
-   * <p>Details about the content ranking data.</p>
+   * Details about the content ranking data.
+   *
    * @public
    */
   rankingData: RankingData | undefined;
 }
 
 /**
- * <p>Details of streaming chunk data for email overview including completion text and pagination tokens.</p>
+ * Details of streaming chunk data for email overview including completion text and pagination tokens.
+ *
  * @public
  */
 export interface EmailOverviewChunkDataDetails {
   /**
-   * <p>The partial or complete overview text content in structured HTML format with customer issues, resolutions, and next steps.</p>
+   * The partial or complete overview text content in structured HTML format with customer issues, resolutions, and next steps.
+   *
    * @public
    */
   completion?: string | undefined;
 
   /**
-   * <p>Token for retrieving the next chunk of streaming overview data, if available.</p>
+   * Token for retrieving the next chunk of streaming overview data, if available.
+   *
    * @public
    */
   nextChunkToken?: string | undefined;
 }
 
 /**
- * <p>Details of streaming chunk data for email responses including completion text and pagination tokens.</p>
+ * Details of streaming chunk data for email responses including completion text and pagination tokens.
+ *
  * @public
  */
 export interface EmailResponseChunkDataDetails {
   /**
-   * <p>The partial or complete professional email response text with appropriate greetings and closings.</p>
+   * The partial or complete professional email response text with appropriate greetings and closings.
+   *
    * @public
    */
   completion?: string | undefined;
 
   /**
-   * <p>Token for retrieving the next chunk of streaming response data, if available.</p>
+   * Token for retrieving the next chunk of streaming response data, if available.
+   *
    * @public
    */
   nextChunkToken?: string | undefined;
 }
 
 /**
- * <p>Details about the detected intent.</p>
+ * Details about the detected intent.
+ *
  * @public
  */
 export interface IntentDetectedDataDetails {
   /**
-   * <p>The detected intent.</p>
+   * The detected intent.
+   *
    * @public
    */
   intent: string | undefined;
 
   /**
-   * <p>The identifier of the detected intent.</p>
+   * The identifier of the detected intent.
+   *
    * @public
    */
   intentId: string | undefined;
 
   /**
-   * <p>The relevance level of the detected intent.</p>
+   * The relevance level of the detected intent.
+   *
    * @public
    */
   relevanceLevel?: RelevanceLevel | undefined;
 }
 
 /**
- * <p>Details about notes chunk data.</p>
+ * Details about notes chunk data.
+ *
  * @public
  */
 export interface NotesChunkDataDetails {
   /**
-   * <p>A chunk of the notes completion.</p>
+   * A chunk of the notes completion.
+   *
    * @public
    */
   completion?: string | undefined;
 
   /**
-   * <p>The token for the next chunk of notes data.</p>
+   * The token for the next chunk of notes data.
+   *
    * @public
    */
   nextChunkToken?: string | undefined;
 }
 
 /**
- * <p>Details about notes data.</p>
+ * Details about notes data.
+ *
  * @public
  */
 export interface NotesDataDetails {
   /**
-   * <p>The completion data for notes.</p>
+   * The completion data for notes.
+   *
    * @public
    */
   completion?: string | undefined;
 }
 
 /**
- * <p>Details about a proactive recommendation, including the token used to retrieve its chunked response with <code>GetNextMessage</code>.</p>
+ * Details about a proactive recommendation, including the token used to retrieve its chunked response with `GetNextMessage`.
+ *
  * @public
  */
 export interface ProactiveRecommendationDataDetails {
   /**
-   * <p>The token used to retrieve the next message in the proactive recommendation. Pass this token in a <code>GetNextMessage</code> request to continue receiving the chunked proactive response. Each response returns the next token to use until the chunked response is complete.</p>
+   * The token used to retrieve the next message in the proactive recommendation. Pass this token in a `GetNextMessage` request to continue receiving the chunked proactive response. Each response returns the next token to use until the chunked response is complete.
+   *
    * @public
    */
   nextMessageToken: string | undefined;
 }
 
 /**
- * <p>Contains information about where the text with a citation begins and ends in the generated output.</p>
+ * Contains information about where the text with a citation begins and ends in the generated output.
+ *
  * @public
  */
 export interface CitationSpan {
   /**
-   * <p>Where the text with a citation starts in the generated output.</p>
+   * Where the text with a citation starts in the generated output.
+   *
    * @public
    */
   beginOffsetInclusive?: number | undefined;
 
   /**
-   * <p>Where the text with a citation ends in the generated output.</p>
+   * Where the text with a citation ends in the generated output.
+   *
    * @public
    */
   endOffsetExclusive?: number | undefined;
 }
 
 /**
- * <p>Details about the source content data.</p>
+ * Details about the source content data.
+ *
  * @public
  */
 export interface SourceContentDataDetails {
   /**
-   * <p>The identifier of the source content.</p>
+   * The identifier of the source content.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The type of the source content.</p>
+   * The type of the source content.
+   *
    * @public
    */
   type: SourceContentType | undefined;
 
   /**
-   * <p> Details about the source content text data.</p>
+   * Details about the source content text data.
+   *
    * @public
    */
   textData: TextData | undefined;
 
   /**
-   * <p>Details about the source content ranking data.</p>
+   * Details about the source content ranking data.
+   *
    * @public
    */
   rankingData: RankingData | undefined;
 
   /**
-   * <p>Contains information about where the text with a citation begins and ends in the generated output.</p>
+   * Contains information about where the text with a citation begins and ends in the generated output.
+   *
    * @public
    */
   citationSpan?: CitationSpan | undefined;
 }
 
 /**
- * <p>Details about suggested message data.</p>
+ * Details about suggested message data.
+ *
  * @public
  */
 export interface SuggestedMessageDataDetails {
   /**
-   * <p>The text content of the suggested message.</p>
+   * The text content of the suggested message.
+   *
    * @public
    */
   messageText: string | undefined;
 }
 
 /**
- * <p>Reference information about the content.</p>
+ * Reference information about the content.
+ *
  * @public
  */
 export interface ContentReference {
   /**
-   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * The Amazon Resource Name (ARN) of the knowledge base.
+   *
    * @public
    */
   knowledgeBaseArn?: string | undefined;
 
   /**
-   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge base.</p>
+   * The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge base.
+   *
    * @public
    */
   knowledgeBaseId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the content.</p>
+   * The Amazon Resource Name (ARN) of the content.
+   *
    * @public
    */
   contentArn?: string | undefined;
 
   /**
-   * <p>The identifier of the content.</p>
+   * The identifier of the content.
+   *
    * @public
    */
   contentId?: string | undefined;
 
   /**
-   * <p>The web URL of the source content.</p>
+   * The web URL of the source content.
+   *
    * @public
    */
   sourceURL?: string | undefined;
 
   /**
-   * <p>The type of reference content.</p>
+   * The type of reference content.
+   *
    * @public
    */
   referenceType?: ReferenceType | undefined;
 }
 
 /**
- * <p>Reference information about generative content.</p>
+ * Reference information about generative content.
+ *
  * @public
  */
 export interface GenerativeReference {
   /**
-   * <p>The identifier of the LLM model. </p>
+   * The identifier of the LLM model.
+   *
    * @public
    */
   modelId?: string | undefined;
 
   /**
-   * <p> The identifier of the LLM model. </p>
+   * The identifier of the LLM model.
+   *
    * @public
    */
   generationId?: string | undefined;
 }
 
 /**
- * <p>Reference information for a suggested message.</p>
+ * Reference information for a suggested message.
+ *
  * @public
  */
 export interface SuggestedMessageReference {
   /**
-   * <p>The identifier of the AI Agent that generated the suggested message.</p>
+   * The identifier of the AI Agent that generated the suggested message.
+   *
    * @public
    */
   aiAgentId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AI Agent that generated the suggested message.</p>
+   * The Amazon Resource Name (ARN) of the AI Agent that generated the suggested message.
+   *
    * @public
    */
   aiAgentArn: string | undefined;
 }
 
 /**
- * <p>Reference data.</p>
+ * Reference data.
+ *
  * @public
  */
 export type DataReference =
@@ -4343,7 +5102,8 @@ export type DataReference =
  */
 export namespace DataReference {
   /**
-   * <p>Reference information about the content.</p>
+   * Reference information about the content.
+   *
    * @public
    */
   export interface ContentReferenceMember {
@@ -4354,7 +5114,8 @@ export namespace DataReference {
   }
 
   /**
-   * <p>Reference information about the generative content.</p>
+   * Reference information about the generative content.
+   *
    * @public
    */
   export interface GenerativeReferenceMember {
@@ -4365,7 +5126,8 @@ export namespace DataReference {
   }
 
   /**
-   * <p>Reference information for suggested messages.</p>
+   * Reference information for suggested messages.
+   *
    * @public
    */
   export interface SuggestedMessageReferenceMember {
@@ -4398,43 +5160,50 @@ export namespace DataReference {
 }
 
 /**
- * <p>The document.</p>
+ * The document.
+ *
  * @public
  */
 export interface Document {
   /**
-   * <p>A reference to the content resource.</p>
+   * A reference to the content resource.
+   *
    * @public
    */
   contentReference: ContentReference | undefined;
 
   /**
-   * <p>The title of the document.</p>
+   * The title of the document.
+   *
    * @public
    */
   title?: DocumentText | undefined;
 
   /**
-   * <p>The excerpt from the document.</p>
+   * The excerpt from the document.
+   *
    * @public
    */
   excerpt?: DocumentText | undefined;
 }
 
 /**
- * <p>Data associated with the QUERY RecommendationTriggerType.</p>
+ * Data associated with the QUERY RecommendationTriggerType.
+ *
  * @public
  */
 export interface QueryRecommendationTriggerData {
   /**
-   * <p>The text associated with the recommendation trigger.</p>
+   * The text associated with the recommendation trigger.
+   *
    * @public
    */
   text?: string | undefined;
 }
 
 /**
- * <p>A union type containing information related to the trigger.</p>
+ * A union type containing information related to the trigger.
+ *
  * @public
  */
 export type RecommendationTriggerData =
@@ -4446,7 +5215,8 @@ export type RecommendationTriggerData =
  */
 export namespace RecommendationTriggerData {
   /**
-   * <p>Data associated with the QUERY RecommendationTriggerType.</p>
+   * Data associated with the QUERY RecommendationTriggerType.
+   *
    * @public
    */
   export interface QueryMember {
@@ -4473,36 +5243,45 @@ export namespace RecommendationTriggerData {
 }
 
 /**
- * <p>A recommendation trigger provides context on the event that produced the referenced recommendations. Recommendations are only referenced in <code>recommendationIds</code> by a single RecommendationTrigger.</p>
+ * A recommendation trigger provides context on the event that produced the referenced recommendations. Recommendations are only referenced in `recommendationIds` by a single RecommendationTrigger.
+ *
  * @public
  */
 export interface RecommendationTrigger {
   /**
-   * <p>The identifier of the recommendation trigger.</p>
+   * The identifier of the recommendation trigger.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The type of recommendation trigger.</p>
+   * The type of recommendation trigger.
+   *
    * @public
    */
   type: RecommendationTriggerType | undefined;
 
   /**
-   * <p>The source of the recommendation trigger.</p> <ul> <li> <p>ISSUE_DETECTION: The corresponding recommendations were triggered by a Contact Lens issue.</p> </li> <li> <p>RULE_EVALUATION: The corresponding recommendations were triggered by a Contact Lens rule.</p> </li> </ul>
+   * The source of the recommendation trigger.
+   *
+   * - ISSUE_DETECTION: The corresponding recommendations were triggered by a Contact Lens issue.
+   * - RULE_EVALUATION: The corresponding recommendations were triggered by a Contact Lens rule.
+   *
    * @public
    */
   source: RecommendationSourceType | undefined;
 
   /**
-   * <p>A union type containing information related to the trigger.</p>
+   * A union type containing information related to the trigger.
+   *
    * @public
    */
   data: RecommendationTriggerData | undefined;
 
   /**
-   * <p>The identifiers of the recommendations.</p>
+   * The identifiers of the recommendations.
+   *
    * @public
    */
   recommendationIds: string[] | undefined;
@@ -4513,91 +5292,110 @@ export interface RecommendationTrigger {
  */
 export interface ListAssistantsRequest {
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Summary information about the assistant.</p>
+ * Summary information about the assistant.
+ *
  * @public
  */
 export interface AssistantSummary {
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant.</p>
+   * The identifier of the Amazon Q in Connect assistant.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.</p>
+   * The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
+   *
    * @public
    */
   assistantArn: string | undefined;
 
   /**
-   * <p>The name of the assistant.</p>
+   * The name of the assistant.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of the assistant.</p>
+   * The type of the assistant.
+   *
    * @public
    */
   type: AssistantType | undefined;
 
   /**
-   * <p>The status of the assistant.</p>
+   * The status of the assistant.
+   *
    * @public
    */
   status: AssistantStatus | undefined;
 
   /**
-   * <p>The description of the assistant.</p>
+   * The description of the assistant.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The configuration information for the customer managed key used for encryption. </p> <p>This KMS key must have a policy that allows <code>kms:CreateGrant</code>, <code>kms:DescribeKey</code>, <code>kms:Decrypt</code>, and <code>kms:GenerateDataKey*</code> permissions to the IAM identity using the key to invoke Amazon Q in Connect. To use Amazon Q in Connect with chat, the key policy must also allow <code>kms:Decrypt</code>, <code>kms:GenerateDataKey*</code>, and <code>kms:DescribeKey</code> permissions to the <code>connect.amazonaws.com</code> service principal. </p> <p>For more information about setting up a customer managed key for Amazon Q in Connect, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html">Enable Amazon Q in Connect for your instance</a>.</p>
+   * The configuration information for the customer managed key used for encryption.
+   *
+   * This KMS key must have a policy that allows `kms:CreateGrant`, `kms:DescribeKey`, `kms:Decrypt`, and `kms:GenerateDataKey*` permissions to the IAM identity using the key to invoke Amazon Q in Connect. To use Amazon Q in Connect with chat, the key policy must also allow `kms:Decrypt`, `kms:GenerateDataKey*`, and `kms:DescribeKey` permissions to the `connect.amazonaws.com` service principal.
+   *
+   * For more information about setting up a customer managed key for Amazon Q in Connect, see [Enable Amazon Q in Connect for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html).
+   *
    * @public
    */
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration | undefined;
 
   /**
-   * <p>The configuration information for the Amazon Q in Connect assistant integration.</p>
+   * The configuration information for the Amazon Q in Connect assistant integration.
+   *
    * @public
    */
   integrationConfiguration?: AssistantIntegrationConfiguration | undefined;
 
   /**
-   * <p>The configuration information for the Amazon Q in Connect assistant capability. </p>
+   * The configuration information for the Amazon Q in Connect assistant capability.
+   *
    * @public
    */
   capabilityConfiguration?: AssistantCapabilityConfiguration | undefined;
 
   /**
-   * <p>The configuration of the AI Agents (mapped by AI Agent Type to AI Agent version) that is set on the Amazon Q in Connect Assistant.</p>
+   * The configuration of the AI Agents (mapped by AI Agent Type to AI Agent version) that is set on the Amazon Q in Connect Assistant.
+   *
    * @public
    */
   aiAgentConfiguration?: Partial<Record<AIAgentType, AIAgentConfigurationData>> | undefined;
 
   /**
-   * <p>The list of orchestrator configurations for the assistant.</p>
+   * The list of orchestrator configurations for the assistant.
+   *
    * @public
    */
   orchestratorConfigurationList?: OrchestratorConfigurationEntry[] | undefined;
@@ -4608,13 +5406,15 @@ export interface AssistantSummary {
  */
 export interface ListAssistantsResponse {
   /**
-   * <p>Information about the assistants.</p>
+   * Information about the assistants.
+   *
    * @public
    */
   assistantSummaries: AssistantSummary[] | undefined;
 
   /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * If there are additional results, this is the token for the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4625,85 +5425,99 @@ export interface ListAssistantsResponse {
  */
 export interface ListModelsRequest {
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN. The assistant's region determines which models are available.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN. The assistant's region determines which models are available.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The type of the AI Prompt to filter models by. When specified, only models that support the given AI Prompt type are returned.</p>
+   * The type of the AI Prompt to filter models by. When specified, only models that support the given AI Prompt type are returned.
+   *
    * @public
    */
   aiPromptType?: AIPromptType | undefined;
 
   /**
-   * <p>The lifecycle status of models to filter by. When specified, only models with the given lifecycle status are returned.</p>
+   * The lifecycle status of models to filter by. When specified, only models with the given lifecycle status are returned.
+   *
    * @public
    */
   modelLifecycle?: ModelLifecycle | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>The summary of a model available to an Amazon Q in Connect assistant.</p>
+ * The summary of a model available to an Amazon Q in Connect assistant.
+ *
  * @public
  */
 export interface ModelSummary {
   /**
-   * <p>The identifier of the model.</p>
+   * The identifier of the model.
+   *
    * @public
    */
   modelId: string | undefined;
 
   /**
-   * <p>The display name of the model.</p>
+   * The display name of the model.
+   *
    * @public
    */
   displayName: string | undefined;
 
   /**
-   * <p>The cross-region availability status of the model. <code>NONE</code> indicates the model is only available in a single region, <code>REGIONAL</code> indicates the model is available through regional inference, and <code>GLOBAL</code> indicates the model is available through global cross-region inference.</p>
+   * The cross-region availability status of the model. `NONE` indicates the model is only available in a single region, `REGIONAL` indicates the model is available through regional inference, and `GLOBAL` indicates the model is available through global cross-region inference.
+   *
    * @public
    */
   crossRegionStatus?: CrossRegionStatus | undefined;
 
   /**
-   * <p>Whether the model supports prompt caching.</p>
+   * Whether the model supports prompt caching.
+   *
    * @public
    */
   supportsPromptCaching?: boolean | undefined;
 
   /**
-   * <p>The list of AI Prompt types that the model supports.</p>
+   * The list of AI Prompt types that the model supports.
+   *
    * @public
    */
   supportedAIPromptTypes?: AIPromptType[] | undefined;
 
   /**
-   * <p>The current lifecycle of the model. <code>ACTIVE</code> indicates the model is recommended for use and <code>LEGACY</code> indicates the model is still usable but is deprecated.</p>
+   * The current lifecycle of the model. `ACTIVE` indicates the model is recommended for use and `LEGACY` indicates the model is still usable but is deprecated.
+   *
    * @public
    */
   modelLifecycle?: ModelLifecycle | undefined;
 
   /**
-   * <p>The timestamp when the model lifecycle will transition from <code>ACTIVE</code> to <code>LEGACY</code>.</p>
+   * The timestamp when the model lifecycle will transition from `ACTIVE` to `LEGACY`.
+   *
    * @public
    */
   legacyTimestamp?: Date | undefined;
 
   /**
-   * <p>The timestamp when the model will reach end of life and no longer be available for use.</p>
+   * The timestamp when the model will reach end of life and no longer be available for use.
+   *
    * @public
    */
   endOfLifeTimestamp?: Date | undefined;
@@ -4714,13 +5528,15 @@ export interface ModelSummary {
  */
 export interface ListModelsResponse {
   /**
-   * <p>The summaries of the models available to the assistant.</p>
+   * The summaries of the models available to the assistant.
+   *
    * @public
    */
   modelSummaries: ModelSummary[] | undefined;
 
   /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * If there are additional results, this is the token for the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4731,37 +5547,43 @@ export interface ListModelsResponse {
  */
 export interface NotifyRecommendationsReceivedRequest {
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The identifiers of the recommendations.</p>
+   * The identifiers of the recommendations.
+   *
    * @public
    */
   recommendationIds: string[] | undefined;
 }
 
 /**
- * <p>An error occurred when creating a recommendation.</p>
+ * An error occurred when creating a recommendation.
+ *
  * @public
  */
 export interface NotifyRecommendationsReceivedError {
   /**
-   * <p>The identifier of the recommendation that is in error.</p>
+   * The identifier of the recommendation that is in error.
+   *
    * @public
    */
   recommendationId?: string | undefined;
 
   /**
-   * <p>A recommendation is causing an error.</p>
+   * A recommendation is causing an error.
+   *
    * @public
    */
   message?: string | undefined;
@@ -4772,32 +5594,37 @@ export interface NotifyRecommendationsReceivedError {
  */
 export interface NotifyRecommendationsReceivedResponse {
   /**
-   * <p>The identifiers of the recommendations.</p>
+   * The identifiers of the recommendations.
+   *
    * @public
    */
   recommendationIds?: string[] | undefined;
 
   /**
-   * <p>The identifiers of recommendations that are causing errors.</p>
+   * The identifiers of recommendations that are causing errors.
+   *
    * @public
    */
   errors?: NotifyRecommendationsReceivedError[] | undefined;
 }
 
 /**
- * <p>The feedback information for a generative target type.</p>
+ * The feedback information for a generative target type.
+ *
  * @public
  */
 export interface GenerativeContentFeedbackData {
   /**
-   * <p>The relevance of the feedback.</p>
+   * The relevance of the feedback.
+   *
    * @public
    */
   relevance: Relevance | undefined;
 }
 
 /**
- * <p>Information about the feedback.</p>
+ * Information about the feedback.
+ *
  * @public
  */
 export type ContentFeedbackData =
@@ -4809,7 +5636,8 @@ export type ContentFeedbackData =
  */
 export namespace ContentFeedbackData {
   /**
-   * <p>Information about the feedback for a generative target type.</p>
+   * Information about the feedback for a generative target type.
+   *
    * @public
    */
   export interface GenerativeContentFeedbackDataMember {
@@ -4840,25 +5668,29 @@ export namespace ContentFeedbackData {
  */
 export interface PutFeedbackRequest {
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant.</p>
+   * The identifier of the Amazon Q in Connect assistant.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The identifier of the feedback target.</p>
+   * The identifier of the feedback target.
+   *
    * @public
    */
   targetId: string | undefined;
 
   /**
-   * <p>The type of the feedback target.</p>
+   * The type of the feedback target.
+   *
    * @public
    */
   targetType: TargetType | undefined;
 
   /**
-   * <p>Information about the feedback provided.</p>
+   * Information about the feedback provided.
+   *
    * @public
    */
   contentFeedback: ContentFeedbackData | undefined;
@@ -4869,62 +5701,72 @@ export interface PutFeedbackRequest {
  */
 export interface PutFeedbackResponse {
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant.</p>
+   * The identifier of the Amazon Q in Connect assistant.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.</p>
+   * The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
+   *
    * @public
    */
   assistantArn: string | undefined;
 
   /**
-   * <p>The identifier of the feedback target.</p>
+   * The identifier of the feedback target.
+   *
    * @public
    */
   targetId: string | undefined;
 
   /**
-   * <p>The type of the feedback target.</p>
+   * The type of the feedback target.
+   *
    * @public
    */
   targetType: TargetType | undefined;
 
   /**
-   * <p>Information about the feedback provided.</p>
+   * Information about the feedback provided.
+   *
    * @public
    */
   contentFeedback: ContentFeedbackData | undefined;
 }
 
 /**
- * <p>The condition for the query.</p>
+ * The condition for the query.
+ *
  * @public
  */
 export interface QueryConditionItem {
   /**
-   * <p> The name of the field for query condition to query on.</p>
+   * The name of the field for query condition to query on.
+   *
    * @public
    */
   field: QueryConditionFieldName | undefined;
 
   /**
-   * <p>The comparison operator for query condition to query on.</p>
+   * The comparison operator for query condition to query on.
+   *
    * @public
    */
   comparator: QueryConditionComparisonOperator | undefined;
 
   /**
-   * <p>The value for the query condition to query on.</p>
+   * The value for the query condition to query on.
+   *
    * @public
    */
   value: string | undefined;
 }
 
 /**
- * <p>Information about how to query content.</p>
+ * Information about how to query content.
+ *
  * @public
  */
 export type QueryCondition =
@@ -4936,7 +5778,8 @@ export type QueryCondition =
  */
 export namespace QueryCondition {
   /**
-   * <p>The condition for the query.</p>
+   * The condition for the query.
+   *
    * @public
    */
   export interface SingleMember {
@@ -4963,43 +5806,50 @@ export namespace QueryCondition {
 }
 
 /**
- * <p>Input data for case summarization.</p>
+ * Input data for case summarization.
+ *
  * @public
  */
 export interface CaseSummarizationInputData {
   /**
-   * <p>The Amazon Resource Name (ARN) of the case for summarization.</p>
+   * The Amazon Resource Name (ARN) of the case for summarization.
+   *
    * @public
    */
   caseArn: string | undefined;
 }
 
 /**
- * <p>Information about the Amazon Q intent.</p>
+ * Information about the Amazon Q intent.
+ *
  * @public
  */
 export interface IntentInputData {
   /**
-   * <p>The identifier of the Amazon Q intent.</p>
+   * The identifier of the Amazon Q intent.
+   *
    * @public
    */
   intentId: string | undefined;
 }
 
 /**
- * <p>Information about the text to search for.</p>
+ * Information about the text to search for.
+ *
  * @public
  */
 export interface QueryTextInputData {
   /**
-   * <p>The text to search for.</p>
+   * The text to search for.
+   *
    * @public
    */
   text: string | undefined;
 }
 
 /**
- * <p>Input information for the query.</p>
+ * Input information for the query.
+ *
  * @public
  */
 export type QueryInputData =
@@ -5013,7 +5863,8 @@ export type QueryInputData =
  */
 export namespace QueryInputData {
   /**
-   * <p>Input information for the query.</p>
+   * Input information for the query.
+   *
    * @public
    */
   export interface QueryTextInputDataMember {
@@ -5024,7 +5875,8 @@ export namespace QueryInputData {
   }
 
   /**
-   * <p>Input information for the intent.</p>
+   * Input information for the intent.
+   *
    * @public
    */
   export interface IntentInputDataMember {
@@ -5035,7 +5887,8 @@ export namespace QueryInputData {
   }
 
   /**
-   * <p>Input data for case summarization queries.</p>
+   * Input data for case summarization queries.
+   *
    * @public
    */
   export interface CaseSummarizationInputDataMember {
@@ -5072,49 +5925,57 @@ export namespace QueryInputData {
  */
 export interface QueryAssistantRequest {
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The text to search for.</p>
+   * The text to search for.
+   *
    * @public
    */
   queryText?: string | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect session. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect session. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   sessionId?: string | undefined;
 
   /**
-   * <p>Information about how to query content.</p>
+   * Information about how to query content.
+   *
    * @public
    */
   queryCondition?: QueryCondition[] | undefined;
 
   /**
-   * <p>Information about the query.</p>
+   * Information about the query.
+   *
    * @public
    */
   queryInputData?: QueryInputData | undefined;
 
   /**
-   * <p>The search type to be used against the Knowledge Base for this request. The values can be <code>SEMANTIC</code> which uses vector embeddings or <code>HYBRID</code> which use vector embeddings and raw text.</p>
+   * The search type to be used against the Knowledge Base for this request. The values can be `SEMANTIC` which uses vector embeddings or `HYBRID` which use vector embeddings and raw text.
+   *
    * @public
    */
   overrideKnowledgeBaseSearchType?: KnowledgeBaseSearchType | undefined;
@@ -5125,19 +5986,22 @@ export interface QueryAssistantRequest {
  */
 export interface RemoveAssistantAIAgentRequest {
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The type of the AI Agent being removed for use by default from the Amazon Q in Connect Assistant.</p>
+   * The type of the AI Agent being removed for use by default from the Amazon Q in Connect Assistant.
+   *
    * @public
    */
   aiAgentType: AIAgentType | undefined;
 
   /**
-   * <p>The orchestrator use case for the AI Agent being removed.</p>
+   * The orchestrator use case for the AI Agent being removed.
+   *
    * @public
    */
   orchestratorUseCase?: string | undefined;
@@ -5149,25 +6013,29 @@ export interface RemoveAssistantAIAgentRequest {
 export interface RemoveAssistantAIAgentResponse {}
 
 /**
- * <p>An attribute used for filtering.</p>
+ * An attribute used for filtering.
+ *
  * @public
  */
 export interface FilterAttribute {
   /**
-   * <p>The key of the filter attribute.</p>
+   * The key of the filter attribute.
+   *
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>The value of the filter attribute.</p>
+   * The value of the filter attribute.
+   *
    * @public
    */
   value: __DocumentType | undefined;
 }
 
 /**
- * <p>A knowledge source that provides content for recommendations.</p>
+ * A knowledge source that provides content for recommendations.
+ *
  * @public
  */
 export type KnowledgeSource =
@@ -5179,7 +6047,8 @@ export type KnowledgeSource =
  */
 export namespace KnowledgeSource {
   /**
-   * <p>The list of assistant association identifiers for the knowledge source.</p>
+   * The list of assistant association identifiers for the knowledge source.
+   *
    * @public
    */
   export interface AssistantAssociationIdsMember {
@@ -5206,54 +6075,63 @@ export namespace KnowledgeSource {
 }
 
 /**
- * <p>An error returned for a single assistant association whose knowledge base retrieval failed during a <code>Retrieve</code> operation. The overall operation still succeeds and returns the results from the associations that were queried successfully.</p>
+ * An error returned for a single assistant association whose knowledge base retrieval failed during a `Retrieve` operation. The overall operation still succeeds and returns the results from the associations that were queried successfully.
+ *
  * @public
  */
 export interface RetrieveError {
   /**
-   * <p>The identifier of the assistant association whose knowledge base retrieval failed.</p>
+   * The identifier of the assistant association whose knowledge base retrieval failed.
+   *
    * @public
    */
   associationId: string | undefined;
 
   /**
-   * <p>The error code that categorizes the retrieval failure for the assistant association.</p>
+   * The error code that categorizes the retrieval failure for the assistant association.
+   *
    * @public
    */
   code: RetrieveErrorCode | undefined;
 
   /**
-   * <p>A human-readable description of the retrieval failure for the assistant association.</p>
+   * A human-readable description of the retrieval failure for the assistant association.
+   *
    * @public
    */
   message: string | undefined;
 }
 
 /**
- * <p>A single result from a content retrieval operation.</p>
+ * A single result from a content retrieval operation.
+ *
  * @public
  */
 export interface RetrieveResult {
   /**
-   * <p>The identifier of the assistant association for the retrieved result.</p>
+   * The identifier of the assistant association for the retrieved result.
+   *
    * @public
    */
   associationId: string | undefined;
 
   /**
-   * <p>The URL, URI, or ID of the retrieved content when available, or a UUID when unavailable.</p>
+   * The URL, URI, or ID of the retrieved content when available, or a UUID when unavailable.
+   *
    * @public
    */
   sourceId: string | undefined;
 
   /**
-   * <p>A type to define the KB origin of a retrieved content.</p>
+   * A type to define the KB origin of a retrieved content.
+   *
    * @public
    */
   referenceType: ReferenceType | undefined;
 
   /**
-   * <p>The text content of the retrieved result.</p>
+   * The text content of the retrieved result.
+   *
    * @public
    */
   contentText: string | undefined;
@@ -5264,49 +6142,57 @@ export interface RetrieveResult {
  */
 export interface RetrieveResponse {
   /**
-   * <p>The results of the content retrieval operation.</p>
+   * The results of the content retrieval operation.
+   *
    * @public
    */
   results: RetrieveResult[] | undefined;
 
   /**
-   * <p>The per-association errors returned when one or more knowledge base associations fail during a <code>Retrieve</code> operation that spans multiple assistant associations. The overall operation still succeeds and returns the results from the associations that were queried successfully. This list contains one entry for each association that failed, up to a maximum of five.</p>
+   * The per-association errors returned when one or more knowledge base associations fail during a `Retrieve` operation that spans multiple assistant associations. The overall operation still succeeds and returns the results from the associations that were queried successfully. This list contains one entry for each association that failed, up to a maximum of five.
+   *
    * @public
    */
   errors?: RetrieveError[] | undefined;
 }
 
 /**
- * <p>A search filter.</p>
+ * A search filter.
+ *
  * @public
  */
 export interface Filter {
   /**
-   * <p>The field on which to filter.</p>
+   * The field on which to filter.
+   *
    * @public
    */
   field: FilterField | undefined;
 
   /**
-   * <p>The operator to use for comparing the field’s value with the provided value.</p>
+   * The operator to use for comparing the field’s value with the provided value.
+   *
    * @public
    */
   operator: FilterOperator | undefined;
 
   /**
-   * <p>The desired field value on which to filter.</p>
+   * The desired field value on which to filter.
+   *
    * @public
    */
   value: string | undefined;
 }
 
 /**
- * <p>The search expression.</p>
+ * The search expression.
+ *
  * @public
  */
 export interface SearchExpression {
   /**
-   * <p>The search expression filters.</p>
+   * The search expression filters.
+   *
    * @public
    */
   filters: Filter[] | undefined;
@@ -5317,55 +6203,64 @@ export interface SearchExpression {
  */
 export interface SearchSessionsRequest {
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The search expression to filter results.</p>
+   * The search expression to filter results.
+   *
    * @public
    */
   searchExpression: SearchExpression | undefined;
 }
 
 /**
- * <p>Summary information about the session.</p>
+ * Summary information about the session.
+ *
  * @public
  */
 export interface SessionSummary {
   /**
-   * <p>The identifier of the session.</p>
+   * The identifier of the session.
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the session.</p>
+   * The Amazon Resource Name (ARN) of the session.
+   *
    * @public
    */
   sessionArn: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant.</p>
+   * The identifier of the Amazon Q in Connect assistant.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.</p>
+   * The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
+   *
    * @public
    */
   assistantArn: string | undefined;
@@ -5376,13 +6271,15 @@ export interface SessionSummary {
  */
 export interface SearchSessionsResponse {
   /**
-   * <p>Summary information about the sessions.</p>
+   * Summary information about the sessions.
+   *
    * @public
    */
   sessionSummaries: SessionSummary[] | undefined;
 
   /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * If there are additional results, this is the token for the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -5393,139 +6290,162 @@ export interface SearchSessionsResponse {
  */
 export interface CreateSessionRequest {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see [Making retries safe with idempotent APIs](http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/).
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The name of the session.</p>
+   * The name of the session.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description.</p>
+   * The description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>An object that can be used to specify Tag conditions. </p>
+   * An object that can be used to specify Tag conditions.
+   *
    * @public
    */
   tagFilter?: TagFilter | undefined;
 
   /**
-   * <p>The configuration of the AI Agents (mapped by AI Agent Type to AI Agent version) that should be used by Amazon Q in Connect for this Session.</p>
+   * The configuration of the AI Agents (mapped by AI Agent Type to AI Agent version) that should be used by Amazon Q in Connect for this Session.
+   *
    * @public
    */
   aiAgentConfiguration?: Partial<Record<AIAgentType, AIAgentConfigurationData>> | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the email contact in Connect Customer. Used to retrieve email content and establish session context for AI-powered email assistance.</p>
+   * The Amazon Resource Name (ARN) of the email contact in Connect Customer. Used to retrieve email content and establish session context for AI-powered email assistance.
+   *
    * @public
    */
   contactArn?: string | undefined;
 
   /**
-   * <p>The list of orchestrator configurations for the session being created.</p>
+   * The list of orchestrator configurations for the session being created.
+   *
    * @public
    */
   orchestratorConfigurationList?: OrchestratorConfigurationEntry[] | undefined;
 
   /**
-   * <p>The list of orchestrator configurations to remove from the session.</p>
+   * The list of orchestrator configurations to remove from the session.
+   *
    * @public
    */
   removeOrchestratorConfigurationList?: boolean | undefined;
 }
 
 /**
- * <p>The configuration information for the session integration.</p>
+ * The configuration information for the session integration.
+ *
  * @public
  */
 export interface SessionIntegrationConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the integrated Amazon SNS topic used for streaming chat messages.</p>
+   * The Amazon Resource Name (ARN) of the integrated Amazon SNS topic used for streaming chat messages.
+   *
    * @public
    */
   topicIntegrationArn?: string | undefined;
 }
 
 /**
- * <p>Information about the session.</p>
+ * Information about the session.
+ *
  * @public
  */
 export interface SessionData {
   /**
-   * <p>The Amazon Resource Name (ARN) of the session.</p>
+   * The Amazon Resource Name (ARN) of the session.
+   *
    * @public
    */
   sessionArn: string | undefined;
 
   /**
-   * <p>The identifier of the session.</p>
+   * The identifier of the session.
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The name of the session.</p>
+   * The name of the session.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the session.</p>
+   * The description of the session.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The configuration information for the session integration.</p>
+   * The configuration information for the session integration.
+   *
    * @public
    */
   integrationConfiguration?: SessionIntegrationConfiguration | undefined;
 
   /**
-   * <p>An object that can be used to specify Tag conditions.</p>
+   * An object that can be used to specify Tag conditions.
+   *
    * @public
    */
   tagFilter?: TagFilter | undefined;
 
   /**
-   * <p>The configuration of the AI Agents (mapped by AI Agent Type to AI Agent version) that should be used by Amazon Q in Connect for this Session.</p>
+   * The configuration of the AI Agents (mapped by AI Agent Type to AI Agent version) that should be used by Amazon Q in Connect for this Session.
+   *
    * @public
    */
   aiAgentConfiguration?: Partial<Record<AIAgentType, AIAgentConfigurationData>> | undefined;
 
   /**
-   * <p>The origin of the Session to be listed. <code>SYSTEM</code> for a default Session created by Amazon Q in Connect or <code>CUSTOMER</code> for a Session created by calling <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_amazon-q-connect_CreateSession.html">CreateSession</a> API.</p>
+   * The origin of the Session to be listed. `SYSTEM` for a default Session created by Amazon Q in Connect or `CUSTOMER` for a Session created by calling [CreateSession](https://docs.aws.amazon.com/connect/latest/APIReference/API_amazon-q-connect_CreateSession.html) API.
+   *
    * @public
    */
   origin?: Origin | undefined;
 
   /**
-   * <p>The list of orchestrator configurations for the session.</p>
+   * The list of orchestrator configurations for the session.
+   *
    * @public
    */
   orchestratorConfigurationList?: OrchestratorConfigurationEntry[] | undefined;
@@ -5536,7 +6456,8 @@ export interface SessionData {
  */
 export interface CreateSessionResponse {
   /**
-   * <p>The session.</p>
+   * The session.
+   *
    * @public
    */
   session?: SessionData | undefined;
@@ -5547,26 +6468,30 @@ export interface CreateSessionResponse {
  */
 export interface GetNextMessageRequest {
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant.</p>
+   * The identifier of the Amazon Q in Connect assistant.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect session.</p>
+   * The identifier of the Amazon Q in Connect session.
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The token for the next message. Use the value returned in the SendMessage or previous response in the next request to retrieve the next message.</p>
+   * The token for the next message. Use the value returned in the SendMessage or previous response in the next request to retrieve the next message.
+   *
    * @public
    */
   nextMessageToken: string | undefined;
 }
 
 /**
- * <p>A union type that specifies the data stored on the session.</p>
+ * A union type that specifies the data stored on the session.
+ *
  * @public
  */
 export type RuntimeSessionDataValue =
@@ -5578,7 +6503,8 @@ export type RuntimeSessionDataValue =
  */
 export namespace RuntimeSessionDataValue {
   /**
-   * <p>The string value of the data stored on the session.</p>
+   * The string value of the data stored on the session.
+   *
    * @public
    */
   export interface StringValueMember {
@@ -5605,139 +6531,162 @@ export namespace RuntimeSessionDataValue {
 }
 
 /**
- * <p>The list of key-value pairs that are stored on the session.</p>
+ * The list of key-value pairs that are stored on the session.
+ *
  * @public
  */
 export interface RuntimeSessionData {
   /**
-   * <p>The key of the data stored on the session.</p>
+   * The key of the data stored on the session.
+   *
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>The value of the data stored on the session.</p>
+   * The value of the data stored on the session.
+   *
    * @public
    */
   value: RuntimeSessionDataValue | undefined;
 }
 
 /**
- * <p>The conversation state associated to a message.</p>
+ * The conversation state associated to a message.
+ *
  * @public
  */
 export interface ConversationState {
   /**
-   * <p>The status of the conversation state.</p>
+   * The status of the conversation state.
+   *
    * @public
    */
   status: ConversationStatus | undefined;
 
   /**
-   * <p>The reason of the conversation state.</p>
+   * The reason of the conversation state.
+   *
    * @public
    */
   reason?: ConversationStatusReason | undefined;
 }
 
 /**
- * <p>A citation that references source content.</p>
+ * A citation that references source content.
+ *
  * @public
  */
 export interface Citation {
   /**
-   * <p>The identifier of the content being cited.</p>
+   * The identifier of the content being cited.
+   *
    * @public
    */
   contentId?: string | undefined;
 
   /**
-   * <p>The title of the cited content.</p>
+   * The title of the cited content.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>The identifier of the knowledge base containing the cited content.</p>
+   * The identifier of the knowledge base containing the cited content.
+   *
    * @public
    */
   knowledgeBaseId?: string | undefined;
 
   /**
-   * <p>Contains information about where the text with a citation begins and ends in the generated output.</p>
+   * Contains information about where the text with a citation begins and ends in the generated output.
+   *
    * @public
    */
   citationSpan: CitationSpan | undefined;
 
   /**
-   * <p>The source URL for the citation.</p>
+   * The source URL for the citation.
+   *
    * @public
    */
   sourceURL?: string | undefined;
 
   /**
-   * <p>A type to define the KB origin of a cited content</p>
+   * A type to define the KB origin of a cited content
+   *
    * @public
    */
   referenceType: ReferenceType | undefined;
 }
 
 /**
- * <p>The message data in text type.</p>
+ * The message data in text type.
+ *
  * @public
  */
 export interface TextMessage {
   /**
-   * <p>The value of the message data in text type.</p>
+   * The value of the message data in text type.
+   *
    * @public
    */
   value?: string | undefined;
 
   /**
-   * <p>The citations associated with the text message.</p>
+   * The citations associated with the text message.
+   *
    * @public
    */
   citations?: Citation[] | undefined;
 
   /**
-   * <p>The AI Guardrail assessment for the text message.</p>
+   * The AI Guardrail assessment for the text message.
+   *
    * @public
    */
   aiGuardrailAssessment?: AIGuardrailAssessment | undefined;
 }
 
 /**
- * <p>Data about the result of tool usage.</p>
+ * Data about the result of tool usage.
+ *
  * @public
  */
 export interface ToolUseResultData {
   /**
-   * <p>The identifier of the tool use instance.</p>
+   * The identifier of the tool use instance.
+   *
    * @public
    */
   toolUseId: string | undefined;
 
   /**
-   * <p>The name of the tool that was used.</p>
+   * The name of the tool that was used.
+   *
    * @public
    */
   toolName: string | undefined;
 
   /**
-   * <p>The result of the tool usage.</p>
+   * The result of the tool usage.
+   *
    * @public
    */
   toolResult: __DocumentType | undefined;
 
   /**
-   * <p>The input schema for the tool use result.</p>
+   * The input schema for the tool use result.
+   *
    * @public
    */
   inputSchema?: __DocumentType | undefined;
 }
 
 /**
- * <p>The message data.</p>
+ * The message data.
+ *
  * @public
  */
 export type MessageData =
@@ -5751,7 +6700,8 @@ export type MessageData =
  */
 export namespace MessageData {
   /**
-   * <p>The message data in text type.</p>
+   * The message data in text type.
+   *
    * @public
    */
   export interface TextMember {
@@ -5762,7 +6712,8 @@ export namespace MessageData {
   }
 
   /**
-   * <p>The result of tool usage in the message.</p>
+   * The result of tool usage in the message.
+   *
    * @public
    */
   export interface ToolUseResultMember {
@@ -5773,7 +6724,8 @@ export namespace MessageData {
   }
 
   /**
-   * <p>The message data as a structured JSON document. This is the payload for a message of type <code>DATA</code>, and must be a JSON object at the root level.</p>
+   * The message data as a structured JSON document. This is the payload for a message of type `DATA`, and must be a JSON object at the root level.
+   *
    * @public
    */
   export interface DataMember {
@@ -5806,30 +6758,35 @@ export namespace MessageData {
 }
 
 /**
- * <p>The message output.</p>
+ * The message output.
+ *
  * @public
  */
 export interface MessageOutput {
   /**
-   * <p>The value of a message data.</p>
+   * The value of a message data.
+   *
    * @public
    */
   value: MessageData | undefined;
 
   /**
-   * <p>The identifier of a message.</p>
+   * The identifier of a message.
+   *
    * @public
    */
   messageId: string | undefined;
 
   /**
-   * <p>The participant of a message.</p>
+   * The participant of a message.
+   *
    * @public
    */
   participant: Participant | undefined;
 
   /**
-   * <p>The timestamp of a message.</p>
+   * The timestamp of a message.
+   *
    * @public
    */
   timestamp: Date | undefined;
@@ -5840,43 +6797,50 @@ export interface MessageOutput {
  */
 export interface GetNextMessageResponse {
   /**
-   * <p>The type of message response.</p>
+   * The type of message response.
+   *
    * @public
    */
   type: MessageType | undefined;
 
   /**
-   * <p>The message response to the requested message.</p>
+   * The message response to the requested message.
+   *
    * @public
    */
   response: MessageOutput | undefined;
 
   /**
-   * <p>The identifier of the submitted message.</p>
+   * The identifier of the submitted message.
+   *
    * @public
    */
   requestMessageId: string | undefined;
 
   /**
-   * <p>The state of current conversation.</p>
+   * The state of current conversation.
+   *
    * @public
    */
   conversationState: ConversationState | undefined;
 
   /**
-   * <p>The token for the next message.</p>
+   * The token for the next message.
+   *
    * @public
    */
   nextMessageToken?: string | undefined;
 
   /**
-   * <p>The conversation data stored on an Amazon Q in Connect Session.</p>
+   * The conversation data stored on an Amazon Q in Connect Session.
+   *
    * @public
    */
   conversationSessionData?: RuntimeSessionData[] | undefined;
 
   /**
-   * <p>Indicates whether the chunked response has been terminated.</p>
+   * Indicates whether the chunked response has been terminated.
+   *
    * @public
    */
   chunkedResponseTerminated?: boolean | undefined;
@@ -5887,13 +6851,15 @@ export interface GetNextMessageResponse {
  */
 export interface GetSessionRequest {
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   sessionId: string | undefined;
@@ -5904,7 +6870,8 @@ export interface GetSessionRequest {
  */
 export interface GetSessionResponse {
   /**
-   * <p>The session.</p>
+   * The session.
+   *
    * @public
    */
   session?: SessionData | undefined;
@@ -5915,31 +6882,36 @@ export interface GetSessionResponse {
  */
 export interface ListMessagesRequest {
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant.</p>
+   * The identifier of the Amazon Q in Connect assistant.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect session.</p>
+   * The identifier of the Amazon Q in Connect session.
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The filter criteria for listing messages.</p>
+   * The filter criteria for listing messages.
+   *
    * @public
    */
   filter?: MessageFilterType | undefined;
@@ -5950,13 +6922,15 @@ export interface ListMessagesRequest {
  */
 export interface ListMessagesResponse {
   /**
-   * <p>The message information.</p>
+   * The message information.
+   *
    * @public
    */
   messages: MessageOutput[] | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -5967,247 +6941,288 @@ export interface ListMessagesResponse {
  */
 export interface ListSpansRequest {
   /**
-   * <p>UUID or ARN of the Connect AI Assistant resource</p>
+   * UUID or ARN of the Connect AI Assistant resource
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>UUID or ARN of the Connect AI Session resource</p>
+   * UUID or ARN of the Connect AI Session resource
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>Pagination token for retrieving the next page of results</p>
+   * Pagination token for retrieving the next page of results
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Maximum number of spans to return per page</p>
+   * Maximum number of spans to return per page
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Per-policy guardrail assessment result. Captures which policy triggered, its outcome, and a policy-specific detail string.</p>
+ * Per-policy guardrail assessment result. Captures which policy triggered, its outcome, and a policy-specific detail string.
+ *
  * @public
  */
 export interface GuardrailPolicyResult {
   /**
-   * <p>The type of guardrail policy that was evaluated.</p>
+   * The type of guardrail policy that was evaluated.
+   *
    * @public
    */
   policyType: GuardrailPolicyType | undefined;
 
   /**
-   * <p>Outcome of this specific policy.</p>
+   * Outcome of this specific policy.
+   *
    * @public
    */
   action: GuardrailAction | undefined;
 
   /**
-   * <p>Policy-specific detail.</p>
+   * Policy-specific detail.
+   *
    * @public
    */
   details?: string | undefined;
 }
 
 /**
- * <p>Result of a single guardrail assessment, covering either the input (customer/user message) or the output (LLM response) of a Bedrock Converse call.</p>
+ * Result of a single guardrail assessment, covering either the input (customer/user message) or the output (LLM response) of a Bedrock Converse call.
+ *
  * @public
  */
 export interface SpanGuardrailAssessment {
   /**
-   * <p>Unique AI Guardrail identifier.</p>
+   * Unique AI Guardrail identifier.
+   *
    * @public
    */
   guardrailId: string | undefined;
 
   /**
-   * <p>Customer-defined display name of the AI Guardrail resource.</p>
+   * Customer-defined display name of the AI Guardrail resource.
+   *
    * @public
    */
   guardrailName: string | undefined;
 
   /**
-   * <p>Content source the guardrail was evaluated against.</p>
+   * Content source the guardrail was evaluated against.
+   *
    * @public
    */
   source: GuardrailSource | undefined;
 
   /**
-   * <p>Outcome of the guardrail assessment.</p>
+   * Outcome of the guardrail assessment.
+   *
    * @public
    */
   action: GuardrailAction | undefined;
 
   /**
-   * <p>Per-policy assessment results. Absent or empty when action is NONE.</p>
+   * Per-policy assessment results. Absent or empty when action is NONE.
+   *
    * @public
    */
   policies?: GuardrailPolicyResult[] | undefined;
 }
 
 /**
- * <p>Model reasoning and it's internal decision making process</p>
+ * Model reasoning and it's internal decision making process
+ *
  * @public
  */
 export interface SpanReasoningValue {
   /**
-   * <p>The reasoning text content</p>
+   * The reasoning text content
+   *
    * @public
    */
   value: string | undefined;
 }
 
 /**
- * <p>A citation that spans a specific range of text.</p>
+ * A citation that spans a specific range of text.
+ *
  * @public
  */
 export interface SpanCitation {
   /**
-   * <p>The identifier of the content being cited in the span.</p>
+   * The identifier of the content being cited in the span.
+   *
    * @public
    */
   contentId?: string | undefined;
 
   /**
-   * <p>The title of the content being cited in the span.</p>
+   * The title of the content being cited in the span.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>The identifier of the knowledge base containing the cited content.</p>
+   * The identifier of the knowledge base containing the cited content.
+   *
    * @public
    */
   knowledgeBaseId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the knowledge base containing the cited content.</p>
+   * The Amazon Resource Name (ARN) of the knowledge base containing the cited content.
+   *
    * @public
    */
   knowledgeBaseArn?: string | undefined;
 }
 
 /**
- * <p>Text message content</p>
+ * Text message content
+ *
  * @public
  */
 export interface SpanTextValue {
   /**
-   * <p>String content of the message text</p>
+   * String content of the message text
+   *
    * @public
    */
   value: string | undefined;
 
   /**
-   * <p>The citations associated with the span text.</p>
+   * The citations associated with the span text.
+   *
    * @public
    */
   citations?: SpanCitation[] | undefined;
 
   /**
-   * <p>The AI Guardrail assessment for the span text.</p>
+   * The AI Guardrail assessment for the span text.
+   *
    * @public
    */
   aiGuardrailAssessment?: AIGuardrailAssessment | undefined;
 }
 
 /**
- * <p>Tool invocation message content</p>
+ * Tool invocation message content
+ *
  * @public
  */
 export interface SpanToolUseValue {
   /**
-   * <p>Unique ID for this tool invocation</p>
+   * Unique ID for this tool invocation
+   *
    * @public
    */
   toolUseId: string | undefined;
 
   /**
-   * <p>The tool name</p>
+   * The tool name
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The tool input arguments</p>
+   * The tool input arguments
+   *
    * @public
    */
   arguments: __DocumentType | undefined;
 }
 
 /**
- * <p>The configuration for a <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_amazon-q-connect_SendMessage.html">SendMessage</a> request.</p>
+ * The configuration for a [SendMessage](https://docs.aws.amazon.com/connect/latest/APIReference/API_amazon-q-connect_SendMessage.html) request.
+ *
  * @public
  */
 export interface MessageConfiguration {
   /**
-   * <p>Generates a filler response when tool selection is <code>QUESTION</code>.</p>
+   * Generates a filler response when tool selection is `QUESTION`.
+   *
    * @public
    */
   generateFillerMessage?: boolean | undefined;
 
   /**
-   * <p>Configuration for generating chunked messages.</p>
+   * Configuration for generating chunked messages.
+   *
    * @public
    */
   generateChunkedMessage?: boolean | undefined;
 }
 
 /**
- * <p>The conversation history data to included in conversation context data before the Amazon Q in Connect session.</p>
+ * The conversation history data to included in conversation context data before the Amazon Q in Connect session.
+ *
  * @public
  */
 export interface SelfServiceConversationHistory {
   /**
-   * <p>The number of turn of the conversation history data.</p>
+   * The number of turn of the conversation history data.
+   *
    * @public
    */
   turnNumber?: number | undefined;
 
   /**
-   * <p>The input transcript of the conversation history data.</p>
+   * The input transcript of the conversation history data.
+   *
    * @public
    */
   inputTranscript?: string | undefined;
 
   /**
-   * <p>The bot response of the conversation history data.</p>
+   * The bot response of the conversation history data.
+   *
    * @public
    */
   botResponse?: string | undefined;
 
   /**
-   * <p>The timestamp of the conversation history entry.</p>
+   * The timestamp of the conversation history entry.
+   *
    * @public
    */
   timestamp?: Date | undefined;
 }
 
 /**
- * <p>The conversation context to include in SendMessage.</p>
+ * The conversation context to include in SendMessage.
+ *
  * @public
  */
 export interface ConversationContext {
   /**
-   * <p>The self service conversation history before the Amazon Q in Connect session.</p>
+   * The self service conversation history before the Amazon Q in Connect session.
+   *
    * @public
    */
   selfServiceConversationHistory: SelfServiceConversationHistory[] | undefined;
 }
 
 /**
- * <p>The message input.</p>
+ * The message input.
+ *
  * @public
  */
 export interface MessageInput {
   /**
-   * <p>The message input value.</p>
+   * The message input value.
+   *
    * @public
    */
   value: MessageData | undefined;
@@ -6218,67 +7233,78 @@ export interface MessageInput {
  */
 export interface SendMessageRequest {
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant.</p>
+   * The identifier of the Amazon Q in Connect assistant.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q in Connect session.</p>
+   * The identifier of the Amazon Q in Connect session.
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The message type.</p>
+   * The message type.
+   *
    * @public
    */
   type: MessageType | undefined;
 
   /**
-   * <p>The message data to submit to the Amazon Q in Connect session.</p>
+   * The message data to submit to the Amazon Q in Connect session.
+   *
    * @public
    */
   message: MessageInput | undefined;
 
   /**
-   * <p>The identifier of the AI Agent to use for processing the message.</p>
+   * The identifier of the AI Agent to use for processing the message.
+   *
    * @public
    */
   aiAgentId?: string | undefined;
 
   /**
-   * <p>The conversation context before the Amazon Q in Connect session.</p>
+   * The conversation context before the Amazon Q in Connect session.
+   *
    * @public
    */
   conversationContext?: ConversationContext | undefined;
 
   /**
-   * <p>The configuration of the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_amazon-q-connect_SendMessage.html">SendMessage</a> request.</p>
+   * The configuration of the [SendMessage](https://docs.aws.amazon.com/connect/latest/APIReference/API_amazon-q-connect_SendMessage.html) request.
+   *
    * @public
    */
   configuration?: MessageConfiguration | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the AWS SDK populates this field.For more information about idempotency, see Making retries safe with idempotent APIs.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the AWS SDK populates this field.For more information about idempotency, see Making retries safe with idempotent APIs.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The orchestrator use case for message processing.</p>
+   * The orchestrator use case for message processing.
+   *
    * @public
    */
   orchestratorUseCase?: string | undefined;
 
   /**
-   * <p>Additional metadata for the message.</p>
+   * Additional metadata for the message.
+   *
    * @public
    */
   metadata?: Record<string, string> | undefined;
 
   /**
-   * <p>Request identifier from the origin system, used for end-to-end tracing across spans.</p>
+   * Request identifier from the origin system, used for end-to-end tracing across spans.
+   *
    * @public
    */
   originRequestId?: string | undefined;
@@ -6289,19 +7315,22 @@ export interface SendMessageRequest {
  */
 export interface SendMessageResponse {
   /**
-   * <p>The identifier of the submitted message.</p>
+   * The identifier of the submitted message.
+   *
    * @public
    */
   requestMessageId: string | undefined;
 
   /**
-   * <p>The configuration of the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_amazon-q-connect_SendMessage.html">SendMessage</a> request.</p>
+   * The configuration of the [SendMessage](https://docs.aws.amazon.com/connect/latest/APIReference/API_amazon-q-connect_SendMessage.html) request.
+   *
    * @public
    */
   configuration?: MessageConfiguration | undefined;
 
   /**
-   * <p>The token for the next message, used by GetNextMessage.</p>
+   * The token for the next message, used by GetNextMessage.
+   *
    * @public
    */
   nextMessageToken: string | undefined;
@@ -6312,43 +7341,50 @@ export interface SendMessageResponse {
  */
 export interface UpdateSessionRequest {
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The description.</p>
+   * The description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>An object that can be used to specify Tag conditions.</p>
+   * An object that can be used to specify Tag conditions.
+   *
    * @public
    */
   tagFilter?: TagFilter | undefined;
 
   /**
-   * <p>The configuration of the AI Agents (mapped by AI Agent Type to AI Agent version) that should be used by Amazon Q in Connect for this Session.</p>
+   * The configuration of the AI Agents (mapped by AI Agent Type to AI Agent version) that should be used by Amazon Q in Connect for this Session.
+   *
    * @public
    */
   aiAgentConfiguration?: Partial<Record<AIAgentType, AIAgentConfigurationData>> | undefined;
 
   /**
-   * <p>The updated list of orchestrator configurations for the session.</p>
+   * The updated list of orchestrator configurations for the session.
+   *
    * @public
    */
   orchestratorConfigurationList?: OrchestratorConfigurationEntry[] | undefined;
 
   /**
-   * <p>The list of orchestrator configurations to remove from the session.</p>
+   * The list of orchestrator configurations to remove from the session.
+   *
    * @public
    */
   removeOrchestratorConfigurationList?: boolean | undefined;
@@ -6359,7 +7395,8 @@ export interface UpdateSessionRequest {
  */
 export interface UpdateSessionResponse {
   /**
-   * <p>Information about the session.</p>
+   * Information about the session.
+   *
    * @public
    */
   session?: SessionData | undefined;
@@ -6370,25 +7407,29 @@ export interface UpdateSessionResponse {
  */
 export interface UpdateSessionDataRequest {
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The namespace into which the session data is stored. Supported namespaces are: Custom</p>
+   * The namespace into which the session data is stored. Supported namespaces are: Custom
+   *
    * @public
    */
   namespace?: SessionDataNamespace | undefined;
 
   /**
-   * <p>The data stored on the Amazon Q in Connect Session.</p>
+   * The data stored on the Amazon Q in Connect Session.
+   *
    * @public
    */
   data: RuntimeSessionData[] | undefined;
@@ -6399,25 +7440,29 @@ export interface UpdateSessionDataRequest {
  */
 export interface UpdateSessionDataResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the session.</p>
+   * The Amazon Resource Name (ARN) of the session.
+   *
    * @public
    */
   sessionArn: string | undefined;
 
   /**
-   * <p>The identifier of the session.</p>
+   * The identifier of the session.
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The namespace into which the session data is stored. Supported namespaces are: Custom</p>
+   * The namespace into which the session data is stored. Supported namespaces are: Custom
+   *
    * @public
    */
   namespace: SessionDataNamespace | undefined;
 
   /**
-   * <p>Data stored in the session.</p>
+   * Data stored in the session.
+   *
    * @public
    */
   data: RuntimeSessionData[] | undefined;
@@ -6428,25 +7473,29 @@ export interface UpdateSessionDataResponse {
  */
 export interface UpdateAssistantAIAgentRequest {
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The type of the AI Agent being updated for use by default on the Amazon Q in Connect Assistant.</p>
+   * The type of the AI Agent being updated for use by default on the Amazon Q in Connect Assistant.
+   *
    * @public
    */
   aiAgentType: AIAgentType | undefined;
 
   /**
-   * <p>The configuration of the AI Agent being updated for use by default on the Amazon Q in Connect Assistant.</p>
+   * The configuration of the AI Agent being updated for use by default on the Amazon Q in Connect Assistant.
+   *
    * @public
    */
   configuration: AIAgentConfigurationData | undefined;
 
   /**
-   * <p>The orchestrator use case for the AI Agent being added.</p>
+   * The orchestrator use case for the AI Agent being added.
+   *
    * @public
    */
   orchestratorUseCase?: string | undefined;
@@ -6457,158 +7506,184 @@ export interface UpdateAssistantAIAgentRequest {
  */
 export interface UpdateAssistantAIAgentResponse {
   /**
-   * <p>The assistant data.</p>
+   * The assistant data.
+   *
    * @public
    */
   assistant?: AssistantData | undefined;
 }
 
 /**
- * <p>Instructions for interpreting the contents of a document.</p>
+ * Instructions for interpreting the contents of a document.
+ *
  * @public
  */
 export interface ParsingPrompt {
   /**
-   * <p>Instructions for interpreting the contents of a document.</p>
+   * Instructions for interpreting the contents of a document.
+   *
    * @public
    */
   parsingPromptText: string | undefined;
 }
 
 /**
- * <p>Settings for a foundation model used to parse documents for a data source.</p>
+ * Settings for a foundation model used to parse documents for a data source.
+ *
  * @public
  */
 export interface BedrockFoundationModelConfigurationForParsing {
   /**
-   * <p>The ARN of the foundation model.</p>
+   * The ARN of the foundation model.
+   *
    * @public
    */
   modelArn: string | undefined;
 
   /**
-   * <p>Instructions for interpreting the contents of a document.</p>
+   * Instructions for interpreting the contents of a document.
+   *
    * @public
    */
   parsingPrompt?: ParsingPrompt | undefined;
 }
 
 /**
- * <p>Configurations for when you choose fixed-size chunking. If you set the <code>chunkingStrategy</code> as <code>NONE</code>, exclude this field.</p>
+ * Configurations for when you choose fixed-size chunking. If you set the `chunkingStrategy` as `NONE`, exclude this field.
+ *
  * @public
  */
 export interface FixedSizeChunkingConfiguration {
   /**
-   * <p>The maximum number of tokens to include in a chunk.</p>
+   * The maximum number of tokens to include in a chunk.
+   *
    * @public
    */
   maxTokens: number | undefined;
 
   /**
-   * <p>The percentage of overlap between adjacent chunks of a data source.</p>
+   * The percentage of overlap between adjacent chunks of a data source.
+   *
    * @public
    */
   overlapPercentage: number | undefined;
 }
 
 /**
- * <p>Token settings for each layer.</p>
+ * Token settings for each layer.
+ *
  * @public
  */
 export interface HierarchicalChunkingLevelConfiguration {
   /**
-   * <p>The maximum number of tokens that a chunk can contain in this layer.</p>
+   * The maximum number of tokens that a chunk can contain in this layer.
+   *
    * @public
    */
   maxTokens: number | undefined;
 }
 
 /**
- * <p>Settings for hierarchical document chunking for a data source. Hierarchical chunking splits documents into layers of chunks where the first layer contains large chunks, and the second layer contains smaller chunks derived from the first layer.</p>
+ * Settings for hierarchical document chunking for a data source. Hierarchical chunking splits documents into layers of chunks where the first layer contains large chunks, and the second layer contains smaller chunks derived from the first layer.
+ *
  * @public
  */
 export interface HierarchicalChunkingConfiguration {
   /**
-   * <p>Token settings for each layer.</p>
+   * Token settings for each layer.
+   *
    * @public
    */
   levelConfigurations: HierarchicalChunkingLevelConfiguration[] | undefined;
 
   /**
-   * <p>The number of tokens to repeat across chunks in the same layer.</p>
+   * The number of tokens to repeat across chunks in the same layer.
+   *
    * @public
    */
   overlapTokens: number | undefined;
 }
 
 /**
- * <p>Settings for semantic document chunking for a data source. Semantic chunking splits a document into smaller documents based on groups of similar content derived from the text with natural language processing.</p>
+ * Settings for semantic document chunking for a data source. Semantic chunking splits a document into smaller documents based on groups of similar content derived from the text with natural language processing.
+ *
  * @public
  */
 export interface SemanticChunkingConfiguration {
   /**
-   * <p>The maximum number of tokens that a chunk can contain.</p>
+   * The maximum number of tokens that a chunk can contain.
+   *
    * @public
    */
   maxTokens: number | undefined;
 
   /**
-   * <p>The buffer size.</p>
+   * The buffer size.
+   *
    * @public
    */
   bufferSize: number | undefined;
 
   /**
-   * <p>The dissimilarity threshold for splitting chunks.</p>
+   * The dissimilarity threshold for splitting chunks.
+   *
    * @public
    */
   breakpointPercentileThreshold: number | undefined;
 }
 
 /**
- * <p>Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.</p>
+ * Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
+ *
  * @public
  */
 export interface ChunkingConfiguration {
   /**
-   * <p>Knowledge base can split your source data into chunks. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. You have the following options for chunking your data. If you opt for <code>NONE</code>, then you may want to pre-process your files by splitting them up such that each file corresponds to a chunk.</p>
+   * Knowledge base can split your source data into chunks. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. You have the following options for chunking your data. If you opt for `NONE`, then you may want to pre-process your files by splitting them up such that each file corresponds to a chunk.
+   *
    * @public
    */
   chunkingStrategy: ChunkingStrategy | undefined;
 
   /**
-   * <p>Configurations for when you choose fixed-size chunking. If you set the <code>chunkingStrategy</code> as <code>NONE</code>, exclude this field.</p>
+   * Configurations for when you choose fixed-size chunking. If you set the `chunkingStrategy` as `NONE`, exclude this field.
+   *
    * @public
    */
   fixedSizeChunkingConfiguration?: FixedSizeChunkingConfiguration | undefined;
 
   /**
-   * <p>Settings for hierarchical document chunking for a data source. Hierarchical chunking splits documents into layers of chunks where the first layer contains large chunks, and the second layer contains smaller chunks derived from the first layer.</p>
+   * Settings for hierarchical document chunking for a data source. Hierarchical chunking splits documents into layers of chunks where the first layer contains large chunks, and the second layer contains smaller chunks derived from the first layer.
+   *
    * @public
    */
   hierarchicalChunkingConfiguration?: HierarchicalChunkingConfiguration | undefined;
 
   /**
-   * <p>Settings for semantic document chunking for a data source. Semantic chunking splits a document into smaller documents based on groups of similar content derived from the text with natural language processing.</p>
+   * Settings for semantic document chunking for a data source. Semantic chunking splits a document into smaller documents based on groups of similar content derived from the text with natural language processing.
+   *
    * @public
    */
   semanticChunkingConfiguration?: SemanticChunkingConfiguration | undefined;
 }
 
 /**
- * <p>The configuration information of the Connect Customer data source.</p>
+ * The configuration information of the Connect Customer data source.
+ *
  * @public
  */
 export interface ConnectConfiguration {
   /**
-   * <p>The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the instance.</p>
+   * The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the instance.
+   *
    * @public
    */
   instanceId?: string | undefined;
 }
 
 /**
- * <p>The configuration information of the external data source.</p>
+ * The configuration information of the external data source.
+ *
  * @public
  */
 export type Configuration =
@@ -6620,7 +7695,8 @@ export type Configuration =
  */
 export namespace Configuration {
   /**
-   * <p>The configuration information of the Connect Customer data source.</p>
+   * The configuration information of the Connect Customer data source.
+   *
    * @public
    */
   export interface ConnectConfigurationMember {
@@ -6647,7 +7723,8 @@ export namespace Configuration {
 }
 
 /**
- * <p>The contents of a content association.</p>
+ * The contents of a content association.
+ *
  * @public
  */
 export type ContentAssociationContents =
@@ -6659,7 +7736,8 @@ export type ContentAssociationContents =
  */
 export namespace ContentAssociationContents {
   /**
-   * <p>The data of the step-by-step guide association.</p>
+   * The data of the step-by-step guide association.
+   *
    * @public
    */
   export interface AmazonConnectGuideAssociationMember {
@@ -6690,97 +7768,113 @@ export namespace ContentAssociationContents {
  */
 export interface CreateContentAssociationRequest {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see [Making retries safe with idempotent APIs](http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/).
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The identifier of the knowledge base.</p>
+   * The identifier of the knowledge base.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The identifier of the content.</p>
+   * The identifier of the content.
+   *
    * @public
    */
   contentId: string | undefined;
 
   /**
-   * <p>The type of association.</p>
+   * The type of association.
+   *
    * @public
    */
   associationType: ContentAssociationType | undefined;
 
   /**
-   * <p>The identifier of the associated resource.</p>
+   * The identifier of the associated resource.
+   *
    * @public
    */
   association: ContentAssociationContents | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Information about the content association.</p>
+ * Information about the content association.
+ *
  * @public
  */
 export interface ContentAssociationData {
   /**
-   * <p>The identifier of the knowledge base.</p>
+   * The identifier of the knowledge base.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * The Amazon Resource Name (ARN) of the knowledge base.
+   *
    * @public
    */
   knowledgeBaseArn: string | undefined;
 
   /**
-   * <p>The identifier of the content.</p>
+   * The identifier of the content.
+   *
    * @public
    */
   contentId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the content.</p>
+   * The Amazon Resource Name (ARN) of the content.
+   *
    * @public
    */
   contentArn: string | undefined;
 
   /**
-   * <p>The identifier of the content association. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the content association. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   contentAssociationId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the content association.</p>
+   * The Amazon Resource Name (ARN) of the content association.
+   *
    * @public
    */
   contentAssociationArn: string | undefined;
 
   /**
-   * <p>The type of association.</p>
+   * The type of association.
+   *
    * @public
    */
   associationType: ContentAssociationType | undefined;
 
   /**
-   * <p>The content association.</p>
+   * The content association.
+   *
    * @public
    */
   associationData: ContentAssociationContents | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -6791,7 +7885,8 @@ export interface ContentAssociationData {
  */
 export interface CreateContentAssociationResponse {
   /**
-   * <p>The association between Amazon Q in Connect content and another resource.</p>
+   * The association between Amazon Q in Connect content and another resource.
+   *
    * @public
    */
   contentAssociation?: ContentAssociationData | undefined;
@@ -6802,19 +7897,22 @@ export interface CreateContentAssociationResponse {
  */
 export interface DeleteContentAssociationRequest {
   /**
-   * <p>The identifier of the knowledge base.</p>
+   * The identifier of the knowledge base.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The identifier of the content.</p>
+   * The identifier of the content.
+   *
    * @public
    */
   contentId: string | undefined;
 
   /**
-   * <p>The identifier of the content association. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the content association. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   contentAssociationId: string | undefined;
@@ -6830,19 +7928,22 @@ export interface DeleteContentAssociationResponse {}
  */
 export interface GetContentAssociationRequest {
   /**
-   * <p>The identifier of the knowledge base.</p>
+   * The identifier of the knowledge base.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The identifier of the content.</p>
+   * The identifier of the content.
+   *
    * @public
    */
   contentId: string | undefined;
 
   /**
-   * <p>The identifier of the content association. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the content association. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   contentAssociationId: string | undefined;
@@ -6853,7 +7954,8 @@ export interface GetContentAssociationRequest {
  */
 export interface GetContentAssociationResponse {
   /**
-   * <p>The association between Amazon Q in Connect content and another resource.</p>
+   * The association between Amazon Q in Connect content and another resource.
+   *
    * @public
    */
   contentAssociation?: ContentAssociationData | undefined;
@@ -6864,85 +7966,99 @@ export interface GetContentAssociationResponse {
  */
 export interface ListContentAssociationsRequest {
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The identifier of the knowledge base.</p>
+   * The identifier of the knowledge base.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The identifier of the content.</p>
+   * The identifier of the content.
+   *
    * @public
    */
   contentId: string | undefined;
 }
 
 /**
- * <p>Summary information about a content association.</p>
+ * Summary information about a content association.
+ *
  * @public
  */
 export interface ContentAssociationSummary {
   /**
-   * <p>The identifier of the knowledge base.</p>
+   * The identifier of the knowledge base.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * The Amazon Resource Name (ARN) of the knowledge base.
+   *
    * @public
    */
   knowledgeBaseArn: string | undefined;
 
   /**
-   * <p>The identifier of the content.</p>
+   * The identifier of the content.
+   *
    * @public
    */
   contentId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the content.</p>
+   * The Amazon Resource Name (ARN) of the content.
+   *
    * @public
    */
   contentArn: string | undefined;
 
   /**
-   * <p>The identifier of the content association. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the content association. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   contentAssociationId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the content association.</p>
+   * The Amazon Resource Name (ARN) of the content association.
+   *
    * @public
    */
   contentAssociationArn: string | undefined;
 
   /**
-   * <p>The type of association.</p>
+   * The type of association.
+   *
    * @public
    */
   associationType: ContentAssociationType | undefined;
 
   /**
-   * <p>The content association.</p>
+   * The content association.
+   *
    * @public
    */
   associationData: ContentAssociationContents | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -6953,13 +8069,15 @@ export interface ContentAssociationSummary {
  */
 export interface ListContentAssociationsResponse {
   /**
-   * <p>Summary information about content associations.</p>
+   * Summary information about content associations.
+   *
    * @public
    */
   contentAssociationSummaries: ContentAssociationSummary[] | undefined;
 
   /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * If there are additional results, this is the token for the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -6970,139 +8088,162 @@ export interface ListContentAssociationsResponse {
  */
 export interface CreateContentRequest {
   /**
-   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The name of the content. Each piece of content in a knowledge base must have a unique name. You can retrieve a piece of content using only its knowledge base and its name with the <a href="https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_SearchContent.html">SearchContent</a> API.</p>
+   * The name of the content. Each piece of content in a knowledge base must have a unique name. You can retrieve a piece of content using only its knowledge base and its name with the [SearchContent](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_SearchContent.html) API.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The title of the content. If not set, the title is equal to the name.</p>
+   * The title of the content. If not set, the title is equal to the name.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>The URI you want to use for the article. If the knowledge base has a templateUri, setting this argument overrides it for this piece of content.</p>
+   * The URI you want to use for the article. If the knowledge base has a templateUri, setting this argument overrides it for this piece of content.
+   *
    * @public
    */
   overrideLinkOutUri?: string | undefined;
 
   /**
-   * <p>A key/value map to store attributes without affecting tagging or recommendations. For example, when synchronizing data between an external system and Amazon Q in Connect, you can store an external version identifier as metadata to utilize for determining drift.</p>
+   * A key/value map to store attributes without affecting tagging or recommendations. For example, when synchronizing data between an external system and Amazon Q in Connect, you can store an external version identifier as metadata to utilize for determining drift.
+   *
    * @public
    */
   metadata?: Record<string, string> | undefined;
 
   /**
-   * <p>A pointer to the uploaded asset. This value is returned by <a href="https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_StartContentUpload.html">StartContentUpload</a>.</p>
+   * A pointer to the uploaded asset. This value is returned by [StartContentUpload](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_StartContentUpload.html).
+   *
    * @public
    */
   uploadId: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see [Making retries safe with idempotent APIs](http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/).
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Information about the content.</p>
+ * Information about the content.
+ *
  * @public
  */
 export interface ContentData {
   /**
-   * <p>The Amazon Resource Name (ARN) of the content.</p>
+   * The Amazon Resource Name (ARN) of the content.
+   *
    * @public
    */
   contentArn: string | undefined;
 
   /**
-   * <p>The identifier of the content.</p>
+   * The identifier of the content.
+   *
    * @public
    */
   contentId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * The Amazon Resource Name (ARN) of the knowledge base.
+   *
    * @public
    */
   knowledgeBaseArn: string | undefined;
 
   /**
-   * <p>The identifier of the knowledge base.</p>
+   * The identifier of the knowledge base.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The name of the content.</p>
+   * The name of the content.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The identifier of the content revision.</p>
+   * The identifier of the content revision.
+   *
    * @public
    */
   revisionId: string | undefined;
 
   /**
-   * <p>The title of the content.</p>
+   * The title of the content.
+   *
    * @public
    */
   title: string | undefined;
 
   /**
-   * <p>The media type of the content.</p>
+   * The media type of the content.
+   *
    * @public
    */
   contentType: string | undefined;
 
   /**
-   * <p>The status of the content.</p>
+   * The status of the content.
+   *
    * @public
    */
   status: ContentStatus | undefined;
 
   /**
-   * <p>A key/value map to store attributes without affecting tagging or recommendations. For example, when synchronizing data between an external system and Amazon Q in Connect, you can store an external version identifier as metadata to utilize for determining drift.</p>
+   * A key/value map to store attributes without affecting tagging or recommendations. For example, when synchronizing data between an external system and Amazon Q in Connect, you can store an external version identifier as metadata to utilize for determining drift.
+   *
    * @public
    */
   metadata: Record<string, string> | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The URI of the content.</p>
+   * The URI of the content.
+   *
    * @public
    */
   linkOutUri?: string | undefined;
 
   /**
-   * <p>The URL of the content.</p>
+   * The URL of the content.
+   *
    * @public
    */
   url: string | undefined;
 
   /**
-   * <p>The expiration time of the URL as an epoch timestamp.</p>
+   * The expiration time of the URL as an epoch timestamp.
+   *
    * @public
    */
   urlExpiry: Date | undefined;
@@ -7113,7 +8254,8 @@ export interface ContentData {
  */
 export interface CreateContentResponse {
   /**
-   * <p>The content.</p>
+   * The content.
+   *
    * @public
    */
   content?: ContentData | undefined;
@@ -7124,13 +8266,15 @@ export interface CreateContentResponse {
  */
 export interface DeleteContentRequest {
   /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The identifier of the content. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the content. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   contentId: string | undefined;
@@ -7146,13 +8290,15 @@ export interface DeleteContentResponse {}
  */
 export interface GetContentRequest {
   /**
-   * <p>The identifier of the content. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the content. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   contentId: string | undefined;
 
   /**
-   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -7163,7 +8309,8 @@ export interface GetContentRequest {
  */
 export interface GetContentResponse {
   /**
-   * <p>The content.</p>
+   * The content.
+   *
    * @public
    */
   content?: ContentData | undefined;
@@ -7174,85 +8321,99 @@ export interface GetContentResponse {
  */
 export interface GetContentSummaryRequest {
   /**
-   * <p>The identifier of the content. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the content. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   contentId: string | undefined;
 
   /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 }
 
 /**
- * <p>Summary information about the content.</p>
+ * Summary information about the content.
+ *
  * @public
  */
 export interface ContentSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the content.</p>
+   * The Amazon Resource Name (ARN) of the content.
+   *
    * @public
    */
   contentArn: string | undefined;
 
   /**
-   * <p>The identifier of the content.</p>
+   * The identifier of the content.
+   *
    * @public
    */
   contentId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * The Amazon Resource Name (ARN) of the knowledge base.
+   *
    * @public
    */
   knowledgeBaseArn: string | undefined;
 
   /**
-   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge base.</p>
+   * The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge base.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The name of the content.</p>
+   * The name of the content.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The identifier of the revision of the content.</p>
+   * The identifier of the revision of the content.
+   *
    * @public
    */
   revisionId: string | undefined;
 
   /**
-   * <p>The title of the content.</p>
+   * The title of the content.
+   *
    * @public
    */
   title: string | undefined;
 
   /**
-   * <p>The media type of the content.</p>
+   * The media type of the content.
+   *
    * @public
    */
   contentType: string | undefined;
 
   /**
-   * <p>The status of the content.</p>
+   * The status of the content.
+   *
    * @public
    */
   status: ContentStatus | undefined;
 
   /**
-   * <p>A key/value map to store attributes without affecting tagging or recommendations. For example, when synchronizing data between an external system and Amazon Q in Connect, you can store an external version identifier as metadata to utilize for determining drift.</p>
+   * A key/value map to store attributes without affecting tagging or recommendations. For example, when synchronizing data between an external system and Amazon Q in Connect, you can store an external version identifier as metadata to utilize for determining drift.
+   *
    * @public
    */
   metadata: Record<string, string> | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -7263,7 +8424,8 @@ export interface ContentSummary {
  */
 export interface GetContentSummaryResponse {
   /**
-   * <p>The content summary.</p>
+   * The content summary.
+   *
    * @public
    */
   contentSummary?: ContentSummary | undefined;
@@ -7274,19 +8436,22 @@ export interface GetContentSummaryResponse {
  */
 export interface ListContentsRequest {
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -7297,13 +8462,15 @@ export interface ListContentsRequest {
  */
 export interface ListContentsResponse {
   /**
-   * <p>Information about the content.</p>
+   * Information about the content.
+   *
    * @public
    */
   contentSummaries: ContentSummary[] | undefined;
 
   /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * If there are additional results, this is the token for the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -7314,49 +8481,57 @@ export interface ListContentsResponse {
  */
 export interface UpdateContentRequest {
   /**
-   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge base. Can be either the ID or the ARN</p>
+   * The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge base. Can be either the ID or the ARN
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The identifier of the content. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the content. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   contentId: string | undefined;
 
   /**
-   * <p>The <code>revisionId</code> of the content resource to update, taken from an earlier call to <code>GetContent</code>, <code>GetContentSummary</code>, <code>SearchContent</code>, or <code>ListContents</code>. If included, this argument acts as an optimistic lock to ensure content was not modified since it was last read. If it has been modified, this API throws a <code>PreconditionFailedException</code>.</p>
+   * The `revisionId` of the content resource to update, taken from an earlier call to `GetContent`, `GetContentSummary`, `SearchContent`, or `ListContents`. If included, this argument acts as an optimistic lock to ensure content was not modified since it was last read. If it has been modified, this API throws a `PreconditionFailedException`.
+   *
    * @public
    */
   revisionId?: string | undefined;
 
   /**
-   * <p>The title of the content.</p>
+   * The title of the content.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>The URI for the article. If the knowledge base has a templateUri, setting this argument overrides it for this piece of content. To remove an existing <code>overrideLinkOurUri</code>, exclude this argument and set <code>removeOverrideLinkOutUri</code> to true.</p>
+   * The URI for the article. If the knowledge base has a templateUri, setting this argument overrides it for this piece of content. To remove an existing `overrideLinkOurUri`, exclude this argument and set `removeOverrideLinkOutUri` to true.
+   *
    * @public
    */
   overrideLinkOutUri?: string | undefined;
 
   /**
-   * <p>Unset the existing <code>overrideLinkOutUri</code> if it exists.</p>
+   * Unset the existing `overrideLinkOutUri` if it exists.
+   *
    * @public
    */
   removeOverrideLinkOutUri?: boolean | undefined;
 
   /**
-   * <p>A key/value map to store attributes without affecting tagging or recommendations. For example, when synchronizing data between an external system and Amazon Q in Connect, you can store an external version identifier as metadata to utilize for determining drift.</p>
+   * A key/value map to store attributes without affecting tagging or recommendations. For example, when synchronizing data between an external system and Amazon Q in Connect, you can store an external version identifier as metadata to utilize for determining drift.
+   *
    * @public
    */
   metadata?: Record<string, string> | undefined;
 
   /**
-   * <p>A pointer to the uploaded asset. This value is returned by <a href="https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_StartContentUpload.html">StartContentUpload</a>. </p>
+   * A pointer to the uploaded asset. This value is returned by [StartContentUpload](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_StartContentUpload.html).
+   *
    * @public
    */
   uploadId?: string | undefined;
@@ -7367,98 +8542,120 @@ export interface UpdateContentRequest {
  */
 export interface UpdateContentResponse {
   /**
-   * <p>The content.</p>
+   * The content.
+   *
    * @public
    */
   content?: ContentData | undefined;
 }
 
 /**
- * <p>Information about how to render the content.</p>
+ * Information about how to render the content.
+ *
  * @public
  */
 export interface RenderingConfiguration {
   /**
-   * <p>A URI template containing exactly one variable in <code>$\{variableName\} </code>format. This can only be set for <code>EXTERNAL</code> knowledge bases. For Salesforce, ServiceNow, and Zendesk, the variable must be one of the following:</p> <ul> <li> <p>Salesforce: <code>Id</code>, <code>ArticleNumber</code>, <code>VersionNumber</code>, <code>Title</code>, <code>PublishStatus</code>, or <code>IsDeleted</code> </p> </li> <li> <p>ServiceNow: <code>number</code>, <code>short_description</code>, <code>sys_mod_count</code>, <code>workflow_state</code>, or <code>active</code> </p> </li> <li> <p>Zendesk: <code>id</code>, <code>title</code>, <code>updated_at</code>, or <code>draft</code> </p> </li> </ul> <p>The variable is replaced with the actual value for a piece of content when calling <a href="https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_GetContent.html">GetContent</a>. </p>
+   * A URI template containing exactly one variable in `$\{variableName\}`format. This can only be set for `EXTERNAL` knowledge bases. For Salesforce, ServiceNow, and Zendesk, the variable must be one of the following:
+   *
+   * - Salesforce: `Id`, `ArticleNumber`, `VersionNumber`, `Title`, `PublishStatus`, or `IsDeleted`
+   * - ServiceNow: `number`, `short_description`, `sys_mod_count`, `workflow_state`, or `active`
+   * - Zendesk: `id`, `title`, `updated_at`, or `draft`
+   *
+   * The variable is replaced with the actual value for a piece of content when calling [GetContent](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_GetContent.html).
+   *
    * @public
    */
   templateUri?: string | undefined;
 }
 
 /**
- * <p>The configuration of crawl limits for the web URLs.</p>
+ * The configuration of crawl limits for the web URLs.
+ *
  * @public
  */
 export interface WebCrawlerLimits {
   /**
-   * <p>Rate of web URLs retrieved per minute.</p>
+   * Rate of web URLs retrieved per minute.
+   *
    * @public
    */
   rateLimit?: number | undefined;
 }
 
 /**
- * <p>A URL for crawling.</p>
+ * A URL for crawling.
+ *
  * @public
  */
 export interface SeedUrl {
   /**
-   * <p>URL for crawling</p>
+   * URL for crawling
+   *
    * @public
    */
   url?: string | undefined;
 }
 
 /**
- * <p>The configuration of the URL/URLs for the web content that you want to crawl. You should be authorized to crawl the URLs.</p>
+ * The configuration of the URL/URLs for the web content that you want to crawl. You should be authorized to crawl the URLs.
+ *
  * @public
  */
 export interface UrlConfiguration {
   /**
-   * <p>List of URLs for crawling.</p>
+   * List of URLs for crawling.
+   *
    * @public
    */
   seedUrls?: SeedUrl[] | undefined;
 }
 
 /**
- * <p>The configuration details for the web data source.</p>
+ * The configuration details for the web data source.
+ *
  * @public
  */
 export interface WebCrawlerConfiguration {
   /**
-   * <p>The configuration of the URL/URLs for the web content that you want to crawl. You should be authorized to crawl the URLs.</p>
+   * The configuration of the URL/URLs for the web content that you want to crawl. You should be authorized to crawl the URLs.
+   *
    * @public
    */
   urlConfiguration: UrlConfiguration | undefined;
 
   /**
-   * <p>The configuration of crawl limits for the web URLs.</p>
+   * The configuration of crawl limits for the web URLs.
+   *
    * @public
    */
   crawlerLimits?: WebCrawlerLimits | undefined;
 
   /**
-   * <p>A list of one or more inclusion regular expression patterns to include certain URLs. If you specify an inclusion and exclusion filter/pattern and both match a URL, the exclusion filter takes precedence and the web content of the URL isn’t crawled.</p>
+   * A list of one or more inclusion regular expression patterns to include certain URLs. If you specify an inclusion and exclusion filter/pattern and both match a URL, the exclusion filter takes precedence and the web content of the URL isn’t crawled.
+   *
    * @public
    */
   inclusionFilters?: string[] | undefined;
 
   /**
-   * <p>A list of one or more exclusion regular expression patterns to exclude certain URLs. If you specify an inclusion and exclusion filter/pattern and both match a URL, the exclusion filter takes precedence and the web content of the URL isn’t crawled.</p>
+   * A list of one or more exclusion regular expression patterns to exclude certain URLs. If you specify an inclusion and exclusion filter/pattern and both match a URL, the exclusion filter takes precedence and the web content of the URL isn’t crawled.
+   *
    * @public
    */
   exclusionFilters?: string[] | undefined;
 
   /**
-   * <p>The scope of what is crawled for your URLs. You can choose to crawl only web pages that belong to the same host or primary domain. For example, only web pages that contain the seed URL <code>https://docs.aws.amazon.com/bedrock/latest/userguide/</code> and no other domains. You can choose to include sub domains in addition to the host or primary domain. For example, web pages that contain <code>aws.amazon.com</code> can also include sub domain <code>docs.aws.amazon.com</code>.</p>
+   * The scope of what is crawled for your URLs. You can choose to crawl only web pages that belong to the same host or primary domain. For example, only web pages that contain the seed URL `https://docs.aws.amazon.com/bedrock/latest/userguide/` and no other domains. You can choose to include sub domains in addition to the host or primary domain. For example, web pages that contain `aws.amazon.com` can also include sub domain `docs.aws.amazon.com`.
+   *
    * @public
    */
   scope?: WebScopeType | undefined;
 }
 
 /**
- * <p>Source configuration for managed resources.</p>
+ * Source configuration for managed resources.
+ *
  * @public
  */
 export type ManagedSourceConfiguration =
@@ -7470,7 +8667,8 @@ export type ManagedSourceConfiguration =
  */
 export namespace ManagedSourceConfiguration {
   /**
-   * <p>Configuration data for web crawler data source.</p>
+   * Configuration data for web crawler data source.
+   *
    * @public
    */
   export interface WebCrawlerConfigurationMember {
@@ -7497,7 +8695,8 @@ export namespace ManagedSourceConfiguration {
 }
 
 /**
- * <p>Configuration information about the external data source.</p>
+ * Configuration information about the external data source.
+ *
  * @public
  */
 export type SourceConfiguration =
@@ -7510,7 +8709,8 @@ export type SourceConfiguration =
  */
 export namespace SourceConfiguration {
   /**
-   * <p>Configuration information for Amazon AppIntegrations to automatically ingest content.</p>
+   * Configuration information for Amazon AppIntegrations to automatically ingest content.
+   *
    * @public
    */
   export interface AppIntegrationsMember {
@@ -7520,7 +8720,8 @@ export namespace SourceConfiguration {
   }
 
   /**
-   * <p>Source configuration for managed resources.</p>
+   * Source configuration for managed resources.
+   *
    * @public
    */
   export interface ManagedSourceConfigurationMember {
@@ -7550,36 +8751,42 @@ export namespace SourceConfiguration {
 }
 
 /**
- * <p>Settings for parsing document contents. By default, the service converts the contents of each document into text before splitting it into chunks. To improve processing of PDF files with tables and images, you can configure the data source to convert the pages of text into images and use a model to describe the contents of each page.</p>
+ * Settings for parsing document contents. By default, the service converts the contents of each document into text before splitting it into chunks. To improve processing of PDF files with tables and images, you can configure the data source to convert the pages of text into images and use a model to describe the contents of each page.
+ *
  * @public
  */
 export interface ParsingConfiguration {
   /**
-   * <p>The parsing strategy for the data source.</p>
+   * The parsing strategy for the data source.
+   *
    * @public
    */
   parsingStrategy: ParsingStrategy | undefined;
 
   /**
-   * <p>Settings for a foundation model used to parse documents for a data source.</p>
+   * Settings for a foundation model used to parse documents for a data source.
+   *
    * @public
    */
   bedrockFoundationModelConfiguration?: BedrockFoundationModelConfigurationForParsing | undefined;
 }
 
 /**
- * <p>Contains details about how to ingest the documents in a data source.</p>
+ * Contains details about how to ingest the documents in a data source.
+ *
  * @public
  */
 export interface VectorIngestionConfiguration {
   /**
-   * <p>Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.</p>
+   * Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
+   *
    * @public
    */
   chunkingConfiguration?: ChunkingConfiguration | undefined;
 
   /**
-   * <p>A custom parser for data source documents.</p>
+   * A custom parser for data source documents.
+   *
    * @public
    */
   parsingConfiguration?: ParsingConfiguration | undefined;
@@ -7590,145 +8797,177 @@ export interface VectorIngestionConfiguration {
  */
 export interface CreateKnowledgeBaseRequest {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see [Making retries safe with idempotent APIs](http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/).
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The name of the knowledge base.</p>
+   * The name of the knowledge base.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of knowledge base. Only CUSTOM knowledge bases allow you to upload your own content. EXTERNAL knowledge bases support integrations with third-party systems whose content is synchronized automatically. </p>
+   * The type of knowledge base. Only CUSTOM knowledge bases allow you to upload your own content. EXTERNAL knowledge bases support integrations with third-party systems whose content is synchronized automatically.
+   *
    * @public
    */
   knowledgeBaseType: KnowledgeBaseType | undefined;
 
   /**
-   * <p>The source of the knowledge base content. Only set this argument for EXTERNAL or Managed knowledge bases.</p>
+   * The source of the knowledge base content. Only set this argument for EXTERNAL or Managed knowledge bases.
+   *
    * @public
    */
   sourceConfiguration?: SourceConfiguration | undefined;
 
   /**
-   * <p>Information about how to render the content.</p>
+   * Information about how to render the content.
+   *
    * @public
    */
   renderingConfiguration?: RenderingConfiguration | undefined;
 
   /**
-   * <p>Contains details about how to ingest the documents in a data source.</p>
+   * Contains details about how to ingest the documents in a data source.
+   *
    * @public
    */
   vectorIngestionConfiguration?: VectorIngestionConfiguration | undefined;
 
   /**
-   * <p>The configuration information for the customer managed key used for encryption. </p> <p>This KMS key must have a policy that allows <code>kms:CreateGrant</code>, <code>kms:DescribeKey</code>, <code>kms:Decrypt</code>, and <code>kms:GenerateDataKey*</code> permissions to the IAM identity using the key to invoke Amazon Q in Connect.</p> <p>For more information about setting up a customer managed key for Amazon Q in Connect, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html">Enable Amazon Q in Connect for your instance</a>.</p>
+   * The configuration information for the customer managed key used for encryption.
+   *
+   * This KMS key must have a policy that allows `kms:CreateGrant`, `kms:DescribeKey`, `kms:Decrypt`, and `kms:GenerateDataKey*` permissions to the IAM identity using the key to invoke Amazon Q in Connect.
+   *
+   * For more information about setting up a customer managed key for Amazon Q in Connect, see [Enable Amazon Q in Connect for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html).
+   *
    * @public
    */
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration | undefined;
 
   /**
-   * <p>The description.</p>
+   * The description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Information about the knowledge base.</p>
+ * Information about the knowledge base.
+ *
  * @public
  */
 export interface KnowledgeBaseData {
   /**
-   * <p>The identifier of the knowledge base.</p>
+   * The identifier of the knowledge base.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * The Amazon Resource Name (ARN) of the knowledge base.
+   *
    * @public
    */
   knowledgeBaseArn: string | undefined;
 
   /**
-   * <p>The name of the knowledge base.</p>
+   * The name of the knowledge base.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of knowledge base.</p>
+   * The type of knowledge base.
+   *
    * @public
    */
   knowledgeBaseType: KnowledgeBaseType | undefined;
 
   /**
-   * <p>The status of the knowledge base.</p>
+   * The status of the knowledge base.
+   *
    * @public
    */
   status: KnowledgeBaseStatus | undefined;
 
   /**
-   * <p>An epoch timestamp indicating the most recent content modification inside the knowledge base. If no content exists in a knowledge base, this value is unset.</p>
+   * An epoch timestamp indicating the most recent content modification inside the knowledge base. If no content exists in a knowledge base, this value is unset.
+   *
    * @public
    */
   lastContentModificationTime?: Date | undefined;
 
   /**
-   * <p>Contains details about how to ingest the documents in a data source.</p>
+   * Contains details about how to ingest the documents in a data source.
+   *
    * @public
    */
   vectorIngestionConfiguration?: VectorIngestionConfiguration | undefined;
 
   /**
-   * <p>Source configuration information about the knowledge base.</p>
+   * Source configuration information about the knowledge base.
+   *
    * @public
    */
   sourceConfiguration?: SourceConfiguration | undefined;
 
   /**
-   * <p>Information about how to render the content.</p>
+   * Information about how to render the content.
+   *
    * @public
    */
   renderingConfiguration?: RenderingConfiguration | undefined;
 
   /**
-   * <p>The configuration information for the customer managed key used for encryption. </p> <p>This KMS key must have a policy that allows <code>kms:CreateGrant</code>, <code>kms:DescribeKey</code>, <code>kms:Decrypt</code>, and <code>kms:GenerateDataKey*</code> permissions to the IAM identity using the key to invoke Amazon Q in Connect. </p> <p>For more information about setting up a customer managed key for Amazon Q in Connect, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html">Enable Amazon Q in Connect for your instance</a>.</p>
+   * The configuration information for the customer managed key used for encryption.
+   *
+   * This KMS key must have a policy that allows `kms:CreateGrant`, `kms:DescribeKey`, `kms:Decrypt`, and `kms:GenerateDataKey*` permissions to the IAM identity using the key to invoke Amazon Q in Connect.
+   *
+   * For more information about setting up a customer managed key for Amazon Q in Connect, see [Enable Amazon Q in Connect for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html).
+   *
    * @public
    */
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration | undefined;
 
   /**
-   * <p>The description.</p>
+   * The description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Status of ingestion on data source.</p>
+   * Status of ingestion on data source.
+   *
    * @public
    */
   ingestionStatus?: SyncStatus | undefined;
 
   /**
-   * <p>List of failure reasons on ingestion per file.</p>
+   * List of failure reasons on ingestion per file.
+   *
    * @public
    */
   ingestionFailureReasons?: string[] | undefined;
@@ -7739,14 +8978,16 @@ export interface KnowledgeBaseData {
  */
 export interface CreateKnowledgeBaseResponse {
   /**
-   * <p>The knowledge base.</p>
+   * The knowledge base.
+   *
    * @public
    */
   knowledgeBase?: KnowledgeBaseData | undefined;
 }
 
 /**
- * <p>The container of the message template body.</p>
+ * The container of the message template body.
+ *
  * @public
  */
 export type MessageTemplateBodyContentProvider =
@@ -7758,7 +8999,8 @@ export type MessageTemplateBodyContentProvider =
  */
 export namespace MessageTemplateBodyContentProvider {
   /**
-   * <p>The content of the message template.</p>
+   * The content of the message template.
+   *
    * @public
    */
   export interface ContentMember {
@@ -7785,361 +9027,437 @@ export namespace MessageTemplateBodyContentProvider {
 }
 
 /**
- * <p>The body to use in email messages.</p>
+ * The body to use in email messages.
+ *
  * @public
  */
 export interface EmailMessageTemplateContentBody {
   /**
-   * <p>The message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.</p>
+   * The message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.
+   *
    * @public
    */
   plainText?: MessageTemplateBodyContentProvider | undefined;
 
   /**
-   * <p>The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.</p>
+   * The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
+   *
    * @public
    */
   html?: MessageTemplateBodyContentProvider | undefined;
 }
 
 /**
- * <p>The email header to include in email messages.</p>
+ * The email header to include in email messages.
+ *
  * @public
  */
 export interface EmailHeader {
   /**
-   * <p>The name of the email header.</p>
+   * The name of the email header.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The value of the email header.</p>
+   * The value of the email header.
+   *
    * @public
    */
   value?: string | undefined;
 }
 
 /**
- * <p>The content of the message template that applies to the email channel subtype.</p>
+ * The content of the message template that applies to the email channel subtype.
+ *
  * @public
  */
 export interface EmailMessageTemplateContent {
   /**
-   * <p>The subject line, or title, to use in email messages.</p>
+   * The subject line, or title, to use in email messages.
+   *
    * @public
    */
   subject?: string | undefined;
 
   /**
-   * <p>The body to use in email messages.</p>
+   * The body to use in email messages.
+   *
    * @public
    */
   body?: EmailMessageTemplateContentBody | undefined;
 
   /**
-   * <p>The email headers to include in email messages.</p>
+   * The email headers to include in email messages.
+   *
    * @public
    */
   headers?: EmailHeader[] | undefined;
 }
 
 /**
- * <p>The content of the push message template that applies to ADM (Amazon Device Messaging) notification service.</p>
+ * The content of the push message template that applies to ADM (Amazon Device Messaging) notification service.
+ *
  * @public
  */
 export interface PushADMMessageTemplateContent {
   /**
-   * <p>The title to use in a push notification that's based on the message template. This title appears above the notification message on a recipient's device.</p>
+   * The title to use in a push notification that's based on the message template. This title appears above the notification message on a recipient's device.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>The message body to use in a push notification that is based on the message template.</p>
+   * The message body to use in a push notification that is based on the message template.
+   *
    * @public
    */
   body?: MessageTemplateBodyContentProvider | undefined;
 
   /**
-   * <p>The action to occur if a recipient taps a push notification that is based on the message template. Valid values are:</p> <ul> <li> <p> <code>OPEN_APP</code> - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.</p> </li> <li> <p> <code>DEEP_LINK</code> - Your app opens and displays a designated user interface in the app. This action uses the deep-linking features of the Android platform.</p> </li> <li> <p> <code>URL</code> - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.</p> </li> </ul>
+   * The action to occur if a recipient taps a push notification that is based on the message template. Valid values are:
+   *
+   * - `OPEN_APP` - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.
+   * - `DEEP_LINK` - Your app opens and displays a designated user interface in the app. This action uses the deep-linking features of the Android platform.
+   * - `URL` - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.
+   *
    * @public
    */
   action?: PushMessageAction | undefined;
 
   /**
-   * <p>The sound to play when a recipient receives a push notification that's based on the message template. You can use the default stream or specify the file name of a sound resource that's bundled in your app. On an Android platform, the sound file must reside in <code>/res/raw/</code>.</p>
+   * The sound to play when a recipient receives a push notification that's based on the message template. You can use the default stream or specify the file name of a sound resource that's bundled in your app. On an Android platform, the sound file must reside in `/res/raw/`.
+   *
    * @public
    */
   sound?: string | undefined;
 
   /**
-   * <p>The URL to open in a recipient's default mobile browser, if a recipient taps a push notification that's based on the message template and the value of the <code>action</code> property is <code>URL</code>.</p>
+   * The URL to open in a recipient's default mobile browser, if a recipient taps a push notification that's based on the message template and the value of the `action` property is `URL`.
+   *
    * @public
    */
   url?: string | undefined;
 
   /**
-   * <p>The URL of an image to display in a push notification that's based on the message template.</p>
+   * The URL of an image to display in a push notification that's based on the message template.
+   *
    * @public
    */
   imageUrl?: string | undefined;
 
   /**
-   * <p>The URL of the large icon image to display in the content view of a push notification that's based on the message template.</p>
+   * The URL of the large icon image to display in the content view of a push notification that's based on the message template.
+   *
    * @public
    */
   imageIconUrl?: string | undefined;
 
   /**
-   * <p>The URL of the small icon image to display in the status bar and the content view of a push notification that's based on the message template.</p>
+   * The URL of the small icon image to display in the status bar and the content view of a push notification that's based on the message template.
+   *
    * @public
    */
   smallImageIconUrl?: string | undefined;
 
   /**
-   * <p>The URL of the small icon image to display in the status bar and the content view of a push notification that's based on the message template.</p>
+   * The URL of the small icon image to display in the status bar and the content view of a push notification that's based on the message template.
+   *
    * @public
    */
   rawContent?: MessageTemplateBodyContentProvider | undefined;
 }
 
 /**
- * <p>The content of the push message template that applies to APNS (Apple Push Notification service) notification service.</p>
+ * The content of the push message template that applies to APNS (Apple Push Notification service) notification service.
+ *
  * @public
  */
 export interface PushAPNSMessageTemplateContent {
   /**
-   * <p>The title to use in a push notification that's based on the message template. This title appears above the notification message on a recipient's device.</p>
+   * The title to use in a push notification that's based on the message template. This title appears above the notification message on a recipient's device.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>The message body to use in a push notification that is based on the message template.</p>
+   * The message body to use in a push notification that is based on the message template.
+   *
    * @public
    */
   body?: MessageTemplateBodyContentProvider | undefined;
 
   /**
-   * <p>The action to occur if a recipient taps a push notification that is based on the message template. Valid values are:</p> <ul> <li> <p> <code>OPEN_APP</code> - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.</p> </li> <li> <p> <code>DEEP_LINK</code> - Your app opens and displays a designated user interface in the app. This action uses the deep-linking features of the iOS platform.</p> </li> <li> <p> <code>URL</code> - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.</p> </li> </ul>
+   * The action to occur if a recipient taps a push notification that is based on the message template. Valid values are:
+   *
+   * - `OPEN_APP` - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.
+   * - `DEEP_LINK` - Your app opens and displays a designated user interface in the app. This action uses the deep-linking features of the iOS platform.
+   * - `URL` - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.
+   *
    * @public
    */
   action?: PushMessageAction | undefined;
 
   /**
-   * <p>The key for the sound to play when the recipient receives a push notification that's based on the message template. The value for this key is the name of a sound file in your app's main bundle or the <code>Library/Sounds</code> folder in your app's data container. If the sound file can't be found or you specify <code>default</code> for the value, the system plays the default alert sound.</p>
+   * The key for the sound to play when the recipient receives a push notification that's based on the message template. The value for this key is the name of a sound file in your app's main bundle or the `Library/Sounds` folder in your app's data container. If the sound file can't be found or you specify `default` for the value, the system plays the default alert sound.
+   *
    * @public
    */
   sound?: string | undefined;
 
   /**
-   * <p>The URL to open in a recipient's default mobile browser, if a recipient taps a push notification that's based on the message template and the value of the <code>action</code> property is <code>URL</code>.</p>
+   * The URL to open in a recipient's default mobile browser, if a recipient taps a push notification that's based on the message template and the value of the `action` property is `URL`.
+   *
    * @public
    */
   url?: string | undefined;
 
   /**
-   * <p>The URL of an image or video to display in push notifications that are based on the message template.</p>
+   * The URL of an image or video to display in push notifications that are based on the message template.
+   *
    * @public
    */
   mediaUrl?: string | undefined;
 
   /**
-   * <p>The raw, JSON-formatted string to use as the payload for a push notification that's based on the message template. If specified, this value overrides all other content for the message template.</p>
+   * The raw, JSON-formatted string to use as the payload for a push notification that's based on the message template. If specified, this value overrides all other content for the message template.
+   *
    * @public
    */
   rawContent?: MessageTemplateBodyContentProvider | undefined;
 }
 
 /**
- * <p>The content of the push message template that applies to Baidu notification service.</p>
+ * The content of the push message template that applies to Baidu notification service.
+ *
  * @public
  */
 export interface PushBaiduMessageTemplateContent {
   /**
-   * <p>The title to use in a push notification that's based on the message template. This title appears above the notification message on a recipient's device.</p>
+   * The title to use in a push notification that's based on the message template. This title appears above the notification message on a recipient's device.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>The message body to use in a push notification that is based on the message template.</p>
+   * The message body to use in a push notification that is based on the message template.
+   *
    * @public
    */
   body?: MessageTemplateBodyContentProvider | undefined;
 
   /**
-   * <p>The action to occur if a recipient taps a push notification that is based on the message template. Valid values are:</p> <ul> <li> <p> <code>OPEN_APP</code> - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.</p> </li> <li> <p> <code>DEEP_LINK</code> - Your app opens and displays a designated user interface in the app. This action uses the deep-linking features of the Android platform.</p> </li> <li> <p> <code>URL</code> - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.</p> </li> </ul>
+   * The action to occur if a recipient taps a push notification that is based on the message template. Valid values are:
+   *
+   * - `OPEN_APP` - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.
+   * - `DEEP_LINK` - Your app opens and displays a designated user interface in the app. This action uses the deep-linking features of the Android platform.
+   * - `URL` - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.
+   *
    * @public
    */
   action?: PushMessageAction | undefined;
 
   /**
-   * <p>The sound to play when a recipient receives a push notification that's based on the message template. You can use the default stream or specify the file name of a sound resource that's bundled in your app. On an Android platform, the sound file must reside in <code>/res/raw/</code>.</p>
+   * The sound to play when a recipient receives a push notification that's based on the message template. You can use the default stream or specify the file name of a sound resource that's bundled in your app. On an Android platform, the sound file must reside in `/res/raw/`.
+   *
    * @public
    */
   sound?: string | undefined;
 
   /**
-   * <p>The URL to open in a recipient's default mobile browser, if a recipient taps a push notification that's based on the message template and the value of the <code>action</code> property is <code>URL</code>.</p>
+   * The URL to open in a recipient's default mobile browser, if a recipient taps a push notification that's based on the message template and the value of the `action` property is `URL`.
+   *
    * @public
    */
   url?: string | undefined;
 
   /**
-   * <p>The URL of an image to display in a push notification that's based on the message template.</p>
+   * The URL of an image to display in a push notification that's based on the message template.
+   *
    * @public
    */
   imageUrl?: string | undefined;
 
   /**
-   * <p>The URL of the large icon image to display in the content view of a push notification that's based on the message template.</p>
+   * The URL of the large icon image to display in the content view of a push notification that's based on the message template.
+   *
    * @public
    */
   imageIconUrl?: string | undefined;
 
   /**
-   * <p>The URL of the small icon image to display in the status bar and the content view of a push notification that's based on the message template.</p>
+   * The URL of the small icon image to display in the status bar and the content view of a push notification that's based on the message template.
+   *
    * @public
    */
   smallImageIconUrl?: string | undefined;
 
   /**
-   * <p>The URL of the small icon image to display in the status bar and the content view of a push notification that's based on the message template.</p>
+   * The URL of the small icon image to display in the status bar and the content view of a push notification that's based on the message template.
+   *
    * @public
    */
   rawContent?: MessageTemplateBodyContentProvider | undefined;
 }
 
 /**
- * <p>The content of the push message template that applies to FCM (Firebase Cloud Messaging) notification service.</p>
+ * The content of the push message template that applies to FCM (Firebase Cloud Messaging) notification service.
+ *
  * @public
  */
 export interface PushFCMMessageTemplateContent {
   /**
-   * <p>The title to use in a push notification that's based on the message template. This title appears above the notification message on a recipient's device.</p>
+   * The title to use in a push notification that's based on the message template. This title appears above the notification message on a recipient's device.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>The message body to use in a push notification that is based on the message template.</p>
+   * The message body to use in a push notification that is based on the message template.
+   *
    * @public
    */
   body?: MessageTemplateBodyContentProvider | undefined;
 
   /**
-   * <p>The action to occur if a recipient taps a push notification that is based on the message template. Valid values are:</p> <ul> <li> <p> <code>OPEN_APP</code> - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.</p> </li> <li> <p> <code>DEEP_LINK</code> - Your app opens and displays a designated user interface in the app. This action uses the deep-linking features of the Android platform.</p> </li> <li> <p> <code>URL</code> - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.</p> </li> </ul>
+   * The action to occur if a recipient taps a push notification that is based on the message template. Valid values are:
+   *
+   * - `OPEN_APP` - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.
+   * - `DEEP_LINK` - Your app opens and displays a designated user interface in the app. This action uses the deep-linking features of the Android platform.
+   * - `URL` - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.
+   *
    * @public
    */
   action?: PushMessageAction | undefined;
 
   /**
-   * <p>The sound to play when a recipient receives a push notification that's based on the message template. You can use the default stream or specify the file name of a sound resource that's bundled in your app. On an Android platform, the sound file must reside in <code>/res/raw/</code>.</p>
+   * The sound to play when a recipient receives a push notification that's based on the message template. You can use the default stream or specify the file name of a sound resource that's bundled in your app. On an Android platform, the sound file must reside in `/res/raw/`.
+   *
    * @public
    */
   sound?: string | undefined;
 
   /**
-   * <p>The URL to open in a recipient's default mobile browser, if a recipient taps a push notification that's based on the message template and the value of the <code>action</code> property is <code>URL</code>.</p>
+   * The URL to open in a recipient's default mobile browser, if a recipient taps a push notification that's based on the message template and the value of the `action` property is `URL`.
+   *
    * @public
    */
   url?: string | undefined;
 
   /**
-   * <p>The URL of an image to display in a push notification that's based on the message template.</p>
+   * The URL of an image to display in a push notification that's based on the message template.
+   *
    * @public
    */
   imageUrl?: string | undefined;
 
   /**
-   * <p>The URL of the large icon image to display in the content view of a push notification that's based on the message template.</p>
+   * The URL of the large icon image to display in the content view of a push notification that's based on the message template.
+   *
    * @public
    */
   imageIconUrl?: string | undefined;
 
   /**
-   * <p>The URL of the small icon image to display in the status bar and the content view of a push notification that's based on the message template.</p>
+   * The URL of the small icon image to display in the status bar and the content view of a push notification that's based on the message template.
+   *
    * @public
    */
   smallImageIconUrl?: string | undefined;
 
   /**
-   * <p>The URL of the small icon image to display in the status bar and the content view of a push notification that's based on the message template.</p>
+   * The URL of the small icon image to display in the status bar and the content view of a push notification that's based on the message template.
+   *
    * @public
    */
   rawContent?: MessageTemplateBodyContentProvider | undefined;
 }
 
 /**
- * <p>The content of the message template that applies to the push channel subtype.</p>
+ * The content of the message template that applies to the push channel subtype.
+ *
  * @public
  */
 export interface PushMessageTemplateContent {
   /**
-   * <p>The content of the message template that applies to ADM (Amazon Device Messaging) notification service.</p>
+   * The content of the message template that applies to ADM (Amazon Device Messaging) notification service.
+   *
    * @public
    */
   adm?: PushADMMessageTemplateContent | undefined;
 
   /**
-   * <p>The content of the message template that applies to APNS(Apple Push Notification service) notification service.</p>
+   * The content of the message template that applies to APNS(Apple Push Notification service) notification service.
+   *
    * @public
    */
   apns?: PushAPNSMessageTemplateContent | undefined;
 
   /**
-   * <p>The content of the message template that applies to FCM (Firebase Cloud Messaging) notification service.</p>
+   * The content of the message template that applies to FCM (Firebase Cloud Messaging) notification service.
+   *
    * @public
    */
   fcm?: PushFCMMessageTemplateContent | undefined;
 
   /**
-   * <p>The content of the message template that applies to Baidu notification service.</p>
+   * The content of the message template that applies to Baidu notification service.
+   *
    * @public
    */
   baidu?: PushBaiduMessageTemplateContent | undefined;
 }
 
 /**
- * <p>The body to use in SMS messages.</p>
+ * The body to use in SMS messages.
+ *
  * @public
  */
 export interface SMSMessageTemplateContentBody {
   /**
-   * <p>The message body to use in SMS messages.</p>
+   * The message body to use in SMS messages.
+   *
    * @public
    */
   plainText?: MessageTemplateBodyContentProvider | undefined;
 }
 
 /**
- * <p>The content of the message template that applies to the SMS channel subtype.</p>
+ * The content of the message template that applies to the SMS channel subtype.
+ *
  * @public
  */
 export interface SMSMessageTemplateContent {
   /**
-   * <p>The body to use in SMS messages.</p>
+   * The body to use in SMS messages.
+   *
    * @public
    */
   body?: SMSMessageTemplateContentBody | undefined;
 }
 
 /**
- * <p>The content of the message template that applies to the WHATSAPP channel subtype.</p>
+ * The content of the message template that applies to the WHATSAPP channel subtype.
+ *
  * @public
  */
 export interface WhatsAppMessageTemplateContent {
   /**
-   * <p>The data.</p>
+   * The data.
+   *
    * @public
    */
   data?: string | undefined;
 }
 
 /**
- * <p>The container of message template content.</p>
+ * The container of message template content.
+ *
  * @public
  */
 export type MessageTemplateContentProvider =
@@ -8154,7 +9472,8 @@ export type MessageTemplateContentProvider =
  */
 export namespace MessageTemplateContentProvider {
   /**
-   * <p>The content of the message template that applies to the email channel subtype.</p>
+   * The content of the message template that applies to the email channel subtype.
+   *
    * @public
    */
   export interface EmailMember {
@@ -8166,7 +9485,8 @@ export namespace MessageTemplateContentProvider {
   }
 
   /**
-   * <p>The content of the message template that applies to the SMS channel subtype.</p>
+   * The content of the message template that applies to the SMS channel subtype.
+   *
    * @public
    */
   export interface SmsMember {
@@ -8178,7 +9498,8 @@ export namespace MessageTemplateContentProvider {
   }
 
   /**
-   * <p>The content of the message template that applies to the WHATSAPP channel subtype.</p>
+   * The content of the message template that applies to the WHATSAPP channel subtype.
+   *
    * @public
    */
   export interface WhatsAppMember {
@@ -8190,7 +9511,8 @@ export namespace MessageTemplateContentProvider {
   }
 
   /**
-   * <p>The content of the message template that applies to the push channel subtype.</p>
+   * The content of the message template that applies to the push channel subtype.
+   *
    * @public
    */
   export interface PushMember {
@@ -8226,469 +9548,553 @@ export namespace MessageTemplateContentProvider {
 }
 
 /**
- * <p>The customer profile attributes that are used with the message template.</p>
+ * The customer profile attributes that are used with the message template.
+ *
  * @public
  */
 export interface CustomerProfileAttributes {
   /**
-   * <p>The unique identifier of a customer profile.</p>
+   * The unique identifier of a customer profile.
+   *
    * @public
    */
   profileId?: string | undefined;
 
   /**
-   * <p>The ARN of a customer profile.</p>
+   * The ARN of a customer profile.
+   *
    * @public
    */
   profileARN?: string | undefined;
 
   /**
-   * <p>The customer's first name.</p>
+   * The customer's first name.
+   *
    * @public
    */
   firstName?: string | undefined;
 
   /**
-   * <p>The customer's middle name.</p>
+   * The customer's middle name.
+   *
    * @public
    */
   middleName?: string | undefined;
 
   /**
-   * <p>The customer's last name.</p>
+   * The customer's last name.
+   *
    * @public
    */
   lastName?: string | undefined;
 
   /**
-   * <p>A unique account number that you have given to the customer.</p>
+   * A unique account number that you have given to the customer.
+   *
    * @public
    */
   accountNumber?: string | undefined;
 
   /**
-   * <p>The customer's email address, which has not been specified as a personal or business address.</p>
+   * The customer's email address, which has not been specified as a personal or business address.
+   *
    * @public
    */
   emailAddress?: string | undefined;
 
   /**
-   * <p>The customer's phone number, which has not been specified as a mobile, home, or business number.</p>
+   * The customer's phone number, which has not been specified as a mobile, home, or business number.
+   *
    * @public
    */
   phoneNumber?: string | undefined;
 
   /**
-   * <p>Any additional information relevant to the customer's profile.</p>
+   * Any additional information relevant to the customer's profile.
+   *
    * @public
    */
   additionalInformation?: string | undefined;
 
   /**
-   * <p>The customer's party type.</p>
+   * The customer's party type.
+   *
    * @public
    */
   partyType?: string | undefined;
 
   /**
-   * <p>The name of the customer's business.</p>
+   * The name of the customer's business.
+   *
    * @public
    */
   businessName?: string | undefined;
 
   /**
-   * <p>The customer's birth date.</p>
+   * The customer's birth date.
+   *
    * @public
    */
   birthDate?: string | undefined;
 
   /**
-   * <p>The customer's gender.</p>
+   * The customer's gender.
+   *
    * @public
    */
   gender?: string | undefined;
 
   /**
-   * <p>The customer's mobile phone number.</p>
+   * The customer's mobile phone number.
+   *
    * @public
    */
   mobilePhoneNumber?: string | undefined;
 
   /**
-   * <p>The customer's mobile phone number.</p>
+   * The customer's mobile phone number.
+   *
    * @public
    */
   homePhoneNumber?: string | undefined;
 
   /**
-   * <p>The customer's business phone number.</p>
+   * The customer's business phone number.
+   *
    * @public
    */
   businessPhoneNumber?: string | undefined;
 
   /**
-   * <p>The customer's business email address.</p>
+   * The customer's business email address.
+   *
    * @public
    */
   businessEmailAddress?: string | undefined;
 
   /**
-   * <p>The first line of a customer address.</p>
+   * The first line of a customer address.
+   *
    * @public
    */
   address1?: string | undefined;
 
   /**
-   * <p>The second line of a customer address.</p>
+   * The second line of a customer address.
+   *
    * @public
    */
   address2?: string | undefined;
 
   /**
-   * <p>The third line of a customer address.</p>
+   * The third line of a customer address.
+   *
    * @public
    */
   address3?: string | undefined;
 
   /**
-   * <p>The fourth line of a customer address.</p>
+   * The fourth line of a customer address.
+   *
    * @public
    */
   address4?: string | undefined;
 
   /**
-   * <p>The city in which a customer lives.</p>
+   * The city in which a customer lives.
+   *
    * @public
    */
   city?: string | undefined;
 
   /**
-   * <p>The county in which a customer lives.</p>
+   * The county in which a customer lives.
+   *
    * @public
    */
   county?: string | undefined;
 
   /**
-   * <p>The country in which a customer lives.</p>
+   * The country in which a customer lives.
+   *
    * @public
    */
   country?: string | undefined;
 
   /**
-   * <p>The postal code of a customer address.</p>
+   * The postal code of a customer address.
+   *
    * @public
    */
   postalCode?: string | undefined;
 
   /**
-   * <p>The province in which a customer lives.</p>
+   * The province in which a customer lives.
+   *
    * @public
    */
   province?: string | undefined;
 
   /**
-   * <p>The state in which a customer lives.</p>
+   * The state in which a customer lives.
+   *
    * @public
    */
   state?: string | undefined;
 
   /**
-   * <p>The first line of a customer’s shipping address.</p>
+   * The first line of a customer’s shipping address.
+   *
    * @public
    */
   shippingAddress1?: string | undefined;
 
   /**
-   * <p>The second line of a customer’s shipping address.</p>
+   * The second line of a customer’s shipping address.
+   *
    * @public
    */
   shippingAddress2?: string | undefined;
 
   /**
-   * <p>The third line of a customer’s shipping address.</p>
+   * The third line of a customer’s shipping address.
+   *
    * @public
    */
   shippingAddress3?: string | undefined;
 
   /**
-   * <p>The fourth line of a customer’s shipping address.</p>
+   * The fourth line of a customer’s shipping address.
+   *
    * @public
    */
   shippingAddress4?: string | undefined;
 
   /**
-   * <p>The city of a customer’s shipping address.</p>
+   * The city of a customer’s shipping address.
+   *
    * @public
    */
   shippingCity?: string | undefined;
 
   /**
-   * <p>The county of a customer’s shipping address.</p>
+   * The county of a customer’s shipping address.
+   *
    * @public
    */
   shippingCounty?: string | undefined;
 
   /**
-   * <p>The country of a customer’s shipping address.</p>
+   * The country of a customer’s shipping address.
+   *
    * @public
    */
   shippingCountry?: string | undefined;
 
   /**
-   * <p>The postal code of a customer’s shipping address.</p>
+   * The postal code of a customer’s shipping address.
+   *
    * @public
    */
   shippingPostalCode?: string | undefined;
 
   /**
-   * <p>The province of a customer’s shipping address.</p>
+   * The province of a customer’s shipping address.
+   *
    * @public
    */
   shippingProvince?: string | undefined;
 
   /**
-   * <p>The state of a customer’s shipping address.</p>
+   * The state of a customer’s shipping address.
+   *
    * @public
    */
   shippingState?: string | undefined;
 
   /**
-   * <p>The first line of a customer’s mailing address.</p>
+   * The first line of a customer’s mailing address.
+   *
    * @public
    */
   mailingAddress1?: string | undefined;
 
   /**
-   * <p>The second line of a customer’s mailing address.</p>
+   * The second line of a customer’s mailing address.
+   *
    * @public
    */
   mailingAddress2?: string | undefined;
 
   /**
-   * <p>The third line of a customer’s mailing address.</p>
+   * The third line of a customer’s mailing address.
+   *
    * @public
    */
   mailingAddress3?: string | undefined;
 
   /**
-   * <p>The fourth line of a customer’s mailing address.</p>
+   * The fourth line of a customer’s mailing address.
+   *
    * @public
    */
   mailingAddress4?: string | undefined;
 
   /**
-   * <p>The city of a customer’s mailing address.</p>
+   * The city of a customer’s mailing address.
+   *
    * @public
    */
   mailingCity?: string | undefined;
 
   /**
-   * <p>The county of a customer’s mailing address.</p>
+   * The county of a customer’s mailing address.
+   *
    * @public
    */
   mailingCounty?: string | undefined;
 
   /**
-   * <p>The country of a customer’s mailing address.</p>
+   * The country of a customer’s mailing address.
+   *
    * @public
    */
   mailingCountry?: string | undefined;
 
   /**
-   * <p>The postal code of a customer’s mailing address.</p>
+   * The postal code of a customer’s mailing address.
+   *
    * @public
    */
   mailingPostalCode?: string | undefined;
 
   /**
-   * <p>The province of a customer’s mailing address.</p>
+   * The province of a customer’s mailing address.
+   *
    * @public
    */
   mailingProvince?: string | undefined;
 
   /**
-   * <p>The state of a customer’s mailing address.</p>
+   * The state of a customer’s mailing address.
+   *
    * @public
    */
   mailingState?: string | undefined;
 
   /**
-   * <p>The first line of a customer’s billing address.</p>
+   * The first line of a customer’s billing address.
+   *
    * @public
    */
   billingAddress1?: string | undefined;
 
   /**
-   * <p>The second line of a customer’s billing address.</p>
+   * The second line of a customer’s billing address.
+   *
    * @public
    */
   billingAddress2?: string | undefined;
 
   /**
-   * <p>The third line of a customer’s billing address.</p>
+   * The third line of a customer’s billing address.
+   *
    * @public
    */
   billingAddress3?: string | undefined;
 
   /**
-   * <p>The fourth line of a customer’s billing address.</p>
+   * The fourth line of a customer’s billing address.
+   *
    * @public
    */
   billingAddress4?: string | undefined;
 
   /**
-   * <p>The city of a customer’s billing address.</p>
+   * The city of a customer’s billing address.
+   *
    * @public
    */
   billingCity?: string | undefined;
 
   /**
-   * <p>The county of a customer’s billing address.</p>
+   * The county of a customer’s billing address.
+   *
    * @public
    */
   billingCounty?: string | undefined;
 
   /**
-   * <p>The country of a customer’s billing address.</p>
+   * The country of a customer’s billing address.
+   *
    * @public
    */
   billingCountry?: string | undefined;
 
   /**
-   * <p>The postal code of a customer’s billing address.</p>
+   * The postal code of a customer’s billing address.
+   *
    * @public
    */
   billingPostalCode?: string | undefined;
 
   /**
-   * <p>The province of a customer’s billing address.</p>
+   * The province of a customer’s billing address.
+   *
    * @public
    */
   billingProvince?: string | undefined;
 
   /**
-   * <p>The state of a customer’s billing address.</p>
+   * The state of a customer’s billing address.
+   *
    * @public
    */
   billingState?: string | undefined;
 
   /**
-   * <p>The custom attributes in customer profile attributes.</p>
+   * The custom attributes in customer profile attributes.
+   *
    * @public
    */
   custom?: Record<string, string> | undefined;
 }
 
 /**
- * <p>The system endpoint attributes that are used with the message template.</p>
+ * The system endpoint attributes that are used with the message template.
+ *
  * @public
  */
 export interface SystemEndpointAttributes {
   /**
-   * <p>The customer's phone number if used with <code>customerEndpoint</code>, or the number the customer dialed to call your contact center if used with <code>systemEndpoint</code>.</p>
+   * The customer's phone number if used with `customerEndpoint`, or the number the customer dialed to call your contact center if used with `systemEndpoint`.
+   *
    * @public
    */
   address?: string | undefined;
 }
 
 /**
- * <p>The system attributes that are used with the message template.</p>
+ * The system attributes that are used with the message template.
+ *
  * @public
  */
 export interface SystemAttributes {
   /**
-   * <p>The name of the task.</p>
+   * The name of the task.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The CustomerEndpoint attribute.</p>
+   * The CustomerEndpoint attribute.
+   *
    * @public
    */
   customerEndpoint?: SystemEndpointAttributes | undefined;
 
   /**
-   * <p>The SystemEndpoint attribute.</p>
+   * The SystemEndpoint attribute.
+   *
    * @public
    */
   systemEndpoint?: SystemEndpointAttributes | undefined;
 }
 
 /**
- * <p>The attributes that are used with the message template.</p>
+ * The attributes that are used with the message template.
+ *
  * @public
  */
 export interface MessageTemplateAttributes {
   /**
-   * <p>The system attributes that are used with the message template.</p>
+   * The system attributes that are used with the message template.
+   *
    * @public
    */
   systemAttributes?: SystemAttributes | undefined;
 
   /**
-   * <p>The agent attributes that are used with the message template.</p>
+   * The agent attributes that are used with the message template.
+   *
    * @public
    */
   agentAttributes?: AgentAttributes | undefined;
 
   /**
-   * <p>The customer profile attributes that are used with the message template.</p>
+   * The customer profile attributes that are used with the message template.
+   *
    * @public
    */
   customerProfileAttributes?: CustomerProfileAttributes | undefined;
 
   /**
-   * <p>The custom attributes that are used with the message template.</p>
+   * The custom attributes that are used with the message template.
+   *
    * @public
    */
   customAttributes?: Record<string, string> | undefined;
 }
 
 /**
- * <p>The configuration information of the grouping of Amazon Q in Connect users.</p>
+ * The configuration information of the grouping of Amazon Q in Connect users.
+ *
  * @public
  */
 export interface GroupingConfiguration {
   /**
-   * <p>The criteria used for grouping Amazon Q in Connect users.</p> <p>The following is the list of supported criteria values.</p> <ul> <li> <p> <code>RoutingProfileArn</code>: Grouping the users by their <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_RoutingProfile.html">Amazon Connect routing profile ARN</a>. User should have <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchRoutingProfiles.html">SearchRoutingProfile</a> and <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeRoutingProfile.html">DescribeRoutingProfile</a> permissions when setting criteria to this value.</p> </li> </ul>
+   * The criteria used for grouping Amazon Q in Connect users.
+   *
+   * The following is the list of supported criteria values.
+   *
+   * - `RoutingProfileArn`: Grouping the users by their [Amazon Connect routing profile ARN](https://docs.aws.amazon.com/connect/latest/APIReference/API_RoutingProfile.html). User should have [SearchRoutingProfile](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchRoutingProfiles.html) and [DescribeRoutingProfile](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeRoutingProfile.html) permissions when setting criteria to this value.
+   *
    * @public
    */
   criteria?: string | undefined;
 
   /**
-   * <p>The list of values that define different groups of Amazon Q in Connect users.</p> <ul> <li> <p>When setting <code>criteria</code> to <code>RoutingProfileArn</code>, you need to provide a list of ARNs of <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_RoutingProfile.html">Connect Customer routing profiles</a> as values of this parameter.</p> </li> </ul>
+   * The list of values that define different groups of Amazon Q in Connect users.
+   *
+   * - When setting `criteria` to `RoutingProfileArn`, you need to provide a list of ARNs of [Connect Customer routing profiles](https://docs.aws.amazon.com/connect/latest/APIReference/API_RoutingProfile.html) as values of this parameter.
+   *
    * @public
    */
   values?: string[] | undefined;
 }
 
 /**
- * <p>Configuration information about the external data source.</p>
+ * Configuration information about the external data source.
+ *
  * @public
  */
 export interface WhatsAppMessageTemplateSourceConfiguration {
   /**
-   * <p>The ID of the End User Messaging WhatsApp Business Account to associate with this template.</p>
+   * The ID of the End User Messaging WhatsApp Business Account to associate with this template.
+   *
    * @public
    */
   businessAccountId: string | undefined;
 
   /**
-   * <p>The WhatsApp template ID.</p>
+   * The WhatsApp template ID.
+   *
    * @public
    */
   templateId: string | undefined;
 
   /**
-   * <p>The list of component mapping from WhatsApp template parameters to Message Template attributes.</p>
+   * The list of component mapping from WhatsApp template parameters to Message Template attributes.
+   *
    * @public
    */
   components?: string[] | undefined;
 }
 
 /**
- * <p>The container of message template source configuration.</p>
+ * The container of message template source configuration.
+ *
  * @public
  */
 export type MessageTemplateSourceConfiguration =
@@ -8700,7 +10106,8 @@ export type MessageTemplateSourceConfiguration =
  */
 export namespace MessageTemplateSourceConfiguration {
   /**
-   * <p>The sourceConfiguration of the message template that applies to the WHATSAPP channel subtype.</p>
+   * The sourceConfiguration of the message template that applies to the WHATSAPP channel subtype.
+   *
    * @public
    */
   export interface WhatsAppMember {
@@ -8731,122 +10138,142 @@ export namespace MessageTemplateSourceConfiguration {
  */
 export interface CreateMessageTemplateRequest {
   /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The name of the message template.</p>
+   * The name of the message template.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The content of the message template.</p>
+   * The content of the message template.
+   *
    * @public
    */
   content?: MessageTemplateContentProvider | undefined;
 
   /**
-   * <p>The description of the message template.</p>
+   * The description of the message template.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The channel subtype this message template applies to.</p>
+   * The channel subtype this message template applies to.
+   *
    * @public
    */
   channelSubtype: ChannelSubtype | undefined;
 
   /**
-   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>, <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>, <code>zh_CN</code>, <code>zh_TW</code> </p>
+   * The language code value for the language in which the quick response is written. The supported language codes include `de_DE`, `en_US`, `es_ES`, `fr_FR`, `id_ID`, `it_IT`, `ja_JP`, `ko_KR`, `pt_BR`, `zh_CN`, `zh_TW`
+   *
    * @public
    */
   language?: string | undefined;
 
   /**
-   * <p>The source configuration of the message template. Only set this argument for WHATSAPP channel subtype.</p>
+   * The source configuration of the message template. Only set this argument for WHATSAPP channel subtype.
+   *
    * @public
    */
   sourceConfiguration?: MessageTemplateSourceConfiguration | undefined;
 
   /**
-   * <p>An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.</p>
+   * An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.
+   *
    * @public
    */
   defaultAttributes?: MessageTemplateAttributes | undefined;
 
   /**
-   * <p>The configuration information of the grouping of Amazon Q in Connect users.</p>
+   * The configuration information of the grouping of Amazon Q in Connect users.
+   *
    * @public
    */
   groupingConfiguration?: GroupingConfiguration | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see [Making retries safe with idempotent APIs](http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/).
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Configuration information about the external data source.</p>
+ * Configuration information about the external data source.
+ *
  * @public
  */
 export interface WhatsAppMessageTemplateSourceConfigurationSummary {
   /**
-   * <p>The ID of the End User Messaging WhatsApp Business Account to associate with this template.</p>
+   * The ID of the End User Messaging WhatsApp Business Account to associate with this template.
+   *
    * @public
    */
   businessAccountId: string | undefined;
 
   /**
-   * <p>The ID of WhatsApp template.</p>
+   * The ID of WhatsApp template.
+   *
    * @public
    */
   templateId: string | undefined;
 
   /**
-   * <p>The name of the WhatsApp template.</p>
+   * The name of the WhatsApp template.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The language of the WhatsApp template.</p>
+   * The language of the WhatsApp template.
+   *
    * @public
    */
   language?: string | undefined;
 
   /**
-   * <p>The list of component mapping from WhatsApp template parameters to Message Template attributes.</p>
+   * The list of component mapping from WhatsApp template parameters to Message Template attributes.
+   *
    * @public
    */
   components?: string[] | undefined;
 
   /**
-   * <p>The status of the message template.</p>
+   * The status of the message template.
+   *
    * @public
    */
   status?: WhatsAppSourceConfigurationStatus | undefined;
 
   /**
-   * <p>The status reason of the message template.</p>
+   * The status reason of the message template.
+   *
    * @public
    */
   statusReason?: string | undefined;
 }
 
 /**
- * <p>The container of message template source configuration summary.</p>
+ * The container of message template source configuration summary.
+ *
  * @public
  */
 export type MessageTemplateSourceConfigurationSummary =
@@ -8858,7 +10285,8 @@ export type MessageTemplateSourceConfigurationSummary =
  */
 export namespace MessageTemplateSourceConfigurationSummary {
   /**
-   * <p>The sourceConfiguration summary of the message template that applies to the WHATSAPP channel subtype.</p>
+   * The sourceConfiguration summary of the message template that applies to the WHATSAPP channel subtype.
+   *
    * @public
    */
   export interface WhatsAppMember {
@@ -8885,120 +10313,140 @@ export namespace MessageTemplateSourceConfigurationSummary {
 }
 
 /**
- * <p>The data of a message template.</p>
+ * The data of a message template.
+ *
  * @public
  */
 export interface MessageTemplateData {
   /**
-   * <p>The Amazon Resource Name (ARN) of the message template.</p>
+   * The Amazon Resource Name (ARN) of the message template.
+   *
    * @public
    */
   messageTemplateArn: string | undefined;
 
   /**
-   * <p>The identifier of the message template.</p>
+   * The identifier of the message template.
+   *
    * @public
    */
   messageTemplateId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * The Amazon Resource Name (ARN) of the knowledge base.
+   *
    * @public
    */
   knowledgeBaseArn: string | undefined;
 
   /**
-   * <p>The identifier of the knowledge base.</p>
+   * The identifier of the knowledge base.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The name of the message template.</p>
+   * The name of the message template.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The channel of the message template.</p>
+   * The channel of the message template.
+   *
    * @public
    */
   channel?: string | undefined;
 
   /**
-   * <p>The channel subtype this message template applies to.</p>
+   * The channel subtype this message template applies to.
+   *
    * @public
    */
   channelSubtype: ChannelSubtype | undefined;
 
   /**
-   * <p>The timestamp when the message template was created.</p>
+   * The timestamp when the message template was created.
+   *
    * @public
    */
   createdTime: Date | undefined;
 
   /**
-   * <p>The timestamp when the message template data was last modified.</p>
+   * The timestamp when the message template data was last modified.
+   *
    * @public
    */
   lastModifiedTime: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the user who last updated the message template data.</p>
+   * The Amazon Resource Name (ARN) of the user who last updated the message template data.
+   *
    * @public
    */
   lastModifiedBy: string | undefined;
 
   /**
-   * <p>The content of the message template.</p>
+   * The content of the message template.
+   *
    * @public
    */
   content?: MessageTemplateContentProvider | undefined;
 
   /**
-   * <p>The description of the message template.</p>
+   * The description of the message template.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>, <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>, <code>zh_CN</code>, <code>zh_TW</code> </p>
+   * The language code value for the language in which the quick response is written. The supported language codes include `de_DE`, `en_US`, `es_ES`, `fr_FR`, `id_ID`, `it_IT`, `ja_JP`, `ko_KR`, `pt_BR`, `zh_CN`, `zh_TW`
+   *
    * @public
    */
   language?: string | undefined;
 
   /**
-   * <p>The source configuration summary of the message template.</p>
+   * The source configuration summary of the message template.
+   *
    * @public
    */
   sourceConfigurationSummary?: MessageTemplateSourceConfigurationSummary | undefined;
 
   /**
-   * <p>The configuration information of the grouping of Amazon Q in Connect users.</p>
+   * The configuration information of the grouping of Amazon Q in Connect users.
+   *
    * @public
    */
   groupingConfiguration?: GroupingConfiguration | undefined;
 
   /**
-   * <p>An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.</p>
+   * An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.
+   *
    * @public
    */
   defaultAttributes?: MessageTemplateAttributes | undefined;
 
   /**
-   * <p>The types of attributes that the message template contains.</p>
+   * The types of attributes that the message template contains.
+   *
    * @public
    */
   attributeTypes?: MessageTemplateAttributeType[] | undefined;
 
   /**
-   * <p>The checksum value of the message template content that is referenced by the <code>$LATEST</code> qualifier. It can be returned in <code>MessageTemplateData</code> or <code>ExtendedMessageTemplateData</code>. It’s calculated by content, language, <code>defaultAttributes</code> and <code>Attachments</code> of the message template.</p>
+   * The checksum value of the message template content that is referenced by the `$LATEST` qualifier. It can be returned in `MessageTemplateData` or `ExtendedMessageTemplateData`. It’s calculated by content, language, `defaultAttributes` and `Attachments` of the message template.
+   *
    * @public
    */
   messageTemplateContentSha256: string | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -9009,7 +10457,8 @@ export interface MessageTemplateData {
  */
 export interface CreateMessageTemplateResponse {
   /**
-   * <p>The message template.</p>
+   * The message template.
+   *
    * @public
    */
   messageTemplate?: MessageTemplateData | undefined;
@@ -9020,79 +10469,92 @@ export interface CreateMessageTemplateResponse {
  */
 export interface CreateMessageTemplateAttachmentRequest {
   /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
+   * The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.
+   *
    * @public
    */
   messageTemplateId: string | undefined;
 
   /**
-   * <p>The presentation information for the attachment file.</p>
+   * The presentation information for the attachment file.
+   *
    * @public
    */
   contentDisposition: ContentDisposition | undefined;
 
   /**
-   * <p>The name of the attachment file being uploaded. The name should include the file extension.</p>
+   * The name of the attachment file being uploaded. The name should include the file extension.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The body of the attachment file being uploaded. It should be encoded using base64 encoding.</p>
+   * The body of the attachment file being uploaded. It should be encoded using base64 encoding.
+   *
    * @public
    */
   body: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see [Making retries safe with idempotent APIs](http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/).
+   *
    * @public
    */
   clientToken?: string | undefined;
 }
 
 /**
- * <p>Information about the message template attachment.</p>
+ * Information about the message template attachment.
+ *
  * @public
  */
 export interface MessageTemplateAttachment {
   /**
-   * <p>The presentation information for the attachment file.</p>
+   * The presentation information for the attachment file.
+   *
    * @public
    */
   contentDisposition: ContentDisposition | undefined;
 
   /**
-   * <p>The name of the attachment file being uploaded. The name should include the file extension.</p>
+   * The name of the attachment file being uploaded. The name should include the file extension.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The timestamp when the attachment file was uploaded.</p>
+   * The timestamp when the attachment file was uploaded.
+   *
    * @public
    */
   uploadedTime: Date | undefined;
 
   /**
-   * <p>A pre-signed Amazon S3 URL that can be used to download the attachment file.</p>
+   * A pre-signed Amazon S3 URL that can be used to download the attachment file.
+   *
    * @public
    */
   url: string | undefined;
 
   /**
-   * <p>The expiration time of the pre-signed Amazon S3 URL.</p>
+   * The expiration time of the pre-signed Amazon S3 URL.
+   *
    * @public
    */
   urlExpiry: Date | undefined;
 
   /**
-   * <p>The identifier of the attachment file.</p>
+   * The identifier of the attachment file.
+   *
    * @public
    */
   attachmentId: string | undefined;

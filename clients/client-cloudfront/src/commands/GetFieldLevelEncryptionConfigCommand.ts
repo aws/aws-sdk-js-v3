@@ -23,7 +23,8 @@ export interface GetFieldLevelEncryptionConfigCommandInput extends GetFieldLevel
 export interface GetFieldLevelEncryptionConfigCommandOutput extends GetFieldLevelEncryptionConfigResult, __MetadataBearer {}
 
 /**
- * <p>Get the field-level encryption configuration information.</p>
+ * Get the field-level encryption configuration information.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,14 +80,16 @@ export interface GetFieldLevelEncryptionConfigCommandOutput extends GetFieldLeve
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link AccessDenied} (client fault)
- *  <p>Access denied.</p>
+ *
+ * Access denied.
  *
  * @throws {@link NoSuchFieldLevelEncryptionConfig} (client fault)
- *  <p>The specified configuration for field-level encryption doesn't exist.</p>
+ *
+ * The specified configuration for field-level encryption doesn't exist.
  *
  * @throws {@link CloudFrontServiceException}
- * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * Base exception class for all service exceptions from CloudFront service.
  *
  * @public
  */

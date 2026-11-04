@@ -23,12 +23,12 @@ export interface CreateFpgaImageCommandInput extends CreateFpgaImageRequest {}
 export interface CreateFpgaImageCommandOutput extends CreateFpgaImageResult, __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon FPGA Image (AFI) from the specified design checkpoint (DCP).</p>
- *          <p>The create operation is asynchronous. To verify that the AFI was successfully
- *          created and is ready for use, check the output logs.</p>
- *          <p>An AFI contains the FPGA bitstream that is ready to download to an FPGA.
- *          You can securely deploy an AFI on multiple FPGA-accelerated instances.
- *          For more information, see the <a href="https://github.com/aws/aws-fpga/">Amazon Web Services FPGA Hardware Development Kit</a>.</p>
+ * Creates an Amazon FPGA Image (AFI) from the specified design checkpoint (DCP).
+ *
+ * The create operation is asynchronous. To verify that the AFI was successfully created and is ready for use, check the output logs.
+ *
+ * An AFI contains the FPGA bitstream that is ready to download to an FPGA. You can securely deploy an AFI on multiple FPGA-accelerated instances. For more information, see the [Amazon Web Services FPGA Hardware Development Kit](https://github.com/aws/aws-fpga/).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,8 +78,8 @@ export interface CreateFpgaImageCommandOutput extends CreateFpgaImageResult, __M
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

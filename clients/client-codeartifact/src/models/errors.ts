@@ -5,9 +5,8 @@ import { CodeartifactServiceException as __BaseException } from "./CodeartifactS
 import type { ResourceType, ValidationExceptionReason } from "./enums";
 
 /**
- * <p>
- *         The operation did not succeed because of an unauthorized access attempt.
- *       </p>
+ * The operation did not succeed because of an unauthorized access attempt.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -28,9 +27,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>
- *         The operation did not succeed because prerequisites are not met.
- *       </p>
+ * The operation did not succeed because prerequisites are not met.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -38,17 +36,15 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>
-   *       The ID of the resource.
-   *     </p>
+   * The ID of the resource.
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>
-   *       The type of Amazon Web Services resource.
-   *     </p>
+   * The type of Amazon Web Services resource.
+   *
    * @public
    */
   resourceType?: ResourceType | undefined;
@@ -69,7 +65,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+ * The operation did not succeed because of an error that occurred inside CodeArtifact.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -90,9 +87,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>
- *       The operation did not succeed because the resource requested is not found in the service.
- *     </p>
+ * The operation did not succeed because the resource requested is not found in the service.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -100,17 +96,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>
-   *       The ID of the resource.
-   *     </p>
+   * The ID of the resource.
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>
-   *       The type of Amazon Web Services resource.
-   *     </p>
+   * The type of Amazon Web Services resource.
+   *
    * @public
    */
   resourceType?: ResourceType | undefined;
@@ -131,9 +125,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>
- *         The operation did not succeed because it would have exceeded a service limit for your account.
- *       </p>
+ * The operation did not succeed because it would have exceeded a service limit for your account.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -141,17 +134,15 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>
-   *       The ID of the resource.
-   *     </p>
+   * The ID of the resource.
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>
-   *       The type of Amazon Web Services resource.
-   *     </p>
+   * The type of Amazon Web Services resource.
+   *
    * @public
    */
   resourceType?: ResourceType | undefined;
@@ -172,9 +163,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>
- *       The operation did not succeed because too many requests are sent to the service.
- *     </p>
+ * The operation did not succeed because too many requests are sent to the service.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -182,9 +172,8 @@ export class ThrottlingException extends __BaseException {
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>
-   *       The time period, in seconds, to wait before retrying the request.
-   *     </p>
+   * The time period, in seconds, to wait before retrying the request.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -204,9 +193,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>
- *       The operation did not succeed because a parameter in the request was sent with an invalid value.
- *     </p>
+ * The operation did not succeed because a parameter in the request was sent with an invalid value.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -214,9 +202,6 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>
-   *
-   *     </p>
    * @public
    */
   reason?: ValidationExceptionReason | undefined;

@@ -23,9 +23,10 @@ export interface CreateUpdatedImageCommandInput extends CreateUpdatedImageReques
 export interface CreateUpdatedImageCommandOutput extends CreateUpdatedImageResult, __MetadataBearer {}
 
 /**
- * <p>Creates a new image with the latest Windows operating system updates, driver updates, and WorkSpaces Applications agent software.</p>
- *          <p>For more information, see the "Update an Image by Using
- *             Managed WorkSpaces Applications Image Updates" section in <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/administer-images.html">Administer Your WorkSpaces Applications Images</a>, in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
+ * Creates a new image with the latest Windows operating system updates, driver updates, and WorkSpaces Applications agent software.
+ *
+ * For more information, see the "Update an Image by Using Managed WorkSpaces Applications Image Updates" section in [Administer Your WorkSpaces Applications Images](https://docs.aws.amazon.com/appstream2/latest/developerguide/administer-images.html), in the *Amazon WorkSpaces Applications Administration Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -128,29 +129,36 @@ export interface CreateUpdatedImageCommandOutput extends CreateUpdatedImageResul
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>An API error occurred. Wait a few minutes and try again.</p>
+ *
+ * An API error occurred. Wait a few minutes and try again.
  *
  * @throws {@link IncompatibleImageException} (client fault)
- *  <p>The image can't be updated because it's not compatible for updates.</p>
+ *
+ * The image can't be updated because it's not compatible for updates.
  *
  * @throws {@link InvalidAccountStatusException} (client fault)
- *  <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
+ *
+ * The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The requested limit exceeds the permitted limit for an account.</p>
+ *
+ * The requested limit exceeds the permitted limit for an account.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>The attempted operation is not permitted.</p>
+ *
+ * The attempted operation is not permitted.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>The specified resource already exists.</p>
+ *
+ * The specified resource already exists.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link AppStreamServiceException}
- * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * Base exception class for all service exceptions from AppStream service.
  *
  * @public
  */

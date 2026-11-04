@@ -23,7 +23,10 @@ export interface ExecuteScheduledReportCommandInput extends ExecuteScheduledRepo
 export interface ExecuteScheduledReportCommandOutput extends ExecuteScheduledReportResponse, __MetadataBearer {}
 
 /**
- * <p>Triggers an immediate execution of a scheduled report, outside of its regular schedule. The scheduled report must be in <code>ENABLED</code> state. Calling this operation on a <code>DISABLED</code> scheduled report returns a <code>ValidationException</code>.</p> <note> <p>If a <code>clientToken</code> is provided, the service uses it for idempotency. Requests with the same client token will not trigger a new execution within the same minute.</p> </note>
+ * Triggers an immediate execution of a scheduled report, outside of its regular schedule. The scheduled report must be in `ENABLED` state. Calling this operation on a `DISABLED` scheduled report returns a `ValidationException`.
+ *
+ * > **Note:** If a `clientToken` is provided, the service uses it for idempotency. Requests with the same client token will not trigger a new execution within the same minute.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,26 +62,32 @@ export interface ExecuteScheduledReportCommandOutput extends ExecuteScheduledRep
  * @see {@link BCMDashboardsClientResolvedConfig | config} for BCMDashboardsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action. Verify your IAM permissions and any resource policies.</p>
+ *
+ * You do not have sufficient permissions to perform this action. Verify your IAM permissions and any resource policies.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be completed due to a conflict with the current state of the resource. For example, attempting to create a resource that already exists or is being created.</p>
+ *
+ * The request could not be completed due to a conflict with the current state of the resource. For example, attempting to create a resource that already exists or is being created.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error occurred while processing the request. Retry your request. If the problem persists, contact Amazon Web Services Support.</p>
+ *
+ * An internal error occurred while processing the request. Retry your request. If the problem persists, contact Amazon Web Services Support.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource (dashboard, policy, or widget) was not found. Verify the ARN and try again.</p>
+ *
+ * The specified resource (dashboard, policy, or widget) was not found. Verify the ARN and try again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. Reduce the frequency of requests and use exponential backoff.</p>
+ *
+ * The request was denied due to request throttling. Reduce the frequency of requests and use exponential backoff.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input parameters do not satisfy the requirements. Check the error message for specific validation details.</p>
+ *
+ * The input parameters do not satisfy the requirements. Check the error message for specific validation details.
  *
  * @throws {@link BCMDashboardsServiceException}
- * <p>Base exception class for all service exceptions from BCMDashboards service.</p>
  *
+ * Base exception class for all service exceptions from BCMDashboards service.
  *
  * @public
  */

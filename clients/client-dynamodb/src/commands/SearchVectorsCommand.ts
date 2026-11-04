@@ -23,29 +23,14 @@ export interface SearchVectorsCommandInput extends SearchVectorsInput {}
 export interface SearchVectorsCommandOutput extends SearchVectorsOutput, __MetadataBearer {}
 
 /**
- * <p>Performs a vector similarity search on a vector index associated with an Amazon
- *             DynamoDB table, and returns the most similar items sorted by similarity score
- *             based on the distance function configured for the index.</p>
- *          <p>Score interpretation depends on the distance function:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>COSINE</code> - Returns the items with the <i>k
- *                     smallest</i> scores. Scores range from 0 (identical) to 2 (opposite).
- *                     Lower scores indicate higher similarity.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>EUCLIDEAN</code> - Returns the items with the <i>k
- *                     smallest</i> scores. Scores represent the Euclidean distance between
- *                     vectors. Lower scores indicate higher similarity.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>DOT_PRODUCT</code> - Returns the items with the <i>k
- *                     highest</i> scores. Higher scores indicate higher similarity.</p>
- *             </li>
- *          </ul>
+ * Performs a vector similarity search on a vector index associated with an Amazon DynamoDB table, and returns the most similar items sorted by similarity score based on the distance function configured for the index.
+ *
+ * Score interpretation depends on the distance function:
+ *
+ * - `COSINE` - Returns the items with the *k smallest* scores. Scores range from 0 (identical) to 2 (opposite). Lower scores indicate higher similarity.
+ * - `EUCLIDEAN` - Returns the items with the *k smallest* scores. Scores represent the Euclidean distance between vectors. Lower scores indicate higher similarity.
+ * - `DOT_PRODUCT` - Returns the items with the *k highest* scores. Higher scores indicate higher similarity.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -181,25 +166,24 @@ export interface SearchVectorsCommandOutput extends SearchVectorsOutput, __Metad
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link RequestLimitExceeded} (client fault)
- *  <p>Throughput exceeds the current throughput quota for your account. For detailed
- *             information about why the request was throttled and the ARN of the impacted resource,
- *             find the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> field in the returned exception. Contact <a href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a quota
- *             increase.</p>
+ *
+ * Throughput exceeds the current throughput quota for your account. For detailed information about why the request was throttled and the ARN of the impacted resource, find the [ThrottlingReason](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html) field in the returned exception. Contact [Amazon Web Services Support](https://aws.amazon.com/support) to request a quota increase.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The operation tried to access a nonexistent table or index. The resource might not
- *             be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+ *
+ * The operation tried to access a nonexistent table or index. The resource might not be specified correctly, or its status might not be `ACTIVE`.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. For detailed information about why
- *             the request was throttled and the ARN of the impacted resource, find the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> field in the returned exception.</p>
+ *
+ * The request was denied due to request throttling. For detailed information about why the request was throttled and the ARN of the impacted resource, find the [ThrottlingReason](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html) field in the returned exception.
  *
  * @throws {@link DynamoDBServiceException}
- * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * Base exception class for all service exceptions from DynamoDB service.
  *
  * @example To search for similar vectors
  * ```javascript

@@ -23,26 +23,16 @@ export interface StopStreamEncryptionCommandInput extends StopStreamEncryptionIn
 export interface StopStreamEncryptionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Disables server-side encryption for a specified stream. </p>
- *          <note>
- *             <p>When invoking this API, you must use either the <code>StreamARN</code> or the
- *                     <code>StreamName</code> parameter, or both. It is recommended that you use the
- *                     <code>StreamARN</code> input parameter when you invoke this API.</p>
- *          </note>
- *          <p>Stopping encryption is an asynchronous operation. Upon receiving the request, Kinesis
- *             Data Streams returns immediately and sets the status of the stream to
- *                 <code>UPDATING</code>. After the update is complete, Kinesis Data Streams sets the
- *             status of the stream back to <code>ACTIVE</code>. Stopping encryption normally takes a
- *             few seconds to complete, but it can take minutes. You can continue to read and write
- *             data to your stream while its status is <code>UPDATING</code>. Once the status of the
- *             stream is <code>ACTIVE</code>, records written to the stream are no longer encrypted by
- *             Kinesis Data Streams. </p>
- *          <p>API Limits: You can successfully disable server-side encryption 25 times in a rolling
- *             24-hour period. </p>
- *          <p>Note: It can take up to 5 seconds after the stream is in an <code>ACTIVE</code> status
- *             before all records written to the stream are no longer subject to encryption. After you
- *             disabled encryption, you can verify that encryption is not applied by inspecting the API
- *             response from <code>PutRecord</code> or <code>PutRecords</code>.</p>
+ * Disables server-side encryption for a specified stream.
+ *
+ * > **Note:** When invoking this API, you must use either the `StreamARN` or the `StreamName` parameter, or both. It is recommended that you use the `StreamARN` input parameter when you invoke this API.
+ *
+ * Stopping encryption is an asynchronous operation. Upon receiving the request, Kinesis Data Streams returns immediately and sets the status of the stream to `UPDATING`. After the update is complete, Kinesis Data Streams sets the status of the stream back to `ACTIVE`. Stopping encryption normally takes a few seconds to complete, but it can take minutes. You can continue to read and write data to your stream while its status is `UPDATING`. Once the status of the stream is `ACTIVE`, records written to the stream are no longer encrypted by Kinesis Data Streams.
+ *
+ * API Limits: You can successfully disable server-side encryption 25 times in a rolling 24-hour period.
+ *
+ * Note: It can take up to 5 seconds after the stream is in an `ACTIVE` status before all records written to the stream are no longer subject to encryption. After you disabled encryption, you can verify that encryption is not applied by inspecting the API response from `PutRecord` or `PutRecords`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,28 +61,28 @@ export interface StopStreamEncryptionCommandOutput extends __MetadataBearer {}
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Specifies that you do not have the permissions required to perform this
- *             operation.</p>
+ *
+ * Specifies that you do not have the permissions required to perform this operation.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
- *             For more information, see the returned message.</p>
+ *
+ * A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
- *             stream requests exceeds the maximum number allowed. </p>
+ *
+ * The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The resource is not available for this operation. For successful operation, the
- *             resource must be in the <code>ACTIVE</code> state.</p>
+ *
+ * The resource is not available for this operation. For successful operation, the resource must be in the `ACTIVE` state.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource could not be found. The stream might not be specified
- *             correctly.</p>
+ *
+ * The requested resource could not be found. The stream might not be specified correctly.
  *
  * @throws {@link KinesisServiceException}
- * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * Base exception class for all service exceptions from Kinesis service.
  *
  * @public
  */

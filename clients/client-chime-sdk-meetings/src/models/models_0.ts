@@ -19,205 +19,160 @@ import type {
 } from "./enums";
 
 /**
- * <p>The media capabilities of an attendee: audio, video, or content.</p>
- *          <note>
- *             <p>You use the capabilities with a set of values that control what the capabilities can do, such as <code>SendReceive</code> data. For more information, refer to
- *              and .</p>
- *          </note>
- *          <p>When using capabilities, be aware of these corner cases:</p>
- *          <ul>
- *             <li>
- *                <p>If you specify <code>MeetingFeatures:Video:MaxResolution:None</code> when you create a meeting, all API requests
- *                     that include <code>SendReceive</code>, <code>Send</code>, or <code>Receive</code> for <code>AttendeeCapabilities:Video</code> will be rejected with <code>ValidationError 400</code>.</p>
- *             </li>
- *             <li>
- *                <p>If you specify <code>MeetingFeatures:Content:MaxResolution:None</code> when you create a meeting, all API requests that include <code>SendReceive</code>, <code>Send</code>, or
- *                     <code>Receive</code> for <code>AttendeeCapabilities:Content</code> will be rejected with <code>ValidationError 400</code>.</p>
- *             </li>
- *             <li>
- *                <p>You can't set <code>content</code> capabilities to <code>SendReceive</code> or <code>Receive</code> unless you also set <code>video</code> capabilities to <code>SendReceive</code>
- *                     or <code>Receive</code>. If you don't set the <code>video</code> capability to receive, the response will contain an HTTP 400 Bad Request status code. However, you can set your
- *                     <code>video</code> capability to receive and you set your <code>content</code> capability to not receive.</p>
- *             </li>
- *             <li>
- *                <p>If meeting features is defined as <code>Video:MaxResolution:None</code> but
- *                     <code>Content:MaxResolution</code> is defined as something other than
- *                     <code>None</code> and attendee capabilities are not defined in the API
- *                     request, then the default attendee video capability is set to
- *                     <code>Receive</code> and attendee content capability is set to
- *                     <code>SendReceive</code>. This is because content <code>SendReceive</code>
- *                     requires video to be at least <code>Receive</code>.</p>
- *             </li>
- *             <li>
- *                <p>When you change an <code>audio</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
- *                     and an attendee unmutes their microphone, audio flows from the attendee to the other meeting participants.</p>
- *             </li>
- *             <li>
- *                <p>When you change a <code>video</code> or <code>content</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
- *                     and the attendee turns on their video or content streams, remote attendees can receive those streams, but only after media renegotiation between the client and the Amazon Chime back-end server.</p>
- *             </li>
- *          </ul>
+ * The media capabilities of an attendee: audio, video, or content.
+ *
+ * > **Note:** You use the capabilities with a set of values that control what the capabilities can do, such as `SendReceive` data. For more information, refer to and .
+ *
+ * When using capabilities, be aware of these corner cases:
+ *
+ * - If you specify `MeetingFeatures:Video:MaxResolution:None` when you create a meeting, all API requests that include `SendReceive`, `Send`, or `Receive` for `AttendeeCapabilities:Video` will be rejected with `ValidationError 400`.
+ * - If you specify `MeetingFeatures:Content:MaxResolution:None` when you create a meeting, all API requests that include `SendReceive`, `Send`, or `Receive` for `AttendeeCapabilities:Content` will be rejected with `ValidationError 400`.
+ * - You can't set `content` capabilities to `SendReceive` or `Receive` unless you also set `video` capabilities to `SendReceive` or `Receive`. If you don't set the `video` capability to receive, the response will contain an HTTP 400 Bad Request status code. However, you can set your `video` capability to receive and you set your `content` capability to not receive.
+ * - If meeting features is defined as `Video:MaxResolution:None` but `Content:MaxResolution` is defined as something other than `None` and attendee capabilities are not defined in the API request, then the default attendee video capability is set to `Receive` and attendee content capability is set to `SendReceive`. This is because content `SendReceive` requires video to be at least `Receive`.
+ * - When you change an `audio` capability from `None` or `Receive` to `Send` or `SendReceive` , and an attendee unmutes their microphone, audio flows from the attendee to the other meeting participants.
+ * - When you change a `video` or `content` capability from `None` or `Receive` to `Send` or `SendReceive` , and the attendee turns on their video or content streams, remote attendees can receive those streams, but only after media renegotiation between the client and the Amazon Chime back-end server.
+ *
  * @public
  */
 export interface AttendeeCapabilities {
   /**
-   * <p>The audio capability assigned to an attendee.</p>
+   * The audio capability assigned to an attendee.
+   *
    * @public
    */
   Audio: MediaCapabilities | undefined;
 
   /**
-   * <p>The video capability assigned to an attendee.</p>
+   * The video capability assigned to an attendee.
+   *
    * @public
    */
   Video: MediaCapabilities | undefined;
 
   /**
-   * <p>The content capability assigned to an attendee.</p>
+   * The content capability assigned to an attendee.
+   *
    * @public
    */
   Content: MediaCapabilities | undefined;
 }
 
 /**
- * <p>An Amazon Chime SDK meeting attendee. Includes a unique
- *            <code>AttendeeId</code> and <code>JoinToken</code>. The
- *            <code>JoinToken</code>
- *            allows a client to authenticate and join as the specified attendee. The
- *            <code>JoinToken</code>
- *            expires when the meeting ends, or when
- *            <a>DeleteAttendee</a>
- *            is called. After that, the attendee is unable to join the meeting.
- *        </p>
- *          <p>We recommend securely transferring each <code>JoinToken</code> from your server application
- *            to the client so that no other client has access to the token except for the one
- *            authorized to represent the attendee.</p>
+ * An Amazon Chime SDK meeting attendee. Includes a unique `AttendeeId` and `JoinToken`. The `JoinToken` allows a client to authenticate and join as the specified attendee. The `JoinToken` expires when the meeting ends, or when DeleteAttendee is called. After that, the attendee is unable to join the meeting.
+ *
+ * We recommend securely transferring each `JoinToken` from your server application to the client so that no other client has access to the token except for the one authorized to represent the attendee.
+ *
  * @public
  */
 export interface Attendee {
   /**
-   * <p>The Amazon Chime SDK external user ID. An idempotency token. Links the attendee to an identity managed by a builder application.</p>
-   *          <p>Pattern: <code>[-_&@+=,()\{\}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*</code>
-   *          </p>
-   *          <p>Values that begin with <code>aws:</code> are reserved. You can't configure a value that uses this prefix.
-   *             Case insensitive.</p>
+   * The Amazon Chime SDK external user ID. An idempotency token. Links the attendee to an identity managed by a builder application.
+   *
+   * Pattern: `[-_&@+=,()\{\}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*`
+   *
+   * Values that begin with `aws:` are reserved. You can't configure a value that uses this prefix. Case insensitive.
+   *
    * @public
    */
   ExternalUserId?: string | undefined;
 
   /**
-   * <p>The Amazon Chime SDK attendee ID.</p>
+   * The Amazon Chime SDK attendee ID.
+   *
    * @public
    */
   AttendeeId?: string | undefined;
 
   /**
-   * <p>The join token used by the Amazon Chime SDK attendee.</p>
+   * The join token used by the Amazon Chime SDK attendee.
+   *
    * @public
    */
   JoinToken?: string | undefined;
 
   /**
-   * <p>The capabilities assigned to an attendee: audio, video, or content.</p>
-   *          <note>
-   *             <p>You use the capabilities with a set of values that control what the capabilities can do, such as <code>SendReceive</code> data. For more information about those values, see
-   *             .</p>
-   *          </note>
-   *          <p>When using capabilities, be aware of these corner cases:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If you specify <code>MeetingFeatures:Video:MaxResolution:None</code> when you create a meeting, all API requests
-   *                     that include <code>SendReceive</code>, <code>Send</code>, or <code>Receive</code> for <code>AttendeeCapabilities:Video</code> will be rejected with <code>ValidationError 400</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you specify <code>MeetingFeatures:Content:MaxResolution:None</code> when you create a meeting, all API requests that include <code>SendReceive</code>, <code>Send</code>, or
-   *                     <code>Receive</code> for <code>AttendeeCapabilities:Content</code> will be rejected with <code>ValidationError 400</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>You can't set <code>content</code> capabilities to <code>SendReceive</code> or <code>Receive</code> unless you also set <code>video</code> capabilities to <code>SendReceive</code>
-   *                     or <code>Receive</code>. If you don't set the <code>video</code> capability to receive, the response will contain an HTTP 400 Bad Request status code. However, you can set your <code>video</code> capability
-   *                     to receive and you set your <code>content</code> capability to not receive.</p>
-   *             </li>
-   *             <li>
-   *                <p>If meeting features is defined as <code>Video:MaxResolution:None</code> but
-   *                     <code>Content:MaxResolution</code> is defined as something other than
-   *                     <code>None</code> and attendee capabilities are not defined in the API
-   *                     request, then the default attendee video capability is set to
-   *                     <code>Receive</code> and attendee content capability is set to
-   *                     <code>SendReceive</code>. This is because content <code>SendReceive</code>
-   *                     requires video to be at least <code>Receive</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>When you change an <code>audio</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
-   *                     and if the attendee left their microphone unmuted, audio will flow from the attendee to the other meeting participants.</p>
-   *             </li>
-   *             <li>
-   *                <p>When you change a <code>video</code> or <code>content</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
-   *                     and if the attendee turned on their video or content streams, remote attendees can receive those streams, but only after media renegotiation between the client and the Amazon Chime back-end server.</p>
-   *             </li>
-   *          </ul>
+   * The capabilities assigned to an attendee: audio, video, or content.
+   *
+   * > **Note:** You use the capabilities with a set of values that control what the capabilities can do, such as `SendReceive` data. For more information about those values, see .
+   *
+   * When using capabilities, be aware of these corner cases:
+   *
+   * - If you specify `MeetingFeatures:Video:MaxResolution:None` when you create a meeting, all API requests that include `SendReceive`, `Send`, or `Receive` for `AttendeeCapabilities:Video` will be rejected with `ValidationError 400`.
+   * - If you specify `MeetingFeatures:Content:MaxResolution:None` when you create a meeting, all API requests that include `SendReceive`, `Send`, or `Receive` for `AttendeeCapabilities:Content` will be rejected with `ValidationError 400`.
+   * - You can't set `content` capabilities to `SendReceive` or `Receive` unless you also set `video` capabilities to `SendReceive` or `Receive`. If you don't set the `video` capability to receive, the response will contain an HTTP 400 Bad Request status code. However, you can set your `video` capability to receive and you set your `content` capability to not receive.
+   * - If meeting features is defined as `Video:MaxResolution:None` but `Content:MaxResolution` is defined as something other than `None` and attendee capabilities are not defined in the API request, then the default attendee video capability is set to `Receive` and attendee content capability is set to `SendReceive`. This is because content `SendReceive` requires video to be at least `Receive`.
+   * - When you change an `audio` capability from `None` or `Receive` to `Send` or `SendReceive` , and if the attendee left their microphone unmuted, audio will flow from the attendee to the other meeting participants.
+   * - When you change a `video` or `content` capability from `None` or `Receive` to `Send` or `SendReceive` , and if the attendee turned on their video or content streams, remote attendees can receive those streams, but only after media renegotiation between the client and the Amazon Chime back-end server.
+   *
    * @public
    */
   Capabilities?: AttendeeCapabilities | undefined;
 }
 
 /**
- * <p>Lists the maximum number of attendees allowed into the meeting.</p>
- *          <note>
- *             <p>If you specify <code>FHD</code> for <code>MeetingFeatures:Video:MaxResolution</code>, or if you specify
- *            <code>UHD</code> for <code>MeetingFeatures:Content:MaxResolution</code>, the maximum number of attendees changes from the default of <code>250</code> to <code>25</code>.</p>
- *          </note>
+ * Lists the maximum number of attendees allowed into the meeting.
+ *
+ * > **Note:** If you specify `FHD` for `MeetingFeatures:Video:MaxResolution`, or if you specify `UHD` for `MeetingFeatures:Content:MaxResolution`, the maximum number of attendees changes from the default of `250` to `25`.
+ *
  * @public
  */
 export interface AttendeeFeatures {
   /**
-   * <p>The maximum number of attendees allowed into the meeting.</p>
+   * The maximum number of attendees allowed into the meeting.
+   *
    * @public
    */
   MaxCount?: number | undefined;
 }
 
 /**
- * <p>A structure that contains one or more attendee IDs.</p>
+ * A structure that contains one or more attendee IDs.
+ *
  * @public
  */
 export interface AttendeeIdItem {
   /**
-   * <p>A list of one or more attendee IDs.</p>
+   * A list of one or more attendee IDs.
+   *
    * @public
    */
   AttendeeId: string | undefined;
 }
 
 /**
- * <p>An optional category of meeting features that contains audio-specific configurations, such as operating parameters for Amazon Voice Focus. </p>
+ * An optional category of meeting features that contains audio-specific configurations, such as operating parameters for Amazon Voice Focus.
+ *
  * @public
  */
 export interface AudioFeatures {
   /**
-   * <p>Makes echo reduction available to clients who connect to the meeting.</p>
+   * Makes echo reduction available to clients who connect to the meeting.
+   *
    * @public
    */
   EchoReduction?: MeetingFeatureStatus | undefined;
 }
 
 /**
- * <p>The Amazon Chime SDK attendee fields to create, used with the BatchCreateAttendee action.</p>
+ * The Amazon Chime SDK attendee fields to create, used with the BatchCreateAttendee action.
+ *
  * @public
  */
 export interface CreateAttendeeRequestItem {
   /**
-   * <p>The Amazon Chime SDK external user ID. An idempotency token. Links the attendee to an identity managed by a builder application.</p>
-   *          <p>Pattern: <code>[-_&@+=,()\{\}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*</code>
-   *          </p>
-   *          <p>Values that begin with <code>aws:</code> are reserved. You can't configure a value that uses this prefix.
-   *             Case insensitive.</p>
+   * The Amazon Chime SDK external user ID. An idempotency token. Links the attendee to an identity managed by a builder application.
+   *
+   * Pattern: `[-_&@+=,()\{\}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*`
+   *
+   * Values that begin with `aws:` are reserved. You can't configure a value that uses this prefix. Case insensitive.
+   *
    * @public
    */
   ExternalUserId: string | undefined;
 
   /**
-   * <p>A list of one or more capabilities.</p>
+   * A list of one or more capabilities.
+   *
    * @public
    */
   Capabilities?: AttendeeCapabilities | undefined;
@@ -228,41 +183,47 @@ export interface CreateAttendeeRequestItem {
  */
 export interface BatchCreateAttendeeRequest {
   /**
-   * <p>The Amazon Chime SDK ID of the meeting to which you're adding attendees.</p>
+   * The Amazon Chime SDK ID of the meeting to which you're adding attendees.
+   *
    * @public
    */
   MeetingId: string | undefined;
 
   /**
-   * <p>The attendee information, including attendees' IDs and join tokens.</p>
+   * The attendee information, including attendees' IDs and join tokens.
+   *
    * @public
    */
   Attendees: CreateAttendeeRequestItem[] | undefined;
 }
 
 /**
- * <p>The list of errors returned when errors are encountered during the BatchCreateAttendee and CreateAttendee actions. This includes external user IDs, error codes, and error messages.</p>
+ * The list of errors returned when errors are encountered during the BatchCreateAttendee and CreateAttendee actions. This includes external user IDs, error codes, and error messages.
+ *
  * @public
  */
 export interface CreateAttendeeError {
   /**
-   * <p>The Amazon Chime SDK external user ID. An idempotency token. Links the attendee to an identity managed by a builder application.</p>
-   *          <p>Pattern: <code>[-_&@+=,()\{\}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*</code>
-   *          </p>
-   *          <p>Values that begin with <code>aws:</code> are reserved. You can't configure a value that uses this prefix.
-   *             Case insensitive.</p>
+   * The Amazon Chime SDK external user ID. An idempotency token. Links the attendee to an identity managed by a builder application.
+   *
+   * Pattern: `[-_&@+=,()\{\}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*`
+   *
+   * Values that begin with `aws:` are reserved. You can't configure a value that uses this prefix. Case insensitive.
+   *
    * @public
    */
   ExternalUserId?: string | undefined;
 
   /**
-   * <p>The error code.</p>
+   * The error code.
+   *
    * @public
    */
   ErrorCode?: string | undefined;
 
   /**
-   * <p>The error message.</p>
+   * The error message.
+   *
    * @public
    */
   ErrorMessage?: string | undefined;
@@ -273,13 +234,15 @@ export interface CreateAttendeeError {
  */
 export interface BatchCreateAttendeeResponse {
   /**
-   * <p>The attendee information, including attendees' IDs and join tokens.</p>
+   * The attendee information, including attendees' IDs and join tokens.
+   *
    * @public
    */
   Attendees?: Attendee[] | undefined;
 
   /**
-   * <p>If the action fails for one or more of the attendees in the request, a list of the attendees is returned, along with error codes and error messages.</p>
+   * If the action fails for one or more of the attendees in the request, a list of the attendees is returned, along with error codes and error messages.
+   *
    * @public
    */
   Errors?: CreateAttendeeError[] | undefined;
@@ -290,19 +253,22 @@ export interface BatchCreateAttendeeResponse {
  */
 export interface BatchUpdateAttendeeCapabilitiesExceptRequest {
   /**
-   * <p>The ID of the meeting associated with the update request.</p>
+   * The ID of the meeting associated with the update request.
+   *
    * @public
    */
   MeetingId: string | undefined;
 
   /**
-   * <p>The <code>AttendeeIDs</code> that you want to exclude from one or more capabilities.</p>
+   * The `AttendeeIDs` that you want to exclude from one or more capabilities.
+   *
    * @public
    */
   ExcludedAttendeeIds: AttendeeIdItem[] | undefined;
 
   /**
-   * <p>The capabilities (<code>audio</code>, <code>video</code>, or <code>content</code>) that you want to update.</p>
+   * The capabilities (`audio`, `video`, or `content`) that you want to update.
+   *
    * @public
    */
   Capabilities: AttendeeCapabilities | undefined;
@@ -313,61 +279,37 @@ export interface BatchUpdateAttendeeCapabilitiesExceptRequest {
  */
 export interface CreateAttendeeRequest {
   /**
-   * <p>The unique ID of the meeting.</p>
+   * The unique ID of the meeting.
+   *
    * @public
    */
   MeetingId: string | undefined;
 
   /**
-   * <p>The Amazon Chime SDK external user ID. An idempotency token. Links the attendee to an identity managed by a builder application.</p>
-   *          <p>Pattern: <code>[-_&@+=,()\{\}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*</code>
-   *          </p>
-   *          <p>Values that begin with <code>aws:</code> are reserved. You can't configure a value that
-   *             uses this prefix.</p>
+   * The Amazon Chime SDK external user ID. An idempotency token. Links the attendee to an identity managed by a builder application.
+   *
+   * Pattern: `[-_&@+=,()\{\}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*`
+   *
+   * Values that begin with `aws:` are reserved. You can't configure a value that uses this prefix.
+   *
    * @public
    */
   ExternalUserId: string | undefined;
 
   /**
-   * <p>The capabilities (<code>audio</code>, <code>video</code>, or <code>content</code>) that you want to grant an attendee. If you don't specify capabilities, all users have send and receive capabilities on
-   *             all media channels by default.</p>
-   *          <note>
-   *             <p>You use the capabilities with a set of values that control what the capabilities can do, such as <code>SendReceive</code> data. For more information about those values, see
-   *             .</p>
-   *          </note>
-   *          <p>When using capabilities, be aware of these corner cases:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If you specify <code>MeetingFeatures:Video:MaxResolution:None</code> when you create a meeting, all API requests
-   *                         that include <code>SendReceive</code>, <code>Send</code>, or <code>Receive</code> for <code>AttendeeCapabilities:Video</code> will be rejected with <code>ValidationError 400</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you specify <code>MeetingFeatures:Content:MaxResolution:None</code> when you create a meeting, all API requests that include <code>SendReceive</code>, <code>Send</code>, or
-   *                         <code>Receive</code> for <code>AttendeeCapabilities:Content</code> will be rejected with <code>ValidationError 400</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>You can't set <code>content</code> capabilities to <code>SendReceive</code> or <code>Receive</code> unless you also set <code>video</code> capabilities to <code>SendReceive</code>
-   *                     or <code>Receive</code>. If you don't set the <code>video</code> capability to receive, the response will contain an HTTP 400 Bad Request status code. However, you can set your <code>video</code> capability
-   *                     to receive and you set your <code>content</code> capability to not receive.</p>
-   *             </li>
-   *             <li>
-   *                <p>If meeting features is defined as <code>Video:MaxResolution:None</code> but
-   *                         <code>Content:MaxResolution</code> is defined as something other than
-   *                         <code>None</code> and attendee capabilities are not defined in the API
-   *                         request, then the default attendee video capability is set to
-   *                         <code>Receive</code> and attendee content capability is set to
-   *                         <code>SendReceive</code>. This is because content <code>SendReceive</code>
-   *                         requires video to be at least <code>Receive</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>When you change an <code>audio</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
-   *                     and if the attendee left their microphone unmuted, audio will flow from the attendee to the other meeting participants.</p>
-   *             </li>
-   *             <li>
-   *                <p>When you change a <code>video</code> or <code>content</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
-   *                    and if the attendee turned on their video or content streams, remote attendees can receive those streams, but only after media renegotiation between the client and the Amazon Chime back-end server.</p>
-   *             </li>
-   *          </ul>
+   * The capabilities (`audio`, `video`, or `content`) that you want to grant an attendee. If you don't specify capabilities, all users have send and receive capabilities on all media channels by default.
+   *
+   * > **Note:** You use the capabilities with a set of values that control what the capabilities can do, such as `SendReceive` data. For more information about those values, see .
+   *
+   * When using capabilities, be aware of these corner cases:
+   *
+   * - If you specify `MeetingFeatures:Video:MaxResolution:None` when you create a meeting, all API requests that include `SendReceive`, `Send`, or `Receive` for `AttendeeCapabilities:Video` will be rejected with `ValidationError 400`.
+   * - If you specify `MeetingFeatures:Content:MaxResolution:None` when you create a meeting, all API requests that include `SendReceive`, `Send`, or `Receive` for `AttendeeCapabilities:Content` will be rejected with `ValidationError 400`.
+   * - You can't set `content` capabilities to `SendReceive` or `Receive` unless you also set `video` capabilities to `SendReceive` or `Receive`. If you don't set the `video` capability to receive, the response will contain an HTTP 400 Bad Request status code. However, you can set your `video` capability to receive and you set your `content` capability to not receive.
+   * - If meeting features is defined as `Video:MaxResolution:None` but `Content:MaxResolution` is defined as something other than `None` and attendee capabilities are not defined in the API request, then the default attendee video capability is set to `Receive` and attendee content capability is set to `SendReceive`. This is because content `SendReceive` requires video to be at least `Receive`.
+   * - When you change an `audio` capability from `None` or `Receive` to `Send` or `SendReceive` , and if the attendee left their microphone unmuted, audio will flow from the attendee to the other meeting participants.
+   * - When you change a `video` or `content` capability from `None` or `Receive` to `Send` or `SendReceive` , and if the attendee turned on their video or content streams, remote attendees can receive those streams, but only after media renegotiation between the client and the Amazon Chime back-end server.
+   *
    * @public
    */
   Capabilities?: AttendeeCapabilities | undefined;
@@ -378,119 +320,128 @@ export interface CreateAttendeeRequest {
  */
 export interface CreateAttendeeResponse {
   /**
-   * <p>The attendee information, including attendee ID and join token.</p>
+   * The attendee information, including attendee ID and join token.
+   *
    * @public
    */
   Attendee?: Attendee | undefined;
 }
 
 /**
- * <p>Lists the content (screen share) features for the meeting. Applies to all attendees.</p>
- *          <note>
- *             <p>If you specify <code>MeetingFeatures:Content:MaxResolution:None</code> when you create a meeting, all API requests that include <code>SendReceive</code>, <code>Send</code>, or
- *                 <code>Receive</code> for <code>AttendeeCapabilities:Content</code> will be rejected with <code>ValidationError 400</code>.</p>
- *          </note>
+ * Lists the content (screen share) features for the meeting. Applies to all attendees.
+ *
+ * > **Note:** If you specify `MeetingFeatures:Content:MaxResolution:None` when you create a meeting, all API requests that include `SendReceive`, `Send`, or `Receive` for `AttendeeCapabilities:Content` will be rejected with `ValidationError 400`.
+ *
  * @public
  */
 export interface ContentFeatures {
   /**
-   * <p>The maximum resolution for the meeting content.</p>
-   *          <note>
-   *             <p>Defaults to <code>FHD</code>. To use <code>UHD</code>, you must also provide a <code>MeetingFeatures:Attendee:MaxCount</code>
-   *          value and override the default size limit of 250 attendees.</p>
-   *          </note>
+   * The maximum resolution for the meeting content.
+   *
+   * > **Note:** Defaults to `FHD`. To use `UHD`, you must also provide a `MeetingFeatures:Attendee:MaxCount` value and override the default size limit of 250 attendees.
+   *
    * @public
    */
   MaxResolution?: ContentResolution | undefined;
 }
 
 /**
- * <p>The video features set for the meeting. Applies to all attendees.</p>
- *          <note>
- *             <p>If you specify <code>MeetingFeatures:Video:MaxResolution:None</code> when you create a meeting, all API requests
- *                 that include <code>SendReceive</code>, <code>Send</code>, or <code>Receive</code> for <code>AttendeeCapabilities:Video</code> will be rejected with <code>ValidationError 400</code>.</p>
- *          </note>
+ * The video features set for the meeting. Applies to all attendees.
+ *
+ * > **Note:** If you specify `MeetingFeatures:Video:MaxResolution:None` when you create a meeting, all API requests that include `SendReceive`, `Send`, or `Receive` for `AttendeeCapabilities:Video` will be rejected with `ValidationError 400`.
+ *
  * @public
  */
 export interface VideoFeatures {
   /**
-   * <p>The maximum video resolution for the meeting. Applies to all attendees.</p>
-   *          <note>
-   *             <p>Defaults to <code>HD</code>. To use <code>FHD</code>, you must also provide a <code>MeetingFeatures:Attendee:MaxCount</code> value and override the default size
-   *             limit of 250 attendees.</p>
-   *          </note>
+   * The maximum video resolution for the meeting. Applies to all attendees.
+   *
+   * > **Note:** Defaults to `HD`. To use `FHD`, you must also provide a `MeetingFeatures:Attendee:MaxCount` value and override the default size limit of 250 attendees.
+   *
    * @public
    */
   MaxResolution?: VideoResolution | undefined;
 }
 
 /**
- * <p>The configuration settings of the features available to a meeting.</p>
+ * The configuration settings of the features available to a meeting.
+ *
  * @public
  */
 export interface MeetingFeaturesConfiguration {
   /**
-   * <p>The configuration settings for the audio features available to a meeting.</p>
+   * The configuration settings for the audio features available to a meeting.
+   *
    * @public
    */
   Audio?: AudioFeatures | undefined;
 
   /**
-   * <p>The configuration settings for the video features available to a meeting.</p>
+   * The configuration settings for the video features available to a meeting.
+   *
    * @public
    */
   Video?: VideoFeatures | undefined;
 
   /**
-   * <p>The configuration settings for the content features available to a meeting.</p>
+   * The configuration settings for the content features available to a meeting.
+   *
    * @public
    */
   Content?: ContentFeatures | undefined;
 
   /**
-   * <p>The configuration settings for the attendee features available to a meeting.</p>
+   * The configuration settings for the attendee features available to a meeting.
+   *
    * @public
    */
   Attendee?: AttendeeFeatures | undefined;
 }
 
 /**
- * <p>The configuration for resource targets to receive notifications when meeting and attendee events occur.</p>
+ * The configuration for resource targets to receive notifications when meeting and attendee events occur.
+ *
  * @public
  */
 export interface NotificationsConfiguration {
   /**
-   * <p>The ARN of the Amazon Web Services Lambda function in the notifications configuration.</p>
+   * The ARN of the Amazon Web Services Lambda function in the notifications configuration.
+   *
    * @public
    */
   LambdaFunctionArn?: string | undefined;
 
   /**
-   * <p>The ARN of the SNS topic.</p>
+   * The ARN of the SNS topic.
+   *
    * @public
    */
   SnsTopicArn?: string | undefined;
 
   /**
-   * <p>The ARN of the SQS queue.</p>
+   * The ARN of the SQS queue.
+   *
    * @public
    */
   SqsQueueArn?: string | undefined;
 }
 
 /**
- * <p>A key-value pair that you define.</p>
+ * A key-value pair that you define.
+ *
  * @public
  */
 export interface Tag {
   /**
-   * <p>The tag's key.</p>
+   * The tag's key.
+   *
    * @public
    */
   Key: string | undefined;
 
   /**
-   * <p>The tag's value.</p>
+   * The tag's value.
+   *
    * @public
    */
   Value: string | undefined;
@@ -501,268 +452,243 @@ export interface Tag {
  */
 export interface CreateMeetingRequest {
   /**
-   * <p>The unique identifier for the client request. Use a different token for different meetings.</p>
+   * The unique identifier for the client request. Use a different token for different meetings.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
 
   /**
-   * <p>The Region in which to create the meeting.</p>
-   *          <p>
-   *            Available values:
-   *            <code>af-south-1</code>,
-   *            <code>ap-northeast-1</code>,
-   *            <code>ap-northeast-2</code>,
-   *            <code>ap-south-1</code>,
-   *            <code>ap-southeast-1</code>,
-   *            <code>ap-southeast-2</code>,
-   *            <code>ca-central-1</code>,
-   *            <code>eu-central-1</code>,
-   *            <code>eu-north-1</code>,
-   *            <code>eu-south-1</code>,
-   *            <code>eu-west-1</code>,
-   *            <code>eu-west-2</code>,
-   *            <code>eu-west-3</code>,
-   *            <code>sa-east-1</code>,
-   *            <code>us-east-1</code>,
-   *            <code>us-east-2</code>,
-   *            <code>us-west-1</code>,
-   *            <code>us-west-2</code>.
-   *        </p>
-   *          <p>Available values in Amazon Web Services GovCloud (US) Regions: <code>us-gov-east-1</code>, <code>us-gov-west-1</code>.</p>
+   * The Region in which to create the meeting.
+   *
+   * Available values: `af-south-1`, `ap-northeast-1`, `ap-northeast-2`, `ap-south-1`, `ap-southeast-1`, `ap-southeast-2`, `ca-central-1`, `eu-central-1`, `eu-north-1`, `eu-south-1`, `eu-west-1`, `eu-west-2`, `eu-west-3`, `sa-east-1`, `us-east-1`, `us-east-2`, `us-west-1`, `us-west-2`.
+   *
+   * Available values in Amazon Web Services GovCloud (US) Regions: `us-gov-east-1`, `us-gov-west-1`.
+   *
    * @public
    */
   MediaRegion: string | undefined;
 
   /**
-   * <p>Reserved.</p>
+   * Reserved.
+   *
    * @public
    */
   MeetingHostId?: string | undefined;
 
   /**
-   * <p>The external meeting ID.</p>
-   *          <p>Pattern: <code>[-_&@+=,()\{\}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*</code>
-   *          </p>
-   *          <p>Values that begin with <code>aws:</code> are reserved. You can't configure a value that uses this prefix.
-   *            Case insensitive.</p>
+   * The external meeting ID.
+   *
+   * Pattern: `[-_&@+=,()\{\}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*`
+   *
+   * Values that begin with `aws:` are reserved. You can't configure a value that uses this prefix. Case insensitive.
+   *
    * @public
    */
   ExternalMeetingId: string | undefined;
 
   /**
-   * <p>The configuration for resource targets to receive notifications when meeting and attendee events occur.</p>
+   * The configuration for resource targets to receive notifications when meeting and attendee events occur.
+   *
    * @public
    */
   NotificationsConfiguration?: NotificationsConfiguration | undefined;
 
   /**
-   * <p>Lists the audio and video features enabled for a meeting, such as echo reduction.</p>
+   * Lists the audio and video features enabled for a meeting, such as echo reduction.
+   *
    * @public
    */
   MeetingFeatures?: MeetingFeaturesConfiguration | undefined;
 
   /**
-   * <p>When specified, replicates the media from the primary meeting to the new meeting.</p>
+   * When specified, replicates the media from the primary meeting to the new meeting.
+   *
    * @public
    */
   PrimaryMeetingId?: string | undefined;
 
   /**
-   * <p>A consistent and opaque identifier, created and maintained by the builder to represent a segment of their users.</p>
+   * A consistent and opaque identifier, created and maintained by the builder to represent a segment of their users.
+   *
    * @public
    */
   TenantIds?: string[] | undefined;
 
   /**
-   * <p>Applies one or more tags to an Amazon Chime SDK meeting. Note the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Not all resources have tags. For a list of services with resources that support tagging using this operation, see
-   *         <a href="https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/supported-services.html">Services that support the Resource Groups Tagging API</a>. If the resource
-   *         doesn't yet support this operation, the resource's service might support tagging using its own API operations. For more information, refer to the documentation for that service.</p>
-   *             </li>
-   *             <li>
-   *                <p>Each resource can have up to 50 tags. For other limits, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html#tag-conventions">Tag Naming and Usage Conventions</a> in the
-   *        <i>AWS General Reference</i>.</p>
-   *             </li>
-   *             <li>
-   *                <p>You can only tag resources that are located in the specified Amazon Web Services Region for the Amazon Web Services account.</p>
-   *             </li>
-   *             <li>
-   *                <p>To add tags to a resource, you need the necessary permissions for the service that the resource belongs to as well as permissions for adding tags. For more information, see the
-   *         documentation for each service.</p>
-   *             </li>
-   *          </ul>
-   *          <important>
-   *             <p>Do not store personally identifiable information (PII) or other confidential or sensitive information in tags. We use tags to provide you with billing and administration services. Tags are not intended to be
-   *             used for private or sensitive data.</p>
-   *          </important>
-   *          <p>
-   *             <b>Minimum permissions</b>
-   *          </p>
-   *          <p>In addition to the <code>tag:TagResources</code> permission required by this operation, you must also have the tagging permission defined by the service that created the resource. For example,
-   *                    to tag a <code>ChimeSDKMeetings</code> instance using the <code>TagResources</code> operation, you must have both of the following permissions:</p>
-   *          <p>
-   *             <code>tag:TagResources</code>
-   *          </p>
-   *          <p>
-   *             <code>ChimeSDKMeetings:CreateTags</code>
-   *          </p>
-   *          <note>
-   *             <p>Some services might have specific requirements for tagging some resources. For example, to tag an Amazon S3 bucket, you must also have the <code>s3:GetBucketTagging</code> permission.
-   *                 If the expected minimum permissions don't work, check the documentation for that service's tagging APIs for more information.</p>
-   *          </note>
+   * Applies one or more tags to an Amazon Chime SDK meeting. Note the following:
+   *
+   * - Not all resources have tags. For a list of services with resources that support tagging using this operation, see [Services that support the Resource Groups Tagging API](https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/supported-services.html). If the resource doesn't yet support this operation, the resource's service might support tagging using its own API operations. For more information, refer to the documentation for that service.
+   * - Each resource can have up to 50 tags. For other limits, see [Tag Naming and Usage Conventions](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html#tag-conventions) in the *AWS General Reference*.
+   * - You can only tag resources that are located in the specified Amazon Web Services Region for the Amazon Web Services account.
+   * - To add tags to a resource, you need the necessary permissions for the service that the resource belongs to as well as permissions for adding tags. For more information, see the documentation for each service.
+   *
+   * > **Important:** Do not store personally identifiable information (PII) or other confidential or sensitive information in tags. We use tags to provide you with billing and administration services. Tags are not intended to be used for private or sensitive data.
+   *
+   * **Minimum permissions**
+   *
+   * In addition to the `tag:TagResources` permission required by this operation, you must also have the tagging permission defined by the service that created the resource. For example, to tag a `ChimeSDKMeetings` instance using the `TagResources` operation, you must have both of the following permissions:
+   *
+   * `tag:TagResources`
+   *
+   * `ChimeSDKMeetings:CreateTags`
+   *
+   * > **Note:** Some services might have specific requirements for tagging some resources. For example, to tag an Amazon S3 bucket, you must also have the `s3:GetBucketTagging` permission. If the expected minimum permissions don't work, check the documentation for that service's tagging APIs for more information.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>The type of network for the media placement. Either IPv4 only or dual-stack (IPv4 and IPv6).</p>
+   * The type of network for the media placement. Either IPv4 only or dual-stack (IPv4 and IPv6).
+   *
    * @public
    */
   MediaPlacementNetworkType?: MediaPlacementNetworkType | undefined;
 }
 
 /**
- * <p>A set of endpoints used by clients to connect to the media service group for an Amazon Chime SDK meeting.</p>
+ * A set of endpoints used by clients to connect to the media service group for an Amazon Chime SDK meeting.
+ *
  * @public
  */
 export interface MediaPlacement {
   /**
-   * <p>The audio host URL.</p>
+   * The audio host URL.
+   *
    * @public
    */
   AudioHostUrl?: string | undefined;
 
   /**
-   * <p>The audio fallback URL.</p>
+   * The audio fallback URL.
+   *
    * @public
    */
   AudioFallbackUrl?: string | undefined;
 
   /**
-   * <p>The signaling URL.</p>
+   * The signaling URL.
+   *
    * @public
    */
   SignalingUrl?: string | undefined;
 
   /**
-   * <p>The turn control URL.</p>
-   *          <important>
-   *             <p>
-   *                <b>This parameter is deprecated and no longer used by the Amazon Chime SDK.</b>
-   *             </p>
-   *          </important>
+   * The turn control URL.
+   *
+   * > **Important:** **This parameter is deprecated and no longer used by the Amazon Chime SDK.**
+   *
    * @public
    */
   TurnControlUrl?: string | undefined;
 
   /**
-   * <p>The screen data URL.</p>
-   *          <important>
-   *             <p>
-   *                <b>This parameter is deprecated and no longer used by the Amazon Chime SDK.</b>
-   *             </p>
-   *          </important>
+   * The screen data URL.
+   *
+   * > **Important:** **This parameter is deprecated and no longer used by the Amazon Chime SDK.**
+   *
    * @public
    */
   ScreenDataUrl?: string | undefined;
 
   /**
-   * <p>The screen viewing URL.</p>
-   *          <important>
-   *             <p>
-   *                <b>This parameter is deprecated and no longer used by the Amazon Chime SDK.</b>
-   *             </p>
-   *          </important>
+   * The screen viewing URL.
+   *
+   * > **Important:** **This parameter is deprecated and no longer used by the Amazon Chime SDK.**
+   *
    * @public
    */
   ScreenViewingUrl?: string | undefined;
 
   /**
-   * <p>The screen sharing URL.</p>
-   *          <important>
-   *             <p>
-   *                <b>This parameter is deprecated and no longer used by the Amazon Chime SDK.</b>
-   *             </p>
-   *          </important>
+   * The screen sharing URL.
+   *
+   * > **Important:** **This parameter is deprecated and no longer used by the Amazon Chime SDK.**
+   *
    * @public
    */
   ScreenSharingUrl?: string | undefined;
 
   /**
-   * <p>The event ingestion URL.</p>
+   * The event ingestion URL.
+   *
    * @public
    */
   EventIngestionUrl?: string | undefined;
 }
 
 /**
- * <p>A meeting created using the Amazon Chime SDK.</p>
+ * A meeting created using the Amazon Chime SDK.
+ *
  * @public
  */
 export interface Meeting {
   /**
-   * <p>The Amazon Chime SDK meeting ID.</p>
+   * The Amazon Chime SDK meeting ID.
+   *
    * @public
    */
   MeetingId?: string | undefined;
 
   /**
-   * <p>Reserved.</p>
+   * Reserved.
+   *
    * @public
    */
   MeetingHostId?: string | undefined;
 
   /**
-   * <p>The external meeting ID.</p>
-   *          <p>Pattern: <code>[-_&@+=,()\{\}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*</code>
-   *          </p>
-   *          <p>Values that begin with <code>aws:</code> are reserved. You can't configure a value that uses this prefix.
-   *             Case insensitive.</p>
+   * The external meeting ID.
+   *
+   * Pattern: `[-_&@+=,()\{\}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*`
+   *
+   * Values that begin with `aws:` are reserved. You can't configure a value that uses this prefix. Case insensitive.
+   *
    * @public
    */
   ExternalMeetingId?: string | undefined;
 
   /**
-   * <p>The Region in which you create the meeting. Available values: <code>af-south-1</code>, <code>ap-northeast-1</code>,
-   *             <code>ap-northeast-2</code>, <code>ap-south-1</code>, <code>ap-southeast-1</code>, <code>ap-southeast-2</code>, <code>ca-central-1</code>,
-   *             <code>eu-central-1</code>, <code>eu-north-1</code>, <code>eu-south-1</code>,
-   *             <code>eu-west-1</code>, <code>eu-west-2</code>, <code>eu-west-3</code>,
-   *             <code>sa-east-1</code>, <code>us-east-1</code>, <code>us-east-2</code>,
-   *             <code>us-west-1</code>, <code>us-west-2</code>.</p>
-   *          <p>Available values in Amazon Web Services GovCloud (US) Regions: <code>us-gov-east-1</code>, <code>us-gov-west-1</code>.</p>
+   * The Region in which you create the meeting. Available values: `af-south-1`, `ap-northeast-1`, `ap-northeast-2`, `ap-south-1`, `ap-southeast-1`, `ap-southeast-2`, `ca-central-1`, `eu-central-1`, `eu-north-1`, `eu-south-1`, `eu-west-1`, `eu-west-2`, `eu-west-3`, `sa-east-1`, `us-east-1`, `us-east-2`, `us-west-1`, `us-west-2`.
+   *
+   * Available values in Amazon Web Services GovCloud (US) Regions: `us-gov-east-1`, `us-gov-west-1`.
+   *
    * @public
    */
   MediaRegion?: string | undefined;
 
   /**
-   * <p>The media placement for the meeting.</p>
+   * The media placement for the meeting.
+   *
    * @public
    */
   MediaPlacement?: MediaPlacement | undefined;
 
   /**
-   * <p>The features available to a meeting, such as echo reduction.</p>
+   * The features available to a meeting, such as echo reduction.
+   *
    * @public
    */
   MeetingFeatures?: MeetingFeaturesConfiguration | undefined;
 
   /**
-   * <p>When specified, replicates the media from the primary meeting to this meeting.</p>
+   * When specified, replicates the media from the primary meeting to this meeting.
+   *
    * @public
    */
   PrimaryMeetingId?: string | undefined;
 
   /**
-   * <p>Array of strings.</p>
+   * Array of strings.
+   *
    * @public
    */
   TenantIds?: string[] | undefined;
 
   /**
-   * <p>The ARN of the meeting.</p>
+   * The ARN of the meeting.
+   *
    * @public
    */
   MeetingArn?: string | undefined;
@@ -773,8 +699,8 @@ export interface Meeting {
  */
 export interface CreateMeetingResponse {
   /**
-   * <p>The meeting information, including the meeting ID and
-   *            <code>MediaPlacement</code>.</p>
+   * The meeting information, including the meeting ID and `MediaPlacement`.
+   *
    * @public
    */
   Meeting?: Meeting | undefined;
@@ -785,93 +711,86 @@ export interface CreateMeetingResponse {
  */
 export interface CreateMeetingWithAttendeesRequest {
   /**
-   * <p>The unique identifier for the client request. Use a different token for different meetings.</p>
+   * The unique identifier for the client request. Use a different token for different meetings.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
 
   /**
-   * <p>The Region in which to create the meeting.</p>
-   *          <p>
-   *            Available values:
-   *            <code>af-south-1</code>,
-   *            <code>ap-northeast-1</code>,
-   *            <code>ap-northeast-2</code>,
-   *            <code>ap-south-1</code>,
-   *            <code>ap-southeast-1</code>,
-   *            <code>ap-southeast-2</code>,
-   *            <code>ca-central-1</code>,
-   *            <code>eu-central-1</code>,
-   *            <code>eu-north-1</code>,
-   *            <code>eu-south-1</code>,
-   *            <code>eu-west-1</code>,
-   *            <code>eu-west-2</code>,
-   *            <code>eu-west-3</code>,
-   *            <code>sa-east-1</code>,
-   *            <code>us-east-1</code>,
-   *            <code>us-east-2</code>,
-   *            <code>us-west-1</code>,
-   *            <code>us-west-2</code>.
-   *        </p>
-   *          <p>Available values in Amazon Web Services GovCloud (US) Regions: <code>us-gov-east-1</code>, <code>us-gov-west-1</code>.</p>
+   * The Region in which to create the meeting.
+   *
+   * Available values: `af-south-1`, `ap-northeast-1`, `ap-northeast-2`, `ap-south-1`, `ap-southeast-1`, `ap-southeast-2`, `ca-central-1`, `eu-central-1`, `eu-north-1`, `eu-south-1`, `eu-west-1`, `eu-west-2`, `eu-west-3`, `sa-east-1`, `us-east-1`, `us-east-2`, `us-west-1`, `us-west-2`.
+   *
+   * Available values in Amazon Web Services GovCloud (US) Regions: `us-gov-east-1`, `us-gov-west-1`.
+   *
    * @public
    */
   MediaRegion: string | undefined;
 
   /**
-   * <p>Reserved.</p>
+   * Reserved.
+   *
    * @public
    */
   MeetingHostId?: string | undefined;
 
   /**
-   * <p>The external meeting ID.</p>
-   *          <p>Pattern: <code>[-_&@+=,()\{\}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*</code>
-   *          </p>
-   *          <p>Values that begin with <code>aws:</code> are reserved. You can't configure a value that uses this prefix.
-   *            Case insensitive.</p>
+   * The external meeting ID.
+   *
+   * Pattern: `[-_&@+=,()\{\}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*`
+   *
+   * Values that begin with `aws:` are reserved. You can't configure a value that uses this prefix. Case insensitive.
+   *
    * @public
    */
   ExternalMeetingId: string | undefined;
 
   /**
-   * <p>Lists the audio and video features enabled for a meeting, such as echo reduction.</p>
+   * Lists the audio and video features enabled for a meeting, such as echo reduction.
+   *
    * @public
    */
   MeetingFeatures?: MeetingFeaturesConfiguration | undefined;
 
   /**
-   * <p>The configuration for resource targets to receive notifications when meeting and attendee events occur.</p>
+   * The configuration for resource targets to receive notifications when meeting and attendee events occur.
+   *
    * @public
    */
   NotificationsConfiguration?: NotificationsConfiguration | undefined;
 
   /**
-   * <p>The attendee information, including attendees' IDs and join tokens.</p>
+   * The attendee information, including attendees' IDs and join tokens.
+   *
    * @public
    */
   Attendees: CreateAttendeeRequestItem[] | undefined;
 
   /**
-   * <p>When specified, replicates the media from the primary meeting to the new meeting.</p>
+   * When specified, replicates the media from the primary meeting to the new meeting.
+   *
    * @public
    */
   PrimaryMeetingId?: string | undefined;
 
   /**
-   * <p>A consistent and opaque identifier, created and maintained by the builder to represent a segment of their users.</p>
+   * A consistent and opaque identifier, created and maintained by the builder to represent a segment of their users.
+   *
    * @public
    */
   TenantIds?: string[] | undefined;
 
   /**
-   * <p>The tags in the request.</p>
+   * The tags in the request.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>The type of network for the media placement. Either IPv4 only or dual-stack (IPv4 and IPv6).</p>
+   * The type of network for the media placement. Either IPv4 only or dual-stack (IPv4 and IPv6).
+   *
    * @public
    */
   MediaPlacementNetworkType?: MediaPlacementNetworkType | undefined;
@@ -882,20 +801,22 @@ export interface CreateMeetingWithAttendeesRequest {
  */
 export interface CreateMeetingWithAttendeesResponse {
   /**
-   * <p>The meeting information, including the meeting ID and
-   *            <code>MediaPlacement</code>.</p>
+   * The meeting information, including the meeting ID and `MediaPlacement`.
+   *
    * @public
    */
   Meeting?: Meeting | undefined;
 
   /**
-   * <p>The attendee information, including attendees' IDs and join tokens.</p>
+   * The attendee information, including attendees' IDs and join tokens.
+   *
    * @public
    */
   Attendees?: Attendee[] | undefined;
 
   /**
-   * <p>If the action fails for one or more of the attendees in the request, a list of the attendees is returned, along with error codes and error messages.</p>
+   * If the action fails for one or more of the attendees in the request, a list of the attendees is returned, along with error codes and error messages.
+   *
    * @public
    */
   Errors?: CreateAttendeeError[] | undefined;
@@ -906,13 +827,15 @@ export interface CreateMeetingWithAttendeesResponse {
  */
 export interface DeleteAttendeeRequest {
   /**
-   * <p>The Amazon Chime SDK meeting ID.</p>
+   * The Amazon Chime SDK meeting ID.
+   *
    * @public
    */
   MeetingId: string | undefined;
 
   /**
-   * <p>The Amazon Chime SDK attendee ID.</p>
+   * The Amazon Chime SDK attendee ID.
+   *
    * @public
    */
   AttendeeId: string | undefined;
@@ -923,7 +846,8 @@ export interface DeleteAttendeeRequest {
  */
 export interface DeleteMeetingRequest {
   /**
-   * <p>The Amazon Chime SDK meeting ID.</p>
+   * The Amazon Chime SDK meeting ID.
+   *
    * @public
    */
   MeetingId: string | undefined;
@@ -934,13 +858,15 @@ export interface DeleteMeetingRequest {
  */
 export interface GetAttendeeRequest {
   /**
-   * <p>The Amazon Chime SDK meeting ID.</p>
+   * The Amazon Chime SDK meeting ID.
+   *
    * @public
    */
   MeetingId: string | undefined;
 
   /**
-   * <p>The Amazon Chime SDK attendee ID.</p>
+   * The Amazon Chime SDK attendee ID.
+   *
    * @public
    */
   AttendeeId: string | undefined;
@@ -951,7 +877,8 @@ export interface GetAttendeeRequest {
  */
 export interface GetAttendeeResponse {
   /**
-   * <p>The Amazon Chime SDK attendee information.</p>
+   * The Amazon Chime SDK attendee information.
+   *
    * @public
    */
   Attendee?: Attendee | undefined;
@@ -962,7 +889,8 @@ export interface GetAttendeeResponse {
  */
 export interface GetMeetingRequest {
   /**
-   * <p>The Amazon Chime SDK meeting ID.</p>
+   * The Amazon Chime SDK meeting ID.
+   *
    * @public
    */
   MeetingId: string | undefined;
@@ -973,7 +901,8 @@ export interface GetMeetingRequest {
  */
 export interface GetMeetingResponse {
   /**
-   * <p>The Amazon Chime SDK meeting information.</p>
+   * The Amazon Chime SDK meeting information.
+   *
    * @public
    */
   Meeting?: Meeting | undefined;
@@ -984,19 +913,22 @@ export interface GetMeetingResponse {
  */
 export interface ListAttendeesRequest {
   /**
-   * <p>The Amazon Chime SDK meeting ID.</p>
+   * The Amazon Chime SDK meeting ID.
+   *
    * @public
    */
   MeetingId: string | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results.</p>
+   * The token to use to retrieve the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
@@ -1007,13 +939,15 @@ export interface ListAttendeesRequest {
  */
 export interface ListAttendeesResponse {
   /**
-   * <p>The Amazon Chime SDK attendee information.</p>
+   * The Amazon Chime SDK attendee information.
+   *
    * @public
    */
   Attendees?: Attendee[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results.</p>
+   * The token to use to retrieve the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1024,7 +958,8 @@ export interface ListAttendeesResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The ARN of the resource.</p>
+   * The ARN of the resource.
+   *
    * @public
    */
   ResourceARN: string | undefined;
@@ -1035,219 +970,259 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>The tags requested for the specified resource.</p>
+   * The tags requested for the specified resource.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 }
 
 /**
- * <p>Settings specific to the Amazon Transcribe Medical engine.</p>
+ * Settings specific to the Amazon Transcribe Medical engine.
+ *
  * @public
  */
 export interface EngineTranscribeMedicalSettings {
   /**
-   * <p>The language code specified for the Amazon Transcribe Medical engine.</p>
+   * The language code specified for the Amazon Transcribe Medical engine.
+   *
    * @public
    */
   LanguageCode: TranscribeMedicalLanguageCode | undefined;
 
   /**
-   * <p>The specialty specified for the Amazon Transcribe Medical engine.</p>
+   * The specialty specified for the Amazon Transcribe Medical engine.
+   *
    * @public
    */
   Specialty: TranscribeMedicalSpecialty | undefined;
 
   /**
-   * <p>The type of transcription.</p>
+   * The type of transcription.
+   *
    * @public
    */
   Type: TranscribeMedicalType | undefined;
 
   /**
-   * <p>The name of the vocabulary passed to Amazon Transcribe Medical.</p>
+   * The name of the vocabulary passed to Amazon Transcribe Medical.
+   *
    * @public
    */
   VocabularyName?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region passed to Amazon Transcribe Medical. If you don't specify a Region, Amazon Chime uses the meeting's Region. </p>
+   * The Amazon Web Services Region passed to Amazon Transcribe Medical. If you don't specify a Region, Amazon Chime uses the meeting's Region.
+   *
    * @public
    */
   Region?: TranscribeMedicalRegion | undefined;
 
   /**
-   * <p>Set this field to <code>PHI</code> to identify personal health information in the transcription output.</p>
+   * Set this field to `PHI` to identify personal health information in the transcription output.
+   *
    * @public
    */
   ContentIdentificationType?: TranscribeMedicalContentIdentificationType | undefined;
 }
 
 /**
- * <p>Settings specific for Amazon Transcribe as the live transcription engine. </p>
- *          <p>If you specify an invalid combination of parameters, a <code>TranscriptFailed</code> event will be sent with the contents of the
- *             <code>BadRequestException</code> generated by Amazon Transcribe.  For more information on each parameter and which combinations are valid, refer to the
- *             <a href="https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html">StartStreamTranscription</a> API in the
- *             <i>Amazon Transcribe Developer Guide</i>.</p>
+ * Settings specific for Amazon Transcribe as the live transcription engine.
+ *
+ * If you specify an invalid combination of parameters, a `TranscriptFailed` event will be sent with the contents of the `BadRequestException` generated by Amazon Transcribe. For more information on each parameter and which combinations are valid, refer to the [StartStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html) API in the *Amazon Transcribe Developer Guide*.
+ *
  * @public
  */
 export interface EngineTranscribeSettings {
   /**
-   * <p>Specify the language code that represents the language spoken.</p>
-   *          <p>If you're unsure of the language spoken in your audio, consider using <code>IdentifyLanguage</code> to enable automatic language identification.</p>
+   * Specify the language code that represents the language spoken.
+   *
+   * If you're unsure of the language spoken in your audio, consider using `IdentifyLanguage` to enable automatic language identification.
+   *
    * @public
    */
   LanguageCode?: TranscribeLanguageCode | undefined;
 
   /**
-   * <p>Specify how you want your vocabulary filter applied to your transcript.</p>
-   *          <p>To replace words with <code>***</code>, choose <code>mask</code>.</p>
-   *          <p>To delete words, choose <code>remove</code>.</p>
-   *          <p>To flag words without changing them, choose <code>tag</code>.</p>
+   * Specify how you want your vocabulary filter applied to your transcript.
+   *
+   * To replace words with `***`, choose `mask`.
+   *
+   * To delete words, choose `remove`.
+   *
+   * To flag words without changing them, choose `tag`.
+   *
    * @public
    */
   VocabularyFilterMethod?: TranscribeVocabularyFilterMethod | undefined;
 
   /**
-   * <p>Specify the name of the custom vocabulary filter that you want to use when processing your transcription. Note that vocabulary filter names are case sensitive. </p>
-   *          <p>If you use Amazon Transcribe in multiple Regions, the vocabulary filter must be available in Amazon Transcribe in each Region.</p>
-   *          <p>If you include <code>IdentifyLanguage</code> and want to use one or more vocabulary filters with your transcription, use the <code>VocabularyFilterNames</code> parameter instead.</p>
+   * Specify the name of the custom vocabulary filter that you want to use when processing your transcription. Note that vocabulary filter names are case sensitive.
+   *
+   * If you use Amazon Transcribe in multiple Regions, the vocabulary filter must be available in Amazon Transcribe in each Region.
+   *
+   * If you include `IdentifyLanguage` and want to use one or more vocabulary filters with your transcription, use the `VocabularyFilterNames` parameter instead.
+   *
    * @public
    */
   VocabularyFilterName?: string | undefined;
 
   /**
-   * <p>Specify the name of the custom vocabulary that you want to use when processing your transcription. Note that vocabulary names are case sensitive.</p>
-   *          <p>If you use Amazon Transcribe multiple Regions, the vocabulary must be available in Amazon Transcribe in each Region.</p>
-   *          <p>If you include <code>IdentifyLanguage</code> and want to use one or more custom vocabularies with your transcription, use the <code>VocabularyNames</code>
-   *                 parameter instead.</p>
+   * Specify the name of the custom vocabulary that you want to use when processing your transcription. Note that vocabulary names are case sensitive.
+   *
+   * If you use Amazon Transcribe multiple Regions, the vocabulary must be available in Amazon Transcribe in each Region.
+   *
+   * If you include `IdentifyLanguage` and want to use one or more custom vocabularies with your transcription, use the `VocabularyNames` parameter instead.
+   *
    * @public
    */
   VocabularyName?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region in which to use Amazon Transcribe.</p>
-   *          <p>If you don't specify a Region, then the <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_CreateMeeting.html">MediaRegion</a> of the meeting is used.
-   *             However, if Amazon Transcribe is not available in the <code>MediaRegion</code>, then a <code>TranscriptFailed</code> event is sent.</p>
-   *          <p>Use <code>auto</code> to use Amazon Transcribe in a Region near the meeting’s <code>MediaRegion</code>.  For more information, refer to
-   *             <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/transcription-options.html#choose-region">Choosing a transcription Region</a> in the
-   *             <i>Amazon Chime SDK Developer Guide</i>.</p>
+   * The Amazon Web Services Region in which to use Amazon Transcribe.
+   *
+   * If you don't specify a Region, then the [MediaRegion](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_CreateMeeting.html) of the meeting is used. However, if Amazon Transcribe is not available in the `MediaRegion`, then a `TranscriptFailed` event is sent.
+   *
+   * Use `auto` to use Amazon Transcribe in a Region near the meeting’s `MediaRegion`. For more information, refer to [Choosing a transcription Region](https://docs.aws.amazon.com/chime-sdk/latest/dg/transcription-options.html#choose-region) in the *Amazon Chime SDK Developer Guide*.
+   *
    * @public
    */
   Region?: TranscribeRegion | undefined;
 
   /**
-   * <p>Enables partial result stabilization for your transcription. Partial result stabilization can reduce latency in your output, but may impact accuracy.</p>
+   * Enables partial result stabilization for your transcription. Partial result stabilization can reduce latency in your output, but may impact accuracy.
+   *
    * @public
    */
   EnablePartialResultsStabilization?: boolean | undefined;
 
   /**
-   * <p>Specify the level of stability to use when you enable partial results stabilization (<code>EnablePartialResultsStabilization</code>).</p>
-   *          <p>Low stability provides the highest accuracy. High stability transcribes faster, but with slightly lower accuracy.</p>
+   * Specify the level of stability to use when you enable partial results stabilization (`EnablePartialResultsStabilization`).
+   *
+   * Low stability provides the highest accuracy. High stability transcribes faster, but with slightly lower accuracy.
+   *
    * @public
    */
   PartialResultsStability?: TranscribePartialResultsStability | undefined;
 
   /**
-   * <p>Labels all personally identifiable information (PII) identified in your transcript. If you don't include <code>PiiEntityTypes</code>, all PII is identified.</p>
-   *          <note>
-   *             <p>You can’t set <code>ContentIdentificationType</code> and <code>ContentRedactionType</code>.</p>
-   *          </note>
+   * Labels all personally identifiable information (PII) identified in your transcript. If you don't include `PiiEntityTypes`, all PII is identified.
+   *
+   * > **Note:** You can’t set `ContentIdentificationType` and `ContentRedactionType`.
+   *
    * @public
    */
   ContentIdentificationType?: TranscribeContentIdentificationType | undefined;
 
   /**
-   * <p>Content redaction is performed at the segment level. If you don't include <code>PiiEntityTypes</code>, all PII is redacted.</p>
-   *          <note>
-   *             <p>You can’t set <code>ContentRedactionType</code> and <code>ContentIdentificationType</code>.</p>
-   *          </note>
+   * Content redaction is performed at the segment level. If you don't include `PiiEntityTypes`, all PII is redacted.
+   *
+   * > **Note:** You can’t set `ContentRedactionType` and `ContentIdentificationType`.
+   *
    * @public
    */
   ContentRedactionType?: TranscribeContentRedactionType | undefined;
 
   /**
-   * <p>Specify which types of personally identifiable information (PII) you want to redact in your transcript. You can include as many types as you'd like, or you can select <code>ALL</code>.</p>
-   *          <p>Values must be comma-separated and can include: <code>ADDRESS</code>, <code>BANK_ACCOUNT_NUMBER</code>, <code>BANK_ROUTING</code>, <code>CREDIT_DEBIT_CVV</code>, <code>CREDIT_DEBIT_EXPIRY</code>
-   *             <code>CREDIT_DEBIT_NUMBER</code>, <code>EMAIL</code>,<code>NAME</code>, <code>PHONE</code>,  <code>PIN</code>,
-   *                 <code>SSN</code>, or <code>ALL</code>.</p>
-   *          <p>Note that if you include <code>PiiEntityTypes</code>, you must also include <code>ContentIdentificationType</code> or <code>ContentRedactionType</code>.</p>
-   *          <p>If you include <code>ContentRedactionType</code> or <code>ContentIdentificationType</code>, but do not include PiiEntityTypes, all PII is redacted or identified.</p>
+   * Specify which types of personally identifiable information (PII) you want to redact in your transcript. You can include as many types as you'd like, or you can select `ALL`.
+   *
+   * Values must be comma-separated and can include: `ADDRESS`, `BANK_ACCOUNT_NUMBER`, `BANK_ROUTING`, `CREDIT_DEBIT_CVV`, `CREDIT_DEBIT_EXPIRY` `CREDIT_DEBIT_NUMBER`, `EMAIL`,`NAME`, `PHONE`, `PIN`, `SSN`, or `ALL`.
+   *
+   * Note that if you include `PiiEntityTypes`, you must also include `ContentIdentificationType` or `ContentRedactionType`.
+   *
+   * If you include `ContentRedactionType` or `ContentIdentificationType`, but do not include PiiEntityTypes, all PII is redacted or identified.
+   *
    * @public
    */
   PiiEntityTypes?: string | undefined;
 
   /**
-   * <p>Specify the name of the custom language model that you want to use when processing your transcription. Note that language model names are case sensitive.</p>
-   *          <p>The language of the specified language model must match the language code. If the languages don't match, the custom language model isn't applied. There are no errors or warnings associated with
-   *             a language mismatch.</p>
-   *          <p>If you use Amazon Transcribe in multiple Regions, the custom language model must be available in Amazon Transcribe in each Region.</p>
+   * Specify the name of the custom language model that you want to use when processing your transcription. Note that language model names are case sensitive.
+   *
+   * The language of the specified language model must match the language code. If the languages don't match, the custom language model isn't applied. There are no errors or warnings associated with a language mismatch.
+   *
+   * If you use Amazon Transcribe in multiple Regions, the custom language model must be available in Amazon Transcribe in each Region.
+   *
    * @public
    */
   LanguageModelName?: string | undefined;
 
   /**
-   * <p>Enables automatic language identification for your transcription.</p>
-   *          <p>If you include <code>IdentifyLanguage</code>, you can optionally use <code>LanguageOptions</code> to include a list of language codes that you think may be present in your audio stream.
-   *             Including language options can improve transcription accuracy.</p>
-   *          <p>You can also use <code>PreferredLanguage</code> to include a preferred language. Doing so can help Amazon Transcribe identify the language faster.</p>
-   *          <p>You must include either <code>LanguageCode</code> or <code>IdentifyLanguage</code>.</p>
-   *          <p>Language identification can't be combined with custom language models or redaction.</p>
+   * Enables automatic language identification for your transcription.
+   *
+   * If you include `IdentifyLanguage`, you can optionally use `LanguageOptions` to include a list of language codes that you think may be present in your audio stream. Including language options can improve transcription accuracy.
+   *
+   * You can also use `PreferredLanguage` to include a preferred language. Doing so can help Amazon Transcribe identify the language faster.
+   *
+   * You must include either `LanguageCode` or `IdentifyLanguage`.
+   *
+   * Language identification can't be combined with custom language models or redaction.
+   *
    * @public
    */
   IdentifyLanguage?: boolean | undefined;
 
   /**
-   * <p>Specify two or more language codes that represent the languages you think may be present in your media; including more than five is not recommended. If you're unsure what languages
-   *             are present, do not include this parameter.</p>
-   *          <p>Including language options can improve the accuracy of language identification.</p>
-   *          <p>If you include <code>LanguageOptions</code>, you must also include <code>IdentifyLanguage</code>.</p>
-   *          <important>
-   *             <p>You can only include one language dialect per language. For example, you cannot include <code>en-US</code> and <code>en-AU</code>.</p>
-   *          </important>
+   * Specify two or more language codes that represent the languages you think may be present in your media; including more than five is not recommended. If you're unsure what languages are present, do not include this parameter.
+   *
+   * Including language options can improve the accuracy of language identification.
+   *
+   * If you include `LanguageOptions`, you must also include `IdentifyLanguage`.
+   *
+   * > **Important:** You can only include one language dialect per language. For example, you cannot include `en-US` and `en-AU`.
+   *
    * @public
    */
   LanguageOptions?: string | undefined;
 
   /**
-   * <p>Specify a preferred language from the subset of languages codes you specified in <code>LanguageOptions</code>.</p>
-   *          <p>You can only use this parameter if you include <code>IdentifyLanguage</code> and <code>LanguageOptions</code>.</p>
+   * Specify a preferred language from the subset of languages codes you specified in `LanguageOptions`.
+   *
+   * You can only use this parameter if you include `IdentifyLanguage` and `LanguageOptions`.
+   *
    * @public
    */
   PreferredLanguage?: TranscribeLanguageCode | undefined;
 
   /**
-   * <p>Specify the names of the custom vocabularies that you want to use when processing your transcription. Note that vocabulary names are case sensitive.</p>
-   *          <p>If you use Amazon Transcribe in multiple Regions, the vocabulary must be available in Amazon Transcribe in each Region.</p>
-   *          <p>If you don't include <code>IdentifyLanguage</code> and want to use a custom vocabulary with your transcription, use the <code>VocabularyName</code> parameter instead.</p>
+   * Specify the names of the custom vocabularies that you want to use when processing your transcription. Note that vocabulary names are case sensitive.
+   *
+   * If you use Amazon Transcribe in multiple Regions, the vocabulary must be available in Amazon Transcribe in each Region.
+   *
+   * If you don't include `IdentifyLanguage` and want to use a custom vocabulary with your transcription, use the `VocabularyName` parameter instead.
+   *
    * @public
    */
   VocabularyNames?: string | undefined;
 
   /**
-   * <p>Specify the names of the custom vocabulary filters that you want to use when processing your transcription. Note that vocabulary filter names are case sensitive.</p>
-   *          <p>If you use Amazon Transcribe in multiple Regions, the vocabulary filter must be available in Amazon Transcribe in each Region.</p>
-   *          <p> If you're <i>not</i> including <code>IdentifyLanguage</code> and want to use a custom vocabulary filter with your transcription, use the <code>VocabularyFilterName</code>
-   *             parameter instead.</p>
+   * Specify the names of the custom vocabulary filters that you want to use when processing your transcription. Note that vocabulary filter names are case sensitive.
+   *
+   * If you use Amazon Transcribe in multiple Regions, the vocabulary filter must be available in Amazon Transcribe in each Region.
+   *
+   * If you're *not* including `IdentifyLanguage` and want to use a custom vocabulary filter with your transcription, use the `VocabularyFilterName` parameter instead.
+   *
    * @public
    */
   VocabularyFilterNames?: string | undefined;
 }
 
 /**
- * <p>The configuration for the current transcription operation. Must contain <code>EngineTranscribeSettings</code> or <code>EngineTranscribeMedicalSettings</code>.</p>
+ * The configuration for the current transcription operation. Must contain `EngineTranscribeSettings` or `EngineTranscribeMedicalSettings`.
+ *
  * @public
  */
 export interface TranscriptionConfiguration {
   /**
-   * <p>The transcription configuration settings passed to Amazon Transcribe.</p>
+   * The transcription configuration settings passed to Amazon Transcribe.
+   *
    * @public
    */
   EngineTranscribeSettings?: EngineTranscribeSettings | undefined;
 
   /**
-   * <p>The transcription configuration settings passed to Amazon Transcribe Medical.</p>
+   * The transcription configuration settings passed to Amazon Transcribe Medical.
+   *
    * @public
    */
   EngineTranscribeMedicalSettings?: EngineTranscribeMedicalSettings | undefined;
@@ -1258,14 +1233,15 @@ export interface TranscriptionConfiguration {
  */
 export interface StartMeetingTranscriptionRequest {
   /**
-   * <p>The unique ID of the meeting being transcribed.</p>
+   * The unique ID of the meeting being transcribed.
+   *
    * @public
    */
   MeetingId: string | undefined;
 
   /**
-   * <p>The configuration for the current transcription operation. Must contain <code>EngineTranscribeSettings</code> or
-   *             <code>EngineTranscribeMedicalSettings</code>.</p>
+   * The configuration for the current transcription operation. Must contain `EngineTranscribeSettings` or `EngineTranscribeMedicalSettings`.
+   *
    * @public
    */
   TranscriptionConfiguration: TranscriptionConfiguration | undefined;
@@ -1276,7 +1252,8 @@ export interface StartMeetingTranscriptionRequest {
  */
 export interface StopMeetingTranscriptionRequest {
   /**
-   * <p>The unique ID of the meeting for which you stop transcription.</p>
+   * The unique ID of the meeting for which you stop transcription.
+   *
    * @public
    */
   MeetingId: string | undefined;
@@ -1287,13 +1264,15 @@ export interface StopMeetingTranscriptionRequest {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The ARN of the resource.</p>
+   * The ARN of the resource.
+   *
    * @public
    */
   ResourceARN: string | undefined;
 
   /**
-   * <p>Lists the requested tags.</p>
+   * Lists the requested tags.
+   *
    * @public
    */
   Tags: Tag[] | undefined;
@@ -1309,13 +1288,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The ARN of the resource that you're removing tags from.</p>
+   * The ARN of the resource that you're removing tags from.
+   *
    * @public
    */
   ResourceARN: string | undefined;
 
   /**
-   * <p>The tag keys being removed from the resources.</p>
+   * The tag keys being removed from the resources.
+   *
    * @public
    */
   TagKeys: string[] | undefined;
@@ -1331,19 +1312,22 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateAttendeeCapabilitiesRequest {
   /**
-   * <p>The ID of the meeting associated with the update request.</p>
+   * The ID of the meeting associated with the update request.
+   *
    * @public
    */
   MeetingId: string | undefined;
 
   /**
-   * <p>The ID of the attendee associated with the update request.</p>
+   * The ID of the attendee associated with the update request.
+   *
    * @public
    */
   AttendeeId: string | undefined;
 
   /**
-   * <p>The capabilities that you want to update.</p>
+   * The capabilities that you want to update.
+   *
    * @public
    */
   Capabilities: AttendeeCapabilities | undefined;
@@ -1354,7 +1338,8 @@ export interface UpdateAttendeeCapabilitiesRequest {
  */
 export interface UpdateAttendeeCapabilitiesResponse {
   /**
-   * <p>The updated attendee data.</p>
+   * The updated attendee data.
+   *
    * @public
    */
   Attendee?: Attendee | undefined;

@@ -20,23 +20,26 @@ import type {
  */
 export interface AssociateEntityToThingRequest {
   /**
-   * <p>The name of the thing to which the entity is to be associated.</p>
+   * The name of the thing to which the entity is to be associated.
+   *
    * @public
    */
   thingName: string | undefined;
 
   /**
-   * <p>The ID of the device to be associated with the thing.</p>
-   *          <p>The ID should be in the following format.</p>
-   *          <p>
-   *             <code>urn:tdm:REGION/ACCOUNT ID/default:device:DEVICENAME</code>
-   *          </p>
+   * The ID of the device to be associated with the thing.
+   *
+   * The ID should be in the following format.
+   *
+   * `urn:tdm:REGION/ACCOUNT ID/default:device:DEVICENAME`
+   *
    * @public
    */
   entityId: string | undefined;
 
   /**
-   * <p>The version of the user's namespace. Defaults to the latest version of the user's namespace.</p>
+   * The version of the user's namespace. Defaults to the latest version of the user's namespace.
+   *
    * @public
    */
   namespaceVersion?: number | undefined;
@@ -48,18 +51,21 @@ export interface AssociateEntityToThingRequest {
 export interface AssociateEntityToThingResponse {}
 
 /**
- * <p>A document that defines an entity. </p>
+ * A document that defines an entity.
+ *
  * @public
  */
 export interface DefinitionDocument {
   /**
-   * <p>The language used to define the entity. <code>GRAPHQL</code> is the only valid value.</p>
+   * The language used to define the entity. `GRAPHQL` is the only valid value.
+   *
    * @public
    */
   language: DefinitionLanguage | undefined;
 
   /**
-   * <p>The GraphQL text that defines the entity.</p>
+   * The GraphQL text that defines the entity.
+   *
    * @public
    */
   text: string | undefined;
@@ -70,44 +76,52 @@ export interface DefinitionDocument {
  */
 export interface CreateFlowTemplateRequest {
   /**
-   * <p>The workflow <code>DefinitionDocument</code>.</p>
+   * The workflow `DefinitionDocument`.
+   *
    * @public
    */
   definition: DefinitionDocument | undefined;
 
   /**
-   * <p>The namespace version in which the workflow is to be created.</p>
-   *          <p>If no value is specified, the latest version is used by default.</p>
+   * The namespace version in which the workflow is to be created.
+   *
+   * If no value is specified, the latest version is used by default.
+   *
    * @public
    */
   compatibleNamespaceVersion?: number | undefined;
 }
 
 /**
- * <p>An object that contains summary information about a workflow.</p>
+ * An object that contains summary information about a workflow.
+ *
  * @public
  */
 export interface FlowTemplateSummary {
   /**
-   * <p>The ID of the workflow.</p>
+   * The ID of the workflow.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The ARN of the workflow.</p>
+   * The ARN of the workflow.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The revision number of the workflow.</p>
+   * The revision number of the workflow.
+   *
    * @public
    */
   revisionNumber?: number | undefined;
 
   /**
-   * <p>The date when the workflow was created.</p>
+   * The date when the workflow was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
@@ -118,43 +132,50 @@ export interface FlowTemplateSummary {
  */
 export interface CreateFlowTemplateResponse {
   /**
-   * <p>The summary object that describes the created workflow.</p>
+   * The summary object that describes the created workflow.
+   *
    * @public
    */
   summary?: FlowTemplateSummary | undefined;
 }
 
 /**
- * <p>An object that specifies whether cloud metrics are collected in a deployment and, if so, what role is used to collect metrics.</p>
+ * An object that specifies whether cloud metrics are collected in a deployment and, if so, what role is used to collect metrics.
+ *
  * @public
  */
 export interface MetricsConfiguration {
   /**
-   * <p>A Boolean that specifies whether cloud metrics are collected.</p>
+   * A Boolean that specifies whether cloud metrics are collected.
+   *
    * @public
    */
   cloudMetricEnabled?: boolean | undefined;
 
   /**
-   * <p>The ARN of the role that is used to collect cloud metrics.</p>
+   * The ARN of the role that is used to collect cloud metrics.
+   *
    * @public
    */
   metricRuleRoleArn?: string | undefined;
 }
 
 /**
- * <p>Metadata assigned to an AWS IoT Things Graph resource consisting of a key-value pair.</p>
+ * Metadata assigned to an AWS IoT Things Graph resource consisting of a key-value pair.
+ *
  * @public
  */
 export interface Tag {
   /**
-   * <p>The required name of the tag. The string value can be from 1 to 128 Unicode characters in length.</p>
+   * The required name of the tag. The string value can be from 1 to 128 Unicode characters in length.
+   *
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>The optional value of the tag. The string value can be from 1 to 256 Unicode characters in length.</p>
+   * The optional value of the tag. The string value can be from 1 to 256 Unicode characters in length.
+   *
    * @public
    */
   value: string | undefined;
@@ -165,109 +186,120 @@ export interface Tag {
  */
 export interface CreateSystemInstanceRequest {
   /**
-   * <p>Metadata, consisting of key-value pairs, that can be used to categorize your system instances.</p>
+   * Metadata, consisting of key-value pairs, that can be used to categorize your system instances.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p>A document that defines an entity. </p>
+   * A document that defines an entity.
+   *
    * @public
    */
   definition: DefinitionDocument | undefined;
 
   /**
-   * <p>The target type of the deployment. Valid values are <code>GREENGRASS</code> and <code>CLOUD</code>.</p>
+   * The target type of the deployment. Valid values are `GREENGRASS` and `CLOUD`.
+   *
    * @public
    */
   target: DeploymentTarget | undefined;
 
   /**
-   * <p>The name of the Greengrass group where the system instance will be deployed. This value is required if
-   *       the value of the <code>target</code> parameter is <code>GREENGRASS</code>.</p>
+   * The name of the Greengrass group where the system instance will be deployed. This value is required if the value of the `target` parameter is `GREENGRASS`.
+   *
    * @public
    */
   greengrassGroupName?: string | undefined;
 
   /**
-   * <p>The name of the Amazon Simple Storage Service bucket that will be used to store and deploy the system instance's resource file. This value is required if
-   *          the value of the <code>target</code> parameter is <code>GREENGRASS</code>.</p>
+   * The name of the Amazon Simple Storage Service bucket that will be used to store and deploy the system instance's resource file. This value is required if the value of the `target` parameter is `GREENGRASS`.
+   *
    * @public
    */
   s3BucketName?: string | undefined;
 
   /**
-   * <p>An object that specifies whether cloud metrics are collected in a deployment and, if so, what role is used to collect metrics.</p>
+   * An object that specifies whether cloud metrics are collected in a deployment and, if so, what role is used to collect metrics.
+   *
    * @public
    */
   metricsConfiguration?: MetricsConfiguration | undefined;
 
   /**
-   * <p>The ARN of the IAM role that AWS IoT Things Graph will assume when it executes the flow. This role must have
-   *       read and write access to AWS Lambda and AWS IoT and any other AWS services that the flow uses when it executes.  This
-   *       value is required if the value of the <code>target</code> parameter is <code>CLOUD</code>.</p>
+   * The ARN of the IAM role that AWS IoT Things Graph will assume when it executes the flow. This role must have read and write access to AWS Lambda and AWS IoT and any other AWS services that the flow uses when it executes. This value is required if the value of the `target` parameter is `CLOUD`.
+   *
    * @public
    */
   flowActionsRoleArn?: string | undefined;
 }
 
 /**
- * <p>An object that contains summary information about a system instance.</p>
+ * An object that contains summary information about a system instance.
+ *
  * @public
  */
 export interface SystemInstanceSummary {
   /**
-   * <p>The ID of the system instance.</p>
+   * The ID of the system instance.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The ARN of the system instance.</p>
+   * The ARN of the system instance.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The status of the system instance.</p>
+   * The status of the system instance.
+   *
    * @public
    */
   status?: SystemInstanceDeploymentStatus | undefined;
 
   /**
-   * <p>The target of the system instance.</p>
+   * The target of the system instance.
+   *
    * @public
    */
   target?: DeploymentTarget | undefined;
 
   /**
-   * <p>The ID of the Greengrass group where the system instance is deployed.</p>
+   * The ID of the Greengrass group where the system instance is deployed.
+   *
    * @public
    */
   greengrassGroupName?: string | undefined;
 
   /**
-   * <p>The date when the system instance was created.</p>
+   * The date when the system instance was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>
+   * The date and time when the system instance was last updated.
    *
-   *          The date and time when the system instance was last updated.</p>
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The ID of the Greengrass group where the system instance is deployed.</p>
+   * The ID of the Greengrass group where the system instance is deployed.
+   *
    * @public
    */
   greengrassGroupId?: string | undefined;
 
   /**
-   * <p>The version of the Greengrass group where the system instance is deployed.</p>
+   * The version of the Greengrass group where the system instance is deployed.
+   *
    * @public
    */
   greengrassGroupVersionId?: string | undefined;
@@ -278,7 +310,8 @@ export interface SystemInstanceSummary {
  */
 export interface CreateSystemInstanceResponse {
   /**
-   * <p>The summary object that describes the new system instance.</p>
+   * The summary object that describes the new system instance.
+   *
    * @public
    */
   summary?: SystemInstanceSummary | undefined;
@@ -289,44 +322,52 @@ export interface CreateSystemInstanceResponse {
  */
 export interface CreateSystemTemplateRequest {
   /**
-   * <p>The <code>DefinitionDocument</code> used to create the system.</p>
+   * The `DefinitionDocument` used to create the system.
+   *
    * @public
    */
   definition: DefinitionDocument | undefined;
 
   /**
-   * <p>The namespace version in which the system is to be created.</p>
-   *          <p>If no value is specified, the latest version is used by default.</p>
+   * The namespace version in which the system is to be created.
+   *
+   * If no value is specified, the latest version is used by default.
+   *
    * @public
    */
   compatibleNamespaceVersion?: number | undefined;
 }
 
 /**
- * <p>An object that contains information about a system.</p>
+ * An object that contains information about a system.
+ *
  * @public
  */
 export interface SystemTemplateSummary {
   /**
-   * <p>The ID of the system.</p>
+   * The ID of the system.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The ARN of the system.</p>
+   * The ARN of the system.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The revision number of the system.</p>
+   * The revision number of the system.
+   *
    * @public
    */
   revisionNumber?: number | undefined;
 
   /**
-   * <p>The date when the system was created.</p>
+   * The date when the system was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
@@ -337,7 +378,8 @@ export interface SystemTemplateSummary {
  */
 export interface CreateSystemTemplateResponse {
   /**
-   * <p>The summary object that describes the created system.</p>
+   * The summary object that describes the created system.
+   *
    * @public
    */
   summary?: SystemTemplateSummary | undefined;
@@ -348,11 +390,12 @@ export interface CreateSystemTemplateResponse {
  */
 export interface DeleteFlowTemplateRequest {
   /**
-   * <p>The ID of the workflow to be deleted.</p>
-   *          <p>The ID should be in the following format.</p>
-   *          <p>
-   *             <code>urn:tdm:REGION/ACCOUNT ID/default:workflow:WORKFLOWNAME</code>
-   *          </p>
+   * The ID of the workflow to be deleted.
+   *
+   * The ID should be in the following format.
+   *
+   * `urn:tdm:REGION/ACCOUNT ID/default:workflow:WORKFLOWNAME`
+   *
    * @public
    */
   id: string | undefined;
@@ -373,13 +416,15 @@ export interface DeleteNamespaceRequest {}
  */
 export interface DeleteNamespaceResponse {
   /**
-   * <p>The ARN of the namespace to be deleted.</p>
+   * The ARN of the namespace to be deleted.
+   *
    * @public
    */
   namespaceArn?: string | undefined;
 
   /**
-   * <p>The name of the namespace to be deleted.</p>
+   * The name of the namespace to be deleted.
+   *
    * @public
    */
   namespaceName?: string | undefined;
@@ -390,7 +435,8 @@ export interface DeleteNamespaceResponse {
  */
 export interface DeleteSystemInstanceRequest {
   /**
-   * <p>The ID of the system instance to be deleted.</p>
+   * The ID of the system instance to be deleted.
+   *
    * @public
    */
   id?: string | undefined;
@@ -406,11 +452,12 @@ export interface DeleteSystemInstanceResponse {}
  */
 export interface DeleteSystemTemplateRequest {
   /**
-   * <p>The ID of the system to be deleted.</p>
-   *          <p>The ID should be in the following format.</p>
-   *          <p>
-   *             <code>urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME</code>
-   *          </p>
+   * The ID of the system to be deleted.
+   *
+   * The ID should be in the following format.
+   *
+   * `urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME`
+   *
    * @public
    */
   id: string | undefined;
@@ -422,18 +469,21 @@ export interface DeleteSystemTemplateRequest {
 export interface DeleteSystemTemplateResponse {}
 
 /**
- * <p>An object that contains the ID and revision number of a workflow or system that is part of a deployment.</p>
+ * An object that contains the ID and revision number of a workflow or system that is part of a deployment.
+ *
  * @public
  */
 export interface DependencyRevision {
   /**
-   * <p>The ID of the workflow or system.</p>
+   * The ID of the workflow or system.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The revision number of the workflow or system.</p>
+   * The revision number of the workflow or system.
+   *
    * @public
    */
   revisionNumber?: number | undefined;
@@ -444,11 +494,12 @@ export interface DependencyRevision {
  */
 export interface DeploySystemInstanceRequest {
   /**
-   * <p>The ID of the system instance. This value is returned by the <code>CreateSystemInstance</code> action.</p>
-   *          <p>The ID should be in the following format.</p>
-   *          <p>
-   *             <code>urn:tdm:REGION/ACCOUNT ID/default:deployment:DEPLOYMENTNAME</code>
-   *          </p>
+   * The ID of the system instance. This value is returned by the `CreateSystemInstance` action.
+   *
+   * The ID should be in the following format.
+   *
+   * `urn:tdm:REGION/ACCOUNT ID/default:deployment:DEPLOYMENTNAME`
+   *
    * @public
    */
   id?: string | undefined;
@@ -459,13 +510,15 @@ export interface DeploySystemInstanceRequest {
  */
 export interface DeploySystemInstanceResponse {
   /**
-   * <p>An object that contains summary information about a system instance that was deployed. </p>
+   * An object that contains summary information about a system instance that was deployed.
+   *
    * @public
    */
   summary: SystemInstanceSummary | undefined;
 
   /**
-   * <p>The ID of the Greengrass deployment used to deploy the system instance.</p>
+   * The ID of the Greengrass deployment used to deploy the system instance.
+   *
    * @public
    */
   greengrassDeploymentId?: string | undefined;
@@ -476,11 +529,12 @@ export interface DeploySystemInstanceResponse {
  */
 export interface DeprecateFlowTemplateRequest {
   /**
-   * <p>The ID of the workflow to be deleted.</p>
-   *          <p>The ID should be in the following format.</p>
-   *          <p>
-   *             <code>urn:tdm:REGION/ACCOUNT ID/default:workflow:WORKFLOWNAME</code>
-   *          </p>
+   * The ID of the workflow to be deleted.
+   *
+   * The ID should be in the following format.
+   *
+   * `urn:tdm:REGION/ACCOUNT ID/default:workflow:WORKFLOWNAME`
+   *
    * @public
    */
   id: string | undefined;
@@ -496,11 +550,12 @@ export interface DeprecateFlowTemplateResponse {}
  */
 export interface DeprecateSystemTemplateRequest {
   /**
-   * <p>The ID of the system to delete.</p>
-   *          <p>The ID should be in the following format.</p>
-   *          <p>
-   *             <code>urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME</code>
-   *          </p>
+   * The ID of the system to delete.
+   *
+   * The ID should be in the following format.
+   *
+   * `urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME`
+   *
    * @public
    */
   id: string | undefined;
@@ -516,7 +571,8 @@ export interface DeprecateSystemTemplateResponse {}
  */
 export interface DescribeNamespaceRequest {
   /**
-   * <p>The name of the user's namespace. Set this to <code>aws</code> to get the public namespace.</p>
+   * The name of the user's namespace. Set this to `aws` to get the public namespace.
+   *
    * @public
    */
   namespaceName?: string | undefined;
@@ -527,31 +583,36 @@ export interface DescribeNamespaceRequest {
  */
 export interface DescribeNamespaceResponse {
   /**
-   * <p>The ARN of the namespace.</p>
+   * The ARN of the namespace.
+   *
    * @public
    */
   namespaceArn?: string | undefined;
 
   /**
-   * <p>The name of the namespace.</p>
+   * The name of the namespace.
+   *
    * @public
    */
   namespaceName?: string | undefined;
 
   /**
-   * <p>The name of the public namespace that the latest namespace version is tracking.</p>
+   * The name of the public namespace that the latest namespace version is tracking.
+   *
    * @public
    */
   trackingNamespaceName?: string | undefined;
 
   /**
-   * <p>The version of the public namespace that the latest version is tracking.</p>
+   * The version of the public namespace that the latest version is tracking.
+   *
    * @public
    */
   trackingNamespaceVersion?: number | undefined;
 
   /**
-   * <p>The version of the user's namespace to describe.</p>
+   * The version of the user's namespace to describe.
+   *
    * @public
    */
   namespaceVersion?: number | undefined;
@@ -562,13 +623,15 @@ export interface DescribeNamespaceResponse {
  */
 export interface DissociateEntityFromThingRequest {
   /**
-   * <p>The name of the thing to disassociate.</p>
+   * The name of the thing to disassociate.
+   *
    * @public
    */
   thingName: string | undefined;
 
   /**
-   * <p>The entity type from which to disassociate the thing.</p>
+   * The entity type from which to disassociate the thing.
+   *
    * @public
    */
   entityType: EntityType | undefined;
@@ -580,171 +643,196 @@ export interface DissociateEntityFromThingRequest {
 export interface DissociateEntityFromThingResponse {}
 
 /**
- * <p>Describes the properties of an entity.</p>
+ * Describes the properties of an entity.
+ *
  * @public
  */
 export interface EntityDescription {
   /**
-   * <p>The entity ID.</p>
+   * The entity ID.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The entity ARN.</p>
+   * The entity ARN.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The entity type.</p>
+   * The entity type.
+   *
    * @public
    */
   type?: EntityType | undefined;
 
   /**
-   * <p>The time at which the entity was created.</p>
+   * The time at which the entity was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The definition document of the entity.</p>
+   * The definition document of the entity.
+   *
    * @public
    */
   definition?: DefinitionDocument | undefined;
 }
 
 /**
- * <p>An object that filters an entity search. Multiple filters function as OR criteria in the search. For example a search that includes
- *       a <code>NAMESPACE</code> and a <code>REFERENCED_ENTITY_ID</code> filter searches for entities in the specified namespace that use the entity specified by
- *       the value of <code>REFERENCED_ENTITY_ID</code>.</p>
+ * An object that filters an entity search. Multiple filters function as OR criteria in the search. For example a search that includes a `NAMESPACE` and a `REFERENCED_ENTITY_ID` filter searches for entities in the specified namespace that use the entity specified by the value of `REFERENCED_ENTITY_ID`.
+ *
  * @public
  */
 export interface EntityFilter {
   /**
-   * <p>The name of the entity search filter field. <code>REFERENCED_ENTITY_ID</code> filters on entities that are used by the entity in the result set. For example,
-   *          you can filter on the ID of a property that is used in a state.</p>
+   * The name of the entity search filter field. `REFERENCED_ENTITY_ID` filters on entities that are used by the entity in the result set. For example, you can filter on the ID of a property that is used in a state.
+   *
    * @public
    */
   name?: EntityFilterName | undefined;
 
   /**
-   * <p>An array of string values for the search filter field. Multiple values function as AND criteria in the search.</p>
+   * An array of string values for the search filter field. Multiple values function as AND criteria in the search.
+   *
    * @public
    */
   value?: string[] | undefined;
 }
 
 /**
- * <p>An object that contains information about a flow event.</p>
+ * An object that contains information about a flow event.
+ *
  * @public
  */
 export interface FlowExecutionMessage {
   /**
-   * <p>The unique identifier of the message.</p>
+   * The unique identifier of the message.
+   *
    * @public
    */
   messageId?: string | undefined;
 
   /**
-   * <p>The type of flow event .</p>
+   * The type of flow event .
+   *
    * @public
    */
   eventType?: FlowExecutionEventType | undefined;
 
   /**
-   * <p>The date and time when the message was last updated.</p>
+   * The date and time when the message was last updated.
+   *
    * @public
    */
   timestamp?: Date | undefined;
 
   /**
-   * <p>A string containing information about the flow event.</p>
+   * A string containing information about the flow event.
+   *
    * @public
    */
   payload?: string | undefined;
 }
 
 /**
- * <p>An object that contains summary information about a flow execution.</p>
+ * An object that contains summary information about a flow execution.
+ *
  * @public
  */
 export interface FlowExecutionSummary {
   /**
-   * <p>The ID of the flow execution.</p>
+   * The ID of the flow execution.
+   *
    * @public
    */
   flowExecutionId?: string | undefined;
 
   /**
-   * <p>The current status of the flow execution.</p>
+   * The current status of the flow execution.
+   *
    * @public
    */
   status?: FlowExecutionStatus | undefined;
 
   /**
-   * <p>The ID of the system instance that contains the flow.</p>
+   * The ID of the system instance that contains the flow.
+   *
    * @public
    */
   systemInstanceId?: string | undefined;
 
   /**
-   * <p>The ID of the flow.</p>
+   * The ID of the flow.
+   *
    * @public
    */
   flowTemplateId?: string | undefined;
 
   /**
-   * <p>The date and time when the flow execution summary was created.</p>
+   * The date and time when the flow execution summary was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time when the flow execution summary was last updated.</p>
+   * The date and time when the flow execution summary was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * <p>An object that contains a workflow's definition and summary information.</p>
+ * An object that contains a workflow's definition and summary information.
+ *
  * @public
  */
 export interface FlowTemplateDescription {
   /**
-   * <p>An object that contains summary information about a workflow.</p>
+   * An object that contains summary information about a workflow.
+   *
    * @public
    */
   summary?: FlowTemplateSummary | undefined;
 
   /**
-   * <p>A workflow's definition document.</p>
+   * A workflow's definition document.
+   *
    * @public
    */
   definition?: DefinitionDocument | undefined;
 
   /**
-   * <p>The version of the user's namespace against which the workflow was validated. Use this value in your system instance.</p>
+   * The version of the user's namespace against which the workflow was validated. Use this value in your system instance.
+   *
    * @public
    */
   validatedNamespaceVersion?: number | undefined;
 }
 
 /**
- * <p>An object that filters a workflow search.</p>
+ * An object that filters a workflow search.
+ *
  * @public
  */
 export interface FlowTemplateFilter {
   /**
-   * <p>The name of the search filter field.</p>
+   * The name of the search filter field.
+   *
    * @public
    */
   name: FlowTemplateFilterName | undefined;
 
   /**
-   * <p>An array of string values for the search filter field. Multiple values function as AND criteria in the search.</p>
+   * An array of string values for the search filter field. Multiple values function as AND criteria in the search.
+   *
    * @public
    */
   value: string[] | undefined;
@@ -755,17 +843,19 @@ export interface FlowTemplateFilter {
  */
 export interface GetEntitiesRequest {
   /**
-   * <p>An array of entity IDs.</p>
-   *          <p>The IDs should be in the following format.</p>
-   *          <p>
-   *             <code>urn:tdm:REGION/ACCOUNT ID/default:device:DEVICENAME</code>
-   *          </p>
+   * An array of entity IDs.
+   *
+   * The IDs should be in the following format.
+   *
+   * `urn:tdm:REGION/ACCOUNT ID/default:device:DEVICENAME`
+   *
    * @public
    */
   ids: string[] | undefined;
 
   /**
-   * <p>The version of the user's namespace. Defaults to the latest version of the user's namespace.</p>
+   * The version of the user's namespace. Defaults to the latest version of the user's namespace.
+   *
    * @public
    */
   namespaceVersion?: number | undefined;
@@ -776,7 +866,8 @@ export interface GetEntitiesRequest {
  */
 export interface GetEntitiesResponse {
   /**
-   * <p>An array of descriptions for the specified entities.</p>
+   * An array of descriptions for the specified entities.
+   *
    * @public
    */
   descriptions?: EntityDescription[] | undefined;
@@ -787,17 +878,19 @@ export interface GetEntitiesResponse {
  */
 export interface GetFlowTemplateRequest {
   /**
-   * <p>The ID of the workflow.</p>
-   *          <p>The ID should be in the following format.</p>
-   *          <p>
-   *             <code>urn:tdm:REGION/ACCOUNT ID/default:workflow:WORKFLOWNAME</code>
-   *          </p>
+   * The ID of the workflow.
+   *
+   * The ID should be in the following format.
+   *
+   * `urn:tdm:REGION/ACCOUNT ID/default:workflow:WORKFLOWNAME`
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The number of the workflow revision to retrieve.</p>
+   * The number of the workflow revision to retrieve.
+   *
    * @public
    */
   revisionNumber?: number | undefined;
@@ -808,7 +901,8 @@ export interface GetFlowTemplateRequest {
  */
 export interface GetFlowTemplateResponse {
   /**
-   * <p>The object that describes the specified workflow.</p>
+   * The object that describes the specified workflow.
+   *
    * @public
    */
   description?: FlowTemplateDescription | undefined;
@@ -819,23 +913,26 @@ export interface GetFlowTemplateResponse {
  */
 export interface GetFlowTemplateRevisionsRequest {
   /**
-   * <p>The ID of the workflow.</p>
-   *          <p>The ID should be in the following format.</p>
-   *          <p>
-   *             <code>urn:tdm:REGION/ACCOUNT ID/default:workflow:WORKFLOWNAME</code>
-   *          </p>
+   * The ID of the workflow.
+   *
+   * The ID should be in the following format.
+   *
+   * `urn:tdm:REGION/ACCOUNT ID/default:workflow:WORKFLOWNAME`
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The string that specifies the next page of results. Use this when you're paginating results.</p>
+   * The string that specifies the next page of results. Use this when you're paginating results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in the response.</p>
+   * The maximum number of results to return in the response.
+   *
    * @public
    */
   maxResults?: number | undefined;
@@ -846,13 +943,15 @@ export interface GetFlowTemplateRevisionsRequest {
  */
 export interface GetFlowTemplateRevisionsResponse {
   /**
-   * <p>An array of objects that provide summary data about each revision.</p>
+   * An array of objects that provide summary data about each revision.
+   *
    * @public
    */
   summaries?: FlowTemplateSummary[] | undefined;
 
   /**
-   * <p>The string to specify as <code>nextToken</code> when you request the next page of results.</p>
+   * The string to specify as `nextToken` when you request the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -868,31 +967,36 @@ export interface GetNamespaceDeletionStatusRequest {}
  */
 export interface GetNamespaceDeletionStatusResponse {
   /**
-   * <p>The ARN of the namespace that is being deleted.</p>
+   * The ARN of the namespace that is being deleted.
+   *
    * @public
    */
   namespaceArn?: string | undefined;
 
   /**
-   * <p>The name of the namespace that is being deleted.</p>
+   * The name of the namespace that is being deleted.
+   *
    * @public
    */
   namespaceName?: string | undefined;
 
   /**
-   * <p>The status of the deletion request.</p>
+   * The status of the deletion request.
+   *
    * @public
    */
   status?: NamespaceDeletionStatus | undefined;
 
   /**
-   * <p>An error code returned by the namespace deletion task.</p>
+   * An error code returned by the namespace deletion task.
+   *
    * @public
    */
   errorCode?: NamespaceDeletionStatusErrorCodes | undefined;
 
   /**
-   * <p>An error code returned by the namespace deletion task.</p>
+   * An error code returned by the namespace deletion task.
+   *
    * @public
    */
   errorMessage?: string | undefined;
@@ -903,61 +1007,68 @@ export interface GetNamespaceDeletionStatusResponse {
  */
 export interface GetSystemInstanceRequest {
   /**
-   * <p>The ID of the system deployment instance. This value is returned by <code>CreateSystemInstance</code>.</p>
-   *          <p>The ID should be in the following format.</p>
-   *          <p>
-   *             <code>urn:tdm:REGION/ACCOUNT ID/default:deployment:DEPLOYMENTNAME</code>
-   *          </p>
+   * The ID of the system deployment instance. This value is returned by `CreateSystemInstance`.
+   *
+   * The ID should be in the following format.
+   *
+   * `urn:tdm:REGION/ACCOUNT ID/default:deployment:DEPLOYMENTNAME`
+   *
    * @public
    */
   id: string | undefined;
 }
 
 /**
- * <p>An object that contains a system instance definition and summary information.</p>
+ * An object that contains a system instance definition and summary information.
+ *
  * @public
  */
 export interface SystemInstanceDescription {
   /**
-   * <p>An object that contains summary information about a system instance.</p>
+   * An object that contains summary information about a system instance.
+   *
    * @public
    */
   summary?: SystemInstanceSummary | undefined;
 
   /**
-   * <p>A document that defines an entity. </p>
+   * A document that defines an entity.
+   *
    * @public
    */
   definition?: DefinitionDocument | undefined;
 
   /**
-   * <p>The Amazon Simple Storage Service bucket where information about a system instance is stored.</p>
+   * The Amazon Simple Storage Service bucket where information about a system instance is stored.
+   *
    * @public
    */
   s3BucketName?: string | undefined;
 
   /**
-   * <p>An object that specifies whether cloud metrics are collected in a deployment and, if so, what role is used to collect metrics.</p>
+   * An object that specifies whether cloud metrics are collected in a deployment and, if so, what role is used to collect metrics.
+   *
    * @public
    */
   metricsConfiguration?: MetricsConfiguration | undefined;
 
   /**
-   * <p>The version of the user's namespace against which the system instance was validated.</p>
+   * The version of the user's namespace against which the system instance was validated.
+   *
    * @public
    */
   validatedNamespaceVersion?: number | undefined;
 
   /**
-   * <p>A list of objects that contain all of the IDs and revision numbers of workflows and systems that are used in a system instance.</p>
+   * A list of objects that contain all of the IDs and revision numbers of workflows and systems that are used in a system instance.
+   *
    * @public
    */
   validatedDependencyRevisions?: DependencyRevision[] | undefined;
 
   /**
-   * <p>The AWS Identity and Access Management (IAM) role that AWS IoT Things Graph assumes during flow execution in a
-   *       cloud deployment. This role must have read and write permissionss to AWS Lambda and AWS IoT and to any other
-   *       AWS services that the flow uses.</p>
+   * The AWS Identity and Access Management (IAM) role that AWS IoT Things Graph assumes during flow execution in a cloud deployment. This role must have read and write permissionss to AWS Lambda and AWS IoT and to any other AWS services that the flow uses.
+   *
    * @public
    */
   flowActionsRoleArn?: string | undefined;
@@ -968,7 +1079,8 @@ export interface SystemInstanceDescription {
  */
 export interface GetSystemInstanceResponse {
   /**
-   * <p>An object that describes the system instance.</p>
+   * An object that describes the system instance.
+   *
    * @public
    */
   description?: SystemInstanceDescription | undefined;
@@ -979,41 +1091,47 @@ export interface GetSystemInstanceResponse {
  */
 export interface GetSystemTemplateRequest {
   /**
-   * <p>The ID of the system to get. This ID must be in the user's namespace.</p>
-   *          <p>The ID should be in the following format.</p>
-   *          <p>
-   *             <code>urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME</code>
-   *          </p>
+   * The ID of the system to get. This ID must be in the user's namespace.
+   *
+   * The ID should be in the following format.
+   *
+   * `urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME`
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The number that specifies the revision of the system to get.</p>
+   * The number that specifies the revision of the system to get.
+   *
    * @public
    */
   revisionNumber?: number | undefined;
 }
 
 /**
- * <p>An object that contains a system's definition document and summary information.</p>
+ * An object that contains a system's definition document and summary information.
+ *
  * @public
  */
 export interface SystemTemplateDescription {
   /**
-   * <p>An object that contains summary information about a system.</p>
+   * An object that contains summary information about a system.
+   *
    * @public
    */
   summary?: SystemTemplateSummary | undefined;
 
   /**
-   * <p>The definition document of a system.</p>
+   * The definition document of a system.
+   *
    * @public
    */
   definition?: DefinitionDocument | undefined;
 
   /**
-   * <p>The namespace version against which the system was validated. Use this value in your system instance.</p>
+   * The namespace version against which the system was validated. Use this value in your system instance.
+   *
    * @public
    */
   validatedNamespaceVersion?: number | undefined;
@@ -1024,7 +1142,8 @@ export interface SystemTemplateDescription {
  */
 export interface GetSystemTemplateResponse {
   /**
-   * <p>An object that contains summary data about the system.</p>
+   * An object that contains summary data about the system.
+   *
    * @public
    */
   description?: SystemTemplateDescription | undefined;
@@ -1035,23 +1154,26 @@ export interface GetSystemTemplateResponse {
  */
 export interface GetSystemTemplateRevisionsRequest {
   /**
-   * <p>The ID of the system template.</p>
-   *          <p>The ID should be in the following format.</p>
-   *          <p>
-   *             <code>urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME</code>
-   *          </p>
+   * The ID of the system template.
+   *
+   * The ID should be in the following format.
+   *
+   * `urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME`
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The string that specifies the next page of results. Use this when you're paginating results.</p>
+   * The string that specifies the next page of results. Use this when you're paginating results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in the response.</p>
+   * The maximum number of results to return in the response.
+   *
    * @public
    */
   maxResults?: number | undefined;
@@ -1062,13 +1184,15 @@ export interface GetSystemTemplateRevisionsRequest {
  */
 export interface GetSystemTemplateRevisionsResponse {
   /**
-   * <p>An array of objects that contain summary data about the system template revisions.</p>
+   * An array of objects that contain summary data about the system template revisions.
+   *
    * @public
    */
   summaries?: SystemTemplateSummary[] | undefined;
 
   /**
-   * <p>The string to specify as <code>nextToken</code> when you request the next page of results. </p>
+   * The string to specify as `nextToken` when you request the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1079,7 +1203,8 @@ export interface GetSystemTemplateRevisionsResponse {
  */
 export interface GetUploadStatusRequest {
   /**
-   * <p>The ID of the upload. This value is returned by the <code>UploadEntityDefinitions</code> action.</p>
+   * The ID of the upload. This value is returned by the `UploadEntityDefinitions` action.
+   *
    * @public
    */
   uploadId: string | undefined;
@@ -1090,43 +1215,50 @@ export interface GetUploadStatusRequest {
  */
 export interface GetUploadStatusResponse {
   /**
-   * <p>The ID of the upload.</p>
+   * The ID of the upload.
+   *
    * @public
    */
   uploadId: string | undefined;
 
   /**
-   * <p>The status of the upload. The initial status is <code>IN_PROGRESS</code>. The response show all validation failures if the upload fails.</p>
+   * The status of the upload. The initial status is `IN_PROGRESS`. The response show all validation failures if the upload fails.
+   *
    * @public
    */
   uploadStatus: UploadStatus | undefined;
 
   /**
-   * <p>The ARN of the upload.</p>
+   * The ARN of the upload.
+   *
    * @public
    */
   namespaceArn?: string | undefined;
 
   /**
-   * <p>The name of the upload's namespace.</p>
+   * The name of the upload's namespace.
+   *
    * @public
    */
   namespaceName?: string | undefined;
 
   /**
-   * <p>The version of the user's namespace. Defaults to the latest version of the user's namespace.</p>
+   * The version of the user's namespace. Defaults to the latest version of the user's namespace.
+   *
    * @public
    */
   namespaceVersion?: number | undefined;
 
   /**
-   * <p>The reason for an upload failure.</p>
+   * The reason for an upload failure.
+   *
    * @public
    */
   failureReason?: string[] | undefined;
 
   /**
-   * <p>The date at which the upload was created.</p>
+   * The date at which the upload was created.
+   *
    * @public
    */
   createdDate: Date | undefined;
@@ -1137,19 +1269,22 @@ export interface GetUploadStatusResponse {
  */
 export interface ListFlowExecutionMessagesRequest {
   /**
-   * <p>The ID of the flow execution.</p>
+   * The ID of the flow execution.
+   *
    * @public
    */
   flowExecutionId: string | undefined;
 
   /**
-   * <p>The string that specifies the next page of results. Use this when you're paginating results.</p>
+   * The string that specifies the next page of results. Use this when you're paginating results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in the response.</p>
+   * The maximum number of results to return in the response.
+   *
    * @public
    */
   maxResults?: number | undefined;
@@ -1160,13 +1295,15 @@ export interface ListFlowExecutionMessagesRequest {
  */
 export interface ListFlowExecutionMessagesResponse {
   /**
-   * <p>A list of objects that contain information about events in the specified flow execution.</p>
+   * A list of objects that contain information about events in the specified flow execution.
+   *
    * @public
    */
   messages?: FlowExecutionMessage[] | undefined;
 
   /**
-   * <p>The string to specify as <code>nextToken</code> when you request the next page of results. </p>
+   * The string to specify as `nextToken` when you request the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1177,19 +1314,22 @@ export interface ListFlowExecutionMessagesResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The maximum number of tags to return.</p>
+   * The maximum number of tags to return.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource whose tags are to be returned.</p>
+   * The Amazon Resource Name (ARN) of the resource whose tags are to be returned.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The token that specifies the next page of results to return.</p>
+   * The token that specifies the next page of results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1200,13 +1340,15 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>List of tags returned by the <code>ListTagsForResource</code> operation.</p>
+   * List of tags returned by the `ListTagsForResource` operation.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p>The token that specifies the next page of results to return.</p>
+   * The token that specifies the next page of results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1217,35 +1359,38 @@ export interface ListTagsForResourceResponse {
  */
 export interface SearchEntitiesRequest {
   /**
-   * <p>The entity types for which to search.</p>
+   * The entity types for which to search.
+   *
    * @public
    */
   entityTypes: EntityType[] | undefined;
 
   /**
-   * <p>Optional filter to apply to the search. Valid filters are <code>NAME</code>
-   *             <code>NAMESPACE</code>, <code>SEMANTIC_TYPE_PATH</code> and <code>REFERENCED_ENTITY_ID</code>.
-   *          <code>REFERENCED_ENTITY_ID</code> filters on entities that are used by the entity in the result set. For example,
-   *       you can filter on the ID of a property that is used in a state.</p>
-   *          <p>Multiple filters function as OR criteria in the query. Multiple values passed inside the filter function as AND criteria.</p>
+   * Optional filter to apply to the search. Valid filters are `NAME` `NAMESPACE`, `SEMANTIC_TYPE_PATH` and `REFERENCED_ENTITY_ID`. `REFERENCED_ENTITY_ID` filters on entities that are used by the entity in the result set. For example, you can filter on the ID of a property that is used in a state.
+   *
+   * Multiple filters function as OR criteria in the query. Multiple values passed inside the filter function as AND criteria.
+   *
    * @public
    */
   filters?: EntityFilter[] | undefined;
 
   /**
-   * <p>The string that specifies the next page of results. Use this when you're paginating results.</p>
+   * The string that specifies the next page of results. Use this when you're paginating results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in the response.</p>
+   * The maximum number of results to return in the response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The version of the user's namespace. Defaults to the latest version of the user's namespace.</p>
+   * The version of the user's namespace. Defaults to the latest version of the user's namespace.
+   *
    * @public
    */
   namespaceVersion?: number | undefined;
@@ -1256,13 +1401,15 @@ export interface SearchEntitiesRequest {
  */
 export interface SearchEntitiesResponse {
   /**
-   * <p>An array of descriptions for each entity returned in the search result.</p>
+   * An array of descriptions for each entity returned in the search result.
+   *
    * @public
    */
   descriptions?: EntityDescription[] | undefined;
 
   /**
-   * <p>The string to specify as <code>nextToken</code> when you request the next page of results.</p>
+   * The string to specify as `nextToken` when you request the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1273,37 +1420,43 @@ export interface SearchEntitiesResponse {
  */
 export interface SearchFlowExecutionsRequest {
   /**
-   * <p>The ID of the system instance that contains the flow.</p>
+   * The ID of the system instance that contains the flow.
+   *
    * @public
    */
   systemInstanceId: string | undefined;
 
   /**
-   * <p>The ID of a flow execution.</p>
+   * The ID of a flow execution.
+   *
    * @public
    */
   flowExecutionId?: string | undefined;
 
   /**
-   * <p>The date and time of the earliest flow execution to return.</p>
+   * The date and time of the earliest flow execution to return.
+   *
    * @public
    */
   startTime?: Date | undefined;
 
   /**
-   * <p>The date and time of the latest flow execution to return.</p>
+   * The date and time of the latest flow execution to return.
+   *
    * @public
    */
   endTime?: Date | undefined;
 
   /**
-   * <p>The string that specifies the next page of results. Use this when you're paginating results.</p>
+   * The string that specifies the next page of results. Use this when you're paginating results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in the response.</p>
+   * The maximum number of results to return in the response.
+   *
    * @public
    */
   maxResults?: number | undefined;
@@ -1314,13 +1467,15 @@ export interface SearchFlowExecutionsRequest {
  */
 export interface SearchFlowExecutionsResponse {
   /**
-   * <p>An array of objects that contain summary information about each workflow execution in the result set.</p>
+   * An array of objects that contain summary information about each workflow execution in the result set.
+   *
    * @public
    */
   summaries?: FlowExecutionSummary[] | undefined;
 
   /**
-   * <p>The string to specify as <code>nextToken</code> when you request the next page of results.</p>
+   * The string to specify as `nextToken` when you request the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1331,19 +1486,22 @@ export interface SearchFlowExecutionsResponse {
  */
 export interface SearchFlowTemplatesRequest {
   /**
-   * <p>An array of objects that limit the result set. The only valid filter is <code>DEVICE_MODEL_ID</code>.</p>
+   * An array of objects that limit the result set. The only valid filter is `DEVICE_MODEL_ID`.
+   *
    * @public
    */
   filters?: FlowTemplateFilter[] | undefined;
 
   /**
-   * <p>The string that specifies the next page of results. Use this when you're paginating results.</p>
+   * The string that specifies the next page of results. Use this when you're paginating results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in the response.</p>
+   * The maximum number of results to return in the response.
+   *
    * @public
    */
   maxResults?: number | undefined;
@@ -1354,33 +1512,36 @@ export interface SearchFlowTemplatesRequest {
  */
 export interface SearchFlowTemplatesResponse {
   /**
-   * <p>An array of objects that contain summary information about each workflow in the result set.</p>
+   * An array of objects that contain summary information about each workflow in the result set.
+   *
    * @public
    */
   summaries?: FlowTemplateSummary[] | undefined;
 
   /**
-   * <p>The string to specify as <code>nextToken</code> when you request the next page of results.</p>
+   * The string to specify as `nextToken` when you request the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>An object that filters a system instance search.
- *          Multiple filters function as OR criteria in the search. For example a search that includes a GREENGRASS_GROUP_NAME and a
- *          STATUS filter searches for system instances in the specified Greengrass group that have the specified status.</p>
+ * An object that filters a system instance search. Multiple filters function as OR criteria in the search. For example a search that includes a GREENGRASS_GROUP_NAME and a STATUS filter searches for system instances in the specified Greengrass group that have the specified status.
+ *
  * @public
  */
 export interface SystemInstanceFilter {
   /**
-   * <p>The name of the search filter field.</p>
+   * The name of the search filter field.
+   *
    * @public
    */
   name?: SystemInstanceFilterName | undefined;
 
   /**
-   * <p>An array of string values for the search filter field. Multiple values function as AND criteria in the search. </p>
+   * An array of string values for the search filter field. Multiple values function as AND criteria in the search.
+   *
    * @public
    */
   value?: string[] | undefined;
@@ -1391,21 +1552,24 @@ export interface SystemInstanceFilter {
  */
 export interface SearchSystemInstancesRequest {
   /**
-   * <p>Optional filter to apply to the search. Valid filters are <code>SYSTEM_TEMPLATE_ID</code>, <code>STATUS</code>, and
-   *          <code>GREENGRASS_GROUP_NAME</code>.</p>
-   *          <p>Multiple filters function as OR criteria in the query. Multiple values passed inside the filter function as AND criteria.</p>
+   * Optional filter to apply to the search. Valid filters are `SYSTEM_TEMPLATE_ID`, `STATUS`, and `GREENGRASS_GROUP_NAME`.
+   *
+   * Multiple filters function as OR criteria in the query. Multiple values passed inside the filter function as AND criteria.
+   *
    * @public
    */
   filters?: SystemInstanceFilter[] | undefined;
 
   /**
-   * <p>The string that specifies the next page of results. Use this when you're paginating results.</p>
+   * The string that specifies the next page of results. Use this when you're paginating results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in the response.</p>
+   * The maximum number of results to return in the response.
+   *
    * @public
    */
   maxResults?: number | undefined;
@@ -1416,31 +1580,36 @@ export interface SearchSystemInstancesRequest {
  */
 export interface SearchSystemInstancesResponse {
   /**
-   * <p>An array of objects that contain summary data abour the system instances in the result set.</p>
+   * An array of objects that contain summary data abour the system instances in the result set.
+   *
    * @public
    */
   summaries?: SystemInstanceSummary[] | undefined;
 
   /**
-   * <p>The string to specify as <code>nextToken</code> when you request the next page of results. </p>
+   * The string to specify as `nextToken` when you request the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>An object that filters a system search.</p>
+ * An object that filters a system search.
+ *
  * @public
  */
 export interface SystemTemplateFilter {
   /**
-   * <p>The name of the system search filter field.</p>
+   * The name of the system search filter field.
+   *
    * @public
    */
   name: SystemTemplateFilterName | undefined;
 
   /**
-   * <p>An array of string values for the search filter field. Multiple values function as AND criteria in the search.</p>
+   * An array of string values for the search filter field. Multiple values function as AND criteria in the search.
+   *
    * @public
    */
   value: string[] | undefined;
@@ -1451,19 +1620,22 @@ export interface SystemTemplateFilter {
  */
 export interface SearchSystemTemplatesRequest {
   /**
-   * <p>An array of filters that limit the result set. The only valid filter is <code>FLOW_TEMPLATE_ID</code>.</p>
+   * An array of filters that limit the result set. The only valid filter is `FLOW_TEMPLATE_ID`.
+   *
    * @public
    */
   filters?: SystemTemplateFilter[] | undefined;
 
   /**
-   * <p>The string that specifies the next page of results. Use this when you're paginating results.</p>
+   * The string that specifies the next page of results. Use this when you're paginating results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in the response.</p>
+   * The maximum number of results to return in the response.
+   *
    * @public
    */
   maxResults?: number | undefined;
@@ -1474,13 +1646,15 @@ export interface SearchSystemTemplatesRequest {
  */
 export interface SearchSystemTemplatesResponse {
   /**
-   * <p>An array of objects that contain summary information about each system deployment in the result set.</p>
+   * An array of objects that contain summary information about each system deployment in the result set.
+   *
    * @public
    */
   summaries?: SystemTemplateSummary[] | undefined;
 
   /**
-   * <p>The string to specify as <code>nextToken</code> when you request the next page of results.</p>
+   * The string to specify as `nextToken` when you request the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1491,47 +1665,54 @@ export interface SearchSystemTemplatesResponse {
  */
 export interface SearchThingsRequest {
   /**
-   * <p>The ID of the entity to which the things are associated.</p>
-   *          <p>The IDs should be in the following format.</p>
-   *          <p>
-   *             <code>urn:tdm:REGION/ACCOUNT ID/default:device:DEVICENAME</code>
-   *          </p>
+   * The ID of the entity to which the things are associated.
+   *
+   * The IDs should be in the following format.
+   *
+   * `urn:tdm:REGION/ACCOUNT ID/default:device:DEVICENAME`
+   *
    * @public
    */
   entityId: string | undefined;
 
   /**
-   * <p>The string that specifies the next page of results. Use this when you're paginating results.</p>
+   * The string that specifies the next page of results. Use this when you're paginating results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in the response.</p>
+   * The maximum number of results to return in the response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The version of the user's namespace. Defaults to the latest version of the user's namespace.</p>
+   * The version of the user's namespace. Defaults to the latest version of the user's namespace.
+   *
    * @public
    */
   namespaceVersion?: number | undefined;
 }
 
 /**
- * <p>An AWS IoT thing.</p>
+ * An AWS IoT thing.
+ *
  * @public
  */
 export interface Thing {
   /**
-   * <p>The ARN of the thing.</p>
+   * The ARN of the thing.
+   *
    * @public
    */
   thingArn?: string | undefined;
 
   /**
-   * <p>The name of the thing.</p>
+   * The name of the thing.
+   *
    * @public
    */
   thingName?: string | undefined;
@@ -1542,13 +1723,15 @@ export interface Thing {
  */
 export interface SearchThingsResponse {
   /**
-   * <p>An array of things in the result set.</p>
+   * An array of things in the result set.
+   *
    * @public
    */
   things?: Thing[] | undefined;
 
   /**
-   * <p>The string to specify as <code>nextToken</code> when you request the next page of results.</p>
+   * The string to specify as `nextToken` when you request the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1559,13 +1742,15 @@ export interface SearchThingsResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource whose tags are returned.</p>
+   * The Amazon Resource Name (ARN) of the resource whose tags are returned.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>A list of tags to add to the resource.></p>
+   * A list of tags to add to the resource.>
+   *
    * @public
    */
   tags: Tag[] | undefined;
@@ -1581,7 +1766,8 @@ export interface TagResourceResponse {}
  */
 export interface UndeploySystemInstanceRequest {
   /**
-   * <p>The ID of the system instance to remove from its target.</p>
+   * The ID of the system instance to remove from its target.
+   *
    * @public
    */
   id?: string | undefined;
@@ -1592,7 +1778,8 @@ export interface UndeploySystemInstanceRequest {
  */
 export interface UndeploySystemInstanceResponse {
   /**
-   * <p>An object that contains summary information about the system instance that was removed from its target.</p>
+   * An object that contains summary information about the system instance that was removed from its target.
+   *
    * @public
    */
   summary?: SystemInstanceSummary | undefined;
@@ -1603,14 +1790,17 @@ export interface UndeploySystemInstanceResponse {
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource whose tags are to be removed.</p>
+   * The Amazon Resource Name (ARN) of the resource whose tags are to be removed.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>A list of tag key names to remove from the resource. You don't specify the value. Both the key and its associated value are removed. </p>
-   *          <p>This parameter to the API requires a JSON text string argument. For information on how to format a JSON parameter for the various command line tool environments, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html#cli-using-param-json">Using JSON for Parameters</a> in the <i>AWS CLI User Guide</i>. </p>
+   * A list of tag key names to remove from the resource. You don't specify the value. Both the key and its associated value are removed.
+   *
+   * This parameter to the API requires a JSON text string argument. For information on how to format a JSON parameter for the various command line tool environments, see [Using JSON for Parameters](https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html#cli-using-param-json) in the *AWS CLI User Guide*.
+   *
    * @public
    */
   tagKeys: string[] | undefined;
@@ -1626,25 +1816,28 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateFlowTemplateRequest {
   /**
-   * <p>The ID of the workflow to be updated.</p>
-   *          <p>The ID should be in the following format.</p>
-   *          <p>
-   *             <code>urn:tdm:REGION/ACCOUNT ID/default:workflow:WORKFLOWNAME</code>
-   *          </p>
+   * The ID of the workflow to be updated.
+   *
+   * The ID should be in the following format.
+   *
+   * `urn:tdm:REGION/ACCOUNT ID/default:workflow:WORKFLOWNAME`
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The <code>DefinitionDocument</code> that contains the updated workflow definition.</p>
+   * The `DefinitionDocument` that contains the updated workflow definition.
+   *
    * @public
    */
   definition: DefinitionDocument | undefined;
 
   /**
-   * <p>The version of the user's namespace.</p>
-   *          <p>If no value is specified, the latest version is used by default. Use the <code>GetFlowTemplateRevisions</code> if you want to find earlier revisions of the flow
-   *       to update.</p>
+   * The version of the user's namespace.
+   *
+   * If no value is specified, the latest version is used by default. Use the `GetFlowTemplateRevisions` if you want to find earlier revisions of the flow to update.
+   *
    * @public
    */
   compatibleNamespaceVersion?: number | undefined;
@@ -1655,7 +1848,8 @@ export interface UpdateFlowTemplateRequest {
  */
 export interface UpdateFlowTemplateResponse {
   /**
-   * <p>An object containing summary information about the updated workflow.</p>
+   * An object containing summary information about the updated workflow.
+   *
    * @public
    */
   summary?: FlowTemplateSummary | undefined;
@@ -1666,24 +1860,28 @@ export interface UpdateFlowTemplateResponse {
  */
 export interface UpdateSystemTemplateRequest {
   /**
-   * <p>The ID of the system to be updated.</p>
-   *          <p>The ID should be in the following format.</p>
-   *          <p>
-   *             <code>urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME</code>
-   *          </p>
+   * The ID of the system to be updated.
+   *
+   * The ID should be in the following format.
+   *
+   * `urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME`
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The <code>DefinitionDocument</code> that contains the updated system definition.</p>
+   * The `DefinitionDocument` that contains the updated system definition.
+   *
    * @public
    */
   definition: DefinitionDocument | undefined;
 
   /**
-   * <p>The version of the user's namespace. Defaults to the latest version of the user's namespace.</p>
-   *          <p>If no value is specified, the latest version is used by default.</p>
+   * The version of the user's namespace. Defaults to the latest version of the user's namespace.
+   *
+   * If no value is specified, the latest version is used by default.
+   *
    * @public
    */
   compatibleNamespaceVersion?: number | undefined;
@@ -1694,7 +1892,8 @@ export interface UpdateSystemTemplateRequest {
  */
 export interface UpdateSystemTemplateResponse {
   /**
-   * <p>An object containing summary information about the updated system.</p>
+   * An object containing summary information about the updated system.
+   *
    * @public
    */
   summary?: SystemTemplateSummary | undefined;
@@ -1705,20 +1904,22 @@ export interface UpdateSystemTemplateResponse {
  */
 export interface UploadEntityDefinitionsRequest {
   /**
-   * <p>The <code>DefinitionDocument</code> that defines the updated entities.</p>
+   * The `DefinitionDocument` that defines the updated entities.
+   *
    * @public
    */
   document?: DefinitionDocument | undefined;
 
   /**
-   * <p>A Boolean that specifies whether to synchronize with the latest version of the public namespace. If set to <code>true</code>, the upload will create a new namespace version.</p>
+   * A Boolean that specifies whether to synchronize with the latest version of the public namespace. If set to `true`, the upload will create a new namespace version.
+   *
    * @public
    */
   syncWithPublicNamespace?: boolean | undefined;
 
   /**
-   * <p>A Boolean that specifies whether to deprecate all entities in the latest version before uploading the new <code>DefinitionDocument</code>.
-   *          If set to <code>true</code>, the upload will create a new namespace version.</p>
+   * A Boolean that specifies whether to deprecate all entities in the latest version before uploading the new `DefinitionDocument`. If set to `true`, the upload will create a new namespace version.
+   *
    * @public
    */
   deprecateExistingEntities?: boolean | undefined;
@@ -1729,7 +1930,8 @@ export interface UploadEntityDefinitionsRequest {
  */
 export interface UploadEntityDefinitionsResponse {
   /**
-   * <p>The ID that specifies the upload action. You can use this to track the status of the upload.</p>
+   * The ID that specifies the upload action. You can use this to track the status of the upload.
+   *
    * @public
    */
   uploadId: string | undefined;

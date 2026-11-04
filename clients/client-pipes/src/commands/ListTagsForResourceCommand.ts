@@ -23,7 +23,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Displays the tags associated with a pipe.</p>
+ * Displays the tags associated with a pipe.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,17 +53,20 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link PipesClientResolvedConfig | config} for PipesClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * This exception occurs due to unexpected causes.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>An entity that you specified does not exist.</p>
+ *
+ * An entity that you specified does not exist.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Indicates that an error has occurred while performing a validate operation.</p>
+ *
+ * Indicates that an error has occurred while performing a validate operation.
  *
  * @throws {@link PipesServiceException}
- * <p>Base exception class for all service exceptions from Pipes service.</p>
  *
+ * Base exception class for all service exceptions from Pipes service.
  *
  * @public
  */

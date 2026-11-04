@@ -23,15 +23,12 @@ export interface DeleteClusterSecurityGroupCommandInput extends DeleteClusterSec
 export interface DeleteClusterSecurityGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an Amazon Redshift security group.</p>
- *          <note>
- *             <p>You cannot delete a security group that is associated with any clusters. You
- *                 cannot delete the default security group.</p>
- *          </note>
- *          <p>
- * For information about managing security groups, go to
- * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">Amazon Redshift Cluster Security Groups</a> in the
- * <i>Amazon Redshift Cluster Management Guide</i>.</p>
+ * Deletes an Amazon Redshift security group.
+ *
+ * > **Note:** You cannot delete a security group that is associated with any clusters. You cannot delete the default security group.
+ *
+ * For information about managing security groups, go to [Amazon Redshift Cluster Security Groups](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html) in the *Amazon Redshift Cluster Management Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,15 +53,16 @@ export interface DeleteClusterSecurityGroupCommandOutput extends __MetadataBeare
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterSecurityGroupNotFoundFault} (client fault)
- *  <p>The cluster security group name does not refer to an existing cluster security
- *             group.</p>
+ *
+ * The cluster security group name does not refer to an existing cluster security group.
  *
  * @throws {@link InvalidClusterSecurityGroupStateFault} (client fault)
- *  <p>The state of the cluster security group is not <code>available</code>. </p>
+ *
+ * The state of the cluster security group is not `available`.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

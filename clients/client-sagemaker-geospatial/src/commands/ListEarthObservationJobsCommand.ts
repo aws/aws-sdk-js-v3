@@ -23,7 +23,8 @@ export interface ListEarthObservationJobsCommandInput extends ListEarthObservati
 export interface ListEarthObservationJobsCommandOutput extends ListEarthObservationJobOutput, __MetadataBearer {}
 
 /**
- * <p>Use this operation to get a list of the Earth Observation jobs associated with the calling Amazon Web Services account.</p>
+ * Use this operation to get a list of the Earth Observation jobs associated with the calling Amazon Web Services account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,23 +68,28 @@ export interface ListEarthObservationJobsCommandOutput extends ListEarthObservat
  * @see {@link SageMakerGeospatialClientResolvedConfig | config} for SageMakerGeospatialClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception, or failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request references a resource which does not exist.</p>
+ *
+ * The request references a resource which does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link SageMakerGeospatialServiceException}
- * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
+ * Base exception class for all service exceptions from SageMakerGeospatial service.
  *
  * @public
  */

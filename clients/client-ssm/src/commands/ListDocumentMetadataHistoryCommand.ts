@@ -23,12 +23,10 @@ export interface ListDocumentMetadataHistoryCommandInput extends ListDocumentMet
 export interface ListDocumentMetadataHistoryCommandOutput extends ListDocumentMetadataHistoryResponse, __MetadataBearer {}
 
 /**
- * <important>
- *             <p>Amazon Web Services Systems Manager Change Manager is no longer open to new customers. Existing customers can
- *   continue to use the service as normal. For more information, see
- * <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/change-manager-availability-change.html">Amazon Web Services Systems Manager Change Manager availability change</a>.</p>
- *          </important>
- *          <p>Information about approval reviews for a version of a change template in Change Manager.</p>
+ * > **Important:** Amazon Web Services Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [Amazon Web Services Systems Manager Change Manager availability change](https://docs.aws.amazon.com/systems-manager/latest/userguide/change-manager-availability-change.html).
+ *
+ * Information about approval reviews for a version of a change template in Change Manager.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,20 +76,24 @@ export interface ListDocumentMetadataHistoryCommandOutput extends ListDocumentMe
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidDocument} (client fault)
- *  <p>The specified SSM document doesn't exist.</p>
+ *
+ * The specified SSM document doesn't exist.
  *
  * @throws {@link InvalidDocumentVersion} (client fault)
- *  <p>The document version isn't valid or doesn't exist.</p>
+ *
+ * The document version isn't valid or doesn't exist.
  *
  * @throws {@link InvalidNextToken} (client fault)
- *  <p>The specified token isn't valid.</p>
+ *
+ * The specified token isn't valid.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

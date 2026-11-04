@@ -26,17 +26,10 @@ export interface GenerateEmbedUrlForRegisteredUserWithIdentityCommandInput exten
 export interface GenerateEmbedUrlForRegisteredUserWithIdentityCommandOutput extends GenerateEmbedUrlForRegisteredUserWithIdentityResponse, __MetadataBearer {}
 
 /**
- * <p>Generates an embed URL that you can use to embed an Amazon Quick Sight experience in
- *             your website. This action can be used for any type of user that is registered in an
- *             Amazon Quick Sight account that uses IAM Identity Center for authentication. This API
- *             requires <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-overview.html#types-identity-enhanced-iam-role-sessions">identity-enhanced IAM Role sessions</a> for the authenticated
- *             user that the API call is being made for.</p>
- *          <p>This API uses <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation.html">trusted identity
- *                 propagation</a> to ensure that an end user is authenticated and receives the
- *             embed URL that is specific to that user. The IAM Identity Center application that the
- *             user has logged into needs to have <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-using-customermanagedapps-specify-trusted-apps.html">trusted Identity Propagation enabled for Amazon Quick Sight</a> with the scope
- *             value set to <code>quicksight:read</code>. Before you use this action, make sure that
- *             you have configured the relevant Amazon Quick Sight resource and permissions.</p>
+ * Generates an embed URL that you can use to embed an Amazon Quick Sight experience in your website. This action can be used for any type of user that is registered in an Amazon Quick Sight account that uses IAM Identity Center for authentication. This API requires [identity-enhanced IAM Role sessions](https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-overview.html#types-identity-enhanced-iam-role-sessions) for the authenticated user that the API call is being made for.
+ *
+ * This API uses [trusted identity propagation](https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation.html) to ensure that an end user is authenticated and receives the embed URL that is specific to that user. The IAM Identity Center application that the user has logged into needs to have [trusted Identity Propagation enabled for Amazon Quick Sight](https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-using-customermanagedapps-specify-trusted-apps.html) with the scope value set to `quicksight:read`. Before you use this action, make sure that you have configured the relevant Amazon Quick Sight resource and permissions.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -153,52 +146,46 @@ export interface GenerateEmbedUrlForRegisteredUserWithIdentityCommandOutput exte
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have access to this item. The provided credentials couldn't be
- * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
- * 			correct permissions, and that you are using the correct credentials.</p>
+ *
+ * You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An internal failure occurred.</p>
+ *
+ * An internal failure occurred.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more parameters has a value that isn't valid.</p>
+ *
+ * One or more parameters has a value that isn't valid.
  *
  * @throws {@link QuickSightUserNotFoundException} (client fault)
- *  <p>The user with the provided name isn't found. This error can happen in any operation
- * 			that requires finding a user based on a provided user name, such as
- * 				<code>DeleteUser</code>, <code>DescribeUser</code>, and so on.</p>
+ *
+ * The user with the provided name isn't found. This error can happen in any operation that requires finding a user based on a provided user name, such as `DeleteUser`, `DescribeUser`, and so on.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>One or more resources can't be found.</p>
+ *
+ * One or more resources can't be found.
  *
  * @throws {@link SessionLifetimeInMinutesInvalidException} (client fault)
- *  <p>The number of minutes specified for the lifetime of a session isn't valid. The session
- * 			lifetime must be 15-600 minutes.</p>
+ *
+ * The number of minutes specified for the lifetime of a session isn't valid. The session lifetime must be 15-600 minutes.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Access is throttled.</p>
+ *
+ * Access is throttled.
  *
  * @throws {@link UnsupportedPricingPlanException} (client fault)
- *  <p>This error indicates that you are calling an embedding operation in Amazon Quick Sight
- * 			without the required pricing plan on your Amazon Web Services account. Before you can use embedding
- * 			for anonymous users, a Quick Suite administrator needs to add capacity pricing to Quick Sight. You
- * 		    can do this on the <b>Manage Quick Suite</b> page. </p>
- *          <p>After capacity pricing is added, you can use the
- *             <code>
- *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GetDashboardEmbedUrl.html">GetDashboardEmbedUrl</a>
- *             </code> API operation with the
- *             <code>--identity-type ANONYMOUS</code> option.</p>
+ *
+ * This error indicates that you are calling an embedding operation in Amazon Quick Sight without the required pricing plan on your Amazon Web Services account. Before you can use embedding for anonymous users, a Quick Suite administrator needs to add capacity pricing to Quick Sight. You can do this on the **Manage Quick Suite** page.
+ *
+ * After capacity pricing is added, you can use the `GetDashboardEmbedUrl` API operation with the `--identity-type ANONYMOUS` option.
  *
  * @throws {@link UnsupportedUserEditionException} (client fault)
- *  <p>This error indicates that you are calling an operation on an Amazon Quick Suite
- * 			subscription where the edition doesn't include support for that operation. Amazon
- * 			Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and
- * 			capability is available in every edition.</p>
+ *
+ * This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.
  *
  * @throws {@link QuickSightServiceException}
- * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * Base exception class for all service exceptions from QuickSight service.
  *
  * @public
  */

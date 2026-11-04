@@ -23,9 +23,8 @@ export interface CreateGeneratedTemplateCommandInput extends CreateGeneratedTemp
 export interface CreateGeneratedTemplateCommandOutput extends CreateGeneratedTemplateOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a template from existing resources that are not already managed with CloudFormation.
- *       You can check the status of the template generation using the
- *         <code>DescribeGeneratedTemplate</code> API action.</p>
+ * Creates a template from existing resources that are not already managed with CloudFormation. You can check the status of the template generation using the `DescribeGeneratedTemplate` API action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,21 +65,22 @@ export interface CreateGeneratedTemplateCommandOutput extends CreateGeneratedTem
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link AlreadyExistsException} (client fault)
- *  <p>The resource with the name requested already exists.</p>
+ *
+ * The resource with the name requested already exists.
  *
  * @throws {@link ConcurrentResourcesLimitExceededException} (client fault)
- *  <p>No more than 5 generated templates can be in an <code>InProgress</code> or <code>Pending</code> status at one
- *    time. This error is also returned if a generated template that is in an <code>InProgress</code> or
- *    <code>Pending</code> status is attempted to be updated or deleted.</p>
+ *
+ * No more than 5 generated templates can be in an `InProgress` or `Pending` status at one time. This error is also returned if a generated template that is in an `InProgress` or `Pending` status is attempted to be updated or deleted.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The quota for the resource has already been reached.</p>
- *          <p>For information about resource and stack limitations, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html">CloudFormation quotas</a> in the
- *    <i>CloudFormation User Guide</i>.</p>
+ *
+ * The quota for the resource has already been reached.
+ *
+ * For information about resource and stack limitations, see [CloudFormation quotas](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html) in the *CloudFormation User Guide*.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @example To create a generated template
  * ```javascript

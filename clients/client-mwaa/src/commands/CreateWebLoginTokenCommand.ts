@@ -23,7 +23,8 @@ export interface CreateWebLoginTokenCommandInput extends CreateWebLoginTokenRequ
 export interface CreateWebLoginTokenCommandOutput extends CreateWebLoginTokenResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a web login token for the Airflow Web UI. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/call-mwaa-apis-web.html">Creating an Apache Airflow web login token</a>.</p>
+ * Creates a web login token for the Airflow Web UI. To learn more, see [Creating an Apache Airflow web login token](https://docs.aws.amazon.com/mwaa/latest/userguide/call-mwaa-apis-web.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,20 +54,24 @@ export interface CreateWebLoginTokenCommandOutput extends CreateWebLoginTokenRes
  * @see {@link MWAAClientResolvedConfig | config} for MWAAClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to the Apache Airflow Web UI or CLI has been denied due to insufficient permissions. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/access-policies.html">Accessing an Amazon MWAA environment</a>.</p>
+ *
+ * Access to the Apache Airflow Web UI or CLI has been denied due to insufficient permissions. To learn more, see [Accessing an Amazon MWAA environment](https://docs.aws.amazon.com/mwaa/latest/userguide/access-policies.html).
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>InternalServerException: An internal error has occurred.</p>
+ *
+ * InternalServerException: An internal error has occurred.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>ResourceNotFoundException: The resource is not available.</p>
+ *
+ * ResourceNotFoundException: The resource is not available.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>ValidationException: The provided input is not valid.</p>
+ *
+ * ValidationException: The provided input is not valid.
  *
  * @throws {@link MWAAServiceException}
- * <p>Base exception class for all service exceptions from MWAA service.</p>
  *
+ * Base exception class for all service exceptions from MWAA service.
  *
  * @public
  */

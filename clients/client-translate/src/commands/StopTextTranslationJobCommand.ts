@@ -23,13 +23,12 @@ export interface StopTextTranslationJobCommandInput extends StopTextTranslationJ
 export interface StopTextTranslationJobCommandOutput extends StopTextTranslationJobResponse, __MetadataBearer {}
 
 /**
- * <p>Stops an asynchronous batch translation job that is in progress.</p>
- *          <p>If the job's state is <code>IN_PROGRESS</code>, the job will be marked for termination and
- *       put into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped,
- *       it is put into the <code>COMPLETED</code> state. Otherwise, the job is put into the
- *         <code>STOPPED</code> state.</p>
- *          <p>Asynchronous batch translation jobs are started with the <a>StartTextTranslationJob</a> operation. You can use the <a>DescribeTextTranslationJob</a> or <a>ListTextTranslationJobs</a>
- *       operations to get a batch translation job's <code>JobId</code>.</p>
+ * Stops an asynchronous batch translation job that is in progress.
+ *
+ * If the job's state is `IN_PROGRESS`, the job will be marked for termination and put into the `STOP_REQUESTED` state. If the job completes before it can be stopped, it is put into the `COMPLETED` state. Otherwise, the job is put into the `STOPPED` state.
+ *
+ * Asynchronous batch translation jobs are started with the StartTextTranslationJob operation. You can use the DescribeTextTranslationJob or ListTextTranslationJobs operations to get a batch translation job's `JobId`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,20 +56,20 @@ export interface StopTextTranslationJobCommandOutput extends StopTextTranslation
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource you are looking for has not been found. Review the resource you're looking
- *       for and see if a different resource will accomplish your needs before retrying the revised
- *       request.</p>
+ *
+ * The resource you are looking for has not been found. Review the resource you're looking for and see if a different resource will accomplish your needs before retrying the revised request.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p> You have made too many requests within a short period of time. Wait for a short time and
- *       then try your request again.</p>
+ *
+ * You have made too many requests within a short period of time. Wait for a short time and then try your request again.
  *
  * @throws {@link TranslateServiceException}
- * <p>Base exception class for all service exceptions from Translate service.</p>
  *
+ * Base exception class for all service exceptions from Translate service.
  *
  * @public
  */

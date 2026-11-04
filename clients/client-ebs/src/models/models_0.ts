@@ -4,46 +4,49 @@ import type { StreamingBlobTypes } from "@smithy/types";
 import type { ChecksumAggregationMethod, ChecksumAlgorithm, SSEType, Status } from "./enums";
 
 /**
- * <p>A block of data in an Amazon Elastic Block Store snapshot.</p>
+ * A block of data in an Amazon Elastic Block Store snapshot.
+ *
  * @public
  */
 export interface Block {
   /**
-   * <p>The block index.</p>
+   * The block index.
+   *
    * @public
    */
   BlockIndex?: number | undefined;
 
   /**
-   * <p>The block token for the block index.</p>
+   * The block token for the block index.
+   *
    * @public
    */
   BlockToken?: string | undefined;
 }
 
 /**
- * <p>A block of data in an Amazon Elastic Block Store snapshot that is different from another snapshot of
- *             the same volume/snapshot lineage.</p>
+ * A block of data in an Amazon Elastic Block Store snapshot that is different from another snapshot of the same volume/snapshot lineage.
+ *
  * @public
  */
 export interface ChangedBlock {
   /**
-   * <p>The block index.</p>
+   * The block index.
+   *
    * @public
    */
   BlockIndex?: number | undefined;
 
   /**
-   * <p>The block token for the block index of the <code>FirstSnapshotId</code> specified in
-   *             the <code>ListChangedBlocks</code> operation. This value is absent if the first snapshot
-   *             does not have the changed block that is on the second snapshot.</p>
+   * The block token for the block index of the `FirstSnapshotId` specified in the `ListChangedBlocks` operation. This value is absent if the first snapshot does not have the changed block that is on the second snapshot.
+   *
    * @public
    */
   FirstBlockToken?: string | undefined;
 
   /**
-   * <p>The block token for the block index of the <code>SecondSnapshotId</code> specified in
-   *             the <code>ListChangedBlocks</code> operation.</p>
+   * The block token for the block index of the `SecondSnapshotId` specified in the `ListChangedBlocks` operation.
+   *
    * @public
    */
   SecondBlockToken?: string | undefined;
@@ -54,38 +57,38 @@ export interface ChangedBlock {
  */
 export interface CompleteSnapshotRequest {
   /**
-   * <p>The ID of the snapshot.</p>
+   * The ID of the snapshot.
+   *
    * @public
    */
   SnapshotId: string | undefined;
 
   /**
-   * <p>The number of blocks that were written to the snapshot.</p>
+   * The number of blocks that were written to the snapshot.
+   *
    * @public
    */
   ChangedBlocksCount: number | undefined;
 
   /**
-   * <p>An aggregated Base-64 SHA256 checksum based on the checksums of each written
-   *             block.</p>
-   *          <p>To generate the aggregated checksum using the linear aggregation method, arrange the
-   *             checksums for each written block in ascending order of their block index, concatenate
-   *             them to form a single string, and then generate the checksum on the entire string using
-   *             the SHA256 algorithm.</p>
+   * An aggregated Base-64 SHA256 checksum based on the checksums of each written block.
+   *
+   * To generate the aggregated checksum using the linear aggregation method, arrange the checksums for each written block in ascending order of their block index, concatenate them to form a single string, and then generate the checksum on the entire string using the SHA256 algorithm.
+   *
    * @public
    */
   Checksum?: string | undefined;
 
   /**
-   * <p>The algorithm used to generate the checksum. Currently, the only supported algorithm
-   *             is <code>SHA256</code>.</p>
+   * The algorithm used to generate the checksum. Currently, the only supported algorithm is `SHA256`.
+   *
    * @public
    */
   ChecksumAlgorithm?: ChecksumAlgorithm | undefined;
 
   /**
-   * <p>The aggregation method used to generate the checksum. Currently, the only supported
-   *             aggregation method is <code>LINEAR</code>.</p>
+   * The aggregation method used to generate the checksum. Currently, the only supported aggregation method is `LINEAR`.
+   *
    * @public
    */
   ChecksumAggregationMethod?: ChecksumAggregationMethod | undefined;
@@ -96,7 +99,8 @@ export interface CompleteSnapshotRequest {
  */
 export interface CompleteSnapshotResponse {
   /**
-   * <p>The status of the snapshot.</p>
+   * The status of the snapshot.
+   *
    * @public
    */
   Status?: Status | undefined;
@@ -107,31 +111,24 @@ export interface CompleteSnapshotResponse {
  */
 export interface GetSnapshotBlockRequest {
   /**
-   * <p>The ID of the snapshot containing the block from which to get data.</p>
-   *          <important>
-   *             <p>If the specified snapshot is encrypted, you must have permission to use the
-   *                 KMS key that was used to encrypt the snapshot. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapis-using-encryption.html">
-   *                     Using encryption</a> in the <i>Amazon Elastic Compute Cloud User
-   *                         Guide</i>.</p>
-   *          </important>
+   * The ID of the snapshot containing the block from which to get data.
+   *
+   * > **Important:** If the specified snapshot is encrypted, you must have permission to use the KMS key that was used to encrypt the snapshot. For more information, see [Using encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapis-using-encryption.html) in the *Amazon Elastic Compute Cloud User Guide*.
+   *
    * @public
    */
   SnapshotId: string | undefined;
 
   /**
-   * <p>The block index of the block in which to read the data. A block index is a logical
-   *             index in units of <code>512</code> KiB blocks. To identify the block index, divide
-   *             the logical offset of the data in the logical volume by the block size (logical offset
-   *             of data/<code>524288</code>). The logical offset of the data must be <code>512</code>
-   *             KiB aligned.</p>
+   * The block index of the block in which to read the data. A block index is a logical index in units of `512` KiB blocks. To identify the block index, divide the logical offset of the data in the logical volume by the block size (logical offset of data/`524288`). The logical offset of the data must be `512` KiB aligned.
+   *
    * @public
    */
   BlockIndex: number | undefined;
 
   /**
-   * <p>The block token of the block from which to get data. You can obtain the <code>BlockToken</code>
-   *             by running the <code>ListChangedBlocks</code> or <code>ListSnapshotBlocks</code> operations.</p>
+   * The block token of the block from which to get data. You can obtain the `BlockToken` by running the `ListChangedBlocks` or `ListSnapshotBlocks` operations.
+   *
    * @public
    */
   BlockToken: string | undefined;
@@ -142,25 +139,29 @@ export interface GetSnapshotBlockRequest {
  */
 export interface GetSnapshotBlockResponse {
   /**
-   * <p>The size of the data in the block.</p>
+   * The size of the data in the block.
+   *
    * @public
    */
   DataLength?: number | undefined;
 
   /**
-   * <p>The data content of the block.</p>
+   * The data content of the block.
+   *
    * @public
    */
   BlockData?: StreamingBlobTypes | undefined;
 
   /**
-   * <p>The checksum generated for the block, which is Base64 encoded.</p>
+   * The checksum generated for the block, which is Base64 encoded.
+   *
    * @public
    */
   Checksum?: string | undefined;
 
   /**
-   * <p>The algorithm used to generate the checksum for the block, such as SHA256.</p>
+   * The algorithm used to generate the checksum for the block, such as SHA256.
+   *
    * @public
    */
   ChecksumAlgorithm?: ChecksumAlgorithm | undefined;
@@ -171,52 +172,50 @@ export interface GetSnapshotBlockResponse {
  */
 export interface ListChangedBlocksRequest {
   /**
-   * <p>The ID of the first snapshot to use for the comparison.</p>
-   *          <important>
-   *             <p>The <code>FirstSnapshotID</code> parameter must be specified with a
-   *                     <code>SecondSnapshotId</code> parameter; otherwise, an error occurs.</p>
-   *          </important>
+   * The ID of the first snapshot to use for the comparison.
+   *
+   * > **Important:** The `FirstSnapshotID` parameter must be specified with a `SecondSnapshotId` parameter; otherwise, an error occurs.
+   *
    * @public
    */
   FirstSnapshotId?: string | undefined;
 
   /**
-   * <p>The ID of the second snapshot to use for the comparison.</p>
-   *          <important>
-   *             <p>The <code>SecondSnapshotId</code> parameter must be specified with a
-   *                     <code>FirstSnapshotID</code> parameter; otherwise, an error occurs.</p>
-   *          </important>
+   * The ID of the second snapshot to use for the comparison.
+   *
+   * > **Important:** The `SecondSnapshotId` parameter must be specified with a `FirstSnapshotID` parameter; otherwise, an error occurs.
+   *
    * @public
    */
   SecondSnapshotId: string | undefined;
 
   /**
-   * <p>The token to request the next page of results.</p>
-   *          <p>If you specify <b>NextToken</b>, then
-   *             <b>StartingBlockIndex</b> is ignored.</p>
+   * The token to request the next page of results.
+   *
+   * If you specify **NextToken**, then **StartingBlockIndex** is ignored.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of blocks to be returned by the request.</p>
-   *          <p>Even if additional blocks can be retrieved from the snapshot, the request can
-   *             return less blocks than <b>MaxResults</b> or an empty
-   *             array of blocks.</p>
-   *          <p>To retrieve the next set of blocks from the snapshot, make another request with
-   *             the returned <b>NextToken</b> value. The value of
-   *             <b>NextToken</b> is <code>null</code> when there are no
-   *             more blocks to return.</p>
+   * The maximum number of blocks to be returned by the request.
+   *
+   * Even if additional blocks can be retrieved from the snapshot, the request can return less blocks than **MaxResults** or an empty array of blocks.
+   *
+   * To retrieve the next set of blocks from the snapshot, make another request with the returned **NextToken** value. The value of **NextToken** is `null` when there are no more blocks to return.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The block index from which the comparison should start.</p>
-   *          <p>The list in the response will start from this block index or the next valid block
-   *             index in the snapshots.</p>
-   *          <p>If you specify <b>NextToken</b>, then
-   *             <b>StartingBlockIndex</b> is ignored.</p>
+   * The block index from which the comparison should start.
+   *
+   * The list in the response will start from this block index or the next valid block index in the snapshots.
+   *
+   * If you specify **NextToken**, then **StartingBlockIndex** is ignored.
+   *
    * @public
    */
   StartingBlockIndex?: number | undefined;
@@ -227,32 +226,36 @@ export interface ListChangedBlocksRequest {
  */
 export interface ListChangedBlocksResponse {
   /**
-   * <p>An array of objects containing information about the changed blocks.</p>
+   * An array of objects containing information about the changed blocks.
+   *
    * @public
    */
   ChangedBlocks?: ChangedBlock[] | undefined;
 
   /**
-   * <p>The time when the <code>BlockToken</code> expires.</p>
+   * The time when the `BlockToken` expires.
+   *
    * @public
    */
   ExpiryTime?: Date | undefined;
 
   /**
-   * <p>The size of the volume in GB.</p>
+   * The size of the volume in GB.
+   *
    * @public
    */
   VolumeSize?: number | undefined;
 
   /**
-   * <p>The size of the blocks in the snapshot, in bytes.</p>
+   * The size of the blocks in the snapshot, in bytes.
+   *
    * @public
    */
   BlockSize?: number | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is null when there
-   *             are no more results to return.</p>
+   * The token to use to retrieve the next page of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -263,37 +266,37 @@ export interface ListChangedBlocksResponse {
  */
 export interface ListSnapshotBlocksRequest {
   /**
-   * <p>The ID of the snapshot from which to get block indexes and block tokens.</p>
+   * The ID of the snapshot from which to get block indexes and block tokens.
+   *
    * @public
    */
   SnapshotId: string | undefined;
 
   /**
-   * <p>The token to request the next page of results.</p>
-   *          <p>If you specify <b>NextToken</b>, then
-   *             <b>StartingBlockIndex</b> is ignored.</p>
+   * The token to request the next page of results.
+   *
+   * If you specify **NextToken**, then **StartingBlockIndex** is ignored.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of blocks to be returned by the request.</p>
-   *          <p>Even if additional blocks can be retrieved from the snapshot, the request can
-   *             return less blocks than <b>MaxResults</b> or an empty
-   *             array of blocks.</p>
-   *          <p>To retrieve the next set of blocks from the snapshot, make another request with
-   *             the returned <b>NextToken</b> value. The value of
-   *             <b>NextToken</b> is <code>null</code> when there are no
-   *             more blocks to return.</p>
+   * The maximum number of blocks to be returned by the request.
+   *
+   * Even if additional blocks can be retrieved from the snapshot, the request can return less blocks than **MaxResults** or an empty array of blocks.
+   *
+   * To retrieve the next set of blocks from the snapshot, make another request with the returned **NextToken** value. The value of **NextToken** is `null` when there are no more blocks to return.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The block index from which the list should start. The list in the response will start
-   *             from this block index or the next valid block index in the snapshot.</p>
-   *          <p>If you specify <b>NextToken</b>, then
-   *             <b>StartingBlockIndex</b> is ignored.</p>
+   * The block index from which the list should start. The list in the response will start from this block index or the next valid block index in the snapshot.
+   *
+   * If you specify **NextToken**, then **StartingBlockIndex** is ignored.
+   *
    * @public
    */
   StartingBlockIndex?: number | undefined;
@@ -304,32 +307,36 @@ export interface ListSnapshotBlocksRequest {
  */
 export interface ListSnapshotBlocksResponse {
   /**
-   * <p>An array of objects containing information about the blocks.</p>
+   * An array of objects containing information about the blocks.
+   *
    * @public
    */
   Blocks?: Block[] | undefined;
 
   /**
-   * <p>The time when the <code>BlockToken</code> expires.</p>
+   * The time when the `BlockToken` expires.
+   *
    * @public
    */
   ExpiryTime?: Date | undefined;
 
   /**
-   * <p>The size of the volume in GB.</p>
+   * The size of the volume in GB.
+   *
    * @public
    */
   VolumeSize?: number | undefined;
 
   /**
-   * <p>The size of the blocks in the snapshot, in bytes.</p>
+   * The size of the blocks in the snapshot, in bytes.
+   *
    * @public
    */
   BlockSize?: number | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is null when there
-   *             are no more results to return.</p>
+   * The token to use to retrieve the next page of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -340,69 +347,56 @@ export interface ListSnapshotBlocksResponse {
  */
 export interface PutSnapshotBlockRequest {
   /**
-   * <p>The ID of the snapshot.</p>
-   *          <important>
-   *             <p>If the specified snapshot is encrypted, you must have permission to use
-   *                 the KMS key that was used to encrypt the snapshot. For more information,
-   *                 see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapis-using-encryption.html">
-   *                     Using encryption</a> in the <i>Amazon Elastic Compute Cloud User
-   *                         Guide</i>..</p>
-   *          </important>
+   * The ID of the snapshot.
+   *
+   * > **Important:** If the specified snapshot is encrypted, you must have permission to use the KMS key that was used to encrypt the snapshot. For more information, see [Using encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapis-using-encryption.html) in the *Amazon Elastic Compute Cloud User Guide*..
+   *
    * @public
    */
   SnapshotId: string | undefined;
 
   /**
-   * <p>The block index of the block in which to write the data. A block index is a logical
-   *     	index in units of <code>512</code> KiB blocks. To identify the block index, divide
-   *         	the logical offset of the data in the logical volume by the block size (logical offset of
-   *         	data/<code>524288</code>). The logical offset of the data must be <code>512</code>
-   *         	KiB aligned.</p>
+   * The block index of the block in which to write the data. A block index is a logical index in units of `512` KiB blocks. To identify the block index, divide the logical offset of the data in the logical volume by the block size (logical offset of data/`524288`). The logical offset of the data must be `512` KiB aligned.
+   *
    * @public
    */
   BlockIndex: number | undefined;
 
   /**
-   * <p>The data to write to the block.</p>
-   *          <p>The block data is not signed as part of the Signature Version 4 signing process. As a
-   *             result, you must generate and provide a Base64-encoded SHA256 checksum for the block
-   *             data using the <b>x-amz-Checksum</b> header. Also, you
-   *         	must specify the checksum algorithm using the <b>x-amz-Checksum-Algorithm</b>
-   *         	header. The checksum that you provide is part of the Signature Version 4 signing process.
-   *         	It is validated against a checksum generated by Amazon EBS to ensure the validity and authenticity
-   *         	of the data. If the checksums do not correspond, the request fails. For more information,
-   *         	see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshot.html#ebsapis-using-checksums">
-   *                 Using checksums with the EBS direct APIs</a> in the <i>Amazon Elastic Compute Cloud User
-   *                 Guide</i>.</p>
+   * The data to write to the block.
+   *
+   * The block data is not signed as part of the Signature Version 4 signing process. As a result, you must generate and provide a Base64-encoded SHA256 checksum for the block data using the **x-amz-Checksum** header. Also, you must specify the checksum algorithm using the **x-amz-Checksum-Algorithm** header. The checksum that you provide is part of the Signature Version 4 signing process. It is validated against a checksum generated by Amazon EBS to ensure the validity and authenticity of the data. If the checksums do not correspond, the request fails. For more information, see [Using checksums with the EBS direct APIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshot.html#ebsapis-using-checksums) in the *Amazon Elastic Compute Cloud User Guide*.
+   *
    * @public
    */
   BlockData: StreamingBlobTypes | undefined;
 
   /**
-   * <p>The size of the data to write to the block, in bytes. Currently, the only supported
-   *             size is <code>524288</code> bytes.</p>
-   *          <p>Valid values: <code>524288</code>
-   *          </p>
+   * The size of the data to write to the block, in bytes. Currently, the only supported size is `524288` bytes.
+   *
+   * Valid values: `524288`
+   *
    * @public
    */
   DataLength: number | undefined;
 
   /**
-   * <p>The progress of the write process, as a percentage.</p>
+   * The progress of the write process, as a percentage.
+   *
    * @public
    */
   Progress?: number | undefined;
 
   /**
-   * <p>A Base64-encoded SHA256 checksum of the data. Only SHA256 checksums are
-   *             supported.</p>
+   * A Base64-encoded SHA256 checksum of the data. Only SHA256 checksums are supported.
+   *
    * @public
    */
   Checksum: string | undefined;
 
   /**
-   * <p>The algorithm used to generate the checksum. Currently, the only supported algorithm
-   *             is <code>SHA256</code>.</p>
+   * The algorithm used to generate the checksum. Currently, the only supported algorithm is `SHA256`.
+   *
    * @public
    */
   ChecksumAlgorithm: ChecksumAlgorithm | undefined;
@@ -413,31 +407,36 @@ export interface PutSnapshotBlockRequest {
  */
 export interface PutSnapshotBlockResponse {
   /**
-   * <p>The SHA256 checksum generated for the block data by Amazon EBS.</p>
+   * The SHA256 checksum generated for the block data by Amazon EBS.
+   *
    * @public
    */
   Checksum?: string | undefined;
 
   /**
-   * <p>The algorithm used by Amazon EBS to generate the checksum.</p>
+   * The algorithm used by Amazon EBS to generate the checksum.
+   *
    * @public
    */
   ChecksumAlgorithm?: ChecksumAlgorithm | undefined;
 }
 
 /**
- * <p>Describes a tag.</p>
+ * Describes a tag.
+ *
  * @public
  */
 export interface Tag {
   /**
-   * <p>The key of the tag.</p>
+   * The key of the tag.
+   *
    * @public
    */
   Key?: string | undefined;
 
   /**
-   * <p>The value of the tag.</p>
+   * The value of the tag.
+   *
    * @public
    */
   Value?: string | undefined;
@@ -448,111 +447,82 @@ export interface Tag {
  */
 export interface StartSnapshotRequest {
   /**
-   * <p>The size of the volume, in GiB. The maximum size is <code>65536</code> GiB (64
-   *             TiB).</p>
+   * The size of the volume, in GiB. The maximum size is `65536` GiB (64 TiB).
+   *
    * @public
    */
   VolumeSize: number | undefined;
 
   /**
-   * <p>The ID of the parent snapshot. If there is no parent snapshot, or if you are creating
-   *             the first snapshot for an on-premises volume, omit this parameter.</p>
-   *          <p>You can't specify <b>ParentSnapshotId</b> and
-   *             <b>Encrypted</b> in the same request. If you specify both
-   *             parameters, the request fails with <code>ValidationException</code>.</p>
-   *          <p>The encryption status of the snapshot depends on the values that you specify for
-   *             <b>Encrypted</b>, <b>KmsKeyArn</b>,
-   *             and <b>ParentSnapshotId</b>, and whether your Amazon Web Services account
-   *             is enabled for <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default">
-   *                 encryption by default</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapis-using-encryption.html">
-   *                     Using encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   *          <important>
-   *             <p>If you specify an encrypted parent snapshot, you must have permission to use the
-   *                 KMS key that was used to encrypt the parent snapshot. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapi-permissions.html#ebsapi-kms-permissions">
-   *                     Permissions to use Key Management Service keys</a> in the <i>Amazon Elastic Compute Cloud User
-   *                         Guide</i>.</p>
-   *          </important>
+   * The ID of the parent snapshot. If there is no parent snapshot, or if you are creating the first snapshot for an on-premises volume, omit this parameter.
+   *
+   * You can't specify **ParentSnapshotId** and **Encrypted** in the same request. If you specify both parameters, the request fails with `ValidationException`.
+   *
+   * The encryption status of the snapshot depends on the values that you specify for **Encrypted**, **KmsKeyArn**, and **ParentSnapshotId**, and whether your Amazon Web Services account is enabled for [encryption by default](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default). For more information, see [Using encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapis-using-encryption.html) in the *Amazon Elastic Compute Cloud User Guide*.
+   *
+   * > **Important:** If you specify an encrypted parent snapshot, you must have permission to use the KMS key that was used to encrypt the parent snapshot. For more information, see [Permissions to use Key Management Service keys](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapi-permissions.html#ebsapi-kms-permissions) in the *Amazon Elastic Compute Cloud User Guide*.
+   *
    * @public
    */
   ParentSnapshotId?: string | undefined;
 
   /**
-   * <p>The tags to apply to the snapshot.</p>
+   * The tags to apply to the snapshot.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>A description for the snapshot.</p>
+   * A description for the snapshot.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. Idempotency ensures that an API request completes only once. With an idempotent
-   *             request, if the original request completes successfully. The subsequent retries with the same
-   *             client token return the result from the original successful request and they have no additional
-   *             effect.</p>
-   *          <p>If you do not specify a client token, one is automatically generated by the Amazon Web Services SDK.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-direct-api-idempotency.html">
-   *     		Idempotency for StartSnapshot API</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully. The subsequent retries with the same client token return the result from the original successful request and they have no additional effect.
+   *
+   * If you do not specify a client token, one is automatically generated by the Amazon Web Services SDK.
+   *
+   * For more information, see [Idempotency for StartSnapshot API](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-direct-api-idempotency.html) in the *Amazon Elastic Compute Cloud User Guide*.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>Indicates whether to encrypt the snapshot.</p>
-   *          <p>You can't specify <b>Encrypted</b> and <b>
-   *             ParentSnapshotId</b> in the same request. If you specify both parameters, the
-   *             request fails with <code>ValidationException</code>.</p>
-   *          <p>The encryption status of the snapshot depends on the values that you specify for
-   *             <b>Encrypted</b>, <b>KmsKeyArn</b>,
-   *             and <b>ParentSnapshotId</b>, and whether your Amazon Web Services account
-   *             is enabled for <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default">
-   *                 encryption by default</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapis-using-encryption.html">
-   *             Using encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   *          <important>
-   *             <p>To create an encrypted snapshot, you must have permission to use the KMS key. For
-   *                 more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapi-permissions.html#ebsapi-kms-permissions">
-   *                     Permissions to use Key Management Service keys</a> in the <i>Amazon Elastic Compute Cloud User
-   *                         Guide</i>.</p>
-   *          </important>
+   * Indicates whether to encrypt the snapshot.
+   *
+   * You can't specify **Encrypted** and **ParentSnapshotId** in the same request. If you specify both parameters, the request fails with `ValidationException`.
+   *
+   * The encryption status of the snapshot depends on the values that you specify for **Encrypted**, **KmsKeyArn**, and **ParentSnapshotId**, and whether your Amazon Web Services account is enabled for [encryption by default](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default). For more information, see [Using encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapis-using-encryption.html) in the *Amazon Elastic Compute Cloud User Guide*.
+   *
+   * > **Important:** To create an encrypted snapshot, you must have permission to use the KMS key. For more information, see [Permissions to use Key Management Service keys](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapi-permissions.html#ebsapi-kms-permissions) in the *Amazon Elastic Compute Cloud User Guide*.
+   *
    * @public
    */
   Encrypted?: boolean | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Key Management Service (KMS) key to be used to encrypt the snapshot.</p>
-   *          <p>The encryption status of the snapshot depends on the values that you specify for
-   *             <b>Encrypted</b>, <b>KmsKeyArn</b>,
-   *             and <b>ParentSnapshotId</b>, and whether your Amazon Web Services account
-   *             is enabled for <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default">
-   *                 encryption by default</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapis-using-encryption.html">
-   *                     Using encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   *          <important>
-   *             <p>To create an encrypted snapshot, you must have permission to use the KMS key. For
-   *                 more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapi-permissions.html#ebsapi-kms-permissions">
-   *                     Permissions to use Key Management Service keys</a> in the <i>Amazon Elastic Compute Cloud User
-   *                         Guide</i>.</p>
-   *          </important>
+   * The Amazon Resource Name (ARN) of the Key Management Service (KMS) key to be used to encrypt the snapshot.
+   *
+   * The encryption status of the snapshot depends on the values that you specify for **Encrypted**, **KmsKeyArn**, and **ParentSnapshotId**, and whether your Amazon Web Services account is enabled for [encryption by default](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default). For more information, see [Using encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapis-using-encryption.html) in the *Amazon Elastic Compute Cloud User Guide*.
+   *
+   * > **Important:** To create an encrypted snapshot, you must have permission to use the KMS key. For more information, see [Permissions to use Key Management Service keys](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapi-permissions.html#ebsapi-kms-permissions) in the *Amazon Elastic Compute Cloud User Guide*.
+   *
    * @public
    */
   KmsKeyArn?: string | undefined;
 
   /**
-   * <p>The amount of time (in minutes) after which the snapshot is automatically cancelled
-   *             if:</p>
-   *          <ul>
-   *             <li>
-   *                <p>No blocks are written to the snapshot.</p>
-   *             </li>
-   *             <li>
-   *                <p>The snapshot is not completed after writing the last block of data.</p>
-   *             </li>
-   *          </ul>
-   *          <p>If no value is specified, the timeout defaults to <code>60</code> minutes.</p>
+   * The amount of time (in minutes) after which the snapshot is automatically cancelled if:
+   *
+   * - No blocks are written to the snapshot.
+   * - The snapshot is not completed after writing the last block of data.
+   *
+   * If no value is specified, the timeout defaults to `60` minutes.
+   *
    * @public
    */
   Timeout?: number | undefined;
@@ -563,69 +533,78 @@ export interface StartSnapshotRequest {
  */
 export interface StartSnapshotResponse {
   /**
-   * <p>The description of the snapshot.</p>
+   * The description of the snapshot.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The ID of the snapshot.</p>
+   * The ID of the snapshot.
+   *
    * @public
    */
   SnapshotId?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the snapshot owner.</p>
+   * The Amazon Web Services account ID of the snapshot owner.
+   *
    * @public
    */
   OwnerId?: string | undefined;
 
   /**
-   * <p>The status of the snapshot.</p>
+   * The status of the snapshot.
+   *
    * @public
    */
   Status?: Status | undefined;
 
   /**
-   * <p>The timestamp when the snapshot was created.</p>
+   * The timestamp when the snapshot was created.
+   *
    * @public
    */
   StartTime?: Date | undefined;
 
   /**
-   * <p>The size of the volume, in GiB.</p>
+   * The size of the volume, in GiB.
+   *
    * @public
    */
   VolumeSize?: number | undefined;
 
   /**
-   * <p>The size of the blocks in the snapshot, in bytes.</p>
+   * The size of the blocks in the snapshot, in bytes.
+   *
    * @public
    */
   BlockSize?: number | undefined;
 
   /**
-   * <p>The tags applied to the snapshot. You can specify up to 50 tags per snapshot. For more
-   *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html"> Tagging your Amazon EC2
-   *                 resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * The tags applied to the snapshot. You can specify up to 50 tags per snapshot. For more information, see [Tagging your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon Elastic Compute Cloud User Guide*.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>The ID of the parent snapshot.</p>
+   * The ID of the parent snapshot.
+   *
    * @public
    */
   ParentSnapshotId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Key Management Service (KMS) key used to encrypt the snapshot.</p>
+   * The Amazon Resource Name (ARN) of the Key Management Service (KMS) key used to encrypt the snapshot.
+   *
    * @public
    */
   KmsKeyArn?: string | undefined;
 
   /**
-   * <p>Reserved for future use.</p>
+   * Reserved for future use.
+   *
    * @public
    */
   SseType?: SSEType | undefined;

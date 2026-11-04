@@ -23,8 +23,7 @@ export interface SkipWaitTimeForInstanceTerminationCommandInput extends SkipWait
 export interface SkipWaitTimeForInstanceTerminationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>In a blue/green deployment, overrides any specified wait time and starts terminating
- *             instances immediately after the traffic routing is complete.</p>
+ * In a blue/green deployment, overrides any specified wait time and starts terminating instances immediately after the traffic routing is complete.
  *
  * @deprecated This operation is deprecated, use ContinueDeployment with DeploymentWaitType instead.
  * @example
@@ -51,26 +50,32 @@ export interface SkipWaitTimeForInstanceTerminationCommandOutput extends __Metad
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  * @throws {@link DeploymentAlreadyCompletedException} (client fault)
- *  <p>The deployment is already complete.</p>
+ *
+ * The deployment is already complete.
  *
  * @throws {@link DeploymentDoesNotExistException} (client fault)
- *  <p>The deployment with the user or Amazon Web Services account does not exist.</p>
+ *
+ * The deployment with the user or Amazon Web Services account does not exist.
  *
  * @throws {@link DeploymentIdRequiredException} (client fault)
- *  <p>At least one deployment ID must be specified.</p>
+ *
+ * At least one deployment ID must be specified.
  *
  * @throws {@link DeploymentNotStartedException} (client fault)
- *  <p>The specified deployment has not started.</p>
+ *
+ * The specified deployment has not started.
  *
  * @throws {@link InvalidDeploymentIdException} (client fault)
- *  <p>At least one of the deployment IDs was specified in an invalid format.</p>
+ *
+ * At least one of the deployment IDs was specified in an invalid format.
  *
  * @throws {@link UnsupportedActionForDeploymentTypeException} (client fault)
- *  <p>A call was submitted that is not supported for the specified deployment type.</p>
+ *
+ * A call was submitted that is not supported for the specified deployment type.
  *
  * @throws {@link CodeDeployServiceException}
- * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * Base exception class for all service exceptions from CodeDeploy service.
  *
  * @public
  */

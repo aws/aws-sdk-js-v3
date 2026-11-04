@@ -23,17 +23,12 @@ export interface UpdateAccountPasswordPolicyCommandInput extends UpdateAccountPa
 export interface UpdateAccountPasswordPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Updates the password policy settings for the Amazon Web Services account.</p>
- *          <note>
- *             <p>This operation does not support partial updates. No parameters are required, but
- *                 if you do not specify a parameter, that parameter's value reverts to its default
- *                 value. See the <b>Request Parameters</b> section for each
- *                 parameter's default value. Also note that some parameters do not allow the default
- *                 parameter to be explicitly set. Instead, to invoke the default value, do not include
- *                 that parameter when you invoke the operation.</p>
- *          </note>
- *          <p> For more information about using a password policy, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html">Managing an IAM password
- *                 policy</a> in the <i>IAM User Guide</i>.</p>
+ * Updates the password policy settings for the Amazon Web Services account.
+ *
+ * > **Note:** This operation does not support partial updates. No parameters are required, but if you do not specify a parameter, that parameter's value reverts to its default value. See the **Request Parameters** section for each parameter's default value. Also note that some parameters do not allow the default parameter to be explicitly set. Instead, to invoke the default value, do not include that parameter when you invoke the operation.
+ *
+ * For more information about using a password policy, see [Managing an IAM password policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html) in the *IAM User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,24 +61,24 @@ export interface UpdateAccountPasswordPolicyCommandOutput extends __MetadataBear
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current
- *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+ *
+ * The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.
  *
  * @throws {@link MalformedPolicyDocumentException} (client fault)
- *  <p>The request was rejected because the policy document was malformed. The error message
- *       describes the specific error.</p>
+ *
+ * The request was rejected because the policy document was malformed. The error message describes the specific error.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @example To set or change the current account password policy
  * ```javascript

@@ -23,15 +23,10 @@ export interface GetResourcePoliciesCommandInput extends GetResourcePoliciesRequ
 export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the resource policies for the specified resources that you own and have
- *             shared.</p>
- *          <note>
- *             <p>Always check the <code>NextToken</code> response parameter for a <code>null</code> value
- * when calling a paginated operation. These operations can occasionally return an empty set of results even when there are more
- * results available. The <code>NextToken</code> response parameter value is <code>null</code>
- *                <i>only</i>
- * when there are no more results to display.</p>
- *          </note>
+ * Retrieves the resource policies for the specified resources that you own and have shared.
+ *
+ * > **Note:** Always check the `NextToken` response parameter for a `null` value when calling a paginated operation. These operations can occasionally return an empty set of results even when there are more results available. The `NextToken` response parameter value is `null` *only* when there are no more results to display.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,30 +61,32 @@ export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesRes
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The operation failed because the specified value for <code>NextToken</code> isn't
- *             valid. You must specify a value you received in the <code>NextToken</code> response of a
- *             previous call to this operation.</p>
+ *
+ * The operation failed because the specified value for `NextToken` isn't valid. You must specify a value you received in the `NextToken` response of a previous call to this operation.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The operation failed because a parameter you specified isn't valid.</p>
+ *
+ * The operation failed because a parameter you specified isn't valid.
  *
  * @throws {@link MalformedArnException} (client fault)
- *  <p>The operation failed because the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> has a format that isn't
- *             valid.</p>
+ *
+ * The operation failed because the specified [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) has a format that isn't valid.
  *
  * @throws {@link ResourceArnNotFoundException} (client fault)
- *  <p>The operation failed because the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> was not found.</p>
+ *
+ * The operation failed because the specified [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) was not found.
  *
  * @throws {@link ServerInternalException} (server fault)
- *  <p>The operation failed because the service could not respond to the request due to an
- *             internal problem. Try again later.</p>
+ *
+ * The operation failed because the service could not respond to the request due to an internal problem. Try again later.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The operation failed because the service isn't available. Try again later.</p>
+ *
+ * The operation failed because the service isn't available. Try again later.
  *
  * @throws {@link RAMServiceException}
- * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ * Base exception class for all service exceptions from RAM service.
  *
  * @public
  */

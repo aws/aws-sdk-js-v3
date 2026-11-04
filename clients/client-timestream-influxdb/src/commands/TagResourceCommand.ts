@@ -23,7 +23,8 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Tags are composed of a Key/Value pairs. You can use tags to categorize and track your Timestream for InfluxDB resources.</p>
+ * Tags are composed of a Key/Value pairs. You can use tags to categorize and track your Timestream for InfluxDB resources.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,14 +52,16 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @see {@link TimestreamInfluxDBClientResolvedConfig | config} for TimestreamInfluxDBClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource was not found or does not exist.</p>
+ *
+ * The requested resource was not found or does not exist.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request exceeds the service quota.</p>
+ *
+ * The request exceeds the service quota.
  *
  * @throws {@link TimestreamInfluxDBServiceException}
- * <p>Base exception class for all service exceptions from TimestreamInfluxDB service.</p>
  *
+ * Base exception class for all service exceptions from TimestreamInfluxDB service.
  *
  * @public
  */

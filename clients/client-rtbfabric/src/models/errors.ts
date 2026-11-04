@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { RTBFabricServiceException as __BaseException } from "./RTBFabricServiceException";
 
 /**
- * <p>The request could not be completed because you do not have sufficient access to perform this action.</p>
+ * The request could not be completed because you do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request could not be completed because of a conflict in the current state of the resource.</p>
+ * The request could not be completed because of a conflict in the current state of the resource.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -46,7 +48,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The request could not be completed because of an internal server error. Try your call again.</p>
+ * The request could not be completed because of an internal server error. Try your call again.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -68,7 +71,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The request could not be completed because the resource does not exist.</p>
+ * The request could not be completed because the resource does not exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -89,7 +93,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -111,7 +116,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The request could not be completed because it fails satisfy the constraints specified by the service.</p>
+ * The request could not be completed because it fails satisfy the constraints specified by the service.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -132,7 +138,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The request could not be completed because you exceeded a service quota.</p>
+ * The request could not be completed because you exceeded a service quota.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {

@@ -23,12 +23,10 @@ export interface SwitchoverReplicationCommandInput extends SwitchoverReplication
 export interface SwitchoverReplicationCommandOutput extends SwitchoverReplicationResponse, __MetadataBearer {}
 
 /**
- * <p>Promotes a secondary domain to primary, coordinating with the current primary so that no
- *   writes are lost. Use this operation for planned role changes, such as testing your recovery
- *   procedure or moving write traffic to another Region.</p>
- *          <p>Call this operation in the Region of the domain you want to promote. If the current primary
- *   is unreachable, use the <code>FailoverReplication</code> operation
- *   instead.</p>
+ * Promotes a secondary domain to primary, coordinating with the current primary so that no writes are lost. Use this operation for planned role changes, such as testing your recovery procedure or moving write traffic to another Region.
+ *
+ * Call this operation in the Region of the domain you want to promote. If the current primary is unreachable, use the `FailoverReplication` operation instead.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,20 +55,24 @@ export interface SwitchoverReplicationCommandOutput extends SwitchoverReplicatio
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
  * @throws {@link DisabledOperationException} (client fault)
- *  <p>An error occured because the client wanted to access an unsupported operation.</p>
+ *
+ * An error occured because the client wanted to access an unsupported operation.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+ *
+ * Request processing failed because of an unknown error, exception, or internal failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+ *
+ * An exception for accessing or deleting a resource that doesn't exist.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+ *
+ * An exception for accessing or deleting a resource that doesn't exist.
  *
  * @throws {@link OpenSearchServiceException}
- * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * Base exception class for all service exceptions from OpenSearch service.
  *
  * @public
  */

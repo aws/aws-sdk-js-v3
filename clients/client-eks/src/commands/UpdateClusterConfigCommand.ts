@@ -23,59 +23,20 @@ export interface UpdateClusterConfigCommandInput extends UpdateClusterConfigRequ
 export interface UpdateClusterConfigCommandOutput extends UpdateClusterConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an Amazon EKS cluster configuration. Your cluster continues to function during the
- *             update. The response output includes an update ID that you can use to track the status
- *             of your cluster update with <code>DescribeUpdate</code>.</p>
- *          <p>You can use this operation to do the following actions:</p>
- *          <ul>
- *             <li>
- *                <p>You can use this API operation to enable or disable exporting the Kubernetes
- *                     control plane logs for your cluster to CloudWatch Logs. By default, cluster control plane
- *                     logs aren't exported to CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon EKS Cluster control plane logs</a> in the
- *                         <i>
- *                      <i>Amazon EKS User Guide</i>
- *                   </i>.</p>
- *                <note>
- *                   <p>CloudWatch Logs ingestion, archive storage, and data scanning rates apply to
- *                         exported control plane logs. For more information, see <a href="http://aws.amazon.com/cloudwatch/pricing/">CloudWatch Pricing</a>.</p>
- *                </note>
- *             </li>
- *             <li>
- *                <p>You can also use this API operation to enable or disable public and private
- *                     access to your cluster's Kubernetes API server endpoint. By default, public access is
- *                     enabled, and private access is disabled. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">
- *                         Cluster API server endpoint</a> in the
- *                         <i>
- *                      <i>Amazon EKS User Guide</i>
- *                   </i>.</p>
- *             </li>
- *             <li>
- *                <p>You can also use this API operation to choose different subnets and security
- *                     groups for the cluster. You must specify at least two subnets that are in
- *                     different Availability Zones. You can't change which VPC the subnets are from, the subnets
- *                     must be in the same VPC as the subnets that the cluster was created with. For
- *                     more information about the VPC requirements, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html">https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html</a> in the
- *                         <i>
- *                      <i>Amazon EKS User Guide</i>
- *                   </i>.</p>
- *             </li>
- *             <li>
- *                <p>You can also use this API operation to enable or disable ARC zonal shift. If
- *                     zonal shift is enabled, Amazon Web Services configures zonal autoshift for the cluster.</p>
- *             </li>
- *             <li>
- *                <p>You can also use this API operation to add, change, or remove the
- *                     configuration in the cluster for EKS Hybrid Nodes. To remove the configuration,
- *                     use the <code>remoteNetworkConfig</code> key with an object containing both
- *                     subkeys with empty arrays for each. Here is an inline example:
- *                         <code>"remoteNetworkConfig": \{ "remoteNodeNetworks": [],
- *                         "remotePodNetworks": [] \}</code>.</p>
- *             </li>
- *          </ul>
- *          <p>Cluster updates are asynchronous, and they should finish within a few minutes. During
- *             an update, the cluster status moves to <code>UPDATING</code> (this status transition is
- *             eventually consistent). When the update is complete (either <code>Failed</code> or
- *                 <code>Successful</code>), the cluster status moves to <code>Active</code>.</p>
+ * Updates an Amazon EKS cluster configuration. Your cluster continues to function during the update. The response output includes an update ID that you can use to track the status of your cluster update with `DescribeUpdate`.
+ *
+ * You can use this operation to do the following actions:
+ *
+ * - You can use this API operation to enable or disable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs. By default, cluster control plane logs aren't exported to CloudWatch Logs. For more information, see [Amazon EKS Cluster control plane logs](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html) in the **Amazon EKS User Guide** .
+ *
+ *   > **Note:** CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported control plane logs. For more information, see [CloudWatch Pricing](http://aws.amazon.com/cloudwatch/pricing/).
+ * - You can also use this API operation to enable or disable public and private access to your cluster's Kubernetes API server endpoint. By default, public access is enabled, and private access is disabled. For more information, see [Cluster API server endpoint](https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html) in the **Amazon EKS User Guide** .
+ * - You can also use this API operation to choose different subnets and security groups for the cluster. You must specify at least two subnets that are in different Availability Zones. You can't change which VPC the subnets are from, the subnets must be in the same VPC as the subnets that the cluster was created with. For more information about the VPC requirements, see [https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) in the **Amazon EKS User Guide** .
+ * - You can also use this API operation to enable or disable ARC zonal shift. If zonal shift is enabled, Amazon Web Services configures zonal autoshift for the cluster.
+ * - You can also use this API operation to add, change, or remove the configuration in the cluster for EKS Hybrid Nodes. To remove the configuration, use the `remoteNetworkConfig` key with an object containing both subkeys with empty arrays for each. Here is an inline example: `"remoteNetworkConfig": \{ "remoteNodeNetworks": [], "remotePodNetworks": [] \}`.
+ *
+ * Cluster updates are asynchronous, and they should finish within a few minutes. During an update, the cluster status moves to `UPDATING` (this status transition is eventually consistent). When the update is complete (either `Failed` or `Successful`), the cluster status moves to `Active`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -230,37 +191,36 @@ export interface UpdateClusterConfigCommandOutput extends UpdateClusterConfigRes
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action. Actions can include using an
- *             action or resource on behalf of an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html">IAM principal</a> that doesn't have permissions to use
- *             the action or resource or specifying an identifier that is not valid.</p>
+ *
+ * These errors are usually caused by a client action. Actions can include using an action or resource on behalf of an [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) that doesn't have permissions to use the action or resource or specifying an identifier that is not valid.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is invalid given the state of the cluster. Check the state of the cluster
- *             and the associated operations.</p>
+ *
+ * The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is in use.</p>
+ *
+ * The specified resource is in use.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource could not be found. You can view your available clusters with
- *                 <code>ListClusters</code>. You can view your available managed node groups with
- *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region
- *             specific.</p>
+ *
+ * The specified resource could not be found. You can view your available clusters with `ListClusters`. You can view your available managed node groups with `ListNodegroups`. Amazon EKS clusters and node groups are Amazon Web Services Region specific.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request or operation couldn't be performed because a service is throttling
- *             requests.</p>
+ *
+ * The request or operation couldn't be performed because a service is throttling requests.
  *
  * @throws {@link EKSServiceException}
- * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * Base exception class for all service exceptions from EKS service.
  *
  * @public
  */

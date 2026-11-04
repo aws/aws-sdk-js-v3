@@ -62,60 +62,70 @@ import type {
 } from "./enums";
 
 /**
- * <p>Specifies the prediction (aka, the automatically generated piece of metadata) and the target (for example, a column name) that can be accepted.</p>
+ * Specifies the prediction (aka, the automatically generated piece of metadata) and the target (for example, a column name) that can be accepted.
+ *
  * @public
  */
 export interface AcceptChoice {
   /**
-   * <p>Specifies the target (for example, a column name) where a prediction can be accepted.</p>
+   * Specifies the target (for example, a column name) where a prediction can be accepted.
+   *
    * @public
    */
   predictionTarget: string | undefined;
 
   /**
-   * <p>Specifies the prediction (aka, the automatically generated piece of metadata) that can be accepted.</p>
+   * Specifies the prediction (aka, the automatically generated piece of metadata) that can be accepted.
+   *
    * @public
    */
   predictionChoice?: number | undefined;
 
   /**
-   * <p>The edit of the prediction.</p>
+   * The edit of the prediction.
+   *
    * @public
    */
   editedValue?: string | undefined;
 }
 
 /**
- * <p>The accepted asset scope.</p>
+ * The accepted asset scope.
+ *
  * @public
  */
 export interface AcceptedAssetScope {
   /**
-   * <p>The asset ID of the accepted asset scope.</p>
+   * The asset ID of the accepted asset scope.
+   *
    * @public
    */
   assetId: string | undefined;
 
   /**
-   * <p>The filter IDs of the accepted asset scope.</p>
+   * The filter IDs of the accepted asset scope.
+   *
    * @public
    */
   filterIds: string[] | undefined;
 }
 
 /**
- * <p>Specifies the rule and the threshold under which a prediction can be accepted.</p>
+ * Specifies the rule and the threshold under which a prediction can be accepted.
+ *
  * @public
  */
 export interface AcceptRule {
   /**
-   * <p>Specifies whether you want to accept the top prediction for all targets or none.</p>
+   * Specifies whether you want to accept the top prediction for all targets or none.
+   *
    * @public
    */
   rule?: AcceptRuleBehavior | undefined;
 
   /**
-   * <p>The confidence score that specifies the condition at which a prediction can be accepted.</p>
+   * The confidence score that specifies the condition at which a prediction can be accepted.
+   *
    * @public
    */
   threshold?: number | undefined;
@@ -126,37 +136,43 @@ export interface AcceptRule {
  */
 export interface AcceptPredictionsInput {
   /**
-   * <p>The identifier of the Amazon DataZone domain.</p>
+   * The identifier of the Amazon DataZone domain.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the asset.</p>
+   * The identifier of the asset.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The revision that is to be made to the asset.</p>
+   * The revision that is to be made to the asset.
+   *
    * @public
    */
   revision?: string | undefined;
 
   /**
-   * <p>Specifies the rule (or the conditions) under which a prediction can be accepted.</p>
+   * Specifies the rule (or the conditions) under which a prediction can be accepted.
+   *
    * @public
    */
   acceptRule?: AcceptRule | undefined;
 
   /**
-   * <p>Specifies the prediction (aka, the automatically generated piece of metadata) and the target (for example, a column name) that can be accepted.</p>
+   * Specifies the prediction (aka, the automatically generated piece of metadata) and the target (for example, a column name) that can be accepted.
+   *
    * @public
    */
   acceptChoices?: AcceptChoice[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.</p>
+   * A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -167,26 +183,30 @@ export interface AcceptPredictionsInput {
  */
 export interface AcceptPredictionsOutput {
   /**
-   * <p>The identifier of the Amazon DataZone domain.</p>
+   * The identifier of the Amazon DataZone domain.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The ID of the asset.</p>
+   * The ID of the asset.
+   *
    * @public
    */
   assetId: string | undefined;
 
   /**
-   * <p>The revision that is to be made to the asset.</p>
+   * The revision that is to be made to the asset.
+   *
    * @public
    */
   revision: string | undefined;
 }
 
 /**
- * <p>The asset permissions.</p>
+ * The asset permissions.
+ *
  * @public
  */
 export type Permissions =
@@ -198,7 +218,8 @@ export type Permissions =
  */
 export namespace Permissions {
   /**
-   * <p>The S3 details of the asset permissions.</p>
+   * The S3 details of the asset permissions.
+   *
    * @public
    */
   export interface S3Member {
@@ -225,18 +246,21 @@ export namespace Permissions {
 }
 
 /**
- * <p>The asset permissions.</p>
+ * The asset permissions.
+ *
  * @public
  */
 export interface AssetPermission {
   /**
-   * <p>The asset ID as part of the asset permissions.</p>
+   * The asset ID as part of the asset permissions.
+   *
    * @public
    */
   assetId: string | undefined;
 
   /**
-   * <p>The details as part of the asset permissions.</p>
+   * The details as part of the asset permissions.
+   *
    * @public
    */
   permissions: Permissions | undefined;
@@ -247,236 +271,275 @@ export interface AssetPermission {
  */
 export interface AcceptSubscriptionRequestInput {
   /**
-   * <p>The Amazon DataZone domain where the specified subscription request is being accepted.</p>
+   * The Amazon DataZone domain where the specified subscription request is being accepted.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the subscription request that is to be accepted.</p>
+   * The unique identifier of the subscription request that is to be accepted.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>A description that specifies the reason for accepting the specified subscription request.</p>
+   * A description that specifies the reason for accepting the specified subscription request.
+   *
    * @public
    */
   decisionComment?: string | undefined;
 
   /**
-   * <p>The asset scopes of the accept subscription request.</p>
+   * The asset scopes of the accept subscription request.
+   *
    * @public
    */
   assetScopes?: AcceptedAssetScope[] | undefined;
 
   /**
-   * <p>The asset permissions of the accept subscription request.</p>
+   * The asset permissions of the accept subscription request.
+   *
    * @public
    */
   assetPermissions?: AssetPermission[] | undefined;
 }
 
 /**
- * <p>The details of a metadata form.</p>
+ * The details of a metadata form.
+ *
  * @public
  */
 export interface FormOutput {
   /**
-   * <p>The name of the metadata form.</p>
+   * The name of the metadata form.
+   *
    * @public
    */
   formName: string | undefined;
 
   /**
-   * <p>The name of the metadata form type.</p>
+   * The name of the metadata form type.
+   *
    * @public
    */
   typeName?: string | undefined;
 
   /**
-   * <p>The revision of the metadata form type.</p>
+   * The revision of the metadata form type.
+   *
    * @public
    */
   typeRevision?: string | undefined;
 
   /**
-   * <p>The content of the metadata form.</p>
+   * The content of the metadata form.
+   *
    * @public
    */
   content?: string | undefined;
 }
 
 /**
- * <p>The asset scope.</p>
+ * The asset scope.
+ *
  * @public
  */
 export interface AssetScope {
   /**
-   * <p>The asset ID of the asset scope.</p>
+   * The asset ID of the asset scope.
+   *
    * @public
    */
   assetId: string | undefined;
 
   /**
-   * <p>The filter IDs of the asset scope.</p>
+   * The filter IDs of the asset scope.
+   *
    * @public
    */
   filterIds: string[] | undefined;
 
   /**
-   * <p>The status of the asset scope.</p>
+   * The status of the asset scope.
+   *
    * @public
    */
   status: string | undefined;
 
   /**
-   * <p>The name of the materialized asset scope.</p>
+   * The name of the materialized asset scope.
+   *
    * @public
    */
   scopeName?: string | undefined;
 
   /**
-   * <p>The error message of the asset scope.</p>
+   * The error message of the asset scope.
+   *
    * @public
    */
   errorMessage?: string | undefined;
 }
 
 /**
- * <p>Details of a glossary term attached to the inventory asset.</p>
+ * Details of a glossary term attached to the inventory asset.
+ *
  * @public
  */
 export interface DetailedGlossaryTerm {
   /**
-   * <p>The name of a glossary term attached to the inventory asset.</p>
+   * The name of a glossary term attached to the inventory asset.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The shoft description of a glossary term attached to the inventory asset.</p>
+   * The shoft description of a glossary term attached to the inventory asset.
+   *
    * @public
    */
   shortDescription?: string | undefined;
 }
 
 /**
- * <p>The details of the published asset for which the subscription grant is created.</p>
+ * The details of the published asset for which the subscription grant is created.
+ *
  * @public
  */
 export interface SubscribedAssetListing {
   /**
-   * <p>The identifier of the published asset for which the subscription grant is created.</p>
+   * The identifier of the published asset for which the subscription grant is created.
+   *
    * @public
    */
   entityId?: string | undefined;
 
   /**
-   * <p>The revision of the published asset for which the subscription grant is created.</p>
+   * The revision of the published asset for which the subscription grant is created.
+   *
    * @public
    */
   entityRevision?: string | undefined;
 
   /**
-   * <p>The type of the published asset for which the subscription grant is created.</p>
+   * The type of the published asset for which the subscription grant is created.
+   *
    * @public
    */
   entityType?: string | undefined;
 
   /**
-   * <p>The forms attached to the published asset for which the subscription grant is created.</p>
+   * The forms attached to the published asset for which the subscription grant is created.
+   *
    * @public
    */
   forms?: string | undefined;
 
   /**
-   * <p>The glossary terms attached to the published asset for which the subscription grant is created.</p>
+   * The glossary terms attached to the published asset for which the subscription grant is created.
+   *
    * @public
    */
   glossaryTerms?: DetailedGlossaryTerm[] | undefined;
 
   /**
-   * <p>The asset scope of the subscribed asset listing.</p>
+   * The asset scope of the subscribed asset listing.
+   *
    * @public
    */
   assetScope?: AssetScope | undefined;
 
   /**
-   * <p>The asset permissions.</p>
+   * The asset permissions.
+   *
    * @public
    */
   permissions?: Permissions | undefined;
 }
 
 /**
- * <p>The listing of the asset in a data product.</p>
+ * The listing of the asset in a data product.
+ *
  * @public
  */
 export interface AssetInDataProductListingItem {
   /**
-   * <p>The entity ID of the listing of the asset in a data product.</p>
+   * The entity ID of the listing of the asset in a data product.
+   *
    * @public
    */
   entityId?: string | undefined;
 
   /**
-   * <p>The entity revision of the listing of the asset in a data product.</p>
+   * The entity revision of the listing of the asset in a data product.
+   *
    * @public
    */
   entityRevision?: string | undefined;
 
   /**
-   * <p>The entity type of the listing of the asset in a data product.</p>
+   * The entity type of the listing of the asset in a data product.
+   *
    * @public
    */
   entityType?: string | undefined;
 }
 
 /**
- * <p>The data product listing.</p>
+ * The data product listing.
+ *
  * @public
  */
 export interface SubscribedProductListing {
   /**
-   * <p>The ID of the data product listing.</p>
+   * The ID of the data product listing.
+   *
    * @public
    */
   entityId?: string | undefined;
 
   /**
-   * <p>The revision of the data product listing.</p>
+   * The revision of the data product listing.
+   *
    * @public
    */
   entityRevision?: string | undefined;
 
   /**
-   * <p>The glossary terms of the data product listing.</p>
+   * The glossary terms of the data product listing.
+   *
    * @public
    */
   glossaryTerms?: DetailedGlossaryTerm[] | undefined;
 
   /**
-   * <p>The name of the data product listing.</p>
+   * The name of the data product listing.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The description of the data product listing.</p>
+   * The description of the data product listing.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The data assets of the data product listing.</p>
+   * The data assets of the data product listing.
+   *
    * @public
    */
   assetListings?: AssetInDataProductListingItem[] | undefined;
 }
 
 /**
- * <p>The published asset for which the subscription grant is created.</p>
+ * The published asset for which the subscription grant is created.
+ *
  * @public
  */
 export type SubscribedListingItem =
@@ -489,7 +552,8 @@ export type SubscribedListingItem =
  */
 export namespace SubscribedListingItem {
   /**
-   * <p>The asset for which the subscription grant is created.</p>
+   * The asset for which the subscription grant is created.
+   *
    * @public
    */
   export interface AssetListingMember {
@@ -499,7 +563,8 @@ export namespace SubscribedListingItem {
   }
 
   /**
-   * <p>The data product listing.</p>
+   * The data product listing.
+   *
    * @public
    */
   export interface ProductListingMember {
@@ -529,157 +594,183 @@ export namespace SubscribedListingItem {
 }
 
 /**
- * <p>The details of the published asset for which the subscription grant is created.</p>
+ * The details of the published asset for which the subscription grant is created.
+ *
  * @public
  */
 export interface SubscribedListing {
   /**
-   * <p>The identifier of the published asset for which the subscription grant is created.</p>
+   * The identifier of the published asset for which the subscription grant is created.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The revision of the published asset for which the subscription grant is created.</p>
+   * The revision of the published asset for which the subscription grant is created.
+   *
    * @public
    */
   revision?: string | undefined;
 
   /**
-   * <p>The name of the published asset for which the subscription grant is created.</p>
+   * The name of the published asset for which the subscription grant is created.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the published asset for which the subscription grant is created.</p>
+   * The description of the published asset for which the subscription grant is created.
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p>The published asset for which the subscription grant is created.</p>
+   * The published asset for which the subscription grant is created.
+   *
    * @public
    */
   item: SubscribedListingItem | undefined;
 
   /**
-   * <p>The identifier of the project of the published asset for which the subscription grant is created.</p>
+   * The identifier of the project of the published asset for which the subscription grant is created.
+   *
    * @public
    */
   ownerProjectId: string | undefined;
 
   /**
-   * <p>The name of the project that owns the published asset for which the subscription grant is created.</p>
+   * The name of the project that owns the published asset for which the subscription grant is created.
+   *
    * @public
    */
   ownerProjectName?: string | undefined;
 }
 
 /**
- * <p>The group that subscribes to the asset.</p>
+ * The group that subscribes to the asset.
+ *
  * @public
  */
 export interface SubscribedGroup {
   /**
-   * <p>The ID of the subscribed group.</p>
+   * The ID of the subscribed group.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The name of the subscribed group.</p>
+   * The name of the subscribed group.
+   *
    * @public
    */
   name?: string | undefined;
 }
 
 /**
- * <p>The IAM principal that subscribes to the asset.</p>
+ * The IAM principal that subscribes to the asset.
+ *
  * @public
  */
 export interface SubscribedIamPrincipal {
   /**
-   * <p>The ARN of the subscribed IAM principal.</p>
+   * The ARN of the subscribed IAM principal.
+   *
    * @public
    */
   principalArn?: string | undefined;
 }
 
 /**
- * <p>The project that has the subscription grant.</p>
+ * The project that has the subscription grant.
+ *
  * @public
  */
 export interface SubscribedProject {
   /**
-   * <p>The identifier of the project that has the subscription grant.</p>
+   * The identifier of the project that has the subscription grant.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The name of the project that has the subscription grant.</p>
+   * The name of the project that has the subscription grant.
+   *
    * @public
    */
   name?: string | undefined;
 }
 
 /**
- * <p>The details of the IAM user profile.</p>
+ * The details of the IAM user profile.
+ *
  * @public
  */
 export interface IamUserProfileDetails {
   /**
-   * <p>The ARN of the IAM user.</p>
+   * The ARN of the IAM user.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The principal ID as part of the IAM user profile details.</p>
+   * The principal ID as part of the IAM user profile details.
+   *
    * @public
    */
   principalId?: string | undefined;
 
   /**
-   * <p>The session name for IAM role sessions.</p>
+   * The session name for IAM role sessions.
+   *
    * @public
    */
   sessionName?: string | undefined;
 
   /**
-   * <p>The identifier of the group profile associated with the IAM user profile. This links the user to a specific group profile within the Amazon DataZone domain.</p>
+   * The identifier of the group profile associated with the IAM user profile. This links the user to a specific group profile within the Amazon DataZone domain.
+   *
    * @public
    */
   groupProfileId?: string | undefined;
 }
 
 /**
- * <p>The SSO user profile detail.</p>
+ * The SSO user profile detail.
+ *
  * @public
  */
 export interface SsoUserProfileDetails {
   /**
-   * <p>The username as part of the SSO user profile detail. </p>
+   * The username as part of the SSO user profile detail.
+   *
    * @public
    */
   username?: string | undefined;
 
   /**
-   * <p>The first name as part of the SSO user profile detail.</p>
+   * The first name as part of the SSO user profile detail.
+   *
    * @public
    */
   firstName?: string | undefined;
 
   /**
-   * <p>The last name as part of the SSO user profile detail.</p>
+   * The last name as part of the SSO user profile detail.
+   *
    * @public
    */
   lastName?: string | undefined;
 }
 
 /**
- * <p>The user profile details.</p>
+ * The user profile details.
+ *
  * @public
  */
 export type UserProfileDetails =
@@ -692,7 +783,8 @@ export type UserProfileDetails =
  */
 export namespace UserProfileDetails {
   /**
-   * <p>The IAM details of the user profile.</p>
+   * The IAM details of the user profile.
+   *
    * @public
    */
   export interface IamMember {
@@ -702,7 +794,8 @@ export namespace UserProfileDetails {
   }
 
   /**
-   * <p>The SSO details of the user profile.</p>
+   * The SSO details of the user profile.
+   *
    * @public
    */
   export interface SsoMember {
@@ -732,25 +825,29 @@ export namespace UserProfileDetails {
 }
 
 /**
- * <p>The subscribed user.</p>
+ * The subscribed user.
+ *
  * @public
  */
 export interface SubscribedUser {
   /**
-   * <p>The ID of the subscribed user.</p>
+   * The ID of the subscribed user.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The subscribed user details.</p>
+   * The subscribed user details.
+   *
    * @public
    */
   details?: UserProfileDetails | undefined;
 }
 
 /**
- * <p>The principal that has the subscription grant for the asset.</p>
+ * The principal that has the subscription grant for the asset.
+ *
  * @public
  */
 export type SubscribedPrincipal =
@@ -765,7 +862,8 @@ export type SubscribedPrincipal =
  */
 export namespace SubscribedPrincipal {
   /**
-   * <p>The project that has the subscription grant.</p>
+   * The project that has the subscription grant.
+   *
    * @public
    */
   export interface ProjectMember {
@@ -777,7 +875,8 @@ export namespace SubscribedPrincipal {
   }
 
   /**
-   * <p>The subscribed user.</p>
+   * The subscribed user.
+   *
    * @public
    */
   export interface UserMember {
@@ -789,7 +888,8 @@ export namespace SubscribedPrincipal {
   }
 
   /**
-   * <p>The subscribed group.</p>
+   * The subscribed group.
+   *
    * @public
    */
   export interface GroupMember {
@@ -801,7 +901,8 @@ export namespace SubscribedPrincipal {
   }
 
   /**
-   * <p>The subscribed IAM principal.</p>
+   * The subscribed IAM principal.
+   *
    * @public
    */
   export interface IamMember {
@@ -841,182 +942,212 @@ export namespace SubscribedPrincipal {
  */
 export interface AcceptSubscriptionRequestOutput {
   /**
-   * <p>The identifier of the subscription request.</p>
+   * The identifier of the subscription request.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>Specifies the Amazon DataZone user that accepted the specified subscription request.</p>
+   * Specifies the Amazon DataZone user that accepted the specified subscription request.
+   *
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>Specifies the Amazon DataZone user who updated the subscription request.</p>
+   * Specifies the Amazon DataZone user who updated the subscription request.
+   *
    * @public
    */
   updatedBy?: string | undefined;
 
   /**
-   * <p>The unique identifier of the Amazon DataZone domain where the specified subscription request was accepted.</p>
+   * The unique identifier of the Amazon DataZone domain where the specified subscription request was accepted.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>Specifies the status of the subscription request.</p>
+   * Specifies the status of the subscription request.
+   *
    * @public
    */
   status: SubscriptionRequestStatus | undefined;
 
   /**
-   * <p>The timestamp that specifies when the subscription request was accepted.</p>
+   * The timestamp that specifies when the subscription request was accepted.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>Specifies the timestamp when subscription request was updated.</p>
+   * Specifies the timestamp when subscription request was updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>Specifies the reason for requesting a subscription to the asset.</p>
+   * Specifies the reason for requesting a subscription to the asset.
+   *
    * @public
    */
   requestReason: string | undefined;
 
   /**
-   * <p>Specifies the Amazon DataZone users who are subscribed to the asset specified in the subscription request.</p>
+   * Specifies the Amazon DataZone users who are subscribed to the asset specified in the subscription request.
+   *
    * @public
    */
   subscribedPrincipals: SubscribedPrincipal[] | undefined;
 
   /**
-   * <p>Specifies the asset for which the subscription request was created.</p>
+   * Specifies the asset for which the subscription request was created.
+   *
    * @public
    */
   subscribedListings: SubscribedListing[] | undefined;
 
   /**
-   * <p>Specifes the ID of the Amazon DataZone user who reviewed the subscription request.</p>
+   * Specifes the ID of the Amazon DataZone user who reviewed the subscription request.
+   *
    * @public
    */
   reviewerId?: string | undefined;
 
   /**
-   * <p>Specifies the reason for accepting the subscription request.</p>
+   * Specifies the reason for accepting the subscription request.
+   *
    * @public
    */
   decisionComment?: string | undefined;
 
   /**
-   * <p>The ID of the existing subscription.</p>
+   * The ID of the existing subscription.
+   *
    * @public
    */
   existingSubscriptionId?: string | undefined;
 
   /**
-   * <p>The metadata form in the subscription request.</p>
+   * The metadata form in the subscription request.
+   *
    * @public
    */
   metadataForms?: FormOutput[] | undefined;
 }
 
 /**
- * <p>The account information within an account pool.</p>
+ * The account information within an account pool.
+ *
  * @public
  */
 export interface AccountInfo {
   /**
-   * <p>The account ID.</p>
+   * The account ID.
+   *
    * @public
    */
   awsAccountId: string | undefined;
 
   /**
-   * <p>The regions supported for an account within an account pool. </p>
+   * The regions supported for an account within an account pool.
+   *
    * @public
    */
   supportedRegions: string[] | undefined;
 
   /**
-   * <p>The account name.</p>
+   * The account name.
+   *
    * @public
    */
   awsAccountName?: string | undefined;
 }
 
 /**
- * <p>The summary of the account pool.</p>
+ * The summary of the account pool.
+ *
  * @public
  */
 export interface AccountPoolSummary {
   /**
-   * <p>The ID of the domain.</p>
+   * The ID of the domain.
+   *
    * @public
    */
   domainId?: string | undefined;
 
   /**
-   * <p>The ID of the account pool.</p>
+   * The ID of the account pool.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The name of the account pool.</p>
+   * The name of the account pool.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The mechanism used to resolve the account selection from the account pool.</p>
+   * The mechanism used to resolve the account selection from the account pool.
+   *
    * @public
    */
   resolutionStrategy?: ResolutionStrategy | undefined;
 
   /**
-   * <p>The ID of the domain unit.</p>
+   * The ID of the domain unit.
+   *
    * @public
    */
   domainUnitId?: string | undefined;
 
   /**
-   * <p>The user who created the account pool.</p>
+   * The user who created the account pool.
+   *
    * @public
    */
   createdBy?: string | undefined;
 
   /**
-   * <p>The user who updated the account pool.</p>
+   * The user who updated the account pool.
+   *
    * @public
    */
   updatedBy?: string | undefined;
 }
 
 /**
- * <p>The custom Amazon Web Services Lambda handler within an account pool.</p>
+ * The custom Amazon Web Services Lambda handler within an account pool.
+ *
  * @public
  */
 export interface CustomAccountPoolHandler {
   /**
-   * <p>The ARN of the Amazon Web Services Lambda function for the custom Amazon Web Services Lambda handler.</p>
+   * The ARN of the Amazon Web Services Lambda function for the custom Amazon Web Services Lambda handler.
+   *
    * @public
    */
   lambdaFunctionArn: string | undefined;
 
   /**
-   * <p>The ARN of the IAM role that enables Amazon SageMaker Unified Studio to invoke the Amazon Web Services Lambda funtion if the account source is the custom account pool handler.</p>
+   * The ARN of the IAM role that enables Amazon SageMaker Unified Studio to invoke the Amazon Web Services Lambda funtion if the account source is the custom account pool handler.
+   *
    * @public
    */
   lambdaExecutionRoleArn?: string | undefined;
 }
 
 /**
- * <p>The source of accounts for the account pool. In the current release, it's either a static list of accounts provided by the customer or a custom Amazon Web Services Lambda handler. </p>
+ * The source of accounts for the account pool. In the current release, it's either a static list of accounts provided by the customer or a custom Amazon Web Services Lambda handler.
+ *
  * @public
  */
 export type AccountSource =
@@ -1029,7 +1160,8 @@ export type AccountSource =
  */
 export namespace AccountSource {
   /**
-   * <p>The static list of accounts within an account pool.</p>
+   * The static list of accounts within an account pool.
+   *
    * @public
    */
   export interface AccountsMember {
@@ -1039,7 +1171,8 @@ export namespace AccountSource {
   }
 
   /**
-   * <p>The custom Amazon Web Services Lambda handler within an account pool.</p>
+   * The custom Amazon Web Services Lambda handler within an account pool.
+   *
    * @public
    */
   export interface CustomAccountPoolHandlerMember {
@@ -1069,19 +1202,22 @@ export namespace AccountSource {
 }
 
 /**
- * <p>The parameters of the console link specified as part of the environment action.</p>
+ * The parameters of the console link specified as part of the environment action.
+ *
  * @public
  */
 export interface AwsConsoleLinkParameters {
   /**
-   * <p>The URI of the console link specified as part of the environment action.</p>
+   * The URI of the console link specified as part of the environment action.
+   *
    * @public
    */
   uri?: string | undefined;
 }
 
 /**
- * <p>The parameters of the environment action.</p>
+ * The parameters of the environment action.
+ *
  * @public
  */
 export type ActionParameters =
@@ -1093,7 +1229,8 @@ export type ActionParameters =
  */
 export namespace ActionParameters {
   /**
-   * <p>The console link specified as part of the environment action.</p>
+   * The console link specified as part of the environment action.
+   *
    * @public
    */
   export interface AwsConsoleLinkMember {
@@ -1120,31 +1257,36 @@ export namespace ActionParameters {
 }
 
 /**
- * <p>The properties of the domain unit owners group.</p>
+ * The properties of the domain unit owners group.
+ *
  * @public
  */
 export interface OwnerGroupProperties {
   /**
-   * <p>The ID of the domain unit owners group.</p>
+   * The ID of the domain unit owners group.
+   *
    * @public
    */
   groupIdentifier: string | undefined;
 }
 
 /**
- * <p>The properties of the owner user.</p>
+ * The properties of the owner user.
+ *
  * @public
  */
 export interface OwnerUserProperties {
   /**
-   * <p>The ID of the owner user.</p>
+   * The ID of the owner user.
+   *
    * @public
    */
   userIdentifier: string | undefined;
 }
 
 /**
- * <p>The properties of a domain unit's owner.</p>
+ * The properties of a domain unit's owner.
+ *
  * @public
  */
 export type OwnerProperties =
@@ -1157,7 +1299,8 @@ export type OwnerProperties =
  */
 export namespace OwnerProperties {
   /**
-   * <p>Specifies that the domain unit owner is a user.</p>
+   * Specifies that the domain unit owner is a user.
+   *
    * @public
    */
   export interface UserMember {
@@ -1167,7 +1310,8 @@ export namespace OwnerProperties {
   }
 
   /**
-   * <p>Specifies that the domain unit owner is a group.</p>
+   * Specifies that the domain unit owner is a group.
+   *
    * @public
    */
   export interface GroupMember {
@@ -1201,31 +1345,36 @@ export namespace OwnerProperties {
  */
 export interface AddEntityOwnerInput {
   /**
-   * <p>The ID of the domain in which you want to add the entity owner.</p>
+   * The ID of the domain in which you want to add the entity owner.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The type of an entity.</p>
+   * The type of an entity.
+   *
    * @public
    */
   entityType: DataZoneEntityType | undefined;
 
   /**
-   * <p>The ID of the entity to which you want to add an owner.</p>
+   * The ID of the entity to which you want to add an owner.
+   *
    * @public
    */
   entityIdentifier: string | undefined;
 
   /**
-   * <p>The owner that you want to add to the entity.</p>
+   * The owner that you want to add to the entity.
+   *
    * @public
    */
   owner: OwnerProperties | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -1237,163 +1386,190 @@ export interface AddEntityOwnerInput {
 export interface AddEntityOwnerOutput {}
 
 /**
- * <p>Additional details on the queried entity that can be requested in the response.</p>
+ * Additional details on the queried entity that can be requested in the response.
+ *
  * @public
  */
 export interface AdditionalAttributes {
   /**
-   * <p>Names of forms on the query entity that can be requested in the response.</p>
+   * Names of forms on the query entity that can be requested in the response.
+   *
    * @public
    */
   formNames?: string[] | undefined;
 }
 
 /**
- * <p>The details of the policy grant.</p>
+ * The details of the policy grant.
+ *
  * @public
  */
 export interface AddToProjectMemberPoolPolicyGrantDetail {
   /**
-   * <p>Specifies whether the policy grant is applied to child domain units.</p>
+   * Specifies whether the policy grant is applied to child domain units.
+   *
    * @public
    */
   includeChildDomainUnits?: boolean | undefined;
 }
 
 /**
- * <p>The details of the policy grant.</p>
+ * The details of the policy grant.
+ *
  * @public
  */
 export interface CreateAssetTypePolicyGrantDetail {
   /**
-   * <p>Specifies whether the policy grant is applied to child domain units.</p>
+   * Specifies whether the policy grant is applied to child domain units.
+   *
    * @public
    */
   includeChildDomainUnits?: boolean | undefined;
 }
 
 /**
- * <p>The details of the policy grant.</p>
+ * The details of the policy grant.
+ *
  * @public
  */
 export interface CreateDomainUnitPolicyGrantDetail {
   /**
-   * <p>Specifies whether the policy grant is applied to child domain units.</p>
+   * Specifies whether the policy grant is applied to child domain units.
+   *
    * @public
    */
   includeChildDomainUnits?: boolean | undefined;
 }
 
 /**
- * <p>The details of the policy of creating an environment.</p>
+ * The details of the policy of creating an environment.
+ *
  * @public
  */
 export interface Unit {}
 
 /**
- * <p>The details of the policy grant.</p>
+ * The details of the policy grant.
+ *
  * @public
  */
 export interface CreateEnvironmentProfilePolicyGrantDetail {
   /**
-   * <p>The ID of the domain unit.</p>
+   * The ID of the domain unit.
+   *
    * @public
    */
   domainUnitId?: string | undefined;
 }
 
 /**
- * <p>The details of the policy grant.</p>
+ * The details of the policy grant.
+ *
  * @public
  */
 export interface CreateFormTypePolicyGrantDetail {
   /**
-   * <p>Specifies whether the policy grant is applied to child domain units.</p>
+   * Specifies whether the policy grant is applied to child domain units.
+   *
    * @public
    */
   includeChildDomainUnits?: boolean | undefined;
 }
 
 /**
- * <p>The details of the policy grant.</p>
+ * The details of the policy grant.
+ *
  * @public
  */
 export interface CreateGlossaryPolicyGrantDetail {
   /**
-   * <p>Specifies whether the policy grant is applied to child domain units.</p>
+   * Specifies whether the policy grant is applied to child domain units.
+   *
    * @public
    */
   includeChildDomainUnits?: boolean | undefined;
 }
 
 /**
- * <p>The details of the policy grant.</p>
+ * The details of the policy grant.
+ *
  * @public
  */
 export interface CreateProjectPolicyGrantDetail {
   /**
-   * <p>Specifies whether the policy grant is applied to child domain units.</p>
+   * Specifies whether the policy grant is applied to child domain units.
+   *
    * @public
    */
   includeChildDomainUnits?: boolean | undefined;
 }
 
 /**
- * <p>Specifies whether to create a project from project profile policy grant details.</p>
+ * Specifies whether to create a project from project profile policy grant details.
+ *
  * @public
  */
 export interface CreateProjectFromProjectProfilePolicyGrantDetail {
   /**
-   * <p>Specifies whether to include child domain units when creating a project from project profile policy grant details</p>
+   * Specifies whether to include child domain units when creating a project from project profile policy grant details
+   *
    * @public
    */
   includeChildDomainUnits?: boolean | undefined;
 
   /**
-   * <p>Specifies project profiles when creating a project from project profile policy grant details</p>
+   * Specifies project profiles when creating a project from project profile policy grant details
+   *
    * @public
    */
   projectProfiles?: string[] | undefined;
 }
 
 /**
- * <p>The grant details of the override domain unit owners policy.</p>
+ * The grant details of the override domain unit owners policy.
+ *
  * @public
  */
 export interface OverrideDomainUnitOwnersPolicyGrantDetail {
   /**
-   * <p>Specifies whether the policy is inherited by child domain units.</p>
+   * Specifies whether the policy is inherited by child domain units.
+   *
    * @public
    */
   includeChildDomainUnits?: boolean | undefined;
 }
 
 /**
- * <p>The details of the override project owners policy grant.</p>
+ * The details of the override project owners policy grant.
+ *
  * @public
  */
 export interface OverrideProjectOwnersPolicyGrantDetail {
   /**
-   * <p>Specifies whether the policy is inherited by child domain units.</p>
+   * Specifies whether the policy is inherited by child domain units.
+   *
    * @public
    */
   includeChildDomainUnits?: boolean | undefined;
 }
 
 /**
- * <p>Specifies the domain unit(s) whose projects can use this asset type while creating asset or asset revisions.</p>
+ * Specifies the domain unit(s) whose projects can use this asset type while creating asset or asset revisions.
+ *
  * @public
  */
 export interface UseAssetTypePolicyGrantDetail {
   /**
-   * <p>The ID of the domain unit.</p>
+   * The ID of the domain unit.
+   *
    * @public
    */
   domainUnitId?: string | undefined;
 }
 
 /**
- * <p>The details of the policy grant.</p>
+ * The details of the policy grant.
+ *
  * @public
  */
 export type PolicyGrantDetail =
@@ -1418,7 +1594,8 @@ export type PolicyGrantDetail =
  */
 export namespace PolicyGrantDetail {
   /**
-   * <p>Specifies that this is a create domain unit policy.</p>
+   * Specifies that this is a create domain unit policy.
+   *
    * @public
    */
   export interface CreateDomainUnitMember {
@@ -1440,7 +1617,8 @@ export namespace PolicyGrantDetail {
   }
 
   /**
-   * <p>Specifies whether to override domain unit owners.</p>
+   * Specifies whether to override domain unit owners.
+   *
    * @public
    */
   export interface OverrideDomainUnitOwnersMember {
@@ -1462,7 +1640,8 @@ export namespace PolicyGrantDetail {
   }
 
   /**
-   * <p>Specifies that the policy grant is to be added to the members of the project.</p>
+   * Specifies that the policy grant is to be added to the members of the project.
+   *
    * @public
    */
   export interface AddToProjectMemberPoolMember {
@@ -1484,7 +1663,8 @@ export namespace PolicyGrantDetail {
   }
 
   /**
-   * <p>Specifies whether to override project owners.</p>
+   * Specifies whether to override project owners.
+   *
    * @public
    */
   export interface OverrideProjectOwnersMember {
@@ -1506,7 +1686,8 @@ export namespace PolicyGrantDetail {
   }
 
   /**
-   * <p> Specifies that this is a create glossary policy.</p>
+   * Specifies that this is a create glossary policy.
+   *
    * @public
    */
   export interface CreateGlossaryMember {
@@ -1528,7 +1709,8 @@ export namespace PolicyGrantDetail {
   }
 
   /**
-   * <p>Specifies that this is a create form type policy.</p>
+   * Specifies that this is a create form type policy.
+   *
    * @public
    */
   export interface CreateFormTypeMember {
@@ -1550,7 +1732,8 @@ export namespace PolicyGrantDetail {
   }
 
   /**
-   * <p>Specifies that this is a create asset type policy.</p>
+   * Specifies that this is a create asset type policy.
+   *
    * @public
    */
   export interface CreateAssetTypeMember {
@@ -1572,7 +1755,8 @@ export namespace PolicyGrantDetail {
   }
 
   /**
-   * <p>Specifies that this is a create project policy.</p>
+   * Specifies that this is a create project policy.
+   *
    * @public
    */
   export interface CreateProjectMember {
@@ -1594,7 +1778,8 @@ export namespace PolicyGrantDetail {
   }
 
   /**
-   * <p>Specifies that this is a create environment profile policy.</p>
+   * Specifies that this is a create environment profile policy.
+   *
    * @public
    */
   export interface CreateEnvironmentProfileMember {
@@ -1616,7 +1801,8 @@ export namespace PolicyGrantDetail {
   }
 
   /**
-   * <p>Specifies that this is the delegation of the create environment profile policy.</p>
+   * Specifies that this is the delegation of the create environment profile policy.
+   *
    * @public
    */
   export interface DelegateCreateEnvironmentProfileMember {
@@ -1638,7 +1824,8 @@ export namespace PolicyGrantDetail {
   }
 
   /**
-   * <p>Specifies that this is a create environment policy.</p>
+   * Specifies that this is a create environment policy.
+   *
    * @public
    */
   export interface CreateEnvironmentMember {
@@ -1660,7 +1847,8 @@ export namespace PolicyGrantDetail {
   }
 
   /**
-   * <p>The details of the policy of creating an environment.</p>
+   * The details of the policy of creating an environment.
+   *
    * @public
    */
   export interface CreateEnvironmentFromBlueprintMember {
@@ -1682,7 +1870,8 @@ export namespace PolicyGrantDetail {
   }
 
   /**
-   * <p>Specifies whether to create a project from project profile.</p>
+   * Specifies whether to create a project from project profile.
+   *
    * @public
    */
   export interface CreateProjectFromProjectProfileMember {
@@ -1704,7 +1893,8 @@ export namespace PolicyGrantDetail {
   }
 
   /**
-   * <p> Specifies the domain unit(s) whose projects can use this asset type while creating asset or asset revisions.</p>
+   * Specifies the domain unit(s) whose projects can use this asset type while creating asset or asset revisions.
+   *
    * @public
    */
   export interface UseAssetTypeMember {
@@ -1770,13 +1960,15 @@ export namespace PolicyGrantDetail {
 }
 
 /**
- * <p>The grant filter for all domain units.</p>
+ * The grant filter for all domain units.
+ *
  * @public
  */
 export interface AllDomainUnitsGrantFilter {}
 
 /**
- * <p>The grant filter for the domain unit. In the current release of Amazon DataZone, the only supported filter is the <code>allDomainUnitsGrantFilter</code>.</p>
+ * The grant filter for the domain unit. In the current release of Amazon DataZone, the only supported filter is the `allDomainUnitsGrantFilter`.
+ *
  * @public
  */
 export type DomainUnitGrantFilter =
@@ -1788,7 +1980,8 @@ export type DomainUnitGrantFilter =
  */
 export namespace DomainUnitGrantFilter {
   /**
-   * <p>Specifies a grant filter containing all domain units.</p>
+   * Specifies a grant filter containing all domain units.
+   *
    * @public
    */
   export interface AllDomainUnitsGrantFilterMember {
@@ -1815,31 +2008,36 @@ export namespace DomainUnitGrantFilter {
 }
 
 /**
- * <p>The domain unit principal to whom the policy is granted.</p>
+ * The domain unit principal to whom the policy is granted.
+ *
  * @public
  */
 export interface DomainUnitPolicyGrantPrincipal {
   /**
-   * <p>Specifes the designation of the domain unit users.</p>
+   * Specifes the designation of the domain unit users.
+   *
    * @public
    */
   domainUnitDesignation: DomainUnitDesignation | undefined;
 
   /**
-   * <p>The ID of the domain unit.</p>
+   * The ID of the domain unit.
+   *
    * @public
    */
   domainUnitIdentifier?: string | undefined;
 
   /**
-   * <p>The grant filter for the domain unit.</p>
+   * The grant filter for the domain unit.
+   *
    * @public
    */
   domainUnitGrantFilter?: DomainUnitGrantFilter | undefined;
 }
 
 /**
- * <p>The group principal to whom the policy is granted.</p>
+ * The group principal to whom the policy is granted.
+ *
  * @public
  */
 export type GroupPolicyGrantPrincipal =
@@ -1851,7 +2049,8 @@ export type GroupPolicyGrantPrincipal =
  */
 export namespace GroupPolicyGrantPrincipal {
   /**
-   * <p>The ID Of the group of the group principal.</p>
+   * The ID Of the group of the group principal.
+   *
    * @public
    */
   export interface GroupIdentifierMember {
@@ -1878,25 +2077,29 @@ export namespace GroupPolicyGrantPrincipal {
 }
 
 /**
- * <p>The domain unit filter of the project grant filter.</p>
+ * The domain unit filter of the project grant filter.
+ *
  * @public
  */
 export interface DomainUnitFilterForProject {
   /**
-   * <p>The domain unit ID to use in the filter.</p>
+   * The domain unit ID to use in the filter.
+   *
    * @public
    */
   domainUnit: string | undefined;
 
   /**
-   * <p>Specifies whether to include child domain units.</p>
+   * Specifies whether to include child domain units.
+   *
    * @public
    */
   includeChildDomainUnits?: boolean | undefined;
 }
 
 /**
- * <p>The project grant filter.</p>
+ * The project grant filter.
+ *
  * @public
  */
 export type ProjectGrantFilter =
@@ -1908,7 +2111,8 @@ export type ProjectGrantFilter =
  */
 export namespace ProjectGrantFilter {
   /**
-   * <p>The domain unit filter of the project grant filter.</p>
+   * The domain unit filter of the project grant filter.
+   *
    * @public
    */
   export interface DomainUnitFilterMember {
@@ -1935,43 +2139,50 @@ export namespace ProjectGrantFilter {
 }
 
 /**
- * <p>The project policy grant principal.</p>
+ * The project policy grant principal.
+ *
  * @public
  */
 export interface ProjectPolicyGrantPrincipal {
   /**
-   * <p>The project designation of the project policy grant principal.</p>
+   * The project designation of the project policy grant principal.
+   *
    * @public
    */
   projectDesignation: ProjectDesignation | undefined;
 
   /**
-   * <p>The ID of the user-created designation granted to the project principal. Required when <code>projectDesignation</code> is <code>USER_CREATED_DESIGNATION</code>; must not be provided otherwise.</p>
+   * The ID of the user-created designation granted to the project principal. Required when `projectDesignation` is `USER_CREATED_DESIGNATION`; must not be provided otherwise.
+   *
    * @public
    */
   userCreatedDesignationId?: string | undefined;
 
   /**
-   * <p>The project ID of the project policy grant principal.</p>
+   * The project ID of the project policy grant principal.
+   *
    * @public
    */
   projectIdentifier?: string | undefined;
 
   /**
-   * <p>The project grant filter of the project policy grant principal.</p>
+   * The project grant filter of the project policy grant principal.
+   *
    * @public
    */
   projectGrantFilter?: ProjectGrantFilter | undefined;
 }
 
 /**
- * <p>The all users grant filter.</p>
+ * The all users grant filter.
+ *
  * @public
  */
 export interface AllUsersGrantFilter {}
 
 /**
- * <p>The user policy grant principal.</p>
+ * The user policy grant principal.
+ *
  * @public
  */
 export type UserPolicyGrantPrincipal =
@@ -1984,7 +2195,8 @@ export type UserPolicyGrantPrincipal =
  */
 export namespace UserPolicyGrantPrincipal {
   /**
-   * <p>The user ID of the user policy grant principal.</p>
+   * The user ID of the user policy grant principal.
+   *
    * @public
    */
   export interface UserIdentifierMember {
@@ -1994,7 +2206,8 @@ export namespace UserPolicyGrantPrincipal {
   }
 
   /**
-   * <p>The all users grant filter of the user policy grant principal.</p>
+   * The all users grant filter of the user policy grant principal.
+   *
    * @public
    */
   export interface AllUsersGrantFilterMember {
@@ -2024,7 +2237,8 @@ export namespace UserPolicyGrantPrincipal {
 }
 
 /**
- * <p>The policy grant principal.</p>
+ * The policy grant principal.
+ *
  * @public
  */
 export type PolicyGrantPrincipal =
@@ -2039,7 +2253,8 @@ export type PolicyGrantPrincipal =
  */
 export namespace PolicyGrantPrincipal {
   /**
-   * <p>The user of the policy grant principal.</p>
+   * The user of the policy grant principal.
+   *
    * @public
    */
   export interface UserMember {
@@ -2051,7 +2266,8 @@ export namespace PolicyGrantPrincipal {
   }
 
   /**
-   * <p>The group of the policy grant principal.</p>
+   * The group of the policy grant principal.
+   *
    * @public
    */
   export interface GroupMember {
@@ -2063,7 +2279,8 @@ export namespace PolicyGrantPrincipal {
   }
 
   /**
-   * <p>The project of the policy grant principal.</p>
+   * The project of the policy grant principal.
+   *
    * @public
    */
   export interface ProjectMember {
@@ -2075,7 +2292,8 @@ export namespace PolicyGrantPrincipal {
   }
 
   /**
-   * <p>The domain unit of the policy grant principal.</p>
+   * The domain unit of the policy grant principal.
+   *
    * @public
    */
   export interface DomainUnitMember {
@@ -2115,43 +2333,50 @@ export namespace PolicyGrantPrincipal {
  */
 export interface AddPolicyGrantInput {
   /**
-   * <p>The ID of the domain where you want to add a policy grant.</p>
+   * The ID of the domain where you want to add a policy grant.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The type of entity (resource) to which the grant is added.</p>
+   * The type of entity (resource) to which the grant is added.
+   *
    * @public
    */
   entityType: TargetEntityType | undefined;
 
   /**
-   * <p>The ID of the entity (resource) to which you want to add a policy grant.</p>
+   * The ID of the entity (resource) to which you want to add a policy grant.
+   *
    * @public
    */
   entityIdentifier: string | undefined;
 
   /**
-   * <p>The type of policy that you want to grant.</p>
+   * The type of policy that you want to grant.
+   *
    * @public
    */
   policyType: ManagedPolicyType | undefined;
 
   /**
-   * <p>The principal to whom the permissions are granted.</p>
+   * The principal to whom the permissions are granted.
+   *
    * @public
    */
   principal: PolicyGrantPrincipal | undefined;
 
   /**
-   * <p>The details of the policy grant.</p>
+   * The details of the policy grant.
+   *
    * @public
    */
   detail: PolicyGrantDetail | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -2162,217 +2387,253 @@ export interface AddPolicyGrantInput {
  */
 export interface AddPolicyGrantOutput {
   /**
-   * <p>The ID of the policy grant that was added to a specified entity.</p>
+   * The ID of the policy grant that was added to a specified entity.
+   *
    * @public
    */
   grantId?: string | undefined;
 }
 
 /**
- * <p>An aggregation list item.</p>
+ * An aggregation list item.
+ *
  * @public
  */
 export interface AggregationListItem {
   /**
-   * <p>An attribute on which to compute aggregations.</p>
+   * An attribute on which to compute aggregations.
+   *
    * @public
    */
   attribute: string | undefined;
 
   /**
-   * <p>The display value of the aggregation list item. Supported values include <code>value</code> and <code>glossaryTerm.name</code>.</p>
+   * The display value of the aggregation list item. Supported values include `value` and `glossaryTerm.name`.
+   *
    * @public
    */
   displayValue?: string | undefined;
 }
 
 /**
- * <p>An aggregation output item.</p>
+ * An aggregation output item.
+ *
  * @public
  */
 export interface AggregationOutputItem {
   /**
-   * <p>The attribute value of the aggregation output item.</p>
+   * The attribute value of the aggregation output item.
+   *
    * @public
    */
   value?: string | undefined;
 
   /**
-   * <p>The count of the aggregation output item.</p>
+   * The count of the aggregation output item.
+   *
    * @public
    */
   count?: number | undefined;
 
   /**
-   * <p>The display value of the aggregation. If the attribute being aggregated corresponds to the id of a public resource, the service automatically resolves the id to the provided display value.</p>
+   * The display value of the aggregation. If the attribute being aggregated corresponds to the id of a public resource, the service automatically resolves the id to the provided display value.
+   *
    * @public
    */
   displayValue?: string | undefined;
 }
 
 /**
- * <p>The aggregation for an attribute.</p>
+ * The aggregation for an attribute.
+ *
  * @public
  */
 export interface AggregationOutput {
   /**
-   * <p>The attribute for this aggregation.</p>
+   * The attribute for this aggregation.
+   *
    * @public
    */
   attribute?: string | undefined;
 
   /**
-   * <p>The display value of the aggregation output item.</p>
+   * The display value of the aggregation output item.
+   *
    * @public
    */
   displayValue?: string | undefined;
 
   /**
-   * <p>A list of aggregation output items.</p>
+   * A list of aggregation output items.
+   *
    * @public
    */
   items?: AggregationOutputItem[] | undefined;
 }
 
 /**
- * <p>The Amazon Q properties of the connection.</p>
+ * The Amazon Q properties of the connection.
+ *
  * @public
  */
 export interface AmazonQPropertiesInput {
   /**
-   * <p>Specifies whether Amazon Q is enabled for the connection.</p>
+   * Specifies whether Amazon Q is enabled for the connection.
+   *
    * @public
    */
   isEnabled: boolean | undefined;
 
   /**
-   * <p>The profile ARN of the connection's Amazon Q properties.</p>
+   * The profile ARN of the connection's Amazon Q properties.
+   *
    * @public
    */
   profileArn?: string | undefined;
 
   /**
-   * <p>The authentication mode of the connection's Amazon Q properties.</p>
+   * The authentication mode of the connection's Amazon Q properties.
+   *
    * @public
    */
   authMode?: string | undefined;
 }
 
 /**
- * <p>The Amazon Q properties of the connection.</p>
+ * The Amazon Q properties of the connection.
+ *
  * @public
  */
 export interface AmazonQPropertiesOutput {
   /**
-   * <p>Specifies whether Amazon Q is enabled for the connection.</p>
+   * Specifies whether Amazon Q is enabled for the connection.
+   *
    * @public
    */
   isEnabled: boolean | undefined;
 
   /**
-   * <p>The profile ARN of the connection's Amazon Q properties.</p>
+   * The profile ARN of the connection's Amazon Q properties.
+   *
    * @public
    */
   profileArn?: string | undefined;
 
   /**
-   * <p>The authentication mode of the connection's Amazon Q properties.</p>
+   * The authentication mode of the connection's Amazon Q properties.
+   *
    * @public
    */
   authMode?: string | undefined;
 }
 
 /**
- * <p>The Amazon Q properties of the connection.</p>
+ * The Amazon Q properties of the connection.
+ *
  * @public
  */
 export interface AmazonQPropertiesPatch {
   /**
-   * <p>Specifies whether Amazon Q is enabled for the connection.</p>
+   * Specifies whether Amazon Q is enabled for the connection.
+   *
    * @public
    */
   isEnabled: boolean | undefined;
 
   /**
-   * <p>The profile ARN of the connection's Amazon Q properties.</p>
+   * The profile ARN of the connection's Amazon Q properties.
+   *
    * @public
    */
   profileArn?: string | undefined;
 
   /**
-   * <p>The authentication mode of the connection's Amazon Q properties.</p>
+   * The authentication mode of the connection's Amazon Q properties.
+   *
    * @public
    */
   authMode?: string | undefined;
 }
 
 /**
- * <p>The details of an asset published in an Amazon DataZone catalog. </p>
+ * The details of an asset published in an Amazon DataZone catalog.
+ *
  * @public
  */
 export interface AssetListingDetails {
   /**
-   * <p>The identifier of an asset published in an Amazon DataZone catalog. </p>
+   * The identifier of an asset published in an Amazon DataZone catalog.
+   *
    * @public
    */
   listingId: string | undefined;
 
   /**
-   * <p>The status of an asset published in an Amazon DataZone catalog. </p>
+   * The status of an asset published in an Amazon DataZone catalog.
+   *
    * @public
    */
   listingStatus: ListingStatus | undefined;
 }
 
 /**
- * <p>The details of a metadata form.</p>
+ * The details of a metadata form.
+ *
  * @public
  */
 export interface FormInput {
   /**
-   * <p>The name of the metadata form.</p>
+   * The name of the metadata form.
+   *
    * @public
    */
   formName: string | undefined;
 
   /**
-   * <p>The ID of the metadata form type.</p>
+   * The ID of the metadata form type.
+   *
    * @public
    */
   typeIdentifier?: string | undefined;
 
   /**
-   * <p>The revision of the metadata form type.</p>
+   * The revision of the metadata form type.
+   *
    * @public
    */
   typeRevision?: string | undefined;
 
   /**
-   * <p>The content of the metadata form.</p>
+   * The content of the metadata form.
+   *
    * @public
    */
   content?: string | undefined;
 }
 
 /**
- * <p>The configuration of the business name generation.</p>
+ * The configuration of the business name generation.
+ *
  * @public
  */
 export interface BusinessNameGenerationConfiguration {
   /**
-   * <p>Specifies whether the business name generation is enabled.</p>
+   * Specifies whether the business name generation is enabled.
+   *
    * @public
    */
   enabled?: boolean | undefined;
 }
 
 /**
- * <p>The configuration of the prediction.</p>
+ * The configuration of the prediction.
+ *
  * @public
  */
 export interface PredictionConfiguration {
   /**
-   * <p>The business name generation mechanism.</p>
+   * The business name generation mechanism.
+   *
    * @public
    */
   businessNameGeneration?: BusinessNameGenerationConfiguration | undefined;
@@ -2383,109 +2644,129 @@ export interface PredictionConfiguration {
  */
 export interface CreateAssetInput {
   /**
-   * <p>Asset name.</p>
+   * Asset name.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Amazon DataZone domain where the asset is created.</p>
+   * Amazon DataZone domain where the asset is created.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The external identifier of the asset.</p> <p>If the value for the <code>externalIdentifier</code> parameter is specified, it must be a unique value.</p>
+   * The external identifier of the asset.
+   *
+   * If the value for the `externalIdentifier` parameter is specified, it must be a unique value.
+   *
    * @public
    */
   externalIdentifier?: string | undefined;
 
   /**
-   * <p>The unique identifier of this asset's type.</p>
+   * The unique identifier of this asset's type.
+   *
    * @public
    */
   typeIdentifier: string | undefined;
 
   /**
-   * <p>The revision of this asset's type.</p>
+   * The revision of this asset's type.
+   *
    * @public
    */
   typeRevision?: string | undefined;
 
   /**
-   * <p>Asset description.</p>
+   * Asset description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Glossary terms attached to the asset.</p>
+   * Glossary terms attached to the asset.
+   *
    * @public
    */
   glossaryTerms?: string[] | undefined;
 
   /**
-   * <p>Metadata forms attached to the asset.</p>
+   * Metadata forms attached to the asset.
+   *
    * @public
    */
   formsInput?: FormInput[] | undefined;
 
   /**
-   * <p>The unique identifier of the project that owns this asset.</p>
+   * The unique identifier of the project that owns this asset.
+   *
    * @public
    */
   owningProjectIdentifier: string | undefined;
 
   /**
-   * <p>The configuration of the automatically generated business-friendly metadata for the asset.</p>
+   * The configuration of the automatically generated business-friendly metadata for the asset.
+   *
    * @public
    */
   predictionConfiguration?: PredictionConfiguration | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 }
 
 /**
- * <p>The summary of the time series data points form.</p>
+ * The summary of the time series data points form.
+ *
  * @public
  */
 export interface TimeSeriesDataPointSummaryFormOutput {
   /**
-   * <p>The name of the time series data points summary form.</p>
+   * The name of the time series data points summary form.
+   *
    * @public
    */
   formName: string | undefined;
 
   /**
-   * <p>The type ID of the time series data points summary form.</p>
+   * The type ID of the time series data points summary form.
+   *
    * @public
    */
   typeIdentifier: string | undefined;
 
   /**
-   * <p>The type revision of the time series data points summary form.</p>
+   * The type revision of the time series data points summary form.
+   *
    * @public
    */
   typeRevision?: string | undefined;
 
   /**
-   * <p>The timestamp of the time series data points summary form.</p>
+   * The timestamp of the time series data points summary form.
+   *
    * @public
    */
   timestamp: Date | undefined;
 
   /**
-   * <p>The content of the summary of the time series data points form.</p>
+   * The content of the summary of the time series data points form.
+   *
    * @public
    */
   contentSummary?: string | undefined;
 
   /**
-   * <p>The ID of the time series data points summary form.</p>
+   * The ID of the time series data points summary form.
+   *
    * @public
    */
   id?: string | undefined;
@@ -2496,121 +2777,141 @@ export interface TimeSeriesDataPointSummaryFormOutput {
  */
 export interface CreateAssetOutput {
   /**
-   * <p>The unique identifier of the created asset.</p>
+   * The unique identifier of the created asset.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the created asset.</p>
+   * The name of the created asset.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The identifier of the created asset type.</p>
+   * The identifier of the created asset type.
+   *
    * @public
    */
   typeIdentifier: string | undefined;
 
   /**
-   * <p>The revision type of the asset.</p>
+   * The revision type of the asset.
+   *
    * @public
    */
   typeRevision: string | undefined;
 
   /**
-   * <p>The external identifier of the asset.</p>
+   * The external identifier of the asset.
+   *
    * @public
    */
   externalIdentifier?: string | undefined;
 
   /**
-   * <p>The revision of the asset.</p>
+   * The revision of the asset.
+   *
    * @public
    */
   revision: string | undefined;
 
   /**
-   * <p>The description of the created asset.</p>
+   * The description of the created asset.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The timestamp of when the asset was created.</p>
+   * The timestamp of when the asset was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The Amazon DataZone user that created this asset in the catalog.</p>
+   * The Amazon DataZone user that created this asset in the catalog.
+   *
    * @public
    */
   createdBy?: string | undefined;
 
   /**
-   * <p>The timestamp of when the first revision of the asset took place.</p>
+   * The timestamp of when the first revision of the asset took place.
+   *
    * @public
    */
   firstRevisionCreatedAt?: Date | undefined;
 
   /**
-   * <p>The Amazon DataZone user that made the first revision of the asset.</p>
+   * The Amazon DataZone user that made the first revision of the asset.
+   *
    * @public
    */
   firstRevisionCreatedBy?: string | undefined;
 
   /**
-   * <p>The glossary terms that are attached to the created asset.</p>
+   * The glossary terms that are attached to the created asset.
+   *
    * @public
    */
   glossaryTerms?: string[] | undefined;
 
   /**
-   * <p>The glossary terms in a restricted glossary.</p>
+   * The glossary terms in a restricted glossary.
+   *
    * @public
    */
   governedGlossaryTerms?: string[] | undefined;
 
   /**
-   * <p>The ID of the Amazon DataZone project that owns the created asset. </p>
+   * The ID of the Amazon DataZone project that owns the created asset.
+   *
    * @public
    */
   owningProjectId: string | undefined;
 
   /**
-   * <p>The ID of the Amazon DataZone domain in which the asset was created.</p>
+   * The ID of the Amazon DataZone domain in which the asset was created.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The details of an asset published in an Amazon DataZone catalog.</p>
+   * The details of an asset published in an Amazon DataZone catalog.
+   *
    * @public
    */
   listing?: AssetListingDetails | undefined;
 
   /**
-   * <p>The metadata forms that are attached to the created asset.</p>
+   * The metadata forms that are attached to the created asset.
+   *
    * @public
    */
   formsOutput: FormOutput[] | undefined;
 
   /**
-   * <p>The read-only metadata forms that are attached to the created asset.</p>
+   * The read-only metadata forms that are attached to the created asset.
+   *
    * @public
    */
   readOnlyFormsOutput?: FormOutput[] | undefined;
 
   /**
-   * <p>The latest data point that was imported into the time series form for the asset. </p>
+   * The latest data point that was imported into the time series form for the asset.
+   *
    * @public
    */
   latestTimeSeriesDataPointFormsOutput?: TimeSeriesDataPointSummaryFormOutput[] | undefined;
 
   /**
-   * <p>The configuration of the automatically generated business-friendly metadata for the asset.</p>
+   * The configuration of the automatically generated business-friendly metadata for the asset.
+   *
    * @public
    */
   predictionConfiguration?: PredictionConfiguration | undefined;
@@ -2621,55 +2922,64 @@ export interface CreateAssetOutput {
  */
 export interface CreateAssetRevisionInput {
   /**
-   * <p>Te revised name of the asset.</p>
+   * Te revised name of the asset.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The unique identifier of the domain where the asset is being revised.</p>
+   * The unique identifier of the domain where the asset is being revised.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the asset.</p>
+   * The identifier of the asset.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The revision type of the asset.</p>
+   * The revision type of the asset.
+   *
    * @public
    */
   typeRevision?: string | undefined;
 
   /**
-   * <p>The revised description of the asset.</p>
+   * The revised description of the asset.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The glossary terms to be attached to the asset as part of asset revision.</p>
+   * The glossary terms to be attached to the asset as part of asset revision.
+   *
    * @public
    */
   glossaryTerms?: string[] | undefined;
 
   /**
-   * <p>The metadata forms to be attached to the asset as part of asset revision.</p>
+   * The metadata forms to be attached to the asset as part of asset revision.
+   *
    * @public
    */
   formsInput?: FormInput[] | undefined;
 
   /**
-   * <p>The configuration of the automatically generated business-friendly metadata for the asset.</p>
+   * The configuration of the automatically generated business-friendly metadata for the asset.
+   *
    * @public
    */
   predictionConfiguration?: PredictionConfiguration | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -2680,121 +2990,141 @@ export interface CreateAssetRevisionInput {
  */
 export interface CreateAssetRevisionOutput {
   /**
-   * <p>The unique identifier of the asset revision.</p>
+   * The unique identifier of the asset revision.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The revised name of the asset.</p>
+   * The revised name of the asset.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The identifier of the revision type.</p>
+   * The identifier of the revision type.
+   *
    * @public
    */
   typeIdentifier: string | undefined;
 
   /**
-   * <p>The revision type of the asset.</p>
+   * The revision type of the asset.
+   *
    * @public
    */
   typeRevision: string | undefined;
 
   /**
-   * <p>The external identifier of the asset.</p>
+   * The external identifier of the asset.
+   *
    * @public
    */
   externalIdentifier?: string | undefined;
 
   /**
-   * <p>The revision of the asset.</p>
+   * The revision of the asset.
+   *
    * @public
    */
   revision: string | undefined;
 
   /**
-   * <p>The revised asset description.</p>
+   * The revised asset description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The timestamp of when the asset revision occured.</p>
+   * The timestamp of when the asset revision occured.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The Amazon DataZone user who performed the asset revision.</p>
+   * The Amazon DataZone user who performed the asset revision.
+   *
    * @public
    */
   createdBy?: string | undefined;
 
   /**
-   * <p>The timestamp of when the first asset revision occured.</p>
+   * The timestamp of when the first asset revision occured.
+   *
    * @public
    */
   firstRevisionCreatedAt?: Date | undefined;
 
   /**
-   * <p>The Amazon DataZone user who performed the first asset revision.</p>
+   * The Amazon DataZone user who performed the first asset revision.
+   *
    * @public
    */
   firstRevisionCreatedBy?: string | undefined;
 
   /**
-   * <p>The glossary terms that were attached to the asset as part of asset revision.</p>
+   * The glossary terms that were attached to the asset as part of asset revision.
+   *
    * @public
    */
   glossaryTerms?: string[] | undefined;
 
   /**
-   * <p>The glossary terms in a restricted glossary.</p>
+   * The glossary terms in a restricted glossary.
+   *
    * @public
    */
   governedGlossaryTerms?: string[] | undefined;
 
   /**
-   * <p>The unique identifier of the revised project that owns the asset.</p>
+   * The unique identifier of the revised project that owns the asset.
+   *
    * @public
    */
   owningProjectId: string | undefined;
 
   /**
-   * <p>The unique identifier of the Amazon DataZone domain where the asset was revised.</p>
+   * The unique identifier of the Amazon DataZone domain where the asset was revised.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The details of an asset published in an Amazon DataZone catalog. </p>
+   * The details of an asset published in an Amazon DataZone catalog.
+   *
    * @public
    */
   listing?: AssetListingDetails | undefined;
 
   /**
-   * <p>The metadata forms that were attached to the asset as part of the asset revision.</p>
+   * The metadata forms that were attached to the asset as part of the asset revision.
+   *
    * @public
    */
   formsOutput: FormOutput[] | undefined;
 
   /**
-   * <p>The read-only metadata forms that were attached to the asset as part of the asset revision.</p>
+   * The read-only metadata forms that were attached to the asset as part of the asset revision.
+   *
    * @public
    */
   readOnlyFormsOutput?: FormOutput[] | undefined;
 
   /**
-   * <p>The latest data point that was imported into the time series form for the asset. </p>
+   * The latest data point that was imported into the time series form for the asset.
+   *
    * @public
    */
   latestTimeSeriesDataPointFormsOutput?: TimeSeriesDataPointSummaryFormOutput[] | undefined;
 
   /**
-   * <p>The configuration of the automatically generated business-friendly metadata for the asset.</p>
+   * The configuration of the automatically generated business-friendly metadata for the asset.
+   *
    * @public
    */
   predictionConfiguration?: PredictionConfiguration | undefined;
@@ -2805,13 +3135,15 @@ export interface CreateAssetRevisionOutput {
  */
 export interface DeleteAssetInput {
   /**
-   * <p>The ID of the Amazon DataZone domain in which the asset is deleted.</p>
+   * The ID of the Amazon DataZone domain in which the asset is deleted.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the asset that is deleted.</p>
+   * The identifier of the asset that is deleted.
+   *
    * @public
    */
   identifier: string | undefined;
@@ -2827,19 +3159,24 @@ export interface DeleteAssetOutput {}
  */
 export interface GetAssetInput {
   /**
-   * <p>The ID of the Amazon DataZone domain to which the asset belongs.</p>
+   * The ID of the Amazon DataZone domain to which the asset belongs.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The ID of the Amazon DataZone asset.</p> <p>This parameter supports either the value of <code>assetId</code> or <code>externalIdentifier</code> as input. If you are passing the value of <code>externalIdentifier</code>, you must prefix this value with <code>externalIdentifer%2F</code>.</p>
+   * The ID of the Amazon DataZone asset.
+   *
+   * This parameter supports either the value of `assetId` or `externalIdentifier` as input. If you are passing the value of `externalIdentifier`, you must prefix this value with `externalIdentifer%2F`.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The revision of the Amazon DataZone asset.</p>
+   * The revision of the Amazon DataZone asset.
+   *
    * @public
    */
   revision?: string | undefined;
@@ -2850,338 +3187,394 @@ export interface GetAssetInput {
  */
 export interface GetAssetOutput {
   /**
-   * <p>The ID of the asset.</p>
+   * The ID of the asset.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the asset.</p>
+   * The name of the asset.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ID of the asset type.</p>
+   * The ID of the asset type.
+   *
    * @public
    */
   typeIdentifier: string | undefined;
 
   /**
-   * <p>The revision of the asset type.</p>
+   * The revision of the asset type.
+   *
    * @public
    */
   typeRevision: string | undefined;
 
   /**
-   * <p>The external ID of the asset.</p>
+   * The external ID of the asset.
+   *
    * @public
    */
   externalIdentifier?: string | undefined;
 
   /**
-   * <p>The revision of the asset.</p>
+   * The revision of the asset.
+   *
    * @public
    */
   revision: string | undefined;
 
   /**
-   * <p>The description of the Amazon DataZone asset.</p>
+   * The description of the Amazon DataZone asset.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The timestamp of when the asset was created.</p>
+   * The timestamp of when the asset was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The Amazon DataZone user who created the asset.</p>
+   * The Amazon DataZone user who created the asset.
+   *
    * @public
    */
   createdBy?: string | undefined;
 
   /**
-   * <p>The timestamp of when the first revision of the asset was created.</p>
+   * The timestamp of when the first revision of the asset was created.
+   *
    * @public
    */
   firstRevisionCreatedAt?: Date | undefined;
 
   /**
-   * <p>The Amazon DataZone user who created the first revision of the asset.</p>
+   * The Amazon DataZone user who created the first revision of the asset.
+   *
    * @public
    */
   firstRevisionCreatedBy?: string | undefined;
 
   /**
-   * <p>The business glossary terms attached to the asset.</p>
+   * The business glossary terms attached to the asset.
+   *
    * @public
    */
   glossaryTerms?: string[] | undefined;
 
   /**
-   * <p>The restricted glossary terms attached to an asset.</p>
+   * The restricted glossary terms attached to an asset.
+   *
    * @public
    */
   governedGlossaryTerms?: string[] | undefined;
 
   /**
-   * <p>The ID of the project that owns the asset.</p>
+   * The ID of the project that owns the asset.
+   *
    * @public
    */
   owningProjectId: string | undefined;
 
   /**
-   * <p>The ID of the Amazon DataZone domain to which the asset belongs.</p>
+   * The ID of the Amazon DataZone domain to which the asset belongs.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The listing of the asset.</p>
+   * The listing of the asset.
+   *
    * @public
    */
   listing?: AssetListingDetails | undefined;
 
   /**
-   * <p>The metadata forms attached to the asset.</p>
+   * The metadata forms attached to the asset.
+   *
    * @public
    */
   formsOutput: FormOutput[] | undefined;
 
   /**
-   * <p>The read-only metadata forms attached to the asset.</p>
+   * The read-only metadata forms attached to the asset.
+   *
    * @public
    */
   readOnlyFormsOutput?: FormOutput[] | undefined;
 
   /**
-   * <p>The latest data point that was imported into the time series form for the asset. </p>
+   * The latest data point that was imported into the time series form for the asset.
+   *
    * @public
    */
   latestTimeSeriesDataPointFormsOutput?: TimeSeriesDataPointSummaryFormOutput[] | undefined;
 }
 
 /**
- * <p>The column configuration of the asset filter.</p>
+ * The column configuration of the asset filter.
+ *
  * @public
  */
 export interface ColumnFilterConfiguration {
   /**
-   * <p>Specifies whether to include column names.</p>
+   * Specifies whether to include column names.
+   *
    * @public
    */
   includedColumnNames?: string[] | undefined;
 }
 
 /**
- * <p>Specifies whether the value is equal to an expression.</p>
+ * Specifies whether the value is equal to an expression.
+ *
  * @public
  */
 export interface EqualToExpression {
   /**
-   * <p>The name of the column.</p>
+   * The name of the column.
+   *
    * @public
    */
   columnName: string | undefined;
 
   /**
-   * <p>The value that might be equal to an expression.</p>
+   * The value that might be equal to an expression.
+   *
    * @public
    */
   value: string | undefined;
 }
 
 /**
- * <p>Specifies whether the value is greater than an expression.</p>
+ * Specifies whether the value is greater than an expression.
+ *
  * @public
  */
 export interface GreaterThanExpression {
   /**
-   * <p>The name of the column.</p>
+   * The name of the column.
+   *
    * @public
    */
   columnName: string | undefined;
 
   /**
-   * <p>The value that might be greater than an expression.</p>
+   * The value that might be greater than an expression.
+   *
    * @public
    */
   value: string | undefined;
 }
 
 /**
- * <p>Specifies whether the value is greater than or equal to an expression.</p>
+ * Specifies whether the value is greater than or equal to an expression.
+ *
  * @public
  */
 export interface GreaterThanOrEqualToExpression {
   /**
-   * <p>The name of the column.</p>
+   * The name of the column.
+   *
    * @public
    */
   columnName: string | undefined;
 
   /**
-   * <p>The value that might be greater than or equal to an expression.</p>
+   * The value that might be greater than or equal to an expression.
+   *
    * @public
    */
   value: string | undefined;
 }
 
 /**
- * <p>Specifies whether values are in the expression.</p>
+ * Specifies whether values are in the expression.
+ *
  * @public
  */
 export interface InExpression {
   /**
-   * <p>The name of the column.</p>
+   * The name of the column.
+   *
    * @public
    */
   columnName: string | undefined;
 
   /**
-   * <p>The values that might be in the expression.</p>
+   * The values that might be in the expression.
+   *
    * @public
    */
   values: string[] | undefined;
 }
 
 /**
- * <p>Specifies that the expression is not null.</p>
+ * Specifies that the expression is not null.
+ *
  * @public
  */
 export interface IsNotNullExpression {
   /**
-   * <p>The name of the column.</p>
+   * The name of the column.
+   *
    * @public
    */
   columnName: string | undefined;
 }
 
 /**
- * <p>Specifies that the expression is null.</p>
+ * Specifies that the expression is null.
+ *
  * @public
  */
 export interface IsNullExpression {
   /**
-   * <p>The name of the column.</p>
+   * The name of the column.
+   *
    * @public
    */
   columnName: string | undefined;
 }
 
 /**
- * <p>Specifies that a value is less than an expression.</p>
+ * Specifies that a value is less than an expression.
+ *
  * @public
  */
 export interface LessThanExpression {
   /**
-   * <p>The name of the column.</p>
+   * The name of the column.
+   *
    * @public
    */
   columnName: string | undefined;
 
   /**
-   * <p>The value that might be less than the expression.</p>
+   * The value that might be less than the expression.
+   *
    * @public
    */
   value: string | undefined;
 }
 
 /**
- * <p>Specifies that a value is less than or equal to an expression.</p>
+ * Specifies that a value is less than or equal to an expression.
+ *
  * @public
  */
 export interface LessThanOrEqualToExpression {
   /**
-   * <p>The name of the column.</p>
+   * The name of the column.
+   *
    * @public
    */
   columnName: string | undefined;
 
   /**
-   * <p>The value that might be less than or equal to an expression.</p>
+   * The value that might be less than or equal to an expression.
+   *
    * @public
    */
   value: string | undefined;
 }
 
 /**
- * <p>Specifies that a value is like the expression.</p>
+ * Specifies that a value is like the expression.
+ *
  * @public
  */
 export interface LikeExpression {
   /**
-   * <p>The name of the column.</p>
+   * The name of the column.
+   *
    * @public
    */
   columnName: string | undefined;
 
   /**
-   * <p>The value that might be like the expression.</p>
+   * The value that might be like the expression.
+   *
    * @public
    */
   value: string | undefined;
 }
 
 /**
- * <p>Specifies that a value is not equal to the expression.</p>
+ * Specifies that a value is not equal to the expression.
+ *
  * @public
  */
 export interface NotEqualToExpression {
   /**
-   * <p>The name of the column.</p>
+   * The name of the column.
+   *
    * @public
    */
   columnName: string | undefined;
 
   /**
-   * <p>The value that might not be equal to the expression.</p>
+   * The value that might not be equal to the expression.
+   *
    * @public
    */
   value: string | undefined;
 }
 
 /**
- * <p>Specifies that a value is not in the expression.</p>
+ * Specifies that a value is not in the expression.
+ *
  * @public
  */
 export interface NotInExpression {
   /**
-   * <p>The name of the column.</p>
+   * The name of the column.
+   *
    * @public
    */
   columnName: string | undefined;
 
   /**
-   * <p>The value that might not be in the expression.</p>
+   * The value that might not be in the expression.
+   *
    * @public
    */
   values: string[] | undefined;
 }
 
 /**
- * <p>Specifies that a value might be not like the expression.</p>
+ * Specifies that a value might be not like the expression.
+ *
  * @public
  */
 export interface NotLikeExpression {
   /**
-   * <p>The name of the column.</p>
+   * The name of the column.
+   *
    * @public
    */
   columnName: string | undefined;
 
   /**
-   * <p>The value that might not be like the expression.</p>
+   * The value that might not be like the expression.
+   *
    * @public
    */
   value: string | undefined;
 }
 
 /**
- * <p>The row filter expression.</p>
+ * The row filter expression.
+ *
  * @public
  */
 export type RowFilterExpression =
@@ -3204,7 +3597,8 @@ export type RowFilterExpression =
  */
 export namespace RowFilterExpression {
   /**
-   * <p>The 'equal to' clause of the row filter expression.</p>
+   * The 'equal to' clause of the row filter expression.
+   *
    * @public
    */
   export interface EqualToMember {
@@ -3224,7 +3618,8 @@ export namespace RowFilterExpression {
   }
 
   /**
-   * <p>The 'no equal to' clause of the row filter expression.</p>
+   * The 'no equal to' clause of the row filter expression.
+   *
    * @public
    */
   export interface NotEqualToMember {
@@ -3244,7 +3639,8 @@ export namespace RowFilterExpression {
   }
 
   /**
-   * <p>The 'greater than' clause of the row filter expression.</p>
+   * The 'greater than' clause of the row filter expression.
+   *
    * @public
    */
   export interface GreaterThanMember {
@@ -3264,7 +3660,8 @@ export namespace RowFilterExpression {
   }
 
   /**
-   * <p>The 'less than' clause of the row filter expression.</p>
+   * The 'less than' clause of the row filter expression.
+   *
    * @public
    */
   export interface LessThanMember {
@@ -3284,7 +3681,8 @@ export namespace RowFilterExpression {
   }
 
   /**
-   * <p>The 'greater than or equal to' clause of the filter expression.</p>
+   * The 'greater than or equal to' clause of the filter expression.
+   *
    * @public
    */
   export interface GreaterThanOrEqualToMember {
@@ -3304,7 +3702,8 @@ export namespace RowFilterExpression {
   }
 
   /**
-   * <p>The 'less than or equal to' clause of the row filter expression.</p>
+   * The 'less than or equal to' clause of the row filter expression.
+   *
    * @public
    */
   export interface LessThanOrEqualToMember {
@@ -3324,7 +3723,8 @@ export namespace RowFilterExpression {
   }
 
   /**
-   * <p>The 'is null' clause of the row filter expression.</p>
+   * The 'is null' clause of the row filter expression.
+   *
    * @public
    */
   export interface IsNullMember {
@@ -3344,7 +3744,8 @@ export namespace RowFilterExpression {
   }
 
   /**
-   * <p>The 'is not null' clause of the row filter expression.</p>
+   * The 'is not null' clause of the row filter expression.
+   *
    * @public
    */
   export interface IsNotNullMember {
@@ -3364,7 +3765,8 @@ export namespace RowFilterExpression {
   }
 
   /**
-   * <p>The 'in' clause of the row filter expression.</p>
+   * The 'in' clause of the row filter expression.
+   *
    * @public
    */
   export interface InMember {
@@ -3384,7 +3786,8 @@ export namespace RowFilterExpression {
   }
 
   /**
-   * <p>The 'not in' clause of the row filter expression.</p>
+   * The 'not in' clause of the row filter expression.
+   *
    * @public
    */
   export interface NotInMember {
@@ -3404,7 +3807,8 @@ export namespace RowFilterExpression {
   }
 
   /**
-   * <p>The 'like' clause of the row filter expression.</p>
+   * The 'like' clause of the row filter expression.
+   *
    * @public
    */
   export interface LikeMember {
@@ -3424,7 +3828,8 @@ export namespace RowFilterExpression {
   }
 
   /**
-   * <p>The 'not like' clause of the row filter expression.</p>
+   * The 'not like' clause of the row filter expression.
+   *
    * @public
    */
   export interface NotLikeMember {
@@ -3484,115 +3889,134 @@ export namespace RowFilterExpression {
 }
 
 /**
- * <p>The summary of the asset filter.</p>
+ * The summary of the asset filter.
+ *
  * @public
  */
 export interface AssetFilterSummary {
   /**
-   * <p>The ID of the asset filter.</p>
+   * The ID of the asset filter.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The ID of the domain where the asset filter lives.</p>
+   * The ID of the domain where the asset filter lives.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The ID of the data asset.</p>
+   * The ID of the data asset.
+   *
    * @public
    */
   assetId: string | undefined;
 
   /**
-   * <p>The name of the asset filter.</p>
+   * The name of the asset filter.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the asset filter.</p>
+   * The description of the asset filter.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The status of the asset filter.</p>
+   * The status of the asset filter.
+   *
    * @public
    */
   status?: FilterStatus | undefined;
 
   /**
-   * <p>The effective column names of the asset filter.</p>
+   * The effective column names of the asset filter.
+   *
    * @public
    */
   effectiveColumnNames?: string[] | undefined;
 
   /**
-   * <p>The effective row filter of the asset filter.</p>
+   * The effective row filter of the asset filter.
+   *
    * @public
    */
   effectiveRowFilter?: string | undefined;
 
   /**
-   * <p>The timestamp at which the asset filter was created.</p>
+   * The timestamp at which the asset filter was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The error message that is displayed if the action does not succeed.</p>
+   * The error message that is displayed if the action does not succeed.
+   *
    * @public
    */
   errorMessage?: string | undefined;
 }
 
 /**
- * <p>The offset of a matched term.</p>
+ * The offset of a matched term.
+ *
  * @public
  */
 export interface MatchOffset {
   /**
-   * <p>The 0-indexed number indicating the start position (inclusive) of a matched term.</p>
+   * The 0-indexed number indicating the start position (inclusive) of a matched term.
+   *
    * @public
    */
   startOffset?: number | undefined;
 
   /**
-   * <p>The 0-indexed number indicating the end position (exclusive) of a matched term.</p>
+   * The 0-indexed number indicating the end position (exclusive) of a matched term.
+   *
    * @public
    */
   endOffset?: number | undefined;
 }
 
 /**
- * <p>A structure indicating matched terms for an attribute.</p>
+ * A structure indicating matched terms for an attribute.
+ *
  * @public
  */
 export interface TextMatchItem {
   /**
-   * <p>The name of the attribute.</p>
+   * The name of the attribute.
+   *
    * @public
    */
   attribute?: string | undefined;
 
   /**
-   * <p>Snippet of attribute text containing highlighted content.</p>
+   * Snippet of attribute text containing highlighted content.
+   *
    * @public
    */
   text?: string | undefined;
 
   /**
-   * <p>List of offsets indicating matching terms in the TextMatchItem text.</p>
+   * List of offsets indicating matching terms in the TextMatchItem text.
+   *
    * @public
    */
   matchOffsets?: MatchOffset[] | undefined;
 }
 
 /**
- * <p>A rationale indicating why this item was matched by search. </p>
+ * A rationale indicating why this item was matched by search.
+ *
  * @public
  */
 export type MatchRationaleItem =
@@ -3604,7 +4028,8 @@ export type MatchRationaleItem =
  */
 export namespace MatchRationaleItem {
   /**
-   * <p>A list of TextMatchItems.</p>
+   * A list of TextMatchItems.
+   *
    * @public
    */
   export interface TextMatchesMember {
@@ -3631,378 +4056,441 @@ export namespace MatchRationaleItem {
 }
 
 /**
- * <p>The additional attributes of an inventory asset.</p>
+ * The additional attributes of an inventory asset.
+ *
  * @public
  */
 export interface AssetItemAdditionalAttributes {
   /**
-   * <p>The forms included in the additional attributes of an inventory asset.</p>
+   * The forms included in the additional attributes of an inventory asset.
+   *
    * @public
    */
   formsOutput?: FormOutput[] | undefined;
 
   /**
-   * <p>The read-only forms included in the additional attributes of an inventory asset.</p>
+   * The read-only forms included in the additional attributes of an inventory asset.
+   *
    * @public
    */
   readOnlyFormsOutput?: FormOutput[] | undefined;
 
   /**
-   * <p>The latest time series data points forms included in the additional attributes of an asset.</p>
+   * The latest time series data points forms included in the additional attributes of an asset.
+   *
    * @public
    */
   latestTimeSeriesDataPointFormsOutput?: TimeSeriesDataPointSummaryFormOutput[] | undefined;
 
   /**
-   * <p>List of rationales indicating why this item was matched by search.</p>
+   * List of rationales indicating why this item was matched by search.
+   *
    * @public
    */
   matchRationale?: MatchRationaleItem[] | undefined;
 }
 
 /**
- * <p>A Amazon DataZone inventory asset.</p>
+ * A Amazon DataZone inventory asset.
+ *
  * @public
  */
 export interface AssetItem {
   /**
-   * <p>The identifier of the Amazon DataZone domain in which the inventory asset exists.</p>
+   * The identifier of the Amazon DataZone domain in which the inventory asset exists.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>the identifier of the Amazon DataZone inventory asset.</p>
+   * the identifier of the Amazon DataZone inventory asset.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The name of the Amazon DataZone inventory asset.</p>
+   * The name of the Amazon DataZone inventory asset.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The identifier of the asset type of the specified Amazon DataZone inventory asset.</p>
+   * The identifier of the asset type of the specified Amazon DataZone inventory asset.
+   *
    * @public
    */
   typeIdentifier: string | undefined;
 
   /**
-   * <p>The revision of the inventory asset type.</p>
+   * The revision of the inventory asset type.
+   *
    * @public
    */
   typeRevision: string | undefined;
 
   /**
-   * <p>The external identifier of the Amazon DataZone inventory asset.</p>
+   * The external identifier of the Amazon DataZone inventory asset.
+   *
    * @public
    */
   externalIdentifier?: string | undefined;
 
   /**
-   * <p>The description of an Amazon DataZone inventory asset.</p>
+   * The description of an Amazon DataZone inventory asset.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The timestamp of when the Amazon DataZone inventory asset was created.</p>
+   * The timestamp of when the Amazon DataZone inventory asset was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The Amazon DataZone user who created the inventory asset.</p>
+   * The Amazon DataZone user who created the inventory asset.
+   *
    * @public
    */
   createdBy?: string | undefined;
 
   /**
-   * <p>The timestamp of when the first revision of the inventory asset was created.</p>
+   * The timestamp of when the first revision of the inventory asset was created.
+   *
    * @public
    */
   firstRevisionCreatedAt?: Date | undefined;
 
   /**
-   * <p>The Amazon DataZone user who created the first revision of the inventory asset.</p>
+   * The Amazon DataZone user who created the first revision of the inventory asset.
+   *
    * @public
    */
   firstRevisionCreatedBy?: string | undefined;
 
   /**
-   * <p>The glossary terms attached to the Amazon DataZone inventory asset.</p>
+   * The glossary terms attached to the Amazon DataZone inventory asset.
+   *
    * @public
    */
   glossaryTerms?: string[] | undefined;
 
   /**
-   * <p>The identifier of the Amazon DataZone project that owns the inventory asset.</p>
+   * The identifier of the Amazon DataZone project that owns the inventory asset.
+   *
    * @public
    */
   owningProjectId: string | undefined;
 
   /**
-   * <p>The additional attributes of a Amazon DataZone inventory asset. </p>
+   * The additional attributes of a Amazon DataZone inventory asset.
+   *
    * @public
    */
   additionalAttributes?: AssetItemAdditionalAttributes | undefined;
 
   /**
-   * <p>The restricted glossary terms accociated with an asset.</p>
+   * The restricted glossary terms accociated with an asset.
+   *
    * @public
    */
   governedGlossaryTerms?: string[] | undefined;
 }
 
 /**
- * <p>An asset published in an Amazon DataZone catalog.</p>
+ * An asset published in an Amazon DataZone catalog.
+ *
  * @public
  */
 export interface AssetListing {
   /**
-   * <p>The identifier of an asset published in an Amazon DataZone catalog. </p>
+   * The identifier of an asset published in an Amazon DataZone catalog.
+   *
    * @public
    */
   assetId?: string | undefined;
 
   /**
-   * <p>The revision of an asset published in an Amazon DataZone catalog. </p>
+   * The revision of an asset published in an Amazon DataZone catalog.
+   *
    * @public
    */
   assetRevision?: string | undefined;
 
   /**
-   * <p>The type of an asset published in an Amazon DataZone catalog. </p>
+   * The type of an asset published in an Amazon DataZone catalog.
+   *
    * @public
    */
   assetType?: string | undefined;
 
   /**
-   * <p>The timestamp of when an asset published in an Amazon DataZone catalog was created. </p>
+   * The timestamp of when an asset published in an Amazon DataZone catalog was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The metadata forms attached to an asset published in an Amazon DataZone catalog. </p>
+   * The metadata forms attached to an asset published in an Amazon DataZone catalog.
+   *
    * @public
    */
   forms?: string | undefined;
 
   /**
-   * <p>The latest time series data points forms included in the additional attributes of an asset.</p>
+   * The latest time series data points forms included in the additional attributes of an asset.
+   *
    * @public
    */
   latestTimeSeriesDataPointForms?: TimeSeriesDataPointSummaryFormOutput[] | undefined;
 
   /**
-   * <p>The glossary terms attached to an asset published in an Amazon DataZone catalog. </p>
+   * The glossary terms attached to an asset published in an Amazon DataZone catalog.
+   *
    * @public
    */
   glossaryTerms?: DetailedGlossaryTerm[] | undefined;
 
   /**
-   * <p>The restricted glossary terms associated with an asset.</p>
+   * The restricted glossary terms associated with an asset.
+   *
    * @public
    */
   governedGlossaryTerms?: DetailedGlossaryTerm[] | undefined;
 
   /**
-   * <p>The identifier of the project where an asset published in an Amazon DataZone catalog exists. </p>
+   * The identifier of the project where an asset published in an Amazon DataZone catalog exists.
+   *
    * @public
    */
   owningProjectId?: string | undefined;
 }
 
 /**
- * <p>Additional attributes of an inventory asset.</p>
+ * Additional attributes of an inventory asset.
+ *
  * @public
  */
 export interface AssetListingItemAdditionalAttributes {
   /**
-   * <p>The metadata forms that form additional attributes of the metadata asset.</p>
+   * The metadata forms that form additional attributes of the metadata asset.
+   *
    * @public
    */
   forms?: string | undefined;
 
   /**
-   * <p>List of rationales indicating why this item was matched by search.</p>
+   * List of rationales indicating why this item was matched by search.
+   *
    * @public
    */
   matchRationale?: MatchRationaleItem[] | undefined;
 
   /**
-   * <p>The latest time series data points forms included in the additional attributes of an asset.</p>
+   * The latest time series data points forms included in the additional attributes of an asset.
+   *
    * @public
    */
   latestTimeSeriesDataPointForms?: TimeSeriesDataPointSummaryFormOutput[] | undefined;
 }
 
 /**
- * <p>The details of an asset published in an Amazon DataZone catalog.</p>
+ * The details of an asset published in an Amazon DataZone catalog.
+ *
  * @public
  */
 export interface AssetListingItem {
   /**
-   * <p>The identifier of the listing (asset published in Amazon DataZone catalog).</p>
+   * The identifier of the listing (asset published in Amazon DataZone catalog).
+   *
    * @public
    */
   listingId?: string | undefined;
 
   /**
-   * <p>The revision of the listing (asset published in Amazon DataZone catalog).</p>
+   * The revision of the listing (asset published in Amazon DataZone catalog).
+   *
    * @public
    */
   listingRevision?: string | undefined;
 
   /**
-   * <p>The name of the inventory asset.</p>
+   * The name of the inventory asset.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The identifier of the inventory asset.</p>
+   * The identifier of the inventory asset.
+   *
    * @public
    */
   entityId?: string | undefined;
 
   /**
-   * <p>The revision of the inventory asset.</p>
+   * The revision of the inventory asset.
+   *
    * @public
    */
   entityRevision?: string | undefined;
 
   /**
-   * <p>The type of the inventory asset.</p>
+   * The type of the inventory asset.
+   *
    * @public
    */
   entityType?: string | undefined;
 
   /**
-   * <p>The description of an asset published in an Amazon DataZone catalog.</p>
+   * The description of an asset published in an Amazon DataZone catalog.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The timestamp of when an asset published in an Amazon DataZone catalog was created.</p>
+   * The timestamp of when an asset published in an Amazon DataZone catalog was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The Amazon DataZone user who created the listing.</p>
+   * The Amazon DataZone user who created the listing.
+   *
    * @public
    */
   listingCreatedBy?: string | undefined;
 
   /**
-   * <p>The Amazon DataZone user who updated the listing.</p>
+   * The Amazon DataZone user who updated the listing.
+   *
    * @public
    */
   listingUpdatedBy?: string | undefined;
 
   /**
-   * <p>Glossary terms attached to the inventory asset.</p>
+   * Glossary terms attached to the inventory asset.
+   *
    * @public
    */
   glossaryTerms?: DetailedGlossaryTerm[] | undefined;
 
   /**
-   * <p>The restricted glossary terms associated with an asset.</p>
+   * The restricted glossary terms associated with an asset.
+   *
    * @public
    */
   governedGlossaryTerms?: DetailedGlossaryTerm[] | undefined;
 
   /**
-   * <p>The identifier of the project that owns the inventory asset.</p>
+   * The identifier of the project that owns the inventory asset.
+   *
    * @public
    */
   owningProjectId?: string | undefined;
 
   /**
-   * <p>The additional attributes of an asset published in an Amazon DataZone catalog.</p>
+   * The additional attributes of an asset published in an Amazon DataZone catalog.
+   *
    * @public
    */
   additionalAttributes?: AssetListingItemAdditionalAttributes | undefined;
 }
 
 /**
- * <p>The revision of an inventory asset.</p>
+ * The revision of an inventory asset.
+ *
  * @public
  */
 export interface AssetRevision {
   /**
-   * <p>The Amazon DataZone user who created the inventory asset.</p>
+   * The Amazon DataZone user who created the inventory asset.
+   *
    * @public
    */
   domainId?: string | undefined;
 
   /**
-   * <p>The identifier of the inventory asset revision.</p>
+   * The identifier of the inventory asset revision.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The revision details of the inventory asset.</p>
+   * The revision details of the inventory asset.
+   *
    * @public
    */
   revision?: string | undefined;
 
   /**
-   * <p>The Amazon DataZone user who created the asset revision.</p>
+   * The Amazon DataZone user who created the asset revision.
+   *
    * @public
    */
   createdBy?: string | undefined;
 
   /**
-   * <p>The timestamp of when an inventory asset revison was created.</p>
+   * The timestamp of when an inventory asset revison was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 }
 
 /**
- * <p>The name map for assets.</p>
+ * The name map for assets.
+ *
  * @public
  */
 export interface AssetTargetNameMap {
   /**
-   * <p>The identifier of the inventory asset.</p>
+   * The identifier of the inventory asset.
+   *
    * @public
    */
   assetId: string | undefined;
 
   /**
-   * <p>The target name in the asset target name map.</p>
+   * The target name in the asset target name map.
+   *
    * @public
    */
   targetName: string | undefined;
 }
 
 /**
- * <p>The details of the form entry.</p>
+ * The details of the form entry.
+ *
  * @public
  */
 export interface FormEntryInput {
   /**
-   * <p>The type ID of the form entry.</p>
+   * The type ID of the form entry.
+   *
    * @public
    */
   typeIdentifier: string | undefined;
 
   /**
-   * <p>The type revision of the form entry.</p>
+   * The type revision of the form entry.
+   *
    * @public
    */
   typeRevision: string | undefined;
 
   /**
-   * <p>Specifies whether a form entry is required.</p>
+   * Specifies whether a form entry is required.
+   *
    * @public
    */
   required?: boolean | undefined;
@@ -4013,55 +4501,64 @@ export interface FormEntryInput {
  */
 export interface CreateAssetTypeInput {
   /**
-   * <p>The unique identifier of the Amazon DataZone domain where the custom asset type is being created.</p>
+   * The unique identifier of the Amazon DataZone domain where the custom asset type is being created.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The name of the custom asset type.</p>
+   * The name of the custom asset type.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The descripton of the custom asset type.</p>
+   * The descripton of the custom asset type.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The metadata forms that are to be attached to the custom asset type.</p>
+   * The metadata forms that are to be attached to the custom asset type.
+   *
    * @public
    */
   formsInput: Record<string, FormEntryInput> | undefined;
 
   /**
-   * <p>The identifier of the Amazon DataZone project that is to own the custom asset type.</p>
+   * The identifier of the Amazon DataZone project that is to own the custom asset type.
+   *
    * @public
    */
   owningProjectIdentifier: string | undefined;
 }
 
 /**
- * <p>The details of the form entry.</p>
+ * The details of the form entry.
+ *
  * @public
  */
 export interface FormEntryOutput {
   /**
-   * <p>The name of the type of the form entry.</p>
+   * The name of the type of the form entry.
+   *
    * @public
    */
   typeName: string | undefined;
 
   /**
-   * <p>The type revision of the form entry.</p>
+   * The type revision of the form entry.
+   *
    * @public
    */
   typeRevision: string | undefined;
 
   /**
-   * <p>Specifies whether a form entry is required.</p>
+   * Specifies whether a form entry is required.
+   *
    * @public
    */
   required?: boolean | undefined;
@@ -4072,73 +4569,85 @@ export interface FormEntryOutput {
  */
 export interface CreateAssetTypeOutput {
   /**
-   * <p>The ID of the Amazon DataZone domain in which the asset type was created.</p>
+   * The ID of the Amazon DataZone domain in which the asset type was created.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The name of the asset type.</p>
+   * The name of the asset type.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The revision of the custom asset type.</p>
+   * The revision of the custom asset type.
+   *
    * @public
    */
   revision: string | undefined;
 
   /**
-   * <p>The description of the custom asset type.</p>
+   * The description of the custom asset type.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The metadata forms that are attached to the asset type.</p>
+   * The metadata forms that are attached to the asset type.
+   *
    * @public
    */
   formsOutput: Record<string, FormEntryOutput> | undefined;
 
   /**
-   * <p>The ID of the Amazon DataZone project that currently owns this asset type.</p>
+   * The ID of the Amazon DataZone project that currently owns this asset type.
+   *
    * @public
    */
   owningProjectId?: string | undefined;
 
   /**
-   * <p>The ID of the Amazon DataZone domain where the asset type was originally created.</p>
+   * The ID of the Amazon DataZone domain where the asset type was originally created.
+   *
    * @public
    */
   originDomainId?: string | undefined;
 
   /**
-   * <p>The ID of the Amazon DataZone project where the asset type was originally created.</p>
+   * The ID of the Amazon DataZone project where the asset type was originally created.
+   *
    * @public
    */
   originProjectId?: string | undefined;
 
   /**
-   * <p>The timestamp of when the asset type is to be created.</p>
+   * The timestamp of when the asset type is to be created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The Amazon DataZone user who creates this custom asset type.</p>
+   * The Amazon DataZone user who creates this custom asset type.
+   *
    * @public
    */
   createdBy?: string | undefined;
 
   /**
-   * <p>The timestamp of when the custom type was created.</p>
+   * The timestamp of when the custom type was created.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The Amazon DataZone user that created the custom asset type.</p>
+   * The Amazon DataZone user that created the custom asset type.
+   *
    * @public
    */
   updatedBy?: string | undefined;
@@ -4149,13 +4658,15 @@ export interface CreateAssetTypeOutput {
  */
 export interface DeleteAssetTypeInput {
   /**
-   * <p>The ID of the Amazon DataZone domain in which the asset type is deleted.</p>
+   * The ID of the Amazon DataZone domain in which the asset type is deleted.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the asset type that is deleted.</p>
+   * The identifier of the asset type that is deleted.
+   *
    * @public
    */
   identifier: string | undefined;
@@ -4171,19 +4682,22 @@ export interface DeleteAssetTypeOutput {}
  */
 export interface GetAssetTypeInput {
   /**
-   * <p>The ID of the Amazon DataZone domain in which the asset type exists.</p>
+   * The ID of the Amazon DataZone domain in which the asset type exists.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The ID of the asset type.</p>
+   * The ID of the asset type.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The revision of the asset type.</p>
+   * The revision of the asset type.
+   *
    * @public
    */
   revision?: string | undefined;
@@ -4194,169 +4708,197 @@ export interface GetAssetTypeInput {
  */
 export interface GetAssetTypeOutput {
   /**
-   * <p>The ID of the Amazon DataZone domain in which the asset type exists.</p>
+   * The ID of the Amazon DataZone domain in which the asset type exists.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The name of the asset type.</p>
+   * The name of the asset type.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The revision of the asset type.</p>
+   * The revision of the asset type.
+   *
    * @public
    */
   revision: string | undefined;
 
   /**
-   * <p>The description of the asset type.</p>
+   * The description of the asset type.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The metadata forms attached to the asset type.</p>
+   * The metadata forms attached to the asset type.
+   *
    * @public
    */
   formsOutput: Record<string, FormEntryOutput> | undefined;
 
   /**
-   * <p>The ID of the Amazon DataZone project that owns the asset type.</p>
+   * The ID of the Amazon DataZone project that owns the asset type.
+   *
    * @public
    */
   owningProjectId: string | undefined;
 
   /**
-   * <p>The ID of the Amazon DataZone domain in which the asset type was originally created.</p>
+   * The ID of the Amazon DataZone domain in which the asset type was originally created.
+   *
    * @public
    */
   originDomainId?: string | undefined;
 
   /**
-   * <p>The ID of the Amazon DataZone project in which the asset type was originally created.</p>
+   * The ID of the Amazon DataZone project in which the asset type was originally created.
+   *
    * @public
    */
   originProjectId?: string | undefined;
 
   /**
-   * <p>The timestamp of when the asset type was created.</p>
+   * The timestamp of when the asset type was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The Amazon DataZone user who created the asset type.</p>
+   * The Amazon DataZone user who created the asset type.
+   *
    * @public
    */
   createdBy?: string | undefined;
 
   /**
-   * <p>The timestamp of when the asset type was updated.</p>
+   * The timestamp of when the asset type was updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The Amazon DataZone user that updated the asset type.</p>
+   * The Amazon DataZone user that updated the asset type.
+   *
    * @public
    */
   updatedBy?: string | undefined;
 }
 
 /**
- * <p>The details of the asset type.</p>
+ * The details of the asset type.
+ *
  * @public
  */
 export interface AssetTypeItem {
   /**
-   * <p>The identifier of the Amazon DataZone domain where the asset type exists.</p>
+   * The identifier of the Amazon DataZone domain where the asset type exists.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The name of the asset type.</p>
+   * The name of the asset type.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The revision of the asset type.</p>
+   * The revision of the asset type.
+   *
    * @public
    */
   revision: string | undefined;
 
   /**
-   * <p>The description of the asset type.</p>
+   * The description of the asset type.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The forms included in the details of the asset type.</p>
+   * The forms included in the details of the asset type.
+   *
    * @public
    */
   formsOutput: Record<string, FormEntryOutput> | undefined;
 
   /**
-   * <p>The identifier of the Amazon DataZone project that owns the asset type.</p>
+   * The identifier of the Amazon DataZone project that owns the asset type.
+   *
    * @public
    */
   owningProjectId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon DataZone domain where the asset type was originally created.</p>
+   * The identifier of the Amazon DataZone domain where the asset type was originally created.
+   *
    * @public
    */
   originDomainId?: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon DataZone project where the asset type exists.</p>
+   * The identifier of the Amazon DataZone project where the asset type exists.
+   *
    * @public
    */
   originProjectId?: string | undefined;
 
   /**
-   * <p>The timestamp of when the asset type was created.</p>
+   * The timestamp of when the asset type was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The Amazon DataZone user who created the asset type.</p>
+   * The Amazon DataZone user who created the asset type.
+   *
    * @public
    */
   createdBy?: string | undefined;
 
   /**
-   * <p>The timestamp of when the asset type was updated.</p>
+   * The timestamp of when the asset type was updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The Amazon DataZone user who updated the asset type.</p>
+   * The Amazon DataZone user who updated the asset type.
+   *
    * @public
    */
   updatedBy?: string | undefined;
 }
 
 /**
- * <p>The asset type for the rule details.</p>
+ * The asset type for the rule details.
+ *
  * @public
  */
 export interface AssetTypesForRule {
   /**
-   * <p>The selection mode for the rule.</p>
+   * The selection mode for the rule.
+   *
    * @public
    */
   selectionMode: RuleScopeSelectionMode | undefined;
 
   /**
-   * <p>The specific asset types that are included in the rule.</p>
+   * The specific asset types that are included in the rule.
+   *
    * @public
    */
   specificAssetTypes?: string[] | undefined;
@@ -4367,19 +4909,22 @@ export interface AssetTypesForRule {
  */
 export interface AssociateEnvironmentRoleInput {
   /**
-   * <p>The ID of the Amazon DataZone domain in which the environment role is associated.</p>
+   * The ID of the Amazon DataZone domain in which the environment role is associated.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The ID of the Amazon DataZone environment.</p>
+   * The ID of the Amazon DataZone environment.
+   *
    * @public
    */
   environmentIdentifier: string | undefined;
 
   /**
-   * <p>The ARN of the environment role.</p>
+   * The ARN of the environment role.
+   *
    * @public
    */
   environmentRoleArn: string | undefined;
@@ -4395,25 +4940,29 @@ export interface AssociateEnvironmentRoleOutput {}
  */
 export interface AssociateGovernedTermsInput {
   /**
-   * <p>The ID of the domain where governed terms are to be associated with an asset.</p>
+   * The ID of the domain where governed terms are to be associated with an asset.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The ID of the asset with which you want to associate a governed term.</p>
+   * The ID of the asset with which you want to associate a governed term.
+   *
    * @public
    */
   entityIdentifier: string | undefined;
 
   /**
-   * <p>The type of the asset with which you want to associate a governed term.</p>
+   * The type of the asset with which you want to associate a governed term.
+   *
    * @public
    */
   entityType: GovernedEntityType | undefined;
 
   /**
-   * <p>The glossary terms in a restricted glossary.</p>
+   * The glossary terms in a restricted glossary.
+   *
    * @public
    */
   governedGlossaryTerms: string[] | undefined;
@@ -4425,295 +4974,344 @@ export interface AssociateGovernedTermsInput {
 export interface AssociateGovernedTermsOutput {}
 
 /**
- * <p>The Amazon Athena properties of a connection.</p>
+ * The Amazon Athena properties of a connection.
+ *
  * @public
  */
 export interface AthenaPropertiesInput {
   /**
-   * <p>The Amazon Athena workgroup name of a connection.</p>
+   * The Amazon Athena workgroup name of a connection.
+   *
    * @public
    */
   workgroupName?: string | undefined;
 }
 
 /**
- * <p>The Amazon Athena properties of a connection.</p>
+ * The Amazon Athena properties of a connection.
+ *
  * @public
  */
 export interface AthenaPropertiesOutput {
   /**
-   * <p>The Amazon Athena workgroup name of a connection.</p>
+   * The Amazon Athena workgroup name of a connection.
+   *
    * @public
    */
   workgroupName?: string | undefined;
 }
 
 /**
- * <p>The Amazon Athena properties patch of a connection.</p>
+ * The Amazon Athena properties patch of a connection.
+ *
  * @public
  */
 export interface AthenaPropertiesPatch {
   /**
-   * <p>The Amazon Athena workgroup name of a connection.</p>
+   * The Amazon Athena workgroup name of a connection.
+   *
    * @public
    */
   workgroupName?: string | undefined;
 }
 
 /**
- * <p>The attribute error.</p>
+ * The attribute error.
+ *
  * @public
  */
 export interface AttributeError {
   /**
-   * <p>The attribute ID as part of the attribute error.</p>
+   * The attribute ID as part of the attribute error.
+   *
    * @public
    */
   attributeIdentifier: string | undefined;
 
   /**
-   * <p>The code generated as part of the attribute error.</p>
+   * The code generated as part of the attribute error.
+   *
    * @public
    */
   code: string | undefined;
 
   /**
-   * <p>The message generated as part of the attribute error.</p>
+   * The message generated as part of the attribute error.
+   *
    * @public
    */
   message: string | undefined;
 }
 
 /**
- * <p>The attribute input.</p>
+ * The attribute input.
+ *
  * @public
  */
 export interface AttributeInput {
   /**
-   * <p>The ID of the attribute.</p>
+   * The ID of the attribute.
+   *
    * @public
    */
   attributeIdentifier: string | undefined;
 
   /**
-   * <p>The metadata forms as part of the attribute input.</p>
+   * The metadata forms as part of the attribute input.
+   *
    * @public
    */
   forms: FormInput[] | undefined;
 }
 
 /**
- * <p>The authorization code properties of a connection.</p>
+ * The authorization code properties of a connection.
+ *
  * @public
  */
 export interface AuthorizationCodeProperties {
   /**
-   * <p>The authorization code of a connection.</p>
+   * The authorization code of a connection.
+   *
    * @public
    */
   authorizationCode?: string | undefined;
 
   /**
-   * <p>The redirect URI of a connection.</p>
+   * The redirect URI of a connection.
+   *
    * @public
    */
   redirectUri?: string | undefined;
 }
 
 /**
- * <p>The OAuth2Client application.</p>
+ * The OAuth2Client application.
+ *
  * @public
  */
 export interface OAuth2ClientApplication {
   /**
-   * <p>The user managed client application client ID in the OAuth2Client application.</p>
+   * The user managed client application client ID in the OAuth2Client application.
+   *
    * @public
    */
   userManagedClientApplicationClientId?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services managed client application reference in the OAuth2Client application.</p>
+   * The Amazon Web Services managed client application reference in the OAuth2Client application.
+   *
    * @public
    */
   aWSManagedClientApplicationReference?: string | undefined;
 }
 
 /**
- * <p>The GlueOAuth2 credentials of a connection.</p>
+ * The GlueOAuth2 credentials of a connection.
+ *
  * @public
  */
 export interface GlueOAuth2Credentials {
   /**
-   * <p>The user managed client application client secret of the connection. </p>
+   * The user managed client application client secret of the connection.
+   *
    * @public
    */
   userManagedClientApplicationClientSecret?: string | undefined;
 
   /**
-   * <p>The access token of a connection.</p>
+   * The access token of a connection.
+   *
    * @public
    */
   accessToken?: string | undefined;
 
   /**
-   * <p>The refresh token of the connection.</p>
+   * The refresh token of the connection.
+   *
    * @public
    */
   refreshToken?: string | undefined;
 
   /**
-   * <p>The jwt token of the connection.</p>
+   * The jwt token of the connection.
+   *
    * @public
    */
   jwtToken?: string | undefined;
 }
 
 /**
- * <p>The OAuth2 properties.</p>
+ * The OAuth2 properties.
+ *
  * @public
  */
 export interface OAuth2Properties {
   /**
-   * <p>The OAuth2 grant type of the OAuth2 properties.</p>
+   * The OAuth2 grant type of the OAuth2 properties.
+   *
    * @public
    */
   oAuth2GrantType?: OAuth2GrantType | undefined;
 
   /**
-   * <p>The OAuth2 client application of the OAuth2 properties.</p>
+   * The OAuth2 client application of the OAuth2 properties.
+   *
    * @public
    */
   oAuth2ClientApplication?: OAuth2ClientApplication | undefined;
 
   /**
-   * <p>The OAuth2 token URL of the OAuth2 properties.</p>
+   * The OAuth2 token URL of the OAuth2 properties.
+   *
    * @public
    */
   tokenUrl?: string | undefined;
 
   /**
-   * <p>The OAuth2 token URL parameter map of the OAuth2 properties.</p>
+   * The OAuth2 token URL parameter map of the OAuth2 properties.
+   *
    * @public
    */
   tokenUrlParametersMap?: Record<string, string> | undefined;
 
   /**
-   * <p>The authorization code properties of the OAuth2 properties.</p>
+   * The authorization code properties of the OAuth2 properties.
+   *
    * @public
    */
   authorizationCodeProperties?: AuthorizationCodeProperties | undefined;
 
   /**
-   * <p>The OAuth2 credentials of the OAuth2 properties.</p>
+   * The OAuth2 credentials of the OAuth2 properties.
+   *
    * @public
    */
   oAuth2Credentials?: GlueOAuth2Credentials | undefined;
 }
 
 /**
- * <p>The authentication configuration of a connection.</p>
+ * The authentication configuration of a connection.
+ *
  * @public
  */
 export interface AuthenticationConfiguration {
   /**
-   * <p>The authentication type of a connection.</p>
+   * The authentication type of a connection.
+   *
    * @public
    */
   authenticationType?: AuthenticationType | undefined;
 
   /**
-   * <p>The secret ARN of a connection.</p>
+   * The secret ARN of a connection.
+   *
    * @public
    */
   secretArn?: string | undefined;
 
   /**
-   * <p>The oAuth2 properties of a connection.</p>
+   * The oAuth2 properties of a connection.
+   *
    * @public
    */
   oAuth2Properties?: OAuth2Properties | undefined;
 }
 
 /**
- * <p>The basic authentication credentials of a connection.</p>
+ * The basic authentication credentials of a connection.
+ *
  * @public
  */
 export interface BasicAuthenticationCredentials {
   /**
-   * <p>The user name for the connecion.</p>
+   * The user name for the connecion.
+   *
    * @public
    */
   userName?: string | undefined;
 
   /**
-   * <p>The password for a connection.</p>
+   * The password for a connection.
+   *
    * @public
    */
   password?: string | undefined;
 }
 
 /**
- * <p>The authentication configuration of a connection.</p>
+ * The authentication configuration of a connection.
+ *
  * @public
  */
 export interface AuthenticationConfigurationInput {
   /**
-   * <p>The authentication type of a connection.</p>
+   * The authentication type of a connection.
+   *
    * @public
    */
   authenticationType?: AuthenticationType | undefined;
 
   /**
-   * <p>The oAuth2 properties of a connection.</p>
+   * The oAuth2 properties of a connection.
+   *
    * @public
    */
   oAuth2Properties?: OAuth2Properties | undefined;
 
   /**
-   * <p>The secret ARN of a connection.</p>
+   * The secret ARN of a connection.
+   *
    * @public
    */
   secretArn?: string | undefined;
 
   /**
-   * <p>The KMS key ARN of a connection.</p>
+   * The KMS key ARN of a connection.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The basic authentication credentials of a connection.</p>
+   * The basic authentication credentials of a connection.
+   *
    * @public
    */
   basicAuthenticationCredentials?: BasicAuthenticationCredentials | undefined;
 
   /**
-   * <p>The custom authentication credentials of a connection.</p>
+   * The custom authentication credentials of a connection.
+   *
    * @public
    */
   customAuthenticationCredentials?: Record<string, string> | undefined;
 }
 
 /**
- * <p>The authentication configuration patch of a connection. </p>
+ * The authentication configuration patch of a connection.
+ *
  * @public
  */
 export interface AuthenticationConfigurationPatch {
   /**
-   * <p>The secret ARN of a connection.</p>
+   * The secret ARN of a connection.
+   *
    * @public
    */
   secretArn?: string | undefined;
 
   /**
-   * <p>The basic authentication credentials of a connection.</p>
+   * The basic authentication credentials of a connection.
+   *
    * @public
    */
   basicAuthenticationCredentials?: BasicAuthenticationCredentials | undefined;
 }
 
 /**
- * <p>The account ID of a project.</p>
+ * The account ID of a project.
+ *
  * @public
  */
 export type AwsAccount =
@@ -4726,7 +5324,8 @@ export type AwsAccount =
  */
 export namespace AwsAccount {
   /**
-   * <p>The account ID of a project.</p>
+   * The account ID of a project.
+   *
    * @public
    */
   export interface AwsAccountIdMember {
@@ -4736,7 +5335,8 @@ export namespace AwsAccount {
   }
 
   /**
-   * <p>The account ID path of a project.</p>
+   * The account ID path of a project.
+   *
    * @public
    */
   export interface AwsAccountIdPathMember {
@@ -4766,48 +5366,56 @@ export namespace AwsAccount {
 }
 
 /**
- * <p>The location of a project.</p>
+ * The location of a project.
+ *
  * @public
  */
 export interface AwsLocation {
   /**
-   * <p>The access role of a connection.</p>
+   * The access role of a connection.
+   *
    * @public
    */
   accessRole?: string | undefined;
 
   /**
-   * <p>The account ID of a connection.</p>
+   * The account ID of a connection.
+   *
    * @public
    */
   awsAccountId?: string | undefined;
 
   /**
-   * <p>The Region of a connection.</p>
+   * The Region of a connection.
+   *
    * @public
    */
   awsRegion?: string | undefined;
 
   /**
-   * <p>The IAM connection ID of a connection.</p>
+   * The IAM connection ID of a connection.
+   *
    * @public
    */
   iamConnectionId?: string | undefined;
 }
 
 /**
- * <p>The results of the BatchGetAttribute action.</p>
+ * The results of the BatchGetAttribute action.
+ *
  * @public
  */
 export interface BatchGetAttributeOutput {
   /**
-   * <p>The attribute ID.</p>
+   * The attribute ID.
+   *
    * @public
    */
   attributeIdentifier: string | undefined;
 
   /**
-   * <p>The metadata forms that are part of the results of the BatchGetAttribute action.</p>
+   * The metadata forms that are part of the results of the BatchGetAttribute action.
+   *
    * @public
    */
   forms?: FormOutput[] | undefined;
@@ -4818,31 +5426,36 @@ export interface BatchGetAttributeOutput {
  */
 export interface BatchGetAttributesMetadataInput {
   /**
-   * <p>The domain ID where you want to get the attribute metadata.</p>
+   * The domain ID where you want to get the attribute metadata.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The entity type for which you want to get attribute metadata.</p>
+   * The entity type for which you want to get attribute metadata.
+   *
    * @public
    */
   entityType: AttributeEntityType | undefined;
 
   /**
-   * <p>The entity ID for which you want to get attribute metadata.</p>
+   * The entity ID for which you want to get attribute metadata.
+   *
    * @public
    */
   entityIdentifier: string | undefined;
 
   /**
-   * <p>The entity revision for which you want to get attribute metadata.</p>
+   * The entity revision for which you want to get attribute metadata.
+   *
    * @public
    */
   entityRevision?: string | undefined;
 
   /**
-   * <p>The attribute identifier.</p>
+   * The attribute identifier.
+   *
    * @public
    */
   attributeIdentifiers: string[] | undefined;
@@ -4853,25 +5466,29 @@ export interface BatchGetAttributesMetadataInput {
  */
 export interface BatchGetAttributesMetadataOutput {
   /**
-   * <p>The results of the BatchGetAttributesMetadata action.</p>
+   * The results of the BatchGetAttributesMetadata action.
+   *
    * @public
    */
   attributes?: BatchGetAttributeOutput[] | undefined;
 
   /**
-   * <p>The errors generated when the BatchGetAttributesMetadata action is invoked.</p>
+   * The errors generated when the BatchGetAttributesMetadata action is invoked.
+   *
    * @public
    */
   errors: AttributeError[] | undefined;
 }
 
 /**
- * <p>The results of the BatchPutAttribute action.</p>
+ * The results of the BatchPutAttribute action.
+ *
  * @public
  */
 export interface BatchPutAttributeOutput {
   /**
-   * <p>The attribute ID.</p>
+   * The attribute ID.
+   *
    * @public
    */
   attributeIdentifier: string | undefined;
@@ -4882,31 +5499,36 @@ export interface BatchPutAttributeOutput {
  */
 export interface BatchPutAttributesMetadataInput {
   /**
-   * <p>The domain ID where you want to write the attribute metadata.</p>
+   * The domain ID where you want to write the attribute metadata.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The entity type for which you want to write the attribute metadata.</p>
+   * The entity type for which you want to write the attribute metadata.
+   *
    * @public
    */
   entityType: AttributeEntityType | undefined;
 
   /**
-   * <p>The entity ID for which you want to write the attribute metadata.</p>
+   * The entity ID for which you want to write the attribute metadata.
+   *
    * @public
    */
   entityIdentifier: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.</p>
+   * A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The attributes of the metadata.</p>
+   * The attributes of the metadata.
+   *
    * @public
    */
   attributes: AttributeInput[] | undefined;
@@ -4917,13 +5539,15 @@ export interface BatchPutAttributesMetadataInput {
  */
 export interface BatchPutAttributesMetadataOutput {
   /**
-   * <p>The errors generated when the BatchPutAttributeMetadata action is invoked.</p>
+   * The errors generated when the BatchPutAttributeMetadata action is invoked.
+   *
    * @public
    */
   errors?: AttributeError[] | undefined;
 
   /**
-   * <p>The results of the BatchPutAttributeMetadata action.</p>
+   * The results of the BatchPutAttributeMetadata action.
+   *
    * @public
    */
   attributes?: BatchPutAttributeOutput[] | undefined;
@@ -4934,13 +5558,15 @@ export interface BatchPutAttributesMetadataOutput {
  */
 export interface CancelMetadataGenerationRunInput {
   /**
-   * <p>The ID of the Amazon DataZone domain in which the metadata generation run is to be cancelled.</p>
+   * The ID of the Amazon DataZone domain in which the metadata generation run is to be cancelled.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The ID of the metadata generation run.</p>
+   * The ID of the metadata generation run.
+   *
    * @public
    */
   identifier: string | undefined;
@@ -4956,13 +5582,15 @@ export interface CancelMetadataGenerationRunOutput {}
  */
 export interface CancelSubscriptionInput {
   /**
-   * <p>The unique identifier of the Amazon DataZone domain where the subscription request is being cancelled.</p>
+   * The unique identifier of the Amazon DataZone domain where the subscription request is being cancelled.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the subscription that is being cancelled.</p>
+   * The unique identifier of the subscription that is being cancelled.
+   *
    * @public
    */
   identifier: string | undefined;
@@ -4973,416 +5601,485 @@ export interface CancelSubscriptionInput {
  */
 export interface CancelSubscriptionOutput {
   /**
-   * <p>The identifier of the subscription.</p>
+   * The identifier of the subscription.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>Specifies the Amazon DataZone user who is cancelling the subscription.</p>
+   * Specifies the Amazon DataZone user who is cancelling the subscription.
+   *
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The Amazon DataZone user that cancelled the subscription.</p>
+   * The Amazon DataZone user that cancelled the subscription.
+   *
    * @public
    */
   updatedBy?: string | undefined;
 
   /**
-   * <p>The unique identifier of the Amazon DataZone domain where the subscription is being cancelled.</p>
+   * The unique identifier of the Amazon DataZone domain where the subscription is being cancelled.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The status of the request to cancel the subscription.</p>
+   * The status of the request to cancel the subscription.
+   *
    * @public
    */
   status: SubscriptionStatus | undefined;
 
   /**
-   * <p>The timestamp that specifies when the request to cancel the subscription was created.</p>
+   * The timestamp that specifies when the request to cancel the subscription was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp that specifies when the subscription was cancelled.</p>
+   * The timestamp that specifies when the subscription was cancelled.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The Amazon DataZone user who is made a subscriber to the specified asset by the subscription that is being cancelled.</p>
+   * The Amazon DataZone user who is made a subscriber to the specified asset by the subscription that is being cancelled.
+   *
    * @public
    */
   subscribedPrincipal: SubscribedPrincipal | undefined;
 
   /**
-   * <p>The asset to which a subscription is being cancelled.</p>
+   * The asset to which a subscription is being cancelled.
+   *
    * @public
    */
   subscribedListing: SubscribedListing | undefined;
 
   /**
-   * <p>The unique ID of the subscripton request for the subscription that is being cancelled.</p>
+   * The unique ID of the subscripton request for the subscription that is being cancelled.
+   *
    * @public
    */
   subscriptionRequestId?: string | undefined;
 
   /**
-   * <p>Specifies whether the permissions to the asset are retained after the subscription is cancelled.</p>
+   * Specifies whether the permissions to the asset are retained after the subscription is cancelled.
+   *
    * @public
    */
   retainPermissions?: boolean | undefined;
 }
 
 /**
- * <p>The information about a cell in a notebook run in Amazon SageMaker Unified Studio.</p>
+ * The information about a cell in a notebook run in Amazon SageMaker Unified Studio.
+ *
  * @public
  */
 export interface CellInformation {}
 
 /**
- * <p>Part of the provisioning properties of the environment blueprint.</p>
+ * Part of the provisioning properties of the environment blueprint.
+ *
  * @public
  */
 export interface CloudFormationProperties {
   /**
-   * <p>The template URL of the cloud formation provisioning properties of the environment blueprint.</p>
+   * The template URL of the cloud formation provisioning properties of the environment blueprint.
+   *
    * @public
    */
   templateUrl: string | undefined;
 }
 
 /**
- * <p>The compute configuration for a notebook run in Amazon SageMaker Unified Studio.</p>
+ * The compute configuration for a notebook run in Amazon SageMaker Unified Studio.
+ *
  * @public
  */
 export interface ComputeConfig {
   /**
-   * <p>The instance type for the notebook run compute.</p>
+   * The instance type for the notebook run compute.
+   *
    * @public
    */
   instanceType?: string | undefined;
 
   /**
-   * <p>The environment version for the notebook run compute.</p>
+   * The environment version for the notebook run compute.
+   *
    * @public
    */
   environmentVersion?: string | undefined;
 }
 
 /**
- * <p>The details of the parameters for the configurable environment action.</p>
+ * The details of the parameters for the configurable environment action.
+ *
  * @public
  */
 export interface ConfigurableActionParameter {
   /**
-   * <p>The key of the configurable action parameter.</p>
+   * The key of the configurable action parameter.
+   *
    * @public
    */
   key?: string | undefined;
 
   /**
-   * <p>The value of the configurable action parameter.</p>
+   * The value of the configurable action parameter.
+   *
    * @public
    */
   value?: string | undefined;
 }
 
 /**
- * <p>The configurable action of a Amazon DataZone environment.</p>
+ * The configurable action of a Amazon DataZone environment.
+ *
  * @public
  */
 export interface ConfigurableEnvironmentAction {
   /**
-   * <p>The type of a configurable action in a Amazon DataZone environment.</p>
+   * The type of a configurable action in a Amazon DataZone environment.
+   *
    * @public
    */
   type: string | undefined;
 
   /**
-   * <p>The authentication type of a configurable action of a Amazon DataZone environment. </p>
+   * The authentication type of a configurable action of a Amazon DataZone environment.
+   *
    * @public
    */
   auth?: ConfigurableActionTypeAuthorization | undefined;
 
   /**
-   * <p>The parameters of a configurable action in a Amazon DataZone environment.</p>
+   * The parameters of a configurable action in a Amazon DataZone environment.
+   *
    * @public
    */
   parameters: ConfigurableActionParameter[] | undefined;
 }
 
 /**
- * <p>The configuration of a connection.</p>
+ * The configuration of a connection.
+ *
  * @public
  */
 export interface Configuration {
   /**
-   * <p>The classification of the connection configuration.</p>
+   * The classification of the connection configuration.
+   *
    * @public
    */
   classification?: string | undefined;
 
   /**
-   * <p>The properties of the connection configuration.</p>
+   * The properties of the connection configuration.
+   *
    * @public
    */
   properties?: Record<string, string> | undefined;
 }
 
 /**
- * <p>The credentials of a connection.</p>
+ * The credentials of a connection.
+ *
  * @public
  */
 export interface ConnectionCredentials {
   /**
-   * <p>The access key ID of a connection.</p>
+   * The access key ID of a connection.
+   *
    * @public
    */
   accessKeyId?: string | undefined;
 
   /**
-   * <p>The secret access key of a connection.</p>
+   * The secret access key of a connection.
+   *
    * @public
    */
   secretAccessKey?: string | undefined;
 
   /**
-   * <p>The session token of a connection credentials.</p>
+   * The session token of a connection credentials.
+   *
    * @public
    */
   sessionToken?: string | undefined;
 
   /**
-   * <p>The expiration of the connection credentials.</p>
+   * The expiration of the connection credentials.
+   *
    * @public
    */
   expiration?: Date | undefined;
 }
 
 /**
- * <p>Contains the Git connection properties that you specify when creating a Git connection.</p>
+ * Contains the Git connection properties that you specify when creating a Git connection.
+ *
  * @public
  */
 export interface GitPropertiesInput {
   /**
-   * <p>The ARN of the CodeConnections connection used to connect to the Git repository.</p>
+   * The ARN of the CodeConnections connection used to connect to the Git repository.
+   *
    * @public
    */
   codeConnectionArn: string | undefined;
 
   /**
-   * <p>The ID of the Git repository. This is the owner and repository name, for example, owner/repo-name.</p>
+   * The ID of the Git repository. This is the owner and repository name, for example, owner/repo-name.
+   *
    * @public
    */
   repositoryId: string | undefined;
 
   /**
-   * <p>The default branch of the Git repository.</p>
+   * The default branch of the Git repository.
+   *
    * @public
    */
   defaultBranch: string | undefined;
 }
 
 /**
- * <p>Physical connection requirements of a connection.</p>
+ * Physical connection requirements of a connection.
+ *
  * @public
  */
 export interface PhysicalConnectionRequirements {
   /**
-   * <p>The subnet ID of the physical connection requirements of a connection. </p>
+   * The subnet ID of the physical connection requirements of a connection.
+   *
    * @public
    */
   subnetId?: string | undefined;
 
   /**
-   * <p>The subnet ID list of the physical connection requirements of a connection. </p>
+   * The subnet ID list of the physical connection requirements of a connection.
+   *
    * @public
    */
   subnetIdList?: string[] | undefined;
 
   /**
-   * <p>The group ID list of the physical connection requirements of a connection. </p>
+   * The group ID list of the physical connection requirements of a connection.
+   *
    * @public
    */
   securityGroupIdList?: string[] | undefined;
 
   /**
-   * <p>The availability zone of the physical connection requirements of a connection. </p>
+   * The availability zone of the physical connection requirements of a connection.
+   *
    * @public
    */
   availabilityZone?: string | undefined;
 }
 
 /**
- * <p>The Amazon Web Services Glue connecton input.</p>
+ * The Amazon Web Services Glue connecton input.
+ *
  * @public
  */
 export interface GlueConnectionInput {
   /**
-   * <p>The connection properties of the Amazon Web Services Glue connection.</p>
+   * The connection properties of the Amazon Web Services Glue connection.
+   *
    * @public
    */
   connectionProperties?: Record<string, string> | undefined;
 
   /**
-   * <p>The physical connection requirements for the Amazon Web Services Glue connection.</p>
+   * The physical connection requirements for the Amazon Web Services Glue connection.
+   *
    * @public
    */
   physicalConnectionRequirements?: PhysicalConnectionRequirements | undefined;
 
   /**
-   * <p>The name of the Amazon Web Services Glue connection.</p>
+   * The name of the Amazon Web Services Glue connection.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The description of the Amazon Web Services Glue connection.</p>
+   * The description of the Amazon Web Services Glue connection.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The connection type of the Amazon Web Services Glue connection.</p>
+   * The connection type of the Amazon Web Services Glue connection.
+   *
    * @public
    */
   connectionType?: GlueConnectionType | undefined;
 
   /**
-   * <p>The match criteria of the Amazon Web Services Glue connection.</p>
+   * The match criteria of the Amazon Web Services Glue connection.
+   *
    * @public
    */
   matchCriteria?: string | undefined;
 
   /**
-   * <p>Speciefies whether to validate credentials of the Amazon Web Services Glue connection.</p>
+   * Speciefies whether to validate credentials of the Amazon Web Services Glue connection.
+   *
    * @public
    */
   validateCredentials?: boolean | undefined;
 
   /**
-   * <p>Speciefies whether to validate for compute environments of the Amazon Web Services Glue connection.</p>
+   * Speciefies whether to validate for compute environments of the Amazon Web Services Glue connection.
+   *
    * @public
    */
   validateForComputeEnvironments?: ComputeEnvironments[] | undefined;
 
   /**
-   * <p>The Spark properties of the Amazon Web Services Glue connection.</p>
+   * The Spark properties of the Amazon Web Services Glue connection.
+   *
    * @public
    */
   sparkProperties?: Record<string, string> | undefined;
 
   /**
-   * <p>The Amazon Athena properties of the Amazon Web Services Glue connection.</p>
+   * The Amazon Athena properties of the Amazon Web Services Glue connection.
+   *
    * @public
    */
   athenaProperties?: Record<string, string> | undefined;
 
   /**
-   * <p>The Python properties of the Amazon Web Services Glue connection.</p>
+   * The Python properties of the Amazon Web Services Glue connection.
+   *
    * @public
    */
   pythonProperties?: Record<string, string> | undefined;
 
   /**
-   * <p>The authentication configuration of the Amazon Web Services Glue connection.</p>
+   * The authentication configuration of the Amazon Web Services Glue connection.
+   *
    * @public
    */
   authenticationConfiguration?: AuthenticationConfigurationInput | undefined;
 }
 
 /**
- * <p>The Amazon Web Services Glue properties of a connection.</p>
+ * The Amazon Web Services Glue properties of a connection.
+ *
  * @public
  */
 export interface GluePropertiesInput {
   /**
-   * <p>The Amazon Web Services Glue connection.</p>
+   * The Amazon Web Services Glue connection.
+   *
    * @public
    */
   glueConnectionInput?: GlueConnectionInput | undefined;
 }
 
 /**
- * <p>The hyper pod properties of a Amazon Web Services Glue properties patch.</p>
+ * The hyper pod properties of a Amazon Web Services Glue properties patch.
+ *
  * @public
  */
 export interface HyperPodPropertiesInput {
   /**
-   * <p>The cluster name the hyper pod properties.</p>
+   * The cluster name the hyper pod properties.
+   *
    * @public
    */
   clusterName: string | undefined;
 }
 
 /**
- * <p>The IAM properties of a connection.</p>
+ * The IAM properties of a connection.
+ *
  * @public
  */
 export interface IamPropertiesInput {
   /**
-   * <p>Specifies whether Amazon Web Services Glue lineage sync is enabled for a connection.</p>
+   * Specifies whether Amazon Web Services Glue lineage sync is enabled for a connection.
+   *
    * @public
    */
   glueLineageSyncEnabled?: boolean | undefined;
 
   /**
-   * <p>The ARN of the IAM role to associate with the connection as the project user role. To use this operation, you must have <code>iam:PassRole</code> permission for this role.</p>
+   * The ARN of the IAM role to associate with the connection as the project user role. To use this operation, you must have `iam:PassRole` permission for this role.
+   *
    * @public
    */
   roleArn?: string | undefined;
 }
 
 /**
- * <p>The lakehouse properties of a connection.</p>
+ * The lakehouse properties of a connection.
+ *
  * @public
  */
 export interface LakehousePropertiesInput {
   /**
-   * <p>Specifies whether to enable Glue lineage sync for tables managed by Glue crawlers.</p>
+   * Specifies whether to enable Glue lineage sync for tables managed by Glue crawlers.
+   *
    * @public
    */
   glueLineageSyncEnabled?: boolean | undefined;
 }
 
 /**
- * <p>The MLflow properties of a connection.</p>
+ * The MLflow properties of a connection.
+ *
  * @public
  */
 export interface MlflowPropertiesInput {
   /**
-   * <p>The tracking server ARN as part of the MLflow properties of a connection.</p>
+   * The tracking server ARN as part of the MLflow properties of a connection.
+   *
    * @public
    */
   trackingServerArn?: string | undefined;
 }
 
 /**
- * <p>The username and password of a connection.</p>
+ * The username and password of a connection.
+ *
  * @public
  */
 export interface UsernamePassword {
   /**
-   * <p>The password of a connection.</p>
+   * The password of a connection.
+   *
    * @public
    */
   password: string | undefined;
 
   /**
-   * <p>The username of a connection.</p>
+   * The username of a connection.
+   *
    * @public
    */
   username: string | undefined;
 }
 
 /**
- * <p>Amazon Redshift credentials of a connection.</p>
+ * Amazon Redshift credentials of a connection.
+ *
  * @public
  */
 export type RedshiftCredentials =
@@ -5395,7 +6092,8 @@ export type RedshiftCredentials =
  */
 export namespace RedshiftCredentials {
   /**
-   * <p>The secret ARN of the Amazon Redshift credentials of a connection.</p>
+   * The secret ARN of the Amazon Redshift credentials of a connection.
+   *
    * @public
    */
   export interface SecretArnMember {
@@ -5405,7 +6103,8 @@ export namespace RedshiftCredentials {
   }
 
   /**
-   * <p>The username and password of the Amazon Redshift credentials of a connection.</p>
+   * The username and password of the Amazon Redshift credentials of a connection.
+   *
    * @public
    */
   export interface UsernamePasswordMember {
@@ -5435,37 +6134,43 @@ export namespace RedshiftCredentials {
 }
 
 /**
- * <p>The lineage sync schedule.</p>
+ * The lineage sync schedule.
+ *
  * @public
  */
 export interface LineageSyncSchedule {
   /**
-   * <p>The lineage sync schedule.</p>
+   * The lineage sync schedule.
+   *
    * @public
    */
   schedule?: string | undefined;
 }
 
 /**
- * <p>The Amaon Redshift lineage sync configuration.</p>
+ * The Amaon Redshift lineage sync configuration.
+ *
  * @public
  */
 export interface RedshiftLineageSyncConfigurationInput {
   /**
-   * <p>Specifies whether the Amaon Redshift lineage sync configuration is enabled.</p>
+   * Specifies whether the Amaon Redshift lineage sync configuration is enabled.
+   *
    * @public
    */
   enabled?: boolean | undefined;
 
   /**
-   * <p>The schedule of the Amaon Redshift lineage sync configuration.</p>
+   * The schedule of the Amaon Redshift lineage sync configuration.
+   *
    * @public
    */
   schedule?: LineageSyncSchedule | undefined;
 }
 
 /**
- * <p>The Amazon Redshift storage properties.</p>
+ * The Amazon Redshift storage properties.
+ *
  * @public
  */
 export type RedshiftStorageProperties =
@@ -5478,7 +6183,8 @@ export type RedshiftStorageProperties =
  */
 export namespace RedshiftStorageProperties {
   /**
-   * <p>The cluster name in the Amazon Redshift storage properties.</p>
+   * The cluster name in the Amazon Redshift storage properties.
+   *
    * @public
    */
   export interface ClusterNameMember {
@@ -5488,7 +6194,8 @@ export namespace RedshiftStorageProperties {
   }
 
   /**
-   * <p>The workgroup name in the Amazon Redshift storage properties.</p>
+   * The workgroup name in the Amazon Redshift storage properties.
+   *
    * @public
    */
   export interface WorkgroupNameMember {
@@ -5518,379 +6225,442 @@ export namespace RedshiftStorageProperties {
 }
 
 /**
- * <p>The Amazon Redshift properties.</p>
+ * The Amazon Redshift properties.
+ *
  * @public
  */
 export interface RedshiftPropertiesInput {
   /**
-   * <p>The Amazon Redshift storage.</p>
+   * The Amazon Redshift storage.
+   *
    * @public
    */
   storage?: RedshiftStorageProperties | undefined;
 
   /**
-   * <p>The Amazon Redshift database name.</p>
+   * The Amazon Redshift database name.
+   *
    * @public
    */
   databaseName?: string | undefined;
 
   /**
-   * <p>The Amazon Redshift host.</p>
+   * The Amazon Redshift host.
+   *
    * @public
    */
   host?: string | undefined;
 
   /**
-   * <p>The Amaon Redshift port.</p>
+   * The Amaon Redshift port.
+   *
    * @public
    */
   port?: number | undefined;
 
   /**
-   * <p>The Amaon Redshift credentials.</p>
+   * The Amaon Redshift credentials.
+   *
    * @public
    */
   credentials?: RedshiftCredentials | undefined;
 
   /**
-   * <p>The lineage sync of the Amazon Redshift.</p>
+   * The lineage sync of the Amazon Redshift.
+   *
    * @public
    */
   lineageSync?: RedshiftLineageSyncConfigurationInput | undefined;
 }
 
 /**
- * <p>The Amazon S3 properties of a connection.</p>
+ * The Amazon S3 properties of a connection.
+ *
  * @public
  */
 export interface S3PropertiesInput {
   /**
-   * <p>The Amazon S3 URI that's part of the Amazon S3 properties of a connection.</p>
+   * The Amazon S3 URI that's part of the Amazon S3 properties of a connection.
+   *
    * @public
    */
   s3Uri: string | undefined;
 
   /**
-   * <p>The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a connection.</p>
+   * The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a connection.
+   *
    * @public
    */
   s3AccessGrantLocationId?: string | undefined;
 
   /**
-   * <p>Specifies whether to register the Amazon S3 Access Grant location.</p>
+   * Specifies whether to register the Amazon S3 Access Grant location.
+   *
    * @public
    */
   registerS3AccessGrantLocation?: boolean | undefined;
 }
 
 /**
- * <p>Contains the network and authentication settings for a connection, including connection credentials, physical network requirements, and compute-environment validation options.</p>
+ * Contains the network and authentication settings for a connection, including connection credentials, physical network requirements, and compute-environment validation options.
+ *
  * @public
  */
 export interface ConnectivityProperties {
   /**
-   * <p>The connection properties for this configuration.</p>
+   * The connection properties for this configuration.
+   *
    * @public
    */
   connectionProperties?: Record<string, string> | undefined;
 
   /**
-   * <p>The physical network requirements for the connection, such as the subnet, security group, and VPC settings needed to reach the data source.</p>
+   * The physical network requirements for the connection, such as the subnet, security group, and VPC settings needed to reach the data source.
+   *
    * @public
    */
   physicalConnectionRequirements?: PhysicalConnectionRequirements | undefined;
 
   /**
-   * <p>The name of the connectivity configuration.</p>
+   * The name of the connectivity configuration.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The description of the connectivity configuration.</p>
+   * The description of the connectivity configuration.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Specifies whether to validate credentials for the connectivity configuration. Defaults to true if not specified.</p>
+   * Specifies whether to validate credentials for the connectivity configuration. Defaults to true if not specified.
+   *
    * @public
    */
   validateCredentials?: boolean | undefined;
 
   /**
-   * <p>The compute environments to use when validating connectivity. The service validates that the connection is reachable from each specified environment.</p>
+   * The compute environments to use when validating connectivity. The service validates that the connection is reachable from each specified environment.
+   *
    * @public
    */
   validateForComputeEnvironments?: ComputeEnvironments[] | undefined;
 
   /**
-   * <p>The Spark properties for this configuration.</p>
+   * The Spark properties for this configuration.
+   *
    * @public
    */
   sparkProperties?: Record<string, string> | undefined;
 
   /**
-   * <p>The Athena properties for this configuration.</p>
+   * The Athena properties for this configuration.
+   *
    * @public
    */
   athenaProperties?: Record<string, string> | undefined;
 
   /**
-   * <p>The Python properties for this configuration.</p>
+   * The Python properties for this configuration.
+   *
    * @public
    */
   pythonProperties?: Record<string, string> | undefined;
 
   /**
-   * <p>The authentication settings for this configuration.</p>
+   * The authentication settings for this configuration.
+   *
    * @public
    */
   authenticationConfiguration?: AuthenticationConfigurationInput | undefined;
 }
 
 /**
- * <p>Contains the configuration for mapping user identities to Snowflake users, including the username attribute and optional prefix applied during the mapping.</p>
+ * Contains the configuration for mapping user identities to Snowflake users, including the username attribute and optional prefix applied during the mapping.
+ *
  * @public
  */
 export interface IdentityMapping {
   /**
-   * <p>The username attribute used for the identity mapping.</p>
+   * The username attribute used for the identity mapping.
+   *
    * @public
    */
   usernameAttribute: string | undefined;
 
   /**
-   * <p>The prefix used for the identity mapping.</p>
+   * The prefix used for the identity mapping.
+   *
    * @public
    */
   prefix?: string | undefined;
 }
 
 /**
- * <p>Contains the settings for configuring lineage sync on a Snowflake connection, including the schedule, timezone, and enabled state.</p>
+ * Contains the settings for configuring lineage sync on a Snowflake connection, including the schedule, timezone, and enabled state.
+ *
  * @public
  */
 export interface LineageSyncInput {
   /**
-   * <p>The timezone of the lineage sync schedule.</p>
+   * The timezone of the lineage sync schedule.
+   *
    * @public
    */
   timezone?: Timezone | undefined;
 
   /**
-   * <p>Specifies whether lineage sync is enabled.</p>
+   * Specifies whether lineage sync is enabled.
+   *
    * @public
    */
   enabled: boolean | undefined;
 
   /**
-   * <p>The schedule of the lineage sync.</p>
+   * The schedule of the lineage sync.
+   *
    * @public
    */
   schedule?: string | undefined;
 }
 
 /**
- * <p>Contains the Snowflake-specific settings required when creating or updating a connection, including the Snowflake role, identity mapping, and lineage sync configuration.</p>
+ * Contains the Snowflake-specific settings required when creating or updating a connection, including the Snowflake role, identity mapping, and lineage sync configuration.
+ *
  * @public
  */
 export interface SnowflakePropertiesInput {
   /**
-   * <p>The connectivity properties of the Snowflake connection.</p>
+   * The connectivity properties of the Snowflake connection.
+   *
    * @public
    */
   connectivityProperties?: ConnectivityProperties | undefined;
 
   /**
-   * <p>The Snowflake role used to access Snowflake resources.</p>
+   * The Snowflake role used to access Snowflake resources.
+   *
    * @public
    */
   snowflakeRole: string | undefined;
 
   /**
-   * <p>The identity mapping configuration for the Snowflake connection.</p>
+   * The identity mapping configuration for the Snowflake connection.
+   *
    * @public
    */
   identityMapping: IdentityMapping | undefined;
 
   /**
-   * <p>The lineage sync configuration for the Snowflake connection.</p>
+   * The lineage sync configuration for the Snowflake connection.
+   *
    * @public
    */
   lineageSync?: LineageSyncInput | undefined;
 }
 
 /**
- * <p>The Spark EMR properties.</p>
+ * The Spark EMR properties.
+ *
  * @public
  */
 export interface SparkEmrPropertiesInput {
   /**
-   * <p>The compute ARN of Spark EMR.</p>
+   * The compute ARN of Spark EMR.
+   *
    * @public
    */
   computeArn?: string | undefined;
 
   /**
-   * <p>The instance profile ARN of Spark EMR.</p>
+   * The instance profile ARN of Spark EMR.
+   *
    * @public
    */
   instanceProfileArn?: string | undefined;
 
   /**
-   * <p>The java virtual env of the Spark EMR.</p>
+   * The java virtual env of the Spark EMR.
+   *
    * @public
    */
   javaVirtualEnv?: string | undefined;
 
   /**
-   * <p>The log URI of the Spark EMR.</p>
+   * The log URI of the Spark EMR.
+   *
    * @public
    */
   logUri?: string | undefined;
 
   /**
-   * <p>The Python virtual env of the Spark EMR.</p>
+   * The Python virtual env of the Spark EMR.
+   *
    * @public
    */
   pythonVirtualEnv?: string | undefined;
 
   /**
-   * <p>The runtime role of the Spark EMR.</p>
+   * The runtime role of the Spark EMR.
+   *
    * @public
    */
   runtimeRole?: string | undefined;
 
   /**
-   * <p>The certificates S3 URI of the Spark EMR.</p>
+   * The certificates S3 URI of the Spark EMR.
+   *
    * @public
    */
   trustedCertificatesS3Uri?: string | undefined;
 
   /**
-   * <p>The managed endpoint ARN of the EMR on EKS cluster.</p>
+   * The managed endpoint ARN of the EMR on EKS cluster.
+   *
    * @public
    */
   managedEndpointArn?: string | undefined;
 }
 
 /**
- * <p>The Spark Amazon Web Services Glue args.</p>
+ * The Spark Amazon Web Services Glue args.
+ *
  * @public
  */
 export interface SparkGlueArgs {
   /**
-   * <p>The connection in the Spark Amazon Web Services Glue args.</p>
+   * The connection in the Spark Amazon Web Services Glue args.
+   *
    * @public
    */
   connection?: string | undefined;
 }
 
 /**
- * <p>The Spark Amazon Web Services Glue properties. </p>
+ * The Spark Amazon Web Services Glue properties.
+ *
  * @public
  */
 export interface SparkGluePropertiesInput {
   /**
-   * <p>The additional args in the Spark Amazon Web Services Glue properties.</p>
+   * The additional args in the Spark Amazon Web Services Glue properties.
+   *
    * @public
    */
   additionalArgs?: SparkGlueArgs | undefined;
 
   /**
-   * <p>The Amazon Web Services Glue connection name in the Spark Amazon Web Services Glue properties. Specify either <code>glueConnectionName</code> or <code>glueConnectionNames</code>, but not both.</p>
+   * The Amazon Web Services Glue connection name in the Spark Amazon Web Services Glue properties. Specify either `glueConnectionName` or `glueConnectionNames`, but not both.
+   *
    * @public
    */
   glueConnectionName?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Glue connection names in the Spark Amazon Web Services Glue properties. Specify either <code>glueConnectionName</code> or <code>glueConnectionNames</code>, but not both.</p>
+   * The Amazon Web Services Glue connection names in the Spark Amazon Web Services Glue properties. Specify either `glueConnectionName` or `glueConnectionNames`, but not both.
+   *
    * @public
    */
   glueConnectionNames?: string[] | undefined;
 
   /**
-   * <p>The Amazon Web Services Glue version in the Spark Amazon Web Services Glue properties.</p>
+   * The Amazon Web Services Glue version in the Spark Amazon Web Services Glue properties.
+   *
    * @public
    */
   glueVersion?: string | undefined;
 
   /**
-   * <p>The idle timeout in the Spark Amazon Web Services Glue properties.</p>
+   * The idle timeout in the Spark Amazon Web Services Glue properties.
+   *
    * @public
    */
   idleTimeout?: number | undefined;
 
   /**
-   * <p>The Java virtual env in the Spark Amazon Web Services Glue properties. </p>
+   * The Java virtual env in the Spark Amazon Web Services Glue properties.
+   *
    * @public
    */
   javaVirtualEnv?: string | undefined;
 
   /**
-   * <p>The number of workers in the Spark Amazon Web Services Glue properties. </p>
+   * The number of workers in the Spark Amazon Web Services Glue properties.
+   *
    * @public
    */
   numberOfWorkers?: number | undefined;
 
   /**
-   * <p>The Python virtual env in the Spark Amazon Web Services Glue properties. </p>
+   * The Python virtual env in the Spark Amazon Web Services Glue properties.
+   *
    * @public
    */
   pythonVirtualEnv?: string | undefined;
 
   /**
-   * <p>The worker type in the Spark Amazon Web Services Glue properties. </p>
+   * The worker type in the Spark Amazon Web Services Glue properties.
+   *
    * @public
    */
   workerType?: string | undefined;
 }
 
 /**
- * <p>The VPC connection properties used when creating a connection.</p>
+ * The VPC connection properties used when creating a connection.
+ *
  * @public
  */
 export interface VpcPropertiesInput {
   /**
-   * <p>The identifier of the VPC. Must match the pattern <code>^vpc-[a-z0-9]+$</code>. Maximum length of 32.</p>
+   * The identifier of the VPC. Must match the pattern `^vpc-[a-z0-9]+$`. Maximum length of 32.
+   *
    * @public
    */
   vpcId: string | undefined;
 
   /**
-   * <p>The subnet IDs of the VPC connection. You can specify between 1 and 16 subnet IDs.</p>
+   * The subnet IDs of the VPC connection. You can specify between 1 and 16 subnet IDs.
+   *
    * @public
    */
   subnetIds: string[] | undefined;
 
   /**
-   * <p>The security group ID of the VPC connection. Must match the pattern <code>^sg-[a-z0-9]+$</code>. Maximum length of 32.</p>
+   * The security group ID of the VPC connection. Must match the pattern `^sg-[a-z0-9]+$`. Maximum length of 32.
+   *
    * @public
    */
   securityGroupId?: string | undefined;
 }
 
 /**
- * <p>The Amazon MWAA properties.</p>
+ * The Amazon MWAA properties.
+ *
  * @public
  */
 export interface WorkflowsMwaaPropertiesInput {
   /**
-   * <p>The MWAA environment name.</p>
+   * The MWAA environment name.
+   *
    * @public
    */
   mwaaEnvironmentName?: string | undefined;
 }
 
 /**
- * <p>The MWAA serverless properties.</p>
+ * The MWAA serverless properties.
+ *
  * @public
  */
 export interface WorkflowsServerlessPropertiesInput {}
 
 /**
- * <p>The properties of a connection.</p>
+ * The properties of a connection.
+ *
  * @public
  */
 export type ConnectionPropertiesInput =
@@ -5917,7 +6687,8 @@ export type ConnectionPropertiesInput =
  */
 export namespace ConnectionPropertiesInput {
   /**
-   * <p>The Amazon Athena properties of a connection.</p>
+   * The Amazon Athena properties of a connection.
+   *
    * @public
    */
   export interface AthenaPropertiesMember {
@@ -5941,7 +6712,8 @@ export namespace ConnectionPropertiesInput {
   }
 
   /**
-   * <p>The Amazon Web Services Glue properties of a connection.</p>
+   * The Amazon Web Services Glue properties of a connection.
+   *
    * @public
    */
   export interface GluePropertiesMember {
@@ -5965,7 +6737,8 @@ export namespace ConnectionPropertiesInput {
   }
 
   /**
-   * <p>The hyper pod properties of a connection.</p>
+   * The hyper pod properties of a connection.
+   *
    * @public
    */
   export interface HyperPodPropertiesMember {
@@ -5989,7 +6762,8 @@ export namespace ConnectionPropertiesInput {
   }
 
   /**
-   * <p>The IAM properties of a connection.</p>
+   * The IAM properties of a connection.
+   *
    * @public
    */
   export interface IamPropertiesMember {
@@ -6013,7 +6787,8 @@ export namespace ConnectionPropertiesInput {
   }
 
   /**
-   * <p>The Amazon Redshift properties of a connection.</p>
+   * The Amazon Redshift properties of a connection.
+   *
    * @public
    */
   export interface RedshiftPropertiesMember {
@@ -6037,7 +6812,8 @@ export namespace ConnectionPropertiesInput {
   }
 
   /**
-   * <p>The Spark EMR properties of a connection.</p>
+   * The Spark EMR properties of a connection.
+   *
    * @public
    */
   export interface SparkEmrPropertiesMember {
@@ -6061,7 +6837,8 @@ export namespace ConnectionPropertiesInput {
   }
 
   /**
-   * <p>The Spark Amazon Web Services Glue properties of a connection.</p>
+   * The Spark Amazon Web Services Glue properties of a connection.
+   *
    * @public
    */
   export interface SparkGluePropertiesMember {
@@ -6085,7 +6862,8 @@ export namespace ConnectionPropertiesInput {
   }
 
   /**
-   * <p>The Amazon S3 properties of a connection.</p>
+   * The Amazon S3 properties of a connection.
+   *
    * @public
    */
   export interface S3PropertiesMember {
@@ -6109,7 +6887,8 @@ export namespace ConnectionPropertiesInput {
   }
 
   /**
-   * <p>The Snowflake-specific connection properties to use when creating the connection.</p>
+   * The Snowflake-specific connection properties to use when creating the connection.
+   *
    * @public
    */
   export interface SnowflakePropertiesMember {
@@ -6133,7 +6912,8 @@ export namespace ConnectionPropertiesInput {
   }
 
   /**
-   * <p>The Amazon Q properties of the connection.</p>
+   * The Amazon Q properties of the connection.
+   *
    * @public
    */
   export interface AmazonQPropertiesMember {
@@ -6157,7 +6937,8 @@ export namespace ConnectionPropertiesInput {
   }
 
   /**
-   * <p>The MLflow properties of a connection.</p>
+   * The MLflow properties of a connection.
+   *
    * @public
    */
   export interface MlflowPropertiesMember {
@@ -6181,7 +6962,8 @@ export namespace ConnectionPropertiesInput {
   }
 
   /**
-   * <p>The Amazon MWAA properties of a connection.</p>
+   * The Amazon MWAA properties of a connection.
+   *
    * @public
    */
   export interface WorkflowsMwaaPropertiesMember {
@@ -6205,7 +6987,8 @@ export namespace ConnectionPropertiesInput {
   }
 
   /**
-   * <p>The MWAA serverless properties of a connection.</p>
+   * The MWAA serverless properties of a connection.
+   *
    * @public
    */
   export interface WorkflowsServerlessPropertiesMember {
@@ -6229,7 +7012,8 @@ export namespace ConnectionPropertiesInput {
   }
 
   /**
-   * <p>The lakehouse properties of a connection.</p>
+   * The lakehouse properties of a connection.
+   *
    * @public
    */
   export interface LakehousePropertiesMember {
@@ -6253,7 +7037,8 @@ export namespace ConnectionPropertiesInput {
   }
 
   /**
-   * <p>The VPC properties of a connection.</p>
+   * The VPC properties of a connection.
+   *
    * @public
    */
   export interface VpcPropertiesMember {
@@ -6277,7 +7062,8 @@ export namespace ConnectionPropertiesInput {
   }
 
   /**
-   * <p>The Git properties of a connection.</p>
+   * The Git properties of a connection.
+   *
    * @public
    */
   export interface GitPropertiesMember {
@@ -6349,535 +7135,624 @@ export namespace ConnectionPropertiesInput {
 }
 
 /**
- * <p>The properties of a Git connection returned by get and list operations, including connection status and any error details.</p>
+ * The properties of a Git connection returned by get and list operations, including connection status and any error details.
+ *
  * @public
  */
 export interface GitPropertiesOutput {
   /**
-   * <p>The ARN of the CodeConnections connection used to connect to the Git repository.</p>
+   * The ARN of the CodeConnections connection used to connect to the Git repository.
+   *
    * @public
    */
   codeConnectionArn: string | undefined;
 
   /**
-   * <p>The ID of the Git repository. This is the owner and repository name, for example, owner/repo-name.</p>
+   * The ID of the Git repository. This is the owner and repository name, for example, owner/repo-name.
+   *
    * @public
    */
   repositoryId: string | undefined;
 
   /**
-   * <p>The default branch of the Git repository.</p>
+   * The default branch of the Git repository.
+   *
    * @public
    */
   defaultBranch: string | undefined;
 
   /**
-   * <p>The status of the Git connection.</p>
+   * The status of the Git connection.
+   *
    * @public
    */
   status?: ConnectionStatus | undefined;
 
   /**
-   * <p>The error message that describes why the Git connection failed. This member is populated when the connection status is CREATE_FAILED or UPDATE_FAILED.</p>
+   * The error message that describes why the Git connection failed. This member is populated when the connection status is CREATE_FAILED or UPDATE_FAILED.
+   *
    * @public
    */
   errorMessage?: string | undefined;
 }
 
 /**
- * <p>The properties of the Amazon Web Services Glue connection.</p>
+ * The properties of the Amazon Web Services Glue connection.
+ *
  * @public
  */
 export interface GluePropertiesOutput {
   /**
-   * <p>The status of a connection.</p>
+   * The status of a connection.
+   *
    * @public
    */
   status?: ConnectionStatus | undefined;
 
   /**
-   * <p>The error message generated if the action is not completed successfully.</p>
+   * The error message generated if the action is not completed successfully.
+   *
    * @public
    */
   errorMessage?: string | undefined;
 }
 
 /**
- * <p>The hyper pod properties of a Amazon Web Services Glue properties patch.</p>
+ * The hyper pod properties of a Amazon Web Services Glue properties patch.
+ *
  * @public
  */
 export interface HyperPodPropertiesOutput {
   /**
-   * <p>The cluster name the hyper pod properties.</p>
+   * The cluster name the hyper pod properties.
+   *
    * @public
    */
   clusterName: string | undefined;
 
   /**
-   * <p>The cluster ARN of the hyper pod properties.</p>
+   * The cluster ARN of the hyper pod properties.
+   *
    * @public
    */
   clusterArn?: string | undefined;
 
   /**
-   * <p>The orchestrator of the hyper pod properties.</p>
+   * The orchestrator of the hyper pod properties.
+   *
    * @public
    */
   orchestrator?: HyperPodOrchestrator | undefined;
 }
 
 /**
- * <p>The IAM properties of a connection.</p>
+ * The IAM properties of a connection.
+ *
  * @public
  */
 export interface IamPropertiesOutput {
   /**
-   * <p>The environment ID of the connection.</p>
+   * The environment ID of the connection.
+   *
    * @public
    */
   environmentId?: string | undefined;
 
   /**
-   * <p>Specifies whether Amazon Web Services Glue lineage sync is enabled for a connection.</p>
+   * Specifies whether Amazon Web Services Glue lineage sync is enabled for a connection.
+   *
    * @public
    */
   glueLineageSyncEnabled?: boolean | undefined;
 }
 
 /**
- * <p>The lakehouse properties of a connection.</p>
+ * The lakehouse properties of a connection.
+ *
  * @public
  */
 export interface LakehousePropertiesOutput {
   /**
-   * <p>Specifies whether Glue lineage sync is enabled for tables managed by Glue crawlers.</p>
+   * Specifies whether Glue lineage sync is enabled for tables managed by Glue crawlers.
+   *
    * @public
    */
   glueLineageSyncEnabled?: boolean | undefined;
 }
 
 /**
- * <p>The MLflow properties of a connection.</p>
+ * The MLflow properties of a connection.
+ *
  * @public
  */
 export interface MlflowPropertiesOutput {
   /**
-   * <p>The tracking server ARN as part of the MLflow properties of a connection.</p>
+   * The tracking server ARN as part of the MLflow properties of a connection.
+   *
    * @public
    */
   trackingServerArn?: string | undefined;
 }
 
 /**
- * <p>The Amaon Redshift lineage sync configuration.</p>
+ * The Amaon Redshift lineage sync configuration.
+ *
  * @public
  */
 export interface RedshiftLineageSyncConfigurationOutput {
   /**
-   * <p>The lineage job ID of the Amaon Redshift lineage sync configuration.</p>
+   * The lineage job ID of the Amaon Redshift lineage sync configuration.
+   *
    * @public
    */
   lineageJobId?: string | undefined;
 
   /**
-   * <p>Specifies whether the Amaon Redshift lineage sync configuration is enabled.</p>
+   * Specifies whether the Amaon Redshift lineage sync configuration is enabled.
+   *
    * @public
    */
   enabled?: boolean | undefined;
 
   /**
-   * <p>The schedule of teh Amaon Redshift lineage sync configuration.</p>
+   * The schedule of teh Amaon Redshift lineage sync configuration.
+   *
    * @public
    */
   schedule?: LineageSyncSchedule | undefined;
 }
 
 /**
- * <p>The Amazon Redshift properties.</p>
+ * The Amazon Redshift properties.
+ *
  * @public
  */
 export interface RedshiftPropertiesOutput {
   /**
-   * <p>The storage in the Amazon Redshift properties.</p>
+   * The storage in the Amazon Redshift properties.
+   *
    * @public
    */
   storage?: RedshiftStorageProperties | undefined;
 
   /**
-   * <p>The Amazon Redshift credentials.</p>
+   * The Amazon Redshift credentials.
+   *
    * @public
    */
   credentials?: RedshiftCredentials | undefined;
 
   /**
-   * <p>Specifies whether Amaon Redshift properties has a provisioned secret.</p>
+   * Specifies whether Amaon Redshift properties has a provisioned secret.
+   *
    * @public
    */
   isProvisionedSecret?: boolean | undefined;
 
   /**
-   * <p>The jdbcIam URL of the Amazon Redshift properties.</p>
+   * The jdbcIam URL of the Amazon Redshift properties.
+   *
    * @public
    */
   jdbcIamUrl?: string | undefined;
 
   /**
-   * <p>The jdbcURL of the Amazon Redshift properties. </p>
+   * The jdbcURL of the Amazon Redshift properties.
+   *
    * @public
    */
   jdbcUrl?: string | undefined;
 
   /**
-   * <p>The redshiftTempDir of the Amazon Redshift properties.</p>
+   * The redshiftTempDir of the Amazon Redshift properties.
+   *
    * @public
    */
   redshiftTempDir?: string | undefined;
 
   /**
-   * <p>The lineage syn of the Amazon Redshift properties.</p>
+   * The lineage syn of the Amazon Redshift properties.
+   *
    * @public
    */
   lineageSync?: RedshiftLineageSyncConfigurationOutput | undefined;
 
   /**
-   * <p>The status in the Amazon Redshift properties.</p>
+   * The status in the Amazon Redshift properties.
+   *
    * @public
    */
   status?: ConnectionStatus | undefined;
 
   /**
-   * <p>The Amazon Redshift database name.</p>
+   * The Amazon Redshift database name.
+   *
    * @public
    */
   databaseName?: string | undefined;
 }
 
 /**
- * <p>The Amazon S3 properties of a connection.</p>
+ * The Amazon S3 properties of a connection.
+ *
  * @public
  */
 export interface S3PropertiesOutput {
   /**
-   * <p>The Amazon S3 URI that's part of the Amazon S3 properties of a connection.</p>
+   * The Amazon S3 URI that's part of the Amazon S3 properties of a connection.
+   *
    * @public
    */
   s3Uri: string | undefined;
 
   /**
-   * <p>The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a connection.</p>
+   * The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a connection.
+   *
    * @public
    */
   s3AccessGrantLocationId?: string | undefined;
 
   /**
-   * <p>Specifies whether to register the Amazon S3 Access Grant location.</p>
+   * Specifies whether to register the Amazon S3 Access Grant location.
+   *
    * @public
    */
   registerS3AccessGrantLocation?: boolean | undefined;
 
   /**
-   * <p>The status of the Amazon S3 connection.</p>
+   * The status of the Amazon S3 connection.
+   *
    * @public
    */
   status?: ConnectionStatus | undefined;
 
   /**
-   * <p>The error message that gets displayed.</p>
+   * The error message that gets displayed.
+   *
    * @public
    */
   errorMessage?: string | undefined;
 }
 
 /**
- * <p>Contains the current state of lineage sync for a Snowflake connection, including the schedule, timezone, enabled state, and the ID of the associated lineage job.</p>
+ * Contains the current state of lineage sync for a Snowflake connection, including the schedule, timezone, enabled state, and the ID of the associated lineage job.
+ *
  * @public
  */
 export interface LineageSyncOutput {
   /**
-   * <p>The ID of the lineage sync job.</p>
+   * The ID of the lineage sync job.
+   *
    * @public
    */
   lineageJobId?: string | undefined;
 
   /**
-   * <p>The timezone of the lineage sync schedule.</p>
+   * The timezone of the lineage sync schedule.
+   *
    * @public
    */
   timezone?: Timezone | undefined;
 
   /**
-   * <p>Specifies whether lineage sync is enabled.</p>
+   * Specifies whether lineage sync is enabled.
+   *
    * @public
    */
   enabled?: boolean | undefined;
 
   /**
-   * <p>The schedule of the lineage sync.</p>
+   * The schedule of the lineage sync.
+   *
    * @public
    */
   schedule?: string | undefined;
 }
 
 /**
- * <p>Contains the Snowflake-specific settings returned for an existing connection, including the current role, identity mapping, lineage sync state, and connection status.</p>
+ * Contains the Snowflake-specific settings returned for an existing connection, including the current role, identity mapping, lineage sync state, and connection status.
+ *
  * @public
  */
 export interface SnowflakePropertiesOutput {
   /**
-   * <p>The Snowflake role used to access Snowflake resources.</p>
+   * The Snowflake role used to access Snowflake resources.
+   *
    * @public
    */
   snowflakeRole: string | undefined;
 
   /**
-   * <p>The identity mapping configuration for the Snowflake connection.</p>
+   * The identity mapping configuration for the Snowflake connection.
+   *
    * @public
    */
   identityMapping: IdentityMapping | undefined;
 
   /**
-   * <p>The lineage sync configuration for the Snowflake connection.</p>
+   * The lineage sync configuration for the Snowflake connection.
+   *
    * @public
    */
   lineageSync: LineageSyncOutput | undefined;
 
   /**
-   * <p>The status of the Snowflake connection.</p>
+   * The status of the Snowflake connection.
+   *
    * @public
    */
   status: ConnectionStatus | undefined;
 
   /**
-   * <p>An error message returned if the Snowflake connection failed to establish or validate.</p>
+   * An error message returned if the Snowflake connection failed to establish or validate.
+   *
    * @public
    */
   errorMessage?: string | undefined;
 }
 
 /**
- * <p>The managed endpoint credentials of the EMR on EKS cluster.</p>
+ * The managed endpoint credentials of the EMR on EKS cluster.
+ *
  * @public
  */
 export interface ManagedEndpointCredentials {
   /**
-   * <p>The identifier of the managed endpoint credentials.</p>
+   * The identifier of the managed endpoint credentials.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The ARN of the managed endpoint credentials.</p>
+   * The ARN of the managed endpoint credentials.
+   *
    * @public
    */
   token?: string | undefined;
 }
 
 /**
- * <p>The Spark EMR properties.</p>
+ * The Spark EMR properties.
+ *
  * @public
  */
 export interface SparkEmrPropertiesOutput {
   /**
-   * <p>The compute ARN of the Spark EMR.</p>
+   * The compute ARN of the Spark EMR.
+   *
    * @public
    */
   computeArn?: string | undefined;
 
   /**
-   * <p>The credentials of the Spark EMR.</p>
+   * The credentials of the Spark EMR.
+   *
    * @public
    */
   credentials?: UsernamePassword | undefined;
 
   /**
-   * <p>The credential expiration of the Spark EMR.</p>
+   * The credential expiration of the Spark EMR.
+   *
    * @public
    */
   credentialsExpiration?: Date | undefined;
 
   /**
-   * <p>The governance type of the Spark EMR.</p>
+   * The governance type of the Spark EMR.
+   *
    * @public
    */
   governanceType?: GovernanceType | undefined;
 
   /**
-   * <p>The instance profile ARN of the Spark EMR.</p>
+   * The instance profile ARN of the Spark EMR.
+   *
    * @public
    */
   instanceProfileArn?: string | undefined;
 
   /**
-   * <p>The Java virtual env of the Spark EMR.</p>
+   * The Java virtual env of the Spark EMR.
+   *
    * @public
    */
   javaVirtualEnv?: string | undefined;
 
   /**
-   * <p>The livy endpoint of the Spark EMR.</p>
+   * The livy endpoint of the Spark EMR.
+   *
    * @public
    */
   livyEndpoint?: string | undefined;
 
   /**
-   * <p>The log URI of the Spark EMR.</p>
+   * The log URI of the Spark EMR.
+   *
    * @public
    */
   logUri?: string | undefined;
 
   /**
-   * <p>The Python virtual env of the Spark EMR.</p>
+   * The Python virtual env of the Spark EMR.
+   *
    * @public
    */
   pythonVirtualEnv?: string | undefined;
 
   /**
-   * <p>The runtime role of the Spark EMR.</p>
+   * The runtime role of the Spark EMR.
+   *
    * @public
    */
   runtimeRole?: string | undefined;
 
   /**
-   * <p>The trusted certificate S3 URL of the Spark EMR.</p>
+   * The trusted certificate S3 URL of the Spark EMR.
+   *
    * @public
    */
   trustedCertificatesS3Uri?: string | undefined;
 
   /**
-   * <p>The certificate data of the EMR on EKS cluster.</p>
+   * The certificate data of the EMR on EKS cluster.
+   *
    * @public
    */
   certificateData?: string | undefined;
 
   /**
-   * <p>The managed endpoint ARN of the EMR on EKS cluster.</p>
+   * The managed endpoint ARN of the EMR on EKS cluster.
+   *
    * @public
    */
   managedEndpointArn?: string | undefined;
 
   /**
-   * <p>The managed endpoint credentials of the EMR on EKS cluster.</p>
+   * The managed endpoint credentials of the EMR on EKS cluster.
+   *
    * @public
    */
   managedEndpointCredentials?: ManagedEndpointCredentials | undefined;
 }
 
 /**
- * <p>The Spark Amazon Web Services Glue properties. </p>
+ * The Spark Amazon Web Services Glue properties.
+ *
  * @public
  */
 export interface SparkGluePropertiesOutput {
   /**
-   * <p>The additional args in the Spark Amazon Web Services Glue properties. </p>
+   * The additional args in the Spark Amazon Web Services Glue properties.
+   *
    * @public
    */
   additionalArgs?: SparkGlueArgs | undefined;
 
   /**
-   * <p>The Amazon Web Services Glue connection name in the Spark Amazon Web Services Glue properties. </p>
+   * The Amazon Web Services Glue connection name in the Spark Amazon Web Services Glue properties.
+   *
    * @public
    */
   glueConnectionName?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Glue connection names in the Spark Amazon Web Services Glue properties.</p>
+   * The Amazon Web Services Glue connection names in the Spark Amazon Web Services Glue properties.
+   *
    * @public
    */
   glueConnectionNames?: string[] | undefined;
 
   /**
-   * <p>The Amazon Web Services Glue version in the Spark Amazon Web Services Glue properties. </p>
+   * The Amazon Web Services Glue version in the Spark Amazon Web Services Glue properties.
+   *
    * @public
    */
   glueVersion?: string | undefined;
 
   /**
-   * <p>The idle timeout in the Spark Amazon Web Services Glue properties. </p>
+   * The idle timeout in the Spark Amazon Web Services Glue properties.
+   *
    * @public
    */
   idleTimeout?: number | undefined;
 
   /**
-   * <p>The Java virtual env in the Spark Amazon Web Services Glue properties. </p>
+   * The Java virtual env in the Spark Amazon Web Services Glue properties.
+   *
    * @public
    */
   javaVirtualEnv?: string | undefined;
 
   /**
-   * <p>The number of workers in the Spark Amazon Web Services Glue properties. </p>
+   * The number of workers in the Spark Amazon Web Services Glue properties.
+   *
    * @public
    */
   numberOfWorkers?: number | undefined;
 
   /**
-   * <p>The Python virtual env in the Spark Amazon Web Services Glue properties. </p>
+   * The Python virtual env in the Spark Amazon Web Services Glue properties.
+   *
    * @public
    */
   pythonVirtualEnv?: string | undefined;
 
   /**
-   * <p>The worker type in the Spark Amazon Web Services Glue properties. </p>
+   * The worker type in the Spark Amazon Web Services Glue properties.
+   *
    * @public
    */
   workerType?: string | undefined;
 }
 
 /**
- * <p>The VPC connection properties returned in responses.</p>
+ * The VPC connection properties returned in responses.
+ *
  * @public
  */
 export interface VpcPropertiesOutput {
   /**
-   * <p>The identifier of the VPC.</p>
+   * The identifier of the VPC.
+   *
    * @public
    */
   vpcId: string | undefined;
 
   /**
-   * <p>The subnet IDs of the VPC connection.</p>
+   * The subnet IDs of the VPC connection.
+   *
    * @public
    */
   subnetIds: string[] | undefined;
 
   /**
-   * <p>The status of the VPC connection.</p>
+   * The status of the VPC connection.
+   *
    * @public
    */
   status: ConnectionStatus | undefined;
 
   /**
-   * <p>The security group ID of the VPC connection.</p>
+   * The security group ID of the VPC connection.
+   *
    * @public
    */
   securityGroupId?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Glue connection names associated with the VPC connection.</p>
+   * The Amazon Web Services Glue connection names associated with the VPC connection.
+   *
    * @public
    */
   glueConnectionNames?: string[] | undefined;
 }
 
 /**
- * <p>The Amazon MWAA properties.</p>
+ * The Amazon MWAA properties.
+ *
  * @public
  */
 export interface WorkflowsMwaaPropertiesOutput {
   /**
-   * <p>The MWAA environment name.</p>
+   * The MWAA environment name.
+   *
    * @public
    */
   mwaaEnvironmentName?: string | undefined;
 }
 
 /**
- * <p>The MWAA serverless properties.</p>
+ * The MWAA serverless properties.
+ *
  * @public
  */
 export interface WorkflowsServerlessPropertiesOutput {}
 
 /**
- * <p>The properties of a connection.</p>
+ * The properties of a connection.
+ *
  * @public
  */
 export type ConnectionPropertiesOutput =
@@ -6904,7 +7779,8 @@ export type ConnectionPropertiesOutput =
  */
 export namespace ConnectionPropertiesOutput {
   /**
-   * <p>The Amazon Athena properties of a connection.</p>
+   * The Amazon Athena properties of a connection.
+   *
    * @public
    */
   export interface AthenaPropertiesMember {
@@ -6928,7 +7804,8 @@ export namespace ConnectionPropertiesOutput {
   }
 
   /**
-   * <p>The Amazon Web Services Glue properties of a connection.</p>
+   * The Amazon Web Services Glue properties of a connection.
+   *
    * @public
    */
   export interface GluePropertiesMember {
@@ -6952,7 +7829,8 @@ export namespace ConnectionPropertiesOutput {
   }
 
   /**
-   * <p>The hyper pod properties of a connection.</p>
+   * The hyper pod properties of a connection.
+   *
    * @public
    */
   export interface HyperPodPropertiesMember {
@@ -6976,7 +7854,8 @@ export namespace ConnectionPropertiesOutput {
   }
 
   /**
-   * <p>The IAM properties of a connection.</p>
+   * The IAM properties of a connection.
+   *
    * @public
    */
   export interface IamPropertiesMember {
@@ -7000,7 +7879,8 @@ export namespace ConnectionPropertiesOutput {
   }
 
   /**
-   * <p>The Amazon Redshift properties of a connection.</p>
+   * The Amazon Redshift properties of a connection.
+   *
    * @public
    */
   export interface RedshiftPropertiesMember {
@@ -7024,7 +7904,8 @@ export namespace ConnectionPropertiesOutput {
   }
 
   /**
-   * <p>The Spark EMR properties of a connection.</p>
+   * The Spark EMR properties of a connection.
+   *
    * @public
    */
   export interface SparkEmrPropertiesMember {
@@ -7048,7 +7929,8 @@ export namespace ConnectionPropertiesOutput {
   }
 
   /**
-   * <p>The Spark Amazon Web Services Glue properties of a connection.</p>
+   * The Spark Amazon Web Services Glue properties of a connection.
+   *
    * @public
    */
   export interface SparkGluePropertiesMember {
@@ -7072,7 +7954,8 @@ export namespace ConnectionPropertiesOutput {
   }
 
   /**
-   * <p>The Amazon S3 properties of a connection.</p>
+   * The Amazon S3 properties of a connection.
+   *
    * @public
    */
   export interface S3PropertiesMember {
@@ -7096,7 +7979,8 @@ export namespace ConnectionPropertiesOutput {
   }
 
   /**
-   * <p>The Snowflake-specific connection properties for an existing connection.</p>
+   * The Snowflake-specific connection properties for an existing connection.
+   *
    * @public
    */
   export interface SnowflakePropertiesMember {
@@ -7120,7 +8004,8 @@ export namespace ConnectionPropertiesOutput {
   }
 
   /**
-   * <p>The Amazon Q properties of the connection.</p>
+   * The Amazon Q properties of the connection.
+   *
    * @public
    */
   export interface AmazonQPropertiesMember {
@@ -7144,7 +8029,8 @@ export namespace ConnectionPropertiesOutput {
   }
 
   /**
-   * <p>The MLflow properties of a connection.</p>
+   * The MLflow properties of a connection.
+   *
    * @public
    */
   export interface MlflowPropertiesMember {
@@ -7168,7 +8054,8 @@ export namespace ConnectionPropertiesOutput {
   }
 
   /**
-   * <p>The Amazon MWAA properties of a connection.</p>
+   * The Amazon MWAA properties of a connection.
+   *
    * @public
    */
   export interface WorkflowsMwaaPropertiesMember {
@@ -7192,7 +8079,8 @@ export namespace ConnectionPropertiesOutput {
   }
 
   /**
-   * <p>The MWAA serverless properties of a connection.</p>
+   * The MWAA serverless properties of a connection.
+   *
    * @public
    */
   export interface WorkflowsServerlessPropertiesMember {
@@ -7216,7 +8104,8 @@ export namespace ConnectionPropertiesOutput {
   }
 
   /**
-   * <p>The lakehouse properties of a connection.</p>
+   * The lakehouse properties of a connection.
+   *
    * @public
    */
   export interface LakehousePropertiesMember {
@@ -7240,7 +8129,8 @@ export namespace ConnectionPropertiesOutput {
   }
 
   /**
-   * <p>The VPC properties of a connection.</p>
+   * The VPC properties of a connection.
+   *
    * @public
    */
   export interface VpcPropertiesMember {
@@ -7264,7 +8154,8 @@ export namespace ConnectionPropertiesOutput {
   }
 
   /**
-   * <p>The Git properties of a connection.</p>
+   * The Git properties of a connection.
+   *
    * @public
    */
   export interface GitPropertiesMember {
@@ -7336,289 +8227,337 @@ export namespace ConnectionPropertiesOutput {
 }
 
 /**
- * <p>The properties used to update an existing Git connection, such as the CodeConnections ARN or the default branch.</p>
+ * The properties used to update an existing Git connection, such as the CodeConnections ARN or the default branch.
+ *
  * @public
  */
 export interface GitPropertiesPatch {
   /**
-   * <p>The ARN of the CodeConnections connection used to connect to the Git repository.</p>
+   * The ARN of the CodeConnections connection used to connect to the Git repository.
+   *
    * @public
    */
   codeConnectionArn?: string | undefined;
 
   /**
-   * <p>The default branch of the Git repository.</p>
+   * The default branch of the Git repository.
+   *
    * @public
    */
   defaultBranch?: string | undefined;
 }
 
 /**
- * <p>The Amazon Web Services Glue connection patch.</p>
+ * The Amazon Web Services Glue connection patch.
+ *
  * @public
  */
 export interface GlueConnectionPatch {
   /**
-   * <p>The description of the Amazon Web Services Glue connection patch.</p>
+   * The description of the Amazon Web Services Glue connection patch.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The properties of the Amazon Web Services Glue connection patch.</p>
+   * The properties of the Amazon Web Services Glue connection patch.
+   *
    * @public
    */
   connectionProperties?: Record<string, string> | undefined;
 
   /**
-   * <p>The authentication configuration of the Amazon Web Services Glue connection patch.</p>
+   * The authentication configuration of the Amazon Web Services Glue connection patch.
+   *
    * @public
    */
   authenticationConfiguration?: AuthenticationConfigurationPatch | undefined;
 }
 
 /**
- * <p>The Amazon Web Services Glue properties patch of a connection.</p>
+ * The Amazon Web Services Glue properties patch of a connection.
+ *
  * @public
  */
 export interface GluePropertiesPatch {
   /**
-   * <p>The Amazon Web Services Glue properties patch of a connection.</p>
+   * The Amazon Web Services Glue properties patch of a connection.
+   *
    * @public
    */
   glueConnectionInput?: GlueConnectionPatch | undefined;
 }
 
 /**
- * <p>The IAM properties patch of a connection.</p>
+ * The IAM properties patch of a connection.
+ *
  * @public
  */
 export interface IamPropertiesPatch {
   /**
-   * <p>Specifies whether Amazon Web Services Glue lineage sync is enabled for a connection.</p>
+   * Specifies whether Amazon Web Services Glue lineage sync is enabled for a connection.
+   *
    * @public
    */
   glueLineageSyncEnabled?: boolean | undefined;
 }
 
 /**
- * <p>The lakehouse properties of a connection properties patch.</p>
+ * The lakehouse properties of a connection properties patch.
+ *
  * @public
  */
 export interface LakehousePropertiesPatch {
   /**
-   * <p>Specifies whether to enable Glue lineage sync for tables managed by Glue crawlers.</p>
+   * Specifies whether to enable Glue lineage sync for tables managed by Glue crawlers.
+   *
    * @public
    */
   glueLineageSyncEnabled?: boolean | undefined;
 }
 
 /**
- * <p>The MLflow properties of a connection.</p>
+ * The MLflow properties of a connection.
+ *
  * @public
  */
 export interface MlflowPropertiesPatch {
   /**
-   * <p>The tracking server ARN as part of the MLflow properties of a connection.</p>
+   * The tracking server ARN as part of the MLflow properties of a connection.
+   *
    * @public
    */
   trackingServerArn?: string | undefined;
 }
 
 /**
- * <p>Amazon Redshift properties patch.</p>
+ * Amazon Redshift properties patch.
+ *
  * @public
  */
 export interface RedshiftPropertiesPatch {
   /**
-   * <p>The storage in the Amazon Redshift properties patch.</p>
+   * The storage in the Amazon Redshift properties patch.
+   *
    * @public
    */
   storage?: RedshiftStorageProperties | undefined;
 
   /**
-   * <p>The name in the Amazon Redshift properties patch.</p>
+   * The name in the Amazon Redshift properties patch.
+   *
    * @public
    */
   databaseName?: string | undefined;
 
   /**
-   * <p>The host in the Amazon Redshift properties patch.</p>
+   * The host in the Amazon Redshift properties patch.
+   *
    * @public
    */
   host?: string | undefined;
 
   /**
-   * <p>The port in the Amazon Redshift properties patch.</p>
+   * The port in the Amazon Redshift properties patch.
+   *
    * @public
    */
   port?: number | undefined;
 
   /**
-   * <p>The credentials in the Amazon Redshift properties patch.</p>
+   * The credentials in the Amazon Redshift properties patch.
+   *
    * @public
    */
   credentials?: RedshiftCredentials | undefined;
 
   /**
-   * <p>The lineage sync in the Amazon Redshift properties patch.</p>
+   * The lineage sync in the Amazon Redshift properties patch.
+   *
    * @public
    */
   lineageSync?: RedshiftLineageSyncConfigurationInput | undefined;
 }
 
 /**
- * <p>The Amazon S3 properties patch of a connection.</p>
+ * The Amazon S3 properties patch of a connection.
+ *
  * @public
  */
 export interface S3PropertiesPatch {
   /**
-   * <p>The Amazon S3 URI that's part of the Amazon S3 properties patch of a connection.</p>
+   * The Amazon S3 URI that's part of the Amazon S3 properties patch of a connection.
+   *
    * @public
    */
   s3Uri: string | undefined;
 
   /**
-   * <p>The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties patch of a connection.</p>
+   * The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties patch of a connection.
+   *
    * @public
    */
   s3AccessGrantLocationId?: string | undefined;
 
   /**
-   * <p>Specifies whether to register the Amazon S3 Access Grant location.</p>
+   * Specifies whether to register the Amazon S3 Access Grant location.
+   *
    * @public
    */
   registerS3AccessGrantLocation?: boolean | undefined;
 }
 
 /**
- * <p>Contains the connectivity settings to update on an existing connection. Include only the fields you want to change.</p>
+ * Contains the connectivity settings to update on an existing connection. Include only the fields you want to change.
+ *
  * @public
  */
 export interface ConnectivityPropertiesPatch {
   /**
-   * <p>A description of the connectivity properties update.</p>
+   * A description of the connectivity properties update.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The connection properties to update.</p>
+   * The connection properties to update.
+   *
    * @public
    */
   connectionProperties?: Record<string, string> | undefined;
 
   /**
-   * <p>The authentication settings to update.</p>
+   * The authentication settings to update.
+   *
    * @public
    */
   authenticationConfiguration?: AuthenticationConfigurationPatch | undefined;
 }
 
 /**
- * <p>Contains the Snowflake-specific settings to update on an existing connection. Include only the fields you want to change.</p>
+ * Contains the Snowflake-specific settings to update on an existing connection. Include only the fields you want to change.
+ *
  * @public
  */
 export interface SnowflakePropertiesPatch {
   /**
-   * <p>The connectivity properties patch of the Snowflake connection.</p>
+   * The connectivity properties patch of the Snowflake connection.
+   *
    * @public
    */
   connectivityPropertiesPatch?: ConnectivityPropertiesPatch | undefined;
 
   /**
-   * <p>The Snowflake role used to access Snowflake resources.</p>
+   * The Snowflake role used to access Snowflake resources.
+   *
    * @public
    */
   snowflakeRole?: string | undefined;
 
   /**
-   * <p>The lineage sync configuration for the Snowflake connection.</p>
+   * The lineage sync configuration for the Snowflake connection.
+   *
    * @public
    */
   lineageSync?: LineageSyncInput | undefined;
 }
 
 /**
- * <p>The Spark EMR properties patch.</p>
+ * The Spark EMR properties patch.
+ *
  * @public
  */
 export interface SparkEmrPropertiesPatch {
   /**
-   * <p>The compute ARN in the Spark EMR properties patch.</p>
+   * The compute ARN in the Spark EMR properties patch.
+   *
    * @public
    */
   computeArn?: string | undefined;
 
   /**
-   * <p>The instance profile ARN in the Spark EMR properties patch.</p>
+   * The instance profile ARN in the Spark EMR properties patch.
+   *
    * @public
    */
   instanceProfileArn?: string | undefined;
 
   /**
-   * <p>The Java virtual evn in the Spark EMR properties patch.</p>
+   * The Java virtual evn in the Spark EMR properties patch.
+   *
    * @public
    */
   javaVirtualEnv?: string | undefined;
 
   /**
-   * <p>The log URI in the Spark EMR properties patch.</p>
+   * The log URI in the Spark EMR properties patch.
+   *
    * @public
    */
   logUri?: string | undefined;
 
   /**
-   * <p>The Python virtual env in the Spark EMR properties patch.</p>
+   * The Python virtual env in the Spark EMR properties patch.
+   *
    * @public
    */
   pythonVirtualEnv?: string | undefined;
 
   /**
-   * <p>The runtime role in the Spark EMR properties patch.</p>
+   * The runtime role in the Spark EMR properties patch.
+   *
    * @public
    */
   runtimeRole?: string | undefined;
 
   /**
-   * <p>The trusted certificates S3 URI in the Spark EMR properties patch.</p>
+   * The trusted certificates S3 URI in the Spark EMR properties patch.
+   *
    * @public
    */
   trustedCertificatesS3Uri?: string | undefined;
 
   /**
-   * <p>The managed endpoint ARN of the EMR on EKS cluster.</p>
+   * The managed endpoint ARN of the EMR on EKS cluster.
+   *
    * @public
    */
   managedEndpointArn?: string | undefined;
 }
 
 /**
- * <p>The VPC connection properties used when updating a connection.</p>
+ * The VPC connection properties used when updating a connection.
+ *
  * @public
  */
 export interface VpcPropertiesPatch {
   /**
-   * <p>The identifier of the VPC.</p>
+   * The identifier of the VPC.
+   *
    * @public
    */
   vpcId?: string | undefined;
 
   /**
-   * <p>The subnet IDs of the VPC connection.</p>
+   * The subnet IDs of the VPC connection.
+   *
    * @public
    */
   subnetIds?: string[] | undefined;
 
   /**
-   * <p>The security group ID of the VPC connection.</p>
+   * The security group ID of the VPC connection.
+   *
    * @public
    */
   securityGroupId?: string | undefined;
 }
 
 /**
- * <p>The connection properties patch.</p>
+ * The connection properties patch.
+ *
  * @public
  */
 export type ConnectionPropertiesPatch =
@@ -7641,7 +8580,8 @@ export type ConnectionPropertiesPatch =
  */
 export namespace ConnectionPropertiesPatch {
   /**
-   * <p>The Amazon Athena properties of a connection properties patch.</p>
+   * The Amazon Athena properties of a connection properties patch.
+   *
    * @public
    */
   export interface AthenaPropertiesMember {
@@ -7661,7 +8601,8 @@ export namespace ConnectionPropertiesPatch {
   }
 
   /**
-   * <p>The Amazon Web Services Glue properties of a connection properties patch.</p>
+   * The Amazon Web Services Glue properties of a connection properties patch.
+   *
    * @public
    */
   export interface GluePropertiesMember {
@@ -7681,7 +8622,8 @@ export namespace ConnectionPropertiesPatch {
   }
 
   /**
-   * <p>The IAM properties of a connection properties patch.</p>
+   * The IAM properties of a connection properties patch.
+   *
    * @public
    */
   export interface IamPropertiesMember {
@@ -7701,7 +8643,8 @@ export namespace ConnectionPropertiesPatch {
   }
 
   /**
-   * <p>The Amazon Redshift properties of a connection properties patch.</p>
+   * The Amazon Redshift properties of a connection properties patch.
+   *
    * @public
    */
   export interface RedshiftPropertiesMember {
@@ -7721,7 +8664,8 @@ export namespace ConnectionPropertiesPatch {
   }
 
   /**
-   * <p>The Spark EMR properties of a connection properties patch.</p>
+   * The Spark EMR properties of a connection properties patch.
+   *
    * @public
    */
   export interface SparkEmrPropertiesMember {
@@ -7741,7 +8685,8 @@ export namespace ConnectionPropertiesPatch {
   }
 
   /**
-   * <p>The Amazon S3 properties of a connection properties patch.</p>
+   * The Amazon S3 properties of a connection properties patch.
+   *
    * @public
    */
   export interface S3PropertiesMember {
@@ -7761,7 +8706,8 @@ export namespace ConnectionPropertiesPatch {
   }
 
   /**
-   * <p>The Snowflake-specific connection properties to update.</p>
+   * The Snowflake-specific connection properties to update.
+   *
    * @public
    */
   export interface SnowflakePropertiesMember {
@@ -7781,7 +8727,8 @@ export namespace ConnectionPropertiesPatch {
   }
 
   /**
-   * <p>The Amazon Q properties of the connection.</p>
+   * The Amazon Q properties of the connection.
+   *
    * @public
    */
   export interface AmazonQPropertiesMember {
@@ -7801,7 +8748,8 @@ export namespace ConnectionPropertiesPatch {
   }
 
   /**
-   * <p>The MLflow properties of a connection.</p>
+   * The MLflow properties of a connection.
+   *
    * @public
    */
   export interface MlflowPropertiesMember {
@@ -7821,7 +8769,8 @@ export namespace ConnectionPropertiesPatch {
   }
 
   /**
-   * <p>The lakehouse properties of a connection properties patch.</p>
+   * The lakehouse properties of a connection properties patch.
+   *
    * @public
    */
   export interface LakehousePropertiesMember {
@@ -7841,7 +8790,8 @@ export namespace ConnectionPropertiesPatch {
   }
 
   /**
-   * <p>The VPC properties of a connection properties patch.</p>
+   * The VPC properties of a connection properties patch.
+   *
    * @public
    */
   export interface VpcPropertiesMember {
@@ -7861,7 +8811,8 @@ export namespace ConnectionPropertiesPatch {
   }
 
   /**
-   * <p>The Git properties of a connection properties patch.</p>
+   * The Git properties of a connection properties patch.
+   *
    * @public
    */
   export interface GitPropertiesMember {
@@ -7921,246 +8872,287 @@ export namespace ConnectionPropertiesPatch {
 }
 
 /**
- * <p>The Amazon Web Services Glue connection.</p>
+ * The Amazon Web Services Glue connection.
+ *
  * @public
  */
 export interface GlueConnection {
   /**
-   * <p>The name of the Amazon Web Services Glue connection.</p>
+   * The name of the Amazon Web Services Glue connection.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The description of the Amazon Web Services Glue connection.</p>
+   * The description of the Amazon Web Services Glue connection.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The type of the Amazon Web Services Glue connection.</p>
+   * The type of the Amazon Web Services Glue connection.
+   *
    * @public
    */
   connectionType?: ConnectionType | undefined;
 
   /**
-   * <p>The match criteria of the Amazon Web Services Glue connection.</p>
+   * The match criteria of the Amazon Web Services Glue connection.
+   *
    * @public
    */
   matchCriteria?: string[] | undefined;
 
   /**
-   * <p>The properties of the Amazon Web Services Glue connection.</p>
+   * The properties of the Amazon Web Services Glue connection.
+   *
    * @public
    */
   connectionProperties?: Record<string, string> | undefined;
 
   /**
-   * <p>The Spark properties of the Amazon Web Services Glue connection.</p>
+   * The Spark properties of the Amazon Web Services Glue connection.
+   *
    * @public
    */
   sparkProperties?: Record<string, string> | undefined;
 
   /**
-   * <p>The Amazon Athena properties of the Amazon Web Services Glue connection.</p>
+   * The Amazon Athena properties of the Amazon Web Services Glue connection.
+   *
    * @public
    */
   athenaProperties?: Record<string, string> | undefined;
 
   /**
-   * <p>The Python properties of the Amazon Web Services Glue connection.</p>
+   * The Python properties of the Amazon Web Services Glue connection.
+   *
    * @public
    */
   pythonProperties?: Record<string, string> | undefined;
 
   /**
-   * <p>The physical connection requirements of the Amazon Web Services Glue connection.</p>
+   * The physical connection requirements of the Amazon Web Services Glue connection.
+   *
    * @public
    */
   physicalConnectionRequirements?: PhysicalConnectionRequirements | undefined;
 
   /**
-   * <p>The creation time of the Amazon Web Services Glue connection.</p>
+   * The creation time of the Amazon Web Services Glue connection.
+   *
    * @public
    */
   creationTime?: Date | undefined;
 
   /**
-   * <p>The timestamp at which the Amazon Web Services Glue connection was last updated.</p>
+   * The timestamp at which the Amazon Web Services Glue connection was last updated.
+   *
    * @public
    */
   lastUpdatedTime?: Date | undefined;
 
   /**
-   * <p>The user who last updated the Amazon Web Services Glue connection.</p>
+   * The user who last updated the Amazon Web Services Glue connection.
+   *
    * @public
    */
   lastUpdatedBy?: string | undefined;
 
   /**
-   * <p>The status of the Amazon Web Services Glue connection.</p>
+   * The status of the Amazon Web Services Glue connection.
+   *
    * @public
    */
   status?: ConnectionStatus | undefined;
 
   /**
-   * <p>The status reason of the Amazon Web Services Glue connection.</p>
+   * The status reason of the Amazon Web Services Glue connection.
+   *
    * @public
    */
   statusReason?: string | undefined;
 
   /**
-   * <p>The last validation time of the Amazon Web Services Glue connection.</p>
+   * The last validation time of the Amazon Web Services Glue connection.
+   *
    * @public
    */
   lastConnectionValidationTime?: Date | undefined;
 
   /**
-   * <p>The authentication configuration of the Amazon Web Services Glue connection.</p>
+   * The authentication configuration of the Amazon Web Services Glue connection.
+   *
    * @public
    */
   authenticationConfiguration?: AuthenticationConfiguration | undefined;
 
   /**
-   * <p>The connection schema version of the Amazon Web Services Glue connection.</p>
+   * The connection schema version of the Amazon Web Services Glue connection.
+   *
    * @public
    */
   connectionSchemaVersion?: number | undefined;
 
   /**
-   * <p>The compatible compute environments of the Amazon Web Services Glue connection.</p>
+   * The compatible compute environments of the Amazon Web Services Glue connection.
+   *
    * @public
    */
   compatibleComputeEnvironments?: ComputeEnvironments[] | undefined;
 }
 
 /**
- * <p>The physical endpoints of a connection.</p>
+ * The physical endpoints of a connection.
+ *
  * @public
  */
 export interface PhysicalEndpoint {
   /**
-   * <p>The location of a connection.</p>
+   * The location of a connection.
+   *
    * @public
    */
   awsLocation?: AwsLocation | undefined;
 
   /**
-   * <p>The Amazon Web Services Glue connection name.</p>
+   * The Amazon Web Services Glue connection name.
+   *
    * @public
    */
   glueConnectionName?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Glue connection names in the physical endpoint.</p>
+   * The Amazon Web Services Glue connection names in the physical endpoint.
+   *
    * @public
    */
   glueConnectionNames?: string[] | undefined;
 
   /**
-   * <p>The Amazon Web Services Glue connection.</p>
+   * The Amazon Web Services Glue connection.
+   *
    * @public
    */
   glueConnection?: GlueConnection | undefined;
 
   /**
-   * <p>Specified whether trusted identity propagation for the connection is enabled.</p>
+   * Specified whether trusted identity propagation for the connection is enabled.
+   *
    * @public
    */
   enableTrustedIdentityPropagation?: boolean | undefined;
 
   /**
-   * <p>The host in the physical endpoints of a connection.</p>
+   * The host in the physical endpoints of a connection.
+   *
    * @public
    */
   host?: string | undefined;
 
   /**
-   * <p>The port in the physical endpoints of a connection.</p>
+   * The port in the physical endpoints of a connection.
+   *
    * @public
    */
   port?: number | undefined;
 
   /**
-   * <p>The protocol in the physical endpoints of a connection.</p>
+   * The protocol in the physical endpoints of a connection.
+   *
    * @public
    */
   protocol?: Protocol | undefined;
 
   /**
-   * <p>The stage in the physical endpoints of a connection.</p>
+   * The stage in the physical endpoints of a connection.
+   *
    * @public
    */
   stage?: string | undefined;
 }
 
 /**
- * <p>The summary of a connection.</p>
+ * The summary of a connection.
+ *
  * @public
  */
 export interface ConnectionSummary {
   /**
-   * <p>The configurations of a connection summary.</p>
+   * The configurations of a connection summary.
+   *
    * @public
    */
   configurations?: Configuration[] | undefined;
 
   /**
-   * <p>The ID of a connection.</p>
+   * The ID of a connection.
+   *
    * @public
    */
   connectionId: string | undefined;
 
   /**
-   * <p>The domain ID of a connection.</p>
+   * The domain ID of a connection.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The domain unit ID of a connection.</p>
+   * The domain unit ID of a connection.
+   *
    * @public
    */
   domainUnitId: string | undefined;
 
   /**
-   * <p>The environment ID of a connection.</p>
+   * The environment ID of a connection.
+   *
    * @public
    */
   environmentId?: string | undefined;
 
   /**
-   * <p>The connection name.</p>
+   * The connection name.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The connection physical endpoints.</p>
+   * The connection physical endpoints.
+   *
    * @public
    */
   physicalEndpoints: PhysicalEndpoint[] | undefined;
 
   /**
-   * <p>The connection project ID.</p>
+   * The connection project ID.
+   *
    * @public
    */
   projectId?: string | undefined;
 
   /**
-   * <p>The connection props.</p>
+   * The connection props.
+   *
    * @public
    */
   props?: ConnectionPropertiesOutput | undefined;
 
   /**
-   * <p>The connection type.</p>
+   * The connection type.
+   *
    * @public
    */
   type: ConnectionType | undefined;
 
   /**
-   * <p>The scope of the connection.</p>
+   * The scope of the connection.
+   *
    * @public
    */
   scope?: ConnectionScope | undefined;
@@ -8171,31 +9163,36 @@ export interface ConnectionSummary {
  */
 export interface CreateAccountPoolInput {
   /**
-   * <p>The ID of the domain where the account pool is created.</p>
+   * The ID of the domain where the account pool is created.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The name of the account pool.</p>
+   * The name of the account pool.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the account pool.</p>
+   * The description of the account pool.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The mechanism used to resolve the account selection from the account pool.</p>
+   * The mechanism used to resolve the account selection from the account pool.
+   *
    * @public
    */
   resolutionStrategy: ResolutionStrategy | undefined;
 
   /**
-   * <p>The source of accounts for the account pool. In the current release, it's either a static list of accounts provided by the customer or a custom Amazon Web Services Lambda handler. </p>
+   * The source of accounts for the account pool. In the current release, it's either a static list of accounts provided by the customer or a custom Amazon Web Services Lambda handler.
+   *
    * @public
    */
   accountSource: AccountSource | undefined;
@@ -8206,67 +9203,78 @@ export interface CreateAccountPoolInput {
  */
 export interface CreateAccountPoolOutput {
   /**
-   * <p>The ID of the domain where the account pool is created.</p>
+   * The ID of the domain where the account pool is created.
+   *
    * @public
    */
   domainId?: string | undefined;
 
   /**
-   * <p>The name of the account pool.</p>
+   * The name of the account pool.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The ID of the account pool.</p>
+   * The ID of the account pool.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The description of the account pool.</p>
+   * The description of the account pool.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The mechanism used to resolve the account selection from the account pool.</p>
+   * The mechanism used to resolve the account selection from the account pool.
+   *
    * @public
    */
   resolutionStrategy?: ResolutionStrategy | undefined;
 
   /**
-   * <p>The source of accounts for the account pool. In the current release, it's either a static list of accounts provided by the customer or a custom Amazon Web Services Lambda handler. </p>
+   * The source of accounts for the account pool. In the current release, it's either a static list of accounts provided by the customer or a custom Amazon Web Services Lambda handler.
+   *
    * @public
    */
   accountSource: AccountSource | undefined;
 
   /**
-   * <p>The user who created the account pool.</p>
+   * The user who created the account pool.
+   *
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The timestamp at which the account pool was created.</p>
+   * The timestamp at which the account pool was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp at which the account pool was last updated.</p>
+   * The timestamp at which the account pool was last updated.
+   *
    * @public
    */
   lastUpdatedAt?: Date | undefined;
 
   /**
-   * <p>The user who last updated the account pool.</p>
+   * The user who last updated the account pool.
+   *
    * @public
    */
   updatedBy?: string | undefined;
 
   /**
-   * <p>The ID of the domain where the account pool is created.</p>
+   * The ID of the domain where the account pool is created.
+   *
    * @public
    */
   domainUnitId?: string | undefined;
@@ -8277,61 +9285,71 @@ export interface CreateAccountPoolOutput {
  */
 export interface CreateConnectionInput {
   /**
-   * <p>The location where the connection is created.</p>
+   * The location where the connection is created.
+   *
    * @public
    */
   awsLocation?: AwsLocation | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The configurations of the connection.</p>
+   * The configurations of the connection.
+   *
    * @public
    */
   configurations?: Configuration[] | undefined;
 
   /**
-   * <p>A connection description.</p>
+   * A connection description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The ID of the domain where the connection is created.</p>
+   * The ID of the domain where the connection is created.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The ID of the environment where the connection is created.</p>
+   * The ID of the environment where the connection is created.
+   *
    * @public
    */
   environmentIdentifier?: string | undefined;
 
   /**
-   * <p>The connection name.</p>
+   * The connection name.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The connection props.</p>
+   * The connection props.
+   *
    * @public
    */
   props?: ConnectionPropertiesInput | undefined;
 
   /**
-   * <p>Specifies whether the trusted identity propagation is enabled.</p>
+   * Specifies whether the trusted identity propagation is enabled.
+   *
    * @public
    */
   enableTrustedIdentityPropagation?: boolean | undefined;
 
   /**
-   * <p>The scope of the connection.</p>
+   * The scope of the connection.
+   *
    * @public
    */
   scope?: ConnectionScope | undefined;
@@ -8342,103 +9360,120 @@ export interface CreateConnectionInput {
  */
 export interface CreateConnectionOutput {
   /**
-   * <p>The ID of the connection.</p>
+   * The ID of the connection.
+   *
    * @public
    */
   connectionId: string | undefined;
 
   /**
-   * <p>The configurations of the connection.</p>
+   * The configurations of the connection.
+   *
    * @public
    */
   configurations?: Configuration[] | undefined;
 
   /**
-   * <p>The connection description.</p>
+   * The connection description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The ID of the domain where the connection is created.</p>
+   * The ID of the domain where the connection is created.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The ID of the domain unit where the connection is created.</p>
+   * The ID of the domain unit where the connection is created.
+   *
    * @public
    */
   domainUnitId: string | undefined;
 
   /**
-   * <p>The ID of the environment where the connection is created.</p>
+   * The ID of the environment where the connection is created.
+   *
    * @public
    */
   environmentId?: string | undefined;
 
   /**
-   * <p>The connection name.</p>
+   * The connection name.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The physical endpoints of the connection.</p>
+   * The physical endpoints of the connection.
+   *
    * @public
    */
   physicalEndpoints: PhysicalEndpoint[] | undefined;
 
   /**
-   * <p>The ID of the project where the connection is created.</p>
+   * The ID of the project where the connection is created.
+   *
    * @public
    */
   projectId?: string | undefined;
 
   /**
-   * <p>The connection props.</p>
+   * The connection props.
+   *
    * @public
    */
   props?: ConnectionPropertiesOutput | undefined;
 
   /**
-   * <p>The connection type.</p>
+   * The connection type.
+   *
    * @public
    */
   type: ConnectionType | undefined;
 
   /**
-   * <p>The scope of the connection.</p>
+   * The scope of the connection.
+   *
    * @public
    */
   scope?: ConnectionScope | undefined;
 }
 
 /**
- * <p>The data product.</p>
+ * The data product.
+ *
  * @public
  */
 export interface DataProductItem {
   /**
-   * <p>The type of the data product.</p>
+   * The type of the data product.
+   *
    * @public
    */
   itemType: DataProductItemType | undefined;
 
   /**
-   * <p>The ID of the data product.</p>
+   * The ID of the data product.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The revision of the data product.</p>
+   * The revision of the data product.
+   *
    * @public
    */
   revision?: string | undefined;
 
   /**
-   * <p>The glossary terms of the data product.</p>
+   * The glossary terms of the data product.
+   *
    * @public
    */
   glossaryTerms?: string[] | undefined;
@@ -8449,49 +9484,57 @@ export interface DataProductItem {
  */
 export interface CreateDataProductInput {
   /**
-   * <p>The ID of the domain where the data product is created.</p>
+   * The ID of the domain where the data product is created.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The name of the data product.</p>
+   * The name of the data product.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ID of the owning project of the data product.</p>
+   * The ID of the owning project of the data product.
+   *
    * @public
    */
   owningProjectIdentifier: string | undefined;
 
   /**
-   * <p>The description of the data product.</p>
+   * The description of the data product.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The glossary terms of the data product.</p>
+   * The glossary terms of the data product.
+   *
    * @public
    */
   glossaryTerms?: string[] | undefined;
 
   /**
-   * <p>The metadata forms of the data product.</p>
+   * The metadata forms of the data product.
+   *
    * @public
    */
   formsInput?: FormInput[] | undefined;
 
   /**
-   * <p>The data assets of the data product.</p>
+   * The data assets of the data product.
+   *
    * @public
    */
   items?: DataProductItem[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -8502,85 +9545,99 @@ export interface CreateDataProductInput {
  */
 export interface CreateDataProductOutput {
   /**
-   * <p>The ID of the domain where the data product lives.</p>
+   * The ID of the domain where the data product lives.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The ID of the data product.</p>
+   * The ID of the data product.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The revision of the data product.</p>
+   * The revision of the data product.
+   *
    * @public
    */
   revision: string | undefined;
 
   /**
-   * <p>The ID of the owning project of the data product.</p>
+   * The ID of the owning project of the data product.
+   *
    * @public
    */
   owningProjectId: string | undefined;
 
   /**
-   * <p>The name of the data product.</p>
+   * The name of the data product.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The status of the data product.</p>
+   * The status of the data product.
+   *
    * @public
    */
   status: DataProductStatus | undefined;
 
   /**
-   * <p>The description of the data product.</p>
+   * The description of the data product.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The glossary terms of the data product.</p>
+   * The glossary terms of the data product.
+   *
    * @public
    */
   glossaryTerms?: string[] | undefined;
 
   /**
-   * <p>The data assets of the data product.</p>
+   * The data assets of the data product.
+   *
    * @public
    */
   items?: DataProductItem[] | undefined;
 
   /**
-   * <p>The metadata forms of the data product.</p>
+   * The metadata forms of the data product.
+   *
    * @public
    */
   formsOutput?: FormOutput[] | undefined;
 
   /**
-   * <p>The timestamp at which the data product was created.</p>
+   * The timestamp at which the data product was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The user who created the data product.</p>
+   * The user who created the data product.
+   *
    * @public
    */
   createdBy?: string | undefined;
 
   /**
-   * <p>The timestamp at which the first revision of the data product was created.</p>
+   * The timestamp at which the first revision of the data product was created.
+   *
    * @public
    */
   firstRevisionCreatedAt?: Date | undefined;
 
   /**
-   * <p>The user who created the first revision of the data product.</p>
+   * The user who created the first revision of the data product.
+   *
    * @public
    */
   firstRevisionCreatedBy?: string | undefined;
@@ -8591,49 +9648,57 @@ export interface CreateDataProductOutput {
  */
 export interface CreateDataProductRevisionInput {
   /**
-   * <p>The ID of the domain where the data product revision is created.</p>
+   * The ID of the domain where the data product revision is created.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The ID of the data product revision.</p>
+   * The ID of the data product revision.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The name of the data product revision.</p>
+   * The name of the data product revision.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the data product revision.</p>
+   * The description of the data product revision.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The glossary terms of the data product revision.</p>
+   * The glossary terms of the data product revision.
+   *
    * @public
    */
   glossaryTerms?: string[] | undefined;
 
   /**
-   * <p>The data assets of the data product revision.</p>
+   * The data assets of the data product revision.
+   *
    * @public
    */
   items?: DataProductItem[] | undefined;
 
   /**
-   * <p>The metadata forms of the data product revision.</p>
+   * The metadata forms of the data product revision.
+   *
    * @public
    */
   formsInput?: FormInput[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -8644,200 +9709,233 @@ export interface CreateDataProductRevisionInput {
  */
 export interface CreateDataProductRevisionOutput {
   /**
-   * <p>The ID of the domain where data product revision is created.</p>
+   * The ID of the domain where data product revision is created.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The ID of the data product revision.</p>
+   * The ID of the data product revision.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The revision of the data product revision.</p>
+   * The revision of the data product revision.
+   *
    * @public
    */
   revision: string | undefined;
 
   /**
-   * <p>The ID of the owning project of the data product revision.</p>
+   * The ID of the owning project of the data product revision.
+   *
    * @public
    */
   owningProjectId: string | undefined;
 
   /**
-   * <p>The name of the data product revision.</p>
+   * The name of the data product revision.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The status of the data product revision.</p>
+   * The status of the data product revision.
+   *
    * @public
    */
   status: DataProductStatus | undefined;
 
   /**
-   * <p>The description of the data product revision.</p>
+   * The description of the data product revision.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The glossary terms of the data product revision.</p>
+   * The glossary terms of the data product revision.
+   *
    * @public
    */
   glossaryTerms?: string[] | undefined;
 
   /**
-   * <p>The data assets of the data product revision.</p>
+   * The data assets of the data product revision.
+   *
    * @public
    */
   items?: DataProductItem[] | undefined;
 
   /**
-   * <p>The metadata forms of the data product revision.</p>
+   * The metadata forms of the data product revision.
+   *
    * @public
    */
   formsOutput?: FormOutput[] | undefined;
 
   /**
-   * <p>The timestamp at which the data product revision is created.</p>
+   * The timestamp at which the data product revision is created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The user who created the data product revision.</p>
+   * The user who created the data product revision.
+   *
    * @public
    */
   createdBy?: string | undefined;
 
   /**
-   * <p>The timestamp at which the first revision of the data product is created.</p>
+   * The timestamp at which the first revision of the data product is created.
+   *
    * @public
    */
   firstRevisionCreatedAt?: Date | undefined;
 
   /**
-   * <p>The user who created the first revision of the data product.</p>
+   * The user who created the first revision of the data product.
+   *
    * @public
    */
   firstRevisionCreatedBy?: string | undefined;
 }
 
 /**
- * <p>A filter expression in Amazon DataZone.</p>
+ * A filter expression in Amazon DataZone.
+ *
  * @public
  */
 export interface FilterExpression {
   /**
-   * <p>The search filter explresison type.</p>
+   * The search filter explresison type.
+   *
    * @public
    */
   type: FilterExpressionType | undefined;
 
   /**
-   * <p>The search filter expression.</p>
+   * The search filter expression.
+   *
    * @public
    */
   expression: string | undefined;
 }
 
 /**
- * <p>The relational filter configuration for the data source.</p>
+ * The relational filter configuration for the data source.
+ *
  * @public
  */
 export interface RelationalFilterConfiguration {
   /**
-   * <p>The database name specified in the relational filter configuration for the data source.</p>
+   * The database name specified in the relational filter configuration for the data source.
+   *
    * @public
    */
   databaseName: string | undefined;
 
   /**
-   * <p>The schema name specified in the relational filter configuration for the data source.</p>
+   * The schema name specified in the relational filter configuration for the data source.
+   *
    * @public
    */
   schemaName?: string | undefined;
 
   /**
-   * <p>The filter expressions specified in the relational filter configuration for the data source.</p>
+   * The filter expressions specified in the relational filter configuration for the data source.
+   *
    * @public
    */
   filterExpressions?: FilterExpression[] | undefined;
 }
 
 /**
- * <p>The configuration details of the Amazon Web Services Glue data source.</p>
+ * The configuration details of the Amazon Web Services Glue data source.
+ *
  * @public
  */
 export interface GlueRunConfigurationInput {
   /**
-   * <p>The data access role included in the configuration details of the Amazon Web Services Glue data source.</p>
+   * The data access role included in the configuration details of the Amazon Web Services Glue data source.
+   *
    * @public
    */
   dataAccessRole?: string | undefined;
 
   /**
-   * <p>The relational filter configurations included in the configuration details of the Amazon Web Services Glue data source.</p>
+   * The relational filter configurations included in the configuration details of the Amazon Web Services Glue data source.
+   *
    * @public
    */
   relationalFilterConfigurations: RelationalFilterConfiguration[] | undefined;
 
   /**
-   * <p>Specifies whether to automatically import data quality metrics as part of the data source run.</p>
+   * Specifies whether to automatically import data quality metrics as part of the data source run.
+   *
    * @public
    */
   autoImportDataQualityResult?: boolean | undefined;
 
   /**
-   * <p>The catalog name in the Amazon Web Services Glue run configuration.</p>
+   * The catalog name in the Amazon Web Services Glue run configuration.
+   *
    * @public
    */
   catalogName?: string | undefined;
 }
 
 /**
- * <p>The details of the credentials required to access an Amazon Redshift cluster.</p>
+ * The details of the credentials required to access an Amazon Redshift cluster.
+ *
  * @public
  */
 export interface RedshiftCredentialConfiguration {
   /**
-   * <p>The ARN of a secret manager for an Amazon Redshift cluster.</p>
+   * The ARN of a secret manager for an Amazon Redshift cluster.
+   *
    * @public
    */
   secretManagerArn: string | undefined;
 }
 
 /**
- * <p>The details of the Amazon Redshift cluster storage.</p>
+ * The details of the Amazon Redshift cluster storage.
+ *
  * @public
  */
 export interface RedshiftClusterStorage {
   /**
-   * <p>The name of an Amazon Redshift cluster.</p>
+   * The name of an Amazon Redshift cluster.
+   *
    * @public
    */
   clusterName: string | undefined;
 }
 
 /**
- * <p>The details of the Amazon Redshift Serverless workgroup storage.</p>
+ * The details of the Amazon Redshift Serverless workgroup storage.
+ *
  * @public
  */
 export interface RedshiftServerlessStorage {
   /**
-   * <p>The name of the Amazon Redshift Serverless workgroup.</p>
+   * The name of the Amazon Redshift Serverless workgroup.
+   *
    * @public
    */
   workgroupName: string | undefined;
 }
 
 /**
- * <p>The details of the Amazon Redshift storage as part of the configuration of an Amazon Redshift data source run.</p>
+ * The details of the Amazon Redshift storage as part of the configuration of an Amazon Redshift data source run.
+ *
  * @public
  */
 export type RedshiftStorage =
@@ -8850,7 +9948,8 @@ export type RedshiftStorage =
  */
 export namespace RedshiftStorage {
   /**
-   * <p>The details of the Amazon Redshift cluster source.</p>
+   * The details of the Amazon Redshift cluster source.
+   *
    * @public
    */
   export interface RedshiftClusterSourceMember {
@@ -8860,7 +9959,8 @@ export namespace RedshiftStorage {
   }
 
   /**
-   * <p>The details of the Amazon Redshift Serverless workgroup source.</p>
+   * The details of the Amazon Redshift Serverless workgroup source.
+   *
    * @public
    */
   export interface RedshiftServerlessSourceMember {
@@ -8890,49 +9990,57 @@ export namespace RedshiftStorage {
 }
 
 /**
- * <p>The configuration details of the Amazon Redshift data source.</p>
+ * The configuration details of the Amazon Redshift data source.
+ *
  * @public
  */
 export interface RedshiftRunConfigurationInput {
   /**
-   * <p>The data access role included in the configuration details of the Amazon Redshift data source.</p>
+   * The data access role included in the configuration details of the Amazon Redshift data source.
+   *
    * @public
    */
   dataAccessRole?: string | undefined;
 
   /**
-   * <p>The relational filger configurations included in the configuration details of the Amazon Redshift data source.</p>
+   * The relational filger configurations included in the configuration details of the Amazon Redshift data source.
+   *
    * @public
    */
   relationalFilterConfigurations: RelationalFilterConfiguration[] | undefined;
 
   /**
-   * <p>The details of the credentials required to access an Amazon Redshift cluster.</p>
+   * The details of the credentials required to access an Amazon Redshift cluster.
+   *
    * @public
    */
   redshiftCredentialConfiguration?: RedshiftCredentialConfiguration | undefined;
 
   /**
-   * <p>The details of the Amazon Redshift storage as part of the configuration of an Amazon Redshift data source run.</p>
+   * The details of the Amazon Redshift storage as part of the configuration of an Amazon Redshift data source run.
+   *
    * @public
    */
   redshiftStorage?: RedshiftStorage | undefined;
 }
 
 /**
- * <p>The Amazon SageMaker run configuration.</p>
+ * The Amazon SageMaker run configuration.
+ *
  * @public
  */
 export interface SageMakerRunConfigurationInput {
   /**
-   * <p>The tracking assets of the Amazon SageMaker run.</p>
+   * The tracking assets of the Amazon SageMaker run.
+   *
    * @public
    */
   trackingAssets: Record<string, string[]> | undefined;
 }
 
 /**
- * <p>The configuration of the data source.</p>
+ * The configuration of the data source.
+ *
  * @public
  */
 export type DataSourceConfigurationInput =
@@ -8946,7 +10054,8 @@ export type DataSourceConfigurationInput =
  */
 export namespace DataSourceConfigurationInput {
   /**
-   * <p>The configuration of the Amazon Web Services Glue data source.</p>
+   * The configuration of the Amazon Web Services Glue data source.
+   *
    * @public
    */
   export interface GlueRunConfigurationMember {
@@ -8957,7 +10066,8 @@ export namespace DataSourceConfigurationInput {
   }
 
   /**
-   * <p>The configuration of the Amazon Redshift data source.</p>
+   * The configuration of the Amazon Redshift data source.
+   *
    * @public
    */
   export interface RedshiftRunConfigurationMember {
@@ -8968,7 +10078,8 @@ export namespace DataSourceConfigurationInput {
   }
 
   /**
-   * <p>The Amazon SageMaker run configuration.</p>
+   * The Amazon SageMaker run configuration.
+   *
    * @public
    */
   export interface SageMakerRunConfigurationMember {
@@ -9001,30 +10112,35 @@ export namespace DataSourceConfigurationInput {
 }
 
 /**
- * <p>The recommendation to be updated as part of the <code>UpdateDataSource</code> action.</p>
+ * The recommendation to be updated as part of the `UpdateDataSource` action.
+ *
  * @public
  */
 export interface RecommendationConfiguration {
   /**
-   * <p>Specifies whether automatic business name generation is to be enabled or not as part of the recommendation configuration.</p>
+   * Specifies whether automatic business name generation is to be enabled or not as part of the recommendation configuration.
+   *
    * @public
    */
   enableBusinessNameGeneration?: boolean | undefined;
 }
 
 /**
- * <p>The details of the schedule of the data source runs.</p>
+ * The details of the schedule of the data source runs.
+ *
  * @public
  */
 export interface ScheduleConfiguration {
   /**
-   * <p>The timezone of the data source run. </p>
+   * The timezone of the data source run.
+   *
    * @public
    */
   timezone?: Timezone | undefined;
 
   /**
-   * <p>The schedule of the data source runs.</p>
+   * The schedule of the data source runs.
+   *
    * @public
    */
   schedule?: string | undefined;
@@ -9035,200 +10151,233 @@ export interface ScheduleConfiguration {
  */
 export interface CreateDataSourceInput {
   /**
-   * <p>The name of the data source.</p>
+   * The name of the data source.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the data source.</p>
+   * The description of the data source.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The ID of the Amazon DataZone domain where the data source is created.</p>
+   * The ID of the Amazon DataZone domain where the data source is created.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon DataZone project in which you want to add this data source.</p>
+   * The identifier of the Amazon DataZone project in which you want to add this data source.
+   *
    * @public
    */
   projectIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the Amazon DataZone environment to which the data source publishes assets. </p>
+   * The unique identifier of the Amazon DataZone environment to which the data source publishes assets.
+   *
    * @public
    */
   environmentIdentifier?: string | undefined;
 
   /**
-   * <p>The ID of the connection.</p>
+   * The ID of the connection.
+   *
    * @public
    */
   connectionIdentifier?: string | undefined;
 
   /**
-   * <p>The type of the data source. In Amazon DataZone, you can use data sources to import technical metadata of assets (data) from the source databases or data warehouses into Amazon DataZone. In the current release of Amazon DataZone, you can create and run data sources for Amazon Web Services Glue and Amazon Redshift.</p>
+   * The type of the data source. In Amazon DataZone, you can use data sources to import technical metadata of assets (data) from the source databases or data warehouses into Amazon DataZone. In the current release of Amazon DataZone, you can create and run data sources for Amazon Web Services Glue and Amazon Redshift.
+   *
    * @public
    */
   type: string | undefined;
 
   /**
-   * <p>Specifies the configuration of the data source. It can be set to either <code>glueRunConfiguration</code> or <code>redshiftRunConfiguration</code>.</p>
+   * Specifies the configuration of the data source. It can be set to either `glueRunConfiguration` or `redshiftRunConfiguration`.
+   *
    * @public
    */
   configuration?: DataSourceConfigurationInput | undefined;
 
   /**
-   * <p>Specifies whether the business name generation is to be enabled for this data source.</p>
+   * Specifies whether the business name generation is to be enabled for this data source.
+   *
    * @public
    */
   recommendation?: RecommendationConfiguration | undefined;
 
   /**
-   * <p>Specifies whether the data source is enabled.</p>
+   * Specifies whether the data source is enabled.
+   *
    * @public
    */
   enableSetting?: EnableSetting | undefined;
 
   /**
-   * <p>The schedule of the data source runs.</p>
+   * The schedule of the data source runs.
+   *
    * @public
    */
   schedule?: ScheduleConfiguration | undefined;
 
   /**
-   * <p>Specifies whether the assets that this data source creates in the inventory are to be also automatically published to the catalog.</p>
+   * Specifies whether the assets that this data source creates in the inventory are to be also automatically published to the catalog.
+   *
    * @public
    */
   publishOnImport?: boolean | undefined;
 
   /**
-   * <p>The metadata forms that are to be attached to the assets that this data source works with.</p>
+   * The metadata forms that are to be attached to the assets that this data source works with.
+   *
    * @public
    */
   assetFormsInput?: FormInput[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 }
 
 /**
- * <p>The configuration details of the Amazon Web Services Glue data source.</p>
+ * The configuration details of the Amazon Web Services Glue data source.
+ *
  * @public
  */
 export interface GlueRunConfigurationOutput {
   /**
-   * <p>The Amazon Web Services account ID included in the configuration details of the Amazon Web Services Glue data source. </p>
+   * The Amazon Web Services account ID included in the configuration details of the Amazon Web Services Glue data source.
+   *
    * @public
    */
   accountId?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services region included in the configuration details of the Amazon Web Services Glue data source. </p>
+   * The Amazon Web Services region included in the configuration details of the Amazon Web Services Glue data source.
+   *
    * @public
    */
   region?: string | undefined;
 
   /**
-   * <p>The data access role included in the configuration details of the Amazon Web Services Glue data source. </p>
+   * The data access role included in the configuration details of the Amazon Web Services Glue data source.
+   *
    * @public
    */
   dataAccessRole?: string | undefined;
 
   /**
-   * <p>The relational filter configurations included in the configuration details of the Amazon Web Services Glue data source.</p>
+   * The relational filter configurations included in the configuration details of the Amazon Web Services Glue data source.
+   *
    * @public
    */
   relationalFilterConfigurations: RelationalFilterConfiguration[] | undefined;
 
   /**
-   * <p>Specifies whether to automatically import data quality metrics as part of the data source run.</p>
+   * Specifies whether to automatically import data quality metrics as part of the data source run.
+   *
    * @public
    */
   autoImportDataQualityResult?: boolean | undefined;
 
   /**
-   * <p>The catalog name in the Amazon Web Services Glue run configuration.</p>
+   * The catalog name in the Amazon Web Services Glue run configuration.
+   *
    * @public
    */
   catalogName?: string | undefined;
 }
 
 /**
- * <p>The configuration details of the Amazon Redshift data source.</p>
+ * The configuration details of the Amazon Redshift data source.
+ *
  * @public
  */
 export interface RedshiftRunConfigurationOutput {
   /**
-   * <p>The ID of the Amazon Web Services account included in the configuration details of the Amazon Redshift data source.</p>
+   * The ID of the Amazon Web Services account included in the configuration details of the Amazon Redshift data source.
+   *
    * @public
    */
   accountId?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services region included in the configuration details of the Amazon Redshift data source.</p>
+   * The Amazon Web Services region included in the configuration details of the Amazon Redshift data source.
+   *
    * @public
    */
   region?: string | undefined;
 
   /**
-   * <p>The data access role included in the configuration details of the Amazon Redshift data source.</p>
+   * The data access role included in the configuration details of the Amazon Redshift data source.
+   *
    * @public
    */
   dataAccessRole?: string | undefined;
 
   /**
-   * <p>The relational filger configurations included in the configuration details of the Amazon Redshift data source.</p>
+   * The relational filger configurations included in the configuration details of the Amazon Redshift data source.
+   *
    * @public
    */
   relationalFilterConfigurations: RelationalFilterConfiguration[] | undefined;
 
   /**
-   * <p>The details of the credentials required to access an Amazon Redshift cluster.</p>
+   * The details of the credentials required to access an Amazon Redshift cluster.
+   *
    * @public
    */
   redshiftCredentialConfiguration?: RedshiftCredentialConfiguration | undefined;
 
   /**
-   * <p>The details of the Amazon Redshift storage as part of the configuration of an Amazon Redshift data source run.</p>
+   * The details of the Amazon Redshift storage as part of the configuration of an Amazon Redshift data source run.
+   *
    * @public
    */
   redshiftStorage: RedshiftStorage | undefined;
 }
 
 /**
- * <p>The Amazon SageMaker run configuration.</p>
+ * The Amazon SageMaker run configuration.
+ *
  * @public
  */
 export interface SageMakerRunConfigurationOutput {
   /**
-   * <p>The Amazon SageMaker account ID.</p>
+   * The Amazon SageMaker account ID.
+   *
    * @public
    */
   accountId?: string | undefined;
 
   /**
-   * <p>The Amazon SageMaker Region.</p>
+   * The Amazon SageMaker Region.
+   *
    * @public
    */
   region?: string | undefined;
 
   /**
-   * <p>The tracking assets of the Amazon SageMaker.</p>
+   * The tracking assets of the Amazon SageMaker.
+   *
    * @public
    */
   trackingAssets: Record<string, string[]> | undefined;
 }
 
 /**
- * <p>The configuration of the data source.</p>
+ * The configuration of the data source.
+ *
  * @public
  */
 export type DataSourceConfigurationOutput =
@@ -9242,7 +10391,8 @@ export type DataSourceConfigurationOutput =
  */
 export namespace DataSourceConfigurationOutput {
   /**
-   * <p>The configuration of the Amazon Web Services Glue data source.</p>
+   * The configuration of the Amazon Web Services Glue data source.
+   *
    * @public
    */
   export interface GlueRunConfigurationMember {
@@ -9253,7 +10403,8 @@ export namespace DataSourceConfigurationOutput {
   }
 
   /**
-   * <p>The configuration of the Amazon Redshift data source.</p>
+   * The configuration of the Amazon Redshift data source.
+   *
    * @public
    */
   export interface RedshiftRunConfigurationMember {
@@ -9264,7 +10415,8 @@ export namespace DataSourceConfigurationOutput {
   }
 
   /**
-   * <p>The Amazon SageMaker run configuration.</p>
+   * The Amazon SageMaker run configuration.
+   *
    * @public
    */
   export interface SageMakerRunConfigurationMember {
@@ -9297,18 +10449,21 @@ export namespace DataSourceConfigurationOutput {
 }
 
 /**
- * <p>The details of the error message that is returned if the operation cannot be successfully completed.</p>
+ * The details of the error message that is returned if the operation cannot be successfully completed.
+ *
  * @public
  */
 export interface DataSourceErrorMessage {
   /**
-   * <p>The type of the error message that is returned if the operation cannot be successfully completed.</p>
+   * The type of the error message that is returned if the operation cannot be successfully completed.
+   *
    * @public
    */
   errorType: DataSourceErrorType | undefined;
 
   /**
-   * <p>The details of the error message that is returned if the operation cannot be successfully completed.</p>
+   * The details of the error message that is returned if the operation cannot be successfully completed.
+   *
    * @public
    */
   errorDetail?: string | undefined;
@@ -9319,127 +10474,148 @@ export interface DataSourceErrorMessage {
  */
 export interface CreateDataSourceOutput {
   /**
-   * <p>The unique identifier of the data source.</p>
+   * The unique identifier of the data source.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The status of the data source.</p>
+   * The status of the data source.
+   *
    * @public
    */
   status?: DataSourceStatus | undefined;
 
   /**
-   * <p>The type of the data source.</p>
+   * The type of the data source.
+   *
    * @public
    */
   type?: string | undefined;
 
   /**
-   * <p>The name of the data source.</p>
+   * The name of the data source.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the data source.</p>
+   * The description of the data source.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The ID of the Amazon DataZone domain in which the data source is created.</p>
+   * The ID of the Amazon DataZone domain in which the data source is created.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The ID of the Amazon DataZone project to which the data source is added.</p>
+   * The ID of the Amazon DataZone project to which the data source is added.
+   *
    * @public
    */
   projectId: string | undefined;
 
   /**
-   * <p>The unique identifier of the Amazon DataZone environment to which the data source publishes assets. </p>
+   * The unique identifier of the Amazon DataZone environment to which the data source publishes assets.
+   *
    * @public
    */
   environmentId?: string | undefined;
 
   /**
-   * <p>The ID of the connection.</p>
+   * The ID of the connection.
+   *
    * @public
    */
   connectionId?: string | undefined;
 
   /**
-   * <p>Specifies the configuration of the data source. It can be set to either <code>glueRunConfiguration</code> or <code>redshiftRunConfiguration</code>.</p>
+   * Specifies the configuration of the data source. It can be set to either `glueRunConfiguration` or `redshiftRunConfiguration`.
+   *
    * @public
    */
   configuration?: DataSourceConfigurationOutput | undefined;
 
   /**
-   * <p>Specifies whether the business name generation is to be enabled for this data source.</p>
+   * Specifies whether the business name generation is to be enabled for this data source.
+   *
    * @public
    */
   recommendation?: RecommendationConfiguration | undefined;
 
   /**
-   * <p>Specifies whether the data source is enabled.</p>
+   * Specifies whether the data source is enabled.
+   *
    * @public
    */
   enableSetting?: EnableSetting | undefined;
 
   /**
-   * <p>Specifies whether the assets that this data source creates in the inventory are to be also automatically published to the catalog.</p>
+   * Specifies whether the assets that this data source creates in the inventory are to be also automatically published to the catalog.
+   *
    * @public
    */
   publishOnImport?: boolean | undefined;
 
   /**
-   * <p>The metadata forms attached to the assets that this data source creates.</p>
+   * The metadata forms attached to the assets that this data source creates.
+   *
    * @public
    */
   assetFormsOutput?: FormOutput[] | undefined;
 
   /**
-   * <p>The schedule of the data source runs.</p>
+   * The schedule of the data source runs.
+   *
    * @public
    */
   schedule?: ScheduleConfiguration | undefined;
 
   /**
-   * <p>The status of the last run of this data source.</p>
+   * The status of the last run of this data source.
+   *
    * @public
    */
   lastRunStatus?: DataSourceRunStatus | undefined;
 
   /**
-   * <p>The timestamp that specifies when the data source was last run.</p>
+   * The timestamp that specifies when the data source was last run.
+   *
    * @public
    */
   lastRunAt?: Date | undefined;
 
   /**
-   * <p>Specifies the error message that is returned if the operation cannot be successfully completed.</p>
+   * Specifies the error message that is returned if the operation cannot be successfully completed.
+   *
    * @public
    */
   lastRunErrorMessage?: DataSourceErrorMessage | undefined;
 
   /**
-   * <p>Specifies the error message that is returned if the operation cannot be successfully completed.</p>
+   * Specifies the error message that is returned if the operation cannot be successfully completed.
+   *
    * @public
    */
   errorMessage?: DataSourceErrorMessage | undefined;
 
   /**
-   * <p>The timestamp of when the data source was created.</p>
+   * The timestamp of when the data source was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp of when the data source was updated.</p>
+   * The timestamp of when the data source was updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -9450,19 +10626,22 @@ export interface CreateDataSourceOutput {
  */
 export interface CreateDesignationInput {
   /**
-   * <p>The identifier of the Amazon DataZone domain in which the designation is created.</p>
+   * The identifier of the Amazon DataZone domain in which the designation is created.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The name of the designation. The name must be unique within the domain.</p>
+   * The name of the designation. The name must be unique within the domain.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A human-readable description of the designation and its intended use.</p>
+   * A human-readable description of the designation and its intended use.
+   *
    * @public
    */
   description?: string | undefined;
@@ -9488,25 +10667,29 @@ export interface CreateDesignationInput {
  */
 export interface CreateDesignationOutput {
   /**
-   * <p>The identifier of the Amazon DataZone domain in which the designation was created.</p>
+   * The identifier of the Amazon DataZone domain in which the designation was created.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The unique ID of the designation.</p>
+   * The unique ID of the designation.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the designation. The name is unique within the domain.</p>
+   * The name of the designation. The name is unique within the domain.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A human-readable description of the designation and its intended use.</p>
+   * A human-readable description of the designation and its intended use.
+   *
    * @public
    */
   description?: string | undefined;
@@ -9533,43 +10716,50 @@ export interface CreateDesignationOutput {
   deletionProtection: boolean | undefined;
 
   /**
-   * <p>The identifier of the Amazon DataZone user who created the designation.</p>
+   * The identifier of the Amazon DataZone user who created the designation.
+   *
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The date and time when the designation was created.</p>
+   * The date and time when the designation was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time when the designation was last updated.</p>
+   * The date and time when the designation was last updated.
+   *
    * @public
    */
   lastUpdatedAt?: Date | undefined;
 }
 
 /**
- * <p>The single sign-on details in Amazon DataZone.</p>
+ * The single sign-on details in Amazon DataZone.
+ *
  * @public
  */
 export interface SingleSignOn {
   /**
-   * <p>The type of single sign-on in Amazon DataZone.</p>
+   * The type of single sign-on in Amazon DataZone.
+   *
    * @public
    */
   type?: AuthType | undefined;
 
   /**
-   * <p>The single sign-on user assignment in Amazon DataZone.</p>
+   * The single sign-on user assignment in Amazon DataZone.
+   *
    * @public
    */
   userAssignment?: UserAssignment | undefined;
 
   /**
-   * <p>The ARN of the IDC instance.</p>
+   * The ARN of the IDC instance.
+   *
    * @public
    */
   idcInstanceArn?: string | undefined;
@@ -9580,55 +10770,64 @@ export interface SingleSignOn {
  */
 export interface CreateDomainInput {
   /**
-   * <p>The name of the Amazon DataZone domain.</p>
+   * The name of the Amazon DataZone domain.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the Amazon DataZone domain.</p>
+   * The description of the Amazon DataZone domain.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The single-sign on configuration of the Amazon DataZone domain.</p>
+   * The single-sign on configuration of the Amazon DataZone domain.
+   *
    * @public
    */
   singleSignOn?: SingleSignOn | undefined;
 
   /**
-   * <p>The domain execution role that is created when an Amazon DataZone domain is created. The domain execution role is created in the Amazon Web Services account that houses the Amazon DataZone domain.</p>
+   * The domain execution role that is created when an Amazon DataZone domain is created. The domain execution role is created in the Amazon Web Services account that houses the Amazon DataZone domain.
+   *
    * @public
    */
   domainExecutionRole?: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Web Services Key Management Service (KMS) key that is used to encrypt the Amazon DataZone domain, metadata, and reporting data. </p>
+   * The identifier of the Amazon Web Services Key Management Service (KMS) key that is used to encrypt the Amazon DataZone domain, metadata, and reporting data.
+   *
    * @public
    */
   kmsKeyIdentifier?: string | undefined;
 
   /**
-   * <p>The tags specified for the Amazon DataZone domain.</p>
+   * The tags specified for the Amazon DataZone domain.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The version of the domain that is created.</p>
+   * The version of the domain that is created.
+   *
    * @public
    */
   domainVersion?: DomainVersion | undefined;
 
   /**
-   * <p>The service role of the domain that is created.</p>
+   * The service role of the domain that is created.
+   *
    * @public
    */
   serviceRole?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -9639,79 +10838,92 @@ export interface CreateDomainInput {
  */
 export interface CreateDomainOutput {
   /**
-   * <p>The identifier of the Amazon DataZone domain.</p>
+   * The identifier of the Amazon DataZone domain.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The ID of the root domain unit.</p>
+   * The ID of the root domain unit.
+   *
    * @public
    */
   rootDomainUnitId?: string | undefined;
 
   /**
-   * <p>The name of the Amazon DataZone domain.</p>
+   * The name of the Amazon DataZone domain.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The description of the Amazon DataZone domain.</p>
+   * The description of the Amazon DataZone domain.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The single-sign on configuration of the Amazon DataZone domain.</p>
+   * The single-sign on configuration of the Amazon DataZone domain.
+   *
    * @public
    */
   singleSignOn?: SingleSignOn | undefined;
 
   /**
-   * <p>The domain execution role that is created when an Amazon DataZone domain is created. The domain execution role is created in the Amazon Web Services account that houses the Amazon DataZone domain.</p>
+   * The domain execution role that is created when an Amazon DataZone domain is created. The domain execution role is created in the Amazon Web Services account that houses the Amazon DataZone domain.
+   *
    * @public
    */
   domainExecutionRole?: string | undefined;
 
   /**
-   * <p>The ARN of the Amazon DataZone domain.</p>
+   * The ARN of the Amazon DataZone domain.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Web Services Key Management Service (KMS) key that is used to encrypt the Amazon DataZone domain, metadata, and reporting data. </p>
+   * The identifier of the Amazon Web Services Key Management Service (KMS) key that is used to encrypt the Amazon DataZone domain, metadata, and reporting data.
+   *
    * @public
    */
   kmsKeyIdentifier?: string | undefined;
 
   /**
-   * <p>The status of the Amazon DataZone domain.</p>
+   * The status of the Amazon DataZone domain.
+   *
    * @public
    */
   status?: DomainStatus | undefined;
 
   /**
-   * <p>The URL of the data portal for this Amazon DataZone domain.</p>
+   * The URL of the data portal for this Amazon DataZone domain.
+   *
    * @public
    */
   portalUrl?: string | undefined;
 
   /**
-   * <p>The tags specified for the Amazon DataZone domain.</p>
+   * The tags specified for the Amazon DataZone domain.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The version of the domain that is created.</p>
+   * The version of the domain that is created.
+   *
    * @public
    */
   domainVersion?: DomainVersion | undefined;
 
   /**
-   * <p>Te service role of the domain that is created.</p>
+   * Te service role of the domain that is created.
+   *
    * @public
    */
   serviceRole?: string | undefined;
@@ -9722,62 +10934,72 @@ export interface CreateDomainOutput {
  */
 export interface CreateDomainUnitInput {
   /**
-   * <p>The ID of the domain where you want to crate a domain unit.</p>
+   * The ID of the domain where you want to crate a domain unit.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The name of the domain unit.</p>
+   * The name of the domain unit.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ID of the parent domain unit.</p>
+   * The ID of the parent domain unit.
+   *
    * @public
    */
   parentDomainUnitIdentifier: string | undefined;
 
   /**
-   * <p>The description of the domain unit.</p>
+   * The description of the domain unit.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 }
 
 /**
- * <p>The properties of a domain unit group.</p>
+ * The properties of a domain unit group.
+ *
  * @public
  */
 export interface DomainUnitGroupProperties {
   /**
-   * <p>The ID of the domain unit group.</p>
+   * The ID of the domain unit group.
+   *
    * @public
    */
   groupId?: string | undefined;
 }
 
 /**
- * <p>The properties of the domain unit user.</p>
+ * The properties of the domain unit user.
+ *
  * @public
  */
 export interface DomainUnitUserProperties {
   /**
-   * <p>The ID of teh domain unit user.</p>
+   * The ID of teh domain unit user.
+   *
    * @public
    */
   userId?: string | undefined;
 }
 
 /**
- * <p>The properties of the domain unit owner.</p>
+ * The properties of the domain unit owner.
+ *
  * @public
  */
 export type DomainUnitOwnerProperties =
@@ -9790,7 +11012,8 @@ export type DomainUnitOwnerProperties =
  */
 export namespace DomainUnitOwnerProperties {
   /**
-   * <p>Indicates that the domain unit owner is a user.</p>
+   * Indicates that the domain unit owner is a user.
+   *
    * @public
    */
   export interface UserMember {
@@ -9800,7 +11023,8 @@ export namespace DomainUnitOwnerProperties {
   }
 
   /**
-   * <p>Indicates that the domain unit owner is a group.</p>
+   * Indicates that the domain unit owner is a group.
+   *
    * @public
    */
   export interface GroupMember {
@@ -9834,73 +11058,85 @@ export namespace DomainUnitOwnerProperties {
  */
 export interface CreateDomainUnitOutput {
   /**
-   * <p>The ID of the domain unit.</p>
+   * The ID of the domain unit.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The ID of the domain where the domain unit was created.</p>
+   * The ID of the domain where the domain unit was created.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The name of the domain unit.</p>
+   * The name of the domain unit.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ID of the parent domain unit.</p>
+   * The ID of the parent domain unit.
+   *
    * @public
    */
   parentDomainUnitId?: string | undefined;
 
   /**
-   * <p>The description of the domain unit.</p>
+   * The description of the domain unit.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The owners of the domain unit.</p>
+   * The owners of the domain unit.
+   *
    * @public
    */
   owners: DomainUnitOwnerProperties[] | undefined;
 
   /**
-   * <p>The IDs of the ancestor domain units.</p>
+   * The IDs of the ancestor domain units.
+   *
    * @public
    */
   ancestorDomainUnitIds: string[] | undefined;
 
   /**
-   * <p>The timestamp at which the domain unit was created.</p>
+   * The timestamp at which the domain unit was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The user who created the domain unit.</p>
+   * The user who created the domain unit.
+   *
    * @public
    */
   createdBy?: string | undefined;
 }
 
 /**
- * <p>The parameter details of an evironment profile.</p>
+ * The parameter details of an evironment profile.
+ *
  * @public
  */
 export interface EnvironmentParameter {
   /**
-   * <p>The name of an environment profile parameter.</p>
+   * The name of an environment profile parameter.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The value of an environment profile parameter.</p>
+   * The value of an environment profile parameter.
+   *
    * @public
    */
   value?: string | undefined;
@@ -9911,194 +11147,228 @@ export interface EnvironmentParameter {
  */
 export interface CreateEnvironmentInput {
   /**
-   * <p>The identifier of the Amazon DataZone project in which this environment is created.</p>
+   * The identifier of the Amazon DataZone project in which this environment is created.
+   *
    * @public
    */
   projectIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon DataZone domain in which the environment is created.</p>
+   * The identifier of the Amazon DataZone domain in which the environment is created.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The description of the Amazon DataZone environment.</p>
+   * The description of the Amazon DataZone environment.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The name of the Amazon DataZone environment.</p>
+   * The name of the Amazon DataZone environment.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The identifier of the environment profile that is used to create this Amazon DataZone environment.</p>
+   * The identifier of the environment profile that is used to create this Amazon DataZone environment.
+   *
    * @public
    */
   environmentProfileIdentifier?: string | undefined;
 
   /**
-   * <p>The user parameters of this Amazon DataZone environment.</p>
+   * The user parameters of this Amazon DataZone environment.
+   *
    * @public
    */
   userParameters?: EnvironmentParameter[] | undefined;
 
   /**
-   * <p>The glossary terms that can be used in this Amazon DataZone environment.</p>
+   * The glossary terms that can be used in this Amazon DataZone environment.
+   *
    * @public
    */
   glossaryTerms?: string[] | undefined;
 
   /**
-   * <p>The ID of the account in which the environment is being created.</p>
+   * The ID of the account in which the environment is being created.
+   *
    * @public
    */
   environmentAccountIdentifier?: string | undefined;
 
   /**
-   * <p>The region of the account in which the environment is being created.</p>
+   * The region of the account in which the environment is being created.
+   *
    * @public
    */
   environmentAccountRegion?: string | undefined;
 
   /**
-   * <p>The ID of the blueprint with which the environment is being created.</p> <note> <p>This parameter is only valid for V1 domains. If provided for a V2 domain, the service returns a ValidationException.</p> </note>
+   * The ID of the blueprint with which the environment is being created.
+   *
+   * > **Note:** This parameter is only valid for V1 domains. If provided for a V2 domain, the service returns a ValidationException.
+   *
    * @public
    */
   environmentBlueprintIdentifier?: string | undefined;
 
   /**
-   * <p>The deployment order of the environment.</p>
+   * The deployment order of the environment.
+   *
    * @public
    */
   deploymentOrder?: number | undefined;
 
   /**
-   * <p>The configuration ID of the environment.</p>
+   * The configuration ID of the environment.
+   *
    * @public
    */
   environmentConfigurationId?: string | undefined;
 
   /**
-   * <p>The configuration name of the environment.</p>
+   * The configuration name of the environment.
+   *
    * @public
    */
   environmentConfigurationName?: string | undefined;
 }
 
 /**
- * <p>The deployment properties of the Amazon DataZone blueprint.</p>
+ * The deployment properties of the Amazon DataZone blueprint.
+ *
  * @public
  */
 export interface DeploymentProperties {
   /**
-   * <p>The start timeout of the environment blueprint deployment.</p>
+   * The start timeout of the environment blueprint deployment.
+   *
    * @public
    */
   startTimeoutMinutes?: number | undefined;
 
   /**
-   * <p>The end timeout of the environment blueprint deployment.</p>
+   * The end timeout of the environment blueprint deployment.
+   *
    * @public
    */
   endTimeoutMinutes?: number | undefined;
 }
 
 /**
- * <p>The failure reasons for the environment deployment.</p>
+ * The failure reasons for the environment deployment.
+ *
  * @public
  */
 export interface EnvironmentError {
   /**
-   * <p>The error code for the failure reason for the environment deployment.</p>
+   * The error code for the failure reason for the environment deployment.
+   *
    * @public
    */
   code?: string | undefined;
 
   /**
-   * <p>The error message for the failure reason for the environment deployment.</p>
+   * The error message for the failure reason for the environment deployment.
+   *
    * @public
    */
   message: string | undefined;
 }
 
 /**
- * <p>The details of the last deployment of the environment.</p>
+ * The details of the last deployment of the environment.
+ *
  * @public
  */
 export interface Deployment {
   /**
-   * <p>The identifier of the last deployment of the environment.</p>
+   * The identifier of the last deployment of the environment.
+   *
    * @public
    */
   deploymentId?: string | undefined;
 
   /**
-   * <p>The type of the last deployment of the environment.</p>
+   * The type of the last deployment of the environment.
+   *
    * @public
    */
   deploymentType?: DeploymentType | undefined;
 
   /**
-   * <p>The status of the last deployment of the environment.</p>
+   * The status of the last deployment of the environment.
+   *
    * @public
    */
   deploymentStatus?: DeploymentStatus | undefined;
 
   /**
-   * <p>The failure reason of the last deployment of the environment.</p>
+   * The failure reason of the last deployment of the environment.
+   *
    * @public
    */
   failureReason?: EnvironmentError | undefined;
 
   /**
-   * <p>The messages of the last deployment of the environment.</p>
+   * The messages of the last deployment of the environment.
+   *
    * @public
    */
   messages?: string[] | undefined;
 
   /**
-   * <p>Specifies whether the last deployment of the environment is complete.</p>
+   * Specifies whether the last deployment of the environment is complete.
+   *
    * @public
    */
   isDeploymentComplete?: boolean | undefined;
 }
 
 /**
- * <p>The details of a provisioned resource of this Amazon DataZone environment.</p>
+ * The details of a provisioned resource of this Amazon DataZone environment.
+ *
  * @public
  */
 export interface Resource {
   /**
-   * <p>The provider of a provisioned resource of this Amazon DataZone environment.</p>
+   * The provider of a provisioned resource of this Amazon DataZone environment.
+   *
    * @public
    */
   provider?: string | undefined;
 
   /**
-   * <p>The name of a provisioned resource of this Amazon DataZone environment.</p>
+   * The name of a provisioned resource of this Amazon DataZone environment.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The value of a provisioned resource of this Amazon DataZone environment.</p>
+   * The value of a provisioned resource of this Amazon DataZone environment.
+   *
    * @public
    */
   value: string | undefined;
 
   /**
-   * <p>The type of a provisioned resource of this Amazon DataZone environment.</p>
+   * The type of a provisioned resource of this Amazon DataZone environment.
+   *
    * @public
    */
   type: string | undefined;
 }
 
 /**
- * <p>The provisioning properties of an environment blueprint.</p>
+ * The provisioning properties of an environment blueprint.
+ *
  * @public
  */
 export type ProvisioningProperties =
@@ -10110,7 +11380,8 @@ export type ProvisioningProperties =
  */
 export namespace ProvisioningProperties {
   /**
-   * <p>The cloud formation properties included as part of the provisioning properties of an environment blueprint.</p>
+   * The cloud formation properties included as part of the provisioning properties of an environment blueprint.
+   *
    * @public
    */
   export interface CloudFormationMember {
@@ -10137,48 +11408,56 @@ export namespace ProvisioningProperties {
 }
 
 /**
- * <p>The details of user parameters of an environment blueprint.</p>
+ * The details of user parameters of an environment blueprint.
+ *
  * @public
  */
 export interface CustomParameter {
   /**
-   * <p>The key name of the parameter.</p>
+   * The key name of the parameter.
+   *
    * @public
    */
   keyName: string | undefined;
 
   /**
-   * <p>The description of the parameter.</p>
+   * The description of the parameter.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The filed type of the parameter.</p>
+   * The filed type of the parameter.
+   *
    * @public
    */
   fieldType: string | undefined;
 
   /**
-   * <p>The default value of the parameter.</p>
+   * The default value of the parameter.
+   *
    * @public
    */
   defaultValue?: string | undefined;
 
   /**
-   * <p>Specifies whether the parameter is editable.</p>
+   * Specifies whether the parameter is editable.
+   *
    * @public
    */
   isEditable?: boolean | undefined;
 
   /**
-   * <p>Specifies whether the custom parameter is optional.</p>
+   * Specifies whether the custom parameter is optional.
+   *
    * @public
    */
   isOptional?: boolean | undefined;
 
   /**
-   * <p>Specifies whether a parameter value can be updated after creation. </p>
+   * Specifies whether a parameter value can be updated after creation.
+   *
    * @public
    */
   isUpdateSupported?: boolean | undefined;
@@ -10189,139 +11468,162 @@ export interface CustomParameter {
  */
 export interface CreateEnvironmentOutput {
   /**
-   * <p>The ID of the Amazon DataZone project in which this environment is created.</p>
+   * The ID of the Amazon DataZone project in which this environment is created.
+   *
    * @public
    */
   projectId: string | undefined;
 
   /**
-   * <p>The ID of this Amazon DataZone environment.</p>
+   * The ID of this Amazon DataZone environment.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon DataZone domain in which the environment is created.</p>
+   * The identifier of the Amazon DataZone domain in which the environment is created.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The Amazon DataZone user who created this environment.</p>
+   * The Amazon DataZone user who created this environment.
+   *
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The timestamp of when the environment was created.</p>
+   * The timestamp of when the environment was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp of when this environment was updated.</p>
+   * The timestamp of when this environment was updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The name of this environment.</p>
+   * The name of this environment.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of this Amazon DataZone environment.</p>
+   * The description of this Amazon DataZone environment.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The ID of the environment profile with which this Amazon DataZone environment was created.</p>
+   * The ID of the environment profile with which this Amazon DataZone environment was created.
+   *
    * @public
    */
   environmentProfileId?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account in which the Amazon DataZone environment is created.</p>
+   * The Amazon Web Services account in which the Amazon DataZone environment is created.
+   *
    * @public
    */
   awsAccountId?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services region in which the Amazon DataZone environment is created.</p>
+   * The Amazon Web Services region in which the Amazon DataZone environment is created.
+   *
    * @public
    */
   awsAccountRegion?: string | undefined;
 
   /**
-   * <p>The provider of this Amazon DataZone environment.</p>
+   * The provider of this Amazon DataZone environment.
+   *
    * @public
    */
   provider: string | undefined;
 
   /**
-   * <p>The provisioned resources of this Amazon DataZone environment.</p>
+   * The provisioned resources of this Amazon DataZone environment.
+   *
    * @public
    */
   provisionedResources?: Resource[] | undefined;
 
   /**
-   * <p>The status of this Amazon DataZone environment.</p>
+   * The status of this Amazon DataZone environment.
+   *
    * @public
    */
   status?: EnvironmentStatus | undefined;
 
   /**
-   * <p>The configurable actions of this Amazon DataZone environment.</p>
+   * The configurable actions of this Amazon DataZone environment.
+   *
    * @public
    */
   environmentActions?: ConfigurableEnvironmentAction[] | undefined;
 
   /**
-   * <p>The glossary terms that can be used in this Amazon DataZone environment.</p>
+   * The glossary terms that can be used in this Amazon DataZone environment.
+   *
    * @public
    */
   glossaryTerms?: string[] | undefined;
 
   /**
-   * <p>The user parameters of this Amazon DataZone environment.</p>
+   * The user parameters of this Amazon DataZone environment.
+   *
    * @public
    */
   userParameters?: CustomParameter[] | undefined;
 
   /**
-   * <p>The details of the last deployment of this Amazon DataZone environment.</p>
+   * The details of the last deployment of this Amazon DataZone environment.
+   *
    * @public
    */
   lastDeployment?: Deployment | undefined;
 
   /**
-   * <p>The provisioning properties of this Amazon DataZone environment.</p>
+   * The provisioning properties of this Amazon DataZone environment.
+   *
    * @public
    */
   provisioningProperties?: ProvisioningProperties | undefined;
 
   /**
-   * <p>The deployment properties of this Amazon DataZone environment.</p>
+   * The deployment properties of this Amazon DataZone environment.
+   *
    * @public
    */
   deploymentProperties?: DeploymentProperties | undefined;
 
   /**
-   * <p>The ID of the blueprint with which this Amazon DataZone environment was created.</p>
+   * The ID of the blueprint with which this Amazon DataZone environment was created.
+   *
    * @public
    */
   environmentBlueprintId?: string | undefined;
 
   /**
-   * <p>The configuration ID of the environment.</p>
+   * The configuration ID of the environment.
+   *
    * @public
    */
   environmentConfigurationId?: string | undefined;
 
   /**
-   * <p>The configuration name of the environment.</p>
+   * The configuration name of the environment.
+   *
    * @public
    */
   environmentConfigurationName?: string | undefined;
@@ -10332,31 +11634,36 @@ export interface CreateEnvironmentOutput {
  */
 export interface CreateEnvironmentActionInput {
   /**
-   * <p>The ID of the Amazon DataZone domain in which the environment action is created.</p>
+   * The ID of the Amazon DataZone domain in which the environment action is created.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The ID of the environment in which the environment action is created.</p>
+   * The ID of the environment in which the environment action is created.
+   *
    * @public
    */
   environmentIdentifier: string | undefined;
 
   /**
-   * <p>The name of the environment action.</p>
+   * The name of the environment action.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The parameters of the environment action.</p>
+   * The parameters of the environment action.
+   *
    * @public
    */
   parameters: ActionParameters | undefined;
 
   /**
-   * <p>The description of the environment action that is being created in the environment.</p>
+   * The description of the environment action that is being created in the environment.
+   *
    * @public
    */
   description?: string | undefined;
@@ -10367,37 +11674,43 @@ export interface CreateEnvironmentActionInput {
  */
 export interface CreateEnvironmentActionOutput {
   /**
-   * <p>The ID of the domain in which the environment action is created.</p>
+   * The ID of the domain in which the environment action is created.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The ID of the environment in which the environment is created.</p>
+   * The ID of the environment in which the environment is created.
+   *
    * @public
    */
   environmentId: string | undefined;
 
   /**
-   * <p>The ID of the environment action.</p>
+   * The ID of the environment action.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the environment action.</p>
+   * The name of the environment action.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The parameters of the environment action.</p>
+   * The parameters of the environment action.
+   *
    * @public
    */
   parameters: ActionParameters | undefined;
 
   /**
-   * <p>The description of the environment action.</p>
+   * The description of the environment action.
+   *
    * @public
    */
   description?: string | undefined;
@@ -10408,37 +11721,43 @@ export interface CreateEnvironmentActionOutput {
  */
 export interface CreateEnvironmentBlueprintInput {
   /**
-   * <p>The identifier of the domain in which this blueprint is created.</p>
+   * The identifier of the domain in which this blueprint is created.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The name of this Amazon DataZone blueprint.</p>
+   * The name of this Amazon DataZone blueprint.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the Amazon DataZone blueprint.</p>
+   * The description of the Amazon DataZone blueprint.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The provisioning properties of this Amazon DataZone blueprint.</p>
+   * The provisioning properties of this Amazon DataZone blueprint.
+   *
    * @public
    */
   provisioningProperties: ProvisioningProperties | undefined;
 
   /**
-   * <p>The user parameters of this Amazon DataZone blueprint.</p>
+   * The user parameters of this Amazon DataZone blueprint.
+   *
    * @public
    */
   userParameters?: CustomParameter[] | undefined;
 
   /**
-   * <p>The category of the Amazon DataZone blueprint. The only valid value is <code>TOOLING</code>, which creates a blueprint that provisions the tooling resources of a project.</p>
+   * The category of the Amazon DataZone blueprint. The only valid value is `TOOLING`, which creates a blueprint that provisions the tooling resources of a project.
+   *
    * @public
    */
   blueprintCategory?: BlueprintCategory | undefined;
@@ -10449,67 +11768,78 @@ export interface CreateEnvironmentBlueprintInput {
  */
 export interface CreateEnvironmentBlueprintOutput {
   /**
-   * <p>The ID of this Amazon DataZone blueprint.</p>
+   * The ID of this Amazon DataZone blueprint.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of this Amazon DataZone blueprint.</p>
+   * The name of this Amazon DataZone blueprint.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of this Amazon DataZone blueprint.</p>
+   * The description of this Amazon DataZone blueprint.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The provider of this Amazon DataZone blueprint.</p>
+   * The provider of this Amazon DataZone blueprint.
+   *
    * @public
    */
   provider: string | undefined;
 
   /**
-   * <p>The provisioning properties of this Amazon DataZone blueprint.</p>
+   * The provisioning properties of this Amazon DataZone blueprint.
+   *
    * @public
    */
   provisioningProperties: ProvisioningProperties | undefined;
 
   /**
-   * <p>The deployment properties of this Amazon DataZone blueprint.</p>
+   * The deployment properties of this Amazon DataZone blueprint.
+   *
    * @public
    */
   deploymentProperties?: DeploymentProperties | undefined;
 
   /**
-   * <p>The user parameters of this Amazon DataZone blueprint.</p>
+   * The user parameters of this Amazon DataZone blueprint.
+   *
    * @public
    */
   userParameters?: CustomParameter[] | undefined;
 
   /**
-   * <p>The glossary terms attached to this Amazon DataZone blueprint.</p>
+   * The glossary terms attached to this Amazon DataZone blueprint.
+   *
    * @public
    */
   glossaryTerms?: string[] | undefined;
 
   /**
-   * <p>The category of the Amazon DataZone blueprint. The only valid value is <code>TOOLING</code>, which indicates a blueprint that provisions the tooling resources of a project.</p>
+   * The category of the Amazon DataZone blueprint. The only valid value is `TOOLING`, which indicates a blueprint that provisions the tooling resources of a project.
+   *
    * @public
    */
   blueprintCategory?: BlueprintCategory | undefined;
 
   /**
-   * <p>The timestamp at which the environment blueprint was created.</p>
+   * The timestamp at which the environment blueprint was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp of when this blueprint was updated.</p>
+   * The timestamp of when this blueprint was updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -10520,49 +11850,57 @@ export interface CreateEnvironmentBlueprintOutput {
  */
 export interface CreateEnvironmentProfileInput {
   /**
-   * <p>The ID of the Amazon DataZone domain in which this environment profile is created.</p>
+   * The ID of the Amazon DataZone domain in which this environment profile is created.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The name of this Amazon DataZone environment profile.</p>
+   * The name of this Amazon DataZone environment profile.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of this Amazon DataZone environment profile.</p>
+   * The description of this Amazon DataZone environment profile.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The ID of the blueprint with which this environment profile is created.</p>
+   * The ID of the blueprint with which this environment profile is created.
+   *
    * @public
    */
   environmentBlueprintIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the project in which to create the environment profile.</p>
+   * The identifier of the project in which to create the environment profile.
+   *
    * @public
    */
   projectIdentifier: string | undefined;
 
   /**
-   * <p>The user parameters of this Amazon DataZone environment profile.</p>
+   * The user parameters of this Amazon DataZone environment profile.
+   *
    * @public
    */
   userParameters?: EnvironmentParameter[] | undefined;
 
   /**
-   * <p>The Amazon Web Services account in which the Amazon DataZone environment is created.</p>
+   * The Amazon Web Services account in which the Amazon DataZone environment is created.
+   *
    * @public
    */
   awsAccountId?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services region in which this environment profile is created.</p>
+   * The Amazon Web Services region in which this environment profile is created.
+   *
    * @public
    */
   awsAccountRegion?: string | undefined;
@@ -10573,80 +11911,93 @@ export interface CreateEnvironmentProfileInput {
  */
 export interface CreateEnvironmentProfileOutput {
   /**
-   * <p>The ID of this Amazon DataZone environment profile.</p>
+   * The ID of this Amazon DataZone environment profile.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The ID of the Amazon DataZone domain in which this environment profile is created.</p>
+   * The ID of the Amazon DataZone domain in which this environment profile is created.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID in which this Amazon DataZone environment profile is created.</p>
+   * The Amazon Web Services account ID in which this Amazon DataZone environment profile is created.
+   *
    * @public
    */
   awsAccountId?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services region in which this Amazon DataZone environment profile is created.</p>
+   * The Amazon Web Services region in which this Amazon DataZone environment profile is created.
+   *
    * @public
    */
   awsAccountRegion?: string | undefined;
 
   /**
-   * <p>The Amazon DataZone user who created this environment profile.</p>
+   * The Amazon DataZone user who created this environment profile.
+   *
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The timestamp of when this environment profile was created.</p>
+   * The timestamp of when this environment profile was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp of when this environment profile was updated.</p>
+   * The timestamp of when this environment profile was updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The name of this Amazon DataZone environment profile.</p>
+   * The name of this Amazon DataZone environment profile.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of this Amazon DataZone environment profile.</p>
+   * The description of this Amazon DataZone environment profile.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The ID of the blueprint with which this environment profile is created.</p>
+   * The ID of the blueprint with which this environment profile is created.
+   *
    * @public
    */
   environmentBlueprintId: string | undefined;
 
   /**
-   * <p>The ID of the Amazon DataZone project in which this environment profile is created.</p>
+   * The ID of the Amazon DataZone project in which this environment profile is created.
+   *
    * @public
    */
   projectId?: string | undefined;
 
   /**
-   * <p>The user parameters of this Amazon DataZone environment profile.</p>
+   * The user parameters of this Amazon DataZone environment profile.
+   *
    * @public
    */
   userParameters?: CustomParameter[] | undefined;
 }
 
 /**
- * <p>The model of the API.</p>
+ * The model of the API.
+ *
  * @public
  */
 export type Model =
@@ -10658,7 +12009,8 @@ export type Model =
  */
 export namespace Model {
   /**
-   * <p>Indicates the smithy model of the API.</p>
+   * Indicates the smithy model of the API.
+   *
    * @public
    */
   export interface SmithyMember {
@@ -10689,37 +12041,43 @@ export namespace Model {
  */
 export interface CreateFormTypeInput {
   /**
-   * <p>The ID of the Amazon DataZone domain in which this metadata form type is created.</p>
+   * The ID of the Amazon DataZone domain in which this metadata form type is created.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The name of this Amazon DataZone metadata form type.</p>
+   * The name of this Amazon DataZone metadata form type.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The model of this Amazon DataZone metadata form type.</p>
+   * The model of this Amazon DataZone metadata form type.
+   *
    * @public
    */
   model: Model | undefined;
 
   /**
-   * <p>The ID of the Amazon DataZone project that owns this metadata form type.</p>
+   * The ID of the Amazon DataZone project that owns this metadata form type.
+   *
    * @public
    */
   owningProjectIdentifier: string | undefined;
 
   /**
-   * <p>The status of this Amazon DataZone metadata form type.</p>
+   * The status of this Amazon DataZone metadata form type.
+   *
    * @public
    */
   status?: FormTypeStatus | undefined;
 
   /**
-   * <p>The description of this Amazon DataZone metadata form type.</p>
+   * The description of this Amazon DataZone metadata form type.
+   *
    * @public
    */
   description?: string | undefined;
@@ -10730,43 +12088,50 @@ export interface CreateFormTypeInput {
  */
 export interface CreateFormTypeOutput {
   /**
-   * <p>The ID of the Amazon DataZone domain in which this metadata form type is created.</p>
+   * The ID of the Amazon DataZone domain in which this metadata form type is created.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The name of this Amazon DataZone metadata form type.</p>
+   * The name of this Amazon DataZone metadata form type.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The revision of this Amazon DataZone metadata form type.</p>
+   * The revision of this Amazon DataZone metadata form type.
+   *
    * @public
    */
   revision: string | undefined;
 
   /**
-   * <p>The description of this Amazon DataZone metadata form type.</p>
+   * The description of this Amazon DataZone metadata form type.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The ID of the project that owns this Amazon DataZone metadata form type.</p>
+   * The ID of the project that owns this Amazon DataZone metadata form type.
+   *
    * @public
    */
   owningProjectId?: string | undefined;
 
   /**
-   * <p>The ID of the Amazon DataZone domain in which this metadata form type was originally created.</p>
+   * The ID of the Amazon DataZone domain in which this metadata form type was originally created.
+   *
    * @public
    */
   originDomainId?: string | undefined;
 
   /**
-   * <p>The ID of the project in which this Amazon DataZone metadata form type was originally created.</p>
+   * The ID of the project in which this Amazon DataZone metadata form type was originally created.
+   *
    * @public
    */
   originProjectId?: string | undefined;
@@ -10777,43 +12142,50 @@ export interface CreateFormTypeOutput {
  */
 export interface CreateGlossaryInput {
   /**
-   * <p>The ID of the Amazon DataZone domain in which this business glossary is created.</p>
+   * The ID of the Amazon DataZone domain in which this business glossary is created.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The name of this business glossary.</p>
+   * The name of this business glossary.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ID of the project that currently owns business glossary.</p>
+   * The ID of the project that currently owns business glossary.
+   *
    * @public
    */
   owningProjectIdentifier: string | undefined;
 
   /**
-   * <p>The description of this business glossary.</p>
+   * The description of this business glossary.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The status of this business glossary.</p>
+   * The status of this business glossary.
+   *
    * @public
    */
   status?: GlossaryStatus | undefined;
 
   /**
-   * <p>The usage restriction of the restricted glossary.</p>
+   * The usage restriction of the restricted glossary.
+   *
    * @public
    */
   usageRestrictions?: GlossaryUsageRestriction[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -10824,61 +12196,71 @@ export interface CreateGlossaryInput {
  */
 export interface CreateGlossaryOutput {
   /**
-   * <p>The ID of the Amazon DataZone domain in which this business glossary is created.</p>
+   * The ID of the Amazon DataZone domain in which this business glossary is created.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The ID of this business glossary.</p>
+   * The ID of this business glossary.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of this business glossary.</p>
+   * The name of this business glossary.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ID of the project that currently owns this business glossary.</p>
+   * The ID of the project that currently owns this business glossary.
+   *
    * @public
    */
   owningProjectId: string | undefined;
 
   /**
-   * <p>The description of this business glossary.</p>
+   * The description of this business glossary.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The status of this business glossary.</p>
+   * The status of this business glossary.
+   *
    * @public
    */
   status?: GlossaryStatus | undefined;
 
   /**
-   * <p>The usage restriction of the restricted glossary.</p>
+   * The usage restriction of the restricted glossary.
+   *
    * @public
    */
   usageRestrictions?: GlossaryUsageRestriction[] | undefined;
 }
 
 /**
- * <p>The details of the term relations.</p>
+ * The details of the term relations.
+ *
  * @public
  */
 export interface TermRelations {
   /**
-   * <p>The <code>isA</code> property of the term relations.</p>
+   * The `isA` property of the term relations.
+   *
    * @public
    */
   isA?: string[] | undefined;
 
   /**
-   * <p>The classifies of the term relations.</p>
+   * The classifies of the term relations.
+   *
    * @public
    */
   classifies?: string[] | undefined;
@@ -10889,49 +12271,57 @@ export interface TermRelations {
  */
 export interface CreateGlossaryTermInput {
   /**
-   * <p>The ID of the Amazon DataZone domain in which this business glossary term is created.</p>
+   * The ID of the Amazon DataZone domain in which this business glossary term is created.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The ID of the business glossary in which this term is created.</p>
+   * The ID of the business glossary in which this term is created.
+   *
    * @public
    */
   glossaryIdentifier: string | undefined;
 
   /**
-   * <p>The name of this business glossary term.</p>
+   * The name of this business glossary term.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The status of this business glossary term.</p>
+   * The status of this business glossary term.
+   *
    * @public
    */
   status?: GlossaryTermStatus | undefined;
 
   /**
-   * <p>The short description of this business glossary term.</p>
+   * The short description of this business glossary term.
+   *
    * @public
    */
   shortDescription?: string | undefined;
 
   /**
-   * <p>The long description of this business glossary term.</p>
+   * The long description of this business glossary term.
+   *
    * @public
    */
   longDescription?: string | undefined;
 
   /**
-   * <p>The term relations of this business glossary term.</p>
+   * The term relations of this business glossary term.
+   *
    * @public
    */
   termRelations?: TermRelations | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -10942,55 +12332,64 @@ export interface CreateGlossaryTermInput {
  */
 export interface CreateGlossaryTermOutput {
   /**
-   * <p>The ID of this business glossary term.</p>
+   * The ID of this business glossary term.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The ID of the Amazon DataZone domain in which this business glossary term is created.</p>
+   * The ID of the Amazon DataZone domain in which this business glossary term is created.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The ID of the business glossary in which this term is created.</p>
+   * The ID of the business glossary in which this term is created.
+   *
    * @public
    */
   glossaryId: string | undefined;
 
   /**
-   * <p>The name of this business glossary term.</p>
+   * The name of this business glossary term.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The status of this business glossary term.</p>
+   * The status of this business glossary term.
+   *
    * @public
    */
   status: GlossaryTermStatus | undefined;
 
   /**
-   * <p>The short description of this business glossary term.</p>
+   * The short description of this business glossary term.
+   *
    * @public
    */
   shortDescription?: string | undefined;
 
   /**
-   * <p>The long description of this business glossary term.</p>
+   * The long description of this business glossary term.
+   *
    * @public
    */
   longDescription?: string | undefined;
 
   /**
-   * <p>The term relations of this business glossary term.</p>
+   * The term relations of this business glossary term.
+   *
    * @public
    */
   termRelations?: TermRelations | undefined;
 
   /**
-   * <p>The usage restriction of the restricted glossary.</p>
+   * The usage restriction of the restricted glossary.
+   *
    * @public
    */
   usageRestrictions?: GlossaryUsageRestriction[] | undefined;
@@ -11001,25 +12400,29 @@ export interface CreateGlossaryTermOutput {
  */
 export interface CreateGroupProfileInput {
   /**
-   * <p>The identifier of the Amazon DataZone domain in which the group profile is created.</p>
+   * The identifier of the Amazon DataZone domain in which the group profile is created.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the group for which the group profile is created.</p>
+   * The identifier of the group for which the group profile is created.
+   *
    * @public
    */
   groupIdentifier?: string | undefined;
 
   /**
-   * <p>The ARN of the IAM role that will be associated with the group profile. This role defines the permissions that group members will assume when accessing Amazon DataZone resources.</p>
+   * The ARN of the IAM role that will be associated with the group profile. This role defines the permissions that group members will assume when accessing Amazon DataZone resources.
+   *
    * @public
    */
   rolePrincipalArn?: string | undefined;
 
   /**
-   * <p> A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -11030,37 +12433,43 @@ export interface CreateGroupProfileInput {
  */
 export interface CreateGroupProfileOutput {
   /**
-   * <p>The identifier of the Amazon DataZone domain in which the group profile is created.</p>
+   * The identifier of the Amazon DataZone domain in which the group profile is created.
+   *
    * @public
    */
   domainId?: string | undefined;
 
   /**
-   * <p>The identifier of the group profile.</p>
+   * The identifier of the group profile.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The status of the group profile.</p>
+   * The status of the group profile.
+   *
    * @public
    */
   status?: GroupProfileStatus | undefined;
 
   /**
-   * <p>The name of the group for which group profile is created.</p>
+   * The name of the group for which group profile is created.
+   *
    * @public
    */
   groupName?: string | undefined;
 
   /**
-   * <p>The ARN of the IAM role principal. This role is associated with the group profile.</p>
+   * The ARN of the IAM role principal. This role is associated with the group profile.
+   *
    * @public
    */
   rolePrincipalArn?: string | undefined;
 
   /**
-   * <p>The unique identifier of the IAM role principal. This principal is associated with the group profile.</p>
+   * The unique identifier of the IAM role principal. This principal is associated with the group profile.
+   *
    * @public
    */
   rolePrincipalId?: string | undefined;
@@ -11071,37 +12480,43 @@ export interface CreateGroupProfileOutput {
  */
 export interface CreateListingChangeSetInput {
   /**
-   * <p>The ID of the Amazon DataZone domain.</p>
+   * The ID of the Amazon DataZone domain.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The ID of the asset.</p>
+   * The ID of the asset.
+   *
    * @public
    */
   entityIdentifier: string | undefined;
 
   /**
-   * <p>The type of an entity.</p>
+   * The type of an entity.
+   *
    * @public
    */
   entityType: EntityType | undefined;
 
   /**
-   * <p>The revision of an asset.</p>
+   * The revision of an asset.
+   *
    * @public
    */
   entityRevision?: string | undefined;
 
   /**
-   * <p>Specifies whether to publish or unpublish a listing.</p>
+   * Specifies whether to publish or unpublish a listing.
+   *
    * @public
    */
   action: ChangeAction | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -11112,19 +12527,22 @@ export interface CreateListingChangeSetInput {
  */
 export interface CreateListingChangeSetOutput {
   /**
-   * <p>The ID of the listing (a record of an asset at a given time).</p>
+   * The ID of the listing (a record of an asset at a given time).
+   *
    * @public
    */
   listingId: string | undefined;
 
   /**
-   * <p>The revision of a listing.</p>
+   * The revision of a listing.
+   *
    * @public
    */
   listingRevision: string | undefined;
 
   /**
-   * <p>Specifies the status of the listing.</p>
+   * Specifies the status of the listing.
+   *
    * @public
    */
   status: ListingStatus | undefined;
@@ -11135,145 +12553,169 @@ export interface CreateListingChangeSetOutput {
  */
 export interface CreateNotebookInput {
   /**
-   * <p>The identifier of the Amazon SageMaker Unified Studio domain in which to create the notebook.</p>
+   * The identifier of the Amazon SageMaker Unified Studio domain in which to create the notebook.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the project that owns the notebook.</p>
+   * The identifier of the project that owns the notebook.
+   *
    * @public
    */
   owningProjectIdentifier: string | undefined;
 
   /**
-   * <p>The name of the notebook. The name must be between 1 and 256 characters.</p>
+   * The name of the notebook. The name must be between 1 and 256 characters.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the notebook.</p>
+   * The description of the notebook.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The type of the notebook.</p>
+   * The type of the notebook.
+   *
    * @public
    */
   type?: NotebookType | undefined;
 
   /**
-   * <p>The metadata for the notebook, specified as key-value pairs. You can specify up to 50 entries, with keys up to 128 characters and values up to 1024 characters.</p>
+   * The metadata for the notebook, specified as key-value pairs. You can specify up to 50 entries, with keys up to 128 characters and values up to 1024 characters.
+   *
    * @public
    */
   metadata?: Record<string, string> | undefined;
 
   /**
-   * <p>The sensitive parameters for the notebook, specified as key-value pairs. You can specify up to 50 entries, with keys up to 128 characters and values up to 1024 characters.</p>
+   * The sensitive parameters for the notebook, specified as key-value pairs. You can specify up to 50 entries, with keys up to 128 characters and values up to 1024 characters.
+   *
    * @public
    */
   parameters?: Record<string, string> | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.</p>
+   * A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.
+   *
    * @public
    */
   clientToken?: string | undefined;
 }
 
 /**
- * <p>The package configuration for a notebook run environment in Amazon SageMaker Unified Studio.</p>
+ * The package configuration for a notebook run environment in Amazon SageMaker Unified Studio.
+ *
  * @public
  */
 export interface PackageConfig {
   /**
-   * <p>The package manager for the notebook run environment. The default value is <code>UV</code>.</p>
+   * The package manager for the notebook run environment. The default value is `UV`.
+   *
    * @public
    */
   packageManager: PackageManager | undefined;
 
   /**
-   * <p>The package specification content for the notebook run environment. The maximum length is 10240 characters.</p>
+   * The package specification content for the notebook run environment. The maximum length is 10240 characters.
+   *
    * @public
    */
   packageSpecification?: string | undefined;
 }
 
 /**
- * <p>The environment configuration for a notebook run in Amazon SageMaker Unified Studio.</p>
+ * The environment configuration for a notebook run in Amazon SageMaker Unified Studio.
+ *
  * @public
  */
 export interface EnvironmentConfig {
   /**
-   * <p>The image version for the notebook run environment.</p>
+   * The image version for the notebook run environment.
+   *
    * @public
    */
   imageVersion?: string | undefined;
 
   /**
-   * <p>The package configuration for the notebook run environment.</p>
+   * The package configuration for the notebook run environment.
+   *
    * @public
    */
   packageConfig?: PackageConfig | undefined;
 }
 
 /**
- * <p>The error details of a notebook in Amazon SageMaker Unified Studio.</p>
+ * The error details of a notebook in Amazon SageMaker Unified Studio.
+ *
  * @public
  */
 export interface NotebookError {
   /**
-   * <p>The error message. The maximum length is 256 characters.</p>
+   * The error message. The maximum length is 256 characters.
+   *
    * @public
    */
   message: string | undefined;
 }
 
 /**
- * <p>The Git metadata for a notebook sync operation in Amazon SageMaker Unified Studio. Contains information about the Git repository, branch, and commit associated with the notebook.</p>
+ * The Git metadata for a notebook sync operation in Amazon SageMaker Unified Studio. Contains information about the Git repository, branch, and commit associated with the notebook.
+ *
  * @public
  */
 export interface GitMetadata {
   /**
-   * <p>The identifier of the Git connection.</p>
+   * The identifier of the Git connection.
+   *
    * @public
    */
   connectionId: string | undefined;
 
   /**
-   * <p>The name of the Git repository.</p>
+   * The name of the Git repository.
+   *
    * @public
    */
   repository: string | undefined;
 
   /**
-   * <p>The name of the Git branch.</p>
+   * The name of the Git branch.
+   *
    * @public
    */
   branch: string | undefined;
 
   /**
-   * <p>The commit hash in the Git repository.</p>
+   * The commit hash in the Git repository.
+   *
    * @public
    */
   commitHash: string | undefined;
 
   /**
-   * <p>The name of the file in the Git repository.</p>
+   * The name of the file in the Git repository.
+   *
    * @public
    */
   fileName?: string | undefined;
 
   /**
-   * <p>The timestamp of when the commit was made.</p>
+   * The timestamp of when the commit was made.
+   *
    * @public
    */
   committedAt?: Date | undefined;
 
   /**
-   * <p>The commit message associated with the Git commit.</p>
+   * The commit message associated with the Git commit.
+   *
    * @public
    */
   commitMessage?: string | undefined;
@@ -11284,134 +12726,156 @@ export interface GitMetadata {
  */
 export interface CreateNotebookOutput {
   /**
-   * <p>The identifier of the notebook.</p>
+   * The identifier of the notebook.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the notebook.</p>
+   * The name of the notebook.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The identifier of the project that owns the notebook.</p>
+   * The identifier of the project that owns the notebook.
+   *
    * @public
    */
   owningProjectId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon SageMaker Unified Studio domain.</p>
+   * The identifier of the Amazon SageMaker Unified Studio domain.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The ordered list of cells in the notebook.</p>
+   * The ordered list of cells in the notebook.
+   *
    * @public
    */
   cellOrder: CellInformation[] | undefined;
 
   /**
-   * <p>The status of the notebook.</p>
+   * The status of the notebook.
+   *
    * @public
    */
   status: NotebookStatus | undefined;
 
   /**
-   * <p>The type of the notebook.</p>
+   * The type of the notebook.
+   *
    * @public
    */
   type?: NotebookType | undefined;
 
   /**
-   * <p>The description of the notebook.</p>
+   * The description of the notebook.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The timestamp of when the notebook was created.</p>
+   * The timestamp of when the notebook was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The identifier of the user who created the notebook.</p>
+   * The identifier of the user who created the notebook.
+   *
    * @public
    */
   createdBy?: string | undefined;
 
   /**
-   * <p>The timestamp of when the notebook was last updated.</p>
+   * The timestamp of when the notebook was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The identifier of the user who last updated the notebook.</p>
+   * The identifier of the user who last updated the notebook.
+   *
    * @public
    */
   updatedBy?: string | undefined;
 
   /**
-   * <p>The identifier of the user who locked the notebook.</p>
+   * The identifier of the user who locked the notebook.
+   *
    * @public
    */
   lockedBy?: string | undefined;
 
   /**
-   * <p>The timestamp of when the notebook was locked.</p>
+   * The timestamp of when the notebook was locked.
+   *
    * @public
    */
   lockedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp of when the notebook lock expires.</p>
+   * The timestamp of when the notebook lock expires.
+   *
    * @public
    */
   lockExpiresAt?: Date | undefined;
 
   /**
-   * <p>The identifier of the compute associated with the notebook.</p>
+   * The identifier of the compute associated with the notebook.
+   *
    * @public
    */
   computeId?: string | undefined;
 
   /**
-   * <p>The metadata of the notebook.</p>
+   * The metadata of the notebook.
+   *
    * @public
    */
   metadata?: Record<string, string> | undefined;
 
   /**
-   * <p>The sensitive parameters of the notebook.</p>
+   * The sensitive parameters of the notebook.
+   *
    * @public
    */
   parameters?: Record<string, string> | undefined;
 
   /**
-   * <p>The environment configuration of the notebook.</p>
+   * The environment configuration of the notebook.
+   *
    * @public
    */
   environmentConfiguration?: EnvironmentConfig | undefined;
 
   /**
-   * <p>The error details if the notebook creation failed.</p>
+   * The error details if the notebook creation failed.
+   *
    * @public
    */
   error?: NotebookError | undefined;
 
   /**
-   * <p>The Git metadata associated with the notebook.</p>
+   * The Git metadata associated with the notebook.
+   *
    * @public
    */
   gitMetadata?: GitMetadata | undefined;
 }
 
 /**
- * <p>The details about a project member.</p>
+ * The details about a project member.
+ *
  * @public
  */
 export type Member =
@@ -11424,7 +12888,8 @@ export type Member =
  */
 export namespace Member {
   /**
-   * <p>The user ID of a project member.</p>
+   * The user ID of a project member.
+   *
    * @public
    */
   export interface UserIdentifierMember {
@@ -11434,7 +12899,8 @@ export namespace Member {
   }
 
   /**
-   * <p>The ID of the group of a project member.</p>
+   * The ID of the group of a project member.
+   *
    * @public
    */
   export interface GroupIdentifierMember {
@@ -11464,78 +12930,91 @@ export namespace Member {
 }
 
 /**
- * <p>A map of user or group profiles to designations that need to be assigned in the project.</p>
+ * A map of user or group profiles to designations that need to be assigned in the project.
+ *
  * @public
  */
 export interface ProjectMembershipAssignment {
   /**
-   * <p>The details about a project member.</p>
+   * The details about a project member.
+   *
    * @public
    */
   member: Member | undefined;
 
   /**
-   * <p>The designation of the project membership.</p>
+   * The designation of the project membership.
+   *
    * @public
    */
   designation: UserDesignation | undefined;
 
   /**
-   * <p>The ID of the user-created designation to assign to this member when creating the project. Required when <code>designation</code> is <code>USER_CREATED_DESIGNATION</code>; must not be provided otherwise.</p>
+   * The ID of the user-created designation to assign to this member when creating the project. Required when `designation` is `USER_CREATED_DESIGNATION`; must not be provided otherwise.
+   *
    * @public
    */
   userCreatedDesignationId?: string | undefined;
 }
 
 /**
- * <p>Specifies the account/Region that is to be used during project creation for a particular blueprint.</p>
+ * Specifies the account/Region that is to be used during project creation for a particular blueprint.
+ *
  * @public
  */
 export interface EnvironmentResolvedAccount {
   /**
-   * <p>The ID of the resolved account.</p>
+   * The ID of the resolved account.
+   *
    * @public
    */
   awsAccountId: string | undefined;
 
   /**
-   * <p>The name of the resolved Region.</p>
+   * The name of the resolved Region.
+   *
    * @public
    */
   regionName: string | undefined;
 
   /**
-   * <p>The ID of the account pool.</p>
+   * The ID of the account pool.
+   *
    * @public
    */
   sourceAccountPoolId?: string | undefined;
 }
 
 /**
- * <p>The environment configuration user parameters.</p>
+ * The environment configuration user parameters.
+ *
  * @public
  */
 export interface EnvironmentConfigurationUserParameter {
   /**
-   * <p>The ID of the environment.</p>
+   * The ID of the environment.
+   *
    * @public
    */
   environmentId?: string | undefined;
 
   /**
-   * <p>Specifies the account/Region that is to be used during project creation for a particular blueprint.</p>
+   * Specifies the account/Region that is to be used during project creation for a particular blueprint.
+   *
    * @public
    */
   environmentResolvedAccount?: EnvironmentResolvedAccount | undefined;
 
   /**
-   * <p>The environment configuration name.</p>
+   * The environment configuration name.
+   *
    * @public
    */
   environmentConfigurationName?: string | undefined;
 
   /**
-   * <p>The environment parameters.</p>
+   * The environment parameters.
+   *
    * @public
    */
   environmentParameters?: EnvironmentParameter[] | undefined;
@@ -11546,127 +13025,148 @@ export interface EnvironmentConfigurationUserParameter {
  */
 export interface CreateProjectInput {
   /**
-   * <p>The ID of the Amazon DataZone domain in which this project is created.</p>
+   * The ID of the Amazon DataZone domain in which this project is created.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The name of the Amazon DataZone project.</p>
+   * The name of the Amazon DataZone project.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the Amazon DataZone project.</p>
+   * The description of the Amazon DataZone project.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The resource tags of the project.</p>
+   * The resource tags of the project.
+   *
    * @public
    */
   resourceTags?: Record<string, string> | undefined;
 
   /**
-   * <p>The glossary terms that can be used in this Amazon DataZone project.</p>
+   * The glossary terms that can be used in this Amazon DataZone project.
+   *
    * @public
    */
   glossaryTerms?: string[] | undefined;
 
   /**
-   * <p>The ID of the domain unit. This parameter is not required and if it is not specified, then the project is created at the root domain unit level.</p>
+   * The ID of the domain unit. This parameter is not required and if it is not specified, then the project is created at the root domain unit level.
+   *
    * @public
    */
   domainUnitId?: string | undefined;
 
   /**
-   * <p>The ID of the project profile.</p>
+   * The ID of the project profile.
+   *
    * @public
    */
   projectProfileId?: string | undefined;
 
   /**
-   * <p>The user parameters of the project.</p>
+   * The user parameters of the project.
+   *
    * @public
    */
   userParameters?: EnvironmentConfigurationUserParameter[] | undefined;
 
   /**
-   * <p>The category of the project. Set to 'ADMIN' designates this as an administrative project for the Amazon DataZone domain.</p>
+   * The category of the project. Set to 'ADMIN' designates this as an administrative project for the Amazon DataZone domain.
+   *
    * @public
    */
   projectCategory?: string | undefined;
 
   /**
-   * <p>The default project IAM role that is used to access project resources and run computes such as Glue and Sagemaker.</p>
+   * The default project IAM role that is used to access project resources and run computes such as Glue and Sagemaker.
+   *
    * @public
    */
   projectExecutionRole?: string | undefined;
 
   /**
-   * <p>The members to be assigned to the project.</p>
+   * The members to be assigned to the project.
+   *
    * @public
    */
   membershipAssignments?: ProjectMembershipAssignment[] | undefined;
 }
 
 /**
- * <p>The environment deployment details.</p>
+ * The environment deployment details.
+ *
  * @public
  */
 export interface EnvironmentDeploymentDetails {
   /**
-   * <p>The overall deployment status of the environment.</p>
+   * The overall deployment status of the environment.
+   *
    * @public
    */
   overallDeploymentStatus?: OverallDeploymentStatus | undefined;
 
   /**
-   * <p>Environment failure reasons.</p>
+   * Environment failure reasons.
+   *
    * @public
    */
   environmentFailureReasons?: Record<string, EnvironmentError[]> | undefined;
 }
 
 /**
- * <p>Specifies the error message that is returned if the operation cannot be successfully completed.</p>
+ * Specifies the error message that is returned if the operation cannot be successfully completed.
+ *
  * @public
  */
 export interface ProjectDeletionError {
   /**
-   * <p>The code of the project deletion error.</p>
+   * The code of the project deletion error.
+   *
    * @public
    */
   code?: string | undefined;
 
   /**
-   * <p>The message of the project deletion error.</p>
+   * The message of the project deletion error.
+   *
    * @public
    */
   message?: string | undefined;
 }
 
 /**
- * <p>The resource tag of the project.</p>
+ * The resource tag of the project.
+ *
  * @public
  */
 export interface ResourceTag {
   /**
-   * <p>The key of the resource tag of the project.</p>
+   * The key of the resource tag of the project.
+   *
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>The value of the resource tag of the project.</p>
+   * The value of the resource tag of the project.
+   *
    * @public
    */
   value: string | undefined;
 
   /**
-   * <p>The source of the resource tag of the project.</p>
+   * The source of the resource tag of the project.
+   *
    * @public
    */
   source: ResourceTagSource | undefined;
@@ -11677,97 +13177,113 @@ export interface ResourceTag {
  */
 export interface CreateProjectOutput {
   /**
-   * <p>The identifier of the Amazon DataZone domain in which the project was created.</p>
+   * The identifier of the Amazon DataZone domain in which the project was created.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The ID of the Amazon DataZone project.</p>
+   * The ID of the Amazon DataZone project.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the project.</p>
+   * The name of the project.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the project.</p>
+   * The description of the project.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The status of the Amazon DataZone project that was created.</p>
+   * The status of the Amazon DataZone project that was created.
+   *
    * @public
    */
   projectStatus?: ProjectStatus | undefined;
 
   /**
-   * <p>Specifies the error message that is returned if the operation cannot be successfully completed.</p>
+   * Specifies the error message that is returned if the operation cannot be successfully completed.
+   *
    * @public
    */
   failureReasons?: ProjectDeletionError[] | undefined;
 
   /**
-   * <p>The Amazon DataZone user who created the project.</p>
+   * The Amazon DataZone user who created the project.
+   *
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The timestamp of when the project was created.</p>
+   * The timestamp of when the project was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp of when the project was last updated.</p>
+   * The timestamp of when the project was last updated.
+   *
    * @public
    */
   lastUpdatedAt?: Date | undefined;
 
   /**
-   * <p>The resource tags of the project.</p>
+   * The resource tags of the project.
+   *
    * @public
    */
   resourceTags?: ResourceTag[] | undefined;
 
   /**
-   * <p>The glossary terms that can be used in the project.</p>
+   * The glossary terms that can be used in the project.
+   *
    * @public
    */
   glossaryTerms?: string[] | undefined;
 
   /**
-   * <p>The ID of the domain unit.</p>
+   * The ID of the domain unit.
+   *
    * @public
    */
   domainUnitId?: string | undefined;
 
   /**
-   * <p>The project profile ID.</p>
+   * The project profile ID.
+   *
    * @public
    */
   projectProfileId?: string | undefined;
 
   /**
-   * <p>The user parameters of the project.</p>
+   * The user parameters of the project.
+   *
    * @public
    */
   userParameters?: EnvironmentConfigurationUserParameter[] | undefined;
 
   /**
-   * <p>The environment deployment details.</p>
+   * The environment deployment details.
+   *
    * @public
    */
   environmentDeploymentDetails?: EnvironmentDeploymentDetails | undefined;
 
   /**
-   * <p>The category of the project.</p>
+   * The category of the project.
+   *
    * @public
    */
   projectCategory?: string | undefined;
@@ -11778,31 +13294,36 @@ export interface CreateProjectOutput {
  */
 export interface CreateProjectMembershipInput {
   /**
-   * <p>The ID of the Amazon DataZone domain in which project membership is created.</p>
+   * The ID of the Amazon DataZone domain in which project membership is created.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The ID of the project for which this project membership was created.</p>
+   * The ID of the project for which this project membership was created.
+   *
    * @public
    */
   projectIdentifier: string | undefined;
 
   /**
-   * <p>The project member whose project membership was created.</p>
+   * The project member whose project membership was created.
+   *
    * @public
    */
   member: Member | undefined;
 
   /**
-   * <p>The designation of the project membership.</p>
+   * The designation of the project membership.
+   *
    * @public
    */
   designation: UserDesignation | undefined;
 
   /**
-   * <p>The ID of the user-created designation to assign to the project member. Required when <code>designation</code> is <code>USER_CREATED_DESIGNATION</code>; must not be provided otherwise.</p>
+   * The ID of the user-created designation to assign to the project member. Required when `designation` is `USER_CREATED_DESIGNATION`; must not be provided otherwise.
+   *
    * @public
    */
   userCreatedDesignationId?: string | undefined;
@@ -11814,7 +13335,8 @@ export interface CreateProjectMembershipInput {
 export interface CreateProjectMembershipOutput {}
 
 /**
- * <p>The Amazon Web Services Region.</p>
+ * The Amazon Web Services Region.
+ *
  * @public
  */
 export type Region =
@@ -11827,7 +13349,8 @@ export type Region =
  */
 export namespace Region {
   /**
-   * <p>The Amazon Web Services Region name.</p>
+   * The Amazon Web Services Region name.
+   *
    * @public
    */
   export interface RegionNameMember {
@@ -11837,7 +13360,8 @@ export namespace Region {
   }
 
   /**
-   * <p>The region name path.</p>
+   * The region name path.
+   *
    * @public
    */
   export interface RegionNamePathMember {
@@ -11867,138 +13391,161 @@ export namespace Region {
 }
 
 /**
- * <p>The environment configuration parameter.</p>
+ * The environment configuration parameter.
+ *
  * @public
  */
 export interface EnvironmentConfigurationParameter {
   /**
-   * <p>The name of the environment configuration parameter.</p>
+   * The name of the environment configuration parameter.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The value of the environment configuration parameter.</p>
+   * The value of the environment configuration parameter.
+   *
    * @public
    */
   value?: string | undefined;
 
   /**
-   * <p>Specifies whether the environment parameter is editable.</p>
+   * Specifies whether the environment parameter is editable.
+   *
    * @public
    */
   isEditable?: boolean | undefined;
 }
 
 /**
- * <p>The details of the environment configuration parameter.</p>
+ * The details of the environment configuration parameter.
+ *
  * @public
  */
 export interface EnvironmentConfigurationParametersDetails {
   /**
-   * <p>Ssm path environment configuration parameters.</p>
+   * Ssm path environment configuration parameters.
+   *
    * @public
    */
   ssmPath?: string | undefined;
 
   /**
-   * <p>The parameter overrides.</p>
+   * The parameter overrides.
+   *
    * @public
    */
   parameterOverrides?: EnvironmentConfigurationParameter[] | undefined;
 
   /**
-   * <p>The resolved environment configuration parameters.</p>
+   * The resolved environment configuration parameters.
+   *
    * @public
    */
   resolvedParameters?: EnvironmentConfigurationParameter[] | undefined;
 }
 
 /**
- * <p>The configuration of an environment.</p>
+ * The configuration of an environment.
+ *
  * @public
  */
 export interface EnvironmentConfiguration {
   /**
-   * <p>The environment name.</p>
+   * The environment name.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The environment ID.</p>
+   * The environment ID.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The environment blueprint ID.</p>
+   * The environment blueprint ID.
+   *
    * @public
    */
   environmentBlueprintId: string | undefined;
 
   /**
-   * <p>The environment description.</p>
+   * The environment description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The deployment mode of the environment.</p>
+   * The deployment mode of the environment.
+   *
    * @public
    */
   deploymentMode?: DeploymentMode | undefined;
 
   /**
-   * <p>The configuration parameters of the environment.</p>
+   * The configuration parameters of the environment.
+   *
    * @public
    */
   configurationParameters?: EnvironmentConfigurationParametersDetails | undefined;
 
   /**
-   * <p>The Amazon Web Services account of the environment.</p>
+   * The Amazon Web Services account of the environment.
+   *
    * @public
    */
   awsAccount?: AwsAccount | undefined;
 
   /**
-   * <p>The account pools used by a custom project profile.</p>
+   * The account pools used by a custom project profile.
+   *
    * @public
    */
   accountPools?: string[] | undefined;
 
   /**
-   * <p>The Amazon Web Services Region of the environment.</p>
+   * The Amazon Web Services Region of the environment.
+   *
    * @public
    */
   awsRegion?: Region | undefined;
 
   /**
-   * <p>The deployment order of the environment.</p>
+   * The deployment order of the environment.
+   *
    * @public
    */
   deploymentOrder?: number | undefined;
 }
 
 /**
- * <p>The resource tag parameter of the project profile.</p>
+ * The resource tag parameter of the project profile.
+ *
  * @public
  */
 export interface ResourceTagParameter {
   /**
-   * <p>The key of the resource tag parameter of the project profile.</p>
+   * The key of the resource tag parameter of the project profile.
+   *
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>The value of the resource tag parameter key of the project profile.</p>
+   * The value of the resource tag parameter key of the project profile.
+   *
    * @public
    */
   value: string | undefined;
 
   /**
-   * <p>Specifies whether the value of the resource tag parameter of the project profile is editable at the project level.</p>
+   * Specifies whether the value of the resource tag parameter of the project profile is editable at the project level.
+   *
    * @public
    */
   isValueEditable: boolean | undefined;
@@ -12009,55 +13556,64 @@ export interface ResourceTagParameter {
  */
 export interface CreateProjectProfileInput {
   /**
-   * <p>A domain ID of the project profile.</p>
+   * A domain ID of the project profile.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>Project profile name.</p>
+   * Project profile name.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description of a project profile.</p>
+   * A description of a project profile.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Project profile status.</p>
+   * Project profile status.
+   *
    * @public
    */
   status?: Status | undefined;
 
   /**
-   * <p>The resource tags of the project profile.</p>
+   * The resource tags of the project profile.
+   *
    * @public
    */
   projectResourceTags?: ResourceTagParameter[] | undefined;
 
   /**
-   * <p>Specifies whether custom project resource tags are supported.</p>
+   * Specifies whether custom project resource tags are supported.
+   *
    * @public
    */
   allowCustomProjectResourceTags?: boolean | undefined;
 
   /**
-   * <p>Field viewable through the UI that provides a project user with the allowed resource tag specifications.</p>
+   * Field viewable through the UI that provides a project user with the allowed resource tag specifications.
+   *
    * @public
    */
   projectResourceTagsDescription?: string | undefined;
 
   /**
-   * <p>Environment configurations of the project profile.</p>
+   * Environment configurations of the project profile.
+   *
    * @public
    */
   environmentConfigurations?: EnvironmentConfiguration[] | undefined;
 
   /**
-   * <p>A domain unit ID of the project profile.</p>
+   * A domain unit ID of the project profile.
+   *
    * @public
    */
   domainUnitIdentifier?: string | undefined;

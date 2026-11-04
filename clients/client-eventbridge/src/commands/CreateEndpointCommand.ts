@@ -23,12 +23,8 @@ export interface CreateEndpointCommandInput extends CreateEndpointRequest {}
 export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a global endpoint. Global endpoints improve your application's availability by
- *       making it regional-fault tolerant. To do this, you define a primary and secondary Region with
- *       event buses in each Region. You also create a Amazon Route 53 health check that will
- *       tell EventBridge to route events to the secondary Region when an "unhealthy" state is
- *       encountered and events will be routed back to the primary Region when the health check reports
- *       a "healthy" state.</p>
+ * Creates a global endpoint. Global endpoints improve your application's availability by making it regional-fault tolerant. To do this, you define a primary and secondary Region with event buses in each Region. You also create a Amazon Route 53 health check that will tell EventBridge to route events to the secondary Region when an "unhealthy" state is encountered and events will be routed back to the primary Region when the health check reports a "healthy" state.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -96,18 +92,20 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * This exception occurs due to unexpected causes.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request failed because it attempted to create resource beyond the allowed service
- *       quota.</p>
+ *
+ * The request failed because it attempted to create resource beyond the allowed service quota.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>The resource you are trying to create already exists.</p>
+ *
+ * The resource you are trying to create already exists.
  *
  * @throws {@link EventBridgeServiceException}
- * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ * Base exception class for all service exceptions from EventBridge service.
  *
  * @public
  */

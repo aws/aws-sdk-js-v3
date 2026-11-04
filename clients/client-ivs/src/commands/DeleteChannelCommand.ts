@@ -23,7 +23,10 @@ export interface DeleteChannelCommandInput extends DeleteChannelRequest {}
 export interface DeleteChannelCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified channel and its associated stream keys.</p> <p>If you try to delete a live channel, you will get an error (409 ConflictException). To delete a channel that is live, call <a>StopStream</a>, wait for the Amazon EventBridge "Stream End" event (to verify that the stream's state is no longer Live), then call DeleteChannel. (See <a href="https://docs.aws.amazon.com/ivs/latest/userguide/eventbridge.html"> Using EventBridge with Amazon IVS</a>.) </p>
+ * Deletes the specified channel and its associated stream keys.
+ *
+ * If you try to delete a live channel, you will get an error (409 ConflictException). To delete a channel that is live, call StopStream, wait for the Amazon EventBridge "Stream End" event (to verify that the stream's state is no longer Live), then call DeleteChannel. (See [Using EventBridge with Amazon IVS](https://docs.aws.amazon.com/ivs/latest/userguide/eventbridge.html).)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,23 +51,28 @@ export interface DeleteChannelCommandOutput extends __MetadataBearer {}
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * User does not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ *
+ * Updating or deleting a resource can cause an inconsistent state.
  *
  * @throws {@link PendingVerification} (client fault)
- *  <p>Your account is pending verification.</p>
+ *
+ * Your account is pending verification.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Request references a resource which does not exist.</p>
+ *
+ * Request references a resource which does not exist.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link IvsServiceException}
- * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ * Base exception class for all service exceptions from Ivs service.
  *
  * @public
  */

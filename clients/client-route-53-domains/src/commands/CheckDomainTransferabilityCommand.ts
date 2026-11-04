@@ -23,7 +23,8 @@ export interface CheckDomainTransferabilityCommandInput extends CheckDomainTrans
 export interface CheckDomainTransferabilityCommandOutput extends CheckDomainTransferabilityResponse, __MetadataBearer {}
 
 /**
- * <p>Checks whether a domain name can be transferred to Amazon Route 53. </p>
+ * Checks whether a domain name can be transferred to Amazon Route 53.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,20 +60,20 @@ export interface CheckDomainTransferabilityCommandOutput extends CheckDomainTran
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The requested item is not acceptable. For example, for APIs that accept a domain name,
- * 			the request might specify a domain name that doesn't belong to the account that
- * 			submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the
- * 			password might be invalid.</p>
+ *
+ * The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For `AcceptDomainTransferFromAnotherAwsAccount`, the password might be invalid.
  *
  * @throws {@link TLDInMaintenance} (client fault)
- *  <p>The top-level domain is currently undergoing maintenance and the request cannot be processed. Try again later.</p>
+ *
+ * The top-level domain is currently undergoing maintenance and the request cannot be processed. Try again later.
  *
  * @throws {@link UnsupportedTLD} (client fault)
- *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+ *
+ * Amazon Route 53 does not support this top-level domain (TLD).
  *
  * @throws {@link Route53DomainsServiceException}
- * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ * Base exception class for all service exceptions from Route53Domains service.
  *
  * @public
  */

@@ -23,8 +23,8 @@ export interface CreateBackupSelectionCommandInput extends CreateBackupSelection
 export interface CreateBackupSelectionCommandOutput extends CreateBackupSelectionOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a JSON document that specifies a set of resources to assign to a backup plan.
- *          For examples, see <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/assigning-resources.html#assigning-resources-json">Assigning resources programmatically</a>. </p>
+ * Creates a JSON document that specifies a set of resources to assign to a backup plan. For examples, see [Assigning resources programmatically](https://docs.aws.amazon.com/aws-backup/latest/devguide/assigning-resources.html#assigning-resources-json).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -97,25 +97,28 @@ export interface CreateBackupSelectionCommandOutput extends CreateBackupSelectio
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  * @throws {@link AlreadyExistsException} (client fault)
- *  <p>The required resource already exists.</p>
+ *
+ * The required resource already exists.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
- *          out of range.</p>
+ *
+ * Indicates that something is wrong with a parameter's value. For example, the value is out of range.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>A limit in the request has been exceeded; for example, a maximum number of items allowed
- *          in a request.</p>
+ *
+ * A limit in the request has been exceeded; for example, a maximum number of items allowed in a request.
  *
  * @throws {@link MissingParameterValueException} (client fault)
- *  <p>Indicates that a required parameter is missing.</p>
+ *
+ * Indicates that a required parameter is missing.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The request failed due to a temporary failure of the server.</p>
+ *
+ * The request failed due to a temporary failure of the server.
  *
  * @throws {@link BackupServiceException}
- * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * Base exception class for all service exceptions from Backup service.
  *
  * @public
  */

@@ -23,9 +23,8 @@ export interface UpdateResourceCommandInput extends UpdateResourceRequest {}
 export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Updates data for the resource. To have the latest information, it must be preceded by
- *          a <a>DescribeResource</a> call. The dataset in the request should be the one
- *          expected when performing another <code>DescribeResource</code> call.</p>
+ * Updates data for the resource. To have the latest information, it must be preceded by a DescribeResource call. The dataset in the request should be the one expected when performing another `DescribeResource` call.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,52 +59,56 @@ export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __M
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
  * @throws {@link DirectoryUnavailableException} (client fault)
- *  <p>The directory is unavailable. It might be located in another Region or deleted.</p>
+ *
+ * The directory is unavailable. It might be located in another Region or deleted.
  *
  * @throws {@link EmailAddressInUseException} (client fault)
- *  <p>The email address that you're trying to assign is already created for a different
- *          user, group, or resource.</p>
+ *
+ * The email address that you're trying to assign is already created for a different user, group, or resource.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>The identifier supplied for the user, group, or resource does not exist in your
- *          organization.</p>
+ *
+ * The identifier supplied for the user, group, or resource does not exist in your organization.
  *
  * @throws {@link EntityStateException} (client fault)
- *  <p>You are performing an operation on a user, group, or resource that isn't in the
- *          expected state, such as trying to delete an active user.</p>
+ *
+ * You are performing an operation on a user, group, or resource that isn't in the expected state, such as trying to delete an active user.
  *
  * @throws {@link InvalidConfigurationException} (client fault)
- *  <p>The configuration for a resource isn't valid. A resource must either be able to
- *          auto-respond to requests or have at least one delegate associated that can do so on its
- *          behalf.</p>
+ *
+ * The configuration for a resource isn't valid. A resource must either be able to auto-respond to requests or have at least one delegate associated that can do so on its behalf.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the input parameters don't match the service's restrictions.</p>
+ *
+ * One or more of the input parameters don't match the service's restrictions.
  *
  * @throws {@link MailDomainNotFoundException} (client fault)
- *  <p>The domain specified is not found in your organization.</p>
+ *
+ * The domain specified is not found in your organization.
  *
  * @throws {@link MailDomainStateException} (client fault)
- *  <p>After a domain has been added to the organization, it must be verified. The domain is
- *          not yet verified.</p>
+ *
+ * After a domain has been added to the organization, it must be verified. The domain is not yet verified.
  *
  * @throws {@link NameAvailabilityException} (client fault)
- *  <p>The user, group, or resource name isn't unique in WorkMail.</p>
+ *
+ * The user, group, or resource name isn't unique in WorkMail.
  *
  * @throws {@link OrganizationNotFoundException} (client fault)
- *  <p>An operation received a valid organization identifier that either doesn't belong or
- *          exist in the system.</p>
+ *
+ * An operation received a valid organization identifier that either doesn't belong or exist in the system.
  *
  * @throws {@link OrganizationStateException} (client fault)
- *  <p>The organization must have a valid state to perform certain
- *          operations on the organization or its members.</p>
+ *
+ * The organization must have a valid state to perform certain operations on the organization or its members.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>You can't perform a write operation against a read-only directory.</p>
+ *
+ * You can't perform a write operation against a read-only directory.
  *
  * @throws {@link WorkMailServiceException}
- * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * Base exception class for all service exceptions from WorkMail service.
  *
  * @public
  */

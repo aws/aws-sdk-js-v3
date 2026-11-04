@@ -23,7 +23,8 @@ export interface DescribeEntityAggregatesCommandInput extends DescribeEntityAggr
 export interface DescribeEntityAggregatesCommandOutput extends DescribeEntityAggregatesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the number of entities that are affected by each of the specified events.</p>
+ * Returns the number of entities that are affected by each of the specified events.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,8 +61,8 @@ export interface DescribeEntityAggregatesCommandOutput extends DescribeEntityAgg
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
  *
  * @throws {@link HealthServiceException}
- * <p>Base exception class for all service exceptions from Health service.</p>
  *
+ * Base exception class for all service exceptions from Health service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface ModifyEventSubscriptionCommandInput extends ModifyEventSubscrip
 export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscriptionResult, __MetadataBearer {}
 
 /**
- * <p>Modifies an existing Amazon DocumentDB event notification subscription.</p>
+ * Modifies an existing Amazon DocumentDB event notification subscription.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,26 +72,32 @@ export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscri
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  * @throws {@link EventSubscriptionQuotaExceededFault} (client fault)
- *  <p>You have reached the maximum number of event subscriptions. </p>
+ *
+ * You have reached the maximum number of event subscriptions.
  *
  * @throws {@link SNSInvalidTopicFault} (client fault)
- *  <p>Amazon SNS has responded that there is a problem with the specified topic. </p>
+ *
+ * Amazon SNS has responded that there is a problem with the specified topic.
  *
  * @throws {@link SNSNoAuthorizationFault} (client fault)
- *  <p>You do not have permission to publish to the SNS topic Amazon Resource Name (ARN). </p>
+ *
+ * You do not have permission to publish to the SNS topic Amazon Resource Name (ARN).
  *
  * @throws {@link SNSTopicArnNotFoundFault} (client fault)
- *  <p>The SNS topic Amazon Resource Name (ARN) does not exist. </p>
+ *
+ * The SNS topic Amazon Resource Name (ARN) does not exist.
  *
  * @throws {@link SubscriptionCategoryNotFoundFault} (client fault)
- *  <p>The provided category does not exist. </p>
+ *
+ * The provided category does not exist.
  *
  * @throws {@link SubscriptionNotFoundFault} (client fault)
- *  <p>The subscription name does not exist. </p>
+ *
+ * The subscription name does not exist.
  *
  * @throws {@link DocDBServiceException}
- * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * Base exception class for all service exceptions from DocDB service.
  *
  * @public
  */

@@ -23,8 +23,8 @@ export interface GetContainerAPIMetadataCommandInput extends GetContainerAPIMeta
 export interface GetContainerAPIMetadataCommandOutput extends GetContainerAPIMetadataResult, __MetadataBearer {}
 
 /**
- * <p>Returns information about Amazon Lightsail containers, such as the current version of the
- *       Lightsail Control (lightsailctl) plugin.</p>
+ * Returns information about Amazon Lightsail containers, such as the current version of the Lightsail Control (lightsailctl) plugin.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,22 +53,24 @@ export interface GetContainerAPIMetadataCommandOutput extends GetContainerAPIMet
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
- *       credentials to access a resource.</p>
+ *
+ * Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.
  *
  * @throws {@link RegionSetupInProgressException} (client fault)
- *  <p>Lightsail throws this exception when an operation is performed on resources in an opt-in
- *       Region that is currently being set up.</p>
+ *
+ * Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>A general service exception.</p>
+ *
+ * A general service exception.
  *
  * @throws {@link UnauthenticatedException} (client fault)
- *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
+ * Lightsail throws this exception when the user has not been authenticated.
  *
  * @throws {@link LightsailServiceException}
- * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * Base exception class for all service exceptions from Lightsail service.
  *
  * @public
  */

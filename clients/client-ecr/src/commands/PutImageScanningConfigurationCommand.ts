@@ -23,12 +23,10 @@ export interface PutImageScanningConfigurationCommandInput extends PutImageScann
 export interface PutImageScanningConfigurationCommandOutput extends PutImageScanningConfigurationResponse, __MetadataBearer {}
 
 /**
- * <important>
- *             <p>The <code>PutImageScanningConfiguration</code> API is being deprecated, in favor
- *                 of specifying the image scanning configuration at the registry level. For more
- *                 information, see <a>PutRegistryScanningConfiguration</a>.</p>
- *          </important>
- *          <p>Updates the image scanning configuration for the specified repository.</p>
+ * > **Important:** The `PutImageScanningConfiguration` API is being deprecated, in favor of specifying the image scanning configuration at the registry level. For more information, see PutRegistryScanningConfiguration.
+ *
+ * Updates the image scanning configuration for the specified repository.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,22 +61,24 @@ export interface PutImageScanningConfigurationCommandOutput extends PutImageScan
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link RepositoryNotFoundException} (client fault)
- *  <p>The specified repository could not be found. Check the spelling of the specified
- *             repository and ensure that you are performing operations on the correct registry.</p>
+ *
+ * The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>There was an exception validating this request.</p>
+ *
+ * There was an exception validating this request.
  *
  * @throws {@link ECRServiceException}
- * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * Base exception class for all service exceptions from ECR service.
  *
  * @public
  */

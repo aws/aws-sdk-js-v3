@@ -23,19 +23,18 @@ export interface AuthorizeSecurityGroupIngressCommandInput extends AuthorizeSecu
 export interface AuthorizeSecurityGroupIngressCommandOutput extends AuthorizeSecurityGroupIngressResult, __MetadataBearer {}
 
 /**
- * <p>Adds the specified inbound (ingress) rules to a security group.</p>
- *          <p>An inbound rule permits instances to receive traffic from the specified IPv4 or IPv6
- *        address range, the IP address ranges that are specified by a prefix list, or the instances
- *        that are associated with a destination security group. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/security-group-rules.html">Security group rules</a>.</p>
- *          <p>You must specify exactly one of the following sources: an IPv4 or IPv6 address range,
- *        a prefix list, or a security group. You must specify a protocol for each rule (for example, TCP).
- *        If the protocol is TCP or UDP, you must also specify a port or port range. If the protocol is
- *        ICMP or ICMPv6, you must also specify the ICMP/ICMPv6 type and code.</p>
- *          <p>Rule changes are propagated to instances associated with the security group as quickly
- *        as possible. However, a small delay might occur.</p>
- *          <p>For examples of rules that you can add to security groups for specific access scenarios,
- *        see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html">Security group rules for different use cases</a> in the <i>Amazon EC2 User Guide</i>.</p>
- *          <p>For more information about security group quotas, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC quotas</a> in the <i>Amazon VPC User Guide</i>.</p>
+ * Adds the specified inbound (ingress) rules to a security group.
+ *
+ * An inbound rule permits instances to receive traffic from the specified IPv4 or IPv6 address range, the IP address ranges that are specified by a prefix list, or the instances that are associated with a destination security group. For more information, see [Security group rules](https://docs.aws.amazon.com/vpc/latest/userguide/security-group-rules.html).
+ *
+ * You must specify exactly one of the following sources: an IPv4 or IPv6 address range, a prefix list, or a security group. You must specify a protocol for each rule (for example, TCP). If the protocol is TCP or UDP, you must also specify a port or port range. If the protocol is ICMP or ICMPv6, you must also specify the ICMP/ICMPv6 type and code.
+ *
+ * Rule changes are propagated to instances associated with the security group as quickly as possible. However, a small delay might occur.
+ *
+ * For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide*.
+ *
+ * For more information about security group quotas, see [Amazon VPC quotas](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html) in the *Amazon VPC User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -146,8 +145,8 @@ export interface AuthorizeSecurityGroupIngressCommandOutput extends AuthorizeSec
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To add a rule that allows inbound HTTP traffic from another security group
  * ```javascript

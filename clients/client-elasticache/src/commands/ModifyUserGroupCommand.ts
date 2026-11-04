@@ -23,7 +23,8 @@ export interface ModifyUserGroupCommandInput extends ModifyUserGroupMessage {}
 export interface ModifyUserGroupCommandOutput extends UserGroup, __MetadataBearer {}
 
 /**
- * <p>Changes the list of users that belong to the user group.</p>
+ * Changes the list of users that belong to the user group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,32 +79,40 @@ export interface ModifyUserGroupCommandOutput extends UserGroup, __MetadataBeare
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link DefaultUserRequired} (client fault)
- *  <p>You must add default user to a user group.</p>
+ *
+ * You must add default user to a user group.
  *
  * @throws {@link DuplicateUserNameFault} (client fault)
- *  <p>A user with this username already exists.</p>
+ *
+ * A user with this username already exists.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * Two or more incompatible parameters were specified.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link InvalidUserGroupStateFault} (client fault)
- *  <p>The user group is not in an active state.</p>
+ *
+ * The user group is not in an active state.
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
- *  <p>The specified service linked role (SLR) was not found.</p>
+ *
+ * The specified service linked role (SLR) was not found.
  *
  * @throws {@link UserGroupNotFoundFault} (client fault)
- *  <p>The user group was not found or does not exist</p>
+ *
+ * The user group was not found or does not exist
  *
  * @throws {@link UserNotFoundFault} (client fault)
- *  <p>The user does not exist or could not be found.</p>
+ *
+ * The user does not exist or could not be found.
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @public
  */

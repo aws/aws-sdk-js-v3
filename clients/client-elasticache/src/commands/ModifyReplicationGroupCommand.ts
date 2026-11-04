@@ -23,22 +23,13 @@ export interface ModifyReplicationGroupCommandInput extends ModifyReplicationGro
 export interface ModifyReplicationGroupCommandOutput extends ModifyReplicationGroupResult, __MetadataBearer {}
 
 /**
- * <p>Modifies the settings for a replication group. This is limited to Valkey and Redis OSS 7 and above.</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/scaling-redis-cluster-mode-enabled.html">Scaling for Valkey or Redis OSS (cluster mode enabled)</a> in
- *                     the ElastiCache User Guide</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyReplicationGroupShardConfiguration.html">ModifyReplicationGroupShardConfiguration</a> in the ElastiCache API
- *                     Reference</p>
- *             </li>
- *          </ul>
- *          <note>
- *             <p>This operation is valid for Valkey or Redis OSS only.</p>
- *          </note>
+ * Modifies the settings for a replication group. This is limited to Valkey and Redis OSS 7 and above.
+ *
+ * - [Scaling for Valkey or Redis OSS (cluster mode enabled)](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/scaling-redis-cluster-mode-enabled.html) in the ElastiCache User Guide
+ * - [ModifyReplicationGroupShardConfiguration](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyReplicationGroupShardConfiguration.html) in the ElastiCache API Reference
+ *
+ * > **Note:** This operation is valid for Valkey or Redis OSS only.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -241,61 +232,72 @@ export interface ModifyReplicationGroupCommandOutput extends ModifyReplicationGr
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link CacheClusterNotFoundFault} (client fault)
- *  <p>The requested cluster ID does not refer to an existing cluster.</p>
+ *
+ * The requested cluster ID does not refer to an existing cluster.
  *
  * @throws {@link CacheParameterGroupNotFoundFault} (client fault)
- *  <p>The requested cache parameter group name does not refer to an existing cache parameter
- *             group.</p>
+ *
+ * The requested cache parameter group name does not refer to an existing cache parameter group.
  *
  * @throws {@link CacheSecurityGroupNotFoundFault} (client fault)
- *  <p>The requested cache security group name does not refer to an existing cache security
- *             group.</p>
+ *
+ * The requested cache security group name does not refer to an existing cache security group.
  *
  * @throws {@link InsufficientCacheClusterCapacityFault} (client fault)
- *  <p>The requested cache node type is not available in the specified Availability Zone. For
- *             more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
+ *
+ * The requested cache node type is not available in the specified Availability Zone. For more information, see [InsufficientCacheClusterCapacity](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY) in the ElastiCache User Guide.
  *
  * @throws {@link InvalidCacheClusterStateFault} (client fault)
- *  <p>The requested cluster is not in the <code>available</code> state.</p>
+ *
+ * The requested cluster is not in the `available` state.
  *
  * @throws {@link InvalidCacheSecurityGroupStateFault} (client fault)
- *  <p>The current state of the cache security group does not allow deletion.</p>
+ *
+ * The current state of the cache security group does not allow deletion.
  *
  * @throws {@link InvalidKMSKeyFault} (client fault)
- *  <p>The KMS key supplied is not valid.</p>
+ *
+ * The KMS key supplied is not valid.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * Two or more incompatible parameters were specified.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link InvalidReplicationGroupStateFault} (client fault)
- *  <p>The requested replication group is not in the <code>available</code> state.</p>
+ *
+ * The requested replication group is not in the `available` state.
  *
  * @throws {@link InvalidUserGroupStateFault} (client fault)
- *  <p>The user group is not in an active state.</p>
+ *
+ * The user group is not in an active state.
  *
  * @throws {@link InvalidVPCNetworkStateFault} (client fault)
- *  <p>The VPC network is in an invalid state.</p>
+ *
+ * The VPC network is in an invalid state.
  *
  * @throws {@link NodeQuotaForClusterExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the allowed number of cache
- *             nodes in a single cluster.</p>
+ *
+ * The request cannot be processed because it would exceed the allowed number of cache nodes in a single cluster.
  *
  * @throws {@link NodeQuotaForCustomerExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the allowed number of cache
- *             nodes per customer.</p>
+ *
+ * The request cannot be processed because it would exceed the allowed number of cache nodes per customer.
  *
  * @throws {@link ReplicationGroupNotFoundFault} (client fault)
- *  <p>The specified replication group does not exist.</p>
+ *
+ * The specified replication group does not exist.
  *
  * @throws {@link UserGroupNotFoundFault} (client fault)
- *  <p>The user group was not found or does not exist</p>
+ *
+ * The user group was not found or does not exist
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @example ModifyReplicationGroup
  * ```javascript

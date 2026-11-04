@@ -79,13 +79,13 @@ export interface ListStepConsumersRequest {
   stepId: string | undefined;
 
   /**
-   * The token for the next set of results, or <code>null</code> to start from the beginning.
+   * The token for the next set of results, or `null` to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
+   * The maximum number of results to return. Use this parameter with `NextToken` to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
@@ -120,7 +120,7 @@ export interface ListStepConsumersResponse {
   consumers: StepConsumer[] | undefined;
 
   /**
-   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
+   * If Deadline Cloud returns `nextToken`, then there are more results available. The value of `nextToken` is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then `nextToken` is set to `null`. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 `ValidationException` error.
    * @public
    */
   nextToken?: string | undefined;
@@ -155,13 +155,13 @@ export interface ListStepDependenciesRequest {
   stepId: string | undefined;
 
   /**
-   * The token for the next set of results, or <code>null</code> to start from the beginning.
+   * The token for the next set of results, or `null` to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
+   * The maximum number of results to return. Use this parameter with `NextToken` to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
@@ -196,7 +196,7 @@ export interface ListStepDependenciesResponse {
   dependencies: StepDependency[] | undefined;
 
   /**
-   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
+   * If Deadline Cloud returns `nextToken`, then there are more results available. The value of `nextToken` is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then `nextToken` is set to `null`. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 `ValidationException` error.
    * @public
    */
   nextToken?: string | undefined;
@@ -225,13 +225,13 @@ export interface ListStepsRequest {
   jobId: string | undefined;
 
   /**
-   * The token for the next set of results, or <code>null</code> to start from the beginning.
+   * The token for the next set of results, or `null` to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
+   * The maximum number of results to return. Use this parameter with `NextToken` to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
@@ -267,7 +267,19 @@ export interface StepSummary {
   lifecycleStatusMessage?: string | undefined;
 
   /**
-   * <p>The task run status for the job.</p> <ul> <li> <p> <code>PENDING</code>–pending and waiting for resources.</p> </li> <li> <p> <code>READY</code>–ready to process.</p> </li> <li> <p> <code>ASSIGNED</code>–assigned and will run next on a worker.</p> </li> <li> <p> <code>SCHEDULED</code>–scheduled to run on a worker.</p> </li> <li> <p> <code>INTERRUPTING</code>–being interrupted.</p> </li> <li> <p> <code>RUNNING</code>–running on a worker.</p> </li> <li> <p> <code>SUSPENDED</code>–the task is suspended.</p> </li> <li> <p> <code>CANCELED</code>–the task has been canceled.</p> </li> <li> <p> <code>FAILED</code>–the task has failed.</p> </li> <li> <p> <code>SUCCEEDED</code>–the task has succeeded.</p> </li> </ul>
+   * The task run status for the job.
+   *
+   * - `PENDING`–pending and waiting for resources.
+   * - `READY`–ready to process.
+   * - `ASSIGNED`–assigned and will run next on a worker.
+   * - `SCHEDULED`–scheduled to run on a worker.
+   * - `INTERRUPTING`–being interrupted.
+   * - `RUNNING`–running on a worker.
+   * - `SUSPENDED`–the task is suspended.
+   * - `CANCELED`–the task has been canceled.
+   * - `FAILED`–the task has failed.
+   * - `SUCCEEDED`–the task has succeeded.
+   *
    * @public
    */
   taskRunStatus: TaskRunStatus | undefined;
@@ -344,7 +356,7 @@ export interface ListStepsResponse {
   steps: StepSummary[] | undefined;
 
   /**
-   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
+   * If Deadline Cloud returns `nextToken`, then there are more results available. The value of `nextToken` is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then `nextToken` is set to `null`. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 `ValidationException` error.
    * @public
    */
   nextToken?: string | undefined;
@@ -379,13 +391,13 @@ export interface ListTasksRequest {
   stepId: string | undefined;
 
   /**
-   * The token for the next set of results, or <code>null</code> to start from the beginning.
+   * The token for the next set of results, or `null` to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
+   * The maximum number of results to return. Use this parameter with `NextToken` to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
@@ -480,7 +492,7 @@ export interface ListTasksResponse {
   tasks: TaskSummary[] | undefined;
 
   /**
-   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
+   * If Deadline Cloud returns `nextToken`, then there are more results available. The value of `nextToken` is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then `nextToken` is set to `null`. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 `ValidationException` error.
    * @public
    */
   nextToken?: string | undefined;
@@ -527,7 +539,7 @@ export interface UpdateJobRequest {
   priority?: number | undefined;
 
   /**
-   * The number of task failures before the job stops running and is marked as <code>FAILED</code>.
+   * The number of task failures before the job stops running and is marked as `FAILED`.
    * @public
    */
   maxFailedTasksCount?: number | undefined;
@@ -539,17 +551,20 @@ export interface UpdateJobRequest {
   maxRetriesPerTask?: number | undefined;
 
   /**
-   * <p>The status of a job in its lifecycle. When you change the status of the job to <code>ARCHIVED</code>, the job can't be scheduled or archived.</p> <important> <p>An archived jobs and its steps and tasks are deleted after 120 days. The job can't be recovered.</p> </important>
+   * The status of a job in its lifecycle. When you change the status of the job to `ARCHIVED`, the job can't be scheduled or archived.
+   *
+   * > **Important:** An archived jobs and its steps and tasks are deleted after 120 days. The job can't be recovered.
+   *
    * @public
    */
   lifecycleStatus?: UpdateJobLifecycleStatus | undefined;
 
   /**
-   * The maximum number of worker hosts that can concurrently process a job. When the <code>maxWorkerCount</code> is reached, no more workers will be assigned to process the job, even if the fleets assigned to the job's queue has available workers.
+   * The maximum number of worker hosts that can concurrently process a job. When the `maxWorkerCount` is reached, no more workers will be assigned to process the job, even if the fleets assigned to the job's queue has available workers.
    *
-   * You can't set the <code>maxWorkerCount</code> to 0. If you set it to -1, there is no maximum number of workers.
+   * You can't set the `maxWorkerCount` to 0. If you set it to -1, there is no maximum number of workers.
    *
-   * If you don't specify the <code>maxWorkerCount</code>, the default is -1.
+   * If you don't specify the `maxWorkerCount`, the default is -1.
    *
    * The maximum number of workers that can process tasks in the job.
    *
@@ -736,13 +751,13 @@ export interface ListQueueEnvironmentsRequest {
   queueId: string | undefined;
 
   /**
-   * The token for the next set of results, or <code>null</code> to start from the beginning.
+   * The token for the next set of results, or `null` to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
+   * The maximum number of results to return. Use this parameter with `NextToken` to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
@@ -783,7 +798,7 @@ export interface ListQueueEnvironmentsResponse {
   environments: QueueEnvironmentSummary[] | undefined;
 
   /**
-   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
+   * If Deadline Cloud returns `nextToken`, then there are more results available. The value of `nextToken` is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then `nextToken` is set to `null`. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 `ValidationException` error.
    * @public
    */
   nextToken?: string | undefined;
@@ -806,13 +821,13 @@ export interface ListQueueMembersRequest {
   queueId: string | undefined;
 
   /**
-   * The token for the next set of results, or <code>null</code> to start from the beginning.
+   * The token for the next set of results, or `null` to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
+   * The maximum number of results to return. Use this parameter with `NextToken` to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
@@ -871,7 +886,7 @@ export interface ListQueueMembersResponse {
   members: QueueMember[] | undefined;
 
   /**
-   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
+   * If Deadline Cloud returns `nextToken`, then there are more results available. The value of `nextToken` is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then `nextToken` is set to `null`. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 `ValidationException` error.
    * @public
    */
   nextToken?: string | undefined;
@@ -888,13 +903,13 @@ export interface ListQueuesRequest {
   farmId: string | undefined;
 
   /**
-   * The token for the next set of results, or <code>null</code> to start from the beginning.
+   * The token for the next set of results, or `null` to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
+   * The maximum number of results to return. Use this parameter with `NextToken` to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
@@ -906,7 +921,12 @@ export interface ListQueuesRequest {
   principalId?: string | undefined;
 
   /**
-   * <p>The status of the queues listed.</p> <ul> <li> <p> <code>ACTIVE</code>–The queues are active.</p> </li> <li> <p> <code>SCHEDULING</code>–The queues are scheduling.</p> </li> <li> <p> <code>SCHEDULING_BLOCKED</code>–The queue scheduling is blocked for these queues.</p> </li> </ul>
+   * The status of the queues listed.
+   *
+   * - `ACTIVE`–The queues are active.
+   * - `SCHEDULING`–The queues are scheduling.
+   * - `SCHEDULING_BLOCKED`–The queue scheduling is blocked for these queues.
+   *
    * @public
    */
   status?: QueueStatus | undefined;
@@ -930,7 +950,10 @@ export interface QueueSummary {
   queueId: string | undefined;
 
   /**
-   * <p>The display name of the queue summary to update.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The display name of the queue summary to update.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   displayName: string | undefined;
@@ -989,7 +1012,7 @@ export interface ListQueuesResponse {
   queues: QueueSummary[] | undefined;
 
   /**
-   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
+   * If Deadline Cloud returns `nextToken`, then there are more results available. The value of `nextToken` is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then `nextToken` is set to `null`. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 `ValidationException` error.
    * @public
    */
   nextToken?: string | undefined;
@@ -1012,13 +1035,13 @@ export interface ListStorageProfilesForQueueRequest {
   queueId: string | undefined;
 
   /**
-   * The token for the next set of results, or <code>null</code> to start from the beginning.
+   * The token for the next set of results, or `null` to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
+   * The maximum number of results to return. Use this parameter with `NextToken` to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
@@ -1035,7 +1058,7 @@ export interface ListStorageProfilesForQueueResponse {
   storageProfiles: StorageProfileSummary[] | undefined;
 
   /**
-   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
+   * If Deadline Cloud returns `nextToken`, then there are more results available. The value of `nextToken` is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then `nextToken` is set to `null`. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 `ValidationException` error.
    * @public
    */
   nextToken?: string | undefined;
@@ -1064,13 +1087,19 @@ export interface UpdateQueueRequest {
   clientToken?: string | undefined;
 
   /**
-   * <p>The display name of the queue to update.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The display name of the queue to update.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   displayName?: string | undefined;
 
   /**
-   * <p>The description of the queue to update.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The description of the queue to update.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   description?: string | undefined;
@@ -1203,13 +1232,19 @@ export interface UpdateFarmRequest {
   farmId: string | undefined;
 
   /**
-   * <p>The display name of the farm to update.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The display name of the farm to update.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   displayName?: string | undefined;
 
   /**
-   * <p>The description of the farm to update.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The description of the farm to update.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   description?: string | undefined;
@@ -1243,13 +1278,19 @@ export interface UpdateLimitRequest {
   limitId: string | undefined;
 
   /**
-   * <p>The new display name of the limit.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The new display name of the limit.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   displayName?: string | undefined;
 
   /**
-   * <p>The new description of the limit.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The new description of the limit.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   description?: string | undefined;
@@ -1259,7 +1300,7 @@ export interface UpdateLimitRequest {
    *
    * If more than the new maximum number is currently in use, running jobs finish but no new jobs are started until the number of resources in use is below the new maximum number.
    *
-   * The <code>maxCount</code> must not be 0. If the value is -1, there is no restriction on the number of resources that can be acquired for this limit.
+   * The `maxCount` must not be 0. If the value is -1, there is no restriction on the number of resources that can be acquired for this limit.
    *
    * @public
    */
@@ -1294,7 +1335,10 @@ export interface UpdateStorageProfileRequest {
   clientToken?: string | undefined;
 
   /**
-   * <p>The display name of the storage profile to update.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The display name of the storage profile to update.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   displayName?: string | undefined;
@@ -1468,25 +1512,25 @@ export interface GetQueueLimitAssociationResponse {
  */
 export interface GetSessionsStatisticsAggregationRequest {
   /**
-   * The identifier of the farm to include in the statistics. This should be the same as the farm ID used in the call to the <code>StartSessionsStatisticsAggregation</code> operation.
+   * The identifier of the farm to include in the statistics. This should be the same as the farm ID used in the call to the `StartSessionsStatisticsAggregation` operation.
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * The token for the next set of results, or <code>null</code> to start from the beginning.
+   * The token for the next set of results, or `null` to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
+   * The maximum number of results to return. Use this parameter with `NextToken` to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * The identifier returned by the <code>StartSessionsStatisticsAggregation</code> operation that identifies the aggregated statistics.
+   * The identifier returned by the `StartSessionsStatisticsAggregation` operation that identifies the aggregated statistics.
    * @public
    */
   aggregationId: string | undefined;
@@ -1617,9 +1661,9 @@ export interface GetSessionsStatisticsAggregationResponse {
   statistics?: Statistics[] | undefined;
 
   /**
-   * The status of the aggregated results. An aggregation may fail or time out if the results are too large. If this happens, you can call the <code>StartSessionsStatisticsAggregation</code> operation after you reduce the aggregation time frame, reduce the number of queues or fleets in the aggregation, or increase the period length.
+   * The status of the aggregated results. An aggregation may fail or time out if the results are too large. If this happens, you can call the `StartSessionsStatisticsAggregation` operation after you reduce the aggregation time frame, reduce the number of queues or fleets in the aggregation, or increase the period length.
    *
-   * If you call the <code>StartSessionsStatisticsAggregation </code> operation when the status is <code>IN_PROGRESS</code>, you will receive a <code>ThrottlingException</code>.
+   * If you call the `StartSessionsStatisticsAggregation` operation when the status is `IN_PROGRESS`, you will receive a `ThrottlingException`.
    *
    * @public
    */
@@ -1632,7 +1676,7 @@ export interface GetSessionsStatisticsAggregationResponse {
   statusMessage?: string | undefined;
 
   /**
-   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
+   * If Deadline Cloud returns `nextToken`, then there are more results available. The value of `nextToken` is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then `nextToken` is set to `null`. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 `ValidationException` error.
    * @public
    */
   nextToken?: string | undefined;
@@ -1739,13 +1783,13 @@ export interface GetLicenseEndpointResponse {
  */
 export interface ListLicenseEndpointsRequest {
   /**
-   * The token for the next set of results, or <code>null</code> to start from the beginning.
+   * The token for the next set of results, or `null` to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
+   * The maximum number of results to return. Use this parameter with `NextToken` to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
@@ -1792,7 +1836,7 @@ export interface ListLicenseEndpointsResponse {
   licenseEndpoints: LicenseEndpointSummary[] | undefined;
 
   /**
-   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
+   * If Deadline Cloud returns `nextToken`, then there are more results available. The value of `nextToken` is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then `nextToken` is set to `null`. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 `ValidationException` error.
    * @public
    */
   nextToken?: string | undefined;
@@ -1809,13 +1853,13 @@ export interface ListMeteredProductsRequest {
   licenseEndpointId: string | undefined;
 
   /**
-   * The token for the next set of results, or <code>null</code> to start from the beginning.
+   * The token for the next set of results, or `null` to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
+   * The maximum number of results to return. Use this parameter with `NextToken` to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
@@ -1862,7 +1906,7 @@ export interface ListMeteredProductsResponse {
   meteredProducts: MeteredProductSummary[] | undefined;
 
   /**
-   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
+   * If Deadline Cloud returns `nextToken`, then there are more results available. The value of `nextToken` is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then `nextToken` is set to `null`. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 `ValidationException` error.
    * @public
    */
   nextToken?: string | undefined;
@@ -1895,13 +1939,13 @@ export interface PutMeteredProductResponse {}
  */
 export interface ListAvailableMeteredProductsRequest {
   /**
-   * The token for the next set of results, or <code>null</code> to start from the beginning.
+   * The token for the next set of results, or `null` to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
+   * The maximum number of results to return. Use this parameter with `NextToken` to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
@@ -1918,7 +1962,7 @@ export interface ListAvailableMeteredProductsResponse {
   meteredProducts: MeteredProductSummary[] | undefined;
 
   /**
-   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
+   * If Deadline Cloud returns `nextToken`, then there are more results available. The value of `nextToken` is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then `nextToken` is set to `null`. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 `ValidationException` error.
    * @public
    */
   nextToken?: string | undefined;
@@ -1929,13 +1973,13 @@ export interface ListAvailableMeteredProductsResponse {
  */
 export interface ListMembershipsRequest {
   /**
-   * The token for the next set of results, or <code>null</code> to start from the beginning.
+   * The token for the next set of results, or `null` to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
+   * The maximum number of results to return. Use this parameter with `NextToken` to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
@@ -2063,7 +2107,7 @@ export interface ListMembershipsResponse {
   memberships: MembershipSummary[] | undefined;
 
   /**
-   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
+   * If Deadline Cloud returns `nextToken`, then there are more results available. The value of `nextToken` is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then `nextToken` is set to `null`. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 `ValidationException` error.
    * @public
    */
   nextToken?: string | undefined;
@@ -2080,13 +2124,13 @@ export interface ListQueueFleetAssociationsRequest {
   farmId: string | undefined;
 
   /**
-   * The token for the next set of results, or <code>null</code> to start from the beginning.
+   * The token for the next set of results, or `null` to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
+   * The maximum number of results to return. Use this parameter with `NextToken` to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
@@ -2122,7 +2166,13 @@ export interface QueueFleetAssociationSummary {
   fleetId: string | undefined;
 
   /**
-   * <p>The status of task scheduling in the queue-fleet association.</p> <ul> <li> <p> <code>ACTIVE</code>–Association is active.</p> </li> <li> <p> <code>STOP_SCHEDULING_AND_COMPLETE_TASKS</code>–Association has stopped scheduling new tasks and is completing current tasks.</p> </li> <li> <p> <code>STOP_SCHEDULING_AND_CANCEL_TASKS</code>–Association has stopped scheduling new tasks and is canceling current tasks.</p> </li> <li> <p> <code>STOPPED</code>–Association has been stopped.</p> </li> </ul>
+   * The status of task scheduling in the queue-fleet association.
+   *
+   * - `ACTIVE`–Association is active.
+   * - `STOP_SCHEDULING_AND_COMPLETE_TASKS`–Association has stopped scheduling new tasks and is completing current tasks.
+   * - `STOP_SCHEDULING_AND_CANCEL_TASKS`–Association has stopped scheduling new tasks and is canceling current tasks.
+   * - `STOPPED`–Association has been stopped.
+   *
    * @public
    */
   status: QueueFleetAssociationStatus | undefined;
@@ -2163,7 +2213,7 @@ export interface ListQueueFleetAssociationsResponse {
   queueFleetAssociations: QueueFleetAssociationSummary[] | undefined;
 
   /**
-   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
+   * If Deadline Cloud returns `nextToken`, then there are more results available. The value of `nextToken` is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then `nextToken` is set to `null`. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 `ValidationException` error.
    * @public
    */
   nextToken?: string | undefined;
@@ -2180,7 +2230,7 @@ export interface ListQueueLimitAssociationsRequest {
   farmId: string | undefined;
 
   /**
-   * The token for the next set of results, or <code>null</code> to start from the beginning.
+   * The token for the next set of results, or `null` to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
@@ -2192,13 +2242,13 @@ export interface ListQueueLimitAssociationsRequest {
   maxResults?: number | undefined;
 
   /**
-   * Specifies that the operation should return only the queue limit associations for the specified queue. If you specify both the <code>queueId</code> and the <code>limitId</code>, only the specified limit is returned if it exists.
+   * Specifies that the operation should return only the queue limit associations for the specified queue. If you specify both the `queueId` and the `limitId`, only the specified limit is returned if it exists.
    * @public
    */
   queueId?: string | undefined;
 
   /**
-   * Specifies that the operation should return only the queue limit associations for the specified limit. If you specify both the <code>queueId</code> and the <code>limitId</code>, only the specified limit is returned if it exists.
+   * Specifies that the operation should return only the queue limit associations for the specified limit. If you specify both the `queueId` and the `limitId`, only the specified limit is returned if it exists.
    * @public
    */
   limitId?: string | undefined;
@@ -2222,7 +2272,13 @@ export interface QueueLimitAssociationSummary {
   limitId: string | undefined;
 
   /**
-   * <p>The status of task scheduling in the queue-limit association.</p> <ul> <li> <p> <code>ACTIVE</code> - Association is active.</p> </li> <li> <p> <code>STOP_LIMIT_USAGE_AND_COMPLETE_TASKS</code> - Association has stopped scheduling new tasks and is completing current tasks.</p> </li> <li> <p> <code>STOP_LIMIT_USAGE_AND_CANCEL_TASKS</code> - Association has stopped scheduling new tasks and is canceling current tasks.</p> </li> <li> <p> <code>STOPPED</code> - Association has been stopped.</p> </li> </ul>
+   * The status of task scheduling in the queue-limit association.
+   *
+   * - `ACTIVE` - Association is active.
+   * - `STOP_LIMIT_USAGE_AND_COMPLETE_TASKS` - Association has stopped scheduling new tasks and is completing current tasks.
+   * - `STOP_LIMIT_USAGE_AND_CANCEL_TASKS` - Association has stopped scheduling new tasks and is canceling current tasks.
+   * - `STOPPED` - Association has been stopped.
+   *
    * @public
    */
   status: QueueLimitAssociationStatus | undefined;
@@ -2263,7 +2319,7 @@ export interface ListQueueLimitAssociationsResponse {
   queueLimitAssociations: QueueLimitAssociationSummary[] | undefined;
 
   /**
-   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
+   * If Deadline Cloud returns `nextToken`, then there are more results available. The value of `nextToken` is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then `nextToken` is set to `null`. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 `ValidationException` error.
    * @public
    */
   nextToken?: string | undefined;
@@ -2296,7 +2352,7 @@ export interface ListTagsForResourceResponse {
  */
 export interface DeleteMonitorRequest {
   /**
-   * The unique identifier of the monitor to delete. This ID is returned by the <code>CreateMonitor</code> operation, and is included in the response to the <code>GetMonitor</code> operation.
+   * The unique identifier of the monitor to delete. This ID is returned by the `CreateMonitor` operation, and is included in the response to the `GetMonitor` operation.
    * @public
    */
   monitorId: string | undefined;
@@ -2312,7 +2368,7 @@ export interface DeleteMonitorResponse {}
  */
 export interface GetMonitorRequest {
   /**
-   * The unique identifier for the monitor. This ID is returned by the <code>CreateMonitor</code> operation.
+   * The unique identifier for the monitor. This ID is returned by the `CreateMonitor` operation.
    * @public
    */
   monitorId: string | undefined;
@@ -2329,7 +2385,10 @@ export interface GetMonitorResponse {
   monitorId: string | undefined;
 
   /**
-   * <p>The name used to identify the monitor on the Deadline Cloud console.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The name used to identify the monitor on the Deadline Cloud console.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   displayName: string | undefined;
@@ -2400,7 +2459,7 @@ export interface GetMonitorResponse {
  */
 export interface GetMonitorSettingsRequest {
   /**
-   * The unique identifier of the monitor. This ID is returned by the <code>CreateMonitor</code> operation, and is included in the response to the <code>ListMonitors</code> operation.
+   * The unique identifier of the monitor. This ID is returned by the `CreateMonitor` operation, and is included in the response to the `ListMonitors` operation.
    * @public
    */
   monitorId: string | undefined;
@@ -2422,13 +2481,13 @@ export interface GetMonitorSettingsResponse {
  */
 export interface ListMonitorsRequest {
   /**
-   * The token for the next set of results, or <code>null</code> to start from the beginning.
+   * The token for the next set of results, or `null` to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
+   * The maximum number of results to return. Use this parameter with `NextToken` to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
@@ -2446,7 +2505,10 @@ export interface MonitorSummary {
   monitorId: string | undefined;
 
   /**
-   * <p>The name of the monitor that displays on the Deadline Cloud console.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The name of the monitor that displays on the Deadline Cloud console.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   displayName: string | undefined;
@@ -2517,13 +2579,13 @@ export interface MonitorSummary {
  */
 export interface ListMonitorsResponse {
   /**
-   * A list of <code>MonitorSummary</code> objects that describe your monitors in the Deadline Cloud.
+   * A list of `MonitorSummary` objects that describe your monitors in the Deadline Cloud.
    * @public
    */
   monitors: MonitorSummary[] | undefined;
 
   /**
-   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
+   * If Deadline Cloud returns `nextToken`, then there are more results available. The value of `nextToken` is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then `nextToken` is set to `null`. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 `ValidationException` error.
    * @public
    */
   nextToken?: string | undefined;
@@ -2546,7 +2608,10 @@ export interface UpdateMonitorRequest {
   subdomain?: string | undefined;
 
   /**
-   * <p>The new value to use for the monitor's display name.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The new value to use for the monitor's display name.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   displayName?: string | undefined;
@@ -2621,7 +2686,11 @@ export interface SearchTermFilterExpression {
   searchTerm: string | undefined;
 
   /**
-   * <p>Specifies how Deadline Cloud matches your search term in the results. If you don't specify a <code>matchType</code> the default is <code>FUZZY_MATCH</code>.</p> <ul> <li> <p> <code>FUZZY_MATCH</code> - Matches if a portion of the search term is found in the result.</p> </li> <li> <p> <code>CONTAINS</code> - Matches if the exact search term is contained in the result.</p> </li> </ul>
+   * Specifies how Deadline Cloud matches your search term in the results. If you don't specify a `matchType` the default is `FUZZY_MATCH`.
+   *
+   * - `FUZZY_MATCH` - Matches if a portion of the search term is found in the result.
+   * - `CONTAINS` - Matches if the exact search term is contained in the result.
+   *
    * @public
    */
   matchType?: SearchTermMatchingType | undefined;
@@ -2828,7 +2897,19 @@ export interface JobSearchSummary {
   lifecycleStatusMessage?: string | undefined;
 
   /**
-   * <p>The task run status for the job.</p> <ul> <li> <p> <code>PENDING</code>–pending and waiting for resources.</p> </li> <li> <p> <code>READY</code>–ready to be processed.</p> </li> <li> <p> <code>ASSIGNED</code>–assigned and will run next on a worker.</p> </li> <li> <p> <code>SCHEDULED</code>–scheduled to be run on a worker.</p> </li> <li> <p> <code>INTERRUPTING</code>–being interrupted.</p> </li> <li> <p> <code>RUNNING</code>–running on a worker.</p> </li> <li> <p> <code>SUSPENDED</code>–the task is suspended.</p> </li> <li> <p> <code>CANCELED</code>–the task has been canceled.</p> </li> <li> <p> <code>FAILED</code>–the task has failed.</p> </li> <li> <p> <code>SUCCEEDED</code>–the task has succeeded.</p> </li> </ul>
+   * The task run status for the job.
+   *
+   * - `PENDING`–pending and waiting for resources.
+   * - `READY`–ready to be processed.
+   * - `ASSIGNED`–assigned and will run next on a worker.
+   * - `SCHEDULED`–scheduled to be run on a worker.
+   * - `INTERRUPTING`–being interrupted.
+   * - `RUNNING`–running on a worker.
+   * - `SUSPENDED`–the task is suspended.
+   * - `CANCELED`–the task has been canceled.
+   * - `FAILED`–the task has failed.
+   * - `SUCCEEDED`–the task has succeeded.
+   *
    * @public
    */
   taskRunStatus?: TaskRunStatus | undefined;
@@ -2858,7 +2939,7 @@ export interface JobSearchSummary {
   priority?: number | undefined;
 
   /**
-   * The number of task failures before the job stops running and is marked as <code>FAILED</code>.
+   * The number of task failures before the job stops running and is marked as `FAILED`.
    * @public
    */
   maxFailedTasksCount?: number | undefined;
@@ -2912,11 +2993,11 @@ export interface JobSearchSummary {
   jobParameters?: Record<string, JobParameter> | undefined;
 
   /**
-   * The maximum number of worker hosts that can concurrently process a job. When the <code>maxWorkerCount</code> is reached, no more workers will be assigned to process the job, even if the fleets assigned to the job's queue has available workers.
+   * The maximum number of worker hosts that can concurrently process a job. When the `maxWorkerCount` is reached, no more workers will be assigned to process the job, even if the fleets assigned to the job's queue has available workers.
    *
-   * You can't set the <code>maxWorkerCount</code> to 0. If you set it to -1, there is no maximum number of workers.
+   * You can't set the `maxWorkerCount` to 0. If you set it to -1, there is no maximum number of workers.
    *
-   * If you don't specify the <code>maxWorkerCount</code>, the default is -1.
+   * If you don't specify the `maxWorkerCount`, the default is -1.
    *
    * @public
    */
@@ -2994,7 +3075,19 @@ export interface StepSearchSummary {
   lifecycleStatusMessage?: string | undefined;
 
   /**
-   * <p>The task run status for the job.</p> <ul> <li> <p> <code>PENDING</code>–pending and waiting for resources.</p> </li> <li> <p> <code>READY</code>–ready to be processed.</p> </li> <li> <p> <code>ASSIGNED</code>–assigned and will run next on a worker.</p> </li> <li> <p> <code>SCHEDULED</code>–scheduled to be run on a worker.</p> </li> <li> <p> <code>INTERRUPTING</code>–being interrupted.</p> </li> <li> <p> <code>RUNNING</code>–running on a worker.</p> </li> <li> <p> <code>SUSPENDED</code>–the task is suspended.</p> </li> <li> <p> <code>CANCELED</code>–the task has been canceled.</p> </li> <li> <p> <code>FAILED</code>–the task has failed.</p> </li> <li> <p> <code>SUCCEEDED</code>–the task has succeeded.</p> </li> </ul>
+   * The task run status for the job.
+   *
+   * - `PENDING`–pending and waiting for resources.
+   * - `READY`–ready to be processed.
+   * - `ASSIGNED`–assigned and will run next on a worker.
+   * - `SCHEDULED`–scheduled to be run on a worker.
+   * - `INTERRUPTING`–being interrupted.
+   * - `RUNNING`–running on a worker.
+   * - `SUSPENDED`–the task is suspended.
+   * - `CANCELED`–the task has been canceled.
+   * - `FAILED`–the task has failed.
+   * - `SUCCEEDED`–the task has succeeded.
+   *
    * @public
    */
   taskRunStatus?: TaskRunStatus | undefined;
@@ -3281,7 +3374,7 @@ export type SessionsStatisticsResources =
  */
 export namespace SessionsStatisticsResources {
   /**
-   * One to 10 queue IDs that specify the queues to return statistics for. If you specify the <code>queueIds</code> field, you can't specify the <code>fleetIds</code> field.
+   * One to 10 queue IDs that specify the queues to return statistics for. If you specify the `queueIds` field, you can't specify the `fleetIds` field.
    * @public
    */
   export interface QueueIdsMember {
@@ -3291,7 +3384,7 @@ export namespace SessionsStatisticsResources {
   }
 
   /**
-   * One to 10 fleet IDs that specify the fleets to return statistics for. If you specify the <code>fleetIds</code> field, you can't specify the <code>queueIds</code> field.
+   * One to 10 fleet IDs that specify the fleets to return statistics for. If you specify the `fleetIds` field, you can't specify the `queueIds` field.
    * @public
    */
   export interface FleetIdsMember {
@@ -3349,7 +3442,8 @@ export interface StartSessionsStatisticsAggregationRequest {
   endTime: Date | undefined;
 
   /**
-   * <p>The time zone to use for the statistics. Use UTC notation such as "UTC+8."</p>
+   * The time zone to use for the statistics. Use UTC notation such as "UTC+8."
+   *
    * @public
    */
   timezone?: string | undefined;
@@ -3378,7 +3472,7 @@ export interface StartSessionsStatisticsAggregationRequest {
  */
 export interface StartSessionsStatisticsAggregationResponse {
   /**
-   * A unique identifier for the aggregated statistics. Use this identifier with the <code>GetAggregatedStatisticsForSessions</code> operation to return the statistics.
+   * A unique identifier for the aggregated statistics. Use this identifier with the `GetAggregatedStatisticsForSessions` operation to return the statistics.
    * @public
    */
   aggregationId: string | undefined;
@@ -3485,7 +3579,8 @@ export interface UpdateQueueLimitAssociationRequest {
   limitId: string | undefined;
 
   /**
-   * <p>Sets the status of the limit. You can mark the limit active, or you can stop usage of the limit and either complete existing tasks or cancel any existing tasks immediately. </p>
+   * Sets the status of the limit. You can mark the limit active, or you can stop usage of the limit and either complete existing tasks or cancel any existing tasks immediately.
+   *
    * @public
    */
   status: UpdateQueueLimitAssociationStatus | undefined;

@@ -4,8 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { ApplicationAutoScalingServiceException as __BaseException } from "./ApplicationAutoScalingServiceException";
 
 /**
- * <p>Concurrent updates caused an exception, for example, if you request an update to an
- *          Application Auto Scaling resource that already has a pending update.</p>
+ * Concurrent updates caused an exception, for example, if you request an update to an Application Auto Scaling resource that already has a pending update.
+ *
  * @public
  */
 export class ConcurrentUpdateException extends __BaseException {
@@ -28,7 +28,8 @@ export class ConcurrentUpdateException extends __BaseException {
 }
 
 /**
- * <p>The service encountered an internal error.</p>
+ * The service encountered an internal error.
+ *
  * @public
  */
 export class InternalServiceException extends __BaseException {
@@ -51,11 +52,8 @@ export class InternalServiceException extends __BaseException {
 }
 
 /**
- * <p>The specified object could not be found. For any operation that depends on the existence
- *          of a scalable target, this exception is thrown if the scalable target with the specified
- *          service namespace, resource ID, and scalable dimension does not exist. For any operation
- *          that deletes or deregisters a resource, this exception is thrown if the resource cannot be
- *          found.</p>
+ * The specified object could not be found. For any operation that depends on the existence of a scalable target, this exception is thrown if the scalable target with the specified service namespace, resource ID, and scalable dimension does not exist. For any operation that deletes or deregisters a resource, this exception is thrown if the resource cannot be found.
+ *
  * @public
  */
 export class ObjectNotFoundException extends __BaseException {
@@ -78,8 +76,8 @@ export class ObjectNotFoundException extends __BaseException {
 }
 
 /**
- * <p>An exception was thrown for a validation issue. Review the available parameters for the
- *          API request.</p>
+ * An exception was thrown for a validation issue. Review the available parameters for the API request.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -102,7 +100,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The next token supplied was invalid.</p>
+ * The next token supplied was invalid.
+ *
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -125,10 +124,8 @@ export class InvalidNextTokenException extends __BaseException {
 }
 
 /**
- * <p>Failed access to resources caused an exception. This exception is thrown when Application Auto Scaling
- *          is unable to retrieve the alarms associated with a scaling policy due to a client error,
- *          for example, if the role ARN specified for a scalable target does not have permission to
- *          call the CloudWatch <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html">DescribeAlarms</a> on your behalf.</p>
+ * Failed access to resources caused an exception. This exception is thrown when Application Auto Scaling is unable to retrieve the alarms associated with a scaling policy due to a client error, for example, if the role ARN specified for a scalable target does not have permission to call the CloudWatch [DescribeAlarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html) on your behalf.
+ *
  * @public
  */
 export class FailedResourceAccessException extends __BaseException {
@@ -151,7 +148,8 @@ export class FailedResourceAccessException extends __BaseException {
 }
 
 /**
- * <p>The specified resource doesn't exist.</p>
+ * The specified resource doesn't exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -160,7 +158,8 @@ export class ResourceNotFoundException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The name of the Application Auto Scaling resource. This value is an Amazon Resource Name (ARN).</p>
+   * The name of the Application Auto Scaling resource. This value is an Amazon Resource Name (ARN).
+   *
    * @public
    */
   ResourceName?: string | undefined;
@@ -180,7 +179,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>A per-account resource limit is exceeded. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-limits.html">Application Auto Scaling service quotas</a>.</p>
+ * A per-account resource limit is exceeded. For more information, see [Application Auto Scaling service quotas](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-limits.html).
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -203,7 +203,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The request contains too many tags. Try the request again with fewer tags.</p>
+ * The request contains too many tags. Try the request again with fewer tags.
+ *
  * @public
  */
 export class TooManyTagsException extends __BaseException {
@@ -212,7 +213,8 @@ export class TooManyTagsException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The name of the Application Auto Scaling resource. This value is an Amazon Resource Name (ARN).</p>
+   * The name of the Application Auto Scaling resource. This value is an Amazon Resource Name (ARN).
+   *
    * @public
    */
   ResourceName?: string | undefined;

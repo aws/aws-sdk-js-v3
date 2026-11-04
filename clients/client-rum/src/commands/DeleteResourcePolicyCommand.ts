@@ -23,7 +23,8 @@ export interface DeleteResourcePolicyCommandInput extends DeleteResourcePolicyRe
 export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Removes the association of a resource-based policy from an app monitor.</p>
+ * Removes the association of a resource-based policy from an app monitor.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,32 +52,40 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permissions to perform this action.</p>
+ *
+ * You don't have sufficient permissions to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>This operation attempted to create a resource that already exists.</p>
+ *
+ * This operation attempted to create a resource that already exists.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal service exception.</p>
+ *
+ * Internal service exception.
  *
  * @throws {@link InvalidPolicyRevisionIdException} (client fault)
- *  <p>The policy revision ID that you provided doeesn't match the latest policy revision ID.</p>
+ *
+ * The policy revision ID that you provided doeesn't match the latest policy revision ID.
  *
  * @throws {@link PolicyNotFoundException} (client fault)
- *  <p>The resource-based policy doesn't exist on this app monitor.</p>
+ *
+ * The resource-based policy doesn't exist on this app monitor.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource not found.</p>
+ *
+ * Resource not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled because of quota limits.</p>
+ *
+ * The request was throttled because of quota limits.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One of the arguments for the request is not valid.</p>
+ *
+ * One of the arguments for the request is not valid.
  *
  * @throws {@link RUMServiceException}
- * <p>Base exception class for all service exceptions from RUM service.</p>
  *
+ * Base exception class for all service exceptions from RUM service.
  *
  * @public
  */

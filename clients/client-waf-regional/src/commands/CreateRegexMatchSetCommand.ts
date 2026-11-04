@@ -23,38 +23,25 @@ export interface CreateRegexMatchSetCommandInput extends CreateRegexMatchSetRequ
 export interface CreateRegexMatchSetCommandOutput extends CreateRegexMatchSetResponse, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This is <b>AWS WAF Classic</b> documentation. For
- *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
- *       WAF Classic</a> in the developer guide.</p>
- *             <p>
- *                <b>For the latest version of AWS
- *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
- *          </note>
- *          <p>Creates a <a>RegexMatchSet</a>. You then use <a>UpdateRegexMatchSet</a> to identify the part of a
- *          web request that you want AWS WAF to inspect, such as the values of the <code>User-Agent</code> header or the query string.
- *          For example, you can create a <code>RegexMatchSet</code> that contains a <code>RegexMatchTuple</code> that looks for any requests with <code>User-Agent</code> headers
- *          that match a <code>RegexPatternSet</code> with pattern <code>B[a@]dB[o0]t</code>. You can then configure AWS WAF to reject those requests.</p>
- *          <p>To create and configure a <code>RegexMatchSet</code>, perform the following steps:</p>
- *          <ol>
- *             <li>
- *                <p>Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code> parameter of a
- *                   <code>CreateRegexMatchSet</code> request.</p>
- *             </li>
- *             <li>
- *                <p>Submit a <code>CreateRegexMatchSet</code> request.</p>
- *             </li>
- *             <li>
- *                <p>Use <code>GetChangeToken</code> to get the change token that you provide in the <code>ChangeToken</code> parameter of an
- *                   <code>UpdateRegexMatchSet</code> request.</p>
- *             </li>
- *             <li>
- *                <p>Submit an <a>UpdateRegexMatchSet</a> request to specify the part of the request that you want AWS WAF to inspect
- *                   (for example, the header or the URI) and the value, using a <code>RegexPatternSet</code>, that you want AWS WAF to watch for.</p>
- *             </li>
- *          </ol>
- *          <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
- *             <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
+ * > **Note:**
+ * >
+ * > This is **AWS WAF Classic** documentation. For more information, see [AWS WAF Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html) in the developer guide.
+ * >
+ * > **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html). With the latest version, AWS WAF has a single set of endpoints for regional and global use.
+ *
+ *
+ *
+ * Creates a RegexMatchSet. You then use UpdateRegexMatchSet to identify the part of a web request that you want AWS WAF to inspect, such as the values of the `User-Agent` header or the query string. For example, you can create a `RegexMatchSet` that contains a `RegexMatchTuple` that looks for any requests with `User-Agent` headers that match a `RegexPatternSet` with pattern `B[a@]dB[o0]t`. You can then configure AWS WAF to reject those requests.
+ *
+ * To create and configure a `RegexMatchSet`, perform the following steps:
+ *
+ * 1. Use GetChangeToken to get the change token that you provide in the `ChangeToken` parameter of a `CreateRegexMatchSet` request.
+ * 2. Submit a `CreateRegexMatchSet` request.
+ * 3. Use `GetChangeToken` to get the change token that you provide in the `ChangeToken` parameter of an `UpdateRegexMatchSet` request.
+ * 4. Submit an UpdateRegexMatchSet request to specify the part of the request that you want AWS WAF to inspect (for example, the header or the URI) and the value, using a `RegexPatternSet`, that you want AWS WAF to watch for.
+ *
+ * For more information about how to use the AWS WAF API to allow or block HTTP requests, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -96,22 +83,24 @@ export interface CreateRegexMatchSetCommandOutput extends CreateRegexMatchSetRes
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
  * @throws {@link WAFDisallowedNameException} (client fault)
- *  <p>The name specified is invalid.</p>
+ *
+ * The name specified is invalid.
  *
  * @throws {@link WAFInternalErrorException} (server fault)
- *  <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+ *
+ * The operation failed because of a system problem, even though the request was valid. Retry your request.
  *
  * @throws {@link WAFLimitsExceededException} (client fault)
- *  <p>The operation exceeds a resource limit, for example, the maximum number of <code>WebACL</code> objects that you can create
- * 			for an AWS account. For more information, see
- * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">Limits</a> in the <i>AWS WAF Developer Guide</i>.</p>
+ *
+ * The operation exceeds a resource limit, for example, the maximum number of `WebACL` objects that you can create for an AWS account. For more information, see [Limits](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the *AWS WAF Developer Guide*.
  *
  * @throws {@link WAFStaleDataException} (client fault)
- *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+ *
+ * The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.
  *
  * @throws {@link WAFRegionalServiceException}
- * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
+ * Base exception class for all service exceptions from WAFRegional service.
  *
  * @public
  */

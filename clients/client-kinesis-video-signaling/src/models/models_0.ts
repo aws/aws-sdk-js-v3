@@ -6,59 +6,64 @@ import type { Service } from "./enums";
  */
 export interface GetIceServerConfigRequest {
   /**
-   * <p>The ARN of the signaling channel to be used for the peer-to-peer connection between
-   *             configured peers. </p>
+   * The ARN of the signaling channel to be used for the peer-to-peer connection between configured peers.
+   *
    * @public
    */
   ChannelARN: string | undefined;
 
   /**
-   * <p>Unique identifier for the viewer. Must be unique within the signaling channel.</p>
+   * Unique identifier for the viewer. Must be unique within the signaling channel.
+   *
    * @public
    */
   ClientId?: string | undefined;
 
   /**
-   * <p>Specifies the desired service. Currently, <code>TURN</code> is the only valid
-   *             value.</p>
+   * Specifies the desired service. Currently, `TURN` is the only valid value.
+   *
    * @public
    */
   Service?: Service | undefined;
 
   /**
-   * <p>An optional user ID to be associated with the credentials.</p>
+   * An optional user ID to be associated with the credentials.
+   *
    * @public
    */
   Username?: string | undefined;
 }
 
 /**
- * <p>A structure for the ICE server connection data.</p>
+ * A structure for the ICE server connection data.
+ *
  * @public
  */
 export interface IceServer {
   /**
-   * <p>An array of URIs, in the form specified in the <a href="https://tools.ietf.org/html/draft-petithuguenin-behave-turn-uris-03">I-D.petithuguenin-behave-turn-uris</a> spec. These URIs provide the different
-   *             addresses and/or protocols that can be used to reach the TURN server.</p>
+   * An array of URIs, in the form specified in the [I-D.petithuguenin-behave-turn-uris](https://tools.ietf.org/html/draft-petithuguenin-behave-turn-uris-03) spec. These URIs provide the different addresses and/or protocols that can be used to reach the TURN server.
+   *
    * @public
    */
   Uris?: string[] | undefined;
 
   /**
-   * <p>A username to login to the ICE server.</p>
+   * A username to login to the ICE server.
+   *
    * @public
    */
   Username?: string | undefined;
 
   /**
-   * <p>A password to login to the ICE server.</p>
+   * A password to login to the ICE server.
+   *
    * @public
    */
   Password?: string | undefined;
 
   /**
-   * <p>The period of time, in seconds, during which the username and password are
-   *             valid.</p>
+   * The period of time, in seconds, during which the username and password are valid.
+   *
    * @public
    */
   Ttl?: number | undefined;
@@ -69,7 +74,8 @@ export interface IceServer {
  */
 export interface GetIceServerConfigResponse {
   /**
-   * <p>The list of ICE server information objects.</p>
+   * The list of ICE server information objects.
+   *
    * @public
    */
   IceServerList?: IceServer[] | undefined;
@@ -80,20 +86,22 @@ export interface GetIceServerConfigResponse {
  */
 export interface SendAlexaOfferToMasterRequest {
   /**
-   * <p>The ARN of the signaling channel by which Alexa and the master peer
-   *             communicate.</p>
+   * The ARN of the signaling channel by which Alexa and the master peer communicate.
+   *
    * @public
    */
   ChannelARN: string | undefined;
 
   /**
-   * <p>The unique identifier for the sender client.</p>
+   * The unique identifier for the sender client.
+   *
    * @public
    */
   SenderClientId: string | undefined;
 
   /**
-   * <p>The base64-encoded SDP offer content.</p>
+   * The base64-encoded SDP offer content.
+   *
    * @public
    */
   MessagePayload: string | undefined;
@@ -104,7 +112,8 @@ export interface SendAlexaOfferToMasterRequest {
  */
 export interface SendAlexaOfferToMasterResponse {
   /**
-   * <p>The base64-encoded SDP answer content.</p>
+   * The base64-encoded SDP answer content.
+   *
    * @public
    */
   Answer?: string | undefined;

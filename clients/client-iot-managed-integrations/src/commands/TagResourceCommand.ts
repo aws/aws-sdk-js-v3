@@ -23,7 +23,8 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Adds tags to a specified resource.</p>
+ * Adds tags to a specified resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,23 +52,28 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link IoTManagedIntegrationsClientResolvedConfig | config} for IoTManagedIntegrationsClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>There is a conflict with the request.</p>
+ *
+ * There is a conflict with the request.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The rate exceeds the limit.</p>
+ *
+ * The rate exceeds the limit.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>You are not authorized to perform this operation.</p>
+ *
+ * You are not authorized to perform this operation.
  *
  * @throws {@link IoTManagedIntegrationsServiceException}
- * <p>Base exception class for all service exceptions from IoTManagedIntegrations service.</p>
  *
+ * Base exception class for all service exceptions from IoTManagedIntegrations service.
  *
  * @public
  */

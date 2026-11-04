@@ -315,7 +315,8 @@ export type InterconnectClientResolvedConfigType = __SmithyResolvedConfiguration
 export interface InterconnectClientResolvedConfig extends InterconnectClientResolvedConfigType {}
 
 /**
- * <p>Provides managed connections between your AWS network resources and select partner network resources.</p>
+ * Provides managed connections between your AWS network resources and select partner network resources.
+ *
  * @public
  */
 export class InterconnectClient extends __Client<

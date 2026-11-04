@@ -2782,7 +2782,8 @@ export interface Bedrock {
 }
 
 /**
- * <p>Describes the API operations for creating, managing, fine-turning, and evaluating Amazon Bedrock models.</p>
+ * Describes the API operations for creating, managing, fine-turning, and evaluating Amazon Bedrock models.
+ *
  * @public
  */
 export class Bedrock extends BedrockClient implements Bedrock {}

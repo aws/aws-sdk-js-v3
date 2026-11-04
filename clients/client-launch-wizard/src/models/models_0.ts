@@ -84,37 +84,43 @@ export namespace AccountConstraint {
  */
 export interface CreateDeploymentInput {
   /**
-   * <p>The name of the workload. You can use the <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloads.html"> <code>ListWorkloads</code> </a> operation to discover supported values for this parameter.</p>
+   * The name of the workload. You can use the [`ListWorkloads`](https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloads.html) operation to discover supported values for this parameter.
+   *
    * @public
    */
   workloadName: string | undefined;
 
   /**
-   * <p>The name of the deployment pattern supported by a given workload. You can use the <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloadDeploymentPatterns.html"> <code>ListWorkloadDeploymentPatterns</code> </a> operation to discover supported values for this parameter. </p>
+   * The name of the deployment pattern supported by a given workload. You can use the [`ListWorkloadDeploymentPatterns`](https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloadDeploymentPatterns.html) operation to discover supported values for this parameter.
+   *
    * @public
    */
   deploymentPatternName: string | undefined;
 
   /**
-   * <p>The name of the deployment.</p>
+   * The name of the deployment.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The settings specified for the deployment. These settings define how to deploy and configure your resources created by the deployment. For more information about the specifications required for creating a deployment for a SAP workload, see <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/launch-wizard-specifications-sap.html">SAP deployment specifications</a>. To retrieve the specifications required to create a deployment for other workloads, use the <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_GetWorkloadDeploymentPattern.html"> <code>GetWorkloadDeploymentPattern</code> </a> operation.</p>
+   * The settings specified for the deployment. These settings define how to deploy and configure your resources created by the deployment. For more information about the specifications required for creating a deployment for a SAP workload, see [SAP deployment specifications](https://docs.aws.amazon.com/launchwizard/latest/APIReference/launch-wizard-specifications-sap.html). To retrieve the specifications required to create a deployment for other workloads, use the [`GetWorkloadDeploymentPattern`](https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_GetWorkloadDeploymentPattern.html) operation.
+   *
    * @public
    */
   specifications: Record<string, string> | undefined;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is `DryRunOperation`. Otherwise, it is `UnauthorizedOperation`.
+   *
    * @public
    */
   dryRun?: boolean | undefined;
 
   /**
-   * <p>The tags to add to the deployment.</p>
+   * The tags to add to the deployment.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -125,7 +131,8 @@ export interface CreateDeploymentInput {
  */
 export interface CreateDeploymentOutput {
   /**
-   * <p>The ID of the deployment.</p>
+   * The ID of the deployment.
+   *
    * @public
    */
   deploymentId?: string | undefined;
@@ -136,7 +143,8 @@ export interface CreateDeploymentOutput {
  */
 export interface DeleteDeploymentInput {
   /**
-   * <p>The ID of the deployment.</p>
+   * The ID of the deployment.
+   *
    * @public
    */
   deploymentId: string | undefined;
@@ -147,13 +155,15 @@ export interface DeleteDeploymentInput {
  */
 export interface DeleteDeploymentOutput {
   /**
-   * <p>The status of the deployment.</p>
+   * The status of the deployment.
+   *
    * @public
    */
   status?: DeploymentStatus | undefined;
 
   /**
-   * <p>The reason for the deployment status.</p>
+   * The reason for the deployment status.
+   *
    * @public
    */
   statusReason?: string | undefined;
@@ -164,55 +174,64 @@ export interface DeleteDeploymentOutput {
  */
 export interface ListDeploymentEventsInput {
   /**
-   * <p>The ID of the deployment.</p>
+   * The ID of the deployment.
+   *
    * @public
    */
   deploymentId: string | undefined;
 
   /**
-   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.</p>
+   * The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>A summary of the deployment event data.</p>
+ * A summary of the deployment event data.
+ *
  * @public
  */
 export interface DeploymentEventDataSummary {
   /**
-   * <p>The name of the deployment event.</p>
+   * The name of the deployment event.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The description of the deployment event.</p>
+   * The description of the deployment event.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The status of the deployment event.</p>
+   * The status of the deployment event.
+   *
    * @public
    */
   status?: EventStatus | undefined;
 
   /**
-   * <p>The reason of the deployment event status.</p>
+   * The reason of the deployment event status.
+   *
    * @public
    */
   statusReason?: string | undefined;
 
   /**
-   * <p>The timestamp of the deployment event.</p>
+   * The timestamp of the deployment event.
+   *
    * @public
    */
   timestamp?: Date | undefined;
@@ -230,13 +249,15 @@ export interface DeploymentEventDataSummary {
  */
 export interface ListDeploymentEventsOutput {
   /**
-   * <p>Lists the deployment events.</p>
+   * Lists the deployment events.
+   *
    * @public
    */
   deploymentEvents?: DeploymentEventDataSummary[] | undefined;
 
   /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
+   * The token to include in another request to get the next page of items. This value is `null` when there are no more items to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -247,85 +268,99 @@ export interface ListDeploymentEventsOutput {
  */
 export interface GetDeploymentInput {
   /**
-   * <p>The ID of the deployment.</p>
+   * The ID of the deployment.
+   *
    * @public
    */
   deploymentId: string | undefined;
 }
 
 /**
- * <p>The data associated with a deployment.</p>
+ * The data associated with a deployment.
+ *
  * @public
  */
 export interface DeploymentData {
   /**
-   * <p>The name of the deployment.</p>
+   * The name of the deployment.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The ID of the deployment.</p>
+   * The ID of the deployment.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The name of the workload.</p>
+   * The name of the workload.
+   *
    * @public
    */
   workloadName?: string | undefined;
 
   /**
-   * <p>The pattern name of the deployment.</p>
+   * The pattern name of the deployment.
+   *
    * @public
    */
   patternName?: string | undefined;
 
   /**
-   * <p>The status of the deployment.</p>
+   * The status of the deployment.
+   *
    * @public
    */
   status?: DeploymentStatus | undefined;
 
   /**
-   * <p>The time the deployment was created.</p>
+   * The time the deployment was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The time the deployment was last modified.</p>
+   * The time the deployment was last modified.
+   *
    * @public
    */
   modifiedAt?: Date | undefined;
 
   /**
-   * <p>The settings specified for the deployment. These settings define how to deploy and configure your resources created by the deployment. For more information about the specifications required for creating a deployment for a SAP workload, see <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/launch-wizard-specifications-sap.html">SAP deployment specifications</a>. To retrieve the specifications required to create a deployment for other workloads, use the <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_GetWorkloadDeploymentPattern.html"> <code>GetWorkloadDeploymentPattern</code> </a> operation.</p>
+   * The settings specified for the deployment. These settings define how to deploy and configure your resources created by the deployment. For more information about the specifications required for creating a deployment for a SAP workload, see [SAP deployment specifications](https://docs.aws.amazon.com/launchwizard/latest/APIReference/launch-wizard-specifications-sap.html). To retrieve the specifications required to create a deployment for other workloads, use the [`GetWorkloadDeploymentPattern`](https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_GetWorkloadDeploymentPattern.html) operation.
+   *
    * @public
    */
   specifications?: Record<string, string> | undefined;
 
   /**
-   * <p>The resource group of the deployment.</p>
+   * The resource group of the deployment.
+   *
    * @public
    */
   resourceGroup?: string | undefined;
 
   /**
-   * <p>The time the deployment was deleted.</p>
+   * The time the deployment was deleted.
+   *
    * @public
    */
   deletedAt?: Date | undefined;
 
   /**
-   * <p>Information about the tags attached to a deployment.</p>
+   * Information about the tags attached to a deployment.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the deployment.</p>
+   * The Amazon Resource Name (ARN) of the deployment.
+   *
    * @public
    */
   deploymentArn?: string | undefined;
@@ -336,25 +371,29 @@ export interface DeploymentData {
  */
 export interface GetDeploymentOutput {
   /**
-   * <p>An object that details the deployment.</p>
+   * An object that details the deployment.
+   *
    * @public
    */
   deployment?: DeploymentData | undefined;
 }
 
 /**
- * <p>A filter name and value pair that is used to return more specific results from a describe operation. Filters can be used to match a set of resources by specific criteria.</p>
+ * A filter name and value pair that is used to return more specific results from a describe operation. Filters can be used to match a set of resources by specific criteria.
+ *
  * @public
  */
 export interface DeploymentFilter {
   /**
-   * <p>The name of the filter. Filter names are case-sensitive.</p>
+   * The name of the filter. Filter names are case-sensitive.
+   *
    * @public
    */
   name?: DeploymentFilterKey | undefined;
 
   /**
-   * <p>The filter values. Filter values are case-sensitive. If you specify multiple values for a filter, the values are joined with an <code>OR</code>, and the request returns all results that match any of the specified values.</p>
+   * The filter values. Filter values are case-sensitive. If you specify multiple values for a filter, the values are joined with an `OR`, and the request returns all results that match any of the specified values.
+   *
    * @public
    */
   values?: string[] | undefined;
@@ -365,67 +404,81 @@ export interface DeploymentFilter {
  */
 export interface ListDeploymentsInput {
   /**
-   * <p>Filters to scope the results. The following filters are supported:</p> <ul> <li> <p> <code>WORKLOAD_NAME</code> - The name used in deployments.</p> </li> <li> <p> <code>DEPLOYMENT_STATUS</code> - <code>COMPLETED</code> | <code>CREATING</code> | <code>DELETE_IN_PROGRESS</code> | <code>DELETE_INITIATING</code> | <code>DELETE_FAILED</code> | <code>DELETED</code> | <code>FAILED</code> | <code>IN_PROGRESS</code> | <code>VALIDATING</code> </p> </li> </ul>
+   * Filters to scope the results. The following filters are supported:
+   *
+   * - `WORKLOAD_NAME` - The name used in deployments.
+   * - `DEPLOYMENT_STATUS` - `COMPLETED` | `CREATING` | `DELETE_IN_PROGRESS` | `DELETE_INITIATING` | `DELETE_FAILED` | `DELETED` | `FAILED` | `IN_PROGRESS` | `VALIDATING`
+   *
    * @public
    */
   filters?: DeploymentFilter[] | undefined;
 
   /**
-   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.</p>
+   * The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>A summary of the deployment data.</p>
+ * A summary of the deployment data.
+ *
  * @public
  */
 export interface DeploymentDataSummary {
   /**
-   * <p>The name of the deployment</p>
+   * The name of the deployment
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The ID of the deployment.</p>
+   * The ID of the deployment.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The name of the workload.</p>
+   * The name of the workload.
+   *
    * @public
    */
   workloadName?: string | undefined;
 
   /**
-   * <p>The name of the workload deployment pattern.</p>
+   * The name of the workload deployment pattern.
+   *
    * @public
    */
   patternName?: string | undefined;
 
   /**
-   * <p>The status of the deployment.</p>
+   * The status of the deployment.
+   *
    * @public
    */
   status?: DeploymentStatus | undefined;
 
   /**
-   * <p>The time the deployment was created.</p>
+   * The time the deployment was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The time the deployment was last modified.</p>
+   * The time the deployment was last modified.
+   *
    * @public
    */
   modifiedAt?: Date | undefined;
@@ -436,13 +489,15 @@ export interface DeploymentDataSummary {
  */
 export interface ListDeploymentsOutput {
   /**
-   * <p>Lists the deployments.</p>
+   * Lists the deployments.
+   *
    * @public
    */
   deployments?: DeploymentDataSummary[] | undefined;
 
   /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
+   * The token to include in another request to get the next page of items. This value is `null` when there are no more items to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -453,37 +508,43 @@ export interface ListDeploymentsOutput {
  */
 export interface UpdateDeploymentInput {
   /**
-   * <p>The ID of the deployment.</p>
+   * The ID of the deployment.
+   *
    * @public
    */
   deploymentId: string | undefined;
 
   /**
-   * <p>The settings specified for the deployment. These settings define how to deploy and configure your resources created by the deployment. For more information about the specifications required for creating a deployment for a SAP workload, see <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/launch-wizard-specifications-sap.html">SAP deployment specifications</a>. To retrieve the specifications required to create a deployment for other workloads, use the <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_GetWorkloadDeploymentPattern.html"> <code>GetWorkloadDeploymentPattern</code> </a> operation.</p>
+   * The settings specified for the deployment. These settings define how to deploy and configure your resources created by the deployment. For more information about the specifications required for creating a deployment for a SAP workload, see [SAP deployment specifications](https://docs.aws.amazon.com/launchwizard/latest/APIReference/launch-wizard-specifications-sap.html). To retrieve the specifications required to create a deployment for other workloads, use the [`GetWorkloadDeploymentPattern`](https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_GetWorkloadDeploymentPattern.html) operation.
+   *
    * @public
    */
   specifications: Record<string, string> | undefined;
 
   /**
-   * <p>The name of the workload version.</p>
+   * The name of the workload version.
+   *
    * @public
    */
   workloadVersionName?: string | undefined;
 
   /**
-   * <p>The name of the deployment pattern version.</p>
+   * The name of the deployment pattern version.
+   *
    * @public
    */
   deploymentPatternVersionName?: string | undefined;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is `DryRunOperation`. Otherwise, it is `UnauthorizedOperation`.
+   *
    * @public
    */
   dryRun?: boolean | undefined;
 
   /**
-   * <p>Forces the update even if validation warnings are present.</p>
+   * Forces the update even if validation warnings are present.
+   *
    * @public
    */
   force?: boolean | undefined;
@@ -494,31 +555,38 @@ export interface UpdateDeploymentInput {
  */
 export interface UpdateDeploymentOutput {
   /**
-   * <p>The deployment.</p>
+   * The deployment.
+   *
    * @public
    */
   deployment?: DeploymentDataSummary | undefined;
 }
 
 /**
- * <p>A field that details a condition of the specifications for a deployment.</p>
+ * A field that details a condition of the specifications for a deployment.
+ *
  * @public
  */
 export interface DeploymentConditionalField {
   /**
-   * <p>The name of the deployment condition.</p>
+   * The name of the deployment condition.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The value of the condition.</p>
+   * The value of the condition.
+   *
    * @public
    */
   value?: string | undefined;
 
   /**
-   * <p>The comparator of the condition.</p> <p>Valid values: <code>Equal | NotEqual</code> </p>
+   * The comparator of the condition.
+   *
+   * Valid values: `Equal | NotEqual`
+   *
    * @public
    */
   comparator?: string | undefined;
@@ -529,55 +597,64 @@ export interface DeploymentConditionalField {
  */
 export interface GetDeploymentPatternVersionInput {
   /**
-   * <p>The name of the workload. You can use the <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloads.html"> <code>ListWorkloads</code> </a> operation to discover supported values for this parameter.</p>
+   * The name of the workload. You can use the [`ListWorkloads`](https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloads.html) operation to discover supported values for this parameter.
+   *
    * @public
    */
   workloadName: string | undefined;
 
   /**
-   * <p>The name of the deployment pattern. You can use the <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloadDeploymentPatterns.html"> <code>ListWorkloadDeploymentPatterns</code> </a> operation to discover supported values for this parameter.</p>
+   * The name of the deployment pattern. You can use the [`ListWorkloadDeploymentPatterns`](https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloadDeploymentPatterns.html) operation to discover supported values for this parameter.
+   *
    * @public
    */
   deploymentPatternName: string | undefined;
 
   /**
-   * <p>The name of the deployment pattern version.</p>
+   * The name of the deployment pattern version.
+   *
    * @public
    */
   deploymentPatternVersionName: string | undefined;
 }
 
 /**
- * <p>Describes a deployment pattern version summary.</p>
+ * Describes a deployment pattern version summary.
+ *
  * @public
  */
 export interface DeploymentPatternVersionDataSummary {
   /**
-   * <p>The name of the deployment pattern version.</p>
+   * The name of the deployment pattern version.
+   *
    * @public
    */
   deploymentPatternVersionName?: string | undefined;
 
   /**
-   * <p>The description of the deployment pattern version.</p>
+   * The description of the deployment pattern version.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The URL of the documentation for the deployment pattern version.</p>
+   * The URL of the documentation for the deployment pattern version.
+   *
    * @public
    */
   documentationUrl?: string | undefined;
 
   /**
-   * <p>The name of the workload.</p>
+   * The name of the workload.
+   *
    * @public
    */
   workloadName?: string | undefined;
 
   /**
-   * <p>The name of the deployment pattern.</p>
+   * The name of the deployment pattern.
+   *
    * @public
    */
   deploymentPatternName?: string | undefined;
@@ -588,25 +665,29 @@ export interface DeploymentPatternVersionDataSummary {
  */
 export interface GetDeploymentPatternVersionOutput {
   /**
-   * <p>The deployment pattern version.</p>
+   * The deployment pattern version.
+   *
    * @public
    */
   deploymentPatternVersion?: DeploymentPatternVersionDataSummary | undefined;
 }
 
 /**
- * <p>A filter for deployment pattern versions. Use this filter to specify criteria for querying deployment pattern versions in Launch Wizard.</p>
+ * A filter for deployment pattern versions. Use this filter to specify criteria for querying deployment pattern versions in Launch Wizard.
+ *
  * @public
  */
 export interface DeploymentPatternVersionFilter {
   /**
-   * <p>The name of the filter attribute. Specifies which attribute to filter on when querying deployment pattern versions.</p>
+   * The name of the filter attribute. Specifies which attribute to filter on when querying deployment pattern versions.
+   *
    * @public
    */
   name: DeploymentPatternVersionFilterKey | undefined;
 
   /**
-   * <p>The values to filter by. Contains the specific values to match against when filtering deployment pattern versions.</p>
+   * The values to filter by. Contains the specific values to match against when filtering deployment pattern versions.
+   *
    * @public
    */
   values: string[] | undefined;
@@ -617,31 +698,36 @@ export interface DeploymentPatternVersionFilter {
  */
 export interface ListDeploymentPatternVersionsInput {
   /**
-   * <p>The name of the workload. You can use the <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloads.html"> <code>ListWorkloads</code> </a> operation to discover supported values for this parameter.</p>
+   * The name of the workload. You can use the [`ListWorkloads`](https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloads.html) operation to discover supported values for this parameter.
+   *
    * @public
    */
   workloadName: string | undefined;
 
   /**
-   * <p>The name of the deployment pattern. You can use the <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloadDeploymentPatterns.html"> <code>ListWorkloadDeploymentPatterns</code> </a> operation to discover supported values for this parameter.</p>
+   * The name of the deployment pattern. You can use the [`ListWorkloadDeploymentPatterns`](https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloadDeploymentPatterns.html) operation to discover supported values for this parameter.
+   *
    * @public
    */
   deploymentPatternName: string | undefined;
 
   /**
-   * <p>The maximum number of deployment pattern versions to list.</p>
+   * The maximum number of deployment pattern versions to list.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next set of results.</p>
+   * The token for the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Filters to apply when listing deployment pattern versions.</p>
+   * Filters to apply when listing deployment pattern versions.
+   *
    * @public
    */
   filters?: DeploymentPatternVersionFilter[] | undefined;
@@ -652,49 +738,57 @@ export interface ListDeploymentPatternVersionsInput {
  */
 export interface ListDeploymentPatternVersionsOutput {
   /**
-   * <p>The deployment pattern versions.</p>
+   * The deployment pattern versions.
+   *
    * @public
    */
   deploymentPatternVersions?: DeploymentPatternVersionDataSummary[] | undefined;
 
   /**
-   * <p>The token for the next set of results.</p>
+   * The token for the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>A field that details a specification of a deployment pattern.</p>
+ * A field that details a specification of a deployment pattern.
+ *
  * @public
  */
 export interface DeploymentSpecificationsField {
   /**
-   * <p>The name of the deployment specification.</p>
+   * The name of the deployment specification.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The description of the deployment specification.</p>
+   * The description of the deployment specification.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The allowed values of the deployment specification.</p>
+   * The allowed values of the deployment specification.
+   *
    * @public
    */
   allowedValues?: string[] | undefined;
 
   /**
-   * <p>Indicates if the deployment specification is required.</p>
+   * Indicates if the deployment specification is required.
+   *
    * @public
    */
   required?: string | undefined;
 
   /**
-   * <p>The conditionals used for the deployment specification.</p>
+   * The conditionals used for the deployment specification.
+   *
    * @public
    */
   conditionals?: DeploymentConditionalField[] | undefined;
@@ -705,31 +799,38 @@ export interface DeploymentSpecificationsField {
  */
 export interface GetWorkloadInput {
   /**
-   * <p>The name of the workload.</p>
+   * The name of the workload.
+   *
    * @public
    */
   workloadName: string | undefined;
 }
 
 /**
- * <p>Describes a workload.</p>
+ * Describes a workload.
+ *
  * @public
  */
 export interface WorkloadData {
   /**
-   * <p>The name of the workload.</p>
+   * The name of the workload.
+   *
    * @public
    */
   workloadName?: string | undefined;
 
   /**
-   * <p>The display name of a workload.</p>
+   * The display name of a workload.
+   *
    * @public
    */
   displayName?: string | undefined;
 
   /**
-   * <p>The status of a workload.</p> <p> <i>You can list deployments in the <code>DISABLED</code> status.</i> </p>
+   * The status of a workload.
+   *
+   * *You can list deployments in the `DISABLED` status.*
+   *
    * @public
    */
   status?: WorkloadStatus | undefined;
@@ -741,25 +842,29 @@ export interface WorkloadData {
   accountConstraints?: AccountConstraint[] | undefined;
 
   /**
-   * <p>The description of a workload.</p>
+   * The description of a workload.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The URL of a workload document.</p>
+   * The URL of a workload document.
+   *
    * @public
    */
   documentationUrl?: string | undefined;
 
   /**
-   * <p>The URL of a workload icon.</p>
+   * The URL of a workload icon.
+   *
    * @public
    */
   iconUrl?: string | undefined;
 
   /**
-   * <p>The message about a workload's status.</p>
+   * The message about a workload's status.
+   *
    * @public
    */
   statusMessage?: string | undefined;
@@ -770,7 +875,8 @@ export interface WorkloadData {
  */
 export interface GetWorkloadOutput {
   /**
-   * <p>Information about the workload.</p>
+   * Information about the workload.
+   *
    * @public
    */
   workload?: WorkloadData | undefined;
@@ -781,67 +887,78 @@ export interface GetWorkloadOutput {
  */
 export interface GetWorkloadDeploymentPatternInput {
   /**
-   * <p>The name of the workload.</p>
+   * The name of the workload.
+   *
    * @public
    */
   workloadName: string | undefined;
 
   /**
-   * <p>The name of the deployment pattern.</p>
+   * The name of the deployment pattern.
+   *
    * @public
    */
   deploymentPatternName: string | undefined;
 }
 
 /**
- * <p>The data that details a workload deployment pattern.</p>
+ * The data that details a workload deployment pattern.
+ *
  * @public
  */
 export interface WorkloadDeploymentPatternData {
   /**
-   * <p>The workload name of the deployment pattern.</p>
+   * The workload name of the deployment pattern.
+   *
    * @public
    */
   workloadName?: string | undefined;
 
   /**
-   * <p>The name of the deployment pattern.</p>
+   * The name of the deployment pattern.
+   *
    * @public
    */
   deploymentPatternName?: string | undefined;
 
   /**
-   * <p>The workload version name of the deployment pattern.</p>
+   * The workload version name of the deployment pattern.
+   *
    * @public
    */
   workloadVersionName?: string | undefined;
 
   /**
-   * <p>The version name of the deployment pattern.</p>
+   * The version name of the deployment pattern.
+   *
    * @public
    */
   deploymentPatternVersionName?: string | undefined;
 
   /**
-   * <p>The display name of the deployment pattern.</p>
+   * The display name of the deployment pattern.
+   *
    * @public
    */
   displayName?: string | undefined;
 
   /**
-   * <p>The description of the deployment pattern.</p>
+   * The description of the deployment pattern.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The status of the deployment pattern.</p>
+   * The status of the deployment pattern.
+   *
    * @public
    */
   status?: WorkloadDeploymentPatternStatus | undefined;
 
   /**
-   * <p>The status message of the deployment pattern.</p>
+   * The status message of the deployment pattern.
+   *
    * @public
    */
   statusMessage?: string | undefined;
@@ -853,7 +970,8 @@ export interface WorkloadDeploymentPatternData {
   accountConstraints?: AccountConstraint[] | undefined;
 
   /**
-   * <p>The settings specified for the deployment. These settings define how to deploy and configure your resources created by the deployment. For more information about the specifications required for creating a deployment for a SAP workload, see <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/launch-wizard-specifications-sap.html">SAP deployment specifications</a>. To retrieve the specifications required to create a deployment for other workloads, use the <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_GetWorkloadDeploymentPattern.html"> <code>GetWorkloadDeploymentPattern</code> </a> operation.</p>
+   * The settings specified for the deployment. These settings define how to deploy and configure your resources created by the deployment. For more information about the specifications required for creating a deployment for a SAP workload, see [SAP deployment specifications](https://docs.aws.amazon.com/launchwizard/latest/APIReference/launch-wizard-specifications-sap.html). To retrieve the specifications required to create a deployment for other workloads, use the [`GetWorkloadDeploymentPattern`](https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_GetWorkloadDeploymentPattern.html) operation.
+   *
    * @public
    */
   specifications?: DeploymentSpecificationsField[] | undefined;
@@ -864,7 +982,8 @@ export interface WorkloadDeploymentPatternData {
  */
 export interface GetWorkloadDeploymentPatternOutput {
   /**
-   * <p>Details about the workload deployment pattern.</p>
+   * Details about the workload deployment pattern.
+   *
    * @public
    */
   workloadDeploymentPattern?: WorkloadDeploymentPatternData | undefined;
@@ -875,7 +994,8 @@ export interface GetWorkloadDeploymentPatternOutput {
  */
 export interface ListTagsForResourceInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -886,7 +1006,8 @@ export interface ListTagsForResourceInput {
  */
 export interface ListTagsForResourceOutput {
   /**
-   * <p>Information about the tags.</p>
+   * Information about the tags.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -897,13 +1018,15 @@ export interface ListTagsForResourceOutput {
  */
 export interface TagResourceInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>One or more tags to attach to the resource.</p>
+   * One or more tags to attach to the resource.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -919,13 +1042,15 @@ export interface TagResourceOutput {}
  */
 export interface UntagResourceInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>Keys identifying the tags to remove.</p>
+   * Keys identifying the tags to remove.
+   *
    * @public
    */
   tagKeys: string[] | undefined;
@@ -941,37 +1066,43 @@ export interface UntagResourceOutput {}
  */
 export interface ListWorkloadsInput {
   /**
-   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.</p>
+   * The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Describes workload data.</p>
+ * Describes workload data.
+ *
  * @public
  */
 export interface WorkloadDataSummary {
   /**
-   * <p>The name of the workload.</p>
+   * The name of the workload.
+   *
    * @public
    */
   workloadName?: string | undefined;
 
   /**
-   * <p>The display name of the workload data.</p>
+   * The display name of the workload data.
+   *
    * @public
    */
   displayName?: string | undefined;
 
   /**
-   * <p>The status of the workload.</p>
+   * The status of the workload.
+   *
    * @public
    */
   status?: WorkloadStatus | undefined;
@@ -988,13 +1119,15 @@ export interface WorkloadDataSummary {
  */
 export interface ListWorkloadsOutput {
   /**
-   * <p>Information about the workloads.</p>
+   * Information about the workloads.
+   *
    * @public
    */
   workloads?: WorkloadDataSummary[] | undefined;
 
   /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
+   * The token to include in another request to get the next page of items. This value is `null` when there are no more items to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1005,73 +1138,85 @@ export interface ListWorkloadsOutput {
  */
 export interface ListWorkloadDeploymentPatternsInput {
   /**
-   * <p>The name of the workload.</p>
+   * The name of the workload.
+   *
    * @public
    */
   workloadName: string | undefined;
 
   /**
-   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.</p>
+   * The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Describes a workload deployment pattern.</p>
+ * Describes a workload deployment pattern.
+ *
  * @public
  */
 export interface WorkloadDeploymentPatternDataSummary {
   /**
-   * <p>The name of the workload.</p>
+   * The name of the workload.
+   *
    * @public
    */
   workloadName?: string | undefined;
 
   /**
-   * <p>The name of a workload deployment pattern.</p>
+   * The name of a workload deployment pattern.
+   *
    * @public
    */
   deploymentPatternName?: string | undefined;
 
   /**
-   * <p>The name of the workload deployment pattern version.</p>
+   * The name of the workload deployment pattern version.
+   *
    * @public
    */
   workloadVersionName?: string | undefined;
 
   /**
-   * <p>The version name of a workload deployment pattern.</p>
+   * The version name of a workload deployment pattern.
+   *
    * @public
    */
   deploymentPatternVersionName?: string | undefined;
 
   /**
-   * <p>The display name of a workload deployment pattern.</p>
+   * The display name of a workload deployment pattern.
+   *
    * @public
    */
   displayName?: string | undefined;
 
   /**
-   * <p>The description of a workload deployment pattern.</p>
+   * The description of a workload deployment pattern.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The status of a workload deployment pattern.</p>
+   * The status of a workload deployment pattern.
+   *
    * @public
    */
   status?: WorkloadDeploymentPatternStatus | undefined;
 
   /**
-   * <p>A message about a workload deployment pattern's status.</p>
+   * A message about a workload deployment pattern's status.
+   *
    * @public
    */
   statusMessage?: string | undefined;
@@ -1088,13 +1233,15 @@ export interface WorkloadDeploymentPatternDataSummary {
  */
 export interface ListWorkloadDeploymentPatternsOutput {
   /**
-   * <p>Describes the workload deployment patterns.</p>
+   * Describes the workload deployment patterns.
+   *
    * @public
    */
   workloadDeploymentPatterns?: WorkloadDeploymentPatternDataSummary[] | undefined;
 
   /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
+   * The token to include in another request to get the next page of items. This value is `null` when there are no more items to return.
+   *
    * @public
    */
   nextToken?: string | undefined;

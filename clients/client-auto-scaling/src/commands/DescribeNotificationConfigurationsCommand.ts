@@ -26,8 +26,8 @@ export interface DescribeNotificationConfigurationsCommandInput extends Describe
 export interface DescribeNotificationConfigurationsCommandOutput extends DescribeNotificationConfigurationsAnswer, __MetadataBearer {}
 
 /**
- * <p>Gets information about the Amazon SNS notifications that are configured for one or more
- *             Auto Scaling groups.</p>
+ * Gets information about the Amazon SNS notifications that are configured for one or more Auto Scaling groups.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,15 +65,16 @@ export interface DescribeNotificationConfigurationsCommandOutput extends Describ
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  * @throws {@link InvalidNextToken} (client fault)
- *  <p>The <code>NextToken</code> value is not valid.</p>
+ *
+ * The `NextToken` value is not valid.
  *
  * @throws {@link ResourceContentionFault} (server fault)
- *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
- *             instance, or load balancer).</p>
+ *
+ * You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).
  *
  * @throws {@link AutoScalingServiceException}
- * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from AutoScaling service.
  *
  * @example To describe Auto Scaling notification configurations
  * ```javascript

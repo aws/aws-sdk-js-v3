@@ -4,8 +4,10 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { SESServiceException as __BaseException } from "./SESServiceException";
 
 /**
- * <p>Indicates that email sending is disabled for your entire Amazon SES account.</p>
- *          <p>You can enable or disable email sending for your Amazon SES account using <a>UpdateAccountSendingEnabled</a>.</p>
+ * Indicates that email sending is disabled for your entire Amazon SES account.
+ *
+ * You can enable or disable email sending for your Amazon SES account using UpdateAccountSendingEnabled.
+ *
  * @public
  */
 export class AccountSendingPausedException extends __BaseException {
@@ -26,7 +28,8 @@ export class AccountSendingPausedException extends __BaseException {
 }
 
 /**
- * <p>Indicates that a resource could not be created because of a naming conflict.</p>
+ * Indicates that a resource could not be created because of a naming conflict.
+ *
  * @public
  */
 export class AlreadyExistsException extends __BaseException {
@@ -34,8 +37,8 @@ export class AlreadyExistsException extends __BaseException {
   readonly name = "AlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Indicates that a resource could not be created because the resource name already
-   *             exists.</p>
+   * Indicates that a resource could not be created because the resource name already exists.
+   *
    * @public
    */
   Name?: string | undefined;
@@ -55,7 +58,8 @@ export class AlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the delete operation could not be completed.</p>
+ * Indicates that the delete operation could not be completed.
+ *
  * @public
  */
 export class CannotDeleteException extends __BaseException {
@@ -63,8 +67,8 @@ export class CannotDeleteException extends __BaseException {
   readonly name = "CannotDeleteException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Indicates that a resource could not be deleted because no resource with the specified
-   *             name exists.</p>
+   * Indicates that a resource could not be deleted because no resource with the specified name exists.
+   *
    * @public
    */
   Name?: string | undefined;
@@ -84,9 +88,8 @@ export class CannotDeleteException extends __BaseException {
 }
 
 /**
- * <p>Indicates that a resource could not be created because of service limits. For a list
- *             of Amazon SES limits, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html">Amazon SES Developer
- *             Guide</a>.</p>
+ * Indicates that a resource could not be created because of service limits. For a list of Amazon SES limits, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html).
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -107,7 +110,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the provided receipt rule set does not exist.</p>
+ * Indicates that the provided receipt rule set does not exist.
+ *
  * @public
  */
 export class RuleSetDoesNotExistException extends __BaseException {
@@ -115,7 +119,8 @@ export class RuleSetDoesNotExistException extends __BaseException {
   readonly name = "RuleSetDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Indicates that the named receipt rule set does not exist.</p>
+   * Indicates that the named receipt rule set does not exist.
+   *
    * @public
    */
   Name?: string | undefined;
@@ -135,8 +140,8 @@ export class RuleSetDoesNotExistException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the configuration set could not be created because of a naming
- *             conflict.</p>
+ * Indicates that the configuration set could not be created because of a naming conflict.
+ *
  * @public
  */
 export class ConfigurationSetAlreadyExistsException extends __BaseException {
@@ -144,7 +149,8 @@ export class ConfigurationSetAlreadyExistsException extends __BaseException {
   readonly name = "ConfigurationSetAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Indicates that the configuration set does not exist.</p>
+   * Indicates that the configuration set does not exist.
+   *
    * @public
    */
   ConfigurationSetName?: string | undefined;
@@ -164,7 +170,8 @@ export class ConfigurationSetAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the configuration set does not exist.</p>
+ * Indicates that the configuration set does not exist.
+ *
  * @public
  */
 export class ConfigurationSetDoesNotExistException extends __BaseException {
@@ -172,7 +179,8 @@ export class ConfigurationSetDoesNotExistException extends __BaseException {
   readonly name = "ConfigurationSetDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Indicates that the configuration set does not exist.</p>
+   * Indicates that the configuration set does not exist.
+   *
    * @public
    */
   ConfigurationSetName?: string | undefined;
@@ -192,8 +200,10 @@ export class ConfigurationSetDoesNotExistException extends __BaseException {
 }
 
 /**
- * <p>Indicates that email sending is disabled for the configuration set.</p>
- *          <p>You can enable or disable email sending for a configuration set using <a>UpdateConfigurationSetSendingEnabled</a>.</p>
+ * Indicates that email sending is disabled for the configuration set.
+ *
+ * You can enable or disable email sending for a configuration set using UpdateConfigurationSetSendingEnabled.
+ *
  * @public
  */
 export class ConfigurationSetSendingPausedException extends __BaseException {
@@ -201,7 +211,8 @@ export class ConfigurationSetSendingPausedException extends __BaseException {
   readonly name = "ConfigurationSetSendingPausedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The name of the configuration set for which email sending is disabled.</p>
+   * The name of the configuration set for which email sending is disabled.
+   *
    * @public
    */
   ConfigurationSetName?: string | undefined;
@@ -221,8 +232,8 @@ export class ConfigurationSetSendingPausedException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the configuration set is invalid. See the error message for
- *             details.</p>
+ * Indicates that the configuration set is invalid. See the error message for details.
+ *
  * @public
  */
 export class InvalidConfigurationSetException extends __BaseException {
@@ -243,8 +254,8 @@ export class InvalidConfigurationSetException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the event destination could not be created because of a naming
- *             conflict.</p>
+ * Indicates that the event destination could not be created because of a naming conflict.
+ *
  * @public
  */
 export class EventDestinationAlreadyExistsException extends __BaseException {
@@ -252,13 +263,15 @@ export class EventDestinationAlreadyExistsException extends __BaseException {
   readonly name = "EventDestinationAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Indicates that the configuration set does not exist.</p>
+   * Indicates that the configuration set does not exist.
+   *
    * @public
    */
   ConfigurationSetName?: string | undefined;
 
   /**
-   * <p>Indicates that the event destination does not exist.</p>
+   * Indicates that the event destination does not exist.
+   *
    * @public
    */
   EventDestinationName?: string | undefined;
@@ -279,8 +292,8 @@ export class EventDestinationAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the Amazon CloudWatch destination is invalid. See the error message for
- *             details.</p>
+ * Indicates that the Amazon CloudWatch destination is invalid. See the error message for details.
+ *
  * @public
  */
 export class InvalidCloudWatchDestinationException extends __BaseException {
@@ -288,13 +301,15 @@ export class InvalidCloudWatchDestinationException extends __BaseException {
   readonly name = "InvalidCloudWatchDestinationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Indicates that the configuration set does not exist.</p>
+   * Indicates that the configuration set does not exist.
+   *
    * @public
    */
   ConfigurationSetName?: string | undefined;
 
   /**
-   * <p>Indicates that the event destination does not exist.</p>
+   * Indicates that the event destination does not exist.
+   *
    * @public
    */
   EventDestinationName?: string | undefined;
@@ -315,8 +330,8 @@ export class InvalidCloudWatchDestinationException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the Amazon Kinesis Firehose destination is invalid. See the error
- *             message for details.</p>
+ * Indicates that the Amazon Kinesis Firehose destination is invalid. See the error message for details.
+ *
  * @public
  */
 export class InvalidFirehoseDestinationException extends __BaseException {
@@ -324,13 +339,15 @@ export class InvalidFirehoseDestinationException extends __BaseException {
   readonly name = "InvalidFirehoseDestinationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Indicates that the configuration set does not exist.</p>
+   * Indicates that the configuration set does not exist.
+   *
    * @public
    */
   ConfigurationSetName?: string | undefined;
 
   /**
-   * <p>Indicates that the event destination does not exist.</p>
+   * Indicates that the event destination does not exist.
+   *
    * @public
    */
   EventDestinationName?: string | undefined;
@@ -351,8 +368,8 @@ export class InvalidFirehoseDestinationException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the Amazon Simple Notification Service (Amazon SNS) destination is
- *             invalid. See the error message for details.</p>
+ * Indicates that the Amazon Simple Notification Service (Amazon SNS) destination is invalid. See the error message for details.
+ *
  * @public
  */
 export class InvalidSNSDestinationException extends __BaseException {
@@ -360,13 +377,15 @@ export class InvalidSNSDestinationException extends __BaseException {
   readonly name = "InvalidSNSDestinationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Indicates that the configuration set does not exist.</p>
+   * Indicates that the configuration set does not exist.
+   *
    * @public
    */
   ConfigurationSetName?: string | undefined;
 
   /**
-   * <p>Indicates that the event destination does not exist.</p>
+   * Indicates that the event destination does not exist.
+   *
    * @public
    */
   EventDestinationName?: string | undefined;
@@ -387,17 +406,11 @@ export class InvalidSNSDestinationException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the custom domain to be used for open and click tracking redirects is
- *             invalid. This error appears most often in the following situations:</p>
- *          <ul>
- *             <li>
- *                <p>When the tracking domain you specified is not verified in Amazon SES.</p>
- *             </li>
- *             <li>
- *                <p>When the tracking domain you specified is not a valid domain or
- *                     subdomain.</p>
- *             </li>
- *          </ul>
+ * Indicates that the custom domain to be used for open and click tracking redirects is invalid. This error appears most often in the following situations:
+ *
+ * - When the tracking domain you specified is not verified in Amazon SES.
+ * - When the tracking domain you specified is not a valid domain or subdomain.
+ *
  * @public
  */
 export class InvalidTrackingOptionsException extends __BaseException {
@@ -418,8 +431,8 @@ export class InvalidTrackingOptionsException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the configuration set you specified already contains a TrackingOptions
- *             object.</p>
+ * Indicates that the configuration set you specified already contains a TrackingOptions object.
+ *
  * @public
  */
 export class TrackingOptionsAlreadyExistsException extends __BaseException {
@@ -427,8 +440,8 @@ export class TrackingOptionsAlreadyExistsException extends __BaseException {
   readonly name = "TrackingOptionsAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Indicates that a TrackingOptions object already exists in the specified configuration
-   *             set.</p>
+   * Indicates that a TrackingOptions object already exists in the specified configuration set.
+   *
    * @public
    */
   ConfigurationSetName?: string | undefined;
@@ -448,7 +461,8 @@ export class TrackingOptionsAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>Indicates that custom verification email template provided content is invalid.</p>
+ * Indicates that custom verification email template provided content is invalid.
+ *
  * @public
  */
 export class CustomVerificationEmailInvalidContentException extends __BaseException {
@@ -469,8 +483,8 @@ export class CustomVerificationEmailInvalidContentException extends __BaseExcept
 }
 
 /**
- * <p>Indicates that a custom verification email template with the name you specified
- *             already exists.</p>
+ * Indicates that a custom verification email template with the name you specified already exists.
+ *
  * @public
  */
 export class CustomVerificationEmailTemplateAlreadyExistsException extends __BaseException {
@@ -478,8 +492,8 @@ export class CustomVerificationEmailTemplateAlreadyExistsException extends __Bas
   readonly name = "CustomVerificationEmailTemplateAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Indicates that the provided custom verification email template with the specified
-   *             template name already exists.</p>
+   * Indicates that the provided custom verification email template with the specified template name already exists.
+   *
    * @public
    */
   CustomVerificationEmailTemplateName?: string | undefined;
@@ -499,8 +513,8 @@ export class CustomVerificationEmailTemplateAlreadyExistsException extends __Bas
 }
 
 /**
- * <p>Indicates that the sender address specified for a custom verification email is not
- *             verified, and is therefore not eligible to send the custom verification email. </p>
+ * Indicates that the sender address specified for a custom verification email is not verified, and is therefore not eligible to send the custom verification email.
+ *
  * @public
  */
 export class FromEmailAddressNotVerifiedException extends __BaseException {
@@ -508,8 +522,8 @@ export class FromEmailAddressNotVerifiedException extends __BaseException {
   readonly name = "FromEmailAddressNotVerifiedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Indicates that the from email address associated with the custom verification email
-   *             template is not verified.</p>
+   * Indicates that the from email address associated with the custom verification email template is not verified.
+   *
    * @public
    */
   FromEmailAddress?: string | undefined;
@@ -529,10 +543,8 @@ export class FromEmailAddressNotVerifiedException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the provided Amazon Web Services Lambda function is invalid, or that Amazon SES could
- *             not execute the provided function, possibly due to permissions issues. For information
- *             about giving permissions, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html">Amazon SES
- *                 Developer Guide</a>.</p>
+ * Indicates that the provided Amazon Web Services Lambda function is invalid, or that Amazon SES could not execute the provided function, possibly due to permissions issues. For information about giving permissions, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html).
+ *
  * @public
  */
 export class InvalidLambdaFunctionException extends __BaseException {
@@ -540,7 +552,8 @@ export class InvalidLambdaFunctionException extends __BaseException {
   readonly name = "InvalidLambdaFunctionException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Indicates that the ARN of the function was not found.</p>
+   * Indicates that the ARN of the function was not found.
+   *
    * @public
    */
   FunctionArn?: string | undefined;
@@ -560,10 +573,8 @@ export class InvalidLambdaFunctionException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the provided Amazon S3 bucket or Amazon Web Services KMS encryption key is invalid,
- *             or that Amazon SES could not publish to the bucket, possibly due to permissions issues.
- *             For information about giving permissions, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html">Amazon SES
- *                 Developer Guide</a>.</p>
+ * Indicates that the provided Amazon S3 bucket or Amazon Web Services KMS encryption key is invalid, or that Amazon SES could not publish to the bucket, possibly due to permissions issues. For information about giving permissions, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html).
+ *
  * @public
  */
 export class InvalidS3ConfigurationException extends __BaseException {
@@ -571,7 +582,8 @@ export class InvalidS3ConfigurationException extends __BaseException {
   readonly name = "InvalidS3ConfigurationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Indicated that the S3 Bucket was not found.</p>
+   * Indicated that the S3 Bucket was not found.
+   *
    * @public
    */
   Bucket?: string | undefined;
@@ -591,10 +603,8 @@ export class InvalidS3ConfigurationException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the provided Amazon SNS topic is invalid, or that Amazon SES could not
- *             publish to the topic, possibly due to permissions issues. For information about giving
- *             permissions, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html">Amazon SES
- *                 Developer Guide</a>.</p>
+ * Indicates that the provided Amazon SNS topic is invalid, or that Amazon SES could not publish to the topic, possibly due to permissions issues. For information about giving permissions, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html).
+ *
  * @public
  */
 export class InvalidSnsTopicException extends __BaseException {
@@ -602,7 +612,8 @@ export class InvalidSnsTopicException extends __BaseException {
   readonly name = "InvalidSnsTopicException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Indicates that the topic does not exist.</p>
+   * Indicates that the topic does not exist.
+   *
    * @public
    */
   Topic?: string | undefined;
@@ -622,7 +633,8 @@ export class InvalidSnsTopicException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the provided receipt rule does not exist.</p>
+ * Indicates that the provided receipt rule does not exist.
+ *
  * @public
  */
 export class RuleDoesNotExistException extends __BaseException {
@@ -630,7 +642,8 @@ export class RuleDoesNotExistException extends __BaseException {
   readonly name = "RuleDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Indicates that the named receipt rule does not exist.</p>
+   * Indicates that the named receipt rule does not exist.
+   *
    * @public
    */
   Name?: string | undefined;
@@ -650,8 +663,8 @@ export class RuleDoesNotExistException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the template that you specified could not be rendered. This issue may
- *             occur when a template refers to a partial that does not exist.</p>
+ * Indicates that the template that you specified could not be rendered. This issue may occur when a template refers to a partial that does not exist.
+ *
  * @public
  */
 export class InvalidTemplateException extends __BaseException {
@@ -674,8 +687,8 @@ export class InvalidTemplateException extends __BaseException {
 }
 
 /**
- * <p>Indicates that a custom verification email template with the name you specified does
- *             not exist.</p>
+ * Indicates that a custom verification email template with the name you specified does not exist.
+ *
  * @public
  */
 export class CustomVerificationEmailTemplateDoesNotExistException extends __BaseException {
@@ -683,7 +696,8 @@ export class CustomVerificationEmailTemplateDoesNotExistException extends __Base
   readonly name = "CustomVerificationEmailTemplateDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Indicates that the provided custom verification email template does not exist.</p>
+   * Indicates that the provided custom verification email template does not exist.
+   *
    * @public
    */
   CustomVerificationEmailTemplateName?: string | undefined;
@@ -703,7 +717,8 @@ export class CustomVerificationEmailTemplateDoesNotExistException extends __Base
 }
 
 /**
- * <p>Indicates that the event destination does not exist.</p>
+ * Indicates that the event destination does not exist.
+ *
  * @public
  */
 export class EventDestinationDoesNotExistException extends __BaseException {
@@ -711,13 +726,15 @@ export class EventDestinationDoesNotExistException extends __BaseException {
   readonly name = "EventDestinationDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Indicates that the configuration set does not exist.</p>
+   * Indicates that the configuration set does not exist.
+   *
    * @public
    */
   ConfigurationSetName?: string | undefined;
 
   /**
-   * <p>Indicates that the event destination does not exist.</p>
+   * Indicates that the event destination does not exist.
+   *
    * @public
    */
   EventDestinationName?: string | undefined;
@@ -738,7 +755,8 @@ export class EventDestinationDoesNotExistException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the TrackingOptions object you specified does not exist.</p>
+ * Indicates that the TrackingOptions object you specified does not exist.
+ *
  * @public
  */
 export class TrackingOptionsDoesNotExistException extends __BaseException {
@@ -746,8 +764,8 @@ export class TrackingOptionsDoesNotExistException extends __BaseException {
   readonly name = "TrackingOptionsDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Indicates that a TrackingOptions object does not exist in the specified configuration
-   *             set.</p>
+   * Indicates that a TrackingOptions object does not exist in the specified configuration set.
+   *
    * @public
    */
   ConfigurationSetName?: string | undefined;
@@ -767,8 +785,8 @@ export class TrackingOptionsDoesNotExistException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the Template object you specified does not exist in your Amazon SES
- *             account.</p>
+ * Indicates that the Template object you specified does not exist in your Amazon SES account.
+ *
  * @public
  */
 export class TemplateDoesNotExistException extends __BaseException {
@@ -791,7 +809,8 @@ export class TemplateDoesNotExistException extends __BaseException {
 }
 
 /**
- * <p>Indicates that provided delivery option is invalid.</p>
+ * Indicates that provided delivery option is invalid.
+ *
  * @public
  */
 export class InvalidDeliveryOptionsException extends __BaseException {
@@ -812,8 +831,8 @@ export class InvalidDeliveryOptionsException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the provided policy is invalid. Check the error stack for more
- *             information about what caused the error.</p>
+ * Indicates that the provided policy is invalid. Check the error stack for more information about what caused the error.
+ *
  * @public
  */
 export class InvalidPolicyException extends __BaseException {
@@ -834,8 +853,8 @@ export class InvalidPolicyException extends __BaseException {
 }
 
 /**
- * <p>Indicates that one or more of the replacement values you provided is invalid. This
- *             error may occur when the TemplateData object contains invalid JSON.</p>
+ * Indicates that one or more of the replacement values you provided is invalid. This error may occur when the TemplateData object contains invalid JSON.
+ *
  * @public
  */
 export class InvalidRenderingParameterException extends __BaseException {
@@ -858,10 +877,8 @@ export class InvalidRenderingParameterException extends __BaseException {
 }
 
 /**
- * <p> Indicates that the message could not be sent because Amazon SES could not read the MX
- *             record required to use the specified MAIL FROM domain. For information about editing the
- *             custom MAIL FROM domain settings for an identity, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-edit.html">Amazon SES Developer
- *                 Guide</a>.</p>
+ * Indicates that the message could not be sent because Amazon SES could not read the MX record required to use the specified MAIL FROM domain. For information about editing the custom MAIL FROM domain settings for an identity, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-edit.html).
+ *
  * @public
  */
 export class MailFromDomainNotVerifiedException extends __BaseException {
@@ -882,8 +899,8 @@ export class MailFromDomainNotVerifiedException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the action failed, and the message could not be sent. Check the error
- *             stack for more information about what caused the error.</p>
+ * Indicates that the action failed, and the message could not be sent. Check the error stack for more information about what caused the error.
+ *
  * @public
  */
 export class MessageRejected extends __BaseException {
@@ -904,9 +921,8 @@ export class MessageRejected extends __BaseException {
 }
 
 /**
- * <p>Indicates that one or more of the replacement values for the specified template was
- *             not specified. Ensure that the TemplateData object contains references to all of the
- *             replacement tags in the specified template.</p>
+ * Indicates that one or more of the replacement values for the specified template was not specified. Ensure that the TemplateData object contains references to all of the replacement tags in the specified template.
+ *
  * @public
  */
 export class MissingRenderingAttributeException extends __BaseException {
@@ -929,7 +945,8 @@ export class MissingRenderingAttributeException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the account has not been granted production access.</p>
+ * Indicates that the account has not been granted production access.
+ *
  * @public
  */
 export class ProductionAccessNotGrantedException extends __BaseException {

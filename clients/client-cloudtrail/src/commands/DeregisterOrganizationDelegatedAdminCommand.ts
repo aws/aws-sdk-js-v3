@@ -26,8 +26,8 @@ export interface DeregisterOrganizationDelegatedAdminCommandInput extends Deregi
 export interface DeregisterOrganizationDelegatedAdminCommandOutput extends DeregisterOrganizationDelegatedAdminResponse, __MetadataBearer {}
 
 /**
- * <p>Removes CloudTrail delegated administrator permissions from a member account in
- *          an organization.</p>
+ * Removes CloudTrail delegated administrator permissions from a member account in an organization.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,52 +52,52 @@ export interface DeregisterOrganizationDelegatedAdminCommandOutput extends Dereg
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
  * @throws {@link AccountNotFoundException} (client fault)
- *  <p>This exception is thrown when the specified account is not found or not part of an
- *          organization.</p>
+ *
+ * This exception is thrown when the specified account is not found or not part of an organization.
  *
  * @throws {@link AccountNotRegisteredException} (client fault)
- *  <p>This exception is thrown when the specified account is not registered as the CloudTrail delegated administrator.</p>
+ *
+ * This exception is thrown when the specified account is not registered as the CloudTrail delegated administrator.
  *
  * @throws {@link CloudTrailAccessNotEnabledException} (client fault)
- *  <p>This exception is thrown when trusted access has not been enabled between CloudTrail and Organizations. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#orgs_how-to-enable-disable-trusted-access">How to enable or disable trusted access</a> in the <i>Organizations User Guide</i> and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a> in the <i>CloudTrail User Guide</i>.</p>
+ *
+ * This exception is thrown when trusted access has not been enabled between CloudTrail and Organizations. For more information, see [How to enable or disable trusted access](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#orgs_how-to-enable-disable-trusted-access) in the *Organizations User Guide* and [Prepare For Creating a Trail For Your Organization](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html) in the *CloudTrail User Guide*.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>This exception is thrown when the specified resource is not ready for an operation. This
- *          can occur when you try to run an operation on a resource before CloudTrail has time
- *          to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the
- *          operation again.</p>
+ *
+ * This exception is thrown when the specified resource is not ready for an operation. This can occur when you try to run an operation on a resource before CloudTrail has time to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the operation again.
  *
  * @throws {@link InsufficientDependencyServiceAccessPermissionException} (client fault)
- *  <p>This exception is thrown when the IAM identity that is used to create
- *          the organization resource lacks one or more required permissions for creating an
- *          organization resource in a required service.</p>
+ *
+ * This exception is thrown when the IAM identity that is used to create the organization resource lacks one or more required permissions for creating an organization resource in a required service.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The request includes a parameter that is not valid.</p>
+ *
+ * The request includes a parameter that is not valid.
  *
  * @throws {@link NotOrganizationManagementAccountException} (client fault)
- *  <p> This exception is thrown when the account making the request is not the organization's
- *          management account. </p>
+ *
+ * This exception is thrown when the account making the request is not the organization's management account.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * This exception is thrown when the requested operation is not permitted.
  *
  * @throws {@link OrganizationNotInAllFeaturesModeException} (client fault)
- *  <p>This exception is thrown when Organizations is not configured to support all
- *          features. All features must be enabled in Organizations to support creating an
- *          organization trail or event data store.</p>
+ *
+ * This exception is thrown when Organizations is not configured to support all features. All features must be enabled in Organizations to support creating an organization trail or event data store.
  *
  * @throws {@link OrganizationsNotInUseException} (client fault)
- *  <p>This exception is thrown when the request is made from an Amazon Web Services account
- *          that is not a member of an organization. To make this request, sign in using the
- *          credentials of an account that belongs to an organization.</p>
+ *
+ * This exception is thrown when the request is made from an Amazon Web Services account that is not a member of an organization. To make this request, sign in using the credentials of an account that belongs to an organization.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>This exception is thrown when the requested operation is not supported.</p>
+ *
+ * This exception is thrown when the requested operation is not supported.
  *
  * @throws {@link CloudTrailServiceException}
- * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * Base exception class for all service exceptions from CloudTrail service.
  *
  * @public
  */

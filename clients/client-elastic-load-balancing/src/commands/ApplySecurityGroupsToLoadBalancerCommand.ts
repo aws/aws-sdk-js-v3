@@ -26,9 +26,12 @@ export interface ApplySecurityGroupsToLoadBalancerCommandInput extends ApplySecu
 export interface ApplySecurityGroupsToLoadBalancerCommandOutput extends ApplySecurityGroupsToLoadBalancerOutput, __MetadataBearer {}
 
 /**
- * <p>Associates one or more security groups with your load balancer in a virtual private cloud (VPC). The specified security groups override the previously associated security groups.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-groups.html#elb-vpc-security-groups">Security Groups for Load Balancers in a VPC</a>
- *             in the <i>Classic Load Balancers Guide</i>.</p>
+ * Associates one or more security groups with your load balancer in a virtual private cloud (VPC). The specified security groups override the previously associated security groups.
+ *
+ *
+ *
+ * For more information, see [Security Groups for Load Balancers in a VPC](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-groups.html#elb-vpc-security-groups) in the *Classic Load Balancers Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,17 +63,20 @@ export interface ApplySecurityGroupsToLoadBalancerCommandOutput extends ApplySec
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
  * @throws {@link AccessPointNotFoundException} (client fault)
- *  <p>The specified load balancer does not exist.</p>
+ *
+ * The specified load balancer does not exist.
  *
  * @throws {@link InvalidConfigurationRequestException} (client fault)
- *  <p>The requested configuration change is not valid.</p>
+ *
+ * The requested configuration change is not valid.
  *
  * @throws {@link InvalidSecurityGroupException} (client fault)
- *  <p>One or more of the specified security groups do not exist.</p>
+ *
+ * One or more of the specified security groups do not exist.
  *
  * @throws {@link ElasticLoadBalancingServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancing service.
  *
  * @example To associate a security group with a load balancer in a VPC
  * ```javascript

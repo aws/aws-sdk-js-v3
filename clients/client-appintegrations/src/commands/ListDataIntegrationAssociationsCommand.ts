@@ -26,12 +26,10 @@ export interface ListDataIntegrationAssociationsCommandInput extends ListDataInt
 export interface ListDataIntegrationAssociationsCommandOutput extends ListDataIntegrationAssociationsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a paginated list of DataIntegration associations in the account.</p>
- *          <note>
- *             <p>You cannot create a DataIntegration association for a DataIntegration that has been previously associated.
- * Use a different DataIntegration, or recreate the DataIntegration using the
- * <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html">CreateDataIntegration</a> API.</p>
- *          </note>
+ * Returns a paginated list of DataIntegration associations in the account.
+ *
+ * > **Note:** You cannot create a DataIntegration association for a DataIntegration that has been previously associated. Use a different DataIntegration, or recreate the DataIntegration using the [CreateDataIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html) API.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,23 +82,28 @@ export interface ListDataIntegrationAssociationsCommandOutput extends ListDataIn
  * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServiceError} (server fault)
- *  <p>Request processing failed due to an error or failure with the service.</p>
+ *
+ * Request processing failed due to an error or failure with the service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid. </p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link AppIntegrationsServiceException}
- * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
+ * Base exception class for all service exceptions from AppIntegrations service.
  *
  * @public
  */

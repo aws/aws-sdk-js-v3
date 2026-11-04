@@ -23,7 +23,8 @@ export interface UpdateControlPanelCommandInput extends UpdateControlPanelReques
 export interface UpdateControlPanelCommandOutput extends UpdateControlPanelResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a control panel. The only update you can make to a control panel is to change the name of the control panel.</p>
+ * Updates a control panel. The only update you can make to a control panel is to change the name of the control panel.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,26 +60,32 @@ export interface UpdateControlPanelCommandOutput extends UpdateControlPanelRespo
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>403 response - You do not have sufficient access to perform this action.</p>
+ *
+ * 403 response - You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>409 response - ConflictException. You might be using a predefined variable.</p>
+ *
+ * 409 response - ConflictException. You might be using a predefined variable.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>500 response - InternalServiceError. Temporary service error. Retry the request.</p>
+ *
+ * 500 response - InternalServiceError. Temporary service error. Retry the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>404 response - MalformedQueryString. The query string contains a syntax error or resource not found.</p>
+ *
+ * 404 response - MalformedQueryString. The query string contains a syntax error or resource not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>429 response - LimitExceededException or TooManyRequestsException.</p>
+ *
+ * 429 response - LimitExceededException or TooManyRequestsException.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
+ *
+ * 400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.
  *
  * @throws {@link Route53RecoveryControlConfigServiceException}
- * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
+ * Base exception class for all service exceptions from Route53RecoveryControlConfig service.
  *
  * @public
  */

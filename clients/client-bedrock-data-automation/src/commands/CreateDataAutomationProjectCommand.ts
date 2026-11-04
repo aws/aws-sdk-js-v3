@@ -288,8 +288,8 @@ export interface CreateDataAutomationProjectCommandOutput extends CreateDataAuto
  *  This exception is thrown when the request's input validation fails
  *
  * @throws {@link BedrockDataAutomationServiceException}
- * <p>Base exception class for all service exceptions from BedrockDataAutomation service.</p>
  *
+ * Base exception class for all service exceptions from BedrockDataAutomation service.
  *
  * @public
  */

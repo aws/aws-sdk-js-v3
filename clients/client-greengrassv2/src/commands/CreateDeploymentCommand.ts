@@ -23,17 +23,14 @@ export interface CreateDeploymentCommandInput extends CreateDeploymentRequest {}
 export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a continuous deployment for a target, which is a Greengrass core device or group of core
- *       devices. When you add a new core device to a group of core devices that has a deployment, IoT Greengrass
- *       deploys that group's deployment to the new device.</p>
- *          <p>You can define one deployment for each target. When you create a new deployment for a
- *       target that has an existing deployment, you replace the previous deployment. IoT Greengrass applies the
- *       new deployment to the target devices.</p>
- *          <p>Every deployment has a revision number that indicates how many deployment revisions you
- *       define for a target. Use this operation to create a new revision of an existing
- *       deployment.</p>
- *          <p>For more information, see the <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/create-deployments.html">Create deployments</a> in the
- *         <i>IoT Greengrass V2 Developer Guide</i>.</p>
+ * Creates a continuous deployment for a target, which is a Greengrass core device or group of core devices. When you add a new core device to a group of core devices that has a deployment, IoT Greengrass deploys that group's deployment to the new device.
+ *
+ * You can define one deployment for each target. When you create a new deployment for a target that has an existing deployment, you replace the previous deployment. IoT Greengrass applies the new deployment to the target devices.
+ *
+ * Every deployment has a revision number that indicates how many deployment revisions you define for a target. Use this operation to create a new revision of an existing deployment.
+ *
+ * For more information, see the [Create deployments](https://docs.aws.amazon.com/greengrass/v2/developerguide/create-deployments.html) in the *IoT Greengrass V2 Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -123,34 +120,36 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse,
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permission to perform the action.</p>
+ *
+ * You don't have permission to perform the action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Your request has conflicting operations. This can occur if you're trying to perform more
- *       than one operation on the same resource at the same time.</p>
+ *
+ * Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>IoT Greengrass can't process your request right now. Try again later.</p>
+ *
+ * IoT Greengrass can't process your request right now. Try again later.
  *
  * @throws {@link RequestAlreadyInProgressException} (client fault)
- *  <p>The request is already in progress. This exception occurs when you use a client token for
- *       multiple requests while IoT Greengrass is still processing an earlier request that uses the same client
- *       token.</p>
+ *
+ * The request is already in progress. This exception occurs when you use a client token for multiple requests while IoT Greengrass is still processing an earlier request that uses the same client token.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource can't be found.</p>
+ *
+ * The requested resource can't be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Your request exceeded a request rate quota. For example, you might have exceeded the
- *       amount of times that you can retrieve device or deployment status per second.</p>
+ *
+ * Your request exceeded a request rate quota. For example, you might have exceeded the amount of times that you can retrieve device or deployment status per second.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *       unsupported characters.</p>
+ *
+ * The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.
  *
  * @throws {@link GreengrassV2ServiceException}
- * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
+ * Base exception class for all service exceptions from GreengrassV2 service.
  *
  * @public
  */

@@ -23,9 +23,8 @@ export interface SubscribeCommandInput extends SubscribeRequest {}
 export interface SubscribeCommandOutput extends SubscribeResult, __MetadataBearer {}
 
 /**
- * <p>Creates an association between a notification rule and an Amazon Q Developer in chat applications topic or Amazon Q Developer in chat applications client so that the
- *             associated target can receive notifications when the events described in the rule are
- *             triggered.</p>
+ * Creates an association between a notification rule and an Amazon Q Developer in chat applications topic or Amazon Q Developer in chat applications client so that the associated target can receive notifications when the events described in the rule are triggered.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,18 +56,20 @@ export interface SubscribeCommandOutput extends SubscribeResult, __MetadataBeare
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.
  *
  * @throws {@link ConfigurationException} (client fault)
- *  <p>Some or all of the configuration is incomplete, missing, or not valid.</p>
+ *
+ * Some or all of the configuration is incomplete, missing, or not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>
- *             CodeStar Notifications can't find a resource that matches the provided ARN. </p>
+ *
+ * CodeStar Notifications can't find a resource that matches the provided ARN.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One or more parameter values are not valid.</p>
+ *
+ * One or more parameter values are not valid.
  *
  * @throws {@link CodestarNotificationsServiceException}
- * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
+ * Base exception class for all service exceptions from CodestarNotifications service.
  *
  * @public
  */

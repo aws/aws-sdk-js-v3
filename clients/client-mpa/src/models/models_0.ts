@@ -23,19 +23,22 @@ import type {
 } from "./enums";
 
 /**
- * <p>Strategy for how an approval team grants approval.</p>
+ * Strategy for how an approval team grants approval.
+ *
  * @public
  */
 export interface MofNApprovalStrategy {
   /**
-   * <p>Minimum number of approvals (M) required for a total number of approvers (N).</p>
+   * Minimum number of approvals (M) required for a total number of approvers (N).
+   *
    * @public
    */
   MinApprovalsRequired: number | undefined;
 }
 
 /**
- * <p>Strategy for how an approval team grants approval.</p>
+ * Strategy for how an approval team grants approval.
+ *
  * @public
  */
 export type ApprovalStrategy =
@@ -47,7 +50,8 @@ export type ApprovalStrategy =
  */
 export namespace ApprovalStrategy {
   /**
-   * <p>Minimum number of approvals (M) required for a total number of approvers (N).</p>
+   * Minimum number of approvals (M) required for a total number of approvers (N).
+   *
    * @public
    */
   export interface MofNMember {
@@ -74,7 +78,8 @@ export namespace ApprovalStrategy {
 }
 
 /**
- * <p>Contains details for how an approval team grants approval.</p>
+ * Contains details for how an approval team grants approval.
+ *
  * @public
  */
 export type ApprovalStrategyResponse =
@@ -86,7 +91,8 @@ export type ApprovalStrategyResponse =
  */
 export namespace ApprovalStrategyResponse {
   /**
-   * <p>Minimum number of approvals (M) required for a total number of approvers (N).</p>
+   * Minimum number of approvals (M) required for a total number of approvers (N).
+   *
    * @public
    */
   export interface MofNMember {
@@ -113,30 +119,35 @@ export namespace ApprovalStrategyResponse {
 }
 
 /**
- * <p>Contains details for an approver.</p>
+ * Contains details for an approver.
+ *
  * @public
  */
 export interface ApprovalTeamRequestApprover {
   /**
-   * <p>ID for the user.</p>
+   * ID for the user.
+   *
    * @public
    */
   PrimaryIdentityId: string | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) for the identity source. The identity source manages the user authentication for approvers.</p>
+   * Amazon Resource Name (ARN) for the identity source. The identity source manages the user authentication for approvers.
+   *
    * @public
    */
   PrimaryIdentitySourceArn: string | undefined;
 }
 
 /**
- * <p>Contains the Amazon Resource Name (ARN) for a policy. Policies define what operations a team that define the permissions for team resources.</p>
+ * Contains the Amazon Resource Name (ARN) for a policy. Policies define what operations a team that define the permissions for team resources.
+ *
  * @public
  */
 export interface PolicyReference {
   /**
-   * <p>Amazon Resource Name (ARN) for the policy.</p>
+   * Amazon Resource Name (ARN) for the policy.
+   *
    * @public
    */
   PolicyArn: string | undefined;
@@ -147,43 +158,58 @@ export interface PolicyReference {
  */
 export interface CreateApprovalTeamRequest {
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services populates this field.</p> <note> <p> <b>What is idempotency?</b> </p> <p>When you make a mutating API request, the request typically returns a result before the operation's asynchronous workflows have completed. Operations might also time out or encounter other server issues before they complete, even though the request has already returned a result. This could make it difficult to determine whether the request succeeded or not, and could lead to multiple retries to ensure that the operation completes successfully. However, if the original request and the subsequent retries are successful, the operation is completed multiple times. This means that you might create more resources than you intended.</p> <p> <i>Idempotency</i> ensures that an API request completes no more than one time. With an idempotent request, if the original request completes successfully, any subsequent retries complete successfully without performing any further actions.</p> </note>
+   * Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services populates this field.
+   *
+   * > **Note:**
+   * >
+   * > **What is idempotency?**
+   * >
+   * > When you make a mutating API request, the request typically returns a result before the operation's asynchronous workflows have completed. Operations might also time out or encounter other server issues before they complete, even though the request has already returned a result. This could make it difficult to determine whether the request succeeded or not, and could lead to multiple retries to ensure that the operation completes successfully. However, if the original request and the subsequent retries are successful, the operation is completed multiple times. This means that you might create more resources than you intended.
+   * >
+   * > *Idempotency* ensures that an API request completes no more than one time. With an idempotent request, if the original request completes successfully, any subsequent retries complete successfully without performing any further actions.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>An <code>ApprovalStrategy</code> object. Contains details for how the team grants approval.</p>
+   * An `ApprovalStrategy` object. Contains details for how the team grants approval.
+   *
    * @public
    */
   ApprovalStrategy: ApprovalStrategy | undefined;
 
   /**
-   * <p>An array of <code>ApprovalTeamRequesterApprovers</code> objects. Contains details for the approvers in the team.</p>
+   * An array of `ApprovalTeamRequesterApprovers` objects. Contains details for the approvers in the team.
+   *
    * @public
    */
   Approvers: ApprovalTeamRequestApprover[] | undefined;
 
   /**
-   * <p>Description for the team.</p>
+   * Description for the team.
+   *
    * @public
    */
   Description: string | undefined;
 
   /**
-   * <p>An array of <code>PolicyReference</code> objects. Contains a list of policies that define the permissions for team resources.</p>
+   * An array of `PolicyReference` objects. Contains a list of policies that define the permissions for team resources.
+   *
    * @public
    */
   Policies: PolicyReference[] | undefined;
 
   /**
-   * <p>Name of the team.</p>
+   * Name of the team.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>Tags you want to attach to the team.</p>
+   * Tags you want to attach to the team.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -194,25 +220,29 @@ export interface CreateApprovalTeamRequest {
  */
 export interface CreateApprovalTeamResponse {
   /**
-   * <p>Timestamp when the team was created.</p>
+   * Timestamp when the team was created.
+   *
    * @public
    */
   CreationTime?: Date | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) for the team that was created.</p>
+   * Amazon Resource Name (ARN) for the team that was created.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>Name of the team that was created.</p>
+   * Name of the team that was created.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>Version ID for the team that was created. When a team is updated, the version ID changes.</p>
+   * Version ID for the team that was created. When a team is updated, the version ID changes.
+   *
    * @public
    */
   VersionId?: string | undefined;
@@ -223,13 +253,15 @@ export interface CreateApprovalTeamResponse {
  */
 export interface DeleteInactiveApprovalTeamVersionRequest {
   /**
-   * <p>Amaazon Resource Name (ARN) for the team.</p>
+   * Amaazon Resource Name (ARN) for the team.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>Version ID for the team.</p>
+   * Version ID for the team.
+   *
    * @public
    */
   VersionId: string | undefined;
@@ -245,145 +277,169 @@ export interface DeleteInactiveApprovalTeamVersionResponse {}
  */
 export interface GetApprovalTeamRequest {
   /**
-   * <p>Amazon Resource Name (ARN) for the team.</p>
+   * Amazon Resource Name (ARN) for the team.
+   *
    * @public
    */
   Arn: string | undefined;
 }
 
 /**
- * <p>MFA configuration and sycnronization status for an approver</p>
+ * MFA configuration and sycnronization status for an approver
+ *
  * @public
  */
 export interface MfaMethod {
   /**
-   * <p>The type of MFA configuration used by the approver</p>
+   * The type of MFA configuration used by the approver
+   *
    * @public
    */
   Type: MfaType | undefined;
 
   /**
-   * <p>Indicates if the approver's MFA device is in-sync with the Identity Source</p>
+   * Indicates if the approver's MFA device is in-sync with the Identity Source
+   *
    * @public
    */
   SyncStatus: MfaSyncStatus | undefined;
 }
 
 /**
- * <p>Contains details for an approver.</p>
+ * Contains details for an approver.
+ *
  * @public
  */
 export interface GetApprovalTeamResponseApprover {
   /**
-   * <p>ID for the approver.</p>
+   * ID for the approver.
+   *
    * @public
    */
   ApproverId?: string | undefined;
 
   /**
-   * <p>Timestamp when the approver responded to an approval team invitation.</p>
+   * Timestamp when the approver responded to an approval team invitation.
+   *
    * @public
    */
   ResponseTime?: Date | undefined;
 
   /**
-   * <p>ID for the user.</p>
+   * ID for the user.
+   *
    * @public
    */
   PrimaryIdentityId?: string | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) for the identity source. The identity source manages the user authentication for approvers.</p>
+   * Amazon Resource Name (ARN) for the identity source. The identity source manages the user authentication for approvers.
+   *
    * @public
    */
   PrimaryIdentitySourceArn?: string | undefined;
 
   /**
-   * <p>Status for the identity source. For example, if an approver has accepted a team invitation with a user authentication method managed by the identity source.</p>
+   * Status for the identity source. For example, if an approver has accepted a team invitation with a user authentication method managed by the identity source.
+   *
    * @public
    */
   PrimaryIdentityStatus?: IdentityStatus | undefined;
 
   /**
-   * <p>Last Activity performed by the approver.</p>
+   * Last Activity performed by the approver.
+   *
    * @public
    */
   LastActivity?: ApproverLastActivity | undefined;
 
   /**
-   * <p>Timestamp when the approver last responded to an operation or invitation request.</p>
+   * Timestamp when the approver last responded to an operation or invitation request.
+   *
    * @public
    */
   LastActivityTime?: Date | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) for the pending baseline session.</p>
+   * Amazon Resource Name (ARN) for the pending baseline session.
+   *
    * @public
    */
   PendingBaselineSessionArn?: string | undefined;
 
   /**
-   * <p>Multi-factor authentication configuration for the approver</p>
+   * Multi-factor authentication configuration for the approver
+   *
    * @public
    */
   MfaMethods?: MfaMethod[] | undefined;
 }
 
 /**
- * <p>Contains details for the pending updates for an approval team, if applicable.</p>
+ * Contains details for the pending updates for an approval team, if applicable.
+ *
  * @public
  */
 export interface PendingUpdate {
   /**
-   * <p>Version ID for the team.</p>
+   * Version ID for the team.
+   *
    * @public
    */
   VersionId?: string | undefined;
 
   /**
-   * <p>Description for the team.</p>
+   * Description for the team.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>An <code>ApprovalStrategyResponse</code> object. Contains details for how the team grants approval.</p>
+   * An `ApprovalStrategyResponse` object. Contains details for how the team grants approval.
+   *
    * @public
    */
   ApprovalStrategy?: ApprovalStrategyResponse | undefined;
 
   /**
-   * <p>Total number of approvers in the team.</p>
+   * Total number of approvers in the team.
+   *
    * @public
    */
   NumberOfApprovers?: number | undefined;
 
   /**
-   * <p>Status for the team. For more information, see <a href="https://docs.aws.amazon.com/mpa/latest/userguide/mpa-health.html">Team health</a> in the <i>Multi-party approval User Guide</i>.</p>
+   * Status for the team. For more information, see [Team health](https://docs.aws.amazon.com/mpa/latest/userguide/mpa-health.html) in the *Multi-party approval User Guide*.
+   *
    * @public
    */
   Status?: ApprovalTeamStatus | undefined;
 
   /**
-   * <p>Status code for the update. For more information, see <a href="https://docs.aws.amazon.com/mpa/latest/userguide/mpa-health.html">Team health</a> in the <i>Multi-party approval User Guide</i>.</p>
+   * Status code for the update. For more information, see [Team health](https://docs.aws.amazon.com/mpa/latest/userguide/mpa-health.html) in the *Multi-party approval User Guide*.
+   *
    * @public
    */
   StatusCode?: ApprovalTeamStatusCode | undefined;
 
   /**
-   * <p>Message describing the status for the team.</p>
+   * Message describing the status for the team.
+   *
    * @public
    */
   StatusMessage?: string | undefined;
 
   /**
-   * <p>An array of <code>GetApprovalTeamResponseApprover </code> objects. Contains details for the approvers in the team.</p>
+   * An array of `GetApprovalTeamResponseApprover` objects. Contains details for the approvers in the team.
+   *
    * @public
    */
   Approvers?: GetApprovalTeamResponseApprover[] | undefined;
 
   /**
-   * <p>Timestamp when the update request was initiated.</p>
+   * Timestamp when the update request was initiated.
+   *
    * @public
    */
   UpdateInitiationTime?: Date | undefined;
@@ -394,91 +450,106 @@ export interface PendingUpdate {
  */
 export interface GetApprovalTeamResponse {
   /**
-   * <p>Timestamp when the team was created.</p>
+   * Timestamp when the team was created.
+   *
    * @public
    */
   CreationTime?: Date | undefined;
 
   /**
-   * <p>An <code>ApprovalStrategyResponse</code> object. Contains details for how the team grants approval.</p>
+   * An `ApprovalStrategyResponse` object. Contains details for how the team grants approval.
+   *
    * @public
    */
   ApprovalStrategy?: ApprovalStrategyResponse | undefined;
 
   /**
-   * <p>Total number of approvers in the team.</p>
+   * Total number of approvers in the team.
+   *
    * @public
    */
   NumberOfApprovers?: number | undefined;
 
   /**
-   * <p>An array of <code>GetApprovalTeamResponseApprover </code> objects. Contains details for the approvers in the team.</p>
+   * An array of `GetApprovalTeamResponseApprover` objects. Contains details for the approvers in the team.
+   *
    * @public
    */
   Approvers?: GetApprovalTeamResponseApprover[] | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) for the team.</p>
+   * Amazon Resource Name (ARN) for the team.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>Description for the team.</p>
+   * Description for the team.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Name of the approval team.</p>
+   * Name of the approval team.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>Status for the team. For more information, see <a href="https://docs.aws.amazon.com/mpa/latest/userguide/mpa-health.html">Team health</a> in the <i>Multi-party approval User Guide</i>.</p>
+   * Status for the team. For more information, see [Team health](https://docs.aws.amazon.com/mpa/latest/userguide/mpa-health.html) in the *Multi-party approval User Guide*.
+   *
    * @public
    */
   Status?: ApprovalTeamStatus | undefined;
 
   /**
-   * <p>Status code for the approval team. For more information, see <a href="https://docs.aws.amazon.com/mpa/latest/userguide/mpa-health.html">Team health</a> in the <i>Multi-party approval User Guide</i>.</p>
+   * Status code for the approval team. For more information, see [Team health](https://docs.aws.amazon.com/mpa/latest/userguide/mpa-health.html) in the *Multi-party approval User Guide*.
+   *
    * @public
    */
   StatusCode?: ApprovalTeamStatusCode | undefined;
 
   /**
-   * <p>Message describing the status for the team.</p>
+   * Message describing the status for the team.
+   *
    * @public
    */
   StatusMessage?: string | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) for the session.</p>
+   * Amazon Resource Name (ARN) for the session.
+   *
    * @public
    */
   UpdateSessionArn?: string | undefined;
 
   /**
-   * <p>Version ID for the team.</p>
+   * Version ID for the team.
+   *
    * @public
    */
   VersionId?: string | undefined;
 
   /**
-   * <p>An array of <code>PolicyReference</code> objects. Contains a list of policies that define the permissions for team resources.</p>
+   * An array of `PolicyReference` objects. Contains a list of policies that define the permissions for team resources.
+   *
    * @public
    */
   Policies?: PolicyReference[] | undefined;
 
   /**
-   * <p>Timestamp when the team was last updated.</p>
+   * Timestamp when the team was last updated.
+   *
    * @public
    */
   LastUpdateTime?: Date | undefined;
 
   /**
-   * <p>A <code>PendingUpdate</code> object. Contains details for the pending updates for the team, if applicable.</p>
+   * A `PendingUpdate` object. Contains details for the pending updates for the team, if applicable.
+   *
    * @public
    */
   PendingUpdate?: PendingUpdate | undefined;
@@ -489,73 +560,85 @@ export interface GetApprovalTeamResponse {
  */
 export interface ListApprovalTeamsRequest {
   /**
-   * <p>The maximum number of items to return in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that you can retrieve the remaining results.</p>
+   * The maximum number of items to return in the response. If more results exist than the specified `MaxResults` value, a token is included in the response so that you can retrieve the remaining results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a next call to the operation to get more output. You can repeat this until the <code>NextToken</code> response element returns <code>null</code>.</p>
+   * If present, indicates that more output is available than is included in the current response. Use this value in the `NextToken` request parameter in a next call to the operation to get more output. You can repeat this until the `NextToken` response element returns `null`.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Contains details for an approval team</p>
+ * Contains details for an approval team
+ *
  * @public
  */
 export interface ListApprovalTeamsResponseApprovalTeam {
   /**
-   * <p>Timestamp when the team was created.</p>
+   * Timestamp when the team was created.
+   *
    * @public
    */
   CreationTime?: Date | undefined;
 
   /**
-   * <p>An <code>ApprovalStrategyResponse</code> object. Contains details for how an approval team grants approval.</p>
+   * An `ApprovalStrategyResponse` object. Contains details for how an approval team grants approval.
+   *
    * @public
    */
   ApprovalStrategy?: ApprovalStrategyResponse | undefined;
 
   /**
-   * <p>Total number of approvers in the team.</p>
+   * Total number of approvers in the team.
+   *
    * @public
    */
   NumberOfApprovers?: number | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) for the team.</p>
+   * Amazon Resource Name (ARN) for the team.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>Name of the team.</p>
+   * Name of the team.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>Description for the team.</p>
+   * Description for the team.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Status for the team. For more information, see <a href="https://docs.aws.amazon.com/mpa/latest/userguide/mpa-health.html">Team health</a> in the <i>Multi-party approval User Guide</i>.</p>
+   * Status for the team. For more information, see [Team health](https://docs.aws.amazon.com/mpa/latest/userguide/mpa-health.html) in the *Multi-party approval User Guide*.
+   *
    * @public
    */
   Status?: ApprovalTeamStatus | undefined;
 
   /**
-   * <p>Status code for the team. For more information, see <a href="https://docs.aws.amazon.com/mpa/latest/userguide/mpa-health.html">Team health</a> in the <i>Multi-party approval User Guide</i>.</p>
+   * Status code for the team. For more information, see [Team health](https://docs.aws.amazon.com/mpa/latest/userguide/mpa-health.html) in the *Multi-party approval User Guide*.
+   *
    * @public
    */
   StatusCode?: ApprovalTeamStatusCode | undefined;
 
   /**
-   * <p>Message describing the status for the team.</p>
+   * Message describing the status for the team.
+   *
    * @public
    */
   StatusMessage?: string | undefined;
@@ -566,13 +649,15 @@ export interface ListApprovalTeamsResponseApprovalTeam {
  */
 export interface ListApprovalTeamsResponse {
   /**
-   * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a next call to the operation to get more output. You can repeat this until the <code>NextToken</code> response element returns <code>null</code>.</p>
+   * If present, indicates that more output is available than is included in the current response. Use this value in the `NextToken` request parameter in a next call to the operation to get more output. You can repeat this until the `NextToken` response element returns `null`.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>An array of <code>ListApprovalTeamsResponseApprovalTeam</code> objects. Contains details for approval teams.</p>
+   * An array of `ListApprovalTeamsResponseApprovalTeam` objects. Contains details for approval teams.
+   *
    * @public
    */
   ApprovalTeams?: ListApprovalTeamsResponseApprovalTeam[] | undefined;
@@ -583,13 +668,15 @@ export interface ListApprovalTeamsResponse {
  */
 export interface StartActiveApprovalTeamDeletionRequest {
   /**
-   * <p>Number of days between when the team approves the delete request and when the team is deleted.</p>
+   * Number of days between when the team approves the delete request and when the team is deleted.
+   *
    * @public
    */
   PendingWindowDays?: number | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) for the team.</p>
+   * Amazon Resource Name (ARN) for the team.
+   *
    * @public
    */
   Arn: string | undefined;
@@ -600,13 +687,15 @@ export interface StartActiveApprovalTeamDeletionRequest {
  */
 export interface StartActiveApprovalTeamDeletionResponse {
   /**
-   * <p>Timestamp when the deletion process is scheduled to complete.</p>
+   * Timestamp when the deletion process is scheduled to complete.
+   *
    * @public
    */
   DeletionCompletionTime?: Date | undefined;
 
   /**
-   * <p>Timestamp when the deletion process was initiated.</p>
+   * Timestamp when the deletion process was initiated.
+   *
    * @public
    */
   DeletionStartTime?: Date | undefined;
@@ -617,13 +706,15 @@ export interface StartActiveApprovalTeamDeletionResponse {
  */
 export interface StartApprovalTeamBaselineRequest {
   /**
-   * <p>Amazon Resource Name (ARN) for the approval team.</p>
+   * Amazon Resource Name (ARN) for the approval team.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>Array of approver IDs.</p>
+   * Array of approver IDs.
+   *
    * @public
    */
   ApproverIds?: string[] | undefined;
@@ -634,7 +725,8 @@ export interface StartApprovalTeamBaselineRequest {
  */
 export interface StartApprovalTeamBaselineResponse {
   /**
-   * <p>Amazon Resource Name (ARN) for the session.</p>
+   * Amazon Resource Name (ARN) for the session.
+   *
    * @public
    */
   BaselineSessionArn?: string | undefined;
@@ -645,31 +737,36 @@ export interface StartApprovalTeamBaselineResponse {
  */
 export interface UpdateApprovalTeamRequest {
   /**
-   * <p>An <code>ApprovalStrategy</code> object. Contains details for how the team grants approval.</p>
+   * An `ApprovalStrategy` object. Contains details for how the team grants approval.
+   *
    * @public
    */
   ApprovalStrategy?: ApprovalStrategy | undefined;
 
   /**
-   * <p>An array of <code>ApprovalTeamRequestApprover</code> objects. Contains details for the approvers in the team.</p>
+   * An array of `ApprovalTeamRequestApprover` objects. Contains details for the approvers in the team.
+   *
    * @public
    */
   Approvers?: ApprovalTeamRequestApprover[] | undefined;
 
   /**
-   * <p>Description for the team.</p>
+   * Description for the team.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) for the team.</p>
+   * Amazon Resource Name (ARN) for the team.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>A list of <code>UpdateAction</code> to perform when updating the team.</p>
+   * A list of `UpdateAction` to perform when updating the team.
+   *
    * @public
    */
   UpdateActions?: UpdateAction[] | undefined;
@@ -680,7 +777,8 @@ export interface UpdateApprovalTeamRequest {
  */
 export interface UpdateApprovalTeamResponse {
   /**
-   * <p>Version ID for the team that was created. When an approval team is updated, the version ID changes.</p>
+   * Version ID for the team that was created. When an approval team is updated, the version ID changes.
+   *
    * @public
    */
   VersionId?: string | undefined;
@@ -691,73 +789,85 @@ export interface UpdateApprovalTeamResponse {
  */
 export interface GetPolicyVersionRequest {
   /**
-   * <p>Amazon Resource Name (ARN) for the policy.</p>
+   * Amazon Resource Name (ARN) for the policy.
+   *
    * @public
    */
   PolicyVersionArn: string | undefined;
 }
 
 /**
- * <p>Contains details for the version of a policy. Policies define what operations a team that define the permissions for team resources.</p>
+ * Contains details for the version of a policy. Policies define what operations a team that define the permissions for team resources.
+ *
  * @public
  */
 export interface PolicyVersion {
   /**
-   * <p>Amazon Resource Name (ARN) for the team.</p>
+   * Amazon Resource Name (ARN) for the team.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) for the policy.</p>
+   * Amazon Resource Name (ARN) for the policy.
+   *
    * @public
    */
   PolicyArn: string | undefined;
 
   /**
-   * <p>Verison ID</p>
+   * Verison ID
+   *
    * @public
    */
   VersionId: number | undefined;
 
   /**
-   * <p>The type of policy.</p>
+   * The type of policy.
+   *
    * @public
    */
   PolicyType: PolicyType | undefined;
 
   /**
-   * <p>Determines if the specified policy is the default for the team.</p>
+   * Determines if the specified policy is the default for the team.
+   *
    * @public
    */
   IsDefault: boolean | undefined;
 
   /**
-   * <p>Name of the policy.</p>
+   * Name of the policy.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>Status for the policy. For example, if the policy is <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_attach-policy.html">attachable</a> or <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-deprecated.html">deprecated</a>.</p>
+   * Status for the policy. For example, if the policy is [attachable](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_attach-policy.html) or [deprecated](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-deprecated.html).
+   *
    * @public
    */
   Status: PolicyStatus | undefined;
 
   /**
-   * <p>Timestamp when the policy was created.</p>
+   * Timestamp when the policy was created.
+   *
    * @public
    */
   CreationTime: Date | undefined;
 
   /**
-   * <p>Timestamp when the policy was last updated.</p>
+   * Timestamp when the policy was last updated.
+   *
    * @public
    */
   LastUpdatedTime: Date | undefined;
 
   /**
-   * <p>Document that contains the policy contents.</p>
+   * Document that contains the policy contents.
+   *
    * @public
    */
   Document: string | undefined;
@@ -768,7 +878,8 @@ export interface PolicyVersion {
  */
 export interface GetPolicyVersionResponse {
   /**
-   * <p>A <code>PolicyVersion</code> object. Contains details for the version of the policy. Policies define the permissions for team resources.</p>
+   * A `PolicyVersion` object. Contains details for the version of the policy. Policies define the permissions for team resources.
+   *
    * @public
    */
   PolicyVersion: PolicyVersion | undefined;
@@ -779,19 +890,22 @@ export interface GetPolicyVersionResponse {
  */
 export interface GetResourcePolicyRequest {
   /**
-   * <p>Amazon Resource Name (ARN) for the resource.</p>
+   * Amazon Resource Name (ARN) for the resource.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>Name of the policy.</p>
+   * Name of the policy.
+   *
    * @public
    */
   PolicyName: string | undefined;
 
   /**
-   * <p>The type of policy.</p>
+   * The type of policy.
+   *
    * @public
    */
   PolicyType: PolicyType | undefined;
@@ -802,61 +916,71 @@ export interface GetResourcePolicyRequest {
  */
 export interface GetResourcePolicyResponse {
   /**
-   * <p>Amazon Resource Name (ARN) for the resource.</p>
+   * Amazon Resource Name (ARN) for the resource.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>The type of policy</p>
+   * The type of policy
+   *
    * @public
    */
   PolicyType: PolicyType | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) for the policy version.</p>
+   * Amazon Resource Name (ARN) for the policy version.
+   *
    * @public
    */
   PolicyVersionArn?: string | undefined;
 
   /**
-   * <p>Name of the policy.</p>
+   * Name of the policy.
+   *
    * @public
    */
   PolicyName: string | undefined;
 
   /**
-   * <p>Document that contains the contents for the policy.</p>
+   * Document that contains the contents for the policy.
+   *
    * @public
    */
   PolicyDocument: string | undefined;
 }
 
 /**
- * <p>IAM Identity Center credentials. For more information see, <a href="http://aws.amazon.com/identity-center/">IAM Identity Center</a> .</p>
+ * IAM Identity Center credentials. For more information see, [IAM Identity Center](http://aws.amazon.com/identity-center/) .
+ *
  * @public
  */
 export interface IamIdentityCenter {
   /**
-   * <p>Amazon Resource Name (ARN) for the IAM Identity Center instance.</p>
+   * Amazon Resource Name (ARN) for the IAM Identity Center instance.
+   *
    * @public
    */
   InstanceArn: string | undefined;
 
   /**
-   * <p>Amazon Web Services Region where the IAM Identity Center instance is located.</p>
+   * Amazon Web Services Region where the IAM Identity Center instance is located.
+   *
    * @public
    */
   Region: string | undefined;
 }
 
 /**
- * <p>Contains details for the resource that provides identities to the identity source. For example, an IAM Identity Center instance.</p>
+ * Contains details for the resource that provides identities to the identity source. For example, an IAM Identity Center instance.
+ *
  * @public
  */
 export interface IdentitySourceParameters {
   /**
-   * <p>IAM Identity Center credentials.</p>
+   * IAM Identity Center credentials.
+   *
    * @public
    */
   IamIdentityCenter?: IamIdentityCenter | undefined;
@@ -867,19 +991,30 @@ export interface IdentitySourceParameters {
  */
 export interface CreateIdentitySourceRequest {
   /**
-   * <p>A <code> IdentitySourceParameters</code> object. Contains details for the resource that provides identities to the identity source. For example, an IAM Identity Center instance.</p>
+   * A `IdentitySourceParameters` object. Contains details for the resource that provides identities to the identity source. For example, an IAM Identity Center instance.
+   *
    * @public
    */
   IdentitySourceParameters: IdentitySourceParameters | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services populates this field.</p> <note> <p> <b>What is idempotency?</b> </p> <p>When you make a mutating API request, the request typically returns a result before the operation's asynchronous workflows have completed. Operations might also time out or encounter other server issues before they complete, even though the request has already returned a result. This could make it difficult to determine whether the request succeeded or not, and could lead to multiple retries to ensure that the operation completes successfully. However, if the original request and the subsequent retries are successful, the operation is completed multiple times. This means that you might create more resources than you intended.</p> <p> <i>Idempotency</i> ensures that an API request completes no more than one time. With an idempotent request, if the original request completes successfully, any subsequent retries complete successfully without performing any further actions.</p> </note>
+   * Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services populates this field.
+   *
+   * > **Note:**
+   * >
+   * > **What is idempotency?**
+   * >
+   * > When you make a mutating API request, the request typically returns a result before the operation's asynchronous workflows have completed. Operations might also time out or encounter other server issues before they complete, even though the request has already returned a result. This could make it difficult to determine whether the request succeeded or not, and could lead to multiple retries to ensure that the operation completes successfully. However, if the original request and the subsequent retries are successful, the operation is completed multiple times. This means that you might create more resources than you intended.
+   * >
+   * > *Idempotency* ensures that an API request completes no more than one time. With an idempotent request, if the original request completes successfully, any subsequent retries complete successfully without performing any further actions.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>Tag you want to attach to the identity source.</p>
+   * Tag you want to attach to the identity source.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -890,19 +1025,22 @@ export interface CreateIdentitySourceRequest {
  */
 export interface CreateIdentitySourceResponse {
   /**
-   * <p>The type of resource that provided identities to the identity source. For example, an IAM Identity Center instance.</p>
+   * The type of resource that provided identities to the identity source. For example, an IAM Identity Center instance.
+   *
    * @public
    */
   IdentitySourceType?: IdentitySourceType | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) for the identity source that was created.</p>
+   * Amazon Resource Name (ARN) for the identity source that was created.
+   *
    * @public
    */
   IdentitySourceArn?: string | undefined;
 
   /**
-   * <p>Timestamp when the identity source was created.</p>
+   * Timestamp when the identity source was created.
+   *
    * @public
    */
   CreationTime?: Date | undefined;
@@ -913,7 +1051,8 @@ export interface CreateIdentitySourceResponse {
  */
 export interface DeleteIdentitySourceRequest {
   /**
-   * <p>Amazon Resource Name (ARN) for identity source.</p>
+   * Amazon Resource Name (ARN) for identity source.
+   *
    * @public
    */
   IdentitySourceArn: string | undefined;
@@ -924,38 +1063,44 @@ export interface DeleteIdentitySourceRequest {
  */
 export interface GetIdentitySourceRequest {
   /**
-   * <p>Amazon Resource Name (ARN) for the identity source.</p>
+   * Amazon Resource Name (ARN) for the identity source.
+   *
    * @public
    */
   IdentitySourceArn: string | undefined;
 }
 
 /**
- * <p>IAM Identity Center credentials. For more information see, <a href="http://aws.amazon.com/identity-center/">IAM Identity Center</a> .</p>
+ * IAM Identity Center credentials. For more information see, [IAM Identity Center](http://aws.amazon.com/identity-center/) .
+ *
  * @public
  */
 export interface IamIdentityCenterForGet {
   /**
-   * <p>Amazon Resource Name (ARN) for the IAM Identity Center instance.</p>
+   * Amazon Resource Name (ARN) for the IAM Identity Center instance.
+   *
    * @public
    */
   InstanceArn?: string | undefined;
 
   /**
-   * <p>URL for the approval portal associated with the IAM Identity Center instance.</p>
+   * URL for the approval portal associated with the IAM Identity Center instance.
+   *
    * @public
    */
   ApprovalPortalUrl?: string | undefined;
 
   /**
-   * <p>Amazon Web Services Region where the IAM Identity Center instance is located.</p>
+   * Amazon Web Services Region where the IAM Identity Center instance is located.
+   *
    * @public
    */
   Region?: string | undefined;
 }
 
 /**
- * <p>Contains details for the resource that provides identities to the identity source. For example, an IAM Identity Center instance. For more information, see <a href="https://docs.aws.amazon.com/mpa/latest/userguide/mpa-concepts.html">Identity source</a> in the <i>Multi-party approval User Guide</i>.</p>
+ * Contains details for the resource that provides identities to the identity source. For example, an IAM Identity Center instance. For more information, see [Identity source](https://docs.aws.amazon.com/mpa/latest/userguide/mpa-concepts.html) in the *Multi-party approval User Guide*.
+ *
  * @public
  */
 export type IdentitySourceParametersForGet =
@@ -967,7 +1112,8 @@ export type IdentitySourceParametersForGet =
  */
 export namespace IdentitySourceParametersForGet {
   /**
-   * <p>IAM Identity Center credentials.</p>
+   * IAM Identity Center credentials.
+   *
    * @public
    */
   export interface IamIdentityCenterMember {
@@ -998,43 +1144,50 @@ export namespace IdentitySourceParametersForGet {
  */
 export interface GetIdentitySourceResponse {
   /**
-   * <p>The type of resource that provided identities to the identity source. For example, an IAM Identity Center instance.</p>
+   * The type of resource that provided identities to the identity source. For example, an IAM Identity Center instance.
+   *
    * @public
    */
   IdentitySourceType?: IdentitySourceType | undefined;
 
   /**
-   * <p>A <code> IdentitySourceParameters</code> object. Contains details for the resource that provides identities to the identity source. For example, an IAM Identity Center instance.</p>
+   * A `IdentitySourceParameters` object. Contains details for the resource that provides identities to the identity source. For example, an IAM Identity Center instance.
+   *
    * @public
    */
   IdentitySourceParameters?: IdentitySourceParametersForGet | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) for the identity source.</p>
+   * Amazon Resource Name (ARN) for the identity source.
+   *
    * @public
    */
   IdentitySourceArn?: string | undefined;
 
   /**
-   * <p>Timestamp when the identity source was created.</p>
+   * Timestamp when the identity source was created.
+   *
    * @public
    */
   CreationTime?: Date | undefined;
 
   /**
-   * <p>Status for the identity source. For example, if the identity source is <code>ACTIVE</code>.</p>
+   * Status for the identity source. For example, if the identity source is `ACTIVE`.
+   *
    * @public
    */
   Status?: IdentitySourceStatus | undefined;
 
   /**
-   * <p>Status code of the identity source.</p>
+   * Status code of the identity source.
+   *
    * @public
    */
   StatusCode?: IdentitySourceStatusCode | undefined;
 
   /**
-   * <p>Message describing the status for the identity source.</p>
+   * Message describing the status for the identity source.
+   *
    * @public
    */
   StatusMessage?: string | undefined;
@@ -1045,44 +1198,51 @@ export interface GetIdentitySourceResponse {
  */
 export interface ListIdentitySourcesRequest {
   /**
-   * <p>The maximum number of items to return in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that you can retrieve the remaining results.</p>
+   * The maximum number of items to return in the response. If more results exist than the specified `MaxResults` value, a token is included in the response so that you can retrieve the remaining results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a next call to the operation to get more output. You can repeat this until the <code>NextToken</code> response element returns <code>null</code>.</p>
+   * If present, indicates that more output is available than is included in the current response. Use this value in the `NextToken` request parameter in a next call to the operation to get more output. You can repeat this until the `NextToken` response element returns `null`.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>IAM Identity Center credentials. For more information see, <a href="http://aws.amazon.com/identity-center/">IAM Identity Center</a> .</p>
+ * IAM Identity Center credentials. For more information see, [IAM Identity Center](http://aws.amazon.com/identity-center/) .
+ *
  * @public
  */
 export interface IamIdentityCenterForList {
   /**
-   * <p>Amazon Resource Name (ARN) for the IAM Identity Center instance.</p>
+   * Amazon Resource Name (ARN) for the IAM Identity Center instance.
+   *
    * @public
    */
   InstanceArn?: string | undefined;
 
   /**
-   * <p>URL for the approval portal associated with the IAM Identity Center instance.</p>
+   * URL for the approval portal associated with the IAM Identity Center instance.
+   *
    * @public
    */
   ApprovalPortalUrl?: string | undefined;
 
   /**
-   * <p>Amazon Web Services Region where the IAM Identity Center instance is located.</p>
+   * Amazon Web Services Region where the IAM Identity Center instance is located.
+   *
    * @public
    */
   Region?: string | undefined;
 }
 
 /**
- * <p>Contains details for the resource that provides identities to the identity source. For example, an IAM Identity Center instance. For more information, see <a href="https://docs.aws.amazon.com/mpa/latest/userguide/mpa-concepts.html">Identity source</a> in the <i>Multi-party approval User Guide</i>.</p>
+ * Contains details for the resource that provides identities to the identity source. For example, an IAM Identity Center instance. For more information, see [Identity source](https://docs.aws.amazon.com/mpa/latest/userguide/mpa-concepts.html) in the *Multi-party approval User Guide*.
+ *
  * @public
  */
 export type IdentitySourceParametersForList =
@@ -1094,7 +1254,8 @@ export type IdentitySourceParametersForList =
  */
 export namespace IdentitySourceParametersForList {
   /**
-   * <p>IAM Identity Center credentials.</p>
+   * IAM Identity Center credentials.
+   *
    * @public
    */
   export interface IamIdentityCenterMember {
@@ -1121,48 +1282,56 @@ export namespace IdentitySourceParametersForList {
 }
 
 /**
- * <p>Contains details for an identity source. For more information, see <a href="https://docs.aws.amazon.com/mpa/latest/userguide/mpa-concepts.html">Identity source</a> in the <i>Multi-party approval User Guide</i>.</p>
+ * Contains details for an identity source. For more information, see [Identity source](https://docs.aws.amazon.com/mpa/latest/userguide/mpa-concepts.html) in the *Multi-party approval User Guide*.
+ *
  * @public
  */
 export interface IdentitySourceForList {
   /**
-   * <p>The type of resource that provided identities to the identity source. For example, an IAM Identity Center instance.</p>
+   * The type of resource that provided identities to the identity source. For example, an IAM Identity Center instance.
+   *
    * @public
    */
   IdentitySourceType?: IdentitySourceType | undefined;
 
   /**
-   * <p>A <code>IdentitySourceParametersForList</code> object. Contains details for the resource that provides identities to the identity source. For example, an IAM Identity Center instance.</p>
+   * A `IdentitySourceParametersForList` object. Contains details for the resource that provides identities to the identity source. For example, an IAM Identity Center instance.
+   *
    * @public
    */
   IdentitySourceParameters?: IdentitySourceParametersForList | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) for the identity source.</p>
+   * Amazon Resource Name (ARN) for the identity source.
+   *
    * @public
    */
   IdentitySourceArn?: string | undefined;
 
   /**
-   * <p>Timestamp when the identity source was created.</p>
+   * Timestamp when the identity source was created.
+   *
    * @public
    */
   CreationTime?: Date | undefined;
 
   /**
-   * <p>Status for the identity source. For example, if the identity source is <code>ACTIVE</code>.</p>
+   * Status for the identity source. For example, if the identity source is `ACTIVE`.
+   *
    * @public
    */
   Status?: IdentitySourceStatus | undefined;
 
   /**
-   * <p>Status code of the identity source.</p>
+   * Status code of the identity source.
+   *
    * @public
    */
   StatusCode?: IdentitySourceStatusCode | undefined;
 
   /**
-   * <p>Message describing the status for the identity source.</p>
+   * Message describing the status for the identity source.
+   *
    * @public
    */
   StatusMessage?: string | undefined;
@@ -1173,13 +1342,15 @@ export interface IdentitySourceForList {
  */
 export interface ListIdentitySourcesResponse {
   /**
-   * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a next call to the operation to get more output. You can repeat this until the <code>NextToken</code> response element returns <code>null</code>.</p>
+   * If present, indicates that more output is available than is included in the current response. Use this value in the `NextToken` request parameter in a next call to the operation to get more output. You can repeat this until the `NextToken` response element returns `null`.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>A <code>IdentitySources</code>. Contains details for identity sources.</p>
+   * A `IdentitySources`. Contains details for identity sources.
+   *
    * @public
    */
   IdentitySources?: IdentitySourceForList[] | undefined;
@@ -1190,43 +1361,50 @@ export interface ListIdentitySourcesResponse {
  */
 export interface ListPoliciesRequest {
   /**
-   * <p>The maximum number of items to return in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that you can retrieve the remaining results.</p>
+   * The maximum number of items to return in the response. If more results exist than the specified `MaxResults` value, a token is included in the response so that you can retrieve the remaining results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a next call to the operation to get more output. You can repeat this until the <code>NextToken</code> response element returns <code>null</code>.</p>
+   * If present, indicates that more output is available than is included in the current response. Use this value in the `NextToken` request parameter in a next call to the operation to get more output. You can repeat this until the `NextToken` response element returns `null`.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Contains details for a policy. Policies define what operations a team that define the permissions for team resources.</p>
+ * Contains details for a policy. Policies define what operations a team that define the permissions for team resources.
+ *
  * @public
  */
 export interface Policy {
   /**
-   * <p>Amazon Resource Name (ARN) for the policy.</p>
+   * Amazon Resource Name (ARN) for the policy.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>Determines if the specified policy is the default for the team.</p>
+   * Determines if the specified policy is the default for the team.
+   *
    * @public
    */
   DefaultVersion: number | undefined;
 
   /**
-   * <p>The type of policy.</p>
+   * The type of policy.
+   *
    * @public
    */
   PolicyType: PolicyType | undefined;
 
   /**
-   * <p>Name of the policy.</p>
+   * Name of the policy.
+   *
    * @public
    */
   Name: string | undefined;
@@ -1237,13 +1415,15 @@ export interface Policy {
  */
 export interface ListPoliciesResponse {
   /**
-   * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a next call to the operation to get more output. You can repeat this until the <code>NextToken</code> response element returns <code>null</code>.</p>
+   * If present, indicates that more output is available than is included in the current response. Use this value in the `NextToken` request parameter in a next call to the operation to get more output. You can repeat this until the `NextToken` response element returns `null`.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>An array of <code>Policy</code> objects. Contains a list of policies that define the permissions for team resources.</p>
+   * An array of `Policy` objects. Contains a list of policies that define the permissions for team resources.
+   *
    * @public
    */
   Policies?: Policy[] | undefined;
@@ -1254,79 +1434,92 @@ export interface ListPoliciesResponse {
  */
 export interface ListPolicyVersionsRequest {
   /**
-   * <p>The maximum number of items to return in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that you can retrieve the remaining results.</p>
+   * The maximum number of items to return in the response. If more results exist than the specified `MaxResults` value, a token is included in the response so that you can retrieve the remaining results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a next call to the operation to get more output. You can repeat this until the <code>NextToken</code> response element returns <code>null</code>.</p>
+   * If present, indicates that more output is available than is included in the current response. Use this value in the `NextToken` request parameter in a next call to the operation to get more output. You can repeat this until the `NextToken` response element returns `null`.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) for the policy.</p>
+   * Amazon Resource Name (ARN) for the policy.
+   *
    * @public
    */
   PolicyArn: string | undefined;
 }
 
 /**
- * <p>Contains details for the version of a policy. Policies define what operations a team that define the permissions for team resources.</p>
+ * Contains details for the version of a policy. Policies define what operations a team that define the permissions for team resources.
+ *
  * @public
  */
 export interface PolicyVersionSummary {
   /**
-   * <p>Amazon Resource Name (ARN) for the team.</p>
+   * Amazon Resource Name (ARN) for the team.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) for the policy.</p>
+   * Amazon Resource Name (ARN) for the policy.
+   *
    * @public
    */
   PolicyArn: string | undefined;
 
   /**
-   * <p>Version ID for the policy.</p>
+   * Version ID for the policy.
+   *
    * @public
    */
   VersionId: number | undefined;
 
   /**
-   * <p>The type of policy.</p>
+   * The type of policy.
+   *
    * @public
    */
   PolicyType: PolicyType | undefined;
 
   /**
-   * <p>Determines if the specified policy is the default for the team.</p>
+   * Determines if the specified policy is the default for the team.
+   *
    * @public
    */
   IsDefault: boolean | undefined;
 
   /**
-   * <p>Name of the policy</p>
+   * Name of the policy
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>Status for the policy. For example, if the policy is <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_attach-policy.html">attachable</a> or <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-deprecated.html">deprecated</a>.</p>
+   * Status for the policy. For example, if the policy is [attachable](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_attach-policy.html) or [deprecated](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-deprecated.html).
+   *
    * @public
    */
   Status: PolicyStatus | undefined;
 
   /**
-   * <p>Timestamp when the policy was created.</p>
+   * Timestamp when the policy was created.
+   *
    * @public
    */
   CreationTime: Date | undefined;
 
   /**
-   * <p>Timestamp when the policy was last updated.</p>
+   * Timestamp when the policy was last updated.
+   *
    * @public
    */
   LastUpdatedTime: Date | undefined;
@@ -1337,13 +1530,15 @@ export interface PolicyVersionSummary {
  */
 export interface ListPolicyVersionsResponse {
   /**
-   * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a next call to the operation to get more output. You can repeat this until the <code>NextToken</code> response element returns <code>null</code>.</p>
+   * If present, indicates that more output is available than is included in the current response. Use this value in the `NextToken` request parameter in a next call to the operation to get more output. You can repeat this until the `NextToken` response element returns `null`.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>An array of <code>PolicyVersionSummary</code> objects. Contains details for the version of the policies that define the permissions for team resources.</p>
+   * An array of `PolicyVersionSummary` objects. Contains details for the version of the policies that define the permissions for team resources.
+   *
    * @public
    */
   PolicyVersions?: PolicyVersionSummary[] | undefined;
@@ -1354,43 +1549,50 @@ export interface ListPolicyVersionsResponse {
  */
 export interface ListResourcePoliciesRequest {
   /**
-   * <p>Amazon Resource Name (ARN) for the resource.</p>
+   * Amazon Resource Name (ARN) for the resource.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>The maximum number of items to return in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that you can retrieve the remaining results.</p>
+   * The maximum number of items to return in the response. If more results exist than the specified `MaxResults` value, a token is included in the response so that you can retrieve the remaining results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a next call to the operation to get more output. You can repeat this until the <code>NextToken</code> response element returns <code>null</code>.</p>
+   * If present, indicates that more output is available than is included in the current response. Use this value in the `NextToken` request parameter in a next call to the operation to get more output. You can repeat this until the `NextToken` response element returns `null`.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Contains details about a policy for a resource.</p>
+ * Contains details about a policy for a resource.
+ *
  * @public
  */
 export interface ListResourcePoliciesResponseResourcePolicy {
   /**
-   * <p>Amazon Resource Name (ARN) for policy.</p>
+   * Amazon Resource Name (ARN) for policy.
+   *
    * @public
    */
   PolicyArn?: string | undefined;
 
   /**
-   * <p>The type of policy.</p>
+   * The type of policy.
+   *
    * @public
    */
   PolicyType?: PolicyType | undefined;
 
   /**
-   * <p>Name of the policy.</p>
+   * Name of the policy.
+   *
    * @public
    */
   PolicyName?: string | undefined;
@@ -1401,13 +1603,15 @@ export interface ListResourcePoliciesResponseResourcePolicy {
  */
 export interface ListResourcePoliciesResponse {
   /**
-   * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a next call to the operation to get more output. You can repeat this until the <code>NextToken</code> response element returns <code>null</code>.</p>
+   * If present, indicates that more output is available than is included in the current response. Use this value in the `NextToken` request parameter in a next call to the operation to get more output. You can repeat this until the `NextToken` response element returns `null`.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>An array of <code>ListResourcePoliciesResponseResourcePolicy</code> objects. Contains details about the policy for the resource.</p>
+   * An array of `ListResourcePoliciesResponseResourcePolicy` objects. Contains details about the policy for the resource.
+   *
    * @public
    */
   ResourcePolicies?: ListResourcePoliciesResponseResourcePolicy[] | undefined;
@@ -1418,7 +1622,8 @@ export interface ListResourcePoliciesResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>Amazon Resource Name (ARN) for the resource.</p>
+   * Amazon Resource Name (ARN) for the resource.
+   *
    * @public
    */
   ResourceArn: string | undefined;
@@ -1429,7 +1634,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>Tags attached to the resource.</p>
+   * Tags attached to the resource.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -1440,7 +1646,8 @@ export interface ListTagsForResourceResponse {
  */
 export interface CancelSessionRequest {
   /**
-   * <p>Amazon Resource Name (ARN) for the session.</p>
+   * Amazon Resource Name (ARN) for the session.
+   *
    * @public
    */
   SessionArn: string | undefined;
@@ -1456,43 +1663,50 @@ export interface CancelSessionResponse {}
  */
 export interface GetSessionRequest {
   /**
-   * <p>Amazon Resource Name (ARN) for the session.</p>
+   * Amazon Resource Name (ARN) for the session.
+   *
    * @public
    */
   SessionArn: string | undefined;
 }
 
 /**
- * <p>Contains details for an approver response in an approval session.</p>
+ * Contains details for an approver response in an approval session.
+ *
  * @public
  */
 export interface GetSessionResponseApproverResponse {
   /**
-   * <p>ID for the approver.</p>
+   * ID for the approver.
+   *
    * @public
    */
   ApproverId?: string | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) for the identity source. The identity source manages the user authentication for approvers.</p>
+   * Amazon Resource Name (ARN) for the identity source. The identity source manages the user authentication for approvers.
+   *
    * @public
    */
   IdentitySourceArn?: string | undefined;
 
   /**
-   * <p>ID for the identity source. The identity source manages the user authentication for approvers.</p>
+   * ID for the identity source. The identity source manages the user authentication for approvers.
+   *
    * @public
    */
   IdentityId?: string | undefined;
 
   /**
-   * <p>Response to the operation request.</p>
+   * Response to the operation request.
+   *
    * @public
    */
   Response?: SessionResponse | undefined;
 
   /**
-   * <p>Timestamp when a approver responded to the operation request.</p>
+   * Timestamp when a approver responded to the operation request.
+   *
    * @public
    */
   ResponseTime?: Date | undefined;
@@ -1503,169 +1717,221 @@ export interface GetSessionResponseApproverResponse {
  */
 export interface GetSessionResponse {
   /**
-   * <p>Amazon Resource Name (ARN) for the session.</p>
+   * Amazon Resource Name (ARN) for the session.
+   *
    * @public
    */
   SessionArn?: string | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) for the approval team.</p>
+   * Amazon Resource Name (ARN) for the approval team.
+   *
    * @public
    */
   ApprovalTeamArn?: string | undefined;
 
   /**
-   * <p>Name of the approval team.</p>
+   * Name of the approval team.
+   *
    * @public
    */
   ApprovalTeamName?: string | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) for the protected operation.</p>
+   * Amazon Resource Name (ARN) for the protected operation.
+   *
    * @public
    */
   ProtectedResourceArn?: string | undefined;
 
   /**
-   * <p>An <code>ApprovalStrategyResponse</code> object. Contains details for how the team grants approval</p>
+   * An `ApprovalStrategyResponse` object. Contains details for how the team grants approval
+   *
    * @public
    */
   ApprovalStrategy?: ApprovalStrategyResponse | undefined;
 
   /**
-   * <p>Total number of approvers in the session.</p>
+   * Total number of approvers in the session.
+   *
    * @public
    */
   NumberOfApprovers?: number | undefined;
 
   /**
-   * <p>Timestamp when the session was initiated.</p>
+   * Timestamp when the session was initiated.
+   *
    * @public
    */
   InitiationTime?: Date | undefined;
 
   /**
-   * <p>Timestamp when the session will expire.</p>
+   * Timestamp when the session will expire.
+   *
    * @public
    */
   ExpirationTime?: Date | undefined;
 
   /**
-   * <p>Timestamp when the session completed.</p>
+   * Timestamp when the session completed.
+   *
    * @public
    */
   CompletionTime?: Date | undefined;
 
   /**
-   * <p>Description for the session.</p>
+   * Description for the session.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Metadata for the session.</p>
+   * Metadata for the session.
+   *
    * @public
    */
   Metadata?: Record<string, string> | undefined;
 
   /**
-   * <p>Status for the session. For example, if the team has approved the requested operation.</p>
+   * Status for the session. For example, if the team has approved the requested operation.
+   *
    * @public
    */
   Status?: SessionStatus | undefined;
 
   /**
-   * <p>Status code of the session.</p>
+   * Status code of the session.
+   *
    * @public
    */
   StatusCode?: SessionStatusCode | undefined;
 
   /**
-   * <p>Message describing the status for session.</p>
+   * Message describing the status for session.
+   *
    * @public
    */
   StatusMessage?: string | undefined;
 
   /**
-   * <p>Status for the protected operation. For example, if the operation is <code>PENDING</code>.</p>
+   * Status for the protected operation. For example, if the operation is `PENDING`.
+   *
    * @public
    */
   ExecutionStatus?: SessionExecutionStatus | undefined;
 
   /**
-   * <p>Name of the protected operation.</p>
+   * Name of the protected operation.
+   *
    * @public
    */
   ActionName?: string | undefined;
 
   /**
-   * <p> <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">Service principal</a> for the service associated with the protected operation.</p>
+   * [Service principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) for the service associated with the protected operation.
+   *
    * @public
    */
   RequesterServicePrincipal?: string | undefined;
 
   /**
-   * <p> <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/intro-structure.html#intro-structure-request">IAM principal</a> that made the operation request.</p>
+   * [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/intro-structure.html#intro-structure-request) that made the operation request.
+   *
    * @public
    */
   RequesterPrincipalArn?: string | undefined;
 
   /**
-   * <p>ID for the account that made the operation request.</p>
+   * ID for the account that made the operation request.
+   *
    * @public
    */
   RequesterAccountId?: string | undefined;
 
   /**
-   * <p>Amazon Web Services Region where the operation request originated.</p>
+   * Amazon Web Services Region where the operation request originated.
+   *
    * @public
    */
   RequesterRegion?: string | undefined;
 
   /**
-   * <p>Message from the account that made the operation request</p>
+   * Message from the account that made the operation request
+   *
    * @public
    */
   RequesterComment?: string | undefined;
 
   /**
-   * <p>Strategy for executing the protected operation. <code>AUTO_COMPLETION_UPON_APPROVAL</code> means the operation is automatically executed using the requester's permissions, if approved.</p>
+   * Strategy for executing the protected operation. `AUTO_COMPLETION_UPON_APPROVAL` means the operation is automatically executed using the requester's permissions, if approved.
+   *
    * @public
    */
   ActionCompletionStrategy?: ActionCompletionStrategy | undefined;
 
   /**
-   * <p>An array of <code>GetSessionResponseApproverResponse</code> objects. Contains details for approver responses in the session.</p>
+   * An array of `GetSessionResponseApproverResponse` objects. Contains details for approver responses in the session.
+   *
    * @public
    */
   ApproverResponses?: GetSessionResponseApproverResponse[] | undefined;
 
   /**
-   * <p>A list of <code>AdditionalSecurityRequirement</code> applied to the session.</p>
+   * A list of `AdditionalSecurityRequirement` applied to the session.
+   *
    * @public
    */
   AdditionalSecurityRequirements?: AdditionalSecurityRequirement[] | undefined;
 }
 
 /**
- * <p>Contains the filter to apply to requests. You can specify up to 10 filters for a request.</p>
+ * Contains the filter to apply to requests. You can specify up to 10 filters for a request.
+ *
  * @public
  */
 export interface Filter {
   /**
-   * <p>Name of the filter to use.</p> <note> <p> <b>Supported filters</b> </p> <p>The supported filters for <a>ListSessions</a> are: <code>ActionName</code>, <code>SessionStatus</code>, and <code>InitationTime</code>.</p> </note>
+   * Name of the filter to use.
+   *
+   * > **Note:**
+   * >
+   * > **Supported filters**
+   * >
+   * > The supported filters for ListSessions are: `ActionName`, `SessionStatus`, and `InitationTime`.
+   *
    * @public
    */
   FieldName?: FilterField | undefined;
 
   /**
-   * <p>Operator to use for filtering.</p> <ul> <li> <p> <code>EQ</code>: Equal to the specified value</p> </li> <li> <p> <code>NE</code>: Not equal to the specified value</p> </li> <li> <p> <code>GT</code>: Greater than the specified value</p> </li> <li> <p> <code>LT</code>: Less than the specified value</p> </li> <li> <p> <code>GTE</code>: Greater than or equal to the specified value</p> </li> <li> <p> <code>LTE</code>: Less than or equal to the specified value</p> </li> <li> <p> <code>CONTAINS</code>: Contains the specified value</p> </li> <li> <p> <code>NOT_CONTAINS</code>: Does not contain the specified value</p> </li> <li> <p> <code>BETWEEN</code>: Between two values, inclusive of the specified values.</p> </li> </ul> <note> <p> <b>Supported operators for each filter</b>:</p> <ul> <li> <p> <code>ActionName</code>: <code>EQ</code> | <code>NE</code> | <code>CONTAINS</code> | <code>NOT_CONTAINS</code> </p> </li> <li> <p> <code>SessionStatus</code>: <code>EQ</code> | <code>NE</code> </p> </li> <li> <p> <code>InitiationTime</code>: <code>GT</code> | <code>LT</code> | <code>GTE</code> | <code>LTE</code> | <code>BETWEEN</code> </p> </li> </ul> </note>
+   * Operator to use for filtering.
+   *
+   * - `EQ`: Equal to the specified value
+   * - `NE`: Not equal to the specified value
+   * - `GT`: Greater than the specified value
+   * - `LT`: Less than the specified value
+   * - `GTE`: Greater than or equal to the specified value
+   * - `LTE`: Less than or equal to the specified value
+   * - `CONTAINS`: Contains the specified value
+   * - `NOT_CONTAINS`: Does not contain the specified value
+   * - `BETWEEN`: Between two values, inclusive of the specified values.
+   *
+   * > **Note:**
+   * >
+   * > **Supported operators for each filter**:
+   * >
+   * > - `ActionName`: `EQ` | `NE` | `CONTAINS` | `NOT_CONTAINS`
+   * > - `SessionStatus`: `EQ` | `NE`
+   * > - `InitiationTime`: `GT` | `LT` | `GTE` | `LTE` | `BETWEEN`
+   *
    * @public
    */
   Operator?: Operator | undefined;
 
   /**
-   * <p>Value to use for filtering. For the <code>BETWEEN</code> operator, specify values in the format <code>a AND b</code> (<code>AND</code> is case-insensitive).</p>
+   * Value to use for filtering. For the `BETWEEN` operator, specify values in the format `a AND b` (`AND` is case-insensitive).
+   *
    * @public
    */
   Value?: string | undefined;
@@ -1676,139 +1942,162 @@ export interface Filter {
  */
 export interface ListSessionsRequest {
   /**
-   * <p>Amazon Resource Name (ARN) for the approval team.</p>
+   * Amazon Resource Name (ARN) for the approval team.
+   *
    * @public
    */
   ApprovalTeamArn: string | undefined;
 
   /**
-   * <p>The maximum number of items to return in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that you can retrieve the remaining results.</p>
+   * The maximum number of items to return in the response. If more results exist than the specified `MaxResults` value, a token is included in the response so that you can retrieve the remaining results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a next call to the operation to get more output. You can repeat this until the <code>NextToken</code> response element returns <code>null</code>.</p>
+   * If present, indicates that more output is available than is included in the current response. Use this value in the `NextToken` request parameter in a next call to the operation to get more output. You can repeat this until the `NextToken` response element returns `null`.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>An array of <code>Filter</code> objects. Contains the filter to apply when listing sessions.</p>
+   * An array of `Filter` objects. Contains the filter to apply when listing sessions.
+   *
    * @public
    */
   Filters?: Filter[] | undefined;
 }
 
 /**
- * <p>Contains details for an approval session. For more information, see <a href="https://docs.aws.amazon.com/mpa/latest/userguide/mpa-health.html">Session</a> in the <i>Multi-party approval User Guide</i> </p>
+ * Contains details for an approval session. For more information, see [Session](https://docs.aws.amazon.com/mpa/latest/userguide/mpa-health.html) in the *Multi-party approval User Guide*
+ *
  * @public
  */
 export interface ListSessionsResponseSession {
   /**
-   * <p>Amazon Resource Name (ARN) for the session.</p>
+   * Amazon Resource Name (ARN) for the session.
+   *
    * @public
    */
   SessionArn?: string | undefined;
 
   /**
-   * <p>Name of the approval team.</p>
+   * Name of the approval team.
+   *
    * @public
    */
   ApprovalTeamName?: string | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) for the approval team.</p>
+   * Amazon Resource Name (ARN) for the approval team.
+   *
    * @public
    */
   ApprovalTeamArn?: string | undefined;
 
   /**
-   * <p>Timestamp when the session was initiated.</p>
+   * Timestamp when the session was initiated.
+   *
    * @public
    */
   InitiationTime?: Date | undefined;
 
   /**
-   * <p>Timestamp when the session was expire.</p>
+   * Timestamp when the session was expire.
+   *
    * @public
    */
   ExpirationTime?: Date | undefined;
 
   /**
-   * <p>Timestamp when the session was completed.</p>
+   * Timestamp when the session was completed.
+   *
    * @public
    */
   CompletionTime?: Date | undefined;
 
   /**
-   * <p>Description for the team.</p>
+   * Description for the team.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Name of the protected operation.</p>
+   * Name of the protected operation.
+   *
    * @public
    */
   ActionName?: string | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) for the protected operation.</p>
+   * Amazon Resource Name (ARN) for the protected operation.
+   *
    * @public
    */
   ProtectedResourceArn?: string | undefined;
 
   /**
-   * <p> <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">Service principal</a> for the service associated with the protected operation.</p>
+   * [Service principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) for the service associated with the protected operation.
+   *
    * @public
    */
   RequesterServicePrincipal?: string | undefined;
 
   /**
-   * <p> <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/intro-structure.html#intro-structure-request">IAM principal</a> that made the operation request.</p>
+   * [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/intro-structure.html#intro-structure-request) that made the operation request.
+   *
    * @public
    */
   RequesterPrincipalArn?: string | undefined;
 
   /**
-   * <p>Amazon Web Services Region where the operation request originated.</p>
+   * Amazon Web Services Region where the operation request originated.
+   *
    * @public
    */
   RequesterRegion?: string | undefined;
 
   /**
-   * <p>ID for the account that made the operation request.</p>
+   * ID for the account that made the operation request.
+   *
    * @public
    */
   RequesterAccountId?: string | undefined;
 
   /**
-   * <p>Status for the protected operation. For example, if the operation is <code>PENDING</code>.</p>
+   * Status for the protected operation. For example, if the operation is `PENDING`.
+   *
    * @public
    */
   Status?: SessionStatus | undefined;
 
   /**
-   * <p>Status code of the session.</p>
+   * Status code of the session.
+   *
    * @public
    */
   StatusCode?: SessionStatusCode | undefined;
 
   /**
-   * <p>Message describing the status for session.</p>
+   * Message describing the status for session.
+   *
    * @public
    */
   StatusMessage?: string | undefined;
 
   /**
-   * <p>Strategy for executing the protected operation. <code>AUTO_COMPLETION_UPON_APPROVAL</code> means the operation is executed automatically using the requester's permissions, if approved.</p>
+   * Strategy for executing the protected operation. `AUTO_COMPLETION_UPON_APPROVAL` means the operation is executed automatically using the requester's permissions, if approved.
+   *
    * @public
    */
   ActionCompletionStrategy?: ActionCompletionStrategy | undefined;
 
   /**
-   * <p>A list of <code>AdditionalSecurityRequirement</code> applied to the session.</p>
+   * A list of `AdditionalSecurityRequirement` applied to the session.
+   *
    * @public
    */
   AdditionalSecurityRequirements?: AdditionalSecurityRequirement[] | undefined;
@@ -1819,13 +2108,15 @@ export interface ListSessionsResponseSession {
  */
 export interface ListSessionsResponse {
   /**
-   * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a next call to the operation to get more output. You can repeat this until the <code>NextToken</code> response element returns <code>null</code>.</p>
+   * If present, indicates that more output is available than is included in the current response. Use this value in the `NextToken` request parameter in a next call to the operation to get more output. You can repeat this until the `NextToken` response element returns `null`.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>An array of <code>ListSessionsResponseSession</code> objects. Contains details for the sessions.</p>
+   * An array of `ListSessionsResponseSession` objects. Contains details for the sessions.
+   *
    * @public
    */
   Sessions?: ListSessionsResponseSession[] | undefined;
@@ -1836,13 +2127,15 @@ export interface ListSessionsResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>Amazon Resource Name (ARN) for the resource you want to tag.</p>
+   * Amazon Resource Name (ARN) for the resource you want to tag.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>Tags that you have added to the specified resource.</p>
+   * Tags that you have added to the specified resource.
+   *
    * @public
    */
   Tags: Record<string, string> | undefined;
@@ -1858,13 +2151,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>Amazon Resource Name (ARN) for the resource you want to untag.</p>
+   * Amazon Resource Name (ARN) for the resource you want to untag.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>Array of tag key-value pairs that you want to untag.</p>
+   * Array of tag key-value pairs that you want to untag.
+   *
    * @public
    */
   TagKeys: string[] | undefined;

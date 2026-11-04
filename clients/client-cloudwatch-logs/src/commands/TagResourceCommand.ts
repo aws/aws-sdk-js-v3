@@ -23,19 +23,16 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Assigns one or more tags (key-value pairs) to the specified CloudWatch Logs resource.
- *       Currently, the only CloudWatch Logs resources that can be tagged are log groups and
- *       destinations. </p>
- *          <p>Tags can help you organize and categorize your resources. You can also use them to scope
- *       user permissions by granting a user permission to access or change only resources with certain
- *       tag values.</p>
- *          <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as
- *       strings of characters.</p>
- *          <p>You can use the <code>TagResource</code> action with a resource that already has tags. If
- *       you specify a new tag key for the alarm, this tag is appended to the list of tags associated
- *       with the alarm. If you specify a tag key that is already associated with the alarm, the new
- *       tag value that you specify replaces the previous value for that tag.</p>
- *          <p>You can associate as many as 50 tags with a CloudWatch Logs resource.</p>
+ * Assigns one or more tags (key-value pairs) to the specified CloudWatch Logs resource. Currently, the only CloudWatch Logs resources that can be tagged are log groups and destinations.
+ *
+ * Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
+ *
+ * Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.
+ *
+ * You can use the `TagResource` action with a resource that already has tags. If you specify a new tag key for the alarm, this tag is appended to the list of tags associated with the alarm. If you specify a tag key that is already associated with the alarm, the new tag value that you specify replaces the previous value for that tag.
+ *
+ * You can associate as many as 50 tags with a CloudWatch Logs resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,20 +60,24 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is specified incorrectly.</p>
+ *
+ * A parameter is specified incorrectly.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service cannot complete the request.</p>
+ *
+ * The service cannot complete the request.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>A resource can have no more than 50 tags.</p>
+ *
+ * A resource can have no more than 50 tags.
  *
  * @throws {@link CloudWatchLogsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchLogs service.
  *
  * @public
  */

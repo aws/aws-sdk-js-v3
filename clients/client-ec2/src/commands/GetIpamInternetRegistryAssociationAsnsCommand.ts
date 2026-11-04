@@ -26,7 +26,8 @@ export interface GetIpamInternetRegistryAssociationAsnsCommandInput extends GetI
 export interface GetIpamInternetRegistryAssociationAsnsCommandOutput extends GetIpamInternetRegistryAssociationAsnsResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves Autonomous System Numbers (ASNs) registered with an internet registry for an IPAM internet registry association. We recommend using pagination to ensure that the operation returns quickly and successfully.</p>
+ * Retrieves Autonomous System Numbers (ASNs) registered with an internet registry for an IPAM internet registry association. We recommend using pagination to ensure that the operation returns quickly and successfully.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,8 +71,8 @@ export interface GetIpamInternetRegistryAssociationAsnsCommandOutput extends Get
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

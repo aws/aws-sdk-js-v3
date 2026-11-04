@@ -23,15 +23,11 @@ export interface ModifyApplicationStatusCheckCommandInput extends ModifyApplicat
 export interface ModifyApplicationStatusCheckCommandOutput extends ModifyApplicationStatusCheckResult, __MetadataBearer {}
 
 /**
- * <p>Modifies an existing application status check. You can update the protocol, port, path, thresholds, and other configuration settings. The following rules apply:</p>
- *          <ul>
- *             <li>
- *                <p>The application status check must exist and belong to your account.</p>
- *             </li>
- *             <li>
- *                <p>Changes take effect on the next health check interval.</p>
- *             </li>
- *          </ul>
+ * Modifies an existing application status check. You can update the protocol, port, path, thresholds, and other configuration settings. The following rules apply:
+ *
+ * - The application status check must exist and belong to your account.
+ * - Changes take effect on the next health check interval.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -132,8 +128,8 @@ export interface ModifyApplicationStatusCheckCommandOutput extends ModifyApplica
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To modify an application status check
  * ```javascript

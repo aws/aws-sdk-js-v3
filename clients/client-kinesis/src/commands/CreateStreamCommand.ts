@@ -23,41 +23,31 @@ export interface CreateStreamCommandInput extends CreateStreamInput {}
 export interface CreateStreamCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Creates a Kinesis data stream. A stream captures and transports data records that are
- *             continuously emitted from different data sources or <i>producers</i>.
- *             Scale-out within a stream is explicitly supported by means of shards, which are uniquely
- *             identified groups of data records in a stream.</p>
- *          <p>You can create your data stream using either on-demand or provisioned capacity mode. Data streams with an on-demand mode require no capacity planning and automatically scale to handle gigabytes of write and read throughput per minute. With the on-demand mode, Kinesis Data Streams automatically manages the shards in order to provide the necessary throughput.</p>
- *          <p>If you'd still like to proactively scale your on-demand data stream’s capacity, you can unlock the warm throughput feature for on-demand data streams by enabling <code>MinimumThroughputBillingCommitment</code> for your account. Once your account has <code>MinimumThroughputBillingCommitment</code> enabled, you can specify the warm throughput in MiB per second that your stream can support in writes.</p>
- *          <p>For the data streams with a provisioned mode, you must specify the number of shards for the data stream. Each shard can support reads up to five transactions per second, up to a maximum data read total of 2 MiB per second. Each shard can support writes up to 1,000 records per second, up to a maximum data write total of 1 MiB per second. If the amount of data input increases or decreases, you can add or remove shards.</p>
- *          <p>The stream name identifies the stream. The name is scoped to the Amazon Web Services
- *             account used by the application. It is also scoped by Amazon Web Services Region. That
- *             is, two streams in two different accounts can have the same name, and two streams in the
- *             same account, but in two different Regions, can have the same name.</p>
- *          <p>
- *             <code>CreateStream</code> is an asynchronous operation. Upon receiving a
- *                 <code>CreateStream</code> request, Kinesis Data Streams immediately returns and sets
- *             the stream status to <code>CREATING</code>. After the stream is created, Kinesis Data
- *             Streams sets the stream status to <code>ACTIVE</code>. You should perform read and write
- *             operations only on an <code>ACTIVE</code> stream. </p>
- *          <p>You receive a <code>LimitExceededException</code> when making a
- *                 <code>CreateStream</code> request when you try to do one of the following:</p>
- *          <ul>
- *             <li>
- *                <p>Have more than five streams in the <code>CREATING</code> state at any point in
- *                     time.</p>
- *             </li>
- *             <li>
- *                <p>Create more shards than are authorized for your account.</p>
- *             </li>
- *          </ul>
- *          <p>For the default shard or on-demand throughput limits for an Amazon Web Services account, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html">Amazon Kinesis Data Streams Limits</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>. To increase this limit, <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">contact Amazon Web Services Support</a>.</p>
- *          <p>You can use <a>DescribeStreamSummary</a> to check the stream status, which
- *             is returned in <code>StreamStatus</code>.</p>
- *          <p>
- *             <a>CreateStream</a> has a limit of five transactions per second per
- *             account.</p>
- *          <p>You can add tags to the stream when making a <code>CreateStream</code> request by setting the <code>Tags</code> parameter. If you pass the <code>Tags</code> parameter, in addition to having the <code>kinesis:CreateStream</code> permission, you must also have the <code>kinesis:AddTagsToStream</code> permission for the stream that will be created. The <code>kinesis:TagResource</code> permission won’t work to tag streams on creation. Tags will take effect from the <code>CREATING</code> status of the stream, but you can't make any updates to the tags until the stream is in <code>ACTIVE</code> state.</p>
+ * Creates a Kinesis data stream. A stream captures and transports data records that are continuously emitted from different data sources or *producers*. Scale-out within a stream is explicitly supported by means of shards, which are uniquely identified groups of data records in a stream.
+ *
+ * You can create your data stream using either on-demand or provisioned capacity mode. Data streams with an on-demand mode require no capacity planning and automatically scale to handle gigabytes of write and read throughput per minute. With the on-demand mode, Kinesis Data Streams automatically manages the shards in order to provide the necessary throughput.
+ *
+ * If you'd still like to proactively scale your on-demand data stream’s capacity, you can unlock the warm throughput feature for on-demand data streams by enabling `MinimumThroughputBillingCommitment` for your account. Once your account has `MinimumThroughputBillingCommitment` enabled, you can specify the warm throughput in MiB per second that your stream can support in writes.
+ *
+ * For the data streams with a provisioned mode, you must specify the number of shards for the data stream. Each shard can support reads up to five transactions per second, up to a maximum data read total of 2 MiB per second. Each shard can support writes up to 1,000 records per second, up to a maximum data write total of 1 MiB per second. If the amount of data input increases or decreases, you can add or remove shards.
+ *
+ * The stream name identifies the stream. The name is scoped to the Amazon Web Services account used by the application. It is also scoped by Amazon Web Services Region. That is, two streams in two different accounts can have the same name, and two streams in the same account, but in two different Regions, can have the same name.
+ *
+ * `CreateStream` is an asynchronous operation. Upon receiving a `CreateStream` request, Kinesis Data Streams immediately returns and sets the stream status to `CREATING`. After the stream is created, Kinesis Data Streams sets the stream status to `ACTIVE`. You should perform read and write operations only on an `ACTIVE` stream.
+ *
+ * You receive a `LimitExceededException` when making a `CreateStream` request when you try to do one of the following:
+ *
+ * - Have more than five streams in the `CREATING` state at any point in time.
+ * - Create more shards than are authorized for your account.
+ *
+ * For the default shard or on-demand throughput limits for an Amazon Web Services account, see [Amazon Kinesis Data Streams Limits](https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html) in the *Amazon Kinesis Data Streams Developer Guide*. To increase this limit, [contact Amazon Web Services Support](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html).
+ *
+ * You can use DescribeStreamSummary to check the stream status, which is returned in `StreamStatus`.
+ *
+ * CreateStream has a limit of five transactions per second per account.
+ *
+ * You can add tags to the stream when making a `CreateStream` request by setting the `Tags` parameter. If you pass the `Tags` parameter, in addition to having the `kinesis:CreateStream` permission, you must also have the `kinesis:AddTagsToStream` permission for the stream that will be created. The `kinesis:TagResource` permission won’t work to tag streams on creation. Tags will take effect from the `CREATING` status of the stream, but you can't make any updates to the tags until the stream is in `ACTIVE` state.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -92,25 +82,24 @@ export interface CreateStreamCommandOutput extends __MetadataBearer {}
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
- *             For more information, see the returned message.</p>
+ *
+ * A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
- *             stream requests exceeds the maximum number allowed. </p>
+ *
+ * The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The resource is not available for this operation. For successful operation, the
- *             resource must be in the <code>ACTIVE</code> state.</p>
+ *
+ * The resource is not available for this operation. For successful operation, the resource must be in the `ACTIVE` state.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Specifies that you tried to invoke this API for a data stream with the on-demand
- *             capacity mode. This API is only supported for data streams with the provisioned capacity
- *             mode. </p>
+ *
+ * Specifies that you tried to invoke this API for a data stream with the on-demand capacity mode. This API is only supported for data streams with the provisioned capacity mode.
  *
  * @throws {@link KinesisServiceException}
- * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * Base exception class for all service exceptions from Kinesis service.
  *
  * @public
  */

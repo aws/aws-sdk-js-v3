@@ -23,10 +23,8 @@ export interface CreateAssessmentTemplateCommandInput extends CreateAssessmentTe
 export interface CreateAssessmentTemplateCommandOutput extends CreateAssessmentTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an assessment template for the assessment target that is specified by the ARN
- *          of the assessment target. If the <a href="https://docs.aws.amazon.com/inspector/latest/userguide/inspector_slr.html">service-linked role</a> isn’t already registered, this action also creates and
- *          registers a service-linked role to grant Amazon Inspector access to AWS Services needed to
- *          perform security assessments.</p>
+ * Creates an assessment template for the assessment target that is specified by the ARN of the assessment target. If the [service-linked role](https://docs.aws.amazon.com/inspector/latest/userguide/inspector_slr.html) isn’t already registered, this action also creates and registers a service-linked role to grant Amazon Inspector access to AWS Services needed to perform security assessments.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,29 +62,32 @@ export interface CreateAssessmentTemplateCommandOutput extends CreateAssessmentT
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have required permissions to access the requested resource.</p>
+ *
+ * You do not have required permissions to access the requested resource.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>Internal server error.</p>
+ *
+ * Internal server error.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
- *          input parameter.</p>
+ *
+ * The request was rejected because an invalid or out-of-range value was supplied for an input parameter.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current
- *          AWS account limits. The error code describes the limit exceeded.</p>
+ *
+ * The request was rejected because it attempted to create resources beyond the current AWS account limits. The error code describes the limit exceeded.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced an entity that does not exist. The
- *          error code describes the entity.</p>
+ *
+ * The request was rejected because it referenced an entity that does not exist. The error code describes the entity.
  *
  * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
- *  <p>The serice is temporary unavailable.</p>
+ *
+ * The serice is temporary unavailable.
  *
  * @throws {@link InspectorServiceException}
- * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * Base exception class for all service exceptions from Inspector service.
  *
  * @example Create assessment template
  * ```javascript

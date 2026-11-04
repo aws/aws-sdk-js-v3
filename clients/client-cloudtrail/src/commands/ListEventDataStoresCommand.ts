@@ -23,11 +23,10 @@ export interface ListEventDataStoresCommandInput extends ListEventDataStoresRequ
 export interface ListEventDataStoresCommandOutput extends ListEventDataStoresResponse, __MetadataBearer {}
 
 /**
- * <important>
- *             <p>CloudTrail Lake will no longer be open to new customers starting May 31, 2026. If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-service-availability-change.html">CloudTrail Lake availability change</a>.</p>
- *          </important>
- *          <p>Returns information about all event data stores in the account, in the current
- *          Region.</p>
+ * > **Important:** CloudTrail Lake will no longer be open to new customers starting May 31, 2026. If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [CloudTrail Lake availability change](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-service-availability-change.html).
+ *
+ * Returns information about all event data stores in the account, in the current Region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,25 +93,28 @@ export interface ListEventDataStoresCommandOutput extends ListEventDataStoresRes
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
  * @throws {@link InvalidMaxResultsException} (client fault)
- *  <p>This exception is thrown if the limit specified is not valid.</p>
+ *
+ * This exception is thrown if the limit specified is not valid.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>A token that is not valid, or a token that was previously used in a request with
- *          different parameters. This exception is thrown if the token is not valid.</p>
+ *
+ * A token that is not valid, or a token that was previously used in a request with different parameters. This exception is thrown if the token is not valid.
  *
  * @throws {@link NoManagementAccountSLRExistsException} (client fault)
- *  <p> This exception is thrown when the management account does not have a service-linked
- *          role. </p>
+ *
+ * This exception is thrown when the management account does not have a service-linked role.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * This exception is thrown when the requested operation is not permitted.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>This exception is thrown when the requested operation is not supported.</p>
+ *
+ * This exception is thrown when the requested operation is not supported.
  *
  * @throws {@link CloudTrailServiceException}
- * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * Base exception class for all service exceptions from CloudTrail service.
  *
  * @public
  */

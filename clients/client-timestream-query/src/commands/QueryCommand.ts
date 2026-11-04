@@ -23,43 +23,23 @@ export interface QueryCommandInput extends QueryRequest {}
 export interface QueryCommandOutput extends QueryResponse, __MetadataBearer {}
 
 /**
- * <p>
- *             <code>Query</code> is a synchronous operation that enables you to run a query against
- *             your Amazon Timestream data.</p>
- *          <p>If you enabled <code>QueryInsights</code>, this API also returns insights and metrics related to the query that you executed. <code>QueryInsights</code> helps with performance tuning of your query. For more information about <code>QueryInsights</code>, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/using-query-insights.html">Using query insights to optimize queries in Amazon Timestream</a>.</p>
- *          <note>
- *             <p>The maximum number of <code>Query</code> API requests you're allowed to make with <code>QueryInsights</code> enabled is 1 query per second (QPS). If you exceed this query rate, it might result in throttling.</p>
- *          </note>
- *          <p>
- *             <code>Query</code> will time out after 60 seconds.
- *             You must update the default timeout in the SDK to support a timeout of 60 seconds. See
- *             the <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.run-query.html">code
- *                 sample</a> for details. </p>
- *          <p>Your query request will fail in the following cases:</p>
- *          <ul>
- *             <li>
- *                <p> If you submit a <code>Query</code> request with the same client token outside
- *                     of the 5-minute idempotency window. </p>
- *             </li>
- *             <li>
- *                <p> If you submit a <code>Query</code> request with the same client token, but
- *                     change other parameters, within the 5-minute idempotency window. </p>
- *             </li>
- *             <li>
- *                <p> If the size of the row (including the query metadata) exceeds 1 MB, then the
- *                     query will fail with the following error message: </p>
- *                <p>
- *                   <code>Query aborted as max page response size has been exceeded by the output
- *                         result row</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p> If the IAM principal of the query initiator and the result reader are not the
- *                     same and/or the query initiator and the result reader do not have the same query
- *                     string in the query requests, the query will fail with an <code>Invalid
- *                         pagination token</code> error. </p>
- *             </li>
- *          </ul>
+ * `Query` is a synchronous operation that enables you to run a query against your Amazon Timestream data.
+ *
+ * If you enabled `QueryInsights`, this API also returns insights and metrics related to the query that you executed. `QueryInsights` helps with performance tuning of your query. For more information about `QueryInsights`, see [Using query insights to optimize queries in Amazon Timestream](https://docs.aws.amazon.com/timestream/latest/developerguide/using-query-insights.html).
+ *
+ * > **Note:** The maximum number of `Query` API requests you're allowed to make with `QueryInsights` enabled is 1 query per second (QPS). If you exceed this query rate, it might result in throttling.
+ *
+ * `Query` will time out after 60 seconds. You must update the default timeout in the SDK to support a timeout of 60 seconds. See the [code sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.run-query.html) for details.
+ *
+ * Your query request will fail in the following cases:
+ *
+ * - If you submit a `Query` request with the same client token outside of the 5-minute idempotency window.
+ * - If you submit a `Query` request with the same client token, but change other parameters, within the 5-minute idempotency window.
+ * - If the size of the row (including the query metadata) exceeds 1 MB, then the query will fail with the following error message:
+ *
+ *   `Query aborted as max page response size has been exceeded by the output result row`
+ * - If the IAM principal of the query initiator and the result reader are not the same and/or the query initiator and the result reader do not have the same query string in the query requests, the query will fail with an `Invalid pagination token` error.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -175,30 +155,36 @@ export interface QueryCommandOutput extends QueryResponse, __MetadataBearer {}
  * @see {@link TimestreamQueryClientResolvedConfig | config} for TimestreamQueryClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have the necessary permissions to access the account settings.</p>
+ *
+ * You do not have the necessary permissions to access the account settings.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p> Unable to poll results for a cancelled query. </p>
+ *
+ * Unable to poll results for a cancelled query.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred while processing the request.</p>
+ *
+ * An internal server error occurred while processing the request.
  *
  * @throws {@link InvalidEndpointException} (client fault)
- *  <p>The requested endpoint is invalid.</p>
+ *
+ * The requested endpoint is invalid.
  *
  * @throws {@link QueryExecutionException} (client fault)
- *  <p>
- *             Timestream was unable to run the query successfully. </p>
+ *
+ * Timestream was unable to run the query successfully.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled due to excessive requests.</p>
+ *
+ * The request was throttled due to excessive requests.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> Invalid or malformed request. </p>
+ *
+ * Invalid or malformed request.
  *
  * @throws {@link TimestreamQueryServiceException}
- * <p>Base exception class for all service exceptions from TimestreamQuery service.</p>
  *
+ * Base exception class for all service exceptions from TimestreamQuery service.
  *
  * @public
  */

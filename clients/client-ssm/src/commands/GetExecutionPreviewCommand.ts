@@ -23,8 +23,8 @@ export interface GetExecutionPreviewCommandInput extends GetExecutionPreviewRequ
 export interface GetExecutionPreviewCommandOutput extends GetExecutionPreviewResponse, __MetadataBearer {}
 
 /**
- * <p>Initiates the process of retrieving an existing preview that shows the effects that running
- *    a specified Automation runbook would have on the targeted resources.</p>
+ * Initiates the process of retrieving an existing preview that shows the effects that running a specified Automation runbook would have on the targeted resources.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,14 +71,16 @@ export interface GetExecutionPreviewCommandOutput extends GetExecutionPreviewRes
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified parameter to be shared could not be found.</p>
+ *
+ * The specified parameter to be shared could not be found.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

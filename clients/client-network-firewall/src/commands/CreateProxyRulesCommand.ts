@@ -23,9 +23,12 @@ export interface CreateProxyRulesCommandInput extends CreateProxyRulesRequest {}
 export interface CreateProxyRulesCommandOutput extends CreateProxyRulesResponse, __MetadataBearer {}
 
 /**
- * <p>Creates Network Firewall <a>ProxyRule</a> resources. </p>
- *          <p>Attaches new proxy rule(s) to an existing proxy rule group. </p>
- *          <p>To retrieve information about individual proxy rules, use <a>DescribeProxyRuleGroup</a> and <a>DescribeProxyRule</a>.</p>
+ * Creates Network Firewall ProxyRule resources.
+ *
+ * Attaches new proxy rule(s) to an existing proxy rule group.
+ *
+ * To retrieve information about individual proxy rules, use DescribeProxyRuleGroup and DescribeProxyRule.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -169,31 +172,24 @@ export interface CreateProxyRulesCommandOutput extends CreateProxyRulesResponse,
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Your request is valid, but Network Firewall couldn't perform the operation because of a
- *          system problem. Retry your request. </p>
+ *
+ * Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The operation failed because of a problem with your request. Examples include: </p>
- *          <ul>
- *             <li>
- *                <p>You specified an unsupported parameter name or value.</p>
- *             </li>
- *             <li>
- *                <p>You tried to update a property with a value that isn't among the available
- *                types.</p>
- *             </li>
- *             <li>
- *                <p>Your request references an ARN that is malformed, or corresponds to a resource
- *                that isn't valid in the context of the request.</p>
- *             </li>
- *          </ul>
+ *
+ * The operation failed because of a problem with your request. Examples include:
+ *
+ * - You specified an unsupported parameter name or value.
+ * - You tried to update a property with a value that isn't among the available types.
+ * - Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Unable to process the request due to throttling limitations.</p>
+ *
+ * Unable to process the request due to throttling limitations.
  *
  * @throws {@link NetworkFirewallServiceException}
- * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ * Base exception class for all service exceptions from NetworkFirewall service.
  *
  * @public
  */

@@ -23,8 +23,8 @@ export interface CreateVpcConnectorCommandInput extends CreateVpcConnectorReques
 export interface CreateVpcConnectorCommandOutput extends CreateVpcConnectorResponse, __MetadataBearer {}
 
 /**
- * <p>Create an App Runner VPC connector resource. App Runner requires this resource when you want to associate your App Runner service to a custom Amazon Virtual Private Cloud
- *         (Amazon VPC).</p>
+ * Create an App Runner VPC connector resource. App Runner requires this resource when you want to associate your App Runner service to a custom Amazon Virtual Private Cloud (Amazon VPC).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,19 +76,22 @@ export interface CreateVpcConnectorCommandOutput extends CreateVpcConnectorRespo
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>An unexpected service exception occurred.</p>
+ *
+ * An unexpected service exception occurred.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+ *
+ * One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>App Runner can't create this resource. You've reached your account quota for this resource type.</p>
- *          <p>For App Runner per-resource quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/apprunner.html">App Runner endpoints and quotas</a> in the
- *         <i>Amazon Web Services General Reference</i>.</p>
+ *
+ * App Runner can't create this resource. You've reached your account quota for this resource type.
+ *
+ * For App Runner per-resource quotas, see [App Runner endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/apprunner.html) in the *Amazon Web Services General Reference*.
  *
  * @throws {@link AppRunnerServiceException}
- * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ * Base exception class for all service exceptions from AppRunner service.
  *
  * @public
  */

@@ -23,11 +23,10 @@ export interface TestEventPatternCommandInput extends TestEventPatternRequest {}
 export interface TestEventPatternCommandOutput extends TestEventPatternResponse, __MetadataBearer {}
 
 /**
- * <p>Tests whether the specified event pattern matches the provided event.</p>
- *          <p>Most services in Amazon Web Services treat : or / as the same character in Amazon Resource
- *       Names (ARNs). However, EventBridge uses an exact match in event patterns and rules. Be
- *       sure to use the correct ARN characters when creating event patterns so that they match the ARN
- *       syntax in the event you want to match.</p>
+ * Tests whether the specified event pattern matches the provided event.
+ *
+ * Most services in Amazon Web Services treat : or / as the same character in Amazon Resource Names (ARNs). However, EventBridge uses an exact match in event patterns and rules. Be sure to use the correct ARN characters when creating event patterns so that they match the ARN syntax in the event you want to match.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,14 +54,16 @@ export interface TestEventPatternCommandOutput extends TestEventPatternResponse,
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * This exception occurs due to unexpected causes.
  *
  * @throws {@link InvalidEventPatternException} (client fault)
- *  <p>The event pattern is not valid.</p>
+ *
+ * The event pattern is not valid.
  *
  * @throws {@link EventBridgeServiceException}
- * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ * Base exception class for all service exceptions from EventBridge service.
  *
  * @public
  */

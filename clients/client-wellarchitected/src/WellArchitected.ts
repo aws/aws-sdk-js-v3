@@ -2537,7 +2537,14 @@ export interface WellArchitected {
 }
 
 /**
- * <fullname>Amazon Web Services Well-Architected</fullname> <p>Amazon Web Services Well-Architected helps you evaluate your architectures against Amazon Web Services best practices across operational excellence, security, reliability, performance efficiency, cost optimization, and sustainability. The service includes the Amazon Web Services Well-Architected Agent for AI-powered recommendations tailored to your specific environment, and the <a href="http://aws.amazon.com/well-architected-tool">Well-Architected Tool</a> for conducting reviews and tracking improvements.</p> <p>This is the <i>Amazon Web Services Well-Architected API Reference</i>. Through this API, you can programmatically access personalized recommendations and automation scripts from the Amazon Web Services Well-Architected Agent, and create and manage workloads, conduct lens reviews, track milestones, manage custom lenses, share workloads across accounts, and manage profiles with the Well-Architected Tool.</p> <p>For more information about the service, see the <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/intro.html">Amazon Web Services Well-Architected User Guide</a>.</p>
+ * Amazon Web Services Well-Architected
+ *
+ * Amazon Web Services Well-Architected helps you evaluate your architectures against Amazon Web Services best practices across operational excellence, security, reliability, performance efficiency, cost optimization, and sustainability. The service includes the Amazon Web Services Well-Architected Agent for AI-powered recommendations tailored to your specific environment, and the [Well-Architected Tool](http://aws.amazon.com/well-architected-tool) for conducting reviews and tracking improvements.
+ *
+ * This is the *Amazon Web Services Well-Architected API Reference*. Through this API, you can programmatically access personalized recommendations and automation scripts from the Amazon Web Services Well-Architected Agent, and create and manage workloads, conduct lens reviews, track milestones, manage custom lenses, share workloads across accounts, and manage profiles with the Well-Architected Tool.
+ *
+ * For more information about the service, see the [Amazon Web Services Well-Architected User Guide](https://docs.aws.amazon.com/wellarchitected/latest/userguide/intro.html).
+ *
  * @public
  */
 export class WellArchitected extends WellArchitectedClient implements WellArchitected {}

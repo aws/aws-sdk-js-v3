@@ -23,7 +23,20 @@ export interface UpdateHubContentCommandInput extends UpdateHubContentRequest {}
 export interface UpdateHubContentCommandOutput extends UpdateHubContentResponse, __MetadataBearer {}
 
 /**
- * <p>Updates SageMaker hub content (either a <code>Model</code> or <code>Notebook</code> resource).</p> <p>You can update the metadata that describes the resource. In addition to the required request fields, specify at least one of the following fields to update:</p> <ul> <li> <p> <code>HubContentDescription</code> </p> </li> <li> <p> <code>HubContentDisplayName</code> </p> </li> <li> <p> <code>HubContentMarkdown</code> </p> </li> <li> <p> <code>HubContentSearchKeywords</code> </p> </li> <li> <p> <code>SupportStatus</code> </p> </li> </ul> <p>For more information about hubs, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-curated-hubs.html">Private curated hubs for foundation model access control in JumpStart</a>.</p> <note> <p>If you want to update a <code>ModelReference</code> resource in your hub, use the <code>UpdateHubContentResource</code> API instead.</p> </note>
+ * Updates SageMaker hub content (either a `Model` or `Notebook` resource).
+ *
+ * You can update the metadata that describes the resource. In addition to the required request fields, specify at least one of the following fields to update:
+ *
+ * - `HubContentDescription`
+ * - `HubContentDisplayName`
+ * - `HubContentMarkdown`
+ * - `HubContentSearchKeywords`
+ * - `SupportStatus`
+ *
+ * For more information about hubs, see [Private curated hubs for foundation model access control in JumpStart](https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-curated-hubs.html).
+ *
+ * > **Note:** If you want to update a `ModelReference` resource in your hub, use the `UpdateHubContentResource` API instead.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,14 +74,16 @@ export interface UpdateHubContentCommandOutput extends UpdateHubContentResponse,
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceInUse} (client fault)
- *  <p>Resource being accessed is in use.</p>
+ *
+ * Resource being accessed is in use.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Resource being access is not found.</p>
+ *
+ * Resource being access is not found.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

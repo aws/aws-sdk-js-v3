@@ -23,10 +23,8 @@ export interface DeleteClientVpnRouteCommandInput extends DeleteClientVpnRouteRe
 export interface DeleteClientVpnRouteCommandOutput extends DeleteClientVpnRouteResult, __MetadataBearer {}
 
 /**
- * <p>Deletes a route from a Client VPN endpoint. You can only delete routes that you manually added using
- * 			the <b>CreateClientVpnRoute</b> action. You cannot delete routes that were
- * 			automatically added when associating a subnet. To remove routes that have been automatically added,
- * 			disassociate the target subnet from the Client VPN endpoint.</p>
+ * Deletes a route from a Client VPN endpoint. You can only delete routes that you manually added using the **CreateClientVpnRoute** action. You cannot delete routes that were automatically added when associating a subnet. To remove routes that have been automatically added, disassociate the target subnet from the Client VPN endpoint.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,8 +57,8 @@ export interface DeleteClientVpnRouteCommandOutput extends DeleteClientVpnRouteR
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

@@ -23,8 +23,8 @@ export interface ListRulesetsCommandInput extends ListRulesetsRequest {}
 export interface ListRulesetsCommandOutput extends ListRulesetsResponse, __MetadataBearer {}
 
 /**
- * <p>List all rulesets available in the current account or rulesets associated
- *             with a specific resource (dataset).</p>
+ * List all rulesets available in the current account or rulesets associated with a specific resource (dataset).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,14 +70,16 @@ export interface ListRulesetsCommandOutput extends ListRulesetsResponse, __Metad
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>One or more resources can't be found.</p>
+ *
+ * One or more resources can't be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input parameters for this request failed validation.</p>
+ *
+ * The input parameters for this request failed validation.
  *
  * @throws {@link DataBrewServiceException}
- * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ * Base exception class for all service exceptions from DataBrew service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface CreateEndpointAccessCommandInput extends CreateEndpointAccessMe
 export interface CreateEndpointAccessCommandOutput extends EndpointAccess, __MetadataBearer {}
 
 /**
- * <p>Creates a Redshift-managed VPC endpoint.</p>
+ * Creates a Redshift-managed VPC endpoint.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,40 +83,48 @@ export interface CreateEndpointAccessCommandOutput extends EndpointAccess, __Met
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link AccessToClusterDeniedFault} (client fault)
- *  <p>You are not authorized to access the cluster.</p>
+ *
+ * You are not authorized to access the cluster.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
- *         </p>
+ *
+ * The `ClusterIdentifier` parameter does not refer to an existing cluster.
  *
  * @throws {@link ClusterSubnetGroupNotFoundFault} (client fault)
- *  <p>The cluster subnet group name does not refer to an existing cluster subnet
- *             group.</p>
+ *
+ * The cluster subnet group name does not refer to an existing cluster subnet group.
  *
  * @throws {@link EndpointAlreadyExistsFault} (client fault)
- *  <p>The account already has a Redshift-managed VPC endpoint with the given identifier.</p>
+ *
+ * The account already has a Redshift-managed VPC endpoint with the given identifier.
  *
  * @throws {@link EndpointsPerAuthorizationLimitExceededFault} (client fault)
- *  <p>The number of Redshift-managed VPC endpoints per authorization has exceeded its limit.</p>
+ *
+ * The number of Redshift-managed VPC endpoints per authorization has exceeded its limit.
  *
  * @throws {@link EndpointsPerClusterLimitExceededFault} (client fault)
- *  <p>The number of Redshift-managed VPC endpoints per cluster has exceeded its limit.</p>
+ *
+ * The number of Redshift-managed VPC endpoints per cluster has exceeded its limit.
  *
  * @throws {@link InvalidClusterSecurityGroupStateFault} (client fault)
- *  <p>The state of the cluster security group is not <code>available</code>. </p>
+ *
+ * The state of the cluster security group is not `available`.
  *
  * @throws {@link InvalidClusterStateFault} (client fault)
- *  <p>The specified cluster is not in the <code>available</code> state. </p>
+ *
+ * The specified cluster is not in the `available` state.
  *
  * @throws {@link UnauthorizedOperation} (client fault)
- *  <p>Your account is not authorized to perform the requested operation.</p>
+ *
+ * Your account is not authorized to perform the requested operation.
  *
  * @throws {@link UnsupportedOperationFault} (client fault)
- *  <p>The requested operation isn't supported.</p>
+ *
+ * The requested operation isn't supported.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

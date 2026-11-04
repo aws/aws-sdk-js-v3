@@ -6,7 +6,8 @@ import { InspectorScanServiceException as __BaseException } from "./InspectorSca
 import type { ValidationExceptionField } from "./models_0";
 
 /**
- * <p>You do not have sufficient access to perform this action. </p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request processing has failed because of an unknown error, exception or failure. </p>
+ * The request processing has failed because of an unknown error, exception or failure.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -36,13 +38,15 @@ export class InternalServerException extends __BaseException {
   readonly $fault = "server" as const;
   $retryable = {};
   /**
-   * <p>The reason for the validation failure.</p>
+   * The reason for the validation failure.
+   *
    * @public
    */
   reason: InternalServerExceptionReason | undefined;
 
   /**
-   * <p>The number of seconds to wait before retrying the request.</p>
+   * The number of seconds to wait before retrying the request.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -63,7 +67,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling. </p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -74,7 +79,8 @@ export class ThrottlingException extends __BaseException {
     throttling: true,
   };
   /**
-   * <p>The number of seconds to wait before retrying the request.</p>
+   * The number of seconds to wait before retrying the request.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -94,7 +100,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+ * The request has failed validation due to missing required fields or having invalid inputs.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -102,13 +109,15 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The reason for the validation failure.</p>
+   * The reason for the validation failure.
+   *
    * @public
    */
   reason: ValidationExceptionReason | undefined;
 
   /**
-   * <p>The fields that failed validation.</p>
+   * The fields that failed validation.
+   *
    * @public
    */
   fields?: ValidationExceptionField[] | undefined;

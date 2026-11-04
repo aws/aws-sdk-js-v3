@@ -23,9 +23,8 @@ export interface DeleteFleetCommandInput extends DeleteFleetRequest {}
 export interface DeleteFleetCommandOutput extends DeleteFleetResponse, __MetadataBearer {}
 
 /**
- * <p> Deletes a fleet. Before you delete a fleet, all vehicles must be
- *             dissociated from the fleet. For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/delete-fleet-cli.html">Delete a fleet (AWS
- *                 CLI)</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
+ * Deletes a fleet. Before you delete a fleet, all vehicles must be dissociated from the fleet. For more information, see [Delete a fleet (AWS CLI)](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/delete-fleet-cli.html) in the *Amazon Web Services IoT FleetWise Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,20 +52,24 @@ export interface DeleteFleetCommandOutput extends DeleteFleetResponse, __Metadat
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * You don't have sufficient permission to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request couldn't be completed because the server temporarily failed.</p>
+ *
+ * The request couldn't be completed because the server temporarily failed.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request couldn't be completed due to throttling.</p>
+ *
+ * The request couldn't be completed due to throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link IoTFleetWiseServiceException}
- * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * Base exception class for all service exceptions from IoTFleetWise service.
  *
  * @public
  */

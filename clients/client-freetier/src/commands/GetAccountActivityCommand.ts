@@ -23,7 +23,8 @@ export interface GetAccountActivityCommandInput extends GetAccountActivityReques
 export interface GetAccountActivityCommandOutput extends GetAccountActivityResponse, __MetadataBearer {}
 
 /**
- * <p> Returns a specific activity record that is available to the customer. </p>
+ * Returns a specific activity record that is available to the customer.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,20 +66,24 @@ export interface GetAccountActivityCommandOutput extends GetAccountActivityRespo
  * @see {@link FreeTierClientResolvedConfig | config} for FreeTierClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred during the processing of your request.</p>
+ *
+ * An unexpected error occurred during the processing of your request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> This exception is thrown when the requested resource cannot be found. </p>
+ *
+ * This exception is thrown when the requested resource cannot be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link FreeTierServiceException}
- * <p>Base exception class for all service exceptions from FreeTier service.</p>
  *
+ * Base exception class for all service exceptions from FreeTier service.
  *
  * @example Fetching an Account activity by id
  * ```javascript

@@ -5,7 +5,8 @@ import type { ValidationExceptionField } from "./models_0";
 import { UxcServiceException as __BaseException } from "./UxcServiceException";
 
 /**
- * <p>You don't have sufficient access to perform this operation. Verify that your IAM policy includes the required <code>uxc:</code> permissions for the operation that you are calling. For more information on IAM permissions, see <a href="https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/security-iam-awsmanpol.html">Amazon Web Services managed policies for Amazon Web Services Management Console</a>.</p>
+ * You don't have sufficient access to perform this operation. Verify that your IAM policy includes the required `uxc:` permissions for the operation that you are calling. For more information on IAM permissions, see [Amazon Web Services managed policies for Amazon Web Services Management Console](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/security-iam-awsmanpol.html).
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -26,7 +27,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The service encountered an internal error. Try your request again later.</p>
+ * The service encountered an internal error. Try your request again later.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -47,7 +49,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The request was denied because of request throttling. Reduce the frequency of your requests.</p>
+ * The request was denied because of request throttling. Reduce the frequency of your requests.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -68,7 +71,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -76,7 +80,8 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The list of fields that are invalid.</p>
+   * The list of fields that are invalid.
+   *
    * @public
    */
   fieldList?: ValidationExceptionField[] | undefined;

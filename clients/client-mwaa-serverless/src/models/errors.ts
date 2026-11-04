@@ -6,7 +6,8 @@ import type { ValidationExceptionField } from "./models_0";
 import { MWAAServerlessServiceException as __BaseException } from "./MWAAServerlessServiceException";
 
 /**
- * <p>You do not have sufficient permission to perform this action.</p>
+ * You do not have sufficient permission to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -29,7 +30,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>An unexpected server-side error occurred during request processing.</p>
+ * An unexpected server-side error occurred during request processing.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -39,7 +41,8 @@ export class InternalServerException extends __BaseException {
   $retryable = {};
   Message: string | undefined;
   /**
-   * <p>The number of seconds to wait before retrying the operation.</p>
+   * The number of seconds to wait before retrying the operation.
+   *
    * @public
    */
   RetryAfterSeconds?: number | undefined;
@@ -59,7 +62,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The operation timed out.</p>
+ * The operation timed out.
+ *
  * @public
  */
 export class OperationTimeoutException extends __BaseException {
@@ -82,7 +86,8 @@ export class OperationTimeoutException extends __BaseException {
 }
 
 /**
- * <p>The specified resource was not found. You can only access or modify a resource that already exists.</p>
+ * The specified resource was not found. You can only access or modify a resource that already exists.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -91,13 +96,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p>The unique identifier of the resource.</p>
+   * The unique identifier of the resource.
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>The type of the resource.</p>
+   * The type of the resource.
+   *
    * @public
    */
   ResourceType: string | undefined;
@@ -118,7 +125,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request was denied because too many requests were made in a short period, exceeding the service rate limits. Amazon Managed Workflows for Apache Airflow Serverless implements throttling controls to ensure fair resource allocation across all customers in the multi-tenant environment. This helps maintain service stability and performance. If you encounter throttling, implement exponential backoff and retry logic in your applications, or consider distributing your API calls over a longer time period.</p>
+ * The request was denied because too many requests were made in a short period, exceeding the service rate limits. Amazon Managed Workflows for Apache Airflow Serverless implements throttling controls to ensure fair resource allocation across all customers in the multi-tenant environment. This helps maintain service stability and performance. If you encounter throttling, implement exponential backoff and retry logic in your applications, or consider distributing your API calls over a longer time period.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -130,19 +138,22 @@ export class ThrottlingException extends __BaseException {
   };
   Message: string | undefined;
   /**
-   * <p>The code for the service.</p>
+   * The code for the service.
+   *
    * @public
    */
   ServiceCode: string | undefined;
 
   /**
-   * <p>The code of the quota.</p>
+   * The code of the quota.
+   *
    * @public
    */
   QuotaCode: string | undefined;
 
   /**
-   * <p>The number of seconds to wait before retrying the operation.</p>
+   * The number of seconds to wait before retrying the operation.
+   *
    * @public
    */
   RetryAfterSeconds?: number | undefined;
@@ -164,7 +175,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The specified request parameters are invalid, missing, or inconsistent with Amazon Managed Workflows for Apache Airflow Serverless service requirements. This can occur when workflow definitions contain unsupported operators, when required IAM permissions are missing, when S3 locations are inaccessible, or when network configurations are invalid. The service validates workflow definitions, execution roles, and resource configurations to ensure compatibility with the managed Airflow environment and security requirements.</p>
+ * The specified request parameters are invalid, missing, or inconsistent with Amazon Managed Workflows for Apache Airflow Serverless service requirements. This can occur when workflow definitions contain unsupported operators, when required IAM permissions are missing, when S3 locations are inaccessible, or when network configurations are invalid. The service validates workflow definitions, execution roles, and resource configurations to ensure compatibility with the managed Airflow environment and security requirements.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -173,13 +185,15 @@ export class ValidationException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p>The reason the request failed validation.</p>
+   * The reason the request failed validation.
+   *
    * @public
    */
   Reason: ValidationExceptionReason | undefined;
 
   /**
-   * <p>The fields that failed validation.</p>
+   * The fields that failed validation.
+   *
    * @public
    */
   FieldList?: ValidationExceptionField[] | undefined;
@@ -200,7 +214,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>You cannot create a resource that already exists, or the resource is in a state that prevents the requested operation.</p>
+ * You cannot create a resource that already exists, or the resource is in a state that prevents the requested operation.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -209,13 +224,15 @@ export class ConflictException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p>The unique identifier of the resource.</p>
+   * The unique identifier of the resource.
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>The type of the resource.</p>
+   * The type of the resource.
+   *
    * @public
    */
   ResourceType: string | undefined;
@@ -236,7 +253,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The request exceeds the service quota for Amazon Managed Workflows for Apache Airflow Serverless resources. This can occur when you attempt to create more workflows than allowed, exceed concurrent workflow run limits, or surpass task execution limits. Amazon Managed Workflows for Apache Airflow Serverless implements admission control using DynamoDB-based counters to manage resource utilization across the multi-tenant environment. Contact Amazon Web Services Support to request quota increases if you need higher limits for your use case.</p>
+ * The request exceeds the service quota for Amazon Managed Workflows for Apache Airflow Serverless resources. This can occur when you attempt to create more workflows than allowed, exceed concurrent workflow run limits, or surpass task execution limits. Amazon Managed Workflows for Apache Airflow Serverless implements admission control using DynamoDB-based counters to manage resource utilization across the multi-tenant environment. Contact Amazon Web Services Support to request quota increases if you need higher limits for your use case.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -245,25 +263,29 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p>The unique identifier of the resource.</p>
+   * The unique identifier of the resource.
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>The type of resource affected.</p>
+   * The type of resource affected.
+   *
    * @public
    */
   ResourceType: string | undefined;
 
   /**
-   * <p>The code for the service.</p>
+   * The code for the service.
+   *
    * @public
    */
   ServiceCode: string | undefined;
 
   /**
-   * <p>The code of the quota.</p>
+   * The code of the quota.
+   *
    * @public
    */
   QuotaCode: string | undefined;

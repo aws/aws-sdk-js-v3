@@ -23,11 +23,12 @@ export interface GetBucketBundlesCommandInput extends GetBucketBundlesRequest {}
 export interface GetBucketBundlesCommandOutput extends GetBucketBundlesResult, __MetadataBearer {}
 
 /**
- * <p>Returns the bundles that you can apply to a Amazon Lightsail bucket.</p>
- *          <p>The bucket bundle specifies the monthly cost, storage quota, and data transfer quota for a
- *       bucket.</p>
- *          <p>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_UpdateBucketBundle.html">UpdateBucketBundle</a> action to update the
- *       bundle for a bucket.</p>
+ * Returns the bundles that you can apply to a Amazon Lightsail bucket.
+ *
+ * The bucket bundle specifies the monthly cost, storage quota, and data transfer quota for a bucket.
+ *
+ * Use the [UpdateBucketBundle](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_UpdateBucketBundle.html) action to update the bundle for a bucket.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,32 +64,30 @@ export interface GetBucketBundlesCommandOutput extends GetBucketBundlesResult, _
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
- *       credentials to access a resource.</p>
+ *
+ * Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>Lightsail throws this exception when user input does not conform to the validation rules
- *       of an input field.</p>
- *          <note>
- *             <p>Domain and distribution APIs are only available in the N. Virginia
- *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
- *         Region configuration to <code>us-east-1</code> to create, view, or edit these
- *         resources.</p>
- *          </note>
+ *
+ * Lightsail throws this exception when user input does not conform to the validation rules of an input field.
+ *
+ * > **Note:** Domain and distribution APIs are only available in the N. Virginia (`us-east-1`) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to `us-east-1` to create, view, or edit these resources.
  *
  * @throws {@link RegionSetupInProgressException} (client fault)
- *  <p>Lightsail throws this exception when an operation is performed on resources in an opt-in
- *       Region that is currently being set up.</p>
+ *
+ * Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>A general service exception.</p>
+ *
+ * A general service exception.
  *
  * @throws {@link UnauthenticatedException} (client fault)
- *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
+ * Lightsail throws this exception when the user has not been authenticated.
  *
  * @throws {@link LightsailServiceException}
- * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * Base exception class for all service exceptions from Lightsail service.
  *
  * @public
  */

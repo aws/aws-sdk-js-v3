@@ -23,7 +23,8 @@ export interface ListRuleSetsCommandInput extends ListRuleSetsRequest {}
 export interface ListRuleSetsCommandOutput extends ListRuleSetsResponse, __MetadataBearer {}
 
 /**
- * <p>List rule sets for this account.</p>
+ * List rule sets for this account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,11 +59,12 @@ export interface ListRuleSetsCommandOutput extends ListRuleSetsResponse, __Metad
  * @see {@link MailManagerClientResolvedConfig | config} for MailManagerClient's `config` shape.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request validation has failed. For details, see the accompanying error message.</p>
+ *
+ * The request validation has failed. For details, see the accompanying error message.
  *
  * @throws {@link MailManagerServiceException}
- * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ * Base exception class for all service exceptions from MailManager service.
  *
  * @public
  */

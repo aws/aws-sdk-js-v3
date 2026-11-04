@@ -23,8 +23,8 @@ export interface GetRestoreTestingSelectionCommandInput extends GetRestoreTestin
 export interface GetRestoreTestingSelectionCommandOutput extends GetRestoreTestingSelectionOutput, __MetadataBearer {}
 
 /**
- * <p>Returns RestoreTestingSelection, which displays resources
- *          and elements of the restore testing plan.</p>
+ * Returns RestoreTestingSelection, which displays resources and elements of the restore testing plan.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,14 +80,16 @@ export interface GetRestoreTestingSelectionCommandOutput extends GetRestoreTesti
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A resource that is required for the action doesn't exist.</p>
+ *
+ * A resource that is required for the action doesn't exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The request failed due to a temporary failure of the server.</p>
+ *
+ * The request failed due to a temporary failure of the server.
  *
  * @throws {@link BackupServiceException}
- * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * Base exception class for all service exceptions from Backup service.
  *
  * @public
  */

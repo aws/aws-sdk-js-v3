@@ -23,11 +23,12 @@ export interface CreateFleetCommandInput extends CreateFleetRequest {}
 export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataBearer {}
 
 /**
- * <p>Creates an EC2 Fleet that contains the configuration information for On-Demand Instances and Spot Instances.
- *          Instances are launched immediately if there is available capacity.</p>
- *          <p>A single EC2 Fleet can include multiple launch specifications that vary by instance type,
- *          AMI, Availability Zone, or subnet.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html">EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * Creates an EC2 Fleet that contains the configuration information for On-Demand Instances and Spot Instances. Instances are launched immediately if there is available capacity.
+ *
+ * A single EC2 Fleet can include multiple launch specifications that vary by instance type, AMI, Availability Zone, or subnet.
+ *
+ * For more information, see [EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -516,8 +517,8 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

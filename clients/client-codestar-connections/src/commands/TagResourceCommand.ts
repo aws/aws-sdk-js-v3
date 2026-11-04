@@ -23,8 +23,8 @@ export interface TagResourceCommandInput extends TagResourceInput {}
 export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Adds to or modifies the tags of the given resource. Tags are metadata that can be used
- *       to manage a resource.</p>
+ * Adds to or modifies the tags of the given resource. Tags are metadata that can be used to manage a resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,14 +55,16 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * @see {@link CodeStarConnectionsClientResolvedConfig | config} for CodeStarConnectionsClient's `config` shape.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>Exceeded the maximum limit for connections.</p>
+ *
+ * Exceeded the maximum limit for connections.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource not found. Verify the connection resource ARN and try again.</p>
+ *
+ * Resource not found. Verify the connection resource ARN and try again.
  *
  * @throws {@link CodeStarConnectionsServiceException}
- * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ * Base exception class for all service exceptions from CodeStarConnections service.
  *
  * @public
  */

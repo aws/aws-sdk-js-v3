@@ -23,7 +23,10 @@ export interface StopStreamCommandInput extends StopStreamRequest {}
 export interface StopStreamCommandOutput extends StopStreamResponse, __MetadataBearer {}
 
 /**
- * <p>Disconnects the incoming RTMPS stream for the specified channel. Can be used in conjunction with <a>DeleteStreamKey</a> to prevent further streaming to a channel.</p> <note> <p>Many streaming client-software libraries automatically reconnect a dropped RTMPS session, so to stop the stream permanently, you may want to first revoke the <code>streamKey</code> attached to the channel.</p> </note>
+ * Disconnects the incoming RTMPS stream for the specified channel. Can be used in conjunction with DeleteStreamKey to prevent further streaming to a channel.
+ *
+ * > **Note:** Many streaming client-software libraries automatically reconnect a dropped RTMPS session, so to stop the stream permanently, you may want to first revoke the `streamKey` attached to the channel.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,23 +51,28 @@ export interface StopStreamCommandOutput extends StopStreamResponse, __MetadataB
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * User does not have sufficient access to perform this action.
  *
  * @throws {@link ChannelNotBroadcasting} (client fault)
- *  <p>The stream is offline for the given channel ARN.</p>
+ *
+ * The stream is offline for the given channel ARN.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Request references a resource which does not exist.</p>
+ *
+ * Request references a resource which does not exist.
  *
  * @throws {@link StreamUnavailable} (server fault)
- *  <p>The stream is temporarily unavailable.</p>
+ *
+ * The stream is temporarily unavailable.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link IvsServiceException}
- * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ * Base exception class for all service exceptions from Ivs service.
  *
  * @public
  */

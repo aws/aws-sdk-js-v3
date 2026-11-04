@@ -7,7 +7,8 @@ import type { SupportPermitRequestStatus, SupportPermitStatus } from "./enums";
 export interface Unit {}
 
 /**
- * <p>The set of actions authorized by a permit. Specify either all actions or a list of specific actions.</p>
+ * The set of actions authorized by a permit. Specify either all actions or a list of specific actions.
+ *
  * @public
  */
 export type ActionSet =
@@ -20,7 +21,8 @@ export type ActionSet =
  */
 export namespace ActionSet {
   /**
-   * <p>Authorizes all available support actions.</p>
+   * Authorizes all available support actions.
+   *
    * @public
    */
   export interface AllActionsMember {
@@ -30,7 +32,8 @@ export namespace ActionSet {
   }
 
   /**
-   * <p>A list of specific support actions to authorize. Maximum of 10 actions.</p>
+   * A list of specific support actions to authorize. Maximum of 10 actions.
+   *
    * @public
    */
   export interface ActionsMember {
@@ -60,31 +63,36 @@ export namespace ActionSet {
 }
 
 /**
- * <p>A summary of a support action.</p>
+ * A summary of a support action.
+ *
  * @public
  */
 export interface ActionSummary {
   /**
-   * <p>The name of the support action.</p>
+   * The name of the support action.
+   *
    * @public
    */
   action: string | undefined;
 
   /**
-   * <p>The AWS service associated with the support action.</p>
+   * The AWS service associated with the support action.
+   *
    * @public
    */
   service: string | undefined;
 
   /**
-   * <p>A description of what the support action does.</p>
+   * A description of what the support action does.
+   *
    * @public
    */
   description: string | undefined;
 }
 
 /**
- * <p>A time-window condition that constrains when a support permit is valid.</p>
+ * A time-window condition that constrains when a support permit is valid.
+ *
  * @public
  */
 export type Condition =
@@ -97,7 +105,8 @@ export type Condition =
  */
 export namespace Condition {
   /**
-   * <p>The earliest time at which the permit becomes valid.</p>
+   * The earliest time at which the permit becomes valid.
+   *
    * @public
    */
   export interface AllowAfterMember {
@@ -107,7 +116,8 @@ export namespace Condition {
   }
 
   /**
-   * <p>The latest time at which the permit remains valid.</p>
+   * The latest time at which the permit remains valid.
+   *
    * @public
    */
   export interface AllowBeforeMember {
@@ -137,7 +147,8 @@ export namespace Condition {
 }
 
 /**
- * <p>The set of resources authorized by a permit. Specify either all resources in the Region or a list of specific resources.</p>
+ * The set of resources authorized by a permit. Specify either all resources in the Region or a list of specific resources.
+ *
  * @public
  */
 export type ResourceSet =
@@ -150,7 +161,8 @@ export type ResourceSet =
  */
 export namespace ResourceSet {
   /**
-   * <p>Authorizes the support operator to act on all resources in the Region.</p>
+   * Authorizes the support operator to act on all resources in the Region.
+   *
    * @public
    */
   export interface AllResourcesInRegionMember {
@@ -160,7 +172,8 @@ export namespace ResourceSet {
   }
 
   /**
-   * <p>A list of specific resource identifiers that the support operator is authorized to act upon. Maximum of 5 resources.</p>
+   * A list of specific resource identifiers that the support operator is authorized to act upon. Maximum of 5 resources.
+   *
    * @public
    */
   export interface ResourcesMember {
@@ -190,31 +203,36 @@ export namespace ResourceSet {
 }
 
 /**
- * <p>The permit definition specifying the authorized actions, resources, and time-window conditions for a support operator.</p>
+ * The permit definition specifying the authorized actions, resources, and time-window conditions for a support operator.
+ *
  * @public
  */
 export interface Permit {
   /**
-   * <p>The set of actions that the support operator is authorized to perform.</p>
+   * The set of actions that the support operator is authorized to perform.
+   *
    * @public
    */
   actions: ActionSet | undefined;
 
   /**
-   * <p>The set of resources that the support operator is authorized to act upon.</p>
+   * The set of resources that the support operator is authorized to act upon.
+   *
    * @public
    */
   resources: ResourceSet | undefined;
 
   /**
-   * <p>The time-window conditions that constrain when the permit is valid. Maximum of 2 conditions.</p>
+   * The time-window conditions that constrain when the permit is valid. Maximum of 2 conditions.
+   *
    * @public
    */
   conditions?: Condition[] | undefined;
 }
 
 /**
- * <p>The signing key used to cryptographically sign a support permit.</p>
+ * The signing key used to cryptographically sign a support permit.
+ *
  * @public
  */
 export type SigningKeyInfo =
@@ -226,7 +244,8 @@ export type SigningKeyInfo =
  */
 export namespace SigningKeyInfo {
   /**
-   * <p>The ARN of the AWS KMS key used to sign the permit. The key must have key spec ECC_NIST_P384 and key usage SIGN_VERIFY.</p>
+   * The ARN of the AWS KMS key used to sign the permit. The key must have key spec ECC_NIST_P384 and key usage SIGN_VERIFY.
+   *
    * @public
    */
   export interface KmsKeyMember {
@@ -257,43 +276,50 @@ export namespace SigningKeyInfo {
  */
 export interface CreateSupportPermitInput {
   /**
-   * <p>The permit definition specifying the actions, resources, and time-window conditions that the support operator is authorized to use.</p>
+   * The permit definition specifying the actions, resources, and time-window conditions that the support operator is authorized to use.
+   *
    * @public
    */
   permit: Permit | undefined;
 
   /**
-   * <p>A customer-chosen name for the support permit. Must be between 1 and 256 alphanumeric characters.</p>
+   * A customer-chosen name for the support permit. Must be between 1 and 256 alphanumeric characters.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A human-readable description of why this permit is being created. Maximum length of 1024 characters.</p>
+   * A human-readable description of why this permit is being created. Maximum length of 1024 characters.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The signing key information used to sign the permit. Must reference an AWS KMS key with key usage SIGN_VERIFY and key spec ECC_NIST_P384.</p>
+   * The signing key information used to sign the permit. Must reference an AWS KMS key with key usage SIGN_VERIFY and key spec ECC_NIST_P384.
+   *
    * @public
    */
   signingKeyInfo: SigningKeyInfo | undefined;
 
   /**
-   * <p>The display identifier of the AWS Support case associated with this permit.</p>
+   * The display identifier of the AWS Support case associated with this permit.
+   *
    * @public
    */
   supportCaseDisplayId?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, the service returns the existing permit without creating a duplicate.</p>
+   * A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, the service returns the existing permit without creating a duplicate.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The tags to associate with the support permit on creation.</p>
+   * The tags to associate with the support permit on creation.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -304,73 +330,85 @@ export interface CreateSupportPermitInput {
  */
 export interface CreateSupportPermitOutput {
   /**
-   * <p>The name of the support permit.</p>
+   * The name of the support permit.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the support permit.</p>
+   * The Amazon Resource Name (ARN) of the support permit.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The description of the support permit.</p>
+   * The description of the support permit.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The permit definition.</p>
+   * The permit definition.
+   *
    * @public
    */
   permit: Permit | undefined;
 
   /**
-   * <p>The current status of the support permit.</p>
+   * The current status of the support permit.
+   *
    * @public
    */
   status: SupportPermitStatus | undefined;
 
   /**
-   * <p>The signing key information for the permit.</p>
+   * The signing key information for the permit.
+   *
    * @public
    */
   signingKeyInfo: SigningKeyInfo | undefined;
 
   /**
-   * <p>The timestamp when the permit was created.</p>
+   * The timestamp when the permit was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The display identifier of the support case associated with the permit.</p>
+   * The display identifier of the support case associated with the permit.
+   *
    * @public
    */
   supportCaseDisplayId?: string | undefined;
 
   /**
-   * <p>The tags associated with the support permit.</p>
+   * The tags associated with the support permit.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Describes one specific validation failure for an input member.</p>
+ * Describes one specific validation failure for an input member.
+ *
  * @public
  */
 export interface ValidationExceptionField {
   /**
-   * <p>A JSONPointer expression to the structure member whose value failed to satisfy the modeled constraints.</p>
+   * A JSONPointer expression to the structure member whose value failed to satisfy the modeled constraints.
+   *
    * @public
    */
   path: string | undefined;
 
   /**
-   * <p>A detailed description of the validation failure.</p>
+   * A detailed description of the validation failure.
+   *
    * @public
    */
   message: string | undefined;
@@ -381,7 +419,8 @@ export interface ValidationExceptionField {
  */
 export interface DeleteSupportPermitInput {
   /**
-   * <p>The Amazon Resource Name (ARN) or name of the support permit to delete.</p>
+   * The Amazon Resource Name (ARN) or name of the support permit to delete.
+   *
    * @public
    */
   supportPermitIdentifier: string | undefined;
@@ -392,49 +431,57 @@ export interface DeleteSupportPermitInput {
  */
 export interface DeleteSupportPermitOutput {
   /**
-   * <p>The name of the deleted support permit.</p>
+   * The name of the deleted support permit.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ARN of the deleted support permit.</p>
+   * The ARN of the deleted support permit.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The description of the deleted support permit.</p>
+   * The description of the deleted support permit.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The permit definition of the deleted permit.</p>
+   * The permit definition of the deleted permit.
+   *
    * @public
    */
   permit: Permit | undefined;
 
   /**
-   * <p>The status of the support permit. Returns DELETING.</p>
+   * The status of the support permit. Returns DELETING.
+   *
    * @public
    */
   status: SupportPermitStatus | undefined;
 
   /**
-   * <p>The signing key information for the deleted permit.</p>
+   * The signing key information for the deleted permit.
+   *
    * @public
    */
   signingKeyInfo: SigningKeyInfo | undefined;
 
   /**
-   * <p>The timestamp when the permit was originally created.</p>
+   * The timestamp when the permit was originally created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The display identifier of the support case associated with the deleted permit.</p>
+   * The display identifier of the support case associated with the deleted permit.
+   *
    * @public
    */
   supportCaseDisplayId?: string | undefined;
@@ -445,7 +492,8 @@ export interface DeleteSupportPermitOutput {
  */
 export interface GetActionInput {
   /**
-   * <p>The name of the support action to retrieve.</p>
+   * The name of the support action to retrieve.
+   *
    * @public
    */
   action: string | undefined;
@@ -456,19 +504,22 @@ export interface GetActionInput {
  */
 export interface GetActionOutput {
   /**
-   * <p>The name of the support action.</p>
+   * The name of the support action.
+   *
    * @public
    */
   action: string | undefined;
 
   /**
-   * <p>The AWS service associated with the support action.</p>
+   * The AWS service associated with the support action.
+   *
    * @public
    */
   service: string | undefined;
 
   /**
-   * <p>A description of what the support action does.</p>
+   * A description of what the support action does.
+   *
    * @public
    */
   description: string | undefined;
@@ -479,7 +530,8 @@ export interface GetActionOutput {
  */
 export interface GetSupportPermitInput {
   /**
-   * <p>The ARN or name of the support permit to retrieve.</p>
+   * The ARN or name of the support permit to retrieve.
+   *
    * @public
    */
   supportPermitIdentifier: string | undefined;
@@ -490,55 +542,64 @@ export interface GetSupportPermitInput {
  */
 export interface GetSupportPermitOutput {
   /**
-   * <p>The name of the support permit.</p>
+   * The name of the support permit.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ARN of the support permit.</p>
+   * The ARN of the support permit.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The description of the support permit.</p>
+   * The description of the support permit.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The permit definition.</p>
+   * The permit definition.
+   *
    * @public
    */
   permit: Permit | undefined;
 
   /**
-   * <p>The current status of the support permit.</p>
+   * The current status of the support permit.
+   *
    * @public
    */
   status: SupportPermitStatus | undefined;
 
   /**
-   * <p>The signing key information for the permit.</p>
+   * The signing key information for the permit.
+   *
    * @public
    */
   signingKeyInfo: SigningKeyInfo | undefined;
 
   /**
-   * <p>The timestamp when the permit was created.</p>
+   * The timestamp when the permit was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The display identifier of the support case associated with the permit.</p>
+   * The display identifier of the support case associated with the permit.
+   *
    * @public
    */
   supportCaseDisplayId?: string | undefined;
 
   /**
-   * <p>The tags associated with the support permit.</p>
+   * The tags associated with the support permit.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -549,19 +610,22 @@ export interface GetSupportPermitOutput {
  */
 export interface ListActionsInput {
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. Valid range is 1 to 100.</p>
+   * The maximum number of results to return in a single call. Valid range is 1 to 100.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The name of the AWS service for which to list available support actions.</p>
+   * The name of the AWS service for which to list available support actions.
+   *
    * @public
    */
   service: string | undefined;
@@ -572,13 +636,15 @@ export interface ListActionsInput {
  */
 export interface ListActionsOutput {
   /**
-   * <p>The list of support actions.</p>
+   * The list of support actions.
+   *
    * @public
    */
   actionSummaries: ActionSummary[] | undefined;
 
   /**
-   * <p>The token for the next page of results, or null if there are no more results.</p>
+   * The token for the next page of results, or null if there are no more results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -589,61 +655,71 @@ export interface ListActionsOutput {
  */
 export interface ListSupportPermitRequestsInput {
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. Valid range is 1 to 100.</p>
+   * The maximum number of results to return in a single call. Valid range is 1 to 100.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Filters the results by support case display identifier.</p>
+   * Filters the results by support case display identifier.
+   *
    * @public
    */
   supportCaseDisplayId?: string | undefined;
 }
 
 /**
- * <p>A permit request from an AWS support operator.</p>
+ * A permit request from an AWS support operator.
+ *
  * @public
  */
 export interface SupportPermitRequest {
   /**
-   * <p>The ARN of the permit request.</p>
+   * The ARN of the permit request.
+   *
    * @public
    */
   requestArn: string | undefined;
 
   /**
-   * <p>The permit definition requested by the operator.</p>
+   * The permit definition requested by the operator.
+   *
    * @public
    */
   permit: Permit | undefined;
 
   /**
-   * <p>The display identifier of the support case associated with the request.</p>
+   * The display identifier of the support case associated with the request.
+   *
    * @public
    */
   supportCaseDisplayId: string | undefined;
 
   /**
-   * <p>The current status of the permit request.</p>
+   * The current status of the permit request.
+   *
    * @public
    */
   status: SupportPermitRequestStatus | undefined;
 
   /**
-   * <p>The timestamp when the request was created.</p>
+   * The timestamp when the request was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the request was last updated.</p>
+   * The timestamp when the request was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -654,13 +730,15 @@ export interface SupportPermitRequest {
  */
 export interface ListSupportPermitRequestsOutput {
   /**
-   * <p>The list of permit requests.</p>
+   * The list of permit requests.
+   *
    * @public
    */
   supportPermitRequests: SupportPermitRequest[] | undefined;
 
   /**
-   * <p>The token for the next page of results, or null if there are no more results.</p>
+   * The token for the next page of results, or null if there are no more results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -671,67 +749,78 @@ export interface ListSupportPermitRequestsOutput {
  */
 export interface ListSupportPermitsInput {
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. Valid range is 1 to 100.</p>
+   * The maximum number of results to return in a single call. Valid range is 1 to 100.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Filters the results by support permit status. Valid values: ACTIVE, INACTIVE, DELETING.</p>
+   * Filters the results by support permit status. Valid values: ACTIVE, INACTIVE, DELETING.
+   *
    * @public
    */
   supportPermitStatuses?: SupportPermitStatus[] | undefined;
 }
 
 /**
- * <p>A summary of a support permit.</p>
+ * A summary of a support permit.
+ *
  * @public
  */
 export interface SupportPermitSummary {
   /**
-   * <p>The name of the support permit.</p>
+   * The name of the support permit.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ARN of the support permit.</p>
+   * The ARN of the support permit.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The permit definition.</p>
+   * The permit definition.
+   *
    * @public
    */
   permit: Permit | undefined;
 
   /**
-   * <p>The current status of the support permit.</p>
+   * The current status of the support permit.
+   *
    * @public
    */
   status: SupportPermitStatus | undefined;
 
   /**
-   * <p>The signing key information for the permit.</p>
+   * The signing key information for the permit.
+   *
    * @public
    */
   signingKeyInfo: SigningKeyInfo | undefined;
 
   /**
-   * <p>The timestamp when the permit was created.</p>
+   * The timestamp when the permit was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The display identifier of the support case associated with the permit.</p>
+   * The display identifier of the support case associated with the permit.
+   *
    * @public
    */
   supportCaseDisplayId?: string | undefined;
@@ -742,13 +831,15 @@ export interface SupportPermitSummary {
  */
 export interface ListSupportPermitsOutput {
   /**
-   * <p>The list of support permits.</p>
+   * The list of support permits.
+   *
    * @public
    */
   supportPermits: SupportPermitSummary[] | undefined;
 
   /**
-   * <p>The token for the next page of results, or null if there are no more results.</p>
+   * The token for the next page of results, or null if there are no more results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -759,7 +850,8 @@ export interface ListSupportPermitsOutput {
  */
 export interface ListTagsForResourceInput {
   /**
-   * <p>The ARN of the resource to list tags for.</p>
+   * The ARN of the resource to list tags for.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -770,7 +862,8 @@ export interface ListTagsForResourceInput {
  */
 export interface ListTagsForResourceOutput {
   /**
-   * <p>The tags associated with the resource.</p>
+   * The tags associated with the resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -781,7 +874,8 @@ export interface ListTagsForResourceOutput {
  */
 export interface RejectSupportPermitRequestInput {
   /**
-   * <p>The ARN of the permit request to reject.</p>
+   * The ARN of the permit request to reject.
+   *
    * @public
    */
   requestArn: string | undefined;
@@ -792,7 +886,8 @@ export interface RejectSupportPermitRequestInput {
  */
 export interface RejectSupportPermitRequestOutput {
   /**
-   * <p>The ARN of the rejected permit request.</p>
+   * The ARN of the rejected permit request.
+   *
    * @public
    */
   requestArn: string | undefined;
@@ -803,13 +898,15 @@ export interface RejectSupportPermitRequestOutput {
  */
 export interface TagResourceInput {
   /**
-   * <p>The ARN of the resource to tag.</p>
+   * The ARN of the resource to tag.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The tags to add to the resource. Maximum of 50 tags.</p>
+   * The tags to add to the resource. Maximum of 50 tags.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -825,13 +922,15 @@ export interface TagResourceOutput {}
  */
 export interface UntagResourceInput {
   /**
-   * <p>The ARN of the resource to untag.</p>
+   * The ARN of the resource to untag.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The tag keys to remove from the resource.</p>
+   * The tag keys to remove from the resource.
+   *
    * @public
    */
   tagKeys: string[] | undefined;

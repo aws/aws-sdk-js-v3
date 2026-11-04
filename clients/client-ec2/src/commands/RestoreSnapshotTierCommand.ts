@@ -23,11 +23,10 @@ export interface RestoreSnapshotTierCommandInput extends RestoreSnapshotTierRequ
 export interface RestoreSnapshotTierCommandOutput extends RestoreSnapshotTierResult, __MetadataBearer {}
 
 /**
- * <p>Restores an archived Amazon EBS snapshot for use temporarily or permanently, or modifies the restore
- *       period or restore type for a snapshot that was previously temporarily restored.</p>
- *          <p>For more information see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/working-with-snapshot-archiving.html#restore-archived-snapshot">
- *       Restore an archived snapshot</a> and <a href="https://docs.aws.amazon.com/ebs/latest/userguide/working-with-snapshot-archiving.html#modify-temp-restore-period">
- *         modify the restore period or restore type for a temporarily restored snapshot</a> in the <i>Amazon EBS User Guide</i>.</p>
+ * Restores an archived Amazon EBS snapshot for use temporarily or permanently, or modifies the restore period or restore type for a snapshot that was previously temporarily restored.
+ *
+ * For more information see [Restore an archived snapshot](https://docs.aws.amazon.com/ebs/latest/userguide/working-with-snapshot-archiving.html#restore-archived-snapshot) and [modify the restore period or restore type for a temporarily restored snapshot](https://docs.aws.amazon.com/ebs/latest/userguide/working-with-snapshot-archiving.html#modify-temp-restore-period) in the *Amazon EBS User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,8 +59,8 @@ export interface RestoreSnapshotTierCommandOutput extends RestoreSnapshotTierRes
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

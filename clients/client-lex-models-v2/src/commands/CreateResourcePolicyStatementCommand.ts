@@ -23,13 +23,12 @@ export interface CreateResourcePolicyStatementCommandInput extends CreateResourc
 export interface CreateResourcePolicyStatementCommandOutput extends CreateResourcePolicyStatementResponse, __MetadataBearer {}
 
 /**
- * <p>Adds a new resource policy statement to a bot or bot alias. If a
- *          resource policy exists, the statement is added to the current resource
- *          policy. If a policy doesn't exist, a new policy is created.</p>
- *          <p>You can't create a resource policy statement that allows
- *          cross-account access.</p>
- *          <p>You need to add the <code>CreateResourcePolicy</code> or <code>UpdateResourcePolicy</code>
- *          action to the bot role in order to call the API.</p>
+ * Adds a new resource policy statement to a bot or bot alias. If a resource policy exists, the statement is added to the current resource policy. If a policy doesn't exist, a new policy is created.
+ *
+ * You can't create a resource policy statement that allows cross-account access.
+ *
+ * You need to add the `CreateResourcePolicy` or `UpdateResourcePolicy` action to the bot role in order to call the API.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,37 +73,36 @@ export interface CreateResourcePolicyStatementCommandOutput extends CreateResour
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The action that you tried to perform couldn't be completed because
- *          the resource is in a conflicting state. For example, deleting a bot
- *          that is in the CREATING state. Try your request again. </p>
+ *
+ * The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The service encountered an unexpected condition. Try your request
- *          again.</p>
+ *
+ * The service encountered an unexpected condition. Try your request again.
  *
  * @throws {@link PreconditionFailedException} (client fault)
- *  <p>Your request couldn't be completed because one or more request
- *          fields aren't valid. Check the fields in your request and try
- *          again.</p>
+ *
+ * Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>You asked to describe a resource that doesn't exist. Check the
- *          resource that you are requesting and try again.</p>
+ *
+ * You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You have reached a quota for your bot. </p>
+ *
+ * You have reached a quota for your bot.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Your request rate is too high. Reduce the frequency of
- *          requests.</p>
+ *
+ * Your request rate is too high. Reduce the frequency of requests.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One of the input parameters in your request isn't valid. Check the
- *          parameters and try your request again.</p>
+ *
+ * One of the input parameters in your request isn't valid. Check the parameters and try your request again.
  *
  * @throws {@link LexModelsV2ServiceException}
- * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * Base exception class for all service exceptions from LexModelsV2 service.
  *
  * @public
  */

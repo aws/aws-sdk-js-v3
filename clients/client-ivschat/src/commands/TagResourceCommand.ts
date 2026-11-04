@@ -23,7 +23,8 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Adds or updates tags for the AWS resource with the specified ARN.</p>
+ * Adds or updates tags for the AWS resource with the specified ARN.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,17 +52,14 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link IvschatClientResolvedConfig | config} for IvschatClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p/>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p/>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p/>
  *
  * @throws {@link IvschatServiceException}
- * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
+ * Base exception class for all service exceptions from Ivschat service.
  *
  * @public
  */

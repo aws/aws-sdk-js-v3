@@ -19,24 +19,28 @@ import type {
 } from "./enums";
 
 /**
- * <p>The configuration of the workload.</p>
+ * The configuration of the workload.
+ *
  * @public
  */
 export interface WorkloadConfiguration {
   /**
-   * <p>The name of the workload.</p>
+   * The name of the workload.
+   *
    * @public
    */
   WorkloadName?: string | undefined;
 
   /**
-   * <p>The configuration of the workload tier.</p>
+   * The configuration of the workload tier.
+   *
    * @public
    */
   Tier?: Tier | undefined;
 
   /**
-   * <p>The configuration settings of the workload.</p>
+   * The configuration settings of the workload.
+   *
    * @public
    */
   Configuration?: string | undefined;
@@ -47,19 +51,22 @@ export interface WorkloadConfiguration {
  */
 export interface AddWorkloadRequest {
   /**
-   * <p>The name of the resource group.</p>
+   * The name of the resource group.
+   *
    * @public
    */
   ResourceGroupName: string | undefined;
 
   /**
-   * <p>The name of the component.</p>
+   * The name of the component.
+   *
    * @public
    */
   ComponentName: string | undefined;
 
   /**
-   * <p>The configuration settings of the workload. The value is the escaped JSON of the configuration.</p>
+   * The configuration settings of the workload. The value is the escaped JSON of the configuration.
+   *
    * @public
    */
   WorkloadConfiguration: WorkloadConfiguration | undefined;
@@ -70,252 +77,248 @@ export interface AddWorkloadRequest {
  */
 export interface AddWorkloadResponse {
   /**
-   * <p>The ID of the workload.</p>
+   * The ID of the workload.
+   *
    * @public
    */
   WorkloadId?: string | undefined;
 
   /**
-   * <p>The configuration settings of the workload. The value is the escaped JSON of the configuration.</p>
+   * The configuration settings of the workload. The value is the escaped JSON of the configuration.
+   *
    * @public
    */
   WorkloadConfiguration?: WorkloadConfiguration | undefined;
 }
 
 /**
- * <p>Describes a standalone resource or similarly grouped resources that the application is
- *          made up of.</p>
+ * Describes a standalone resource or similarly grouped resources that the application is made up of.
+ *
  * @public
  */
 export interface ApplicationComponent {
   /**
-   * <p>The name of the component.</p>
+   * The name of the component.
+   *
    * @public
    */
   ComponentName?: string | undefined;
 
   /**
-   * <p> If logging is supported for the resource type, indicates whether the component has
-   *          configured logs to be monitored. </p>
+   * If logging is supported for the resource type, indicates whether the component has configured logs to be monitored.
+   *
    * @public
    */
   ComponentRemarks?: string | undefined;
 
   /**
-   * <p>The resource type. Supported resource types include EC2 instances, Auto Scaling group,
-   *          Classic ELB, Application ELB, and SQS Queue.</p>
+   * The resource type. Supported resource types include EC2 instances, Auto Scaling group, Classic ELB, Application ELB, and SQS Queue.
+   *
    * @public
    */
   ResourceType?: string | undefined;
 
   /**
-   * <p> The operating system of the component. </p>
+   * The operating system of the component.
+   *
    * @public
    */
   OsType?: OsType | undefined;
 
   /**
-   * <p>The stack tier of the application component.</p>
+   * The stack tier of the application component.
+   *
    * @public
    */
   Tier?: Tier | undefined;
 
   /**
-   * <p>Indicates whether the application component is monitored. </p>
+   * Indicates whether the application component is monitored.
+   *
    * @public
    */
   Monitor?: boolean | undefined;
 
   /**
-   * <p> Workloads detected in the application component. </p>
+   * Workloads detected in the application component.
+   *
    * @public
    */
   DetectedWorkload?: Partial<Record<Tier, Record<string, string>>> | undefined;
 }
 
 /**
- * <p>Describes the status of the application.</p>
+ * Describes the status of the application.
+ *
  * @public
  */
 export interface ApplicationInfo {
   /**
-   * <p>The Amazon Web Services account ID for the owner of the application.</p>
+   * The Amazon Web Services account ID for the owner of the application.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The name of the resource group used for the application.</p>
+   * The name of the resource group used for the application.
+   *
    * @public
    */
   ResourceGroupName?: string | undefined;
 
   /**
-   * <p>The lifecycle of the application. </p>
+   * The lifecycle of the application.
+   *
    * @public
    */
   LifeCycle?: string | undefined;
 
   /**
-   * <p> The SNS topic provided to Application Insights that is associated to the created
-   *          opsItems to receive SNS notifications for opsItem updates. </p>
+   * The SNS topic provided to Application Insights that is associated to the created opsItems to receive SNS notifications for opsItem updates.
+   *
    * @public
    */
   OpsItemSNSTopicArn?: string | undefined;
 
   /**
-   * <p>
-   *          The SNS topic ARN that is associated with SNS notifications for updates or issues.
-   *       </p>
+   * The SNS topic ARN that is associated with SNS notifications for updates or issues.
+   *
    * @public
    */
   SNSNotificationArn?: string | undefined;
 
   /**
-   * <p> Indicates whether Application Insights will create opsItems for any problem detected by
-   *          Application Insights for an application. </p>
+   * Indicates whether Application Insights will create opsItems for any problem detected by Application Insights for an application.
+   *
    * @public
    */
   OpsCenterEnabled?: boolean | undefined;
 
   /**
-   * <p> Indicates whether Application Insights can listen to CloudWatch events for the
-   *          application resources, such as <code>instance terminated</code>, <code>failed
-   *             deployment</code>, and others. </p>
+   * Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as `instance terminated`, `failed deployment`, and others.
+   *
    * @public
    */
   CWEMonitorEnabled?: boolean | undefined;
 
   /**
-   * <p>The issues on the user side that block Application Insights from successfully monitoring
-   *          an application. Example remarks include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>“Configuring application, detected 1 Errors, 3 Warnings”</p>
-   *             </li>
-   *             <li>
-   *                <p>“Configuring application, detected 1 Unconfigured Components”</p>
-   *             </li>
-   *          </ul>
+   * The issues on the user side that block Application Insights from successfully monitoring an application. Example remarks include:
+   *
+   * - “Configuring application, detected 1 Errors, 3 Warnings”
+   * - “Configuring application, detected 1 Unconfigured Components”
+   *
    * @public
    */
   Remarks?: string | undefined;
 
   /**
-   * <p> Indicates whether auto-configuration is turned on for this application. </p>
+   * Indicates whether auto-configuration is turned on for this application.
+   *
    * @public
    */
   AutoConfigEnabled?: boolean | undefined;
 
   /**
-   * <p> The method used by Application Insights to onboard your resources. </p>
+   * The method used by Application Insights to onboard your resources.
+   *
    * @public
    */
   DiscoveryType?: DiscoveryType | undefined;
 
   /**
-   * <p>If set to true, the managed policies for SSM and CW will be attached to the instance roles if they are missing.</p>
+   * If set to true, the managed policies for SSM and CW will be attached to the instance roles if they are missing.
+   *
    * @public
    */
   AttachMissingPermission?: boolean | undefined;
 }
 
 /**
- * <p> The event information. </p>
+ * The event information.
+ *
  * @public
  */
 export interface ConfigurationEvent {
   /**
-   * <p>The name of the resource group of the application to which the configuration event belongs.</p>
+   * The name of the resource group of the application to which the configuration event belongs.
+   *
    * @public
    */
   ResourceGroupName?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID for the owner of the application to which the configuration event belongs.</p>
+   * The Amazon Web Services account ID for the owner of the application to which the configuration event belongs.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p> The resource monitored by Application Insights. </p>
+   * The resource monitored by Application Insights.
+   *
    * @public
    */
   MonitoredResourceARN?: string | undefined;
 
   /**
-   * <p> The status of the configuration update event. Possible values include INFO, WARN, and
-   *          ERROR. </p>
+   * The status of the configuration update event. Possible values include INFO, WARN, and ERROR.
+   *
    * @public
    */
   EventStatus?: ConfigurationEventStatus | undefined;
 
   /**
-   * <p> The resource type that Application Insights attempted to configure, for example,
-   *          CLOUDWATCH_ALARM. </p>
+   * The resource type that Application Insights attempted to configure, for example, CLOUDWATCH_ALARM.
+   *
    * @public
    */
   EventResourceType?: ConfigurationEventResourceType | undefined;
 
   /**
-   * <p> The timestamp of the event. </p>
+   * The timestamp of the event.
+   *
    * @public
    */
   EventTime?: Date | undefined;
 
   /**
-   * <p> The details of the event in plain text. </p>
+   * The details of the event in plain text.
+   *
    * @public
    */
   EventDetail?: string | undefined;
 
   /**
-   * <p> The name of the resource Application Insights attempted to configure. </p>
+   * The name of the resource Application Insights attempted to configure.
+   *
    * @public
    */
   EventResourceName?: string | undefined;
 }
 
 /**
- * <p>An object that defines the tags associated with an application. A
- *             <i>tag</i> is a label that you optionally define and associate with an
- *          application. Tags can help you categorize and manage resources in different ways, such as
- *          by purpose, owner, environment, or other criteria.</p>
- *          <p>Each tag consists of a required <i>tag key</i> and an associated
- *             <i>tag value</i>, both of which you define. A tag key is a general label
- *          that acts as a category for a more specific tag value. A tag value acts as a descriptor
- *          within a tag key. A tag key can contain as many as 128 characters. A tag value can contain
- *          as many as 256 characters. The characters can be Unicode letters, digits, white space, or
- *          one of the following symbols: _ . : / = + -. The following additional restrictions apply to
- *          tags:</p>
- *          <ul>
- *             <li>
- *                <p>Tag keys and values are case sensitive.</p>
- *             </li>
- *             <li>
- *                <p>For each associated resource, each tag key must be unique and it can have only one
- *                value.</p>
- *             </li>
- *             <li>
- *                <p>The <code>aws:</code> prefix is reserved for use by Amazon Web Services; you can’t use it in any
- *                tag keys or values that you define. In addition, you can't edit or remove tag keys or
- *                values that use this prefix. </p>
- *             </li>
- *          </ul>
+ * An object that defines the tags associated with an application. A *tag* is a label that you optionally define and associate with an application. Tags can help you categorize and manage resources in different ways, such as by purpose, owner, environment, or other criteria.
+ *
+ * Each tag consists of a required *tag key* and an associated *tag value*, both of which you define. A tag key is a general label that acts as a category for a more specific tag value. A tag value acts as a descriptor within a tag key. A tag key can contain as many as 128 characters. A tag value can contain as many as 256 characters. The characters can be Unicode letters, digits, white space, or one of the following symbols: _ . : / = + -. The following additional restrictions apply to tags:
+ *
+ * - Tag keys and values are case sensitive.
+ * - For each associated resource, each tag key must be unique and it can have only one value.
+ * - The `aws:` prefix is reserved for use by Amazon Web Services; you can’t use it in any tag keys or values that you define. In addition, you can't edit or remove tag keys or values that use this prefix.
+ *
  * @public
  */
 export interface Tag {
   /**
-   * <p>One part of a key-value pair that defines a tag. The maximum length of a tag key is 128
-   *          characters. The minimum length is 1 character.</p>
+   * One part of a key-value pair that defines a tag. The maximum length of a tag key is 128 characters. The minimum length is 1 character.
+   *
    * @public
    */
   Key: string | undefined;
 
   /**
-   * <p>The optional part of a key-value pair that defines a tag. The maximum length of a tag
-   *          value is 256 characters. The minimum length is 0 characters. If you don't want an
-   *          application to have a specific tag value, don't specify a value for this parameter.</p>
+   * The optional part of a key-value pair that defines a tag. The maximum length of a tag value is 256 characters. The minimum length is 0 characters. If you don't want an application to have a specific tag value, don't specify a value for this parameter.
+   *
    * @public
    */
   Value: string | undefined;
@@ -326,73 +329,71 @@ export interface Tag {
  */
 export interface CreateApplicationRequest {
   /**
-   * <p>The name of the resource group.</p>
+   * The name of the resource group.
+   *
    * @public
    */
   ResourceGroupName?: string | undefined;
 
   /**
-   * <p> When set to <code>true</code>, creates opsItems for any problems detected on an
-   *          application. </p>
+   * When set to `true`, creates opsItems for any problems detected on an application.
+   *
    * @public
    */
   OpsCenterEnabled?: boolean | undefined;
 
   /**
-   * <p> Indicates whether Application Insights can listen to CloudWatch events for the
-   *          application resources, such as <code>instance terminated</code>, <code>failed
-   *             deployment</code>, and others. </p>
+   * Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as `instance terminated`, `failed deployment`, and others.
+   *
    * @public
    */
   CWEMonitorEnabled?: boolean | undefined;
 
   /**
-   * <p> The SNS topic provided to Application Insights that is associated to the created
-   *          opsItem. Allows you to receive notifications for updates to the opsItem. </p>
+   * The SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
+   *
    * @public
    */
   OpsItemSNSTopicArn?: string | undefined;
 
   /**
-   * <p>
-   *          The SNS notification topic ARN.
-   *       </p>
+   * The SNS notification topic ARN.
+   *
    * @public
    */
   SNSNotificationArn?: string | undefined;
 
   /**
-   * <p>List of tags to add to the application. tag key (<code>Key</code>) and an associated tag
-   *          value (<code>Value</code>). The maximum length of a tag key is 128 characters. The maximum
-   *          length of a tag value is 256 characters.</p>
+   * List of tags to add to the application. tag key (`Key`) and an associated tag value (`Value`). The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p> Indicates whether Application Insights automatically configures unmonitored resources
-   *          in the resource group. </p>
+   * Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
+   *
    * @public
    */
   AutoConfigEnabled?: boolean | undefined;
 
   /**
-   * <p> Configures all of the resources in the resource group by applying the recommended
-   *          configurations. </p>
+   * Configures all of the resources in the resource group by applying the recommended configurations.
+   *
    * @public
    */
   AutoCreate?: boolean | undefined;
 
   /**
-   * <p>Application Insights can create applications based on a resource group or on an account.
-   *          To create an account-based application using all of the resources in the account, set this
-   *          parameter to <code>ACCOUNT_BASED</code>. </p>
+   * Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
+   *
    * @public
    */
   GroupingType?: GroupingType | undefined;
 
   /**
-   * <p>If set to true, the managed policies for SSM and CW will be attached to the instance roles if they are missing.</p>
+   * If set to true, the managed policies for SSM and CW will be attached to the instance roles if they are missing.
+   *
    * @public
    */
   AttachMissingPermission?: boolean | undefined;
@@ -403,7 +404,8 @@ export interface CreateApplicationRequest {
  */
 export interface CreateApplicationResponse {
   /**
-   * <p>Information about the application.</p>
+   * Information about the application.
+   *
    * @public
    */
   ApplicationInfo?: ApplicationInfo | undefined;
@@ -414,19 +416,22 @@ export interface CreateApplicationResponse {
  */
 export interface CreateComponentRequest {
   /**
-   * <p>The name of the resource group.</p>
+   * The name of the resource group.
+   *
    * @public
    */
   ResourceGroupName: string | undefined;
 
   /**
-   * <p>The name of the component.</p>
+   * The name of the component.
+   *
    * @public
    */
   ComponentName: string | undefined;
 
   /**
-   * <p>The list of resource ARNs that belong to the component.</p>
+   * The list of resource ARNs that belong to the component.
+   *
    * @public
    */
   ResourceList: string[] | undefined;
@@ -442,87 +447,71 @@ export interface CreateComponentResponse {}
  */
 export interface CreateLogPatternRequest {
   /**
-   * <p>The name of the resource group.</p>
+   * The name of the resource group.
+   *
    * @public
    */
   ResourceGroupName: string | undefined;
 
   /**
-   * <p>The name of the log pattern set.</p>
+   * The name of the log pattern set.
+   *
    * @public
    */
   PatternSetName: string | undefined;
 
   /**
-   * <p>The name of the log pattern.</p>
+   * The name of the log pattern.
+   *
    * @public
    */
   PatternName: string | undefined;
 
   /**
-   * <p>The log pattern. The pattern must be DFA compatible. Patterns that utilize forward
-   *          lookahead or backreference constructions are not supported.</p>
+   * The log pattern. The pattern must be DFA compatible. Patterns that utilize forward lookahead or backreference constructions are not supported.
+   *
    * @public
    */
   Pattern: string | undefined;
 
   /**
-   * <p>Rank of the log pattern. Must be a value between <code>1</code> and
-   *             <code>1,000,000</code>. The patterns are sorted by rank, so we recommend that you set
-   *          your highest priority patterns with the lowest rank. A pattern of rank <code>1</code> will
-   *          be the first to get matched to a log line. A pattern of rank <code>1,000,000</code> will be
-   *          last to get matched. When you configure custom log patterns from the console, a
-   *             <code>Low</code> severity pattern translates to a <code>750,000</code> rank. A
-   *             <code>Medium</code> severity pattern translates to a <code>500,000</code> rank. And a
-   *             <code>High</code> severity pattern translates to a <code>250,000</code> rank. Rank
-   *          values less than <code>1</code> or greater than <code>1,000,000</code> are reserved for
-   *          Amazon Web Services provided patterns. </p>
+   * Rank of the log pattern. Must be a value between `1` and `1,000,000`. The patterns are sorted by rank, so we recommend that you set your highest priority patterns with the lowest rank. A pattern of rank `1` will be the first to get matched to a log line. A pattern of rank `1,000,000` will be last to get matched. When you configure custom log patterns from the console, a `Low` severity pattern translates to a `750,000` rank. A `Medium` severity pattern translates to a `500,000` rank. And a `High` severity pattern translates to a `250,000` rank. Rank values less than `1` or greater than `1,000,000` are reserved for Amazon Web Services provided patterns.
+   *
    * @public
    */
   Rank: number | undefined;
 }
 
 /**
- * <p>An object that defines the log patterns that belongs to a
- *          <code>LogPatternSet</code>.</p>
+ * An object that defines the log patterns that belongs to a `LogPatternSet`.
+ *
  * @public
  */
 export interface LogPattern {
   /**
-   * <p>The name of the log pattern. A log pattern name can contain as many as 30 characters,
-   *          and it cannot be empty. The characters can be Unicode letters, digits, or one of the
-   *          following symbols: period, dash, underscore.</p>
+   * The name of the log pattern. A log pattern name can contain as many as 30 characters, and it cannot be empty. The characters can be Unicode letters, digits, or one of the following symbols: period, dash, underscore.
+   *
    * @public
    */
   PatternSetName?: string | undefined;
 
   /**
-   * <p>The name of the log pattern. A log pattern name can contain as many as 50 characters,
-   *          and it cannot be empty. The characters can be Unicode letters, digits, or one of the
-   *          following symbols: period, dash, underscore.</p>
+   * The name of the log pattern. A log pattern name can contain as many as 50 characters, and it cannot be empty. The characters can be Unicode letters, digits, or one of the following symbols: period, dash, underscore.
+   *
    * @public
    */
   PatternName?: string | undefined;
 
   /**
-   * <p>A regular expression that defines the log pattern. A log pattern can contain as many as
-   *          50 characters, and it cannot be empty. The pattern must be DFA compatible. Patterns that
-   *          utilize forward lookahead or backreference constructions are not supported.</p>
+   * A regular expression that defines the log pattern. A log pattern can contain as many as 50 characters, and it cannot be empty. The pattern must be DFA compatible. Patterns that utilize forward lookahead or backreference constructions are not supported.
+   *
    * @public
    */
   Pattern?: string | undefined;
 
   /**
-   * <p>Rank of the log pattern. Must be a value between <code>1</code> and
-   *             <code>1,000,000</code>. The patterns are sorted by rank, so we recommend that you set
-   *          your highest priority patterns with the lowest rank. A pattern of rank <code>1</code> will
-   *          be the first to get matched to a log line. A pattern of rank <code>1,000,000</code> will be
-   *          last to get matched. When you configure custom log patterns from the console, a
-   *             <code>Low</code> severity pattern translates to a <code>750,000</code> rank. A
-   *             <code>Medium</code> severity pattern translates to a <code>500,000</code> rank. And a
-   *             <code>High</code> severity pattern translates to a <code>250,000</code> rank. Rank
-   *          values less than <code>1</code> or greater than <code>1,000,000</code> are reserved for
-   *          Amazon Web Services provided patterns. </p>
+   * Rank of the log pattern. Must be a value between `1` and `1,000,000`. The patterns are sorted by rank, so we recommend that you set your highest priority patterns with the lowest rank. A pattern of rank `1` will be the first to get matched to a log line. A pattern of rank `1,000,000` will be last to get matched. When you configure custom log patterns from the console, a `Low` severity pattern translates to a `750,000` rank. A `Medium` severity pattern translates to a `500,000` rank. And a `High` severity pattern translates to a `250,000` rank. Rank values less than `1` or greater than `1,000,000` are reserved for Amazon Web Services provided patterns.
+   *
    * @public
    */
   Rank?: number | undefined;
@@ -533,13 +522,15 @@ export interface LogPattern {
  */
 export interface CreateLogPatternResponse {
   /**
-   * <p>The successfully created log pattern.</p>
+   * The successfully created log pattern.
+   *
    * @public
    */
   LogPattern?: LogPattern | undefined;
 
   /**
-   * <p>The name of the resource group.</p>
+   * The name of the resource group.
+   *
    * @public
    */
   ResourceGroupName?: string | undefined;
@@ -550,7 +541,8 @@ export interface CreateLogPatternResponse {
  */
 export interface DeleteApplicationRequest {
   /**
-   * <p>The name of the resource group.</p>
+   * The name of the resource group.
+   *
    * @public
    */
   ResourceGroupName: string | undefined;
@@ -566,13 +558,15 @@ export interface DeleteApplicationResponse {}
  */
 export interface DeleteComponentRequest {
   /**
-   * <p>The name of the resource group.</p>
+   * The name of the resource group.
+   *
    * @public
    */
   ResourceGroupName: string | undefined;
 
   /**
-   * <p>The name of the component.</p>
+   * The name of the component.
+   *
    * @public
    */
   ComponentName: string | undefined;
@@ -588,19 +582,22 @@ export interface DeleteComponentResponse {}
  */
 export interface DeleteLogPatternRequest {
   /**
-   * <p>The name of the resource group.</p>
+   * The name of the resource group.
+   *
    * @public
    */
   ResourceGroupName: string | undefined;
 
   /**
-   * <p>The name of the log pattern set.</p>
+   * The name of the log pattern set.
+   *
    * @public
    */
   PatternSetName: string | undefined;
 
   /**
-   * <p>The name of the log pattern.</p>
+   * The name of the log pattern.
+   *
    * @public
    */
   PatternName: string | undefined;
@@ -616,13 +613,15 @@ export interface DeleteLogPatternResponse {}
  */
 export interface DescribeApplicationRequest {
   /**
-   * <p>The name of the resource group.</p>
+   * The name of the resource group.
+   *
    * @public
    */
   ResourceGroupName: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID for the resource group owner.</p>
+   * The Amazon Web Services account ID for the resource group owner.
+   *
    * @public
    */
   AccountId?: string | undefined;
@@ -633,7 +632,8 @@ export interface DescribeApplicationRequest {
  */
 export interface DescribeApplicationResponse {
   /**
-   * <p>Information about the application.</p>
+   * Information about the application.
+   *
    * @public
    */
   ApplicationInfo?: ApplicationInfo | undefined;
@@ -644,19 +644,22 @@ export interface DescribeApplicationResponse {
  */
 export interface DescribeComponentRequest {
   /**
-   * <p>The name of the resource group.</p>
+   * The name of the resource group.
+   *
    * @public
    */
   ResourceGroupName: string | undefined;
 
   /**
-   * <p>The name of the component.</p>
+   * The name of the component.
+   *
    * @public
    */
   ComponentName: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID for the resource group owner.</p>
+   * The Amazon Web Services account ID for the resource group owner.
+   *
    * @public
    */
   AccountId?: string | undefined;
@@ -667,14 +670,15 @@ export interface DescribeComponentRequest {
  */
 export interface DescribeComponentResponse {
   /**
-   * <p>Describes a standalone resource or similarly grouped resources that the application is
-   *          made up of.</p>
+   * Describes a standalone resource or similarly grouped resources that the application is made up of.
+   *
    * @public
    */
   ApplicationComponent?: ApplicationComponent | undefined;
 
   /**
-   * <p>The list of resource ARNs that belong to the component.</p>
+   * The list of resource ARNs that belong to the component.
+   *
    * @public
    */
   ResourceList?: string[] | undefined;
@@ -685,19 +689,22 @@ export interface DescribeComponentResponse {
  */
 export interface DescribeComponentConfigurationRequest {
   /**
-   * <p>The name of the resource group.</p>
+   * The name of the resource group.
+   *
    * @public
    */
   ResourceGroupName: string | undefined;
 
   /**
-   * <p>The name of the component.</p>
+   * The name of the component.
+   *
    * @public
    */
   ComponentName: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID for the resource group owner.</p>
+   * The Amazon Web Services account ID for the resource group owner.
+   *
    * @public
    */
   AccountId?: string | undefined;
@@ -708,23 +715,22 @@ export interface DescribeComponentConfigurationRequest {
  */
 export interface DescribeComponentConfigurationResponse {
   /**
-   * <p>Indicates whether the application component is monitored.</p>
+   * Indicates whether the application component is monitored.
+   *
    * @public
    */
   Monitor?: boolean | undefined;
 
   /**
-   * <p>The tier of the application component. Supported tiers include
-   *          <code>DOT_NET_CORE</code>, <code>DOT_NET_WORKER</code>, <code>DOT_NET_WEB</code>,
-   *             <code>SQL_SERVER</code>, and <code>DEFAULT</code>
-   *          </p>
+   * The tier of the application component. Supported tiers include `DOT_NET_CORE`, `DOT_NET_WORKER`, `DOT_NET_WEB`, `SQL_SERVER`, and `DEFAULT`
+   *
    * @public
    */
   Tier?: Tier | undefined;
 
   /**
-   * <p>The configuration settings of the component. The value is the escaped JSON of the
-   *          configuration.</p>
+   * The configuration settings of the component. The value is the escaped JSON of the configuration.
+   *
    * @public
    */
   ComponentConfiguration?: string | undefined;
@@ -735,32 +741,36 @@ export interface DescribeComponentConfigurationResponse {
  */
 export interface DescribeComponentConfigurationRecommendationRequest {
   /**
-   * <p>The name of the resource group.</p>
+   * The name of the resource group.
+   *
    * @public
    */
   ResourceGroupName: string | undefined;
 
   /**
-   * <p>The name of the component.</p>
+   * The name of the component.
+   *
    * @public
    */
   ComponentName: string | undefined;
 
   /**
-   * <p>The tier of the application component.</p>
+   * The tier of the application component.
+   *
    * @public
    */
   Tier: Tier | undefined;
 
   /**
-   * <p>The name of the workload. The name of the workload is required when the tier of the application component is
-   *          <code>SAP_ASE_SINGLE_NODE</code> or <code>SAP_ASE_HIGH_AVAILABILITY</code>.</p>
+   * The name of the workload. The name of the workload is required when the tier of the application component is `SAP_ASE_SINGLE_NODE` or `SAP_ASE_HIGH_AVAILABILITY`.
+   *
    * @public
    */
   WorkloadName?: string | undefined;
 
   /**
-   * <p>The recommended configuration type.</p>
+   * The recommended configuration type.
+   *
    * @public
    */
   RecommendationType?: RecommendationType | undefined;
@@ -771,8 +781,8 @@ export interface DescribeComponentConfigurationRecommendationRequest {
  */
 export interface DescribeComponentConfigurationRecommendationResponse {
   /**
-   * <p>The recommended configuration settings of the component. The value is the escaped JSON
-   *          of the configuration.</p>
+   * The recommended configuration settings of the component. The value is the escaped JSON of the configuration.
+   *
    * @public
    */
   ComponentConfiguration?: string | undefined;
@@ -783,25 +793,29 @@ export interface DescribeComponentConfigurationRecommendationResponse {
  */
 export interface DescribeLogPatternRequest {
   /**
-   * <p>The name of the resource group.</p>
+   * The name of the resource group.
+   *
    * @public
    */
   ResourceGroupName: string | undefined;
 
   /**
-   * <p>The name of the log pattern set.</p>
+   * The name of the log pattern set.
+   *
    * @public
    */
   PatternSetName: string | undefined;
 
   /**
-   * <p>The name of the log pattern.</p>
+   * The name of the log pattern.
+   *
    * @public
    */
   PatternName: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID for the resource group owner.</p>
+   * The Amazon Web Services account ID for the resource group owner.
+   *
    * @public
    */
   AccountId?: string | undefined;
@@ -812,19 +826,22 @@ export interface DescribeLogPatternRequest {
  */
 export interface DescribeLogPatternResponse {
   /**
-   * <p>The name of the resource group.</p>
+   * The name of the resource group.
+   *
    * @public
    */
   ResourceGroupName?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID for the resource group owner.</p>
+   * The Amazon Web Services account ID for the resource group owner.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The successfully created log pattern.</p>
+   * The successfully created log pattern.
+   *
    * @public
    */
   LogPattern?: LogPattern | undefined;
@@ -835,300 +852,337 @@ export interface DescribeLogPatternResponse {
  */
 export interface DescribeObservationRequest {
   /**
-   * <p>The ID of the observation.</p>
+   * The ID of the observation.
+   *
    * @public
    */
   ObservationId: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID for the resource group owner.</p>
+   * The Amazon Web Services account ID for the resource group owner.
+   *
    * @public
    */
   AccountId?: string | undefined;
 }
 
 /**
- * <p>Describes an anomaly or error with the application.</p>
+ * Describes an anomaly or error with the application.
+ *
  * @public
  */
 export interface Observation {
   /**
-   * <p>The ID of the observation type.</p>
+   * The ID of the observation type.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The time when the observation was first detected, in epoch seconds.</p>
+   * The time when the observation was first detected, in epoch seconds.
+   *
    * @public
    */
   StartTime?: Date | undefined;
 
   /**
-   * <p>The time when the observation ended, in epoch seconds.</p>
+   * The time when the observation ended, in epoch seconds.
+   *
    * @public
    */
   EndTime?: Date | undefined;
 
   /**
-   * <p>The source type of the observation.</p>
+   * The source type of the observation.
+   *
    * @public
    */
   SourceType?: string | undefined;
 
   /**
-   * <p>The source resource ARN of the observation.</p>
+   * The source resource ARN of the observation.
+   *
    * @public
    */
   SourceARN?: string | undefined;
 
   /**
-   * <p>The log group name.</p>
+   * The log group name.
+   *
    * @public
    */
   LogGroup?: string | undefined;
 
   /**
-   * <p>The timestamp in the CloudWatch Logs that specifies when the matched line
-   *          occurred.</p>
+   * The timestamp in the CloudWatch Logs that specifies when the matched line occurred.
+   *
    * @public
    */
   LineTime?: Date | undefined;
 
   /**
-   * <p>The log text of the observation.</p>
+   * The log text of the observation.
+   *
    * @public
    */
   LogText?: string | undefined;
 
   /**
-   * <p>The log filter of the observation.</p>
+   * The log filter of the observation.
+   *
    * @public
    */
   LogFilter?: LogFilter | undefined;
 
   /**
-   * <p>The namespace of the observation metric.</p>
+   * The namespace of the observation metric.
+   *
    * @public
    */
   MetricNamespace?: string | undefined;
 
   /**
-   * <p>The name of the observation metric.</p>
+   * The name of the observation metric.
+   *
    * @public
    */
   MetricName?: string | undefined;
 
   /**
-   * <p>The unit of the source observation metric.</p>
+   * The unit of the source observation metric.
+   *
    * @public
    */
   Unit?: string | undefined;
 
   /**
-   * <p>The value of the source observation metric.</p>
+   * The value of the source observation metric.
+   *
    * @public
    */
   Value?: number | undefined;
 
   /**
-   * <p> The ID of the CloudWatch Event-based observation related to the detected problem.
-   *       </p>
+   * The ID of the CloudWatch Event-based observation related to the detected problem.
+   *
    * @public
    */
   CloudWatchEventId?: string | undefined;
 
   /**
-   * <p> The source of the CloudWatch Event. </p>
+   * The source of the CloudWatch Event.
+   *
    * @public
    */
   CloudWatchEventSource?: CloudWatchEventSource | undefined;
 
   /**
-   * <p> The detail type of the CloudWatch Event-based observation, for example, <code>EC2
-   *             Instance State-change Notification</code>. </p>
+   * The detail type of the CloudWatch Event-based observation, for example, `EC2 Instance State-change Notification`.
+   *
    * @public
    */
   CloudWatchEventDetailType?: string | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the Health Event-based observation.</p>
+   * The Amazon Resource Name (ARN) of the Health Event-based observation.
+   *
    * @public
    */
   HealthEventArn?: string | undefined;
 
   /**
-   * <p> The service to which the Health Event belongs, such as EC2. </p>
+   * The service to which the Health Event belongs, such as EC2.
+   *
    * @public
    */
   HealthService?: string | undefined;
 
   /**
-   * <p> The type of the Health event, for example,
-   *             <code>AWS_EC2_POWER_CONNECTIVITY_ISSUE</code>. </p>
+   * The type of the Health event, for example, `AWS_EC2_POWER_CONNECTIVITY_ISSUE`.
+   *
    * @public
    */
   HealthEventTypeCode?: string | undefined;
 
   /**
-   * <p> The category of the Health event, such as <code>issue</code>. </p>
+   * The category of the Health event, such as `issue`.
+   *
    * @public
    */
   HealthEventTypeCategory?: string | undefined;
 
   /**
-   * <p> The description of the Health event provided by the service, such as Amazon EC2.
-   *       </p>
+   * The description of the Health event provided by the service, such as Amazon EC2.
+   *
    * @public
    */
   HealthEventDescription?: string | undefined;
 
   /**
-   * <p> The deployment ID of the CodeDeploy-based observation related to the detected problem.
-   *       </p>
+   * The deployment ID of the CodeDeploy-based observation related to the detected problem.
+   *
    * @public
    */
   CodeDeployDeploymentId?: string | undefined;
 
   /**
-   * <p> The deployment group to which the CodeDeploy deployment belongs. </p>
+   * The deployment group to which the CodeDeploy deployment belongs.
+   *
    * @public
    */
   CodeDeployDeploymentGroup?: string | undefined;
 
   /**
-   * <p> The status of the CodeDeploy deployment, for example <code>SUCCESS</code> or <code>
-   *             FAILURE</code>. </p>
+   * The status of the CodeDeploy deployment, for example `SUCCESS` or `FAILURE`.
+   *
    * @public
    */
   CodeDeployState?: string | undefined;
 
   /**
-   * <p> The CodeDeploy application to which the deployment belongs. </p>
+   * The CodeDeploy application to which the deployment belongs.
+   *
    * @public
    */
   CodeDeployApplication?: string | undefined;
 
   /**
-   * <p> The instance group to which the CodeDeploy instance belongs. </p>
+   * The instance group to which the CodeDeploy instance belongs.
+   *
    * @public
    */
   CodeDeployInstanceGroupId?: string | undefined;
 
   /**
-   * <p> The state of the instance, such as <code>STOPPING</code> or <code>TERMINATING</code>.
-   *       </p>
+   * The state of the instance, such as `STOPPING` or `TERMINATING`.
+   *
    * @public
    */
   Ec2State?: string | undefined;
 
   /**
-   * <p> The category of an RDS event. </p>
+   * The category of an RDS event.
+   *
    * @public
    */
   RdsEventCategories?: string | undefined;
 
   /**
-   * <p> The message of an RDS event. </p>
+   * The message of an RDS event.
+   *
    * @public
    */
   RdsEventMessage?: string | undefined;
 
   /**
-   * <p> The name of the S3 CloudWatch Event-based observation. </p>
+   * The name of the S3 CloudWatch Event-based observation.
+   *
    * @public
    */
   S3EventName?: string | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the step function execution-based observation.
-   *       </p>
+   * The Amazon Resource Name (ARN) of the step function execution-based observation.
+   *
    * @public
    */
   StatesExecutionArn?: string | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the step function-based observation. </p>
+   * The Amazon Resource Name (ARN) of the step function-based observation.
+   *
    * @public
    */
   StatesArn?: string | undefined;
 
   /**
-   * <p> The status of the step function-related observation. </p>
+   * The status of the step function-related observation.
+   *
    * @public
    */
   StatesStatus?: string | undefined;
 
   /**
-   * <p> The input to the step function-based observation. </p>
+   * The input to the step function-based observation.
+   *
    * @public
    */
   StatesInput?: string | undefined;
 
   /**
-   * <p> The type of EBS CloudWatch event, such as <code>createVolume</code>,
-   *             <code>deleteVolume</code> or <code>attachVolume</code>. </p>
+   * The type of EBS CloudWatch event, such as `createVolume`, `deleteVolume` or `attachVolume`.
+   *
    * @public
    */
   EbsEvent?: string | undefined;
 
   /**
-   * <p> The result of an EBS CloudWatch event, such as <code>failed</code> or
-   *             <code>succeeded</code>. </p>
+   * The result of an EBS CloudWatch event, such as `failed` or `succeeded`.
+   *
    * @public
    */
   EbsResult?: string | undefined;
 
   /**
-   * <p> The cause of an EBS CloudWatch event. </p>
+   * The cause of an EBS CloudWatch event.
+   *
    * @public
    */
   EbsCause?: string | undefined;
 
   /**
-   * <p> The request ID of an EBS CloudWatch event. </p>
+   * The request ID of an EBS CloudWatch event.
+   *
    * @public
    */
   EbsRequestId?: string | undefined;
 
   /**
-   * <p> The X-Ray request fault percentage for this node. </p>
+   * The X-Ray request fault percentage for this node.
+   *
    * @public
    */
   XRayFaultPercent?: number | undefined;
 
   /**
-   * <p> The X-Ray request throttle percentage for this node. </p>
+   * The X-Ray request throttle percentage for this node.
+   *
    * @public
    */
   XRayThrottlePercent?: number | undefined;
 
   /**
-   * <p> The X-Ray request error percentage for this node. </p>
+   * The X-Ray request error percentage for this node.
+   *
    * @public
    */
   XRayErrorPercent?: number | undefined;
 
   /**
-   * <p> The X-Ray request count for this node. </p>
+   * The X-Ray request count for this node.
+   *
    * @public
    */
   XRayRequestCount?: number | undefined;
 
   /**
-   * <p> The X-Ray node request average latency for this node. </p>
+   * The X-Ray node request average latency for this node.
+   *
    * @public
    */
   XRayRequestAverageLatency?: number | undefined;
 
   /**
-   * <p> The name of the X-Ray node. </p>
+   * The name of the X-Ray node.
+   *
    * @public
    */
   XRayNodeName?: string | undefined;
 
   /**
-   * <p> The type of the X-Ray node. </p>
+   * The type of the X-Ray node.
+   *
    * @public
    */
   XRayNodeType?: string | undefined;
@@ -1139,7 +1193,8 @@ export interface Observation {
  */
 export interface DescribeObservationResponse {
   /**
-   * <p>Information about the observation.</p>
+   * Information about the observation.
+   *
    * @public
    */
   Observation?: Observation | undefined;
@@ -1150,121 +1205,134 @@ export interface DescribeObservationResponse {
  */
 export interface DescribeProblemRequest {
   /**
-   * <p>The ID of the problem.</p>
+   * The ID of the problem.
+   *
    * @public
    */
   ProblemId: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID for the owner of the resource group affected by the problem.</p>
+   * The Amazon Web Services account ID for the owner of the resource group affected by the problem.
+   *
    * @public
    */
   AccountId?: string | undefined;
 }
 
 /**
- * <p>Describes a problem that is detected by correlating observations.</p>
+ * Describes a problem that is detected by correlating observations.
+ *
  * @public
  */
 export interface Problem {
   /**
-   * <p>The ID of the problem.</p>
+   * The ID of the problem.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The name of the problem.</p>
+   * The name of the problem.
+   *
    * @public
    */
   Title?: string | undefined;
 
   /**
-   * <p>
-   *          The short name of the problem associated with the SNS notification.
-   *       </p>
+   * The short name of the problem associated with the SNS notification.
+   *
    * @public
    */
   ShortName?: string | undefined;
 
   /**
-   * <p>A detailed analysis of the problem using machine learning.</p>
+   * A detailed analysis of the problem using machine learning.
+   *
    * @public
    */
   Insights?: string | undefined;
 
   /**
-   * <p>The status of the problem.</p>
+   * The status of the problem.
+   *
    * @public
    */
   Status?: Status | undefined;
 
   /**
-   * <p>The resource affected by the problem.</p>
+   * The resource affected by the problem.
+   *
    * @public
    */
   AffectedResource?: string | undefined;
 
   /**
-   * <p>The time when the problem started, in epoch seconds.</p>
+   * The time when the problem started, in epoch seconds.
+   *
    * @public
    */
   StartTime?: Date | undefined;
 
   /**
-   * <p>The time when the problem ended, in epoch seconds.</p>
+   * The time when the problem ended, in epoch seconds.
+   *
    * @public
    */
   EndTime?: Date | undefined;
 
   /**
-   * <p>A measure of the level of impact of the problem.</p>
+   * A measure of the level of impact of the problem.
+   *
    * @public
    */
   SeverityLevel?: SeverityLevel | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID for the owner of the resource group affected by the problem.</p>
+   * The Amazon Web Services account ID for the owner of the resource group affected by the problem.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The name of the resource group affected by the problem.</p>
+   * The name of the resource group affected by the problem.
+   *
    * @public
    */
   ResourceGroupName?: string | undefined;
 
   /**
-   * <p>Feedback provided by the user about the problem.</p>
+   * Feedback provided by the user about the problem.
+   *
    * @public
    */
   Feedback?: Partial<Record<FeedbackKey, FeedbackValue>> | undefined;
 
   /**
-   * <p> The number of times that the same problem reoccurred after the first time it was
-   *          resolved. </p>
+   * The number of times that the same problem reoccurred after the first time it was resolved.
+   *
    * @public
    */
   RecurringCount?: number | undefined;
 
   /**
-   * <p> The last time that the problem reoccurred after its last resolution. </p>
+   * The last time that the problem reoccurred after its last resolution.
+   *
    * @public
    */
   LastRecurrenceTime?: Date | undefined;
 
   /**
-   * <p>Specifies whether or not you can view the problem. Updates to ignored problems do not
-   *          generate notifications.</p>
+   * Specifies whether or not you can view the problem. Updates to ignored problems do not generate notifications.
+   *
    * @public
    */
   Visibility?: Visibility | undefined;
 
   /**
-   * <p>Specifies how the problem was resolved. If the value is <code>AUTOMATIC</code>, the
-   *          system resolved the problem. If the value is <code>MANUAL</code>, the user resolved the
-   *          problem. If the value is <code>UNRESOLVED</code>, then the problem is not resolved.</p>
+   * Specifies how the problem was resolved. If the value is `AUTOMATIC`, the system resolved the problem. If the value is `MANUAL`, the user resolved the problem. If the value is `UNRESOLVED`, then the problem is not resolved.
+   *
    * @public
    */
   ResolutionMethod?: ResolutionMethod | undefined;
@@ -1275,15 +1343,15 @@ export interface Problem {
  */
 export interface DescribeProblemResponse {
   /**
-   * <p>Information about the problem. </p>
+   * Information about the problem.
+   *
    * @public
    */
   Problem?: Problem | undefined;
 
   /**
-   * <p>
-   *          The SNS notification topic ARN of the problem.
-   *       </p>
+   * The SNS notification topic ARN of the problem.
+   *
    * @public
    */
   SNSNotificationArn?: string | undefined;
@@ -1294,25 +1362,29 @@ export interface DescribeProblemResponse {
  */
 export interface DescribeProblemObservationsRequest {
   /**
-   * <p>The ID of the problem.</p>
+   * The ID of the problem.
+   *
    * @public
    */
   ProblemId: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID for the resource group owner.</p>
+   * The Amazon Web Services account ID for the resource group owner.
+   *
    * @public
    */
   AccountId?: string | undefined;
 }
 
 /**
- * <p>Describes observations related to the problem.</p>
+ * Describes observations related to the problem.
+ *
  * @public
  */
 export interface RelatedObservations {
   /**
-   * <p>The list of observations related to the problem.</p>
+   * The list of observations related to the problem.
+   *
    * @public
    */
   ObservationList?: Observation[] | undefined;
@@ -1323,7 +1395,8 @@ export interface RelatedObservations {
  */
 export interface DescribeProblemObservationsResponse {
   /**
-   * <p>Observations related to the problem.</p>
+   * Observations related to the problem.
+   *
    * @public
    */
   RelatedObservations?: RelatedObservations | undefined;
@@ -1334,25 +1407,29 @@ export interface DescribeProblemObservationsResponse {
  */
 export interface DescribeWorkloadRequest {
   /**
-   * <p>The name of the resource group.</p>
+   * The name of the resource group.
+   *
    * @public
    */
   ResourceGroupName: string | undefined;
 
   /**
-   * <p>The name of the component.</p>
+   * The name of the component.
+   *
    * @public
    */
   ComponentName: string | undefined;
 
   /**
-   * <p>The ID of the workload.</p>
+   * The ID of the workload.
+   *
    * @public
    */
   WorkloadId: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID for the workload owner.</p>
+   * The Amazon Web Services account ID for the workload owner.
+   *
    * @public
    */
   AccountId?: string | undefined;
@@ -1363,19 +1440,22 @@ export interface DescribeWorkloadRequest {
  */
 export interface DescribeWorkloadResponse {
   /**
-   * <p>The ID of the workload.</p>
+   * The ID of the workload.
+   *
    * @public
    */
   WorkloadId?: string | undefined;
 
   /**
-   * <p>If logging is supported for the resource type, shows whether the component has configured logs to be monitored.</p>
+   * If logging is supported for the resource type, shows whether the component has configured logs to be monitored.
+   *
    * @public
    */
   WorkloadRemarks?: string | undefined;
 
   /**
-   * <p>The configuration settings of the workload. The value is the escaped JSON of the configuration.</p>
+   * The configuration settings of the workload. The value is the escaped JSON of the configuration.
+   *
    * @public
    */
   WorkloadConfiguration?: WorkloadConfiguration | undefined;
@@ -1386,20 +1466,22 @@ export interface DescribeWorkloadResponse {
  */
 export interface ListApplicationsRequest {
   /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *          results, make another call with the returned <code>NextToken</code> value.</p>
+   * The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned `NextToken` value.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token to request the next page of results.</p>
+   * The token to request the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID for the resource group owner.</p>
+   * The Amazon Web Services account ID for the resource group owner.
+   *
    * @public
    */
   AccountId?: string | undefined;
@@ -1410,14 +1492,15 @@ export interface ListApplicationsRequest {
  */
 export interface ListApplicationsResponse {
   /**
-   * <p>The list of applications.</p>
+   * The list of applications.
+   *
    * @public
    */
   ApplicationInfoList?: ApplicationInfo[] | undefined;
 
   /**
-   * <p>The token used to retrieve the next page of results. This value is <code>null</code>
-   *          when there are no more results to return. </p>
+   * The token used to retrieve the next page of results. This value is `null` when there are no more results to return.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1428,26 +1511,29 @@ export interface ListApplicationsResponse {
  */
 export interface ListComponentsRequest {
   /**
-   * <p>The name of the resource group.</p>
+   * The name of the resource group.
+   *
    * @public
    */
   ResourceGroupName: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *          results, make another call with the returned <code>NextToken</code> value.</p>
+   * The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned `NextToken` value.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token to request the next page of results.</p>
+   * The token to request the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID for the resource group owner.</p>
+   * The Amazon Web Services account ID for the resource group owner.
+   *
    * @public
    */
   AccountId?: string | undefined;
@@ -1458,13 +1544,15 @@ export interface ListComponentsRequest {
  */
 export interface ListComponentsResponse {
   /**
-   * <p>The list of application components.</p>
+   * The list of application components.
+   *
    * @public
    */
   ApplicationComponentList?: ApplicationComponent[] | undefined;
 
   /**
-   * <p>The token to request the next page of results.</p>
+   * The token to request the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1475,54 +1563,50 @@ export interface ListComponentsResponse {
  */
 export interface ListConfigurationHistoryRequest {
   /**
-   * <p>Resource group to which the application belongs. </p>
+   * Resource group to which the application belongs.
+   *
    * @public
    */
   ResourceGroupName?: string | undefined;
 
   /**
-   * <p>The start time of the event. </p>
+   * The start time of the event.
+   *
    * @public
    */
   StartTime?: Date | undefined;
 
   /**
-   * <p>The end time of the event.</p>
+   * The end time of the event.
+   *
    * @public
    */
   EndTime?: Date | undefined;
 
   /**
-   * <p>The status of the configuration update event. Possible values include INFO, WARN, and
-   *          ERROR.</p>
+   * The status of the configuration update event. Possible values include INFO, WARN, and ERROR.
+   *
    * @public
    */
   EventStatus?: ConfigurationEventStatus | undefined;
 
   /**
-   * <p> The maximum number of results returned by <code>ListConfigurationHistory</code> in
-   *          paginated output. When this parameter is used, <code>ListConfigurationHistory</code>
-   *          returns only <code>MaxResults</code> in a single page along with a <code>NextToken</code>
-   *          response element. The remaining results of the initial request can be seen by sending
-   *          another <code>ListConfigurationHistory</code> request with the returned
-   *             <code>NextToken</code> value. If this parameter is not used, then
-   *             <code>ListConfigurationHistory</code> returns all results. </p>
+   * The maximum number of results returned by `ListConfigurationHistory` in paginated output. When this parameter is used, `ListConfigurationHistory` returns only `MaxResults` in a single page along with a `NextToken` response element. The remaining results of the initial request can be seen by sending another `ListConfigurationHistory` request with the returned `NextToken` value. If this parameter is not used, then `ListConfigurationHistory` returns all results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The <code>NextToken</code> value returned from a previous paginated
-   *             <code>ListConfigurationHistory</code> request where <code>MaxResults</code> was used and
-   *          the results exceeded the value of that parameter. Pagination continues from the end of the
-   *          previous results that returned the <code>NextToken</code> value. This value is
-   *             <code>null</code> when there are no more results to return.</p>
+   * The `NextToken` value returned from a previous paginated `ListConfigurationHistory` request where `MaxResults` was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the `NextToken` value. This value is `null` when there are no more results to return.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID for the resource group owner.</p>
+   * The Amazon Web Services account ID for the resource group owner.
+   *
    * @public
    */
   AccountId?: string | undefined;
@@ -1533,17 +1617,15 @@ export interface ListConfigurationHistoryRequest {
  */
 export interface ListConfigurationHistoryResponse {
   /**
-   * <p> The list of configuration events and their corresponding details. </p>
+   * The list of configuration events and their corresponding details.
+   *
    * @public
    */
   EventList?: ConfigurationEvent[] | undefined;
 
   /**
-   * <p>The <code>NextToken</code> value to include in a future
-   *             <code>ListConfigurationHistory</code> request. When the results of a
-   *             <code>ListConfigurationHistory</code> request exceed <code>MaxResults</code>, this value
-   *          can be used to retrieve the next page of results. This value is <code>null</code> when
-   *          there are no more results to return.</p>
+   * The `NextToken` value to include in a future `ListConfigurationHistory` request. When the results of a `ListConfigurationHistory` request exceed `MaxResults`, this value can be used to retrieve the next page of results. This value is `null` when there are no more results to return.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1554,32 +1636,36 @@ export interface ListConfigurationHistoryResponse {
  */
 export interface ListLogPatternsRequest {
   /**
-   * <p>The name of the resource group.</p>
+   * The name of the resource group.
+   *
    * @public
    */
   ResourceGroupName: string | undefined;
 
   /**
-   * <p>The name of the log pattern set.</p>
+   * The name of the log pattern set.
+   *
    * @public
    */
   PatternSetName?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *          results, make another call with the returned <code>NextToken</code> value.</p>
+   * The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned `NextToken` value.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token to request the next page of results.</p>
+   * The token to request the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID for the resource group owner.</p>
+   * The Amazon Web Services account ID for the resource group owner.
+   *
    * @public
    */
   AccountId?: string | undefined;
@@ -1590,26 +1676,29 @@ export interface ListLogPatternsRequest {
  */
 export interface ListLogPatternsResponse {
   /**
-   * <p>The name of the resource group.</p>
+   * The name of the resource group.
+   *
    * @public
    */
   ResourceGroupName?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID for the resource group owner.</p>
+   * The Amazon Web Services account ID for the resource group owner.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The list of log patterns.</p>
+   * The list of log patterns.
+   *
    * @public
    */
   LogPatterns?: LogPattern[] | undefined;
 
   /**
-   * <p>The token used to retrieve the next page of results. This value is <code>null</code>
-   *          when there are no more results to return. </p>
+   * The token used to retrieve the next page of results. This value is `null` when there are no more results to return.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1620,26 +1709,29 @@ export interface ListLogPatternsResponse {
  */
 export interface ListLogPatternSetsRequest {
   /**
-   * <p>The name of the resource group.</p>
+   * The name of the resource group.
+   *
    * @public
    */
   ResourceGroupName: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *          results, make another call with the returned <code>NextToken</code> value.</p>
+   * The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned `NextToken` value.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token to request the next page of results.</p>
+   * The token to request the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID for the resource group owner.</p>
+   * The Amazon Web Services account ID for the resource group owner.
+   *
    * @public
    */
   AccountId?: string | undefined;
@@ -1650,26 +1742,29 @@ export interface ListLogPatternSetsRequest {
  */
 export interface ListLogPatternSetsResponse {
   /**
-   * <p>The name of the resource group.</p>
+   * The name of the resource group.
+   *
    * @public
    */
   ResourceGroupName?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID for the resource group owner.</p>
+   * The Amazon Web Services account ID for the resource group owner.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The list of log pattern sets.</p>
+   * The list of log pattern sets.
+   *
    * @public
    */
   LogPatternSets?: string[] | undefined;
 
   /**
-   * <p>The token used to retrieve the next page of results. This value is <code>null</code>
-   *          when there are no more results to return. </p>
+   * The token used to retrieve the next page of results. This value is `null` when there are no more results to return.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1680,53 +1775,57 @@ export interface ListLogPatternSetsResponse {
  */
 export interface ListProblemsRequest {
   /**
-   * <p>The Amazon Web Services account ID for the resource group owner.</p>
+   * The Amazon Web Services account ID for the resource group owner.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The name of the resource group.</p>
+   * The name of the resource group.
+   *
    * @public
    */
   ResourceGroupName?: string | undefined;
 
   /**
-   * <p>The time when the problem was detected, in epoch seconds. If you don't specify a time
-   *          frame for the request, problems within the past seven days are returned.</p>
+   * The time when the problem was detected, in epoch seconds. If you don't specify a time frame for the request, problems within the past seven days are returned.
+   *
    * @public
    */
   StartTime?: Date | undefined;
 
   /**
-   * <p>The time when the problem ended, in epoch seconds. If not specified, problems within the
-   *          past seven days are returned.</p>
+   * The time when the problem ended, in epoch seconds. If not specified, problems within the past seven days are returned.
+   *
    * @public
    */
   EndTime?: Date | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *          results, make another call with the returned <code>NextToken</code> value.</p>
+   * The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned `NextToken` value.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token to request the next page of results.</p>
+   * The token to request the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p> The name of the component. </p>
+   * The name of the component.
+   *
    * @public
    */
   ComponentName?: string | undefined;
 
   /**
-   * <p>Specifies whether or not you can view the problem. If not specified, visible and
-   *          ignored problems are returned.</p>
+   * Specifies whether or not you can view the problem. If not specified, visible and ignored problems are returned.
+   *
    * @public
    */
   Visibility?: Visibility | undefined;
@@ -1737,26 +1836,29 @@ export interface ListProblemsRequest {
  */
 export interface ListProblemsResponse {
   /**
-   * <p>The list of problems. </p>
+   * The list of problems.
+   *
    * @public
    */
   ProblemList?: Problem[] | undefined;
 
   /**
-   * <p>The token used to retrieve the next page of results. This value is <code>null</code>
-   *          when there are no more results to return. </p>
+   * The token used to retrieve the next page of results. This value is `null` when there are no more results to return.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p> The name of the resource group. </p>
+   * The name of the resource group.
+   *
    * @public
    */
   ResourceGroupName?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID for the resource group owner.</p>
+   * The Amazon Web Services account ID for the resource group owner.
+   *
    * @public
    */
   AccountId?: string | undefined;
@@ -1767,8 +1869,8 @@ export interface ListProblemsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the application that you want to retrieve tag
-   *          information for.</p>
+   * The Amazon Resource Name (ARN) of the application that you want to retrieve tag information for.
+   *
    * @public
    */
   ResourceARN: string | undefined;
@@ -1779,9 +1881,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>An array that lists all the tags that are associated with the application. Each tag
-   *          consists of a required tag key (<code>Key</code>) and an associated tag value
-   *             (<code>Value</code>).</p>
+   * An array that lists all the tags that are associated with the application. Each tag consists of a required tag key (`Key`) and an associated tag value (`Value`).
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -1792,74 +1893,85 @@ export interface ListTagsForResourceResponse {
  */
 export interface ListWorkloadsRequest {
   /**
-   * <p>The name of the resource group.</p>
+   * The name of the resource group.
+   *
    * @public
    */
   ResourceGroupName: string | undefined;
 
   /**
-   * <p>The name of the component.</p>
+   * The name of the component.
+   *
    * @public
    */
   ComponentName: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *       results, make another call with the returned <code>NextToken</code> value.</p>
+   * The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned `NextToken` value.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token to request the next page of results.</p>
+   * The token to request the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the owner of the workload.</p>
+   * The Amazon Web Services account ID of the owner of the workload.
+   *
    * @public
    */
   AccountId?: string | undefined;
 }
 
 /**
- * <p>Describes the workloads on a component.</p>
+ * Describes the workloads on a component.
+ *
  * @public
  */
 export interface Workload {
   /**
-   * <p>The ID of the workload.</p>
+   * The ID of the workload.
+   *
    * @public
    */
   WorkloadId?: string | undefined;
 
   /**
-   * <p>The name of the component.</p>
+   * The name of the component.
+   *
    * @public
    */
   ComponentName?: string | undefined;
 
   /**
-   * <p>The name of the workload.</p>
+   * The name of the workload.
+   *
    * @public
    */
   WorkloadName?: string | undefined;
 
   /**
-   * <p>The tier of the workload.</p>
+   * The tier of the workload.
+   *
    * @public
    */
   Tier?: Tier | undefined;
 
   /**
-   * <p>If logging is supported for the resource type, shows whether the component has configured logs to be monitored.</p>
+   * If logging is supported for the resource type, shows whether the component has configured logs to be monitored.
+   *
    * @public
    */
   WorkloadRemarks?: string | undefined;
 
   /**
-   * <p>Indicates whether all of the component configurations required to monitor a workload were provided.</p>
+   * Indicates whether all of the component configurations required to monitor a workload were provided.
+   *
    * @public
    */
   MissingWorkloadConfig?: boolean | undefined;
@@ -1870,13 +1982,15 @@ export interface Workload {
  */
 export interface ListWorkloadsResponse {
   /**
-   * <p>The list of workloads.</p>
+   * The list of workloads.
+   *
    * @public
    */
   WorkloadList?: Workload[] | undefined;
 
   /**
-   * <p>The token to request the next page of results.</p>
+   * The token to request the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1887,19 +2001,22 @@ export interface ListWorkloadsResponse {
  */
 export interface RemoveWorkloadRequest {
   /**
-   * <p>The name of the resource group.</p>
+   * The name of the resource group.
+   *
    * @public
    */
   ResourceGroupName: string | undefined;
 
   /**
-   * <p>The name of the component.</p>
+   * The name of the component.
+   *
    * @public
    */
   ComponentName: string | undefined;
 
   /**
-   * <p>The ID of the workload.</p>
+   * The ID of the workload.
+   *
    * @public
    */
   WorkloadId: string | undefined;
@@ -1915,16 +2032,15 @@ export interface RemoveWorkloadResponse {}
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the application that you want to add one or more tags
-   *          to.</p>
+   * The Amazon Resource Name (ARN) of the application that you want to add one or more tags to.
+   *
    * @public
    */
   ResourceARN: string | undefined;
 
   /**
-   * <p>A list of tags that to add to the application. A tag consists of a required tag key
-   *             (<code>Key</code>) and an associated tag value (<code>Value</code>). The maximum length
-   *          of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>
+   * A list of tags that to add to the application. A tag consists of a required tag key (`Key`) and an associated tag value (`Value`). The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.
+   *
    * @public
    */
   Tags: Tag[] | undefined;
@@ -1940,18 +2056,17 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the application that you want to remove one or more
-   *          tags from.</p>
+   * The Amazon Resource Name (ARN) of the application that you want to remove one or more tags from.
+   *
    * @public
    */
   ResourceARN: string | undefined;
 
   /**
-   * <p>The tags (tag keys) that you want to remove from the resource. When you specify a tag
-   *          key, the action removes both that key and its associated tag value.</p>
-   *          <p>To remove more than one tag from the application, append the <code>TagKeys</code>
-   *          parameter and argument for each additional tag to remove, separated by an ampersand.
-   *       </p>
+   * The tags (tag keys) that you want to remove from the resource. When you specify a tag key, the action removes both that key and its associated tag value.
+   *
+   * To remove more than one tag from the application, append the `TagKeys` parameter and argument for each additional tag to remove, separated by an ampersand.
+   *
    * @public
    */
   TagKeys: string[] | undefined;
@@ -1967,55 +2082,57 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateApplicationRequest {
   /**
-   * <p>The name of the resource group.</p>
+   * The name of the resource group.
+   *
    * @public
    */
   ResourceGroupName: string | undefined;
 
   /**
-   * <p> When set to <code>true</code>, creates opsItems for any problems detected on an
-   *          application. </p>
+   * When set to `true`, creates opsItems for any problems detected on an application.
+   *
    * @public
    */
   OpsCenterEnabled?: boolean | undefined;
 
   /**
-   * <p> Indicates whether Application Insights can listen to CloudWatch events for the
-   *          application resources, such as <code>instance terminated</code>, <code>failed
-   *             deployment</code>, and others. </p>
+   * Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as `instance terminated`, `failed deployment`, and others.
+   *
    * @public
    */
   CWEMonitorEnabled?: boolean | undefined;
 
   /**
-   * <p> The SNS topic provided to Application Insights that is associated to the created
-   *          opsItem. Allows you to receive notifications for updates to the opsItem.</p>
+   * The SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
+   *
    * @public
    */
   OpsItemSNSTopicArn?: string | undefined;
 
   /**
-   * <p>
-   *          The SNS topic ARN. Allows you to receive SNS notifications for updates and issues with an application.
-   *       </p>
+   * The SNS topic ARN. Allows you to receive SNS notifications for updates and issues with an application.
+   *
    * @public
    */
   SNSNotificationArn?: string | undefined;
 
   /**
-   * <p> Disassociates the SNS topic from the opsItem created for detected problems.</p>
+   * Disassociates the SNS topic from the opsItem created for detected problems.
+   *
    * @public
    */
   RemoveSNSTopic?: boolean | undefined;
 
   /**
-   * <p> Turns auto-configuration on or off. </p>
+   * Turns auto-configuration on or off.
+   *
    * @public
    */
   AutoConfigEnabled?: boolean | undefined;
 
   /**
-   * <p>If set to true, the managed policies for SSM and CW will be attached to the instance roles if they are missing.</p>
+   * If set to true, the managed policies for SSM and CW will be attached to the instance roles if they are missing.
+   *
    * @public
    */
   AttachMissingPermission?: boolean | undefined;
@@ -2026,7 +2143,8 @@ export interface UpdateApplicationRequest {
  */
 export interface UpdateApplicationResponse {
   /**
-   * <p>Information about the application. </p>
+   * Information about the application.
+   *
    * @public
    */
   ApplicationInfo?: ApplicationInfo | undefined;
@@ -2037,25 +2155,29 @@ export interface UpdateApplicationResponse {
  */
 export interface UpdateComponentRequest {
   /**
-   * <p>The name of the resource group.</p>
+   * The name of the resource group.
+   *
    * @public
    */
   ResourceGroupName: string | undefined;
 
   /**
-   * <p>The name of the component.</p>
+   * The name of the component.
+   *
    * @public
    */
   ComponentName: string | undefined;
 
   /**
-   * <p>The new name of the component.</p>
+   * The new name of the component.
+   *
    * @public
    */
   NewComponentName?: string | undefined;
 
   /**
-   * <p>The list of resource ARNs that belong to the component.</p>
+   * The list of resource ARNs that belong to the component.
+   *
    * @public
    */
   ResourceList?: string[] | undefined;
@@ -2071,42 +2193,43 @@ export interface UpdateComponentResponse {}
  */
 export interface UpdateComponentConfigurationRequest {
   /**
-   * <p>The name of the resource group.</p>
+   * The name of the resource group.
+   *
    * @public
    */
   ResourceGroupName: string | undefined;
 
   /**
-   * <p>The name of the component.</p>
+   * The name of the component.
+   *
    * @public
    */
   ComponentName: string | undefined;
 
   /**
-   * <p>Indicates whether the application component is monitored.</p>
+   * Indicates whether the application component is monitored.
+   *
    * @public
    */
   Monitor?: boolean | undefined;
 
   /**
-   * <p>The tier of the application component.</p>
+   * The tier of the application component.
+   *
    * @public
    */
   Tier?: Tier | undefined;
 
   /**
-   * <p>The configuration settings of the component. The value is the escaped JSON of the
-   *          configuration. For more information about the JSON format, see <a href="https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/working-with-json.html">Working with JSON</a>. You can send a request to
-   *             <code>DescribeComponentConfigurationRecommendation</code> to see the recommended
-   *          configuration for a component. For the complete format of the component configuration file,
-   *          see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/component-config.html">Component Configuration</a>.</p>
+   * The configuration settings of the component. The value is the escaped JSON of the configuration. For more information about the JSON format, see [Working with JSON](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/working-with-json.html). You can send a request to `DescribeComponentConfigurationRecommendation` to see the recommended configuration for a component. For the complete format of the component configuration file, see [Component Configuration](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/component-config.html).
+   *
    * @public
    */
   ComponentConfiguration?: string | undefined;
 
   /**
-   * <p> Automatically configures the component by applying the recommended configurations.
-   *       </p>
+   * Automatically configures the component by applying the recommended configurations.
+   *
    * @public
    */
   AutoConfigEnabled?: boolean | undefined;
@@ -2122,41 +2245,36 @@ export interface UpdateComponentConfigurationResponse {}
  */
 export interface UpdateLogPatternRequest {
   /**
-   * <p>The name of the resource group.</p>
+   * The name of the resource group.
+   *
    * @public
    */
   ResourceGroupName: string | undefined;
 
   /**
-   * <p>The name of the log pattern set.</p>
+   * The name of the log pattern set.
+   *
    * @public
    */
   PatternSetName: string | undefined;
 
   /**
-   * <p>The name of the log pattern.</p>
+   * The name of the log pattern.
+   *
    * @public
    */
   PatternName: string | undefined;
 
   /**
-   * <p>The log pattern. The pattern must be DFA compatible. Patterns that utilize forward
-   *          lookahead or backreference constructions are not supported.</p>
+   * The log pattern. The pattern must be DFA compatible. Patterns that utilize forward lookahead or backreference constructions are not supported.
+   *
    * @public
    */
   Pattern?: string | undefined;
 
   /**
-   * <p>Rank of the log pattern. Must be a value between <code>1</code> and
-   *             <code>1,000,000</code>. The patterns are sorted by rank, so we recommend that you set
-   *          your highest priority patterns with the lowest rank. A pattern of rank <code>1</code> will
-   *          be the first to get matched to a log line. A pattern of rank <code>1,000,000</code> will be
-   *          last to get matched. When you configure custom log patterns from the console, a
-   *             <code>Low</code> severity pattern translates to a <code>750,000</code> rank. A
-   *             <code>Medium</code> severity pattern translates to a <code>500,000</code> rank. And a
-   *             <code>High</code> severity pattern translates to a <code>250,000</code> rank. Rank
-   *          values less than <code>1</code> or greater than <code>1,000,000</code> are reserved for
-   *          Amazon Web Services provided patterns. </p>
+   * Rank of the log pattern. Must be a value between `1` and `1,000,000`. The patterns are sorted by rank, so we recommend that you set your highest priority patterns with the lowest rank. A pattern of rank `1` will be the first to get matched to a log line. A pattern of rank `1,000,000` will be last to get matched. When you configure custom log patterns from the console, a `Low` severity pattern translates to a `750,000` rank. A `Medium` severity pattern translates to a `500,000` rank. And a `High` severity pattern translates to a `250,000` rank. Rank values less than `1` or greater than `1,000,000` are reserved for Amazon Web Services provided patterns.
+   *
    * @public
    */
   Rank?: number | undefined;
@@ -2167,13 +2285,15 @@ export interface UpdateLogPatternRequest {
  */
 export interface UpdateLogPatternResponse {
   /**
-   * <p>The name of the resource group.</p>
+   * The name of the resource group.
+   *
    * @public
    */
   ResourceGroupName?: string | undefined;
 
   /**
-   * <p>The successfully created log pattern.</p>
+   * The successfully created log pattern.
+   *
    * @public
    */
   LogPattern?: LogPattern | undefined;
@@ -2184,22 +2304,22 @@ export interface UpdateLogPatternResponse {
  */
 export interface UpdateProblemRequest {
   /**
-   * <p>The ID of the problem.</p>
+   * The ID of the problem.
+   *
    * @public
    */
   ProblemId: string | undefined;
 
   /**
-   * <p>The status of the problem. Arguments can be passed for only problems that show a status
-   *          of <code>RECOVERING</code>.</p>
+   * The status of the problem. Arguments can be passed for only problems that show a status of `RECOVERING`.
+   *
    * @public
    */
   UpdateStatus?: UpdateStatus | undefined;
 
   /**
-   * <p>The visibility of a problem. When you pass a value of <code>IGNORED</code>, the problem
-   *          is removed from the default view, and all notifications for the problem are suspended. When
-   *          <code>VISIBLE</code> is passed, the <code>IGNORED</code> action is reversed.</p>
+   * The visibility of a problem. When you pass a value of `IGNORED`, the problem is removed from the default view, and all notifications for the problem are suspended. When `VISIBLE` is passed, the `IGNORED` action is reversed.
+   *
    * @public
    */
   Visibility?: Visibility | undefined;
@@ -2215,25 +2335,29 @@ export interface UpdateProblemResponse {}
  */
 export interface UpdateWorkloadRequest {
   /**
-   * <p>The name of the resource group.</p>
+   * The name of the resource group.
+   *
    * @public
    */
   ResourceGroupName: string | undefined;
 
   /**
-   * <p> The name of the component. </p>
+   * The name of the component.
+   *
    * @public
    */
   ComponentName: string | undefined;
 
   /**
-   * <p>The ID of the workload.</p>
+   * The ID of the workload.
+   *
    * @public
    */
   WorkloadId?: string | undefined;
 
   /**
-   * <p>The configuration settings of the workload. The value is the escaped JSON of the configuration.</p>
+   * The configuration settings of the workload. The value is the escaped JSON of the configuration.
+   *
    * @public
    */
   WorkloadConfiguration: WorkloadConfiguration | undefined;
@@ -2244,13 +2368,15 @@ export interface UpdateWorkloadRequest {
  */
 export interface UpdateWorkloadResponse {
   /**
-   * <p>The ID of the workload.</p>
+   * The ID of the workload.
+   *
    * @public
    */
   WorkloadId?: string | undefined;
 
   /**
-   * <p>The configuration settings of the workload. The value is the escaped JSON of the configuration.</p>
+   * The configuration settings of the workload. The value is the escaped JSON of the configuration.
+   *
    * @public
    */
   WorkloadConfiguration?: WorkloadConfiguration | undefined;

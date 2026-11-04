@@ -23,7 +23,10 @@ export interface StartPlanExecutionCommandInput extends StartPlanExecutionReques
 export interface StartPlanExecutionCommandOutput extends StartPlanExecutionResponse, __MetadataBearer {}
 
 /**
- * <p>Starts the execution of a Region switch plan. You can execute a plan in either <code>graceful</code> or <code>ungraceful</code> mode.</p> <p>Specifing <code>ungraceful</code> mode either changes the behavior of the execution blocks in a workflow or skips specific execution blocks.</p>
+ * Starts the execution of a Region switch plan. You can execute a plan in either `graceful` or `ungraceful` mode.
+ *
+ * Specifing `ungraceful` mode either changes the behavior of the execution blocks in a workflow or skips specific execution blocks.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,23 +64,34 @@ export interface StartPlanExecutionCommandOutput extends StartPlanExecutionRespo
  * @see {@link ARCRegionSwitchClientResolvedConfig | config} for ARCRegionSwitchClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p> <p>HTTP Status Code: 403</p>
+ *
+ * You do not have sufficient access to perform this action.
+ *
+ * HTTP Status Code: 403
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The client token was already used with different request parameters. A client token must map to the same parameters for every request. To retry this operation, provide a new client token.</p>
+ *
+ * The client token was already used with different request parameters. A client token must map to the same parameters for every request. To retry this operation, provide a new client token.
  *
  * @throws {@link IllegalArgumentException} (client fault)
- *  <p>The request processing has an invalid argument.</p>
+ *
+ * The request processing has an invalid argument.
  *
  * @throws {@link IllegalStateException} (client fault)
- *  <p>The operation failed because the current state of the resource doesn't allow the operation to proceed.</p> <p>HTTP Status Code: 400</p>
+ *
+ * The operation failed because the current state of the resource doesn't allow the operation to proceed.
+ *
+ * HTTP Status Code: 400
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p> <p>HTTP Status Code: 404</p>
+ *
+ * The specified resource was not found.
+ *
+ * HTTP Status Code: 404
  *
  * @throws {@link ARCRegionSwitchServiceException}
- * <p>Base exception class for all service exceptions from ARCRegionSwitch service.</p>
  *
+ * Base exception class for all service exceptions from ARCRegionSwitch service.
  *
  * @public
  */

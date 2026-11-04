@@ -23,28 +23,18 @@ export interface DescribeGameServerInstancesCommandInput extends DescribeGameSer
 export interface DescribeGameServerInstancesCommandOutput extends DescribeGameServerInstancesOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This API works with the following fleet types:</b> EC2 (FleetIQ)</p>
- *          <p>Retrieves status
- *             information about the Amazon EC2 instances associated with a Amazon GameLift Servers FleetIQ game server group.
- *             Use this operation to detect when instances are active or not available to host new game
- *             servers.</p>
- *          <p>To request status for all instances in the game server group, provide a game server
- *             group ID only. To request status for specific instances, provide the game server group
- *             ID and one or more instance IDs. Use the pagination parameters to retrieve results in
- *             sequential segments. If successful, a collection of <code>GameServerInstance</code>
- *             objects is returned. </p>
- *          <p>This operation is not designed to be called with every game server claim request; this
- *             practice can cause you to exceed your API limit, which results in errors. Instead, as a
- *             best practice, cache the results and refresh your cache no more than once every 10
- *             seconds.</p>
- *          <p>
- *             <b>Learn more</b>
- *          </p>
- *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift Servers FleetIQ
- *                 Guide</a>
- *          </p>
+ * **This API works with the following fleet types:** EC2 (FleetIQ)
+ *
+ * Retrieves status information about the Amazon EC2 instances associated with a Amazon GameLift Servers FleetIQ game server group. Use this operation to detect when instances are active or not available to host new game servers.
+ *
+ * To request status for all instances in the game server group, provide a game server group ID only. To request status for specific instances, provide the game server group ID and one or more instance IDs. Use the pagination parameters to retrieve results in sequential segments. If successful, a collection of `GameServerInstance` objects is returned.
+ *
+ * This operation is not designed to be called with every game server claim request; this practice can cause you to exceed your API limit, which results in errors. Instead, as a best practice, cache the results and refresh your cache no more than once every 10 seconds.
+ *
+ * **Learn more**
+ *
+ * [Amazon GameLift Servers FleetIQ Guide](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,22 +74,24 @@ export interface DescribeGameServerInstancesCommandOutput extends DescribeGameSe
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an unrecoverable internal failure while processing the
- *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
- *             values before retrying.</p>
+ *
+ * One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resource was not found. The resource was either not created yet or deleted.</p>
+ *
+ * The requested resource was not found. The resource was either not created yet or deleted.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * The client failed authentication. Clients should not retry such requests.
  *
  * @throws {@link GameLiftServiceException}
- * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * Base exception class for all service exceptions from GameLift service.
  *
  * @public
  */

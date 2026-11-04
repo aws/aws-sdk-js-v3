@@ -23,8 +23,8 @@ export interface CreateParameterGroupCommandInput extends CreateParameterGroupRe
 export interface CreateParameterGroupCommandOutput extends CreateParameterGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new parameter group. A parameter group is a collection of parameters that
- *             you apply to all of the nodes in a DAX cluster.</p>
+ * Creates a new parameter group. A parameter group is a collection of parameters that you apply to all of the nodes in a DAX cluster.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,26 +55,32 @@ export interface CreateParameterGroupCommandOutput extends CreateParameterGroupR
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * Two or more incompatible parameters were specified.
  *
  * @throws {@link InvalidParameterGroupStateFault} (client fault)
- *  <p>One or more parameters in a parameter group are in an invalid state.</p>
+ *
+ * One or more parameters in a parameter group are in an invalid state.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link ParameterGroupAlreadyExistsFault} (client fault)
- *  <p>The specified parameter group already exists.</p>
+ *
+ * The specified parameter group already exists.
  *
  * @throws {@link ParameterGroupQuotaExceededFault} (client fault)
- *  <p>You have attempted to exceed the maximum number of parameter groups.</p>
+ *
+ * You have attempted to exceed the maximum number of parameter groups.
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
- *  <p>The specified service linked role (SLR) was not found.</p>
+ *
+ * The specified service linked role (SLR) was not found.
  *
  * @throws {@link DAXServiceException}
- * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ * Base exception class for all service exceptions from DAX service.
  *
  * @public
  */

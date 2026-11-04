@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { SchedulerServiceException as __BaseException } from "./SchedulerServiceException";
 
 /**
- * <p>Unexpected error encountered while processing the request.</p>
+ * Unexpected error encountered while processing the request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -27,7 +28,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The request references a resource which does not exist.</p>
+ * The request references a resource which does not exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -50,7 +52,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -73,7 +76,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ * The input fails to satisfy the constraints specified by an AWS service.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -96,7 +100,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>Updating or deleting the resource can cause an inconsistent state.</p>
+ * Updating or deleting the resource can cause an inconsistent state.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -119,7 +124,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The request exceeds a service quota.</p>
+ * The request exceeds a service quota.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {

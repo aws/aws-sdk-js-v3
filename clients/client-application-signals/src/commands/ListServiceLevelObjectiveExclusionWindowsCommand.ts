@@ -26,7 +26,8 @@ export interface ListServiceLevelObjectiveExclusionWindowsCommandInput extends L
 export interface ListServiceLevelObjectiveExclusionWindowsCommandOutput extends ListServiceLevelObjectiveExclusionWindowsOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves all exclusion windows configured for a specific SLO.</p>
+ * Retrieves all exclusion windows configured for a specific SLO.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,17 +69,20 @@ export interface ListServiceLevelObjectiveExclusionWindowsCommandOutput extends 
  * @see {@link ApplicationSignalsClientResolvedConfig | config} for ApplicationSignalsClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource not found.</p>
+ *
+ * Resource not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled because of quota limits.</p>
+ *
+ * The request was throttled because of quota limits.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The resource is not valid.</p>
+ *
+ * The resource is not valid.
  *
  * @throws {@link ApplicationSignalsServiceException}
- * <p>Base exception class for all service exceptions from ApplicationSignals service.</p>
  *
+ * Base exception class for all service exceptions from ApplicationSignals service.
  *
  * @public
  */

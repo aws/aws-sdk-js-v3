@@ -23,7 +23,14 @@ export interface DescribeExecutionCommandInput extends DescribeExecutionRequest 
 export interface DescribeExecutionCommandOutput extends DescribeExecutionResponse, __MetadataBearer {}
 
 /**
- * <p>You can use <code>DescribeExecution</code> to check the details of the execution of the specified workflow.</p> <note> <p>This API call only returns details for in-progress workflows.</p> <p> If you provide an ID for an execution that is not in progress, or if the execution doesn't match the specified workflow ID, you receive a <code>ResourceNotFound</code> exception.</p> </note>
+ * You can use `DescribeExecution` to check the details of the execution of the specified workflow.
+ *
+ * > **Note:**
+ * >
+ * > This API call only returns details for in-progress workflows.
+ * >
+ * > If you provide an ID for an execution that is not in progress, or if the execution doesn't match the specified workflow ID, you receive a `ResourceNotFound` exception.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -108,20 +115,24 @@ export interface DescribeExecutionCommandOutput extends DescribeExecutionRespons
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
  *
  * @throws {@link InternalServiceError} (server fault)
- *  <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+ *
+ * This exception is thrown when an error occurs in the Transfer Family service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * This exception is thrown when the client submits a malformed request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+ *
+ * This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+ *
+ * The request has failed because the Amazon Web ServicesTransfer Family service is not available.
  *
  * @throws {@link TransferServiceException}
- * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * Base exception class for all service exceptions from Transfer service.
  *
  * @public
  */

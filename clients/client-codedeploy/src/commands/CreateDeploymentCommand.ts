@@ -23,7 +23,8 @@ export interface CreateDeploymentCommandInput extends CreateDeploymentInput {}
 export interface CreateDeploymentCommandOutput extends CreateDeploymentOutput, __MetadataBearer {}
 
 /**
- * <p>Deploys an application revision through the specified deployment group.</p>
+ * Deploys an application revision through the specified deployment group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -122,146 +123,139 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentOutput, _
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  * @throws {@link AlarmsLimitExceededException} (client fault)
- *  <p>The maximum number of alarms for a deployment group (10) was exceeded.</p>
+ *
+ * The maximum number of alarms for a deployment group (10) was exceeded.
  *
  * @throws {@link ApplicationDoesNotExistException} (client fault)
- *  <p>The application does not exist with the user or Amazon Web Services account.</p>
+ *
+ * The application does not exist with the user or Amazon Web Services account.
  *
  * @throws {@link ApplicationNameRequiredException} (client fault)
- *  <p>The minimum number of required application names was not specified.</p>
+ *
+ * The minimum number of required application names was not specified.
  *
  * @throws {@link DeploymentConfigDoesNotExistException} (client fault)
- *  <p>The deployment configuration does not exist with the user or Amazon Web Services account.</p>
+ *
+ * The deployment configuration does not exist with the user or Amazon Web Services account.
  *
  * @throws {@link DeploymentGroupDoesNotExistException} (client fault)
- *  <p>The named deployment group with the user or Amazon Web Services account does not
- *             exist.</p>
+ *
+ * The named deployment group with the user or Amazon Web Services account does not exist.
  *
  * @throws {@link DeploymentGroupNameRequiredException} (client fault)
- *  <p>The deployment group name was not specified.</p>
+ *
+ * The deployment group name was not specified.
  *
  * @throws {@link DeploymentLimitExceededException} (client fault)
- *  <p>The number of allowed deployments was exceeded.</p>
+ *
+ * The number of allowed deployments was exceeded.
  *
  * @throws {@link DescriptionTooLongException} (client fault)
- *  <p>The description is too long.</p>
+ *
+ * The description is too long.
  *
  * @throws {@link InvalidAlarmConfigException} (client fault)
- *  <p>The format of the alarm configuration is invalid. Possible causes include:</p>
- *          <ul>
- *             <li>
- *                <p>The alarm list is null.</p>
- *             </li>
- *             <li>
- *                <p>The alarm object is null.</p>
- *             </li>
- *             <li>
- *                <p>The alarm name is empty or null or exceeds the limit of 255 characters.</p>
- *             </li>
- *             <li>
- *                <p>Two alarms with the same name have been specified.</p>
- *             </li>
- *             <li>
- *                <p>The alarm configuration is enabled, but the alarm list is empty.</p>
- *             </li>
- *          </ul>
+ *
+ * The format of the alarm configuration is invalid. Possible causes include:
+ *
+ * - The alarm list is null.
+ * - The alarm object is null.
+ * - The alarm name is empty or null or exceeds the limit of 255 characters.
+ * - Two alarms with the same name have been specified.
+ * - The alarm configuration is enabled, but the alarm list is empty.
  *
  * @throws {@link InvalidApplicationNameException} (client fault)
- *  <p>The application name was specified in an invalid format.</p>
+ *
+ * The application name was specified in an invalid format.
  *
  * @throws {@link InvalidAutoRollbackConfigException} (client fault)
- *  <p>The automatic rollback configuration was specified in an invalid format. For example,
- *             automatic rollback is enabled, but an invalid triggering event type or no event types
- *             were listed.</p>
+ *
+ * The automatic rollback configuration was specified in an invalid format. For example, automatic rollback is enabled, but an invalid triggering event type or no event types were listed.
  *
  * @throws {@link InvalidAutoScalingGroupException} (client fault)
- *  <p>The Auto Scaling group was specified in an invalid format or does not
- *             exist.</p>
+ *
+ * The Auto Scaling group was specified in an invalid format or does not exist.
  *
  * @throws {@link InvalidAutoScalingGroupProcessToSuspendException} (client fault)
- *  <p>The <code>autoScalingGroupProcessesToSuspend</code> list in
- *             <code>ec2DeploymentOptions</code> contains a process that is not valid. Valid values
- *             are <code>Terminate</code>, <code>AZRebalance</code>, <code>InstanceRefresh</code>,
- *             and <code>ScheduledActions</code>. Process names are case sensitive.</p>
+ *
+ * The `autoScalingGroupProcessesToSuspend` list in `ec2DeploymentOptions` contains a process that is not valid. Valid values are `Terminate`, `AZRebalance`, `InstanceRefresh`, and `ScheduledActions`. Process names are case sensitive.
  *
  * @throws {@link InvalidComputePlatformException} (client fault)
- *  <p>The computePlatform is invalid. The computePlatform should be <code>Lambda</code>, <code>Server</code>, or <code>ECS</code>.</p>
+ *
+ * The computePlatform is invalid. The computePlatform should be `Lambda`, `Server`, or `ECS`.
  *
  * @throws {@link InvalidDeploymentConfigNameException} (client fault)
- *  <p>The deployment configuration name was specified in an invalid format.</p>
+ *
+ * The deployment configuration name was specified in an invalid format.
  *
  * @throws {@link InvalidDeploymentGroupNameException} (client fault)
- *  <p>The deployment group name was specified in an invalid format.</p>
+ *
+ * The deployment group name was specified in an invalid format.
  *
  * @throws {@link InvalidECSServiceException} (client fault)
- *  <p> The Amazon ECS service identifier is not valid. </p>
+ *
+ * The Amazon ECS service identifier is not valid.
  *
  * @throws {@link InvalidFileExistsBehaviorException} (client fault)
- *  <p>An invalid fileExistsBehavior option was specified to determine how CodeDeploy handles files or directories that already exist in a deployment
- *             target location, but weren't part of the previous successful deployment. Valid values
- *             include "DISALLOW," "OVERWRITE," and "RETAIN."</p>
+ *
+ * An invalid fileExistsBehavior option was specified to determine how CodeDeploy handles files or directories that already exist in a deployment target location, but weren't part of the previous successful deployment. Valid values include "DISALLOW," "OVERWRITE," and "RETAIN."
  *
  * @throws {@link InvalidGitHubAccountTokenException} (client fault)
- *  <p>The GitHub token is not valid.</p>
+ *
+ * The GitHub token is not valid.
  *
  * @throws {@link InvalidIgnoreApplicationStopFailuresValueException} (client fault)
- *  <p>The IgnoreApplicationStopFailures value is invalid. For Lambda
- *             deployments, <code>false</code> is expected. For EC2/On-premises deployments,
- *                 <code>true</code> or <code>false</code> is expected.</p>
+ *
+ * The IgnoreApplicationStopFailures value is invalid. For Lambda deployments, `false` is expected. For EC2/On-premises deployments, `true` or `false` is expected.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input was specified in an invalid format.</p>
+ *
+ * The input was specified in an invalid format.
  *
  * @throws {@link InvalidLoadBalancerInfoException} (client fault)
- *  <p>An invalid load balancer name, or no load balancer name, was specified.</p>
+ *
+ * An invalid load balancer name, or no load balancer name, was specified.
  *
  * @throws {@link InvalidRevisionException} (client fault)
- *  <p>The revision was specified in an invalid format.</p>
+ *
+ * The revision was specified in an invalid format.
  *
  * @throws {@link InvalidRoleException} (client fault)
- *  <p>The service role ARN was specified in an invalid format. Or, if an Auto Scaling
- *             group was specified, the specified service role does not grant the appropriate
- *             permissions to Amazon EC2 Auto Scaling.</p>
+ *
+ * The service role ARN was specified in an invalid format. Or, if an Auto Scaling group was specified, the specified service role does not grant the appropriate permissions to Amazon EC2 Auto Scaling.
  *
  * @throws {@link InvalidTargetInstancesException} (client fault)
- *  <p>The target instance configuration is invalid. Possible causes include:</p>
- *          <ul>
- *             <li>
- *                <p>Configuration data for target instances was entered for an in-place
- *                     deployment.</p>
- *             </li>
- *             <li>
- *                <p>The limit of 10 tags for a tag type was exceeded.</p>
- *             </li>
- *             <li>
- *                <p>The combined length of the tag names exceeded the limit. </p>
- *             </li>
- *             <li>
- *                <p>A specified tag is not currently applied to any instances.</p>
- *             </li>
- *          </ul>
+ *
+ * The target instance configuration is invalid. Possible causes include:
+ *
+ * - Configuration data for target instances was entered for an in-place deployment.
+ * - The limit of 10 tags for a tag type was exceeded.
+ * - The combined length of the tag names exceeded the limit.
+ * - A specified tag is not currently applied to any instances.
  *
  * @throws {@link InvalidTrafficRoutingConfigurationException} (client fault)
- *  <p> The configuration that specifies how traffic is routed during a deployment is
- *             invalid.</p>
+ *
+ * The configuration that specifies how traffic is routed during a deployment is invalid.
  *
  * @throws {@link InvalidUpdateOutdatedInstancesOnlyValueException} (client fault)
- *  <p>The UpdateOutdatedInstancesOnly value is invalid. For Lambda
- *             deployments, <code>false</code> is expected. For EC2/On-premises deployments,
- *                 <code>true</code> or <code>false</code> is expected.</p>
+ *
+ * The UpdateOutdatedInstancesOnly value is invalid. For Lambda deployments, `false` is expected. For EC2/On-premises deployments, `true` or `false` is expected.
  *
  * @throws {@link RevisionDoesNotExistException} (client fault)
- *  <p>The named revision does not exist with the user or Amazon Web Services account.</p>
+ *
+ * The named revision does not exist with the user or Amazon Web Services account.
  *
  * @throws {@link RevisionRequiredException} (client fault)
- *  <p>The revision ID was not specified.</p>
+ *
+ * The revision ID was not specified.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>An API function was called too frequently.</p>
+ *
+ * An API function was called too frequently.
  *
  * @throws {@link CodeDeployServiceException}
- * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * Base exception class for all service exceptions from CodeDeploy service.
  *
  * @public
  */

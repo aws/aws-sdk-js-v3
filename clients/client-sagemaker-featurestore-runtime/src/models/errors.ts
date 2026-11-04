@@ -6,7 +6,8 @@ import {
 } from "./SageMakerFeatureStoreRuntimeServiceException";
 
 /**
- * <p>You do not have permission to perform an action.</p>
+ * You do not have permission to perform an action.
+ *
  * @public
  */
 export class AccessForbidden extends __BaseException {
@@ -29,8 +30,8 @@ export class AccessForbidden extends __BaseException {
 }
 
 /**
- * <p>An internal failure occurred. Try your request again. If the problem persists, contact
- *             Amazon Web Services customer support.</p>
+ * An internal failure occurred. Try your request again. If the problem persists, contact Amazon Web Services customer support.
+ *
  * @public
  */
 export class InternalFailure extends __BaseException {
@@ -53,7 +54,8 @@ export class InternalFailure extends __BaseException {
 }
 
 /**
- * <p>The service is currently unavailable.</p>
+ * The service is currently unavailable.
+ *
  * @public
  */
 export class ServiceUnavailable extends __BaseException {
@@ -76,7 +78,8 @@ export class ServiceUnavailable extends __BaseException {
 }
 
 /**
- * <p>There was an error validating your request.</p>
+ * There was an error validating your request.
+ *
  * @public
  */
 export class ValidationError extends __BaseException {
@@ -99,7 +102,8 @@ export class ValidationError extends __BaseException {
 }
 
 /**
- * <p>A resource that is required to perform an action was not found.</p>
+ * A resource that is required to perform an action was not found.
+ *
  * @public
  */
 export class ResourceNotFound extends __BaseException {
@@ -122,10 +126,8 @@ export class ResourceNotFound extends __BaseException {
 }
 
 /**
- * <p>The service rejected the update because the provided <code>EventTime</code> is
- *          older than the record's current <code>EventTime</code>. To persist the update, retrieve
- *          the record's latest <code>EventTime</code> and resubmit the request with an
- *             <code>EventTime</code> that is equal to or newer than the current value.</p>
+ * The service rejected the update because the provided `EventTime` is older than the record's current `EventTime`. To persist the update, retrieve the record's latest `EventTime` and resubmit the request with an `EventTime` that is equal to or newer than the current value.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {

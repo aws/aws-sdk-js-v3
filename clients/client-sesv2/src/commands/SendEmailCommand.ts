@@ -23,30 +23,12 @@ export interface SendEmailCommandInput extends SendEmailRequest {}
 export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBearer {}
 
 /**
- * <p>Sends an email message. You can use the Amazon SES API v2 to send the following types of
- *             messages:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <b>Simple</b> – A standard email message. When
- *                     you create this type of message, you specify the sender, the recipient, and the
- *                     message body, and Amazon SES assembles the message for you.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Raw</b> – A raw, MIME-formatted email
- *                     message. When you send this type of email, you have to specify all of the
- *                     message headers, as well as the message body. You can use this message type to
- *                     send messages that contain attachments. The message that you specify has to be a
- *                     valid MIME message.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Templated</b> – A message that contains
- *                     personalization tags. When you send this type of email, Amazon SES API v2 automatically
- *                     replaces the tags with values that you specify.</p>
- *             </li>
- *          </ul>
+ * Sends an email message. You can use the Amazon SES API v2 to send the following types of messages:
+ *
+ * - **Simple** – A standard email message. When you create this type of message, you specify the sender, the recipient, and the message body, and Amazon SES assembles the message for you.
+ * - **Raw** – A raw, MIME-formatted email message. When you send this type of email, you have to specify all of the message headers, as well as the message body. You can use this message type to send messages that contain attachments. The message that you specify has to be a valid MIME message.
+ * - **Templated** – A message that contains personalization tags. When you send this type of email, Amazon SES API v2 automatically replaces the tags with values that you specify.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -174,34 +156,40 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  * @throws {@link AccountSuspendedException} (client fault)
- *  <p>The message can't be sent because the account's ability to send email has been
- *             permanently restricted.</p>
+ *
+ * The message can't be sent because the account's ability to send email has been permanently restricted.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>There are too many instances of the specified resource type.</p>
+ *
+ * There are too many instances of the specified resource type.
  *
  * @throws {@link MailFromDomainNotVerifiedException} (client fault)
- *  <p>The message can't be sent because the sending domain isn't verified.</p>
+ *
+ * The message can't be sent because the sending domain isn't verified.
  *
  * @throws {@link MessageRejected} (client fault)
- *  <p>The message can't be sent because it contains invalid content.</p>
+ *
+ * The message can't be sent because it contains invalid content.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * The resource you attempted to access doesn't exist.
  *
  * @throws {@link SendingPausedException} (client fault)
- *  <p>The message can't be sent because the account's ability to send email is currently
- *             paused.</p>
+ *
+ * The message can't be sent because the account's ability to send email is currently paused.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Too many requests have been made to the operation.</p>
+ *
+ * Too many requests have been made to the operation.
  *
  * @throws {@link SESv2ServiceException}
- * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * Base exception class for all service exceptions from SESv2 service.
  *
  * @public
  */

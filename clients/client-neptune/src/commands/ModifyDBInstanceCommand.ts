@@ -23,9 +23,8 @@ export interface ModifyDBInstanceCommandInput extends ModifyDBInstanceMessage {}
 export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, __MetadataBearer {}
 
 /**
- * <p>Modifies settings for a DB instance. You can change one or more database configuration
- *       parameters by specifying these parameters and the new values in the request. To learn what
- *       modifications you can make to your DB instance, call <a>DescribeValidDBInstanceModifications</a> before you call <a>ModifyDBInstance</a>.</p>
+ * Modifies settings for a DB instance. You can change one or more database configuration parameters by specifying these parameters and the new values in the request. To learn what modifications you can make to your DB instance, call DescribeValidDBInstanceModifications before you call ModifyDBInstance.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -238,66 +237,74 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  * @throws {@link AuthorizationNotFoundFault} (client fault)
- *  <p>Specified CIDRIP or EC2 security group is not authorized for the specified DB security group.</p>
- *          <p>Neptune may not also be authorized via IAM to perform necessary actions on your behalf.</p>
+ *
+ * Specified CIDRIP or EC2 security group is not authorized for the specified DB security group.
+ *
+ * Neptune may not also be authorized via IAM to perform necessary actions on your behalf.
  *
  * @throws {@link CertificateNotFoundFault} (client fault)
- *  <p>
- *             <i>CertificateIdentifier</i> does not refer to an existing certificate.</p>
+ *
+ * *CertificateIdentifier* does not refer to an existing certificate.
  *
  * @throws {@link DBInstanceAlreadyExistsFault} (client fault)
- *  <p>User already has a DB instance with the given identifier.</p>
+ *
+ * User already has a DB instance with the given identifier.
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p>
- *             <i>DBInstanceIdentifier</i> does not refer to an existing DB instance.</p>
+ *
+ * *DBInstanceIdentifier* does not refer to an existing DB instance.
  *
  * @throws {@link DBParameterGroupNotFoundFault} (client fault)
- *  <p>
- *             <i>DBParameterGroupName</i> does not refer to an
- *       existing DB parameter group.</p>
+ *
+ * *DBParameterGroupName* does not refer to an existing DB parameter group.
  *
  * @throws {@link DBSecurityGroupNotFoundFault} (client fault)
- *  <p>
- *             <i>DBSecurityGroupName</i> does not refer
- *       to an existing DB security group.</p>
+ *
+ * *DBSecurityGroupName* does not refer to an existing DB security group.
  *
  * @throws {@link DBUpgradeDependencyFailureFault} (client fault)
- *  <p>The DB upgrade failed because a resource the DB depends on could not be modified.</p>
+ *
+ * The DB upgrade failed because a resource the DB depends on could not be modified.
  *
  * @throws {@link DomainNotFoundFault} (client fault)
- *  <p>
- *             <i>Domain</i> does not refer to an existing Active Directory Domain.</p>
+ *
+ * *Domain* does not refer to an existing Active Directory Domain.
  *
  * @throws {@link InsufficientDBInstanceCapacityFault} (client fault)
- *  <p>Specified DB instance class is not available in the specified Availability Zone.</p>
+ *
+ * Specified DB instance class is not available in the specified Availability Zone.
  *
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
- *  <p>The specified DB instance is not in the <i>available</i> state.</p>
+ *
+ * The specified DB instance is not in the *available* state.
  *
  * @throws {@link InvalidDBSecurityGroupStateFault} (client fault)
- *  <p>The state of the DB security group does not allow deletion.</p>
+ *
+ * The state of the DB security group does not allow deletion.
  *
  * @throws {@link InvalidVPCNetworkStateFault} (client fault)
- *  <p>DB subnet group does not cover all Availability Zones after it is created
- *       because users' change.</p>
+ *
+ * DB subnet group does not cover all Availability Zones after it is created because users' change.
  *
  * @throws {@link OptionGroupNotFoundFault} (client fault)
- *  <p>The designated option group could not be found.</p>
+ *
+ * The designated option group could not be found.
  *
  * @throws {@link ProvisionedIopsNotAvailableInAZFault} (client fault)
- *  <p>Provisioned IOPS not available in the specified Availability Zone.</p>
+ *
+ * Provisioned IOPS not available in the specified Availability Zone.
  *
  * @throws {@link StorageQuotaExceededFault} (client fault)
- *  <p>Request would result in user exceeding the allowed amount of storage available across all DB instances.</p>
+ *
+ * Request would result in user exceeding the allowed amount of storage available across all DB instances.
  *
  * @throws {@link StorageTypeNotSupportedFault} (client fault)
- *  <p>
- *             <i>StorageType</i> specified cannot be associated with the DB Instance.</p>
+ *
+ * *StorageType* specified cannot be associated with the DB Instance.
  *
  * @throws {@link NeptuneServiceException}
- * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * Base exception class for all service exceptions from Neptune service.
  *
  * @public
  */

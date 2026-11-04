@@ -5,15 +5,15 @@
  */
 export const SupportPermitStatus = {
   /**
-   * <p>The permit is active and can be used by the support operator.</p>
+   * The permit is active and can be used by the support operator.
    */
   ACTIVE: "ACTIVE",
   /**
-   * <p>The permit is being deleted.</p>
+   * The permit is being deleted.
    */
   DELETING: "DELETING",
   /**
-   * <p>The permit is inactive and cannot be used.</p>
+   * The permit is inactive and cannot be used.
    */
   INACTIVE: "INACTIVE",
 } as const;
@@ -28,19 +28,19 @@ export type SupportPermitStatus = (typeof SupportPermitStatus)[keyof typeof Supp
  */
 export const SupportPermitRequestStatus = {
   /**
-   * <p>The request has been accepted.</p>
+   * The request has been accepted.
    */
   ACCEPTED: "ACCEPTED",
   /**
-   * <p>The request has been cancelled.</p>
+   * The request has been cancelled.
    */
   CANCELLED: "CANCELLED",
   /**
-   * <p>The request is pending customer review.</p>
+   * The request is pending customer review.
    */
   PENDING: "PENDING",
   /**
-   * <p>The request has been rejected.</p>
+   * The request has been rejected.
    */
   REJECTED: "REJECTED",
 } as const;

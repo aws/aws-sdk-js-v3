@@ -23,7 +23,8 @@ export interface GetConfigurationCommandInput extends GetConfigurationRequest {}
 export interface GetConfigurationCommandOutput extends GetConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves setting configurations for Amazon Inspector scans. If you specify an <code>accountId</code>, this operation returns the scan configuration for that member account. You must be the delegated administrator for the specified member account. If you do not specify an <code>accountId</code>, this operation returns your own scan configuration.</p>
+ * Retrieves setting configurations for Amazon Inspector scans. If you specify an `accountId`, this operation returns the scan configuration for that member account. You must be the delegated administrator for the specified member account. If you do not specify an `accountId`, this operation returns your own scan configuration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,23 +87,30 @@ export interface GetConfigurationCommandOutput extends GetConfigurationResponse,
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+ *
+ * You do not have sufficient access to perform this action.
+ *
+ * For `Enable`, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+ *
+ * The request has failed due to an internal failure of the Amazon Inspector service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+ *
+ * The operation tried to access an invalid resource. Make sure the resource is specified correctly.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The limit on the number of requests per second was exceeded.</p>
+ *
+ * The limit on the number of requests per second was exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+ *
+ * The request has failed validation due to missing required fields or having invalid inputs.
  *
  * @throws {@link Inspector2ServiceException}
- * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * Base exception class for all service exceptions from Inspector2 service.
  *
  * @public
  */

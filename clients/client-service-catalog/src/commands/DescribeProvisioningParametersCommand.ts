@@ -23,14 +23,10 @@ export interface DescribeProvisioningParametersCommandInput extends DescribeProv
 export interface DescribeProvisioningParametersCommandOutput extends DescribeProvisioningParametersOutput, __MetadataBearer {}
 
 /**
- * <p>Gets information about the configuration required to provision the specified product using
- *          the specified provisioning artifact.</p>
- *          <p>If the output contains a TagOption key with an empty list of values, there is a
- *          TagOption conflict for that key. The end user cannot take action to fix the conflict, and
- *          launch is not blocked. In subsequent calls to <a>ProvisionProduct</a>,
- *          do not include conflicted TagOption keys as tags, or this causes the error
- *          "Parameter validation failed: Missing required parameter in Tags[<i>N</i>]:<i>Value</i>".
- *          Tag the provisioned product with the value <code>sc-tagoption-conflict-portfolioId-productId</code>.</p>
+ * Gets information about the configuration required to provision the specified product using the specified provisioning artifact.
+ *
+ * If the output contains a TagOption key with an empty list of values, there is a TagOption conflict for that key. The end user cannot take action to fix the conflict, and launch is not blocked. In subsequent calls to ProvisionProduct, do not include conflicted TagOption keys as tags, or this causes the error "Parameter validation failed: Missing required parameter in Tags[*N*]:*Value*". Tag the provisioned product with the value `sc-tagoption-conflict-portfolioId-productId`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -122,14 +118,16 @@ export interface DescribeProvisioningParametersCommandOutput extends DescribePro
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  * @throws {@link InvalidParametersException} (client fault)
- *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * One or more parameters provided to the operation are not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ServiceCatalogServiceException}
- * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * Base exception class for all service exceptions from ServiceCatalog service.
  *
  * @public
  */

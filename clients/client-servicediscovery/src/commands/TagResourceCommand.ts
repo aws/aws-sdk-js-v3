@@ -23,7 +23,8 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Adds one or more tags to the specified resource.</p>
+ * Adds one or more tags to the specified resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,20 +55,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>One or more specified values aren't valid. For example, a required value might be missing, a
- *    numeric value might be outside the allowed range, or a string value might exceed length
- *    constraints.</p>
+ *
+ * One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range, or a string value might exceed length constraints.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The operation can't be completed because the resource was not found.</p>
+ *
+ * The operation can't be completed because the resource was not found.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>The list of tags on the resource is over the quota. The maximum number of tags that can be
- *    applied to a resource is 50.</p>
+ *
+ * The list of tags on the resource is over the quota. The maximum number of tags that can be applied to a resource is 50.
  *
  * @throws {@link ServiceDiscoveryServiceException}
- * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
+ * Base exception class for all service exceptions from ServiceDiscovery service.
  *
  * @example TagResource example
  * ```javascript

@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>This guide documents the action and response elements for use of the service.</p>
+ * This guide documents the action and response elements for use of the service.
  *
  * @packageDocumentation
  */

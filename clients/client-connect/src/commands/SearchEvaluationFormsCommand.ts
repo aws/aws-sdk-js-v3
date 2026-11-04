@@ -24,34 +24,22 @@ export interface SearchEvaluationFormsCommandInput extends SearchEvaluationForms
 export interface SearchEvaluationFormsCommandOutput extends SearchEvaluationFormsResponse, __MetadataBearer {}
 
 /**
- * <p>Searches evaluation forms in an Connect Customer instance, with optional filtering.</p>
- *          <p>
- *             <b>Use cases</b>
- *          </p>
- *          <p>Following are common uses cases for this API:</p>
- *          <ul>
- *             <li>
- *                <p>List all evaluation forms in an instance.</p>
- *             </li>
- *             <li>
- *                <p>Find all evaluation forms that meet specific criteria, such as Title, Description, Status, and more.</p>
- *             </li>
- *             <li>
- *                <p>Find all evaluation forms that are tagged with a specific set of tags.</p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Important things to know</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>A Search operation, unlike a List operation, takes time to index changes to resource (create, update or
- *      delete). If you don't see updated information for recently changed contact evaluations, try calling the API again
- *      in a few seconds.</p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Connect Customer endpoints and quotas</a>.</p>
+ * Searches evaluation forms in an Connect Customer instance, with optional filtering.
+ *
+ * **Use cases**
+ *
+ * Following are common uses cases for this API:
+ *
+ * - List all evaluation forms in an instance.
+ * - Find all evaluation forms that meet specific criteria, such as Title, Description, Status, and more.
+ * - Find all evaluation forms that are tagged with a specific set of tags.
+ *
+ * **Important things to know**
+ *
+ * - A Search operation, unlike a List operation, takes time to index changes to resource (create, update or delete). If you don't see updated information for recently changed contact evaluations, try calling the API again in a few seconds.
+ *
+ * **Endpoints**: See [Connect Customer endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -185,23 +173,28 @@ export interface SearchEvaluationFormsCommandOutput extends SearchEvaluationForm
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

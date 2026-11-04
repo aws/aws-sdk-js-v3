@@ -23,7 +23,8 @@ export interface UpdateZonalShiftCommandInput extends UpdateZonalShiftRequest {}
 export interface UpdateZonalShiftCommandOutput extends ZonalShift, __MetadataBearer {}
 
 /**
- * <p>Update an active zonal shift in Amazon Application Recovery Controller in your Amazon Web Services account. You can update a zonal shift to set a new expiration, or edit or replace the comment for the zonal shift.</p>
+ * Update an active zonal shift in Amazon Application Recovery Controller in your Amazon Web Services account. You can update a zonal shift to set a new expiration, or edit or replace the comment for the zonal shift.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,26 +59,32 @@ export interface UpdateZonalShiftCommandOutput extends ZonalShift, __MetadataBea
  * @see {@link ARCZonalShiftClientResolvedConfig | config} for ARCZonalShiftClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of conflict in the current state of the resource.</p>
+ *
+ * The request could not be processed because of conflict in the current state of the resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>There was an internal server error.</p>
+ *
+ * There was an internal server error.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The input requested a resource that was not found.</p>
+ *
+ * The input requested a resource that was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link ARCZonalShiftServiceException}
- * <p>Base exception class for all service exceptions from ARCZonalShift service.</p>
  *
+ * Base exception class for all service exceptions from ARCZonalShift service.
  *
  * @public
  */

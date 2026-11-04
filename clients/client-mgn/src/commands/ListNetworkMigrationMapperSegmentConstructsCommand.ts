@@ -26,7 +26,8 @@ export interface ListNetworkMigrationMapperSegmentConstructsCommandInput extends
 export interface ListNetworkMigrationMapperSegmentConstructsCommandOutput extends ListNetworkMigrationMapperSegmentConstructsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists constructs within a mapper segment, representing individual infrastructure components like VPCs, subnets, or security groups.</p>
+ * Lists constructs within a mapper segment, representing individual infrastructure components like VPCs, subnets, or security groups.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,20 +81,24 @@ export interface ListNetworkMigrationMapperSegmentConstructsCommandOutput extend
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Operation denied due to a file permission or access check error.</p>
+ *
+ * Operation denied due to a file permission or access check error.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource not found exception.</p>
+ *
+ * Resource not found exception.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Reached throttling quota exception.</p>
+ *
+ * Reached throttling quota exception.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Validate exception.</p>
+ *
+ * Validate exception.
  *
  * @throws {@link MgnServiceException}
- * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * Base exception class for all service exceptions from Mgn service.
  *
  * @example Sample ListNetworkMigrationMapperSegmentConstructs call with properties enabled
  * ```javascript

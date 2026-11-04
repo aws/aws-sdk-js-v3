@@ -23,26 +23,12 @@ export interface ModifyDBClusterParameterGroupCommandInput extends ModifyDBClust
 export interface ModifyDBClusterParameterGroupCommandOutput extends DBClusterParameterGroupNameMessage, __MetadataBearer {}
 
 /**
- * <p> Modifies the parameters of a DB cluster parameter group. To modify more than one
- *       parameter, submit a list of the following: <code>ParameterName</code>,
- *       <code>ParameterValue</code>, and <code>ApplyMethod</code>. A maximum of 20 parameters can be
- *       modified in a single request.</p>
- *          <note>
- *             <p>Changes to dynamic parameters are applied immediately. Changes to static parameters
- *         require a reboot without failover to the DB cluster associated with the parameter group
- *         before the change can take effect.</p>
- *          </note>
- *          <important>
- *             <p>After you create a DB cluster parameter group, you should wait at least 5 minutes before
- *         creating your first DB cluster that uses that DB cluster parameter group as the default
- *         parameter group. This allows Amazon Neptune to fully complete the create action before the
- *         parameter group is used as the default for a new DB cluster. This is especially important
- *         for parameters that are critical when creating the default database for a DB cluster, such
- *         as the character set for the default database defined by the
- *         <code>character_set_database</code> parameter. You can use the <i>Parameter
- *         Groups</i> option of the Amazon Neptune console or the <a>DescribeDBClusterParameters</a> command to verify that your DB cluster parameter
- *         group has been created or modified.</p>
- *          </important>
+ * Modifies the parameters of a DB cluster parameter group. To modify more than one parameter, submit a list of the following: `ParameterName`, `ParameterValue`, and `ApplyMethod`. A maximum of 20 parameters can be modified in a single request.
+ *
+ * > **Note:** Changes to dynamic parameters are applied immediately. Changes to static parameters require a reboot without failover to the DB cluster associated with the parameter group before the change can take effect.
+ *
+ * > **Important:** After you create a DB cluster parameter group, you should wait at least 5 minutes before creating your first DB cluster that uses that DB cluster parameter group as the default parameter group. This allows Amazon Neptune to fully complete the create action before the parameter group is used as the default for a new DB cluster. This is especially important for parameters that are critical when creating the default database for a DB cluster, such as the character set for the default database defined by the `character_set_database` parameter. You can use the *Parameter Groups* option of the Amazon Neptune console or the DescribeDBClusterParameters command to verify that your DB cluster parameter group has been created or modified.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,17 +69,16 @@ export interface ModifyDBClusterParameterGroupCommandOutput extends DBClusterPar
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  * @throws {@link DBParameterGroupNotFoundFault} (client fault)
- *  <p>
- *             <i>DBParameterGroupName</i> does not refer to an
- *       existing DB parameter group.</p>
+ *
+ * *DBParameterGroupName* does not refer to an existing DB parameter group.
  *
  * @throws {@link InvalidDBParameterGroupStateFault} (client fault)
- *  <p>The DB parameter group is in use or is in an invalid state. If you are attempting to
- *       delete the parameter group, you cannot delete it when the parameter group is in this state.</p>
+ *
+ * The DB parameter group is in use or is in an invalid state. If you are attempting to delete the parameter group, you cannot delete it when the parameter group is in this state.
  *
  * @throws {@link NeptuneServiceException}
- * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * Base exception class for all service exceptions from Neptune service.
  *
  * @public
  */

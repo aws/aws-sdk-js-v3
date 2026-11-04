@@ -23,7 +23,10 @@ export interface AssumeRoleForPodIdentityCommandInput extends AssumeRoleForPodId
 export interface AssumeRoleForPodIdentityCommandOutput extends AssumeRoleForPodIdentityResponse, __MetadataBearer {}
 
 /**
- * <p>The Amazon EKS Auth API and the <code>AssumeRoleForPodIdentity</code> action are only used by the EKS Pod Identity Agent.</p> <p>We recommend that applications use the Amazon Web Services SDKs to connect to Amazon Web Services services; if credentials from an EKS Pod Identity association are available in the pod, the latest versions of the SDKs use them automatically.</p>
+ * The Amazon EKS Auth API and the `AssumeRoleForPodIdentity` action are only used by the EKS Pod Identity Agent.
+ *
+ * We recommend that applications use the Amazon Web Services SDKs to connect to Amazon Web Services services; if credentials from an EKS Pod Identity association are available in the pod, the latest versions of the SDKs use them automatically.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,35 +75,44 @@ export interface AssumeRoleForPodIdentityCommandOutput extends AssumeRoleForPodI
  * @see {@link EKSAuthClientResolvedConfig | config} for EKSAuthClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permissions to perform the requested operation. The IAM principal making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access management</a> in the <i>IAM User Guide</i>. </p>
+ *
+ * You don't have permissions to perform the requested operation. The IAM principal making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see [Access management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the *IAM User Guide*.
  *
  * @throws {@link ExpiredTokenException} (client fault)
- *  <p>The specified Kubernetes service account token is expired.</p>
+ *
+ * The specified Kubernetes service account token is expired.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>This exception is thrown if the request contains a semantic error. The precise meaning will depend on the API, and will be documented in the error message.</p>
+ *
+ * This exception is thrown if the request contains a semantic error. The precise meaning will depend on the API, and will be documented in the error message.
  *
  * @throws {@link InvalidTokenException} (client fault)
- *  <p>The specified Kubernetes service account token is invalid.</p>
+ *
+ * The specified Kubernetes service account token is invalid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource could not be found.</p>
+ *
+ * The specified resource could not be found.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is unavailable. Back off and retry the operation.</p>
+ *
+ * The service is unavailable. Back off and retry the operation.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied because your request rate is too high. Reduce the frequency of requests.</p>
+ *
+ * The request was denied because your request rate is too high. Reduce the frequency of requests.
  *
  * @throws {@link EKSAuthServiceException}
- * <p>Base exception class for all service exceptions from EKSAuth service.</p>
  *
+ * Base exception class for all service exceptions from EKSAuth service.
  *
  * @public
  */

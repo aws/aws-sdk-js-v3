@@ -23,7 +23,12 @@ export interface DownloadDBLogFilePortionCommandInput extends DownloadDBLogFileP
 export interface DownloadDBLogFilePortionCommandOutput extends DownloadDBLogFilePortionDetails, __MetadataBearer {}
 
 /**
- * <p>Downloads all or a portion of the specified log file, up to 1 MB in size.</p> <p>This command doesn't apply to RDS Custom.</p> <note> <p>This operation uses resources on database instances. Because of this, we recommend publishing database logs to CloudWatch and then using the GetLogEvents operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogEvents.html">GetLogEvents</a> in the <i>Amazon CloudWatch Logs API Reference</i>.</p> </note>
+ * Downloads all or a portion of the specified log file, up to 1 MB in size.
+ *
+ * This command doesn't apply to RDS Custom.
+ *
+ * > **Note:** This operation uses resources on database instances. Because of this, we recommend publishing database logs to CloudWatch and then using the GetLogEvents operation. For more information, see [GetLogEvents](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogEvents.html) in the *Amazon CloudWatch Logs API Reference*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,17 +60,20 @@ export interface DownloadDBLogFilePortionCommandOutput extends DownloadDBLogFile
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *
+ * `DBInstanceIdentifier` doesn't refer to an existing DB instance.
  *
  * @throws {@link DBInstanceNotReadyFault} (client fault)
- *  <p>An attempt to download or examine log files didn't succeed because an Aurora Serverless v2 instance was paused.</p>
+ *
+ * An attempt to download or examine log files didn't succeed because an Aurora Serverless v2 instance was paused.
  *
  * @throws {@link DBLogFileNotFoundFault} (client fault)
- *  <p> <code>LogFileName</code> doesn't refer to an existing DB log file.</p>
+ *
+ * `LogFileName` doesn't refer to an existing DB log file.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To download a DB log file
  * ```javascript

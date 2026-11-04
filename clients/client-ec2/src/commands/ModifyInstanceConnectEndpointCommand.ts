@@ -23,10 +23,10 @@ export interface ModifyInstanceConnectEndpointCommandInput extends ModifyInstanc
 export interface ModifyInstanceConnectEndpointCommandOutput extends ModifyInstanceConnectEndpointResult, __MetadataBearer {}
 
 /**
- * <p>Modifies the specified EC2 Instance Connect Endpoint.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/modify-ec2-instance-connect-endpoint.html">Modify an
- *                 EC2 Instance Connect Endpoint</a> in the
- *             <i>Amazon EC2 User Guide</i>.</p>
+ * Modifies the specified EC2 Instance Connect Endpoint.
+ *
+ * For more information, see [Modify an EC2 Instance Connect Endpoint](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/modify-ec2-instance-connect-endpoint.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,8 +59,8 @@ export interface ModifyInstanceConnectEndpointCommandOutput extends ModifyInstan
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

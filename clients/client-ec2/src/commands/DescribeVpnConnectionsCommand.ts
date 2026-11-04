@@ -23,9 +23,10 @@ export interface DescribeVpnConnectionsCommandInput extends DescribeVpnConnectio
 export interface DescribeVpnConnectionsCommandOutput extends DescribeVpnConnectionsResult, __MetadataBearer {}
 
 /**
- * <p>Describes one or more of your VPN connections.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
- *                 User Guide</i>.</p>
+ * Describes one or more of your VPN connections.
+ *
+ * For more information, see [Amazon Web Services Site-to-Site VPN](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) in the *Amazon Web Services Site-to-Site VPN User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -176,8 +177,8 @@ export interface DescribeVpnConnectionsCommandOutput extends DescribeVpnConnecti
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

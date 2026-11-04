@@ -23,17 +23,12 @@ export interface UpdateAccessKeyCommandInput extends UpdateAccessKeyRequest {}
 export interface UpdateAccessKeyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Changes the status of the specified access key from Active to Inactive, or vice versa.
- *             This operation can be used to disable a user's key as part of a key rotation
- *             workflow.</p>
- *          <p>If the <code>UserName</code> is not specified, the user name is determined implicitly
- *             based on the Amazon Web Services access key ID used to sign the request. If a temporary access key is
- *             used, then <code>UserName</code> is required. If a long-term key is assigned to the
- *             user, then <code>UserName</code> is not required. This operation works for access keys
- *             under the Amazon Web Services account. Consequently, you can use this operation to manage Amazon Web Services account root user
- *             credentials even if the Amazon Web Services account has no associated users.</p>
- *          <p>For information about rotating keys, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html">Managing keys and certificates</a>
- *             in the <i>IAM User Guide</i>.</p>
+ * Changes the status of the specified access key from Active to Inactive, or vice versa. This operation can be used to disable a user's key as part of a key rotation workflow.
+ *
+ * If the `UserName` is not specified, the user name is determined implicitly based on the Amazon Web Services access key ID used to sign the request. If a temporary access key is used, then `UserName` is required. If a long-term key is assigned to the user, then `UserName` is not required. This operation works for access keys under the Amazon Web Services account. Consequently, you can use this operation to manage Amazon Web Services account root user credentials even if the Amazon Web Services account has no associated users.
+ *
+ * For information about rotating keys, see [Managing keys and certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html) in the *IAM User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,24 +55,24 @@ export interface UpdateAccessKeyCommandOutput extends __MetadataBearer {}
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
- *       input parameter.</p>
+ *
+ * The request was rejected because an invalid or out-of-range value was supplied for an input parameter.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current
- *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+ *
+ * The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @example To activate or deactivate an access key for an IAM user
  * ```javascript

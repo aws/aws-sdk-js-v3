@@ -967,8 +967,8 @@ export type IoTSiteWiseClientResolvedConfigType = __SmithyResolvedConfiguration<
 export interface IoTSiteWiseClientResolvedConfig extends IoTSiteWiseClientResolvedConfigType {}
 
 /**
- * <p>Welcome to the IoT SiteWise API Reference. IoT SiteWise is an Amazon Web Services service that connects <a href="https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications">Industrial Internet of Things (IIoT)</a> devices to the power of the Amazon Web Services Cloud. For more information, see the
- *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/">IoT SiteWise User Guide</a>. For information about IoT SiteWise quotas, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ * Welcome to the IoT SiteWise API Reference. IoT SiteWise is an Amazon Web Services service that connects [Industrial Internet of Things (IIoT)](https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications) devices to the power of the Amazon Web Services Cloud. For more information, see the [IoT SiteWise User Guide](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/). For information about IoT SiteWise quotas, see [Quotas](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html) in the *IoT SiteWise User Guide*.
+ *
  * @public
  */
 export class IoTSiteWiseClient extends __Client<

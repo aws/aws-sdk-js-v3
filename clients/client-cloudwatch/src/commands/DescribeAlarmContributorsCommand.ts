@@ -23,9 +23,8 @@ export interface DescribeAlarmContributorsCommandInput extends DescribeAlarmCont
 export interface DescribeAlarmContributorsCommandOutput extends DescribeAlarmContributorsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the information of the current alarm contributors that are in
- *                 <code>ALARM</code> state. This operation returns details about the individual time
- *             series that contribute to the alarm's state.</p>
+ * Returns the information of the current alarm contributors that are in `ALARM` state. This operation returns details about the individual time series that contribute to the alarm's state.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,14 +62,16 @@ export interface DescribeAlarmContributorsCommandOutput extends DescribeAlarmCon
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  * @throws {@link InvalidNextToken} (client fault)
- *  <p>The next token specified is invalid.</p>
+ *
+ * The next token specified is invalid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The named resource does not exist.</p>
+ *
+ * The named resource does not exist.
  *
  * @throws {@link CloudWatchServiceException}
- * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatch service.
  *
  * @public
  */

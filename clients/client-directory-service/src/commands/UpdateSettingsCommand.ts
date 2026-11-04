@@ -23,7 +23,8 @@ export interface UpdateSettingsCommandInput extends UpdateSettingsRequest {}
 export interface UpdateSettingsCommandOutput extends UpdateSettingsResult, __MetadataBearer {}
 
 /**
- * <p>Updates the configurable settings for the specified directory.</p>
+ * Updates the configurable settings for the specified directory.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,32 +57,40 @@ export interface UpdateSettingsCommandOutput extends UpdateSettingsResult, __Met
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>A client exception has occurred.</p>
+ *
+ * A client exception has occurred.
  *
  * @throws {@link DirectoryDoesNotExistException} (client fault)
- *  <p>The specified directory does not exist in the system.</p>
+ *
+ * The specified directory does not exist in the system.
  *
  * @throws {@link DirectoryUnavailableException} (client fault)
- *  <p>The specified directory is unavailable.</p>
+ *
+ * The specified directory is unavailable.
  *
  * @throws {@link IncompatibleSettingsException} (client fault)
- *  <p>The specified directory setting is not compatible with other settings.</p>
+ *
+ * The specified directory setting is not compatible with other settings.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * An exception has occurred in Directory Service.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>The operation is not supported.</p>
+ *
+ * The operation is not supported.
  *
  * @throws {@link UnsupportedSettingsException} (client fault)
- *  <p>The specified directory setting is not supported.</p>
+ *
+ * The specified directory setting is not supported.
  *
  * @throws {@link DirectoryServiceServiceException}
- * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * Base exception class for all service exceptions from DirectoryService service.
  *
  * @public
  */

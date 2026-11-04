@@ -23,7 +23,8 @@ export interface GetRoomCommandInput extends GetRoomRequest {}
 export interface GetRoomCommandOutput extends GetRoomResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the specified room.</p>
+ * Gets the specified room.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,17 +67,14 @@ export interface GetRoomCommandOutput extends GetRoomResponse, __MetadataBearer 
  * @see {@link IvschatClientResolvedConfig | config} for IvschatClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p/>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p/>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p/>
  *
  * @throws {@link IvschatServiceException}
- * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
+ * Base exception class for all service exceptions from Ivschat service.
  *
  * @public
  */

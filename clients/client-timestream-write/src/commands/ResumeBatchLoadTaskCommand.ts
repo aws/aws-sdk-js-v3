@@ -23,8 +23,6 @@ export interface ResumeBatchLoadTaskCommandInput extends ResumeBatchLoadTaskRequ
 export interface ResumeBatchLoadTaskCommandOutput extends ResumeBatchLoadTaskResponse, __MetadataBearer {}
 
 /**
- * <p>
- *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,30 +47,32 @@ export interface ResumeBatchLoadTaskCommandOutput extends ResumeBatchLoadTaskRes
  * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You are not authorized to perform this action.</p>
+ *
+ * You are not authorized to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>
- *          Timestream was unable to fully process this request because of an internal server
- *          error.</p>
+ *
+ * Timestream was unable to fully process this request because of an internal server error.
  *
  * @throws {@link InvalidEndpointException} (client fault)
- *  <p>The requested endpoint was not valid.</p>
+ *
+ * The requested endpoint was not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The operation tried to access a nonexistent resource. The resource might not be
- *          specified correctly, or its status might not be ACTIVE.</p>
+ *
+ * The operation tried to access a nonexistent resource. The resource might not be specified correctly, or its status might not be ACTIVE.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p> Too many requests were made by a user and they exceeded the service quotas. The request
- *          was throttled.</p>
+ *
+ * Too many requests were made by a user and they exceeded the service quotas. The request was throttled.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> An invalid or malformed request.</p>
+ *
+ * An invalid or malformed request.
  *
  * @throws {@link TimestreamWriteServiceException}
- * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
+ * Base exception class for all service exceptions from TimestreamWrite service.
  *
  * @public
  */

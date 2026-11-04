@@ -39,2106 +39,2531 @@ import type {
 } from "./enums";
 
 /**
- * <p>For <code>SCTE35_ENHANCED</code> output, defines a key and corresponding value. MediaTailor generates these pairs within the <code>EXT-X-ASSET</code>tag.</p>
+ * For `SCTE35_ENHANCED` output, defines a key and corresponding value. MediaTailor generates these pairs within the `EXT-X-ASSET`tag.
+ *
  * @public
  */
 export interface KeyValuePair {
   /**
-   * <p>For <code>SCTE35_ENHANCED</code> output, defines a key. MediaTailor takes this key, and its associated value, and generates the key/value pair within the <code>EXT-X-ASSET</code>tag. If you specify a key, you must also specify a corresponding value.</p>
+   * For `SCTE35_ENHANCED` output, defines a key. MediaTailor takes this key, and its associated value, and generates the key/value pair within the `EXT-X-ASSET`tag. If you specify a key, you must also specify a corresponding value.
+   *
    * @public
    */
   Key: string | undefined;
 
   /**
-   * <p>For <code>SCTE35_ENHANCED</code> output, defines a value. MediaTailor; takes this value, and its associated key, and generates the key/value pair within the <code>EXT-X-ASSET</code>tag. If you specify a value, you must also specify a corresponding key.</p>
+   * For `SCTE35_ENHANCED` output, defines a value. MediaTailor; takes this value, and its associated key, and generates the key/value pair within the `EXT-X-ASSET`tag. If you specify a value, you must also specify a corresponding key.
+   *
    * @public
    */
   Value: string | undefined;
 }
 
 /**
- * <p>Slate VOD source configuration.</p>
+ * Slate VOD source configuration.
+ *
  * @public
  */
 export interface SlateSource {
   /**
-   * <p>The name of the source location where the slate VOD source is stored.</p>
+   * The name of the source location where the slate VOD source is stored.
+   *
    * @public
    */
   SourceLocationName?: string | undefined;
 
   /**
-   * <p>The slate VOD source name. The VOD source must already exist in a source location before it can be used for slate.</p>
+   * The slate VOD source name. The VOD source must already exist in a source location before it can be used for slate.
+   *
    * @public
    */
   VodSourceName?: string | undefined;
 }
 
 /**
- * <p>Splice insert message configuration.</p>
+ * Splice insert message configuration.
+ *
  * @public
  */
 export interface SpliceInsertMessage {
   /**
-   * <p>This is written to <code>splice_insert.avail_num</code>, as defined in section 9.7.3.1 of the SCTE-35 specification. The default value is <code>0</code>. Values must be between <code>0</code> and <code>256</code>, inclusive.</p>
+   * This is written to `splice_insert.avail_num`, as defined in section 9.7.3.1 of the SCTE-35 specification. The default value is `0`. Values must be between `0` and `256`, inclusive.
+   *
    * @public
    */
   AvailNum?: number | undefined;
 
   /**
-   * <p>This is written to <code>splice_insert.avails_expected</code>, as defined in section 9.7.3.1 of the SCTE-35 specification. The default value is <code>0</code>. Values must be between <code>0</code> and <code>256</code>, inclusive.</p>
+   * This is written to `splice_insert.avails_expected`, as defined in section 9.7.3.1 of the SCTE-35 specification. The default value is `0`. Values must be between `0` and `256`, inclusive.
+   *
    * @public
    */
   AvailsExpected?: number | undefined;
 
   /**
-   * <p>This is written to <code>splice_insert.splice_event_id</code>, as defined in section 9.7.3.1 of the SCTE-35 specification. The default value is <code>1</code>.</p>
+   * This is written to `splice_insert.splice_event_id`, as defined in section 9.7.3.1 of the SCTE-35 specification. The default value is `1`.
+   *
    * @public
    */
   SpliceEventId?: number | undefined;
 
   /**
-   * <p>This is written to <code>splice_insert.unique_program_id</code>, as defined in section 9.7.3.1 of the SCTE-35 specification. The default value is <code>0</code>. Values must be between <code>0</code> and <code>256</code>, inclusive.</p>
+   * This is written to `splice_insert.unique_program_id`, as defined in section 9.7.3.1 of the SCTE-35 specification. The default value is `0`. Values must be between `0` and `256`, inclusive.
+   *
    * @public
    */
   UniqueProgramId?: number | undefined;
 }
 
 /**
- * <p>The <code>segmentation_descriptor</code> message can contain advanced metadata fields, like content identifiers, to convey a wide range of information about the ad break. MediaTailor writes the ad metadata in the egress manifest as part of the <code>EXT-X-DATERANGE</code> or <code>EventStream</code> ad marker's SCTE-35 data.</p> <p> <code>segmentation_descriptor</code> messages must be sent with the <code>time_signal</code> message type.</p> <p>See the <code>segmentation_descriptor()</code> table of the 2022 SCTE-35 specification for more information.</p>
+ * The `segmentation_descriptor` message can contain advanced metadata fields, like content identifiers, to convey a wide range of information about the ad break. MediaTailor writes the ad metadata in the egress manifest as part of the `EXT-X-DATERANGE` or `EventStream` ad marker's SCTE-35 data.
+ *
+ * `segmentation_descriptor` messages must be sent with the `time_signal` message type.
+ *
+ * See the `segmentation_descriptor()` table of the 2022 SCTE-35 specification for more information.
+ *
  * @public
  */
 export interface SegmentationDescriptor {
   /**
-   * <p>The Event Identifier to assign to the <code>segmentation_descriptor.segmentation_event_id</code> message, as defined in section 10.3.3.1 of the 2022 SCTE-35 specification. The default value is 1.</p>
+   * The Event Identifier to assign to the `segmentation_descriptor.segmentation_event_id` message, as defined in section 10.3.3.1 of the 2022 SCTE-35 specification. The default value is 1.
+   *
    * @public
    */
   SegmentationEventId?: number | undefined;
 
   /**
-   * <p>The Upid Type to assign to the <code>segmentation_descriptor.segmentation_upid_type</code> message, as defined in section 10.3.3.1 of the 2022 SCTE-35 specification. Values must be between 0 and 256, inclusive. The default value is 14.</p>
+   * The Upid Type to assign to the `segmentation_descriptor.segmentation_upid_type` message, as defined in section 10.3.3.1 of the 2022 SCTE-35 specification. Values must be between 0 and 256, inclusive. The default value is 14.
+   *
    * @public
    */
   SegmentationUpidType?: number | undefined;
 
   /**
-   * <p>The Upid to assign to the <code>segmentation_descriptor.segmentation_upid</code> message, as defined in section 10.3.3.1 of the 2022 SCTE-35 specification. The value must be a hexadecimal string containing only the characters 0 though 9 and A through F. The default value is "" (an empty string).</p>
+   * The Upid to assign to the `segmentation_descriptor.segmentation_upid` message, as defined in section 10.3.3.1 of the 2022 SCTE-35 specification. The value must be a hexadecimal string containing only the characters 0 though 9 and A through F. The default value is "" (an empty string).
+   *
    * @public
    */
   SegmentationUpid?: string | undefined;
 
   /**
-   * <p>The Type Identifier to assign to the <code>segmentation_descriptor.segmentation_type_id</code> message, as defined in section 10.3.3.1 of the 2022 SCTE-35 specification. Values must be between 0 and 256, inclusive. The default value is 48.</p>
+   * The Type Identifier to assign to the `segmentation_descriptor.segmentation_type_id` message, as defined in section 10.3.3.1 of the 2022 SCTE-35 specification. Values must be between 0 and 256, inclusive. The default value is 48.
+   *
    * @public
    */
   SegmentationTypeId?: number | undefined;
 
   /**
-   * <p>The segment number to assign to the <code>segmentation_descriptor.segment_num</code> message, as defined in section 10.3.3.1 of the 2022 SCTE-35 specification Values must be between 0 and 256, inclusive. The default value is 0.</p>
+   * The segment number to assign to the `segmentation_descriptor.segment_num` message, as defined in section 10.3.3.1 of the 2022 SCTE-35 specification Values must be between 0 and 256, inclusive. The default value is 0.
+   *
    * @public
    */
   SegmentNum?: number | undefined;
 
   /**
-   * <p>The number of segments expected, which is assigned to the <code>segmentation_descriptor.segments_expectedS</code> message, as defined in section 10.3.3.1 of the 2022 SCTE-35 specification Values must be between 0 and 256, inclusive. The default value is 0.</p>
+   * The number of segments expected, which is assigned to the `segmentation_descriptor.segments_expectedS` message, as defined in section 10.3.3.1 of the 2022 SCTE-35 specification Values must be between 0 and 256, inclusive. The default value is 0.
+   *
    * @public
    */
   SegmentsExpected?: number | undefined;
 
   /**
-   * <p>The sub-segment number to assign to the <code>segmentation_descriptor.sub_segment_num</code> message, as defined in section 10.3.3.1 of the 2022 SCTE-35 specification. Values must be between 0 and 256, inclusive. The defualt value is null.</p>
+   * The sub-segment number to assign to the `segmentation_descriptor.sub_segment_num` message, as defined in section 10.3.3.1 of the 2022 SCTE-35 specification. Values must be between 0 and 256, inclusive. The defualt value is null.
+   *
    * @public
    */
   SubSegmentNum?: number | undefined;
 
   /**
-   * <p>The number of sub-segments expected, which is assigned to the <code>segmentation_descriptor.sub_segments_expected</code> message, as defined in section 10.3.3.1 of the 2022 SCTE-35 specification. Values must be between 0 and 256, inclusive. The default value is null.</p>
+   * The number of sub-segments expected, which is assigned to the `segmentation_descriptor.sub_segments_expected` message, as defined in section 10.3.3.1 of the 2022 SCTE-35 specification. Values must be between 0 and 256, inclusive. The default value is null.
+   *
    * @public
    */
   SubSegmentsExpected?: number | undefined;
 }
 
 /**
- * <p>The SCTE-35 <code>time_signal</code> message can be sent with one or more <code>segmentation_descriptor</code> messages. A <code>time_signal</code> message can be sent only if a single <code>segmentation_descriptor</code> message is sent.</p> <p>The <code>time_signal</code> message contains only the <code>splice_time</code> field which is constructed using a given presentation timestamp. When sending a <code>time_signal</code> message, the <code>splice_command_type</code> field in the <code>splice_info_section</code> message is set to 6 (0x06).</p> <p>See the <code>time_signal()</code> table of the 2022 SCTE-35 specification for more information.</p>
+ * The SCTE-35 `time_signal` message can be sent with one or more `segmentation_descriptor` messages. A `time_signal` message can be sent only if a single `segmentation_descriptor` message is sent.
+ *
+ * The `time_signal` message contains only the `splice_time` field which is constructed using a given presentation timestamp. When sending a `time_signal` message, the `splice_command_type` field in the `splice_info_section` message is set to 6 (0x06).
+ *
+ * See the `time_signal()` table of the 2022 SCTE-35 specification for more information.
+ *
  * @public
  */
 export interface TimeSignalMessage {
   /**
-   * <p>The configurations for the SCTE-35 <code>segmentation_descriptor</code> message(s) sent with the <code>time_signal</code> message.</p>
+   * The configurations for the SCTE-35 `segmentation_descriptor` message(s) sent with the `time_signal` message.
+   *
    * @public
    */
   SegmentationDescriptors?: SegmentationDescriptor[] | undefined;
 }
 
 /**
- * <p>Ad break configuration parameters.</p>
+ * Ad break configuration parameters.
+ *
  * @public
  */
 export interface AdBreak {
   /**
-   * <p>The SCTE-35 ad insertion type. Accepted value: <code>SPLICE_INSERT</code>, <code>TIME_SIGNAL</code>.</p>
+   * The SCTE-35 ad insertion type. Accepted value: `SPLICE_INSERT`, `TIME_SIGNAL`.
+   *
    * @public
    */
   MessageType?: MessageType | undefined;
 
   /**
-   * <p>How long (in milliseconds) after the beginning of the program that an ad starts. This value must fall within 100ms of a segment boundary, otherwise the ad break will be skipped.</p>
+   * How long (in milliseconds) after the beginning of the program that an ad starts. This value must fall within 100ms of a segment boundary, otherwise the ad break will be skipped.
+   *
    * @public
    */
   OffsetMillis: number | undefined;
 
   /**
-   * <p>Ad break slate configuration.</p>
+   * Ad break slate configuration.
+   *
    * @public
    */
   Slate?: SlateSource | undefined;
 
   /**
-   * <p>This defines the SCTE-35 <code>splice_insert()</code> message inserted around the ad. For information about using <code>splice_insert()</code>, see the SCTE-35 specficiaiton, section 9.7.3.1.</p>
+   * This defines the SCTE-35 `splice_insert()` message inserted around the ad. For information about using `splice_insert()`, see the SCTE-35 specficiaiton, section 9.7.3.1.
+   *
    * @public
    */
   SpliceInsertMessage?: SpliceInsertMessage | undefined;
 
   /**
-   * <p>Defines the SCTE-35 <code>time_signal</code> message inserted around the ad.</p> <p>Programs on a channel's schedule can be configured with one or more ad breaks. You can attach a <code>splice_insert</code> SCTE-35 message to the ad break. This message provides basic metadata about the ad break.</p> <p>See section 9.7.4 of the 2022 SCTE-35 specification for more information.</p>
+   * Defines the SCTE-35 `time_signal` message inserted around the ad.
+   *
+   * Programs on a channel's schedule can be configured with one or more ad breaks. You can attach a `splice_insert` SCTE-35 message to the ad break. This message provides basic metadata about the ad break.
+   *
+   * See section 9.7.4 of the 2022 SCTE-35 specification for more information.
+   *
    * @public
    */
   TimeSignalMessage?: TimeSignalMessage | undefined;
 
   /**
-   * <p>Defines a list of key/value pairs that MediaTailor generates within the <code>EXT-X-ASSET</code>tag for <code>SCTE35_ENHANCED</code> output.</p>
+   * Defines a list of key/value pairs that MediaTailor generates within the `EXT-X-ASSET`tag for `SCTE35_ENHANCED` output.
+   *
    * @public
    */
   AdBreakMetadata?: KeyValuePair[] | undefined;
 }
 
 /**
- * <p>Alert configuration parameters.</p>
+ * Alert configuration parameters.
+ *
  * @public
  */
 export interface Alert {
   /**
-   * <p>The code for the alert. For example, <code>NOT_PROCESSED</code>.</p>
+   * The code for the alert. For example, `NOT_PROCESSED`.
+   *
    * @public
    */
   AlertCode: string | undefined;
 
   /**
-   * <p>If an alert is generated for a resource, an explanation of the reason for the alert.</p>
+   * If an alert is generated for a resource, an explanation of the reason for the alert.
+   *
    * @public
    */
   AlertMessage: string | undefined;
 
   /**
-   * <p>The timestamp when the alert was last modified.</p>
+   * The timestamp when the alert was last modified.
+   *
    * @public
    */
   LastModifiedTime: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) related to this alert.</p>
+   * The Amazon Resource Names (ARNs) related to this alert.
+   *
    * @public
    */
   RelatedResourceArns: string[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>The category that MediaTailor assigns to the alert.</p>
+   * The category that MediaTailor assigns to the alert.
+   *
    * @public
    */
   Category?: AlertCategory | undefined;
 }
 
 /**
- * <p>Clip range configuration for the VOD source associated with the program.</p>
+ * Clip range configuration for the VOD source associated with the program.
+ *
  * @public
  */
 export interface ClipRange {
   /**
-   * <p>The end offset of the clip range, in milliseconds, starting from the beginning of the VOD source associated with the program.</p>
+   * The end offset of the clip range, in milliseconds, starting from the beginning of the VOD source associated with the program.
+   *
    * @public
    */
   EndOffsetMillis?: number | undefined;
 
   /**
-   * <p>The start offset of the clip range, in milliseconds. This offset truncates the start at the number of milliseconds into the duration of the VOD source.</p>
+   * The start offset of the clip range, in milliseconds. This offset truncates the start at the number of milliseconds into the duration of the VOD source.
+   *
    * @public
    */
   StartOffsetMillis?: number | undefined;
 }
 
 /**
- * <p>A playlist of media (VOD and/or live) to be played instead of the default media on a particular program.</p>
+ * A playlist of media (VOD and/or live) to be played instead of the default media on a particular program.
+ *
  * @public
  */
 export interface AlternateMedia {
   /**
-   * <p>The name of the source location for alternateMedia.</p>
+   * The name of the source location for alternateMedia.
+   *
    * @public
    */
   SourceLocationName?: string | undefined;
 
   /**
-   * <p>The name of the live source for alternateMedia.</p>
+   * The name of the live source for alternateMedia.
+   *
    * @public
    */
   LiveSourceName?: string | undefined;
 
   /**
-   * <p>The name of the VOD source for alternateMedia.</p>
+   * The name of the VOD source for alternateMedia.
+   *
    * @public
    */
   VodSourceName?: string | undefined;
 
   /**
-   * <p>Clip range configuration for the VOD source associated with the program.</p>
+   * Clip range configuration for the VOD source associated with the program.
+   *
    * @public
    */
   ClipRange?: ClipRange | undefined;
 
   /**
-   * <p>The date and time that the alternateMedia is scheduled to start, in epoch milliseconds.</p>
+   * The date and time that the alternateMedia is scheduled to start, in epoch milliseconds.
+   *
    * @public
    */
   ScheduledStartTimeMillis?: number | undefined;
 
   /**
-   * <p>Ad break configuration parameters defined in AlternateMedia.</p>
+   * Ad break configuration parameters defined in AlternateMedia.
+   *
    * @public
    */
   AdBreaks?: AdBreak[] | undefined;
 
   /**
-   * <p>The duration of the alternateMedia in milliseconds.</p>
+   * The duration of the alternateMedia in milliseconds.
+   *
    * @public
    */
   DurationMillis?: number | undefined;
 }
 
 /**
- * <p>An AudienceMedia object contains an Audience and a list of AlternateMedia.</p>
+ * An AudienceMedia object contains an Audience and a list of AlternateMedia.
+ *
  * @public
  */
 export interface AudienceMedia {
   /**
-   * <p>The Audience defined in AudienceMedia.</p>
+   * The Audience defined in AudienceMedia.
+   *
    * @public
    */
   Audience?: string | undefined;
 
   /**
-   * <p>The list of AlternateMedia defined in AudienceMedia.</p>
+   * The list of AlternateMedia defined in AudienceMedia.
+   *
    * @public
    */
   AlternateMedia?: AlternateMedia[] | undefined;
 }
 
 /**
- * <p>MediaTailor only places (consumes) prefetched ads if the ad break meets the criteria defined by the dynamic variables. This gives you granular control over which ad break to place the prefetched ads into.</p> <p>As an example, let's say that you set <code>DynamicVariable</code> to <code>scte.event_id</code> and <code>Operator</code> to <code>EQUALS</code>, and your playback configuration has an ADS URL of <code>https://my.ads.server.com/path?&amp;podId=[scte.avail_num]&amp;event=[scte.event_id]&amp;duration=[session.avail_duration_secs]</code>. And the prefetch request to the ADS contains these values <code>https://my.ads.server.com/path?&amp;podId=3&amp;event=my-awesome-event&amp;duration=30</code>. MediaTailor will only insert the prefetched ads into the ad break if has a SCTE marker with an event id of <code>my-awesome-event</code>, since it must match the event id that MediaTailor uses to query the ADS.</p> <p>You can specify up to five <code>AvailMatchingCriteria</code>. If you specify multiple <code>AvailMatchingCriteria</code>, MediaTailor combines them to match using a logical <code>AND</code>. You can model logical <code>OR</code> combinations by creating multiple prefetch schedules.</p>
+ * MediaTailor only places (consumes) prefetched ads if the ad break meets the criteria defined by the dynamic variables. This gives you granular control over which ad break to place the prefetched ads into.
+ *
+ * As an example, let's say that you set `DynamicVariable` to `scte.event_id` and `Operator` to `EQUALS`, and your playback configuration has an ADS URL of `https://my.ads.server.com/path?&podId=[scte.avail_num]&event=[scte.event_id]&duration=[session.avail_duration_secs]`. And the prefetch request to the ADS contains these values `https://my.ads.server.com/path?&podId=3&event=my-awesome-event&duration=30`. MediaTailor will only insert the prefetched ads into the ad break if has a SCTE marker with an event id of `my-awesome-event`, since it must match the event id that MediaTailor uses to query the ADS.
+ *
+ * You can specify up to five `AvailMatchingCriteria`. If you specify multiple `AvailMatchingCriteria`, MediaTailor combines them to match using a logical `AND`. You can model logical `OR` combinations by creating multiple prefetch schedules.
+ *
  * @public
  */
 export interface AvailMatchingCriteria {
   /**
-   * <p>The dynamic variable(s) that MediaTailor should use as avail matching criteria. MediaTailor only places the prefetched ads into the avail if the avail matches the criteria defined by the dynamic variable. For information about dynamic variables, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/variables.html">Using dynamic ad variables</a> in the <i>MediaTailor User Guide</i>.</p> <p>You can include up to 100 dynamic variables.</p>
+   * The dynamic variable(s) that MediaTailor should use as avail matching criteria. MediaTailor only places the prefetched ads into the avail if the avail matches the criteria defined by the dynamic variable. For information about dynamic variables, see [Using dynamic ad variables](https://docs.aws.amazon.com/mediatailor/latest/ug/variables.html) in the *MediaTailor User Guide*.
+   *
+   * You can include up to 100 dynamic variables.
+   *
    * @public
    */
   DynamicVariable: string | undefined;
 
   /**
-   * <p>For the <code>DynamicVariable</code> specified in <code>AvailMatchingCriteria</code>, the Operator that is used for the comparison.</p>
+   * For the `DynamicVariable` specified in `AvailMatchingCriteria`, the Operator that is used for the comparison.
+   *
    * @public
    */
   Operator: Operator | undefined;
 }
 
 /**
- * <p>The log configuration for the channel.</p>
+ * The log configuration for the channel.
+ *
  * @public
  */
 export interface LogConfigurationForChannel {
   /**
-   * <p>The log types.</p>
+   * The log types.
+   *
    * @public
    */
   LogTypes?: LogType[] | undefined;
 }
 
 /**
- * <p>Dash manifest configuration parameters.</p>
+ * Dash manifest configuration parameters.
+ *
  * @public
  */
 export interface DashPlaylistSettings {
   /**
-   * <p>The total duration (in seconds) of each manifest. Minimum value: <code>30</code> seconds. Maximum value: <code>3600</code> seconds.</p>
+   * The total duration (in seconds) of each manifest. Minimum value: `30` seconds. Maximum value: `3600` seconds.
+   *
    * @public
    */
   ManifestWindowSeconds?: number | undefined;
 
   /**
-   * <p>Minimum amount of content (measured in seconds) that a player must keep available in the buffer. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
+   * Minimum amount of content (measured in seconds) that a player must keep available in the buffer. Minimum value: `2` seconds. Maximum value: `60` seconds.
+   *
    * @public
    */
   MinBufferTimeSeconds?: number | undefined;
 
   /**
-   * <p>Minimum amount of time (in seconds) that the player should wait before requesting updates to the manifest. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
+   * Minimum amount of time (in seconds) that the player should wait before requesting updates to the manifest. Minimum value: `2` seconds. Maximum value: `60` seconds.
+   *
    * @public
    */
   MinUpdatePeriodSeconds?: number | undefined;
 
   /**
-   * <p>Amount of time (in seconds) that the player should be from the live point at the end of the manifest. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
+   * Amount of time (in seconds) that the player should be from the live point at the end of the manifest. Minimum value: `2` seconds. Maximum value: `60` seconds.
+   *
    * @public
    */
   SuggestedPresentationDelaySeconds?: number | undefined;
 }
 
 /**
- * <p>HLS playlist configuration parameters.</p>
+ * HLS playlist configuration parameters.
+ *
  * @public
  */
 export interface HlsPlaylistSettings {
   /**
-   * <p>The total duration (in seconds) of each manifest. Minimum value: <code>30</code> seconds. Maximum value: <code>3600</code> seconds.</p>
+   * The total duration (in seconds) of each manifest. Minimum value: `30` seconds. Maximum value: `3600` seconds.
+   *
    * @public
    */
   ManifestWindowSeconds?: number | undefined;
 
   /**
-   * <p>Determines the type of SCTE 35 tags to use in ad markup. Specify <code>DATERANGE</code> to use <code>DATERANGE</code> tags (for live or VOD content). Specify <code>SCTE35_ENHANCED</code> to use <code>EXT-X-CUE-OUT</code> and <code>EXT-X-CUE-IN</code> tags (for VOD content only).</p>
+   * Determines the type of SCTE 35 tags to use in ad markup. Specify `DATERANGE` to use `DATERANGE` tags (for live or VOD content). Specify `SCTE35_ENHANCED` to use `EXT-X-CUE-OUT` and `EXT-X-CUE-IN` tags (for VOD content only).
+   *
    * @public
    */
   AdMarkupType?: AdMarkupType[] | undefined;
 }
 
 /**
- * <p>The output item response.</p>
+ * The output item response.
+ *
  * @public
  */
 export interface ResponseOutputItem {
   /**
-   * <p>DASH manifest configuration settings.</p>
+   * DASH manifest configuration settings.
+   *
    * @public
    */
   DashPlaylistSettings?: DashPlaylistSettings | undefined;
 
   /**
-   * <p>HLS manifest configuration settings.</p>
+   * HLS manifest configuration settings.
+   *
    * @public
    */
   HlsPlaylistSettings?: HlsPlaylistSettings | undefined;
 
   /**
-   * <p>The name of the manifest for the channel that will appear in the channel output's playback URL.</p>
+   * The name of the manifest for the channel that will appear in the channel output's playback URL.
+   *
    * @public
    */
   ManifestName: string | undefined;
 
   /**
-   * <p>The URL that your player uses for playback.</p>
+   * The URL that your player uses for playback.
+   *
    * @public
    */
   PlaybackUrl: string | undefined;
 
   /**
-   * <p>The dual-stack (IPv4 and IPv6) URL that your player uses for playback.</p>
+   * The dual-stack (IPv4 and IPv6) URL that your player uses for playback.
+   *
    * @public
    */
   DualStackPlaybackUrl?: string | undefined;
 
   /**
-   * <p>A string used to associate a package configuration source group with a channel output.</p>
+   * A string used to associate a package configuration source group with a channel output.
+   *
    * @public
    */
   SourceGroup: string | undefined;
 }
 
 /**
- * <p>The configuration parameters for a channel. For information about MediaTailor channels, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html">Working with channels</a> in the <i>MediaTailor User Guide</i>.</p>
+ * The configuration parameters for a channel. For information about MediaTailor channels, see [Working with channels](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html) in the *MediaTailor User Guide*.
+ *
  * @public
  */
 export interface Channel {
   /**
-   * <p>The ARN of the channel.</p>
+   * The ARN of the channel.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The name of the channel.</p>
+   * The name of the channel.
+   *
    * @public
    */
   ChannelName: string | undefined;
 
   /**
-   * <p>Returns the state whether the channel is running or not.</p>
+   * Returns the state whether the channel is running or not.
+   *
    * @public
    */
   ChannelState: string | undefined;
 
   /**
-   * <p>The timestamp of when the channel was created.</p>
+   * The timestamp of when the channel was created.
+   *
    * @public
    */
   CreationTime?: Date | undefined;
 
   /**
-   * <p>The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the <code>LINEAR</code> <code>PlaybackMode</code>. MediaTailor doesn't support filler slate for channels using the <code>LOOP</code> <code>PlaybackMode</code>.</p>
+   * The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the `LINEAR` `PlaybackMode`. MediaTailor doesn't support filler slate for channels using the `LOOP` `PlaybackMode`.
+   *
    * @public
    */
   FillerSlate?: SlateSource | undefined;
 
   /**
-   * <p>The timestamp of when the channel was last modified.</p>
+   * The timestamp of when the channel was last modified.
+   *
    * @public
    */
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>The channel's output properties.</p>
+   * The channel's output properties.
+   *
    * @public
    */
   Outputs: ResponseOutputItem[] | undefined;
 
   /**
-   * <p>The type of playback mode for this channel.</p> <p> <code>LINEAR</code> - Programs play back-to-back only once.</p> <p> <code>LOOP</code> - Programs play back-to-back in an endless loop. When the last program in the schedule plays, playback loops back to the first program in the schedule.</p>
+   * The type of playback mode for this channel.
+   *
+   * `LINEAR` - Programs play back-to-back only once.
+   *
+   * `LOOP` - Programs play back-to-back in an endless loop. When the last program in the schedule plays, playback loops back to the first program in the schedule.
+   *
    * @public
    */
   PlaybackMode: string | undefined;
 
   /**
-   * <p>The tags to assign to the channel. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * The tags to assign to the channel. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The tier for this channel. STANDARD tier channels can contain live programs.</p>
+   * The tier for this channel. STANDARD tier channels can contain live programs.
+   *
    * @public
    */
   Tier: string | undefined;
 
   /**
-   * <p>The log configuration.</p>
+   * The log configuration.
+   *
    * @public
    */
   LogConfiguration: LogConfigurationForChannel | undefined;
 
   /**
-   * <p>The list of audiences defined in channel.</p>
+   * The list of audiences defined in channel.
+   *
    * @public
    */
   Audiences?: string[] | undefined;
 }
 
 /**
- * <p>A reference to a child function within a <code>SEQUENTIAL_EXECUTOR</code> function.</p>
+ * A reference to a child function within a `SEQUENTIAL_EXECUTOR` function.
+ *
  * @public
  */
 export interface FunctionRef {
   /**
-   * <p>An optional expression that evaluates to a boolean. MediaTailor evaluates this expression immediately before running the step, using the accumulated state at that point in the sequence. If the expression evaluates to <code>false</code>, MediaTailor skips the step and moves to the next one. If omitted, the step always runs.</p>
+   * An optional expression that evaluates to a boolean. MediaTailor evaluates this expression immediately before running the step, using the accumulated state at that point in the sequence. If the expression evaluates to `false`, MediaTailor skips the step and moves to the next one. If omitted, the step always runs.
+   *
    * @public
    */
   RunCondition?: string | undefined;
 
   /**
-   * <p>The identifier of the child function to execute in this step.</p>
+   * The identifier of the child function to execute in this step.
+   *
    * @public
    */
   FunctionId?: string | undefined;
 
   /**
-   * <p>An optional alternate name for the function within the executor. If omitted, MediaTailor uses the function identifier.</p>
+   * An optional alternate name for the function within the executor. If omitted, MediaTailor uses the function identifier.
+   *
    * @public
    */
   Alias?: string | undefined;
 }
 
 /**
- * <p>The optional response-caching configuration shared by the HTTP-based function types (<code>HTTP_REQUEST</code>, <code>AWS_SERVICE_REQUEST</code>, and <code>VAST_REQUEST</code>). When you provide this configuration, MediaTailor caches the function's responses that have one of the following HTTP status codes: <code>200</code>, <code>203</code>, <code>204</code>, <code>404</code>, <code>405</code>, <code>410</code>, <code>414</code>, and <code>501</code>. For a cacheable response, MediaTailor caches it for the number of seconds given by the response's <code>Cache-Control</code> <code>max-age</code> directive, limited to the range between <code>TtlMinimumSeconds</code> and <code>TtlMaximumSeconds</code>. If the response has no <code>Cache-Control</code> <code>max-age</code> directive, MediaTailor caches it for <code>TtlMinimumSeconds</code> seconds. Cached HTTP responses are scoped per playback configuration, not per function.</p>
+ * The optional response-caching configuration shared by the HTTP-based function types (`HTTP_REQUEST`, `AWS_SERVICE_REQUEST`, and `VAST_REQUEST`). When you provide this configuration, MediaTailor caches the function's responses that have one of the following HTTP status codes: `200`, `203`, `204`, `404`, `405`, `410`, `414`, and `501`. For a cacheable response, MediaTailor caches it for the number of seconds given by the response's `Cache-Control` `max-age` directive, limited to the range between `TtlMinimumSeconds` and `TtlMaximumSeconds`. If the response has no `Cache-Control` `max-age` directive, MediaTailor caches it for `TtlMinimumSeconds` seconds. Cached HTTP responses are scoped per playback configuration, not per function.
+ *
  * @public
  */
 export interface HttpRequestCacheConfiguration {
   /**
-   * <p>The lower bound, in seconds, on how long MediaTailor caches a response. MediaTailor also uses this value as the cache duration when a response has no <code>Cache-Control</code> <code>max-age</code> directive.</p>
+   * The lower bound, in seconds, on how long MediaTailor caches a response. MediaTailor also uses this value as the cache duration when a response has no `Cache-Control` `max-age` directive.
+   *
    * @public
    */
   TtlMinimumSeconds: number | undefined;
 
   /**
-   * <p>The upper bound, in seconds, on how long MediaTailor caches a response. This value must be greater than or equal to <code>TtlMinimumSeconds</code>.</p>
+   * The upper bound, in seconds, on how long MediaTailor caches a response. This value must be greater than or equal to `TtlMinimumSeconds`.
+   *
    * @public
    */
   TtlMaximumSeconds: number | undefined;
 
   /**
-   * <p>A JSONata expression that MediaTailor evaluates to a custom cache key. By default, the cache key is a hash of the HTTP URL, the request body, and the HTTP method; request headers are not included. You can specify a custom cache key expression to vary caching by request headers and more. The evaluated key must be smaller than 1 KB; otherwise the HTTP function will fail.</p>
+   * A JSONata expression that MediaTailor evaluates to a custom cache key. By default, the cache key is a hash of the HTTP URL, the request body, and the HTTP method; request headers are not included. You can specify a custom cache key expression to vary caching by request headers and more. The evaluated key must be smaller than 1 KB; otherwise the HTTP function will fail.
+   *
    * @public
    */
   Key?: string | undefined;
 }
 
 /**
- * <p>The configuration for an <code>AWS_SERVICE_REQUEST</code> function. Contains the target service, target Region, and request parameters that the function uses to call an AWS service API. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types-aws-service-request.html">AWS_SERVICE_REQUEST</a> in the <i>MediaTailor User Guide</i>.</p>
+ * The configuration for an `AWS_SERVICE_REQUEST` function. Contains the target service, target Region, and request parameters that the function uses to call an AWS service API. For more information, see [AWS_SERVICE_REQUEST](https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types-aws-service-request.html) in the *MediaTailor User Guide*.
+ *
  * @public
  */
 export interface AwsServiceRequestConfiguration {
   /**
-   * <p>The expression language used to evaluate expressions in the function configuration. The only supported value is <code>JSONata</code>.</p>
+   * The expression language used to evaluate expressions in the function configuration. The only supported value is `JSONata`.
+   *
    * @public
    */
   Runtime: RuntimeType | undefined;
 
   /**
-   * <p>A map of output bindings. Each key is a namespaced output path, such as <code>player_params.device_type</code>. Each value is an expression that MediaTailor evaluates at runtime and can reference the <code>response</code> object from the target service. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-jsonata.html">JSONata expression reference</a> in the <i>MediaTailor User Guide</i>.</p>
+   * A map of output bindings. Each key is a namespaced output path, such as `player_params.device_type`. Each value is an expression that MediaTailor evaluates at runtime and can reference the `response` object from the target service. For more information, see [JSONata expression reference](https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-jsonata.html) in the *MediaTailor User Guide*.
+   *
    * @public
    */
   Output?: Record<string, string> | undefined;
 
   /**
-   * <p>Specifies how the function sends the request to the target service. The value must match what the target service operation requires. Valid values:</p> <ul> <li> <p> <code>GET</code> – Retrieves data from the target service.</p> </li> <li> <p> <code>POST</code> – Submits a request body to the target service.</p> </li> </ul>
+   * Specifies how the function sends the request to the target service. The value must match what the target service operation requires. Valid values:
+   *
+   * - `GET` – Retrieves data from the target service.
+   * - `POST` – Submits a request body to the target service.
+   *
    * @public
    */
   MethodType: MethodType | undefined;
 
   /**
-   * <p>The maximum time, in milliseconds, that MediaTailor waits for a response from the AWS service. If the call exceeds this timeout, MediaTailor sets the response status code to <code>null</code> and proceeds with output expression evaluation. Valid values: <code>100</code> to <code>2000</code>.</p>
+   * The maximum time, in milliseconds, that MediaTailor waits for a response from the AWS service. If the call exceeds this timeout, MediaTailor sets the response status code to `null` and proceeds with output expression evaluation. Valid values: `100` to `2000`.
+   *
    * @public
    */
   RequestTimeoutMilliseconds: number | undefined;
 
   /**
-   * <p>An expression that evaluates to the endpoint URL for the target AWS service API operation. Use <code>\{%...%\}</code> delimiters for dynamic expressions. The URL must correspond to a valid endpoint for the service specified in <code>TargetService</code>. The maximum length after evaluation is 2,048 characters.</p>
+   * An expression that evaluates to the endpoint URL for the target AWS service API operation. Use `\{%...%\}` delimiters for dynamic expressions. The URL must correspond to a valid endpoint for the service specified in `TargetService`. The maximum length after evaluation is 2,048 characters.
+   *
    * @public
    */
   Url: string | undefined;
 
   /**
-   * <p>An expression that evaluates to the request body for the AWS service API call. The body must conform to the input format that the target service operation expects. Applies only when the target operation accepts a request body. The maximum size after evaluation is 64 KB.</p>
+   * An expression that evaluates to the request body for the AWS service API call. The body must conform to the input format that the target service operation expects. Applies only when the target operation accepts a request body. The maximum size after evaluation is 64 KB.
+   *
    * @public
    */
   Body?: string | undefined;
 
   /**
-   * <p>A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request to the AWS service. Use this to pass any headers required by the target service operation. You can include a maximum of 50 headers.</p>
+   * A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request to the AWS service. Use this to pass any headers required by the target service operation. You can include a maximum of 50 headers.
+   *
    * @public
    */
   Headers?: Record<string, string> | undefined;
 
   /**
-   * <p>The optional response-caching configuration for the function. When present, MediaTailor caches the responses that the function receives from the AWS service, within the time-to-live (TTL) bounds that you specify. Omit this configuration to disable response caching.</p>
+   * The optional response-caching configuration for the function. When present, MediaTailor caches the responses that the function receives from the AWS service, within the time-to-live (TTL) bounds that you specify. Omit this configuration to disable response caching.
+   *
    * @public
    */
   Cache?: HttpRequestCacheConfiguration | undefined;
 
   /**
-   * <p>The AWS service to call. Valid value: <code>elemental-inference</code> (AWS Elemental Inference).</p>
+   * The AWS service to call. Valid value: `elemental-inference` (AWS Elemental Inference).
+   *
    * @public
    */
   TargetService: string | undefined;
 
   /**
-   * <p>The AWS Region for the target service. Specify a static Region code (for example, <code>us-east-1</code>) or a JSONata expression that resolves to a Region code at runtime (for example, <code>\{%inference.region%\}</code>).</p>
+   * The AWS Region for the target service. Specify a static Region code (for example, `us-east-1`) or a JSONata expression that resolves to a Region code at runtime (for example, `\{%inference.region%\}`).
+   *
    * @public
    */
   TargetRegion: string | undefined;
 }
 
 /**
- * <p>The configuration for a <code>CONCURRENT_EXECUTOR</code> function. A <code>CONCURRENT_EXECUTOR</code> runs a set of child functions in parallel, up to a maximum concurrency, and combines their output when all functions complete. For more information about functions, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions.html">Working with functions</a> in the <i>MediaTailor User Guide</i>.</p>
+ * The configuration for a `CONCURRENT_EXECUTOR` function. A `CONCURRENT_EXECUTOR` runs a set of child functions in parallel, up to a maximum concurrency, and combines their output when all functions complete. For more information about functions, see [Working with functions](https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions.html) in the *MediaTailor User Guide*.
+ *
  * @public
  */
 export interface ConcurrentExecutorConfiguration {
   /**
-   * <p>The expression language used to evaluate expressions in the function configuration. Set this to <code>JSONata</code>.</p>
+   * The expression language used to evaluate expressions in the function configuration. Set this to `JSONata`.
+   *
    * @public
    */
   Runtime: RuntimeType | undefined;
 
   /**
-   * <p>A map of output bindings that controls which bindings the executor commits to the session state after all child functions complete. Each key is a namespaced output path, and each value is an expression that MediaTailor evaluates against the combined results of the child functions.</p>
+   * A map of output bindings that controls which bindings the executor commits to the session state after all child functions complete. Each key is a namespaced output path, and each value is an expression that MediaTailor evaluates against the combined results of the child functions.
+   *
    * @public
    */
   Output: Record<string, string> | undefined;
 
   /**
-   * <p>The list of child functions that MediaTailor runs in parallel. Each entry specifies a child function to execute and an optional run condition expression that controls whether the function runs.</p>
+   * The list of child functions that MediaTailor runs in parallel. Each entry specifies a child function to execute and an optional run condition expression that controls whether the function runs.
+   *
    * @public
    */
   FunctionList: FunctionRef[] | undefined;
 
   /**
-   * <p>The maximum time, in milliseconds, for all child functions to complete. This timeout covers every function in the list, including any HTTP calls the child functions make. If the executor exceeds this timeout, MediaTailor discards all output from the executor and proceeds with default behavior.</p>
+   * The maximum time, in milliseconds, for all child functions to complete. This timeout covers every function in the list, including any HTTP calls the child functions make. If the executor exceeds this timeout, MediaTailor discards all output from the executor and proceeds with default behavior.
+   *
    * @public
    */
   TimeoutMilliseconds: number | undefined;
 
   /**
-   * <p>The maximum number of child functions that MediaTailor runs simultaneously. When the list contains more functions than <code>MaxConcurrency</code>, MediaTailor starts additional functions as running ones complete, so that no more than <code>MaxConcurrency</code> functions run at the same time.</p>
+   * The maximum number of child functions that MediaTailor runs simultaneously. When the list contains more functions than `MaxConcurrency`, MediaTailor starts additional functions as running ones complete, so that no more than `MaxConcurrency` functions run at the same time.
+   *
    * @public
    */
   MaxConcurrency: number | undefined;
 }
 
 /**
- * <p>The configuration for a <code>CUSTOM_OUTPUT</code> function. MediaTailor evaluates the output expressions against the current session state and commits the results as output bindings. <code>CUSTOM_OUTPUT</code> functions do not make external calls. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types-custom-output.html">CUSTOM_OUTPUT</a> in the <i>MediaTailor User Guide</i>.</p>
+ * The configuration for a `CUSTOM_OUTPUT` function. MediaTailor evaluates the output expressions against the current session state and commits the results as output bindings. `CUSTOM_OUTPUT` functions do not make external calls. For more information, see [CUSTOM_OUTPUT](https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types-custom-output.html) in the *MediaTailor User Guide*.
+ *
  * @public
  */
 export interface CustomOutputConfiguration {
   /**
-   * <p>The expression language used to evaluate expressions in the function configuration. Set this to <code>JSONata</code>.</p>
+   * The expression language used to evaluate expressions in the function configuration. Set this to `JSONata`.
+   *
    * @public
    */
   Runtime: RuntimeType | undefined;
 
   /**
-   * <p>A map of output bindings. Each key is a namespaced output path (such as <code>player_params.device_type</code> or <code>temp.variant</code>), and each value is an expression that MediaTailor evaluates at runtime against the current session state. For more information about expression syntax, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-jsonata.html">JSONata expression reference</a> in the <i>MediaTailor User Guide</i>.</p>
+   * A map of output bindings. Each key is a namespaced output path (such as `player_params.device_type` or `temp.variant`), and each value is an expression that MediaTailor evaluates at runtime against the current session state. For more information about expression syntax, see [JSONata expression reference](https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-jsonata.html) in the *MediaTailor User Guide*.
+   *
    * @public
    */
   Output?: Record<string, string> | undefined;
 }
 
 /**
- * <p>The configuration for an <code>HTTP_REQUEST</code> function. Specifies the HTTP method, URL, headers, body, timeout, and output expressions for the request. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types-http-request.html">HTTP_REQUEST</a> in the <i>MediaTailor User Guide</i>.</p>
+ * The configuration for an `HTTP_REQUEST` function. Specifies the HTTP method, URL, headers, body, timeout, and output expressions for the request. For more information, see [HTTP_REQUEST](https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types-http-request.html) in the *MediaTailor User Guide*.
+ *
  * @public
  */
 export interface HttpRequestConfiguration {
   /**
-   * <p>The expression language used to evaluate expressions in the function configuration. Set this to <code>JSONata</code>.</p>
+   * The expression language used to evaluate expressions in the function configuration. Set this to `JSONata`.
+   *
    * @public
    */
   Runtime: RuntimeType | undefined;
 
   /**
-   * <p>A map of output bindings. Each key is a namespaced output path (such as <code>player_params.device_type</code> or <code>temp.identity</code>), and each value is an expression that MediaTailor evaluates at runtime. Output expressions in an <code>HTTP_REQUEST</code> function can reference the <code>response</code> object returned by the HTTP call. For more information about expression syntax, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-jsonata.html">JSONata expression reference</a> in the <i>MediaTailor User Guide</i>.</p>
+   * A map of output bindings. Each key is a namespaced output path (such as `player_params.device_type` or `temp.identity`), and each value is an expression that MediaTailor evaluates at runtime. Output expressions in an `HTTP_REQUEST` function can reference the `response` object returned by the HTTP call. For more information about expression syntax, see [JSONata expression reference](https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-jsonata.html) in the *MediaTailor User Guide*.
+   *
    * @public
    */
   Output?: Record<string, string> | undefined;
 
   /**
-   * <p>The HTTP method for the request. Valid values: <code>GET</code> and <code>POST</code>.</p>
+   * The HTTP method for the request. Valid values: `GET` and `POST`.
+   *
    * @public
    */
   MethodType: MethodType | undefined;
 
   /**
-   * <p>The maximum time, in milliseconds, that MediaTailor waits for a response from the external service. If the call exceeds this timeout, MediaTailor sets the response status code to <code>null</code> and proceeds with output expression evaluation. Valid values: <code>100</code> to <code>2000</code>.</p>
+   * The maximum time, in milliseconds, that MediaTailor waits for a response from the external service. If the call exceeds this timeout, MediaTailor sets the response status code to `null` and proceeds with output expression evaluation. Valid values: `100` to `2000`.
+   *
    * @public
    */
   RequestTimeoutMilliseconds: number | undefined;
 
   /**
-   * <p>An expression that evaluates to the request URL. Use <code>\{%...%\}</code> delimiters for dynamic expressions. The maximum length after evaluation is 2,048 characters.</p>
+   * An expression that evaluates to the request URL. Use `\{%...%\}` delimiters for dynamic expressions. The maximum length after evaluation is 2,048 characters.
+   *
    * @public
    */
   Url: string | undefined;
 
   /**
-   * <p>An expression that evaluates to the request body. Used with <code>POST</code> requests. The maximum size after evaluation is 64 KB.</p>
+   * An expression that evaluates to the request body. Used with `POST` requests. The maximum size after evaluation is 64 KB.
+   *
    * @public
    */
   Body?: string | undefined;
 
   /**
-   * <p>A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound HTTP request. Maximum 50 headers.</p>
+   * A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound HTTP request. Maximum 50 headers.
+   *
    * @public
    */
   Headers?: Record<string, string> | undefined;
 
   /**
-   * <p>The optional response-caching configuration for the function. When present, MediaTailor caches the responses that the function receives from the HTTP endpoint, within the time-to-live (TTL) bounds that you specify. Omit this configuration to disable response caching.</p>
+   * The optional response-caching configuration for the function. When present, MediaTailor caches the responses that the function receives from the HTTP endpoint, within the time-to-live (TTL) bounds that you specify. Omit this configuration to disable response caching.
+   *
    * @public
    */
   Cache?: HttpRequestCacheConfiguration | undefined;
 }
 
 /**
- * <p>The configuration for a <code>SEQUENTIAL_EXECUTOR</code> function. A <code>SEQUENTIAL_EXECUTOR</code> runs a sequence of child functions in order, passing data between steps through temporary data. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types-sequential-executor.html">SEQUENTIAL_EXECUTOR</a> in the <i>MediaTailor User Guide</i>.</p>
+ * The configuration for a `SEQUENTIAL_EXECUTOR` function. A `SEQUENTIAL_EXECUTOR` runs a sequence of child functions in order, passing data between steps through temporary data. For more information, see [SEQUENTIAL_EXECUTOR](https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types-sequential-executor.html) in the *MediaTailor User Guide*.
+ *
  * @public
  */
 export interface SequentialExecutorConfiguration {
   /**
-   * <p>The expression language used to evaluate expressions in the function configuration. Set this to <code>JSONata</code>.</p>
+   * The expression language used to evaluate expressions in the function configuration. Set this to `JSONata`.
+   *
    * @public
    */
   Runtime: RuntimeType | undefined;
 
   /**
-   * <p>An optional map of output bindings that controls which bindings the sequence commits to the session state after all steps complete. If omitted, MediaTailor commits all accumulated output bindings from all child steps.</p>
+   * An optional map of output bindings that controls which bindings the sequence commits to the session state after all steps complete. If omitted, MediaTailor commits all accumulated output bindings from all child steps.
+   *
    * @public
    */
   Output?: Record<string, string> | undefined;
 
   /**
-   * <p>An ordered list of 1 to 10 steps. Each step specifies a child function to execute and an optional run condition expression that controls whether the step runs. MediaTailor executes steps in order, passing data between steps through temporary data.</p>
+   * An ordered list of 1 to 10 steps. Each step specifies a child function to execute and an optional run condition expression that controls whether the step runs. MediaTailor executes steps in order, passing data between steps through temporary data.
+   *
    * @public
    */
   FunctionList: FunctionRef[] | undefined;
 
   /**
-   * <p>The maximum time, in milliseconds, for the entire sequence to complete. This timeout covers all steps, including any HTTP calls made by child functions. If the sequence exceeds this timeout, MediaTailor discards all output from the sequence and proceeds with default behavior.</p>
+   * The maximum time, in milliseconds, for the entire sequence to complete. This timeout covers all steps, including any HTTP calls made by child functions. If the sequence exceeds this timeout, MediaTailor discards all output from the sequence and proceeds with default behavior.
+   *
    * @public
    */
   TimeoutMilliseconds: number | undefined;
 }
 
 /**
- * <p>The configuration for a <code>VAST_REQUEST</code> function. Specifies the HTTP method, URL, headers, body, timeout, and output expressions for a request to a VAST endpoint. MediaTailor parses the response as VAST and resolves wrapper redirects, then makes the parsed ads available to the function's output expressions. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types.html">Function types and composition</a> in the <i>MediaTailor User Guide</i>.</p>
+ * The configuration for a `VAST_REQUEST` function. Specifies the HTTP method, URL, headers, body, timeout, and output expressions for a request to a VAST endpoint. MediaTailor parses the response as VAST and resolves wrapper redirects, then makes the parsed ads available to the function's output expressions. For more information, see [Function types and composition](https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types.html) in the *MediaTailor User Guide*.
+ *
  * @public
  */
 export interface VastRequestConfiguration {
   /**
-   * <p>The expression language used to evaluate expressions in the function configuration. Set this to <code>JSONata</code>.</p>
+   * The expression language used to evaluate expressions in the function configuration. Set this to `JSONata`.
+   *
    * @public
    */
   Runtime: RuntimeType | undefined;
 
   /**
-   * <p>A map of output bindings. Each key is a namespaced output path (such as <code>temp.wrappedAds</code>), and each value is an expression that MediaTailor evaluates at runtime. Output expressions in a <code>VAST_REQUEST</code> function can reference the <code>response</code> object, which exposes <code>response.parsedAds</code> — the ads parsed from the VAST response after schema validation and wrapper resolution — and <code>response.statusCode</code>. For more information about expression syntax, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-jsonata.html">JSONata expression reference</a> in the <i>MediaTailor User Guide</i>.</p>
+   * A map of output bindings. Each key is a namespaced output path (such as `temp.wrappedAds`), and each value is an expression that MediaTailor evaluates at runtime. Output expressions in a `VAST_REQUEST` function can reference the `response` object, which exposes `response.parsedAds` — the ads parsed from the VAST response after schema validation and wrapper resolution — and `response.statusCode`. For more information about expression syntax, see [JSONata expression reference](https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-jsonata.html) in the *MediaTailor User Guide*.
+   *
    * @public
    */
   Output?: Record<string, string> | undefined;
 
   /**
-   * <p>The HTTP method for the request to the VAST endpoint. Valid values: <code>GET</code> and <code>POST</code>. Use <code>POST</code> to send a bid request body, such as an OpenRTB payload.</p>
+   * The HTTP method for the request to the VAST endpoint. Valid values: `GET` and `POST`. Use `POST` to send a bid request body, such as an OpenRTB payload.
+   *
    * @public
    */
   MethodType: MethodType | undefined;
 
   /**
-   * <p>The maximum time, in milliseconds, that MediaTailor waits for a response from the VAST endpoint. The timeout covers the entire response, including any wrapper redirects that MediaTailor follows. If the call exceeds this timeout, MediaTailor proceeds with an empty ad list and continues output expression evaluation. Valid values: <code>100</code> to <code>2000</code>.</p>
+   * The maximum time, in milliseconds, that MediaTailor waits for a response from the VAST endpoint. The timeout covers the entire response, including any wrapper redirects that MediaTailor follows. If the call exceeds this timeout, MediaTailor proceeds with an empty ad list and continues output expression evaluation. Valid values: `100` to `2000`.
+   *
    * @public
    */
   RequestTimeoutMilliseconds: number | undefined;
 
   /**
-   * <p>An expression that evaluates to the VAST endpoint URL. Use <code>\{%...%\}</code> delimiters for dynamic expressions. A literal value must be an <code>https://</code> URL. The expression can be up to 25,000 characters, and the URL after evaluation can be up to 2,048 characters.</p>
+   * An expression that evaluates to the VAST endpoint URL. Use `\{%...%\}` delimiters for dynamic expressions. A literal value must be an `https://` URL. The expression can be up to 25,000 characters, and the URL after evaluation can be up to 2,048 characters.
+   *
    * @public
    */
   Url: string | undefined;
 
   /**
-   * <p>An expression that evaluates to the request body, for example to send an OpenRTB bid request. The expression can be up to 100,000 characters, and the body after evaluation can be up to 64 KB.</p>
+   * An expression that evaluates to the request body, for example to send an OpenRTB bid request. The expression can be up to 100,000 characters, and the body after evaluation can be up to 64 KB.
+   *
    * @public
    */
   Body?: string | undefined;
 
   /**
-   * <p>A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request. Headers beginning with <code>X-Amz-</code> are reserved by the service, and method override headers are not allowed.</p>
+   * A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request. Headers beginning with `X-Amz-` are reserved by the service, and method override headers are not allowed.
+   *
    * @public
    */
   Headers?: Record<string, string> | undefined;
 
   /**
-   * <p>The optional response-caching configuration for the function. When present, MediaTailor caches the responses that the function receives from the HTTP endpoint, within the time-to-live (TTL) bounds that you specify. Omit this configuration to disable response caching.</p>
+   * The optional response-caching configuration for the function. When present, MediaTailor caches the responses that the function receives from the HTTP endpoint, within the time-to-live (TTL) bounds that you specify. Omit this configuration to disable response caching.
+   *
    * @public
    */
   Cache?: HttpRequestCacheConfiguration | undefined;
 }
 
 /**
- * <p>Defines reusable logic that MediaTailor executes at lifecycle hooks during ad insertion. The <code>FunctionType</code> determines the function's runtime behavior. For more information about functions, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions.html">Working with functions</a> in the <i>MediaTailor User Guide</i>.</p>
+ * Defines reusable logic that MediaTailor executes at lifecycle hooks during ad insertion. The `FunctionType` determines the function's runtime behavior. For more information about functions, see [Working with functions](https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions.html) in the *MediaTailor User Guide*.
+ *
  * @public
  */
 export interface Function {
   /**
-   * <p>The identifier of the function.</p>
+   * The identifier of the function.
+   *
    * @public
    */
   FunctionId: string | undefined;
 
   /**
-   * <p>The type of the function.</p>
+   * The type of the function.
+   *
    * @public
    */
   FunctionType: FunctionType | undefined;
 
   /**
-   * <p>A description of the function.</p>
+   * A description of the function.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The configuration for an <code>HTTP_REQUEST</code> function.</p>
+   * The configuration for an `HTTP_REQUEST` function.
+   *
    * @public
    */
   HttpRequestConfiguration?: HttpRequestConfiguration | undefined;
 
   /**
-   * <p>The configuration for an <code>AWS_SERVICE_REQUEST</code> function. Specifies the target service, target Region, and request parameters.</p>
+   * The configuration for an `AWS_SERVICE_REQUEST` function. Specifies the target service, target Region, and request parameters.
+   *
    * @public
    */
   AwsServiceRequestConfiguration?: AwsServiceRequestConfiguration | undefined;
 
   /**
-   * <p>The configuration for a <code>CUSTOM_OUTPUT</code> function.</p>
+   * The configuration for a `CUSTOM_OUTPUT` function.
+   *
    * @public
    */
   CustomOutputConfiguration?: CustomOutputConfiguration | undefined;
 
   /**
-   * <p>The configuration for a <code>CONCURRENT_EXECUTOR</code> function.</p>
+   * The configuration for a `CONCURRENT_EXECUTOR` function.
+   *
    * @public
    */
   ConcurrentExecutorConfiguration?: ConcurrentExecutorConfiguration | undefined;
 
   /**
-   * <p>The configuration for a <code>SEQUENTIAL_EXECUTOR</code> function.</p>
+   * The configuration for a `SEQUENTIAL_EXECUTOR` function.
+   *
    * @public
    */
   SequentialExecutorConfiguration?: SequentialExecutorConfiguration | undefined;
 
   /**
-   * <p>The configuration for a <code>VAST_REQUEST</code> function.</p>
+   * The configuration for a `VAST_REQUEST` function.
+   *
    * @public
    */
   VastRequestConfiguration?: VastRequestConfiguration | undefined;
 
   /**
-   * <p>The tags assigned to the function. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * The tags assigned to the function. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the function.</p>
+   * The Amazon Resource Name (ARN) of the function.
+   *
    * @public
    */
   Arn?: string | undefined;
 }
 
 /**
- * <p>The HTTP package configuration properties for the requested VOD source.</p>
+ * The HTTP package configuration properties for the requested VOD source.
+ *
  * @public
  */
 export interface HttpPackageConfiguration {
   /**
-   * <p>The relative path to the URL for this VOD source. This is combined with <code>SourceLocation::HttpConfiguration::BaseUrl</code> to form a valid URL.</p>
+   * The relative path to the URL for this VOD source. This is combined with `SourceLocation::HttpConfiguration::BaseUrl` to form a valid URL.
+   *
    * @public
    */
   Path: string | undefined;
 
   /**
-   * <p>The name of the source group. This has to match one of the <code>Channel::Outputs::SourceGroup</code>.</p>
+   * The name of the source group. This has to match one of the `Channel::Outputs::SourceGroup`.
+   *
    * @public
    */
   SourceGroup: string | undefined;
 
   /**
-   * <p>The streaming protocol for this package configuration. Supported values are <code>HLS</code> and <code>DASH</code>.</p>
+   * The streaming protocol for this package configuration. Supported values are `HLS` and `DASH`.
+   *
    * @public
    */
   Type: Type | undefined;
 }
 
 /**
- * <p>Live source configuration parameters.</p>
+ * Live source configuration parameters.
+ *
  * @public
  */
 export interface LiveSource {
   /**
-   * <p>The ARN for the live source.</p>
+   * The ARN for the live source.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The timestamp that indicates when the live source was created.</p>
+   * The timestamp that indicates when the live source was created.
+   *
    * @public
    */
   CreationTime?: Date | undefined;
 
   /**
-   * <p>The HTTP package configurations for the live source.</p>
+   * The HTTP package configurations for the live source.
+   *
    * @public
    */
   HttpPackageConfigurations: HttpPackageConfiguration[] | undefined;
 
   /**
-   * <p>The timestamp that indicates when the live source was last modified.</p>
+   * The timestamp that indicates when the live source was last modified.
+   *
    * @public
    */
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>The name that's used to refer to a live source.</p>
+   * The name that's used to refer to a live source.
+   *
    * @public
    */
   LiveSourceName: string | undefined;
 
   /**
-   * <p>The name of the source location.</p>
+   * The name of the source location.
+   *
    * @public
    */
   SourceLocationName: string | undefined;
 
   /**
-   * <p>The tags assigned to the live source. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * The tags assigned to the live source. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns.</p>
+ * The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns.
+ *
  * @public
  */
 export interface AdConditioningConfiguration {
   /**
-   * <p>For ads that have media files with streaming delivery and supported file extensions, indicates what transcoding action MediaTailor takes when it first receives these ads from the ADS. <code>TRANSCODE</code> indicates that MediaTailor must transcode the ads. <code>NONE</code> indicates that you have already transcoded the ads outside of MediaTailor and don't need them transcoded as part of the ad insertion workflow. For more information about ad conditioning see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/precondition-ads.html">Using preconditioned ads</a> in the Elemental MediaTailor user guide.</p>
+   * For ads that have media files with streaming delivery and supported file extensions, indicates what transcoding action MediaTailor takes when it first receives these ads from the ADS. `TRANSCODE` indicates that MediaTailor must transcode the ads. `NONE` indicates that you have already transcoded the ads outside of MediaTailor and don't need them transcoded as part of the ad insertion workflow. For more information about ad conditioning see [Using preconditioned ads](https://docs.aws.amazon.com/mediatailor/latest/ug/precondition-ads.html) in the Elemental MediaTailor user guide.
+   *
    * @public
    */
   StreamingMediaFileConditioning: StreamingMediaFileConditioning | undefined;
 }
 
 /**
- * <p>HTTP request configuration parameters that define how MediaTailor communicates with the ad decision server.</p>
+ * HTTP request configuration parameters that define how MediaTailor communicates with the ad decision server.
+ *
  * @public
  */
 export interface HttpRequest {
   /**
-   * <p>The HTTP method to use when making requests to the ad decision server. Supported values are <code>GET</code> and <code>POST</code>.</p>
+   * The HTTP method to use when making requests to the ad decision server. Supported values are `GET` and `POST`.
+   *
    * @public
    */
   Method?: Method | undefined;
 
   /**
-   * <p>The request body content to send with HTTP requests to the ad decision server. This value is only eligible for <code>POST</code> requests.</p>
+   * The request body content to send with HTTP requests to the ad decision server. This value is only eligible for `POST` requests.
+   *
    * @public
    */
   Body?: string | undefined;
 
   /**
-   * <p>Custom HTTP headers to include in requests to the ad decision server. Specify headers as key-value pairs. This value is only eligible for <code>POST</code> requests.</p>
+   * Custom HTTP headers to include in requests to the ad decision server. Specify headers as key-value pairs. This value is only eligible for `POST` requests.
+   *
    * @public
    */
   Headers?: Record<string, string> | undefined;
 
   /**
-   * <p>The compression method to apply to requests sent to the ad decision server. Supported values are <code>NONE</code> and <code>GZIP</code>. This value is only eligible for <code>POST</code> requests.</p>
+   * The compression method to apply to requests sent to the ad decision server. Supported values are `NONE` and `GZIP`. This value is only eligible for `POST` requests.
+   *
    * @public
    */
   CompressRequest?: CompressionMethod | undefined;
 }
 
 /**
- * <p>The settings that control how MediaTailor processes VAST responses from the ad decision server.</p>
+ * The settings that control how MediaTailor processes VAST responses from the ad decision server.
+ *
  * @public
  */
 export interface VastResponse {
   /**
-   * <p>The ad sequencing mode that controls how MediaTailor handles sequenced and standalone ads in VAST responses. <code>FOLLOW_AD_SEQUENCE</code> inserts sequenced ads in increasing order for both live and VOD workflows, using standalone ads only as replacements when a sequenced ad fails. <code>FOLLOW_AD_SEQUENCE_ONLY_LIVE</code> enables ad sequencing for live workflows only. <code>FOLLOW_AD_SEQUENCE_ONLY_VOD</code> enables ad sequencing for VOD workflows only. <code>IGNORE_AD_SEQUENCE</code> inserts ads in the order they appear in the VAST response, regardless of sequence attributes. The default behavior is <code>IGNORE_AD_SEQUENCE</code>.</p>
+   * The ad sequencing mode that controls how MediaTailor handles sequenced and standalone ads in VAST responses. `FOLLOW_AD_SEQUENCE` inserts sequenced ads in increasing order for both live and VOD workflows, using standalone ads only as replacements when a sequenced ad fails. `FOLLOW_AD_SEQUENCE_ONLY_LIVE` enables ad sequencing for live workflows only. `FOLLOW_AD_SEQUENCE_ONLY_VOD` enables ad sequencing for VOD workflows only. `IGNORE_AD_SEQUENCE` inserts ads in the order they appear in the VAST response, regardless of sequence attributes. The default behavior is `IGNORE_AD_SEQUENCE`.
+   *
    * @public
    */
   AdSequencingMode?: AdSequencingMode | undefined;
 }
 
 /**
- * <p>Configuration parameters for customizing HTTP requests sent to the ad decision server (ADS). This allows you to specify the HTTP method, headers, request body, and compression settings for ADS requests.</p>
+ * Configuration parameters for customizing HTTP requests sent to the ad decision server (ADS). This allows you to specify the HTTP method, headers, request body, and compression settings for ADS requests.
+ *
  * @public
  */
 export interface AdDecisionServerConfiguration {
   /**
-   * <p>The HTTP request configuration parameters for the ad decision server.</p>
+   * The HTTP request configuration parameters for the ad decision server.
+   *
    * @public
    */
   HttpRequest?: HttpRequest | undefined;
 
   /**
-   * <p>The settings that control how MediaTailor processes VAST responses from the ad decision server.</p>
+   * The settings that control how MediaTailor processes VAST responses from the ad decision server.
+   *
    * @public
    */
   VastResponse?: VastResponse | undefined;
 }
 
 /**
- * <p>The concurrency settings for ad decision server interactions during ad personalization.</p>
+ * The concurrency settings for ad decision server interactions during ad personalization.
+ *
  * @public
  */
 export interface AdsPersonalizationConcurrency {
   /**
-   * <p>The maximum number of simultaneous requests that MediaTailor makes to the ad decision server per manifest request. The default is 1.</p>
+   * The maximum number of simultaneous requests that MediaTailor makes to the ad decision server per manifest request. The default is 1.
+   *
    * @public
    */
   MaxConcurrentAdsRequests?: number | undefined;
 
   /**
-   * <p>Enables parallel processing of ad decision server requests in VOD workflows when the ADS returns VAST responses. The default is false.</p>
+   * Enables parallel processing of ad decision server requests in VOD workflows when the ADS returns VAST responses. The default is false.
+   *
    * @public
    */
   EnableVodVastParallelization?: boolean | undefined;
 }
 
 /**
- * <p>The timeout settings for ad decision server interactions during ad personalization.</p>
+ * The timeout settings for ad decision server interactions during ad personalization.
+ *
  * @public
  */
 export interface AdsPersonalizationTimeouts {
   /**
-   * <p>The maximum time, in milliseconds, that MediaTailor waits for a single ad decision server response during live or VOD playback. The default is 3000.</p>
+   * The maximum time, in milliseconds, that MediaTailor waits for a single ad decision server response during live or VOD playback. The default is 3000.
+   *
    * @public
    */
   AdsRequestTimeoutMilliseconds?: number | undefined;
 
   /**
-   * <p>The maximum total time, in milliseconds, that MediaTailor spends on ad decision server activity for live manifests, including making requests, waiting for responses, and following VAST wrapper redirects. The default is 10000.</p>
+   * The maximum total time, in milliseconds, that MediaTailor spends on ad decision server activity for live manifests, including making requests, waiting for responses, and following VAST wrapper redirects. The default is 10000.
+   *
    * @public
    */
   LiveMaximumAdsPersonalizationTimeMilliseconds?: number | undefined;
 
   /**
-   * <p>The maximum total time, in milliseconds, that MediaTailor spends on ad decision server activity for VOD manifests, including making requests, waiting for responses, and following VAST wrapper redirects. The default is 10000.</p>
+   * The maximum total time, in milliseconds, that MediaTailor spends on ad decision server activity for VOD manifests, including making requests, waiting for responses, and following VAST wrapper redirects. The default is 10000.
+   *
    * @public
    */
   VodMaximumAdsPersonalizationTimeMilliseconds?: number | undefined;
 
   /**
-   * <p>The maximum time, in milliseconds, that MediaTailor waits for a single ad decision server response during prefetch retrieval. If not set, the value of AdsRequestTimeoutMilliseconds is used.</p>
+   * The maximum time, in milliseconds, that MediaTailor waits for a single ad decision server response during prefetch retrieval. If not set, the value of AdsRequestTimeoutMilliseconds is used.
+   *
    * @public
    */
   PrefetchAdsRequestTimeoutMilliseconds?: number | undefined;
 
   /**
-   * <p>The maximum total time, in milliseconds, that MediaTailor spends on ad decision server activity during prefetch retrieval, including making requests, waiting for responses, and following VAST wrapper redirects.</p>
+   * The maximum total time, in milliseconds, that MediaTailor spends on ad decision server activity during prefetch retrieval, including making requests, waiting for responses, and following VAST wrapper redirects.
+   *
    * @public
    */
   PrefetchMaximumAdsPersonalizationTimeMilliseconds?: number | undefined;
 }
 
 /**
- * <p>The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html">Ad Suppression</a>.</p>
+ * The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see [Ad Suppression](https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
+ *
  * @public
  */
 export interface AvailSuppression {
   /**
-   * <p>Sets the ad suppression mode. By default, ad suppression is off and all ad breaks are filled with ads or slate. When Mode is set to <code>BEHIND_LIVE_EDGE</code>, ad suppression is active and MediaTailor won't fill ad breaks on or behind the ad suppression Value time in the manifest lookback window. When Mode is set to <code>AFTER_LIVE_EDGE</code>, ad suppression is active and MediaTailor won't fill ad breaks that are within the live edge plus the avail suppression value.</p>
+   * Sets the ad suppression mode. By default, ad suppression is off and all ad breaks are filled with ads or slate. When Mode is set to `BEHIND_LIVE_EDGE`, ad suppression is active and MediaTailor won't fill ad breaks on or behind the ad suppression Value time in the manifest lookback window. When Mode is set to `AFTER_LIVE_EDGE`, ad suppression is active and MediaTailor won't fill ad breaks that are within the live edge plus the avail suppression value.
+   *
    * @public
    */
   Mode?: Mode | undefined;
 
   /**
-   * <p>A live edge offset time in HH:MM:SS. MediaTailor won't fill ad breaks on or behind this time in the manifest lookback window. If Value is set to 00:00:00, it is in sync with the live edge, and MediaTailor won't fill any ad breaks on or behind the live edge. If you set a Value time, MediaTailor won't fill any ad breaks on or behind this time in the manifest lookback window. For example, if you set 00:45:00, then MediaTailor will fill ad breaks that occur within 45 minutes behind the live edge, but won't fill ad breaks on or behind 45 minutes behind the live edge.</p>
+   * A live edge offset time in HH:MM:SS. MediaTailor won't fill ad breaks on or behind this time in the manifest lookback window. If Value is set to 00:00:00, it is in sync with the live edge, and MediaTailor won't fill any ad breaks on or behind the live edge. If you set a Value time, MediaTailor won't fill any ad breaks on or behind this time in the manifest lookback window. For example, if you set 00:45:00, then MediaTailor will fill ad breaks that occur within 45 minutes behind the live edge, but won't fill ad breaks on or behind 45 minutes behind the live edge.
+   *
    * @public
    */
   Value?: string | undefined;
 
   /**
-   * <p>Defines the policy to apply to the avail suppression mode. <code>BEHIND_LIVE_EDGE</code> will always use the full avail suppression policy. <code>AFTER_LIVE_EDGE</code> mode can be used to invoke partial ad break fills when a session starts mid-break.</p>
+   * Defines the policy to apply to the avail suppression mode. `BEHIND_LIVE_EDGE` will always use the full avail suppression policy. `AFTER_LIVE_EDGE` mode can be used to invoke partial ad break fills when a session starts mid-break.
+   *
    * @public
    */
   FillPolicy?: FillPolicy | undefined;
 }
 
 /**
- * <p>The beaconing settings that apply to client-side reporting sessions: whether MediaTailor includes its beacons in the ad tracking response, and which player operation events it reports on.</p>
+ * The beaconing settings that apply to client-side reporting sessions: whether MediaTailor includes its beacons in the ad tracking response, and which player operation events it reports on.
+ *
  * @public
  */
 export interface ClientSideBeaconingConfiguration {
   /**
-   * <p>Specifies whether MediaTailor includes its beacons in the ad tracking response. Valid values, which are case-sensitive:</p> <ul> <li> <p> <code>INSIGHTS</code> – MediaTailor includes its beacons in the ad tracking response.</p> </li> <li> <p> <code>DISABLED</code> – MediaTailor doesn't include its beacons in the ad tracking response.</p> </li> </ul> <p>If you send a <code>ClientSide</code> object, this setting is required. If you omit <code>BeaconingConfiguration</code> or <code>ClientSide</code> entirely, MediaTailor uses <code>INSIGHTS</code>.</p> <p> <code>PutPlaybackConfiguration</code> replaces the whole playback configuration. To keep beaconing off, include <code>DISABLED</code> in every subsequent write.</p>
+   * Specifies whether MediaTailor includes its beacons in the ad tracking response. Valid values, which are case-sensitive:
+   *
+   * - `INSIGHTS` – MediaTailor includes its beacons in the ad tracking response.
+   * - `DISABLED` – MediaTailor doesn't include its beacons in the ad tracking response.
+   *
+   * If you send a `ClientSide` object, this setting is required. If you omit `BeaconingConfiguration` or `ClientSide` entirely, MediaTailor uses `INSIGHTS`.
+   *
+   * `PutPlaybackConfiguration` replaces the whole playback configuration. To keep beaconing off, include `DISABLED` in every subsequent write.
+   *
    * @public
    */
   ReportingMode: ClientSideBeaconingMode | undefined;
 
   /**
-   * <p>The player operation events to report on, in addition to the ad progress events that MediaTailor always reports on. The default is an empty list. This parameter is valid only when <code>ReportingMode</code> is <code>INSIGHTS</code>. MediaTailor rejects the request if you specify a value while <code>ReportingMode</code> is <code>DISABLED</code>, or if you specify duplicate values.</p>
+   * The player operation events to report on, in addition to the ad progress events that MediaTailor always reports on. The default is an empty list. This parameter is valid only when `ReportingMode` is `INSIGHTS`. MediaTailor rejects the request if you specify a value while `ReportingMode` is `DISABLED`, or if you specify duplicate values.
+   *
    * @public
    */
   AdditionalEventTypes?: BeaconEventType[] | undefined;
 }
 
 /**
- * <p>The beaconing configuration for a playback configuration. Beaconing controls whether MediaTailor includes its own beacons in the ad tracking response, in addition to the ad server beacons.</p>
+ * The beaconing configuration for a playback configuration. Beaconing controls whether MediaTailor includes its own beacons in the ad tracking response, in addition to the ad server beacons.
+ *
  * @public
  */
 export interface BeaconingConfiguration {
   /**
-   * <p>The beaconing settings for client-side reporting sessions. If you omit this object, MediaTailor uses <code>INSIGHTS</code> reporting mode.</p>
+   * The beaconing settings for client-side reporting sessions. If you omit this object, MediaTailor uses `INSIGHTS` reporting mode.
+   *
    * @public
    */
   ClientSide?: ClientSideBeaconingConfiguration | undefined;
 }
 
 /**
- * <p>The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html">Bumpers</a>.</p>
+ * The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see [Bumpers](https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
+ *
  * @public
  */
 export interface Bumper {
   /**
-   * <p>The URL for the end bumper asset.</p>
+   * The URL for the end bumper asset.
+   *
    * @public
    */
   EndUrl?: string | undefined;
 
   /**
-   * <p>The URL for the start bumper asset.</p>
+   * The URL for the start bumper asset.
+   *
    * @public
    */
   StartUrl?: string | undefined;
 }
 
 /**
- * <p>The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.</p>
+ * The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
+ *
  * @public
  */
 export interface CdnConfiguration {
   /**
-   * <p>A non-default content delivery network (CDN) to serve ad segments. By default, AWS Elemental MediaTailor uses Amazon CloudFront with default cache settings as its CDN for ad segments. To set up an alternate CDN, create a rule in your CDN for the origin ads.mediatailor.<i>&lt;region&gt;</i>.amazonaws.com. Then specify the rule's name in this <code>AdSegmentUrlPrefix</code>. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for ad segments.</p>
+   * A non-default content delivery network (CDN) to serve ad segments. By default, AWS Elemental MediaTailor uses Amazon CloudFront with default cache settings as its CDN for ad segments. To set up an alternate CDN, create a rule in your CDN for the origin ads.mediatailor.*&lt;region&gt;*.amazonaws.com. Then specify the rule's name in this `AdSegmentUrlPrefix`. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for ad segments.
+   *
    * @public
    */
   AdSegmentUrlPrefix?: string | undefined;
 
   /**
-   * <p>A content delivery network (CDN) to cache content segments, so that content requests don’t always have to go to the origin server. First, create a rule in your CDN for the content segment origin server. Then specify the rule's name in this <code>ContentSegmentUrlPrefix</code>. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for content segments.</p>
+   * A content delivery network (CDN) to cache content segments, so that content requests don’t always have to go to the origin server. First, create a rule in your CDN for the content segment origin server. Then specify the rule's name in this `ContentSegmentUrlPrefix`. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for content segments.
+   *
    * @public
    */
   ContentSegmentUrlPrefix?: string | undefined;
 }
 
 /**
- * <p>The configuration for DASH content.</p>
+ * The configuration for DASH content.
+ *
  * @public
  */
 export interface DashConfiguration {
   /**
-   * <p>The URL that MediaTailor generates to initiate a playback session. The session uses server-side reporting.</p>
+   * The URL that MediaTailor generates to initiate a playback session. The session uses server-side reporting.
+   *
    * @public
    */
   ManifestEndpointPrefix?: string | undefined;
 
   /**
-   * <p>The dual-stack (IPv4 and IPv6) URL that MediaTailor generates to initiate a playback session. The session uses server-side reporting.</p>
+   * The dual-stack (IPv4 and IPv6) URL that MediaTailor generates to initiate a playback session. The session uses server-side reporting.
+   *
    * @public
    */
   DualStackManifestEndpointPrefix?: string | undefined;
 
   /**
-   * <p>The setting that controls whether MediaTailor includes the Location tag in DASH manifests. MediaTailor populates the Location tag with the URL for manifest update requests, to be used by players that don't support sticky redirects. Disable this if you have CDN routing rules set up for accessing MediaTailor manifests, and you are either using client-side reporting or your players support sticky HTTP redirects. Valid values are <code>DISABLED</code> and <code>EMT_DEFAULT</code>. The <code>EMT_DEFAULT</code> setting enables the inclusion of the tag and is the default value.</p>
+   * The setting that controls whether MediaTailor includes the Location tag in DASH manifests. MediaTailor populates the Location tag with the URL for manifest update requests, to be used by players that don't support sticky redirects. Disable this if you have CDN routing rules set up for accessing MediaTailor manifests, and you are either using client-side reporting or your players support sticky HTTP redirects. Valid values are `DISABLED` and `EMT_DEFAULT`. The `EMT_DEFAULT` setting enables the inclusion of the tag and is the default value.
+   *
    * @public
    */
   MpdLocation?: string | undefined;
 
   /**
-   * <p>The setting that controls whether MediaTailor handles manifests from the origin server as multi-period manifests or single-period manifests. If your origin server produces single-period manifests, set this to <code>SINGLE_PERIOD</code>. The default setting is <code>MULTI_PERIOD</code>. For multi-period manifests, omit this setting or set it to <code>MULTI_PERIOD</code>.</p>
+   * The setting that controls whether MediaTailor handles manifests from the origin server as multi-period manifests or single-period manifests. If your origin server produces single-period manifests, set this to `SINGLE_PERIOD`. The default setting is `MULTI_PERIOD`. For multi-period manifests, omit this setting or set it to `MULTI_PERIOD`.
+   *
    * @public
    */
   OriginManifestType?: OriginManifestType | undefined;
 }
 
 /**
- * <p>The configuration for HLS content.</p>
+ * The configuration for HLS content.
+ *
  * @public
  */
 export interface HlsConfiguration {
   /**
-   * <p>The URL that MediaTailor generates to initiate a playback session for devices that support Apple HLS. The session uses server-side reporting.</p>
+   * The URL that MediaTailor generates to initiate a playback session for devices that support Apple HLS. The session uses server-side reporting.
+   *
    * @public
    */
   ManifestEndpointPrefix?: string | undefined;
 
   /**
-   * <p>The dual-stack (IPv4 and IPv6) URL that MediaTailor generates to initiate a playback session for devices that support Apple HLS. The session uses server-side reporting.</p>
+   * The dual-stack (IPv4 and IPv6) URL that MediaTailor generates to initiate a playback session for devices that support Apple HLS. The session uses server-side reporting.
+   *
    * @public
    */
   DualStackManifestEndpointPrefix?: string | undefined;
 }
 
 /**
- * <p>The settings that control how MediaTailor processes VAST responses from the ad decision server for live pre-roll ad breaks.</p>
+ * The settings that control how MediaTailor processes VAST responses from the ad decision server for live pre-roll ad breaks.
+ *
  * @public
  */
 export interface PreRollVastResponse {
   /**
-   * <p>The ad sequencing mode for live pre-roll ads. <code>FOLLOW_AD_SEQUENCE</code> inserts sequenced ads in increasing order and uses standalone ads only as replacements when a sequenced ad fails. <code>IGNORE_AD_SEQUENCE</code> inserts ads in the order they appear in the VAST response, regardless of sequence attributes. The default behavior is <code>IGNORE_AD_SEQUENCE</code>.</p>
+   * The ad sequencing mode for live pre-roll ads. `FOLLOW_AD_SEQUENCE` inserts sequenced ads in increasing order and uses standalone ads only as replacements when a sequenced ad fails. `IGNORE_AD_SEQUENCE` inserts ads in the order they appear in the VAST response, regardless of sequence attributes. The default behavior is `IGNORE_AD_SEQUENCE`.
+   *
    * @public
    */
   AdSequencingMode?: PreRollAdSequencingMode | undefined;
 }
 
 /**
- * <p>The ad decision server configuration for live pre-roll ads. It contains settings that control how MediaTailor processes VAST responses for pre-roll ad breaks.</p>
+ * The ad decision server configuration for live pre-roll ads. It contains settings that control how MediaTailor processes VAST responses for pre-roll ad breaks.
+ *
  * @public
  */
 export interface PreRollAdDecisionServerConfiguration {
   /**
-   * <p>The settings that control how MediaTailor processes VAST responses for live pre-roll ad breaks.</p>
+   * The settings that control how MediaTailor processes VAST responses for live pre-roll ad breaks.
+   *
    * @public
    */
   VastResponse?: PreRollVastResponse | undefined;
 }
 
 /**
- * <p>The configuration for pre-roll ad insertion.</p>
+ * The configuration for pre-roll ad insertion.
+ *
  * @public
  */
 export interface LivePreRollConfiguration {
   /**
-   * <p>The URL for the ad decision server (ADS) for pre-roll ads. This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing, you can provide a static VAST URL. The maximum length is 25,000 characters.</p>
+   * The URL for the ad decision server (ADS) for pre-roll ads. This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing, you can provide a static VAST URL. The maximum length is 25,000 characters.
+   *
    * @public
    */
   AdDecisionServerUrl?: string | undefined;
 
   /**
-   * <p>The maximum allowed duration for the pre-roll ad avail. AWS Elemental MediaTailor won't play pre-roll ads to exceed this duration, regardless of the total duration of ads that the ADS returns.</p>
+   * The maximum allowed duration for the pre-roll ad avail. AWS Elemental MediaTailor won't play pre-roll ads to exceed this duration, regardless of the total duration of ads that the ADS returns.
+   *
    * @public
    */
   MaxDurationSeconds?: number | undefined;
 
   /**
-   * <p>The configuration for the ad decision server (ADS) for live pre-roll ads. The configuration contains settings that control how MediaTailor processes VAST responses for pre-roll ad breaks.</p>
+   * The configuration for the ad decision server (ADS) for live pre-roll ads. The configuration contains settings that control how MediaTailor processes VAST responses for pre-roll ad breaks.
+   *
    * @public
    */
   AdDecisionServerConfiguration?: PreRollAdDecisionServerConfiguration | undefined;
 }
 
 /**
- * <p>Settings for customizing what events are included in logs for interactions with the ad decision server (ADS).</p> <p>For more information about ADS logs, inlcuding descriptions of the event types, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/ads-log-format.html">MediaTailor ADS logs description and event types</a> in Elemental MediaTailor User Guide.</p>
+ * Settings for customizing what events are included in logs for interactions with the ad decision server (ADS).
+ *
+ * For more information about ADS logs, inlcuding descriptions of the event types, see [MediaTailor ADS logs description and event types](https://docs.aws.amazon.com/mediatailor/latest/ug/ads-log-format.html) in Elemental MediaTailor User Guide.
+ *
  * @public
  */
 export interface AdsInteractionLog {
   /**
-   * <p>Indicates that MediaTailor will emit the selected events in the logs for playback sessions that are initialized with this configuration. These events are not emitted by default and must be explicitly opted in. For descriptions of each event type, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/ads-log-format.html">MediaTailor ADS logs description and event types</a> in Elemental MediaTailor User Guide.</p>
+   * Indicates that MediaTailor will emit the selected events in the logs for playback sessions that are initialized with this configuration. These events are not emitted by default and must be explicitly opted in. For descriptions of each event type, see [MediaTailor ADS logs description and event types](https://docs.aws.amazon.com/mediatailor/latest/ug/ads-log-format.html) in Elemental MediaTailor User Guide.
+   *
    * @public
    */
   PublishOptInEventTypes?: AdsInteractionPublishOptInEventType[] | undefined;
 
   /**
-   * <p>Indicates that MediaTailor won't emit the selected events in the logs for playback sessions that are initialized with this configuration.</p>
+   * Indicates that MediaTailor won't emit the selected events in the logs for playback sessions that are initialized with this configuration.
+   *
    * @public
    */
   ExcludeEventTypes?: AdsInteractionExcludeEventType[] | undefined;
 }
 
 /**
- * <p>Settings for customizing what events are included in logs for interactions with the origin server.</p> <p>For more information about manifest service logs, including descriptions of the event types, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/log-types.html">MediaTailor manifest logs description and event types</a> in Elemental MediaTailor User Guide.</p>
+ * Settings for customizing what events are included in logs for interactions with the origin server.
+ *
+ * For more information about manifest service logs, including descriptions of the event types, see [MediaTailor manifest logs description and event types](https://docs.aws.amazon.com/mediatailor/latest/ug/log-types.html) in Elemental MediaTailor User Guide.
+ *
  * @public
  */
 export interface ManifestServiceInteractionLog {
   /**
-   * <p>Indicates that MediaTailor will emit the selected events in the logs for playback sessions that are initialized with this configuration. These events are not emitted by default and must be explicitly opted in.</p>
+   * Indicates that MediaTailor will emit the selected events in the logs for playback sessions that are initialized with this configuration. These events are not emitted by default and must be explicitly opted in.
+   *
    * @public
    */
   PublishOptInEventTypes?: ManifestServicePublishOptInEventType[] | undefined;
 
   /**
-   * <p>Indicates that MediaTailor won't emit the selected events in the logs for playback sessions that are initialized with this configuration.</p>
+   * Indicates that MediaTailor won't emit the selected events in the logs for playback sessions that are initialized with this configuration.
+   *
    * @public
    */
   ExcludeEventTypes?: ManifestServiceExcludeEventType[] | undefined;
 }
 
 /**
- * <p>Defines where AWS Elemental MediaTailor sends logs for the playback configuration.</p>
+ * Defines where AWS Elemental MediaTailor sends logs for the playback configuration.
+ *
  * @public
  */
 export interface LogConfiguration {
   /**
-   * <p>The percentage of session logs that MediaTailor sends to your configured log destination. For example, if your playback configuration has 1000 sessions and <code>percentEnabled</code> is set to <code>60</code>, MediaTailor sends logs for 600 of the sessions to CloudWatch Logs. MediaTailor decides at random which of the playback configuration sessions to send logs for. If you want to view logs for a specific session, you can use the <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/debug-log-mode.html">debug log mode</a>.</p> <p>Valid values: <code>0</code> - <code>100</code> </p>
+   * The percentage of session logs that MediaTailor sends to your configured log destination. For example, if your playback configuration has 1000 sessions and `percentEnabled` is set to `60`, MediaTailor sends logs for 600 of the sessions to CloudWatch Logs. MediaTailor decides at random which of the playback configuration sessions to send logs for. If you want to view logs for a specific session, you can use the [debug log mode](https://docs.aws.amazon.com/mediatailor/latest/ug/debug-log-mode.html).
+   *
+   * Valid values: `0` - `100`
+   *
    * @public
    */
   PercentEnabled: number | undefined;
 
   /**
-   * <p>The method used for collecting logs from AWS Elemental MediaTailor. <code>LEGACY_CLOUDWATCH</code> indicates that MediaTailor is sending logs directly to Amazon CloudWatch Logs. <code>VENDED_LOGS</code> indicates that MediaTailor is sending logs to CloudWatch, which then vends the logs to your destination of choice. Supported destinations are CloudWatch Logs log group, Amazon S3 bucket, and Amazon Data Firehose stream. </p>
+   * The method used for collecting logs from AWS Elemental MediaTailor. `LEGACY_CLOUDWATCH` indicates that MediaTailor is sending logs directly to Amazon CloudWatch Logs. `VENDED_LOGS` indicates that MediaTailor is sending logs to CloudWatch, which then vends the logs to your destination of choice. Supported destinations are CloudWatch Logs log group, Amazon S3 bucket, and Amazon Data Firehose stream.
+   *
    * @public
    */
   EnabledLoggingStrategies: LoggingStrategy[] | undefined;
 
   /**
-   * <p>Settings for customizing what events are included in logs for interactions with the ad decision server (ADS).</p>
+   * Settings for customizing what events are included in logs for interactions with the ad decision server (ADS).
+   *
    * @public
    */
   AdsInteractionLog?: AdsInteractionLog | undefined;
 
   /**
-   * <p>Settings for customizing what events are included in logs for interactions with the origin server.</p>
+   * Settings for customizing what events are included in logs for interactions with the origin server.
+   *
    * @public
    */
   ManifestServiceInteractionLog?: ManifestServiceInteractionLog | undefined;
 }
 
 /**
- * <p>For HLS, when set to <code>true</code>, MediaTailor passes through <code>EXT-X-CUE-IN</code>, <code>EXT-X-CUE-OUT</code>, and <code>EXT-X-SPLICEPOINT-SCTE35</code> ad markers from the origin manifest to the MediaTailor personalized manifest.</p> <p>No logic is applied to these ad markers. For example, if <code>EXT-X-CUE-OUT</code> has a value of <code>60</code>, but no ads are filled for that ad break, MediaTailor will not set the value to <code>0</code>.</p>
+ * For HLS, when set to `true`, MediaTailor passes through `EXT-X-CUE-IN`, `EXT-X-CUE-OUT`, and `EXT-X-SPLICEPOINT-SCTE35` ad markers from the origin manifest to the MediaTailor personalized manifest.
+ *
+ * No logic is applied to these ad markers. For example, if `EXT-X-CUE-OUT` has a value of `60`, but no ads are filled for that ad break, MediaTailor will not set the value to `0`.
+ *
  * @public
  */
 export interface AdMarkerPassthrough {
   /**
-   * <p>Enables ad marker passthrough for your configuration.</p>
+   * Enables ad marker passthrough for your configuration.
+   *
    * @public
    */
   Enabled?: boolean | undefined;
 }
 
 /**
- * <p>The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.</p>
+ * The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.
+ *
  * @public
  */
 export interface ManifestProcessingRules {
   /**
-   * <p>For HLS, when set to <code>true</code>, MediaTailor passes through <code>EXT-X-CUE-IN</code>, <code>EXT-X-CUE-OUT</code>, and <code>EXT-X-SPLICEPOINT-SCTE35</code> ad markers from the origin manifest to the MediaTailor personalized manifest.</p> <p>No logic is applied to these ad markers. For example, if <code>EXT-X-CUE-OUT</code> has a value of <code>60</code>, but no ads are filled for that ad break, MediaTailor will not set the value to <code>0</code>.</p>
+   * For HLS, when set to `true`, MediaTailor passes through `EXT-X-CUE-IN`, `EXT-X-CUE-OUT`, and `EXT-X-SPLICEPOINT-SCTE35` ad markers from the origin manifest to the MediaTailor personalized manifest.
+   *
+   * No logic is applied to these ad markers. For example, if `EXT-X-CUE-OUT` has a value of `60`, but no ads are filled for that ad break, MediaTailor will not set the value to `0`.
+   *
    * @public
    */
   AdMarkerPassthrough?: AdMarkerPassthrough | undefined;
 }
 
 /**
- * <p>Configuration for Yield Optimization, which fills unsold ad inventory in ad breaks with programmatic ads from Amazon Publisher Services (APS).</p>
+ * Configuration for Yield Optimization, which fills unsold ad inventory in ad breaks with programmatic ads from Amazon Publisher Services (APS).
+ *
  * @public
  */
 export interface YieldOptimizationConfiguration {
   /**
-   * <p>The minimum unfilled duration, in seconds, that must remain in an ad break before MediaTailor requests additional ads from Amazon Publisher Services (APS). For example, if set to 6 seconds, yield optimization triggers only when at least 6 seconds of unfilled time remains after the primary ad server response.</p>
+   * The minimum unfilled duration, in seconds, that must remain in an ad break before MediaTailor requests additional ads from Amazon Publisher Services (APS). For example, if set to 6 seconds, yield optimization triggers only when at least 6 seconds of unfilled time remains after the primary ad server response.
+   *
    * @public
    */
   MinimumUnfilledDuration: number | undefined;
 
   /**
-   * <p>Publisher ID for an existing Amazon Publisher Services configuration. This ID must be obtained by registering with APS prior to using the Yield Optimization feature. The Publisher ID identifies your account in the APS system and is required for all bid requests.</p>
+   * Publisher ID for an existing Amazon Publisher Services configuration. This ID must be obtained by registering with APS prior to using the Yield Optimization feature. The Publisher ID identifies your account in the APS system and is required for all bid requests.
+   *
    * @public
    */
   PublisherId: string | undefined;
 
   /**
-   * <p>The Amazon Publisher Services (APS) region that MediaTailor sends bid requests to. Choose the region closest to your primary audience, because the selection affects both latency and the ad inventory available to you. This setting applies to the entire playback configuration, not to individual viewers. If you serve traffic across multiple regions, create a separate playback configuration for each APS region.</p>
+   * The Amazon Publisher Services (APS) region that MediaTailor sends bid requests to. Choose the region closest to your primary audience, because the selection affects both latency and the ad inventory available to you. This setting applies to the entire playback configuration, not to individual viewers. If you serve traffic across multiple regions, create a separate playback configuration for each APS region.
+   *
    * @public
    */
   Region: ApsRegion | undefined;
 
   /**
-   * <p>The OpenRTB bid request template, in JSON, that MediaTailor sends to Amazon Publisher Services (APS). The template must include an <code>imp</code> array with one impression specifying <code>bidfloor</code>, an <code>app</code> object specifying <code>bundle</code> and <code>storeurl</code>, and a <code>device</code> object specifying <code>ua</code> and <code>ip</code>. Use double curly braces (for example, <code>\{\{player_params.user_agent\}\}</code>) to insert session variables and player parameters.</p>
+   * The OpenRTB bid request template, in JSON, that MediaTailor sends to Amazon Publisher Services (APS). The template must include an `imp` array with one impression specifying `bidfloor`, an `app` object specifying `bundle` and `storeurl`, and a `device` object specifying `ua` and `ip`. Use double curly braces (for example, `\{\{player_params.user_agent\}\}`) to insert session variables and player parameters.
+   *
    * @public
    */
   OpenRtbTemplate: string | undefined;
 }
 
 /**
- * <p>A playback configuration. For information about MediaTailor configurations, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html">Working with configurations in AWS Elemental MediaTailor</a>.</p>
+ * A playback configuration. For information about MediaTailor configurations, see [Working with configurations in AWS Elemental MediaTailor](https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html).
+ *
  * @public
  */
 export interface PlaybackConfiguration {
   /**
-   * <p>The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.</p>
+   * The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.
+   *
    * @public
    */
   AdDecisionServerUrl?: string | undefined;
 
   /**
-   * <p>The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html">Ad Suppression</a>.</p>
+   * The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see [Ad Suppression](https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
+   *
    * @public
    */
   AvailSuppression?: AvailSuppression | undefined;
 
   /**
-   * <p>The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html">Bumpers</a>.</p>
+   * The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see [Bumpers](https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
+   *
    * @public
    */
   Bumper?: Bumper | undefined;
 
   /**
-   * <p>The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.</p>
+   * The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
+   *
    * @public
    */
   CdnConfiguration?: CdnConfiguration | undefined;
 
   /**
-   * <p>The player parameters and aliases used as dynamic variables during session initialization. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/variables-domains.html">Domain Variables</a>.</p>
+   * The player parameters and aliases used as dynamic variables during session initialization. For more information, see [Domain Variables](https://docs.aws.amazon.com/mediatailor/latest/ug/variables-domains.html).
+   *
    * @public
    */
   ConfigurationAliases?: Record<string, Record<string, string>> | undefined;
 
   /**
-   * <p>The configuration for a DASH source.</p>
+   * The configuration for a DASH source.
+   *
    * @public
    */
   DashConfiguration?: DashConfiguration | undefined;
 
   /**
-   * <p>The configuration for HLS content.</p>
+   * The configuration for HLS content.
+   *
    * @public
    */
   HlsConfiguration?: HlsConfiguration | undefined;
 
   /**
-   * <p>The setting that controls whether players can use stitched or guided ad insertion. The default, <code>STITCHED_ONLY</code>, forces all player sessions to use stitched (server-side) ad insertion. Choosing <code>PLAYER_SELECT</code> allows players to select either stitched or guided ad insertion at session-initialization time. The default for players that do not specify an insertion mode is stitched.</p>
+   * The setting that controls whether players can use stitched or guided ad insertion. The default, `STITCHED_ONLY`, forces all player sessions to use stitched (server-side) ad insertion. Choosing `PLAYER_SELECT` allows players to select either stitched or guided ad insertion at session-initialization time. The default for players that do not specify an insertion mode is stitched.
+   *
    * @public
    */
   InsertionMode?: InsertionMode | undefined;
 
   /**
-   * <p>The configuration for pre-roll ad insertion.</p>
+   * The configuration for pre-roll ad insertion.
+   *
    * @public
    */
   LivePreRollConfiguration?: LivePreRollConfiguration | undefined;
 
   /**
-   * <p>Defines where AWS Elemental MediaTailor sends logs for the playback configuration.</p>
+   * Defines where AWS Elemental MediaTailor sends logs for the playback configuration.
+   *
    * @public
    */
   LogConfiguration?: LogConfiguration | undefined;
 
   /**
-   * <p>The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.</p>
+   * The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.
+   *
    * @public
    */
   ManifestProcessingRules?: ManifestProcessingRules | undefined;
 
   /**
-   * <p>The identifier for the playback configuration.</p>
+   * The identifier for the playback configuration.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>Defines the maximum duration of underfilled ad time (in seconds) allowed in an ad break. If the duration of underfilled ad time exceeds the personalization threshold, then the personalization of the ad break is abandoned and the underlying content is shown. This feature applies to <i>ad replacement</i> in live and VOD streams, rather than ad insertion, because it relies on an underlying content stream. For more information about ad break behavior, including ad replacement and insertion, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html">Ad Behavior in AWS Elemental MediaTailor</a>.</p>
+   * Defines the maximum duration of underfilled ad time (in seconds) allowed in an ad break. If the duration of underfilled ad time exceeds the personalization threshold, then the personalization of the ad break is abandoned and the underlying content is shown. This feature applies to *ad replacement* in live and VOD streams, rather than ad insertion, because it relies on an underlying content stream. For more information about ad break behavior, including ad replacement and insertion, see [Ad Behavior in AWS Elemental MediaTailor](https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
+   *
    * @public
    */
   PersonalizationThresholdSeconds?: number | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the playback configuration.</p>
+   * The Amazon Resource Name (ARN) for the playback configuration.
+   *
    * @public
    */
   PlaybackConfigurationArn?: string | undefined;
 
   /**
-   * <p>The URL that your player accesses to get a manifest from AWS Elemental MediaTailor.</p>
+   * The URL that your player accesses to get a manifest from AWS Elemental MediaTailor.
+   *
    * @public
    */
   PlaybackEndpointPrefix?: string | undefined;
 
   /**
-   * <p>The dual-stack (IPv4 and IPv6) URL that your player accesses to get a manifest from AWS Elemental MediaTailor.</p>
+   * The dual-stack (IPv4 and IPv6) URL that your player accesses to get a manifest from AWS Elemental MediaTailor.
+   *
    * @public
    */
   DualStackPlaybackEndpointPrefix?: string | undefined;
 
   /**
-   * <p>The URL that your player uses to initialize a session that uses client-side reporting.</p>
+   * The URL that your player uses to initialize a session that uses client-side reporting.
+   *
    * @public
    */
   SessionInitializationEndpointPrefix?: string | undefined;
 
   /**
-   * <p>The dual-stack (IPv4 and IPv6) URL that your player uses to initialize a session that uses client-side reporting.</p>
+   * The dual-stack (IPv4 and IPv6) URL that your player uses to initialize a session that uses client-side reporting.
+   *
    * @public
    */
   DualStackSessionInitializationEndpointPrefix?: string | undefined;
 
   /**
-   * <p>The URL for a video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID playback configurations. For VPAID, the slate is required because MediaTailor provides it in the slots designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video.</p>
+   * The URL for a video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID playback configurations. For VPAID, the slate is required because MediaTailor provides it in the slots designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video.
+   *
    * @public
    */
   SlateAdUrl?: string | undefined;
 
   /**
-   * <p>The tags to assign to the playback configuration. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * The tags to assign to the playback configuration. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.</p>
+   * The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.
+   *
    * @public
    */
   TranscodeProfileName?: string | undefined;
 
   /**
-   * <p>The URL prefix for the parent manifest for the stream, minus the asset ID. The maximum length is 512 characters.</p>
+   * The URL prefix for the parent manifest for the stream, minus the asset ID. The maximum length is 512 characters.
+   *
    * @public
    */
   VideoContentSourceUrl?: string | undefined;
 
   /**
-   * <p>The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns, and what priority MediaTailor uses when inserting ads.</p>
+   * The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns, and what priority MediaTailor uses when inserting ads.
+   *
    * @public
    */
   AdConditioningConfiguration?: AdConditioningConfiguration | undefined;
 
   /**
-   * <p>Configuration parameters for customizing HTTP requests sent to the ad decision server (ADS). This allows you to specify the HTTP method, headers, request body, and compression settings for ADS requests.</p>
+   * Configuration parameters for customizing HTTP requests sent to the ad decision server (ADS). This allows you to specify the HTTP method, headers, request body, and compression settings for ADS requests.
+   *
    * @public
    */
   AdDecisionServerConfiguration?: AdDecisionServerConfiguration | undefined;
 
   /**
-   * <p>Configuration for Yield Optimization, which fills unsold ad inventory in ad breaks with programmatic ads from Amazon Publisher Services (APS).</p>
+   * Configuration for Yield Optimization, which fills unsold ad inventory in ad breaks with programmatic ads from Amazon Publisher Services (APS).
+   *
    * @public
    */
   YieldOptimizationConfiguration?: YieldOptimizationConfiguration | undefined;
 
   /**
-   * <p>A map of lifecycle hook event names to function identifiers. The function mapping specifies which function MediaTailor executes at each lifecycle hook during ad insertion. Valid keys are <code>PRE_SESSION_INITIALIZATION</code>, <code>PRE_ADS_REQUEST</code>, <code>POST_ADS_RESPONSE</code>, and <code>PRE_MANIFEST_INSERTION</code>. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-hooks.html">Functions lifecycle hooks</a> in the <i>MediaTailor User Guide</i>.</p>
+   * A map of lifecycle hook event names to function identifiers. The function mapping specifies which function MediaTailor executes at each lifecycle hook during ad insertion. Valid keys are `PRE_SESSION_INITIALIZATION`, `PRE_ADS_REQUEST`, `POST_ADS_RESPONSE`, and `PRE_MANIFEST_INSERTION`. For more information, see [Functions lifecycle hooks](https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-hooks.html) in the *MediaTailor User Guide*.
+   *
    * @public
    */
   FunctionMapping?: Partial<Record<EventName, string>> | undefined;
 
   /**
-   * <p>The timeout settings for ad decision server interactions. These settings control how long MediaTailor waits for ADS responses and the total time budget for ad personalization across live, VOD, and prefetch workflows.</p>
+   * The timeout settings for ad decision server interactions. These settings control how long MediaTailor waits for ADS responses and the total time budget for ad personalization across live, VOD, and prefetch workflows.
+   *
    * @public
    */
   AdsPersonalizationTimeouts?: AdsPersonalizationTimeouts | undefined;
 
   /**
-   * <p>The concurrency settings for ad decision server interactions. These settings control how many simultaneous ADS requests MediaTailor makes per manifest request.</p>
+   * The concurrency settings for ad decision server interactions. These settings control how many simultaneous ADS requests MediaTailor makes per manifest request.
+   *
    * @public
    */
   AdsPersonalizationConcurrency?: AdsPersonalizationConcurrency | undefined;
 
   /**
-   * <p>The beaconing configuration for this playback configuration, which controls whether MediaTailor includes beacons of its own in the ad tracking response.</p>
+   * The beaconing configuration for this playback configuration, which controls whether MediaTailor includes beacons of its own in the ad tracking response.
+   *
    * @public
    */
   BeaconingConfiguration?: BeaconingConfiguration | undefined;
 }
 
 /**
- * <p>For single prefetch, describes how and when that MediaTailor places prefetched ads into upcoming ad breaks.</p>
+ * For single prefetch, describes how and when that MediaTailor places prefetched ads into upcoming ad breaks.
+ *
  * @public
  */
 export interface PrefetchConsumption {
   /**
-   * <p>If you only want MediaTailor to insert prefetched ads into avails (ad breaks) that match specific dynamic variables, such as <code>scte.event_id</code>, set the avail matching criteria.</p>
+   * If you only want MediaTailor to insert prefetched ads into avails (ad breaks) that match specific dynamic variables, such as `scte.event_id`, set the avail matching criteria.
+   *
    * @public
    */
   AvailMatchingCriteria?: AvailMatchingCriteria[] | undefined;
 
   /**
-   * <p>The time when MediaTailor no longer considers the prefetched ads for use in an ad break. MediaTailor automatically deletes prefetch schedules no less than seven days after the end time. If you'd like to manually delete the prefetch schedule, you can call <code>DeletePrefetchSchedule</code>.</p>
+   * The time when MediaTailor no longer considers the prefetched ads for use in an ad break. MediaTailor automatically deletes prefetch schedules no less than seven days after the end time. If you'd like to manually delete the prefetch schedule, you can call `DeletePrefetchSchedule`.
+   *
    * @public
    */
   EndTime: Date | undefined;
 
   /**
-   * <p>The time when prefetched ads are considered for use in an ad break. If you don't specify <code>StartTime</code>, the prefetched ads are available after MediaTailor retrieves them from the ad decision server.</p>
+   * The time when prefetched ads are considered for use in an ad break. If you don't specify `StartTime`, the prefetched ads are available after MediaTailor retrieves them from the ad decision server.
+   *
    * @public
    */
   StartTime?: Date | undefined;
 }
 
 /**
- * <p>The settings that determine how and when MediaTailor places prefetched ads into upcoming ad breaks for recurring prefetch scedules.</p>
+ * The settings that determine how and when MediaTailor places prefetched ads into upcoming ad breaks for recurring prefetch scedules.
+ *
  * @public
  */
 export interface RecurringConsumption {
   /**
-   * <p>The number of seconds that an ad is available for insertion after it was prefetched.</p>
+   * The number of seconds that an ad is available for insertion after it was prefetched.
+   *
    * @public
    */
   RetrievedAdExpirationSeconds?: number | undefined;
 
   /**
-   * <p>The configuration for the dynamic variables that determine which ad breaks that MediaTailor inserts prefetched ads in.</p>
+   * The configuration for the dynamic variables that determine which ad breaks that MediaTailor inserts prefetched ads in.
+   *
    * @public
    */
   AvailMatchingCriteria?: AvailMatchingCriteria[] | undefined;
 }
 
 /**
- * <p>The configuration that tells Elemental MediaTailor how many seconds to spread out requests to the ad decision server (ADS). Instead of sending ADS requests for all sessions at the same time, MediaTailor spreads the requests across the amount of time specified in the retrieval window.</p>
+ * The configuration that tells Elemental MediaTailor how many seconds to spread out requests to the ad decision server (ADS). Instead of sending ADS requests for all sessions at the same time, MediaTailor spreads the requests across the amount of time specified in the retrieval window.
+ *
  * @public
  */
 export interface TrafficShapingRetrievalWindow {
   /**
-   * <p>The amount of time, in seconds, that MediaTailor spreads prefetch requests to the ADS. </p>
+   * The amount of time, in seconds, that MediaTailor spreads prefetch requests to the ADS.
+   *
    * @public
    */
   RetrievalWindowDurationSeconds?: number | undefined;
 }
 
 /**
- * <p>The configuration for TPS-based traffic shaping. This approach limits requests to the ad decision server (ADS) based on transactions per second and concurrent users.</p>
+ * The configuration for TPS-based traffic shaping. This approach limits requests to the ad decision server (ADS) based on transactions per second and concurrent users.
+ *
  * @public
  */
 export interface TrafficShapingTpsConfiguration {
   /**
-   * <p>The maximum number of transactions per second (TPS) that your ad decision server (ADS) can handle. MediaTailor uses this value along with concurrent users and headroom multiplier to calculate optimal traffic distribution and prevent ADS overload.</p>
+   * The maximum number of transactions per second (TPS) that your ad decision server (ADS) can handle. MediaTailor uses this value along with concurrent users and headroom multiplier to calculate optimal traffic distribution and prevent ADS overload.
+   *
    * @public
    */
   PeakTps?: number | undefined;
 
   /**
-   * <p>The expected peak number of concurrent viewers for your content. MediaTailor uses this value along with peak TPS to determine how to distribute prefetch requests across the available capacity without exceeding your ADS limits.</p>
+   * The expected peak number of concurrent viewers for your content. MediaTailor uses this value along with peak TPS to determine how to distribute prefetch requests across the available capacity without exceeding your ADS limits.
+   *
    * @public
    */
   PeakConcurrentUsers?: number | undefined;
 }
 
 /**
- * <p>With recurring prefetch, MediaTailor automatically prefetches ads for every avail that occurs during the retrieval window. The following configurations describe the MediaTailor behavior when prefetching ads for a live event.</p>
+ * With recurring prefetch, MediaTailor automatically prefetches ads for every avail that occurs during the retrieval window. The following configurations describe the MediaTailor behavior when prefetching ads for a live event.
+ *
  * @public
  */
 export interface RecurringRetrieval {
   /**
-   * <p>The dynamic variables to use for substitution during prefetch requests to the ADS.</p>
+   * The dynamic variables to use for substitution during prefetch requests to the ADS.
+   *
    * @public
    */
   DynamicVariables?: Record<string, string> | undefined;
 
   /**
-   * <p>The number of seconds that MediaTailor waits after an ad avail before prefetching ads for the next avail. If not set, the default is 0 (no delay).</p>
+   * The number of seconds that MediaTailor waits after an ad avail before prefetching ads for the next avail. If not set, the default is 0 (no delay).
+   *
    * @public
    */
   DelayAfterAvailEndSeconds?: number | undefined;
 
   /**
-   * <p>Indicates the type of traffic shaping used to limit the number of requests to the ADS at one time.</p>
+   * Indicates the type of traffic shaping used to limit the number of requests to the ADS at one time.
+   *
    * @public
    */
   TrafficShapingType?: TrafficShapingType | undefined;
 
   /**
-   * <p>The configuration that tells Elemental MediaTailor how many seconds to spread out requests to the ad decision server (ADS). Instead of sending ADS requests for all sessions at the same time, MediaTailor spreads the requests across the amount of time specified in the retrieval window.</p>
+   * The configuration that tells Elemental MediaTailor how many seconds to spread out requests to the ad decision server (ADS). Instead of sending ADS requests for all sessions at the same time, MediaTailor spreads the requests across the amount of time specified in the retrieval window.
+   *
    * @public
    */
   TrafficShapingRetrievalWindow?: TrafficShapingRetrievalWindow | undefined;
 
   /**
-   * <p>The configuration for TPS-based traffic shaping. This approach limits requests to the ad decision server (ADS) based on transactions per second and concurrent users.</p>
+   * The configuration for TPS-based traffic shaping. This approach limits requests to the ad decision server (ADS) based on transactions per second and concurrent users.
+   *
    * @public
    */
   TrafficShapingTpsConfiguration?: TrafficShapingTpsConfiguration | undefined;
 }
 
 /**
- * <p>The configuration that defines how MediaTailor performs recurring prefetch. </p>
+ * The configuration that defines how MediaTailor performs recurring prefetch.
+ *
  * @public
  */
 export interface RecurringPrefetchConfiguration {
   /**
-   * <p>The start time for the window that MediaTailor prefetches and inserts ads in a live event. </p>
+   * The start time for the window that MediaTailor prefetches and inserts ads in a live event.
+   *
    * @public
    */
   StartTime?: Date | undefined;
 
   /**
-   * <p>The end time for the window that MediaTailor prefetches and inserts ads in a live event. </p>
+   * The end time for the window that MediaTailor prefetches and inserts ads in a live event.
+   *
    * @public
    */
   EndTime: Date | undefined;
 
   /**
-   * <p>The settings that determine how and when MediaTailor places prefetched ads into upcoming ad breaks for recurring prefetch scedules.</p>
+   * The settings that determine how and when MediaTailor places prefetched ads into upcoming ad breaks for recurring prefetch scedules.
+   *
    * @public
    */
   RecurringConsumption: RecurringConsumption | undefined;
 
   /**
-   * <p>The configuration for prefetch ad retrieval from the ADS.</p>
+   * The configuration for prefetch ad retrieval from the ADS.
+   *
    * @public
    */
   RecurringRetrieval: RecurringRetrieval | undefined;
 }
 
 /**
- * <p>A complex type that contains settings governing when MediaTailor prefetches ads, and which dynamic variables that MediaTailor includes in the request to the ad decision server.</p>
+ * A complex type that contains settings governing when MediaTailor prefetches ads, and which dynamic variables that MediaTailor includes in the request to the ad decision server.
+ *
  * @public
  */
 export interface PrefetchRetrieval {
   /**
-   * <p>The dynamic variables to use for substitution during prefetch requests to the ad decision server (ADS).</p> <p>You initially configure <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/variables.html">dynamic variables</a> for the ADS URL when you set up your playback configuration. When you specify <code>DynamicVariables</code> for prefetch retrieval, MediaTailor includes the dynamic variables in the request to the ADS.</p>
+   * The dynamic variables to use for substitution during prefetch requests to the ad decision server (ADS).
+   *
+   * You initially configure [dynamic variables](https://docs.aws.amazon.com/mediatailor/latest/ug/variables.html) for the ADS URL when you set up your playback configuration. When you specify `DynamicVariables` for prefetch retrieval, MediaTailor includes the dynamic variables in the request to the ADS.
+   *
    * @public
    */
   DynamicVariables?: Record<string, string> | undefined;
 
   /**
-   * <p>The time when prefetch retrieval ends for the ad break. Prefetching will be attempted for manifest requests that occur at or before this time.</p>
+   * The time when prefetch retrieval ends for the ad break. Prefetching will be attempted for manifest requests that occur at or before this time.
+   *
    * @public
    */
   EndTime: Date | undefined;
 
   /**
-   * <p>The time when prefetch retrievals can start for this break. Ad prefetching will be attempted for manifest requests that occur at or after this time. Defaults to the current time. If not specified, the prefetch retrieval starts as soon as possible.</p>
+   * The time when prefetch retrievals can start for this break. Ad prefetching will be attempted for manifest requests that occur at or after this time. Defaults to the current time. If not specified, the prefetch retrieval starts as soon as possible.
+   *
    * @public
    */
   StartTime?: Date | undefined;
 
   /**
-   * <p>Indicates the type of traffic shaping used to limit the number of requests to the ADS at one time.</p>
+   * Indicates the type of traffic shaping used to limit the number of requests to the ADS at one time.
+   *
    * @public
    */
   TrafficShapingType?: TrafficShapingType | undefined;
 
   /**
-   * <p>The configuration that tells Elemental MediaTailor how many seconds to spread out requests to the ad decision server (ADS). Instead of sending ADS requests for all sessions at the same time, MediaTailor spreads the requests across the amount of time specified in the retrieval window.</p>
+   * The configuration that tells Elemental MediaTailor how many seconds to spread out requests to the ad decision server (ADS). Instead of sending ADS requests for all sessions at the same time, MediaTailor spreads the requests across the amount of time specified in the retrieval window.
+   *
    * @public
    */
   TrafficShapingRetrievalWindow?: TrafficShapingRetrievalWindow | undefined;
 
   /**
-   * <p>The configuration for TPS-based traffic shaping. This approach limits requests to the ad decision server (ADS) based on transactions per second and concurrent users.</p>
+   * The configuration for TPS-based traffic shaping. This approach limits requests to the ad decision server (ADS) based on transactions per second and concurrent users.
+   *
    * @public
    */
   TrafficShapingTpsConfiguration?: TrafficShapingTpsConfiguration | undefined;
 }
 
 /**
- * <p>A prefetch schedule allows you to tell MediaTailor to fetch and prepare certain ads before an ad break happens. For more information about ad prefetching, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/prefetching-ads.html">Using ad prefetching</a> in the <i>MediaTailor User Guide</i>.</p>
+ * A prefetch schedule allows you to tell MediaTailor to fetch and prepare certain ads before an ad break happens. For more information about ad prefetching, see [Using ad prefetching](https://docs.aws.amazon.com/mediatailor/latest/ug/prefetching-ads.html) in the *MediaTailor User Guide*.
+ *
  * @public
  */
 export interface PrefetchSchedule {
   /**
-   * <p>The Amazon Resource Name (ARN) of the prefetch schedule.</p>
+   * The Amazon Resource Name (ARN) of the prefetch schedule.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>Consumption settings determine how, and when, MediaTailor places the prefetched ads into ad breaks for single prefetch schedules. Ad consumption occurs within a span of time that you define, called a <i>consumption window</i>. You can designate which ad breaks that MediaTailor fills with prefetch ads by setting avail matching criteria.</p>
+   * Consumption settings determine how, and when, MediaTailor places the prefetched ads into ad breaks for single prefetch schedules. Ad consumption occurs within a span of time that you define, called a *consumption window*. You can designate which ad breaks that MediaTailor fills with prefetch ads by setting avail matching criteria.
+   *
    * @public
    */
   Consumption?: PrefetchConsumption | undefined;
 
   /**
-   * <p>The name of the prefetch schedule. The name must be unique among all prefetch schedules that are associated with the specified playback configuration.</p>
+   * The name of the prefetch schedule. The name must be unique among all prefetch schedules that are associated with the specified playback configuration.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The name of the playback configuration to create the prefetch schedule for.</p>
+   * The name of the playback configuration to create the prefetch schedule for.
+   *
    * @public
    */
   PlaybackConfigurationName: string | undefined;
 
   /**
-   * <p>A complex type that contains settings for prefetch retrieval from the ad decision server (ADS).</p>
+   * A complex type that contains settings for prefetch retrieval from the ad decision server (ADS).
+   *
    * @public
    */
   Retrieval?: PrefetchRetrieval | undefined;
 
   /**
-   * <p>The frequency that MediaTailor creates prefetch schedules. <code>SINGLE</code> indicates that this schedule applies to one ad break. <code>RECURRING</code> indicates that MediaTailor automatically creates a schedule for each ad avail in a live event.</p> <p>For more information about the prefetch types and when you might use each, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/prefetching-ads.html">Prefetching ads in Elemental MediaTailor.</a> </p>
+   * The frequency that MediaTailor creates prefetch schedules. `SINGLE` indicates that this schedule applies to one ad break. `RECURRING` indicates that MediaTailor automatically creates a schedule for each ad avail in a live event.
+   *
+   * For more information about the prefetch types and when you might use each, see [Prefetching ads in Elemental MediaTailor.](https://docs.aws.amazon.com/mediatailor/latest/ug/prefetching-ads.html)
+   *
    * @public
    */
   ScheduleType?: PrefetchScheduleType | undefined;
 
   /**
-   * <p>The settings that determine how and when MediaTailor prefetches ads and inserts them into ad breaks.</p>
+   * The settings that determine how and when MediaTailor prefetches ads and inserts them into ad breaks.
+   *
    * @public
    */
   RecurringPrefetchConfiguration?: RecurringPrefetchConfiguration | undefined;
 
   /**
-   * <p>An optional stream identifier that you can specify in order to prefetch for multiple streams that use the same playback configuration.</p>
+   * An optional stream identifier that you can specify in order to prefetch for multiple streams that use the same playback configuration.
+   *
    * @public
    */
   StreamId?: string | undefined;
 
   /**
-   * <p>The tags assigned to the prefetch schedule. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * The tags assigned to the prefetch schedule. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>The schedule's ad break properties.</p>
+ * The schedule's ad break properties.
+ *
  * @public
  */
 export interface ScheduleAdBreak {
   /**
-   * <p>The approximate duration of the ad break, in seconds.</p>
+   * The approximate duration of the ad break, in seconds.
+   *
    * @public
    */
   ApproximateDurationSeconds?: number | undefined;
 
   /**
-   * <p>The approximate time that the ad will start playing.</p>
+   * The approximate time that the ad will start playing.
+   *
    * @public
    */
   ApproximateStartTime?: Date | undefined;
 
   /**
-   * <p>The name of the source location containing the VOD source used for the ad break.</p>
+   * The name of the source location containing the VOD source used for the ad break.
+   *
    * @public
    */
   SourceLocationName?: string | undefined;
 
   /**
-   * <p>The name of the VOD source used for the ad break.</p>
+   * The name of the VOD source used for the ad break.
+   *
    * @public
    */
   VodSourceName?: string | undefined;
 }
 
 /**
- * <p>The properties for a schedule.</p>
+ * The properties for a schedule.
+ *
  * @public
  */
 export interface ScheduleEntry {
   /**
-   * <p>The approximate duration of this program, in seconds.</p>
+   * The approximate duration of this program, in seconds.
+   *
    * @public
    */
   ApproximateDurationSeconds?: number | undefined;
 
   /**
-   * <p>The approximate time that the program will start playing.</p>
+   * The approximate time that the program will start playing.
+   *
    * @public
    */
   ApproximateStartTime?: Date | undefined;
 
   /**
-   * <p>The ARN of the program.</p>
+   * The ARN of the program.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The name of the channel that uses this schedule.</p>
+   * The name of the channel that uses this schedule.
+   *
    * @public
    */
   ChannelName: string | undefined;
 
   /**
-   * <p>The name of the live source used for the program.</p>
+   * The name of the live source used for the program.
+   *
    * @public
    */
   LiveSourceName?: string | undefined;
 
   /**
-   * <p>The name of the program.</p>
+   * The name of the program.
+   *
    * @public
    */
   ProgramName: string | undefined;
 
   /**
-   * <p>The schedule's ad break properties.</p>
+   * The schedule's ad break properties.
+   *
    * @public
    */
   ScheduleAdBreaks?: ScheduleAdBreak[] | undefined;
 
   /**
-   * <p>The type of schedule entry.</p>
+   * The type of schedule entry.
+   *
    * @public
    */
   ScheduleEntryType?: ScheduleEntryType | undefined;
 
   /**
-   * <p>The name of the source location.</p>
+   * The name of the source location.
+   *
    * @public
    */
   SourceLocationName: string | undefined;
 
   /**
-   * <p>The name of the VOD source.</p>
+   * The name of the VOD source.
+   *
    * @public
    */
   VodSourceName?: string | undefined;
 
   /**
-   * <p>The list of audiences defined in ScheduleEntry.</p>
+   * The list of audiences defined in ScheduleEntry.
+   *
    * @public
    */
   Audiences?: string[] | undefined;
 }
 
 /**
- * <p>The segment delivery configuration settings.</p>
+ * The segment delivery configuration settings.
+ *
  * @public
  */
 export interface SegmentDeliveryConfiguration {
   /**
-   * <p>The base URL of the host or path of the segment delivery server that you're using to serve segments. This is typically a content delivery network (CDN). The URL can be absolute or relative. To use an absolute URL include the protocol, such as <code>https://example.com/some/path</code>. To use a relative URL specify the relative path, such as <code>/some/path*</code>.</p>
+   * The base URL of the host or path of the segment delivery server that you're using to serve segments. This is typically a content delivery network (CDN). The URL can be absolute or relative. To use an absolute URL include the protocol, such as `https://example.com/some/path`. To use a relative URL specify the relative path, such as `/some/path*`.
+   *
    * @public
    */
   BaseUrl?: string | undefined;
 
   /**
-   * <p>A unique identifier used to distinguish between multiple segment delivery configurations in a source location.</p>
+   * A unique identifier used to distinguish between multiple segment delivery configurations in a source location.
+   *
    * @public
    */
   Name?: string | undefined;
 }
 
 /**
- * <p>AWS Secrets Manager access token configuration parameters. For information about Secrets Manager access token authentication, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-access-configuration-access-token.html">Working with AWS Secrets Manager access token authentication</a>.</p>
+ * AWS Secrets Manager access token configuration parameters. For information about Secrets Manager access token authentication, see [Working with AWS Secrets Manager access token authentication](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-access-configuration-access-token.html).
+ *
  * @public
  */
 export interface SecretsManagerAccessTokenConfiguration {
   /**
-   * <p>The name of the HTTP header used to supply the access token in requests to the source location.</p>
+   * The name of the HTTP header used to supply the access token in requests to the source location.
+   *
    * @public
    */
   HeaderName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the access token.</p>
+   * The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the access token.
+   *
    * @public
    */
   SecretArn?: string | undefined;
 
   /**
-   * <p>The AWS Secrets Manager <a href="https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html#SecretsManager-CreateSecret-request-SecretString.html">SecretString</a> key associated with the access token. MediaTailor uses the key to look up SecretString key and value pair containing the access token.</p>
+   * The AWS Secrets Manager [SecretString](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html#SecretsManager-CreateSecret-request-SecretString.html) key associated with the access token. MediaTailor uses the key to look up SecretString key and value pair containing the access token.
+   *
    * @public
    */
   SecretStringKey?: string | undefined;
 }
 
 /**
- * <p>Access configuration parameters.</p>
+ * Access configuration parameters.
+ *
  * @public
  */
 export interface AccessConfiguration {
   /**
-   * <p>The type of authentication used to access content from <code>HttpConfiguration::BaseUrl</code> on your source location.</p> <p> <code>S3_SIGV4</code> - AWS Signature Version 4 authentication for Amazon S3 hosted virtual-style access. If your source location base URL is an Amazon S3 bucket, MediaTailor can use AWS Signature Version 4 (SigV4) authentication to access the bucket where your source content is stored. Your MediaTailor source location baseURL must follow the S3 virtual hosted-style request URL format. For example, https://bucket-name.s3.Region.amazonaws.com/key-name.</p> <p>Before you can use <code>S3_SIGV4</code>, you must meet these requirements:</p> <p>• You must allow MediaTailor to access your S3 bucket by granting mediatailor.amazonaws.com principal access in IAM. For information about configuring access in IAM, see Access management in the IAM User Guide.</p> <p>• The mediatailor.amazonaws.com service principal must have permissions to read all top level manifests referenced by the VodSource packaging configurations.</p> <p>• The caller of the API must have s3:GetObject IAM permissions to read all top level manifests referenced by your MediaTailor VodSource packaging configurations.</p> <p> <code>AUTODETECT_SIGV4</code> - AWS Signature Version 4 authentication for a set of supported services: MediaPackage Version 2 and Amazon S3 hosted virtual-style access. If your source location base URL is a MediaPackage Version 2 endpoint or an Amazon S3 bucket, MediaTailor can use AWS Signature Version 4 (SigV4) authentication to access the resource where your source content is stored.</p> <p>Before you can use <code>AUTODETECT_SIGV4</code> with a MediaPackage Version 2 endpoint, you must meet these requirements:</p> <p>• You must grant MediaTailor access to your MediaPackage endpoint by granting <code>mediatailor.amazonaws.com</code> principal access in an Origin Access policy on the endpoint.</p> <p>• Your MediaTailor source location base URL must be a MediaPackage V2 endpoint.</p> <p>• The caller of the API must have <code>mediapackagev2:GetObject</code> IAM permissions to read all top level manifests referenced by the MediaTailor source packaging configurations.</p> <p>Before you can use <code>AUTODETECT_SIGV4</code> with an Amazon S3 bucket, you must meet these requirements:</p> <p>• You must grant MediaTailor access to your S3 bucket by granting <code>mediatailor.amazonaws.com</code> principal access in IAM. For more information about configuring access in IAM, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access management</a> in the <i>IAM User Guide.</i>.</p> <p>• The <code>mediatailor.amazonaws.com</code> service principal must have permissions to read all top-level manifests referenced by the <code>VodSource</code> packaging configurations.</p> <p>• The caller of the API must have <code>s3:GetObject</code> IAM permissions to read all top level manifests referenced by your MediaTailor <code>VodSource</code> packaging configurations.</p>
+   * The type of authentication used to access content from `HttpConfiguration::BaseUrl` on your source location.
+   *
+   * `S3_SIGV4` - AWS Signature Version 4 authentication for Amazon S3 hosted virtual-style access. If your source location base URL is an Amazon S3 bucket, MediaTailor can use AWS Signature Version 4 (SigV4) authentication to access the bucket where your source content is stored. Your MediaTailor source location baseURL must follow the S3 virtual hosted-style request URL format. For example, https://bucket-name.s3.Region.amazonaws.com/key-name.
+   *
+   * Before you can use `S3_SIGV4`, you must meet these requirements:
+   *
+   * • You must allow MediaTailor to access your S3 bucket by granting mediatailor.amazonaws.com principal access in IAM. For information about configuring access in IAM, see Access management in the IAM User Guide.
+   *
+   * • The mediatailor.amazonaws.com service principal must have permissions to read all top level manifests referenced by the VodSource packaging configurations.
+   *
+   * • The caller of the API must have s3:GetObject IAM permissions to read all top level manifests referenced by your MediaTailor VodSource packaging configurations.
+   *
+   * `AUTODETECT_SIGV4` - AWS Signature Version 4 authentication for a set of supported services: MediaPackage Version 2 and Amazon S3 hosted virtual-style access. If your source location base URL is a MediaPackage Version 2 endpoint or an Amazon S3 bucket, MediaTailor can use AWS Signature Version 4 (SigV4) authentication to access the resource where your source content is stored.
+   *
+   * Before you can use `AUTODETECT_SIGV4` with a MediaPackage Version 2 endpoint, you must meet these requirements:
+   *
+   * • You must grant MediaTailor access to your MediaPackage endpoint by granting `mediatailor.amazonaws.com` principal access in an Origin Access policy on the endpoint.
+   *
+   * • Your MediaTailor source location base URL must be a MediaPackage V2 endpoint.
+   *
+   * • The caller of the API must have `mediapackagev2:GetObject` IAM permissions to read all top level manifests referenced by the MediaTailor source packaging configurations.
+   *
+   * Before you can use `AUTODETECT_SIGV4` with an Amazon S3 bucket, you must meet these requirements:
+   *
+   * • You must grant MediaTailor access to your S3 bucket by granting `mediatailor.amazonaws.com` principal access in IAM. For more information about configuring access in IAM, see [Access management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the *IAM User Guide.*.
+   *
+   * • The `mediatailor.amazonaws.com` service principal must have permissions to read all top-level manifests referenced by the `VodSource` packaging configurations.
+   *
+   * • The caller of the API must have `s3:GetObject` IAM permissions to read all top level manifests referenced by your MediaTailor `VodSource` packaging configurations.
+   *
    * @public
    */
   AccessType?: AccessType | undefined;
 
   /**
-   * <p>AWS Secrets Manager access token configuration parameters.</p>
+   * AWS Secrets Manager access token configuration parameters.
+   *
    * @public
    */
   SecretsManagerAccessTokenConfiguration?: SecretsManagerAccessTokenConfiguration | undefined;
 }
 
 /**
- * <p>The optional configuration for a server that serves segments. Use this if you want the segment delivery server to be different from the source location server. For example, you can configure your source location server to be an origination server, such as MediaPackage, and the segment delivery server to be a content delivery network (CDN), such as CloudFront. If you don't specify a segment delivery server, then the source location server is used.</p>
+ * The optional configuration for a server that serves segments. Use this if you want the segment delivery server to be different from the source location server. For example, you can configure your source location server to be an origination server, such as MediaPackage, and the segment delivery server to be a content delivery network (CDN), such as CloudFront. If you don't specify a segment delivery server, then the source location server is used.
+ *
  * @public
  */
 export interface DefaultSegmentDeliveryConfiguration {
   /**
-   * <p>The hostname of the server that will be used to serve segments. This string must include the protocol, such as <b>https://</b>.</p>
+   * The hostname of the server that will be used to serve segments. This string must include the protocol, such as **https://**.
+   *
    * @public
    */
   BaseUrl?: string | undefined;
 }
 
 /**
- * <p>The HTTP configuration for the source location.</p>
+ * The HTTP configuration for the source location.
+ *
  * @public
  */
 export interface HttpConfiguration {
   /**
-   * <p>The base URL for the source location host server. This string must include the protocol, such as <b>https://</b>.</p>
+   * The base URL for the source location host server. This string must include the protocol, such as **https://**.
+   *
    * @public
    */
   BaseUrl: string | undefined;
 }
 
 /**
- * <p>A source location is a container for sources. For more information about source locations, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-source-locations.html">Working with source locations</a> in the <i>MediaTailor User Guide</i>.</p>
+ * A source location is a container for sources. For more information about source locations, see [Working with source locations](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-source-locations.html) in the *MediaTailor User Guide*.
+ *
  * @public
  */
 export interface SourceLocation {
   /**
-   * <p>The access configuration for the source location.</p>
+   * The access configuration for the source location.
+   *
    * @public
    */
   AccessConfiguration?: AccessConfiguration | undefined;
 
   /**
-   * <p>The ARN of the SourceLocation.</p>
+   * The ARN of the SourceLocation.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The timestamp that indicates when the source location was created.</p>
+   * The timestamp that indicates when the source location was created.
+   *
    * @public
    */
   CreationTime?: Date | undefined;
 
   /**
-   * <p>The default segment delivery configuration.</p>
+   * The default segment delivery configuration.
+   *
    * @public
    */
   DefaultSegmentDeliveryConfiguration?: DefaultSegmentDeliveryConfiguration | undefined;
 
   /**
-   * <p>The HTTP configuration for the source location.</p>
+   * The HTTP configuration for the source location.
+   *
    * @public
    */
   HttpConfiguration: HttpConfiguration | undefined;
 
   /**
-   * <p>The timestamp that indicates when the source location was last modified.</p>
+   * The timestamp that indicates when the source location was last modified.
+   *
    * @public
    */
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>The segment delivery configurations for the source location.</p>
+   * The segment delivery configurations for the source location.
+   *
    * @public
    */
   SegmentDeliveryConfigurations?: SegmentDeliveryConfiguration[] | undefined;
 
   /**
-   * <p>The name of the source location.</p>
+   * The name of the source location.
+   *
    * @public
    */
   SourceLocationName: string | undefined;
 
   /**
-   * <p>The tags assigned to the source location. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * The tags assigned to the source location. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>VOD source configuration parameters.</p>
+ * VOD source configuration parameters.
+ *
  * @public
  */
 export interface VodSource {
   /**
-   * <p>The ARN for the VOD source.</p>
+   * The ARN for the VOD source.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The timestamp that indicates when the VOD source was created.</p>
+   * The timestamp that indicates when the VOD source was created.
+   *
    * @public
    */
   CreationTime?: Date | undefined;
 
   /**
-   * <p>The HTTP package configurations for the VOD source.</p>
+   * The HTTP package configurations for the VOD source.
+   *
    * @public
    */
   HttpPackageConfigurations: HttpPackageConfiguration[] | undefined;
 
   /**
-   * <p>The timestamp that indicates when the VOD source was last modified.</p>
+   * The timestamp that indicates when the VOD source was last modified.
+   *
    * @public
    */
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>The name of the source location that the VOD source is associated with.</p>
+   * The name of the source location that the VOD source is associated with.
+   *
    * @public
    */
   SourceLocationName: string | undefined;
 
   /**
-   * <p>The tags assigned to the VOD source. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * The tags assigned to the VOD source. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The name of the VOD source.</p>
+   * The name of the VOD source.
+   *
    * @public
    */
   VodSourceName: string | undefined;
 }
 
 /**
- * <p>A location at which a zero-duration ad marker was detected in a VOD source manifest.</p>
+ * A location at which a zero-duration ad marker was detected in a VOD source manifest.
+ *
  * @public
  */
 export interface AdBreakOpportunity {
   /**
-   * <p>The offset in milliseconds from the start of the VOD source at which an ad marker was detected.</p>
+   * The offset in milliseconds from the start of the VOD source at which an ad marker was detected.
+   *
    * @public
    */
   OffsetMillis: number | undefined;
@@ -2149,7 +2574,8 @@ export interface AdBreakOpportunity {
  */
 export interface DeleteChannelPolicyRequest {
   /**
-   * <p>The name of the channel associated with this channel policy.</p>
+   * The name of the channel associated with this channel policy.
+   *
    * @public
    */
   ChannelName: string | undefined;
@@ -2165,7 +2591,8 @@ export interface DeleteChannelPolicyResponse {}
  */
 export interface GetChannelPolicyRequest {
   /**
-   * <p>The name of the channel associated with this Channel Policy.</p>
+   * The name of the channel associated with this Channel Policy.
+   *
    * @public
    */
   ChannelName: string | undefined;
@@ -2176,7 +2603,8 @@ export interface GetChannelPolicyRequest {
  */
 export interface GetChannelPolicyResponse {
   /**
-   * <p>The IAM policy for the channel. IAM policies are used to control access to your channel.</p>
+   * The IAM policy for the channel. IAM policies are used to control access to your channel.
+   *
    * @public
    */
   Policy?: string | undefined;
@@ -2187,13 +2615,15 @@ export interface GetChannelPolicyResponse {
  */
 export interface PutChannelPolicyRequest {
   /**
-   * <p>The channel name associated with this Channel Policy.</p>
+   * The channel name associated with this Channel Policy.
+   *
    * @public
    */
   ChannelName: string | undefined;
 
   /**
-   * <p>Adds an IAM role that determines the permissions of your channel.</p>
+   * Adds an IAM role that determines the permissions of your channel.
+   *
    * @public
    */
   Policy: string | undefined;
@@ -2209,13 +2639,15 @@ export interface PutChannelPolicyResponse {}
  */
 export interface ConfigureLogsForChannelRequest {
   /**
-   * <p>The name of the channel.</p>
+   * The name of the channel.
+   *
    * @public
    */
   ChannelName: string | undefined;
 
   /**
-   * <p>The types of logs to collect.</p>
+   * The types of logs to collect.
+   *
    * @public
    */
   LogTypes: LogType[] | undefined;
@@ -2226,55 +2658,64 @@ export interface ConfigureLogsForChannelRequest {
  */
 export interface ConfigureLogsForChannelResponse {
   /**
-   * <p>The name of the channel.</p>
+   * The name of the channel.
+   *
    * @public
    */
   ChannelName?: string | undefined;
 
   /**
-   * <p>The types of logs collected.</p>
+   * The types of logs collected.
+   *
    * @public
    */
   LogTypes?: LogType[] | undefined;
 }
 
 /**
- * <p>The output configuration for this channel.</p>
+ * The output configuration for this channel.
+ *
  * @public
  */
 export interface RequestOutputItem {
   /**
-   * <p>DASH manifest configuration parameters.</p>
+   * DASH manifest configuration parameters.
+   *
    * @public
    */
   DashPlaylistSettings?: DashPlaylistSettings | undefined;
 
   /**
-   * <p>HLS playlist configuration parameters.</p>
+   * HLS playlist configuration parameters.
+   *
    * @public
    */
   HlsPlaylistSettings?: HlsPlaylistSettings | undefined;
 
   /**
-   * <p>The name of the manifest for the channel. The name appears in the <code>PlaybackUrl</code>.</p>
+   * The name of the manifest for the channel. The name appears in the `PlaybackUrl`.
+   *
    * @public
    */
   ManifestName: string | undefined;
 
   /**
-   * <p>A string used to match which <code>HttpPackageConfiguration</code> is used for each <code>VodSource</code>.</p>
+   * A string used to match which `HttpPackageConfiguration` is used for each `VodSource`.
+   *
    * @public
    */
   SourceGroup: string | undefined;
 }
 
 /**
- * <p> The configuration for time-shifted viewing. </p>
+ * The configuration for time-shifted viewing.
+ *
  * @public
  */
 export interface TimeShiftConfiguration {
   /**
-   * <p> The maximum time delay for time-shifted viewing. The minimum allowed maximum time delay is 0 seconds, and the maximum allowed maximum time delay is 21600 seconds (6 hours). </p>
+   * The maximum time delay for time-shifted viewing. The minimum allowed maximum time delay is 0 seconds, and the maximum allowed maximum time delay is 21600 seconds (6 hours).
+   *
    * @public
    */
   MaxTimeDelaySeconds: number | undefined;
@@ -2285,49 +2726,61 @@ export interface TimeShiftConfiguration {
  */
 export interface CreateChannelRequest {
   /**
-   * <p>The name of the channel.</p>
+   * The name of the channel.
+   *
    * @public
    */
   ChannelName: string | undefined;
 
   /**
-   * <p>The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the <code>LINEAR</code> <code>PlaybackMode</code>. MediaTailor doesn't support filler slate for channels using the <code>LOOP</code> <code>PlaybackMode</code>.</p>
+   * The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the `LINEAR` `PlaybackMode`. MediaTailor doesn't support filler slate for channels using the `LOOP` `PlaybackMode`.
+   *
    * @public
    */
   FillerSlate?: SlateSource | undefined;
 
   /**
-   * <p>The channel's output properties.</p>
+   * The channel's output properties.
+   *
    * @public
    */
   Outputs: RequestOutputItem[] | undefined;
 
   /**
-   * <p>The type of playback mode to use for this channel.</p> <p> <code>LINEAR</code> - The programs in the schedule play once back-to-back in the schedule.</p> <p> <code>LOOP</code> - The programs in the schedule play back-to-back in an endless loop. When the last program in the schedule stops playing, playback loops back to the first program in the schedule.</p>
+   * The type of playback mode to use for this channel.
+   *
+   * `LINEAR` - The programs in the schedule play once back-to-back in the schedule.
+   *
+   * `LOOP` - The programs in the schedule play back-to-back in an endless loop. When the last program in the schedule stops playing, playback loops back to the first program in the schedule.
+   *
    * @public
    */
   PlaybackMode: PlaybackMode | undefined;
 
   /**
-   * <p>The tags to assign to the channel. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * The tags to assign to the channel. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The tier of the channel.</p>
+   * The tier of the channel.
+   *
    * @public
    */
   Tier?: Tier | undefined;
 
   /**
-   * <p> The time-shifted viewing configuration you want to associate to the channel. </p>
+   * The time-shifted viewing configuration you want to associate to the channel.
+   *
    * @public
    */
   TimeShiftConfiguration?: TimeShiftConfiguration | undefined;
 
   /**
-   * <p>The list of audiences defined in channel.</p>
+   * The list of audiences defined in channel.
+   *
    * @public
    */
   Audiences?: string[] | undefined;
@@ -2338,73 +2791,85 @@ export interface CreateChannelRequest {
  */
 export interface CreateChannelResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) to assign to the channel.</p>
+   * The Amazon Resource Name (ARN) to assign to the channel.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The name to assign to the channel.</p>
+   * The name to assign to the channel.
+   *
    * @public
    */
   ChannelName?: string | undefined;
 
   /**
-   * <p>Indicates whether the channel is in a running state or not.</p>
+   * Indicates whether the channel is in a running state or not.
+   *
    * @public
    */
   ChannelState?: ChannelState | undefined;
 
   /**
-   * <p>The timestamp of when the channel was created.</p>
+   * The timestamp of when the channel was created.
+   *
    * @public
    */
   CreationTime?: Date | undefined;
 
   /**
-   * <p>Contains information about the slate used to fill gaps between programs in the schedule.</p>
+   * Contains information about the slate used to fill gaps between programs in the schedule.
+   *
    * @public
    */
   FillerSlate?: SlateSource | undefined;
 
   /**
-   * <p>The timestamp of when the channel was last modified.</p>
+   * The timestamp of when the channel was last modified.
+   *
    * @public
    */
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>The output properties to assign to the channel.</p>
+   * The output properties to assign to the channel.
+   *
    * @public
    */
   Outputs?: ResponseOutputItem[] | undefined;
 
   /**
-   * <p>The playback mode to assign to the channel.</p>
+   * The playback mode to assign to the channel.
+   *
    * @public
    */
   PlaybackMode?: string | undefined;
 
   /**
-   * <p>The tags to assign to the channel. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * The tags to assign to the channel. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The tier of the channel.</p>
+   * The tier of the channel.
+   *
    * @public
    */
   Tier?: string | undefined;
 
   /**
-   * <p> The time-shifted viewing configuration assigned to the channel. </p>
+   * The time-shifted viewing configuration assigned to the channel.
+   *
    * @public
    */
   TimeShiftConfiguration?: TimeShiftConfiguration | undefined;
 
   /**
-   * <p>The list of audiences defined in channel.</p>
+   * The list of audiences defined in channel.
+   *
    * @public
    */
   Audiences?: string[] | undefined;
@@ -2415,7 +2880,8 @@ export interface CreateChannelResponse {
  */
 export interface DeleteChannelRequest {
   /**
-   * <p>The name of the channel.</p>
+   * The name of the channel.
+   *
    * @public
    */
   ChannelName: string | undefined;
@@ -2431,7 +2897,8 @@ export interface DeleteChannelResponse {}
  */
 export interface DescribeChannelRequest {
   /**
-   * <p>The name of the channel.</p>
+   * The name of the channel.
+   *
    * @public
    */
   ChannelName: string | undefined;
@@ -2442,79 +2909,92 @@ export interface DescribeChannelRequest {
  */
 export interface DescribeChannelResponse {
   /**
-   * <p>The ARN of the channel.</p>
+   * The ARN of the channel.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The name of the channel.</p>
+   * The name of the channel.
+   *
    * @public
    */
   ChannelName?: string | undefined;
 
   /**
-   * <p>Indicates whether the channel is in a running state or not.</p>
+   * Indicates whether the channel is in a running state or not.
+   *
    * @public
    */
   ChannelState?: ChannelState | undefined;
 
   /**
-   * <p>The timestamp of when the channel was created.</p>
+   * The timestamp of when the channel was created.
+   *
    * @public
    */
   CreationTime?: Date | undefined;
 
   /**
-   * <p>Contains information about the slate used to fill gaps between programs in the schedule.</p>
+   * Contains information about the slate used to fill gaps between programs in the schedule.
+   *
    * @public
    */
   FillerSlate?: SlateSource | undefined;
 
   /**
-   * <p>The timestamp of when the channel was last modified.</p>
+   * The timestamp of when the channel was last modified.
+   *
    * @public
    */
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>The channel's output properties.</p>
+   * The channel's output properties.
+   *
    * @public
    */
   Outputs?: ResponseOutputItem[] | undefined;
 
   /**
-   * <p>The channel's playback mode.</p>
+   * The channel's playback mode.
+   *
    * @public
    */
   PlaybackMode?: string | undefined;
 
   /**
-   * <p>The tags assigned to the channel. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * The tags assigned to the channel. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The channel's tier.</p>
+   * The channel's tier.
+   *
    * @public
    */
   Tier?: string | undefined;
 
   /**
-   * <p>The log configuration for the channel.</p>
+   * The log configuration for the channel.
+   *
    * @public
    */
   LogConfiguration: LogConfigurationForChannel | undefined;
 
   /**
-   * <p> The time-shifted viewing configuration for the channel. </p>
+   * The time-shifted viewing configuration for the channel.
+   *
    * @public
    */
   TimeShiftConfiguration?: TimeShiftConfiguration | undefined;
 
   /**
-   * <p>The list of audiences defined in channel.</p>
+   * The list of audiences defined in channel.
+   *
    * @public
    */
   Audiences?: string[] | undefined;
@@ -2525,31 +3005,42 @@ export interface DescribeChannelResponse {
  */
 export interface GetChannelScheduleRequest {
   /**
-   * <p>The name of the channel associated with this Channel Schedule.</p>
+   * The name of the channel associated with this Channel Schedule.
+   *
    * @public
    */
   ChannelName: string | undefined;
 
   /**
-   * <p>The duration in minutes of the channel schedule.</p>
+   * The duration in minutes of the channel schedule.
+   *
    * @public
    */
   DurationMinutes?: string | undefined;
 
   /**
-   * <p>The maximum number of channel schedules that you want MediaTailor to return in response to the current request. If there are more than <code>MaxResults</code> channel schedules, use the value of <code>NextToken</code> in the response to get the next page of results.</p>
+   * The maximum number of channel schedules that you want MediaTailor to return in response to the current request. If there are more than `MaxResults` channel schedules, use the value of `NextToken` in the response to get the next page of results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>(Optional) If the playback configuration has more than <code>MaxResults</code> channel schedules, use <code>NextToken</code> to get the second and subsequent pages of results.</p> <p>For the first <code>GetChannelScheduleRequest</code> request, omit this value.</p> <p>For the second and subsequent requests, get the value of <code>NextToken</code> from the previous response and specify that value for <code>NextToken</code> in the request.</p> <p>If the previous response didn't include a <code>NextToken</code> element, there are no more channel schedules to get.</p>
+   * (Optional) If the playback configuration has more than `MaxResults` channel schedules, use `NextToken` to get the second and subsequent pages of results.
+   *
+   * For the first `GetChannelScheduleRequest` request, omit this value.
+   *
+   * For the second and subsequent requests, get the value of `NextToken` from the previous response and specify that value for `NextToken` in the request.
+   *
+   * If the previous response didn't include a `NextToken` element, there are no more channel schedules to get.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The single audience for GetChannelScheduleRequest.</p>
+   * The single audience for GetChannelScheduleRequest.
+   *
    * @public
    */
   Audience?: string | undefined;
@@ -2560,13 +3051,15 @@ export interface GetChannelScheduleRequest {
  */
 export interface GetChannelScheduleResponse {
   /**
-   * <p>A list of schedule entries for the channel.</p>
+   * A list of schedule entries for the channel.
+   *
    * @public
    */
   Items?: ScheduleEntry[] | undefined;
 
   /**
-   * <p>Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.</p>
+   * Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2577,13 +3070,19 @@ export interface GetChannelScheduleResponse {
  */
 export interface ListChannelsRequest {
   /**
-   * <p>The maximum number of channels that you want MediaTailor to return in response to the current request. If there are more than <code>MaxResults</code> channels, use the value of <code>NextToken</code> in the response to get the next page of results.</p> <p>The default value is 100. MediaTailor uses DynamoDB-based pagination, which means that a response might contain fewer than <code>MaxResults</code> items, including 0 items, even when more results are available. To retrieve all results, you must continue making requests using the <code>NextToken</code> value from each response until the response no longer includes a <code>NextToken</code> value.</p>
+   * The maximum number of channels that you want MediaTailor to return in response to the current request. If there are more than `MaxResults` channels, use the value of `NextToken` in the response to get the next page of results.
+   *
+   * The default value is 100. MediaTailor uses DynamoDB-based pagination, which means that a response might contain fewer than `MaxResults` items, including 0 items, even when more results are available. To retrieve all results, you must continue making requests using the `NextToken` value from each response until the response no longer includes a `NextToken` value.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.</p> <p>For the first <code>ListChannels</code> request, omit this value. For subsequent requests, get the value of <code>NextToken</code> from the previous response and specify that value for <code>NextToken</code> in the request. Continue making requests until the response no longer includes a <code>NextToken</code> value, which indicates that all results have been retrieved.</p>
+   * Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.
+   *
+   * For the first `ListChannels` request, omit this value. For subsequent requests, get the value of `NextToken` from the previous response and specify that value for `NextToken` in the request. Continue making requests until the response no longer includes a `NextToken` value, which indicates that all results have been retrieved.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2594,67 +3093,88 @@ export interface ListChannelsRequest {
  */
 export interface ListChannelsResponse {
   /**
-   * <p>A list of channels that are associated with this account.</p>
+   * A list of channels that are associated with this account.
+   *
    * @public
    */
   Items?: Channel[] | undefined;
 
   /**
-   * <p>Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.</p>
+   * Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Program transition configuration.</p>
+ * Program transition configuration.
+ *
  * @public
  */
 export interface Transition {
   /**
-   * <p>The duration of the live program in seconds.</p>
+   * The duration of the live program in seconds.
+   *
    * @public
    */
   DurationMillis?: number | undefined;
 
   /**
-   * <p>The position where this program will be inserted relative to the <code>RelativePosition</code>.</p>
+   * The position where this program will be inserted relative to the `RelativePosition`.
+   *
    * @public
    */
   RelativePosition: RelativePosition | undefined;
 
   /**
-   * <p>The name of the program that this program will be inserted next to, as defined by <code>RelativePosition</code>.</p>
+   * The name of the program that this program will be inserted next to, as defined by `RelativePosition`.
+   *
    * @public
    */
   RelativeProgram?: string | undefined;
 
   /**
-   * <p>The date and time that the program is scheduled to start, in epoch milliseconds.</p>
+   * The date and time that the program is scheduled to start, in epoch milliseconds.
+   *
    * @public
    */
   ScheduledStartTimeMillis?: number | undefined;
 
   /**
-   * <p>Defines when the program plays in the schedule. You can set the value to <code>ABSOLUTE</code> or <code>RELATIVE</code>.</p> <p> <code>ABSOLUTE</code> - The program plays at a specific wall clock time. This setting can only be used for channels using the <code>LINEAR</code> <code>PlaybackMode</code>.</p> <p>Note the following considerations when using <code>ABSOLUTE</code> transitions:</p> <p>If the preceding program in the schedule has a duration that extends past the wall clock time, MediaTailor truncates the preceding program on a common segment boundary.</p> <p>If there are gaps in playback, MediaTailor plays the <code>FillerSlate</code> you configured for your linear channel.</p> <p> <code>RELATIVE</code> - The program is inserted into the schedule either before or after a program that you specify via <code>RelativePosition</code>.</p>
+   * Defines when the program plays in the schedule. You can set the value to `ABSOLUTE` or `RELATIVE`.
+   *
+   * `ABSOLUTE` - The program plays at a specific wall clock time. This setting can only be used for channels using the `LINEAR` `PlaybackMode`.
+   *
+   * Note the following considerations when using `ABSOLUTE` transitions:
+   *
+   * If the preceding program in the schedule has a duration that extends past the wall clock time, MediaTailor truncates the preceding program on a common segment boundary.
+   *
+   * If there are gaps in playback, MediaTailor plays the `FillerSlate` you configured for your linear channel.
+   *
+   * `RELATIVE` - The program is inserted into the schedule either before or after a program that you specify via `RelativePosition`.
+   *
    * @public
    */
   Type: string | undefined;
 }
 
 /**
- * <p>Schedule configuration parameters. A channel must be stopped before changes can be made to the schedule.</p>
+ * Schedule configuration parameters. A channel must be stopped before changes can be made to the schedule.
+ *
  * @public
  */
 export interface ScheduleConfiguration {
   /**
-   * <p>Program transition configurations.</p>
+   * Program transition configurations.
+   *
    * @public
    */
   Transition: Transition | undefined;
 
   /**
-   * <p>Program clip range configuration.</p>
+   * Program clip range configuration.
+   *
    * @public
    */
   ClipRange?: ClipRange | undefined;
@@ -2665,55 +3185,64 @@ export interface ScheduleConfiguration {
  */
 export interface CreateProgramRequest {
   /**
-   * <p>The ad break configuration settings.</p>
+   * The ad break configuration settings.
+   *
    * @public
    */
   AdBreaks?: AdBreak[] | undefined;
 
   /**
-   * <p>The name of the channel for this Program.</p>
+   * The name of the channel for this Program.
+   *
    * @public
    */
   ChannelName: string | undefined;
 
   /**
-   * <p>The name of the LiveSource for this Program.</p>
+   * The name of the LiveSource for this Program.
+   *
    * @public
    */
   LiveSourceName?: string | undefined;
 
   /**
-   * <p>The name of the Program.</p>
+   * The name of the Program.
+   *
    * @public
    */
   ProgramName: string | undefined;
 
   /**
-   * <p>The schedule configuration settings.</p>
+   * The schedule configuration settings.
+   *
    * @public
    */
   ScheduleConfiguration: ScheduleConfiguration | undefined;
 
   /**
-   * <p>The name of the source location.</p>
+   * The name of the source location.
+   *
    * @public
    */
   SourceLocationName: string | undefined;
 
   /**
-   * <p>The name that's used to refer to a VOD source.</p>
+   * The name that's used to refer to a VOD source.
+   *
    * @public
    */
   VodSourceName?: string | undefined;
 
   /**
-   * <p>The list of AudienceMedia defined in program.</p>
+   * The list of AudienceMedia defined in program.
+   *
    * @public
    */
   AudienceMedia?: AudienceMedia[] | undefined;
 
   /**
-   * <p>The tags to assign to the program. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * The tags to assign to the program. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -2724,79 +3253,92 @@ export interface CreateProgramRequest {
  */
 export interface CreateProgramResponse {
   /**
-   * <p>The ad break configuration settings.</p>
+   * The ad break configuration settings.
+   *
    * @public
    */
   AdBreaks?: AdBreak[] | undefined;
 
   /**
-   * <p>The ARN to assign to the program.</p>
+   * The ARN to assign to the program.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The name to assign to the channel for this program.</p>
+   * The name to assign to the channel for this program.
+   *
    * @public
    */
   ChannelName?: string | undefined;
 
   /**
-   * <p>The time the program was created.</p>
+   * The time the program was created.
+   *
    * @public
    */
   CreationTime?: Date | undefined;
 
   /**
-   * <p>The name of the LiveSource for this Program.</p>
+   * The name of the LiveSource for this Program.
+   *
    * @public
    */
   LiveSourceName?: string | undefined;
 
   /**
-   * <p>The name to assign to this program.</p>
+   * The name to assign to this program.
+   *
    * @public
    */
   ProgramName?: string | undefined;
 
   /**
-   * <p>The scheduled start time for this Program.</p>
+   * The scheduled start time for this Program.
+   *
    * @public
    */
   ScheduledStartTime?: Date | undefined;
 
   /**
-   * <p>The name to assign to the source location for this program.</p>
+   * The name to assign to the source location for this program.
+   *
    * @public
    */
   SourceLocationName?: string | undefined;
 
   /**
-   * <p>The name that's used to refer to a VOD source.</p>
+   * The name that's used to refer to a VOD source.
+   *
    * @public
    */
   VodSourceName?: string | undefined;
 
   /**
-   * <p>The clip range configuration settings.</p>
+   * The clip range configuration settings.
+   *
    * @public
    */
   ClipRange?: ClipRange | undefined;
 
   /**
-   * <p>The duration of the live program in milliseconds.</p>
+   * The duration of the live program in milliseconds.
+   *
    * @public
    */
   DurationMillis?: number | undefined;
 
   /**
-   * <p>The list of AudienceMedia defined in program.</p>
+   * The list of AudienceMedia defined in program.
+   *
    * @public
    */
   AudienceMedia?: AudienceMedia[] | undefined;
 
   /**
-   * <p>The tags assigned to the program. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * The tags assigned to the program. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -2807,13 +3349,15 @@ export interface CreateProgramResponse {
  */
 export interface DeleteProgramRequest {
   /**
-   * <p>The name of the channel.</p>
+   * The name of the channel.
+   *
    * @public
    */
   ChannelName: string | undefined;
 
   /**
-   * <p>The name of the program.</p>
+   * The name of the program.
+   *
    * @public
    */
   ProgramName: string | undefined;
@@ -2829,13 +3373,15 @@ export interface DeleteProgramResponse {}
  */
 export interface DescribeProgramRequest {
   /**
-   * <p>The name of the channel associated with this Program.</p>
+   * The name of the channel associated with this Program.
+   *
    * @public
    */
   ChannelName: string | undefined;
 
   /**
-   * <p>The name of the program.</p>
+   * The name of the program.
+   *
    * @public
    */
   ProgramName: string | undefined;
@@ -2846,115 +3392,134 @@ export interface DescribeProgramRequest {
  */
 export interface DescribeProgramResponse {
   /**
-   * <p>The ad break configuration settings.</p>
+   * The ad break configuration settings.
+   *
    * @public
    */
   AdBreaks?: AdBreak[] | undefined;
 
   /**
-   * <p>The ARN of the program.</p>
+   * The ARN of the program.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The name of the channel that the program belongs to.</p>
+   * The name of the channel that the program belongs to.
+   *
    * @public
    */
   ChannelName?: string | undefined;
 
   /**
-   * <p>The timestamp of when the program was created.</p>
+   * The timestamp of when the program was created.
+   *
    * @public
    */
   CreationTime?: Date | undefined;
 
   /**
-   * <p>The name of the LiveSource for this Program.</p>
+   * The name of the LiveSource for this Program.
+   *
    * @public
    */
   LiveSourceName?: string | undefined;
 
   /**
-   * <p>The name of the program.</p>
+   * The name of the program.
+   *
    * @public
    */
   ProgramName?: string | undefined;
 
   /**
-   * <p>The date and time that the program is scheduled to start in ISO 8601 format and Coordinated Universal Time (UTC). For example, the value 2021-03-27T17:48:16.751Z represents March 27, 2021 at 17:48:16.751 UTC.</p>
+   * The date and time that the program is scheduled to start in ISO 8601 format and Coordinated Universal Time (UTC). For example, the value 2021-03-27T17:48:16.751Z represents March 27, 2021 at 17:48:16.751 UTC.
+   *
    * @public
    */
   ScheduledStartTime?: Date | undefined;
 
   /**
-   * <p>The source location name.</p>
+   * The source location name.
+   *
    * @public
    */
   SourceLocationName?: string | undefined;
 
   /**
-   * <p>The name that's used to refer to a VOD source.</p>
+   * The name that's used to refer to a VOD source.
+   *
    * @public
    */
   VodSourceName?: string | undefined;
 
   /**
-   * <p>The clip range configuration settings.</p>
+   * The clip range configuration settings.
+   *
    * @public
    */
   ClipRange?: ClipRange | undefined;
 
   /**
-   * <p>The duration of the live program in milliseconds.</p>
+   * The duration of the live program in milliseconds.
+   *
    * @public
    */
   DurationMillis?: number | undefined;
 
   /**
-   * <p>The list of AudienceMedia defined in program.</p>
+   * The list of AudienceMedia defined in program.
+   *
    * @public
    */
   AudienceMedia?: AudienceMedia[] | undefined;
 
   /**
-   * <p>The tags assigned to the program. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * The tags assigned to the program. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Program transition configuration.</p>
+ * Program transition configuration.
+ *
  * @public
  */
 export interface UpdateProgramTransition {
   /**
-   * <p>The date and time that the program is scheduled to start, in epoch milliseconds.</p>
+   * The date and time that the program is scheduled to start, in epoch milliseconds.
+   *
    * @public
    */
   ScheduledStartTimeMillis?: number | undefined;
 
   /**
-   * <p>The duration of the live program in seconds.</p>
+   * The duration of the live program in seconds.
+   *
    * @public
    */
   DurationMillis?: number | undefined;
 }
 
 /**
- * <p>Schedule configuration parameters.</p>
+ * Schedule configuration parameters.
+ *
  * @public
  */
 export interface UpdateProgramScheduleConfiguration {
   /**
-   * <p>Program transition configuration.</p>
+   * Program transition configuration.
+   *
    * @public
    */
   Transition?: UpdateProgramTransition | undefined;
 
   /**
-   * <p>Program clip range configuration.</p>
+   * Program clip range configuration.
+   *
    * @public
    */
   ClipRange?: ClipRange | undefined;
@@ -2965,31 +3530,36 @@ export interface UpdateProgramScheduleConfiguration {
  */
 export interface UpdateProgramRequest {
   /**
-   * <p>The ad break configuration settings.</p>
+   * The ad break configuration settings.
+   *
    * @public
    */
   AdBreaks?: AdBreak[] | undefined;
 
   /**
-   * <p>The name of the channel for this Program.</p>
+   * The name of the channel for this Program.
+   *
    * @public
    */
   ChannelName: string | undefined;
 
   /**
-   * <p>The name of the Program.</p>
+   * The name of the Program.
+   *
    * @public
    */
   ProgramName: string | undefined;
 
   /**
-   * <p>The schedule configuration settings.</p>
+   * The schedule configuration settings.
+   *
    * @public
    */
   ScheduleConfiguration: UpdateProgramScheduleConfiguration | undefined;
 
   /**
-   * <p>The list of AudienceMedia defined in program.</p>
+   * The list of AudienceMedia defined in program.
+   *
    * @public
    */
   AudienceMedia?: AudienceMedia[] | undefined;
@@ -3000,79 +3570,92 @@ export interface UpdateProgramRequest {
  */
 export interface UpdateProgramResponse {
   /**
-   * <p>The ad break configuration settings.</p>
+   * The ad break configuration settings.
+   *
    * @public
    */
   AdBreaks?: AdBreak[] | undefined;
 
   /**
-   * <p>The ARN to assign to the program.</p>
+   * The ARN to assign to the program.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The name to assign to the channel for this program.</p>
+   * The name to assign to the channel for this program.
+   *
    * @public
    */
   ChannelName?: string | undefined;
 
   /**
-   * <p>The time the program was created.</p>
+   * The time the program was created.
+   *
    * @public
    */
   CreationTime?: Date | undefined;
 
   /**
-   * <p>The name to assign to this program.</p>
+   * The name to assign to this program.
+   *
    * @public
    */
   ProgramName?: string | undefined;
 
   /**
-   * <p>The name to assign to the source location for this program.</p>
+   * The name to assign to the source location for this program.
+   *
    * @public
    */
   SourceLocationName?: string | undefined;
 
   /**
-   * <p>The name that's used to refer to a VOD source.</p>
+   * The name that's used to refer to a VOD source.
+   *
    * @public
    */
   VodSourceName?: string | undefined;
 
   /**
-   * <p>The name of the LiveSource for this Program.</p>
+   * The name of the LiveSource for this Program.
+   *
    * @public
    */
   LiveSourceName?: string | undefined;
 
   /**
-   * <p>The clip range configuration settings.</p>
+   * The clip range configuration settings.
+   *
    * @public
    */
   ClipRange?: ClipRange | undefined;
 
   /**
-   * <p>The duration of the live program in milliseconds.</p>
+   * The duration of the live program in milliseconds.
+   *
    * @public
    */
   DurationMillis?: number | undefined;
 
   /**
-   * <p>The scheduled start time for this Program.</p>
+   * The scheduled start time for this Program.
+   *
    * @public
    */
   ScheduledStartTime?: Date | undefined;
 
   /**
-   * <p>The list of AudienceMedia defined in program.</p>
+   * The list of AudienceMedia defined in program.
+   *
    * @public
    */
   AudienceMedia?: AudienceMedia[] | undefined;
 
   /**
-   * <p>The tags assigned to the program. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * The tags assigned to the program. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -3083,7 +3666,8 @@ export interface UpdateProgramResponse {
  */
 export interface StartChannelRequest {
   /**
-   * <p>The name of the channel.</p>
+   * The name of the channel.
+   *
    * @public
    */
   ChannelName: string | undefined;
@@ -3099,7 +3683,8 @@ export interface StartChannelResponse {}
  */
 export interface StopChannelRequest {
   /**
-   * <p>The name of the channel.</p>
+   * The name of the channel.
+   *
    * @public
    */
   ChannelName: string | undefined;
@@ -3115,31 +3700,36 @@ export interface StopChannelResponse {}
  */
 export interface UpdateChannelRequest {
   /**
-   * <p>The name of the channel.</p>
+   * The name of the channel.
+   *
    * @public
    */
   ChannelName: string | undefined;
 
   /**
-   * <p>The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the <code>LINEAR</code> <code>PlaybackMode</code>. MediaTailor doesn't support filler slate for channels using the <code>LOOP</code> <code>PlaybackMode</code>.</p>
+   * The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the `LINEAR` `PlaybackMode`. MediaTailor doesn't support filler slate for channels using the `LOOP` `PlaybackMode`.
+   *
    * @public
    */
   FillerSlate?: SlateSource | undefined;
 
   /**
-   * <p>The channel's output properties.</p>
+   * The channel's output properties.
+   *
    * @public
    */
   Outputs: RequestOutputItem[] | undefined;
 
   /**
-   * <p> The time-shifted viewing configuration you want to associate to the channel. </p>
+   * The time-shifted viewing configuration you want to associate to the channel.
+   *
    * @public
    */
   TimeShiftConfiguration?: TimeShiftConfiguration | undefined;
 
   /**
-   * <p>The list of audiences defined in channel.</p>
+   * The list of audiences defined in channel.
+   *
    * @public
    */
   Audiences?: string[] | undefined;
@@ -3150,109 +3740,135 @@ export interface UpdateChannelRequest {
  */
 export interface UpdateChannelResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) associated with the channel.</p>
+   * The Amazon Resource Name (ARN) associated with the channel.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The name of the channel.</p>
+   * The name of the channel.
+   *
    * @public
    */
   ChannelName?: string | undefined;
 
   /**
-   * <p>Returns the state whether the channel is running or not.</p>
+   * Returns the state whether the channel is running or not.
+   *
    * @public
    */
   ChannelState?: ChannelState | undefined;
 
   /**
-   * <p>The timestamp of when the channel was created.</p>
+   * The timestamp of when the channel was created.
+   *
    * @public
    */
   CreationTime?: Date | undefined;
 
   /**
-   * <p>The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the <code>LINEAR</code> <code>PlaybackMode</code>. MediaTailor doesn't support filler slate for channels using the <code>LOOP</code> <code>PlaybackMode</code>.</p>
+   * The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the `LINEAR` `PlaybackMode`. MediaTailor doesn't support filler slate for channels using the `LOOP` `PlaybackMode`.
+   *
    * @public
    */
   FillerSlate?: SlateSource | undefined;
 
   /**
-   * <p>The timestamp that indicates when the channel was last modified.</p>
+   * The timestamp that indicates when the channel was last modified.
+   *
    * @public
    */
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>The channel's output properties.</p>
+   * The channel's output properties.
+   *
    * @public
    */
   Outputs?: ResponseOutputItem[] | undefined;
 
   /**
-   * <p>The type of playback mode for this channel.</p> <p> <code>LINEAR</code> - Programs play back-to-back only once.</p> <p> <code>LOOP</code> - Programs play back-to-back in an endless loop. When the last program in the schedule plays, playback loops back to the first program in the schedule.</p>
+   * The type of playback mode for this channel.
+   *
+   * `LINEAR` - Programs play back-to-back only once.
+   *
+   * `LOOP` - Programs play back-to-back in an endless loop. When the last program in the schedule plays, playback loops back to the first program in the schedule.
+   *
    * @public
    */
   PlaybackMode?: string | undefined;
 
   /**
-   * <p>The tags to assign to the channel. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * The tags to assign to the channel. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The tier associated with this Channel.</p>
+   * The tier associated with this Channel.
+   *
    * @public
    */
   Tier?: string | undefined;
 
   /**
-   * <p> The time-shifted viewing configuration for the channel. </p>
+   * The time-shifted viewing configuration for the channel.
+   *
    * @public
    */
   TimeShiftConfiguration?: TimeShiftConfiguration | undefined;
 
   /**
-   * <p>The list of audiences defined in channel.</p>
+   * The list of audiences defined in channel.
+   *
    * @public
    */
   Audiences?: string[] | undefined;
 }
 
 /**
- * <p>Configures Amazon CloudWatch log settings for a playback configuration.</p>
+ * Configures Amazon CloudWatch log settings for a playback configuration.
+ *
  * @public
  */
 export interface ConfigureLogsForPlaybackConfigurationRequest {
   /**
-   * <p>The percentage of session logs that MediaTailor sends to your CloudWatch Logs account. For example, if your playback configuration has 1000 sessions and percentEnabled is set to <code>60</code>, MediaTailor sends logs for 600 of the sessions to CloudWatch Logs. MediaTailor decides at random which of the playback configuration sessions to send logs for. If you want to view logs for a specific session, you can use the <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/debug-log-mode.html">debug log mode</a>.</p> <p>Valid values: <code>0</code> - <code>100</code> </p>
+   * The percentage of session logs that MediaTailor sends to your CloudWatch Logs account. For example, if your playback configuration has 1000 sessions and percentEnabled is set to `60`, MediaTailor sends logs for 600 of the sessions to CloudWatch Logs. MediaTailor decides at random which of the playback configuration sessions to send logs for. If you want to view logs for a specific session, you can use the [debug log mode](https://docs.aws.amazon.com/mediatailor/latest/ug/debug-log-mode.html).
+   *
+   * Valid values: `0` - `100`
+   *
    * @public
    */
   PercentEnabled: number | undefined;
 
   /**
-   * <p>The name of the playback configuration.</p>
+   * The name of the playback configuration.
+   *
    * @public
    */
   PlaybackConfigurationName: string | undefined;
 
   /**
-   * <p>The method used for collecting logs from AWS Elemental MediaTailor. To configure MediaTailor to send logs directly to Amazon CloudWatch Logs, choose <code>LEGACY_CLOUDWATCH</code>. To configure MediaTailor to send logs to CloudWatch, which then vends the logs to your destination of choice, choose <code>VENDED_LOGS</code>. Supported destinations are CloudWatch Logs log group, Amazon S3 bucket, and Amazon Data Firehose stream.</p> <p>To use vended logs, you must configure the delivery destination in Amazon CloudWatch, as described in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html#AWS-vended-logs-permissions-V2">Enable logging from AWS services, Logging that requires additional permissions [V2]</a>.</p>
+   * The method used for collecting logs from AWS Elemental MediaTailor. To configure MediaTailor to send logs directly to Amazon CloudWatch Logs, choose `LEGACY_CLOUDWATCH`. To configure MediaTailor to send logs to CloudWatch, which then vends the logs to your destination of choice, choose `VENDED_LOGS`. Supported destinations are CloudWatch Logs log group, Amazon S3 bucket, and Amazon Data Firehose stream.
+   *
+   * To use vended logs, you must configure the delivery destination in Amazon CloudWatch, as described in [Enable logging from AWS services, Logging that requires additional permissions [V2\]](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html#AWS-vended-logs-permissions-V2).
+   *
    * @public
    */
   EnabledLoggingStrategies?: LoggingStrategy[] | undefined;
 
   /**
-   * <p>The event types that MediaTailor emits in logs for interactions with the ADS.</p>
+   * The event types that MediaTailor emits in logs for interactions with the ADS.
+   *
    * @public
    */
   AdsInteractionLog?: AdsInteractionLog | undefined;
 
   /**
-   * <p>The event types that MediaTailor emits in logs for interactions with the origin server.</p>
+   * The event types that MediaTailor emits in logs for interactions with the origin server.
+   *
    * @public
    */
   ManifestServiceInteractionLog?: ManifestServiceInteractionLog | undefined;
@@ -3263,31 +3879,36 @@ export interface ConfigureLogsForPlaybackConfigurationRequest {
  */
 export interface ConfigureLogsForPlaybackConfigurationResponse {
   /**
-   * <p>The percentage of session logs that MediaTailor sends to your Cloudwatch Logs account.</p>
+   * The percentage of session logs that MediaTailor sends to your Cloudwatch Logs account.
+   *
    * @public
    */
   PercentEnabled: number | undefined;
 
   /**
-   * <p>The name of the playback configuration.</p>
+   * The name of the playback configuration.
+   *
    * @public
    */
   PlaybackConfigurationName?: string | undefined;
 
   /**
-   * <p>The method used for collecting logs from AWS Elemental MediaTailor. <code>LEGACY_CLOUDWATCH</code> indicates that MediaTailor is sending logs directly to Amazon CloudWatch Logs. <code>VENDED_LOGS</code> indicates that MediaTailor is sending logs to CloudWatch, which then vends the logs to your destination of choice. Supported destinations are CloudWatch Logs log group, Amazon S3 bucket, and Amazon Data Firehose stream. </p>
+   * The method used for collecting logs from AWS Elemental MediaTailor. `LEGACY_CLOUDWATCH` indicates that MediaTailor is sending logs directly to Amazon CloudWatch Logs. `VENDED_LOGS` indicates that MediaTailor is sending logs to CloudWatch, which then vends the logs to your destination of choice. Supported destinations are CloudWatch Logs log group, Amazon S3 bucket, and Amazon Data Firehose stream.
+   *
    * @public
    */
   EnabledLoggingStrategies?: LoggingStrategy[] | undefined;
 
   /**
-   * <p>The event types that MediaTailor emits in logs for interactions with the ADS.</p>
+   * The event types that MediaTailor emits in logs for interactions with the ADS.
+   *
    * @public
    */
   AdsInteractionLog?: AdsInteractionLog | undefined;
 
   /**
-   * <p>The event types that MediaTailor emits in logs for interactions with the origin server.</p>
+   * The event types that MediaTailor emits in logs for interactions with the origin server.
+   *
    * @public
    */
   ManifestServiceInteractionLog?: ManifestServiceInteractionLog | undefined;
@@ -3298,25 +3919,29 @@ export interface ConfigureLogsForPlaybackConfigurationResponse {
  */
 export interface CreateLiveSourceRequest {
   /**
-   * <p>A list of HTTP package configuration parameters for this live source.</p>
+   * A list of HTTP package configuration parameters for this live source.
+   *
    * @public
    */
   HttpPackageConfigurations: HttpPackageConfiguration[] | undefined;
 
   /**
-   * <p>The name of the live source.</p>
+   * The name of the live source.
+   *
    * @public
    */
   LiveSourceName: string | undefined;
 
   /**
-   * <p>The name of the source location.</p>
+   * The name of the source location.
+   *
    * @public
    */
   SourceLocationName: string | undefined;
 
   /**
-   * <p>The tags to assign to the live source. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * The tags to assign to the live source. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -3327,43 +3952,50 @@ export interface CreateLiveSourceRequest {
  */
 export interface CreateLiveSourceResponse {
   /**
-   * <p>The ARN to assign to the live source.</p>
+   * The ARN to assign to the live source.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The time the live source was created.</p>
+   * The time the live source was created.
+   *
    * @public
    */
   CreationTime?: Date | undefined;
 
   /**
-   * <p>A list of HTTP package configuration parameters for this live source.</p>
+   * A list of HTTP package configuration parameters for this live source.
+   *
    * @public
    */
   HttpPackageConfigurations?: HttpPackageConfiguration[] | undefined;
 
   /**
-   * <p>The time the live source was last modified.</p>
+   * The time the live source was last modified.
+   *
    * @public
    */
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>The name to assign to the live source.</p>
+   * The name to assign to the live source.
+   *
    * @public
    */
   LiveSourceName?: string | undefined;
 
   /**
-   * <p>The name to assign to the source location of the live source.</p>
+   * The name to assign to the source location of the live source.
+   *
    * @public
    */
   SourceLocationName?: string | undefined;
 
   /**
-   * <p>The tags to assign to the live source. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * The tags to assign to the live source. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -3374,49 +4006,59 @@ export interface CreateLiveSourceResponse {
  */
 export interface CreatePrefetchScheduleRequest {
   /**
-   * <p>The configuration settings for how and when MediaTailor consumes prefetched ads from the ad decision server for single prefetch schedules. Each consumption configuration contains an end time and an optional start time that define the <i>consumption window</i>. Prefetch schedules automatically expire no earlier than seven days after the end time.</p>
+   * The configuration settings for how and when MediaTailor consumes prefetched ads from the ad decision server for single prefetch schedules. Each consumption configuration contains an end time and an optional start time that define the *consumption window*. Prefetch schedules automatically expire no earlier than seven days after the end time.
+   *
    * @public
    */
   Consumption?: PrefetchConsumption | undefined;
 
   /**
-   * <p>The name to assign to the schedule request.</p>
+   * The name to assign to the schedule request.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The name to assign to the playback configuration.</p>
+   * The name to assign to the playback configuration.
+   *
    * @public
    */
   PlaybackConfigurationName: string | undefined;
 
   /**
-   * <p>The configuration settings for retrieval of prefetched ads from the ad decision server. Only one set of prefetched ads will be retrieved and subsequently consumed for each ad break.</p>
+   * The configuration settings for retrieval of prefetched ads from the ad decision server. Only one set of prefetched ads will be retrieved and subsequently consumed for each ad break.
+   *
    * @public
    */
   Retrieval?: PrefetchRetrieval | undefined;
 
   /**
-   * <p>The configuration that defines how and when MediaTailor performs ad prefetching in a live event.</p>
+   * The configuration that defines how and when MediaTailor performs ad prefetching in a live event.
+   *
    * @public
    */
   RecurringPrefetchConfiguration?: RecurringPrefetchConfiguration | undefined;
 
   /**
-   * <p>The frequency that MediaTailor creates prefetch schedules. <code>SINGLE</code> indicates that this schedule applies to one ad break. <code>RECURRING</code> indicates that MediaTailor automatically creates a schedule for each ad avail in a live event.</p> <p>For more information about the prefetch types and when you might use each, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/prefetching-ads.html">Prefetching ads in Elemental MediaTailor.</a> </p>
+   * The frequency that MediaTailor creates prefetch schedules. `SINGLE` indicates that this schedule applies to one ad break. `RECURRING` indicates that MediaTailor automatically creates a schedule for each ad avail in a live event.
+   *
+   * For more information about the prefetch types and when you might use each, see [Prefetching ads in Elemental MediaTailor.](https://docs.aws.amazon.com/mediatailor/latest/ug/prefetching-ads.html)
+   *
    * @public
    */
   ScheduleType?: PrefetchScheduleType | undefined;
 
   /**
-   * <p>An optional stream identifier that MediaTailor uses to prefetch ads for multiple streams that use the same playback configuration. If <code>StreamId</code> is specified, MediaTailor returns all of the prefetch schedules with an exact match on <code>StreamId</code>. If not specified, MediaTailor returns all of the prefetch schedules for the playback configuration, regardless of <code>StreamId</code>.</p>
+   * An optional stream identifier that MediaTailor uses to prefetch ads for multiple streams that use the same playback configuration. If `StreamId` is specified, MediaTailor returns all of the prefetch schedules with an exact match on `StreamId`. If not specified, MediaTailor returns all of the prefetch schedules for the playback configuration, regardless of `StreamId`.
+   *
    * @public
    */
   StreamId?: string | undefined;
 
   /**
-   * <p>The tags to assign to the prefetch schedule. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * The tags to assign to the prefetch schedule. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -3427,55 +4069,64 @@ export interface CreatePrefetchScheduleRequest {
  */
 export interface CreatePrefetchScheduleResponse {
   /**
-   * <p>The ARN to assign to the prefetch schedule.</p>
+   * The ARN to assign to the prefetch schedule.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The configuration settings for how and when MediaTailor consumes prefetched ads from the ad decision server for single prefetch schedules. Each consumption configuration contains an end time and an optional start time that define the <i>consumption window</i>. Prefetch schedules automatically expire no earlier than seven days after the end time.</p>
+   * The configuration settings for how and when MediaTailor consumes prefetched ads from the ad decision server for single prefetch schedules. Each consumption configuration contains an end time and an optional start time that define the *consumption window*. Prefetch schedules automatically expire no earlier than seven days after the end time.
+   *
    * @public
    */
   Consumption?: PrefetchConsumption | undefined;
 
   /**
-   * <p>The name to assign to the prefetch schedule.</p>
+   * The name to assign to the prefetch schedule.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The name to assign to the playback configuration.</p>
+   * The name to assign to the playback configuration.
+   *
    * @public
    */
   PlaybackConfigurationName?: string | undefined;
 
   /**
-   * <p>The configuration settings for retrieval of prefetched ads from the ad decision server. Only one set of prefetched ads will be retrieved and subsequently consumed for each ad break.</p>
+   * The configuration settings for retrieval of prefetched ads from the ad decision server. Only one set of prefetched ads will be retrieved and subsequently consumed for each ad break.
+   *
    * @public
    */
   Retrieval?: PrefetchRetrieval | undefined;
 
   /**
-   * <p>The configuration that defines how MediaTailor performs recurring prefetch. </p>
+   * The configuration that defines how MediaTailor performs recurring prefetch.
+   *
    * @public
    */
   RecurringPrefetchConfiguration?: RecurringPrefetchConfiguration | undefined;
 
   /**
-   * <p>The frequency that MediaTailor creates prefetch schedules. <code>SINGLE</code> indicates that this schedule applies to one ad break. <code>RECURRING</code> indicates that MediaTailor automatically creates a schedule for each ad avail in a live event.</p>
+   * The frequency that MediaTailor creates prefetch schedules. `SINGLE` indicates that this schedule applies to one ad break. `RECURRING` indicates that MediaTailor automatically creates a schedule for each ad avail in a live event.
+   *
    * @public
    */
   ScheduleType?: PrefetchScheduleType | undefined;
 
   /**
-   * <p>An optional stream identifier that MediaTailor uses to prefetch ads for multiple streams that use the same playback configuration. If <code>StreamId</code> is specified, MediaTailor returns all of the prefetch schedules with an exact match on <code>StreamId</code>. If not specified, MediaTailor returns all of the prefetch schedules for the playback configuration, regardless of <code>StreamId</code>.</p>
+   * An optional stream identifier that MediaTailor uses to prefetch ads for multiple streams that use the same playback configuration. If `StreamId` is specified, MediaTailor returns all of the prefetch schedules with an exact match on `StreamId`. If not specified, MediaTailor returns all of the prefetch schedules for the playback configuration, regardless of `StreamId`.
+   *
    * @public
    */
   StreamId?: string | undefined;
 
   /**
-   * <p>The tags assigned to the prefetch schedule. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * The tags assigned to the prefetch schedule. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -3486,37 +4137,43 @@ export interface CreatePrefetchScheduleResponse {
  */
 export interface CreateSourceLocationRequest {
   /**
-   * <p>Access configuration parameters. Configures the type of authentication used to access content from your source location.</p>
+   * Access configuration parameters. Configures the type of authentication used to access content from your source location.
+   *
    * @public
    */
   AccessConfiguration?: AccessConfiguration | undefined;
 
   /**
-   * <p>The optional configuration for the server that serves segments.</p>
+   * The optional configuration for the server that serves segments.
+   *
    * @public
    */
   DefaultSegmentDeliveryConfiguration?: DefaultSegmentDeliveryConfiguration | undefined;
 
   /**
-   * <p>The source's HTTP package configurations.</p>
+   * The source's HTTP package configurations.
+   *
    * @public
    */
   HttpConfiguration: HttpConfiguration | undefined;
 
   /**
-   * <p>A list of the segment delivery configurations associated with this resource.</p>
+   * A list of the segment delivery configurations associated with this resource.
+   *
    * @public
    */
   SegmentDeliveryConfigurations?: SegmentDeliveryConfiguration[] | undefined;
 
   /**
-   * <p>The name associated with the source location.</p>
+   * The name associated with the source location.
+   *
    * @public
    */
   SourceLocationName: string | undefined;
 
   /**
-   * <p>The tags to assign to the source location. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * The tags to assign to the source location. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -3527,55 +4184,64 @@ export interface CreateSourceLocationRequest {
  */
 export interface CreateSourceLocationResponse {
   /**
-   * <p>Access configuration parameters. Configures the type of authentication used to access content from your source location.</p>
+   * Access configuration parameters. Configures the type of authentication used to access content from your source location.
+   *
    * @public
    */
   AccessConfiguration?: AccessConfiguration | undefined;
 
   /**
-   * <p>The ARN to assign to the source location.</p>
+   * The ARN to assign to the source location.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The time the source location was created.</p>
+   * The time the source location was created.
+   *
    * @public
    */
   CreationTime?: Date | undefined;
 
   /**
-   * <p>The optional configuration for the server that serves segments.</p>
+   * The optional configuration for the server that serves segments.
+   *
    * @public
    */
   DefaultSegmentDeliveryConfiguration?: DefaultSegmentDeliveryConfiguration | undefined;
 
   /**
-   * <p>The source's HTTP package configurations.</p>
+   * The source's HTTP package configurations.
+   *
    * @public
    */
   HttpConfiguration?: HttpConfiguration | undefined;
 
   /**
-   * <p>The time the source location was last modified.</p>
+   * The time the source location was last modified.
+   *
    * @public
    */
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>The segment delivery configurations for the source location. For information about MediaTailor configurations, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html">Working with configurations in AWS Elemental MediaTailor</a>.</p>
+   * The segment delivery configurations for the source location. For information about MediaTailor configurations, see [Working with configurations in AWS Elemental MediaTailor](https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html).
+   *
    * @public
    */
   SegmentDeliveryConfigurations?: SegmentDeliveryConfiguration[] | undefined;
 
   /**
-   * <p>The name to assign to the source location.</p>
+   * The name to assign to the source location.
+   *
    * @public
    */
   SourceLocationName?: string | undefined;
 
   /**
-   * <p>The tags to assign to the source location. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * The tags to assign to the source location. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -3586,25 +4252,29 @@ export interface CreateSourceLocationResponse {
  */
 export interface CreateVodSourceRequest {
   /**
-   * <p>A list of HTTP package configuration parameters for this VOD source.</p>
+   * A list of HTTP package configuration parameters for this VOD source.
+   *
    * @public
    */
   HttpPackageConfigurations: HttpPackageConfiguration[] | undefined;
 
   /**
-   * <p>The name of the source location for this VOD source.</p>
+   * The name of the source location for this VOD source.
+   *
    * @public
    */
   SourceLocationName: string | undefined;
 
   /**
-   * <p>The tags to assign to the VOD source. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * The tags to assign to the VOD source. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The name associated with the VOD source.&gt;</p>
+   * The name associated with the VOD source.&gt;
+   *
    * @public
    */
   VodSourceName: string | undefined;
@@ -3615,61 +4285,71 @@ export interface CreateVodSourceRequest {
  */
 export interface CreateVodSourceResponse {
   /**
-   * <p>The ARN to assign to this VOD source.</p>
+   * The ARN to assign to this VOD source.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The time the VOD source was created.</p>
+   * The time the VOD source was created.
+   *
    * @public
    */
   CreationTime?: Date | undefined;
 
   /**
-   * <p>A list of HTTP package configuration parameters for this VOD source.</p>
+   * A list of HTTP package configuration parameters for this VOD source.
+   *
    * @public
    */
   HttpPackageConfigurations?: HttpPackageConfiguration[] | undefined;
 
   /**
-   * <p>The time the VOD source was last modified.</p>
+   * The time the VOD source was last modified.
+   *
    * @public
    */
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>The name to assign to the source location for this VOD source.</p>
+   * The name to assign to the source location for this VOD source.
+   *
    * @public
    */
   SourceLocationName?: string | undefined;
 
   /**
-   * <p>The tags to assign to the VOD source. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * The tags to assign to the VOD source. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The name to assign to the VOD source.</p>
+   * The name to assign to the VOD source.
+   *
    * @public
    */
   VodSourceName?: string | undefined;
 }
 
 /**
- * <p>The configuration for DASH PUT operations.</p>
+ * The configuration for DASH PUT operations.
+ *
  * @public
  */
 export interface DashConfigurationForPut {
   /**
-   * <p>The setting that controls whether MediaTailor includes the Location tag in DASH manifests. MediaTailor populates the Location tag with the URL for manifest update requests, to be used by players that don't support sticky redirects. Disable this if you have CDN routing rules set up for accessing MediaTailor manifests, and you are either using client-side reporting or your players support sticky HTTP redirects. Valid values are <code>DISABLED</code> and <code>EMT_DEFAULT</code>. The <code>EMT_DEFAULT</code> setting enables the inclusion of the tag and is the default value.</p>
+   * The setting that controls whether MediaTailor includes the Location tag in DASH manifests. MediaTailor populates the Location tag with the URL for manifest update requests, to be used by players that don't support sticky redirects. Disable this if you have CDN routing rules set up for accessing MediaTailor manifests, and you are either using client-side reporting or your players support sticky HTTP redirects. Valid values are `DISABLED` and `EMT_DEFAULT`. The `EMT_DEFAULT` setting enables the inclusion of the tag and is the default value.
+   *
    * @public
    */
   MpdLocation?: string | undefined;
 
   /**
-   * <p>The setting that controls whether MediaTailor handles manifests from the origin server as multi-period manifests or single-period manifests. If your origin server produces single-period manifests, set this to <code>SINGLE_PERIOD</code>. The default setting is <code>MULTI_PERIOD</code>. For multi-period manifests, omit this setting or set it to <code>MULTI_PERIOD</code>.</p>
+   * The setting that controls whether MediaTailor handles manifests from the origin server as multi-period manifests or single-period manifests. If your origin server produces single-period manifests, set this to `SINGLE_PERIOD`. The default setting is `MULTI_PERIOD`. For multi-period manifests, omit this setting or set it to `MULTI_PERIOD`.
+   *
    * @public
    */
   OriginManifestType?: OriginManifestType | undefined;
@@ -3680,7 +4360,8 @@ export interface DashConfigurationForPut {
  */
 export interface DeleteFunctionRequest {
   /**
-   * <p>The identifier of the function to delete.</p>
+   * The identifier of the function to delete.
+   *
    * @public
    */
   FunctionId: string | undefined;
@@ -3696,13 +4377,15 @@ export interface DeleteFunctionResponse {}
  */
 export interface DeleteLiveSourceRequest {
   /**
-   * <p>The name of the live source.</p>
+   * The name of the live source.
+   *
    * @public
    */
   LiveSourceName: string | undefined;
 
   /**
-   * <p>The name of the source location associated with this Live Source.</p>
+   * The name of the source location associated with this Live Source.
+   *
    * @public
    */
   SourceLocationName: string | undefined;
@@ -3718,7 +4401,8 @@ export interface DeleteLiveSourceResponse {}
  */
 export interface DeletePlaybackConfigurationRequest {
   /**
-   * <p>The name of the playback configuration.</p>
+   * The name of the playback configuration.
+   *
    * @public
    */
   Name: string | undefined;
@@ -3734,13 +4418,15 @@ export interface DeletePlaybackConfigurationResponse {}
  */
 export interface DeletePrefetchScheduleRequest {
   /**
-   * <p>The name of the prefetch schedule. If the action is successful, the service sends back an HTTP 204 response with an empty HTTP body.</p>
+   * The name of the prefetch schedule. If the action is successful, the service sends back an HTTP 204 response with an empty HTTP body.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The name of the playback configuration for this prefetch schedule.</p>
+   * The name of the playback configuration for this prefetch schedule.
+   *
    * @public
    */
   PlaybackConfigurationName: string | undefined;
@@ -3756,7 +4442,8 @@ export interface DeletePrefetchScheduleResponse {}
  */
 export interface DeleteSourceLocationRequest {
   /**
-   * <p>The name of the source location.</p>
+   * The name of the source location.
+   *
    * @public
    */
   SourceLocationName: string | undefined;
@@ -3772,13 +4459,15 @@ export interface DeleteSourceLocationResponse {}
  */
 export interface DeleteVodSourceRequest {
   /**
-   * <p>The name of the source location associated with this VOD Source.</p>
+   * The name of the source location associated with this VOD Source.
+   *
    * @public
    */
   SourceLocationName: string | undefined;
 
   /**
-   * <p>The name of the VOD source.</p>
+   * The name of the VOD source.
+   *
    * @public
    */
   VodSourceName: string | undefined;
@@ -3794,13 +4483,15 @@ export interface DeleteVodSourceResponse {}
  */
 export interface DescribeLiveSourceRequest {
   /**
-   * <p>The name of the live source.</p>
+   * The name of the live source.
+   *
    * @public
    */
   LiveSourceName: string | undefined;
 
   /**
-   * <p>The name of the source location associated with this Live Source.</p>
+   * The name of the source location associated with this Live Source.
+   *
    * @public
    */
   SourceLocationName: string | undefined;
@@ -3811,43 +4502,50 @@ export interface DescribeLiveSourceRequest {
  */
 export interface DescribeLiveSourceResponse {
   /**
-   * <p>The ARN of the live source.</p>
+   * The ARN of the live source.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The timestamp that indicates when the live source was created.</p>
+   * The timestamp that indicates when the live source was created.
+   *
    * @public
    */
   CreationTime?: Date | undefined;
 
   /**
-   * <p>The HTTP package configurations.</p>
+   * The HTTP package configurations.
+   *
    * @public
    */
   HttpPackageConfigurations?: HttpPackageConfiguration[] | undefined;
 
   /**
-   * <p>The timestamp that indicates when the live source was modified.</p>
+   * The timestamp that indicates when the live source was modified.
+   *
    * @public
    */
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>The name of the live source.</p>
+   * The name of the live source.
+   *
    * @public
    */
   LiveSourceName?: string | undefined;
 
   /**
-   * <p>The name of the source location associated with the live source.</p>
+   * The name of the source location associated with the live source.
+   *
    * @public
    */
   SourceLocationName?: string | undefined;
 
   /**
-   * <p>The tags assigned to the live source. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * The tags assigned to the live source. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -3858,7 +4556,8 @@ export interface DescribeLiveSourceResponse {
  */
 export interface DescribeSourceLocationRequest {
   /**
-   * <p>The name of the source location.</p>
+   * The name of the source location.
+   *
    * @public
    */
   SourceLocationName: string | undefined;
@@ -3869,55 +4568,64 @@ export interface DescribeSourceLocationRequest {
  */
 export interface DescribeSourceLocationResponse {
   /**
-   * <p>The access configuration for the source location.</p>
+   * The access configuration for the source location.
+   *
    * @public
    */
   AccessConfiguration?: AccessConfiguration | undefined;
 
   /**
-   * <p>The ARN of the source location.</p>
+   * The ARN of the source location.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The timestamp that indicates when the source location was created.</p>
+   * The timestamp that indicates when the source location was created.
+   *
    * @public
    */
   CreationTime?: Date | undefined;
 
   /**
-   * <p>The default segment delivery configuration settings.</p>
+   * The default segment delivery configuration settings.
+   *
    * @public
    */
   DefaultSegmentDeliveryConfiguration?: DefaultSegmentDeliveryConfiguration | undefined;
 
   /**
-   * <p>The HTTP package configuration settings for the source location.</p>
+   * The HTTP package configuration settings for the source location.
+   *
    * @public
    */
   HttpConfiguration?: HttpConfiguration | undefined;
 
   /**
-   * <p>The timestamp that indicates when the source location was last modified.</p>
+   * The timestamp that indicates when the source location was last modified.
+   *
    * @public
    */
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>A list of the segment delivery configurations associated with this resource.</p>
+   * A list of the segment delivery configurations associated with this resource.
+   *
    * @public
    */
   SegmentDeliveryConfigurations?: SegmentDeliveryConfiguration[] | undefined;
 
   /**
-   * <p>The name of the source location.</p>
+   * The name of the source location.
+   *
    * @public
    */
   SourceLocationName?: string | undefined;
 
   /**
-   * <p>The tags assigned to the source location. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * The tags assigned to the source location. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -3928,13 +4636,15 @@ export interface DescribeSourceLocationResponse {
  */
 export interface DescribeVodSourceRequest {
   /**
-   * <p>The name of the source location associated with this VOD Source.</p>
+   * The name of the source location associated with this VOD Source.
+   *
    * @public
    */
   SourceLocationName: string | undefined;
 
   /**
-   * <p>The name of the VOD Source.</p>
+   * The name of the VOD Source.
+   *
    * @public
    */
   VodSourceName: string | undefined;
@@ -3945,49 +4655,57 @@ export interface DescribeVodSourceRequest {
  */
 export interface DescribeVodSourceResponse {
   /**
-   * <p>The ad break opportunities within the VOD source.</p>
+   * The ad break opportunities within the VOD source.
+   *
    * @public
    */
   AdBreakOpportunities?: AdBreakOpportunity[] | undefined;
 
   /**
-   * <p>The ARN of the VOD source.</p>
+   * The ARN of the VOD source.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The timestamp that indicates when the VOD source was created.</p>
+   * The timestamp that indicates when the VOD source was created.
+   *
    * @public
    */
   CreationTime?: Date | undefined;
 
   /**
-   * <p>The HTTP package configurations.</p>
+   * The HTTP package configurations.
+   *
    * @public
    */
   HttpPackageConfigurations?: HttpPackageConfiguration[] | undefined;
 
   /**
-   * <p>The last modified time of the VOD source.</p>
+   * The last modified time of the VOD source.
+   *
    * @public
    */
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>The name of the source location associated with the VOD source.</p>
+   * The name of the source location associated with the VOD source.
+   *
    * @public
    */
   SourceLocationName?: string | undefined;
 
   /**
-   * <p>The tags assigned to the VOD source. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * The tags assigned to the VOD source. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The name of the VOD source.</p>
+   * The name of the VOD source.
+   *
    * @public
    */
   VodSourceName?: string | undefined;
@@ -3999,7 +4717,8 @@ export interface DescribeVodSourceResponse {
  */
 export interface GetFunctionRequest {
   /**
-   * <p>The identifier of the function.</p>
+   * The identifier of the function.
+   *
    * @public
    */
   FunctionId: string | undefined;
@@ -4011,67 +4730,78 @@ export interface GetFunctionRequest {
  */
 export interface GetFunctionResponse {
   /**
-   * <p>The identifier of the function.</p>
+   * The identifier of the function.
+   *
    * @public
    */
   FunctionId: string | undefined;
 
   /**
-   * <p>The type of the function.</p>
+   * The type of the function.
+   *
    * @public
    */
   FunctionType: FunctionType | undefined;
 
   /**
-   * <p>A description of the function.</p>
+   * A description of the function.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The configuration for an <code>HTTP_REQUEST</code> function.</p>
+   * The configuration for an `HTTP_REQUEST` function.
+   *
    * @public
    */
   HttpRequestConfiguration?: HttpRequestConfiguration | undefined;
 
   /**
-   * <p>The configuration for an <code>AWS_SERVICE_REQUEST</code> function. Specifies the target service, target Region, and request parameters.</p>
+   * The configuration for an `AWS_SERVICE_REQUEST` function. Specifies the target service, target Region, and request parameters.
+   *
    * @public
    */
   AwsServiceRequestConfiguration?: AwsServiceRequestConfiguration | undefined;
 
   /**
-   * <p>The configuration for a <code>CUSTOM_OUTPUT</code> function.</p>
+   * The configuration for a `CUSTOM_OUTPUT` function.
+   *
    * @public
    */
   CustomOutputConfiguration?: CustomOutputConfiguration | undefined;
 
   /**
-   * <p>The configuration for a <code>CONCURRENT_EXECUTOR</code> function.</p>
+   * The configuration for a `CONCURRENT_EXECUTOR` function.
+   *
    * @public
    */
   ConcurrentExecutorConfiguration?: ConcurrentExecutorConfiguration | undefined;
 
   /**
-   * <p>The configuration for a <code>SEQUENTIAL_EXECUTOR</code> function.</p>
+   * The configuration for a `SEQUENTIAL_EXECUTOR` function.
+   *
    * @public
    */
   SequentialExecutorConfiguration?: SequentialExecutorConfiguration | undefined;
 
   /**
-   * <p>The configuration for a <code>VAST_REQUEST</code> function.</p>
+   * The configuration for a `VAST_REQUEST` function.
+   *
    * @public
    */
   VastRequestConfiguration?: VastRequestConfiguration | undefined;
 
   /**
-   * <p>The tags assigned to the function. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * The tags assigned to the function. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the function.</p>
+   * The Amazon Resource Name (ARN) of the function.
+   *
    * @public
    */
   Arn?: string | undefined;
@@ -4082,13 +4812,19 @@ export interface GetFunctionResponse {
  */
 export interface ListFunctionsRequest {
   /**
-   * <p>The maximum number of functions that you want MediaTailor to return in response to the current request. If there are more than <code>MaxResults</code> functions, use the value of <code>NextToken</code> in the response to get the next page of results.</p> <p>The default value is 100. MediaTailor uses token-based pagination, which means that a response might contain fewer than <code>MaxResults</code> items, including 0 items, even when more results are available. To retrieve all results, you must continue making requests using the <code>NextToken</code> value from each response until the response no longer includes a <code>NextToken</code> value.</p>
+   * The maximum number of functions that you want MediaTailor to return in response to the current request. If there are more than `MaxResults` functions, use the value of `NextToken` in the response to get the next page of results.
+   *
+   * The default value is 100. MediaTailor uses token-based pagination, which means that a response might contain fewer than `MaxResults` items, including 0 items, even when more results are available. To retrieve all results, you must continue making requests using the `NextToken` value from each response until the response no longer includes a `NextToken` value.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.</p> <p>For the first <code>ListFunctions</code> request, omit this value. For subsequent requests, get the value of <code>NextToken</code> from the previous response and specify that value for <code>NextToken</code> in the request. Continue making requests until the response no longer includes a <code>NextToken</code> value, which indicates that all results have been retrieved.</p>
+   * Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.
+   *
+   * For the first `ListFunctions` request, omit this value. For subsequent requests, get the value of `NextToken` from the previous response and specify that value for `NextToken` in the request. Continue making requests until the response no longer includes a `NextToken` value, which indicates that all results have been retrieved.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -4099,13 +4835,17 @@ export interface ListFunctionsRequest {
  */
 export interface ListFunctionsResponse {
   /**
-   * <p>A list of functions associated with your account in the current Region.</p>
+   * A list of functions associated with your account in the current Region.
+   *
    * @public
    */
   Items?: Function[] | undefined;
 
   /**
-   * <p>Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.</p> <p>For the first <code>ListFunctions</code> request, omit this value. For subsequent requests, get the value of <code>NextToken</code> from the previous response and specify that value for <code>NextToken</code> in the request. Continue making requests until the response no longer includes a <code>NextToken</code> value, which indicates that all results have been retrieved.</p>
+   * Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.
+   *
+   * For the first `ListFunctions` request, omit this value. For subsequent requests, get the value of `NextToken` from the previous response and specify that value for `NextToken` in the request. Continue making requests until the response no longer includes a `NextToken` value, which indicates that all results have been retrieved.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -4117,61 +4857,80 @@ export interface ListFunctionsResponse {
  */
 export interface PutFunctionRequest {
   /**
-   * <p>The identifier of the function. The identifier must be unique within your account.</p>
+   * The identifier of the function. The identifier must be unique within your account.
+   *
    * @public
    */
   FunctionId: string | undefined;
 
   /**
-   * <p>The type of the function, which determines what the function can do at runtime. Valid values:</p> <ul> <li> <p> <code>CUSTOM_OUTPUT</code> – Evaluates expressions and produces output bindings with no external calls.</p> </li> <li> <p> <code>HTTP_REQUEST</code> – Makes an HTTP call to an external service and evaluates output expressions that can reference the response.</p> </li> <li> <p> <code>AWS_SERVICE_REQUEST</code> – Makes an authenticated request to a supported AWS service API and evaluates output expressions that can reference the response.</p> </li> <li> <p> <code>VAST_REQUEST</code> – Calls a VAST endpoint, parses the response as VAST, and makes the parsed ads available to output expressions.</p> </li> <li> <p> <code>SEQUENTIAL_EXECUTOR</code> – Runs a sequence of child functions in order, passing data between steps through temporary data.</p> </li> <li> <p> <code>CONCURRENT_EXECUTOR</code> – Runs a set of child functions in parallel, up to a maximum concurrency, and combines their output when all functions complete.</p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types.html">Function types and composition</a> in the <i>MediaTailor User Guide</i>.</p>
+   * The type of the function, which determines what the function can do at runtime. Valid values:
+   *
+   * - `CUSTOM_OUTPUT` – Evaluates expressions and produces output bindings with no external calls.
+   * - `HTTP_REQUEST` – Makes an HTTP call to an external service and evaluates output expressions that can reference the response.
+   * - `AWS_SERVICE_REQUEST` – Makes an authenticated request to a supported AWS service API and evaluates output expressions that can reference the response.
+   * - `VAST_REQUEST` – Calls a VAST endpoint, parses the response as VAST, and makes the parsed ads available to output expressions.
+   * - `SEQUENTIAL_EXECUTOR` – Runs a sequence of child functions in order, passing data between steps through temporary data.
+   * - `CONCURRENT_EXECUTOR` – Runs a set of child functions in parallel, up to a maximum concurrency, and combines their output when all functions complete.
+   *
+   * For more information, see [Function types and composition](https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types.html) in the *MediaTailor User Guide*.
+   *
    * @public
    */
   FunctionType: FunctionType | undefined;
 
   /**
-   * <p>A description of the function.</p>
+   * A description of the function.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The configuration for an <code>HTTP_REQUEST</code> function. Specifies the HTTP method, URL, headers, body, timeout, and output expressions. Required when <code>FunctionType</code> is <code>HTTP_REQUEST</code>.</p>
+   * The configuration for an `HTTP_REQUEST` function. Specifies the HTTP method, URL, headers, body, timeout, and output expressions. Required when `FunctionType` is `HTTP_REQUEST`.
+   *
    * @public
    */
   HttpRequestConfiguration?: HttpRequestConfiguration | undefined;
 
   /**
-   * <p>The configuration for an <code>AWS_SERVICE_REQUEST</code> function. You must specify this parameter when <code>FunctionType</code> is <code>AWS_SERVICE_REQUEST</code>.</p>
+   * The configuration for an `AWS_SERVICE_REQUEST` function. You must specify this parameter when `FunctionType` is `AWS_SERVICE_REQUEST`.
+   *
    * @public
    */
   AwsServiceRequestConfiguration?: AwsServiceRequestConfiguration | undefined;
 
   /**
-   * <p>The configuration for a <code>CUSTOM_OUTPUT</code> function. Specifies the runtime and output expressions. Required when <code>FunctionType</code> is <code>CUSTOM_OUTPUT</code>.</p>
+   * The configuration for a `CUSTOM_OUTPUT` function. Specifies the runtime and output expressions. Required when `FunctionType` is `CUSTOM_OUTPUT`.
+   *
    * @public
    */
   CustomOutputConfiguration?: CustomOutputConfiguration | undefined;
 
   /**
-   * <p>The configuration for a <code>CONCURRENT_EXECUTOR</code> function. Specifies the list of child functions to run in parallel, the maximum concurrency, an optional output block, and a timeout. Required when <code>FunctionType</code> is <code>CONCURRENT_EXECUTOR</code>.</p>
+   * The configuration for a `CONCURRENT_EXECUTOR` function. Specifies the list of child functions to run in parallel, the maximum concurrency, an optional output block, and a timeout. Required when `FunctionType` is `CONCURRENT_EXECUTOR`.
+   *
    * @public
    */
   ConcurrentExecutorConfiguration?: ConcurrentExecutorConfiguration | undefined;
 
   /**
-   * <p>The configuration for a <code>SEQUENTIAL_EXECUTOR</code> function. Specifies the ordered list of child functions to execute, an optional output block, and a timeout. Required when <code>FunctionType</code> is <code>SEQUENTIAL_EXECUTOR</code>.</p>
+   * The configuration for a `SEQUENTIAL_EXECUTOR` function. Specifies the ordered list of child functions to execute, an optional output block, and a timeout. Required when `FunctionType` is `SEQUENTIAL_EXECUTOR`.
+   *
    * @public
    */
   SequentialExecutorConfiguration?: SequentialExecutorConfiguration | undefined;
 
   /**
-   * <p>The configuration for a <code>VAST_REQUEST</code> function. Specifies the HTTP method, URL, headers, body, timeout, and output expressions. Required when <code>FunctionType</code> is <code>VAST_REQUEST</code>.</p>
+   * The configuration for a `VAST_REQUEST` function. Specifies the HTTP method, URL, headers, body, timeout, and output expressions. Required when `FunctionType` is `VAST_REQUEST`.
+   *
    * @public
    */
   VastRequestConfiguration?: VastRequestConfiguration | undefined;
 
   /**
-   * <p>The tags to assign to the function. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * The tags to assign to the function. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -4183,67 +4942,78 @@ export interface PutFunctionRequest {
  */
 export interface PutFunctionResponse {
   /**
-   * <p>The identifier of the function.</p>
+   * The identifier of the function.
+   *
    * @public
    */
   FunctionId: string | undefined;
 
   /**
-   * <p>The type of the function.</p>
+   * The type of the function.
+   *
    * @public
    */
   FunctionType: FunctionType | undefined;
 
   /**
-   * <p>A description of the function.</p>
+   * A description of the function.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The configuration for an <code>HTTP_REQUEST</code> function.</p>
+   * The configuration for an `HTTP_REQUEST` function.
+   *
    * @public
    */
   HttpRequestConfiguration?: HttpRequestConfiguration | undefined;
 
   /**
-   * <p>The configuration for an <code>AWS_SERVICE_REQUEST</code> function. Specifies the target service, target Region, and request parameters.</p>
+   * The configuration for an `AWS_SERVICE_REQUEST` function. Specifies the target service, target Region, and request parameters.
+   *
    * @public
    */
   AwsServiceRequestConfiguration?: AwsServiceRequestConfiguration | undefined;
 
   /**
-   * <p>The configuration for a <code>CUSTOM_OUTPUT</code> function.</p>
+   * The configuration for a `CUSTOM_OUTPUT` function.
+   *
    * @public
    */
   CustomOutputConfiguration?: CustomOutputConfiguration | undefined;
 
   /**
-   * <p>The configuration for a <code>CONCURRENT_EXECUTOR</code> function.</p>
+   * The configuration for a `CONCURRENT_EXECUTOR` function.
+   *
    * @public
    */
   ConcurrentExecutorConfiguration?: ConcurrentExecutorConfiguration | undefined;
 
   /**
-   * <p>The configuration for a <code>SEQUENTIAL_EXECUTOR</code> function.</p>
+   * The configuration for a `SEQUENTIAL_EXECUTOR` function.
+   *
    * @public
    */
   SequentialExecutorConfiguration?: SequentialExecutorConfiguration | undefined;
 
   /**
-   * <p>The configuration for a <code>VAST_REQUEST</code> function.</p>
+   * The configuration for a `VAST_REQUEST` function.
+   *
    * @public
    */
   VastRequestConfiguration?: VastRequestConfiguration | undefined;
 
   /**
-   * <p>The tags assigned to the function. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * The tags assigned to the function. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the function.</p>
+   * The Amazon Resource Name (ARN) of the function.
+   *
    * @public
    */
   Arn?: string | undefined;
@@ -4254,7 +5024,8 @@ export interface PutFunctionResponse {
  */
 export interface GetPlaybackConfigurationRequest {
   /**
-   * <p>The identifier for the playback configuration.</p>
+   * The identifier for the playback configuration.
+   *
    * @public
    */
   Name: string | undefined;
@@ -4265,175 +5036,204 @@ export interface GetPlaybackConfigurationRequest {
  */
 export interface GetPlaybackConfigurationResponse {
   /**
-   * <p>The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing, you can provide a static VAST URL. The maximum length is 25,000 characters.</p>
+   * The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing, you can provide a static VAST URL. The maximum length is 25,000 characters.
+   *
    * @public
    */
   AdDecisionServerUrl?: string | undefined;
 
   /**
-   * <p>The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html">Ad Suppression</a>.</p>
+   * The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see [Ad Suppression](https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
+   *
    * @public
    */
   AvailSuppression?: AvailSuppression | undefined;
 
   /**
-   * <p>The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html">Bumpers</a>.</p>
+   * The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see [Bumpers](https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
+   *
    * @public
    */
   Bumper?: Bumper | undefined;
 
   /**
-   * <p>The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.</p>
+   * The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
+   *
    * @public
    */
   CdnConfiguration?: CdnConfiguration | undefined;
 
   /**
-   * <p>The player parameters and aliases used as dynamic variables during session initialization. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/variables-domains.html">Domain Variables</a>.</p>
+   * The player parameters and aliases used as dynamic variables during session initialization. For more information, see [Domain Variables](https://docs.aws.amazon.com/mediatailor/latest/ug/variables-domains.html).
+   *
    * @public
    */
   ConfigurationAliases?: Record<string, Record<string, string>> | undefined;
 
   /**
-   * <p>The configuration for DASH content.</p>
+   * The configuration for DASH content.
+   *
    * @public
    */
   DashConfiguration?: DashConfiguration | undefined;
 
   /**
-   * <p>The configuration for HLS content.</p>
+   * The configuration for HLS content.
+   *
    * @public
    */
   HlsConfiguration?: HlsConfiguration | undefined;
 
   /**
-   * <p>The setting that controls whether players can use stitched or guided ad insertion. The default, <code>STITCHED_ONLY</code>, forces all player sessions to use stitched (server-side) ad insertion. Choosing <code>PLAYER_SELECT</code> allows players to select either stitched or guided ad insertion at session-initialization time. The default for players that do not specify an insertion mode is stitched.</p>
+   * The setting that controls whether players can use stitched or guided ad insertion. The default, `STITCHED_ONLY`, forces all player sessions to use stitched (server-side) ad insertion. Choosing `PLAYER_SELECT` allows players to select either stitched or guided ad insertion at session-initialization time. The default for players that do not specify an insertion mode is stitched.
+   *
    * @public
    */
   InsertionMode?: InsertionMode | undefined;
 
   /**
-   * <p>The configuration for pre-roll ad insertion.</p>
+   * The configuration for pre-roll ad insertion.
+   *
    * @public
    */
   LivePreRollConfiguration?: LivePreRollConfiguration | undefined;
 
   /**
-   * <p>The configuration that defines where AWS Elemental MediaTailor sends logs for the playback configuration.</p>
+   * The configuration that defines where AWS Elemental MediaTailor sends logs for the playback configuration.
+   *
    * @public
    */
   LogConfiguration?: LogConfiguration | undefined;
 
   /**
-   * <p>The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.</p>
+   * The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.
+   *
    * @public
    */
   ManifestProcessingRules?: ManifestProcessingRules | undefined;
 
   /**
-   * <p>The identifier for the playback configuration.</p>
+   * The identifier for the playback configuration.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>Defines the maximum duration of underfilled ad time (in seconds) allowed in an ad break. If the duration of underfilled ad time exceeds the personalization threshold, then the personalization of the ad break is abandoned and the underlying content is shown. This feature applies to <i>ad replacement</i> in live and VOD streams, rather than ad insertion, because it relies on an underlying content stream. For more information about ad break behavior, including ad replacement and insertion, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html">Ad Behavior in AWS Elemental MediaTailor</a>.</p>
+   * Defines the maximum duration of underfilled ad time (in seconds) allowed in an ad break. If the duration of underfilled ad time exceeds the personalization threshold, then the personalization of the ad break is abandoned and the underlying content is shown. This feature applies to *ad replacement* in live and VOD streams, rather than ad insertion, because it relies on an underlying content stream. For more information about ad break behavior, including ad replacement and insertion, see [Ad Behavior in AWS Elemental MediaTailor](https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
+   *
    * @public
    */
   PersonalizationThresholdSeconds?: number | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the playback configuration.</p>
+   * The Amazon Resource Name (ARN) for the playback configuration.
+   *
    * @public
    */
   PlaybackConfigurationArn?: string | undefined;
 
   /**
-   * <p>The URL that your player accesses to get a manifest from AWS Elemental MediaTailor. The session uses server-side reporting.</p>
+   * The URL that your player accesses to get a manifest from AWS Elemental MediaTailor. The session uses server-side reporting.
+   *
    * @public
    */
   PlaybackEndpointPrefix?: string | undefined;
 
   /**
-   * <p>The dual-stack (IPv4 and IPv6) URL that your player accesses to get a manifest from AWS Elemental MediaTailor. The session uses server-side reporting.</p>
+   * The dual-stack (IPv4 and IPv6) URL that your player accesses to get a manifest from AWS Elemental MediaTailor. The session uses server-side reporting.
+   *
    * @public
    */
   DualStackPlaybackEndpointPrefix?: string | undefined;
 
   /**
-   * <p>The URL that your player uses to initialize a session that uses client-side reporting.</p>
+   * The URL that your player uses to initialize a session that uses client-side reporting.
+   *
    * @public
    */
   SessionInitializationEndpointPrefix?: string | undefined;
 
   /**
-   * <p>The dual-stack (IPv4 and IPv6) URL that your player uses to initialize a session that uses client-side reporting.</p>
+   * The dual-stack (IPv4 and IPv6) URL that your player uses to initialize a session that uses client-side reporting.
+   *
    * @public
    */
   DualStackSessionInitializationEndpointPrefix?: string | undefined;
 
   /**
-   * <p>The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID playback configurations. For VPAID, the slate is required because MediaTailor provides it in the slots designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video.</p>
+   * The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID playback configurations. For VPAID, the slate is required because MediaTailor provides it in the slots designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video.
+   *
    * @public
    */
   SlateAdUrl?: string | undefined;
 
   /**
-   * <p>The tags assigned to the playback configuration. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * The tags assigned to the playback configuration. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.</p>
+   * The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.
+   *
    * @public
    */
   TranscodeProfileName?: string | undefined;
 
   /**
-   * <p>The URL prefix for the parent manifest for the stream, minus the asset ID. The maximum length is 512 characters.</p>
+   * The URL prefix for the parent manifest for the stream, minus the asset ID. The maximum length is 512 characters.
+   *
    * @public
    */
   VideoContentSourceUrl?: string | undefined;
 
   /**
-   * <p>The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns, and what priority MediaTailor uses when inserting ads. </p>
+   * The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns, and what priority MediaTailor uses when inserting ads.
+   *
    * @public
    */
   AdConditioningConfiguration?: AdConditioningConfiguration | undefined;
 
   /**
-   * <p>The configuration for customizing HTTP requests to the ad decision server (ADS). This includes settings for request method, headers, body content, and compression options.</p>
+   * The configuration for customizing HTTP requests to the ad decision server (ADS). This includes settings for request method, headers, body content, and compression options.
+   *
    * @public
    */
   AdDecisionServerConfiguration?: AdDecisionServerConfiguration | undefined;
 
   /**
-   * <p>Configuration for Yield Optimization, which fills unsold ad inventory in ad breaks with programmatic ads from Amazon Publisher Services (APS).</p>
+   * Configuration for Yield Optimization, which fills unsold ad inventory in ad breaks with programmatic ads from Amazon Publisher Services (APS).
+   *
    * @public
    */
   YieldOptimizationConfiguration?: YieldOptimizationConfiguration | undefined;
 
   /**
-   * <p>A map of lifecycle hook event names to function identifiers. The function mapping specifies which function MediaTailor executes at each lifecycle hook during ad insertion. Valid keys are <code>PRE_SESSION_INITIALIZATION</code>, <code>PRE_ADS_REQUEST</code>, <code>POST_ADS_RESPONSE</code>, and <code>PRE_MANIFEST_INSERTION</code>. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-hooks.html">Functions lifecycle hooks</a> in the <i>MediaTailor User Guide</i>.</p>
+   * A map of lifecycle hook event names to function identifiers. The function mapping specifies which function MediaTailor executes at each lifecycle hook during ad insertion. Valid keys are `PRE_SESSION_INITIALIZATION`, `PRE_ADS_REQUEST`, `POST_ADS_RESPONSE`, and `PRE_MANIFEST_INSERTION`. For more information, see [Functions lifecycle hooks](https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-hooks.html) in the *MediaTailor User Guide*.
+   *
    * @public
    */
   FunctionMapping?: Partial<Record<EventName, string>> | undefined;
 
   /**
-   * <p>The timeout settings for ad decision server interactions. These settings control how long MediaTailor waits for ADS responses and the total time budget for ad personalization across live, VOD, and prefetch workflows.</p>
+   * The timeout settings for ad decision server interactions. These settings control how long MediaTailor waits for ADS responses and the total time budget for ad personalization across live, VOD, and prefetch workflows.
+   *
    * @public
    */
   AdsPersonalizationTimeouts?: AdsPersonalizationTimeouts | undefined;
 
   /**
-   * <p>The concurrency settings for ad decision server interactions. These settings control how many simultaneous ADS requests MediaTailor makes per manifest request.</p>
+   * The concurrency settings for ad decision server interactions. These settings control how many simultaneous ADS requests MediaTailor makes per manifest request.
+   *
    * @public
    */
   AdsPersonalizationConcurrency?: AdsPersonalizationConcurrency | undefined;
 
   /**
-   * <p>The beaconing configuration for this playback configuration, which controls whether MediaTailor includes beacons of its own in the ad tracking response. MediaTailor always returns this setting. If you created the playback configuration before this setting existed, MediaTailor reports <code>ReportingMode</code> as <code>INSIGHTS</code>. This is also the value MediaTailor uses for that configuration at playback time.</p>
+   * The beaconing configuration for this playback configuration, which controls whether MediaTailor includes beacons of its own in the ad tracking response. MediaTailor always returns this setting. If you created the playback configuration before this setting existed, MediaTailor reports `ReportingMode` as `INSIGHTS`. This is also the value MediaTailor uses for that configuration at playback time.
+   *
    * @public
    */
   BeaconingConfiguration?: BeaconingConfiguration | undefined;
@@ -4444,13 +5244,15 @@ export interface GetPlaybackConfigurationResponse {
  */
 export interface GetPrefetchScheduleRequest {
   /**
-   * <p>The name of the prefetch schedule. The name must be unique among all prefetch schedules that are associated with the specified playback configuration.</p>
+   * The name of the prefetch schedule. The name must be unique among all prefetch schedules that are associated with the specified playback configuration.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>Returns information about the prefetch schedule for a specific playback configuration. If you call <code>GetPrefetchSchedule</code> on an expired prefetch schedule, MediaTailor returns an HTTP 404 status code.</p>
+   * Returns information about the prefetch schedule for a specific playback configuration. If you call `GetPrefetchSchedule` on an expired prefetch schedule, MediaTailor returns an HTTP 404 status code.
+   *
    * @public
    */
   PlaybackConfigurationName: string | undefined;
@@ -4461,55 +5263,64 @@ export interface GetPrefetchScheduleRequest {
  */
 export interface GetPrefetchScheduleResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the prefetch schedule.</p>
+   * The Amazon Resource Name (ARN) of the prefetch schedule.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The configuration settings for how and when MediaTailor consumes prefetched ads from the ad decision server for single prefetch schedules. Each consumption configuration contains an end time and an optional start time that define the <i>consumption window</i>. Prefetch schedules automatically expire no earlier than seven days after the end time.</p>
+   * The configuration settings for how and when MediaTailor consumes prefetched ads from the ad decision server for single prefetch schedules. Each consumption configuration contains an end time and an optional start time that define the *consumption window*. Prefetch schedules automatically expire no earlier than seven days after the end time.
+   *
    * @public
    */
   Consumption?: PrefetchConsumption | undefined;
 
   /**
-   * <p>The name of the prefetch schedule. The name must be unique among all prefetch schedules that are associated with the specified playback configuration.</p>
+   * The name of the prefetch schedule. The name must be unique among all prefetch schedules that are associated with the specified playback configuration.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The name of the playback configuration to create the prefetch schedule for.</p>
+   * The name of the playback configuration to create the prefetch schedule for.
+   *
    * @public
    */
   PlaybackConfigurationName?: string | undefined;
 
   /**
-   * <p>A complex type that contains settings for prefetch retrieval from the ad decision server (ADS).</p>
+   * A complex type that contains settings for prefetch retrieval from the ad decision server (ADS).
+   *
    * @public
    */
   Retrieval?: PrefetchRetrieval | undefined;
 
   /**
-   * <p>The frequency that MediaTailor creates prefetch schedules. <code>SINGLE</code> indicates that this schedule applies to one ad break. <code>RECURRING</code> indicates that MediaTailor automatically creates a schedule for each ad avail in a live event.</p>
+   * The frequency that MediaTailor creates prefetch schedules. `SINGLE` indicates that this schedule applies to one ad break. `RECURRING` indicates that MediaTailor automatically creates a schedule for each ad avail in a live event.
+   *
    * @public
    */
   ScheduleType?: PrefetchScheduleType | undefined;
 
   /**
-   * <p>The configuration that defines how and when MediaTailor performs ad prefetching in a live event.</p>
+   * The configuration that defines how and when MediaTailor performs ad prefetching in a live event.
+   *
    * @public
    */
   RecurringPrefetchConfiguration?: RecurringPrefetchConfiguration | undefined;
 
   /**
-   * <p>An optional stream identifier that you can specify in order to prefetch for multiple streams that use the same playback configuration.</p>
+   * An optional stream identifier that you can specify in order to prefetch for multiple streams that use the same playback configuration.
+   *
    * @public
    */
   StreamId?: string | undefined;
 
   /**
-   * <p>The tags assigned to the prefetch schedule. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * The tags assigned to the prefetch schedule. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -4520,19 +5331,26 @@ export interface GetPrefetchScheduleResponse {
  */
 export interface ListAlertsRequest {
   /**
-   * <p>The maximum number of alerts that you want MediaTailor to return in response to the current request. If there are more than <code>MaxResults</code> alerts, use the value of <code>NextToken</code> in the response to get the next page of results.</p> <p>The default value is 100. MediaTailor uses DynamoDB-based pagination, which means that a response might contain fewer than <code>MaxResults</code> items, including 0 items, even when more results are available. To retrieve all results, you must continue making requests using the <code>NextToken</code> value from each response until the response no longer includes a <code>NextToken</code> value.</p>
+   * The maximum number of alerts that you want MediaTailor to return in response to the current request. If there are more than `MaxResults` alerts, use the value of `NextToken` in the response to get the next page of results.
+   *
+   * The default value is 100. MediaTailor uses DynamoDB-based pagination, which means that a response might contain fewer than `MaxResults` items, including 0 items, even when more results are available. To retrieve all results, you must continue making requests using the `NextToken` value from each response until the response no longer includes a `NextToken` value.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.</p> <p>For the first <code>ListAlerts</code> request, omit this value. For subsequent requests, get the value of <code>NextToken</code> from the previous response and specify that value for <code>NextToken</code> in the request. Continue making requests until the response no longer includes a <code>NextToken</code> value, which indicates that all results have been retrieved.</p>
+   * Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.
+   *
+   * For the first `ListAlerts` request, omit this value. For subsequent requests, get the value of `NextToken` from the previous response and specify that value for `NextToken` in the request. Continue making requests until the response no longer includes a `NextToken` value, which indicates that all results have been retrieved.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   ResourceArn: string | undefined;
@@ -4543,13 +5361,15 @@ export interface ListAlertsRequest {
  */
 export interface ListAlertsResponse {
   /**
-   * <p>A list of alerts that are associated with this resource.</p>
+   * A list of alerts that are associated with this resource.
+   *
    * @public
    */
   Items?: Alert[] | undefined;
 
   /**
-   * <p>Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.</p>
+   * Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -4560,19 +5380,26 @@ export interface ListAlertsResponse {
  */
 export interface ListLiveSourcesRequest {
   /**
-   * <p>The maximum number of live sources that you want MediaTailor to return in response to the current request. If there are more than <code>MaxResults</code> live sources, use the value of <code>NextToken</code> in the response to get the next page of results.</p> <p>The default value is 100. MediaTailor uses DynamoDB-based pagination, which means that a response might contain fewer than <code>MaxResults</code> items, including 0 items, even when more results are available. To retrieve all results, you must continue making requests using the <code>NextToken</code> value from each response until the response no longer includes a <code>NextToken</code> value.</p>
+   * The maximum number of live sources that you want MediaTailor to return in response to the current request. If there are more than `MaxResults` live sources, use the value of `NextToken` in the response to get the next page of results.
+   *
+   * The default value is 100. MediaTailor uses DynamoDB-based pagination, which means that a response might contain fewer than `MaxResults` items, including 0 items, even when more results are available. To retrieve all results, you must continue making requests using the `NextToken` value from each response until the response no longer includes a `NextToken` value.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.</p> <p>For the first <code>ListLiveSources</code> request, omit this value. For subsequent requests, get the value of <code>NextToken</code> from the previous response and specify that value for <code>NextToken</code> in the request. Continue making requests until the response no longer includes a <code>NextToken</code> value, which indicates that all results have been retrieved.</p>
+   * Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.
+   *
+   * For the first `ListLiveSources` request, omit this value. For subsequent requests, get the value of `NextToken` from the previous response and specify that value for `NextToken` in the request. Continue making requests until the response no longer includes a `NextToken` value, which indicates that all results have been retrieved.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The name of the source location associated with this Live Sources list.</p>
+   * The name of the source location associated with this Live Sources list.
+   *
    * @public
    */
   SourceLocationName: string | undefined;
@@ -4583,13 +5410,15 @@ export interface ListLiveSourcesRequest {
  */
 export interface ListLiveSourcesResponse {
   /**
-   * <p>Lists the live sources.</p>
+   * Lists the live sources.
+   *
    * @public
    */
   Items?: LiveSource[] | undefined;
 
   /**
-   * <p>Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.</p>
+   * Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -4600,13 +5429,19 @@ export interface ListLiveSourcesResponse {
  */
 export interface ListPlaybackConfigurationsRequest {
   /**
-   * <p>The maximum number of playback configurations that you want MediaTailor to return in response to the current request. If there are more than <code>MaxResults</code> playback configurations, use the value of <code>NextToken</code> in the response to get the next page of results.</p> <p>The default value is 100. MediaTailor uses DynamoDB-based pagination, which means that a response might contain fewer than <code>MaxResults</code> items, including 0 items, even when more results are available. To retrieve all results, you must continue making requests using the <code>NextToken</code> value from each response until the response no longer includes a <code>NextToken</code> value.</p>
+   * The maximum number of playback configurations that you want MediaTailor to return in response to the current request. If there are more than `MaxResults` playback configurations, use the value of `NextToken` in the response to get the next page of results.
+   *
+   * The default value is 100. MediaTailor uses DynamoDB-based pagination, which means that a response might contain fewer than `MaxResults` items, including 0 items, even when more results are available. To retrieve all results, you must continue making requests using the `NextToken` value from each response until the response no longer includes a `NextToken` value.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.</p> <p>For the first <code>ListPlaybackConfigurations</code> request, omit this value. For subsequent requests, get the value of <code>NextToken</code> from the previous response and specify that value for <code>NextToken</code> in the request. Continue making requests until the response no longer includes a <code>NextToken</code> value, which indicates that all results have been retrieved.</p>
+   * Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.
+   *
+   * For the first `ListPlaybackConfigurations` request, omit this value. For subsequent requests, get the value of `NextToken` from the previous response and specify that value for `NextToken` in the request. Continue making requests until the response no longer includes a `NextToken` value, which indicates that all results have been retrieved.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -4617,13 +5452,15 @@ export interface ListPlaybackConfigurationsRequest {
  */
 export interface ListPlaybackConfigurationsResponse {
   /**
-   * <p>Array of playback configurations. This might be all the available configurations or a subset, depending on the settings that you provide and the total number of configurations stored.</p>
+   * Array of playback configurations. This might be all the available configurations or a subset, depending on the settings that you provide and the total number of configurations stored.
+   *
    * @public
    */
   Items?: PlaybackConfiguration[] | undefined;
 
   /**
-   * <p>Pagination token returned by the GET list request when results exceed the maximum allowed. Use the token to fetch the next page of results.</p>
+   * Pagination token returned by the GET list request when results exceed the maximum allowed. Use the token to fetch the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -4634,31 +5471,40 @@ export interface ListPlaybackConfigurationsResponse {
  */
 export interface ListPrefetchSchedulesRequest {
   /**
-   * <p>The maximum number of prefetch schedules that you want MediaTailor to return in response to the current request. If there are more than <code>MaxResults</code> prefetch schedules, use the value of <code>NextToken</code> in the response to get the next page of results.</p> <p>The default value is 100. MediaTailor uses DynamoDB-based pagination, which means that a response might contain fewer than <code>MaxResults</code> items, including 0 items, even when more results are available. To retrieve all results, you must continue making requests using the <code>NextToken</code> value from each response until the response no longer includes a <code>NextToken</code> value.</p>
+   * The maximum number of prefetch schedules that you want MediaTailor to return in response to the current request. If there are more than `MaxResults` prefetch schedules, use the value of `NextToken` in the response to get the next page of results.
+   *
+   * The default value is 100. MediaTailor uses DynamoDB-based pagination, which means that a response might contain fewer than `MaxResults` items, including 0 items, even when more results are available. To retrieve all results, you must continue making requests using the `NextToken` value from each response until the response no longer includes a `NextToken` value.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.</p> <p>For the first <code>ListPrefetchSchedules</code> request, omit this value. For subsequent requests, get the value of <code>NextToken</code> from the previous response and specify that value for <code>NextToken</code> in the request. Continue making requests until the response no longer includes a <code>NextToken</code> value, which indicates that all results have been retrieved.</p>
+   * Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.
+   *
+   * For the first `ListPrefetchSchedules` request, omit this value. For subsequent requests, get the value of `NextToken` from the previous response and specify that value for `NextToken` in the request. Continue making requests until the response no longer includes a `NextToken` value, which indicates that all results have been retrieved.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>Retrieves the prefetch schedule(s) for a specific playback configuration.</p>
+   * Retrieves the prefetch schedule(s) for a specific playback configuration.
+   *
    * @public
    */
   PlaybackConfigurationName: string | undefined;
 
   /**
-   * <p>The type of prefetch schedules that you want to list. <code>SINGLE</code> indicates that you want to list the configured single prefetch schedules. <code>RECURRING</code> indicates that you want to list the configured recurring prefetch schedules. <code>ALL</code> indicates that you want to list all configured prefetch schedules.</p>
+   * The type of prefetch schedules that you want to list. `SINGLE` indicates that you want to list the configured single prefetch schedules. `RECURRING` indicates that you want to list the configured recurring prefetch schedules. `ALL` indicates that you want to list all configured prefetch schedules.
+   *
    * @public
    */
   ScheduleType?: ListPrefetchScheduleType | undefined;
 
   /**
-   * <p>An optional filtering parameter whereby MediaTailor filters the prefetch schedules to include only specific streams.</p>
+   * An optional filtering parameter whereby MediaTailor filters the prefetch schedules to include only specific streams.
+   *
    * @public
    */
   StreamId?: string | undefined;
@@ -4669,13 +5515,15 @@ export interface ListPrefetchSchedulesRequest {
  */
 export interface ListPrefetchSchedulesResponse {
   /**
-   * <p>Lists the prefetch schedules. An empty <code>Items</code> list doesn't mean there aren't more items to fetch, just that that page was empty.</p>
+   * Lists the prefetch schedules. An empty `Items` list doesn't mean there aren't more items to fetch, just that that page was empty.
+   *
    * @public
    */
   Items?: PrefetchSchedule[] | undefined;
 
   /**
-   * <p>Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.</p>
+   * Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -4686,13 +5534,19 @@ export interface ListPrefetchSchedulesResponse {
  */
 export interface ListSourceLocationsRequest {
   /**
-   * <p> The maximum number of source locations that you want MediaTailor to return in response to the current request. If there are more than <code>MaxResults</code> source locations, use the value of <code>NextToken</code> in the response to get the next page of results.</p> <p>The default value is 100. MediaTailor uses DynamoDB-based pagination, which means that a response might contain fewer than <code>MaxResults</code> items, including 0 items, even when more results are available. To retrieve all results, you must continue making requests using the <code>NextToken</code> value from each response until the response no longer includes a <code>NextToken</code> value.</p>
+   * The maximum number of source locations that you want MediaTailor to return in response to the current request. If there are more than `MaxResults` source locations, use the value of `NextToken` in the response to get the next page of results.
+   *
+   * The default value is 100. MediaTailor uses DynamoDB-based pagination, which means that a response might contain fewer than `MaxResults` items, including 0 items, even when more results are available. To retrieve all results, you must continue making requests using the `NextToken` value from each response until the response no longer includes a `NextToken` value.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.</p> <p>For the first <code>ListSourceLocations</code> request, omit this value. For subsequent requests, get the value of <code>NextToken</code> from the previous response and specify that value for <code>NextToken</code> in the request. Continue making requests until the response no longer includes a <code>NextToken</code> value, which indicates that all results have been retrieved.</p>
+   * Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.
+   *
+   * For the first `ListSourceLocations` request, omit this value. For subsequent requests, get the value of `NextToken` from the previous response and specify that value for `NextToken` in the request. Continue making requests until the response no longer includes a `NextToken` value, which indicates that all results have been retrieved.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -4703,13 +5557,15 @@ export interface ListSourceLocationsRequest {
  */
 export interface ListSourceLocationsResponse {
   /**
-   * <p>A list of source locations.</p>
+   * A list of source locations.
+   *
    * @public
    */
   Items?: SourceLocation[] | undefined;
 
   /**
-   * <p>Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.</p>
+   * Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -4720,7 +5576,8 @@ export interface ListSourceLocationsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) associated with this resource.</p>
+   * The Amazon Resource Name (ARN) associated with this resource.
+   *
    * @public
    */
   ResourceArn: string | undefined;
@@ -4731,7 +5588,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>The tags associated with this resource. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * The tags associated with this resource. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -4742,19 +5600,26 @@ export interface ListTagsForResourceResponse {
  */
 export interface ListVodSourcesRequest {
   /**
-   * <p> The maximum number of VOD sources that you want MediaTailor to return in response to the current request. If there are more than <code>MaxResults</code> VOD sources, use the value of <code>NextToken</code> in the response to get the next page of results.</p> <p>The default value is 100. MediaTailor uses DynamoDB-based pagination, which means that a response might contain fewer than <code>MaxResults</code> items, including 0 items, even when more results are available. To retrieve all results, you must continue making requests using the <code>NextToken</code> value from each response until the response no longer includes a <code>NextToken</code> value.</p>
+   * The maximum number of VOD sources that you want MediaTailor to return in response to the current request. If there are more than `MaxResults` VOD sources, use the value of `NextToken` in the response to get the next page of results.
+   *
+   * The default value is 100. MediaTailor uses DynamoDB-based pagination, which means that a response might contain fewer than `MaxResults` items, including 0 items, even when more results are available. To retrieve all results, you must continue making requests using the `NextToken` value from each response until the response no longer includes a `NextToken` value.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.</p> <p>For the first <code>ListVodSources</code> request, omit this value. For subsequent requests, get the value of <code>NextToken</code> from the previous response and specify that value for <code>NextToken</code> in the request. Continue making requests until the response no longer includes a <code>NextToken</code> value, which indicates that all results have been retrieved.</p>
+   * Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.
+   *
+   * For the first `ListVodSources` request, omit this value. For subsequent requests, get the value of `NextToken` from the previous response and specify that value for `NextToken` in the request. Continue making requests until the response no longer includes a `NextToken` value, which indicates that all results have been retrieved.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The name of the source location associated with this VOD Source list.</p>
+   * The name of the source location associated with this VOD Source list.
+   *
    * @public
    */
   SourceLocationName: string | undefined;
@@ -4765,13 +5630,15 @@ export interface ListVodSourcesRequest {
  */
 export interface ListVodSourcesResponse {
   /**
-   * <p>Lists the VOD sources.</p>
+   * Lists the VOD sources.
+   *
    * @public
    */
   Items?: VodSource[] | undefined;
 
   /**
-   * <p>Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.</p>
+   * Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -4782,19 +5649,22 @@ export interface ListVodSourcesResponse {
  */
 export interface UpdateLiveSourceRequest {
   /**
-   * <p>A list of HTTP package configurations for the live source on this account.</p>
+   * A list of HTTP package configurations for the live source on this account.
+   *
    * @public
    */
   HttpPackageConfigurations: HttpPackageConfiguration[] | undefined;
 
   /**
-   * <p>The name of the live source.</p>
+   * The name of the live source.
+   *
    * @public
    */
   LiveSourceName: string | undefined;
 
   /**
-   * <p>The name of the source location associated with this Live Source.</p>
+   * The name of the source location associated with this Live Source.
+   *
    * @public
    */
   SourceLocationName: string | undefined;
@@ -4805,43 +5675,50 @@ export interface UpdateLiveSourceRequest {
  */
 export interface UpdateLiveSourceResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) associated with this live source.</p>
+   * The Amazon Resource Name (ARN) associated with this live source.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The timestamp that indicates when the live source was created.</p>
+   * The timestamp that indicates when the live source was created.
+   *
    * @public
    */
   CreationTime?: Date | undefined;
 
   /**
-   * <p>A list of HTTP package configurations for the live source on this account.</p>
+   * A list of HTTP package configurations for the live source on this account.
+   *
    * @public
    */
   HttpPackageConfigurations?: HttpPackageConfiguration[] | undefined;
 
   /**
-   * <p>The timestamp that indicates when the live source was last modified.</p>
+   * The timestamp that indicates when the live source was last modified.
+   *
    * @public
    */
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>The name of the live source.</p>
+   * The name of the live source.
+   *
    * @public
    */
   LiveSourceName?: string | undefined;
 
   /**
-   * <p>The name of the source location associated with the live source.</p>
+   * The name of the source location associated with the live source.
+   *
    * @public
    */
   SourceLocationName?: string | undefined;
 
   /**
-   * <p>The tags to assign to the live source. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * The tags to assign to the live source. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -4852,133 +5729,155 @@ export interface UpdateLiveSourceResponse {
  */
 export interface PutPlaybackConfigurationRequest {
   /**
-   * <p>The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.</p>
+   * The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.
+   *
    * @public
    */
   AdDecisionServerUrl?: string | undefined;
 
   /**
-   * <p>The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html">Ad Suppression</a>.</p>
+   * The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see [Ad Suppression](https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
+   *
    * @public
    */
   AvailSuppression?: AvailSuppression | undefined;
 
   /**
-   * <p>The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html">Bumpers</a>.</p>
+   * The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see [Bumpers](https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
+   *
    * @public
    */
   Bumper?: Bumper | undefined;
 
   /**
-   * <p>The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.</p>
+   * The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
+   *
    * @public
    */
   CdnConfiguration?: CdnConfiguration | undefined;
 
   /**
-   * <p>The player parameters and aliases used as dynamic variables during session initialization. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/variables-domains.html">Domain Variables</a>.</p>
+   * The player parameters and aliases used as dynamic variables during session initialization. For more information, see [Domain Variables](https://docs.aws.amazon.com/mediatailor/latest/ug/variables-domains.html).
+   *
    * @public
    */
   ConfigurationAliases?: Record<string, Record<string, string>> | undefined;
 
   /**
-   * <p>The configuration for DASH content.</p>
+   * The configuration for DASH content.
+   *
    * @public
    */
   DashConfiguration?: DashConfigurationForPut | undefined;
 
   /**
-   * <p>The setting that controls whether players can use stitched or guided ad insertion. The default, <code>STITCHED_ONLY</code>, forces all player sessions to use stitched (server-side) ad insertion. Choosing <code>PLAYER_SELECT</code> allows players to select either stitched or guided ad insertion at session-initialization time. The default for players that do not specify an insertion mode is stitched.</p>
+   * The setting that controls whether players can use stitched or guided ad insertion. The default, `STITCHED_ONLY`, forces all player sessions to use stitched (server-side) ad insertion. Choosing `PLAYER_SELECT` allows players to select either stitched or guided ad insertion at session-initialization time. The default for players that do not specify an insertion mode is stitched.
+   *
    * @public
    */
   InsertionMode?: InsertionMode | undefined;
 
   /**
-   * <p>The configuration for pre-roll ad insertion.</p>
+   * The configuration for pre-roll ad insertion.
+   *
    * @public
    */
   LivePreRollConfiguration?: LivePreRollConfiguration | undefined;
 
   /**
-   * <p>The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.</p>
+   * The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.
+   *
    * @public
    */
   ManifestProcessingRules?: ManifestProcessingRules | undefined;
 
   /**
-   * <p>The identifier for the playback configuration.</p>
+   * The identifier for the playback configuration.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>Defines the maximum duration of underfilled ad time (in seconds) allowed in an ad break. If the duration of underfilled ad time exceeds the personalization threshold, then the personalization of the ad break is abandoned and the underlying content is shown. This feature applies to <i>ad replacement</i> in live and VOD streams, rather than ad insertion, because it relies on an underlying content stream. For more information about ad break behavior, including ad replacement and insertion, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html">Ad Behavior in AWS Elemental MediaTailor</a>.</p>
+   * Defines the maximum duration of underfilled ad time (in seconds) allowed in an ad break. If the duration of underfilled ad time exceeds the personalization threshold, then the personalization of the ad break is abandoned and the underlying content is shown. This feature applies to *ad replacement* in live and VOD streams, rather than ad insertion, because it relies on an underlying content stream. For more information about ad break behavior, including ad replacement and insertion, see [Ad Behavior in AWS Elemental MediaTailor](https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
+   *
    * @public
    */
   PersonalizationThresholdSeconds?: number | undefined;
 
   /**
-   * <p>The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID configurations. For VPAID, the slate is required because MediaTailor provides it in the slots that are designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video.</p>
+   * The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID configurations. For VPAID, the slate is required because MediaTailor provides it in the slots that are designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video.
+   *
    * @public
    */
   SlateAdUrl?: string | undefined;
 
   /**
-   * <p>The tags to assign to the playback configuration. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * The tags to assign to the playback configuration. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.</p>
+   * The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.
+   *
    * @public
    */
   TranscodeProfileName?: string | undefined;
 
   /**
-   * <p>The URL prefix for the parent manifest for the stream, minus the asset ID. The maximum length is 512 characters.</p>
+   * The URL prefix for the parent manifest for the stream, minus the asset ID. The maximum length is 512 characters.
+   *
    * @public
    */
   VideoContentSourceUrl?: string | undefined;
 
   /**
-   * <p>The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns, and what priority MediaTailor uses when inserting ads. </p>
+   * The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns, and what priority MediaTailor uses when inserting ads.
+   *
    * @public
    */
   AdConditioningConfiguration?: AdConditioningConfiguration | undefined;
 
   /**
-   * <p>The configuration for customizing HTTP requests to the ad decision server (ADS). This includes settings for request method, headers, body content, and compression options.</p>
+   * The configuration for customizing HTTP requests to the ad decision server (ADS). This includes settings for request method, headers, body content, and compression options.
+   *
    * @public
    */
   AdDecisionServerConfiguration?: AdDecisionServerConfiguration | undefined;
 
   /**
-   * <p>Configuration for Yield Optimization, which fills unsold ad inventory in ad breaks with programmatic ads from Amazon Publisher Services (APS).</p>
+   * Configuration for Yield Optimization, which fills unsold ad inventory in ad breaks with programmatic ads from Amazon Publisher Services (APS).
+   *
    * @public
    */
   YieldOptimizationConfiguration?: YieldOptimizationConfiguration | undefined;
 
   /**
-   * <p>A map of lifecycle hook event names to function identifiers. The function mapping specifies which function MediaTailor executes at each lifecycle hook during ad insertion. Valid keys are <code>PRE_SESSION_INITIALIZATION</code>, <code>PRE_ADS_REQUEST</code>, <code>POST_ADS_RESPONSE</code>, and <code>PRE_MANIFEST_INSERTION</code>. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-hooks.html">Functions lifecycle hooks</a> in the <i>MediaTailor User Guide</i>.</p>
+   * A map of lifecycle hook event names to function identifiers. The function mapping specifies which function MediaTailor executes at each lifecycle hook during ad insertion. Valid keys are `PRE_SESSION_INITIALIZATION`, `PRE_ADS_REQUEST`, `POST_ADS_RESPONSE`, and `PRE_MANIFEST_INSERTION`. For more information, see [Functions lifecycle hooks](https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-hooks.html) in the *MediaTailor User Guide*.
+   *
    * @public
    */
   FunctionMapping?: Partial<Record<EventName, string>> | undefined;
 
   /**
-   * <p>The timeout settings for ad decision server interactions. These settings control how long MediaTailor waits for ADS responses and the total time budget for ad personalization across live, VOD, and prefetch workflows.</p>
+   * The timeout settings for ad decision server interactions. These settings control how long MediaTailor waits for ADS responses and the total time budget for ad personalization across live, VOD, and prefetch workflows.
+   *
    * @public
    */
   AdsPersonalizationTimeouts?: AdsPersonalizationTimeouts | undefined;
 
   /**
-   * <p>The concurrency settings for ad decision server interactions. These settings control how many simultaneous ADS requests MediaTailor makes per manifest request.</p>
+   * The concurrency settings for ad decision server interactions. These settings control how many simultaneous ADS requests MediaTailor makes per manifest request.
+   *
    * @public
    */
   AdsPersonalizationConcurrency?: AdsPersonalizationConcurrency | undefined;
 
   /**
-   * <p>The beaconing configuration for this playback configuration, which controls whether MediaTailor includes beacons of its own in the ad tracking response. If you omit this setting, MediaTailor uses <code>INSIGHTS</code>.</p>
+   * The beaconing configuration for this playback configuration, which controls whether MediaTailor includes beacons of its own in the ad tracking response. If you omit this setting, MediaTailor uses `INSIGHTS`.
+   *
    * @public
    */
   BeaconingConfiguration?: BeaconingConfiguration | undefined;
@@ -4989,175 +5888,204 @@ export interface PutPlaybackConfigurationRequest {
  */
 export interface PutPlaybackConfigurationResponse {
   /**
-   * <p>The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.</p>
+   * The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.
+   *
    * @public
    */
   AdDecisionServerUrl?: string | undefined;
 
   /**
-   * <p>The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html">Ad Suppression</a>.</p>
+   * The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see [Ad Suppression](https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
+   *
    * @public
    */
   AvailSuppression?: AvailSuppression | undefined;
 
   /**
-   * <p>The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html">Bumpers</a>.</p>
+   * The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see [Bumpers](https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
+   *
    * @public
    */
   Bumper?: Bumper | undefined;
 
   /**
-   * <p>The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.</p>
+   * The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
+   *
    * @public
    */
   CdnConfiguration?: CdnConfiguration | undefined;
 
   /**
-   * <p>The player parameters and aliases used as dynamic variables during session initialization. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/variables-domains.html">Domain Variables</a>.</p>
+   * The player parameters and aliases used as dynamic variables during session initialization. For more information, see [Domain Variables](https://docs.aws.amazon.com/mediatailor/latest/ug/variables-domains.html).
+   *
    * @public
    */
   ConfigurationAliases?: Record<string, Record<string, string>> | undefined;
 
   /**
-   * <p>The configuration for DASH content.</p>
+   * The configuration for DASH content.
+   *
    * @public
    */
   DashConfiguration?: DashConfiguration | undefined;
 
   /**
-   * <p>The configuration for HLS content.</p>
+   * The configuration for HLS content.
+   *
    * @public
    */
   HlsConfiguration?: HlsConfiguration | undefined;
 
   /**
-   * <p>The setting that controls whether players can use stitched or guided ad insertion. The default, <code>STITCHED_ONLY</code>, forces all player sessions to use stitched (server-side) ad insertion. Choosing <code>PLAYER_SELECT</code> allows players to select either stitched or guided ad insertion at session-initialization time. The default for players that do not specify an insertion mode is stitched.</p>
+   * The setting that controls whether players can use stitched or guided ad insertion. The default, `STITCHED_ONLY`, forces all player sessions to use stitched (server-side) ad insertion. Choosing `PLAYER_SELECT` allows players to select either stitched or guided ad insertion at session-initialization time. The default for players that do not specify an insertion mode is stitched.
+   *
    * @public
    */
   InsertionMode?: InsertionMode | undefined;
 
   /**
-   * <p>The configuration for pre-roll ad insertion.</p>
+   * The configuration for pre-roll ad insertion.
+   *
    * @public
    */
   LivePreRollConfiguration?: LivePreRollConfiguration | undefined;
 
   /**
-   * <p>The configuration that defines where AWS Elemental MediaTailor sends logs for the playback configuration.</p>
+   * The configuration that defines where AWS Elemental MediaTailor sends logs for the playback configuration.
+   *
    * @public
    */
   LogConfiguration?: LogConfiguration | undefined;
 
   /**
-   * <p>The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.</p>
+   * The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.
+   *
    * @public
    */
   ManifestProcessingRules?: ManifestProcessingRules | undefined;
 
   /**
-   * <p>The identifier for the playback configuration.</p>
+   * The identifier for the playback configuration.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>Defines the maximum duration of underfilled ad time (in seconds) allowed in an ad break. If the duration of underfilled ad time exceeds the personalization threshold, then the personalization of the ad break is abandoned and the underlying content is shown. This feature applies to <i>ad replacement</i> in live and VOD streams, rather than ad insertion, because it relies on an underlying content stream. For more information about ad break behavior, including ad replacement and insertion, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html">Ad Behavior in AWS Elemental MediaTailor</a>.</p>
+   * Defines the maximum duration of underfilled ad time (in seconds) allowed in an ad break. If the duration of underfilled ad time exceeds the personalization threshold, then the personalization of the ad break is abandoned and the underlying content is shown. This feature applies to *ad replacement* in live and VOD streams, rather than ad insertion, because it relies on an underlying content stream. For more information about ad break behavior, including ad replacement and insertion, see [Ad Behavior in AWS Elemental MediaTailor](https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
+   *
    * @public
    */
   PersonalizationThresholdSeconds?: number | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) associated with the playback configuration.</p>
+   * The Amazon Resource Name (ARN) associated with the playback configuration.
+   *
    * @public
    */
   PlaybackConfigurationArn?: string | undefined;
 
   /**
-   * <p>The playback endpoint prefix associated with the playback configuration.</p>
+   * The playback endpoint prefix associated with the playback configuration.
+   *
    * @public
    */
   PlaybackEndpointPrefix?: string | undefined;
 
   /**
-   * <p>The dual-stack (IPv4 and IPv6) playback endpoint prefix associated with the playback configuration.</p>
+   * The dual-stack (IPv4 and IPv6) playback endpoint prefix associated with the playback configuration.
+   *
    * @public
    */
   DualStackPlaybackEndpointPrefix?: string | undefined;
 
   /**
-   * <p>The session initialization endpoint prefix associated with the playback configuration.</p>
+   * The session initialization endpoint prefix associated with the playback configuration.
+   *
    * @public
    */
   SessionInitializationEndpointPrefix?: string | undefined;
 
   /**
-   * <p>The dual-stack (IPv4 and IPv6) session initialization endpoint prefix associated with the playback configuration.</p>
+   * The dual-stack (IPv4 and IPv6) session initialization endpoint prefix associated with the playback configuration.
+   *
    * @public
    */
   DualStackSessionInitializationEndpointPrefix?: string | undefined;
 
   /**
-   * <p>The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID configurations. For VPAID, the slate is required because MediaTailor provides it in the slots that are designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video.</p>
+   * The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID configurations. For VPAID, the slate is required because MediaTailor provides it in the slots that are designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video.
+   *
    * @public
    */
   SlateAdUrl?: string | undefined;
 
   /**
-   * <p>The tags to assign to the playback configuration. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * The tags to assign to the playback configuration. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.</p>
+   * The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.
+   *
    * @public
    */
   TranscodeProfileName?: string | undefined;
 
   /**
-   * <p>The URL prefix for the parent manifest for the stream, minus the asset ID. The maximum length is 512 characters.</p>
+   * The URL prefix for the parent manifest for the stream, minus the asset ID. The maximum length is 512 characters.
+   *
    * @public
    */
   VideoContentSourceUrl?: string | undefined;
 
   /**
-   * <p>The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns, and what priority MediaTailor uses when inserting ads. </p>
+   * The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns, and what priority MediaTailor uses when inserting ads.
+   *
    * @public
    */
   AdConditioningConfiguration?: AdConditioningConfiguration | undefined;
 
   /**
-   * <p>The configuration for customizing HTTP requests to the ad decision server (ADS). This includes settings for request method, headers, body content, and compression options.</p>
+   * The configuration for customizing HTTP requests to the ad decision server (ADS). This includes settings for request method, headers, body content, and compression options.
+   *
    * @public
    */
   AdDecisionServerConfiguration?: AdDecisionServerConfiguration | undefined;
 
   /**
-   * <p>Configuration for Yield Optimization, which fills unsold ad inventory in ad breaks with programmatic ads from Amazon Publisher Services (APS).</p>
+   * Configuration for Yield Optimization, which fills unsold ad inventory in ad breaks with programmatic ads from Amazon Publisher Services (APS).
+   *
    * @public
    */
   YieldOptimizationConfiguration?: YieldOptimizationConfiguration | undefined;
 
   /**
-   * <p>A map of lifecycle hook event names to function identifiers. The function mapping specifies which function MediaTailor executes at each lifecycle hook during ad insertion. Valid keys are <code>PRE_SESSION_INITIALIZATION</code>, <code>PRE_ADS_REQUEST</code>, <code>POST_ADS_RESPONSE</code>, and <code>PRE_MANIFEST_INSERTION</code>. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-hooks.html">Functions lifecycle hooks</a> in the <i>MediaTailor User Guide</i>.</p>
+   * A map of lifecycle hook event names to function identifiers. The function mapping specifies which function MediaTailor executes at each lifecycle hook during ad insertion. Valid keys are `PRE_SESSION_INITIALIZATION`, `PRE_ADS_REQUEST`, `POST_ADS_RESPONSE`, and `PRE_MANIFEST_INSERTION`. For more information, see [Functions lifecycle hooks](https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-hooks.html) in the *MediaTailor User Guide*.
+   *
    * @public
    */
   FunctionMapping?: Partial<Record<EventName, string>> | undefined;
 
   /**
-   * <p>The timeout settings for ad decision server interactions. These settings control how long MediaTailor waits for ADS responses and the total time budget for ad personalization across live, VOD, and prefetch workflows.</p>
+   * The timeout settings for ad decision server interactions. These settings control how long MediaTailor waits for ADS responses and the total time budget for ad personalization across live, VOD, and prefetch workflows.
+   *
    * @public
    */
   AdsPersonalizationTimeouts?: AdsPersonalizationTimeouts | undefined;
 
   /**
-   * <p>The concurrency settings for ad decision server interactions. These settings control how many simultaneous ADS requests MediaTailor makes per manifest request.</p>
+   * The concurrency settings for ad decision server interactions. These settings control how many simultaneous ADS requests MediaTailor makes per manifest request.
+   *
    * @public
    */
   AdsPersonalizationConcurrency?: AdsPersonalizationConcurrency | undefined;
 
   /**
-   * <p>The beaconing configuration for this playback configuration, which controls whether MediaTailor includes beacons of its own in the ad tracking response.</p>
+   * The beaconing configuration for this playback configuration, which controls whether MediaTailor includes beacons of its own in the ad tracking response.
+   *
    * @public
    */
   BeaconingConfiguration?: BeaconingConfiguration | undefined;
@@ -5168,31 +6096,36 @@ export interface PutPlaybackConfigurationResponse {
  */
 export interface UpdateSourceLocationRequest {
   /**
-   * <p>Access configuration parameters. Configures the type of authentication used to access content from your source location.</p>
+   * Access configuration parameters. Configures the type of authentication used to access content from your source location.
+   *
    * @public
    */
   AccessConfiguration?: AccessConfiguration | undefined;
 
   /**
-   * <p>The optional configuration for the host server that serves segments.</p>
+   * The optional configuration for the host server that serves segments.
+   *
    * @public
    */
   DefaultSegmentDeliveryConfiguration?: DefaultSegmentDeliveryConfiguration | undefined;
 
   /**
-   * <p>The HTTP configuration for the source location.</p>
+   * The HTTP configuration for the source location.
+   *
    * @public
    */
   HttpConfiguration: HttpConfiguration | undefined;
 
   /**
-   * <p>A list of the segment delivery configurations associated with this resource.</p>
+   * A list of the segment delivery configurations associated with this resource.
+   *
    * @public
    */
   SegmentDeliveryConfigurations?: SegmentDeliveryConfiguration[] | undefined;
 
   /**
-   * <p>The name of the source location.</p>
+   * The name of the source location.
+   *
    * @public
    */
   SourceLocationName: string | undefined;
@@ -5203,55 +6136,64 @@ export interface UpdateSourceLocationRequest {
  */
 export interface UpdateSourceLocationResponse {
   /**
-   * <p>Access configuration parameters. Configures the type of authentication used to access content from your source location.</p>
+   * Access configuration parameters. Configures the type of authentication used to access content from your source location.
+   *
    * @public
    */
   AccessConfiguration?: AccessConfiguration | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) associated with the source location.</p>
+   * The Amazon Resource Name (ARN) associated with the source location.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The timestamp that indicates when the source location was created.</p>
+   * The timestamp that indicates when the source location was created.
+   *
    * @public
    */
   CreationTime?: Date | undefined;
 
   /**
-   * <p>The optional configuration for the host server that serves segments.</p>
+   * The optional configuration for the host server that serves segments.
+   *
    * @public
    */
   DefaultSegmentDeliveryConfiguration?: DefaultSegmentDeliveryConfiguration | undefined;
 
   /**
-   * <p>The HTTP configuration for the source location.</p>
+   * The HTTP configuration for the source location.
+   *
    * @public
    */
   HttpConfiguration?: HttpConfiguration | undefined;
 
   /**
-   * <p>The timestamp that indicates when the source location was last modified.</p>
+   * The timestamp that indicates when the source location was last modified.
+   *
    * @public
    */
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>The segment delivery configurations for the source location. For information about MediaTailor configurations, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html">Working with configurations in AWS Elemental MediaTailor</a>.</p>
+   * The segment delivery configurations for the source location. For information about MediaTailor configurations, see [Working with configurations in AWS Elemental MediaTailor](https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html).
+   *
    * @public
    */
   SegmentDeliveryConfigurations?: SegmentDeliveryConfiguration[] | undefined;
 
   /**
-   * <p>The name of the source location.</p>
+   * The name of the source location.
+   *
    * @public
    */
   SourceLocationName?: string | undefined;
 
   /**
-   * <p>The tags to assign to the source location. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * The tags to assign to the source location. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -5262,13 +6204,15 @@ export interface UpdateSourceLocationResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) associated with the resource.</p>
+   * The Amazon Resource Name (ARN) associated with the resource.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>The tags to assign to the resource. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * The tags to assign to the resource. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
+   *
    * @public
    */
   Tags: Record<string, string> | undefined;
@@ -5279,13 +6223,15 @@ export interface TagResourceRequest {
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource to untag.</p>
+   * The Amazon Resource Name (ARN) of the resource to untag.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>The tag keys associated with the resource.</p>
+   * The tag keys associated with the resource.
+   *
    * @public
    */
   TagKeys: string[] | undefined;
@@ -5296,19 +6242,22 @@ export interface UntagResourceRequest {
  */
 export interface UpdateVodSourceRequest {
   /**
-   * <p>A list of HTTP package configurations for the VOD source on this account.</p>
+   * A list of HTTP package configurations for the VOD source on this account.
+   *
    * @public
    */
   HttpPackageConfigurations: HttpPackageConfiguration[] | undefined;
 
   /**
-   * <p>The name of the source location associated with this VOD Source.</p>
+   * The name of the source location associated with this VOD Source.
+   *
    * @public
    */
   SourceLocationName: string | undefined;
 
   /**
-   * <p>The name of the VOD source.</p>
+   * The name of the VOD source.
+   *
    * @public
    */
   VodSourceName: string | undefined;
@@ -5319,43 +6268,50 @@ export interface UpdateVodSourceRequest {
  */
 export interface UpdateVodSourceResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) associated with the VOD source.</p>
+   * The Amazon Resource Name (ARN) associated with the VOD source.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The timestamp that indicates when the VOD source was created.</p>
+   * The timestamp that indicates when the VOD source was created.
+   *
    * @public
    */
   CreationTime?: Date | undefined;
 
   /**
-   * <p>A list of HTTP package configurations for the VOD source on this account.</p>
+   * A list of HTTP package configurations for the VOD source on this account.
+   *
    * @public
    */
   HttpPackageConfigurations?: HttpPackageConfiguration[] | undefined;
 
   /**
-   * <p>The timestamp that indicates when the VOD source was last modified.</p>
+   * The timestamp that indicates when the VOD source was last modified.
+   *
    * @public
    */
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>The name of the source location associated with the VOD source.</p>
+   * The name of the source location associated with the VOD source.
+   *
    * @public
    */
   SourceLocationName?: string | undefined;
 
   /**
-   * <p>The tags to assign to the VOD source. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * The tags to assign to the VOD source. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The name of the VOD source.</p>
+   * The name of the VOD source.
+   *
    * @public
    */
   VodSourceName?: string | undefined;

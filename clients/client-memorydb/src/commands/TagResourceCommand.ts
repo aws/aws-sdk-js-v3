@@ -23,13 +23,12 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p> Use this operation to add tags to a resource. A tag is a key-value pair where the key and value are case-sensitive. You can use tags to categorize and track all your MemoryDB resources. For more information, see <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/Tagging-Resources.html">Tagging your MemoryDB resources</a>.</p>
- *          <p>When you add tags to multi region clusters, you might not immediately see the latest effective tags in the ListTags API response due to it being eventually consistent specifically for multi region clusters. For more information, see <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/Tagging-Resources.html">Tagging your MemoryDB resources</a>.</p>
- *          <p>You can specify cost-allocation tags for your MemoryDB resources, Amazon generates a cost allocation report as a comma-separated value
- *           (CSV) file with your usage and costs aggregated by your tags. You can apply tags that represent business categories
- *           (such as cost centers, application names, or owners) to organize your costs across multiple services.
+ * Use this operation to add tags to a resource. A tag is a key-value pair where the key and value are case-sensitive. You can use tags to categorize and track all your MemoryDB resources. For more information, see [Tagging your MemoryDB resources](https://docs.aws.amazon.com/MemoryDB/latest/devguide/Tagging-Resources.html).
  *
- *          For more information, see <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/tagging.html">Using Cost Allocation Tags</a>.</p>
+ * When you add tags to multi region clusters, you might not immediately see the latest effective tags in the ListTags API response due to it being eventually consistent specifically for multi region clusters. For more information, see [Tagging your MemoryDB resources](https://docs.aws.amazon.com/MemoryDB/latest/devguide/Tagging-Resources.html).
+ *
+ * You can specify cost-allocation tags for your MemoryDB resources, Amazon generates a cost allocation report as a comma-separated value (CSV) file with your usage and costs aggregated by your tags. You can apply tags that represent business categories (such as cost centers, application names, or owners) to organize your costs across multiple services. For more information, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/MemoryDB/latest/devguide/tagging.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,47 +66,60 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  * @throws {@link ACLNotFoundFault} (client fault)
- *  <p>The specified ACL does not exist.</p>
+ *
+ * The specified ACL does not exist.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The specified cluster does not exist.</p>
+ *
+ * The specified cluster does not exist.
  *
  * @throws {@link InvalidARNFault} (client fault)
- *  <p>The specified Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * The specified Amazon Resource Name (ARN) is not valid.
  *
  * @throws {@link InvalidClusterStateFault} (client fault)
- *  <p>The cluster is not in a valid state for the requested operation.</p>
+ *
+ * The cluster is not in a valid state for the requested operation.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The specified parameter value is not valid.</p>
+ *
+ * The specified parameter value is not valid.
  *
  * @throws {@link MultiRegionClusterNotFoundFault} (client fault)
- *  <p>The specified multi-Region cluster does not exist.</p>
+ *
+ * The specified multi-Region cluster does not exist.
  *
  * @throws {@link MultiRegionParameterGroupNotFoundFault} (client fault)
- *  <p>The specified multi-Region parameter group does not exist.</p>
+ *
+ * The specified multi-Region parameter group does not exist.
  *
  * @throws {@link ParameterGroupNotFoundFault} (client fault)
- *  <p>The specified parameter group does not exist.</p>
+ *
+ * The specified parameter group does not exist.
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
- *  <p>The required service-linked role was not found.</p>
+ *
+ * The required service-linked role was not found.
  *
  * @throws {@link SnapshotNotFoundFault} (client fault)
- *  <p>The specified snapshot does not exist.</p>
+ *
+ * The specified snapshot does not exist.
  *
  * @throws {@link SubnetGroupNotFoundFault} (client fault)
- *  <p>The specified subnet group does not exist.</p>
+ *
+ * The specified subnet group does not exist.
  *
  * @throws {@link TagQuotaPerResourceExceeded} (client fault)
- *  <p>The request cannot be processed because it would exceed the maximum number of tags allowed per resource.</p>
+ *
+ * The request cannot be processed because it would exceed the maximum number of tags allowed per resource.
  *
  * @throws {@link UserNotFoundFault} (client fault)
- *  <p>The specified user does not exist.</p>
+ *
+ * The specified user does not exist.
  *
  * @throws {@link MemoryDBServiceException}
- * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * Base exception class for all service exceptions from MemoryDB service.
  *
  * @public
  */

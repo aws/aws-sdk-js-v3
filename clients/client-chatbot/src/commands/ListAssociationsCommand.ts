@@ -23,7 +23,8 @@ export interface ListAssociationsCommandInput extends ListAssociationsRequest {}
 export interface ListAssociationsCommandOutput extends ListAssociationsResult, __MetadataBearer {}
 
 /**
- * <p>Lists resources associated with a channel configuration.</p>
+ * Lists resources associated with a channel configuration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,8 +58,8 @@ export interface ListAssociationsCommandOutput extends ListAssociationsResult, _
  * @see {@link ChatbotClientResolvedConfig | config} for ChatbotClient's `config` shape.
  *
  * @throws {@link ChatbotServiceException}
- * <p>Base exception class for all service exceptions from Chatbot service.</p>
  *
+ * Base exception class for all service exceptions from Chatbot service.
  *
  * @example List custom actions associated with a configuration
  * ```javascript

@@ -23,9 +23,10 @@ export interface GetResourcePolicyCommandInput extends GetResourcePolicyRequest 
 export interface GetResourcePolicyCommandOutput extends GetResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * <p> Retrieves the resource policy document attached to a given resource. </p>
- *          <p>
- *             <b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM resource in a different Amazon Web Services account.</p>
+ * Retrieves the resource policy document attached to a given resource.
+ *
+ * **Cross-account use:** No. You cannot perform this operation on an CloudHSM resource in a different Amazon Web Services account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,26 +53,28 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  * @see {@link CloudHSMV2ClientResolvedConfig | config} for CloudHSMV2Client's `config` shape.
  *
  * @throws {@link CloudHsmAccessDeniedException} (client fault)
- *  <p>The request was rejected because the requester does not have permission to perform the
- *       requested operation.</p>
+ *
+ * The request was rejected because the requester does not have permission to perform the requested operation.
  *
  * @throws {@link CloudHsmInternalFailureException} (server fault)
- *  <p>The request was rejected because of an CloudHSM internal failure. The request can
- *       be retried.</p>
+ *
+ * The request was rejected because of an CloudHSM internal failure. The request can be retried.
  *
  * @throws {@link CloudHsmInvalidRequestException} (client fault)
- *  <p>The request was rejected because it is not a valid request.</p>
+ *
+ * The request was rejected because it is not a valid request.
  *
  * @throws {@link CloudHsmResourceNotFoundException} (client fault)
- *  <p>The request was rejected because it refers to a resource that cannot be
- *       found.</p>
+ *
+ * The request was rejected because it refers to a resource that cannot be found.
  *
  * @throws {@link CloudHsmServiceException} (client fault)
- *  <p>The request was rejected because an error occurred.</p>
+ *
+ * The request was rejected because an error occurred.
  *
  * @throws {@link CloudHSMV2ServiceException}
- * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
+ * Base exception class for all service exceptions from CloudHSMV2 service.
  *
  * @public
  */

@@ -23,7 +23,10 @@ export interface ListPurchaseOptionsCommandInput extends ListPurchaseOptionsInpu
 export interface ListPurchaseOptionsCommandOutput extends ListPurchaseOptionsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the purchase options (offers and offer sets) available to the buyer. You can filter results by product, seller, purchase option type, visibility scope, and availability status.</p> <note> <p>You must include at least one of the following filters in the request: a <code>PRODUCT_ID</code> filter to specify the product for which to retrieve purchase options, or a <code>VISIBILITY_SCOPE</code> filter to retrieve purchase options by visibility.</p> </note>
+ * Returns the purchase options (offers and offer sets) available to the buyer. You can filter results by product, seller, purchase option type, visibility scope, and availability status.
+ *
+ * > **Note:** You must include at least one of the following filters in the request: a `PRODUCT_ID` filter to specify the product for which to retrieve purchase options, or a `VISIBILITY_SCOPE` filter to retrieve purchase options by visibility.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -107,20 +110,24 @@ export interface ListPurchaseOptionsCommandOutput extends ListPurchaseOptionsOut
  * @see {@link MarketplaceDiscoveryClientResolvedConfig | config} for MarketplaceDiscoveryClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * You don't have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error during processing of the request.</p>
+ *
+ * Unexpected error during processing of the request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the service.</p>
+ *
+ * The input fails to satisfy the constraints specified by the service.
  *
  * @throws {@link MarketplaceDiscoveryServiceException}
- * <p>Base exception class for all service exceptions from MarketplaceDiscovery service.</p>
  *
+ * Base exception class for all service exceptions from MarketplaceDiscovery service.
  *
  * @example Filter by Product ID
  * ```javascript

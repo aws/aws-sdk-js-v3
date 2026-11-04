@@ -1,8 +1,9 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <fullname>Lake Formation</fullname>
- *          <p>Defines the public endpoint for the Lake Formation service.</p>
+ * Lake Formation
+ *
+ * Defines the public endpoint for the Lake Formation service.
  *
  * @packageDocumentation
  */

@@ -23,7 +23,8 @@ export interface ListRoutesCommandInput extends ListRoutesRequest {}
 export interface ListRoutesCommandOutput extends ListRoutesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all the Amazon Web Services Migration Hub Refactor Spaces routes within an application. </p>
+ * Lists all the Amazon Web Services Migration Hub Refactor Spaces routes within an application.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,30 +91,36 @@ export interface ListRoutesCommandOutput extends ListRoutesResponse, __MetadataB
  * @see {@link MigrationHubRefactorSpacesClientResolvedConfig | config} for MigrationHubRefactorSpacesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The user does not have sufficient access to perform this action. </p>
+ *
+ * The user does not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ *
+ * Updating or deleting a resource can cause an inconsistent state.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred while processing the request.</p>
+ *
+ * An unexpected error occurred while processing the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request references a resource that does not exist. </p>
+ *
+ * The request references a resource that does not exist.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would cause a service quota to be exceeded. </p>
+ *
+ * The request would cause a service quota to be exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Request was denied because the request was throttled. </p>
+ *
+ * Request was denied because the request was throttled.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by an Amazon Web Service.
- *     </p>
+ *
+ * The input does not satisfy the constraints specified by an Amazon Web Service.
  *
  * @throws {@link MigrationHubRefactorSpacesServiceException}
- * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
+ * Base exception class for all service exceptions from MigrationHubRefactorSpaces service.
  *
  * @public
  */

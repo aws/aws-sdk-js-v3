@@ -23,8 +23,10 @@ export interface ListPortfolioAccessCommandInput extends ListPortfolioAccessInpu
 export interface ListPortfolioAccessCommandOutput extends ListPortfolioAccessOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the account IDs that have access to the specified portfolio.</p>
- *          <p>A delegated admin can list the accounts that have access to the shared portfolio. Note that if a delegated admin is de-registered, they can no longer perform this operation.</p>
+ * Lists the account IDs that have access to the specified portfolio.
+ *
+ * A delegated admin can list the accounts that have access to the shared portfolio. Note that if a delegated admin is de-registered, they can no longer perform this operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,14 +60,16 @@ export interface ListPortfolioAccessCommandOutput extends ListPortfolioAccessOut
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  * @throws {@link InvalidParametersException} (client fault)
- *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * One or more parameters provided to the operation are not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ServiceCatalogServiceException}
- * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * Base exception class for all service exceptions from ServiceCatalog service.
  *
  * @public
  */

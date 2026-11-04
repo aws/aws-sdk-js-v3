@@ -23,17 +23,12 @@ export interface StartConnectionCommandInput extends StartConnectionRequest {}
 export interface StartConnectionCommandOutput extends StartConnectionResponse, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>
- *       Amazon Web Services uses this action to install Outpost servers.</p>
- *          </note>
- *          <p> Starts the connection required for Outpost server installation. </p>
- *          <p>
- *       Use CloudTrail to monitor this action or Amazon Web Services managed policy for Amazon Web Services Outposts to secure it. For
- *       more information, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/security-iam-awsmanpol.html">
- *       Amazon Web Services managed policies for Amazon Web Services Outposts</a> and <a href="https://docs.aws.amazon.com/outposts/latest/userguide/logging-using-cloudtrail.html">
- *       Logging Amazon Web Services Outposts API calls with Amazon Web Services CloudTrail</a> in the <i>Amazon Web Services Outposts User Guide</i>.
- *       </p>
+ * > **Note:** Amazon Web Services uses this action to install Outpost servers.
+ *
+ * Starts the connection required for Outpost server installation.
+ *
+ * Use CloudTrail to monitor this action or Amazon Web Services managed policy for Amazon Web Services Outposts to secure it. For more information, see [Amazon Web Services managed policies for Amazon Web Services Outposts](https://docs.aws.amazon.com/outposts/latest/userguide/security-iam-awsmanpol.html) and [Logging Amazon Web Services Outposts API calls with Amazon Web Services CloudTrail](https://docs.aws.amazon.com/outposts/latest/userguide/logging-using-cloudtrail.html) in the *Amazon Web Services Outposts User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,20 +59,24 @@ export interface StartConnectionCommandOutput extends StartConnectionResponse, _
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have permission to perform this operation.</p>
+ *
+ * You do not have permission to perform this operation.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error has occurred.</p>
+ *
+ * An internal error has occurred.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The specified request is not valid.</p>
+ *
+ * The specified request is not valid.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A parameter is not valid.</p>
+ *
+ * A parameter is not valid.
  *
  * @throws {@link OutpostsServiceException}
- * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ * Base exception class for all service exceptions from Outposts service.
  *
  * @public
  */

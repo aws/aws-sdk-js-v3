@@ -23,7 +23,8 @@ export interface CreateApplicationCommandInput extends CreateApplicationRequest 
 export interface CreateApplicationCommandOutput extends CreateApplicationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an account access manager instance and its Amazon Web Services account access application in the associated IAM Identity Center instance. This operation is idempotent; calling it multiple times with the same parameters returns the existing application.</p>
+ * Creates an account access manager instance and its Amazon Web Services account access application in the associated IAM Identity Center instance. This operation is idempotent; calling it multiple times with the same parameters returns the existing application.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,26 +58,32 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * @see {@link AccountAccessClientResolvedConfig | config} for AccountAccessClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this operation.</p>
+ *
+ * You do not have sufficient access to perform this operation.
  *
  * @throws {@link AlreadyCreatedException} (client fault)
- *  <p>The resource you are trying to create already exists. To retrieve the existing resource, use the corresponding Get operation.</p>
+ *
+ * The resource you are trying to create already exists. To retrieve the existing resource, use the corresponding Get operation.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request conflicts with the current state of the resource.</p>
+ *
+ * The request conflicts with the current state of the resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal service error occurred. Try your request again later.</p>
+ *
+ * An internal service error occurred. Try your request again later.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. Try your request again later.</p>
+ *
+ * The request was denied due to request throttling. Try your request again later.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by the service. Check your request parameters and retry the request.</p>
+ *
+ * The input does not satisfy the constraints specified by the service. Check your request parameters and retry the request.
  *
  * @throws {@link AccountAccessServiceException}
- * <p>Base exception class for all service exceptions from AccountAccess service.</p>
  *
+ * Base exception class for all service exceptions from AccountAccess service.
  *
  * @public
  */

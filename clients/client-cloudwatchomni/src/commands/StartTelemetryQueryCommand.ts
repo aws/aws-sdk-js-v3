@@ -68,8 +68,8 @@ export interface StartTelemetryQueryCommandOutput extends StartTelemetryQueryRes
  *  A parameter is specified incorrectly.
  *
  * @throws {@link CloudWatchOmniServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchOmni service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchOmni service.
  *
  * @example Start a telemetry query
  * ```javascript

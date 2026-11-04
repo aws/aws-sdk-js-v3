@@ -23,8 +23,8 @@ export interface GetSnapshotsCommandInput extends GetSnapshotsRequest {}
 export interface GetSnapshotsCommandOutput extends GetSnapshotsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves search metrics data. The data provides a snapshot of how your users interact
- *             with your search application and how effective the application is.</p>
+ * Retrieves search metrics data. The data provides a snapshot of how your users interact with your search application and how effective the application is.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,24 +67,24 @@ export interface GetSnapshotsCommandOutput extends GetSnapshotsResponse, __Metad
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action. Please ensure you have the
- *             required permission policies and user accounts and try again.</p>
+ *
+ * You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
+ *
+ * An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact [Support](http://aws.amazon.com/contact-us/) for help.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The input to the request is not valid. Please provide the correct input and try
- *             again.</p>
+ *
+ * The input to the request is not valid. Please provide the correct input and try again.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct
- *             resource and try again.</p>
+ *
+ * The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.
  *
  * @throws {@link KendraServiceException}
- * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * Base exception class for all service exceptions from Kendra service.
  *
  * @public
  */

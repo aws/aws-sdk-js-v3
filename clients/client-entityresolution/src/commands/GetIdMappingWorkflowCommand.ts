@@ -23,7 +23,8 @@ export interface GetIdMappingWorkflowCommandInput extends GetIdMappingWorkflowIn
 export interface GetIdMappingWorkflowCommandOutput extends GetIdMappingWorkflowOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the <code>IdMappingWorkflow</code> with a given name, if it exists.</p>
+ * Returns the `IdMappingWorkflow` with a given name, if it exists.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -97,23 +98,28 @@ export interface GetIdMappingWorkflowCommandOutput extends GetIdMappingWorkflowO
  * @see {@link EntityResolutionClientResolvedConfig | config} for EntityResolutionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action. </p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+ *
+ * This exception occurs when there is an internal failure in the Entity Resolution service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource couldn't be found. </p>
+ *
+ * The resource couldn't be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. </p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
+ *
+ * The input fails to satisfy the constraints specified by Entity Resolution.
  *
  * @throws {@link EntityResolutionServiceException}
- * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
+ * Base exception class for all service exceptions from EntityResolution service.
  *
  * @public
  */

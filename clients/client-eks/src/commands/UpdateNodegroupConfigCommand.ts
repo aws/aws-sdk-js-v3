@@ -23,12 +23,8 @@ export interface UpdateNodegroupConfigCommandInput extends UpdateNodegroupConfig
 export interface UpdateNodegroupConfigCommandOutput extends UpdateNodegroupConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an Amazon EKS managed node group configuration. Your node group continues to
- *             function during the update. The response output includes an update ID that you can use
- *             to track the status of your node group update with the <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeUpdate.html">
- *                <code>DescribeUpdate</code>
- *             </a> API operation. You can update the Kubernetes labels
- *             and taints for a node group and the scaling and version update configuration.</p>
+ * Updates an Amazon EKS managed node group configuration. Your node group continues to function during the update. The response output includes an update ID that you can use to track the status of your node group update with the [`DescribeUpdate`](https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeUpdate.html) API operation. You can update the Kubernetes labels and taints for a node group and the scaling and version update configuration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -137,33 +133,32 @@ export interface UpdateNodegroupConfigCommandOutput extends UpdateNodegroupConfi
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action. Actions can include using an
- *             action or resource on behalf of an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html">IAM principal</a> that doesn't have permissions to use
- *             the action or resource or specifying an identifier that is not valid.</p>
+ *
+ * These errors are usually caused by a client action. Actions can include using an action or resource on behalf of an [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) that doesn't have permissions to use the action or resource or specifying an identifier that is not valid.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is invalid given the state of the cluster. Check the state of the cluster
- *             and the associated operations.</p>
+ *
+ * The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is in use.</p>
+ *
+ * The specified resource is in use.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource could not be found. You can view your available clusters with
- *                 <code>ListClusters</code>. You can view your available managed node groups with
- *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region
- *             specific.</p>
+ *
+ * The specified resource could not be found. You can view your available clusters with `ListClusters`. You can view your available managed node groups with `ListNodegroups`. Amazon EKS clusters and node groups are Amazon Web Services Region specific.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link EKSServiceException}
- * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * Base exception class for all service exceptions from EKS service.
  *
  * @public
  */

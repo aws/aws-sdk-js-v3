@@ -23,10 +23,8 @@ export interface RegisterCertificateWithoutCACommandInput extends RegisterCertif
 export interface RegisterCertificateWithoutCACommandOutput extends RegisterCertificateWithoutCAResponse, __MetadataBearer {}
 
 /**
- * <p>Register a certificate that does not have a certificate authority (CA).
- *          For supported certificates, consult <a href="https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html#x509-cert-algorithms">
- *          Certificate signing algorithms supported by IoT</a>.
- *       </p>
+ * Register a certificate that does not have a certificate authority (CA). For supported certificates, consult [Certificate signing algorithms supported by IoT](https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html#x509-cert-algorithms).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,32 +53,40 @@ export interface RegisterCertificateWithoutCACommandOutput extends RegisterCerti
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  * @throws {@link CertificateStateException} (client fault)
- *  <p>The certificate operation is not allowed.</p>
+ *
+ * The certificate operation is not allowed.
  *
  * @throws {@link CertificateValidationException} (client fault)
- *  <p>The certificate is invalid.</p>
+ *
+ * The certificate is invalid.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An unexpected error has occurred.</p>
+ *
+ * An unexpected error has occurred.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>The resource already exists.</p>
+ *
+ * The resource already exists.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is temporarily unavailable.</p>
+ *
+ * The service is temporarily unavailable.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The rate exceeds the limit.</p>
+ *
+ * The rate exceeds the limit.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>You are not authorized to perform this operation.</p>
+ *
+ * You are not authorized to perform this operation.
  *
  * @throws {@link IoTServiceException}
- * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * Base exception class for all service exceptions from IoT service.
  *
  * @public
  */

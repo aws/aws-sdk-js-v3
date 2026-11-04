@@ -23,22 +23,14 @@ export interface DeleteTrafficPolicyCommandInput extends DeleteTrafficPolicyRequ
 export interface DeleteTrafficPolicyCommandOutput extends DeleteTrafficPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a traffic policy.</p>
- *          <p>When you delete a traffic policy, Route 53 sets a flag on the policy to indicate that
- * 			it has been deleted. However, Route 53 never fully deletes the traffic policy. Note the
- * 			following:</p>
- *          <ul>
- *             <li>
- *                <p>Deleted traffic policies aren't listed if you run <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListTrafficPolicies.html">ListTrafficPolicies</a>.</p>
- *             </li>
- *             <li>
- *                <p> There's no way to get a list of deleted policies.</p>
- *             </li>
- *             <li>
- *                <p>If you retain the ID of the policy, you can get information about the policy,
- * 					including the traffic policy document, by running <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetTrafficPolicy.html">GetTrafficPolicy</a>.</p>
- *             </li>
- *          </ul>
+ * Deletes a traffic policy.
+ *
+ * When you delete a traffic policy, Route 53 sets a flag on the policy to indicate that it has been deleted. However, Route 53 never fully deletes the traffic policy. Note the following:
+ *
+ * - Deleted traffic policies aren't listed if you run [ListTrafficPolicies](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListTrafficPolicies.html).
+ * - There's no way to get a list of deleted policies.
+ * - If you retain the ID of the policy, you can get information about the policy, including the traffic policy document, by running [GetTrafficPolicy](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetTrafficPolicy.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,22 +56,24 @@ export interface DeleteTrafficPolicyCommandOutput extends DeleteTrafficPolicyRes
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link ConcurrentModification} (client fault)
- *  <p>Another user submitted a request to create, update, or delete the object at the same
- * 			time that you did. Retry the request. </p>
+ *
+ * Another user submitted a request to create, update, or delete the object at the same time that you did. Retry the request.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link NoSuchTrafficPolicy} (client fault)
- *  <p>No traffic policy exists with the specified ID.</p>
+ *
+ * No traffic policy exists with the specified ID.
  *
  * @throws {@link TrafficPolicyInUse} (client fault)
- *  <p>One or more traffic policy instances were created by using the specified traffic
- * 			policy.</p>
+ *
+ * One or more traffic policy instances were created by using the specified traffic policy.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @public
  */

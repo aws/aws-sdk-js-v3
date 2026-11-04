@@ -23,7 +23,8 @@ export interface GetConnectionGroupCommandInput extends GetConnectionGroupReques
 export interface GetConnectionGroupCommandOutput extends GetConnectionGroupResult, __MetadataBearer {}
 
 /**
- * <p>Gets information about a connection group.</p>
+ * Gets information about a connection group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,14 +72,16 @@ export interface GetConnectionGroupCommandOutput extends GetConnectionGroupResul
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link AccessDenied} (client fault)
- *  <p>Access denied.</p>
+ *
+ * Access denied.
  *
  * @throws {@link EntityNotFound} (client fault)
- *  <p>The entity was not found.</p>
+ *
+ * The entity was not found.
  *
  * @throws {@link CloudFrontServiceException}
- * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * Base exception class for all service exceptions from CloudFront service.
  *
  * @public
  */

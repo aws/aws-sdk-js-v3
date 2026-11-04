@@ -20,24 +20,28 @@ import type {
 } from "./enums";
 
 /**
- * <p>Summary of the membership details of an <code>AppInstanceUser</code>.</p>
+ * Summary of the membership details of an `AppInstanceUser`.
+ *
  * @public
  */
 export interface AppInstanceUserMembershipSummary {
   /**
-   * <p>The type of <code>ChannelMembership</code>.</p>
+   * The type of `ChannelMembership`.
+   *
    * @public
    */
   Type?: ChannelMembershipType | undefined;
 
   /**
-   * <p>The time at which an <code>AppInstanceUser</code> last marked a channel as read.</p>
+   * The time at which an `AppInstanceUser` last marked a channel as read.
+   *
    * @public
    */
   ReadMarkerTimestamp?: Date | undefined;
 
   /**
-   * <p>The ID of the SubChannel that the <code>AppInstanceUser</code> is a member of.</p>
+   * The ID of the SubChannel that the `AppInstanceUser` is a member of.
+   *
    * @public
    */
   SubChannelId?: string | undefined;
@@ -48,74 +52,85 @@ export interface AppInstanceUserMembershipSummary {
  */
 export interface AssociateChannelFlowRequest {
   /**
-   * <p>The ARN of the channel.</p>
+   * The ARN of the channel.
+   *
    * @public
    */
   ChannelArn: string | undefined;
 
   /**
-   * <p>The ARN of the channel flow.</p>
+   * The ARN of the channel flow.
+   *
    * @public
    */
   ChannelFlowArn: string | undefined;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the user making the API call.</p>
+   * The `AppInstanceUserArn` of the user making the API call.
+   *
    * @public
    */
   ChimeBearer: string | undefined;
 }
 
 /**
- * <p>The details of a user or bot.</p>
+ * The details of a user or bot.
+ *
  * @public
  */
 export interface Identity {
   /**
-   * <p>The ARN in an Identity.</p>
+   * The ARN in an Identity.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The name in an Identity.</p>
+   * The name in an Identity.
+   *
    * @public
    */
   Name?: string | undefined;
 }
 
 /**
- * <p>The membership information, including member ARNs, the channel ARN, and membership
- *          types.</p>
+ * The membership information, including member ARNs, the channel ARN, and membership types.
+ *
  * @public
  */
 export interface BatchChannelMemberships {
   /**
-   * <p>The identifier of the member who invited another member.</p>
+   * The identifier of the member who invited another member.
+   *
    * @public
    */
   InvitedBy?: Identity | undefined;
 
   /**
-   * <p>The membership types set for the channel members.</p>
+   * The membership types set for the channel members.
+   *
    * @public
    */
   Type?: ChannelMembershipType | undefined;
 
   /**
-   * <p>The users successfully added to the request.</p>
+   * The users successfully added to the request.
+   *
    * @public
    */
   Members?: Identity[] | undefined;
 
   /**
-   * <p>The ARN of the channel to which you're adding members.</p>
+   * The ARN of the channel to which you're adding members.
+   *
    * @public
    */
   ChannelArn?: string | undefined;
 
   /**
-   * <p>The ID of the SubChannel.</p>
+   * The ID of the SubChannel.
+   *
    * @public
    */
   SubChannelId?: string | undefined;
@@ -126,64 +141,66 @@ export interface BatchChannelMemberships {
  */
 export interface BatchCreateChannelMembershipRequest {
   /**
-   * <p>The ARN of the channel to which you're adding users or bots.</p>
+   * The ARN of the channel to which you're adding users or bots.
+   *
    * @public
    */
   ChannelArn: string | undefined;
 
   /**
-   * <p>The membership type of a user, <code>DEFAULT</code> or <code>HIDDEN</code>. Default
-   *          members are always returned as part of <code>ListChannelMemberships</code>. Hidden members
-   *          are only returned if the type filter in <code>ListChannelMemberships</code> equals
-   *             <code>HIDDEN</code>. Otherwise hidden members are not returned. This is only supported
-   *          by moderators.</p>
+   * The membership type of a user, `DEFAULT` or `HIDDEN`. Default members are always returned as part of `ListChannelMemberships`. Hidden members are only returned if the type filter in `ListChannelMemberships` equals `HIDDEN`. Otherwise hidden members are not returned. This is only supported by moderators.
+   *
    * @public
    */
   Type?: ChannelMembershipType | undefined;
 
   /**
-   * <p>The ARNs of the members you want to add to the channel. Only <code>AppInstanceUsers</code> and
-   *          <code>AppInstanceBots</code> can be added as a channel member.</p>
+   * The ARNs of the members you want to add to the channel. Only `AppInstanceUsers` and `AppInstanceBots` can be added as a channel member.
+   *
    * @public
    */
   MemberArns: string[] | undefined;
 
   /**
-   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
-   *          that makes the API call.</p>
+   * The ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call.
+   *
    * @public
    */
   ChimeBearer: string | undefined;
 
   /**
-   * <p>The ID of the SubChannel in the request. </p>
-   *          <note>
-   *             <p>Only required when creating membership in a SubChannel for a moderator in an elastic channel.</p>
-   *          </note>
+   * The ID of the SubChannel in the request.
+   *
+   * > **Note:** Only required when creating membership in a SubChannel for a moderator in an elastic channel.
+   *
    * @public
    */
   SubChannelId?: string | undefined;
 }
 
 /**
- * <p>A list of failed member ARNs, error codes, and error messages.</p>
+ * A list of failed member ARNs, error codes, and error messages.
+ *
  * @public
  */
 export interface BatchCreateChannelMembershipError {
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the member that the service couldn't add.</p>
+   * The `AppInstanceUserArn` of the member that the service couldn't add.
+   *
    * @public
    */
   MemberArn?: string | undefined;
 
   /**
-   * <p>The error code.</p>
+   * The error code.
+   *
    * @public
    */
   ErrorCode?: ErrorCode | undefined;
 
   /**
-   * <p>The error message.</p>
+   * The error message.
+   *
    * @public
    */
   ErrorMessage?: string | undefined;
@@ -194,404 +211,456 @@ export interface BatchCreateChannelMembershipError {
  */
 export interface BatchCreateChannelMembershipResponse {
   /**
-   * <p>The list of channel memberships in the response.</p>
+   * The list of channel memberships in the response.
+   *
    * @public
    */
   BatchChannelMemberships?: BatchChannelMemberships | undefined;
 
   /**
-   * <p>If the action fails for one or more of the memberships in the request, a list of the
-   *          memberships is returned, along with error codes and error messages.</p>
+   * If the action fails for one or more of the memberships in the request, a list of the memberships is returned, along with error codes and error messages.
+   *
    * @public
    */
   Errors?: BatchCreateChannelMembershipError[] | undefined;
 }
 
 /**
- * <p>The attributes required to configure and create an elastic channel. An elastic channel can support a maximum of 1-million members.</p>
+ * The attributes required to configure and create an elastic channel. An elastic channel can support a maximum of 1-million members.
+ *
  * @public
  */
 export interface ElasticChannelConfiguration {
   /**
-   * <p>The maximum number of SubChannels that you want to allow in the elastic channel.</p>
+   * The maximum number of SubChannels that you want to allow in the elastic channel.
+   *
    * @public
    */
   MaximumSubChannels: number | undefined;
 
   /**
-   * <p>The maximum number of members allowed in a SubChannel.</p>
+   * The maximum number of members allowed in a SubChannel.
+   *
    * @public
    */
   TargetMembershipsPerSubChannel: number | undefined;
 
   /**
-   * <p>The minimum allowed percentage of TargetMembershipsPerSubChannel users. Ceil of the calculated value is used in balancing members among SubChannels of the elastic channel.</p>
+   * The minimum allowed percentage of TargetMembershipsPerSubChannel users. Ceil of the calculated value is used in balancing members among SubChannels of the elastic channel.
+   *
    * @public
    */
   MinimumMembershipPercentage: number | undefined;
 }
 
 /**
- * <p>Settings that control the interval after which a channel is deleted.</p>
+ * Settings that control the interval after which a channel is deleted.
+ *
  * @public
  */
 export interface ExpirationSettings {
   /**
-   * <p>The period in days after which the system automatically deletes a channel.</p>
+   * The period in days after which the system automatically deletes a channel.
+   *
    * @public
    */
   ExpirationDays: number | undefined;
 
   /**
-   * <p>The conditions that must be met for a channel to expire.</p>
+   * The conditions that must be met for a channel to expire.
+   *
    * @public
    */
   ExpirationCriterion: ExpirationCriterion | undefined;
 }
 
 /**
- * <p>The details of a channel.</p>
+ * The details of a channel.
+ *
  * @public
  */
 export interface Channel {
   /**
-   * <p>The name of a channel.</p>
+   * The name of a channel.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The ARN of a channel.</p>
+   * The ARN of a channel.
+   *
    * @public
    */
   ChannelArn?: string | undefined;
 
   /**
-   * <p>The mode of the channel.</p>
+   * The mode of the channel.
+   *
    * @public
    */
   Mode?: ChannelMode | undefined;
 
   /**
-   * <p>The channel's privacy setting.</p>
+   * The channel's privacy setting.
+   *
    * @public
    */
   Privacy?: ChannelPrivacy | undefined;
 
   /**
-   * <p>The channel's metadata.</p>
+   * The channel's metadata.
+   *
    * @public
    */
   Metadata?: string | undefined;
 
   /**
-   * <p>The <code>AppInstanceUser</code> who created the channel.</p>
+   * The `AppInstanceUser` who created the channel.
+   *
    * @public
    */
   CreatedBy?: Identity | undefined;
 
   /**
-   * <p>The time at which the <code>AppInstanceUser</code> created the channel.</p>
+   * The time at which the `AppInstanceUser` created the channel.
+   *
    * @public
    */
   CreatedTimestamp?: Date | undefined;
 
   /**
-   * <p>The time at which a member sent the last message in the channel.</p>
+   * The time at which a member sent the last message in the channel.
+   *
    * @public
    */
   LastMessageTimestamp?: Date | undefined;
 
   /**
-   * <p>The time at which a channel was last updated.</p>
+   * The time at which a channel was last updated.
+   *
    * @public
    */
   LastUpdatedTimestamp?: Date | undefined;
 
   /**
-   * <p>The ARN of the channel flow.</p>
+   * The ARN of the channel flow.
+   *
    * @public
    */
   ChannelFlowArn?: string | undefined;
 
   /**
-   * <p>The attributes required to configure and create an elastic channel. An elastic channel can support a maximum of 1-million members.</p>
+   * The attributes required to configure and create an elastic channel. An elastic channel can support a maximum of 1-million members.
+   *
    * @public
    */
   ElasticChannelConfiguration?: ElasticChannelConfiguration | undefined;
 
   /**
-   * <p>Settings that control when a channel expires.</p>
+   * Settings that control when a channel expires.
+   *
    * @public
    */
   ExpirationSettings?: ExpirationSettings | undefined;
 }
 
 /**
- * <p>Summary of details of a channel associated with channel flow.</p>
+ * Summary of details of a channel associated with channel flow.
+ *
  * @public
  */
 export interface ChannelAssociatedWithFlowSummary {
   /**
-   * <p>The name of the channel flow.</p>
+   * The name of the channel flow.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The ARN of the channel.</p>
+   * The ARN of the channel.
+   *
    * @public
    */
   ChannelArn?: string | undefined;
 
   /**
-   * <p>The mode of the channel.</p>
+   * The mode of the channel.
+   *
    * @public
    */
   Mode?: ChannelMode | undefined;
 
   /**
-   * <p>The channel's privacy setting.</p>
+   * The channel's privacy setting.
+   *
    * @public
    */
   Privacy?: ChannelPrivacy | undefined;
 
   /**
-   * <p>The channel's metadata.</p>
+   * The channel's metadata.
+   *
    * @public
    */
   Metadata?: string | undefined;
 }
 
 /**
- * <p>The details of a channel ban.</p>
+ * The details of a channel ban.
+ *
  * @public
  */
 export interface ChannelBan {
   /**
-   * <p>The member being banned from the channel.</p>
+   * The member being banned from the channel.
+   *
    * @public
    */
   Member?: Identity | undefined;
 
   /**
-   * <p>The ARN of the channel from which a member is being banned.</p>
+   * The ARN of the channel from which a member is being banned.
+   *
    * @public
    */
   ChannelArn?: string | undefined;
 
   /**
-   * <p>The time at which the ban was created.</p>
+   * The time at which the ban was created.
+   *
    * @public
    */
   CreatedTimestamp?: Date | undefined;
 
   /**
-   * <p>The <code>AppInstanceUser</code> who created the ban.</p>
+   * The `AppInstanceUser` who created the ban.
+   *
    * @public
    */
   CreatedBy?: Identity | undefined;
 }
 
 /**
- * <p>Summary of the details of a <code>ChannelBan</code>.</p>
+ * Summary of the details of a `ChannelBan`.
+ *
  * @public
  */
 export interface ChannelBanSummary {
   /**
-   * <p>The member being banned from a channel.</p>
+   * The member being banned from a channel.
+   *
    * @public
    */
   Member?: Identity | undefined;
 }
 
 /**
- * <p>Stores metadata about a Lambda processor.</p>
+ * Stores metadata about a Lambda processor.
+ *
  * @public
  */
 export interface LambdaConfiguration {
   /**
-   * <p>The ARN of the Lambda message processing function.</p>
+   * The ARN of the Lambda message processing function.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>Controls how the Lambda function is invoked.</p>
+   * Controls how the Lambda function is invoked.
+   *
    * @public
    */
   InvocationType: InvocationType | undefined;
 }
 
 /**
- * <p>A processor's metadata.</p>
+ * A processor's metadata.
+ *
  * @public
  */
 export interface ProcessorConfiguration {
   /**
-   * <p>Indicates that the processor is of type Lambda.</p>
+   * Indicates that the processor is of type Lambda.
+   *
    * @public
    */
   Lambda: LambdaConfiguration | undefined;
 }
 
 /**
- * <p>The information about a processor in a channel flow.</p>
+ * The information about a processor in a channel flow.
+ *
  * @public
  */
 export interface Processor {
   /**
-   * <p>The name of the channel flow.</p>
+   * The name of the channel flow.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The information about the type of processor and its identifier.</p>
+   * The information about the type of processor and its identifier.
+   *
    * @public
    */
   Configuration: ProcessorConfiguration | undefined;
 
   /**
-   * <p>The sequence in which processors run. If you have multiple processors in a channel flow, message processing goes through each processor in the sequence. The value determines the sequence.
-   *          At this point, we support only 1 processor within a flow.</p>
+   * The sequence in which processors run. If you have multiple processors in a channel flow, message processing goes through each processor in the sequence. The value determines the sequence. At this point, we support only 1 processor within a flow.
+   *
    * @public
    */
   ExecutionOrder: number | undefined;
 
   /**
-   * <p>Determines whether to continue with message processing or stop it in cases where communication with a processor fails. If a processor has a fallback action of <code>ABORT</code> and
-   *          communication with it fails, the processor sets the message status to <code>FAILED</code> and does not send the message to any recipients. Note that if the last processor in the channel flow sequence
-   *          has a fallback action of <code>CONTINUE</code> and communication with the processor fails, then the message is considered processed and sent to recipients of the channel.</p>
+   * Determines whether to continue with message processing or stop it in cases where communication with a processor fails. If a processor has a fallback action of `ABORT` and communication with it fails, the processor sets the message status to `FAILED` and does not send the message to any recipients. Note that if the last processor in the channel flow sequence has a fallback action of `CONTINUE` and communication with the processor fails, then the message is considered processed and sent to recipients of the channel.
+   *
    * @public
    */
   FallbackAction: FallbackAction | undefined;
 }
 
 /**
- * <p>The details of a channel flow.</p>
+ * The details of a channel flow.
+ *
  * @public
  */
 export interface ChannelFlow {
   /**
-   * <p>The ARN of the channel flow.</p>
+   * The ARN of the channel flow.
+   *
    * @public
    */
   ChannelFlowArn?: string | undefined;
 
   /**
-   * <p>Information about the processor Lambda functions.</p>
+   * Information about the processor Lambda functions.
+   *
    * @public
    */
   Processors?: Processor[] | undefined;
 
   /**
-   * <p>The name of the channel flow.</p>
+   * The name of the channel flow.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The time at which the channel flow was created.</p>
+   * The time at which the channel flow was created.
+   *
    * @public
    */
   CreatedTimestamp?: Date | undefined;
 
   /**
-   * <p>The time at which a channel flow was updated.</p>
+   * The time at which a channel flow was updated.
+   *
    * @public
    */
   LastUpdatedTimestamp?: Date | undefined;
 }
 
 /**
- * <p>A list of message attribute values.</p>
+ * A list of message attribute values.
+ *
  * @public
  */
 export interface MessageAttributeValue {
   /**
-   * <p>The strings in a message attribute value.</p>
+   * The strings in a message attribute value.
+   *
    * @public
    */
   StringValues?: string[] | undefined;
 }
 
 /**
- * <p>The push notification configuration of the message.</p>
+ * The push notification configuration of the message.
+ *
  * @public
  */
 export interface PushNotificationConfiguration {
   /**
-   * <p>The title of the push notification.</p>
+   * The title of the push notification.
+   *
    * @public
    */
   Title?: string | undefined;
 
   /**
-   * <p>The body of the push notification.</p>
+   * The body of the push notification.
+   *
    * @public
    */
   Body?: string | undefined;
 
   /**
-   * <p>Enum value that indicates the type of the push notification for a message.
-   *          <code>DEFAULT</code>: Normal mobile push notification.
-   *          <code>VOIP</code>: VOIP mobile push notification.</p>
+   * Enum value that indicates the type of the push notification for a message. `DEFAULT`: Normal mobile push notification. `VOIP`: VOIP mobile push notification.
+   *
    * @public
    */
   Type?: PushNotificationType | undefined;
 }
 
 /**
- * <p>Stores information about a callback.</p>
+ * Stores information about a callback.
+ *
  * @public
  */
 export interface ChannelMessageCallback {
   /**
-   * <p>The message ID.</p>
+   * The message ID.
+   *
    * @public
    */
   MessageId: string | undefined;
 
   /**
-   * <p>The message content. For Amazon Lex V2 bot responses, this field holds a list of messages originating from the bot. For more information, refer to
-   *          <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html">Processing responses from an AppInstanceBot</a> in the
-   *          <i>Amazon Chime SDK Messaging Developer Guide</i>.</p>
+   * The message content. For Amazon Lex V2 bot responses, this field holds a list of messages originating from the bot. For more information, refer to [Processing responses from an AppInstanceBot](https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html) in the *Amazon Chime SDK Messaging Developer Guide*.
+   *
    * @public
    */
   Content?: string | undefined;
 
   /**
-   * <p>The message metadata.</p>
+   * The message metadata.
+   *
    * @public
    */
   Metadata?: string | undefined;
 
   /**
-   * <p>The push notification configuration of the message.</p>
+   * The push notification configuration of the message.
+   *
    * @public
    */
   PushNotification?: PushNotificationConfiguration | undefined;
 
   /**
-   * <p>The attributes for the channel message. For Amazon Lex V2 bot responses, the attributes are mapped to specific fields from the bot. For more information, refer to
-   *          <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html">Processing responses from an AppInstanceBot</a> in the
-   *          <i>Amazon Chime SDK Messaging Developer Guide</i>.</p>
+   * The attributes for the channel message. For Amazon Lex V2 bot responses, the attributes are mapped to specific fields from the bot. For more information, refer to [Processing responses from an AppInstanceBot](https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html) in the *Amazon Chime SDK Messaging Developer Guide*.
+   *
    * @public
    */
   MessageAttributes?: Record<string, MessageAttributeValue> | undefined;
 
   /**
-   * <p>The ID of the SubChannel.</p>
+   * The ID of the SubChannel.
+   *
    * @public
    */
   SubChannelId?: string | undefined;
 
   /**
-   * <p>The content type of the call-back message. For Amazon Lex V2 bot responses, the content type is <code>application/amz-chime-lex-msgs</code> for success responses and
-   *          <code>application/amz-chime-lex-error</code> for failure responses. For more information, refer to
-   *          <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html">Processing responses from an AppInstanceBot</a> in the
-   *          <i>Amazon Chime SDK Messaging Developer Guide</i>.</p>
+   * The content type of the call-back message. For Amazon Lex V2 bot responses, the content type is `application/amz-chime-lex-msgs` for success responses and `application/amz-chime-lex-error` for failure responses. For more information, refer to [Processing responses from an AppInstanceBot](https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html) in the *Amazon Chime SDK Messaging Developer Guide*.
+   *
    * @public
    */
   ContentType?: string | undefined;
@@ -602,25 +671,29 @@ export interface ChannelMessageCallback {
  */
 export interface ChannelFlowCallbackRequest {
   /**
-   * <p>The identifier passed to the processor by the service when invoked. Use the identifier to call back the service.</p>
+   * The identifier passed to the processor by the service when invoked. Use the identifier to call back the service.
+   *
    * @public
    */
   CallbackId?: string | undefined;
 
   /**
-   * <p>The ARN of the channel.</p>
+   * The ARN of the channel.
+   *
    * @public
    */
   ChannelArn: string | undefined;
 
   /**
-   * <p>When a processor determines that a message needs to be <code>DENIED</code>, pass this parameter with a value of true.</p>
+   * When a processor determines that a message needs to be `DENIED`, pass this parameter with a value of true.
+   *
    * @public
    */
   DeleteResource?: boolean | undefined;
 
   /**
-   * <p>Stores information about the processed message.</p>
+   * Stores information about the processed message.
+   *
    * @public
    */
   ChannelMessage: ChannelMessageCallback | undefined;
@@ -631,495 +704,554 @@ export interface ChannelFlowCallbackRequest {
  */
 export interface ChannelFlowCallbackResponse {
   /**
-   * <p>The ARN of the channel.</p>
+   * The ARN of the channel.
+   *
    * @public
    */
   ChannelArn?: string | undefined;
 
   /**
-   * <p>The call back ID passed in the request.</p>
+   * The call back ID passed in the request.
+   *
    * @public
    */
   CallbackId?: string | undefined;
 }
 
 /**
- * <p>Summary of details of a channel flow.</p>
+ * Summary of details of a channel flow.
+ *
  * @public
  */
 export interface ChannelFlowSummary {
   /**
-   * <p>The ARN of the channel flow.</p>
+   * The ARN of the channel flow.
+   *
    * @public
    */
   ChannelFlowArn?: string | undefined;
 
   /**
-   * <p>The name of the channel flow.</p>
+   * The name of the channel flow.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>Information about the processor Lambda functions.</p>
+   * Information about the processor Lambda functions.
+   *
    * @public
    */
   Processors?: Processor[] | undefined;
 }
 
 /**
- * <p>The details of a channel member.</p>
+ * The details of a channel member.
+ *
  * @public
  */
 export interface ChannelMembership {
   /**
-   * <p>The identifier of the member who invited another member.</p>
+   * The identifier of the member who invited another member.
+   *
    * @public
    */
   InvitedBy?: Identity | undefined;
 
   /**
-   * <p>The membership type set for the channel member.</p>
+   * The membership type set for the channel member.
+   *
    * @public
    */
   Type?: ChannelMembershipType | undefined;
 
   /**
-   * <p>The data of the channel member.</p>
+   * The data of the channel member.
+   *
    * @public
    */
   Member?: Identity | undefined;
 
   /**
-   * <p>The ARN of the member's channel.</p>
+   * The ARN of the member's channel.
+   *
    * @public
    */
   ChannelArn?: string | undefined;
 
   /**
-   * <p>The time at which the channel membership was created.</p>
+   * The time at which the channel membership was created.
+   *
    * @public
    */
   CreatedTimestamp?: Date | undefined;
 
   /**
-   * <p>The time at which a channel membership was last updated.</p>
+   * The time at which a channel membership was last updated.
+   *
    * @public
    */
   LastUpdatedTimestamp?: Date | undefined;
 
   /**
-   * <p>The ID of the SubChannel that a user belongs to.</p>
+   * The ID of the SubChannel that a user belongs to.
+   *
    * @public
    */
   SubChannelId?: string | undefined;
 }
 
 /**
- * <p>Summary of the details of a <code>Channel</code>.</p>
+ * Summary of the details of a `Channel`.
+ *
  * @public
  */
 export interface ChannelSummary {
   /**
-   * <p>The name of the channel.</p>
+   * The name of the channel.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The ARN of the channel.</p>
+   * The ARN of the channel.
+   *
    * @public
    */
   ChannelArn?: string | undefined;
 
   /**
-   * <p>The mode of the channel.</p>
+   * The mode of the channel.
+   *
    * @public
    */
   Mode?: ChannelMode | undefined;
 
   /**
-   * <p>The privacy setting of the channel.</p>
+   * The privacy setting of the channel.
+   *
    * @public
    */
   Privacy?: ChannelPrivacy | undefined;
 
   /**
-   * <p>The metadata of the channel.</p>
+   * The metadata of the channel.
+   *
    * @public
    */
   Metadata?: string | undefined;
 
   /**
-   * <p>The time at which the last persistent message visible to the caller in a channel was sent.</p>
+   * The time at which the last persistent message visible to the caller in a channel was sent.
+   *
    * @public
    */
   LastMessageTimestamp?: Date | undefined;
 }
 
 /**
- * <p>Summary of the channel membership details of an <code>AppInstanceUser</code>.</p>
+ * Summary of the channel membership details of an `AppInstanceUser`.
+ *
  * @public
  */
 export interface ChannelMembershipForAppInstanceUserSummary {
   /**
-   * <p>Returns the channel data for an <code>AppInstance</code>.</p>
+   * Returns the channel data for an `AppInstance`.
+   *
    * @public
    */
   ChannelSummary?: ChannelSummary | undefined;
 
   /**
-   * <p>Returns the channel membership data for an <code>AppInstance</code>.</p>
+   * Returns the channel membership data for an `AppInstance`.
+   *
    * @public
    */
   AppInstanceUserMembershipSummary?: AppInstanceUserMembershipSummary | undefined;
 }
 
 /**
- * <p>The channel membership preferences for push notification.</p>
+ * The channel membership preferences for push notification.
+ *
  * @public
  */
 export interface PushNotificationPreferences {
   /**
-   * <p>Enum value that indicates which push notifications to send to the requested member of a channel.
-   *          <code>ALL</code> sends all push notifications, <code>NONE</code> sends no push notifications, <code>FILTERED</code> sends only filtered push notifications.
-   *       </p>
+   * Enum value that indicates which push notifications to send to the requested member of a channel. `ALL` sends all push notifications, `NONE` sends no push notifications, `FILTERED` sends only filtered push notifications.
+   *
    * @public
    */
   AllowNotifications: AllowNotifications | undefined;
 
   /**
-   * <p>The simple JSON object used to send a subset of a push notification to the requested member.</p>
+   * The simple JSON object used to send a subset of a push notification to the requested member.
+   *
    * @public
    */
   FilterRule?: string | undefined;
 }
 
 /**
- * <p>The channel membership preferences for an <code>AppInstanceUser</code>.</p>
+ * The channel membership preferences for an `AppInstanceUser`.
+ *
  * @public
  */
 export interface ChannelMembershipPreferences {
   /**
-   * <p>The push notification configuration of a message.</p>
+   * The push notification configuration of a message.
+   *
    * @public
    */
   PushNotifications?: PushNotificationPreferences | undefined;
 }
 
 /**
- * <p>Summary of the details of a <code>ChannelMembership</code>.</p>
+ * Summary of the details of a `ChannelMembership`.
+ *
  * @public
  */
 export interface ChannelMembershipSummary {
   /**
-   * <p>A member's summary data.</p>
+   * A member's summary data.
+   *
    * @public
    */
   Member?: Identity | undefined;
 }
 
 /**
- * <p>Stores information about a message status.</p>
+ * Stores information about a message status.
+ *
  * @public
  */
 export interface ChannelMessageStatusStructure {
   /**
-   * <p>The message status value.</p>
+   * The message status value.
+   *
    * @public
    */
   Value?: ChannelMessageStatus | undefined;
 
   /**
-   * <p>Contains more details about the message status.</p>
+   * Contains more details about the message status.
+   *
    * @public
    */
   Detail?: string | undefined;
 }
 
 /**
- * <p>The target of a message, a sender, a user, or a bot. Only the target and the sender can view targeted messages.
- *          Only users who can see targeted messages can take actions on them. However, administrators can delete targeted messages that they can’t see.</p>
+ * The target of a message, a sender, a user, or a bot. Only the target and the sender can view targeted messages. Only users who can see targeted messages can take actions on them. However, administrators can delete targeted messages that they can’t see.
+ *
  * @public
  */
 export interface Target {
   /**
-   * <p>The ARN of the target channel member.</p>
+   * The ARN of the target channel member.
+   *
    * @public
    */
   MemberArn?: string | undefined;
 }
 
 /**
- * <p>The details of a message in a channel.</p>
+ * The details of a message in a channel.
+ *
  * @public
  */
 export interface ChannelMessage {
   /**
-   * <p>The ARN of the channel.</p>
+   * The ARN of the channel.
+   *
    * @public
    */
   ChannelArn?: string | undefined;
 
   /**
-   * <p>The ID of a message.</p>
+   * The ID of a message.
+   *
    * @public
    */
   MessageId?: string | undefined;
 
   /**
-   * <p>The content of the channel message. For Amazon Lex V2 bot responses, this field holds a list of messages originating from the bot. For more information, refer to
-   *          <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html">Processing responses from an AppInstanceBot</a> in the
-   *          <i>Amazon Chime SDK Messaging Developer Guide</i>.</p>
+   * The content of the channel message. For Amazon Lex V2 bot responses, this field holds a list of messages originating from the bot. For more information, refer to [Processing responses from an AppInstanceBot](https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html) in the *Amazon Chime SDK Messaging Developer Guide*.
+   *
    * @public
    */
   Content?: string | undefined;
 
   /**
-   * <p>The message metadata.</p>
+   * The message metadata.
+   *
    * @public
    */
   Metadata?: string | undefined;
 
   /**
-   * <p>The message type.</p>
+   * The message type.
+   *
    * @public
    */
   Type?: ChannelMessageType | undefined;
 
   /**
-   * <p>The time at which the message was created.</p>
+   * The time at which the message was created.
+   *
    * @public
    */
   CreatedTimestamp?: Date | undefined;
 
   /**
-   * <p>The time at which a message was edited.</p>
+   * The time at which a message was edited.
+   *
    * @public
    */
   LastEditedTimestamp?: Date | undefined;
 
   /**
-   * <p>The time at which a message was updated.</p>
+   * The time at which a message was updated.
+   *
    * @public
    */
   LastUpdatedTimestamp?: Date | undefined;
 
   /**
-   * <p>The message sender.</p>
+   * The message sender.
+   *
    * @public
    */
   Sender?: Identity | undefined;
 
   /**
-   * <p>Hides the content of a message.</p>
+   * Hides the content of a message.
+   *
    * @public
    */
   Redacted?: boolean | undefined;
 
   /**
-   * <p>The persistence setting for a channel message.</p>
+   * The persistence setting for a channel message.
+   *
    * @public
    */
   Persistence?: ChannelMessagePersistenceType | undefined;
 
   /**
-   * <p>The status of the channel message.</p>
+   * The status of the channel message.
+   *
    * @public
    */
   Status?: ChannelMessageStatusStructure | undefined;
 
   /**
-   * <p>The attributes for the channel message. For Amazon Lex V2 bot responses, the attributes are mapped to specific fields from the bot. For more information, refer to
-   *          <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html">Processing responses from an AppInstanceBot</a> in the
-   *          <i>Amazon Chime SDK Messaging Developer Guide</i>.</p>
+   * The attributes for the channel message. For Amazon Lex V2 bot responses, the attributes are mapped to specific fields from the bot. For more information, refer to [Processing responses from an AppInstanceBot](https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html) in the *Amazon Chime SDK Messaging Developer Guide*.
+   *
    * @public
    */
   MessageAttributes?: Record<string, MessageAttributeValue> | undefined;
 
   /**
-   * <p>The ID of the SubChannel.</p>
+   * The ID of the SubChannel.
+   *
    * @public
    */
   SubChannelId?: string | undefined;
 
   /**
-   * <p>The content type of the channel message. For Amazon Lex V2 bot responses, the content type is <code>application/amz-chime-lex-msgs</code> for success responses and
-   *          <code>application/amz-chime-lex-error</code> for failure responses. For more information, refer to
-   *          <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html">Processing responses from an AppInstanceBot</a> in the
-   *          <i>Amazon Chime SDK Messaging Developer Guide</i>.</p>
+   * The content type of the channel message. For Amazon Lex V2 bot responses, the content type is `application/amz-chime-lex-msgs` for success responses and `application/amz-chime-lex-error` for failure responses. For more information, refer to [Processing responses from an AppInstanceBot](https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html) in the *Amazon Chime SDK Messaging Developer Guide*.
+   *
    * @public
    */
   ContentType?: string | undefined;
 
   /**
-   * <p>The target of a message, a sender, a user, or a bot.  Only the target and the sender can view targeted messages.
-   *          Only users who can see targeted messages can take actions on them. However, administrators can delete targeted messages that they can’t see.</p>
+   * The target of a message, a sender, a user, or a bot. Only the target and the sender can view targeted messages. Only users who can see targeted messages can take actions on them. However, administrators can delete targeted messages that they can’t see.
+   *
    * @public
    */
   Target?: Target[] | undefined;
 }
 
 /**
- * <p>Summary of the messages in a <code>Channel</code>.</p>
+ * Summary of the messages in a `Channel`.
+ *
  * @public
  */
 export interface ChannelMessageSummary {
   /**
-   * <p>The ID of the message.</p>
+   * The ID of the message.
+   *
    * @public
    */
   MessageId?: string | undefined;
 
   /**
-   * <p>The content of the channel message. For Amazon Lex V2 bot responses, this field holds a list of messages originating from the bot. For more information, refer to
-   *          <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html">Processing responses from an AppInstanceBot</a> in the
-   *          <i>Amazon Chime SDK Messaging Developer Guide</i>.</p>
+   * The content of the channel message. For Amazon Lex V2 bot responses, this field holds a list of messages originating from the bot. For more information, refer to [Processing responses from an AppInstanceBot](https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html) in the *Amazon Chime SDK Messaging Developer Guide*.
+   *
    * @public
    */
   Content?: string | undefined;
 
   /**
-   * <p>The metadata of the message.</p>
+   * The metadata of the message.
+   *
    * @public
    */
   Metadata?: string | undefined;
 
   /**
-   * <p>The type of message.</p>
+   * The type of message.
+   *
    * @public
    */
   Type?: ChannelMessageType | undefined;
 
   /**
-   * <p>The time at which the message summary was created.</p>
+   * The time at which the message summary was created.
+   *
    * @public
    */
   CreatedTimestamp?: Date | undefined;
 
   /**
-   * <p>The time at which a message was last updated.</p>
+   * The time at which a message was last updated.
+   *
    * @public
    */
   LastUpdatedTimestamp?: Date | undefined;
 
   /**
-   * <p>The time at which a message was last edited.</p>
+   * The time at which a message was last edited.
+   *
    * @public
    */
   LastEditedTimestamp?: Date | undefined;
 
   /**
-   * <p>The message sender.</p>
+   * The message sender.
+   *
    * @public
    */
   Sender?: Identity | undefined;
 
   /**
-   * <p>Indicates whether a message was redacted.</p>
+   * Indicates whether a message was redacted.
+   *
    * @public
    */
   Redacted?: boolean | undefined;
 
   /**
-   * <p>The message status. The status value is <code>SENT</code> for messages sent to a channel without a channel flow. For channels associated with channel flow, the value determines the
-   *          processing stage.</p>
+   * The message status. The status value is `SENT` for messages sent to a channel without a channel flow. For channels associated with channel flow, the value determines the processing stage.
+   *
    * @public
    */
   Status?: ChannelMessageStatusStructure | undefined;
 
   /**
-   * <p>The attributes for the channel message. For Amazon Lex V2 bot responses, the attributes are mapped to specific fields from the bot. For more information, refer to
-   *          <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html">Processing responses from an AppInstanceBot</a> in the
-   *          <i>Amazon Chime SDK Messaging Developer Guide</i>.</p>
+   * The attributes for the channel message. For Amazon Lex V2 bot responses, the attributes are mapped to specific fields from the bot. For more information, refer to [Processing responses from an AppInstanceBot](https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html) in the *Amazon Chime SDK Messaging Developer Guide*.
+   *
    * @public
    */
   MessageAttributes?: Record<string, MessageAttributeValue> | undefined;
 
   /**
-   * <p>The content type of the channel message listed in the summary. For Amazon Lex V2 bot responses, the content type is <code>application/amz-chime-lex-msgs</code> for success responses and
-   *          <code>application/amz-chime-lex-error</code> for failure responses. For more information, refer to
-   *          <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html">Processing responses from an AppInstanceBot</a> in the
-   *          <i>Amazon Chime SDK Messaging Developer Guide</i>.</p>
+   * The content type of the channel message listed in the summary. For Amazon Lex V2 bot responses, the content type is `application/amz-chime-lex-msgs` for success responses and `application/amz-chime-lex-error` for failure responses. For more information, refer to [Processing responses from an AppInstanceBot](https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html) in the *Amazon Chime SDK Messaging Developer Guide*.
+   *
    * @public
    */
   ContentType?: string | undefined;
 
   /**
-   * <p>The target of a message, a sender, a user, or a bot. Only the target and the sender can view targeted messages.
-   *          Only users who can see targeted messages can take actions on them. However, administrators can delete targeted messages that they can’t see.</p>
+   * The target of a message, a sender, a user, or a bot. Only the target and the sender can view targeted messages. Only users who can see targeted messages can take actions on them. However, administrators can delete targeted messages that they can’t see.
+   *
    * @public
    */
   Target?: Target[] | undefined;
 }
 
 /**
- * <p>Summary of the details of a moderated channel.</p>
+ * Summary of the details of a moderated channel.
+ *
  * @public
  */
 export interface ChannelModeratedByAppInstanceUserSummary {
   /**
-   * <p>Summary of the details of a <code>Channel</code>.</p>
+   * Summary of the details of a `Channel`.
+   *
    * @public
    */
   ChannelSummary?: ChannelSummary | undefined;
 }
 
 /**
- * <p>The details of a channel moderator.</p>
+ * The details of a channel moderator.
+ *
  * @public
  */
 export interface ChannelModerator {
   /**
-   * <p>The moderator's data.</p>
+   * The moderator's data.
+   *
    * @public
    */
   Moderator?: Identity | undefined;
 
   /**
-   * <p>The ARN of the moderator's channel.</p>
+   * The ARN of the moderator's channel.
+   *
    * @public
    */
   ChannelArn?: string | undefined;
 
   /**
-   * <p>The time at which the moderator was created.</p>
+   * The time at which the moderator was created.
+   *
    * @public
    */
   CreatedTimestamp?: Date | undefined;
 
   /**
-   * <p>The <code>AppInstanceUser</code> who created the moderator.</p>
+   * The `AppInstanceUser` who created the moderator.
+   *
    * @public
    */
   CreatedBy?: Identity | undefined;
 }
 
 /**
- * <p>Summary of the details of a <code>ChannelModerator</code>.</p>
+ * Summary of the details of a `ChannelModerator`.
+ *
  * @public
  */
 export interface ChannelModeratorSummary {
   /**
-   * <p>The data for a moderator.</p>
+   * The data for a moderator.
+   *
    * @public
    */
   Moderator?: Identity | undefined;
 }
 
 /**
- * <p>A tag object containing a key-value pair.</p>
+ * A tag object containing a key-value pair.
+ *
  * @public
  */
 export interface Tag {
   /**
-   * <p>The key in a tag.</p>
+   * The key in a tag.
+   *
    * @public
    */
   Key: string | undefined;
 
   /**
-   * <p>The value in a tag.</p>
+   * The value in a tag.
+   *
    * @public
    */
   Value: string | undefined;
@@ -1130,83 +1262,92 @@ export interface Tag {
  */
 export interface CreateChannelRequest {
   /**
-   * <p>The ARN of the channel request.</p>
+   * The ARN of the channel request.
+   *
    * @public
    */
   AppInstanceArn: string | undefined;
 
   /**
-   * <p>The name of the channel.</p>
+   * The name of the channel.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The channel mode: <code>UNRESTRICTED</code> or <code>RESTRICTED</code>. Administrators,
-   *          moderators, and channel members can add themselves and other members to unrestricted
-   *          channels. Only administrators and moderators can add members to restricted channels.</p>
+   * The channel mode: `UNRESTRICTED` or `RESTRICTED`. Administrators, moderators, and channel members can add themselves and other members to unrestricted channels. Only administrators and moderators can add members to restricted channels.
+   *
    * @public
    */
   Mode?: ChannelMode | undefined;
 
   /**
-   * <p>The channel's privacy level: <code>PUBLIC</code> or <code>PRIVATE</code>. Private
-   *          channels aren't discoverable by users outside the channel. Public channels are discoverable
-   *          by anyone in the <code>AppInstance</code>.</p>
+   * The channel's privacy level: `PUBLIC` or `PRIVATE`. Private channels aren't discoverable by users outside the channel. Public channels are discoverable by anyone in the `AppInstance`.
+   *
    * @public
    */
   Privacy?: ChannelPrivacy | undefined;
 
   /**
-   * <p>The metadata of the creation request. Limited to 1KB and UTF-8.</p>
+   * The metadata of the creation request. Limited to 1KB and UTF-8.
+   *
    * @public
    */
   Metadata?: string | undefined;
 
   /**
-   * <p>The client token for the request. An <code>Idempotency</code> token.</p>
+   * The client token for the request. An `Idempotency` token.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
 
   /**
-   * <p>The tags for the creation request.</p>
+   * The tags for the creation request.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>
+   * The ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call.
+   *
    * @public
    */
   ChimeBearer: string | undefined;
 
   /**
-   * <p>An ID for the channel being created. If you do not specify an ID, a UUID will be created for the channel.</p>
+   * An ID for the channel being created. If you do not specify an ID, a UUID will be created for the channel.
+   *
    * @public
    */
   ChannelId?: string | undefined;
 
   /**
-   * <p>The ARNs of the channel members in the request.</p>
+   * The ARNs of the channel members in the request.
+   *
    * @public
    */
   MemberArns?: string[] | undefined;
 
   /**
-   * <p>The ARNs of the channel moderators in the request.</p>
+   * The ARNs of the channel moderators in the request.
+   *
    * @public
    */
   ModeratorArns?: string[] | undefined;
 
   /**
-   * <p>The attributes required to configure and create an elastic channel. An elastic channel can support a maximum of 1-million users, excluding moderators.</p>
+   * The attributes required to configure and create an elastic channel. An elastic channel can support a maximum of 1-million users, excluding moderators.
+   *
    * @public
    */
   ElasticChannelConfiguration?: ElasticChannelConfiguration | undefined;
 
   /**
-   * <p>Settings that control the interval after which the channel is automatically deleted.</p>
+   * Settings that control the interval after which the channel is automatically deleted.
+   *
    * @public
    */
   ExpirationSettings?: ExpirationSettings | undefined;
@@ -1217,7 +1358,8 @@ export interface CreateChannelRequest {
  */
 export interface CreateChannelResponse {
   /**
-   * <p>The ARN of the channel.</p>
+   * The ARN of the channel.
+   *
    * @public
    */
   ChannelArn?: string | undefined;
@@ -1228,19 +1370,22 @@ export interface CreateChannelResponse {
  */
 export interface CreateChannelBanRequest {
   /**
-   * <p>The ARN of the ban request.</p>
+   * The ARN of the ban request.
+   *
    * @public
    */
   ChannelArn: string | undefined;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the member being banned.</p>
+   * The `AppInstanceUserArn` of the member being banned.
+   *
    * @public
    */
   MemberArn: string | undefined;
 
   /**
-   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>
+   * The ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call.
+   *
    * @public
    */
   ChimeBearer: string | undefined;
@@ -1251,14 +1396,15 @@ export interface CreateChannelBanRequest {
  */
 export interface CreateChannelBanResponse {
   /**
-   * <p>The ARN of the response to the ban request.</p>
+   * The ARN of the response to the ban request.
+   *
    * @public
    */
   ChannelArn?: string | undefined;
 
   /**
-   * <p>The <code>ChannelArn</code> and <code>BannedIdentity</code> of the member in the ban
-   *          response.</p>
+   * The `ChannelArn` and `BannedIdentity` of the member in the ban response.
+   *
    * @public
    */
   Member?: Identity | undefined;
@@ -1269,31 +1415,36 @@ export interface CreateChannelBanResponse {
  */
 export interface CreateChannelFlowRequest {
   /**
-   * <p>The ARN of the channel flow request.</p>
+   * The ARN of the channel flow request.
+   *
    * @public
    */
   AppInstanceArn: string | undefined;
 
   /**
-   * <p>Information about the processor Lambda functions.</p>
+   * Information about the processor Lambda functions.
+   *
    * @public
    */
   Processors: Processor[] | undefined;
 
   /**
-   * <p>The name of the channel flow.</p>
+   * The name of the channel flow.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The tags for the creation request.</p>
+   * The tags for the creation request.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>The client token for the request. An Idempotency token.</p>
+   * The client token for the request. An Idempotency token.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
@@ -1304,7 +1455,8 @@ export interface CreateChannelFlowRequest {
  */
 export interface CreateChannelFlowResponse {
   /**
-   * <p>The ARN of the channel flow.</p>
+   * The ARN of the channel flow.
+   *
    * @public
    */
   ChannelFlowArn?: string | undefined;
@@ -1315,39 +1467,38 @@ export interface CreateChannelFlowResponse {
  */
 export interface CreateChannelMembershipRequest {
   /**
-   * <p>The ARN of the channel to which you're adding users.</p>
+   * The ARN of the channel to which you're adding users.
+   *
    * @public
    */
   ChannelArn: string | undefined;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the member you want to add to the channel.</p>
+   * The `AppInstanceUserArn` of the member you want to add to the channel.
+   *
    * @public
    */
   MemberArn: string | undefined;
 
   /**
-   * <p>The membership type of a user, <code>DEFAULT</code> or <code>HIDDEN</code>. Default
-   *          members are always returned as part of <code>ListChannelMemberships</code>. Hidden members
-   *          are only returned if the type filter in <code>ListChannelMemberships</code> equals
-   *             <code>HIDDEN</code>. Otherwise hidden members are not returned. This is only supported
-   *          by moderators.</p>
+   * The membership type of a user, `DEFAULT` or `HIDDEN`. Default members are always returned as part of `ListChannelMemberships`. Hidden members are only returned if the type filter in `ListChannelMemberships` equals `HIDDEN`. Otherwise hidden members are not returned. This is only supported by moderators.
+   *
    * @public
    */
   Type: ChannelMembershipType | undefined;
 
   /**
-   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
-   *          that makes the API call.</p>
+   * The ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call.
+   *
    * @public
    */
   ChimeBearer: string | undefined;
 
   /**
-   * <p>The ID of the SubChannel in the request.</p>
-   *          <note>
-   *             <p>Only required when creating membership in a SubChannel for a moderator in an elastic channel.</p>
-   *          </note>
+   * The ID of the SubChannel in the request.
+   *
+   * > **Note:** Only required when creating membership in a SubChannel for a moderator in an elastic channel.
+   *
    * @public
    */
   SubChannelId?: string | undefined;
@@ -1358,19 +1509,22 @@ export interface CreateChannelMembershipRequest {
  */
 export interface CreateChannelMembershipResponse {
   /**
-   * <p>The ARN of the channel.</p>
+   * The ARN of the channel.
+   *
    * @public
    */
   ChannelArn?: string | undefined;
 
   /**
-   * <p>The ARN and metadata of the member being added.</p>
+   * The ARN and metadata of the member being added.
+   *
    * @public
    */
   Member?: Identity | undefined;
 
   /**
-   * <p>The ID of the SubChannel in the response.</p>
+   * The ID of the SubChannel in the response.
+   *
    * @public
    */
   SubChannelId?: string | undefined;
@@ -1381,20 +1535,22 @@ export interface CreateChannelMembershipResponse {
  */
 export interface CreateChannelModeratorRequest {
   /**
-   * <p>The ARN of the channel.</p>
+   * The ARN of the channel.
+   *
    * @public
    */
   ChannelArn: string | undefined;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the moderator.</p>
+   * The `AppInstanceUserArn` of the moderator.
+   *
    * @public
    */
   ChannelModeratorArn: string | undefined;
 
   /**
-   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
-   *          that makes the API call.</p>
+   * The ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call.
+   *
    * @public
    */
   ChimeBearer: string | undefined;
@@ -1405,13 +1561,15 @@ export interface CreateChannelModeratorRequest {
  */
 export interface CreateChannelModeratorResponse {
   /**
-   * <p>The ARN of the channel.</p>
+   * The ARN of the channel.
+   *
    * @public
    */
   ChannelArn?: string | undefined;
 
   /**
-   * <p>The ARNs of the channel and the moderator.</p>
+   * The ARNs of the channel and the moderator.
+   *
    * @public
    */
   ChannelModerator?: Identity | undefined;
@@ -1422,14 +1580,15 @@ export interface CreateChannelModeratorResponse {
  */
 export interface DeleteChannelRequest {
   /**
-   * <p>The ARN of the channel being deleted.</p>
+   * The ARN of the channel being deleted.
+   *
    * @public
    */
   ChannelArn: string | undefined;
 
   /**
-   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
-   *          that makes the API call.</p>
+   * The ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call.
+   *
    * @public
    */
   ChimeBearer: string | undefined;
@@ -1440,20 +1599,22 @@ export interface DeleteChannelRequest {
  */
 export interface DeleteChannelBanRequest {
   /**
-   * <p>The ARN of the channel from which the <code>AppInstanceUser</code> was banned.</p>
+   * The ARN of the channel from which the `AppInstanceUser` was banned.
+   *
    * @public
    */
   ChannelArn: string | undefined;
 
   /**
-   * <p>The ARN of the <code>AppInstanceUser</code> that you want to reinstate.</p>
+   * The ARN of the `AppInstanceUser` that you want to reinstate.
+   *
    * @public
    */
   MemberArn: string | undefined;
 
   /**
-   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the
-   *          API call.</p>
+   * The ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call.
+   *
    * @public
    */
   ChimeBearer: string | undefined;
@@ -1464,7 +1625,8 @@ export interface DeleteChannelBanRequest {
  */
 export interface DeleteChannelFlowRequest {
   /**
-   * <p>The ARN of the channel flow.</p>
+   * The ARN of the channel flow.
+   *
    * @public
    */
   ChannelFlowArn: string | undefined;
@@ -1475,29 +1637,31 @@ export interface DeleteChannelFlowRequest {
  */
 export interface DeleteChannelMembershipRequest {
   /**
-   * <p>The ARN of the channel from which you want to remove the user.</p>
+   * The ARN of the channel from which you want to remove the user.
+   *
    * @public
    */
   ChannelArn: string | undefined;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the member that you're removing from the channel.</p>
+   * The `AppInstanceUserArn` of the member that you're removing from the channel.
+   *
    * @public
    */
   MemberArn: string | undefined;
 
   /**
-   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the
-   *          API call.</p>
+   * The ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call.
+   *
    * @public
    */
   ChimeBearer: string | undefined;
 
   /**
-   * <p>The ID of the SubChannel in the request.</p>
-   *          <note>
-   *             <p>Only for use by moderators.</p>
-   *          </note>
+   * The ID of the SubChannel in the request.
+   *
+   * > **Note:** Only for use by moderators.
+   *
    * @public
    */
   SubChannelId?: string | undefined;
@@ -1508,29 +1672,31 @@ export interface DeleteChannelMembershipRequest {
  */
 export interface DeleteChannelMessageRequest {
   /**
-   * <p>The ARN of the channel.</p>
+   * The ARN of the channel.
+   *
    * @public
    */
   ChannelArn: string | undefined;
 
   /**
-   * <p>The ID of the message being deleted.</p>
+   * The ID of the message being deleted.
+   *
    * @public
    */
   MessageId: string | undefined;
 
   /**
-   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the
-   *          API call.</p>
+   * The ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call.
+   *
    * @public
    */
   ChimeBearer: string | undefined;
 
   /**
-   * <p>The ID of the SubChannel in the request.</p>
-   *          <note>
-   *             <p>Only required when deleting messages in a SubChannel that the user belongs to.</p>
-   *          </note>
+   * The ID of the SubChannel in the request.
+   *
+   * > **Note:** Only required when deleting messages in a SubChannel that the user belongs to.
+   *
    * @public
    */
   SubChannelId?: string | undefined;
@@ -1541,20 +1707,22 @@ export interface DeleteChannelMessageRequest {
  */
 export interface DeleteChannelModeratorRequest {
   /**
-   * <p>The ARN of the channel.</p>
+   * The ARN of the channel.
+   *
    * @public
    */
   ChannelArn: string | undefined;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the moderator being deleted.</p>
+   * The `AppInstanceUserArn` of the moderator being deleted.
+   *
    * @public
    */
   ChannelModeratorArn: string | undefined;
 
   /**
-   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the
-   *          API call.</p>
+   * The ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call.
+   *
    * @public
    */
   ChimeBearer: string | undefined;
@@ -1565,7 +1733,8 @@ export interface DeleteChannelModeratorRequest {
  */
 export interface DeleteMessagingStreamingConfigurationsRequest {
   /**
-   * <p>The ARN of the streaming configurations being deleted.</p>
+   * The ARN of the streaming configurations being deleted.
+   *
    * @public
    */
   AppInstanceArn: string | undefined;
@@ -1576,14 +1745,15 @@ export interface DeleteMessagingStreamingConfigurationsRequest {
  */
 export interface DescribeChannelRequest {
   /**
-   * <p>The ARN of the channel.</p>
+   * The ARN of the channel.
+   *
    * @public
    */
   ChannelArn: string | undefined;
 
   /**
-   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the
-   *          API call.</p>
+   * The ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call.
+   *
    * @public
    */
   ChimeBearer: string | undefined;
@@ -1594,7 +1764,8 @@ export interface DescribeChannelRequest {
  */
 export interface DescribeChannelResponse {
   /**
-   * <p>The channel details.</p>
+   * The channel details.
+   *
    * @public
    */
   Channel?: Channel | undefined;
@@ -1605,20 +1776,22 @@ export interface DescribeChannelResponse {
  */
 export interface DescribeChannelBanRequest {
   /**
-   * <p>The ARN of the channel from which the user is banned.</p>
+   * The ARN of the channel from which the user is banned.
+   *
    * @public
    */
   ChannelArn: string | undefined;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the member being banned.</p>
+   * The `AppInstanceUserArn` of the member being banned.
+   *
    * @public
    */
   MemberArn: string | undefined;
 
   /**
-   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the
-   *          API call.</p>
+   * The ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call.
+   *
    * @public
    */
   ChimeBearer: string | undefined;
@@ -1629,7 +1802,8 @@ export interface DescribeChannelBanRequest {
  */
 export interface DescribeChannelBanResponse {
   /**
-   * <p>The details of the ban.</p>
+   * The details of the ban.
+   *
    * @public
    */
   ChannelBan?: ChannelBan | undefined;
@@ -1640,7 +1814,8 @@ export interface DescribeChannelBanResponse {
  */
 export interface DescribeChannelFlowRequest {
   /**
-   * <p>The ARN of the channel flow.</p>
+   * The ARN of the channel flow.
+   *
    * @public
    */
   ChannelFlowArn: string | undefined;
@@ -1651,7 +1826,8 @@ export interface DescribeChannelFlowRequest {
  */
 export interface DescribeChannelFlowResponse {
   /**
-   * <p>The channel flow details.</p>
+   * The channel flow details.
+   *
    * @public
    */
   ChannelFlow?: ChannelFlow | undefined;
@@ -1662,29 +1838,31 @@ export interface DescribeChannelFlowResponse {
  */
 export interface DescribeChannelMembershipRequest {
   /**
-   * <p>The ARN of the channel.</p>
+   * The ARN of the channel.
+   *
    * @public
    */
   ChannelArn: string | undefined;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the member.</p>
+   * The `AppInstanceUserArn` of the member.
+   *
    * @public
    */
   MemberArn: string | undefined;
 
   /**
-   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the
-   *          API call.</p>
+   * The ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call.
+   *
    * @public
    */
   ChimeBearer: string | undefined;
 
   /**
-   * <p>The ID of the SubChannel in the request. The response contains an <code>ElasticChannelConfiguration</code> object.</p>
-   *          <note>
-   *             <p>Only required to get a user’s SubChannel membership details.</p>
-   *          </note>
+   * The ID of the SubChannel in the request. The response contains an `ElasticChannelConfiguration` object.
+   *
+   * > **Note:** Only required to get a user’s SubChannel membership details.
+   *
    * @public
    */
   SubChannelId?: string | undefined;
@@ -1695,7 +1873,8 @@ export interface DescribeChannelMembershipRequest {
  */
 export interface DescribeChannelMembershipResponse {
   /**
-   * <p>The details of the membership.</p>
+   * The details of the membership.
+   *
    * @public
    */
   ChannelMembership?: ChannelMembership | undefined;
@@ -1706,20 +1885,22 @@ export interface DescribeChannelMembershipResponse {
  */
 export interface DescribeChannelMembershipForAppInstanceUserRequest {
   /**
-   * <p>The ARN of the channel to which the user belongs.</p>
+   * The ARN of the channel to which the user belongs.
+   *
    * @public
    */
   ChannelArn: string | undefined;
 
   /**
-   * <p>The ARN of the user or bot in a channel.</p>
+   * The ARN of the user or bot in a channel.
+   *
    * @public
    */
   AppInstanceUserArn: string | undefined;
 
   /**
-   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
-   *          that makes the API call.</p>
+   * The ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call.
+   *
    * @public
    */
   ChimeBearer: string | undefined;
@@ -1730,7 +1911,8 @@ export interface DescribeChannelMembershipForAppInstanceUserRequest {
  */
 export interface DescribeChannelMembershipForAppInstanceUserResponse {
   /**
-   * <p>The channel to which a user belongs.</p>
+   * The channel to which a user belongs.
+   *
    * @public
    */
   ChannelMembership?: ChannelMembershipForAppInstanceUserSummary | undefined;
@@ -1741,20 +1923,22 @@ export interface DescribeChannelMembershipForAppInstanceUserResponse {
  */
 export interface DescribeChannelModeratedByAppInstanceUserRequest {
   /**
-   * <p>The ARN of the moderated channel.</p>
+   * The ARN of the moderated channel.
+   *
    * @public
    */
   ChannelArn: string | undefined;
 
   /**
-   * <p>The ARN of the user or bot in the moderated channel.</p>
+   * The ARN of the user or bot in the moderated channel.
+   *
    * @public
    */
   AppInstanceUserArn: string | undefined;
 
   /**
-   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
-   *          that makes the API call.</p>
+   * The ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call.
+   *
    * @public
    */
   ChimeBearer: string | undefined;
@@ -1765,7 +1949,8 @@ export interface DescribeChannelModeratedByAppInstanceUserRequest {
  */
 export interface DescribeChannelModeratedByAppInstanceUserResponse {
   /**
-   * <p>The moderated channel.</p>
+   * The moderated channel.
+   *
    * @public
    */
   Channel?: ChannelModeratedByAppInstanceUserSummary | undefined;
@@ -1776,20 +1961,22 @@ export interface DescribeChannelModeratedByAppInstanceUserResponse {
  */
 export interface DescribeChannelModeratorRequest {
   /**
-   * <p>The ARN of the channel.</p>
+   * The ARN of the channel.
+   *
    * @public
    */
   ChannelArn: string | undefined;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the channel moderator.</p>
+   * The `AppInstanceUserArn` of the channel moderator.
+   *
    * @public
    */
   ChannelModeratorArn: string | undefined;
 
   /**
-   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
-   *          that makes the API call.</p>
+   * The ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call.
+   *
    * @public
    */
   ChimeBearer: string | undefined;
@@ -1800,7 +1987,8 @@ export interface DescribeChannelModeratorRequest {
  */
 export interface DescribeChannelModeratorResponse {
   /**
-   * <p>The details of the channel moderator.</p>
+   * The details of the channel moderator.
+   *
    * @public
    */
   ChannelModerator?: ChannelModerator | undefined;
@@ -1811,19 +1999,22 @@ export interface DescribeChannelModeratorResponse {
  */
 export interface DisassociateChannelFlowRequest {
   /**
-   * <p>The ARN of the channel.</p>
+   * The ARN of the channel.
+   *
    * @public
    */
   ChannelArn: string | undefined;
 
   /**
-   * <p>The ARN of the channel flow.</p>
+   * The ARN of the channel flow.
+   *
    * @public
    */
   ChannelFlowArn: string | undefined;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the user making the API call.</p>
+   * The `AppInstanceUserArn` of the user making the API call.
+   *
    * @public
    */
   ChimeBearer: string | undefined;
@@ -1834,19 +2025,22 @@ export interface DisassociateChannelFlowRequest {
  */
 export interface GetChannelMembershipPreferencesRequest {
   /**
-   * <p>The ARN of the channel.</p>
+   * The ARN of the channel.
+   *
    * @public
    */
   ChannelArn: string | undefined;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the member retrieving the preferences.</p>
+   * The `AppInstanceUserArn` of the member retrieving the preferences.
+   *
    * @public
    */
   MemberArn: string | undefined;
 
   /**
-   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>
+   * The ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call.
+   *
    * @public
    */
   ChimeBearer: string | undefined;
@@ -1857,19 +2051,22 @@ export interface GetChannelMembershipPreferencesRequest {
  */
 export interface GetChannelMembershipPreferencesResponse {
   /**
-   * <p>The ARN of the channel.</p>
+   * The ARN of the channel.
+   *
    * @public
    */
   ChannelArn?: string | undefined;
 
   /**
-   * <p>The details of a user.</p>
+   * The details of a user.
+   *
    * @public
    */
   Member?: Identity | undefined;
 
   /**
-   * <p>The channel membership preferences for an <code>AppInstanceUser</code> .</p>
+   * The channel membership preferences for an `AppInstanceUser` .
+   *
    * @public
    */
   Preferences?: ChannelMembershipPreferences | undefined;
@@ -1880,29 +2077,31 @@ export interface GetChannelMembershipPreferencesResponse {
  */
 export interface GetChannelMessageRequest {
   /**
-   * <p>The ARN of the channel.</p>
+   * The ARN of the channel.
+   *
    * @public
    */
   ChannelArn: string | undefined;
 
   /**
-   * <p>The ID of the message.</p>
+   * The ID of the message.
+   *
    * @public
    */
   MessageId: string | undefined;
 
   /**
-   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
-   *          that makes the API call.</p>
+   * The ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call.
+   *
    * @public
    */
   ChimeBearer: string | undefined;
 
   /**
-   * <p>The ID of the SubChannel in the request.</p>
-   *          <note>
-   *             <p>Only required when getting messages in a SubChannel that the user belongs to.</p>
-   *          </note>
+   * The ID of the SubChannel in the request.
+   *
+   * > **Note:** Only required when getting messages in a SubChannel that the user belongs to.
+   *
    * @public
    */
   SubChannelId?: string | undefined;
@@ -1913,7 +2112,8 @@ export interface GetChannelMessageRequest {
  */
 export interface GetChannelMessageResponse {
   /**
-   * <p>The details of and content in the message.</p>
+   * The details of and content in the message.
+   *
    * @public
    */
   ChannelMessage?: ChannelMessage | undefined;
@@ -1924,28 +2124,31 @@ export interface GetChannelMessageResponse {
  */
 export interface GetChannelMessageStatusRequest {
   /**
-   * <p>The ARN of the channel</p>
+   * The ARN of the channel
+   *
    * @public
    */
   ChannelArn: string | undefined;
 
   /**
-   * <p>The ID of the message.</p>
+   * The ID of the message.
+   *
    * @public
    */
   MessageId: string | undefined;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the user making the API call.</p>
+   * The `AppInstanceUserArn` of the user making the API call.
+   *
    * @public
    */
   ChimeBearer: string | undefined;
 
   /**
-   * <p>The ID of the SubChannel in the request.</p>
-   *          <note>
-   *             <p>Only required when getting message status in a SubChannel that the user belongs to.</p>
-   *          </note>
+   * The ID of the SubChannel in the request.
+   *
+   * > **Note:** Only required when getting message status in a SubChannel that the user belongs to.
+   *
    * @public
    */
   SubChannelId?: string | undefined;
@@ -1956,7 +2159,8 @@ export interface GetChannelMessageStatusRequest {
  */
 export interface GetChannelMessageStatusResponse {
   /**
-   * <p>The message status and details.</p>
+   * The message status and details.
+   *
    * @public
    */
   Status?: ChannelMessageStatusStructure | undefined;
@@ -1967,19 +2171,22 @@ export interface GetChannelMessageStatusResponse {
  */
 export interface GetMessagingSessionEndpointRequest {
   /**
-   * <p>The type of network for the messaging session endpoint. Either IPv4 only or dual-stack (IPv4 and IPv6).</p>
+   * The type of network for the messaging session endpoint. Either IPv4 only or dual-stack (IPv4 and IPv6).
+   *
    * @public
    */
   NetworkType?: NetworkType | undefined;
 }
 
 /**
- * <p>The websocket endpoint used to connect to Amazon Chime SDK messaging.</p>
+ * The websocket endpoint used to connect to Amazon Chime SDK messaging.
+ *
  * @public
  */
 export interface MessagingSessionEndpoint {
   /**
-   * <p>The endpoint to which you establish a websocket connection.</p>
+   * The endpoint to which you establish a websocket connection.
+   *
    * @public
    */
   Url?: string | undefined;
@@ -1990,7 +2197,8 @@ export interface MessagingSessionEndpoint {
  */
 export interface GetMessagingSessionEndpointResponse {
   /**
-   * <p>The endpoint returned in the response.</p>
+   * The endpoint returned in the response.
+   *
    * @public
    */
   Endpoint?: MessagingSessionEndpoint | undefined;
@@ -2001,25 +2209,29 @@ export interface GetMessagingSessionEndpointResponse {
  */
 export interface GetMessagingStreamingConfigurationsRequest {
   /**
-   * <p>The ARN of the streaming configurations.</p>
+   * The ARN of the streaming configurations.
+   *
    * @public
    */
   AppInstanceArn: string | undefined;
 }
 
 /**
- * <p>The configuration for connecting a messaging stream to Amazon Kinesis.</p>
+ * The configuration for connecting a messaging stream to Amazon Kinesis.
+ *
  * @public
  */
 export interface StreamingConfiguration {
   /**
-   * <p>The data type of the configuration.</p>
+   * The data type of the configuration.
+   *
    * @public
    */
   DataType: MessagingDataType | undefined;
 
   /**
-   * <p>The ARN of the resource in the configuration. </p>
+   * The ARN of the resource in the configuration.
+   *
    * @public
    */
   ResourceArn: string | undefined;
@@ -2030,7 +2242,8 @@ export interface StreamingConfiguration {
  */
 export interface GetMessagingStreamingConfigurationsResponse {
   /**
-   * <p>The streaming settings.</p>
+   * The streaming settings.
+   *
    * @public
    */
   StreamingConfigurations?: StreamingConfiguration[] | undefined;
@@ -2041,26 +2254,29 @@ export interface GetMessagingStreamingConfigurationsResponse {
  */
 export interface ListChannelBansRequest {
   /**
-   * <p>The ARN of the channel.</p>
+   * The ARN of the channel.
+   *
    * @public
    */
   ChannelArn: string | undefined;
 
   /**
-   * <p>The maximum number of bans that you want returned.</p>
+   * The maximum number of bans that you want returned.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token passed by previous API calls until all requested bans are returned.</p>
+   * The token passed by previous API calls until all requested bans are returned.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
-   *          that makes the API call.</p>
+   * The ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call.
+   *
    * @public
    */
   ChimeBearer: string | undefined;
@@ -2071,19 +2287,22 @@ export interface ListChannelBansRequest {
  */
 export interface ListChannelBansResponse {
   /**
-   * <p>The ARN of the channel.</p>
+   * The ARN of the channel.
+   *
    * @public
    */
   ChannelArn?: string | undefined;
 
   /**
-   * <p>The token passed by previous API calls until all requested bans are returned.</p>
+   * The token passed by previous API calls until all requested bans are returned.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The information for each requested ban.</p>
+   * The information for each requested ban.
+   *
    * @public
    */
   ChannelBans?: ChannelBanSummary[] | undefined;
@@ -2094,19 +2313,22 @@ export interface ListChannelBansResponse {
  */
 export interface ListChannelFlowsRequest {
   /**
-   * <p>The ARN of the app instance.</p>
+   * The ARN of the app instance.
+   *
    * @public
    */
   AppInstanceArn: string | undefined;
 
   /**
-   * <p>The maximum number of channel flows that you want to return.</p>
+   * The maximum number of channel flows that you want to return.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token passed by previous API calls until all requested channel flows are returned.</p>
+   * The token passed by previous API calls until all requested channel flows are returned.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2117,13 +2339,15 @@ export interface ListChannelFlowsRequest {
  */
 export interface ListChannelFlowsResponse {
   /**
-   * <p>The information about each channel flow.</p>
+   * The information about each channel flow.
+   *
    * @public
    */
   ChannelFlows?: ChannelFlowSummary[] | undefined;
 
   /**
-   * <p>The token passed by previous API calls until all requested channels are returned.</p>
+   * The token passed by previous API calls until all requested channels are returned.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2134,45 +2358,45 @@ export interface ListChannelFlowsResponse {
  */
 export interface ListChannelMembershipsRequest {
   /**
-   * <p>The maximum number of channel memberships that you want returned.</p>
+   * The maximum number of channel memberships that you want returned.
+   *
    * @public
    */
   ChannelArn: string | undefined;
 
   /**
-   * <p>The membership type of a user, <code>DEFAULT</code> or <code>HIDDEN</code>. Default
-   *          members are returned as part of <code>ListChannelMemberships</code> if no type is specified. Hidden members
-   *          are only returned if the type filter in <code>ListChannelMemberships</code> equals
-   *             <code>HIDDEN</code>.</p>
+   * The membership type of a user, `DEFAULT` or `HIDDEN`. Default members are returned as part of `ListChannelMemberships` if no type is specified. Hidden members are only returned if the type filter in `ListChannelMemberships` equals `HIDDEN`.
+   *
    * @public
    */
   Type?: ChannelMembershipType | undefined;
 
   /**
-   * <p>The maximum number of channel memberships that you want returned.</p>
+   * The maximum number of channel memberships that you want returned.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token passed by previous API calls until all requested channel memberships are
-   *          returned.</p>
+   * The token passed by previous API calls until all requested channel memberships are returned.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
-   *          that makes the API call.</p>
+   * The ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call.
+   *
    * @public
    */
   ChimeBearer: string | undefined;
 
   /**
-   * <p>The ID of the SubChannel in the request.</p>
-   *          <note>
-   *             <p>Only required when listing a user's memberships in a particular sub-channel of an elastic channel.</p>
-   *          </note>
+   * The ID of the SubChannel in the request.
+   *
+   * > **Note:** Only required when listing a user's memberships in a particular sub-channel of an elastic channel.
+   *
    * @public
    */
   SubChannelId?: string | undefined;
@@ -2183,20 +2407,22 @@ export interface ListChannelMembershipsRequest {
  */
 export interface ListChannelMembershipsResponse {
   /**
-   * <p>The ARN of the channel.</p>
+   * The ARN of the channel.
+   *
    * @public
    */
   ChannelArn?: string | undefined;
 
   /**
-   * <p>The information for the requested channel memberships.</p>
+   * The information for the requested channel memberships.
+   *
    * @public
    */
   ChannelMemberships?: ChannelMembershipSummary[] | undefined;
 
   /**
-   * <p>The token passed by previous API calls until all requested channel memberships are
-   *          returned.</p>
+   * The token passed by previous API calls until all requested channel memberships are returned.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2207,27 +2433,29 @@ export interface ListChannelMembershipsResponse {
  */
 export interface ListChannelMembershipsForAppInstanceUserRequest {
   /**
-   * <p>The ARN of the user or bot.</p>
+   * The ARN of the user or bot.
+   *
    * @public
    */
   AppInstanceUserArn?: string | undefined;
 
   /**
-   * <p>The maximum number of users that you want returned.</p>
+   * The maximum number of users that you want returned.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token returned from previous API requests until the number of channel memberships is
-   *          reached.</p>
+   * The token returned from previous API requests until the number of channel memberships is reached.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
-   *          that makes the API call.</p>
+   * The ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call.
+   *
    * @public
    */
   ChimeBearer: string | undefined;
@@ -2238,13 +2466,15 @@ export interface ListChannelMembershipsForAppInstanceUserRequest {
  */
 export interface ListChannelMembershipsForAppInstanceUserResponse {
   /**
-   * <p>The information for the requested channel memberships.</p>
+   * The information for the requested channel memberships.
+   *
    * @public
    */
   ChannelMemberships?: ChannelMembershipForAppInstanceUserSummary[] | undefined;
 
   /**
-   * <p>The token passed by previous API calls until all requested users are returned.</p>
+   * The token passed by previous API calls until all requested users are returned.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2255,54 +2485,59 @@ export interface ListChannelMembershipsForAppInstanceUserResponse {
  */
 export interface ListChannelMessagesRequest {
   /**
-   * <p>The ARN of the channel.</p>
+   * The ARN of the channel.
+   *
    * @public
    */
   ChannelArn: string | undefined;
 
   /**
-   * <p>The order in which you want messages sorted. Default is Descending, based on time
-   *          created.</p>
+   * The order in which you want messages sorted. Default is Descending, based on time created.
+   *
    * @public
    */
   SortOrder?: SortOrder | undefined;
 
   /**
-   * <p>The initial or starting time stamp for your requested messages.</p>
+   * The initial or starting time stamp for your requested messages.
+   *
    * @public
    */
   NotBefore?: Date | undefined;
 
   /**
-   * <p>The final or ending time stamp for your requested messages.</p>
+   * The final or ending time stamp for your requested messages.
+   *
    * @public
    */
   NotAfter?: Date | undefined;
 
   /**
-   * <p>The maximum number of messages that you want returned.</p>
+   * The maximum number of messages that you want returned.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token passed by previous API calls until all requested messages are returned.</p>
+   * The token passed by previous API calls until all requested messages are returned.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
-   *          that makes the API call.</p>
+   * The ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call.
+   *
    * @public
    */
   ChimeBearer: string | undefined;
 
   /**
-   * <p>The ID of the SubChannel in the request.</p>
-   *          <note>
-   *             <p>Only required when listing the messages in a SubChannel that the user belongs to.</p>
-   *          </note>
+   * The ID of the SubChannel in the request.
+   *
+   * > **Note:** Only required when listing the messages in a SubChannel that the user belongs to.
+   *
    * @public
    */
   SubChannelId?: string | undefined;
@@ -2313,25 +2548,29 @@ export interface ListChannelMessagesRequest {
  */
 export interface ListChannelMessagesResponse {
   /**
-   * <p>The ARN of the channel containing the requested messages.</p>
+   * The ARN of the channel containing the requested messages.
+   *
    * @public
    */
   ChannelArn?: string | undefined;
 
   /**
-   * <p>The token passed by previous API calls until all requested messages are returned.</p>
+   * The token passed by previous API calls until all requested messages are returned.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The information about, and content of, each requested message.</p>
+   * The information about, and content of, each requested message.
+   *
    * @public
    */
   ChannelMessages?: ChannelMessageSummary[] | undefined;
 
   /**
-   * <p>The ID of the SubChannel in the response.</p>
+   * The ID of the SubChannel in the response.
+   *
    * @public
    */
   SubChannelId?: string | undefined;
@@ -2342,27 +2581,29 @@ export interface ListChannelMessagesResponse {
  */
 export interface ListChannelModeratorsRequest {
   /**
-   * <p>The ARN of the channel.</p>
+   * The ARN of the channel.
+   *
    * @public
    */
   ChannelArn: string | undefined;
 
   /**
-   * <p>The maximum number of moderators that you want returned.</p>
+   * The maximum number of moderators that you want returned.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token passed by previous API calls until all requested moderators are
-   *          returned.</p>
+   * The token passed by previous API calls until all requested moderators are returned.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
-   *          that makes the API call.</p>
+   * The ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call.
+   *
    * @public
    */
   ChimeBearer: string | undefined;
@@ -2373,20 +2614,22 @@ export interface ListChannelModeratorsRequest {
  */
 export interface ListChannelModeratorsResponse {
   /**
-   * <p>The ARN of the channel.</p>
+   * The ARN of the channel.
+   *
    * @public
    */
   ChannelArn?: string | undefined;
 
   /**
-   * <p>The token passed by previous API calls until all requested moderators are
-   *          returned.</p>
+   * The token passed by previous API calls until all requested moderators are returned.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The information about and names of each moderator.</p>
+   * The information about and names of each moderator.
+   *
    * @public
    */
   ChannelModerators?: ChannelModeratorSummary[] | undefined;
@@ -2397,34 +2640,36 @@ export interface ListChannelModeratorsResponse {
  */
 export interface ListChannelsRequest {
   /**
-   * <p>The ARN of the <code>AppInstance</code>.</p>
+   * The ARN of the `AppInstance`.
+   *
    * @public
    */
   AppInstanceArn: string | undefined;
 
   /**
-   * <p>The privacy setting. <code>PUBLIC</code> retrieves all the public channels.
-   *             <code>PRIVATE</code> retrieves private channels. Only an <code>AppInstanceAdmin</code>
-   *          can retrieve private channels. </p>
+   * The privacy setting. `PUBLIC` retrieves all the public channels. `PRIVATE` retrieves private channels. Only an `AppInstanceAdmin` can retrieve private channels.
+   *
    * @public
    */
   Privacy?: ChannelPrivacy | undefined;
 
   /**
-   * <p>The maximum number of channels that you want to return.</p>
+   * The maximum number of channels that you want to return.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token passed by previous API calls until all requested channels are returned.</p>
+   * The token passed by previous API calls until all requested channels are returned.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
-   *          that makes the API call.</p>
+   * The ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call.
+   *
    * @public
    */
   ChimeBearer: string | undefined;
@@ -2435,14 +2680,15 @@ export interface ListChannelsRequest {
  */
 export interface ListChannelsResponse {
   /**
-   * <p>The information about each channel.</p>
+   * The information about each channel.
+   *
    * @public
    */
   Channels?: ChannelSummary[] | undefined;
 
   /**
-   * <p>The token returned from previous API requests until the number of channels is
-   *          reached.</p>
+   * The token returned from previous API requests until the number of channels is reached.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2453,19 +2699,22 @@ export interface ListChannelsResponse {
  */
 export interface ListChannelsAssociatedWithChannelFlowRequest {
   /**
-   * <p>The ARN of the channel flow.</p>
+   * The ARN of the channel flow.
+   *
    * @public
    */
   ChannelFlowArn: string | undefined;
 
   /**
-   * <p>The maximum number of channels that you want to return.</p>
+   * The maximum number of channels that you want to return.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token passed by previous API calls until all requested channels are returned.</p>
+   * The token passed by previous API calls until all requested channels are returned.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2476,13 +2725,15 @@ export interface ListChannelsAssociatedWithChannelFlowRequest {
  */
 export interface ListChannelsAssociatedWithChannelFlowResponse {
   /**
-   * <p>The information about each channel.</p>
+   * The information about each channel.
+   *
    * @public
    */
   Channels?: ChannelAssociatedWithFlowSummary[] | undefined;
 
   /**
-   * <p>The token passed by previous API calls until all requested channels are returned.</p>
+   * The token passed by previous API calls until all requested channels are returned.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2493,27 +2744,29 @@ export interface ListChannelsAssociatedWithChannelFlowResponse {
  */
 export interface ListChannelsModeratedByAppInstanceUserRequest {
   /**
-   * <p>The ARN of the user or bot in the moderated channel.</p>
+   * The ARN of the user or bot in the moderated channel.
+   *
    * @public
    */
   AppInstanceUserArn?: string | undefined;
 
   /**
-   * <p>The maximum number of channels in the request.</p>
+   * The maximum number of channels in the request.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token returned from previous API requests until the number of channels moderated by
-   *          the user is reached.</p>
+   * The token returned from previous API requests until the number of channels moderated by the user is reached.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
-   *          that makes the API call.</p>
+   * The ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call.
+   *
    * @public
    */
   ChimeBearer: string | undefined;
@@ -2524,14 +2777,15 @@ export interface ListChannelsModeratedByAppInstanceUserRequest {
  */
 export interface ListChannelsModeratedByAppInstanceUserResponse {
   /**
-   * <p>The moderated channels in the request.</p>
+   * The moderated channels in the request.
+   *
    * @public
    */
   Channels?: ChannelModeratedByAppInstanceUserSummary[] | undefined;
 
   /**
-   * <p>The token returned from previous API requests until the number of channels moderated by
-   *          the user is reached.</p>
+   * The token returned from previous API requests until the number of channels moderated by the user is reached.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2542,43 +2796,50 @@ export interface ListChannelsModeratedByAppInstanceUserResponse {
  */
 export interface ListSubChannelsRequest {
   /**
-   * <p>The ARN of elastic channel.</p>
+   * The ARN of elastic channel.
+   *
    * @public
    */
   ChannelArn: string | undefined;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the user making the API call.</p>
+   * The `AppInstanceUserArn` of the user making the API call.
+   *
    * @public
    */
   ChimeBearer: string | undefined;
 
   /**
-   * <p>The maximum number of sub-channels that you want to return.</p>
+   * The maximum number of sub-channels that you want to return.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token passed by previous API calls until all requested sub-channels are returned.</p>
+   * The token passed by previous API calls until all requested sub-channels are returned.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Summary of the sub-channels associated with the elastic channel.</p>
+ * Summary of the sub-channels associated with the elastic channel.
+ *
  * @public
  */
 export interface SubChannelSummary {
   /**
-   * <p>The unique ID of a SubChannel.</p>
+   * The unique ID of a SubChannel.
+   *
    * @public
    */
   SubChannelId?: string | undefined;
 
   /**
-   * <p>The number of members in a SubChannel.</p>
+   * The number of members in a SubChannel.
+   *
    * @public
    */
   MembershipCount?: number | undefined;
@@ -2589,19 +2850,22 @@ export interface SubChannelSummary {
  */
 export interface ListSubChannelsResponse {
   /**
-   * <p>The ARN of elastic channel.</p>
+   * The ARN of elastic channel.
+   *
    * @public
    */
   ChannelArn?: string | undefined;
 
   /**
-   * <p>The information about each sub-channel.</p>
+   * The information about each sub-channel.
+   *
    * @public
    */
   SubChannels?: SubChannelSummary[] | undefined;
 
   /**
-   * <p>The token passed by previous API calls until all requested sub-channels are returned.</p>
+   * The token passed by previous API calls until all requested sub-channels are returned.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2612,7 +2876,8 @@ export interface ListSubChannelsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The ARN of the resource.</p>
+   * The ARN of the resource.
+   *
    * @public
    */
   ResourceARN: string | undefined;
@@ -2623,7 +2888,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>The tag key-value pairs.</p>
+   * The tag key-value pairs.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -2634,19 +2900,22 @@ export interface ListTagsForResourceResponse {
  */
 export interface PutChannelExpirationSettingsRequest {
   /**
-   * <p>The ARN of the channel.</p>
+   * The ARN of the channel.
+   *
    * @public
    */
   ChannelArn: string | undefined;
 
   /**
-   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>
+   * The ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call.
+   *
    * @public
    */
   ChimeBearer?: string | undefined;
 
   /**
-   * <p>Settings that control the interval after which a channel is deleted.</p>
+   * Settings that control the interval after which a channel is deleted.
+   *
    * @public
    */
   ExpirationSettings?: ExpirationSettings | undefined;
@@ -2657,13 +2926,15 @@ export interface PutChannelExpirationSettingsRequest {
  */
 export interface PutChannelExpirationSettingsResponse {
   /**
-   * <p>The channel ARN.</p>
+   * The channel ARN.
+   *
    * @public
    */
   ChannelArn?: string | undefined;
 
   /**
-   * <p>Settings that control the interval after which a channel is deleted.</p>
+   * Settings that control the interval after which a channel is deleted.
+   *
    * @public
    */
   ExpirationSettings?: ExpirationSettings | undefined;
@@ -2674,25 +2945,29 @@ export interface PutChannelExpirationSettingsResponse {
  */
 export interface PutChannelMembershipPreferencesRequest {
   /**
-   * <p>The ARN of the channel.</p>
+   * The ARN of the channel.
+   *
    * @public
    */
   ChannelArn: string | undefined;
 
   /**
-   * <p>The ARN of the member setting the preferences.</p>
+   * The ARN of the member setting the preferences.
+   *
    * @public
    */
   MemberArn: string | undefined;
 
   /**
-   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>
+   * The ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call.
+   *
    * @public
    */
   ChimeBearer: string | undefined;
 
   /**
-   * <p>The channel membership preferences of an <code>AppInstanceUser</code> .</p>
+   * The channel membership preferences of an `AppInstanceUser` .
+   *
    * @public
    */
   Preferences: ChannelMembershipPreferences | undefined;
@@ -2703,19 +2978,22 @@ export interface PutChannelMembershipPreferencesRequest {
  */
 export interface PutChannelMembershipPreferencesResponse {
   /**
-   * <p>The ARN of the channel.</p>
+   * The ARN of the channel.
+   *
    * @public
    */
   ChannelArn?: string | undefined;
 
   /**
-   * <p>The details of a user.</p>
+   * The details of a user.
+   *
    * @public
    */
   Member?: Identity | undefined;
 
   /**
-   * <p>The ARN and metadata of the member being added.</p>
+   * The ARN and metadata of the member being added.
+   *
    * @public
    */
   Preferences?: ChannelMembershipPreferences | undefined;
@@ -2726,13 +3004,15 @@ export interface PutChannelMembershipPreferencesResponse {
  */
 export interface PutMessagingStreamingConfigurationsRequest {
   /**
-   * <p>The ARN of the streaming configuration.</p>
+   * The ARN of the streaming configuration.
+   *
    * @public
    */
   AppInstanceArn: string | undefined;
 
   /**
-   * <p>The streaming configurations.</p>
+   * The streaming configurations.
+   *
    * @public
    */
   StreamingConfigurations: StreamingConfiguration[] | undefined;
@@ -2743,7 +3023,8 @@ export interface PutMessagingStreamingConfigurationsRequest {
  */
 export interface PutMessagingStreamingConfigurationsResponse {
   /**
-   * <p>The requested streaming configurations.</p>
+   * The requested streaming configurations.
+   *
    * @public
    */
   StreamingConfigurations?: StreamingConfiguration[] | undefined;
@@ -2754,26 +3035,29 @@ export interface PutMessagingStreamingConfigurationsResponse {
  */
 export interface RedactChannelMessageRequest {
   /**
-   * <p>The ARN of the channel containing the messages that you want to redact.</p>
+   * The ARN of the channel containing the messages that you want to redact.
+   *
    * @public
    */
   ChannelArn: string | undefined;
 
   /**
-   * <p>The ID of the message being redacted.</p>
+   * The ID of the message being redacted.
+   *
    * @public
    */
   MessageId: string | undefined;
 
   /**
-   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
-   *          that makes the API call.</p>
+   * The ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call.
+   *
    * @public
    */
   ChimeBearer: string | undefined;
 
   /**
-   * <p>The ID of the SubChannel in the request.</p>
+   * The ID of the SubChannel in the request.
+   *
    * @public
    */
   SubChannelId?: string | undefined;
@@ -2784,54 +3068,56 @@ export interface RedactChannelMessageRequest {
  */
 export interface RedactChannelMessageResponse {
   /**
-   * <p>The ARN of the channel containing the messages that you want to redact.</p>
+   * The ARN of the channel containing the messages that you want to redact.
+   *
    * @public
    */
   ChannelArn?: string | undefined;
 
   /**
-   * <p>The ID of the message being redacted.</p>
+   * The ID of the message being redacted.
+   *
    * @public
    */
   MessageId?: string | undefined;
 
   /**
-   * <p>The ID of the SubChannel in the response.</p>
-   *          <note>
-   *             <p>Only required when redacting messages in a SubChannel that the user belongs to.</p>
-   *          </note>
+   * The ID of the SubChannel in the response.
+   *
+   * > **Note:** Only required when redacting messages in a SubChannel that the user belongs to.
+   *
    * @public
    */
   SubChannelId?: string | undefined;
 }
 
 /**
- * <p>A <code>Field</code> of the channel that you want to search.</p>
- *          <note>
- *             <p>This operation isn't supported for <code>AppInstanceUsers</code> with a large number of memberships.</p>
- *          </note>
+ * A `Field` of the channel that you want to search.
+ *
+ * > **Note:** This operation isn't supported for `AppInstanceUsers` with a large number of memberships.
+ *
  * @public
  */
 export interface SearchField {
   /**
-   * <p>An <code>enum</code> value that indicates the key to search the channel on. <code>MEMBERS</code> allows you to search channels based on memberships. You can use it with the <code>EQUALS</code>
-   *          operator to get channels whose memberships are equal to the specified values, and with the <code>INCLUDES</code>  operator to get channels whose memberships include the specified values.</p>
+   * An `enum` value that indicates the key to search the channel on. `MEMBERS` allows you to search channels based on memberships. You can use it with the `EQUALS` operator to get channels whose memberships are equal to the specified values, and with the `INCLUDES` operator to get channels whose memberships include the specified values.
+   *
    * @public
    */
   Key: SearchFieldKey | undefined;
 
   /**
-   * <p>The values that you want to search for, a list of strings. The values must be <code>AppInstanceUserArns</code> specified as a list of strings.</p>
-   *          <note>
-   *             <p>This operation isn't supported for <code>AppInstanceUsers</code> with a large number of memberships.</p>
-   *          </note>
+   * The values that you want to search for, a list of strings. The values must be `AppInstanceUserArns` specified as a list of strings.
+   *
+   * > **Note:** This operation isn't supported for `AppInstanceUsers` with a large number of memberships.
+   *
    * @public
    */
   Values: string[] | undefined;
 
   /**
-   * <p>The operator used to compare field values, currently <code>EQUALS</code> or <code>INCLUDES</code>.  Use the <code>EQUALS</code> operator to find channels whose memberships equal the specified values.
-   *          Use the <code>INCLUDES</code> operator to find channels whose memberships include the specified values.</p>
+   * The operator used to compare field values, currently `EQUALS` or `INCLUDES`. Use the `EQUALS` operator to find channels whose memberships equal the specified values. Use the `INCLUDES` operator to find channels whose memberships include the specified values.
+   *
    * @public
    */
   Operator: SearchFieldOperator | undefined;
@@ -2842,25 +3128,29 @@ export interface SearchField {
  */
 export interface SearchChannelsRequest {
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the user making the API call.</p>
+   * The `AppInstanceUserArn` of the user making the API call.
+   *
    * @public
    */
   ChimeBearer?: string | undefined;
 
   /**
-   * <p>A list of the <code>Field</code> objects in the channel being searched.</p>
+   * A list of the `Field` objects in the channel being searched.
+   *
    * @public
    */
   Fields: SearchField[] | undefined;
 
   /**
-   * <p>The maximum number of channels that you want returned.</p>
+   * The maximum number of channels that you want returned.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token returned from previous API requests until the number of channels is reached.</p>
+   * The token returned from previous API requests until the number of channels is reached.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2871,13 +3161,15 @@ export interface SearchChannelsRequest {
  */
 export interface SearchChannelsResponse {
   /**
-   * <p>A list of the channels in the request.</p>
+   * A list of the channels in the request.
+   *
    * @public
    */
   Channels?: ChannelSummary[] | undefined;
 
   /**
-   * <p>The token returned from previous API responses until the number of channels is reached.</p>
+   * The token returned from previous API responses until the number of channels is reached.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2888,81 +3180,89 @@ export interface SearchChannelsResponse {
  */
 export interface SendChannelMessageRequest {
   /**
-   * <p>The ARN of the channel.</p>
+   * The ARN of the channel.
+   *
    * @public
    */
   ChannelArn: string | undefined;
 
   /**
-   * <p>The content of the channel message.</p>
+   * The content of the channel message.
+   *
    * @public
    */
   Content: string | undefined;
 
   /**
-   * <p>The type of message, <code>STANDARD</code> or <code>CONTROL</code>.</p>
-   *          <p>
-   *             <code>STANDARD</code> messages can be up to 4KB in size and contain metadata. Metadata is arbitrary,
-   *          and you can use it in a variety of ways, such as containing a link to an attachment.</p>
-   *          <p>
-   *             <code>CONTROL</code> messages are limited to 30 bytes and do not contain metadata.</p>
+   * The type of message, `STANDARD` or `CONTROL`.
+   *
+   * `STANDARD` messages can be up to 4KB in size and contain metadata. Metadata is arbitrary, and you can use it in a variety of ways, such as containing a link to an attachment.
+   *
+   * `CONTROL` messages are limited to 30 bytes and do not contain metadata.
+   *
    * @public
    */
   Type: ChannelMessageType | undefined;
 
   /**
-   * <p>Boolean that controls whether the message is persisted on the back end. Required.</p>
+   * Boolean that controls whether the message is persisted on the back end. Required.
+   *
    * @public
    */
   Persistence: ChannelMessagePersistenceType | undefined;
 
   /**
-   * <p>The optional metadata for each message.</p>
+   * The optional metadata for each message.
+   *
    * @public
    */
   Metadata?: string | undefined;
 
   /**
-   * <p>The <code>Idempotency</code> token for each client request.</p>
+   * The `Idempotency` token for each client request.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
 
   /**
-   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
-   *          that makes the API call.</p>
+   * The ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call.
+   *
    * @public
    */
   ChimeBearer: string | undefined;
 
   /**
-   * <p>The push notification configuration of the message.</p>
+   * The push notification configuration of the message.
+   *
    * @public
    */
   PushNotification?: PushNotificationConfiguration | undefined;
 
   /**
-   * <p>The attributes for the message, used for message filtering along with a <code>FilterRule</code> defined in the <code>PushNotificationPreferences</code>.</p>
+   * The attributes for the message, used for message filtering along with a `FilterRule` defined in the `PushNotificationPreferences`.
+   *
    * @public
    */
   MessageAttributes?: Record<string, MessageAttributeValue> | undefined;
 
   /**
-   * <p>The ID of the SubChannel in the request.</p>
+   * The ID of the SubChannel in the request.
+   *
    * @public
    */
   SubChannelId?: string | undefined;
 
   /**
-   * <p>The content type of the channel message.</p>
+   * The content type of the channel message.
+   *
    * @public
    */
   ContentType?: string | undefined;
 
   /**
-   * <p>The target of a message. Must be a member of the channel, such as another user, a bot, or the sender. Only the target and the sender can view targeted messages.
-   *          Only users who can see targeted messages can take actions on them. However, administrators can delete targeted messages that they can’t see.
-   *       </p>
+   * The target of a message. Must be a member of the channel, such as another user, a bot, or the sender. Only the target and the sender can view targeted messages. Only users who can see targeted messages can take actions on them. However, administrators can delete targeted messages that they can’t see.
+   *
    * @public
    */
   Target?: Target[] | undefined;
@@ -2973,25 +3273,29 @@ export interface SendChannelMessageRequest {
  */
 export interface SendChannelMessageResponse {
   /**
-   * <p>The ARN of the channel.</p>
+   * The ARN of the channel.
+   *
    * @public
    */
   ChannelArn?: string | undefined;
 
   /**
-   * <p>The ID string assigned to each message.</p>
+   * The ID string assigned to each message.
+   *
    * @public
    */
   MessageId?: string | undefined;
 
   /**
-   * <p>The status of the channel message.</p>
+   * The status of the channel message.
+   *
    * @public
    */
   Status?: ChannelMessageStatusStructure | undefined;
 
   /**
-   * <p>The ID of the SubChannel in the response.</p>
+   * The ID of the SubChannel in the response.
+   *
    * @public
    */
   SubChannelId?: string | undefined;
@@ -3002,13 +3306,15 @@ export interface SendChannelMessageResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The resource ARN.</p>
+   * The resource ARN.
+   *
    * @public
    */
   ResourceARN: string | undefined;
 
   /**
-   * <p>The tag key-value pairs.</p>
+   * The tag key-value pairs.
+   *
    * @public
    */
   Tags: Tag[] | undefined;
@@ -3019,13 +3325,15 @@ export interface TagResourceRequest {
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The resource ARN.</p>
+   * The resource ARN.
+   *
    * @public
    */
   ResourceARN: string | undefined;
 
   /**
-   * <p>The tag keys.</p>
+   * The tag keys.
+   *
    * @public
    */
   TagKeys: string[] | undefined;
@@ -3036,32 +3344,36 @@ export interface UntagResourceRequest {
  */
 export interface UpdateChannelRequest {
   /**
-   * <p>The ARN of the channel.</p>
+   * The ARN of the channel.
+   *
    * @public
    */
   ChannelArn: string | undefined;
 
   /**
-   * <p>The name of the channel.</p>
+   * The name of the channel.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The mode of the update request.</p>
+   * The mode of the update request.
+   *
    * @public
    */
   Mode?: ChannelMode | undefined;
 
   /**
-   * <p>The metadata for the update request.</p>
+   * The metadata for the update request.
+   *
    * @public
    */
   Metadata?: string | undefined;
 
   /**
-   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
-   *          that makes the API call.</p>
+   * The ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call.
+   *
    * @public
    */
   ChimeBearer: string | undefined;
@@ -3072,7 +3384,8 @@ export interface UpdateChannelRequest {
  */
 export interface UpdateChannelResponse {
   /**
-   * <p>The ARN of the channel.</p>
+   * The ARN of the channel.
+   *
    * @public
    */
   ChannelArn?: string | undefined;
@@ -3083,19 +3396,22 @@ export interface UpdateChannelResponse {
  */
 export interface UpdateChannelFlowRequest {
   /**
-   * <p>The ARN of the channel flow.</p>
+   * The ARN of the channel flow.
+   *
    * @public
    */
   ChannelFlowArn: string | undefined;
 
   /**
-   * <p>Information about the processor Lambda functions </p>
+   * Information about the processor Lambda functions
+   *
    * @public
    */
   Processors: Processor[] | undefined;
 
   /**
-   * <p>The name of the channel flow.</p>
+   * The name of the channel flow.
+   *
    * @public
    */
   Name: string | undefined;
@@ -3106,7 +3422,8 @@ export interface UpdateChannelFlowRequest {
  */
 export interface UpdateChannelFlowResponse {
   /**
-   * <p>The ARN of the channel flow.</p>
+   * The ARN of the channel flow.
+   *
    * @public
    */
   ChannelFlowArn?: string | undefined;
@@ -3117,47 +3434,52 @@ export interface UpdateChannelFlowResponse {
  */
 export interface UpdateChannelMessageRequest {
   /**
-   * <p>The ARN of the channel.</p>
+   * The ARN of the channel.
+   *
    * @public
    */
   ChannelArn: string | undefined;
 
   /**
-   * <p>The ID string of the message being updated.</p>
+   * The ID string of the message being updated.
+   *
    * @public
    */
   MessageId: string | undefined;
 
   /**
-   * <p>The content of the channel message. </p>
+   * The content of the channel message.
+   *
    * @public
    */
   Content: string | undefined;
 
   /**
-   * <p>The metadata of the message being updated.</p>
+   * The metadata of the message being updated.
+   *
    * @public
    */
   Metadata?: string | undefined;
 
   /**
-   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
-   *          that makes the API call.</p>
+   * The ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call.
+   *
    * @public
    */
   ChimeBearer: string | undefined;
 
   /**
-   * <p>The ID of the SubChannel in the request.</p>
-   *          <note>
-   *             <p>Only required when updating messages in a SubChannel that the user belongs to.</p>
-   *          </note>
+   * The ID of the SubChannel in the request.
+   *
+   * > **Note:** Only required when updating messages in a SubChannel that the user belongs to.
+   *
    * @public
    */
   SubChannelId?: string | undefined;
 
   /**
-   * <p>The content type of the channel message.</p>
+   * The content type of the channel message.
+   *
    * @public
    */
   ContentType?: string | undefined;
@@ -3168,25 +3490,29 @@ export interface UpdateChannelMessageRequest {
  */
 export interface UpdateChannelMessageResponse {
   /**
-   * <p>The ARN of the channel.</p>
+   * The ARN of the channel.
+   *
    * @public
    */
   ChannelArn?: string | undefined;
 
   /**
-   * <p>The ID string of the message being updated.</p>
+   * The ID string of the message being updated.
+   *
    * @public
    */
   MessageId?: string | undefined;
 
   /**
-   * <p>The status of the message update.</p>
+   * The status of the message update.
+   *
    * @public
    */
   Status?: ChannelMessageStatusStructure | undefined;
 
   /**
-   * <p>The ID of the SubChannel in the response.</p>
+   * The ID of the SubChannel in the response.
+   *
    * @public
    */
   SubChannelId?: string | undefined;
@@ -3197,14 +3523,15 @@ export interface UpdateChannelMessageResponse {
  */
 export interface UpdateChannelReadMarkerRequest {
   /**
-   * <p>The ARN of the channel.</p>
+   * The ARN of the channel.
+   *
    * @public
    */
   ChannelArn: string | undefined;
 
   /**
-   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
-   *          that makes the API call.</p>
+   * The ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call.
+   *
    * @public
    */
   ChimeBearer: string | undefined;
@@ -3215,7 +3542,8 @@ export interface UpdateChannelReadMarkerRequest {
  */
 export interface UpdateChannelReadMarkerResponse {
   /**
-   * <p>The ARN of the channel.</p>
+   * The ARN of the channel.
+   *
    * @public
    */
   ChannelArn?: string | undefined;

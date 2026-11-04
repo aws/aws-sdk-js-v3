@@ -23,7 +23,8 @@ export interface DefineSuggesterCommandInput extends DefineSuggesterRequest {}
 export interface DefineSuggesterCommandOutput extends DefineSuggesterResponse, __MetadataBearer {}
 
 /**
- * <p>Configures a suggester for a domain. A suggester enables you to display possible matches before users finish typing their queries. When you configure a suggester, you must specify the name of the text field you want to search for possible matches and a unique name for the suggester. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html" target="_blank">Getting Search Suggestions</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+ * Configures a suggester for a domain. A suggester enables you to display possible matches before users finish typing their queries. When you configure a suggester, you must specify the name of the text field you want to search for possible matches and a unique name for the suggester. For more information, see [Getting Search Suggestions](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html) in the *Amazon CloudSearch Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,27 +75,32 @@ export interface DefineSuggesterCommandOutput extends DefineSuggesterResponse, _
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
  *
  * @throws {@link BaseException} (client fault)
- *  <p>An error occurred while processing the request.</p>
+ *
+ * An error occurred while processing the request.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>An internal error occurred while processing the request. If this problem persists,
- *       report an issue from the <a href="http://status.aws.amazon.com/" target="_blank">Service Health Dashboard</a>.</p>
+ *
+ * An internal error occurred while processing the request. If this problem persists, report an issue from the [Service Health Dashboard](http://status.aws.amazon.com/).
  *
  * @throws {@link InvalidTypeException} (client fault)
- *  <p>The request was rejected because it specified an invalid type definition.</p>
+ *
+ * The request was rejected because it specified an invalid type definition.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because a resource limit has already been met.</p>
+ *
+ * The request was rejected because a resource limit has already been met.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
+ *
+ * The request was rejected because it attempted to reference a resource that does not exist.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request was rejected because it has invalid parameters.</p>
+ *
+ * The request was rejected because it has invalid parameters.
  *
  * @throws {@link CloudSearchServiceException}
- * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
+ * Base exception class for all service exceptions from CloudSearch service.
  *
  * @public
  */

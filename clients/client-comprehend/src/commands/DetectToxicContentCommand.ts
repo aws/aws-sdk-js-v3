@@ -23,10 +23,8 @@ export interface DetectToxicContentCommandInput extends DetectToxicContentReques
 export interface DetectToxicContentCommandOutput extends DetectToxicContentResponse, __MetadataBearer {}
 
 /**
- * <p>Performs toxicity analysis on the list of text strings that you provide as input.
- *       The API response contains a results list that matches the size of the input list.
- *       For more information about toxicity detection, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/toxicity-detection.html">Toxicity detection</a> in the <i>Amazon Comprehend Developer Guide</i>.
- *     </p>
+ * Performs toxicity analysis on the list of text strings that you provide as input. The API response contains a results list that matches the size of the input list. For more information about toxicity detection, see [Toxicity detection](https://docs.aws.amazon.com/comprehend/latest/dg/toxicity-detection.html) in the *Amazon Comprehend Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,22 +66,24 @@ export interface DetectToxicContentCommandOutput extends DetectToxicContentRespo
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is invalid.</p>
+ *
+ * The request is invalid.
  *
  * @throws {@link TextSizeLimitExceededException} (client fault)
- *  <p>The size of the input text exceeds the limit. Use a smaller document.</p>
+ *
+ * The size of the input text exceeds the limit. Use a smaller document.
  *
  * @throws {@link UnsupportedLanguageException} (client fault)
- *  <p>Amazon Comprehend can't process the language of the input text. For a list of supported languages,
- *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html">Supported languages</a> in the Comprehend Developer Guide.
- *     </p>
+ *
+ * Amazon Comprehend can't process the language of the input text. For a list of supported languages, [Supported languages](https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html) in the Comprehend Developer Guide.
  *
  * @throws {@link ComprehendServiceException}
- * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * Base exception class for all service exceptions from Comprehend service.
  *
  * @public
  */

@@ -23,13 +23,12 @@ export interface GetRegisterAccountStatusCommandInput extends GetRegisterAccount
 export interface GetRegisterAccountStatusCommandOutput extends GetRegisterAccountStatusResponse, __MetadataBearer {}
 
 /**
- * <p> Retrieves information about the status of registering your Amazon Web Services account, IAM, and
- *             Amazon Timestream resources so that Amazon Web Services IoT FleetWise can transfer your vehicle data to the Amazon Web Services
- *             Cloud. </p>
- *          <p>For more information, including step-by-step procedures, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/setting-up.html">Setting up Amazon Web Services IoT FleetWise</a>. </p>
- *          <note>
- *             <p>This API operation doesn't require input parameters.</p>
- *          </note>
+ * Retrieves information about the status of registering your Amazon Web Services account, IAM, and Amazon Timestream resources so that Amazon Web Services IoT FleetWise can transfer your vehicle data to the Amazon Web Services Cloud.
+ *
+ * For more information, including step-by-step procedures, see [Setting up Amazon Web Services IoT FleetWise](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/setting-up.html).
+ *
+ * > **Note:** This API operation doesn't require input parameters.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,23 +69,28 @@ export interface GetRegisterAccountStatusCommandOutput extends GetRegisterAccoun
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * You don't have sufficient permission to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request couldn't be completed because the server temporarily failed.</p>
+ *
+ * The request couldn't be completed because the server temporarily failed.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource wasn't found.</p>
+ *
+ * The resource wasn't found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request couldn't be completed due to throttling.</p>
+ *
+ * The request couldn't be completed due to throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link IoTFleetWiseServiceException}
- * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * Base exception class for all service exceptions from IoTFleetWise service.
  *
  * @public
  */

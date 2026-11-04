@@ -26,10 +26,8 @@ export interface GetComplianceDetailsByConfigRuleCommandInput extends GetComplia
 export interface GetComplianceDetailsByConfigRuleCommandOutput extends GetComplianceDetailsByConfigRuleResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the evaluation results for the specified Config
- * 			rule. The results indicate which Amazon Web Services resources were evaluated by the
- * 			rule, when each resource was last evaluated, and whether each
- * 			resource complies with the rule.</p>
+ * Returns the evaluation results for the specified Config rule. The results indicate which Amazon Web Services resources were evaluated by the rule, when each resource was last evaluated, and whether each resource complies with the rule.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,20 +78,20 @@ export interface GetComplianceDetailsByConfigRuleCommandOutput extends GetCompli
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The specified next token is not valid. Specify the
- * 				<code>nextToken</code> string that was returned in the previous
- * 			response to get the next page of results.</p>
+ *
+ * The specified next token is not valid. Specify the `nextToken` string that was returned in the previous response to get the next page of results.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more of the specified parameters are not valid. Verify
- * 			that your parameters are valid and try again.</p>
+ *
+ * One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.
  *
  * @throws {@link NoSuchConfigRuleException} (client fault)
- *  <p>The Config rule in the request is not valid. Verify that the rule is an Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
+ *
+ * The Config rule in the request is not valid. Verify that the rule is an Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.
  *
  * @throws {@link ConfigServiceServiceException}
- * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * Base exception class for all service exceptions from ConfigService service.
  *
  * @public
  */

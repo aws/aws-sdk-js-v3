@@ -26,13 +26,10 @@ export interface DescribeHostReservationOfferingsCommandInput extends DescribeHo
 export interface DescribeHostReservationOfferingsCommandOutput extends DescribeHostReservationOfferingsResult, __MetadataBearer {}
 
 /**
- * <p>Describes the Dedicated Host reservations that are available to purchase.</p>
- *          <p>The results describe all of the Dedicated Host reservation offerings, including
- *             offerings that might not match the instance family and Region of your Dedicated Hosts.
- *             When purchasing an offering, ensure that the instance family and Region of the offering
- *             matches that of the Dedicated Hosts with which it is to be associated. For more
- *             information about supported instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html">Dedicated Hosts</a>
- *             in the <i>Amazon EC2 User Guide</i>. </p>
+ * Describes the Dedicated Host reservations that are available to purchase.
+ *
+ * The results describe all of the Dedicated Host reservation offerings, including offerings that might not match the instance family and Region of your Dedicated Hosts. When purchasing an offering, ensure that the instance family and Region of the offering matches that of the Dedicated Hosts with which it is to be associated. For more information about supported instance types, see [Dedicated Hosts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,8 +79,8 @@ export interface DescribeHostReservationOfferingsCommandOutput extends DescribeH
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

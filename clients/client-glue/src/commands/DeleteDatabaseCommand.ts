@@ -23,19 +23,14 @@ export interface DeleteDatabaseCommandInput extends DeleteDatabaseRequest {}
 export interface DeleteDatabaseCommandOutput extends DeleteDatabaseResponse, __MetadataBearer {}
 
 /**
- * <p>Removes a specified database from a Data Catalog.</p>
- *          <note>
- *             <p>After completing this operation, you no longer have access to the tables (and all table
- *         versions and partitions that might belong to the tables) and the user-defined functions in
- *         the deleted database. Glue deletes these "orphaned" resources asynchronously in a timely
- *         manner, at the discretion of the service.</p>
- *             <p>To ensure the immediate deletion of all related resources, before calling
- *           <code>DeleteDatabase</code>, use <code>DeleteTableVersion</code> or
- *           <code>BatchDeleteTableVersion</code>, <code>DeletePartition</code> or
- *           <code>BatchDeletePartition</code>, <code>DeleteUserDefinedFunction</code>, and
- *           <code>DeleteTable</code> or <code>BatchDeleteTable</code>, to delete any resources that
- *         belong to the database.</p>
- *          </note>
+ * Removes a specified database from a Data Catalog.
+ *
+ * > **Note:**
+ * >
+ * > After completing this operation, you no longer have access to the tables (and all table versions and partitions that might belong to the tables) and the user-defined functions in the deleted database. Glue deletes these "orphaned" resources asynchronously in a timely manner, at the discretion of the service.
+ * >
+ * > To ensure the immediate deletion of all related resources, before calling `DeleteDatabase`, use `DeleteTableVersion` or `BatchDeleteTableVersion`, `DeletePartition` or `BatchDeletePartition`, `DeleteUserDefinedFunction`, and `DeleteTable` or `BatchDeleteTable`, to delete any resources that belong to the database.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,29 +56,36 @@ export interface DeleteDatabaseCommandOutput extends DeleteDatabaseResponse, __M
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Two processes are trying to modify a resource simultaneously.</p>
+ *
+ * Two processes are trying to modify a resource simultaneously.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link FederationSourceException} (client fault)
- *  <p>A federation source failed.</p>
+ *
+ * A federation source failed.
  *
  * @throws {@link FederationSourceRetryableException} (client fault)
- *  <p>A federation source failed, but the operation may be retried.</p>
+ *
+ * A federation source failed, but the operation may be retried.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

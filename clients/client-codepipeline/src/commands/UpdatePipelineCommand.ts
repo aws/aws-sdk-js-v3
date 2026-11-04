@@ -23,10 +23,8 @@ export interface UpdatePipelineCommandInput extends UpdatePipelineInput {}
 export interface UpdatePipelineCommandOutput extends UpdatePipelineOutput, __MetadataBearer {}
 
 /**
- * <p>Updates a specified pipeline with edits or changes to its structure. Use a JSON
- *             file with the pipeline structure and <code>UpdatePipeline</code> to provide the full
- *             structure of the pipeline. Updating the pipeline increases the version number of the
- *             pipeline by 1.</p>
+ * Updates a specified pipeline with edits or changes to its structure. Use a JSON file with the pipeline structure and `UpdatePipeline` to provide the full structure of the pipeline. Updating the pipeline increases the version number of the pipeline by 1.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -545,27 +543,32 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineOutput, __Met
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  * @throws {@link InvalidActionDeclarationException} (client fault)
- *  <p>The action declaration was specified in an invalid format.</p>
+ *
+ * The action declaration was specified in an invalid format.
  *
  * @throws {@link InvalidBlockerDeclarationException} (client fault)
- *  <p>Reserved for future use.</p>
+ *
+ * Reserved for future use.
  *
  * @throws {@link InvalidStageDeclarationException} (client fault)
- *  <p>The stage declaration was specified in an invalid format.</p>
+ *
+ * The stage declaration was specified in an invalid format.
  *
  * @throws {@link InvalidStructureException} (client fault)
- *  <p>The structure was specified in an invalid format.</p>
+ *
+ * The structure was specified in an invalid format.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The number of pipelines associated with the Amazon Web Services account has exceeded
- *             the limit allowed for the account.</p>
+ *
+ * The number of pipelines associated with the Amazon Web Services account has exceeded the limit allowed for the account.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The validation was specified in an invalid format.</p>
+ *
+ * The validation was specified in an invalid format.
  *
  * @throws {@link CodePipelineServiceException}
- * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * Base exception class for all service exceptions from CodePipeline service.
  *
  * @public
  */

@@ -23,8 +23,8 @@ export interface DescribeByoipCidrsCommandInput extends DescribeByoipCidrsReques
 export interface DescribeByoipCidrsCommandOutput extends DescribeByoipCidrsResult, __MetadataBearer {}
 
 /**
- * <p>Describes the IP address ranges that were provisioned for use with Amazon Web Services resources
- *           through through bring your own IP addresses (BYOIP).</p>
+ * Describes the IP address ranges that were provisioned for use with Amazon Web Services resources through through bring your own IP addresses (BYOIP).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,8 +73,8 @@ export interface DescribeByoipCidrsCommandOutput extends DescribeByoipCidrsResul
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

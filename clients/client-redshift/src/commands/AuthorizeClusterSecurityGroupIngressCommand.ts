@@ -26,22 +26,14 @@ export interface AuthorizeClusterSecurityGroupIngressCommandInput extends Author
 export interface AuthorizeClusterSecurityGroupIngressCommandOutput extends AuthorizeClusterSecurityGroupIngressResult, __MetadataBearer {}
 
 /**
- * <p>Adds an inbound (ingress) rule to an Amazon Redshift security group. Depending on whether
- *             the application accessing your cluster is running on the Internet or an Amazon EC2
- *             instance, you can authorize inbound access to either a Classless Interdomain Routing
- *             (CIDR)/Internet Protocol (IP) range or to an Amazon EC2 security group. You can add as
- *             many as 20 ingress rules to an Amazon Redshift security group.</p>
- *          <p>If you authorize access to an Amazon EC2 security group, specify
- *                 <i>EC2SecurityGroupName</i> and
- *                 <i>EC2SecurityGroupOwnerId</i>. The Amazon EC2 security group and
- *             Amazon Redshift cluster must be in the same Amazon Web Services Region. </p>
- *          <p>If you authorize access to a CIDR/IP address range, specify
- *                 <i>CIDRIP</i>. For an overview of CIDR blocks, see the Wikipedia
- *             article on <a href="http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Classless Inter-Domain Routing</a>. </p>
- *          <p>You must also associate the security group with a cluster so that clients running
- *             on these IP addresses or the EC2 instance are authorized to connect to the cluster. For
- *             information about managing security groups, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">Working with Security
- *                 Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
+ * Adds an inbound (ingress) rule to an Amazon Redshift security group. Depending on whether the application accessing your cluster is running on the Internet or an Amazon EC2 instance, you can authorize inbound access to either a Classless Interdomain Routing (CIDR)/Internet Protocol (IP) range or to an Amazon EC2 security group. You can add as many as 20 ingress rules to an Amazon Redshift security group.
+ *
+ * If you authorize access to an Amazon EC2 security group, specify *EC2SecurityGroupName* and *EC2SecurityGroupOwnerId*. The Amazon EC2 security group and Amazon Redshift cluster must be in the same Amazon Web Services Region.
+ *
+ * If you authorize access to a CIDR/IP address range, specify *CIDRIP*. For an overview of CIDR blocks, see the Wikipedia article on [Classless Inter-Domain Routing](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
+ *
+ * You must also associate the security group with a cluster so that clients running on these IP addresses or the EC2 instance are authorized to connect to the cluster. For information about managing security groups, go to [Working with Security Groups](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html) in the *Amazon Redshift Cluster Management Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -105,22 +97,24 @@ export interface AuthorizeClusterSecurityGroupIngressCommandOutput extends Autho
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link AuthorizationAlreadyExistsFault} (client fault)
- *  <p>The specified CIDR block or EC2 security group is already authorized for the
- *             specified cluster security group.</p>
+ *
+ * The specified CIDR block or EC2 security group is already authorized for the specified cluster security group.
  *
  * @throws {@link AuthorizationQuotaExceededFault} (client fault)
- *  <p>The authorization quota for the cluster security group has been reached.</p>
+ *
+ * The authorization quota for the cluster security group has been reached.
  *
  * @throws {@link ClusterSecurityGroupNotFoundFault} (client fault)
- *  <p>The cluster security group name does not refer to an existing cluster security
- *             group.</p>
+ *
+ * The cluster security group name does not refer to an existing cluster security group.
  *
  * @throws {@link InvalidClusterSecurityGroupStateFault} (client fault)
- *  <p>The state of the cluster security group is not <code>available</code>. </p>
+ *
+ * The state of the cluster security group is not `available`.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

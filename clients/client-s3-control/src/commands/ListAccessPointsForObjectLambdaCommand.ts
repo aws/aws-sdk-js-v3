@@ -23,31 +23,16 @@ export interface ListAccessPointsForObjectLambdaCommandInput extends ListAccessP
 export interface ListAccessPointsForObjectLambdaCommandOutput extends ListAccessPointsForObjectLambdaResult, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This operation is not supported by directory buckets.</p>
- *          </note>
- *          <p>Returns some or all (up to 1,000) access points associated with the Object Lambda Access Point per call. If there
- *          are more access points than what can be returned in one call, the response will include a
- *          continuation token that you can use to list the additional access points.</p>
- *          <p>The following actions are related to
- *          <code>ListAccessPointsForObjectLambda</code>:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessPointForObjectLambda.html">CreateAccessPointForObjectLambda</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPointForObjectLambda.html">DeleteAccessPointForObjectLambda</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPointForObjectLambda.html">GetAccessPointForObjectLambda</a>
- *                </p>
- *             </li>
- *          </ul>
+ * > **Note:** This operation is not supported by directory buckets.
+ *
+ * Returns some or all (up to 1,000) access points associated with the Object Lambda Access Point per call. If there are more access points than what can be returned in one call, the response will include a continuation token that you can use to list the additional access points.
+ *
+ * The following actions are related to `ListAccessPointsForObjectLambda`:
+ *
+ * - [CreateAccessPointForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessPointForObjectLambda.html)
+ * - [DeleteAccessPointForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPointForObjectLambda.html)
+ * - [GetAccessPointForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPointForObjectLambda.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,8 +71,8 @@ export interface ListAccessPointsForObjectLambdaCommandOutput extends ListAccess
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
  * @throws {@link S3ControlServiceException}
- * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * Base exception class for all service exceptions from S3Control service.
  *
  * @public
  */

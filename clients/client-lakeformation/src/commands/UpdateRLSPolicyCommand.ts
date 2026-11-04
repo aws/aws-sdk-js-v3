@@ -23,7 +23,8 @@ export interface UpdateRLSPolicyCommandInput extends UpdateRLSPolicyRequest {}
 export interface UpdateRLSPolicyCommandOutput extends UpdateRLSPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the filter expression of an existing row-level security policy. The change applies to all attachments of the policy.</p>
+ * Updates the filter expression of an existing row-level security policy. The change applies to all attachments of the policy.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,29 +50,36 @@ export interface UpdateRLSPolicyCommandOutput extends UpdateRLSPolicyResponse, _
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to a resource was denied.</p>
+ *
+ * Access to a resource was denied.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Two processes are trying to modify a resource simultaneously.</p>
+ *
+ * Two processes are trying to modify a resource simultaneously.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist.</p>
+ *
+ * A specified entity does not exist.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
- *  <p>A resource numerical limit was exceeded.</p>
+ *
+ * A resource numerical limit was exceeded.
  *
  * @throws {@link LakeFormationServiceException}
- * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * Base exception class for all service exceptions from LakeFormation service.
  *
  * @public
  */

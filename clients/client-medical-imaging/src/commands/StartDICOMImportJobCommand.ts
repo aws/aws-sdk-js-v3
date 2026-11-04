@@ -23,7 +23,8 @@ export interface StartDICOMImportJobCommandInput extends StartDICOMImportJobRequ
 export interface StartDICOMImportJobCommandOutput extends StartDICOMImportJobResponse, __MetadataBearer {}
 
 /**
- * <p>Start importing bulk data into an <code>ACTIVE</code> data store. The import job imports DICOM P10 files or enhances existing DICOM files with JSON metadata. The <code>importConfiguration</code> parameter specifies the import type. The data is found in the S3 prefix specified by the <code>inputS3Uri</code> parameter. The import job stores processing results in the file specified by the <code>outputS3Uri</code> parameter.</p>
+ * Start importing bulk data into an `ACTIVE` data store. The import job imports DICOM P10 files or enhances existing DICOM files with JSON metadata. The `importConfiguration` parameter specifies the import type. The data is found in the S3 prefix specified by the `inputS3Uri` parameter. The import job stores processing results in the file specified by the `outputS3Uri` parameter.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,29 +71,36 @@ export interface StartDICOMImportJobCommandOutput extends StartDICOMImportJobRes
  * @see {@link MedicalImagingClientResolvedConfig | config} for MedicalImagingClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The user does not have sufficient access to perform this action.</p>
+ *
+ * The user does not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ *
+ * Updating or deleting a resource can cause an inconsistent state.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred during processing of the request.</p>
+ *
+ * An unexpected error occurred during processing of the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request references a resource which does not exist.</p>
+ *
+ * The request references a resource which does not exist.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request caused a service quota to be exceeded.</p>
+ *
+ * The request caused a service quota to be exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to throttling.</p>
+ *
+ * The request was denied due to throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints set by the service.</p>
+ *
+ * The input fails to satisfy the constraints set by the service.
  *
  * @throws {@link MedicalImagingServiceException}
- * <p>Base exception class for all service exceptions from MedicalImaging service.</p>
  *
+ * Base exception class for all service exceptions from MedicalImaging service.
  *
  * @public
  */

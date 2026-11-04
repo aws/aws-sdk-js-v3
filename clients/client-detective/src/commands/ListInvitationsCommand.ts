@@ -23,12 +23,12 @@ export interface ListInvitationsCommandInput extends ListInvitationsRequest {}
 export interface ListInvitationsCommandOutput extends ListInvitationsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the list of open and accepted behavior graph invitations for the member
- *          account. This operation can only be called by an invited member account.</p>
- *          <p>Open invitations are invitations that the member account has not responded to.</p>
- *          <p>The results do not include behavior graphs for which the member account declined the
- *          invitation. The results also do not include behavior graphs that the member account
- *          resigned from or was removed from.</p>
+ * Retrieves the list of open and accepted behavior graph invitations for the member account. This operation can only be called by an invited member account.
+ *
+ * Open invitations are invitations that the member account has not responded to.
+ *
+ * The results do not include behavior graphs for which the member account declined the invitation. The results also do not include behavior graphs that the member account resigned from or was removed from.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,18 +83,20 @@ export interface ListInvitationsCommandOutput extends ListInvitationsResponse, _
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request issuer does not have permission to access this resource or perform this
- *          operation.</p>
+ *
+ * The request issuer does not have permission to access this resource or perform this operation.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request was valid but failed because of a problem with the service.</p>
+ *
+ * The request was valid but failed because of a problem with the service.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request parameters are invalid.</p>
+ *
+ * The request parameters are invalid.
  *
  * @throws {@link DetectiveServiceException}
- * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ * Base exception class for all service exceptions from Detective service.
  *
  * @public
  */

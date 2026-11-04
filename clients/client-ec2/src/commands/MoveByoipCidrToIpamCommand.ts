@@ -23,8 +23,10 @@ export interface MoveByoipCidrToIpamCommandInput extends MoveByoipCidrToIpamRequ
 export interface MoveByoipCidrToIpamCommandOutput extends MoveByoipCidrToIpamResult, __MetadataBearer {}
 
 /**
- * <p>Move a BYOIPv4 CIDR to IPAM from a public IPv4 pool.</p>
- *          <p>If you already have a BYOIPv4 CIDR with Amazon Web Services, you can move the CIDR to IPAM from a public IPv4 pool. You cannot move an IPv6 CIDR to IPAM. If you are bringing a new IP address to Amazon Web Services for the first time, complete the steps in <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoip-ipam.html">Tutorial: BYOIP address CIDRs to IPAM</a>.</p>
+ * Move a BYOIPv4 CIDR to IPAM from a public IPv4 pool.
+ *
+ * If you already have a BYOIPv4 CIDR with Amazon Web Services, you can move the CIDR to IPAM from a public IPv4 pool. You cannot move an IPv6 CIDR to IPAM. If you are bringing a new IP address to Amazon Web Services for the first time, complete the steps in [Tutorial: BYOIP address CIDRs to IPAM](https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoip-ipam.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,8 +73,8 @@ export interface MoveByoipCidrToIpamCommandOutput extends MoveByoipCidrToIpamRes
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

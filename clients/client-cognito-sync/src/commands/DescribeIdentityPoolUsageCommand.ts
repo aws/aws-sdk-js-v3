@@ -23,8 +23,9 @@ export interface DescribeIdentityPoolUsageCommandInput extends DescribeIdentityP
 export interface DescribeIdentityPoolUsageCommandOutput extends DescribeIdentityPoolUsageResponse, __MetadataBearer {}
 
 /**
- * <p>Gets usage details (for example, data storage) about a particular identity pool.</p>
- *       <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
+ * Gets usage details (for example, data storage) about a particular identity pool.
+ *
+ * This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.
  *
  *       <examples>
  *          <example>
@@ -123,8 +124,8 @@ export interface DescribeIdentityPoolUsageCommandOutput extends DescribeIdentity
  *       throttled.
  *
  * @throws {@link CognitoSyncServiceException}
- * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
+ * Base exception class for all service exceptions from CognitoSync service.
  *
  * @public
  */

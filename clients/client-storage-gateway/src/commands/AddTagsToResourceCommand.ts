@@ -23,29 +23,16 @@ export interface AddTagsToResourceCommandInput extends AddTagsToResourceInput {}
 export interface AddTagsToResourceCommandOutput extends AddTagsToResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Adds one or more tags to the specified resource. You use tags to add metadata to
- *          resources, which you can use to categorize these resources. For example, you can categorize
- *          resources by purpose, owner, environment, or team. Each tag consists of a key and a value,
- *          which you define. You can add tags to the following Storage Gateway resources:</p>
- *          <ul>
- *             <li>
- *                <p>Storage gateways of all types</p>
- *             </li>
- *             <li>
- *                <p>Storage volumes</p>
- *             </li>
- *             <li>
- *                <p>Virtual tapes</p>
- *             </li>
- *             <li>
- *                <p>NFS and SMB file shares</p>
- *             </li>
- *             <li>
- *                <p>File System associations</p>
- *             </li>
- *          </ul>
- *          <p>You can create a maximum of 50 tags for each resource. Virtual tapes and storage volumes
- *          that are recovered to a new gateway maintain their tags.</p>
+ * Adds one or more tags to the specified resource. You use tags to add metadata to resources, which you can use to categorize these resources. For example, you can categorize resources by purpose, owner, environment, or team. Each tag consists of a key and a value, which you define. You can add tags to the following Storage Gateway resources:
+ *
+ * - Storage gateways of all types
+ * - Storage volumes
+ * - Virtual tapes
+ * - NFS and SMB file shares
+ * - File System associations
+ *
+ * You can create a maximum of 50 tags for each resource. Virtual tapes and storage volumes that are recovered to a new gateway maintain their tags.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,16 +65,16 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceOutput,
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @example To add tags to resource
  * ```javascript

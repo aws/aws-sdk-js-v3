@@ -23,7 +23,12 @@ export interface CreateSinkCommandInput extends CreateSinkInput {}
 export interface CreateSinkCommandOutput extends CreateSinkOutput, __MetadataBearer {}
 
 /**
- * <p>Use this to create a <i>sink</i> in the current account, so that it can be used as a monitoring account in CloudWatch cross-account observability. A sink is a resource that represents an attachment point in a monitoring account. Source accounts can link to the sink to send observability data.</p> <p>After you create a sink, you must create a sink policy that allows source accounts to attach to it. For more information, see <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_PutSinkPolicy.html">PutSinkPolicy</a>.</p> <p>Each account can contain one sink per Region. If you delete a sink, you can then create a new one in that Region.</p>
+ * Use this to create a *sink* in the current account, so that it can be used as a monitoring account in CloudWatch cross-account observability. A sink is a resource that represents an attachment point in a monitoring account. Source accounts can link to the sink to send observability data.
+ *
+ * After you create a sink, you must create a sink policy that allows source accounts to attach to it. For more information, see [PutSinkPolicy](https://docs.aws.amazon.com/OAM/latest/APIReference/API_PutSinkPolicy.html).
+ *
+ * Each account can contain one sink per Region. If you delete a sink, you can then create a new one in that Region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,23 +63,28 @@ export interface CreateSinkCommandOutput extends CreateSinkOutput, __MetadataBea
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A resource was in an inconsistent state during an update or a deletion.</p>
+ *
+ * A resource was in an inconsistent state during an update or a deletion.
  *
  * @throws {@link InternalServiceFault} (server fault)
- *  <p>Unexpected error while processing the request. Retry the request.</p>
+ *
+ * Unexpected error while processing the request. Retry the request.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is specified incorrectly.</p>
+ *
+ * A parameter is specified incorrectly.
  *
  * @throws {@link MissingRequiredParameterException} (client fault)
- *  <p>A required parameter is missing from the request.</p>
+ *
+ * A required parameter is missing from the request.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would cause a service quota to be exceeded.</p>
+ *
+ * The request would cause a service quota to be exceeded.
  *
  * @throws {@link OAMServiceException}
- * <p>Base exception class for all service exceptions from OAM service.</p>
  *
+ * Base exception class for all service exceptions from OAM service.
  *
  * @public
  */

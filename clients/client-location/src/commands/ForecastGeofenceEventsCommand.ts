@@ -23,7 +23,16 @@ export interface ForecastGeofenceEventsCommandInput extends ForecastGeofenceEven
 export interface ForecastGeofenceEventsCommandOutput extends ForecastGeofenceEventsResponse, __MetadataBearer {}
 
 /**
- * <p>This action forecasts future geofence events that are likely to occur within a specified time horizon if a device continues moving at its current speed. Each forecasted event is associated with a geofence from a provided geofence collection. A forecast event can have one of the following states:</p> <p> <code>ENTER</code>: The device position is outside the referenced geofence, but the device may cross into the geofence during the forecasting time horizon if it maintains its current speed.</p> <p> <code>EXIT</code>: The device position is inside the referenced geofence, but the device may leave the geofence during the forecasted time horizon if the device maintains it's current speed.</p> <p> <code>IDLE</code>:The device is inside the geofence, and it will remain inside the geofence through the end of the time horizon if the device maintains it's current speed.</p> <note> <p>Heading direction is not considered in the current version. The API takes a conservative approach and includes events that can occur for any heading.</p> </note>
+ * This action forecasts future geofence events that are likely to occur within a specified time horizon if a device continues moving at its current speed. Each forecasted event is associated with a geofence from a provided geofence collection. A forecast event can have one of the following states:
+ *
+ * `ENTER`: The device position is outside the referenced geofence, but the device may cross into the geofence during the forecasting time horizon if it maintains its current speed.
+ *
+ * `EXIT`: The device position is inside the referenced geofence, but the device may leave the geofence during the forecasted time horizon if the device maintains it's current speed.
+ *
+ * `IDLE`:The device is inside the geofence, and it will remain inside the geofence through the end of the time horizon if the device maintains it's current speed.
+ *
+ * > **Note:** Heading direction is not considered in the current version. The API takes a conservative approach and includes events that can occur for any heading.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,23 +85,28 @@ export interface ForecastGeofenceEventsCommandOutput extends ForecastGeofenceEve
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+ *
+ * The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+ *
+ * The request has failed to process because of an unknown server error, exception, or failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource that you've entered was not found in your AWS account.</p>
+ *
+ * The resource that you've entered was not found in your AWS account.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied because of request throttling.</p>
+ *
+ * The request was denied because of request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input failed to meet the constraints specified by the AWS service. </p>
+ *
+ * The input failed to meet the constraints specified by the AWS service.
  *
  * @throws {@link LocationServiceException}
- * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * Base exception class for all service exceptions from Location service.
  *
  * @public
  */

@@ -23,9 +23,8 @@ export interface CancelSigningProfileCommandInput extends CancelSigningProfileRe
 export interface CancelSigningProfileCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Changes the state of an <code>ACTIVE</code> signing profile to <code>CANCELED</code>.
- * 			A canceled profile is still viewable with the <code>ListSigningProfiles</code>
- * 				operation, but it cannot perform new signing jobs. See <a href="https://docs.aws.amazon.com/signer/latest/developerguide/retention.html">Data Retention</a> for more information on scheduled deletion of a canceled signing profile.</p>
+ * Changes the state of an `ACTIVE` signing profile to `CANCELED`. A canceled profile is still viewable with the `ListSigningProfiles` operation, but it cannot perform new signing jobs. See [Data Retention](https://docs.aws.amazon.com/signer/latest/developerguide/retention.html) for more information on scheduled deletion of a canceled signing profile.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,21 +49,26 @@ export interface CancelSigningProfileCommandOutput extends __MetadataBearer {}
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>An internal error occurred.</p>
+ *
+ * An internal error occurred.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A specified resource could not be found.</p>
+ *
+ * A specified resource could not be found.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The allowed number of job-signing requests has been exceeded.</p>
- *          <p>This error supersedes the error <code>ThrottlingException</code>.</p>
+ *
+ * The allowed number of job-signing requests has been exceeded.
+ *
+ * This error supersedes the error `ThrottlingException`.
  *
  * @throws {@link SignerServiceException}
- * <p>Base exception class for all service exceptions from Signer service.</p>
  *
+ * Base exception class for all service exceptions from Signer service.
  *
  * @public
  */

@@ -23,7 +23,12 @@ export interface CreateDataflowEndpointGroupV2CommandInput extends CreateDataflo
 export interface CreateDataflowEndpointGroupV2CommandOutput extends CreateDataflowEndpointGroupV2Response, __MetadataBearer {}
 
 /**
- * <p>Creates a <code>DataflowEndpoint</code> group containing the specified list of Ground Station Agent based endpoints.</p> <p>The <code>name</code> field in each endpoint is used in your mission profile <code> DataflowEndpointConfig</code> to specify which endpoints to use during a contact.</p> <p>When a contact uses multiple <code>DataflowEndpointConfig</code> objects, each <code> Config</code> must match a <code>DataflowEndpoint</code> in the same group.</p>
+ * Creates a `DataflowEndpoint` group containing the specified list of Ground Station Agent based endpoints.
+ *
+ * The `name` field in each endpoint is used in your mission profile `DataflowEndpointConfig` to specify which endpoints to use during a contact.
+ *
+ * When a contact uses multiple `DataflowEndpointConfig` objects, each `Config` must match a `DataflowEndpoint` in the same group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -106,20 +111,24 @@ export interface CreateDataflowEndpointGroupV2CommandOutput extends CreateDatafl
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
  *
  * @throws {@link DependencyException} (server fault)
- *  <p>Dependency encountered an error.</p>
+ *
+ * Dependency encountered an error.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource was not found.</p>
+ *
+ * Resource was not found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Request would cause a service quota to be exceeded.</p>
+ *
+ * Request would cause a service quota to be exceeded.
  *
  * @throws {@link GroundStationServiceException}
- * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ * Base exception class for all service exceptions from GroundStation service.
  *
  * @public
  */

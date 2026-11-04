@@ -23,7 +23,8 @@ export interface CreateRegistryCommandInput extends CreateRegistryRequest {}
 export interface CreateRegistryCommandOutput extends CreateRegistryResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a registry.</p>
+ * Creates a registry.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,8 +72,8 @@ export interface CreateRegistryCommandOutput extends CreateRegistryResponse, __M
  * @throws {@link UnauthorizedException} (client fault)
  *
  * @throws {@link SchemasServiceException}
- * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
+ * Base exception class for all service exceptions from Schemas service.
  *
  * @public
  */

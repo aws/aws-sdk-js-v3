@@ -23,55 +23,30 @@ export interface CreateAutoPredictorCommandInput extends CreateAutoPredictorRequ
 export interface CreateAutoPredictorCommandOutput extends CreateAutoPredictorResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon Forecast predictor.</p>
- *          <p>Amazon Forecast creates predictors with AutoPredictor, which involves applying the
- *             optimal combination of algorithms to each time series in your datasets. You can use
- *                 <a>CreateAutoPredictor</a> to create new predictors or upgrade/retrain
- *             existing predictors.</p>
- *          <p>
- *             <b>Creating new predictors</b>
- *          </p>
- *          <p>The following parameters are required when creating a new predictor:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>PredictorName</code> - A unique name for the predictor.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>DatasetGroupArn</code> - The ARN of the dataset group used to train the
- *                     predictor.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>ForecastFrequency</code> - The granularity of your forecasts (hourly,
- *                     daily, weekly, etc).</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>ForecastHorizon</code> - The number of time-steps that the model
- *                     predicts. The forecast horizon is also called the prediction length.</p>
- *             </li>
- *          </ul>
- *          <p>When creating a new predictor, do not specify a value for
- *                 <code>ReferencePredictorArn</code>.</p>
- *          <p>
- *             <b>Upgrading and retraining predictors</b>
- *          </p>
- *          <p>The following parameters are required when retraining or upgrading a predictor:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>PredictorName</code> - A unique name for the predictor.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>ReferencePredictorArn</code> - The ARN of the predictor to retrain or
- *                     upgrade.</p>
- *             </li>
- *          </ul>
- *          <p>When upgrading or retraining a predictor, only specify values for the
- *                 <code>ReferencePredictorArn</code> and <code>PredictorName</code>. </p>
+ * Creates an Amazon Forecast predictor.
+ *
+ * Amazon Forecast creates predictors with AutoPredictor, which involves applying the optimal combination of algorithms to each time series in your datasets. You can use CreateAutoPredictor to create new predictors or upgrade/retrain existing predictors.
+ *
+ * **Creating new predictors**
+ *
+ * The following parameters are required when creating a new predictor:
+ *
+ * - `PredictorName` - A unique name for the predictor.
+ * - `DatasetGroupArn` - The ARN of the dataset group used to train the predictor.
+ * - `ForecastFrequency` - The granularity of your forecasts (hourly, daily, weekly, etc).
+ * - `ForecastHorizon` - The number of time-steps that the model predicts. The forecast horizon is also called the prediction length.
+ *
+ * When creating a new predictor, do not specify a value for `ReferencePredictorArn`.
+ *
+ * **Upgrading and retraining predictors**
+ *
+ * The following parameters are required when retraining or upgrading a predictor:
+ *
+ * - `PredictorName` - A unique name for the predictor.
+ * - `ReferencePredictorArn` - The ARN of the predictor to retrain or upgrade.
+ *
+ * When upgrading or retraining a predictor, only specify values for the `ReferencePredictorArn` and `PredictorName`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -149,25 +124,28 @@ export interface CreateAutoPredictorCommandOutput extends CreateAutoPredictorRes
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>We can't process the request because it includes an invalid value or a value that exceeds
- *       the valid range.</p>
+ *
+ * We can't process the request because it includes an invalid value or a value that exceeds the valid range.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The limit on the number of resources per account has been exceeded.</p>
+ *
+ * The limit on the number of resources per account has been exceeded.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>There is already a resource with this name. Try again with a different name.</p>
+ *
+ * There is already a resource with this name. Try again with a different name.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is in use.</p>
+ *
+ * The specified resource is in use.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
- *       again.</p>
+ *
+ * We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.
  *
  * @throws {@link ForecastServiceException}
- * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * Base exception class for all service exceptions from Forecast service.
  *
  * @public
  */

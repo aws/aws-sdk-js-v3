@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { ConnectContactLensServiceException as __BaseException } from "./ConnectContactLensServiceException";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Request processing failed due to an error or failure with the service.</p>
+ * Request processing failed due to an error or failure with the service.
+ *
  * @public
  */
 export class InternalServiceException extends __BaseException {
@@ -50,7 +52,8 @@ export class InternalServiceException extends __BaseException {
 }
 
 /**
- * <p>The request is not valid.</p>
+ * The request is not valid.
+ *
  * @public
  */
 export class InvalidRequestException extends __BaseException {
@@ -73,7 +76,8 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * <p>The specified resource was not found.</p>
+ * The specified resource was not found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -96,7 +100,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The throttling limit has been exceeded.</p>
+ * The throttling limit has been exceeded.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {

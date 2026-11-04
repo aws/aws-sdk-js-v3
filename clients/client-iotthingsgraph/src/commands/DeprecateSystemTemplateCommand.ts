@@ -23,7 +23,7 @@ export interface DeprecateSystemTemplateCommandInput extends DeprecateSystemTemp
 export interface DeprecateSystemTemplateCommandOutput extends DeprecateSystemTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Deprecates the specified system.</p>
+ * Deprecates the specified system.
  *
  * @deprecated since: 2022-08-30.
  * @example
@@ -50,20 +50,16 @@ export interface DeprecateSystemTemplateCommandOutput extends DeprecateSystemTem
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p></p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p></p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p></p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p></p>
  *
  * @throws {@link IoTThingsGraphServiceException}
- * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ * Base exception class for all service exceptions from IoTThingsGraph service.
  *
  * @public
  */

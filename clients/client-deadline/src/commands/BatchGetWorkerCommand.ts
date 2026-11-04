@@ -23,7 +23,7 @@ export interface BatchGetWorkerCommandInput extends BatchGetWorkerRequest {}
 export interface BatchGetWorkerCommandOutput extends BatchGetWorkerResponse, __MetadataBearer {}
 
 /**
- * Retrieves multiple workers in a single request. This is a batch version of the <code>GetWorker</code> API.
+ * Retrieves multiple workers in a single request. This is a batch version of the `GetWorker` API.
  *
  * The result of getting each worker is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200.
  *
@@ -114,8 +114,8 @@ export interface BatchGetWorkerCommandOutput extends BatchGetWorkerResponse, __M
  *  The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.
  *
  * @throws {@link DeadlineServiceException}
- * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ * Base exception class for all service exceptions from Deadline service.
  *
  * @example Get multiple workers in a single request
  * ```javascript

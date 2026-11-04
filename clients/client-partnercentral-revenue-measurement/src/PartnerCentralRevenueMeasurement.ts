@@ -492,7 +492,8 @@ export interface PartnerCentralRevenueMeasurement {
 }
 
 /**
- * <p>AWS Partner Central Revenue Measurement API for creating, managing, and tracking revenue attributions and their allocations with deal entities such as offers and opportunities.</p>
+ * AWS Partner Central Revenue Measurement API for creating, managing, and tracking revenue attributions and their allocations with deal entities such as offers and opportunities.
+ *
  * @public
  */
 export class PartnerCentralRevenueMeasurement extends PartnerCentralRevenueMeasurementClient implements PartnerCentralRevenueMeasurement {}

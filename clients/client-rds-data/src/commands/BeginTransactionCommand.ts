@@ -23,7 +23,16 @@ export interface BeginTransactionCommandInput extends BeginTransactionRequest {}
 export interface BeginTransactionCommandOutput extends BeginTransactionResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a SQL transaction.</p> <note> <p>A transaction can run for a maximum of 24 hours. A transaction is terminated and rolled back automatically after 24 hours.</p> <p>A transaction times out if no calls use its transaction ID in three minutes. If a transaction times out before it's committed, it's rolled back automatically.</p> <p>For Aurora MySQL, DDL statements inside a transaction cause an implicit commit. We recommend that you run each MySQL DDL statement in a separate <code>ExecuteStatement</code> call with <code>continueAfterTimeout</code> enabled.</p> </note>
+ * Starts a SQL transaction.
+ *
+ * > **Note:**
+ * >
+ * > A transaction can run for a maximum of 24 hours. A transaction is terminated and rolled back automatically after 24 hours.
+ * >
+ * > A transaction times out if no calls use its transaction ID in three minutes. If a transaction times out before it's committed, it's rolled back automatically.
+ * >
+ * > For Aurora MySQL, DDL statements inside a transaction cause an implicit commit. We recommend that you run each MySQL DDL statement in a separate `ExecuteStatement` call with `continueAfterTimeout` enabled.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,53 +62,72 @@ export interface BeginTransactionCommandOutput extends BeginTransactionResponse,
  * @see {@link RDSDataClientResolvedConfig | config} for RDSDataClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * You don't have sufficient access to perform this action.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>There is an error in the call or in a SQL statement. This exception is deprecated.</p>
+ *
+ * There is an error in the call or in a SQL statement. This exception is deprecated.
  *
  * @throws {@link DatabaseErrorException} (client fault)
- *  <p>There was an error in processing the SQL statement.</p>
+ *
+ * There was an error in processing the SQL statement.
  *
  * @throws {@link DatabaseNotFoundException} (client fault)
- *  <p>The DB cluster doesn't have a DB instance.</p>
+ *
+ * The DB cluster doesn't have a DB instance.
  *
  * @throws {@link DatabaseResumingException} (client fault)
- *  <p>A request was cancelled because the Aurora Serverless DB instance was paused. The Data API request automatically resumes the DB instance. Wait a few seconds and try again.</p>
+ *
+ * A request was cancelled because the Aurora Serverless DB instance was paused. The Data API request automatically resumes the DB instance. Wait a few seconds and try again.
  *
  * @throws {@link DatabaseUnavailableException} (server fault)
- *  <p>The writer instance in the DB cluster isn't available.</p>
+ *
+ * The writer instance in the DB cluster isn't available.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>There are insufficient privileges to make the call.</p>
+ *
+ * There are insufficient privileges to make the call.
  *
  * @throws {@link HttpEndpointNotEnabledException} (client fault)
- *  <p>The HTTP endpoint for using RDS Data API isn't enabled for the DB cluster.</p>
+ *
+ * The HTTP endpoint for using RDS Data API isn't enabled for the DB cluster.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>An internal error occurred.</p>
+ *
+ * An internal error occurred.
  *
  * @throws {@link InvalidResourceStateException} (client fault)
- *  <p>The resource is in an invalid state.</p>
+ *
+ * The resource is in an invalid state.
  *
  * @throws {@link InvalidSecretException} (client fault)
- *  <p>The Secrets Manager secret used with the request isn't valid.</p>
+ *
+ * The Secrets Manager secret used with the request isn't valid.
  *
  * @throws {@link SecretsErrorException} (client fault)
- *  <p>There was a problem with the Secrets Manager secret used with the request, caused by one of the following conditions:</p> <ul> <li> <p>RDS Data API timed out retrieving the secret.</p> </li> <li> <p>The secret provided wasn't found.</p> </li> <li> <p>The secret couldn't be decrypted.</p> </li> </ul>
+ *
+ * There was a problem with the Secrets Manager secret used with the request, caused by one of the following conditions:
+ *
+ * - RDS Data API timed out retrieving the secret.
+ * - The secret provided wasn't found.
+ * - The secret couldn't be decrypted.
  *
  * @throws {@link ServiceUnavailableError} (server fault)
- *  <p>The service specified by the <code>resourceArn</code> parameter isn't available.</p>
+ *
+ * The service specified by the `resourceArn` parameter isn't available.
  *
  * @throws {@link StatementTimeoutException} (client fault)
- *  <p>The execution of the SQL statement timed out.</p>
+ *
+ * The execution of the SQL statement timed out.
  *
  * @throws {@link TransactionNotFoundException} (client fault)
- *  <p>The transaction ID wasn't found.</p>
+ *
+ * The transaction ID wasn't found.
  *
  * @throws {@link RDSDataServiceException}
- * <p>Base exception class for all service exceptions from RDSData service.</p>
  *
+ * Base exception class for all service exceptions from RDSData service.
  *
  * @public
  */

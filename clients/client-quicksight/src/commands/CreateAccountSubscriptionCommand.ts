@@ -23,28 +23,18 @@ export interface CreateAccountSubscriptionCommandInput extends CreateAccountSubs
 export interface CreateAccountSubscriptionCommandOutput extends CreateAccountSubscriptionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon Quick Sight account, or subscribes to Amazon Quick Sight Q.</p>
- *          <p>The Amazon Web Services Region for the account is derived from what is configured in the
- *           CLI or SDK.</p>
- *          <p>Before you use this operation, make sure that you can connect to an existing Amazon Web Services account. If you don't have an Amazon Web Services account, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/setting-up-aws-sign-up.html">Sign
- *                 up for Amazon Web Services</a> in the <i>Amazon Quick Sight User
- *                 Guide</i>. The person who signs up for Amazon Quick Sight needs to have the
- *             correct Identity and Access Management (IAM) permissions. For more information,
- *             see <a href="https://docs.aws.amazon.com/quicksight/latest/user/iam-policy-examples.html">IAM Policy Examples for Amazon Quick Sight</a> in the
- *                     <i>Amazon Quick Sight User Guide</i>.</p>
- *          <p>If your IAM policy includes both the <code>Subscribe</code> and
- *                 <code>CreateAccountSubscription</code> actions, make sure that both actions are set
- *             to <code>Allow</code>. If either action is set to <code>Deny</code>, the
- *                 <code>Deny</code> action prevails and your API call fails.</p>
- *          <p>You can't pass an existing IAM role to access other Amazon Web Services services using this API operation. To pass your existing IAM role to
- *                 Amazon Quick Sight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/security_iam_service-with-iam.html#security-create-iam-role">Passing IAM roles to Amazon Quick Sight</a> in the
- *                     <i>Amazon Quick Sight User Guide</i>.</p>
- *          <p>You can't set default resource access on the new account from the Amazon Quick Sight
- *             API. Instead, add default resource access from the Amazon Quick Sight console. For more
- *             information about setting default resource access to Amazon Web Services services, see
- *                 <a href="https://docs.aws.amazon.com/quicksight/latest/user/scoping-policies-defaults.html">Setting default resource
- *                 access to Amazon Web Services services</a> in the <i>Amazon Quick Sight
- *                 User Guide</i>.</p>
+ * Creates an Amazon Quick Sight account, or subscribes to Amazon Quick Sight Q.
+ *
+ * The Amazon Web Services Region for the account is derived from what is configured in the CLI or SDK.
+ *
+ * Before you use this operation, make sure that you can connect to an existing Amazon Web Services account. If you don't have an Amazon Web Services account, see [Sign up for Amazon Web Services](https://docs.aws.amazon.com/quicksight/latest/user/setting-up-aws-sign-up.html) in the *Amazon Quick Sight User Guide*. The person who signs up for Amazon Quick Sight needs to have the correct Identity and Access Management (IAM) permissions. For more information, see [IAM Policy Examples for Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/iam-policy-examples.html) in the *Amazon Quick Sight User Guide*.
+ *
+ * If your IAM policy includes both the `Subscribe` and `CreateAccountSubscription` actions, make sure that both actions are set to `Allow`. If either action is set to `Deny`, the `Deny` action prevails and your API call fails.
+ *
+ * You can't pass an existing IAM role to access other Amazon Web Services services using this API operation. To pass your existing IAM role to Amazon Quick Sight, see [Passing IAM roles to Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/security_iam_service-with-iam.html#security-create-iam-role) in the *Amazon Quick Sight User Guide*.
+ *
+ * You can't set default resource access on the new account from the Amazon Quick Sight API. Instead, add default resource access from the Amazon Quick Sight console. For more information about setting default resource access to Amazon Web Services services, see [Setting default resource access to Amazon Web Services services](https://docs.aws.amazon.com/quicksight/latest/user/scoping-policies-defaults.html) in the *Amazon Quick Sight User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -106,38 +96,44 @@ export interface CreateAccountSubscriptionCommandOutput extends CreateAccountSub
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have access to this item. The provided credentials couldn't be
- * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
- * 			correct permissions, and that you are using the correct credentials.</p>
+ *
+ * You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ *
+ * Updating or deleting a resource can cause an inconsistent state.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An internal failure occurred.</p>
+ *
+ * An internal failure occurred.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more parameters has a value that isn't valid.</p>
+ *
+ * One or more parameters has a value that isn't valid.
  *
  * @throws {@link PreconditionNotMetException} (client fault)
- *  <p>One or more preconditions aren't met.</p>
+ *
+ * One or more preconditions aren't met.
  *
  * @throws {@link ResourceExistsException} (client fault)
- *  <p>The resource specified already exists. </p>
+ *
+ * The resource specified already exists.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>One or more resources can't be found.</p>
+ *
+ * One or more resources can't be found.
  *
  * @throws {@link ResourceUnavailableException} (server fault)
- *  <p>This resource is currently unavailable.</p>
+ *
+ * This resource is currently unavailable.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Access is throttled.</p>
+ *
+ * Access is throttled.
  *
  * @throws {@link QuickSightServiceException}
- * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * Base exception class for all service exceptions from QuickSight service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface UpdateLoggingConfigurationCommandInput extends UpdateLoggingCon
 export interface UpdateLoggingConfigurationCommandOutput extends UpdateLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a specified logging configuration.</p>
+ * Updates a specified logging configuration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,23 +82,18 @@ export interface UpdateLoggingConfigurationCommandOutput extends UpdateLoggingCo
  * @see {@link IvschatClientResolvedConfig | config} for IvschatClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p/>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p/>
  *
  * @throws {@link PendingVerification} (client fault)
- *  <p/>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p/>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p/>
  *
  * @throws {@link IvschatServiceException}
- * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
+ * Base exception class for all service exceptions from Ivschat service.
  *
  * @public
  */

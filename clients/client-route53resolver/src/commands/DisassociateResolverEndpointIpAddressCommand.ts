@@ -26,11 +26,10 @@ export interface DisassociateResolverEndpointIpAddressCommandInput extends Disas
 export interface DisassociateResolverEndpointIpAddressCommandOutput extends DisassociateResolverEndpointIpAddressResponse, __MetadataBearer {}
 
 /**
- * <p>Removes IP addresses from an inbound or an outbound Resolver endpoint. If you want to remove more than one IP address,
- * 			submit one <code>DisassociateResolverEndpointIpAddress</code> request for each IP address.</p>
- *          <p>To add an IP address to an endpoint, see
- * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverEndpointIpAddress.html">AssociateResolverEndpointIpAddress</a>.
- * 		</p>
+ * Removes IP addresses from an inbound or an outbound Resolver endpoint. If you want to remove more than one IP address, submit one `DisassociateResolverEndpointIpAddress` request for each IP address.
+ *
+ * To add an IP address to an endpoint, see [AssociateResolverEndpointIpAddress](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverEndpointIpAddress.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,26 +87,32 @@ export interface DisassociateResolverEndpointIpAddressCommandOutput extends Disa
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
  *
  * @throws {@link InternalServiceErrorException} (client fault)
- *  <p>We encountered an unknown error. Try again in a few minutes.</p>
+ *
+ * We encountered an unknown error. Try again in a few minutes.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters in this request are not valid.</p>
+ *
+ * One or more parameters in this request are not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is invalid.</p>
+ *
+ * The request is invalid.
  *
  * @throws {@link ResourceExistsException} (client fault)
- *  <p>The resource that you tried to create already exists.</p>
+ *
+ * The resource that you tried to create already exists.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource doesn't exist.</p>
+ *
+ * The specified resource doesn't exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled. Try again in a few minutes.</p>
+ *
+ * The request was throttled. Try again in a few minutes.
  *
  * @throws {@link Route53ResolverServiceException}
- * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * Base exception class for all service exceptions from Route53Resolver service.
  *
  * @public
  */

@@ -23,42 +23,24 @@ export interface GetContactMetricsCommandInput extends GetContactMetricsRequest 
 export interface GetContactMetricsCommandOutput extends GetContactMetricsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves contact metric data for a specified contact.</p>
- *          <p>
- *             <b>Use cases</b>
- *          </p>
- *          <p>Following are common use cases for position in queue and estimated wait time:</p>
- *          <ul>
- *             <li>
- *                <p>Customer-Facing Wait Time Announcements - Display or announce the estimated wait time and position in queue to customers before or during their queue experience.
- *     </p>
- *             </li>
- *             <li>
- *                <p>Callback Offerings - Offer customers a callback option when the estimated wait time or position in queue exceeds a defined threshold.
- *     </p>
- *             </li>
- *             <li>
- *                <p>Queue Routing Decisions - Route incoming contacts to less congested queues by comparing estimated wait time and position in queue across multiple queues.
- *     </p>
- *             </li>
- *             <li>
- *                <p>Self-Service Deflection - Redirect customers to self-service options like chatbots or FAQs when estimated wait time is high or position in queue is unfavorable.
- *     </p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Important things to know</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>Metrics are only available while the contact is actively in queue.</p>
- *             </li>
- *             <li>
- *                <p>For more information, see the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Position in queue</a> metric in the <i>Connect Customer Administrator Guide</i>. </p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Connect Customer endpoints and quotas</a>.</p>
+ * Retrieves contact metric data for a specified contact.
+ *
+ * **Use cases**
+ *
+ * Following are common use cases for position in queue and estimated wait time:
+ *
+ * - Customer-Facing Wait Time Announcements - Display or announce the estimated wait time and position in queue to customers before or during their queue experience.
+ * - Callback Offerings - Offer customers a callback option when the estimated wait time or position in queue exceeds a defined threshold.
+ * - Queue Routing Decisions - Route incoming contacts to less congested queues by comparing estimated wait time and position in queue across multiple queues.
+ * - Self-Service Deflection - Redirect customers to self-service options like chatbots or FAQs when estimated wait time is high or position in queue is unfavorable.
+ *
+ * **Important things to know**
+ *
+ * - Metrics are only available while the contact is actively in queue.
+ * - For more information, see the [Position in queue](https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html) metric in the *Connect Customer Administrator Guide*.
+ *
+ * **Endpoints**: See [Connect Customer endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -100,26 +82,32 @@ export interface GetContactMetricsCommandOutput extends GetContactMetricsRespons
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

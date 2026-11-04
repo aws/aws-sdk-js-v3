@@ -2,372 +2,436 @@
 import type { Readiness } from "./enums";
 
 /**
- * <p>Information about a cell.</p>
+ * Information about a cell.
+ *
  * @public
  */
 export interface CellOutput {
   /**
-   * <p>The Amazon Resource Name (ARN) for the cell.</p>
+   * The Amazon Resource Name (ARN) for the cell.
+   *
    * @public
    */
   CellArn: string | undefined;
 
   /**
-   * <p>The name of the cell.</p>
+   * The name of the cell.
+   *
    * @public
    */
   CellName: string | undefined;
 
   /**
-   * <p>A list of cell ARNs.</p>
+   * A list of cell ARNs.
+   *
    * @public
    */
   Cells: string[] | undefined;
 
   /**
-   * <p>The readiness scope for the cell, which can be a cell Amazon Resource Name (ARN) or a recovery group ARN. This is a list but currently can have only one element.</p>
+   * The readiness scope for the cell, which can be a cell Amazon Resource Name (ARN) or a recovery group ARN. This is a list but currently can have only one element.
+   *
    * @public
    */
   ParentReadinessScopes: string[] | undefined;
 
   /**
-   * <p>Tags on the resources.</p>
+   * Tags on the resources.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Readiness rule information, including the resource type, rule ID, and rule description.</p>
+ * Readiness rule information, including the resource type, rule ID, and rule description.
+ *
  * @public
  */
 export interface ListRulesOutput {
   /**
-   * <p>The resource type that the readiness rule applies to.</p>
+   * The resource type that the readiness rule applies to.
+   *
    * @public
    */
   ResourceType: string | undefined;
 
   /**
-   * <p>The description of a readiness rule.</p>
+   * The description of a readiness rule.
+   *
    * @public
    */
   RuleDescription: string | undefined;
 
   /**
-   * <p>The ID for the readiness rule.</p>
+   * The ID for the readiness rule.
+   *
    * @public
    */
   RuleId: string | undefined;
 }
 
 /**
- * <p>Information relating to readiness check status.</p>
+ * Information relating to readiness check status.
+ *
  * @public
  */
 export interface Message {
   /**
-   * <p>The text of a readiness check message.</p>
+   * The text of a readiness check message.
+   *
    * @public
    */
   MessageText?: string | undefined;
 }
 
 /**
- * <p>A readiness check.</p>
+ * A readiness check.
+ *
  * @public
  */
 export interface ReadinessCheckOutput {
   /**
-   * <p>The Amazon Resource Name (ARN) associated with a readiness check.</p>
+   * The Amazon Resource Name (ARN) associated with a readiness check.
+   *
    * @public
    */
   ReadinessCheckArn: string | undefined;
 
   /**
-   * <p>Name of a readiness check.</p>
+   * Name of a readiness check.
+   *
    * @public
    */
   ReadinessCheckName?: string | undefined;
 
   /**
-   * <p>Name of the resource set to be checked.</p>
+   * Name of the resource set to be checked.
+   *
    * @public
    */
   ResourceSet: string | undefined;
 
   /**
-   * <p>A collection of tags associated with a resource.</p>
+   * A collection of tags associated with a resource.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Summary of all readiness check statuses in a recovery group, paginated in GetRecoveryGroupReadinessSummary and GetCellReadinessSummary.</p>
+ * Summary of all readiness check statuses in a recovery group, paginated in GetRecoveryGroupReadinessSummary and GetCellReadinessSummary.
+ *
  * @public
  */
 export interface ReadinessCheckSummary {
   /**
-   * <p>The readiness status of this readiness check.</p>
+   * The readiness status of this readiness check.
+   *
    * @public
    */
   Readiness?: Readiness | undefined;
 
   /**
-   * <p>The name of a readiness check.</p>
+   * The name of a readiness check.
+   *
    * @public
    */
   ReadinessCheckName?: string | undefined;
 }
 
 /**
- * <p>Recommendations that are provided to make an application more recovery resilient.</p>
+ * Recommendations that are provided to make an application more recovery resilient.
+ *
  * @public
  */
 export interface Recommendation {
   /**
-   * <p>Text of the recommendations that are provided to make an application more recovery resilient.</p>
+   * Text of the recommendations that are provided to make an application more recovery resilient.
+   *
    * @public
    */
   RecommendationText: string | undefined;
 }
 
 /**
- * <p>A representation of the application, typically containing multiple cells.</p>
+ * A representation of the application, typically containing multiple cells.
+ *
  * @public
  */
 export interface RecoveryGroupOutput {
   /**
-   * <p>A list of a cell's Amazon Resource Names (ARNs).</p>
+   * A list of a cell's Amazon Resource Names (ARNs).
+   *
    * @public
    */
   Cells: string[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the recovery group.</p>
+   * The Amazon Resource Name (ARN) for the recovery group.
+   *
    * @public
    */
   RecoveryGroupArn: string | undefined;
 
   /**
-   * <p>The name of the recovery group.</p>
+   * The name of the recovery group.
+   *
    * @public
    */
   RecoveryGroupName: string | undefined;
 
   /**
-   * <p>The tags associated with the recovery group.</p>
+   * The tags associated with the recovery group.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>The Network Load Balancer resource that a DNS target resource points to.</p>
+ * The Network Load Balancer resource that a DNS target resource points to.
+ *
  * @public
  */
 export interface NLBResource {
   /**
-   * <p>The Network Load Balancer resource Amazon Resource Name (ARN).</p>
+   * The Network Load Balancer resource Amazon Resource Name (ARN).
+   *
    * @public
    */
   Arn?: string | undefined;
 }
 
 /**
- * <p>The Route 53 resource that a DNS target resource record points to.</p>
+ * The Route 53 resource that a DNS target resource record points to.
+ *
  * @public
  */
 export interface R53ResourceRecord {
   /**
-   * <p>The DNS target domain name.</p>
+   * The DNS target domain name.
+   *
    * @public
    */
   DomainName?: string | undefined;
 
   /**
-   * <p>The Route 53 Resource Record Set ID.</p>
+   * The Route 53 Resource Record Set ID.
+   *
    * @public
    */
   RecordSetId?: string | undefined;
 }
 
 /**
- * <p>The target resource that the Route 53 record points to.</p>
+ * The target resource that the Route 53 record points to.
+ *
  * @public
  */
 export interface TargetResource {
   /**
-   * <p>The Network Load Balancer Resource.</p>
+   * The Network Load Balancer Resource.
+   *
    * @public
    */
   NLBResource?: NLBResource | undefined;
 
   /**
-   * <p>The Route 53 resource.</p>
+   * The Route 53 resource.
+   *
    * @public
    */
   R53Resource?: R53ResourceRecord | undefined;
 }
 
 /**
- * <p>A component for DNS/routing control readiness checks and architecture checks.</p>
+ * A component for DNS/routing control readiness checks and architecture checks.
+ *
  * @public
  */
 export interface DNSTargetResource {
   /**
-   * <p>The domain name that acts as an ingress point to a portion of the customer application.</p>
+   * The domain name that acts as an ingress point to a portion of the customer application.
+   *
    * @public
    */
   DomainName?: string | undefined;
 
   /**
-   * <p>The hosted zone Amazon Resource Name (ARN) that contains the DNS record with the provided name of the target resource.</p>
+   * The hosted zone Amazon Resource Name (ARN) that contains the DNS record with the provided name of the target resource.
+   *
    * @public
    */
   HostedZoneArn?: string | undefined;
 
   /**
-   * <p>The Route 53 record set ID that uniquely identifies a DNS record, given a name and a type.</p>
+   * The Route 53 record set ID that uniquely identifies a DNS record, given a name and a type.
+   *
    * @public
    */
   RecordSetId?: string | undefined;
 
   /**
-   * <p>The type of DNS record of the target resource.</p>
+   * The type of DNS record of the target resource.
+   *
    * @public
    */
   RecordType?: string | undefined;
 
   /**
-   * <p>The target resource of the DNS target resource.</p>
+   * The target resource of the DNS target resource.
+   *
    * @public
    */
   TargetResource?: TargetResource | undefined;
 }
 
 /**
- * <p>The resource element of a resource set.</p>
+ * The resource element of a resource set.
+ *
  * @public
  */
 export interface Resource {
   /**
-   * <p>The component identifier of the resource, generated when DNS target resource is used.</p>
+   * The component identifier of the resource, generated when DNS target resource is used.
+   *
    * @public
    */
   ComponentId?: string | undefined;
 
   /**
-   * <p>The DNS target resource.</p>
+   * The DNS target resource.
+   *
    * @public
    */
   DnsTargetResource?: DNSTargetResource | undefined;
 
   /**
-   * <p>A list of recovery group Amazon Resource Names (ARNs) and cell ARNs that this resource is contained within.</p>
+   * A list of recovery group Amazon Resource Names (ARNs) and cell ARNs that this resource is contained within.
+   *
    * @public
    */
   ReadinessScopes?: string[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services resource.</p>
+   * The Amazon Resource Name (ARN) of the Amazon Web Services resource.
+   *
    * @public
    */
   ResourceArn?: string | undefined;
 }
 
 /**
- * <p>The result of a successful Resource request, with status for an individual resource.</p>
+ * The result of a successful Resource request, with status for an individual resource.
+ *
  * @public
  */
 export interface ResourceResult {
   /**
-   * <p>The component id of the resource.</p>
+   * The component id of the resource.
+   *
    * @public
    */
   ComponentId?: string | undefined;
 
   /**
-   * <p>The time (UTC) that the resource was last checked for readiness, in ISO-8601 format.</p>
+   * The time (UTC) that the resource was last checked for readiness, in ISO-8601 format.
+   *
    * @public
    */
   LastCheckedTimestamp: Date | undefined;
 
   /**
-   * <p>The readiness of a resource.</p>
+   * The readiness of a resource.
+   *
    * @public
    */
   Readiness: Readiness | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   ResourceArn?: string | undefined;
 }
 
 /**
- * <p>A collection of resources of the same type.</p>
+ * A collection of resources of the same type.
+ *
  * @public
  */
 export interface ResourceSetOutput {
   /**
-   * <p>The Amazon Resource Name (ARN) for the resource set.</p>
+   * The Amazon Resource Name (ARN) for the resource set.
+   *
    * @public
    */
   ResourceSetArn: string | undefined;
 
   /**
-   * <p>The name of the resource set.</p>
+   * The name of the resource set.
+   *
    * @public
    */
   ResourceSetName: string | undefined;
 
   /**
-   * <p>The resource type of the resources in the resource set. Enter one of the following values for resource type:</p> <p>AWS::ApiGateway::Stage, AWS::ApiGatewayV2::Stage, AWS::AutoScaling::AutoScalingGroup, AWS::CloudWatch::Alarm, AWS::EC2::CustomerGateway, AWS::DynamoDB::Table, AWS::EC2::Volume, AWS::ElasticLoadBalancing::LoadBalancer, AWS::ElasticLoadBalancingV2::LoadBalancer, AWS::Lambda::Function, AWS::MSK::Cluster, AWS::RDS::DBCluster, AWS::Route53::HealthCheck, AWS::SQS::Queue, AWS::SNS::Topic, AWS::SNS::Subscription, AWS::EC2::VPC, AWS::EC2::VPNConnection, AWS::EC2::VPNGateway, AWS::Route53RecoveryReadiness::DNSTargetResource</p>
+   * The resource type of the resources in the resource set. Enter one of the following values for resource type:
+   *
+   * AWS::ApiGateway::Stage, AWS::ApiGatewayV2::Stage, AWS::AutoScaling::AutoScalingGroup, AWS::CloudWatch::Alarm, AWS::EC2::CustomerGateway, AWS::DynamoDB::Table, AWS::EC2::Volume, AWS::ElasticLoadBalancing::LoadBalancer, AWS::ElasticLoadBalancingV2::LoadBalancer, AWS::Lambda::Function, AWS::MSK::Cluster, AWS::RDS::DBCluster, AWS::Route53::HealthCheck, AWS::SQS::Queue, AWS::SNS::Topic, AWS::SNS::Subscription, AWS::EC2::VPC, AWS::EC2::VPNConnection, AWS::EC2::VPNGateway, AWS::Route53RecoveryReadiness::DNSTargetResource
+   *
    * @public
    */
   ResourceSetType: string | undefined;
 
   /**
-   * <p>A list of resource objects.</p>
+   * A list of resource objects.
+   *
    * @public
    */
   Resources: Resource[] | undefined;
 
   /**
-   * <p>A collection of tags associated with a resource.</p>
+   * A collection of tags associated with a resource.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>The result of a successful Rule request, with status for an individual rule.</p>
+ * The result of a successful Rule request, with status for an individual rule.
+ *
  * @public
  */
 export interface RuleResult {
   /**
-   * <p>The time the resource was last checked for readiness, in ISO-8601 format, UTC.</p>
+   * The time the resource was last checked for readiness, in ISO-8601 format, UTC.
+   *
    * @public
    */
   LastCheckedTimestamp: Date | undefined;
 
   /**
-   * <p>Details about the resource's readiness.</p>
+   * Details about the resource's readiness.
+   *
    * @public
    */
   Messages: Message[] | undefined;
 
   /**
-   * <p>The readiness at rule level.</p>
+   * The readiness at rule level.
+   *
    * @public
    */
   Readiness: Readiness | undefined;
 
   /**
-   * <p>The identifier of the rule.</p>
+   * The identifier of the rule.
+   *
    * @public
    */
   RuleId: string | undefined;
@@ -378,19 +442,22 @@ export interface RuleResult {
  */
 export interface CreateCellRequest {
   /**
-   * <p>The name of the cell to create.</p>
+   * The name of the cell to create.
+   *
    * @public
    */
   CellName: string | undefined;
 
   /**
-   * <p>A list of cell Amazon Resource Names (ARNs) contained within this cell, for use in nested cells. For example, Availability Zones within specific Amazon Web Services Regions.</p>
+   * A list of cell Amazon Resource Names (ARNs) contained within this cell, for use in nested cells. For example, Availability Zones within specific Amazon Web Services Regions.
+   *
    * @public
    */
   Cells?: string[] | undefined;
 
   /**
-   * <p>A collection of tags associated with a resource.</p>
+   * A collection of tags associated with a resource.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -401,31 +468,36 @@ export interface CreateCellRequest {
  */
 export interface CreateCellResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) for the cell.</p>
+   * The Amazon Resource Name (ARN) for the cell.
+   *
    * @public
    */
   CellArn?: string | undefined;
 
   /**
-   * <p>The name of the cell.</p>
+   * The name of the cell.
+   *
    * @public
    */
   CellName?: string | undefined;
 
   /**
-   * <p>A list of cell ARNs.</p>
+   * A list of cell ARNs.
+   *
    * @public
    */
   Cells?: string[] | undefined;
 
   /**
-   * <p>The readiness scope for the cell, which can be a cell Amazon Resource Name (ARN) or a recovery group ARN. This is a list but currently can have only one element.</p>
+   * The readiness scope for the cell, which can be a cell Amazon Resource Name (ARN) or a recovery group ARN. This is a list but currently can have only one element.
+   *
    * @public
    */
   ParentReadinessScopes?: string[] | undefined;
 
   /**
-   * <p>Tags on the resources.</p>
+   * Tags on the resources.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -436,7 +508,8 @@ export interface CreateCellResponse {
  */
 export interface CreateCrossAccountAuthorizationRequest {
   /**
-   * <p>The cross-account authorization.</p>
+   * The cross-account authorization.
+   *
    * @public
    */
   CrossAccountAuthorization: string | undefined;
@@ -447,7 +520,8 @@ export interface CreateCrossAccountAuthorizationRequest {
  */
 export interface CreateCrossAccountAuthorizationResponse {
   /**
-   * <p>The cross-account authorization.</p>
+   * The cross-account authorization.
+   *
    * @public
    */
   CrossAccountAuthorization?: string | undefined;
@@ -458,19 +532,22 @@ export interface CreateCrossAccountAuthorizationResponse {
  */
 export interface CreateReadinessCheckRequest {
   /**
-   * <p>The name of the readiness check to create.</p>
+   * The name of the readiness check to create.
+   *
    * @public
    */
   ReadinessCheckName: string | undefined;
 
   /**
-   * <p>The name of the resource set to check.</p>
+   * The name of the resource set to check.
+   *
    * @public
    */
   ResourceSetName: string | undefined;
 
   /**
-   * <p>A collection of tags associated with a resource.</p>
+   * A collection of tags associated with a resource.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -481,25 +558,29 @@ export interface CreateReadinessCheckRequest {
  */
 export interface CreateReadinessCheckResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) associated with a readiness check.</p>
+   * The Amazon Resource Name (ARN) associated with a readiness check.
+   *
    * @public
    */
   ReadinessCheckArn?: string | undefined;
 
   /**
-   * <p>Name of a readiness check.</p>
+   * Name of a readiness check.
+   *
    * @public
    */
   ReadinessCheckName?: string | undefined;
 
   /**
-   * <p>Name of the resource set to be checked.</p>
+   * Name of the resource set to be checked.
+   *
    * @public
    */
   ResourceSet?: string | undefined;
 
   /**
-   * <p>A collection of tags associated with a resource.</p>
+   * A collection of tags associated with a resource.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -510,19 +591,22 @@ export interface CreateReadinessCheckResponse {
  */
 export interface CreateRecoveryGroupRequest {
   /**
-   * <p>A list of the cell Amazon Resource Names (ARNs) in the recovery group.</p>
+   * A list of the cell Amazon Resource Names (ARNs) in the recovery group.
+   *
    * @public
    */
   Cells?: string[] | undefined;
 
   /**
-   * <p>The name of the recovery group to create.</p>
+   * The name of the recovery group to create.
+   *
    * @public
    */
   RecoveryGroupName: string | undefined;
 
   /**
-   * <p>A collection of tags associated with a resource.</p>
+   * A collection of tags associated with a resource.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -533,25 +617,29 @@ export interface CreateRecoveryGroupRequest {
  */
 export interface CreateRecoveryGroupResponse {
   /**
-   * <p>A list of a cell's Amazon Resource Names (ARNs).</p>
+   * A list of a cell's Amazon Resource Names (ARNs).
+   *
    * @public
    */
   Cells?: string[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the recovery group.</p>
+   * The Amazon Resource Name (ARN) for the recovery group.
+   *
    * @public
    */
   RecoveryGroupArn?: string | undefined;
 
   /**
-   * <p>The name of the recovery group.</p>
+   * The name of the recovery group.
+   *
    * @public
    */
   RecoveryGroupName?: string | undefined;
 
   /**
-   * <p>The tags associated with the recovery group.</p>
+   * The tags associated with the recovery group.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -562,25 +650,31 @@ export interface CreateRecoveryGroupResponse {
  */
 export interface CreateResourceSetRequest {
   /**
-   * <p>The name of the resource set to create.</p>
+   * The name of the resource set to create.
+   *
    * @public
    */
   ResourceSetName: string | undefined;
 
   /**
-   * <p>The resource type of the resources in the resource set. Enter one of the following values for resource type:</p> <p>AWS::ApiGateway::Stage, AWS::ApiGatewayV2::Stage, AWS::AutoScaling::AutoScalingGroup, AWS::CloudWatch::Alarm, AWS::EC2::CustomerGateway, AWS::DynamoDB::Table, AWS::EC2::Volume, AWS::ElasticLoadBalancing::LoadBalancer, AWS::ElasticLoadBalancingV2::LoadBalancer, AWS::Lambda::Function, AWS::MSK::Cluster, AWS::RDS::DBCluster, AWS::Route53::HealthCheck, AWS::SQS::Queue, AWS::SNS::Topic, AWS::SNS::Subscription, AWS::EC2::VPC, AWS::EC2::VPNConnection, AWS::EC2::VPNGateway, AWS::Route53RecoveryReadiness::DNSTargetResource</p>
+   * The resource type of the resources in the resource set. Enter one of the following values for resource type:
+   *
+   * AWS::ApiGateway::Stage, AWS::ApiGatewayV2::Stage, AWS::AutoScaling::AutoScalingGroup, AWS::CloudWatch::Alarm, AWS::EC2::CustomerGateway, AWS::DynamoDB::Table, AWS::EC2::Volume, AWS::ElasticLoadBalancing::LoadBalancer, AWS::ElasticLoadBalancingV2::LoadBalancer, AWS::Lambda::Function, AWS::MSK::Cluster, AWS::RDS::DBCluster, AWS::Route53::HealthCheck, AWS::SQS::Queue, AWS::SNS::Topic, AWS::SNS::Subscription, AWS::EC2::VPC, AWS::EC2::VPNConnection, AWS::EC2::VPNGateway, AWS::Route53RecoveryReadiness::DNSTargetResource
+   *
    * @public
    */
   ResourceSetType: string | undefined;
 
   /**
-   * <p>A list of resource objects in the resource set.</p>
+   * A list of resource objects in the resource set.
+   *
    * @public
    */
   Resources: Resource[] | undefined;
 
   /**
-   * <p>A tag to associate with the parameters for a resource set.</p>
+   * A tag to associate with the parameters for a resource set.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -591,31 +685,38 @@ export interface CreateResourceSetRequest {
  */
 export interface CreateResourceSetResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) for the resource set.</p>
+   * The Amazon Resource Name (ARN) for the resource set.
+   *
    * @public
    */
   ResourceSetArn?: string | undefined;
 
   /**
-   * <p>The name of the resource set.</p>
+   * The name of the resource set.
+   *
    * @public
    */
   ResourceSetName?: string | undefined;
 
   /**
-   * <p>The resource type of the resources in the resource set. Enter one of the following values for resource type:</p> <p>AWS::ApiGateway::Stage, AWS::ApiGatewayV2::Stage, AWS::AutoScaling::AutoScalingGroup, AWS::CloudWatch::Alarm, AWS::EC2::CustomerGateway, AWS::DynamoDB::Table, AWS::EC2::Volume, AWS::ElasticLoadBalancing::LoadBalancer, AWS::ElasticLoadBalancingV2::LoadBalancer, AWS::Lambda::Function, AWS::MSK::Cluster, AWS::RDS::DBCluster, AWS::Route53::HealthCheck, AWS::SQS::Queue, AWS::SNS::Topic, AWS::SNS::Subscription, AWS::EC2::VPC, AWS::EC2::VPNConnection, AWS::EC2::VPNGateway, AWS::Route53RecoveryReadiness::DNSTargetResource</p>
+   * The resource type of the resources in the resource set. Enter one of the following values for resource type:
+   *
+   * AWS::ApiGateway::Stage, AWS::ApiGatewayV2::Stage, AWS::AutoScaling::AutoScalingGroup, AWS::CloudWatch::Alarm, AWS::EC2::CustomerGateway, AWS::DynamoDB::Table, AWS::EC2::Volume, AWS::ElasticLoadBalancing::LoadBalancer, AWS::ElasticLoadBalancingV2::LoadBalancer, AWS::Lambda::Function, AWS::MSK::Cluster, AWS::RDS::DBCluster, AWS::Route53::HealthCheck, AWS::SQS::Queue, AWS::SNS::Topic, AWS::SNS::Subscription, AWS::EC2::VPC, AWS::EC2::VPNConnection, AWS::EC2::VPNGateway, AWS::Route53RecoveryReadiness::DNSTargetResource
+   *
    * @public
    */
   ResourceSetType?: string | undefined;
 
   /**
-   * <p>A list of resource objects.</p>
+   * A list of resource objects.
+   *
    * @public
    */
   Resources?: Resource[] | undefined;
 
   /**
-   * <p>A collection of tags associated with a resource.</p>
+   * A collection of tags associated with a resource.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -626,7 +727,8 @@ export interface CreateResourceSetResponse {
  */
 export interface DeleteCellRequest {
   /**
-   * <p>The name of the cell.</p>
+   * The name of the cell.
+   *
    * @public
    */
   CellName: string | undefined;
@@ -637,7 +739,8 @@ export interface DeleteCellRequest {
  */
 export interface DeleteCrossAccountAuthorizationRequest {
   /**
-   * <p>The cross-account authorization.</p>
+   * The cross-account authorization.
+   *
    * @public
    */
   CrossAccountAuthorization: string | undefined;
@@ -653,7 +756,8 @@ export interface DeleteCrossAccountAuthorizationResponse {}
  */
 export interface DeleteReadinessCheckRequest {
   /**
-   * <p>Name of a readiness check.</p>
+   * Name of a readiness check.
+   *
    * @public
    */
   ReadinessCheckName: string | undefined;
@@ -664,7 +768,8 @@ export interface DeleteReadinessCheckRequest {
  */
 export interface DeleteRecoveryGroupRequest {
   /**
-   * <p>The name of a recovery group.</p>
+   * The name of a recovery group.
+   *
    * @public
    */
   RecoveryGroupName: string | undefined;
@@ -675,7 +780,8 @@ export interface DeleteRecoveryGroupRequest {
  */
 export interface DeleteResourceSetRequest {
   /**
-   * <p>Name of a resource set.</p>
+   * Name of a resource set.
+   *
    * @public
    */
   ResourceSetName: string | undefined;
@@ -686,19 +792,22 @@ export interface DeleteResourceSetRequest {
  */
 export interface GetArchitectureRecommendationsRequest {
   /**
-   * <p>The number of objects that you want to return with this call.</p>
+   * The number of objects that you want to return with this call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token that identifies which batch of results you want to see.</p>
+   * The token that identifies which batch of results you want to see.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The name of a recovery group.</p>
+   * The name of a recovery group.
+   *
    * @public
    */
   RecoveryGroupName: string | undefined;
@@ -709,19 +818,22 @@ export interface GetArchitectureRecommendationsRequest {
  */
 export interface GetArchitectureRecommendationsResponse {
   /**
-   * <p>The time that a recovery group was last assessed for recommendations, in UTC ISO-8601 format.</p>
+   * The time that a recovery group was last assessed for recommendations, in UTC ISO-8601 format.
+   *
    * @public
    */
   LastAuditTimestamp?: Date | undefined;
 
   /**
-   * <p>The token that identifies which batch of results you want to see.</p>
+   * The token that identifies which batch of results you want to see.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>A list of the recommendations for the customer's application.</p>
+   * A list of the recommendations for the customer's application.
+   *
    * @public
    */
   Recommendations?: Recommendation[] | undefined;
@@ -732,7 +844,8 @@ export interface GetArchitectureRecommendationsResponse {
  */
 export interface GetCellRequest {
   /**
-   * <p>The name of the cell.</p>
+   * The name of the cell.
+   *
    * @public
    */
   CellName: string | undefined;
@@ -743,31 +856,36 @@ export interface GetCellRequest {
  */
 export interface GetCellResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) for the cell.</p>
+   * The Amazon Resource Name (ARN) for the cell.
+   *
    * @public
    */
   CellArn?: string | undefined;
 
   /**
-   * <p>The name of the cell.</p>
+   * The name of the cell.
+   *
    * @public
    */
   CellName?: string | undefined;
 
   /**
-   * <p>A list of cell ARNs.</p>
+   * A list of cell ARNs.
+   *
    * @public
    */
   Cells?: string[] | undefined;
 
   /**
-   * <p>The readiness scope for the cell, which can be a cell Amazon Resource Name (ARN) or a recovery group ARN. This is a list but currently can have only one element.</p>
+   * The readiness scope for the cell, which can be a cell Amazon Resource Name (ARN) or a recovery group ARN. This is a list but currently can have only one element.
+   *
    * @public
    */
   ParentReadinessScopes?: string[] | undefined;
 
   /**
-   * <p>Tags on the resources.</p>
+   * Tags on the resources.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -778,19 +896,22 @@ export interface GetCellResponse {
  */
 export interface GetCellReadinessSummaryRequest {
   /**
-   * <p>The name of the cell.</p>
+   * The name of the cell.
+   *
    * @public
    */
   CellName: string | undefined;
 
   /**
-   * <p>The number of objects that you want to return with this call.</p>
+   * The number of objects that you want to return with this call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token that identifies which batch of results you want to see.</p>
+   * The token that identifies which batch of results you want to see.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -801,19 +922,22 @@ export interface GetCellReadinessSummaryRequest {
  */
 export interface GetCellReadinessSummaryResponse {
   /**
-   * <p>The token that identifies which batch of results you want to see.</p>
+   * The token that identifies which batch of results you want to see.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The readiness at a cell level.</p>
+   * The readiness at a cell level.
+   *
    * @public
    */
   Readiness?: Readiness | undefined;
 
   /**
-   * <p>Summaries for the readiness checks that make up the cell.</p>
+   * Summaries for the readiness checks that make up the cell.
+   *
    * @public
    */
   ReadinessChecks?: ReadinessCheckSummary[] | undefined;
@@ -824,7 +948,8 @@ export interface GetCellReadinessSummaryResponse {
  */
 export interface GetReadinessCheckRequest {
   /**
-   * <p>Name of a readiness check.</p>
+   * Name of a readiness check.
+   *
    * @public
    */
   ReadinessCheckName: string | undefined;
@@ -835,25 +960,29 @@ export interface GetReadinessCheckRequest {
  */
 export interface GetReadinessCheckResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) associated with a readiness check.</p>
+   * The Amazon Resource Name (ARN) associated with a readiness check.
+   *
    * @public
    */
   ReadinessCheckArn?: string | undefined;
 
   /**
-   * <p>Name of a readiness check.</p>
+   * Name of a readiness check.
+   *
    * @public
    */
   ReadinessCheckName?: string | undefined;
 
   /**
-   * <p>Name of the resource set to be checked.</p>
+   * Name of the resource set to be checked.
+   *
    * @public
    */
   ResourceSet?: string | undefined;
 
   /**
-   * <p>A collection of tags associated with a resource.</p>
+   * A collection of tags associated with a resource.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -864,25 +993,29 @@ export interface GetReadinessCheckResponse {
  */
 export interface GetReadinessCheckResourceStatusRequest {
   /**
-   * <p>The number of objects that you want to return with this call.</p>
+   * The number of objects that you want to return with this call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token that identifies which batch of results you want to see.</p>
+   * The token that identifies which batch of results you want to see.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>Name of a readiness check.</p>
+   * Name of a readiness check.
+   *
    * @public
    */
   ReadinessCheckName: string | undefined;
 
   /**
-   * <p>The resource identifier, which is the Amazon Resource Name (ARN) or the identifier generated for the resource by Application Recovery Controller (for example, for a DNS target resource).</p>
+   * The resource identifier, which is the Amazon Resource Name (ARN) or the identifier generated for the resource by Application Recovery Controller (for example, for a DNS target resource).
+   *
    * @public
    */
   ResourceIdentifier: string | undefined;
@@ -893,19 +1026,22 @@ export interface GetReadinessCheckResourceStatusRequest {
  */
 export interface GetReadinessCheckResourceStatusResponse {
   /**
-   * <p>The token that identifies which batch of results you want to see.</p>
+   * The token that identifies which batch of results you want to see.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The readiness at a rule level.</p>
+   * The readiness at a rule level.
+   *
    * @public
    */
   Readiness?: Readiness | undefined;
 
   /**
-   * <p>Details of the rule's results.</p>
+   * Details of the rule's results.
+   *
    * @public
    */
   Rules?: RuleResult[] | undefined;
@@ -916,19 +1052,22 @@ export interface GetReadinessCheckResourceStatusResponse {
  */
 export interface GetReadinessCheckStatusRequest {
   /**
-   * <p>The number of objects that you want to return with this call.</p>
+   * The number of objects that you want to return with this call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token that identifies which batch of results you want to see.</p>
+   * The token that identifies which batch of results you want to see.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>Name of a readiness check.</p>
+   * Name of a readiness check.
+   *
    * @public
    */
   ReadinessCheckName: string | undefined;
@@ -939,25 +1078,29 @@ export interface GetReadinessCheckStatusRequest {
  */
 export interface GetReadinessCheckStatusResponse {
   /**
-   * <p>Top level messages for readiness check status</p>
+   * Top level messages for readiness check status
+   *
    * @public
    */
   Messages?: Message[] | undefined;
 
   /**
-   * <p>The token that identifies which batch of results you want to see.</p>
+   * The token that identifies which batch of results you want to see.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The readiness at rule level.</p>
+   * The readiness at rule level.
+   *
    * @public
    */
   Readiness?: Readiness | undefined;
 
   /**
-   * <p>Summary of the readiness of resources.</p>
+   * Summary of the readiness of resources.
+   *
    * @public
    */
   Resources?: ResourceResult[] | undefined;
@@ -968,7 +1111,8 @@ export interface GetReadinessCheckStatusResponse {
  */
 export interface GetRecoveryGroupRequest {
   /**
-   * <p>The name of a recovery group.</p>
+   * The name of a recovery group.
+   *
    * @public
    */
   RecoveryGroupName: string | undefined;
@@ -979,25 +1123,29 @@ export interface GetRecoveryGroupRequest {
  */
 export interface GetRecoveryGroupResponse {
   /**
-   * <p>A list of a cell's Amazon Resource Names (ARNs).</p>
+   * A list of a cell's Amazon Resource Names (ARNs).
+   *
    * @public
    */
   Cells?: string[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the recovery group.</p>
+   * The Amazon Resource Name (ARN) for the recovery group.
+   *
    * @public
    */
   RecoveryGroupArn?: string | undefined;
 
   /**
-   * <p>The name of the recovery group.</p>
+   * The name of the recovery group.
+   *
    * @public
    */
   RecoveryGroupName?: string | undefined;
 
   /**
-   * <p>The tags associated with the recovery group.</p>
+   * The tags associated with the recovery group.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -1008,19 +1156,22 @@ export interface GetRecoveryGroupResponse {
  */
 export interface GetRecoveryGroupReadinessSummaryRequest {
   /**
-   * <p>The number of objects that you want to return with this call.</p>
+   * The number of objects that you want to return with this call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token that identifies which batch of results you want to see.</p>
+   * The token that identifies which batch of results you want to see.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The name of a recovery group.</p>
+   * The name of a recovery group.
+   *
    * @public
    */
   RecoveryGroupName: string | undefined;
@@ -1031,19 +1182,22 @@ export interface GetRecoveryGroupReadinessSummaryRequest {
  */
 export interface GetRecoveryGroupReadinessSummaryResponse {
   /**
-   * <p>The token that identifies which batch of results you want to see.</p>
+   * The token that identifies which batch of results you want to see.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The readiness status at a recovery group level.</p>
+   * The readiness status at a recovery group level.
+   *
    * @public
    */
   Readiness?: Readiness | undefined;
 
   /**
-   * <p>Summaries of the readiness checks for the recovery group.</p>
+   * Summaries of the readiness checks for the recovery group.
+   *
    * @public
    */
   ReadinessChecks?: ReadinessCheckSummary[] | undefined;
@@ -1054,7 +1208,8 @@ export interface GetRecoveryGroupReadinessSummaryResponse {
  */
 export interface GetResourceSetRequest {
   /**
-   * <p>Name of a resource set.</p>
+   * Name of a resource set.
+   *
    * @public
    */
   ResourceSetName: string | undefined;
@@ -1065,31 +1220,38 @@ export interface GetResourceSetRequest {
  */
 export interface GetResourceSetResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) for the resource set.</p>
+   * The Amazon Resource Name (ARN) for the resource set.
+   *
    * @public
    */
   ResourceSetArn?: string | undefined;
 
   /**
-   * <p>The name of the resource set.</p>
+   * The name of the resource set.
+   *
    * @public
    */
   ResourceSetName?: string | undefined;
 
   /**
-   * <p>The resource type of the resources in the resource set. Enter one of the following values for resource type:</p> <p>AWS::ApiGateway::Stage, AWS::ApiGatewayV2::Stage, AWS::AutoScaling::AutoScalingGroup, AWS::CloudWatch::Alarm, AWS::EC2::CustomerGateway, AWS::DynamoDB::Table, AWS::EC2::Volume, AWS::ElasticLoadBalancing::LoadBalancer, AWS::ElasticLoadBalancingV2::LoadBalancer, AWS::Lambda::Function, AWS::MSK::Cluster, AWS::RDS::DBCluster, AWS::Route53::HealthCheck, AWS::SQS::Queue, AWS::SNS::Topic, AWS::SNS::Subscription, AWS::EC2::VPC, AWS::EC2::VPNConnection, AWS::EC2::VPNGateway, AWS::Route53RecoveryReadiness::DNSTargetResource</p>
+   * The resource type of the resources in the resource set. Enter one of the following values for resource type:
+   *
+   * AWS::ApiGateway::Stage, AWS::ApiGatewayV2::Stage, AWS::AutoScaling::AutoScalingGroup, AWS::CloudWatch::Alarm, AWS::EC2::CustomerGateway, AWS::DynamoDB::Table, AWS::EC2::Volume, AWS::ElasticLoadBalancing::LoadBalancer, AWS::ElasticLoadBalancingV2::LoadBalancer, AWS::Lambda::Function, AWS::MSK::Cluster, AWS::RDS::DBCluster, AWS::Route53::HealthCheck, AWS::SQS::Queue, AWS::SNS::Topic, AWS::SNS::Subscription, AWS::EC2::VPC, AWS::EC2::VPNConnection, AWS::EC2::VPNGateway, AWS::Route53RecoveryReadiness::DNSTargetResource
+   *
    * @public
    */
   ResourceSetType?: string | undefined;
 
   /**
-   * <p>A list of resource objects.</p>
+   * A list of resource objects.
+   *
    * @public
    */
   Resources?: Resource[] | undefined;
 
   /**
-   * <p>A collection of tags associated with a resource.</p>
+   * A collection of tags associated with a resource.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -1100,13 +1262,15 @@ export interface GetResourceSetResponse {
  */
 export interface ListCellsRequest {
   /**
-   * <p>The number of objects that you want to return with this call.</p>
+   * The number of objects that you want to return with this call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token that identifies which batch of results you want to see.</p>
+   * The token that identifies which batch of results you want to see.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1117,13 +1281,15 @@ export interface ListCellsRequest {
  */
 export interface ListCellsResponse {
   /**
-   * <p>A list of cells.</p>
+   * A list of cells.
+   *
    * @public
    */
   Cells?: CellOutput[] | undefined;
 
   /**
-   * <p>The token that identifies which batch of results you want to see.</p>
+   * The token that identifies which batch of results you want to see.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1134,13 +1300,15 @@ export interface ListCellsResponse {
  */
 export interface ListCrossAccountAuthorizationsRequest {
   /**
-   * <p>The number of objects that you want to return with this call.</p>
+   * The number of objects that you want to return with this call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token that identifies which batch of results you want to see.</p>
+   * The token that identifies which batch of results you want to see.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1151,13 +1319,15 @@ export interface ListCrossAccountAuthorizationsRequest {
  */
 export interface ListCrossAccountAuthorizationsResponse {
   /**
-   * <p>A list of cross-account authorizations.</p>
+   * A list of cross-account authorizations.
+   *
    * @public
    */
   CrossAccountAuthorizations?: string[] | undefined;
 
   /**
-   * <p>The token that identifies which batch of results you want to see.</p>
+   * The token that identifies which batch of results you want to see.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1168,13 +1338,15 @@ export interface ListCrossAccountAuthorizationsResponse {
  */
 export interface ListReadinessChecksRequest {
   /**
-   * <p>The number of objects that you want to return with this call.</p>
+   * The number of objects that you want to return with this call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token that identifies which batch of results you want to see.</p>
+   * The token that identifies which batch of results you want to see.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1185,13 +1357,15 @@ export interface ListReadinessChecksRequest {
  */
 export interface ListReadinessChecksResponse {
   /**
-   * <p>The token that identifies which batch of results you want to see.</p>
+   * The token that identifies which batch of results you want to see.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>A list of readiness checks associated with the account.</p>
+   * A list of readiness checks associated with the account.
+   *
    * @public
    */
   ReadinessChecks?: ReadinessCheckOutput[] | undefined;
@@ -1202,13 +1376,15 @@ export interface ListReadinessChecksResponse {
  */
 export interface ListRecoveryGroupsRequest {
   /**
-   * <p>The number of objects that you want to return with this call.</p>
+   * The number of objects that you want to return with this call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token that identifies which batch of results you want to see.</p>
+   * The token that identifies which batch of results you want to see.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1219,13 +1395,15 @@ export interface ListRecoveryGroupsRequest {
  */
 export interface ListRecoveryGroupsResponse {
   /**
-   * <p>The token that identifies which batch of results you want to see.</p>
+   * The token that identifies which batch of results you want to see.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>A list of recovery groups.</p>
+   * A list of recovery groups.
+   *
    * @public
    */
   RecoveryGroups?: RecoveryGroupOutput[] | undefined;
@@ -1236,13 +1414,15 @@ export interface ListRecoveryGroupsResponse {
  */
 export interface ListResourceSetsRequest {
   /**
-   * <p>The number of objects that you want to return with this call.</p>
+   * The number of objects that you want to return with this call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token that identifies which batch of results you want to see.</p>
+   * The token that identifies which batch of results you want to see.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1253,13 +1433,15 @@ export interface ListResourceSetsRequest {
  */
 export interface ListResourceSetsResponse {
   /**
-   * <p>The token that identifies which batch of results you want to see.</p>
+   * The token that identifies which batch of results you want to see.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>A list of resource sets associated with the account.</p>
+   * A list of resource sets associated with the account.
+   *
    * @public
    */
   ResourceSets?: ResourceSetOutput[] | undefined;
@@ -1270,19 +1452,22 @@ export interface ListResourceSetsResponse {
  */
 export interface ListRulesRequest {
   /**
-   * <p>The number of objects that you want to return with this call.</p>
+   * The number of objects that you want to return with this call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token that identifies which batch of results you want to see.</p>
+   * The token that identifies which batch of results you want to see.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The resource type that a readiness rule applies to.</p>
+   * The resource type that a readiness rule applies to.
+   *
    * @public
    */
   ResourceType?: string | undefined;
@@ -1293,13 +1478,15 @@ export interface ListRulesRequest {
  */
 export interface ListRulesResponse {
   /**
-   * <p>The token that identifies which batch of results you want to see.</p>
+   * The token that identifies which batch of results you want to see.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>A list of readiness rules for a specific resource type.</p>
+   * A list of readiness rules for a specific resource type.
+   *
    * @public
    */
   Rules?: ListRulesOutput[] | undefined;
@@ -1310,7 +1497,8 @@ export interface ListRulesResponse {
  */
 export interface ListTagsForResourcesRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) for a resource.</p>
+   * The Amazon Resource Name (ARN) for a resource.
+   *
    * @public
    */
   ResourceArn: string | undefined;
@@ -1321,7 +1509,6 @@ export interface ListTagsForResourcesRequest {
  */
 export interface ListTagsForResourcesResponse {
   /**
-   * <p></p>
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -1332,13 +1519,13 @@ export interface ListTagsForResourcesResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) for a resource.</p>
+   * The Amazon Resource Name (ARN) for a resource.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p></p>
    * @public
    */
   Tags: Record<string, string> | undefined;
@@ -1354,13 +1541,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) for a resource.</p>
+   * The Amazon Resource Name (ARN) for a resource.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>The keys for tags you add to resources.</p>
+   * The keys for tags you add to resources.
+   *
    * @public
    */
   TagKeys: string[] | undefined;
@@ -1371,13 +1560,15 @@ export interface UntagResourceRequest {
  */
 export interface UpdateCellRequest {
   /**
-   * <p>The name of the cell.</p>
+   * The name of the cell.
+   *
    * @public
    */
   CellName: string | undefined;
 
   /**
-   * <p>A list of cell Amazon Resource Names (ARNs), which completely replaces the previous list.</p>
+   * A list of cell Amazon Resource Names (ARNs), which completely replaces the previous list.
+   *
    * @public
    */
   Cells: string[] | undefined;
@@ -1388,49 +1579,57 @@ export interface UpdateCellRequest {
  */
 export interface UpdateCellResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) for the cell.</p>
+   * The Amazon Resource Name (ARN) for the cell.
+   *
    * @public
    */
   CellArn?: string | undefined;
 
   /**
-   * <p>The name of the cell.</p>
+   * The name of the cell.
+   *
    * @public
    */
   CellName?: string | undefined;
 
   /**
-   * <p>A list of cell ARNs.</p>
+   * A list of cell ARNs.
+   *
    * @public
    */
   Cells?: string[] | undefined;
 
   /**
-   * <p>The readiness scope for the cell, which can be a cell Amazon Resource Name (ARN) or a recovery group ARN. This is a list but currently can have only one element.</p>
+   * The readiness scope for the cell, which can be a cell Amazon Resource Name (ARN) or a recovery group ARN. This is a list but currently can have only one element.
+   *
    * @public
    */
   ParentReadinessScopes?: string[] | undefined;
 
   /**
-   * <p>Tags on the resources.</p>
+   * Tags on the resources.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Name of a readiness check to describe.</p>
+ * Name of a readiness check to describe.
+ *
  * @public
  */
 export interface UpdateReadinessCheckRequest {
   /**
-   * <p>Name of a readiness check.</p>
+   * Name of a readiness check.
+   *
    * @public
    */
   ReadinessCheckName: string | undefined;
 
   /**
-   * <p>The name of the resource set to be checked.</p>
+   * The name of the resource set to be checked.
+   *
    * @public
    */
   ResourceSetName: string | undefined;
@@ -1441,43 +1640,50 @@ export interface UpdateReadinessCheckRequest {
  */
 export interface UpdateReadinessCheckResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) associated with a readiness check.</p>
+   * The Amazon Resource Name (ARN) associated with a readiness check.
+   *
    * @public
    */
   ReadinessCheckArn?: string | undefined;
 
   /**
-   * <p>Name of a readiness check.</p>
+   * Name of a readiness check.
+   *
    * @public
    */
   ReadinessCheckName?: string | undefined;
 
   /**
-   * <p>Name of the resource set to be checked.</p>
+   * Name of the resource set to be checked.
+   *
    * @public
    */
   ResourceSet?: string | undefined;
 
   /**
-   * <p>A collection of tags associated with a resource.</p>
+   * A collection of tags associated with a resource.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Name of a recovery group.</p>
+ * Name of a recovery group.
+ *
  * @public
  */
 export interface UpdateRecoveryGroupRequest {
   /**
-   * <p>A list of cell Amazon Resource Names (ARNs). This list completely replaces the previous list.</p>
+   * A list of cell Amazon Resource Names (ARNs). This list completely replaces the previous list.
+   *
    * @public
    */
   Cells: string[] | undefined;
 
   /**
-   * <p>The name of a recovery group.</p>
+   * The name of a recovery group.
+   *
    * @public
    */
   RecoveryGroupName: string | undefined;
@@ -1488,49 +1694,59 @@ export interface UpdateRecoveryGroupRequest {
  */
 export interface UpdateRecoveryGroupResponse {
   /**
-   * <p>A list of a cell's Amazon Resource Names (ARNs).</p>
+   * A list of a cell's Amazon Resource Names (ARNs).
+   *
    * @public
    */
   Cells?: string[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the recovery group.</p>
+   * The Amazon Resource Name (ARN) for the recovery group.
+   *
    * @public
    */
   RecoveryGroupArn?: string | undefined;
 
   /**
-   * <p>The name of the recovery group.</p>
+   * The name of the recovery group.
+   *
    * @public
    */
   RecoveryGroupName?: string | undefined;
 
   /**
-   * <p>The tags associated with the recovery group.</p>
+   * The tags associated with the recovery group.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Name of a resource set.</p>
+ * Name of a resource set.
+ *
  * @public
  */
 export interface UpdateResourceSetRequest {
   /**
-   * <p>Name of a resource set.</p>
+   * Name of a resource set.
+   *
    * @public
    */
   ResourceSetName: string | undefined;
 
   /**
-   * <p>The resource type of the resources in the resource set. Enter one of the following values for resource type:</p> <p>AWS::ApiGateway::Stage, AWS::ApiGatewayV2::Stage, AWS::AutoScaling::AutoScalingGroup, AWS::CloudWatch::Alarm, AWS::EC2::CustomerGateway, AWS::DynamoDB::Table, AWS::EC2::Volume, AWS::ElasticLoadBalancing::LoadBalancer, AWS::ElasticLoadBalancingV2::LoadBalancer, AWS::Lambda::Function, AWS::MSK::Cluster, AWS::RDS::DBCluster, AWS::Route53::HealthCheck, AWS::SQS::Queue, AWS::SNS::Topic, AWS::SNS::Subscription, AWS::EC2::VPC, AWS::EC2::VPNConnection, AWS::EC2::VPNGateway, AWS::Route53RecoveryReadiness::DNSTargetResource</p>
+   * The resource type of the resources in the resource set. Enter one of the following values for resource type:
+   *
+   * AWS::ApiGateway::Stage, AWS::ApiGatewayV2::Stage, AWS::AutoScaling::AutoScalingGroup, AWS::CloudWatch::Alarm, AWS::EC2::CustomerGateway, AWS::DynamoDB::Table, AWS::EC2::Volume, AWS::ElasticLoadBalancing::LoadBalancer, AWS::ElasticLoadBalancingV2::LoadBalancer, AWS::Lambda::Function, AWS::MSK::Cluster, AWS::RDS::DBCluster, AWS::Route53::HealthCheck, AWS::SQS::Queue, AWS::SNS::Topic, AWS::SNS::Subscription, AWS::EC2::VPC, AWS::EC2::VPNConnection, AWS::EC2::VPNGateway, AWS::Route53RecoveryReadiness::DNSTargetResource
+   *
    * @public
    */
   ResourceSetType: string | undefined;
 
   /**
-   * <p>A list of resource objects.</p>
+   * A list of resource objects.
+   *
    * @public
    */
   Resources: Resource[] | undefined;
@@ -1541,31 +1757,38 @@ export interface UpdateResourceSetRequest {
  */
 export interface UpdateResourceSetResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) for the resource set.</p>
+   * The Amazon Resource Name (ARN) for the resource set.
+   *
    * @public
    */
   ResourceSetArn?: string | undefined;
 
   /**
-   * <p>The name of the resource set.</p>
+   * The name of the resource set.
+   *
    * @public
    */
   ResourceSetName?: string | undefined;
 
   /**
-   * <p>The resource type of the resources in the resource set. Enter one of the following values for resource type:</p> <p>AWS::ApiGateway::Stage, AWS::ApiGatewayV2::Stage, AWS::AutoScaling::AutoScalingGroup, AWS::CloudWatch::Alarm, AWS::EC2::CustomerGateway, AWS::DynamoDB::Table, AWS::EC2::Volume, AWS::ElasticLoadBalancing::LoadBalancer, AWS::ElasticLoadBalancingV2::LoadBalancer, AWS::Lambda::Function, AWS::MSK::Cluster, AWS::RDS::DBCluster, AWS::Route53::HealthCheck, AWS::SQS::Queue, AWS::SNS::Topic, AWS::SNS::Subscription, AWS::EC2::VPC, AWS::EC2::VPNConnection, AWS::EC2::VPNGateway, AWS::Route53RecoveryReadiness::DNSTargetResource</p>
+   * The resource type of the resources in the resource set. Enter one of the following values for resource type:
+   *
+   * AWS::ApiGateway::Stage, AWS::ApiGatewayV2::Stage, AWS::AutoScaling::AutoScalingGroup, AWS::CloudWatch::Alarm, AWS::EC2::CustomerGateway, AWS::DynamoDB::Table, AWS::EC2::Volume, AWS::ElasticLoadBalancing::LoadBalancer, AWS::ElasticLoadBalancingV2::LoadBalancer, AWS::Lambda::Function, AWS::MSK::Cluster, AWS::RDS::DBCluster, AWS::Route53::HealthCheck, AWS::SQS::Queue, AWS::SNS::Topic, AWS::SNS::Subscription, AWS::EC2::VPC, AWS::EC2::VPNConnection, AWS::EC2::VPNGateway, AWS::Route53RecoveryReadiness::DNSTargetResource
+   *
    * @public
    */
   ResourceSetType?: string | undefined;
 
   /**
-   * <p>A list of resource objects.</p>
+   * A list of resource objects.
+   *
    * @public
    */
   Resources?: Resource[] | undefined;
 
   /**
-   * <p>A collection of tags associated with a resource.</p>
+   * A collection of tags associated with a resource.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;

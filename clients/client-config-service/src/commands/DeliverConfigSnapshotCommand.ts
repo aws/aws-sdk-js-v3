@@ -23,23 +23,12 @@ export interface DeliverConfigSnapshotCommandInput extends DeliverConfigSnapshot
 export interface DeliverConfigSnapshotCommandOutput extends DeliverConfigSnapshotResponse, __MetadataBearer {}
 
 /**
- * <p>Schedules delivery of a configuration snapshot to the Amazon S3
- * 			bucket in the specified delivery channel. After the delivery has
- * 			started, Config sends the following notifications using an
- * 			Amazon SNS topic that you have specified.</p>
- *          <ul>
- *             <li>
- *                <p>Notification of the start of the delivery.</p>
- *             </li>
- *             <li>
- *                <p>Notification of the completion of the delivery, if the
- * 					delivery was successfully completed.</p>
- *             </li>
- *             <li>
- *                <p>Notification of delivery failure, if the delivery
- * 					failed.</p>
- *             </li>
- *          </ul>
+ * Schedules delivery of a configuration snapshot to the Amazon S3 bucket in the specified delivery channel. After the delivery has started, Config sends the following notifications using an Amazon SNS topic that you have specified.
+ *
+ * - Notification of the start of the delivery.
+ * - Notification of the completion of the delivery, if the delivery was successfully completed.
+ * - Notification of delivery failure, if the delivery failed.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,19 +55,20 @@ export interface DeliverConfigSnapshotCommandOutput extends DeliverConfigSnapsho
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  * @throws {@link NoAvailableConfigurationRecorderException} (client fault)
- *  <p>There are no customer managed configuration recorders available to record your resources. Use the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigurationRecorder.html">PutConfigurationRecorder</a> operation to create the customer managed configuration
- * 			recorder.</p>
+ *
+ * There are no customer managed configuration recorders available to record your resources. Use the [PutConfigurationRecorder](https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigurationRecorder.html) operation to create the customer managed configuration recorder.
  *
  * @throws {@link NoRunningConfigurationRecorderException} (client fault)
- *  <p>There is no configuration recorder running.</p>
+ *
+ * There is no configuration recorder running.
  *
  * @throws {@link NoSuchDeliveryChannelException} (client fault)
- *  <p>You have specified a delivery channel that does not
- * 			exist.</p>
+ *
+ * You have specified a delivery channel that does not exist.
  *
  * @throws {@link ConfigServiceServiceException}
- * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * Base exception class for all service exceptions from ConfigService service.
  *
  * @public
  */

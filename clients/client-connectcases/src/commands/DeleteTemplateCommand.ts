@@ -23,7 +23,15 @@ export interface DeleteTemplateCommandInput extends DeleteTemplateRequest {}
 export interface DeleteTemplateCommandOutput extends DeleteTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a cases template. You can delete up to 100 templates per domain.</p> <p>After a cases template is deleted:</p> <ul> <li> <p>You can still retrieve the template by calling <code>GetTemplate</code>.</p> </li> <li> <p>You cannot update the template. </p> </li> <li> <p>You cannot create a case by using the deleted template.</p> </li> <li> <p>Deleted templates are not included in the <code>ListTemplates</code> response.</p> </li> </ul>
+ * Deletes a cases template. You can delete up to 100 templates per domain.
+ *
+ * After a cases template is deleted:
+ *
+ * - You can still retrieve the template by calling `GetTemplate`.
+ * - You cannot update the template.
+ * - You cannot create a case by using the deleted template.
+ * - Deleted templates are not included in the `ListTemplates` response.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,26 +57,32 @@ export interface DeleteTemplateCommandOutput extends DeleteTemplateResponse, __M
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+ *
+ * The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>We couldn't process your request because of an issue with the server. Try again later.</p>
+ *
+ * We couldn't process your request because of an issue with the server. Try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>We couldn't find the requested resource. Check that your resources exists and were created in the same Amazon Web Services Region as your request, and try your request again.</p>
+ *
+ * We couldn't find the requested resource. Check that your resources exists and were created in the same Amazon Web Services Region as your request, and try your request again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The rate has been exceeded for this API. Please try again after a few minutes.</p>
+ *
+ * The rate has been exceeded for this API. Please try again after a few minutes.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. Check the syntax and try again.</p>
+ *
+ * The request isn't valid. Check the syntax and try again.
  *
  * @throws {@link ConnectCasesServiceException}
- * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ * Base exception class for all service exceptions from ConnectCases service.
  *
  * @public
  */

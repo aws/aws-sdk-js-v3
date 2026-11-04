@@ -23,7 +23,8 @@ export interface UpdatePullThroughCacheRuleCommandInput extends UpdatePullThroug
 export interface UpdatePullThroughCacheRuleCommandOutput extends UpdatePullThroughCacheRuleResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an existing pull through cache rule.</p>
+ * Updates an existing pull through cache rule.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,34 +59,36 @@ export interface UpdatePullThroughCacheRuleCommandOutput extends UpdatePullThrou
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link PullThroughCacheRuleNotFoundException} (client fault)
- *  <p>The pull through cache rule was not found. Specify a valid pull through cache rule and
- *             try again.</p>
+ *
+ * The pull through cache rule was not found. Specify a valid pull through cache rule and try again.
  *
  * @throws {@link SecretNotFoundException} (client fault)
- *  <p>The ARN of the secret specified in the pull through cache rule was not found. Update
- *             the pull through cache rule with a valid secret ARN and try again.</p>
+ *
+ * The ARN of the secret specified in the pull through cache rule was not found. Update the pull through cache rule with a valid secret ARN and try again.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link UnableToAccessSecretException} (client fault)
- *  <p>The secret is unable to be accessed. Verify the resource permissions for the secret
- *             and try again.</p>
+ *
+ * The secret is unable to be accessed. Verify the resource permissions for the secret and try again.
  *
  * @throws {@link UnableToDecryptSecretValueException} (client fault)
- *  <p>The secret is accessible but is unable to be decrypted. Verify the resource
- *             permisisons and try again.</p>
+ *
+ * The secret is accessible but is unable to be decrypted. Verify the resource permisisons and try again.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>There was an exception validating this request.</p>
+ *
+ * There was an exception validating this request.
  *
  * @throws {@link ECRServiceException}
- * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * Base exception class for all service exceptions from ECR service.
  *
  * @public
  */

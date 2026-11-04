@@ -23,58 +23,28 @@ export interface UpdateShardCountCommandInput extends UpdateShardCountInput {}
 export interface UpdateShardCountCommandOutput extends UpdateShardCountOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the shard count of the specified stream to the specified number of shards.
- *             This API is only supported for the data streams with the provisioned capacity
- *             mode.</p>
- *          <note>
- *             <p>When invoking this API, you must use either the <code>StreamARN</code> or the
- *                     <code>StreamName</code> parameter, or both. It is recommended that you use the
- *                     <code>StreamARN</code> input parameter when you invoke this API.</p>
- *          </note>
- *          <p>Updating the shard count is an asynchronous operation. Upon receiving the request,
- *             Kinesis Data Streams returns immediately and sets the status of the stream to
- *                 <code>UPDATING</code>. After the update is complete, Kinesis Data Streams sets the
- *             status of the stream back to <code>ACTIVE</code>. Depending on the size of the stream,
- *             the scaling action could take a few minutes to complete. You can continue to read and
- *             write data to your stream while its status is <code>UPDATING</code>.</p>
- *          <p>To update the shard count, Kinesis Data Streams performs splits or merges on
- *             individual shards. This can cause short-lived shards to be created, in addition to the
- *             final shards. These short-lived shards count towards your total shard limit for your
- *             account in the Region.</p>
- *          <p>When using this operation, we recommend that you specify a target shard count that is
- *             a multiple of 25% (25%, 50%, 75%, 100%). You can specify any target value within your
- *             shard limit. However, if you specify a target that isn't a multiple of 25%, the scaling
- *             action might take longer to complete. </p>
- *          <p>This operation has the following default limits. By default, you cannot do the
- *             following:</p>
- *          <ul>
- *             <li>
- *                <p>Scale more than ten times per rolling 24-hour period per stream</p>
- *             </li>
- *             <li>
- *                <p>Scale up to more than double your current shard count for a stream</p>
- *             </li>
- *             <li>
- *                <p>Scale down below half your current shard count for a stream</p>
- *             </li>
- *             <li>
- *                <p>Scale up to more than 10000 shards in a stream</p>
- *             </li>
- *             <li>
- *                <p>Scale a stream with more than 10000 shards down unless the result is less than
- *                     10000 shards</p>
- *             </li>
- *             <li>
- *                <p>Scale up to more than the shard limit for your account</p>
- *             </li>
- *             <li>
- *                <p>Make over 10 TPS. TPS over 10 will trigger the LimitExceededException</p>
- *             </li>
- *          </ul>
- *          <p>For the default limits for an Amazon Web Services account, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html">Streams
- *                 Limits</a> in the <i>Amazon Kinesis Data Streams Developer
- *                 Guide</i>. To request an increase in the call rate limit, the shard limit for
- *             this API, or your overall shard limit, use the <a href="https://console.aws.amazon.com/support/v1#/case/create?issueType=service-limit-increase&limitType=service-code-kinesis">limits form</a>.</p>
+ * Updates the shard count of the specified stream to the specified number of shards. This API is only supported for the data streams with the provisioned capacity mode.
+ *
+ * > **Note:** When invoking this API, you must use either the `StreamARN` or the `StreamName` parameter, or both. It is recommended that you use the `StreamARN` input parameter when you invoke this API.
+ *
+ * Updating the shard count is an asynchronous operation. Upon receiving the request, Kinesis Data Streams returns immediately and sets the status of the stream to `UPDATING`. After the update is complete, Kinesis Data Streams sets the status of the stream back to `ACTIVE`. Depending on the size of the stream, the scaling action could take a few minutes to complete. You can continue to read and write data to your stream while its status is `UPDATING`.
+ *
+ * To update the shard count, Kinesis Data Streams performs splits or merges on individual shards. This can cause short-lived shards to be created, in addition to the final shards. These short-lived shards count towards your total shard limit for your account in the Region.
+ *
+ * When using this operation, we recommend that you specify a target shard count that is a multiple of 25% (25%, 50%, 75%, 100%). You can specify any target value within your shard limit. However, if you specify a target that isn't a multiple of 25%, the scaling action might take longer to complete.
+ *
+ * This operation has the following default limits. By default, you cannot do the following:
+ *
+ * - Scale more than ten times per rolling 24-hour period per stream
+ * - Scale up to more than double your current shard count for a stream
+ * - Scale down below half your current shard count for a stream
+ * - Scale up to more than 10000 shards in a stream
+ * - Scale a stream with more than 10000 shards down unless the result is less than 10000 shards
+ * - Scale up to more than the shard limit for your account
+ * - Make over 10 TPS. TPS over 10 will trigger the LimitExceededException
+ *
+ * For the default limits for an Amazon Web Services account, see [Streams Limits](https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html) in the *Amazon Kinesis Data Streams Developer Guide*. To request an increase in the call rate limit, the shard limit for this API, or your overall shard limit, use the [limits form](https://console.aws.amazon.com/support/v1#/case/create?issueType=service-limit-increase&limitType=service-code-kinesis).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -108,33 +78,32 @@ export interface UpdateShardCountCommandOutput extends UpdateShardCountOutput, _
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Specifies that you do not have the permissions required to perform this
- *             operation.</p>
+ *
+ * Specifies that you do not have the permissions required to perform this operation.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
- *             For more information, see the returned message.</p>
+ *
+ * A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
- *             stream requests exceeds the maximum number allowed. </p>
+ *
+ * The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The resource is not available for this operation. For successful operation, the
- *             resource must be in the <code>ACTIVE</code> state.</p>
+ *
+ * The resource is not available for this operation. For successful operation, the resource must be in the `ACTIVE` state.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource could not be found. The stream might not be specified
- *             correctly.</p>
+ *
+ * The requested resource could not be found. The stream might not be specified correctly.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Specifies that you tried to invoke this API for a data stream with the on-demand
- *             capacity mode. This API is only supported for data streams with the provisioned capacity
- *             mode. </p>
+ *
+ * Specifies that you tried to invoke this API for a data stream with the on-demand capacity mode. This API is only supported for data streams with the provisioned capacity mode.
  *
  * @throws {@link KinesisServiceException}
- * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * Base exception class for all service exceptions from Kinesis service.
  *
  * @public
  */

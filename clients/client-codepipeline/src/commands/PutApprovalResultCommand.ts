@@ -23,8 +23,8 @@ export interface PutApprovalResultCommandInput extends PutApprovalResultInput {}
 export interface PutApprovalResultCommandOutput extends PutApprovalResultOutput, __MetadataBearer {}
 
 /**
- * <p>Provides the response to a manual approval request to CodePipeline. Valid
- *             responses include Approved and Rejected.</p>
+ * Provides the response to a manual approval request to CodePipeline. Valid responses include Approved and Rejected.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,26 +58,32 @@ export interface PutApprovalResultCommandOutput extends PutApprovalResultOutput,
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  * @throws {@link ActionNotFoundException} (client fault)
- *  <p>The specified action cannot be found.</p>
+ *
+ * The specified action cannot be found.
  *
  * @throws {@link ApprovalAlreadyCompletedException} (client fault)
- *  <p>The approval action has already been approved or rejected.</p>
+ *
+ * The approval action has already been approved or rejected.
  *
  * @throws {@link InvalidApprovalTokenException} (client fault)
- *  <p>The approval request already received a response or has expired.</p>
+ *
+ * The approval request already received a response or has expired.
  *
  * @throws {@link PipelineNotFoundException} (client fault)
- *  <p>The pipeline was specified in an invalid format or cannot be found.</p>
+ *
+ * The pipeline was specified in an invalid format or cannot be found.
  *
  * @throws {@link StageNotFoundException} (client fault)
- *  <p>The stage was specified in an invalid format or cannot be found.</p>
+ *
+ * The stage was specified in an invalid format or cannot be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The validation was specified in an invalid format.</p>
+ *
+ * The validation was specified in an invalid format.
  *
  * @throws {@link CodePipelineServiceException}
- * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * Base exception class for all service exceptions from CodePipeline service.
  *
  * @public
  */

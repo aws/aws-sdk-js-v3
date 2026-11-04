@@ -23,24 +23,13 @@ export interface CreateCacheParameterGroupCommandInput extends CreateCacheParame
 export interface CreateCacheParameterGroupCommandOutput extends CreateCacheParameterGroupResult, __MetadataBearer {}
 
 /**
- * <p>Creates a new Amazon ElastiCache cache parameter group. An ElastiCache cache parameter
- *             group is a collection of parameters and their values that are applied to all of the
- *             nodes in any cluster or replication group using the CacheParameterGroup.</p>
- *          <p>A newly created CacheParameterGroup is an exact duplicate of the default parameter
- *             group for the CacheParameterGroupFamily. To customize the newly created
- *             CacheParameterGroup you can change the values of specific parameters. For more
- *             information, see:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheParameterGroup.html">ModifyCacheParameterGroup</a> in the ElastiCache API Reference.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ParameterGroups.html">Parameters and
- *                         Parameter Groups</a> in the ElastiCache User Guide.</p>
- *             </li>
- *          </ul>
+ * Creates a new Amazon ElastiCache cache parameter group. An ElastiCache cache parameter group is a collection of parameters and their values that are applied to all of the nodes in any cluster or replication group using the CacheParameterGroup.
+ *
+ * A newly created CacheParameterGroup is an exact duplicate of the default parameter group for the CacheParameterGroupFamily. To customize the newly created CacheParameterGroup you can change the values of specific parameters. For more information, see:
+ *
+ * - [ModifyCacheParameterGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheParameterGroup.html) in the ElastiCache API Reference.
+ * - [Parameters and Parameter Groups](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ParameterGroups.html) in the ElastiCache User Guide.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,30 +70,32 @@ export interface CreateCacheParameterGroupCommandOutput extends CreateCacheParam
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link CacheParameterGroupAlreadyExistsFault} (client fault)
- *  <p>A cache parameter group with the requested name already exists.</p>
+ *
+ * A cache parameter group with the requested name already exists.
  *
  * @throws {@link CacheParameterGroupQuotaExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the maximum number of cache
- *             security groups.</p>
+ *
+ * The request cannot be processed because it would exceed the maximum number of cache security groups.
  *
  * @throws {@link InvalidCacheParameterGroupStateFault} (client fault)
- *  <p>The current state of the cache parameter group does not allow the requested operation
- *             to occur.</p>
+ *
+ * The current state of the cache parameter group does not allow the requested operation to occur.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * Two or more incompatible parameters were specified.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link TagQuotaPerResourceExceeded} (client fault)
- *  <p>The request cannot be processed because it would cause the resource to have more than
- *             the allowed number of tags. The maximum number of tags permitted on a resource is
- *             50.</p>
+ *
+ * The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @example CreateCacheParameterGroup
  * ```javascript

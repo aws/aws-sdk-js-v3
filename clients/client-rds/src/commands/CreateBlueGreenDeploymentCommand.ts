@@ -23,7 +23,14 @@ export interface CreateBlueGreenDeploymentCommandInput extends CreateBlueGreenDe
 export interface CreateBlueGreenDeploymentCommandOutput extends CreateBlueGreenDeploymentResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a blue/green deployment.</p> <p>A blue/green deployment creates a staging environment that copies the production environment. In a blue/green deployment, the blue environment is the current production environment. The green environment is the staging environment, and it stays in sync with the current production environment.</p> <p>You can make changes to the databases in the green environment without affecting production workloads. For example, you can upgrade the major or minor DB engine version, change database parameters, or make schema changes in the staging environment. You can thoroughly test changes in the green environment. When ready, you can switch over the environments to promote the green environment to be the new production environment. The switchover typically takes under a minute.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon RDS User Guide</i> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html"> Using Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon Aurora User Guide</i>.</p>
+ * Creates a blue/green deployment.
+ *
+ * A blue/green deployment creates a staging environment that copies the production environment. In a blue/green deployment, the blue environment is the current production environment. The green environment is the staging environment, and it stays in sync with the current production environment.
+ *
+ * You can make changes to the databases in the green environment without affecting production workloads. For example, you can upgrade the major or minor DB engine version, change database parameters, or make schema changes in the staging environment. You can thoroughly test changes in the green environment. When ready, you can switch over the environments to promote the green environment to be the new production environment. The switchover typically takes under a minute.
+ *
+ * For more information, see [Using Amazon RDS Blue/Green Deployments for database updates](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html) in the *Amazon RDS User Guide* and [Using Amazon RDS Blue/Green Deployments for database updates](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html) in the *Amazon Aurora User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -100,44 +107,56 @@ export interface CreateBlueGreenDeploymentCommandOutput extends CreateBlueGreenD
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link BlueGreenDeploymentAlreadyExistsFault} (client fault)
- *  <p>A blue/green deployment with the specified name already exists.</p>
+ *
+ * A blue/green deployment with the specified name already exists.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *
+ * `DBClusterIdentifier` doesn't refer to an existing DB cluster.
  *
  * @throws {@link DBClusterParameterGroupNotFoundFault} (client fault)
- *  <p> <code>DBClusterParameterGroupName</code> doesn't refer to an existing DB cluster parameter group.</p>
+ *
+ * `DBClusterParameterGroupName` doesn't refer to an existing DB cluster parameter group.
  *
  * @throws {@link DBClusterQuotaExceededFault} (client fault)
- *  <p>The user attempted to create a new DB cluster and the user has already reached the maximum allowed DB cluster quota.</p>
+ *
+ * The user attempted to create a new DB cluster and the user has already reached the maximum allowed DB cluster quota.
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *
+ * `DBInstanceIdentifier` doesn't refer to an existing DB instance.
  *
  * @throws {@link DBParameterGroupNotFoundFault} (client fault)
- *  <p> <code>DBParameterGroupName</code> doesn't refer to an existing DB parameter group.</p>
+ *
+ * `DBParameterGroupName` doesn't refer to an existing DB parameter group.
  *
  * @throws {@link InstanceQuotaExceededFault} (client fault)
- *  <p>The request would result in the user exceeding the allowed number of DB instances.</p>
+ *
+ * The request would result in the user exceeding the allowed number of DB instances.
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
- *  <p>The requested operation can't be performed while the cluster is in this state.</p>
+ *
+ * The requested operation can't be performed while the cluster is in this state.
  *
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
- *  <p>The DB instance isn't in a valid state.</p>
+ *
+ * The DB instance isn't in a valid state.
  *
  * @throws {@link SourceClusterNotSupportedFault} (client fault)
- *  <p>The source DB cluster isn't supported for a blue/green deployment.</p>
+ *
+ * The source DB cluster isn't supported for a blue/green deployment.
  *
  * @throws {@link SourceDatabaseNotSupportedFault} (client fault)
- *  <p>The source DB instance isn't supported for a blue/green deployment.</p>
+ *
+ * The source DB instance isn't supported for a blue/green deployment.
  *
  * @throws {@link StorageQuotaExceededFault} (client fault)
- *  <p>The request would result in the user exceeding the allowed amount of storage available across all DB instances.</p>
+ *
+ * The request would result in the user exceeding the allowed amount of storage available across all DB instances.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To create a blue/green deployment for an RDS for MySQL DB instance
  * ```javascript

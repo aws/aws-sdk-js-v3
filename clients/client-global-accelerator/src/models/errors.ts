@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { GlobalAcceleratorServiceException as __BaseException } from "./GlobalAcceleratorServiceException";
 
 /**
- * <p>The accelerator that you specified could not be disabled.</p>
+ * The accelerator that you specified could not be disabled.
+ *
  * @public
  */
 export class AcceleratorNotDisabledException extends __BaseException {
@@ -27,7 +28,8 @@ export class AcceleratorNotDisabledException extends __BaseException {
 }
 
 /**
- * <p>The accelerator that you specified doesn't exist.</p>
+ * The accelerator that you specified doesn't exist.
+ *
  * @public
  */
 export class AcceleratorNotFoundException extends __BaseException {
@@ -50,7 +52,8 @@ export class AcceleratorNotFoundException extends __BaseException {
 }
 
 /**
- * <p>You don't have access permission.</p>
+ * You don't have access permission.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -73,7 +76,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>You can't use both of those options.</p>
+ * You can't use both of those options.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -96,7 +100,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The endpoint that you specified doesn't exist.</p>
+ * The endpoint that you specified doesn't exist.
+ *
  * @public
  */
 export class EndpointAlreadyExistsException extends __BaseException {
@@ -119,7 +124,8 @@ export class EndpointAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The endpoint group that you specified doesn't exist.</p>
+ * The endpoint group that you specified doesn't exist.
+ *
  * @public
  */
 export class EndpointGroupNotFoundException extends __BaseException {
@@ -142,7 +148,8 @@ export class EndpointGroupNotFoundException extends __BaseException {
 }
 
 /**
- * <p>There was an internal error for Global Accelerator.</p>
+ * There was an internal error for Global Accelerator.
+ *
  * @public
  */
 export class InternalServiceErrorException extends __BaseException {
@@ -165,7 +172,8 @@ export class InternalServiceErrorException extends __BaseException {
 }
 
 /**
- * <p>An argument that you specified is invalid.</p>
+ * An argument that you specified is invalid.
+ *
  * @public
  */
 export class InvalidArgumentException extends __BaseException {
@@ -188,7 +196,8 @@ export class InvalidArgumentException extends __BaseException {
 }
 
 /**
- * <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
+ * Processing your request would cause you to exceed an Global Accelerator limit.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -211,7 +220,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>There's already a transaction in progress. Another transaction can't be processed.</p>
+ * There's already a transaction in progress. Another transaction can't be processed.
+ *
  * @public
  */
 export class TransactionInProgressException extends __BaseException {
@@ -234,7 +244,8 @@ export class TransactionInProgressException extends __BaseException {
 }
 
 /**
- * <p>The CIDR that you specified was not found or is incorrect.</p>
+ * The CIDR that you specified was not found or is incorrect.
+ *
  * @public
  */
 export class ByoipCidrNotFoundException extends __BaseException {
@@ -257,8 +268,8 @@ export class ByoipCidrNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The CIDR that you specified is not valid for this action. For example, the state of the CIDR might be
- * 		incorrect for this action.</p>
+ * The CIDR that you specified is not valid for this action. For example, the state of the CIDR might be incorrect for this action.
+ *
  * @public
  */
 export class IncorrectCidrStateException extends __BaseException {
@@ -281,8 +292,8 @@ export class IncorrectCidrStateException extends __BaseException {
 }
 
 /**
- * <p>The listener that you specified has an endpoint group associated with it. You must remove all dependent resources
- * 			from a listener before you can delete it.</p>
+ * The listener that you specified has an endpoint group associated with it. You must remove all dependent resources from a listener before you can delete it.
+ *
  * @public
  */
 export class AssociatedEndpointGroupFoundException extends __BaseException {
@@ -305,8 +316,8 @@ export class AssociatedEndpointGroupFoundException extends __BaseException {
 }
 
 /**
- * <p>The accelerator that you specified has a listener associated with it. You must remove all dependent resources from an
- * 			accelerator before you can delete it.</p>
+ * The accelerator that you specified has a listener associated with it. You must remove all dependent resources from an accelerator before you can delete it.
+ *
  * @public
  */
 export class AssociatedListenerFoundException extends __BaseException {
@@ -329,7 +340,8 @@ export class AssociatedListenerFoundException extends __BaseException {
 }
 
 /**
- * <p>No cross-account attachment was found.</p>
+ * No cross-account attachment was found.
+ *
  * @public
  */
 export class AttachmentNotFoundException extends __BaseException {
@@ -352,7 +364,8 @@ export class AttachmentNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The endpoint group that you specified already exists.</p>
+ * The endpoint group that you specified already exists.
+ *
  * @public
  */
 export class EndpointGroupAlreadyExistsException extends __BaseException {
@@ -375,7 +388,8 @@ export class EndpointGroupAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The port numbers that you specified are not valid numbers or are not unique for this accelerator.</p>
+ * The port numbers that you specified are not valid numbers or are not unique for this accelerator.
+ *
  * @public
  */
 export class InvalidPortRangeException extends __BaseException {
@@ -398,7 +412,8 @@ export class InvalidPortRangeException extends __BaseException {
 }
 
 /**
- * <p>The listener that you specified doesn't exist.</p>
+ * The listener that you specified doesn't exist.
+ *
  * @public
  */
 export class ListenerNotFoundException extends __BaseException {
@@ -421,7 +436,8 @@ export class ListenerNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The endpoint that you specified doesn't exist.</p>
+ * The endpoint that you specified doesn't exist.
+ *
  * @public
  */
 export class EndpointNotFoundException extends __BaseException {
@@ -444,7 +460,8 @@ export class EndpointNotFoundException extends __BaseException {
 }
 
 /**
- * <p>There isn't another item to return.</p>
+ * There isn't another item to return.
+ *
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {

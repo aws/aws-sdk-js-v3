@@ -63,9 +63,8 @@ export interface KinesisVideoSignaling {
 }
 
 /**
- * <p>Kinesis Video Streams Signaling Service is a intermediate service that establishes a
- *             communication channel for discovering peers, transmitting offers and answers in order to
- *             establish peer-to-peer connection in webRTC technology.</p>
+ * Kinesis Video Streams Signaling Service is a intermediate service that establishes a communication channel for discovering peers, transmitting offers and answers in order to establish peer-to-peer connection in webRTC technology.
+ *
  * @public
  */
 export class KinesisVideoSignaling extends KinesisVideoSignalingClient implements KinesisVideoSignaling {}

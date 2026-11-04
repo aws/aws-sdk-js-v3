@@ -23,41 +23,22 @@ export interface InitiateVaultLockCommandInput extends InitiateVaultLockInput {}
 export interface InitiateVaultLockCommandOutput extends InitiateVaultLockOutput, __MetadataBearer {}
 
 /**
- * <p>This operation initiates the vault locking process by doing the following:</p>
- *          <ul>
- *             <li>
- *                <p>Installing a vault lock policy on the specified vault.</p>
- *             </li>
- *             <li>
- *                <p>Setting the lock state of vault lock to <code>InProgress</code>.</p>
- *             </li>
- *             <li>
- *                <p>Returning a lock ID, which is used to complete the vault locking
- *                process.</p>
- *             </li>
- *          </ul>
+ * This operation initiates the vault locking process by doing the following:
  *
- *          <p>You can set one vault lock policy for each vault and this policy can be up to 20 KB
- *          in size. For more information about vault lock policies, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock-policy.html">Amazon Glacier Access Control with
- *             Vault Lock Policies</a>. </p>
- *          <p>You must complete the vault locking process within 24 hours after the vault lock
- *          enters the <code>InProgress</code> state. After the 24 hour window ends, the lock ID
- *          expires, the vault automatically exits the <code>InProgress</code> state, and the vault
- *          lock policy is removed from the vault. You call <a>CompleteVaultLock</a> to
- *          complete the vault locking process by setting the state of the vault lock to
- *             <code>Locked</code>. </p>
- *          <p>After a vault lock is in the <code>Locked</code> state, you cannot initiate a new
- *          vault lock for the vault.</p>
+ * - Installing a vault lock policy on the specified vault.
+ * - Setting the lock state of vault lock to `InProgress`.
+ * - Returning a lock ID, which is used to complete the vault locking process.
  *
- *          <p>You can abort the vault locking process by calling <a>AbortVaultLock</a>.
- *          You can get the state of the vault lock by calling <a>GetVaultLock</a>. For more
- *          information about the vault locking process, <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html">Amazon Glacier Vault
- *          Lock</a>.</p>
+ * You can set one vault lock policy for each vault and this policy can be up to 20 KB in size. For more information about vault lock policies, see [Amazon Glacier Access Control with Vault Lock Policies](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock-policy.html).
  *
- *          <p>If this operation is called when the vault lock is in the <code>InProgress</code>
- *          state, the operation returns an <code>AccessDeniedException</code> error. When the vault
- *          lock is in the <code>InProgress</code> state you must call <a>AbortVaultLock</a>
- *          before you can initiate a new vault lock policy. </p>
+ * You must complete the vault locking process within 24 hours after the vault lock enters the `InProgress` state. After the 24 hour window ends, the lock ID expires, the vault automatically exits the `InProgress` state, and the vault lock policy is removed from the vault. You call CompleteVaultLock to complete the vault locking process by setting the state of the vault lock to `Locked`.
+ *
+ * After a vault lock is in the `Locked` state, you cannot initiate a new vault lock for the vault.
+ *
+ * You can abort the vault locking process by calling AbortVaultLock. You can get the state of the vault lock by calling GetVaultLock. For more information about the vault locking process, [Amazon Glacier Vault Lock](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html).
+ *
+ * If this operation is called when the vault lock is in the `InProgress` state, the operation returns an `AccessDeniedException` error. When the vault lock is in the `InProgress` state you must call AbortVaultLock before you can initiate a new vault lock policy.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,24 +69,28 @@ export interface InitiateVaultLockCommandOutput extends InitiateVaultLockOutput,
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>Returned if a parameter of the request is incorrectly specified.</p>
+ *
+ * Returned if a parameter of the request is incorrectly specified.
  *
  * @throws {@link MissingParameterValueException} (client fault)
- *  <p>Returned if a required header or parameter is missing from the request.</p>
+ *
+ * Returned if a required header or parameter is missing from the request.
  *
  * @throws {@link NoLongerSupportedException} (client fault)
- *  <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+ *
+ * Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't
- *          exist.</p>
+ *
+ * Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>Returned if the service cannot complete the request.</p>
+ *
+ * Returned if the service cannot complete the request.
  *
  * @throws {@link GlacierServiceException}
- * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * Base exception class for all service exceptions from Glacier service.
  *
  * @example To initiate the vault locking process
  * ```javascript

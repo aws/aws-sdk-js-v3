@@ -23,7 +23,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>List the tags added to a resource.</p>
+ * List the tags added to a resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,14 +53,16 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource is not available.</p>
+ *
+ * The resource is not available.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an AWS service.
  *
  * @throws {@link MigrationHubOrchestratorServiceException}
- * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
+ * Base exception class for all service exceptions from MigrationHubOrchestrator service.
  *
  * @public
  */

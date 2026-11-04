@@ -23,20 +23,16 @@ export interface ListAliasesCommandInput extends ListAliasesInput {}
 export interface ListAliasesCommandOutput extends ListAliasesOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
- *          <p>Retrieves all aliases for this Amazon Web Services account. You can filter the result set by alias
- *             name and/or routing strategy type. Use the pagination parameters to retrieve results in
- *             sequential pages.</p>
- *          <note>
- *             <p>Returned aliases are not listed in any particular order.</p>
- *          </note>
- *          <p>
- *             <b>Related actions</b>
- *          </p>
- *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
- *          </p>
+ * **This API works with the following fleet types:** EC2, Anywhere, Container
+ *
+ * Retrieves all aliases for this Amazon Web Services account. You can filter the result set by alias name and/or routing strategy type. Use the pagination parameters to retrieve results in sequential pages.
+ *
+ * > **Note:** Returned aliases are not listed in any particular order.
+ *
+ * **Related actions**
+ *
+ * [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,19 +77,20 @@ export interface ListAliasesCommandOutput extends ListAliasesOutput, __MetadataB
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an unrecoverable internal failure while processing the
- *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
- *             values before retrying.</p>
+ *
+ * One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * The client failed authentication. Clients should not retry such requests.
  *
  * @throws {@link GameLiftServiceException}
- * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * Base exception class for all service exceptions from GameLift service.
  *
  * @public
  */

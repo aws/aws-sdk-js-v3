@@ -23,7 +23,8 @@ export interface SendAgreementCancellationRequestCommandInput extends SendAgreem
 export interface SendAgreementCancellationRequestCommandOutput extends SendAgreementCancellationRequestOutput, __MetadataBearer {}
 
 /**
- * <p>Allows sellers (proposers) to submit a cancellation request for an active agreement. The cancellation request is created in <code>PENDING_APPROVAL</code> status, at which point the buyer can review it.</p>
+ * Allows sellers (proposers) to submit a cancellation request for an active agreement. The cancellation request is created in `PENDING_APPROVAL` status, at which point the buyer can review it.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,26 +60,32 @@ export interface SendAgreementCancellationRequestCommandOutput extends SendAgree
  * @see {@link MarketplaceAgreementClientResolvedConfig | config} for MarketplaceAgreementClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * User does not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Request was denied due to a resource conflict.</p>
+ *
+ * Request was denied due to a resource conflict.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error during processing of request.</p>
+ *
+ * Unexpected error during processing of request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Request references a resource which does not exist.</p>
+ *
+ * Request references a resource which does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Request was denied due to request throttling.</p>
+ *
+ * Request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the service.</p>
+ *
+ * The input fails to satisfy the constraints specified by the service.
  *
  * @throws {@link MarketplaceAgreementServiceException}
- * <p>Base exception class for all service exceptions from MarketplaceAgreement service.</p>
  *
+ * Base exception class for all service exceptions from MarketplaceAgreement service.
  *
  * @example Send a cancellation request
  * ```javascript

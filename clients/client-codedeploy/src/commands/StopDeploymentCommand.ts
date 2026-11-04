@@ -23,7 +23,8 @@ export interface StopDeploymentCommandInput extends StopDeploymentInput {}
 export interface StopDeploymentCommandOutput extends StopDeploymentOutput, __MetadataBearer {}
 
 /**
- * <p>Attempts to stop an ongoing deployment.</p>
+ * Attempts to stop an ongoing deployment.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,27 +53,32 @@ export interface StopDeploymentCommandOutput extends StopDeploymentOutput, __Met
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  * @throws {@link DeploymentAlreadyCompletedException} (client fault)
- *  <p>The deployment is already complete.</p>
+ *
+ * The deployment is already complete.
  *
  * @throws {@link DeploymentDoesNotExistException} (client fault)
- *  <p>The deployment with the user or Amazon Web Services account does not exist.</p>
+ *
+ * The deployment with the user or Amazon Web Services account does not exist.
  *
  * @throws {@link DeploymentGroupDoesNotExistException} (client fault)
- *  <p>The named deployment group with the user or Amazon Web Services account does not
- *             exist.</p>
+ *
+ * The named deployment group with the user or Amazon Web Services account does not exist.
  *
  * @throws {@link DeploymentIdRequiredException} (client fault)
- *  <p>At least one deployment ID must be specified.</p>
+ *
+ * At least one deployment ID must be specified.
  *
  * @throws {@link InvalidDeploymentIdException} (client fault)
- *  <p>At least one of the deployment IDs was specified in an invalid format.</p>
+ *
+ * At least one of the deployment IDs was specified in an invalid format.
  *
  * @throws {@link UnsupportedActionForDeploymentTypeException} (client fault)
- *  <p>A call was submitted that is not supported for the specified deployment type.</p>
+ *
+ * A call was submitted that is not supported for the specified deployment type.
  *
  * @throws {@link CodeDeployServiceException}
- * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * Base exception class for all service exceptions from CodeDeploy service.
  *
  * @public
  */

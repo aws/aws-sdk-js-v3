@@ -23,7 +23,8 @@ export interface ModifyCacheSubnetGroupCommandInput extends ModifyCacheSubnetGro
 export interface ModifyCacheSubnetGroupCommandOutput extends ModifyCacheSubnetGroupResult, __MetadataBearer {}
 
 /**
- * <p>Modifies an existing cache subnet group.</p>
+ * Modifies an existing cache subnet group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,28 +77,28 @@ export interface ModifyCacheSubnetGroupCommandOutput extends ModifyCacheSubnetGr
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link CacheSubnetGroupNotFoundFault} (client fault)
- *  <p>The requested cache subnet group name does not refer to an existing cache subnet
- *             group.</p>
+ *
+ * The requested cache subnet group name does not refer to an existing cache subnet group.
  *
  * @throws {@link CacheSubnetQuotaExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the allowed number of subnets
- *             in a cache subnet group.</p>
+ *
+ * The request cannot be processed because it would exceed the allowed number of subnets in a cache subnet group.
  *
  * @throws {@link InvalidSubnet} (client fault)
- *  <p>An invalid subnet identifier was specified.</p>
+ *
+ * An invalid subnet identifier was specified.
  *
  * @throws {@link SubnetInUse} (client fault)
- *  <p>The requested subnet is being used by another cache subnet group.</p>
+ *
+ * The requested subnet is being used by another cache subnet group.
  *
  * @throws {@link SubnetNotAllowedFault} (client fault)
- *  <p>At least one subnet ID does not match the other subnet IDs. This mismatch typically
- *             occurs when a user sets one subnet ID to a regional Availability Zone and a different
- *             one to an outpost. Or when a user sets the subnet ID to an Outpost when not subscribed
- *             on this service.</p>
+ *
+ * At least one subnet ID does not match the other subnet IDs. This mismatch typically occurs when a user sets one subnet ID to a regional Availability Zone and a different one to an outpost. Or when a user sets the subnet ID to an Outpost when not subscribed on this service.
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @example ModifyCacheSubnetGroup
  * ```javascript

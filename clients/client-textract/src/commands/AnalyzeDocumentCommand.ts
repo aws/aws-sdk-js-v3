@@ -23,53 +23,27 @@ export interface AnalyzeDocumentCommandInput extends AnalyzeDocumentRequest {}
 export interface AnalyzeDocumentCommandOutput extends AnalyzeDocumentResponse, __MetadataBearer {}
 
 /**
- * <p>Analyzes an input document for relationships between detected items. </p>
- *          <p>The types of information returned are as follows: </p>
- *          <ul>
- *             <li>
- *                <p>Form data (key-value pairs). The related information is returned in two <a>Block</a> objects, each of type <code>KEY_VALUE_SET</code>: a KEY
- *                   <code>Block</code> object and a VALUE <code>Block</code> object. For example,
- *                   <i>Name: Ana Silva Carolina</i> contains a key and value.
- *                   <i>Name:</i> is the key. <i>Ana Silva Carolina</i> is
- *                the value.</p>
- *             </li>
- *             <li>
- *                <p>Table and table cell data. A TABLE <code>Block</code> object contains information
- *                about a detected table. A CELL <code>Block</code> object is returned for each cell in
- *                a table.</p>
- *             </li>
- *             <li>
- *                <p>Lines and words of text. A LINE <code>Block</code> object contains one or more
- *                WORD <code>Block</code> objects. All lines and words that are detected in the
- *                document are returned (including text that doesn't have a relationship with the value
- *                of <code>FeatureTypes</code>). </p>
- *             </li>
- *             <li>
- *                <p>Signatures. A SIGNATURE <code>Block</code> object contains the location information
- *                of a signature in a document. If used in conjunction with forms or tables, a signature
- *                can be given a Key-Value pairing or be detected in the cell of a table.</p>
- *             </li>
- *             <li>
- *                <p>Query. A QUERY Block object contains the query text, alias and link to the
- *                associated Query results block object.</p>
- *             </li>
- *             <li>
- *                <p>Query Result. A QUERY_RESULT Block object contains the answer to the query and an
- *                ID that connects it to the query asked. This Block also contains a confidence
- *                score.</p>
- *             </li>
- *          </ul>
- *          <p>Selection elements such as check boxes and option buttons (radio buttons) can be
- *          detected in form data and in tables. A SELECTION_ELEMENT <code>Block</code> object contains
- *          information about a selection element, including the selection status.</p>
- *          <p>You can choose which type of analysis to perform by specifying the
- *             <code>FeatureTypes</code> list. </p>
- *          <p>The output is returned in a list of <code>Block</code> objects.</p>
- *          <p>
- *             <code>AnalyzeDocument</code> is a synchronous operation. To analyze documents
- *          asynchronously, use <a>StartDocumentAnalysis</a>.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html">Document Text
- *          Analysis</a>.</p>
+ * Analyzes an input document for relationships between detected items.
+ *
+ * The types of information returned are as follows:
+ *
+ * - Form data (key-value pairs). The related information is returned in two Block objects, each of type `KEY_VALUE_SET`: a KEY `Block` object and a VALUE `Block` object. For example, *Name: Ana Silva Carolina* contains a key and value. *Name:* is the key. *Ana Silva Carolina* is the value.
+ * - Table and table cell data. A TABLE `Block` object contains information about a detected table. A CELL `Block` object is returned for each cell in a table.
+ * - Lines and words of text. A LINE `Block` object contains one or more WORD `Block` objects. All lines and words that are detected in the document are returned (including text that doesn't have a relationship with the value of `FeatureTypes`).
+ * - Signatures. A SIGNATURE `Block` object contains the location information of a signature in a document. If used in conjunction with forms or tables, a signature can be given a Key-Value pairing or be detected in the cell of a table.
+ * - Query. A QUERY Block object contains the query text, alias and link to the associated Query results block object.
+ * - Query Result. A QUERY_RESULT Block object contains the answer to the query and an ID that connects it to the query asked. This Block also contains a confidence score.
+ *
+ * Selection elements such as check boxes and option buttons (radio buttons) can be detected in form data and in tables. A SELECTION_ELEMENT `Block` object contains information about a selection element, including the selection status.
+ *
+ * You can choose which type of analysis to perform by specifying the `FeatureTypes` list.
+ *
+ * The output is returned in a list of `Block` objects.
+ *
+ * `AnalyzeDocument` is a synchronous operation. To analyze documents asynchronously, use StartDocumentAnalysis.
+ *
+ * For more information, see [Document Text Analysis](https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -195,51 +169,48 @@ export interface AnalyzeDocumentCommandOutput extends AnalyzeDocumentResponse, _
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You aren't authorized to perform the action. Use the Amazon Resource Name (ARN)
- *             of an authorized user or IAM role to perform the operation.</p>
+ *
+ * You aren't authorized to perform the action. Use the Amazon Resource Name (ARN) of an authorized user or IAM role to perform the operation.
  *
  * @throws {@link BadDocumentException} (client fault)
- *  <p>Amazon Textract isn't able to read the document. For more information on the document
- *          limits in Amazon Textract, see <a href="https://docs.aws.amazon.com/textract/latest/dg/limits.html">Hard limits</a>.</p>
+ *
+ * Amazon Textract isn't able to read the document. For more information on the document limits in Amazon Textract, see [Hard limits](https://docs.aws.amazon.com/textract/latest/dg/limits.html).
  *
  * @throws {@link DocumentTooLargeException} (client fault)
- *  <p>The document can't be processed because it's too large. The maximum document size for
- *          synchronous operations 10 MB. The maximum document size for asynchronous operations is 500
- *          MB for PDF files.</p>
+ *
+ * The document can't be processed because it's too large. The maximum document size for synchronous operations 10 MB. The maximum document size for asynchronous operations is 500 MB for PDF files.
  *
  * @throws {@link HumanLoopQuotaExceededException} (client fault)
- *  <p>Indicates you have exceeded the maximum number of active human in the loop workflows available</p>
+ *
+ * Indicates you have exceeded the maximum number of active human in the loop workflows available
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Amazon Textract experienced a service issue. Try your call again.</p>
+ *
+ * Amazon Textract experienced a service issue. Try your call again.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>An input parameter violated a constraint. For example, in synchronous operations,
- *        an <code>InvalidParameterException</code> exception occurs
- *       when neither of the <code>S3Object</code> or <code>Bytes</code> values are supplied in the <code>Document</code>
- *       request parameter.
- *        Validate your parameter before calling the API operation again.</p>
+ *
+ * An input parameter violated a constraint. For example, in synchronous operations, an `InvalidParameterException` exception occurs when neither of the `S3Object` or `Bytes` values are supplied in the `Document` request parameter. Validate your parameter before calling the API operation again.
  *
  * @throws {@link InvalidS3ObjectException} (client fault)
- *  <p>Amazon Textract is unable to access the S3 object that's specified in the request.
- *          for more information, <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Configure Access to Amazon S3</a>
- *          For troubleshooting information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/troubleshooting.html">Troubleshooting Amazon S3</a>
- *          </p>
+ *
+ * Amazon Textract is unable to access the S3 object that's specified in the request. for more information, [Configure Access to Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html) For troubleshooting information, see [Troubleshooting Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/troubleshooting.html)
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
- *  <p>The number of requests exceeded your throughput limit. If you want to increase this limit,
- *          contact Amazon Textract.</p>
+ *
+ * The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Textract.
  *
  * @throws {@link ThrottlingException} (server fault)
- *  <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
+ *
+ * Amazon Textract is temporarily unable to process the request. Try your call again.
  *
  * @throws {@link UnsupportedDocumentException} (client fault)
- *  <p>The format of the input document isn't supported. Documents for operations can be in
- *          PNG, JPEG, PDF, or TIFF format.</p>
+ *
+ * The format of the input document isn't supported. Documents for operations can be in PNG, JPEG, PDF, or TIFF format.
  *
  * @throws {@link TextractServiceException}
- * <p>Base exception class for all service exceptions from Textract service.</p>
  *
+ * Base exception class for all service exceptions from Textract service.
  *
  * @public
  */

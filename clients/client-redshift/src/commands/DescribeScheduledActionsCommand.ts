@@ -23,8 +23,8 @@ export interface DescribeScheduledActionsCommandInput extends DescribeScheduledA
 export interface DescribeScheduledActionsCommandOutput extends ScheduledActionsMessage, __MetadataBearer {}
 
 /**
- * <p>Describes properties of scheduled actions.
- *              </p>
+ * Describes properties of scheduled actions.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -96,14 +96,16 @@ export interface DescribeScheduledActionsCommandOutput extends ScheduledActionsM
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ScheduledActionNotFoundFault} (client fault)
- *  <p>The scheduled action cannot be found. </p>
+ *
+ * The scheduled action cannot be found.
  *
  * @throws {@link UnauthorizedOperation} (client fault)
- *  <p>Your account is not authorized to perform the requested operation.</p>
+ *
+ * Your account is not authorized to perform the requested operation.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

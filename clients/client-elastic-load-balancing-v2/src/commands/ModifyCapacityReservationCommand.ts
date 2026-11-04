@@ -23,9 +23,10 @@ export interface ModifyCapacityReservationCommandInput extends ModifyCapacityRes
 export interface ModifyCapacityReservationCommandOutput extends ModifyCapacityReservationOutput, __MetadataBearer {}
 
 /**
- * <p>Modifies the capacity reservation of the specified load balancer.</p>
- *          <p>When modifying capacity reservation, you must include at least one <code>MinimumLoadBalancerCapacity</code>
- *       or <code>ResetCapacityReservation</code>.</p>
+ * Modifies the capacity reservation of the specified load balancer.
+ *
+ * When modifying capacity reservation, you must include at least one `MinimumLoadBalancerCapacity` or `ResetCapacityReservation`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,32 +71,40 @@ export interface ModifyCapacityReservationCommandOutput extends ModifyCapacityRe
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
  * @throws {@link CapacityDecreaseRequestsLimitExceededException} (client fault)
- *  <p>You've exceeded the daily capacity decrease limit for this reservation.</p>
+ *
+ * You've exceeded the daily capacity decrease limit for this reservation.
  *
  * @throws {@link CapacityReservationPendingException} (client fault)
- *  <p>There is a pending capacity reservation.</p>
+ *
+ * There is a pending capacity reservation.
  *
  * @throws {@link CapacityUnitsLimitExceededException} (client fault)
- *  <p>You've exceeded the capacity units limit.</p>
+ *
+ * You've exceeded the capacity units limit.
  *
  * @throws {@link InsufficientCapacityException} (server fault)
- *  <p>There is insufficient capacity to reserve.</p>
+ *
+ * There is insufficient capacity to reserve.
  *
  * @throws {@link InvalidConfigurationRequestException} (client fault)
- *  <p>The requested configuration is not valid.</p>
+ *
+ * The requested configuration is not valid.
  *
  * @throws {@link LoadBalancerNotFoundException} (client fault)
- *  <p>The specified load balancer does not exist.</p>
+ *
+ * The specified load balancer does not exist.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>This operation is not allowed.</p>
+ *
+ * This operation is not allowed.
  *
  * @throws {@link PriorRequestNotCompleteException} (client fault)
- *  <p>This operation is not allowed while a prior request has not been completed.</p>
+ *
+ * This operation is not allowed while a prior request has not been completed.
  *
  * @throws {@link ElasticLoadBalancingV2ServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancingV2 service.
  *
  * @public
  */

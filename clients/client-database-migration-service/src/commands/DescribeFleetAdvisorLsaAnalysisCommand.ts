@@ -26,13 +26,10 @@ export interface DescribeFleetAdvisorLsaAnalysisCommandInput extends DescribeFle
 export interface DescribeFleetAdvisorLsaAnalysisCommandOutput extends DescribeFleetAdvisorLsaAnalysisResponse, __MetadataBearer {}
 
 /**
- * <important>
- *             <p>
- * End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html">Amazon Web Services DMS Fleet Advisor end of support</a>.
- * </p>
- *          </important>
- *          <p>Provides descriptions of large-scale assessment (LSA) analyses produced by your Fleet
- *             Advisor collectors. </p>
+ * > **Important:** End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see [Amazon Web Services DMS Fleet Advisor end of support](https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html).
+ *
+ * Provides descriptions of large-scale assessment (LSA) analyses produced by your Fleet Advisor collectors.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,11 +63,12 @@ export interface DescribeFleetAdvisorLsaAnalysisCommandOutput extends DescribeFl
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link InvalidResourceStateFault} (client fault)
- *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
+ * The resource is in a state that prevents it from being used for database migration.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @public
  */

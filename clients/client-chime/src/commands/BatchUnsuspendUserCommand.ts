@@ -23,16 +23,10 @@ export interface BatchUnsuspendUserCommandInput extends BatchUnsuspendUserReques
 export interface BatchUnsuspendUserCommandOutput extends BatchUnsuspendUserResponse, __MetadataBearer {}
 
 /**
- * <p>Removes the suspension from up to 50 previously suspended users for the specified Amazon
- *             Chime <code>EnterpriseLWA</code> account. Only users on <code>EnterpriseLWA</code>
- *             accounts can be unsuspended using this action. For more information about different account types, see
- *     <a href="https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html">
- *         Managing Your Amazon Chime Accounts
- *     </a> in the account types, in the <i>Amazon Chime Administration Guide</i>.
- * </p>
- *          <p>Previously suspended users who are unsuspended using this action are returned to
- * <code>Registered</code>
- * status. Users who are not previously suspended are ignored.</p>
+ * Removes the suspension from up to 50 previously suspended users for the specified Amazon Chime `EnterpriseLWA` account. Only users on `EnterpriseLWA` accounts can be unsuspended using this action. For more information about different account types, see [Managing Your Amazon Chime Accounts](https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html) in the account types, in the *Amazon Chime Administration Guide*.
+ *
+ * Previously suspended users who are unsuspended using this action are returned to `Registered` status. Users who are not previously suspended are ignored.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,29 +62,36 @@ export interface BatchUnsuspendUserCommandOutput extends BatchUnsuspendUserRespo
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * The input parameters don't match the service's restrictions.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * The client is permanently forbidden from making the request.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>One or more of the resources in the request does not exist in the system.</p>
+ *
+ * One or more of the resources in the request does not exist in the system.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The service encountered an unexpected error.</p>
+ *
+ * The service encountered an unexpected error.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is currently unavailable.</p>
+ *
+ * The service is currently unavailable.
  *
  * @throws {@link ThrottledClientException} (client fault)
- *  <p>The client exceeded its request rate limit.</p>
+ *
+ * The client exceeded its request rate limit.
  *
  * @throws {@link UnauthorizedClientException} (client fault)
- *  <p>The client is not currently authorized to make the request.</p>
+ *
+ * The client is not currently authorized to make the request.
  *
  * @throws {@link ChimeServiceException}
- * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * Base exception class for all service exceptions from Chime service.
  *
  * @public
  */

@@ -23,15 +23,12 @@ export interface DescribeRecordCommandInput extends DescribeRecordInput {}
 export interface DescribeRecordCommandOutput extends DescribeRecordOutput, __MetadataBearer {}
 
 /**
- * <p>Gets information about the specified request operation.</p>
- *          <p>Use this operation after calling a request operation (for example, <a>ProvisionProduct</a>,
- *          <a>TerminateProvisionedProduct</a>, or <a>UpdateProvisionedProduct</a>).
- *       </p>
- *          <note>
- *             <p>If a provisioned product was transferred to a new owner using <a>UpdateProvisionedProductProperties</a>, the new owner
- *       will be able to describe all past records for that product. The previous owner will no longer be able to describe the records, but will be able to
- *       use <a>ListRecordHistory</a> to see the product's history from when he was the owner.</p>
- *          </note>
+ * Gets information about the specified request operation.
+ *
+ * Use this operation after calling a request operation (for example, ProvisionProduct, TerminateProvisionedProduct, or UpdateProvisionedProduct).
+ *
+ * > **Note:** If a provisioned product was transferred to a new owner using UpdateProvisionedProductProperties, the new owner will be able to describe all past records for that product. The previous owner will no longer be able to describe the records, but will be able to use ListRecordHistory to see the product's history from when he was the owner.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,11 +91,12 @@ export interface DescribeRecordCommandOutput extends DescribeRecordOutput, __Met
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ServiceCatalogServiceException}
- * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * Base exception class for all service exceptions from ServiceCatalog service.
  *
  * @public
  */

@@ -23,12 +23,10 @@ export interface CreateLicenseConfigurationCommandInput extends CreateLicenseCon
 export interface CreateLicenseConfigurationCommandOutput extends CreateLicenseConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a license configuration.</p>
- *          <p>A license configuration is an abstraction of a customer license agreement that can be
- *          consumed and enforced by License Manager. Components include specifications for the license
- *          type (licensing by instance, socket, CPU, or vCPU), allowed tenancy (shared tenancy,
- *          Dedicated Instance, Dedicated Host, or all of these), license affinity  to host (how long a
- *          license must be associated with a host), and the number of licenses purchased and used.</p>
+ * Creates a license configuration.
+ *
+ * A license configuration is an abstraction of a customer license agreement that can be consumed and enforced by License Manager. Components include specifications for the license type (licensing by instance, socket, CPU, or vCPU), allowed tenancy (shared tenancy, Dedicated Instance, Dedicated Host, or all of these), license affinity to host (how long a license must be associated with a host), and the number of licenses purchased and used.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,27 +82,32 @@ export interface CreateLicenseConfigurationCommandOutput extends CreateLicenseCo
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to resource denied.</p>
+ *
+ * Access to resource denied.
  *
  * @throws {@link AuthorizationException} (client fault)
- *  <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
- *          policy associated with this account.</p>
+ *
+ * The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more parameter values are not valid.</p>
+ *
+ * One or more parameter values are not valid.
  *
  * @throws {@link RateLimitExceededException} (client fault)
- *  <p>Too many requests have been submitted. Try again after a brief wait.</p>
+ *
+ * Too many requests have been submitted. Try again after a brief wait.
  *
  * @throws {@link ResourceLimitExceededException} (client fault)
- *  <p>Your resource limits have been exceeded.</p>
+ *
+ * Your resource limits have been exceeded.
  *
  * @throws {@link ServerInternalException} (server fault)
- *  <p>The server experienced an internal error. Try again.</p>
+ *
+ * The server experienced an internal error. Try again.
  *
  * @throws {@link LicenseManagerServiceException}
- * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ * Base exception class for all service exceptions from LicenseManager service.
  *
  * @public
  */

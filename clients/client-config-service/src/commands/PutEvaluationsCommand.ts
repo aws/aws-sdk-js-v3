@@ -23,9 +23,8 @@ export interface PutEvaluationsCommandInput extends PutEvaluationsRequest {}
 export interface PutEvaluationsCommandOutput extends PutEvaluationsResponse, __MetadataBearer {}
 
 /**
- * <p>Used by an Lambda function to deliver evaluation results to
- * 			Config. This operation is required in every Lambda function
- * 			that is invoked by an Config rule.</p>
+ * Used by an Lambda function to deliver evaluation results to Config. This operation is required in every Lambda function that is invoked by an Config rule.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,18 +69,20 @@ export interface PutEvaluationsCommandOutput extends PutEvaluationsResponse, __M
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more of the specified parameters are not valid. Verify
- * 			that your parameters are valid and try again.</p>
+ *
+ * One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.
  *
  * @throws {@link InvalidResultTokenException} (client fault)
- *  <p>The specified <code>ResultToken</code> is not valid.</p>
+ *
+ * The specified `ResultToken` is not valid.
  *
  * @throws {@link NoSuchConfigRuleException} (client fault)
- *  <p>The Config rule in the request is not valid. Verify that the rule is an Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
+ *
+ * The Config rule in the request is not valid. Verify that the rule is an Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.
  *
  * @throws {@link ConfigServiceServiceException}
- * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * Base exception class for all service exceptions from ConfigService service.
  *
  * @public
  */

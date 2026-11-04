@@ -23,34 +23,17 @@ export interface DescribeFileCachesCommandInput extends DescribeFileCachesReques
 export interface DescribeFileCachesCommandOutput extends DescribeFileCachesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the description of a specific Amazon File Cache resource, if a
- *             <code>FileCacheIds</code> value is provided for that cache. Otherwise, it
- *             returns descriptions of all caches owned by your Amazon Web Services account in the
- *             Amazon Web Services Region of the endpoint that you're calling.</p>
- *          <p>When retrieving all cache descriptions, you can optionally specify the
- *             <code>MaxResults</code> parameter to limit the number of descriptions in a response.
- *             If more cache descriptions remain, the operation returns a
- *             <code>NextToken</code> value in the response. In this case, send a later request
- *             with the <code>NextToken</code> request parameter set to the value of
- *             <code>NextToken</code> from the last response.</p>
- *          <p>This operation is used in an iterative process to retrieve a list of your cache
- *             descriptions. <code>DescribeFileCaches</code> is called first without a
- *             <code>NextToken</code>value. Then the operation continues to be called with the
- *             <code>NextToken</code> parameter set to the value of the last <code>NextToken</code>
- *             value until a response has no <code>NextToken</code>.</p>
- *          <p>When using this operation, keep the following in mind:</p>
- *          <ul>
- *             <li>
- *                <p>The implementation might return fewer than <code>MaxResults</code>
- *                     cache descriptions while still including a <code>NextToken</code>
- *                     value.</p>
- *             </li>
- *             <li>
- *                <p>The order of caches returned in the response of one
- *                     <code>DescribeFileCaches</code> call and the order of caches returned
- *                     across the responses of a multicall iteration is unspecified.</p>
- *             </li>
- *          </ul>
+ * Returns the description of a specific Amazon File Cache resource, if a `FileCacheIds` value is provided for that cache. Otherwise, it returns descriptions of all caches owned by your Amazon Web Services account in the Amazon Web Services Region of the endpoint that you're calling.
+ *
+ * When retrieving all cache descriptions, you can optionally specify the `MaxResults` parameter to limit the number of descriptions in a response. If more cache descriptions remain, the operation returns a `NextToken` value in the response. In this case, send a later request with the `NextToken` request parameter set to the value of `NextToken` from the last response.
+ *
+ * This operation is used in an iterative process to retrieve a list of your cache descriptions. `DescribeFileCaches` is called first without a `NextToken`value. Then the operation continues to be called with the `NextToken` parameter set to the value of the last `NextToken` value until a response has no `NextToken`.
+ *
+ * When using this operation, keep the following in mind:
+ *
+ * - The implementation might return fewer than `MaxResults` cache descriptions while still including a `NextToken` value.
+ * - The order of caches returned in the response of one `DescribeFileCaches` call and the order of caches returned across the responses of a multicall iteration is unspecified.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -121,17 +104,20 @@ export interface DescribeFileCachesCommandOutput extends DescribeFileCachesRespo
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * A generic error indicating a failure with a client request.
  *
  * @throws {@link FileCacheNotFound} (client fault)
- *  <p>No caches were found based upon supplied parameters.</p>
+ *
+ * No caches were found based upon supplied parameters.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * A generic error indicating a server-side failure.
  *
  * @throws {@link FSxServiceException}
- * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * Base exception class for all service exceptions from FSx service.
  *
  * @public
  */

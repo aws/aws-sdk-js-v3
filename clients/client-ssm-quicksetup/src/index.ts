@@ -1,9 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>Quick Setup helps you quickly configure frequently used services and features with
- *                   recommended best practices. Quick Setup simplifies setting up services, including
- *                         Systems Manager, by automating common or recommended tasks.</p>
+ * Quick Setup helps you quickly configure frequently used services and features with recommended best practices. Quick Setup simplifies setting up services, including Systems Manager, by automating common or recommended tasks.
  *
  * @packageDocumentation
  */

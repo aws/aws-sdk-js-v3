@@ -6,7 +6,8 @@ import type { ValidationExceptionField } from "./models_0";
 import { PartnerCentralBenefitsServiceException as __BaseException } from "./PartnerCentralBenefitsServiceException";
 
 /**
- * <p>Thrown when the caller does not have sufficient permissions to perform the requested operation.</p>
+ * Thrown when the caller does not have sufficient permissions to perform the requested operation.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -14,7 +15,8 @@ export class AccessDeniedException extends __BaseException {
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the access denial.</p>
+   * A message describing the access denial.
+   *
    * @public
    */
   Message: string | undefined;
@@ -33,7 +35,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Thrown when the request conflicts with the current state of the resource, such as attempting to modify a resource that has been changed by another process.</p>
+ * Thrown when the request conflicts with the current state of the resource, such as attempting to modify a resource that has been changed by another process.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -41,7 +44,8 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the conflict.</p>
+   * A message describing the conflict.
+   *
    * @public
    */
   Message: string | undefined;
@@ -60,7 +64,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>Thrown when an unexpected error occurs on the server side during request processing.</p>
+ * Thrown when an unexpected error occurs on the server side during request processing.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -68,7 +73,8 @@ export class InternalServerException extends __BaseException {
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>A message describing the internal server error.</p>
+   * A message describing the internal server error.
+   *
    * @public
    */
   Message: string | undefined;
@@ -87,7 +93,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>Thrown when the requested resource cannot be found or does not exist.</p>
+ * Thrown when the requested resource cannot be found or does not exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -95,7 +102,8 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the resource not found error.</p>
+   * A message describing the resource not found error.
+   *
    * @public
    */
   Message: string | undefined;
@@ -114,7 +122,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Thrown when the request rate exceeds the allowed limits and the request is being throttled.</p>
+ * Thrown when the request rate exceeds the allowed limits and the request is being throttled.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -122,7 +131,8 @@ export class ThrottlingException extends __BaseException {
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the throttling error.</p>
+   * A message describing the throttling error.
+   *
    * @public
    */
   Message: string | undefined;
@@ -141,7 +151,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>Thrown when the request contains invalid parameters or fails input validation requirements.</p>
+ * Thrown when the request contains invalid parameters or fails input validation requirements.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -149,19 +160,22 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message describing the validation error.</p>
+   * A message describing the validation error.
+   *
    * @public
    */
   Message: string | undefined;
 
   /**
-   * <p>The reason for the validation failure.</p>
+   * The reason for the validation failure.
+   *
    * @public
    */
   Reason: ValidationExceptionReason | undefined;
 
   /**
-   * <p>A list of fields that failed validation.</p>
+   * A list of fields that failed validation.
+   *
    * @public
    */
   FieldList?: ValidationExceptionField[] | undefined;
@@ -182,7 +196,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>Thrown when the request would exceed the service quotas or limits for the account.</p>
+ * Thrown when the request would exceed the service quotas or limits for the account.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -191,25 +206,29 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly $fault = "client" as const;
   $retryable = {};
   /**
-   * <p>A message describing the service quota exceeded error.</p>
+   * A message describing the service quota exceeded error.
+   *
    * @public
    */
   Message: string | undefined;
 
   /**
-   * <p>The identifier of the resource that would exceed the quota.</p>
+   * The identifier of the resource that would exceed the quota.
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>The type of the resource that would exceed the quota.</p>
+   * The type of the resource that would exceed the quota.
+   *
    * @public
    */
   ResourceType: string | undefined;
 
   /**
-   * <p>The code identifying the specific quota that would be exceeded.</p>
+   * The code identifying the specific quota that would be exceeded.
+   *
    * @public
    */
   QuotaCode: string | undefined;

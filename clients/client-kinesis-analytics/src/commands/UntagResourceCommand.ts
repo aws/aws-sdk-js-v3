@@ -23,7 +23,8 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Removes one or more tags from a Kinesis Analytics application. For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-tagging.html">Using Tagging</a>.</p>
+ * Removes one or more tags from a Kinesis Analytics application. For more information, see [Using Tagging](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-tagging.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,23 +52,28 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @see {@link KinesisAnalyticsClientResolvedConfig | config} for KinesisAnalyticsClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.</p>
+ *
+ * Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>Specified input parameter value is invalid.</p>
+ *
+ * Specified input parameter value is invalid.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>Application is not available for this operation.</p>
+ *
+ * Application is not available for this operation.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Specified application can't be found.</p>
+ *
+ * Specified application can't be found.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>Application created with too many tags, or too many tags added to an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.</p>
+ *
+ * Application created with too many tags, or too many tags added to an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
  *
  * @throws {@link KinesisAnalyticsServiceException}
- * <p>Base exception class for all service exceptions from KinesisAnalytics service.</p>
  *
+ * Base exception class for all service exceptions from KinesisAnalytics service.
  *
  * @public
  */

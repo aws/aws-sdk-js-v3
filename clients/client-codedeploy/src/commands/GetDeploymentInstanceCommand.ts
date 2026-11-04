@@ -23,7 +23,7 @@ export interface GetDeploymentInstanceCommandInput extends GetDeploymentInstance
 export interface GetDeploymentInstanceCommandOutput extends GetDeploymentInstanceOutput, __MetadataBearer {}
 
 /**
- * <p>Gets information about an instance as part of a deployment.</p>
+ * Gets information about an instance as part of a deployment.
  *
  * @deprecated This operation is deprecated, use GetDeploymentTarget instead.
  * @example
@@ -73,29 +73,36 @@ export interface GetDeploymentInstanceCommandOutput extends GetDeploymentInstanc
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  * @throws {@link DeploymentDoesNotExistException} (client fault)
- *  <p>The deployment with the user or Amazon Web Services account does not exist.</p>
+ *
+ * The deployment with the user or Amazon Web Services account does not exist.
  *
  * @throws {@link DeploymentIdRequiredException} (client fault)
- *  <p>At least one deployment ID must be specified.</p>
+ *
+ * At least one deployment ID must be specified.
  *
  * @throws {@link InstanceDoesNotExistException} (client fault)
- *  <p>The specified instance does not exist in the deployment group.</p>
+ *
+ * The specified instance does not exist in the deployment group.
  *
  * @throws {@link InstanceIdRequiredException} (client fault)
- *  <p>The instance ID was not specified.</p>
+ *
+ * The instance ID was not specified.
  *
  * @throws {@link InvalidComputePlatformException} (client fault)
- *  <p>The computePlatform is invalid. The computePlatform should be <code>Lambda</code>, <code>Server</code>, or <code>ECS</code>.</p>
+ *
+ * The computePlatform is invalid. The computePlatform should be `Lambda`, `Server`, or `ECS`.
  *
  * @throws {@link InvalidDeploymentIdException} (client fault)
- *  <p>At least one of the deployment IDs was specified in an invalid format.</p>
+ *
+ * At least one of the deployment IDs was specified in an invalid format.
  *
  * @throws {@link InvalidInstanceNameException} (client fault)
- *  <p>The on-premises instance name was specified in an invalid format.</p>
+ *
+ * The on-premises instance name was specified in an invalid format.
  *
  * @throws {@link CodeDeployServiceException}
- * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * Base exception class for all service exceptions from CodeDeploy service.
  *
  * @public
  */

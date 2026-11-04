@@ -23,20 +23,14 @@ export interface DeleteDBInstanceCommandInput extends DeleteDBInstanceMessage {}
 export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, __MetadataBearer {}
 
 /**
- * <p>The DeleteDBInstance action deletes a previously provisioned DB instance. When you delete
- *       a DB instance, all automated backups for that instance are deleted and can't be recovered.
- *       Manual DB snapshots of the DB instance to be deleted by <code>DeleteDBInstance</code> are not
- *       deleted.</p>
- *          <p> If you request a final DB snapshot the status of the Amazon Neptune DB instance is
- *       <code>deleting</code> until the DB snapshot is created. The API action
- *       <code>DescribeDBInstance</code> is used to monitor the status of this operation. The action
- *       can't be canceled or reverted once submitted.</p>
- *          <p>Note that when a DB instance is in a failure state and has a status of
- *       <code>failed</code>, <code>incompatible-restore</code>, or <code>incompatible-network</code>,
- *       you can only delete it when the <code>SkipFinalSnapshot</code> parameter is set to
- *       <code>true</code>.</p>
- *          <p>You can't delete a DB instance if it is the only instance in the DB cluster, or
- *       if it has deletion protection enabled.</p>
+ * The DeleteDBInstance action deletes a previously provisioned DB instance. When you delete a DB instance, all automated backups for that instance are deleted and can't be recovered. Manual DB snapshots of the DB instance to be deleted by `DeleteDBInstance` are not deleted.
+ *
+ * If you request a final DB snapshot the status of the Amazon Neptune DB instance is `deleting` until the DB snapshot is created. The API action `DescribeDBInstance` is used to monitor the status of this operation. The action can't be canceled or reverted once submitted.
+ *
+ * Note that when a DB instance is in a failure state and has a status of `failed`, `incompatible-restore`, or `incompatible-network`, you can only delete it when the `SkipFinalSnapshot` parameter is set to `true`.
+ *
+ * You can't delete a DB instance if it is the only instance in the DB cluster, or if it has deletion protection enabled.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -204,25 +198,28 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p>
- *             <i>DBInstanceIdentifier</i> does not refer to an existing DB instance.</p>
+ *
+ * *DBInstanceIdentifier* does not refer to an existing DB instance.
  *
  * @throws {@link DBSnapshotAlreadyExistsFault} (client fault)
- *  <p>
- *             <i>DBSnapshotIdentifier</i> is already used by an existing snapshot.</p>
+ *
+ * *DBSnapshotIdentifier* is already used by an existing snapshot.
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
- *  <p>The DB cluster is not in a valid state.</p>
+ *
+ * The DB cluster is not in a valid state.
  *
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
- *  <p>The specified DB instance is not in the <i>available</i> state.</p>
+ *
+ * The specified DB instance is not in the *available* state.
  *
  * @throws {@link SnapshotQuotaExceededFault} (client fault)
- *  <p>Request would result in user exceeding the allowed number of DB snapshots.</p>
+ *
+ * Request would result in user exceeding the allowed number of DB snapshots.
  *
  * @throws {@link NeptuneServiceException}
- * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * Base exception class for all service exceptions from Neptune service.
  *
  * @public
  */

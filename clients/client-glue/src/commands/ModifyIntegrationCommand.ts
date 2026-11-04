@@ -23,7 +23,8 @@ export interface ModifyIntegrationCommandInput extends ModifyIntegrationRequest 
 export interface ModifyIntegrationCommandOutput extends ModifyIntegrationResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies a Zero-ETL integration in the caller's account.</p>
+ * Modifies a Zero-ETL integration in the caller's account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -92,41 +93,52 @@ export interface ModifyIntegrationCommandOutput extends ModifyIntegrationRespons
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to a resource was denied.</p>
+ *
+ * Access to a resource was denied.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The <code>CreatePartitions</code> API was called on a table that has indexes enabled.	</p>
+ *
+ * The `CreatePartitions` API was called on a table that has indexes enabled.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link IntegrationConflictOperationFault} (client fault)
- *  <p>The requested operation conflicts with another operation.</p>
+ *
+ * The requested operation conflicts with another operation.
  *
  * @throws {@link IntegrationNotFoundFault} (client fault)
- *  <p>The specified integration could not be found.</p>
+ *
+ * The specified integration could not be found.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred.</p>
+ *
+ * An internal server error occurred.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link InvalidIntegrationStateFault} (client fault)
- *  <p>The integration is in an invalid state.</p>
+ *
+ * The integration is in an invalid state.
  *
  * @throws {@link InvalidStateException} (client fault)
- *  <p>An error that indicates your data is in an invalid state.</p>
+ *
+ * An error that indicates your data is in an invalid state.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A value could not be validated.</p>
+ *
+ * A value could not be validated.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

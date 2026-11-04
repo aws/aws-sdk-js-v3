@@ -23,7 +23,8 @@ export interface DeleteInvoiceUnitCommandInput extends DeleteInvoiceUnitRequest 
 export interface DeleteInvoiceUnitCommandOutput extends DeleteInvoiceUnitResponse, __MetadataBearer {}
 
 /**
- * <p>This deletes an invoice unit with the provided invoice unit ARN. </p>
+ * This deletes an invoice unit with the provided invoice unit ARN.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,23 +52,28 @@ export interface DeleteInvoiceUnitCommandOutput extends DeleteInvoiceUnitRespons
  * @see {@link InvoicingClientResolvedConfig | config} for InvoicingClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * You don't have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The processing request failed because of an unknown error, exception, or failure. </p>
+ *
+ * The processing request failed because of an unknown error, exception, or failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found. </p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link InvoicingServiceException}
- * <p>Base exception class for all service exceptions from Invoicing service.</p>
  *
+ * Base exception class for all service exceptions from Invoicing service.
  *
  * @example DeleteInvoiceUnit
  * ```javascript

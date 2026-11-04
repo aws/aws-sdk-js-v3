@@ -5,7 +5,8 @@ import type { ConflictExceptionReason, UnprocessableExceptionReason, ValidationE
 import { NeptuneGraphServiceException as __BaseException } from "./NeptuneGraphServiceException";
 
 /**
- * <p>Raised in case of an authentication or authorization failure.</p>
+ * Raised in case of an authentication or authorization failure.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -26,7 +27,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>A failure occurred on the server.</p>
+ * A failure occurred on the server.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -48,7 +50,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>A specified resource could not be located.</p>
+ * A specified resource could not be located.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -69,7 +72,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The exception was interrupted by throttling.</p>
+ * The exception was interrupted by throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -93,7 +97,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>A resource could not be validated.</p>
+ * A resource could not be validated.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -101,7 +106,8 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The reason that the resource could not be validated.</p>
+   * The reason that the resource could not be validated.
+   *
    * @public
    */
   reason?: ValidationExceptionReason | undefined;
@@ -121,7 +127,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>Raised when a conflict is encountered.</p>
+ * Raised when a conflict is encountered.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -129,7 +136,8 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The reason for the conflict exception.</p>
+   * The reason for the conflict exception.
+   *
    * @public
    */
   reason?: ConflictExceptionReason | undefined;
@@ -149,7 +157,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>Request cannot be processed due to known reasons. Eg. partition full.</p>
+ * Request cannot be processed due to known reasons. Eg. partition full.
+ *
  * @public
  */
 export class UnprocessableException extends __BaseException {
@@ -157,7 +166,8 @@ export class UnprocessableException extends __BaseException {
   readonly name = "UnprocessableException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The reason for the unprocessable exception.</p>
+   * The reason for the unprocessable exception.
+   *
    * @public
    */
   reason: UnprocessableExceptionReason | undefined;
@@ -177,7 +187,8 @@ export class UnprocessableException extends __BaseException {
 }
 
 /**
- * <p>A service quota was exceeded.</p>
+ * A service quota was exceeded.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -185,25 +196,29 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The identifier of the resource that exceeded quota.</p>
+   * The identifier of the resource that exceeded quota.
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>The type of the resource that exceeded quota. Ex: Graph, Snapshot</p>
+   * The type of the resource that exceeded quota. Ex: Graph, Snapshot
+   *
    * @public
    */
   resourceType?: string | undefined;
 
   /**
-   * <p>The service code that exceeded quota.</p>
+   * The service code that exceeded quota.
+   *
    * @public
    */
   serviceCode?: string | undefined;
 
   /**
-   * <p>Service quota code of the resource for which quota was exceeded.</p>
+   * Service quota code of the resource for which quota was exceeded.
+   *
    * @public
    */
   quotaCode?: string | undefined;

@@ -23,7 +23,8 @@ export interface ListTagsForGlobalResourceCommandInput extends ListTagsForGlobal
 export interface ListTagsForGlobalResourceCommandOutput extends ListTagsForGlobalResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the tags associated with a global resource in AWS Elemental MediaConnect. The API supports the following global resources: router inputs, router outputs and router network interfaces. </p>
+ * Lists the tags associated with a global resource in AWS Elemental MediaConnect. The API supports the following global resources: router inputs, router outputs and router network interfaces.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,17 +53,20 @@ export interface ListTagsForGlobalResourceCommandOutput extends ListTagsForGloba
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>This exception is thrown if the request contains a semantic error. The precise meaning depends on the API, and is documented in the error message. </p>
+ *
+ * This exception is thrown if the request contains a semantic error. The precise meaning depends on the API, and is documented in the error message.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>The server encountered an internal error and is unable to complete the request. </p>
+ *
+ * The server encountered an internal error and is unable to complete the request.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>One or more of the resources in the request does not exist in the system. </p>
+ *
+ * One or more of the resources in the request does not exist in the system.
  *
  * @throws {@link MediaConnectServiceException}
- * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
+ * Base exception class for all service exceptions from MediaConnect service.
  *
  * @public
  */

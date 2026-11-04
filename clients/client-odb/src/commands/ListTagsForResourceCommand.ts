@@ -23,7 +23,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about the tags applied to this resource.</p>
+ * Returns information about the tags applied to this resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,11 +53,12 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link OdbClientResolvedConfig | config} for OdbClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+ *
+ * The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.
  *
  * @throws {@link OdbServiceException}
- * <p>Base exception class for all service exceptions from Odb service.</p>
  *
+ * Base exception class for all service exceptions from Odb service.
  *
  * @public
  */

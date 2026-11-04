@@ -23,7 +23,8 @@ export interface DeleteTargetCommandInput extends DeleteTargetRequest {}
 export interface DeleteTargetCommandOutput extends DeleteTargetResult, __MetadataBearer {}
 
 /**
- * <p>Deletes a specified target for notifications.</p>
+ * Deletes a specified target for notifications.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,11 +50,12 @@ export interface DeleteTargetCommandOutput extends DeleteTargetResult, __Metadat
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One or more parameter values are not valid.</p>
+ *
+ * One or more parameter values are not valid.
  *
  * @throws {@link CodestarNotificationsServiceException}
- * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
+ * Base exception class for all service exceptions from CodestarNotifications service.
  *
  * @public
  */

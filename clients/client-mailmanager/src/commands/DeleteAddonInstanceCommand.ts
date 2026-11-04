@@ -23,7 +23,8 @@ export interface DeleteAddonInstanceCommandInput extends DeleteAddonInstanceRequ
 export interface DeleteAddonInstanceCommandOutput extends DeleteAddonInstanceResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an Add On instance.</p>
+ * Deletes an Add On instance.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,14 +49,16 @@ export interface DeleteAddonInstanceCommandOutput extends DeleteAddonInstanceRes
  * @see {@link MailManagerClientResolvedConfig | config} for MailManagerClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+ *
+ * The request configuration has conflicts. For details, see the accompanying error message.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request validation has failed. For details, see the accompanying error message.</p>
+ *
+ * The request validation has failed. For details, see the accompanying error message.
  *
  * @throws {@link MailManagerServiceException}
- * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ * Base exception class for all service exceptions from MailManager service.
  *
  * @public
  */

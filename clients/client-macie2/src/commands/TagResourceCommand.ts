@@ -23,7 +23,8 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Adds or updates one or more tags (keys and values) that are associated with an Amazon Macie resource.</p>
+ * Adds or updates one or more tags (keys and values) that are associated with an Amazon Macie resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,8 +52,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
  *
  * @throws {@link Macie2ServiceException}
- * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * Base exception class for all service exceptions from Macie2 service.
  *
  * @public
  */

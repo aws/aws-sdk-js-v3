@@ -26,10 +26,10 @@ export interface CreateNetworkInterfacePermissionCommandInput extends CreateNetw
 export interface CreateNetworkInterfacePermissionCommandOutput extends CreateNetworkInterfacePermissionResult, __MetadataBearer {}
 
 /**
- * <p>Grants an Amazon Web Services-authorized account permission to attach the specified
- *             network interface to an instance in their account.</p>
- *          <p>You can grant permission to a single Amazon Web Services account only, and only one
- *             account at a time.</p>
+ * Grants an Amazon Web Services-authorized account permission to attach the specified network interface to an instance in their account.
+ *
+ * You can grant permission to a single Amazon Web Services account only, and only one account at a time.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,8 +70,8 @@ export interface CreateNetworkInterfacePermissionCommandOutput extends CreateNet
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface PutDeploymentParameterCommandInput extends PutDeploymentParamet
 export interface PutDeploymentParameterCommandOutput extends PutDeploymentParameterResponse, __MetadataBearer {}
 
 /**
- * <p>Creates or updates a deployment parameter and is targeted by <code>catalog</code> and <code>agreementId</code>.</p>
+ * Creates or updates a deployment parameter and is targeted by `catalog` and `agreementId`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,29 +67,36 @@ export interface PutDeploymentParameterCommandOutput extends PutDeploymentParame
  * @see {@link MarketplaceDeploymentClientResolvedConfig | config} for MarketplaceDeploymentClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+ *
+ * The request configuration has conflicts. For details, see the accompanying error message.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>There was an internal service exception.</p>
+ *
+ * There was an internal service exception.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource wasn't found.</p>
+ *
+ * The specified resource wasn't found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The maximum number of requests per account has been exceeded.</p>
+ *
+ * The maximum number of requests per account has been exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Too many requests.</p>
+ *
+ * Too many requests.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An error occurred during validation.</p>
+ *
+ * An error occurred during validation.
  *
  * @throws {@link MarketplaceDeploymentServiceException}
- * <p>Base exception class for all service exceptions from MarketplaceDeployment service.</p>
  *
+ * Base exception class for all service exceptions from MarketplaceDeployment service.
  *
  * @example Creating or updating a deployment parameter
  * ```javascript

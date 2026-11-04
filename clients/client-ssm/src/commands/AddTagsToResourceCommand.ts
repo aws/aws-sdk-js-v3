@@ -23,53 +23,21 @@ export interface AddTagsToResourceCommandInput extends AddTagsToResourceRequest 
 export interface AddTagsToResourceCommandOutput extends AddTagsToResourceResult, __MetadataBearer {}
 
 /**
- * <p>Adds or overwrites one or more tags for the specified resource. <i>Tags</i>
- *    are metadata that you can assign to your automations, documents, managed nodes, maintenance
- *    windows, Parameter Store parameters, and patch baselines. Tags enable you to categorize your
- *    resources in different ways, for example, by purpose, owner, or environment. Each tag consists of
- *    a key and an optional value, both of which you define. For example, you could define a set of
- *    tags for your account's managed nodes that helps you track each node's owner and stack level. For
- *    example:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>Key=Owner,Value=DbAdmin</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Key=Owner,Value=SysAdmin</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Key=Owner,Value=Dev</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Key=Stack,Value=Production</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Key=Stack,Value=Pre-Production</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Key=Stack,Value=Test</code>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>Most resources can have a maximum of 50 tags. Automations can have a maximum of 5
- *    tags.</p>
- *          <p>We recommend that you devise a set of tag keys that meets your needs for each resource type.
- *    Using a consistent set of tag keys makes it easier for you to manage your resources. You can
- *    search and filter the resources based on the tags you add. Tags don't have any semantic meaning
- *    to and are interpreted strictly as a string of characters.</p>
- *          <p>For more information about using tags with Amazon Elastic Compute Cloud (Amazon EC2) instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tag your Amazon EC2
- *     resources</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * Adds or overwrites one or more tags for the specified resource. *Tags* are metadata that you can assign to your automations, documents, managed nodes, maintenance windows, Parameter Store parameters, and patch baselines. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment. Each tag consists of a key and an optional value, both of which you define. For example, you could define a set of tags for your account's managed nodes that helps you track each node's owner and stack level. For example:
+ *
+ * - `Key=Owner,Value=DbAdmin`
+ * - `Key=Owner,Value=SysAdmin`
+ * - `Key=Owner,Value=Dev`
+ * - `Key=Stack,Value=Production`
+ * - `Key=Stack,Value=Pre-Production`
+ * - `Key=Stack,Value=Test`
+ *
+ * Most resources can have a maximum of 50 tags. Automations can have a maximum of 5 tags.
+ *
+ * We recommend that you devise a set of tag keys that meets your needs for each resource type. Using a consistent set of tag keys makes it easier for you to manage your resources. You can search and filter the resources based on the tags you add. Tags don't have any semantic meaning to and are interpreted strictly as a string of characters.
+ *
+ * For more information about using tags with Amazon Elastic Compute Cloud (Amazon EC2) instances, see [Tag your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -101,25 +69,28 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceResult,
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidResourceId} (client fault)
- *  <p>The resource ID isn't valid. Verify that you entered the correct ID and try again.</p>
+ *
+ * The resource ID isn't valid. Verify that you entered the correct ID and try again.
  *
  * @throws {@link InvalidResourceType} (client fault)
- *  <p>The resource type isn't valid. For example, if you are attempting to tag an EC2 instance,
- *    the instance must be a registered managed node.</p>
+ *
+ * The resource type isn't valid. For example, if you are attempting to tag an EC2 instance, the instance must be a registered managed node.
  *
  * @throws {@link TooManyTagsError} (client fault)
- *  <p>The <code>Targets</code> parameter includes too many tags. Remove one or more tags and try
- *    the command again.</p>
+ *
+ * The `Targets` parameter includes too many tags. Remove one or more tags and try the command again.
  *
  * @throws {@link TooManyUpdates} (client fault)
- *  <p>There are concurrent updates for a resource that supports one update at a time.</p>
+ *
+ * There are concurrent updates for a resource that supports one update at a time.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

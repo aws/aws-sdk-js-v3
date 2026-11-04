@@ -23,7 +23,10 @@ export interface GetQueryCommandInput extends GetQueryInput {}
 export interface GetQueryCommandOutput extends GetQueryOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves the status of a specified query.</p> <note> <p> When invoking this operation in a Neptune Analytics cluster, the IAM user or role making the request must have the <code>neptune-graph:GetQueryStatus</code> IAM action attached. </p> </note>
+ * Retrieves the status of a specified query.
+ *
+ * > **Note:** When invoking this operation in a Neptune Analytics cluster, the IAM user or role making the request must have the `neptune-graph:GetQueryStatus` IAM action attached.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,23 +58,28 @@ export interface GetQueryCommandOutput extends GetQueryOutput, __MetadataBearer 
  * @see {@link NeptuneGraphClientResolvedConfig | config} for NeptuneGraphClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Raised in case of an authentication or authorization failure.</p>
+ *
+ * Raised in case of an authentication or authorization failure.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>A failure occurred on the server.</p>
+ *
+ * A failure occurred on the server.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A specified resource could not be located.</p>
+ *
+ * A specified resource could not be located.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The exception was interrupted by throttling.</p>
+ *
+ * The exception was interrupted by throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A resource could not be validated.</p>
+ *
+ * A resource could not be validated.
  *
  * @throws {@link NeptuneGraphServiceException}
- * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ * Base exception class for all service exceptions from NeptuneGraph service.
  *
  * @public
  */

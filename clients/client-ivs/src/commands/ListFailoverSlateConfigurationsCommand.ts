@@ -26,7 +26,8 @@ export interface ListFailoverSlateConfigurationsCommandInput extends ListFailove
 export interface ListFailoverSlateConfigurationsCommandOutput extends ListFailoverSlateConfigurationsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets summary information about all failover slate configurations in your account, in the Amazon Web Services region where the API request is processed.</p>
+ * Gets summary information about all failover slate configurations in your account, in the Amazon Web Services region where the API request is processed.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,17 +68,20 @@ export interface ListFailoverSlateConfigurationsCommandOutput extends ListFailov
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * User does not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error during processing of request.</p>
+ *
+ * Unexpected error during processing of request.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link IvsServiceException}
- * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ * Base exception class for all service exceptions from Ivs service.
  *
  * @public
  */

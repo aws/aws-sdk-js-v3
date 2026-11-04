@@ -23,32 +23,18 @@ export interface CreateImageCommandInput extends CreateImageRequest {}
 export interface CreateImageCommandOutput extends CreateImageResult, __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance that is either running or
- *       stopped.</p>
- *          <p>If you customized your instance with instance store volumes or Amazon EBS volumes in addition
- *       to the root device volume, the new AMI contains block device mapping information for those
- *       volumes. When you launch an instance from this new AMI, the instance automatically launches
- *       with those additional volumes.</p>
- *          <p>The location of the source instance determines where you can create the snapshots of the
- *       AMI:</p>
- *          <ul>
- *             <li>
- *                <p>If the source instance is in a Region, you must create the snapshots in the same
- *           Region as the instance.</p>
- *             </li>
- *             <li>
- *                <p>If the source instance is in a Local Zone, you can create the snapshots in the same
- *           Local Zone or in its parent Region.</p>
- *             </li>
- *             <li>
- *                <p>If the source instance is on an Outpost that supports local snapshots, you can create
- *           the snapshots on the same Outpost or in the parent Region of that Outpost. In this case,
- *           you must use the <code>SnapshotLocation</code> parameter to specify where to create the
- *           snapshots.</p>
- *             </li>
- *          </ul>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Create an Amazon EBS-backed AMI</a> in
- *       the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance that is either running or stopped.
+ *
+ * If you customized your instance with instance store volumes or Amazon EBS volumes in addition to the root device volume, the new AMI contains block device mapping information for those volumes. When you launch an instance from this new AMI, the instance automatically launches with those additional volumes.
+ *
+ * The location of the source instance determines where you can create the snapshots of the AMI:
+ *
+ * - If the source instance is in a Region, you must create the snapshots in the same Region as the instance.
+ * - If the source instance is in a Local Zone, you can create the snapshots in the same Local Zone or in its parent Region.
+ * - If the source instance is on an Outpost that supports local snapshots, you can create the snapshots on the same Outpost or in the parent Region of that Outpost. In this case, you must use the `SnapshotLocation` parameter to specify where to create the snapshots.
+ *
+ * For more information, see [Create an Amazon EBS-backed AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html) in the *Amazon Elastic Compute Cloud User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -114,8 +100,8 @@ export interface CreateImageCommandOutput extends CreateImageResult, __MetadataB
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

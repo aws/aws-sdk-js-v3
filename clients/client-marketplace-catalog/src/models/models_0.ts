@@ -37,202 +37,232 @@ import type {
 } from "./enums";
 
 /**
- * <p>Object that allows filtering on entity id of an AMI product.</p>
+ * Object that allows filtering on entity id of an AMI product.
+ *
  * @public
  */
 export interface AmiProductEntityIdFilter {
   /**
-   * <p>A string array of unique entity id values to be filtered on.</p>
+   * A string array of unique entity id values to be filtered on.
+   *
    * @public
    */
   ValueList?: string[] | undefined;
 }
 
 /**
- * <p>Object that contains date range of the last modified date to be filtered on. You can optionally provide a <code>BeforeValue</code> and/or <code>AfterValue</code>. Both are inclusive.</p>
+ * Object that contains date range of the last modified date to be filtered on. You can optionally provide a `BeforeValue` and/or `AfterValue`. Both are inclusive.
+ *
  * @public
  */
 export interface AmiProductLastModifiedDateFilterDateRange {
   /**
-   * <p>Date after which the AMI product was last modified.</p>
+   * Date after which the AMI product was last modified.
+   *
    * @public
    */
   AfterValue?: string | undefined;
 
   /**
-   * <p>Date before which the AMI product was last modified.</p>
+   * Date before which the AMI product was last modified.
+   *
    * @public
    */
   BeforeValue?: string | undefined;
 }
 
 /**
- * <p>Object that allows filtering based on the last modified date of AMI products.</p>
+ * Object that allows filtering based on the last modified date of AMI products.
+ *
  * @public
  */
 export interface AmiProductLastModifiedDateFilter {
   /**
-   * <p>Dates between which the AMI product was last modified.</p>
+   * Dates between which the AMI product was last modified.
+   *
    * @public
    */
   DateRange?: AmiProductLastModifiedDateFilterDateRange | undefined;
 }
 
 /**
- * <p>Object that allows filtering on product title.</p>
+ * Object that allows filtering on product title.
+ *
  * @public
  */
 export interface AmiProductTitleFilter {
   /**
-   * <p>A string array of unique product title values to be filtered on.</p>
+   * A string array of unique product title values to be filtered on.
+   *
    * @public
    */
   ValueList?: string[] | undefined;
 
   /**
-   * <p>A string that will be the <code>wildCard</code> input for product tile filter. It matches the provided value as a substring in the actual value.</p>
+   * A string that will be the `wildCard` input for product tile filter. It matches the provided value as a substring in the actual value.
+   *
    * @public
    */
   WildCardValue?: string | undefined;
 }
 
 /**
- * <p>Object that allows filtering on the visibility of the product in the AWS Marketplace.</p>
+ * Object that allows filtering on the visibility of the product in the AWS Marketplace.
+ *
  * @public
  */
 export interface AmiProductVisibilityFilter {
   /**
-   * <p>A string array of unique visibility values to be filtered on.</p>
+   * A string array of unique visibility values to be filtered on.
+   *
    * @public
    */
   ValueList?: AmiProductVisibilityString[] | undefined;
 }
 
 /**
- * <p>Object containing all the filter fields for AMI products. Client can add only one wildcard filter and a maximum of 8
- *             filters in a single <code>ListEntities</code> request.</p>
+ * Object containing all the filter fields for AMI products. Client can add only one wildcard filter and a maximum of 8 filters in a single `ListEntities` request.
+ *
  * @public
  */
 export interface AmiProductFilters {
   /**
-   * <p>Unique identifier for the AMI product.</p>
+   * Unique identifier for the AMI product.
+   *
    * @public
    */
   EntityId?: AmiProductEntityIdFilter | undefined;
 
   /**
-   * <p>The last date on which the AMI product was modified.</p>
+   * The last date on which the AMI product was modified.
+   *
    * @public
    */
   LastModifiedDate?: AmiProductLastModifiedDateFilter | undefined;
 
   /**
-   * <p>The title of the AMI product.</p>
+   * The title of the AMI product.
+   *
    * @public
    */
   ProductTitle?: AmiProductTitleFilter | undefined;
 
   /**
-   * <p>The visibility of the AMI product.</p>
+   * The visibility of the AMI product.
+   *
    * @public
    */
   Visibility?: AmiProductVisibilityFilter | undefined;
 }
 
 /**
- * <p>Objects that allows sorting on AMI products based on certain fields and sorting order.</p>
+ * Objects that allows sorting on AMI products based on certain fields and sorting order.
+ *
  * @public
  */
 export interface AmiProductSort {
   /**
-   * <p>Field to sort the AMI products by.</p>
+   * Field to sort the AMI products by.
+   *
    * @public
    */
   SortBy?: AmiProductSortBy | undefined;
 
   /**
-   * <p>The sorting order. Can be <code>ASCENDING</code> or <code>DESCENDING</code>. The default value is <code>DESCENDING</code>.</p>
+   * The sorting order. Can be `ASCENDING` or `DESCENDING`. The default value is `DESCENDING`.
+   *
    * @public
    */
   SortOrder?: SortOrder | undefined;
 }
 
 /**
- * <p>Object that contains summarized information about an AMI product.</p>
+ * Object that contains summarized information about an AMI product.
+ *
  * @public
  */
 export interface AmiProductSummary {
   /**
-   * <p>The title of the AMI product.</p>
+   * The title of the AMI product.
+   *
    * @public
    */
   ProductTitle?: string | undefined;
 
   /**
-   * <p>The lifecycle of the AMI product.</p>
+   * The lifecycle of the AMI product.
+   *
    * @public
    */
   Visibility?: AmiProductVisibilityString | undefined;
 }
 
 /**
- * <p>Filters that apply to assessments performed against the AMI Security framework.</p>
+ * Filters that apply to assessments performed against the AMI Security framework.
+ *
  * @public
  */
 export interface AMISecurityFilters {
   /**
-   * <p>The unique ID of the delivery option whose AMI Security assessments you want to
-   *             list.</p>
+   * The unique ID of the delivery option whose AMI Security assessments you want to list.
+   *
    * @public
    */
   DeliveryOptionId?: string | undefined;
 }
 
 /**
- * <p>The details of the resource assessed under the AMI Security framework.</p>
+ * The details of the resource assessed under the AMI Security framework.
+ *
  * @public
  */
 export interface AMISecuritySummary {
   /**
-   * <p>The unique ID of the delivery option that was evaluated.</p>
+   * The unique ID of the delivery option that was evaluated.
+   *
    * @public
    */
   DeliveryOptionId?: string | undefined;
 }
 
 /**
- * <p>Identifies the entity or change set that was assessed.</p>
+ * Identifies the entity or change set that was assessed.
+ *
  * @public
  */
 export interface AssessmentTargetSummary {
   /**
-   * <p>The unique ID of the entity that was assessed.</p>
+   * The unique ID of the entity that was assessed.
+   *
    * @public
    */
   EntityId?: string | undefined;
 
   /**
-   * <p>The unique ID of the change set that was assessed.</p>
+   * The unique ID of the change set that was assessed.
+   *
    * @public
    */
   ChangeSetId?: string | undefined;
 }
 
 /**
- * <p>The details of the resource assessed under the Container Security framework.</p>
+ * The details of the resource assessed under the Container Security framework.
+ *
  * @public
  */
 export interface ContainerSecuritySummary {
   /**
-   * <p>The unique ID of the delivery option that was evaluated.</p>
+   * The unique ID of the delivery option that was evaluated.
+   *
    * @public
    */
   DeliveryOptionId?: string | undefined;
 }
 
 /**
- * <p>The framework-specific details of the assessed resource. Exactly one member is set,
- *             corresponding to the framework that was assessed.</p>
+ * The framework-specific details of the assessed resource. Exactly one member is set, corresponding to the framework that was assessed.
+ *
  * @public
  */
 export type FrameworkSummary =
@@ -245,7 +275,8 @@ export type FrameworkSummary =
  */
 export namespace FrameworkSummary {
   /**
-   * <p>The details of the resource assessed under the AMI Security framework.</p>
+   * The details of the resource assessed under the AMI Security framework.
+   *
    * @public
    */
   export interface AMISecuritySummaryMember {
@@ -255,7 +286,8 @@ export namespace FrameworkSummary {
   }
 
   /**
-   * <p>The details of the resource assessed under the Container Security framework.</p>
+   * The details of the resource assessed under the Container Security framework.
+   *
    * @public
    */
   export interface ContainerSecuritySummaryMember {
@@ -285,98 +317,105 @@ export namespace FrameworkSummary {
 }
 
 /**
- * <p>Summarized information about an assessment.</p>
+ * Summarized information about an assessment.
+ *
  * @public
  */
 export interface AssessmentSummary {
   /**
-   * <p>The ARN associated with the assessment.</p>
+   * The ARN associated with the assessment.
+   *
    * @public
    */
   AssessmentArn?: string | undefined;
 
   /**
-   * <p>The unique ID of the assessment.</p>
+   * The unique ID of the assessment.
+   *
    * @public
    */
   AssessmentId?: string | undefined;
 
   /**
-   * <p>The identifier of the framework that was evaluated by this assessment, in the format
-   *             <code>frameworkId@version</code> (for example,
-   *             <code>AMISecurity@1.0</code>).</p>
+   * The identifier of the framework that was evaluated by this assessment, in the format `frameworkId@version` (for example, `AMISecurity@1.0`).
+   *
    * @public
    */
   FrameworkId?: string | undefined;
 
   /**
-   * <p>Identifies the entity or change set that was assessed.</p>
+   * Identifies the entity or change set that was assessed.
+   *
    * @public
    */
   AssessmentTargetSummary?: AssessmentTargetSummary | undefined;
 
   /**
-   * <p>The framework-specific details of the assessed resource. The set member corresponds
-   *             to the framework identified by <code>FrameworkId</code>.</p>
+   * The framework-specific details of the assessed resource. The set member corresponds to the framework identified by `FrameworkId`.
+   *
    * @public
    */
   FrameworkSummary?: FrameworkSummary | undefined;
 
   /**
-   * <p>The overall result of the assessment.</p>
+   * The overall result of the assessment.
+   *
    * @public
    */
   AssessmentResult?: AssessmentResult | undefined;
 
   /**
-   * <p>The date and time the assessment was created, in ISO 8601 format
-   *             (<code>2018-02-27T13:45:22Z</code>).</p>
+   * The date and time the assessment was created, in ISO 8601 format (`2018-02-27T13:45:22Z`).
+   *
    * @public
    */
   CreatedAt?: string | undefined;
 
   /**
-   * <p>The date and time the assessment expires, in ISO 8601 format
-   *             (<code>2018-02-27T13:45:22Z</code>).</p>
+   * The date and time the assessment expires, in ISO 8601 format (`2018-02-27T13:45:22Z`).
+   *
    * @public
    */
   ExpiresAt?: string | undefined;
 }
 
 /**
- * <p>Filters assessment list results by the resource that was assessed. Provide an entity
- *             identifier, a change set identifier, or both.</p>
+ * Filters assessment list results by the resource that was assessed. Provide an entity identifier, a change set identifier, or both.
+ *
  * @public
  */
 export interface AssessmentTargetFilter {
   /**
-   * <p>The unique ID of the entity whose assessments you want to list.</p>
+   * The unique ID of the entity whose assessments you want to list.
+   *
    * @public
    */
   EntityId?: string | undefined;
 
   /**
-   * <p>The unique ID of the change set that triggered the assessments you want to
-   *             list.</p>
+   * The unique ID of the change set that triggered the assessments you want to list.
+   *
    * @public
    */
   ChangeSetId?: string | undefined;
 }
 
 /**
- * <p>An object that contains entity ID and the catalog in which the entity is present.</p>
+ * An object that contains entity ID and the catalog in which the entity is present.
+ *
  * @public
  */
 export interface EntityRequest {
   /**
-   * <p>The name of the catalog the entity is present in. The only value at this time is
-   *                 <code>AWSMarketplace</code>.</p>
+   * The name of the catalog the entity is present in. The only value at this time is `AWSMarketplace`.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The ID of the entity.</p>
+   * The ID of the entity.
+   *
    * @public
    */
   EntityId: string | undefined;
@@ -387,62 +426,71 @@ export interface EntityRequest {
  */
 export interface BatchDescribeEntitiesRequest {
   /**
-   * <p>List of entity IDs and the catalogs the entities are present in.</p>
+   * List of entity IDs and the catalogs the entities are present in.
+   *
    * @public
    */
   EntityRequestList: EntityRequest[] | undefined;
 }
 
 /**
- * <p>An object that contains metadata and details about the entity.</p>
+ * An object that contains metadata and details about the entity.
+ *
  * @public
  */
 export interface EntityDetail {
   /**
-   * <p>The entity type of the entity, in the format of
-   *             <code>EntityType@Version</code>.</p>
+   * The entity type of the entity, in the format of `EntityType@Version`.
+   *
    * @public
    */
   EntityType?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the entity.</p>
+   * The Amazon Resource Name (ARN) of the entity.
+   *
    * @public
    */
   EntityArn?: string | undefined;
 
   /**
-   * <p>The ID of the entity, in the format of <code>EntityId@RevisionId</code>.</p>
+   * The ID of the entity, in the format of `EntityId@RevisionId`.
+   *
    * @public
    */
   EntityIdentifier?: string | undefined;
 
   /**
-   * <p>The last time the entity was modified.</p>
+   * The last time the entity was modified.
+   *
    * @public
    */
   LastModifiedDate?: string | undefined;
 
   /**
-   * <p>An object that contains all the details of the entity.</p>
+   * An object that contains all the details of the entity.
+   *
    * @public
    */
   DetailsDocument?: __DocumentType | undefined;
 }
 
 /**
- * <p>An object that contains an error code and error message.</p>
+ * An object that contains an error code and error message.
+ *
  * @public
  */
 export interface BatchDescribeErrorDetail {
   /**
-   * <p>The error code returned.</p>
+   * The error code returned.
+   *
    * @public
    */
   ErrorCode?: string | undefined;
 
   /**
-   * <p>The error message returned.</p>
+   * The error message returned.
+   *
    * @public
    */
   ErrorMessage?: string | undefined;
@@ -453,63 +501,64 @@ export interface BatchDescribeErrorDetail {
  */
 export interface BatchDescribeEntitiesResponse {
   /**
-   * <p>Details about each entity.</p>
+   * Details about each entity.
+   *
    * @public
    */
   EntityDetails?: Record<string, EntityDetail> | undefined;
 
   /**
-   * <p>A map of errors returned, with <code>EntityId</code> as the key and
-   *                 <code>errorDetail</code> as the value.</p>
+   * A map of errors returned, with `EntityId` as the key and `errorDetail` as the value.
+   *
    * @public
    */
   Errors?: Record<string, BatchDescribeErrorDetail> | undefined;
 }
 
 /**
- * <p>Detailed information about a single request field that failed
- *             validation, including the field's location, the reason it failed, and a
- *             human-readable message.</p>
+ * Detailed information about a single request field that failed validation, including the field's location, the reason it failed, and a human-readable message.
+ *
  * @public
  */
 export interface ValidationExceptionField {
   /**
-   * <p>The reason the field failed validation.</p>
+   * The reason the field failed validation.
+   *
    * @public
    */
   Reason?: ValidationExceptionReason | undefined;
 
   /**
-   * <p>The entity type the failing field applies to, if the field is on a
-   *             specific entity. For example, <code>AmiProduct@1.0</code>.</p>
+   * The entity type the failing field applies to, if the field is on a specific entity. For example, `AmiProduct@1.0`.
+   *
    * @public
    */
   EntityType?: string | undefined;
 
   /**
-   * <p>The entity identifier the failing field applies to, if the field is on a
-   *             specific entity.</p>
+   * The entity identifier the failing field applies to, if the field is on a specific entity.
+   *
    * @public
    */
   EntityId?: string | undefined;
 
   /**
-   * <p>The change type the failing field applies to, if the field is part of a
-   *             change request. For example, <code>AddDeliveryOptions</code>.</p>
+   * The change type the failing field applies to, if the field is part of a change request. For example, `AddDeliveryOptions`.
+   *
    * @public
    */
   ChangeType?: string | undefined;
 
   /**
-   * <p>The name of the request field that failed validation, expressed as a
-   *             JSON path (for example, <code>Details.DeliveryOptions[0].Type</code>).</p>
+   * The name of the request field that failed validation, expressed as a JSON path (for example, `Details.DeliveryOptions[0].Type`).
+   *
    * @public
    */
   Field?: string | undefined;
 
   /**
-   * <p>A human-readable message describing why the field failed
-   *             validation.</p>
+   * A human-readable message describing why the field failed validation.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -520,15 +569,15 @@ export interface ValidationExceptionField {
  */
 export interface CancelChangeSetRequest {
   /**
-   * <p>Required. The catalog related to the request. Fixed value:
-   *             <code>AWSMarketplace</code>.</p>
+   * Required. The catalog related to the request. Fixed value: `AWSMarketplace`.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>Required. The unique identifier of the <code>StartChangeSet</code> request that you
-   *             want to cancel.</p>
+   * Required. The unique identifier of the `StartChangeSet` request that you want to cancel.
+   *
    * @public
    */
   ChangeSetId: string | undefined;
@@ -539,13 +588,15 @@ export interface CancelChangeSetRequest {
  */
 export interface CancelChangeSetResponse {
   /**
-   * <p>The unique identifier for the change set referenced in this request.</p>
+   * The unique identifier for the change set referenced in this request.
+   *
    * @public
    */
   ChangeSetId?: string | undefined;
 
   /**
-   * <p>The ARN associated with the change set referenced in this request.</p>
+   * The ARN associated with the change set referenced in this request.
+   *
    * @public
    */
   ChangeSetArn?: string | undefined;
@@ -556,8 +607,8 @@ export interface CancelChangeSetResponse {
  */
 export interface DeleteResourcePolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the entity resource that is associated with the
-   *             resource policy.</p>
+   * The Amazon Resource Name (ARN) of the entity resource that is associated with the resource policy.
+   *
    * @public
    */
   ResourceArn: string | undefined;
@@ -573,102 +624,106 @@ export interface DeleteResourcePolicyResponse {}
  */
 export interface DescribeAssessmentRequest {
   /**
-   * <p>The catalog related to the request. Fixed value: <code>AWSMarketplace</code>
-   *          </p>
+   * The catalog related to the request. Fixed value: `AWSMarketplace`
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The unique identifier of the assessment to describe. You can provide either
-   *             the assessment ID (for example, <code>assessment-12345</code>) or the full
-   *             assessment ARN (for example,
-   *             <code>arn:aws:aws-marketplace:us-east-1::AWSMarketplace/Assessment/assessment-12345</code>).</p>
+   * The unique identifier of the assessment to describe. You can provide either the assessment ID (for example, `assessment-12345`) or the full assessment ARN (for example, `arn:aws:aws-marketplace:us-east-1::AWSMarketplace/Assessment/assessment-12345`).
+   *
    * @public
    */
   AssessmentIdentifier: string | undefined;
 
   /**
-   * <p>Specifies the upper limit of <code>ControlAssessment</code> elements returned on a
-   *             single page. If a value isn't provided, the default value is 50. Valid values range
-   *             from 1 to 100.</p>
+   * Specifies the upper limit of `ControlAssessment` elements returned on a single page. If a value isn't provided, the default value is 50. Valid values range from 1 to 100.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The value of the next token, if it exists. <code>null</code> if there are no more
-   *             results.</p>
+   * The value of the next token, if it exists. `null` if there are no more results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>A name-value pair that identifies the resource or attribute that a
- *             <code>ControlError</code> applies to.</p>
+ * A name-value pair that identifies the resource or attribute that a `ControlError` applies to.
+ *
  * @public
  */
 export interface ErrorScope {
   /**
-   * <p>The name of the resource field the error applies to (for example,
-   *             <code>AMI_ID</code>, <code>FILE_PATH</code>, or <code>PACKAGE_NAME</code>).</p>
+   * The name of the resource field the error applies to (for example, `AMI_ID`, `FILE_PATH`, or `PACKAGE_NAME`).
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The value of the resource field the error applies to.</p>
+   * The value of the resource field the error applies to.
+   *
    * @public
    */
   Value?: string | undefined;
 }
 
 /**
- * <p>An error reported during the evaluation of a single control.</p>
+ * An error reported during the evaluation of a single control.
+ *
  * @public
  */
 export interface ControlError {
   /**
-   * <p>The error code that identifies the type of error.</p>
+   * The error code that identifies the type of error.
+   *
    * @public
    */
   Code?: string | undefined;
 
   /**
-   * <p>The message for the error.</p>
+   * The message for the error.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The list of name-value pairs that identify the resource or attribute that the error
-   *             applies to.</p>
+   * The list of name-value pairs that identify the resource or attribute that the error applies to.
+   *
    * @public
    */
   Scope?: ErrorScope[] | undefined;
 }
 
 /**
- * <p>The result of evaluating a single control as part of an assessment.</p>
+ * The result of evaluating a single control as part of an assessment.
+ *
  * @public
  */
 export interface ControlAssessment {
   /**
-   * <p>The unique ID of the control that was evaluated.</p>
+   * The unique ID of the control that was evaluated.
+   *
    * @public
    */
   ControlId?: string | undefined;
 
   /**
-   * <p>The result of the control evaluation.</p>
+   * The result of the control evaluation.
+   *
    * @public
    */
   ControlAssessmentResult?: ControlAssessmentResult | undefined;
 
   /**
-   * <p>An array of <code>ControlError</code> objects associated with the control
-   *             evaluation.</p>
+   * An array of `ControlError` objects associated with the control evaluation.
+   *
    * @public
    */
   Errors?: ControlError[] | undefined;
@@ -679,68 +734,71 @@ export interface ControlAssessment {
  */
 export interface DescribeAssessmentResponse {
   /**
-   * <p>The ARN associated with the assessment.</p>
+   * The ARN associated with the assessment.
+   *
    * @public
    */
   AssessmentArn?: string | undefined;
 
   /**
-   * <p>The unique ID of the assessment.</p>
+   * The unique ID of the assessment.
+   *
    * @public
    */
   AssessmentId?: string | undefined;
 
   /**
-   * <p>The identifier of the framework that was evaluated by this assessment, in the format
-   *             <code>frameworkId@version</code> (for example,
-   *             <code>AMISecurity@1.0</code>).</p>
+   * The identifier of the framework that was evaluated by this assessment, in the format `frameworkId@version` (for example, `AMISecurity@1.0`).
+   *
    * @public
    */
   FrameworkId?: string | undefined;
 
   /**
-   * <p>Identifies the entity or change set that was assessed.</p>
+   * Identifies the entity or change set that was assessed.
+   *
    * @public
    */
   AssessmentTargetSummary?: AssessmentTargetSummary | undefined;
 
   /**
-   * <p>The framework-specific details of the assessed resource. The set member corresponds
-   *             to the framework identified by <code>FrameworkId</code>.</p>
+   * The framework-specific details of the assessed resource. The set member corresponds to the framework identified by `FrameworkId`.
+   *
    * @public
    */
   FrameworkSummary?: FrameworkSummary | undefined;
 
   /**
-   * <p>The overall result of the assessment.</p>
+   * The overall result of the assessment.
+   *
    * @public
    */
   AssessmentResult?: AssessmentResult | undefined;
 
   /**
-   * <p>The date and time the assessment was created, in ISO 8601 format
-   *             (<code>2018-02-27T13:45:22Z</code>).</p>
+   * The date and time the assessment was created, in ISO 8601 format (`2018-02-27T13:45:22Z`).
+   *
    * @public
    */
   CreatedAt?: string | undefined;
 
   /**
-   * <p>The date and time the assessment expires, in ISO 8601 format
-   *             (<code>2018-02-27T13:45:22Z</code>).</p>
+   * The date and time the assessment expires, in ISO 8601 format (`2018-02-27T13:45:22Z`).
+   *
    * @public
    */
   ExpiresAt?: string | undefined;
 
   /**
-   * <p>An array of <code>ControlAssessment</code> objects, each containing the result of an
-   *             individual control evaluated as part of the assessment.</p>
+   * An array of `ControlAssessment` objects, each containing the result of an individual control evaluated as part of the assessment.
+   *
    * @public
    */
   ControlAssessments?: ControlAssessment[] | undefined;
 
   /**
-   * <p>The value of the next token, if it exists. <code>null</code> if there are no more
-   *             results.</p>
+   * The value of the next token, if it exists. `null` if there are no more results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -751,99 +809,108 @@ export interface DescribeAssessmentResponse {
  */
 export interface DescribeChangeSetRequest {
   /**
-   * <p>Required. The catalog related to the request. Fixed value:
-   *             <code>AWSMarketplace</code>
-   *          </p>
+   * Required. The catalog related to the request. Fixed value: `AWSMarketplace`
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>Required. The unique identifier for the <code>StartChangeSet</code> request that you
-   *             want to describe the details for.</p>
+   * Required. The unique identifier for the `StartChangeSet` request that you want to describe the details for.
+   *
    * @public
    */
   ChangeSetId: string | undefined;
 }
 
 /**
- * <p>An entity contains data that describes your product, its supported features, and how
- *             it can be used or launched by your customer. </p>
+ * An entity contains data that describes your product, its supported features, and how it can be used or launched by your customer.
+ *
  * @public
  */
 export interface Entity {
   /**
-   * <p>The type of entity.</p>
+   * The type of entity.
+   *
    * @public
    */
   Type: string | undefined;
 
   /**
-   * <p>The identifier for the entity.</p>
+   * The identifier for the entity.
+   *
    * @public
    */
   Identifier?: string | undefined;
 }
 
 /**
- * <p>Details about the error.</p>
+ * Details about the error.
+ *
  * @public
  */
 export interface ErrorDetail {
   /**
-   * <p>The error code that identifies the type of error.</p>
+   * The error code that identifies the type of error.
+   *
    * @public
    */
   ErrorCode?: string | undefined;
 
   /**
-   * <p>The message for the error.</p>
+   * The message for the error.
+   *
    * @public
    */
   ErrorMessage?: string | undefined;
 }
 
 /**
- * <p>This object is a container for common summary information about the change. The
- *             summary doesn't contain the whole change structure.</p>
+ * This object is a container for common summary information about the change. The summary doesn't contain the whole change structure.
+ *
  * @public
  */
 export interface ChangeSummary {
   /**
-   * <p>The type of the change.</p>
+   * The type of the change.
+   *
    * @public
    */
   ChangeType?: string | undefined;
 
   /**
-   * <p>The entity to be changed.</p>
+   * The entity to be changed.
+   *
    * @public
    */
   Entity?: Entity | undefined;
 
   /**
-   * <p>This object contains details specific to the change type of the requested
-   *             change.</p>
+   * This object contains details specific to the change type of the requested change.
+   *
    * @public
    */
   Details?: string | undefined;
 
   /**
-   * <p>The JSON value of the details specific to the change type of the requested change.</p>
-   *          <p>To download the "DetailsDocument" shapes, see the <a href="https://github.com/awslabs/aws-marketplace-catalog-api-shapes-for-python">Python</a>
-   *             and <a href="https://github.com/awslabs/aws-marketplace-catalog-api-shapes-for-java/tree/main">Java</a> shapes on GitHub.</p>
+   * The JSON value of the details specific to the change type of the requested change.
+   *
+   * To download the "DetailsDocument" shapes, see the [Python](https://github.com/awslabs/aws-marketplace-catalog-api-shapes-for-python) and [Java](https://github.com/awslabs/aws-marketplace-catalog-api-shapes-for-java/tree/main) shapes on GitHub.
+   *
    * @public
    */
   DetailsDocument?: __DocumentType | undefined;
 
   /**
-   * <p>An array of <code>ErrorDetail</code> objects associated with the change.</p>
+   * An array of `ErrorDetail` objects associated with the change.
+   *
    * @public
    */
   ErrorDetailList?: ErrorDetail[] | undefined;
 
   /**
-   * <p>Optional name for the change.</p>
+   * Optional name for the change.
+   *
    * @public
    */
   ChangeName?: string | undefined;
@@ -854,71 +921,71 @@ export interface ChangeSummary {
  */
 export interface DescribeChangeSetResponse {
   /**
-   * <p>Required. The unique identifier for the change set referenced in this request.</p>
+   * Required. The unique identifier for the change set referenced in this request.
+   *
    * @public
    */
   ChangeSetId?: string | undefined;
 
   /**
-   * <p>The ARN associated with the unique identifier for the change set referenced in this
-   *             request.</p>
+   * The ARN associated with the unique identifier for the change set referenced in this request.
+   *
    * @public
    */
   ChangeSetArn?: string | undefined;
 
   /**
-   * <p>The optional name provided in the <code>StartChangeSet</code> request. If you do not
-   *             provide a name, one is set by default.</p>
+   * The optional name provided in the `StartChangeSet` request. If you do not provide a name, one is set by default.
+   *
    * @public
    */
   ChangeSetName?: string | undefined;
 
   /**
-   * <p>The optional intent provided in the <code>StartChangeSet</code> request. If you do not
-   *             provide an intent, <code>APPLY</code> is set by default.</p>
+   * The optional intent provided in the `StartChangeSet` request. If you do not provide an intent, `APPLY` is set by default.
+   *
    * @public
    */
   Intent?: Intent | undefined;
 
   /**
-   * <p>The date and time, in ISO 8601 format (2018-02-27T13:45:22Z), the request started.
-   *         </p>
+   * The date and time, in ISO 8601 format (2018-02-27T13:45:22Z), the request started.
+   *
    * @public
    */
   StartTime?: string | undefined;
 
   /**
-   * <p>The date and time, in ISO 8601 format (2018-02-27T13:45:22Z), the request transitioned
-   *             to a terminal state. The change cannot transition to a different state. Null if the
-   *             request is not in a terminal state. </p>
+   * The date and time, in ISO 8601 format (2018-02-27T13:45:22Z), the request transitioned to a terminal state. The change cannot transition to a different state. Null if the request is not in a terminal state.
+   *
    * @public
    */
   EndTime?: string | undefined;
 
   /**
-   * <p>The status of the change request.</p>
+   * The status of the change request.
+   *
    * @public
    */
   Status?: ChangeStatus | undefined;
 
   /**
-   * <p>Returned if the change set is in <code>FAILED</code> status. Can be either
-   *                 <code>CLIENT_ERROR</code>, which means that there are issues with the request (see
-   *             the <code>ErrorDetailList</code>), or <code>SERVER_FAULT</code>, which means that there
-   *             is a problem in the system, and you should retry your request.</p>
+   * Returned if the change set is in `FAILED` status. Can be either `CLIENT_ERROR`, which means that there are issues with the request (see the `ErrorDetailList`), or `SERVER_FAULT`, which means that there is a problem in the system, and you should retry your request.
+   *
    * @public
    */
   FailureCode?: FailureCode | undefined;
 
   /**
-   * <p>Returned if there is a failure on the change set, but that failure is not related to
-   *             any of the changes in the request.</p>
+   * Returned if there is a failure on the change set, but that failure is not related to any of the changes in the request.
+   *
    * @public
    */
   FailureDescription?: string | undefined;
 
   /**
-   * <p>An array of <code>ChangeSummary</code> objects.</p>
+   * An array of `ChangeSummary` objects.
+   *
    * @public
    */
   ChangeSet?: ChangeSummary[] | undefined;
@@ -929,15 +996,15 @@ export interface DescribeChangeSetResponse {
  */
 export interface DescribeEntityRequest {
   /**
-   * <p>Required. The catalog related to the request. Fixed value:
-   *             <code>AWSMarketplace</code>
-   *          </p>
+   * Required. The catalog related to the request. Fixed value: `AWSMarketplace`
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>Required. The unique ID of the entity to describe.</p>
+   * Required. The unique ID of the entity to describe.
+   *
    * @public
    */
   EntityId: string | undefined;
@@ -948,42 +1015,45 @@ export interface DescribeEntityRequest {
  */
 export interface DescribeEntityResponse {
   /**
-   * <p>The named type of the entity, in the format of <code>EntityType@Version</code>.</p>
+   * The named type of the entity, in the format of `EntityType@Version`.
+   *
    * @public
    */
   EntityType?: string | undefined;
 
   /**
-   * <p>The identifier of the entity, in the format of
-   *             <code>EntityId@RevisionId</code>.</p>
+   * The identifier of the entity, in the format of `EntityId@RevisionId`.
+   *
    * @public
    */
   EntityIdentifier?: string | undefined;
 
   /**
-   * <p>The ARN associated to the unique identifier for the entity referenced in this
-   *             request.</p>
+   * The ARN associated to the unique identifier for the entity referenced in this request.
+   *
    * @public
    */
   EntityArn?: string | undefined;
 
   /**
-   * <p>The last modified date of the entity, in ISO 8601 format
-   *             (2018-02-27T13:45:22Z).</p>
+   * The last modified date of the entity, in ISO 8601 format (2018-02-27T13:45:22Z).
+   *
    * @public
    */
   LastModifiedDate?: string | undefined;
 
   /**
-   * <p>This stringified JSON object includes the details of the entity.</p>
+   * This stringified JSON object includes the details of the entity.
+   *
    * @public
    */
   Details?: string | undefined;
 
   /**
-   * <p>The JSON value of the details specific to the entity.</p>
-   *          <p>To download "DetailsDocument" shapes, see the <a href="https://github.com/awslabs/aws-marketplace-catalog-api-shapes-for-python">Python</a>
-   *             and <a href="https://github.com/awslabs/aws-marketplace-catalog-api-shapes-for-java/tree/main">Java</a> shapes on GitHub.</p>
+   * The JSON value of the details specific to the entity.
+   *
+   * To download "DetailsDocument" shapes, see the [Python](https://github.com/awslabs/aws-marketplace-catalog-api-shapes-for-python) and [Java](https://github.com/awslabs/aws-marketplace-catalog-api-shapes-for-java/tree/main) shapes on GitHub.
+   *
    * @public
    */
   DetailsDocument?: __DocumentType | undefined;
@@ -994,8 +1064,8 @@ export interface DescribeEntityResponse {
  */
 export interface GetResourcePolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the entity resource that is associated with the
-   *             resource policy.</p>
+   * The Amazon Resource Name (ARN) of the entity resource that is associated with the resource policy.
+   *
    * @public
    */
   ResourceArn: string | undefined;
@@ -1006,29 +1076,30 @@ export interface GetResourcePolicyRequest {
  */
 export interface GetResourcePolicyResponse {
   /**
-   * <p>The policy document to set; formatted in JSON.</p>
+   * The policy document to set; formatted in JSON.
+   *
    * @public
    */
   Policy?: string | undefined;
 }
 
 /**
- * <p>Filters that apply to assessments performed against the Container Security
- *             framework.</p>
+ * Filters that apply to assessments performed against the Container Security framework.
+ *
  * @public
  */
 export interface ContainerSecurityFilters {
   /**
-   * <p>The unique ID of the delivery option whose Container Security assessments you want
-   *             to list.</p>
+   * The unique ID of the delivery option whose Container Security assessments you want to list.
+   *
    * @public
    */
   DeliveryOptionId?: string | undefined;
 }
 
 /**
- * <p>Framework-specific filters used to scope <code>ListAssessments</code> results. Set
- *             exactly one member, corresponding to the framework you want to filter by.</p>
+ * Framework-specific filters used to scope `ListAssessments` results. Set exactly one member, corresponding to the framework you want to filter by.
+ *
  * @public
  */
 export type FrameworkFilters =
@@ -1041,7 +1112,8 @@ export type FrameworkFilters =
  */
 export namespace FrameworkFilters {
   /**
-   * <p>Filters that apply to assessments performed against the AMI Security framework.</p>
+   * Filters that apply to assessments performed against the AMI Security framework.
+   *
    * @public
    */
   export interface AMISecurityFiltersMember {
@@ -1051,8 +1123,8 @@ export namespace FrameworkFilters {
   }
 
   /**
-   * <p>Filters that apply to assessments performed against the Container Security
-   *             framework.</p>
+   * Filters that apply to assessments performed against the Container Security framework.
+   *
    * @public
    */
   export interface ContainerSecurityFiltersMember {
@@ -1086,43 +1158,43 @@ export namespace FrameworkFilters {
  */
 export interface ListAssessmentsRequest {
   /**
-   * <p>The catalog related to the request. Fixed value: <code>AWSMarketplace</code>
-   *          </p>
+   * The catalog related to the request. Fixed value: `AWSMarketplace`
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The unique identifier of a framework. When specified, only assessments performed
-   *             against this framework are returned. For example, <code>AMISecurity</code>.</p>
+   * The unique identifier of a framework. When specified, only assessments performed against this framework are returned. For example, `AMISecurity`.
+   *
    * @public
    */
   FrameworkId?: string | undefined;
 
   /**
-   * <p>Filters the list of assessments to those performed against a specific entity or
-   *             change set.</p>
+   * Filters the list of assessments to those performed against a specific entity or change set.
+   *
    * @public
    */
   AssessmentTargetFilter?: AssessmentTargetFilter | undefined;
 
   /**
-   * <p>Framework-specific filters. Set exactly one member to filter results to assessments
-   *             performed against that framework.</p>
+   * Framework-specific filters. Set exactly one member to filter results to assessments performed against that framework.
+   *
    * @public
    */
   FrameworkFilters?: FrameworkFilters | undefined;
 
   /**
-   * <p>Specifies the upper limit of the elements on a single page. If a value isn't provided,
-   *             the default value is 20. Valid values range from 1 to 100.</p>
+   * Specifies the upper limit of the elements on a single page. If a value isn't provided, the default value is 20. Valid values range from 1 to 100.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The value of the next token, if it exists. <code>null</code> if there are no more
-   *             results.</p>
+   * The value of the next token, if it exists. `null` if there are no more results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1133,102 +1205,71 @@ export interface ListAssessmentsRequest {
  */
 export interface ListAssessmentsResponse {
   /**
-   * <p>An array of <code>AssessmentSummary</code> objects.</p>
+   * An array of `AssessmentSummary` objects.
+   *
    * @public
    */
   AssessmentSummaryList?: AssessmentSummary[] | undefined;
 
   /**
-   * <p>The value of the next token, if it exists. <code>null</code> if there are no more
-   *             results.</p>
+   * The value of the next token, if it exists. `null` if there are no more results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>A filter object, used to optionally filter results from calls to the
- *                 <code>ListEntities</code> and <code>ListChangeSets</code> actions.</p>
+ * A filter object, used to optionally filter results from calls to the `ListEntities` and `ListChangeSets` actions.
+ *
  * @public
  */
 export interface Filter {
   /**
-   * <p>For <code>ListEntities</code>, the supported value for this is an
-   *                 <code>EntityId</code>.</p>
-   *          <p>For <code>ListChangeSets</code>, the supported values are as follows:</p>
+   * For `ListEntities`, the supported value for this is an `EntityId`.
+   *
+   * For `ListChangeSets`, the supported values are as follows:
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>
-   *             <code>ListEntities</code> - This is a list of unique <code>EntityId</code>s.</p>
-   *          <p>
-   *             <code>ListChangeSets</code> - The supported filter names and associated
-   *                 <code>ValueList</code>s is as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ChangeSetName</code> - The supported <code>ValueList</code> is a list of
-   *                     non-unique <code>ChangeSetName</code>s. These are defined when you call the
-   *                         <code>StartChangeSet</code> action.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Status</code> - The supported <code>ValueList</code> is a list of
-   *                     statuses for all change set requests.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>EntityId</code> - The supported <code>ValueList</code> is a list of
-   *                     unique <code>EntityId</code>s.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>BeforeStartTime</code> - The supported <code>ValueList</code> is a list
-   *                     of all change sets that started before the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AfterStartTime</code> - The supported <code>ValueList</code> is a list
-   *                     of all change sets that started after the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>BeforeEndTime</code> - The supported <code>ValueList</code> is a list of
-   *                     all change sets that ended before the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AfterEndTime</code> - The supported <code>ValueList</code> is a list of
-   *                     all change sets that ended after the filter value.</p>
-   *             </li>
-   *          </ul>
+   * `ListEntities` - This is a list of unique `EntityId`s.
+   *
+   * `ListChangeSets` - The supported filter names and associated `ValueList`s is as follows:
+   *
+   * - `ChangeSetName` - The supported `ValueList` is a list of non-unique `ChangeSetName`s. These are defined when you call the `StartChangeSet` action.
+   * - `Status` - The supported `ValueList` is a list of statuses for all change set requests.
+   * - `EntityId` - The supported `ValueList` is a list of unique `EntityId`s.
+   * - `BeforeStartTime` - The supported `ValueList` is a list of all change sets that started before the filter value.
+   * - `AfterStartTime` - The supported `ValueList` is a list of all change sets that started after the filter value.
+   * - `BeforeEndTime` - The supported `ValueList` is a list of all change sets that ended before the filter value.
+   * - `AfterEndTime` - The supported `ValueList` is a list of all change sets that ended after the filter value.
+   *
    * @public
    */
   ValueList?: string[] | undefined;
 }
 
 /**
- * <p>An object that contains two attributes, <code>SortBy</code> and
- *             <code>SortOrder</code>.</p>
+ * An object that contains two attributes, `SortBy` and `SortOrder`.
+ *
  * @public
  */
 export interface Sort {
   /**
-   * <p>For <code>ListEntities</code>, supported attributes include
-   *                 <code>LastModifiedDate</code> (default) and <code>EntityId</code>. In addition to
-   *                 <code>LastModifiedDate</code> and <code>EntityId</code>, each
-   *                 <code>EntityType</code> might support additional fields.</p>
-   *          <p>For <code>ListChangeSets</code>, supported attributes include <code>StartTime</code>
-   *             and <code>EndTime</code>.</p>
+   * For `ListEntities`, supported attributes include `LastModifiedDate` (default) and `EntityId`. In addition to `LastModifiedDate` and `EntityId`, each `EntityType` might support additional fields.
+   *
+   * For `ListChangeSets`, supported attributes include `StartTime` and `EndTime`.
+   *
    * @public
    */
   SortBy?: string | undefined;
 
   /**
-   * <p>The sorting order. Can be <code>ASCENDING</code> or <code>DESCENDING</code>. The
-   *             default value is <code>DESCENDING</code>.</p>
+   * The sorting order. Can be `ASCENDING` or `DESCENDING`. The default value is `DESCENDING`.
+   *
    * @public
    */
   SortOrder?: SortOrder | undefined;
@@ -1239,99 +1280,99 @@ export interface Sort {
  */
 export interface ListChangeSetsRequest {
   /**
-   * <p>The catalog related to the request. Fixed value: <code>AWSMarketplace</code>
-   *          </p>
+   * The catalog related to the request. Fixed value: `AWSMarketplace`
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>An array of filter objects.</p>
+   * An array of filter objects.
+   *
    * @public
    */
   FilterList?: Filter[] | undefined;
 
   /**
-   * <p>An object that contains two attributes, <code>SortBy</code> and
-   *             <code>SortOrder</code>.</p>
+   * An object that contains two attributes, `SortBy` and `SortOrder`.
+   *
    * @public
    */
   Sort?: Sort | undefined;
 
   /**
-   * <p>The maximum number of results returned by a single call. This value must be provided
-   *             in the next call to retrieve the next set of results. By default, this value is
-   *             20.</p>
+   * The maximum number of results returned by a single call. This value must be provided in the next call to retrieve the next set of results. By default, this value is 20.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token value retrieved from a previous call to access the next page of
-   *             results.</p>
+   * The token value retrieved from a previous call to access the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>A summary of a change set returned in a list of change sets when the
- *                 <code>ListChangeSets</code> action is called.</p>
+ * A summary of a change set returned in a list of change sets when the `ListChangeSets` action is called.
+ *
  * @public
  */
 export interface ChangeSetSummaryListItem {
   /**
-   * <p>The unique identifier for a change set.</p>
+   * The unique identifier for a change set.
+   *
    * @public
    */
   ChangeSetId?: string | undefined;
 
   /**
-   * <p>The ARN associated with the unique identifier for the change set referenced in this
-   *             request.</p>
+   * The ARN associated with the unique identifier for the change set referenced in this request.
+   *
    * @public
    */
   ChangeSetArn?: string | undefined;
 
   /**
-   * <p>The non-unique name for the change set.</p>
+   * The non-unique name for the change set.
+   *
    * @public
    */
   ChangeSetName?: string | undefined;
 
   /**
-   * <p>The time, in ISO 8601 format (2018-02-27T13:45:22Z), when the change set was
-   *             started.</p>
+   * The time, in ISO 8601 format (2018-02-27T13:45:22Z), when the change set was started.
+   *
    * @public
    */
   StartTime?: string | undefined;
 
   /**
-   * <p>The time, in ISO 8601 format (2018-02-27T13:45:22Z), when the change set was
-   *             finished.</p>
+   * The time, in ISO 8601 format (2018-02-27T13:45:22Z), when the change set was finished.
+   *
    * @public
    */
   EndTime?: string | undefined;
 
   /**
-   * <p>The current status of the change set.</p>
+   * The current status of the change set.
+   *
    * @public
    */
   Status?: ChangeStatus | undefined;
 
   /**
-   * <p>This object is a list of entity IDs (string) that are a part of a change set. The
-   *             entity ID list is a maximum of 20 entities. It must contain at least one entity.</p>
+   * This object is a list of entity IDs (string) that are a part of a change set. The entity ID list is a maximum of 20 entities. It must contain at least one entity.
+   *
    * @public
    */
   EntityIdList?: string[] | undefined;
 
   /**
-   * <p>Returned if the change set is in <code>FAILED</code> status. Can be either
-   *                 <code>CLIENT_ERROR</code>, which means that there are issues with the request (see
-   *             the <code>ErrorDetailList</code> of <code>DescribeChangeSet</code>), or
-   *                 <code>SERVER_FAULT</code>, which means that there is a problem in the system, and
-   *             you should retry your request.</p>
+   * Returned if the change set is in `FAILED` status. Can be either `CLIENT_ERROR`, which means that there are issues with the request (see the `ErrorDetailList` of `DescribeChangeSet`), or `SERVER_FAULT`, which means that there is a problem in the system, and you should retry your request.
+   *
    * @public
    */
   FailureCode?: FailureCode | undefined;
@@ -1342,1637 +1383,1847 @@ export interface ChangeSetSummaryListItem {
  */
 export interface ListChangeSetsResponse {
   /**
-   * <p> Array of <code>ChangeSetSummaryListItem</code> objects.</p>
+   * Array of `ChangeSetSummaryListItem` objects.
+   *
    * @public
    */
   ChangeSetSummaryList?: ChangeSetSummaryListItem[] | undefined;
 
   /**
-   * <p>The value of the next token, if it exists. Null if there are no more results.</p>
+   * The value of the next token, if it exists. Null if there are no more results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Object that allows filtering on entity id of a container product.</p>
+ * Object that allows filtering on entity id of a container product.
+ *
  * @public
  */
 export interface ContainerProductEntityIdFilter {
   /**
-   * <p>A string array of unique entity id values to be filtered on.</p>
+   * A string array of unique entity id values to be filtered on.
+   *
    * @public
    */
   ValueList?: string[] | undefined;
 }
 
 /**
- * <p>Object that contains date range of the last modified date to be filtered on. You can optionally provide a <code>BeforeValue</code> and/or <code>AfterValue</code>. Both are inclusive.</p>
+ * Object that contains date range of the last modified date to be filtered on. You can optionally provide a `BeforeValue` and/or `AfterValue`. Both are inclusive.
+ *
  * @public
  */
 export interface ContainerProductLastModifiedDateFilterDateRange {
   /**
-   * <p>Date after which the container product was last modified.</p>
+   * Date after which the container product was last modified.
+   *
    * @public
    */
   AfterValue?: string | undefined;
 
   /**
-   * <p>Date before which the container product was last modified.</p>
+   * Date before which the container product was last modified.
+   *
    * @public
    */
   BeforeValue?: string | undefined;
 }
 
 /**
- * <p>Object that allows filtering based on the last modified date of container products.</p>
+ * Object that allows filtering based on the last modified date of container products.
+ *
  * @public
  */
 export interface ContainerProductLastModifiedDateFilter {
   /**
-   * <p>Dates between which the container product was last modified.</p>
+   * Dates between which the container product was last modified.
+   *
    * @public
    */
   DateRange?: ContainerProductLastModifiedDateFilterDateRange | undefined;
 }
 
 /**
- * <p>Object that allows filtering on product title.</p>
+ * Object that allows filtering on product title.
+ *
  * @public
  */
 export interface ContainerProductTitleFilter {
   /**
-   * <p>A string array of unique product title values to be filtered on.</p>
+   * A string array of unique product title values to be filtered on.
+   *
    * @public
    */
   ValueList?: string[] | undefined;
 
   /**
-   * <p>A string that will be the <code>wildCard</code> input for product tile filter. It matches the provided value as a substring in the actual value.</p>
+   * A string that will be the `wildCard` input for product tile filter. It matches the provided value as a substring in the actual value.
+   *
    * @public
    */
   WildCardValue?: string | undefined;
 }
 
 /**
- * <p>Object that allows filtering on the visibility of the product in the AWS Marketplace.</p>
+ * Object that allows filtering on the visibility of the product in the AWS Marketplace.
+ *
  * @public
  */
 export interface ContainerProductVisibilityFilter {
   /**
-   * <p>A string array of unique visibility values to be filtered on.</p>
+   * A string array of unique visibility values to be filtered on.
+   *
    * @public
    */
   ValueList?: ContainerProductVisibilityString[] | undefined;
 }
 
 /**
- * <p>Object containing all the filter fields for container products. Client can add only one wildcard filter and a maximum of 8 filters in a single <code>ListEntities</code> request.</p>
+ * Object containing all the filter fields for container products. Client can add only one wildcard filter and a maximum of 8 filters in a single `ListEntities` request.
+ *
  * @public
  */
 export interface ContainerProductFilters {
   /**
-   * <p>Unique identifier for the container product.</p>
+   * Unique identifier for the container product.
+   *
    * @public
    */
   EntityId?: ContainerProductEntityIdFilter | undefined;
 
   /**
-   * <p>The last date on which the container product was modified.</p>
+   * The last date on which the container product was modified.
+   *
    * @public
    */
   LastModifiedDate?: ContainerProductLastModifiedDateFilter | undefined;
 
   /**
-   * <p>The title of the container product.</p>
+   * The title of the container product.
+   *
    * @public
    */
   ProductTitle?: ContainerProductTitleFilter | undefined;
 
   /**
-   * <p>The visibility of the container product.</p>
+   * The visibility of the container product.
+   *
    * @public
    */
   Visibility?: ContainerProductVisibilityFilter | undefined;
 }
 
 /**
- * <p>Object that allows filtering on entity id of a data product.</p>
+ * Object that allows filtering on entity id of a data product.
+ *
  * @public
  */
 export interface DataProductEntityIdFilter {
   /**
-   * <p>A string array of unique entity id values to be filtered on.</p>
+   * A string array of unique entity id values to be filtered on.
+   *
    * @public
    */
   ValueList?: string[] | undefined;
 }
 
 /**
- * <p>Object that contains date range of the last modified date to be filtered on. You can optionally provide a <code>BeforeValue</code> and/or <code>AfterValue</code>. Both are inclusive.</p>
+ * Object that contains date range of the last modified date to be filtered on. You can optionally provide a `BeforeValue` and/or `AfterValue`. Both are inclusive.
+ *
  * @public
  */
 export interface DataProductLastModifiedDateFilterDateRange {
   /**
-   * <p>Date after which the data product was last modified.</p>
+   * Date after which the data product was last modified.
+   *
    * @public
    */
   AfterValue?: string | undefined;
 
   /**
-   * <p>Date before which the data product was last modified.</p>
+   * Date before which the data product was last modified.
+   *
    * @public
    */
   BeforeValue?: string | undefined;
 }
 
 /**
- * <p>Object that allows filtering based on the last modified date of data products.</p>
+ * Object that allows filtering based on the last modified date of data products.
+ *
  * @public
  */
 export interface DataProductLastModifiedDateFilter {
   /**
-   * <p>Dates between which the data product was last modified.</p>
+   * Dates between which the data product was last modified.
+   *
    * @public
    */
   DateRange?: DataProductLastModifiedDateFilterDateRange | undefined;
 }
 
 /**
- * <p>Object that allows filtering on product title.</p>
+ * Object that allows filtering on product title.
+ *
  * @public
  */
 export interface DataProductTitleFilter {
   /**
-   * <p>A string array of unique product title values to be filtered on.</p>
+   * A string array of unique product title values to be filtered on.
+   *
    * @public
    */
   ValueList?: string[] | undefined;
 
   /**
-   * <p>A string that will be the <code>wildCard</code> input for product tile filter. It matches the provided value as a substring in the actual value.</p>
+   * A string that will be the `wildCard` input for product tile filter. It matches the provided value as a substring in the actual value.
+   *
    * @public
    */
   WildCardValue?: string | undefined;
 }
 
 /**
- * <p>Object that allows filtering on the visibility of the product in the AWS Marketplace.</p>
+ * Object that allows filtering on the visibility of the product in the AWS Marketplace.
+ *
  * @public
  */
 export interface DataProductVisibilityFilter {
   /**
-   * <p>A string array of unique visibility values to be filtered on.</p>
+   * A string array of unique visibility values to be filtered on.
+   *
    * @public
    */
   ValueList?: DataProductVisibilityString[] | undefined;
 }
 
 /**
- * <p>Object containing all the filter fields for data products. Client can add only one wildcard filter and a maximum of 8 filters in a single <code>ListEntities</code> request.</p>
+ * Object containing all the filter fields for data products. Client can add only one wildcard filter and a maximum of 8 filters in a single `ListEntities` request.
+ *
  * @public
  */
 export interface DataProductFilters {
   /**
-   * <p>Unique identifier for the data product.</p>
+   * Unique identifier for the data product.
+   *
    * @public
    */
   EntityId?: DataProductEntityIdFilter | undefined;
 
   /**
-   * <p>The title of the data product.</p>
+   * The title of the data product.
+   *
    * @public
    */
   ProductTitle?: DataProductTitleFilter | undefined;
 
   /**
-   * <p>The visibility of the data product.</p>
+   * The visibility of the data product.
+   *
    * @public
    */
   Visibility?: DataProductVisibilityFilter | undefined;
 
   /**
-   * <p>The last date on which the data product was modified.</p>
+   * The last date on which the data product was modified.
+   *
    * @public
    */
   LastModifiedDate?: DataProductLastModifiedDateFilter | undefined;
 }
 
 /**
- * <p>The filter for the <code>EntityId</code> of an express private offer configuration.</p>
+ * The filter for the `EntityId` of an express private offer configuration.
+ *
  * @public
  */
 export interface ExpressPrivateOfferConfigurationEntityIdFilter {
   /**
-   * <p>A list of <code>EntityId</code> values to filter on.</p>
+   * A list of `EntityId` values to filter on.
+   *
    * @public
    */
   ValueList?: string[] | undefined;
 }
 
 /**
- * <p>The filter for the <code>ProductId</code> of an express private offer configuration.</p>
+ * The filter for the `ProductId` of an express private offer configuration.
+ *
  * @public
  */
 export interface ExpressPrivateOfferConfigurationProductIdFilter {
   /**
-   * <p>A list of <code>ProductId</code> values to filter on.</p>
+   * A list of `ProductId` values to filter on.
+   *
    * @public
    */
   ValueList?: string[] | undefined;
 }
 
 /**
- * <p>The filter for the <code>State</code> of an express private offer configuration.</p>
+ * The filter for the `State` of an express private offer configuration.
+ *
  * @public
  */
 export interface ExpressPrivateOfferConfigurationStateFilter {
   /**
-   * <p>A list of <code>State</code> values to filter on. Valid values are <code>ACTIVE</code> and <code>INACTIVE</code>.</p>
+   * A list of `State` values to filter on. Valid values are `ACTIVE` and `INACTIVE`.
+   *
    * @public
    */
   ValueList?: ExpressPrivateOfferConfigurationStateString[] | undefined;
 }
 
 /**
- * <p>The filter fields for the express private offer configuration entity.</p>
+ * The filter fields for the express private offer configuration entity.
+ *
  * @public
  */
 export interface ExpressPrivateOfferConfigurationFilters {
   /**
-   * <p>You can filter on the <code>EntityId</code> of an express private offer configuration.</p>
+   * You can filter on the `EntityId` of an express private offer configuration.
+   *
    * @public
    */
   EntityId?: ExpressPrivateOfferConfigurationEntityIdFilter | undefined;
 
   /**
-   * <p>You can filter on the <code>ProductId</code> of an express private offer configuration.</p>
+   * You can filter on the `ProductId` of an express private offer configuration.
+   *
    * @public
    */
   ProductId?: ExpressPrivateOfferConfigurationProductIdFilter | undefined;
 
   /**
-   * <p>The state of the express private offer configuration to filter on. Valid values are the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ACTIVE</code> – The configuration is active and you can use it to generate offers.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INACTIVE</code> – The configuration is deprecated or deleted.</p>
-   *             </li>
-   *          </ul>
+   * The state of the express private offer configuration to filter on. Valid values are the following:
+   *
+   * - `ACTIVE` – The configuration is active and you can use it to generate offers.
+   * - `INACTIVE` – The configuration is deprecated or deleted.
+   *
    * @public
    */
   State?: ExpressPrivateOfferConfigurationStateFilter | undefined;
 }
 
 /**
- * <p>The filter for machine learning product entity IDs.</p>
+ * The filter for machine learning product entity IDs.
+ *
  * @public
  */
 export interface MachineLearningProductEntityIdFilter {
   /**
-   * <p>A list of entity IDs to filter by. The operation returns machine learning products with entity IDs that match the values in this list.</p>
+   * A list of entity IDs to filter by. The operation returns machine learning products with entity IDs that match the values in this list.
+   *
    * @public
    */
   ValueList?: string[] | undefined;
 }
 
 /**
- * <p>A date range for filtering machine learning products by their last modified date.</p>
+ * A date range for filtering machine learning products by their last modified date.
+ *
  * @public
  */
 export interface MachineLearningProductLastModifiedDateFilterDateRange {
   /**
-   * <p>The start date (inclusive) of the date range. The operation returns machine learning products with last modified dates on or after this date.</p>
+   * The start date (inclusive) of the date range. The operation returns machine learning products with last modified dates on or after this date.
+   *
    * @public
    */
   AfterValue?: string | undefined;
 
   /**
-   * <p>The end date (inclusive) of the date range. The operation returns machine learning products with last modified dates on or before this date.</p>
+   * The end date (inclusive) of the date range. The operation returns machine learning products with last modified dates on or before this date.
+   *
    * @public
    */
   BeforeValue?: string | undefined;
 }
 
 /**
- * <p>The filter for machine learning product last modified date.</p>
+ * The filter for machine learning product last modified date.
+ *
  * @public
  */
 export interface MachineLearningProductLastModifiedDateFilter {
   /**
-   * <p>A date range to filter by. The operation returns machine learning products with last modified dates that fall within this range.</p>
+   * A date range to filter by. The operation returns machine learning products with last modified dates that fall within this range.
+   *
    * @public
    */
   DateRange?: MachineLearningProductLastModifiedDateFilterDateRange | undefined;
 }
 
 /**
- * <p>The filter for machine learning product titles.</p>
+ * The filter for machine learning product titles.
+ *
  * @public
  */
 export interface MachineLearningProductTitleFilter {
   /**
-   * <p>A list of product titles to filter by. The operation returns machine learning products with titles that exactly match the values in this list.</p>
+   * A list of product titles to filter by. The operation returns machine learning products with titles that exactly match the values in this list.
+   *
    * @public
    */
   ValueList?: string[] | undefined;
 
   /**
-   * <p>A wildcard value to filter product titles. The operation returns machine learning products with titles that match this wildcard pattern.</p>
+   * A wildcard value to filter product titles. The operation returns machine learning products with titles that match this wildcard pattern.
+   *
    * @public
    */
   WildCardValue?: string | undefined;
 }
 
 /**
- * <p>The filter for machine learning product visibility status.</p>
+ * The filter for machine learning product visibility status.
+ *
  * @public
  */
 export interface MachineLearningProductVisibilityFilter {
   /**
-   * <p>A list of visibility values to filter by. The operation returns machine learning products with visibility status that match the values in this list.</p>
+   * A list of visibility values to filter by. The operation returns machine learning products with visibility status that match the values in this list.
+   *
    * @public
    */
   ValueList?: MachineLearningProductVisibilityString[] | undefined;
 }
 
 /**
- * <p>The filters that you can use with the ListEntities operation to filter machine learning products.
- *             You can filter by <code>EntityId</code>, <code>astModifiedDate</code>, <code>ProductTitle</code>, and <code>Visibility</code>.</p>
+ * The filters that you can use with the ListEntities operation to filter machine learning products. You can filter by `EntityId`, `astModifiedDate`, `ProductTitle`, and `Visibility`.
+ *
  * @public
  */
 export interface MachineLearningProductFilters {
   /**
-   * <p>Filter machine learning products by their entity IDs.</p>
+   * Filter machine learning products by their entity IDs.
+   *
    * @public
    */
   EntityId?: MachineLearningProductEntityIdFilter | undefined;
 
   /**
-   * <p>Filter machine learning products by their last modified date.</p>
+   * Filter machine learning products by their last modified date.
+   *
    * @public
    */
   LastModifiedDate?: MachineLearningProductLastModifiedDateFilter | undefined;
 
   /**
-   * <p>Filter machine learning products by their product titles.</p>
+   * Filter machine learning products by their product titles.
+   *
    * @public
    */
   ProductTitle?: MachineLearningProductTitleFilter | undefined;
 
   /**
-   * <p>Filter machine learning products by their visibility status.</p>
+   * Filter machine learning products by their visibility status.
+   *
    * @public
    */
   Visibility?: MachineLearningProductVisibilityFilter | undefined;
 }
 
 /**
- * <p>Allows filtering on the <code>AvailabilityEndDate</code> of an offer with date range as input.</p>
+ * Allows filtering on the `AvailabilityEndDate` of an offer with date range as input.
+ *
  * @public
  */
 export interface OfferAvailabilityEndDateFilterDateRange {
   /**
-   * <p>Allows filtering on the <code>AvailabilityEndDate</code> of an offer after a date.</p>
+   * Allows filtering on the `AvailabilityEndDate` of an offer after a date.
+   *
    * @public
    */
   AfterValue?: string | undefined;
 
   /**
-   * <p>Allows filtering on the <code>AvailabilityEndDate</code> of an offer before a date.</p>
+   * Allows filtering on the `AvailabilityEndDate` of an offer before a date.
+   *
    * @public
    */
   BeforeValue?: string | undefined;
 }
 
 /**
- * <p>Allows filtering on the <code>AvailabilityEndDate</code> of an offer.</p>
+ * Allows filtering on the `AvailabilityEndDate` of an offer.
+ *
  * @public
  */
 export interface OfferAvailabilityEndDateFilter {
   /**
-   * <p>Allows filtering on the <code>AvailabilityEndDate</code> of an offer with date range as input.</p>
+   * Allows filtering on the `AvailabilityEndDate` of an offer with date range as input.
+   *
    * @public
    */
   DateRange?: OfferAvailabilityEndDateFilterDateRange | undefined;
 }
 
 /**
- * <p>Allows filtering on the <code>BuyerAccounts</code> of an offer.</p>
+ * Allows filtering on the `BuyerAccounts` of an offer.
+ *
  * @public
  */
 export interface OfferBuyerAccountsFilter {
   /**
-   * <p>Allows filtering on the <code>BuyerAccounts</code> of an offer with wild card input.</p>
+   * Allows filtering on the `BuyerAccounts` of an offer with wild card input.
+   *
    * @public
    */
   WildCardValue?: string | undefined;
 }
 
 /**
- * <p>Allows filtering on the <code>CreatedBySource</code> of an offer.</p>
+ * Allows filtering on the `CreatedBySource` of an offer.
+ *
  * @public
  */
 export interface OfferCreatedBySourceFilter {
   /**
-   * <p>Allows filtering on the <code>CreatedBySource</code> of an offer with list input.</p>
+   * Allows filtering on the `CreatedBySource` of an offer with list input.
+   *
    * @public
    */
   ValueList?: OfferCreatedBySourceString[] | undefined;
 }
 
 /**
- * <p>Allows filtering on the entity id of an offer.</p>
+ * Allows filtering on the entity id of an offer.
+ *
  * @public
  */
 export interface OfferEntityIdFilter {
   /**
-   * <p>Allows filtering on entity id of an offer with list input.</p>
+   * Allows filtering on entity id of an offer with list input.
+   *
    * @public
    */
   ValueList?: string[] | undefined;
 }
 
 /**
- * <p>Allows filtering on the <code>LastModifiedDate</code> of an offer with date range as input.</p>
+ * Allows filtering on the `LastModifiedDate` of an offer with date range as input.
+ *
  * @public
  */
 export interface OfferLastModifiedDateFilterDateRange {
   /**
-   * <p>Allows filtering on the <code>LastModifiedDate</code> of an offer after a date.</p>
+   * Allows filtering on the `LastModifiedDate` of an offer after a date.
+   *
    * @public
    */
   AfterValue?: string | undefined;
 
   /**
-   * <p>Allows filtering on the <code>LastModifiedDate</code> of an offer before a date.</p>
+   * Allows filtering on the `LastModifiedDate` of an offer before a date.
+   *
    * @public
    */
   BeforeValue?: string | undefined;
 }
 
 /**
- * <p>Allows filtering on the <code>LastModifiedDate</code> of an offer.</p>
+ * Allows filtering on the `LastModifiedDate` of an offer.
+ *
  * @public
  */
 export interface OfferLastModifiedDateFilter {
   /**
-   * <p>Allows filtering on the <code>LastModifiedDate</code> of an offer with date range as input.</p>
+   * Allows filtering on the `LastModifiedDate` of an offer with date range as input.
+   *
    * @public
    */
   DateRange?: OfferLastModifiedDateFilterDateRange | undefined;
 }
 
 /**
- * <p>Allows filtering on the <code>Name</code> of an offer.</p>
+ * Allows filtering on the `Name` of an offer.
+ *
  * @public
  */
 export interface OfferNameFilter {
   /**
-   * <p>Allows filtering on the <code>Name</code> of an offer with list input.</p>
+   * Allows filtering on the `Name` of an offer with list input.
+   *
    * @public
    */
   ValueList?: string[] | undefined;
 
   /**
-   * <p>Allows filtering on the <code>Name</code> of an offer with wild card input.</p>
+   * Allows filtering on the `Name` of an offer with wild card input.
+   *
    * @public
    */
   WildCardValue?: string | undefined;
 }
 
 /**
- * <p>Allows filtering on the <code>OfferSetId</code> of an offer.</p>
+ * Allows filtering on the `OfferSetId` of an offer.
+ *
  * @public
  */
 export interface OfferSetIdFilter {
   /**
-   * <p>Allows filtering on the <code>OfferSetId</code> of an offer.</p>
+   * Allows filtering on the `OfferSetId` of an offer.
+   *
    * @public
    */
   ValueList?: string[] | undefined;
 }
 
 /**
- * <p>Allows filtering on the <code>ProductId</code> of an offer.</p>
+ * Allows filtering on the `ProductId` of an offer.
+ *
  * @public
  */
 export interface OfferProductIdFilter {
   /**
-   * <p>Allows filtering on the <code>ProductId</code> of an offer with list input.</p>
+   * Allows filtering on the `ProductId` of an offer with list input.
+   *
    * @public
    */
   ValueList?: string[] | undefined;
 }
 
 /**
- * <p>Allows filtering on the <code>ReleaseDate</code> of an offer with date range as input.</p>
+ * Allows filtering on the `ReleaseDate` of an offer with date range as input.
+ *
  * @public
  */
 export interface OfferReleaseDateFilterDateRange {
   /**
-   * <p>Allows filtering on the <code>ReleaseDate</code> of offers after a date.</p>
+   * Allows filtering on the `ReleaseDate` of offers after a date.
+   *
    * @public
    */
   AfterValue?: string | undefined;
 
   /**
-   * <p>Allows filtering on the <code>ReleaseDate</code> of offers before a date.</p>
+   * Allows filtering on the `ReleaseDate` of offers before a date.
+   *
    * @public
    */
   BeforeValue?: string | undefined;
 }
 
 /**
- * <p>Allows filtering on the <code>ReleaseDate</code> of an offer.</p>
+ * Allows filtering on the `ReleaseDate` of an offer.
+ *
  * @public
  */
 export interface OfferReleaseDateFilter {
   /**
-   * <p>Allows filtering on the <code>ReleaseDate</code> of an offer with date range as input.</p>
+   * Allows filtering on the `ReleaseDate` of an offer with date range as input.
+   *
    * @public
    */
   DateRange?: OfferReleaseDateFilterDateRange | undefined;
 }
 
 /**
- * <p>Allows filtering on the <code>ResaleAuthorizationId</code> of an offer.</p>
- *          <note>
- *             <p>Not all offers have a <code>ResaleAuthorizationId</code>. The response will only
- *                 include offers for which you have permissions.</p>
- *          </note>
+ * Allows filtering on the `ResaleAuthorizationId` of an offer.
+ *
+ * > **Note:** Not all offers have a `ResaleAuthorizationId`. The response will only include offers for which you have permissions.
+ *
  * @public
  */
 export interface OfferResaleAuthorizationIdFilter {
   /**
-   * <p>Allows filtering on the <code>ResaleAuthorizationId</code> of an offer with list input.</p>
+   * Allows filtering on the `ResaleAuthorizationId` of an offer with list input.
+   *
    * @public
    */
   ValueList?: string[] | undefined;
 }
 
 /**
- * <p>Allows filtering on the <code>State</code> of an offer.</p>
+ * Allows filtering on the `State` of an offer.
+ *
  * @public
  */
 export interface OfferStateFilter {
   /**
-   * <p>Allows filtering on the <code>State</code> of an offer with list input.</p>
+   * Allows filtering on the `State` of an offer with list input.
+   *
    * @public
    */
   ValueList?: OfferStateString[] | undefined;
 }
 
 /**
- * <p>Allows filtering on the <code>TargetAgreementId</code> of an offer.</p>
+ * Allows filtering on the `TargetAgreementId` of an offer.
+ *
  * @public
  */
 export interface OfferTargetAgreementIdFilter {
   /**
-   * <p>Allows filtering on the <code>TargetAgreementId</code> of an offer with list input.</p>
+   * Allows filtering on the `TargetAgreementId` of an offer with list input.
+   *
    * @public
    */
   ValueList?: string[] | undefined;
 }
 
 /**
- * <p>Allows filtering on the <code>TargetAgreementIntent</code> of an offer.</p>
+ * Allows filtering on the `TargetAgreementIntent` of an offer.
+ *
  * @public
  */
 export interface OfferTargetAgreementIntentFilter {
   /**
-   * <p>Allows filtering on the <code>TargetAgreementIntent</code> of an offer with list input.</p>
+   * Allows filtering on the `TargetAgreementIntent` of an offer with list input.
+   *
    * @public
    */
   ValueList?: OfferTargetAgreementIntentString[] | undefined;
 }
 
 /**
- * <p>Allows filtering on the <code>Targeting</code> of an offer.</p>
+ * Allows filtering on the `Targeting` of an offer.
+ *
  * @public
  */
 export interface OfferTargetingFilter {
   /**
-   * <p>Allows filtering on the <code>Targeting</code> of an offer with list input.</p>
+   * Allows filtering on the `Targeting` of an offer with list input.
+   *
    * @public
    */
   ValueList?: OfferTargetingString[] | undefined;
 }
 
 /**
- * <p>Object containing all the filter fields for offers entity. Client can add only one wildcard filter and a maximum of 8 filters in a single <code>ListEntities</code> request.</p>
+ * Object containing all the filter fields for offers entity. Client can add only one wildcard filter and a maximum of 8 filters in a single `ListEntities` request.
+ *
  * @public
  */
 export interface OfferFilters {
   /**
-   * <p>Allows filtering on <code>EntityId</code> of an offer.</p>
+   * Allows filtering on `EntityId` of an offer.
+   *
    * @public
    */
   EntityId?: OfferEntityIdFilter | undefined;
 
   /**
-   * <p>Allows filtering on the <code>Name</code> of an offer.</p>
+   * Allows filtering on the `Name` of an offer.
+   *
    * @public
    */
   Name?: OfferNameFilter | undefined;
 
   /**
-   * <p>Allows filtering on the <code>ProductId</code> of an offer.</p>
+   * Allows filtering on the `ProductId` of an offer.
+   *
    * @public
    */
   ProductId?: OfferProductIdFilter | undefined;
 
   /**
-   * <p>Allows filtering on the <code>ResaleAuthorizationId</code> of an offer.</p>
-   *          <note>
-   *             <p>Not all offers have a <code>ResaleAuthorizationId</code>. The response will only
-   *                 include offers for which you have permissions.</p>
-   *          </note>
+   * Allows filtering on the `ResaleAuthorizationId` of an offer.
+   *
+   * > **Note:** Not all offers have a `ResaleAuthorizationId`. The response will only include offers for which you have permissions.
+   *
    * @public
    */
   ResaleAuthorizationId?: OfferResaleAuthorizationIdFilter | undefined;
 
   /**
-   * <p>Allows filtering on the <code>ReleaseDate</code> of an offer.</p>
+   * Allows filtering on the `ReleaseDate` of an offer.
+   *
    * @public
    */
   ReleaseDate?: OfferReleaseDateFilter | undefined;
 
   /**
-   * <p>Allows filtering on the <code>AvailabilityEndDate</code> of an offer.</p>
+   * Allows filtering on the `AvailabilityEndDate` of an offer.
+   *
    * @public
    */
   AvailabilityEndDate?: OfferAvailabilityEndDateFilter | undefined;
 
   /**
-   * <p>Allows filtering on the <code>BuyerAccounts</code> of an offer.</p>
+   * Allows filtering on the `BuyerAccounts` of an offer.
+   *
    * @public
    */
   BuyerAccounts?: OfferBuyerAccountsFilter | undefined;
 
   /**
-   * <p>Allows filtering on the <code>State</code> of an offer.</p>
+   * Allows filtering on the `State` of an offer.
+   *
    * @public
    */
   State?: OfferStateFilter | undefined;
 
   /**
-   * <p>Allows filtering on the <code>Targeting</code> of an offer.</p>
+   * Allows filtering on the `Targeting` of an offer.
+   *
    * @public
    */
   Targeting?: OfferTargetingFilter | undefined;
 
   /**
-   * <p>Allows filtering on the <code>LastModifiedDate</code> of an offer.</p>
+   * Allows filtering on the `LastModifiedDate` of an offer.
+   *
    * @public
    */
   LastModifiedDate?: OfferLastModifiedDateFilter | undefined;
 
   /**
-   * <p>Allows filtering on the <code>OfferSetId</code> of an offer.</p>
+   * Allows filtering on the `OfferSetId` of an offer.
+   *
    * @public
    */
   OfferSetId?: OfferSetIdFilter | undefined;
 
   /**
-   * <p>Allows filtering on the <code>TargetAgreementId</code> of an offer.</p>
+   * Allows filtering on the `TargetAgreementId` of an offer.
+   *
    * @public
    */
   TargetAgreementId?: OfferTargetAgreementIdFilter | undefined;
 
   /**
-   * <p>Allows filtering on the <code>TargetAgreementIntent</code> of an offer.</p>
+   * Allows filtering on the `TargetAgreementIntent` of an offer.
+   *
    * @public
    */
   TargetAgreementIntent?: OfferTargetAgreementIntentFilter | undefined;
 
   /**
-   * <p>Allows filtering on the <code>CreatedBySource</code> of an offer.</p>
+   * Allows filtering on the `CreatedBySource` of an offer.
+   *
    * @public
    */
   CreatedBySource?: OfferCreatedBySourceFilter | undefined;
 }
 
 /**
- * <p>Allows filtering on the <code>AssociatedOfferIds</code> of an offer set.</p>
+ * Allows filtering on the `AssociatedOfferIds` of an offer set.
+ *
  * @public
  */
 export interface OfferSetAssociatedOfferIdsFilter {
   /**
-   * <p>Allows filtering on the <code>AssociatedOfferIds</code> of an offer set with list input.</p>
+   * Allows filtering on the `AssociatedOfferIds` of an offer set with list input.
+   *
    * @public
    */
   ValueList?: string[] | undefined;
 }
 
 /**
- * <p>Allows filtering on the entity id of an offer set.</p>
+ * Allows filtering on the entity id of an offer set.
+ *
  * @public
  */
 export interface OfferSetEntityIdFilter {
   /**
-   * <p>Allows filtering on entity id of an offer set with list input.</p>
+   * Allows filtering on entity id of an offer set with list input.
+   *
    * @public
    */
   ValueList?: string[] | undefined;
 }
 
 /**
- * <p>Allows filtering on the <code>LastModifiedDate</code> of an offer set with date range as input.</p>
+ * Allows filtering on the `LastModifiedDate` of an offer set with date range as input.
+ *
  * @public
  */
 export interface OfferSetLastModifiedDateFilterDateRange {
   /**
-   * <p>Allows filtering on the <code>LastModifiedDate</code> of an offer set after a date.</p>
+   * Allows filtering on the `LastModifiedDate` of an offer set after a date.
+   *
    * @public
    */
   AfterValue?: string | undefined;
 
   /**
-   * <p>Allows filtering on the <code>LastModifiedDate</code> of an offer set before a date.</p>
+   * Allows filtering on the `LastModifiedDate` of an offer set before a date.
+   *
    * @public
    */
   BeforeValue?: string | undefined;
 }
 
 /**
- * <p>Allows filtering on the <code>LastModifiedDate</code> of an offer set.</p>
+ * Allows filtering on the `LastModifiedDate` of an offer set.
+ *
  * @public
  */
 export interface OfferSetLastModifiedDateFilter {
   /**
-   * <p>Allows filtering on the <code>LastModifiedDate</code> of an offer set with date range as input.</p>
+   * Allows filtering on the `LastModifiedDate` of an offer set with date range as input.
+   *
    * @public
    */
   DateRange?: OfferSetLastModifiedDateFilterDateRange | undefined;
 }
 
 /**
- * <p>Allows filtering on the <code>Name</code> of an offer set.</p>
+ * Allows filtering on the `Name` of an offer set.
+ *
  * @public
  */
 export interface OfferSetNameFilter {
   /**
-   * <p>Allows filtering on the <code>Name</code> of an offer set with list input.</p>
+   * Allows filtering on the `Name` of an offer set with list input.
+   *
    * @public
    */
   ValueList?: string[] | undefined;
 }
 
 /**
- * <p>Allows filtering on the <code>ReleaseDate</code> of an offer set with date range as input.</p>
+ * Allows filtering on the `ReleaseDate` of an offer set with date range as input.
+ *
  * @public
  */
 export interface OfferSetReleaseDateFilterDateRange {
   /**
-   * <p>Allows filtering on the <code>ReleaseDate</code> of offer set after a date.</p>
+   * Allows filtering on the `ReleaseDate` of offer set after a date.
+   *
    * @public
    */
   AfterValue?: string | undefined;
 
   /**
-   * <p>Allows filtering on the <code>ReleaseDate</code> of offer set before a date.</p>
+   * Allows filtering on the `ReleaseDate` of offer set before a date.
+   *
    * @public
    */
   BeforeValue?: string | undefined;
 }
 
 /**
- * <p>Allows filtering on the <code>ReleaseDate</code> of an offer set.</p>
+ * Allows filtering on the `ReleaseDate` of an offer set.
+ *
  * @public
  */
 export interface OfferSetReleaseDateFilter {
   /**
-   * <p>Allows filtering on the <code>ReleaseDate</code> of an offer set with date range as input.</p>
+   * Allows filtering on the `ReleaseDate` of an offer set with date range as input.
+   *
    * @public
    */
   DateRange?: OfferSetReleaseDateFilterDateRange | undefined;
 }
 
 /**
- * <p>Allows filtering on the <code>SolutionId</code> of an offer set.</p>
+ * Allows filtering on the `SolutionId` of an offer set.
+ *
  * @public
  */
 export interface OfferSetSolutionIdFilter {
   /**
-   * <p>Allows filtering on the <code>SolutionId</code> of an offer set with list input.</p>
+   * Allows filtering on the `SolutionId` of an offer set with list input.
+   *
    * @public
    */
   ValueList?: string[] | undefined;
 }
 
 /**
- * <p>Allows filtering on the <code>State</code> of an offer set.</p>
+ * Allows filtering on the `State` of an offer set.
+ *
  * @public
  */
 export interface OfferSetStateFilter {
   /**
-   * <p>Allows filtering on the <code>State</code> of an offer set with list input.</p>
+   * Allows filtering on the `State` of an offer set with list input.
+   *
    * @public
    */
   ValueList?: OfferSetStateString[] | undefined;
 }
 
 /**
- * <p>Object containing all the filter fields for offer sets entity. Client can add a maximum of 8 filters in a single <code>ListEntities</code> request.</p>
+ * Object containing all the filter fields for offer sets entity. Client can add a maximum of 8 filters in a single `ListEntities` request.
+ *
  * @public
  */
 export interface OfferSetFilters {
   /**
-   * <p>Allows filtering on <code>EntityId</code> of an offer set.</p>
+   * Allows filtering on `EntityId` of an offer set.
+   *
    * @public
    */
   EntityId?: OfferSetEntityIdFilter | undefined;
 
   /**
-   * <p>Allows filtering on the <code>Name</code> of an offer set.</p>
+   * Allows filtering on the `Name` of an offer set.
+   *
    * @public
    */
   Name?: OfferSetNameFilter | undefined;
 
   /**
-   * <p>Allows filtering on the <code>State</code> of an offer set.</p>
+   * Allows filtering on the `State` of an offer set.
+   *
    * @public
    */
   State?: OfferSetStateFilter | undefined;
 
   /**
-   * <p>Allows filtering on the <code>ReleaseDate</code> of an offer set.</p>
+   * Allows filtering on the `ReleaseDate` of an offer set.
+   *
    * @public
    */
   ReleaseDate?: OfferSetReleaseDateFilter | undefined;
 
   /**
-   * <p>Allows filtering on the <code>AssociatedOfferIds</code> of an offer set.</p>
+   * Allows filtering on the `AssociatedOfferIds` of an offer set.
+   *
    * @public
    */
   AssociatedOfferIds?: OfferSetAssociatedOfferIdsFilter | undefined;
 
   /**
-   * <p>Allows filtering on the <code>SolutionId</code> of an offer set.</p>
+   * Allows filtering on the `SolutionId` of an offer set.
+   *
    * @public
    */
   SolutionId?: OfferSetSolutionIdFilter | undefined;
 
   /**
-   * <p>Allows filtering on the <code>LastModifiedDate</code> of an offer set.</p>
+   * Allows filtering on the `LastModifiedDate` of an offer set.
+   *
    * @public
    */
   LastModifiedDate?: OfferSetLastModifiedDateFilter | undefined;
 }
 
 /**
- * <p>Allows filtering on <code>AvailabilityEndDate</code> of a ResaleAuthorization with date range as input.</p>
+ * Allows filtering on `AvailabilityEndDate` of a ResaleAuthorization with date range as input.
+ *
  * @public
  */
 export interface ResaleAuthorizationAvailabilityEndDateFilterDateRange {
   /**
-   * <p>Allows filtering on <code>AvailabilityEndDate</code> of a ResaleAuthorization after a date.</p>
+   * Allows filtering on `AvailabilityEndDate` of a ResaleAuthorization after a date.
+   *
    * @public
    */
   AfterValue?: string | undefined;
 
   /**
-   * <p>Allows filtering on <code>AvailabilityEndDate</code> of a ResaleAuthorization before a date.</p>
+   * Allows filtering on `AvailabilityEndDate` of a ResaleAuthorization before a date.
+   *
    * @public
    */
   BeforeValue?: string | undefined;
 }
 
 /**
- * <p>Allows filtering on <code>AvailabilityEndDate</code> of a ResaleAuthorization.</p>
+ * Allows filtering on `AvailabilityEndDate` of a ResaleAuthorization.
+ *
  * @public
  */
 export interface ResaleAuthorizationAvailabilityEndDateFilter {
   /**
-   * <p>Allows filtering on <code>AvailabilityEndDate</code> of a ResaleAuthorization with date range as input</p>
+   * Allows filtering on `AvailabilityEndDate` of a ResaleAuthorization with date range as input
+   *
    * @public
    */
   DateRange?: ResaleAuthorizationAvailabilityEndDateFilterDateRange | undefined;
 
   /**
-   * <p>Allows filtering on <code>AvailabilityEndDate</code> of a ResaleAuthorization with date value as input.</p>
+   * Allows filtering on `AvailabilityEndDate` of a ResaleAuthorization with date value as input.
+   *
    * @public
    */
   ValueList?: string[] | undefined;
 }
 
 /**
- * <p>Allows filtering on <code>CreatedDate</code> of a ResaleAuthorization with date range as input.</p>
+ * Allows filtering on `CreatedDate` of a ResaleAuthorization with date range as input.
+ *
  * @public
  */
 export interface ResaleAuthorizationCreatedDateFilterDateRange {
   /**
-   * <p>Allows filtering on <code>CreatedDate</code> of a ResaleAuthorization after a date.</p>
+   * Allows filtering on `CreatedDate` of a ResaleAuthorization after a date.
+   *
    * @public
    */
   AfterValue?: string | undefined;
 
   /**
-   * <p>Allows filtering on <code>CreatedDate</code> of a ResaleAuthorization before a date.</p>
+   * Allows filtering on `CreatedDate` of a ResaleAuthorization before a date.
+   *
    * @public
    */
   BeforeValue?: string | undefined;
 }
 
 /**
- * <p>Allows filtering on <code>CreatedDate</code> of a ResaleAuthorization.</p>
+ * Allows filtering on `CreatedDate` of a ResaleAuthorization.
+ *
  * @public
  */
 export interface ResaleAuthorizationCreatedDateFilter {
   /**
-   * <p>Allows filtering on <code>CreatedDate</code> of a ResaleAuthorization with date range as input.</p>
+   * Allows filtering on `CreatedDate` of a ResaleAuthorization with date range as input.
+   *
    * @public
    */
   DateRange?: ResaleAuthorizationCreatedDateFilterDateRange | undefined;
 
   /**
-   * <p>Allows filtering on <code>CreatedDate</code> of a ResaleAuthorization with date value as input.</p>
+   * Allows filtering on `CreatedDate` of a ResaleAuthorization with date value as input.
+   *
    * @public
    */
   ValueList?: string[] | undefined;
 }
 
 /**
- * <p>Allows filtering on <code>EntityId</code> of a ResaleAuthorization.</p>
+ * Allows filtering on `EntityId` of a ResaleAuthorization.
+ *
  * @public
  */
 export interface ResaleAuthorizationEntityIdFilter {
   /**
-   * <p>Allows filtering on <code>EntityId</code> of a ResaleAuthorization with list input.</p>
+   * Allows filtering on `EntityId` of a ResaleAuthorization with list input.
+   *
    * @public
    */
   ValueList?: string[] | undefined;
 }
 
 /**
- * <p>Allows filtering on the <code>IssuerAccountId</code> of a ResaleAuthorization.</p>
+ * Allows filtering on the `IssuerAccountId` of a ResaleAuthorization.
+ *
  * @public
  */
 export interface ResaleAuthorizationIssuerAccountIdFilter {
   /**
-   * <p>Allows filtering on the <code>IssuerAccountId</code> of a ResaleAuthorization with list input.</p>
+   * Allows filtering on the `IssuerAccountId` of a ResaleAuthorization with list input.
+   *
    * @public
    */
   ValueList?: string[] | undefined;
 }
 
 /**
- * <p>Allows filtering on the <code>LastModifiedDate</code> of a ResaleAuthorization with date range as input.</p>
+ * Allows filtering on the `LastModifiedDate` of a ResaleAuthorization with date range as input.
+ *
  * @public
  */
 export interface ResaleAuthorizationLastModifiedDateFilterDateRange {
   /**
-   * <p>Allows filtering on the <code>LastModifiedDate</code> of a ResaleAuthorization after a date.</p>
+   * Allows filtering on the `LastModifiedDate` of a ResaleAuthorization after a date.
+   *
    * @public
    */
   AfterValue?: string | undefined;
 
   /**
-   * <p>Allows filtering on the <code>LastModifiedDate</code> of a ResaleAuthorization before a date.</p>
+   * Allows filtering on the `LastModifiedDate` of a ResaleAuthorization before a date.
+   *
    * @public
    */
   BeforeValue?: string | undefined;
 }
 
 /**
- * <p>Allows filtering on the <code>LastModifiedDate</code> of a ResaleAuthorization.</p>
+ * Allows filtering on the `LastModifiedDate` of a ResaleAuthorization.
+ *
  * @public
  */
 export interface ResaleAuthorizationLastModifiedDateFilter {
   /**
-   * <p>Allows filtering on the <code>LastModifiedDate</code> of a ResaleAuthorization with date range as input.</p>
+   * Allows filtering on the `LastModifiedDate` of a ResaleAuthorization with date range as input.
+   *
    * @public
    */
   DateRange?: ResaleAuthorizationLastModifiedDateFilterDateRange | undefined;
 }
 
 /**
- * <p>Allows filtering on the <code>ManufacturerAccountId</code> of a ResaleAuthorization.</p>
+ * Allows filtering on the `ManufacturerAccountId` of a ResaleAuthorization.
+ *
  * @public
  */
 export interface ResaleAuthorizationManufacturerAccountIdFilter {
   /**
-   * <p>Allows filtering on the <code>ManufacturerAccountId</code> of a ResaleAuthorization with list input.</p>
+   * Allows filtering on the `ManufacturerAccountId` of a ResaleAuthorization with list input.
+   *
    * @public
    */
   ValueList?: string[] | undefined;
 
   /**
-   * <p>Allows filtering on the <code>ManufacturerAccountId</code> of a ResaleAuthorization with wild card input.</p>
+   * Allows filtering on the `ManufacturerAccountId` of a ResaleAuthorization with wild card input.
+   *
    * @public
    */
   WildCardValue?: string | undefined;
 }
 
 /**
- * <p>Allows filtering on the <code>ManufacturerLegalName</code> of a ResaleAuthorization.</p>
+ * Allows filtering on the `ManufacturerLegalName` of a ResaleAuthorization.
+ *
  * @public
  */
 export interface ResaleAuthorizationManufacturerLegalNameFilter {
   /**
-   * <p>Allows filtering on the <code>ManufacturerLegalName</code> of a ResaleAuthorization with list input.</p>
+   * Allows filtering on the `ManufacturerLegalName` of a ResaleAuthorization with list input.
+   *
    * @public
    */
   ValueList?: string[] | undefined;
 
   /**
-   * <p>Allows filtering on the <code>ManufacturerLegalName</code> of a ResaleAuthorization with wild card input.</p>
+   * Allows filtering on the `ManufacturerLegalName` of a ResaleAuthorization with wild card input.
+   *
    * @public
    */
   WildCardValue?: string | undefined;
 }
 
 /**
- * <p>Allows filtering on the <code>Name</code> of a ResaleAuthorization.</p>
+ * Allows filtering on the `Name` of a ResaleAuthorization.
+ *
  * @public
  */
 export interface ResaleAuthorizationNameFilter {
   /**
-   * <p>Allows filtering on the <code>Name</code> of a ResaleAuthorization with list input.</p>
+   * Allows filtering on the `Name` of a ResaleAuthorization with list input.
+   *
    * @public
    */
   ValueList?: string[] | undefined;
 
   /**
-   * <p>Allows filtering on the <code>Name</code> of a ResaleAuthorization with wild card input.</p>
+   * Allows filtering on the `Name` of a ResaleAuthorization with wild card input.
+   *
    * @public
    */
   WildCardValue?: string | undefined;
 }
 
 /**
- * <p>Allows filtering on the <code>OfferExtendedStatus</code> of a ResaleAuthorization.</p>
+ * Allows filtering on the `OfferExtendedStatus` of a ResaleAuthorization.
+ *
  * @public
  */
 export interface ResaleAuthorizationOfferExtendedStatusFilter {
   /**
-   * <p>Allows filtering on the <code>OfferExtendedStatus</code> of a ResaleAuthorization with list input.</p>
+   * Allows filtering on the `OfferExtendedStatus` of a ResaleAuthorization with list input.
+   *
    * @public
    */
   ValueList?: string[] | undefined;
 }
 
 /**
- * <p>Allows filtering on the <code>ProductId</code> of a ResaleAuthorization.</p>
+ * Allows filtering on the `ProductId` of a ResaleAuthorization.
+ *
  * @public
  */
 export interface ResaleAuthorizationProductIdFilter {
   /**
-   * <p>Allows filtering on the <code>ProductId</code> of a ResaleAuthorization with list input.</p>
+   * Allows filtering on the `ProductId` of a ResaleAuthorization with list input.
+   *
    * @public
    */
   ValueList?: string[] | undefined;
 
   /**
-   * <p>Allows filtering on the <code>ProductId</code> of a ResaleAuthorization with wild card input.</p>
+   * Allows filtering on the `ProductId` of a ResaleAuthorization with wild card input.
+   *
    * @public
    */
   WildCardValue?: string | undefined;
 }
 
 /**
- * <p>Allows filtering on the <code>ProductName</code> of a ResaleAuthorization.</p>
+ * Allows filtering on the `ProductName` of a ResaleAuthorization.
+ *
  * @public
  */
 export interface ResaleAuthorizationProductNameFilter {
   /**
-   * <p>Allows filtering on the <code>ProductName</code> of a ResaleAuthorization with list input.</p>
+   * Allows filtering on the `ProductName` of a ResaleAuthorization with list input.
+   *
    * @public
    */
   ValueList?: string[] | undefined;
 
   /**
-   * <p>Allows filtering on the <code>ProductName</code> of a ResaleAuthorization with wild card input.</p>
+   * Allows filtering on the `ProductName` of a ResaleAuthorization with wild card input.
+   *
    * @public
    */
   WildCardValue?: string | undefined;
 }
 
 /**
- * <p>Allows filtering on the <code>ResellerAccountID</code> of a ResaleAuthorization.</p>
+ * Allows filtering on the `ResellerAccountID` of a ResaleAuthorization.
+ *
  * @public
  */
 export interface ResaleAuthorizationResellerAccountIDFilter {
   /**
-   * <p>Allows filtering on the <code>ResellerAccountID</code> of a ResaleAuthorization with list input.</p>
+   * Allows filtering on the `ResellerAccountID` of a ResaleAuthorization with list input.
+   *
    * @public
    */
   ValueList?: string[] | undefined;
 
   /**
-   * <p>Allows filtering on the <code>ResellerAccountID</code> of a ResaleAuthorization with wild card input.</p>
+   * Allows filtering on the `ResellerAccountID` of a ResaleAuthorization with wild card input.
+   *
    * @public
    */
   WildCardValue?: string | undefined;
 }
 
 /**
- * <p>Allows filtering on the ResellerLegalName of a ResaleAuthorization.</p>
+ * Allows filtering on the ResellerLegalName of a ResaleAuthorization.
+ *
  * @public
  */
 export interface ResaleAuthorizationResellerLegalNameFilter {
   /**
-   * <p>Allows filtering on the ResellerLegalNameProductName of a ResaleAuthorization with list input.</p>
+   * Allows filtering on the ResellerLegalNameProductName of a ResaleAuthorization with list input.
+   *
    * @public
    */
   ValueList?: string[] | undefined;
 
   /**
-   * <p>Allows filtering on the ResellerLegalName of a ResaleAuthorization with wild card input.</p>
+   * Allows filtering on the ResellerLegalName of a ResaleAuthorization with wild card input.
+   *
    * @public
    */
   WildCardValue?: string | undefined;
 }
 
 /**
- * <p>Allows filtering on the <code>ResellerRole</code> of a ResaleAuthorization.</p>
+ * Allows filtering on the `ResellerRole` of a ResaleAuthorization.
+ *
  * @public
  */
 export interface ResaleAuthorizationResellerRoleFilter {
   /**
-   * <p>Allows filtering on the <code>ResellerRole</code> of a ResaleAuthorization with list input.</p>
+   * Allows filtering on the `ResellerRole` of a ResaleAuthorization with list input.
+   *
    * @public
    */
   ValueList?: ResaleAuthorizationResellerRoleString[] | undefined;
 }
 
 /**
- * <p>Allows filtering on the <code>SourceAuthorization</code> of a ResaleAuthorization.</p>
+ * Allows filtering on the `SourceAuthorization` of a ResaleAuthorization.
+ *
  * @public
  */
 export interface ResaleAuthorizationSourceAuthorizationFilter {
   /**
-   * <p>Allows filtering on the <code>SourceAuthorization</code> of a ResaleAuthorization with list input.</p>
+   * Allows filtering on the `SourceAuthorization` of a ResaleAuthorization with list input.
+   *
    * @public
    */
   ValueList?: string[] | undefined;
 }
 
 /**
- * <p>Allows filtering on the <code>Status</code> of a ResaleAuthorization.</p>
+ * Allows filtering on the `Status` of a ResaleAuthorization.
+ *
  * @public
  */
 export interface ResaleAuthorizationStatusFilter {
   /**
-   * <p>Allows filtering on the <code>Status</code> of a ResaleAuthorization with list input.</p>
+   * Allows filtering on the `Status` of a ResaleAuthorization with list input.
+   *
    * @public
    */
   ValueList?: ResaleAuthorizationStatusString[] | undefined;
 }
 
 /**
- * <p>Object containing all the filter fields for resale authorization entity. Client can add only one wildcard filter and a maximum of 8 filters in a single <code>ListEntities</code> request.</p>
+ * Object containing all the filter fields for resale authorization entity. Client can add only one wildcard filter and a maximum of 8 filters in a single `ListEntities` request.
+ *
  * @public
  */
 export interface ResaleAuthorizationFilters {
   /**
-   * <p>Allows filtering on the <code>EntityId</code> of a ResaleAuthorization.</p>
+   * Allows filtering on the `EntityId` of a ResaleAuthorization.
+   *
    * @public
    */
   EntityId?: ResaleAuthorizationEntityIdFilter | undefined;
 
   /**
-   * <p>Allows filtering on the <code>Name</code> of a ResaleAuthorization.</p>
+   * Allows filtering on the `Name` of a ResaleAuthorization.
+   *
    * @public
    */
   Name?: ResaleAuthorizationNameFilter | undefined;
 
   /**
-   * <p>Allows filtering on the <code>ProductId</code> of a ResaleAuthorization.</p>
+   * Allows filtering on the `ProductId` of a ResaleAuthorization.
+   *
    * @public
    */
   ProductId?: ResaleAuthorizationProductIdFilter | undefined;
 
   /**
-   * <p>Allows filtering on the <code>CreatedDate</code> of a ResaleAuthorization.</p>
+   * Allows filtering on the `CreatedDate` of a ResaleAuthorization.
+   *
    * @public
    */
   CreatedDate?: ResaleAuthorizationCreatedDateFilter | undefined;
 
   /**
-   * <p>Allows filtering on the <code>AvailabilityEndDate</code> of a ResaleAuthorization.</p>
+   * Allows filtering on the `AvailabilityEndDate` of a ResaleAuthorization.
+   *
    * @public
    */
   AvailabilityEndDate?: ResaleAuthorizationAvailabilityEndDateFilter | undefined;
 
   /**
-   * <p>Allows filtering on the <code>ManufacturerAccountId</code> of a ResaleAuthorization.</p>
+   * Allows filtering on the `ManufacturerAccountId` of a ResaleAuthorization.
+   *
    * @public
    */
   ManufacturerAccountId?: ResaleAuthorizationManufacturerAccountIdFilter | undefined;
 
   /**
-   * <p>Allows filtering on the <code>ProductName</code> of a ResaleAuthorization.</p>
+   * Allows filtering on the `ProductName` of a ResaleAuthorization.
+   *
    * @public
    */
   ProductName?: ResaleAuthorizationProductNameFilter | undefined;
 
   /**
-   * <p>Allows filtering on the <code>ManufacturerLegalName</code> of a ResaleAuthorization.</p>
+   * Allows filtering on the `ManufacturerLegalName` of a ResaleAuthorization.
+   *
    * @public
    */
   ManufacturerLegalName?: ResaleAuthorizationManufacturerLegalNameFilter | undefined;
 
   /**
-   * <p>Allows filtering on the <code>ResellerAccountID</code> of a ResaleAuthorization.</p>
+   * Allows filtering on the `ResellerAccountID` of a ResaleAuthorization.
+   *
    * @public
    */
   ResellerAccountID?: ResaleAuthorizationResellerAccountIDFilter | undefined;
 
   /**
-   * <p>Allows filtering on the <code>ResellerLegalName</code> of a ResaleAuthorization.</p>
+   * Allows filtering on the `ResellerLegalName` of a ResaleAuthorization.
+   *
    * @public
    */
   ResellerLegalName?: ResaleAuthorizationResellerLegalNameFilter | undefined;
 
   /**
-   * <p>Allows filtering on the <code>Status</code> of a ResaleAuthorization.</p>
+   * Allows filtering on the `Status` of a ResaleAuthorization.
+   *
    * @public
    */
   Status?: ResaleAuthorizationStatusFilter | undefined;
 
   /**
-   * <p>Allows filtering on the <code>OfferExtendedStatus</code> of a ResaleAuthorization.</p>
+   * Allows filtering on the `OfferExtendedStatus` of a ResaleAuthorization.
+   *
    * @public
    */
   OfferExtendedStatus?: ResaleAuthorizationOfferExtendedStatusFilter | undefined;
 
   /**
-   * <p>Allows filtering on the <code>LastModifiedDate</code> of a ResaleAuthorization.</p>
+   * Allows filtering on the `LastModifiedDate` of a ResaleAuthorization.
+   *
    * @public
    */
   LastModifiedDate?: ResaleAuthorizationLastModifiedDateFilter | undefined;
 
   /**
-   * <p>Allows filtering on the <code>ResellerRole</code> of a ResaleAuthorization.</p>
+   * Allows filtering on the `ResellerRole` of a ResaleAuthorization.
+   *
    * @public
    */
   ResellerRole?: ResaleAuthorizationResellerRoleFilter | undefined;
 
   /**
-   * <p>Allows filtering on the <code>SourceAuthorization</code> of a ResaleAuthorization.</p>
+   * Allows filtering on the `SourceAuthorization` of a ResaleAuthorization.
+   *
    * @public
    */
   SourceAuthorization?: ResaleAuthorizationSourceAuthorizationFilter | undefined;
 
   /**
-   * <p>Allows filtering on the <code>IssuerAccountId</code> of a ResaleAuthorization.</p>
+   * Allows filtering on the `IssuerAccountId` of a ResaleAuthorization.
+   *
    * @public
    */
   IssuerAccountId?: ResaleAuthorizationIssuerAccountIdFilter | undefined;
 }
 
 /**
- * <p>Object that allows filtering on entity id of a SaaS product.</p>
+ * Object that allows filtering on entity id of a SaaS product.
+ *
  * @public
  */
 export interface SaaSProductEntityIdFilter {
   /**
-   * <p>A string array of unique entity id values to be filtered on.</p>
+   * A string array of unique entity id values to be filtered on.
+   *
    * @public
    */
   ValueList?: string[] | undefined;
 }
 
 /**
- * <p>Object that contains date range of the last modified date to be filtered on. You can optionally provide a <code>BeforeValue</code> and/or <code>AfterValue</code>. Both are inclusive.</p>
+ * Object that contains date range of the last modified date to be filtered on. You can optionally provide a `BeforeValue` and/or `AfterValue`. Both are inclusive.
+ *
  * @public
  */
 export interface SaaSProductLastModifiedDateFilterDateRange {
   /**
-   * <p>Date after which the SaaS product was last modified.</p>
+   * Date after which the SaaS product was last modified.
+   *
    * @public
    */
   AfterValue?: string | undefined;
 
   /**
-   * <p>Date before which the SaaS product was last modified.</p>
+   * Date before which the SaaS product was last modified.
+   *
    * @public
    */
   BeforeValue?: string | undefined;
 }
 
 /**
- * <p>Object that allows filtering based on the last modified date of SaaS products</p>
+ * Object that allows filtering based on the last modified date of SaaS products
+ *
  * @public
  */
 export interface SaaSProductLastModifiedDateFilter {
   /**
-   * <p>Dates between which the SaaS product was last modified.</p>
+   * Dates between which the SaaS product was last modified.
+   *
    * @public
    */
   DateRange?: SaaSProductLastModifiedDateFilterDateRange | undefined;
 }
 
 /**
- * <p>Object that allows filtering on product title.</p>
+ * Object that allows filtering on product title.
+ *
  * @public
  */
 export interface SaaSProductTitleFilter {
   /**
-   * <p>A string array of unique product title values to be filtered on.</p>
+   * A string array of unique product title values to be filtered on.
+   *
    * @public
    */
   ValueList?: string[] | undefined;
 
   /**
-   * <p>A string that will be the <code>wildCard</code> input for product tile filter. It matches the provided value as a substring in the actual value.</p>
+   * A string that will be the `wildCard` input for product tile filter. It matches the provided value as a substring in the actual value.
+   *
    * @public
    */
   WildCardValue?: string | undefined;
 }
 
 /**
- * <p>Object that allows filtering on the visibility of the product in the AWS Marketplace.</p>
+ * Object that allows filtering on the visibility of the product in the AWS Marketplace.
+ *
  * @public
  */
 export interface SaaSProductVisibilityFilter {
   /**
-   * <p>A string array of unique visibility values to be filtered on.</p>
+   * A string array of unique visibility values to be filtered on.
+   *
    * @public
    */
   ValueList?: SaaSProductVisibilityString[] | undefined;
 }
 
 /**
- * <p>Object containing all the filter fields for SaaS products. Client can add only one wildcard filter and a maximum of 8 filters in a single <code>ListEntities</code> request.</p>
+ * Object containing all the filter fields for SaaS products. Client can add only one wildcard filter and a maximum of 8 filters in a single `ListEntities` request.
+ *
  * @public
  */
 export interface SaaSProductFilters {
   /**
-   * <p>Unique identifier for the SaaS product.</p>
+   * Unique identifier for the SaaS product.
+   *
    * @public
    */
   EntityId?: SaaSProductEntityIdFilter | undefined;
 
   /**
-   * <p>The title of the SaaS product.</p>
+   * The title of the SaaS product.
+   *
    * @public
    */
   ProductTitle?: SaaSProductTitleFilter | undefined;
 
   /**
-   * <p>The visibility of the SaaS product.</p>
+   * The visibility of the SaaS product.
+   *
    * @public
    */
   Visibility?: SaaSProductVisibilityFilter | undefined;
 
   /**
-   * <p>The last date on which the SaaS product was modified.</p>
+   * The last date on which the SaaS product was modified.
+   *
    * @public
    */
   LastModifiedDate?: SaaSProductLastModifiedDateFilter | undefined;
 }
 
 /**
- * <p>A date range for filtering subsidiary authorizations by creation date.</p>
+ * A date range for filtering subsidiary authorizations by creation date.
+ *
  * @public
  */
 export interface SubsidiaryAuthorizationCreatedDateFilterDateRange {
   /**
-   * <p>The start date (inclusive) of the date range. The operation returns subsidiary authorizations
-   *             created on or after this date.</p>
+   * The start date (inclusive) of the date range. The operation returns subsidiary authorizations created on or after this date.
+   *
    * @public
    */
   AfterValue?: string | undefined;
 
   /**
-   * <p>The end date (inclusive) of the date range. The operation returns subsidiary authorizations
-   *             created on or before this date.</p>
+   * The end date (inclusive) of the date range. The operation returns subsidiary authorizations created on or before this date.
+   *
    * @public
    */
   BeforeValue?: string | undefined;
 }
 
 /**
- * <p>The filter for the date a subsidiary authorization was created.</p>
+ * The filter for the date a subsidiary authorization was created.
+ *
  * @public
  */
 export interface SubsidiaryAuthorizationCreatedDateFilter {
   /**
-   * <p>A date range to filter by. The operation returns subsidiary authorizations with creation dates
-   *             that fall within this range.</p>
+   * A date range to filter by. The operation returns subsidiary authorizations with creation dates that fall within this range.
+   *
    * @public
    */
   DateRange?: SubsidiaryAuthorizationCreatedDateFilterDateRange | undefined;
 }
 
 /**
- * <p>The filter for subsidiary authorization entity IDs. Each ID begins with <code>subauthz-</code>
- *             followed by 13 alphanumeric characters.</p>
+ * The filter for subsidiary authorization entity IDs. Each ID begins with `subauthz-` followed by 13 alphanumeric characters.
+ *
  * @public
  */
 export interface SubsidiaryAuthorizationEntityIdFilter {
   /**
-   * <p>A list of entity IDs to filter by. The operation returns subsidiary authorizations with an
-   *             entity ID that matches any value in this list. You can include up to 10 entity IDs in
-   *             this list.</p>
+   * A list of entity IDs to filter by. The operation returns subsidiary authorizations with an entity ID that matches any value in this list. You can include up to 10 entity IDs in this list.
+   *
    * @public
    */
   ValueList?: string[] | undefined;
 }
 
 /**
- * <p>A date range for filtering subsidiary authorizations by last modified date.</p>
+ * A date range for filtering subsidiary authorizations by last modified date.
+ *
  * @public
  */
 export interface SubsidiaryAuthorizationLastModifiedDateFilterDateRange {
   /**
-   * <p>The start date (inclusive) of the date range. The operation returns subsidiary authorizations
-   *             last modified on or after this date.</p>
+   * The start date (inclusive) of the date range. The operation returns subsidiary authorizations last modified on or after this date.
+   *
    * @public
    */
   AfterValue?: string | undefined;
 
   /**
-   * <p>The end date (inclusive) of the date range. The operation returns subsidiary authorizations
-   *             last modified on or before this date.</p>
+   * The end date (inclusive) of the date range. The operation returns subsidiary authorizations last modified on or before this date.
+   *
    * @public
    */
   BeforeValue?: string | undefined;
 }
 
 /**
- * <p>The filter for the date a subsidiary authorization was last modified.</p>
+ * The filter for the date a subsidiary authorization was last modified.
+ *
  * @public
  */
 export interface SubsidiaryAuthorizationLastModifiedDateFilter {
   /**
-   * <p>A date range to filter by. The operation returns subsidiary authorizations with last modified
-   *             dates that fall within this range.</p>
+   * A date range to filter by. The operation returns subsidiary authorizations with last modified dates that fall within this range.
+   *
    * @public
    */
   DateRange?: SubsidiaryAuthorizationLastModifiedDateFilterDateRange | undefined;
 }
 
 /**
- * <p>The filter for subsidiary authorization names.</p>
+ * The filter for subsidiary authorization names.
+ *
  * @public
  */
 export interface SubsidiaryAuthorizationNameFilter {
   /**
-   * <p>A list of names to filter by. The operation returns subsidiary authorizations with a name that
-   *             matches any value in this list. You can include up to 10 names in this list.</p>
+   * A list of names to filter by. The operation returns subsidiary authorizations with a name that matches any value in this list. You can include up to 10 names in this list.
+   *
    * @public
    */
   ValueList?: string[] | undefined;
 
   /**
-   * <p>A partial name to filter by. The operation returns subsidiary authorizations whose
-   *             name contains this value. The value must be at least 3 characters.</p>
+   * A partial name to filter by. The operation returns subsidiary authorizations whose name contains this value. The value must be at least 3 characters.
+   *
    * @public
    */
   WildCardValue?: string | undefined;
 }
 
 /**
- * <p>The filter for the IDs of resources that subsidiary authorizations apply to.</p>
+ * The filter for the IDs of resources that subsidiary authorizations apply to.
+ *
  * @public
  */
 export interface SubsidiaryAuthorizationResourceIdFilter {
   /**
-   * <p>A list of resource IDs to filter by. The operation returns subsidiary authorizations for
-   *             resources with an ID that matches any value in this list. You can include up to 10
-   *             resource IDs in this list.</p>
+   * A list of resource IDs to filter by. The operation returns subsidiary authorizations for resources with an ID that matches any value in this list. You can include up to 10 resource IDs in this list.
+   *
    * @public
    */
   ValueList?: string[] | undefined;
 }
 
 /**
- * <p>The filter for the names of resources that subsidiary authorizations apply to.</p>
+ * The filter for the names of resources that subsidiary authorizations apply to.
+ *
  * @public
  */
 export interface SubsidiaryAuthorizationResourceNameFilter {
   /**
-   * <p>A list of resource names to filter by. The operation returns subsidiary authorizations for
-   *             resources with a name that matches any value in this list. You can include up to 10
-   *             resource names in this list.</p>
+   * A list of resource names to filter by. The operation returns subsidiary authorizations for resources with a name that matches any value in this list. You can include up to 10 resource names in this list.
+   *
    * @public
    */
   ValueList?: string[] | undefined;
 
   /**
-   * <p>A partial resource name to filter by. The operation returns subsidiary authorizations
-   *             for resources whose name contains this value. The value must be at least 3
-   *             characters.</p>
+   * A partial resource name to filter by. The operation returns subsidiary authorizations for resources whose name contains this value. The value must be at least 3 characters.
+   *
    * @public
    */
   WildCardValue?: string | undefined;
 }
 
 /**
- * <p>The filter for subsidiary authorization statuses.</p>
+ * The filter for subsidiary authorization statuses.
+ *
  * @public
  */
 export interface SubsidiaryAuthorizationStatusFilter {
   /**
-   * <p>A list of statuses to filter by. The operation returns subsidiary authorizations with a status
-   *     that matches a value in this list. Valid values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Draft</code> - The subsidiary authorization was created but not yet released.
-   *                     The subsidiary account can't see it.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Active</code> - The subsidiary account can use the subsidiary authorization to
-   *                     create offers for the authorized product.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Restricted</code> - The subsidiary authorization was discarded while in
-   *                     <code>Draft</code> or revoked while <code>Active</code>. It can't be used to create new
-   *                     offers. This status is final.</p>
-   *             </li>
-   *          </ul>
+   * A list of statuses to filter by. The operation returns subsidiary authorizations with a status that matches a value in this list. Valid values are:
+   *
+   * - `Draft` - The subsidiary authorization was created but not yet released. The subsidiary account can't see it.
+   * - `Active` - The subsidiary account can use the subsidiary authorization to create offers for the authorized product.
+   * - `Restricted` - The subsidiary authorization was discarded while in `Draft` or revoked while `Active`. It can't be used to create new offers. This status is final.
+   *
    * @public
    */
   ValueList?: SubsidiaryAuthorizationStatusString[] | undefined;
 }
 
 /**
- * <p>The filter for the AWS account IDs of subsidiary accounts.</p>
+ * The filter for the AWS account IDs of subsidiary accounts.
+ *
  * @public
  */
 export interface SubsidiaryAuthorizationSubsidiaryAccountIdFilter {
   /**
-   * <p>A list of AWS account IDs to filter by. The operation returns subsidiary authorizations whose
-   *             subsidiary account ID matches any value in this list. You can include up to 10 account
-   *             IDs in this list.</p>
+   * A list of AWS account IDs to filter by. The operation returns subsidiary authorizations whose subsidiary account ID matches any value in this list. You can include up to 10 account IDs in this list.
+   *
    * @public
    */
   ValueList?: string[] | undefined;
 }
 
 /**
- * <p>The filters that you can use with the <code>ListEntities</code> operation to filter subsidiary
- *             authorizations. You can filter by <code>EntityId</code>, <code>Status</code>,
- *             <code>ResourceId</code>, <code>ResourceName</code>, <code>Name</code>,
- *             <code>SubsidiaryAccountId</code>, <code>CreatedDate</code>, and
- *             <code>LastModifiedDate</code>. You can add only one wildcard filter in a single
- *             <code>ListEntities</code> request.</p>
+ * The filters that you can use with the `ListEntities` operation to filter subsidiary authorizations. You can filter by `EntityId`, `Status`, `ResourceId`, `ResourceName`, `Name`, `SubsidiaryAccountId`, `CreatedDate`, and `LastModifiedDate`. You can add only one wildcard filter in a single `ListEntities` request.
+ *
  * @public
  */
 export interface SubsidiaryAuthorizationFilters {
   /**
-   * <p>A filter that matches subsidiary authorizations by entity ID.</p>
+   * A filter that matches subsidiary authorizations by entity ID.
+   *
    * @public
    */
   EntityId?: SubsidiaryAuthorizationEntityIdFilter | undefined;
 
   /**
-   * <p>A filter that matches subsidiary authorizations by status.</p>
+   * A filter that matches subsidiary authorizations by status.
+   *
    * @public
    */
   Status?: SubsidiaryAuthorizationStatusFilter | undefined;
 
   /**
-   * <p>A filter that matches subsidiary authorizations by the ID of the authorized resource.</p>
+   * A filter that matches subsidiary authorizations by the ID of the authorized resource.
+   *
    * @public
    */
   ResourceId?: SubsidiaryAuthorizationResourceIdFilter | undefined;
 
   /**
-   * <p>A filter that matches subsidiary authorizations by the name of the authorized resource.</p>
+   * A filter that matches subsidiary authorizations by the name of the authorized resource.
+   *
    * @public
    */
   ResourceName?: SubsidiaryAuthorizationResourceNameFilter | undefined;
 
   /**
-   * <p>A filter that matches subsidiary authorizations by name.</p>
+   * A filter that matches subsidiary authorizations by name.
+   *
    * @public
    */
   Name?: SubsidiaryAuthorizationNameFilter | undefined;
 
   /**
-   * <p>A filter that matches subsidiary authorizations by the AWS account ID of the subsidiary
-   *             account.</p>
+   * A filter that matches subsidiary authorizations by the AWS account ID of the subsidiary account.
+   *
    * @public
    */
   SubsidiaryAccountId?: SubsidiaryAuthorizationSubsidiaryAccountIdFilter | undefined;
 
   /**
-   * <p>A filter that matches subsidiary authorizations by creation date.</p>
+   * A filter that matches subsidiary authorizations by creation date.
+   *
    * @public
    */
   CreatedDate?: SubsidiaryAuthorizationCreatedDateFilter | undefined;
 
   /**
-   * <p>A filter that matches subsidiary authorizations by last modified date.</p>
+   * A filter that matches subsidiary authorizations by last modified date.
+   *
    * @public
    */
   LastModifiedDate?: SubsidiaryAuthorizationLastModifiedDateFilter | undefined;
 }
 
 /**
- * <p>Object containing all the filter fields per entity type.</p>
+ * Object containing all the filter fields per entity type.
+ *
  * @public
  */
 export type EntityTypeFilters =
@@ -2993,7 +3244,8 @@ export type EntityTypeFilters =
  */
 export namespace EntityTypeFilters {
   /**
-   * <p>A filter for data products.</p>
+   * A filter for data products.
+   *
    * @public
    */
   export interface DataProductFiltersMember {
@@ -3011,7 +3263,8 @@ export namespace EntityTypeFilters {
   }
 
   /**
-   * <p>A filter for SaaS products.</p>
+   * A filter for SaaS products.
+   *
    * @public
    */
   export interface SaaSProductFiltersMember {
@@ -3029,7 +3282,8 @@ export namespace EntityTypeFilters {
   }
 
   /**
-   * <p>A filter for AMI products.</p>
+   * A filter for AMI products.
+   *
    * @public
    */
   export interface AmiProductFiltersMember {
@@ -3047,7 +3301,8 @@ export namespace EntityTypeFilters {
   }
 
   /**
-   * <p>A filter for offers.</p>
+   * A filter for offers.
+   *
    * @public
    */
   export interface OfferFiltersMember {
@@ -3065,7 +3320,8 @@ export namespace EntityTypeFilters {
   }
 
   /**
-   * <p>A filter for container products.</p>
+   * A filter for container products.
+   *
    * @public
    */
   export interface ContainerProductFiltersMember {
@@ -3083,7 +3339,8 @@ export namespace EntityTypeFilters {
   }
 
   /**
-   * <p>A filter for Resale Authorizations.</p>
+   * A filter for Resale Authorizations.
+   *
    * @public
    */
   export interface ResaleAuthorizationFiltersMember {
@@ -3101,8 +3358,8 @@ export namespace EntityTypeFilters {
   }
 
   /**
-   * <p>The filters that you can use with the ListEntities operation to filter machine learning products.
-   *             You can filter by <code>EntityId</code>, <code>astModifiedDate</code>, <code>ProductTitle</code>, and <code>Visibility</code>.</p>
+   * The filters that you can use with the ListEntities operation to filter machine learning products. You can filter by `EntityId`, `astModifiedDate`, `ProductTitle`, and `Visibility`.
+   *
    * @public
    */
   export interface MachineLearningProductFiltersMember {
@@ -3120,7 +3377,8 @@ export namespace EntityTypeFilters {
   }
 
   /**
-   * <p>A filter for offer sets.</p>
+   * A filter for offer sets.
+   *
    * @public
    */
   export interface OfferSetFiltersMember {
@@ -3138,7 +3396,8 @@ export namespace EntityTypeFilters {
   }
 
   /**
-   * <p>A filter for express private offer configurations.</p>
+   * A filter for express private offer configurations.
+   *
    * @public
    */
   export interface ExpressPrivateOfferConfigurationFiltersMember {
@@ -3156,7 +3415,8 @@ export namespace EntityTypeFilters {
   }
 
   /**
-   * <p>A filter for subsidiary authorizations.</p>
+   * A filter for subsidiary authorizations.
+   *
    * @public
    */
   export interface SubsidiaryAuthorizationFiltersMember {
@@ -3210,173 +3470,197 @@ export namespace EntityTypeFilters {
 }
 
 /**
- * <p>Objects that allows sorting on container products based on certain fields and sorting order.</p>
+ * Objects that allows sorting on container products based on certain fields and sorting order.
+ *
  * @public
  */
 export interface ContainerProductSort {
   /**
-   * <p>Field to sort the container products by.</p>
+   * Field to sort the container products by.
+   *
    * @public
    */
   SortBy?: ContainerProductSortBy | undefined;
 
   /**
-   * <p>The sorting order. Can be <code>ASCENDING</code> or <code>DESCENDING</code>. The default value is <code>DESCENDING</code>.</p>
+   * The sorting order. Can be `ASCENDING` or `DESCENDING`. The default value is `DESCENDING`.
+   *
    * @public
    */
   SortOrder?: SortOrder | undefined;
 }
 
 /**
- * <p>Objects that allows sorting on data products based on certain fields and sorting order.</p>
+ * Objects that allows sorting on data products based on certain fields and sorting order.
+ *
  * @public
  */
 export interface DataProductSort {
   /**
-   * <p>Field to sort the data products by.</p>
+   * Field to sort the data products by.
+   *
    * @public
    */
   SortBy?: DataProductSortBy | undefined;
 
   /**
-   * <p>The sorting order. Can be <code>ASCENDING</code> or <code>DESCENDING</code>. The default value is <code>DESCENDING</code>.</p>
+   * The sorting order. Can be `ASCENDING` or `DESCENDING`. The default value is `DESCENDING`.
+   *
    * @public
    */
   SortOrder?: SortOrder | undefined;
 }
 
 /**
- * <p>The sort fields for express private offer configurations.</p>
+ * The sort fields for express private offer configurations.
+ *
  * @public
  */
 export interface ExpressPrivateOfferConfigurationSort {
   /**
-   * <p>The field to sort by. Valid values are <code>EntityId</code>, <code>LastModifiedDate</code>, <code>ProductId</code>, and <code>State</code>.</p>
+   * The field to sort by. Valid values are `EntityId`, `LastModifiedDate`, `ProductId`, and `State`.
+   *
    * @public
    */
   SortBy?: ExpressPrivateOfferConfigurationSortBy | undefined;
 
   /**
-   * <p>The sorting order. Valid values are <code>ASCENDING</code> and <code>DESCENDING</code>.</p>
+   * The sorting order. Valid values are `ASCENDING` and `DESCENDING`.
+   *
    * @public
    */
   SortOrder?: SortOrder | undefined;
 }
 
 /**
- * <p>The sort options for machine learning products.</p>
+ * The sort options for machine learning products.
+ *
  * @public
  */
 export interface MachineLearningProductSort {
   /**
-   * <p>The field to sort by. Valid values: <code>EntityId</code>, <code>LastModifiedDate</code>, <code>ProductTitle</code>, and <code>Visibility</code>.</p>
+   * The field to sort by. Valid values: `EntityId`, `LastModifiedDate`, `ProductTitle`, and `Visibility`.
+   *
    * @public
    */
   SortBy?: MachineLearningProductSortBy | undefined;
 
   /**
-   * <p>The sort order. Valid values are <code>ASC</code> (ascending) and <code>DESC</code> (descending).</p>
+   * The sort order. Valid values are `ASC` (ascending) and `DESC` (descending).
+   *
    * @public
    */
   SortOrder?: SortOrder | undefined;
 }
 
 /**
- * <p>Allows to sort offer sets.</p>
+ * Allows to sort offer sets.
+ *
  * @public
  */
 export interface OfferSetSort {
   /**
-   * <p>Allows to sort offer sets.</p>
+   * Allows to sort offer sets.
+   *
    * @public
    */
   SortBy?: OfferSetSortBy | undefined;
 
   /**
-   * <p>Allows to sort offer sets.</p>
+   * Allows to sort offer sets.
+   *
    * @public
    */
   SortOrder?: SortOrder | undefined;
 }
 
 /**
- * <p>Allows to sort offers.</p>
+ * Allows to sort offers.
+ *
  * @public
  */
 export interface OfferSort {
   /**
-   * <p>Allows to sort offers.</p>
+   * Allows to sort offers.
+   *
    * @public
    */
   SortBy?: OfferSortBy | undefined;
 
   /**
-   * <p>Allows to sort offers.</p>
+   * Allows to sort offers.
+   *
    * @public
    */
   SortOrder?: SortOrder | undefined;
 }
 
 /**
- * <p>Allows to sort ResaleAuthorization.</p>
+ * Allows to sort ResaleAuthorization.
+ *
  * @public
  */
 export interface ResaleAuthorizationSort {
   /**
-   * <p>Allows to sort ResaleAuthorization.</p>
+   * Allows to sort ResaleAuthorization.
+   *
    * @public
    */
   SortBy?: ResaleAuthorizationSortBy | undefined;
 
   /**
-   * <p>Allows to sort ResaleAuthorization.</p>
+   * Allows to sort ResaleAuthorization.
+   *
    * @public
    */
   SortOrder?: SortOrder | undefined;
 }
 
 /**
- * <p>Objects that allows sorting on SaaS products based on certain fields and sorting order.</p>
+ * Objects that allows sorting on SaaS products based on certain fields and sorting order.
+ *
  * @public
  */
 export interface SaaSProductSort {
   /**
-   * <p>Field to sort the SaaS products by.</p>
+   * Field to sort the SaaS products by.
+   *
    * @public
    */
   SortBy?: SaaSProductSortBy | undefined;
 
   /**
-   * <p>The sorting order. Can be <code>ASCENDING</code> or <code>DESCENDING</code>. The default value is <code>DESCENDING</code>.</p>
+   * The sorting order. Can be `ASCENDING` or `DESCENDING`. The default value is `DESCENDING`.
+   *
    * @public
    */
   SortOrder?: SortOrder | undefined;
 }
 
 /**
- * <p>Specifies the field to sort subsidiary authorizations by and the order (ascending or
- *             descending) to apply.</p>
+ * Specifies the field to sort subsidiary authorizations by and the order (ascending or descending) to apply.
+ *
  * @public
  */
 export interface SubsidiaryAuthorizationSort {
   /**
-   * <p>The field to sort subsidiary authorizations by. Valid values are <code>EntityId</code>,
-   *             <code>Status</code>, <code>ResourceId</code>, <code>SubsidiaryAccountId</code>,
-   *             <code>CreatedDate</code>, and <code>LastModifiedDate</code>.</p>
+   * The field to sort subsidiary authorizations by. Valid values are `EntityId`, `Status`, `ResourceId`, `SubsidiaryAccountId`, `CreatedDate`, and `LastModifiedDate`.
+   *
    * @public
    */
   SortBy?: SubsidiaryAuthorizationSortBy | undefined;
 
   /**
-   * <p>The sorting order. Can be <code>ASCENDING</code> or <code>DESCENDING</code>. The
-   *             default value is <code>DESCENDING</code>.</p>
+   * The sorting order. Can be `ASCENDING` or `DESCENDING`. The default value is `DESCENDING`.
+   *
    * @public
    */
   SortOrder?: SortOrder | undefined;
 }
 
 /**
- * <p>Object containing all the sort fields per entity type.</p>
+ * Object containing all the sort fields per entity type.
+ *
  * @public
  */
 export type EntityTypeSort =
@@ -3397,7 +3681,8 @@ export type EntityTypeSort =
  */
 export namespace EntityTypeSort {
   /**
-   * <p>A sort for data products.</p>
+   * A sort for data products.
+   *
    * @public
    */
   export interface DataProductSortMember {
@@ -3415,7 +3700,8 @@ export namespace EntityTypeSort {
   }
 
   /**
-   * <p>A sort for SaaS products.</p>
+   * A sort for SaaS products.
+   *
    * @public
    */
   export interface SaaSProductSortMember {
@@ -3433,7 +3719,8 @@ export namespace EntityTypeSort {
   }
 
   /**
-   * <p>A sort for AMI products.</p>
+   * A sort for AMI products.
+   *
    * @public
    */
   export interface AmiProductSortMember {
@@ -3451,7 +3738,8 @@ export namespace EntityTypeSort {
   }
 
   /**
-   * <p>A sort for offers.</p>
+   * A sort for offers.
+   *
    * @public
    */
   export interface OfferSortMember {
@@ -3469,7 +3757,8 @@ export namespace EntityTypeSort {
   }
 
   /**
-   * <p>A sort for container products.</p>
+   * A sort for container products.
+   *
    * @public
    */
   export interface ContainerProductSortMember {
@@ -3487,7 +3776,8 @@ export namespace EntityTypeSort {
   }
 
   /**
-   * <p>A sort for Resale Authorizations.</p>
+   * A sort for Resale Authorizations.
+   *
    * @public
    */
   export interface ResaleAuthorizationSortMember {
@@ -3505,7 +3795,8 @@ export namespace EntityTypeSort {
   }
 
   /**
-   * <p>The sort options for machine learning products.</p>
+   * The sort options for machine learning products.
+   *
    * @public
    */
   export interface MachineLearningProductSortMember {
@@ -3523,7 +3814,8 @@ export namespace EntityTypeSort {
   }
 
   /**
-   * <p>A sort for offer sets.</p>
+   * A sort for offer sets.
+   *
    * @public
    */
   export interface OfferSetSortMember {
@@ -3541,7 +3833,8 @@ export namespace EntityTypeSort {
   }
 
   /**
-   * <p>A sort for express private offer configurations.</p>
+   * A sort for express private offer configurations.
+   *
    * @public
    */
   export interface ExpressPrivateOfferConfigurationSortMember {
@@ -3559,7 +3852,8 @@ export namespace EntityTypeSort {
   }
 
   /**
-   * <p>A sort for subsidiary authorizations.</p>
+   * A sort for subsidiary authorizations.
+   *
    * @public
    */
   export interface SubsidiaryAuthorizationSortMember {
@@ -3617,554 +3911,582 @@ export namespace EntityTypeSort {
  */
 export interface ListEntitiesRequest {
   /**
-   * <p>The catalog related to the request. Fixed value: <code>AWSMarketplace</code>
-   *          </p>
+   * The catalog related to the request. Fixed value: `AWSMarketplace`
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The type of entities to
-   *             retrieve. Valid
-   *             values are: <code>AmiProduct</code>, <code>ContainerProduct</code>,
-   *                 <code>DataProduct</code>, <code>SaaSProduct</code>, <code>ProcurementPolicy</code>,
-   *                 <code>Experience</code>, <code>Audience</code>, <code>BrandingSettings</code>,
-   *                 <code>Offer</code>, <code>OfferSet</code>, <code>Seller</code>,
-   *             <code>ResaleAuthorization</code>, <code>Solution</code>,
-   *                 <code>SubsidiaryAuthorization</code>.</p>
+   * The type of entities to retrieve. Valid values are: `AmiProduct`, `ContainerProduct`, `DataProduct`, `SaaSProduct`, `ProcurementPolicy`, `Experience`, `Audience`, `BrandingSettings`, `Offer`, `OfferSet`, `Seller`, `ResaleAuthorization`, `Solution`, `SubsidiaryAuthorization`.
+   *
    * @public
    */
   EntityType: string | undefined;
 
   /**
-   * <p>An array of filter objects. Each filter object contains two attributes,
-   *                 <code>filterName</code> and <code>filterValues</code>.</p>
+   * An array of filter objects. Each filter object contains two attributes, `filterName` and `filterValues`.
+   *
    * @public
    */
   FilterList?: Filter[] | undefined;
 
   /**
-   * <p>An object that contains two attributes, <code>SortBy</code> and
-   *             <code>SortOrder</code>.</p>
+   * An object that contains two attributes, `SortBy` and `SortOrder`.
+   *
    * @public
    */
   Sort?: Sort | undefined;
 
   /**
-   * <p>The value of the next token, if it exists. Null if there are no more results.</p>
+   * The value of the next token, if it exists. Null if there are no more results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>Specifies the upper limit of the elements on a single page. If a value isn't provided,
-   *             the default value is 20.</p>
+   * Specifies the upper limit of the elements on a single page. If a value isn't provided, the default value is 20.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>Filters the returned set of entities based on their owner. The default is
-   *                 <code>SELF</code>. To list entities shared with you
-   *             through AWS Resource Access Manager (AWS RAM), set to <code>SHARED</code>. Entities shared through the AWS Marketplace
-   *             Catalog API <code>PutResourcePolicy</code> operation can't be discovered through the
-   *                 <code>SHARED</code> parameter.</p>
+   * Filters the returned set of entities based on their owner. The default is `SELF`. To list entities shared with you through AWS Resource Access Manager (AWS RAM), set to `SHARED`. Entities shared through the AWS Marketplace Catalog API `PutResourcePolicy` operation can't be discovered through the `SHARED` parameter.
+   *
    * @public
    */
   OwnershipType?: OwnershipType | undefined;
 
   /**
-   * <p>A Union object containing filter shapes for all <code>EntityType</code>s. Each
-   *                 <code>EntityTypeFilter</code> shape will have filters applicable for that
-   *                 <code>EntityType</code> that can be used to search or filter entities.</p>
+   * A Union object containing filter shapes for all `EntityType`s. Each `EntityTypeFilter` shape will have filters applicable for that `EntityType` that can be used to search or filter entities.
+   *
    * @public
    */
   EntityTypeFilters?: EntityTypeFilters | undefined;
 
   /**
-   * <p>A Union object containing <code>Sort</code> shapes for all <code>EntityType</code>s.
-   *             Each <code>EntityTypeSort</code> shape will have <code>SortBy</code> and
-   *                 <code>SortOrder</code> applicable for fields on that <code>EntityType</code>. This
-   *             can be used to sort the results of the filter query.</p>
+   * A Union object containing `Sort` shapes for all `EntityType`s. Each `EntityTypeSort` shape will have `SortBy` and `SortOrder` applicable for fields on that `EntityType`. This can be used to sort the results of the filter query.
+   *
    * @public
    */
   EntityTypeSort?: EntityTypeSort | undefined;
 }
 
 /**
- * <p>Object that contains summarized information about a container product.</p>
+ * Object that contains summarized information about a container product.
+ *
  * @public
  */
 export interface ContainerProductSummary {
   /**
-   * <p>The title of the container product.</p>
+   * The title of the container product.
+   *
    * @public
    */
   ProductTitle?: string | undefined;
 
   /**
-   * <p>The lifecycle of the product.</p>
+   * The lifecycle of the product.
+   *
    * @public
    */
   Visibility?: ContainerProductVisibilityString | undefined;
 }
 
 /**
- * <p>Object that contains summarized information about a data product.</p>
+ * Object that contains summarized information about a data product.
+ *
  * @public
  */
 export interface DataProductSummary {
   /**
-   * <p>The title of the data product.</p>
+   * The title of the data product.
+   *
    * @public
    */
   ProductTitle?: string | undefined;
 
   /**
-   * <p>The lifecycle of the data product.</p>
+   * The lifecycle of the data product.
+   *
    * @public
    */
   Visibility?: DataProductVisibilityString | undefined;
 }
 
 /**
- * <p>Summarized information about an express private offer configuration.</p>
+ * Summarized information about an express private offer configuration.
+ *
  * @public
  */
 export interface ExpressPrivateOfferConfigurationSummary {
   /**
-   * <p>The product ID associated with the express private offer configuration.</p>
+   * The product ID associated with the express private offer configuration.
+   *
    * @public
    */
   ProductId?: string | undefined;
 
   /**
-   * <p>The state of the express private offer configuration. Valid values are the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ACTIVE</code> – The configuration is active and you can use it to generate offers.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INACTIVE</code> – The configuration is deprecated or deleted.</p>
-   *             </li>
-   *          </ul>
+   * The state of the express private offer configuration. Valid values are the following:
+   *
+   * - `ACTIVE` – The configuration is active and you can use it to generate offers.
+   * - `INACTIVE` – The configuration is deprecated or deleted.
+   *
    * @public
    */
   State?: ExpressPrivateOfferConfigurationStateString | undefined;
 }
 
 /**
- * <p>A summary of a machine learning product.</p>
+ * A summary of a machine learning product.
+ *
  * @public
  */
 export interface MachineLearningProductSummary {
   /**
-   * <p>The title of the machine learning product.</p>
+   * The title of the machine learning product.
+   *
    * @public
    */
   ProductTitle?: string | undefined;
 
   /**
-   * <p>The visibility status of the machine learning product. Valid values are <code>Limited</code>, <code>Public</code>, <code>Restricted</code>, and <code>Draft</code>.</p>
+   * The visibility status of the machine learning product. Valid values are `Limited`, `Public`, `Restricted`, and `Draft`.
+   *
    * @public
    */
   Visibility?: MachineLearningProductVisibilityString | undefined;
 }
 
 /**
- * <p>Summarized information about an offer set.</p>
+ * Summarized information about an offer set.
+ *
  * @public
  */
 export interface OfferSetSummary {
   /**
-   * <p>The name of the offer set.</p>
+   * The name of the offer set.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The state of the offer set.</p>
+   * The state of the offer set.
+   *
    * @public
    */
   State?: OfferSetStateString | undefined;
 
   /**
-   * <p>The release date of the offer set.</p>
+   * The release date of the offer set.
+   *
    * @public
    */
   ReleaseDate?: string | undefined;
 
   /**
-   * <p>The list of offer IDs associated with the offer set.</p>
+   * The list of offer IDs associated with the offer set.
+   *
    * @public
    */
   AssociatedOfferIds?: string[] | undefined;
 
   /**
-   * <p>The solution ID associated with the offer set.</p>
+   * The solution ID associated with the offer set.
+   *
    * @public
    */
   SolutionId?: string | undefined;
 }
 
 /**
- * <p>Summarized information about an offer.</p>
+ * Summarized information about an offer.
+ *
  * @public
  */
 export interface OfferSummary {
   /**
-   * <p>The name of the offer.</p>
+   * The name of the offer.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The product ID of the offer.</p>
+   * The product ID of the offer.
+   *
    * @public
    */
   ProductId?: string | undefined;
 
   /**
-   * <p>The ResaleAuthorizationId of the offer.</p>
+   * The ResaleAuthorizationId of the offer.
+   *
    * @public
    */
   ResaleAuthorizationId?: string | undefined;
 
   /**
-   * <p>The release date of the offer.</p>
+   * The release date of the offer.
+   *
    * @public
    */
   ReleaseDate?: string | undefined;
 
   /**
-   * <p>The availability end date of the offer.</p>
+   * The availability end date of the offer.
+   *
    * @public
    */
   AvailabilityEndDate?: string | undefined;
 
   /**
-   * <p>The buyer accounts in the offer.</p>
+   * The buyer accounts in the offer.
+   *
    * @public
    */
   BuyerAccounts?: string[] | undefined;
 
   /**
-   * <p>The status of the offer.</p>
+   * The status of the offer.
+   *
    * @public
    */
   State?: OfferStateString | undefined;
 
   /**
-   * <p>The targeting in the offer.</p>
+   * The targeting in the offer.
+   *
    * @public
    */
   Targeting?: OfferTargetingString[] | undefined;
 
   /**
-   * <p>The offer set ID of the offer.</p>
+   * The offer set ID of the offer.
+   *
    * @public
    */
   OfferSetId?: string | undefined;
 
   /**
-   * <p>The target agreement ID of the offer.</p>
+   * The target agreement ID of the offer.
+   *
    * @public
    */
   TargetAgreementId?: string | undefined;
 
   /**
-   * <p>The target agreement intent of the offer.</p>
+   * The target agreement intent of the offer.
+   *
    * @public
    */
   TargetAgreementIntent?: OfferTargetAgreementIntentString | undefined;
 
   /**
-   * <p>The creation source of the offer.</p>
+   * The creation source of the offer.
+   *
    * @public
    */
   CreatedBySource?: OfferCreatedBySourceString | undefined;
 }
 
 /**
- * <p>Summarized information about a Resale Authorization.</p>
+ * Summarized information about a Resale Authorization.
+ *
  * @public
  */
 export interface ResaleAuthorizationSummary {
   /**
-   * <p>The name of the ResaleAuthorization.</p>
+   * The name of the ResaleAuthorization.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The product ID of the ResaleAuthorization.</p>
+   * The product ID of the ResaleAuthorization.
+   *
    * @public
    */
   ProductId?: string | undefined;
 
   /**
-   * <p>The product name of the ResaleAuthorization.</p>
+   * The product name of the ResaleAuthorization.
+   *
    * @public
    */
   ProductName?: string | undefined;
 
   /**
-   * <p>The manufacturer account ID of the ResaleAuthorization.</p>
+   * The manufacturer account ID of the ResaleAuthorization.
+   *
    * @public
    */
   ManufacturerAccountId?: string | undefined;
 
   /**
-   * <p>The manufacturer legal name of the ResaleAuthorization.</p>
+   * The manufacturer legal name of the ResaleAuthorization.
+   *
    * @public
    */
   ManufacturerLegalName?: string | undefined;
 
   /**
-   * <p>The reseller account ID of the ResaleAuthorization.</p>
+   * The reseller account ID of the ResaleAuthorization.
+   *
    * @public
    */
   ResellerAccountID?: string | undefined;
 
   /**
-   * <p>The reseller legal name of the ResaleAuthorization</p>
+   * The reseller legal name of the ResaleAuthorization
+   *
    * @public
    */
   ResellerLegalName?: string | undefined;
 
   /**
-   * <p>The status of the ResaleAuthorization.</p>
+   * The status of the ResaleAuthorization.
+   *
    * @public
    */
   Status?: ResaleAuthorizationStatusString | undefined;
 
   /**
-   * <p>The offer extended status of the ResaleAuthorization</p>
+   * The offer extended status of the ResaleAuthorization
+   *
    * @public
    */
   OfferExtendedStatus?: string | undefined;
 
   /**
-   * <p>The created date of the ResaleAuthorization.</p>
+   * The created date of the ResaleAuthorization.
+   *
    * @public
    */
   CreatedDate?: string | undefined;
 
   /**
-   * <p>The availability end date of the ResaleAuthorization.</p>
+   * The availability end date of the ResaleAuthorization.
+   *
    * @public
    */
   AvailabilityEndDate?: string | undefined;
 
   /**
-   * <p>The reseller role of the ResaleAuthorization.</p>
+   * The reseller role of the ResaleAuthorization.
+   *
    * @public
    */
   ResellerRole?: ResaleAuthorizationResellerRoleString | undefined;
 
   /**
-   * <p>The source authorization of the ResaleAuthorization.</p>
+   * The source authorization of the ResaleAuthorization.
+   *
    * @public
    */
   SourceAuthorization?: string | undefined;
 
   /**
-   * <p>The issuer account ID of the ResaleAuthorization.</p>
+   * The issuer account ID of the ResaleAuthorization.
+   *
    * @public
    */
   IssuerAccountId?: string | undefined;
 }
 
 /**
- * <p>Object that contains summarized information about a SaaS product.</p>
+ * Object that contains summarized information about a SaaS product.
+ *
  * @public
  */
 export interface SaaSProductSummary {
   /**
-   * <p>The title of the SaaS product.</p>
+   * The title of the SaaS product.
+   *
    * @public
    */
   ProductTitle?: string | undefined;
 
   /**
-   * <p>The lifecycle of the SaaS product.</p>
+   * The lifecycle of the SaaS product.
+   *
    * @public
    */
   Visibility?: SaaSProductVisibilityString | undefined;
 }
 
 /**
- * <p>An object that contains summary information about a subsidiary authorization, including its
- *             name, status, authorized resource, subsidiary account, and creation date. A subsidiary
- *             authorization lets a seller authorize one of its subsidiary accounts to create offers
- *             for one of its products.</p>
+ * An object that contains summary information about a subsidiary authorization, including its name, status, authorized resource, subsidiary account, and creation date. A subsidiary authorization lets a seller authorize one of its subsidiary accounts to create offers for one of its products.
+ *
  * @public
  */
 export interface SubsidiaryAuthorizationSummary {
   /**
-   * <p>The name of the subsidiary authorization.</p>
+   * The name of the subsidiary authorization.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The status of the subsidiary authorization. Valid values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Draft</code> - The subsidiary authorization was created but not yet released.
-   *                     The subsidiary account can't see it.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Active</code> - The subsidiary account can use the subsidiary authorization to
-   *                     create offers for the authorized product.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Restricted</code> - The subsidiary authorization was discarded while in
-   *                     <code>Draft</code> or revoked while <code>Active</code>. It can't be used to create new
-   *                     offers. This status is final.</p>
-   *             </li>
-   *          </ul>
+   * The status of the subsidiary authorization. Valid values are:
+   *
+   * - `Draft` - The subsidiary authorization was created but not yet released. The subsidiary account can't see it.
+   * - `Active` - The subsidiary account can use the subsidiary authorization to create offers for the authorized product.
+   * - `Restricted` - The subsidiary authorization was discarded while in `Draft` or revoked while `Active`. It can't be used to create new offers. This status is final.
+   *
    * @public
    */
   Status?: string | undefined;
 
   /**
-   * <p>The ID of the resource that the subsidiary authorization applies to. Currently, this is always
-   *             a product ID, such as <code>prod-example123</code>.</p>
+   * The ID of the resource that the subsidiary authorization applies to. Currently, this is always a product ID, such as `prod-example123`.
+   *
    * @public
    */
   ResourceId?: string | undefined;
 
   /**
-   * <p>The name of the resource that the subsidiary authorization applies to. Currently, this is
-   *             always a product name.</p>
+   * The name of the resource that the subsidiary authorization applies to. Currently, this is always a product name.
+   *
    * @public
    */
   ResourceName?: string | undefined;
 
   /**
-   * <p>The 12-digit AWS account ID of the subsidiary account.</p>
+   * The 12-digit AWS account ID of the subsidiary account.
+   *
    * @public
    */
   SubsidiaryAccountId?: string | undefined;
 
   /**
-   * <p>The date the subsidiary authorization was created.</p>
+   * The date the subsidiary authorization was created.
+   *
    * @public
    */
   CreatedDate?: string | undefined;
 }
 
 /**
- * <p>This object is a container for common summary information about the entity. The
- *             summary doesn't contain the whole entity structure, but it does contain information
- *             common across all entities.</p>
+ * This object is a container for common summary information about the entity. The summary doesn't contain the whole entity structure, but it does contain information common across all entities.
+ *
  * @public
  */
 export interface EntitySummary {
   /**
-   * <p>The name for the entity. This value is not unique. It is defined by the seller.</p>
+   * The name for the entity. This value is not unique. It is defined by the seller.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The type of the entity.</p>
+   * The type of the entity.
+   *
    * @public
    */
   EntityType?: string | undefined;
 
   /**
-   * <p>The unique identifier for the entity.</p>
+   * The unique identifier for the entity.
+   *
    * @public
    */
   EntityId?: string | undefined;
 
   /**
-   * <p>The ARN associated with the unique identifier for the entity.</p>
+   * The ARN associated with the unique identifier for the entity.
+   *
    * @public
    */
   EntityArn?: string | undefined;
 
   /**
-   * <p>The last time the entity was published, using ISO 8601 format
-   *             (2018-02-27T13:45:22Z).</p>
+   * The last time the entity was published, using ISO 8601 format (2018-02-27T13:45:22Z).
+   *
    * @public
    */
   LastModifiedDate?: string | undefined;
 
   /**
-   * <p>The visibility status of the entity to buyers. This value can be <code>Public</code>
-   *             (everyone can view the entity), <code>Limited</code> (the entity is visible to limited
-   *             accounts only), or <code>Restricted</code> (the entity was published and then
-   *             unpublished and only existing buyers can view it). </p>
+   * The visibility status of the entity to buyers. This value can be `Public` (everyone can view the entity), `Limited` (the entity is visible to limited accounts only), or `Restricted` (the entity was published and then unpublished and only existing buyers can view it).
+   *
    * @public
    */
   Visibility?: string | undefined;
 
   /**
-   * <p>An object that contains summary information about the AMI product.</p>
+   * An object that contains summary information about the AMI product.
+   *
    * @public
    */
   AmiProductSummary?: AmiProductSummary | undefined;
 
   /**
-   * <p>An object that contains summary information about the container product.</p>
+   * An object that contains summary information about the container product.
+   *
    * @public
    */
   ContainerProductSummary?: ContainerProductSummary | undefined;
 
   /**
-   * <p>An object that contains summary information about the data product.</p>
+   * An object that contains summary information about the data product.
+   *
    * @public
    */
   DataProductSummary?: DataProductSummary | undefined;
 
   /**
-   * <p>An object that contains summary information about the SaaS product.</p>
+   * An object that contains summary information about the SaaS product.
+   *
    * @public
    */
   SaaSProductSummary?: SaaSProductSummary | undefined;
 
   /**
-   * <p>An object that contains summary information about the offer.</p>
+   * An object that contains summary information about the offer.
+   *
    * @public
    */
   OfferSummary?: OfferSummary | undefined;
 
   /**
-   * <p>An object that contains summary information about the Resale Authorization.</p>
+   * An object that contains summary information about the Resale Authorization.
+   *
    * @public
    */
   ResaleAuthorizationSummary?: ResaleAuthorizationSummary | undefined;
 
   /**
-   * <p>A summary of a machine learning product.</p>
+   * A summary of a machine learning product.
+   *
    * @public
    */
   MachineLearningProductSummary?: MachineLearningProductSummary | undefined;
 
   /**
-   * <p>An object that contains summary information about the offer set.</p>
+   * An object that contains summary information about the offer set.
+   *
    * @public
    */
   OfferSetSummary?: OfferSetSummary | undefined;
 
   /**
-   * <p>An object that contains summary information about the express private offer configuration.</p>
+   * An object that contains summary information about the express private offer configuration.
+   *
    * @public
    */
   ExpressPrivateOfferConfigurationSummary?: ExpressPrivateOfferConfigurationSummary | undefined;
 
   /**
-   * <p>An object that contains summary information about the subsidiary authorization, such as its
-   *            status and authorized resource, when the entity type is
-   *            <code>SubsidiaryAuthorization</code>.</p>
+   * An object that contains summary information about the subsidiary authorization, such as its status and authorized resource, when the entity type is `SubsidiaryAuthorization`.
+   *
    * @public
    */
   SubsidiaryAuthorizationSummary?: SubsidiaryAuthorizationSummary | undefined;
@@ -4175,13 +4497,15 @@ export interface EntitySummary {
  */
 export interface ListEntitiesResponse {
   /**
-   * <p>Array of <code>EntitySummary</code> objects.</p>
+   * Array of `EntitySummary` objects.
+   *
    * @public
    */
   EntitySummaryList?: EntitySummary[] | undefined;
 
   /**
-   * <p>The value of the next token if it exists. Null if there is no more result.</p>
+   * The value of the next token if it exists. Null if there is no more result.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -4192,26 +4516,29 @@ export interface ListEntitiesResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>Required. The Amazon Resource Name (ARN) associated with the resource you want to list
-   *             tags on.</p>
+   * Required. The Amazon Resource Name (ARN) associated with the resource you want to list tags on.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 }
 
 /**
- * <p>A list of objects specifying each key name and value.</p>
+ * A list of objects specifying each key name and value.
+ *
  * @public
  */
 export interface Tag {
   /**
-   * <p>The key associated with the tag.</p>
+   * The key associated with the tag.
+   *
    * @public
    */
   Key: string | undefined;
 
   /**
-   * <p>The value associated with the tag.</p>
+   * The value associated with the tag.
+   *
    * @public
    */
   Value: string | undefined;
@@ -4222,14 +4549,15 @@ export interface Tag {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>Required. The ARN associated with the resource you want to list tags on.</p>
+   * Required. The ARN associated with the resource you want to list tags on.
+   *
    * @public
    */
   ResourceArn?: string | undefined;
 
   /**
-   * <p>Required. A list of objects specifying each key name and value. Number of objects
-   *             allowed: 1-50.</p>
+   * Required. A list of objects specifying each key name and value. Number of objects allowed: 1-50.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -4240,14 +4568,15 @@ export interface ListTagsForResourceResponse {
  */
 export interface PutResourcePolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the entity resource you want to associate with a
-   *             resource policy.</p>
+   * The Amazon Resource Name (ARN) of the entity resource you want to associate with a resource policy.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>The policy document to set; formatted in JSON.</p>
+   * The policy document to set; formatted in JSON.
+   *
    * @public
    */
   Policy: string | undefined;
@@ -4259,53 +4588,51 @@ export interface PutResourcePolicyRequest {
 export interface PutResourcePolicyResponse {}
 
 /**
- * <p>An object that contains the <code>ChangeType</code>, <code>Details</code>, and
- *                 <code>Entity</code>.</p>
+ * An object that contains the `ChangeType`, `Details`, and `Entity`.
+ *
  * @public
  */
 export interface Change {
   /**
-   * <p>Change types are single string values that describe your intention for the change.
-   *             Each change type is unique for each <code>EntityType</code> provided in the change's
-   *             scope. For more information about change types available for single-AMI products, see
-   *                 <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#working-with-single-AMI-products">Working with single-AMI products</a>. Also, for more information about change
-   *             types available for container-based products, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/container-products.html#working-with-container-products">Working with container products</a>.</p>
+   * Change types are single string values that describe your intention for the change. Each change type is unique for each `EntityType` provided in the change's scope. For more information about change types available for single-AMI products, see [Working with single-AMI products](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#working-with-single-AMI-products). Also, for more information about change types available for container-based products, see [Working with container products](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/container-products.html#working-with-container-products).
+   *
    * @public
    */
   ChangeType: string | undefined;
 
   /**
-   * <p>The entity to be changed.</p>
+   * The entity to be changed.
+   *
    * @public
    */
   Entity: Entity | undefined;
 
   /**
-   * <p>The tags associated with the change.</p>
+   * The tags associated with the change.
+   *
    * @public
    */
   EntityTags?: Tag[] | undefined;
 
   /**
-   * <p>This object contains details specific to the change type of the requested change. For
-   *             more information about change types available for single-AMI products, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#working-with-single-AMI-products">Working with single-AMI products</a>. Also, for more information about change
-   *             types available for container-based products, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/container-products.html#working-with-container-products">Working with container products</a>.</p>
+   * This object contains details specific to the change type of the requested change. For more information about change types available for single-AMI products, see [Working with single-AMI products](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#working-with-single-AMI-products). Also, for more information about change types available for container-based products, see [Working with container products](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/container-products.html#working-with-container-products).
+   *
    * @public
    */
   Details?: string | undefined;
 
   /**
-   * <p>Alternative field that accepts a JSON value instead of a string for
-   *                 <code>ChangeType</code> details. You can use either <code>Details</code> or
-   *                 <code>DetailsDocument</code>, but not both.</p>
-   *          <p>To download the "DetailsDocument" shapes, see the <a href="https://github.com/awslabs/aws-marketplace-catalog-api-shapes-for-python">Python</a>
-   *             and <a href="https://github.com/awslabs/aws-marketplace-catalog-api-shapes-for-java/tree/main">Java</a> shapes on GitHub.</p>
+   * Alternative field that accepts a JSON value instead of a string for `ChangeType` details. You can use either `Details` or `DetailsDocument`, but not both.
+   *
+   * To download the "DetailsDocument" shapes, see the [Python](https://github.com/awslabs/aws-marketplace-catalog-api-shapes-for-python) and [Java](https://github.com/awslabs/aws-marketplace-catalog-api-shapes-for-java/tree/main) shapes on GitHub.
+   *
    * @public
    */
   DetailsDocument?: __DocumentType | undefined;
 
   /**
-   * <p>Optional name for the change.</p>
+   * Optional name for the change.
+   *
    * @public
    */
   ChangeName?: string | undefined;
@@ -4316,43 +4643,43 @@ export interface Change {
  */
 export interface StartChangeSetRequest {
   /**
-   * <p>The catalog related to the request. Fixed value: <code>AWSMarketplace</code>
-   *          </p>
+   * The catalog related to the request. Fixed value: `AWSMarketplace`
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>Array of <code>change</code> object.</p>
+   * Array of `change` object.
+   *
    * @public
    */
   ChangeSet: Change[] | undefined;
 
   /**
-   * <p>Optional case sensitive string of up to 100 ASCII characters. The change set name can
-   *             be used to filter the list of change sets. </p>
+   * Optional case sensitive string of up to 100 ASCII characters. The change set name can be used to filter the list of change sets.
+   *
    * @public
    */
   ChangeSetName?: string | undefined;
 
   /**
-   * <p>A unique token to identify the request to ensure idempotency.</p>
+   * A unique token to identify the request to ensure idempotency.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
 
   /**
-   * <p>A list of objects specifying each key name and value for the
-   *                 <code>ChangeSetTags</code> property.</p>
+   * A list of objects specifying each key name and value for the `ChangeSetTags` property.
+   *
    * @public
    */
   ChangeSetTags?: Tag[] | undefined;
 
   /**
-   * <p>The intent related to the request. The default is <code>APPLY</code>.
-   *             To test your request before applying changes to your entities, use <code>VALIDATE</code>.
-   *             This feature is currently available for adding versions to single-AMI products. For more information, see
-   *             <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#ami-add-version">Add a new version</a>.</p>
+   * The intent related to the request. The default is `APPLY`. To test your request before applying changes to your entities, use `VALIDATE`. This feature is currently available for adding versions to single-AMI products. For more information, see [Add a new version](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#ami-add-version).
+   *
    * @public
    */
   Intent?: Intent | undefined;
@@ -4363,13 +4690,15 @@ export interface StartChangeSetRequest {
  */
 export interface StartChangeSetResponse {
   /**
-   * <p>Unique identifier generated for the request.</p>
+   * Unique identifier generated for the request.
+   *
    * @public
    */
   ChangeSetId?: string | undefined;
 
   /**
-   * <p>The ARN associated to the unique identifier generated for the request.</p>
+   * The ARN associated to the unique identifier generated for the request.
+   *
    * @public
    */
   ChangeSetArn?: string | undefined;
@@ -4380,15 +4709,15 @@ export interface StartChangeSetResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>Required. The Amazon Resource Name (ARN) associated with the resource you want to
-   *             tag.</p>
+   * Required. The Amazon Resource Name (ARN) associated with the resource you want to tag.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>Required. A list of objects specifying each key name and value. Number of objects
-   *             allowed: 1-50.</p>
+   * Required. A list of objects specifying each key name and value. Number of objects allowed: 1-50.
+   *
    * @public
    */
   Tags: Tag[] | undefined;
@@ -4404,15 +4733,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>Required. The Amazon Resource Name (ARN) associated with the resource you want to
-   *             remove the tag from.</p>
+   * Required. The Amazon Resource Name (ARN) associated with the resource you want to remove the tag from.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>Required. A list of key names of tags to be removed. Number of strings allowed:
-   *             0-256.</p>
+   * Required. A list of key names of tags to be removed. Number of strings allowed: 0-256.
+   *
    * @public
    */
   TagKeys: string[] | undefined;

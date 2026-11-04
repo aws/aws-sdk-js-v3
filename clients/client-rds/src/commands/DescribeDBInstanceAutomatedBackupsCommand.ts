@@ -23,7 +23,10 @@ export interface DescribeDBInstanceAutomatedBackupsCommandInput extends Describe
 export interface DescribeDBInstanceAutomatedBackupsCommandOutput extends DBInstanceAutomatedBackupMessage, __MetadataBearer {}
 
 /**
- * <p>Displays backups for both current and deleted instances. For example, use this operation to find details about automated backups for previously deleted instances. Current instances with retention periods greater than zero (0) are returned for both the <code>DescribeDBInstanceAutomatedBackups</code> and <code>DescribeDBInstances</code> operations.</p> <p>All parameters are optional.</p>
+ * Displays backups for both current and deleted instances. For example, use this operation to find details about automated backups for previously deleted instances. Current instances with retention periods greater than zero (0) are returned for both the `DescribeDBInstanceAutomatedBackups` and `DescribeDBInstances` operations.
+ *
+ * All parameters are optional.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -122,11 +125,12 @@ export interface DescribeDBInstanceAutomatedBackupsCommandOutput extends DBInsta
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBInstanceAutomatedBackupNotFoundFault} (client fault)
- *  <p>No automated backup for this DB instance was found.</p>
+ *
+ * No automated backup for this DB instance was found.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To describe the automated backups for a DB instance
  * ```javascript

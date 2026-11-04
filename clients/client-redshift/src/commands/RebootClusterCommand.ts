@@ -23,14 +23,8 @@ export interface RebootClusterCommandInput extends RebootClusterMessage {}
 export interface RebootClusterCommandOutput extends RebootClusterResult, __MetadataBearer {}
 
 /**
- * <p>Reboots a cluster. This action is taken as soon as possible. It results in a
- *             momentary outage to the cluster, during which the cluster status is set to
- *                 <code>rebooting</code>. A cluster event is created when the reboot is completed. Any
- *             pending cluster modifications (see <a>ModifyCluster</a>) are applied at this
- *             reboot.
- * For more information about managing clusters, go to
- * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>. </p>
+ * Reboots a cluster. This action is taken as soon as possible. It results in a momentary outage to the cluster, during which the cluster status is set to `rebooting`. A cluster event is created when the reboot is completed. Any pending cluster modifications (see ModifyCluster) are applied at this reboot. For more information about managing clusters, go to [Amazon Redshift Clusters](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html) in the *Amazon Redshift Cluster Management Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -261,15 +255,16 @@ export interface RebootClusterCommandOutput extends RebootClusterResult, __Metad
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
- *         </p>
+ *
+ * The `ClusterIdentifier` parameter does not refer to an existing cluster.
  *
  * @throws {@link InvalidClusterStateFault} (client fault)
- *  <p>The specified cluster is not in the <code>available</code> state. </p>
+ *
+ * The specified cluster is not in the `available` state.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

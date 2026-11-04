@@ -23,7 +23,10 @@ export interface UpdateNamespaceCommandInput extends UpdateNamespaceRequest {}
 export interface UpdateNamespaceCommandOutput extends UpdateNamespaceResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a namespace with the specified settings. Unless required, you can't update multiple parameters in one request. For example, you must specify both <code>adminUsername</code> and <code>adminUserPassword</code> to update either field, but you can't update both <code>kmsKeyId</code> and <code>logExports</code> in a single request.</p> <p>Similarly, an S3 Tables log-publishing update (a request where <code>logDestinationType</code> is <code>s3table</code>) cannot be combined with any other namespace configuration change and must be submitted as its own request.</p>
+ * Updates a namespace with the specified settings. Unless required, you can't update multiple parameters in one request. For example, you must specify both `adminUsername` and `adminUserPassword` to update either field, but you can't update both `kmsKeyId` and `logExports` in a single request.
+ *
+ * Similarly, an S3 Tables log-publishing update (a request where `logDestinationType` is `s3table`) cannot be combined with any other namespace configuration change and must be submitted as its own request.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -100,20 +103,24 @@ export interface UpdateNamespaceCommandOutput extends UpdateNamespaceResponse, _
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The submitted action has conflicts.</p>
+ *
+ * The submitted action has conflicts.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input failed to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link RedshiftServerlessServiceException}
- * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ * Base exception class for all service exceptions from RedshiftServerless service.
  *
  * @public
  */

@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { MarketplaceReportingServiceException as __BaseException } from "./MarketplaceReportingServiceException";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request is malformed, or it contains an error such as an invalid parameter. Ensure the request has all required parameters.</p>
+ * The request is malformed, or it contains an error such as an invalid parameter. Ensure the request has all required parameters.
+ *
  * @public
  */
 export class BadRequestException extends __BaseException {
@@ -46,7 +48,8 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * <p>The operation failed due to a server error.</p>
+ * The operation failed due to a server error.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -67,7 +70,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>You do not have permission to perform this action.</p>
+ * You do not have permission to perform this action.
+ *
  * @public
  */
 export class UnauthorizedException extends __BaseException {

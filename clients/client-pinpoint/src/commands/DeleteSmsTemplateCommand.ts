@@ -23,7 +23,8 @@ export interface DeleteSmsTemplateCommandInput extends DeleteSmsTemplateRequest 
 export interface DeleteSmsTemplateCommandOutput extends DeleteSmsTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a message template for messages that were sent through the SMS channel.</p>
+ * Deletes a message template for messages that were sent through the SMS channel.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,29 +55,36 @@ export interface DeleteSmsTemplateCommandOutput extends DeleteSmsTemplateRespons
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>Provides information about an API request or response.</p>
+ *
+ * Provides information about an API request or response.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>Provides information about an API request or response.</p>
+ *
+ * Provides information about an API request or response.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>Provides information about an API request or response.</p>
+ *
+ * Provides information about an API request or response.
  *
  * @throws {@link MethodNotAllowedException} (client fault)
- *  <p>Provides information about an API request or response.</p>
+ *
+ * Provides information about an API request or response.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>Provides information about an API request or response.</p>
+ *
+ * Provides information about an API request or response.
  *
  * @throws {@link PayloadTooLargeException} (client fault)
- *  <p>Provides information about an API request or response.</p>
+ *
+ * Provides information about an API request or response.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Provides information about an API request or response.</p>
+ *
+ * Provides information about an API request or response.
  *
  * @throws {@link PinpointServiceException}
- * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * Base exception class for all service exceptions from Pinpoint service.
  *
  * @public
  */

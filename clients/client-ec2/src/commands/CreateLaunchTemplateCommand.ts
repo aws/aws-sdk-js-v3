@@ -23,16 +23,12 @@ export interface CreateLaunchTemplateCommandInput extends CreateLaunchTemplateRe
 export interface CreateLaunchTemplateCommandOutput extends CreateLaunchTemplateResult, __MetadataBearer {}
 
 /**
- * <p>Creates a launch template.</p>
- *          <p>A launch template contains the parameters to launch an instance. When you launch an
- *             instance using <a>RunInstances</a>, you can specify a launch template instead
- *             of providing the launch parameters in the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Store
- *                 instance launch parameters in Amazon EC2 launch templates</a> in the
- *                 <i>Amazon EC2 User Guide</i>.</p>
- *          <p>To clone an existing launch template as the basis for a new launch template, use the
- *             Amazon EC2 console. The API, SDKs, and CLI do not support cloning a template. For more
- *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#create-launch-template-from-existing-launch-template">Create a launch template from an existing launch template</a> in the
- *                 <i>Amazon EC2 User Guide</i>.</p>
+ * Creates a launch template.
+ *
+ * A launch template contains the parameters to launch an instance. When you launch an instance using RunInstances, you can specify a launch template instead of providing the launch parameters in the request. For more information, see [Store instance launch parameters in Amazon EC2 launch templates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the *Amazon EC2 User Guide*.
+ *
+ * To clone an existing launch template as the basis for a new launch template, use the Amazon EC2 console. The API, SDKs, and CLI do not support cloning a template. For more information, see [Create a launch template from an existing launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#create-launch-template-from-existing-launch-template) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -387,8 +383,8 @@ export interface CreateLaunchTemplateCommandOutput extends CreateLaunchTemplateR
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To create a launch template
  * ```javascript

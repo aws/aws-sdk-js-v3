@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { SageMakerRuntimeHTTP2ServiceException as __BaseException } from "./SageMakerRuntimeHTTP2ServiceException";
 
 /**
- * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ * The input fails to satisfy the constraints specified by an AWS service.
+ *
  * @public
  */
 export class InputValidationError extends __BaseException {
@@ -12,13 +13,15 @@ export class InputValidationError extends __BaseException {
   readonly name = "InputValidationError" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Error message.</p>
+   * Error message.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>Error code.</p>
+   * Error code.
+   *
    * @public
    */
   ErrorCode?: string | undefined;
@@ -38,7 +41,8 @@ export class InputValidationError extends __BaseException {
 }
 
 /**
- * <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ * The request processing has failed because of an unknown error, exception or failure.
+ *
  * @public
  */
 export class InternalServerError extends __BaseException {
@@ -46,13 +50,15 @@ export class InternalServerError extends __BaseException {
   readonly name = "InternalServerError" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>Error message.</p>
+   * Error message.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>Error code.</p>
+   * Error code.
+   *
    * @public
    */
   ErrorCode?: string | undefined;
@@ -72,7 +78,8 @@ export class InternalServerError extends __BaseException {
 }
 
 /**
- * <p>Internal stream failure that occurs during streaming.</p>
+ * Internal stream failure that occurs during streaming.
+ *
  * @public
  */
 export class InternalStreamFailure extends __BaseException {
@@ -80,7 +87,8 @@ export class InternalStreamFailure extends __BaseException {
   readonly name = "InternalStreamFailure" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>Error message.</p>
+   * Error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -99,7 +107,8 @@ export class InternalStreamFailure extends __BaseException {
 }
 
 /**
- * <p>Model stream error that occurs during streaming.</p>
+ * Model stream error that occurs during streaming.
+ *
  * @public
  */
 export class ModelStreamError extends __BaseException {
@@ -107,13 +116,15 @@ export class ModelStreamError extends __BaseException {
   readonly name = "ModelStreamError" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Error message.</p>
+   * Error message.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>Error code.</p>
+   * Error code.
+   *
    * @public
    */
   ErrorCode?: string | undefined;
@@ -133,7 +144,8 @@ export class ModelStreamError extends __BaseException {
 }
 
 /**
- * <p>An error occurred while processing the model.</p>
+ * An error occurred while processing the model.
+ *
  * @public
  */
 export class ModelError extends __BaseException {
@@ -141,31 +153,36 @@ export class ModelError extends __BaseException {
   readonly name = "ModelError" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Error message.</p>
+   * Error message.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>HTTP status code returned by model.</p>
+   * HTTP status code returned by model.
+   *
    * @public
    */
   OriginalStatusCode?: number | undefined;
 
   /**
-   * <p>Original error message from the model.</p>
+   * Original error message from the model.
+   *
    * @public
    */
   OriginalMessage?: string | undefined;
 
   /**
-   * <p>CloudWatch log stream ARN.</p>
+   * CloudWatch log stream ARN.
+   *
    * @public
    */
   LogStreamArn?: string | undefined;
 
   /**
-   * <p>Error code.</p>
+   * Error code.
+   *
    * @public
    */
   ErrorCode?: string | undefined;
@@ -188,7 +205,8 @@ export class ModelError extends __BaseException {
 }
 
 /**
- * <p>The request has failed due to a temporary failure of the server.</p>
+ * The request has failed due to a temporary failure of the server.
+ *
  * @public
  */
 export class ServiceUnavailableError extends __BaseException {
@@ -196,13 +214,15 @@ export class ServiceUnavailableError extends __BaseException {
   readonly name = "ServiceUnavailableError" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>Error message.</p>
+   * Error message.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>Error code.</p>
+   * Error code.
+   *
    * @public
    */
   ErrorCode?: string | undefined;

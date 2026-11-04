@@ -23,7 +23,8 @@ export interface CreatePartnerAppPresignedUrlCommandInput extends CreatePartnerA
 export interface CreatePartnerAppPresignedUrlCommandOutput extends CreatePartnerAppPresignedUrlResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a presigned URL to access an Amazon SageMaker Partner AI App.</p>
+ * Creates a presigned URL to access an Amazon SageMaker Partner AI App.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,11 +53,12 @@ export interface CreatePartnerAppPresignedUrlCommandOutput extends CreatePartner
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Resource being access is not found.</p>
+ *
+ * Resource being access is not found.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

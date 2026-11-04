@@ -23,12 +23,10 @@ export interface DescribeReplicationGroupsCommandInput extends DescribeReplicati
 export interface DescribeReplicationGroupsCommandOutput extends ReplicationGroupMessage, __MetadataBearer {}
 
 /**
- * <p>Returns information about a particular replication group. If no identifier is
- *             specified, <code>DescribeReplicationGroups</code> returns information about all
- *             replication groups.</p>
- *          <note>
- *             <p>This operation is valid for Valkey or Redis OSS only.</p>
- *          </note>
+ * Returns information about a particular replication group. If no identifier is specified, `DescribeReplicationGroups` returns information about all replication groups.
+ *
+ * > **Note:** This operation is valid for Valkey or Redis OSS only.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -183,17 +181,20 @@ export interface DescribeReplicationGroupsCommandOutput extends ReplicationGroup
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * Two or more incompatible parameters were specified.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link ReplicationGroupNotFoundFault} (client fault)
- *  <p>The specified replication group does not exist.</p>
+ *
+ * The specified replication group does not exist.
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @example DescribeReplicationGroups
  * ```javascript

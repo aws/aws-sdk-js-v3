@@ -23,13 +23,10 @@ export interface StartImportJobCommandInput extends StartImportJobRequest {}
 export interface StartImportJobCommandOutput extends StartImportJobResponse, __MetadataBearer {}
 
 /**
- * <p>Start an asynchronous job to import Wisdom resources from an uploaded source file. Before calling this API, use <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html">StartContentUpload</a> to
- *       upload an asset that contains the resource data.</p>
- *          <ul>
- *             <li>
- *                <p>For importing Wisdom quick responses, you need to upload a csv file including the quick responses. For information about how to format the csv file for importing quick responses, see <a href="https://docs.aws.amazon.com/console/connect/quick-responses/add-data">Import quick responses</a>.</p>
- *             </li>
- *          </ul>
+ * Start an asynchronous job to import Wisdom resources from an uploaded source file. Before calling this API, use [StartContentUpload](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html) to upload an asset that contains the resource data.
+ *
+ * - For importing Wisdom quick responses, you need to upload a csv file including the quick responses. For information about how to format the csv file for importing quick responses, see [Import quick responses](https://docs.aws.amazon.com/console/connect/quick-responses/add-data).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,27 +90,28 @@ export interface StartImportJobCommandOutput extends StartImportJobResponse, __M
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of conflict in the current state of the
- *       resource. For example, if you're using a <code>Create</code> API (such as
- *         <code>CreateAssistant</code>) that accepts name, a conflicting resource (usually with the
- *       same name) is being created or mutated.</p>
+ *
+ * The request could not be processed because of conflict in the current state of the resource. For example, if you're using a `Create` API (such as `CreateAssistant`) that accepts name, a conflicting resource (usually with the same name) is being created or mutated.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You've exceeded your service quota. To perform the requested action, remove some of the
- *       relevant resources, or use service quotas to request a service quota increase.</p>
+ *
+ * You've exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use service quotas to request a service quota increase.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by a service.</p>
+ *
+ * The input fails to satisfy the constraints specified by a service.
  *
  * @throws {@link WisdomServiceException}
- * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ * Base exception class for all service exceptions from Wisdom service.
  *
  * @public
  */

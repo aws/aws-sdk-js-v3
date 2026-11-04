@@ -23,11 +23,10 @@ export interface DeleteTargetGroupCommandInput extends DeleteTargetGroupInput {}
 export interface DeleteTargetGroupCommandOutput extends DeleteTargetGroupOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified target group.</p>
- *          <p>You can delete a target group if it is not referenced by any actions. Deleting a target
- *       group also deletes any associated health checks. Deleting a target group does not affect its
- *       registered targets. For example, any EC2 instances continue to run until you stop or terminate
- *       them.</p>
+ * Deletes the specified target group.
+ *
+ * You can delete a target group if it is not referenced by any actions. Deleting a target group also deletes any associated health checks. Deleting a target group does not affect its registered targets. For example, any EC2 instances continue to run until you stop or terminate them.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,11 +51,12 @@ export interface DeleteTargetGroupCommandOutput extends DeleteTargetGroupOutput,
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>A specified resource is in use.</p>
+ *
+ * A specified resource is in use.
  *
  * @throws {@link ElasticLoadBalancingV2ServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancingV2 service.
  *
  * @example To delete a target group
  * ```javascript

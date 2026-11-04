@@ -26,14 +26,10 @@ export interface DescribeVpcClassicLinkDnsSupportCommandInput extends DescribeVp
 export interface DescribeVpcClassicLinkDnsSupportCommandOutput extends DescribeVpcClassicLinkDnsSupportResult, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This action is deprecated.</p>
- *          </note>
- *          <p>Describes the ClassicLink DNS support status of one or more VPCs. If enabled, the DNS
- *             hostname of a linked EC2-Classic instance resolves to its private IP address when
- *             addressed from an instance in the VPC to which it's linked. Similarly, the DNS hostname
- *             of an instance in a VPC resolves to its private IP address when addressed from a linked
- *             EC2-Classic instance.</p>
+ * > **Note:** This action is deprecated.
+ *
+ * Describes the ClassicLink DNS support status of one or more VPCs. If enabled, the DNS hostname of a linked EC2-Classic instance resolves to its private IP address when addressed from an instance in the VPC to which it's linked. Similarly, the DNS hostname of an instance in a VPC resolves to its private IP address when addressed from a linked EC2-Classic instance.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,8 +66,8 @@ export interface DescribeVpcClassicLinkDnsSupportCommandOutput extends DescribeV
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

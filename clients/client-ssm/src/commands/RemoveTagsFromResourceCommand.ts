@@ -23,7 +23,8 @@ export interface RemoveTagsFromResourceCommandInput extends RemoveTagsFromResour
 export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResourceResult, __MetadataBearer {}
 
 /**
- * <p>Removes tag keys from the specified resource.</p>
+ * Removes tag keys from the specified resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,21 +53,24 @@ export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResou
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidResourceId} (client fault)
- *  <p>The resource ID isn't valid. Verify that you entered the correct ID and try again.</p>
+ *
+ * The resource ID isn't valid. Verify that you entered the correct ID and try again.
  *
  * @throws {@link InvalidResourceType} (client fault)
- *  <p>The resource type isn't valid. For example, if you are attempting to tag an EC2 instance,
- *    the instance must be a registered managed node.</p>
+ *
+ * The resource type isn't valid. For example, if you are attempting to tag an EC2 instance, the instance must be a registered managed node.
  *
  * @throws {@link TooManyUpdates} (client fault)
- *  <p>There are concurrent updates for a resource that supports one update at a time.</p>
+ *
+ * There are concurrent updates for a resource that supports one update at a time.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

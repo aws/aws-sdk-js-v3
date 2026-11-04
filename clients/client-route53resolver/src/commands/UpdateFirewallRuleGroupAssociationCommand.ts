@@ -26,7 +26,8 @@ export interface UpdateFirewallRuleGroupAssociationCommandInput extends UpdateFi
 export interface UpdateFirewallRuleGroupAssociationCommandOutput extends UpdateFirewallRuleGroupAssociationResponse, __MetadataBearer {}
 
 /**
- * <p>Changes the association of a <a>FirewallRuleGroup</a> with a VPC. The association enables DNS filtering for the VPC. </p>
+ * Changes the association of a FirewallRuleGroup with a VPC. The association enables DNS filtering for the VPC.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,31 +71,34 @@ export interface UpdateFirewallRuleGroupAssociationCommandOutput extends UpdateF
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p>
- *          <p>This error can also be thrown when a customer has reached the 5120 character limit for a
- * 			resource policy for CloudWatch Logs.</p>
+ *
+ * The current account doesn't have the IAM permissions required to perform the specified Resolver operation.
+ *
+ * This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The requested state transition isn't valid. For example, you can't delete a firewall
- * 			domain list if it is in the process of being deleted, or you can't import domains into a
- * 			domain list that is in the process of being deleted.</p>
+ *
+ * The requested state transition isn't valid. For example, you can't delete a firewall domain list if it is in the process of being deleted, or you can't import domains into a domain list that is in the process of being deleted.
  *
  * @throws {@link InternalServiceErrorException} (client fault)
- *  <p>We encountered an unknown error. Try again in a few minutes.</p>
+ *
+ * We encountered an unknown error. Try again in a few minutes.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource doesn't exist.</p>
+ *
+ * The specified resource doesn't exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled. Try again in a few minutes.</p>
+ *
+ * The request was throttled. Try again in a few minutes.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>You have provided an invalid command. If you ran the <code>UpdateFirewallDomains</code> request. supported values are <code>ADD</code>,
- * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+ *
+ * You have provided an invalid command. If you ran the `UpdateFirewallDomains` request. supported values are `ADD`, `REMOVE`, or `REPLACE` a domain.
  *
  * @throws {@link Route53ResolverServiceException}
- * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * Base exception class for all service exceptions from Route53Resolver service.
  *
  * @public
  */

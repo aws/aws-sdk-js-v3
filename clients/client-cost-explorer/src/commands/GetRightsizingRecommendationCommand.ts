@@ -23,11 +23,10 @@ export interface GetRightsizingRecommendationCommandInput extends GetRightsizing
 export interface GetRightsizingRecommendationCommandOutput extends GetRightsizingRecommendationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates recommendations that help you save cost by identifying idle and underutilized
- *       Amazon EC2 instances.</p>
- *          <p>Recommendations are generated to either downsize or terminate instances, along with
- *       providing savings detail and metrics. For more information about calculation and function, see
- *         <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ce-rightsizing.html">Optimizing Your Cost with Rightsizing Recommendations</a> in the <i>Billing and Cost Management User Guide</i>.</p>
+ * Creates recommendations that help you save cost by identifying idle and underutilized Amazon EC2 instances.
+ *
+ * Recommendations are generated to either downsize or terminate instances, along with providing savings detail and metrics. For more information about calculation and function, see [Optimizing Your Cost with Rightsizing Recommendations](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ce-rightsizing.html) in the *Billing and Cost Management User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -280,14 +279,16 @@ export interface GetRightsizingRecommendationCommandOutput extends GetRightsizin
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The pagination token is invalid. Try again without a pagination token.</p>
+ *
+ * The pagination token is invalid. Try again without a pagination token.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ * You made too many calls in a short period of time. Try again later.
  *
  * @throws {@link CostExplorerServiceException}
- * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * Base exception class for all service exceptions from CostExplorer service.
  *
  * @public
  */

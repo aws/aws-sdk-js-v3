@@ -23,9 +23,8 @@ export interface AddDataSourceCommandInput extends AddDataSourceRequest {}
 export interface AddDataSourceCommandOutput extends AddDataSourceResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new direct-query data source to the specified domain. For more information,
- *             see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3-creating.html">Creating Amazon OpenSearch Service data source integrations with Amazon
- *             S3</a>.</p>
+ * Creates a new direct-query data source to the specified domain. For more information, see [Creating Amazon OpenSearch Service data source integrations with Amazon S3](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3-creating.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,29 +58,36 @@ export interface AddDataSourceCommandOutput extends AddDataSourceResponse, __Met
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
  * @throws {@link BaseException} (client fault)
- *  <p>An error occurred while processing the request.</p>
+ *
+ * An error occurred while processing the request.
  *
  * @throws {@link DependencyFailureException} (client fault)
- *  <p>An exception for when a failure in one of the dependencies results in the service being unable to fetch details about the resource.</p>
+ *
+ * An exception for when a failure in one of the dependencies results in the service being unable to fetch details about the resource.
  *
  * @throws {@link DisabledOperationException} (client fault)
- *  <p>An error occured because the client wanted to access an unsupported operation.</p>
+ *
+ * An error occured because the client wanted to access an unsupported operation.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+ *
+ * Request processing failed because of an unknown error, exception, or internal failure.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>An exception for trying to create more than the allowed number of resources or sub-resources.</p>
+ *
+ * An exception for trying to create more than the allowed number of resources or sub-resources.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+ *
+ * An exception for accessing or deleting a resource that doesn't exist.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+ *
+ * An exception for accessing or deleting a resource that doesn't exist.
  *
  * @throws {@link OpenSearchServiceException}
- * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * Base exception class for all service exceptions from OpenSearch service.
  *
  * @public
  */

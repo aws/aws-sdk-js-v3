@@ -23,7 +23,8 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Add metadata tags to the specified Amazon Web Services resource.</p>
+ * Add metadata tags to the specified Amazon Web Services resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,17 +52,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link LicenseManagerLinuxSubscriptionsClientResolvedConfig | config} for LicenseManagerLinuxSubscriptionsClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An exception occurred with the service.</p>
+ *
+ * An exception occurred with the service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Unable to find the requested Amazon Web Services resource.</p>
+ *
+ * Unable to find the requested Amazon Web Services resource.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The provided input is not valid. Try your request again.</p>
+ *
+ * The provided input is not valid. Try your request again.
  *
  * @throws {@link LicenseManagerLinuxSubscriptionsServiceException}
- * <p>Base exception class for all service exceptions from LicenseManagerLinuxSubscriptions service.</p>
  *
+ * Base exception class for all service exceptions from LicenseManagerLinuxSubscriptions service.
  *
  * @public
  */

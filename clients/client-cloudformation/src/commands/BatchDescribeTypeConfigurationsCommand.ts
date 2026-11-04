@@ -23,11 +23,10 @@ export interface BatchDescribeTypeConfigurationsCommandInput extends BatchDescri
 export interface BatchDescribeTypeConfigurationsCommandOutput extends BatchDescribeTypeConfigurationsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns configuration data for the specified CloudFormation extensions, from the CloudFormation
- *       registry in your current account and Region.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-set-configuration.html">Edit configuration
- *         data for extensions in your account</a> in the
- *       <i>CloudFormation User Guide</i>.</p>
+ * Returns configuration data for the specified CloudFormation extensions, from the CloudFormation registry in your current account and Region.
+ *
+ * For more information, see [Edit configuration data for extensions in your account](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-set-configuration.html) in the *CloudFormation User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,14 +93,16 @@ export interface BatchDescribeTypeConfigurationsCommandOutput extends BatchDescr
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link CFNRegistryException} (client fault)
- *  <p>An error occurred during a CloudFormation registry operation.</p>
+ *
+ * An error occurred during a CloudFormation registry operation.
  *
  * @throws {@link TypeConfigurationNotFoundException} (client fault)
- *  <p>The specified extension configuration can't be found.</p>
+ *
+ * The specified extension configuration can't be found.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

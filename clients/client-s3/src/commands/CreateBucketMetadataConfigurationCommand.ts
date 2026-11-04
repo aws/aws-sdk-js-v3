@@ -23,119 +23,43 @@ export interface CreateBucketMetadataConfigurationCommandInput extends CreateBuc
 export interface CreateBucketMetadataConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Creates an S3 Metadata V2 metadata configuration for a general purpose bucket. For more information, see
- *       <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html">Accelerating
- *         data discovery with S3 Metadata</a> in the <i>Amazon S3 User Guide</i>.</p>
- *          <dl>
- *             <dt>Permissions</dt>
- *             <dd>
- *                <p>To use this operation, you must have the following permissions. For more information, see
- *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html">Setting up permissions for configuring metadata tables</a> in the
- *             <i>Amazon S3 User Guide</i>.</p>
- *                <p>If you want to encrypt your metadata tables with server-side encryption with Key Management Service
- *             (KMS) keys (SSE-KMS), you need additional permissions in your KMS key policy. For more
- *             information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html">
- *               Setting up permissions for configuring metadata tables</a> in the
- *             <i>Amazon S3 User Guide</i>.</p>
- *                <p>If you also want to integrate your table bucket with Amazon Web Services analytics services so that you can
- *             query your metadata table, you need additional permissions. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-integrating-aws.html"> Integrating
- *               Amazon S3 Tables with Amazon Web Services analytics services</a> in the
- *             <i>Amazon S3 User Guide</i>.</p>
- *                <p>To query your metadata tables, you need additional permissions. For more information, see
- *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-bucket-query-permissions.html">
- *               Permissions for querying metadata tables</a> in the <i>Amazon S3 User Guide</i>.</p>
- *                <ul>
- *                   <li>
- *                      <p>
- *                         <code>s3:CreateBucketMetadataTableConfiguration</code>
- *                      </p>
- *                      <note>
- *                         <p>The IAM policy action name is the same for the V1 and V2 API operations.</p>
- *                      </note>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <code>s3tables:CreateTableBucket</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <code>s3tables:CreateNamespace</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <code>s3tables:GetTable</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <code>s3tables:CreateTable</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <code>s3tables:PutTablePolicy</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <code>s3tables:PutTableBucketPolicy</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <code>s3tables:PutTableEncryption</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <code>kms:DescribeKey</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <code>iam:PassRole</code> - required if you include an
- *                 <code>AnnotationTableConfiguration</code> with an IAM role.</p>
- *                   </li>
- *                </ul>
- *             </dd>
- *          </dl>
- *          <p>The following operations are related to <code>CreateBucketMetadataConfiguration</code>:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketMetadataConfiguration.html">DeleteBucketMetadataConfiguration</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketMetadataConfiguration.html">GetBucketMetadataConfiguration</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UpdateBucketMetadataInventoryTableConfiguration.html">UpdateBucketMetadataInventoryTableConfiguration</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UpdateBucketMetadataJournalTableConfiguration.html">UpdateBucketMetadataJournalTableConfiguration</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UpdateBucketMetadataAnnotationTableConfiguration.html">UpdateBucketMetadataAnnotationTableConfiguration</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>If you include an <code>AnnotationTableConfiguration</code> with an IAM role, the role must
- *       have a trust policy that allows the Amazon S3 metadata service to assume it, and a permissions policy
- *       that grants the actions needed to read annotations from your bucket. The following examples show
- *       a trust policy and a permissions policy that you can adapt for your bucket and account.</p>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
+ * Creates an S3 Metadata V2 metadata configuration for a general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) in the *Amazon S3 User Guide*.
+ *
+ * - **Permissions**
+ *
+ *   To use this operation, you must have the following permissions. For more information, see [Setting up permissions for configuring metadata tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html) in the *Amazon S3 User Guide*.
+ *
+ *   If you want to encrypt your metadata tables with server-side encryption with Key Management Service (KMS) keys (SSE-KMS), you need additional permissions in your KMS key policy. For more information, see [Setting up permissions for configuring metadata tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html) in the *Amazon S3 User Guide*.
+ *
+ *   If you also want to integrate your table bucket with Amazon Web Services analytics services so that you can query your metadata table, you need additional permissions. For more information, see [Integrating Amazon S3 Tables with Amazon Web Services analytics services](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-integrating-aws.html) in the *Amazon S3 User Guide*.
+ *
+ *   To query your metadata tables, you need additional permissions. For more information, see [Permissions for querying metadata tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-bucket-query-permissions.html) in the *Amazon S3 User Guide*.
+ *
+ *   - `s3:CreateBucketMetadataTableConfiguration`
+ *
+ *     > **Note:** The IAM policy action name is the same for the V1 and V2 API operations.
+ *   - `s3tables:CreateTableBucket`
+ *   - `s3tables:CreateNamespace`
+ *   - `s3tables:GetTable`
+ *   - `s3tables:CreateTable`
+ *   - `s3tables:PutTablePolicy`
+ *   - `s3tables:PutTableBucketPolicy`
+ *   - `s3tables:PutTableEncryption`
+ *   - `kms:DescribeKey`
+ *   - `iam:PassRole` - required if you include an `AnnotationTableConfiguration` with an IAM role.
+ *
+ * The following operations are related to `CreateBucketMetadataConfiguration`:
+ *
+ * - [DeleteBucketMetadataConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketMetadataConfiguration.html)
+ * - [GetBucketMetadataConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketMetadataConfiguration.html)
+ * - [UpdateBucketMetadataInventoryTableConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_UpdateBucketMetadataInventoryTableConfiguration.html)
+ * - [UpdateBucketMetadataJournalTableConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_UpdateBucketMetadataJournalTableConfiguration.html)
+ * - [UpdateBucketMetadataAnnotationTableConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_UpdateBucketMetadataAnnotationTableConfiguration.html)
+ *
+ * If you include an `AnnotationTableConfiguration` with an IAM role, the role must have a trust policy that allows the Amazon S3 metadata service to assume it, and a permissions policy that grants the actions needed to read annotations from your bucket. The following examples show a trust policy and a permissions policy that you can adapt for your bucket and account.
+ *
+ * > **Important:** You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -190,8 +114,8 @@ export interface CreateBucketMetadataConfigurationCommandOutput extends __Metada
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  * @throws {@link S3ServiceException}
- * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * Base exception class for all service exceptions from S3 service.
  *
  * @public
  */

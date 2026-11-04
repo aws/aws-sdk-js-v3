@@ -23,22 +23,14 @@ export interface ListShardsCommandInput extends ListShardsInput {}
 export interface ListShardsCommandOutput extends ListShardsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the shards in a stream and provides information about each shard. This operation
- *             has a limit of 1000 transactions per second per data stream.</p>
- *          <note>
- *             <p>When invoking this API, you must use either the <code>StreamARN</code> or the
- *                     <code>StreamName</code> parameter, or both. It is recommended that you use the
- *                     <code>StreamARN</code> input parameter when you invoke this API.</p>
- *          </note>
- *          <p>This action does not list expired shards. For information about expired shards, see
- *                 <a href="https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing">Data Routing, Data Persistence, and Shard State after a Reshard</a>. </p>
- *          <important>
- *             <p>This API is a new operation that is used by the Amazon Kinesis Client Library
- *                 (KCL). If you have a fine-grained IAM policy that only allows specific operations,
- *                 you must update your policy to allow calls to this API. For more information, see
- *                     <a href="https://docs.aws.amazon.com/streams/latest/dev/controlling-access.html">Controlling Access to Amazon Kinesis Data Streams Resources Using
- *                 IAM</a>.</p>
- *          </important>
+ * Lists the shards in a stream and provides information about each shard. This operation has a limit of 1000 transactions per second per data stream.
+ *
+ * > **Note:** When invoking this API, you must use either the `StreamARN` or the `StreamName` parameter, or both. It is recommended that you use the `StreamARN` input parameter when you invoke this API.
+ *
+ * This action does not list expired shards. For information about expired shards, see [Data Routing, Data Persistence, and Shard State after a Reshard](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing).
+ *
+ * > **Important:** This API is a new operation that is used by the Amazon Kinesis Client Library (KCL). If you have a fine-grained IAM policy that only allows specific operations, you must update your policy to allow calls to this API. For more information, see [Controlling Access to Amazon Kinesis Data Streams Resources Using IAM](https://docs.aws.amazon.com/streams/latest/dev/controlling-access.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,31 +83,32 @@ export interface ListShardsCommandOutput extends ListShardsOutput, __MetadataBea
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Specifies that you do not have the permissions required to perform this
- *             operation.</p>
+ *
+ * Specifies that you do not have the permissions required to perform this operation.
  *
  * @throws {@link ExpiredNextTokenException} (client fault)
- *  <p>The pagination token passed to the operation is expired.</p>
+ *
+ * The pagination token passed to the operation is expired.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
- *             For more information, see the returned message.</p>
+ *
+ * A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
- *             stream requests exceeds the maximum number allowed. </p>
+ *
+ * The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The resource is not available for this operation. For successful operation, the
- *             resource must be in the <code>ACTIVE</code> state.</p>
+ *
+ * The resource is not available for this operation. For successful operation, the resource must be in the `ACTIVE` state.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource could not be found. The stream might not be specified
- *             correctly.</p>
+ *
+ * The requested resource could not be found. The stream might not be specified correctly.
  *
  * @throws {@link KinesisServiceException}
- * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * Base exception class for all service exceptions from Kinesis service.
  *
  * @public
  */

@@ -23,23 +23,22 @@ export interface UpdateTagsForResourceCommandInput extends UpdateTagsForResource
 export interface UpdateTagsForResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Update the list of tags applied to an Elastic Beanstalk resource. Two lists can be passed: <code>TagsToAdd</code> for tags to add or update, and
- *         <code>TagsToRemove</code>.</p>
- *          <p>Elastic Beanstalk supports tagging of all of its resources. For details about resource tagging, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/applications-tagging-resources.html">Tagging Application Resources</a>.</p>
- *          <p>If you create a custom policy to control permission to this operation, specify one of the following two virtual actions (or both) instead of the API
- *       operation name:</p>
- *          <dl>
- *             <dt>elasticbeanstalk:AddTags</dt>
- *             <dd>
- *                <p>Controls permission to call <code>UpdateTagsForResource</code> and pass a list of tags to add in the <code>TagsToAdd</code> parameter.</p>
- *             </dd>
- *             <dt>elasticbeanstalk:RemoveTags</dt>
- *             <dd>
- *                <p>Controls permission to call <code>UpdateTagsForResource</code> and pass a list of tag keys to remove in the <code>TagsToRemove</code>
- *             parameter.</p>
- *             </dd>
- *          </dl>
- *          <p>For details about creating a custom user policy, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html#AWSHowTo.iam.policies">Creating a Custom User Policy</a>.</p>
+ * Update the list of tags applied to an Elastic Beanstalk resource. Two lists can be passed: `TagsToAdd` for tags to add or update, and `TagsToRemove`.
+ *
+ * Elastic Beanstalk supports tagging of all of its resources. For details about resource tagging, see [Tagging Application Resources](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/applications-tagging-resources.html).
+ *
+ * If you create a custom policy to control permission to this operation, specify one of the following two virtual actions (or both) instead of the API operation name:
+ *
+ * - **elasticbeanstalk:AddTags**
+ *
+ *   Controls permission to call `UpdateTagsForResource` and pass a list of tags to add in the `TagsToAdd` parameter.
+ *
+ * - **elasticbeanstalk:RemoveTags**
+ *
+ *   Controls permission to call `UpdateTagsForResource` and pass a list of tag keys to remove in the `TagsToRemove` parameter.
+ *
+ * For details about creating a custom user policy, see [Creating a Custom User Policy](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html#AWSHowTo.iam.policies).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,27 +72,30 @@ export interface UpdateTagsForResourceCommandOutput extends __MetadataBearer {}
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  * @throws {@link InsufficientPrivilegesException} (client fault)
- *  <p>The specified account does not have sufficient privileges for one or more Amazon Web Services services.</p>
+ *
+ * The specified account does not have sufficient privileges for one or more Amazon Web Services services.
  *
  * @throws {@link OperationInProgressException} (client fault)
- *  <p>Unable to perform the specified operation because another operation that effects an
- *       element in this activity is already in progress.</p>
+ *
+ * Unable to perform the specified operation because another operation that effects an element in this activity is already in progress.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A resource doesn't exist for the specified Amazon Resource Name (ARN).</p>
+ *
+ * A resource doesn't exist for the specified Amazon Resource Name (ARN).
  *
  * @throws {@link ResourceTypeNotSupportedException} (client fault)
- *  <p>The type of the specified Amazon Resource Name (ARN) isn't supported for this operation.</p>
+ *
+ * The type of the specified Amazon Resource Name (ARN) isn't supported for this operation.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>The number of tags in the resource would exceed the number of tags that each resource
- *       can have.</p>
- *          <p>To calculate this, the operation considers both the number of tags the resource already has
- *       and the tags this operation would add if it succeeded.</p>
+ *
+ * The number of tags in the resource would exceed the number of tags that each resource can have.
+ *
+ * To calculate this, the operation considers both the number of tags the resource already has and the tags this operation would add if it succeeded.
  *
  * @throws {@link ElasticBeanstalkSyntheticServiceException}
- * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * Base exception class for all service exceptions from ElasticBeanstalk service.
  *
  * @public
  */

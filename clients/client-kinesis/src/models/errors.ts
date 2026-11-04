@@ -4,8 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { KinesisServiceException as __BaseException } from "./KinesisServiceException";
 
 /**
- * <p>Specifies that you do not have the permissions required to perform this
- *             operation.</p>
+ * Specifies that you do not have the permissions required to perform this operation.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -26,8 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
- *             For more information, see the returned message.</p>
+ * A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.
+ *
  * @public
  */
 export class InvalidArgumentException extends __BaseException {
@@ -48,8 +48,8 @@ export class InvalidArgumentException extends __BaseException {
 }
 
 /**
- * <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
- *             stream requests exceeds the maximum number allowed. </p>
+ * The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -70,8 +70,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The resource is not available for this operation. For successful operation, the
- *             resource must be in the <code>ACTIVE</code> state.</p>
+ * The resource is not available for this operation. For successful operation, the resource must be in the `ACTIVE` state.
+ *
  * @public
  */
 export class ResourceInUseException extends __BaseException {
@@ -92,8 +92,8 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
- * <p>The requested resource could not be found. The stream might not be specified
- *             correctly.</p>
+ * The requested resource could not be found. The stream might not be specified correctly.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -114,8 +114,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The ciphertext references a key that doesn't exist or that you don't have access
- *             to.</p>
+ * The ciphertext references a key that doesn't exist or that you don't have access to.
+ *
  * @public
  */
 export class KMSAccessDeniedException extends __BaseException {
@@ -136,8 +136,8 @@ export class KMSAccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the specified customer master key (CMK) isn't
- *             enabled.</p>
+ * The request was rejected because the specified customer master key (CMK) isn't enabled.
+ *
  * @public
  */
 export class KMSDisabledException extends __BaseException {
@@ -158,10 +158,8 @@ export class KMSDisabledException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the state of the specified resource isn't valid for
- *             this request. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use of a
- *                 Customer Master Key</a> in the <i>Amazon Web Services Key Management
- *                 Service Developer Guide</i>.</p>
+ * The request was rejected because the state of the specified resource isn't valid for this request. For more information, see [How Key State Affects Use of a Customer Master Key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the *Amazon Web Services Key Management Service Developer Guide*.
+ *
  * @public
  */
 export class KMSInvalidStateException extends __BaseException {
@@ -182,8 +180,8 @@ export class KMSInvalidStateException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the specified entity or resource can't be
- *             found.</p>
+ * The request was rejected because the specified entity or resource can't be found.
+ *
  * @public
  */
 export class KMSNotFoundException extends __BaseException {
@@ -204,7 +202,8 @@ export class KMSNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The Amazon Web Services access key ID needs a subscription for the service.</p>
+ * The Amazon Web Services access key ID needs a subscription for the service.
+ *
  * @public
  */
 export class KMSOptInRequired extends __BaseException {
@@ -225,10 +224,8 @@ export class KMSOptInRequired extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling. For more information about
- *             throttling, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second">Limits</a> in
- *             the <i>Amazon Web Services Key Management Service Developer
- *             Guide</i>.</p>
+ * The request was denied due to request throttling. For more information about throttling, see [Limits](https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second) in the *Amazon Web Services Key Management Service Developer Guide*.
+ *
  * @public
  */
 export class KMSThrottlingException extends __BaseException {
@@ -249,9 +246,8 @@ export class KMSThrottlingException extends __BaseException {
 }
 
 /**
- * <p>Specifies that you tried to invoke this API for a data stream with the on-demand
- *             capacity mode. This API is only supported for data streams with the provisioned capacity
- *             mode. </p>
+ * Specifies that you tried to invoke this API for a data stream with the on-demand capacity mode. This API is only supported for data streams with the provisioned capacity mode.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -272,7 +268,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the DryRun parameter was specified.</p>
+ * The request was rejected because the DryRun parameter was specified.
+ *
  * @public
  */
 export class DryRunOperationException extends __BaseException {
@@ -293,7 +290,8 @@ export class DryRunOperationException extends __BaseException {
 }
 
 /**
- * <p>The provided iterator exceeds the maximum age allowed.</p>
+ * The provided iterator exceeds the maximum age allowed.
+ *
  * @public
  */
 export class ExpiredIteratorException extends __BaseException {
@@ -314,7 +312,8 @@ export class ExpiredIteratorException extends __BaseException {
 }
 
 /**
- * <p>The pagination token passed to the operation is expired.</p>
+ * The pagination token passed to the operation is expired.
+ *
  * @public
  */
 export class ExpiredNextTokenException extends __BaseException {
@@ -335,8 +334,8 @@ export class ExpiredNextTokenException extends __BaseException {
 }
 
 /**
- * <p>The processing of the request failed because of an unknown error, exception, or
- *             failure.</p>
+ * The processing of the request failed because of an unknown error, exception, or failure.
+ *
  * @public
  */
 export class InternalFailureException extends __BaseException {
@@ -357,11 +356,8 @@ export class InternalFailureException extends __BaseException {
 }
 
 /**
- * <p>The request rate for the stream is too high, or the requested data is too large for
- *             the available throughput. Reduce the frequency or size of your requests. For more
- *             information, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html">Streams Limits</a> in the
- *                 <i>Amazon Kinesis Data Streams Developer Guide</i>, and <a href="https://docs.aws.amazon.com/general/latest/gr/api-retries.html">Error Retries and
- *                 Exponential Backoff in Amazon Web Services</a> in the <i>Amazon Web Services General Reference</i>.</p>
+ * The request rate for the stream is too high, or the requested data is too large for the available throughput. Reduce the frequency or size of your requests. For more information, see [Streams Limits](https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html) in the *Amazon Kinesis Data Streams Developer Guide*, and [Error Retries and Exponential Backoff in Amazon Web Services](https://docs.aws.amazon.com/general/latest/gr/api-retries.html) in the *Amazon Web Services General Reference*.
+ *
  * @public
  */
 export class ProvisionedThroughputExceededException extends __BaseException {

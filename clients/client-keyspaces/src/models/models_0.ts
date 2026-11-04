@@ -17,288 +17,410 @@ import type {
 } from "./enums";
 
 /**
- * <p>The auto scaling policy that scales a table based on the ratio of consumed to provisioned capacity.</p>
+ * The auto scaling policy that scales a table based on the ratio of consumed to provisioned capacity.
+ *
  * @public
  */
 export interface TargetTrackingScalingPolicyConfiguration {
   /**
-   * <p>Specifies if <code>scale-in</code> is enabled.</p> <p>When auto scaling automatically decreases capacity for a table, the table <i>scales in</i>. When scaling policies are set, they can't scale in the table lower than its minimum capacity.</p>
+   * Specifies if `scale-in` is enabled.
+   *
+   * When auto scaling automatically decreases capacity for a table, the table *scales in*. When scaling policies are set, they can't scale in the table lower than its minimum capacity.
+   *
    * @public
    */
   disableScaleIn?: boolean | undefined;
 
   /**
-   * <p>Specifies a <code>scale-in</code> cool down period.</p> <p>A cooldown period in seconds between scaling activities that lets the table stabilize before another scaling activity starts. </p>
+   * Specifies a `scale-in` cool down period.
+   *
+   * A cooldown period in seconds between scaling activities that lets the table stabilize before another scaling activity starts.
+   *
    * @public
    */
   scaleInCooldown?: number | undefined;
 
   /**
-   * <p>Specifies a scale out cool down period.</p> <p>A cooldown period in seconds between scaling activities that lets the table stabilize before another scaling activity starts. </p>
+   * Specifies a scale out cool down period.
+   *
+   * A cooldown period in seconds between scaling activities that lets the table stabilize before another scaling activity starts.
+   *
    * @public
    */
   scaleOutCooldown?: number | undefined;
 
   /**
-   * <p>Specifies the target value for the target tracking auto scaling policy.</p> <p>Amazon Keyspaces auto scaling scales up capacity automatically when traffic exceeds this target utilization rate, and then back down when it falls below the target. This ensures that the ratio of consumed capacity to provisioned capacity stays at or near this value. You define <code>targetValue</code> as a percentage. A <code>double</code> between 20 and 90.</p>
+   * Specifies the target value for the target tracking auto scaling policy.
+   *
+   * Amazon Keyspaces auto scaling scales up capacity automatically when traffic exceeds this target utilization rate, and then back down when it falls below the target. This ensures that the ratio of consumed capacity to provisioned capacity stays at or near this value. You define `targetValue` as a percentage. A `double` between 20 and 90.
+   *
    * @public
    */
   targetValue: number | undefined;
 }
 
 /**
- * <p>Amazon Keyspaces supports the <code>target tracking</code> auto scaling policy. With this policy, Amazon Keyspaces auto scaling ensures that the table's ratio of consumed to provisioned capacity stays at or near the target value that you specify. You define the target value as a percentage between 20 and 90.</p>
+ * Amazon Keyspaces supports the `target tracking` auto scaling policy. With this policy, Amazon Keyspaces auto scaling ensures that the table's ratio of consumed to provisioned capacity stays at or near the target value that you specify. You define the target value as a percentage between 20 and 90.
+ *
  * @public
  */
 export interface AutoScalingPolicy {
   /**
-   * <p>Auto scaling scales up capacity automatically when traffic exceeds this target utilization rate, and then back down when it falls below the target. A <code>double</code> between 20 and 90.</p>
+   * Auto scaling scales up capacity automatically when traffic exceeds this target utilization rate, and then back down when it falls below the target. A `double` between 20 and 90.
+   *
    * @public
    */
   targetTrackingScalingPolicyConfiguration?: TargetTrackingScalingPolicyConfiguration | undefined;
 }
 
 /**
- * <p>The optional auto scaling settings for a table with provisioned throughput capacity.</p> <p>To turn on auto scaling for a table in <code>throughputMode:PROVISIONED</code>, you must specify the following parameters. </p> <p>Configure the minimum and maximum capacity units. The auto scaling policy ensures that capacity never goes below the minimum or above the maximum range.</p> <ul> <li> <p> <code>minimumUnits</code>: The minimum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).</p> </li> <li> <p> <code>maximumUnits</code>: The maximum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).</p> </li> <li> <p> <code>scalingPolicy</code>: Amazon Keyspaces supports the <code>target tracking</code> scaling policy. The auto scaling target is the provisioned capacity of the table. </p> <ul> <li> <p> <code>targetTrackingScalingPolicyConfiguration</code>: To define the target tracking policy, you must define the target value. </p> <ul> <li> <p> <code>targetValue</code>: The target utilization rate of the table. Amazon Keyspaces auto scaling ensures that the ratio of consumed capacity to provisioned capacity stays at or near this value. You define <code>targetValue</code> as a percentage. A <code>double</code> between 20 and 90. (Required)</p> </li> <li> <p> <code>disableScaleIn</code>: A <code>boolean</code> that specifies if <code>scale-in</code> is disabled or enabled for the table. This parameter is disabled by default. To turn on <code>scale-in</code>, set the <code>boolean</code> value to <code>FALSE</code>. This means that capacity for a table can be automatically scaled down on your behalf. (Optional) </p> </li> <li> <p> <code>scaleInCooldown</code>: A cooldown period in seconds between scaling activities that lets the table stabilize before another scale in activity starts. If no value is provided, the default is 0. (Optional) </p> </li> <li> <p> <code>scaleOutCooldown</code>: A cooldown period in seconds between scaling activities that lets the table stabilize before another scale out activity starts. If no value is provided, the default is 0. (Optional) </p> </li> </ul> </li> </ul> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/autoscaling.html">Managing throughput capacity automatically with Amazon Keyspaces auto scaling</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+ * The optional auto scaling settings for a table with provisioned throughput capacity.
+ *
+ * To turn on auto scaling for a table in `throughputMode:PROVISIONED`, you must specify the following parameters.
+ *
+ * Configure the minimum and maximum capacity units. The auto scaling policy ensures that capacity never goes below the minimum or above the maximum range.
+ *
+ * - `minimumUnits`: The minimum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
+ * - `maximumUnits`: The maximum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
+ * - `scalingPolicy`: Amazon Keyspaces supports the `target tracking` scaling policy. The auto scaling target is the provisioned capacity of the table.
+ *
+ *   - `targetTrackingScalingPolicyConfiguration`: To define the target tracking policy, you must define the target value.
+ *
+ *     - `targetValue`: The target utilization rate of the table. Amazon Keyspaces auto scaling ensures that the ratio of consumed capacity to provisioned capacity stays at or near this value. You define `targetValue` as a percentage. A `double` between 20 and 90. (Required)
+ *     - `disableScaleIn`: A `boolean` that specifies if `scale-in` is disabled or enabled for the table. This parameter is disabled by default. To turn on `scale-in`, set the `boolean` value to `FALSE`. This means that capacity for a table can be automatically scaled down on your behalf. (Optional)
+ *     - `scaleInCooldown`: A cooldown period in seconds between scaling activities that lets the table stabilize before another scale in activity starts. If no value is provided, the default is 0. (Optional)
+ *     - `scaleOutCooldown`: A cooldown period in seconds between scaling activities that lets the table stabilize before another scale out activity starts. If no value is provided, the default is 0. (Optional)
+ *
+ * For more information, see [Managing throughput capacity automatically with Amazon Keyspaces auto scaling](https://docs.aws.amazon.com/keyspaces/latest/devguide/autoscaling.html) in the *Amazon Keyspaces Developer Guide*.
+ *
  * @public
  */
 export interface AutoScalingSettings {
   /**
-   * <p>This optional parameter enables auto scaling for the table if set to <code>false</code>.</p>
+   * This optional parameter enables auto scaling for the table if set to `false`.
+   *
    * @public
    */
   autoScalingDisabled?: boolean | undefined;
 
   /**
-   * <p>The minimum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).</p>
+   * The minimum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
+   *
    * @public
    */
   minimumUnits?: number | undefined;
 
   /**
-   * <p>Manage costs by specifying the maximum amount of throughput to provision. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).</p>
+   * Manage costs by specifying the maximum amount of throughput to provision. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
+   *
    * @public
    */
   maximumUnits?: number | undefined;
 
   /**
-   * <p>Amazon Keyspaces supports the <code>target tracking</code> auto scaling policy. With this policy, Amazon Keyspaces auto scaling ensures that the table's ratio of consumed to provisioned capacity stays at or near the target value that you specify. You define the target value as a percentage between 20 and 90.</p>
+   * Amazon Keyspaces supports the `target tracking` auto scaling policy. With this policy, Amazon Keyspaces auto scaling ensures that the table's ratio of consumed to provisioned capacity stays at or near the target value that you specify. You define the target value as a percentage between 20 and 90.
+   *
    * @public
    */
   scalingPolicy?: AutoScalingPolicy | undefined;
 }
 
 /**
- * <p>The optional auto scaling capacity settings for a table in provisioned capacity mode.</p>
+ * The optional auto scaling capacity settings for a table in provisioned capacity mode.
+ *
  * @public
  */
 export interface AutoScalingSpecification {
   /**
-   * <p>The auto scaling settings for the table's write capacity.</p>
+   * The auto scaling settings for the table's write capacity.
+   *
    * @public
    */
   writeCapacityAutoScaling?: AutoScalingSettings | undefined;
 
   /**
-   * <p>The auto scaling settings for the table's read capacity.</p>
+   * The auto scaling settings for the table's read capacity.
+   *
    * @public
    */
   readCapacityAutoScaling?: AutoScalingSettings | undefined;
 }
 
 /**
- * <p>Amazon Keyspaces has two read/write capacity modes for processing reads and writes on your tables: </p> <ul> <li> <p>On-demand (default)</p> </li> <li> <p>Provisioned</p> </li> </ul> <p>The read/write capacity mode that you choose controls how you are charged for read and write throughput and how table throughput capacity is managed.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html">Read/write capacity modes</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+ * Amazon Keyspaces has two read/write capacity modes for processing reads and writes on your tables:
+ *
+ * - On-demand (default)
+ * - Provisioned
+ *
+ * The read/write capacity mode that you choose controls how you are charged for read and write throughput and how table throughput capacity is managed.
+ *
+ * For more information, see [Read/write capacity modes](https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html) in the *Amazon Keyspaces Developer Guide*.
+ *
  * @public
  */
 export interface CapacitySpecification {
   /**
-   * <p>The read/write throughput capacity mode for a table. The options are:</p> <ul> <li> <p> <code>throughputMode:PAY_PER_REQUEST</code> and </p> </li> <li> <p> <code>throughputMode:PROVISIONED</code> - Provisioned capacity mode requires <code>readCapacityUnits</code> and <code>writeCapacityUnits</code> as input.</p> </li> </ul> <p>The default is <code>throughput_mode:PAY_PER_REQUEST</code>.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html">Read/write capacity modes</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+   * The read/write throughput capacity mode for a table. The options are:
+   *
+   * - `throughputMode:PAY_PER_REQUEST` and
+   * - `throughputMode:PROVISIONED` - Provisioned capacity mode requires `readCapacityUnits` and `writeCapacityUnits` as input.
+   *
+   * The default is `throughput_mode:PAY_PER_REQUEST`.
+   *
+   * For more information, see [Read/write capacity modes](https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html) in the *Amazon Keyspaces Developer Guide*.
+   *
    * @public
    */
   throughputMode: ThroughputMode | undefined;
 
   /**
-   * <p>The throughput capacity specified for <code>read</code> operations defined in <code>read capacity units</code> <code>(RCUs)</code>.</p>
+   * The throughput capacity specified for `read` operations defined in `read capacity units` `(RCUs)`.
+   *
    * @public
    */
   readCapacityUnits?: number | undefined;
 
   /**
-   * <p>The throughput capacity specified for <code>write</code> operations defined in <code>write capacity units</code> <code>(WCUs)</code>.</p>
+   * The throughput capacity specified for `write` operations defined in `write capacity units` `(WCUs)`.
+   *
    * @public
    */
   writeCapacityUnits?: number | undefined;
 }
 
 /**
- * <p>The read/write throughput capacity mode for a table. The options are:</p> <ul> <li> <p> <code>throughputMode:PAY_PER_REQUEST</code> and </p> </li> <li> <p> <code>throughputMode:PROVISIONED</code>.</p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html">Read/write capacity modes</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+ * The read/write throughput capacity mode for a table. The options are:
+ *
+ * - `throughputMode:PAY_PER_REQUEST` and
+ * - `throughputMode:PROVISIONED`.
+ *
+ * For more information, see [Read/write capacity modes](https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html) in the *Amazon Keyspaces Developer Guide*.
+ *
  * @public
  */
 export interface CapacitySpecificationSummary {
   /**
-   * <p>The read/write throughput capacity mode for a table. The options are:</p> <ul> <li> <p> <code>throughputMode:PAY_PER_REQUEST</code> and </p> </li> <li> <p> <code>throughputMode:PROVISIONED</code> - Provisioned capacity mode requires <code>readCapacityUnits</code> and <code>writeCapacityUnits</code> as input. </p> </li> </ul> <p>The default is <code>throughput_mode:PAY_PER_REQUEST</code>.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html">Read/write capacity modes</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+   * The read/write throughput capacity mode for a table. The options are:
+   *
+   * - `throughputMode:PAY_PER_REQUEST` and
+   * - `throughputMode:PROVISIONED` - Provisioned capacity mode requires `readCapacityUnits` and `writeCapacityUnits` as input.
+   *
+   * The default is `throughput_mode:PAY_PER_REQUEST`.
+   *
+   * For more information, see [Read/write capacity modes](https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html) in the *Amazon Keyspaces Developer Guide*.
+   *
    * @public
    */
   throughputMode: ThroughputMode | undefined;
 
   /**
-   * <p>The throughput capacity specified for <code>read</code> operations defined in <code>read capacity units</code> <code>(RCUs)</code>.</p>
+   * The throughput capacity specified for `read` operations defined in `read capacity units` `(RCUs)`.
+   *
    * @public
    */
   readCapacityUnits?: number | undefined;
 
   /**
-   * <p>The throughput capacity specified for <code>write</code> operations defined in <code>write capacity units</code> <code>(WCUs)</code>.</p>
+   * The throughput capacity specified for `write` operations defined in `write capacity units` `(WCUs)`.
+   *
    * @public
    */
   writeCapacityUnits?: number | undefined;
 
   /**
-   * <p>The timestamp of the last operation that changed the provisioned throughput capacity of a table.</p>
+   * The timestamp of the last operation that changed the provisioned throughput capacity of a table.
+   *
    * @public
    */
   lastUpdateToPayPerRequestTimestamp?: Date | undefined;
 }
 
 /**
- * <p>Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single Amazon Keyspaces resource.</p> <p>Amazon Web Services-assigned tag names and values are automatically assigned the <code>aws:</code> prefix, which the user cannot assign. Amazon Web Services-assigned tag names do not count towards the tag limit of 50. User-assigned tag names have the prefix <code>user:</code> in the Cost Allocation Report. You cannot backdate the application of a tag.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/tagging-keyspaces.html">Adding tags and labels to Amazon Keyspaces resources</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+ * Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single Amazon Keyspaces resource.
+ *
+ * Amazon Web Services-assigned tag names and values are automatically assigned the `aws:` prefix, which the user cannot assign. Amazon Web Services-assigned tag names do not count towards the tag limit of 50. User-assigned tag names have the prefix `user:` in the Cost Allocation Report. You cannot backdate the application of a tag.
+ *
+ * For more information, see [Adding tags and labels to Amazon Keyspaces resources](https://docs.aws.amazon.com/keyspaces/latest/devguide/tagging-keyspaces.html) in the *Amazon Keyspaces Developer Guide*.
+ *
  * @public
  */
 export interface Tag {
   /**
-   * <p>The key of the tag. Tag keys are case sensitive. Each Amazon Keyspaces resource can only have up to one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value.</p>
+   * The key of the tag. Tag keys are case sensitive. Each Amazon Keyspaces resource can only have up to one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value.
+   *
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>The value of the tag. Tag values are case-sensitive and can be null.</p>
+   * The value of the tag. Tag values are case-sensitive and can be null.
+   *
    * @public
    */
   value: string | undefined;
 }
 
 /**
- * <p>The settings for the CDC stream of a table. For more information about CDC streams, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/cdc.html">Working with change data capture (CDC) streams in Amazon Keyspaces</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+ * The settings for the CDC stream of a table. For more information about CDC streams, see [Working with change data capture (CDC) streams in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/cdc.html) in the *Amazon Keyspaces Developer Guide*.
+ *
  * @public
  */
 export interface CdcSpecification {
   /**
-   * <p>The status of the CDC stream. You can enable or disable a stream for a table.</p>
+   * The status of the CDC stream. You can enable or disable a stream for a table.
+   *
    * @public
    */
   status: CdcStatus | undefined;
 
   /**
-   * <p>The view type specifies the changes Amazon Keyspaces records for each changed row in the stream. After you create the stream, you can't make changes to this selection. </p> <p>The options are:</p> <ul> <li> <p> <code>NEW_AND_OLD_IMAGES</code> - both versions of the row, before and after the change. This is the default.</p> </li> <li> <p> <code>NEW_IMAGE</code> - the version of the row after the change.</p> </li> <li> <p> <code>OLD_IMAGE</code> - the version of the row before the change.</p> </li> <li> <p> <code>KEYS_ONLY</code> - the partition and clustering keys of the row that was changed.</p> </li> </ul>
+   * The view type specifies the changes Amazon Keyspaces records for each changed row in the stream. After you create the stream, you can't make changes to this selection.
+   *
+   * The options are:
+   *
+   * - `NEW_AND_OLD_IMAGES` - both versions of the row, before and after the change. This is the default.
+   * - `NEW_IMAGE` - the version of the row after the change.
+   * - `OLD_IMAGE` - the version of the row before the change.
+   * - `KEYS_ONLY` - the partition and clustering keys of the row that was changed.
+   *
    * @public
    */
   viewType?: ViewType | undefined;
 
   /**
-   * <p>The tags (key-value pairs) that you want to apply to the stream.</p>
+   * The tags (key-value pairs) that you want to apply to the stream.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p>Specifies that the stream inherits the tags from the table.</p>
+   * Specifies that the stream inherits the tags from the table.
+   *
    * @public
    */
   propagateTags?: CdcPropagateTags | undefined;
 }
 
 /**
- * <p>The settings of the CDC stream of the table. For more information about CDC streams, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/cdc.html">Working with change data capture (CDC) streams in Amazon Keyspaces</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+ * The settings of the CDC stream of the table. For more information about CDC streams, see [Working with change data capture (CDC) streams in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/cdc.html) in the *Amazon Keyspaces Developer Guide*.
+ *
  * @public
  */
 export interface CdcSpecificationSummary {
   /**
-   * <p>The status of the CDC stream. Specifies if the table has a CDC stream.</p>
+   * The status of the CDC stream. Specifies if the table has a CDC stream.
+   *
    * @public
    */
   status: CdcStatus | undefined;
 
   /**
-   * <p>The view type specifies the changes Amazon Keyspaces records for each changed row in the stream. This setting can't be changed, after the stream has been created. </p> <p>The options are:</p> <ul> <li> <p> <code>NEW_AND_OLD_IMAGES</code> - both versions of the row, before and after the change. This is the default.</p> </li> <li> <p> <code>NEW_IMAGE</code> - the version of the row after the change.</p> </li> <li> <p> <code>OLD_IMAGE</code> - the version of the row before the change.</p> </li> <li> <p> <code>KEYS_ONLY</code> - the partition and clustering keys of the row that was changed.</p> </li> </ul>
+   * The view type specifies the changes Amazon Keyspaces records for each changed row in the stream. This setting can't be changed, after the stream has been created.
+   *
+   * The options are:
+   *
+   * - `NEW_AND_OLD_IMAGES` - both versions of the row, before and after the change. This is the default.
+   * - `NEW_IMAGE` - the version of the row after the change.
+   * - `OLD_IMAGE` - the version of the row before the change.
+   * - `KEYS_ONLY` - the partition and clustering keys of the row that was changed.
+   *
    * @public
    */
   viewType?: ViewType | undefined;
 }
 
 /**
- * <p>The client-side timestamp setting of the table.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/client-side-timestamps-how-it-works.html">How it works: Amazon Keyspaces client-side timestamps</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+ * The client-side timestamp setting of the table.
+ *
+ * For more information, see [How it works: Amazon Keyspaces client-side timestamps](https://docs.aws.amazon.com/keyspaces/latest/devguide/client-side-timestamps-how-it-works.html) in the *Amazon Keyspaces Developer Guide*.
+ *
  * @public
  */
 export interface ClientSideTimestamps {
   /**
-   * <p>Shows how to enable client-side timestamps settings for the specified table.</p>
+   * Shows how to enable client-side timestamps settings for the specified table.
+   *
    * @public
    */
   status: ClientSideTimestampsStatus | undefined;
 }
 
 /**
- * <p>The optional clustering column portion of your primary key determines how the data is clustered and sorted within each partition.</p>
+ * The optional clustering column portion of your primary key determines how the data is clustered and sorted within each partition.
+ *
  * @public
  */
 export interface ClusteringKey {
   /**
-   * <p>The name(s) of the clustering column(s).</p>
+   * The name(s) of the clustering column(s).
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Sets the ascendant (<code>ASC</code>) or descendant (<code>DESC</code>) order modifier.</p>
+   * Sets the ascendant (`ASC`) or descendant (`DESC`) order modifier.
+   *
    * @public
    */
   orderBy: SortOrder | undefined;
 }
 
 /**
- * <p>The names and data types of regular columns.</p>
+ * The names and data types of regular columns.
+ *
  * @public
  */
 export interface ColumnDefinition {
   /**
-   * <p>The name of the column.</p>
+   * The name of the column.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The data type of the column. For a list of available data types, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types">Data types</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+   * The data type of the column. For a list of available data types, see [Data types](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types) in the *Amazon Keyspaces Developer Guide*.
+   *
    * @public
    */
   type: string | undefined;
 }
 
 /**
- * <p>An optional comment that describes the table.</p>
+ * An optional comment that describes the table.
+ *
  * @public
  */
 export interface Comment {
   /**
-   * <p>An optional description of the table.</p>
+   * An optional description of the table.
+   *
    * @public
    */
   message: string | undefined;
 }
 
 /**
- * <p> The replication specification of the keyspace includes:</p> <ul> <li> <p> <code>regionList</code> - the Amazon Web Services Regions where the keyspace is replicated in.</p> </li> <li> <p> <code>replicationStrategy</code> - the required value is <code>SINGLE_REGION</code> or <code>MULTI_REGION</code>.</p> </li> </ul>
+ * The replication specification of the keyspace includes:
+ *
+ * - `regionList` - the Amazon Web Services Regions where the keyspace is replicated in.
+ * - `replicationStrategy` - the required value is `SINGLE_REGION` or `MULTI_REGION`.
+ *
  * @public
  */
 export interface ReplicationSpecification {
   /**
-   * <p> The <code>replicationStrategy</code> of a keyspace, the required value is <code>SINGLE_REGION</code> or <code>MULTI_REGION</code>. </p>
+   * The `replicationStrategy` of a keyspace, the required value is `SINGLE_REGION` or `MULTI_REGION`.
+   *
    * @public
    */
   replicationStrategy: Rs | undefined;
 
   /**
-   * <p> The <code>regionList</code> contains the Amazon Web Services Regions where the keyspace is replicated in. </p>
+   * The `regionList` contains the Amazon Web Services Regions where the keyspace is replicated in.
+   *
    * @public
    */
   regionList?: string[] | undefined;
@@ -309,19 +431,27 @@ export interface ReplicationSpecification {
  */
 export interface CreateKeyspaceRequest {
   /**
-   * <p>The name of the keyspace to be created.</p>
+   * The name of the keyspace to be created.
+   *
    * @public
    */
   keyspaceName: string | undefined;
 
   /**
-   * <p>A list of key-value pair tags to be attached to the keyspace.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/tagging-keyspaces.html">Adding tags and labels to Amazon Keyspaces resources</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+   * A list of key-value pair tags to be attached to the keyspace.
+   *
+   * For more information, see [Adding tags and labels to Amazon Keyspaces resources](https://docs.aws.amazon.com/keyspaces/latest/devguide/tagging-keyspaces.html) in the *Amazon Keyspaces Developer Guide*.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p> The replication specification of the keyspace includes:</p> <ul> <li> <p> <code>replicationStrategy</code> - the required value is <code>SINGLE_REGION</code> or <code>MULTI_REGION</code>.</p> </li> <li> <p> <code>regionList</code> - if the <code>replicationStrategy</code> is <code>MULTI_REGION</code>, the <code>regionList</code> requires the current Region and at least one additional Amazon Web Services Region where the keyspace is going to be replicated in.</p> </li> </ul>
+   * The replication specification of the keyspace includes:
+   *
+   * - `replicationStrategy` - the required value is `SINGLE_REGION` or `MULTI_REGION`.
+   * - `regionList` - if the `replicationStrategy` is `MULTI_REGION`, the `regionList` requires the current Region and at least one additional Amazon Web Services Region where the keyspace is going to be replicated in.
+   *
    * @public
    */
   replicationSpecification?: ReplicationSpecification | undefined;
@@ -332,145 +462,198 @@ export interface CreateKeyspaceRequest {
  */
 export interface CreateKeyspaceResponse {
   /**
-   * <p>The unique identifier of the keyspace in the format of an Amazon Resource Name (ARN).</p>
+   * The unique identifier of the keyspace in the format of an Amazon Resource Name (ARN).
+   *
    * @public
    */
   resourceArn: string | undefined;
 }
 
 /**
- * <p>Amazon Keyspaces encrypts and decrypts the table data at rest transparently and integrates with Key Management Service for storing and managing the encryption key. You can choose one of the following KMS keys (KMS keys):</p> <ul> <li> <p>Amazon Web Services owned key - This is the default encryption type. The key is owned by Amazon Keyspaces (no additional charge). </p> </li> <li> <p>Customer managed key - This key is stored in your account and is created, owned, and managed by you. You have full control over the customer managed key (KMS charges apply).</p> </li> </ul> <p>For more information about encryption at rest in Amazon Keyspaces, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html">Encryption at rest</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p> <p>For more information about KMS, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html">KMS management service concepts</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ * Amazon Keyspaces encrypts and decrypts the table data at rest transparently and integrates with Key Management Service for storing and managing the encryption key. You can choose one of the following KMS keys (KMS keys):
+ *
+ * - Amazon Web Services owned key - This is the default encryption type. The key is owned by Amazon Keyspaces (no additional charge).
+ * - Customer managed key - This key is stored in your account and is created, owned, and managed by you. You have full control over the customer managed key (KMS charges apply).
+ *
+ * For more information about encryption at rest in Amazon Keyspaces, see [Encryption at rest](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html) in the *Amazon Keyspaces Developer Guide*.
+ *
+ * For more information about KMS, see [KMS management service concepts](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html) in the *Key Management Service Developer Guide*.
+ *
  * @public
  */
 export interface EncryptionSpecification {
   /**
-   * <p>The encryption option specified for the table. You can choose one of the following KMS keys (KMS keys):</p> <ul> <li> <p> <code>type:AWS_OWNED_KMS_KEY</code> - This key is owned by Amazon Keyspaces. </p> </li> <li> <p> <code>type:CUSTOMER_MANAGED_KMS_KEY</code> - This key is stored in your account and is created, owned, and managed by you. This option requires the <code>kms_key_identifier</code> of the KMS key in Amazon Resource Name (ARN) format as input. </p> </li> </ul> <p>The default is <code>type:AWS_OWNED_KMS_KEY</code>. </p> <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html">Encryption at rest</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+   * The encryption option specified for the table. You can choose one of the following KMS keys (KMS keys):
+   *
+   * - `type:AWS_OWNED_KMS_KEY` - This key is owned by Amazon Keyspaces.
+   * - `type:CUSTOMER_MANAGED_KMS_KEY` - This key is stored in your account and is created, owned, and managed by you. This option requires the `kms_key_identifier` of the KMS key in Amazon Resource Name (ARN) format as input.
+   *
+   * The default is `type:AWS_OWNED_KMS_KEY`.
+   *
+   * For more information, see [Encryption at rest](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html) in the *Amazon Keyspaces Developer Guide*.
+   *
    * @public
    */
   type: EncryptionType | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the customer managed KMS key, for example <code>kms_key_identifier:ARN</code>.</p>
+   * The Amazon Resource Name (ARN) of the customer managed KMS key, for example `kms_key_identifier:ARN`.
+   *
    * @public
    */
   kmsKeyIdentifier?: string | undefined;
 }
 
 /**
- * <p>Point-in-time recovery (PITR) helps protect your Amazon Keyspaces tables from accidental write or delete operations by providing you continuous backups of your table data.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html">Point-in-time recovery</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+ * Point-in-time recovery (PITR) helps protect your Amazon Keyspaces tables from accidental write or delete operations by providing you continuous backups of your table data.
+ *
+ * For more information, see [Point-in-time recovery](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html) in the *Amazon Keyspaces Developer Guide*.
+ *
  * @public
  */
 export interface PointInTimeRecovery {
   /**
-   * <p>The options are:</p> <ul> <li> <p> <code>status=ENABLED</code> </p> </li> <li> <p> <code>status=DISABLED</code> </p> </li> </ul>
+   * The options are:
+   *
+   * - `status=ENABLED`
+   * - `status=DISABLED`
+   *
    * @public
    */
   status: PointInTimeRecoveryStatus | undefined;
 }
 
 /**
- * <p>The Amazon Web Services Region specific settings of a multi-Region table.</p> <p>For a multi-Region table, you can configure the table's read capacity differently per Amazon Web Services Region. You can do this by configuring the following parameters.</p> <ul> <li> <p> <code>region</code>: The Region where these settings are applied. (Required)</p> </li> <li> <p> <code>readCapacityUnits</code>: The provisioned read capacity units. (Optional)</p> </li> <li> <p> <code>readCapacityAutoScaling</code>: The read capacity auto scaling settings for the table. (Optional)</p> </li> </ul>
+ * The Amazon Web Services Region specific settings of a multi-Region table.
+ *
+ * For a multi-Region table, you can configure the table's read capacity differently per Amazon Web Services Region. You can do this by configuring the following parameters.
+ *
+ * - `region`: The Region where these settings are applied. (Required)
+ * - `readCapacityUnits`: The provisioned read capacity units. (Optional)
+ * - `readCapacityAutoScaling`: The read capacity auto scaling settings for the table. (Optional)
+ *
  * @public
  */
 export interface ReplicaSpecification {
   /**
-   * <p>The Amazon Web Services Region.</p>
+   * The Amazon Web Services Region.
+   *
    * @public
    */
   region: string | undefined;
 
   /**
-   * <p>The provisioned read capacity units for the multi-Region table in the specified Amazon Web Services Region.</p>
+   * The provisioned read capacity units for the multi-Region table in the specified Amazon Web Services Region.
+   *
    * @public
    */
   readCapacityUnits?: number | undefined;
 
   /**
-   * <p>The read capacity auto scaling settings for the multi-Region table in the specified Amazon Web Services Region.</p>
+   * The read capacity auto scaling settings for the multi-Region table in the specified Amazon Web Services Region.
+   *
    * @public
    */
   readCapacityAutoScaling?: AutoScalingSettings | undefined;
 }
 
 /**
- * <p>The partition key portion of the primary key is required and determines how Amazon Keyspaces stores the data. The partition key can be a single column, or it can be a compound value composed of two or more columns.</p>
+ * The partition key portion of the primary key is required and determines how Amazon Keyspaces stores the data. The partition key can be a single column, or it can be a compound value composed of two or more columns.
+ *
  * @public
  */
 export interface PartitionKey {
   /**
-   * <p>The name(s) of the partition key column(s).</p>
+   * The name(s) of the partition key column(s).
+   *
    * @public
    */
   name: string | undefined;
 }
 
 /**
- * <p>The static columns of the table. Static columns store values that are shared by all rows in the same partition.</p>
+ * The static columns of the table. Static columns store values that are shared by all rows in the same partition.
+ *
  * @public
  */
 export interface StaticColumn {
   /**
-   * <p>The name of the static column.</p>
+   * The name of the static column.
+   *
    * @public
    */
   name: string | undefined;
 }
 
 /**
- * <p>Describes the schema of the table.</p>
+ * Describes the schema of the table.
+ *
  * @public
  */
 export interface SchemaDefinition {
   /**
-   * <p>The regular columns of the table.</p>
+   * The regular columns of the table.
+   *
    * @public
    */
   allColumns: ColumnDefinition[] | undefined;
 
   /**
-   * <p>The columns that are part of the partition key of the table .</p>
+   * The columns that are part of the partition key of the table .
+   *
    * @public
    */
   partitionKeys: PartitionKey[] | undefined;
 
   /**
-   * <p>The columns that are part of the clustering key of the table.</p>
+   * The columns that are part of the clustering key of the table.
+   *
    * @public
    */
   clusteringKeys?: ClusteringKey[] | undefined;
 
   /**
-   * <p>The columns that have been defined as <code>STATIC</code>. Static columns store values that are shared by all rows in the same partition.</p>
+   * The columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition.
+   *
    * @public
    */
   staticColumns?: StaticColumn[] | undefined;
 }
 
 /**
- * <p>Enable custom Time to Live (TTL) settings for rows and columns without setting a TTL default for the specified table.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_enabling">Enabling TTL on tables</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+ * Enable custom Time to Live (TTL) settings for rows and columns without setting a TTL default for the specified table.
+ *
+ * For more information, see [Enabling TTL on tables](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_enabling) in the *Amazon Keyspaces Developer Guide*.
+ *
  * @public
  */
 export interface TimeToLive {
   /**
-   * <p>Shows how to enable custom Time to Live (TTL) settings for the specified table.</p>
+   * Shows how to enable custom Time to Live (TTL) settings for the specified table.
+   *
    * @public
    */
   status: TimeToLiveStatus | undefined;
 }
 
 /**
- * <p>Specifies the warm throughput settings for a table. Pre-warming a table by specifying warm throughput pre-provisions read and write capacity units to help avoid capacity exceeded exceptions and reduce latency when your table starts receiving traffic.</p> <p>For more information about pre-warming in Amazon Keyspaces, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/warm-throughput.html">Pre-warm a table in Amazon Keyspaces</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+ * Specifies the warm throughput settings for a table. Pre-warming a table by specifying warm throughput pre-provisions read and write capacity units to help avoid capacity exceeded exceptions and reduce latency when your table starts receiving traffic.
+ *
+ * For more information about pre-warming in Amazon Keyspaces, see [Pre-warm a table in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/warm-throughput.html) in the *Amazon Keyspaces Developer Guide*.
+ *
  * @public
  */
 export interface WarmThroughputSpecification {
   /**
-   * <p>The number of read capacity units per second to pre-warm the table for read capacity throughput. The minimum value is 1.</p>
+   * The number of read capacity units per second to pre-warm the table for read capacity throughput. The minimum value is 1.
+   *
    * @public
    */
   readUnitsPerSecond?: number | undefined;
 
   /**
-   * <p>The number of write capacity units per second to pre-warm the table for write capacity throughput. The minimum value is 1.</p>
+   * The number of write capacity units per second to pre-warm the table for write capacity throughput. The minimum value is 1.
+   *
    * @public
    */
   writeUnitsPerSecond?: number | undefined;
@@ -481,91 +664,171 @@ export interface WarmThroughputSpecification {
  */
 export interface CreateTableRequest {
   /**
-   * <p>The name of the keyspace that the table is going to be created in.</p>
+   * The name of the keyspace that the table is going to be created in.
+   *
    * @public
    */
   keyspaceName: string | undefined;
 
   /**
-   * <p>The name of the table.</p>
+   * The name of the table.
+   *
    * @public
    */
   tableName: string | undefined;
 
   /**
-   * <p>The <code>schemaDefinition</code> consists of the following parameters.</p> <p>For each column to be created:</p> <ul> <li> <p> <code>name</code> - The name of the column.</p> </li> <li> <p> <code>type</code> - An Amazon Keyspaces data type. For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types">Data types</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p> </li> </ul> <p>The primary key of the table consists of the following columns:</p> <ul> <li> <p> <code>partitionKeys</code> - The partition key can be a single column, or it can be a compound value composed of two or more columns. The partition key portion of the primary key is required and determines how Amazon Keyspaces stores your data.</p> </li> <li> <p> <code>name</code> - The name of each partition key column.</p> </li> <li> <p> <code>clusteringKeys</code> - The optional clustering column portion of your primary key determines how the data is clustered and sorted within each partition.</p> </li> <li> <p> <code>name</code> - The name of the clustering column. </p> </li> <li> <p> <code>orderBy</code> - Sets the ascendant (<code>ASC</code>) or descendant (<code>DESC</code>) order modifier.</p> <p>To define a column as static use <code>staticColumns</code> - Static columns store values that are shared by all rows in the same partition:</p> </li> <li> <p> <code>name</code> - The name of the column.</p> </li> <li> <p> <code>type</code> - An Amazon Keyspaces data type.</p> </li> </ul>
+   * The `schemaDefinition` consists of the following parameters.
+   *
+   * For each column to be created:
+   *
+   * - `name` - The name of the column.
+   * - `type` - An Amazon Keyspaces data type. For more information, see [Data types](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types) in the *Amazon Keyspaces Developer Guide*.
+   *
+   * The primary key of the table consists of the following columns:
+   *
+   * - `partitionKeys` - The partition key can be a single column, or it can be a compound value composed of two or more columns. The partition key portion of the primary key is required and determines how Amazon Keyspaces stores your data.
+   * - `name` - The name of each partition key column.
+   * - `clusteringKeys` - The optional clustering column portion of your primary key determines how the data is clustered and sorted within each partition.
+   * - `name` - The name of the clustering column.
+   * - `orderBy` - Sets the ascendant (`ASC`) or descendant (`DESC`) order modifier.
+   *
+   *   To define a column as static use `staticColumns` - Static columns store values that are shared by all rows in the same partition:
+   * - `name` - The name of the column.
+   * - `type` - An Amazon Keyspaces data type.
+   *
    * @public
    */
   schemaDefinition: SchemaDefinition | undefined;
 
   /**
-   * <p>This parameter allows to enter a description of the table.</p>
+   * This parameter allows to enter a description of the table.
+   *
    * @public
    */
   comment?: Comment | undefined;
 
   /**
-   * <p>Specifies the read/write throughput capacity mode for the table. The options are:</p> <ul> <li> <p> <code>throughputMode:PAY_PER_REQUEST</code> and </p> </li> <li> <p> <code>throughputMode:PROVISIONED</code> - Provisioned capacity mode requires <code>readCapacityUnits</code> and <code>writeCapacityUnits</code> as input.</p> </li> </ul> <p>The default is <code>throughput_mode:PAY_PER_REQUEST</code>.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html">Read/write capacity modes</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+   * Specifies the read/write throughput capacity mode for the table. The options are:
+   *
+   * - `throughputMode:PAY_PER_REQUEST` and
+   * - `throughputMode:PROVISIONED` - Provisioned capacity mode requires `readCapacityUnits` and `writeCapacityUnits` as input.
+   *
+   * The default is `throughput_mode:PAY_PER_REQUEST`.
+   *
+   * For more information, see [Read/write capacity modes](https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html) in the *Amazon Keyspaces Developer Guide*.
+   *
    * @public
    */
   capacitySpecification?: CapacitySpecification | undefined;
 
   /**
-   * <p>Specifies how the encryption key for encryption at rest is managed for the table. You can choose one of the following KMS key (KMS key):</p> <ul> <li> <p> <code>type:AWS_OWNED_KMS_KEY</code> - This key is owned by Amazon Keyspaces. </p> </li> <li> <p> <code>type:CUSTOMER_MANAGED_KMS_KEY</code> - This key is stored in your account and is created, owned, and managed by you. This option requires the <code>kms_key_identifier</code> of the KMS key in Amazon Resource Name (ARN) format as input.</p> </li> </ul> <p>The default is <code>type:AWS_OWNED_KMS_KEY</code>.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html">Encryption at rest</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+   * Specifies how the encryption key for encryption at rest is managed for the table. You can choose one of the following KMS key (KMS key):
+   *
+   * - `type:AWS_OWNED_KMS_KEY` - This key is owned by Amazon Keyspaces.
+   * - `type:CUSTOMER_MANAGED_KMS_KEY` - This key is stored in your account and is created, owned, and managed by you. This option requires the `kms_key_identifier` of the KMS key in Amazon Resource Name (ARN) format as input.
+   *
+   * The default is `type:AWS_OWNED_KMS_KEY`.
+   *
+   * For more information, see [Encryption at rest](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html) in the *Amazon Keyspaces Developer Guide*.
+   *
    * @public
    */
   encryptionSpecification?: EncryptionSpecification | undefined;
 
   /**
-   * <p>Specifies if <code>pointInTimeRecovery</code> is enabled or disabled for the table. The options are:</p> <ul> <li> <p> <code>status=ENABLED</code> </p> </li> <li> <p> <code>status=DISABLED</code> </p> </li> </ul> <p>If it's not specified, the default is <code>status=DISABLED</code>.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html">Point-in-time recovery</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+   * Specifies if `pointInTimeRecovery` is enabled or disabled for the table. The options are:
+   *
+   * - `status=ENABLED`
+   * - `status=DISABLED`
+   *
+   * If it's not specified, the default is `status=DISABLED`.
+   *
+   * For more information, see [Point-in-time recovery](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html) in the *Amazon Keyspaces Developer Guide*.
+   *
    * @public
    */
   pointInTimeRecovery?: PointInTimeRecovery | undefined;
 
   /**
-   * <p>Enables Time to Live custom settings for the table. The options are:</p> <ul> <li> <p> <code>status:enabled</code> </p> </li> <li> <p> <code>status:disabled</code> </p> </li> </ul> <p>The default is <code>status:disabled</code>. After <code>ttl</code> is enabled, you can't disable it for the table.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html">Expiring data by using Amazon Keyspaces Time to Live (TTL)</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+   * Enables Time to Live custom settings for the table. The options are:
+   *
+   * - `status:enabled`
+   * - `status:disabled`
+   *
+   * The default is `status:disabled`. After `ttl` is enabled, you can't disable it for the table.
+   *
+   * For more information, see [Expiring data by using Amazon Keyspaces Time to Live (TTL)](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html) in the *Amazon Keyspaces Developer Guide*.
+   *
    * @public
    */
   ttl?: TimeToLive | undefined;
 
   /**
-   * <p>The default Time to Live setting in seconds for the table.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl">Setting the default TTL value for a table</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+   * The default Time to Live setting in seconds for the table.
+   *
+   * For more information, see [Setting the default TTL value for a table](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl) in the *Amazon Keyspaces Developer Guide*.
+   *
    * @public
    */
   defaultTimeToLive?: number | undefined;
 
   /**
-   * <p>A list of key-value pair tags to be attached to the resource. </p> <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/tagging-keyspaces.html">Adding tags and labels to Amazon Keyspaces resources</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+   * A list of key-value pair tags to be attached to the resource.
+   *
+   * For more information, see [Adding tags and labels to Amazon Keyspaces resources](https://docs.aws.amazon.com/keyspaces/latest/devguide/tagging-keyspaces.html) in the *Amazon Keyspaces Developer Guide*.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p> Enables client-side timestamps for the table. By default, the setting is disabled. You can enable client-side timestamps with the following option:</p> <ul> <li> <p> <code>status: "enabled"</code> </p> </li> </ul> <p>Once client-side timestamps are enabled for a table, this setting cannot be disabled.</p>
+   * Enables client-side timestamps for the table. By default, the setting is disabled. You can enable client-side timestamps with the following option:
+   *
+   * - `status: "enabled"`
+   *
+   * Once client-side timestamps are enabled for a table, this setting cannot be disabled.
+   *
    * @public
    */
   clientSideTimestamps?: ClientSideTimestamps | undefined;
 
   /**
-   * <p>The optional auto scaling settings for a table in provisioned capacity mode. Specifies if the service can manage throughput capacity automatically on your behalf.</p> <p>Auto scaling helps you provision throughput capacity for variable workloads efficiently by increasing and decreasing your table's read and write capacity automatically in response to application traffic. For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/autoscaling.html">Managing throughput capacity automatically with Amazon Keyspaces auto scaling</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p> <p>By default, auto scaling is disabled for a table. </p>
+   * The optional auto scaling settings for a table in provisioned capacity mode. Specifies if the service can manage throughput capacity automatically on your behalf.
+   *
+   * Auto scaling helps you provision throughput capacity for variable workloads efficiently by increasing and decreasing your table's read and write capacity automatically in response to application traffic. For more information, see [Managing throughput capacity automatically with Amazon Keyspaces auto scaling](https://docs.aws.amazon.com/keyspaces/latest/devguide/autoscaling.html) in the *Amazon Keyspaces Developer Guide*.
+   *
+   * By default, auto scaling is disabled for a table.
+   *
    * @public
    */
   autoScalingSpecification?: AutoScalingSpecification | undefined;
 
   /**
-   * <p>The optional Amazon Web Services Region specific settings of a multi-Region table. These settings overwrite the general settings of the table for the specified Region. </p> <p>For a multi-Region table in provisioned capacity mode, you can configure the table's read capacity differently for each Region's replica. The write capacity, however, remains synchronized between all replicas to ensure that there's enough capacity to replicate writes across all Regions. To define the read capacity for a table replica in a specific Region, you can do so by configuring the following parameters.</p> <ul> <li> <p> <code>region</code>: The Region where these settings are applied. (Required)</p> </li> <li> <p> <code>readCapacityUnits</code>: The provisioned read capacity units. (Optional)</p> </li> <li> <p> <code>readCapacityAutoScaling</code>: The read capacity auto scaling settings for the table. (Optional) </p> </li> </ul>
+   * The optional Amazon Web Services Region specific settings of a multi-Region table. These settings overwrite the general settings of the table for the specified Region.
+   *
+   * For a multi-Region table in provisioned capacity mode, you can configure the table's read capacity differently for each Region's replica. The write capacity, however, remains synchronized between all replicas to ensure that there's enough capacity to replicate writes across all Regions. To define the read capacity for a table replica in a specific Region, you can do so by configuring the following parameters.
+   *
+   * - `region`: The Region where these settings are applied. (Required)
+   * - `readCapacityUnits`: The provisioned read capacity units. (Optional)
+   * - `readCapacityAutoScaling`: The read capacity auto scaling settings for the table. (Optional)
+   *
    * @public
    */
   replicaSpecifications?: ReplicaSpecification[] | undefined;
 
   /**
-   * <p>The CDC stream settings of the table.</p>
+   * The CDC stream settings of the table.
+   *
    * @public
    */
   cdcSpecification?: CdcSpecification | undefined;
 
   /**
-   * <p>Specifies the warm throughput settings for the table. Pre-warming a table helps you avoid capacity exceeded exceptions by pre-provisioning read and write capacity units to reduce cold start latency when your table receives traffic.</p> <p>For more information about pre-warming in Amazon Keyspaces, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/warm-throughput.html">Pre-warm a table in Amazon Keyspaces</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+   * Specifies the warm throughput settings for the table. Pre-warming a table helps you avoid capacity exceeded exceptions by pre-provisioning read and write capacity units to reduce cold start latency when your table receives traffic.
+   *
+   * For more information about pre-warming in Amazon Keyspaces, see [Pre-warm a table in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/warm-throughput.html) in the *Amazon Keyspaces Developer Guide*.
+   *
    * @public
    */
   warmThroughputSpecification?: WarmThroughputSpecification | undefined;
@@ -576,25 +839,31 @@ export interface CreateTableRequest {
  */
 export interface CreateTableResponse {
   /**
-   * <p>The unique identifier of the table in the format of an Amazon Resource Name (ARN).</p>
+   * The unique identifier of the table in the format of an Amazon Resource Name (ARN).
+   *
    * @public
    */
   resourceArn: string | undefined;
 }
 
 /**
- * <p> A field definition consists out of a name and a type. </p>
+ * A field definition consists out of a name and a type.
+ *
  * @public
  */
 export interface FieldDefinition {
   /**
-   * <p> The identifier. </p>
+   * The identifier.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p> Any supported Cassandra data type, including collections and other user-defined types that are contained in the same keyspace. </p> <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/cassandra-apis.html#cassandra-data-type">Cassandra data type support</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+   * Any supported Cassandra data type, including collections and other user-defined types that are contained in the same keyspace.
+   *
+   * For more information, see [Cassandra data type support](https://docs.aws.amazon.com/keyspaces/latest/devguide/cassandra-apis.html#cassandra-data-type) in the *Amazon Keyspaces Developer Guide*.
+   *
    * @public
    */
   type: string | undefined;
@@ -605,19 +874,28 @@ export interface FieldDefinition {
  */
 export interface CreateTypeRequest {
   /**
-   * <p> The name of the keyspace. </p>
+   * The name of the keyspace.
+   *
    * @public
    */
   keyspaceName: string | undefined;
 
   /**
-   * <p> The name of the user-defined type. </p> <p>UDT names must contain 48 characters or less, must begin with an alphabetic character, and can only contain alpha-numeric characters and underscores. Amazon Keyspaces converts upper case characters automatically into lower case characters. </p> <p>Alternatively, you can declare a UDT name in double quotes. When declaring a UDT name inside double quotes, Amazon Keyspaces preserves upper casing and allows special characters.</p> <p>You can also use double quotes as part of the name when you create the UDT, but you must escape each double quote character with an additional double quote character.</p>
+   * The name of the user-defined type.
+   *
+   * UDT names must contain 48 characters or less, must begin with an alphabetic character, and can only contain alpha-numeric characters and underscores. Amazon Keyspaces converts upper case characters automatically into lower case characters.
+   *
+   * Alternatively, you can declare a UDT name in double quotes. When declaring a UDT name inside double quotes, Amazon Keyspaces preserves upper casing and allows special characters.
+   *
+   * You can also use double quotes as part of the name when you create the UDT, but you must escape each double quote character with an additional double quote character.
+   *
    * @public
    */
   typeName: string | undefined;
 
   /**
-   * <p> The field definitions, consisting of names and types, that define this type. </p>
+   * The field definitions, consisting of names and types, that define this type.
+   *
    * @public
    */
   fieldDefinitions: FieldDefinition[] | undefined;
@@ -628,13 +906,15 @@ export interface CreateTypeRequest {
  */
 export interface CreateTypeResponse {
   /**
-   * <p> The unique identifier of the keyspace that contains the new type in the format of an Amazon Resource Name (ARN). </p>
+   * The unique identifier of the keyspace that contains the new type in the format of an Amazon Resource Name (ARN).
+   *
    * @public
    */
   keyspaceArn: string | undefined;
 
   /**
-   * <p> The formatted name of the user-defined type that was created. Note that Amazon Keyspaces requires the formatted name of the type for other operations, for example <code>GetType</code>. </p>
+   * The formatted name of the user-defined type that was created. Note that Amazon Keyspaces requires the formatted name of the type for other operations, for example `GetType`.
+   *
    * @public
    */
   typeName: string | undefined;
@@ -645,7 +925,8 @@ export interface CreateTypeResponse {
  */
 export interface DeleteKeyspaceRequest {
   /**
-   * <p>The name of the keyspace to be deleted.</p>
+   * The name of the keyspace to be deleted.
+   *
    * @public
    */
   keyspaceName: string | undefined;
@@ -661,13 +942,15 @@ export interface DeleteKeyspaceResponse {}
  */
 export interface DeleteTableRequest {
   /**
-   * <p>The name of the keyspace of the to be deleted table.</p>
+   * The name of the keyspace of the to be deleted table.
+   *
    * @public
    */
   keyspaceName: string | undefined;
 
   /**
-   * <p>The name of the table to be deleted.</p>
+   * The name of the table to be deleted.
+   *
    * @public
    */
   tableName: string | undefined;
@@ -683,13 +966,15 @@ export interface DeleteTableResponse {}
  */
 export interface DeleteTypeRequest {
   /**
-   * <p> The name of the keyspace of the to be deleted type. </p>
+   * The name of the keyspace of the to be deleted type.
+   *
    * @public
    */
   keyspaceName: string | undefined;
 
   /**
-   * <p> The name of the type to be deleted. </p>
+   * The name of the type to be deleted.
+   *
    * @public
    */
   typeName: string | undefined;
@@ -700,13 +985,15 @@ export interface DeleteTypeRequest {
  */
 export interface DeleteTypeResponse {
   /**
-   * <p> The unique identifier of the keyspace from which the type was deleted in the format of an Amazon Resource Name (ARN). </p>
+   * The unique identifier of the keyspace from which the type was deleted in the format of an Amazon Resource Name (ARN).
+   *
    * @public
    */
   keyspaceArn: string | undefined;
 
   /**
-   * <p> The name of the type that was deleted. </p>
+   * The name of the type that was deleted.
+   *
    * @public
    */
   typeName: string | undefined;
@@ -717,31 +1004,36 @@ export interface DeleteTypeResponse {
  */
 export interface GetKeyspaceRequest {
   /**
-   * <p>The name of the keyspace.</p>
+   * The name of the keyspace.
+   *
    * @public
    */
   keyspaceName: string | undefined;
 }
 
 /**
- * <p> This shows the summary status of the keyspace after a new Amazon Web Services Region was added. </p>
+ * This shows the summary status of the keyspace after a new Amazon Web Services Region was added.
+ *
  * @public
  */
 export interface ReplicationGroupStatus {
   /**
-   * <p> The name of the Region that was added to the keyspace. </p>
+   * The name of the Region that was added to the keyspace.
+   *
    * @public
    */
   region: string | undefined;
 
   /**
-   * <p> The status of the keyspace. </p>
+   * The status of the keyspace.
+   *
    * @public
    */
   keyspaceStatus: KeyspaceStatus | undefined;
 
   /**
-   * <p> This shows the replication progress of tables in the keyspace. The value is expressed as a percentage of the newly replicated tables with status <code>Active</code> compared to the total number of tables in the keyspace. </p>
+   * This shows the replication progress of tables in the keyspace. The value is expressed as a percentage of the newly replicated tables with status `Active` compared to the total number of tables in the keyspace.
+   *
    * @public
    */
   tablesReplicationProgress?: string | undefined;
@@ -752,31 +1044,36 @@ export interface ReplicationGroupStatus {
  */
 export interface GetKeyspaceResponse {
   /**
-   * <p>The name of the keyspace.</p>
+   * The name of the keyspace.
+   *
    * @public
    */
   keyspaceName: string | undefined;
 
   /**
-   * <p>Returns the ARN of the keyspace.</p>
+   * Returns the ARN of the keyspace.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p> Returns the replication strategy of the keyspace. The options are <code>SINGLE_REGION</code> or <code>MULTI_REGION</code>. </p>
+   * Returns the replication strategy of the keyspace. The options are `SINGLE_REGION` or `MULTI_REGION`.
+   *
    * @public
    */
   replicationStrategy: Rs | undefined;
 
   /**
-   * <p> If the <code>replicationStrategy</code> of the keyspace is <code>MULTI_REGION</code>, a list of replication Regions is returned. </p>
+   * If the `replicationStrategy` of the keyspace is `MULTI_REGION`, a list of replication Regions is returned.
+   *
    * @public
    */
   replicationRegions?: string[] | undefined;
 
   /**
-   * <p> A list of all Regions the keyspace is replicated in after the update keyspace operation and their status. </p>
+   * A list of all Regions the keyspace is replicated in after the update keyspace operation and their status.
+   *
    * @public
    */
   replicationGroupStatuses?: ReplicationGroupStatus[] | undefined;
@@ -787,85 +1084,106 @@ export interface GetKeyspaceResponse {
  */
 export interface GetTableRequest {
   /**
-   * <p>The name of the keyspace that the table is stored in.</p>
+   * The name of the keyspace that the table is stored in.
+   *
    * @public
    */
   keyspaceName: string | undefined;
 
   /**
-   * <p>The name of the table.</p>
+   * The name of the table.
+   *
    * @public
    */
   tableName: string | undefined;
 }
 
 /**
- * <p>The point-in-time recovery status of the specified table.</p>
+ * The point-in-time recovery status of the specified table.
+ *
  * @public
  */
 export interface PointInTimeRecoverySummary {
   /**
-   * <p>Shows if point-in-time recovery is enabled or disabled for the specified table.</p>
+   * Shows if point-in-time recovery is enabled or disabled for the specified table.
+   *
    * @public
    */
   status: PointInTimeRecoveryStatus | undefined;
 
   /**
-   * <p>Specifies the earliest possible restore point of the table in ISO 8601 format.</p>
+   * Specifies the earliest possible restore point of the table in ISO 8601 format.
+   *
    * @public
    */
   earliestRestorableTimestamp?: Date | undefined;
 }
 
 /**
- * <p>Contains the current warm throughput settings for a table, including the configured capacity units and the current status of the warm throughput configuration.</p>
+ * Contains the current warm throughput settings for a table, including the configured capacity units and the current status of the warm throughput configuration.
+ *
  * @public
  */
 export interface WarmThroughputSpecificationSummary {
   /**
-   * <p>The number of read capacity units per second currently configured for warm throughput.</p>
+   * The number of read capacity units per second currently configured for warm throughput.
+   *
    * @public
    */
   readUnitsPerSecond: number | undefined;
 
   /**
-   * <p>The number of write capacity units per second currently configured for warm throughput.</p>
+   * The number of write capacity units per second currently configured for warm throughput.
+   *
    * @public
    */
   writeUnitsPerSecond: number | undefined;
 
   /**
-   * <p>The current status of the warm throughput configuration. Valid values are <code>AVAILABLE</code> when the configuration is active, and <code>UPDATING</code> when changes are being applied.</p>
+   * The current status of the warm throughput configuration. Valid values are `AVAILABLE` when the configuration is active, and `UPDATING` when changes are being applied.
+   *
    * @public
    */
   status: WarmThroughputStatus | undefined;
 }
 
 /**
- * <p>The Region-specific settings of a multi-Region table in the specified Amazon Web Services Region.</p> <p>If the multi-Region table is using provisioned capacity and has optional auto scaling policies configured, note that the Region specific summary returns both read and write capacity settings. But only Region specific read capacity settings can be configured for a multi-Region table. In a multi-Region table, your write capacity units will be synced across all Amazon Web Services Regions to ensure that there is enough capacity to replicate write events across Regions.</p>
+ * The Region-specific settings of a multi-Region table in the specified Amazon Web Services Region.
+ *
+ * If the multi-Region table is using provisioned capacity and has optional auto scaling policies configured, note that the Region specific summary returns both read and write capacity settings. But only Region specific read capacity settings can be configured for a multi-Region table. In a multi-Region table, your write capacity units will be synced across all Amazon Web Services Regions to ensure that there is enough capacity to replicate write events across Regions.
+ *
  * @public
  */
 export interface ReplicaSpecificationSummary {
   /**
-   * <p>The Amazon Web Services Region.</p>
+   * The Amazon Web Services Region.
+   *
    * @public
    */
   region?: string | undefined;
 
   /**
-   * <p>The status of the multi-Region table in the specified Amazon Web Services Region.</p>
+   * The status of the multi-Region table in the specified Amazon Web Services Region.
+   *
    * @public
    */
   status?: TableStatus | undefined;
 
   /**
-   * <p>The read/write throughput capacity mode for a table. The options are:</p> <ul> <li> <p> <code>throughputMode:PAY_PER_REQUEST</code> and </p> </li> <li> <p> <code>throughputMode:PROVISIONED</code>.</p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html">Read/write capacity modes</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+   * The read/write throughput capacity mode for a table. The options are:
+   *
+   * - `throughputMode:PAY_PER_REQUEST` and
+   * - `throughputMode:PROVISIONED`.
+   *
+   * For more information, see [Read/write capacity modes](https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html) in the *Amazon Keyspaces Developer Guide*.
+   *
    * @public
    */
   capacitySpecification?: CapacitySpecificationSummary | undefined;
 
   /**
-   * <p>The warm throughput settings for this replica, including the current status and configured read and write capacity units.</p>
+   * The warm throughput settings for this replica, including the current status and configured read and write capacity units.
+   *
    * @public
    */
   warmThroughputSpecification?: WarmThroughputSpecificationSummary | undefined;
@@ -876,103 +1194,123 @@ export interface ReplicaSpecificationSummary {
  */
 export interface GetTableResponse {
   /**
-   * <p>The name of the keyspace that the specified table is stored in.</p>
+   * The name of the keyspace that the specified table is stored in.
+   *
    * @public
    */
   keyspaceName: string | undefined;
 
   /**
-   * <p>The name of the specified table.</p>
+   * The name of the specified table.
+   *
    * @public
    */
   tableName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the specified table.</p>
+   * The Amazon Resource Name (ARN) of the specified table.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The creation timestamp of the specified table.</p>
+   * The creation timestamp of the specified table.
+   *
    * @public
    */
   creationTimestamp?: Date | undefined;
 
   /**
-   * <p>The current status of the specified table.</p>
+   * The current status of the specified table.
+   *
    * @public
    */
   status?: TableStatus | undefined;
 
   /**
-   * <p>The schema definition of the specified table.</p>
+   * The schema definition of the specified table.
+   *
    * @public
    */
   schemaDefinition?: SchemaDefinition | undefined;
 
   /**
-   * <p>The read/write throughput capacity mode for a table. The options are:</p> <ul> <li> <p> <code>throughputMode:PAY_PER_REQUEST</code> </p> </li> <li> <p> <code>throughputMode:PROVISIONED</code> </p> </li> </ul>
+   * The read/write throughput capacity mode for a table. The options are:
+   *
+   * - `throughputMode:PAY_PER_REQUEST`
+   * - `throughputMode:PROVISIONED`
+   *
    * @public
    */
   capacitySpecification?: CapacitySpecificationSummary | undefined;
 
   /**
-   * <p>The encryption settings of the specified table.</p>
+   * The encryption settings of the specified table.
+   *
    * @public
    */
   encryptionSpecification?: EncryptionSpecification | undefined;
 
   /**
-   * <p>The point-in-time recovery status of the specified table.</p>
+   * The point-in-time recovery status of the specified table.
+   *
    * @public
    */
   pointInTimeRecovery?: PointInTimeRecoverySummary | undefined;
 
   /**
-   * <p>The custom Time to Live settings of the specified table.</p>
+   * The custom Time to Live settings of the specified table.
+   *
    * @public
    */
   ttl?: TimeToLive | undefined;
 
   /**
-   * <p>The default Time to Live settings in seconds of the specified table.</p>
+   * The default Time to Live settings in seconds of the specified table.
+   *
    * @public
    */
   defaultTimeToLive?: number | undefined;
 
   /**
-   * <p>The the description of the specified table.</p>
+   * The the description of the specified table.
+   *
    * @public
    */
   comment?: Comment | undefined;
 
   /**
-   * <p> The client-side timestamps setting of the table.</p>
+   * The client-side timestamps setting of the table.
+   *
    * @public
    */
   clientSideTimestamps?: ClientSideTimestamps | undefined;
 
   /**
-   * <p>Returns the Amazon Web Services Region specific settings of all Regions a multi-Region table is replicated in.</p>
+   * Returns the Amazon Web Services Region specific settings of all Regions a multi-Region table is replicated in.
+   *
    * @public
    */
   replicaSpecifications?: ReplicaSpecificationSummary[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the stream.</p>
+   * The Amazon Resource Name (ARN) of the stream.
+   *
    * @public
    */
   latestStreamArn?: string | undefined;
 
   /**
-   * <p>The CDC stream settings of the table.</p>
+   * The CDC stream settings of the table.
+   *
    * @public
    */
   cdcSpecification?: CdcSpecificationSummary | undefined;
 
   /**
-   * <p>The warm throughput settings for the table, including the current status and configured read and write capacity units.</p>
+   * The warm throughput settings for the table, including the current status and configured read and write capacity units.
+   *
    * @public
    */
   warmThroughputSpecification?: WarmThroughputSpecificationSummary | undefined;
@@ -983,31 +1321,36 @@ export interface GetTableResponse {
  */
 export interface GetTableAutoScalingSettingsRequest {
   /**
-   * <p>The name of the keyspace.</p>
+   * The name of the keyspace.
+   *
    * @public
    */
   keyspaceName: string | undefined;
 
   /**
-   * <p>The name of the table.</p>
+   * The name of the table.
+   *
    * @public
    */
   tableName: string | undefined;
 }
 
 /**
- * <p>The auto scaling settings of a multi-Region table in the specified Amazon Web Services Region.</p>
+ * The auto scaling settings of a multi-Region table in the specified Amazon Web Services Region.
+ *
  * @public
  */
 export interface ReplicaAutoScalingSpecification {
   /**
-   * <p>The Amazon Web Services Region.</p>
+   * The Amazon Web Services Region.
+   *
    * @public
    */
   region?: string | undefined;
 
   /**
-   * <p>The auto scaling settings for a multi-Region table in the specified Amazon Web Services Region.</p>
+   * The auto scaling settings for a multi-Region table in the specified Amazon Web Services Region.
+   *
    * @public
    */
   autoScalingSpecification?: AutoScalingSpecification | undefined;
@@ -1018,31 +1361,36 @@ export interface ReplicaAutoScalingSpecification {
  */
 export interface GetTableAutoScalingSettingsResponse {
   /**
-   * <p>The name of the keyspace.</p>
+   * The name of the keyspace.
+   *
    * @public
    */
   keyspaceName: string | undefined;
 
   /**
-   * <p>The name of the table.</p>
+   * The name of the table.
+   *
    * @public
    */
   tableName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the table.</p>
+   * The Amazon Resource Name (ARN) of the table.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The auto scaling settings of the table.</p>
+   * The auto scaling settings of the table.
+   *
    * @public
    */
   autoScalingSpecification?: AutoScalingSpecification | undefined;
 
   /**
-   * <p>The Amazon Web Services Region specific settings of a multi-Region table. Returns the settings for all Regions the table is replicated in.</p>
+   * The Amazon Web Services Region specific settings of a multi-Region table. Returns the settings for all Regions the table is replicated in.
+   *
    * @public
    */
   replicaSpecifications?: ReplicaAutoScalingSpecification[] | undefined;
@@ -1053,13 +1401,15 @@ export interface GetTableAutoScalingSettingsResponse {
  */
 export interface GetTypeRequest {
   /**
-   * <p> The name of the keyspace that contains this type. </p>
+   * The name of the keyspace that contains this type.
+   *
    * @public
    */
   keyspaceName: string | undefined;
 
   /**
-   * <p>The formatted name of the type. For example, if the name of the type was created without double quotes, Amazon Keyspaces saved the name in lower-case characters. If the name was created in double quotes, you must use double quotes to specify the type name. </p>
+   * The formatted name of the type. For example, if the name of the type was created without double quotes, Amazon Keyspaces saved the name in lower-case characters. If the name was created in double quotes, you must use double quotes to specify the type name.
+   *
    * @public
    */
   typeName: string | undefined;
@@ -1070,55 +1420,64 @@ export interface GetTypeRequest {
  */
 export interface GetTypeResponse {
   /**
-   * <p> The name of the keyspace that contains this type. </p>
+   * The name of the keyspace that contains this type.
+   *
    * @public
    */
   keyspaceName: string | undefined;
 
   /**
-   * <p> The name of the type. </p>
+   * The name of the type.
+   *
    * @public
    */
   typeName: string | undefined;
 
   /**
-   * <p> The names and types that define this type. </p>
+   * The names and types that define this type.
+   *
    * @public
    */
   fieldDefinitions?: FieldDefinition[] | undefined;
 
   /**
-   * <p> The timestamp that shows when this type was last modified. </p>
+   * The timestamp that shows when this type was last modified.
+   *
    * @public
    */
   lastModifiedTimestamp?: Date | undefined;
 
   /**
-   * <p> The status of this type. </p>
+   * The status of this type.
+   *
    * @public
    */
   status?: TypeStatus | undefined;
 
   /**
-   * <p> The tables that use this type. </p>
+   * The tables that use this type.
+   *
    * @public
    */
   directReferringTables?: string[] | undefined;
 
   /**
-   * <p> The types that use this type. </p>
+   * The types that use this type.
+   *
    * @public
    */
   directParentTypes?: string[] | undefined;
 
   /**
-   * <p> The level of nesting implemented for this type. </p>
+   * The level of nesting implemented for this type.
+   *
    * @public
    */
   maxNestingDepth?: number | undefined;
 
   /**
-   * <p> The unique identifier of the keyspace that contains this type in the format of an Amazon Resource Name (ARN). </p>
+   * The unique identifier of the keyspace that contains this type in the format of an Amazon Resource Name (ARN).
+   *
    * @public
    */
   keyspaceArn: string | undefined;
@@ -1129,43 +1488,50 @@ export interface GetTypeResponse {
  */
 export interface ListKeyspacesRequest {
   /**
-   * <p>The pagination token. To resume pagination, provide the <code>NextToken</code> value as argument of a subsequent API invocation.</p>
+   * The pagination token. To resume pagination, provide the `NextToken` value as argument of a subsequent API invocation.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The total number of keyspaces to return in the output. If the total number of keyspaces available is more than the value specified, a <code>NextToken</code> is provided in the output. To resume pagination, provide the <code>NextToken</code> value as an argument of a subsequent API invocation.</p>
+   * The total number of keyspaces to return in the output. If the total number of keyspaces available is more than the value specified, a `NextToken` is provided in the output. To resume pagination, provide the `NextToken` value as an argument of a subsequent API invocation.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Represents the properties of a keyspace.</p>
+ * Represents the properties of a keyspace.
+ *
  * @public
  */
 export interface KeyspaceSummary {
   /**
-   * <p>The name of the keyspace.</p>
+   * The name of the keyspace.
+   *
    * @public
    */
   keyspaceName: string | undefined;
 
   /**
-   * <p>The unique identifier of the keyspace in the format of an Amazon Resource Name (ARN).</p>
+   * The unique identifier of the keyspace in the format of an Amazon Resource Name (ARN).
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p> This property specifies if a keyspace is a single Region keyspace or a multi-Region keyspace. The available values are <code>SINGLE_REGION</code> or <code>MULTI_REGION</code>. </p>
+   * This property specifies if a keyspace is a single Region keyspace or a multi-Region keyspace. The available values are `SINGLE_REGION` or `MULTI_REGION`.
+   *
    * @public
    */
   replicationStrategy: Rs | undefined;
 
   /**
-   * <p> If the <code>replicationStrategy</code> of the keyspace is <code>MULTI_REGION</code>, a list of replication Regions is returned. </p>
+   * If the `replicationStrategy` of the keyspace is `MULTI_REGION`, a list of replication Regions is returned.
+   *
    * @public
    */
   replicationRegions?: string[] | undefined;
@@ -1176,13 +1542,15 @@ export interface KeyspaceSummary {
  */
 export interface ListKeyspacesResponse {
   /**
-   * <p>A token to specify where to start paginating. This is the <code>NextToken</code> from a previously truncated response.</p>
+   * A token to specify where to start paginating. This is the `NextToken` from a previously truncated response.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>A list of keyspaces.</p>
+   * A list of keyspaces.
+   *
    * @public
    */
   keyspaces: KeyspaceSummary[] | undefined;
@@ -1193,43 +1561,50 @@ export interface ListKeyspacesResponse {
  */
 export interface ListTablesRequest {
   /**
-   * <p>The pagination token. To resume pagination, provide the <code>NextToken</code> value as an argument of a subsequent API invocation.</p>
+   * The pagination token. To resume pagination, provide the `NextToken` value as an argument of a subsequent API invocation.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The total number of tables to return in the output. If the total number of tables available is more than the value specified, a <code>NextToken</code> is provided in the output. To resume pagination, provide the <code>NextToken</code> value as an argument of a subsequent API invocation.</p>
+   * The total number of tables to return in the output. If the total number of tables available is more than the value specified, a `NextToken` is provided in the output. To resume pagination, provide the `NextToken` value as an argument of a subsequent API invocation.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The name of the keyspace.</p>
+   * The name of the keyspace.
+   *
    * @public
    */
   keyspaceName: string | undefined;
 }
 
 /**
- * <p>Returns the name of the specified table, the keyspace it is stored in, and the unique identifier in the format of an Amazon Resource Name (ARN).</p>
+ * Returns the name of the specified table, the keyspace it is stored in, and the unique identifier in the format of an Amazon Resource Name (ARN).
+ *
  * @public
  */
 export interface TableSummary {
   /**
-   * <p>The name of the keyspace that the table is stored in.</p>
+   * The name of the keyspace that the table is stored in.
+   *
    * @public
    */
   keyspaceName: string | undefined;
 
   /**
-   * <p>The name of the table.</p>
+   * The name of the table.
+   *
    * @public
    */
   tableName: string | undefined;
 
   /**
-   * <p>The unique identifier of the table in the format of an Amazon Resource Name (ARN).</p>
+   * The unique identifier of the table in the format of an Amazon Resource Name (ARN).
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -1240,13 +1615,15 @@ export interface TableSummary {
  */
 export interface ListTablesResponse {
   /**
-   * <p>A token to specify where to start paginating. This is the <code>NextToken</code> from a previously truncated response.</p>
+   * A token to specify where to start paginating. This is the `NextToken` from a previously truncated response.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>A list of tables.</p>
+   * A list of tables.
+   *
    * @public
    */
   tables?: TableSummary[] | undefined;
@@ -1257,19 +1634,22 @@ export interface ListTablesResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Keyspaces resource.</p>
+   * The Amazon Resource Name (ARN) of the Amazon Keyspaces resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The pagination token. To resume pagination, provide the <code>NextToken</code> value as argument of a subsequent API invocation.</p>
+   * The pagination token. To resume pagination, provide the `NextToken` value as argument of a subsequent API invocation.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The total number of tags to return in the output. If the total number of tags available is more than the value specified, a <code>NextToken</code> is provided in the output. To resume pagination, provide the <code>NextToken</code> value as an argument of a subsequent API invocation.</p>
+   * The total number of tags to return in the output. If the total number of tags available is more than the value specified, a `NextToken` is provided in the output. To resume pagination, provide the `NextToken` value as an argument of a subsequent API invocation.
+   *
    * @public
    */
   maxResults?: number | undefined;
@@ -1280,13 +1660,15 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>A token to specify where to start paginating. This is the <code>NextToken</code> from a previously truncated response.</p>
+   * A token to specify where to start paginating. This is the `NextToken` from a previously truncated response.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>A list of tags.</p>
+   * A list of tags.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
@@ -1297,19 +1679,22 @@ export interface ListTagsForResourceResponse {
  */
 export interface ListTypesRequest {
   /**
-   * <p> The pagination token. To resume pagination, provide the <code>NextToken</code> value as an argument of a subsequent API invocation. </p>
+   * The pagination token. To resume pagination, provide the `NextToken` value as an argument of a subsequent API invocation.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p> The total number of types to return in the output. If the total number of types available is more than the value specified, a <code>NextToken</code> is provided in the output. To resume pagination, provide the <code>NextToken</code> value as an argument of a subsequent API invocation. </p>
+   * The total number of types to return in the output. If the total number of types available is more than the value specified, a `NextToken` is provided in the output. To resume pagination, provide the `NextToken` value as an argument of a subsequent API invocation.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p> The name of the keyspace that contains the listed types. </p>
+   * The name of the keyspace that contains the listed types.
+   *
    * @public
    */
   keyspaceName: string | undefined;
@@ -1320,13 +1705,15 @@ export interface ListTypesRequest {
  */
 export interface ListTypesResponse {
   /**
-   * <p> The pagination token. To resume pagination, provide the <code>NextToken</code> value as an argument of a subsequent API invocation. </p>
+   * The pagination token. To resume pagination, provide the `NextToken` value as an argument of a subsequent API invocation.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p> The list of types contained in the specified keyspace. </p>
+   * The list of types contained in the specified keyspace.
+   *
    * @public
    */
   types: string[] | undefined;
@@ -1337,67 +1724,103 @@ export interface ListTypesResponse {
  */
 export interface RestoreTableRequest {
   /**
-   * <p>The keyspace name of the source table.</p>
+   * The keyspace name of the source table.
+   *
    * @public
    */
   sourceKeyspaceName: string | undefined;
 
   /**
-   * <p>The name of the source table.</p>
+   * The name of the source table.
+   *
    * @public
    */
   sourceTableName: string | undefined;
 
   /**
-   * <p>The name of the target keyspace.</p>
+   * The name of the target keyspace.
+   *
    * @public
    */
   targetKeyspaceName: string | undefined;
 
   /**
-   * <p>The name of the target table.</p>
+   * The name of the target table.
+   *
    * @public
    */
   targetTableName: string | undefined;
 
   /**
-   * <p>The restore timestamp in ISO 8601 format.</p>
+   * The restore timestamp in ISO 8601 format.
+   *
    * @public
    */
   restoreTimestamp?: Date | undefined;
 
   /**
-   * <p>Specifies the read/write throughput capacity mode for the target table. The options are:</p> <ul> <li> <p> <code>throughputMode:PAY_PER_REQUEST</code> </p> </li> <li> <p> <code>throughputMode:PROVISIONED</code> - Provisioned capacity mode requires <code>readCapacityUnits</code> and <code>writeCapacityUnits</code> as input.</p> </li> </ul> <p>The default is <code>throughput_mode:PAY_PER_REQUEST</code>.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html">Read/write capacity modes</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+   * Specifies the read/write throughput capacity mode for the target table. The options are:
+   *
+   * - `throughputMode:PAY_PER_REQUEST`
+   * - `throughputMode:PROVISIONED` - Provisioned capacity mode requires `readCapacityUnits` and `writeCapacityUnits` as input.
+   *
+   * The default is `throughput_mode:PAY_PER_REQUEST`.
+   *
+   * For more information, see [Read/write capacity modes](https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html) in the *Amazon Keyspaces Developer Guide*.
+   *
    * @public
    */
   capacitySpecificationOverride?: CapacitySpecification | undefined;
 
   /**
-   * <p>Specifies the encryption settings for the target table. You can choose one of the following KMS key (KMS key):</p> <ul> <li> <p> <code>type:AWS_OWNED_KMS_KEY</code> - This key is owned by Amazon Keyspaces. </p> </li> <li> <p> <code>type:CUSTOMER_MANAGED_KMS_KEY</code> - This key is stored in your account and is created, owned, and managed by you. This option requires the <code>kms_key_identifier</code> of the KMS key in Amazon Resource Name (ARN) format as input. </p> </li> </ul> <p>The default is <code>type:AWS_OWNED_KMS_KEY</code>.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html">Encryption at rest</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+   * Specifies the encryption settings for the target table. You can choose one of the following KMS key (KMS key):
+   *
+   * - `type:AWS_OWNED_KMS_KEY` - This key is owned by Amazon Keyspaces.
+   * - `type:CUSTOMER_MANAGED_KMS_KEY` - This key is stored in your account and is created, owned, and managed by you. This option requires the `kms_key_identifier` of the KMS key in Amazon Resource Name (ARN) format as input.
+   *
+   * The default is `type:AWS_OWNED_KMS_KEY`.
+   *
+   * For more information, see [Encryption at rest](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html) in the *Amazon Keyspaces Developer Guide*.
+   *
    * @public
    */
   encryptionSpecificationOverride?: EncryptionSpecification | undefined;
 
   /**
-   * <p>Specifies the <code>pointInTimeRecovery</code> settings for the target table. The options are:</p> <ul> <li> <p> <code>status=ENABLED</code> </p> </li> <li> <p> <code>status=DISABLED</code> </p> </li> </ul> <p>If it's not specified, the default is <code>status=DISABLED</code>.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html">Point-in-time recovery</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+   * Specifies the `pointInTimeRecovery` settings for the target table. The options are:
+   *
+   * - `status=ENABLED`
+   * - `status=DISABLED`
+   *
+   * If it's not specified, the default is `status=DISABLED`.
+   *
+   * For more information, see [Point-in-time recovery](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html) in the *Amazon Keyspaces Developer Guide*.
+   *
    * @public
    */
   pointInTimeRecoveryOverride?: PointInTimeRecovery | undefined;
 
   /**
-   * <p>A list of key-value pair tags to be attached to the restored table. </p> <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/tagging-keyspaces.html">Adding tags and labels to Amazon Keyspaces resources</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+   * A list of key-value pair tags to be attached to the restored table.
+   *
+   * For more information, see [Adding tags and labels to Amazon Keyspaces resources](https://docs.aws.amazon.com/keyspaces/latest/devguide/tagging-keyspaces.html) in the *Amazon Keyspaces Developer Guide*.
+   *
    * @public
    */
   tagsOverride?: Tag[] | undefined;
 
   /**
-   * <p>The optional auto scaling settings for the restored table in provisioned capacity mode. Specifies if the service can manage throughput capacity of a provisioned table automatically on your behalf. Amazon Keyspaces auto scaling helps you provision throughput capacity for variable workloads efficiently by increasing and decreasing your table's read and write capacity automatically in response to application traffic.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/autoscaling.html">Managing throughput capacity automatically with Amazon Keyspaces auto scaling</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+   * The optional auto scaling settings for the restored table in provisioned capacity mode. Specifies if the service can manage throughput capacity of a provisioned table automatically on your behalf. Amazon Keyspaces auto scaling helps you provision throughput capacity for variable workloads efficiently by increasing and decreasing your table's read and write capacity automatically in response to application traffic.
+   *
+   * For more information, see [Managing throughput capacity automatically with Amazon Keyspaces auto scaling](https://docs.aws.amazon.com/keyspaces/latest/devguide/autoscaling.html) in the *Amazon Keyspaces Developer Guide*.
+   *
    * @public
    */
   autoScalingSpecification?: AutoScalingSpecification | undefined;
 
   /**
-   * <p>The optional Region specific settings of a multi-Regional table.</p>
+   * The optional Region specific settings of a multi-Regional table.
+   *
    * @public
    */
   replicaSpecifications?: ReplicaSpecification[] | undefined;
@@ -1408,7 +1831,8 @@ export interface RestoreTableRequest {
  */
 export interface RestoreTableResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the restored table.</p>
+   * The Amazon Resource Name (ARN) of the restored table.
+   *
    * @public
    */
   restoredTableARN: string | undefined;
@@ -1419,13 +1843,15 @@ export interface RestoreTableResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Keyspaces resource to which to add tags.</p>
+   * The Amazon Resource Name (ARN) of the Amazon Keyspaces resource to which to add tags.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The tags to be assigned to the Amazon Keyspaces resource.</p>
+   * The tags to be assigned to the Amazon Keyspaces resource.
+   *
    * @public
    */
   tags: Tag[] | undefined;
@@ -1441,13 +1867,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Keyspaces resource that the tags will be removed from. This value is an Amazon Resource Name (ARN).</p>
+   * The Amazon Keyspaces resource that the tags will be removed from. This value is an Amazon Resource Name (ARN).
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>A list of existing tags to be removed from the Amazon Keyspaces resource.</p>
+   * A list of existing tags to be removed from the Amazon Keyspaces resource.
+   *
    * @public
    */
   tags: Tag[] | undefined;
@@ -1463,19 +1891,27 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateKeyspaceRequest {
   /**
-   * <p> The name of the keyspace. </p>
+   * The name of the keyspace.
+   *
    * @public
    */
   keyspaceName: string | undefined;
 
   /**
-   * <p> The replication specification of the keyspace includes:</p> <ul> <li> <p> <code>regionList</code> - the Amazon Web Services Regions where the keyspace is replicated in.</p> </li> <li> <p> <code>replicationStrategy</code> - the required value is <code>SINGLE_REGION</code> or <code>MULTI_REGION</code>.</p> </li> </ul>
+   * The replication specification of the keyspace includes:
+   *
+   * - `regionList` - the Amazon Web Services Regions where the keyspace is replicated in.
+   * - `replicationStrategy` - the required value is `SINGLE_REGION` or `MULTI_REGION`.
+   *
    * @public
    */
   replicationSpecification: ReplicationSpecification | undefined;
 
   /**
-   * <p>The client-side timestamp setting of the table.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/client-side-timestamps-how-it-works.html">How it works: Amazon Keyspaces client-side timestamps</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+   * The client-side timestamp setting of the table.
+   *
+   * For more information, see [How it works: Amazon Keyspaces client-side timestamps](https://docs.aws.amazon.com/keyspaces/latest/devguide/client-side-timestamps-how-it-works.html) in the *Amazon Keyspaces Developer Guide*.
+   *
    * @public
    */
   clientSideTimestamps?: ClientSideTimestamps | undefined;
@@ -1486,7 +1922,8 @@ export interface UpdateKeyspaceRequest {
  */
 export interface UpdateKeyspaceResponse {
   /**
-   * <p> The unique identifier of the keyspace in the format of an Amazon Resource Name (ARN). </p>
+   * The unique identifier of the keyspace in the format of an Amazon Resource Name (ARN).
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -1497,79 +1934,133 @@ export interface UpdateKeyspaceResponse {
  */
 export interface UpdateTableRequest {
   /**
-   * <p>The name of the keyspace the specified table is stored in.</p>
+   * The name of the keyspace the specified table is stored in.
+   *
    * @public
    */
   keyspaceName: string | undefined;
 
   /**
-   * <p>The name of the table.</p>
+   * The name of the table.
+   *
    * @public
    */
   tableName: string | undefined;
 
   /**
-   * <p>For each column to be added to the specified table:</p> <ul> <li> <p> <code>name</code> - The name of the column.</p> </li> <li> <p> <code>type</code> - An Amazon Keyspaces data type. For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types">Data types</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p> </li> </ul>
+   * For each column to be added to the specified table:
+   *
+   * - `name` - The name of the column.
+   * - `type` - An Amazon Keyspaces data type. For more information, see [Data types](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types) in the *Amazon Keyspaces Developer Guide*.
+   *
    * @public
    */
   addColumns?: ColumnDefinition[] | undefined;
 
   /**
-   * <p>Modifies the read/write throughput capacity mode for the table. The options are:</p> <ul> <li> <p> <code>throughputMode:PAY_PER_REQUEST</code> and </p> </li> <li> <p> <code>throughputMode:PROVISIONED</code> - Provisioned capacity mode requires <code>readCapacityUnits</code> and <code>writeCapacityUnits</code> as input.</p> </li> </ul> <p>The default is <code>throughput_mode:PAY_PER_REQUEST</code>.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html">Read/write capacity modes</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+   * Modifies the read/write throughput capacity mode for the table. The options are:
+   *
+   * - `throughputMode:PAY_PER_REQUEST` and
+   * - `throughputMode:PROVISIONED` - Provisioned capacity mode requires `readCapacityUnits` and `writeCapacityUnits` as input.
+   *
+   * The default is `throughput_mode:PAY_PER_REQUEST`.
+   *
+   * For more information, see [Read/write capacity modes](https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html) in the *Amazon Keyspaces Developer Guide*.
+   *
    * @public
    */
   capacitySpecification?: CapacitySpecification | undefined;
 
   /**
-   * <p>Modifies the encryption settings of the table. You can choose one of the following KMS key (KMS key):</p> <ul> <li> <p> <code>type:AWS_OWNED_KMS_KEY</code> - This key is owned by Amazon Keyspaces. </p> </li> <li> <p> <code>type:CUSTOMER_MANAGED_KMS_KEY</code> - This key is stored in your account and is created, owned, and managed by you. This option requires the <code>kms_key_identifier</code> of the KMS key in Amazon Resource Name (ARN) format as input. </p> </li> </ul> <p>The default is <code>AWS_OWNED_KMS_KEY</code>.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html">Encryption at rest</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+   * Modifies the encryption settings of the table. You can choose one of the following KMS key (KMS key):
+   *
+   * - `type:AWS_OWNED_KMS_KEY` - This key is owned by Amazon Keyspaces.
+   * - `type:CUSTOMER_MANAGED_KMS_KEY` - This key is stored in your account and is created, owned, and managed by you. This option requires the `kms_key_identifier` of the KMS key in Amazon Resource Name (ARN) format as input.
+   *
+   * The default is `AWS_OWNED_KMS_KEY`.
+   *
+   * For more information, see [Encryption at rest](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html) in the *Amazon Keyspaces Developer Guide*.
+   *
    * @public
    */
   encryptionSpecification?: EncryptionSpecification | undefined;
 
   /**
-   * <p>Modifies the <code>pointInTimeRecovery</code> settings of the table. The options are:</p> <ul> <li> <p> <code>status=ENABLED</code> </p> </li> <li> <p> <code>status=DISABLED</code> </p> </li> </ul> <p>If it's not specified, the default is <code>status=DISABLED</code>.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html">Point-in-time recovery</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+   * Modifies the `pointInTimeRecovery` settings of the table. The options are:
+   *
+   * - `status=ENABLED`
+   * - `status=DISABLED`
+   *
+   * If it's not specified, the default is `status=DISABLED`.
+   *
+   * For more information, see [Point-in-time recovery](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html) in the *Amazon Keyspaces Developer Guide*.
+   *
    * @public
    */
   pointInTimeRecovery?: PointInTimeRecovery | undefined;
 
   /**
-   * <p>Modifies Time to Live custom settings for the table. The options are:</p> <ul> <li> <p> <code>status:enabled</code> </p> </li> <li> <p> <code>status:disabled</code> </p> </li> </ul> <p>The default is <code>status:disabled</code>. After <code>ttl</code> is enabled, you can't disable it for the table.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html">Expiring data by using Amazon Keyspaces Time to Live (TTL)</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+   * Modifies Time to Live custom settings for the table. The options are:
+   *
+   * - `status:enabled`
+   * - `status:disabled`
+   *
+   * The default is `status:disabled`. After `ttl` is enabled, you can't disable it for the table.
+   *
+   * For more information, see [Expiring data by using Amazon Keyspaces Time to Live (TTL)](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html) in the *Amazon Keyspaces Developer Guide*.
+   *
    * @public
    */
   ttl?: TimeToLive | undefined;
 
   /**
-   * <p>The default Time to Live setting in seconds for the table.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl">Setting the default TTL value for a table</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+   * The default Time to Live setting in seconds for the table.
+   *
+   * For more information, see [Setting the default TTL value for a table](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl) in the *Amazon Keyspaces Developer Guide*.
+   *
    * @public
    */
   defaultTimeToLive?: number | undefined;
 
   /**
-   * <p>Enables client-side timestamps for the table. By default, the setting is disabled. You can enable client-side timestamps with the following option:</p> <ul> <li> <p> <code>status: "enabled"</code> </p> </li> </ul> <p>Once client-side timestamps are enabled for a table, this setting cannot be disabled.</p>
+   * Enables client-side timestamps for the table. By default, the setting is disabled. You can enable client-side timestamps with the following option:
+   *
+   * - `status: "enabled"`
+   *
+   * Once client-side timestamps are enabled for a table, this setting cannot be disabled.
+   *
    * @public
    */
   clientSideTimestamps?: ClientSideTimestamps | undefined;
 
   /**
-   * <p>The optional auto scaling settings to update for a table in provisioned capacity mode. Specifies if the service can manage throughput capacity of a provisioned table automatically on your behalf. Amazon Keyspaces auto scaling helps you provision throughput capacity for variable workloads efficiently by increasing and decreasing your table's read and write capacity automatically in response to application traffic.</p> <p>If auto scaling is already enabled for the table, you can use <code>UpdateTable</code> to update the minimum and maximum values or the auto scaling policy settings independently.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/autoscaling.html">Managing throughput capacity automatically with Amazon Keyspaces auto scaling</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+   * The optional auto scaling settings to update for a table in provisioned capacity mode. Specifies if the service can manage throughput capacity of a provisioned table automatically on your behalf. Amazon Keyspaces auto scaling helps you provision throughput capacity for variable workloads efficiently by increasing and decreasing your table's read and write capacity automatically in response to application traffic.
+   *
+   * If auto scaling is already enabled for the table, you can use `UpdateTable` to update the minimum and maximum values or the auto scaling policy settings independently.
+   *
+   * For more information, see [Managing throughput capacity automatically with Amazon Keyspaces auto scaling](https://docs.aws.amazon.com/keyspaces/latest/devguide/autoscaling.html) in the *Amazon Keyspaces Developer Guide*.
+   *
    * @public
    */
   autoScalingSpecification?: AutoScalingSpecification | undefined;
 
   /**
-   * <p>The Region specific settings of a multi-Regional table.</p>
+   * The Region specific settings of a multi-Regional table.
+   *
    * @public
    */
   replicaSpecifications?: ReplicaSpecification[] | undefined;
 
   /**
-   * <p>The CDC stream settings of the table.</p>
+   * The CDC stream settings of the table.
+   *
    * @public
    */
   cdcSpecification?: CdcSpecification | undefined;
 
   /**
-   * <p>Modifies the warm throughput settings for the table. You can update the read and write capacity units to adjust the pre-provisioned throughput.</p>
+   * Modifies the warm throughput settings for the table. You can update the read and write capacity units to adjust the pre-provisioned throughput.
+   *
    * @public
    */
   warmThroughputSpecification?: WarmThroughputSpecification | undefined;
@@ -1580,7 +2071,8 @@ export interface UpdateTableRequest {
  */
 export interface UpdateTableResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the modified table.</p>
+   * The Amazon Resource Name (ARN) of the modified table.
+   *
    * @public
    */
   resourceArn: string | undefined;

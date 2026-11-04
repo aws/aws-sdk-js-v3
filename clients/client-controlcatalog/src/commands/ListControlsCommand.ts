@@ -23,7 +23,8 @@ export interface ListControlsCommandInput extends ListControlsRequest {}
 export interface ListControlsCommandOutput extends ListControlsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a paginated list of all available controls in the Control Catalog library. Allows you to discover available controls. The list of controls is given as structures of type <i>controlSummary</i>. The ARN is returned in the global <i>controlcatalog</i> format, as shown in the examples.</p>
+ * Returns a paginated list of all available controls in the Control Catalog library. Allows you to discover available controls. The list of controls is given as structures of type *controlSummary*. The ARN is returned in the global *controlcatalog* format, as shown in the examples.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,20 +89,24 @@ export interface ListControlsCommandOutput extends ListControlsResponse, __Metad
  * @see {@link ControlCatalogClientResolvedConfig | config} for ControlCatalogClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal service error occurred during the processing of your request. Try again later.</p>
+ *
+ * An internal service error occurred during the processing of your request. Try again later.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request has invalid or missing parameters.</p>
+ *
+ * The request has invalid or missing parameters.
  *
  * @throws {@link ControlCatalogServiceException}
- * <p>Base exception class for all service exceptions from ControlCatalog service.</p>
  *
+ * Base exception class for all service exceptions from ControlCatalog service.
  *
  * @public
  */

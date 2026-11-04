@@ -23,8 +23,8 @@ export interface UntagUserCommandInput extends UntagUserRequest {}
 export interface UntagUserCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Removes the specified tags from the user. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
- *       <i>IAM User Guide</i>.</p>
+ * Removes the specified tags from the user. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,20 +52,20 @@ export interface UntagUserCommandOutput extends __MetadataBearer {}
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>The request was rejected because multiple requests to change this object were submitted
- *       simultaneously. Wait a few minutes and submit your request again.</p>
+ *
+ * The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @example To remove a tag from an IAM user
  * ```javascript

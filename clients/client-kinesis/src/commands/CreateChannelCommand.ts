@@ -23,12 +23,18 @@ export interface CreateChannelCommandInput extends CreateChannelInput {}
 export interface CreateChannelCommandOutput extends CreateChannelOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a channel that delivers records from a Kinesis data stream to a destination. A channel reads records from the specified stream and writes them to streaming tables on Apache Iceberg (Amazon S3 Tables) or to a general purpose Amazon S3 bucket.</p>
- *          <p>You must specify either <code>S3DestinationConfiguration</code> or <code>S3TablesDestinationConfiguration</code>, but not both.</p>
- *          <p>To use this operation, you must have permission to pass the specified service execution IAM role to Amazon Kinesis Data Streams (the <code>iam:PassRole</code> permission on that role).</p>
- *          <p>Creating a channel is an asynchronous operation. Upon receiving the request, Amazon Kinesis Data Streams returns immediately with the channel in the <code>CREATING</code> state. After provisioning is complete, Amazon Kinesis Data Streams sets the state to <code>ACTIVE</code>. You can use <a>DescribeChannel</a> to check the current state.</p>
- *          <p>This operation is only supported for data streams with the on-demand capacity mode.</p>
- *          <p>This operation has a call limit of 5 transactions per second (TPS) for each Amazon Web Services account. Exceeding 5 TPS results in a <code>LimitExceededException</code>.</p>
+ * Creates a channel that delivers records from a Kinesis data stream to a destination. A channel reads records from the specified stream and writes them to streaming tables on Apache Iceberg (Amazon S3 Tables) or to a general purpose Amazon S3 bucket.
+ *
+ * You must specify either `S3DestinationConfiguration` or `S3TablesDestinationConfiguration`, but not both.
+ *
+ * To use this operation, you must have permission to pass the specified service execution IAM role to Amazon Kinesis Data Streams (the `iam:PassRole` permission on that role).
+ *
+ * Creating a channel is an asynchronous operation. Upon receiving the request, Amazon Kinesis Data Streams returns immediately with the channel in the `CREATING` state. After provisioning is complete, Amazon Kinesis Data Streams sets the state to `ACTIVE`. You can use DescribeChannel to check the current state.
+ *
+ * This operation is only supported for data streams with the on-demand capacity mode.
+ *
+ * This operation has a call limit of 5 transactions per second (TPS) for each Amazon Web Services account. Exceeding 5 TPS results in a `LimitExceededException`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -186,60 +192,56 @@ export interface CreateChannelCommandOutput extends CreateChannelOutput, __Metad
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Specifies that you do not have the permissions required to perform this
- *             operation.</p>
+ *
+ * Specifies that you do not have the permissions required to perform this operation.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
- *             For more information, see the returned message.</p>
+ *
+ * A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.
  *
  * @throws {@link KMSAccessDeniedException} (client fault)
- *  <p>The ciphertext references a key that doesn't exist or that you don't have access
- *             to.</p>
+ *
+ * The ciphertext references a key that doesn't exist or that you don't have access to.
  *
  * @throws {@link KMSDisabledException} (client fault)
- *  <p>The request was rejected because the specified customer master key (CMK) isn't
- *             enabled.</p>
+ *
+ * The request was rejected because the specified customer master key (CMK) isn't enabled.
  *
  * @throws {@link KMSInvalidStateException} (client fault)
- *  <p>The request was rejected because the state of the specified resource isn't valid for
- *             this request. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use of a
- *                 Customer Master Key</a> in the <i>Amazon Web Services Key Management
- *                 Service Developer Guide</i>.</p>
+ *
+ * The request was rejected because the state of the specified resource isn't valid for this request. For more information, see [How Key State Affects Use of a Customer Master Key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the *Amazon Web Services Key Management Service Developer Guide*.
  *
  * @throws {@link KMSNotFoundException} (client fault)
- *  <p>The request was rejected because the specified entity or resource can't be
- *             found.</p>
+ *
+ * The request was rejected because the specified entity or resource can't be found.
  *
  * @throws {@link KMSOptInRequired} (client fault)
- *  <p>The Amazon Web Services access key ID needs a subscription for the service.</p>
+ *
+ * The Amazon Web Services access key ID needs a subscription for the service.
  *
  * @throws {@link KMSThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. For more information about
- *             throttling, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second">Limits</a> in
- *             the <i>Amazon Web Services Key Management Service Developer
- *             Guide</i>.</p>
+ *
+ * The request was denied due to request throttling. For more information about throttling, see [Limits](https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second) in the *Amazon Web Services Key Management Service Developer Guide*.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
- *             stream requests exceeds the maximum number allowed. </p>
+ *
+ * The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The resource is not available for this operation. For successful operation, the
- *             resource must be in the <code>ACTIVE</code> state.</p>
+ *
+ * The resource is not available for this operation. For successful operation, the resource must be in the `ACTIVE` state.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource could not be found. The stream might not be specified
- *             correctly.</p>
+ *
+ * The requested resource could not be found. The stream might not be specified correctly.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Specifies that you tried to invoke this API for a data stream with the on-demand
- *             capacity mode. This API is only supported for data streams with the provisioned capacity
- *             mode. </p>
+ *
+ * Specifies that you tried to invoke this API for a data stream with the on-demand capacity mode. This API is only supported for data streams with the provisioned capacity mode.
  *
  * @throws {@link KinesisServiceException}
- * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * Base exception class for all service exceptions from Kinesis service.
  *
  * @example To create an S3 channel
  * ```javascript

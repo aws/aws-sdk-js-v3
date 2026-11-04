@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>Contains APIs to work with AWS Identity and Access Management (IAM).</p>
+ * Contains APIs to work with AWS Identity and Access Management (IAM).
  *
  * @packageDocumentation
  */

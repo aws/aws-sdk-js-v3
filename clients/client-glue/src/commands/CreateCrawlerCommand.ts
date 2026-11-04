@@ -23,9 +23,8 @@ export interface CreateCrawlerCommandInput extends CreateCrawlerRequest {}
 export interface CreateCrawlerCommandOutput extends CreateCrawlerResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new crawler with specified targets, role, configuration, and optional schedule.
- *       At least one crawl target must be specified, in the <code>s3Targets</code> field, the
- *         <code>jdbcTargets</code> field, or the <code>DynamoDBTargets</code> field.</p>
+ * Creates a new crawler with specified targets, role, configuration, and optional schedule. At least one crawl target must be specified, in the `s3Targets` field, the `jdbcTargets` field, or the `DynamoDBTargets` field.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -159,20 +158,24 @@ export interface CreateCrawlerCommandOutput extends CreateCrawlerResponse, __Met
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link AlreadyExistsException} (client fault)
- *  <p>A resource to be created or added already exists.</p>
+ *
+ * A resource to be created or added already exists.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
- *  <p>A resource numerical limit was exceeded.</p>
+ *
+ * A resource numerical limit was exceeded.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

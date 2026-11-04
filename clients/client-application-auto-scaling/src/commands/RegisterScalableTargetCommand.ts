@@ -23,38 +23,24 @@ export interface RegisterScalableTargetCommandInput extends RegisterScalableTarg
 export interface RegisterScalableTargetCommandOutput extends RegisterScalableTargetResponse, __MetadataBearer {}
 
 /**
- * <p>Registers or updates a scalable target, which is the resource that you want to
- *          scale.</p>
- *          <p>Scalable targets are uniquely identified by the combination of resource ID, scalable
- *          dimension, and namespace, which represents some capacity dimension of the underlying
- *          service.</p>
- *          <p>When you register a new scalable target, you must specify values for the minimum and
- *          maximum capacity. If the specified resource is not active in the target service, this
- *          operation does not change the resource's current capacity. Otherwise, it changes the
- *          resource's current capacity to a value that is inside of this range.</p>
- *          <p>If you add a scaling policy, current capacity is adjustable within the specified range
- *          when scaling starts. Application Auto Scaling scaling policies will not scale capacity to values that are
- *          outside of the minimum and maximum range.</p>
- *          <p>After you register a scalable target, you do not need to register it again to use other
- *          Application Auto Scaling operations. To see which resources have been registered, use <a href="https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalableTargets.html">DescribeScalableTargets</a>. You can also view the scaling policies for a service
- *          namespace by using <a href="https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalableTargets.html">DescribeScalableTargets</a>. If you no longer need a scalable target, you can
- *          deregister it by using <a href="https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DeregisterScalableTarget.html">DeregisterScalableTarget</a>.</p>
- *          <p>To update a scalable target, specify the parameters that you want to change. Include the
- *          parameters that identify the scalable target: resource ID, scalable dimension, and
- *          namespace. Any parameters that you don't specify are not changed by this update request. </p>
- *          <note>
- *             <p>If you call the <code>RegisterScalableTarget</code> API operation to create a
- *             scalable target, there might be a brief delay until the operation achieves <a href="https://en.wikipedia.org/wiki/Eventual_consistency">eventual
- *             consistency</a>. You might become aware of this brief delay if you get unexpected
- *             errors when performing sequential operations. The typical strategy is to retry the
- *             request, and some Amazon Web Services SDKs include automatic backoff and retry logic.</p>
- *             <p>If you call the <code>RegisterScalableTarget</code> API operation to update an
- *             existing scalable target, Application Auto Scaling retrieves the current capacity of the resource. If
- *             it's below the minimum capacity or above the maximum capacity, Application Auto Scaling adjusts the
- *             capacity of the scalable target to place it within these bounds, even if you don't
- *             include the <code>MinCapacity</code> or <code>MaxCapacity</code> request
- *             parameters.</p>
- *          </note>
+ * Registers or updates a scalable target, which is the resource that you want to scale.
+ *
+ * Scalable targets are uniquely identified by the combination of resource ID, scalable dimension, and namespace, which represents some capacity dimension of the underlying service.
+ *
+ * When you register a new scalable target, you must specify values for the minimum and maximum capacity. If the specified resource is not active in the target service, this operation does not change the resource's current capacity. Otherwise, it changes the resource's current capacity to a value that is inside of this range.
+ *
+ * If you add a scaling policy, current capacity is adjustable within the specified range when scaling starts. Application Auto Scaling scaling policies will not scale capacity to values that are outside of the minimum and maximum range.
+ *
+ * After you register a scalable target, you do not need to register it again to use other Application Auto Scaling operations. To see which resources have been registered, use [DescribeScalableTargets](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalableTargets.html). You can also view the scaling policies for a service namespace by using [DescribeScalableTargets](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalableTargets.html). If you no longer need a scalable target, you can deregister it by using [DeregisterScalableTarget](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DeregisterScalableTarget.html).
+ *
+ * To update a scalable target, specify the parameters that you want to change. Include the parameters that identify the scalable target: resource ID, scalable dimension, and namespace. Any parameters that you don't specify are not changed by this update request.
+ *
+ * > **Note:**
+ * >
+ * > If you call the `RegisterScalableTarget` API operation to create a scalable target, there might be a brief delay until the operation achieves [eventual consistency](https://en.wikipedia.org/wiki/Eventual_consistency). You might become aware of this brief delay if you get unexpected errors when performing sequential operations. The typical strategy is to retry the request, and some Amazon Web Services SDKs include automatic backoff and retry logic.
+ * >
+ * > If you call the `RegisterScalableTarget` API operation to update an existing scalable target, Application Auto Scaling retrieves the current capacity of the resource. If it's below the minimum capacity or above the maximum capacity, Application Auto Scaling adjusts the capacity of the scalable target to place it within these bounds, even if you don't include the `MinCapacity` or `MaxCapacity` request parameters.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,22 +80,24 @@ export interface RegisterScalableTargetCommandOutput extends RegisterScalableTar
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
  *
  * @throws {@link ConcurrentUpdateException} (server fault)
- *  <p>Concurrent updates caused an exception, for example, if you request an update to an
- *          Application Auto Scaling resource that already has a pending update.</p>
+ *
+ * Concurrent updates caused an exception, for example, if you request an update to an Application Auto Scaling resource that already has a pending update.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an internal error.</p>
+ *
+ * The service encountered an internal error.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>A per-account resource limit is exceeded. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-limits.html">Application Auto Scaling service quotas</a>.</p>
+ *
+ * A per-account resource limit is exceeded. For more information, see [Application Auto Scaling service quotas](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-limits.html).
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An exception was thrown for a validation issue. Review the available parameters for the
- *          API request.</p>
+ *
+ * An exception was thrown for a validation issue. Review the available parameters for the API request.
  *
  * @throws {@link ApplicationAutoScalingServiceException}
- * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from ApplicationAutoScaling service.
  *
  * @example To register an ECS service as a scalable target
  * ```javascript

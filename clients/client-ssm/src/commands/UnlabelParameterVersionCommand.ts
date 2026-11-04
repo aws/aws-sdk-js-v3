@@ -23,10 +23,10 @@ export interface UnlabelParameterVersionCommandInput extends UnlabelParameterVer
 export interface UnlabelParameterVersionCommandOutput extends UnlabelParameterVersionResult, __MetadataBearer {}
 
 /**
- * <p>Remove a label or labels from a parameter.</p>
- *          <p>Parameter names can't contain spaces. The service removes any spaces specified for the
- *    beginning or end of a parameter name. If the specified name for a parameter contains spaces
- *    between characters, the request fails with a <code>ValidationException</code> error.</p>
+ * Remove a label or labels from a parameter.
+ *
+ * Parameter names can't contain spaces. The service removes any spaces specified for the beginning or end of a parameter name. If the specified name for a parameter contains spaces between characters, the request fails with a `ValidationException` error.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,26 +62,26 @@ export interface UnlabelParameterVersionCommandOutput extends UnlabelParameterVe
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link ParameterNotFound} (client fault)
- *  <p>The parameter couldn't be found. Verify the name and try again.</p>
- *          <note>
- *             <p>For the <code>DeleteParameter</code> and <code>GetParameter</code> actions, if the
- *     specified parameter doesn't exist, the <code>ParameterNotFound</code> exception is
- *      <i>not</i> recorded in CloudTrail event logs.</p>
- *          </note>
+ *
+ * The parameter couldn't be found. Verify the name and try again.
+ *
+ * > **Note:** For the `DeleteParameter` and `GetParameter` actions, if the specified parameter doesn't exist, the `ParameterNotFound` exception is *not* recorded in CloudTrail event logs.
  *
  * @throws {@link ParameterVersionNotFound} (client fault)
- *  <p>The specified parameter version wasn't found. Verify the parameter name and version, and try
- *    again.</p>
+ *
+ * The specified parameter version wasn't found. Verify the parameter name and version, and try again.
  *
  * @throws {@link TooManyUpdates} (client fault)
- *  <p>There are concurrent updates for a resource that supports one update at a time.</p>
+ *
+ * There are concurrent updates for a resource that supports one update at a time.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

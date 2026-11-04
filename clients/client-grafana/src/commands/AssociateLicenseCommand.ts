@@ -23,7 +23,8 @@ export interface AssociateLicenseCommandInput extends AssociateLicenseRequest {}
 export interface AssociateLicenseCommandOutput extends AssociateLicenseResponse, __MetadataBearer {}
 
 /**
- * <p>Assigns a Grafana Enterprise license to a workspace. To upgrade, you must use <code>ENTERPRISE</code> for the <code>licenseType</code>, and pass in a valid Grafana Labs token for the <code>grafanaToken</code>. Upgrading to Grafana Enterprise incurs additional fees. For more information, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/upgrade-to-Grafana-Enterprise.html">Upgrade a workspace to Grafana Enterprise</a>.</p>
+ * Assigns a Grafana Enterprise license to a workspace. To upgrade, you must use `ENTERPRISE` for the `licenseType`, and pass in a valid Grafana Labs token for the `grafanaToken`. Upgrading to Grafana Enterprise incurs additional fees. For more information, see [Upgrade a workspace to Grafana Enterprise](https://docs.aws.amazon.com/grafana/latest/userguide/upgrade-to-Grafana-Enterprise.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -108,23 +109,28 @@ export interface AssociateLicenseCommandOutput extends AssociateLicenseResponse,
  * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action. </p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error while processing the request. Retry the request.</p>
+ *
+ * Unexpected error while processing the request. Retry the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request references a resource that does not exist.</p>
+ *
+ * The request references a resource that does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied because of request throttling. Retry the request.</p>
+ *
+ * The request was denied because of request throttling. Retry the request.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The value of a parameter in the request caused an error.</p>
+ *
+ * The value of a parameter in the request caused an error.
  *
  * @throws {@link GrafanaServiceException}
- * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
+ * Base exception class for all service exceptions from Grafana service.
  *
  * @public
  */

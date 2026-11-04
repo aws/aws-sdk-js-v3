@@ -5,7 +5,8 @@ import type { ValidationExceptionField } from "./models_0";
 import { S3VectorsServiceException as __BaseException } from "./S3VectorsServiceException";
 
 /**
- * <p>Access denied.</p>
+ * Access denied.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -26,7 +27,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request failed because a vector bucket name or a vector index name already exists. Vector bucket names must be unique within your Amazon Web Services account for each Amazon Web Services Region. Vector index names must be unique within your vector bucket. Choose a different vector bucket name or vector index name, and try again.</p>
+ * The request failed because a vector bucket name or a vector index name already exists. Vector bucket names must be unique within your Amazon Web Services account for each Amazon Web Services Region. Vector index names must be unique within your vector bucket. Choose a different vector bucket name or vector index name, and try again.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -47,7 +49,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The request failed due to an internal server error.</p>
+ * The request failed due to an internal server error.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -69,7 +72,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the specified resource can't be found.</p>
+ * The request was rejected because the specified resource can't be found.
+ *
  * @public
  */
 export class NotFoundException extends __BaseException {
@@ -90,7 +94,8 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request timed out. Retry your request.</p>
+ * The request timed out. Retry your request.
+ *
  * @public
  */
 export class RequestTimeoutException extends __BaseException {
@@ -112,7 +117,8 @@ export class RequestTimeoutException extends __BaseException {
 }
 
 /**
- * <p>Your request exceeds a service quota. </p>
+ * Your request exceeds a service quota.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -133,7 +139,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The service is unavailable. Wait briefly and retry your request. If it continues to fail, increase your waiting time between retries.</p>
+ * The service is unavailable. Wait briefly and retry your request. If it continues to fail, increase your waiting time between retries.
+ *
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -155,7 +162,8 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
@@ -179,7 +187,8 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * <p>The requested action isn't valid.</p>
+ * The requested action isn't valid.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -187,7 +196,8 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A list of specific validation failures that are encountered during input processing. Each entry in the list contains a path to the field that failed validation and a detailed message that explains why the validation failed. To satisfy multiple constraints, a field can appear multiple times in this list if it failed. You can use the information to identify and fix the specific validation issues in your request.</p>
+   * A list of specific validation failures that are encountered during input processing. Each entry in the list contains a path to the field that failed validation and a detailed message that explains why the validation failed. To satisfy multiple constraints, a field can appear multiple times in this list if it failed. You can use the information to identify and fix the specific validation issues in your request.
+   *
    * @public
    */
   fieldList?: ValidationExceptionField[] | undefined;
@@ -207,7 +217,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The specified Amazon Web Services KMS key isn't enabled.</p>
+ * The specified Amazon Web Services KMS key isn't enabled.
+ *
  * @public
  */
 export class KmsDisabledException extends __BaseException {
@@ -228,7 +239,13 @@ export class KmsDisabledException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected for one of the following reasons: </p> <ul> <li> <p>The <code>KeyUsage</code> value of the KMS key is incompatible with the API operation.</p> </li> <li> <p>The encryption algorithm or signing algorithm specified for the operation is incompatible with the type of key material in the KMS key (<code>KeySpec</code>).</p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html#API_Encrypt_Errors">InvalidKeyUsageException</a> in the <i>Amazon Web Services Key Management Service API Reference</i>.</p>
+ * The request was rejected for one of the following reasons:
+ *
+ * - The `KeyUsage` value of the KMS key is incompatible with the API operation.
+ * - The encryption algorithm or signing algorithm specified for the operation is incompatible with the type of key material in the KMS key (`KeySpec`).
+ *
+ * For more information, see [InvalidKeyUsageException](https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html#API_Encrypt_Errors) in the *Amazon Web Services Key Management Service API Reference*.
+ *
  * @public
  */
 export class KmsInvalidKeyUsageException extends __BaseException {
@@ -249,7 +266,10 @@ export class KmsInvalidKeyUsageException extends __BaseException {
 }
 
 /**
- * <p>The key state of the KMS key isn't compatible with the operation.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html#API_Encrypt_Errors">KMSInvalidStateException</a> in the <i>Amazon Web Services Key Management Service API Reference</i>.</p>
+ * The key state of the KMS key isn't compatible with the operation.
+ *
+ * For more information, see [KMSInvalidStateException](https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html#API_Encrypt_Errors) in the *Amazon Web Services Key Management Service API Reference*.
+ *
  * @public
  */
 export class KmsInvalidStateException extends __BaseException {
@@ -270,7 +290,8 @@ export class KmsInvalidStateException extends __BaseException {
 }
 
 /**
- * <p>The KMS key can't be found.</p>
+ * The KMS key can't be found.
+ *
  * @public
  */
 export class KmsNotFoundException extends __BaseException {

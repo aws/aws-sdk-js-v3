@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { SavingsplansServiceException as __BaseException } from "./SavingsplansServiceException";
 
 /**
- * <p>An unexpected error occurred.</p>
+ * An unexpected error occurred.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -25,7 +26,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The specified resource was not found.</p>
+ * The specified resource was not found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -46,7 +48,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>A service quota has been exceeded.</p>
+ * A service quota has been exceeded.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -67,7 +70,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>One of the input parameters is not valid.</p>
+ * One of the input parameters is not valid.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {

@@ -23,13 +23,10 @@ export interface CreateLookupTableCommandInput extends CreateLookupTableRequest 
 export interface CreateLookupTableCommandOutput extends CreateLookupTableResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a lookup table by uploading CSV data or from CloudWatch Logs query
- *       results. You can use lookup tables to enrich log data in CloudWatch Logs queries with
- *       reference data such as user details, application names, or error descriptions.</p>
- *          <p>The table name must be unique within your account and Region. You must specify either
- *       <code>tableBody</code> or <code>queryId</code>, but not both. If you use
- *       <code>tableBody</code>, the CSV content must include a header row with column names, use
- *       UTF-8 encoding, and not exceed 10 MB.</p>
+ * Creates a lookup table by uploading CSV data or from CloudWatch Logs query results. You can use lookup tables to enrich log data in CloudWatch Logs queries with reference data such as user details, application names, or error descriptions.
+ *
+ * The table name must be unique within your account and Region. You must specify either `tableBody` or `queryId`, but not both. If you use `tableBody`, the CSV content must include a header row with column names, use UTF-8 encoding, and not exceed 10 MB.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,26 +61,32 @@ export interface CreateLookupTableCommandOutput extends CreateLookupTableRespons
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permissions to perform this action.</p>
+ *
+ * You don't have sufficient permissions to perform this action.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is specified incorrectly.</p>
+ *
+ * A parameter is specified incorrectly.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You have reached the maximum number of resources that can be created.</p>
+ *
+ * You have reached the maximum number of resources that can be created.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>The specified resource already exists.</p>
+ *
+ * The specified resource already exists.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service cannot complete the request.</p>
+ *
+ * The service cannot complete the request.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One of the parameters for the request is not valid.</p>
+ *
+ * One of the parameters for the request is not valid.
  *
  * @throws {@link CloudWatchLogsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchLogs service.
  *
  * @public
  */

@@ -370,10 +370,15 @@ export interface GetBulkPublishDetailsResponse {
 
   /**
    * Status of the last bulk publish operation, valid values are:
-   *       <p>NOT_STARTED - No bulk publish has been requested for this identity pool</p>
-   *       <p>IN_PROGRESS - Data is being published to the configured stream</p>
-   *       <p>SUCCEEDED - All data for the identity pool has been published to the configured stream</p>
-   *       <p>FAILED - Some portion of the data has failed to publish, check FailureMessage for the cause.</p>
+   *
+   * NOT_STARTED - No bulk publish has been requested for this identity pool
+   *
+   * IN_PROGRESS - Data is being published to the configured stream
+   *
+   * SUCCEEDED - All data for the identity pool has been published to the configured stream
+   *
+   * FAILED - Some portion of the data has failed to publish, check FailureMessage for the cause.
+   *
    * @public
    */
   BulkPublishStatus?: BulkPublishStatus | undefined;
@@ -386,37 +391,42 @@ export interface GetBulkPublishDetailsResponse {
 }
 
 /**
- * <p>A request for a list of the configured Cognito Events</p>
+ * A request for a list of the configured Cognito Events
+ *
  * @public
  */
 export interface GetCognitoEventsRequest {
   /**
-   * <p>The Cognito Identity Pool ID for the request</p>
+   * The Cognito Identity Pool ID for the request
+   *
    * @public
    */
   IdentityPoolId: string | undefined;
 }
 
 /**
- * <p>The response from the GetCognitoEvents request</p>
+ * The response from the GetCognitoEvents request
+ *
  * @public
  */
 export interface GetCognitoEventsResponse {
   /**
-   * <p>The Cognito Events returned from the GetCognitoEvents request</p>
+   * The Cognito Events returned from the GetCognitoEvents request
+   *
    * @public
    */
   Events?: Record<string, string> | undefined;
 }
 
 /**
- * <p>The input for the GetIdentityPoolConfiguration operation.</p>
+ * The input for the GetIdentityPoolConfiguration operation.
+ *
  * @public
  */
 export interface GetIdentityPoolConfigurationRequest {
   /**
-   * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by
-   *          Amazon Cognito. This is the ID of the pool for which to return a configuration.</p>
+   * A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool for which to return a configuration.
+   *
    * @public
    */
   IdentityPoolId: string | undefined;
@@ -441,45 +451,53 @@ export interface CognitoStreams {
 
   /**
    * Status of the Cognito streams. Valid values are:
-   *       <p>ENABLED - Streaming of updates to identity pool is enabled.</p>
-   *       <p>DISABLED - Streaming of updates to identity pool is disabled. Bulk publish will also fail if StreamingStatus is DISABLED.</p>
+   *
+   * ENABLED - Streaming of updates to identity pool is enabled.
+   *
+   * DISABLED - Streaming of updates to identity pool is disabled. Bulk publish will also fail if StreamingStatus is DISABLED.
+   *
    * @public
    */
   StreamingStatus?: StreamingStatus | undefined;
 }
 
 /**
- * <p>Configuration options to be applied to the identity pool.</p>
+ * Configuration options to be applied to the identity pool.
+ *
  * @public
  */
 export interface PushSync {
   /**
-   * <p>List of SNS platform application ARNs that could be used by clients.</p>
+   * List of SNS platform application ARNs that could be used by clients.
+   *
    * @public
    */
   ApplicationArns?: string[] | undefined;
 
   /**
-   * <p>A role configured to allow Cognito to call SNS on behalf of the developer.</p>
+   * A role configured to allow Cognito to call SNS on behalf of the developer.
+   *
    * @public
    */
   RoleArn?: string | undefined;
 }
 
 /**
- * <p>The output for the GetIdentityPoolConfiguration operation.</p>
+ * The output for the GetIdentityPoolConfiguration operation.
+ *
  * @public
  */
 export interface GetIdentityPoolConfigurationResponse {
   /**
-   * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by
-   *          Amazon Cognito.</p>
+   * A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+   *
    * @public
    */
   IdentityPoolId?: string | undefined;
 
   /**
-   * <p>Options to apply to this identity pool for push synchronization.</p>
+   * Options to apply to this identity pool for push synchronization.
+   *
    * @public
    */
   PushSync?: PushSync | undefined;
@@ -781,80 +799,92 @@ export interface ListRecordsResponse {
 }
 
 /**
- * <p>A request to RegisterDevice.</p>
+ * A request to RegisterDevice.
+ *
  * @public
  */
 export interface RegisterDeviceRequest {
   /**
-   * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by
-   *          Amazon Cognito. Here, the ID of the pool that the identity belongs to.</p>
+   * A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. Here, the ID of the pool that the identity belongs to.
+   *
    * @public
    */
   IdentityPoolId: string | undefined;
 
   /**
-   * <p>The unique ID for this identity.</p>
+   * The unique ID for this identity.
+   *
    * @public
    */
   IdentityId: string | undefined;
 
   /**
-   * <p>The SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).</p>
+   * The SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).
+   *
    * @public
    */
   Platform: Platform | undefined;
 
   /**
-   * <p>The push token.</p>
+   * The push token.
+   *
    * @public
    */
   Token: string | undefined;
 }
 
 /**
- * <p>Response to a RegisterDevice request.</p>
+ * Response to a RegisterDevice request.
+ *
  * @public
  */
 export interface RegisterDeviceResponse {
   /**
-   * <p>The unique ID generated for this device by Cognito.</p>
+   * The unique ID generated for this device by Cognito.
+   *
    * @public
    */
   DeviceId?: string | undefined;
 }
 
 /**
- * <p>A request to configure Cognito Events"</p>"
+ * A request to configure Cognito Events"
+ *
+ * "
  * @public
  */
 export interface SetCognitoEventsRequest {
   /**
-   * <p>The Cognito Identity Pool to use when configuring Cognito Events</p>
+   * The Cognito Identity Pool to use when configuring Cognito Events
+   *
    * @public
    */
   IdentityPoolId: string | undefined;
 
   /**
-   * <p>The events to configure</p>
+   * The events to configure
+   *
    * @public
    */
   Events: Record<string, string> | undefined;
 }
 
 /**
- * <p>The input for the SetIdentityPoolConfiguration operation.</p>
+ * The input for the SetIdentityPoolConfiguration operation.
+ *
  * @public
  */
 export interface SetIdentityPoolConfigurationRequest {
   /**
-   * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by
-   *          Amazon Cognito. This is the ID of the pool to modify.</p>
+   * A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool to modify.
+   *
    * @public
    */
   IdentityPoolId: string | undefined;
 
   /**
-   * <p>Options to apply to this identity pool for push synchronization.</p>
+   * Options to apply to this identity pool for push synchronization.
+   *
    * @public
    */
   PushSync?: PushSync | undefined;
@@ -867,19 +897,21 @@ export interface SetIdentityPoolConfigurationRequest {
 }
 
 /**
- * <p>The output for the SetIdentityPoolConfiguration operation</p>
+ * The output for the SetIdentityPoolConfiguration operation
+ *
  * @public
  */
 export interface SetIdentityPoolConfigurationResponse {
   /**
-   * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by
-   *          Amazon Cognito.</p>
+   * A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+   *
    * @public
    */
   IdentityPoolId?: string | undefined;
 
   /**
-   * <p>Options to apply to this identity pool for push synchronization.</p>
+   * Options to apply to this identity pool for push synchronization.
+   *
    * @public
    */
   PushSync?: PushSync | undefined;
@@ -892,75 +924,85 @@ export interface SetIdentityPoolConfigurationResponse {
 }
 
 /**
- * <p>A request to SubscribeToDatasetRequest.</p>
+ * A request to SubscribeToDatasetRequest.
+ *
  * @public
  */
 export interface SubscribeToDatasetRequest {
   /**
-   * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by
-   *          Amazon Cognito. The ID of the pool to which the identity belongs.</p>
+   * A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. The ID of the pool to which the identity belongs.
+   *
    * @public
    */
   IdentityPoolId: string | undefined;
 
   /**
-   * <p>Unique ID for this identity.</p>
+   * Unique ID for this identity.
+   *
    * @public
    */
   IdentityId: string | undefined;
 
   /**
-   * <p>The name of the dataset to subcribe to.</p>
+   * The name of the dataset to subcribe to.
+   *
    * @public
    */
   DatasetName: string | undefined;
 
   /**
-   * <p>The unique ID generated for this device by Cognito.</p>
+   * The unique ID generated for this device by Cognito.
+   *
    * @public
    */
   DeviceId: string | undefined;
 }
 
 /**
- * <p>Response to a SubscribeToDataset request.</p>
+ * Response to a SubscribeToDataset request.
+ *
  * @public
  */
 export interface SubscribeToDatasetResponse {}
 
 /**
- * <p>A request to UnsubscribeFromDataset.</p>
+ * A request to UnsubscribeFromDataset.
+ *
  * @public
  */
 export interface UnsubscribeFromDatasetRequest {
   /**
-   * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by
-   *          Amazon Cognito. The ID of the pool to which this identity belongs.</p>
+   * A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. The ID of the pool to which this identity belongs.
+   *
    * @public
    */
   IdentityPoolId: string | undefined;
 
   /**
-   * <p>Unique ID for this identity.</p>
+   * Unique ID for this identity.
+   *
    * @public
    */
   IdentityId: string | undefined;
 
   /**
-   * <p>The name of the dataset from which to unsubcribe.</p>
+   * The name of the dataset from which to unsubcribe.
+   *
    * @public
    */
   DatasetName: string | undefined;
 
   /**
-   * <p>The unique ID generated for this device by Cognito.</p>
+   * The unique ID generated for this device by Cognito.
+   *
    * @public
    */
   DeviceId: string | undefined;
 }
 
 /**
- * <p>Response to an UnsubscribeFromDataset request.</p>
+ * Response to an UnsubscribeFromDataset request.
+ *
  * @public
  */
 export interface UnsubscribeFromDatasetResponse {}
@@ -1035,7 +1077,8 @@ export interface UpdateRecordsRequest {
   DatasetName: string | undefined;
 
   /**
-   * <p>The unique ID generated for this device by Cognito.</p>
+   * The unique ID generated for this device by Cognito.
+   *
    * @public
    */
   DeviceId?: string | undefined;

@@ -22,20 +22,12 @@ export interface DisableHealthServiceAccessForOrganizationCommandInput {}
 export interface DisableHealthServiceAccessForOrganizationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Disables Health from working with Organizations. To call this operation, you must sign
- *          in to the organization's management account. For more information, see <a href="https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html">Aggregating
- *             Health events</a> in the <i>Health User Guide</i>.</p>
- *          <p>This operation doesn't remove the service-linked role from the management account in your
- *          organization. You must use the IAM console, API, or Command Line Interface (CLI) to remove the
- *          service-linked role. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#delete-service-linked-role">Deleting a Service-Linked Role</a> in the
- *          <i>IAM User Guide</i>.</p>
- *          <note>
- *             <p>You can also disable the organizational feature by using the Organizations <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisableAWSServiceAccess.html">DisableAWSServiceAccess</a> API operation. After you call this operation,
- *             Health stops aggregating events for all other Amazon Web Services accounts in your organization.
- *             If you call the Health API operations for organizational view, Health returns
- *             an error. Health continues to aggregate health events for your
- *             Amazon Web Services account.</p>
- *          </note>
+ * Disables Health from working with Organizations. To call this operation, you must sign in to the organization's management account. For more information, see [Aggregating Health events](https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html) in the *Health User Guide*.
+ *
+ * This operation doesn't remove the service-linked role from the management account in your organization. You must use the IAM console, API, or Command Line Interface (CLI) to remove the service-linked role. For more information, see [Deleting a Service-Linked Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#delete-service-linked-role) in the *IAM User Guide*.
+ *
+ * > **Note:** You can also disable the organizational feature by using the Organizations [DisableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisableAWSServiceAccess.html) API operation. After you call this operation, Health stops aggregating events for all other Amazon Web Services accounts in your organization. If you call the Health API operations for organizational view, Health returns an error. Health continues to aggregate health events for your Amazon Web Services account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,13 +50,12 @@ export interface DisableHealthServiceAccessForOrganizationCommandOutput extends 
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>
- *             <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html">EnableHealthServiceAccessForOrganization</a> is already in progress. Wait for the
- *          action to complete before trying again. To get the current status, use the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeHealthServiceStatusForOrganization.html">DescribeHealthServiceStatusForOrganization</a> operation.</p>
+ *
+ * [EnableHealthServiceAccessForOrganization](https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html) is already in progress. Wait for the action to complete before trying again. To get the current status, use the [DescribeHealthServiceStatusForOrganization](https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeHealthServiceStatusForOrganization.html) operation.
  *
  * @throws {@link HealthServiceException}
- * <p>Base exception class for all service exceptions from Health service.</p>
  *
+ * Base exception class for all service exceptions from Health service.
  *
  * @public
  */

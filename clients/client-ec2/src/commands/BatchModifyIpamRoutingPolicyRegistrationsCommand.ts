@@ -26,7 +26,8 @@ export interface BatchModifyIpamRoutingPolicyRegistrationsCommandInput extends B
 export interface BatchModifyIpamRoutingPolicyRegistrationsCommandOutput extends BatchModifyIpamRoutingPolicyRegistrationsResult, __MetadataBearer {}
 
 /**
- * <p>Modifies multiple routing policy registrations in a single operation. You can create, update, or delete Route Origin Authorizations (ROAs) in batch.</p>
+ * Modifies multiple routing policy registrations in a single operation. You can create, update, or delete Route Origin Authorizations (ROAs) in batch.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,8 +63,8 @@ export interface BatchModifyIpamRoutingPolicyRegistrationsCommandOutput extends 
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

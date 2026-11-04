@@ -26,7 +26,8 @@ export interface GetQualificationsAssociationTaskCommandInput extends GetQualifi
 export interface GetQualificationsAssociationTaskCommandOutput extends GetQualificationsAssociationTaskResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the status and details of the most recent qualifications association task for your partner account. Use this operation to poll the progress of an association task initiated by <code>StartQualificationsAssociationTask</code>.</p>
+ * Retrieves the status and details of the most recent qualifications association task for your partner account. Use this operation to poll the progress of an association task initiated by `StartQualificationsAssociationTask`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,23 +65,28 @@ export interface GetQualificationsAssociationTaskCommandOutput extends GetQualif
  * @see {@link PartnerCentralAccountClientResolvedConfig | config} for PartnerCentralAccountClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request was denied due to insufficient permissions. The caller does not have the required permissions to perform this operation.</p>
+ *
+ * The request was denied due to insufficient permissions. The caller does not have the required permissions to perform this operation.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred while processing the request. This is typically a temporary condition and the request may be retried.</p>
+ *
+ * An internal server error occurred while processing the request. This is typically a temporary condition and the request may be retried.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource could not be found. This may occur when referencing a resource that does not exist or has been deleted.</p>
+ *
+ * The specified resource could not be found. This may occur when referencing a resource that does not exist or has been deleted.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled due to too many requests being sent in a short period of time. The client should implement exponential backoff and retry the request.</p>
+ *
+ * The request was throttled due to too many requests being sent in a short period of time. The client should implement exponential backoff and retry the request.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request failed validation. One or more input parameters are invalid, missing, or do not meet the required format or constraints.</p>
+ *
+ * The request failed validation. One or more input parameters are invalid, missing, or do not meet the required format or constraints.
  *
  * @throws {@link PartnerCentralAccountServiceException}
- * <p>Base exception class for all service exceptions from PartnerCentralAccount service.</p>
  *
+ * Base exception class for all service exceptions from PartnerCentralAccount service.
  *
  * @public
  */

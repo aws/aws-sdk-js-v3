@@ -23,7 +23,8 @@ export interface UpdateResourceShareCommandInput extends UpdateResourceShareRequ
 export interface UpdateResourceShareCommandOutput extends UpdateResourceShareResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies some of the properties of the specified resource share.</p>
+ * Modifies some of the properties of the specified resource share.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,39 +74,44 @@ export interface UpdateResourceShareCommandOutput extends UpdateResourceShareRes
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
  *
  * @throws {@link IdempotentParameterMismatchException} (client fault)
- *  <p>The operation failed because the client token input parameter matched one that was
- *             used with a previous call to the operation, but at least one of the other input
- *             parameters is different from the previous call.</p>
+ *
+ * The operation failed because the client token input parameter matched one that was used with a previous call to the operation, but at least one of the other input parameters is different from the previous call.
  *
  * @throws {@link InvalidClientTokenException} (client fault)
- *  <p>The operation failed because the specified client token isn't valid.</p>
+ *
+ * The operation failed because the specified client token isn't valid.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The operation failed because a parameter you specified isn't valid.</p>
+ *
+ * The operation failed because a parameter you specified isn't valid.
  *
  * @throws {@link MalformedArnException} (client fault)
- *  <p>The operation failed because the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> has a format that isn't
- *             valid.</p>
+ *
+ * The operation failed because the specified [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) has a format that isn't valid.
  *
  * @throws {@link MissingRequiredParameterException} (client fault)
- *  <p>The operation failed because a required input parameter is missing.</p>
+ *
+ * The operation failed because a required input parameter is missing.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>The operation failed because the requested operation isn't permitted.</p>
+ *
+ * The operation failed because the requested operation isn't permitted.
  *
  * @throws {@link ServerInternalException} (server fault)
- *  <p>The operation failed because the service could not respond to the request due to an
- *             internal problem. Try again later.</p>
+ *
+ * The operation failed because the service could not respond to the request due to an internal problem. Try again later.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The operation failed because the service isn't available. Try again later.</p>
+ *
+ * The operation failed because the service isn't available. Try again later.
  *
  * @throws {@link UnknownResourceException} (client fault)
- *  <p>The operation failed because a specified resource couldn't be found.</p>
+ *
+ * The operation failed because a specified resource couldn't be found.
  *
  * @throws {@link RAMServiceException}
- * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ * Base exception class for all service exceptions from RAM service.
  *
  * @public
  */

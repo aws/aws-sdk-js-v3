@@ -23,9 +23,8 @@ export interface ListAccountsCommandInput extends ListAccountsRequest {}
 export interface ListAccountsCommandOutput extends ListAccountsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all AWS accounts assigned to the user. These AWS accounts are assigned by the
- *       administrator of the account. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/useraccess.html#assignusers">Assign User Access</a> in the <i>IAM Identity Center User Guide</i>. This operation
- *       returns a paginated response.</p>
+ * Lists all AWS accounts assigned to the user. These AWS accounts are assigned by the administrator of the account. For more information, see [Assign User Access](https://docs.aws.amazon.com/singlesignon/latest/userguide/useraccess.html#assignusers) in the *IAM Identity Center User Guide*. This operation returns a paginated response.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,23 +60,24 @@ export interface ListAccountsCommandOutput extends ListAccountsResponse, __Metad
  * @see {@link SSOClientResolvedConfig | config} for SSOClient's `config` shape.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Indicates that a problem occurred with the input to the request. For example, a required
- *       parameter might be missing or out of range.</p>
+ *
+ * Indicates that a problem occurred with the input to the request. For example, a required parameter might be missing or out of range.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource doesn't exist.</p>
+ *
+ * The specified resource doesn't exist.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Indicates that the request is being made too frequently and is more than what the server
- *       can handle.</p>
+ *
+ * Indicates that the request is being made too frequently and is more than what the server can handle.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>Indicates that the request is not authorized. This can happen due to an invalid access
- *       token in the request.</p>
+ *
+ * Indicates that the request is not authorized. This can happen due to an invalid access token in the request.
  *
  * @throws {@link SSOServiceException}
- * <p>Base exception class for all service exceptions from SSO service.</p>
  *
+ * Base exception class for all service exceptions from SSO service.
  *
  * @public
  */

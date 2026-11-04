@@ -5,8 +5,8 @@ import type { ConflictType, ResourceType } from "./enums";
 import { VoiceIDServiceException as __BaseException } from "./VoiceIDServiceException";
 
 /**
- * <p>You do not have sufficient permissions to perform this action. Check the error message
- *             and try again.</p>
+ * You do not have sufficient permissions to perform this action. Check the error message and try again.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -29,8 +29,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request failed due to a conflict. Check the <code>ConflictType</code> and error
- *             message for more details.</p>
+ * The request failed due to a conflict. Check the `ConflictType` and error message for more details.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -39,39 +39,15 @@ export class ConflictException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The type of conflict which caused a ConflictException. Possible types and the
-   *             corresponding error messages are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>DOMAIN_NOT_ACTIVE</code>: The domain is not active.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CANNOT_CHANGE_SPEAKER_AFTER_ENROLLMENT</code>: You cannot change the
-   *                     speaker ID after an enrollment has been requested.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ENROLLMENT_ALREADY_EXISTS</code>: There is already an enrollment for
-   *                     this session.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SPEAKER_NOT_SET</code>: You must set the speaker ID before requesting an
-   *                     enrollment.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SPEAKER_OPTED_OUT</code>: You cannot request an enrollment for an opted
-   *                     out speaker.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CONCURRENT_CHANGES</code>: The request could not be processed as the
-   *                     resource was modified by another request during execution.</p>
-   *             </li>
-   *          </ul>
+   * The type of conflict which caused a ConflictException. Possible types and the corresponding error messages are as follows:
+   *
+   * - `DOMAIN_NOT_ACTIVE`: The domain is not active.
+   * - `CANNOT_CHANGE_SPEAKER_AFTER_ENROLLMENT`: You cannot change the speaker ID after an enrollment has been requested.
+   * - `ENROLLMENT_ALREADY_EXISTS`: There is already an enrollment for this session.
+   * - `SPEAKER_NOT_SET`: You must set the speaker ID before requesting an enrollment.
+   * - `SPEAKER_OPTED_OUT`: You cannot request an enrollment for an opted out speaker.
+   * - `CONCURRENT_CHANGES`: The request could not be processed as the resource was modified by another request during execution.
+   *
    * @public
    */
   ConflictType?: ConflictType | undefined;
@@ -91,7 +67,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The request failed due to an unknown error on the server side.</p>
+ * The request failed due to an unknown error on the server side.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -114,8 +91,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The specified resource cannot be found. Check the <code>ResourceType</code> and error
- *             message for more details.</p>
+ * The specified resource cannot be found. Check the `ResourceType` and error message for more details.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -124,9 +101,8 @@ export class ResourceNotFoundException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The type of resource which cannot not be found. Possible types are
-   *                 <code>BATCH_JOB</code>, <code>COMPLIANCE_CONSENT</code>, <code>DOMAIN</code>,
-   *                 <code>FRAUDSTER</code>, <code>SESSION</code> and <code>SPEAKER</code>.</p>
+   * The type of resource which cannot not be found. Possible types are `BATCH_JOB`, `COMPLIANCE_CONSENT`, `DOMAIN`, `FRAUDSTER`, `SESSION` and `SPEAKER`.
+   *
    * @public
    */
   ResourceType?: ResourceType | undefined;
@@ -146,7 +122,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request exceeded the service quota. Refer to <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#voiceid-quotas">Voice ID Service Quotas</a> and try your request again.</p>
+ * The request exceeded the service quota. Refer to [Voice ID Service Quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#voiceid-quotas) and try your request again.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -169,10 +146,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling. Please slow down your request rate.
- *             Refer to <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html##voiceid-api-quotas">
- *                 Amazon Connect Voice ID Service API throttling quotas </a> and try your
- *             request again.</p>
+ * The request was denied due to request throttling. Please slow down your request rate. Refer to [Amazon Connect Voice ID Service API throttling quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html##voiceid-api-quotas) and try your request again.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -195,8 +170,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The request failed one or more validations; check the error message for more
- *             details.</p>
+ * The request failed one or more validations; check the error message for more details.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {

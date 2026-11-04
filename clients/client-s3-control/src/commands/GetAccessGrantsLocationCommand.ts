@@ -23,13 +23,12 @@ export interface GetAccessGrantsLocationCommandInput extends GetAccessGrantsLoca
 export interface GetAccessGrantsLocationCommandOutput extends GetAccessGrantsLocationResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves the details of a particular location registered in your S3 Access Grants instance. </p>
- *          <dl>
- *             <dt>Permissions</dt>
- *             <dd>
- *                <p>You must have the <code>s3:GetAccessGrantsLocation</code> permission to use this operation. </p>
- *             </dd>
- *          </dl>
+ * Retrieves the details of a particular location registered in your S3 Access Grants instance.
+ *
+ * - **Permissions**
+ *
+ *   You must have the `s3:GetAccessGrantsLocation` permission to use this operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,8 +60,8 @@ export interface GetAccessGrantsLocationCommandOutput extends GetAccessGrantsLoc
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
  * @throws {@link S3ControlServiceException}
- * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * Base exception class for all service exceptions from S3Control service.
  *
  * @public
  */

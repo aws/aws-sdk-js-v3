@@ -26,10 +26,10 @@ export interface GetIdentityMailFromDomainAttributesCommandInput extends GetIden
 export interface GetIdentityMailFromDomainAttributesCommandOutput extends GetIdentityMailFromDomainAttributesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the custom MAIL FROM attributes for a list of identities (email addresses :
- *             domains).</p>
- *          <p>This operation is throttled at one request per second and can only get custom MAIL
- *             FROM attributes for up to 100 identities at a time.</p>
+ * Returns the custom MAIL FROM attributes for a list of identities (email addresses : domains).
+ *
+ * This operation is throttled at one request per second and can only get custom MAIL FROM attributes for up to 100 identities at a time.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,8 +64,8 @@ export interface GetIdentityMailFromDomainAttributesCommandOutput extends GetIde
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @example GetIdentityMailFromDomainAttributes
  * ```javascript

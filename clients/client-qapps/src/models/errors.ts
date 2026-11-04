@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { QAppsServiceException as __BaseException } from "./QAppsServiceException";
 
 /**
- * <p>The client is not authorized to perform the requested operation.</p>
+ * The client is not authorized to perform the requested operation.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The requested operation could not be completed due to a conflict with the current state of the resource.</p>
+ * The requested operation could not be completed due to a conflict with the current state of the resource.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -33,13 +35,15 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The unique identifier of the resource</p>
+   * The unique identifier of the resource
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The type of the resource</p>
+   * The type of the resource
+   *
    * @public
    */
   resourceType: string | undefined;
@@ -60,7 +64,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>An internal service error occurred while processing the request.</p>
+ * An internal service error occurred while processing the request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -69,7 +74,8 @@ export class InternalServerException extends __BaseException {
   readonly $fault = "server" as const;
   $retryable = {};
   /**
-   * <p>The number of seconds to wait before retrying the operation</p>
+   * The number of seconds to wait before retrying the operation
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -89,7 +95,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The requested resource could not be found.</p>
+ * The requested resource could not be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -97,13 +104,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The unique identifier of the resource</p>
+   * The unique identifier of the resource
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The type of the resource</p>
+   * The type of the resource
+   *
    * @public
    */
   resourceType: string | undefined;
@@ -124,7 +133,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The requested operation could not be completed because it would exceed the service's quota or limit.</p>
+ * The requested operation could not be completed because it would exceed the service's quota or limit.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -132,25 +142,29 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The unique identifier of the resource</p>
+   * The unique identifier of the resource
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The type of the resource</p>
+   * The type of the resource
+   *
    * @public
    */
   resourceType: string | undefined;
 
   /**
-   * <p>The code for the service where the quota was exceeded</p>
+   * The code for the service where the quota was exceeded
+   *
    * @public
    */
   serviceCode: string | undefined;
 
   /**
-   * <p>The code of the quota that was exceeded</p>
+   * The code of the quota that was exceeded
+   *
    * @public
    */
   quotaCode: string | undefined;
@@ -173,7 +187,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
+ * The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -184,19 +199,22 @@ export class ThrottlingException extends __BaseException {
     throttling: true,
   };
   /**
-   * <p>The code for the service where the quota was exceeded</p>
+   * The code for the service where the quota was exceeded
+   *
    * @public
    */
   serviceCode: string | undefined;
 
   /**
-   * <p>The code of the quota that was exceeded</p>
+   * The code of the quota that was exceeded
+   *
    * @public
    */
   quotaCode: string | undefined;
 
   /**
-   * <p>The number of seconds to wait before retrying the operation</p>
+   * The number of seconds to wait before retrying the operation
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -218,7 +236,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The client is not authenticated or authorized to perform the requested operation.</p>
+ * The client is not authenticated or authorized to perform the requested operation.
+ *
  * @public
  */
 export class UnauthorizedException extends __BaseException {
@@ -239,7 +258,8 @@ export class UnauthorizedException extends __BaseException {
 }
 
 /**
- * <p>The input failed to satisfy the constraints specified by the service.</p>
+ * The input failed to satisfy the constraints specified by the service.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -260,7 +280,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The requested operation could not be completed because the content exceeds the maximum allowed size.</p>
+ * The requested operation could not be completed because the content exceeds the maximum allowed size.
+ *
  * @public
  */
 export class ContentTooLargeException extends __BaseException {
@@ -268,13 +289,15 @@ export class ContentTooLargeException extends __BaseException {
   readonly name = "ContentTooLargeException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The unique identifier of the resource</p>
+   * The unique identifier of the resource
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The type of the resource</p>
+   * The type of the resource
+   *
    * @public
    */
   resourceType: string | undefined;

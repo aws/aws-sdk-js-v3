@@ -23,20 +23,12 @@ export interface GetQualificationScoreCommandInput extends GetQualificationScore
 export interface GetQualificationScoreCommandOutput extends GetQualificationScoreResponse, __MetadataBearer {}
 
 /**
- * <p>
- *             The
- *             <code>GetQualificationScore</code>
- *             operation returns the value of a Worker's Qualification for a given
- *             Qualification type.
- *         </p>
- *         <p>
- *             To get a Worker's Qualification, you must know the Worker's ID. The
- *             Worker's ID is included in the assignment data returned by the
- *             <code>ListAssignmentsForHIT</code>
- *             operation.
- *         </p>
- *         <p>Only the owner of a Qualification type can query the value of
- *             a Worker's Qualification of that type.</p>
+ * The `GetQualificationScore` operation returns the value of a Worker's Qualification for a given Qualification type.
+ *
+ * To get a Worker's Qualification, you must know the Worker's ID. The Worker's ID is included in the assignment data returned by the `ListAssignmentsForHIT` operation.
+ *
+ * Only the owner of a Qualification type can query the value of a Worker's Qualification of that type.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,14 +66,16 @@ export interface GetQualificationScoreCommandOutput extends GetQualificationScor
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
  *
  * @throws {@link RequestError} (client fault)
- *  <p>Your request is invalid.</p>
+ *
+ * Your request is invalid.
  *
  * @throws {@link ServiceFault} (server fault)
- *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
+ * Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.
  *
  * @throws {@link MTurkServiceException}
- * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * Base exception class for all service exceptions from MTurk service.
  *
  * @public
  */

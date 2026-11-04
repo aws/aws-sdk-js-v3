@@ -23,7 +23,8 @@ export interface UpdateBrandProfileCommandInput extends UpdateBrandProfileInput 
 export interface UpdateBrandProfileCommandOutput extends UpdateBrandProfileOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the name or the deletion protection setting of a brand profile. To change the information that is stored in the profile, use the brand profile attribute operations.</p>
+ * Updates the name or the deletion protection setting of a brand profile. To change the information that is stored in the profile, use the brand profile attribute operations.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,19 +59,24 @@ export interface UpdateBrandProfileCommandOutput extends UpdateBrandProfileOutpu
  * @see {@link EndUserMessagingClientResolvedConfig | config} for EndUserMessagingClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request conflicts with the current state of the resource.</p>
+ *
+ * The request conflicts with the current state of the resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred during the processing of the request.</p>
+ *
+ * An unexpected error occurred during the processing of the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request references a resource that does not exist. Verify that the resource identifier is correct and try your request again.</p>
+ *
+ * The request references a resource that does not exist. Verify that the resource identifier is correct and try your request again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied because it exceeded the allowed request rate.</p>
+ *
+ * The request was denied because it exceeded the allowed request rate.
  *
  * @throws {@link ValidationException} (client fault)
  *  A standard error for input validation failures.
@@ -78,8 +84,8 @@ export interface UpdateBrandProfileCommandOutput extends UpdateBrandProfileOutpu
  * falls outside of the modeled or documented constraints.
  *
  * @throws {@link EndUserMessagingServiceException}
- * <p>Base exception class for all service exceptions from EndUserMessaging service.</p>
  *
+ * Base exception class for all service exceptions from EndUserMessaging service.
  *
  * @example Update a brand profile name
  * ```javascript

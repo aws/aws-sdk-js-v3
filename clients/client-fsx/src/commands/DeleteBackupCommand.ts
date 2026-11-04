@@ -23,14 +23,12 @@ export interface DeleteBackupCommandInput extends DeleteBackupRequest {}
 export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an Amazon FSx backup. After deletion, the backup no longer exists, and
- *             its data is gone.</p>
- *          <p>The <code>DeleteBackup</code> call returns instantly. The backup won't show up in
- *             later <code>DescribeBackups</code> calls.</p>
- *          <important>
- *             <p>The data in a deleted backup is also deleted and can't be recovered by any
- *                 means.</p>
- *          </important>
+ * Deletes an Amazon FSx backup. After deletion, the backup no longer exists, and its data is gone.
+ *
+ * The `DeleteBackup` call returns instantly. The backup won't show up in later `DescribeBackups` calls.
+ *
+ * > **Important:** The data in a deleted backup is also deleted and can't be recovered by any means.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,33 +57,36 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
  * @throws {@link BackupBeingCopied} (client fault)
- *  <p>You can't delete a backup while it's being copied.</p>
+ *
+ * You can't delete a backup while it's being copied.
  *
  * @throws {@link BackupInProgress} (client fault)
- *  <p>Another backup is already under way. Wait for completion before initiating
- *             additional backups of this file system.</p>
+ *
+ * Another backup is already under way. Wait for completion before initiating additional backups of this file system.
  *
  * @throws {@link BackupNotFound} (client fault)
- *  <p>No Amazon FSx backups were found based upon the supplied parameters.</p>
+ *
+ * No Amazon FSx backups were found based upon the supplied parameters.
  *
  * @throws {@link BackupRestoring} (client fault)
- *  <p>You can't delete a backup while it's being used to restore a file
- *             system.</p>
+ *
+ * You can't delete a backup while it's being used to restore a file system.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * A generic error indicating a failure with a client request.
  *
  * @throws {@link IncompatibleParameterError} (client fault)
- *  <p>The error returned when a second request is received with the same client request
- *             token but different parameters settings. A client request token should always uniquely
- *             identify a single request.</p>
+ *
+ * The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * A generic error indicating a server-side failure.
  *
  * @throws {@link FSxServiceException}
- * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * Base exception class for all service exceptions from FSx service.
  *
  * @example To delete a backup
  * ```javascript

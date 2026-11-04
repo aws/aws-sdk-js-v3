@@ -23,32 +23,19 @@ export interface RefreshTrustedAdvisorCheckCommandInput extends RefreshTrustedAd
 export interface RefreshTrustedAdvisorCheckCommandOutput extends RefreshTrustedAdvisorCheckResponse, __MetadataBearer {}
 
 /**
- * <p>Refreshes the Trusted Advisor check that you specify using the check ID. You can get the
- *             check IDs by calling the <a>DescribeTrustedAdvisorChecks</a>
- *             operation.</p>
- *          <p>Some checks are refreshed automatically. If you call the
- *             <code>RefreshTrustedAdvisorCheck</code> operation to refresh them, you might see
- *             the <code>InvalidParameterValue</code> error.</p>
- *          <p>The response contains a <a>TrustedAdvisorCheckRefreshStatus</a>
- *             object.</p>
- *          <note>
- *             <ul>
- *                <li>
- *                   <p>You must have an Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan to use the Amazon Web Services Support
- *                         API. If you're in an Amazon Web Services Region that doesn't offer one of these Amazon Web Services Support plans, or if you haven't transitioned to one of these plans, you can use the Amazon Web Services Support API with a Business, Enterprise On-Ramp, or Enterprise Support plan.</p>
- *                </li>
- *                <li>
- *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have an
- *                         Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan, the
- *                             <code>SubscriptionRequiredException</code> error message appears. For
- *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
- *                </li>
- *             </ul>
- *          </note>
- *          <p>To call the Trusted Advisor operations in
- * the Amazon Web Services Support API, you must use the US East (N. Virginia) endpoint. Currently, the US West (Oregon) and Europe (Ireland)
- * endpoints don't support the Trusted Advisor operations. For more information, see <a href="https://docs.aws.amazon.com/awssupport/latest/user/about-support-api.html#endpoint">About the Amazon Web Services Support
- * API</a> in the <i>Amazon Web Services Support User Guide</i>.</p>
+ * Refreshes the Trusted Advisor check that you specify using the check ID. You can get the check IDs by calling the DescribeTrustedAdvisorChecks operation.
+ *
+ * Some checks are refreshed automatically. If you call the `RefreshTrustedAdvisorCheck` operation to refresh them, you might see the `InvalidParameterValue` error.
+ *
+ * The response contains a TrustedAdvisorCheckRefreshStatus object.
+ *
+ * > **Note:**
+ * >
+ * > - You must have an Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan to use the Amazon Web Services Support API. If you're in an Amazon Web Services Region that doesn't offer one of these Amazon Web Services Support plans, or if you haven't transitioned to one of these plans, you can use the Amazon Web Services Support API with a Business, Enterprise On-Ramp, or Enterprise Support plan.
+ * > - If you call the Amazon Web Services Support API from an account that doesn't have an Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan, the `SubscriptionRequiredException` error message appears. For information about changing your support plan, see [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/).
+ *
+ * To call the Trusted Advisor operations in the Amazon Web Services Support API, you must use the US East (N. Virginia) endpoint. Currently, the US West (Oregon) and Europe (Ireland) endpoints don't support the Trusted Advisor operations. For more information, see [About the Amazon Web Services Support API](https://docs.aws.amazon.com/awssupport/latest/user/about-support-api.html#endpoint) in the *Amazon Web Services Support User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,11 +66,12 @@ export interface RefreshTrustedAdvisorCheckCommandOutput extends RefreshTrustedA
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error occurred.</p>
+ *
+ * An internal server error occurred.
  *
  * @throws {@link SupportServiceException}
- * <p>Base exception class for all service exceptions from Support service.</p>
  *
+ * Base exception class for all service exceptions from Support service.
  *
  * @public
  */

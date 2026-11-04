@@ -23,8 +23,8 @@ export interface GetHostCommandInput extends GetHostInput {}
 export interface GetHostCommandOutput extends GetHostOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the host ARN and details such as status, provider type, endpoint, and, if
- *       applicable, the VPC configuration.</p>
+ * Returns the host ARN and details such as status, provider type, endpoint, and, if applicable, the VPC configuration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,14 +64,16 @@ export interface GetHostCommandOutput extends GetHostOutput, __MetadataBearer {}
  * @see {@link CodeConnectionsClientResolvedConfig | config} for CodeConnectionsClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource not found. Verify the connection resource ARN and try again.</p>
+ *
+ * Resource not found. Verify the connection resource ARN and try again.
  *
  * @throws {@link ResourceUnavailableException} (client fault)
- *  <p>Resource not found. Verify the ARN for the host resource and try again.</p>
+ *
+ * Resource not found. Verify the ARN for the host resource and try again.
  *
  * @throws {@link CodeConnectionsServiceException}
- * <p>Base exception class for all service exceptions from CodeConnections service.</p>
  *
+ * Base exception class for all service exceptions from CodeConnections service.
  *
  * @public
  */

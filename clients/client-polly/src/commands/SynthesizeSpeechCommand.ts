@@ -25,11 +25,8 @@ export interface SynthesizeSpeechCommandOutput extends Omit<SynthesizeSpeechOutp
 }
 
 /**
- * <p>Synthesizes UTF-8 input, plain text or SSML, to a stream of bytes.
- *       SSML input must be valid, well-formed SSML. Some alphabets might not be
- *       available with all the voices (for example, Cyrillic might not be read at
- *       all by English voices) unless phoneme mapping is used. For more
- *       information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/how-text-to-speech-works.html">How it Works</a>.</p>
+ * Synthesizes UTF-8 input, plain text or SSML, to a stream of bytes. SSML input must be valid, well-formed SSML. Some alphabets might not be available with all the voices (for example, Cyrillic might not be read at all by English voices) unless phoneme mapping is used. For more information, see [How it Works](https://docs.aws.amazon.com/polly/latest/dg/how-text-to-speech-works.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,52 +72,46 @@ export interface SynthesizeSpeechCommandOutput extends Omit<SynthesizeSpeechOutp
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
  *
  * @throws {@link EngineNotSupportedException} (client fault)
- *  <p>This engine is not compatible with the voice that you have designated.
- *       Choose a new voice that is compatible with the engine or change the engine
- *       and restart the operation.</p>
+ *
+ * This engine is not compatible with the voice that you have designated. Choose a new voice that is compatible with the engine or change the engine and restart the operation.
  *
  * @throws {@link InvalidSampleRateException} (client fault)
- *  <p>The specified sample rate is not valid.</p>
+ *
+ * The specified sample rate is not valid.
  *
  * @throws {@link InvalidSsmlException} (client fault)
- *  <p>The SSML you provided is invalid. Verify the SSML syntax, spelling
- *       of tags and values, and then try again.</p>
+ *
+ * The SSML you provided is invalid. Verify the SSML syntax, spelling of tags and values, and then try again.
  *
  * @throws {@link LanguageNotSupportedException} (client fault)
- *  <p>The language specified is not currently supported by Amazon Polly in this
- *       capacity.</p>
+ *
+ * The language specified is not currently supported by Amazon Polly in this capacity.
  *
  * @throws {@link LexiconNotFoundException} (client fault)
- *  <p>Amazon Polly can't find the specified lexicon. This could be caused by a
- *       lexicon that is missing, its name is misspelled or specifying a lexicon
- *       that is in a different region.</p>
- *          <p>Verify that the lexicon exists, is in the region (see <a>ListLexicons</a>) and that you spelled its name is spelled
- *       correctly. Then try again.</p>
+ *
+ * Amazon Polly can't find the specified lexicon. This could be caused by a lexicon that is missing, its name is misspelled or specifying a lexicon that is in a different region.
+ *
+ * Verify that the lexicon exists, is in the region (see ListLexicons) and that you spelled its name is spelled correctly. Then try again.
  *
  * @throws {@link MarksNotSupportedForFormatException} (client fault)
- *  <p>Speech marks are not supported for the <code>OutputFormat</code>
- *       selected. Speech marks are only available for content in <code>json</code>
- *       format.</p>
+ *
+ * Speech marks are not supported for the `OutputFormat` selected. Speech marks are only available for content in `json` format.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>An unknown condition has caused a service failure.</p>
+ *
+ * An unknown condition has caused a service failure.
  *
  * @throws {@link SsmlMarksNotSupportedForTextTypeException} (client fault)
- *  <p>SSML speech marks are not supported for plain text-type
- *       input.</p>
+ *
+ * SSML speech marks are not supported for plain text-type input.
  *
  * @throws {@link TextLengthExceededException} (client fault)
- *  <p>The value of the "Text" parameter is longer than the accepted
- *       limits. For the <code>SynthesizeSpeech</code> API, the limit for input
- *       text is a maximum of 6000 characters total, of which no more than 3000 can
- *       be billed characters. For the <code>StartSpeechSynthesisTask</code> API,
- *       the maximum is 200,000 characters, of which no more than 100,000 can be
- *       billed characters. SSML tags are not counted as billed
- *       characters.</p>
+ *
+ * The value of the "Text" parameter is longer than the accepted limits. For the `SynthesizeSpeech` API, the limit for input text is a maximum of 6000 characters total, of which no more than 3000 can be billed characters. For the `StartSpeechSynthesisTask` API, the maximum is 200,000 characters, of which no more than 100,000 can be billed characters. SSML tags are not counted as billed characters.
  *
  * @throws {@link PollyServiceException}
- * <p>Base exception class for all service exceptions from Polly service.</p>
  *
+ * Base exception class for all service exceptions from Polly service.
  *
  * @example To synthesize speech
  * ```javascript

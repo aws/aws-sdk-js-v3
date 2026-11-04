@@ -23,25 +23,12 @@ export interface CreateDBClusterParameterGroupCommandInput extends CreateDBClust
 export interface CreateDBClusterParameterGroupCommandOutput extends CreateDBClusterParameterGroupResult, __MetadataBearer {}
 
 /**
- * <p>Creates a new cluster parameter group.</p>
- *          <p>Parameters in a cluster parameter group apply to all of the
- *             instances in a cluster.</p>
- *          <p>A cluster parameter group is initially created with the default
- *             parameters for the database engine used by instances in the cluster.
- *             In Amazon DocumentDB, you cannot make modifications directly to the
- *             <code>default.docdb3.6</code> cluster parameter group. If your
- *             Amazon DocumentDB cluster is using the default cluster parameter group and you
- *             want to modify a value in it, you must first <a href="https://docs.aws.amazon.com/documentdb/latest/devguide/cluster_parameter_group-create.html">
- *                 create a new parameter group</a>
- *             or <a href="https://docs.aws.amazon.com/documentdb/latest/devguide/cluster_parameter_group-copy.html">
- *                 copy an existing parameter group</a>,
- *             modify it, and then apply the modified parameter group to your
- *             cluster. For the new cluster parameter group and associated settings
- *             to take effect, you must then reboot the instances in the cluster
- *             without failover. For more information,
- *             see <a href="https://docs.aws.amazon.com/documentdb/latest/devguide/cluster_parameter_group-modify.html">
- *                 Modifying Amazon DocumentDB Cluster Parameter Groups</a>.
- *             </p>
+ * Creates a new cluster parameter group.
+ *
+ * Parameters in a cluster parameter group apply to all of the instances in a cluster.
+ *
+ * A cluster parameter group is initially created with the default parameters for the database engine used by instances in the cluster. In Amazon DocumentDB, you cannot make modifications directly to the `default.docdb3.6` cluster parameter group. If your Amazon DocumentDB cluster is using the default cluster parameter group and you want to modify a value in it, you must first [create a new parameter group](https://docs.aws.amazon.com/documentdb/latest/devguide/cluster_parameter_group-create.html) or [copy an existing parameter group](https://docs.aws.amazon.com/documentdb/latest/devguide/cluster_parameter_group-copy.html), modify it, and then apply the modified parameter group to your cluster. For the new cluster parameter group and associated settings to take effect, you must then reboot the instances in the cluster without failover. For more information, see [Modifying Amazon DocumentDB Cluster Parameter Groups](https://docs.aws.amazon.com/documentdb/latest/devguide/cluster_parameter_group-modify.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,14 +68,16 @@ export interface CreateDBClusterParameterGroupCommandOutput extends CreateDBClus
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  * @throws {@link DBParameterGroupAlreadyExistsFault} (client fault)
- *  <p>A parameter group with the same name already exists.</p>
+ *
+ * A parameter group with the same name already exists.
  *
  * @throws {@link DBParameterGroupQuotaExceededFault} (client fault)
- *  <p>This request would cause you to exceed the allowed number of parameter groups.</p>
+ *
+ * This request would cause you to exceed the allowed number of parameter groups.
  *
  * @throws {@link DocDBServiceException}
- * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * Base exception class for all service exceptions from DocDB service.
  *
  * @public
  */

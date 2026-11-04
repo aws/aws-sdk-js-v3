@@ -23,7 +23,8 @@ export interface ListStreamsCommandInput extends ListStreamsRequest {}
 export interface ListStreamsCommandOutput extends ListStreamsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets summary information about live streams in your account, in the Amazon Web Services region where the API request is processed.</p>
+ * Gets summary information about live streams in your account, in the Amazon Web Services region where the API request is processed.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,14 +65,16 @@ export interface ListStreamsCommandOutput extends ListStreamsResponse, __Metadat
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * User does not have sufficient access to perform this action.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link IvsServiceException}
- * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ * Base exception class for all service exceptions from Ivs service.
  *
  * @public
  */

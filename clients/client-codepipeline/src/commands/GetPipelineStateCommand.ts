@@ -23,13 +23,10 @@ export interface GetPipelineStateCommandInput extends GetPipelineStateInput {}
 export interface GetPipelineStateCommandOutput extends GetPipelineStateOutput, __MetadataBearer {}
 
 /**
- * <p>Returns information about the state of a pipeline, including the stages and
- *             actions.</p>
- *          <note>
- *             <p>Values returned in the <code>revisionId</code> and <code>revisionUrl</code>
- *                 fields indicate the source revision information, such as the commit ID, for the
- *                 current state.</p>
- *          </note>
+ * Returns information about the state of a pipeline, including the stages and actions.
+ *
+ * > **Note:** Values returned in the `revisionId` and `revisionUrl` fields indicate the source revision information, such as the commit ID, for the current state.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -243,14 +240,16 @@ export interface GetPipelineStateCommandOutput extends GetPipelineStateOutput, _
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  * @throws {@link PipelineNotFoundException} (client fault)
- *  <p>The pipeline was specified in an invalid format or cannot be found.</p>
+ *
+ * The pipeline was specified in an invalid format or cannot be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The validation was specified in an invalid format.</p>
+ *
+ * The validation was specified in an invalid format.
  *
  * @throws {@link CodePipelineServiceException}
- * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * Base exception class for all service exceptions from CodePipeline service.
  *
  * @public
  */

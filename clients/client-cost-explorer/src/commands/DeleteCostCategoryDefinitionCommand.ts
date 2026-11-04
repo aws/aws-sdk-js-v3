@@ -23,8 +23,8 @@ export interface DeleteCostCategoryDefinitionCommandInput extends DeleteCostCate
 export interface DeleteCostCategoryDefinitionCommandOutput extends DeleteCostCategoryDefinitionResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a cost category. Expenses from this month going forward will no longer be
- *       categorized with this cost category.</p>
+ * Deletes a cost category. Expenses from this month going forward will no longer be categorized with this cost category.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,14 +52,16 @@ export interface DeleteCostCategoryDefinitionCommandOutput extends DeleteCostCat
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ * You made too many calls in a short period of time. Try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The specified ARN in the request doesn't exist. </p>
+ *
+ * The specified ARN in the request doesn't exist.
  *
  * @throws {@link CostExplorerServiceException}
- * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * Base exception class for all service exceptions from CostExplorer service.
  *
  * @public
  */

@@ -23,10 +23,8 @@ export interface PutManagedScalingPolicyCommandInput extends PutManagedScalingPo
 export interface PutManagedScalingPolicyCommandOutput extends PutManagedScalingPolicyOutput, __MetadataBearer {}
 
 /**
- * <p>Creates or updates a managed scaling policy for an Amazon EMR cluster. The
- *          managed scaling policy defines the limits for resources, such as Amazon EC2
- *          instances that can be added or terminated from a cluster. The policy only applies to the
- *          core and task nodes. The master node cannot be scaled after initial configuration. </p>
+ * Creates or updates a managed scaling policy for an Amazon EMR cluster. The managed scaling policy defines the limits for resources, such as Amazon EC2 instances that can be added or terminated from a cluster. The policy only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,8 +60,8 @@ export interface PutManagedScalingPolicyCommandOutput extends PutManagedScalingP
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  * @throws {@link EMRServiceException}
- * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * Base exception class for all service exceptions from EMR service.
  *
  * @public
  */

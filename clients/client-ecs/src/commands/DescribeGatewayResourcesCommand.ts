@@ -23,7 +23,8 @@ export interface DescribeGatewayResourcesCommandInput extends DescribeGatewayRes
 export interface DescribeGatewayResourcesCommandOutput extends DescribeGatewayResourcesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the infrastructure that a gateway has created and manages, so that you can follow the traffic path from top-level shared resources, such as load balancers, to the service-specific resources represented as gateway routes. Responses include only the Amazon Resource Names (ARNs) of gateway-managed infrastructure. For the current state of a resource, describe it with the corresponding Amazon Web Services service (Elastic Load Balancing, Amazon EC2, or Amazon Web Services Certificate Manager). The results are paginated.</p>
+ * Returns the infrastructure that a gateway has created and manages, so that you can follow the traffic path from top-level shared resources, such as load balancers, to the service-specific resources represented as gateway routes. Responses include only the Amazon Resource Names (ARNs) of gateway-managed infrastructure. For the current state of a resource, describe it with the corresponding Amazon Web Services service (Elastic Load Balancing, Amazon EC2, or Amazon Web Services Certificate Manager). The results are paginated.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,26 +68,34 @@ export interface DescribeGatewayResourcesCommandOutput extends DescribeGatewayRe
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have authorization to perform the requested action.</p>
+ *
+ * You don't have authorization to perform the requested action.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action. This client action might be using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+ *
+ * These errors are usually caused by a client action. This client action might be using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Or, it might be specifying an identifier that isn't valid.
  *
  * @throws {@link GatewayNotFoundException} (client fault)
- *  <p>The specified gateway wasn't found. Check that the gateway name or ARN is correct and that the gateway exists in your account and Region.</p>
+ *
+ * The specified gateway wasn't found. Check that the gateway name or ARN is correct and that the gateway exists in your account and Region.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter isn't valid. Review the available parameters for the API request.</p> <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service event messages</a>. </p>
+ *
+ * The specified parameter isn't valid. Review the available parameters for the API request.
+ *
+ * For more information about service event errors, see [Amazon ECS service event messages](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html).
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server issue.</p>
+ *
+ * These errors are usually caused by a server issue.
  *
  * @throws {@link UnsupportedFeatureException} (client fault)
- *  <p>The specified task isn't supported in this Region.</p>
+ *
+ * The specified task isn't supported in this Region.
  *
  * @throws {@link ECSServiceException}
- * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * Base exception class for all service exceptions from ECS service.
  *
  * @example To describe the infrastructure that a gateway manages
  * ```javascript

@@ -23,8 +23,8 @@ export interface CreateGrantVersionCommandInput extends CreateGrantVersionReques
 export interface CreateGrantVersionCommandOutput extends CreateGrantVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new version of the specified grant. For more information, see
- *          <a href="https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html">Granted licenses in License Manager</a> in the <i>License Manager User Guide</i>.</p>
+ * Creates a new version of the specified grant. For more information, see [Granted licenses in License Manager](https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html) in the *License Manager User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,30 +65,36 @@ export interface CreateGrantVersionCommandOutput extends CreateGrantVersionRespo
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to resource denied.</p>
+ *
+ * Access to resource denied.
  *
  * @throws {@link AuthorizationException} (client fault)
- *  <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
- *          policy associated with this account.</p>
+ *
+ * The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more parameter values are not valid.</p>
+ *
+ * One or more parameter values are not valid.
  *
  * @throws {@link RateLimitExceededException} (client fault)
- *  <p>Too many requests have been submitted. Try again after a brief wait.</p>
+ *
+ * Too many requests have been submitted. Try again after a brief wait.
  *
  * @throws {@link ResourceLimitExceededException} (client fault)
- *  <p>Your resource limits have been exceeded.</p>
+ *
+ * Your resource limits have been exceeded.
  *
  * @throws {@link ServerInternalException} (server fault)
- *  <p>The server experienced an internal error. Try again.</p>
+ *
+ * The server experienced an internal error. Try again.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The provided input is not valid. Try your request again.</p>
+ *
+ * The provided input is not valid. Try your request again.
  *
  * @throws {@link LicenseManagerServiceException}
- * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ * Base exception class for all service exceptions from LicenseManager service.
  *
  * @public
  */

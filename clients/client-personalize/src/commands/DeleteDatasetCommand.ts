@@ -23,11 +23,8 @@ export interface DeleteDatasetCommandInput extends DeleteDatasetRequest {}
 export interface DeleteDatasetCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a dataset. You can't delete a dataset if an associated
- *         <code>DatasetImportJob</code> or <code>SolutionVersion</code> is in the
- *       CREATE PENDING or IN PROGRESS state. For more information about deleting datasets,
- *       see <a href="https://docs.aws.amazon.com/personalize/latest/dg/delete-dataset.html">Deleting a dataset</a>.
- *     </p>
+ * Deletes a dataset. You can't delete a dataset if an associated `DatasetImportJob` or `SolutionVersion` is in the CREATE PENDING or IN PROGRESS state. For more information about deleting datasets, see [Deleting a dataset](https://docs.aws.amazon.com/personalize/latest/dg/delete-dataset.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,17 +49,20 @@ export interface DeleteDatasetCommandOutput extends __MetadataBearer {}
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * Provide a valid value for the field or parameter.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is in use.</p>
+ *
+ * The specified resource is in use.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Could not find the specified resource.</p>
+ *
+ * Could not find the specified resource.
  *
  * @throws {@link PersonalizeServiceException}
- * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * Base exception class for all service exceptions from Personalize service.
  *
  * @public
  */

@@ -279,9 +279,8 @@ export type KinesisVideoWebRTCStorageClientResolvedConfigType = __SmithyResolved
 export interface KinesisVideoWebRTCStorageClientResolvedConfig extends KinesisVideoWebRTCStorageClientResolvedConfigType {}
 
 /**
- * <fullname>webrtc</fullname>
- *          <p>
- *     </p>
+ * webrtc
+ *
  * @public
  */
 export class KinesisVideoWebRTCStorageClient extends __Client<

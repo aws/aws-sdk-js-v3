@@ -23,27 +23,20 @@ export interface CreatePlayerSessionsCommandInput extends CreatePlayerSessionsIn
 export interface CreatePlayerSessionsCommandOutput extends CreatePlayerSessionsOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
- *          <p>Reserves open slots in a game session for a group of players. New player sessions can
- *             be created in any game session with an open slot that is in <code>ACTIVE</code> status
- *             and has a player creation policy of <code>ACCEPT_ALL</code>. To add a single player to a
- *             game session, use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreatePlayerSession.html">CreatePlayerSession</a>
- *          </p>
- *          <p>To create player sessions, specify a game session ID and a list of player IDs.
- *             Optionally, provide a set of player data for each player ID. </p>
- *          <p>If successful, a slot is reserved in the game session for each player, and new
- *                 <code>PlayerSession</code> objects are returned with player session IDs. Each player
- *             references their player session ID when sending a connection request to the game
- *             session, and the game server can use it to validate the player reservation with the
- *             Amazon GameLift Servers service. Player sessions cannot be updated.</p>
- *          <p>The maximum number of players per game session is 200. It is not adjustable. </p>
- *          <p>
- *             <b>Related actions</b>
- *          </p>
- *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
- *          </p>
+ * **This API works with the following fleet types:** EC2, Anywhere, Container
+ *
+ * Reserves open slots in a game session for a group of players. New player sessions can be created in any game session with an open slot that is in `ACTIVE` status and has a player creation policy of `ACCEPT_ALL`. To add a single player to a game session, use [CreatePlayerSession](https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreatePlayerSession.html)
+ *
+ * To create player sessions, specify a game session ID and a list of player IDs. Optionally, provide a set of player data for each player ID.
+ *
+ * If successful, a slot is reserved in the game session for each player, and new `PlayerSession` objects are returned with player session IDs. Each player references their player session ID when sending a connection request to the game session, and the game server can use it to validate the player reservation with the Amazon GameLift Servers service. Player sessions cannot be updated.
+ *
+ * The maximum number of players per game session is 200. It is not adjustable.
+ *
+ * **Related actions**
+ *
+ * [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,37 +84,36 @@ export interface CreatePlayerSessionsCommandOutput extends CreatePlayerSessionsO
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  * @throws {@link GameSessionFullException} (client fault)
- *  <p>The game instance is currently full and cannot allow the requested player(s) to join.
- *             Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * The game instance is currently full and cannot allow the requested player(s) to join. Clients can retry such requests immediately or after a waiting period.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an unrecoverable internal failure while processing the
- *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.
  *
  * @throws {@link InvalidGameSessionStatusException} (client fault)
- *  <p>The requested operation would cause a conflict with the current state of a resource
- *             associated with the request and/or the game instance. Resolve the conflict before
- *             retrying.</p>
+ *
+ * The requested operation would cause a conflict with the current state of a resource associated with the request and/or the game instance. Resolve the conflict before retrying.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
- *             values before retrying.</p>
+ *
+ * One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resource was not found. The resource was either not created yet or deleted.</p>
+ *
+ * The requested resource was not found. The resource was either not created yet or deleted.
  *
  * @throws {@link TerminalRoutingStrategyException} (client fault)
- *  <p>The service is unable to resolve the routing for a particular alias because it has a
- *             terminal <code>RoutingStrategy</code> associated with it. The message returned in this
- *             exception is the message defined in the routing strategy itself. Such requests should
- *             only be retried if the routing strategy for the specified alias is modified. </p>
+ *
+ * The service is unable to resolve the routing for a particular alias because it has a terminal `RoutingStrategy` associated with it. The message returned in this exception is the message defined in the routing strategy itself. Such requests should only be retried if the routing strategy for the specified alias is modified.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * The client failed authentication. Clients should not retry such requests.
  *
  * @throws {@link GameLiftServiceException}
- * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * Base exception class for all service exceptions from GameLift service.
  *
  * @public
  */

@@ -23,11 +23,8 @@ export interface PutResourcePolicyCommandInput extends PutResourcePolicyRequest 
 export interface PutResourcePolicyCommandOutput extends PutResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>
- *          Attaches a resource-based permission policy to a CloudTrail event data store, dashboard, or channel. For more information about resource-based policies, see
- *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/security_iam_resource-based-policy-examples.html">CloudTrail resource-based policy examples</a>
- *          in the <i>CloudTrail User Guide</i>.
- *       </p>
+ * Attaches a resource-based permission policy to a CloudTrail event data store, dashboard, or channel. For more information about resource-based policies, see [CloudTrail resource-based policy examples](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/security_iam_resource-based-policy-examples.html) in the *CloudTrail User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,44 +54,42 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>This exception is thrown when the specified resource is not ready for an operation. This
- *          can occur when you try to run an operation on a resource before CloudTrail has time
- *          to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the
- *          operation again.</p>
+ *
+ * This exception is thrown when the specified resource is not ready for an operation. This can occur when you try to run an operation on a resource before CloudTrail has time to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the operation again.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * This exception is thrown when the requested operation is not permitted.
  *
  * @throws {@link ResourceARNNotValidException} (client fault)
- *  <p>
- *          This exception is thrown when the provided resource does not exist, or the ARN format of the resource is not valid.
- *       </p>
- *          <p>The following is the format of an event data store ARN:
- *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
- *          </p>
- *          <p>The following is the format of a dashboard ARN: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code>
- *          </p>
- *          <p>The following is the format of a channel ARN:
- *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
- *          </p>
+ *
+ * This exception is thrown when the provided resource does not exist, or the ARN format of the resource is not valid.
+ *
+ * The following is the format of an event data store ARN: `arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE`
+ *
+ * The following is the format of a dashboard ARN: `arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash`
+ *
+ * The following is the format of a channel ARN: `arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890`
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when the specified resource is not found.</p>
+ *
+ * This exception is thrown when the specified resource is not found.
  *
  * @throws {@link ResourcePolicyNotValidException} (client fault)
- *  <p>
- *          This exception is thrown when the resouce-based policy has syntax errors, or contains a principal that is not valid.
- *       </p>
+ *
+ * This exception is thrown when the resouce-based policy has syntax errors, or contains a principal that is not valid.
  *
  * @throws {@link ResourceTypeNotSupportedException} (client fault)
- *  <p>This exception is thrown when the specified resource type is not supported by CloudTrail.</p>
+ *
+ * This exception is thrown when the specified resource type is not supported by CloudTrail.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>This exception is thrown when the requested operation is not supported.</p>
+ *
+ * This exception is thrown when the requested operation is not supported.
  *
  * @throws {@link CloudTrailServiceException}
- * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * Base exception class for all service exceptions from CloudTrail service.
  *
  * @public
  */

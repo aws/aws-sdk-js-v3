@@ -23,11 +23,8 @@ export interface CreateAdapterCommandInput extends CreateAdapterRequest {}
 export interface CreateAdapterCommandOutput extends CreateAdapterResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an adapter, which can be fine-tuned for enhanced performance on user provided
- *          documents. Takes an AdapterName and FeatureType. Currently the only supported feature type
- *          is <code>QUERIES</code>. You can also provide a Description, Tags, and a
- *          ClientRequestToken. You can choose whether or not the adapter should be AutoUpdated with
- *          the AutoUpdate argument. By default, AutoUpdate is set to DISABLED.</p>
+ * Creates an adapter, which can be fine-tuned for enhanced performance on user provided documents. Takes an AdapterName and FeatureType. Currently the only supported feature type is `QUERIES`. You can also provide a Description, Tags, and a ClientRequestToken. You can choose whether or not the adapter should be AutoUpdated with the AutoUpdate argument. By default, AutoUpdate is set to DISABLED.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,50 +60,48 @@ export interface CreateAdapterCommandOutput extends CreateAdapterResponse, __Met
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You aren't authorized to perform the action. Use the Amazon Resource Name (ARN)
- *             of an authorized user or IAM role to perform the operation.</p>
+ *
+ * You aren't authorized to perform the action. Use the Amazon Resource Name (ARN) of an authorized user or IAM role to perform the operation.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ *
+ * Updating or deleting a resource can cause an inconsistent state.
  *
  * @throws {@link IdempotentParameterMismatchException} (client fault)
- *  <p>A <code>ClientRequestToken</code> input parameter was reused with an operation, but at
- *          least one of the other input parameters is different from the previous call to the
- *          operation. </p>
+ *
+ * A `ClientRequestToken` input parameter was reused with an operation, but at least one of the other input parameters is different from the previous call to the operation.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Amazon Textract experienced a service issue. Try your call again.</p>
+ *
+ * Amazon Textract experienced a service issue. Try your call again.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>An input parameter violated a constraint. For example, in synchronous operations,
- *        an <code>InvalidParameterException</code> exception occurs
- *       when neither of the <code>S3Object</code> or <code>Bytes</code> values are supplied in the <code>Document</code>
- *       request parameter.
- *        Validate your parameter before calling the API operation again.</p>
+ *
+ * An input parameter violated a constraint. For example, in synchronous operations, an `InvalidParameterException` exception occurs when neither of the `S3Object` or `Bytes` values are supplied in the `Document` request parameter. Validate your parameter before calling the API operation again.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>An Amazon Textract service limit was exceeded. For example, if you start too many
- *          asynchronous jobs concurrently, calls to start operations
- *             (<code>StartDocumentTextDetection</code>, for example) raise a LimitExceededException
- *          exception (HTTP status code: 400) until the number of concurrently running jobs is below
- *          the Amazon Textract service limit. </p>
+ *
+ * An Amazon Textract service limit was exceeded. For example, if you start too many asynchronous jobs concurrently, calls to start operations (`StartDocumentTextDetection`, for example) raise a LimitExceededException exception (HTTP status code: 400) until the number of concurrently running jobs is below the Amazon Textract service limit.
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
- *  <p>The number of requests exceeded your throughput limit. If you want to increase this limit,
- *          contact Amazon Textract.</p>
+ *
+ * The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Textract.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Returned when a request cannot be completed as it would exceed a maximum service quota.</p>
+ *
+ * Returned when a request cannot be completed as it would exceed a maximum service quota.
  *
  * @throws {@link ThrottlingException} (server fault)
- *  <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
+ *
+ * Amazon Textract is temporarily unable to process the request. Try your call again.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>  Indicates that a request was not valid. Check request for proper formatting. </p>
+ *
+ * Indicates that a request was not valid. Check request for proper formatting.
  *
  * @throws {@link TextractServiceException}
- * <p>Base exception class for all service exceptions from Textract service.</p>
  *
+ * Base exception class for all service exceptions from Textract service.
  *
  * @public
  */

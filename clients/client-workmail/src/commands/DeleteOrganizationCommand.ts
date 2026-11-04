@@ -23,7 +23,8 @@ export interface DeleteOrganizationCommandInput extends DeleteOrganizationReques
 export interface DeleteOrganizationCommandOutput extends DeleteOrganizationResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an WorkMail organization and all underlying AWS resources managed by WorkMail as part of the organization. You can choose whether to delete the associated directory. For more information, see <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/remove_organization.html">Removing an organization</a> in the <i>WorkMail Administrator Guide</i>.</p>
+ * Deletes an WorkMail organization and all underlying AWS resources managed by WorkMail as part of the organization. You can choose whether to delete the associated directory. For more information, see [Removing an organization](https://docs.aws.amazon.com/workmail/latest/adminguide/remove_organization.html) in the *WorkMail Administrator Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,19 +56,20 @@ export interface DeleteOrganizationCommandOutput extends DeleteOrganizationRespo
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the input parameters don't match the service's restrictions.</p>
+ *
+ * One or more of the input parameters don't match the service's restrictions.
  *
  * @throws {@link OrganizationNotFoundException} (client fault)
- *  <p>An operation received a valid organization identifier that either doesn't belong or
- *          exist in the system.</p>
+ *
+ * An operation received a valid organization identifier that either doesn't belong or exist in the system.
  *
  * @throws {@link OrganizationStateException} (client fault)
- *  <p>The organization must have a valid state to perform certain
- *          operations on the organization or its members.</p>
+ *
+ * The organization must have a valid state to perform certain operations on the organization or its members.
  *
  * @throws {@link WorkMailServiceException}
- * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * Base exception class for all service exceptions from WorkMail service.
  *
  * @public
  */

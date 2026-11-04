@@ -23,8 +23,8 @@ export interface VerifyEmailAddressCommandInput extends VerifyEmailAddressReques
 export interface VerifyEmailAddressCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deprecated. Use the <code>VerifyEmailIdentity</code> operation to verify a new email
- *             address.</p>
+ * Deprecated. Use the `VerifyEmailIdentity` operation to verify a new email address.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,8 +49,8 @@ export interface VerifyEmailAddressCommandOutput extends __MetadataBearer {}
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @example VerifyEmailAddress
  * ```javascript

@@ -23,37 +23,20 @@ export interface StopBackupJobCommandInput extends StopBackupJobInput {}
 export interface StopBackupJobCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Attempts to cancel a job to create a one-time backup of a resource.</p>
- *          <p>This action is not supported for the following services:</p>
- *          <ul>
- *             <li>
- *                <p>Amazon Aurora</p>
- *             </li>
- *             <li>
- *                <p>Amazon DocumentDB (with MongoDB compatibility)</p>
- *             </li>
- *             <li>
- *                <p>Amazon FSx for Lustre</p>
- *             </li>
- *             <li>
- *                <p>Amazon FSx for NetApp ONTAP</p>
- *             </li>
- *             <li>
- *                <p>Amazon FSx for OpenZFS</p>
- *             </li>
- *             <li>
- *                <p>Amazon FSx for Windows File Server</p>
- *             </li>
- *             <li>
- *                <p>Amazon Neptune</p>
- *             </li>
- *             <li>
- *                <p>SAP HANA databases on Amazon EC2 instances</p>
- *             </li>
- *             <li>
- *                <p>Amazon RDS</p>
- *             </li>
- *          </ul>
+ * Attempts to cancel a job to create a one-time backup of a resource.
+ *
+ * This action is not supported for the following services:
+ *
+ * - Amazon Aurora
+ * - Amazon DocumentDB (with MongoDB compatibility)
+ * - Amazon FSx for Lustre
+ * - Amazon FSx for NetApp ONTAP
+ * - Amazon FSx for OpenZFS
+ * - Amazon FSx for Windows File Server
+ * - Amazon Neptune
+ * - SAP HANA databases on Amazon EC2 instances
+ * - Amazon RDS
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,25 +61,28 @@ export interface StopBackupJobCommandOutput extends __MetadataBearer {}
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
- *          out of range.</p>
+ *
+ * Indicates that something is wrong with a parameter's value. For example, the value is out of range.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Indicates that something is wrong with the input to the request. For example, a
- *          parameter is of the wrong type.</p>
+ *
+ * Indicates that something is wrong with the input to the request. For example, a parameter is of the wrong type.
  *
  * @throws {@link MissingParameterValueException} (client fault)
- *  <p>Indicates that a required parameter is missing.</p>
+ *
+ * Indicates that a required parameter is missing.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A resource that is required for the action doesn't exist.</p>
+ *
+ * A resource that is required for the action doesn't exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The request failed due to a temporary failure of the server.</p>
+ *
+ * The request failed due to a temporary failure of the server.
  *
  * @throws {@link BackupServiceException}
- * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * Base exception class for all service exceptions from Backup service.
  *
  * @public
  */

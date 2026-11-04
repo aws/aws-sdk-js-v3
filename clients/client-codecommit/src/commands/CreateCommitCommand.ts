@@ -23,7 +23,8 @@ export interface CreateCommitCommandInput extends CreateCommitInput {}
 export interface CreateCommitCommandOutput extends CreateCommitOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a commit for a repository on the tip of a specified branch.</p>
+ * Creates a commit for a repository on the tip of a specified branch.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -100,146 +101,162 @@ export interface CreateCommitCommandOutput extends CreateCommitOutput, __Metadat
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  * @throws {@link BranchDoesNotExistException} (client fault)
- *  <p>The specified branch does not exist.</p>
+ *
+ * The specified branch does not exist.
  *
  * @throws {@link BranchNameIsTagNameException} (client fault)
- *  <p>The specified branch name is not valid because it is a tag name. Enter the name of a
- *             branch in the repository. For a list of valid branch names, use <a>ListBranches</a>.</p>
+ *
+ * The specified branch name is not valid because it is a tag name. Enter the name of a branch in the repository. For a list of valid branch names, use ListBranches.
  *
  * @throws {@link BranchNameRequiredException} (client fault)
- *  <p>A branch name is required, but was not specified.</p>
+ *
+ * A branch name is required, but was not specified.
  *
  * @throws {@link CommitMessageLengthExceededException} (client fault)
- *  <p>The commit message is too long. Provide a shorter string. </p>
+ *
+ * The commit message is too long. Provide a shorter string.
  *
  * @throws {@link DirectoryNameConflictsWithFileNameException} (client fault)
- *  <p>A file cannot be added to the repository because the specified path name has the same name as a file that already exists in this repository.
- *         Either provide a different name for the file, or specify a different path for the file.</p>
+ *
+ * A file cannot be added to the repository because the specified path name has the same name as a file that already exists in this repository. Either provide a different name for the file, or specify a different path for the file.
  *
  * @throws {@link EncryptionIntegrityChecksFailedException} (server fault)
- *  <p>An encryption integrity check failed.</p>
+ *
+ * An encryption integrity check failed.
  *
  * @throws {@link EncryptionKeyAccessDeniedException} (client fault)
- *  <p>An encryption key could not be accessed.</p>
+ *
+ * An encryption key could not be accessed.
  *
  * @throws {@link EncryptionKeyDisabledException} (client fault)
- *  <p>The encryption key is disabled.</p>
+ *
+ * The encryption key is disabled.
  *
  * @throws {@link EncryptionKeyNotFoundException} (client fault)
- *  <p>No encryption key was found.</p>
+ *
+ * No encryption key was found.
  *
  * @throws {@link EncryptionKeyUnavailableException} (client fault)
- *  <p>The encryption key is not available.</p>
+ *
+ * The encryption key is not available.
  *
  * @throws {@link FileContentAndSourceFileSpecifiedException} (client fault)
- *  <p>The commit cannot be created because both a source file and file content have been
- *             specified for the same file. You cannot provide both. Either specify a source file or
- *             provide the file content directly.</p>
+ *
+ * The commit cannot be created because both a source file and file content have been specified for the same file. You cannot provide both. Either specify a source file or provide the file content directly.
  *
  * @throws {@link FileContentSizeLimitExceededException} (client fault)
- *  <p>The file cannot be added because it is too large. The maximum file size is 6 MB, and
- *             the combined file content change size is 7 MB. Consider making these changes using a Git
- *             client.</p>
+ *
+ * The file cannot be added because it is too large. The maximum file size is 6 MB, and the combined file content change size is 7 MB. Consider making these changes using a Git client.
  *
  * @throws {@link FileDoesNotExistException} (client fault)
- *  <p>The specified file does not exist. Verify that you have used the correct file name,
- *             full path, and extension.</p>
+ *
+ * The specified file does not exist. Verify that you have used the correct file name, full path, and extension.
  *
  * @throws {@link FileEntryRequiredException} (client fault)
- *  <p>The commit cannot be created because no files have been specified as added, updated, or changed (PutFile or DeleteFile) for the commit.</p>
+ *
+ * The commit cannot be created because no files have been specified as added, updated, or changed (PutFile or DeleteFile) for the commit.
  *
  * @throws {@link FileModeRequiredException} (client fault)
- *  <p>The commit cannot be created because no file mode has been specified. A file mode is
- *             required to update mode permissions for a file.</p>
+ *
+ * The commit cannot be created because no file mode has been specified. A file mode is required to update mode permissions for a file.
  *
  * @throws {@link FileNameConflictsWithDirectoryNameException} (client fault)
- *  <p>A file cannot be added to the repository because the specified file name has the same name as a directory in this repository. Either provide
- *         another name for the file, or add the file in a directory that does not match the file name.</p>
+ *
+ * A file cannot be added to the repository because the specified file name has the same name as a directory in this repository. Either provide another name for the file, or add the file in a directory that does not match the file name.
  *
  * @throws {@link FilePathConflictsWithSubmodulePathException} (client fault)
- *  <p>The commit cannot be created because a specified file path points to a submodule. Verify that the destination files
- *         have valid file paths that do not point to a submodule.</p>
+ *
+ * The commit cannot be created because a specified file path points to a submodule. Verify that the destination files have valid file paths that do not point to a submodule.
  *
  * @throws {@link FolderContentSizeLimitExceededException} (client fault)
- *  <p>The commit cannot be created because at least one of the overall changes in the commit results in a
- *             folder whose contents exceed the limit of 6 MB. Either reduce the number and size of your changes,
- *         or split the changes across multiple folders.</p>
+ *
+ * The commit cannot be created because at least one of the overall changes in the commit results in a folder whose contents exceed the limit of 6 MB. Either reduce the number and size of your changes, or split the changes across multiple folders.
  *
  * @throws {@link InvalidBranchNameException} (client fault)
- *  <p>The specified reference name is not valid.</p>
+ *
+ * The specified reference name is not valid.
  *
  * @throws {@link InvalidDeletionParameterException} (client fault)
- *  <p>The specified deletion parameter is not valid.</p>
+ *
+ * The specified deletion parameter is not valid.
  *
  * @throws {@link InvalidEmailException} (client fault)
- *  <p>The specified email address either contains one or more characters that are not allowed, or it exceeds the maximum number of characters
- *         allowed for an email address.</p>
+ *
+ * The specified email address either contains one or more characters that are not allowed, or it exceeds the maximum number of characters allowed for an email address.
  *
  * @throws {@link InvalidFileModeException} (client fault)
- *  <p>The specified file mode permission is not valid. For a list of valid file mode permissions, see <a>PutFile</a>. </p>
+ *
+ * The specified file mode permission is not valid. For a list of valid file mode permissions, see PutFile.
  *
  * @throws {@link InvalidParentCommitIdException} (client fault)
- *  <p>The parent commit ID is not valid. The commit ID cannot be empty, and must match the head commit ID for the branch of the repository where you
- *         want to add or update a file.</p>
+ *
+ * The parent commit ID is not valid. The commit ID cannot be empty, and must match the head commit ID for the branch of the repository where you want to add or update a file.
  *
  * @throws {@link InvalidPathException} (client fault)
- *  <p>The specified path is not valid.</p>
+ *
+ * The specified path is not valid.
  *
  * @throws {@link InvalidRepositoryNameException} (client fault)
- *  <p>A specified repository name is not valid.</p>
- *          <note>
- *             <p>This exception occurs only when a specified repository name is not valid. Other
- *                 exceptions occur when a required repository parameter is missing, or when a
- *                 specified repository does not exist.</p>
- *          </note>
+ *
+ * A specified repository name is not valid.
+ *
+ * > **Note:** This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.
  *
  * @throws {@link MaximumFileEntriesExceededException} (client fault)
- *  <p>The number of specified files to change as part of this commit exceeds the maximum number of files
- *         that can be changed in a single commit. Consider using a Git client for these changes.</p>
+ *
+ * The number of specified files to change as part of this commit exceeds the maximum number of files that can be changed in a single commit. Consider using a Git client for these changes.
  *
  * @throws {@link NameLengthExceededException} (client fault)
- *  <p>The user name is not valid because it has exceeded the character limit for author names. </p>
+ *
+ * The user name is not valid because it has exceeded the character limit for author names.
  *
  * @throws {@link NoChangeException} (client fault)
- *  <p>The commit cannot be created because no changes will be made to the repository as a result of this commit. A commit must contain at least one change.</p>
+ *
+ * The commit cannot be created because no changes will be made to the repository as a result of this commit. A commit must contain at least one change.
  *
  * @throws {@link ParentCommitDoesNotExistException} (client fault)
- *  <p>The parent commit ID is not valid because it does not exist. The specified parent commit ID does not exist in the specified branch of the repository.</p>
+ *
+ * The parent commit ID is not valid because it does not exist. The specified parent commit ID does not exist in the specified branch of the repository.
  *
  * @throws {@link ParentCommitIdOutdatedException} (client fault)
- *  <p>The file could not be added because the provided parent commit ID is not the current tip of the specified branch. To view the full commit ID of the current head
- *         of the branch, use <a>GetBranch</a>.</p>
+ *
+ * The file could not be added because the provided parent commit ID is not the current tip of the specified branch. To view the full commit ID of the current head of the branch, use GetBranch.
  *
  * @throws {@link ParentCommitIdRequiredException} (client fault)
- *  <p>A parent commit ID is required. To view the full commit ID of a branch in a repository, use <a>GetBranch</a> or a Git command
- *         (for example, git pull or git log).</p>
+ *
+ * A parent commit ID is required. To view the full commit ID of a branch in a repository, use GetBranch or a Git command (for example, git pull or git log).
  *
  * @throws {@link PathRequiredException} (client fault)
- *  <p>The folderPath for a location cannot be null.</p>
+ *
+ * The folderPath for a location cannot be null.
  *
  * @throws {@link PutFileEntryConflictException} (client fault)
- *  <p>The commit cannot be created because one or more files specified in the commit reference both a file and a folder.</p>
+ *
+ * The commit cannot be created because one or more files specified in the commit reference both a file and a folder.
  *
  * @throws {@link RepositoryDoesNotExistException} (client fault)
- *  <p>The specified repository does not exist.</p>
+ *
+ * The specified repository does not exist.
  *
  * @throws {@link RepositoryNameRequiredException} (client fault)
- *  <p>A repository name is required, but was not specified.</p>
+ *
+ * A repository name is required, but was not specified.
  *
  * @throws {@link RestrictedSourceFileException} (client fault)
- *  <p>The commit cannot be created because one of the changes specifies copying or moving a .gitkeep file.</p>
+ *
+ * The commit cannot be created because one of the changes specifies copying or moving a .gitkeep file.
  *
  * @throws {@link SamePathRequestException} (client fault)
- *  <p>The commit cannot be created because one or more changes in this commit duplicate actions in the same file path. For example,
- *         you cannot make the same delete request to the same file in the same file path twice, or make a delete request and a move request to the same
- *         file as part of the same commit.</p>
+ *
+ * The commit cannot be created because one or more changes in this commit duplicate actions in the same file path. For example, you cannot make the same delete request to the same file in the same file path twice, or make a delete request and a move request to the same file as part of the same commit.
  *
  * @throws {@link SourceFileOrContentRequiredException} (client fault)
- *  <p>The commit cannot be created because no source files or file content have been specified for the commit.</p>
+ *
+ * The commit cannot be created because no source files or file content have been specified for the commit.
  *
  * @throws {@link CodeCommitServiceException}
- * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * Base exception class for all service exceptions from CodeCommit service.
  *
  * @public
  */

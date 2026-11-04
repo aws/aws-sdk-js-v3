@@ -65,25 +65,29 @@ import type {
  */
 export interface ListKnowledgeBaseDocumentsRequest {
   /**
-   * <p>The unique identifier of the knowledge base that is connected to the data source.</p>
+   * The unique identifier of the knowledge base that is connected to the data source.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The unique identifier of the data source that contains the documents.</p>
+   * The unique identifier of the data source that contains the documents.
+   *
    * @public
    */
   dataSourceId: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the `nextToken` field when making another request to return the next batch of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * If the total number of results is greater than the `maxResults` value provided in the request, enter the token returned in the `nextToken` field in the response in this field to return the next batch of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -94,13 +98,15 @@ export interface ListKnowledgeBaseDocumentsRequest {
  */
 export interface ListKnowledgeBaseDocumentsResponse {
   /**
-   * <p>A list of objects, each of which contains information about the documents that were retrieved.</p>
+   * A list of objects, each of which contains information about the documents that were retrieved.
+   *
    * @public
    */
   documentDetails: KnowledgeBaseDocumentDetail[] | undefined;
 
   /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * If the total number of results is greater than the `maxResults` value provided in the request, use this token when making another request in the `nextToken` field to return the next batch of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -111,31 +117,36 @@ export interface ListKnowledgeBaseDocumentsResponse {
  */
 export interface AssociateAgentKnowledgeBaseRequest {
   /**
-   * <p>The unique identifier of the agent with which you want to associate the knowledge base.</p>
+   * The unique identifier of the agent with which you want to associate the knowledge base.
+   *
    * @public
    */
   agentId: string | undefined;
 
   /**
-   * <p>The version of the agent with which you want to associate the knowledge base.</p>
+   * The version of the agent with which you want to associate the knowledge base.
+   *
    * @public
    */
   agentVersion: string | undefined;
 
   /**
-   * <p>The unique identifier of the knowledge base to associate with the agent.</p>
+   * The unique identifier of the knowledge base to associate with the agent.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>A description of what the agent should use the knowledge base for.</p>
+   * A description of what the agent should use the knowledge base for.
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p>Specifies whether to use the knowledge base or not when sending an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html">InvokeAgent</a> request.</p>
+   * Specifies whether to use the knowledge base or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request.
+   *
    * @public
    */
   knowledgeBaseState?: KnowledgeBaseState | undefined;
@@ -146,91 +157,107 @@ export interface AssociateAgentKnowledgeBaseRequest {
  */
 export interface AssociateAgentKnowledgeBaseResponse {
   /**
-   * <p>Contains details about the knowledge base that has been associated with the agent.</p>
+   * Contains details about the knowledge base that has been associated with the agent.
+   *
    * @public
    */
   agentKnowledgeBase: AgentKnowledgeBase | undefined;
 }
 
 /**
- * <p>Settings for an Amazon Kendra knowledge base.</p>
+ * Settings for an Amazon Kendra knowledge base.
+ *
  * @public
  */
 export interface KendraKnowledgeBaseConfiguration {
   /**
-   * <p>The ARN of the Amazon Kendra index.</p>
+   * The ARN of the Amazon Kendra index.
+   *
    * @public
    */
   kendraIndexArn: string | undefined;
 }
 
 /**
- * <p>Configuration for segmenting audio content during multimodal knowledge base ingestion. Determines how audio files are divided into chunks for processing.</p>
+ * Configuration for segmenting audio content during multimodal knowledge base ingestion. Determines how audio files are divided into chunks for processing.
+ *
  * @public
  */
 export interface AudioSegmentationConfiguration {
   /**
-   * <p>The duration in seconds for each audio segment. Audio files will be divided into chunks of this length for processing.</p>
+   * The duration in seconds for each audio segment. Audio files will be divided into chunks of this length for processing.
+   *
    * @public
    */
   fixedLengthDuration: number | undefined;
 }
 
 /**
- * <p>Configuration settings for processing audio content in multimodal knowledge bases.</p>
+ * Configuration settings for processing audio content in multimodal knowledge bases.
+ *
  * @public
  */
 export interface AudioConfiguration {
   /**
-   * <p>Configuration for segmenting audio content during processing.</p>
+   * Configuration for segmenting audio content during processing.
+   *
    * @public
    */
   segmentationConfiguration: AudioSegmentationConfiguration | undefined;
 }
 
 /**
- * <p>Configuration for segmenting video content during multimodal knowledge base ingestion. Determines how video files are divided into chunks for processing.</p>
+ * Configuration for segmenting video content during multimodal knowledge base ingestion. Determines how video files are divided into chunks for processing.
+ *
  * @public
  */
 export interface VideoSegmentationConfiguration {
   /**
-   * <p>The duration in seconds for each video segment. Video files will be divided into chunks of this length for processing.</p>
+   * The duration in seconds for each video segment. Video files will be divided into chunks of this length for processing.
+   *
    * @public
    */
   fixedLengthDuration: number | undefined;
 }
 
 /**
- * <p>Configuration settings for processing video content in multimodal knowledge bases.</p>
+ * Configuration settings for processing video content in multimodal knowledge bases.
+ *
  * @public
  */
 export interface VideoConfiguration {
   /**
-   * <p>Configuration for segmenting video content during processing.</p>
+   * Configuration for segmenting video content during processing.
+   *
    * @public
    */
   segmentationConfiguration: VideoSegmentationConfiguration | undefined;
 }
 
 /**
- * <p>The vector configuration details for the Bedrock embeddings model.</p>
+ * The vector configuration details for the Bedrock embeddings model.
+ *
  * @public
  */
 export interface BedrockEmbeddingModelConfiguration {
   /**
-   * <p>The dimensions details for the vector configuration used on the Bedrock embeddings model.</p>
+   * The dimensions details for the vector configuration used on the Bedrock embeddings model.
+   *
    * @public
    */
   dimensions?: number | undefined;
 
   /**
-   * <p>The data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings. Floating-point (float32) is the default data type, and is supported by most models for vector embeddings. See <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-supported.html">Supported embeddings models</a> for information on the available models and their vector data types.</p>
+   * The data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings. Floating-point (float32) is the default data type, and is supported by most models for vector embeddings. See [Supported embeddings models](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-supported.html) for information on the available models and their vector data types.
+   *
    * @public
    */
   embeddingDataType?: EmbeddingDataType | undefined;
 
   /**
-   * <p>Configuration settings for processing audio content in multimodal knowledge bases.</p> <important> <p>This field is deprecated. Use <code>modelConfiguration</code> instead.</p> </important>
+   * Configuration settings for processing audio content in multimodal knowledge bases.
+   *
+   * > **Important:** This field is deprecated. Use `modelConfiguration` instead.
    *
    * @deprecated (since 2026-09-01) Use Managed Knowledge Base's modelConfiguration field. https://docs.aws.amazon.com/bedrock/latest/userguide/kb-build-managed.html.
    * @public
@@ -238,7 +265,9 @@ export interface BedrockEmbeddingModelConfiguration {
   audio?: AudioConfiguration[] | undefined;
 
   /**
-   * <p>Configuration settings for processing video content in multimodal knowledge bases.</p> <important> <p>This field is deprecated. Use <code>modelConfiguration</code> instead.</p> </important>
+   * Configuration settings for processing video content in multimodal knowledge bases.
+   *
+   * > **Important:** This field is deprecated. Use `modelConfiguration` instead.
    *
    * @deprecated (since 2026-09-01) Use Managed Knowledge Base's modelConfiguration field. https://docs.aws.amazon.com/bedrock/latest/userguide/kb-build-managed.html.
    * @public
@@ -246,919 +275,1076 @@ export interface BedrockEmbeddingModelConfiguration {
   video?: VideoConfiguration[] | undefined;
 
   /**
-   * <p>Model-specific configuration for the embedding model, provided as a JSON object. Use this field to specify settings that apply to the embedding model that you selected, such as how audio and video files are divided into segments.</p> <p>The fields that this object accepts depend on the embedding model. For the settings that each model accepts, see the documentation for that model.</p> <p>For an example of a <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateKnowledgeBase.html">CreateKnowledgeBase</a> request that uses this field to configure a multimodal embedding model, see the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateKnowledgeBase.html#API_agent_CreateKnowledgeBase_Examples">Examples</a> section of <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateKnowledgeBase.html">CreateKnowledgeBase</a>.</p>
+   * Model-specific configuration for the embedding model, provided as a JSON object. Use this field to specify settings that apply to the embedding model that you selected, such as how audio and video files are divided into segments.
+   *
+   * The fields that this object accepts depend on the embedding model. For the settings that each model accepts, see the documentation for that model.
+   *
+   * For an example of a [CreateKnowledgeBase](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateKnowledgeBase.html) request that uses this field to configure a multimodal embedding model, see the [Examples](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateKnowledgeBase.html#API_agent_CreateKnowledgeBase_Examples) section of [CreateKnowledgeBase](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateKnowledgeBase.html).
+   *
    * @public
    */
   modelConfiguration?: __DocumentType | undefined;
 }
 
 /**
- * <p>The configuration details for the embeddings model.</p>
+ * The configuration details for the embeddings model.
+ *
  * @public
  */
 export interface EmbeddingModelConfiguration {
   /**
-   * <p>The vector configuration details on the Bedrock embeddings model.</p>
+   * The vector configuration details on the Bedrock embeddings model.
+   *
    * @public
    */
   bedrockEmbeddingModelConfiguration?: BedrockEmbeddingModelConfiguration | undefined;
 }
 
 /**
- * <p>Contains information about a storage location for multimedia content (images, audio, and video) extracted from multimodal documents in your data source.</p>
+ * Contains information about a storage location for multimedia content (images, audio, and video) extracted from multimodal documents in your data source.
+ *
  * @public
  */
 export interface SupplementalDataStorageLocation {
   /**
-   * <p>Specifies the storage service used for this location.</p>
+   * Specifies the storage service used for this location.
+   *
    * @public
    */
   type: SupplementalDataStorageLocationType | undefined;
 
   /**
-   * <p>Contains information about the Amazon S3 location for the extracted multimedia content.</p>
+   * Contains information about the Amazon S3 location for the extracted multimedia content.
+   *
    * @public
    */
   s3Location?: S3Location | undefined;
 }
 
 /**
- * <p>Specifies configurations for the storage location of multimedia content (images, audio, and video) extracted from multimodal documents in your data source. This content can be retrieved and returned to the end user with timestamp references for audio and video segments.</p>
+ * Specifies configurations for the storage location of multimedia content (images, audio, and video) extracted from multimodal documents in your data source. This content can be retrieved and returned to the end user with timestamp references for audio and video segments.
+ *
  * @public
  */
 export interface SupplementalDataStorageConfiguration {
   /**
-   * <p>A list of objects specifying storage locations for multimedia content (images, audio, and video) extracted from multimodal documents in your data source.</p>
+   * A list of objects specifying storage locations for multimedia content (images, audio, and video) extracted from multimodal documents in your data source.
+   *
    * @public
    */
   storageLocations: SupplementalDataStorageLocation[] | undefined;
 }
 
 /**
- * <p>Configurations for a managed knowledge base.</p>
+ * Configurations for a managed knowledge base.
+ *
  * @public
  */
 export interface ManagedKnowledgeBaseConfiguration {
   /**
-   * <p>Choose CUSTOM to provide your own Bedrock embedding model ARN. Choose MANAGED to use a service-managed embedding model.</p>
+   * Choose CUSTOM to provide your own Bedrock embedding model ARN. Choose MANAGED to use a service-managed embedding model.
+   *
    * @public
    */
   embeddingModelType?: EmbeddingModelType | undefined;
 
   /**
-   * <p>The ARN for the embeddings model.</p>
+   * The ARN for the embeddings model.
+   *
    * @public
    */
   embeddingModelArn?: string | undefined;
 
   /**
-   * <p>The configuration details for the embeddings model. Not required when choosing the MANAGED embeddingModelType.</p>
+   * The configuration details for the embeddings model. Not required when choosing the MANAGED embeddingModelType.
+   *
    * @public
    */
   embeddingModelConfiguration?: EmbeddingModelConfiguration | undefined;
 
   /**
-   * <p>Contains the configuration for server-side encryption for your managed knowledge base.</p>
+   * Contains the configuration for server-side encryption for your managed knowledge base.
+   *
    * @public
    */
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration | undefined;
 
   /**
-   * <p>Use this object to specify the Amazon S3 location that the knowledge base uses to process and ingest multimodal content. This field is required when you use a native multimodal embedding model.</p>
+   * Use this object to specify the Amazon S3 location that the knowledge base uses to process and ingest multimodal content. This field is required when you use a native multimodal embedding model.
+   *
    * @public
    */
   supplementalDataStorageConfiguration?: SupplementalDataStorageConfiguration | undefined;
 }
 
 /**
- * <p>Contains configurations for authentication to an Amazon Redshift provisioned data warehouse. Specify the type of authentication to use in the <code>type</code> field and include the corresponding field. If you specify IAM authentication, you don't need to include another field.</p>
+ * Contains configurations for authentication to an Amazon Redshift provisioned data warehouse. Specify the type of authentication to use in the `type` field and include the corresponding field. If you specify IAM authentication, you don't need to include another field.
+ *
  * @public
  */
 export interface RedshiftProvisionedAuthConfiguration {
   /**
-   * <p>The type of authentication to use.</p>
+   * The type of authentication to use.
+   *
    * @public
    */
   type: RedshiftProvisionedAuthType | undefined;
 
   /**
-   * <p>The database username for authentication to an Amazon Redshift provisioned data warehouse.</p>
+   * The database username for authentication to an Amazon Redshift provisioned data warehouse.
+   *
    * @public
    */
   databaseUser?: string | undefined;
 
   /**
-   * <p>The ARN of an Secrets Manager secret for authentication.</p>
+   * The ARN of an Secrets Manager secret for authentication.
+   *
    * @public
    */
   usernamePasswordSecretArn?: string | undefined;
 }
 
 /**
- * <p>Contains configurations for a provisioned Amazon Redshift query engine.</p>
+ * Contains configurations for a provisioned Amazon Redshift query engine.
+ *
  * @public
  */
 export interface RedshiftProvisionedConfiguration {
   /**
-   * <p>The ID of the Amazon Redshift cluster.</p>
+   * The ID of the Amazon Redshift cluster.
+   *
    * @public
    */
   clusterIdentifier: string | undefined;
 
   /**
-   * <p>Specifies configurations for authentication to Amazon Redshift.</p>
+   * Specifies configurations for authentication to Amazon Redshift.
+   *
    * @public
    */
   authConfiguration: RedshiftProvisionedAuthConfiguration | undefined;
 }
 
 /**
- * <p>Specifies configurations for authentication to a Redshift Serverless. Specify the type of authentication to use in the <code>type</code> field and include the corresponding field. If you specify IAM authentication, you don't need to include another field.</p>
+ * Specifies configurations for authentication to a Redshift Serverless. Specify the type of authentication to use in the `type` field and include the corresponding field. If you specify IAM authentication, you don't need to include another field.
+ *
  * @public
  */
 export interface RedshiftServerlessAuthConfiguration {
   /**
-   * <p>The type of authentication to use.</p>
+   * The type of authentication to use.
+   *
    * @public
    */
   type: RedshiftServerlessAuthType | undefined;
 
   /**
-   * <p>The ARN of an Secrets Manager secret for authentication.</p>
+   * The ARN of an Secrets Manager secret for authentication.
+   *
    * @public
    */
   usernamePasswordSecretArn?: string | undefined;
 }
 
 /**
- * <p>Contains configurations for authentication to Amazon Redshift Serverless.</p>
+ * Contains configurations for authentication to Amazon Redshift Serverless.
+ *
  * @public
  */
 export interface RedshiftServerlessConfiguration {
   /**
-   * <p>The ARN of the Amazon Redshift workgroup.</p>
+   * The ARN of the Amazon Redshift workgroup.
+   *
    * @public
    */
   workgroupArn: string | undefined;
 
   /**
-   * <p>Specifies configurations for authentication to an Amazon Redshift provisioned data warehouse.</p>
+   * Specifies configurations for authentication to an Amazon Redshift provisioned data warehouse.
+   *
    * @public
    */
   authConfiguration: RedshiftServerlessAuthConfiguration | undefined;
 }
 
 /**
- * <p>Contains configurations for an Amazon Redshift query engine. Specify the type of query engine in <code>type</code> and include the corresponding field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-structured.html">Build a knowledge base by connecting to a structured data source</a> in the Amazon Bedrock User Guide.</p>
+ * Contains configurations for an Amazon Redshift query engine. Specify the type of query engine in `type` and include the corresponding field. For more information, see [Build a knowledge base by connecting to a structured data source](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-structured.html) in the Amazon Bedrock User Guide.
+ *
  * @public
  */
 export interface RedshiftQueryEngineConfiguration {
   /**
-   * <p>The type of query engine.</p>
+   * The type of query engine.
+   *
    * @public
    */
   type: RedshiftQueryEngineType | undefined;
 
   /**
-   * <p>Specifies configurations for a serverless Amazon Redshift query engine.</p>
+   * Specifies configurations for a serverless Amazon Redshift query engine.
+   *
    * @public
    */
   serverlessConfiguration?: RedshiftServerlessConfiguration | undefined;
 
   /**
-   * <p>Specifies configurations for a provisioned Amazon Redshift query engine.</p>
+   * Specifies configurations for a provisioned Amazon Redshift query engine.
+   *
    * @public
    */
   provisionedConfiguration?: RedshiftProvisionedConfiguration | undefined;
 }
 
 /**
- * <p>Contains configurations for a query, each of which defines information about example queries to help the query engine generate appropriate SQL queries.</p>
+ * Contains configurations for a query, each of which defines information about example queries to help the query engine generate appropriate SQL queries.
+ *
  * @public
  */
 export interface CuratedQuery {
   /**
-   * <p>An example natural language query.</p>
+   * An example natural language query.
+   *
    * @public
    */
   naturalLanguage: string | undefined;
 
   /**
-   * <p>The SQL equivalent of the natural language query.</p>
+   * The SQL equivalent of the natural language query.
+   *
    * @public
    */
   sql: string | undefined;
 }
 
 /**
- * <p>Contains information about a column in the current table for the query engine to consider.</p>
+ * Contains information about a column in the current table for the query engine to consider.
+ *
  * @public
  */
 export interface QueryGenerationColumn {
   /**
-   * <p>The name of the column for which the other fields in this object apply.</p>
+   * The name of the column for which the other fields in this object apply.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>A description of the column that helps the query engine understand the contents of the column.</p>
+   * A description of the column that helps the query engine understand the contents of the column.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Specifies whether to include or exclude the column during query generation. If you specify <code>EXCLUDE</code>, the column will be ignored. If you specify <code>INCLUDE</code>, all other columns in the table will be ignored.</p>
+   * Specifies whether to include or exclude the column during query generation. If you specify `EXCLUDE`, the column will be ignored. If you specify `INCLUDE`, all other columns in the table will be ignored.
+   *
    * @public
    */
   inclusion?: IncludeExclude | undefined;
 }
 
 /**
- * <p>Contains information about a table for the query engine to consider.</p>
+ * Contains information about a table for the query engine to consider.
+ *
  * @public
  */
 export interface QueryGenerationTable {
   /**
-   * <p>The name of the table for which the other fields in this object apply.</p>
+   * The name of the table for which the other fields in this object apply.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description of the table that helps the query engine understand the contents of the table.</p>
+   * A description of the table that helps the query engine understand the contents of the table.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Specifies whether to include or exclude the table during query generation. If you specify <code>EXCLUDE</code>, the table will be ignored. If you specify <code>INCLUDE</code>, all other tables will be ignored.</p>
+   * Specifies whether to include or exclude the table during query generation. If you specify `EXCLUDE`, the table will be ignored. If you specify `INCLUDE`, all other tables will be ignored.
+   *
    * @public
    */
   inclusion?: IncludeExclude | undefined;
 
   /**
-   * <p>An array of objects, each of which defines information about a column in the table.</p>
+   * An array of objects, each of which defines information about a column in the table.
+   *
    * @public
    */
   columns?: QueryGenerationColumn[] | undefined;
 }
 
 /**
- * <p>&gt;Contains configurations for context to use during query generation.</p>
+ * &gt;Contains configurations for context to use during query generation.
+ *
  * @public
  */
 export interface QueryGenerationContext {
   /**
-   * <p>An array of objects, each of which defines information about a table in the database.</p>
+   * An array of objects, each of which defines information about a table in the database.
+   *
    * @public
    */
   tables?: QueryGenerationTable[] | undefined;
 
   /**
-   * <p>An array of objects, each of which defines information about example queries to help the query engine generate appropriate SQL queries.</p>
+   * An array of objects, each of which defines information about example queries to help the query engine generate appropriate SQL queries.
+   *
    * @public
    */
   curatedQueries?: CuratedQuery[] | undefined;
 }
 
 /**
- * <p>Contains configurations for query generation. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-structured.html">Build a knowledge base by connecting to a structured data source</a> in the Amazon Bedrock User Guide..</p>
+ * Contains configurations for query generation. For more information, see [Build a knowledge base by connecting to a structured data source](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-structured.html) in the Amazon Bedrock User Guide..
+ *
  * @public
  */
 export interface QueryGenerationConfiguration {
   /**
-   * <p>The time after which query generation will time out.</p>
+   * The time after which query generation will time out.
+   *
    * @public
    */
   executionTimeoutSeconds?: number | undefined;
 
   /**
-   * <p>Specifies configurations for context to use during query generation.</p>
+   * Specifies configurations for context to use during query generation.
+   *
    * @public
    */
   generationContext?: QueryGenerationContext | undefined;
 }
 
 /**
- * <p>Contains configurations for storage in Glue Data Catalog.</p>
+ * Contains configurations for storage in Glue Data Catalog.
+ *
  * @public
  */
 export interface RedshiftQueryEngineAwsDataCatalogStorageConfiguration {
   /**
-   * <p>A list of names of the tables to use.</p>
+   * A list of names of the tables to use.
+   *
    * @public
    */
   tableNames: string[] | undefined;
 }
 
 /**
- * <p>Contains configurations for storage in Amazon Redshift.</p>
+ * Contains configurations for storage in Amazon Redshift.
+ *
  * @public
  */
 export interface RedshiftQueryEngineRedshiftStorageConfiguration {
   /**
-   * <p>The name of the Amazon Redshift database.</p>
+   * The name of the Amazon Redshift database.
+   *
    * @public
    */
   databaseName: string | undefined;
 }
 
 /**
- * <p>Contains configurations for Amazon Redshift data storage. Specify the data storage service to use in the <code>type</code> field and include the corresponding field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-structured.html">Build a knowledge base by connecting to a structured data source</a> in the Amazon Bedrock User Guide.</p>
+ * Contains configurations for Amazon Redshift data storage. Specify the data storage service to use in the `type` field and include the corresponding field. For more information, see [Build a knowledge base by connecting to a structured data source](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-structured.html) in the Amazon Bedrock User Guide.
+ *
  * @public
  */
 export interface RedshiftQueryEngineStorageConfiguration {
   /**
-   * <p>The data storage service to use.</p>
+   * The data storage service to use.
+   *
    * @public
    */
   type: RedshiftQueryEngineStorageType | undefined;
 
   /**
-   * <p>Specifies configurations for storage in Glue Data Catalog.</p>
+   * Specifies configurations for storage in Glue Data Catalog.
+   *
    * @public
    */
   awsDataCatalogConfiguration?: RedshiftQueryEngineAwsDataCatalogStorageConfiguration | undefined;
 
   /**
-   * <p>Specifies configurations for storage in Amazon Redshift.</p>
+   * Specifies configurations for storage in Amazon Redshift.
+   *
    * @public
    */
   redshiftConfiguration?: RedshiftQueryEngineRedshiftStorageConfiguration | undefined;
 }
 
 /**
- * <p>Contains configurations for an Amazon Redshift database. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-structured.html">Build a knowledge base by connecting to a structured data source</a> in the Amazon Bedrock User Guide.</p>
+ * Contains configurations for an Amazon Redshift database. For more information, see [Build a knowledge base by connecting to a structured data source](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-structured.html) in the Amazon Bedrock User Guide.
+ *
  * @public
  */
 export interface RedshiftConfiguration {
   /**
-   * <p>Specifies configurations for Amazon Redshift database storage.</p>
+   * Specifies configurations for Amazon Redshift database storage.
+   *
    * @public
    */
   storageConfigurations: RedshiftQueryEngineStorageConfiguration[] | undefined;
 
   /**
-   * <p>Specifies configurations for an Amazon Redshift query engine.</p>
+   * Specifies configurations for an Amazon Redshift query engine.
+   *
    * @public
    */
   queryEngineConfiguration: RedshiftQueryEngineConfiguration | undefined;
 
   /**
-   * <p>Specifies configurations for generating queries.</p>
+   * Specifies configurations for generating queries.
+   *
    * @public
    */
   queryGenerationConfiguration?: QueryGenerationConfiguration | undefined;
 }
 
 /**
- * <p>Contains configurations for a knowledge base connected to an SQL database. Specify the SQL database type in the <code>type</code> field and include the corresponding field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-structured.html">Build a knowledge base by connecting to a structured data source</a> in the Amazon Bedrock User Guide.</p>
+ * Contains configurations for a knowledge base connected to an SQL database. Specify the SQL database type in the `type` field and include the corresponding field. For more information, see [Build a knowledge base by connecting to a structured data source](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-structured.html) in the Amazon Bedrock User Guide.
+ *
  * @public
  */
 export interface SqlKnowledgeBaseConfiguration {
   /**
-   * <p>The type of SQL database to connect to the knowledge base.</p>
+   * The type of SQL database to connect to the knowledge base.
+   *
    * @public
    */
   type: QueryEngineType | undefined;
 
   /**
-   * <p>Specifies configurations for a knowledge base connected to an Amazon Redshift database.</p>
+   * Specifies configurations for a knowledge base connected to an Amazon Redshift database.
+   *
    * @public
    */
   redshiftConfiguration?: RedshiftConfiguration | undefined;
 }
 
 /**
- * <p>Contains details about the model used to create vector embeddings for the knowledge base.</p>
+ * Contains details about the model used to create vector embeddings for the knowledge base.
+ *
  * @public
  */
 export interface VectorKnowledgeBaseConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the model used to create vector embeddings for the knowledge base.</p>
+   * The Amazon Resource Name (ARN) of the model used to create vector embeddings for the knowledge base.
+   *
    * @public
    */
   embeddingModelArn: string | undefined;
 
   /**
-   * <p>The embeddings model configuration details for the vector model used in Knowledge Base.</p>
+   * The embeddings model configuration details for the vector model used in Knowledge Base.
+   *
    * @public
    */
   embeddingModelConfiguration?: EmbeddingModelConfiguration | undefined;
 
   /**
-   * <p>If you include multimodal data from your data source, use this object to specify configurations for the storage location of the images extracted from your documents. These images can be retrieved and returned to the end user. They can also be used in generation when using <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html">RetrieveAndGenerate</a>.</p>
+   * If you include multimodal data from your data source, use this object to specify configurations for the storage location of the images extracted from your documents. These images can be retrieved and returned to the end user. They can also be used in generation when using [RetrieveAndGenerate](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html).
+   *
    * @public
    */
   supplementalDataStorageConfiguration?: SupplementalDataStorageConfiguration | undefined;
 }
 
 /**
- * <p>Contains details about the vector embeddings configuration of the knowledge base.</p>
+ * Contains details about the vector embeddings configuration of the knowledge base.
+ *
  * @public
  */
 export interface KnowledgeBaseConfiguration {
   /**
-   * <p>The type of data that the data source is converted into for the knowledge base. Choose <code>MANAGED</code> to create a managed knowledge base.</p>
+   * The type of data that the data source is converted into for the knowledge base. Choose `MANAGED` to create a managed knowledge base.
+   *
    * @public
    */
   type: KnowledgeBaseType | undefined;
 
   /**
-   * <p>Contains details about the model that's used to convert the data source into vector embeddings.</p>
+   * Contains details about the model that's used to convert the data source into vector embeddings.
+   *
    * @public
    */
   vectorKnowledgeBaseConfiguration?: VectorKnowledgeBaseConfiguration | undefined;
 
   /**
-   * <p>Contains configuration details for a knowledge base that uses a vector store fully managed by Amazon Bedrock. Specify this object when the knowledge base type is MANAGED.</p>
+   * Contains configuration details for a knowledge base that uses a vector store fully managed by Amazon Bedrock. Specify this object when the knowledge base type is MANAGED.
+   *
    * @public
    */
   managedKnowledgeBaseConfiguration?: ManagedKnowledgeBaseConfiguration | undefined;
 
   /**
-   * <p>Settings for an Amazon Kendra knowledge base.</p>
+   * Settings for an Amazon Kendra knowledge base.
+   *
    * @public
    */
   kendraKnowledgeBaseConfiguration?: KendraKnowledgeBaseConfiguration | undefined;
 
   /**
-   * <p>Specifies configurations for a knowledge base connected to an SQL database.</p>
+   * Specifies configurations for a knowledge base connected to an SQL database.
+   *
    * @public
    */
   sqlKnowledgeBaseConfiguration?: SqlKnowledgeBaseConfiguration | undefined;
 }
 
 /**
- * <p>Contains the names of the fields to which to map information about the vector store.</p>
+ * Contains the names of the fields to which to map information about the vector store.
+ *
  * @public
  */
 export interface MongoDbAtlasFieldMapping {
   /**
-   * <p>The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.</p>
+   * The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+   *
    * @public
    */
   vectorField: string | undefined;
 
   /**
-   * <p>The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.</p>
+   * The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+   *
    * @public
    */
   textField: string | undefined;
 
   /**
-   * <p>The name of the field in which Amazon Bedrock stores metadata about the vector store.</p>
+   * The name of the field in which Amazon Bedrock stores metadata about the vector store.
+   *
    * @public
    */
   metadataField: string | undefined;
 }
 
 /**
- * <p>Contains details about the storage configuration of the knowledge base in MongoDB Atlas. </p>
+ * Contains details about the storage configuration of the knowledge base in MongoDB Atlas.
+ *
  * @public
  */
 export interface MongoDbAtlasConfiguration {
   /**
-   * <p>The endpoint URL of your MongoDB Atlas cluster for your knowledge base.</p>
+   * The endpoint URL of your MongoDB Atlas cluster for your knowledge base.
+   *
    * @public
    */
   endpoint: string | undefined;
 
   /**
-   * <p>The database name in your MongoDB Atlas cluster for your knowledge base.</p>
+   * The database name in your MongoDB Atlas cluster for your knowledge base.
+   *
    * @public
    */
   databaseName: string | undefined;
 
   /**
-   * <p>The collection name of the knowledge base in MongoDB Atlas.</p>
+   * The collection name of the knowledge base in MongoDB Atlas.
+   *
    * @public
    */
   collectionName: string | undefined;
 
   /**
-   * <p>The name of the MongoDB Atlas vector search index.</p>
+   * The name of the MongoDB Atlas vector search index.
+   *
    * @public
    */
   vectorIndexName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the secret that you created in Secrets Manager that contains user credentials for your MongoDB Atlas cluster.</p>
+   * The Amazon Resource Name (ARN) of the secret that you created in Secrets Manager that contains user credentials for your MongoDB Atlas cluster.
+   *
    * @public
    */
   credentialsSecretArn: string | undefined;
 
   /**
-   * <p>Contains the names of the fields to which to map information about the vector store.</p>
+   * Contains the names of the fields to which to map information about the vector store.
+   *
    * @public
    */
   fieldMapping: MongoDbAtlasFieldMapping | undefined;
 
   /**
-   * <p>The name of the VPC endpoint service in your account that is connected to your MongoDB Atlas cluster.</p>
+   * The name of the VPC endpoint service in your account that is connected to your MongoDB Atlas cluster.
+   *
    * @public
    */
   endpointServiceName?: string | undefined;
 
   /**
-   * <p>The name of the text search index in the MongoDB collection. This is required for using the hybrid search feature.</p>
+   * The name of the text search index in the MongoDB collection. This is required for using the hybrid search feature.
+   *
    * @public
    */
   textIndexName?: string | undefined;
 }
 
 /**
- * <p>Contains the names of the fields to which to map information about the vector store.</p>
+ * Contains the names of the fields to which to map information about the vector store.
+ *
  * @public
  */
 export interface NeptuneAnalyticsFieldMapping {
   /**
-   * <p>The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.</p>
+   * The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+   *
    * @public
    */
   textField: string | undefined;
 
   /**
-   * <p>The name of the field in which Amazon Bedrock stores metadata about the vector store.</p>
+   * The name of the field in which Amazon Bedrock stores metadata about the vector store.
+   *
    * @public
    */
   metadataField: string | undefined;
 }
 
 /**
- * <p>Contains details about the storage configuration of the knowledge base in Amazon Neptune Analytics. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-neptune.html">Create a vector index in Amazon Neptune Analytics</a>.</p>
+ * Contains details about the storage configuration of the knowledge base in Amazon Neptune Analytics. For more information, see [Create a vector index in Amazon Neptune Analytics](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-neptune.html).
+ *
  * @public
  */
 export interface NeptuneAnalyticsConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Neptune Analytics vector store.</p>
+   * The Amazon Resource Name (ARN) of the Neptune Analytics vector store.
+   *
    * @public
    */
   graphArn: string | undefined;
 
   /**
-   * <p>Contains the names of the fields to which to map information about the vector store.</p>
+   * Contains the names of the fields to which to map information about the vector store.
+   *
    * @public
    */
   fieldMapping: NeptuneAnalyticsFieldMapping | undefined;
 }
 
 /**
- * <p>Contains the names of the fields to which to map information about the vector store.</p>
+ * Contains the names of the fields to which to map information about the vector store.
+ *
  * @public
  */
 export interface OpenSearchManagedClusterFieldMapping {
   /**
-   * <p>The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.</p>
+   * The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+   *
    * @public
    */
   vectorField: string | undefined;
 
   /**
-   * <p>The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.</p>
+   * The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+   *
    * @public
    */
   textField: string | undefined;
 
   /**
-   * <p>The name of the field in which Amazon Bedrock stores metadata about the vector store.</p>
+   * The name of the field in which Amazon Bedrock stores metadata about the vector store.
+   *
    * @public
    */
   metadataField: string | undefined;
 }
 
 /**
- * <p>Contains details about the Managed Cluster configuration of the knowledge base in Amazon OpenSearch Service. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-osm.html">Create a vector index in OpenSearch Managed Cluster</a>.</p>
+ * Contains details about the Managed Cluster configuration of the knowledge base in Amazon OpenSearch Service. For more information, see [Create a vector index in OpenSearch Managed Cluster](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-osm.html).
+ *
  * @public
  */
 export interface OpenSearchManagedClusterConfiguration {
   /**
-   * <p>The endpoint URL the OpenSearch domain.</p>
+   * The endpoint URL the OpenSearch domain.
+   *
    * @public
    */
   domainEndpoint: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the OpenSearch domain.</p>
+   * The Amazon Resource Name (ARN) of the OpenSearch domain.
+   *
    * @public
    */
   domainArn: string | undefined;
 
   /**
-   * <p>The name of the vector store.</p>
+   * The name of the vector store.
+   *
    * @public
    */
   vectorIndexName: string | undefined;
 
   /**
-   * <p>Contains the names of the fields to which to map information about the vector store.</p>
+   * Contains the names of the fields to which to map information about the vector store.
+   *
    * @public
    */
   fieldMapping: OpenSearchManagedClusterFieldMapping | undefined;
 }
 
 /**
- * <p>Contains the names of the fields to which to map information about the vector store.</p>
+ * Contains the names of the fields to which to map information about the vector store.
+ *
  * @public
  */
 export interface OpenSearchServerlessFieldMapping {
   /**
-   * <p>The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.</p>
+   * The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+   *
    * @public
    */
   vectorField: string | undefined;
 
   /**
-   * <p>The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.</p>
+   * The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+   *
    * @public
    */
   textField: string | undefined;
 
   /**
-   * <p>The name of the field in which Amazon Bedrock stores metadata about the vector store.</p>
+   * The name of the field in which Amazon Bedrock stores metadata about the vector store.
+   *
    * @public
    */
   metadataField: string | undefined;
 }
 
 /**
- * <p>Contains details about the storage configuration of the knowledge base in Amazon OpenSearch Service. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-oss.html">Create a vector index in Amazon OpenSearch Service</a>.</p>
+ * Contains details about the storage configuration of the knowledge base in Amazon OpenSearch Service. For more information, see [Create a vector index in Amazon OpenSearch Service](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-oss.html).
+ *
  * @public
  */
 export interface OpenSearchServerlessConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the OpenSearch Service vector store.</p>
+   * The Amazon Resource Name (ARN) of the OpenSearch Service vector store.
+   *
    * @public
    */
   collectionArn: string | undefined;
 
   /**
-   * <p>The name of the vector store.</p>
+   * The name of the vector store.
+   *
    * @public
    */
   vectorIndexName: string | undefined;
 
   /**
-   * <p>Contains the names of the fields to which to map information about the vector store.</p>
+   * Contains the names of the fields to which to map information about the vector store.
+   *
    * @public
    */
   fieldMapping: OpenSearchServerlessFieldMapping | undefined;
 }
 
 /**
- * <p>Contains the names of the fields to which to map information about the vector store.</p>
+ * Contains the names of the fields to which to map information about the vector store.
+ *
  * @public
  */
 export interface PineconeFieldMapping {
   /**
-   * <p>The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.</p>
+   * The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+   *
    * @public
    */
   textField: string | undefined;
 
   /**
-   * <p>The name of the field in which Amazon Bedrock stores metadata about the vector store.</p>
+   * The name of the field in which Amazon Bedrock stores metadata about the vector store.
+   *
    * @public
    */
   metadataField: string | undefined;
 }
 
 /**
- * <p>Contains details about the storage configuration of the knowledge base in Pinecone. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-pinecone.html">Create a vector index in Pinecone</a>.</p>
+ * Contains details about the storage configuration of the knowledge base in Pinecone. For more information, see [Create a vector index in Pinecone](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-pinecone.html).
+ *
  * @public
  */
 export interface PineconeConfiguration {
   /**
-   * <p>The endpoint URL for your index management page.</p>
+   * The endpoint URL for your index management page.
+   *
    * @public
    */
   connectionString: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the secret that you created in Secrets Manager that is linked to your Pinecone API key.</p>
+   * The Amazon Resource Name (ARN) of the secret that you created in Secrets Manager that is linked to your Pinecone API key.
+   *
    * @public
    */
   credentialsSecretArn: string | undefined;
 
   /**
-   * <p>The namespace to be used to write new data to your database.</p>
+   * The namespace to be used to write new data to your database.
+   *
    * @public
    */
   namespace?: string | undefined;
 
   /**
-   * <p>Contains the names of the fields to which to map information about the vector store.</p>
+   * Contains the names of the fields to which to map information about the vector store.
+   *
    * @public
    */
   fieldMapping: PineconeFieldMapping | undefined;
 }
 
 /**
- * <p>Contains the names of the fields to which to map information about the vector store.</p>
+ * Contains the names of the fields to which to map information about the vector store.
+ *
  * @public
  */
 export interface RdsFieldMapping {
   /**
-   * <p>The name of the field in which Amazon Bedrock stores the ID for each entry.</p>
+   * The name of the field in which Amazon Bedrock stores the ID for each entry.
+   *
    * @public
    */
   primaryKeyField: string | undefined;
 
   /**
-   * <p>The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.</p>
+   * The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+   *
    * @public
    */
   vectorField: string | undefined;
 
   /**
-   * <p>The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.</p>
+   * The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+   *
    * @public
    */
   textField: string | undefined;
 
   /**
-   * <p>The name of the field in which Amazon Bedrock stores metadata about the vector store.</p>
+   * The name of the field in which Amazon Bedrock stores metadata about the vector store.
+   *
    * @public
    */
   metadataField: string | undefined;
 
   /**
-   * <p>Provide a name for the universal metadata field where Amazon Bedrock will store any custom metadata from your data source.</p>
+   * Provide a name for the universal metadata field where Amazon Bedrock will store any custom metadata from your data source.
+   *
    * @public
    */
   customMetadataField?: string | undefined;
 }
 
 /**
- * <p>Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-rds.html">Create a vector index in Amazon RDS</a>.</p>
+ * Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-rds.html).
+ *
  * @public
  */
 export interface RdsConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the vector store.</p>
+   * The Amazon Resource Name (ARN) of the vector store.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the secret that you created in Secrets Manager that is linked to your Amazon RDS database.</p>
+   * The Amazon Resource Name (ARN) of the secret that you created in Secrets Manager that is linked to your Amazon RDS database.
+   *
    * @public
    */
   credentialsSecretArn: string | undefined;
 
   /**
-   * <p>The name of your Amazon RDS database.</p>
+   * The name of your Amazon RDS database.
+   *
    * @public
    */
   databaseName: string | undefined;
 
   /**
-   * <p>The name of the table in the database.</p>
+   * The name of the table in the database.
+   *
    * @public
    */
   tableName: string | undefined;
 
   /**
-   * <p>Contains the names of the fields to which to map information about the vector store.</p>
+   * Contains the names of the fields to which to map information about the vector store.
+   *
    * @public
    */
   fieldMapping: RdsFieldMapping | undefined;
 }
 
 /**
- * <p>Contains the names of the fields to which to map information about the vector store.</p>
+ * Contains the names of the fields to which to map information about the vector store.
+ *
  * @public
  */
 export interface RedisEnterpriseCloudFieldMapping {
   /**
-   * <p>The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.</p>
+   * The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+   *
    * @public
    */
   vectorField: string | undefined;
 
   /**
-   * <p>The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.</p>
+   * The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+   *
    * @public
    */
   textField: string | undefined;
 
   /**
-   * <p>The name of the field in which Amazon Bedrock stores metadata about the vector store.</p>
+   * The name of the field in which Amazon Bedrock stores metadata about the vector store.
+   *
    * @public
    */
   metadataField: string | undefined;
 }
 
 /**
- * <p>Contains details about the storage configuration of the knowledge base in Redis Enterprise Cloud. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-oss.html">Create a vector index in Redis Enterprise Cloud</a>.</p>
+ * Contains details about the storage configuration of the knowledge base in Redis Enterprise Cloud. For more information, see [Create a vector index in Redis Enterprise Cloud](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-oss.html).
+ *
  * @public
  */
 export interface RedisEnterpriseCloudConfiguration {
   /**
-   * <p>The endpoint URL of the Redis Enterprise Cloud database.</p>
+   * The endpoint URL of the Redis Enterprise Cloud database.
+   *
    * @public
    */
   endpoint: string | undefined;
 
   /**
-   * <p>The name of the vector index.</p>
+   * The name of the vector index.
+   *
    * @public
    */
   vectorIndexName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the secret that you created in Secrets Manager that is linked to your Redis Enterprise Cloud database.</p>
+   * The Amazon Resource Name (ARN) of the secret that you created in Secrets Manager that is linked to your Redis Enterprise Cloud database.
+   *
    * @public
    */
   credentialsSecretArn: string | undefined;
 
   /**
-   * <p>Contains the names of the fields to which to map information about the vector store.</p>
+   * Contains the names of the fields to which to map information about the vector store.
+   *
    * @public
    */
   fieldMapping: RedisEnterpriseCloudFieldMapping | undefined;
 }
 
 /**
- * <p>Contains the storage configuration of the knowledge base for S3 vectors.</p>
+ * Contains the storage configuration of the knowledge base for S3 vectors.
+ *
  * @public
  */
 export interface S3VectorsConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the S3 bucket where vector embeddings are stored. This bucket contains the vector data used by the knowledge base.</p>
+   * The Amazon Resource Name (ARN) of the S3 bucket where vector embeddings are stored. This bucket contains the vector data used by the knowledge base.
+   *
    * @public
    */
   vectorBucketArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the vector index used for the knowledge base. This ARN identifies the specific vector index resource within Amazon Bedrock.</p>
+   * The Amazon Resource Name (ARN) of the vector index used for the knowledge base. This ARN identifies the specific vector index resource within Amazon Bedrock.
+   *
    * @public
    */
   indexArn?: string | undefined;
 
   /**
-   * <p>The name of the vector index used for the knowledge base. This name identifies the vector index within the Amazon Bedrock service.</p>
+   * The name of the vector index used for the knowledge base. This name identifies the vector index within the Amazon Bedrock service.
+   *
    * @public
    */
   indexName?: string | undefined;
 }
 
 /**
- * <p>Contains the storage configuration of the knowledge base.</p>
+ * Contains the storage configuration of the knowledge base.
+ *
  * @public
  */
 export interface StorageConfiguration {
   /**
-   * <p>The vector store service in which the knowledge base is stored.</p>
+   * The vector store service in which the knowledge base is stored.
+   *
    * @public
    */
   type: KnowledgeBaseStorageType | undefined;
 
   /**
-   * <p>Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.</p>
+   * Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
+   *
    * @public
    */
   opensearchServerlessConfiguration?: OpenSearchServerlessConfiguration | undefined;
 
   /**
-   * <p>Contains details about the storage configuration of the knowledge base in OpenSearch Managed Cluster. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-osm.html">Create a vector index in Amazon OpenSearch Service</a>.</p>
+   * Contains details about the storage configuration of the knowledge base in OpenSearch Managed Cluster. For more information, see [Create a vector index in Amazon OpenSearch Service](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-osm.html).
+   *
    * @public
    */
   opensearchManagedClusterConfiguration?: OpenSearchManagedClusterConfiguration | undefined;
 
   /**
-   * <p>Contains the storage configuration of the knowledge base in Pinecone.</p>
+   * Contains the storage configuration of the knowledge base in Pinecone.
+   *
    * @public
    */
   pineconeConfiguration?: PineconeConfiguration | undefined;
 
   /**
-   * <p>Contains the storage configuration of the knowledge base in Redis Enterprise Cloud.</p>
+   * Contains the storage configuration of the knowledge base in Redis Enterprise Cloud.
+   *
    * @public
    */
   redisEnterpriseCloudConfiguration?: RedisEnterpriseCloudConfiguration | undefined;
 
   /**
-   * <p>Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-rds.html">Create a vector index in Amazon RDS</a>.</p>
+   * Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-rds.html).
+   *
    * @public
    */
   rdsConfiguration?: RdsConfiguration | undefined;
 
   /**
-   * <p>Contains the storage configuration of the knowledge base in MongoDB Atlas.</p>
+   * Contains the storage configuration of the knowledge base in MongoDB Atlas.
+   *
    * @public
    */
   mongoDbAtlasConfiguration?: MongoDbAtlasConfiguration | undefined;
 
   /**
-   * <p>Contains details about the Neptune Analytics configuration of the knowledge base in Amazon Neptune. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-neptune.html">Create a vector index in Amazon Neptune Analytics.</a>.</p>
+   * Contains details about the Neptune Analytics configuration of the knowledge base in Amazon Neptune. For more information, see [Create a vector index in Amazon Neptune Analytics.](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-neptune.html).
+   *
    * @public
    */
   neptuneAnalyticsConfiguration?: NeptuneAnalyticsConfiguration | undefined;
 
   /**
-   * <p>The configuration settings for storing knowledge base data using S3 vectors. This includes vector index information and S3 bucket details for vector storage.</p>
+   * The configuration settings for storing knowledge base data using S3 vectors. This includes vector index information and S3 bucket details for vector storage.
+   *
    * @public
    */
   s3VectorsConfiguration?: S3VectorsConfiguration | undefined;
@@ -1169,115 +1355,140 @@ export interface StorageConfiguration {
  */
 export interface CreateKnowledgeBaseRequest {
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>A name for the knowledge base.</p>
+   * A name for the knowledge base.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description of the knowledge base.</p>
+   * A description of the knowledge base.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role with permissions to invoke API operations on the knowledge base.</p>
+   * The Amazon Resource Name (ARN) of the IAM role with permissions to invoke API operations on the knowledge base.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>Contains details about the embeddings model used for the knowledge base.</p>
+   * Contains details about the embeddings model used for the knowledge base.
+   *
    * @public
    */
   knowledgeBaseConfiguration: KnowledgeBaseConfiguration | undefined;
 
   /**
-   * <p>Contains details about the configuration of the vector database used for the knowledge base.</p>
+   * Contains details about the configuration of the vector database used for the knowledge base.
+   *
    * @public
    */
   storageConfiguration?: StorageConfiguration | undefined;
 
   /**
-   * <p>Specify the key-value pairs for the tags that you want to attach to your knowledge base in this object.</p>
+   * Specify the key-value pairs for the tags that you want to attach to your knowledge base in this object.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Contains information about a knowledge base.</p>
+ * Contains information about a knowledge base.
+ *
  * @public
  */
 export interface KnowledgeBase {
   /**
-   * <p>The unique identifier of the knowledge base.</p>
+   * The unique identifier of the knowledge base.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The name of the knowledge base.</p>
+   * The name of the knowledge base.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * The Amazon Resource Name (ARN) of the knowledge base.
+   *
    * @public
    */
   knowledgeBaseArn: string | undefined;
 
   /**
-   * <p>The description of the knowledge base.</p>
+   * The description of the knowledge base.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role with permissions to invoke API operations on the knowledge base.</p>
+   * The Amazon Resource Name (ARN) of the IAM role with permissions to invoke API operations on the knowledge base.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>Contains details about the embeddings configuration of the knowledge base.</p>
+   * Contains details about the embeddings configuration of the knowledge base.
+   *
    * @public
    */
   knowledgeBaseConfiguration: KnowledgeBaseConfiguration | undefined;
 
   /**
-   * <p>Contains details about the storage configuration of the knowledge base.</p>
+   * Contains details about the storage configuration of the knowledge base.
+   *
    * @public
    */
   storageConfiguration?: StorageConfiguration | undefined;
 
   /**
-   * <p>The status of the knowledge base. The following statuses are possible:</p> <ul> <li> <p>CREATING – The knowledge base is being created.</p> </li> <li> <p>ACTIVE – The knowledge base is ready to be queried.</p> </li> <li> <p>DELETING – The knowledge base is being deleted.</p> </li> <li> <p>UPDATING – The knowledge base is being updated.</p> </li> <li> <p>FAILED – The knowledge base API operation failed.</p> </li> </ul>
+   * The status of the knowledge base. The following statuses are possible:
+   *
+   * - CREATING – The knowledge base is being created.
+   * - ACTIVE – The knowledge base is ready to be queried.
+   * - DELETING – The knowledge base is being deleted.
+   * - UPDATING – The knowledge base is being updated.
+   * - FAILED – The knowledge base API operation failed.
+   *
    * @public
    */
   status: KnowledgeBaseStatus | undefined;
 
   /**
-   * <p>The time the knowledge base was created.</p>
+   * The time the knowledge base was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The time the knowledge base was last updated.</p>
+   * The time the knowledge base was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>A list of reasons that the API operation on the knowledge base failed.</p>
+   * A list of reasons that the API operation on the knowledge base failed.
+   *
    * @public
    */
   failureReasons?: string[] | undefined;
@@ -1288,7 +1499,8 @@ export interface KnowledgeBase {
  */
 export interface CreateKnowledgeBaseResponse {
   /**
-   * <p>Contains details about the knowledge base.</p>
+   * Contains details about the knowledge base.
+   *
    * @public
    */
   knowledgeBase: KnowledgeBase | undefined;
@@ -1299,7 +1511,8 @@ export interface CreateKnowledgeBaseResponse {
  */
 export interface DeleteKnowledgeBaseRequest {
   /**
-   * <p>The unique identifier of the knowledge base to delete.</p>
+   * The unique identifier of the knowledge base to delete.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -1310,13 +1523,15 @@ export interface DeleteKnowledgeBaseRequest {
  */
 export interface DeleteKnowledgeBaseResponse {
   /**
-   * <p>The unique identifier of the knowledge base that was deleted.</p>
+   * The unique identifier of the knowledge base that was deleted.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The status of the knowledge base and whether it has been successfully deleted.</p>
+   * The status of the knowledge base and whether it has been successfully deleted.
+   *
    * @public
    */
   status: KnowledgeBaseStatus | undefined;
@@ -1327,19 +1542,22 @@ export interface DeleteKnowledgeBaseResponse {
  */
 export interface DisassociateAgentKnowledgeBaseRequest {
   /**
-   * <p>The unique identifier of the agent from which to disassociate the knowledge base.</p>
+   * The unique identifier of the agent from which to disassociate the knowledge base.
+   *
    * @public
    */
   agentId: string | undefined;
 
   /**
-   * <p>The version of the agent from which to disassociate the knowledge base.</p>
+   * The version of the agent from which to disassociate the knowledge base.
+   *
    * @public
    */
   agentVersion: string | undefined;
 
   /**
-   * <p>The unique identifier of the knowledge base to disassociate.</p>
+   * The unique identifier of the knowledge base to disassociate.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -1355,19 +1573,22 @@ export interface DisassociateAgentKnowledgeBaseResponse {}
  */
 export interface GetAgentKnowledgeBaseRequest {
   /**
-   * <p>The unique identifier of the agent with which the knowledge base is associated.</p>
+   * The unique identifier of the agent with which the knowledge base is associated.
+   *
    * @public
    */
   agentId: string | undefined;
 
   /**
-   * <p>The version of the agent with which the knowledge base is associated.</p>
+   * The version of the agent with which the knowledge base is associated.
+   *
    * @public
    */
   agentVersion: string | undefined;
 
   /**
-   * <p>The unique identifier of the knowledge base associated with the agent.</p>
+   * The unique identifier of the knowledge base associated with the agent.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -1378,7 +1599,8 @@ export interface GetAgentKnowledgeBaseRequest {
  */
 export interface GetAgentKnowledgeBaseResponse {
   /**
-   * <p>Contains details about a knowledge base attached to an agent.</p>
+   * Contains details about a knowledge base attached to an agent.
+   *
    * @public
    */
   agentKnowledgeBase: AgentKnowledgeBase | undefined;
@@ -1389,7 +1611,8 @@ export interface GetAgentKnowledgeBaseResponse {
  */
 export interface GetKnowledgeBaseRequest {
   /**
-   * <p>The unique identifier of the knowledge base you want to get information on.</p>
+   * The unique identifier of the knowledge base you want to get information on.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -1400,7 +1623,8 @@ export interface GetKnowledgeBaseRequest {
  */
 export interface GetKnowledgeBaseResponse {
   /**
-   * <p>Contains details about the knowledge base.</p>
+   * Contains details about the knowledge base.
+   *
    * @public
    */
   knowledgeBase: KnowledgeBase | undefined;
@@ -1411,25 +1635,29 @@ export interface GetKnowledgeBaseResponse {
  */
 export interface ListAgentKnowledgeBasesRequest {
   /**
-   * <p>The unique identifier of the agent for which to return information about knowledge bases associated with it.</p>
+   * The unique identifier of the agent for which to return information about knowledge bases associated with it.
+   *
    * @public
    */
   agentId: string | undefined;
 
   /**
-   * <p>The version of the agent for which to return information about knowledge bases associated with it.</p>
+   * The version of the agent for which to return information about knowledge bases associated with it.
+   *
    * @public
    */
   agentVersion: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the `nextToken` field when making another request to return the next batch of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * If the total number of results is greater than the `maxResults` value provided in the request, enter the token returned in the `nextToken` field in the response in this field to return the next batch of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1440,13 +1668,15 @@ export interface ListAgentKnowledgeBasesRequest {
  */
 export interface ListAgentKnowledgeBasesResponse {
   /**
-   * <p>A list of objects, each of which contains information about a knowledge base associated with the agent.</p>
+   * A list of objects, each of which contains information about a knowledge base associated with the agent.
+   *
    * @public
    */
   agentKnowledgeBaseSummaries: AgentKnowledgeBaseSummary[] | undefined;
 
   /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * If the total number of results is greater than the `maxResults` value provided in the request, use this token when making another request in the `nextToken` field to return the next batch of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1457,49 +1687,57 @@ export interface ListAgentKnowledgeBasesResponse {
  */
 export interface ListKnowledgeBasesRequest {
   /**
-   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the `nextToken` field when making another request to return the next batch of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * If the total number of results is greater than the `maxResults` value provided in the request, enter the token returned in the `nextToken` field in the response in this field to return the next batch of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Contains details about a knowledge base.</p>
+ * Contains details about a knowledge base.
+ *
  * @public
  */
 export interface KnowledgeBaseSummary {
   /**
-   * <p>The unique identifier of the knowledge base.</p>
+   * The unique identifier of the knowledge base.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The name of the knowledge base.</p>
+   * The name of the knowledge base.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the knowledge base.</p>
+   * The description of the knowledge base.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The status of the knowledge base.</p>
+   * The status of the knowledge base.
+   *
    * @public
    */
   status: KnowledgeBaseStatus | undefined;
 
   /**
-   * <p>The time the knowledge base was last updated.</p>
+   * The time the knowledge base was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -1510,13 +1748,15 @@ export interface KnowledgeBaseSummary {
  */
 export interface ListKnowledgeBasesResponse {
   /**
-   * <p>A list of knowledge bases with information about each knowledge base.</p>
+   * A list of knowledge bases with information about each knowledge base.
+   *
    * @public
    */
   knowledgeBaseSummaries: KnowledgeBaseSummary[] | undefined;
 
   /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * If the total number of results is greater than the `maxResults` value provided in the request, use this token when making another request in the `nextToken` field to return the next batch of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1527,31 +1767,36 @@ export interface ListKnowledgeBasesResponse {
  */
 export interface UpdateAgentKnowledgeBaseRequest {
   /**
-   * <p>The unique identifier of the agent associated with the knowledge base that you want to update.</p>
+   * The unique identifier of the agent associated with the knowledge base that you want to update.
+   *
    * @public
    */
   agentId: string | undefined;
 
   /**
-   * <p>The version of the agent associated with the knowledge base that you want to update.</p>
+   * The version of the agent associated with the knowledge base that you want to update.
+   *
    * @public
    */
   agentVersion: string | undefined;
 
   /**
-   * <p>The unique identifier of the knowledge base that has been associated with an agent.</p>
+   * The unique identifier of the knowledge base that has been associated with an agent.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>Specifies a new description for the knowledge base associated with an agent.</p>
+   * Specifies a new description for the knowledge base associated with an agent.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Specifies whether the agent uses the knowledge base or not when sending an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html">InvokeAgent</a> request.</p>
+   * Specifies whether the agent uses the knowledge base or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request.
+   *
    * @public
    */
   knowledgeBaseState?: KnowledgeBaseState | undefined;
@@ -1562,7 +1807,8 @@ export interface UpdateAgentKnowledgeBaseRequest {
  */
 export interface UpdateAgentKnowledgeBaseResponse {
   /**
-   * <p>Contains details about the knowledge base that has been associated with an agent.</p>
+   * Contains details about the knowledge base that has been associated with an agent.
+   *
    * @public
    */
   agentKnowledgeBase: AgentKnowledgeBase | undefined;
@@ -1573,37 +1819,43 @@ export interface UpdateAgentKnowledgeBaseResponse {
  */
 export interface UpdateKnowledgeBaseRequest {
   /**
-   * <p>The unique identifier of the knowledge base to update.</p>
+   * The unique identifier of the knowledge base to update.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>Specifies a new name for the knowledge base.</p>
+   * Specifies a new name for the knowledge base.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Specifies a new description for the knowledge base.</p>
+   * Specifies a new description for the knowledge base.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Specifies a different Amazon Resource Name (ARN) of the IAM role with permissions to invoke API operations on the knowledge base.</p>
+   * Specifies a different Amazon Resource Name (ARN) of the IAM role with permissions to invoke API operations on the knowledge base.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>Specifies the configuration for the embeddings model used for the knowledge base. You must use the same configuration as when the knowledge base was created.</p>
+   * Specifies the configuration for the embeddings model used for the knowledge base. You must use the same configuration as when the knowledge base was created.
+   *
    * @public
    */
   knowledgeBaseConfiguration: KnowledgeBaseConfiguration | undefined;
 
   /**
-   * <p>Specifies the configuration for the vector store used for the knowledge base. You must use the same configuration as when the knowledge base was created.</p>
+   * Specifies the configuration for the vector store used for the knowledge base. You must use the same configuration as when the knowledge base was created.
+   *
    * @public
    */
   storageConfiguration?: StorageConfiguration | undefined;
@@ -1614,7 +1866,8 @@ export interface UpdateKnowledgeBaseRequest {
  */
 export interface UpdateKnowledgeBaseResponse {
   /**
-   * <p>Contains details about the knowledge base.</p>
+   * Contains details about the knowledge base.
+   *
    * @public
    */
   knowledgeBase: KnowledgeBase | undefined;
@@ -1625,109 +1878,127 @@ export interface UpdateKnowledgeBaseResponse {
  */
 export interface ListVpcConfigurationsRequest {
   /**
-   * <p>The unique identifier of the knowledge base whose VPC configurations you want to list.</p>
+   * The unique identifier of the knowledge base whose VPC configurations you want to list.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The status to filter the results by. Only VPC configurations with the specified status are returned.</p>
+   * The status to filter the results by. Only VPC configurations with the specified status are returned.
+   *
    * @public
    */
   statusFilter?: VpcConfigurationStatus | undefined;
 
   /**
-   * <p>The maximum number of results to return in the response. If more results are available, the response returns a <code>nextToken</code>.</p>
+   * The maximum number of results to return in the response. If more results are available, the response returns a `nextToken`.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A pagination token to retrieve the next page of results, returned in a previous response when more results are available.</p>
+   * A pagination token to retrieve the next page of results, returned in a previous response when more results are available.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>A summary of a VPC configuration returned by <code>ListVpcConfigurations</code>.</p>
+ * A summary of a VPC configuration returned by `ListVpcConfigurations`.
+ *
  * @public
  */
 export interface VpcConfigurationSummary {
   /**
-   * <p>The unique identifier of the VPC configuration.</p>
+   * The unique identifier of the VPC configuration.
+   *
    * @public
    */
   vpcConfigurationId: string | undefined;
 
   /**
-   * <p>The current lifecycle status of the VPC configuration.</p>
+   * The current lifecycle status of the VPC configuration.
+   *
    * @public
    */
   status: VpcConfigurationStatus | undefined;
 
   /**
-   * <p>Additional detail about the current status, such as the cause of a failure.</p>
+   * Additional detail about the current status, such as the cause of a failure.
+   *
    * @public
    */
   statusMessage?: string | undefined;
 
   /**
-   * <p>The identifier of the VPC that the knowledge base connects through to reach the resource.</p>
+   * The identifier of the VPC that the knowledge base connects through to reach the resource.
+   *
    * @public
    */
   vpcId: string | undefined;
 
   /**
-   * <p>The private IPv4 address or DNS name of the resource.</p>
+   * The private IPv4 address or DNS name of the resource.
+   *
    * @public
    */
   resourceTarget: string | undefined;
 
   /**
-   * <p>The port on which the resource is reached.</p>
+   * The port on which the resource is reached.
+   *
    * @public
    */
   port: number | undefined;
 
   /**
-   * <p>The protocol used to connect to the resource.</p>
+   * The protocol used to connect to the resource.
+   *
    * @public
    */
   protocol: VpcProtocol | undefined;
 
   /**
-   * <p>Specifies how the resource target is resolved.</p>
+   * Specifies how the resource target is resolved.
+   *
    * @public
    */
   resolutionMode: VpcResolutionMode | undefined;
 
   /**
-   * <p>The HTTP <code>Host</code> header value sent when invoking the resource, if configured.</p>
+   * The HTTP `Host` header value sent when invoking the resource, if configured.
+   *
    * @public
    */
   hostHeader?: string | undefined;
 
   /**
-   * <p>The expected TLS server name that the service matches against the Subject Alternative Names on the resource's TLS certificate. Present when <code>protocol</code> is <code>HTTPS</code>.</p>
+   * The expected TLS server name that the service matches against the Subject Alternative Names on the resource's TLS certificate. Present when `protocol` is `HTTPS`.
+   *
    * @public
    */
   tlsServerName?: string | undefined;
 
   /**
-   * <p>The human-readable name of the VPC configuration, if provided.</p>
+   * The human-readable name of the VPC configuration, if provided.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The description of the VPC configuration, if provided.</p>
+   * The description of the VPC configuration, if provided.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The time at which the VPC configuration was created.</p>
+   * The time at which the VPC configuration was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
@@ -1738,32 +2009,37 @@ export interface VpcConfigurationSummary {
  */
 export interface ListVpcConfigurationsResponse {
   /**
-   * <p>A list of VPC configuration summaries.</p>
+   * A list of VPC configuration summaries.
+   *
    * @public
    */
   items: VpcConfigurationSummary[] | undefined;
 
   /**
-   * <p>A pagination token to retrieve the next page of results, present when the total number of results exceeds the maximum number of results.</p>
+   * A pagination token to retrieve the next page of results, present when the total number of results exceeds the maximum number of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Contains specifications for an Amazon Bedrock agent with which to use the prompt. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-create.html">Create a prompt using Prompt management</a> and <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html">Automate tasks in your application using conversational agents</a>.</p>
+ * Contains specifications for an Amazon Bedrock agent with which to use the prompt. For more information, see [Create a prompt using Prompt management](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-create.html) and [Automate tasks in your application using conversational agents](https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html).
+ *
  * @public
  */
 export interface PromptAgentResource {
   /**
-   * <p>The ARN of the agent with which to use the prompt.</p>
+   * The ARN of the agent with which to use the prompt.
+   *
    * @public
    */
   agentIdentifier: string | undefined;
 }
 
 /**
- * <p>Contains specifications for a generative AI resource with which to use the prompt. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-create.html">Create a prompt using Prompt management</a>.</p>
+ * Contains specifications for a generative AI resource with which to use the prompt. For more information, see [Create a prompt using Prompt management](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-create.html).
+ *
  * @public
  */
 export type PromptGenAiResource =
@@ -1775,7 +2051,8 @@ export type PromptGenAiResource =
  */
 export namespace PromptGenAiResource {
   /**
-   * <p>Specifies an Amazon Bedrock agent with which to use the prompt.</p>
+   * Specifies an Amazon Bedrock agent with which to use the prompt.
+   *
    * @public
    */
   export interface AgentMember {
@@ -1802,72 +2079,84 @@ export namespace PromptGenAiResource {
 }
 
 /**
- * <p>Contains a key-value pair that defines a metadata tag and value to attach to a prompt variant. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-create.html">Create a prompt using Prompt management</a>.</p>
+ * Contains a key-value pair that defines a metadata tag and value to attach to a prompt variant. For more information, see [Create a prompt using Prompt management](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-create.html).
+ *
  * @public
  */
 export interface PromptMetadataEntry {
   /**
-   * <p>The key of a metadata tag for a prompt variant.</p>
+   * The key of a metadata tag for a prompt variant.
+   *
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>The value of a metadata tag for a prompt variant.</p>
+   * The value of a metadata tag for a prompt variant.
+   *
    * @public
    */
   value: string | undefined;
 }
 
 /**
- * <p>Contains details about a variant of the prompt.</p>
+ * Contains details about a variant of the prompt.
+ *
  * @public
  */
 export interface PromptVariant {
   /**
-   * <p>The name of the prompt variant.</p>
+   * The name of the prompt variant.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of prompt template to use.</p>
+   * The type of prompt template to use.
+   *
    * @public
    */
   templateType: PromptTemplateType | undefined;
 
   /**
-   * <p>Contains configurations for the prompt template.</p>
+   * Contains configurations for the prompt template.
+   *
    * @public
    */
   templateConfiguration: PromptTemplateConfiguration | undefined;
 
   /**
-   * <p>The unique identifier of the model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference profile</a> with which to run inference on the prompt.</p>
+   * The unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) with which to run inference on the prompt.
+   *
    * @public
    */
   modelId?: string | undefined;
 
   /**
-   * <p>Contains inference configurations for the prompt variant.</p>
+   * Contains inference configurations for the prompt variant.
+   *
    * @public
    */
   inferenceConfiguration?: PromptInferenceConfiguration | undefined;
 
   /**
-   * <p>An array of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant.</p>
+   * An array of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant.
+   *
    * @public
    */
   metadata?: PromptMetadataEntry[] | undefined;
 
   /**
-   * <p>Contains model-specific inference configurations that aren't in the <code>inferenceConfiguration</code> field. To see model-specific inference parameters, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference request parameters and response fields for foundation models</a>.</p>
+   * Contains model-specific inference configurations that aren't in the `inferenceConfiguration` field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
+   *
    * @public
    */
   additionalModelRequestFields?: __DocumentType | undefined;
 
   /**
-   * <p>Specifies a generative AI resource with which to use the prompt.</p>
+   * Specifies a generative AI resource with which to use the prompt.
+   *
    * @public
    */
   genAiResource?: PromptGenAiResource | undefined;
@@ -1878,43 +2167,50 @@ export interface PromptVariant {
  */
 export interface CreatePromptRequest {
   /**
-   * <p>A name for the prompt.</p>
+   * A name for the prompt.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description for the prompt.</p>
+   * A description for the prompt.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key to encrypt the prompt.</p>
+   * The Amazon Resource Name (ARN) of the KMS key to encrypt the prompt.
+   *
    * @public
    */
   customerEncryptionKeyArn?: string | undefined;
 
   /**
-   * <p>The name of the default variant for the prompt. This value must match the <code>name</code> field in the relevant <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptVariant.html">PromptVariant</a> object.</p>
+   * The name of the default variant for the prompt. This value must match the `name` field in the relevant [PromptVariant](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptVariant.html) object.
+   *
    * @public
    */
   defaultVariant?: string | undefined;
 
   /**
-   * <p>A list of objects, each containing details about a variant of the prompt.</p>
+   * A list of objects, each containing details about a variant of the prompt.
+   *
    * @public
    */
   variants?: PromptVariant[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>Any tags that you want to attach to the prompt. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html">Tagging resources in Amazon Bedrock</a>.</p>
+   * Any tags that you want to attach to the prompt. For more information, see [Tagging resources in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html).
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1925,61 +2221,71 @@ export interface CreatePromptRequest {
  */
 export interface CreatePromptResponse {
   /**
-   * <p>The name of the prompt.</p>
+   * The name of the prompt.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the prompt.</p>
+   * The description of the prompt.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.</p>
+   * The Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
+   *
    * @public
    */
   customerEncryptionKeyArn?: string | undefined;
 
   /**
-   * <p>The name of the default variant for your prompt.</p>
+   * The name of the default variant for your prompt.
+   *
    * @public
    */
   defaultVariant?: string | undefined;
 
   /**
-   * <p>A list of objects, each containing details about a variant of the prompt.</p>
+   * A list of objects, each containing details about a variant of the prompt.
+   *
    * @public
    */
   variants?: PromptVariant[] | undefined;
 
   /**
-   * <p>The unique identifier of the prompt.</p>
+   * The unique identifier of the prompt.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the prompt.</p>
+   * The Amazon Resource Name (ARN) of the prompt.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The version of the prompt. When you create a prompt, the version created is the <code>DRAFT</code> version.</p>
+   * The version of the prompt. When you create a prompt, the version created is the `DRAFT` version.
+   *
    * @public
    */
   version: string | undefined;
 
   /**
-   * <p>The time at which the prompt was created.</p>
+   * The time at which the prompt was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The time at which the prompt was last updated.</p>
+   * The time at which the prompt was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -1990,25 +2296,29 @@ export interface CreatePromptResponse {
  */
 export interface CreatePromptVersionRequest {
   /**
-   * <p>The unique identifier of the prompt that you want to create a version of.</p>
+   * The unique identifier of the prompt that you want to create a version of.
+   *
    * @public
    */
   promptIdentifier: string | undefined;
 
   /**
-   * <p>A description for the version of the prompt.</p>
+   * A description for the version of the prompt.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>Any tags that you want to attach to the version of the prompt. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html">Tagging resources in Amazon Bedrock</a>.</p>
+   * Any tags that you want to attach to the version of the prompt. For more information, see [Tagging resources in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html).
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -2019,61 +2329,71 @@ export interface CreatePromptVersionRequest {
  */
 export interface CreatePromptVersionResponse {
   /**
-   * <p>The name of the prompt.</p>
+   * The name of the prompt.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description for the version.</p>
+   * A description for the version.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key to encrypt the version of the prompt.</p>
+   * The Amazon Resource Name (ARN) of the KMS key to encrypt the version of the prompt.
+   *
    * @public
    */
   customerEncryptionKeyArn?: string | undefined;
 
   /**
-   * <p>The name of the default variant for the prompt. This value must match the <code>name</code> field in the relevant <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptVariant.html">PromptVariant</a> object.</p>
+   * The name of the default variant for the prompt. This value must match the `name` field in the relevant [PromptVariant](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptVariant.html) object.
+   *
    * @public
    */
   defaultVariant?: string | undefined;
 
   /**
-   * <p>A list of objects, each containing details about a variant of the prompt.</p>
+   * A list of objects, each containing details about a variant of the prompt.
+   *
    * @public
    */
   variants?: PromptVariant[] | undefined;
 
   /**
-   * <p>The unique identifier of the prompt.</p>
+   * The unique identifier of the prompt.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the version of the prompt.</p>
+   * The Amazon Resource Name (ARN) of the version of the prompt.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The version of the prompt that was created. Versions are numbered incrementally, starting from 1.</p>
+   * The version of the prompt that was created. Versions are numbered incrementally, starting from 1.
+   *
    * @public
    */
   version: string | undefined;
 
   /**
-   * <p>The time at which the prompt was created.</p>
+   * The time at which the prompt was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The time at which the prompt was last updated.</p>
+   * The time at which the prompt was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -2084,13 +2404,15 @@ export interface CreatePromptVersionResponse {
  */
 export interface DeletePromptRequest {
   /**
-   * <p>The unique identifier of the prompt.</p>
+   * The unique identifier of the prompt.
+   *
    * @public
    */
   promptIdentifier: string | undefined;
 
   /**
-   * <p>The version of the prompt to delete. To delete the prompt, omit this field.</p>
+   * The version of the prompt to delete. To delete the prompt, omit this field.
+   *
    * @public
    */
   promptVersion?: string | undefined;
@@ -2101,13 +2423,15 @@ export interface DeletePromptRequest {
  */
 export interface DeletePromptResponse {
   /**
-   * <p>The unique identifier of the prompt that was deleted.</p>
+   * The unique identifier of the prompt that was deleted.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The version of the prompt that was deleted.</p>
+   * The version of the prompt that was deleted.
+   *
    * @public
    */
   version?: string | undefined;
@@ -2118,19 +2442,22 @@ export interface DeletePromptResponse {
  */
 export interface GetPromptRequest {
   /**
-   * <p>The unique identifier of the prompt.</p>
+   * The unique identifier of the prompt.
+   *
    * @public
    */
   promptIdentifier: string | undefined;
 
   /**
-   * <p>The version of the prompt about which you want to retrieve information. Omit this field to return information about the working draft of the prompt.</p>
+   * The version of the prompt about which you want to retrieve information. Omit this field to return information about the working draft of the prompt.
+   *
    * @public
    */
   promptVersion?: string | undefined;
 
   /**
-   * <p>Controls the scope of data returned. Set to <code>METADATA_ONLY</code> to return only resource metadata. Set to <code>ALL_DATA</code> or omit this field to return the full response.</p>
+   * Controls the scope of data returned. Set to `METADATA_ONLY` to return only resource metadata. Set to `ALL_DATA` or omit this field to return the full response.
+   *
    * @public
    */
   includedData?: IncludedData | undefined;
@@ -2141,61 +2468,71 @@ export interface GetPromptRequest {
  */
 export interface GetPromptResponse {
   /**
-   * <p>The name of the prompt.</p>
+   * The name of the prompt.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The descriptino of the prompt.</p>
+   * The descriptino of the prompt.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key that the prompt is encrypted with.</p>
+   * The Amazon Resource Name (ARN) of the KMS key that the prompt is encrypted with.
+   *
    * @public
    */
   customerEncryptionKeyArn?: string | undefined;
 
   /**
-   * <p>The name of the default variant for the prompt. This value must match the <code>name</code> field in the relevant <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptVariant.html">PromptVariant</a> object.</p>
+   * The name of the default variant for the prompt. This value must match the `name` field in the relevant [PromptVariant](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptVariant.html) object.
+   *
    * @public
    */
   defaultVariant?: string | undefined;
 
   /**
-   * <p>A list of objects, each containing details about a variant of the prompt.</p>
+   * A list of objects, each containing details about a variant of the prompt.
+   *
    * @public
    */
   variants?: PromptVariant[] | undefined;
 
   /**
-   * <p>The unique identifier of the prompt.</p>
+   * The unique identifier of the prompt.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the prompt or the prompt version (if you specified a version in the request).</p>
+   * The Amazon Resource Name (ARN) of the prompt or the prompt version (if you specified a version in the request).
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The version of the prompt.</p>
+   * The version of the prompt.
+   *
    * @public
    */
   version: string | undefined;
 
   /**
-   * <p>The time at which the prompt was created.</p>
+   * The time at which the prompt was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The time at which the prompt was last updated.</p>
+   * The time at which the prompt was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -2206,67 +2543,82 @@ export interface GetPromptResponse {
  */
 export interface ListPromptsRequest {
   /**
-   * <p>The unique identifier of the prompt for whose versions you want to return information. Omit this field to list information about all prompts in an account.</p>
+   * The unique identifier of the prompt for whose versions you want to return information. Omit this field to list information about all prompts in an account.
+   *
    * @public
    */
   promptIdentifier?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the `nextToken` field when making another request to return the next batch of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * If the total number of results is greater than the `maxResults` value provided in the request, enter the token returned in the `nextToken` field in the response in this field to return the next batch of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Contains information about a prompt in your Prompt management tool.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListPrompts.html#API_agent_ListPrompts_ResponseSyntax">ListPrompts response</a> </p> </li> </ul>
+ * Contains information about a prompt in your Prompt management tool.
+ *
+ * This data type is used in the following API operations:
+ *
+ * - [ListPrompts response](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListPrompts.html#API_agent_ListPrompts_ResponseSyntax)
+ *
  * @public
  */
 export interface PromptSummary {
   /**
-   * <p>The name of the prompt.</p>
+   * The name of the prompt.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the prompt.</p>
+   * The description of the prompt.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The unique identifier of the prompt.</p>
+   * The unique identifier of the prompt.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the prompt or the prompt version (if you specified a version in the request).</p>
+   * The Amazon Resource Name (ARN) of the prompt or the prompt version (if you specified a version in the request).
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The version of the prompt that this summary applies to.</p>
+   * The version of the prompt that this summary applies to.
+   *
    * @public
    */
   version: string | undefined;
 
   /**
-   * <p>The time at which the prompt was created.</p>
+   * The time at which the prompt was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The time at which the prompt was last updated.</p>
+   * The time at which the prompt was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -2277,13 +2629,15 @@ export interface PromptSummary {
  */
 export interface ListPromptsResponse {
   /**
-   * <p>A list, each member of which contains information about a prompt using Prompt management.</p>
+   * A list, each member of which contains information about a prompt using Prompt management.
+   *
    * @public
    */
   promptSummaries: PromptSummary[] | undefined;
 
   /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * If the total number of results is greater than the `maxResults` value provided in the request, use this token when making another request in the `nextToken` field to return the next batch of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2294,37 +2648,43 @@ export interface ListPromptsResponse {
  */
 export interface UpdatePromptRequest {
   /**
-   * <p>A name for the prompt.</p>
+   * A name for the prompt.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description for the prompt.</p>
+   * A description for the prompt.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key to encrypt the prompt.</p>
+   * The Amazon Resource Name (ARN) of the KMS key to encrypt the prompt.
+   *
    * @public
    */
   customerEncryptionKeyArn?: string | undefined;
 
   /**
-   * <p>The name of the default variant for the prompt. This value must match the <code>name</code> field in the relevant <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptVariant.html">PromptVariant</a> object.</p>
+   * The name of the default variant for the prompt. This value must match the `name` field in the relevant [PromptVariant](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptVariant.html) object.
+   *
    * @public
    */
   defaultVariant?: string | undefined;
 
   /**
-   * <p>A list of objects, each containing details about a variant of the prompt.</p>
+   * A list of objects, each containing details about a variant of the prompt.
+   *
    * @public
    */
   variants?: PromptVariant[] | undefined;
 
   /**
-   * <p>The unique identifier of the prompt.</p>
+   * The unique identifier of the prompt.
+   *
    * @public
    */
   promptIdentifier: string | undefined;
@@ -2335,61 +2695,71 @@ export interface UpdatePromptRequest {
  */
 export interface UpdatePromptResponse {
   /**
-   * <p>The name of the prompt.</p>
+   * The name of the prompt.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the prompt.</p>
+   * The description of the prompt.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key to encrypt the prompt.</p>
+   * The Amazon Resource Name (ARN) of the KMS key to encrypt the prompt.
+   *
    * @public
    */
   customerEncryptionKeyArn?: string | undefined;
 
   /**
-   * <p>The name of the default variant for the prompt. This value must match the <code>name</code> field in the relevant <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptVariant.html">PromptVariant</a> object.</p>
+   * The name of the default variant for the prompt. This value must match the `name` field in the relevant [PromptVariant](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptVariant.html) object.
+   *
    * @public
    */
   defaultVariant?: string | undefined;
 
   /**
-   * <p>A list of objects, each containing details about a variant of the prompt.</p>
+   * A list of objects, each containing details about a variant of the prompt.
+   *
    * @public
    */
   variants?: PromptVariant[] | undefined;
 
   /**
-   * <p>The unique identifier of the prompt.</p>
+   * The unique identifier of the prompt.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the prompt.</p>
+   * The Amazon Resource Name (ARN) of the prompt.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The version of the prompt. When you update a prompt, the version updated is the <code>DRAFT</code> version.</p>
+   * The version of the prompt. When you update a prompt, the version updated is the `DRAFT` version.
+   *
    * @public
    */
   version: string | undefined;
 
   /**
-   * <p>The time at which the prompt was created.</p>
+   * The time at which the prompt was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The time at which the prompt was last updated.</p>
+   * The time at which the prompt was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -2400,19 +2770,22 @@ export interface UpdatePromptResponse {
  */
 export interface PutResourcePolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the knowledge base to attach the resource policy to.</p>
+   * The Amazon Resource Name (ARN) of the knowledge base to attach the resource policy to.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The JSON-formatted resource policy to associate with the knowledge base.</p>
+   * The JSON-formatted resource policy to associate with the knowledge base.
+   *
    * @public
    */
   policy: __AutomaticJsonStringConversion | string | undefined;
 
   /**
-   * <p>The expected revision identifier of the resource policy. Use this to prevent conflicts when multiple users update the same policy concurrently. Specify the <code>revisionId</code> from the most recent <code>GetResourcePolicy</code> or <code>PutResourcePolicy</code> response.</p>
+   * The expected revision identifier of the resource policy. Use this to prevent conflicts when multiple users update the same policy concurrently. Specify the `revisionId` from the most recent `GetResourcePolicy` or `PutResourcePolicy` response.
+   *
    * @public
    */
   expectedRevisionId?: string | undefined;
@@ -2423,43 +2796,50 @@ export interface PutResourcePolicyRequest {
  */
 export interface PutResourcePolicyResponse {
   /**
-   * <p>The ARN of the knowledge base that the resource policy was attached to.</p>
+   * The ARN of the knowledge base that the resource policy was attached to.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The revision identifier of the resource policy. Use this value in the <code>expectedRevisionId</code> field of a subsequent <code>PutResourcePolicy</code> or <code>DeleteResourcePolicy</code> request.</p>
+   * The revision identifier of the resource policy. Use this value in the `expectedRevisionId` field of a subsequent `PutResourcePolicy` or `DeleteResourcePolicy` request.
+   *
    * @public
    */
   revisionId: string | undefined;
 }
 
 /**
- * <p>The instruction content, as a set of named fields. Every field is optional; at least one must be present. Service-side validation enforces per-field and aggregate size limits.</p>
+ * The instruction content, as a set of named fields. Every field is optional; at least one must be present. Service-side validation enforces per-field and aggregate size limits.
+ *
  * @public
  */
 export interface RetrievalInstructionContent {
   /**
-   * <p>How to interpret and decompose the question, and what to prioritise when searching.</p>
+   * How to interpret and decompose the question, and what to prioritise when searching.
+   *
    * @public
    */
   retrievalGuidance?: string | undefined;
 
   /**
-   * <p>Who the assistant is: identity, tone and language.</p>
+   * Who the assistant is: identity, tone and language.
+   *
    * @public
    */
   persona?: string | undefined;
 
   /**
-   * <p>How the answer is structured, including how sources are cited.</p>
+   * How the answer is structured, including how sources are cited.
+   *
    * @public
    */
   answerFormat?: string | undefined;
 
   /**
-   * <p>Whether and how to answer: how strongly an answer must be supported, and what to do with questions outside scope.</p>
+   * Whether and how to answer: how strongly an answer must be supported, and what to do with questions outside scope.
+   *
    * @public
    */
   answerPolicy?: string | undefined;
@@ -2470,37 +2850,43 @@ export interface RetrievalInstructionContent {
  */
 export interface CreateRetrievalInstructionRequest {
   /**
-   * <p>A caller-supplied token that makes a retried create return the existing resource rather than a second one. The window is 8 hours.</p>
+   * A caller-supplied token that makes a retried create return the existing resource rather than a second one. The window is 8 hours.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>Specifies the name of the retrieval instruction.</p>
+   * Specifies the name of the retrieval instruction.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The instruction content, as a set of named fields. Get does not return this field until the create review passes.</p>
+   * The instruction content, as a set of named fields. Get does not return this field until the create review passes.
+   *
    * @public
    */
   instruction: RetrievalInstructionContent | undefined;
 
   /**
-   * <p>Specifies a description of the retrieval instruction.</p>
+   * Specifies a description of the retrieval instruction.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a customer managed AWS Key Management Service (AWS KMS) key used to encrypt the instruction content at rest. If you omit it, the service uses an AWS owned key. You fix the key at create and cannot change it later.</p>
+   * The Amazon Resource Name (ARN) of a customer managed AWS Key Management Service (AWS KMS) key used to encrypt the instruction content at rest. If you omit it, the service uses an AWS owned key. You fix the key at create and cannot change it later.
+   *
    * @public
    */
   customerEncryptionKeyArn?: string | undefined;
 
   /**
-   * <p>Tags for the retrieval instruction.</p>
+   * Tags for the retrieval instruction.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -2511,43 +2897,50 @@ export interface CreateRetrievalInstructionRequest {
  */
 export interface CreateRetrievalInstructionResponse {
   /**
-   * <p>The identifier of the newly created retrieval instruction.</p>
+   * The identifier of the newly created retrieval instruction.
+   *
    * @public
    */
   retrievalInstructionId: string | undefined;
 
   /**
-   * <p>The ARN of the newly created retrieval instruction.</p>
+   * The ARN of the newly created retrieval instruction.
+   *
    * @public
    */
   retrievalInstructionArn: string | undefined;
 
   /**
-   * <p>The name of the retrieval instruction.</p>
+   * The name of the retrieval instruction.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Always INACTIVE on this response. The content review has not run when this call returns, so the resource is not yet usable.</p>
+   * Always INACTIVE on this response. The content review has not run when this call returns, so the resource is not yet usable.
+   *
    * @public
    */
   status: RetrievalInstructionStatus | undefined;
 
   /**
-   * <p>Always CREATING on this response. Poll GetRetrievalInstruction until this member is neither CREATING nor UPDATING, then read the outcome from it.</p>
+   * Always CREATING on this response. Poll GetRetrievalInstruction until this member is neither CREATING nor UPDATING, then read the outcome from it.
+   *
    * @public
    */
   lastTransitionStatus: RetrievalInstructionLastTransitionStatus | undefined;
 
   /**
-   * <p>When you created the retrieval instruction.</p>
+   * When you created the retrieval instruction.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>When the retrieval instruction was last updated.</p>
+   * When the retrieval instruction was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -2558,19 +2951,22 @@ export interface CreateRetrievalInstructionResponse {
  */
 export interface CreateRetrievalInstructionVersionRequest {
   /**
-   * <p>The identifier of the retrieval instruction to version.</p>
+   * The identifier of the retrieval instruction to version.
+   *
    * @public
    */
   retrievalInstructionId: string | undefined;
 
   /**
-   * <p>A description of this version. Independent of the retrieval instruction's own description.</p>
+   * A description of this version. Independent of the retrieval instruction's own description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>A caller-supplied token that makes a retried call return the version created by the first call rather than a second version. The window is 8 hours.</p>
+   * A caller-supplied token that makes a retried call return the version created by the first call rather than a second version. The window is 8 hours.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -2581,31 +2977,36 @@ export interface CreateRetrievalInstructionVersionRequest {
  */
 export interface CreateRetrievalInstructionVersionResponse {
   /**
-   * <p>The identifier of the retrieval instruction.</p>
+   * The identifier of the retrieval instruction.
+   *
    * @public
    */
   retrievalInstructionId: string | undefined;
 
   /**
-   * <p>The ARN of the retrieval instruction. Versions do not have their own ARN.</p>
+   * The ARN of the retrieval instruction. Versions do not have their own ARN.
+   *
    * @public
    */
   retrievalInstructionArn: string | undefined;
 
   /**
-   * <p>The number of the version created. Versions are numbered from 1 and allocated monotonically; a number is never reused, even after the version is deleted.</p>
+   * The number of the version created. Versions are numbered from 1 and allocated monotonically; a number is never reused, even after the version is deleted.
+   *
    * @public
    */
   version: string | undefined;
 
   /**
-   * <p>When this version was created.</p>
+   * When this version was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The description of this version, when one was supplied.</p>
+   * The description of this version, when one was supplied.
+   *
    * @public
    */
   description?: string | undefined;
@@ -2616,13 +3017,15 @@ export interface CreateRetrievalInstructionVersionResponse {
  */
 export interface DeleteRetrievalInstructionRequest {
   /**
-   * <p>The identifier of the retrieval instruction to delete.</p>
+   * The identifier of the retrieval instruction to delete.
+   *
    * @public
    */
   retrievalInstructionId: string | undefined;
 
   /**
-   * <p>The version to delete. Omit this field to delete the retrieval instruction itself, which you can do only when it has no versions; while any version exists the service rejects the request with ConflictException. You cannot delete DRAFT on its own; deleting the retrieval instruction removes it.</p>
+   * The version to delete. Omit this field to delete the retrieval instruction itself, which you can do only when it has no versions; while any version exists the service rejects the request with ConflictException. You cannot delete DRAFT on its own; deleting the retrieval instruction removes it.
+   *
    * @public
    */
   retrievalInstructionVersion?: string | undefined;
@@ -2633,19 +3036,22 @@ export interface DeleteRetrievalInstructionRequest {
  */
 export interface DeleteRetrievalInstructionResponse {
   /**
-   * <p>The identifier of the deleted retrieval instruction.</p>
+   * The identifier of the deleted retrieval instruction.
+   *
    * @public
    */
   retrievalInstructionId: string | undefined;
 
   /**
-   * <p>The ARN of the retrieval instruction.</p>
+   * The ARN of the retrieval instruction.
+   *
    * @public
    */
   retrievalInstructionArn: string | undefined;
 
   /**
-   * <p>The version that you deleted. Absent when you deleted the whole retrieval instruction.</p>
+   * The version that you deleted. Absent when you deleted the whole retrieval instruction.
+   *
    * @public
    */
   version?: string | undefined;
@@ -2656,37 +3062,49 @@ export interface DeleteRetrievalInstructionResponse {
  */
 export interface GetRetrievalInstructionRequest {
   /**
-   * <p>The identifier of the retrieval instruction to get.</p>
+   * The identifier of the retrieval instruction to get.
+   *
    * @public
    */
   retrievalInstructionId: string | undefined;
 
   /**
-   * <p>The version to return: a version number, or DRAFT for the retrieval instruction's current reviewed content. When omitted, DRAFT is used. This default is permanent: omitting retrievalInstructionVersion will never resolve to a numbered version.</p>
+   * The version to return: a version number, or DRAFT for the retrieval instruction's current reviewed content. When omitted, DRAFT is used. This default is permanent: omitting retrievalInstructionVersion will never resolve to a numbered version.
+   *
    * @public
    */
   retrievalInstructionVersion?: string | undefined;
 }
 
 /**
- * <p>One reason the most recent create or update did not succeed. code drives programmatic branching (fix the text, fix the configuration, or retry); message carries the specific cause.</p>
+ * One reason the most recent create or update did not succeed. code drives programmatic branching (fix the text, fix the configuration, or retry); message carries the specific cause.
+ *
  * @public
  */
 export interface RetrievalInstructionFailureReason {
   /**
-   * <p>The instruction field this entry is about. Present on review rejections of a specific field; absent when the failure applies to the whole review, because a client-side execution failure or a service fault has no single field.</p>
+   * The instruction field this entry is about. Present on review rejections of a specific field; absent when the failure applies to the whole review, because a client-side execution failure or a service fault has no single field.
+   *
    * @public
    */
   fieldName?: RetrievalInstructionFieldName | undefined;
 
   /**
-   * <p>Stable, machine-readable classification by fault attribution. Valid values:</p> <ul> <li> <p>CONTENT_REJECTED – The review rejected the named field's content; revise the text and resubmit.</p> </li> <li> <p>CLIENT_ERROR – The review could not run for a customer-side reason, for example the customer managed AWS KMS key could not be used; fix the configuration and resubmit.</p> </li> <li> <p>INTERNAL_ERROR – The review could not complete due to a service fault; retry the create or update.</p> </li> </ul> <p>New values may be added over time; your client should tolerate values it does not recognize and treat them as a failure.</p>
+   * Stable, machine-readable classification by fault attribution. Valid values:
+   *
+   * - CONTENT_REJECTED – The review rejected the named field's content; revise the text and resubmit.
+   * - CLIENT_ERROR – The review could not run for a customer-side reason, for example the customer managed AWS KMS key could not be used; fix the configuration and resubmit.
+   * - INTERNAL_ERROR – The review could not complete due to a service fault; retry the create or update.
+   *
+   * New values may be added over time; your client should tolerate values it does not recognize and treat them as a failure.
+   *
    * @public
    */
   code: RetrievalInstructionFailureReasonCode | undefined;
 
   /**
-   * <p>Human-readable explanation of the specific cause. Never contains the customer's own text.</p>
+   * Human-readable explanation of the specific cause. Never contains the customer's own text.
+   *
    * @public
    */
   message: string | undefined;
@@ -2697,79 +3115,92 @@ export interface RetrievalInstructionFailureReason {
  */
 export interface GetRetrievalInstructionResponse {
   /**
-   * <p>The identifier of the retrieval instruction.</p>
+   * The identifier of the retrieval instruction.
+   *
    * @public
    */
   retrievalInstructionId: string | undefined;
 
   /**
-   * <p>The ARN of the retrieval instruction.</p>
+   * The ARN of the retrieval instruction.
+   *
    * @public
    */
   retrievalInstructionArn: string | undefined;
 
   /**
-   * <p>The name of the retrieval instruction.</p>
+   * The name of the retrieval instruction.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Specifies whether you can use the instruction. You can resolve only an ACTIVE instruction at retrieval time. Monotone: INACTIVE to ACTIVE once, never back. Numbered versions are always ACTIVE.</p>
+   * Specifies whether you can use the instruction. You can resolve only an ACTIVE instruction at retrieval time. Monotone: INACTIVE to ACTIVE once, never back. Numbered versions are always ACTIVE.
+   *
    * @public
    */
   status: RetrievalInstructionStatus | undefined;
 
   /**
-   * <p>The outcome or in-progress state of the most recent create or update. CREATING or UPDATING means the operation is still running. Independent of status. Always has a value from the create 202 onward. On a numbered version this is always CREATE_SUCCESSFUL: a version is created once, from reviewed content, and is immutable.</p>
+   * The outcome or in-progress state of the most recent create or update. CREATING or UPDATING means the operation is still running. Independent of status. Always has a value from the create 202 onward. On a numbered version this is always CREATE_SUCCESSFUL: a version is created once, from reviewed content, and is immutable.
+   *
    * @public
    */
   lastTransitionStatus: RetrievalInstructionLastTransitionStatus | undefined;
 
   /**
-   * <p>The reviewed content this instruction serves — what AgenticRetrieveStream resolves while status is ACTIVE. Absent until the first create review passes. Always present on a numbered version.</p>
+   * The reviewed content this instruction serves — what AgenticRetrieveStream resolves while status is ACTIVE. Absent until the first create review passes. Always present on a numbered version.
+   *
    * @public
    */
   instruction?: RetrievalInstructionContent | undefined;
 
   /**
-   * <p>When the retrieval instruction was created. On a numbered version, when that version was created.</p>
+   * When the retrieval instruction was created. On a numbered version, when that version was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>When the retrieval instruction was last updated. Equal to createdAt on a numbered version, which is immutable.</p>
+   * When the retrieval instruction was last updated. Equal to createdAt on a numbered version, which is immutable.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>A description of the retrieval instruction. On a numbered version, the description of that version.</p>
+   * A description of the retrieval instruction. On a numbered version, the description of that version.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The ARN of the customer managed KMS key protecting this content, when one was supplied at create.</p>
+   * The ARN of the customer managed KMS key protecting this content, when one was supplied at create.
+   *
    * @public
    */
   customerEncryptionKeyArn?: string | undefined;
 
   /**
-   * <p>Why the most recent create or update was rejected. One entry for each rejected field, or a single entry when the review itself failed. Each entry has a machine-readable code and a message, and names the field when it applies to one. The service includes this field only when lastTransitionStatus is CREATE_FAILED or UPDATE_FAILED. Never present on a numbered version.</p>
+   * Why the most recent create or update was rejected. One entry for each rejected field, or a single entry when the review itself failed. Each entry has a machine-readable code and a message, and names the field when it applies to one. The service includes this field only when lastTransitionStatus is CREATE_FAILED or UPDATE_FAILED. Never present on a numbered version.
+   *
    * @public
    */
   lastTransitionStatusReasons?: RetrievalInstructionFailureReason[] | undefined;
 
   /**
-   * <p>The version this response describes: a version number, or DRAFT.</p>
+   * The version this response describes: a version number, or DRAFT.
+   *
    * @public
    */
   version?: string | undefined;
 
   /**
-   * <p>The largest version number that currently exists for this retrieval instruction, that is, the newest version you can retrieve. Present only on a DRAFT read, and only when at least one version exists. Because version numbers are never reused, deleting versions can leave gaps: this is the newest existing version, not a count and not the highest number ever created.</p>
+   * The largest version number that currently exists for this retrieval instruction, that is, the newest version you can retrieve. Present only on a DRAFT read, and only when at least one version exists. Because version numbers are never reused, deleting versions can leave gaps: this is the newest existing version, not a count and not the highest number ever created.
+   *
    * @public
    */
   latestVersion?: string | undefined;
@@ -2780,73 +3211,85 @@ export interface GetRetrievalInstructionResponse {
  */
 export interface ListRetrievalInstructionsRequest {
   /**
-   * <p>Return only instructions with this availability status.</p>
+   * Return only instructions with this availability status.
+   *
    * @public
    */
   status?: RetrievalInstructionStatus | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single page. The effective upper bound is enforced service-side.</p>
+   * The maximum number of results to return in a single page. The effective upper bound is enforced service-side.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The pagination token from a previous ListRetrievalInstructions response.</p>
+   * The pagination token from a previous ListRetrievalInstructions response.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>A summary of a retrieval instruction, without the content.</p>
+ * A summary of a retrieval instruction, without the content.
+ *
  * @public
  */
 export interface RetrievalInstructionSummary {
   /**
-   * <p>The identifier of the retrieval instruction.</p>
+   * The identifier of the retrieval instruction.
+   *
    * @public
    */
   retrievalInstructionId: string | undefined;
 
   /**
-   * <p>The ARN of the retrieval instruction.</p>
+   * The ARN of the retrieval instruction.
+   *
    * @public
    */
   retrievalInstructionArn: string | undefined;
 
   /**
-   * <p>The name of the retrieval instruction.</p>
+   * The name of the retrieval instruction.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Whether the instruction can be used. Only ACTIVE is resolvable at retrieval time.</p>
+   * Whether the instruction can be used. Only ACTIVE is resolvable at retrieval time.
+   *
    * @public
    */
   status: RetrievalInstructionStatus | undefined;
 
   /**
-   * <p>The outcome or in-progress state of the most recent create or update of the retrieval instruction.</p>
+   * The outcome or in-progress state of the most recent create or update of the retrieval instruction.
+   *
    * @public
    */
   lastTransitionStatus: RetrievalInstructionLastTransitionStatus | undefined;
 
   /**
-   * <p>When you created the retrieval instruction.</p>
+   * When you created the retrieval instruction.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>When the retrieval instruction was last updated.</p>
+   * When the retrieval instruction was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>A description of the retrieval instruction.</p>
+   * A description of the retrieval instruction.
+   *
    * @public
    */
   description?: string | undefined;
@@ -2857,13 +3300,15 @@ export interface RetrievalInstructionSummary {
  */
 export interface ListRetrievalInstructionsResponse {
   /**
-   * <p>The retrieval instruction summaries in this page.</p>
+   * The retrieval instruction summaries in this page.
+   *
    * @public
    */
   retrievalInstructionSummaries: RetrievalInstructionSummary[] | undefined;
 
   /**
-   * <p>The pagination token to pass to the next ListRetrievalInstructions call, absent on the last page.</p>
+   * The pagination token to pass to the next ListRetrievalInstructions call, absent on the last page.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2874,37 +3319,43 @@ export interface ListRetrievalInstructionsResponse {
  */
 export interface ListRetrievalInstructionVersionsRequest {
   /**
-   * <p>The identifier of the retrieval instruction whose versions to list.</p>
+   * The identifier of the retrieval instruction whose versions to list.
+   *
    * @public
    */
   retrievalInstructionId: string | undefined;
 
   /**
-   * <p>Specifies the maximum number of versions to return in a single page. The service enforces the effective upper bound.</p>
+   * Specifies the maximum number of versions to return in a single page. The service enforces the effective upper bound.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The pagination token from a previous ListRetrievalInstructionVersions response.</p>
+   * The pagination token from a previous ListRetrievalInstructionVersions response.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>A summary of one numbered version of a retrieval instruction, without the content.</p>
+ * A summary of one numbered version of a retrieval instruction, without the content.
+ *
  * @public
  */
 export interface RetrievalInstructionVersionSummary {
   /**
-   * <p>The version number.</p>
+   * The version number.
+   *
    * @public
    */
   version: string | undefined;
 
   /**
-   * <p>When this version was created.</p>
+   * When this version was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
@@ -2915,13 +3366,15 @@ export interface RetrievalInstructionVersionSummary {
  */
 export interface ListRetrievalInstructionVersionsResponse {
   /**
-   * <p>The version summaries in this page, newest first.</p>
+   * The version summaries in this page, newest first.
+   *
    * @public
    */
   retrievalInstructionVersionSummaries: RetrievalInstructionVersionSummary[] | undefined;
 
   /**
-   * <p>The pagination token to pass to the next ListRetrievalInstructionVersions call, absent on the last page.</p>
+   * The pagination token to pass to the next ListRetrievalInstructionVersions call, absent on the last page.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2932,19 +3385,22 @@ export interface ListRetrievalInstructionVersionsResponse {
  */
 export interface UpdateRetrievalInstructionRequest {
   /**
-   * <p>The identifier of the retrieval instruction to update.</p>
+   * The identifier of the retrieval instruction to update.
+   *
    * @public
    */
   retrievalInstructionId: string | undefined;
 
   /**
-   * <p>The replacement instruction content. This is a full replacement of all four fields, not a patch. During UPDATING, Get continues to return the previously-served content until the update review passes.</p>
+   * The replacement instruction content. This is a full replacement of all four fields, not a patch. During UPDATING, Get continues to return the previously-served content until the update review passes.
+   *
    * @public
    */
   instruction: RetrievalInstructionContent | undefined;
 
   /**
-   * <p>A replacement description; applied together with the content when the review passes. Omit to clear.</p>
+   * A replacement description; applied together with the content when the review passes. Omit to clear.
+   *
    * @public
    */
   description?: string | undefined;
@@ -2955,43 +3411,50 @@ export interface UpdateRetrievalInstructionRequest {
  */
 export interface UpdateRetrievalInstructionResponse {
   /**
-   * <p>The identifier of the retrieval instruction.</p>
+   * The identifier of the retrieval instruction.
+   *
    * @public
    */
   retrievalInstructionId: string | undefined;
 
   /**
-   * <p>The ARN of the retrieval instruction.</p>
+   * The ARN of the retrieval instruction.
+   *
    * @public
    */
   retrievalInstructionArn: string | undefined;
 
   /**
-   * <p>The name of the retrieval instruction.</p>
+   * The name of the retrieval instruction.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Whether the instruction can be used. An update never lowers status. Unchanged from the previous value on this response.</p>
+   * Whether the instruction can be used. An update never lowers status. Unchanged from the previous value on this response.
+   *
    * @public
    */
   status: RetrievalInstructionStatus | undefined;
 
   /**
-   * <p>Always UPDATING on this response. Poll GetRetrievalInstruction until this member is neither CREATING nor UPDATING, then read the outcome from it.</p>
+   * Always UPDATING on this response. Poll GetRetrievalInstruction until this member is neither CREATING nor UPDATING, then read the outcome from it.
+   *
    * @public
    */
   lastTransitionStatus: RetrievalInstructionLastTransitionStatus | undefined;
 
   /**
-   * <p>When you created the retrieval instruction.</p>
+   * When you created the retrieval instruction.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>When the retrieval instruction was last updated.</p>
+   * When the retrieval instruction was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -3002,7 +3465,8 @@ export interface UpdateRetrievalInstructionResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource for which to list tags.</p>
+   * The Amazon Resource Name (ARN) of the resource for which to list tags.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -3013,7 +3477,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>The key-value pairs for the tags associated with the resource.</p>
+   * The key-value pairs for the tags associated with the resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -3024,13 +3489,15 @@ export interface ListTagsForResourceResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource to tag.</p>
+   * The Amazon Resource Name (ARN) of the resource to tag.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>An object containing key-value pairs that define the tags to attach to the resource.</p>
+   * An object containing key-value pairs that define the tags to attach to the resource.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -3046,13 +3513,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource from which to remove tags.</p>
+   * The Amazon Resource Name (ARN) of the resource from which to remove tags.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>A list of keys of the tags to remove from the resource.</p>
+   * A list of keys of the tags to remove from the resource.
+   *
    * @public
    */
   tagKeys: string[] | undefined;
@@ -3068,7 +3537,8 @@ export interface UntagResourceResponse {}
  */
 export interface ValidateFlowDefinitionResponse {
   /**
-   * <p>Contains an array of objects, each of which contains an error identified by validation.</p>
+   * Contains an array of objects, each of which contains an error identified by validation.
+   *
    * @public
    */
   validations: FlowValidation[] | undefined;
@@ -3079,19 +3549,22 @@ export interface ValidateFlowDefinitionResponse {
  */
 export interface DeleteAgentVersionRequest {
   /**
-   * <p>The unique identifier of the agent that the version belongs to.</p>
+   * The unique identifier of the agent that the version belongs to.
+   *
    * @public
    */
   agentId: string | undefined;
 
   /**
-   * <p>The version of the agent to delete.</p>
+   * The version of the agent to delete.
+   *
    * @public
    */
   agentVersion: string | undefined;
 
   /**
-   * <p>By default, this value is <code>false</code> and deletion is stopped if the resource is in use. If you set it to <code>true</code>, the resource will be deleted even if the resource is in use.</p>
+   * By default, this value is `false` and deletion is stopped if the resource is in use. If you set it to `true`, the resource will be deleted even if the resource is in use.
+   *
    * @public
    */
   skipResourceInUseCheck?: boolean | undefined;
@@ -3102,19 +3575,22 @@ export interface DeleteAgentVersionRequest {
  */
 export interface DeleteAgentVersionResponse {
   /**
-   * <p>The unique identifier of the agent that the version belongs to.</p>
+   * The unique identifier of the agent that the version belongs to.
+   *
    * @public
    */
   agentId: string | undefined;
 
   /**
-   * <p>The version that was deleted.</p>
+   * The version that was deleted.
+   *
    * @public
    */
   agentVersion: string | undefined;
 
   /**
-   * <p>The status of the agent version.</p>
+   * The status of the agent version.
+   *
    * @public
    */
   agentStatus: AgentStatus | undefined;
@@ -3125,13 +3601,15 @@ export interface DeleteAgentVersionResponse {
  */
 export interface GetAgentVersionRequest {
   /**
-   * <p>The unique identifier of the agent.</p>
+   * The unique identifier of the agent.
+   *
    * @public
    */
   agentId: string | undefined;
 
   /**
-   * <p>The version of the agent.</p>
+   * The version of the agent.
+   *
    * @public
    */
   agentVersion: string | undefined;
@@ -3142,7 +3620,8 @@ export interface GetAgentVersionRequest {
  */
 export interface GetAgentVersionResponse {
   /**
-   * <p>Contains details about the version of the agent.</p>
+   * Contains details about the version of the agent.
+   *
    * @public
    */
   agentVersion: AgentVersion | undefined;
@@ -3153,19 +3632,22 @@ export interface GetAgentVersionResponse {
  */
 export interface ListAgentVersionsRequest {
   /**
-   * <p>The unique identifier of the agent.</p>
+   * The unique identifier of the agent.
+   *
    * @public
    */
   agentId: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the `nextToken` field when making another request to return the next batch of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * If the total number of results is greater than the `maxResults` value provided in the request, enter the token returned in the `nextToken` field in the response in this field to return the next batch of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -3176,74 +3658,86 @@ export interface ListAgentVersionsRequest {
  */
 export interface ListAgentVersionsResponse {
   /**
-   * <p>A list of objects, each of which contains information about a version of the agent.</p>
+   * A list of objects, each of which contains information about a version of the agent.
+   *
    * @public
    */
   agentVersionSummaries: AgentVersionSummary[] | undefined;
 
   /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * If the total number of results is greater than the `maxResults` value provided in the request, use this token when making another request in the `nextToken` field to return the next batch of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>The definition of the nodes and connections between nodes in the flow.</p>
+ * The definition of the nodes and connections between nodes in the flow.
+ *
  * @public
  */
 export interface FlowDefinition {
   /**
-   * <p>An array of node definitions in the flow.</p>
+   * An array of node definitions in the flow.
+   *
    * @public
    */
   nodes?: FlowNode[] | undefined;
 
   /**
-   * <p>An array of connection definitions in the flow.</p>
+   * An array of connection definitions in the flow.
+   *
    * @public
    */
   connections?: FlowConnection[] | undefined;
 }
 
 /**
- * <p>Contains configurations about a node in the flow.</p>
+ * Contains configurations about a node in the flow.
+ *
  * @public
  */
 export interface FlowNode {
   /**
-   * <p>A name for the node.</p>
+   * A name for the node.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of node. This value must match the name of the key that you provide in the configuration you provide in the <code>FlowNodeConfiguration</code> field.</p>
+   * The type of node. This value must match the name of the key that you provide in the configuration you provide in the `FlowNodeConfiguration` field.
+   *
    * @public
    */
   type: FlowNodeType | undefined;
 
   /**
-   * <p>Contains configurations for the node.</p>
+   * Contains configurations for the node.
+   *
    * @public
    */
   configuration?: FlowNodeConfiguration | undefined;
 
   /**
-   * <p>An array of objects, each of which contains information about an input into the node.</p>
+   * An array of objects, each of which contains information about an input into the node.
+   *
    * @public
    */
   inputs?: FlowNodeInput[] | undefined;
 
   /**
-   * <p>A list of objects, each of which contains information about an output from the node.</p>
+   * A list of objects, each of which contains information about an output from the node.
+   *
    * @public
    */
   outputs?: FlowNodeOutput[] | undefined;
 }
 
 /**
- * <p>Contains configurations for a node in your flow. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-nodes.html">Node types in a flow</a> in the Amazon Bedrock User Guide.</p>
+ * Contains configurations for a node in your flow. For more information, see [Node types in a flow](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-nodes.html) in the Amazon Bedrock User Guide.
+ *
  * @public
  */
 export type FlowNodeConfiguration =
@@ -3270,7 +3764,8 @@ export type FlowNodeConfiguration =
  */
 export namespace FlowNodeConfiguration {
   /**
-   * <p>Contains configurations for an input flow node in your flow. The first node in the flow. <code>inputs</code> can't be specified for this node.</p>
+   * Contains configurations for an input flow node in your flow. The first node in the flow. `inputs` can't be specified for this node.
+   *
    * @public
    */
   export interface InputMember {
@@ -3294,7 +3789,8 @@ export namespace FlowNodeConfiguration {
   }
 
   /**
-   * <p>Contains configurations for an output flow node in your flow. The last node in the flow. <code>outputs</code> can't be specified for this node.</p>
+   * Contains configurations for an output flow node in your flow. The last node in the flow. `outputs` can't be specified for this node.
+   *
    * @public
    */
   export interface OutputMember {
@@ -3318,7 +3814,8 @@ export namespace FlowNodeConfiguration {
   }
 
   /**
-   * <p>Contains configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response.</p>
+   * Contains configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response.
+   *
    * @public
    */
   export interface KnowledgeBaseMember {
@@ -3342,7 +3839,8 @@ export namespace FlowNodeConfiguration {
   }
 
   /**
-   * <p>Contains configurations for a condition node in your flow. Defines conditions that lead to different branches of the flow.</p>
+   * Contains configurations for a condition node in your flow. Defines conditions that lead to different branches of the flow.
+   *
    * @public
    */
   export interface ConditionMember {
@@ -3366,7 +3864,8 @@ export namespace FlowNodeConfiguration {
   }
 
   /**
-   * <p>Contains configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output.</p>
+   * Contains configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output.
+   *
    * @public
    */
   export interface LexMember {
@@ -3390,7 +3889,8 @@ export namespace FlowNodeConfiguration {
   }
 
   /**
-   * <p>Contains configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node.</p>
+   * Contains configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node.
+   *
    * @public
    */
   export interface PromptMember {
@@ -3414,7 +3914,8 @@ export namespace FlowNodeConfiguration {
   }
 
   /**
-   * <p>Contains configurations for a Lambda function node in your flow. Invokes an Lambda function.</p>
+   * Contains configurations for a Lambda function node in your flow. Invokes an Lambda function.
+   *
    * @public
    */
   export interface LambdaFunctionMember {
@@ -3438,7 +3939,8 @@ export namespace FlowNodeConfiguration {
   }
 
   /**
-   * <p>Contains configurations for a storage node in your flow. Stores an input in an Amazon S3 location.</p>
+   * Contains configurations for a storage node in your flow. Stores an input in an Amazon S3 location.
+   *
    * @public
    */
   export interface StorageMember {
@@ -3462,7 +3964,8 @@ export namespace FlowNodeConfiguration {
   }
 
   /**
-   * <p>Contains configurations for an agent node in your flow. Invokes an alias of an agent and returns the response.</p>
+   * Contains configurations for an agent node in your flow. Invokes an alias of an agent and returns the response.
+   *
    * @public
    */
   export interface AgentMember {
@@ -3486,7 +3989,8 @@ export namespace FlowNodeConfiguration {
   }
 
   /**
-   * <p>Contains configurations for a retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output.</p>
+   * Contains configurations for a retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output.
+   *
    * @public
    */
   export interface RetrievalMember {
@@ -3510,7 +4014,10 @@ export namespace FlowNodeConfiguration {
   }
 
   /**
-   * <p>Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output.</p> <p>The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node.</p>
+   * Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output.
+   *
+   * The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node.
+   *
    * @public
    */
   export interface IteratorMember {
@@ -3534,7 +4041,8 @@ export namespace FlowNodeConfiguration {
   }
 
   /**
-   * <p>Contains configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs.</p>
+   * Contains configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs.
+   *
    * @public
    */
   export interface CollectorMember {
@@ -3558,7 +4066,8 @@ export namespace FlowNodeConfiguration {
   }
 
   /**
-   * <p>Contains configurations for an inline code node in your flow. Inline code nodes let you write and execute code directly within your flow, enabling data transformations, custom logic, and integrations without needing an external Lambda function.</p>
+   * Contains configurations for an inline code node in your flow. Inline code nodes let you write and execute code directly within your flow, enabling data transformations, custom logic, and integrations without needing an external Lambda function.
+   *
    * @public
    */
   export interface InlineCodeMember {
@@ -3582,7 +4091,8 @@ export namespace FlowNodeConfiguration {
   }
 
   /**
-   * <p>Contains configurations for a DoWhile loop in your flow.</p>
+   * Contains configurations for a DoWhile loop in your flow.
+   *
    * @public
    */
   export interface LoopMember {
@@ -3606,7 +4116,8 @@ export namespace FlowNodeConfiguration {
   }
 
   /**
-   * <p>Contains input node configurations for a DoWhile loop in your flow.</p>
+   * Contains input node configurations for a DoWhile loop in your flow.
+   *
    * @public
    */
   export interface LoopInputMember {
@@ -3630,7 +4141,8 @@ export namespace FlowNodeConfiguration {
   }
 
   /**
-   * <p>Contains controller node configurations for a DoWhile loop in your flow.</p>
+   * Contains controller node configurations for a DoWhile loop in your flow.
+   *
    * @public
    */
   export interface LoopControllerMember {
@@ -3702,12 +4214,23 @@ export namespace FlowNodeConfiguration {
 }
 
 /**
- * <p>Contains configurations for the nodes of a DoWhile loop in your flow.</p> <p>A DoWhile loop is made up of the following nodes:</p> <ul> <li> <p> <code>Loop</code> - The container node that holds the loop's flow definition. This node encompasses the entire loop structure.</p> </li> <li> <p> <code>LoopInput</code> - The entry point node for the loop. This node receives inputs from nodes outside the loop and from previous loop iterations.</p> </li> <li> <p>Body nodes - The processing nodes that execute within each loop iteration. These can be nodes for handling data in your flow, such as a prompt or Lambda function nodes. Some node types aren't supported inside a DoWhile loop body. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_LoopIncompatibleNodeTypeFlowValidationDetails.html">LoopIncompatibleNodeTypeFlowValidationDetails</a>.</p> </li> <li> <p> <code>LoopController</code> - The node that evaluates whether the loop should continue or exit based on a condition.</p> </li> </ul> <p>These nodes work together to create a loop that runs at least once and continues until a specified condition is met or a maximum number of iterations is reached.</p>
+ * Contains configurations for the nodes of a DoWhile loop in your flow.
+ *
+ * A DoWhile loop is made up of the following nodes:
+ *
+ * - `Loop` - The container node that holds the loop's flow definition. This node encompasses the entire loop structure.
+ * - `LoopInput` - The entry point node for the loop. This node receives inputs from nodes outside the loop and from previous loop iterations.
+ * - Body nodes - The processing nodes that execute within each loop iteration. These can be nodes for handling data in your flow, such as a prompt or Lambda function nodes. Some node types aren't supported inside a DoWhile loop body. For more information, see [LoopIncompatibleNodeTypeFlowValidationDetails](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_LoopIncompatibleNodeTypeFlowValidationDetails.html).
+ * - `LoopController` - The node that evaluates whether the loop should continue or exit based on a condition.
+ *
+ * These nodes work together to create a loop that runs at least once and continues until a specified condition is met or a maximum number of iterations is reached.
+ *
  * @public
  */
 export interface LoopFlowNodeConfiguration {
   /**
-   * <p>The definition of the DoWhile loop nodes and connections between nodes in the flow.</p>
+   * The definition of the DoWhile loop nodes and connections between nodes in the flow.
+   *
    * @public
    */
   definition: FlowDefinition | undefined;
@@ -3718,43 +4241,50 @@ export interface LoopFlowNodeConfiguration {
  */
 export interface CreateFlowRequest {
   /**
-   * <p>A name for the flow.</p>
+   * A name for the flow.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description for the flow.</p>
+   * A description for the flow.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service role with permissions to create and manage a flow. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html">Create a service role for flows in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
+   * The Amazon Resource Name (ARN) of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
+   *
    * @public
    */
   executionRoleArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key to encrypt the flow.</p>
+   * The Amazon Resource Name (ARN) of the KMS key to encrypt the flow.
+   *
    * @public
    */
   customerEncryptionKeyArn?: string | undefined;
 
   /**
-   * <p>A definition of the nodes and connections between nodes in the flow.</p>
+   * A definition of the nodes and connections between nodes in the flow.
+   *
    * @public
    */
   definition?: FlowDefinition | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>Any tags that you want to attach to the flow. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html">Tagging resources in Amazon Bedrock</a>.</p>
+   * Any tags that you want to attach to the flow. For more information, see [Tagging resources in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html).
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -3765,67 +4295,78 @@ export interface CreateFlowRequest {
  */
 export interface CreateFlowResponse {
   /**
-   * <p>The name of the flow.</p>
+   * The name of the flow.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the flow.</p>
+   * The description of the flow.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service role with permissions to create a flow. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html">Create a service role for flows in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
+   * The Amazon Resource Name (ARN) of the service role with permissions to create a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
+   *
    * @public
    */
   executionRoleArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key that you encrypted the flow with.</p>
+   * The Amazon Resource Name (ARN) of the KMS key that you encrypted the flow with.
+   *
    * @public
    */
   customerEncryptionKeyArn?: string | undefined;
 
   /**
-   * <p>The unique identifier of the flow.</p>
+   * The unique identifier of the flow.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the flow.</p>
+   * The Amazon Resource Name (ARN) of the flow.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The status of the flow. When you submit this request, the status will be <code>NotPrepared</code>. If creation fails, the status becomes <code>Failed</code>.</p>
+   * The status of the flow. When you submit this request, the status will be `NotPrepared`. If creation fails, the status becomes `Failed`.
+   *
    * @public
    */
   status: FlowStatus | undefined;
 
   /**
-   * <p>The time at which the flow was created.</p>
+   * The time at which the flow was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The time at which the flow was last updated.</p>
+   * The time at which the flow was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The version of the flow. When you create a flow, the version created is the <code>DRAFT</code> version.</p>
+   * The version of the flow. When you create a flow, the version created is the `DRAFT` version.
+   *
    * @public
    */
   version: string | undefined;
 
   /**
-   * <p>A definition of the nodes and connections between nodes in the flow.</p>
+   * A definition of the nodes and connections between nodes in the flow.
+   *
    * @public
    */
   definition?: FlowDefinition | undefined;
@@ -3836,61 +4377,71 @@ export interface CreateFlowResponse {
  */
 export interface CreateFlowVersionResponse {
   /**
-   * <p>The name of the version.</p>
+   * The name of the version.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the version.</p>
+   * The description of the version.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service role with permissions to create a flow. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html">Create a service role for flows in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
+   * The Amazon Resource Name (ARN) of the service role with permissions to create a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
+   *
    * @public
    */
   executionRoleArn: string | undefined;
 
   /**
-   * <p>The KMS key that the flow is encrypted with.</p>
+   * The KMS key that the flow is encrypted with.
+   *
    * @public
    */
   customerEncryptionKeyArn?: string | undefined;
 
   /**
-   * <p>The unique identifier of the flow.</p>
+   * The unique identifier of the flow.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the flow.</p>
+   * The Amazon Resource Name (ARN) of the flow.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The status of the flow.</p>
+   * The status of the flow.
+   *
    * @public
    */
   status: FlowStatus | undefined;
 
   /**
-   * <p>The time at which the flow was created.</p>
+   * The time at which the flow was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The version of the flow that was created. Versions are numbered incrementally, starting from 1.</p>
+   * The version of the flow that was created. Versions are numbered incrementally, starting from 1.
+   *
    * @public
    */
   version: string | undefined;
 
   /**
-   * <p>A definition of the nodes and connections in the flow.</p>
+   * A definition of the nodes and connections in the flow.
+   *
    * @public
    */
   definition?: FlowDefinition | undefined;
@@ -3901,73 +4452,90 @@ export interface CreateFlowVersionResponse {
  */
 export interface GetFlowResponse {
   /**
-   * <p>The name of the flow.</p>
+   * The name of the flow.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the flow.</p>
+   * The description of the flow.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service role with permissions to create a flow. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html">Create a service row for flows</a> in the Amazon Bedrock User Guide.</p>
+   * The Amazon Resource Name (ARN) of the service role with permissions to create a flow. For more information, see [Create a service row for flows](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
+   *
    * @public
    */
   executionRoleArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key that the flow is encrypted with.</p>
+   * The Amazon Resource Name (ARN) of the KMS key that the flow is encrypted with.
+   *
    * @public
    */
   customerEncryptionKeyArn?: string | undefined;
 
   /**
-   * <p>The unique identifier of the flow.</p>
+   * The unique identifier of the flow.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the flow.</p>
+   * The Amazon Resource Name (ARN) of the flow.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The status of the flow. The following statuses are possible:</p> <ul> <li> <p>NotPrepared – The flow has been created or updated, but hasn't been prepared. If you just created the flow, you can't test it. If you updated the flow, the <code>DRAFT</code> version won't contain the latest changes for testing. Send a <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PrepareFlow.html">PrepareFlow</a> request to package the latest changes into the <code>DRAFT</code> version.</p> </li> <li> <p>Preparing – The flow is being prepared so that the <code>DRAFT</code> version contains the latest changes for testing.</p> </li> <li> <p>Prepared – The flow is prepared and the <code>DRAFT</code> version contains the latest changes for testing.</p> </li> <li> <p>Failed – The last API operation that you invoked on the flow failed. Send a <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetFlow.html">GetFlow</a> request and check the error message in the <code>validations</code> field.</p> </li> </ul>
+   * The status of the flow. The following statuses are possible:
+   *
+   * - NotPrepared – The flow has been created or updated, but hasn't been prepared. If you just created the flow, you can't test it. If you updated the flow, the `DRAFT` version won't contain the latest changes for testing. Send a [PrepareFlow](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PrepareFlow.html) request to package the latest changes into the `DRAFT` version.
+   * - Preparing – The flow is being prepared so that the `DRAFT` version contains the latest changes for testing.
+   * - Prepared – The flow is prepared and the `DRAFT` version contains the latest changes for testing.
+   * - Failed – The last API operation that you invoked on the flow failed. Send a [GetFlow](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetFlow.html) request and check the error message in the `validations` field.
+   *
    * @public
    */
   status: FlowStatus | undefined;
 
   /**
-   * <p>The time at which the flow was created.</p>
+   * The time at which the flow was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The time at which the flow was last updated.</p>
+   * The time at which the flow was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The version of the flow for which information was retrieved.</p>
+   * The version of the flow for which information was retrieved.
+   *
    * @public
    */
   version: string | undefined;
 
   /**
-   * <p>The definition of the nodes and connections between the nodes in the flow.</p>
+   * The definition of the nodes and connections between the nodes in the flow.
+   *
    * @public
    */
   definition?: FlowDefinition | undefined;
 
   /**
-   * <p>A list of validation error messages related to the last failed operation on the flow.</p>
+   * A list of validation error messages related to the last failed operation on the flow.
+   *
    * @public
    */
   validations?: FlowValidation[] | undefined;
@@ -3978,61 +4546,71 @@ export interface GetFlowResponse {
  */
 export interface GetFlowVersionResponse {
   /**
-   * <p>The name of the version.</p>
+   * The name of the version.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the flow.</p>
+   * The description of the flow.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service role with permissions to create a flow. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html">Create a service role for flows in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
+   * The Amazon Resource Name (ARN) of the service role with permissions to create a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
+   *
    * @public
    */
   executionRoleArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key that the version of the flow is encrypted with.</p>
+   * The Amazon Resource Name (ARN) of the KMS key that the version of the flow is encrypted with.
+   *
    * @public
    */
   customerEncryptionKeyArn?: string | undefined;
 
   /**
-   * <p>The unique identifier of the flow.</p>
+   * The unique identifier of the flow.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the flow.</p>
+   * The Amazon Resource Name (ARN) of the flow.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The status of the flow.</p>
+   * The status of the flow.
+   *
    * @public
    */
   status: FlowStatus | undefined;
 
   /**
-   * <p>The time at which the flow was created.</p>
+   * The time at which the flow was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The version of the flow for which information was retrieved.</p>
+   * The version of the flow for which information was retrieved.
+   *
    * @public
    */
   version: string | undefined;
 
   /**
-   * <p>The definition of the nodes and connections between nodes in the flow.</p>
+   * The definition of the nodes and connections between nodes in the flow.
+   *
    * @public
    */
   definition?: FlowDefinition | undefined;
@@ -4043,37 +4621,43 @@ export interface GetFlowVersionResponse {
  */
 export interface UpdateFlowRequest {
   /**
-   * <p>A name for the flow.</p>
+   * A name for the flow.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description for the flow.</p>
+   * A description for the flow.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service role with permissions to create and manage a flow. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html">Create a service role for flows in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
+   * The Amazon Resource Name (ARN) of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
+   *
    * @public
    */
   executionRoleArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key to encrypt the flow.</p>
+   * The Amazon Resource Name (ARN) of the KMS key to encrypt the flow.
+   *
    * @public
    */
   customerEncryptionKeyArn?: string | undefined;
 
   /**
-   * <p>A definition of the nodes and the connections between the nodes in the flow.</p>
+   * A definition of the nodes and the connections between the nodes in the flow.
+   *
    * @public
    */
   definition?: FlowDefinition | undefined;
 
   /**
-   * <p>The unique identifier of the flow.</p>
+   * The unique identifier of the flow.
+   *
    * @public
    */
   flowIdentifier: string | undefined;
@@ -4084,67 +4668,78 @@ export interface UpdateFlowRequest {
  */
 export interface UpdateFlowResponse {
   /**
-   * <p>The name of the flow.</p>
+   * The name of the flow.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the flow.</p>
+   * The description of the flow.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service role with permissions to create a flow. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html">Create a service role for flows in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
+   * The Amazon Resource Name (ARN) of the service role with permissions to create a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
+   *
    * @public
    */
   executionRoleArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key that the flow was encrypted with.</p>
+   * The Amazon Resource Name (ARN) of the KMS key that the flow was encrypted with.
+   *
    * @public
    */
   customerEncryptionKeyArn?: string | undefined;
 
   /**
-   * <p>The unique identifier of the flow.</p>
+   * The unique identifier of the flow.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the flow.</p>
+   * The Amazon Resource Name (ARN) of the flow.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The status of the flow. When you submit this request, the status will be <code>NotPrepared</code>. If updating fails, the status becomes <code>Failed</code>.</p>
+   * The status of the flow. When you submit this request, the status will be `NotPrepared`. If updating fails, the status becomes `Failed`.
+   *
    * @public
    */
   status: FlowStatus | undefined;
 
   /**
-   * <p>The time at which the flow was created.</p>
+   * The time at which the flow was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The time at which the flow was last updated.</p>
+   * The time at which the flow was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The version of the flow. When you update a flow, the version updated is the <code>DRAFT</code> version.</p>
+   * The version of the flow. When you update a flow, the version updated is the `DRAFT` version.
+   *
    * @public
    */
   version: string | undefined;
 
   /**
-   * <p>A definition of the nodes and the connections between nodes in the flow.</p>
+   * A definition of the nodes and the connections between nodes in the flow.
+   *
    * @public
    */
   definition?: FlowDefinition | undefined;
@@ -4155,7 +4750,8 @@ export interface UpdateFlowResponse {
  */
 export interface ValidateFlowDefinitionRequest {
   /**
-   * <p>The definition of a flow to validate.</p>
+   * The definition of a flow to validate.
+   *
    * @public
    */
   definition: FlowDefinition | undefined;

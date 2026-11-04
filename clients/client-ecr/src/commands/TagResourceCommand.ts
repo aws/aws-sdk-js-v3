@@ -23,8 +23,8 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Adds specified tags to a resource with the specified ARN. Existing tags on a resource
- *             are not changed if they are not specified in the request parameters.</p>
+ * Adds specified tags to a resource with the specified ARN. Existing tags on a resource are not changed if they are not specified in the request parameters.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,27 +55,28 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link InvalidTagParameterException} (client fault)
- *  <p>An invalid parameter has been specified. Tag keys can have a maximum character length of 128 characters, and tag values can have
- *             a maximum length of 256 characters.</p>
+ *
+ * An invalid parameter has been specified. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
  *
  * @throws {@link RepositoryNotFoundException} (client fault)
- *  <p>The specified repository could not be found. Check the spelling of the specified
- *             repository and ensure that you are performing operations on the correct registry.</p>
+ *
+ * The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>The list of tags on the repository is over the limit. The maximum number of tags that
- *             can be applied to a repository is 50.</p>
+ *
+ * The list of tags on the repository is over the limit. The maximum number of tags that can be applied to a repository is 50.
  *
  * @throws {@link ECRServiceException}
- * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * Base exception class for all service exceptions from ECR service.
  *
  * @public
  */

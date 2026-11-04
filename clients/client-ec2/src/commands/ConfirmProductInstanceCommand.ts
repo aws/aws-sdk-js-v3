@@ -23,9 +23,8 @@ export interface ConfirmProductInstanceCommandInput extends ConfirmProductInstan
 export interface ConfirmProductInstanceCommandOutput extends ConfirmProductInstanceResult, __MetadataBearer {}
 
 /**
- * <p>Determines whether a product code is associated with an instance. This action can only
- *             be used by the owner of the product code. It is useful when a product code owner must
- *             verify whether another user's instance is eligible for support.</p>
+ * Determines whether a product code is associated with an instance. This action can only be used by the owner of the product code. It is useful when a product code owner must verify whether another user's instance is eligible for support.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,8 +54,8 @@ export interface ConfirmProductInstanceCommandOutput extends ConfirmProductInsta
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To confirm the product instance
  * ```javascript

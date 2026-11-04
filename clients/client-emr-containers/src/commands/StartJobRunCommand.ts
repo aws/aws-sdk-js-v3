@@ -23,8 +23,8 @@ export interface StartJobRunCommandInput extends StartJobRunRequest {}
 export interface StartJobRunCommandOutput extends StartJobRunResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a job run. A job run is a unit of work, such as a Spark jar, PySpark script, or
- *          SparkSQL query, that you submit to Amazon EMR on EKS.</p>
+ * Starts a job run. A job run is a unit of work, such as a Spark jar, PySpark script, or SparkSQL query, that you submit to Amazon EMR on EKS.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -119,17 +119,20 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This is an internal server exception.</p>
+ *
+ * This is an internal server exception.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>There are invalid parameters in the client request.</p>
+ *
+ * There are invalid parameters in the client request.
  *
  * @throws {@link EMRContainersServiceException}
- * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
+ * Base exception class for all service exceptions from EMRContainers service.
  *
  * @public
  */

@@ -23,15 +23,10 @@ export interface EnableVpcClassicLinkCommandInput extends EnableVpcClassicLinkRe
 export interface EnableVpcClassicLinkCommandOutput extends EnableVpcClassicLinkResult, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This action is deprecated.</p>
- *          </note>
- *          <p>Enables a VPC for ClassicLink. You can then link EC2-Classic instances to your
- * 			ClassicLink-enabled VPC to allow communication over private IP addresses. You cannot
- * 			enable your VPC for ClassicLink if any of your VPC route tables have existing routes for
- * 			address ranges within the <code>10.0.0.0/8</code> IP address range, excluding local
- * 			routes for VPCs in the <code>10.0.0.0/16</code> and <code>10.1.0.0/16</code> IP address
- * 			ranges.</p>
+ * > **Note:** This action is deprecated.
+ *
+ * Enables a VPC for ClassicLink. You can then link EC2-Classic instances to your ClassicLink-enabled VPC to allow communication over private IP addresses. You cannot enable your VPC for ClassicLink if any of your VPC route tables have existing routes for address ranges within the `10.0.0.0/8` IP address range, excluding local routes for VPCs in the `10.0.0.0/16` and `10.1.0.0/16` IP address ranges.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,8 +54,8 @@ export interface EnableVpcClassicLinkCommandOutput extends EnableVpcClassicLinkR
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

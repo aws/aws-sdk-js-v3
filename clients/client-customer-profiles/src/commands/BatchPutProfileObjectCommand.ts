@@ -23,16 +23,14 @@ export interface BatchPutProfileObjectCommandInput extends BatchPutProfileObject
 export interface BatchPutProfileObjectCommandOutput extends BatchPutProfileObjectResponse, __MetadataBearer {}
 
 /**
- * <p>Adds multiple profile objects to a domain of a given ObjectType in a single API call.</p>
- *          <p>When adding a specific profile object, like a Contact Record, an inferred profile can
- *          get created if it is not mapped to an existing profile. The resulting profile will only
- *          have a phone number populated in the standard ProfileObject. Any additional Contact Records
- *          with the same phone number will be mapped to the same inferred profile.</p>
- *          <p>When a ProfileObject is created and if a ProfileObjectType already exists for the
- *          ProfileObject, it will provide data to a standard profile depending on the
- *          ProfileObjectType definition.</p>
- *          <p>BatchPutProfileObject needs an ObjectType, which can be created using
- *          PutProfileObjectType.</p>
+ * Adds multiple profile objects to a domain of a given ObjectType in a single API call.
+ *
+ * When adding a specific profile object, like a Contact Record, an inferred profile can get created if it is not mapped to an existing profile. The resulting profile will only have a phone number populated in the standard ProfileObject. Any additional Contact Records with the same phone number will be mapped to the same inferred profile.
+ *
+ * When a ProfileObject is created and if a ProfileObjectType already exists for the ProfileObject, it will provide data to a standard profile depending on the ProfileObjectType definition.
+ *
+ * BatchPutProfileObject needs an ObjectType, which can be created using PutProfileObjectType.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,23 +76,28 @@ export interface BatchPutProfileObjectCommandOutput extends BatchPutProfileObjec
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource does not exist, or access was denied.</p>
+ *
+ * The requested resource does not exist, or access was denied.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>You exceeded the maximum number of requests.</p>
+ *
+ * You exceeded the maximum number of requests.
  *
  * @throws {@link CustomerProfilesServiceException}
- * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * Base exception class for all service exceptions from CustomerProfiles service.
  *
  * @public
  */

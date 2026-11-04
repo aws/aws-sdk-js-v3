@@ -6,7 +6,8 @@ import { ManagedBlockchainQueryServiceException as __BaseException } from "./Man
 import type { ValidationExceptionField } from "./models_0";
 
 /**
- * <p>The Amazon Web Services account doesn’t have access to this resource. </p>
+ * The Amazon Web Services account doesn’t have access to this resource.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request processing has failed because of an internal error in the service.</p>
+ * The request processing has failed because of an internal error in the service.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -36,7 +38,8 @@ export class InternalServerException extends __BaseException {
   readonly $fault = "server" as const;
   $retryable = {};
   /**
-   * <p>Specifies the <code>retryAfterSeconds</code> value.</p>
+   * Specifies the `retryAfterSeconds` value.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -56,7 +59,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The resource was not found.</p>
+ * The resource was not found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -64,13 +68,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The <code>resourceId</code> of the resource that caused the exception.</p>
+   * The `resourceId` of the resource that caused the exception.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The <code>resourceType</code> of the resource that caused the exception.</p>
+   * The `resourceType` of the resource that caused the exception.
+   *
    * @public
    */
   resourceType: ResourceType | undefined;
@@ -91,7 +97,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The service quota has been exceeded for this resource.</p>
+ * The service quota has been exceeded for this resource.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -99,25 +106,29 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The <code>resourceId</code> of the resource that caused the exception.</p>
+   * The `resourceId` of the resource that caused the exception.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The <code>resourceType</code> of the resource that caused the exception.</p>
+   * The `resourceType` of the resource that caused the exception.
+   *
    * @public
    */
   resourceType: ResourceType | undefined;
 
   /**
-   * <p>The container for the <code>serviceCode</code>.</p>
+   * The container for the `serviceCode`.
+   *
    * @public
    */
   serviceCode: string | undefined;
 
   /**
-   * <p>The container for the <code>quotaCode</code>.</p>
+   * The container for the `quotaCode`.
+   *
    * @public
    */
   quotaCode: string | undefined;
@@ -140,10 +151,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request or operation couldn't be performed because a service is throttling
- *       requests. The most common source of throttling errors is when you create resources
- *       that exceed your service limit for this resource type. Request a limit increase or
- *       delete unused resources, if possible.</p>
+ * The request or operation couldn't be performed because a service is throttling requests. The most common source of throttling errors is when you create resources that exceed your service limit for this resource type. Request a limit increase or delete unused resources, if possible.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -154,19 +163,22 @@ export class ThrottlingException extends __BaseException {
     throttling: true,
   };
   /**
-   * <p>The container for the <code>serviceCode</code>.</p>
+   * The container for the `serviceCode`.
+   *
    * @public
    */
   serviceCode: string | undefined;
 
   /**
-   * <p>The container for the <code>quotaCode</code>.</p>
+   * The container for the `quotaCode`.
+   *
    * @public
    */
   quotaCode: string | undefined;
 
   /**
-   * <p>The container of the <code>retryAfterSeconds</code> value.</p>
+   * The container of the `retryAfterSeconds` value.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -188,7 +200,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The resource passed is invalid.</p>
+ * The resource passed is invalid.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -196,13 +209,15 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The container for the reason for the exception</p>
+   * The container for the reason for the exception
+   *
    * @public
    */
   reason: ValidationExceptionReason | undefined;
 
   /**
-   * <p>The container for the <code>fieldList</code> of the exception.</p>
+   * The container for the `fieldList` of the exception.
+   *
    * @public
    */
   fieldList?: ValidationExceptionField[] | undefined;

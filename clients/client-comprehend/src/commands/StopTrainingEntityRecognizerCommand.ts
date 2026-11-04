@@ -23,12 +23,10 @@ export interface StopTrainingEntityRecognizerCommandInput extends StopTrainingEn
 export interface StopTrainingEntityRecognizerCommandOutput extends StopTrainingEntityRecognizerResponse, __MetadataBearer {}
 
 /**
- * <p>Stops an entity recognizer training job while in progress.</p>
- *          <p>If the training job state is <code>TRAINING</code>, the job is marked for termination and
- *       put into the <code>STOP_REQUESTED</code> state. If the training job completes before it can be
- *       stopped, it is put into the <code>TRAINED</code>; otherwise the training job is stopped and
- *       putted into the <code>STOPPED</code> state and the service sends back an HTTP 200 response
- *       with an empty HTTP body.</p>
+ * Stops an entity recognizer training job while in progress.
+ *
+ * If the training job state is `TRAINING`, the job is marked for termination and put into the `STOP_REQUESTED` state. If the training job completes before it can be stopped, it is put into the `TRAINED`; otherwise the training job is stopped and putted into the `STOPPED` state and the service sends back an HTTP 200 response with an empty HTTP body.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,20 +51,24 @@ export interface StopTrainingEntityRecognizerCommandOutput extends StopTrainingE
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is invalid.</p>
+ *
+ * The request is invalid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+ *
+ * The specified resource ARN was not found. Check the ARN and try your request again.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
+ * The number of requests exceeds the limit. Resubmit your request later.
  *
  * @throws {@link ComprehendServiceException}
- * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * Base exception class for all service exceptions from Comprehend service.
  *
  * @public
  */

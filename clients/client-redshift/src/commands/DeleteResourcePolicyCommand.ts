@@ -23,7 +23,8 @@ export interface DeleteResourcePolicyCommandInput extends DeleteResourcePolicyMe
 export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the resource policy for a specified resource.</p>
+ * Deletes the resource policy for a specified resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,14 +49,16 @@ export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link UnsupportedOperationFault} (client fault)
- *  <p>The requested operation isn't supported.</p>
+ *
+ * The requested operation isn't supported.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

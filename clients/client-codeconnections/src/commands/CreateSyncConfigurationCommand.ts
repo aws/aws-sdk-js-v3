@@ -23,9 +23,8 @@ export interface CreateSyncConfigurationCommandInput extends CreateSyncConfigura
 export interface CreateSyncConfigurationCommandOutput extends CreateSyncConfigurationOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a sync configuration which allows Amazon Web Services to sync content from a Git
- *       repository to update a specified Amazon Web Services resource. Parameters for the sync
- *       configuration are determined by the sync type.</p>
+ * Creates a sync configuration which allows Amazon Web Services to sync content from a Git repository to update a specified Amazon Web Services resource. Parameters for the sync configuration are determined by the sync type.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,29 +72,36 @@ export interface CreateSyncConfigurationCommandOutput extends CreateSyncConfigur
  * @see {@link CodeConnectionsClientResolvedConfig | config} for CodeConnectionsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time. </p>
+ *
+ * Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Received an internal server exception. Try again later.</p>
+ *
+ * Received an internal server exception. Try again later.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input is not valid. Verify that the action is typed correctly.</p>
+ *
+ * The input is not valid. Verify that the action is typed correctly.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>Exceeded the maximum limit for connections.</p>
+ *
+ * Exceeded the maximum limit for connections.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>Unable to create resource. Resource already exists.</p>
+ *
+ * Unable to create resource. Resource already exists.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link CodeConnectionsServiceException}
- * <p>Base exception class for all service exceptions from CodeConnections service.</p>
  *
+ * Base exception class for all service exceptions from CodeConnections service.
  *
  * @public
  */

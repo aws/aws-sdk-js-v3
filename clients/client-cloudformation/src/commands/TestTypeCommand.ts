@@ -23,31 +23,21 @@ export interface TestTypeCommandInput extends TestTypeInput {}
 export interface TestTypeCommandOutput extends TestTypeOutput, __MetadataBearer {}
 
 /**
- * <p>Tests a registered extension to make sure it meets all necessary requirements for being
- *       published in the CloudFormation registry.</p>
- *          <ul>
- *             <li>
- *                <p>For resource types, this includes passing all contracts tests defined for the
- *           type.</p>
- *             </li>
- *             <li>
- *                <p>For modules, this includes determining if the module's model meets all necessary
- *           requirements.</p>
- *             </li>
- *          </ul>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-testing">Testing your public extension before publishing</a> in the
- *         <i>CloudFormation Command Line Interface (CLI) User Guide</i>.</p>
- *          <p>If you don't specify a version, CloudFormation uses the default version of the extension in
- *       your account and Region for testing.</p>
- *          <p>To perform testing, CloudFormation assumes the execution role specified when the type was
- *       registered. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html">RegisterType</a>.</p>
- *          <p>Once you've initiated testing on an extension using <code>TestType</code>, you can pass
- *       the returned <code>TypeVersionArn</code> into <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html">DescribeType</a> to
- *       monitor the current test status and test status description for the extension.</p>
- *          <p>An extension must have a test status of <code>PASSED</code> before it can be published.
- *       For more information, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-publish.html">Publishing extensions
- *         to make them available for public use</a> in the
- *       <i>CloudFormation Command Line Interface (CLI) User Guide</i>.</p>
+ * Tests a registered extension to make sure it meets all necessary requirements for being published in the CloudFormation registry.
+ *
+ * - For resource types, this includes passing all contracts tests defined for the type.
+ * - For modules, this includes determining if the module's model meets all necessary requirements.
+ *
+ * For more information, see [Testing your public extension before publishing](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-testing) in the *CloudFormation Command Line Interface (CLI) User Guide*.
+ *
+ * If you don't specify a version, CloudFormation uses the default version of the extension in your account and Region for testing.
+ *
+ * To perform testing, CloudFormation assumes the execution role specified when the type was registered. For more information, see [RegisterType](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html).
+ *
+ * Once you've initiated testing on an extension using `TestType`, you can pass the returned `TypeVersionArn` into [DescribeType](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html) to monitor the current test status and test status description for the extension.
+ *
+ * An extension must have a test status of `PASSED` before it can be published. For more information, see [Publishing extensions to make them available for public use](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-publish.html) in the *CloudFormation Command Line Interface (CLI) User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,14 +68,16 @@ export interface TestTypeCommandOutput extends TestTypeOutput, __MetadataBearer 
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link CFNRegistryException} (client fault)
- *  <p>An error occurred during a CloudFormation registry operation.</p>
+ *
+ * An error occurred during a CloudFormation registry operation.
  *
  * @throws {@link TypeNotFoundException} (client fault)
- *  <p>The specified extension doesn't exist in the CloudFormation registry.</p>
+ *
+ * The specified extension doesn't exist in the CloudFormation registry.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

@@ -26,12 +26,14 @@ export interface AcceptNetworkFirewallTransitGatewayAttachmentCommandInput exten
 export interface AcceptNetworkFirewallTransitGatewayAttachmentCommandOutput extends AcceptNetworkFirewallTransitGatewayAttachmentResponse, __MetadataBearer {}
 
 /**
- * <p>Accepts a transit gateway attachment request for Network Firewall. When you accept the attachment request, Network Firewall creates the necessary routing components to enable traffic flow between the transit gateway and firewall endpoints.</p>
- *          <p>You must accept a transit gateway attachment to complete the creation of a transit gateway-attached firewall, unless auto-accept is enabled on the transit gateway. After acceptance, use <a>DescribeFirewall</a> to verify the firewall status.</p>
- *          <p>To reject an attachment instead of accepting it, use <a>RejectNetworkFirewallTransitGatewayAttachment</a>.</p>
- *          <note>
- *             <p>It can take several minutes for the attachment acceptance to complete and the firewall to become available.</p>
- *          </note>
+ * Accepts a transit gateway attachment request for Network Firewall. When you accept the attachment request, Network Firewall creates the necessary routing components to enable traffic flow between the transit gateway and firewall endpoints.
+ *
+ * You must accept a transit gateway attachment to complete the creation of a transit gateway-attached firewall, unless auto-accept is enabled on the transit gateway. After acceptance, use DescribeFirewall to verify the firewall status.
+ *
+ * To reject an attachment instead of accepting it, use RejectNetworkFirewallTransitGatewayAttachment.
+ *
+ * > **Note:** It can take several minutes for the attachment acceptance to complete and the firewall to become available.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,34 +61,28 @@ export interface AcceptNetworkFirewallTransitGatewayAttachmentCommandOutput exte
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Your request is valid, but Network Firewall couldn't perform the operation because of a
- *          system problem. Retry your request. </p>
+ *
+ * Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The operation failed because of a problem with your request. Examples include: </p>
- *          <ul>
- *             <li>
- *                <p>You specified an unsupported parameter name or value.</p>
- *             </li>
- *             <li>
- *                <p>You tried to update a property with a value that isn't among the available
- *                types.</p>
- *             </li>
- *             <li>
- *                <p>Your request references an ARN that is malformed, or corresponds to a resource
- *                that isn't valid in the context of the request.</p>
- *             </li>
- *          </ul>
+ *
+ * The operation failed because of a problem with your request. Examples include:
+ *
+ * - You specified an unsupported parameter name or value.
+ * - You tried to update a property with a value that isn't among the available types.
+ * - Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Unable to locate a resource using the parameters that you provided.</p>
+ *
+ * Unable to locate a resource using the parameters that you provided.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Unable to process the request due to throttling limitations.</p>
+ *
+ * Unable to process the request due to throttling limitations.
  *
  * @throws {@link NetworkFirewallServiceException}
- * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ * Base exception class for all service exceptions from NetworkFirewall service.
  *
  * @public
  */

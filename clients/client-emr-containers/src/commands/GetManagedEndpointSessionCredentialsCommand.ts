@@ -26,7 +26,8 @@ export interface GetManagedEndpointSessionCredentialsCommandInput extends GetMan
 export interface GetManagedEndpointSessionCredentialsCommandOutput extends GetManagedEndpointSessionCredentialsResponse, __MetadataBearer {}
 
 /**
- * <p>Generate a session token to connect to a managed endpoint. </p>
+ * Generate a session token to connect to a managed endpoint.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,20 +67,24 @@ export interface GetManagedEndpointSessionCredentialsCommandOutput extends GetMa
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This is an internal server exception.</p>
+ *
+ * This is an internal server exception.
  *
  * @throws {@link RequestThrottledException} (client fault)
- *  <p>The request throttled.</p>
+ *
+ * The request throttled.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>There are invalid parameters in the client request.</p>
+ *
+ * There are invalid parameters in the client request.
  *
  * @throws {@link EMRContainersServiceException}
- * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
+ * Base exception class for all service exceptions from EMRContainers service.
  *
  * @public
  */

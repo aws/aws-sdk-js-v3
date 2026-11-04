@@ -23,10 +23,10 @@ export interface UpdateTemplateCommandInput extends UpdateTemplateRequest {}
 export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an email template. Email templates enable you to send personalized email to
- *             one or more destinations in a single operation. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/send-personalized-email-api.html">Amazon SES
- *                 Developer Guide</a>.</p>
- *          <p>You can execute this operation no more than once per second.</p>
+ * Updates an email template. Email templates enable you to send personalized email to one or more destinations in a single operation. For more information, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/dg/send-personalized-email-api.html).
+ *
+ * You can execute this operation no more than once per second.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,16 +56,16 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link InvalidTemplateException} (client fault)
- *  <p>Indicates that the template that you specified could not be rendered. This issue may
- *             occur when a template refers to a partial that does not exist.</p>
+ *
+ * Indicates that the template that you specified could not be rendered. This issue may occur when a template refers to a partial that does not exist.
  *
  * @throws {@link TemplateDoesNotExistException} (client fault)
- *  <p>Indicates that the Template object you specified does not exist in your Amazon SES
- *             account.</p>
+ *
+ * Indicates that the Template object you specified does not exist in your Amazon SES account.
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @public
  */

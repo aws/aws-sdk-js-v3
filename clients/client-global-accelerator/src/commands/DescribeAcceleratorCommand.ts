@@ -23,7 +23,8 @@ export interface DescribeAcceleratorCommandInput extends DescribeAcceleratorRequ
 export interface DescribeAcceleratorCommandOutput extends DescribeAcceleratorResponse, __MetadataBearer {}
 
 /**
- * <p>Describe an accelerator. </p>
+ * Describe an accelerator.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,17 +82,20 @@ export interface DescribeAcceleratorCommandOutput extends DescribeAcceleratorRes
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
  * @throws {@link AcceleratorNotFoundException} (client fault)
- *  <p>The accelerator that you specified doesn't exist.</p>
+ *
+ * The accelerator that you specified doesn't exist.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * There was an internal error for Global Accelerator.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>An argument that you specified is invalid.</p>
+ *
+ * An argument that you specified is invalid.
  *
  * @throws {@link GlobalAcceleratorServiceException}
- * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * Base exception class for all service exceptions from GlobalAccelerator service.
  *
  * @public
  */

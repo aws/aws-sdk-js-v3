@@ -23,26 +23,15 @@ export interface DeleteReplicationGroupCommandInput extends DeleteReplicationGro
 export interface DeleteReplicationGroupCommandOutput extends DeleteReplicationGroupResult, __MetadataBearer {}
 
 /**
- * <p>Deletes an existing replication group. By default, this operation deletes the entire
- *             replication group, including the primary/primaries and all of the read replicas. If the
- *             replication group has only one primary, you can optionally delete only the read
- *             replicas, while retaining the primary by setting
- *             <code>RetainPrimaryCluster=true</code>.</p>
- *          <p>When you receive a successful response from this operation, Amazon ElastiCache
- *             immediately begins deleting the selected resources; you cannot cancel or revert this
- *             operation.</p>
- *          <note>
- *             <ul>
- *                <li>
- *                   <p>
- *                      <code>CreateSnapshot</code> permission is required to create a final snapshot.
- *                     Without this permission, the API call will fail with an <code>Access Denied</code> exception.</p>
- *                </li>
- *                <li>
- *                   <p>This operation is valid for Redis OSS only.</p>
- *                </li>
- *             </ul>
- *          </note>
+ * Deletes an existing replication group. By default, this operation deletes the entire replication group, including the primary/primaries and all of the read replicas. If the replication group has only one primary, you can optionally delete only the read replicas, while retaining the primary by setting `RetainPrimaryCluster=true`.
+ *
+ * When you receive a successful response from this operation, Amazon ElastiCache immediately begins deleting the selected resources; you cannot cancel or revert this operation.
+ *
+ * > **Note:**
+ * >
+ * > - `CreateSnapshot` permission is required to create a final snapshot. Without this permission, the API call will fail with an `Access Denied` exception.
+ * > - This operation is valid for Redis OSS only.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -194,41 +183,41 @@ export interface DeleteReplicationGroupCommandOutput extends DeleteReplicationGr
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * Two or more incompatible parameters were specified.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link InvalidReplicationGroupStateFault} (client fault)
- *  <p>The requested replication group is not in the <code>available</code> state.</p>
+ *
+ * The requested replication group is not in the `available` state.
  *
  * @throws {@link ReplicationGroupNotFoundFault} (client fault)
- *  <p>The specified replication group does not exist.</p>
+ *
+ * The specified replication group does not exist.
  *
  * @throws {@link SnapshotAlreadyExistsFault} (client fault)
- *  <p>You already have a snapshot with the given name.</p>
+ *
+ * You already have a snapshot with the given name.
  *
  * @throws {@link SnapshotFeatureNotSupportedFault} (client fault)
- *  <p>You attempted one of the following operations:</p>
- *          <ul>
- *             <li>
- *                <p>Creating a snapshot of a Valkey or Redis OSS cluster running on a
- *                         <code>cache.t1.micro</code> cache node.</p>
- *             </li>
- *             <li>
- *                <p>Creating a snapshot of a cluster that is running Memcached rather than
- *                     Valkey or Redis OSS.</p>
- *             </li>
- *          </ul>
- *          <p>Neither of these are supported by ElastiCache.</p>
+ *
+ * You attempted one of the following operations:
+ *
+ * - Creating a snapshot of a Valkey or Redis OSS cluster running on a `cache.t1.micro` cache node.
+ * - Creating a snapshot of a cluster that is running Memcached rather than Valkey or Redis OSS.
+ *
+ * Neither of these are supported by ElastiCache.
  *
  * @throws {@link SnapshotQuotaExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the maximum number of
- *             snapshots.</p>
+ *
+ * The request cannot be processed because it would exceed the maximum number of snapshots.
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @example DeleteReplicationGroup
  * ```javascript

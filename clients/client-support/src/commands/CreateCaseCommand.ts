@@ -23,57 +23,32 @@ export interface CreateCaseCommandInput extends CreateCaseRequest {}
 export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a case in the Amazon Web Services Support Center. This operation is similar to how you create a case
- *             in the Amazon Web Services Support Center <a href="https://console.aws.amazon.com/support/home#/case/create">Create
- *                 Case</a> page.</p>
- *          <p>The Amazon Web Services Support API doesn't support requesting service limit increases. You can submit a
- *             service limit increase in the following ways: </p>
- *          <ul>
- *             <li>
- *                <p>Submit a request from the Amazon Web Services Support Center <a href="https://console.aws.amazon.com/support/home#/case/create">Create Case</a> page.</p>
- *             </li>
- *             <li>
- *                <p>Use the Service Quotas <a href="https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_RequestServiceQuotaIncrease.html">RequestServiceQuotaIncrease</a> operation.</p>
- *             </li>
- *          </ul>
- *          <important>
- *             <p>Amazon Web Services Support automatically redacts sensitive information from support cases to protect your data. The following information is replaced with <code>[REDACTED_BY_Amazon Web Services]</code> and is not stored:</p>
- *             <ul>
- *                <li>
- *                   <p>Amazon Web Services secret keys - The complete key is replaced. Example: <code>[REDACTED_BY_Amazon Web Services]</code>
- *                   </p>
- *                </li>
- *                <li>
- *                   <p>Private keys - The complete key is replaced. Example: <code>[REDACTED_BY_Amazon Web Services]</code>
- *                   </p>
- *                </li>
- *                <li>
- *                   <p>Credit card numbers - The number is redacted, but the last 4 digits remain. Example: <code>[REDACTED_BY_Amazon Web Services]-7016</code>
- *                   </p>
- *                </li>
- *             </ul>
- *             <p>This sensitive information is never required by Amazon Web Services Support.</p>
- *          </important>
- *          <p>A successful <code>CreateCase</code> request returns a Amazon Web Services Support case number. You can use
- *             the <a>DescribeCases</a> operation and specify the case number to get
- *             existing Amazon Web Services Support cases. After you create a case, use the <a>AddCommunicationToCase</a> operation to add additional communication or
- *             attachments to an existing case.</p>
- *          <p>The <code>caseId</code> is separate from the <code>displayId</code> that appears in
- *             the <a href="https://console.aws.amazon.com/support">Amazon Web Services Support Center</a>. Use the <a>DescribeCases</a> operation to get the <code>displayId</code>.</p>
- *          <note>
- *             <ul>
- *                <li>
- *                   <p>You must have an Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan to use the Amazon Web Services Support
- *                         API. If you're in an Amazon Web Services Region that doesn't offer one of these Amazon Web Services Support plans, or if you haven't transitioned to one of these plans, you can use the Amazon Web Services Support API with a Business, Enterprise On-Ramp, or Enterprise Support plan.</p>
- *                </li>
- *                <li>
- *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have an
- *                         Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan, the
- *                             <code>SubscriptionRequiredException</code> error message appears. For
- *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
- *                </li>
- *             </ul>
- *          </note>
+ * Creates a case in the Amazon Web Services Support Center. This operation is similar to how you create a case in the Amazon Web Services Support Center [Create Case](https://console.aws.amazon.com/support/home#/case/create) page.
+ *
+ * The Amazon Web Services Support API doesn't support requesting service limit increases. You can submit a service limit increase in the following ways:
+ *
+ * - Submit a request from the Amazon Web Services Support Center [Create Case](https://console.aws.amazon.com/support/home#/case/create) page.
+ * - Use the Service Quotas [RequestServiceQuotaIncrease](https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_RequestServiceQuotaIncrease.html) operation.
+ *
+ * > **Important:**
+ * >
+ * > Amazon Web Services Support automatically redacts sensitive information from support cases to protect your data. The following information is replaced with `[REDACTED_BY_Amazon Web Services]` and is not stored:
+ * >
+ * > - Amazon Web Services secret keys - The complete key is replaced. Example: `[REDACTED_BY_Amazon Web Services]`
+ * > - Private keys - The complete key is replaced. Example: `[REDACTED_BY_Amazon Web Services]`
+ * > - Credit card numbers - The number is redacted, but the last 4 digits remain. Example: `[REDACTED_BY_Amazon Web Services]-7016`
+ * >
+ * > This sensitive information is never required by Amazon Web Services Support.
+ *
+ * A successful `CreateCase` request returns a Amazon Web Services Support case number. You can use the DescribeCases operation and specify the case number to get existing Amazon Web Services Support cases. After you create a case, use the AddCommunicationToCase operation to add additional communication or attachments to an existing case.
+ *
+ * The `caseId` is separate from the `displayId` that appears in the [Amazon Web Services Support Center](https://console.aws.amazon.com/support). Use the DescribeCases operation to get the `displayId`.
+ *
+ * > **Note:**
+ * >
+ * > - You must have an Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan to use the Amazon Web Services Support API. If you're in an Amazon Web Services Region that doesn't offer one of these Amazon Web Services Support plans, or if you haven't transitioned to one of these plans, you can use the Amazon Web Services Support API with a Business, Enterprise On-Ramp, or Enterprise Support plan.
+ * > - If you call the Amazon Web Services Support API from an account that doesn't have an Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan, the `SubscriptionRequiredException` error message appears. For information about changing your support plan, see [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -114,25 +89,28 @@ export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataB
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
  *
  * @throws {@link AttachmentSetExpired} (client fault)
- *  <p>The expiration time of the attachment set has passed. The set expires 1 hour after it
- *             is created.</p>
+ *
+ * The expiration time of the attachment set has passed. The set expires 1 hour after it is created.
  *
  * @throws {@link AttachmentSetIdNotFound} (client fault)
- *  <p>An attachment set with the specified ID could not be found.</p>
+ *
+ * An attachment set with the specified ID could not be found.
  *
  * @throws {@link CaseCreationLimitExceeded} (client fault)
- *  <p>The case creation limit for the account has been exceeded.</p>
+ *
+ * The case creation limit for the account has been exceeded.
  *
  * @throws {@link DryRunOperationException} (client fault)
- *  <p>The request was valid, but the operation wasn't performed because <code>dryRun</code> was
- *          set to <code>true</code>.</p>
+ *
+ * The request was valid, but the operation wasn't performed because `dryRun` was set to `true`.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error occurred.</p>
+ *
+ * An internal server error occurred.
  *
  * @throws {@link SupportServiceException}
- * <p>Base exception class for all service exceptions from Support service.</p>
  *
+ * Base exception class for all service exceptions from Support service.
  *
  * @public
  */

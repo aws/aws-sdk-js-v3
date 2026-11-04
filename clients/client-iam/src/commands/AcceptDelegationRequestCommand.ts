@@ -23,15 +23,14 @@ export interface AcceptDelegationRequestCommandInput extends AcceptDelegationReq
 export interface AcceptDelegationRequestCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Accepts a delegation request, granting the requested temporary access.</p>
- *          <p>Once the delegation request is accepted, it is eligible to send the exchange token to the partner.
- *             The <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SendDelegationToken.html">SendDelegationToken</a>
- *              API has to be explicitly called to send the delegation token.
- *         </p>
- *          <p>At the time of acceptance, IAM records the details and the state of the identity that called this API.
- *             This is the identity that gets mapped to the delegated credential.
- *         </p>
- *          <p>An accepted request may be rejected before the exchange token is sent to the partner.</p>
+ * Accepts a delegation request, granting the requested temporary access.
+ *
+ * Once the delegation request is accepted, it is eligible to send the exchange token to the partner. The [SendDelegationToken](https://docs.aws.amazon.com/IAM/latest/APIReference/API_SendDelegationToken.html) API has to be explicitly called to send the delegation token.
+ *
+ * At the time of acceptance, IAM records the details and the state of the identity that called this API. This is the identity that gets mapped to the delegated credential.
+ *
+ * An accepted request may be rejected before the exchange token is sent to the partner.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,20 +55,20 @@ export interface AcceptDelegationRequestCommandOutput extends __MetadataBearer {
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>The request was rejected because multiple requests to change this object were submitted
- *       simultaneously. Wait a few minutes and submit your request again.</p>
+ *
+ * The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @public
  */

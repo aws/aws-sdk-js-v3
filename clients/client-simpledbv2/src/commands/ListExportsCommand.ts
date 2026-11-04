@@ -69,8 +69,8 @@ export interface ListExportsCommandOutput extends ListExportsResponse, __Metadat
  *  The specified domain does not exist.
  *
  * @throws {@link SimpleDBv2ServiceException}
- * <p>Base exception class for all service exceptions from SimpleDBv2 service.</p>
  *
+ * Base exception class for all service exceptions from SimpleDBv2 service.
  *
  * @example List all exports
  * ```javascript

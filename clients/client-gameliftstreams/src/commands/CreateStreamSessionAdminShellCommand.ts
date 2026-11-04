@@ -23,7 +23,14 @@ export interface CreateStreamSessionAdminShellCommandInput extends CreateStreamS
 export interface CreateStreamSessionAdminShellCommandOutput extends CreateStreamSessionAdminShellOutput, __MetadataBearer {}
 
 /**
- * <p>Creates an administrative terminal session with full access to the live runtime environment of the Amazon GameLift Streams stream session. Use the returned credentials (<code>SessionId</code>, <code>StreamUrl</code> and <code>TokenValue</code>) with the Amazon Web Services Systems Manager <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html">Session Manager plugin</a> for the CLI to access the terminal session.</p> <p>The stream session must be in one of the following statuses: <code>ACTIVE</code>, <code>CONNECTED</code>, <code>PENDING_CLIENT_RECONNECTION</code>, or <code>RECONNECTING</code>.</p> <p>The <code>StreamUrl</code> is valid for 60 seconds. After it expires, call this operation again to get a new URL.</p> <important> <p>The returned credentials grant full access to the live runtime environment of the Amazon GameLift Streams stream session. The operator who connects to the terminal session has the same level of access that your Amazon GameLift Streams applications have, including potentially user input, screen images, and application data files. Grant permissions to call this operation only to trusted IAM identities that require live runtime environment access.</p> </important>
+ * Creates an administrative terminal session with full access to the live runtime environment of the Amazon GameLift Streams stream session. Use the returned credentials (`SessionId`, `StreamUrl` and `TokenValue`) with the Amazon Web Services Systems Manager [Session Manager plugin](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html) for the CLI to access the terminal session.
+ *
+ * The stream session must be in one of the following statuses: `ACTIVE`, `CONNECTED`, `PENDING_CLIENT_RECONNECTION`, or `RECONNECTING`.
+ *
+ * The `StreamUrl` is valid for 60 seconds. After it expires, call this operation again to get a new URL.
+ *
+ * > **Important:** The returned credentials grant full access to the live runtime environment of the Amazon GameLift Streams stream session. The operator who connects to the terminal session has the same level of access that your Amazon GameLift Streams applications have, including potentially user input, screen images, and application data files. Grant permissions to call this operation only to trusted IAM identities that require live runtime environment access.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,26 +60,32 @@ export interface CreateStreamSessionAdminShellCommandOutput extends CreateStream
  * @see {@link GameLiftStreamsClientResolvedConfig | config} for GameLiftStreamsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have the required permissions to access this Amazon GameLift Streams resource. Correct the permissions before you try again.</p>
+ *
+ * You don't have the required permissions to access this Amazon GameLift Streams resource. Correct the permissions before you try again.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The service encountered an internal error and is unable to complete the request.</p>
+ *
+ * The service encountered an internal error and is unable to complete the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource specified in the request was not found. Correct the request before you try again.</p>
+ *
+ * The resource specified in the request was not found. Correct the request before you try again.
  *
  * @throws {@link StreamSessionAccessNotReadyException} (client fault)
- *  <p>The terminal connection to the stream session is not yet available. Wait before retrying the request.</p>
+ *
+ * The terminal connection to the stream session is not yet available. Wait before retrying the request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. Retry the request after the suggested wait time.</p>
+ *
+ * The request was denied due to request throttling. Retry the request after the suggested wait time.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One or more parameter values in the request fail to satisfy the specified constraints. Correct the invalid parameter values before retrying the request.</p>
+ *
+ * One or more parameter values in the request fail to satisfy the specified constraints. Correct the invalid parameter values before retrying the request.
  *
  * @throws {@link GameLiftStreamsServiceException}
- * <p>Base exception class for all service exceptions from GameLiftStreams service.</p>
  *
+ * Base exception class for all service exceptions from GameLiftStreams service.
  *
  * @public
  */

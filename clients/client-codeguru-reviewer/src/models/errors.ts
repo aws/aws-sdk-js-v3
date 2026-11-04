@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { CodeGuruReviewerServiceException as __BaseException } from "./CodeGuruReviewerServiceException";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,9 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The requested operation would cause a conflict with the current state of a service
- *          resource associated with the request. Resolve the conflict before retrying this request.
- *       </p>
+ * The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -52,7 +52,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The server encountered an internal error and is unable to complete the request.</p>
+ * The server encountered an internal error and is unable to complete the request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -75,7 +76,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -98,7 +100,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the specified constraints.</p>
+ * The input fails to satisfy the specified constraints.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -121,7 +124,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p> The resource specified in the request was not found. </p>
+ * The resource specified in the request was not found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -144,7 +148,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The resource specified in the request was not found.</p>
+ * The resource specified in the request was not found.
+ *
  * @public
  */
 export class NotFoundException extends __BaseException {

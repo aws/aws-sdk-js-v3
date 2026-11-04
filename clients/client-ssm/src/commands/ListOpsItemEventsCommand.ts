@@ -23,8 +23,8 @@ export interface ListOpsItemEventsCommandInput extends ListOpsItemEventsRequest 
 export interface ListOpsItemEventsCommandOutput extends ListOpsItemEventsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of all OpsItem events in the current Amazon Web Services Region and Amazon Web Services account. You can
- *    limit the results to events associated with specific OpsItems by specifying a filter.</p>
+ * Returns a list of all OpsItem events in the current Amazon Web Services Region and Amazon Web Services account. You can limit the results to events associated with specific OpsItems by specifying a filter.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,21 +74,24 @@ export interface ListOpsItemEventsCommandOutput extends ListOpsItemEventsRespons
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link OpsItemInvalidParameterException} (client fault)
- *  <p>A specified parameter argument isn't valid. Verify the available arguments and try
- *    again.</p>
+ *
+ * A specified parameter argument isn't valid. Verify the available arguments and try again.
  *
  * @throws {@link OpsItemLimitExceededException} (client fault)
- *  <p>The request caused OpsItems to exceed one or more quotas.</p>
+ *
+ * The request caused OpsItems to exceed one or more quotas.
  *
  * @throws {@link OpsItemNotFoundException} (client fault)
- *  <p>The specified OpsItem ID doesn't exist. Verify the ID and try again.</p>
+ *
+ * The specified OpsItem ID doesn't exist. Verify the ID and try again.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

@@ -23,10 +23,10 @@ export interface GetContainerServiceMetricDataCommandInput extends GetContainerS
 export interface GetContainerServiceMetricDataCommandOutput extends GetContainerServiceMetricDataResult, __MetadataBearer {}
 
 /**
- * <p>Returns the data points of a specific metric of your Amazon Lightsail container
- *       service.</p>
- *          <p>Metrics report the utilization of your resources. Monitor and collect metric data
- *       regularly to maintain the reliability, availability, and performance of your resources.</p>
+ * Returns the data points of a specific metric of your Amazon Lightsail container service.
+ *
+ * Metrics report the utilization of your resources. Monitor and collect metric data regularly to maintain the reliability, availability, and performance of your resources.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,35 +71,34 @@ export interface GetContainerServiceMetricDataCommandOutput extends GetContainer
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
- *       credentials to access a resource.</p>
+ *
+ * Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>Lightsail throws this exception when user input does not conform to the validation rules
- *       of an input field.</p>
- *          <note>
- *             <p>Domain and distribution APIs are only available in the N. Virginia
- *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
- *         Region configuration to <code>us-east-1</code> to create, view, or edit these
- *         resources.</p>
- *          </note>
+ *
+ * Lightsail throws this exception when user input does not conform to the validation rules of an input field.
+ *
+ * > **Note:** Domain and distribution APIs are only available in the N. Virginia (`us-east-1`) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to `us-east-1` to create, view, or edit these resources.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>Lightsail throws this exception when it cannot find a resource.</p>
+ *
+ * Lightsail throws this exception when it cannot find a resource.
  *
  * @throws {@link RegionSetupInProgressException} (client fault)
- *  <p>Lightsail throws this exception when an operation is performed on resources in an opt-in
- *       Region that is currently being set up.</p>
+ *
+ * Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>A general service exception.</p>
+ *
+ * A general service exception.
  *
  * @throws {@link UnauthenticatedException} (client fault)
- *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
+ * Lightsail throws this exception when the user has not been authenticated.
  *
  * @throws {@link LightsailServiceException}
- * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * Base exception class for all service exceptions from Lightsail service.
  *
  * @public
  */

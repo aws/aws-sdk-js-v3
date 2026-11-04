@@ -23,7 +23,10 @@ export interface UpdateSchemaCommandInput extends UpdateSchemaRequest {}
 export interface UpdateSchemaCommandOutput extends UpdateSchemaResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the schema definition</p> <note><p>Inactive schemas will be deleted after two years.</p></note>
+ * Updates the schema definition
+ *
+ * > **Note:** Inactive schemas will be deleted after two years.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,8 +77,8 @@ export interface UpdateSchemaCommandOutput extends UpdateSchemaResponse, __Metad
  * @throws {@link ServiceUnavailableException} (server fault)
  *
  * @throws {@link SchemasServiceException}
- * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
+ * Base exception class for all service exceptions from Schemas service.
  *
  * @public
  */

@@ -5,7 +5,8 @@ import type { AccessDeniedExceptionReason, InvalidRequestExceptionReason } from 
 import { SSOOIDCServiceException as __BaseException } from "./SSOOIDCServiceException";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -13,20 +14,22 @@ export class AccessDeniedException extends __BaseException {
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Single error code. For this exception the value will be <code>access_denied</code>.</p>
+   * Single error code. For this exception the value will be `access_denied`.
+   *
    * @public
    */
   error?: string | undefined;
 
   /**
-   * <p>A string that uniquely identifies a reason for the error.</p>
+   * A string that uniquely identifies a reason for the error.
+   *
    * @public
    */
   reason?: AccessDeniedExceptionReason | undefined;
 
   /**
-   * <p>Human-readable text providing additional information, used to assist the client developer
-   *       in understanding the error that occurred.</p>
+   * Human-readable text providing additional information, used to assist the client developer in understanding the error that occurred.
+   *
    * @public
    */
   error_description?: string | undefined;
@@ -47,8 +50,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Indicates that a request to authorize a client with an access user session token is
- *       pending.</p>
+ * Indicates that a request to authorize a client with an access user session token is pending.
+ *
  * @public
  */
 export class AuthorizationPendingException extends __BaseException {
@@ -56,15 +59,15 @@ export class AuthorizationPendingException extends __BaseException {
   readonly name = "AuthorizationPendingException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Single error code. For this exception the value will be
-   *       <code>authorization_pending</code>.</p>
+   * Single error code. For this exception the value will be `authorization_pending`.
+   *
    * @public
    */
   error?: string | undefined;
 
   /**
-   * <p>Human-readable text providing additional information, used to assist the client developer
-   *       in understanding the error that occurred.</p>
+   * Human-readable text providing additional information, used to assist the client developer in understanding the error that occurred.
+   *
    * @public
    */
   error_description?: string | undefined;
@@ -84,7 +87,8 @@ export class AuthorizationPendingException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the token issued by the service is expired and is no longer valid.</p>
+ * Indicates that the token issued by the service is expired and is no longer valid.
+ *
  * @public
  */
 export class ExpiredTokenException extends __BaseException {
@@ -92,14 +96,15 @@ export class ExpiredTokenException extends __BaseException {
   readonly name = "ExpiredTokenException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Single error code. For this exception the value will be <code>expired_token</code>.</p>
+   * Single error code. For this exception the value will be `expired_token`.
+   *
    * @public
    */
   error?: string | undefined;
 
   /**
-   * <p>Human-readable text providing additional information, used to assist the client developer
-   *       in understanding the error that occurred.</p>
+   * Human-readable text providing additional information, used to assist the client developer in understanding the error that occurred.
+   *
    * @public
    */
   error_description?: string | undefined;
@@ -119,8 +124,8 @@ export class ExpiredTokenException extends __BaseException {
 }
 
 /**
- * <p>Indicates that an error from the service occurred while trying to process a
- *       request.</p>
+ * Indicates that an error from the service occurred while trying to process a request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -128,14 +133,15 @@ export class InternalServerException extends __BaseException {
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>Single error code. For this exception the value will be <code>server_error</code>.</p>
+   * Single error code. For this exception the value will be `server_error`.
+   *
    * @public
    */
   error?: string | undefined;
 
   /**
-   * <p>Human-readable text providing additional information, used to assist the client developer
-   *       in understanding the error that occurred.</p>
+   * Human-readable text providing additional information, used to assist the client developer in understanding the error that occurred.
+   *
    * @public
    */
   error_description?: string | undefined;
@@ -155,9 +161,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the <code>clientId</code> or <code>clientSecret</code> in the request is
- *       invalid. For example, this can occur when a client sends an incorrect <code>clientId</code> or
- *       an expired <code>clientSecret</code>.</p>
+ * Indicates that the `clientId` or `clientSecret` in the request is invalid. For example, this can occur when a client sends an incorrect `clientId` or an expired `clientSecret`.
+ *
  * @public
  */
 export class InvalidClientException extends __BaseException {
@@ -165,15 +170,15 @@ export class InvalidClientException extends __BaseException {
   readonly name = "InvalidClientException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Single error code. For this exception the value will be
-   *       <code>invalid_client</code>.</p>
+   * Single error code. For this exception the value will be `invalid_client`.
+   *
    * @public
    */
   error?: string | undefined;
 
   /**
-   * <p>Human-readable text providing additional information, used to assist the client developer
-   *       in understanding the error that occurred.</p>
+   * Human-readable text providing additional information, used to assist the client developer in understanding the error that occurred.
+   *
    * @public
    */
   error_description?: string | undefined;
@@ -193,8 +198,8 @@ export class InvalidClientException extends __BaseException {
 }
 
 /**
- * <p>Indicates that a request contains an invalid grant. This can occur if a client makes a
- *         <a>CreateToken</a> request with an invalid grant type.</p>
+ * Indicates that a request contains an invalid grant. This can occur if a client makes a CreateToken request with an invalid grant type.
+ *
  * @public
  */
 export class InvalidGrantException extends __BaseException {
@@ -202,14 +207,15 @@ export class InvalidGrantException extends __BaseException {
   readonly name = "InvalidGrantException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Single error code. For this exception the value will be <code>invalid_grant</code>.</p>
+   * Single error code. For this exception the value will be `invalid_grant`.
+   *
    * @public
    */
   error?: string | undefined;
 
   /**
-   * <p>Human-readable text providing additional information, used to assist the client developer
-   *       in understanding the error that occurred.</p>
+   * Human-readable text providing additional information, used to assist the client developer in understanding the error that occurred.
+   *
    * @public
    */
   error_description?: string | undefined;
@@ -229,8 +235,8 @@ export class InvalidGrantException extends __BaseException {
 }
 
 /**
- * <p>Indicates that something is wrong with the input to the request. For example, a required
- *       parameter might be missing or out of range.</p>
+ * Indicates that something is wrong with the input to the request. For example, a required parameter might be missing or out of range.
+ *
  * @public
  */
 export class InvalidRequestException extends __BaseException {
@@ -238,21 +244,22 @@ export class InvalidRequestException extends __BaseException {
   readonly name = "InvalidRequestException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Single error code. For this exception the value will be
-   *       <code>invalid_request</code>.</p>
+   * Single error code. For this exception the value will be `invalid_request`.
+   *
    * @public
    */
   error?: string | undefined;
 
   /**
-   * <p>A string that uniquely identifies a reason for the error.</p>
+   * A string that uniquely identifies a reason for the error.
+   *
    * @public
    */
   reason?: InvalidRequestExceptionReason | undefined;
 
   /**
-   * <p>Human-readable text providing additional information, used to assist the client developer
-   *       in understanding the error that occurred.</p>
+   * Human-readable text providing additional information, used to assist the client developer in understanding the error that occurred.
+   *
    * @public
    */
   error_description?: string | undefined;
@@ -273,7 +280,8 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the scope provided in the request is invalid.</p>
+ * Indicates that the scope provided in the request is invalid.
+ *
  * @public
  */
 export class InvalidScopeException extends __BaseException {
@@ -281,14 +289,15 @@ export class InvalidScopeException extends __BaseException {
   readonly name = "InvalidScopeException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Single error code. For this exception the value will be <code>invalid_scope</code>.</p>
+   * Single error code. For this exception the value will be `invalid_scope`.
+   *
    * @public
    */
   error?: string | undefined;
 
   /**
-   * <p>Human-readable text providing additional information, used to assist the client developer
-   *       in understanding the error that occurred.</p>
+   * Human-readable text providing additional information, used to assist the client developer in understanding the error that occurred.
+   *
    * @public
    */
   error_description?: string | undefined;
@@ -308,8 +317,8 @@ export class InvalidScopeException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the client is making the request too frequently and is more than the
- *       service can handle. </p>
+ * Indicates that the client is making the request too frequently and is more than the service can handle.
+ *
  * @public
  */
 export class SlowDownException extends __BaseException {
@@ -317,14 +326,15 @@ export class SlowDownException extends __BaseException {
   readonly name = "SlowDownException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Single error code. For this exception the value will be <code>slow_down</code>.</p>
+   * Single error code. For this exception the value will be `slow_down`.
+   *
    * @public
    */
   error?: string | undefined;
 
   /**
-   * <p>Human-readable text providing additional information, used to assist the client developer
-   *       in understanding the error that occurred.</p>
+   * Human-readable text providing additional information, used to assist the client developer in understanding the error that occurred.
+   *
    * @public
    */
   error_description?: string | undefined;
@@ -344,8 +354,8 @@ export class SlowDownException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the client is not currently authorized to make the request. This can happen
- *       when a <code>clientId</code> is not issued for a public client.</p>
+ * Indicates that the client is not currently authorized to make the request. This can happen when a `clientId` is not issued for a public client.
+ *
  * @public
  */
 export class UnauthorizedClientException extends __BaseException {
@@ -353,15 +363,15 @@ export class UnauthorizedClientException extends __BaseException {
   readonly name = "UnauthorizedClientException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Single error code. For this exception the value will be
-   *       <code>unauthorized_client</code>.</p>
+   * Single error code. For this exception the value will be `unauthorized_client`.
+   *
    * @public
    */
   error?: string | undefined;
 
   /**
-   * <p>Human-readable text providing additional information, used to assist the client developer
-   *       in understanding the error that occurred.</p>
+   * Human-readable text providing additional information, used to assist the client developer in understanding the error that occurred.
+   *
    * @public
    */
   error_description?: string | undefined;
@@ -381,7 +391,8 @@ export class UnauthorizedClientException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the grant type in the request is not supported by the service.</p>
+ * Indicates that the grant type in the request is not supported by the service.
+ *
  * @public
  */
 export class UnsupportedGrantTypeException extends __BaseException {
@@ -389,15 +400,15 @@ export class UnsupportedGrantTypeException extends __BaseException {
   readonly name = "UnsupportedGrantTypeException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Single error code. For this exception the value will be
-   *         <code>unsupported_grant_type</code>.</p>
+   * Single error code. For this exception the value will be `unsupported_grant_type`.
+   *
    * @public
    */
   error?: string | undefined;
 
   /**
-   * <p>Human-readable text providing additional information, used to assist the client developer
-   *       in understanding the error that occurred.</p>
+   * Human-readable text providing additional information, used to assist the client developer in understanding the error that occurred.
+   *
    * @public
    */
   error_description?: string | undefined;

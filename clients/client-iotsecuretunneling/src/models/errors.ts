@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { IoTSecureTunnelingServiceException as __BaseException } from "./IoTSecureTunnelingServiceException";
 
 /**
- * <p>Thrown when an operation is attempted on a resource that does not exist.</p>
+ * Thrown when an operation is attempted on a resource that does not exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -25,7 +26,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Thrown when a tunnel limit is exceeded.</p>
+ * Thrown when a tunnel limit is exceeded.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {

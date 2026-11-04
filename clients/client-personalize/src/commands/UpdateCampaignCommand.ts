@@ -23,30 +23,19 @@ export interface UpdateCampaignCommandInput extends UpdateCampaignRequest {}
 export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __MetadataBearer {}
 
 /**
- * <p>
- *       Updates a campaign to deploy a retrained solution version with an existing campaign, change your campaign's <code>minProvisionedTPS</code>,
- *       or modify your campaign's configuration. For example, you can set <code>enableMetadataWithRecommendations</code> to true for an existing campaign.</p>
- *          <p>
- *       To update a campaign to start automatically using the latest solution version, specify the following:</p>
- *          <ul>
- *             <li>
- *                <p>For the <code>SolutionVersionArn</code> parameter, specify the Amazon Resource Name (ARN) of your solution in
- *             <code>SolutionArn/$LATEST</code> format. </p>
- *             </li>
- *             <li>
- *                <p> In the <code>campaignConfig</code>, set <code>syncWithLatestSolutionVersion</code> to <code>true</code>.
- *         </p>
- *             </li>
- *          </ul>
- *          <p>To update a campaign, the campaign status must be ACTIVE or CREATE FAILED.
- *       Check the campaign status using the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html">DescribeCampaign</a> operation.</p>
- *          <note>
- *             <p>You can still get recommendations from a campaign while an update is in progress.
- *         The campaign will use the previous solution version and campaign configuration to generate recommendations until the latest campaign update status is <code>Active</code>.
- *       </p>
- *          </note>
- *          <p>For more information about updating a campaign, including code samples, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/update-campaigns.html">Updating a campaign</a>.
- *       For more information about campaigns, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/campaigns.html">Creating a campaign</a>.</p>
+ * Updates a campaign to deploy a retrained solution version with an existing campaign, change your campaign's `minProvisionedTPS`, or modify your campaign's configuration. For example, you can set `enableMetadataWithRecommendations` to true for an existing campaign.
+ *
+ * To update a campaign to start automatically using the latest solution version, specify the following:
+ *
+ * - For the `SolutionVersionArn` parameter, specify the Amazon Resource Name (ARN) of your solution in `SolutionArn/$LATEST` format.
+ * - In the `campaignConfig`, set `syncWithLatestSolutionVersion` to `true`.
+ *
+ * To update a campaign, the campaign status must be ACTIVE or CREATE FAILED. Check the campaign status using the [DescribeCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html) operation.
+ *
+ * > **Note:** You can still get recommendations from a campaign while an update is in progress. The campaign will use the previous solution version and campaign configuration to generate recommendations until the latest campaign update status is `Active`.
+ *
+ * For more information about updating a campaign, including code samples, see [Updating a campaign](https://docs.aws.amazon.com/personalize/latest/dg/update-campaigns.html). For more information about campaigns, see [Creating a campaign](https://docs.aws.amazon.com/personalize/latest/dg/campaigns.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,17 +74,20 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * Provide a valid value for the field or parameter.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is in use.</p>
+ *
+ * The specified resource is in use.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Could not find the specified resource.</p>
+ *
+ * Could not find the specified resource.
  *
  * @throws {@link PersonalizeServiceException}
- * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * Base exception class for all service exceptions from Personalize service.
  *
  * @public
  */

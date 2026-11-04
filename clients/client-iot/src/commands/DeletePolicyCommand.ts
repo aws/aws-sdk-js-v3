@@ -23,19 +23,18 @@ export interface DeletePolicyCommandInput extends DeletePolicyRequest {}
 export interface DeletePolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified policy.</p>
- *          <p>A policy cannot be deleted if it has non-default versions or it is attached to any
- *          certificate.</p>
- *          <p>To delete a policy, use the <a>DeletePolicyVersion</a> action to delete all non-default
- *          versions of the policy; use the <a>DetachPolicy</a> action to detach the policy from any
- *          certificate; and then use the DeletePolicy action to delete the policy.</p>
- *          <p>When a policy is deleted using DeletePolicy, its default version is deleted with
- *          it.</p>
- *          <note>
- *             <p>Because of the distributed nature of Amazon Web Services, it can take up to five minutes after
- *          a policy is detached before it's ready to be deleted.</p>
- *          </note>
- *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeletePolicy</a> action.</p>
+ * Deletes the specified policy.
+ *
+ * A policy cannot be deleted if it has non-default versions or it is attached to any certificate.
+ *
+ * To delete a policy, use the DeletePolicyVersion action to delete all non-default versions of the policy; use the DetachPolicy action to detach the policy from any certificate; and then use the DeletePolicy action to delete the policy.
+ *
+ * When a policy is deleted using DeletePolicy, its default version is deleted with it.
+ *
+ * > **Note:** Because of the distributed nature of Amazon Web Services, it can take up to five minutes after a policy is detached before it's ready to be deleted.
+ *
+ * Requires permission to access the [DeletePolicy](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,30 +59,36 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  * @throws {@link DeleteConflictException} (client fault)
- *  <p>You can't delete the resource because it is attached to one or more
- *          resources.</p>
+ *
+ * You can't delete the resource because it is attached to one or more resources.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An unexpected error has occurred.</p>
+ *
+ * An unexpected error has occurred.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is temporarily unavailable.</p>
+ *
+ * The service is temporarily unavailable.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The rate exceeds the limit.</p>
+ *
+ * The rate exceeds the limit.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>You are not authorized to perform this operation.</p>
+ *
+ * You are not authorized to perform this operation.
  *
  * @throws {@link IoTServiceException}
- * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * Base exception class for all service exceptions from IoT service.
  *
  * @public
  */

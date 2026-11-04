@@ -31,7 +31,10 @@ export type GetStyleDescriptorCommandOutputType = Omit<GetStyleDescriptorRespons
 export interface GetStyleDescriptorCommandOutput extends GetStyleDescriptorCommandOutputType, __MetadataBearer {}
 
 /**
- * <p> <code>GetStyleDescriptor</code> returns information about the style.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/styling-dynamic-maps.html">Style dynamic maps</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+ * `GetStyleDescriptor` returns information about the style.
+ *
+ * For more information, see [Style dynamic maps](https://docs.aws.amazon.com/location/latest/developerguide/styling-dynamic-maps.html) in the *Amazon Location Service Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,8 +78,8 @@ export interface GetStyleDescriptorCommandOutput extends GetStyleDescriptorComma
  * @see {@link GeoMapsClientResolvedConfig | config} for GeoMapsClient's `config` shape.
  *
  * @throws {@link GeoMapsServiceException}
- * <p>Base exception class for all service exceptions from GeoMaps service.</p>
  *
+ * Base exception class for all service exceptions from GeoMaps service.
  *
  * @public
  */

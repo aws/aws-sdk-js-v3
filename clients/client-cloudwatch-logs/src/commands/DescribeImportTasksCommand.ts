@@ -23,7 +23,8 @@ export interface DescribeImportTasksCommandInput extends DescribeImportTasksRequ
 export interface DescribeImportTasksCommandOutput extends DescribeImportTasksResponse, __MetadataBearer {}
 
 /**
- * <p>Lists and describes import tasks, with optional filtering by import status and source ARN.</p>
+ * Lists and describes import tasks, with optional filtering by import status and source ARN.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,23 +73,28 @@ export interface DescribeImportTasksCommandOutput extends DescribeImportTasksRes
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permissions to perform this action.</p>
+ *
+ * You don't have sufficient permissions to perform this action.
  *
  * @throws {@link InvalidOperationException} (client fault)
- *  <p>The operation is not valid on the specified resource.</p>
+ *
+ * The operation is not valid on the specified resource.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is specified incorrectly.</p>
+ *
+ * A parameter is specified incorrectly.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled because of quota limits.</p>
+ *
+ * The request was throttled because of quota limits.
  *
  * @throws {@link CloudWatchLogsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchLogs service.
  *
  * @public
  */

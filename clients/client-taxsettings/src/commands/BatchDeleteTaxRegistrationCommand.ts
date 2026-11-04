@@ -23,7 +23,10 @@ export interface BatchDeleteTaxRegistrationCommandInput extends BatchDeleteTaxRe
 export interface BatchDeleteTaxRegistrationCommandOutput extends BatchDeleteTaxRegistrationResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes tax registration for multiple accounts in batch. This can be used to delete tax registrations for up to five accounts in one batch. </p> <note> <p>This API operation can't be used to delete your tax registration in Brazil. Use the <a href="https://console.aws.amazon.com/billing/home#/paymentpreferences/paymentmethods">Payment preferences</a> page in the Billing and Cost Management console instead.</p> </note>
+ * Deletes tax registration for multiple accounts in batch. This can be used to delete tax registrations for up to five accounts in one batch.
+ *
+ * > **Note:** This API operation can't be used to delete your tax registration in Brazil. Use the [Payment preferences](https://console.aws.amazon.com/billing/home#/paymentpreferences/paymentmethods) page in the Billing and Cost Management console instead.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,17 +61,20 @@ export interface BatchDeleteTaxRegistrationCommandOutput extends BatchDeleteTaxR
  * @see {@link TaxSettingsClientResolvedConfig | config} for TaxSettingsClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The exception when the input is creating conflict with the given state.</p>
+ *
+ * The exception when the input is creating conflict with the given state.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The exception thrown when an unexpected error occurs when processing a request.</p>
+ *
+ * The exception thrown when an unexpected error occurs when processing a request.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The exception when the input doesn't pass validation for at least one of the input parameters. </p>
+ *
+ * The exception when the input doesn't pass validation for at least one of the input parameters.
  *
  * @throws {@link TaxSettingsServiceException}
- * <p>Base exception class for all service exceptions from TaxSettings service.</p>
  *
+ * Base exception class for all service exceptions from TaxSettings service.
  *
  * @public
  */

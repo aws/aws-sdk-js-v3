@@ -23,7 +23,8 @@ export interface ListAccountActivitiesCommandInput extends ListAccountActivities
 export interface ListAccountActivitiesCommandOutput extends ListAccountActivitiesResponse, __MetadataBearer {}
 
 /**
- * <p> Returns a list of activities that are available. This operation supports pagination and filtering by status. </p>
+ * Returns a list of activities that are available. This operation supports pagination and filtering by status.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,17 +69,20 @@ export interface ListAccountActivitiesCommandOutput extends ListAccountActivitie
  * @see {@link FreeTierClientResolvedConfig | config} for FreeTierClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred during the processing of your request.</p>
+ *
+ * An unexpected error occurred during the processing of your request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link FreeTierServiceException}
- * <p>Base exception class for all service exceptions from FreeTier service.</p>
  *
+ * Base exception class for all service exceptions from FreeTier service.
  *
  * @example Fetching a page of completed activities
  * ```javascript

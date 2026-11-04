@@ -26,7 +26,8 @@ export interface GetConformancePackComplianceDetailsCommandInput extends GetConf
 export interface GetConformancePackComplianceDetailsCommandOutput extends GetConformancePackComplianceDetailsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns compliance details of a conformance pack for all Amazon Web Services resources that are monitered by conformance pack.</p>
+ * Returns compliance details of a conformance pack for all Amazon Web Services resources that are monitered by conformance pack.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,26 +85,28 @@ export interface GetConformancePackComplianceDetailsCommandOutput extends GetCon
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  * @throws {@link InvalidLimitException} (client fault)
- *  <p>The specified limit is outside the allowable range.</p>
+ *
+ * The specified limit is outside the allowable range.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The specified next token is not valid. Specify the
- * 				<code>nextToken</code> string that was returned in the previous
- * 			response to get the next page of results.</p>
+ *
+ * The specified next token is not valid. Specify the `nextToken` string that was returned in the previous response to get the next page of results.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more of the specified parameters are not valid. Verify
- * 			that your parameters are valid and try again.</p>
+ *
+ * One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.
  *
  * @throws {@link NoSuchConfigRuleInConformancePackException} (client fault)
- *  <p>Config rule that you passed in the filter does not exist.</p>
+ *
+ * Config rule that you passed in the filter does not exist.
  *
  * @throws {@link NoSuchConformancePackException} (client fault)
- *  <p>You specified one or more conformance packs that do not exist.</p>
+ *
+ * You specified one or more conformance packs that do not exist.
  *
  * @throws {@link ConfigServiceServiceException}
- * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * Base exception class for all service exceptions from ConfigService service.
  *
  * @public
  */

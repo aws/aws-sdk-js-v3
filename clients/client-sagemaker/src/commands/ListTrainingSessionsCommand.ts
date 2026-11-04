@@ -23,7 +23,13 @@ export interface ListTrainingSessionsCommandInput extends ListTrainingSessionsRe
 export interface ListTrainingSessionsCommandOutput extends ListTrainingSessionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists training sessions in your account. You can filter results by creation time, name, and status. The operation paginates results. To retrieve additional results, use the <code>NextToken</code> parameter.</p> <p>The following operations are related to <code>ListTrainingSessions</code>:</p> <ul> <li> <p> <code>CreateTrainingSession</code> </p> </li> <li> <p> <code>DescribeTrainingSession</code> </p> </li> </ul>
+ * Lists training sessions in your account. You can filter results by creation time, name, and status. The operation paginates results. To retrieve additional results, use the `NextToken` parameter.
+ *
+ * The following operations are related to `ListTrainingSessions`:
+ *
+ * - `CreateTrainingSession`
+ * - `DescribeTrainingSession`
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,8 +69,8 @@ export interface ListTrainingSessionsCommandOutput extends ListTrainingSessionsR
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

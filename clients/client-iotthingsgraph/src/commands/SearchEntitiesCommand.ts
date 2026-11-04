@@ -23,7 +23,7 @@ export interface SearchEntitiesCommandInput extends SearchEntitiesRequest {}
 export interface SearchEntitiesCommandOutput extends SearchEntitiesResponse, __MetadataBearer {}
 
 /**
- * <p>Searches for entities of the specified type. You can search for entities in your namespace and the public namespace that you're tracking.</p>
+ * Searches for entities of the specified type. You can search for entities in your namespace and the public namespace that you're tracking.
  *
  * @deprecated since: 2022-08-30.
  * @example
@@ -77,17 +77,14 @@ export interface SearchEntitiesCommandOutput extends SearchEntitiesResponse, __M
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p></p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p></p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p></p>
  *
  * @throws {@link IoTThingsGraphServiceException}
- * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ * Base exception class for all service exceptions from IoTThingsGraph service.
  *
  * @public
  */

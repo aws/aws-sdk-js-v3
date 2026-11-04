@@ -23,8 +23,8 @@ export interface FailoverShardCommandInput extends FailoverShardRequest {}
 export interface FailoverShardCommandOutput extends FailoverShardResponse, __MetadataBearer {}
 
 /**
- * <p>Used to failover a shard. This API is designed for testing the behavior of your application in case of MemoryDB failover. It is not designed to be used as a production-level tool for initiating
- *          a failover to overcome a problem you may have with the cluster. Moreover, in certain conditions such as large scale operational events, Amazon may block this API. </p>
+ * Used to failover a shard. This API is designed for testing the behavior of your application in case of MemoryDB failover. It is not designed to be used as a production-level tool for initiating a failover to overcome a problem you may have with the cluster. Moreover, in certain conditions such as large scale operational events, Amazon may block this API.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -125,32 +125,40 @@ export interface FailoverShardCommandOutput extends FailoverShardResponse, __Met
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  * @throws {@link APICallRateForCustomerExceededFault} (client fault)
- *  <p>The customer has exceeded the maximum number of API requests allowed per time period.</p>
+ *
+ * The customer has exceeded the maximum number of API requests allowed per time period.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The specified cluster does not exist.</p>
+ *
+ * The specified cluster does not exist.
  *
  * @throws {@link InvalidClusterStateFault} (client fault)
- *  <p>The cluster is not in a valid state for the requested operation.</p>
+ *
+ * The cluster is not in a valid state for the requested operation.
  *
  * @throws {@link InvalidKMSKeyFault} (client fault)
- *  <p>The specified KMS key is not valid or accessible.</p>
+ *
+ * The specified KMS key is not valid or accessible.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>The specified parameter combination is not valid.</p>
+ *
+ * The specified parameter combination is not valid.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The specified parameter value is not valid.</p>
+ *
+ * The specified parameter value is not valid.
  *
  * @throws {@link ShardNotFoundFault} (client fault)
- *  <p>The specified shard does not exist.</p>
+ *
+ * The specified shard does not exist.
  *
  * @throws {@link TestFailoverNotAvailableFault} (client fault)
- *  <p>Test failover is not available for this cluster configuration.</p>
+ *
+ * Test failover is not available for this cluster configuration.
  *
  * @throws {@link MemoryDBServiceException}
- * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * Base exception class for all service exceptions from MemoryDB service.
  *
  * @public
  */

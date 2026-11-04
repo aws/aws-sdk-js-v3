@@ -23,10 +23,8 @@ export interface UpdateAssumeRolePolicyCommandInput extends UpdateAssumeRolePoli
 export interface UpdateAssumeRolePolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Updates the policy that grants an IAM entity permission to assume a role. This is
- *             typically referred to as the "role trust policy". For more information about roles, see
- *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html">Using roles to
- *                 delegate permissions and federate identities</a>.</p>
+ * Updates the policy that grants an IAM entity permission to assume a role. This is typically referred to as the "role trust policy". For more information about roles, see [Using roles to delegate permissions and federate identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,30 +50,28 @@ export interface UpdateAssumeRolePolicyCommandOutput extends __MetadataBearer {}
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current
- *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+ *
+ * The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.
  *
  * @throws {@link MalformedPolicyDocumentException} (client fault)
- *  <p>The request was rejected because the policy document was malformed. The error message
- *       describes the specific error.</p>
+ *
+ * The request was rejected because the policy document was malformed. The error message describes the specific error.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link UnmodifiableEntityException} (client fault)
- *  <p>The request was rejected because service-linked roles are protected Amazon Web Services resources. Only
- *       the service that depends on the service-linked role can modify or delete the role on your
- *       behalf. The error message includes the name of the service that depends on this service-linked
- *       role. You must request the change through that service.</p>
+ *
+ * The request was rejected because service-linked roles are protected Amazon Web Services resources. Only the service that depends on the service-linked role can modify or delete the role on your behalf. The error message includes the name of the service that depends on this service-linked role. You must request the change through that service.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @example To update the trust policy for an IAM role
  * ```javascript

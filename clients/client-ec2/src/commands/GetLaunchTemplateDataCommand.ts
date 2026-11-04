@@ -23,14 +23,10 @@ export interface GetLaunchTemplateDataCommandInput extends GetLaunchTemplateData
 export interface GetLaunchTemplateDataCommandOutput extends GetLaunchTemplateDataResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves the configuration data of the specified instance. You can use this data to
- *             create a launch template. </p>
- *          <p>This action calls on other describe actions to get instance information. Depending on
- *             your instance configuration, you may need to allow the following actions in your IAM
- *             policy: <code>DescribeSpotInstanceRequests</code>,
- *                 <code>DescribeInstanceCreditSpecifications</code>, <code>DescribeVolumes</code>, and
- *                 <code>DescribeInstanceAttribute</code>.
- *             Or, you can allow <code>describe*</code> depending on your instance requirements.</p>
+ * Retrieves the configuration data of the specified instance. You can use this data to create a launch template.
+ *
+ * This action calls on other describe actions to get instance information. Depending on your instance configuration, you may need to allow the following actions in your IAM policy: `DescribeSpotInstanceRequests`, `DescribeInstanceCreditSpecifications`, `DescribeVolumes`, and `DescribeInstanceAttribute`. Or, you can allow `describe*` depending on your instance requirements.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -346,8 +342,8 @@ export interface GetLaunchTemplateDataCommandOutput extends GetLaunchTemplateDat
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To get the launch template data for an instance
  * ```javascript

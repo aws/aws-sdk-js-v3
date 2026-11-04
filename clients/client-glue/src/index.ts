@@ -1,8 +1,9 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <fullname>Glue</fullname>
- *          <p>Defines the public endpoint for the Glue service.</p>
+ * Glue
+ *
+ * Defines the public endpoint for the Glue service.
  *
  * @packageDocumentation
  */

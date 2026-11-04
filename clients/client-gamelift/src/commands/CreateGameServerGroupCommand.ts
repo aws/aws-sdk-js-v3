@@ -23,47 +23,23 @@ export interface CreateGameServerGroupCommandInput extends CreateGameServerGroup
 export interface CreateGameServerGroupCommandOutput extends CreateGameServerGroupOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This API works with the following fleet types:</b> EC2 (FleetIQ)</p>
- *          <p>Creates a Amazon GameLift Servers FleetIQ game server
- *             group for managing game hosting on a collection of Amazon Elastic Compute Cloud instances for game hosting.
- *             This operation creates the game server group, creates an Auto Scaling group in your
- *             Amazon Web Services account, and establishes a link between the two groups. You can view the status of
- *             your game server groups in the Amazon GameLift Servers console. Game server group metrics and events are
- *             emitted to Amazon CloudWatch.</p>
- *          <p>Before creating a new game server group, you must have the following: </p>
- *          <ul>
- *             <li>
- *                <p>An Amazon Elastic Compute Cloud launch template that specifies how to launch Amazon Elastic Compute Cloud instances
- *                     with your game server build. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html"> Launching an Instance from a Launch Template</a> in the
- *                         <i>Amazon Elastic Compute Cloud User Guide</i>. </p>
- *             </li>
- *             <li>
- *                <p>An IAM role that extends limited access to your Amazon Web Services account to allow Amazon GameLift Servers FleetIQ
- *                     to create and interact with the Auto Scaling group. For more information, see
- *                         <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-iam-permissions-roles.html">Create IAM
- *                         roles for cross-service interaction</a> in the <i>Amazon GameLift Servers FleetIQ Developer
- *                         Guide</i>.</p>
- *             </li>
- *          </ul>
- *          <p>To create a new game server group, specify a unique group name, IAM role and Amazon Elastic Compute Cloud
- *             launch template, and provide a list of instance types that can be used in the group. You
- *             must also set initial maximum and minimum limits on the group's instance count. You can
- *             optionally set an Auto Scaling policy with target tracking based on a Amazon GameLift Servers FleetIQ
- *             metric.</p>
- *          <p>Once the game server group and corresponding Auto Scaling group are created, you have
- *             full access to change the Auto Scaling group's configuration as needed. Several
- *             properties that are set when creating a game server group, including maximum/minimum
- *             size and auto-scaling policy settings, must be updated directly in the Auto Scaling
- *             group. Keep in mind that some Auto Scaling group properties are periodically updated by
- *             Amazon GameLift Servers FleetIQ as part of its balancing activities to optimize for availability and cost.</p>
- *          <p>
- *             <b>Learn more</b>
- *          </p>
- *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift Servers FleetIQ
- *                 Guide</a>
- *          </p>
+ * **This API works with the following fleet types:** EC2 (FleetIQ)
+ *
+ * Creates a Amazon GameLift Servers FleetIQ game server group for managing game hosting on a collection of Amazon Elastic Compute Cloud instances for game hosting. This operation creates the game server group, creates an Auto Scaling group in your Amazon Web Services account, and establishes a link between the two groups. You can view the status of your game server groups in the Amazon GameLift Servers console. Game server group metrics and events are emitted to Amazon CloudWatch.
+ *
+ * Before creating a new game server group, you must have the following:
+ *
+ * - An Amazon Elastic Compute Cloud launch template that specifies how to launch Amazon Elastic Compute Cloud instances with your game server build. For more information, see [Launching an Instance from a Launch Template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the *Amazon Elastic Compute Cloud User Guide*.
+ * - An IAM role that extends limited access to your Amazon Web Services account to allow Amazon GameLift Servers FleetIQ to create and interact with the Auto Scaling group. For more information, see [Create IAM roles for cross-service interaction](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-iam-permissions-roles.html) in the *Amazon GameLift Servers FleetIQ Developer Guide*.
+ *
+ * To create a new game server group, specify a unique group name, IAM role and Amazon Elastic Compute Cloud launch template, and provide a list of instance types that can be used in the group. You must also set initial maximum and minimum limits on the group's instance count. You can optionally set an Auto Scaling policy with target tracking based on a Amazon GameLift Servers FleetIQ metric.
+ *
+ * Once the game server group and corresponding Auto Scaling group are created, you have full access to change the Auto Scaling group's configuration as needed. Several properties that are set when creating a game server group, including maximum/minimum size and auto-scaling policy settings, must be updated directly in the Auto Scaling group. Keep in mind that some Auto Scaling group properties are periodically updated by Amazon GameLift Servers FleetIQ as part of its balancing activities to optimize for availability and cost.
+ *
+ * **Learn more**
+ *
+ * [Amazon GameLift Servers FleetIQ Guide](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -141,29 +117,28 @@ export interface CreateGameServerGroupCommandOutput extends CreateGameServerGrou
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The requested operation would cause a conflict with the current state of a service
- *             resource associated with the request. Resolve the conflict before retrying this
- *             request.</p>
- *          <p></p>
+ *
+ * The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an unrecoverable internal failure while processing the
- *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
- *             values before retrying.</p>
+ *
+ * One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The requested operation would cause the resource to exceed the allowed service limit.
- *             Resolve the issue before retrying.</p>
+ *
+ * The requested operation would cause the resource to exceed the allowed service limit. Resolve the issue before retrying.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * The client failed authentication. Clients should not retry such requests.
  *
  * @throws {@link GameLiftServiceException}
- * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * Base exception class for all service exceptions from GameLift service.
  *
  * @public
  */

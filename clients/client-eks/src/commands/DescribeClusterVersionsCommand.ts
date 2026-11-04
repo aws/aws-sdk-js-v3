@@ -23,7 +23,8 @@ export interface DescribeClusterVersionsCommandInput extends DescribeClusterVers
 export interface DescribeClusterVersionsCommandOutput extends DescribeClusterVersionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists available Kubernetes versions for Amazon EKS clusters.</p>
+ * Lists available Kubernetes versions for Amazon EKS clusters.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -212,19 +213,20 @@ export interface DescribeClusterVersionsCommandOutput extends DescribeClusterVer
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is invalid given the state of the cluster. Check the state of the cluster
- *             and the associated operations.</p>
+ *
+ * The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link EKSServiceException}
- * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * Base exception class for all service exceptions from EKS service.
  *
  * @public
  */

@@ -23,11 +23,10 @@ export interface DescribeAlarmsForMetricCommandInput extends DescribeAlarmsForMe
 export interface DescribeAlarmsForMetricCommandOutput extends DescribeAlarmsForMetricOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves the alarms for the specified metric. To filter the results, specify a
- *             statistic, period, or unit.</p>
- *          <p>This operation retrieves only standard alarms that are based on the specified
- *             metric. It does not return alarms based on math expressions that use the specified
- *             metric, or composite alarms that use the specified metric.</p>
+ * Retrieves the alarms for the specified metric. To filter the results, specify a statistic, period, or unit.
+ *
+ * This operation retrieves only standard alarms that are based on the specified metric. It does not return alarms based on math expressions that use the specified metric, or composite alarms that use the specified metric.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -161,8 +160,8 @@ export interface DescribeAlarmsForMetricCommandOutput extends DescribeAlarmsForM
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  * @throws {@link CloudWatchServiceException}
- * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatch service.
  *
  * @public
  */

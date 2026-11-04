@@ -23,9 +23,10 @@ export interface DescribeVolumesModificationsCommandInput extends DescribeVolume
 export interface DescribeVolumesModificationsCommandOutput extends DescribeVolumesModificationsResult, __MetadataBearer {}
 
 /**
- * <p>Describes the most recent volume modification request for the specified EBS volumes.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/monitoring-volume-modifications.html">
- *       Monitor the progress of volume modifications</a> in the <i>Amazon EBS User Guide</i>.</p>
+ * Describes the most recent volume modification request for the specified EBS volumes.
+ *
+ * For more information, see [Monitor the progress of volume modifications](https://docs.aws.amazon.com/ebs/latest/userguide/monitoring-volume-modifications.html) in the *Amazon EBS User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,8 +92,8 @@ export interface DescribeVolumesModificationsCommandOutput extends DescribeVolum
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

@@ -23,11 +23,10 @@ export interface GetServerCertificateCommandInput extends GetServerCertificateRe
 export interface GetServerCertificateCommandOutput extends GetServerCertificateResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about the specified server certificate stored in IAM.</p>
- *          <p>For more information about working with server certificates, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
- *                 with server certificates</a> in the <i>IAM User Guide</i>. This
- *             topic includes a list of Amazon Web Services services that can use the server certificates that you
- *             manage with IAM.</p>
+ * Retrieves information about the specified server certificate stored in IAM.
+ *
+ * For more information about working with server certificates, see [Working with server certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html) in the *IAM User Guide*. This topic includes a list of Amazon Web Services services that can use the server certificates that you manage with IAM.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,16 +70,16 @@ export interface GetServerCertificateCommandOutput extends GetServerCertificateR
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @public
  */

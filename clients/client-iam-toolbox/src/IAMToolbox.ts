@@ -60,7 +60,8 @@ export interface IAMToolbox {
 }
 
 /**
- * <p>Contains APIs to work with AWS Identity and Access Management (IAM).</p>
+ * Contains APIs to work with AWS Identity and Access Management (IAM).
+ *
  * @public
  */
 export class IAMToolbox extends IAMToolboxClient implements IAMToolbox {}

@@ -23,7 +23,8 @@ export interface DeleteDBProxyEndpointCommandInput extends DeleteDBProxyEndpoint
 export interface DeleteDBProxyEndpointCommandOutput extends DeleteDBProxyEndpointResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a <code>DBProxyEndpoint</code>. Doing so removes the ability to access the DB proxy using the endpoint that you defined. The endpoint that you delete might have provided capabilities such as read/write or read-only operations, or using a different VPC than the DB proxy's default VPC.</p>
+ * Deletes a `DBProxyEndpoint`. Doing so removes the ability to access the DB proxy using the endpoint that you defined. The endpoint that you delete might have provided capabilities such as read/write or read-only operations, or using a different VPC than the DB proxy's default VPC.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,14 +68,16 @@ export interface DeleteDBProxyEndpointCommandOutput extends DeleteDBProxyEndpoin
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBProxyEndpointNotFoundFault} (client fault)
- *  <p>The DB proxy endpoint doesn't exist.</p>
+ *
+ * The DB proxy endpoint doesn't exist.
  *
  * @throws {@link InvalidDBProxyEndpointStateFault} (client fault)
- *  <p>You can't perform this operation while the DB proxy endpoint is in a particular state.</p>
+ *
+ * You can't perform this operation while the DB proxy endpoint is in a particular state.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @public
  */

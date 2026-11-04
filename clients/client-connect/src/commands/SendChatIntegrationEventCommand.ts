@@ -23,21 +23,15 @@ export interface SendChatIntegrationEventCommandInput extends SendChatIntegratio
 export interface SendChatIntegrationEventCommandOutput extends SendChatIntegrationEventResponse, __MetadataBearer {}
 
 /**
- * <p>Processes chat integration events from Amazon Web Services or external integrations to Connect Customer. A chat
- *    integration event includes:</p>
- *          <ul>
- *             <li>
- *                <p>SourceId, DestinationId, and Subtype: a set of identifiers, uniquely representing a chat</p>
- *             </li>
- *             <li>
- *                <p> ChatEvent: details of the chat action to perform such as sending a message, event, or disconnecting from a
- *      chat</p>
- *             </li>
- *          </ul>
- *          <p>When a chat integration event is sent with chat identifiers that do not map to an active chat contact, a new
- *    chat contact is also created before handling chat action. </p>
- *          <p>Access to this API is currently restricted to Amazon Web Services End User Messaging for supporting SMS
- *    integration. </p>
+ * Processes chat integration events from Amazon Web Services or external integrations to Connect Customer. A chat integration event includes:
+ *
+ * - SourceId, DestinationId, and Subtype: a set of identifiers, uniquely representing a chat
+ * - ChatEvent: details of the chat action to perform such as sending a message, event, or disconnecting from a chat
+ *
+ * When a chat integration event is sent with chat identifiers that do not map to an active chat contact, a new chat contact is also created before handling chat action.
+ *
+ * Access to this API is currently restricted to Amazon Web Services End User Messaging for supporting SMS integration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,23 +80,28 @@ export interface SendChatIntegrationEventCommandOutput extends SendChatIntegrati
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

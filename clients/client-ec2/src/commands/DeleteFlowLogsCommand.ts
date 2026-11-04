@@ -23,7 +23,8 @@ export interface DeleteFlowLogsCommandInput extends DeleteFlowLogsRequest {}
 export interface DeleteFlowLogsCommandOutput extends DeleteFlowLogsResult, __MetadataBearer {}
 
 /**
- * <p>Deletes one or more flow logs.</p>
+ * Deletes one or more flow logs.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,8 +62,8 @@ export interface DeleteFlowLogsCommandOutput extends DeleteFlowLogsResult, __Met
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

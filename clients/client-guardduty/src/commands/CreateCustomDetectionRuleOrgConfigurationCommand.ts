@@ -26,7 +26,8 @@ export interface CreateCustomDetectionRuleOrgConfigurationCommandInput extends C
 export interface CreateCustomDetectionRuleOrgConfigurationCommandOutput extends CreateCustomDetectionRuleOrgConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an organization-level configuration that enables a custom detection rule across your organization. This operation is available only to the delegated administrator account.</p>
+ * Creates an organization-level configuration that enables a custom detection rule across your organization. This operation is available only to the delegated administrator account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,23 +60,28 @@ export interface CreateCustomDetectionRuleOrgConfigurationCommandOutput extends 
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>An access denied exception object.</p>
+ *
+ * An access denied exception object.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>A bad request exception object.</p>
+ *
+ * A bad request exception object.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A request conflict exception object.</p>
+ *
+ * A request conflict exception object.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>An internal server error exception object.</p>
+ *
+ * An internal server error exception object.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource can't be found.</p>
+ *
+ * The requested resource can't be found.
  *
  * @throws {@link GuardDutyServiceException}
- * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * Base exception class for all service exceptions from GuardDuty service.
  *
  * @public
  */

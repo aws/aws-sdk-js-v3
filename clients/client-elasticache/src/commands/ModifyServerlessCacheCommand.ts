@@ -23,7 +23,8 @@ export interface ModifyServerlessCacheCommandInput extends ModifyServerlessCache
 export interface ModifyServerlessCacheCommandOutput extends ModifyServerlessCacheResponse, __MetadataBearer {}
 
 /**
- * <p>This API modifies the attributes of a serverless cache.</p>
+ * This API modifies the attributes of a serverless cache.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -120,32 +121,40 @@ export interface ModifyServerlessCacheCommandOutput extends ModifyServerlessCach
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link InvalidCredentialsException} (client fault)
- *  <p>You must enter valid credentials.</p>
+ *
+ * You must enter valid credentials.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * Two or more incompatible parameters were specified.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link InvalidServerlessCacheStateFault} (client fault)
- *  <p>The account for these credentials is not currently active.</p>
+ *
+ * The account for these credentials is not currently active.
  *
  * @throws {@link InvalidUserGroupStateFault} (client fault)
- *  <p>The user group is not in an active state.</p>
+ *
+ * The user group is not in an active state.
  *
  * @throws {@link ServerlessCacheNotFoundFault} (client fault)
- *  <p>The serverless cache was not found or does not exist.</p>
+ *
+ * The serverless cache was not found or does not exist.
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
- *  <p>The specified service linked role (SLR) was not found.</p>
+ *
+ * The specified service linked role (SLR) was not found.
  *
  * @throws {@link UserGroupNotFoundFault} (client fault)
- *  <p>The user group was not found or does not exist</p>
+ *
+ * The user group was not found or does not exist
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @public
  */

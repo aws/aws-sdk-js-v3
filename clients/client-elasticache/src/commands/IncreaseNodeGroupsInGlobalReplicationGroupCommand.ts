@@ -26,7 +26,8 @@ export interface IncreaseNodeGroupsInGlobalReplicationGroupCommandInput extends 
 export interface IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput extends IncreaseNodeGroupsInGlobalReplicationGroupResult, __MetadataBearer {}
 
 /**
- * <p>Increase the number of node groups in the Global datastore</p>
+ * Increase the number of node groups in the Global datastore
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -96,17 +97,20 @@ export interface IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput extends
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link GlobalReplicationGroupNotFoundFault} (client fault)
- *  <p>The Global datastore does not exist</p>
+ *
+ * The Global datastore does not exist
  *
  * @throws {@link InvalidGlobalReplicationGroupStateFault} (client fault)
- *  <p>The Global datastore is not available or in primary-only state.</p>
+ *
+ * The Global datastore is not available or in primary-only state.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface ListEnvironmentVlansCommandInput extends ListEnvironmentVlansRe
 export interface ListEnvironmentVlansCommandOutput extends ListEnvironmentVlansResponse, __MetadataBearer {}
 
 /**
- * <p>Lists environment VLANs that are associated with the specified environment.</p>
+ * Lists environment VLANs that are associated with the specified environment.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,14 +75,16 @@ export interface ListEnvironmentVlansCommandOutput extends ListEnvironmentVlansR
  * @see {@link EvsClientResolvedConfig | config} for EvsClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a <code>state</code> of <code>DELETED</code>.</p>
+ *
+ * A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a `state` of `DELETED`.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+ *
+ * The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.
  *
  * @throws {@link EvsServiceException}
- * <p>Base exception class for all service exceptions from Evs service.</p>
  *
+ * Base exception class for all service exceptions from Evs service.
  *
  * @public
  */

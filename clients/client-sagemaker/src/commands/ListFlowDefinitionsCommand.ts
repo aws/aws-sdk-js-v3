@@ -23,7 +23,8 @@ export interface ListFlowDefinitionsCommandInput extends ListFlowDefinitionsRequ
 export interface ListFlowDefinitionsCommandOutput extends ListFlowDefinitionsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about the flow definitions in your account.</p>
+ * Returns information about the flow definitions in your account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,8 +64,8 @@ export interface ListFlowDefinitionsCommandOutput extends ListFlowDefinitionsRes
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

@@ -26,12 +26,10 @@ export interface PutDeliverabilityDashboardOptionCommandInput extends PutDeliver
 export interface PutDeliverabilityDashboardOptionCommandOutput extends PutDeliverabilityDashboardOptionResponse, __MetadataBearer {}
 
 /**
- * <p>Enable or disable the Deliverability dashboard. When you enable the Deliverability dashboard, you gain
- *             access to reputation, deliverability, and other metrics for the domains that you use to
- *             send email. You also gain the ability to perform predictive inbox placement tests.</p>
- *          <p>When you use the Deliverability dashboard, you pay a monthly subscription charge, in addition
- *             to any other fees that you accrue by using Amazon SES and other Amazon Web Services services. For more
- *             information about the features and cost of a Deliverability dashboard subscription, see <a href="http://aws.amazon.com/ses/pricing/">Amazon SES Pricing</a>.</p>
+ * Enable or disable the Deliverability dashboard. When you enable the Deliverability dashboard, you gain access to reputation, deliverability, and other metrics for the domains that you use to send email. You also gain the ability to perform predictive inbox placement tests.
+ *
+ * When you use the Deliverability dashboard, you pay a monthly subscription charge, in addition to any other fees that you accrue by using Amazon SES and other Amazon Web Services services. For more information about the features and cost of a Deliverability dashboard subscription, see [Amazon SES Pricing](http://aws.amazon.com/ses/pricing/).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,23 +66,28 @@ export interface PutDeliverabilityDashboardOptionCommandOutput extends PutDelive
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  * @throws {@link AlreadyExistsException} (client fault)
- *  <p>The resource specified in your request already exists.</p>
+ *
+ * The resource specified in your request already exists.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>There are too many instances of the specified resource type.</p>
+ *
+ * There are too many instances of the specified resource type.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * The resource you attempted to access doesn't exist.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Too many requests have been made to the operation.</p>
+ *
+ * Too many requests have been made to the operation.
  *
  * @throws {@link SESv2ServiceException}
- * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * Base exception class for all service exceptions from SESv2 service.
  *
  * @public
  */

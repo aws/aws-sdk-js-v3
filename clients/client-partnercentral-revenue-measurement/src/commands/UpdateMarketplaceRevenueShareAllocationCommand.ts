@@ -26,7 +26,8 @@ export interface UpdateMarketplaceRevenueShareAllocationCommandInput extends Upd
 export interface UpdateMarketplaceRevenueShareAllocationCommandOutput extends UpdateMarketplaceRevenueShareAllocationOutput, __MetadataBearer {}
 
 /**
- * <p>Updates an existing marketplace revenue share allocation. Supports modifying effective dates, revenue share percentage, and status with time-based mutability rules.</p>
+ * Updates an existing marketplace revenue share allocation. Supports modifying effective dates, revenue share percentage, and status with time-based mutability rules.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,26 +72,32 @@ export interface UpdateMarketplaceRevenueShareAllocationCommandOutput extends Up
  * @see {@link PartnerCentralRevenueMeasurementClientResolvedConfig | config} for PartnerCentralRevenueMeasurementClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request was denied due to insufficient permissions.</p>
+ *
+ * The request was denied due to insufficient permissions.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be completed due to a conflict with the current state of the resource.</p>
+ *
+ * The request could not be completed due to a conflict with the current state of the resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled due to too many requests. Retry your request.</p>
+ *
+ * The request was throttled due to too many requests. Retry your request.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request failed validation due to invalid input parameters.</p>
+ *
+ * The request failed validation due to invalid input parameters.
  *
  * @throws {@link PartnerCentralRevenueMeasurementServiceException}
- * <p>Base exception class for all service exceptions from PartnerCentralRevenueMeasurement service.</p>
  *
+ * Base exception class for all service exceptions from PartnerCentralRevenueMeasurement service.
  *
  * @example Example for UpdateMarketplaceRevenueShareAllocation
  * ```javascript

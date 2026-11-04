@@ -23,7 +23,8 @@ export interface AcceptPrimaryEmailUpdateCommandInput extends AcceptPrimaryEmail
 export interface AcceptPrimaryEmailUpdateCommandOutput extends AcceptPrimaryEmailUpdateResponse, __MetadataBearer {}
 
 /**
- * <p>Accepts the request that originated from <a>StartPrimaryEmailUpdate</a> to update the primary email address (also known as the root user email address) for the specified account.</p>
+ * Accepts the request that originated from StartPrimaryEmailUpdate to update the primary email address (also known as the root user email address) for the specified account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,26 +53,32 @@ export interface AcceptPrimaryEmailUpdateCommandOutput extends AcceptPrimaryEmai
  * @see {@link AccountClientResolvedConfig | config} for AccountClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The operation failed because the calling identity doesn't have the minimum required permissions.</p>
+ *
+ * The operation failed because the calling identity doesn't have the minimum required permissions.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of a conflict in the current status of the resource. For example, this happens if you try to enable a Region that is currently being disabled (in a status of DISABLING) or if you try to change an account’s root user email to an email address which is already in use.</p>
+ *
+ * The request could not be processed because of a conflict in the current status of the resource. For example, this happens if you try to enable a Region that is currently being disabled (in a status of DISABLING) or if you try to change an account’s root user email to an email address which is already in use.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The operation failed because of an error internal to Amazon Web Services. Try your operation again later.</p>
+ *
+ * The operation failed because of an error internal to Amazon Web Services. Try your operation again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The operation failed because it specified a resource that can't be found.</p>
+ *
+ * The operation failed because it specified a resource that can't be found.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The operation failed because it was called too frequently and exceeded a throttle limit.</p>
+ *
+ * The operation failed because it was called too frequently and exceeded a throttle limit.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The operation failed because one of the input parameters was invalid.</p>
+ *
+ * The operation failed because one of the input parameters was invalid.
  *
  * @throws {@link AccountServiceException}
- * <p>Base exception class for all service exceptions from Account service.</p>
  *
+ * Base exception class for all service exceptions from Account service.
  *
  * @public
  */

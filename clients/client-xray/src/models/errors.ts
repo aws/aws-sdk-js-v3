@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { XRayServiceException as __BaseException } from "./XRayServiceException";
 
 /**
- * <p>The request is missing required parameters or has invalid parameters.</p>
+ * The request is missing required parameters or has invalid parameters.
+ *
  * @public
  */
 export class InvalidRequestException extends __BaseException {
@@ -27,7 +28,8 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * <p>The request exceeds the maximum number of requests per second.</p>
+ * The request exceeds the maximum number of requests per second.
+ *
  * @public
  */
 export class ThrottledException extends __BaseException {
@@ -50,8 +52,8 @@ export class ThrottledException extends __BaseException {
 }
 
 /**
- * <p>The resource was not found. Verify that the name or Amazon Resource Name (ARN) of the resource is
- *       correct.</p>
+ * The resource was not found. Verify that the name or Amazon Resource Name (ARN) of the resource is correct.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -76,7 +78,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>You have reached the maximum number of sampling rules.</p>
+ * You have reached the maximum number of sampling rules.
+ *
  * @public
  */
 export class RuleLimitExceededException extends __BaseException {
@@ -99,8 +102,8 @@ export class RuleLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>A policy revision id was provided which does not match the latest policy revision. This exception is also
- *     if a policy revision id of 0 is provided via <code>PutResourcePolicy</code> and a policy with the same name already exists.</p>
+ * A policy revision id was provided which does not match the latest policy revision. This exception is also if a policy revision id of 0 is provided via `PutResourcePolicy` and a policy with the same name already exists.
+ *
  * @public
  */
 export class InvalidPolicyRevisionIdException extends __BaseException {
@@ -123,7 +126,8 @@ export class InvalidPolicyRevisionIdException extends __BaseException {
 }
 
 /**
- * <p>The provided resource policy would prevent the caller of this request from calling PutResourcePolicy in the future.</p>
+ * The provided resource policy would prevent the caller of this request from calling PutResourcePolicy in the future.
+ *
  * @public
  */
 export class LockoutPreventionException extends __BaseException {
@@ -146,7 +150,8 @@ export class LockoutPreventionException extends __BaseException {
 }
 
 /**
- * <p>Invalid policy document provided in request.</p>
+ * Invalid policy document provided in request.
+ *
  * @public
  */
 export class MalformedPolicyDocumentException extends __BaseException {
@@ -169,7 +174,8 @@ export class MalformedPolicyDocumentException extends __BaseException {
 }
 
 /**
- * <p>Exceeded the maximum number of resource policies for a target Amazon Web Services account.</p>
+ * Exceeded the maximum number of resource policies for a target Amazon Web Services account.
+ *
  * @public
  */
 export class PolicyCountLimitExceededException extends __BaseException {
@@ -192,7 +198,8 @@ export class PolicyCountLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>Exceeded the maximum size for a resource policy.</p>
+ * Exceeded the maximum size for a resource policy.
+ *
  * @public
  */
 export class PolicySizeLimitExceededException extends __BaseException {
@@ -215,7 +222,8 @@ export class PolicySizeLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>You have exceeded the maximum number of tags you can apply to this resource.</p>
+ * You have exceeded the maximum number of tags you can apply to this resource.
+ *
  * @public
  */
 export class TooManyTagsException extends __BaseException {

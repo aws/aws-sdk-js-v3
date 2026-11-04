@@ -23,7 +23,8 @@ export interface ListAudienceExportJobsCommandInput extends ListAudienceExportJo
 export interface ListAudienceExportJobsCommandOutput extends ListAudienceExportJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of the audience export jobs.</p>
+ * Returns a list of the audience export jobs.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,17 +72,20 @@ export interface ListAudienceExportJobsCommandOutput extends ListAudienceExportJ
  * @see {@link CleanRoomsMLClientResolvedConfig | config} for CleanRoomsMLClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request parameters for this request are incorrect.</p>
+ *
+ * The request parameters for this request are incorrect.
  *
  * @throws {@link CleanRoomsMLServiceException}
- * <p>Base exception class for all service exceptions from CleanRoomsML service.</p>
  *
+ * Base exception class for all service exceptions from CleanRoomsML service.
  *
  * @public
  */

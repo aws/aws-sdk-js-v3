@@ -23,10 +23,10 @@ export interface ListOnPremisesInstancesCommandInput extends ListOnPremisesInsta
 export interface ListOnPremisesInstancesCommandOutput extends ListOnPremisesInstancesOutput, __MetadataBearer {}
 
 /**
- * <p>Gets a list of names for one or more on-premises instances.</p>
- *          <p>Unless otherwise specified, both registered and deregistered on-premises instance
- *             names are listed. To list only registered or deregistered on-premises instance names,
- *             use the registration status parameter.</p>
+ * Gets a list of names for one or more on-premises instances.
+ *
+ * Unless otherwise specified, both registered and deregistered on-premises instance names are listed. To list only registered or deregistered on-premises instance names, use the registration status parameter.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,17 +64,20 @@ export interface ListOnPremisesInstancesCommandOutput extends ListOnPremisesInst
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The next token was specified in an invalid format.</p>
+ *
+ * The next token was specified in an invalid format.
  *
  * @throws {@link InvalidRegistrationStatusException} (client fault)
- *  <p>The registration status was specified in an invalid format.</p>
+ *
+ * The registration status was specified in an invalid format.
  *
  * @throws {@link InvalidTagFilterException} (client fault)
- *  <p>The tag filter was specified in an invalid format.</p>
+ *
+ * The tag filter was specified in an invalid format.
  *
  * @throws {@link CodeDeployServiceException}
- * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * Base exception class for all service exceptions from CodeDeploy service.
  *
  * @public
  */

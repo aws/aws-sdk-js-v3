@@ -5,7 +5,8 @@ import type { ValidationExceptionReason } from "./enums";
 import { TimestreamInfluxDBServiceException as __BaseException } from "./TimestreamInfluxDBServiceException";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -26,7 +27,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request conflicts with an existing resource in Timestream for InfluxDB.</p>
+ * The request conflicts with an existing resource in Timestream for InfluxDB.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -34,13 +36,15 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The identifier for the Timestream for InfluxDB resource associated with the request.</p>
+   * The identifier for the Timestream for InfluxDB resource associated with the request.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The type of Timestream for InfluxDB resource associated with the request.</p>
+   * The type of Timestream for InfluxDB resource associated with the request.
+   *
    * @public
    */
   resourceType: string | undefined;
@@ -61,7 +65,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ * The request processing has failed because of an unknown error, exception or failure.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -83,7 +88,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The requested resource was not found or does not exist.</p>
+ * The requested resource was not found or does not exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -91,13 +97,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The identifier for the Timestream for InfluxDB resource associated with the request.</p>
+   * The identifier for the Timestream for InfluxDB resource associated with the request.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The type of Timestream for InfluxDB resource associated with the request.</p>
+   * The type of Timestream for InfluxDB resource associated with the request.
+   *
    * @public
    */
   resourceType: string | undefined;
@@ -118,7 +126,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request exceeds the service quota.</p>
+ * The request exceeds the service quota.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -139,7 +148,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -148,7 +158,8 @@ export class ThrottlingException extends __BaseException {
   readonly $fault = "client" as const;
   $retryable = {};
   /**
-   * <p>The number of seconds the caller should wait before retrying.</p>
+   * The number of seconds the caller should wait before retrying.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -168,7 +179,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by Timestream for InfluxDB.</p>
+ * The input fails to satisfy the constraints specified by Timestream for InfluxDB.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -176,7 +188,8 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The reason that validation failed.</p>
+   * The reason that validation failed.
+   *
    * @public
    */
   reason: ValidationExceptionReason | undefined;

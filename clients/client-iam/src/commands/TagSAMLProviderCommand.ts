@@ -23,44 +23,18 @@ export interface TagSAMLProviderCommandInput extends TagSAMLProviderRequest {}
 export interface TagSAMLProviderCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Adds one or more tags to a Security Assertion Markup Language (SAML) identity provider.
- *       For more information about these providers, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html">About SAML 2.0-based federation </a>.
- *       If a tag with the same key name already exists, then that tag is overwritten with the new
- *       value.</p>
- *          <p>A tag consists of a key name and an associated value. By assigning tags to your
- *       resources, you can do the following:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <b>Administrative grouping and discovery</b> - Attach
- *           tags to resources to aid in organization and search. For example, you could search for all
- *           resources with the key name <i>Project</i> and the value
- *             <i>MyImportantProject</i>. Or search for all resources with the key name
- *             <i>Cost Center</i> and the value <i>41200</i>. </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Access control</b> - Include tags in IAM user-based
- *           and resource-based policies. You can use tags to restrict access to only a SAML identity
- *           provider that has a specified tag attached. For examples of policies that show how to use
- *           tags to control access, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Control access using IAM tags</a> in the
- *             <i>IAM User Guide</i>.</p>
- *             </li>
- *          </ul>
- *          <note>
- *             <ul>
- *                <li>
- *                   <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request
- *    fails and the resource is not created. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
- *       <i>IAM User Guide</i>.</p>
- *                </li>
- *                <li>
- *                   <p>Amazon Web Services always interprets the tag <code>Value</code> as a single string. If you
- *             need to store an array, you can store comma-separated values in the string. However, you
- *             must interpret the value in your code.</p>
- *                </li>
- *             </ul>
- *          </note>
+ * Adds one or more tags to a Security Assertion Markup Language (SAML) identity provider. For more information about these providers, see [About SAML 2.0-based federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html). If a tag with the same key name already exists, then that tag is overwritten with the new value.
+ *
+ * A tag consists of a key name and an associated value. By assigning tags to your resources, you can do the following:
+ *
+ * - **Administrative grouping and discovery** - Attach tags to resources to aid in organization and search. For example, you could search for all resources with the key name *Project* and the value *MyImportantProject*. Or search for all resources with the key name *Cost Center* and the value *41200*.
+ * - **Access control** - Include tags in IAM user-based and resource-based policies. You can use tags to restrict access to only a SAML identity provider that has a specified tag attached. For examples of policies that show how to use tags to control access, see [Control access using IAM tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html) in the *IAM User Guide*.
+ *
+ * > **Note:**
+ * >
+ * > - If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide*.
+ * > - Amazon Web Services always interprets the tag `Value` as a single string. If you need to store an array, you can store comma-separated values in the string. However, you must interpret the value in your code.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,28 +65,28 @@ export interface TagSAMLProviderCommandOutput extends __MetadataBearer {}
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>The request was rejected because multiple requests to change this object were submitted
- *       simultaneously. Wait a few minutes and submit your request again.</p>
+ *
+ * The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
- *       input parameter.</p>
+ *
+ * The request was rejected because an invalid or out-of-range value was supplied for an input parameter.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current
- *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+ *
+ * The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @public
  */

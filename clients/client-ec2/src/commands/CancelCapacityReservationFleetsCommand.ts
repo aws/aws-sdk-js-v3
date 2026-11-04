@@ -23,22 +23,12 @@ export interface CancelCapacityReservationFleetsCommandInput extends CancelCapac
 export interface CancelCapacityReservationFleetsCommandOutput extends CancelCapacityReservationFleetsResult, __MetadataBearer {}
 
 /**
- * <p>Cancels one or more Capacity Reservation Fleets. When you cancel a Capacity
- * 			Reservation Fleet, the following happens:</p>
- *          <ul>
- *             <li>
- *                <p>The Capacity Reservation Fleet's status changes to
- * 					<code>cancelled</code>.</p>
- *             </li>
- *             <li>
- *                <p>The individual Capacity Reservations in the Fleet are cancelled. Instances
- * 					running in the Capacity Reservations at the time of cancelling the Fleet
- * 					continue to run in shared capacity.</p>
- *             </li>
- *             <li>
- *                <p>The Fleet stops creating new Capacity Reservations.</p>
- *             </li>
- *          </ul>
+ * Cancels one or more Capacity Reservation Fleets. When you cancel a Capacity Reservation Fleet, the following happens:
+ *
+ * - The Capacity Reservation Fleet's status changes to `cancelled`.
+ * - The individual Capacity Reservations in the Fleet are cancelled. Instances running in the Capacity Reservations at the time of cancelling the Fleet continue to run in shared capacity.
+ * - The Fleet stops creating new Capacity Reservations.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,8 +73,8 @@ export interface CancelCapacityReservationFleetsCommandOutput extends CancelCapa
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

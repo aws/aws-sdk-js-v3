@@ -23,12 +23,12 @@ export interface ListApplicationVersionsCommandInput extends ListApplicationVers
 export interface ListApplicationVersionsCommandOutput extends ListApplicationVersionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all the versions for the specified application, including versions that were rolled back. The response also includes a summary of the configuration
- *       associated with each version.</p>
- *          <p>To get the complete description of a specific application version, invoke the <a>DescribeApplicationVersion</a> operation.</p>
- *          <note>
- *             <p>This operation is supported only for Managed Service for Apache Flink.</p>
- *          </note>
+ * Lists all the versions for the specified application, including versions that were rolled back. The response also includes a summary of the configuration associated with each version.
+ *
+ * To get the complete description of a specific application version, invoke the DescribeApplicationVersion operation.
+ *
+ * > **Note:** This operation is supported only for Managed Service for Apache Flink.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,18 +63,20 @@ export interface ListApplicationVersionsCommandOutput extends ListApplicationVer
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>The specified input parameter value is not valid.</p>
+ *
+ * The specified input parameter value is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Specified application can't be found.</p>
+ *
+ * Specified application can't be found.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this
- *       operation. </p>
+ *
+ * The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation.
  *
  * @throws {@link KinesisAnalyticsV2ServiceException}
- * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ * Base exception class for all service exceptions from KinesisAnalyticsV2 service.
  *
  * @public
  */

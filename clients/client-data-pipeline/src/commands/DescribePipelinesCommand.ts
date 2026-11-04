@@ -23,11 +23,9 @@ export interface DescribePipelinesCommandInput extends DescribePipelinesInput {}
 export interface DescribePipelinesCommandOutput extends DescribePipelinesOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves metadata about one or more pipelines. The information retrieved includes the name of the pipeline, the pipeline identifier,
- *             its current state, and the user account that owns the pipeline. Using account credentials, you can retrieve metadata about pipelines
- *             that you or your IAM users have created. If you are using an IAM user account, you can retrieve metadata about only those pipelines
- *             for which you have read permissions.</p>
- *         <p>To retrieve the full pipeline definition instead of metadata about the pipeline, call <a>GetPipelineDefinition</a>.</p>
+ * Retrieves metadata about one or more pipelines. The information retrieved includes the name of the pipeline, the pipeline identifier, its current state, and the user account that owns the pipeline. Using account credentials, you can retrieve metadata about pipelines that you or your IAM users have created. If you are using an IAM user account, you can retrieve metadata about only those pipelines for which you have read permissions.
+ *
+ * To retrieve the full pipeline definition instead of metadata about the pipeline, call GetPipelineDefinition.
  *
  *         <examples>
  *             <request>
@@ -132,20 +130,24 @@ export interface DescribePipelinesCommandOutput extends DescribePipelinesOutput,
  * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.
  *
  * @throws {@link InternalServiceError} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
+ *
+ * The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.
  *
  * @throws {@link PipelineDeletedException} (client fault)
- *  <p>The specified pipeline has been deleted.</p>
+ *
+ * The specified pipeline has been deleted.
  *
  * @throws {@link PipelineNotFoundException} (client fault)
- *  <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
+ *
+ * The specified pipeline was not found. Verify that you used the correct user and account identifiers.
  *
  * @throws {@link DataPipelineServiceException}
- * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ * Base exception class for all service exceptions from DataPipeline service.
  *
  * @public
  */

@@ -23,8 +23,8 @@ export interface CreateCustomRoutingListenerCommandInput extends CreateCustomRou
 export interface CreateCustomRoutingListenerCommandOutput extends CreateCustomRoutingListenerResponse, __MetadataBearer {}
 
 /**
- * <p>Create a listener to process inbound connections from clients to a custom routing accelerator.
- * 			Connections arrive to assigned static IP addresses on the port range that you specify. </p>
+ * Create a listener to process inbound connections from clients to a custom routing accelerator. Connections arrive to assigned static IP addresses on the port range that you specify.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,23 +66,28 @@ export interface CreateCustomRoutingListenerCommandOutput extends CreateCustomRo
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
  * @throws {@link AcceleratorNotFoundException} (client fault)
- *  <p>The accelerator that you specified doesn't exist.</p>
+ *
+ * The accelerator that you specified doesn't exist.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * There was an internal error for Global Accelerator.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>An argument that you specified is invalid.</p>
+ *
+ * An argument that you specified is invalid.
  *
  * @throws {@link InvalidPortRangeException} (client fault)
- *  <p>The port numbers that you specified are not valid numbers or are not unique for this accelerator.</p>
+ *
+ * The port numbers that you specified are not valid numbers or are not unique for this accelerator.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
+ *
+ * Processing your request would cause you to exceed an Global Accelerator limit.
  *
  * @throws {@link GlobalAcceleratorServiceException}
- * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * Base exception class for all service exceptions from GlobalAccelerator service.
  *
  * @public
  */

@@ -26,16 +26,12 @@ export interface DescribeDBClusterSnapshotAttributesCommandInput extends Describ
 export interface DescribeDBClusterSnapshotAttributesCommandOutput extends DescribeDBClusterSnapshotAttributesResult, __MetadataBearer {}
 
 /**
- * <p>Returns a list of DB cluster snapshot attribute names and values for a manual DB cluster
- *       snapshot.</p>
- *          <p>When sharing snapshots with other Amazon accounts,
- *       <code>DescribeDBClusterSnapshotAttributes</code> returns the <code>restore</code> attribute
- *       and a list of IDs for the Amazon accounts that are authorized to copy or restore the manual DB
- *       cluster snapshot. If <code>all</code> is included in the list of values for the
- *       <code>restore</code> attribute, then the manual DB cluster snapshot is public and can be
- *       copied or restored by all Amazon accounts.</p>
- *          <p>To add or remove access for an Amazon account to copy or restore a manual DB cluster
- *       snapshot, or to make the manual DB cluster snapshot public or private, use the <a>ModifyDBClusterSnapshotAttribute</a> API action.</p>
+ * Returns a list of DB cluster snapshot attribute names and values for a manual DB cluster snapshot.
+ *
+ * When sharing snapshots with other Amazon accounts, `DescribeDBClusterSnapshotAttributes` returns the `restore` attribute and a list of IDs for the Amazon accounts that are authorized to copy or restore the manual DB cluster snapshot. If `all` is included in the list of values for the `restore` attribute, then the manual DB cluster snapshot is public and can be copied or restored by all Amazon accounts.
+ *
+ * To add or remove access for an Amazon account to copy or restore a manual DB cluster snapshot, or to make the manual DB cluster snapshot public or private, use the ModifyDBClusterSnapshotAttribute API action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,13 +68,12 @@ export interface DescribeDBClusterSnapshotAttributesCommandOutput extends Descri
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  * @throws {@link DBClusterSnapshotNotFoundFault} (client fault)
- *  <p>
- *             <i>DBClusterSnapshotIdentifier</i> does not refer to an existing
- *       DB cluster snapshot.</p>
+ *
+ * *DBClusterSnapshotIdentifier* does not refer to an existing DB cluster snapshot.
  *
  * @throws {@link NeptuneServiceException}
- * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * Base exception class for all service exceptions from Neptune service.
  *
  * @public
  */

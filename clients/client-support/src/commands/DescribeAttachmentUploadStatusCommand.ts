@@ -23,29 +23,13 @@ export interface DescribeAttachmentUploadStatusCommandInput extends DescribeAtta
 export interface DescribeAttachmentUploadStatusCommandOutput extends DescribeAttachmentUploadStatusResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the current status, file name, and progress of a multipart attachment upload that
- *          was started with <a>GetAttachmentUploadLinks</a>. Use this operation to track
- *          where an upload is in the workflow. While parts are still being uploaded and reported through
- *             <a>CompleteAttachmentUpload</a>, the <code>uploadStatus</code> is
- *             <code>attachment-not-ready</code> and <code>uploadProgress</code> reports the total number
- *          of parts and how many have been completed so far. After every part has been reported and the
- *          service finishes processing the upload asynchronously, the <code>uploadStatus</code> becomes
- *             <code>attachment-ready</code> and the <code>uploadId</code> can be attached to a case
- *          through <a>CreateCase</a> or <a>AddCommunicationToCase</a>.</p>
- *          <note>
- *             <ul>
- *                <li>
- *                   <p>You must have an Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan to use the Amazon Web Services Support
- *                         API. If you're in an Amazon Web Services Region that doesn't offer one of these Amazon Web Services Support plans, or if you haven't transitioned to one of these plans, you can use the Amazon Web Services Support API with a Business, Enterprise On-Ramp, or Enterprise Support plan.</p>
- *                </li>
- *                <li>
- *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have an
- *                         Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan, the
- *                             <code>SubscriptionRequiredException</code> error message appears. For
- *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
- *                </li>
- *             </ul>
- *          </note>
+ * Returns the current status, file name, and progress of a multipart attachment upload that was started with GetAttachmentUploadLinks. Use this operation to track where an upload is in the workflow. While parts are still being uploaded and reported through CompleteAttachmentUpload, the `uploadStatus` is `attachment-not-ready` and `uploadProgress` reports the total number of parts and how many have been completed so far. After every part has been reported and the service finishes processing the upload asynchronously, the `uploadStatus` becomes `attachment-ready` and the `uploadId` can be attached to a case through CreateCase or AddCommunicationToCase.
+ *
+ * > **Note:**
+ * >
+ * > - You must have an Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan to use the Amazon Web Services Support API. If you're in an Amazon Web Services Region that doesn't offer one of these Amazon Web Services Support plans, or if you haven't transitioned to one of these plans, you can use the Amazon Web Services Support API with a Business, Enterprise On-Ramp, or Enterprise Support plan.
+ * > - If you call the Amazon Web Services Support API from an account that doesn't have an Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan, the `SubscriptionRequiredException` error message appears. For information about changing your support plan, see [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,18 +62,20 @@ export interface DescribeAttachmentUploadStatusCommandOutput extends DescribeAtt
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
  *
  * @throws {@link DryRunOperationException} (client fault)
- *  <p>The request was valid, but the operation wasn't performed because <code>dryRun</code> was
- *          set to <code>true</code>.</p>
+ *
+ * The request was valid, but the operation wasn't performed because `dryRun` was set to `true`.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error occurred.</p>
+ *
+ * An internal server error occurred.
  *
  * @throws {@link UploadIdNotFound} (client fault)
- *  <p>The specified <code>uploadId</code> couldn't be located.</p>
+ *
+ * The specified `uploadId` couldn't be located.
  *
  * @throws {@link SupportServiceException}
- * <p>Base exception class for all service exceptions from Support service.</p>
  *
+ * Base exception class for all service exceptions from Support service.
  *
  * @public
  */

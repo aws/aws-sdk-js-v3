@@ -23,9 +23,10 @@ export interface GetImageFindingsCommandInput extends GetImageFindingsRequest {}
 export interface GetImageFindingsCommandOutput extends GetImageFindingsResult, __MetadataBearer {}
 
 /**
- * <p>Describes the Amazon Inspector vulnerability findings for the specified AMI.</p>
- *          <p>You can get findings for AMIs that you own, AMIs that are shared with you, and public
- *       AMIs. Amazon Inspector returns findings only for AMIs that it has scanned.</p>
+ * Describes the Amazon Inspector vulnerability findings for the specified AMI.
+ *
+ * You can get findings for AMIs that you own, AMIs that are shared with you, and public AMIs. Amazon Inspector returns findings only for AMIs that it has scanned.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,8 +70,8 @@ export interface GetImageFindingsCommandOutput extends GetImageFindingsResult, _
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

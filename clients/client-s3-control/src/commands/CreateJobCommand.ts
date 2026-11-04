@@ -23,46 +23,22 @@ export interface CreateJobCommandInput extends CreateJobRequest {}
 export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBearer {}
 
 /**
- * <p>This operation creates an S3 Batch Operations job.</p>
- *          <p>You can use S3 Batch Operations to perform large-scale batch actions on Amazon S3 objects.
- *          Batch Operations can run a single action on lists of Amazon S3 objects that you specify. For more
- *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops.html">S3 Batch Operations</a> in the <i>Amazon S3 User Guide</i>.</p>
- *          <dl>
- *             <dt>Permissions</dt>
- *             <dd>
- *                <p>For information about permissions required to use the Batch Operations, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops-iam-role-policies.html">Granting permissions for S3 Batch Operations</a> in the <i>Amazon S3
- *                      User Guide</i>.</p>
- *             </dd>
- *          </dl>
- *          <p></p>
- *          <p>Related actions include:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeJob.html">DescribeJob</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListJobs.html">ListJobs</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobPriority.html">UpdateJobPriority</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html">UpdateJobStatus</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_JobOperation.html">JobOperation</a>
- *                </p>
- *             </li>
- *          </ul>
+ * This operation creates an S3 Batch Operations job.
+ *
+ * You can use S3 Batch Operations to perform large-scale batch actions on Amazon S3 objects. Batch Operations can run a single action on lists of Amazon S3 objects that you specify. For more information, see [S3 Batch Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops.html) in the *Amazon S3 User Guide*.
+ *
+ * - **Permissions**
+ *
+ *   For information about permissions required to use the Batch Operations, see [Granting permissions for S3 Batch Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops-iam-role-policies.html) in the *Amazon S3 User Guide*.
+ *
+ * Related actions include:
+ *
+ * - [DescribeJob](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeJob.html)
+ * - [ListJobs](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListJobs.html)
+ * - [UpdateJobPriority](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobPriority.html)
+ * - [UpdateJobStatus](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html)
+ * - [JobOperation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_JobOperation.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -305,20 +281,16 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p></p>
  *
  * @throws {@link IdempotencyException} (client fault)
- *  <p></p>
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p></p>
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p></p>
  *
  * @throws {@link S3ControlServiceException}
- * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * Base exception class for all service exceptions from S3Control service.
  *
  * @public
  */

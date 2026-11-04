@@ -23,7 +23,8 @@ export interface ListArchiveSearchesCommandInput extends ListArchiveSearchesRequ
 export interface ListArchiveSearchesCommandOutput extends ListArchiveSearchesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of email archive search jobs.</p>
+ * Returns a list of email archive search jobs.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,20 +64,24 @@ export interface ListArchiveSearchesCommandOutput extends ListArchiveSearchesRes
  * @see {@link MailManagerClientResolvedConfig | config} for MailManagerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Occurs when a user is denied access to a specific resource or action.</p>
+ *
+ * Occurs when a user is denied access to a specific resource or action.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Occurs when a requested resource is not found.</p>
+ *
+ * Occurs when a requested resource is not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.</p>
+ *
+ * Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request validation has failed. For details, see the accompanying error message.</p>
+ *
+ * The request validation has failed. For details, see the accompanying error message.
  *
  * @throws {@link MailManagerServiceException}
- * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ * Base exception class for all service exceptions from MailManager service.
  *
  * @public
  */

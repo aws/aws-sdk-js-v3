@@ -23,8 +23,8 @@ export interface DescribeTrustStoreRevocationsCommandInput extends DescribeTrust
 export interface DescribeTrustStoreRevocationsCommandOutput extends DescribeTrustStoreRevocationsOutput, __MetadataBearer {}
 
 /**
- * <p>Describes the revocation files in use by the specified trust store or revocation
- *       files.</p>
+ * Describes the revocation files in use by the specified trust store or revocation files.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,14 +64,16 @@ export interface DescribeTrustStoreRevocationsCommandOutput extends DescribeTrus
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
  * @throws {@link RevocationIdNotFoundException} (client fault)
- *  <p>The specified revocation ID does not exist.</p>
+ *
+ * The specified revocation ID does not exist.
  *
  * @throws {@link TrustStoreNotFoundException} (client fault)
- *  <p>The specified trust store does not exist.</p>
+ *
+ * The specified trust store does not exist.
  *
  * @throws {@link ElasticLoadBalancingV2ServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancingV2 service.
  *
  * @public
  */

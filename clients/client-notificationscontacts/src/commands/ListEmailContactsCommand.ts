@@ -23,7 +23,8 @@ export interface ListEmailContactsCommandInput extends ListEmailContactsRequest 
 export interface ListEmailContactsCommandOutput extends ListEmailContactsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all email contacts created under the Account.</p>
+ * Lists all email contacts created under the Account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,20 +62,24 @@ export interface ListEmailContactsCommandOutput extends ListEmailContactsRespons
  * @see {@link NotificationsContactsClientResolvedConfig | config} for NotificationsContactsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error during processing of request.</p>
+ *
+ * Unexpected error during processing of request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an AWS service.
  *
  * @throws {@link NotificationsContactsServiceException}
- * <p>Base exception class for all service exceptions from NotificationsContacts service.</p>
  *
+ * Base exception class for all service exceptions from NotificationsContacts service.
  *
  * @public
  */

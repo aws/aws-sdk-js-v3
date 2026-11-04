@@ -23,36 +23,26 @@ export interface UpdateGlobalTableCommandInput extends UpdateGlobalTableInput {}
 export interface UpdateGlobalTableCommandOutput extends UpdateGlobalTableOutput, __MetadataBearer {}
 
 /**
- * <p>Adds or removes replicas in the specified global table. The global table must already
- *             exist to be able to use this operation. Any replica to be added must be empty, have the
- *             same name as the global table, have the same key schema, have DynamoDB Streams enabled,
- *             and have the same provisioned and maximum write capacity units.</p>
- *          <important>
- *             <p>This documentation is for version 2017.11.29 (Legacy) of global tables, which should be avoided for new global tables. Customers should use <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html">Global Tables version 2019.11.21 (Current)</a> when possible, because it provides greater flexibility, higher efficiency, and consumes less write capacity than 2017.11.29 (Legacy).</p>
- *             <p>To determine which version you're using, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.DetermineVersion.html">Determining the global table version you are using</a>. To update existing global tables from version 2017.11.29 (Legacy) to version 2019.11.21 (Current), see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_upgrade.html">Upgrading global tables</a>.</p>
- *          </important>
- *          <note>
- *             <p> If you are using global tables <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html">Version
- *                     2019.11.21</a> (Current) you can use <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateTable.html">UpdateTable</a> instead. </p>
- *             <p> Although you can use <code>UpdateGlobalTable</code> to add replicas and remove
- *                 replicas in a single request, for simplicity we recommend that you issue separate
- *                 requests for adding or removing replicas. </p>
- *          </note>
- *          <p> If global secondary indexes are specified, then the following conditions must also be
- *             met: </p>
- *          <ul>
- *             <li>
- *                <p> The global secondary indexes must have the same name. </p>
- *             </li>
- *             <li>
- *                <p> The global secondary indexes must have the same hash key and sort key (if
- *                     present). </p>
- *             </li>
- *             <li>
- *                <p> The global secondary indexes must have the same provisioned and maximum write
- *                     capacity units. </p>
- *             </li>
- *          </ul>
+ * Adds or removes replicas in the specified global table. The global table must already exist to be able to use this operation. Any replica to be added must be empty, have the same name as the global table, have the same key schema, have DynamoDB Streams enabled, and have the same provisioned and maximum write capacity units.
+ *
+ * > **Important:**
+ * >
+ * > This documentation is for version 2017.11.29 (Legacy) of global tables, which should be avoided for new global tables. Customers should use [Global Tables version 2019.11.21 (Current)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html) when possible, because it provides greater flexibility, higher efficiency, and consumes less write capacity than 2017.11.29 (Legacy).
+ * >
+ * > To determine which version you're using, see [Determining the global table version you are using](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.DetermineVersion.html). To update existing global tables from version 2017.11.29 (Legacy) to version 2019.11.21 (Current), see [Upgrading global tables](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_upgrade.html).
+ *
+ * > **Note:**
+ * >
+ * > If you are using global tables [Version 2019.11.21](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html) (Current) you can use [UpdateTable](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateTable.html) instead.
+ * >
+ * > Although you can use `UpdateGlobalTable` to add replicas and remove replicas in a single request, for simplicity we recommend that you issue separate requests for adding or removing replicas.
+ *
+ * If global secondary indexes are specified, then the following conditions must also be met:
+ *
+ * - The global secondary indexes must have the same name.
+ * - The global secondary indexes must have the same hash key and sort key (if present).
+ * - The global secondary indexes must have the same provisioned and maximum write capacity units.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -137,27 +127,30 @@ export interface UpdateGlobalTableCommandOutput extends UpdateGlobalTableOutput,
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
  * @throws {@link GlobalTableNotFoundException} (client fault)
- *  <p>The specified global table does not exist.</p>
+ *
+ * The specified global table does not exist.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidEndpointException} (client fault)
  *
  * @throws {@link ReplicaAlreadyExistsException} (client fault)
- *  <p>The specified replica is already part of the global table.</p>
+ *
+ * The specified replica is already part of the global table.
  *
  * @throws {@link ReplicaNotFoundException} (client fault)
- *  <p>The specified replica is no longer part of the global table.</p>
+ *
+ * The specified replica is no longer part of the global table.
  *
  * @throws {@link TableNotFoundException} (client fault)
- *  <p>A source table with the name <code>TableName</code> does not currently exist within
- *             the subscriber's account or the subscriber is operating in the wrong Amazon Web Services
- *             Region.</p>
+ *
+ * A source table with the name `TableName` does not currently exist within the subscriber's account or the subscriber is operating in the wrong Amazon Web Services Region.
  *
  * @throws {@link DynamoDBServiceException}
- * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * Base exception class for all service exceptions from DynamoDB service.
  *
  * @public
  */

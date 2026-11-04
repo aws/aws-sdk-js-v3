@@ -23,7 +23,8 @@ export interface GetSessionEndpointCommandInput extends GetSessionEndpointReques
 export interface GetSessionEndpointCommandOutput extends GetSessionEndpointResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the Spark Connect endpoint URL and authentication token for an interactive session.</p>
+ * Returns the Spark Connect endpoint URL and authentication token for an interactive session.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,29 +55,36 @@ export interface GetSessionEndpointCommandOutput extends GetSessionEndpointRespo
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to a resource was denied.</p>
+ *
+ * Access to a resource was denied.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link IllegalSessionStateException} (client fault)
- *  <p>The session is in an invalid state to perform a requested operation.</p>
+ *
+ * The session is in an invalid state to perform a requested operation.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationNotSupportedException} (client fault)
- *  <p>The operation is not available in the region.</p>
+ *
+ * The operation is not available in the region.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

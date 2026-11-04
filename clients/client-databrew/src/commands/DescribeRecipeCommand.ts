@@ -23,8 +23,8 @@ export interface DescribeRecipeCommandInput extends DescribeRecipeRequest {}
 export interface DescribeRecipeCommandOutput extends DescribeRecipeResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the definition of a specific DataBrew recipe corresponding to a particular
- *             version.</p>
+ * Returns the definition of a specific DataBrew recipe corresponding to a particular version.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,14 +82,16 @@ export interface DescribeRecipeCommandOutput extends DescribeRecipeResponse, __M
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>One or more resources can't be found.</p>
+ *
+ * One or more resources can't be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input parameters for this request failed validation.</p>
+ *
+ * The input parameters for this request failed validation.
  *
  * @throws {@link DataBrewServiceException}
- * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ * Base exception class for all service exceptions from DataBrew service.
  *
  * @public
  */

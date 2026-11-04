@@ -23,8 +23,8 @@ export interface DeleteAssessmentTemplateCommandInput extends DeleteAssessmentTe
 export interface DeleteAssessmentTemplateCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the assessment template that is specified by the ARN of the assessment
- *          template.</p>
+ * Deletes the assessment template that is specified by the ARN of the assessment template.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,29 +49,32 @@ export interface DeleteAssessmentTemplateCommandOutput extends __MetadataBearer 
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have required permissions to access the requested resource.</p>
+ *
+ * You do not have required permissions to access the requested resource.
  *
  * @throws {@link AssessmentRunInProgressException} (client fault)
- *  <p>You cannot perform a specified action if an assessment run is currently in
- *          progress.</p>
+ *
+ * You cannot perform a specified action if an assessment run is currently in progress.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>Internal server error.</p>
+ *
+ * Internal server error.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
- *          input parameter.</p>
+ *
+ * The request was rejected because an invalid or out-of-range value was supplied for an input parameter.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced an entity that does not exist. The
- *          error code describes the entity.</p>
+ *
+ * The request was rejected because it referenced an entity that does not exist. The error code describes the entity.
  *
  * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
- *  <p>The serice is temporary unavailable.</p>
+ *
+ * The serice is temporary unavailable.
  *
  * @throws {@link InspectorServiceException}
- * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * Base exception class for all service exceptions from Inspector service.
  *
  * @example Delete assessment template
  * ```javascript

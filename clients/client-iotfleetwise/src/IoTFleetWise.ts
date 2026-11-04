@@ -1526,16 +1526,12 @@ export interface IoTFleetWise {
 }
 
 /**
- * <p>Amazon Web Services IoT FleetWise is a fully managed service that you can use to collect, model, and transfer
- *             vehicle data to the Amazon Web Services cloud at scale. With Amazon Web Services IoT FleetWise, you can standardize all of
- *             your vehicle data models, independent of the in-vehicle communication architecture, and
- *             define data collection rules to transfer only high-value data to the cloud.
- *             </p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/">What is Amazon Web Services IoT FleetWise?</a> in the
- *                 <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
- *          <important>
- *             <p>Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html">Amazon Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
- *          </important>
+ * Amazon Web Services IoT FleetWise is a fully managed service that you can use to collect, model, and transfer vehicle data to the Amazon Web Services cloud at scale. With Amazon Web Services IoT FleetWise, you can standardize all of your vehicle data models, independent of the in-vehicle communication architecture, and define data collection rules to transfer only high-value data to the cloud.
+ *
+ * For more information, see [What is Amazon Web Services IoT FleetWise?](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/) in the *Amazon Web Services IoT FleetWise Developer Guide*.
+ *
+ * > **Important:** Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see [Amazon Web Services Region and feature availability](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html) in the *Amazon Web Services IoT FleetWise Developer Guide*.
+ *
  * @public
  */
 export class IoTFleetWise extends IoTFleetWiseClient implements IoTFleetWise {}

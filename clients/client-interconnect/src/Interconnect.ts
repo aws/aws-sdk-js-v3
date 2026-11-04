@@ -392,7 +392,8 @@ export interface Interconnect {
 }
 
 /**
- * <p>Provides managed connections between your AWS network resources and select partner network resources.</p>
+ * Provides managed connections between your AWS network resources and select partner network resources.
+ *
  * @public
  */
 export class Interconnect extends InterconnectClient implements Interconnect {}

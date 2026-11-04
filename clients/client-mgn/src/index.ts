@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>Application Migration Service.</p>
+ * Application Migration Service.
  *
  * @packageDocumentation
  */

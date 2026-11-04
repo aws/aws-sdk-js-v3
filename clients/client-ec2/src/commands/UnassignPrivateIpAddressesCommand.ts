@@ -23,8 +23,8 @@ export interface UnassignPrivateIpAddressesCommandInput extends UnassignPrivateI
 export interface UnassignPrivateIpAddressesCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Unassigns the specified secondary private IP addresses or IPv4 Prefix Delegation
- *             prefixes from a network interface.</p>
+ * Unassigns the specified secondary private IP addresses or IPv4 Prefix Delegation prefixes from a network interface.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,8 +55,8 @@ export interface UnassignPrivateIpAddressesCommandOutput extends __MetadataBeare
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To unassign a secondary private IP address from a network interface
  * ```javascript

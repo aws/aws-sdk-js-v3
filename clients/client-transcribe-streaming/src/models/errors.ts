@@ -4,10 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { TranscribeStreamingServiceException as __BaseException } from "./TranscribeStreamingServiceException";
 
 /**
- * <p>One or more arguments to the <code>StartStreamTranscription</code>,
- *       <code>StartMedicalStreamTranscription</code>, or <code>StartCallAnalyticsStreamTranscription</code>
- *       operation was not valid. For example, <code>MediaEncoding</code> or <code>LanguageCode</code>
- *       used unsupported values. Check the specified parameters and try your request again.</p>
+ * One or more arguments to the `StartStreamTranscription`, `StartMedicalStreamTranscription`, or `StartCallAnalyticsStreamTranscription` operation was not valid. For example, `MediaEncoding` or `LanguageCode` used unsupported values. Check the specified parameters and try your request again.
+ *
  * @public
  */
 export class BadRequestException extends __BaseException {
@@ -30,7 +28,8 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * <p>A new stream started with the same session ID. The current stream has been terminated.</p>
+ * A new stream started with the same session ID. The current stream has been terminated.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -53,8 +52,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>A problem occurred while processing the audio. Amazon Transcribe terminated
- *       processing.</p>
+ * A problem occurred while processing the audio. Amazon Transcribe terminated processing.
+ *
  * @public
  */
 export class InternalFailureException extends __BaseException {
@@ -77,11 +76,8 @@ export class InternalFailureException extends __BaseException {
 }
 
 /**
- * <p>Your client has exceeded one of the Amazon Transcribe limits, typically the concurrent stream
- *       service quota. This error can also occur if a stream exceeds the maximum session duration. In rare
- *       cases, this error can also occur if you increase your number of concurrent streams too quickly.
- *       Reduce your number of concurrent streams and try your request again using an exponential backoff
- *       strategy.</p>
+ * Your client has exceeded one of the Amazon Transcribe limits, typically the concurrent stream service quota. This error can also occur if a stream exceeds the maximum session duration. In rare cases, this error can also occur if you increase your number of concurrent streams too quickly. Reduce your number of concurrent streams and try your request again using an exponential backoff strategy.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -104,7 +100,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The service is currently unavailable. Try your request later.</p>
+ * The service is currently unavailable. Try your request later.
+ *
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -127,7 +124,8 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>The request references a resource which doesn't exist.</p>
+ * The request references a resource which doesn't exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {

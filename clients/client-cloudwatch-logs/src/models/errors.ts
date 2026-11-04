@@ -5,7 +5,8 @@ import { CloudWatchLogsServiceException as __BaseException } from "./CloudWatchL
 import type { QueryCompileError } from "./models_0";
 
 /**
- * <p>You don't have sufficient permissions to perform this action.</p>
+ * You don't have sufficient permissions to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -26,7 +27,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>A parameter is specified incorrectly.</p>
+ * A parameter is specified incorrectly.
+ *
  * @public
  */
 export class InvalidParameterException extends __BaseException {
@@ -47,7 +49,8 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+ * Multiple concurrent requests to update the same resource were in conflict.
+ *
  * @public
  */
 export class OperationAbortedException extends __BaseException {
@@ -68,7 +71,8 @@ export class OperationAbortedException extends __BaseException {
 }
 
 /**
- * <p>The specified resource does not exist.</p>
+ * The specified resource does not exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -89,7 +93,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The service cannot complete the request.</p>
+ * The service cannot complete the request.
+ *
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -110,9 +115,8 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>An internal server error occurred while processing the request. This exception is returned
- *       when the service encounters an unexpected condition that prevents it from fulfilling the
- *       request.</p>
+ * An internal server error occurred while processing the request. This exception is returned when the service encounters an unexpected condition that prevents it from fulfilling the request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -133,7 +137,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The request was throttled because of quota limits.</p>
+ * The request was throttled because of quota limits.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -154,7 +159,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>One of the parameters for the request is not valid.</p>
+ * One of the parameters for the request is not valid.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -175,7 +181,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The operation is not valid on the specified resource.</p>
+ * The operation is not valid on the specified resource.
+ *
  * @public
  */
 export class InvalidOperationException extends __BaseException {
@@ -196,7 +203,8 @@ export class InvalidOperationException extends __BaseException {
 }
 
 /**
- * <p>This operation attempted to create a resource that already exists.</p>
+ * This operation attempted to create a resource that already exists.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -217,7 +225,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>This request exceeds a service quota.</p>
+ * This request exceeds a service quota.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -238,7 +247,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>You have reached the maximum number of resources that can be created.</p>
+ * You have reached the maximum number of resources that can be created.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -259,7 +269,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The specified resource already exists.</p>
+ * The specified resource already exists.
+ *
  * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -280,13 +291,10 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The event was already logged.</p>
- *          <important>
- *             <p>
- *                <code>PutLogEvents</code> actions are now always accepted and never return
- *           <code>DataAlreadyAcceptedException</code> regardless of whether a given batch of log
- *         events has already been accepted. </p>
- *          </important>
+ * The event was already logged.
+ *
+ * > **Important:** `PutLogEvents` actions are now always accepted and never return `DataAlreadyAcceptedException` regardless of whether a given batch of log events has already been accepted.
+ *
  * @public
  */
 export class DataAlreadyAcceptedException extends __BaseException {
@@ -309,9 +317,8 @@ export class DataAlreadyAcceptedException extends __BaseException {
 }
 
 /**
- * <p>An internal error occurred during the streaming of log data. This exception is thrown when
- *       there's an issue with the internal streaming mechanism used by the GetLogObject
- *       operation.</p>
+ * An internal error occurred during the streaming of log data. This exception is thrown when there's an issue with the internal streaming mechanism used by the GetLogObject operation.
+ *
  * @public
  */
 export class InternalStreamingException extends __BaseException {
@@ -332,15 +339,10 @@ export class InternalStreamingException extends __BaseException {
 }
 
 /**
- * <p>The sequence token is not valid. You can get the correct sequence token in the
- *         <code>expectedSequenceToken</code> field in the <code>InvalidSequenceTokenException</code>
- *       message. </p>
- *          <important>
- *             <p>
- *                <code>PutLogEvents</code> actions are now always accepted and never return
- *           <code>InvalidSequenceTokenException</code> regardless of receiving an invalid sequence
- *         token. </p>
- *          </important>
+ * The sequence token is not valid. You can get the correct sequence token in the `expectedSequenceToken` field in the `InvalidSequenceTokenException` message.
+ *
+ * > **Important:** `PutLogEvents` actions are now always accepted and never return `InvalidSequenceTokenException` regardless of receiving an invalid sequence token.
+ *
  * @public
  */
 export class InvalidSequenceTokenException extends __BaseException {
@@ -363,8 +365,8 @@ export class InvalidSequenceTokenException extends __BaseException {
 }
 
 /**
- * <p>The most likely cause is an Amazon Web Services access key ID or secret key that's not
- *       valid.</p>
+ * The most likely cause is an Amazon Web Services access key ID or secret key that's not valid.
+ *
  * @public
  */
 export class UnrecognizedClientException extends __BaseException {
@@ -385,7 +387,8 @@ export class UnrecognizedClientException extends __BaseException {
 }
 
 /**
- * <p>This exception is returned if an unknown error occurs during a Live Tail session.</p>
+ * This exception is returned if an unknown error occurs during a Live Tail session.
+ *
  * @public
  */
 export class SessionStreamingException extends __BaseException {
@@ -406,8 +409,8 @@ export class SessionStreamingException extends __BaseException {
 }
 
 /**
- * <p>This exception is returned in a Live Tail stream when the Live Tail session times out.
- *       Live Tail sessions time out after three hours.</p>
+ * This exception is returned in a Live Tail stream when the Live Tail session times out. Live Tail sessions time out after three hours.
+ *
  * @public
  */
 export class SessionTimeoutException extends __BaseException {
@@ -428,10 +431,10 @@ export class SessionTimeoutException extends __BaseException {
 }
 
 /**
- * <p>The query string is not valid. Details about this error are displayed in a
- *         <code>QueryCompileError</code> object. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_QueryCompileError.html">QueryCompileError</a>.</p>
- *          <p>For more information about valid query syntax, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch Logs Insights Query
- *         Syntax</a>.</p>
+ * The query string is not valid. Details about this error are displayed in a `QueryCompileError` object. For more information, see [QueryCompileError](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_QueryCompileError.html).
+ *
+ * For more information about valid query syntax, see [CloudWatch Logs Insights Query Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
+ *
  * @public
  */
 export class MalformedQueryException extends __BaseException {
@@ -439,7 +442,8 @@ export class MalformedQueryException extends __BaseException {
   readonly name = "MalformedQueryException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Reserved.</p>
+   * Reserved.
+   *
    * @public
    */
   queryCompileError?: QueryCompileError | undefined;
@@ -459,7 +463,8 @@ export class MalformedQueryException extends __BaseException {
 }
 
 /**
- * <p>A resource can have no more than 50 tags.</p>
+ * A resource can have no more than 50 tags.
+ *
  * @public
  */
 export class TooManyTagsException extends __BaseException {
@@ -467,7 +472,8 @@ export class TooManyTagsException extends __BaseException {
   readonly name = "TooManyTagsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The name of the resource.</p>
+   * The name of the resource.
+   *
    * @public
    */
   resourceName?: string | undefined;

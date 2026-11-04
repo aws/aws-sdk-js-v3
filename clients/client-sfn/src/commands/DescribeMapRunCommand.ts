@@ -23,7 +23,8 @@ export interface DescribeMapRunCommandInput extends DescribeMapRunInput {}
 export interface DescribeMapRunCommandOutput extends DescribeMapRunOutput, __MetadataBearer {}
 
 /**
- * <p>Provides information about a Map Run's configuration, progress, and results. If you've <a href="https://docs.aws.amazon.com/step-functions/latest/dg/redrive-map-run.html">redriven</a> a Map Run, this API action also returns information about the redrives of that Map Run. For more information, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-examine-map-run.html">Examining Map Run</a> in the <i>Step Functions Developer Guide</i>.</p>
+ * Provides information about a Map Run's configuration, progress, and results. If you've [redriven](https://docs.aws.amazon.com/step-functions/latest/dg/redrive-map-run.html) a Map Run, this API action also returns information about the redrives of that Map Run. For more information, see [Examining Map Run](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-examine-map-run.html) in the *Step Functions Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,14 +84,16 @@ export interface DescribeMapRunCommandOutput extends DescribeMapRunOutput, __Met
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
  * @throws {@link InvalidArn} (client fault)
- *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * The provided Amazon Resource Name (ARN) is not valid.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Could not find the referenced resource.</p>
+ *
+ * Could not find the referenced resource.
  *
  * @throws {@link SFNServiceException}
- * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * Base exception class for all service exceptions from SFN service.
  *
  * @public
  */

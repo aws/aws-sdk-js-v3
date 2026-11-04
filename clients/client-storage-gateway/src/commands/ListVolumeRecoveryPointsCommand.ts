@@ -23,12 +23,10 @@ export interface ListVolumeRecoveryPointsCommandInput extends ListVolumeRecovery
 export interface ListVolumeRecoveryPointsCommandOutput extends ListVolumeRecoveryPointsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the recovery points for a specified gateway. This operation is only supported in
- *          the cached volume gateway type.</p>
- *          <p>Each cache volume has one recovery point. A volume recovery point is a point in time at
- *          which all data of the volume is consistent and from which you can create a snapshot or
- *          clone a new cached volume from a source volume. To create a snapshot from a volume recovery
- *          point use the <a>CreateSnapshotFromVolumeRecoveryPoint</a> operation.</p>
+ * Lists the recovery points for a specified gateway. This operation is only supported in the cached volume gateway type.
+ *
+ * Each cache volume has one recovery point. A volume recovery point is a point in time at which all data of the volume is consistent and from which you can create a snapshot or clone a new cached volume from a source volume. To create a snapshot from a volume recovery point use the CreateSnapshotFromVolumeRecoveryPoint operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,16 +61,16 @@ export interface ListVolumeRecoveryPointsCommandOutput extends ListVolumeRecover
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @example To list recovery points for a gateway
  * ```javascript

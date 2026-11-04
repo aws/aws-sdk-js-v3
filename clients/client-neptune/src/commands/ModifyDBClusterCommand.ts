@@ -23,8 +23,8 @@ export interface ModifyDBClusterCommandInput extends ModifyDBClusterMessage {}
 export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __MetadataBearer {}
 
 /**
- * <p>Modify a setting for a DB cluster. You can change one or more database configuration
- *       parameters by specifying these parameters and the new values in the request.</p>
+ * Modify a setting for a DB cluster. You can change one or more database configuration parameters by specifying these parameters and the new values in the request.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -179,55 +179,60 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  * @throws {@link DBClusterAlreadyExistsFault} (client fault)
- *  <p>User already has a DB cluster with the given identifier.</p>
+ *
+ * User already has a DB cluster with the given identifier.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p>
- *             <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+ *
+ * *DBClusterIdentifier* does not refer to an existing DB cluster.
  *
  * @throws {@link DBClusterParameterGroupNotFoundFault} (client fault)
- *  <p>
- *             <i>DBClusterParameterGroupName</i> does not refer to an
- *       existing DB Cluster parameter group.</p>
+ *
+ * *DBClusterParameterGroupName* does not refer to an existing DB Cluster parameter group.
  *
  * @throws {@link DBSubnetGroupNotFoundFault} (client fault)
- *  <p>
- *             <i>DBSubnetGroupName</i> does not refer to an
- *       existing DB subnet group.</p>
+ *
+ * *DBSubnetGroupName* does not refer to an existing DB subnet group.
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
- *  <p>The DB cluster is not in a valid state.</p>
+ *
+ * The DB cluster is not in a valid state.
  *
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
- *  <p>The specified DB instance is not in the <i>available</i> state.</p>
+ *
+ * The specified DB instance is not in the *available* state.
  *
  * @throws {@link InvalidDBSecurityGroupStateFault} (client fault)
- *  <p>The state of the DB security group does not allow deletion.</p>
+ *
+ * The state of the DB security group does not allow deletion.
  *
  * @throws {@link InvalidDBSubnetGroupStateFault} (client fault)
- *  <p>The DB subnet group cannot be deleted because it is in use.</p>
+ *
+ * The DB subnet group cannot be deleted because it is in use.
  *
  * @throws {@link InvalidSubnet} (client fault)
- *  <p>The requested subnet is invalid, or multiple subnets were requested that are
- *       not all in a common VPC.</p>
+ *
+ * The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.
  *
  * @throws {@link InvalidVPCNetworkStateFault} (client fault)
- *  <p>DB subnet group does not cover all Availability Zones after it is created
- *       because users' change.</p>
+ *
+ * DB subnet group does not cover all Availability Zones after it is created because users' change.
  *
  * @throws {@link NetworkTypeNotSupportedFault} (client fault)
- *  <p>The specified <i>NetworkType</i> is not supported for the DB cluster, DB subnet group, or orderable DB instance option.</p>
+ *
+ * The specified *NetworkType* is not supported for the DB cluster, DB subnet group, or orderable DB instance option.
  *
  * @throws {@link StorageQuotaExceededFault} (client fault)
- *  <p>Request would result in user exceeding the allowed amount of storage available across all DB instances.</p>
+ *
+ * Request would result in user exceeding the allowed amount of storage available across all DB instances.
  *
  * @throws {@link StorageTypeNotSupportedFault} (client fault)
- *  <p>
- *             <i>StorageType</i> specified cannot be associated with the DB Instance.</p>
+ *
+ * *StorageType* specified cannot be associated with the DB Instance.
  *
  * @throws {@link NeptuneServiceException}
- * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * Base exception class for all service exceptions from Neptune service.
  *
  * @public
  */

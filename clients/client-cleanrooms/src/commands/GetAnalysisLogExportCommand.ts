@@ -23,7 +23,10 @@ export interface GetAnalysisLogExportCommandInput extends GetAnalysisLogExportIn
 export interface GetAnalysisLogExportCommandOutput extends GetAnalysisLogExportOutput, __MetadataBearer {}
 
 /**
- * <p>Returns information about an analysis log export, including its current status and, if the export failed, the reason for the failure.</p> <p>Poll this operation until the <code>status</code> is <code>SUCCESS</code> or <code>FAILED</code>. An export can't be canceled after it starts.</p>
+ * Returns information about an analysis log export, including its current status and, if the export failed, the reason for the failure.
+ *
+ * Poll this operation until the `status` is `SUCCESS` or `FAILED`. An export can't be canceled after it starts.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,23 +74,28 @@ export interface GetAnalysisLogExportCommandOutput extends GetAnalysisLogExportO
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Caller does not have sufficient access to perform this action.</p>
+ *
+ * Caller does not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error during processing of request.</p>
+ *
+ * Unexpected error during processing of request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Request references a resource which does not exist.</p>
+ *
+ * Request references a resource which does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Request was denied due to request throttling.</p>
+ *
+ * Request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the specified constraints.</p>
+ *
+ * The input fails to satisfy the specified constraints.
  *
  * @throws {@link CleanRoomsServiceException}
- * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ * Base exception class for all service exceptions from CleanRooms service.
  *
  * @public
  */

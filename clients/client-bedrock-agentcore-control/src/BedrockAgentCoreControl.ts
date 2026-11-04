@@ -4580,7 +4580,8 @@ export interface BedrockAgentCoreControl {
 }
 
 /**
- * <p>Welcome to the Amazon Bedrock AgentCore Control plane API reference. Control plane actions configure, create, modify, and monitor Amazon Web Services resources.</p>
+ * Welcome to the Amazon Bedrock AgentCore Control plane API reference. Control plane actions configure, create, modify, and monitor Amazon Web Services resources.
+ *
  * @public
  */
 export class BedrockAgentCoreControl extends BedrockAgentCoreControlClient implements BedrockAgentCoreControl {}

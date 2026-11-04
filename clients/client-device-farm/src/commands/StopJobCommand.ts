@@ -23,10 +23,8 @@ export interface StopJobCommandInput extends StopJobRequest {}
 export interface StopJobCommandOutput extends StopJobResult, __MetadataBearer {}
 
 /**
- * <p>Initiates a stop request for the current job. AWS Device Farm immediately stops the job on the device
- *             where tests have not started. You are not billed for this device. On the device where tests have started,
- *             setup suite and teardown suite tests run to completion on the device. You are billed for setup, teardown,
- *             and any tests that were in progress or already completed.</p>
+ * Initiates a stop request for the current job. AWS Device Farm immediately stops the job on the device where tests have not started. You are not billed for this device. On the device where tests have started, setup suite and teardown suite tests run to completion on the device. You are billed for setup, teardown, and any tests that were in progress or already completed.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -148,20 +146,24 @@ export interface StopJobCommandOutput extends StopJobResult, __MetadataBearer {}
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
  * @throws {@link ArgumentException} (client fault)
- *  <p>An invalid argument was specified.</p>
+ *
+ * An invalid argument was specified.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>A limit was exceeded.</p>
+ *
+ * A limit was exceeded.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The specified entity was not found.</p>
+ *
+ * The specified entity was not found.
  *
  * @throws {@link ServiceAccountException} (client fault)
- *  <p>There was a problem with the service account.</p>
+ *
+ * There was a problem with the service account.
  *
  * @throws {@link DeviceFarmServiceException}
- * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * Base exception class for all service exceptions from DeviceFarm service.
  *
  * @public
  */

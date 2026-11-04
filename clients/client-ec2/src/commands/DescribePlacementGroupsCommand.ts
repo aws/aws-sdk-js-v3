@@ -23,16 +23,12 @@ export interface DescribePlacementGroupsCommandInput extends DescribePlacementGr
 export interface DescribePlacementGroupsCommandOutput extends DescribePlacementGroupsResult, __MetadataBearer {}
 
 /**
- * <p>Describes the specified placement groups or all of your placement groups.</p>
- *          <note>
- *             <p>To describe a specific placement group that is <i>shared</i> with
- *                 your account, you must specify the ID of the placement group using the
- *                     <code>GroupId</code> parameter. Specifying the name of a
- *                     <i>shared</i> placement group using the <code>GroupNames</code>
- *                 parameter will result in an error.</p>
- *          </note>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement groups</a> in the
- *                 <i>Amazon EC2 User Guide</i>.</p>
+ * Describes the specified placement groups or all of your placement groups.
+ *
+ * > **Note:** To describe a specific placement group that is *shared* with your account, you must specify the ID of the placement group using the `GroupId` parameter. Specifying the name of a *shared* placement group using the `GroupNames` parameter will result in an error.
+ *
+ * For more information, see [Placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -96,8 +92,8 @@ export interface DescribePlacementGroupsCommandOutput extends DescribePlacementG
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

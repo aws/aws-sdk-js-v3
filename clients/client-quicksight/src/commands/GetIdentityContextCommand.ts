@@ -23,62 +23,41 @@ export interface GetIdentityContextCommandInput extends GetIdentityContextReques
 export interface GetIdentityContextCommandOutput extends GetIdentityContextResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the identity context for a Quick Sight user in a specified namespace, allowing you to obtain identity tokens that can be used with identity-enhanced IAM role sessions to call identity-aware APIs.</p>
- *          <p>Currently, you can call the following APIs with identity-enhanced Credentials</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StartDashboardSnapshotJob.html">StartDashboardSnapshotJob</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeDashboardSnapshotJob.html">DescribeDashboardSnapshotJob</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeDashboardSnapshotJobResult.html">DescribeDashboardSnapshotJobResult</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Supported Authentication Methods</b>
- *          </p>
- *          <p>This API supports Quick Sight native users, IAM federated users, and Active Directory users. For Quick Sight users authenticated by Amazon Web Services Identity Center, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-identity-enhanced-iam-role-sessions.html">Identity Center documentation on identity-enhanced IAM role sessions</a>.</p>
- *          <p>
- *             <b>Supported Regions</b>
- *          </p>
- *          <p>The GetIdentityContext API works only in regions that support at least one of these identity types:</p>
- *          <ul>
- *             <li>
- *                <p>Amazon Quick Sight native identity</p>
- *             </li>
- *             <li>
- *                <p>IAM federated identity</p>
- *             </li>
- *             <li>
- *                <p>Active Directory</p>
- *             </li>
- *          </ul>
- *          <p>To use this API successfully, call it in the same region where your user's identity resides. For example, if your user's identity is in us-east-1, make the API call in us-east-1. For more information about managing identities in Amazon Quick Sight, see <a href="https://docs.aws.amazon.com/quicksight/latest/userguide/identity.html">Identity and access management in Amazon Quick Sight</a> in the Amazon Quick Sight User Guide.</p>
- *          <p>
- *             <b>Getting Identity-Enhanced Credentials</b>
- *          </p>
- *          <p>To obtain identity-enhanced credentials, follow these steps:</p>
- *          <ul>
- *             <li>
- *                <p>Call the GetIdentityContext API to retrieve an identity token for the specified user.</p>
- *             </li>
- *             <li>
- *                <p>Use the identity token with the <a href="https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html">STS AssumeRole API</a> to obtain identity-enhanced IAM role session credentials.</p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Usage with STS AssumeRole</b>
- *          </p>
- *          <p>The identity token returned by this API should be used with the STS AssumeRole API to obtain credentials for an identity-enhanced IAM role session. When calling AssumeRole, include the identity token in the <code>ProvidedContexts</code> parameter with <code>ProviderArn</code> set to <code>arn:aws:iam::aws:contextProvider/QuickSight</code> and <code>ContextAssertion</code> set to the identity token received from this API.</p>
- *          <p>The assumed role must allow the <code>sts:SetContext</code> action in addition to <code>sts:AssumeRole</code> in its trust relationship policy. The trust policy should include both actions for the principal that will be assuming the role.</p>
+ * Retrieves the identity context for a Quick Sight user in a specified namespace, allowing you to obtain identity tokens that can be used with identity-enhanced IAM role sessions to call identity-aware APIs.
+ *
+ * Currently, you can call the following APIs with identity-enhanced Credentials
+ *
+ * - [StartDashboardSnapshotJob](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StartDashboardSnapshotJob.html)
+ * - [DescribeDashboardSnapshotJob](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeDashboardSnapshotJob.html)
+ * - [DescribeDashboardSnapshotJobResult](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeDashboardSnapshotJobResult.html)
+ *
+ * **Supported Authentication Methods**
+ *
+ * This API supports Quick Sight native users, IAM federated users, and Active Directory users. For Quick Sight users authenticated by Amazon Web Services Identity Center, see [Identity Center documentation on identity-enhanced IAM role sessions](https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-identity-enhanced-iam-role-sessions.html).
+ *
+ * **Supported Regions**
+ *
+ * The GetIdentityContext API works only in regions that support at least one of these identity types:
+ *
+ * - Amazon Quick Sight native identity
+ * - IAM federated identity
+ * - Active Directory
+ *
+ * To use this API successfully, call it in the same region where your user's identity resides. For example, if your user's identity is in us-east-1, make the API call in us-east-1. For more information about managing identities in Amazon Quick Sight, see [Identity and access management in Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/userguide/identity.html) in the Amazon Quick Sight User Guide.
+ *
+ * **Getting Identity-Enhanced Credentials**
+ *
+ * To obtain identity-enhanced credentials, follow these steps:
+ *
+ * - Call the GetIdentityContext API to retrieve an identity token for the specified user.
+ * - Use the identity token with the [STS AssumeRole API](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) to obtain identity-enhanced IAM role session credentials.
+ *
+ * **Usage with STS AssumeRole**
+ *
+ * The identity token returned by this API should be used with the STS AssumeRole API to obtain credentials for an identity-enhanced IAM role session. When calling AssumeRole, include the identity token in the `ProvidedContexts` parameter with `ProviderArn` set to `arn:aws:iam::aws:contextProvider/QuickSight` and `ContextAssertion` set to the identity token received from this API.
+ *
+ * The assumed role must allow the `sts:SetContext` action in addition to `sts:AssumeRole` in its trust relationship policy. The trust policy should include both actions for the principal that will be assuming the role.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -115,29 +94,32 @@ export interface GetIdentityContextCommandOutput extends GetIdentityContextRespo
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have access to this item. The provided credentials couldn't be
- * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
- * 			correct permissions, and that you are using the correct credentials.</p>
+ *
+ * You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An internal failure occurred.</p>
+ *
+ * An internal failure occurred.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more parameters has a value that isn't valid.</p>
+ *
+ * One or more parameters has a value that isn't valid.
  *
  * @throws {@link PreconditionNotMetException} (client fault)
- *  <p>One or more preconditions aren't met.</p>
+ *
+ * One or more preconditions aren't met.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>One or more resources can't be found.</p>
+ *
+ * One or more resources can't be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Access is throttled.</p>
+ *
+ * Access is throttled.
  *
  * @throws {@link QuickSightServiceException}
- * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * Base exception class for all service exceptions from QuickSight service.
  *
  * @public
  */

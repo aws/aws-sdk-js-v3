@@ -23,9 +23,10 @@ export interface CopyBackupToRegionCommandInput extends CopyBackupToRegionReques
 export interface CopyBackupToRegionCommandOutput extends CopyBackupToRegionResponse, __MetadataBearer {}
 
 /**
- * <p>Copy an CloudHSM cluster backup to a different region.</p>
- *          <p>
- *             <b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM backup in a different Amazon Web Services account.</p>
+ * Copy an CloudHSM cluster backup to a different region.
+ *
+ * **Cross-account use:** No. You cannot perform this operation on an CloudHSM backup in a different Amazon Web Services account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,29 +65,32 @@ export interface CopyBackupToRegionCommandOutput extends CopyBackupToRegionRespo
  * @see {@link CloudHSMV2ClientResolvedConfig | config} for CloudHSMV2Client's `config` shape.
  *
  * @throws {@link CloudHsmAccessDeniedException} (client fault)
- *  <p>The request was rejected because the requester does not have permission to perform the
- *       requested operation.</p>
+ *
+ * The request was rejected because the requester does not have permission to perform the requested operation.
  *
  * @throws {@link CloudHsmInternalFailureException} (server fault)
- *  <p>The request was rejected because of an CloudHSM internal failure. The request can
- *       be retried.</p>
+ *
+ * The request was rejected because of an CloudHSM internal failure. The request can be retried.
  *
  * @throws {@link CloudHsmInvalidRequestException} (client fault)
- *  <p>The request was rejected because it is not a valid request.</p>
+ *
+ * The request was rejected because it is not a valid request.
  *
  * @throws {@link CloudHsmResourceNotFoundException} (client fault)
- *  <p>The request was rejected because it refers to a resource that cannot be
- *       found.</p>
+ *
+ * The request was rejected because it refers to a resource that cannot be found.
  *
  * @throws {@link CloudHsmServiceException} (client fault)
- *  <p>The request was rejected because an error occurred.</p>
+ *
+ * The request was rejected because an error occurred.
  *
  * @throws {@link CloudHsmTagException} (client fault)
- *  <p>The request was rejected because of a tagging failure. Verify the tag conditions in all applicable policies, and then retry the request.</p>
+ *
+ * The request was rejected because of a tagging failure. Verify the tag conditions in all applicable policies, and then retry the request.
  *
  * @throws {@link CloudHSMV2ServiceException}
- * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
+ * Base exception class for all service exceptions from CloudHSMV2 service.
  *
  * @public
  */

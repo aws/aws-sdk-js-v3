@@ -23,7 +23,10 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Adds or updates tags for a Route 53 Global Resolver resource. Tags are key-value pairs that help you organize and identify your resources.</p> <important> <p>Route 53 Global Resolver is a global service that supports resolvers in multiple Amazon Web Services Regions but you must specify the US East (Ohio) Region to create, update, or otherwise work with Route 53 Global Resolver resources. That is, for example, specify <code>--region us-east-2</code> on Amazon Web Services CLI commands.</p> </important>
+ * Adds or updates tags for a Route 53 Global Resolver resource. Tags are key-value pairs that help you organize and identify your resources.
+ *
+ * > **Important:** Route 53 Global Resolver is a global service that supports resolvers in multiple Amazon Web Services Regions but you must specify the US East (Ohio) Region to create, update, or otherwise work with Route 53 Global Resolver resources. That is, for example, specify `--region us-east-2` on Amazon Web Services CLI commands.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,17 +54,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link Route53GlobalResolverClientResolvedConfig | config} for Route53GlobalResolverClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found. Verify the resource ID and try again.</p>
+ *
+ * The specified resource was not found. Verify the resource ID and try again.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would exceed one or more service quotas. Check your current usage and quotas, then try again.</p>
+ *
+ * The request would exceed one or more service quotas. Check your current usage and quotas, then try again.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input parameters are invalid. Check the parameter values and try again.</p>
+ *
+ * The input parameters are invalid. Check the parameter values and try again.
  *
  * @throws {@link Route53GlobalResolverServiceException}
- * <p>Base exception class for all service exceptions from Route53GlobalResolver service.</p>
  *
+ * Base exception class for all service exceptions from Route53GlobalResolver service.
  *
  * @public
  */

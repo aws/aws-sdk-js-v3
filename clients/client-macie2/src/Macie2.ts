@@ -2155,7 +2155,8 @@ export interface Macie2 {
 }
 
 /**
- * <p>Amazon Macie</p>
+ * Amazon Macie
+ *
  * @public
  */
 export class Macie2 extends Macie2Client implements Macie2 {}

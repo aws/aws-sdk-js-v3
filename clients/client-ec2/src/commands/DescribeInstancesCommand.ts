@@ -23,39 +23,24 @@ export interface DescribeInstancesCommandInput extends DescribeInstancesRequest 
 export interface DescribeInstancesCommandOutput extends DescribeInstancesResult, __MetadataBearer {}
 
 /**
- * <p>Describes the specified instances or all instances.</p>
- *          <p>If you specify instance IDs, the output includes information for only the specified
- *             instances. If you specify filters, the output includes information for only those
- *             instances that meet the filter criteria. If you do not specify instance IDs or filters,
- *             the output includes information for all instances, which can affect performance. We
- *             recommend that you use pagination to ensure that the operation returns quickly and
- *             successfully.</p>
- *          <p>The response includes SQL license exemption status information for instances registered
- *             with the SQL LE service, providing visibility into license exemption configuration and status.</p>
- *          <p>If you specify an instance ID that is not valid, an error is returned. If you specify
- *             an instance that you do not own, it is not included in the output.</p>
- *          <p>Recently terminated instances might appear in the returned results. This interval is
- *             usually less than one hour.</p>
- *          <p>If you describe instances in the rare case where an Availability Zone is experiencing
- *             a service disruption and you specify instance IDs that are in the affected zone, or do
- *             not specify any instance IDs at all, the call fails. If you describe instances and
- *             specify only instance IDs that are in an unaffected zone, the call works
- *             normally.</p>
- *          <p>The Amazon EC2 API follows an eventual consistency model. This means that the result of an
- *             API command you run that creates or modifies resources might not be immediately
- *             available to all subsequent commands you run. For guidance on how to manage eventual
- *             consistency, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/eventual-consistency.html">Eventual consistency in the
- *                 Amazon EC2 API</a> in the <i>Amazon EC2 Developer
- *             Guide</i>.</p>
- *          <important>
- *             <p>We strongly recommend using only paginated requests. Unpaginated requests are
- *                 susceptible to throttling and timeouts.</p>
- *          </important>
- *          <note>
- *             <p>The order of the elements in the response, including those within nested
- *                 structures, might vary. Applications should not assume the elements appear in a
- *                 particular order.</p>
- *          </note>
+ * Describes the specified instances or all instances.
+ *
+ * If you specify instance IDs, the output includes information for only the specified instances. If you specify filters, the output includes information for only those instances that meet the filter criteria. If you do not specify instance IDs or filters, the output includes information for all instances, which can affect performance. We recommend that you use pagination to ensure that the operation returns quickly and successfully.
+ *
+ * The response includes SQL license exemption status information for instances registered with the SQL LE service, providing visibility into license exemption configuration and status.
+ *
+ * If you specify an instance ID that is not valid, an error is returned. If you specify an instance that you do not own, it is not included in the output.
+ *
+ * Recently terminated instances might appear in the returned results. This interval is usually less than one hour.
+ *
+ * If you describe instances in the rare case where an Availability Zone is experiencing a service disruption and you specify instance IDs that are in the affected zone, or do not specify any instance IDs at all, the call fails. If you describe instances and specify only instance IDs that are in an unaffected zone, the call works normally.
+ *
+ * The Amazon EC2 API follows an eventual consistency model. This means that the result of an API command you run that creates or modifies resources might not be immediately available to all subsequent commands you run. For guidance on how to manage eventual consistency, see [Eventual consistency in the Amazon EC2 API](https://docs.aws.amazon.com/ec2/latest/devguide/eventual-consistency.html) in the *Amazon EC2 Developer Guide*.
+ *
+ * > **Important:** We strongly recommend using only paginated requests. Unpaginated requests are susceptible to throttling and timeouts.
+ *
+ * > **Note:** The order of the elements in the response, including those within nested structures, might vary. Applications should not assume the elements appear in a particular order.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -379,8 +364,8 @@ export interface DescribeInstancesCommandOutput extends DescribeInstancesResult,
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To describe an Amazon EC2 instance
  * ```javascript

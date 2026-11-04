@@ -5,11 +5,11 @@
  */
 export const AccessType = {
   /**
-   * <p>Resource is private and has restricted access.</p>
+   * Resource is private and has restricted access.
    */
   PRIVATE: "PRIVATE",
   /**
-   * <p>Resource is public and openly accessible.</p>
+   * Resource is public and openly accessible.
    */
   PUBLIC: "PUBLIC",
 } as const;
@@ -24,19 +24,19 @@ export type AccessType = (typeof AccessType)[keyof typeof AccessType];
  */
 export const AuthenticationProviderType = {
   /**
-   * <p>Authentication using an AWS IAM role.</p>
+   * Authentication using an AWS IAM role.
    */
   AWS_IAM_ROLE: "AWS_IAM_ROLE",
   /**
-   * <p>Internal AWS authentication.</p>
+   * Internal AWS authentication.
    */
   AWS_INTERNAL: "AWS_INTERNAL",
   /**
-   * <p>Credentials retrieved via AWS Lambda function.</p>
+   * Credentials retrieved via AWS Lambda function.
    */
   AWS_LAMBDA: "AWS_LAMBDA",
   /**
-   * <p>Credentials stored in AWS Secrets Manager.</p>
+   * Credentials stored in AWS Secrets Manager.
    */
   SECRETS_MANAGER: "SECRETS_MANAGER",
 } as const;
@@ -71,15 +71,15 @@ export type ArtifactType = (typeof ArtifactType)[keyof typeof ArtifactType];
  */
 export const TriggerEvent = {
   /**
-   * <p>A draft pull request is opened or updated.</p>
+   * A draft pull request is opened or updated.
    */
   PULL_REQUEST_DRAFT: "PULL_REQUEST_DRAFT",
   /**
-   * <p>A label is added to a pull request. A filter group that selects this event must include a <code>LABEL</code> filter with the <code>INCLUDE</code> match mode, and a review starts only when the added label matches it.</p>
+   * A label is added to a pull request. A filter group that selects this event must include a `LABEL` filter with the `INCLUDE` match mode, and a review starts only when the added label matches it.
    */
   PULL_REQUEST_LABEL_ADDED: "PULL_REQUEST_LABEL_ADDED",
   /**
-   * <p>A pull request that isn't a draft is opened, updated, or marked ready for review.</p>
+   * A pull request that isn't a draft is opened, updated, or marked ready for review.
    */
   PULL_REQUEST_READY_FOR_REVIEW: "PULL_REQUEST_READY_FOR_REVIEW",
 } as const;
@@ -94,11 +94,11 @@ export type TriggerEvent = (typeof TriggerEvent)[keyof typeof TriggerEvent];
  */
 export const TriggerFilterMatchMode = {
   /**
-   * <p>The filter passes when no value fully matches any pattern.</p>
+   * The filter passes when no value fully matches any pattern.
    */
   EXCLUDE: "EXCLUDE",
   /**
-   * <p>The filter passes when a value fully matches at least one pattern.</p>
+   * The filter passes when a value fully matches at least one pattern.
    */
   INCLUDE: "INCLUDE",
 } as const;
@@ -113,11 +113,11 @@ export type TriggerFilterMatchMode = (typeof TriggerFilterMatchMode)[keyof typeo
  */
 export const TriggerFilterType = {
   /**
-   * <p>The labels on the pull request.</p>
+   * The labels on the pull request.
    */
   LABEL: "LABEL",
   /**
-   * <p>The name of the pull request's target branch, for example <code>main</code>.</p>
+   * The name of the pull request's target branch, for example `main`.
    */
   TARGET_BRANCH: "TARGET_BRANCH",
 } as const;
@@ -132,11 +132,11 @@ export type TriggerFilterType = (typeof TriggerFilterType)[keyof typeof TriggerF
  */
 export const CleanUpStrategy = {
   /**
-   * <p>Attempt to delete resources created during the pentest on a best-effort basis.</p>
+   * Attempt to delete resources created during the pentest on a best-effort basis.
    */
   BEST_EFFORT_DELETE: "BEST_EFFORT_DELETE",
   /**
-   * <p>Retain all resources created during the pentest.</p>
+   * Retain all resources created during the pentest.
    */
   RETAIN_ALL: "RETAIN_ALL",
 } as const;
@@ -151,11 +151,11 @@ export type CleanUpStrategy = (typeof CleanUpStrategy)[keyof typeof CleanUpStrat
  */
 export const CodeRemediationStrategy = {
   /**
-   * <p>Automatically generate code remediation for findings.</p>
+   * Automatically generate code remediation for findings.
    */
   AUTOMATIC: "AUTOMATIC",
   /**
-   * <p>Code remediation is disabled.</p>
+   * Code remediation is disabled.
    */
   DISABLED: "DISABLED",
 } as const;
@@ -170,11 +170,11 @@ export type CodeRemediationStrategy = (typeof CodeRemediationStrategy)[keyof typ
  */
 export const SkillType = {
   /**
-   * <p>The finding personalization skill learns customer preferences from finding edits and aligns future findings accordingly.</p>
+   * The finding personalization skill learns customer preferences from finding edits and aligns future findings accordingly.
    */
   FINDING_PERSONALIZATION: "FINDING_PERSONALIZATION",
   /**
-   * <p>The login optimization skill learns application login flows to improve authentication success across runs.</p>
+   * The login optimization skill learns application login flows to improve authentication success across runs.
    */
   LOGIN_OPTIMIZATION: "LOGIN_OPTIMIZATION",
 } as const;
@@ -189,115 +189,115 @@ export type SkillType = (typeof SkillType)[keyof typeof SkillType];
  */
 export const RiskType = {
   /**
-   * <p>Arbitrary file upload vulnerability.</p>
+   * Arbitrary file upload vulnerability.
    */
   ARBITRARY_FILE_UPLOAD: "ARBITRARY_FILE_UPLOAD",
   /**
-   * <p>Business logic vulnerability.</p>
+   * Business logic vulnerability.
    */
   BUSINESS_LOGIC_VULNERABILITIES: "BUSINESS_LOGIC_VULNERABILITIES",
   /**
-   * <p>Code injection vulnerability.</p>
+   * Code injection vulnerability.
    */
   CODE_INJECTION: "CODE_INJECTION",
   /**
-   * <p>Command injection vulnerability.</p>
+   * Command injection vulnerability.
    */
   COMMAND_INJECTION: "COMMAND_INJECTION",
   /**
-   * <p>Cross-site scripting vulnerability.</p>
+   * Cross-site scripting vulnerability.
    */
   CROSS_SITE_SCRIPTING: "CROSS_SITE_SCRIPTING",
   /**
-   * <p>Cryptographic vulnerability.</p>
+   * Cryptographic vulnerability.
    */
   CRYPTOGRAPHIC_VULNERABILITIES: "CRYPTOGRAPHIC_VULNERABILITIES",
   /**
-   * <p>Unauthorized database access.</p>
+   * Unauthorized database access.
    */
   DATABASE_ACCESS: "DATABASE_ACCESS",
   /**
-   * <p>Unauthorized database modification.</p>
+   * Unauthorized database modification.
    */
   DATABASE_MODIFICATION: "DATABASE_MODIFICATION",
   /**
-   * <p>Default or weak credentials detected.</p>
+   * Default or weak credentials detected.
    */
   DEFAULT_CREDENTIALS: "DEFAULT_CREDENTIALS",
   /**
-   * <p>Denial of service vulnerability.</p>
+   * Denial of service vulnerability.
    */
   DENIAL_OF_SERVICE: "DENIAL_OF_SERVICE",
   /**
-   * <p>Unauthorized file access vulnerability.</p>
+   * Unauthorized file access vulnerability.
    */
   FILE_ACCESS: "FILE_ACCESS",
   /**
-   * <p>Unauthorized file creation vulnerability.</p>
+   * Unauthorized file creation vulnerability.
    */
   FILE_CREATION: "FILE_CREATION",
   /**
-   * <p>File deletion vulnerability.</p>
+   * File deletion vulnerability.
    */
   FILE_DELETION: "FILE_DELETION",
   /**
-   * <p>GraphQL-specific vulnerability.</p>
+   * GraphQL-specific vulnerability.
    */
   GRAPHQL_VULNERABILITIES: "GRAPHQL_VULNERABILITIES",
   /**
-   * <p>Information disclosure vulnerability.</p>
+   * Information disclosure vulnerability.
    */
   INFORMATION_DISCLOSURE: "INFORMATION_DISCLOSURE",
   /**
-   * <p>Insecure deserialization vulnerability.</p>
+   * Insecure deserialization vulnerability.
    */
   INSECURE_DESERIALIZATION: "INSECURE_DESERIALIZATION",
   /**
-   * <p>Insecure direct object reference vulnerability.</p>
+   * Insecure direct object reference vulnerability.
    */
   INSECURE_DIRECT_OBJECT_REFERENCE: "INSECURE_DIRECT_OBJECT_REFERENCE",
   /**
-   * <p>JSON Web Token vulnerability.</p>
+   * JSON Web Token vulnerability.
    */
   JSON_WEB_TOKEN_VULNERABILITIES: "JSON_WEB_TOKEN_VULNERABILITIES",
   /**
-   * <p>Local file inclusion vulnerability.</p>
+   * Local file inclusion vulnerability.
    */
   LOCAL_FILE_INCLUSION: "LOCAL_FILE_INCLUSION",
   /**
-   * <p>Other risk type not covered by specific categories.</p>
+   * Other risk type not covered by specific categories.
    */
   OTHER: "OTHER",
   /**
-   * <p>Outbound service request vulnerability.</p>
+   * Outbound service request vulnerability.
    */
   OUTBOUND_SERVICE_REQUEST: "OUTBOUND_SERVICE_REQUEST",
   /**
-   * <p>Path traversal vulnerability.</p>
+   * Path traversal vulnerability.
    */
   PATH_TRAVERSAL: "PATH_TRAVERSAL",
   /**
-   * <p>Privilege escalation vulnerability.</p>
+   * Privilege escalation vulnerability.
    */
   PRIVILEGE_ESCALATION: "PRIVILEGE_ESCALATION",
   /**
-   * <p>Server-side request forgery vulnerability.</p>
+   * Server-side request forgery vulnerability.
    */
   SERVER_SIDE_REQUEST_FORGERY: "SERVER_SIDE_REQUEST_FORGERY",
   /**
-   * <p>Server-side template injection vulnerability.</p>
+   * Server-side template injection vulnerability.
    */
   SERVER_SIDE_TEMPLATE_INJECTION: "SERVER_SIDE_TEMPLATE_INJECTION",
   /**
-   * <p>SQL injection vulnerability.</p>
+   * SQL injection vulnerability.
    */
   SQL_INJECTION: "SQL_INJECTION",
   /**
-   * <p>Unknown risk type.</p>
+   * Unknown risk type.
    */
   UNKNOWN: "UNKNOWN",
   /**
-   * <p>XML external entity vulnerability.</p>
+   * XML external entity vulnerability.
    */
   XML_EXTERNAL_ENTITY: "XML_EXTERNAL_ENTITY",
 } as const;
@@ -312,11 +312,11 @@ export type RiskType = (typeof RiskType)[keyof typeof RiskType];
  */
 export const NetworkTrafficRuleEffect = {
   /**
-   * <p>Allow matching traffic.</p>
+   * Allow matching traffic.
    */
   ALLOW: "ALLOW",
   /**
-   * <p>Deny matching traffic.</p>
+   * Deny matching traffic.
    */
   DENY: "DENY",
 } as const;
@@ -331,7 +331,7 @@ export type NetworkTrafficRuleEffect = (typeof NetworkTrafficRuleEffect)[keyof t
  */
 export const NetworkTrafficRuleType = {
   /**
-   * <p>URL-based traffic rule.</p>
+   * URL-based traffic rule.
    */
   URL: "URL",
 } as const;
@@ -394,23 +394,23 @@ export type FindingStatus = (typeof FindingStatus)[keyof typeof FindingStatus];
  */
 export const TaskExecutionStatus = {
   /**
-   * <p>Task was aborted.</p>
+   * Task was aborted.
    */
   ABORTED: "ABORTED",
   /**
-   * <p>Task completed successfully.</p>
+   * Task completed successfully.
    */
   COMPLETED: "COMPLETED",
   /**
-   * <p>Task failed during execution.</p>
+   * Task failed during execution.
    */
   FAILED: "FAILED",
   /**
-   * <p>Task failed due to an internal error.</p>
+   * Task failed due to an internal error.
    */
   INTERNAL_ERROR: "INTERNAL_ERROR",
   /**
-   * <p>Task is currently running.</p>
+   * Task is currently running.
    */
   IN_PROGRESS: "IN_PROGRESS",
 } as const;
@@ -425,11 +425,11 @@ export type TaskExecutionStatus = (typeof TaskExecutionStatus)[keyof typeof Task
  */
 export const TestScopeType = {
   /**
-   * <p>A generative AI application.</p>
+   * A generative AI application.
    */
   GENERATIVE_AI_APP: "GENERATIVE_AI_APP",
   /**
-   * <p>A traditional web application.</p>
+   * A traditional web application.
    */
   WEB_APP: "WEB_APP",
 } as const;
@@ -444,15 +444,15 @@ export type TestScopeType = (typeof TestScopeType)[keyof typeof TestScopeType];
  */
 export const ErrorCode = {
   /**
-   * <p>Failure caused by a client-side error.</p>
+   * Failure caused by a client-side error.
    */
   CLIENT_ERROR: "CLIENT_ERROR",
   /**
-   * <p>Failure caused by an internal error.</p>
+   * Failure caused by an internal error.
    */
   INTERNAL_ERROR: "INTERNAL_ERROR",
   /**
-   * <p>Pentest job was stopped by the user.</p>
+   * Pentest job was stopped by the user.
    */
   STOPPED_BY_USER: "STOPPED_BY_USER",
 } as const;
@@ -484,19 +484,19 @@ export type Provider = (typeof Provider)[keyof typeof Provider];
  */
 export const ContextType = {
   /**
-   * <p>Client-side error encountered during execution.</p>
+   * Client-side error encountered during execution.
    */
   CLIENT_ERROR: "CLIENT_ERROR",
   /**
-   * <p>Error encountered during execution.</p>
+   * Error encountered during execution.
    */
   ERROR: "ERROR",
   /**
-   * <p>Informational message during execution.</p>
+   * Informational message during execution.
    */
   INFO: "INFO",
   /**
-   * <p>Warning encountered during execution.</p>
+   * Warning encountered during execution.
    */
   WARNING: "WARNING",
 } as const;
@@ -511,23 +511,23 @@ export type ContextType = (typeof ContextType)[keyof typeof ContextType];
  */
 export const JobStatus = {
   /**
-   * <p>Pentest job completed successfully.</p>
+   * Pentest job completed successfully.
    */
   COMPLETED: "COMPLETED",
   /**
-   * <p>Pentest job failed during execution.</p>
+   * Pentest job failed during execution.
    */
   FAILED: "FAILED",
   /**
-   * <p>Pentest job is currently running.</p>
+   * Pentest job is currently running.
    */
   IN_PROGRESS: "IN_PROGRESS",
   /**
-   * <p>Pentest job was stopped by the user.</p>
+   * Pentest job was stopped by the user.
    */
   STOPPED: "STOPPED",
   /**
-   * <p>Pentest job is being stopped.</p>
+   * Pentest job is being stopped.
    */
   STOPPING: "STOPPING",
 } as const;
@@ -542,23 +542,23 @@ export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
  */
 export const StepName = {
   /**
-   * <p>Cleanup of infrastructure and resources created by the agent.</p>
+   * Cleanup of infrastructure and resources created by the agent.
    */
   FINALIZING: "FINALIZING",
   /**
-   * <p>Active pentest step.</p>
+   * Active pentest step.
    */
   PENTEST: "PENTEST",
   /**
-   * <p>Pre-flight validation and setup step.</p>
+   * Pre-flight validation and setup step.
    */
   PREFLIGHT: "PREFLIGHT",
   /**
-   * <p>Static code and network scan analysis step.</p>
+   * Static code and network scan analysis step.
    */
   STATIC_ANALYSIS: "STATIC_ANALYSIS",
   /**
-   * <p>Simulated validation step that dynamically confirms vulnerability exploitability.</p>
+   * Simulated validation step that dynamically confirms vulnerability exploitability.
    */
   VALIDATION: "VALIDATION",
 } as const;
@@ -573,23 +573,23 @@ export type StepName = (typeof StepName)[keyof typeof StepName];
  */
 export const StepStatus = {
   /**
-   * <p>Step completed successfully.</p>
+   * Step completed successfully.
    */
   COMPLETED: "COMPLETED",
   /**
-   * <p>Step failed during execution.</p>
+   * Step failed during execution.
    */
   FAILED: "FAILED",
   /**
-   * <p>Step is currently running.</p>
+   * Step is currently running.
    */
   IN_PROGRESS: "IN_PROGRESS",
   /**
-   * <p>Step has not started yet.</p>
+   * Step has not started yet.
    */
   NOT_STARTED: "NOT_STARTED",
   /**
-   * <p>Step was stopped by the user.</p>
+   * Step was stopped by the user.
    */
   STOPPED: "STOPPED",
 } as const;
@@ -604,7 +604,7 @@ export type StepStatus = (typeof StepStatus)[keyof typeof StepStatus];
  */
 export const LogType = {
   /**
-   * <p>Logs stored in CloudWatch.</p>
+   * Logs stored in CloudWatch.
    */
   CLOUDWATCH: "CLOUDWATCH",
 } as const;
@@ -662,15 +662,15 @@ export type ValidationStatus = (typeof ValidationStatus)[keyof typeof Validation
  */
 export const JobType = {
   /**
-   * <p>A CI/CD pentest job that tests only the code changes in a single pipeline run, as determined by the scope changes supplied when the job is started.</p>
+   * A CI/CD pentest job that tests only the code changes in a single pipeline run, as determined by the scope changes supplied when the job is started.
    */
   CICD: "CICD",
   /**
-   * <p>A full pentest job that executes all phases including scanning, managed execution, and guided exploration.</p>
+   * A full pentest job that executes all phases including scanning, managed execution, and guided exploration.
    */
   FULL: "FULL",
   /**
-   * <p>A targeted revalidation job that retests specific findings to determine whether they are still exploitable.</p>
+   * A targeted revalidation job that retests specific findings to determine whether they are still exploitable.
    */
   REVALIDATION: "REVALIDATION",
 } as const;
@@ -685,15 +685,15 @@ export type JobType = (typeof JobType)[keyof typeof JobType];
  */
 export const ScopeDecision = {
   /**
-   * <p>The code changes are in scope and are tested by the pentest job.</p>
+   * The code changes are in scope and are tested by the pentest job.
    */
   IN_SCOPE: "IN_SCOPE",
   /**
-   * <p>The code changes are out of scope and are not tested. No pentest is run for the changes.</p>
+   * The code changes are out of scope and are not tested. No pentest is run for the changes.
    */
   SCOPED_OUT: "SCOPED_OUT",
   /**
-   * <p>The code changes could not be conclusively scoped because of a conflict in the scoping inputs.</p>
+   * The code changes could not be conclusively scoped because of a conflict in the scoping inputs.
    */
   SCOPE_CONFLICT: "SCOPE_CONFLICT",
 } as const;
@@ -708,7 +708,7 @@ export type ScopeDecision = (typeof ScopeDecision)[keyof typeof ScopeDecision];
  */
 export const DNSRecordType = {
   /**
-   * <p>DNS TXT record.</p>
+   * DNS TXT record.
    */
   TXT: "TXT",
 } as const;
@@ -723,15 +723,15 @@ export type DNSRecordType = (typeof DNSRecordType)[keyof typeof DNSRecordType];
  */
 export const DomainVerificationMethod = {
   /**
-   * <p>Verify ownership via DNS TXT record.</p>
+   * Verify ownership via DNS TXT record.
    */
   DNS_TXT: "DNS_TXT",
   /**
-   * <p>Verify ownership via HTTP route.</p>
+   * Verify ownership via HTTP route.
    */
   HTTP_ROUTE: "HTTP_ROUTE",
   /**
-   * <p>Verify ownership via IP for private VPC pentests.</p>
+   * Verify ownership via IP for private VPC pentests.
    */
   PRIVATE_VPC: "PRIVATE_VPC",
 } as const;
@@ -746,19 +746,19 @@ export type DomainVerificationMethod = (typeof DomainVerificationMethod)[keyof t
  */
 export const TargetDomainStatus = {
   /**
-   * <p>Domain verification failed.</p>
+   * Domain verification failed.
    */
   FAILED: "FAILED",
   /**
-   * <p>Domain verification is pending.</p>
+   * Domain verification is pending.
    */
   PENDING: "PENDING",
   /**
-   * <p>Domain is unreachable for verification.</p>
+   * Domain is unreachable for verification.
    */
   UNREACHABLE: "UNREACHABLE",
   /**
-   * <p>Domain ownership has been verified.</p>
+   * Domain ownership has been verified.
    */
   VERIFIED: "VERIFIED",
 } as const;
@@ -773,11 +773,11 @@ export type TargetDomainStatus = (typeof TargetDomainStatus)[keyof typeof Target
  */
 export const ThreatActor = {
   /**
-   * <p>Threat was created or updated by an agent.</p>
+   * Threat was created or updated by an agent.
    */
   AGENT: "AGENT",
   /**
-   * <p>Threat was created or updated by a customer.</p>
+   * Threat was created or updated by a customer.
    */
   CUSTOMER: "CUSTOMER",
 } as const;
@@ -852,7 +852,7 @@ export type GitLabTokenType = (typeof GitLabTokenType)[keyof typeof GitLabTokenT
  */
 export const UserRole = {
   /**
-   * <p>Default member role with standard permissions.</p>
+   * Default member role with standard permissions.
    */
   MEMBER: "MEMBER",
 } as const;
@@ -867,7 +867,7 @@ export type UserRole = (typeof UserRole)[keyof typeof UserRole];
  */
 export const MembershipType = {
   /**
-   * <p>Human user member.</p>
+   * Human user member.
    */
   USER: "USER",
 } as const;
@@ -1013,11 +1013,11 @@ export type SecurityRequirementArtifactFormat =
  */
 export const WebhookAction = {
   /**
-   * <p>Create the webhook if one does not already exist. Returns the payload URL and the signing secret.</p>
+   * Create the webhook if one does not already exist. Returns the payload URL and the signing secret.
    */
   CREATE_IF_ABSENT: "CREATE_IF_ABSENT",
   /**
-   * <p>Generate a new signing secret for the existing webhook, keeping the same payload URL. Returns the new secret.</p>
+   * Generate a new signing secret for the existing webhook, keeping the same payload URL. Returns the new secret.
    */
   ROTATE: "ROTATE",
 } as const;
@@ -1046,11 +1046,11 @@ export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
  */
 export const MembershipTypeFilter = {
   /**
-   * <p>Show all member types.</p>
+   * Show all member types.
    */
   ALL: "ALL",
   /**
-   * <p>Show only user members.</p>
+   * Show only user members.
    */
   USER: "USER",
 } as const;

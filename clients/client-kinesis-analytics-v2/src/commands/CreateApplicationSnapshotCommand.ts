@@ -23,7 +23,8 @@ export interface CreateApplicationSnapshotCommandInput extends CreateApplication
 export interface CreateApplicationSnapshotCommandOutput extends CreateApplicationSnapshotResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a snapshot of the application's state data.</p>
+ * Creates a snapshot of the application's state data.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,30 +50,36 @@ export interface CreateApplicationSnapshotCommandOutput extends CreateApplicatio
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
  *
  * @throws {@link InvalidApplicationConfigurationException} (client fault)
- *  <p>The user-provided application configuration is not valid.</p>
+ *
+ * The user-provided application configuration is not valid.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>The specified input parameter value is not valid.</p>
+ *
+ * The specified input parameter value is not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request JSON is not valid for the operation.</p>
+ *
+ * The request JSON is not valid for the operation.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The number of allowed resources has been exceeded.</p>
+ *
+ * The number of allowed resources has been exceeded.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The application is not available for this operation.</p>
+ *
+ * The application is not available for this operation.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Specified application can't be found.</p>
+ *
+ * Specified application can't be found.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this
- *       operation. </p>
+ *
+ * The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation.
  *
  * @throws {@link KinesisAnalyticsV2ServiceException}
- * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ * Base exception class for all service exceptions from KinesisAnalyticsV2 service.
  *
  * @public
  */

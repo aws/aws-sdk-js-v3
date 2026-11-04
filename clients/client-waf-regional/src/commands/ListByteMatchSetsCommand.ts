@@ -23,15 +23,16 @@ export interface ListByteMatchSetsCommandInput extends ListByteMatchSetsRequest 
 export interface ListByteMatchSetsCommandOutput extends ListByteMatchSetsResponse, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This is <b>AWS WAF Classic</b> documentation. For
- *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
- *       WAF Classic</a> in the developer guide.</p>
- *             <p>
- *                <b>For the latest version of AWS
- *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
- *          </note>
- * 		       <p>Returns an array of <a>ByteMatchSetSummary</a> objects.</p>
+ * > **Note:**
+ * >
+ * > This is **AWS WAF Classic** documentation. For more information, see [AWS WAF Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html) in the developer guide.
+ * >
+ * > **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html). With the latest version, AWS WAF has a single set of endpoints for regional and global use.
+ *
+ *
+ *
+ * Returns an array of ByteMatchSetSummary objects.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,14 +66,16 @@ export interface ListByteMatchSetsCommandOutput extends ListByteMatchSetsRespons
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
  * @throws {@link WAFInternalErrorException} (server fault)
- *  <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+ *
+ * The operation failed because of a system problem, even though the request was valid. Retry your request.
  *
  * @throws {@link WAFInvalidAccountException} (client fault)
- *  <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+ *
+ * The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.
  *
  * @throws {@link WAFRegionalServiceException}
- * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
+ * Base exception class for all service exceptions from WAFRegional service.
  *
  * @public
  */

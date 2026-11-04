@@ -23,13 +23,10 @@ export interface DeleteVpcCommandInput extends DeleteVpcRequest {}
 export interface DeleteVpcCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified VPC. You must detach or delete all gateways and resources that are associated
- * 		  with the VPC before you can delete it. For example, you must terminate all instances running in the VPC,
- * 		  delete all security groups associated with the VPC (except the default one), delete all route tables
- * 		  associated with the VPC (except the default one), and so on. When you delete the VPC, it deletes the
- * 		  default security group, network ACL, and route table for the VPC.</p>
- *          <p>If you created a flow log for the VPC that you are deleting, note that flow logs for deleted
- *           VPCs are eventually automatically removed.</p>
+ * Deletes the specified VPC. You must detach or delete all gateways and resources that are associated with the VPC before you can delete it. For example, you must terminate all instances running in the VPC, delete all security groups associated with the VPC (except the default one), delete all route tables associated with the VPC (except the default one), and so on. When you delete the VPC, it deletes the default security group, network ACL, and route table for the VPC.
+ *
+ * If you created a flow log for the VPC that you are deleting, note that flow logs for deleted VPCs are eventually automatically removed.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,8 +52,8 @@ export interface DeleteVpcCommandOutput extends __MetadataBearer {}
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To delete a VPC
  * ```javascript

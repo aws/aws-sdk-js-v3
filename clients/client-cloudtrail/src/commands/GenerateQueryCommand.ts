@@ -23,25 +23,20 @@ export interface GenerateQueryCommandInput extends GenerateQueryRequest {}
 export interface GenerateQueryCommandOutput extends GenerateQueryResponse, __MetadataBearer {}
 
 /**
- * <important>
- *             <p>CloudTrail Lake will no longer be open to new customers starting May 31, 2026. If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-service-availability-change.html">CloudTrail Lake availability change</a>.</p>
- *          </important>
- *          <p>
- *          Generates a query from a natural language prompt. This operation uses generative artificial intelligence
- *          (generative AI) to produce a ready-to-use SQL query from the prompt.
- *       </p>
- *          <p>The prompt can be a question or a statement about the event data
- *          in your event data store. For example, you can enter prompts like "What are my
- *          top errors in the past month?" and “Give me a list of users that used SNS.”</p>
- *          <p>The prompt must be in English. For information about limitations, permissions, and supported Regions, see
- *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/lake-query-generator.html">Create CloudTrail Lake queries from natural language prompts</a>
- *          in the <i>CloudTrail </i> user guide.</p>
- *          <note>
- *             <p>Do not include any personally identifying, confidential, or sensitive information
- *             in your prompts.</p>
- *             <p>This feature uses generative AI large language models (LLMs); we recommend double-checking the
- *             LLM response.</p>
- *          </note>
+ * > **Important:** CloudTrail Lake will no longer be open to new customers starting May 31, 2026. If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [CloudTrail Lake availability change](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-service-availability-change.html).
+ *
+ * Generates a query from a natural language prompt. This operation uses generative artificial intelligence (generative AI) to produce a ready-to-use SQL query from the prompt.
+ *
+ * The prompt can be a question or a statement about the event data in your event data store. For example, you can enter prompts like "What are my top errors in the past month?" and “Give me a list of users that used SNS.”
+ *
+ * The prompt must be in English. For information about limitations, permissions, and supported Regions, see [Create CloudTrail Lake queries from natural language prompts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/lake-query-generator.html) in the *CloudTrail* user guide.
+ *
+ * > **Note:**
+ * >
+ * > Do not include any personally identifying, confidential, or sensitive information in your prompts.
+ * >
+ * > This feature uses generative AI large language models (LLMs); we recommend double-checking the LLM response.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,36 +68,40 @@ export interface GenerateQueryCommandOutput extends GenerateQueryResponse, __Met
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
  * @throws {@link EventDataStoreARNInvalidException} (client fault)
- *  <p>The specified event data store ARN is not valid or does not map to an event data store
- *          in your account.</p>
+ *
+ * The specified event data store ARN is not valid or does not map to an event data store in your account.
  *
  * @throws {@link EventDataStoreNotFoundException} (client fault)
- *  <p>The specified event data store was not found.</p>
+ *
+ * The specified event data store was not found.
  *
  * @throws {@link GenerateResponseException} (client fault)
- *  <p>
- *          This exception is thrown when a valid query could not be generated for the provided prompt.
- *       </p>
+ *
+ * This exception is thrown when a valid query could not be generated for the provided prompt.
  *
  * @throws {@link InactiveEventDataStoreException} (client fault)
- *  <p>The event data store is inactive.</p>
+ *
+ * The event data store is inactive.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The request includes a parameter that is not valid.</p>
+ *
+ * The request includes a parameter that is not valid.
  *
  * @throws {@link NoManagementAccountSLRExistsException} (client fault)
- *  <p> This exception is thrown when the management account does not have a service-linked
- *          role. </p>
+ *
+ * This exception is thrown when the management account does not have a service-linked role.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * This exception is thrown when the requested operation is not permitted.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>This exception is thrown when the requested operation is not supported.</p>
+ *
+ * This exception is thrown when the requested operation is not supported.
  *
  * @throws {@link CloudTrailServiceException}
- * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * Base exception class for all service exceptions from CloudTrail service.
  *
  * @public
  */

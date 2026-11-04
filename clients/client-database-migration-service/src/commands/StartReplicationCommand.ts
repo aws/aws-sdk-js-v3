@@ -23,11 +23,8 @@ export interface StartReplicationCommandInput extends StartReplicationMessage {}
 export interface StartReplicationCommandOutput extends StartReplicationResponse, __MetadataBearer {}
 
 /**
- * <p>For a given DMS Serverless replication configuration, DMS connects to the source
- *          endpoint and collects the metadata to analyze the replication workload. Using this
- *          metadata, DMS then computes and provisions the required capacity and starts replicating
- *          to the target endpoint using the server resources that DMS has provisioned for the DMS
- *          Serverless replication.</p>
+ * For a given DMS Serverless replication configuration, DMS connects to the source endpoint and collects the metadata to analyze the replication workload. Using this metadata, DMS then computes and provisions the required capacity and starts replicating to the target endpoint using the server resources that DMS has provisioned for the DMS Serverless replication.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -126,18 +123,20 @@ export interface StartReplicationCommandOutput extends StartReplicationResponse,
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedFault} (client fault)
- *  <p>DMS was denied access to the endpoint. Check that the
- *             role is correctly configured.</p>
+ *
+ * DMS was denied access to the endpoint. Check that the role is correctly configured.
  *
  * @throws {@link InvalidResourceStateFault} (client fault)
- *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
+ * The resource is in a state that prevents it from being used for database migration.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @public
  */

@@ -23,9 +23,8 @@ export interface AuthorizeDataShareCommandInput extends AuthorizeDataShareMessag
 export interface AuthorizeDataShareCommandOutput extends DataShare, __MetadataBearer {}
 
 /**
- * <p>From a data producer account, authorizes the sharing of a datashare with one or more
- *             consumer accounts or managing entities. To authorize a datashare for a data consumer,
- *             the producer account must have the correct access permissions.</p>
+ * From a data producer account, authorizes the sharing of a datashare with one or more consumer accounts or managing entities. To authorize a datashare for a data consumer, the producer account must have the correct access permissions.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,11 +68,12 @@ export interface AuthorizeDataShareCommandOutput extends DataShare, __MetadataBe
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link InvalidDataShareFault} (client fault)
- *  <p>There is an error with the datashare.</p>
+ *
+ * There is an error with the datashare.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

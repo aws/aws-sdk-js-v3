@@ -23,9 +23,10 @@ export interface DeleteLookupTableCommandInput extends DeleteLookupTableRequest 
 export interface DeleteLookupTableCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a lookup table permanently. This operation cannot be undone.</p>
- *          <p>Queries that reference a deleted table will return an error. Before deleting a lookup
- *       table, review any saved queries or dashboards that may reference it.</p>
+ * Deletes a lookup table permanently. This operation cannot be undone.
+ *
+ * Queries that reference a deleted table will return an error. Before deleting a lookup table, review any saved queries or dashboards that may reference it.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,20 +51,24 @@ export interface DeleteLookupTableCommandOutput extends __MetadataBearer {}
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permissions to perform this action.</p>
+ *
+ * You don't have sufficient permissions to perform this action.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is specified incorrectly.</p>
+ *
+ * A parameter is specified incorrectly.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service cannot complete the request.</p>
+ *
+ * The service cannot complete the request.
  *
  * @throws {@link CloudWatchLogsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchLogs service.
  *
  * @public
  */

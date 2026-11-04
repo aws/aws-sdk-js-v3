@@ -23,8 +23,8 @@ export interface DescribeStudioCommandInput extends DescribeStudioInput {}
 export interface DescribeStudioCommandOutput extends DescribeStudioOutput, __MetadataBearer {}
 
 /**
- * <p>Returns details for the specified Amazon EMR Studio including ID, Name, VPC,
- *          Studio access URL, and so on.</p>
+ * Returns details for the specified Amazon EMR Studio including ID, Name, VPC, Studio access URL, and so on.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,15 +80,16 @@ export interface DescribeStudioCommandOutput extends DescribeStudioOutput, __Met
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Amazon EMR
- *          service.</p>
+ *
+ * This exception occurs when there is an internal failure in the Amazon EMR service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>This exception occurs when there is something wrong with user input.</p>
+ *
+ * This exception occurs when there is something wrong with user input.
  *
  * @throws {@link EMRServiceException}
- * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * Base exception class for all service exceptions from EMR service.
  *
  * @public
  */

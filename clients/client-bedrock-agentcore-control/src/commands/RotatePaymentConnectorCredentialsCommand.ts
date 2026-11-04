@@ -26,7 +26,14 @@ export interface RotatePaymentConnectorCredentialsCommandInput extends RotatePay
 export interface RotatePaymentConnectorCredentialsCommandOutput extends RotatePaymentConnectorCredentialsResponse, __MetadataBearer {}
 
 /**
- * <p>Replaces the service-managed credentials of a payment connector with newly issued credentials.</p> <p>Use this operation only for payment connectors with a <code>provisionMode</code> of <code>QUICK_CREATE</code>. For payment connectors with a <code>provisionMode</code> of <code>MANUAL</code>, call <code>UpdatePaymentCredentialProvider</code> instead after rotating credentials with the payment provider directly.</p> <p>The rotation finishes before the response is returned, and only one rotation runs at a time for a given payment connector. When it succeeds, the new credential is in effect and the payment connector stays in the <code>READY</code> state. When it fails, an error is returned, the payment connector and its existing credential are left unchanged, and you can retry the request.</p> <p>Rotation replaces the credential on the connector's credential provider, so every payment connector that uses that provider is affected. Replace any copy of the previous credential that you use outside AgentCore.</p>
+ * Replaces the service-managed credentials of a payment connector with newly issued credentials.
+ *
+ * Use this operation only for payment connectors with a `provisionMode` of `QUICK_CREATE`. For payment connectors with a `provisionMode` of `MANUAL`, call `UpdatePaymentCredentialProvider` instead after rotating credentials with the payment provider directly.
+ *
+ * The rotation finishes before the response is returned, and only one rotation runs at a time for a given payment connector. When it succeeds, the new credential is in effect and the payment connector stays in the `READY` state. When it fails, an error is returned, the payment connector and its existing credential are left unchanged, and you can retry the request.
+ *
+ * Rotation replaces the credential on the connector's credential provider, so every payment connector that uses that provider is affected. Replace any copy of the previous credential that you use outside AgentCore.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,26 +72,32 @@ export interface RotatePaymentConnectorCredentialsCommandOutput extends RotatePa
  * @see {@link BedrockAgentCoreControlClientResolvedConfig | config} for BedrockAgentCoreControlClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>This exception is thrown when a request is denied per access permissions</p>
+ *
+ * This exception is thrown when a request is denied per access permissions
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>This exception is thrown when there is a conflict performing an operation</p>
+ *
+ * This exception is thrown when there is a conflict performing an operation
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception is thrown if there was an unexpected error during processing of request</p>
+ *
+ * This exception is thrown if there was an unexpected error during processing of request
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when a resource referenced by the operation does not exist</p>
+ *
+ * This exception is thrown when a resource referenced by the operation does not exist
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>This exception is thrown when the number of requests exceeds the limit</p>
+ *
+ * This exception is thrown when the number of requests exceeds the limit
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the service.</p>
+ *
+ * The input fails to satisfy the constraints specified by the service.
  *
  * @throws {@link BedrockAgentCoreControlServiceException}
- * <p>Base exception class for all service exceptions from BedrockAgentCoreControl service.</p>
  *
+ * Base exception class for all service exceptions from BedrockAgentCoreControl service.
  *
  * @public
  */

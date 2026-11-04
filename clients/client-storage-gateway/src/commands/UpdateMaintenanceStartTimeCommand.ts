@@ -23,22 +23,12 @@ export interface UpdateMaintenanceStartTimeCommandInput extends UpdateMaintenanc
 export interface UpdateMaintenanceStartTimeCommandOutput extends UpdateMaintenanceStartTimeOutput, __MetadataBearer {}
 
 /**
- * <p>Updates a gateway's maintenance window schedule, with settings for monthly or
- *          weekly cadence, specific day and time to begin maintenance, and which types of updates to
- *          apply. Time configuration uses the gateway's time zone. You can pass values for a complete
- *          maintenance schedule, or update policy, or both. Previous values will persist for whichever
- *          setting you choose not to modify. If an incomplete or invalid maintenance schedule is
- *          passed, the entire request will be rejected with an error and no changes will occur.</p>
- *          <p>A complete maintenance schedule must include values for <i>both</i>
- *             <code>MinuteOfHour</code> and <code>HourOfDay</code>, and <i>either</i>
- *             <code>DayOfMonth</code>
- *             <i>or</i>
- *             <code>DayOfWeek</code>.</p>
- *          <note>
- *             <p>We recommend keeping maintenance updates turned on, except in specific use cases
- *             where the brief disruptions caused by updating the gateway could critically impact your
- *             deployment.</p>
- *          </note>
+ * Updates a gateway's maintenance window schedule, with settings for monthly or weekly cadence, specific day and time to begin maintenance, and which types of updates to apply. Time configuration uses the gateway's time zone. You can pass values for a complete maintenance schedule, or update policy, or both. Previous values will persist for whichever setting you choose not to modify. If an incomplete or invalid maintenance schedule is passed, the entire request will be rejected with an error and no changes will occur.
+ *
+ * A complete maintenance schedule must include values for *both* `MinuteOfHour` and `HourOfDay`, and *either* `DayOfMonth` *or* `DayOfWeek`.
+ *
+ * > **Note:** We recommend keeping maintenance updates turned on, except in specific use cases where the brief disruptions caused by updating the gateway could critically impact your deployment.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,16 +62,16 @@ export interface UpdateMaintenanceStartTimeCommandOutput extends UpdateMaintenan
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @example To update a gateway's maintenance start time
  * ```javascript

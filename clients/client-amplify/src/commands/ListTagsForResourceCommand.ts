@@ -23,7 +23,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of tags for a specified Amazon Resource Name (ARN).</p>
+ * Returns a list of tags for a specified Amazon Resource Name (ARN).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,17 +53,20 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>A request contains unexpected data. </p>
+ *
+ * A request contains unexpected data.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>The service failed to perform an operation due to an internal issue. </p>
+ *
+ * The service failed to perform an operation due to an internal issue.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An operation failed due to a non-existent resource. </p>
+ *
+ * An operation failed due to a non-existent resource.
  *
  * @throws {@link AmplifyServiceException}
- * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ * Base exception class for all service exceptions from Amplify service.
  *
  * @public
  */

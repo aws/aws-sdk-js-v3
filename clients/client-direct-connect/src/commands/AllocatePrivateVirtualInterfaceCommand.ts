@@ -23,9 +23,10 @@ export interface AllocatePrivateVirtualInterfaceCommandInput extends AllocatePri
 export interface AllocatePrivateVirtualInterfaceCommandOutput extends VirtualInterface, __MetadataBearer {}
 
 /**
- * <p>Provisions a private virtual interface to be owned by the specified Amazon Web Services account.</p>
- *          <p>Virtual interfaces created using this action must be confirmed by the owner using <a>ConfirmPrivateVirtualInterface</a>.
- *       Until then, the virtual interface is in the <code>Confirming</code> state and is not available to handle traffic.</p>
+ * Provisions a private virtual interface to be owned by the specified Amazon Web Services account.
+ *
+ * Virtual interfaces created using this action must be confirmed by the owner using ConfirmPrivateVirtualInterface. Until then, the virtual interface is in the `Confirming` state and is not available to handle traffic.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -123,23 +124,28 @@ export interface AllocatePrivateVirtualInterfaceCommandOutput extends VirtualInt
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  * @throws {@link DirectConnectClientException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link DirectConnectServerException} (server fault)
- *  <p>A server-side error occurred.</p>
+ *
+ * A server-side error occurred.
  *
  * @throws {@link DuplicateTagKeysException} (client fault)
- *  <p>A tag key was specified more than once.</p>
+ *
+ * A tag key was specified more than once.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The rate limiter limit has been exceeded for the connection. You cannot add more rate limiters to virtual interfaces on this connection.</p>
+ *
+ * The rate limiter limit has been exceeded for the connection. You cannot add more rate limiters to virtual interfaces on this connection.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>You have reached the limit on the number of tags that can be assigned.</p>
+ *
+ * You have reached the limit on the number of tags that can be assigned.
  *
  * @throws {@link DirectConnectServiceException}
- * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * Base exception class for all service exceptions from DirectConnect service.
  *
  * @public
  */

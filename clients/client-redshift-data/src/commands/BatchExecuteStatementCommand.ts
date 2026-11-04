@@ -23,7 +23,17 @@ export interface BatchExecuteStatementCommandInput extends BatchExecuteStatement
 export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatementOutput, __MetadataBearer {}
 
 /**
- * <p>Runs one or more SQL statements, which can be data manipulation language (DML) or data definition language (DDL). Depending on the authorization method, use one of the following combinations of request parameters: </p> <ul> <li> <p>Secrets Manager - when connecting to a cluster, provide the <code>secret-arn</code> of a secret stored in Secrets Manager which has <code>username</code> and <code>password</code>. The specified secret contains credentials to connect to the <code>database</code> you specify. When you are connecting to a cluster, you also supply the database name, If you provide a cluster identifier (<code>dbClusterIdentifier</code>), it must match the cluster identifier stored in the secret. When you are connecting to a serverless workgroup, you also supply the database name.</p> </li> <li> <p>Temporary credentials - when connecting to your data warehouse, choose one of the following options:</p> <ul> <li> <p>When connecting to a serverless workgroup, specify the workgroup name and database name. The database user name is derived from the IAM identity. For example, <code>arn:iam::123456789012:user:foo</code> has the database user name <code>IAM:foo</code>. Also, permission to call the <code>redshift-serverless:GetCredentials</code> operation is required.</p> </li> <li> <p>When connecting to a cluster as an IAM identity, specify the cluster identifier and the database name. The database user name is derived from the IAM identity. For example, <code>arn:iam::123456789012:user:foo</code> has the database user name <code>IAM:foo</code>. Also, permission to call the <code>redshift:GetClusterCredentialsWithIAM</code> operation is required.</p> </li> <li> <p>When connecting to a cluster as a database user, specify the cluster identifier, the database name, and the database user name. Also, permission to call the <code>redshift:GetClusterCredentials</code> operation is required.</p> </li> </ul> </li> </ul> <p>For more information about the Amazon Redshift Data API and CLI usage examples, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html">Using the Amazon Redshift Data API</a> in the <i>Amazon Redshift Management Guide</i>. </p>
+ * Runs one or more SQL statements, which can be data manipulation language (DML) or data definition language (DDL). Depending on the authorization method, use one of the following combinations of request parameters:
+ *
+ * - Secrets Manager - when connecting to a cluster, provide the `secret-arn` of a secret stored in Secrets Manager which has `username` and `password`. The specified secret contains credentials to connect to the `database` you specify. When you are connecting to a cluster, you also supply the database name, If you provide a cluster identifier (`dbClusterIdentifier`), it must match the cluster identifier stored in the secret. When you are connecting to a serverless workgroup, you also supply the database name.
+ * - Temporary credentials - when connecting to your data warehouse, choose one of the following options:
+ *
+ *   - When connecting to a serverless workgroup, specify the workgroup name and database name. The database user name is derived from the IAM identity. For example, `arn:iam::123456789012:user:foo` has the database user name `IAM:foo`. Also, permission to call the `redshift-serverless:GetCredentials` operation is required.
+ *   - When connecting to a cluster as an IAM identity, specify the cluster identifier and the database name. The database user name is derived from the IAM identity. For example, `arn:iam::123456789012:user:foo` has the database user name `IAM:foo`. Also, permission to call the `redshift:GetClusterCredentialsWithIAM` operation is required.
+ *   - When connecting to a cluster as a database user, specify the cluster identifier, the database name, and the database user name. Also, permission to call the `redshift:GetClusterCredentials` operation is required.
+ *
+ * For more information about the Amazon Redshift Data API and CLI usage examples, see [Using the Amazon Redshift Data API](https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html) in the *Amazon Redshift Management Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,26 +94,32 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  * @see {@link RedshiftDataClientResolvedConfig | config} for RedshiftDataClient's `config` shape.
  *
  * @throws {@link ActiveSessionsExceededException} (client fault)
- *  <p>The Amazon Redshift Data API operation failed because the maximum number of active sessions exceeded.</p>
+ *
+ * The Amazon Redshift Data API operation failed because the maximum number of active sessions exceeded.
  *
  * @throws {@link ActiveStatementsExceededException} (client fault)
- *  <p>The number of active statements exceeds the limit.</p>
+ *
+ * The number of active statements exceeds the limit.
  *
  * @throws {@link BatchExecuteStatementException} (server fault)
- *  <p>An SQL statement encountered an environmental error while running.</p>
+ *
+ * An SQL statement encountered an environmental error while running.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
+ *
+ * The Amazon Redshift Data API operation failed due to invalid input.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The Amazon Redshift Data API operation failed due to a missing resource. </p>
+ *
+ * The Amazon Redshift Data API operation failed due to a missing resource.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
+ *
+ * The Amazon Redshift Data API operation failed due to invalid input.
  *
  * @throws {@link RedshiftDataServiceException}
- * <p>Base exception class for all service exceptions from RedshiftData service.</p>
  *
+ * Base exception class for all service exceptions from RedshiftData service.
  *
  * @public
  */

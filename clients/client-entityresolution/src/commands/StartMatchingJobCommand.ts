@@ -23,7 +23,8 @@ export interface StartMatchingJobCommandInput extends StartMatchingJobInput {}
 export interface StartMatchingJobCommandOutput extends StartMatchingJobOutput, __MetadataBearer {}
 
 /**
- * <p>Starts the <code>MatchingJob</code> of a workflow. The workflow must have previously been created using the <code>CreateMatchingWorkflow</code> endpoint.</p>
+ * Starts the `MatchingJob` of a workflow. The workflow must have previously been created using the `CreateMatchingWorkflow` endpoint.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,29 +51,36 @@ export interface StartMatchingJobCommandOutput extends StartMatchingJobOutput, _
  * @see {@link EntityResolutionClientResolvedConfig | config} for EntityResolutionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action. </p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request couldn't be processed because of conflict in the current state of the resource. Example: Workflow already exists, Schema already exists, Workflow is currently running, etc. </p>
+ *
+ * The request couldn't be processed because of conflict in the current state of the resource. Example: Workflow already exists, Schema already exists, Workflow is currently running, etc.
  *
  * @throws {@link ExceedsLimitException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current Entity Resolution account limits. The error message describes the limit exceeded. </p>
+ *
+ * The request was rejected because it attempted to create resources beyond the current Entity Resolution account limits. The error message describes the limit exceeded.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+ *
+ * This exception occurs when there is an internal failure in the Entity Resolution service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource couldn't be found. </p>
+ *
+ * The resource couldn't be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. </p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
+ *
+ * The input fails to satisfy the constraints specified by Entity Resolution.
  *
  * @throws {@link EntityResolutionServiceException}
- * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
+ * Base exception class for all service exceptions from EntityResolution service.
  *
  * @public
  */

@@ -23,17 +23,14 @@ export interface AddCustomRoutingEndpointsCommandInput extends AddCustomRoutingE
 export interface AddCustomRoutingEndpointsCommandOutput extends AddCustomRoutingEndpointsResponse, __MetadataBearer {}
 
 /**
- * <p>Associate a virtual private cloud (VPC) subnet endpoint with your custom routing accelerator.</p>
- *          <p>The listener port range must be large enough to support the number of IP addresses that can be
- * 		specified in your subnet. The number of ports required is: subnet size times the number
- * 		of ports per destination EC2 instances. For example, a subnet defined as /24 requires a listener
- * 		port range of at least 255 ports. </p>
- *          <p>Note: You must have enough remaining listener ports available to
- * 		map to the subnet ports, or the call will fail with a LimitExceededException.</p>
- *          <p>By default, all destinations in a subnet in a custom routing accelerator cannot receive traffic. To enable all
- * 			destinations to receive traffic, or to specify individual port mappings that can receive
- * 			traffic, see the <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/API_AllowCustomRoutingTraffic.html">
- * 				AllowCustomRoutingTraffic</a> operation.</p>
+ * Associate a virtual private cloud (VPC) subnet endpoint with your custom routing accelerator.
+ *
+ * The listener port range must be large enough to support the number of IP addresses that can be specified in your subnet. The number of ports required is: subnet size times the number of ports per destination EC2 instances. For example, a subnet defined as /24 requires a listener port range of at least 255 ports.
+ *
+ * Note: You must have enough remaining listener ports available to map to the subnet ports, or the call will fail with a LimitExceededException.
+ *
+ * By default, all destinations in a subnet in a custom routing accelerator cannot receive traffic. To enable all destinations to receive traffic, or to specify individual port mappings that can receive traffic, see the [AllowCustomRoutingTraffic](https://docs.aws.amazon.com/global-accelerator/latest/api/API_AllowCustomRoutingTraffic.html) operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,29 +68,36 @@ export interface AddCustomRoutingEndpointsCommandOutput extends AddCustomRouting
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have access permission.</p>
+ *
+ * You don't have access permission.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>You can't use both of those options.</p>
+ *
+ * You can't use both of those options.
  *
  * @throws {@link EndpointAlreadyExistsException} (client fault)
- *  <p>The endpoint that you specified doesn't exist.</p>
+ *
+ * The endpoint that you specified doesn't exist.
  *
  * @throws {@link EndpointGroupNotFoundException} (client fault)
- *  <p>The endpoint group that you specified doesn't exist.</p>
+ *
+ * The endpoint group that you specified doesn't exist.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * There was an internal error for Global Accelerator.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>An argument that you specified is invalid.</p>
+ *
+ * An argument that you specified is invalid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
+ *
+ * Processing your request would cause you to exceed an Global Accelerator limit.
  *
  * @throws {@link GlobalAcceleratorServiceException}
- * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * Base exception class for all service exceptions from GlobalAccelerator service.
  *
  * @public
  */

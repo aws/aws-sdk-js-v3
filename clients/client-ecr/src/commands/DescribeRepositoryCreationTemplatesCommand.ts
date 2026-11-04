@@ -26,9 +26,8 @@ export interface DescribeRepositoryCreationTemplatesCommandInput extends Describ
 export interface DescribeRepositoryCreationTemplatesCommandOutput extends DescribeRepositoryCreationTemplatesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns details about the repository creation templates in a registry. The
- *                 <code>prefixes</code> request parameter can be used to return the details for a
- *             specific repository creation template.</p>
+ * Returns details about the repository creation templates in a registry. The `prefixes` request parameter can be used to return the details for a specific repository creation template.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,18 +90,20 @@ export interface DescribeRepositoryCreationTemplatesCommandOutput extends Descri
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>There was an exception validating this request.</p>
+ *
+ * There was an exception validating this request.
  *
  * @throws {@link ECRServiceException}
- * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * Base exception class for all service exceptions from ECR service.
  *
  * @public
  */

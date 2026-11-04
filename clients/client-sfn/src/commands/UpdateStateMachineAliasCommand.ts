@@ -23,46 +23,21 @@ export interface UpdateStateMachineAliasCommandInput extends UpdateStateMachineA
 export interface UpdateStateMachineAliasCommandOutput extends UpdateStateMachineAliasOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the configuration of an existing state machine <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html">alias</a> by modifying its <code>description</code> or <code>routingConfiguration</code>.</p>
- *          <p>You must specify at least one of the <code>description</code> or <code>routingConfiguration</code> parameters to update a state machine alias.</p>
- *          <note>
- *             <p>
- *                <code>UpdateStateMachineAlias</code> is an idempotent API. Step Functions bases the
- *         idempotency check on the <code>stateMachineAliasArn</code>, <code>description</code>, and
- *           <code>routingConfiguration</code> parameters. Requests with the same parameters return an
- *         idempotent response.</p>
- *          </note>
- *          <note>
- *             <p>This operation is eventually consistent. All <a>StartExecution</a> requests
- *         made within a few seconds use the latest alias configuration. Executions started immediately
- *         after calling <code>UpdateStateMachineAlias</code> may use the previous routing
- *         configuration.</p>
- *          </note>
- *          <p>
- *             <b>Related operations:</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>CreateStateMachineAlias</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DescribeStateMachineAlias</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListStateMachineAliases</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteStateMachineAlias</a>
- *                </p>
- *             </li>
- *          </ul>
+ * Updates the configuration of an existing state machine [alias](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html) by modifying its `description` or `routingConfiguration`.
+ *
+ * You must specify at least one of the `description` or `routingConfiguration` parameters to update a state machine alias.
+ *
+ * > **Note:** `UpdateStateMachineAlias` is an idempotent API. Step Functions bases the idempotency check on the `stateMachineAliasArn`, `description`, and `routingConfiguration` parameters. Requests with the same parameters return an idempotent response.
+ *
+ * > **Note:** This operation is eventually consistent. All StartExecution requests made within a few seconds use the latest alias configuration. Executions started immediately after calling `UpdateStateMachineAlias` may use the previous routing configuration.
+ *
+ * **Related operations:**
+ *
+ * - CreateStateMachineAlias
+ * - DescribeStateMachineAlias
+ * - ListStateMachineAliases
+ * - DeleteStateMachineAlias
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -96,24 +71,30 @@ export interface UpdateStateMachineAliasCommandOutput extends UpdateStateMachine
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting a resource can cause an inconsistent state. This error occurs when there're concurrent requests for <a>DeleteStateMachineVersion</a>, <a>PublishStateMachineVersion</a>, or <a>UpdateStateMachine</a> with the <code>publish</code> parameter set to <code>true</code>.</p>
- *          <p>HTTP Status Code: 409</p>
+ *
+ * Updating or deleting a resource can cause an inconsistent state. This error occurs when there're concurrent requests for DeleteStateMachineVersion, PublishStateMachineVersion, or UpdateStateMachine with the `publish` parameter set to `true`.
+ *
+ * HTTP Status Code: 409
  *
  * @throws {@link InvalidArn} (client fault)
- *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * The provided Amazon Resource Name (ARN) is not valid.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Could not find the referenced resource.</p>
+ *
+ * Could not find the referenced resource.
  *
  * @throws {@link StateMachineDeleting} (client fault)
- *  <p>The specified state machine is being deleted.</p>
+ *
+ * The specified state machine is being deleted.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input does not satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link SFNServiceException}
- * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * Base exception class for all service exceptions from SFN service.
  *
  * @public
  */

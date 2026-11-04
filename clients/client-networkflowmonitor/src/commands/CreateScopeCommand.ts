@@ -23,7 +23,16 @@ export interface CreateScopeCommandInput extends CreateScopeInput {}
 export interface CreateScopeCommandOutput extends CreateScopeOutput, __MetadataBearer {}
 
 /**
- * <p>In Network Flow Monitor, you specify a scope for the service to generate metrics for. By using the scope, Network Flow Monitor can generate a topology of all the resources to measure performance metrics for. When you create a scope, you enable permissions for Network Flow Monitor.</p> <p>A scope is a Region-account pair or multiple Region-account pairs. Network Flow Monitor uses your scope to determine all the resources (the topology) where Network Flow Monitor will gather network flow performance metrics for you. To provide performance metrics, Network Flow Monitor uses the data that is sent by the Network Flow Monitor agents you install on the resources.</p> <p>To define the Region-account pairs for your scope, the Network Flow Monitor API uses the following constucts, which allow for future flexibility in defining scopes:</p> <ul> <li> <p> <i>Targets</i>, which are arrays of targetResources.</p> </li> <li> <p> <i>Target resources</i>, which are Region-targetIdentifier pairs.</p> </li> <li> <p> <i>Target identifiers</i>, made up of a targetID (currently always an account ID) and a targetType (currently always an account). </p> </li> </ul>
+ * In Network Flow Monitor, you specify a scope for the service to generate metrics for. By using the scope, Network Flow Monitor can generate a topology of all the resources to measure performance metrics for. When you create a scope, you enable permissions for Network Flow Monitor.
+ *
+ * A scope is a Region-account pair or multiple Region-account pairs. Network Flow Monitor uses your scope to determine all the resources (the topology) where Network Flow Monitor will gather network flow performance metrics for you. To provide performance metrics, Network Flow Monitor uses the data that is sent by the Network Flow Monitor agents you install on the resources.
+ *
+ * To define the Region-account pairs for your scope, the Network Flow Monitor API uses the following constucts, which allow for future flexibility in defining scopes:
+ *
+ * - *Targets*, which are arrays of targetResources.
+ * - *Target resources*, which are Region-targetIdentifier pairs.
+ * - *Target identifiers*, made up of a targetID (currently always an account ID) and a targetType (currently always an account).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,26 +78,32 @@ export interface CreateScopeCommandOutput extends CreateScopeOutput, __MetadataB
  * @see {@link NetworkFlowMonitorClientResolvedConfig | config} for NetworkFlowMonitorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * You don't have sufficient permission to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The requested resource is in use.</p>
+ *
+ * The requested resource is in use.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error occurred.</p>
+ *
+ * An internal error occurred.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request exceeded a service quota.</p>
+ *
+ * The request exceeded a service quota.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Invalid request.</p>
+ *
+ * Invalid request.
  *
  * @throws {@link NetworkFlowMonitorServiceException}
- * <p>Base exception class for all service exceptions from NetworkFlowMonitor service.</p>
  *
+ * Base exception class for all service exceptions from NetworkFlowMonitor service.
  *
  * @public
  */

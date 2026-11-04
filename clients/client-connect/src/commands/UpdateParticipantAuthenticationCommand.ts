@@ -26,24 +26,13 @@ export interface UpdateParticipantAuthenticationCommandInput extends UpdateParti
 export interface UpdateParticipantAuthenticationCommandOutput extends UpdateParticipantAuthenticationResponse, __MetadataBearer {}
 
 /**
- * <p>Instructs Connect Customer to resume the authentication process. The subsequent actions depend on the request
- *    body contents:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <b>If a code is provided</b>: Connect retrieves the identity information from Amazon
- *      Cognito and imports it into Connect Customer Profiles.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>If an error is provided</b>: The error branch of the Authenticate Customer block
- *      is executed.</p>
- *             </li>
- *          </ul>
- *          <note>
- *             <p>The API returns a success response to acknowledge the request. However, the interaction and exchange of
- *     identity information occur asynchronously after the response is returned.</p>
- *          </note>
+ * Instructs Connect Customer to resume the authentication process. The subsequent actions depend on the request body contents:
+ *
+ * - **If a code is provided**: Connect retrieves the identity information from Amazon Cognito and imports it into Connect Customer Profiles.
+ * - **If an error is provided**: The error branch of the Authenticate Customer block is executed.
+ *
+ * > **Note:** The API returns a success response to acknowledge the request. However, the interaction and exchange of identity information occur asynchronously after the response is returned.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,27 +61,32 @@ export interface UpdateParticipantAuthenticationCommandOutput extends UpdatePart
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Operation cannot be performed at this time as there is a conflict with another operation or contact
- *    state.</p>
+ *
+ * Operation cannot be performed at this time as there is a conflict with another operation or contact state.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

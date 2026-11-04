@@ -23,7 +23,8 @@ export interface UpdateAccountSettingsCommandInput extends UpdateAccountSettings
 export interface UpdateAccountSettingsCommandOutput extends AccountSettings, __MetadataBearer {}
 
 /**
- * <p>Updates the value of the <code>DeletionProtection</code> parameter.</p>
+ * Updates the value of the `DeletionProtection` parameter.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,14 +63,16 @@ export interface UpdateAccountSettingsCommandOutput extends AccountSettings, __M
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>There was an internal failure in the AppConfig service.</p>
+ *
+ * There was an internal failure in the AppConfig service.
  *
  * @throws {@link AppConfigServiceException}
- * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * Base exception class for all service exceptions from AppConfig service.
  *
  * @public
  */

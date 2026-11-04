@@ -26,7 +26,8 @@ export interface UpdateCustomDetectionRuleAssociationCommandInput extends Update
 export interface UpdateCustomDetectionRuleAssociationCommandOutput extends UpdateCustomDetectionRuleAssociationResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the mode of an existing custom detection rule association.</p>
+ * Updates the mode of an existing custom detection rule association.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,23 +54,28 @@ export interface UpdateCustomDetectionRuleAssociationCommandOutput extends Updat
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>An access denied exception object.</p>
+ *
+ * An access denied exception object.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>A bad request exception object.</p>
+ *
+ * A bad request exception object.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A request conflict exception object.</p>
+ *
+ * A request conflict exception object.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>An internal server error exception object.</p>
+ *
+ * An internal server error exception object.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource can't be found.</p>
+ *
+ * The requested resource can't be found.
  *
  * @throws {@link GuardDutyServiceException}
- * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * Base exception class for all service exceptions from GuardDuty service.
  *
  * @public
  */

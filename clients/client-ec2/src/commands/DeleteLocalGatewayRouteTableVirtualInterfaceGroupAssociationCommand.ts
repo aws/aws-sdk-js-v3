@@ -26,9 +26,8 @@ export interface DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCom
 export interface DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput extends DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult, __MetadataBearer {}
 
 /**
- * <p>
- *       Deletes a local gateway route table virtual interface group association.
- *       </p>
+ * Deletes a local gateway route table virtual interface group association.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,8 +69,8 @@ export interface DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCom
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

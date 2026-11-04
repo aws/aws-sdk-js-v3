@@ -23,19 +23,14 @@ export interface UpdateHybridADCommandInput extends UpdateHybridADRequest {}
 export interface UpdateHybridADCommandOutput extends UpdateHybridADResult, __MetadataBearer {}
 
 /**
- * <p>Updates the configuration of an existing hybrid directory. You can recover hybrid
- *             directory administrator account or modify self-managed instance settings.</p>
- *          <p>Updates are applied asynchronously. Use <a>DescribeHybridADUpdate</a> to
- *             monitor the progress of configuration changes.</p>
- *          <p>The <code>InstanceIds</code> must have a one-to-one correspondence with
- *                 <code>CustomerDnsIps</code>, meaning that if the IP address for instance i-10243410
- *             is 10.24.34.100 and the IP address for instance i-10243420 is 10.24.34.200, then the
- *             input arrays must maintain the same order relationship, either [10.24.34.100,
- *             10.24.34.200] paired with [i-10243410, i-10243420] or [10.24.34.200, 10.24.34.100]
- *             paired with [i-10243420, i-10243410].</p>
- *          <note>
- *             <p>You must provide at least one update to <a>UpdateHybridADRequest$HybridAdministratorAccountUpdate</a> or <a>UpdateHybridADRequest$SelfManagedInstancesSettings</a>.</p>
- *          </note>
+ * Updates the configuration of an existing hybrid directory. You can recover hybrid directory administrator account or modify self-managed instance settings.
+ *
+ * Updates are applied asynchronously. Use DescribeHybridADUpdate to monitor the progress of configuration changes.
+ *
+ * The `InstanceIds` must have a one-to-one correspondence with `CustomerDnsIps`, meaning that if the IP address for instance i-10243410 is 10.24.34.100 and the IP address for instance i-10243420 is 10.24.34.200, then the input arrays must maintain the same order relationship, either [10.24.34.100, 10.24.34.200] paired with [i-10243410, i-10243420] or [10.24.34.200, 10.24.34.100] paired with [i-10243420, i-10243410].
+ *
+ * > **Note:** You must provide at least one update to UpdateHybridADRequest$HybridAdministratorAccountUpdate or UpdateHybridADRequest$SelfManagedInstancesSettings.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,34 +69,36 @@ export interface UpdateHybridADCommandOutput extends UpdateHybridADResult, __Met
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  * @throws {@link ADAssessmentLimitExceededException} (client fault)
- *  <p>A directory assessment is automatically created when you create a hybrid directory.
- *             There are two types of assessments: <code>CUSTOMER</code> and <code>SYSTEM</code>. Your
- *             Amazon Web Services account has a limit of 100 <code>CUSTOMER</code> directory assessments.</p>
- *          <p>If you attempt to create a hybrid directory; and you already have 100
- *                 <code>CUSTOMER</code> directory assessments;, you will encounter an error. Delete
- *             assessments to free up capacity before trying again.</p>
- *          <p>You can request an increase to your <code>CUSTOMER</code> directory assessment quota
- *             by contacting customer support or delete existing CUSTOMER directory assessments; to
- *             free up capacity.</p>
+ *
+ * A directory assessment is automatically created when you create a hybrid directory. There are two types of assessments: `CUSTOMER` and `SYSTEM`. Your Amazon Web Services account has a limit of 100 `CUSTOMER` directory assessments.
+ *
+ * If you attempt to create a hybrid directory; and you already have 100 `CUSTOMER` directory assessments;, you will encounter an error. Delete assessments to free up capacity before trying again.
+ *
+ * You can request an increase to your `CUSTOMER` directory assessment quota by contacting customer support or delete existing CUSTOMER directory assessments; to free up capacity.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>A client exception has occurred.</p>
+ *
+ * A client exception has occurred.
  *
  * @throws {@link DirectoryDoesNotExistException} (client fault)
- *  <p>The specified directory does not exist in the system.</p>
+ *
+ * The specified directory does not exist in the system.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * An exception has occurred in Directory Service.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>The operation is not supported.</p>
+ *
+ * The operation is not supported.
  *
  * @throws {@link DirectoryServiceServiceException}
- * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * Base exception class for all service exceptions from DirectoryService service.
  *
  * @public
  */

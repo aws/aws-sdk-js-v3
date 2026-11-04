@@ -23,7 +23,8 @@ export interface GetQueryStatisticsCommandInput extends GetQueryStatisticsReques
 export interface GetQueryStatisticsCommandOutput extends GetQueryStatisticsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves statistics on the planning and execution of a query.</p>
+ * Retrieves statistics on the planning and execution of a query.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,26 +62,32 @@ export interface GetQueryStatisticsCommandOutput extends GetQueryStatisticsRespo
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to a resource was denied.</p>
+ *
+ * Access to a resource was denied.
  *
  * @throws {@link ExpiredException} (client fault)
- *  <p>Contains details about an error where the query request expired.</p>
+ *
+ * Contains details about an error where the query request expired.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link StatisticsNotReadyYetException} (client fault)
- *  <p>Contains details about an error related to statistics not being ready.</p>
+ *
+ * Contains details about an error related to statistics not being ready.
  *
  * @throws {@link ThrottledException} (client fault)
- *  <p>Contains details about an error where the query request was throttled.</p>
+ *
+ * Contains details about an error where the query request was throttled.
  *
  * @throws {@link LakeFormationServiceException}
- * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * Base exception class for all service exceptions from LakeFormation service.
  *
  * @public
  */

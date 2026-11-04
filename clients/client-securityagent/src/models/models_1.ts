@@ -31,469 +31,547 @@ import type {
 } from "./models_0";
 
 /**
- * <p>Output for the StartThreatModelJob operation.</p>
+ * Output for the StartThreatModelJob operation.
+ *
  * @public
  */
 export interface StartThreatModelJobOutput {
   /**
-   * <p>The title of the threat model job.</p>
+   * The title of the threat model job.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>The current status of the threat model job.</p>
+   * The current status of the threat model job.
+   *
    * @public
    */
   status?: JobStatus | undefined;
 
   /**
-   * <p>The date and time the threat model job was created, in UTC format.</p>
+   * The date and time the threat model job was created, in UTC format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time the threat model job was last updated, in UTC format.</p>
+   * The date and time the threat model job was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The unique identifier of the threat model.</p>
+   * The unique identifier of the threat model.
+   *
    * @public
    */
   threatModelId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the started threat model job.</p>
+   * The unique identifier of the started threat model job.
+   *
    * @public
    */
   threatModelJobId: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space.</p>
+   * The unique identifier of the agent space.
+   *
    * @public
    */
   agentSpaceId?: string | undefined;
 }
 
 /**
- * <p>Input for stopping the execution of a code review job.</p>
+ * Input for stopping the execution of a code review job.
+ *
  * @public
  */
 export interface StopCodeReviewJobInput {
   /**
-   * <p>The unique identifier of the agent space.</p>
+   * The unique identifier of the agent space.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The unique identifier of the code review job to stop.</p>
+   * The unique identifier of the code review job to stop.
+   *
    * @public
    */
   codeReviewJobId: string | undefined;
 }
 
 /**
- * <p>Output for the StopCodeReviewJob operation.</p>
+ * Output for the StopCodeReviewJob operation.
+ *
  * @public
  */
 export interface StopCodeReviewJobOutput {}
 
 /**
- * <p>Input for stopping the execution of a pentest.</p>
+ * Input for stopping the execution of a pentest.
+ *
  * @public
  */
 export interface StopPentestJobInput {
   /**
-   * <p>The unique identifier of the agent space.</p>
+   * The unique identifier of the agent space.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The unique identifier of the pentest job to stop.</p>
+   * The unique identifier of the pentest job to stop.
+   *
    * @public
    */
   pentestJobId: string | undefined;
 }
 
 /**
- * <p>Output for the StopPentestJob operation.</p>
+ * Output for the StopPentestJob operation.
+ *
  * @public
  */
 export interface StopPentestJobOutput {}
 
 /**
- * <p>Input for stopping a threat model job.</p>
+ * Input for stopping a threat model job.
+ *
  * @public
  */
 export interface StopThreatModelJobInput {
   /**
-   * <p>The unique identifier of the agent space.</p>
+   * The unique identifier of the agent space.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The unique identifier of the threat model job to stop.</p>
+   * The unique identifier of the threat model job to stop.
+   *
    * @public
    */
   threatModelJobId: string | undefined;
 }
 
 /**
- * <p>Output for the StopThreatModelJob operation.</p>
+ * Output for the StopThreatModelJob operation.
+ *
  * @public
  */
 export interface StopThreatModelJobOutput {}
 
 /**
- * <p>Input for TagResource operation.</p>
+ * Input for TagResource operation.
+ *
  * @public
  */
 export interface TagResourceInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource to tag.</p>
+   * The Amazon Resource Name (ARN) of the resource to tag.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The tags to add to the resource.</p>
+   * The tags to add to the resource.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
 }
 
 /**
- * <p>Output for TagResource operation.</p>
+ * Output for TagResource operation.
+ *
  * @public
  */
 export interface TagResourceOutput {}
 
 /**
- * <p>Input for updating a target domain.</p>
+ * Input for updating a target domain.
+ *
  * @public
  */
 export interface UpdateTargetDomainInput {
   /**
-   * <p>The unique identifier of the target domain to update.</p>
+   * The unique identifier of the target domain to update.
+   *
    * @public
    */
   targetDomainId: string | undefined;
 
   /**
-   * <p>The updated verification method for the target domain.</p>
+   * The updated verification method for the target domain.
+   *
    * @public
    */
   verificationMethod: DomainVerificationMethod | undefined;
 }
 
 /**
- * <p>Output for the UpdateTargetDomain operation.</p>
+ * Output for the UpdateTargetDomain operation.
+ *
  * @public
  */
 export interface UpdateTargetDomainOutput {
   /**
-   * <p>The unique identifier of the target domain.</p>
+   * The unique identifier of the target domain.
+   *
    * @public
    */
   targetDomainId: string | undefined;
 
   /**
-   * <p>The domain name of the target domain.</p>
+   * The domain name of the target domain.
+   *
    * @public
    */
   domainName: string | undefined;
 
   /**
-   * <p>The current verification status of the target domain.</p>
+   * The current verification status of the target domain.
+   *
    * @public
    */
   verificationStatus: TargetDomainStatus | undefined;
 
   /**
-   * <p>The reason for the current target domain verification status.</p>
+   * The reason for the current target domain verification status.
+   *
    * @public
    */
   verificationStatusReason?: string | undefined;
 
   /**
-   * <p>The updated verification details for the target domain.</p>
+   * The updated verification details for the target domain.
+   *
    * @public
    */
   verificationDetails?: VerificationDetails | undefined;
 
   /**
-   * <p>The date and time the target domain was created, in UTC format.</p>
+   * The date and time the target domain was created, in UTC format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time the target domain was verified, in UTC format.</p>
+   * The date and time the target domain was verified, in UTC format.
+   *
    * @public
    */
   verifiedAt?: Date | undefined;
 }
 
 /**
- * <p>Input for UntagResource operation.</p>
+ * Input for UntagResource operation.
+ *
  * @public
  */
 export interface UntagResourceInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource to remove tags from.</p>
+   * The Amazon Resource Name (ARN) of the resource to remove tags from.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The list of tag keys to remove from the resource.</p>
+   * The list of tag keys to remove from the resource.
+   *
    * @public
    */
   tagKeys: string[] | undefined;
 }
 
 /**
- * <p>Output for UntagResource operation.</p>
+ * Output for UntagResource operation.
+ *
  * @public
  */
 export interface UntagResourceOutput {}
 
 /**
- * <p>Input for updating an existing code review.</p>
+ * Input for updating an existing code review.
+ *
  * @public
  */
 export interface UpdateCodeReviewInput {
   /**
-   * <p>The unique identifier of the code review to update.</p>
+   * The unique identifier of the code review to update.
+   *
    * @public
    */
   codeReviewId: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space that contains the code review.</p>
+   * The unique identifier of the agent space that contains the code review.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The updated title of the code review.</p>
+   * The updated title of the code review.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>The updated assets for the code review.</p>
+   * The updated assets for the code review.
+   *
    * @public
    */
   assets?: Assets | undefined;
 
   /**
-   * <p>The updated IAM service role for the code review.</p>
+   * The updated IAM service role for the code review.
+   *
    * @public
    */
   serviceRole?: string | undefined;
 
   /**
-   * <p>The updated CloudWatch Logs configuration for the code review.</p>
+   * The updated CloudWatch Logs configuration for the code review.
+   *
    * @public
    */
   logConfig?: CloudWatchLog | undefined;
 
   /**
-   * <p>The updated code remediation strategy for the code review.</p>
+   * The updated code remediation strategy for the code review.
+   *
    * @public
    */
   codeRemediationStrategy?: CodeRemediationStrategy | undefined;
 
   /**
-   * <p>The updated validation mode for the code review. Valid values are SIMULATED and DISABLED.</p>
+   * The updated validation mode for the code review. Valid values are SIMULATED and DISABLED.
+   *
    * @public
    */
   validationMode?: ValidationMode | undefined;
 
   /**
-   * <p>The updated maximum number of billable task hours allowed for jobs started from this code review.</p>
+   * The updated maximum number of billable task hours allowed for jobs started from this code review.
+   *
    * @public
    */
   maxTaskHours?: number | undefined;
 
   /**
-   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * The destination for publishing scan reports to an integrated document provider.
+   *
    * @public
    */
   reportDestination?: ReportDestination | undefined;
 
   /**
-   * <p>The report-generation filters applied when the report is exported.</p>
+   * The report-generation filters applied when the report is exported.
+   *
    * @public
    */
   reportFilters?: ReportFilters | undefined;
 }
 
 /**
- * <p>Output for the UpdateCodeReview operation.</p>
+ * Output for the UpdateCodeReview operation.
+ *
  * @public
  */
 export interface UpdateCodeReviewOutput {
   /**
-   * <p>The unique identifier of the code review.</p>
+   * The unique identifier of the code review.
+   *
    * @public
    */
   codeReviewId: string | undefined;
 
   /**
-   * <p>The title of the code review.</p>
+   * The title of the code review.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>The date and time the code review was created, in UTC format.</p>
+   * The date and time the code review was created, in UTC format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time the code review was last updated, in UTC format.</p>
+   * The date and time the code review was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The assets included in the code review.</p>
+   * The assets included in the code review.
+   *
    * @public
    */
   assets?: Assets | undefined;
 
   /**
-   * <p>The IAM service role used for the code review.</p>
+   * The IAM service role used for the code review.
+   *
    * @public
    */
   serviceRole?: string | undefined;
 
   /**
-   * <p>The CloudWatch Logs configuration for the code review.</p>
+   * The CloudWatch Logs configuration for the code review.
+   *
    * @public
    */
   logConfig?: CloudWatchLog | undefined;
 
   /**
-   * <p>The unique identifier of the agent space that contains the code review.</p>
+   * The unique identifier of the agent space that contains the code review.
+   *
    * @public
    */
   agentSpaceId?: string | undefined;
 
   /**
-   * <p>The code remediation strategy for the code review.</p>
+   * The code remediation strategy for the code review.
+   *
    * @public
    */
   codeRemediationStrategy?: CodeRemediationStrategy | undefined;
 
   /**
-   * <p>The validation mode for the code review.</p>
+   * The validation mode for the code review.
+   *
    * @public
    */
   validationMode?: ValidationMode | undefined;
 
   /**
-   * <p>The maximum number of billable task hours configured for jobs started from this code review. Null if no budget cap is set.</p>
+   * The maximum number of billable task hours configured for jobs started from this code review. Null if no budget cap is set.
+   *
    * @public
    */
   maxTaskHours?: number | undefined;
 
   /**
-   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * The destination for publishing scan reports to an integrated document provider.
+   *
    * @public
    */
   reportDestination?: ReportDestination | undefined;
 
   /**
-   * <p>The report-generation filters applied when the report is exported.</p>
+   * The report-generation filters applied when the report is exported.
+   *
    * @public
    */
   reportFilters?: ReportFilters | undefined;
 }
 
 /**
- * <p>Input for updating an existing security finding.</p>
+ * Input for updating an existing security finding.
+ *
  * @public
  */
 export interface UpdateFindingInput {
   /**
-   * <p>The unique identifier of the finding to update.</p>
+   * The unique identifier of the finding to update.
+   *
    * @public
    */
   findingId: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space that contains the finding.</p>
+   * The unique identifier of the agent space that contains the finding.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The updated name for the finding.</p>
+   * The updated name for the finding.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The updated description for the finding.</p>
+   * The updated description for the finding.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The updated risk type for the finding.</p>
+   * The updated risk type for the finding.
+   *
    * @public
    */
   riskType?: string | undefined;
 
   /**
-   * <p>The updated risk level for the finding.</p>
+   * The updated risk level for the finding.
+   *
    * @public
    */
   riskLevel?: RiskLevel | undefined;
 
   /**
-   * <p>The updated numerical risk score for the finding.</p>
+   * The updated numerical risk score for the finding.
+   *
    * @public
    */
   riskScore?: string | undefined;
 
   /**
-   * <p>The updated attack script for the finding.</p>
+   * The updated attack script for the finding.
+   *
    * @public
    */
   attackScript?: string | undefined;
 
   /**
-   * <p>The updated reasoning for the finding.</p>
+   * The updated reasoning for the finding.
+   *
    * @public
    */
   reasoning?: string | undefined;
 
   /**
-   * <p>The updated status for the finding.</p>
+   * The updated status for the finding.
+   *
    * @public
    */
   status?: FindingStatus | undefined;
 
   /**
-   * <p>A customer-provided note on the finding.</p>
+   * A customer-provided note on the finding.
+   *
    * @public
    */
   customerNote?: string | undefined;
 }
 
 /**
- * <p>Output for the UpdateFinding operation.</p>
+ * Output for the UpdateFinding operation.
+ *
  * @public
  */
 export interface UpdateFindingOutput {}
@@ -503,19 +581,22 @@ export interface UpdateFindingOutput {}
  */
 export interface UpdateIntegratedResourcesInput {
   /**
-   * <p>The unique identifier of the agent space.</p>
+   * The unique identifier of the agent space.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The unique identifier of the integration.</p>
+   * The unique identifier of the integration.
+   *
    * @public
    */
   integrationId: string | undefined;
 
   /**
-   * <p>The list of integrated resource items to update.</p>
+   * The list of integrated resource items to update.
+   *
    * @public
    */
   items: IntegratedResourceInputItem[] | undefined;
@@ -527,612 +608,714 @@ export interface UpdateIntegratedResourcesInput {
 export interface UpdateIntegratedResourcesOutput {}
 
 /**
- * <p>Input for updating an existing pentest.</p>
+ * Input for updating an existing pentest.
+ *
  * @public
  */
 export interface UpdatePentestInput {
   /**
-   * <p>The unique identifier of the pentest to update.</p>
+   * The unique identifier of the pentest to update.
+   *
    * @public
    */
   pentestId: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space that contains the pentest.</p>
+   * The unique identifier of the agent space that contains the pentest.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The updated title of the pentest.</p>
+   * The updated title of the pentest.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>The updated assets for the pentest.</p>
+   * The updated assets for the pentest.
+   *
    * @public
    */
   assets?: Assets | undefined;
 
   /**
-   * <p>The updated list of risk types to exclude from the pentest.</p>
+   * The updated list of risk types to exclude from the pentest.
+   *
    * @public
    */
   excludeRiskTypes?: RiskType[] | undefined;
 
   /**
-   * <p>The updated IAM service role for the pentest.</p>
+   * The updated IAM service role for the pentest.
+   *
    * @public
    */
   serviceRole?: string | undefined;
 
   /**
-   * <p>The updated CloudWatch Logs configuration for the pentest.</p>
+   * The updated CloudWatch Logs configuration for the pentest.
+   *
    * @public
    */
   logConfig?: CloudWatchLog | undefined;
 
   /**
-   * <p>The updated VPC configuration for the pentest.</p>
+   * The updated VPC configuration for the pentest.
+   *
    * @public
    */
   vpcConfig?: VpcConfig | undefined;
 
   /**
-   * <p>The updated network traffic configuration for the pentest.</p>
+   * The updated network traffic configuration for the pentest.
+   *
    * @public
    */
   networkTrafficConfig?: NetworkTrafficConfig | undefined;
 
   /**
-   * <p>The updated code remediation strategy for the pentest.</p>
+   * The updated code remediation strategy for the pentest.
+   *
    * @public
    */
   codeRemediationStrategy?: CodeRemediationStrategy | undefined;
 
   /**
-   * <p>The updated list of managed skills to disable for this pentest. Valid values include FINDING_PERSONALIZATION and LOGIN_OPTIMIZATION.</p>
+   * The updated list of managed skills to disable for this pentest. Valid values include FINDING_PERSONALIZATION and LOGIN_OPTIMIZATION.
+   *
    * @public
    */
   disableManagedSkills?: SkillType[] | undefined;
 
   /**
-   * <p>The updated maximum number of billable task hours allowed for jobs started from this pentest.</p>
+   * The updated maximum number of billable task hours allowed for jobs started from this pentest.
+   *
    * @public
    */
   maxTaskHours?: number | undefined;
 
   /**
-   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * The destination for publishing scan reports to an integrated document provider.
+   *
    * @public
    */
   reportDestination?: ReportDestination | undefined;
 
   /**
-   * <p>The report-generation filters applied when the report is exported.</p>
+   * The report-generation filters applied when the report is exported.
+   *
    * @public
    */
   reportFilters?: ReportFilters | undefined;
 
   /**
-   * <p>The updated CI/CD pentesting configuration to apply to the pentest.</p>
+   * The updated CI/CD pentesting configuration to apply to the pentest.
+   *
    * @public
    */
   cicdConfiguration?: CiCdConfiguration | undefined;
 
   /**
-   * <p>The category of application a pentest targets.</p>
+   * The category of application a pentest targets.
+   *
    * @public
    */
   testScope?: TestScope | undefined;
 }
 
 /**
- * <p>Output for the UpdatePentest operation.</p>
+ * Output for the UpdatePentest operation.
+ *
  * @public
  */
 export interface UpdatePentestOutput {
   /**
-   * <p>The unique identifier of the pentest.</p>
+   * The unique identifier of the pentest.
+   *
    * @public
    */
   pentestId?: string | undefined;
 
   /**
-   * <p>The title of the pentest.</p>
+   * The title of the pentest.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>The date and time the pentest was created, in UTC format.</p>
+   * The date and time the pentest was created, in UTC format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time the pentest was last updated, in UTC format.</p>
+   * The date and time the pentest was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The assets included in the pentest.</p>
+   * The assets included in the pentest.
+   *
    * @public
    */
   assets?: Assets | undefined;
 
   /**
-   * <p>The list of risk types excluded from the pentest.</p>
+   * The list of risk types excluded from the pentest.
+   *
    * @public
    */
   excludeRiskTypes?: RiskType[] | undefined;
 
   /**
-   * <p>The IAM service role used for the pentest.</p>
+   * The IAM service role used for the pentest.
+   *
    * @public
    */
   serviceRole?: string | undefined;
 
   /**
-   * <p>The CloudWatch Logs configuration for the pentest.</p>
+   * The CloudWatch Logs configuration for the pentest.
+   *
    * @public
    */
   logConfig?: CloudWatchLog | undefined;
 
   /**
-   * <p>The unique identifier of the agent space that contains the pentest.</p>
+   * The unique identifier of the agent space that contains the pentest.
+   *
    * @public
    */
   agentSpaceId?: string | undefined;
 
   /**
-   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * The destination for publishing scan reports to an integrated document provider.
+   *
    * @public
    */
   reportDestination?: ReportDestination | undefined;
 
   /**
-   * <p>The report-generation filters applied when the report is exported.</p>
+   * The report-generation filters applied when the report is exported.
+   *
    * @public
    */
   reportFilters?: ReportFilters | undefined;
 
   /**
-   * <p>The CI/CD pentesting configuration applied to the pentest.</p>
+   * The CI/CD pentesting configuration applied to the pentest.
+   *
    * @public
    */
   cicdConfiguration?: CiCdConfiguration | undefined;
 
   /**
-   * <p>The category of application a pentest targets.</p>
+   * The category of application a pentest targets.
+   *
    * @public
    */
   testScope?: TestScope | undefined;
 }
 
 /**
- * <p>Input for updating an existing threat.</p>
+ * Input for updating an existing threat.
+ *
  * @public
  */
 export interface UpdateThreatInput {
   /**
-   * <p>The unique identifier of the threat to update.</p>
+   * The unique identifier of the threat to update.
+   *
    * @public
    */
   threatId: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space.</p>
+   * The unique identifier of the agent space.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>A short title summarizing the threat.</p>
+   * A short title summarizing the threat.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>The updated status of the threat.</p>
+   * The updated status of the threat.
+   *
    * @public
    */
   status?: ThreatStatus | undefined;
 
   /**
-   * <p>Optional customer comment.</p>
+   * Optional customer comment.
+   *
    * @public
    */
   comments?: string | undefined;
 
   /**
-   * <p>The updated natural-language threat statement.</p>
+   * The updated natural-language threat statement.
+   *
    * @public
    */
   statement?: string | undefined;
 
   /**
-   * <p>The updated severity level of the threat.</p>
+   * The updated severity level of the threat.
+   *
    * @public
    */
   severity?: ThreatSeverity | undefined;
 
   /**
-   * <p>The updated actor or origin of the threat.</p>
+   * The updated actor or origin of the threat.
+   *
    * @public
    */
   threatSource?: string | undefined;
 
   /**
-   * <p>The updated conditions required for the threat to be exploitable.</p>
+   * The updated conditions required for the threat to be exploitable.
+   *
    * @public
    */
   prerequisites?: string | undefined;
 
   /**
-   * <p>The updated description of what the threat source can do.</p>
+   * The updated description of what the threat source can do.
+   *
    * @public
    */
   threatAction?: string | undefined;
 
   /**
-   * <p>The updated direct consequence of the threat action.</p>
+   * The updated direct consequence of the threat action.
+   *
    * @public
    */
   threatImpact?: string | undefined;
 
   /**
-   * <p>The updated security goals affected by the threat.</p>
+   * The updated security goals affected by the threat.
+   *
    * @public
    */
   impactedGoal?: string[] | undefined;
 
   /**
-   * <p>The updated list of specific assets affected by the threat.</p>
+   * The updated list of specific assets affected by the threat.
+   *
    * @public
    */
   impactedAssets?: string[] | undefined;
 
   /**
-   * <p>The updated DFD element this threat is anchored to.</p>
+   * The updated DFD element this threat is anchored to.
+   *
    * @public
    */
   anchor?: ThreatAnchorShape | undefined;
 
   /**
-   * <p>The updated source code files supporting the threat.</p>
+   * The updated source code files supporting the threat.
+   *
    * @public
    */
   evidence?: ThreatEvidenceShape[] | undefined;
 
   /**
-   * <p>The updated recommended mitigation guidance for this threat.</p>
+   * The updated recommended mitigation guidance for this threat.
+   *
    * @public
    */
   recommendation?: string | undefined;
 }
 
 /**
- * <p>Output for the UpdateThreat operation.</p>
+ * Output for the UpdateThreat operation.
+ *
  * @public
  */
 export interface UpdateThreatOutput {
   /**
-   * <p>The unique identifier of the threat.</p>
+   * The unique identifier of the threat.
+   *
    * @public
    */
   threatId: string | undefined;
 
   /**
-   * <p>The unique identifier of the threat model job the threat belongs to.</p>
+   * The unique identifier of the threat model job the threat belongs to.
+   *
    * @public
    */
   threatJobId: string | undefined;
 
   /**
-   * <p>A short title summarizing the threat.</p>
+   * A short title summarizing the threat.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>The natural-language threat statement.</p>
+   * The natural-language threat statement.
+   *
    * @public
    */
   statement?: string | undefined;
 
   /**
-   * <p>The severity level of the threat.</p>
+   * The severity level of the threat.
+   *
    * @public
    */
   severity?: ThreatSeverity | undefined;
 
   /**
-   * <p>The current status of the threat.</p>
+   * The current status of the threat.
+   *
    * @public
    */
   status?: ThreatStatus | undefined;
 
   /**
-   * <p>Optional customer comment on the threat.</p>
+   * Optional customer comment on the threat.
+   *
    * @public
    */
   comments?: string | undefined;
 
   /**
-   * <p>The STRIDE categories applicable to this threat.</p>
+   * The STRIDE categories applicable to this threat.
+   *
    * @public
    */
   stride?: StrideCategory[] | undefined;
 
   /**
-   * <p>The actor or origin of the threat.</p>
+   * The actor or origin of the threat.
+   *
    * @public
    */
   threatSource?: string | undefined;
 
   /**
-   * <p>The conditions required for the threat to be exploitable.</p>
+   * The conditions required for the threat to be exploitable.
+   *
    * @public
    */
   prerequisites?: string | undefined;
 
   /**
-   * <p>What the threat source can do.</p>
+   * What the threat source can do.
+   *
    * @public
    */
   threatAction?: string | undefined;
 
   /**
-   * <p>The direct consequence of the threat action.</p>
+   * The direct consequence of the threat action.
+   *
    * @public
    */
   threatImpact?: string | undefined;
 
   /**
-   * <p>The security goals affected by the threat.</p>
+   * The security goals affected by the threat.
+   *
    * @public
    */
   impactedGoal?: string[] | undefined;
 
   /**
-   * <p>The specific assets affected by the threat.</p>
+   * The specific assets affected by the threat.
+   *
    * @public
    */
   impactedAssets?: string[] | undefined;
 
   /**
-   * <p>The DFD element this threat is anchored to.</p>
+   * The DFD element this threat is anchored to.
+   *
    * @public
    */
   anchor?: ThreatAnchorShape | undefined;
 
   /**
-   * <p>The source code files supporting the threat.</p>
+   * The source code files supporting the threat.
+   *
    * @public
    */
   evidence?: ThreatEvidenceShape[] | undefined;
 
   /**
-   * <p>The recommended mitigation guidance for this threat.</p>
+   * The recommended mitigation guidance for this threat.
+   *
    * @public
    */
   recommendation?: string | undefined;
 
   /**
-   * <p>Who created this threat.</p>
+   * Who created this threat.
+   *
    * @public
    */
   createdBy?: ThreatActor | undefined;
 
   /**
-   * <p>Who last updated this threat.</p>
+   * Who last updated this threat.
+   *
    * @public
    */
   updatedBy?: ThreatActor | undefined;
 
   /**
-   * <p>The date and time the threat was created, in UTC format.</p>
+   * The date and time the threat was created, in UTC format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time the threat was last updated, in UTC format.</p>
+   * The date and time the threat was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * <p>Input for updating an existing threat model.</p>
+ * Input for updating an existing threat model.
+ *
  * @public
  */
 export interface UpdateThreatModelInput {
   /**
-   * <p>The unique identifier of the threat model to update.</p>
+   * The unique identifier of the threat model to update.
+   *
    * @public
    */
   threatModelId: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space that contains the threat model.</p>
+   * The unique identifier of the agent space that contains the threat model.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The updated title of the threat model.</p>
+   * The updated title of the threat model.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>The updated description of the application or system being threat modeled.</p>
+   * The updated description of the application or system being threat modeled.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The updated assets for the threat model.</p>
+   * The updated assets for the threat model.
+   *
    * @public
    */
   assets?: Assets | undefined;
 
   /**
-   * <p>The updated scoped documents for the agent to focus on during threat modeling.</p>
+   * The updated scoped documents for the agent to focus on during threat modeling.
+   *
    * @public
    */
   scopeDocs?: DocumentInfo[] | undefined;
 
   /**
-   * <p>The updated IAM service role for the threat model.</p>
+   * The updated IAM service role for the threat model.
+   *
    * @public
    */
   serviceRole?: string | undefined;
 
   /**
-   * <p>The updated CloudWatch Logs configuration for the threat model.</p>
+   * The updated CloudWatch Logs configuration for the threat model.
+   *
    * @public
    */
   logConfig?: CloudWatchLog | undefined;
 
   /**
-   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * The destination for publishing scan reports to an integrated document provider.
+   *
    * @public
    */
   reportDestination?: ReportDestination | undefined;
 }
 
 /**
- * <p>Output for the UpdateThreatModel operation.</p>
+ * Output for the UpdateThreatModel operation.
+ *
  * @public
  */
 export interface UpdateThreatModelOutput {
   /**
-   * <p>The unique identifier of the threat model.</p>
+   * The unique identifier of the threat model.
+   *
    * @public
    */
   threatModelId: string | undefined;
 
   /**
-   * <p>The title of the threat model.</p>
+   * The title of the threat model.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space that contains the threat model.</p>
+   * The unique identifier of the agent space that contains the threat model.
+   *
    * @public
    */
   agentSpaceId?: string | undefined;
 
   /**
-   * <p>A description of the application or system being threat modeled.</p>
+   * A description of the application or system being threat modeled.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The assets included in the threat model.</p>
+   * The assets included in the threat model.
+   *
    * @public
    */
   assets?: Assets | undefined;
 
   /**
-   * <p>The scoped documents for the agent to focus on during threat modeling.</p>
+   * The scoped documents for the agent to focus on during threat modeling.
+   *
    * @public
    */
   scopeDocs?: DocumentInfo[] | undefined;
 
   /**
-   * <p>The IAM service role used for the threat model.</p>
+   * The IAM service role used for the threat model.
+   *
    * @public
    */
   serviceRole?: string | undefined;
 
   /**
-   * <p>The CloudWatch Logs configuration for the threat model.</p>
+   * The CloudWatch Logs configuration for the threat model.
+   *
    * @public
    */
   logConfig?: CloudWatchLog | undefined;
 
   /**
-   * <p>The date and time the threat model was created, in UTC format.</p>
+   * The date and time the threat model was created, in UTC format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time the threat model was last updated, in UTC format.</p>
+   * The date and time the threat model was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * The destination for publishing scan reports to an integrated document provider.
+   *
    * @public
    */
   reportDestination?: ReportDestination | undefined;
 }
 
 /**
- * <p>Input for verifying ownership for a registered target domain in an agent space.</p>
+ * Input for verifying ownership for a registered target domain in an agent space.
+ *
  * @public
  */
 export interface VerifyTargetDomainInput {
   /**
-   * <p>The unique identifier of the target domain to verify.</p>
+   * The unique identifier of the target domain to verify.
+   *
    * @public
    */
   targetDomainId: string | undefined;
 }
 
 /**
- * <p>Output for verifying ownership for a registered target domain in an agent space.</p>
+ * Output for verifying ownership for a registered target domain in an agent space.
+ *
  * @public
  */
 export interface VerifyTargetDomainOutput {
   /**
-   * <p>The unique identifier of the target domain.</p>
+   * The unique identifier of the target domain.
+   *
    * @public
    */
   targetDomainId?: string | undefined;
 
   /**
-   * <p>The domain name of the target domain.</p>
+   * The domain name of the target domain.
+   *
    * @public
    */
   domainName?: string | undefined;
 
   /**
-   * <p>The date and time the target domain was created, in UTC format.</p>
+   * The date and time the target domain was created, in UTC format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time the target domain was last updated, in UTC format.</p>
+   * The date and time the target domain was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The date and time the target domain was verified, in UTC format.</p>
+   * The date and time the target domain was verified, in UTC format.
+   *
    * @public
    */
   verifiedAt?: Date | undefined;
 
   /**
-   * <p>The verification status of the target domain.</p>
+   * The verification status of the target domain.
+   *
    * @public
    */
   status?: TargetDomainStatus | undefined;
 
   /**
-   * <p>The reason for the current target domain verification status.</p>
+   * The reason for the current target domain verification status.
+   *
    * @public
    */
   verificationStatusReason?: string | undefined;

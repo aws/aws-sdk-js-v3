@@ -23,7 +23,8 @@ export interface ListPluginTypeActionsCommandInput extends ListPluginTypeActions
 export interface ListPluginTypeActionsCommandOutput extends ListPluginTypeActionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists configured Amazon Q Business actions for any plugin type—both built-in and custom.</p>
+ * Lists configured Amazon Q Business actions for any plugin type—both built-in and custom.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,20 +61,24 @@ export interface ListPluginTypeActionsCommandOutput extends ListPluginTypeAction
  * @see {@link QBusinessClientResolvedConfig | config} for QBusinessClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+ *
+ * You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
+ *
+ * An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact [Support](http://aws.amazon.com/contact-us/) for help.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+ *
+ * The request was denied due to throttling. Reduce the number of requests and try again.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+ *
+ * The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.
  *
  * @throws {@link QBusinessServiceException}
- * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ * Base exception class for all service exceptions from QBusiness service.
  *
  * @public
  */

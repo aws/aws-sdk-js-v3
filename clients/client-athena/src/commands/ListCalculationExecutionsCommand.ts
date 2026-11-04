@@ -23,8 +23,8 @@ export interface ListCalculationExecutionsCommandInput extends ListCalculationEx
 export interface ListCalculationExecutionsCommandOutput extends ListCalculationExecutionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the calculations that have been submitted to a session in descending order.
- *             Newer calculations are listed first; older calculations are listed later.</p>
+ * Lists the calculations that have been submitted to a session in descending order. Newer calculations are listed first; older calculations are listed later.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,19 +66,20 @@ export interface ListCalculationExecutionsCommandOutput extends ListCalculationE
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Indicates a platform issue, which may be due to a transient condition or
- *             outage.</p>
+ *
+ * Indicates a platform issue, which may be due to a transient condition or outage.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Indicates that something is wrong with the input to the request. For example, a
- *             required parameter may be missing or out of range.</p>
+ *
+ * Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A resource, such as a workgroup, was not found.</p>
+ *
+ * A resource, such as a workgroup, was not found.
  *
  * @throws {@link AthenaServiceException}
- * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * Base exception class for all service exceptions from Athena service.
  *
  * @public
  */

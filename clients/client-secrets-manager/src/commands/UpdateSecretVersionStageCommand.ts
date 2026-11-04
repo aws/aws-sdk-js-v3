@@ -23,31 +23,20 @@ export interface UpdateSecretVersionStageCommandInput extends UpdateSecretVersio
 export interface UpdateSecretVersionStageCommandOutput extends UpdateSecretVersionStageResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies the staging labels attached to a version of a secret. Secrets Manager uses staging
- *             labels to track a version as it progresses through the secret rotation process. Each
- *             staging label can be attached to only one version at a time. To add a staging label to a
- *             version when it is already attached to another version, Secrets Manager first removes it from the
- *             other version first and then attaches it to this one. For more information about
- *             versions and staging labels, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/getting-started.html#term_version">Concepts:
- *                 Version</a>. </p>
- *          <p>The staging labels that you specify in the <code>VersionStage</code> parameter are
- *             added to the existing list of staging labels for the version. </p>
- *          <p>You can move the <code>AWSCURRENT</code> staging label to this version by including it
- *             in this call.</p>
- *          <note>
- *             <p>Whenever you move <code>AWSCURRENT</code>, Secrets Manager automatically moves the label
- *                     <code>AWSPREVIOUS</code> to the version that <code>AWSCURRENT</code> was removed
- *                 from.</p>
- *          </note>
- *          <p>If this action results in the last label being removed from a version, then the
- *             version is considered to be 'deprecated' and can be deleted by Secrets Manager.</p>
- *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
- *          <p>
- *             <b>Required permissions:
- *                 </b>
- *             <code>secretsmanager:UpdateSecretVersionStage</code>. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
- *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
- *       and access control in Secrets Manager</a>. </p>
+ * Modifies the staging labels attached to a version of a secret. Secrets Manager uses staging labels to track a version as it progresses through the secret rotation process. Each staging label can be attached to only one version at a time. To add a staging label to a version when it is already attached to another version, Secrets Manager first removes it from the other version first and then attaches it to this one. For more information about versions and staging labels, see [Concepts: Version](https://docs.aws.amazon.com/secretsmanager/latest/userguide/getting-started.html#term_version).
+ *
+ * The staging labels that you specify in the `VersionStage` parameter are added to the existing list of staging labels for the version.
+ *
+ * You can move the `AWSCURRENT` staging label to this version by including it in this call.
+ *
+ * > **Note:** Whenever you move `AWSCURRENT`, Secrets Manager automatically moves the label `AWSPREVIOUS` to the version that `AWSCURRENT` was removed from.
+ *
+ * If this action results in the last label being removed from a version, then the version is considered to be 'deprecated' and can be deleted by Secrets Manager.
+ *
+ * Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see [Logging Secrets Manager events with CloudTrail](https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html).
+ *
+ * **Required permissions:** `secretsmanager:UpdateSecretVersionStage`. For more information, see [IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions) and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,38 +67,34 @@ export interface UpdateSecretVersionStageCommandOutput extends UpdateSecretVersi
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
  *
  * @throws {@link InternalServiceError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The parameter name or value is invalid.</p>
+ *
+ * The parameter name or value is invalid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>A parameter value is not valid for the current state of the
- *       resource.</p>
- *          <p>Possible causes:</p>
- *          <ul>
- *             <li>
- *                <p>The secret is scheduled for deletion.</p>
- *             </li>
- *             <li>
- *                <p>You tried to enable rotation on a secret that doesn't already have a Lambda function
- *           ARN configured and you didn't include such an ARN as a parameter in this call. </p>
- *             </li>
- *             <li>
- *                <p>The secret is managed by another service, and you must use that service to update it.
- *           For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html">Secrets managed by other Amazon Web Services services</a>.</p>
- *             </li>
- *          </ul>
+ *
+ * A parameter value is not valid for the current state of the resource.
+ *
+ * Possible causes:
+ *
+ * - The secret is scheduled for deletion.
+ * - You tried to enable rotation on a secret that doesn't already have a Lambda function ARN configured and you didn't include such an ARN as a parameter in this call.
+ * - The secret is managed by another service, and you must use that service to update it. For more information, see [Secrets managed by other Amazon Web Services services](https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html).
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request failed because it would exceed one of the Secrets Manager quotas.</p>
+ *
+ * The request failed because it would exceed one of the Secrets Manager quotas.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Secrets Manager can't find the resource that you asked for.</p>
+ *
+ * Secrets Manager can't find the resource that you asked for.
  *
  * @throws {@link SecretsManagerServiceException}
- * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
+ * Base exception class for all service exceptions from SecretsManager service.
  *
  * @example To add a staging label attached to a version of a secret
  * ```javascript

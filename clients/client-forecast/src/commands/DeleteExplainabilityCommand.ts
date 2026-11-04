@@ -23,9 +23,10 @@ export interface DeleteExplainabilityCommandInput extends DeleteExplainabilityRe
 export interface DeleteExplainabilityCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an Explainability resource.</p>
- *          <p>You can delete only predictor that have a status of <code>ACTIVE</code> or
- *                 <code>CREATE_FAILED</code>. To get the status, use the <a>DescribeExplainability</a> operation.</p>
+ * Deletes an Explainability resource.
+ *
+ * You can delete only predictor that have a status of `ACTIVE` or `CREATE_FAILED`. To get the status, use the DescribeExplainability operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,19 +51,20 @@ export interface DeleteExplainabilityCommandOutput extends __MetadataBearer {}
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>We can't process the request because it includes an invalid value or a value that exceeds
- *       the valid range.</p>
+ *
+ * We can't process the request because it includes an invalid value or a value that exceeds the valid range.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is in use.</p>
+ *
+ * The specified resource is in use.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
- *       again.</p>
+ *
+ * We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.
  *
  * @throws {@link ForecastServiceException}
- * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * Base exception class for all service exceptions from Forecast service.
  *
  * @public
  */

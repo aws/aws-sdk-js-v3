@@ -23,76 +23,54 @@ export interface DescribePatchPropertiesCommandInput extends DescribePatchProper
 export interface DescribePatchPropertiesCommandOutput extends DescribePatchPropertiesResult, __MetadataBearer {}
 
 /**
- * <p>Lists the properties of available patches organized by product, product family,
- *    classification, severity, and other properties of available patches. You can use the reported
- *    properties in the filters you specify in requests for operations such as <a>CreatePatchBaseline</a>, <a>UpdatePatchBaseline</a>, <a>DescribeAvailablePatches</a>, and <a>DescribePatchBaselines</a>.</p>
- *          <p>The following section lists the properties that can be used in filters for each major
- *    operating system type:</p>
- *          <dl>
- *             <dt>AMAZON_LINUX</dt>
- *             <dd>
- *                <p>Valid properties: <code>PRODUCT</code> | <code>CLASSIFICATION</code> |
- *        <code>SEVERITY</code>
- *                </p>
- *             </dd>
- *             <dt>AMAZON_LINUX_2</dt>
- *             <dd>
- *                <p>Valid properties: <code>PRODUCT</code> | <code>CLASSIFICATION</code> |
- *        <code>SEVERITY</code>
- *                </p>
- *             </dd>
- *             <dt>AMAZON_LINUX_2023</dt>
- *             <dd>
- *                <p>Valid properties: <code>PRODUCT</code> | <code>CLASSIFICATION</code> |
- *        <code>SEVERITY</code>
- *                </p>
- *             </dd>
- *             <dt>CENTOS</dt>
- *             <dd>
- *                <p>Valid properties: <code>PRODUCT</code> | <code>CLASSIFICATION</code> |
- *        <code>SEVERITY</code>
- *                </p>
- *             </dd>
- *             <dt>DEBIAN</dt>
- *             <dd>
- *                <p>Valid properties: <code>PRODUCT</code> | <code>PRIORITY</code>
- *                </p>
- *             </dd>
- *             <dt>MACOS</dt>
- *             <dd>
- *                <p>Valid properties: <code>PRODUCT</code> | <code>CLASSIFICATION</code>
- *                </p>
- *             </dd>
- *             <dt>ORACLE_LINUX</dt>
- *             <dd>
- *                <p>Valid properties: <code>PRODUCT</code> | <code>CLASSIFICATION</code> |
- *        <code>SEVERITY</code>
- *                </p>
- *             </dd>
- *             <dt>REDHAT_ENTERPRISE_LINUX</dt>
- *             <dd>
- *                <p>Valid properties: <code>PRODUCT</code> | <code>CLASSIFICATION</code> |
- *        <code>SEVERITY</code>
- *                </p>
- *             </dd>
- *             <dt>SUSE</dt>
- *             <dd>
- *                <p>Valid properties: <code>PRODUCT</code> | <code>CLASSIFICATION</code> |
- *        <code>SEVERITY</code>
- *                </p>
- *             </dd>
- *             <dt>UBUNTU</dt>
- *             <dd>
- *                <p>Valid properties: <code>PRODUCT</code> | <code>PRIORITY</code>
- *                </p>
- *             </dd>
- *             <dt>WINDOWS</dt>
- *             <dd>
- *                <p>Valid properties: <code>PRODUCT</code> | <code>PRODUCT_FAMILY</code> |
- *        <code>CLASSIFICATION</code> | <code>MSRC_SEVERITY</code>
- *                </p>
- *             </dd>
- *          </dl>
+ * Lists the properties of available patches organized by product, product family, classification, severity, and other properties of available patches. You can use the reported properties in the filters you specify in requests for operations such as CreatePatchBaseline, UpdatePatchBaseline, DescribeAvailablePatches, and DescribePatchBaselines.
+ *
+ * The following section lists the properties that can be used in filters for each major operating system type:
+ *
+ * - **AMAZON_LINUX**
+ *
+ *   Valid properties: `PRODUCT` | `CLASSIFICATION` | `SEVERITY`
+ *
+ * - **AMAZON_LINUX_2**
+ *
+ *   Valid properties: `PRODUCT` | `CLASSIFICATION` | `SEVERITY`
+ *
+ * - **AMAZON_LINUX_2023**
+ *
+ *   Valid properties: `PRODUCT` | `CLASSIFICATION` | `SEVERITY`
+ *
+ * - **CENTOS**
+ *
+ *   Valid properties: `PRODUCT` | `CLASSIFICATION` | `SEVERITY`
+ *
+ * - **DEBIAN**
+ *
+ *   Valid properties: `PRODUCT` | `PRIORITY`
+ *
+ * - **MACOS**
+ *
+ *   Valid properties: `PRODUCT` | `CLASSIFICATION`
+ *
+ * - **ORACLE_LINUX**
+ *
+ *   Valid properties: `PRODUCT` | `CLASSIFICATION` | `SEVERITY`
+ *
+ * - **REDHAT_ENTERPRISE_LINUX**
+ *
+ *   Valid properties: `PRODUCT` | `CLASSIFICATION` | `SEVERITY`
+ *
+ * - **SUSE**
+ *
+ *   Valid properties: `PRODUCT` | `CLASSIFICATION` | `SEVERITY`
+ *
+ * - **UBUNTU**
+ *
+ *   Valid properties: `PRODUCT` | `PRIORITY`
+ *
+ * - **WINDOWS**
+ *
+ *   Valid properties: `PRODUCT` | `PRODUCT_FAMILY` | `CLASSIFICATION` | `MSRC_SEVERITY`
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -128,11 +106,12 @@ export interface DescribePatchPropertiesCommandOutput extends DescribePatchPrope
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

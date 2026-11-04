@@ -454,7 +454,8 @@ export interface PartnerCentralChannel {
 }
 
 /**
- * <p>AWS Partner Central Channel service for managing partner relationships, handshakes, and program management accounts.</p>
+ * AWS Partner Central Channel service for managing partner relationships, handshakes, and program management accounts.
+ *
  * @public
  */
 export class PartnerCentralChannel extends PartnerCentralChannelClient implements PartnerCentralChannel {}

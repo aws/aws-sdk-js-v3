@@ -38,25 +38,18 @@ export type InvokeEndpointCommandOutputType = Omit<InvokeEndpointOutput, "Body">
 export interface InvokeEndpointCommandOutput extends InvokeEndpointCommandOutputType, __MetadataBearer {}
 
 /**
- * <p>After you deploy a model into production using Amazon SageMaker AI hosting services,
- *             your client applications use this API to get inferences from the model hosted at the
- *             specified endpoint. </p>
- *          <p>For an overview of Amazon SageMaker AI, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How It Works</a>. </p>
- *          <p>Amazon SageMaker AI strips all POST headers except those supported by the API. Amazon SageMaker AI might add
- *     additional headers. You should not rely on the behavior of headers outside those
- *     enumerated in the request syntax. </p>
- *          <p>Calls to <code>InvokeEndpoint</code> are authenticated by using Amazon Web Services
- *             Signature Version 4. For information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">Authenticating
- *                 Requests (Amazon Web Services Signature Version 4)</a> in the <i>Amazon S3 API Reference</i>.</p>
- *          <p>A customer's model containers must respond to requests within 60 seconds. The model
- *             itself can have a maximum processing time of 60 seconds before responding to
- *             invocations. If your model is going to take 50-60 seconds of processing time, the SDK
- *             socket timeout should be set to be 70 seconds.</p>
- *          <note>
- *             <p>Endpoints are scoped to an individual account, and are not public. The URL does
- *                 not contain the account ID, but Amazon SageMaker AI determines the account ID from
- *                 the authentication token that is supplied by the caller.</p>
- *          </note>
+ * After you deploy a model into production using Amazon SageMaker AI hosting services, your client applications use this API to get inferences from the model hosted at the specified endpoint.
+ *
+ * For an overview of Amazon SageMaker AI, see [How It Works](https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html).
+ *
+ * Amazon SageMaker AI strips all POST headers except those supported by the API. Amazon SageMaker AI might add additional headers. You should not rely on the behavior of headers outside those enumerated in the request syntax.
+ *
+ * Calls to `InvokeEndpoint` are authenticated by using Amazon Web Services Signature Version 4. For information, see [Authenticating Requests (Amazon Web Services Signature Version 4)](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html) in the *Amazon S3 API Reference*.
+ *
+ * A customer's model containers must respond to requests within 60 seconds. The model itself can have a maximum processing time of 60 seconds before responding to invocations. If your model is going to take 50-60 seconds of processing time, the SDK socket timeout should be set to be 70 seconds.
+ *
+ * > **Note:** Endpoints are scoped to an individual account, and are not public. The URL does not contain the account ID, but Amazon SageMaker AI determines the account ID from the authentication token that is supplied by the caller.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -100,30 +93,32 @@ export interface InvokeEndpointCommandOutput extends InvokeEndpointCommandOutput
  * @see {@link SageMakerRuntimeClientResolvedConfig | config} for SageMakerRuntimeClient's `config` shape.
  *
  * @throws {@link InternalDependencyException} (server fault)
- *  <p>Your request caused an exception with an internal dependency. Contact customer
- *             support. </p>
+ *
+ * Your request caused an exception with an internal dependency. Contact customer support.
  *
  * @throws {@link InternalFailure} (server fault)
- *  <p> An internal failure occurred. </p>
+ *
+ * An internal failure occurred.
  *
  * @throws {@link ModelError} (client fault)
- *  <p> Model (owned by the customer in the container) returned 4xx or 5xx error code.
- *         </p>
+ *
+ * Model (owned by the customer in the container) returned 4xx or 5xx error code.
  *
  * @throws {@link ModelNotReadyException} (client fault)
- *  <p>Either a serverless endpoint variant's resources are still being provisioned, or a
- *             multi-model endpoint is still downloading or loading the target model. Wait and try your
- *             request again.</p>
+ *
+ * Either a serverless endpoint variant's resources are still being provisioned, or a multi-model endpoint is still downloading or loading the target model. Wait and try your request again.
  *
  * @throws {@link ServiceUnavailable} (server fault)
- *  <p> The service is unavailable. Try your call again. </p>
+ *
+ * The service is unavailable. Try your call again.
  *
  * @throws {@link ValidationError} (client fault)
- *  <p> Inspect your request and try again. </p>
+ *
+ * Inspect your request and try again.
  *
  * @throws {@link SageMakerRuntimeServiceException}
- * <p>Base exception class for all service exceptions from SageMakerRuntime service.</p>
  *
+ * Base exception class for all service exceptions from SageMakerRuntime service.
  *
  * @public
  */

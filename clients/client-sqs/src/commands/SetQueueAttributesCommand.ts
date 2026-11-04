@@ -23,28 +23,14 @@ export interface SetQueueAttributesCommandInput extends SetQueueAttributesReques
 export interface SetQueueAttributesCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Sets the value of one or more queue attributes, like a policy. When you change a
- *             queue's attributes, the change can take up to 60 seconds for most of the attributes to
- *             propagate throughout the Amazon SQS system. Changes made to the
- *                 <code>MessageRetentionPeriod</code> attribute can take up to 15 minutes and will
- *             impact existing messages in the queue potentially causing them to be expired and deleted
- *             if the <code>MessageRetentionPeriod</code> is reduced below the age of existing
- *             messages.</p>
- *          <note>
- *             <ul>
- *                <li>
- *                   <p>In the future, new attributes might be added. If you write code that calls this action, we recommend that you structure your code so that it can handle new attributes gracefully.</p>
- *                </li>
- *                <li>
- *                   <p>Cross-account permissions don't apply to this action. For more information,
- * see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant
- * cross-account permissions to a role and a username</a> in the <i>Amazon SQS Developer Guide</i>.</p>
- *                </li>
- *                <li>
- *                   <p>To remove the ability to change queue permissions, you must deny permission to the <code>AddPermission</code>, <code>RemovePermission</code>, and <code>SetQueueAttributes</code> actions in your IAM policy.</p>
- *                </li>
- *             </ul>
- *          </note>
+ * Sets the value of one or more queue attributes, like a policy. When you change a queue's attributes, the change can take up to 60 seconds for most of the attributes to propagate throughout the Amazon SQS system. Changes made to the `MessageRetentionPeriod` attribute can take up to 15 minutes and will impact existing messages in the queue potentially causing them to be expired and deleted if the `MessageRetentionPeriod` is reduced below the age of existing messages.
+ *
+ * > **Note:**
+ * >
+ * > - In the future, new attributes might be added. If you write code that calls this action, we recommend that you structure your code so that it can handle new attributes gracefully.
+ * > - Cross-account permissions don't apply to this action. For more information, see [Grant cross-account permissions to a role and a username](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name) in the *Amazon SQS Developer Guide*.
+ * > - To remove the ability to change queue permissions, you must deny permission to the `AddPermission`, `RemovePermission`, and `SetQueueAttributes` actions in your IAM policy.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,47 +58,43 @@ export interface SetQueueAttributesCommandOutput extends __MetadataBearer {}
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
  * @throws {@link InvalidAddress} (client fault)
- *  <p>The specified ID is invalid.</p>
+ *
+ * The specified ID is invalid.
  *
  * @throws {@link InvalidAttributeName} (client fault)
- *  <p>The specified attribute doesn't exist.</p>
+ *
+ * The specified attribute doesn't exist.
  *
  * @throws {@link InvalidAttributeValue} (client fault)
- *  <p>A queue attribute value is invalid.</p>
+ *
+ * A queue attribute value is invalid.
  *
  * @throws {@link InvalidSecurity} (client fault)
- *  <p>The request was not made over HTTPS or did not use SigV4 for signing.</p>
+ *
+ * The request was not made over HTTPS or did not use SigV4 for signing.
  *
  * @throws {@link OverLimit} (client fault)
- *  <p>The specified action violates a limit. For example, <code>ReceiveMessage</code>
- *             returns this error if the maximum number of in flight messages is reached and
- *                 <code>AddPermission</code> returns this error if the maximum number of permissions
- *             for the queue is reached.</p>
+ *
+ * The specified action violates a limit. For example, `ReceiveMessage` returns this error if the maximum number of in flight messages is reached and `AddPermission` returns this error if the maximum number of permissions for the queue is reached.
  *
  * @throws {@link QueueDoesNotExist} (client fault)
- *  <p>Ensure that the <code>QueueUrl</code> is correct and that the queue has not been
- *             deleted.</p>
+ *
+ * Ensure that the `QueueUrl` is correct and that the queue has not been deleted.
  *
  * @throws {@link RequestThrottled} (client fault)
- *  <p>The request was denied due to request throttling.</p>
- *          <ul>
- *             <li>
- *                <p>Exceeds the permitted request rate for the queue or for the recipient of the
- *                     request.</p>
- *             </li>
- *             <li>
- *                <p>Ensure that the request rate is within the Amazon SQS limits for
- *                     sending messages. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-quotas.html#quotas-requests">Amazon SQS quotas</a> in the <i>Amazon SQS
- *                         Developer Guide</i>.</p>
- *             </li>
- *          </ul>
+ *
+ * The request was denied due to request throttling.
+ *
+ * - Exceeds the permitted request rate for the queue or for the recipient of the request.
+ * - Ensure that the request rate is within the Amazon SQS limits for sending messages. For more information, see [Amazon SQS quotas](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-quotas.html#quotas-requests) in the *Amazon SQS Developer Guide*.
  *
  * @throws {@link UnsupportedOperation} (client fault)
- *  <p>Error code 400. Unsupported operation.</p>
+ *
+ * Error code 400. Unsupported operation.
  *
  * @throws {@link SQSServiceException}
- * <p>Base exception class for all service exceptions from SQS service.</p>
  *
+ * Base exception class for all service exceptions from SQS service.
  *
  * @public
  */

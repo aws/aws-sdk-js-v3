@@ -23,10 +23,10 @@ export interface UpdateIndexingRuleCommandInput extends UpdateIndexingRuleReques
 export interface UpdateIndexingRuleCommandOutput extends UpdateIndexingRuleResult, __MetadataBearer {}
 
 /**
- * <p>
  * Modifies an indexing rule’s configuration.
- * </p>
- *          <p>Indexing rules are used for determining the sampling rate for spans indexed from CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search.html">Transaction Search</a>.</p>
+ *
+ * Indexing rules are used for determining the sampling rate for spans indexed from CloudWatch Logs. For more information, see [Transaction Search](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,18 +67,20 @@ export interface UpdateIndexingRuleCommandOutput extends UpdateIndexingRuleResul
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is missing required parameters or has invalid parameters.</p>
+ *
+ * The request is missing required parameters or has invalid parameters.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource was not found. Verify that the name or Amazon Resource Name (ARN) of the resource is
- *       correct.</p>
+ *
+ * The resource was not found. Verify that the name or Amazon Resource Name (ARN) of the resource is correct.
  *
  * @throws {@link ThrottledException} (client fault)
- *  <p>The request exceeds the maximum number of requests per second.</p>
+ *
+ * The request exceeds the maximum number of requests per second.
  *
  * @throws {@link XRayServiceException}
- * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ * Base exception class for all service exceptions from XRay service.
  *
  * @public
  */

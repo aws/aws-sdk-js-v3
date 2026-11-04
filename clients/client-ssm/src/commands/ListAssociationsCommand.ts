@@ -23,9 +23,8 @@ export interface ListAssociationsCommandInput extends ListAssociationsRequest {}
 export interface ListAssociationsCommandOutput extends ListAssociationsResult, __MetadataBearer {}
 
 /**
- * <p>Returns all State Manager associations in the current Amazon Web Services account and Amazon Web Services Region. You
- *    can limit the results to a specific State Manager association document or managed node by
- *    specifying a filter. State Manager is a tool in Amazon Web Services Systems Manager.</p>
+ * Returns all State Manager associations in the current Amazon Web Services account and Amazon Web Services Region. You can limit the results to a specific State Manager association document or managed node by specifying a filter. State Manager is a tool in Amazon Web Services Systems Manager.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,14 +94,16 @@ export interface ListAssociationsCommandOutput extends ListAssociationsResult, _
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidNextToken} (client fault)
- *  <p>The specified token isn't valid.</p>
+ *
+ * The specified token isn't valid.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

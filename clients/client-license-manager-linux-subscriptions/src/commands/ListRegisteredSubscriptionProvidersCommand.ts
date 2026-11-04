@@ -26,7 +26,8 @@ export interface ListRegisteredSubscriptionProvidersCommandInput extends ListReg
 export interface ListRegisteredSubscriptionProvidersCommandOutput extends ListRegisteredSubscriptionProvidersResponse, __MetadataBearer {}
 
 /**
- * <p>List Bring Your Own License (BYOL) subscription registration resources for your account.</p>
+ * List Bring Your Own License (BYOL) subscription registration resources for your account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,17 +68,20 @@ export interface ListRegisteredSubscriptionProvidersCommandOutput extends ListRe
  * @see {@link LicenseManagerLinuxSubscriptionsClientResolvedConfig | config} for LicenseManagerLinuxSubscriptionsClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An exception occurred with the service.</p>
+ *
+ * An exception occurred with the service.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The provided input is not valid. Try your request again.</p>
+ *
+ * The provided input is not valid. Try your request again.
  *
  * @throws {@link LicenseManagerLinuxSubscriptionsServiceException}
- * <p>Base exception class for all service exceptions from LicenseManagerLinuxSubscriptions service.</p>
  *
+ * Base exception class for all service exceptions from LicenseManagerLinuxSubscriptions service.
  *
  * @public
  */

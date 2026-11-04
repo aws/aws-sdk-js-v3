@@ -23,7 +23,10 @@ export interface BatchDeleteGeofenceCommandInput extends BatchDeleteGeofenceRequ
 export interface BatchDeleteGeofenceCommandOutput extends BatchDeleteGeofenceResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a batch of geofences from a geofence collection.</p> <note> <p>This operation deletes the resource permanently.</p> </note>
+ * Deletes a batch of geofences from a geofence collection.
+ *
+ * > **Note:** This operation deletes the resource permanently.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,23 +64,28 @@ export interface BatchDeleteGeofenceCommandOutput extends BatchDeleteGeofenceRes
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+ *
+ * The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+ *
+ * The request has failed to process because of an unknown server error, exception, or failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource that you've entered was not found in your AWS account.</p>
+ *
+ * The resource that you've entered was not found in your AWS account.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied because of request throttling.</p>
+ *
+ * The request was denied because of request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input failed to meet the constraints specified by the AWS service. </p>
+ *
+ * The input failed to meet the constraints specified by the AWS service.
  *
  * @throws {@link LocationServiceException}
- * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * Base exception class for all service exceptions from Location service.
  *
  * @public
  */

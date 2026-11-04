@@ -23,22 +23,14 @@ export interface CancelDataRepositoryTaskCommandInput extends CancelDataReposito
 export interface CancelDataRepositoryTaskCommandOutput extends CancelDataRepositoryTaskResponse, __MetadataBearer {}
 
 /**
- * <p>Cancels an existing Amazon FSx for Lustre data repository task if that task is in either the
- *             <code>PENDING</code> or <code>EXECUTING</code> state. When you cancel an export task, Amazon FSx
- *             does the following.</p>
- *          <ul>
- *             <li>
- *                <p>Any files that FSx has already exported are not reverted.</p>
- *             </li>
- *             <li>
- *                <p>FSx continues to export any files that are in-flight when the cancel operation is received.</p>
- *             </li>
- *             <li>
- *                <p>FSx does not export any files that have not yet been exported.</p>
- *             </li>
- *          </ul>
- *          <p>For a release task, Amazon FSx will stop releasing files upon cancellation. Any files that
- *             have already been released will remain in the released state.</p>
+ * Cancels an existing Amazon FSx for Lustre data repository task if that task is in either the `PENDING` or `EXECUTING` state. When you cancel an export task, Amazon FSx does the following.
+ *
+ * - Any files that FSx has already exported are not reverted.
+ * - FSx continues to export any files that are in-flight when the cancel operation is received.
+ * - FSx does not export any files that have not yet been exported.
+ *
+ * For a release task, Amazon FSx will stop releasing files upon cancellation. Any files that have already been released will remain in the released state.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,23 +58,28 @@ export interface CancelDataRepositoryTaskCommandOutput extends CancelDataReposit
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * A generic error indicating a failure with a client request.
  *
  * @throws {@link DataRepositoryTaskEnded} (client fault)
- *  <p>The data repository task could not be canceled because the task has already ended.</p>
+ *
+ * The data repository task could not be canceled because the task has already ended.
  *
  * @throws {@link DataRepositoryTaskNotFound} (client fault)
- *  <p>The data repository task or tasks you specified could not be found.</p>
+ *
+ * The data repository task or tasks you specified could not be found.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * A generic error indicating a server-side failure.
  *
  * @throws {@link UnsupportedOperation} (client fault)
- *  <p>The requested operation is not supported for this resource or API.</p>
+ *
+ * The requested operation is not supported for this resource or API.
  *
  * @throws {@link FSxServiceException}
- * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * Base exception class for all service exceptions from FSx service.
  *
  * @public
  */

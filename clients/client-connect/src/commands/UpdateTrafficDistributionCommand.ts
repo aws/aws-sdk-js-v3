@@ -23,31 +23,18 @@ export interface UpdateTrafficDistributionCommandInput extends UpdateTrafficDist
 export interface UpdateTrafficDistributionCommandOutput extends UpdateTrafficDistributionResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the traffic distribution for a given traffic distribution group. </p>
- *          <important>
- *             <p>When you shift telephony traffic, also shift agents and/or agent sign-ins to ensure they can handle the calls
- *     in the other Region. If you don't shift the agents, voice calls will go to the shifted Region but there won't be any
- *     agents available to receive the calls.</p>
- *          </important>
- *          <note>
- *             <p>The <code>SignInConfig</code> distribution is available only on a
- * default <code>TrafficDistributionGroup</code> (see the <code>IsDefault</code> parameter in the
- * <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_TrafficDistributionGroup.html">TrafficDistributionGroup</a>
- *  data type). If you call
- *     <code>UpdateTrafficDistribution</code> with a modified <code>SignInConfig</code> and a non-default <code>TrafficDistributionGroup</code>,
- *     an <code>InvalidRequestException</code> is returned.</p>
- *          </note>
- *          <p>For more information about updating a traffic distribution group, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/update-telephony-traffic-distribution.html">Update telephony traffic distribution
- *     across Amazon Web Services Regions
- *    </a> in the <i>Connect Customer Administrator Guide</i>. </p>
- *          <p>
- *             <b>Important things to know</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>Invoke the UpdateTrafficDistribution API in the region that should handle traffic.</p>
- *             </li>
- *          </ul>
+ * Updates the traffic distribution for a given traffic distribution group.
+ *
+ * > **Important:** When you shift telephony traffic, also shift agents and/or agent sign-ins to ensure they can handle the calls in the other Region. If you don't shift the agents, voice calls will go to the shifted Region but there won't be any agents available to receive the calls.
+ *
+ * > **Note:** The `SignInConfig` distribution is available only on a default `TrafficDistributionGroup` (see the `IsDefault` parameter in the [TrafficDistributionGroup](https://docs.aws.amazon.com/connect/latest/APIReference/API_TrafficDistributionGroup.html) data type). If you call `UpdateTrafficDistribution` with a modified `SignInConfig` and a non-default `TrafficDistributionGroup`, an `InvalidRequestException` is returned.
+ *
+ * For more information about updating a traffic distribution group, see [Update telephony traffic distribution across Amazon Web Services Regions](https://docs.aws.amazon.com/connect/latest/adminguide/update-telephony-traffic-distribution.html) in the *Connect Customer Administrator Guide*.
+ *
+ * **Important things to know**
+ *
+ * - Invoke the UpdateTrafficDistribution API in the region that should handle traffic.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -96,26 +83,32 @@ export interface UpdateTrafficDistributionCommandOutput extends UpdateTrafficDis
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceConflictException} (client fault)
- *  <p>A resource already has that name.</p>
+ *
+ * A resource already has that name.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Removes one or more tags (keys and values) from an application, campaign, message template, or segment.</p>
+ * Removes one or more tags (keys and values) from an application, campaign, message template, or segment.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,8 +52,8 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
  *
  * @throws {@link PinpointServiceException}
- * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * Base exception class for all service exceptions from Pinpoint service.
  *
  * @public
  */

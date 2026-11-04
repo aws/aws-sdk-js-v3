@@ -23,7 +23,8 @@ export interface CreateTaskCommandInput extends CreateTaskInput {}
 export interface CreateTaskCommandOutput extends CreateTaskOutput, __MetadataBearer {}
 
 /**
- * <p>Instructs one or more devices to start a task, such as unlocking or rebooting.</p>
+ * Instructs one or more devices to start a task, such as unlocking or rebooting.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,26 +63,32 @@ export interface CreateTaskCommandOutput extends CreateTaskOutput, __MetadataBea
  * @see {@link SnowDeviceManagementClientResolvedConfig | config} for SnowDeviceManagementClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * You don't have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred while processing the request.</p>
+ *
+ * An unexpected error occurred while processing the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request references a resource that doesn't exist.</p>
+ *
+ * The request references a resource that doesn't exist.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would cause a service quota to be exceeded.</p>
+ *
+ * The request would cause a service quota to be exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link SnowDeviceManagementServiceException}
- * <p>Base exception class for all service exceptions from SnowDeviceManagement service.</p>
  *
+ * Base exception class for all service exceptions from SnowDeviceManagement service.
  *
  * @public
  */

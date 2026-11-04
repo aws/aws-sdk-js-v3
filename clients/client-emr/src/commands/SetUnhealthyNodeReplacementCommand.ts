@@ -23,18 +23,12 @@ export interface SetUnhealthyNodeReplacementCommandInput extends SetUnhealthyNod
 export interface SetUnhealthyNodeReplacementCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Specify whether to enable unhealthy node replacement, which lets Amazon EMR gracefully
- *          replace core nodes on a cluster if any nodes become unhealthy. For example, a node becomes
- *          unhealthy if disk usage is above 90%. If unhealthy node replacement is on and <code>TerminationProtected</code> are off,
- *          Amazon EMR immediately terminates the unhealthy core nodes. To use unhealthy node replacement
- *          and retain unhealthy core nodes, use  to turn on
- *          termination protection. In such cases, Amazon EMR adds
- *          the unhealthy nodes to a denylist, reducing job interruptions and failures.</p>
- *          <p>If unhealthy node replacement is on, Amazon EMR
- *          notifies YARN and other applications on the cluster to stop scheduling tasks
- *          with these nodes, moves the data, and then terminates the nodes.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-node-replacement.html">graceful
- *          node replacement</a> in the <i>Amazon EMR Management Guide</i>.</p>
+ * Specify whether to enable unhealthy node replacement, which lets Amazon EMR gracefully replace core nodes on a cluster if any nodes become unhealthy. For example, a node becomes unhealthy if disk usage is above 90%. If unhealthy node replacement is on and `TerminationProtected` are off, Amazon EMR immediately terminates the unhealthy core nodes. To use unhealthy node replacement and retain unhealthy core nodes, use to turn on termination protection. In such cases, Amazon EMR adds the unhealthy nodes to a denylist, reducing job interruptions and failures.
+ *
+ * If unhealthy node replacement is on, Amazon EMR notifies YARN and other applications on the cluster to stop scheduling tasks with these nodes, moves the data, and then terminates the nodes.
+ *
+ * For more information, see [graceful node replacement](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-node-replacement.html) in the *Amazon EMR Management Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,12 +56,12 @@ export interface SetUnhealthyNodeReplacementCommandOutput extends __MetadataBear
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Indicates that an error occurred while processing the request and that the request was
- *          not completed.</p>
+ *
+ * Indicates that an error occurred while processing the request and that the request was not completed.
  *
  * @throws {@link EMRServiceException}
- * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * Base exception class for all service exceptions from EMR service.
  *
  * @public
  */

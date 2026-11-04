@@ -444,7 +444,8 @@ export type PartnerCentralAccountClientResolvedConfigType = __SmithyResolvedConf
 export interface PartnerCentralAccountClientResolvedConfig extends PartnerCentralAccountClientResolvedConfigType {}
 
 /**
- * <p>AWS Partner Central Account service provides APIs for managing partner accounts, connections, and profiles within the AWS Partner Network. This service enables partners to create and manage their partner profiles, establish connections with other partners, and maintain their account information.</p>
+ * AWS Partner Central Account service provides APIs for managing partner accounts, connections, and profiles within the AWS Partner Network. This service enables partners to create and manage their partner profiles, establish connections with other partners, and maintain their account information.
+ *
  * @public
  */
 export class PartnerCentralAccountClient extends __Client<

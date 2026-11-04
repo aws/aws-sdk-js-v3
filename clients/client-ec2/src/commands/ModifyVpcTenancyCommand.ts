@@ -23,14 +23,12 @@ export interface ModifyVpcTenancyCommandInput extends ModifyVpcTenancyRequest {}
 export interface ModifyVpcTenancyCommandOutput extends ModifyVpcTenancyResult, __MetadataBearer {}
 
 /**
- * <p>Modifies the instance tenancy attribute of the specified VPC. You can change the
- *             instance tenancy attribute of a VPC to <code>default</code> only. You cannot change the
- *             instance tenancy attribute to <code>dedicated</code>.</p>
- *          <p>After you modify the tenancy of the VPC, any new instances that you launch into the
- *             VPC have a tenancy of <code>default</code>, unless you specify otherwise during launch.
- *             The tenancy of any existing instances in the VPC is not affected.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html">Dedicated Instances</a> in the
- * 				<i>Amazon EC2 User Guide</i>.</p>
+ * Modifies the instance tenancy attribute of the specified VPC. You can change the instance tenancy attribute of a VPC to `default` only. You cannot change the instance tenancy attribute to `dedicated`.
+ *
+ * After you modify the tenancy of the VPC, any new instances that you launch into the VPC have a tenancy of `default`, unless you specify otherwise during launch. The tenancy of any existing instances in the VPC is not affected.
+ *
+ * For more information, see [Dedicated Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,8 +57,8 @@ export interface ModifyVpcTenancyCommandOutput extends ModifyVpcTenancyResult, _
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

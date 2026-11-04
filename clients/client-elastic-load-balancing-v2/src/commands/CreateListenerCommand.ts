@@ -23,31 +23,16 @@ export interface CreateListenerCommandInput extends CreateListenerInput {}
 export interface CreateListenerCommandOutput extends CreateListenerOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a listener for the specified Application Load Balancer, Network Load Balancer, or
- *       Gateway Load Balancer.</p>
- *          <p>For more information, see the following:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html">Listeners for
- *             your Application Load Balancers</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-listeners.html">Listeners for
- *             your Network Load Balancers</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/gateway-listeners.html">Listeners for your
- *             Gateway Load Balancers</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>This operation is idempotent, which means that it completes at most one time. If you
- *       attempt to create multiple listeners with the same settings, each call succeeds.</p>
+ * Creates a listener for the specified Application Load Balancer, Network Load Balancer, or Gateway Load Balancer.
+ *
+ * For more information, see the following:
+ *
+ * - [Listeners for your Application Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html)
+ * - [Listeners for your Network Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-listeners.html)
+ * - [Listeners for your Gateway Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/gateway-listeners.html)
+ *
+ * This operation is idempotent, which means that it completes at most one time. If you attempt to create multiple listeners with the same settings, each call succeeds.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -269,71 +254,88 @@ export interface CreateListenerCommandOutput extends CreateListenerOutput, __Met
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
  * @throws {@link ALPNPolicyNotSupportedException} (client fault)
- *  <p>The specified ALPN policy is not supported.</p>
+ *
+ * The specified ALPN policy is not supported.
  *
  * @throws {@link CertificateNotFoundException} (client fault)
- *  <p>The specified certificate does not exist.</p>
+ *
+ * The specified certificate does not exist.
  *
  * @throws {@link DuplicateListenerException} (client fault)
- *  <p>A listener with the specified port already exists.</p>
+ *
+ * A listener with the specified port already exists.
  *
  * @throws {@link IncompatibleProtocolsException} (client fault)
- *  <p>The specified configuration is not valid with this protocol.</p>
+ *
+ * The specified configuration is not valid with this protocol.
  *
  * @throws {@link InvalidConfigurationRequestException} (client fault)
- *  <p>The requested configuration is not valid.</p>
+ *
+ * The requested configuration is not valid.
  *
  * @throws {@link InvalidLoadBalancerActionException} (client fault)
- *  <p>The requested action is not valid.</p>
+ *
+ * The requested action is not valid.
  *
  * @throws {@link LoadBalancerNotFoundException} (client fault)
- *  <p>The specified load balancer does not exist.</p>
+ *
+ * The specified load balancer does not exist.
  *
  * @throws {@link SSLPolicyNotFoundException} (client fault)
- *  <p>The specified SSL policy does not exist.</p>
+ *
+ * The specified SSL policy does not exist.
  *
  * @throws {@link TargetGroupAssociationLimitException} (client fault)
- *  <p>You've reached the limit on the number of load balancers per target group.</p>
+ *
+ * You've reached the limit on the number of load balancers per target group.
  *
  * @throws {@link TargetGroupNotFoundException} (client fault)
- *  <p>The specified target group does not exist.</p>
+ *
+ * The specified target group does not exist.
  *
  * @throws {@link TooManyActionsException} (client fault)
- *  <p>You've reached the limit on the number of actions per rule.</p>
+ *
+ * You've reached the limit on the number of actions per rule.
  *
  * @throws {@link TooManyCertificatesException} (client fault)
- *  <p>You've reached the limit on the number of certificates per load balancer.</p>
+ *
+ * You've reached the limit on the number of certificates per load balancer.
  *
  * @throws {@link TooManyListenersException} (client fault)
- *  <p>You've reached the limit on the number of listeners per load balancer.</p>
+ *
+ * You've reached the limit on the number of listeners per load balancer.
  *
  * @throws {@link TooManyRegistrationsForTargetIdException} (client fault)
- *  <p>You've reached the limit on the number of times a target can be registered with a load
- *       balancer.</p>
+ *
+ * You've reached the limit on the number of times a target can be registered with a load balancer.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>You've reached the limit on the number of tags for this resource.</p>
+ *
+ * You've reached the limit on the number of tags for this resource.
  *
  * @throws {@link TooManyTargetsException} (client fault)
- *  <p>You've reached the limit on the number of targets.</p>
+ *
+ * You've reached the limit on the number of targets.
  *
  * @throws {@link TooManyUniqueTargetGroupsPerLoadBalancerException} (client fault)
- *  <p>You've reached the limit on the number of unique target groups per load balancer across
- *       all listeners. If a target group is used by multiple actions for a load balancer, it is
- *       counted as only one use.</p>
+ *
+ * You've reached the limit on the number of unique target groups per load balancer across all listeners. If a target group is used by multiple actions for a load balancer, it is counted as only one use.
  *
  * @throws {@link TrustStoreNotFoundException} (client fault)
- *  <p>The specified trust store does not exist.</p>
+ *
+ * The specified trust store does not exist.
  *
  * @throws {@link TrustStoreNotReadyException} (client fault)
- *  <p>The specified trust store is not active.</p>
+ *
+ * The specified trust store is not active.
  *
  * @throws {@link UnsupportedProtocolException} (client fault)
- *  <p>The specified protocol is not supported.</p>
+ *
+ * The specified protocol is not supported.
  *
  * @throws {@link ElasticLoadBalancingV2ServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancingV2 service.
  *
  * @example To create an HTTP listener
  * ```javascript

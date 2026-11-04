@@ -23,7 +23,8 @@ export interface ModifyDBProxyTargetGroupCommandInput extends ModifyDBProxyTarge
 export interface ModifyDBProxyTargetGroupCommandOutput extends ModifyDBProxyTargetGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies the properties of a <code>DBProxyTargetGroup</code>.</p>
+ * Modifies the properties of a `DBProxyTargetGroup`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,17 +79,20 @@ export interface ModifyDBProxyTargetGroupCommandOutput extends ModifyDBProxyTarg
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBProxyNotFoundFault} (client fault)
- *  <p>The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+ *
+ * The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.
  *
  * @throws {@link DBProxyTargetGroupNotFoundFault} (client fault)
- *  <p>The specified target group isn't available for a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+ *
+ * The specified target group isn't available for a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.
  *
  * @throws {@link InvalidDBProxyStateFault} (client fault)
- *  <p>The requested operation can't be performed while the proxy is in this state.</p>
+ *
+ * The requested operation can't be performed while the proxy is in this state.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @public
  */

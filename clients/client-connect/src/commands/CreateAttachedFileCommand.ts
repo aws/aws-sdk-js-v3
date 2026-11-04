@@ -23,18 +23,12 @@ export interface CreateAttachedFileCommandInput extends CreateAttachedFileReques
 export interface CreateAttachedFileCommandOutput extends CreateAttachedFileResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an attached file for a completed voice contact by copying a recording from a source S3 URI into
- *    Connect Customer managed storage. Use this API to attach voice recordings to contacts for downstream
- *    processing such as conversational analytics.</p>
- *          <important>
- *             <p>The <code>AssociatedResourceArn</code> must be the ARN of a completed voice contact, <code>FileUseCaseType</code>
- *     must be set to <code>VOICE_RECORDING</code>, and <code>FileSourceUri</code> must be a valid S3 URI.</p>
- *          </important>
- *          <note>
- *             <p>For example, you can call <code>CreateContact</code>, then <code>CreateAttachedFile</code>, then
- *     <code>StartContactConversationalAnalyticsJob</code> to create a contact, attach a recording, and
- *     run post-call analytics.</p>
- *          </note>
+ * Creates an attached file for a completed voice contact by copying a recording from a source S3 URI into Connect Customer managed storage. Use this API to attach voice recordings to contacts for downstream processing such as conversational analytics.
+ *
+ * > **Important:** The `AssociatedResourceArn` must be the ARN of a completed voice contact, `FileUseCaseType` must be set to `VOICE_RECORDING`, and `FileSourceUri` must be a valid S3 URI.
+ *
+ * > **Note:** For example, you can call `CreateContact`, then `CreateAttachedFile`, then `StartContactConversationalAnalyticsJob` to create a contact, attach a recording, and run post-call analytics.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,26 +65,32 @@ export interface CreateAttachedFileCommandOutput extends CreateAttachedFileRespo
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceConflictException} (client fault)
- *  <p>A resource already has that name.</p>
+ *
+ * A resource already has that name.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The service quota has been exceeded.</p>
+ *
+ * The service quota has been exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

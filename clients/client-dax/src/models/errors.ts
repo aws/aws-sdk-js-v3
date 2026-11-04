@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { DAXServiceException as __BaseException } from "./DAXServiceException";
 
 /**
- * <p>You already have a DAX cluster with the given identifier.</p>
+ * You already have a DAX cluster with the given identifier.
+ *
  * @public
  */
 export class ClusterAlreadyExistsFault extends __BaseException {
@@ -25,8 +26,8 @@ export class ClusterAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>You have attempted to exceed the maximum number of DAX clusters for
- *             your Amazon Web Services account.</p>
+ * You have attempted to exceed the maximum number of DAX clusters for your Amazon Web Services account.
+ *
  * @public
  */
 export class ClusterQuotaForCustomerExceededFault extends __BaseException {
@@ -47,8 +48,8 @@ export class ClusterQuotaForCustomerExceededFault extends __BaseException {
 }
 
 /**
- * <p>There are not enough system resources to create the cluster you requested (or to
- *             resize an already-existing cluster). </p>
+ * There are not enough system resources to create the cluster you requested (or to resize an already-existing cluster).
+ *
  * @public
  */
 export class InsufficientClusterCapacityFault extends __BaseException {
@@ -69,8 +70,8 @@ export class InsufficientClusterCapacityFault extends __BaseException {
 }
 
 /**
- * <p>The requested DAX cluster is not in the
- *                 <i>available</i> state.</p>
+ * The requested DAX cluster is not in the *available* state.
+ *
  * @public
  */
 export class InvalidClusterStateFault extends __BaseException {
@@ -91,7 +92,8 @@ export class InvalidClusterStateFault extends __BaseException {
 }
 
 /**
- * <p>Two or more incompatible parameters were specified.</p>
+ * Two or more incompatible parameters were specified.
+ *
  * @public
  */
 export class InvalidParameterCombinationException extends __BaseException {
@@ -112,7 +114,8 @@ export class InvalidParameterCombinationException extends __BaseException {
 }
 
 /**
- * <p>One or more parameters in a parameter group are in an invalid state.</p>
+ * One or more parameters in a parameter group are in an invalid state.
+ *
  * @public
  */
 export class InvalidParameterGroupStateFault extends __BaseException {
@@ -133,7 +136,8 @@ export class InvalidParameterGroupStateFault extends __BaseException {
 }
 
 /**
- * <p>The value for a parameter is invalid.</p>
+ * The value for a parameter is invalid.
+ *
  * @public
  */
 export class InvalidParameterValueException extends __BaseException {
@@ -154,7 +158,8 @@ export class InvalidParameterValueException extends __BaseException {
 }
 
 /**
- * <p>The VPC network is in an invalid state.</p>
+ * The VPC network is in an invalid state.
+ *
  * @public
  */
 export class InvalidVPCNetworkStateFault extends __BaseException {
@@ -175,8 +180,8 @@ export class InvalidVPCNetworkStateFault extends __BaseException {
 }
 
 /**
- * <p>You have attempted to exceed the maximum number of nodes for a DAX
- *             cluster.</p>
+ * You have attempted to exceed the maximum number of nodes for a DAX cluster.
+ *
  * @public
  */
 export class NodeQuotaForClusterExceededFault extends __BaseException {
@@ -197,7 +202,8 @@ export class NodeQuotaForClusterExceededFault extends __BaseException {
 }
 
 /**
- * <p>You have attempted to exceed the maximum number of nodes for your Amazon Web Services account.</p>
+ * You have attempted to exceed the maximum number of nodes for your Amazon Web Services account.
+ *
  * @public
  */
 export class NodeQuotaForCustomerExceededFault extends __BaseException {
@@ -218,7 +224,8 @@ export class NodeQuotaForCustomerExceededFault extends __BaseException {
 }
 
 /**
- * <p>The specified parameter group does not exist.</p>
+ * The specified parameter group does not exist.
+ *
  * @public
  */
 export class ParameterGroupNotFoundFault extends __BaseException {
@@ -239,7 +246,8 @@ export class ParameterGroupNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The specified service linked role (SLR) was not found.</p>
+ * The specified service linked role (SLR) was not found.
+ *
  * @public
  */
 export class ServiceLinkedRoleNotFoundFault extends __BaseException {
@@ -260,9 +268,8 @@ export class ServiceLinkedRoleNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>You have reached the maximum number of x509 certificates that can be created for
- *             encrypted clusters in a 30 day period. Contact Amazon Web Services customer support to
- *             discuss options for continuing to create encrypted clusters.</p>
+ * You have reached the maximum number of x509 certificates that can be created for encrypted clusters in a 30 day period. Contact Amazon Web Services customer support to discuss options for continuing to create encrypted clusters.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -283,8 +290,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The requested subnet group name does not refer to an existing subnet
- *             group.</p>
+ * The requested subnet group name does not refer to an existing subnet group.
+ *
  * @public
  */
 export class SubnetGroupNotFoundFault extends __BaseException {
@@ -305,7 +312,8 @@ export class SubnetGroupNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>You have exceeded the maximum number of tags for this DAX cluster.</p>
+ * You have exceeded the maximum number of tags for this DAX cluster.
+ *
  * @public
  */
 export class TagQuotaPerResourceExceeded extends __BaseException {
@@ -326,7 +334,8 @@ export class TagQuotaPerResourceExceeded extends __BaseException {
 }
 
 /**
- * <p>The specified parameter group already exists.</p>
+ * The specified parameter group already exists.
+ *
  * @public
  */
 export class ParameterGroupAlreadyExistsFault extends __BaseException {
@@ -347,7 +356,8 @@ export class ParameterGroupAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>You have attempted to exceed the maximum number of parameter groups.</p>
+ * You have attempted to exceed the maximum number of parameter groups.
+ *
  * @public
  */
 export class ParameterGroupQuotaExceededFault extends __BaseException {
@@ -368,7 +378,8 @@ export class ParameterGroupQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>An invalid subnet identifier was specified.</p>
+ * An invalid subnet identifier was specified.
+ *
  * @public
  */
 export class InvalidSubnet extends __BaseException {
@@ -389,7 +400,8 @@ export class InvalidSubnet extends __BaseException {
 }
 
 /**
- * <p>The specified subnet group already exists.</p>
+ * The specified subnet group already exists.
+ *
  * @public
  */
 export class SubnetGroupAlreadyExistsFault extends __BaseException {
@@ -410,8 +422,8 @@ export class SubnetGroupAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The request cannot be processed because it would exceed the allowed number of
- *             subnets in a subnet group.</p>
+ * The request cannot be processed because it would exceed the allowed number of subnets in a subnet group.
+ *
  * @public
  */
 export class SubnetGroupQuotaExceededFault extends __BaseException {
@@ -432,11 +444,8 @@ export class SubnetGroupQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>The specified subnet can't be used for the requested network type. This error
- *             occurs when either there aren't enough subnets of the required network type to create
- *             the cluster, or when you try to use a subnet that doesn't support the requested network
- *             type (for example, trying to create a dual-stack cluster with a subnet that doesn't have
- *             IPv6 CIDR). </p>
+ * The specified subnet can't be used for the requested network type. This error occurs when either there aren't enough subnets of the required network type to create the cluster, or when you try to use a subnet that doesn't support the requested network type (for example, trying to create a dual-stack cluster with a subnet that doesn't have IPv6 CIDR).
+ *
  * @public
  */
 export class SubnetNotAllowedFault extends __BaseException {
@@ -457,8 +466,8 @@ export class SubnetNotAllowedFault extends __BaseException {
 }
 
 /**
- * <p>The request cannot be processed because it would exceed the allowed number of
- *             subnets in a subnet group.</p>
+ * The request cannot be processed because it would exceed the allowed number of subnets in a subnet group.
+ *
  * @public
  */
 export class SubnetQuotaExceededFault extends __BaseException {
@@ -479,8 +488,8 @@ export class SubnetQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>The requested cluster ID does not refer to an existing DAX
- *             cluster.</p>
+ * The requested cluster ID does not refer to an existing DAX cluster.
+ *
  * @public
  */
 export class ClusterNotFoundFault extends __BaseException {
@@ -501,7 +510,8 @@ export class ClusterNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>None of the nodes in the cluster have the given node ID.</p>
+ * None of the nodes in the cluster have the given node ID.
+ *
  * @public
  */
 export class NodeNotFoundFault extends __BaseException {
@@ -522,7 +532,8 @@ export class NodeNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The specified subnet group is currently in use.</p>
+ * The specified subnet group is currently in use.
+ *
  * @public
  */
 export class SubnetGroupInUseFault extends __BaseException {
@@ -543,7 +554,8 @@ export class SubnetGroupInUseFault extends __BaseException {
 }
 
 /**
- * <p>The Amazon Resource Name (ARN) supplied in the request is not valid.</p>
+ * The Amazon Resource Name (ARN) supplied in the request is not valid.
+ *
  * @public
  */
 export class InvalidARNFault extends __BaseException {
@@ -564,7 +576,8 @@ export class InvalidARNFault extends __BaseException {
 }
 
 /**
- * <p>The tag does not exist.</p>
+ * The tag does not exist.
+ *
  * @public
  */
 export class TagNotFoundFault extends __BaseException {
@@ -585,7 +598,8 @@ export class TagNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The requested subnet is being used by another subnet group.</p>
+ * The requested subnet is being used by another subnet group.
+ *
  * @public
  */
 export class SubnetInUse extends __BaseException {

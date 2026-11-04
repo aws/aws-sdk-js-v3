@@ -5,8 +5,8 @@ import { DetectiveServiceException as __BaseException } from "./DetectiveService
 import type { ErrorCode } from "./enums";
 
 /**
- * <p>The request issuer does not have permission to access this resource or perform this
- *          operation.</p>
+ * The request issuer does not have permission to access this resource or perform this operation.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -15,25 +15,29 @@ export class AccessDeniedException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The SDK default error code associated with the access denied exception.</p>
+   * The SDK default error code associated with the access denied exception.
+   *
    * @public
    */
   ErrorCode?: ErrorCode | undefined;
 
   /**
-   * <p>The SDK default explanation of why access was denied.</p>
+   * The SDK default explanation of why access was denied.
+   *
    * @public
    */
   ErrorCodeReason?: string | undefined;
 
   /**
-   * <p>The error code associated with the access denied exception.</p>
+   * The error code associated with the access denied exception.
+   *
    * @public
    */
   SubErrorCode?: ErrorCode | undefined;
 
   /**
-   * <p> An explanation of why access was denied.</p>
+   * An explanation of why access was denied.
+   *
    * @public
    */
   SubErrorCodeReason?: string | undefined;
@@ -56,7 +60,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request attempted an invalid action.</p>
+ * The request attempted an invalid action.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -79,7 +84,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The request was valid but failed because of a problem with the service.</p>
+ * The request was valid but failed because of a problem with the service.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -102,7 +108,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The request refers to a nonexistent resource.</p>
+ * The request refers to a nonexistent resource.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -125,7 +132,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request parameters are invalid.</p>
+ * The request parameters are invalid.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -134,13 +142,15 @@ export class ValidationException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The error code associated with the validation failure.</p>
+   * The error code associated with the validation failure.
+   *
    * @public
    */
   ErrorCode?: ErrorCode | undefined;
 
   /**
-   * <p> An explanation of why validation failed.</p>
+   * An explanation of why validation failed.
+   *
    * @public
    */
   ErrorCodeReason?: string | undefined;
@@ -161,17 +171,11 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>This request cannot be completed for one of the following reasons.</p>
- *          <ul>
- *             <li>
- *                <p>This request cannot be completed if it would cause the number of member accounts in the
- *             behavior graph to exceed the maximum allowed. A behavior graph cannot have more than 1,200
- *             member accounts.</p>
- *             </li>
- *             <li>
- *                <p>This request cannot be completed if the current volume ingested is above the limit of 10 TB per day. Detective will not allow you to add additional member accounts.</p>
- *             </li>
- *          </ul>
+ * This request cannot be completed for one of the following reasons.
+ *
+ * - This request cannot be completed if it would cause the number of member accounts in the behavior graph to exceed the maximum allowed. A behavior graph cannot have more than 1,200 member accounts.
+ * - This request cannot be completed if the current volume ingested is above the limit of 10 TB per day. Detective will not allow you to add additional member accounts.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -180,7 +184,8 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The type of resource that has exceeded the service quota.</p>
+   * The type of resource that has exceeded the service quota.
+   *
    * @public
    */
   Resources?: string[] | undefined;
@@ -200,8 +205,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request cannot be completed because too many other requests are occurring at the
- *          same time.</p>
+ * The request cannot be completed because too many other requests are occurring at the same time.
+ *
  * @public
  */
 export class TooManyRequestsException extends __BaseException {

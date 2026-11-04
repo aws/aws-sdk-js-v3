@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>This reference provides descriptions of the low-level AWS Artifact Service API.</p>
+ * This reference provides descriptions of the low-level AWS Artifact Service API.
  *
  * @packageDocumentation
  */

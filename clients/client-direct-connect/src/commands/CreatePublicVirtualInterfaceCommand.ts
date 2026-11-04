@@ -23,10 +23,10 @@ export interface CreatePublicVirtualInterfaceCommandInput extends CreatePublicVi
 export interface CreatePublicVirtualInterfaceCommandOutput extends VirtualInterface, __MetadataBearer {}
 
 /**
- * <p>Creates a public virtual interface. A virtual interface is the VLAN that transports Direct Connect traffic.
- *       A public virtual interface supports sending traffic to public services of Amazon Web Services such as Amazon S3.</p>
- *          <p>When creating an IPv6 public virtual interface (<code>addressFamily</code> is <code>ipv6</code>), leave the <code>customer</code>
- *       and <code>amazon</code> address fields blank to use auto-assigned IPv6 space. Custom IPv6 addresses are not supported.</p>
+ * Creates a public virtual interface. A virtual interface is the VLAN that transports Direct Connect traffic. A public virtual interface supports sending traffic to public services of Amazon Web Services such as Amazon S3.
+ *
+ * When creating an IPv6 public virtual interface (`addressFamily` is `ipv6`), leave the `customer` and `amazon` address fields blank to use auto-assigned IPv6 space. Custom IPv6 addresses are not supported.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -127,23 +127,28 @@ export interface CreatePublicVirtualInterfaceCommandOutput extends VirtualInterf
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  * @throws {@link DirectConnectClientException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link DirectConnectServerException} (server fault)
- *  <p>A server-side error occurred.</p>
+ *
+ * A server-side error occurred.
  *
  * @throws {@link DuplicateTagKeysException} (client fault)
- *  <p>A tag key was specified more than once.</p>
+ *
+ * A tag key was specified more than once.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The rate limiter limit has been exceeded for the connection. You cannot add more rate limiters to virtual interfaces on this connection.</p>
+ *
+ * The rate limiter limit has been exceeded for the connection. You cannot add more rate limiters to virtual interfaces on this connection.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>You have reached the limit on the number of tags that can be assigned.</p>
+ *
+ * You have reached the limit on the number of tags that can be assigned.
  *
  * @throws {@link DirectConnectServiceException}
- * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * Base exception class for all service exceptions from DirectConnect service.
  *
  * @public
  */

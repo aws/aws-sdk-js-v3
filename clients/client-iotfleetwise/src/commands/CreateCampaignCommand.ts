@@ -23,15 +23,12 @@ export interface CreateCampaignCommandInput extends CreateCampaignRequest {}
 export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an orchestration of data collection rules. The Amazon Web Services IoT FleetWise Edge Agent software
- *             running in vehicles uses campaigns to decide how to collect and transfer data to the
- *             cloud. You create campaigns in the cloud. After you or your team approve campaigns,
- *             Amazon Web Services IoT FleetWise automatically deploys them to vehicles. </p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/campaigns.html">Collect and transfer data
- *                 with campaigns</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
- *          <important>
- *             <p>Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html">Amazon Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
- *          </important>
+ * Creates an orchestration of data collection rules. The Amazon Web Services IoT FleetWise Edge Agent software running in vehicles uses campaigns to decide how to collect and transfer data to the cloud. You create campaigns in the cloud. After you or your team approve campaigns, Amazon Web Services IoT FleetWise automatically deploys them to vehicles.
+ *
+ * For more information, see [Collect and transfer data with campaigns](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/campaigns.html) in the *Amazon Web Services IoT FleetWise Developer Guide*.
+ *
+ * > **Important:** Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see [Amazon Web Services Region and feature availability](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html) in the *Amazon Web Services IoT FleetWise Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -153,30 +150,36 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * You don't have sufficient permission to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request has conflicting operations. This can occur if you're trying to perform
- *             more than one operation on the same resource at the same time.</p>
+ *
+ * The request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>A service quota was exceeded. </p>
+ *
+ * A service quota was exceeded.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource wasn't found.</p>
+ *
+ * The resource wasn't found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request couldn't be completed due to throttling.</p>
+ *
+ * The request couldn't be completed due to throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request couldn't be completed because the server temporarily failed.</p>
+ *
+ * The request couldn't be completed because the server temporarily failed.
  *
  * @throws {@link IoTFleetWiseServiceException}
- * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * Base exception class for all service exceptions from IoTFleetWise service.
  *
  * @public
  */

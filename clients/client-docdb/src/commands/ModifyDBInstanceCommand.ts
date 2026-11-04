@@ -23,7 +23,8 @@ export interface ModifyDBInstanceCommandInput extends ModifyDBInstanceMessage {}
 export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, __MetadataBearer {}
 
 /**
- * <p>Modifies settings for an instance. You can change one or more database configuration parameters by specifying these parameters and the new values in the request.</p>
+ * Modifies settings for an instance. You can change one or more database configuration parameters by specifying these parameters and the new values in the request.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -153,57 +154,62 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  * @throws {@link AuthorizationNotFoundFault} (client fault)
- *  <p>The specified CIDR IP or Amazon EC2 security group isn't authorized for the specified security group.</p>
- *          <p>Amazon DocumentDB also might not be authorized to perform necessary actions on your behalf using IAM.</p>
+ *
+ * The specified CIDR IP or Amazon EC2 security group isn't authorized for the specified security group.
+ *
+ * Amazon DocumentDB also might not be authorized to perform necessary actions on your behalf using IAM.
  *
  * @throws {@link CertificateNotFoundFault} (client fault)
- *  <p>
- *             <code>CertificateIdentifier</code> doesn't refer to an existing certificate. </p>
+ *
+ * `CertificateIdentifier` doesn't refer to an existing certificate.
  *
  * @throws {@link DBInstanceAlreadyExistsFault} (client fault)
- *  <p>You already have a instance with the given identifier.</p>
+ *
+ * You already have a instance with the given identifier.
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p>
- *             <code>DBInstanceIdentifier</code> doesn't refer to an existing instance. </p>
+ *
+ * `DBInstanceIdentifier` doesn't refer to an existing instance.
  *
  * @throws {@link DBParameterGroupNotFoundFault} (client fault)
- *  <p>
- *             <code>DBParameterGroupName</code> doesn't refer to an existing parameter group. </p>
+ *
+ * `DBParameterGroupName` doesn't refer to an existing parameter group.
  *
  * @throws {@link DBSecurityGroupNotFoundFault} (client fault)
- *  <p>
- *             <code>DBSecurityGroupName</code> doesn't refer to an existing security group. </p>
+ *
+ * `DBSecurityGroupName` doesn't refer to an existing security group.
  *
  * @throws {@link DBUpgradeDependencyFailureFault} (client fault)
- *  <p>The upgrade failed because a resource that the depends on can't be
- *             modified.</p>
+ *
+ * The upgrade failed because a resource that the depends on can't be modified.
  *
  * @throws {@link InsufficientDBInstanceCapacityFault} (client fault)
- *  <p>The specified instance class isn't available in the specified Availability Zone.</p>
+ *
+ * The specified instance class isn't available in the specified Availability Zone.
  *
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
- *  <p> The specified instance isn't in the <i>available</i> state.
- *         </p>
+ *
+ * The specified instance isn't in the *available* state.
  *
  * @throws {@link InvalidDBSecurityGroupStateFault} (client fault)
- *  <p>The state of the security group doesn't allow deletion.</p>
+ *
+ * The state of the security group doesn't allow deletion.
  *
  * @throws {@link InvalidVPCNetworkStateFault} (client fault)
- *  <p>The subnet group doesn't cover all Availability Zones after it is created
- *             because of changes that were made.</p>
+ *
+ * The subnet group doesn't cover all Availability Zones after it is created because of changes that were made.
  *
  * @throws {@link StorageQuotaExceededFault} (client fault)
- *  <p>The request would cause you to exceed the allowed amount of storage available across
- *             all instances.</p>
+ *
+ * The request would cause you to exceed the allowed amount of storage available across all instances.
  *
  * @throws {@link StorageTypeNotSupportedFault} (client fault)
- *  <p>Storage of the specified <code>StorageType</code> can't be associated with the DB
- *             instance. </p>
+ *
+ * Storage of the specified `StorageType` can't be associated with the DB instance.
  *
  * @throws {@link DocDBServiceException}
- * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * Base exception class for all service exceptions from DocDB service.
  *
  * @public
  */

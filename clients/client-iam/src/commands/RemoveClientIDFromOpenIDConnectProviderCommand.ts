@@ -23,11 +23,10 @@ export interface RemoveClientIDFromOpenIDConnectProviderCommandInput extends Rem
 export interface RemoveClientIDFromOpenIDConnectProviderCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Removes the specified client ID (also known as audience) from the list of client IDs
- *             registered for the specified IAM OpenID Connect (OIDC) provider resource
- *             object.</p>
- *          <p>This operation is idempotent; it does not fail or return an error if you try to remove
- *             a client ID that does not exist.</p>
+ * Removes the specified client ID (also known as audience) from the list of client IDs registered for the specified IAM OpenID Connect (OIDC) provider resource object.
+ *
+ * This operation is idempotent; it does not fail or return an error if you try to remove a client ID that does not exist.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,24 +52,24 @@ export interface RemoveClientIDFromOpenIDConnectProviderCommandOutput extends __
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>The request was rejected because multiple requests to change this object were submitted
- *       simultaneously. Wait a few minutes and submit your request again.</p>
+ *
+ * The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
- *       input parameter.</p>
+ *
+ * The request was rejected because an invalid or out-of-range value was supplied for an input parameter.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @public
  */

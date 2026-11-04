@@ -23,7 +23,8 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Adds a tag to a resource.</p>
+ * Adds a tag to a resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,8 +61,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
  * @throws {@link Route53RecoveryReadinessServiceException}
- * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
+ * Base exception class for all service exceptions from Route53RecoveryReadiness service.
  *
  * @public
  */

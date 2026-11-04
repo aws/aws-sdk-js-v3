@@ -20,36 +20,42 @@ import type {
 } from "./enums";
 
 /**
- * <p> Contains information about an Amazon Web Services account's enrollment and association status with Compute Optimizer Automation. </p>
+ * Contains information about an Amazon Web Services account's enrollment and association status with Compute Optimizer Automation.
+ *
  * @public
  */
 export interface AccountInfo {
   /**
-   * <p> The ID of the Amazon Web Services account. </p>
+   * The ID of the Amazon Web Services account.
+   *
    * @public
    */
   accountId: string | undefined;
 
   /**
-   * <p> The enrollment status of the account: Active, Inactive, Pending, or Failed. </p>
+   * The enrollment status of the account: Active, Inactive, Pending, or Failed.
+   *
    * @public
    */
   status: EnrollmentStatus | undefined;
 
   /**
-   * <p>Specifies whether the management account can create Automation rules that implement optimization actions for this account. </p>
+   * Specifies whether the management account can create Automation rules that implement optimization actions for this account.
+   *
    * @public
    */
   organizationRuleMode: OrganizationRuleMode | undefined;
 
   /**
-   * <p>The reason for the current Automation enrollment status. </p>
+   * The reason for the current Automation enrollment status.
+   *
    * @public
    */
   statusReason?: string | undefined;
 
   /**
-   * <p>The timestamp when the account's Automation enrollment status was last updated. </p>
+   * The timestamp when the account's Automation enrollment status was last updated.
+   *
    * @public
    */
   lastUpdatedTimestamp: Date | undefined;
@@ -60,13 +66,15 @@ export interface AccountInfo {
  */
 export interface AssociateAccountsRequest {
   /**
-   * <p> The IDs of the member accounts to associate. You can specify up to 50 account IDs. </p>
+   * The IDs of the member accounts to associate. You can specify up to 50 account IDs.
+   *
    * @public
    */
   accountIds: string[] | undefined;
 
   /**
-   * <p> A unique identifier to ensure idempotency of the request. Valid for 24 hours after creation. </p>
+   * A unique identifier to ensure idempotency of the request. Valid for 24 hours after creation.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -77,577 +85,675 @@ export interface AssociateAccountsRequest {
  */
 export interface AssociateAccountsResponse {
   /**
-   * <p> The IDs of the member accounts that were successfully associated. </p>
+   * The IDs of the member accounts that were successfully associated.
+   *
    * @public
    */
   accountIds?: string[] | undefined;
 
   /**
-   * <p> Any errors that occurred during the association process. </p>
+   * Any errors that occurred during the association process.
+   *
    * @public
    */
   errors?: string[] | undefined;
 }
 
 /**
- * <p> Contains information about estimated monthly cost savings. </p>
+ * Contains information about estimated monthly cost savings.
+ *
  * @public
  */
 export interface EstimatedMonthlySavings {
   /**
-   * <p> The currency of the estimated savings. </p>
+   * The currency of the estimated savings.
+   *
    * @public
    */
   currency: string | undefined;
 
   /**
-   * <p> The estimated monthly savings before applying any discounts. </p>
+   * The estimated monthly savings before applying any discounts.
+   *
    * @public
    */
   beforeDiscountSavings: number | undefined;
 
   /**
-   * <p> The estimated monthly savings after applying any discounts. </p>
+   * The estimated monthly savings after applying any discounts.
+   *
    * @public
    */
   afterDiscountSavings: number | undefined;
 
   /**
-   * <p>The mode used to calculate savings, either BeforeDiscount or AfterDiscount.</p>
+   * The mode used to calculate savings, either BeforeDiscount or AfterDiscount.
+   *
    * @public
    */
   savingsEstimationMode: SavingsEstimationMode | undefined;
 }
 
 /**
- * <p> Contains information about an automation event. </p>
+ * Contains information about an automation event.
+ *
  * @public
  */
 export interface AutomationEvent {
   /**
-   * <p> The unique identifier for the automation event. </p>
+   * The unique identifier for the automation event.
+   *
    * @public
    */
   eventId?: string | undefined;
 
   /**
-   * <p> A description of the automation event. </p>
+   * A description of the automation event.
+   *
    * @public
    */
   eventDescription?: string | undefined;
 
   /**
-   * <p> The type of automation event. </p>
+   * The type of automation event.
+   *
    * @public
    */
   eventType?: EventType | undefined;
 
   /**
-   * <p> The current status of the automation event. </p>
+   * The current status of the automation event.
+   *
    * @public
    */
   eventStatus?: EventStatus | undefined;
 
   /**
-   * <p> The reason for the current event status. </p>
+   * The reason for the current event status.
+   *
    * @public
    */
   eventStatusReason?: string | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the resource affected by the automation event. </p>
+   * The Amazon Resource Name (ARN) of the resource affected by the automation event.
+   *
    * @public
    */
   resourceArn?: string | undefined;
 
   /**
-   * <p> The ID of the resource affected by the automation event. </p>
+   * The ID of the resource affected by the automation event.
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p> The ID of the recommended action associated with this automation event. </p>
+   * The ID of the recommended action associated with this automation event.
+   *
    * @public
    */
   recommendedActionId?: string | undefined;
 
   /**
-   * <p> The Amazon Web Services account ID associated with the automation event. </p>
+   * The Amazon Web Services account ID associated with the automation event.
+   *
    * @public
    */
   accountId?: string | undefined;
 
   /**
-   * <p> The Amazon Web Services Region where the automation event occurred. </p>
+   * The Amazon Web Services Region where the automation event occurred.
+   *
    * @public
    */
   region?: string | undefined;
 
   /**
-   * <p> The ID of the automation rule that triggered this event. </p>
+   * The ID of the automation rule that triggered this event.
+   *
    * @public
    */
   ruleId?: string | undefined;
 
   /**
-   * <p> The type of resource affected by the automation event. </p>
+   * The type of resource affected by the automation event.
+   *
    * @public
    */
   resourceType?: ResourceType | undefined;
 
   /**
-   * <p>The timestamp when the automation event was created.</p>
+   * The timestamp when the automation event was created.
+   *
    * @public
    */
   createdTimestamp?: Date | undefined;
 
   /**
-   * <p> The timestamp when the automation event completed. </p>
+   * The timestamp when the automation event completed.
+   *
    * @public
    */
   completedTimestamp?: Date | undefined;
 
   /**
-   * <p> The estimated monthly cost savings associated with this automation event. </p>
+   * The estimated monthly cost savings associated with this automation event.
+   *
    * @public
    */
   estimatedMonthlySavings?: EstimatedMonthlySavings | undefined;
 }
 
 /**
- * <p> A filter to apply when listing automation events. </p>
+ * A filter to apply when listing automation events.
+ *
  * @public
  */
 export interface AutomationEventFilter {
   /**
-   * <p> The name of the filter to apply. </p>
+   * The name of the filter to apply.
+   *
    * @public
    */
   name: AutomationEventFilterName | undefined;
 
   /**
-   * <p> The values to use for the specified filter. </p>
+   * The values to use for the specified filter.
+   *
    * @public
    */
   values: string[] | undefined;
 }
 
 /**
- * <p> Contains information about a step in an automation event. </p>
+ * Contains information about a step in an automation event.
+ *
  * @public
  */
 export interface AutomationEventStep {
   /**
-   * <p> The ID of the automation event this step belongs to. </p>
+   * The ID of the automation event this step belongs to.
+   *
    * @public
    */
   eventId?: string | undefined;
 
   /**
-   * <p> The unique identifier for this step. </p>
+   * The unique identifier for this step.
+   *
    * @public
    */
   stepId?: string | undefined;
 
   /**
-   * <p> The type of step. </p>
+   * The type of step.
+   *
    * @public
    */
   stepType?: StepType | undefined;
 
   /**
-   * <p> The current status of the step. </p>
+   * The current status of the step.
+   *
    * @public
    */
   stepStatus?: StepStatus | undefined;
 
   /**
-   * <p>The unique identifier of the resource being acted upon in this step.</p>
+   * The unique identifier of the resource being acted upon in this step.
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>The timestamp when this automation event step started execution.</p>
+   * The timestamp when this automation event step started execution.
+   *
    * @public
    */
   startTimestamp?: Date | undefined;
 
   /**
-   * <p>The timestamp when this automation event step completed execution.</p>
+   * The timestamp when this automation event step completed execution.
+   *
    * @public
    */
   completedTimestamp?: Date | undefined;
 
   /**
-   * <p> Contains information about estimated monthly cost savings. </p>
+   * Contains information about estimated monthly cost savings.
+   *
    * @public
    */
   estimatedMonthlySavings?: EstimatedMonthlySavings | undefined;
 }
 
 /**
- * <p>A key-value pair used to categorize and group summary data for analysis and reporting.</p>
+ * A key-value pair used to categorize and group summary data for analysis and reporting.
+ *
  * @public
  */
 export interface SummaryDimension {
   /**
-   * <p>The dimension key used for categorizing summary data.</p>
+   * The dimension key used for categorizing summary data.
+   *
    * @public
    */
   key: SummaryDimensionKey | undefined;
 
   /**
-   * <p>The specific value for this dimension key used in the summary grouping.</p>
+   * The specific value for this dimension key used in the summary grouping.
+   *
    * @public
    */
   value: string | undefined;
 }
 
 /**
- * <p>Defines a time range with inclusive start time and exclusive end time for filtering and analysis.</p>
+ * Defines a time range with inclusive start time and exclusive end time for filtering and analysis.
+ *
  * @public
  */
 export interface TimePeriod {
   /**
-   * <p>The start time of the period, inclusive. Events at or after this time are included.</p>
+   * The start time of the period, inclusive. Events at or after this time are included.
+   *
    * @public
    */
   startTimeInclusive?: Date | undefined;
 
   /**
-   * <p>The end time of the period, exclusive. Events before this time are included.</p>
+   * The end time of the period, exclusive. Events before this time are included.
+   *
    * @public
    */
   endTimeExclusive?: Date | undefined;
 }
 
 /**
- * <p>Aggregate totals for automation events, including counts and estimated savings.</p>
+ * Aggregate totals for automation events, including counts and estimated savings.
+ *
  * @public
  */
 export interface SummaryTotals {
   /**
-   * <p>The total number of automation events in this summary group.</p>
+   * The total number of automation events in this summary group.
+   *
    * @public
    */
   automationEventCount?: number | undefined;
 
   /**
-   * <p> Contains information about estimated monthly cost savings. </p>
+   * Contains information about estimated monthly cost savings.
+   *
    * @public
    */
   estimatedMonthlySavings?: EstimatedMonthlySavings | undefined;
 }
 
 /**
- * <p> A summary of automation events grouped by specified dimensions. </p>
+ * A summary of automation events grouped by specified dimensions.
+ *
  * @public
  */
 export interface AutomationEventSummary {
   /**
-   * <p>The key identifier for this summary grouping.</p>
+   * The key identifier for this summary grouping.
+   *
    * @public
    */
   key?: string | undefined;
 
   /**
-   * <p>The dimensions used to group this summary, such as event status.</p>
+   * The dimensions used to group this summary, such as event status.
+   *
    * @public
    */
   dimensions?: SummaryDimension[] | undefined;
 
   /**
-   * <p>The time period covered by this summary, with inclusive start time and exclusive end time.</p>
+   * The time period covered by this summary, with inclusive start time and exclusive end time.
+   *
    * @public
    */
   timePeriod?: TimePeriod | undefined;
 
   /**
-   * <p>The aggregated totals for this summary, including event count and estimated savings.</p>
+   * The aggregated totals for this summary, including event count and estimated savings.
+   *
    * @public
    */
   total?: SummaryTotals | undefined;
 }
 
 /**
- * <p>Configuration settings for organization-wide automation rules.</p>
+ * Configuration settings for organization-wide automation rules.
+ *
  * @public
  */
 export interface OrganizationConfiguration {
   /**
-   * <p>Specifies when organization rules should be applied relative to account rules.</p>
+   * Specifies when organization rules should be applied relative to account rules.
+   *
    * @public
    */
   ruleApplyOrder?: RuleApplyOrder | undefined;
 
   /**
-   * <p>List of specific Amazon Web Services account IDs where the organization rule should be applied.</p>
+   * List of specific Amazon Web Services account IDs where the organization rule should be applied.
+   *
    * @public
    */
   accountIds?: string[] | undefined;
 }
 
 /**
- * <p>Configuration for scheduling when automation rules should execute, including timing and execution windows.</p>
+ * Configuration for scheduling when automation rules should execute, including timing and execution windows.
+ *
  * @public
  */
 export interface Schedule {
   /**
-   * <p>The expression that defines when the schedule runs. <code>cron</code> expression is supported. A <code>cron</code> expression consists of six fields separated by white spaces: (<code>minutes</code> <code>hours</code> <code>day_of_month</code> <code>month</code> <code>day_of_week</code> <code>year</code>)</p> <note> <p>You can schedule rules to run at most once per day. Your cron expression must use specific values (not wildcards) for the minutes and hours fields. For example: (<code>30 12 * * *</code>) runs daily at 12:30 PM UTC.</p> </note>
+   * The expression that defines when the schedule runs. `cron` expression is supported. A `cron` expression consists of six fields separated by white spaces: (`minutes` `hours` `day_of_month` `month` `day_of_week` `year`)
+   *
+   * > **Note:** You can schedule rules to run at most once per day. Your cron expression must use specific values (not wildcards) for the minutes and hours fields. For example: (`30 12 * * *`) runs daily at 12:30 PM UTC.
+   *
    * @public
    */
   scheduleExpression?: string | undefined;
 
   /**
-   * <p>The timezone to use when interpreting the schedule expression.</p>
+   * The timezone to use when interpreting the schedule expression.
+   *
    * @public
    */
   scheduleExpressionTimezone?: string | undefined;
 
   /**
-   * <p>The time window in minutes during which the automation rule can start implementing recommended actions.</p>
+   * The time window in minutes during which the automation rule can start implementing recommended actions.
+   *
    * @public
    */
   executionWindowInMinutes?: number | undefined;
 }
 
 /**
- * <p>Represents a complete automation rule configuration including criteria, schedule, and execution settings.</p>
+ * Represents a complete automation rule configuration including criteria, schedule, and execution settings.
+ *
  * @public
  */
 export interface AutomationRule {
   /**
-   * <p>The Amazon Resource Name (ARN) of the automation rule.</p>
+   * The Amazon Resource Name (ARN) of the automation rule.
+   *
    * @public
    */
   ruleArn?: string | undefined;
 
   /**
-   * <p>The unique identifier of the automation rule.</p>
+   * The unique identifier of the automation rule.
+   *
    * @public
    */
   ruleId?: string | undefined;
 
   /**
-   * <p>The name of the automation rule.</p>
+   * The name of the automation rule.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>A description of the automation rule.</p>
+   * A description of the automation rule.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The type of automation rule (OrganizationRule or AccountRule).</p>
+   * The type of automation rule (OrganizationRule or AccountRule).
+   *
    * @public
    */
   ruleType?: RuleType | undefined;
 
   /**
-   * <p>The revision number of the automation rule.</p>
+   * The revision number of the automation rule.
+   *
    * @public
    */
   ruleRevision?: number | undefined;
 
   /**
-   * <p>The 12-digit Amazon Web Services account ID that owns this automation rule.</p>
+   * The 12-digit Amazon Web Services account ID that owns this automation rule.
+   *
    * @public
    */
   accountId?: string | undefined;
 
   /**
-   * <p>Configuration settings for organization-wide rules.</p>
+   * Configuration settings for organization-wide rules.
+   *
    * @public
    */
   organizationConfiguration?: OrganizationConfiguration | undefined;
 
   /**
-   * <p>A string representation of a decimal number between 0 and 1 (having up to 30 digits after the decimal point) that determines the priority of the rule. When multiple rules match the same recommended action, Compute Optimizer assigns the action to the rule with the lowest priority value (highest priority), even if that rule is scheduled to run later than other matching rules.</p>
+   * A string representation of a decimal number between 0 and 1 (having up to 30 digits after the decimal point) that determines the priority of the rule. When multiple rules match the same recommended action, Compute Optimizer assigns the action to the rule with the lowest priority value (highest priority), even if that rule is scheduled to run later than other matching rules.
+   *
    * @public
    */
   priority?: string | undefined;
 
   /**
-   * <p>List of recommended action types that this rule can execute.</p>
+   * List of recommended action types that this rule can execute.
+   *
    * @public
    */
   recommendedActionTypes?: RecommendedActionType[] | undefined;
 
   /**
-   * <p>The schedule configuration for when the automation rule should execute.</p>
+   * The schedule configuration for when the automation rule should execute.
+   *
    * @public
    */
   schedule?: Schedule | undefined;
 
   /**
-   * <p>The current status of the automation rule (Active or Inactive).</p>
+   * The current status of the automation rule (Active or Inactive).
+   *
    * @public
    */
   status?: RuleStatus | undefined;
 
   /**
-   * <p>The timestamp when the automation rule was created.</p>
+   * The timestamp when the automation rule was created.
+   *
    * @public
    */
   createdTimestamp?: Date | undefined;
 
   /**
-   * <p>The timestamp when the automation rule was last updated.</p>
+   * The timestamp when the automation rule was last updated.
+   *
    * @public
    */
   lastUpdatedTimestamp?: Date | undefined;
 }
 
 /**
- * <p>Defines a condition for filtering based on integer values with comparison operators.</p>
+ * Defines a condition for filtering based on integer values with comparison operators.
+ *
  * @public
  */
 export interface IntegerCriteriaCondition {
   /**
-   * <p>The comparison operator used to evaluate the attribute against the specified values.</p>
+   * The comparison operator used to evaluate the attribute against the specified values.
+   *
    * @public
    */
   comparison?: ComparisonOperator | undefined;
 
   /**
-   * <p>The list of integer values to compare against using the specified comparison operator.</p>
+   * The list of integer values to compare against using the specified comparison operator.
+   *
    * @public
    */
   values?: number[] | undefined;
 }
 
 /**
- * <p>Criteria condition for filtering based on string values, including comparison operators and target values.</p>
+ * Criteria condition for filtering based on string values, including comparison operators and target values.
+ *
  * @public
  */
 export interface StringCriteriaCondition {
   /**
-   * <p>The comparison operator used to evaluate the attribute against the specified values.</p>
+   * The comparison operator used to evaluate the attribute against the specified values.
+   *
    * @public
    */
   comparison?: ComparisonOperator | undefined;
 
   /**
-   * <p>List of string values to compare against when applying the criteria condition.</p>
+   * List of string values to compare against when applying the criteria condition.
+   *
    * @public
    */
   values?: string[] | undefined;
 }
 
 /**
- * <p>Defines a condition for filtering based on double/floating-point numeric values with comparison operators.</p>
+ * Defines a condition for filtering based on double/floating-point numeric values with comparison operators.
+ *
  * @public
  */
 export interface DoubleCriteriaCondition {
   /**
-   * <p>The comparison operator used to evaluate the attribute against the specified values.</p>
+   * The comparison operator used to evaluate the attribute against the specified values.
+   *
    * @public
    */
   comparison?: ComparisonOperator | undefined;
 
   /**
-   * <p>The list of double values to compare against using the specified comparison operator.</p>
+   * The list of double values to compare against using the specified comparison operator.
+   *
    * @public
    */
   values?: number[] | undefined;
 }
 
 /**
- * <p>Criteria condition for filtering resources based on their tags, including comparison operators and values.</p>
+ * Criteria condition for filtering resources based on their tags, including comparison operators and values.
+ *
  * @public
  */
 export interface ResourceTagsCriteriaCondition {
   /**
-   * <p>The comparison operator used to evaluate the attribute against the specified values.</p>
+   * The comparison operator used to evaluate the attribute against the specified values.
+   *
    * @public
    */
   comparison?: ComparisonOperator | undefined;
 
   /**
-   * <p>The tag key to use for comparison when filtering resources.</p>
+   * The tag key to use for comparison when filtering resources.
+   *
    * @public
    */
   key?: string | undefined;
 
   /**
-   * <p>List of tag values to compare against when filtering resources.</p>
+   * List of tag values to compare against when filtering resources.
+   *
    * @public
    */
   values?: string[] | undefined;
 }
 
 /**
- * <p> A set of conditions that specify which recommended action qualify for implementation. When a rule is active and a recommended action matches these criteria, Compute Optimizer implements the action at the scheduled run time. You can specify up to 20 conditions per filter criteria and 20 values per condition. </p>
+ * A set of conditions that specify which recommended action qualify for implementation. When a rule is active and a recommended action matches these criteria, Compute Optimizer implements the action at the scheduled run time. You can specify up to 20 conditions per filter criteria and 20 values per condition.
+ *
  * @public
  */
 export interface Criteria {
   /**
-   * <p>Filter criteria for Amazon Web Services regions where resources must be located.</p>
+   * Filter criteria for Amazon Web Services regions where resources must be located.
+   *
    * @public
    */
   region?: StringCriteriaCondition[] | undefined;
 
   /**
-   * <p>Filter criteria for specific resource ARNs to include or exclude.</p>
+   * Filter criteria for specific resource ARNs to include or exclude.
+   *
    * @public
    */
   resourceArn?: StringCriteriaCondition[] | undefined;
 
   /**
-   * <p>Filter criteria for EBS volume types, such as gp2, gp3, io1, io2, st1, or sc1.</p>
+   * Filter criteria for EBS volume types, such as gp2, gp3, io1, io2, st1, or sc1.
+   *
    * @public
    */
   ebsVolumeType?: StringCriteriaCondition[] | undefined;
 
   /**
-   * <p>Filter criteria for EBS volume sizes in gibibytes (GiB).</p>
+   * Filter criteria for EBS volume sizes in gibibytes (GiB).
+   *
    * @public
    */
   ebsVolumeSizeInGib?: IntegerCriteriaCondition[] | undefined;
 
   /**
-   * <p>Filter criteria for estimated monthly cost savings from the recommended action.</p>
+   * Filter criteria for estimated monthly cost savings from the recommended action.
+   *
    * @public
    */
   estimatedMonthlySavings?: DoubleCriteriaCondition[] | undefined;
 
   /**
-   * <p>Filter criteria for resource tags, allowing filtering by tag key and value combinations.</p>
+   * Filter criteria for resource tags, allowing filtering by tag key and value combinations.
+   *
    * @public
    */
   resourceTag?: ResourceTagsCriteriaCondition[] | undefined;
 
   /**
-   * <p>Filter criteria for the lookback period in days used to analyze resource utilization.</p>
+   * Filter criteria for the lookback period in days used to analyze resource utilization.
+   *
    * @public
    */
   lookBackPeriodInDays?: IntegerCriteriaCondition[] | undefined;
 
   /**
-   * <p>Filter criteria indicating whether the recommended action requires a resource restart.</p>
+   * Filter criteria indicating whether the recommended action requires a resource restart.
+   *
    * @public
    */
   restartNeeded?: StringCriteriaCondition[] | undefined;
 }
 
 /**
- * <p>A key-value pair used to categorize and organize Amazon Web Services resources and automation rules.</p>
+ * A key-value pair used to categorize and organize Amazon Web Services resources and automation rules.
+ *
  * @public
  */
 export interface Tag {
   /**
-   * <p>The tag key, which can be up to 128 characters long.</p>
+   * The tag key, which can be up to 128 characters long.
+   *
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>The tag value, which can be up to 256 characters long.</p>
+   * The tag value, which can be up to 256 characters long.
+   *
    * @public
    */
   value: string | undefined;
@@ -658,67 +764,80 @@ export interface Tag {
  */
 export interface CreateAutomationRuleRequest {
   /**
-   * <p> The name of the automation rule. </p>
+   * The name of the automation rule.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p> A description of the automation rule. </p>
+   * A description of the automation rule.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p> The type of rule. </p> <note> <p>Only the management account or a delegated administrator can set the ruleType to be OrganizationRule.</p> </note>
+   * The type of rule.
+   *
+   * > **Note:** Only the management account or a delegated administrator can set the ruleType to be OrganizationRule.
+   *
    * @public
    */
   ruleType: RuleType | undefined;
 
   /**
-   * <p> Configuration for organization-level rules. Required for OrganizationRule type. </p>
+   * Configuration for organization-level rules. Required for OrganizationRule type.
+   *
    * @public
    */
   organizationConfiguration?: OrganizationConfiguration | undefined;
 
   /**
-   * <p>A string representation of a decimal number between 0 and 1 (having up to 30 digits after the decimal point) that determines the priority of the rule. When multiple rules match the same recommended action, Compute Optimizer assigns the action to the rule with the lowest priority value (highest priority), even if that rule is scheduled to run later than other matching rules. </p>
+   * A string representation of a decimal number between 0 and 1 (having up to 30 digits after the decimal point) that determines the priority of the rule. When multiple rules match the same recommended action, Compute Optimizer assigns the action to the rule with the lowest priority value (highest priority), even if that rule is scheduled to run later than other matching rules.
+   *
    * @public
    */
   priority?: string | undefined;
 
   /**
-   * <p> The types of recommended actions this rule will automate. </p>
+   * The types of recommended actions this rule will automate.
+   *
    * @public
    */
   recommendedActionTypes: RecommendedActionType[] | undefined;
 
   /**
-   * <p>A set of conditions that specify which recommended action qualify for implementation. When a rule is active and a recommended action matches these criteria, Compute Optimizer implements the action at the scheduled run time. </p>
+   * A set of conditions that specify which recommended action qualify for implementation. When a rule is active and a recommended action matches these criteria, Compute Optimizer implements the action at the scheduled run time.
+   *
    * @public
    */
   criteria?: Criteria | undefined;
 
   /**
-   * <p> The schedule for when the rule should run. </p>
+   * The schedule for when the rule should run.
+   *
    * @public
    */
   schedule: Schedule | undefined;
 
   /**
-   * <p>The status of the rule </p>
+   * The status of the rule
+   *
    * @public
    */
   status: RuleStatus | undefined;
 
   /**
-   * <p> The tags to associate with the rule. </p>
+   * The tags to associate with the rule.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p> A unique identifier to ensure idempotency of the request. </p>
+   * A unique identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -729,85 +848,99 @@ export interface CreateAutomationRuleRequest {
  */
 export interface CreateAutomationRuleResponse {
   /**
-   * <p> The Amazon Resource Name (ARN) of the created rule. </p>
+   * The Amazon Resource Name (ARN) of the created rule.
+   *
    * @public
    */
   ruleArn?: string | undefined;
 
   /**
-   * <p> The unique identifier of the created rule. </p>
+   * The unique identifier of the created rule.
+   *
    * @public
    */
   ruleId?: string | undefined;
 
   /**
-   * <p>The name of the automation rule. Must be 1-128 characters long and contain only alphanumeric characters, underscores, and hyphens.</p>
+   * The name of the automation rule. Must be 1-128 characters long and contain only alphanumeric characters, underscores, and hyphens.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>A description of the automation rule. Can be up to 1024 characters long and contain alphanumeric characters, underscores, hyphens, spaces, and certain special characters.</p>
+   * A description of the automation rule. Can be up to 1024 characters long and contain alphanumeric characters, underscores, hyphens, spaces, and certain special characters.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The type of automation rule. Can be either OrganizationRule for organization-wide rules or AccountRule for account-specific rules.</p>
+   * The type of automation rule. Can be either OrganizationRule for organization-wide rules or AccountRule for account-specific rules.
+   *
    * @public
    */
   ruleType?: RuleType | undefined;
 
   /**
-   * <p>The revision number of the automation rule. This is incremented each time the rule is updated.</p>
+   * The revision number of the automation rule. This is incremented each time the rule is updated.
+   *
    * @public
    */
   ruleRevision?: number | undefined;
 
   /**
-   * <p>Configuration settings for organization-wide rules, including rule application order and target account IDs.</p>
+   * Configuration settings for organization-wide rules, including rule application order and target account IDs.
+   *
    * @public
    */
   organizationConfiguration?: OrganizationConfiguration | undefined;
 
   /**
-   * <p>The priority level of the automation rule, used to determine execution order when multiple rules apply to the same resource.</p>
+   * The priority level of the automation rule, used to determine execution order when multiple rules apply to the same resource.
+   *
    * @public
    */
   priority?: string | undefined;
 
   /**
-   * <p>List of recommended action types that this rule can execute, such as SnapshotAndDeleteUnattachedEbsVolume or UpgradeEbsVolumeType.</p>
+   * List of recommended action types that this rule can execute, such as SnapshotAndDeleteUnattachedEbsVolume or UpgradeEbsVolumeType.
+   *
    * @public
    */
   recommendedActionTypes?: RecommendedActionType[] | undefined;
 
   /**
-   * <p> A set of conditions that specify which recommended action qualify for implementation. When a rule is active and a recommended action matches these criteria, Compute Optimizer implements the action at the scheduled run time. You can specify up to 20 conditions per filter criteria and 20 values per condition. </p>
+   * A set of conditions that specify which recommended action qualify for implementation. When a rule is active and a recommended action matches these criteria, Compute Optimizer implements the action at the scheduled run time. You can specify up to 20 conditions per filter criteria and 20 values per condition.
+   *
    * @public
    */
   criteria?: Criteria | undefined;
 
   /**
-   * <p>The schedule configuration for when the automation rule should execute, including cron expression, timezone, and execution window.</p>
+   * The schedule configuration for when the automation rule should execute, including cron expression, timezone, and execution window.
+   *
    * @public
    */
   schedule?: Schedule | undefined;
 
   /**
-   * <p>The current status of the automation rule. Can be Active or Inactive.</p>
+   * The current status of the automation rule. Can be Active or Inactive.
+   *
    * @public
    */
   status?: RuleStatus | undefined;
 
   /**
-   * <p>A list of key-value pairs used to categorize and organize the automation rule. Maximum of 200 tags allowed.</p>
+   * A list of key-value pairs used to categorize and organize the automation rule. Maximum of 200 tags allowed.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p>The timestamp when the automation rule was created.</p>
+   * The timestamp when the automation rule was created.
+   *
    * @public
    */
   createdTimestamp?: Date | undefined;
@@ -818,19 +951,22 @@ export interface CreateAutomationRuleResponse {
  */
 export interface DeleteAutomationRuleRequest {
   /**
-   * <p> The ARN of the rule to delete. </p>
+   * The ARN of the rule to delete.
+   *
    * @public
    */
   ruleArn: string | undefined;
 
   /**
-   * <p> The revision number of the rule to delete. </p>
+   * The revision number of the rule to delete.
+   *
    * @public
    */
   ruleRevision: number | undefined;
 
   /**
-   * <p> A unique identifier to ensure idempotency of the request. </p>
+   * A unique identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -846,13 +982,15 @@ export interface DeleteAutomationRuleResponse {}
  */
 export interface DisassociateAccountsRequest {
   /**
-   * <p> The IDs of the member accounts to disassociate. </p>
+   * The IDs of the member accounts to disassociate.
+   *
    * @public
    */
   accountIds: string[] | undefined;
 
   /**
-   * <p> A unique identifier to ensure idempotency of the request. </p>
+   * A unique identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -863,13 +1001,15 @@ export interface DisassociateAccountsRequest {
  */
 export interface DisassociateAccountsResponse {
   /**
-   * <p> The IDs of the member accounts that were successfully disassociated. </p>
+   * The IDs of the member accounts that were successfully disassociated.
+   *
    * @public
    */
   accountIds?: string[] | undefined;
 
   /**
-   * <p> Any errors that occurred during the disassociation process. </p>
+   * Any errors that occurred during the disassociation process.
+   *
    * @public
    */
   errors?: string[] | undefined;
@@ -880,7 +1020,8 @@ export interface DisassociateAccountsResponse {
  */
 export interface GetAutomationEventRequest {
   /**
-   * <p> The ID of the automation event to retrieve. </p>
+   * The ID of the automation event to retrieve.
+   *
    * @public
    */
   eventId: string | undefined;
@@ -891,91 +1032,106 @@ export interface GetAutomationEventRequest {
  */
 export interface GetAutomationEventResponse {
   /**
-   * <p>The ID of the automation event to retrieve.</p>
+   * The ID of the automation event to retrieve.
+   *
    * @public
    */
   eventId?: string | undefined;
 
   /**
-   * <p>A description of the automation event.</p>
+   * A description of the automation event.
+   *
    * @public
    */
   eventDescription?: string | undefined;
 
   /**
-   * <p>The type of automation event.</p>
+   * The type of automation event.
+   *
    * @public
    */
   eventType?: EventType | undefined;
 
   /**
-   * <p>The current status of the automation event.</p>
+   * The current status of the automation event.
+   *
    * @public
    */
   eventStatus?: EventStatus | undefined;
 
   /**
-   * <p>The reason for the current event status.</p>
+   * The reason for the current event status.
+   *
    * @public
    */
   eventStatusReason?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource affected by the automation event.</p>
+   * The Amazon Resource Name (ARN) of the resource affected by the automation event.
+   *
    * @public
    */
   resourceArn?: string | undefined;
 
   /**
-   * <p>The ID of the resource affected by the automation event.</p>
+   * The ID of the resource affected by the automation event.
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>The ID of the recommended action associated with this automation event.</p>
+   * The ID of the recommended action associated with this automation event.
+   *
    * @public
    */
   recommendedActionId?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID associated with the automation event.</p>
+   * The Amazon Web Services account ID associated with the automation event.
+   *
    * @public
    */
   accountId?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region where the automation event occurred.</p>
+   * The Amazon Web Services Region where the automation event occurred.
+   *
    * @public
    */
   region?: string | undefined;
 
   /**
-   * <p>The ID of the automation rule that triggered this event.</p>
+   * The ID of the automation rule that triggered this event.
+   *
    * @public
    */
   ruleId?: string | undefined;
 
   /**
-   * <p>The type of resource affected by the automation event.</p>
+   * The type of resource affected by the automation event.
+   *
    * @public
    */
   resourceType?: ResourceType | undefined;
 
   /**
-   * <p>The timestamp when the automation event was created.</p>
+   * The timestamp when the automation event was created.
+   *
    * @public
    */
   createdTimestamp?: Date | undefined;
 
   /**
-   * <p>The timestamp when the automation event completed.</p>
+   * The timestamp when the automation event completed.
+   *
    * @public
    */
   completedTimestamp?: Date | undefined;
 
   /**
-   * <p> Contains information about estimated monthly cost savings. </p>
+   * Contains information about estimated monthly cost savings.
+   *
    * @public
    */
   estimatedMonthlySavings?: EstimatedMonthlySavings | undefined;
@@ -986,7 +1142,8 @@ export interface GetAutomationEventResponse {
  */
 export interface GetAutomationRuleRequest {
   /**
-   * <p> The ARN of the rule to retrieve. </p>
+   * The ARN of the rule to retrieve.
+   *
    * @public
    */
   ruleArn: string | undefined;
@@ -997,97 +1154,113 @@ export interface GetAutomationRuleRequest {
  */
 export interface GetAutomationRuleResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the automation rule.</p>
+   * The Amazon Resource Name (ARN) of the automation rule.
+   *
    * @public
    */
   ruleArn?: string | undefined;
 
   /**
-   * <p>The unique identifier of the automation rule.</p>
+   * The unique identifier of the automation rule.
+   *
    * @public
    */
   ruleId?: string | undefined;
 
   /**
-   * <p>The name of the automation rule.</p>
+   * The name of the automation rule.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>A description of the automation rule.</p>
+   * A description of the automation rule.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The type of automation rule.</p>
+   * The type of automation rule.
+   *
    * @public
    */
   ruleType?: RuleType | undefined;
 
   /**
-   * <p>The revision number of the automation rule.</p>
+   * The revision number of the automation rule.
+   *
    * @public
    */
   ruleRevision?: number | undefined;
 
   /**
-   * <p>The 12-digit Amazon Web Services account ID that owns this automation rule.</p>
+   * The 12-digit Amazon Web Services account ID that owns this automation rule.
+   *
    * @public
    */
   accountId?: string | undefined;
 
   /**
-   * <p>Configuration settings for organization-wide automation rules.</p>
+   * Configuration settings for organization-wide automation rules.
+   *
    * @public
    */
   organizationConfiguration?: OrganizationConfiguration | undefined;
 
   /**
-   * <p>A string representation of a decimal number between 0 and 1 (having up to 30 digits after the decimal point) that determines the priority of the rule.</p>
+   * A string representation of a decimal number between 0 and 1 (having up to 30 digits after the decimal point) that determines the priority of the rule.
+   *
    * @public
    */
   priority?: string | undefined;
 
   /**
-   * <p>List of recommended action types that this rule can execute.</p>
+   * List of recommended action types that this rule can execute.
+   *
    * @public
    */
   recommendedActionTypes?: RecommendedActionType[] | undefined;
 
   /**
-   * <p> A set of conditions that specify which recommended action qualify for implementation. When a rule is active and a recommended action matches these criteria, Compute Optimizer implements the action at the scheduled run time. You can specify up to 20 conditions per filter criteria and 20 values per condition. </p>
+   * A set of conditions that specify which recommended action qualify for implementation. When a rule is active and a recommended action matches these criteria, Compute Optimizer implements the action at the scheduled run time. You can specify up to 20 conditions per filter criteria and 20 values per condition.
+   *
    * @public
    */
   criteria?: Criteria | undefined;
 
   /**
-   * <p>Configuration for scheduling when automation rules should execute, including timing and execution windows.</p>
+   * Configuration for scheduling when automation rules should execute, including timing and execution windows.
+   *
    * @public
    */
   schedule?: Schedule | undefined;
 
   /**
-   * <p>The current status of the automation rule (Active or Inactive).</p>
+   * The current status of the automation rule (Active or Inactive).
+   *
    * @public
    */
   status?: RuleStatus | undefined;
 
   /**
-   * <p>The tags associated with the automation rule.</p>
+   * The tags associated with the automation rule.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p>The timestamp when the automation rule was created.</p>
+   * The timestamp when the automation rule was created.
+   *
    * @public
    */
   createdTimestamp?: Date | undefined;
 
   /**
-   * <p>The timestamp when the automation rule was last updated.</p>
+   * The timestamp when the automation rule was last updated.
+   *
    * @public
    */
   lastUpdatedTimestamp?: Date | undefined;
@@ -1103,25 +1276,29 @@ export interface GetEnrollmentConfigurationRequest {}
  */
 export interface GetEnrollmentConfigurationResponse {
   /**
-   * <p> The current enrollment status. </p>
+   * The current enrollment status.
+   *
    * @public
    */
   status: EnrollmentStatus | undefined;
 
   /**
-   * <p> The reason for the current enrollment status. </p>
+   * The reason for the current enrollment status.
+   *
    * @public
    */
   statusReason?: string | undefined;
 
   /**
-   * <p>Specifies whether the management account can create Automation rules that implement optimization actions for this account. </p>
+   * Specifies whether the management account can create Automation rules that implement optimization actions for this account.
+   *
    * @public
    */
   organizationRuleMode?: OrganizationRuleMode | undefined;
 
   /**
-   * <p> The timestamp of the last update to the enrollment configuration. </p>
+   * The timestamp of the last update to the enrollment configuration.
+   *
    * @public
    */
   lastUpdatedTimestamp?: Date | undefined;
@@ -1132,13 +1309,15 @@ export interface GetEnrollmentConfigurationResponse {
  */
 export interface ListAccountsRequest {
   /**
-   * <p> The maximum number of results to return in a single call. </p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p> The token for the next page of results. </p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1149,13 +1328,15 @@ export interface ListAccountsRequest {
  */
 export interface ListAccountsResponse {
   /**
-   * <p> The list of accounts in your organization enrolled in Compute Optimizer </p>
+   * The list of accounts in your organization enrolled in Compute Optimizer
+   *
    * @public
    */
   accounts: AccountInfo[] | undefined;
 
   /**
-   * <p> The token to use to retrieve the next page of results. </p>
+   * The token to use to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1166,31 +1347,36 @@ export interface ListAccountsResponse {
  */
 export interface ListAutomationEventsRequest {
   /**
-   * <p> The filters to apply to the list of automation events. </p>
+   * The filters to apply to the list of automation events.
+   *
    * @public
    */
   filters?: AutomationEventFilter[] | undefined;
 
   /**
-   * <p> The start of the time range to query for events. </p>
+   * The start of the time range to query for events.
+   *
    * @public
    */
   startTimeInclusive?: Date | undefined;
 
   /**
-   * <p> The end of the time range to query for events. </p>
+   * The end of the time range to query for events.
+   *
    * @public
    */
   endTimeExclusive?: Date | undefined;
 
   /**
-   * <p> The maximum number of results to return in a single call. </p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p> The token for the next page of results. </p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1201,13 +1387,15 @@ export interface ListAutomationEventsRequest {
  */
 export interface ListAutomationEventsResponse {
   /**
-   * <p> The list of automation events that match the specified criteria. </p>
+   * The list of automation events that match the specified criteria.
+   *
    * @public
    */
   automationEvents?: AutomationEvent[] | undefined;
 
   /**
-   * <p> The token to use to retrieve the next page of results. </p>
+   * The token to use to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1218,19 +1406,22 @@ export interface ListAutomationEventsResponse {
  */
 export interface ListAutomationEventStepsRequest {
   /**
-   * <p> The ID of the automation event. </p>
+   * The ID of the automation event.
+   *
    * @public
    */
   eventId: string | undefined;
 
   /**
-   * <p>The maximum number of automation event steps to return in a single response. Valid range is 1-1000.</p>
+   * The maximum number of automation event steps to return in a single response. Valid range is 1-1000.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token used for pagination to retrieve the next set of results when the response is truncated.</p>
+   * A token used for pagination to retrieve the next set of results when the response is truncated.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1241,13 +1432,15 @@ export interface ListAutomationEventStepsRequest {
  */
 export interface ListAutomationEventStepsResponse {
   /**
-   * <p> The list of steps for the specified automation event. </p>
+   * The list of steps for the specified automation event.
+   *
    * @public
    */
   automationEventSteps?: AutomationEventStep[] | undefined;
 
   /**
-   * <p>A token used for pagination. If present, indicates there are more results available and can be used in subsequent requests.</p>
+   * A token used for pagination. If present, indicates there are more results available and can be used in subsequent requests.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1258,31 +1451,36 @@ export interface ListAutomationEventStepsResponse {
  */
 export interface ListAutomationEventSummariesRequest {
   /**
-   * <p> The filters to apply to the list of automation event summaries. </p>
+   * The filters to apply to the list of automation event summaries.
+   *
    * @public
    */
   filters?: AutomationEventFilter[] | undefined;
 
   /**
-   * <p>The start date for filtering automation event summaries, inclusive. Events created on or after this date will be included.</p>
+   * The start date for filtering automation event summaries, inclusive. Events created on or after this date will be included.
+   *
    * @public
    */
   startDateInclusive?: string | undefined;
 
   /**
-   * <p>The end date for filtering automation event summaries, exclusive. Events created before this date will be included.</p>
+   * The end date for filtering automation event summaries, exclusive. Events created before this date will be included.
+   *
    * @public
    */
   endDateExclusive?: string | undefined;
 
   /**
-   * <p>The maximum number of automation event summaries to return in a single response. Valid range is 1-1000.</p>
+   * The maximum number of automation event summaries to return in a single response. Valid range is 1-1000.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token used for pagination to retrieve the next set of results when the response is truncated.</p>
+   * A token used for pagination to retrieve the next set of results when the response is truncated.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1293,25 +1491,29 @@ export interface ListAutomationEventSummariesRequest {
  */
 export interface ListAutomationEventSummariesResponse {
   /**
-   * <p> The list of automation event summaries that match the specified criteria. </p>
+   * The list of automation event summaries that match the specified criteria.
+   *
    * @public
    */
   automationEventSummaries?: AutomationEventSummary[] | undefined;
 
   /**
-   * <p>A token used for pagination. If present, indicates there are more results available and can be used in subsequent requests.</p>
+   * A token used for pagination. If present, indicates there are more results available and can be used in subsequent requests.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p> Defines the scope for organization-level rules when previewing matching actions.</p>
+ * Defines the scope for organization-level rules when previewing matching actions.
+ *
  * @public
  */
 export interface OrganizationScope {
   /**
-   * <p>List of Amazon Web Services account IDs to include in the organization scope.</p>
+   * List of Amazon Web Services account IDs to include in the organization scope.
+   *
    * @public
    */
   accountIds?: string[] | undefined;
@@ -1322,86 +1524,102 @@ export interface OrganizationScope {
  */
 export interface ListAutomationRulePreviewRequest {
   /**
-   * <p> The type of rule. </p> <note> <p>Only the management account or a delegated administrator can set the ruleType to be OrganizationRule.</p> </note>
+   * The type of rule.
+   *
+   * > **Note:** Only the management account or a delegated administrator can set the ruleType to be OrganizationRule.
+   *
    * @public
    */
   ruleType: RuleType | undefined;
 
   /**
-   * <p> The organizational scope for the rule preview. </p>
+   * The organizational scope for the rule preview.
+   *
    * @public
    */
   organizationScope?: OrganizationScope | undefined;
 
   /**
-   * <p> The types of recommended actions to include in the preview. </p>
+   * The types of recommended actions to include in the preview.
+   *
    * @public
    */
   recommendedActionTypes: RecommendedActionType[] | undefined;
 
   /**
-   * <p>A set of conditions that specify which recommended action qualify for implementation. When a rule is active and a recommended action matches these criteria, Compute Optimizer implements the action at the scheduled run time. </p>
+   * A set of conditions that specify which recommended action qualify for implementation. When a rule is active and a recommended action matches these criteria, Compute Optimizer implements the action at the scheduled run time.
+   *
    * @public
    */
   criteria?: Criteria | undefined;
 
   /**
-   * <p>The maximum number of automation rule preview results to return in a single response. Valid range is 1-1000.</p>
+   * The maximum number of automation rule preview results to return in a single response. Valid range is 1-1000.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token used for pagination to retrieve the next set of results when the response is truncated.</p>
+   * A token used for pagination to retrieve the next set of results when the response is truncated.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Configuration details for an Amazon EBS volume.</p>
+ * Configuration details for an Amazon EBS volume.
+ *
  * @public
  */
 export interface EbsVolumeConfiguration {
   /**
-   * <p>The EBS volume type, such as gp2, gp3, io1, io2, st1, or sc1.</p>
+   * The EBS volume type, such as gp2, gp3, io1, io2, st1, or sc1.
+   *
    * @public
    */
   type?: string | undefined;
 
   /**
-   * <p>The size of the EBS volume in gibibytes (GiB).</p>
+   * The size of the EBS volume in gibibytes (GiB).
+   *
    * @public
    */
   sizeInGib?: number | undefined;
 
   /**
-   * <p>The number of I/O operations per second (IOPS) provisioned for the volume.</p>
+   * The number of I/O operations per second (IOPS) provisioned for the volume.
+   *
    * @public
    */
   iops?: number | undefined;
 
   /**
-   * <p>The throughput in MiB/s provisioned for the volume (applicable to gp3, io1, and io2bx volumes).</p>
+   * The throughput in MiB/s provisioned for the volume (applicable to gp3, io1, and io2bx volumes).
+   *
    * @public
    */
   throughput?: number | undefined;
 }
 
 /**
- * <p>Represents an Amazon EBS volume with its configuration and snapshot usage information.</p>
+ * Represents an Amazon EBS volume with its configuration and snapshot usage information.
+ *
  * @public
  */
 export interface EbsVolume {
   /**
-   * <p>The configuration details of the EBS volume, including type, size, IOPS, and throughput.</p>
+   * The configuration details of the EBS volume, including type, size, IOPS, and throughput.
+   *
    * @public
    */
   configuration?: EbsVolumeConfiguration | undefined;
 }
 
 /**
- * <p>Detailed configuration information for a specific Amazon Web Services resource, with type-specific details.</p>
+ * Detailed configuration information for a specific Amazon Web Services resource, with type-specific details.
+ *
  * @public
  */
 export type ResourceDetails =
@@ -1413,7 +1631,8 @@ export type ResourceDetails =
  */
 export namespace ResourceDetails {
   /**
-   * <p>Detailed configuration information specific to EBS volumes, including volume type, size, IOPS, and throughput settings.</p>
+   * Detailed configuration information specific to EBS volumes, including volume type, size, IOPS, and throughput settings.
+   *
    * @public
    */
   export interface EbsVolumeMember {
@@ -1440,96 +1659,112 @@ export namespace ResourceDetails {
 }
 
 /**
- * <p>Contains the results of previewing an automation rule against available recommendations.</p>
+ * Contains the results of previewing an automation rule against available recommendations.
+ *
  * @public
  */
 export interface PreviewResult {
   /**
-   * <p>The ID of the recommended action being previewed.</p>
+   * The ID of the recommended action being previewed.
+   *
    * @public
    */
   recommendedActionId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource affected by the recommended action.</p>
+   * The Amazon Resource Name (ARN) of the resource affected by the recommended action.
+   *
    * @public
    */
   resourceArn?: string | undefined;
 
   /**
-   * <p>The ID of the resource affected by the recommended action.</p>
+   * The ID of the resource affected by the recommended action.
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID associated with the resource.</p>
+   * The Amazon Web Services account ID associated with the resource.
+   *
    * @public
    */
   accountId?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region where the resource is located.</p>
+   * The Amazon Web Services Region where the resource is located.
+   *
    * @public
    */
   region?: string | undefined;
 
   /**
-   * <p>The type of resource being evaluated.</p>
+   * The type of resource being evaluated.
+   *
    * @public
    */
   resourceType?: ResourceType | undefined;
 
   /**
-   * <p>The number of days of historical data used to analyze the resource.</p>
+   * The number of days of historical data used to analyze the resource.
+   *
    * @public
    */
   lookBackPeriodInDays?: number | undefined;
 
   /**
-   * <p>The type of recommended action being previewed.</p>
+   * The type of recommended action being previewed.
+   *
    * @public
    */
   recommendedActionType?: RecommendedActionType | undefined;
 
   /**
-   * <p>A summary of the resource's current configuration.</p>
+   * A summary of the resource's current configuration.
+   *
    * @public
    */
   currentResourceSummary?: string | undefined;
 
   /**
-   * <p>Detailed configuration information for a specific Amazon Web Services resource, with type-specific details.</p>
+   * Detailed configuration information for a specific Amazon Web Services resource, with type-specific details.
+   *
    * @public
    */
   currentResourceDetails?: ResourceDetails | undefined;
 
   /**
-   * <p>A summary of the resource's recommended configuration.</p>
+   * A summary of the resource's recommended configuration.
+   *
    * @public
    */
   recommendedResourceSummary?: string | undefined;
 
   /**
-   * <p>Detailed configuration information for a specific Amazon Web Services resource, with type-specific details.</p>
+   * Detailed configuration information for a specific Amazon Web Services resource, with type-specific details.
+   *
    * @public
    */
   recommendedResourceDetails?: ResourceDetails | undefined;
 
   /**
-   * <p>Indicates whether implementing the recommended action requires a resource restart.</p>
+   * Indicates whether implementing the recommended action requires a resource restart.
+   *
    * @public
    */
   restartNeeded?: boolean | undefined;
 
   /**
-   * <p> Contains information about estimated monthly cost savings. </p>
+   * Contains information about estimated monthly cost savings.
+   *
    * @public
    */
   estimatedMonthlySavings?: EstimatedMonthlySavings | undefined;
 
   /**
-   * <p>The tags associated with the resource.</p>
+   * The tags associated with the resource.
+   *
    * @public
    */
   resourceTags?: Tag[] | undefined;
@@ -1540,13 +1775,15 @@ export interface PreviewResult {
  */
 export interface ListAutomationRulePreviewResponse {
   /**
-   * <p> The list of actions that would be taken based on the specified criteria. </p>
+   * The list of actions that would be taken based on the specified criteria.
+   *
    * @public
    */
   previewResults?: PreviewResult[] | undefined;
 
   /**
-   * <p>A token used for pagination. If present, indicates there are more results available and can be used in subsequent requests.</p>
+   * A token used for pagination. If present, indicates there are more results available and can be used in subsequent requests.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1557,73 +1794,85 @@ export interface ListAutomationRulePreviewResponse {
  */
 export interface ListAutomationRulePreviewSummariesRequest {
   /**
-   * <p>The type of rule.</p>
+   * The type of rule.
+   *
    * @public
    */
   ruleType: RuleType | undefined;
 
   /**
-   * <p>The organizational scope for the rule preview.</p>
+   * The organizational scope for the rule preview.
+   *
    * @public
    */
   organizationScope?: OrganizationScope | undefined;
 
   /**
-   * <p>The types of recommended actions to include in the preview.</p>
+   * The types of recommended actions to include in the preview.
+   *
    * @public
    */
   recommendedActionTypes: RecommendedActionType[] | undefined;
 
   /**
-   * <p> A set of conditions that specify which recommended action qualify for implementation. When a rule is active and a recommended action matches these criteria, Compute Optimizer implements the action at the scheduled run time. You can specify up to 20 conditions per filter criteria and 20 values per condition. </p>
+   * A set of conditions that specify which recommended action qualify for implementation. When a rule is active and a recommended action matches these criteria, Compute Optimizer implements the action at the scheduled run time. You can specify up to 20 conditions per filter criteria and 20 values per condition.
+   *
    * @public
    */
   criteria?: Criteria | undefined;
 
   /**
-   * <p>The maximum number of automation rule preview summaries to return in a single response. Valid range is 1-1000.</p>
+   * The maximum number of automation rule preview summaries to return in a single response. Valid range is 1-1000.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token used for pagination to retrieve the next set of results when the response is truncated.</p>
+   * A token used for pagination to retrieve the next set of results when the response is truncated.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Aggregate totals for automation rule preview results, including count and estimated savings.</p>
+ * Aggregate totals for automation rule preview results, including count and estimated savings.
+ *
  * @public
  */
 export interface RulePreviewTotal {
   /**
-   * <p>The total number of recommended actions matching the rule preview configuration.</p>
+   * The total number of recommended actions matching the rule preview configuration.
+   *
    * @public
    */
   recommendedActionCount: number | undefined;
 
   /**
-   * <p> Contains information about estimated monthly cost savings. </p>
+   * Contains information about estimated monthly cost savings.
+   *
    * @public
    */
   estimatedMonthlySavings: EstimatedMonthlySavings | undefined;
 }
 
 /**
- * <p>Contains a summary of preview results for an automation rule.</p>
+ * Contains a summary of preview results for an automation rule.
+ *
  * @public
  */
 export interface PreviewResultSummary {
   /**
-   * <p>The key identifier for this preview result summary.</p>
+   * The key identifier for this preview result summary.
+   *
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>Aggregate totals for automation rule preview results, including count and estimated savings.</p>
+   * Aggregate totals for automation rule preview results, including count and estimated savings.
+   *
    * @public
    */
   total: RulePreviewTotal | undefined;
@@ -1634,31 +1883,36 @@ export interface PreviewResultSummary {
  */
 export interface ListAutomationRulePreviewSummariesResponse {
   /**
-   * <p>The list of automation rule preview summaries that match the specified criteria.</p>
+   * The list of automation rule preview summaries that match the specified criteria.
+   *
    * @public
    */
   previewResultSummaries?: PreviewResultSummary[] | undefined;
 
   /**
-   * <p>A token used for pagination. If present, indicates there are more results available and can be used in subsequent requests.</p>
+   * A token used for pagination. If present, indicates there are more results available and can be used in subsequent requests.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>A filter used to narrow down results based on specific criteria.</p>
+ * A filter used to narrow down results based on specific criteria.
+ *
  * @public
  */
 export interface Filter {
   /**
-   * <p>The name of the filter field to apply.</p>
+   * The name of the filter field to apply.
+   *
    * @public
    */
   name: AutomationRuleFilterName | undefined;
 
   /**
-   * <p>The list of values to filter by for the specified filter field.</p>
+   * The list of values to filter by for the specified filter field.
+   *
    * @public
    */
   values: string[] | undefined;
@@ -1669,19 +1923,22 @@ export interface Filter {
  */
 export interface ListAutomationRulesRequest {
   /**
-   * <p> The filters to apply to the list of automation rules. </p>
+   * The filters to apply to the list of automation rules.
+   *
    * @public
    */
   filters?: Filter[] | undefined;
 
   /**
-   * <p>The maximum number of automation rules to return in a single response. Valid range is 1-1000.</p>
+   * The maximum number of automation rules to return in a single response. Valid range is 1-1000.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token used for pagination to retrieve the next set of results when the response is truncated.</p>
+   * A token used for pagination to retrieve the next set of results when the response is truncated.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1692,31 +1949,36 @@ export interface ListAutomationRulesRequest {
  */
 export interface ListAutomationRulesResponse {
   /**
-   * <p> The list of automation rules that match the specified criteria. </p>
+   * The list of automation rules that match the specified criteria.
+   *
    * @public
    */
   automationRules?: AutomationRule[] | undefined;
 
   /**
-   * <p>A token used for pagination. If present, indicates there are more results available and can be used in subsequent requests.</p>
+   * A token used for pagination. If present, indicates there are more results available and can be used in subsequent requests.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>A filter used to narrow down recommended action results based on specific criteria.</p>
+ * A filter used to narrow down recommended action results based on specific criteria.
+ *
  * @public
  */
 export interface RecommendedActionFilter {
   /**
-   * <p>The name of the filter field to apply.</p>
+   * The name of the filter field to apply.
+   *
    * @public
    */
   name: RecommendedActionFilterName | undefined;
 
   /**
-   * <p>List of filter values to match against the specified filter name. Used to narrow down recommended actions based on specific criteria.</p>
+   * List of filter values to match against the specified filter name. Used to narrow down recommended actions based on specific criteria.
+   *
    * @public
    */
   values: string[] | undefined;
@@ -1727,115 +1989,134 @@ export interface RecommendedActionFilter {
  */
 export interface ListRecommendedActionsRequest {
   /**
-   * <p> The filters to apply to the list of recommended actions. </p>
+   * The filters to apply to the list of recommended actions.
+   *
    * @public
    */
   filters?: RecommendedActionFilter[] | undefined;
 
   /**
-   * <p>The maximum number of recommended actions to return in a single response. Valid range is 1-1000.</p>
+   * The maximum number of recommended actions to return in a single response. Valid range is 1-1000.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token used for pagination to retrieve the next set of results when the response is truncated.</p>
+   * A token used for pagination to retrieve the next set of results when the response is truncated.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Contains information about a recommended action that can be applied to optimize an Amazon Web Services resource.</p>
+ * Contains information about a recommended action that can be applied to optimize an Amazon Web Services resource.
+ *
  * @public
  */
 export interface RecommendedAction {
   /**
-   * <p>The unique identifier of the recommended action.</p>
+   * The unique identifier of the recommended action.
+   *
    * @public
    */
   recommendedActionId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource that the recommendation applies to.</p>
+   * The Amazon Resource Name (ARN) of the resource that the recommendation applies to.
+   *
    * @public
    */
   resourceArn?: string | undefined;
 
   /**
-   * <p>The ID of the resource that the recommendation applies to.</p>
+   * The ID of the resource that the recommendation applies to.
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID that owns the resource.</p>
+   * The Amazon Web Services account ID that owns the resource.
+   *
    * @public
    */
   accountId?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region where the resource is located.</p>
+   * The Amazon Web Services Region where the resource is located.
+   *
    * @public
    */
   region?: string | undefined;
 
   /**
-   * <p>The type of resource being evaluated.</p>
+   * The type of resource being evaluated.
+   *
    * @public
    */
   resourceType?: ResourceType | undefined;
 
   /**
-   * <p>The number of days of historical data used to generate the recommendation.</p>
+   * The number of days of historical data used to generate the recommendation.
+   *
    * @public
    */
   lookBackPeriodInDays?: number | undefined;
 
   /**
-   * <p>The type of action being recommended.</p>
+   * The type of action being recommended.
+   *
    * @public
    */
   recommendedActionType?: RecommendedActionType | undefined;
 
   /**
-   * <p>A summary of the resource's current configuration.</p>
+   * A summary of the resource's current configuration.
+   *
    * @public
    */
   currentResourceSummary?: string | undefined;
 
   /**
-   * <p>Detailed configuration information for a specific Amazon Web Services resource, with type-specific details.</p>
+   * Detailed configuration information for a specific Amazon Web Services resource, with type-specific details.
+   *
    * @public
    */
   currentResourceDetails?: ResourceDetails | undefined;
 
   /**
-   * <p>A summary of the resource's recommended configuration.</p>
+   * A summary of the resource's recommended configuration.
+   *
    * @public
    */
   recommendedResourceSummary?: string | undefined;
 
   /**
-   * <p>Detailed configuration information for a specific Amazon Web Services resource, with type-specific details.</p>
+   * Detailed configuration information for a specific Amazon Web Services resource, with type-specific details.
+   *
    * @public
    */
   recommendedResourceDetails?: ResourceDetails | undefined;
 
   /**
-   * <p>Indicates whether implementing the recommended action requires a resource restart.</p>
+   * Indicates whether implementing the recommended action requires a resource restart.
+   *
    * @public
    */
   restartNeeded?: boolean | undefined;
 
   /**
-   * <p> Contains information about estimated monthly cost savings. </p>
+   * Contains information about estimated monthly cost savings.
+   *
    * @public
    */
   estimatedMonthlySavings?: EstimatedMonthlySavings | undefined;
 
   /**
-   * <p>The tags associated with the resource.</p>
+   * The tags associated with the resource.
+   *
    * @public
    */
   resourceTags?: Tag[] | undefined;
@@ -1846,13 +2127,15 @@ export interface RecommendedAction {
  */
 export interface ListRecommendedActionsResponse {
   /**
-   * <p> The list of recommended actions that match the specified criteria. </p>
+   * The list of recommended actions that match the specified criteria.
+   *
    * @public
    */
   recommendedActions?: RecommendedAction[] | undefined;
 
   /**
-   * <p>A token used for pagination. If present, indicates there are more results available and can be used in subsequent requests.</p>
+   * A token used for pagination. If present, indicates there are more results available and can be used in subsequent requests.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1863,55 +2146,64 @@ export interface ListRecommendedActionsResponse {
  */
 export interface ListRecommendedActionSummariesRequest {
   /**
-   * <p>A list of filters to apply when retrieving recommended action summaries. Filters can be based on resource type, action type, account ID, and other criteria.</p>
+   * A list of filters to apply when retrieving recommended action summaries. Filters can be based on resource type, action type, account ID, and other criteria.
+   *
    * @public
    */
   filters?: RecommendedActionFilter[] | undefined;
 
   /**
-   * <p>The maximum number of recommended action summaries to return in a single response. Valid range is 1-1000.</p>
+   * The maximum number of recommended action summaries to return in a single response. Valid range is 1-1000.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token used for pagination to retrieve the next set of results when the response is truncated.</p>
+   * A token used for pagination to retrieve the next set of results when the response is truncated.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Aggregate totals for a group of recommended actions, including count and estimated monthly savings.</p>
+ * Aggregate totals for a group of recommended actions, including count and estimated monthly savings.
+ *
  * @public
  */
 export interface RecommendedActionTotal {
   /**
-   * <p>The total number of recommended actions in this group.</p>
+   * The total number of recommended actions in this group.
+   *
    * @public
    */
   recommendedActionCount: number | undefined;
 
   /**
-   * <p> Contains information about estimated monthly cost savings. </p>
+   * Contains information about estimated monthly cost savings.
+   *
    * @public
    */
   estimatedMonthlySavings: EstimatedMonthlySavings | undefined;
 }
 
 /**
- * <p>Summary information about recommended actions, grouped by specific criteria with totals and counts.</p>
+ * Summary information about recommended actions, grouped by specific criteria with totals and counts.
+ *
  * @public
  */
 export interface RecommendedActionSummary {
   /**
-   * <p>The grouping key used to categorize the recommended actions in this summary.</p>
+   * The grouping key used to categorize the recommended actions in this summary.
+   *
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>Aggregate totals for the recommended actions in this group, including count and estimated savings.</p>
+   * Aggregate totals for the recommended actions in this group, including count and estimated savings.
+   *
    * @public
    */
   total: RecommendedActionTotal | undefined;
@@ -1922,13 +2214,15 @@ export interface RecommendedActionSummary {
  */
 export interface ListRecommendedActionSummariesResponse {
   /**
-   * <p> The summary of recommended actions that match the specified criteria. </p>
+   * The summary of recommended actions that match the specified criteria.
+   *
    * @public
    */
   recommendedActionSummaries?: RecommendedActionSummary[] | undefined;
 
   /**
-   * <p>A token used for pagination. If present, indicates there are more results available and can be used in subsequent requests.</p>
+   * A token used for pagination. If present, indicates there are more results available and can be used in subsequent requests.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1939,7 +2233,8 @@ export interface ListRecommendedActionSummariesResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p> The ARN of the resource to list tags for. </p>
+   * The ARN of the resource to list tags for.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -1950,7 +2245,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p> The list of tags associated with the specified resource. </p>
+   * The list of tags associated with the specified resource.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
@@ -1961,13 +2257,15 @@ export interface ListTagsForResourceResponse {
  */
 export interface RollbackAutomationEventRequest {
   /**
-   * <p> The ID of the automation event to roll back. </p>
+   * The ID of the automation event to roll back.
+   *
    * @public
    */
   eventId: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Must be 1-64 characters long and contain only alphanumeric characters, underscores, and hyphens.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Must be 1-64 characters long and contain only alphanumeric characters, underscores, and hyphens.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -1978,13 +2276,15 @@ export interface RollbackAutomationEventRequest {
  */
 export interface RollbackAutomationEventResponse {
   /**
-   * <p> The ID of the automation event being rolled back. </p>
+   * The ID of the automation event being rolled back.
+   *
    * @public
    */
   eventId?: string | undefined;
 
   /**
-   * <p> The current status of the rollback operation. </p>
+   * The current status of the rollback operation.
+   *
    * @public
    */
   eventStatus?: EventStatus | undefined;
@@ -1995,13 +2295,15 @@ export interface RollbackAutomationEventResponse {
  */
 export interface StartAutomationEventRequest {
   /**
-   * <p> The ID of the recommended action to automate. </p>
+   * The ID of the recommended action to automate.
+   *
    * @public
    */
   recommendedActionId: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Must be 1-64 characters long and contain only alphanumeric characters, underscores, and hyphens.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Must be 1-64 characters long and contain only alphanumeric characters, underscores, and hyphens.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -2012,19 +2314,22 @@ export interface StartAutomationEventRequest {
  */
 export interface StartAutomationEventResponse {
   /**
-   * <p>The ID of the recommended action being automated.</p>
+   * The ID of the recommended action being automated.
+   *
    * @public
    */
   recommendedActionId?: string | undefined;
 
   /**
-   * <p>The ID of the automation event.</p>
+   * The ID of the automation event.
+   *
    * @public
    */
   eventId?: string | undefined;
 
   /**
-   * <p>The current status of the automation event.</p>
+   * The current status of the automation event.
+   *
    * @public
    */
   eventStatus?: EventStatus | undefined;
@@ -2035,25 +2340,29 @@ export interface StartAutomationEventResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p> The ARN of the resource to tag. </p>
+   * The ARN of the resource to tag.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The revision number of the automation rule to tag. This ensures you're tagging the correct version of the rule.</p>
+   * The revision number of the automation rule to tag. This ensures you're tagging the correct version of the rule.
+   *
    * @public
    */
   ruleRevision: number | undefined;
 
   /**
-   * <p> The tags to add to the resource. </p>
+   * The tags to add to the resource.
+   *
    * @public
    */
   tags: Tag[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Must be 1-64 characters long and contain only alphanumeric characters, underscores, and hyphens.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Must be 1-64 characters long and contain only alphanumeric characters, underscores, and hyphens.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -2069,25 +2378,29 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p> The ARN of the resource to untag. </p>
+   * The ARN of the resource to untag.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The revision number of the automation rule to untag. This ensures you're untagging the correct version of the rule.</p>
+   * The revision number of the automation rule to untag. This ensures you're untagging the correct version of the rule.
+   *
    * @public
    */
   ruleRevision: number | undefined;
 
   /**
-   * <p> The keys of the tags to remove from the resource. </p>
+   * The keys of the tags to remove from the resource.
+   *
    * @public
    */
   tagKeys: string[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Must be 1-64 characters long and contain only alphanumeric characters, underscores, and hyphens.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Must be 1-64 characters long and contain only alphanumeric characters, underscores, and hyphens.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -2103,73 +2416,85 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateAutomationRuleRequest {
   /**
-   * <p> The ARN of the rule to update. </p>
+   * The ARN of the rule to update.
+   *
    * @public
    */
   ruleArn: string | undefined;
 
   /**
-   * <p> The revision number of the rule to update. </p>
+   * The revision number of the rule to update.
+   *
    * @public
    */
   ruleRevision: number | undefined;
 
   /**
-   * <p>The updated name of the automation rule. Must be 1-128 characters long and contain only alphanumeric characters, underscores, and hyphens.</p>
+   * The updated name of the automation rule. Must be 1-128 characters long and contain only alphanumeric characters, underscores, and hyphens.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The updated description of the automation rule. Can be up to 1024 characters long and contain alphanumeric characters, underscores, hyphens, spaces, and certain special characters.</p>
+   * The updated description of the automation rule. Can be up to 1024 characters long and contain alphanumeric characters, underscores, hyphens, spaces, and certain special characters.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The updated type of automation rule. Can be either OrganizationRule for organization-wide rules or AccountRule for account-specific rules.</p>
+   * The updated type of automation rule. Can be either OrganizationRule for organization-wide rules or AccountRule for account-specific rules.
+   *
    * @public
    */
   ruleType?: RuleType | undefined;
 
   /**
-   * <p>Updated configuration settings for organization-wide rules, including rule application order and target account IDs.</p>
+   * Updated configuration settings for organization-wide rules, including rule application order and target account IDs.
+   *
    * @public
    */
   organizationConfiguration?: OrganizationConfiguration | undefined;
 
   /**
-   * <p>The updated priority level of the automation rule, used to determine execution order when multiple rules apply to the same resource.</p>
+   * The updated priority level of the automation rule, used to determine execution order when multiple rules apply to the same resource.
+   *
    * @public
    */
   priority?: string | undefined;
 
   /**
-   * <p>Updated list of recommended action types that this rule can execute, such as SnapshotAndDeleteUnattachedEbsVolume or UpgradeEbsVolumeType.</p>
+   * Updated list of recommended action types that this rule can execute, such as SnapshotAndDeleteUnattachedEbsVolume or UpgradeEbsVolumeType.
+   *
    * @public
    */
   recommendedActionTypes?: RecommendedActionType[] | undefined;
 
   /**
-   * <p> A set of conditions that specify which recommended action qualify for implementation. When a rule is active and a recommended action matches these criteria, Compute Optimizer implements the action at the scheduled run time. You can specify up to 20 conditions per filter criteria and 20 values per condition. </p>
+   * A set of conditions that specify which recommended action qualify for implementation. When a rule is active and a recommended action matches these criteria, Compute Optimizer implements the action at the scheduled run time. You can specify up to 20 conditions per filter criteria and 20 values per condition.
+   *
    * @public
    */
   criteria?: Criteria | undefined;
 
   /**
-   * <p>The updated schedule configuration for when the automation rule should execute, including cron expression, timezone, and execution window.</p>
+   * The updated schedule configuration for when the automation rule should execute, including cron expression, timezone, and execution window.
+   *
    * @public
    */
   schedule?: Schedule | undefined;
 
   /**
-   * <p>The updated status of the automation rule. Can be Active or Inactive.</p>
+   * The updated status of the automation rule. Can be Active or Inactive.
+   *
    * @public
    */
   status?: RuleStatus | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Must be 1-64 characters long and contain only alphanumeric characters, underscores, and hyphens.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Must be 1-64 characters long and contain only alphanumeric characters, underscores, and hyphens.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -2180,79 +2505,92 @@ export interface UpdateAutomationRuleRequest {
  */
 export interface UpdateAutomationRuleResponse {
   /**
-   * <p> The ARN of the updated rule. </p>
+   * The ARN of the updated rule.
+   *
    * @public
    */
   ruleArn?: string | undefined;
 
   /**
-   * <p> The new revision number of the updated rule. </p>
+   * The new revision number of the updated rule.
+   *
    * @public
    */
   ruleRevision?: number | undefined;
 
   /**
-   * <p>The updated name of the automation rule.</p>
+   * The updated name of the automation rule.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The updated description of the automation rule.</p>
+   * The updated description of the automation rule.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The updated type of automation rule.</p>
+   * The updated type of automation rule.
+   *
    * @public
    */
   ruleType?: RuleType | undefined;
 
   /**
-   * <p>The updated organization configuration settings.</p>
+   * The updated organization configuration settings.
+   *
    * @public
    */
   organizationConfiguration?: OrganizationConfiguration | undefined;
 
   /**
-   * <p>The updated priority level of the automation rule.</p>
+   * The updated priority level of the automation rule.
+   *
    * @public
    */
   priority?: string | undefined;
 
   /**
-   * <p>The updated list of recommended action types.</p>
+   * The updated list of recommended action types.
+   *
    * @public
    */
   recommendedActionTypes?: RecommendedActionType[] | undefined;
 
   /**
-   * <p> A set of conditions that specify which recommended action qualify for implementation. When a rule is active and a recommended action matches these criteria, Compute Optimizer implements the action at the scheduled run time. You can specify up to 20 conditions per filter criteria and 20 values per condition. </p>
+   * A set of conditions that specify which recommended action qualify for implementation. When a rule is active and a recommended action matches these criteria, Compute Optimizer implements the action at the scheduled run time. You can specify up to 20 conditions per filter criteria and 20 values per condition.
+   *
    * @public
    */
   criteria?: Criteria | undefined;
 
   /**
-   * <p>The updated schedule configuration.</p>
+   * The updated schedule configuration.
+   *
    * @public
    */
   schedule?: Schedule | undefined;
 
   /**
-   * <p>The updated status of the automation rule.</p>
+   * The updated status of the automation rule.
+   *
    * @public
    */
   status?: RuleStatus | undefined;
 
   /**
-   * <p>The timestamp when the automation rule was originally created.</p>
+   * The timestamp when the automation rule was originally created.
+   *
    * @public
    */
   createdTimestamp?: Date | undefined;
 
   /**
-   * <p>The timestamp when the automation rule was last updated.</p>
+   * The timestamp when the automation rule was last updated.
+   *
    * @public
    */
   lastUpdatedTimestamp?: Date | undefined;
@@ -2263,13 +2601,24 @@ export interface UpdateAutomationRuleResponse {
  */
 export interface UpdateEnrollmentConfigurationRequest {
   /**
-   * <p>The desired enrollment status. </p> <ul> <li> <p>Active - Enables the Automation feature for your account.</p> </li> <li> <p>Inactive - Disables the Automation feature for your account and stops all of your automation rules. If you opt in again later, all rules will be inactive, and you must enable the rules you want to run. You must wait at least 24 hours after opting out to opt in again.</p> </li> </ul> <note> <p>The <code>Pending</code> and <code>Failed</code> options cannot be used to update the enrollment status of an account. They are returned in the response of a request to update the enrollment status of an account.</p> <p>If you are a member account, your account must be disassociated from your organization’s management account before you can disable Automation. Contact your administrator to make this change.</p> </note>
+   * The desired enrollment status.
+   *
+   * - Active - Enables the Automation feature for your account.
+   * - Inactive - Disables the Automation feature for your account and stops all of your automation rules. If you opt in again later, all rules will be inactive, and you must enable the rules you want to run. You must wait at least 24 hours after opting out to opt in again.
+   *
+   * > **Note:**
+   * >
+   * > The `Pending` and `Failed` options cannot be used to update the enrollment status of an account. They are returned in the response of a request to update the enrollment status of an account.
+   * >
+   * > If you are a member account, your account must be disassociated from your organization’s management account before you can disable Automation. Contact your administrator to make this change.
+   *
    * @public
    */
   status: EnrollmentStatus | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Must be 1-64 characters long and contain only alphanumeric characters, underscores, and hyphens.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Must be 1-64 characters long and contain only alphanumeric characters, underscores, and hyphens.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -2280,19 +2629,22 @@ export interface UpdateEnrollmentConfigurationRequest {
  */
 export interface UpdateEnrollmentConfigurationResponse {
   /**
-   * <p> The updated enrollment status. </p>
+   * The updated enrollment status.
+   *
    * @public
    */
   status: EnrollmentStatus | undefined;
 
   /**
-   * <p> The reason for the updated enrollment status. </p>
+   * The reason for the updated enrollment status.
+   *
    * @public
    */
   statusReason?: string | undefined;
 
   /**
-   * <p> The timestamp when the enrollment configuration was last updated. </p>
+   * The timestamp when the enrollment configuration was last updated.
+   *
    * @public
    */
   lastUpdatedTimestamp: Date | undefined;

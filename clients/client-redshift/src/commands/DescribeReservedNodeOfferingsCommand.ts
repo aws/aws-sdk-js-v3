@@ -23,16 +23,10 @@ export interface DescribeReservedNodeOfferingsCommandInput extends DescribeReser
 export interface DescribeReservedNodeOfferingsCommandOutput extends ReservedNodeOfferingsMessage, __MetadataBearer {}
 
 /**
- * <p>Returns a list of the available reserved node offerings by Amazon Redshift with their
- *             descriptions including the node type, the fixed and recurring costs of reserving the
- *             node and duration the node will be reserved for you. These descriptions help you
- *             determine which reserve node offering you want to purchase. You then use the unique
- *             offering ID in you call to <a>PurchaseReservedNodeOffering</a> to reserve one
- *             or more nodes for your Amazon Redshift cluster. </p>
- *          <p>
- * For more information about reserved node offerings, go to
- * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html">Purchasing Reserved Nodes</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
+ * Returns a list of the available reserved node offerings by Amazon Redshift with their descriptions including the node type, the fixed and recurring costs of reserving the node and duration the node will be reserved for you. These descriptions help you determine which reserve node offering you want to purchase. You then use the unique offering ID in you call to PurchaseReservedNodeOffering to reserve one or more nodes for your Amazon Redshift cluster.
+ *
+ * For more information about reserved node offerings, go to [Purchasing Reserved Nodes](https://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html) in the *Amazon Redshift Cluster Management Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,18 +73,20 @@ export interface DescribeReservedNodeOfferingsCommandOutput extends ReservedNode
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link DependentServiceUnavailableFault} (client fault)
- *  <p>Your request cannot be completed because a dependent internal service is
- *             temporarily unavailable. Wait 30 to 60 seconds and try again.</p>
+ *
+ * Your request cannot be completed because a dependent internal service is temporarily unavailable. Wait 30 to 60 seconds and try again.
  *
  * @throws {@link ReservedNodeOfferingNotFoundFault} (client fault)
- *  <p>Specified offering does not exist.</p>
+ *
+ * Specified offering does not exist.
  *
  * @throws {@link UnsupportedOperationFault} (client fault)
- *  <p>The requested operation isn't supported.</p>
+ *
+ * The requested operation isn't supported.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

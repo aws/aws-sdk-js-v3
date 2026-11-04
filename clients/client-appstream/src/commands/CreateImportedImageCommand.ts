@@ -23,7 +23,8 @@ export interface CreateImportedImageCommandInput extends CreateImportedImageRequ
 export interface CreateImportedImageCommandOutput extends CreateImportedImageResult, __MetadataBearer {}
 
 /**
- * <p>Creates a custom WorkSpaces Applications image by importing an EC2 AMI. This allows you to use your own customized AMI to create WorkSpaces Applications images that support additional instance types beyond the standard stream.* instances.</p>
+ * Creates a custom WorkSpaces Applications image by importing an EC2 AMI. This allows you to use your own customized AMI to create WorkSpaces Applications images that support additional instance types beyond the standard stream.* instances.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -142,35 +143,44 @@ export interface CreateImportedImageCommandOutput extends CreateImportedImageRes
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  * @throws {@link DryRunOperationException} (client fault)
- *  <p>The exception that is thrown when a dry run operation is requested. This indicates that the validation checks have been performed successfully, but no actual resources were created or modified.</p>
+ *
+ * The exception that is thrown when a dry run operation is requested. This indicates that the validation checks have been performed successfully, but no actual resources were created or modified.
  *
  * @throws {@link IncompatibleImageException} (client fault)
- *  <p>The image can't be updated because it's not compatible for updates.</p>
+ *
+ * The image can't be updated because it's not compatible for updates.
  *
  * @throws {@link InvalidAccountStatusException} (client fault)
- *  <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
+ *
+ * The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+ *
+ * Indicates an incorrect combination of parameters, or a missing parameter.
  *
  * @throws {@link InvalidRoleException} (client fault)
- *  <p>The specified role is invalid.</p>
+ *
+ * The specified role is invalid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The requested limit exceeds the permitted limit for an account.</p>
+ *
+ * The requested limit exceeds the permitted limit for an account.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>The attempted operation is not permitted.</p>
+ *
+ * The attempted operation is not permitted.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>The specified resource already exists.</p>
+ *
+ * The specified resource already exists.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link AppStreamServiceException}
- * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * Base exception class for all service exceptions from AppStream service.
  *
  * @public
  */

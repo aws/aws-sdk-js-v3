@@ -23,7 +23,8 @@ export interface DescribeOptionGroupOptionsCommandInput extends DescribeOptionGr
 export interface DescribeOptionGroupOptionsCommandOutput extends OptionGroupOptionsMessage, __MetadataBearer {}
 
 /**
- * <p>Describes all available options for the specified engine.</p>
+ * Describes all available options for the specified engine.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -107,8 +108,8 @@ export interface DescribeOptionGroupOptionsCommandOutput extends OptionGroupOpti
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To describe all available options
  * ```javascript

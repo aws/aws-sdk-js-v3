@@ -23,7 +23,10 @@ export interface GetTrustAnchorCommandInput extends ScalarTrustAnchorRequest {}
 export interface GetTrustAnchorCommandOutput extends TrustAnchorDetailResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a trust anchor.</p> <p> <b>Required permissions: </b> <code>rolesanywhere:GetTrustAnchor</code>. </p>
+ * Gets a trust anchor.
+ *
+ * **Required permissions:** `rolesanywhere:GetTrustAnchor`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,17 +76,20 @@ export interface GetTrustAnchorCommandOutput extends TrustAnchorDetailResponse, 
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Validation exception error.</p>
+ *
+ * Validation exception error.
  *
  * @throws {@link RolesAnywhereServiceException}
- * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
+ * Base exception class for all service exceptions from RolesAnywhere service.
  *
  * @public
  */

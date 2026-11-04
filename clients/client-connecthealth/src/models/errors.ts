@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { ConnectHealthServiceException as __BaseException } from "./ConnectHealthServiceException";
 
 /**
- * <p>This error is thrown when the client does not supply proper credentials to the API.</p>
+ * This error is thrown when the client does not supply proper credentials to the API.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>This error is thrown when a transient error causes our API to fail.</p>
+ * This error is thrown when a transient error causes our API to fail.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -47,7 +49,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>This error is thrown when the requested resource is not found.</p>
+ * This error is thrown when the requested resource is not found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -68,7 +71,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>This error is thrown when the client supplies invalid input to the API.</p>
+ * This error is thrown when the client supplies invalid input to the API.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -89,7 +93,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>This error is thrown when a resource update is no longer valid due to assumptions about initial state changing.</p>
+ * This error is thrown when a resource update is no longer valid due to assumptions about initial state changing.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -110,7 +115,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The request exceeds a service quota.</p>
+ * The request exceeds a service quota.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -131,7 +137,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>This error is thrown when the client exceeds the allowed request rate.</p>
+ * This error is thrown when the client exceeds the allowed request rate.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {

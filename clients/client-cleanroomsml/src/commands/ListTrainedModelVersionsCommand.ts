@@ -23,7 +23,8 @@ export interface ListTrainedModelVersionsCommandInput extends ListTrainedModelVe
 export interface ListTrainedModelVersionsCommandOutput extends ListTrainedModelVersionsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of trained model versions for a specified trained model. This operation allows you to view all versions of a trained model, including information about their status and creation details. You can use this to track the evolution of your trained models and select specific versions for inference or further training.</p>
+ * Returns a list of trained model versions for a specified trained model. This operation allows you to view all versions of a trained model, including information about their status and creation details. You can use this to track the evolution of your trained models and select specific versions for inference or further training.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,20 +77,24 @@ export interface ListTrainedModelVersionsCommandOutput extends ListTrainedModelV
  * @see {@link CleanRoomsMLClientResolvedConfig | config} for CleanRoomsMLClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource you are requesting does not exist.</p>
+ *
+ * The resource you are requesting does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request parameters for this request are incorrect.</p>
+ *
+ * The request parameters for this request are incorrect.
  *
  * @throws {@link CleanRoomsMLServiceException}
- * <p>Base exception class for all service exceptions from CleanRoomsML service.</p>
  *
+ * Base exception class for all service exceptions from CleanRoomsML service.
  *
  * @public
  */

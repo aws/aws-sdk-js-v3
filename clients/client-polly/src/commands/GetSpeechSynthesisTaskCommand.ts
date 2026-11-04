@@ -23,10 +23,8 @@ export interface GetSpeechSynthesisTaskCommandInput extends GetSpeechSynthesisTa
 export interface GetSpeechSynthesisTaskCommandOutput extends GetSpeechSynthesisTaskOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves a specific SpeechSynthesisTask object based on its TaskID.
- *       This object contains information about the given speech synthesis task,
- *       including the status of the task, and a link to the S3 bucket containing
- *       the output of the task.</p>
+ * Retrieves a specific SpeechSynthesisTask object based on its TaskID. This object contains information about the given speech synthesis task, including the status of the task, and a link to the S3 bucket containing the output of the task.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,19 +71,20 @@ export interface GetSpeechSynthesisTaskCommandOutput extends GetSpeechSynthesisT
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
  *
  * @throws {@link InvalidTaskIdException} (client fault)
- *  <p>The provided Task ID is not valid. Please provide a valid Task ID and
- *       try again.</p>
+ *
+ * The provided Task ID is not valid. Please provide a valid Task ID and try again.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>An unknown condition has caused a service failure.</p>
+ *
+ * An unknown condition has caused a service failure.
  *
  * @throws {@link SynthesisTaskNotFoundException} (client fault)
- *  <p>The Speech Synthesis task with requested Task ID cannot be
- *       found.</p>
+ *
+ * The Speech Synthesis task with requested Task ID cannot be found.
  *
  * @throws {@link PollyServiceException}
- * <p>Base exception class for all service exceptions from Polly service.</p>
  *
+ * Base exception class for all service exceptions from Polly service.
  *
  * @public
  */

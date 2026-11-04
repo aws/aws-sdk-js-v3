@@ -23,9 +23,10 @@ export interface ChangeTagsForResourceCommandInput extends ChangeTagsForResource
 export interface ChangeTagsForResourceCommandOutput extends ChangeTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Adds, edits, or deletes tags for a health check or a hosted zone.</p>
- *          <p>For information about using tags for cost allocation, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation
- * 				Tags</a> in the <i>Billing and Cost Management User Guide</i>.</p>
+ * Adds, edits, or deletes tags for a health check or a hosted zone.
+ *
+ * For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *Billing and Cost Management User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,27 +61,28 @@ export interface ChangeTagsForResourceCommandOutput extends ChangeTagsForResourc
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link NoSuchHealthCheck} (client fault)
- *  <p>No health check exists with the specified ID.</p>
+ *
+ * No health check exists with the specified ID.
  *
  * @throws {@link NoSuchHostedZone} (client fault)
- *  <p>No hosted zone exists with the ID that you specified.</p>
+ *
+ * No hosted zone exists with the ID that you specified.
  *
  * @throws {@link PriorRequestNotComplete} (client fault)
- *  <p>If Amazon Route 53 can't process a request before the next request arrives, it will
- * 			reject subsequent requests for the same hosted zone and return an <code>HTTP 400
- * 				error</code> (<code>Bad request</code>). If Route 53 returns this error repeatedly
- * 			for the same request, we recommend that you wait, in intervals of increasing duration,
- * 			before you try the request again.</p>
+ *
+ * If Amazon Route 53 can't process a request before the next request arrives, it will reject subsequent requests for the same hosted zone and return an `HTTP 400 error` (`Bad request`). If Route 53 returns this error repeatedly for the same request, we recommend that you wait, in intervals of increasing duration, before you try the request again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The limit on the number of requests per second was exceeded.</p>
+ *
+ * The limit on the number of requests per second was exceeded.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @example To add or remove tags from a hosted zone or health check
  * ```javascript

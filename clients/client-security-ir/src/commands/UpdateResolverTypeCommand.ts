@@ -23,7 +23,10 @@ export interface UpdateResolverTypeCommandInput extends UpdateResolverTypeReques
 export interface UpdateResolverTypeCommandOutput extends UpdateResolverTypeResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the resolver type for a case.</p> <important> <p>This is a one-way action and cannot be reversed.</p> </important>
+ * Updates the resolver type for a case.
+ *
+ * > **Important:** This is a one-way action and cannot be reversed.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,38 +56,28 @@ export interface UpdateResolverTypeCommandOutput extends UpdateResolverTypeRespo
  * @see {@link SecurityIRClientResolvedConfig | config} for SecurityIRClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p/>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p/>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p/>
  *
  * @throws {@link InvalidTokenException} (client fault)
- *  <p/>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p/>
  *
  * @throws {@link SecurityIncidentResponseNotActiveException} (client fault)
- *  <p/>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p/>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p/>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p/>
  *
  * @throws {@link SecurityIRServiceException}
- * <p>Base exception class for all service exceptions from SecurityIR service.</p>
  *
+ * Base exception class for all service exceptions from SecurityIR service.
  *
- * @example Invoke UpdateResolverType
- * ```javascript
+ * @example Invoke UpdateResolverType```javascript
  * //
  * const input = {
  *   caseId: "8403556009",

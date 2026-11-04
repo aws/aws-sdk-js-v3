@@ -23,7 +23,8 @@ export interface DescribeComponentConfigurationCommandInput extends DescribeComp
 export interface DescribeComponentConfigurationCommandOutput extends DescribeComponentConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the monitoring configuration of the component.</p>
+ * Describes the monitoring configuration of the component.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,17 +55,20 @@ export interface DescribeComponentConfigurationCommandOutput extends DescribeCom
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The server encountered an internal error and is unable to complete the request.</p>
+ *
+ * The server encountered an internal error and is unable to complete the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource does not exist in the customer account.</p>
+ *
+ * The resource does not exist in the customer account.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The parameter is not valid.</p>
+ *
+ * The parameter is not valid.
  *
  * @throws {@link ApplicationInsightsServiceException}
- * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ * Base exception class for all service exceptions from ApplicationInsights service.
  *
  * @public
  */

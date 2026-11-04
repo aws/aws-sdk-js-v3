@@ -26,20 +26,14 @@ export interface CreateResourceMetricsConfigurationCommandInput extends CreateRe
 export interface CreateResourceMetricsConfigurationCommandOutput extends CreateResourceMetricsConfigurationOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a resource metrics configuration for an Amazon Web Services resource. After you
- *             create a configuration, Amazon CloudWatch collects detailed metrics for that
- *             resource.</p>
- *          <p>Each Amazon Web Services resource can have only one resource metrics configuration. If a
- *             configuration already exists for the specified resource ARN, this operation returns a
- *             <code>ConflictException</code>. To modify an existing configuration, use <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UpdateResourceMetricsConfiguration.html">UpdateResourceMetricsConfiguration</a>.</p>
- *          <p>If the Amazon Web Services resource that you specify in <code>ResourceArn</code> does
- *             not exist, this operation returns a <code>ResourceNotFoundException</code>. Verify that
- *             the resource ARN is correct and that the resource exists before you retry the
- *             request.</p>
- *          <p>To create a resource metrics configuration, you must have the
- *                 <code>cloudwatch:CreateResourceMetricsConfiguration</code> permission. For information about scoping
- *             this permission to specific resources, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/iam-cw-condition-keys-resource-arn.html">Condition keys for resource metrics configuration access</a> in the
- *                 <i>Amazon CloudWatch User Guide</i>.</p>
+ * Creates a resource metrics configuration for an Amazon Web Services resource. After you create a configuration, Amazon CloudWatch collects detailed metrics for that resource.
+ *
+ * Each Amazon Web Services resource can have only one resource metrics configuration. If a configuration already exists for the specified resource ARN, this operation returns a `ConflictException`. To modify an existing configuration, use [UpdateResourceMetricsConfiguration](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UpdateResourceMetricsConfiguration.html).
+ *
+ * If the Amazon Web Services resource that you specify in `ResourceArn` does not exist, this operation returns a `ResourceNotFoundException`. Verify that the resource ARN is correct and that the resource exists before you retry the request.
+ *
+ * To create a resource metrics configuration, you must have the `cloudwatch:CreateResourceMetricsConfiguration` permission. For information about scoping this permission to specific resources, see [Condition keys for resource metrics configuration access](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/iam-cw-condition-keys-resource-arn.html) in the *Amazon CloudWatch User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,14 +78,16 @@ export interface CreateResourceMetricsConfigurationCommandOutput extends CreateR
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>This operation attempted to create a resource that already exists.</p>
+ *
+ * This operation attempted to create a resource that already exists.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The named resource does not exist.</p>
+ *
+ * The named resource does not exist.
  *
  * @throws {@link CloudWatchServiceException}
- * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatch service.
  *
  * @public
  */

@@ -26,17 +26,12 @@ export interface UnassignPrivateNatGatewayAddressCommandInput extends UnassignPr
 export interface UnassignPrivateNatGatewayAddressCommandOutput extends UnassignPrivateNatGatewayAddressResult, __MetadataBearer {}
 
 /**
- * <p>Unassigns secondary private IPv4 addresses from a private NAT gateway. You cannot unassign your primary private IP. For more information,
- *             see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html#nat-gateway-edit-secondary">Edit secondary IP address associations</a>
- *             in the <i>Amazon VPC User Guide</i>.</p>
- *          <p>While unassigning is in progress, you cannot assign/unassign additional IP addresses while the connections are being drained. You are, however, allowed to delete the NAT gateway.</p>
- *          <p>A private IP address will only be released at the end of MaxDrainDurationSeconds. The
- *             private IP addresses stay associated and support the existing connections, but do not
- *             support any new connections (new connections are distributed across the remaining
- *             assigned private IP address). After the existing connections drain out, the private IP
- *             addresses are released.</p>
- *          <p></p>
- *          <p></p>
+ * Unassigns secondary private IPv4 addresses from a private NAT gateway. You cannot unassign your primary private IP. For more information, see [Edit secondary IP address associations](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html#nat-gateway-edit-secondary) in the *Amazon VPC User Guide*.
+ *
+ * While unassigning is in progress, you cannot assign/unassign additional IP addresses while the connections are being drained. You are, however, allowed to delete the NAT gateway.
+ *
+ * A private IP address will only be released at the end of MaxDrainDurationSeconds. The private IP addresses stay associated and support the existing connections, but do not support any new connections (new connections are distributed across the remaining assigned private IP address). After the existing connections drain out, the private IP addresses are released.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,8 +77,8 @@ export interface UnassignPrivateNatGatewayAddressCommandOutput extends UnassignP
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

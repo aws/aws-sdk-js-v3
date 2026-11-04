@@ -23,7 +23,8 @@ export interface CreateVpcConfigurationCommandInput extends CreateVpcConfigurati
 export interface CreateVpcConfigurationCommandOutput extends CreateVpcConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a VPC configuration that lets a knowledge base connect to a resource in your private VPC. This operation is asynchronous: it returns a <code>vpcConfigurationId</code> with status <code>CREATING</code>. Poll <code>GetVpcConfiguration</code> until the status becomes <code>CREATED</code> or <code>CREATE_FAILED</code>.</p>
+ * Creates a VPC configuration that lets a knowledge base connect to a resource in your private VPC. This operation is asynchronous: it returns a `vpcConfigurationId` with status `CREATING`. Poll `GetVpcConfiguration` until the status becomes `CREATED` or `CREATE_FAILED`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,29 +65,36 @@ export interface CreateVpcConfigurationCommandOutput extends CreateVpcConfigurat
  * @see {@link BedrockAgentClientResolvedConfig | config} for BedrockAgentClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request is denied because of missing access permissions.</p>
+ *
+ * The request is denied because of missing access permissions.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>There was a conflict performing an operation.</p>
+ *
+ * There was a conflict performing an operation.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
+ *
+ * The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The number of requests exceeds the service quota. Resubmit your request later.</p>
+ *
+ * The number of requests exceeds the service quota. Resubmit your request later.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
+ * The number of requests exceeds the limit. Resubmit your request later.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Input validation failed. Check your request parameters and retry the request.</p>
+ *
+ * Input validation failed. Check your request parameters and retry the request.
  *
  * @throws {@link BedrockAgentServiceException}
- * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ * Base exception class for all service exceptions from BedrockAgent service.
  *
  * @public
  */

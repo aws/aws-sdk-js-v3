@@ -23,17 +23,12 @@ export interface DescribeInstanceRefreshesCommandInput extends DescribeInstanceR
 export interface DescribeInstanceRefreshesCommandOutput extends DescribeInstanceRefreshesAnswer, __MetadataBearer {}
 
 /**
- * <p>Gets information about the instance refreshes for the specified Auto Scaling group from the
- *             previous six weeks.</p>
- *          <p>This operation is part of the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">instance refresh
- *                 feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling group
- *             after you make configuration changes.</p>
- *          <p>To help you determine the status of an instance refresh, Amazon EC2 Auto Scaling returns information
- *             about the instance refreshes you previously initiated, including their status, start
- *             time, end time, the percentage of the instance refresh that is complete, and the number
- *             of instances remaining to update before the instance refresh is complete. If a rollback
- *             is initiated while an instance refresh is in progress, Amazon EC2 Auto Scaling also returns information
- *             about the rollback of the instance refresh.</p>
+ * Gets information about the instance refreshes for the specified Auto Scaling group from the previous six weeks.
+ *
+ * This operation is part of the [instance refresh feature](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html) in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling group after you make configuration changes.
+ *
+ * To help you determine the status of an instance refresh, Amazon EC2 Auto Scaling returns information about the instance refreshes you previously initiated, including their status, start time, end time, the percentage of the instance refresh that is complete, and the number of instances remaining to update before the instance refresh is complete. If a rollback is initiated while an instance refresh is in progress, Amazon EC2 Auto Scaling also returns information about the rollback of the instance refresh.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -240,15 +235,16 @@ export interface DescribeInstanceRefreshesCommandOutput extends DescribeInstance
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  * @throws {@link InvalidNextToken} (client fault)
- *  <p>The <code>NextToken</code> value is not valid.</p>
+ *
+ * The `NextToken` value is not valid.
  *
  * @throws {@link ResourceContentionFault} (server fault)
- *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
- *             instance, or load balancer).</p>
+ *
+ * You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).
  *
  * @throws {@link AutoScalingServiceException}
- * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from AutoScaling service.
  *
  * @public
  */

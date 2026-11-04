@@ -23,7 +23,10 @@ export interface UpdateBillingTransferPreferenceCommandInput extends UpdateBilli
 export interface UpdateBillingTransferPreferenceCommandOutput extends UpdateBillingTransferPreferenceOutput, __MetadataBearer {}
 
 /**
- * <p>Sets the auto billing group creation preference for a billing transfer. When the preference is enabled, Billing Conductor automatically creates an indirect billing transfer billing group in your account, with the pricing plan that you specify, for each account that transfers its bill to the bill source account of this billing transfer. The preference applies only to billing groups that are created after you enable it.</p> <p>Enabling the preference requires the <code>iam:CreateServiceLinkedRole</code> permission. While a pricing plan is specified in an enabled preference, you can't delete that pricing plan.</p>
+ * Sets the auto billing group creation preference for a billing transfer. When the preference is enabled, Billing Conductor automatically creates an indirect billing transfer billing group in your account, with the pricing plan that you specify, for each account that transfers its bill to the bill source account of this billing transfer. The preference applies only to billing groups that are created after you enable it.
+ *
+ * Enabling the preference requires the `iam:CreateServiceLinkedRole` permission. While a pricing plan is specified in an enabled preference, you can't delete that pricing plan.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,26 +63,32 @@ export interface UpdateBillingTransferPreferenceCommandOutput extends UpdateBill
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action. </p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>You can cause an inconsistent state by updating or deleting a resource. </p>
+ *
+ * You can cause an inconsistent state by updating or deleting a resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred while processing a request. </p>
+ *
+ * An unexpected error occurred while processing a request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request references a resource that doesn't exist. </p>
+ *
+ * The request references a resource that doesn't exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. </p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+ *
+ * The input doesn't match with the constraints specified by Amazon Web Services services.
  *
  * @throws {@link BillingconductorServiceException}
- * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ * Base exception class for all service exceptions from Billingconductor service.
  *
  * @public
  */

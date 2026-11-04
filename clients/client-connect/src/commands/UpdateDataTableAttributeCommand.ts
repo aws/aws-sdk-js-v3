@@ -23,10 +23,8 @@ export interface UpdateDataTableAttributeCommandInput extends UpdateDataTableAtt
 export interface UpdateDataTableAttributeCommandOutput extends UpdateDataTableAttributeResponse, __MetadataBearer {}
 
 /**
- * <p>Updates all properties for an attribute using all properties from CreateDataTableAttribute. There are no other
- *    granular update endpoints. It does not act as a patch operation - all properties must be provided. System managed
- *    attributes are not mutable by customers. Changing an attribute's validation does not invalidate existing values since
- *    validation only runs when values are created or updated.</p>
+ * Updates all properties for an attribute using all properties from CreateDataTableAttribute. There are no other granular update endpoints. It does not act as a patch operation - all properties must be provided. System managed attributes are not mutable by customers. Changing an attribute's validation does not invalidate existing values since validation only runs when values are created or updated.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,36 +81,44 @@ export interface UpdateDataTableAttributeCommandOutput extends UpdateDataTableAt
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Operation cannot be performed at this time as there is a conflict with another operation or contact
- *    state.</p>
+ *
+ * Operation cannot be performed at this time as there is a conflict with another operation or contact state.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The allowed limit for the resource has been exceeded.</p>
+ *
+ * The allowed limit for the resource has been exceeded.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The service quota has been exceeded.</p>
+ *
+ * The service quota has been exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

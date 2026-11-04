@@ -23,16 +23,10 @@ export interface DescribeProductCommandInput extends DescribeProductInput {}
 export interface DescribeProductCommandOutput extends DescribeProductOutput, __MetadataBearer {}
 
 /**
- * <p>Gets information about the specified product.</p>
- *          <note>
- *             <p>
- *             Running this operation
- *             with administrator access
- *             results
- *             in a failure.
- *             <a>DescribeProductAsAdmin</a> should be used instead.
- *          </p>
- *          </note>
+ * Gets information about the specified product.
+ *
+ * > **Note:** Running this operation with administrator access results in a failure. DescribeProductAsAdmin should be used instead.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,14 +87,16 @@ export interface DescribeProductCommandOutput extends DescribeProductOutput, __M
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  * @throws {@link InvalidParametersException} (client fault)
- *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * One or more parameters provided to the operation are not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ServiceCatalogServiceException}
- * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * Base exception class for all service exceptions from ServiceCatalog service.
  *
  * @public
  */

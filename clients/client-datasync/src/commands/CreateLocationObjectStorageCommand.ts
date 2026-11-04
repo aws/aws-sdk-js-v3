@@ -23,10 +23,10 @@ export interface CreateLocationObjectStorageCommandInput extends CreateLocationO
 export interface CreateLocationObjectStorageCommandOutput extends CreateLocationObjectStorageResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a transfer <i>location</i> for an object storage system. DataSync can use this location as a source or destination for transferring data. You
- *       can make transfers with or without a <a href="https://docs.aws.amazon.com/datasync/latest/userguide/do-i-need-datasync-agent.html#when-agent-required">DataSync
- *         agent</a>.</p>
- *          <p>Before you begin, make sure that you understand the <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html#create-object-location-prerequisites">prerequisites</a> for DataSync to work with object storage systems.</p>
+ * Creates a transfer *location* for an object storage system. DataSync can use this location as a source or destination for transferring data. You can make transfers with or without a [DataSync agent](https://docs.aws.amazon.com/datasync/latest/userguide/do-i-need-datasync-agent.html#when-agent-required).
+ *
+ * Before you begin, make sure that you understand the [prerequisites](https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html#create-object-location-prerequisites) for DataSync to work with object storage systems.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,15 +77,16 @@ export interface CreateLocationObjectStorageCommandOutput extends CreateLocation
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception is thrown when an error occurs in the DataSync
- *       service.</p>
+ *
+ * This exception is thrown when an error occurs in the DataSync service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * This exception is thrown when the client submits a malformed request.
  *
  * @throws {@link DataSyncServiceException}
- * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * Base exception class for all service exceptions from DataSync service.
  *
  * @public
  */

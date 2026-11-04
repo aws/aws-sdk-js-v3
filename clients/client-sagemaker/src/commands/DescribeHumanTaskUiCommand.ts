@@ -23,7 +23,8 @@ export interface DescribeHumanTaskUiCommandInput extends DescribeHumanTaskUiRequ
 export interface DescribeHumanTaskUiCommandOutput extends DescribeHumanTaskUiResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about the requested human task user interface (worker task template).</p>
+ * Returns information about the requested human task user interface (worker task template).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,11 +58,12 @@ export interface DescribeHumanTaskUiCommandOutput extends DescribeHumanTaskUiRes
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Resource being access is not found.</p>
+ *
+ * Resource being access is not found.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>Provides APIs for creating and managing SageMaker geospatial resources.</p>
+ * Provides APIs for creating and managing SageMaker geospatial resources.
  *
  * @packageDocumentation
  */

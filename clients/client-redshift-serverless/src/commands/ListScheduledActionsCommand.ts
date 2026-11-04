@@ -23,7 +23,8 @@ export interface ListScheduledActionsCommandInput extends ListScheduledActionsRe
 export interface ListScheduledActionsCommandOutput extends ListScheduledActionsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of scheduled actions. You can use the flags to filter the list of returned scheduled actions.</p>
+ * Returns a list of scheduled actions. You can use the flags to filter the list of returned scheduled actions.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,20 +59,24 @@ export interface ListScheduledActionsCommandOutput extends ListScheduledActionsR
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link InvalidPaginationException} (client fault)
- *  <p>The provided pagination token is invalid.</p>
+ *
+ * The provided pagination token is invalid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input failed to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link RedshiftServerlessServiceException}
- * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ * Base exception class for all service exceptions from RedshiftServerless service.
  *
  * @public
  */

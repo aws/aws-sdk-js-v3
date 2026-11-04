@@ -23,7 +23,10 @@ export interface CreateIdMappingWorkflowCommandInput extends CreateIdMappingWork
 export interface CreateIdMappingWorkflowCommandOutput extends CreateIdMappingWorkflowOutput, __MetadataBearer {}
 
 /**
- * <p>Creates an <code>IdMappingWorkflow</code> object which stores the configuration of the data processing job to be run. Each <code>IdMappingWorkflow</code> must have a unique workflow name. To modify an existing workflow, use the UpdateIdMappingWorkflow API.</p> <important> <p>Incremental processing is not supported for ID mapping workflows. </p> </important>
+ * Creates an `IdMappingWorkflow` object which stores the configuration of the data processing job to be run. Each `IdMappingWorkflow` must have a unique workflow name. To modify an existing workflow, use the UpdateIdMappingWorkflow API.
+ *
+ * > **Important:** Incremental processing is not supported for ID mapping workflows.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -136,26 +139,32 @@ export interface CreateIdMappingWorkflowCommandOutput extends CreateIdMappingWor
  * @see {@link EntityResolutionClientResolvedConfig | config} for EntityResolutionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action. </p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request couldn't be processed because of conflict in the current state of the resource. Example: Workflow already exists, Schema already exists, Workflow is currently running, etc. </p>
+ *
+ * The request couldn't be processed because of conflict in the current state of the resource. Example: Workflow already exists, Schema already exists, Workflow is currently running, etc.
  *
  * @throws {@link ExceedsLimitException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current Entity Resolution account limits. The error message describes the limit exceeded. </p>
+ *
+ * The request was rejected because it attempted to create resources beyond the current Entity Resolution account limits. The error message describes the limit exceeded.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+ *
+ * This exception occurs when there is an internal failure in the Entity Resolution service.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. </p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
+ *
+ * The input fails to satisfy the constraints specified by Entity Resolution.
  *
  * @throws {@link EntityResolutionServiceException}
- * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
+ * Base exception class for all service exceptions from EntityResolution service.
  *
  * @public
  */

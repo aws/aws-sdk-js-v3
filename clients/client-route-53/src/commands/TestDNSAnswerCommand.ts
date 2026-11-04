@@ -23,16 +23,12 @@ export interface TestDNSAnswerCommandInput extends TestDNSAnswerRequest {}
 export interface TestDNSAnswerCommandOutput extends TestDNSAnswerResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the value that Amazon Route 53 returns in response to a DNS request for a
- * 			specified record name and type. You can optionally specify the IP address of a DNS
- * 			resolver, an EDNS0 client subnet IP address, and a subnet mask. </p>
- *          <p>This call only supports querying public hosted zones.</p>
- *          <note>
- *             <p>The <code>TestDnsAnswer </code> returns information similar to what you would expect from the answer
- * 			section of the <code>dig</code> command. Therefore, if you query for the name
- * 			servers of a subdomain that point to the parent name servers, those will not be
- * 			returned.</p>
- *          </note>
+ * Gets the value that Amazon Route 53 returns in response to a DNS request for a specified record name and type. You can optionally specify the IP address of a DNS resolver, an EDNS0 client subnet IP address, and a subnet mask.
+ *
+ * This call only supports querying public hosted zones.
+ *
+ * > **Note:** The `TestDnsAnswer` returns information similar to what you would expect from the answer section of the `dig` command. Therefore, if you query for the name servers of a subdomain that point to the parent name servers, those will not be returned.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,14 +67,16 @@ export interface TestDNSAnswerCommandOutput extends TestDNSAnswerResponse, __Met
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link NoSuchHostedZone} (client fault)
- *  <p>No hosted zone exists with the ID that you specified.</p>
+ *
+ * No hosted zone exists with the ID that you specified.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @public
  */

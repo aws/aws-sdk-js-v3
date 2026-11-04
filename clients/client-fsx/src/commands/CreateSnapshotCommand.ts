@@ -23,34 +23,17 @@ export interface CreateSnapshotCommandInput extends CreateSnapshotRequest {}
 export interface CreateSnapshotCommandOutput extends CreateSnapshotResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a snapshot of an existing Amazon FSx for OpenZFS volume. With
- *             snapshots, you can easily undo file changes and compare file versions by restoring the
- *             volume to a previous version.</p>
- *          <p>If a snapshot with the specified client request token exists, and the parameters
- *             match, this operation returns the description of the existing snapshot. If a snapshot
- *             with the specified client request token exists, and the parameters don't match, this
- *             operation returns <code>IncompatibleParameterError</code>. If a snapshot with the
- *             specified client request token doesn't exist, <code>CreateSnapshot</code> does the
- *             following:</p>
- *          <ul>
- *             <li>
- *                <p>Creates a new OpenZFS snapshot with an assigned ID, and an initial lifecycle
- *                     state of <code>CREATING</code>.</p>
- *             </li>
- *             <li>
- *                <p>Returns the description of the snapshot.</p>
- *             </li>
- *          </ul>
- *          <p>By using the idempotent operation, you can retry a <code>CreateSnapshot</code>
- *             operation without the risk of creating an extra snapshot. This approach can be useful
- *             when an initial call fails in a way that makes it unclear whether a snapshot was
- *             created. If you use the same client request token and the initial call created a
- *             snapshot, the operation returns a successful result because all the parameters are the
- *             same.</p>
- *          <p>The <code>CreateSnapshot</code> operation returns while the snapshot's lifecycle state
- *             is still <code>CREATING</code>. You can check the snapshot creation status by calling
- *             the <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeSnapshots.html">DescribeSnapshots</a> operation, which returns the snapshot state along with
- *             other information.</p>
+ * Creates a snapshot of an existing Amazon FSx for OpenZFS volume. With snapshots, you can easily undo file changes and compare file versions by restoring the volume to a previous version.
+ *
+ * If a snapshot with the specified client request token exists, and the parameters match, this operation returns the description of the existing snapshot. If a snapshot with the specified client request token exists, and the parameters don't match, this operation returns `IncompatibleParameterError`. If a snapshot with the specified client request token doesn't exist, `CreateSnapshot` does the following:
+ *
+ * - Creates a new OpenZFS snapshot with an assigned ID, and an initial lifecycle state of `CREATING`.
+ * - Returns the description of the snapshot.
+ *
+ * By using the idempotent operation, you can retry a `CreateSnapshot` operation without the risk of creating an extra snapshot. This approach can be useful when an initial call fails in a way that makes it unclear whether a snapshot was created. If you use the same client request token and the initial call created a snapshot, the operation returns a successful result because all the parameters are the same.
+ *
+ * The `CreateSnapshot` operation returns while the snapshot's lifecycle state is still `CREATING`. You can check the snapshot creation status by calling the [DescribeSnapshots](https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeSnapshots.html) operation, which returns the snapshot state along with other information.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -695,21 +678,24 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResponse, __M
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * A generic error indicating a failure with a client request.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * A generic error indicating a server-side failure.
  *
  * @throws {@link ServiceLimitExceeded} (client fault)
- *  <p>An error indicating that a particular service limit was exceeded. You can increase
- *             some service limits by contacting Amazon Web Services Support.</p>
+ *
+ * An error indicating that a particular service limit was exceeded. You can increase some service limits by contacting Amazon Web Services Support.
  *
  * @throws {@link VolumeNotFound} (client fault)
- *  <p>No Amazon FSx volumes were found based upon the supplied parameters.</p>
+ *
+ * No Amazon FSx volumes were found based upon the supplied parameters.
  *
  * @throws {@link FSxServiceException}
- * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * Base exception class for all service exceptions from FSx service.
  *
  * @public
  */

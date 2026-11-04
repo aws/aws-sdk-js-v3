@@ -24,37 +24,43 @@ import type {
  */
 export interface AcceptChannelHandshakeRequest {
   /**
-   * <p>The catalog identifier for the handshake request.</p>
+   * The catalog identifier for the handshake request.
+   *
    * @public
    */
   catalog: string | undefined;
 
   /**
-   * <p>The unique identifier of the channel handshake to accept.</p>
+   * The unique identifier of the channel handshake to accept.
+   *
    * @public
    */
   identifier: string | undefined;
 }
 
 /**
- * <p>Contains details about an accepted channel handshake.</p>
+ * Contains details about an accepted channel handshake.
+ *
  * @public
  */
 export interface AcceptChannelHandshakeDetail {
   /**
-   * <p>The unique identifier of the accepted handshake.</p>
+   * The unique identifier of the accepted handshake.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the accepted handshake.</p>
+   * The Amazon Resource Name (ARN) of the accepted handshake.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The current status of the accepted handshake.</p>
+   * The current status of the accepted handshake.
+   *
    * @public
    */
   status?: HandshakeStatus | undefined;
@@ -65,31 +71,36 @@ export interface AcceptChannelHandshakeDetail {
  */
 export interface AcceptChannelHandshakeResponse {
   /**
-   * <p>Details of the accepted channel handshake.</p>
+   * Details of the accepted channel handshake.
+   *
    * @public
    */
   channelHandshakeDetail?: AcceptChannelHandshakeDetail | undefined;
 }
 
 /**
- * <p>Information about a field that failed validation.</p>
+ * Information about a field that failed validation.
+ *
  * @public
  */
 export interface ValidationExceptionField {
   /**
-   * <p>The name of the field that failed validation.</p>
+   * The name of the field that failed validation.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The validation error code for the field.</p>
+   * The validation error code for the field.
+   *
    * @public
    */
   code: string | undefined;
 
   /**
-   * <p>A descriptive message about the validation error.</p>
+   * A descriptive message about the validation error.
+   *
    * @public
    */
   message: string | undefined;
@@ -100,37 +111,43 @@ export interface ValidationExceptionField {
  */
 export interface CancelChannelHandshakeRequest {
   /**
-   * <p>The catalog identifier for the handshake request.</p>
+   * The catalog identifier for the handshake request.
+   *
    * @public
    */
   catalog: string | undefined;
 
   /**
-   * <p>The unique identifier of the channel handshake to cancel.</p>
+   * The unique identifier of the channel handshake to cancel.
+   *
    * @public
    */
   identifier: string | undefined;
 }
 
 /**
- * <p>Contains details about a canceled channel handshake.</p>
+ * Contains details about a canceled channel handshake.
+ *
  * @public
  */
 export interface CancelChannelHandshakeDetail {
   /**
-   * <p>The unique identifier of the canceled handshake.</p>
+   * The unique identifier of the canceled handshake.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the canceled handshake.</p>
+   * The Amazon Resource Name (ARN) of the canceled handshake.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The current status of the canceled handshake.</p>
+   * The current status of the canceled handshake.
+   *
    * @public
    */
   status?: HandshakeStatus | undefined;
@@ -141,68 +158,79 @@ export interface CancelChannelHandshakeDetail {
  */
 export interface CancelChannelHandshakeResponse {
   /**
-   * <p>Details of the canceled channel handshake.</p>
+   * Details of the canceled channel handshake.
+   *
    * @public
    */
   channelHandshakeDetail?: CancelChannelHandshakeDetail | undefined;
 }
 
 /**
- * <p>Payload for revoke service period handshake requests.</p>
+ * Payload for revoke service period handshake requests.
+ *
  * @public
  */
 export interface RevokeServicePeriodPayload {
   /**
-   * <p>The identifier of the program management account.</p>
+   * The identifier of the program management account.
+   *
    * @public
    */
   programManagementAccountIdentifier: string | undefined;
 
   /**
-   * <p>A note explaining the reason for revoking the service period.</p>
+   * A note explaining the reason for revoking the service period.
+   *
    * @public
    */
   note?: string | undefined;
 }
 
 /**
- * <p>Payload for start service period handshake requests.</p>
+ * Payload for start service period handshake requests.
+ *
  * @public
  */
 export interface StartServicePeriodPayload {
   /**
-   * <p>The identifier of the program management account.</p>
+   * The identifier of the program management account.
+   *
    * @public
    */
   programManagementAccountIdentifier: string | undefined;
 
   /**
-   * <p>A note providing additional information about the service period.</p>
+   * A note providing additional information about the service period.
+   *
    * @public
    */
   note?: string | undefined;
 
   /**
-   * <p>The type of service period being started.</p>
+   * The type of service period being started.
+   *
    * @public
    */
   servicePeriodType: ServicePeriodType | undefined;
 
   /**
-   * <p>The minimum number of days notice required for changes.</p>
+   * The minimum number of days notice required for changes.
+   *
    * @public
    */
   minimumNoticeDays?: string | undefined;
 
   /**
-   * <p>The end date of the service period.</p>
+   * The end date of the service period.
+   *
    * @public
    */
   endDate?: Date | undefined;
 }
 
 /**
- * <p>Contains the payload data for different types of channel handshakes.</p>
+ * Contains the payload data for different types of channel handshakes.
+ *
  * @public
  */
 export type ChannelHandshakePayload =
@@ -215,7 +243,8 @@ export type ChannelHandshakePayload =
  */
 export namespace ChannelHandshakePayload {
   /**
-   * <p>Payload for starting a service period handshake.</p>
+   * Payload for starting a service period handshake.
+   *
    * @public
    */
   export interface StartServicePeriodPayloadMember {
@@ -225,7 +254,8 @@ export namespace ChannelHandshakePayload {
   }
 
   /**
-   * <p>Payload for revoking a service period handshake.</p>
+   * Payload for revoking a service period handshake.
+   *
    * @public
    */
   export interface RevokeServicePeriodPayloadMember {
@@ -255,18 +285,21 @@ export namespace ChannelHandshakePayload {
 }
 
 /**
- * <p>A key-value pair that can be associated with a resource.</p>
+ * A key-value pair that can be associated with a resource.
+ *
  * @public
  */
 export interface Tag {
   /**
-   * <p>The key of the tag.</p>
+   * The key of the tag.
+   *
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>The value of the tag.</p>
+   * The value of the tag.
+   *
    * @public
    */
   value: string | undefined;
@@ -277,55 +310,64 @@ export interface Tag {
  */
 export interface CreateChannelHandshakeRequest {
   /**
-   * <p>The type of handshake to create (e.g., start service period, revoke service period).</p>
+   * The type of handshake to create (e.g., start service period, revoke service period).
+   *
    * @public
    */
   handshakeType: HandshakeType | undefined;
 
   /**
-   * <p>The catalog identifier for the handshake request.</p>
+   * The catalog identifier for the handshake request.
+   *
    * @public
    */
   catalog: string | undefined;
 
   /**
-   * <p>The identifier of the resource associated with this handshake.</p>
+   * The identifier of the resource associated with this handshake.
+   *
    * @public
    */
   associatedResourceIdentifier: string | undefined;
 
   /**
-   * <p>The payload containing specific details for the handshake type.</p>
+   * The payload containing specific details for the handshake type.
+   *
    * @public
    */
   payload?: ChannelHandshakePayload | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * A unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>Key-value pairs to associate with the channel handshake.</p>
+   * Key-value pairs to associate with the channel handshake.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 }
 
 /**
- * <p>Contains details about a newly created channel handshake.</p>
+ * Contains details about a newly created channel handshake.
+ *
  * @public
  */
 export interface CreateChannelHandshakeDetail {
   /**
-   * <p>The unique identifier of the created handshake.</p>
+   * The unique identifier of the created handshake.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the created handshake.</p>
+   * The Amazon Resource Name (ARN) of the created handshake.
+   *
    * @public
    */
   arn?: string | undefined;
@@ -336,50 +378,58 @@ export interface CreateChannelHandshakeDetail {
  */
 export interface CreateChannelHandshakeResponse {
   /**
-   * <p>Details of the created channel handshake.</p>
+   * Details of the created channel handshake.
+   *
    * @public
    */
   channelHandshakeDetail?: CreateChannelHandshakeDetail | undefined;
 }
 
 /**
- * <p>Type-specific filters for program management accounts.</p>
+ * Type-specific filters for program management accounts.
+ *
  * @public
  */
 export interface ProgramManagementAccountTypeFilters {
   /**
-   * <p>Filter by program types.</p>
+   * Filter by program types.
+   *
    * @public
    */
   programs?: Program[] | undefined;
 }
 
 /**
- * <p>Filters specific to revoke service period handshakes.</p>
+ * Filters specific to revoke service period handshakes.
+ *
  * @public
  */
 export interface RevokeServicePeriodTypeFilters {
   /**
-   * <p>Filter by service period types.</p>
+   * Filter by service period types.
+   *
    * @public
    */
   servicePeriodTypes?: ServicePeriodType[] | undefined;
 }
 
 /**
- * <p>Filters specific to start service period handshakes.</p>
+ * Filters specific to start service period handshakes.
+ *
  * @public
  */
 export interface StartServicePeriodTypeFilters {
   /**
-   * <p>Filter by service period types.</p>
+   * Filter by service period types.
+   *
    * @public
    */
   servicePeriodTypes?: ServicePeriodType[] | undefined;
 }
 
 /**
- * <p>Type-specific filters for listing channel handshakes.</p>
+ * Type-specific filters for listing channel handshakes.
+ *
  * @public
  */
 export type ListChannelHandshakesTypeFilters =
@@ -393,7 +443,8 @@ export type ListChannelHandshakesTypeFilters =
  */
 export namespace ListChannelHandshakesTypeFilters {
   /**
-   * <p>Filters specific to start service period handshakes.</p>
+   * Filters specific to start service period handshakes.
+   *
    * @public
    */
   export interface StartServicePeriodTypeFiltersMember {
@@ -404,7 +455,8 @@ export namespace ListChannelHandshakesTypeFilters {
   }
 
   /**
-   * <p>Filters specific to revoke service period handshakes.</p>
+   * Filters specific to revoke service period handshakes.
+   *
    * @public
    */
   export interface RevokeServicePeriodTypeFiltersMember {
@@ -415,7 +467,8 @@ export namespace ListChannelHandshakesTypeFilters {
   }
 
   /**
-   * <p>Filters specific to program management account handshakes.</p>
+   * Filters specific to program management account handshakes.
+   *
    * @public
    */
   export interface ProgramManagementAccountTypeFiltersMember {
@@ -448,61 +501,71 @@ export namespace ListChannelHandshakesTypeFilters {
 }
 
 /**
- * <p>Type-specific sorting options for program management accounts.</p>
+ * Type-specific sorting options for program management accounts.
+ *
  * @public
  */
 export interface ProgramManagementAccountTypeSort {
   /**
-   * <p>The sort order (ascending or descending).</p>
+   * The sort order (ascending or descending).
+   *
    * @public
    */
   sortOrder: SortOrder | undefined;
 
   /**
-   * <p>The field to sort by.</p>
+   * The field to sort by.
+   *
    * @public
    */
   sortBy: ProgramManagementAccountTypeSortName | undefined;
 }
 
 /**
- * <p>Sorting options specific to revoke service period handshakes.</p>
+ * Sorting options specific to revoke service period handshakes.
+ *
  * @public
  */
 export interface RevokeServicePeriodTypeSort {
   /**
-   * <p>The sort order (ascending or descending).</p>
+   * The sort order (ascending or descending).
+   *
    * @public
    */
   sortOrder: SortOrder | undefined;
 
   /**
-   * <p>The field to sort by.</p>
+   * The field to sort by.
+   *
    * @public
    */
   sortBy: RevokeServicePeriodTypeSortName | undefined;
 }
 
 /**
- * <p>Sorting options specific to start service period handshakes.</p>
+ * Sorting options specific to start service period handshakes.
+ *
  * @public
  */
 export interface StartServicePeriodTypeSort {
   /**
-   * <p>The sort order (ascending or descending).</p>
+   * The sort order (ascending or descending).
+   *
    * @public
    */
   sortOrder: SortOrder | undefined;
 
   /**
-   * <p>The field to sort by.</p>
+   * The field to sort by.
+   *
    * @public
    */
   sortBy: StartServicePeriodTypeSortName | undefined;
 }
 
 /**
- * <p>Type-specific sorting options for listing channel handshakes.</p>
+ * Type-specific sorting options for listing channel handshakes.
+ *
  * @public
  */
 export type ListChannelHandshakesTypeSort =
@@ -516,7 +579,8 @@ export type ListChannelHandshakesTypeSort =
  */
 export namespace ListChannelHandshakesTypeSort {
   /**
-   * <p>Sorting options specific to start service period handshakes.</p>
+   * Sorting options specific to start service period handshakes.
+   *
    * @public
    */
   export interface StartServicePeriodTypeSortMember {
@@ -527,7 +591,8 @@ export namespace ListChannelHandshakesTypeSort {
   }
 
   /**
-   * <p>Sorting options specific to revoke service period handshakes.</p>
+   * Sorting options specific to revoke service period handshakes.
+   *
    * @public
    */
   export interface RevokeServicePeriodTypeSortMember {
@@ -538,7 +603,8 @@ export namespace ListChannelHandshakesTypeSort {
   }
 
   /**
-   * <p>Sorting options specific to program management account handshakes.</p>
+   * Sorting options specific to program management account handshakes.
+   *
    * @public
    */
   export interface ProgramManagementAccountTypeSortMember {
@@ -575,146 +641,170 @@ export namespace ListChannelHandshakesTypeSort {
  */
 export interface ListChannelHandshakesRequest {
   /**
-   * <p>Filter results by handshake type.</p>
+   * Filter results by handshake type.
+   *
    * @public
    */
   handshakeType: HandshakeType | undefined;
 
   /**
-   * <p>The catalog identifier to filter handshakes.</p>
+   * The catalog identifier to filter handshakes.
+   *
    * @public
    */
   catalog: string | undefined;
 
   /**
-   * <p>Filter by participant type (sender or receiver).</p>
+   * Filter by participant type (sender or receiver).
+   *
    * @public
    */
   participantType: ParticipantType | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Filter results by handshake status.</p>
+   * Filter results by handshake status.
+   *
    * @public
    */
   statuses?: HandshakeStatus[] | undefined;
 
   /**
-   * <p>Filter by associated resource identifiers.</p>
+   * Filter by associated resource identifiers.
+   *
    * @public
    */
   associatedResourceIdentifiers?: string[] | undefined;
 
   /**
-   * <p>Type-specific filters for handshakes.</p>
+   * Type-specific filters for handshakes.
+   *
    * @public
    */
   handshakeTypeFilters?: ListChannelHandshakesTypeFilters | undefined;
 
   /**
-   * <p>Type-specific sorting options for handshakes.</p>
+   * Type-specific sorting options for handshakes.
+   *
    * @public
    */
   handshakeTypeSort?: ListChannelHandshakesTypeSort | undefined;
 
   /**
-   * <p>Token for retrieving the next page of results.</p>
+   * Token for retrieving the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Details specific to program management account handshakes.</p>
+ * Details specific to program management account handshakes.
+ *
  * @public
  */
 export interface ProgramManagementAccountHandshakeDetail {
   /**
-   * <p>The program associated with the handshake.</p>
+   * The program associated with the handshake.
+   *
    * @public
    */
   program?: Program | undefined;
 }
 
 /**
- * <p>Details specific to revoke service period handshakes.</p>
+ * Details specific to revoke service period handshakes.
+ *
  * @public
  */
 export interface RevokeServicePeriodHandshakeDetail {
   /**
-   * <p>A note explaining the reason for revoking the service period.</p>
+   * A note explaining the reason for revoking the service period.
+   *
    * @public
    */
   note?: string | undefined;
 
   /**
-   * <p>The type of service period being revoked.</p>
+   * The type of service period being revoked.
+   *
    * @public
    */
   servicePeriodType?: ServicePeriodType | undefined;
 
   /**
-   * <p>The minimum number of days notice required for revocation.</p>
+   * The minimum number of days notice required for revocation.
+   *
    * @public
    */
   minimumNoticeDays?: string | undefined;
 
   /**
-   * <p>The start date of the service period being revoked.</p>
+   * The start date of the service period being revoked.
+   *
    * @public
    */
   startDate?: Date | undefined;
 
   /**
-   * <p>The end date of the service period being revoked.</p>
+   * The end date of the service period being revoked.
+   *
    * @public
    */
   endDate?: Date | undefined;
 }
 
 /**
- * <p>Details specific to start service period handshakes.</p>
+ * Details specific to start service period handshakes.
+ *
  * @public
  */
 export interface StartServicePeriodHandshakeDetail {
   /**
-   * <p>A note providing additional information about the service period.</p>
+   * A note providing additional information about the service period.
+   *
    * @public
    */
   note?: string | undefined;
 
   /**
-   * <p>The type of service period being started.</p>
+   * The type of service period being started.
+   *
    * @public
    */
   servicePeriodType?: ServicePeriodType | undefined;
 
   /**
-   * <p>The minimum number of days notice required for changes.</p>
+   * The minimum number of days notice required for changes.
+   *
    * @public
    */
   minimumNoticeDays?: string | undefined;
 
   /**
-   * <p>The start date of the service period.</p>
+   * The start date of the service period.
+   *
    * @public
    */
   startDate?: Date | undefined;
 
   /**
-   * <p>The end date of the service period.</p>
+   * The end date of the service period.
+   *
    * @public
    */
   endDate?: Date | undefined;
 }
 
 /**
- * <p>Contains detailed information about different types of handshakes.</p>
+ * Contains detailed information about different types of handshakes.
+ *
  * @public
  */
 export type HandshakeDetail =
@@ -728,7 +818,8 @@ export type HandshakeDetail =
  */
 export namespace HandshakeDetail {
   /**
-   * <p>Details for a start service period handshake.</p>
+   * Details for a start service period handshake.
+   *
    * @public
    */
   export interface StartServicePeriodHandshakeDetailMember {
@@ -739,7 +830,8 @@ export namespace HandshakeDetail {
   }
 
   /**
-   * <p>Details for a revoke service period handshake.</p>
+   * Details for a revoke service period handshake.
+   *
    * @public
    */
   export interface RevokeServicePeriodHandshakeDetailMember {
@@ -750,7 +842,8 @@ export namespace HandshakeDetail {
   }
 
   /**
-   * <p>Details for a program management account handshake.</p>
+   * Details for a program management account handshake.
+   *
    * @public
    */
   export interface ProgramManagementAccountHandshakeDetailMember {
@@ -783,84 +876,98 @@ export namespace HandshakeDetail {
 }
 
 /**
- * <p>Summary information about a channel handshake.</p>
+ * Summary information about a channel handshake.
+ *
  * @public
  */
 export interface ChannelHandshakeSummary {
   /**
-   * <p>The unique identifier of the handshake.</p>
+   * The unique identifier of the handshake.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the handshake.</p>
+   * The Amazon Resource Name (ARN) of the handshake.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The catalog identifier associated with the handshake.</p>
+   * The catalog identifier associated with the handshake.
+   *
    * @public
    */
   catalog?: string | undefined;
 
   /**
-   * <p>The type of the handshake.</p>
+   * The type of the handshake.
+   *
    * @public
    */
   handshakeType?: HandshakeType | undefined;
 
   /**
-   * <p>The AWS account ID of the handshake owner.</p>
+   * The AWS account ID of the handshake owner.
+   *
    * @public
    */
   ownerAccountId?: string | undefined;
 
   /**
-   * <p>The AWS account ID of the handshake sender.</p>
+   * The AWS account ID of the handshake sender.
+   *
    * @public
    */
   senderAccountId?: string | undefined;
 
   /**
-   * <p>The display name of the handshake sender.</p>
+   * The display name of the handshake sender.
+   *
    * @public
    */
   senderDisplayName?: string | undefined;
 
   /**
-   * <p>The AWS account ID of the handshake receiver.</p>
+   * The AWS account ID of the handshake receiver.
+   *
    * @public
    */
   receiverAccountId?: string | undefined;
 
   /**
-   * <p>The identifier of the resource associated with the handshake.</p>
+   * The identifier of the resource associated with the handshake.
+   *
    * @public
    */
   associatedResourceId?: string | undefined;
 
   /**
-   * <p>Detailed information about the handshake.</p>
+   * Detailed information about the handshake.
+   *
    * @public
    */
   detail?: HandshakeDetail | undefined;
 
   /**
-   * <p>The timestamp when the handshake was created.</p>
+   * The timestamp when the handshake was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when the handshake was last updated.</p>
+   * The timestamp when the handshake was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The current status of the handshake.</p>
+   * The current status of the handshake.
+   *
    * @public
    */
   status?: HandshakeStatus | undefined;
@@ -871,13 +978,15 @@ export interface ChannelHandshakeSummary {
  */
 export interface ListChannelHandshakesResponse {
   /**
-   * <p>List of channel handshakes matching the criteria.</p>
+   * List of channel handshakes matching the criteria.
+   *
    * @public
    */
   items?: ChannelHandshakeSummary[] | undefined;
 
   /**
-   * <p>Token for retrieving the next page of results, if available.</p>
+   * Token for retrieving the next page of results, if available.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -888,37 +997,43 @@ export interface ListChannelHandshakesResponse {
  */
 export interface RejectChannelHandshakeRequest {
   /**
-   * <p>The catalog identifier for the handshake request.</p>
+   * The catalog identifier for the handshake request.
+   *
    * @public
    */
   catalog: string | undefined;
 
   /**
-   * <p>The unique identifier of the channel handshake to reject.</p>
+   * The unique identifier of the channel handshake to reject.
+   *
    * @public
    */
   identifier: string | undefined;
 }
 
 /**
- * <p>Contains details about a rejected channel handshake.</p>
+ * Contains details about a rejected channel handshake.
+ *
  * @public
  */
 export interface RejectChannelHandshakeDetail {
   /**
-   * <p>The unique identifier of the rejected handshake.</p>
+   * The unique identifier of the rejected handshake.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the rejected handshake.</p>
+   * The Amazon Resource Name (ARN) of the rejected handshake.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The current status of the rejected handshake.</p>
+   * The current status of the rejected handshake.
+   *
    * @public
    */
   status?: HandshakeStatus | undefined;
@@ -929,7 +1044,8 @@ export interface RejectChannelHandshakeDetail {
  */
 export interface RejectChannelHandshakeResponse {
   /**
-   * <p>Details of the rejected channel handshake.</p>
+   * Details of the rejected channel handshake.
+   *
    * @public
    */
   channelHandshakeDetail?: RejectChannelHandshakeDetail | undefined;
@@ -940,55 +1056,64 @@ export interface RejectChannelHandshakeResponse {
  */
 export interface CreateProgramManagementAccountRequest {
   /**
-   * <p>The catalog identifier for the program management account.</p>
+   * The catalog identifier for the program management account.
+   *
    * @public
    */
   catalog: string | undefined;
 
   /**
-   * <p>The program type for the management account.</p>
+   * The program type for the management account.
+   *
    * @public
    */
   program: Program | undefined;
 
   /**
-   * <p>A human-readable name for the program management account.</p>
+   * A human-readable name for the program management account.
+   *
    * @public
    */
   displayName: string | undefined;
 
   /**
-   * <p>The AWS account ID to associate with the program management account.</p>
+   * The AWS account ID to associate with the program management account.
+   *
    * @public
    */
   accountId: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * A unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>Key-value pairs to associate with the program management account.</p>
+   * Key-value pairs to associate with the program management account.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 }
 
 /**
- * <p>Contains details about a newly created program management account.</p>
+ * Contains details about a newly created program management account.
+ *
  * @public
  */
 export interface CreateProgramManagementAccountDetail {
   /**
-   * <p>The unique identifier of the created program management account.</p>
+   * The unique identifier of the created program management account.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the created program management account.</p>
+   * The Amazon Resource Name (ARN) of the created program management account.
+   *
    * @public
    */
   arn?: string | undefined;
@@ -999,86 +1124,100 @@ export interface CreateProgramManagementAccountDetail {
  */
 export interface CreateProgramManagementAccountResponse {
   /**
-   * <p>Details of the created program management account.</p>
+   * Details of the created program management account.
+   *
    * @public
    */
   programManagementAccountDetail?: CreateProgramManagementAccountDetail | undefined;
 }
 
 /**
- * <p>Configuration for partner-led support plans.</p>
+ * Configuration for partner-led support plans.
+ *
  * @public
  */
 export interface PartnerLedSupport {
   /**
-   * <p>The coverage level for partner-led support.</p>
+   * The coverage level for partner-led support.
+   *
    * @public
    */
   coverage: Coverage | undefined;
 
   /**
-   * <p>The provider of the partner-led support.</p>
+   * The provider of the partner-led support.
+   *
    * @public
    */
   provider?: Provider | undefined;
 
   /**
-   * <p>The location of the Technical Account Manager (TAM).</p>
+   * The location of the Technical Account Manager (TAM).
+   *
    * @public
    */
   tamLocation: string | undefined;
 }
 
 /**
- * <p>Configuration for resold enterprise support plans.</p>
+ * Configuration for resold enterprise support plans.
+ *
  * @public
  */
 export interface ResoldEnterprise {
   /**
-   * <p>The coverage level for resold enterprise support.</p>
+   * The coverage level for resold enterprise support.
+   *
    * @public
    */
   coverage: Coverage | undefined;
 
   /**
-   * <p>The location of the Technical Account Manager (TAM).</p>
+   * The location of the Technical Account Manager (TAM).
+   *
    * @public
    */
   tamLocation: string | undefined;
 
   /**
-   * <p>The AWS account ID to charge for the support plan.</p>
+   * The AWS account ID to charge for the support plan.
+   *
    * @public
    */
   chargeAccountId?: string | undefined;
 }
 
 /**
- * <p>Configuration for resold unified operations support plans.</p>
+ * Configuration for resold unified operations support plans.
+ *
  * @public
  */
 export interface ResoldUnifiedOperations {
   /**
-   * <p>The coverage level for resold unified operations support.</p>
+   * The coverage level for resold unified operations support.
+   *
    * @public
    */
   coverage: Coverage | undefined;
 
   /**
-   * <p>The location of the Technical Account Manager (TAM).</p>
+   * The location of the Technical Account Manager (TAM).
+   *
    * @public
    */
   tamLocation: string | undefined;
 
   /**
-   * <p>The AWS account ID to charge for the support plan.</p>
+   * The AWS account ID to charge for the support plan.
+   *
    * @public
    */
   chargeAccountId?: string | undefined;
 }
 
 /**
- * <p>Configuration for different types of support plans.</p>
+ * Configuration for different types of support plans.
+ *
  * @public
  */
 export type SupportPlan =
@@ -1092,7 +1231,8 @@ export type SupportPlan =
  */
 export namespace SupportPlan {
   /**
-   * <p>Configuration for resold enterprise support plans.</p>
+   * Configuration for resold enterprise support plans.
+   *
    * @public
    */
   export interface ResoldEnterpriseMember {
@@ -1103,7 +1243,8 @@ export namespace SupportPlan {
   }
 
   /**
-   * <p>Configuration for partner-led support plans.</p>
+   * Configuration for partner-led support plans.
+   *
    * @public
    */
   export interface PartnerLedSupportMember {
@@ -1114,7 +1255,8 @@ export namespace SupportPlan {
   }
 
   /**
-   * <p>Configuration for resold unified operations support plans.</p>
+   * Configuration for resold unified operations support plans.
+   *
    * @public
    */
   export interface ResoldUnifiedOperationsMember {
@@ -1151,79 +1293,92 @@ export namespace SupportPlan {
  */
 export interface CreateRelationshipRequest {
   /**
-   * <p>The catalog identifier for the relationship.</p>
+   * The catalog identifier for the relationship.
+   *
    * @public
    */
   catalog: string | undefined;
 
   /**
-   * <p>The type of association for the relationship (e.g., reseller, distributor).</p>
+   * The type of association for the relationship (e.g., reseller, distributor).
+   *
    * @public
    */
   associationType: AssociationType | undefined;
 
   /**
-   * <p>The identifier of the program management account for this relationship.</p>
+   * The identifier of the program management account for this relationship.
+   *
    * @public
    */
   programManagementAccountIdentifier: string | undefined;
 
   /**
-   * <p>The AWS account ID to associate in this relationship.</p>
+   * The AWS account ID to associate in this relationship.
+   *
    * @public
    */
   associatedAccountId: string | undefined;
 
   /**
-   * <p>A human-readable name for the relationship.</p>
+   * A human-readable name for the relationship.
+   *
    * @public
    */
   displayName: string | undefined;
 
   /**
-   * <p>The resale account model for the relationship.</p>
+   * The resale account model for the relationship.
+   *
    * @public
    */
   resaleAccountModel?: ResaleAccountModel | undefined;
 
   /**
-   * <p>The business sector for the relationship.</p>
+   * The business sector for the relationship.
+   *
    * @public
    */
   sector: Sector | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * A unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>Key-value pairs to associate with the relationship.</p>
+   * Key-value pairs to associate with the relationship.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p>The support plan requested for this relationship.</p>
+   * The support plan requested for this relationship.
+   *
    * @public
    */
   requestedSupportPlan?: SupportPlan | undefined;
 }
 
 /**
- * <p>Contains details about a newly created relationship.</p>
+ * Contains details about a newly created relationship.
+ *
  * @public
  */
 export interface CreateRelationshipDetail {
   /**
-   * <p>The Amazon Resource Name (ARN) of the created relationship.</p>
+   * The Amazon Resource Name (ARN) of the created relationship.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The unique identifier of the created relationship.</p>
+   * The unique identifier of the created relationship.
+   *
    * @public
    */
   id?: string | undefined;
@@ -1234,7 +1389,8 @@ export interface CreateRelationshipDetail {
  */
 export interface CreateRelationshipResponse {
   /**
-   * <p>Details of the created relationship.</p>
+   * Details of the created relationship.
+   *
    * @public
    */
   relationshipDetail?: CreateRelationshipDetail | undefined;
@@ -1245,19 +1401,22 @@ export interface CreateRelationshipResponse {
  */
 export interface DeleteProgramManagementAccountRequest {
   /**
-   * <p>The catalog identifier for the program management account.</p>
+   * The catalog identifier for the program management account.
+   *
    * @public
    */
   catalog: string | undefined;
 
   /**
-   * <p>The unique identifier of the program management account to delete.</p>
+   * The unique identifier of the program management account to delete.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * A unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -1273,25 +1432,29 @@ export interface DeleteProgramManagementAccountResponse {}
  */
 export interface DeleteRelationshipRequest {
   /**
-   * <p>The catalog identifier for the relationship.</p>
+   * The catalog identifier for the relationship.
+   *
    * @public
    */
   catalog: string | undefined;
 
   /**
-   * <p>The unique identifier of the relationship to delete.</p>
+   * The unique identifier of the relationship to delete.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The identifier of the program management account associated with the relationship.</p>
+   * The identifier of the program management account associated with the relationship.
+   *
    * @public
    */
   programManagementAccountIdentifier: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * A unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -1307,103 +1470,120 @@ export interface DeleteRelationshipResponse {}
  */
 export interface GetRelationshipRequest {
   /**
-   * <p>The catalog identifier for the relationship.</p>
+   * The catalog identifier for the relationship.
+   *
    * @public
    */
   catalog: string | undefined;
 
   /**
-   * <p>The identifier of the program management account associated with the relationship.</p>
+   * The identifier of the program management account associated with the relationship.
+   *
    * @public
    */
   programManagementAccountIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the relationship to retrieve.</p>
+   * The unique identifier of the relationship to retrieve.
+   *
    * @public
    */
   identifier: string | undefined;
 }
 
 /**
- * <p>Detailed information about a partner relationship.</p>
+ * Detailed information about a partner relationship.
+ *
  * @public
  */
 export interface RelationshipDetail {
   /**
-   * <p>The Amazon Resource Name (ARN) of the relationship.</p>
+   * The Amazon Resource Name (ARN) of the relationship.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The unique identifier of the relationship.</p>
+   * The unique identifier of the relationship.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The current revision number of the relationship.</p>
+   * The current revision number of the relationship.
+   *
    * @public
    */
   revision?: string | undefined;
 
   /**
-   * <p>The catalog identifier associated with the relationship.</p>
+   * The catalog identifier associated with the relationship.
+   *
    * @public
    */
   catalog?: string | undefined;
 
   /**
-   * <p>The type of association for the relationship.</p>
+   * The type of association for the relationship.
+   *
    * @public
    */
   associationType?: AssociationType | undefined;
 
   /**
-   * <p>The identifier of the program management account.</p>
+   * The identifier of the program management account.
+   *
    * @public
    */
   programManagementAccountId?: string | undefined;
 
   /**
-   * <p>The AWS account ID associated in this relationship.</p>
+   * The AWS account ID associated in this relationship.
+   *
    * @public
    */
   associatedAccountId?: string | undefined;
 
   /**
-   * <p>The display name of the relationship.</p>
+   * The display name of the relationship.
+   *
    * @public
    */
   displayName?: string | undefined;
 
   /**
-   * <p>The resale account model for the relationship.</p>
+   * The resale account model for the relationship.
+   *
    * @public
    */
   resaleAccountModel?: ResaleAccountModel | undefined;
 
   /**
-   * <p>The business sector for the relationship.</p>
+   * The business sector for the relationship.
+   *
    * @public
    */
   sector?: Sector | undefined;
 
   /**
-   * <p>The timestamp when the relationship was created.</p>
+   * The timestamp when the relationship was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when the relationship was last updated.</p>
+   * The timestamp when the relationship was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The start date of the relationship.</p>
+   * The start date of the relationship.
+   *
    * @public
    */
   startDate?: Date | undefined;
@@ -1414,25 +1594,29 @@ export interface RelationshipDetail {
  */
 export interface GetRelationshipResponse {
   /**
-   * <p>Details of the requested relationship.</p>
+   * Details of the requested relationship.
+   *
    * @public
    */
   relationshipDetail?: RelationshipDetail | undefined;
 }
 
 /**
- * <p>Base sorting configuration for program management accounts.</p>
+ * Base sorting configuration for program management accounts.
+ *
  * @public
  */
 export interface ListProgramManagementAccountsSortBase {
   /**
-   * <p>The sort order (ascending or descending).</p>
+   * The sort order (ascending or descending).
+   *
    * @public
    */
   sortOrder: SortOrder | undefined;
 
   /**
-   * <p>The field to sort by.</p>
+   * The field to sort by.
+   *
    * @public
    */
   sortBy: ListProgramManagementAccountsSortName | undefined;
@@ -1443,121 +1627,141 @@ export interface ListProgramManagementAccountsSortBase {
  */
 export interface ListProgramManagementAccountsRequest {
   /**
-   * <p>The catalog identifier to filter accounts.</p>
+   * The catalog identifier to filter accounts.
+   *
    * @public
    */
   catalog: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Filter by display names.</p>
+   * Filter by display names.
+   *
    * @public
    */
   displayNames?: string[] | undefined;
 
   /**
-   * <p>Filter by program types.</p>
+   * Filter by program types.
+   *
    * @public
    */
   programs?: Program[] | undefined;
 
   /**
-   * <p>Filter by AWS account IDs.</p>
+   * Filter by AWS account IDs.
+   *
    * @public
    */
   accountIds?: string[] | undefined;
 
   /**
-   * <p>Filter by program management account statuses.</p>
+   * Filter by program management account statuses.
+   *
    * @public
    */
   statuses?: ProgramManagementAccountStatus[] | undefined;
 
   /**
-   * <p>Sorting options for the results.</p>
+   * Sorting options for the results.
+   *
    * @public
    */
   sort?: ListProgramManagementAccountsSortBase | undefined;
 
   /**
-   * <p>Token for retrieving the next page of results.</p>
+   * Token for retrieving the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Summary information about a program management account.</p>
+ * Summary information about a program management account.
+ *
  * @public
  */
 export interface ProgramManagementAccountSummary {
   /**
-   * <p>The unique identifier of the program management account.</p>
+   * The unique identifier of the program management account.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The current revision number of the program management account.</p>
+   * The current revision number of the program management account.
+   *
    * @public
    */
   revision?: string | undefined;
 
   /**
-   * <p>The catalog identifier associated with the account.</p>
+   * The catalog identifier associated with the account.
+   *
    * @public
    */
   catalog?: string | undefined;
 
   /**
-   * <p>The program type for the management account.</p>
+   * The program type for the management account.
+   *
    * @public
    */
   program?: Program | undefined;
 
   /**
-   * <p>The display name of the program management account.</p>
+   * The display name of the program management account.
+   *
    * @public
    */
   displayName?: string | undefined;
 
   /**
-   * <p>The AWS account ID associated with the program management account.</p>
+   * The AWS account ID associated with the program management account.
+   *
    * @public
    */
   accountId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the program management account.</p>
+   * The Amazon Resource Name (ARN) of the program management account.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The timestamp when the account was created.</p>
+   * The timestamp when the account was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when the account was last updated.</p>
+   * The timestamp when the account was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The start date of the program management account.</p>
+   * The start date of the program management account.
+   *
    * @public
    */
   startDate?: Date | undefined;
 
   /**
-   * <p>The current status of the program management account.</p>
+   * The current status of the program management account.
+   *
    * @public
    */
   status?: ProgramManagementAccountStatus | undefined;
@@ -1568,31 +1772,36 @@ export interface ProgramManagementAccountSummary {
  */
 export interface ListProgramManagementAccountsResponse {
   /**
-   * <p>List of program management accounts matching the criteria.</p>
+   * List of program management accounts matching the criteria.
+   *
    * @public
    */
   items?: ProgramManagementAccountSummary[] | undefined;
 
   /**
-   * <p>Token for retrieving the next page of results, if available.</p>
+   * Token for retrieving the next page of results, if available.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Base sorting configuration for relationships.</p>
+ * Base sorting configuration for relationships.
+ *
  * @public
  */
 export interface ListRelationshipsSortBase {
   /**
-   * <p>The sort order (ascending or descending).</p>
+   * The sort order (ascending or descending).
+   *
    * @public
    */
   sortOrder: SortOrder | undefined;
 
   /**
-   * <p>The field to sort by.</p>
+   * The field to sort by.
+   *
    * @public
    */
   sortBy: ListRelationshipsSortName | undefined;
@@ -1603,127 +1812,148 @@ export interface ListRelationshipsSortBase {
  */
 export interface ListRelationshipsRequest {
   /**
-   * <p>The catalog identifier to filter relationships.</p>
+   * The catalog identifier to filter relationships.
+   *
    * @public
    */
   catalog: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Filter by associated AWS account IDs.</p>
+   * Filter by associated AWS account IDs.
+   *
    * @public
    */
   associatedAccountIds?: string[] | undefined;
 
   /**
-   * <p>Filter by association types.</p>
+   * Filter by association types.
+   *
    * @public
    */
   associationTypes?: AssociationType[] | undefined;
 
   /**
-   * <p>Filter by display names.</p>
+   * Filter by display names.
+   *
    * @public
    */
   displayNames?: string[] | undefined;
 
   /**
-   * <p>Filter by program management account identifiers.</p>
+   * Filter by program management account identifiers.
+   *
    * @public
    */
   programManagementAccountIdentifiers?: string[] | undefined;
 
   /**
-   * <p>Sorting options for the results.</p>
+   * Sorting options for the results.
+   *
    * @public
    */
   sort?: ListRelationshipsSortBase | undefined;
 
   /**
-   * <p>Token for retrieving the next page of results.</p>
+   * Token for retrieving the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Summary information about a partner relationship.</p>
+ * Summary information about a partner relationship.
+ *
  * @public
  */
 export interface RelationshipSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the relationship.</p>
+   * The Amazon Resource Name (ARN) of the relationship.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The unique identifier of the relationship.</p>
+   * The unique identifier of the relationship.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The current revision number of the relationship.</p>
+   * The current revision number of the relationship.
+   *
    * @public
    */
   revision?: string | undefined;
 
   /**
-   * <p>The catalog identifier associated with the relationship.</p>
+   * The catalog identifier associated with the relationship.
+   *
    * @public
    */
   catalog?: string | undefined;
 
   /**
-   * <p>The type of association for the relationship.</p>
+   * The type of association for the relationship.
+   *
    * @public
    */
   associationType?: AssociationType | undefined;
 
   /**
-   * <p>The identifier of the program management account.</p>
+   * The identifier of the program management account.
+   *
    * @public
    */
   programManagementAccountId?: string | undefined;
 
   /**
-   * <p>The AWS account ID associated in this relationship.</p>
+   * The AWS account ID associated in this relationship.
+   *
    * @public
    */
   associatedAccountId?: string | undefined;
 
   /**
-   * <p>The display name of the relationship.</p>
+   * The display name of the relationship.
+   *
    * @public
    */
   displayName?: string | undefined;
 
   /**
-   * <p>The business sector for the relationship.</p>
+   * The business sector for the relationship.
+   *
    * @public
    */
   sector?: Sector | undefined;
 
   /**
-   * <p>The timestamp when the relationship was created.</p>
+   * The timestamp when the relationship was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when the relationship was last updated.</p>
+   * The timestamp when the relationship was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The start date of the relationship.</p>
+   * The start date of the relationship.
+   *
    * @public
    */
   startDate?: Date | undefined;
@@ -1734,13 +1964,15 @@ export interface RelationshipSummary {
  */
 export interface ListRelationshipsResponse {
   /**
-   * <p>List of relationships matching the criteria.</p>
+   * List of relationships matching the criteria.
+   *
    * @public
    */
   items?: RelationshipSummary[] | undefined;
 
   /**
-   * <p>Token for retrieving the next page of results, if available.</p>
+   * Token for retrieving the next page of results, if available.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1751,7 +1983,8 @@ export interface ListRelationshipsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource to list tags for.</p>
+   * The Amazon Resource Name (ARN) of the resource to list tags for.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -1762,7 +1995,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>Key-value pairs associated with the resource.</p>
+   * Key-value pairs associated with the resource.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
@@ -1773,55 +2007,64 @@ export interface ListTagsForResourceResponse {
  */
 export interface UpdateProgramManagementAccountRequest {
   /**
-   * <p>The catalog identifier for the program management account.</p>
+   * The catalog identifier for the program management account.
+   *
    * @public
    */
   catalog: string | undefined;
 
   /**
-   * <p>The unique identifier of the program management account to update.</p>
+   * The unique identifier of the program management account to update.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The current revision number of the program management account.</p>
+   * The current revision number of the program management account.
+   *
    * @public
    */
   revision?: string | undefined;
 
   /**
-   * <p>The new display name for the program management account.</p>
+   * The new display name for the program management account.
+   *
    * @public
    */
   displayName?: string | undefined;
 }
 
 /**
- * <p>Contains details about an updated program management account.</p>
+ * Contains details about an updated program management account.
+ *
  * @public
  */
 export interface UpdateProgramManagementAccountDetail {
   /**
-   * <p>The unique identifier of the updated program management account.</p>
+   * The unique identifier of the updated program management account.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the updated program management account.</p>
+   * The Amazon Resource Name (ARN) of the updated program management account.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The new revision number of the program management account.</p>
+   * The new revision number of the program management account.
+   *
    * @public
    */
   revision?: string | undefined;
 
   /**
-   * <p>The updated display name of the program management account.</p>
+   * The updated display name of the program management account.
+   *
    * @public
    */
   displayName?: string | undefined;
@@ -1832,7 +2075,8 @@ export interface UpdateProgramManagementAccountDetail {
  */
 export interface UpdateProgramManagementAccountResponse {
   /**
-   * <p>Details of the updated program management account.</p>
+   * Details of the updated program management account.
+   *
    * @public
    */
   programManagementAccountDetail?: UpdateProgramManagementAccountDetail | undefined;
@@ -1843,67 +2087,78 @@ export interface UpdateProgramManagementAccountResponse {
  */
 export interface UpdateRelationshipRequest {
   /**
-   * <p>The catalog identifier for the relationship.</p>
+   * The catalog identifier for the relationship.
+   *
    * @public
    */
   catalog: string | undefined;
 
   /**
-   * <p>The unique identifier of the relationship to update.</p>
+   * The unique identifier of the relationship to update.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The identifier of the program management account associated with the relationship.</p>
+   * The identifier of the program management account associated with the relationship.
+   *
    * @public
    */
   programManagementAccountIdentifier: string | undefined;
 
   /**
-   * <p>The current revision number of the relationship.</p>
+   * The current revision number of the relationship.
+   *
    * @public
    */
   revision?: string | undefined;
 
   /**
-   * <p>The new display name for the relationship.</p>
+   * The new display name for the relationship.
+   *
    * @public
    */
   displayName?: string | undefined;
 
   /**
-   * <p>The updated support plan for the relationship.</p>
+   * The updated support plan for the relationship.
+   *
    * @public
    */
   requestedSupportPlan?: SupportPlan | undefined;
 }
 
 /**
- * <p>Contains details about an updated relationship.</p>
+ * Contains details about an updated relationship.
+ *
  * @public
  */
 export interface UpdateRelationshipDetail {
   /**
-   * <p>The Amazon Resource Name (ARN) of the updated relationship.</p>
+   * The Amazon Resource Name (ARN) of the updated relationship.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The unique identifier of the updated relationship.</p>
+   * The unique identifier of the updated relationship.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The new revision number of the relationship.</p>
+   * The new revision number of the relationship.
+   *
    * @public
    */
   revision?: string | undefined;
 
   /**
-   * <p>The updated display name of the relationship.</p>
+   * The updated display name of the relationship.
+   *
    * @public
    */
   displayName?: string | undefined;
@@ -1914,7 +2169,8 @@ export interface UpdateRelationshipDetail {
  */
 export interface UpdateRelationshipResponse {
   /**
-   * <p>Details of the updated relationship.</p>
+   * Details of the updated relationship.
+   *
    * @public
    */
   relationshipDetail?: UpdateRelationshipDetail | undefined;
@@ -1925,13 +2181,15 @@ export interface UpdateRelationshipResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource to tag.</p>
+   * The Amazon Resource Name (ARN) of the resource to tag.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>Key-value pairs to associate with the resource.</p>
+   * Key-value pairs to associate with the resource.
+   *
    * @public
    */
   tags: Tag[] | undefined;
@@ -1947,13 +2205,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource to remove tags from.</p>
+   * The Amazon Resource Name (ARN) of the resource to remove tags from.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The keys of the tags to remove from the resource.</p>
+   * The keys of the tags to remove from the resource.
+   *
    * @public
    */
   tagKeys: string[] | undefined;

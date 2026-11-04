@@ -23,13 +23,12 @@ export interface CreateVirtualRouterCommandInput extends CreateVirtualRouterInpu
 export interface CreateVirtualRouterCommandOutput extends CreateVirtualRouterOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a virtual router within a service mesh.</p>
- *          <p>Specify a <code>listener</code> for any inbound traffic that your virtual router
- *          receives. Create a virtual router for each protocol and port that you need to route.
- *          Virtual routers handle traffic for one or more virtual services within your mesh. After you
- *          create your virtual router, create and associate routes for your virtual router that direct
- *          incoming requests to different virtual nodes.</p>
- *          <p>For more information about virtual routers, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_routers.html">Virtual routers</a>.</p>
+ * Creates a virtual router within a service mesh.
+ *
+ * Specify a `listener` for any inbound traffic that your virtual router receives. Create a virtual router for each protocol and port that you need to route. Virtual routers handle traffic for one or more virtual services within your mesh. After you create your virtual router, create and associate routes for your virtual router that direct incoming requests to different virtual nodes.
+ *
+ * For more information about virtual routers, see [Virtual routers](https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_routers.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -100,37 +99,40 @@ export interface CreateVirtualRouterCommandOutput extends CreateVirtualRouterOut
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request syntax was malformed. Check your request syntax and try again.</p>
+ *
+ * The request syntax was malformed. Check your request syntax and try again.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request contains a client token that was used for a previous update resource call
- *          with different specifications. Try the request again with a new client token.</p>
+ *
+ * The request contains a client token that was used for a previous update resource call with different specifications. Try the request again with a new client token.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>You don't have permissions to perform this action.</p>
+ *
+ * You don't have permissions to perform this action.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception, or
- *          failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception, or failure.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You have exceeded a service limit for your account. For more information, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/service-quotas.html">Service
- *             Limits</a> in the <i>App Mesh User Guide</i>.</p>
+ *
+ * You have exceeded a service limit for your account. For more information, see [Service Limits](https://docs.aws.amazon.com/app-mesh/latest/userguide/service-quotas.html) in the *App Mesh User Guide*.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The specified resource doesn't exist. Check your request syntax and try again.</p>
+ *
+ * The specified resource doesn't exist. Check your request syntax and try again.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The request has failed due to a temporary failure of the service.</p>
+ *
+ * The request has failed due to a temporary failure of the service.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The maximum request rate permitted by the App Mesh APIs has been exceeded for
- *          your account. For best results, use an increasing or variable sleep interval between
- *          requests.</p>
+ *
+ * The maximum request rate permitted by the App Mesh APIs has been exceeded for your account. For best results, use an increasing or variable sleep interval between requests.
  *
  * @throws {@link AppMeshServiceException}
- * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ * Base exception class for all service exceptions from AppMesh service.
  *
  * @public
  */

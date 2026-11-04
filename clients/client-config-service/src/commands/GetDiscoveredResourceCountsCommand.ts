@@ -23,64 +23,29 @@ export interface GetDiscoveredResourceCountsCommandInput extends GetDiscoveredRe
 export interface GetDiscoveredResourceCountsCommandOutput extends GetDiscoveredResourceCountsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the resource types, the number of each resource type,
- * 			and the total number of resources that Config is recording in
- * 			this region for your Amazon Web Services account. </p>
- *          <p class="title">
- *             <b>Example</b>
- *          </p>
- *          <ol>
- *             <li>
- *                <p>Config is recording three resource types in the US
- * 					East (Ohio) Region for your account: 25 EC2 instances, 20
- * 					IAM users, and 15 S3 buckets.</p>
- *             </li>
- *             <li>
- *                <p>You make a call to the
- * 						<code>GetDiscoveredResourceCounts</code> action and
- * 					specify that you want all resource types. </p>
- *             </li>
- *             <li>
- *                <p>Config returns the following:</p>
- *                <ul>
- *                   <li>
- *                      <p>The resource types (EC2 instances, IAM users,
- * 							and S3 buckets).</p>
- *                   </li>
- *                   <li>
- *                      <p>The number of each resource type (25, 20, and
- * 							15).</p>
- *                   </li>
- *                   <li>
- *                      <p>The total number of all resources
- * 							(60).</p>
- *                   </li>
- *                </ul>
- *             </li>
- *          </ol>
- *          <p>The response is paginated. By default, Config lists 100
- * 				<a>ResourceCount</a> objects on each page. You can
- * 			customize this number with the <code>limit</code> parameter. The
- * 			response includes a <code>nextToken</code> string. To get the next
- * 			page of results, run the request again and specify the string for
- * 			the <code>nextToken</code> parameter.</p>
- *          <note>
- *             <p>If you make a call to the <a>GetDiscoveredResourceCounts</a> action, you might
- * 				not immediately receive resource counts in the following
- * 				situations:</p>
- *             <ul>
- *                <li>
- *                   <p>You are a new Config customer.</p>
- *                </li>
- *                <li>
- *                   <p>You just enabled resource recording.</p>
- *                </li>
- *             </ul>
- *             <p>It might take a few minutes for Config to record and
- * 				count your resources. Wait a few minutes and then retry the
- * 					<a>GetDiscoveredResourceCounts</a> action.
- * 			</p>
- *          </note>
+ * Returns the resource types, the number of each resource type, and the total number of resources that Config is recording in this region for your Amazon Web Services account.
+ *
+ * **Example**
+ *
+ * 1. Config is recording three resource types in the US East (Ohio) Region for your account: 25 EC2 instances, 20 IAM users, and 15 S3 buckets.
+ * 2. You make a call to the `GetDiscoveredResourceCounts` action and specify that you want all resource types.
+ * 3. Config returns the following:
+ *
+ *    - The resource types (EC2 instances, IAM users, and S3 buckets).
+ *    - The number of each resource type (25, 20, and 15).
+ *    - The total number of all resources (60).
+ *
+ * The response is paginated. By default, Config lists 100 ResourceCount objects on each page. You can customize this number with the `limit` parameter. The response includes a `nextToken` string. To get the next page of results, run the request again and specify the string for the `nextToken` parameter.
+ *
+ * > **Note:**
+ * >
+ * > If you make a call to the GetDiscoveredResourceCounts action, you might not immediately receive resource counts in the following situations:
+ * >
+ * > - You are a new Config customer.
+ * > - You just enabled resource recording.
+ * >
+ * > It might take a few minutes for Config to record and count your resources. Wait a few minutes and then retry the GetDiscoveredResourceCounts action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -118,61 +83,42 @@ export interface GetDiscoveredResourceCountsCommandOutput extends GetDiscoveredR
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  * @throws {@link InvalidLimitException} (client fault)
- *  <p>The specified limit is outside the allowable range.</p>
+ *
+ * The specified limit is outside the allowable range.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The specified next token is not valid. Specify the
- * 				<code>nextToken</code> string that was returned in the previous
- * 			response to get the next page of results.</p>
+ *
+ * The specified next token is not valid. Specify the `nextToken` string that was returned in the previous response to get the next page of results.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p>
- *          <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html">PutStoredQuery</a>, one of the following errors:</p>
- *          <ul>
- *             <li>
- *                <p>There are missing required fields.</p>
- *             </li>
- *             <li>
- *                <p>The input value fails the validation.</p>
- *             </li>
- *             <li>
- *                <p>You are trying to create more than 300 queries.</p>
- *             </li>
- *          </ul>
- *          <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html">DescribeConfigurationRecorders</a> and <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html">DescribeConfigurationRecorderStatus</a>, one of the following errors:</p>
- *          <ul>
- *             <li>
- *                <p>You have specified more than one configuration recorder.</p>
- *             </li>
- *             <li>
- *                <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p>
- *             </li>
- *          </ul>
- *          <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html">AssociateResourceTypes</a> and <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html">DisassociateResourceTypes</a>, one of the following errors:</p>
- *          <ul>
- *             <li>
- *                <p>Your configuraiton recorder has a recording strategy that does not allow the association or disassociation of resource types.</p>
- *             </li>
- *             <li>
- *                <p>One or more of the specified resource types are already associated or disassociated with the configuration recorder.</p>
- *             </li>
- *             <li>
- *                <p>For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.</p>
- *             </li>
- *          </ul>
- *          <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteServiceLinkedConfigurationRecorder.html">DeleteServiceLinkedConfigurationRecorder</a>, one of the following errors:</p>
- *          <ul>
- *             <li>
- *                <p>You have provided both <code>Arn</code> and <code>ServicePrincipal</code>. Only one of <code>Arn</code> or <code>ServicePrincipal</code> can be specified.</p>
- *             </li>
- *             <li>
- *                <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p>
- *             </li>
- *          </ul>
+ *
+ * The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.
+ *
+ * For [PutStoredQuery](https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html), one of the following errors:
+ *
+ * - There are missing required fields.
+ * - The input value fails the validation.
+ * - You are trying to create more than 300 queries.
+ *
+ * For [DescribeConfigurationRecorders](https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html) and [DescribeConfigurationRecorderStatus](https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html), one of the following errors:
+ *
+ * - You have specified more than one configuration recorder.
+ * - You have provided a service principal for service-linked configuration recorder that is not valid.
+ *
+ * For [AssociateResourceTypes](https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html) and [DisassociateResourceTypes](https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html), one of the following errors:
+ *
+ * - Your configuraiton recorder has a recording strategy that does not allow the association or disassociation of resource types.
+ * - One or more of the specified resource types are already associated or disassociated with the configuration recorder.
+ * - For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.
+ *
+ * For [DeleteServiceLinkedConfigurationRecorder](https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteServiceLinkedConfigurationRecorder.html), one of the following errors:
+ *
+ * - You have provided both `Arn` and `ServicePrincipal`. Only one of `Arn` or `ServicePrincipal` can be specified.
+ * - You have provided a service principal for service-linked configuration recorder that is not valid.
  *
  * @throws {@link ConfigServiceServiceException}
- * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * Base exception class for all service exceptions from ConfigService service.
  *
  * @public
  */

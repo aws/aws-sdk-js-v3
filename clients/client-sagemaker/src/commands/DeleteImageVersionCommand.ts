@@ -23,7 +23,8 @@ export interface DeleteImageVersionCommandInput extends DeleteImageVersionReques
 export interface DeleteImageVersionCommandOutput extends DeleteImageVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a version of a SageMaker AI image. The container image the version represents isn't deleted.</p>
+ * Deletes a version of a SageMaker AI image. The container image the version represents isn't deleted.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,14 +51,16 @@ export interface DeleteImageVersionCommandOutput extends DeleteImageVersionRespo
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceInUse} (client fault)
- *  <p>Resource being accessed is in use.</p>
+ *
+ * Resource being accessed is in use.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Resource being access is not found.</p>
+ *
+ * Resource being access is not found.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

@@ -318,7 +318,8 @@ export type PricingPlanManagerClientResolvedConfigType = __SmithyResolvedConfigu
 export interface PricingPlanManagerClientResolvedConfig extends PricingPlanManagerClientResolvedConfigType {}
 
 /**
- * <p>Manages flat-rate pricing subscriptions for supported services. Use this API to create, approve, update, and cancel subscriptions; associate and disassociate resources; and retrieve subscription details. With a flat-rate pricing subscription, you pay a fixed recurring fee for eligible resources instead of usage-based pricing.</p>
+ * Manages flat-rate pricing subscriptions for supported services. Use this API to create, approve, update, and cancel subscriptions; associate and disassociate resources; and retrieve subscription details. With a flat-rate pricing subscription, you pay a fixed recurring fee for eligible resources instead of usage-based pricing.
+ *
  * @public
  */
 export class PricingPlanManagerClient extends __Client<

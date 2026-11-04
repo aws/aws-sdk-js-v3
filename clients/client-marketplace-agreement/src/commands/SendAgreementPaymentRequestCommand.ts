@@ -23,7 +23,10 @@ export interface SendAgreementPaymentRequestCommandInput extends SendAgreementPa
 export interface SendAgreementPaymentRequestCommandOutput extends SendAgreementPaymentRequestOutput, __MetadataBearer {}
 
 /**
- * <p>Allows sellers (proposers) to submit a payment request to buyers (acceptors) for a specific charge amount for an agreement that includes a <code>VariablePaymentTerm</code>. The payment request is created in <code>PENDING_APPROVAL</code> status, at which point the buyer can accept or reject it.</p> <note> <p>The agreement must be active and have a <code>VariablePaymentTerm</code> to support payment requests. The <code>chargeAmount</code> must not exceed the remaining available balance under the <code>VariablePaymentTerm</code> <code>maxTotalChargeAmount</code>.</p> </note>
+ * Allows sellers (proposers) to submit a payment request to buyers (acceptors) for a specific charge amount for an agreement that includes a `VariablePaymentTerm`. The payment request is created in `PENDING_APPROVAL` status, at which point the buyer can accept or reject it.
+ *
+ * > **Note:** The agreement must be active and have a `VariablePaymentTerm` to support payment requests. The `chargeAmount` must not exceed the remaining available balance under the `VariablePaymentTerm` `maxTotalChargeAmount`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,26 +65,32 @@ export interface SendAgreementPaymentRequestCommandOutput extends SendAgreementP
  * @see {@link MarketplaceAgreementClientResolvedConfig | config} for MarketplaceAgreementClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * User does not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Request was denied due to a resource conflict.</p>
+ *
+ * Request was denied due to a resource conflict.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error during processing of request.</p>
+ *
+ * Unexpected error during processing of request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Request references a resource which does not exist.</p>
+ *
+ * Request references a resource which does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Request was denied due to request throttling.</p>
+ *
+ * Request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the service.</p>
+ *
+ * The input fails to satisfy the constraints specified by the service.
  *
  * @throws {@link MarketplaceAgreementServiceException}
- * <p>Base exception class for all service exceptions from MarketplaceAgreement service.</p>
  *
+ * Base exception class for all service exceptions from MarketplaceAgreement service.
  *
  * @public
  */

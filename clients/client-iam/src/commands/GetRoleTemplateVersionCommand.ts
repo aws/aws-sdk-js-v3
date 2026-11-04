@@ -23,12 +23,10 @@ export interface GetRoleTemplateVersionCommandInput extends GetRoleTemplateVersi
 export interface GetRoleTemplateVersionCommandOutput extends GetRoleTemplateVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about a version of the specified role template. Role templates
- *             define a reusable configuration—including role name and path patterns, trust
- *             policy, inline and managed policies, permissions boundary, tags, and maximum session
- *             duration—that you use to create IAM roles with <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AcquireRole.html">AcquireRole</a>.</p>
- *          <p>If you do not specify a minor version, the service returns the template's default
- *             minor version.</p>
+ * Retrieves information about a version of the specified role template. Role templates define a reusable configuration—including role name and path patterns, trust policy, inline and managed policies, permissions boundary, tags, and maximum session duration—that you use to create IAM roles with [AcquireRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_AcquireRole.html).
+ *
+ * If you do not specify a minor version, the service returns the template's default minor version.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -102,20 +100,20 @@ export interface GetRoleTemplateVersionCommandOutput extends GetRoleTemplateVers
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
- *       input parameter.</p>
+ *
+ * The request was rejected because an invalid or out-of-range value was supplied for an input parameter.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @public
  */

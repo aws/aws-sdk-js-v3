@@ -653,7 +653,8 @@ export interface LambdaMicrovms {
 }
 
 /**
- * <p>Provides APIs to create, manage, and operate AWS Lambda MicroVMs and their associated MicroVM Image environments.</p>
+ * Provides APIs to create, manage, and operate AWS Lambda MicroVMs and their associated MicroVM Image environments.
+ *
  * @public
  */
 export class LambdaMicrovms extends LambdaMicrovmsClient implements LambdaMicrovms {}

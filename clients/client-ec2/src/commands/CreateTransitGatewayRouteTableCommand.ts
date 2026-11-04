@@ -23,7 +23,8 @@ export interface CreateTransitGatewayRouteTableCommandInput extends CreateTransi
 export interface CreateTransitGatewayRouteTableCommandOutput extends CreateTransitGatewayRouteTableResult, __MetadataBearer {}
 
 /**
- * <p>Creates a route table for the specified transit gateway.</p>
+ * Creates a route table for the specified transit gateway.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,8 +76,8 @@ export interface CreateTransitGatewayRouteTableCommandOutput extends CreateTrans
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

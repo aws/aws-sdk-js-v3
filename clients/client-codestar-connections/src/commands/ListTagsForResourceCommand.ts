@@ -23,7 +23,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceInpu
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Gets the set of key-value pairs (metadata) that are used to manage the resource.</p>
+ * Gets the set of key-value pairs (metadata) that are used to manage the resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,11 +56,12 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @see {@link CodeStarConnectionsClientResolvedConfig | config} for CodeStarConnectionsClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource not found. Verify the connection resource ARN and try again.</p>
+ *
+ * Resource not found. Verify the connection resource ARN and try again.
  *
  * @throws {@link CodeStarConnectionsServiceException}
- * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ * Base exception class for all service exceptions from CodeStarConnections service.
  *
  * @public
  */

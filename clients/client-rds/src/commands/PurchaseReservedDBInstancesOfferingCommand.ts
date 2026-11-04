@@ -26,7 +26,8 @@ export interface PurchaseReservedDBInstancesOfferingCommandInput extends Purchas
 export interface PurchaseReservedDBInstancesOfferingCommandOutput extends PurchaseReservedDBInstancesOfferingResult, __MetadataBearer {}
 
 /**
- * <p>Purchases a reserved DB instance offering.</p>
+ * Purchases a reserved DB instance offering.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,17 +84,20 @@ export interface PurchaseReservedDBInstancesOfferingCommandOutput extends Purcha
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link ReservedDBInstanceAlreadyExistsFault} (client fault)
- *  <p>User already has a reservation with the given identifier.</p>
+ *
+ * User already has a reservation with the given identifier.
  *
  * @throws {@link ReservedDBInstanceQuotaExceededFault} (client fault)
- *  <p>Request would exceed the user's DB Instance quota.</p>
+ *
+ * Request would exceed the user's DB Instance quota.
  *
  * @throws {@link ReservedDBInstancesOfferingNotFoundFault} (client fault)
- *  <p>Specified offering does not exist.</p>
+ *
+ * Specified offering does not exist.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To purchase a reserved DB instance
  * ```javascript

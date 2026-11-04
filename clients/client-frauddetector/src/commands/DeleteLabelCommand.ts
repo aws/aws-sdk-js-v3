@@ -23,10 +23,14 @@ export interface DeleteLabelCommandInput extends DeleteLabelRequest {}
 export interface DeleteLabelCommandOutput extends DeleteLabelResult, __MetadataBearer {}
 
 /**
- * <p>Deletes a label.</p>
- *          <p>You cannot delete labels that are included in an event type in Amazon Fraud Detector.</p>
- *          <p>You cannot delete a label assigned to an event ID. You must first delete the relevant event ID.</p>
- *          <p>When you delete a label, Amazon Fraud Detector permanently deletes that label and the data is no longer stored in Amazon Fraud Detector.</p>
+ * Deletes a label.
+ *
+ * You cannot delete labels that are included in an event type in Amazon Fraud Detector.
+ *
+ * You cannot delete a label assigned to an event ID. You must first delete the relevant event ID.
+ *
+ * When you delete a label, Amazon Fraud Detector permanently deletes that label and the data is no longer stored in Amazon Fraud Detector.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,20 +55,24 @@ export interface DeleteLabelCommandOutput extends DeleteLabelResult, __MetadataB
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>An exception indicating there was a conflict during a delete operation.</p>
+ *
+ * An exception indicating there was a conflict during a delete operation.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An exception indicating an internal server error.</p>
+ *
+ * An exception indicating an internal server error.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>An exception indicating a throttling error.</p>
+ *
+ * An exception indicating a throttling error.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An exception indicating a specified value is not allowed.</p>
+ *
+ * An exception indicating a specified value is not allowed.
  *
  * @throws {@link FraudDetectorServiceException}
- * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * Base exception class for all service exceptions from FraudDetector service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface StopAIBenchmarkJobCommandInput extends StopAIBenchmarkJobReques
 export interface StopAIBenchmarkJobCommandOutput extends StopAIBenchmarkJobResponse, __MetadataBearer {}
 
 /**
- * <p>Stops a running AI benchmark job.</p>
+ * Stops a running AI benchmark job.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,11 +51,12 @@ export interface StopAIBenchmarkJobCommandOutput extends StopAIBenchmarkJobRespo
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Resource being access is not found.</p>
+ *
+ * Resource being access is not found.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

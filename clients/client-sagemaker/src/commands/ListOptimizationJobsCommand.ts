@@ -23,7 +23,8 @@ export interface ListOptimizationJobsCommandInput extends ListOptimizationJobsRe
 export interface ListOptimizationJobsCommandOutput extends ListOptimizationJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the optimization jobs in your account and their properties.</p>
+ * Lists the optimization jobs in your account and their properties.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,8 +77,8 @@ export interface ListOptimizationJobsCommandOutput extends ListOptimizationJobsR
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

@@ -23,10 +23,10 @@ export interface SetKeepJobFlowAliveWhenNoStepsCommandInput extends SetKeepJobFl
 export interface SetKeepJobFlowAliveWhenNoStepsCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>You can use the <code>SetKeepJobFlowAliveWhenNoSteps</code> to configure a cluster (job flow) to terminate after the step execution, i.e., all your
- *          steps are executed. If you want a transient cluster that shuts down after the last of the current executing steps are completed,
- *          you can configure <code>SetKeepJobFlowAliveWhenNoSteps</code> to false. If you want a long running cluster, configure <code>SetKeepJobFlowAliveWhenNoSteps</code> to true.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/UsingEMR_TerminationProtection.html">Managing Cluster Termination</a> in the <i>Amazon EMR Management Guide</i>.</p>
+ * You can use the `SetKeepJobFlowAliveWhenNoSteps` to configure a cluster (job flow) to terminate after the step execution, i.e., all your steps are executed. If you want a transient cluster that shuts down after the last of the current executing steps are completed, you can configure `SetKeepJobFlowAliveWhenNoSteps` to false. If you want a long running cluster, configure `SetKeepJobFlowAliveWhenNoSteps` to true.
+ *
+ * For more information, see [Managing Cluster Termination](https://docs.aws.amazon.com/emr/latest/ManagementGuide/UsingEMR_TerminationProtection.html) in the *Amazon EMR Management Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,12 +54,12 @@ export interface SetKeepJobFlowAliveWhenNoStepsCommandOutput extends __MetadataB
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Indicates that an error occurred while processing the request and that the request was
- *          not completed.</p>
+ *
+ * Indicates that an error occurred while processing the request and that the request was not completed.
  *
  * @throws {@link EMRServiceException}
- * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * Base exception class for all service exceptions from EMR service.
  *
  * @public
  */

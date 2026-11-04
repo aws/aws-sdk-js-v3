@@ -23,7 +23,15 @@ export interface DescribeTrainingSessionCommandInput extends DescribeTrainingSes
 export interface DescribeTrainingSessionCommandOutput extends DescribeTrainingSessionResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves detailed information about a training session, including its current status, model configuration, Low-Rank Adaptation (LoRA) parameters, and timestamps.</p> <p>The following operations are related to <code>DescribeTrainingSession</code>:</p> <ul> <li> <p> <code>CreateTrainingSession</code> </p> </li> <li> <p> <code>ListTrainingSessions</code> </p> </li> <li> <p> <code>StopTrainingSession</code> </p> </li> <li> <p> <code>DeleteTrainingSession</code> </p> </li> </ul>
+ * Retrieves detailed information about a training session, including its current status, model configuration, Low-Rank Adaptation (LoRA) parameters, and timestamps.
+ *
+ * The following operations are related to `DescribeTrainingSession`:
+ *
+ * - `CreateTrainingSession`
+ * - `ListTrainingSessions`
+ * - `StopTrainingSession`
+ * - `DeleteTrainingSession`
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,11 +102,12 @@ export interface DescribeTrainingSessionCommandOutput extends DescribeTrainingSe
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Resource being access is not found.</p>
+ *
+ * Resource being access is not found.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

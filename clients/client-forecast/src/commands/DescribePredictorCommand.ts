@@ -23,45 +23,19 @@ export interface DescribePredictorCommandInput extends DescribePredictorRequest 
 export interface DescribePredictorCommandOutput extends DescribePredictorResponse, __MetadataBearer {}
 
 /**
- * <note>
- *             <p> This operation is only valid for legacy predictors created with CreatePredictor. If you
- *         are not using a legacy predictor, use <a>DescribeAutoPredictor</a>.</p>
- *          </note>
- *          <p>Describes a predictor created using the <a>CreatePredictor</a>
- *       operation.</p>
- *          <p>In addition to listing the properties provided in the <code>CreatePredictor</code>
- *       request, this operation lists the following properties:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>DatasetImportJobArns</code> - The dataset import jobs used to import training
- *           data.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>AutoMLAlgorithmArns</code> - If AutoML is performed, the algorithms that were
- *           evaluated.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>CreationTime</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>LastModificationTime</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Status</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Message</code> - If an error occurred, information about the error.</p>
- *             </li>
- *          </ul>
+ * > **Note:** This operation is only valid for legacy predictors created with CreatePredictor. If you are not using a legacy predictor, use DescribeAutoPredictor.
+ *
+ * Describes a predictor created using the CreatePredictor operation.
+ *
+ * In addition to listing the properties provided in the `CreatePredictor` request, this operation lists the following properties:
+ *
+ * - `DatasetImportJobArns` - The dataset import jobs used to import training data.
+ * - `AutoMLAlgorithmArns` - If AutoML is performed, the algorithms that were evaluated.
+ * - `CreationTime`
+ * - `LastModificationTime`
+ * - `Status`
+ * - `Message` - If an error occurred, information about the error.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -192,16 +166,16 @@ export interface DescribePredictorCommandOutput extends DescribePredictorRespons
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>We can't process the request because it includes an invalid value or a value that exceeds
- *       the valid range.</p>
+ *
+ * We can't process the request because it includes an invalid value or a value that exceeds the valid range.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
- *       again.</p>
+ *
+ * We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.
  *
  * @throws {@link ForecastServiceException}
- * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * Base exception class for all service exceptions from Forecast service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface ModifyQev2IdcApplicationCommandInput extends ModifyQev2IdcAppli
 export interface ModifyQev2IdcApplicationCommandOutput extends ModifyQev2IdcApplicationResult, __MetadataBearer {}
 
 /**
- * <p>Modifies an Amazon Redshift Query Editor (QEV2) IAM Identity Center application.</p>
+ * Modifies an Amazon Redshift Query Editor (QEV2) IAM Identity Center application.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,21 +65,24 @@ export interface ModifyQev2IdcApplicationCommandOutput extends ModifyQev2IdcAppl
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link DependentServiceAccessDeniedFault} (client fault)
- *  <p>A dependent service denied access for the integration.</p>
+ *
+ * A dependent service denied access for the integration.
  *
  * @throws {@link DependentServiceUnavailableFault} (client fault)
- *  <p>Your request cannot be completed because a dependent internal service is
- *             temporarily unavailable. Wait 30 to 60 seconds and try again.</p>
+ *
+ * Your request cannot be completed because a dependent internal service is temporarily unavailable. Wait 30 to 60 seconds and try again.
  *
  * @throws {@link Qev2IdcApplicationNotExistsFault} (client fault)
- *  <p>The specified Amazon Redshift Query Editor (QEV2) IAM Identity Center application doesn't exist. Verify that the application ARN is correct and that the application exists in this Region.</p>
+ *
+ * The specified Amazon Redshift Query Editor (QEV2) IAM Identity Center application doesn't exist. Verify that the application ARN is correct and that the application exists in this Region.
  *
  * @throws {@link UnsupportedOperationFault} (client fault)
- *  <p>The requested operation isn't supported.</p>
+ *
+ * The requested operation isn't supported.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

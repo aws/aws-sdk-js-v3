@@ -23,37 +23,20 @@ export interface GetDashboardEmbedUrlCommandInput extends GetDashboardEmbedUrlRe
 export interface GetDashboardEmbedUrlCommandOutput extends GetDashboardEmbedUrlResponse, __MetadataBearer {}
 
 /**
- * <p>Generates a temporary session URL and authorization code(bearer token) that you can
- *             use to embed an Amazon Quick Sight read-only dashboard in your website or application.
- *             Before you use this command, make sure that you have configured the dashboards and
- *             permissions. </p>
- *          <p>Currently, you can use <code>GetDashboardEmbedURL</code> only from the server, not
- *             from the user's browser. The following rules apply to the generated URL:</p>
- *          <ul>
- *             <li>
- *                <p>They must be used together.</p>
- *             </li>
- *             <li>
- *                <p>They can be used one time only.</p>
- *             </li>
- *             <li>
- *                <p>They are valid for 5 minutes after you run this command.</p>
- *             </li>
- *             <li>
- *                <p>You are charged only when the URL is used or there is interaction with Quick.</p>
- *             </li>
- *             <li>
- *                <p>The resulting user session is valid for 15 minutes (default) up to 10 hours
- *                     (maximum). You can use the optional <code>SessionLifetimeInMinutes</code>
- *                     parameter to customize session duration.</p>
- *             </li>
- *          </ul>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics-deprecated.html">Embedding Analytics
- *                 Using GetDashboardEmbedUrl</a> in the <i>Amazon Quick User
- *                 Guide</i>.</p>
- *          <p>For more information about the high-level steps for embedding and for an interactive
- *             demo of the ways you can customize embedding, visit the <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html">Amazon Quick
- *                 Developer Portal</a>.</p>
+ * Generates a temporary session URL and authorization code(bearer token) that you can use to embed an Amazon Quick Sight read-only dashboard in your website or application. Before you use this command, make sure that you have configured the dashboards and permissions.
+ *
+ * Currently, you can use `GetDashboardEmbedURL` only from the server, not from the user's browser. The following rules apply to the generated URL:
+ *
+ * - They must be used together.
+ * - They can be used one time only.
+ * - They are valid for 5 minutes after you run this command.
+ * - You are charged only when the URL is used or there is interaction with Quick.
+ * - The resulting user session is valid for 15 minutes (default) up to 10 hours (maximum). You can use the optional `SessionLifetimeInMinutes` parameter to customize session duration.
+ *
+ * For more information, see [Embedding Analytics Using GetDashboardEmbedUrl](https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics-deprecated.html) in the *Amazon Quick User Guide*.
+ *
+ * For more information about the high-level steps for embedding and for an interactive demo of the ways you can customize embedding, visit the [Amazon Quick Developer Portal](https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,63 +76,58 @@ export interface GetDashboardEmbedUrlCommandOutput extends GetDashboardEmbedUrlR
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have access to this item. The provided credentials couldn't be
- * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
- * 			correct permissions, and that you are using the correct credentials.</p>
+ *
+ * You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.
  *
  * @throws {@link DomainNotWhitelistedException} (client fault)
- *  <p>The domain specified isn't on the allow list. All domains for embedded dashboards must be
- * 			added to the approved list by an Amazon Quick Suite admin.</p>
+ *
+ * The domain specified isn't on the allow list. All domains for embedded dashboards must be added to the approved list by an Amazon Quick Suite admin.
  *
  * @throws {@link IdentityTypeNotSupportedException} (client fault)
- *  <p>The identity type specified isn't supported. Supported identity types include
- * 				<code>IAM</code> and <code>QUICKSIGHT</code>.</p>
+ *
+ * The identity type specified isn't supported. Supported identity types include `IAM` and `QUICKSIGHT`.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An internal failure occurred.</p>
+ *
+ * An internal failure occurred.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more parameters has a value that isn't valid.</p>
+ *
+ * One or more parameters has a value that isn't valid.
  *
  * @throws {@link QuickSightUserNotFoundException} (client fault)
- *  <p>The user with the provided name isn't found. This error can happen in any operation
- * 			that requires finding a user based on a provided user name, such as
- * 				<code>DeleteUser</code>, <code>DescribeUser</code>, and so on.</p>
+ *
+ * The user with the provided name isn't found. This error can happen in any operation that requires finding a user based on a provided user name, such as `DeleteUser`, `DescribeUser`, and so on.
  *
  * @throws {@link ResourceExistsException} (client fault)
- *  <p>The resource specified already exists. </p>
+ *
+ * The resource specified already exists.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>One or more resources can't be found.</p>
+ *
+ * One or more resources can't be found.
  *
  * @throws {@link SessionLifetimeInMinutesInvalidException} (client fault)
- *  <p>The number of minutes specified for the lifetime of a session isn't valid. The session
- * 			lifetime must be 15-600 minutes.</p>
+ *
+ * The number of minutes specified for the lifetime of a session isn't valid. The session lifetime must be 15-600 minutes.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Access is throttled.</p>
+ *
+ * Access is throttled.
  *
  * @throws {@link UnsupportedPricingPlanException} (client fault)
- *  <p>This error indicates that you are calling an embedding operation in Amazon Quick Sight
- * 			without the required pricing plan on your Amazon Web Services account. Before you can use embedding
- * 			for anonymous users, a Quick Suite administrator needs to add capacity pricing to Quick Sight. You
- * 		    can do this on the <b>Manage Quick Suite</b> page. </p>
- *          <p>After capacity pricing is added, you can use the
- *             <code>
- *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GetDashboardEmbedUrl.html">GetDashboardEmbedUrl</a>
- *             </code> API operation with the
- *             <code>--identity-type ANONYMOUS</code> option.</p>
+ *
+ * This error indicates that you are calling an embedding operation in Amazon Quick Sight without the required pricing plan on your Amazon Web Services account. Before you can use embedding for anonymous users, a Quick Suite administrator needs to add capacity pricing to Quick Sight. You can do this on the **Manage Quick Suite** page.
+ *
+ * After capacity pricing is added, you can use the `GetDashboardEmbedUrl` API operation with the `--identity-type ANONYMOUS` option.
  *
  * @throws {@link UnsupportedUserEditionException} (client fault)
- *  <p>This error indicates that you are calling an operation on an Amazon Quick Suite
- * 			subscription where the edition doesn't include support for that operation. Amazon
- * 			Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and
- * 			capability is available in every edition.</p>
+ *
+ * This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.
  *
  * @throws {@link QuickSightServiceException}
- * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * Base exception class for all service exceptions from QuickSight service.
  *
  * @public
  */

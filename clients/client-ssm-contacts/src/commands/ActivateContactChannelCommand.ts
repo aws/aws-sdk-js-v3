@@ -23,8 +23,8 @@ export interface ActivateContactChannelCommandInput extends ActivateContactChann
 export interface ActivateContactChannelCommandOutput extends ActivateContactChannelResult, __MetadataBearer {}
 
 /**
- * <p>Activates a contact's contact channel. Incident Manager can't engage a contact until the
- *          contact channel has been activated.</p>
+ * Activates a contact's contact channel. Incident Manager can't engage a contact until the contact channel has been activated.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,24 +50,28 @@ export interface ActivateContactChannelCommandOutput extends ActivateContactChan
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this operation.</p>
+ *
+ * You don't have sufficient access to perform this operation.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error occurred while processing the request.</p>
+ *
+ * Unexpected error occurred while processing the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Request references a resource that doesn't exist.</p>
+ *
+ * Request references a resource that doesn't exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
- *          service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link SSMContactsServiceException}
- * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ * Base exception class for all service exceptions from SSMContacts service.
  *
  * @public
  */

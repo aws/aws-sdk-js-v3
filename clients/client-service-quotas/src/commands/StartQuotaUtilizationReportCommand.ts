@@ -23,12 +23,10 @@ export interface StartQuotaUtilizationReportCommandInput extends StartQuotaUtili
 export interface StartQuotaUtilizationReportCommandOutput extends StartQuotaUtilizationReportResponse, __MetadataBearer {}
 
 /**
- * <p>Initiates the generation of a quota utilization report for your Amazon Web Services account. This
- *             asynchronous operation analyzes your quota usage across all Amazon Web Services services and returns
- *             a unique report identifier that you can use to retrieve the results.</p>
- *          <p>The report generation process may take several seconds to complete, depending on the
- *             number of quotas in your account. Use the <code>GetQuotaUtilizationReport</code> operation
- *             to check the status and retrieve the results when the report is ready.</p>
+ * Initiates the generation of a quota utilization report for your Amazon Web Services account. This asynchronous operation analyzes your quota usage across all Amazon Web Services services and returns a unique report identifier that you can use to retrieve the results.
+ *
+ * The report generation process may take several seconds to complete, depending on the number of quotas in your account. Use the `GetQuotaUtilizationReport` operation to check the status and retrieve the results when the report is ready.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,27 +53,32 @@ export interface StartQuotaUtilizationReportCommandOutput extends StartQuotaUtil
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permission to perform this action.</p>
+ *
+ * You do not have sufficient permission to perform this action.
  *
  * @throws {@link IllegalArgumentException} (client fault)
- *  <p>Invalid input was provided.</p>
+ *
+ * Invalid input was provided.
  *
  * @throws {@link InvalidPaginationTokenException} (client fault)
- *  <p>Invalid input was provided.</p>
+ *
+ * Invalid input was provided.
  *
  * @throws {@link NoSuchResourceException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>Something went wrong.</p>
+ *
+ * Something went wrong.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Due to throttling, the request was denied. Slow down the rate of request calls, or
- *             request an increase for this quota.</p>
+ *
+ * Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.
  *
  * @throws {@link ServiceQuotasServiceException}
- * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>
  *
+ * Base exception class for all service exceptions from ServiceQuotas service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Remove tags from a resource.</p>
+ * Remove tags from a resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,17 +52,20 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @see {@link BraketClientResolvedConfig | config} for BraketClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The request failed because of an unknown error.</p>
+ *
+ * The request failed because of an unknown error.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input request failed to satisfy constraints expected by Amazon Braket.</p>
+ *
+ * The input request failed to satisfy constraints expected by Amazon Braket.
  *
  * @throws {@link BraketServiceException}
- * <p>Base exception class for all service exceptions from Braket service.</p>
  *
+ * Base exception class for all service exceptions from Braket service.
  *
  * @public
  */

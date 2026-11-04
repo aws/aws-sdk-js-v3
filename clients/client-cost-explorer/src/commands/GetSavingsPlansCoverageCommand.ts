@@ -23,35 +23,15 @@ export interface GetSavingsPlansCoverageCommandInput extends GetSavingsPlansCove
 export interface GetSavingsPlansCoverageCommandOutput extends GetSavingsPlansCoverageResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the Savings Plans covered for your account. This enables you to see how much of
- *       your cost is covered by a Savings Plan. An organization’s management account can see the
- *       coverage of the associated member accounts. This supports dimensions, cost categories, and
- *       nested expressions. For any time period, you can filter data for Savings Plans usage with the
- *       following dimensions:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>LINKED_ACCOUNT</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>REGION</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>SERVICE</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>INSTANCE_FAMILY</code>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>To determine valid values for a dimension, use the <code>GetDimensionValues</code>
- *       operation.</p>
+ * Retrieves the Savings Plans covered for your account. This enables you to see how much of your cost is covered by a Savings Plan. An organization’s management account can see the coverage of the associated member accounts. This supports dimensions, cost categories, and nested expressions. For any time period, you can filter data for Savings Plans usage with the following dimensions:
+ *
+ * - `LINKED_ACCOUNT`
+ * - `REGION`
+ * - `SERVICE`
+ * - `INSTANCE_FAMILY`
+ *
+ * To determine valid values for a dimension, use the `GetDimensionValues` operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -195,17 +175,20 @@ export interface GetSavingsPlansCoverageCommandOutput extends GetSavingsPlansCov
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
  * @throws {@link DataUnavailableException} (client fault)
- *  <p>The requested data is unavailable.</p>
+ *
+ * The requested data is unavailable.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The pagination token is invalid. Try again without a pagination token.</p>
+ *
+ * The pagination token is invalid. Try again without a pagination token.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ * You made too many calls in a short period of time. Try again later.
  *
  * @throws {@link CostExplorerServiceException}
- * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * Base exception class for all service exceptions from CostExplorer service.
  *
  * @public
  */

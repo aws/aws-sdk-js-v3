@@ -23,7 +23,8 @@ export interface GetTableObjectsCommandInput extends GetTableObjectsRequest {}
 export interface GetTableObjectsCommandOutput extends GetTableObjectsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the set of Amazon S3 objects that make up the specified governed table. A transaction ID or timestamp can be specified for time-travel queries.</p>
+ * Returns the set of Amazon S3 objects that make up the specified governed table. A transaction ID or timestamp can be specified for time-travel queries.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,29 +72,36 @@ export interface GetTableObjectsCommandOutput extends GetTableObjectsResponse, _
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist.</p>
+ *
+ * A specified entity does not exist.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link ResourceNotReadyException} (client fault)
- *  <p>Contains details about an error related to a resource which is not ready for a transaction.</p>
+ *
+ * Contains details about an error related to a resource which is not ready for a transaction.
  *
  * @throws {@link TransactionCanceledException} (client fault)
- *  <p>Contains details about an error related to a transaction that was cancelled.</p>
+ *
+ * Contains details about an error related to a transaction that was cancelled.
  *
  * @throws {@link TransactionCommittedException} (client fault)
- *  <p>Contains details about an error where the specified transaction has already been committed and cannot be used for <code>UpdateTableObjects</code>.</p>
+ *
+ * Contains details about an error where the specified transaction has already been committed and cannot be used for `UpdateTableObjects`.
  *
  * @throws {@link LakeFormationServiceException}
- * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * Base exception class for all service exceptions from LakeFormation service.
  *
  * @public
  */

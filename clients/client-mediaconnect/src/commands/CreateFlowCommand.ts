@@ -23,7 +23,8 @@ export interface CreateFlowCommandInput extends CreateFlowRequest {}
 export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataBearer {}
 
 /**
- * <p> Creates a new flow. The request must include one source. The request optionally can include outputs (up to 50) and entitlements (up to 50).</p>
+ * Creates a new flow. The request must include one source. The request optionally can include outputs (up to 50) and entitlements (up to 50).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -749,26 +750,32 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>This exception is thrown if the request contains a semantic error. The precise meaning depends on the API, and is documented in the error message. </p>
+ *
+ * This exception is thrown if the request contains a semantic error. The precise meaning depends on the API, and is documented in the error message.
  *
  * @throws {@link CreateFlow420Exception} (client fault)
- *  <p>Exception raised by Elemental MediaConnect when creating the flow. See the error message for the operation for more information on the cause of this exception. </p>
+ *
+ * Exception raised by Elemental MediaConnect when creating the flow. See the error message for the operation for more information on the cause of this exception.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>You do not have sufficient access to perform this action. </p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>The server encountered an internal error and is unable to complete the request. </p>
+ *
+ * The server encountered an internal error and is unable to complete the request.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is currently unavailable or busy. </p>
+ *
+ * The service is currently unavailable or busy.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The request was denied due to request throttling. </p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link MediaConnectServiceException}
- * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
+ * Base exception class for all service exceptions from MediaConnect service.
  *
  * @public
  */

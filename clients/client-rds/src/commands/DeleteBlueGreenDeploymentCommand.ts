@@ -23,7 +23,10 @@ export interface DeleteBlueGreenDeploymentCommandInput extends DeleteBlueGreenDe
 export interface DeleteBlueGreenDeploymentCommandOutput extends DeleteBlueGreenDeploymentResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a blue/green deployment.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon RDS User Guide</i> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html">Using Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon Aurora User Guide</i>.</p>
+ * Deletes a blue/green deployment.
+ *
+ * For more information, see [Using Amazon RDS Blue/Green Deployments for database updates](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html) in the *Amazon RDS User Guide* and [Using Amazon RDS Blue/Green Deployments for database updates](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html) in the *Amazon Aurora User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,14 +82,16 @@ export interface DeleteBlueGreenDeploymentCommandOutput extends DeleteBlueGreenD
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link BlueGreenDeploymentNotFoundFault} (client fault)
- *  <p> <code>BlueGreenDeploymentIdentifier</code> doesn't refer to an existing blue/green deployment.</p>
+ *
+ * `BlueGreenDeploymentIdentifier` doesn't refer to an existing blue/green deployment.
  *
  * @throws {@link InvalidBlueGreenDeploymentStateFault} (client fault)
- *  <p>The blue/green deployment can't be switched over or deleted because there is an invalid configuration in the green environment.</p>
+ *
+ * The blue/green deployment can't be switched over or deleted because there is an invalid configuration in the green environment.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To delete resources in green environment for an RDS for MySQL DB instance
  * ```javascript

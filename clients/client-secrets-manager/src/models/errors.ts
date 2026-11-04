@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { SecretsManagerServiceException as __BaseException } from "./SecretsManagerServiceException";
 
 /**
- * <p>Secrets Manager can't decrypt the protected secret text using the provided KMS key. </p>
+ * Secrets Manager can't decrypt the protected secret text using the provided KMS key.
+ *
  * @public
  */
 export class DecryptionFailure extends __BaseException {
@@ -27,7 +28,8 @@ export class DecryptionFailure extends __BaseException {
 }
 
 /**
- * <p>An error occurred on the server side.</p>
+ * An error occurred on the server side.
+ *
  * @public
  */
 export class InternalServiceError extends __BaseException {
@@ -50,7 +52,8 @@ export class InternalServiceError extends __BaseException {
 }
 
 /**
- * <p>The <code>NextToken</code> value is invalid.</p>
+ * The `NextToken` value is invalid.
+ *
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -73,7 +76,8 @@ export class InvalidNextTokenException extends __BaseException {
 }
 
 /**
- * <p>The parameter name or value is invalid.</p>
+ * The parameter name or value is invalid.
+ *
  * @public
  */
 export class InvalidParameterException extends __BaseException {
@@ -96,22 +100,14 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>A parameter value is not valid for the current state of the
- *       resource.</p>
- *          <p>Possible causes:</p>
- *          <ul>
- *             <li>
- *                <p>The secret is scheduled for deletion.</p>
- *             </li>
- *             <li>
- *                <p>You tried to enable rotation on a secret that doesn't already have a Lambda function
- *           ARN configured and you didn't include such an ARN as a parameter in this call. </p>
- *             </li>
- *             <li>
- *                <p>The secret is managed by another service, and you must use that service to update it.
- *           For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html">Secrets managed by other Amazon Web Services services</a>.</p>
- *             </li>
- *          </ul>
+ * A parameter value is not valid for the current state of the resource.
+ *
+ * Possible causes:
+ *
+ * - The secret is scheduled for deletion.
+ * - You tried to enable rotation on a secret that doesn't already have a Lambda function ARN configured and you didn't include such an ARN as a parameter in this call.
+ * - The secret is managed by another service, and you must use that service to update it. For more information, see [Secrets managed by other Amazon Web Services services](https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html).
+ *
  * @public
  */
 export class InvalidRequestException extends __BaseException {
@@ -134,7 +130,8 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * <p>Secrets Manager can't find the resource that you asked for.</p>
+ * Secrets Manager can't find the resource that you asked for.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -157,9 +154,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Secrets Manager can't encrypt the protected secret text using the provided KMS key. Check that the
- *       KMS key is available, enabled, and not in an invalid state. For more
- *       information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your KMS key</a>.</p>
+ * Secrets Manager can't encrypt the protected secret text using the provided KMS key. Check that the KMS key is available, enabled, and not in an invalid state. For more information, see [Key state: Effect on your KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html).
+ *
  * @public
  */
 export class EncryptionFailure extends __BaseException {
@@ -182,7 +178,8 @@ export class EncryptionFailure extends __BaseException {
 }
 
 /**
- * <p>The request failed because it would exceed one of the Secrets Manager quotas.</p>
+ * The request failed because it would exceed one of the Secrets Manager quotas.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -205,7 +202,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The resource policy has syntax errors.</p>
+ * The resource policy has syntax errors.
+ *
  * @public
  */
 export class MalformedPolicyDocumentException extends __BaseException {
@@ -228,7 +226,8 @@ export class MalformedPolicyDocumentException extends __BaseException {
 }
 
 /**
- * <p>The request failed because you did not complete all the prerequisite steps.</p>
+ * The request failed because you did not complete all the prerequisite steps.
+ *
  * @public
  */
 export class PreconditionNotMetException extends __BaseException {
@@ -251,7 +250,8 @@ export class PreconditionNotMetException extends __BaseException {
 }
 
 /**
- * <p>A resource with the ID you requested already exists.</p>
+ * A resource with the ID you requested already exists.
+ *
  * @public
  */
 export class ResourceExistsException extends __BaseException {
@@ -274,7 +274,8 @@ export class ResourceExistsException extends __BaseException {
 }
 
 /**
- * <p>The <code>BlockPublicPolicy</code> parameter is set to true, and the resource policy did not prevent broad access to the secret.</p>
+ * The `BlockPublicPolicy` parameter is set to true, and the resource policy did not prevent broad access to the secret.
+ *
  * @public
  */
 export class PublicPolicyException extends __BaseException {

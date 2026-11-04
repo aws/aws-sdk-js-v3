@@ -23,17 +23,14 @@ export interface BatchDeleteTableCommandInput extends BatchDeleteTableRequest {}
 export interface BatchDeleteTableCommandOutput extends BatchDeleteTableResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes multiple tables at once.</p>
- *          <note>
- *             <p>After completing this operation, you no longer have access to the table versions and
- *         partitions that belong to the deleted table. Glue deletes these "orphaned" resources
- *         asynchronously in a timely manner, at the discretion of the service.</p>
- *             <p>To ensure the immediate deletion of all related resources, before calling
- *           <code>BatchDeleteTable</code>, use <code>DeleteTableVersion</code> or
- *           <code>BatchDeleteTableVersion</code>, and <code>DeletePartition</code> or
- *           <code>BatchDeletePartition</code>, to delete any resources that belong to the
- *         table.</p>
- *          </note>
+ * Deletes multiple tables at once.
+ *
+ * > **Note:**
+ * >
+ * > After completing this operation, you no longer have access to the table versions and partitions that belong to the deleted table. Glue deletes these "orphaned" resources asynchronously in a timely manner, at the discretion of the service.
+ * >
+ * > To ensure the immediate deletion of all related resources, before calling `BatchDeleteTable`, use `DeleteTableVersion` or `BatchDeleteTableVersion`, and `DeletePartition` or `BatchDeletePartition`, to delete any resources that belong to the table.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,29 +70,36 @@ export interface BatchDeleteTableCommandOutput extends BatchDeleteTableResponse,
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Two processes are trying to modify a resource simultaneously.</p>
+ *
+ * Two processes are trying to modify a resource simultaneously.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link GlueEncryptionException} (client fault)
- *  <p>An encryption operation failed.</p>
+ *
+ * An encryption operation failed.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link ResourceNotReadyException} (client fault)
- *  <p>A resource was not ready for a transaction.</p>
+ *
+ * A resource was not ready for a transaction.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

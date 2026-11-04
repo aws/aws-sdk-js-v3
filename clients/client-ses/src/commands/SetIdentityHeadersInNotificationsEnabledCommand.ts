@@ -26,12 +26,12 @@ export interface SetIdentityHeadersInNotificationsEnabledCommandInput extends Se
 export interface SetIdentityHeadersInNotificationsEnabledCommandOutput extends SetIdentityHeadersInNotificationsEnabledResponse, __MetadataBearer {}
 
 /**
- * <p>Given an identity (an email address or a domain), sets whether Amazon SES includes the
- *             original email headers in the Amazon Simple Notification Service (Amazon SNS) notifications of a specified
- *             type.</p>
- *          <p>You can execute this operation no more than once per second.</p>
- *          <p>For more information about using notifications with Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity-using-notifications.html">Amazon SES
- *                 Developer Guide</a>.</p>
+ * Given an identity (an email address or a domain), sets whether Amazon SES includes the original email headers in the Amazon Simple Notification Service (Amazon SNS) notifications of a specified type.
+ *
+ * You can execute this operation no more than once per second.
+ *
+ * For more information about using notifications with Amazon SES, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity-using-notifications.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,8 +58,8 @@ export interface SetIdentityHeadersInNotificationsEnabledCommandOutput extends S
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @example SetIdentityHeadersInNotificationsEnabled
  * ```javascript

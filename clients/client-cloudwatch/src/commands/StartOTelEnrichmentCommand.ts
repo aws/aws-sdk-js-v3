@@ -23,18 +23,12 @@ export interface StartOTelEnrichmentCommandInput extends StartOTelEnrichmentInpu
 export interface StartOTelEnrichmentCommandOutput extends StartOTelEnrichmentOutput, __MetadataBearer {}
 
 /**
- * <p>Enables enrichment and PromQL access for CloudWatch vended metrics for <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/UsingResourceTagsForTelemetry.html">supported Amazon Web Services resources</a> in the account. Once enabled,
- *             metrics that contain a resource identifier dimension (for example, EC2
- *                 <code>CPUUtilization</code> with an <code>InstanceId</code> dimension) are enriched
- *             with resource ARN and resource tag labels and become queryable using PromQL.</p>
- *          <p>Before calling this operation, you must enable resource tags on telemetry for your
- *             account. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/EnableResourceTagsOnTelemetry.html">Enable
- *                 resource tags on telemetry</a>.</p>
- *          <p>Optionally, <code>IncludeFilters</code> and <code>ExcludeFilters</code> limit
- *             enrichment to a subset of the account's metrics. These filters are stored only when this
- *             operation starts enrichment. Calling <code>StartOTelEnrichment</code> for an account
- *             where enrichment is already running has no effect and does not modify the filters that
- *             are applied. To change them, use <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UpdateOTelEnrichment.html">UpdateOTelEnrichment</a>.</p>
+ * Enables enrichment and PromQL access for CloudWatch vended metrics for [supported Amazon Web Services resources](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/UsingResourceTagsForTelemetry.html) in the account. Once enabled, metrics that contain a resource identifier dimension (for example, EC2 `CPUUtilization` with an `InstanceId` dimension) are enriched with resource ARN and resource tag labels and become queryable using PromQL.
+ *
+ * Before calling this operation, you must enable resource tags on telemetry for your account. For more information, see [Enable resource tags on telemetry](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/EnableResourceTagsOnTelemetry.html).
+ *
+ * Optionally, `IncludeFilters` and `ExcludeFilters` limit enrichment to a subset of the account's metrics. These filters are stored only when this operation starts enrichment. Calling `StartOTelEnrichment` for an account where enrichment is already running has no effect and does not modify the filters that are applied. To change them, use [UpdateOTelEnrichment](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UpdateOTelEnrichment.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,12 +87,12 @@ export interface StartOTelEnrichmentCommandOutput extends StartOTelEnrichmentOut
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request failed validation. One or more input parameters do not satisfy the
- *             constraints that the operation requires.</p>
+ *
+ * The request failed validation. One or more input parameters do not satisfy the constraints that the operation requires.
  *
  * @throws {@link CloudWatchServiceException}
- * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatch service.
  *
  * @public
  */

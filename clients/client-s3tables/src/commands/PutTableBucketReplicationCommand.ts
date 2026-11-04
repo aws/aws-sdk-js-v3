@@ -23,7 +23,21 @@ export interface PutTableBucketReplicationCommandInput extends PutTableBucketRep
 export interface PutTableBucketReplicationCommandOutput extends PutTableBucketReplicationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates or updates the replication configuration for a table bucket. This operation defines how tables in the source bucket are replicated to destination buckets. Replication helps ensure data availability and disaster recovery across regions or accounts.</p> <dl> <dt>Permissions</dt> <dd> <ul> <li> <p>You must have the <code>s3tables:PutTableBucketReplication</code> permission to use this operation. The IAM role specified in the configuration must have permissions to read from the source bucket and write permissions to all destination buckets.</p> </li> <li> <p>You must also have the following permissions:</p> <ul> <li> <p> <code>s3tables:GetTable</code> permission on the source table.</p> </li> <li> <p> <code>s3tables:ListTables</code> permission on the bucket containing the table.</p> </li> <li> <p> <code>s3tables:CreateTable</code> permission for the destination.</p> </li> <li> <p> <code>s3tables:CreateNamespace</code> permission for the destination.</p> </li> <li> <p> <code>s3tables:GetTableMaintenanceConfig</code> permission for the source bucket.</p> </li> <li> <p> <code>s3tables:PutTableMaintenanceConfig</code> permission for the destination bucket.</p> </li> </ul> </li> <li> <p>You must have <code>iam:PassRole</code> permission with condition allowing roles to be passed to <code>replication.s3tables.amazonaws.com</code>.</p> </li> </ul> </dd> </dl>
+ * Creates or updates the replication configuration for a table bucket. This operation defines how tables in the source bucket are replicated to destination buckets. Replication helps ensure data availability and disaster recovery across regions or accounts.
+ *
+ * - **Permissions**
+ *
+ *   - You must have the `s3tables:PutTableBucketReplication` permission to use this operation. The IAM role specified in the configuration must have permissions to read from the source bucket and write permissions to all destination buckets.
+ *   - You must also have the following permissions:
+ *
+ *     - `s3tables:GetTable` permission on the source table.
+ *     - `s3tables:ListTables` permission on the bucket containing the table.
+ *     - `s3tables:CreateTable` permission for the destination.
+ *     - `s3tables:CreateNamespace` permission for the destination.
+ *     - `s3tables:GetTableMaintenanceConfig` permission for the source bucket.
+ *     - `s3tables:PutTableMaintenanceConfig` permission for the destination bucket.
+ *   - You must have `iam:PassRole` permission with condition allowing roles to be passed to `replication.s3tables.amazonaws.com`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,29 +78,36 @@ export interface PutTableBucketReplicationCommandOutput extends PutTableBucketRe
  * @see {@link S3TablesClientResolvedConfig | config} for S3TablesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The action cannot be performed because you do not have the required permission.</p>
+ *
+ * The action cannot be performed because you do not have the required permission.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request is invalid or malformed.</p>
+ *
+ * The request is invalid or malformed.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
+ *
+ * The request failed because there is a conflict with a previous write. You can retry the request.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>The caller isn't authorized to make the request.</p>
+ *
+ * The caller isn't authorized to make the request.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>The request failed due to an internal server error.</p>
+ *
+ * The request failed due to an internal server error.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The request was rejected because the specified resource could not be found.</p>
+ *
+ * The request was rejected because the specified resource could not be found.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The limit on the number of requests per second was exceeded.</p>
+ *
+ * The limit on the number of requests per second was exceeded.
  *
  * @throws {@link S3TablesServiceException}
- * <p>Base exception class for all service exceptions from S3Tables service.</p>
  *
+ * Base exception class for all service exceptions from S3Tables service.
  *
  * @public
  */

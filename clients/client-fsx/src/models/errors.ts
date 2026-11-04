@@ -5,7 +5,8 @@ import type { ActiveDirectoryErrorType, ServiceLimit } from "./enums";
 import { FSxServiceException as __BaseException } from "./FSxServiceException";
 
 /**
- * <p>An access point with that name already exists in the Amazon Web Services Region in your Amazon Web Services account.</p>
+ * An access point with that name already exists in the Amazon Web Services Region in your Amazon Web Services account.
+ *
  * @public
  */
 export class AccessPointAlreadyOwnedByYou extends __BaseException {
@@ -13,13 +14,15 @@ export class AccessPointAlreadyOwnedByYou extends __BaseException {
   readonly name = "AccessPointAlreadyOwnedByYou" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>An error code indicating that an access point with that name already exists in the Amazon Web Services Region in your Amazon Web Services account.</p>
+   * An error code indicating that an access point with that name already exists in the Amazon Web Services Region in your Amazon Web Services account.
+   *
    * @public
    */
   ErrorCode?: string | undefined;
 
   /**
-   * <p>A detailed error message.</p>
+   * A detailed error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -39,7 +42,8 @@ export class AccessPointAlreadyOwnedByYou extends __BaseException {
 }
 
 /**
- * <p>An Active Directory error.</p>
+ * An Active Directory error.
+ *
  * @public
  */
 export class ActiveDirectoryError extends __BaseException {
@@ -47,19 +51,22 @@ export class ActiveDirectoryError extends __BaseException {
   readonly name = "ActiveDirectoryError" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The directory ID of the directory that an error pertains to.</p>
+   * The directory ID of the directory that an error pertains to.
+   *
    * @public
    */
   ActiveDirectoryId: string | undefined;
 
   /**
-   * <p>The type of Active Directory error.</p>
+   * The type of Active Directory error.
+   *
    * @public
    */
   Type?: ActiveDirectoryErrorType | undefined;
 
   /**
-   * <p>A detailed error message.</p>
+   * A detailed error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -80,7 +87,8 @@ export class ActiveDirectoryError extends __BaseException {
 }
 
 /**
- * <p>A generic error indicating a failure with a client request.</p>
+ * A generic error indicating a failure with a client request.
+ *
  * @public
  */
 export class BadRequest extends __BaseException {
@@ -88,7 +96,8 @@ export class BadRequest extends __BaseException {
   readonly name = "BadRequest" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed error message.</p>
+   * A detailed error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -107,7 +116,8 @@ export class BadRequest extends __BaseException {
 }
 
 /**
- * <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
+ * No Amazon FSx file systems were found based upon supplied parameters.
+ *
  * @public
  */
 export class FileSystemNotFound extends __BaseException {
@@ -115,7 +125,8 @@ export class FileSystemNotFound extends __BaseException {
   readonly name = "FileSystemNotFound" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed error message.</p>
+   * A detailed error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -134,7 +145,8 @@ export class FileSystemNotFound extends __BaseException {
 }
 
 /**
- * <p>A generic error indicating a server-side failure.</p>
+ * A generic error indicating a server-side failure.
+ *
  * @public
  */
 export class InternalServerError extends __BaseException {
@@ -142,7 +154,8 @@ export class InternalServerError extends __BaseException {
   readonly name = "InternalServerError" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>A detailed error message.</p>
+   * A detailed error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -161,7 +174,8 @@ export class InternalServerError extends __BaseException {
 }
 
 /**
- * <p>The data repository task could not be canceled because the task has already ended.</p>
+ * The data repository task could not be canceled because the task has already ended.
+ *
  * @public
  */
 export class DataRepositoryTaskEnded extends __BaseException {
@@ -169,7 +183,8 @@ export class DataRepositoryTaskEnded extends __BaseException {
   readonly name = "DataRepositoryTaskEnded" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed error message.</p>
+   * A detailed error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -188,7 +203,8 @@ export class DataRepositoryTaskEnded extends __BaseException {
 }
 
 /**
- * <p>The data repository task or tasks you specified could not be found.</p>
+ * The data repository task or tasks you specified could not be found.
+ *
  * @public
  */
 export class DataRepositoryTaskNotFound extends __BaseException {
@@ -196,7 +212,8 @@ export class DataRepositoryTaskNotFound extends __BaseException {
   readonly name = "DataRepositoryTaskNotFound" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed error message.</p>
+   * A detailed error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -215,7 +232,8 @@ export class DataRepositoryTaskNotFound extends __BaseException {
 }
 
 /**
- * <p>The requested operation is not supported for this resource or API.</p>
+ * The requested operation is not supported for this resource or API.
+ *
  * @public
  */
 export class UnsupportedOperation extends __BaseException {
@@ -223,7 +241,8 @@ export class UnsupportedOperation extends __BaseException {
   readonly name = "UnsupportedOperation" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed error message.</p>
+   * A detailed error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -242,7 +261,8 @@ export class UnsupportedOperation extends __BaseException {
 }
 
 /**
- * <p>No Amazon FSx backups were found based upon the supplied parameters.</p>
+ * No Amazon FSx backups were found based upon the supplied parameters.
+ *
  * @public
  */
 export class BackupNotFound extends __BaseException {
@@ -250,7 +270,8 @@ export class BackupNotFound extends __BaseException {
   readonly name = "BackupNotFound" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed error message.</p>
+   * A detailed error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -269,9 +290,8 @@ export class BackupNotFound extends __BaseException {
 }
 
 /**
- * <p>The error returned when a second request is received with the same client request
- *             token but different parameters settings. A client request token should always uniquely
- *             identify a single request.</p>
+ * The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request.
+ *
  * @public
  */
 export class IncompatibleParameterError extends __BaseException {
@@ -279,13 +299,15 @@ export class IncompatibleParameterError extends __BaseException {
   readonly name = "IncompatibleParameterError" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A parameter that is incompatible with the earlier request.</p>
+   * A parameter that is incompatible with the earlier request.
+   *
    * @public
    */
   Parameter: string | undefined;
 
   /**
-   * <p>A detailed error message.</p>
+   * A detailed error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -305,8 +327,8 @@ export class IncompatibleParameterError extends __BaseException {
 }
 
 /**
- * <p>Amazon FSx doesn't support Multi-AZ Windows File Server copy backup in the
- *          destination Region, so the copied backup can't be restored.</p>
+ * Amazon FSx doesn't support Multi-AZ Windows File Server copy backup in the destination Region, so the copied backup can't be restored.
+ *
  * @public
  */
 export class IncompatibleRegionForMultiAZ extends __BaseException {
@@ -314,7 +336,8 @@ export class IncompatibleRegionForMultiAZ extends __BaseException {
   readonly name = "IncompatibleRegionForMultiAZ" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed error message.</p>
+   * A detailed error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -333,8 +356,8 @@ export class IncompatibleRegionForMultiAZ extends __BaseException {
 }
 
 /**
- * <p>The Key Management Service (KMS) key of the destination backup is not
- *          valid.</p>
+ * The Key Management Service (KMS) key of the destination backup is not valid.
+ *
  * @public
  */
 export class InvalidDestinationKmsKey extends __BaseException {
@@ -342,7 +365,8 @@ export class InvalidDestinationKmsKey extends __BaseException {
   readonly name = "InvalidDestinationKmsKey" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed error message.</p>
+   * A detailed error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -361,8 +385,8 @@ export class InvalidDestinationKmsKey extends __BaseException {
 }
 
 /**
- * <p>The Region provided for <code>SourceRegion</code> is not valid or is in a different
- *             Amazon Web Services partition.</p>
+ * The Region provided for `SourceRegion` is not valid or is in a different Amazon Web Services partition.
+ *
  * @public
  */
 export class InvalidRegion extends __BaseException {
@@ -370,7 +394,8 @@ export class InvalidRegion extends __BaseException {
   readonly name = "InvalidRegion" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed error message.</p>
+   * A detailed error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -389,8 +414,8 @@ export class InvalidRegion extends __BaseException {
 }
 
 /**
- * <p>The Key Management Service (KMS) key of the source backup is not
- *          valid.</p>
+ * The Key Management Service (KMS) key of the source backup is not valid.
+ *
  * @public
  */
 export class InvalidSourceKmsKey extends __BaseException {
@@ -398,7 +423,8 @@ export class InvalidSourceKmsKey extends __BaseException {
   readonly name = "InvalidSourceKmsKey" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed error message.</p>
+   * A detailed error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -417,8 +443,8 @@ export class InvalidSourceKmsKey extends __BaseException {
 }
 
 /**
- * <p>An error indicating that a particular service limit was exceeded. You can increase
- *             some service limits by contacting Amazon Web Services Support.</p>
+ * An error indicating that a particular service limit was exceeded. You can increase some service limits by contacting Amazon Web Services Support.
+ *
  * @public
  */
 export class ServiceLimitExceeded extends __BaseException {
@@ -426,13 +452,15 @@ export class ServiceLimitExceeded extends __BaseException {
   readonly name = "ServiceLimitExceeded" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Enumeration of the service limit that was exceeded. </p>
+   * Enumeration of the service limit that was exceeded.
+   *
    * @public
    */
   Limit: ServiceLimit | undefined;
 
   /**
-   * <p>A detailed error message.</p>
+   * A detailed error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -452,8 +480,8 @@ export class ServiceLimitExceeded extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the lifecycle status of the source backup isn't
- *             <code>AVAILABLE</code>.</p>
+ * The request was rejected because the lifecycle status of the source backup isn't `AVAILABLE`.
+ *
  * @public
  */
 export class SourceBackupUnavailable extends __BaseException {
@@ -461,13 +489,15 @@ export class SourceBackupUnavailable extends __BaseException {
   readonly name = "SourceBackupUnavailable" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed error message.</p>
+   * A detailed error message.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The ID of the source backup. Specifies the backup that you are copying.</p>
+   * The ID of the source backup. Specifies the backup that you are copying.
+   *
    * @public
    */
   BackupId?: string | undefined;
@@ -487,7 +517,8 @@ export class SourceBackupUnavailable extends __BaseException {
 }
 
 /**
- * <p>The access point specified doesn't exist.</p>
+ * The access point specified doesn't exist.
+ *
  * @public
  */
 export class InvalidAccessPoint extends __BaseException {
@@ -495,13 +526,15 @@ export class InvalidAccessPoint extends __BaseException {
   readonly name = "InvalidAccessPoint" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>An error code indicating that the access point specified doesn't exist.</p>
+   * An error code indicating that the access point specified doesn't exist.
+   *
    * @public
    */
   ErrorCode?: string | undefined;
 
   /**
-   * <p>A detailed error message.</p>
+   * A detailed error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -521,7 +554,8 @@ export class InvalidAccessPoint extends __BaseException {
 }
 
 /**
- * <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+ * The action or operation requested is invalid. Verify that the action is typed correctly.
+ *
  * @public
  */
 export class InvalidRequest extends __BaseException {
@@ -529,13 +563,15 @@ export class InvalidRequest extends __BaseException {
   readonly name = "InvalidRequest" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>An error code indicating that the action or operation requested is invalid.</p>
+   * An error code indicating that the action or operation requested is invalid.
+   *
    * @public
    */
   ErrorCode?: string | undefined;
 
   /**
-   * <p>A detailed error message.</p>
+   * A detailed error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -555,8 +591,8 @@ export class InvalidRequest extends __BaseException {
 }
 
 /**
- * <p>You have reached the maximum number of S3 access points attachments allowed for your account in this Amazon Web Services Region, or for the file system. For more information, or to request an increase,
- *          see <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/limits.html">Service quotas on FSx resources</a> in the FSx for OpenZFS User Guide.</p>
+ * You have reached the maximum number of S3 access points attachments allowed for your account in this Amazon Web Services Region, or for the file system. For more information, or to request an increase, see [Service quotas on FSx resources](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/limits.html) in the FSx for OpenZFS User Guide.
+ *
  * @public
  */
 export class TooManyAccessPoints extends __BaseException {
@@ -564,13 +600,15 @@ export class TooManyAccessPoints extends __BaseException {
   readonly name = "TooManyAccessPoints" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>An error code indicating that you have reached the maximum number of S3 access points attachments allowed for your account in this Amazon Web Services Region, or for the file system.</p>
+   * An error code indicating that you have reached the maximum number of S3 access points attachments allowed for your account in this Amazon Web Services Region, or for the file system.
+   *
    * @public
    */
   ErrorCode?: string | undefined;
 
   /**
-   * <p>A detailed error message.</p>
+   * A detailed error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -590,7 +628,8 @@ export class TooManyAccessPoints extends __BaseException {
 }
 
 /**
- * <p>No Amazon FSx volumes were found based upon the supplied parameters.</p>
+ * No Amazon FSx volumes were found based upon the supplied parameters.
+ *
  * @public
  */
 export class VolumeNotFound extends __BaseException {
@@ -598,7 +637,8 @@ export class VolumeNotFound extends __BaseException {
   readonly name = "VolumeNotFound" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed error message.</p>
+   * A detailed error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -617,8 +657,8 @@ export class VolumeNotFound extends __BaseException {
 }
 
 /**
- * <p>Another backup is already under way. Wait for completion before initiating
- *             additional backups of this file system.</p>
+ * Another backup is already under way. Wait for completion before initiating additional backups of this file system.
+ *
  * @public
  */
 export class BackupInProgress extends __BaseException {
@@ -626,7 +666,8 @@ export class BackupInProgress extends __BaseException {
   readonly name = "BackupInProgress" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed error message.</p>
+   * A detailed error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -645,8 +686,8 @@ export class BackupInProgress extends __BaseException {
 }
 
 /**
- * <p>An existing data repository task is currently executing on the file system.
- *         Wait until the existing task has completed, then create the new task.</p>
+ * An existing data repository task is currently executing on the file system. Wait until the existing task has completed, then create the new task.
+ *
  * @public
  */
 export class DataRepositoryTaskExecuting extends __BaseException {
@@ -654,7 +695,8 @@ export class DataRepositoryTaskExecuting extends __BaseException {
   readonly name = "DataRepositoryTaskExecuting" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed error message.</p>
+   * A detailed error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -673,7 +715,8 @@ export class DataRepositoryTaskExecuting extends __BaseException {
 }
 
 /**
- * <p>One or more network settings specified in the request are invalid.</p>
+ * One or more network settings specified in the request are invalid.
+ *
  * @public
  */
 export class InvalidNetworkSettings extends __BaseException {
@@ -681,25 +724,29 @@ export class InvalidNetworkSettings extends __BaseException {
   readonly name = "InvalidNetworkSettings" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Error message explaining what's wrong with network settings.</p>
+   * Error message explaining what's wrong with network settings.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The subnet ID that is either invalid or not part of the VPC specified.</p>
+   * The subnet ID that is either invalid or not part of the VPC specified.
+   *
    * @public
    */
   InvalidSubnetId?: string | undefined;
 
   /**
-   * <p>The security group ID is either invalid or not part of the VPC specified.</p>
+   * The security group ID is either invalid or not part of the VPC specified.
+   *
    * @public
    */
   InvalidSecurityGroupId?: string | undefined;
 
   /**
-   * <p>The route table ID is either invalid or not part of the VPC specified.</p>
+   * The route table ID is either invalid or not part of the VPC specified.
+   *
    * @public
    */
   InvalidRouteTableId?: string | undefined;
@@ -721,7 +768,8 @@ export class InvalidNetworkSettings extends __BaseException {
 }
 
 /**
- * <p>An invalid value for <code>PerUnitStorageThroughput</code> was provided. Please create your file system again, using a valid value.</p>
+ * An invalid value for `PerUnitStorageThroughput` was provided. Please create your file system again, using a valid value.
+ *
  * @public
  */
 export class InvalidPerUnitStorageThroughput extends __BaseException {
@@ -729,7 +777,8 @@ export class InvalidPerUnitStorageThroughput extends __BaseException {
   readonly name = "InvalidPerUnitStorageThroughput" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed error message.</p>
+   * A detailed error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -748,7 +797,8 @@ export class InvalidPerUnitStorageThroughput extends __BaseException {
 }
 
 /**
- * <p>A cache configuration is required for this operation.</p>
+ * A cache configuration is required for this operation.
+ *
  * @public
  */
 export class MissingFileCacheConfiguration extends __BaseException {
@@ -756,7 +806,8 @@ export class MissingFileCacheConfiguration extends __BaseException {
   readonly name = "MissingFileCacheConfiguration" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed error message.</p>
+   * A detailed error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -775,7 +826,8 @@ export class MissingFileCacheConfiguration extends __BaseException {
 }
 
 /**
- * <p>The path provided for data repository export isn't valid.</p>
+ * The path provided for data repository export isn't valid.
+ *
  * @public
  */
 export class InvalidExportPath extends __BaseException {
@@ -783,7 +835,8 @@ export class InvalidExportPath extends __BaseException {
   readonly name = "InvalidExportPath" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed error message.</p>
+   * A detailed error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -802,7 +855,8 @@ export class InvalidExportPath extends __BaseException {
 }
 
 /**
- * <p>The path provided for data repository import isn't valid.</p>
+ * The path provided for data repository import isn't valid.
+ *
  * @public
  */
 export class InvalidImportPath extends __BaseException {
@@ -810,7 +864,8 @@ export class InvalidImportPath extends __BaseException {
   readonly name = "InvalidImportPath" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed error message.</p>
+   * A detailed error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -829,7 +884,8 @@ export class InvalidImportPath extends __BaseException {
 }
 
 /**
- * <p>A file system configuration is required for this operation.</p>
+ * A file system configuration is required for this operation.
+ *
  * @public
  */
 export class MissingFileSystemConfiguration extends __BaseException {
@@ -837,7 +893,8 @@ export class MissingFileSystemConfiguration extends __BaseException {
   readonly name = "MissingFileSystemConfiguration" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed error message.</p>
+   * A detailed error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -856,7 +913,8 @@ export class MissingFileSystemConfiguration extends __BaseException {
 }
 
 /**
- * <p>A volume configuration is required for this operation.</p>
+ * A volume configuration is required for this operation.
+ *
  * @public
  */
 export class MissingVolumeConfiguration extends __BaseException {
@@ -864,7 +922,8 @@ export class MissingVolumeConfiguration extends __BaseException {
   readonly name = "MissingVolumeConfiguration" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed error message.</p>
+   * A detailed error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -883,7 +942,8 @@ export class MissingVolumeConfiguration extends __BaseException {
 }
 
 /**
- * <p>No FSx for ONTAP SVMs were found based upon the supplied parameters.</p>
+ * No FSx for ONTAP SVMs were found based upon the supplied parameters.
+ *
  * @public
  */
 export class StorageVirtualMachineNotFound extends __BaseException {
@@ -891,7 +951,8 @@ export class StorageVirtualMachineNotFound extends __BaseException {
   readonly name = "StorageVirtualMachineNotFound" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed error message.</p>
+   * A detailed error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -910,7 +971,8 @@ export class StorageVirtualMachineNotFound extends __BaseException {
 }
 
 /**
- * <p>You can't delete a backup while it's being copied.</p>
+ * You can't delete a backup while it's being copied.
+ *
  * @public
  */
 export class BackupBeingCopied extends __BaseException {
@@ -918,13 +980,15 @@ export class BackupBeingCopied extends __BaseException {
   readonly name = "BackupBeingCopied" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed error message.</p>
+   * A detailed error message.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The ID of the source backup. Specifies the backup that you are copying.</p>
+   * The ID of the source backup. Specifies the backup that you are copying.
+   *
    * @public
    */
   BackupId?: string | undefined;
@@ -944,8 +1008,8 @@ export class BackupBeingCopied extends __BaseException {
 }
 
 /**
- * <p>You can't delete a backup while it's being used to restore a file
- *             system.</p>
+ * You can't delete a backup while it's being used to restore a file system.
+ *
  * @public
  */
 export class BackupRestoring extends __BaseException {
@@ -953,13 +1017,15 @@ export class BackupRestoring extends __BaseException {
   readonly name = "BackupRestoring" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed error message.</p>
+   * A detailed error message.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The ID of a file system being restored from the backup.</p>
+   * The ID of a file system being restored from the backup.
+   *
    * @public
    */
   FileSystemId?: string | undefined;
@@ -979,7 +1045,8 @@ export class BackupRestoring extends __BaseException {
 }
 
 /**
- * <p>No data repository associations were found based upon the supplied parameters.</p>
+ * No data repository associations were found based upon the supplied parameters.
+ *
  * @public
  */
 export class DataRepositoryAssociationNotFound extends __BaseException {
@@ -987,7 +1054,8 @@ export class DataRepositoryAssociationNotFound extends __BaseException {
   readonly name = "DataRepositoryAssociationNotFound" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed error message.</p>
+   * A detailed error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1006,7 +1074,8 @@ export class DataRepositoryAssociationNotFound extends __BaseException {
 }
 
 /**
- * <p>No caches were found based upon supplied parameters.</p>
+ * No caches were found based upon supplied parameters.
+ *
  * @public
  */
 export class FileCacheNotFound extends __BaseException {
@@ -1014,7 +1083,8 @@ export class FileCacheNotFound extends __BaseException {
   readonly name = "FileCacheNotFound" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed error message.</p>
+   * A detailed error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1033,7 +1103,8 @@ export class FileCacheNotFound extends __BaseException {
 }
 
 /**
- * <p>No Amazon FSx snapshots were found based on the supplied parameters.</p>
+ * No Amazon FSx snapshots were found based on the supplied parameters.
+ *
  * @public
  */
 export class SnapshotNotFound extends __BaseException {
@@ -1041,7 +1112,8 @@ export class SnapshotNotFound extends __BaseException {
   readonly name = "SnapshotNotFound" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed error message.</p>
+   * A detailed error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1060,7 +1132,8 @@ export class SnapshotNotFound extends __BaseException {
 }
 
 /**
- * <p>You have filtered the response to a data repository type that is not supported.</p>
+ * You have filtered the response to a data repository type that is not supported.
+ *
  * @public
  */
 export class InvalidDataRepositoryType extends __BaseException {
@@ -1068,7 +1141,8 @@ export class InvalidDataRepositoryType extends __BaseException {
   readonly name = "InvalidDataRepositoryType" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed error message.</p>
+   * A detailed error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1087,7 +1161,8 @@ export class InvalidDataRepositoryType extends __BaseException {
 }
 
 /**
- * <p>The access point specified was not found.</p>
+ * The access point specified was not found.
+ *
  * @public
  */
 export class S3AccessPointAttachmentNotFound extends __BaseException {
@@ -1095,7 +1170,8 @@ export class S3AccessPointAttachmentNotFound extends __BaseException {
   readonly name = "S3AccessPointAttachmentNotFound" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed error message.</p>
+   * A detailed error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1114,8 +1190,8 @@ export class S3AccessPointAttachmentNotFound extends __BaseException {
 }
 
 /**
- * <p>The resource specified for the tagging operation is not a resource type owned by
- *             Amazon FSx. Use the API of the relevant service to perform the operation. </p>
+ * The resource specified for the tagging operation is not a resource type owned by Amazon FSx. Use the API of the relevant service to perform the operation.
+ *
  * @public
  */
 export class NotServiceResourceError extends __BaseException {
@@ -1123,13 +1199,15 @@ export class NotServiceResourceError extends __BaseException {
   readonly name = "NotServiceResourceError" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The Amazon Resource Name (ARN) of the non-Amazon FSx resource.</p>
+   * The Amazon Resource Name (ARN) of the non-Amazon FSx resource.
+   *
    * @public
    */
   ResourceARN: string | undefined;
 
   /**
-   * <p>A detailed error message.</p>
+   * A detailed error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1149,7 +1227,8 @@ export class NotServiceResourceError extends __BaseException {
 }
 
 /**
- * <p>The resource specified does not support tagging. </p>
+ * The resource specified does not support tagging.
+ *
  * @public
  */
 export class ResourceDoesNotSupportTagging extends __BaseException {
@@ -1157,14 +1236,15 @@ export class ResourceDoesNotSupportTagging extends __BaseException {
   readonly name = "ResourceDoesNotSupportTagging" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource that doesn't support
-   *             tagging.</p>
+   * The Amazon Resource Name (ARN) of the resource that doesn't support tagging.
+   *
    * @public
    */
   ResourceARN: string | undefined;
 
   /**
-   * <p>A detailed error message.</p>
+   * A detailed error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1184,7 +1264,8 @@ export class ResourceDoesNotSupportTagging extends __BaseException {
 }
 
 /**
- * <p>The resource specified by the Amazon Resource Name (ARN) can't be found.</p>
+ * The resource specified by the Amazon Resource Name (ARN) can't be found.
+ *
  * @public
  */
 export class ResourceNotFound extends __BaseException {
@@ -1192,13 +1273,15 @@ export class ResourceNotFound extends __BaseException {
   readonly name = "ResourceNotFound" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The resource ARN of the resource that can't be found.</p>
+   * The resource ARN of the resource that can't be found.
+   *
    * @public
    */
   ResourceARN: string | undefined;
 
   /**
-   * <p>A detailed error message.</p>
+   * A detailed error message.
+   *
    * @public
    */
   Message?: string | undefined;

@@ -23,7 +23,10 @@ export interface SetCognitoEventsCommandInput extends SetCognitoEventsRequest {}
 export interface SetCognitoEventsCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Sets the AWS Lambda function for a given event type for an identity pool. This request only updates the key/value pair specified. Other key/values pairs are not updated. To remove a key value pair, pass a empty value for the particular key.</p><p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
+ * Sets the AWS Lambda function for a given event type for an identity pool. This request only updates the key/value pair specified. Other key/values pairs are not updated. To remove a key value pair, pass a empty value for the particular key.
+ *
+ * This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,8 +74,8 @@ export interface SetCognitoEventsCommandOutput extends __MetadataBearer {}
  *       throttled.
  *
  * @throws {@link CognitoSyncServiceException}
- * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
+ * Base exception class for all service exceptions from CognitoSync service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface ListPeeringsCommandInput extends ListPeeringsRequest {}
 export interface ListPeeringsCommandOutput extends ListPeeringsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the peerings for a core network.</p>
+ * Lists the peerings for a core network.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,20 +86,24 @@ export interface ListPeeringsCommandOutput extends ListPeeringsResponse, __Metad
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request has failed due to an internal error.</p>
+ *
+ * The request has failed due to an internal error.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints.</p>
+ *
+ * The input fails to satisfy the constraints.
  *
  * @throws {@link NetworkManagerServiceException}
- * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * Base exception class for all service exceptions from NetworkManager service.
  *
  * @public
  */

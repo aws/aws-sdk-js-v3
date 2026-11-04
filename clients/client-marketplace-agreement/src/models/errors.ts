@@ -6,7 +6,8 @@ import { MarketplaceAgreementServiceException as __BaseException } from "./Marke
 import type { ValidationExceptionField } from "./models_0";
 
 /**
- * <p>User does not have sufficient access to perform this action.</p>
+ * User does not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -14,13 +15,15 @@ export class AccessDeniedException extends __BaseException {
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The unique identifier for the error.</p>
+   * The unique identifier for the error.
+   *
    * @public
    */
   requestId?: string | undefined;
 
   /**
-   * <p>The reason for the access denied exception.</p>
+   * The reason for the access denied exception.
+   *
    * @public
    */
   reason?: AccessDeniedExceptionReason | undefined;
@@ -41,7 +44,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Request was denied due to a resource conflict.</p>
+ * Request was denied due to a resource conflict.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -49,19 +53,22 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The unique identifier for the error.</p>
+   * The unique identifier for the error.
+   *
    * @public
    */
   requestId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the resource involved in the conflict.</p>
+   * The unique identifier of the resource involved in the conflict.
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>The type of the resource involved in the conflict.</p>
+   * The type of the resource involved in the conflict.
+   *
    * @public
    */
   resourceType?: ResourceType | undefined;
@@ -83,7 +90,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>Unexpected error during processing of request.</p>
+ * Unexpected error during processing of request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -91,7 +99,8 @@ export class InternalServerException extends __BaseException {
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>The unique identifier for the error.</p>
+   * The unique identifier for the error.
+   *
    * @public
    */
   requestId?: string | undefined;
@@ -111,7 +120,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>Request references a resource which does not exist.</p>
+ * Request references a resource which does not exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -119,19 +129,22 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The unique identifier for the error.</p>
+   * The unique identifier for the error.
+   *
    * @public
    */
   requestId?: string | undefined;
 
   /**
-   * <p>The unique identifier for the resource.</p>
+   * The unique identifier for the resource.
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>The type of resource.</p>
+   * The type of resource.
+   *
    * @public
    */
   resourceType?: ResourceType | undefined;
@@ -153,7 +166,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Request was denied due to request throttling.</p>
+ * Request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -161,7 +175,8 @@ export class ThrottlingException extends __BaseException {
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The unique identifier for the error.</p>
+   * The unique identifier for the error.
+   *
    * @public
    */
   requestId?: string | undefined;
@@ -181,7 +196,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by the service.</p>
+ * The input fails to satisfy the constraints specified by the service.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -189,19 +205,22 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The unique identifier associated with the error.</p>
+   * The unique identifier associated with the error.
+   *
    * @public
    */
   requestId?: string | undefined;
 
   /**
-   * <p>The reason associated with the error.</p>
+   * The reason associated with the error.
+   *
    * @public
    */
   reason?: ValidationExceptionReason | undefined;
 
   /**
-   * <p>The fields associated with the error.</p>
+   * The fields associated with the error.
+   *
    * @public
    */
   fields?: ValidationExceptionField[] | undefined;
@@ -223,7 +242,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>Request exceeded the maximum allowed limit (quota) for a specific resource or API operation.</p>
+ * Request exceeded the maximum allowed limit (quota) for a specific resource or API operation.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -231,31 +251,36 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The unique identifier for the error.</p>
+   * The unique identifier for the error.
+   *
    * @public
    */
   requestId?: string | undefined;
 
   /**
-   * <p>The code of the quota that was exceeded.</p>
+   * The code of the quota that was exceeded.
+   *
    * @public
    */
   quotaCode?: string | undefined;
 
   /**
-   * <p>The code of the service whose quota was exceeded.</p>
+   * The code of the service whose quota was exceeded.
+   *
    * @public
    */
   serviceCode?: string | undefined;
 
   /**
-   * <p>The type of the resource that exceeded the quota.</p>
+   * The type of the resource that exceeded the quota.
+   *
    * @public
    */
   resourceType?: string | undefined;
 
   /**
-   * <p>The unique identifier of the resource that exceeded the quota.</p>
+   * The unique identifier of the resource that exceeded the quota.
+   *
    * @public
    */
   resourceId?: string | undefined;

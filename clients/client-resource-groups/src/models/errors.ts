@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { ResourceGroupsServiceException as __BaseException } from "./ResourceGroupsServiceException";
 
 /**
- * <p>The request includes one or more parameters that violate validation rules.</p>
+ * The request includes one or more parameters that violate validation rules.
+ *
  * @public
  */
 export class BadRequestException extends __BaseException {
@@ -27,7 +28,8 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * <p>The caller isn't authorized to make the request. Check permissions.</p>
+ * The caller isn't authorized to make the request. Check permissions.
+ *
  * @public
  */
 export class ForbiddenException extends __BaseException {
@@ -50,7 +52,8 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
- * <p>An internal error occurred while processing the request. Try again later.</p>
+ * An internal error occurred while processing the request. Try again later.
+ *
  * @public
  */
 export class InternalServerErrorException extends __BaseException {
@@ -73,7 +76,8 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
- * <p>The request uses an HTTP method that isn't allowed for the specified resource.</p>
+ * The request uses an HTTP method that isn't allowed for the specified resource.
+ *
  * @public
  */
 export class MethodNotAllowedException extends __BaseException {
@@ -96,8 +100,8 @@ export class MethodNotAllowedException extends __BaseException {
 }
 
 /**
- * <p>You've exceeded throttling limits by making too many requests in a period of
- *             time.</p>
+ * You've exceeded throttling limits by making too many requests in a period of time.
+ *
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
@@ -120,8 +124,8 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because it doesn't have valid credentials for the target
- *             resource.</p>
+ * The request was rejected because it doesn't have valid credentials for the target resource.
+ *
  * @public
  */
 export class UnauthorizedException extends __BaseException {
@@ -144,7 +148,8 @@ export class UnauthorizedException extends __BaseException {
 }
 
 /**
- * <p>One or more of the specified resources don't exist.</p>
+ * One or more of the specified resources don't exist.
+ *
  * @public
  */
 export class NotFoundException extends __BaseException {

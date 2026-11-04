@@ -23,8 +23,10 @@ export interface RejectInvitationCommandInput extends RejectInvitationInput {}
 export interface RejectInvitationCommandOutput extends RejectInvitationOutput, __MetadataBearer {}
 
 /**
- * <p>Rejects an invitation to join a network. This action can be called by a principal in an Amazon Web Services account that has received an invitation to create a member and join a network.</p>
- *          <p>Applies only to Hyperledger Fabric.</p>
+ * Rejects an invitation to join a network. This action can be called by a principal in an Amazon Web Services account that has received an invitation to create a member and join a network.
+ *
+ * Applies only to Hyperledger Fabric.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,29 +51,30 @@ export interface RejectInvitationCommandOutput extends RejectInvitationOutput, _
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * You don't have sufficient access to perform this action.
  *
  * @throws {@link IllegalActionException} (client fault)
- *  <p></p>
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+ *
+ * The action or operation requested is invalid. Verify that the action is typed correctly.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A requested resource doesn't exist. It may have been deleted or referenced incorrectly.</p>
+ *
+ * A requested resource doesn't exist. It may have been deleted or referenced incorrectly.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request or operation couldn't be performed because a service is
- *          throttling requests. The most common source of throttling errors is
- *          creating resources that exceed your service limit for this resource type.
- *          Request a limit increase or delete unused resources if possible.</p>
+ *
+ * The request or operation couldn't be performed because a service is throttling requests. The most common source of throttling errors is creating resources that exceed your service limit for this resource type. Request a limit increase or delete unused resources if possible.
  *
  * @throws {@link ManagedBlockchainServiceException}
- * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ * Base exception class for all service exceptions from ManagedBlockchain service.
  *
  * @public
  */

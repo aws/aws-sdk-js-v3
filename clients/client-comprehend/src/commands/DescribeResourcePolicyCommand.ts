@@ -23,8 +23,8 @@ export interface DescribeResourcePolicyCommandInput extends DescribeResourcePoli
 export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the details of a resource-based policy that is attached to a custom model, including
- *       the JSON body of the policy.</p>
+ * Gets the details of a resource-based policy that is attached to a custom model, including the JSON body of the policy.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,17 +54,20 @@ export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePol
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is invalid.</p>
+ *
+ * The request is invalid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+ *
+ * The specified resource ARN was not found. Check the ARN and try your request again.
  *
  * @throws {@link ComprehendServiceException}
- * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * Base exception class for all service exceptions from Comprehend service.
  *
  * @public
  */

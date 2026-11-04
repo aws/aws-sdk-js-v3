@@ -23,35 +23,25 @@ export interface DescribeFleetAttributesCommandInput extends DescribeFleetAttrib
 export interface DescribeFleetAttributesCommandOutput extends DescribeFleetAttributesOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This API works with the following fleet types:</b> EC2, Anywhere</p>
- *          <p>Retrieves core fleet-wide properties for fleets in an Amazon Web Services Region. Properties include the computing
- *             hardware and deployment configuration for instances in the fleet.</p>
- *          <p>You can use this operation in the following ways: </p>
- *          <ul>
- *             <li>
- *                <p>To get attributes for specific fleets, provide a list of fleet IDs or fleet ARNs.</p>
- *             </li>
- *             <li>
- *                <p>To get attributes for all fleets, do not provide a fleet identifier.</p>
- *             </li>
- *          </ul>
- *          <p>When requesting attributes for multiple fleets, use the pagination parameters to
- *             retrieve results as a set of sequential pages. </p>
- *          <p>If successful, a <code>FleetAttributes</code> object is returned for each fleet
- *             requested, unless the fleet identifier is not found. </p>
- *          <note>
- *             <p>Some API operations limit the number of fleet IDs that are allowed in one request. If
- *                 a request exceeds this limit, the request fails and the error message contains the
- *                 maximum allowed number.</p>
- *          </note>
- *          <p>
- *             <b>Learn more</b>
- *          </p>
- *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift Servers
- *                 fleets</a>
- *          </p>
+ * **This API works with the following fleet types:** EC2, Anywhere
+ *
+ * Retrieves core fleet-wide properties for fleets in an Amazon Web Services Region. Properties include the computing hardware and deployment configuration for instances in the fleet.
+ *
+ * You can use this operation in the following ways:
+ *
+ * - To get attributes for specific fleets, provide a list of fleet IDs or fleet ARNs.
+ * - To get attributes for all fleets, do not provide a fleet identifier.
+ *
+ * When requesting attributes for multiple fleets, use the pagination parameters to retrieve results as a set of sequential pages.
+ *
+ * If successful, a `FleetAttributes` object is returned for each fleet requested, unless the fleet identifier is not found.
+ *
+ * > **Note:** Some API operations limit the number of fleet IDs that are allowed in one request. If a request exceeds this limit, the request fails and the error message contains the maximum allowed number.
+ *
+ * **Learn more**
+ *
+ * [Setting up Amazon GameLift Servers fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -129,22 +119,24 @@ export interface DescribeFleetAttributesCommandOutput extends DescribeFleetAttri
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an unrecoverable internal failure while processing the
- *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
- *             values before retrying.</p>
+ *
+ * One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resource was not found. The resource was either not created yet or deleted.</p>
+ *
+ * The requested resource was not found. The resource was either not created yet or deleted.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * The client failed authentication. Clients should not retry such requests.
  *
  * @throws {@link GameLiftServiceException}
- * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * Base exception class for all service exceptions from GameLift service.
  *
  * @public
  */

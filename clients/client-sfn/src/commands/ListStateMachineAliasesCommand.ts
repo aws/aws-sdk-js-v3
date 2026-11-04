@@ -23,35 +23,19 @@ export interface ListStateMachineAliasesCommandInput extends ListStateMachineAli
 export interface ListStateMachineAliasesCommandOutput extends ListStateMachineAliasesOutput, __MetadataBearer {}
 
 /**
- * <p>Lists <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html">aliases</a> for a specified state machine ARN. Results are sorted by time, with the most recently created aliases listed first. </p>
- *          <p>To list aliases that reference a state machine <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html">version</a>, you can specify the version ARN in the <code>stateMachineArn</code> parameter.</p>
- *          <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
- *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
- *          <p>
- *             <b>Related operations:</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>CreateStateMachineAlias</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DescribeStateMachineAlias</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateStateMachineAlias</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteStateMachineAlias</a>
- *                </p>
- *             </li>
- *          </ul>
+ * Lists [aliases](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html) for a specified state machine ARN. Results are sorted by time, with the most recently created aliases listed first.
+ *
+ * To list aliases that reference a state machine [version](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html), you can specify the version ARN in the `stateMachineArn` parameter.
+ *
+ * If `nextToken` is returned, there are more results available. The value of `nextToken` is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an *HTTP 400 InvalidToken* error.
+ *
+ * **Related operations:**
+ *
+ * - CreateStateMachineAlias
+ * - DescribeStateMachineAlias
+ * - UpdateStateMachineAlias
+ * - DeleteStateMachineAlias
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,23 +70,28 @@ export interface ListStateMachineAliasesCommandOutput extends ListStateMachineAl
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
  * @throws {@link InvalidArn} (client fault)
- *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * The provided Amazon Resource Name (ARN) is not valid.
  *
  * @throws {@link InvalidToken} (client fault)
- *  <p>The provided token is not valid.</p>
+ *
+ * The provided token is not valid.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Could not find the referenced resource.</p>
+ *
+ * Could not find the referenced resource.
  *
  * @throws {@link StateMachineDeleting} (client fault)
- *  <p>The specified state machine is being deleted.</p>
+ *
+ * The specified state machine is being deleted.
  *
  * @throws {@link StateMachineDoesNotExist} (client fault)
- *  <p>The specified state machine does not exist.</p>
+ *
+ * The specified state machine does not exist.
  *
  * @throws {@link SFNServiceException}
- * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * Base exception class for all service exceptions from SFN service.
  *
  * @public
  */

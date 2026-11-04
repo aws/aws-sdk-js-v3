@@ -23,10 +23,8 @@ export interface DeregisterFromWorkMailCommandInput extends DeregisterFromWorkMa
 export interface DeregisterFromWorkMailCommandOutput extends DeregisterFromWorkMailResponse, __MetadataBearer {}
 
 /**
- * <p>Mark a user, group, or resource as no longer used in WorkMail. This action
- *          disassociates the mailbox and schedules it for clean-up. WorkMail keeps mailboxes for 30 days
- *          before they are permanently removed. The functionality in the console is
- *             <i>Disable</i>.</p>
+ * Mark a user, group, or resource as no longer used in WorkMail. This action disassociates the mailbox and schedules it for clean-up. WorkMail keeps mailboxes for 30 days before they are permanently removed. The functionality in the console is *Disable*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,27 +50,28 @@ export interface DeregisterFromWorkMailCommandOutput extends DeregisterFromWorkM
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>The identifier supplied for the user, group, or resource does not exist in your
- *          organization.</p>
+ *
+ * The identifier supplied for the user, group, or resource does not exist in your organization.
  *
  * @throws {@link EntityStateException} (client fault)
- *  <p>You are performing an operation on a user, group, or resource that isn't in the
- *          expected state, such as trying to delete an active user.</p>
+ *
+ * You are performing an operation on a user, group, or resource that isn't in the expected state, such as trying to delete an active user.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the input parameters don't match the service's restrictions.</p>
+ *
+ * One or more of the input parameters don't match the service's restrictions.
  *
  * @throws {@link OrganizationNotFoundException} (client fault)
- *  <p>An operation received a valid organization identifier that either doesn't belong or
- *          exist in the system.</p>
+ *
+ * An operation received a valid organization identifier that either doesn't belong or exist in the system.
  *
  * @throws {@link OrganizationStateException} (client fault)
- *  <p>The organization must have a valid state to perform certain
- *          operations on the organization or its members.</p>
+ *
+ * The organization must have a valid state to perform certain operations on the organization or its members.
  *
  * @throws {@link WorkMailServiceException}
- * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * Base exception class for all service exceptions from WorkMail service.
  *
  * @public
  */

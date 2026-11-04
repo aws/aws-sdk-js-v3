@@ -23,7 +23,8 @@ export interface StartSessionCommandInput extends StartSessionInput {}
 export interface StartSessionCommandOutput extends StartSessionOutput, __MetadataBearer {}
 
 /**
- * <p>Creates and starts a new Spark Connect session on the specified cluster. The cluster must be in the <code>RUNNING</code> or <code>WAITING</code> state and have sessions enabled. This operation is supported in Amazon EMR Spark 8.0.0 and later.</p>
+ * Creates and starts a new Spark Connect session on the specified cluster. The cluster must be in the `RUNNING` or `WAITING` state and have sessions enabled. This operation is supported in Amazon EMR Spark 8.0.0 and later.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -108,15 +109,16 @@ export interface StartSessionCommandOutput extends StartSessionOutput, __Metadat
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Amazon EMR
- *          service.</p>
+ *
+ * This exception occurs when there is an internal failure in the Amazon EMR service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>This exception occurs when there is something wrong with user input.</p>
+ *
+ * This exception occurs when there is something wrong with user input.
  *
  * @throws {@link EMRServiceException}
- * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * Base exception class for all service exceptions from EMR service.
  *
  * @public
  */

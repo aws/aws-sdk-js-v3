@@ -23,7 +23,8 @@ export interface ListDatasetsCommandInput extends ListDatasetsRequest {}
 export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all of the DataBrew datasets.</p>
+ * Lists all of the DataBrew datasets.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -146,11 +147,12 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input parameters for this request failed validation.</p>
+ *
+ * The input parameters for this request failed validation.
  *
  * @throws {@link DataBrewServiceException}
- * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ * Base exception class for all service exceptions from DataBrew service.
  *
  * @public
  */

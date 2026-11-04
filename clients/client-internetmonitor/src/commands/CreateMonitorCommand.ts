@@ -23,15 +23,10 @@ export interface CreateMonitorCommandInput extends CreateMonitorInput {}
 export interface CreateMonitorCommandOutput extends CreateMonitorOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a monitor in Amazon CloudWatch Internet Monitor. A monitor is built based on information from the application resources that you add: VPCs,
- * 			Network Load Balancers (NLBs), Amazon CloudFront distributions, and Amazon WorkSpaces directories. Internet Monitor then publishes internet measurements from Amazon Web Services
- * 			that are specific to the <i>city-networks</i>. That is, the locations and ASNs (typically internet service providers or ISPs),
- * 			where clients access your application. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-InternetMonitor.html">Using Amazon CloudWatch Internet Monitor</a> in the <i>Amazon CloudWatch User
- * 					Guide</i>.</p>
- *          <p>When you create a monitor, you choose the percentage of traffic that you want to monitor. You can also set a maximum limit for the
- * 			number of city-networks where client traffic is monitored, that caps the total traffic that Internet Monitor monitors. A city-network
- * 			maximum is the limit of city-networks, but you only pay for the number of city-networks that are actually monitored. You can update your monitor
- * 			at any time to change the percentage of traffic to monitor or the city-networks maximum. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html">Choosing a city-network maximum value</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
+ * Creates a monitor in Amazon CloudWatch Internet Monitor. A monitor is built based on information from the application resources that you add: VPCs, Network Load Balancers (NLBs), Amazon CloudFront distributions, and Amazon WorkSpaces directories. Internet Monitor then publishes internet measurements from Amazon Web Services that are specific to the *city-networks*. That is, the locations and ASNs (typically internet service providers or ISPs), where clients access your application. For more information, see [Using Amazon CloudWatch Internet Monitor](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-InternetMonitor.html) in the *Amazon CloudWatch User Guide*.
+ *
+ * When you create a monitor, you choose the percentage of traffic that you want to monitor. You can also set a maximum limit for the number of city-networks where client traffic is monitored, that caps the total traffic that Internet Monitor monitors. A city-network maximum is the limit of city-networks, but you only pay for the number of city-networks that are actually monitored. You can update your monitor at any time to change the percentage of traffic to monitor or the city-networks maximum. For more information, see [Choosing a city-network maximum value](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html) in the *Amazon CloudWatch User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -89,26 +84,32 @@ export interface CreateMonitorCommandOutput extends CreateMonitorOutput, __Metad
  * @see {@link InternetMonitorClientResolvedConfig | config} for InternetMonitorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * You don't have sufficient permission to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The requested resource is in use.</p>
+ *
+ * The requested resource is in use.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error occurred.</p>
+ *
+ * An internal error occurred.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request exceeded a service quota.</p>
+ *
+ * The request exceeded a service quota.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Invalid request.</p>
+ *
+ * Invalid request.
  *
  * @throws {@link InternetMonitorServiceException}
- * <p>Base exception class for all service exceptions from InternetMonitor service.</p>
  *
+ * Base exception class for all service exceptions from InternetMonitor service.
  *
  * @public
  */

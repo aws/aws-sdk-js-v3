@@ -23,8 +23,8 @@ export interface CancelArchivalCommandInput extends CancelArchivalInput {}
 export interface CancelArchivalCommandOutput extends CancelArchivalOutput, __MetadataBearer {}
 
 /**
- * <p>Cancels archiving of a virtual tape to the virtual tape shelf (VTS) after the archiving
- *          process is initiated. This operation is only supported in the tape gateway type.</p>
+ * Cancels archiving of a virtual tape to the virtual tape shelf (VTS) after the archiving process is initiated. This operation is only supported in the tape gateway type.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,16 +52,16 @@ export interface CancelArchivalCommandOutput extends CancelArchivalOutput, __Met
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @example To cancel virtual tape archiving
  * ```javascript

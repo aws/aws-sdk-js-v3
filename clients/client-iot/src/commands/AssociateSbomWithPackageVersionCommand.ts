@@ -26,8 +26,10 @@ export interface AssociateSbomWithPackageVersionCommandInput extends AssociateSb
 export interface AssociateSbomWithPackageVersionCommandOutput extends AssociateSbomWithPackageVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Associates the selected software bill of materials (SBOM) with a specific software package version.</p>
- *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AssociateSbomWithPackageVersion</a> action.</p>
+ * Associates the selected software bill of materials (SBOM) with a specific software package version.
+ *
+ * Requires permission to access the [AssociateSbomWithPackageVersion](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,27 +74,32 @@ export interface AssociateSbomWithPackageVersionCommandOutput extends AssociateS
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request conflicts with the current state of the resource.</p>
+ *
+ * The request conflicts with the current state of the resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal error from the service that indicates an unexpected error or that the service
- *             is unavailable.</p>
+ *
+ * Internal error from the service that indicates an unexpected error or that the service is unavailable.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Service quota has been exceeded.</p>
+ *
+ * Service quota has been exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The rate exceeds the limit.</p>
+ *
+ * The rate exceeds the limit.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link IoTServiceException}
- * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * Base exception class for all service exceptions from IoT service.
  *
  * @public
  */

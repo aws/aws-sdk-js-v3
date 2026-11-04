@@ -23,9 +23,10 @@ export interface DescribeBackupCommandInput extends DescribeBackupInput {}
 export interface DescribeBackupCommandOutput extends DescribeBackupOutput, __MetadataBearer {}
 
 /**
- * <p>Describes an existing backup of a table.</p>
- *          <p>You can call <code>DescribeBackup</code> at a maximum rate of 10 times per
- *             second.</p>
+ * Describes an existing backup of a table.
+ *
+ * You can call `DescribeBackup` at a maximum rate of 10 times per second.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -165,16 +166,18 @@ export interface DescribeBackupCommandOutput extends DescribeBackupOutput, __Met
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
  * @throws {@link BackupNotFoundException} (client fault)
- *  <p>Backup not found for the given BackupARN. </p>
+ *
+ * Backup not found for the given BackupARN.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidEndpointException} (client fault)
  *
  * @throws {@link DynamoDBServiceException}
- * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * Base exception class for all service exceptions from DynamoDB service.
  *
  * @public
  */

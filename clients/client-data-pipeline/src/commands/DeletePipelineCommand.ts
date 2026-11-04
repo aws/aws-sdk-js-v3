@@ -23,11 +23,9 @@ export interface DeletePipelineCommandInput extends DeletePipelineInput {}
 export interface DeletePipelineCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a pipeline, its pipeline definition, and its run history.
- *            AWS Data Pipeline attempts to cancel instances associated with the pipeline that are currently being processed by task runners.</p>
- *         <p>Deleting a pipeline cannot be undone. You cannot query or restore a deleted pipeline.
- *             To temporarily pause a pipeline instead of deleting it, call <a>SetStatus</a> with the status set to <code>PAUSE</code> on individual components.
- *             Components that are paused by <a>SetStatus</a> can be resumed.</p>
+ * Deletes a pipeline, its pipeline definition, and its run history. AWS Data Pipeline attempts to cancel instances associated with the pipeline that are currently being processed by task runners.
+ *
+ * Deleting a pipeline cannot be undone. You cannot query or restore a deleted pipeline. To temporarily pause a pipeline instead of deleting it, call SetStatus with the status set to `PAUSE` on individual components. Components that are paused by SetStatus can be resumed.
  *
  *         <examples>
  *             <request>
@@ -79,17 +77,20 @@ export interface DeletePipelineCommandOutput extends __MetadataBearer {}
  * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.
  *
  * @throws {@link InternalServiceError} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
+ *
+ * The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.
  *
  * @throws {@link PipelineNotFoundException} (client fault)
- *  <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
+ *
+ * The specified pipeline was not found. Verify that you used the correct user and account identifiers.
  *
  * @throws {@link DataPipelineServiceException}
- * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ * Base exception class for all service exceptions from DataPipeline service.
  *
  * @public
  */

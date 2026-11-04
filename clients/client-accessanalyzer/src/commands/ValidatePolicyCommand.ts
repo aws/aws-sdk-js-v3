@@ -23,7 +23,8 @@ export interface ValidatePolicyCommandInput extends ValidatePolicyRequest {}
 export interface ValidatePolicyCommandOutput extends ValidatePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Requests the validation of a policy and returns a list of findings. The findings help you identify issues and provide actionable recommendations to resolve the issue and enable you to author functional policies that meet security best practices. </p>
+ * Requests the validation of a policy and returns a list of findings. The findings help you identify issues and provide actionable recommendations to resolve the issue and enable you to author functional policies that meet security best practices.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,20 +91,24 @@ export interface ValidatePolicyCommandOutput extends ValidatePolicyResponse, __M
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal server error.</p>
+ *
+ * Internal server error.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Throttling limit exceeded error.</p>
+ *
+ * Throttling limit exceeded error.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Validation exception error.</p>
+ *
+ * Validation exception error.
  *
  * @throws {@link AccessAnalyzerServiceException}
- * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ * Base exception class for all service exceptions from AccessAnalyzer service.
  *
  * @public
  */

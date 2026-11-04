@@ -23,7 +23,8 @@ export interface UpdateQAppSessionCommandInput extends UpdateQAppSessionInput {}
 export interface UpdateQAppSessionCommandOutput extends UpdateQAppSessionOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the session for a given Q App <code>sessionId</code>. This is only valid when at least one card of the session is in the <code>WAITING</code> state. Data for each <code>WAITING</code> card can be provided as input. If inputs are not provided, the call will be accepted but session will not move forward. Inputs for cards that are not in the <code>WAITING</code> status will be ignored.</p>
+ * Updates the session for a given Q App `sessionId`. This is only valid when at least one card of the session is in the `WAITING` state. Data for each `WAITING` card can be provided as input. If inputs are not provided, the call will be accepted but session will not move forward. Inputs for cards that are not in the `WAITING` status will be ignored.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,29 +63,36 @@ export interface UpdateQAppSessionCommandOutput extends UpdateQAppSessionOutput,
  * @see {@link QAppsClientResolvedConfig | config} for QAppsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The client is not authorized to perform the requested operation.</p>
+ *
+ * The client is not authorized to perform the requested operation.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal service error occurred while processing the request.</p>
+ *
+ * An internal service error occurred while processing the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource could not be found.</p>
+ *
+ * The requested resource could not be found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The requested operation could not be completed because it would exceed the service's quota or limit.</p>
+ *
+ * The requested operation could not be completed because it would exceed the service's quota or limit.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
+ *
+ * The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The client is not authenticated or authorized to perform the requested operation.</p>
+ *
+ * The client is not authenticated or authorized to perform the requested operation.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input failed to satisfy the constraints specified by the service.</p>
+ *
+ * The input failed to satisfy the constraints specified by the service.
  *
  * @throws {@link QAppsServiceException}
- * <p>Base exception class for all service exceptions from QApps service.</p>
  *
+ * Base exception class for all service exceptions from QApps service.
  *
  * @public
  */

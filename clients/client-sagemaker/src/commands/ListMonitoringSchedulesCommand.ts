@@ -23,7 +23,8 @@ export interface ListMonitoringSchedulesCommandInput extends ListMonitoringSched
 export interface ListMonitoringSchedulesCommandOutput extends ListMonitoringSchedulesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns list of all monitoring schedules.</p>
+ * Returns list of all monitoring schedules.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,8 +75,8 @@ export interface ListMonitoringSchedulesCommandOutput extends ListMonitoringSche
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

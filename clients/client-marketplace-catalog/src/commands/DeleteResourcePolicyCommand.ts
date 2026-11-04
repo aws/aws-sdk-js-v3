@@ -23,8 +23,8 @@ export interface DeleteResourcePolicyCommandInput extends DeleteResourcePolicyRe
 export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a resource-based policy on an entity that is identified by its resource
- *             ARN.</p>
+ * Deletes a resource-based policy on an entity that is identified by its resource ARN.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,28 +49,38 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  * @see {@link MarketplaceCatalogClientResolvedConfig | config} for MarketplaceCatalogClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access is denied.</p>
- *          <p>HTTP status code: 403</p>
+ *
+ * Access is denied.
+ *
+ * HTTP status code: 403
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>There was an internal service exception.</p>
- *          <p>HTTP status code: 500</p>
+ *
+ * There was an internal service exception.
+ *
+ * HTTP status code: 500
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource wasn't found.</p>
- *          <p>HTTP status code: 404</p>
+ *
+ * The specified resource wasn't found.
+ *
+ * HTTP status code: 404
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Too many requests.</p>
- *          <p>HTTP status code: 429</p>
+ *
+ * Too many requests.
+ *
+ * HTTP status code: 429
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An error occurred during validation.</p>
- *          <p>HTTP status code: 422</p>
+ *
+ * An error occurred during validation.
+ *
+ * HTTP status code: 422
  *
  * @throws {@link MarketplaceCatalogServiceException}
- * <p>Base exception class for all service exceptions from MarketplaceCatalog service.</p>
  *
+ * Base exception class for all service exceptions from MarketplaceCatalog service.
  *
  * @public
  */

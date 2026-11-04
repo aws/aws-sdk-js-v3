@@ -68,8 +68,8 @@ export interface DeleteVolumeCommandOutput extends DeleteVolumeResponse, __Metad
  *  The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.
  *
  * @throws {@link DeadlineServiceException}
- * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ * Base exception class for all service exceptions from Deadline service.
  *
  * @example Delete a volume
  * ```javascript

@@ -23,12 +23,10 @@ export interface DescribeDimensionKeysCommandInput extends DescribeDimensionKeys
 export interface DescribeDimensionKeysCommandOutput extends DescribeDimensionKeysResponse, __MetadataBearer {}
 
 /**
- * <p>For a specific time period, retrieve the top <code>N</code> dimension keys for a metric.
- *       </p>
- *          <note>
- *             <p>Each response element returns a maximum of 500 bytes. For larger elements, such as SQL statements,
- *         only the first 500 bytes are returned.</p>
- *          </note>
+ * For a specific time period, retrieve the top `N` dimension keys for a metric.
+ *
+ * > **Note:** Each response element returns a maximum of 500 bytes. For larger elements, such as SQL statements, only the first 500 bytes are returned.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -105,17 +103,20 @@ export interface DescribeDimensionKeysCommandOutput extends DescribeDimensionKey
  * @see {@link PIClientResolvedConfig | config} for PIClient's `config` shape.
  *
  * @throws {@link InternalServiceError} (server fault)
- *  <p>The request failed due to an unknown error.</p>
+ *
+ * The request failed due to an unknown error.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>One of the arguments provided is invalid for this request.</p>
+ *
+ * One of the arguments provided is invalid for this request.
  *
  * @throws {@link NotAuthorizedException} (client fault)
- *  <p>The user is not authorized to perform this request.</p>
+ *
+ * The user is not authorized to perform this request.
  *
  * @throws {@link PIServiceException}
- * <p>Base exception class for all service exceptions from PI service.</p>
  *
+ * Base exception class for all service exceptions from PI service.
  *
  * @public
  */

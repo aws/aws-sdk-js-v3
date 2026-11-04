@@ -23,16 +23,12 @@ export interface ListVirtualMFADevicesCommandInput extends ListVirtualMFADevices
 export interface ListVirtualMFADevicesCommandOutput extends ListVirtualMFADevicesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the virtual MFA devices defined in the Amazon Web Services account by assignment status. If
- *             you do not specify an assignment status, the operation returns a list of all virtual MFA
- *             devices. Assignment status can be <code>Assigned</code>, <code>Unassigned</code>, or
- *                 <code>Any</code>.</p>
- *          <note>
- *             <p>IAM resource-listing operations return a subset of the available
- *    attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view tag information for a virtual MFA device, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListMFADeviceTags.html">ListMFADeviceTags</a>.</p>
- *          </note>
- *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
- *             parameters.</p>
+ * Lists the virtual MFA devices defined in the Amazon Web Services account by assignment status. If you do not specify an assignment status, the operation returns a list of all virtual MFA devices. Assignment status can be `Assigned`, `Unassigned`, or `Any`.
+ *
+ * > **Note:** IAM resource-listing operations return a subset of the available attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view tag information for a virtual MFA device, see [ListMFADeviceTags](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListMFADeviceTags.html).
+ *
+ * You can paginate the results using the `MaxItems` and `Marker` parameters.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,8 +90,8 @@ export interface ListVirtualMFADevicesCommandOutput extends ListVirtualMFADevice
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @example To list virtual MFA devices
  * ```javascript

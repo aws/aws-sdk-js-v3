@@ -23,16 +23,12 @@ export interface DescribeEventDetailsCommandInput extends DescribeEventDetailsRe
 export interface DescribeEventDetailsCommandOutput extends DescribeEventDetailsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns detailed information about one or more specified events. Information includes
- *          standard event data (Amazon Web Services Region, service, and so on, as returned by <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEvents.html">DescribeEvents</a>), a detailed event description, and possible additional metadata
- *          that depends upon the nature of the event. Affected entities are not included. To retrieve
- *          the entities, use the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntities.html">DescribeAffectedEntities</a> operation.</p>
- *          <p>If a specified event can't be retrieved, an error message is returned for that
- *          event.</p>
- *          <note>
- *             <p>This operation supports resource-level permissions. You can use this operation to allow or deny access to specific Health events. For more
- *                   information, see <a href="https://docs.aws.amazon.com/health/latest/ug/security_iam_id-based-policy-examples.html#resource-action-based-conditions">Resource- and action-based conditions</a> in the <i>Health User Guide</i>.</p>
- *          </note>
+ * Returns detailed information about one or more specified events. Information includes standard event data (Amazon Web Services Region, service, and so on, as returned by [DescribeEvents](https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEvents.html)), a detailed event description, and possible additional metadata that depends upon the nature of the event. Affected entities are not included. To retrieve the entities, use the [DescribeAffectedEntities](https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntities.html) operation.
+ *
+ * If a specified event can't be retrieved, an error message is returned for that event.
+ *
+ * > **Note:** This operation supports resource-level permissions. You can use this operation to allow or deny access to specific Health events. For more information, see [Resource- and action-based conditions](https://docs.aws.amazon.com/health/latest/ug/security_iam_id-based-policy-examples.html#resource-action-based-conditions) in the *Health User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,11 +91,12 @@ export interface DescribeEventDetailsCommandOutput extends DescribeEventDetailsR
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
  *
  * @throws {@link UnsupportedLocale} (client fault)
- *  <p>The specified locale is not supported.</p>
+ *
+ * The specified locale is not supported.
  *
  * @throws {@link HealthServiceException}
- * <p>Base exception class for all service exceptions from Health service.</p>
  *
+ * Base exception class for all service exceptions from Health service.
  *
  * @public
  */

@@ -23,15 +23,13 @@ export interface UntagLogGroupCommandInput extends UntagLogGroupRequest {}
 export interface UntagLogGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * <important>
- *             <p>The UntagLogGroup operation is on the path to deprecation. We recommend that you use
- *           <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UntagResource.html">UntagResource</a> instead.</p>
- *          </important>
- *          <p>Removes the specified tags from the specified log group.</p>
- *          <p>To list the tags for a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a>. To add tags, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagResource.html">TagResource</a>.</p>
- *          <p>When using IAM policies to control tag management for CloudWatch Logs log groups, the
- *       condition keys <code>aws:Resource/key-name</code> and <code>aws:TagKeys</code> cannot be used
- *       to restrict which tags users can assign. </p>
+ * > **Important:** The UntagLogGroup operation is on the path to deprecation. We recommend that you use [UntagResource](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UntagResource.html) instead.
+ *
+ * Removes the specified tags from the specified log group.
+ *
+ * To list the tags for a log group, use [ListTagsForResource](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsForResource.html). To add tags, use [TagResource](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagResource.html).
+ *
+ * When using IAM policies to control tag management for CloudWatch Logs log groups, the condition keys `aws:Resource/key-name` and `aws:TagKeys` cannot be used to restrict which tags users can assign.
  *
  * @deprecated Please use the generic tagging API UntagResource.
  * @example
@@ -61,11 +59,12 @@ export interface UntagLogGroupCommandOutput extends __MetadataBearer {}
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link CloudWatchLogsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchLogs service.
  *
  * @public
  */

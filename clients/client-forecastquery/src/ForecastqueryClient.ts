@@ -276,7 +276,8 @@ export type ForecastqueryClientResolvedConfigType = __SmithyResolvedConfiguratio
 export interface ForecastqueryClientResolvedConfig extends ForecastqueryClientResolvedConfigType {}
 
 /**
- * <p>Provides APIs for creating and managing Amazon Forecast resources.</p>
+ * Provides APIs for creating and managing Amazon Forecast resources.
+ *
  * @public
  */
 export class ForecastqueryClient extends __Client<

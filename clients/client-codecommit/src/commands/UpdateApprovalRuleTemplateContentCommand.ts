@@ -26,9 +26,8 @@ export interface UpdateApprovalRuleTemplateContentCommandInput extends UpdateApp
 export interface UpdateApprovalRuleTemplateContentCommandOutput extends UpdateApprovalRuleTemplateContentOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the content of an approval rule template. You can change the number of
- *             required approvals, the membership of the approval rule, and whether an approval pool is
- *             defined.</p>
+ * Updates the content of an approval rule template. You can change the number of required approvals, the membership of the approval rule, and whether an approval pool is defined.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,30 +65,32 @@ export interface UpdateApprovalRuleTemplateContentCommandOutput extends UpdateAp
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  * @throws {@link ApprovalRuleTemplateContentRequiredException} (client fault)
- *  <p>The content for the approval rule template is empty. You must provide some content for an approval rule template. The content cannot be null.</p>
+ *
+ * The content for the approval rule template is empty. You must provide some content for an approval rule template. The content cannot be null.
  *
  * @throws {@link ApprovalRuleTemplateDoesNotExistException} (client fault)
- *  <p>The specified approval rule template does not exist. Verify that the name is correct and that you are signed in to the Amazon Web Services Region where the template
- *         was created, and then try again.</p>
+ *
+ * The specified approval rule template does not exist. Verify that the name is correct and that you are signed in to the Amazon Web Services Region where the template was created, and then try again.
  *
  * @throws {@link ApprovalRuleTemplateNameRequiredException} (client fault)
- *  <p>An approval rule template name is required, but was not specified.</p>
+ *
+ * An approval rule template name is required, but was not specified.
  *
  * @throws {@link InvalidApprovalRuleTemplateContentException} (client fault)
- *  <p>The content of the approval rule template is not valid.</p>
+ *
+ * The content of the approval rule template is not valid.
  *
  * @throws {@link InvalidApprovalRuleTemplateNameException} (client fault)
- *  <p>The name of the approval rule template is not valid. Template names must be between 1
- *             and 100 valid characters in length. For more information about limits in CodeCommit,
- *             see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Quotas</a> in the <i>
- *                CodeCommit User Guide</i>.</p>
+ *
+ * The name of the approval rule template is not valid. Template names must be between 1 and 100 valid characters in length. For more information about limits in CodeCommit, see [Quotas](https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html) in the *CodeCommit User Guide*.
  *
  * @throws {@link InvalidRuleContentSha256Exception} (client fault)
- *  <p>The SHA-256 hash signature for the rule content is not valid.</p>
+ *
+ * The SHA-256 hash signature for the rule content is not valid.
  *
  * @throws {@link CodeCommitServiceException}
- * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * Base exception class for all service exceptions from CodeCommit service.
  *
  * @public
  */

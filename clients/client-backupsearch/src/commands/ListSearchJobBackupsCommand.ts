@@ -23,7 +23,12 @@ export interface ListSearchJobBackupsCommandInput extends ListSearchJobBackupsIn
 export interface ListSearchJobBackupsCommandOutput extends ListSearchJobBackupsOutput, __MetadataBearer {}
 
 /**
- * <p>This operation returns a list of all backups (recovery points) in a paginated format that were included in the search job.</p> <p>If a search does not display an expected backup in the results, you can call this operation to display each backup included in the search. Any backups that were not included because they have a <code>FAILED</code> status from a permissions issue will be displayed, along with a status message.</p> <p>Only recovery points with a backup index that has a status of <code>ACTIVE</code> will be included in search results. If the index has any other status, its status will be displayed along with a status message.</p>
+ * This operation returns a list of all backups (recovery points) in a paginated format that were included in the search job.
+ *
+ * If a search does not display an expected backup in the results, you can call this operation to display each backup included in the search. Any backups that were not included because they have a `FAILED` status from a permissions issue will be displayed, along with a status message.
+ *
+ * Only recovery points with a backup index that has a status of `ACTIVE` will be included in search results. If the index has any other status, its status will be displayed along with a status message.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,23 +68,30 @@ export interface ListSearchJobBackupsCommandOutput extends ListSearchJobBackupsO
  * @see {@link BackupSearchClientResolvedConfig | config} for BackupSearchClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource was not found for this request.</p> <p>Confirm the resource information, such as the ARN or type is correct and exists, then retry the request.</p>
+ *
+ * The resource was not found for this request.
+ *
+ * Confirm the resource information, such as the ARN or type is correct and exists, then retry the request.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by a service.</p>
+ *
+ * The input fails to satisfy the constraints specified by a service.
  *
  * @throws {@link BackupSearchServiceException}
- * <p>Base exception class for all service exceptions from BackupSearch service.</p>
  *
+ * Base exception class for all service exceptions from BackupSearch service.
  *
  * @public
  */

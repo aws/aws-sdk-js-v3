@@ -23,32 +23,11 @@ export interface GetSessionEmbedUrlCommandInput extends GetSessionEmbedUrlReques
 export interface GetSessionEmbedUrlCommandOutput extends GetSessionEmbedUrlResponse, __MetadataBearer {}
 
 /**
- * <p>Generates a session URL and authorization code that you can use to embed the Amazon
- *                 Amazon Quick Sight console in your web server code. Use
- *                 <code>GetSessionEmbedUrl</code> where you want to provide an authoring portal that
- *             allows users to create data sources, datasets, analyses, and dashboards. The users who
- *             access an embedded Amazon Quick Sight console need belong to the author or admin security
- *             cohort. If you want to restrict permissions to some of these features, add a custom
- *             permissions profile to the user with the <code>
- *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateUser.html">UpdateUser</a>
- *             </code> API operation. Use <code>
- *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RegisterUser.html">RegisterUser</a>
- *             </code> API operation to add a new user with a custom
- *             permission profile attached. For more information, see the following sections in the
- *                     <i>Amazon Quick User Guide</i>:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics.html">Embedding
- *                         Analytics</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/quicksight/latest/user/customizing-permissions-to-the-quicksight-console.html">Customizing Access to the Amazon Quick Console</a>
- *                </p>
- *             </li>
- *          </ul>
+ * Generates a session URL and authorization code that you can use to embed the Amazon Amazon Quick Sight console in your web server code. Use `GetSessionEmbedUrl` where you want to provide an authoring portal that allows users to create data sources, datasets, analyses, and dashboards. The users who access an embedded Amazon Quick Sight console need belong to the author or admin security cohort. If you want to restrict permissions to some of these features, add a custom permissions profile to the user with the `UpdateUser` API operation. Use `RegisterUser` API operation to add a new user with a custom permission profile attached. For more information, see the following sections in the *Amazon Quick User Guide*:
+ *
+ * - [Embedding Analytics](https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics.html)
+ * - [Customizing Access to the Amazon Quick Console](https://docs.aws.amazon.com/quicksight/latest/user/customizing-permissions-to-the-quicksight-console.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,44 +59,44 @@ export interface GetSessionEmbedUrlCommandOutput extends GetSessionEmbedUrlRespo
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have access to this item. The provided credentials couldn't be
- * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
- * 			correct permissions, and that you are using the correct credentials.</p>
+ *
+ * You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An internal failure occurred.</p>
+ *
+ * An internal failure occurred.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more parameters has a value that isn't valid.</p>
+ *
+ * One or more parameters has a value that isn't valid.
  *
  * @throws {@link QuickSightUserNotFoundException} (client fault)
- *  <p>The user with the provided name isn't found. This error can happen in any operation
- * 			that requires finding a user based on a provided user name, such as
- * 				<code>DeleteUser</code>, <code>DescribeUser</code>, and so on.</p>
+ *
+ * The user with the provided name isn't found. This error can happen in any operation that requires finding a user based on a provided user name, such as `DeleteUser`, `DescribeUser`, and so on.
  *
  * @throws {@link ResourceExistsException} (client fault)
- *  <p>The resource specified already exists. </p>
+ *
+ * The resource specified already exists.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>One or more resources can't be found.</p>
+ *
+ * One or more resources can't be found.
  *
  * @throws {@link SessionLifetimeInMinutesInvalidException} (client fault)
- *  <p>The number of minutes specified for the lifetime of a session isn't valid. The session
- * 			lifetime must be 15-600 minutes.</p>
+ *
+ * The number of minutes specified for the lifetime of a session isn't valid. The session lifetime must be 15-600 minutes.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Access is throttled.</p>
+ *
+ * Access is throttled.
  *
  * @throws {@link UnsupportedUserEditionException} (client fault)
- *  <p>This error indicates that you are calling an operation on an Amazon Quick Suite
- * 			subscription where the edition doesn't include support for that operation. Amazon
- * 			Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and
- * 			capability is available in every edition.</p>
+ *
+ * This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.
  *
  * @throws {@link QuickSightServiceException}
- * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * Base exception class for all service exceptions from QuickSight service.
  *
  * @public
  */

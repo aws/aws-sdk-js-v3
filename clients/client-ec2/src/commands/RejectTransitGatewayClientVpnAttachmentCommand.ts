@@ -26,7 +26,8 @@ export interface RejectTransitGatewayClientVpnAttachmentCommandInput extends Rej
 export interface RejectTransitGatewayClientVpnAttachmentCommandOutput extends RejectTransitGatewayClientVpnAttachmentResult, __MetadataBearer {}
 
 /**
- * <p>Rejects a Transit Gateway attachment request for a Client VPN endpoint. The Transit Gateway owner can reject the attachment request to prevent the Client VPN endpoint from routing traffic through the Transit Gateway.</p>
+ * Rejects a Transit Gateway attachment request for a Client VPN endpoint. The Transit Gateway owner can reject the attachment request to prevent the Client VPN endpoint from routing traffic through the Transit Gateway.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,8 +62,8 @@ export interface RejectTransitGatewayClientVpnAttachmentCommandOutput extends Re
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

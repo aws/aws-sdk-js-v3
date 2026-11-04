@@ -23,31 +23,14 @@ export interface CreateComputeEnvironmentCommandInput extends CreateComputeEnvir
 export interface CreateComputeEnvironmentCommandOutput extends CreateComputeEnvironmentResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Batch compute environment. You can create <code>MANAGED</code> or
- *         <code>UNMANAGED</code> compute environments. <code>MANAGED</code> compute environments can
- *       use Amazon EC2 or Fargate resources. <code>UNMANAGED</code> compute environments can only use
- *       EC2 resources.</p>
- *          <p>In a managed compute environment, Batch manages the capacity and instance types of the
- *       compute resources within the environment. This is based on the compute resource specification
- *       that you define or the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">launch template</a> that you
- *       specify when you create the compute environment. Either, you can choose to use EC2 On-Demand
- *       Instances and EC2 Spot Instances. Or, you can use Fargate and Fargate Spot capacity in
- *       your managed compute environment. You can optionally set a maximum price so that Spot
- *       Instances only launch when the Spot Instance price is less than a specified percentage of the
- *       On-Demand price.</p>
- *          <p>In an unmanaged compute environment, you can manage your own EC2 compute resources and
- *       have flexibility with how you configure your compute resources. For example, you can use
- *       custom AMIs. However, you must verify that each of your AMIs meet the Amazon ECS container instance
- *       AMI specification. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container_instance_AMIs.html">container instance AMIs</a> in the
- *         <i>Amazon Elastic Container Service Developer Guide</i>. After you created your unmanaged compute environment,
- *       you can use the <a>DescribeComputeEnvironments</a> operation to find the Amazon ECS
- *       cluster that's associated with it. Then, launch your container instances into that Amazon ECS
- *       cluster. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_container_instance.html">Launching an Amazon ECS container
- *         instance</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
- *          <note>
- *             <p>Batch doesn't automatically upgrade the AMIs in a compute environment after it's
- *       created. For more information on how to update a compute environment's AMI, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating compute environments</a> in the <i>Batch User Guide</i>.</p>
- *          </note>
+ * Creates an Batch compute environment. You can create `MANAGED` or `UNMANAGED` compute environments. `MANAGED` compute environments can use Amazon EC2 or Fargate resources. `UNMANAGED` compute environments can only use EC2 resources.
+ *
+ * In a managed compute environment, Batch manages the capacity and instance types of the compute resources within the environment. This is based on the compute resource specification that you define or the [launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) that you specify when you create the compute environment. Either, you can choose to use EC2 On-Demand Instances and EC2 Spot Instances. Or, you can use Fargate and Fargate Spot capacity in your managed compute environment. You can optionally set a maximum price so that Spot Instances only launch when the Spot Instance price is less than a specified percentage of the On-Demand price.
+ *
+ * In an unmanaged compute environment, you can manage your own EC2 compute resources and have flexibility with how you configure your compute resources. For example, you can use custom AMIs. However, you must verify that each of your AMIs meet the Amazon ECS container instance AMI specification. For more information, see [container instance AMIs](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container_instance_AMIs.html) in the *Amazon Elastic Container Service Developer Guide*. After you created your unmanaged compute environment, you can use the DescribeComputeEnvironments operation to find the Amazon ECS cluster that's associated with it. Then, launch your container instances into that Amazon ECS cluster. For more information, see [Launching an Amazon ECS container instance](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_container_instance.html) in the *Amazon Elastic Container Service Developer Guide*.
+ *
+ * > **Note:** Batch doesn't automatically upgrade the AMIs in a compute environment after it's created. For more information on how to update a compute environment's AMI, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *Batch User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -183,16 +166,16 @@ export interface CreateComputeEnvironmentCommandOutput extends CreateComputeEnvi
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf
- *    of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier
- *    that's not valid.</p>
+ *
+ * These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server issue.</p>
+ *
+ * These errors are usually caused by a server issue.
  *
  * @throws {@link BatchServiceException}
- * <p>Base exception class for all service exceptions from Batch service.</p>
  *
+ * Base exception class for all service exceptions from Batch service.
  *
  * @example To create a managed EC2 compute environment
  * ```javascript

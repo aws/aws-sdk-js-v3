@@ -26,7 +26,8 @@ import type {
  */
 export interface AcceptDataGrantRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the data grant to accept.</p>
+   * The Amazon Resource Name (ARN) of the data grant to accept.
+   *
    * @public
    */
   DataGrantArn: string | undefined;
@@ -37,583 +38,680 @@ export interface AcceptDataGrantRequest {
  */
 export interface AcceptDataGrantResponse {
   /**
-   * <p>The name of the accepted data grant.</p>
+   * The name of the accepted data grant.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the data grant sender.</p>
+   * The Amazon Web Services account ID of the data grant sender.
+   *
    * @public
    */
   SenderPrincipal?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the data grant receiver.</p>
+   * The Amazon Web Services account ID of the data grant receiver.
+   *
    * @public
    */
   ReceiverPrincipal: string | undefined;
 
   /**
-   * <p>The description of the accepted data grant.</p>
+   * The description of the accepted data grant.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The acceptance state of the data grant.</p>
+   * The acceptance state of the data grant.
+   *
    * @public
    */
   AcceptanceState: DataGrantAcceptanceState | undefined;
 
   /**
-   * <p>The timestamp of when the data grant was accepted.</p>
+   * The timestamp of when the data grant was accepted.
+   *
    * @public
    */
   AcceptedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp of when access to the associated data set ends.</p>
+   * The timestamp of when access to the associated data set ends.
+   *
    * @public
    */
   EndsAt?: Date | undefined;
 
   /**
-   * <p>The distribution scope for the data grant.</p>
+   * The distribution scope for the data grant.
+   *
    * @public
    */
   GrantDistributionScope: GrantDistributionScope | undefined;
 
   /**
-   * <p>The ID of the data set associated to the data grant.</p>
+   * The ID of the data set associated to the data grant.
+   *
    * @public
    */
   DataSetId: string | undefined;
 
   /**
-   * <p>The ID of the data grant.</p>
+   * The ID of the data grant.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the accepted data grant.</p>
+   * The Amazon Resource Name (ARN) of the accepted data grant.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The timestamp of when the data grant was created.</p>
+   * The timestamp of when the data grant was created.
+   *
    * @public
    */
   CreatedAt: Date | undefined;
 
   /**
-   * <p>The timestamp of when the data grant was last updated.</p>
+   * The timestamp of when the data grant was last updated.
+   *
    * @public
    */
   UpdatedAt: Date | undefined;
 }
 
 /**
- * <p>Encryption configuration of the export job. Includes the encryption type in addition to the AWS KMS key. The KMS key is only necessary if you chose the KMS encryption type.</p>
+ * Encryption configuration of the export job. Includes the encryption type in addition to the AWS KMS key. The KMS key is only necessary if you chose the KMS encryption type.
+ *
  * @public
  */
 export interface ExportServerSideEncryption {
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS KMS key you want to use to encrypt the Amazon S3 objects. This parameter is required if you choose aws:kms as an encryption type.</p>
+   * The Amazon Resource Name (ARN) of the AWS KMS key you want to use to encrypt the Amazon S3 objects. This parameter is required if you choose aws:kms as an encryption type.
+   *
    * @public
    */
   KmsKeyArn?: string | undefined;
 
   /**
-   * <p>The type of server side encryption used for encrypting the objects in Amazon S3.</p>
+   * The type of server side encryption used for encrypting the objects in Amazon S3.
+   *
    * @public
    */
   Type: ServerSideEncryptionTypes | undefined;
 }
 
 /**
- * <p>A revision destination is the Amazon S3 bucket folder destination to where the export will be sent.</p>
+ * A revision destination is the Amazon S3 bucket folder destination to where the export will be sent.
+ *
  * @public
  */
 export interface AutoExportRevisionDestinationEntry {
   /**
-   * <p>The Amazon S3 bucket that is the destination for the event action.</p>
+   * The Amazon S3 bucket that is the destination for the event action.
+   *
    * @public
    */
   Bucket: string | undefined;
 
   /**
-   * <p>A string representing the pattern for generated names of the individual assets in the revision. For more information about key patterns, see <a href="https://docs.aws.amazon.com/data-exchange/latest/userguide/jobs.html#revision-export-keypatterns">Key patterns when exporting revisions</a>.</p>
+   * A string representing the pattern for generated names of the individual assets in the revision. For more information about key patterns, see [Key patterns when exporting revisions](https://docs.aws.amazon.com/data-exchange/latest/userguide/jobs.html#revision-export-keypatterns).
+   *
    * @public
    */
   KeyPattern?: string | undefined;
 }
 
 /**
- * <p>Details of the operation to be performed by the job.</p>
+ * Details of the operation to be performed by the job.
+ *
  * @public
  */
 export interface AutoExportRevisionToS3RequestDetails {
   /**
-   * <p>Encryption configuration for the auto export job.</p>
+   * Encryption configuration for the auto export job.
+   *
    * @public
    */
   Encryption?: ExportServerSideEncryption | undefined;
 
   /**
-   * <p>A revision destination is the Amazon S3 bucket folder destination to where the export will be sent.</p>
+   * A revision destination is the Amazon S3 bucket folder destination to where the export will be sent.
+   *
    * @public
    */
   RevisionDestination: AutoExportRevisionDestinationEntry | undefined;
 }
 
 /**
- * <p>What occurs after a certain event.</p>
+ * What occurs after a certain event.
+ *
  * @public
  */
 export interface Action {
   /**
-   * <p>Details for the export revision to Amazon S3 action.</p>
+   * Details for the export revision to Amazon S3 action.
+   *
    * @public
    */
   ExportRevisionToS3?: AutoExportRevisionToS3RequestDetails | undefined;
 }
 
 /**
- * <p>The API Gateway API that is the asset.</p>
+ * The API Gateway API that is the asset.
+ *
  * @public
  */
 export interface ApiGatewayApiAsset {
   /**
-   * <p>The API description of the API asset.</p>
+   * The API description of the API asset.
+   *
    * @public
    */
   ApiDescription?: string | undefined;
 
   /**
-   * <p>The API endpoint of the API asset.</p>
+   * The API endpoint of the API asset.
+   *
    * @public
    */
   ApiEndpoint?: string | undefined;
 
   /**
-   * <p>The unique identifier of the API asset.</p>
+   * The unique identifier of the API asset.
+   *
    * @public
    */
   ApiId?: string | undefined;
 
   /**
-   * <p>The API key of the API asset.</p>
+   * The API key of the API asset.
+   *
    * @public
    */
   ApiKey?: string | undefined;
 
   /**
-   * <p>The API name of the API asset.</p>
+   * The API name of the API asset.
+   *
    * @public
    */
   ApiName?: string | undefined;
 
   /**
-   * <p>The download URL of the API specification of the API asset.</p>
+   * The download URL of the API specification of the API asset.
+   *
    * @public
    */
   ApiSpecificationDownloadUrl?: string | undefined;
 
   /**
-   * <p>The date and time that the upload URL expires, in ISO 8601 format.</p>
+   * The date and time that the upload URL expires, in ISO 8601 format.
+   *
    * @public
    */
   ApiSpecificationDownloadUrlExpiresAt?: Date | undefined;
 
   /**
-   * <p>The protocol type of the API asset.</p>
+   * The protocol type of the API asset.
+   *
    * @public
    */
   ProtocolType?: ProtocolType | undefined;
 
   /**
-   * <p>The stage of the API asset.</p>
+   * The stage of the API asset.
+   *
    * @public
    */
   Stage?: string | undefined;
 }
 
 /**
- * <p>A tag consisting of a key-value pair that can be applied to a resource.</p>
+ * A tag consisting of a key-value pair that can be applied to a resource.
+ *
  * @public
  */
 export interface Tag {
   /**
-   * <p>The key of the tag.</p>
+   * The key of the tag.
+   *
    * @public
    */
   Key: string | undefined;
 
   /**
-   * <p>The value of the tag.</p>
+   * The value of the tag.
+   *
    * @public
    */
   Value: string | undefined;
 }
 
 /**
- * <p>The configuration for the asset, which can include tags.</p>
+ * The configuration for the asset, which can include tags.
+ *
  * @public
  */
 export interface AssetConfiguration {
   /**
-   * <p>The tags to be applied to assets created by the job.</p>
+   * The tags to be applied to assets created by the job.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 }
 
 /**
- * <p>The destination for the asset.</p>
+ * The destination for the asset.
+ *
  * @public
  */
 export interface AssetDestinationEntry {
   /**
-   * <p>The unique identifier for the asset.</p>
+   * The unique identifier for the asset.
+   *
    * @public
    */
   AssetId: string | undefined;
 
   /**
-   * <p>The Amazon S3 bucket that is the destination for the asset.</p>
+   * The Amazon S3 bucket that is the destination for the asset.
+   *
    * @public
    */
   Bucket: string | undefined;
 
   /**
-   * <p>The name of the object in Amazon S3 for the asset.</p>
+   * The name of the object in Amazon S3 for the asset.
+   *
    * @public
    */
   Key?: string | undefined;
 }
 
 /**
- * <p>A structure that allows an LF-admin to grant permissions on certain conditions.</p>
+ * A structure that allows an LF-admin to grant permissions on certain conditions.
+ *
  * @public
  */
 export interface LFTag {
   /**
-   * <p>The key name for the LF-tag.</p>
+   * The key name for the LF-tag.
+   *
    * @public
    */
   TagKey: string | undefined;
 
   /**
-   * <p>A list of LF-tag values.</p>
+   * A list of LF-tag values.
+   *
    * @public
    */
   TagValues: string[] | undefined;
 }
 
 /**
- * <p>The LF-tag policy for database resources.</p>
+ * The LF-tag policy for database resources.
+ *
  * @public
  */
 export interface DatabaseLFTagPolicy {
   /**
-   * <p>A list of LF-tag conditions that apply to database resources.</p>
+   * A list of LF-tag conditions that apply to database resources.
+   *
    * @public
    */
   Expression: LFTag[] | undefined;
 }
 
 /**
- * <p>The LF-tag policy for a table resource.</p>
+ * The LF-tag policy for a table resource.
+ *
  * @public
  */
 export interface TableLFTagPolicy {
   /**
-   * <p>A list of LF-tag conditions that apply to table resources.</p>
+   * A list of LF-tag conditions that apply to table resources.
+   *
    * @public
    */
   Expression: LFTag[] | undefined;
 }
 
 /**
- * <p>Details about the AWS Lake Formation resource (Table or Database) included in the AWS Lake Formation data permission.</p>
+ * Details about the AWS Lake Formation resource (Table or Database) included in the AWS Lake Formation data permission.
+ *
  * @public
  */
 export interface LFResourceDetails {
   /**
-   * <p>Details about the database resource included in the AWS Lake Formation data permission.</p>
+   * Details about the database resource included in the AWS Lake Formation data permission.
+   *
    * @public
    */
   Database?: DatabaseLFTagPolicy | undefined;
 
   /**
-   * <p>Details about the table resource included in the AWS Lake Formation data permission.</p>
+   * Details about the table resource included in the AWS Lake Formation data permission.
+   *
    * @public
    */
   Table?: TableLFTagPolicy | undefined;
 }
 
 /**
- * <p>Details about the LF-tag policy.</p>
+ * Details about the LF-tag policy.
+ *
  * @public
  */
 export interface LFTagPolicyDetails {
   /**
-   * <p>The identifier for the AWS Glue Data Catalog.</p>
+   * The identifier for the AWS Glue Data Catalog.
+   *
    * @public
    */
   CatalogId: string | undefined;
 
   /**
-   * <p>The resource type for which the LF-tag policy applies.</p>
+   * The resource type for which the LF-tag policy applies.
+   *
    * @public
    */
   ResourceType: LFResourceType | undefined;
 
   /**
-   * <p>Details for the Lake Formation Resources included in the LF-tag policy.</p>
+   * Details for the Lake Formation Resources included in the LF-tag policy.
+   *
    * @public
    */
   ResourceDetails: LFResourceDetails | undefined;
 }
 
 /**
- * <p>Details about the AWS Lake Formation data permission.</p>
+ * Details about the AWS Lake Formation data permission.
+ *
  * @public
  */
 export interface LakeFormationDataPermissionDetails {
   /**
-   * <p>Details about the LF-tag policy.</p>
+   * Details about the LF-tag policy.
+   *
    * @public
    */
   LFTagPolicy?: LFTagPolicyDetails | undefined;
 }
 
 /**
- * <p>The AWS Lake Formation data permission asset.</p>
+ * The AWS Lake Formation data permission asset.
+ *
  * @public
  */
 export interface LakeFormationDataPermissionAsset {
   /**
-   * <p>Details about the AWS Lake Formation data permission.</p>
+   * Details about the AWS Lake Formation data permission.
+   *
    * @public
    */
   LakeFormationDataPermissionDetails: LakeFormationDataPermissionDetails | undefined;
 
   /**
-   * <p>The data permission type.</p>
+   * The data permission type.
+   *
    * @public
    */
   LakeFormationDataPermissionType: LakeFormationDataPermissionType | undefined;
 
   /**
-   * <p>The permissions granted to the subscribers on the resource.</p>
+   * The permissions granted to the subscribers on the resource.
+   *
    * @public
    */
   Permissions: LFPermission[] | undefined;
 
   /**
-   * <p>The IAM role's ARN that allows AWS Data Exchange to assume the role and grant and revoke permissions to AWS Lake Formation data permissions.</p>
+   * The IAM role's ARN that allows AWS Data Exchange to assume the role and grant and revoke permissions to AWS Lake Formation data permissions.
+   *
    * @public
    */
   RoleArn?: string | undefined;
 }
 
 /**
- * <p>The Amazon Redshift datashare asset.</p>
+ * The Amazon Redshift datashare asset.
+ *
  * @public
  */
 export interface RedshiftDataShareAsset {
   /**
-   * <p>The Amazon Resource Name (ARN) of the datashare asset.</p>
+   * The Amazon Resource Name (ARN) of the datashare asset.
+   *
    * @public
    */
   Arn: string | undefined;
 }
 
 /**
- * <p>The Amazon Resource Name (ARN) of the AWS KMS key used to encrypt the shared S3 objects.</p>
+ * The Amazon Resource Name (ARN) of the AWS KMS key used to encrypt the shared S3 objects.
+ *
  * @public
  */
 export interface KmsKeyToGrant {
   /**
-   * <p>The AWS KMS CMK (Key Management System Customer Managed Key) used to encrypt S3 objects in the shared S3 Bucket. AWS Data exchange will create a KMS grant for each subscriber to allow them to access and decrypt their entitled data that is encrypted using this KMS key specified.</p>
+   * The AWS KMS CMK (Key Management System Customer Managed Key) used to encrypt S3 objects in the shared S3 Bucket. AWS Data exchange will create a KMS grant for each subscriber to allow them to access and decrypt their entitled data that is encrypted using this KMS key specified.
+   *
    * @public
    */
   KmsKeyArn: string | undefined;
 }
 
 /**
- * <p>The Amazon S3 data access that is the asset.</p>
+ * The Amazon S3 data access that is the asset.
+ *
  * @public
  */
 export interface S3DataAccessAsset {
   /**
-   * <p>The Amazon S3 bucket hosting data to be shared in the S3 data access.</p>
+   * The Amazon S3 bucket hosting data to be shared in the S3 data access.
+   *
    * @public
    */
   Bucket: string | undefined;
 
   /**
-   * <p>The Amazon S3 bucket used for hosting shared data in the Amazon S3 data access.</p>
+   * The Amazon S3 bucket used for hosting shared data in the Amazon S3 data access.
+   *
    * @public
    */
   KeyPrefixes?: string[] | undefined;
 
   /**
-   * <p>S3 keys made available using this asset.</p>
+   * S3 keys made available using this asset.
+   *
    * @public
    */
   Keys?: string[] | undefined;
 
   /**
-   * <p>The automatically-generated bucket-style alias for your Amazon S3 Access Point. Customers can access their entitled data using the S3 Access Point alias.</p>
+   * The automatically-generated bucket-style alias for your Amazon S3 Access Point. Customers can access their entitled data using the S3 Access Point alias.
+   *
    * @public
    */
   S3AccessPointAlias?: string | undefined;
 
   /**
-   * <p>The ARN for your Amazon S3 Access Point. Customers can also access their entitled data using the S3 Access Point ARN.</p>
+   * The ARN for your Amazon S3 Access Point. Customers can also access their entitled data using the S3 Access Point ARN.
+   *
    * @public
    */
   S3AccessPointArn?: string | undefined;
 
   /**
-   * <p> List of AWS KMS CMKs (Key Management System Customer Managed Keys) and ARNs used to encrypt S3 objects being shared in this S3 Data Access asset. Providers must include all AWS KMS keys used to encrypt these shared S3 objects.</p>
+   * List of AWS KMS CMKs (Key Management System Customer Managed Keys) and ARNs used to encrypt S3 objects being shared in this S3 Data Access asset. Providers must include all AWS KMS keys used to encrypt these shared S3 objects.
+   *
    * @public
    */
   KmsKeysToGrant?: KmsKeyToGrant[] | undefined;
 }
 
 /**
- * <p>The Amazon S3 object that is the asset.</p>
+ * The Amazon S3 object that is the asset.
+ *
  * @public
  */
 export interface S3SnapshotAsset {
   /**
-   * <p>The size of the Amazon S3 object that is the object.</p>
+   * The size of the Amazon S3 object that is the object.
+   *
    * @public
    */
   Size: number | undefined;
 }
 
 /**
- * <p>Details about the asset.</p>
+ * Details about the asset.
+ *
  * @public
  */
 export interface AssetDetails {
   /**
-   * <p>The Amazon S3 object that is the asset.</p>
+   * The Amazon S3 object that is the asset.
+   *
    * @public
    */
   S3SnapshotAsset?: S3SnapshotAsset | undefined;
 
   /**
-   * <p>The Amazon Redshift datashare that is the asset.</p>
+   * The Amazon Redshift datashare that is the asset.
+   *
    * @public
    */
   RedshiftDataShareAsset?: RedshiftDataShareAsset | undefined;
 
   /**
-   * <p>Information about the API Gateway API asset.</p>
+   * Information about the API Gateway API asset.
+   *
    * @public
    */
   ApiGatewayApiAsset?: ApiGatewayApiAsset | undefined;
 
   /**
-   * <p>The Amazon S3 data access that is the asset.</p>
+   * The Amazon S3 data access that is the asset.
+   *
    * @public
    */
   S3DataAccessAsset?: S3DataAccessAsset | undefined;
 
   /**
-   * <p>The AWS Lake Formation data permission that is the asset.</p>
+   * The AWS Lake Formation data permission that is the asset.
+   *
    * @public
    */
   LakeFormationDataPermissionAsset?: LakeFormationDataPermissionAsset | undefined;
 }
 
 /**
- * <p>An asset in AWS Data Exchange is a piece of data (Amazon S3 object) or a means of fulfilling data (Amazon Redshift datashare or Amazon API Gateway API, AWS Lake Formation data permission, or Amazon S3 data access). The asset can be a structured data file, an image file, or some other data file that can be stored as an Amazon S3 object, an Amazon API Gateway API, or an Amazon Redshift datashare, an AWS Lake Formation data permission, or an Amazon S3 data access. When you create an import job for your files, API Gateway APIs, Amazon Redshift datashares, AWS Lake Formation data permission, or Amazon S3 data access, you create an asset in AWS Data Exchange.</p>
+ * An asset in AWS Data Exchange is a piece of data (Amazon S3 object) or a means of fulfilling data (Amazon Redshift datashare or Amazon API Gateway API, AWS Lake Formation data permission, or Amazon S3 data access). The asset can be a structured data file, an image file, or some other data file that can be stored as an Amazon S3 object, an Amazon API Gateway API, or an Amazon Redshift datashare, an AWS Lake Formation data permission, or an Amazon S3 data access. When you create an import job for your files, API Gateway APIs, Amazon Redshift datashares, AWS Lake Formation data permission, or Amazon S3 data access, you create an asset in AWS Data Exchange.
+ *
  * @public
  */
 export interface AssetEntry {
   /**
-   * <p>The ARN for the asset.</p>
+   * The ARN for the asset.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>Details about the asset.</p>
+   * Details about the asset.
+   *
    * @public
    */
   AssetDetails: AssetDetails | undefined;
 
   /**
-   * <p>The type of asset that is added to a data set.</p>
+   * The type of asset that is added to a data set.
+   *
    * @public
    */
   AssetType: AssetType | undefined;
 
   /**
-   * <p>The date and time that the asset was created, in ISO 8601 format.</p>
+   * The date and time that the asset was created, in ISO 8601 format.
+   *
    * @public
    */
   CreatedAt: Date | undefined;
 
   /**
-   * <p>The unique identifier for the data set associated with this asset.</p>
+   * The unique identifier for the data set associated with this asset.
+   *
    * @public
    */
   DataSetId: string | undefined;
 
   /**
-   * <p>The unique identifier for the asset.</p>
+   * The unique identifier for the asset.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The name of the asset. When importing from Amazon S3, the Amazon S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target Amazon S3 object key. When importing from Amazon API Gateway API, the API name is used as the asset name. When importing from Amazon Redshift, the datashare name is used as the asset name. When importing from AWS Lake Formation, the static values of "Database(s) included in LF-tag policy" or "Table(s) included in LF-tag policy" are used as the asset name.</p>
+   * The name of the asset. When importing from Amazon S3, the Amazon S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target Amazon S3 object key. When importing from Amazon API Gateway API, the API name is used as the asset name. When importing from Amazon Redshift, the datashare name is used as the asset name. When importing from AWS Lake Formation, the static values of "Database(s) included in LF-tag policy" or "Table(s) included in LF-tag policy" are used as the asset name.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The unique identifier for the revision associated with this asset.</p>
+   * The unique identifier for the revision associated with this asset.
+   *
    * @public
    */
   RevisionId: string | undefined;
 
   /**
-   * <p>The asset ID of the owned asset corresponding to the entitled asset being viewed. This parameter is returned when an asset owner is viewing the entitled copy of its owned asset.</p>
+   * The asset ID of the owned asset corresponding to the entitled asset being viewed. This parameter is returned when an asset owner is viewing the entitled copy of its owned asset.
+   *
    * @public
    */
   SourceId?: string | undefined;
 
   /**
-   * <p>The date and time that the asset was last updated, in ISO 8601 format.</p>
+   * The date and time that the asset was last updated, in ISO 8601 format.
+   *
    * @public
    */
   UpdatedAt: Date | undefined;
 }
 
 /**
- * <p>The source of the assets.</p>
+ * The source of the assets.
+ *
  * @public
  */
 export interface AssetSourceEntry {
   /**
-   * <p>The Amazon S3 bucket that's part of the source of the asset.</p>
+   * The Amazon S3 bucket that's part of the source of the asset.
+   *
    * @public
    */
   Bucket: string | undefined;
 
   /**
-   * <p>The name of the object in Amazon S3 for the asset.</p>
+   * The name of the object in Amazon S3 for the asset.
+   *
    * @public
    */
   Key: string | undefined;
@@ -624,7 +722,8 @@ export interface AssetSourceEntry {
  */
 export interface CancelJobRequest {
   /**
-   * <p>The unique identifier for a job.</p>
+   * The unique identifier for a job.
+   *
    * @public
    */
   JobId: string | undefined;
@@ -635,43 +734,50 @@ export interface CancelJobRequest {
  */
 export interface CreateDataGrantRequest {
   /**
-   * <p>The name of the data grant.</p>
+   * The name of the data grant.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The distribution scope of the data grant.</p>
+   * The distribution scope of the data grant.
+   *
    * @public
    */
   GrantDistributionScope: GrantDistributionScope | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the data grant receiver.</p>
+   * The Amazon Web Services account ID of the data grant receiver.
+   *
    * @public
    */
   ReceiverPrincipal: string | undefined;
 
   /**
-   * <p>The ID of the data set used to create the data grant.</p>
+   * The ID of the data set used to create the data grant.
+   *
    * @public
    */
   SourceDataSetId: string | undefined;
 
   /**
-   * <p>The timestamp of when access to the associated data set ends.</p>
+   * The timestamp of when access to the associated data set ends.
+   *
    * @public
    */
   EndsAt?: Date | undefined;
 
   /**
-   * <p>The description of the data grant.</p>
+   * The description of the data grant.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The tags to add to the data grant. A tag is a key-value pair.</p>
+   * The tags to add to the data grant. A tag is a key-value pair.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -682,91 +788,106 @@ export interface CreateDataGrantRequest {
  */
 export interface CreateDataGrantResponse {
   /**
-   * <p>The name of the data grant.</p>
+   * The name of the data grant.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the data grant sender.</p>
+   * The Amazon Web Services account ID of the data grant sender.
+   *
    * @public
    */
   SenderPrincipal: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the data grant receiver.</p>
+   * The Amazon Web Services account ID of the data grant receiver.
+   *
    * @public
    */
   ReceiverPrincipal: string | undefined;
 
   /**
-   * <p>The description of the data grant.</p>
+   * The description of the data grant.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The acceptance state of the data grant.</p>
+   * The acceptance state of the data grant.
+   *
    * @public
    */
   AcceptanceState: DataGrantAcceptanceState | undefined;
 
   /**
-   * <p>The timestamp of when the data grant was accepted.</p>
+   * The timestamp of when the data grant was accepted.
+   *
    * @public
    */
   AcceptedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp of when access to the associated data set ends.</p>
+   * The timestamp of when access to the associated data set ends.
+   *
    * @public
    */
   EndsAt?: Date | undefined;
 
   /**
-   * <p>The distribution scope for the data grant.</p>
+   * The distribution scope for the data grant.
+   *
    * @public
    */
   GrantDistributionScope: GrantDistributionScope | undefined;
 
   /**
-   * <p>The ID of the data set associated to the data grant.</p>
+   * The ID of the data set associated to the data grant.
+   *
    * @public
    */
   DataSetId: string | undefined;
 
   /**
-   * <p>The ID of the data set used to create the data grant.</p>
+   * The ID of the data set used to create the data grant.
+   *
    * @public
    */
   SourceDataSetId: string | undefined;
 
   /**
-   * <p>The ID of the data grant.</p>
+   * The ID of the data grant.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the data grant.</p>
+   * The Amazon Resource Name (ARN) of the data grant.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The timestamp of when the data grant was created.</p>
+   * The timestamp of when the data grant was created.
+   *
    * @public
    */
   CreatedAt: Date | undefined;
 
   /**
-   * <p>The timestamp of when the data grant was last updated.</p>
+   * The timestamp of when the data grant was last updated.
+   *
    * @public
    */
   UpdatedAt: Date | undefined;
 
   /**
-   * <p>The tags associated to the data grant. A tag is a key-value pair.</p>
+   * The tags associated to the data grant. A tag is a key-value pair.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -777,43 +898,50 @@ export interface CreateDataGrantResponse {
  */
 export interface CreateDataSetRequest {
   /**
-   * <p>The type of asset that is added to a data set.</p>
+   * The type of asset that is added to a data set.
+   *
    * @public
    */
   AssetType: AssetType | undefined;
 
   /**
-   * <p>A description for the data set. This value can be up to 16,348 characters long.</p>
+   * A description for the data set. This value can be up to 16,348 characters long.
+   *
    * @public
    */
   Description: string | undefined;
 
   /**
-   * <p>The name of the data set.</p>
+   * The name of the data set.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>A data set tag is an optional label that you can assign to a data set when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to these data sets and revisions.</p>
+   * A data set tag is an optional label that you can assign to a data set when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to these data sets and revisions.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Details about the origin of the data set.</p>
+ * Details about the origin of the data set.
+ *
  * @public
  */
 export interface OriginDetails {
   /**
-   * <p>The product ID of the origin of the data set.</p>
+   * The product ID of the origin of the data set.
+   *
    * @public
    */
   ProductId?: string | undefined;
 
   /**
-   * <p>The ID of the data grant.</p>
+   * The ID of the data grant.
+   *
    * @public
    */
   DataGrantId?: string | undefined;
@@ -824,91 +952,106 @@ export interface OriginDetails {
  */
 export interface CreateDataSetResponse {
   /**
-   * <p>The ARN for the data set.</p>
+   * The ARN for the data set.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The type of asset that is added to a data set.</p>
+   * The type of asset that is added to a data set.
+   *
    * @public
    */
   AssetType?: AssetType | undefined;
 
   /**
-   * <p>The date and time that the data set was created, in ISO 8601 format.</p>
+   * The date and time that the data set was created, in ISO 8601 format.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The description for the data set.</p>
+   * The description for the data set.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The unique identifier for the data set.</p>
+   * The unique identifier for the data set.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The name of the data set.</p>
+   * The name of the data set.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>
+   * A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).
+   *
    * @public
    */
   Origin?: Origin | undefined;
 
   /**
-   * <p>If the origin of this data set is ENTITLED, includes the details for the product on AWS Marketplace.</p>
+   * If the origin of this data set is ENTITLED, includes the details for the product on AWS Marketplace.
+   *
    * @public
    */
   OriginDetails?: OriginDetails | undefined;
 
   /**
-   * <p>The data set ID of the owned data set corresponding to the entitled data set being viewed. This parameter is returned when a data set owner is viewing the entitled copy of its owned data set.</p>
+   * The data set ID of the owned data set corresponding to the entitled data set being viewed. This parameter is returned when a data set owner is viewing the entitled copy of its owned data set.
+   *
    * @public
    */
   SourceId?: string | undefined;
 
   /**
-   * <p>The tags for the data set.</p>
+   * The tags for the data set.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The date and time that the data set was last updated, in ISO 8601 format.</p>
+   * The date and time that the data set was last updated, in ISO 8601 format.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
 }
 
 /**
- * <p>Information about the published revision.</p>
+ * Information about the published revision.
+ *
  * @public
  */
 export interface RevisionPublished {
   /**
-   * <p>The data set ID of the published revision.</p>
+   * The data set ID of the published revision.
+   *
    * @public
    */
   DataSetId: string | undefined;
 }
 
 /**
- * <p>What occurs to start an action.</p>
+ * What occurs to start an action.
+ *
  * @public
  */
 export interface Event {
   /**
-   * <p>What occurs to start the revision publish action.</p>
+   * What occurs to start the revision publish action.
+   *
    * @public
    */
   RevisionPublished?: RevisionPublished | undefined;
@@ -919,19 +1062,22 @@ export interface Event {
  */
 export interface CreateEventActionRequest {
   /**
-   * <p>What occurs after a certain event.</p>
+   * What occurs after a certain event.
+   *
    * @public
    */
   Action: Action | undefined;
 
   /**
-   * <p>What occurs to start an action.</p>
+   * What occurs to start an action.
+   *
    * @public
    */
   Event: Event | undefined;
 
   /**
-   * <p>Key-value pairs that you can associate with the event action.</p>
+   * Key-value pairs that you can associate with the event action.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -942,487 +1088,568 @@ export interface CreateEventActionRequest {
  */
 export interface CreateEventActionResponse {
   /**
-   * <p>What occurs after a certain event.</p>
+   * What occurs after a certain event.
+   *
    * @public
    */
   Action?: Action | undefined;
 
   /**
-   * <p>The ARN for the event action.</p>
+   * The ARN for the event action.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The date and time that the event action was created, in ISO 8601 format.</p>
+   * The date and time that the event action was created, in ISO 8601 format.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>What occurs to start an action.</p>
+   * What occurs to start an action.
+   *
    * @public
    */
   Event?: Event | undefined;
 
   /**
-   * <p>The unique identifier for the event action.</p>
+   * The unique identifier for the event action.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The tags for the event action.</p>
+   * The tags for the event action.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The date and time that the event action was last updated, in ISO 8601 format.</p>
+   * The date and time that the event action was last updated, in ISO 8601 format.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
 }
 
 /**
- * <p>Source details for an Amazon S3 data access asset.</p>
+ * Source details for an Amazon S3 data access asset.
+ *
  * @public
  */
 export interface S3DataAccessAssetSourceEntry {
   /**
-   * <p>The Amazon S3 bucket used for hosting shared data in the Amazon S3 data access.</p>
+   * The Amazon S3 bucket used for hosting shared data in the Amazon S3 data access.
+   *
    * @public
    */
   Bucket: string | undefined;
 
   /**
-   * <p>Organizes Amazon S3 asset key prefixes stored in an Amazon S3 bucket.</p>
+   * Organizes Amazon S3 asset key prefixes stored in an Amazon S3 bucket.
+   *
    * @public
    */
   KeyPrefixes?: string[] | undefined;
 
   /**
-   * <p>The keys used to create the Amazon S3 data access.</p>
+   * The keys used to create the Amazon S3 data access.
+   *
    * @public
    */
   Keys?: string[] | undefined;
 
   /**
-   * <p>List of AWS KMS CMKs (Key Management System Customer Managed Keys) and ARNs used to encrypt S3 objects being shared in this S3 Data Access asset.</p>
+   * List of AWS KMS CMKs (Key Management System Customer Managed Keys) and ARNs used to encrypt S3 objects being shared in this S3 Data Access asset.
+   *
    * @public
    */
   KmsKeysToGrant?: KmsKeyToGrant[] | undefined;
 }
 
 /**
- * <p>Details of the operation to create an Amazon S3 data access from an S3 bucket.</p>
+ * Details of the operation to create an Amazon S3 data access from an S3 bucket.
+ *
  * @public
  */
 export interface CreateS3DataAccessFromS3BucketRequestDetails {
   /**
-   * <p>Details about the S3 data access source asset.</p>
+   * Details about the S3 data access source asset.
+   *
    * @public
    */
   AssetSource: S3DataAccessAssetSourceEntry | undefined;
 
   /**
-   * <p>The unique identifier for the data set associated with the creation of this Amazon S3 data access.</p>
+   * The unique identifier for the data set associated with the creation of this Amazon S3 data access.
+   *
    * @public
    */
   DataSetId: string | undefined;
 
   /**
-   * <p>The unique identifier for a revision.</p>
+   * The unique identifier for a revision.
+   *
    * @public
    */
   RevisionId: string | undefined;
 }
 
 /**
- * <p>Details of the operation to be performed by the job.</p>
+ * Details of the operation to be performed by the job.
+ *
  * @public
  */
 export interface ExportAssetsToS3RequestDetails {
   /**
-   * <p>The destination for the asset.</p>
+   * The destination for the asset.
+   *
    * @public
    */
   AssetDestinations: AssetDestinationEntry[] | undefined;
 
   /**
-   * <p>The unique identifier for the data set associated with this export job.</p>
+   * The unique identifier for the data set associated with this export job.
+   *
    * @public
    */
   DataSetId: string | undefined;
 
   /**
-   * <p>Encryption configuration for the export job.</p>
+   * Encryption configuration for the export job.
+   *
    * @public
    */
   Encryption?: ExportServerSideEncryption | undefined;
 
   /**
-   * <p>The unique identifier for the revision associated with this export request.</p>
+   * The unique identifier for the revision associated with this export request.
+   *
    * @public
    */
   RevisionId: string | undefined;
 }
 
 /**
- * <p>Details of the operation to be performed by the job.</p>
+ * Details of the operation to be performed by the job.
+ *
  * @public
  */
 export interface ExportAssetToSignedUrlRequestDetails {
   /**
-   * <p>The unique identifier for the asset that is exported to a signed URL.</p>
+   * The unique identifier for the asset that is exported to a signed URL.
+   *
    * @public
    */
   AssetId: string | undefined;
 
   /**
-   * <p>The unique identifier for the data set associated with this export job.</p>
+   * The unique identifier for the data set associated with this export job.
+   *
    * @public
    */
   DataSetId: string | undefined;
 
   /**
-   * <p>The unique identifier for the revision associated with this export request.</p>
+   * The unique identifier for the revision associated with this export request.
+   *
    * @public
    */
   RevisionId: string | undefined;
 }
 
 /**
- * <p>The destination where the assets in the revision will be exported.</p>
+ * The destination where the assets in the revision will be exported.
+ *
  * @public
  */
 export interface RevisionDestinationEntry {
   /**
-   * <p>The Amazon S3 bucket that is the destination for the assets in the revision.</p>
+   * The Amazon S3 bucket that is the destination for the assets in the revision.
+   *
    * @public
    */
   Bucket: string | undefined;
 
   /**
-   * <p>A string representing the pattern for generated names of the individual assets in the revision. For more information about key patterns, see <a href="https://docs.aws.amazon.com/data-exchange/latest/userguide/jobs.html#revision-export-keypatterns">Key patterns when exporting revisions</a>.</p>
+   * A string representing the pattern for generated names of the individual assets in the revision. For more information about key patterns, see [Key patterns when exporting revisions](https://docs.aws.amazon.com/data-exchange/latest/userguide/jobs.html#revision-export-keypatterns).
+   *
    * @public
    */
   KeyPattern?: string | undefined;
 
   /**
-   * <p>The unique identifier for the revision.</p>
+   * The unique identifier for the revision.
+   *
    * @public
    */
   RevisionId: string | undefined;
 }
 
 /**
- * <p>Details of the operation to be performed by the job.</p>
+ * Details of the operation to be performed by the job.
+ *
  * @public
  */
 export interface ExportRevisionsToS3RequestDetails {
   /**
-   * <p>The unique identifier for the data set associated with this export job.</p>
+   * The unique identifier for the data set associated with this export job.
+   *
    * @public
    */
   DataSetId: string | undefined;
 
   /**
-   * <p>Encryption configuration for the export job.</p>
+   * Encryption configuration for the export job.
+   *
    * @public
    */
   Encryption?: ExportServerSideEncryption | undefined;
 
   /**
-   * <p>The destination for the revision.</p>
+   * The destination for the revision.
+   *
    * @public
    */
   RevisionDestinations: RevisionDestinationEntry[] | undefined;
 }
 
 /**
- * <p>The request details.</p>
+ * The request details.
+ *
  * @public
  */
 export interface ImportAssetFromApiGatewayApiRequestDetails {
   /**
-   * <p>The API description. Markdown supported.</p>
+   * The API description. Markdown supported.
+   *
    * @public
    */
   ApiDescription?: string | undefined;
 
   /**
-   * <p>The API Gateway API ID.</p>
+   * The API Gateway API ID.
+   *
    * @public
    */
   ApiId: string | undefined;
 
   /**
-   * <p>The API Gateway API key.</p>
+   * The API Gateway API key.
+   *
    * @public
    */
   ApiKey?: string | undefined;
 
   /**
-   * <p>The API name.</p>
+   * The API name.
+   *
    * @public
    */
   ApiName: string | undefined;
 
   /**
-   * <p>The Base64-encoded MD5 hash of the OpenAPI 3.0 JSON API specification file. It is used to ensure the integrity of the file.</p>
+   * The Base64-encoded MD5 hash of the OpenAPI 3.0 JSON API specification file. It is used to ensure the integrity of the file.
+   *
    * @public
    */
   ApiSpecificationMd5Hash: string | undefined;
 
   /**
-   * <p>The data set ID.</p>
+   * The data set ID.
+   *
    * @public
    */
   DataSetId: string | undefined;
 
   /**
-   * <p>The protocol type.</p>
+   * The protocol type.
+   *
    * @public
    */
   ProtocolType: ProtocolType | undefined;
 
   /**
-   * <p>The revision ID.</p>
+   * The revision ID.
+   *
    * @public
    */
   RevisionId: string | undefined;
 
   /**
-   * <p>The API stage.</p>
+   * The API stage.
+   *
    * @public
    */
   Stage: string | undefined;
 }
 
 /**
- * <p>Details of the operation to be performed by the job.</p>
+ * Details of the operation to be performed by the job.
+ *
  * @public
  */
 export interface ImportAssetFromSignedUrlRequestDetails {
   /**
-   * <p>The name of the asset. When importing from Amazon S3, the Amazon S3 object key is used as the asset name.</p>
+   * The name of the asset. When importing from Amazon S3, the Amazon S3 object key is used as the asset name.
+   *
    * @public
    */
   AssetName: string | undefined;
 
   /**
-   * <p>The unique identifier for the data set associated with this import job.</p>
+   * The unique identifier for the data set associated with this import job.
+   *
    * @public
    */
   DataSetId: string | undefined;
 
   /**
-   * <p>The Base64-encoded Md5 hash for the asset, used to ensure the integrity of the file at that location.</p>
+   * The Base64-encoded Md5 hash for the asset, used to ensure the integrity of the file at that location.
+   *
    * @public
    */
   Md5Hash: string | undefined;
 
   /**
-   * <p>The unique identifier for the revision associated with this import request.</p>
+   * The unique identifier for the revision associated with this import request.
+   *
    * @public
    */
   RevisionId: string | undefined;
 }
 
 /**
- * <p>The LF-tag policy and permissions for database resources.</p>
+ * The LF-tag policy and permissions for database resources.
+ *
  * @public
  */
 export interface DatabaseLFTagPolicyAndPermissions {
   /**
-   * <p>A list of LF-tag conditions that apply to database resources.</p>
+   * A list of LF-tag conditions that apply to database resources.
+   *
    * @public
    */
   Expression: LFTag[] | undefined;
 
   /**
-   * <p>The permissions granted to subscribers on database resources.</p>
+   * The permissions granted to subscribers on database resources.
+   *
    * @public
    */
   Permissions: DatabaseLFTagPolicyPermission[] | undefined;
 }
 
 /**
- * <p>The LF-tag policy and permissions that apply to table resources.</p>
+ * The LF-tag policy and permissions that apply to table resources.
+ *
  * @public
  */
 export interface TableLFTagPolicyAndPermissions {
   /**
-   * <p>A list of LF-tag conditions that apply to table resources.</p>
+   * A list of LF-tag conditions that apply to table resources.
+   *
    * @public
    */
   Expression: LFTag[] | undefined;
 
   /**
-   * <p>The permissions granted to subscribers on table resources.</p>
+   * The permissions granted to subscribers on table resources.
+   *
    * @public
    */
   Permissions: TableTagPolicyLFPermission[] | undefined;
 }
 
 /**
- * <p>Details about the assets imported from an AWS Lake Formation tag policy request.</p>
+ * Details about the assets imported from an AWS Lake Formation tag policy request.
+ *
  * @public
  */
 export interface ImportAssetsFromLakeFormationTagPolicyRequestDetails {
   /**
-   * <p>The identifier for the AWS Glue Data Catalog.</p>
+   * The identifier for the AWS Glue Data Catalog.
+   *
    * @public
    */
   CatalogId: string | undefined;
 
   /**
-   * <p>A structure for the database object.</p>
+   * A structure for the database object.
+   *
    * @public
    */
   Database?: DatabaseLFTagPolicyAndPermissions | undefined;
 
   /**
-   * <p>A structure for the table object.</p>
+   * A structure for the table object.
+   *
    * @public
    */
   Table?: TableLFTagPolicyAndPermissions | undefined;
 
   /**
-   * <p>The IAM role's ARN that allows AWS Data Exchange to assume the role and grant and revoke permissions of subscribers to AWS Lake Formation data permissions.</p>
+   * The IAM role's ARN that allows AWS Data Exchange to assume the role and grant and revoke permissions of subscribers to AWS Lake Formation data permissions.
+   *
    * @public
    */
   RoleArn: string | undefined;
 
   /**
-   * <p>The unique identifier for the data set associated with this import job.</p>
+   * The unique identifier for the data set associated with this import job.
+   *
    * @public
    */
   DataSetId: string | undefined;
 
   /**
-   * <p>The unique identifier for the revision associated with this import job.</p>
+   * The unique identifier for the revision associated with this import job.
+   *
    * @public
    */
   RevisionId: string | undefined;
 }
 
 /**
- * <p>The source of the Amazon Redshift datashare asset.</p>
+ * The source of the Amazon Redshift datashare asset.
+ *
  * @public
  */
 export interface RedshiftDataShareAssetSourceEntry {
   /**
-   * <p>The Amazon Resource Name (ARN) of the datashare asset.</p>
+   * The Amazon Resource Name (ARN) of the datashare asset.
+   *
    * @public
    */
   DataShareArn: string | undefined;
 }
 
 /**
- * <p>Details from an import from Amazon Redshift datashare request.</p>
+ * Details from an import from Amazon Redshift datashare request.
+ *
  * @public
  */
 export interface ImportAssetsFromRedshiftDataSharesRequestDetails {
   /**
-   * <p>A list of Amazon Redshift datashare assets.</p>
+   * A list of Amazon Redshift datashare assets.
+   *
    * @public
    */
   AssetSources: RedshiftDataShareAssetSourceEntry[] | undefined;
 
   /**
-   * <p>The unique identifier for the data set associated with this import job.</p>
+   * The unique identifier for the data set associated with this import job.
+   *
    * @public
    */
   DataSetId: string | undefined;
 
   /**
-   * <p>The unique identifier for the revision associated with this import job.</p>
+   * The unique identifier for the revision associated with this import job.
+   *
    * @public
    */
   RevisionId: string | undefined;
 }
 
 /**
- * <p>Details of the operation to be performed by the job.</p>
+ * Details of the operation to be performed by the job.
+ *
  * @public
  */
 export interface ImportAssetsFromS3RequestDetails {
   /**
-   * <p>Is a list of Amazon S3 bucket and object key pairs.</p>
+   * Is a list of Amazon S3 bucket and object key pairs.
+   *
    * @public
    */
   AssetSources: AssetSourceEntry[] | undefined;
 
   /**
-   * <p>The unique identifier for the data set associated with this import job.</p>
+   * The unique identifier for the data set associated with this import job.
+   *
    * @public
    */
   DataSetId: string | undefined;
 
   /**
-   * <p>The unique identifier for the revision associated with this import request.</p>
+   * The unique identifier for the revision associated with this import request.
+   *
    * @public
    */
   RevisionId: string | undefined;
 }
 
 /**
- * <p>The details for the request.</p>
+ * The details for the request.
+ *
  * @public
  */
 export interface RequestDetails {
   /**
-   * <p>Details about the export to signed URL request.</p>
+   * Details about the export to signed URL request.
+   *
    * @public
    */
   ExportAssetToSignedUrl?: ExportAssetToSignedUrlRequestDetails | undefined;
 
   /**
-   * <p>Details about the export to Amazon S3 request.</p>
+   * Details about the export to Amazon S3 request.
+   *
    * @public
    */
   ExportAssetsToS3?: ExportAssetsToS3RequestDetails | undefined;
 
   /**
-   * <p>Details about the export to Amazon S3 request.</p>
+   * Details about the export to Amazon S3 request.
+   *
    * @public
    */
   ExportRevisionsToS3?: ExportRevisionsToS3RequestDetails | undefined;
 
   /**
-   * <p>Details about the import from Amazon S3 request.</p>
+   * Details about the import from Amazon S3 request.
+   *
    * @public
    */
   ImportAssetFromSignedUrl?: ImportAssetFromSignedUrlRequestDetails | undefined;
 
   /**
-   * <p>Details about the import asset from API Gateway API request.</p>
+   * Details about the import asset from API Gateway API request.
+   *
    * @public
    */
   ImportAssetsFromS3?: ImportAssetsFromS3RequestDetails | undefined;
 
   /**
-   * <p>Details from an import from Amazon Redshift datashare request.</p>
+   * Details from an import from Amazon Redshift datashare request.
+   *
    * @public
    */
   ImportAssetsFromRedshiftDataShares?: ImportAssetsFromRedshiftDataSharesRequestDetails | undefined;
 
   /**
-   * <p>Details about the import from signed URL request.</p>
+   * Details about the import from signed URL request.
+   *
    * @public
    */
   ImportAssetFromApiGatewayApi?: ImportAssetFromApiGatewayApiRequestDetails | undefined;
 
   /**
-   * <p>Details of the request to create S3 data access from the Amazon S3 bucket.</p>
+   * Details of the request to create S3 data access from the Amazon S3 bucket.
+   *
    * @public
    */
   CreateS3DataAccessFromS3Bucket?: CreateS3DataAccessFromS3BucketRequestDetails | undefined;
 
   /**
-   * <p>Request details for the ImportAssetsFromLakeFormationTagPolicy job.</p>
+   * Request details for the ImportAssetsFromLakeFormationTagPolicy job.
+   *
    * @public
    */
   ImportAssetsFromLakeFormationTagPolicy?: ImportAssetsFromLakeFormationTagPolicyRequestDetails | undefined;
@@ -1433,481 +1660,561 @@ export interface RequestDetails {
  */
 export interface CreateJobRequest {
   /**
-   * <p>The configuration for the asset, including tags to be applied to assets created by the job.</p>
+   * The configuration for the asset, including tags to be applied to assets created by the job.
+   *
    * @public
    */
   AssetConfiguration?: AssetConfiguration | undefined;
 
   /**
-   * <p>The details for the CreateJob request.</p>
+   * The details for the CreateJob request.
+   *
    * @public
    */
   Details: RequestDetails | undefined;
 
   /**
-   * <p>The type of job to be created.</p>
+   * The type of job to be created.
+   *
    * @public
    */
   Type: Type | undefined;
 }
 
 /**
- * <p>Details about the response of the operation to create an S3 data access from an S3 bucket.</p>
+ * Details about the response of the operation to create an S3 data access from an S3 bucket.
+ *
  * @public
  */
 export interface CreateS3DataAccessFromS3BucketResponseDetails {
   /**
-   * <p>Details about the asset source from an Amazon S3 bucket.</p>
+   * Details about the asset source from an Amazon S3 bucket.
+   *
    * @public
    */
   AssetSource: S3DataAccessAssetSourceEntry | undefined;
 
   /**
-   * <p>The unique identifier for this data set.</p>
+   * The unique identifier for this data set.
+   *
    * @public
    */
   DataSetId: string | undefined;
 
   /**
-   * <p>The unique identifier for the revision.</p>
+   * The unique identifier for the revision.
+   *
    * @public
    */
   RevisionId: string | undefined;
 }
 
 /**
- * <p>Details about the export to Amazon S3 response.</p>
+ * Details about the export to Amazon S3 response.
+ *
  * @public
  */
 export interface ExportAssetsToS3ResponseDetails {
   /**
-   * <p>The destination in Amazon S3 where the asset is exported.</p>
+   * The destination in Amazon S3 where the asset is exported.
+   *
    * @public
    */
   AssetDestinations: AssetDestinationEntry[] | undefined;
 
   /**
-   * <p>The unique identifier for the data set associated with this export job.</p>
+   * The unique identifier for the data set associated with this export job.
+   *
    * @public
    */
   DataSetId: string | undefined;
 
   /**
-   * <p>Encryption configuration of the export job.</p>
+   * Encryption configuration of the export job.
+   *
    * @public
    */
   Encryption?: ExportServerSideEncryption | undefined;
 
   /**
-   * <p>The unique identifier for the revision associated with this export response.</p>
+   * The unique identifier for the revision associated with this export response.
+   *
    * @public
    */
   RevisionId: string | undefined;
 }
 
 /**
- * <p>The details of the export to signed URL response.</p>
+ * The details of the export to signed URL response.
+ *
  * @public
  */
 export interface ExportAssetToSignedUrlResponseDetails {
   /**
-   * <p>The unique identifier for the asset associated with this export job.</p>
+   * The unique identifier for the asset associated with this export job.
+   *
    * @public
    */
   AssetId: string | undefined;
 
   /**
-   * <p>The unique identifier for the data set associated with this export job.</p>
+   * The unique identifier for the data set associated with this export job.
+   *
    * @public
    */
   DataSetId: string | undefined;
 
   /**
-   * <p>The unique identifier for the revision associated with this export response.</p>
+   * The unique identifier for the revision associated with this export response.
+   *
    * @public
    */
   RevisionId: string | undefined;
 
   /**
-   * <p>The signed URL for the export request.</p>
+   * The signed URL for the export request.
+   *
    * @public
    */
   SignedUrl?: string | undefined;
 
   /**
-   * <p>The date and time that the signed URL expires, in ISO 8601 format.</p>
+   * The date and time that the signed URL expires, in ISO 8601 format.
+   *
    * @public
    */
   SignedUrlExpiresAt?: Date | undefined;
 }
 
 /**
- * <p>Details about the export revisions to Amazon S3 response.</p>
+ * Details about the export revisions to Amazon S3 response.
+ *
  * @public
  */
 export interface ExportRevisionsToS3ResponseDetails {
   /**
-   * <p>The unique identifier for the data set associated with this export job.</p>
+   * The unique identifier for the data set associated with this export job.
+   *
    * @public
    */
   DataSetId: string | undefined;
 
   /**
-   * <p>Encryption configuration of the export job.</p>
+   * Encryption configuration of the export job.
+   *
    * @public
    */
   Encryption?: ExportServerSideEncryption | undefined;
 
   /**
-   * <p>The destination in Amazon S3 where the revision is exported.</p>
+   * The destination in Amazon S3 where the revision is exported.
+   *
    * @public
    */
   RevisionDestinations: RevisionDestinationEntry[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the event action.</p>
+   * The Amazon Resource Name (ARN) of the event action.
+   *
    * @public
    */
   EventActionArn?: string | undefined;
 }
 
 /**
- * <p>The response details.</p>
+ * The response details.
+ *
  * @public
  */
 export interface ImportAssetFromApiGatewayApiResponseDetails {
   /**
-   * <p>The API description.</p>
+   * The API description.
+   *
    * @public
    */
   ApiDescription?: string | undefined;
 
   /**
-   * <p>The API ID.</p>
+   * The API ID.
+   *
    * @public
    */
   ApiId: string | undefined;
 
   /**
-   * <p>The API key.</p>
+   * The API key.
+   *
    * @public
    */
   ApiKey?: string | undefined;
 
   /**
-   * <p>The API name.</p>
+   * The API name.
+   *
    * @public
    */
   ApiName: string | undefined;
 
   /**
-   * <p>The Base64-encoded Md5 hash for the API asset, used to ensure the integrity of the API at that location.</p>
+   * The Base64-encoded Md5 hash for the API asset, used to ensure the integrity of the API at that location.
+   *
    * @public
    */
   ApiSpecificationMd5Hash: string | undefined;
 
   /**
-   * <p>The upload URL of the API specification.</p>
+   * The upload URL of the API specification.
+   *
    * @public
    */
   ApiSpecificationUploadUrl: string | undefined;
 
   /**
-   * <p>The date and time that the upload URL expires, in ISO 8601 format.</p>
+   * The date and time that the upload URL expires, in ISO 8601 format.
+   *
    * @public
    */
   ApiSpecificationUploadUrlExpiresAt: Date | undefined;
 
   /**
-   * <p>The data set ID.</p>
+   * The data set ID.
+   *
    * @public
    */
   DataSetId: string | undefined;
 
   /**
-   * <p>The protocol type.</p>
+   * The protocol type.
+   *
    * @public
    */
   ProtocolType: ProtocolType | undefined;
 
   /**
-   * <p>The revision ID.</p>
+   * The revision ID.
+   *
    * @public
    */
   RevisionId: string | undefined;
 
   /**
-   * <p>The API stage.</p>
+   * The API stage.
+   *
    * @public
    */
   Stage: string | undefined;
 }
 
 /**
- * <p>The details in the response for an import request, including the signed URL and other information.</p>
+ * The details in the response for an import request, including the signed URL and other information.
+ *
  * @public
  */
 export interface ImportAssetFromSignedUrlResponseDetails {
   /**
-   * <p>The name for the asset associated with this import job.</p>
+   * The name for the asset associated with this import job.
+   *
    * @public
    */
   AssetName: string | undefined;
 
   /**
-   * <p>The unique identifier for the data set associated with this import job.</p>
+   * The unique identifier for the data set associated with this import job.
+   *
    * @public
    */
   DataSetId: string | undefined;
 
   /**
-   * <p>The Base64-encoded Md5 hash for the asset, used to ensure the integrity of the file at that location.</p>
+   * The Base64-encoded Md5 hash for the asset, used to ensure the integrity of the file at that location.
+   *
    * @public
    */
   Md5Hash?: string | undefined;
 
   /**
-   * <p>The unique identifier for the revision associated with this import response.</p>
+   * The unique identifier for the revision associated with this import response.
+   *
    * @public
    */
   RevisionId: string | undefined;
 
   /**
-   * <p>The signed URL.</p>
+   * The signed URL.
+   *
    * @public
    */
   SignedUrl?: string | undefined;
 
   /**
-   * <p>The time and date at which the signed URL expires, in ISO 8601 format.</p>
+   * The time and date at which the signed URL expires, in ISO 8601 format.
+   *
    * @public
    */
   SignedUrlExpiresAt?: Date | undefined;
 }
 
 /**
- * <p>Details from an import AWS Lake Formation tag policy job response.</p>
+ * Details from an import AWS Lake Formation tag policy job response.
+ *
  * @public
  */
 export interface ImportAssetsFromLakeFormationTagPolicyResponseDetails {
   /**
-   * <p>The identifier for the AWS Glue Data Catalog.</p>
+   * The identifier for the AWS Glue Data Catalog.
+   *
    * @public
    */
   CatalogId: string | undefined;
 
   /**
-   * <p>A structure for the database object.</p>
+   * A structure for the database object.
+   *
    * @public
    */
   Database?: DatabaseLFTagPolicyAndPermissions | undefined;
 
   /**
-   * <p>A structure for the table object.</p>
+   * A structure for the table object.
+   *
    * @public
    */
   Table?: TableLFTagPolicyAndPermissions | undefined;
 
   /**
-   * <p>The IAM role's ARN that allows AWS Data Exchange to assume the role and grant and revoke permissions to AWS Lake Formation data permissions.</p>
+   * The IAM role's ARN that allows AWS Data Exchange to assume the role and grant and revoke permissions to AWS Lake Formation data permissions.
+   *
    * @public
    */
   RoleArn: string | undefined;
 
   /**
-   * <p>The unique identifier for the data set associated with this import job.</p>
+   * The unique identifier for the data set associated with this import job.
+   *
    * @public
    */
   DataSetId: string | undefined;
 
   /**
-   * <p>The unique identifier for the revision associated with this import job.</p>
+   * The unique identifier for the revision associated with this import job.
+   *
    * @public
    */
   RevisionId: string | undefined;
 }
 
 /**
- * <p>Details from an import from Amazon Redshift datashare response.</p>
+ * Details from an import from Amazon Redshift datashare response.
+ *
  * @public
  */
 export interface ImportAssetsFromRedshiftDataSharesResponseDetails {
   /**
-   * <p>A list of Amazon Redshift datashare asset sources.</p>
+   * A list of Amazon Redshift datashare asset sources.
+   *
    * @public
    */
   AssetSources: RedshiftDataShareAssetSourceEntry[] | undefined;
 
   /**
-   * <p>The unique identifier for the data set associated with this import job.</p>
+   * The unique identifier for the data set associated with this import job.
+   *
    * @public
    */
   DataSetId: string | undefined;
 
   /**
-   * <p>The unique identifier for the revision associated with this import job.</p>
+   * The unique identifier for the revision associated with this import job.
+   *
    * @public
    */
   RevisionId: string | undefined;
 }
 
 /**
- * <p>Details from an import from Amazon S3 response.</p>
+ * Details from an import from Amazon S3 response.
+ *
  * @public
  */
 export interface ImportAssetsFromS3ResponseDetails {
   /**
-   * <p>Is a list of Amazon S3 bucket and object key pairs.</p>
+   * Is a list of Amazon S3 bucket and object key pairs.
+   *
    * @public
    */
   AssetSources: AssetSourceEntry[] | undefined;
 
   /**
-   * <p>The unique identifier for the data set associated with this import job.</p>
+   * The unique identifier for the data set associated with this import job.
+   *
    * @public
    */
   DataSetId: string | undefined;
 
   /**
-   * <p>The unique identifier for the revision associated with this import response.</p>
+   * The unique identifier for the revision associated with this import response.
+   *
    * @public
    */
   RevisionId: string | undefined;
 }
 
 /**
- * <p>Details for the response.</p>
+ * Details for the response.
+ *
  * @public
  */
 export interface ResponseDetails {
   /**
-   * <p>Details for the export to signed URL response.</p>
+   * Details for the export to signed URL response.
+   *
    * @public
    */
   ExportAssetToSignedUrl?: ExportAssetToSignedUrlResponseDetails | undefined;
 
   /**
-   * <p>Details for the export to Amazon S3 response.</p>
+   * Details for the export to Amazon S3 response.
+   *
    * @public
    */
   ExportAssetsToS3?: ExportAssetsToS3ResponseDetails | undefined;
 
   /**
-   * <p>Details for the export revisions to Amazon S3 response.</p>
+   * Details for the export revisions to Amazon S3 response.
+   *
    * @public
    */
   ExportRevisionsToS3?: ExportRevisionsToS3ResponseDetails | undefined;
 
   /**
-   * <p>Details for the import from signed URL response.</p>
+   * Details for the import from signed URL response.
+   *
    * @public
    */
   ImportAssetFromSignedUrl?: ImportAssetFromSignedUrlResponseDetails | undefined;
 
   /**
-   * <p>Details for the import from Amazon S3 response.</p>
+   * Details for the import from Amazon S3 response.
+   *
    * @public
    */
   ImportAssetsFromS3?: ImportAssetsFromS3ResponseDetails | undefined;
 
   /**
-   * <p>Details from an import from Amazon Redshift datashare response.</p>
+   * Details from an import from Amazon Redshift datashare response.
+   *
    * @public
    */
   ImportAssetsFromRedshiftDataShares?: ImportAssetsFromRedshiftDataSharesResponseDetails | undefined;
 
   /**
-   * <p>The response details.</p>
+   * The response details.
+   *
    * @public
    */
   ImportAssetFromApiGatewayApi?: ImportAssetFromApiGatewayApiResponseDetails | undefined;
 
   /**
-   * <p>Response details from the CreateS3DataAccessFromS3Bucket job.</p>
+   * Response details from the CreateS3DataAccessFromS3Bucket job.
+   *
    * @public
    */
   CreateS3DataAccessFromS3Bucket?: CreateS3DataAccessFromS3BucketResponseDetails | undefined;
 
   /**
-   * <p>Response details from the ImportAssetsFromLakeFormationTagPolicy job.</p>
+   * Response details from the ImportAssetsFromLakeFormationTagPolicy job.
+   *
    * @public
    */
   ImportAssetsFromLakeFormationTagPolicy?: ImportAssetsFromLakeFormationTagPolicyResponseDetails | undefined;
 }
 
 /**
- * <p>Details about the job error.</p>
+ * Details about the job error.
+ *
  * @public
  */
 export interface ImportAssetFromSignedUrlJobErrorDetails {
   /**
-   * <p>Details about the job error.</p>
+   * Details about the job error.
+   *
    * @public
    */
   AssetName: string | undefined;
 }
 
 /**
- * <p>Information about the job error.</p>
+ * Information about the job error.
+ *
  * @public
  */
 export interface Details {
   /**
-   * <p>Information about the job error.</p>
+   * Information about the job error.
+   *
    * @public
    */
   ImportAssetFromSignedUrlJobErrorDetails?: ImportAssetFromSignedUrlJobErrorDetails | undefined;
 
   /**
-   * <p>Details about the job error.</p>
+   * Details about the job error.
+   *
    * @public
    */
   ImportAssetsFromS3JobErrorDetails?: AssetSourceEntry[] | undefined;
 }
 
 /**
- * <p>An error that occurred with the job request.</p>
+ * An error that occurred with the job request.
+ *
  * @public
  */
 export interface JobError {
   /**
-   * <p>The code for the job error.</p>
+   * The code for the job error.
+   *
    * @public
    */
   Code: Code | undefined;
 
   /**
-   * <p>The details about the job error.</p>
+   * The details about the job error.
+   *
    * @public
    */
   Details?: Details | undefined;
 
   /**
-   * <p>The name of the limit that was reached.</p>
+   * The name of the limit that was reached.
+   *
    * @public
    */
   LimitName?: JobErrorLimitName | undefined;
 
   /**
-   * <p>The value of the exceeded limit.</p>
+   * The value of the exceeded limit.
+   *
    * @public
    */
   LimitValue?: number | undefined;
 
   /**
-   * <p>The message related to the job error.</p>
+   * The message related to the job error.
+   *
    * @public
    */
   Message: string | undefined;
 
   /**
-   * <p>The unique identifier for the resource related to the error.</p>
+   * The unique identifier for the resource related to the error.
+   *
    * @public
    */
   ResourceId?: string | undefined;
 
   /**
-   * <p>The type of resource related to the error.</p>
+   * The type of resource related to the error.
+   *
    * @public
    */
   ResourceType?: JobErrorResourceTypes | undefined;
@@ -1918,55 +2225,64 @@ export interface JobError {
  */
 export interface CreateJobResponse {
   /**
-   * <p>The ARN for the job.</p>
+   * The ARN for the job.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The configuration for the asset, including tags applied to assets created by the job.</p>
+   * The configuration for the asset, including tags applied to assets created by the job.
+   *
    * @public
    */
   AssetConfiguration?: AssetConfiguration | undefined;
 
   /**
-   * <p>The date and time that the job was created, in ISO 8601 format.</p>
+   * The date and time that the job was created, in ISO 8601 format.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>Details about the job.</p>
+   * Details about the job.
+   *
    * @public
    */
   Details?: ResponseDetails | undefined;
 
   /**
-   * <p>The errors associated with jobs.</p>
+   * The errors associated with jobs.
+   *
    * @public
    */
   Errors?: JobError[] | undefined;
 
   /**
-   * <p>The unique identifier for the job.</p>
+   * The unique identifier for the job.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The state of the job.</p>
+   * The state of the job.
+   *
    * @public
    */
   State?: State | undefined;
 
   /**
-   * <p>The job type.</p>
+   * The job type.
+   *
    * @public
    */
   Type?: Type | undefined;
 
   /**
-   * <p>The date and time that the job was last updated, in ISO 8601 format.</p>
+   * The date and time that the job was last updated, in ISO 8601 format.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
@@ -1977,19 +2293,22 @@ export interface CreateJobResponse {
  */
 export interface CreateRevisionRequest {
   /**
-   * <p>An optional comment about the revision.</p>
+   * An optional comment about the revision.
+   *
    * @public
    */
   Comment?: string | undefined;
 
   /**
-   * <p>The unique identifier for a data set.</p>
+   * The unique identifier for a data set.
+   *
    * @public
    */
   DataSetId: string | undefined;
 
   /**
-   * <p>A revision tag is an optional label that you can assign to a revision when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to these data sets and revisions.</p>
+   * A revision tag is an optional label that you can assign to a revision when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to these data sets and revisions.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -2000,73 +2319,85 @@ export interface CreateRevisionRequest {
  */
 export interface CreateRevisionResponse {
   /**
-   * <p>The ARN for the revision.</p>
+   * The ARN for the revision.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>An optional comment about the revision.</p>
+   * An optional comment about the revision.
+   *
    * @public
    */
   Comment?: string | undefined;
 
   /**
-   * <p>The date and time that the revision was created, in ISO 8601 format.</p>
+   * The date and time that the revision was created, in ISO 8601 format.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The unique identifier for the data set associated with the data set revision.</p>
+   * The unique identifier for the data set associated with the data set revision.
+   *
    * @public
    */
   DataSetId?: string | undefined;
 
   /**
-   * <p>To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that your changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products. Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.</p>
+   * To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that your changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products. Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.
+   *
    * @public
    */
   Finalized?: boolean | undefined;
 
   /**
-   * <p>The unique identifier for the revision.</p>
+   * The unique identifier for the revision.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The revision ID of the owned revision corresponding to the entitled revision being viewed. This parameter is returned when a revision owner is viewing the entitled copy of its owned revision.</p>
+   * The revision ID of the owned revision corresponding to the entitled revision being viewed. This parameter is returned when a revision owner is viewing the entitled copy of its owned revision.
+   *
    * @public
    */
   SourceId?: string | undefined;
 
   /**
-   * <p>The tags for the revision.</p>
+   * The tags for the revision.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The date and time that the revision was last updated, in ISO 8601 format.</p>
+   * The date and time that the revision was last updated, in ISO 8601 format.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
 
   /**
-   * <p>A required comment to inform subscribers of the reason their access to the revision was revoked.</p>
+   * A required comment to inform subscribers of the reason their access to the revision was revoked.
+   *
    * @public
    */
   RevocationComment?: string | undefined;
 
   /**
-   * <p>A status indicating that subscribers' access to the revision was revoked.</p>
+   * A status indicating that subscribers' access to the revision was revoked.
+   *
    * @public
    */
   Revoked?: boolean | undefined;
 
   /**
-   * <p>The date and time that the revision was revoked, in ISO 8601 format.</p>
+   * The date and time that the revision was revoked, in ISO 8601 format.
+   *
    * @public
    */
   RevokedAt?: Date | undefined;
@@ -2077,19 +2408,22 @@ export interface CreateRevisionResponse {
  */
 export interface DeleteAssetRequest {
   /**
-   * <p>The unique identifier for an asset.</p>
+   * The unique identifier for an asset.
+   *
    * @public
    */
   AssetId: string | undefined;
 
   /**
-   * <p>The unique identifier for a data set.</p>
+   * The unique identifier for a data set.
+   *
    * @public
    */
   DataSetId: string | undefined;
 
   /**
-   * <p>The unique identifier for a revision.</p>
+   * The unique identifier for a revision.
+   *
    * @public
    */
   RevisionId: string | undefined;
@@ -2100,7 +2434,8 @@ export interface DeleteAssetRequest {
  */
 export interface DeleteDataGrantRequest {
   /**
-   * <p>The ID of the data grant to delete.</p>
+   * The ID of the data grant to delete.
+   *
    * @public
    */
   DataGrantId: string | undefined;
@@ -2111,7 +2446,8 @@ export interface DeleteDataGrantRequest {
  */
 export interface DeleteDataSetRequest {
   /**
-   * <p>The unique identifier for a data set.</p>
+   * The unique identifier for a data set.
+   *
    * @public
    */
   DataSetId: string | undefined;
@@ -2122,7 +2458,8 @@ export interface DeleteDataSetRequest {
  */
 export interface DeleteEventActionRequest {
   /**
-   * <p>The unique identifier for the event action.</p>
+   * The unique identifier for the event action.
+   *
    * @public
    */
   EventActionId: string | undefined;
@@ -2133,13 +2470,15 @@ export interface DeleteEventActionRequest {
  */
 export interface DeleteRevisionRequest {
   /**
-   * <p>The unique identifier for a data set.</p>
+   * The unique identifier for a data set.
+   *
    * @public
    */
   DataSetId: string | undefined;
 
   /**
-   * <p>The unique identifier for a revision.</p>
+   * The unique identifier for a revision.
+   *
    * @public
    */
   RevisionId: string | undefined;
@@ -2150,19 +2489,22 @@ export interface DeleteRevisionRequest {
  */
 export interface GetAssetRequest {
   /**
-   * <p>The unique identifier for an asset.</p>
+   * The unique identifier for an asset.
+   *
    * @public
    */
   AssetId: string | undefined;
 
   /**
-   * <p>The unique identifier for a data set.</p>
+   * The unique identifier for a data set.
+   *
    * @public
    */
   DataSetId: string | undefined;
 
   /**
-   * <p>The unique identifier for a revision.</p>
+   * The unique identifier for a revision.
+   *
    * @public
    */
   RevisionId: string | undefined;
@@ -2173,67 +2515,78 @@ export interface GetAssetRequest {
  */
 export interface GetAssetResponse {
   /**
-   * <p>The ARN for the asset.</p>
+   * The ARN for the asset.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>Details about the asset.</p>
+   * Details about the asset.
+   *
    * @public
    */
   AssetDetails?: AssetDetails | undefined;
 
   /**
-   * <p>The type of asset that is added to a data set.</p>
+   * The type of asset that is added to a data set.
+   *
    * @public
    */
   AssetType?: AssetType | undefined;
 
   /**
-   * <p>The date and time that the asset was created, in ISO 8601 format.</p>
+   * The date and time that the asset was created, in ISO 8601 format.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The unique identifier for the data set associated with this asset.</p>
+   * The unique identifier for the data set associated with this asset.
+   *
    * @public
    */
   DataSetId?: string | undefined;
 
   /**
-   * <p>The unique identifier for the asset.</p>
+   * The unique identifier for the asset.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The name of the asset. When importing from Amazon S3, the Amazon S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target Amazon S3 object key. When importing from Amazon API Gateway API, the API name is used as the asset name. When importing from Amazon Redshift, the datashare name is used as the asset name. When importing from AWS Lake Formation, the static values of "Database(s) included in the LF-tag policy" or "Table(s) included in the LF-tag policy" are used as the asset name.</p>
+   * The name of the asset. When importing from Amazon S3, the Amazon S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target Amazon S3 object key. When importing from Amazon API Gateway API, the API name is used as the asset name. When importing from Amazon Redshift, the datashare name is used as the asset name. When importing from AWS Lake Formation, the static values of "Database(s) included in the LF-tag policy" or "Table(s) included in the LF-tag policy" are used as the asset name.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The unique identifier for the revision associated with this asset.</p>
+   * The unique identifier for the revision associated with this asset.
+   *
    * @public
    */
   RevisionId?: string | undefined;
 
   /**
-   * <p>The asset ID of the owned asset corresponding to the entitled asset being viewed. This parameter is returned when an asset owner is viewing the entitled copy of its owned asset.</p>
+   * The asset ID of the owned asset corresponding to the entitled asset being viewed. This parameter is returned when an asset owner is viewing the entitled copy of its owned asset.
+   *
    * @public
    */
   SourceId?: string | undefined;
 
   /**
-   * <p>The tags for the asset.</p>
+   * The tags for the asset.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The date and time that the asset was last updated, in ISO 8601 format.</p>
+   * The date and time that the asset was last updated, in ISO 8601 format.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
@@ -2244,7 +2597,8 @@ export interface GetAssetResponse {
  */
 export interface GetDataGrantRequest {
   /**
-   * <p>The ID of the data grant.</p>
+   * The ID of the data grant.
+   *
    * @public
    */
   DataGrantId: string | undefined;
@@ -2255,91 +2609,106 @@ export interface GetDataGrantRequest {
  */
 export interface GetDataGrantResponse {
   /**
-   * <p>The name of the data grant.</p>
+   * The name of the data grant.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the data grant sender.</p>
+   * The Amazon Web Services account ID of the data grant sender.
+   *
    * @public
    */
   SenderPrincipal: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the data grant receiver.</p>
+   * The Amazon Web Services account ID of the data grant receiver.
+   *
    * @public
    */
   ReceiverPrincipal: string | undefined;
 
   /**
-   * <p>The description of the data grant.</p>
+   * The description of the data grant.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The acceptance state of the data grant.</p>
+   * The acceptance state of the data grant.
+   *
    * @public
    */
   AcceptanceState: DataGrantAcceptanceState | undefined;
 
   /**
-   * <p>The timestamp of when the data grant was accepted.</p>
+   * The timestamp of when the data grant was accepted.
+   *
    * @public
    */
   AcceptedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp of when access to the associated data set ends.</p>
+   * The timestamp of when access to the associated data set ends.
+   *
    * @public
    */
   EndsAt?: Date | undefined;
 
   /**
-   * <p>The distribution scope for the data grant.</p>
+   * The distribution scope for the data grant.
+   *
    * @public
    */
   GrantDistributionScope: GrantDistributionScope | undefined;
 
   /**
-   * <p>The ID of the data set associated to the data grant.</p>
+   * The ID of the data set associated to the data grant.
+   *
    * @public
    */
   DataSetId: string | undefined;
 
   /**
-   * <p>The ID of the data set used to create the data grant.</p>
+   * The ID of the data set used to create the data grant.
+   *
    * @public
    */
   SourceDataSetId: string | undefined;
 
   /**
-   * <p>The ID of the data grant.</p>
+   * The ID of the data grant.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the data grant.</p>
+   * The Amazon Resource Name (ARN) of the data grant.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The timestamp of when the data grant was created.</p>
+   * The timestamp of when the data grant was created.
+   *
    * @public
    */
   CreatedAt: Date | undefined;
 
   /**
-   * <p>The timestamp of when the data grant was last updated.</p>
+   * The timestamp of when the data grant was last updated.
+   *
    * @public
    */
   UpdatedAt: Date | undefined;
 
   /**
-   * <p>The tags associated to the data grant. A tag is a key-value pair.</p>
+   * The tags associated to the data grant. A tag is a key-value pair.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -2350,7 +2719,8 @@ export interface GetDataGrantResponse {
  */
 export interface GetDataSetRequest {
   /**
-   * <p>The unique identifier for a data set.</p>
+   * The unique identifier for a data set.
+   *
    * @public
    */
   DataSetId: string | undefined;
@@ -2361,67 +2731,78 @@ export interface GetDataSetRequest {
  */
 export interface GetDataSetResponse {
   /**
-   * <p>The ARN for the data set.</p>
+   * The ARN for the data set.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The type of asset that is added to a data set.</p>
+   * The type of asset that is added to a data set.
+   *
    * @public
    */
   AssetType?: AssetType | undefined;
 
   /**
-   * <p>The date and time that the data set was created, in ISO 8601 format.</p>
+   * The date and time that the data set was created, in ISO 8601 format.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The description for the data set.</p>
+   * The description for the data set.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The unique identifier for the data set.</p>
+   * The unique identifier for the data set.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The name of the data set.</p>
+   * The name of the data set.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>
+   * A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).
+   *
    * @public
    */
   Origin?: Origin | undefined;
 
   /**
-   * <p>If the origin of this data set is ENTITLED, includes the details for the product on AWS Marketplace.</p>
+   * If the origin of this data set is ENTITLED, includes the details for the product on AWS Marketplace.
+   *
    * @public
    */
   OriginDetails?: OriginDetails | undefined;
 
   /**
-   * <p>The data set ID of the owned data set corresponding to the entitled data set being viewed. This parameter is returned when a data set owner is viewing the entitled copy of its owned data set.</p>
+   * The data set ID of the owned data set corresponding to the entitled data set being viewed. This parameter is returned when a data set owner is viewing the entitled copy of its owned data set.
+   *
    * @public
    */
   SourceId?: string | undefined;
 
   /**
-   * <p>The tags for the data set.</p>
+   * The tags for the data set.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The date and time that the data set was last updated, in ISO 8601 format.</p>
+   * The date and time that the data set was last updated, in ISO 8601 format.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
@@ -2432,7 +2813,8 @@ export interface GetDataSetResponse {
  */
 export interface GetEventActionRequest {
   /**
-   * <p>The unique identifier for the event action.</p>
+   * The unique identifier for the event action.
+   *
    * @public
    */
   EventActionId: string | undefined;
@@ -2443,43 +2825,50 @@ export interface GetEventActionRequest {
  */
 export interface GetEventActionResponse {
   /**
-   * <p>What occurs after a certain event.</p>
+   * What occurs after a certain event.
+   *
    * @public
    */
   Action?: Action | undefined;
 
   /**
-   * <p>The ARN for the event action.</p>
+   * The ARN for the event action.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The date and time that the event action was created, in ISO 8601 format.</p>
+   * The date and time that the event action was created, in ISO 8601 format.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>What occurs to start an action.</p>
+   * What occurs to start an action.
+   *
    * @public
    */
   Event?: Event | undefined;
 
   /**
-   * <p>The unique identifier for the event action.</p>
+   * The unique identifier for the event action.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The tags for the event action.</p>
+   * The tags for the event action.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The date and time that the event action was last updated, in ISO 8601 format.</p>
+   * The date and time that the event action was last updated, in ISO 8601 format.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
@@ -2490,7 +2879,8 @@ export interface GetEventActionResponse {
  */
 export interface GetJobRequest {
   /**
-   * <p>The unique identifier for a job.</p>
+   * The unique identifier for a job.
+   *
    * @public
    */
   JobId: string | undefined;
@@ -2501,55 +2891,64 @@ export interface GetJobRequest {
  */
 export interface GetJobResponse {
   /**
-   * <p>The ARN for the job.</p>
+   * The ARN for the job.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The configuration for the asset, including tags applied to assets created by the job.</p>
+   * The configuration for the asset, including tags applied to assets created by the job.
+   *
    * @public
    */
   AssetConfiguration?: AssetConfiguration | undefined;
 
   /**
-   * <p>The date and time that the job was created, in ISO 8601 format.</p>
+   * The date and time that the job was created, in ISO 8601 format.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>Details about the job.</p>
+   * Details about the job.
+   *
    * @public
    */
   Details?: ResponseDetails | undefined;
 
   /**
-   * <p>The errors associated with jobs.</p>
+   * The errors associated with jobs.
+   *
    * @public
    */
   Errors?: JobError[] | undefined;
 
   /**
-   * <p>The unique identifier for the job.</p>
+   * The unique identifier for the job.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The state of the job.</p>
+   * The state of the job.
+   *
    * @public
    */
   State?: State | undefined;
 
   /**
-   * <p>The job type.</p>
+   * The job type.
+   *
    * @public
    */
   Type?: Type | undefined;
 
   /**
-   * <p>The date and time that the job was last updated, in ISO 8601 format.</p>
+   * The date and time that the job was last updated, in ISO 8601 format.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
@@ -2560,7 +2959,8 @@ export interface GetJobResponse {
  */
 export interface GetReceivedDataGrantRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the data grant.</p>
+   * The Amazon Resource Name (ARN) of the data grant.
+   *
    * @public
    */
   DataGrantArn: string | undefined;
@@ -2571,79 +2971,92 @@ export interface GetReceivedDataGrantRequest {
  */
 export interface GetReceivedDataGrantResponse {
   /**
-   * <p>The name of the data grant.</p>
+   * The name of the data grant.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the data grant sender.</p>
+   * The Amazon Web Services account ID of the data grant sender.
+   *
    * @public
    */
   SenderPrincipal?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the data grant receiver.</p>
+   * The Amazon Web Services account ID of the data grant receiver.
+   *
    * @public
    */
   ReceiverPrincipal: string | undefined;
 
   /**
-   * <p>The description of the data grant.</p>
+   * The description of the data grant.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The acceptance state of the data grant.</p>
+   * The acceptance state of the data grant.
+   *
    * @public
    */
   AcceptanceState: DataGrantAcceptanceState | undefined;
 
   /**
-   * <p>The timestamp of when the data grant was accepted.</p>
+   * The timestamp of when the data grant was accepted.
+   *
    * @public
    */
   AcceptedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp of when access to the associated data set ends.</p>
+   * The timestamp of when access to the associated data set ends.
+   *
    * @public
    */
   EndsAt?: Date | undefined;
 
   /**
-   * <p>The distribution scope for the data grant.</p>
+   * The distribution scope for the data grant.
+   *
    * @public
    */
   GrantDistributionScope: GrantDistributionScope | undefined;
 
   /**
-   * <p>The ID of the data set associated to the data grant.</p>
+   * The ID of the data set associated to the data grant.
+   *
    * @public
    */
   DataSetId: string | undefined;
 
   /**
-   * <p>The ID of the data grant.</p>
+   * The ID of the data grant.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the data grant.</p>
+   * The Amazon Resource Name (ARN) of the data grant.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The timestamp of when the data grant was created.</p>
+   * The timestamp of when the data grant was created.
+   *
    * @public
    */
   CreatedAt: Date | undefined;
 
   /**
-   * <p>The timestamp of when the data grant was last updated.</p>
+   * The timestamp of when the data grant was last updated.
+   *
    * @public
    */
   UpdatedAt: Date | undefined;
@@ -2654,13 +3067,15 @@ export interface GetReceivedDataGrantResponse {
  */
 export interface GetRevisionRequest {
   /**
-   * <p>The unique identifier for a data set.</p>
+   * The unique identifier for a data set.
+   *
    * @public
    */
   DataSetId: string | undefined;
 
   /**
-   * <p>The unique identifier for a revision.</p>
+   * The unique identifier for a revision.
+   *
    * @public
    */
   RevisionId: string | undefined;
@@ -2671,73 +3086,85 @@ export interface GetRevisionRequest {
  */
 export interface GetRevisionResponse {
   /**
-   * <p>The ARN for the revision.</p>
+   * The ARN for the revision.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>An optional comment about the revision.</p>
+   * An optional comment about the revision.
+   *
    * @public
    */
   Comment?: string | undefined;
 
   /**
-   * <p>The date and time that the revision was created, in ISO 8601 format.</p>
+   * The date and time that the revision was created, in ISO 8601 format.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The unique identifier for the data set associated with the data set revision.</p>
+   * The unique identifier for the data set associated with the data set revision.
+   *
    * @public
    */
   DataSetId?: string | undefined;
 
   /**
-   * <p>To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that your changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products. Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.</p>
+   * To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that your changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products. Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.
+   *
    * @public
    */
   Finalized?: boolean | undefined;
 
   /**
-   * <p>The unique identifier for the revision.</p>
+   * The unique identifier for the revision.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The revision ID of the owned revision corresponding to the entitled revision being viewed. This parameter is returned when a revision owner is viewing the entitled copy of its owned revision.</p>
+   * The revision ID of the owned revision corresponding to the entitled revision being viewed. This parameter is returned when a revision owner is viewing the entitled copy of its owned revision.
+   *
    * @public
    */
   SourceId?: string | undefined;
 
   /**
-   * <p>The tags for the revision.</p>
+   * The tags for the revision.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The date and time that the revision was last updated, in ISO 8601 format.</p>
+   * The date and time that the revision was last updated, in ISO 8601 format.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
 
   /**
-   * <p>A required comment to inform subscribers of the reason their access to the revision was revoked.</p>
+   * A required comment to inform subscribers of the reason their access to the revision was revoked.
+   *
    * @public
    */
   RevocationComment?: string | undefined;
 
   /**
-   * <p>A status indicating that subscribers' access to the revision was revoked.</p>
+   * A status indicating that subscribers' access to the revision was revoked.
+   *
    * @public
    */
   Revoked?: boolean | undefined;
 
   /**
-   * <p>The date and time that the revision was revoked, in ISO 8601 format.</p>
+   * The date and time that the revision was revoked, in ISO 8601 format.
+   *
    * @public
    */
   RevokedAt?: Date | undefined;
@@ -2748,91 +3175,106 @@ export interface GetRevisionResponse {
  */
 export interface ListDataGrantsRequest {
   /**
-   * <p>The maximum number of results to be included in the next page.</p>
+   * The maximum number of results to be included in the next page.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The pagination token used to retrieve the next page of results for this operation.</p>
+   * The pagination token used to retrieve the next page of results for this operation.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Information about a data grant.</p>
+ * Information about a data grant.
+ *
  * @public
  */
 export interface DataGrantSummaryEntry {
   /**
-   * <p>The name of the data grant.</p>
+   * The name of the data grant.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the data grant sender.</p>
+   * The Amazon Web Services account ID of the data grant sender.
+   *
    * @public
    */
   SenderPrincipal: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the data grant receiver.</p>
+   * The Amazon Web Services account ID of the data grant receiver.
+   *
    * @public
    */
   ReceiverPrincipal: string | undefined;
 
   /**
-   * <p>The acceptance state of the data grant.</p>
+   * The acceptance state of the data grant.
+   *
    * @public
    */
   AcceptanceState: DataGrantAcceptanceState | undefined;
 
   /**
-   * <p>The timestamp of when the data grant was accepted.</p>
+   * The timestamp of when the data grant was accepted.
+   *
    * @public
    */
   AcceptedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp of when access to the associated data set ends.</p>
+   * The timestamp of when access to the associated data set ends.
+   *
    * @public
    */
   EndsAt?: Date | undefined;
 
   /**
-   * <p>The ID of the data set associated to the data grant.</p>
+   * The ID of the data set associated to the data grant.
+   *
    * @public
    */
   DataSetId: string | undefined;
 
   /**
-   * <p>The ID of the data set used to create the data grant.</p>
+   * The ID of the data set used to create the data grant.
+   *
    * @public
    */
   SourceDataSetId: string | undefined;
 
   /**
-   * <p>The ID of the data grant.</p>
+   * The ID of the data grant.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the data grant.</p>
+   * The Amazon Resource Name (ARN) of the data grant.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The timestamp of when the data grant was created.</p>
+   * The timestamp of when the data grant was created.
+   *
    * @public
    */
   CreatedAt: Date | undefined;
 
   /**
-   * <p>The timestamp of when the data grant was last updated.</p>
+   * The timestamp of when the data grant was last updated.
+   *
    * @public
    */
   UpdatedAt: Date | undefined;
@@ -2843,13 +3285,15 @@ export interface DataGrantSummaryEntry {
  */
 export interface ListDataGrantsResponse {
   /**
-   * <p>An object that contains a list of data grant information.</p>
+   * An object that contains a list of data grant information.
+   *
    * @public
    */
   DataGrantSummaries?: DataGrantSummaryEntry[] | undefined;
 
   /**
-   * <p>The pagination token used to retrieve the next page of results for this operation.</p>
+   * The pagination token used to retrieve the next page of results for this operation.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2860,91 +3304,106 @@ export interface ListDataGrantsResponse {
  */
 export interface ListDataSetRevisionsRequest {
   /**
-   * <p>The unique identifier for a data set.</p>
+   * The unique identifier for a data set.
+   *
    * @public
    */
   DataSetId: string | undefined;
 
   /**
-   * <p>The maximum number of results returned by a single call.</p>
+   * The maximum number of results returned by a single call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * The token value retrieved from a previous call to access the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>A revision is a container for one or more assets.</p>
+ * A revision is a container for one or more assets.
+ *
  * @public
  */
 export interface RevisionEntry {
   /**
-   * <p>The ARN for the revision.</p>
+   * The ARN for the revision.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>An optional comment about the revision.</p>
+   * An optional comment about the revision.
+   *
    * @public
    */
   Comment?: string | undefined;
 
   /**
-   * <p>The date and time that the revision was created, in ISO 8601 format.</p>
+   * The date and time that the revision was created, in ISO 8601 format.
+   *
    * @public
    */
   CreatedAt: Date | undefined;
 
   /**
-   * <p>The unique identifier for the data set associated with the data set revision.</p>
+   * The unique identifier for the data set associated with the data set revision.
+   *
    * @public
    */
   DataSetId: string | undefined;
 
   /**
-   * <p>To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that your changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products. Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.</p>
+   * To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that your changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products. Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.
+   *
    * @public
    */
   Finalized?: boolean | undefined;
 
   /**
-   * <p>The unique identifier for the revision.</p>
+   * The unique identifier for the revision.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The revision ID of the owned revision corresponding to the entitled revision being viewed. This parameter is returned when a revision owner is viewing the entitled copy of its owned revision.</p>
+   * The revision ID of the owned revision corresponding to the entitled revision being viewed. This parameter is returned when a revision owner is viewing the entitled copy of its owned revision.
+   *
    * @public
    */
   SourceId?: string | undefined;
 
   /**
-   * <p>The date and time that the revision was last updated, in ISO 8601 format.</p>
+   * The date and time that the revision was last updated, in ISO 8601 format.
+   *
    * @public
    */
   UpdatedAt: Date | undefined;
 
   /**
-   * <p>A required comment to inform subscribers of the reason their access to the revision was revoked.</p>
+   * A required comment to inform subscribers of the reason their access to the revision was revoked.
+   *
    * @public
    */
   RevocationComment?: string | undefined;
 
   /**
-   * <p>A status indicating that subscribers' access to the revision was revoked.</p>
+   * A status indicating that subscribers' access to the revision was revoked.
+   *
    * @public
    */
   Revoked?: boolean | undefined;
 
   /**
-   * <p>The date and time that the revision was revoked, in ISO 8601 format.</p>
+   * The date and time that the revision was revoked, in ISO 8601 format.
+   *
    * @public
    */
   RevokedAt?: Date | undefined;
@@ -2955,13 +3414,15 @@ export interface RevisionEntry {
  */
 export interface ListDataSetRevisionsResponse {
   /**
-   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * The token value retrieved from a previous call to access the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The asset objects listed by the request.</p>
+   * The asset objects listed by the request.
+   *
    * @public
    */
   Revisions?: RevisionEntry[] | undefined;
@@ -2972,85 +3433,99 @@ export interface ListDataSetRevisionsResponse {
  */
 export interface ListDataSetsRequest {
   /**
-   * <p>The maximum number of results returned by a single call.</p>
+   * The maximum number of results returned by a single call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * The token value retrieved from a previous call to access the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>
+   * A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).
+   *
    * @public
    */
   Origin?: string | undefined;
 }
 
 /**
- * <p>A data set is an AWS resource with one or more revisions.</p>
+ * A data set is an AWS resource with one or more revisions.
+ *
  * @public
  */
 export interface DataSetEntry {
   /**
-   * <p>The ARN for the data set.</p>
+   * The ARN for the data set.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The type of asset that is added to a data set.</p>
+   * The type of asset that is added to a data set.
+   *
    * @public
    */
   AssetType: AssetType | undefined;
 
   /**
-   * <p>The date and time that the data set was created, in ISO 8601 format.</p>
+   * The date and time that the data set was created, in ISO 8601 format.
+   *
    * @public
    */
   CreatedAt: Date | undefined;
 
   /**
-   * <p>The description for the data set.</p>
+   * The description for the data set.
+   *
    * @public
    */
   Description: string | undefined;
 
   /**
-   * <p>The unique identifier for the data set.</p>
+   * The unique identifier for the data set.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The name of the data set.</p>
+   * The name of the data set.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>
+   * A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).
+   *
    * @public
    */
   Origin: Origin | undefined;
 
   /**
-   * <p>If the origin of this data set is ENTITLED, includes the details for the product on AWS Marketplace.</p>
+   * If the origin of this data set is ENTITLED, includes the details for the product on AWS Marketplace.
+   *
    * @public
    */
   OriginDetails?: OriginDetails | undefined;
 
   /**
-   * <p>The data set ID of the owned data set corresponding to the entitled data set being viewed. This parameter is returned when a data set owner is viewing the entitled copy of its owned data set.</p>
+   * The data set ID of the owned data set corresponding to the entitled data set being viewed. This parameter is returned when a data set owner is viewing the entitled copy of its owned data set.
+   *
    * @public
    */
   SourceId?: string | undefined;
 
   /**
-   * <p>The date and time that the data set was last updated, in ISO 8601 format.</p>
+   * The date and time that the data set was last updated, in ISO 8601 format.
+   *
    * @public
    */
   UpdatedAt: Date | undefined;
@@ -3061,13 +3536,15 @@ export interface DataSetEntry {
  */
 export interface ListDataSetsResponse {
   /**
-   * <p>The data set objects listed by the request.</p>
+   * The data set objects listed by the request.
+   *
    * @public
    */
   DataSets?: DataSetEntry[] | undefined;
 
   /**
-   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * The token value retrieved from a previous call to access the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3078,61 +3555,71 @@ export interface ListDataSetsResponse {
  */
 export interface ListEventActionsRequest {
   /**
-   * <p>The unique identifier for the event source.</p>
+   * The unique identifier for the event source.
+   *
    * @public
    */
   EventSourceId?: string | undefined;
 
   /**
-   * <p>The maximum number of results returned by a single call.</p>
+   * The maximum number of results returned by a single call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * The token value retrieved from a previous call to access the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>An event action is an object that defines the relationship between a specific event and an automated action that will be taken on behalf of the customer.</p>
+ * An event action is an object that defines the relationship between a specific event and an automated action that will be taken on behalf of the customer.
+ *
  * @public
  */
 export interface EventActionEntry {
   /**
-   * <p>What occurs after a certain event.</p>
+   * What occurs after a certain event.
+   *
    * @public
    */
   Action: Action | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the event action.</p>
+   * The Amazon Resource Name (ARN) for the event action.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The date and time that the event action was created, in ISO 8601 format.</p>
+   * The date and time that the event action was created, in ISO 8601 format.
+   *
    * @public
    */
   CreatedAt: Date | undefined;
 
   /**
-   * <p>What occurs to start an action.</p>
+   * What occurs to start an action.
+   *
    * @public
    */
   Event: Event | undefined;
 
   /**
-   * <p>The unique identifier for the event action.</p>
+   * The unique identifier for the event action.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The date and time that the event action was last updated, in ISO 8601 format.</p>
+   * The date and time that the event action was last updated, in ISO 8601 format.
+   *
    * @public
    */
   UpdatedAt: Date | undefined;
@@ -3143,13 +3630,15 @@ export interface EventActionEntry {
  */
 export interface ListEventActionsResponse {
   /**
-   * <p>The event action objects listed by the request.</p>
+   * The event action objects listed by the request.
+   *
    * @public
    */
   EventActions?: EventActionEntry[] | undefined;
 
   /**
-   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * The token value retrieved from a previous call to access the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3160,85 +3649,99 @@ export interface ListEventActionsResponse {
  */
 export interface ListJobsRequest {
   /**
-   * <p>The unique identifier for a data set.</p>
+   * The unique identifier for a data set.
+   *
    * @public
    */
   DataSetId?: string | undefined;
 
   /**
-   * <p>The maximum number of results returned by a single call.</p>
+   * The maximum number of results returned by a single call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * The token value retrieved from a previous call to access the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The unique identifier for a revision.</p>
+   * The unique identifier for a revision.
+   *
    * @public
    */
   RevisionId?: string | undefined;
 }
 
 /**
- * <p>AWS Data Exchange Jobs are asynchronous import or export operations used to create or copy assets. A data set owner can both import and export as they see fit. Someone with an entitlement to a data set can only export. Jobs are deleted 90 days after they are created.</p>
+ * AWS Data Exchange Jobs are asynchronous import or export operations used to create or copy assets. A data set owner can both import and export as they see fit. Someone with an entitlement to a data set can only export. Jobs are deleted 90 days after they are created.
+ *
  * @public
  */
 export interface JobEntry {
   /**
-   * <p>The ARN for the job.</p>
+   * The ARN for the job.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The configuration for the asset, including tags applied to assets created by the job.</p>
+   * The configuration for the asset, including tags applied to assets created by the job.
+   *
    * @public
    */
   AssetConfiguration?: AssetConfiguration | undefined;
 
   /**
-   * <p>The date and time that the job was created, in ISO 8601 format.</p>
+   * The date and time that the job was created, in ISO 8601 format.
+   *
    * @public
    */
   CreatedAt: Date | undefined;
 
   /**
-   * <p>Details of the operation to be performed by the job, such as export destination details or import source details.</p>
+   * Details of the operation to be performed by the job, such as export destination details or import source details.
+   *
    * @public
    */
   Details: ResponseDetails | undefined;
 
   /**
-   * <p>Errors for jobs.</p>
+   * Errors for jobs.
+   *
    * @public
    */
   Errors?: JobError[] | undefined;
 
   /**
-   * <p>The unique identifier for the job.</p>
+   * The unique identifier for the job.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The state of the job.</p>
+   * The state of the job.
+   *
    * @public
    */
   State: State | undefined;
 
   /**
-   * <p>The job type.</p>
+   * The job type.
+   *
    * @public
    */
   Type: Type | undefined;
 
   /**
-   * <p>The date and time that the job was last updated, in ISO 8601 format.</p>
+   * The date and time that the job was last updated, in ISO 8601 format.
+   *
    * @public
    */
   UpdatedAt: Date | undefined;
@@ -3249,13 +3752,15 @@ export interface JobEntry {
  */
 export interface ListJobsResponse {
   /**
-   * <p>The jobs listed by the request.</p>
+   * The jobs listed by the request.
+   *
    * @public
    */
   Jobs?: JobEntry[] | undefined;
 
   /**
-   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * The token value retrieved from a previous call to access the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3266,91 +3771,106 @@ export interface ListJobsResponse {
  */
 export interface ListReceivedDataGrantsRequest {
   /**
-   * <p>The maximum number of results to be included in the next page.</p>
+   * The maximum number of results to be included in the next page.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The pagination token used to retrieve the next page of results for this operation.</p>
+   * The pagination token used to retrieve the next page of results for this operation.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The acceptance state of the data grants to list.</p>
+   * The acceptance state of the data grants to list.
+   *
    * @public
    */
   AcceptanceState?: AcceptanceStateFilterValue[] | undefined;
 }
 
 /**
- * <p>Information about a received data grant.</p>
+ * Information about a received data grant.
+ *
  * @public
  */
 export interface ReceivedDataGrantSummariesEntry {
   /**
-   * <p>The name of the data grant.</p>
+   * The name of the data grant.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the data grant sender.</p>
+   * The Amazon Web Services account ID of the data grant sender.
+   *
    * @public
    */
   SenderPrincipal: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the data grant receiver.</p>
+   * The Amazon Web Services account ID of the data grant receiver.
+   *
    * @public
    */
   ReceiverPrincipal: string | undefined;
 
   /**
-   * <p>The acceptance state of the data grant.</p>
+   * The acceptance state of the data grant.
+   *
    * @public
    */
   AcceptanceState: DataGrantAcceptanceState | undefined;
 
   /**
-   * <p>The timestamp of when the data grant was accepted.</p>
+   * The timestamp of when the data grant was accepted.
+   *
    * @public
    */
   AcceptedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp of when access to the associated data set ends.</p>
+   * The timestamp of when access to the associated data set ends.
+   *
    * @public
    */
   EndsAt?: Date | undefined;
 
   /**
-   * <p>The ID of the data set associated to the data grant.</p>
+   * The ID of the data set associated to the data grant.
+   *
    * @public
    */
   DataSetId: string | undefined;
 
   /**
-   * <p>The ID of the data grant.</p>
+   * The ID of the data grant.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the data grant.</p>
+   * The Amazon Resource Name (ARN) of the data grant.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The timestamp of when the data grant was created.</p>
+   * The timestamp of when the data grant was created.
+   *
    * @public
    */
   CreatedAt: Date | undefined;
 
   /**
-   * <p>The timestamp of when the data grant was last updated.</p>
+   * The timestamp of when the data grant was last updated.
+   *
    * @public
    */
   UpdatedAt: Date | undefined;
@@ -3361,13 +3881,15 @@ export interface ReceivedDataGrantSummariesEntry {
  */
 export interface ListReceivedDataGrantsResponse {
   /**
-   * <p>An object that contains a list of received data grant information.</p>
+   * An object that contains a list of received data grant information.
+   *
    * @public
    */
   DataGrantSummaries?: ReceivedDataGrantSummariesEntry[] | undefined;
 
   /**
-   * <p>The pagination token used to retrieve the next page of results for this operation.</p>
+   * The pagination token used to retrieve the next page of results for this operation.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3378,25 +3900,29 @@ export interface ListReceivedDataGrantsResponse {
  */
 export interface ListRevisionAssetsRequest {
   /**
-   * <p>The unique identifier for a data set.</p>
+   * The unique identifier for a data set.
+   *
    * @public
    */
   DataSetId: string | undefined;
 
   /**
-   * <p>The maximum number of results returned by a single call.</p>
+   * The maximum number of results returned by a single call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * The token value retrieved from a previous call to access the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The unique identifier for a revision.</p>
+   * The unique identifier for a revision.
+   *
    * @public
    */
   RevisionId: string | undefined;
@@ -3407,13 +3933,15 @@ export interface ListRevisionAssetsRequest {
  */
 export interface ListRevisionAssetsResponse {
   /**
-   * <p>The asset objects listed by the request.</p>
+   * The asset objects listed by the request.
+   *
    * @public
    */
   Assets?: AssetEntry[] | undefined;
 
   /**
-   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * The token value retrieved from a previous call to access the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3424,7 +3952,8 @@ export interface ListRevisionAssetsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>An Amazon Resource Name (ARN) that uniquely identifies an AWS resource.</p>
+   * An Amazon Resource Name (ARN) that uniquely identifies an AWS resource.
+   *
    * @public
    */
   ResourceArn: string | undefined;
@@ -3435,7 +3964,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>A label that consists of a customer-defined key and an optional value.</p>
+   * A label that consists of a customer-defined key and an optional value.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -3446,19 +3976,22 @@ export interface ListTagsForResourceResponse {
  */
 export interface RevokeRevisionRequest {
   /**
-   * <p>The unique identifier for a data set.</p>
+   * The unique identifier for a data set.
+   *
    * @public
    */
   DataSetId: string | undefined;
 
   /**
-   * <p>The unique identifier for a revision.</p>
+   * The unique identifier for a revision.
+   *
    * @public
    */
   RevisionId: string | undefined;
 
   /**
-   * <p>A required comment to inform subscribers of the reason their access to the revision was revoked.</p>
+   * A required comment to inform subscribers of the reason their access to the revision was revoked.
+   *
    * @public
    */
   RevocationComment: string | undefined;
@@ -3469,67 +4002,78 @@ export interface RevokeRevisionRequest {
  */
 export interface RevokeRevisionResponse {
   /**
-   * <p>The ARN for the revision.</p>
+   * The ARN for the revision.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>An optional comment about the revision.</p>
+   * An optional comment about the revision.
+   *
    * @public
    */
   Comment?: string | undefined;
 
   /**
-   * <p>The date and time that the revision was created, in ISO 8601 format.</p>
+   * The date and time that the revision was created, in ISO 8601 format.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The unique identifier for the data set associated with the data set revision.</p>
+   * The unique identifier for the data set associated with the data set revision.
+   *
    * @public
    */
   DataSetId?: string | undefined;
 
   /**
-   * <p>To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products. Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.</p>
+   * To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products. Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.
+   *
    * @public
    */
   Finalized?: boolean | undefined;
 
   /**
-   * <p>The unique identifier for the revision.</p>
+   * The unique identifier for the revision.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The revision ID of the owned revision corresponding to the entitled revision being viewed. This parameter is returned when a revision owner is viewing the entitled copy of its owned revision.</p>
+   * The revision ID of the owned revision corresponding to the entitled revision being viewed. This parameter is returned when a revision owner is viewing the entitled copy of its owned revision.
+   *
    * @public
    */
   SourceId?: string | undefined;
 
   /**
-   * <p>The date and time that the revision was last updated, in ISO 8601 format.</p>
+   * The date and time that the revision was last updated, in ISO 8601 format.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
 
   /**
-   * <p>A required comment to inform subscribers of the reason their access to the revision was revoked.</p>
+   * A required comment to inform subscribers of the reason their access to the revision was revoked.
+   *
    * @public
    */
   RevocationComment?: string | undefined;
 
   /**
-   * <p>A status indicating that subscribers' access to the revision was revoked.</p>
+   * A status indicating that subscribers' access to the revision was revoked.
+   *
    * @public
    */
   Revoked?: boolean | undefined;
 
   /**
-   * <p>The date and time that the revision was revoked, in ISO 8601 format.</p>
+   * The date and time that the revision was revoked, in ISO 8601 format.
+   *
    * @public
    */
   RevokedAt?: Date | undefined;
@@ -3540,49 +4084,57 @@ export interface RevokeRevisionResponse {
  */
 export interface SendApiAssetRequest {
   /**
-   * <p>The request body.</p>
+   * The request body.
+   *
    * @public
    */
   Body?: string | undefined;
 
   /**
-   * <p>Attach query string parameters to the end of the URI (for example, /v1/examplePath?exampleParam=exampleValue).</p>
+   * Attach query string parameters to the end of the URI (for example, /v1/examplePath?exampleParam=exampleValue).
+   *
    * @public
    */
   QueryStringParameters?: Record<string, string> | undefined;
 
   /**
-   * <p>Asset ID value for the API request.</p>
+   * Asset ID value for the API request.
+   *
    * @public
    */
   AssetId: string | undefined;
 
   /**
-   * <p>Data set ID value for the API request.</p>
+   * Data set ID value for the API request.
+   *
    * @public
    */
   DataSetId: string | undefined;
 
   /**
-   * <p>Any header value prefixed with x-amzn-dataexchange-header- will have that stripped before sending the Asset API request. Use this when you want to override a header that AWS Data Exchange uses. Alternatively, you can use the header without a prefix to the HTTP request.</p>
+   * Any header value prefixed with x-amzn-dataexchange-header- will have that stripped before sending the Asset API request. Use this when you want to override a header that AWS Data Exchange uses. Alternatively, you can use the header without a prefix to the HTTP request.
+   *
    * @public
    */
   RequestHeaders?: Record<string, string> | undefined;
 
   /**
-   * <p>HTTP method value for the API request. Alternatively, you can use the appropriate verb in your request.</p>
+   * HTTP method value for the API request. Alternatively, you can use the appropriate verb in your request.
+   *
    * @public
    */
   Method?: string | undefined;
 
   /**
-   * <p>URI path value for the API request. Alternatively, you can set the URI path directly by invoking /v1/\{pathValue\}.</p>
+   * URI path value for the API request. Alternatively, you can set the URI path directly by invoking /v1/\{pathValue\}.
+   *
    * @public
    */
   Path?: string | undefined;
 
   /**
-   * <p>Revision ID value for the API request.</p>
+   * Revision ID value for the API request.
+   *
    * @public
    */
   RevisionId: string | undefined;
@@ -3593,205 +4145,239 @@ export interface SendApiAssetRequest {
  */
 export interface SendApiAssetResponse {
   /**
-   * <p>The response body from the underlying API tracked by the API asset.</p>
+   * The response body from the underlying API tracked by the API asset.
+   *
    * @public
    */
   Body?: string | undefined;
 
   /**
-   * <p>The response headers from the underlying API tracked by the API asset.</p>
+   * The response headers from the underlying API tracked by the API asset.
+   *
    * @public
    */
   ResponseHeaders?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Extra details specific to a data update type notification.</p>
+ * Extra details specific to a data update type notification.
+ *
  * @public
  */
 export interface DataUpdateRequestDetails {
   /**
-   * <p>A datetime in the past when the data was updated. This typically means that the underlying resource supporting the data set was updated.</p>
+   * A datetime in the past when the data was updated. This typically means that the underlying resource supporting the data set was updated.
+   *
    * @public
    */
   DataUpdatedAt?: Date | undefined;
 }
 
 /**
- * <p>Extra details specific to a deprecation type notification.</p>
+ * Extra details specific to a deprecation type notification.
+ *
  * @public
  */
 export interface DeprecationRequestDetails {
   /**
-   * <p>A datetime in the future when the data set will be deprecated.</p>
+   * A datetime in the future when the data set will be deprecated.
+   *
    * @public
    */
   DeprecationAt: Date | undefined;
 }
 
 /**
- * <p>Object encompassing information about a schema change to a single, particular field, a notification can have up to 100 of these.</p>
+ * Object encompassing information about a schema change to a single, particular field, a notification can have up to 100 of these.
+ *
  * @public
  */
 export interface SchemaChangeDetails {
   /**
-   * <p>Name of the changing field. This value can be up to 255 characters long.</p>
+   * Name of the changing field. This value can be up to 255 characters long.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>Is the field being added, removed, or modified?</p>
+   * Is the field being added, removed, or modified?
+   *
    * @public
    */
   Type: SchemaChangeType | undefined;
 
   /**
-   * <p>Description of what's changing about this field. This value can be up to 512 characters long.</p>
+   * Description of what's changing about this field. This value can be up to 512 characters long.
+   *
    * @public
    */
   Description?: string | undefined;
 }
 
 /**
- * <p>Extra details specific to this schema change type notification.</p>
+ * Extra details specific to this schema change type notification.
+ *
  * @public
  */
 export interface SchemaChangeRequestDetails {
   /**
-   * <p>List of schema changes happening in the scope of this notification. This can have up to 100 entries.</p>
+   * List of schema changes happening in the scope of this notification. This can have up to 100 entries.
+   *
    * @public
    */
   Changes?: SchemaChangeDetails[] | undefined;
 
   /**
-   * <p>A date in the future when the schema change is taking effect.</p>
+   * A date in the future when the schema change is taking effect.
+   *
    * @public
    */
   SchemaChangeAt: Date | undefined;
 }
 
 /**
- * <p>Extra details specific to this notification.</p>
+ * Extra details specific to this notification.
+ *
  * @public
  */
 export interface NotificationDetails {
   /**
-   * <p>Extra details specific to a data update type notification.</p>
+   * Extra details specific to a data update type notification.
+   *
    * @public
    */
   DataUpdate?: DataUpdateRequestDetails | undefined;
 
   /**
-   * <p>Extra details specific to a deprecation type notification.</p>
+   * Extra details specific to a deprecation type notification.
+   *
    * @public
    */
   Deprecation?: DeprecationRequestDetails | undefined;
 
   /**
-   * <p>Extra details specific to a schema change type notification.</p>
+   * Extra details specific to a schema change type notification.
+   *
    * @public
    */
   SchemaChange?: SchemaChangeRequestDetails | undefined;
 }
 
 /**
- * <p>Extra details specific to the affected scope in this LF data set.</p>
+ * Extra details specific to the affected scope in this LF data set.
+ *
  * @public
  */
 export interface LakeFormationTagPolicyDetails {
   /**
-   * <p>The underlying Glue database that the notification is referring to.</p>
+   * The underlying Glue database that the notification is referring to.
+   *
    * @public
    */
   Database?: string | undefined;
 
   /**
-   * <p>The underlying Glue table that the notification is referring to.</p>
+   * The underlying Glue table that the notification is referring to.
+   *
    * @public
    */
   Table?: string | undefined;
 }
 
 /**
- * <p>Extra details specific to the affected scope in this Redshift data set.</p>
+ * Extra details specific to the affected scope in this Redshift data set.
+ *
  * @public
  */
 export interface RedshiftDataShareDetails {
   /**
-   * <p>The ARN of the underlying Redshift data share that is being affected by this notification.</p>
+   * The ARN of the underlying Redshift data share that is being affected by this notification.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The database name in the Redshift data share that is being affected by this notification.</p>
+   * The database name in the Redshift data share that is being affected by this notification.
+   *
    * @public
    */
   Database: string | undefined;
 
   /**
-   * <p>A function name in the Redshift database that is being affected by this notification.</p>
+   * A function name in the Redshift database that is being affected by this notification.
+   *
    * @public
    */
   Function?: string | undefined;
 
   /**
-   * <p>A table name in the Redshift database that is being affected by this notification.</p>
+   * A table name in the Redshift database that is being affected by this notification.
+   *
    * @public
    */
   Table?: string | undefined;
 
   /**
-   * <p>A schema name in the Redshift database that is being affected by this notification.</p>
+   * A schema name in the Redshift database that is being affected by this notification.
+   *
    * @public
    */
   Schema?: string | undefined;
 
   /**
-   * <p>A view name in the Redshift database that is being affected by this notification.</p>
+   * A view name in the Redshift database that is being affected by this notification.
+   *
    * @public
    */
   View?: string | undefined;
 }
 
 /**
- * <p>Extra details specific to the affected scope in this S3 Data Access data set.</p>
+ * Extra details specific to the affected scope in this S3 Data Access data set.
+ *
  * @public
  */
 export interface S3DataAccessDetails {
   /**
-   * <p>A list of the key prefixes affected by this notification. This can have up to 50 entries.</p>
+   * A list of the key prefixes affected by this notification. This can have up to 50 entries.
+   *
    * @public
    */
   KeyPrefixes?: string[] | undefined;
 
   /**
-   * <p>A list of the keys affected by this notification. This can have up to 50 entries.</p>
+   * A list of the keys affected by this notification. This can have up to 50 entries.
+   *
    * @public
    */
   Keys?: string[] | undefined;
 }
 
 /**
- * <p>Details about the scope of the notifications such as the affected resources.</p>
+ * Details about the scope of the notifications such as the affected resources.
+ *
  * @public
  */
 export interface ScopeDetails {
   /**
-   * <p>Underlying LF resources that will be affected by this notification.</p>
+   * Underlying LF resources that will be affected by this notification.
+   *
    * @public
    */
   LakeFormationTagPolicies?: LakeFormationTagPolicyDetails[] | undefined;
 
   /**
-   * <p>Underlying Redshift resources that will be affected by this notification.</p>
+   * Underlying Redshift resources that will be affected by this notification.
+   *
    * @public
    */
   RedshiftDataShares?: RedshiftDataShareDetails[] | undefined;
 
   /**
-   * <p>Underlying S3 resources that will be affected by this notification.</p>
+   * Underlying S3 resources that will be affected by this notification.
+   *
    * @public
    */
   S3DataAccesses?: S3DataAccessDetails[] | undefined;
@@ -3802,37 +4388,43 @@ export interface ScopeDetails {
  */
 export interface SendDataSetNotificationRequest {
   /**
-   * <p>Affected scope of this notification such as the underlying resources affected by the notification event.</p>
+   * Affected scope of this notification such as the underlying resources affected by the notification event.
+   *
    * @public
    */
   Scope?: ScopeDetails | undefined;
 
   /**
-   * <p>Idempotency key for the notification, this key allows us to deduplicate notifications that are sent in quick succession erroneously.</p>
+   * Idempotency key for the notification, this key allows us to deduplicate notifications that are sent in quick succession erroneously.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>Free-form text field for providers to add information about their notifications.</p>
+   * Free-form text field for providers to add information about their notifications.
+   *
    * @public
    */
   Comment?: string | undefined;
 
   /**
-   * <p>Affected data set of the notification.</p>
+   * Affected data set of the notification.
+   *
    * @public
    */
   DataSetId: string | undefined;
 
   /**
-   * <p>Extra details specific to this notification type.</p>
+   * Extra details specific to this notification type.
+   *
    * @public
    */
   Details?: NotificationDetails | undefined;
 
   /**
-   * <p>The type of the notification. Describing the kind of event the notification is alerting you to.</p>
+   * The type of the notification. Describing the kind of event the notification is alerting you to.
+   *
    * @public
    */
   Type: NotificationType | undefined;
@@ -3848,7 +4440,8 @@ export interface SendDataSetNotificationResponse {}
  */
 export interface StartJobRequest {
   /**
-   * <p>The unique identifier for a job.</p>
+   * The unique identifier for a job.
+   *
    * @public
    */
   JobId: string | undefined;
@@ -3864,13 +4457,15 @@ export interface StartJobResponse {}
  */
 export interface TagResourceRequest {
   /**
-   * <p>An Amazon Resource Name (ARN) that uniquely identifies an AWS resource.</p>
+   * An Amazon Resource Name (ARN) that uniquely identifies an AWS resource.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>A label that consists of a customer-defined key and an optional value.</p>
+   * A label that consists of a customer-defined key and an optional value.
+   *
    * @public
    */
   Tags: Record<string, string> | undefined;
@@ -3881,13 +4476,15 @@ export interface TagResourceRequest {
  */
 export interface UntagResourceRequest {
   /**
-   * <p>An Amazon Resource Name (ARN) that uniquely identifies an AWS resource.</p>
+   * An Amazon Resource Name (ARN) that uniquely identifies an AWS resource.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>The key tags.</p>
+   * The key tags.
+   *
    * @public
    */
   TagKeys: string[] | undefined;
@@ -3898,25 +4495,29 @@ export interface UntagResourceRequest {
  */
 export interface UpdateAssetRequest {
   /**
-   * <p>The unique identifier for an asset.</p>
+   * The unique identifier for an asset.
+   *
    * @public
    */
   AssetId: string | undefined;
 
   /**
-   * <p>The unique identifier for a data set.</p>
+   * The unique identifier for a data set.
+   *
    * @public
    */
   DataSetId: string | undefined;
 
   /**
-   * <p>The name of the asset. When importing from Amazon S3, the Amazon S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target Amazon S3 object key. When importing from Amazon API Gateway API, the API name is used as the asset name. When importing from Amazon Redshift, the datashare name is used as the asset name. When importing from AWS Lake Formation, the static values of "Database(s) included in the LF-tag policy" or "Table(s) included in LF-tag policy" are used as the name.</p>
+   * The name of the asset. When importing from Amazon S3, the Amazon S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target Amazon S3 object key. When importing from Amazon API Gateway API, the API name is used as the asset name. When importing from Amazon Redshift, the datashare name is used as the asset name. When importing from AWS Lake Formation, the static values of "Database(s) included in the LF-tag policy" or "Table(s) included in LF-tag policy" are used as the name.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The unique identifier for a revision.</p>
+   * The unique identifier for a revision.
+   *
    * @public
    */
   RevisionId: string | undefined;
@@ -3927,61 +4528,71 @@ export interface UpdateAssetRequest {
  */
 export interface UpdateAssetResponse {
   /**
-   * <p>The ARN for the asset.</p>
+   * The ARN for the asset.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>Details about the asset.</p>
+   * Details about the asset.
+   *
    * @public
    */
   AssetDetails?: AssetDetails | undefined;
 
   /**
-   * <p>The type of asset that is added to a data set.</p>
+   * The type of asset that is added to a data set.
+   *
    * @public
    */
   AssetType?: AssetType | undefined;
 
   /**
-   * <p>The date and time that the asset was created, in ISO 8601 format.</p>
+   * The date and time that the asset was created, in ISO 8601 format.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The unique identifier for the data set associated with this asset.</p>
+   * The unique identifier for the data set associated with this asset.
+   *
    * @public
    */
   DataSetId?: string | undefined;
 
   /**
-   * <p>The unique identifier for the asset.</p>
+   * The unique identifier for the asset.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The name of the asset. When importing from Amazon S3, the Amazon S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target Amazon S3 object key. When importing from Amazon API Gateway API, the API name is used as the asset name. When importing from Amazon Redshift, the datashare name is used as the asset name. When importing from AWS Lake Formation, the static values of "Database(s) included in the LF-tag policy"- or "Table(s) included in LF-tag policy" are used as the asset name.</p>
+   * The name of the asset. When importing from Amazon S3, the Amazon S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target Amazon S3 object key. When importing from Amazon API Gateway API, the API name is used as the asset name. When importing from Amazon Redshift, the datashare name is used as the asset name. When importing from AWS Lake Formation, the static values of "Database(s) included in the LF-tag policy"- or "Table(s) included in LF-tag policy" are used as the asset name.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The unique identifier for the revision associated with this asset.</p>
+   * The unique identifier for the revision associated with this asset.
+   *
    * @public
    */
   RevisionId?: string | undefined;
 
   /**
-   * <p>The asset ID of the owned asset corresponding to the entitled asset being viewed. This parameter is returned when an asset owner is viewing the entitled copy of its owned asset.</p>
+   * The asset ID of the owned asset corresponding to the entitled asset being viewed. This parameter is returned when an asset owner is viewing the entitled copy of its owned asset.
+   *
    * @public
    */
   SourceId?: string | undefined;
 
   /**
-   * <p>The date and time that the asset was last updated, in ISO 8601 format.</p>
+   * The date and time that the asset was last updated, in ISO 8601 format.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
@@ -3992,19 +4603,22 @@ export interface UpdateAssetResponse {
  */
 export interface UpdateDataSetRequest {
   /**
-   * <p>The unique identifier for a data set.</p>
+   * The unique identifier for a data set.
+   *
    * @public
    */
   DataSetId: string | undefined;
 
   /**
-   * <p>The description for the data set.</p>
+   * The description for the data set.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The name of the data set.</p>
+   * The name of the data set.
+   *
    * @public
    */
   Name?: string | undefined;
@@ -4015,61 +4629,71 @@ export interface UpdateDataSetRequest {
  */
 export interface UpdateDataSetResponse {
   /**
-   * <p>The ARN for the data set.</p>
+   * The ARN for the data set.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The type of asset that is added to a data set.</p>
+   * The type of asset that is added to a data set.
+   *
    * @public
    */
   AssetType?: AssetType | undefined;
 
   /**
-   * <p>The date and time that the data set was created, in ISO 8601 format.</p>
+   * The date and time that the data set was created, in ISO 8601 format.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The description for the data set.</p>
+   * The description for the data set.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The unique identifier for the data set.</p>
+   * The unique identifier for the data set.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The name of the data set.</p>
+   * The name of the data set.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>
+   * A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).
+   *
    * @public
    */
   Origin?: Origin | undefined;
 
   /**
-   * <p>If the origin of this data set is ENTITLED, includes the details for the product on AWS Marketplace.</p>
+   * If the origin of this data set is ENTITLED, includes the details for the product on AWS Marketplace.
+   *
    * @public
    */
   OriginDetails?: OriginDetails | undefined;
 
   /**
-   * <p>The data set ID of the owned data set corresponding to the entitled data set being viewed. This parameter is returned when a data set owner is viewing the entitled copy of its owned data set.</p>
+   * The data set ID of the owned data set corresponding to the entitled data set being viewed. This parameter is returned when a data set owner is viewing the entitled copy of its owned data set.
+   *
    * @public
    */
   SourceId?: string | undefined;
 
   /**
-   * <p>The date and time that the data set was last updated, in ISO 8601 format.</p>
+   * The date and time that the data set was last updated, in ISO 8601 format.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
@@ -4080,13 +4704,15 @@ export interface UpdateDataSetResponse {
  */
 export interface UpdateEventActionRequest {
   /**
-   * <p>What occurs after a certain event.</p>
+   * What occurs after a certain event.
+   *
    * @public
    */
   Action?: Action | undefined;
 
   /**
-   * <p>The unique identifier for the event action.</p>
+   * The unique identifier for the event action.
+   *
    * @public
    */
   EventActionId: string | undefined;
@@ -4097,37 +4723,43 @@ export interface UpdateEventActionRequest {
  */
 export interface UpdateEventActionResponse {
   /**
-   * <p>What occurs after a certain event.</p>
+   * What occurs after a certain event.
+   *
    * @public
    */
   Action?: Action | undefined;
 
   /**
-   * <p>The ARN for the event action.</p>
+   * The ARN for the event action.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The date and time that the event action was created, in ISO 8601 format.</p>
+   * The date and time that the event action was created, in ISO 8601 format.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>What occurs to start an action.</p>
+   * What occurs to start an action.
+   *
    * @public
    */
   Event?: Event | undefined;
 
   /**
-   * <p>The unique identifier for the event action.</p>
+   * The unique identifier for the event action.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The date and time that the event action was last updated, in ISO 8601 format.</p>
+   * The date and time that the event action was last updated, in ISO 8601 format.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
@@ -4138,25 +4770,29 @@ export interface UpdateEventActionResponse {
  */
 export interface UpdateRevisionRequest {
   /**
-   * <p>An optional comment about the revision.</p>
+   * An optional comment about the revision.
+   *
    * @public
    */
   Comment?: string | undefined;
 
   /**
-   * <p>The unique identifier for a data set.</p>
+   * The unique identifier for a data set.
+   *
    * @public
    */
   DataSetId: string | undefined;
 
   /**
-   * <p>Finalizing a revision tells AWS Data Exchange that your changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products.</p>
+   * Finalizing a revision tells AWS Data Exchange that your changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products.
+   *
    * @public
    */
   Finalized?: boolean | undefined;
 
   /**
-   * <p>The unique identifier for a revision.</p>
+   * The unique identifier for a revision.
+   *
    * @public
    */
   RevisionId: string | undefined;
@@ -4167,67 +4803,78 @@ export interface UpdateRevisionRequest {
  */
 export interface UpdateRevisionResponse {
   /**
-   * <p>The ARN for the revision.</p>
+   * The ARN for the revision.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>An optional comment about the revision.</p>
+   * An optional comment about the revision.
+   *
    * @public
    */
   Comment?: string | undefined;
 
   /**
-   * <p>The date and time that the revision was created, in ISO 8601 format.</p>
+   * The date and time that the revision was created, in ISO 8601 format.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The unique identifier for the data set associated with the data set revision.</p>
+   * The unique identifier for the data set associated with the data set revision.
+   *
    * @public
    */
   DataSetId?: string | undefined;
 
   /**
-   * <p>To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products. Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.</p>
+   * To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products. Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.
+   *
    * @public
    */
   Finalized?: boolean | undefined;
 
   /**
-   * <p>The unique identifier for the revision.</p>
+   * The unique identifier for the revision.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The revision ID of the owned revision corresponding to the entitled revision being viewed. This parameter is returned when a revision owner is viewing the entitled copy of its owned revision.</p>
+   * The revision ID of the owned revision corresponding to the entitled revision being viewed. This parameter is returned when a revision owner is viewing the entitled copy of its owned revision.
+   *
    * @public
    */
   SourceId?: string | undefined;
 
   /**
-   * <p>The date and time that the revision was last updated, in ISO 8601 format.</p>
+   * The date and time that the revision was last updated, in ISO 8601 format.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
 
   /**
-   * <p>A required comment to inform subscribers of the reason their access to the revision was revoked.</p>
+   * A required comment to inform subscribers of the reason their access to the revision was revoked.
+   *
    * @public
    */
   RevocationComment?: string | undefined;
 
   /**
-   * <p>A status indicating that subscribers' access to the revision was revoked.</p>
+   * A status indicating that subscribers' access to the revision was revoked.
+   *
    * @public
    */
   Revoked?: boolean | undefined;
 
   /**
-   * <p>The date and time that the revision was revoked, in ISO 8601 format.</p>
+   * The date and time that the revision was revoked, in ISO 8601 format.
+   *
    * @public
    */
   RevokedAt?: Date | undefined;

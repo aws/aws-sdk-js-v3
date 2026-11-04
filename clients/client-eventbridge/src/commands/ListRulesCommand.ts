@@ -23,11 +23,12 @@ export interface ListRulesCommandInput extends ListRulesRequest {}
 export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists your Amazon EventBridge rules. You can either list all the rules or you can
- *       provide a prefix to match to the rule names.</p>
- *          <p>The maximum number of results per page for requests is 100.</p>
- *          <p>ListRules does not list the targets of a rule. To see the targets associated with a rule,
- *       use <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ListTargetsByRule.html">ListTargetsByRule</a>.</p>
+ * Lists your Amazon EventBridge rules. You can either list all the rules or you can provide a prefix to match to the rule names.
+ *
+ * The maximum number of results per page for requests is 100.
+ *
+ * ListRules does not list the targets of a rule. To see the targets associated with a rule, use [ListTargetsByRule](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ListTargetsByRule.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,14 +71,16 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * This exception occurs due to unexpected causes.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An entity that you specified does not exist.</p>
+ *
+ * An entity that you specified does not exist.
  *
  * @throws {@link EventBridgeServiceException}
- * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ * Base exception class for all service exceptions from EventBridge service.
  *
  * @public
  */

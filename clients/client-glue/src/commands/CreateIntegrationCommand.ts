@@ -23,7 +23,8 @@ export interface CreateIntegrationCommandInput extends CreateIntegrationRequest 
 export interface CreateIntegrationCommandOutput extends CreateIntegrationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a Zero-ETL integration in the caller's account between two resources with Amazon Resource Names (ARNs): the <code>SourceArn</code> and <code>TargetArn</code>.</p>
+ * Creates a Zero-ETL integration in the caller's account between two resources with Amazon Resource Names (ARNs): the `SourceArn` and `TargetArn`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -103,44 +104,56 @@ export interface CreateIntegrationCommandOutput extends CreateIntegrationRespons
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to a resource was denied.</p>
+ *
+ * Access to a resource was denied.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The <code>CreatePartitions</code> API was called on a table that has indexes enabled.	</p>
+ *
+ * The `CreatePartitions` API was called on a table that has indexes enabled.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link IntegrationConflictOperationFault} (client fault)
- *  <p>The requested operation conflicts with another operation.</p>
+ *
+ * The requested operation conflicts with another operation.
  *
  * @throws {@link IntegrationQuotaExceededFault} (client fault)
- *  <p>The data processed through your integration exceeded your quota.</p>
+ *
+ * The data processed through your integration exceeded your quota.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred.</p>
+ *
+ * An internal server error occurred.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link KMSKeyNotAccessibleFault} (client fault)
- *  <p>The KMS key specified is not accessible.</p>
+ *
+ * The KMS key specified is not accessible.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
- *  <p>A resource numerical limit was exceeded.</p>
+ *
+ * A resource numerical limit was exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A value could not be validated.</p>
+ *
+ * A value could not be validated.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

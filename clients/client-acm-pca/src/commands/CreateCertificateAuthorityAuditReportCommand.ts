@@ -26,7 +26,14 @@ export interface CreateCertificateAuthorityAuditReportCommandInput extends Creat
 export interface CreateCertificateAuthorityAuditReportCommandOutput extends CreateCertificateAuthorityAuditReportResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an audit report that lists every time that your CA private key is used to issue a certificate. The <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html">IssueCertificate</a> and <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_RevokeCertificate.html">RevokeCertificate</a> actions use the private key.</p> <p>To save the audit report to your designated Amazon S3 bucket, you must create a bucket policy that grants Amazon Web Services Private CA permission to access and write to it. For an example policy, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/PcaAuditReport.html#s3-access">Prepare an Amazon S3 bucket for audit reports</a>.</p> <p>Amazon Web Services Private CA assets that are stored in Amazon S3 can be protected with encryption. For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/PcaAuditReport.html#audit-report-encryption">Encrypting Your Audit Reports</a>.</p> <note> <p>You can generate a maximum of one report every 30 minutes.</p> </note>
+ * Creates an audit report that lists every time that your CA private key is used to issue a certificate. The [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html) and [RevokeCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_RevokeCertificate.html) actions use the private key.
+ *
+ * To save the audit report to your designated Amazon S3 bucket, you must create a bucket policy that grants Amazon Web Services Private CA permission to access and write to it. For an example policy, see [Prepare an Amazon S3 bucket for audit reports](https://docs.aws.amazon.com/privateca/latest/userguide/PcaAuditReport.html#s3-access).
+ *
+ * Amazon Web Services Private CA assets that are stored in Amazon S3 can be protected with encryption. For more information, see [Encrypting Your Audit Reports](https://docs.aws.amazon.com/privateca/latest/userguide/PcaAuditReport.html#audit-report-encryption).
+ *
+ * > **Note:** You can generate a maximum of one report every 30 minutes.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,26 +63,32 @@ export interface CreateCertificateAuthorityAuditReportCommandOutput extends Crea
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
  *
  * @throws {@link InvalidArgsException} (client fault)
- *  <p>One or more of the specified arguments was not valid.</p>
+ *
+ * One or more of the specified arguments was not valid.
  *
  * @throws {@link InvalidArnException} (client fault)
- *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+ *
+ * The requested Amazon Resource Name (ARN) does not refer to an existing resource.
  *
  * @throws {@link InvalidStateException} (client fault)
- *  <p>The state of the private CA does not allow this action to occur.</p>
+ *
+ * The state of the private CA does not allow this action to occur.
  *
  * @throws {@link RequestFailedException} (client fault)
- *  <p>The request has failed for an unspecified reason.</p>
+ *
+ * The request has failed for an unspecified reason.
  *
  * @throws {@link RequestInProgressException} (client fault)
- *  <p>Your request is already in progress.</p>
+ *
+ * Your request is already in progress.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy cannot be found.</p>
+ *
+ * A resource such as a private CA, S3 bucket, certificate, audit report, or policy cannot be found.
  *
  * @throws {@link ACMPCAServiceException}
- * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
+ * Base exception class for all service exceptions from ACMPCA service.
  *
  * @public
  */

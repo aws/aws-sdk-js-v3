@@ -23,21 +23,11 @@ export interface GetChangeCommandInput extends GetChangeRequest {}
 export interface GetChangeCommandOutput extends GetChangeResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the current status of a change batch request. The status is one of the
- * 			following values:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>PENDING</code> indicates that the changes in this request have not
- * 					propagated to all Amazon Route 53 DNS servers managing the hosted zone. This is the initial status of all
- * 					change batch requests.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>INSYNC</code> indicates that the changes have propagated to all Route 53
- * 					DNS servers managing the hosted zone. </p>
- *             </li>
- *          </ul>
+ * Returns the current status of a change batch request. The status is one of the following values:
+ *
+ * - `PENDING` indicates that the changes in this request have not propagated to all Amazon Route 53 DNS servers managing the hosted zone. This is the initial status of all change batch requests.
+ * - `INSYNC` indicates that the changes have propagated to all Route 53 DNS servers managing the hosted zone.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,14 +59,16 @@ export interface GetChangeCommandOutput extends GetChangeResponse, __MetadataBea
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link NoSuchChange} (client fault)
- *  <p>A change with the specified change ID does not exist.</p>
+ *
+ * A change with the specified change ID does not exist.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @public
  */

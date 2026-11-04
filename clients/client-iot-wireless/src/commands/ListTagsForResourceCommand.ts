@@ -23,7 +23,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the tags (metadata) you have assigned to the resource.</p>
+ * Lists the tags (metadata) you have assigned to the resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,23 +56,28 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+ *
+ * Adding, updating, or deleting the resource can cause an inconsistent state.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred while processing a request.</p>
+ *
+ * An unexpected error occurred while processing a request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource does not exist.</p>
+ *
+ * Resource does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied because it exceeded the allowed API request rate.</p>
+ *
+ * The request was denied because it exceeded the allowed API request rate.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input did not meet the specified constraints.</p>
+ *
+ * The input did not meet the specified constraints.
  *
  * @throws {@link IoTWirelessServiceException}
- * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * Base exception class for all service exceptions from IoTWireless service.
  *
  * @public
  */

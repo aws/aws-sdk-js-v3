@@ -23,13 +23,8 @@ export interface SendTestEventNotificationCommandInput extends SendTestEventNoti
 export interface SendTestEventNotificationCommandOutput extends SendTestEventNotificationResponse, __MetadataBearer {}
 
 /**
- * <p>
- *             The <code>SendTestEventNotification</code> operation causes Amazon Mechanical Turk to send
- *             a notification message as if a HIT event occurred, according to the provided
- *             notification specification. This allows you to test notifications without
- *             setting up notifications for a real HIT type and trying to trigger them using the website.
- *             When you call this operation, the service attempts to send the test notification immediately.
- *         </p>
+ * The `SendTestEventNotification` operation causes Amazon Mechanical Turk to send a notification message as if a HIT event occurred, according to the provided notification specification. This allows you to test notifications without setting up notifications for a real HIT type and trying to trigger them using the website. When you call this operation, the service attempts to send the test notification immediately.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,14 +57,16 @@ export interface SendTestEventNotificationCommandOutput extends SendTestEventNot
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
  *
  * @throws {@link RequestError} (client fault)
- *  <p>Your request is invalid.</p>
+ *
+ * Your request is invalid.
  *
  * @throws {@link ServiceFault} (server fault)
- *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
+ * Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.
  *
  * @throws {@link MTurkServiceException}
- * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * Base exception class for all service exceptions from MTurk service.
  *
  * @public
  */

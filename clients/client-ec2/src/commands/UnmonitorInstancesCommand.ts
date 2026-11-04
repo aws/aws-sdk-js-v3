@@ -23,9 +23,8 @@ export interface UnmonitorInstancesCommandInput extends UnmonitorInstancesReques
 export interface UnmonitorInstancesCommandOutput extends UnmonitorInstancesResult, __MetadataBearer {}
 
 /**
- * <p>Disables detailed monitoring for a running instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html">Monitoring
- *                 your instances and volumes</a> in the
- *             <i>Amazon EC2 User Guide</i>.</p>
+ * Disables detailed monitoring for a running instance. For more information, see [Monitoring your instances and volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,8 +61,8 @@ export interface UnmonitorInstancesCommandOutput extends UnmonitorInstancesResul
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

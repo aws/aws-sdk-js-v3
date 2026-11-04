@@ -88,8 +88,8 @@ export interface GetDomainAccessGrantForOrganizationCommandOutput extends GetDom
  *  A parameter is specified incorrectly.
  *
  * @throws {@link CloudWatchOmniServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchOmni service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchOmni service.
  *
  * @example Get an organization domain access grant
  * ```javascript

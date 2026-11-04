@@ -23,18 +23,12 @@ export interface AssociateNatGatewayAddressCommandInput extends AssociateNatGate
 export interface AssociateNatGatewayAddressCommandOutput extends AssociateNatGatewayAddressResult, __MetadataBearer {}
 
 /**
- * <p>Associates Elastic IP addresses (EIPs) and private IPv4 addresses with a public NAT gateway. For more information,
- *             see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html">Work with NAT gateways</a> in the <i>Amazon VPC User Guide</i>.</p>
- *          <p>By default, you can associate up to 2 Elastic IP addresses per public NAT gateway. You can increase the limit by requesting a quota adjustment.
- *             For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-eips">Elastic IP address quotas</a> in the <i>Amazon VPC User Guide</i>.</p>
- *          <important>
- *             <p>When you associate an EIP or secondary EIPs with a public NAT gateway, the network border group of the EIPs
- *             must match the network border group of the Availability Zone (AZ) that the public NAT gateway is in. If it's not the same,
- *             the EIP will fail to associate. You can see the network border group for the subnet's AZ by viewing the details of the subnet.
- *             Similarly, you can view the network border group of an EIP by viewing the details of the EIP address. For more information
- *             about network border groups and EIPs, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/WorkWithEIPs.html">Allocate an Elastic IP address</a> in the <i>Amazon VPC User Guide</i>.
- *         </p>
- *          </important>
+ * Associates Elastic IP addresses (EIPs) and private IPv4 addresses with a public NAT gateway. For more information, see [Work with NAT gateways](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html) in the *Amazon VPC User Guide*.
+ *
+ * By default, you can associate up to 2 Elastic IP addresses per public NAT gateway. You can increase the limit by requesting a quota adjustment. For more information, see [Elastic IP address quotas](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-eips) in the *Amazon VPC User Guide*.
+ *
+ * > **Important:** When you associate an EIP or secondary EIPs with a public NAT gateway, the network border group of the EIPs must match the network border group of the Availability Zone (AZ) that the public NAT gateway is in. If it's not the same, the EIP will fail to associate. You can see the network border group for the subnet's AZ by viewing the details of the subnet. Similarly, you can view the network border group of an EIP by viewing the details of the EIP address. For more information about network border groups and EIPs, see [Allocate an Elastic IP address](https://docs.aws.amazon.com/vpc/latest/userguide/WorkWithEIPs.html) in the *Amazon VPC User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,8 +78,8 @@ export interface AssociateNatGatewayAddressCommandOutput extends AssociateNatGat
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

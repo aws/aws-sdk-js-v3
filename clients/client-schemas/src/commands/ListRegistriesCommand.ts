@@ -23,7 +23,8 @@ export interface ListRegistriesCommandInput extends ListRegistriesRequest {}
 export interface ListRegistriesCommandOutput extends ListRegistriesResponse, __MetadataBearer {}
 
 /**
- * <p>List the registries.</p>
+ * List the registries.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,8 +73,8 @@ export interface ListRegistriesCommandOutput extends ListRegistriesResponse, __M
  * @throws {@link UnauthorizedException} (client fault)
  *
  * @throws {@link SchemasServiceException}
- * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
+ * Base exception class for all service exceptions from Schemas service.
  *
  * @public
  */

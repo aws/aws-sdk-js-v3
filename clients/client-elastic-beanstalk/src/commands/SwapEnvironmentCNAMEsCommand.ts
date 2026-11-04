@@ -23,7 +23,8 @@ export interface SwapEnvironmentCNAMEsCommandInput extends SwapEnvironmentCNAMEs
 export interface SwapEnvironmentCNAMEsCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Swaps the CNAMEs of two environments.</p>
+ * Swaps the CNAMEs of two environments.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,8 +52,8 @@ export interface SwapEnvironmentCNAMEsCommandOutput extends __MetadataBearer {}
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  * @throws {@link ElasticBeanstalkSyntheticServiceException}
- * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * Base exception class for all service exceptions from ElasticBeanstalk service.
  *
  * @example To swap environment CNAMES
  * ```javascript

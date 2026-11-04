@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { ServiceQuotasServiceException as __BaseException } from "./ServiceQuotasServiceException";
 
 /**
- * <p>You do not have sufficient permission to perform this action.</p>
+ * You do not have sufficient permission to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,8 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The action you attempted is not allowed unless Service Access with Service Quotas is enabled in
- *             your organization.</p>
+ * The action you attempted is not allowed unless Service Access with Service Quotas is enabled in your organization.
+ *
  * @public
  */
 export class AWSServiceAccessNotEnabledException extends __BaseException {
@@ -51,7 +52,8 @@ export class AWSServiceAccessNotEnabledException extends __BaseException {
 }
 
 /**
- * <p>You can't perform this action because a dependency does not have access.</p>
+ * You can't perform this action because a dependency does not have access.
+ *
  * @public
  */
 export class DependencyAccessDeniedException extends __BaseException {
@@ -74,7 +76,8 @@ export class DependencyAccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The Amazon Web Services account making this call is not a member of an organization.</p>
+ * The Amazon Web Services account making this call is not a member of an organization.
+ *
  * @public
  */
 export class NoAvailableOrganizationException extends __BaseException {
@@ -97,8 +100,8 @@ export class NoAvailableOrganizationException extends __BaseException {
 }
 
 /**
- * <p>The organization that your Amazon Web Services account belongs to is not in All Features
- *             mode.</p>
+ * The organization that your Amazon Web Services account belongs to is not in All Features mode.
+ *
  * @public
  */
 export class OrganizationNotInAllFeaturesModeException extends __BaseException {
@@ -121,7 +124,8 @@ export class OrganizationNotInAllFeaturesModeException extends __BaseException {
 }
 
 /**
- * <p>Something went wrong.</p>
+ * Something went wrong.
+ *
  * @public
  */
 export class ServiceException extends __BaseException {
@@ -144,7 +148,8 @@ export class ServiceException extends __BaseException {
 }
 
 /**
- * <p>The Service Quotas template is not available in this Amazon Web Services Region.</p>
+ * The Service Quotas template is not available in this Amazon Web Services Region.
+ *
  * @public
  */
 export class TemplatesNotAvailableInRegionException extends __BaseException {
@@ -167,8 +172,8 @@ export class TemplatesNotAvailableInRegionException extends __BaseException {
 }
 
 /**
- * <p>Due to throttling, the request was denied. Slow down the rate of request calls, or
- *             request an increase for this quota.</p>
+ * Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.
+ *
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
@@ -191,7 +196,8 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * <p>Invalid input was provided.</p>
+ * Invalid input was provided.
+ *
  * @public
  */
 export class IllegalArgumentException extends __BaseException {
@@ -214,7 +220,8 @@ export class IllegalArgumentException extends __BaseException {
 }
 
 /**
- * <p>The resource is in an invalid state.</p>
+ * The resource is in an invalid state.
+ *
  * @public
  */
 export class InvalidResourceStateException extends __BaseException {
@@ -237,7 +244,8 @@ export class InvalidResourceStateException extends __BaseException {
 }
 
 /**
- * <p>The specified resource does not exist.</p>
+ * The specified resource does not exist.
+ *
  * @public
  */
 export class NoSuchResourceException extends __BaseException {
@@ -260,7 +268,8 @@ export class NoSuchResourceException extends __BaseException {
 }
 
 /**
- * <p>The specified resource already exists.</p>
+ * The specified resource already exists.
+ *
  * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -283,7 +292,8 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The quota request template is not associated with your organization.</p>
+ * The quota request template is not associated with your organization.
+ *
  * @public
  */
 export class ServiceQuotaTemplateNotInUseException extends __BaseException {
@@ -306,7 +316,8 @@ export class ServiceQuotaTemplateNotInUseException extends __BaseException {
 }
 
 /**
- * <p>Invalid input was provided.</p>
+ * Invalid input was provided.
+ *
  * @public
  */
 export class InvalidPaginationTokenException extends __BaseException {
@@ -329,8 +340,8 @@ export class InvalidPaginationTokenException extends __BaseException {
 }
 
 /**
- * <p>You have exceeded your service quota. To perform the requested action, remove some of
- *             the relevant resources, or use Service Quotas to request a service quota increase.</p>
+ * You have exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use Service Quotas to request a service quota increase.
+ *
  * @public
  */
 export class QuotaExceededException extends __BaseException {
@@ -353,7 +364,8 @@ export class QuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The specified tag is a reserved word and cannot be used.</p>
+ * The specified tag is a reserved word and cannot be used.
+ *
  * @public
  */
 export class TagPolicyViolationException extends __BaseException {
@@ -376,9 +388,8 @@ export class TagPolicyViolationException extends __BaseException {
 }
 
 /**
- * <p>You've exceeded the number of tags allowed for a resource. For more information, see
- *                 <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/sq-tagging.html#sq-tagging-restrictions">Tag
- *                 restrictions</a> in the <i>Service Quotas User Guide</i>.</p>
+ * You've exceeded the number of tags allowed for a resource. For more information, see [Tag restrictions](https://docs.aws.amazon.com/servicequotas/latest/userguide/sq-tagging.html#sq-tagging-restrictions) in the *Service Quotas User Guide*.
+ *
  * @public
  */
 export class TooManyTagsException extends __BaseException {

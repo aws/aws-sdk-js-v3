@@ -20,43 +20,43 @@ import type {
  */
 export interface CreateSavingsPlanRequest {
   /**
-   * <p>The ID of the offering.</p>
+   * The ID of the offering.
+   *
    * @public
    */
   savingsPlanOfferingId: string | undefined;
 
   /**
-   * <p>The hourly commitment, in the same currency of the <code>savingsPlanOfferingId</code>.
-   *          This is a value between 0.001 and 1 million. You cannot specify more than five digits after
-   *          the decimal point.</p>
+   * The hourly commitment, in the same currency of the `savingsPlanOfferingId`. This is a value between 0.001 and 1 million. You cannot specify more than five digits after the decimal point.
+   *
    * @public
    */
   commitment: string | undefined;
 
   /**
-   * <p>The up-front payment amount. This is a whole number between 50 and 99 percent of the
-   *          total value of the Savings Plan. This parameter is only supported if the
-   *          payment option is <code>Partial Upfront</code>.</p>
+   * The up-front payment amount. This is a whole number between 50 and 99 percent of the total value of the Savings Plan. This parameter is only supported if the payment option is `Partial Upfront`.
+   *
    * @public
    */
   upfrontPaymentAmount?: string | undefined;
 
   /**
-   * <p>The purchase time of the Savings Plan in UTC format
-   *          (YYYY-MM-DDTHH:MM:SSZ).</p>
+   * The purchase time of the Savings Plan in UTC format (YYYY-MM-DDTHH:MM:SSZ).
+   *
    * @public
    */
   purchaseTime?: Date | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *          request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>One or more tags.</p>
+   * One or more tags.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -67,7 +67,8 @@ export interface CreateSavingsPlanRequest {
  */
 export interface CreateSavingsPlanResponse {
   /**
-   * <p>The ID of the Savings Plan.</p>
+   * The ID of the Savings Plan.
+   *
    * @public
    */
   savingsPlanId?: string | undefined;
@@ -78,7 +79,8 @@ export interface CreateSavingsPlanResponse {
  */
 export interface DeleteQueuedSavingsPlanRequest {
   /**
-   * <p>The ID of the Savings Plan.</p>
+   * The ID of the Savings Plan.
+   *
    * @public
    */
   savingsPlanId: string | undefined;
@@ -90,18 +92,21 @@ export interface DeleteQueuedSavingsPlanRequest {
 export interface DeleteQueuedSavingsPlanResponse {}
 
 /**
- * <p>Information about a Savings Plan rate filter.</p>
+ * Information about a Savings Plan rate filter.
+ *
  * @public
  */
 export interface SavingsPlanRateFilter {
   /**
-   * <p>The filter name.</p>
+   * The filter name.
+   *
    * @public
    */
   name?: SavingsPlanRateFilterName | undefined;
 
   /**
-   * <p>The filter values.</p>
+   * The filter values.
+   *
    * @public
    */
   values?: string[] | undefined;
@@ -112,99 +117,113 @@ export interface SavingsPlanRateFilter {
  */
 export interface DescribeSavingsPlanRatesRequest {
   /**
-   * <p>The ID of the Savings Plan.</p>
+   * The ID of the Savings Plan.
+   *
    * @public
    */
   savingsPlanId: string | undefined;
 
   /**
-   * <p>The filters.</p>
+   * The filters.
+   *
    * @public
    */
   filters?: SavingsPlanRateFilter[] | undefined;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return with a single call. To retrieve additional
-   *          results, make another call with the returned token value.</p>
+   * The maximum number of results to return with a single call. To retrieve additional results, make another call with the returned token value.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Information about a Savings Plan rate property.</p>
+ * Information about a Savings Plan rate property.
+ *
  * @public
  */
 export interface SavingsPlanRateProperty {
   /**
-   * <p>The property name.</p>
+   * The property name.
+   *
    * @public
    */
   name?: SavingsPlanRatePropertyKey | undefined;
 
   /**
-   * <p>The property value.</p>
+   * The property value.
+   *
    * @public
    */
   value?: string | undefined;
 }
 
 /**
- * <p>Information about a Savings Plan rate.</p>
+ * Information about a Savings Plan rate.
+ *
  * @public
  */
 export interface SavingsPlanRate {
   /**
-   * <p>The rate.</p>
+   * The rate.
+   *
    * @public
    */
   rate?: string | undefined;
 
   /**
-   * <p>The currency.</p>
+   * The currency.
+   *
    * @public
    */
   currency?: CurrencyCode | undefined;
 
   /**
-   * <p>The unit.</p>
+   * The unit.
+   *
    * @public
    */
   unit?: SavingsPlanRateUnit | undefined;
 
   /**
-   * <p>The product type.</p>
+   * The product type.
+   *
    * @public
    */
   productType?: SavingsPlanProductType | undefined;
 
   /**
-   * <p>The service.</p>
+   * The service.
+   *
    * @public
    */
   serviceCode?: SavingsPlanRateServiceCode | undefined;
 
   /**
-   * <p>The usage details of the line item in the billing report.</p>
+   * The usage details of the line item in the billing report.
+   *
    * @public
    */
   usageType?: string | undefined;
 
   /**
-   * <p>The specific Amazon Web Services operation for the line item in the billing
-   *          report.</p>
+   * The specific Amazon Web Services operation for the line item in the billing report.
+   *
    * @public
    */
   operation?: string | undefined;
 
   /**
-   * <p>The properties.</p>
+   * The properties.
+   *
    * @public
    */
   properties?: SavingsPlanRateProperty[] | undefined;
@@ -215,38 +234,43 @@ export interface SavingsPlanRate {
  */
 export interface DescribeSavingsPlanRatesResponse {
   /**
-   * <p>The ID of the Savings Plan.</p>
+   * The ID of the Savings Plan.
+   *
    * @public
    */
   savingsPlanId?: string | undefined;
 
   /**
-   * <p>Information about the Savings Plan rates.</p>
+   * Information about the Savings Plan rates.
+   *
    * @public
    */
   searchResults?: SavingsPlanRate[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is null when there are
-   *          no more results to return.</p>
+   * The token to use to retrieve the next page of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Information about a Savings Plan filter.</p>
+ * Information about a Savings Plan filter.
+ *
  * @public
  */
 export interface SavingsPlanFilter {
   /**
-   * <p>The filter name.</p>
+   * The filter name.
+   *
    * @public
    */
   name?: SavingsPlansFilterName | undefined;
 
   /**
-   * <p>The filter value.</p>
+   * The filter value.
+   *
    * @public
    */
   values?: string[] | undefined;
@@ -257,159 +281,183 @@ export interface SavingsPlanFilter {
  */
 export interface DescribeSavingsPlansRequest {
   /**
-   * <p>The Amazon Resource Names (ARN) of the Savings Plans.</p>
+   * The Amazon Resource Names (ARN) of the Savings Plans.
+   *
    * @public
    */
   savingsPlanArns?: string[] | undefined;
 
   /**
-   * <p>The IDs of the Savings Plans.</p>
+   * The IDs of the Savings Plans.
+   *
    * @public
    */
   savingsPlanIds?: string[] | undefined;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return with a single call. To retrieve additional
-   *          results, make another call with the returned token value.</p>
+   * The maximum number of results to return with a single call. To retrieve additional results, make another call with the returned token value.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The current states of the Savings Plans.</p>
+   * The current states of the Savings Plans.
+   *
    * @public
    */
   states?: SavingsPlanState[] | undefined;
 
   /**
-   * <p>The filters.</p>
+   * The filters.
+   *
    * @public
    */
   filters?: SavingsPlanFilter[] | undefined;
 }
 
 /**
- * <p>Information about a Savings Plan.</p>
+ * Information about a Savings Plan.
+ *
  * @public
  */
 export interface SavingsPlan {
   /**
-   * <p>The ID of the offering.</p>
+   * The ID of the offering.
+   *
    * @public
    */
   offeringId?: string | undefined;
 
   /**
-   * <p>The ID of the Savings Plan.</p>
+   * The ID of the Savings Plan.
+   *
    * @public
    */
   savingsPlanId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Savings Plan.</p>
+   * The Amazon Resource Name (ARN) of the Savings Plan.
+   *
    * @public
    */
   savingsPlanArn?: string | undefined;
 
   /**
-   * <p>The description.</p>
+   * The description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The start time.</p>
+   * The start time.
+   *
    * @public
    */
   start?: string | undefined;
 
   /**
-   * <p>The end time.</p>
+   * The end time.
+   *
    * @public
    */
   end?: string | undefined;
 
   /**
-   * <p>The current state.</p>
+   * The current state.
+   *
    * @public
    */
   state?: SavingsPlanState | undefined;
 
   /**
-   * <p>The Amazon Web Services Region.</p>
+   * The Amazon Web Services Region.
+   *
    * @public
    */
   region?: string | undefined;
 
   /**
-   * <p>The EC2 instance family.</p>
+   * The EC2 instance family.
+   *
    * @public
    */
   ec2InstanceFamily?: string | undefined;
 
   /**
-   * <p>The plan type.</p>
+   * The plan type.
+   *
    * @public
    */
   savingsPlanType?: SavingsPlanType | undefined;
 
   /**
-   * <p>The payment option.</p>
+   * The payment option.
+   *
    * @public
    */
   paymentOption?: SavingsPlanPaymentOption | undefined;
 
   /**
-   * <p>The product types.</p>
+   * The product types.
+   *
    * @public
    */
   productTypes?: SavingsPlanProductType[] | undefined;
 
   /**
-   * <p>The currency.</p>
+   * The currency.
+   *
    * @public
    */
   currency?: CurrencyCode | undefined;
 
   /**
-   * <p>The hourly commitment amount in the specified currency.</p>
+   * The hourly commitment amount in the specified currency.
+   *
    * @public
    */
   commitment?: string | undefined;
 
   /**
-   * <p>The up-front payment amount.</p>
+   * The up-front payment amount.
+   *
    * @public
    */
   upfrontPaymentAmount?: string | undefined;
 
   /**
-   * <p>The recurring payment amount.</p>
+   * The recurring payment amount.
+   *
    * @public
    */
   recurringPaymentAmount?: string | undefined;
 
   /**
-   * <p>The duration of the term, in seconds.</p>
+   * The duration of the term, in seconds.
+   *
    * @public
    */
   termDurationInSeconds?: number | undefined;
 
   /**
-   * <p>One or more tags.</p>
+   * One or more tags.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The time until when a return for the Savings Plan can be requested. If the
-   *             Savings Plan is not returnable, the field reflects the Savings Plans start time.</p>
+   * The time until when a return for the Savings Plan can be requested. If the Savings Plan is not returnable, the field reflects the Savings Plans start time.
+   *
    * @public
    */
   returnableUntil?: string | undefined;
@@ -420,32 +468,36 @@ export interface SavingsPlan {
  */
 export interface DescribeSavingsPlansResponse {
   /**
-   * <p>Information about the Savings Plans.</p>
+   * Information about the Savings Plans.
+   *
    * @public
    */
   savingsPlans?: SavingsPlan[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is null when there are
-   *          no more results to return.</p>
+   * The token to use to retrieve the next page of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Information about a Savings Plan offering rate filter.</p>
+ * Information about a Savings Plan offering rate filter.
+ *
  * @public
  */
 export interface SavingsPlanOfferingRateFilterElement {
   /**
-   * <p>The filter name.</p>
+   * The filter name.
+   *
    * @public
    */
   name?: SavingsPlanRateFilterAttribute | undefined;
 
   /**
-   * <p>The filter values.</p>
+   * The filter values.
+   *
    * @public
    */
   values?: string[] | undefined;
@@ -456,178 +508,204 @@ export interface SavingsPlanOfferingRateFilterElement {
  */
 export interface DescribeSavingsPlansOfferingRatesRequest {
   /**
-   * <p>The IDs of the offerings.</p>
+   * The IDs of the offerings.
+   *
    * @public
    */
   savingsPlanOfferingIds?: string[] | undefined;
 
   /**
-   * <p>The payment options.</p>
+   * The payment options.
+   *
    * @public
    */
   savingsPlanPaymentOptions?: SavingsPlanPaymentOption[] | undefined;
 
   /**
-   * <p>The plan types.</p>
+   * The plan types.
+   *
    * @public
    */
   savingsPlanTypes?: SavingsPlanType[] | undefined;
 
   /**
-   * <p>The Amazon Web Services products.</p>
+   * The Amazon Web Services products.
+   *
    * @public
    */
   products?: SavingsPlanProductType[] | undefined;
 
   /**
-   * <p>The services.</p>
+   * The services.
+   *
    * @public
    */
   serviceCodes?: SavingsPlanRateServiceCode[] | undefined;
 
   /**
-   * <p>The usage details of the line item in the billing report.</p>
+   * The usage details of the line item in the billing report.
+   *
    * @public
    */
   usageTypes?: string[] | undefined;
 
   /**
-   * <p>The specific Amazon Web Services operation for the line item in the billing
-   *          report.</p>
+   * The specific Amazon Web Services operation for the line item in the billing report.
+   *
    * @public
    */
   operations?: string[] | undefined;
 
   /**
-   * <p>The filters.</p>
+   * The filters.
+   *
    * @public
    */
   filters?: SavingsPlanOfferingRateFilterElement[] | undefined;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return with a single call. To retrieve additional
-   *          results, make another call with the returned token value.</p>
+   * The maximum number of results to return with a single call. To retrieve additional results, make another call with the returned token value.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Information about a Savings Plan offering rate property.</p>
+ * Information about a Savings Plan offering rate property.
+ *
  * @public
  */
 export interface SavingsPlanOfferingRateProperty {
   /**
-   * <p>The property name.</p>
+   * The property name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The property value.</p>
+   * The property value.
+   *
    * @public
    */
   value?: string | undefined;
 }
 
 /**
- * <p>Information about a Savings Plan offering.</p>
+ * Information about a Savings Plan offering.
+ *
  * @public
  */
 export interface ParentSavingsPlanOffering {
   /**
-   * <p>The ID of the offering.</p>
+   * The ID of the offering.
+   *
    * @public
    */
   offeringId?: string | undefined;
 
   /**
-   * <p>The payment option.</p>
+   * The payment option.
+   *
    * @public
    */
   paymentOption?: SavingsPlanPaymentOption | undefined;
 
   /**
-   * <p>The plan type.</p>
+   * The plan type.
+   *
    * @public
    */
   planType?: SavingsPlanType | undefined;
 
   /**
-   * <p>The duration, in seconds.</p>
+   * The duration, in seconds.
+   *
    * @public
    */
   durationSeconds?: number | undefined;
 
   /**
-   * <p>The currency.</p>
+   * The currency.
+   *
    * @public
    */
   currency?: CurrencyCode | undefined;
 
   /**
-   * <p>The description.</p>
+   * The description.
+   *
    * @public
    */
   planDescription?: string | undefined;
 }
 
 /**
- * <p>Information about a Savings Plan offering rate.</p>
+ * Information about a Savings Plan offering rate.
+ *
  * @public
  */
 export interface SavingsPlanOfferingRate {
   /**
-   * <p>The Savings Plan offering.</p>
+   * The Savings Plan offering.
+   *
    * @public
    */
   savingsPlanOffering?: ParentSavingsPlanOffering | undefined;
 
   /**
-   * <p>The Savings Plan rate.</p>
+   * The Savings Plan rate.
+   *
    * @public
    */
   rate?: string | undefined;
 
   /**
-   * <p>The unit.</p>
+   * The unit.
+   *
    * @public
    */
   unit?: SavingsPlanRateUnit | undefined;
 
   /**
-   * <p>The product type.</p>
+   * The product type.
+   *
    * @public
    */
   productType?: SavingsPlanProductType | undefined;
 
   /**
-   * <p>The service.</p>
+   * The service.
+   *
    * @public
    */
   serviceCode?: SavingsPlanRateServiceCode | undefined;
 
   /**
-   * <p>The usage details of the line item in the billing report.</p>
+   * The usage details of the line item in the billing report.
+   *
    * @public
    */
   usageType?: string | undefined;
 
   /**
-   * <p>The specific Amazon Web Services operation for the line item in the billing
-   *          report.</p>
+   * The specific Amazon Web Services operation for the line item in the billing report.
+   *
    * @public
    */
   operation?: string | undefined;
 
   /**
-   * <p>The properties.</p>
+   * The properties.
+   *
    * @public
    */
   properties?: SavingsPlanOfferingRateProperty[] | undefined;
@@ -638,32 +716,36 @@ export interface SavingsPlanOfferingRate {
  */
 export interface DescribeSavingsPlansOfferingRatesResponse {
   /**
-   * <p>Information about the Savings Plans offering rates.</p>
+   * Information about the Savings Plans offering rates.
+   *
    * @public
    */
   searchResults?: SavingsPlanOfferingRate[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is null when there are
-   *          no more results to return.</p>
+   * The token to use to retrieve the next page of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Information about a Savings Plan offering filter.</p>
+ * Information about a Savings Plan offering filter.
+ *
  * @public
  */
 export interface SavingsPlanOfferingFilterElement {
   /**
-   * <p>The filter name.</p>
+   * The filter name.
+   *
    * @public
    */
   name?: SavingsPlanOfferingFilterAttribute | undefined;
 
   /**
-   * <p>The filter values.</p>
+   * The filter values.
+   *
    * @public
    */
   values?: string[] | undefined;
@@ -674,172 +756,197 @@ export interface SavingsPlanOfferingFilterElement {
  */
 export interface DescribeSavingsPlansOfferingsRequest {
   /**
-   * <p>The IDs of the offerings.</p>
+   * The IDs of the offerings.
+   *
    * @public
    */
   offeringIds?: string[] | undefined;
 
   /**
-   * <p>The payment options.</p>
+   * The payment options.
+   *
    * @public
    */
   paymentOptions?: SavingsPlanPaymentOption[] | undefined;
 
   /**
-   * <p>The product type.</p>
+   * The product type.
+   *
    * @public
    */
   productType?: SavingsPlanProductType | undefined;
 
   /**
-   * <p>The plan types.</p>
+   * The plan types.
+   *
    * @public
    */
   planTypes?: SavingsPlanType[] | undefined;
 
   /**
-   * <p>The duration, in seconds.</p>
+   * The duration, in seconds.
+   *
    * @public
    */
   durations?: number[] | undefined;
 
   /**
-   * <p>The currencies.</p>
+   * The currencies.
+   *
    * @public
    */
   currencies?: CurrencyCode[] | undefined;
 
   /**
-   * <p>The descriptions.</p>
+   * The descriptions.
+   *
    * @public
    */
   descriptions?: string[] | undefined;
 
   /**
-   * <p>The services.</p>
+   * The services.
+   *
    * @public
    */
   serviceCodes?: string[] | undefined;
 
   /**
-   * <p>The usage details of the line item in the billing report.</p>
+   * The usage details of the line item in the billing report.
+   *
    * @public
    */
   usageTypes?: string[] | undefined;
 
   /**
-   * <p>The specific Amazon Web Services operation for the line item in the billing
-   *          report.</p>
+   * The specific Amazon Web Services operation for the line item in the billing report.
+   *
    * @public
    */
   operations?: string[] | undefined;
 
   /**
-   * <p>The filters.</p>
+   * The filters.
+   *
    * @public
    */
   filters?: SavingsPlanOfferingFilterElement[] | undefined;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return with a single call. To retrieve additional
-   *          results, make another call with the returned token value.</p>
+   * The maximum number of results to return with a single call. To retrieve additional results, make another call with the returned token value.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Information about a Savings Plan offering property.</p>
+ * Information about a Savings Plan offering property.
+ *
  * @public
  */
 export interface SavingsPlanOfferingProperty {
   /**
-   * <p>The property name.</p>
+   * The property name.
+   *
    * @public
    */
   name?: SavingsPlanOfferingPropertyKey | undefined;
 
   /**
-   * <p>The property value.</p>
+   * The property value.
+   *
    * @public
    */
   value?: string | undefined;
 }
 
 /**
- * <p>Information about a Savings Plan offering.</p>
+ * Information about a Savings Plan offering.
+ *
  * @public
  */
 export interface SavingsPlanOffering {
   /**
-   * <p>The ID of the offering.</p>
+   * The ID of the offering.
+   *
    * @public
    */
   offeringId?: string | undefined;
 
   /**
-   * <p>The product type.</p>
+   * The product type.
+   *
    * @public
    */
   productTypes?: SavingsPlanProductType[] | undefined;
 
   /**
-   * <p>The plan type.</p>
+   * The plan type.
+   *
    * @public
    */
   planType?: SavingsPlanType | undefined;
 
   /**
-   * <p>The description.</p>
+   * The description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The payment option.</p>
+   * The payment option.
+   *
    * @public
    */
   paymentOption?: SavingsPlanPaymentOption | undefined;
 
   /**
-   * <p>The duration, in seconds.</p>
+   * The duration, in seconds.
+   *
    * @public
    */
   durationSeconds?: number | undefined;
 
   /**
-   * <p>The currency.</p>
+   * The currency.
+   *
    * @public
    */
   currency?: CurrencyCode | undefined;
 
   /**
-   * <p>The service.</p>
+   * The service.
+   *
    * @public
    */
   serviceCode?: string | undefined;
 
   /**
-   * <p>The usage details of the line item in the billing report.</p>
+   * The usage details of the line item in the billing report.
+   *
    * @public
    */
   usageType?: string | undefined;
 
   /**
-   * <p>The specific Amazon Web Services operation for the line item in the billing
-   *          report.</p>
+   * The specific Amazon Web Services operation for the line item in the billing report.
+   *
    * @public
    */
   operation?: string | undefined;
 
   /**
-   * <p>The properties.</p>
+   * The properties.
+   *
    * @public
    */
   properties?: SavingsPlanOfferingProperty[] | undefined;
@@ -850,14 +957,15 @@ export interface SavingsPlanOffering {
  */
 export interface DescribeSavingsPlansOfferingsResponse {
   /**
-   * <p>Information about the Savings Plans offerings.</p>
+   * Information about the Savings Plans offerings.
+   *
    * @public
    */
   searchResults?: SavingsPlanOffering[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is null when there are
-   *          no more results to return.</p>
+   * The token to use to retrieve the next page of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -868,7 +976,8 @@ export interface DescribeSavingsPlansOfferingsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -879,7 +988,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>Information about the tags.</p>
+   * Information about the tags.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -890,14 +1000,15 @@ export interface ListTagsForResourceResponse {
  */
 export interface ReturnSavingsPlanRequest {
   /**
-   * <p>The ID of the Savings Plan.</p>
+   * The ID of the Savings Plan.
+   *
    * @public
    */
   savingsPlanId: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *          request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -908,7 +1019,8 @@ export interface ReturnSavingsPlanRequest {
  */
 export interface ReturnSavingsPlanResponse {
   /**
-   * <p>The ID of the Savings Plan.</p>
+   * The ID of the Savings Plan.
+   *
    * @public
    */
   savingsPlanId?: string | undefined;
@@ -919,13 +1031,15 @@ export interface ReturnSavingsPlanResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>One or more tags. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * One or more tags. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -941,13 +1055,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The tag keys.</p>
+   * The tag keys.
+   *
    * @public
    */
   tagKeys: string[] | undefined;

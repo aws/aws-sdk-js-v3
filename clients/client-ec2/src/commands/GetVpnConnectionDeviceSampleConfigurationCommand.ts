@@ -26,8 +26,8 @@ export interface GetVpnConnectionDeviceSampleConfigurationCommandInput extends G
 export interface GetVpnConnectionDeviceSampleConfigurationCommandOutput extends GetVpnConnectionDeviceSampleConfigurationResult, __MetadataBearer {}
 
 /**
- * <p>Download an Amazon Web Services-provided sample configuration file to be used with the customer
- *             gateway device specified for your Site-to-Site VPN connection.</p>
+ * Download an Amazon Web Services-provided sample configuration file to be used with the customer gateway device specified for your Site-to-Site VPN connection.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,8 +58,8 @@ export interface GetVpnConnectionDeviceSampleConfigurationCommandOutput extends 
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

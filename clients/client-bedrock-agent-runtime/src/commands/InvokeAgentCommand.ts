@@ -24,7 +24,26 @@ export interface InvokeAgentCommandInput extends InvokeAgentRequest {}
 export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __MetadataBearer {}
 
 /**
- * <note> <p>Amazon Bedrock Agents (now Amazon Bedrock Agents Classic) is no longer open to new customers. For capabilities similar to Bedrock Agents Classic, explore Amazon Bedrock AgentCore. Existing customers can continue to use the service as normal. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html">Amazon Bedrock Agents Classic availability change</a>.</p> </note> <note> </note> <p>Sends a prompt for the agent to process and respond to. Note the following fields for the request:</p> <ul> <li> <p>To continue the same conversation with an agent, use the same <code>sessionId</code> value in the request.</p> </li> <li> <p>To activate trace enablement, turn <code>enableTrace</code> to <code>true</code>. Trace enablement helps you follow the agent's reasoning process that led it to the information it processed, the actions it took, and the final result it yielded. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-events">Trace enablement</a>.</p> </li> <li> <p>End a conversation by setting <code>endSession</code> to <code>true</code>.</p> </li> <li> <p>In the <code>sessionState</code> object, you can include attributes for the session or prompt or, if you configured an action group to return control, results from invocation of the action group.</p> </li> </ul> <p>The response contains both <b>chunk</b> and <b>trace</b> attributes.</p> <p>The final response is returned in the <code>bytes</code> field of the <code>chunk</code> object. The <code>InvokeAgent</code> returns one chunk for the entire interaction.</p> <ul> <li> <p>The <code>attribution</code> object contains citations for parts of the response.</p> </li> <li> <p>If you set <code>enableTrace</code> to <code>true</code> in the request, you can trace the agent's steps and reasoning process that led it to the response.</p> </li> <li> <p>If the action predicted was configured to return control, the response returns parameters for the action, elicited from the user, in the <code>returnControl</code> field.</p> </li> <li> <p>Errors are also surfaced in the response.</p> </li> </ul>
+ * > **Note:** Amazon Bedrock Agents (now Amazon Bedrock Agents Classic) is no longer open to new customers. For capabilities similar to Bedrock Agents Classic, explore Amazon Bedrock AgentCore. Existing customers can continue to use the service as normal. For more information, see [Amazon Bedrock Agents Classic availability change](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html).
+ *
+ * > **Note:**
+ *
+ * Sends a prompt for the agent to process and respond to. Note the following fields for the request:
+ *
+ * - To continue the same conversation with an agent, use the same `sessionId` value in the request.
+ * - To activate trace enablement, turn `enableTrace` to `true`. Trace enablement helps you follow the agent's reasoning process that led it to the information it processed, the actions it took, and the final result it yielded. For more information, see [Trace enablement](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-events).
+ * - End a conversation by setting `endSession` to `true`.
+ * - In the `sessionState` object, you can include attributes for the session or prompt or, if you configured an action group to return control, results from invocation of the action group.
+ *
+ * The response contains both **chunk** and **trace** attributes.
+ *
+ * The final response is returned in the `bytes` field of the `chunk` object. The `InvokeAgent` returns one chunk for the entire interaction.
+ *
+ * - The `attribution` object contains citations for parts of the response.
+ * - If you set `enableTrace` to `true` in the request, you can trace the agent's steps and reasoning process that led it to the response.
+ * - If the action predicted was configured to return control, the response returns parameters for the action, elicited from the user, in the `returnControl` field.
+ * - Errors are also surfaced in the response.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -1225,38 +1244,48 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * @see {@link BedrockAgentRuntimeClientResolvedConfig | config} for BedrockAgentRuntimeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request is denied because of missing access permissions. Check your permissions and retry your request.</p>
+ *
+ * The request is denied because of missing access permissions. Check your permissions and retry your request.
  *
  * @throws {@link BadGatewayException} (server fault)
- *  <p>There was an issue with a dependency due to a server issue. Retry your request.</p>
+ *
+ * There was an issue with a dependency due to a server issue. Retry your request.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>There was a conflict performing an operation. Resolve the conflict and retry your request.</p>
+ *
+ * There was a conflict performing an operation. Resolve the conflict and retry your request.
  *
  * @throws {@link DependencyFailedException} (client fault)
- *  <p>There was an issue with a dependency. Check the resource configurations and retry the request.</p>
+ *
+ * There was an issue with a dependency. Check the resource configurations and retry the request.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link ModelNotReadyException} (client fault)
- *  <p> The model specified in the request is not ready to serve inference requests. The AWS SDK will automatically retry the operation up to 5 times. For information about configuring automatic retries, see <a href="https://docs.aws.amazon.com/sdkref/latest/guide/feature-retry-behavior.html">Retry behavior</a> in the <i>AWS SDKs and Tools</i> reference guide. </p>
+ *
+ * The model specified in the request is not ready to serve inference requests. The AWS SDK will automatically retry the operation up to 5 times. For information about configuring automatic retries, see [Retry behavior](https://docs.aws.amazon.com/sdkref/latest/guide/feature-retry-behavior.html) in the *AWS SDKs and Tools* reference guide.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
+ *
+ * The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The number of requests exceeds the service quota. Resubmit your request later.</p>
+ *
+ * The number of requests exceeds the service quota. Resubmit your request later.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
+ * The number of requests exceeds the limit. Resubmit your request later.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Input validation failed. Check your request parameters and retry the request.</p>
+ *
+ * Input validation failed. Check your request parameters and retry the request.
  *
  * @throws {@link BedrockAgentRuntimeServiceException}
- * <p>Base exception class for all service exceptions from BedrockAgentRuntime service.</p>
  *
+ * Base exception class for all service exceptions from BedrockAgentRuntime service.
  *
  * @public
  */

@@ -26,18 +26,12 @@ export interface DisassociateApplicationStatusCheckCommandInput extends Disassoc
 export interface DisassociateApplicationStatusCheckCommandOutput extends DisassociateApplicationStatusCheckResult, __MetadataBearer {}
 
 /**
- * <p>Disassociates an application status check from instances or <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">tags</a>. After disassociation, health monitoring stops for the affected instances. The following rules apply:</p>
- *          <ul>
- *             <li>
- *                <p>You must specify either <code>TargetTagAssociations</code> or <code>InstanceIds</code>, but not both. Specifying both results in an <code>InvalidParameterCombination</code> error.</p>
- *             </li>
- *             <li>
- *                <p>The application status check must already exist and belong to your account.</p>
- *             </li>
- *             <li>
- *                <p>Tag keys must not be blank.</p>
- *             </li>
- *          </ul>
+ * Disassociates an application status check from instances or [tags](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html). After disassociation, health monitoring stops for the affected instances. The following rules apply:
+ *
+ * - You must specify either `TargetTagAssociations` or `InstanceIds`, but not both. Specifying both results in an `InvalidParameterCombination` error.
+ * - The application status check must already exist and belong to your account.
+ * - Tag keys must not be blank.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -89,8 +83,8 @@ export interface DisassociateApplicationStatusCheckCommandOutput extends Disasso
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To disassociate an application status check from tags
  * ```javascript

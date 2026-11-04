@@ -23,16 +23,12 @@ export interface AcceptQualificationRequestCommandInput extends AcceptQualificat
 export interface AcceptQualificationRequestCommandOutput extends AcceptQualificationRequestResponse, __MetadataBearer {}
 
 /**
- * <p>
- *             The <code>AcceptQualificationRequest</code> operation approves a Worker's request for a Qualification.
- *         </p>
- *         <p>
- *             Only the owner of the Qualification type can grant a Qualification request for that	type.
- *         </p>
- *         <p>
- *             A successful request for the <code>AcceptQualificationRequest</code> operation
- *             returns with no errors and an empty body.
- *         </p>
+ * The `AcceptQualificationRequest` operation approves a Worker's request for a Qualification.
+ *
+ * Only the owner of the Qualification type can grant a Qualification request for that type.
+ *
+ * A successful request for the `AcceptQualificationRequest` operation returns with no errors and an empty body.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,14 +54,16 @@ export interface AcceptQualificationRequestCommandOutput extends AcceptQualifica
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
  *
  * @throws {@link RequestError} (client fault)
- *  <p>Your request is invalid.</p>
+ *
+ * Your request is invalid.
  *
  * @throws {@link ServiceFault} (server fault)
- *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
+ * Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.
  *
  * @throws {@link MTurkServiceException}
- * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * Base exception class for all service exceptions from MTurk service.
  *
  * @public
  */

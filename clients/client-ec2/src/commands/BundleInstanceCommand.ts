@@ -23,15 +23,12 @@ export interface BundleInstanceCommandInput extends BundleInstanceRequest {}
 export interface BundleInstanceCommandOutput extends BundleInstanceResult, __MetadataBearer {}
 
 /**
- * <p>Bundles an Amazon instance store-backed Windows instance.</p>
- *          <p>During bundling, only the root device volume (C:\) is bundled. Data on other instance
- *       store volumes is not preserved.</p>
- *          <note>
- *             <p>BundleInstance is no longer supported. To create an AMI, use
- *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html">CreateImage</a> instead.
- *         For more information about creating an Amazon EBS-backed AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">
- *         Create an Amazon EBS-backed AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
- *          </note>
+ * Bundles an Amazon instance store-backed Windows instance.
+ *
+ * During bundling, only the root device volume (C:\) is bundled. Data on other instance store volumes is not preserved.
+ *
+ * > **Note:** BundleInstance is no longer supported. To create an AMI, use [CreateImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html) instead. For more information about creating an Amazon EBS-backed AMI, see [Create an Amazon EBS-backed AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,8 +85,8 @@ export interface BundleInstanceCommandOutput extends BundleInstanceResult, __Met
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

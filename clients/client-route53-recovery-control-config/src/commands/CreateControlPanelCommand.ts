@@ -23,7 +23,8 @@ export interface CreateControlPanelCommandInput extends CreateControlPanelReques
 export interface CreateControlPanelCommandOutput extends CreateControlPanelResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new control panel. A control panel represents a group of routing controls that can be changed together in a single transaction. You can use a control panel to centrally view the operational status of applications across your organization, and trigger multi-app failovers in a single transaction, for example, to fail over an Availability Zone or Amazon Web Services Region.</p>
+ * Creates a new control panel. A control panel represents a group of routing controls that can be changed together in a single transaction. You can use a control panel to centrally view the operational status of applications across your organization, and trigger multi-app failovers in a single transaction, for example, to fail over an Availability Zone or Amazon Web Services Region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,29 +64,36 @@ export interface CreateControlPanelCommandOutput extends CreateControlPanelRespo
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>403 response - You do not have sufficient access to perform this action.</p>
+ *
+ * 403 response - You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>409 response - ConflictException. You might be using a predefined variable.</p>
+ *
+ * 409 response - ConflictException. You might be using a predefined variable.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>500 response - InternalServiceError. Temporary service error. Retry the request.</p>
+ *
+ * 500 response - InternalServiceError. Temporary service error. Retry the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>404 response - MalformedQueryString. The query string contains a syntax error or resource not found.</p>
+ *
+ * 404 response - MalformedQueryString. The query string contains a syntax error or resource not found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>402 response - You attempted to create more resources than the service allows based on service quotas.</p>
+ *
+ * 402 response - You attempted to create more resources than the service allows based on service quotas.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>429 response - LimitExceededException or TooManyRequestsException.</p>
+ *
+ * 429 response - LimitExceededException or TooManyRequestsException.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
+ *
+ * 400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.
  *
  * @throws {@link Route53RecoveryControlConfigServiceException}
- * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
+ * Base exception class for all service exceptions from Route53RecoveryControlConfig service.
  *
  * @public
  */

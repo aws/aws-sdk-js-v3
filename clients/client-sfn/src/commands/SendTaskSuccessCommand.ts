@@ -23,9 +23,8 @@ export interface SendTaskSuccessCommandInput extends SendTaskSuccessInput {}
 export interface SendTaskSuccessCommandOutput extends SendTaskSuccessOutput, __MetadataBearer {}
 
 /**
- * <p>Used by activity workers, Task states using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token">callback</a>
- *       pattern, and optionally Task states using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-sync">job run</a> pattern to report that the task identified by the <code>taskToken</code> completed
- *       successfully.</p>
+ * Used by activity workers, Task states using the [callback](https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token) pattern, and optionally Task states using the [job run](https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-sync) pattern to report that the task identified by the `taskToken` completed successfully.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,29 +50,36 @@ export interface SendTaskSuccessCommandOutput extends SendTaskSuccessOutput, __M
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
  * @throws {@link InvalidOutput} (client fault)
- *  <p>The provided JSON output data is not valid.</p>
+ *
+ * The provided JSON output data is not valid.
  *
  * @throws {@link InvalidToken} (client fault)
- *  <p>The provided token is not valid.</p>
+ *
+ * The provided token is not valid.
  *
  * @throws {@link KmsAccessDeniedException} (client fault)
- *  <p>Either your KMS key policy or API caller does not have the required permissions.</p>
+ *
+ * Either your KMS key policy or API caller does not have the required permissions.
  *
  * @throws {@link KmsInvalidStateException} (client fault)
- *  <p>The KMS key is not in valid state, for example: Disabled or Deleted.</p>
+ *
+ * The KMS key is not in valid state, for example: Disabled or Deleted.
  *
  * @throws {@link KmsThrottlingException} (client fault)
- *  <p>Received when KMS returns <code>ThrottlingException</code> for a KMS call that Step Functions makes on behalf of the caller.</p>
+ *
+ * Received when KMS returns `ThrottlingException` for a KMS call that Step Functions makes on behalf of the caller.
  *
  * @throws {@link TaskDoesNotExist} (client fault)
- *  <p>The activity does not exist.</p>
+ *
+ * The activity does not exist.
  *
  * @throws {@link TaskTimedOut} (client fault)
- *  <p>The task token has either expired or the task associated with the token has already been closed.</p>
+ *
+ * The task token has either expired or the task associated with the token has already been closed.
  *
  * @throws {@link SFNServiceException}
- * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * Base exception class for all service exceptions from SFN service.
  *
  * @public
  */

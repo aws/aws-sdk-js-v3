@@ -23,7 +23,8 @@ export interface UpdateActionTargetCommandInput extends UpdateActionTargetReques
 export interface UpdateActionTargetCommandOutput extends UpdateActionTargetResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the name and description of a custom action target in Security Hub CSPM.</p>
+ * Updates the name and description of a custom action target in Security Hub CSPM.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,21 +51,24 @@ export interface UpdateActionTargetCommandOutput extends UpdateActionTargetRespo
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>Internal server error.</p>
+ *
+ * Internal server error.
  *
  * @throws {@link InvalidAccessException} (client fault)
- *  <p>The account doesn't have permission to perform this action.</p>
+ *
+ * The account doesn't have permission to perform this action.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because you supplied an invalid or out-of-range value for an
- *          input parameter.</p>
+ *
+ * The request was rejected because you supplied an invalid or out-of-range value for an input parameter.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request was rejected because we can't find the specified resource.</p>
+ *
+ * The request was rejected because we can't find the specified resource.
  *
  * @throws {@link SecurityHubServiceException}
- * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * Base exception class for all service exceptions from SecurityHub service.
  *
  * @example To update the name and description of a custom action target
  * ```javascript

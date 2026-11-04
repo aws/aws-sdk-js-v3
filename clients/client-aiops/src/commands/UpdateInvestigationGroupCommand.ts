@@ -23,7 +23,8 @@ export interface UpdateInvestigationGroupCommandInput extends UpdateInvestigatio
 export interface UpdateInvestigationGroupCommandOutput extends UpdateInvestigationGroupOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the configuration of the specified investigation group.</p>
+ * Updates the configuration of the specified investigation group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,29 +68,36 @@ export interface UpdateInvestigationGroupCommandOutput extends UpdateInvestigati
  * @see {@link AIOpsClientResolvedConfig | config} for AIOpsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permissions to perform this action.</p>
+ *
+ * You don't have sufficient permissions to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>This operation couldn't be completed because of a conflict in resource states.</p>
+ *
+ * This operation couldn't be completed because of a conflict in resource states.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. You can try again later.</p>
+ *
+ * An internal server error occurred. You can try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource doesn't exist.</p>
+ *
+ * The specified resource doesn't exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled because of quota limits. You can try again later.</p>
+ *
+ * The request was throttled because of quota limits. You can try again later.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>This operation or its parameters aren't formatted correctly.</p>
+ *
+ * This operation or its parameters aren't formatted correctly.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>Access id denied for this operation, or this operation is not valid for the specified resource.</p>
+ *
+ * Access id denied for this operation, or this operation is not valid for the specified resource.
  *
  * @throws {@link AIOpsServiceException}
- * <p>Base exception class for all service exceptions from AIOps service.</p>
  *
+ * Base exception class for all service exceptions from AIOps service.
  *
  * @public
  */

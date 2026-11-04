@@ -23,8 +23,8 @@ export interface RegisterMailDomainCommandInput extends RegisterMailDomainReques
 export interface RegisterMailDomainCommandOutput extends RegisterMailDomainResponse, __MetadataBearer {}
 
 /**
- * <p>Registers a new domain in WorkMail and SES, and configures it for use by WorkMail. Emails received by SES for this domain are routed to the specified WorkMail organization, and WorkMail has
- *          permanent permission to use the specified domain for sending your users' emails.</p>
+ * Registers a new domain in WorkMail and SES, and configures it for use by WorkMail. Emails received by SES for this domain are routed to the specified WorkMail organization, and WorkMail has permanent permission to use the specified domain for sending your users' emails.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,25 +51,28 @@ export interface RegisterMailDomainCommandOutput extends RegisterMailDomainRespo
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the input parameters don't match the service's restrictions.</p>
+ *
+ * One or more of the input parameters don't match the service's restrictions.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request exceeds the limit of the resource.</p>
+ *
+ * The request exceeds the limit of the resource.
  *
  * @throws {@link MailDomainInUseException} (client fault)
- *  <p>The domain you're trying to change is in use by another user or organization in your account. See the error message for details.</p>
+ *
+ * The domain you're trying to change is in use by another user or organization in your account. See the error message for details.
  *
  * @throws {@link OrganizationNotFoundException} (client fault)
- *  <p>An operation received a valid organization identifier that either doesn't belong or
- *          exist in the system.</p>
+ *
+ * An operation received a valid organization identifier that either doesn't belong or exist in the system.
  *
  * @throws {@link OrganizationStateException} (client fault)
- *  <p>The organization must have a valid state to perform certain
- *          operations on the organization or its members.</p>
+ *
+ * The organization must have a valid state to perform certain operations on the organization or its members.
  *
  * @throws {@link WorkMailServiceException}
- * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * Base exception class for all service exceptions from WorkMail service.
  *
  * @public
  */

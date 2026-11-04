@@ -23,7 +23,12 @@ export interface ExportCertificateCommandInput extends ExportCertificateRequest 
 export interface ExportCertificateCommandOutput extends ExportCertificateResponse, __MetadataBearer {}
 
 /**
- * <p>Exports a private certificate issued by a private certificate authority (CA) or a public certificate for use anywhere. The exported file contains the certificate, the certificate chain, and the encrypted private key associated with the public key that is embedded in the certificate. For security, you must assign a passphrase for the private key when exporting it. </p> <p>For information about exporting and formatting a certificate using the ACM console or CLI, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/export-private.html">Export a private certificate</a> and <a href="https://docs.aws.amazon.com/acm/latest/userguide/export-public-certificate">Export a public certificate</a>.</p> <note> <p>ACM public certificates created prior to June 17, 2025 cannot be exported.</p> </note>
+ * Exports a private certificate issued by a private certificate authority (CA) or a public certificate for use anywhere. The exported file contains the certificate, the certificate chain, and the encrypted private key associated with the public key that is embedded in the certificate. For security, you must assign a passphrase for the private key when exporting it.
+ *
+ * For information about exporting and formatting a certificate using the ACM console or CLI, see [Export a private certificate](https://docs.aws.amazon.com/acm/latest/userguide/export-private.html) and [Export a public certificate](https://docs.aws.amazon.com/acm/latest/userguide/export-public-certificate).
+ *
+ * > **Note:** ACM public certificates created prior to June 17, 2025 cannot be exported.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,23 +58,28 @@ export interface ExportCertificateCommandOutput extends ExportCertificateRespons
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
  *
  * @throws {@link InvalidArnException} (client fault)
- *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+ *
+ * The requested Amazon Resource Name (ARN) does not refer to an existing resource.
  *
  * @throws {@link RequestInProgressException} (client fault)
- *  <p>The certificate request is in process and the certificate in your account has not yet been issued.</p>
+ *
+ * The certificate request is in process and the certificate in your account has not yet been issued.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified certificate cannot be found in the caller's account or the caller's account cannot be found.</p>
+ *
+ * The specified certificate cannot be found in the caller's account or the caller's account cannot be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied because it exceeded a quota.</p>
+ *
+ * The request was denied because it exceeded a quota.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The supplied input failed to satisfy constraints of an Amazon Web Services service.</p>
+ *
+ * The supplied input failed to satisfy constraints of an Amazon Web Services service.
  *
  * @throws {@link ACMServiceException}
- * <p>Base exception class for all service exceptions from ACM service.</p>
  *
+ * Base exception class for all service exceptions from ACM service.
  *
  * @public
  */

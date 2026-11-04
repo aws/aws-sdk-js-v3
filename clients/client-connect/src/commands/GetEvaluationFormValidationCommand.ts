@@ -23,11 +23,8 @@ export interface GetEvaluationFormValidationCommandInput extends GetEvaluationFo
 export interface GetEvaluationFormValidationCommandOutput extends GetEvaluationFormValidationResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the status and results of a validation process started by <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartEvaluationFormValidation.html">StartEvaluationFormValidation</a>.
- *    Returns the current execution status (<code>IN_PROGRESS</code>, <code>COMPLETED</code>, or <code>FAILED</code>),
- *    the validated form version, and when completed, a list of findings that identify structural issues and quality
- *    improvements for the evaluation form, and may include suggested fixes. If the validation failed, a reason is provided
- *    indicating the cause of the failure.</p>
+ * Retrieves the status and results of a validation process started by [StartEvaluationFormValidation](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartEvaluationFormValidation.html). Returns the current execution status (`IN_PROGRESS`, `COMPLETED`, or `FAILED`), the validated form version, and when completed, a list of findings that identify structural issues and quality improvements for the evaluation form, and may include suggested fixes. If the validation failed, a reason is provided indicating the cause of the failure.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,20 +71,24 @@ export interface GetEvaluationFormValidationCommandOutput extends GetEvaluationF
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

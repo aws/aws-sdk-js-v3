@@ -23,7 +23,10 @@ export interface StartMonitoringScheduleCommandInput extends StartMonitoringSche
 export interface StartMonitoringScheduleCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Starts a previously stopped monitoring schedule.</p> <note> <p>By default, when you successfully create a new schedule, the status of a monitoring schedule is <code>scheduled</code>.</p> </note>
+ * Starts a previously stopped monitoring schedule.
+ *
+ * > **Note:** By default, when you successfully create a new schedule, the status of a monitoring schedule is `scheduled`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,11 +51,12 @@ export interface StartMonitoringScheduleCommandOutput extends __MetadataBearer {
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Resource being access is not found.</p>
+ *
+ * Resource being access is not found.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { MediaConnectServiceException as __BaseException } from "./MediaConnectServiceException";
 
 /**
- * <p>This exception is thrown if the request contains a semantic error. The precise meaning depends on the API, and is documented in the error message. </p>
+ * This exception is thrown if the request contains a semantic error. The precise meaning depends on the API, and is documented in the error message.
+ *
  * @public
  */
 export class BadRequestException extends __BaseException {
@@ -27,7 +28,8 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
+ * The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -51,7 +53,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>You do not have sufficient access to perform this action. </p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class ForbiddenException extends __BaseException {
@@ -74,7 +77,8 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
- * <p>The server encountered an internal error and is unable to complete the request. </p>
+ * The server encountered an internal error and is unable to complete the request.
+ *
  * @public
  */
 export class InternalServerErrorException extends __BaseException {
@@ -98,7 +102,8 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
- * <p>One or more of the resources in the request does not exist in the system. </p>
+ * One or more of the resources in the request does not exist in the system.
+ *
  * @public
  */
 export class NotFoundException extends __BaseException {
@@ -121,7 +126,8 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * <p>The service is currently unavailable or busy. </p>
+ * The service is currently unavailable or busy.
+ *
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -145,7 +151,8 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling. </p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
@@ -169,7 +176,8 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * <p>Exception raised by Elemental MediaConnect when adding the flow output. See the error message for the operation for more information on the cause of this exception. </p>
+ * Exception raised by Elemental MediaConnect when adding the flow output. See the error message for the operation for more information on the cause of this exception.
+ *
  * @public
  */
 export class AddFlowOutputs420Exception extends __BaseException {
@@ -192,7 +200,8 @@ export class AddFlowOutputs420Exception extends __BaseException {
 }
 
 /**
- * <p>Exception raised by Elemental MediaConnect when creating the bridge. See the error message for the operation for more information on the cause of this exception. </p>
+ * Exception raised by Elemental MediaConnect when creating the bridge. See the error message for the operation for more information on the cause of this exception.
+ *
  * @public
  */
 export class CreateBridge420Exception extends __BaseException {
@@ -215,7 +224,8 @@ export class CreateBridge420Exception extends __BaseException {
 }
 
 /**
- * <p>Exception raised by Elemental MediaConnect when creating the flow. See the error message for the operation for more information on the cause of this exception. </p>
+ * Exception raised by Elemental MediaConnect when creating the flow. See the error message for the operation for more information on the cause of this exception.
+ *
  * @public
  */
 export class CreateFlow420Exception extends __BaseException {
@@ -238,7 +248,8 @@ export class CreateFlow420Exception extends __BaseException {
 }
 
 /**
- * <p>Exception raised by Elemental MediaConnect when creating the gateway. See the error message for the operation for more information on the cause of this exception. </p>
+ * Exception raised by Elemental MediaConnect when creating the gateway. See the error message for the operation for more information on the cause of this exception.
+ *
  * @public
  */
 export class CreateGateway420Exception extends __BaseException {
@@ -261,7 +272,8 @@ export class CreateGateway420Exception extends __BaseException {
 }
 
 /**
- * <p>The request to create a new router input would exceed the service quotas for the account. </p>
+ * The request to create a new router input would exceed the service quotas for the account.
+ *
  * @public
  */
 export class RouterInputServiceQuotaExceededException extends __BaseException {
@@ -284,7 +296,8 @@ export class RouterInputServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request to create a new router network interface would exceed the service quotas (limits) set for the account. </p>
+ * The request to create a new router network interface would exceed the service quotas (limits) set for the account.
+ *
  * @public
  */
 export class RouterNetworkInterfaceServiceQuotaExceededException extends __BaseException {
@@ -307,7 +320,8 @@ export class RouterNetworkInterfaceServiceQuotaExceededException extends __BaseE
 }
 
 /**
- * <p>The request to create a new router output would exceed the service quotas (limits) set for the account. </p>
+ * The request to create a new router output would exceed the service quotas (limits) set for the account.
+ *
  * @public
  */
 export class RouterOutputServiceQuotaExceededException extends __BaseException {
@@ -330,7 +344,8 @@ export class RouterOutputServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request would cause you to exceed a service quota for destination endpoints. Delete unused destination endpoints or request a quota increase, then try your request again.</p>
+ * The request would cause you to exceed a service quota for destination endpoints. Delete unused destination endpoints or request a quota increase, then try your request again.
+ *
  * @public
  */
 export class DestinationEndpointServiceQuotaExceededException extends __BaseException {
@@ -353,7 +368,8 @@ export class DestinationEndpointServiceQuotaExceededException extends __BaseExce
 }
 
 /**
- * <p>Exception raised by Elemental MediaConnect when granting the entitlement. See the error message for the operation for more information on the cause of this exception. </p>
+ * Exception raised by Elemental MediaConnect when granting the entitlement. See the error message for the operation for more information on the cause of this exception.
+ *
  * @public
  */
 export class GrantFlowEntitlements420Exception extends __BaseException {
@@ -376,7 +392,8 @@ export class GrantFlowEntitlements420Exception extends __BaseException {
 }
 
 /**
- * <p>The request would cause you to exceed a service quota for source endpoints. Delete unused source endpoints or request a quota increase, then try your request again.</p>
+ * The request would cause you to exceed a service quota for source endpoints. Delete unused source endpoints or request a quota increase, then try your request again.
+ *
  * @public
  */
 export class SourceEndpointServiceQuotaExceededException extends __BaseException {

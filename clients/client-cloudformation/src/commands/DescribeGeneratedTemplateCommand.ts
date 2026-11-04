@@ -23,10 +23,8 @@ export interface DescribeGeneratedTemplateCommandInput extends DescribeGenerated
 export interface DescribeGeneratedTemplateCommandOutput extends DescribeGeneratedTemplateOutput, __MetadataBearer {}
 
 /**
- * <p>Describes a generated template. The output includes details about the progress of the
- *       creation of a generated template started by a <code>CreateGeneratedTemplate</code> API action
- *       or the update of a generated template started with an <code>UpdateGeneratedTemplate</code> API
- *       action.</p>
+ * Describes a generated template. The output includes details about the progress of the creation of a generated template started by a `CreateGeneratedTemplate` API action or the update of a generated template started with an `UpdateGeneratedTemplate` API action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,11 +91,12 @@ export interface DescribeGeneratedTemplateCommandOutput extends DescribeGenerate
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link GeneratedTemplateNotFoundException} (client fault)
- *  <p>The generated template was not found.</p>
+ *
+ * The generated template was not found.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

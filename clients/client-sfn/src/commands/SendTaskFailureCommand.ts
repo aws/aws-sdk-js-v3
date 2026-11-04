@@ -23,10 +23,12 @@ export interface SendTaskFailureCommandInput extends SendTaskFailureInput {}
 export interface SendTaskFailureCommandOutput extends SendTaskFailureOutput, __MetadataBearer {}
 
 /**
- * <p>Used by activity workers, Task states using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token">callback</a>
- *       pattern, and optionally Task states using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-sync">job run</a> pattern to report that the task identified by the <code>taskToken</code> failed.</p>
- *          <p>For an execution with encryption enabled, Step Functions will encrypt the error and cause fields using the KMS key for the execution role.</p>
- *          <p>A caller can mark a task as fail without using any KMS permissions in the execution role if the caller provides a null value for both <code>error</code> and <code>cause</code> fields because no data needs to be encrypted.</p>
+ * Used by activity workers, Task states using the [callback](https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token) pattern, and optionally Task states using the [job run](https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-sync) pattern to report that the task identified by the `taskToken` failed.
+ *
+ * For an execution with encryption enabled, Step Functions will encrypt the error and cause fields using the KMS key for the execution role.
+ *
+ * A caller can mark a task as fail without using any KMS permissions in the execution role if the caller provides a null value for both `error` and `cause` fields because no data needs to be encrypted.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,26 +55,32 @@ export interface SendTaskFailureCommandOutput extends SendTaskFailureOutput, __M
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
  * @throws {@link InvalidToken} (client fault)
- *  <p>The provided token is not valid.</p>
+ *
+ * The provided token is not valid.
  *
  * @throws {@link KmsAccessDeniedException} (client fault)
- *  <p>Either your KMS key policy or API caller does not have the required permissions.</p>
+ *
+ * Either your KMS key policy or API caller does not have the required permissions.
  *
  * @throws {@link KmsInvalidStateException} (client fault)
- *  <p>The KMS key is not in valid state, for example: Disabled or Deleted.</p>
+ *
+ * The KMS key is not in valid state, for example: Disabled or Deleted.
  *
  * @throws {@link KmsThrottlingException} (client fault)
- *  <p>Received when KMS returns <code>ThrottlingException</code> for a KMS call that Step Functions makes on behalf of the caller.</p>
+ *
+ * Received when KMS returns `ThrottlingException` for a KMS call that Step Functions makes on behalf of the caller.
  *
  * @throws {@link TaskDoesNotExist} (client fault)
- *  <p>The activity does not exist.</p>
+ *
+ * The activity does not exist.
  *
  * @throws {@link TaskTimedOut} (client fault)
- *  <p>The task token has either expired or the task associated with the token has already been closed.</p>
+ *
+ * The task token has either expired or the task associated with the token has already been closed.
  *
  * @throws {@link SFNServiceException}
- * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * Base exception class for all service exceptions from SFN service.
  *
  * @public
  */

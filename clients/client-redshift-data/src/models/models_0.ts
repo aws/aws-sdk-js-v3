@@ -8,18 +8,21 @@ import type {
 } from "./enums";
 
 /**
- * <p>A parameter used in a SQL statement.</p>
+ * A parameter used in a SQL statement.
+ *
  * @public
  */
 export interface SqlParameter {
   /**
-   * <p>The name of the parameter.</p>
+   * The name of the parameter.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The value of the parameter. Amazon Redshift implicitly converts to the proper data type. For more information, see <a href="https://docs.aws.amazon.com/redshift/latest/dg/c_Supported_data_types.html">Data types</a> in the <i>Amazon Redshift Database Developer Guide</i>. </p>
+   * The value of the parameter. Amazon Redshift implicitly converts to the proper data type. For more information, see [Data types](https://docs.aws.amazon.com/redshift/latest/dg/c_Supported_data_types.html) in the *Amazon Redshift Database Developer Guide*.
+   *
    * @public
    */
   value: string | undefined;
@@ -30,91 +33,106 @@ export interface SqlParameter {
  */
 export interface BatchExecuteStatementInput {
   /**
-   * <p>One or more SQL statements to run. The SQL statements run serially in the order of the array. Subsequent SQL statements don't start until the previous statement in the array completes. By default, the SQL statements are run as a single transaction. If any SQL statement fails, all work is rolled back. To change this behavior, see the <code>ExecutionMode</code> parameter.</p>
+   * One or more SQL statements to run. The SQL statements run serially in the order of the array. Subsequent SQL statements don't start until the previous statement in the array completes. By default, the SQL statements are run as a single transaction. If any SQL statement fails, all work is rolled back. To change this behavior, see the `ExecutionMode` parameter.
+   *
    * @public
    */
   Sqls: string[] | undefined;
 
   /**
-   * <p>The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials. </p>
+   * The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
+   *
    * @public
    */
   ClusterIdentifier?: string | undefined;
 
   /**
-   * <p>The name or ARN of the secret that enables access to the database. This parameter is required when authenticating using Secrets Manager. </p>
+   * The name or ARN of the secret that enables access to the database. This parameter is required when authenticating using Secrets Manager.
+   *
    * @public
    */
   SecretArn?: string | undefined;
 
   /**
-   * <p>The database user name. This parameter is required when connecting to a cluster as a database user and authenticating using temporary credentials. </p>
+   * The database user name. This parameter is required when connecting to a cluster as a database user and authenticating using temporary credentials.
+   *
    * @public
    */
   DbUser?: string | undefined;
 
   /**
-   * <p>The name of the database. This parameter is required when authenticating using either Secrets Manager or temporary credentials. </p>
+   * The name of the database. This parameter is required when authenticating using either Secrets Manager or temporary credentials.
+   *
    * @public
    */
   Database?: string | undefined;
 
   /**
-   * <p>A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statements run. </p>
+   * A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statements run.
+   *
    * @public
    */
   WithEvent?: boolean | undefined;
 
   /**
-   * <p>The name of the SQL statements. You can name the SQL statements when you create them to identify the query. </p>
+   * The name of the SQL statements. You can name the SQL statements when you create them to identify the query.
+   *
    * @public
    */
   StatementName?: string | undefined;
 
   /**
-   * <p>The parameters for the SQL statements. The parameters are available to all SQL statements in the batch. Each statement can reference any subset of the provided parameters. Each provided parameter must be referenced by at least one SQL statement in the batch.</p>
+   * The parameters for the SQL statements. The parameters are available to all SQL statements in the batch. Each statement can reference any subset of the provided parameters. Each provided parameter must be referenced by at least one SQL statement in the batch.
+   *
    * @public
    */
   Parameters?: SqlParameter[] | undefined;
 
   /**
-   * <p>The serverless workgroup name or Amazon Resource Name (ARN). This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.</p>
+   * The serverless workgroup name or Amazon Resource Name (ARN). This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
+   *
    * @public
    */
   WorkgroupName?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The data format of the result of the SQL statement. If no format is specified, the default is JSON.</p>
+   * The data format of the result of the SQL statement. If no format is specified, the default is JSON.
+   *
    * @public
    */
   ResultFormat?: ResultFormatString | undefined;
 
   /**
-   * <p>The number of seconds to keep the session alive after the query finishes. The maximum time a session can keep alive is 24 hours. After 24 hours, the session is forced closed and the query is terminated.</p>
+   * The number of seconds to keep the session alive after the query finishes. The maximum time a session can keep alive is 24 hours. After 24 hours, the session is forced closed and the query is terminated.
+   *
    * @public
    */
   SessionKeepAliveSeconds?: number | undefined;
 
   /**
-   * <p>The session identifier of the query.</p>
+   * The session identifier of the query.
+   *
    * @public
    */
   SessionId?: string | undefined;
 
   /**
-   * <p>Determines how the SQL statements in the batch are run. If set to <code>TRANSACTION</code> (the default), all SQL statements are run as a single transaction and they are committed or rolled back together. If set to <code>AUTO_COMMIT</code>, each SQL statement is committed individually, and a failure of one statement does not affect the others.</p>
+   * Determines how the SQL statements in the batch are run. If set to `TRANSACTION` (the default), all SQL statements are run as a single transaction and they are committed or rolled back together. If set to `AUTO_COMMIT`, each SQL statement is committed individually, and a failure of one statement does not affect the others.
+   *
    * @public
    */
   ExecutionMode?: ExecutionMode | undefined;
 
   /**
-   * <p>The number of seconds to wait for all SQL statements in the batch to complete execution before returning the response. If the SQL statements do not complete within the specified time, the response returns the current status. The maximum value is 30 seconds.</p>
+   * The number of seconds to wait for all SQL statements in the batch to complete execution before returning the response. If the SQL statements do not complete within the specified time, the response returns the current status. The maximum value is 30 seconds.
+   *
    * @public
    */
   WaitTimeSeconds?: number | undefined;
@@ -125,73 +143,92 @@ export interface BatchExecuteStatementInput {
  */
 export interface BatchExecuteStatementOutput {
   /**
-   * <p>The identifier of the SQL statement whose results are to be fetched. This value is a universally unique identifier (UUID) generated by Amazon Redshift Data API. This identifier is returned by <code>BatchExecuteStatment</code>. </p>
+   * The identifier of the SQL statement whose results are to be fetched. This value is a universally unique identifier (UUID) generated by Amazon Redshift Data API. This identifier is returned by `BatchExecuteStatment`.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The date and time (UTC) the statement was created. </p>
+   * The date and time (UTC) the statement was created.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The cluster identifier. This element is not returned when connecting to a serverless workgroup. </p>
+   * The cluster identifier. This element is not returned when connecting to a serverless workgroup.
+   *
    * @public
    */
   ClusterIdentifier?: string | undefined;
 
   /**
-   * <p>The database user name.</p>
+   * The database user name.
+   *
    * @public
    */
   DbUser?: string | undefined;
 
   /**
-   * <p>A list of colon (:) separated names of database groups.</p>
+   * A list of colon (:) separated names of database groups.
+   *
    * @public
    */
   DbGroups?: string[] | undefined;
 
   /**
-   * <p>The name of the database.</p>
+   * The name of the database.
+   *
    * @public
    */
   Database?: string | undefined;
 
   /**
-   * <p>The name or ARN of the secret that enables access to the database. </p>
+   * The name or ARN of the secret that enables access to the database.
+   *
    * @public
    */
   SecretArn?: string | undefined;
 
   /**
-   * <p>The serverless workgroup name or Amazon Resource Name (ARN). This element is not returned when connecting to a provisioned cluster.</p>
+   * The serverless workgroup name or Amazon Resource Name (ARN). This element is not returned when connecting to a provisioned cluster.
+   *
    * @public
    */
   WorkgroupName?: string | undefined;
 
   /**
-   * <p>The session identifier of the query.</p>
+   * The session identifier of the query.
+   *
    * @public
    */
   SessionId?: string | undefined;
 
   /**
-   * <p>The status of the SQL statement. Status values are defined as follows: </p> <ul> <li> <p>ABORTED - The query run was stopped by the user. </p> </li> <li> <p>FAILED - The query run failed. </p> </li> <li> <p>FINISHED - The query has finished running. </p> </li> <li> <p>PICKED - The query has been chosen to be run. </p> </li> <li> <p>STARTED - The query run has started. </p> </li> <li> <p>SUBMITTED - The query was submitted, but not yet processed. </p> </li> </ul>
+   * The status of the SQL statement. Status values are defined as follows:
+   *
+   * - ABORTED - The query run was stopped by the user.
+   * - FAILED - The query run failed.
+   * - FINISHED - The query has finished running.
+   * - PICKED - The query has been chosen to be run.
+   * - STARTED - The query run has started.
+   * - SUBMITTED - The query was submitted, but not yet processed.
+   *
    * @public
    */
   Status?: StatementStatusString | undefined;
 
   /**
-   * <p>The process identifier from Amazon Redshift. </p>
+   * The process identifier from Amazon Redshift.
+   *
    * @public
    */
   RedshiftPid?: number | undefined;
 
   /**
-   * <p>A value that indicates whether the statement has a result set. The result set can be empty. The value is true for an empty result set. The value is true if any substatement returns a result set.</p>
+   * A value that indicates whether the statement has a result set. The result set can be empty. The value is true for an empty result set. The value is true if any substatement returns a result set.
+   *
    * @public
    */
   HasResultSet?: boolean | undefined;
@@ -202,7 +239,8 @@ export interface BatchExecuteStatementOutput {
  */
 export interface CancelStatementRequest {
   /**
-   * <p>The identifier of the SQL statement to cancel. This value is a universally unique identifier (UUID) generated by Amazon Redshift Data API. This identifier is returned by <code>BatchExecuteStatment</code>, <code>ExecuteStatment</code>, and <code>ListStatements</code>. </p>
+   * The identifier of the SQL statement to cancel. This value is a universally unique identifier (UUID) generated by Amazon Redshift Data API. This identifier is returned by `BatchExecuteStatment`, `ExecuteStatment`, and `ListStatements`.
+   *
    * @public
    */
   Id: string | undefined;
@@ -213,91 +251,106 @@ export interface CancelStatementRequest {
  */
 export interface CancelStatementResponse {
   /**
-   * <p>A value that indicates whether the cancel statement succeeded (true). </p>
+   * A value that indicates whether the cancel statement succeeded (true).
+   *
    * @public
    */
   Status?: boolean | undefined;
 }
 
 /**
- * <p>The properties (metadata) of a column. </p>
+ * The properties (metadata) of a column.
+ *
  * @public
  */
 export interface ColumnMetadata {
   /**
-   * <p>A value that indicates whether the column is case-sensitive. </p>
+   * A value that indicates whether the column is case-sensitive.
+   *
    * @public
    */
   isCaseSensitive?: boolean | undefined;
 
   /**
-   * <p>A value that indicates whether the column contains currency values.</p>
+   * A value that indicates whether the column contains currency values.
+   *
    * @public
    */
   isCurrency?: boolean | undefined;
 
   /**
-   * <p>A value that indicates whether an integer column is signed.</p>
+   * A value that indicates whether an integer column is signed.
+   *
    * @public
    */
   isSigned?: boolean | undefined;
 
   /**
-   * <p>The label for the column. </p>
+   * The label for the column.
+   *
    * @public
    */
   label?: string | undefined;
 
   /**
-   * <p>The name of the column. </p>
+   * The name of the column.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>A value that indicates whether the column is nullable. </p>
+   * A value that indicates whether the column is nullable.
+   *
    * @public
    */
   nullable?: number | undefined;
 
   /**
-   * <p>The precision value of a decimal number column, or the column length for a non-numeric column. </p>
+   * The precision value of a decimal number column, or the column length for a non-numeric column.
+   *
    * @public
    */
   precision?: number | undefined;
 
   /**
-   * <p>The scale value of a decimal number column. </p>
+   * The scale value of a decimal number column.
+   *
    * @public
    */
   scale?: number | undefined;
 
   /**
-   * <p>The name of the schema that contains the table that includes the column.</p>
+   * The name of the schema that contains the table that includes the column.
+   *
    * @public
    */
   schemaName?: string | undefined;
 
   /**
-   * <p>The name of the table that includes the column. </p>
+   * The name of the table that includes the column.
+   *
    * @public
    */
   tableName?: string | undefined;
 
   /**
-   * <p>The database-specific data type of the column. </p>
+   * The database-specific data type of the column.
+   *
    * @public
    */
   typeName?: string | undefined;
 
   /**
-   * <p>The length of the column.</p>
+   * The length of the column.
+   *
    * @public
    */
   length?: number | undefined;
 
   /**
-   * <p>The default value of the column. </p>
+   * The default value of the column.
+   *
    * @public
    */
   columnDefault?: string | undefined;
@@ -308,91 +361,106 @@ export interface ColumnMetadata {
  */
 export interface DescribeStatementRequest {
   /**
-   * <p>The identifier of the SQL statement to describe. This value is a universally unique identifier (UUID) generated by Amazon Redshift Data API. A suffix indicates the number of the SQL statement. For example, <code>d9b6c0c9-0747-4bf4-b142-e8883122f766:2</code> has a suffix of <code>:2</code> that indicates the second SQL statement of a batch query. This identifier is returned by <code>BatchExecuteStatment</code>, <code>ExecuteStatement</code>, and <code>ListStatements</code>. </p>
+   * The identifier of the SQL statement to describe. This value is a universally unique identifier (UUID) generated by Amazon Redshift Data API. A suffix indicates the number of the SQL statement. For example, `d9b6c0c9-0747-4bf4-b142-e8883122f766:2` has a suffix of `:2` that indicates the second SQL statement of a batch query. This identifier is returned by `BatchExecuteStatment`, `ExecuteStatement`, and `ListStatements`.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The number of seconds to wait for the SQL statement to complete execution before returning the description. The maximum value is 30 seconds.</p>
+   * The number of seconds to wait for the SQL statement to complete execution before returning the description. The maximum value is 30 seconds.
+   *
    * @public
    */
   WaitTimeSeconds?: number | undefined;
 }
 
 /**
- * <p>Information about an SQL statement.</p>
+ * Information about an SQL statement.
+ *
  * @public
  */
 export interface SubStatementData {
   /**
-   * <p>The identifier of the SQL statement. This value is a universally unique identifier (UUID) generated by Amazon Redshift Data API. A suffix indicates the number of the SQL statement. For example, <code>d9b6c0c9-0747-4bf4-b142-e8883122f766:2</code> has a suffix of <code>:2</code> that indicates the second SQL statement of a batch query.</p>
+   * The identifier of the SQL statement. This value is a universally unique identifier (UUID) generated by Amazon Redshift Data API. A suffix indicates the number of the SQL statement. For example, `d9b6c0c9-0747-4bf4-b142-e8883122f766:2` has a suffix of `:2` that indicates the second SQL statement of a batch query.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The amount of time in nanoseconds that the statement ran.</p>
+   * The amount of time in nanoseconds that the statement ran.
+   *
    * @public
    */
   Duration?: number | undefined;
 
   /**
-   * <p>The error message from the cluster if the SQL statement encountered an error while running.</p>
+   * The error message from the cluster if the SQL statement encountered an error while running.
+   *
    * @public
    */
   Error?: string | undefined;
 
   /**
-   * <p>The status of the SQL statement. An example is the that the SQL statement finished. </p>
+   * The status of the SQL statement. An example is the that the SQL statement finished.
+   *
    * @public
    */
   Status?: StatementStatusString | undefined;
 
   /**
-   * <p>The date and time (UTC) the statement was created. </p>
+   * The date and time (UTC) the statement was created.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The date and time (UTC) that the statement metadata was last updated.</p>
+   * The date and time (UTC) that the statement metadata was last updated.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
 
   /**
-   * <p>The SQL statement text.</p>
+   * The SQL statement text.
+   *
    * @public
    */
   QueryString?: string | undefined;
 
   /**
-   * <p>Either the number of rows returned from the SQL statement or the number of rows affected. If result size is greater than zero, the result rows can be the number of rows affected by SQL statements such as INSERT, UPDATE, DELETE, COPY, and others. A <code>-1</code> indicates the value is null.</p>
+   * Either the number of rows returned from the SQL statement or the number of rows affected. If result size is greater than zero, the result rows can be the number of rows affected by SQL statements such as INSERT, UPDATE, DELETE, COPY, and others. A `-1` indicates the value is null.
+   *
    * @public
    */
   ResultRows?: number | undefined;
 
   /**
-   * <p>The size in bytes of the returned results. A <code>-1</code> indicates the value is null.</p>
+   * The size in bytes of the returned results. A `-1` indicates the value is null.
+   *
    * @public
    */
   ResultSize?: number | undefined;
 
   /**
-   * <p>The identifier of the query generated by Amazon Redshift. These identifiers are also available in the <code>query_id</code> column of the <code>SYS_QUERY_HISTORY</code> system view. </p>
+   * The identifier of the query generated by Amazon Redshift. These identifiers are also available in the `query_id` column of the `SYS_QUERY_HISTORY` system view.
+   *
    * @public
    */
   RedshiftQueryId?: number | undefined;
 
   /**
-   * <p>The global unique identifier of the query generated by Amazon Redshift. These identifiers are also available in the <code>query_uuid</code> column of the <code>SYS_QUERY_HISTORY</code> system view. </p>
+   * The global unique identifier of the query generated by Amazon Redshift. These identifiers are also available in the `query_uuid` column of the `SYS_QUERY_HISTORY` system view.
+   *
    * @public
    */
   RedshiftQueryUuid?: string | undefined;
 
   /**
-   * <p>A value that indicates whether the statement has a result set. The result set can be empty. The value is true for an empty result set.</p>
+   * A value that indicates whether the statement has a result set. The result set can be empty. The value is true for an empty result set.
+   *
    * @public
    */
   HasResultSet?: boolean | undefined;
@@ -403,139 +471,170 @@ export interface SubStatementData {
  */
 export interface DescribeStatementResponse {
   /**
-   * <p>The identifier of the SQL statement described. This value is a universally unique identifier (UUID) generated by Amazon Redshift Data API. </p>
+   * The identifier of the SQL statement described. This value is a universally unique identifier (UUID) generated by Amazon Redshift Data API.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The name or Amazon Resource Name (ARN) of the secret that enables access to the database. </p>
+   * The name or Amazon Resource Name (ARN) of the secret that enables access to the database.
+   *
    * @public
    */
   SecretArn?: string | undefined;
 
   /**
-   * <p>The database user name. </p>
+   * The database user name.
+   *
    * @public
    */
   DbUser?: string | undefined;
 
   /**
-   * <p>The name of the database. </p>
+   * The name of the database.
+   *
    * @public
    */
   Database?: string | undefined;
 
   /**
-   * <p>The cluster identifier. </p>
+   * The cluster identifier.
+   *
    * @public
    */
   ClusterIdentifier?: string | undefined;
 
   /**
-   * <p>The amount of time in nanoseconds that the statement ran. </p>
+   * The amount of time in nanoseconds that the statement ran.
+   *
    * @public
    */
   Duration?: number | undefined;
 
   /**
-   * <p>The error message from the cluster if the SQL statement encountered an error while running. </p>
+   * The error message from the cluster if the SQL statement encountered an error while running.
+   *
    * @public
    */
   Error?: string | undefined;
 
   /**
-   * <p>The status of the SQL statement being described. Status values are defined as follows: </p> <ul> <li> <p>ABORTED - The query run was stopped by the user. </p> </li> <li> <p>ALL - A status value that includes all query statuses. This value can be used to filter results. </p> </li> <li> <p>FAILED - The query run failed. </p> </li> <li> <p>FINISHED - The query has finished running. </p> </li> <li> <p>PICKED - The query has been chosen to be run. </p> </li> <li> <p>STARTED - The query run has started. </p> </li> <li> <p>SUBMITTED - The query was submitted, but not yet processed. </p> </li> </ul>
+   * The status of the SQL statement being described. Status values are defined as follows:
+   *
+   * - ABORTED - The query run was stopped by the user.
+   * - ALL - A status value that includes all query statuses. This value can be used to filter results.
+   * - FAILED - The query run failed.
+   * - FINISHED - The query has finished running.
+   * - PICKED - The query has been chosen to be run.
+   * - STARTED - The query run has started.
+   * - SUBMITTED - The query was submitted, but not yet processed.
+   *
    * @public
    */
   Status?: StatusString | undefined;
 
   /**
-   * <p>The date and time (UTC) when the SQL statement was submitted to run. </p>
+   * The date and time (UTC) when the SQL statement was submitted to run.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The date and time (UTC) that the metadata for the SQL statement was last updated. An example is the time the status last changed. </p>
+   * The date and time (UTC) that the metadata for the SQL statement was last updated. An example is the time the status last changed.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
 
   /**
-   * <p>The process identifier from Amazon Redshift. </p>
+   * The process identifier from Amazon Redshift.
+   *
    * @public
    */
   RedshiftPid?: number | undefined;
 
   /**
-   * <p>A value that indicates whether the statement has a result set. The result set can be empty. The value is true for an empty result set. The value is true if any substatement returns a result set.</p>
+   * A value that indicates whether the statement has a result set. The result set can be empty. The value is true for an empty result set. The value is true if any substatement returns a result set.
+   *
    * @public
    */
   HasResultSet?: boolean | undefined;
 
   /**
-   * <p>The SQL statement text. </p>
+   * The SQL statement text.
+   *
    * @public
    */
   QueryString?: string | undefined;
 
   /**
-   * <p>Either the number of rows returned from the SQL statement or the number of rows affected. If result size is greater than zero, the result rows can be the number of rows affected by SQL statements such as INSERT, UPDATE, DELETE, COPY, and others. A <code>-1</code> indicates the value is null.</p>
+   * Either the number of rows returned from the SQL statement or the number of rows affected. If result size is greater than zero, the result rows can be the number of rows affected by SQL statements such as INSERT, UPDATE, DELETE, COPY, and others. A `-1` indicates the value is null.
+   *
    * @public
    */
   ResultRows?: number | undefined;
 
   /**
-   * <p>The size in bytes of the returned results. A <code>-1</code> indicates the value is null.</p>
+   * The size in bytes of the returned results. A `-1` indicates the value is null.
+   *
    * @public
    */
   ResultSize?: number | undefined;
 
   /**
-   * <p>The identifier of the query generated by Amazon Redshift. These identifiers are also available in the <code>query_id</code> column of the <code>SYS_QUERY_HISTORY</code> system view. </p>
+   * The identifier of the query generated by Amazon Redshift. These identifiers are also available in the `query_id` column of the `SYS_QUERY_HISTORY` system view.
+   *
    * @public
    */
   RedshiftQueryId?: number | undefined;
 
   /**
-   * <p>The global unique identifier of the query generated by Amazon Redshift. These identifiers are also available in the <code>query_uuid</code> column of the <code>SYS_QUERY_HISTORY</code> system view. </p>
+   * The global unique identifier of the query generated by Amazon Redshift. These identifiers are also available in the `query_uuid` column of the `SYS_QUERY_HISTORY` system view.
+   *
    * @public
    */
   RedshiftQueryUuid?: string | undefined;
 
   /**
-   * <p>The parameters for the SQL statement.</p>
+   * The parameters for the SQL statement.
+   *
    * @public
    */
   QueryParameters?: SqlParameter[] | undefined;
 
   /**
-   * <p>The SQL statements from a multiple statement run.</p>
+   * The SQL statements from a multiple statement run.
+   *
    * @public
    */
   SubStatements?: SubStatementData[] | undefined;
 
   /**
-   * <p>The serverless workgroup name or Amazon Resource Name (ARN).</p>
+   * The serverless workgroup name or Amazon Resource Name (ARN).
+   *
    * @public
    */
   WorkgroupName?: string | undefined;
 
   /**
-   * <p>The data format of the result of the SQL statement.</p>
+   * The data format of the result of the SQL statement.
+   *
    * @public
    */
   ResultFormat?: ResultFormatString | undefined;
 
   /**
-   * <p>The session identifier of the query.</p>
+   * The session identifier of the query.
+   *
    * @public
    */
   SessionId?: string | undefined;
 
   /**
-   * <p>The execution mode of the batch request. <code>TRANSACTION</code> indicates all SQL statements are run as a single transaction. <code>AUTO_COMMIT</code> indicates each SQL statement is committed individually.</p>
+   * The execution mode of the batch request. `TRANSACTION` indicates all SQL statements are run as a single transaction. `AUTO_COMMIT` indicates each SQL statement is committed individually.
+   *
    * @public
    */
   ExecutionMode?: ExecutionMode | undefined;
@@ -546,61 +645,71 @@ export interface DescribeStatementResponse {
  */
 export interface DescribeTableRequest {
   /**
-   * <p>The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials. </p>
+   * The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
+   *
    * @public
    */
   ClusterIdentifier?: string | undefined;
 
   /**
-   * <p>The name or ARN of the secret that enables access to the database. This parameter is required when authenticating using Secrets Manager. </p>
+   * The name or ARN of the secret that enables access to the database. This parameter is required when authenticating using Secrets Manager.
+   *
    * @public
    */
   SecretArn?: string | undefined;
 
   /**
-   * <p>The database user name. This parameter is required when connecting to a cluster as a database user and authenticating using temporary credentials. </p>
+   * The database user name. This parameter is required when connecting to a cluster as a database user and authenticating using temporary credentials.
+   *
    * @public
    */
   DbUser?: string | undefined;
 
   /**
-   * <p>The name of the database that contains the tables to be described. If <code>ConnectedDatabase</code> is not specified, this is also the database to connect to with your authentication credentials.</p>
+   * The name of the database that contains the tables to be described. If `ConnectedDatabase` is not specified, this is also the database to connect to with your authentication credentials.
+   *
    * @public
    */
   Database: string | undefined;
 
   /**
-   * <p>A database name. The connected database is specified when you connect with your authentication credentials. </p>
+   * A database name. The connected database is specified when you connect with your authentication credentials.
+   *
    * @public
    */
   ConnectedDatabase?: string | undefined;
 
   /**
-   * <p>The schema that contains the table. If no schema is specified, then matching tables for all schemas are returned. </p>
+   * The schema that contains the table. If no schema is specified, then matching tables for all schemas are returned.
+   *
    * @public
    */
   Schema?: string | undefined;
 
   /**
-   * <p>The table name. If no table is specified, then all tables for all matching schemas are returned. If no table and no schema is specified, then all tables for all schemas in the database are returned</p>
+   * The table name. If no table is specified, then all tables for all matching schemas are returned. If no table and no schema is specified, then all tables for all schemas in the database are returned
+   *
    * @public
    */
   Table?: string | undefined;
 
   /**
-   * <p>A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request. </p>
+   * A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of tables to return in the response. If more tables exist than fit in one response, then <code>NextToken</code> is returned to page through the results. </p>
+   * The maximum number of tables to return in the response. If more tables exist than fit in one response, then `NextToken` is returned to page through the results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The serverless workgroup name or Amazon Resource Name (ARN). This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.</p>
+   * The serverless workgroup name or Amazon Resource Name (ARN). This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
+   *
    * @public
    */
   WorkgroupName?: string | undefined;
@@ -611,19 +720,22 @@ export interface DescribeTableRequest {
  */
 export interface DescribeTableResponse {
   /**
-   * <p>The table name. </p>
+   * The table name.
+   *
    * @public
    */
   TableName?: string | undefined;
 
   /**
-   * <p>A list of columns in the table. </p>
+   * A list of columns in the table.
+   *
    * @public
    */
   ColumnList?: ColumnMetadata[] | undefined;
 
   /**
-   * <p>A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request. </p>
+   * A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -634,85 +746,99 @@ export interface DescribeTableResponse {
  */
 export interface ExecuteStatementInput {
   /**
-   * <p>The SQL statement text to run. </p>
+   * The SQL statement text to run.
+   *
    * @public
    */
   Sql: string | undefined;
 
   /**
-   * <p>The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials. </p>
+   * The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
+   *
    * @public
    */
   ClusterIdentifier?: string | undefined;
 
   /**
-   * <p>The name or ARN of the secret that enables access to the database. This parameter is required when authenticating using Secrets Manager. </p>
+   * The name or ARN of the secret that enables access to the database. This parameter is required when authenticating using Secrets Manager.
+   *
    * @public
    */
   SecretArn?: string | undefined;
 
   /**
-   * <p>The database user name. This parameter is required when connecting to a cluster as a database user and authenticating using temporary credentials. </p>
+   * The database user name. This parameter is required when connecting to a cluster as a database user and authenticating using temporary credentials.
+   *
    * @public
    */
   DbUser?: string | undefined;
 
   /**
-   * <p>The name of the database. This parameter is required when authenticating using either Secrets Manager or temporary credentials. </p>
+   * The name of the database. This parameter is required when authenticating using either Secrets Manager or temporary credentials.
+   *
    * @public
    */
   Database?: string | undefined;
 
   /**
-   * <p>A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs. </p>
+   * A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
+   *
    * @public
    */
   WithEvent?: boolean | undefined;
 
   /**
-   * <p>The name of the SQL statement. You can name the SQL statement when you create it to identify the query. </p>
+   * The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
+   *
    * @public
    */
   StatementName?: string | undefined;
 
   /**
-   * <p>The parameters for the SQL statement.</p>
+   * The parameters for the SQL statement.
+   *
    * @public
    */
   Parameters?: SqlParameter[] | undefined;
 
   /**
-   * <p>The serverless workgroup name or Amazon Resource Name (ARN). This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.</p>
+   * The serverless workgroup name or Amazon Resource Name (ARN). This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
+   *
    * @public
    */
   WorkgroupName?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The data format of the result of the SQL statement. If no format is specified, the default is JSON.</p>
+   * The data format of the result of the SQL statement. If no format is specified, the default is JSON.
+   *
    * @public
    */
   ResultFormat?: ResultFormatString | undefined;
 
   /**
-   * <p>The number of seconds to keep the session alive after the query finishes. The maximum time a session can keep alive is 24 hours. After 24 hours, the session is forced closed and the query is terminated.</p>
+   * The number of seconds to keep the session alive after the query finishes. The maximum time a session can keep alive is 24 hours. After 24 hours, the session is forced closed and the query is terminated.
+   *
    * @public
    */
   SessionKeepAliveSeconds?: number | undefined;
 
   /**
-   * <p>The session identifier of the query.</p>
+   * The session identifier of the query.
+   *
    * @public
    */
   SessionId?: string | undefined;
 
   /**
-   * <p>The number of seconds to wait for the SQL statement to complete execution before returning the response. If the SQL statement does not complete within the specified time, the response returns the current status. The maximum value is 30 seconds.</p>
+   * The number of seconds to wait for the SQL statement to complete execution before returning the response. If the SQL statement does not complete within the specified time, the response returns the current status. The maximum value is 30 seconds.
+   *
    * @public
    */
   WaitTimeSeconds?: number | undefined;
@@ -723,80 +849,100 @@ export interface ExecuteStatementInput {
  */
 export interface ExecuteStatementOutput {
   /**
-   * <p>The identifier of the SQL statement whose results are to be fetched. This value is a universally unique identifier (UUID) generated by Amazon Redshift Data API. </p>
+   * The identifier of the SQL statement whose results are to be fetched. This value is a universally unique identifier (UUID) generated by Amazon Redshift Data API.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The date and time (UTC) the statement was created. </p>
+   * The date and time (UTC) the statement was created.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The cluster identifier. This element is not returned when connecting to a serverless workgroup. </p>
+   * The cluster identifier. This element is not returned when connecting to a serverless workgroup.
+   *
    * @public
    */
   ClusterIdentifier?: string | undefined;
 
   /**
-   * <p>The database user name.</p>
+   * The database user name.
+   *
    * @public
    */
   DbUser?: string | undefined;
 
   /**
-   * <p>A list of colon (:) separated names of database groups.</p>
+   * A list of colon (:) separated names of database groups.
+   *
    * @public
    */
   DbGroups?: string[] | undefined;
 
   /**
-   * <p>The name of the database.</p>
+   * The name of the database.
+   *
    * @public
    */
   Database?: string | undefined;
 
   /**
-   * <p>The name or ARN of the secret that enables access to the database. </p>
+   * The name or ARN of the secret that enables access to the database.
+   *
    * @public
    */
   SecretArn?: string | undefined;
 
   /**
-   * <p>The serverless workgroup name or Amazon Resource Name (ARN). This element is not returned when connecting to a provisioned cluster.</p>
+   * The serverless workgroup name or Amazon Resource Name (ARN). This element is not returned when connecting to a provisioned cluster.
+   *
    * @public
    */
   WorkgroupName?: string | undefined;
 
   /**
-   * <p>The session identifier of the query.</p>
+   * The session identifier of the query.
+   *
    * @public
    */
   SessionId?: string | undefined;
 
   /**
-   * <p>The status of the SQL statement. Status values are defined as follows: </p> <ul> <li> <p>ABORTED - The query run was stopped by the user. </p> </li> <li> <p>FAILED - The query run failed. </p> </li> <li> <p>FINISHED - The query has finished running. </p> </li> <li> <p>PICKED - The query has been chosen to be run. </p> </li> <li> <p>STARTED - The query run has started. </p> </li> <li> <p>SUBMITTED - The query was submitted, but not yet processed. </p> </li> </ul>
+   * The status of the SQL statement. Status values are defined as follows:
+   *
+   * - ABORTED - The query run was stopped by the user.
+   * - FAILED - The query run failed.
+   * - FINISHED - The query has finished running.
+   * - PICKED - The query has been chosen to be run.
+   * - STARTED - The query run has started.
+   * - SUBMITTED - The query was submitted, but not yet processed.
+   *
    * @public
    */
   Status?: StatementStatusString | undefined;
 
   /**
-   * <p>The process identifier from Amazon Redshift. </p>
+   * The process identifier from Amazon Redshift.
+   *
    * @public
    */
   RedshiftPid?: number | undefined;
 
   /**
-   * <p>A value that indicates whether the statement has a result set. The result set can be empty. The value is true for an empty result set.</p>
+   * A value that indicates whether the statement has a result set. The result set can be empty. The value is true for an empty result set.
+   *
    * @public
    */
   HasResultSet?: boolean | undefined;
 }
 
 /**
- * <p>A data value in a column. </p>
+ * A data value in a column.
+ *
  * @public
  */
 export type Field =
@@ -813,7 +959,8 @@ export type Field =
  */
 export namespace Field {
   /**
-   * <p>A value that indicates whether the data is NULL. </p>
+   * A value that indicates whether the data is NULL.
+   *
    * @public
    */
   export interface IsNullMember {
@@ -827,7 +974,8 @@ export namespace Field {
   }
 
   /**
-   * <p>A value of the Boolean data type. </p>
+   * A value of the Boolean data type.
+   *
    * @public
    */
   export interface BooleanValueMember {
@@ -841,7 +989,8 @@ export namespace Field {
   }
 
   /**
-   * <p>A value of the long data type. </p>
+   * A value of the long data type.
+   *
    * @public
    */
   export interface LongValueMember {
@@ -855,7 +1004,8 @@ export namespace Field {
   }
 
   /**
-   * <p>A value of the double data type. </p>
+   * A value of the double data type.
+   *
    * @public
    */
   export interface DoubleValueMember {
@@ -869,7 +1019,8 @@ export namespace Field {
   }
 
   /**
-   * <p>A value of the string data type. </p>
+   * A value of the string data type.
+   *
    * @public
    */
   export interface StringValueMember {
@@ -883,7 +1034,8 @@ export namespace Field {
   }
 
   /**
-   * <p>A value of the BLOB data type. </p>
+   * A value of the BLOB data type.
+   *
    * @public
    */
   export interface BlobValueMember {
@@ -925,7 +1077,8 @@ export namespace Field {
 }
 
 /**
- * <p>The results of the SQL statement.</p>
+ * The results of the SQL statement.
+ *
  * @public
  */
 export type QueryRecords =
@@ -937,7 +1090,8 @@ export type QueryRecords =
  */
 export namespace QueryRecords {
   /**
-   * <p>The results of the SQL statement in CSV format.</p>
+   * The results of the SQL statement in CSV format.
+   *
    * @public
    */
   export interface CSVRecordsMember {
@@ -968,19 +1122,22 @@ export namespace QueryRecords {
  */
 export interface GetStatementResultRequest {
   /**
-   * <p>The identifier of the SQL statement whose results are to be fetched. This value is a universally unique identifier (UUID) generated by Amazon Redshift Data API. A suffix indicates then number of the SQL statement. For example, <code>d9b6c0c9-0747-4bf4-b142-e8883122f766:2</code> has a suffix of <code>:2</code> that indicates the second SQL statement of a batch query. This identifier is returned by <code>BatchExecuteStatment</code>, <code>ExecuteStatment</code>, and <code>ListStatements</code>. </p>
+   * The identifier of the SQL statement whose results are to be fetched. This value is a universally unique identifier (UUID) generated by Amazon Redshift Data API. A suffix indicates then number of the SQL statement. For example, `d9b6c0c9-0747-4bf4-b142-e8883122f766:2` has a suffix of `:2` that indicates the second SQL statement of a batch query. This identifier is returned by `BatchExecuteStatment`, `ExecuteStatment`, and `ListStatements`.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request. </p>
+   * A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The number of seconds to wait for the SQL statement to complete execution before returning the result. The maximum value is 30 seconds.</p>
+   * The number of seconds to wait for the SQL statement to complete execution before returning the result. The maximum value is 30 seconds.
+   *
    * @public
    */
   WaitTimeSeconds?: number | undefined;
@@ -991,25 +1148,29 @@ export interface GetStatementResultRequest {
  */
 export interface GetStatementResultResponse {
   /**
-   * <p>The results of the SQL statement in JSON format.</p>
+   * The results of the SQL statement in JSON format.
+   *
    * @public
    */
   Records: Field[][] | undefined;
 
   /**
-   * <p>The properties (metadata) of a column. </p>
+   * The properties (metadata) of a column.
+   *
    * @public
    */
   ColumnMetadata?: ColumnMetadata[] | undefined;
 
   /**
-   * <p>The total number of rows in the result set returned from a query. You can use this number to estimate the number of calls to the <code>GetStatementResult</code> operation needed to page through the results. </p>
+   * The total number of rows in the result set returned from a query. You can use this number to estimate the number of calls to the `GetStatementResult` operation needed to page through the results.
+   *
    * @public
    */
   TotalNumRows?: number | undefined;
 
   /**
-   * <p>A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request. </p>
+   * A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1020,19 +1181,22 @@ export interface GetStatementResultResponse {
  */
 export interface GetStatementResultV2Request {
   /**
-   * <p>The identifier of the SQL statement whose results are to be fetched. This value is a universally unique identifier (UUID) generated by Amazon Redshift Data API. A suffix indicates then number of the SQL statement. For example, <code>d9b6c0c9-0747-4bf4-b142-e8883122f766:2</code> has a suffix of <code>:2</code> that indicates the second SQL statement of a batch query. This identifier is returned by <code>BatchExecuteStatment</code>, <code>ExecuteStatment</code>, and <code>ListStatements</code>. </p>
+   * The identifier of the SQL statement whose results are to be fetched. This value is a universally unique identifier (UUID) generated by Amazon Redshift Data API. A suffix indicates then number of the SQL statement. For example, `d9b6c0c9-0747-4bf4-b142-e8883122f766:2` has a suffix of `:2` that indicates the second SQL statement of a batch query. This identifier is returned by `BatchExecuteStatment`, `ExecuteStatment`, and `ListStatements`.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request.</p>
+   * A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The number of seconds to wait for the SQL statement to complete execution before returning the result. The maximum value is 30 seconds.</p>
+   * The number of seconds to wait for the SQL statement to complete execution before returning the result. The maximum value is 30 seconds.
+   *
    * @public
    */
   WaitTimeSeconds?: number | undefined;
@@ -1043,31 +1207,36 @@ export interface GetStatementResultV2Request {
  */
 export interface GetStatementResultV2Response {
   /**
-   * <p>The results of the SQL statement in CSV format.</p>
+   * The results of the SQL statement in CSV format.
+   *
    * @public
    */
   Records: QueryRecords[] | undefined;
 
   /**
-   * <p>The properties (metadata) of a column.</p>
+   * The properties (metadata) of a column.
+   *
    * @public
    */
   ColumnMetadata?: ColumnMetadata[] | undefined;
 
   /**
-   * <p>The total number of rows in the result set returned from a query. You can use this number to estimate the number of calls to the <code>GetStatementResultV2</code> operation needed to page through the results. </p>
+   * The total number of rows in the result set returned from a query. You can use this number to estimate the number of calls to the `GetStatementResultV2` operation needed to page through the results.
+   *
    * @public
    */
   TotalNumRows?: number | undefined;
 
   /**
-   * <p>The data format of the result of the SQL statement.</p>
+   * The data format of the result of the SQL statement.
+   *
    * @public
    */
   ResultFormat?: ResultFormatString | undefined;
 
   /**
-   * <p>A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request. </p>
+   * A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1078,43 +1247,50 @@ export interface GetStatementResultV2Response {
  */
 export interface ListDatabasesRequest {
   /**
-   * <p>The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials. </p>
+   * The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
+   *
    * @public
    */
   ClusterIdentifier?: string | undefined;
 
   /**
-   * <p>The name of the database. This parameter is required when authenticating using either Secrets Manager or temporary credentials. </p>
+   * The name of the database. This parameter is required when authenticating using either Secrets Manager or temporary credentials.
+   *
    * @public
    */
   Database?: string | undefined;
 
   /**
-   * <p>The name or ARN of the secret that enables access to the database. This parameter is required when authenticating using Secrets Manager. </p>
+   * The name or ARN of the secret that enables access to the database. This parameter is required when authenticating using Secrets Manager.
+   *
    * @public
    */
   SecretArn?: string | undefined;
 
   /**
-   * <p>The database user name. This parameter is required when connecting to a cluster as a database user and authenticating using temporary credentials. </p>
+   * The database user name. This parameter is required when connecting to a cluster as a database user and authenticating using temporary credentials.
+   *
    * @public
    */
   DbUser?: string | undefined;
 
   /**
-   * <p>A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request. </p>
+   * A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of databases to return in the response. If more databases exist than fit in one response, then <code>NextToken</code> is returned to page through the results. </p>
+   * The maximum number of databases to return in the response. If more databases exist than fit in one response, then `NextToken` is returned to page through the results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The serverless workgroup name or Amazon Resource Name (ARN). This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.</p>
+   * The serverless workgroup name or Amazon Resource Name (ARN). This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
+   *
    * @public
    */
   WorkgroupName?: string | undefined;
@@ -1125,13 +1301,15 @@ export interface ListDatabasesRequest {
  */
 export interface ListDatabasesResponse {
   /**
-   * <p>The names of databases. </p>
+   * The names of databases.
+   *
    * @public
    */
   Databases?: string[] | undefined;
 
   /**
-   * <p>A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request. </p>
+   * A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1142,55 +1320,64 @@ export interface ListDatabasesResponse {
  */
 export interface ListSchemasRequest {
   /**
-   * <p>The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials. </p>
+   * The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
+   *
    * @public
    */
   ClusterIdentifier?: string | undefined;
 
   /**
-   * <p>The name or ARN of the secret that enables access to the database. This parameter is required when authenticating using Secrets Manager. </p>
+   * The name or ARN of the secret that enables access to the database. This parameter is required when authenticating using Secrets Manager.
+   *
    * @public
    */
   SecretArn?: string | undefined;
 
   /**
-   * <p>The database user name. This parameter is required when connecting to a cluster as a database user and authenticating using temporary credentials. </p>
+   * The database user name. This parameter is required when connecting to a cluster as a database user and authenticating using temporary credentials.
+   *
    * @public
    */
   DbUser?: string | undefined;
 
   /**
-   * <p>The name of the database that contains the schemas to list. If <code>ConnectedDatabase</code> is not specified, this is also the database to connect to with your authentication credentials.</p>
+   * The name of the database that contains the schemas to list. If `ConnectedDatabase` is not specified, this is also the database to connect to with your authentication credentials.
+   *
    * @public
    */
   Database: string | undefined;
 
   /**
-   * <p>A database name. The connected database is specified when you connect with your authentication credentials. </p>
+   * A database name. The connected database is specified when you connect with your authentication credentials.
+   *
    * @public
    */
   ConnectedDatabase?: string | undefined;
 
   /**
-   * <p>A pattern to filter results by schema name. Within a schema pattern, "%" means match any substring of 0 or more characters and "_" means match any one character. Only schema name entries matching the search pattern are returned. </p>
+   * A pattern to filter results by schema name. Within a schema pattern, "%" means match any substring of 0 or more characters and "_" means match any one character. Only schema name entries matching the search pattern are returned.
+   *
    * @public
    */
   SchemaPattern?: string | undefined;
 
   /**
-   * <p>A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request. </p>
+   * A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of schemas to return in the response. If more schemas exist than fit in one response, then <code>NextToken</code> is returned to page through the results. </p>
+   * The maximum number of schemas to return in the response. If more schemas exist than fit in one response, then `NextToken` is returned to page through the results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The serverless workgroup name or Amazon Resource Name (ARN). This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.</p>
+   * The serverless workgroup name or Amazon Resource Name (ARN). This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
+   *
    * @public
    */
   WorkgroupName?: string | undefined;
@@ -1201,13 +1388,15 @@ export interface ListSchemasRequest {
  */
 export interface ListSchemasResponse {
   /**
-   * <p>The schemas that match the request pattern. </p>
+   * The schemas that match the request pattern.
+   *
    * @public
    */
   Schemas?: string[] | undefined;
 
   /**
-   * <p>A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request. </p>
+   * A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1218,121 +1407,149 @@ export interface ListSchemasResponse {
  */
 export interface ListSessionsRequest {
   /**
-   * <p>A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request.</p>
+   * A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of sessions to return in the response. If more sessions exist than fit in one response, the operation returns <code>NextToken</code> to paginate the results.</p>
+   * The maximum number of sessions to return in the response. If more sessions exist than fit in one response, the operation returns `NextToken` to paginate the results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The identifier of a specific session to return metadata for. This value is a universally unique identifier (UUID) generated by Amazon Redshift Data API. When you provide <code>SessionId</code>, you can't specify <code>Status</code>, <code>ClusterIdentifier</code>, <code>WorkgroupName</code>, or <code>Database</code>.</p>
+   * The identifier of a specific session to return metadata for. This value is a universally unique identifier (UUID) generated by Amazon Redshift Data API. When you provide `SessionId`, you can't specify `Status`, `ClusterIdentifier`, `WorkgroupName`, or `Database`.
+   *
    * @public
    */
   SessionId?: string | undefined;
 
   /**
-   * <p>The status of the sessions to list. If no status is specified, sessions with a status of <code>AVAILABLE</code> or <code>BUSY</code> are returned. Status values are defined as follows:</p> <ul> <li> <p>AVAILABLE – The session is open and ready to run a SQL statement.</p> </li> <li> <p>BUSY – The session is currently running a SQL statement.</p> </li> <li> <p>CLOSED – The session is closed and can no longer run SQL statements.</p> </li> </ul>
+   * The status of the sessions to list. If no status is specified, sessions with a status of `AVAILABLE` or `BUSY` are returned. Status values are defined as follows:
+   *
+   * - AVAILABLE – The session is open and ready to run a SQL statement.
+   * - BUSY – The session is currently running a SQL statement.
+   * - CLOSED – The session is closed and can no longer run SQL statements.
+   *
    * @public
    */
   Status?: SessionStatusString | undefined;
 
   /**
-   * <p>Specifies whether to return all sessions created by the caller's IAM role, including sessions from previous IAM sessions. If false, only sessions created in the current IAM session are returned. The default is true.</p>
+   * Specifies whether to return all sessions created by the caller's IAM role, including sessions from previous IAM sessions. If false, only sessions created in the current IAM session are returned. The default is true.
+   *
    * @public
    */
   RoleLevel?: boolean | undefined;
 
   /**
-   * <p>The cluster identifier. Only sessions on this cluster are returned. When providing <code>ClusterIdentifier</code>, then <code>WorkgroupName</code> can't be specified.</p>
+   * The cluster identifier. Only sessions on this cluster are returned. When providing `ClusterIdentifier`, then `WorkgroupName` can't be specified.
+   *
    * @public
    */
   ClusterIdentifier?: string | undefined;
 
   /**
-   * <p>The serverless workgroup name or Amazon Resource Name (ARN). Only sessions on this workgroup are returned. When providing <code>WorkgroupName</code>, then <code>ClusterIdentifier</code> can't be specified.</p>
+   * The serverless workgroup name or Amazon Resource Name (ARN). Only sessions on this workgroup are returned. When providing `WorkgroupName`, then `ClusterIdentifier` can't be specified.
+   *
    * @public
    */
   WorkgroupName?: string | undefined;
 
   /**
-   * <p>The name of the database. Only sessions connected to this database are returned.</p>
+   * The name of the database. Only sessions connected to this database are returned.
+   *
    * @public
    */
   Database?: string | undefined;
 }
 
 /**
- * <p>Contains the metadata for a session returned by <code>ListSessions</code>, including its status, compute target, database connection, and lifecycle timestamps.</p>
+ * Contains the metadata for a session returned by `ListSessions`, including its status, compute target, database connection, and lifecycle timestamps.
+ *
  * @public
  */
 export interface SessionData {
   /**
-   * <p>The session identifier. This value is a universally unique identifier (UUID) generated by Amazon Redshift Data API.</p>
+   * The session identifier. This value is a universally unique identifier (UUID) generated by Amazon Redshift Data API.
+   *
    * @public
    */
   SessionId: string | undefined;
 
   /**
-   * <p>The status of the session. Status values are defined as follows:</p> <ul> <li> <p>AVAILABLE – The session is open and ready to run a SQL statement.</p> </li> <li> <p>BUSY – The session is currently running a SQL statement.</p> </li> <li> <p>CLOSED – The session is closed and can no longer run SQL statements.</p> </li> </ul>
+   * The status of the session. Status values are defined as follows:
+   *
+   * - AVAILABLE – The session is open and ready to run a SQL statement.
+   * - BUSY – The session is currently running a SQL statement.
+   * - CLOSED – The session is closed and can no longer run SQL statements.
+   *
    * @public
    */
   Status: SessionStatusString | undefined;
 
   /**
-   * <p>The date and time (UTC) when the session was created.</p>
+   * The date and time (UTC) when the session was created.
+   *
    * @public
    */
   CreatedAt: Date | undefined;
 
   /**
-   * <p>The date and time (UTC) that the session metadata was last updated. An example is the time the status last changed.</p>
+   * The date and time (UTC) that the session metadata was last updated. An example is the time the status last changed.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
 
   /**
-   * <p>The name of the database that the session is connected to.</p>
+   * The name of the database that the session is connected to.
+   *
    * @public
    */
   Database?: string | undefined;
 
   /**
-   * <p>The database user name.</p>
+   * The database user name.
+   *
    * @public
    */
   DbUser?: string | undefined;
 
   /**
-   * <p>The cluster identifier. This element is not returned when connecting to a serverless workgroup.</p>
+   * The cluster identifier. This element is not returned when connecting to a serverless workgroup.
+   *
    * @public
    */
   ClusterIdentifier?: string | undefined;
 
   /**
-   * <p>The serverless workgroup name or Amazon Resource Name (ARN). This element is not returned when connecting to a provisioned cluster.</p>
+   * The serverless workgroup name or Amazon Resource Name (ARN). This element is not returned when connecting to a provisioned cluster.
+   *
    * @public
    */
   WorkgroupName?: string | undefined;
 
   /**
-   * <p>The number of seconds that the session is kept alive after a query finishes.</p>
+   * The number of seconds that the session is kept alive after a query finishes.
+   *
    * @public
    */
   SessionAliveSeconds?: number | undefined;
 
   /**
-   * <p>The date and time (UTC) when the session is set to expire and be closed.</p>
+   * The date and time (UTC) when the session is set to expire and be closed.
+   *
    * @public
    */
   SessionTtl?: Date | undefined;
 
   /**
-   * <p>The identifier of the SQL statement currently running in the session. This value is a universally unique identifier (UUID) generated by Amazon Redshift Data API. This element is returned only when the session status is <code>BUSY</code>.</p>
+   * The identifier of the SQL statement currently running in the session. This value is a universally unique identifier (UUID) generated by Amazon Redshift Data API. This element is returned only when the session status is `BUSY`.
+   *
    * @public
    */
   CurrentStatementId?: string | undefined;
@@ -1343,13 +1560,15 @@ export interface SessionData {
  */
 export interface ListSessionsResponse {
   /**
-   * <p>The sessions that match the request.</p>
+   * The sessions that match the request.
+   *
    * @public
    */
   Sessions: SessionData[] | undefined;
 
   /**
-   * <p>A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request.</p>
+   * A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1360,127 +1579,156 @@ export interface ListSessionsResponse {
  */
 export interface ListStatementsRequest {
   /**
-   * <p>A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request. </p>
+   * A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of SQL statements to return in the response. If more SQL statements exist than fit in one response, then <code>NextToken</code> is returned to page through the results. </p>
+   * The maximum number of SQL statements to return in the response. If more SQL statements exist than fit in one response, then `NextToken` is returned to page through the results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The name of the SQL statement specified as input to <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> to identify the query. You can list multiple statements by providing a prefix that matches the beginning of the statement name. For example, to list myStatement1, myStatement2, myStatement3, and so on, then provide the a value of <code>myStatement</code>. Data API does a case-sensitive match of SQL statement names to the prefix value you provide. </p>
+   * The name of the SQL statement specified as input to `BatchExecuteStatement` or `ExecuteStatement` to identify the query. You can list multiple statements by providing a prefix that matches the beginning of the statement name. For example, to list myStatement1, myStatement2, myStatement3, and so on, then provide the a value of `myStatement`. Data API does a case-sensitive match of SQL statement names to the prefix value you provide.
+   *
    * @public
    */
   StatementName?: string | undefined;
 
   /**
-   * <p>The status of the SQL statement to list. Status values are defined as follows: </p> <ul> <li> <p>ABORTED - The query run was stopped by the user. </p> </li> <li> <p>ALL - A status value that includes all query statuses. This value can be used to filter results. </p> </li> <li> <p>FAILED - The query run failed. </p> </li> <li> <p>FINISHED - The query has finished running. </p> </li> <li> <p>PICKED - The query has been chosen to be run. </p> </li> <li> <p>STARTED - The query run has started. </p> </li> <li> <p>SUBMITTED - The query was submitted, but not yet processed. </p> </li> </ul>
+   * The status of the SQL statement to list. Status values are defined as follows:
+   *
+   * - ABORTED - The query run was stopped by the user.
+   * - ALL - A status value that includes all query statuses. This value can be used to filter results.
+   * - FAILED - The query run failed.
+   * - FINISHED - The query has finished running.
+   * - PICKED - The query has been chosen to be run.
+   * - STARTED - The query run has started.
+   * - SUBMITTED - The query was submitted, but not yet processed.
+   *
    * @public
    */
   Status?: StatusString | undefined;
 
   /**
-   * <p>A value that filters which statements to return in the response. If true, all statements run by the caller's IAM role are returned. If false, only statements run by the caller's IAM role in the current IAM session are returned. The default is true. </p>
+   * A value that filters which statements to return in the response. If true, all statements run by the caller's IAM role are returned. If false, only statements run by the caller's IAM role in the current IAM session are returned. The default is true.
+   *
    * @public
    */
   RoleLevel?: boolean | undefined;
 
   /**
-   * <p>The name of the database when listing statements run against a <code>ClusterIdentifier</code> or <code>WorkgroupName</code>. </p>
+   * The name of the database when listing statements run against a `ClusterIdentifier` or `WorkgroupName`.
+   *
    * @public
    */
   Database?: string | undefined;
 
   /**
-   * <p>The cluster identifier. Only statements that ran on this cluster are returned. When providing <code>ClusterIdentifier</code>, then <code>WorkgroupName</code> can't be specified.</p>
+   * The cluster identifier. Only statements that ran on this cluster are returned. When providing `ClusterIdentifier`, then `WorkgroupName` can't be specified.
+   *
    * @public
    */
   ClusterIdentifier?: string | undefined;
 
   /**
-   * <p>The serverless workgroup name or Amazon Resource Name (ARN). Only statements that ran on this workgroup are returned. When providing <code>WorkgroupName</code>, then <code>ClusterIdentifier</code> can't be specified.</p>
+   * The serverless workgroup name or Amazon Resource Name (ARN). Only statements that ran on this workgroup are returned. When providing `WorkgroupName`, then `ClusterIdentifier` can't be specified.
+   *
    * @public
    */
   WorkgroupName?: string | undefined;
 }
 
 /**
- * <p>The SQL statement to run.</p>
+ * The SQL statement to run.
+ *
  * @public
  */
 export interface StatementData {
   /**
-   * <p>The SQL statement identifier. This value is a universally unique identifier (UUID) generated by Amazon Redshift Data API. </p>
+   * The SQL statement identifier. This value is a universally unique identifier (UUID) generated by Amazon Redshift Data API.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The SQL statement.</p>
+   * The SQL statement.
+   *
    * @public
    */
   QueryString?: string | undefined;
 
   /**
-   * <p>One or more SQL statements. Each query string in the array corresponds to one of the queries in a batch query request.</p>
+   * One or more SQL statements. Each query string in the array corresponds to one of the queries in a batch query request.
+   *
    * @public
    */
   QueryStrings?: string[] | undefined;
 
   /**
-   * <p>The name or Amazon Resource Name (ARN) of the secret that enables access to the database. </p>
+   * The name or Amazon Resource Name (ARN) of the secret that enables access to the database.
+   *
    * @public
    */
   SecretArn?: string | undefined;
 
   /**
-   * <p>The status of the SQL statement. An example is the that the SQL statement finished. </p>
+   * The status of the SQL statement. An example is the that the SQL statement finished.
+   *
    * @public
    */
   Status?: StatusString | undefined;
 
   /**
-   * <p>The name of the SQL statement. </p>
+   * The name of the SQL statement.
+   *
    * @public
    */
   StatementName?: string | undefined;
 
   /**
-   * <p>The date and time (UTC) the statement was created. </p>
+   * The date and time (UTC) the statement was created.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The date and time (UTC) that the statement metadata was last updated.</p>
+   * The date and time (UTC) that the statement metadata was last updated.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
 
   /**
-   * <p>The parameters used in a SQL statement.</p>
+   * The parameters used in a SQL statement.
+   *
    * @public
    */
   QueryParameters?: SqlParameter[] | undefined;
 
   /**
-   * <p>A value that indicates whether the statement is a batch query request.</p>
+   * A value that indicates whether the statement is a batch query request.
+   *
    * @public
    */
   IsBatchStatement?: boolean | undefined;
 
   /**
-   * <p>The data format of the result of the SQL statement.</p>
+   * The data format of the result of the SQL statement.
+   *
    * @public
    */
   ResultFormat?: ResultFormatString | undefined;
 
   /**
-   * <p>The session identifier of the query.</p>
+   * The session identifier of the query.
+   *
    * @public
    */
   SessionId?: string | undefined;
@@ -1491,13 +1739,15 @@ export interface StatementData {
  */
 export interface ListStatementsResponse {
   /**
-   * <p>The SQL statements. </p>
+   * The SQL statements.
+   *
    * @public
    */
   Statements: StatementData[] | undefined;
 
   /**
-   * <p>A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request. </p>
+   * A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1508,85 +1758,99 @@ export interface ListStatementsResponse {
  */
 export interface ListTablesRequest {
   /**
-   * <p>The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials. </p>
+   * The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
+   *
    * @public
    */
   ClusterIdentifier?: string | undefined;
 
   /**
-   * <p>The name or ARN of the secret that enables access to the database. This parameter is required when authenticating using Secrets Manager. </p>
+   * The name or ARN of the secret that enables access to the database. This parameter is required when authenticating using Secrets Manager.
+   *
    * @public
    */
   SecretArn?: string | undefined;
 
   /**
-   * <p>The database user name. This parameter is required when connecting to a cluster as a database user and authenticating using temporary credentials. </p>
+   * The database user name. This parameter is required when connecting to a cluster as a database user and authenticating using temporary credentials.
+   *
    * @public
    */
   DbUser?: string | undefined;
 
   /**
-   * <p>The name of the database that contains the tables to list. If <code>ConnectedDatabase</code> is not specified, this is also the database to connect to with your authentication credentials.</p>
+   * The name of the database that contains the tables to list. If `ConnectedDatabase` is not specified, this is also the database to connect to with your authentication credentials.
+   *
    * @public
    */
   Database: string | undefined;
 
   /**
-   * <p>A database name. The connected database is specified when you connect with your authentication credentials. </p>
+   * A database name. The connected database is specified when you connect with your authentication credentials.
+   *
    * @public
    */
   ConnectedDatabase?: string | undefined;
 
   /**
-   * <p>A pattern to filter results by schema name. Within a schema pattern, "%" means match any substring of 0 or more characters and "_" means match any one character. Only schema name entries matching the search pattern are returned. If <code>SchemaPattern</code> is not specified, then all tables that match <code>TablePattern</code> are returned. If neither <code>SchemaPattern</code> or <code>TablePattern</code> are specified, then all tables are returned. </p>
+   * A pattern to filter results by schema name. Within a schema pattern, "%" means match any substring of 0 or more characters and "_" means match any one character. Only schema name entries matching the search pattern are returned. If `SchemaPattern` is not specified, then all tables that match `TablePattern` are returned. If neither `SchemaPattern` or `TablePattern` are specified, then all tables are returned.
+   *
    * @public
    */
   SchemaPattern?: string | undefined;
 
   /**
-   * <p>A pattern to filter results by table name. Within a table pattern, "%" means match any substring of 0 or more characters and "_" means match any one character. Only table name entries matching the search pattern are returned. If <code>TablePattern</code> is not specified, then all tables that match <code>SchemaPattern</code>are returned. If neither <code>SchemaPattern</code> or <code>TablePattern</code> are specified, then all tables are returned. </p>
+   * A pattern to filter results by table name. Within a table pattern, "%" means match any substring of 0 or more characters and "_" means match any one character. Only table name entries matching the search pattern are returned. If `TablePattern` is not specified, then all tables that match `SchemaPattern`are returned. If neither `SchemaPattern` or `TablePattern` are specified, then all tables are returned.
+   *
    * @public
    */
   TablePattern?: string | undefined;
 
   /**
-   * <p>A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request. </p>
+   * A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of tables to return in the response. If more tables exist than fit in one response, then <code>NextToken</code> is returned to page through the results. </p>
+   * The maximum number of tables to return in the response. If more tables exist than fit in one response, then `NextToken` is returned to page through the results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The serverless workgroup name or Amazon Resource Name (ARN). This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.</p>
+   * The serverless workgroup name or Amazon Resource Name (ARN). This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
+   *
    * @public
    */
   WorkgroupName?: string | undefined;
 }
 
 /**
- * <p>The properties of a table. </p>
+ * The properties of a table.
+ *
  * @public
  */
 export interface TableMember {
   /**
-   * <p>The name of the table. </p>
+   * The name of the table.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The type of the table. Possible values include TABLE, VIEW, SYSTEM TABLE, GLOBAL TEMPORARY, LOCAL TEMPORARY, ALIAS, and SYNONYM. </p>
+   * The type of the table. Possible values include TABLE, VIEW, SYSTEM TABLE, GLOBAL TEMPORARY, LOCAL TEMPORARY, ALIAS, and SYNONYM.
+   *
    * @public
    */
   type?: string | undefined;
 
   /**
-   * <p>The schema containing the table. </p>
+   * The schema containing the table.
+   *
    * @public
    */
   schema?: string | undefined;
@@ -1597,13 +1861,15 @@ export interface TableMember {
  */
 export interface ListTablesResponse {
   /**
-   * <p>The tables that match the request pattern. </p>
+   * The tables that match the request pattern.
+   *
    * @public
    */
   Tables?: TableMember[] | undefined;
 
   /**
-   * <p>A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request. </p>
+   * A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request.
+   *
    * @public
    */
   NextToken?: string | undefined;

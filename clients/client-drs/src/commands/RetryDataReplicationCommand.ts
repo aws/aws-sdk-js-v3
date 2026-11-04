@@ -23,7 +23,7 @@ export interface RetryDataReplicationCommandInput extends RetryDataReplicationRe
 export interface RetryDataReplicationCommandOutput extends SourceServer, __MetadataBearer {}
 
 /**
- * <p>WARNING: RetryDataReplication is deprecated. Causes the data replication initiation sequence to begin immediately upon next Handshake for the specified Source Server ID, regardless of when the previous initiation started. This command will work only if the Source Server is stalled or is in a DISCONNECTED or STOPPED state. </p>
+ * WARNING: RetryDataReplication is deprecated. Causes the data replication initiation sequence to begin immediately upon next Handshake for the specified Source Server ID, regardless of when the previous initiation started. This command will work only if the Source Server is stalled or is in a DISCONNECTED or STOPPED state.
  *
  * @deprecated WARNING: RetryDataReplication is deprecated.
  * @example
@@ -156,23 +156,28 @@ export interface RetryDataReplicationCommandOutput extends SourceServer, __Metad
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource for this operation was not found.</p>
+ *
+ * The resource for this operation was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link UninitializedAccountException} (client fault)
- *  <p>The account performing the request has not been initialized.</p>
+ *
+ * The account performing the request has not been initialized.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the AWS service.</p>
+ *
+ * The input fails to satisfy the constraints specified by the AWS service.
  *
  * @throws {@link DrsServiceException}
- * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ * Base exception class for all service exceptions from Drs service.
  *
  * @public
  */

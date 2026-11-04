@@ -23,7 +23,8 @@ export interface ModifyInstanceEventStartTimeCommandInput extends ModifyInstance
 export interface ModifyInstanceEventStartTimeCommandOutput extends ModifyInstanceEventStartTimeResult, __MetadataBearer {}
 
 /**
- * <p>Modifies the start time for a scheduled Amazon EC2 instance event.</p>
+ * Modifies the start time for a scheduled Amazon EC2 instance event.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,8 +61,8 @@ export interface ModifyInstanceEventStartTimeCommandOutput extends ModifyInstanc
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

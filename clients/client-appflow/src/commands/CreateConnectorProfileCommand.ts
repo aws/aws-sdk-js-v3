@@ -23,11 +23,8 @@ export interface CreateConnectorProfileCommandInput extends CreateConnectorProfi
 export interface CreateConnectorProfileCommandOutput extends CreateConnectorProfileResponse, __MetadataBearer {}
 
 /**
- * <p> Creates a new connector profile associated with your Amazon Web Services account. There is
- *       a soft quota of 100 connector profiles per Amazon Web Services account. If you need more
- *       connector profiles than this quota allows, you can submit a request to the Amazon AppFlow
- *       team through the Amazon AppFlow support channel. In each connector profile that you
- *       create, you can provide the credentials and properties for only one connector.</p>
+ * Creates a new connector profile associated with your Amazon Web Services account. There is a soft quota of 100 connector profiles per Amazon Web Services account. If you need more connector profiles than this quota allows, you can submit a request to the Amazon AppFlow team through the Amazon AppFlow support channel. In each connector profile that you create, you can provide the credentials and properties for only one connector.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -300,26 +297,28 @@ export interface CreateConnectorProfileCommandOutput extends CreateConnectorProf
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p> There was a conflict when processing the request (for example, a flow with the given name
- *       already exists within the account. Check for conflicting resource names and try again. </p>
+ *
+ * There was a conflict when processing the request (for example, a flow with the given name already exists within the account. Check for conflicting resource names and try again.
  *
  * @throws {@link ConnectorAuthenticationException} (client fault)
- *  <p> An error occurred when authenticating with the connector endpoint. </p>
+ *
+ * An error occurred when authenticating with the connector endpoint.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> An internal service error occurred during the processing of your request. Try again
- *       later. </p>
+ *
+ * An internal service error occurred during the processing of your request. Try again later.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p> The request would cause a service quota (such as the number of flows) to be exceeded.
- *     </p>
+ *
+ * The request would cause a service quota (such as the number of flows) to be exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> The request has invalid or missing parameters. </p>
+ *
+ * The request has invalid or missing parameters.
  *
  * @throws {@link AppflowServiceException}
- * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ * Base exception class for all service exceptions from Appflow service.
  *
  * @public
  */

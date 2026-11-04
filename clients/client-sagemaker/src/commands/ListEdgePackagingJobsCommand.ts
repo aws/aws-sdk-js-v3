@@ -23,7 +23,8 @@ export interface ListEdgePackagingJobsCommandInput extends ListEdgePackagingJobs
 export interface ListEdgePackagingJobsCommandOutput extends ListEdgePackagingJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of edge packaging jobs.</p>
+ * Returns a list of edge packaging jobs.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,8 +73,8 @@ export interface ListEdgePackagingJobsCommandOutput extends ListEdgePackagingJob
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

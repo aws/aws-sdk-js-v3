@@ -23,9 +23,8 @@ export interface DeleteTapePoolCommandInput extends DeleteTapePoolInput {}
 export interface DeleteTapePoolCommandOutput extends DeleteTapePoolOutput, __MetadataBearer {}
 
 /**
- * <p>Delete a custom tape pool. A custom tape pool can only be deleted if there are no tapes
- *          in the pool and if there are no automatic tape creation policies that reference the custom
- *          tape pool.</p>
+ * Delete a custom tape pool. A custom tape pool can only be deleted if there are no tapes in the pool and if there are no automatic tape creation policies that reference the custom tape pool.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,16 +51,16 @@ export interface DeleteTapePoolCommandOutput extends DeleteTapePoolOutput, __Met
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @public
  */

@@ -23,9 +23,8 @@ export interface DeactivateOrganizationsAccessCommandInput extends DeactivateOrg
 export interface DeactivateOrganizationsAccessCommandOutput extends DeactivateOrganizationsAccessOutput, __MetadataBearer {}
 
 /**
- * <p>Deactivates trusted access with Organizations. If trusted access is deactivated,
- *       the management account does not have permissions to create and manage
- *       service-managed StackSets for your organization.</p>
+ * Deactivates trusted access with Organizations. If trusted access is deactivated, the management account does not have permissions to create and manage service-managed StackSets for your organization.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,14 +47,16 @@ export interface DeactivateOrganizationsAccessCommandOutput extends DeactivateOr
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link InvalidOperationException} (client fault)
- *  <p>The specified operation isn't valid.</p>
+ *
+ * The specified operation isn't valid.
  *
  * @throws {@link OperationNotFoundException} (client fault)
- *  <p>The specified ID refers to an operation that doesn't exist.</p>
+ *
+ * The specified ID refers to an operation that doesn't exist.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

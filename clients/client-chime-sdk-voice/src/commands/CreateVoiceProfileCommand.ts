@@ -23,13 +23,12 @@ export interface CreateVoiceProfileCommandInput extends CreateVoiceProfileReques
 export interface CreateVoiceProfileCommandOutput extends CreateVoiceProfileResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a voice profile, which consists of an enrolled user and their latest voice print.</p>
- *          <important>
- *             <p>Before creating any voice profiles, you must provide all notices and obtain all consents from the speaker as required under applicable privacy and biometrics laws, and as required under the
- *          <a href="https://aws.amazon.com/service-terms/">AWS service terms</a> for the Amazon Chime SDK.</p>
- *          </important>
- *          <p>For more information about voice profiles and voice analytics, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/pstn-voice-analytics.html">Using Amazon Chime SDK Voice Analytics</a>
- *       in the <i>Amazon Chime SDK Developer Guide</i>.</p>
+ * Creates a voice profile, which consists of an enrolled user and their latest voice print.
+ *
+ * > **Important:** Before creating any voice profiles, you must provide all notices and obtain all consents from the speaker as required under applicable privacy and biometrics laws, and as required under the [AWS service terms](https://aws.amazon.com/service-terms/) for the Amazon Chime SDK.
+ *
+ * For more information about voice profiles and voice analytics, see [Using Amazon Chime SDK Voice Analytics](https://docs.aws.amazon.com/chime-sdk/latest/dg/pstn-voice-analytics.html) in the *Amazon Chime SDK Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,41 +62,52 @@ export interface CreateVoiceProfileCommandOutput extends CreateVoiceProfileRespo
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have the permissions needed to run this action.</p>
+ *
+ * You don't have the permissions needed to run this action.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * The input parameters don't match the service's restrictions.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Multiple instances of the same request were made simultaneously.</p>
+ *
+ * Multiple instances of the same request were made simultaneously.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * The client is permanently forbidden from making the request.
  *
  * @throws {@link GoneException} (client fault)
- *  <p>Access to the target resource is no longer available at the origin server. This condition is likely to be permanent.</p>
+ *
+ * Access to the target resource is no longer available at the origin server. This condition is likely to be permanent.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resource couldn't be found.</p>
+ *
+ * The requested resource couldn't be found.
  *
  * @throws {@link ResourceLimitExceededException} (client fault)
- *  <p>The request exceeds the resource limit.</p>
+ *
+ * The request exceeds the resource limit.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The service encountered an unexpected error.</p>
+ *
+ * The service encountered an unexpected error.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is currently unavailable.</p>
+ *
+ * The service is currently unavailable.
  *
  * @throws {@link ThrottledClientException} (client fault)
- *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
+ * The number of customer requests exceeds the request rate limit.
  *
  * @throws {@link UnauthorizedClientException} (client fault)
- *  <p>The client isn't authorized to request a resource.</p>
+ *
+ * The client isn't authorized to request a resource.
  *
  * @throws {@link ChimeSDKVoiceServiceException}
- * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * Base exception class for all service exceptions from ChimeSDKVoice service.
  *
  * @public
  */

@@ -23,11 +23,10 @@ export interface DescribeDBInstancesCommandInput extends DescribeDBInstancesMess
 export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __MetadataBearer {}
 
 /**
- * <p>Returns information about provisioned instances, and supports pagination.</p>
- *          <note>
- *             <p>This operation can also return information for Amazon RDS instances
- *     and Amazon DocDB instances.</p>
- *          </note>
+ * Returns information about provisioned instances, and supports pagination.
+ *
+ * > **Note:** This operation can also return information for Amazon RDS instances and Amazon DocDB instances.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -206,12 +205,12 @@ export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __M
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p>
- *             <i>DBInstanceIdentifier</i> does not refer to an existing DB instance.</p>
+ *
+ * *DBInstanceIdentifier* does not refer to an existing DB instance.
  *
  * @throws {@link NeptuneServiceException}
- * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * Base exception class for all service exceptions from Neptune service.
  *
  * @public
  */

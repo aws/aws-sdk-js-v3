@@ -23,31 +23,15 @@ export interface DescribeDatasetGroupCommandInput extends DescribeDatasetGroupRe
 export interface DescribeDatasetGroupCommandOutput extends DescribeDatasetGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Describes a dataset group created using the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetGroup.html">CreateDatasetGroup</a>
- *       operation.</p>
- *          <p>In addition to listing the parameters provided in the <code>CreateDatasetGroup</code>
- *       request, this operation includes the following properties:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>DatasetArns</code> - The datasets belonging to the group.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>CreationTime</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>LastModificationTime</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Status</code>
- *                </p>
- *             </li>
- *          </ul>
+ * Describes a dataset group created using the [CreateDatasetGroup](https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetGroup.html) operation.
+ *
+ * In addition to listing the parameters provided in the `CreateDatasetGroup` request, this operation includes the following properties:
+ *
+ * - `DatasetArns` - The datasets belonging to the group.
+ * - `CreationTime`
+ * - `LastModificationTime`
+ * - `Status`
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,16 +66,16 @@ export interface DescribeDatasetGroupCommandOutput extends DescribeDatasetGroupR
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>We can't process the request because it includes an invalid value or a value that exceeds
- *       the valid range.</p>
+ *
+ * We can't process the request because it includes an invalid value or a value that exceeds the valid range.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
- *       again.</p>
+ *
+ * We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.
  *
  * @throws {@link ForecastServiceException}
- * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * Base exception class for all service exceptions from Forecast service.
  *
  * @public
  */

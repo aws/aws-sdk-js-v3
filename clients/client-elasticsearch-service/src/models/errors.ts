@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { ElasticsearchServiceServiceException as __BaseException } from "./ElasticsearchServiceServiceException";
 
 /**
- * <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+ * An error occured because the client wanted to access a not supported operation. Gives http status code of 409.
+ *
  * @public
  */
 export class DisabledOperationException extends __BaseException {
@@ -25,7 +26,8 @@ export class DisabledOperationException extends __BaseException {
 }
 
 /**
- * <p>An exception for trying to create more than allowed resources or sub-resources. Gives http status code of 409.</p>
+ * An exception for trying to create more than allowed resources or sub-resources. Gives http status code of 409.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -46,7 +48,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+ * An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -67,7 +70,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>An error occurred because user does not have permissions to access the resource. Returns HTTP status code 403.</p>
+ * An error occurred because user does not have permissions to access the resource. Returns HTTP status code 403.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -88,7 +92,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>An error occurred while processing the request.</p>
+ * An error occurred while processing the request.
+ *
  * @public
  */
 export class BaseException extends __BaseException {
@@ -109,7 +114,8 @@ export class BaseException extends __BaseException {
 }
 
 /**
- * <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+ * The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.
+ *
  * @public
  */
 export class InternalException extends __BaseException {
@@ -130,7 +136,8 @@ export class InternalException extends __BaseException {
 }
 
 /**
- * <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+ * An exception for missing / invalid input fields. Gives http status code of 400.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -151,7 +158,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>An error occurred because the client attempts to remove a resource that is currently in use. Returns HTTP status code 409.</p>
+ * An error occurred because the client attempts to remove a resource that is currently in use. Returns HTTP status code 409.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -172,7 +180,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>An exception for trying to create or access sub-resource that is either invalid or not supported. Gives http status code of 409.</p>
+ * An exception for trying to create or access sub-resource that is either invalid or not supported. Gives http status code of 409.
+ *
  * @public
  */
 export class InvalidTypeException extends __BaseException {
@@ -193,7 +202,8 @@ export class InvalidTypeException extends __BaseException {
 }
 
 /**
- * <p>An exception for creating a resource that already exists. Gives http status code of 400.</p>
+ * An exception for creating a resource that already exists. Gives http status code of 400.
+ *
  * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -214,7 +224,8 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The request processing has failed because of invalid pagination token provided by customer. Returns an HTTP status code of 400. </p>
+ * The request processing has failed because of invalid pagination token provided by customer. Returns an HTTP status code of 400.
+ *
  * @public
  */
 export class InvalidPaginationTokenException extends __BaseException {

@@ -23,9 +23,8 @@ export interface DetachInternetGatewayCommandInput extends DetachInternetGateway
 export interface DetachInternetGatewayCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Detaches an internet gateway from a VPC, disabling connectivity between the internet
- * 			and the VPC. The VPC must not contain any running instances with Elastic IP addresses or
- * 			public IPv4 addresses.</p>
+ * Detaches an internet gateway from a VPC, disabling connectivity between the internet and the VPC. The VPC must not contain any running instances with Elastic IP addresses or public IPv4 addresses.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,8 +51,8 @@ export interface DetachInternetGatewayCommandOutput extends __MetadataBearer {}
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To detach an Internet gateway from a VPC
  * ```javascript

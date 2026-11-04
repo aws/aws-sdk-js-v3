@@ -23,9 +23,10 @@ export interface GetTemplateCommandInput extends GetTemplateRequest {}
 export interface GetTemplateCommandOutput extends GetTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Displays the template object (which includes the Subject line, HTML part and text
- *             part) for the template you specify.</p>
- *          <p>You can execute this operation no more than once per second.</p>
+ * Displays the template object (which includes the Subject line, HTML part and text part) for the template you specify.
+ *
+ * You can execute this operation no more than once per second.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,12 +58,12 @@ export interface GetTemplateCommandOutput extends GetTemplateResponse, __Metadat
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link TemplateDoesNotExistException} (client fault)
- *  <p>Indicates that the Template object you specified does not exist in your Amazon SES
- *             account.</p>
+ *
+ * Indicates that the Template object you specified does not exist in your Amazon SES account.
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @public
  */

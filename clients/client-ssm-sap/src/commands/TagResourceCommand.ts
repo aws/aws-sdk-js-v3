@@ -23,7 +23,8 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Creates tag for a resource by specifying the ARN.</p>
+ * Creates tag for a resource by specifying the ARN.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,17 +52,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A conflict has occurred.</p>
+ *
+ * A conflict has occurred.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource is not available.</p>
+ *
+ * The resource is not available.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service. </p>
+ *
+ * The input fails to satisfy the constraints specified by an AWS service.
  *
  * @throws {@link SsmSapServiceException}
- * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
+ * Base exception class for all service exceptions from SsmSap service.
  *
  * @public
  */

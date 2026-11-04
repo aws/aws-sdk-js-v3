@@ -23,8 +23,8 @@ export interface StartSessionCommandInput extends StartSessionRequest {}
 export interface StartSessionCommandOutput extends StartSessionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a session for running calculations within a workgroup. The session is ready
- *             when it reaches an <code>IDLE</code> state.</p>
+ * Creates a session for running calculations within a workgroup. The session is ready when it reaches an `IDLE` state.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -104,25 +104,28 @@ export interface StartSessionCommandOutput extends StartSessionResponse, __Metad
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Indicates a platform issue, which may be due to a transient condition or
- *             outage.</p>
+ *
+ * Indicates a platform issue, which may be due to a transient condition or outage.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Indicates that something is wrong with the input to the request. For example, a
- *             required parameter may be missing or out of range.</p>
+ *
+ * Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A resource, such as a workgroup, was not found.</p>
+ *
+ * A resource, such as a workgroup, was not found.
  *
  * @throws {@link SessionAlreadyExistsException} (client fault)
- *  <p>The specified session already exists.</p>
+ *
+ * The specified session already exists.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Indicates that the request was throttled.</p>
+ *
+ * Indicates that the request was throttled.
  *
  * @throws {@link AthenaServiceException}
- * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * Base exception class for all service exceptions from Athena service.
  *
  * @public
  */

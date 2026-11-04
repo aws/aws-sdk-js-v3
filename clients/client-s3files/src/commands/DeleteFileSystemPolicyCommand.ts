@@ -23,7 +23,8 @@ export interface DeleteFileSystemPolicyCommandInput extends DeleteFileSystemPoli
 export interface DeleteFileSystemPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the IAM resource policy of an S3 File System.</p>
+ * Deletes the IAM resource policy of an S3 File System.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,20 +49,24 @@ export interface DeleteFileSystemPolicyCommandOutput extends __MetadataBearer {}
  * @see {@link S3FilesClientResolvedConfig | config} for S3FilesClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found. Verify that the resource exists and that you have permission to access it.</p>
+ *
+ * The specified resource was not found. Verify that the resource exists and that you have permission to access it.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input parameters are not valid. Check the parameter values and try again.</p>
+ *
+ * The input parameters are not valid. Check the parameter values and try again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled. Retry your request using exponential backoff.</p>
+ *
+ * The request was throttled. Retry your request using exponential backoff.
  *
  * @throws {@link S3FilesServiceException}
- * <p>Base exception class for all service exceptions from S3Files service.</p>
  *
+ * Base exception class for all service exceptions from S3Files service.
  *
  * @public
  */

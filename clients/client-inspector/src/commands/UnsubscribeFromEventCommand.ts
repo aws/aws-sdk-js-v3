@@ -23,8 +23,8 @@ export interface UnsubscribeFromEventCommandInput extends UnsubscribeFromEventRe
 export interface UnsubscribeFromEventCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Disables the process of sending Amazon Simple Notification Service (SNS)
- *          notifications about a specified event to a specified SNS topic.</p>
+ * Disables the process of sending Amazon Simple Notification Service (SNS) notifications about a specified event to a specified SNS topic.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,25 +51,28 @@ export interface UnsubscribeFromEventCommandOutput extends __MetadataBearer {}
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have required permissions to access the requested resource.</p>
+ *
+ * You do not have required permissions to access the requested resource.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>Internal server error.</p>
+ *
+ * Internal server error.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
- *          input parameter.</p>
+ *
+ * The request was rejected because an invalid or out-of-range value was supplied for an input parameter.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced an entity that does not exist. The
- *          error code describes the entity.</p>
+ *
+ * The request was rejected because it referenced an entity that does not exist. The error code describes the entity.
  *
  * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
- *  <p>The serice is temporary unavailable.</p>
+ *
+ * The serice is temporary unavailable.
  *
  * @throws {@link InspectorServiceException}
- * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * Base exception class for all service exceptions from Inspector service.
  *
  * @example Unsubscribe from event
  * ```javascript

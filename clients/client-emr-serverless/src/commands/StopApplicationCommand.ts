@@ -23,7 +23,8 @@ export interface StopApplicationCommandInput extends StopApplicationRequest {}
 export interface StopApplicationCommandOutput extends StopApplicationResponse, __MetadataBearer {}
 
 /**
- * <p>Stops a specified application and releases initial capacity if configured. All scheduled and running jobs must be completed or cancelled before stopping an application.</p>
+ * Stops a specified application and releases initial capacity if configured. All scheduled and running jobs must be completed or cancelled before stopping an application.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,17 +49,20 @@ export interface StopApplicationCommandOutput extends StopApplicationResponse, _
  * @see {@link EMRServerlessClientResolvedConfig | config} for EMRServerlessClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link EMRServerlessServiceException}
- * <p>Base exception class for all service exceptions from EMRServerless service.</p>
  *
+ * Base exception class for all service exceptions from EMRServerless service.
  *
  * @public
  */

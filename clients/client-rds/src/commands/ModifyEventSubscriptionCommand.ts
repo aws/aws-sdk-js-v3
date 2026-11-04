@@ -23,7 +23,10 @@ export interface ModifyEventSubscriptionCommandInput extends ModifyEventSubscrip
 export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscriptionResult, __MetadataBearer {}
 
 /**
- * <p>Modifies an existing RDS event notification subscription. You can't modify the source identifiers using this call. To change source identifiers for a subscription, use the <code>AddSourceIdentifierToSubscription</code> and <code>RemoveSourceIdentifierFromSubscription</code> calls.</p> <p>You can see a list of the event categories for a given source type (<code>SourceType</code>) in <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html">Events</a> in the <i>Amazon RDS User Guide</i> or by using the <code>DescribeEventCategories</code> operation.</p>
+ * Modifies an existing RDS event notification subscription. You can't modify the source identifiers using this call. To change source identifiers for a subscription, use the `AddSourceIdentifierToSubscription` and `RemoveSourceIdentifierFromSubscription` calls.
+ *
+ * You can see a list of the event categories for a given source type (`SourceType`) in [Events](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html) in the *Amazon RDS User Guide* or by using the `DescribeEventCategories` operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,26 +74,32 @@ export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscri
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link EventSubscriptionQuotaExceededFault} (client fault)
- *  <p>You have reached the maximum number of event subscriptions.</p>
+ *
+ * You have reached the maximum number of event subscriptions.
  *
  * @throws {@link SNSInvalidTopicFault} (client fault)
- *  <p>SNS has responded that there is a problem with the SNS topic specified.</p>
+ *
+ * SNS has responded that there is a problem with the SNS topic specified.
  *
  * @throws {@link SNSNoAuthorizationFault} (client fault)
- *  <p>You do not have permission to publish to the SNS topic ARN.</p>
+ *
+ * You do not have permission to publish to the SNS topic ARN.
  *
  * @throws {@link SNSTopicArnNotFoundFault} (client fault)
- *  <p>The SNS topic ARN does not exist.</p>
+ *
+ * The SNS topic ARN does not exist.
  *
  * @throws {@link SubscriptionCategoryNotFoundFault} (client fault)
- *  <p>The supplied category does not exist.</p>
+ *
+ * The supplied category does not exist.
  *
  * @throws {@link SubscriptionNotFoundFault} (client fault)
- *  <p>The subscription name does not exist.</p>
+ *
+ * The subscription name does not exist.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To modify an event subscription
  * ```javascript

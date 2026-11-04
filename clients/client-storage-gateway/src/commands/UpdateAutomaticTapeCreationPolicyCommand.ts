@@ -26,13 +26,12 @@ export interface UpdateAutomaticTapeCreationPolicyCommandInput extends UpdateAut
 export interface UpdateAutomaticTapeCreationPolicyCommandOutput extends UpdateAutomaticTapeCreationPolicyOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the automatic tape creation policy of a gateway. Use this to update the policy
- *          with a new set of automatic tape creation rules. This is only supported for tape
- *          gateways.</p>
- *          <p>By default, there is no automatic tape creation policy.</p>
- *          <note>
- *             <p>A gateway can have only one automatic tape creation policy.</p>
- *          </note>
+ * Updates the automatic tape creation policy of a gateway. Use this to update the policy with a new set of automatic tape creation rules. This is only supported for tape gateways.
+ *
+ * By default, there is no automatic tape creation policy.
+ *
+ * > **Note:** A gateway can have only one automatic tape creation policy.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,16 +67,16 @@ export interface UpdateAutomaticTapeCreationPolicyCommandOutput extends UpdateAu
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @public
  */

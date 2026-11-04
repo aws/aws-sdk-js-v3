@@ -23,8 +23,8 @@ export interface DescribeAddressCommandInput extends DescribeAddressRequest {}
 export interface DescribeAddressCommandOutput extends DescribeAddressResult, __MetadataBearer {}
 
 /**
- * <p>Takes an <code>AddressId</code> and returns specific details about that address in the
- *       form of an <code>Address</code> object.</p>
+ * Takes an `AddressId` and returns specific details about that address in the form of an `Address` object.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,12 +67,12 @@ export interface DescribeAddressCommandOutput extends DescribeAddressResult, __M
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
  * @throws {@link InvalidResourceException} (client fault)
- *  <p>The specified resource can't be found. Check the information you provided in your last
- *       request, and try again.</p>
+ *
+ * The specified resource can't be found. Check the information you provided in your last request, and try again.
  *
  * @throws {@link SnowballServiceException}
- * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ * Base exception class for all service exceptions from Snowball service.
  *
  * @example To describe an address for a job
  * ```javascript

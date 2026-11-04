@@ -23,17 +23,16 @@ export interface AssociateAccessGrantsIdentityCenterCommandInput extends Associa
 export interface AssociateAccessGrantsIdentityCenterCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Associate your S3 Access Grants instance with an Amazon Web Services IAM Identity Center instance. Use this action if you want to create access grants for users or groups from your corporate identity directory. First, you must add your corporate identity directory to Amazon Web Services IAM Identity Center. Then, you can associate this IAM Identity Center instance with your S3 Access Grants instance.</p>
- *          <dl>
- *             <dt>Permissions</dt>
- *             <dd>
- *                <p>You must have the <code>s3:AssociateAccessGrantsIdentityCenter</code> permission to use this operation. </p>
- *             </dd>
- *             <dt>Additional Permissions</dt>
- *             <dd>
- *                <p>You must also have the following permissions: <code>sso:CreateApplication</code>, <code>sso:PutApplicationGrant</code>, and <code>sso:PutApplicationAuthenticationMethod</code>. </p>
- *             </dd>
- *          </dl>
+ * Associate your S3 Access Grants instance with an Amazon Web Services IAM Identity Center instance. Use this action if you want to create access grants for users or groups from your corporate identity directory. First, you must add your corporate identity directory to Amazon Web Services IAM Identity Center. Then, you can associate this IAM Identity Center instance with your S3 Access Grants instance.
+ *
+ * - **Permissions**
+ *
+ *   You must have the `s3:AssociateAccessGrantsIdentityCenter` permission to use this operation.
+ *
+ * - **Additional Permissions**
+ *
+ *   You must also have the following permissions: `sso:CreateApplication`, `sso:PutApplicationGrant`, and `sso:PutApplicationAuthenticationMethod`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,8 +58,8 @@ export interface AssociateAccessGrantsIdentityCenterCommandOutput extends __Meta
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
  * @throws {@link S3ControlServiceException}
- * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * Base exception class for all service exceptions from S3Control service.
  *
  * @public
  */

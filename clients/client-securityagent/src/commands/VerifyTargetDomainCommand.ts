@@ -23,7 +23,8 @@ export interface VerifyTargetDomainCommandInput extends VerifyTargetDomainInput 
 export interface VerifyTargetDomainCommandOutput extends VerifyTargetDomainOutput, __MetadataBearer {}
 
 /**
- * <p>Initiates verification of a target domain. This checks whether the domain ownership verification token has been properly configured.</p>
+ * Initiates verification of a target domain. This checks whether the domain ownership verification token has been properly configured.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,8 +57,8 @@ export interface VerifyTargetDomainCommandOutput extends VerifyTargetDomainOutpu
  * @see {@link SecurityAgentClientResolvedConfig | config} for SecurityAgentClient's `config` shape.
  *
  * @throws {@link SecurityAgentServiceException}
- * <p>Base exception class for all service exceptions from SecurityAgent service.</p>
  *
+ * Base exception class for all service exceptions from SecurityAgent service.
  *
  * @public
  */

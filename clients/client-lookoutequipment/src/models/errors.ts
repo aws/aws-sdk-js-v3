@@ -4,8 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { LookoutEquipmentServiceException as __BaseException } from "./LookoutEquipmentServiceException";
 
 /**
- * <p>The request could not be completed because you do not have access to the resource.
- *       </p>
+ * The request could not be completed because you do not have access to the resource.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -28,8 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p> The request could not be completed due to a conflict with the current state of the
- *          target resource. </p>
+ * The request could not be completed due to a conflict with the current state of the target resource.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -52,8 +52,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p> Processing of the request has failed because of an unknown error, exception or failure.
- *       </p>
+ * Processing of the request has failed because of an unknown error, exception or failure.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -76,7 +76,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p> Resource limitations have been exceeded. </p>
+ * Resource limitations have been exceeded.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -99,7 +100,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -122,8 +124,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services
- *          service that's being utilized. </p>
+ * The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -146,8 +148,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p> The resource requested could not be found. Verify the resource ID and retry your
- *          request. </p>
+ * The resource requested could not be found. Verify the resource ID and retry your request.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {

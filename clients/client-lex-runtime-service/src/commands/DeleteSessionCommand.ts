@@ -23,8 +23,8 @@ export interface DeleteSessionCommandInput extends DeleteSessionRequest {}
 export interface DeleteSessionCommandOutput extends DeleteSessionResponse, __MetadataBearer {}
 
 /**
- * <p>Removes session information for a specified bot, alias, and user ID.
- *     </p>
+ * Removes session information for a specified bot, alias, and user ID.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,27 +56,28 @@ export interface DeleteSessionCommandOutput extends DeleteSessionResponse, __Met
  * @see {@link LexRuntimeServiceClientResolvedConfig | config} for LexRuntimeServiceClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p> Request validation failed, there is no usable message in the context,
- *       or the bot build failed, is still in progress, or contains unbuilt
- *       changes. </p>
+ *
+ * Request validation failed, there is no usable message in the context, or the bot build failed, is still in progress, or contains unbuilt changes.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p> Two clients are using the same AWS account, Amazon Lex bot, and user
- *       ID. </p>
+ *
+ * Two clients are using the same AWS account, Amazon Lex bot, and user ID.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>Internal service error. Retry the call.</p>
+ *
+ * Internal service error. Retry the call.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>Exceeded a limit.</p>
+ *
+ * Exceeded a limit.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource (such as the Amazon Lex bot or an alias) that is referred
- *       to is not found.</p>
+ *
+ * The resource (such as the Amazon Lex bot or an alias) that is referred to is not found.
  *
  * @throws {@link LexRuntimeServiceServiceException}
- * <p>Base exception class for all service exceptions from LexRuntimeService service.</p>
  *
+ * Base exception class for all service exceptions from LexRuntimeService service.
  *
  * @public
  */

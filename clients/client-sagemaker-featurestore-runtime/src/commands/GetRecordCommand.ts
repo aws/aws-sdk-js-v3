@@ -23,9 +23,8 @@ export interface GetRecordCommandInput extends GetRecordRequest {}
 export interface GetRecordCommandOutput extends GetRecordResponse, __MetadataBearer {}
 
 /**
- * <p>Use for <code>OnlineStore</code> serving from a <code>FeatureStore</code>. Only the
- *          latest records stored in the <code>OnlineStore</code> can be retrieved. If no Record with
- *             <code>RecordIdentifierValue</code> is found, then an empty result is returned. </p>
+ * Use for `OnlineStore` serving from a `FeatureStore`. Only the latest records stored in the `OnlineStore` can be retrieved. If no Record with `RecordIdentifierValue` is found, then an empty result is returned.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,24 +65,28 @@ export interface GetRecordCommandOutput extends GetRecordResponse, __MetadataBea
  * @see {@link SageMakerFeatureStoreRuntimeClientResolvedConfig | config} for SageMakerFeatureStoreRuntimeClient's `config` shape.
  *
  * @throws {@link AccessForbidden} (client fault)
- *  <p>You do not have permission to perform an action.</p>
+ *
+ * You do not have permission to perform an action.
  *
  * @throws {@link InternalFailure} (server fault)
- *  <p>An internal failure occurred. Try your request again. If the problem persists, contact
- *             Amazon Web Services customer support.</p>
+ *
+ * An internal failure occurred. Try your request again. If the problem persists, contact Amazon Web Services customer support.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>A resource that is required to perform an action was not found.</p>
+ *
+ * A resource that is required to perform an action was not found.
  *
  * @throws {@link ServiceUnavailable} (server fault)
- *  <p>The service is currently unavailable.</p>
+ *
+ * The service is currently unavailable.
  *
  * @throws {@link ValidationError} (client fault)
- *  <p>There was an error validating your request.</p>
+ *
+ * There was an error validating your request.
  *
  * @throws {@link SageMakerFeatureStoreRuntimeServiceException}
- * <p>Base exception class for all service exceptions from SageMakerFeatureStoreRuntime service.</p>
  *
+ * Base exception class for all service exceptions from SageMakerFeatureStoreRuntime service.
  *
  * @public
  */

@@ -24,7 +24,8 @@ export interface ModifyIntegrationCommandInput extends ModifyIntegrationMessage 
 export interface ModifyIntegrationCommandOutput extends Integration, __MetadataBearer {}
 
 /**
- * <p>Modifies a zero-ETL integration with Amazon Redshift.</p>
+ * Modifies a zero-ETL integration with Amazon Redshift.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,17 +78,20 @@ export interface ModifyIntegrationCommandOutput extends Integration, __MetadataB
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link IntegrationConflictOperationFault} (client fault)
- *  <p>A conflicting conditional operation is currently in progress against this resource. Typically occurs when there are multiple requests being made to the same resource at the same time, and these requests conflict with each other.</p>
+ *
+ * A conflicting conditional operation is currently in progress against this resource. Typically occurs when there are multiple requests being made to the same resource at the same time, and these requests conflict with each other.
  *
  * @throws {@link IntegrationNotFoundFault} (client fault)
- *  <p>The specified integration could not be found.</p>
+ *
+ * The specified integration could not be found.
  *
  * @throws {@link InvalidIntegrationStateFault} (client fault)
- *  <p>The integration is in an invalid state and can't perform the requested operation.</p>
+ *
+ * The integration is in an invalid state and can't perform the requested operation.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To modify a zero-ETL integration
  * ```javascript

@@ -23,11 +23,10 @@ export interface DescribeUsersCommandInput extends DescribeUsersRequest {}
 export interface DescribeUsersCommandOutput extends DescribeUsersResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the specified users. You can describe all users or filter the results
- *             (for example, by status or organization).</p>
- *          <p>By default, Amazon WorkDocs returns the first 24 active or pending users. If there
- *             are more results, the response includes a marker that you can use to request the next
- *             set of results.</p>
+ * Describes the specified users. You can describe all users or filter the results (for example, by status or organization).
+ *
+ * By default, Amazon WorkDocs returns the first 24 active or pending users. If there are more results, the response includes a marker that you can use to request the next set of results.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -89,31 +88,36 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResponse, __Met
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
  *
  * @throws {@link EntityNotExistsException} (client fault)
- *  <p>The resource does not exist.</p>
+ *
+ * The resource does not exist.
  *
  * @throws {@link FailedDependencyException} (client fault)
- *  <p>The Directory Service cannot reach an on-premises instance. Or a dependency
- *             under the control of the organization is failing, such as a connected Active
- *             Directory.</p>
+ *
+ * The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>The pagination marker or limit fields are not valid.</p>
+ *
+ * The pagination marker or limit fields are not valid.
  *
  * @throws {@link RequestedEntityTooLargeException} (client fault)
- *  <p>The response is too large to return. The request must include a filter to reduce the size of the response.</p>
+ *
+ * The response is too large to return. The request must include a filter to reduce the size of the response.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>One or more of the dependencies is unavailable.</p>
+ *
+ * One or more of the dependencies is unavailable.
  *
  * @throws {@link UnauthorizedOperationException} (client fault)
- *  <p>The operation is not permitted.</p>
+ *
+ * The operation is not permitted.
  *
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
- *  <p>The caller does not have access to perform the action on the resource.</p>
+ *
+ * The caller does not have access to perform the action on the resource.
  *
  * @throws {@link WorkDocsServiceException}
- * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * Base exception class for all service exceptions from WorkDocs service.
  *
  * @public
  */

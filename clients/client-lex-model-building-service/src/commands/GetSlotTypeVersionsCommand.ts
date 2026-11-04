@@ -23,17 +23,13 @@ export interface GetSlotTypeVersionsCommandInput extends GetSlotTypeVersionsRequ
 export interface GetSlotTypeVersionsCommandOutput extends GetSlotTypeVersionsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about all versions of a slot type.</p>
- *          <p>The <code>GetSlotTypeVersions</code> operation returns a
- *         <code>SlotTypeMetadata</code> object for each version of a slot type.
- *       For example, if a slot type has three numbered versions, the
- *         <code>GetSlotTypeVersions</code> operation returns four
- *         <code>SlotTypeMetadata</code> objects in the response, one for each
- *       numbered version and one for the <code>$LATEST</code> version. </p>
- *          <p>The <code>GetSlotTypeVersions</code> operation always returns at
- *       least one version, the <code>$LATEST</code> version.</p>
- *          <p>This operation requires permissions for the
- *         <code>lex:GetSlotTypeVersions</code> action.</p>
+ * Gets information about all versions of a slot type.
+ *
+ * The `GetSlotTypeVersions` operation returns a `SlotTypeMetadata` object for each version of a slot type. For example, if a slot type has three numbered versions, the `GetSlotTypeVersions` operation returns four `SlotTypeMetadata` objects in the response, one for each numbered version and one for the `$LATEST` version.
+ *
+ * The `GetSlotTypeVersions` operation always returns at least one version, the `$LATEST` version.
+ *
+ * This operation requires permissions for the `lex:GetSlotTypeVersions` action.
  *
  * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @example
@@ -73,23 +69,24 @@ export interface GetSlotTypeVersionsCommandOutput extends GetSlotTypeVersionsRes
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request is not well formed. For example, a value is invalid or
- *       a required field is missing. Check the field values, and try
- *       again.</p>
+ *
+ * The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An internal Amazon Lex error occurred. Try your request again.</p>
+ *
+ * An internal Amazon Lex error occurred. Try your request again.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request exceeded a limit. Try your request again.</p>
+ *
+ * The request exceeded a limit. Try your request again.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource specified in the request was not found. Check the
- *       resource and try again.</p>
+ *
+ * The resource specified in the request was not found. Check the resource and try again.
  *
  * @throws {@link LexModelBuildingServiceServiceException}
- * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * Base exception class for all service exceptions from LexModelBuildingService service.
  *
  * @public
  */

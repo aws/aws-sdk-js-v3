@@ -23,7 +23,10 @@ export interface UpdateChannelGroupCommandInput extends UpdateChannelGroupReques
 export interface UpdateChannelGroupCommandOutput extends UpdateChannelGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Update the specified channel group. You can edit the description on a channel group for easier identification later from the AWS Elemental MediaPackage console. You can't edit the name of the channel group.</p> <p>Any edits you make that impact the video output may not be reflected for a few minutes.</p>
+ * Update the specified channel group. You can edit the description on a channel group for easier identification later from the AWS Elemental MediaPackage console. You can't edit the name of the channel group.
+ *
+ * Any edits you make that impact the video output may not be reflected for a few minutes.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,26 +64,32 @@ export interface UpdateChannelGroupCommandOutput extends UpdateChannelGroupRespo
  * @see {@link MediaPackageV2ClientResolvedConfig | config} for MediaPackageV2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access is denied because either you don't have permissions to perform the requested operation or MediaPackage is getting throttling errors with CDN authorization. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see Access Management in the IAM User Guide. Or, if you're using CDN authorization, you will receive this exception if MediaPackage receives a throttling error from Secrets Manager.</p>
+ *
+ * Access is denied because either you don't have permissions to perform the requested operation or MediaPackage is getting throttling errors with CDN authorization. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see Access Management in the IAM User Guide. Or, if you're using CDN authorization, you will receive this exception if MediaPackage receives a throttling error from Secrets Manager.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting this resource can cause an inconsistent state.</p>
+ *
+ * Updating or deleting this resource can cause an inconsistent state.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Indicates that an error from the service occurred while trying to process a request.</p>
+ *
+ * Indicates that an error from the service occurred while trying to process a request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource doesn't exist.</p>
+ *
+ * The specified resource doesn't exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request throughput limit was exceeded.</p>
+ *
+ * The request throughput limit was exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input failed to meet the constraints specified by the AWS service.</p>
+ *
+ * The input failed to meet the constraints specified by the AWS service.
  *
  * @throws {@link MediaPackageV2ServiceException}
- * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
+ * Base exception class for all service exceptions from MediaPackageV2 service.
  *
  * @example Updating a Channel Group
  * ```javascript

@@ -23,33 +23,20 @@ export interface DescribeImagesCommandInput extends DescribeImagesRequest {}
 export interface DescribeImagesCommandOutput extends DescribeImagesResult, __MetadataBearer {}
 
 /**
- * <p>Describes the specified images (AMIs, AKIs, and ARIs) available to you or all of the
- *       images available to you.</p>
- *          <p>The images available to you include public images, private images that you own, and
- *       private images owned by other Amazon Web Services accounts for which you have explicit launch
- *       permissions.</p>
- *          <p>Recently deregistered images appear in the returned results for a short interval and then
- *       return empty results. After all instances that reference a deregistered AMI are terminated,
- *       specifying the ID of the image will eventually return an error indicating that the AMI ID
- *       cannot be found.</p>
- *          <p>When Allowed AMIs is set to <code>enabled</code>, only allowed images are returned in the
- *       results, with the <code>imageAllowed</code> field set to <code>true</code> for each image. In
- *         <code>audit-mode</code>, the <code>imageAllowed</code> field is set to <code>true</code> for
- *       images that meet the account's Allowed AMIs criteria, and <code>false</code> for images that
- *       don't meet the criteria. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html">Allowed AMIs</a>.</p>
- *          <p>The Amazon EC2 API follows an eventual consistency model. This means that the result of an API
- *       command you run that creates or modifies resources might not be immediately available to all
- *       subsequent commands you run. For guidance on how to manage eventual consistency, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/eventual-consistency.html">Eventual
- *         consistency in the Amazon EC2 API</a> in the <i>Amazon EC2 Developer
- *         Guide</i>.</p>
- *          <important>
- *             <p>We strongly recommend using only paginated requests. Unpaginated requests are
- *         susceptible to throttling and timeouts.</p>
- *          </important>
- *          <note>
- *             <p>The order of the elements in the response, including those within nested structures,
- *         might vary. Applications should not assume the elements appear in a particular order.</p>
- *          </note>
+ * Describes the specified images (AMIs, AKIs, and ARIs) available to you or all of the images available to you.
+ *
+ * The images available to you include public images, private images that you own, and private images owned by other Amazon Web Services accounts for which you have explicit launch permissions.
+ *
+ * Recently deregistered images appear in the returned results for a short interval and then return empty results. After all instances that reference a deregistered AMI are terminated, specifying the ID of the image will eventually return an error indicating that the AMI ID cannot be found.
+ *
+ * When Allowed AMIs is set to `enabled`, only allowed images are returned in the results, with the `imageAllowed` field set to `true` for each image. In `audit-mode`, the `imageAllowed` field is set to `true` for images that meet the account's Allowed AMIs criteria, and `false` for images that don't meet the criteria. For more information, see [Allowed AMIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html).
+ *
+ * The Amazon EC2 API follows an eventual consistency model. This means that the result of an API command you run that creates or modifies resources might not be immediately available to all subsequent commands you run. For guidance on how to manage eventual consistency, see [Eventual consistency in the Amazon EC2 API](https://docs.aws.amazon.com/ec2/latest/devguide/eventual-consistency.html) in the *Amazon EC2 Developer Guide*.
+ *
+ * > **Important:** We strongly recommend using only paginated requests. Unpaginated requests are susceptible to throttling and timeouts.
+ *
+ * > **Note:** The order of the elements in the response, including those within nested structures, might vary. Applications should not assume the elements appear in a particular order.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -203,8 +190,8 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To describe an AMI
  * ```javascript

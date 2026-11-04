@@ -23,7 +23,8 @@ export interface GetPortalProductSharingPolicyCommandInput extends GetPortalProd
 export interface GetPortalProductSharingPolicyCommandOutput extends GetPortalProductSharingPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the sharing policy for a portal product.</p>
+ * Gets the sharing policy for a portal product.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,17 +54,20 @@ export interface GetPortalProductSharingPolicyCommandOutput extends GetPortalPro
  * @throws {@link AccessDeniedException} (client fault)
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+ *
+ * The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource specified in the request was not found. See the message field for more information.</p>
+ *
+ * The resource specified in the request was not found. See the message field for more information.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
+ *
+ * A limit has been exceeded. See the accompanying error message for details.
  *
  * @throws {@link ApiGatewayV2ServiceException}
- * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ * Base exception class for all service exceptions from ApiGatewayV2 service.
  *
  * @public
  */

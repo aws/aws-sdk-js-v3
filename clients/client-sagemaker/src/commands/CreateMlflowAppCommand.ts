@@ -23,7 +23,8 @@ export interface CreateMlflowAppCommandInput extends CreateMlflowAppRequest {}
 export interface CreateMlflowAppCommandOutput extends CreateMlflowAppResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an MLflow Tracking Server using a general purpose Amazon S3 bucket as the artifact store.</p>
+ * Creates an MLflow Tracking Server using a general purpose Amazon S3 bucket as the artifact store.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,11 +66,12 @@ export interface CreateMlflowAppCommandOutput extends CreateMlflowAppResponse, _
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+ *
+ * You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

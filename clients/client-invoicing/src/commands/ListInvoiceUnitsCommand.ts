@@ -23,7 +23,8 @@ export interface ListInvoiceUnitsCommandInput extends ListInvoiceUnitsRequest {}
 export interface ListInvoiceUnitsCommandOutput extends ListInvoiceUnitsResponse, __MetadataBearer {}
 
 /**
- * <p>This fetches a list of all invoice unit definitions for a given account, as of the provided <code>AsOf</code> date.</p>
+ * This fetches a list of all invoice unit definitions for a given account, as of the provided `AsOf` date.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,20 +85,24 @@ export interface ListInvoiceUnitsCommandOutput extends ListInvoiceUnitsResponse,
  * @see {@link InvoicingClientResolvedConfig | config} for InvoicingClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * You don't have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The processing request failed because of an unknown error, exception, or failure. </p>
+ *
+ * The processing request failed because of an unknown error, exception, or failure.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link InvoicingServiceException}
- * <p>Base exception class for all service exceptions from Invoicing service.</p>
  *
+ * Base exception class for all service exceptions from Invoicing service.
  *
  * @example ListInvoiceUnits without filters as of current time
  * ```javascript

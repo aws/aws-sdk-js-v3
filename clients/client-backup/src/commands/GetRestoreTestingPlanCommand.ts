@@ -23,9 +23,8 @@ export interface GetRestoreTestingPlanCommandInput extends GetRestoreTestingPlan
 export interface GetRestoreTestingPlanCommandOutput extends GetRestoreTestingPlanOutput, __MetadataBearer {}
 
 /**
- * <p>Returns <code>RestoreTestingPlan</code> details for the specified
- *             <code>RestoreTestingPlanName</code>. The details are the body of a restore testing plan
- *          in JSON format, in addition to plan metadata.</p>
+ * Returns `RestoreTestingPlan` details for the specified `RestoreTestingPlanName`. The details are the body of a restore testing plan in JSON format, in addition to plan metadata.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,14 +74,16 @@ export interface GetRestoreTestingPlanCommandOutput extends GetRestoreTestingPla
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A resource that is required for the action doesn't exist.</p>
+ *
+ * A resource that is required for the action doesn't exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The request failed due to a temporary failure of the server.</p>
+ *
+ * The request failed due to a temporary failure of the server.
  *
  * @throws {@link BackupServiceException}
- * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * Base exception class for all service exceptions from Backup service.
  *
  * @public
  */

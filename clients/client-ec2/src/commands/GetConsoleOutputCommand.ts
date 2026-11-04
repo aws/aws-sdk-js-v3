@@ -23,12 +23,10 @@ export interface GetConsoleOutputCommandInput extends GetConsoleOutputRequest {}
 export interface GetConsoleOutputCommandOutput extends GetConsoleOutputResult, __MetadataBearer {}
 
 /**
- * <p>Gets the console output for the specified instance. For Linux instances, the instance
- *             console output displays the exact console output that would normally be displayed on a
- *             physical monitor attached to a computer. For Windows instances, the instance console
- *             output includes the last three system event log errors.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html#instance-console-console-output">Instance
- *                 console output</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * Gets the console output for the specified instance. For Linux instances, the instance console output displays the exact console output that would normally be displayed on a physical monitor attached to a computer. For Windows instances, the instance console output includes the last three system event log errors.
+ *
+ * For more information, see [Instance console output](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html#instance-console-console-output) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,8 +57,8 @@ export interface GetConsoleOutputCommandOutput extends GetConsoleOutputResult, _
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To get the console output
  * ```javascript

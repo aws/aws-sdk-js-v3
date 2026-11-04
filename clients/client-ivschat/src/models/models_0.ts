@@ -12,37 +12,36 @@ import type {
  */
 export interface CreateChatTokenRequest {
   /**
-   * <p>Identifier of the room that the client is trying to access. Currently this must be an
-   *          ARN. </p>
+   * Identifier of the room that the client is trying to access. Currently this must be an ARN.
+   *
    * @public
    */
   roomIdentifier: string | undefined;
 
   /**
-   * <p>Application-provided ID that uniquely identifies the user associated with this token.
-   *          This can be any UTF-8 encoded text.</p>
+   * Application-provided ID that uniquely identifies the user associated with this token. This can be any UTF-8 encoded text.
+   *
    * @public
    */
   userId: string | undefined;
 
   /**
-   * <p>Set of capabilities that the user is allowed to perform in the room. Default: None (the
-   *          capability to view messages is implicitly included in all requests).</p>
+   * Set of capabilities that the user is allowed to perform in the room. Default: None (the capability to view messages is implicitly included in all requests).
+   *
    * @public
    */
   capabilities?: ChatTokenCapability[] | undefined;
 
   /**
-   * <p>Session duration (in minutes), after which the session expires. Default: 60 (1
-   *          hour).</p>
+   * Session duration (in minutes), after which the session expires. Default: 60 (1 hour).
+   *
    * @public
    */
   sessionDurationInMinutes?: number | undefined;
 
   /**
-   * <p>Application-provided attributes to encode into the token and attach to a chat session.
-   *          Map keys and values can contain UTF-8 encoded text. The maximum length of this field is 1
-   *          KB total.</p>
+   * Application-provided attributes to encode into the token and attach to a chat session. Map keys and values can contain UTF-8 encoded text. The maximum length of this field is 1 KB total.
+   *
    * @public
    */
   attributes?: Record<string, string> | undefined;
@@ -53,86 +52,93 @@ export interface CreateChatTokenRequest {
  */
 export interface CreateChatTokenResponse {
   /**
-   * <p>The issued client token, encrypted.</p>
+   * The issued client token, encrypted.
+   *
    * @public
    */
   token?: string | undefined;
 
   /**
-   * <p>Time after which the token is no longer valid and cannot be used to connect to a room.
-   *          This is an ISO 8601 timestamp; <i>note that this is returned as a
-   *          string</i>.</p>
+   * Time after which the token is no longer valid and cannot be used to connect to a room. This is an ISO 8601 timestamp; *note that this is returned as a string*.
+   *
    * @public
    */
   tokenExpirationTime?: Date | undefined;
 
   /**
-   * <p>Time after which an end user's session is no longer valid. This is an ISO 8601
-   *          timestamp; <i>note that this is returned as a string</i>.</p>
+   * Time after which an end user's session is no longer valid. This is an ISO 8601 timestamp; *note that this is returned as a string*.
+   *
    * @public
    */
   sessionExpirationTime?: Date | undefined;
 }
 
 /**
- * <p>This object is used in the ValidationException error.</p>
+ * This object is used in the ValidationException error.
+ *
  * @public
  */
 export interface ValidationExceptionField {
   /**
-   * <p>Name of the field which failed validation.</p>
+   * Name of the field which failed validation.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Explanation of the reason for the validation error.</p>
+   * Explanation of the reason for the validation error.
+   *
    * @public
    */
   message: string | undefined;
 }
 
 /**
- * <p>Specifies a CloudWatch Logs location where chat logs will be stored.</p>
+ * Specifies a CloudWatch Logs location where chat logs will be stored.
+ *
  * @public
  */
 export interface CloudWatchLogsDestinationConfiguration {
   /**
-   * <p>Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.</p>
+   * Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.
+   *
    * @public
    */
   logGroupName: string | undefined;
 }
 
 /**
- * <p>Specifies a Kinesis Firehose location where chat logs will be stored.</p>
+ * Specifies a Kinesis Firehose location where chat logs will be stored.
+ *
  * @public
  */
 export interface FirehoseDestinationConfiguration {
   /**
-   * <p>Name of the Amazon Kinesis Firehose delivery stream where chat activity will be
-   *       logged.</p>
+   * Name of the Amazon Kinesis Firehose delivery stream where chat activity will be logged.
+   *
    * @public
    */
   deliveryStreamName: string | undefined;
 }
 
 /**
- * <p>Specifies an S3 location where chat logs will be stored.</p>
+ * Specifies an S3 location where chat logs will be stored.
+ *
  * @public
  */
 export interface S3DestinationConfiguration {
   /**
-   * <p>Name of the Amazon S3 bucket where chat activity will be logged.</p>
+   * Name of the Amazon S3 bucket where chat activity will be logged.
+   *
    * @public
    */
   bucketName: string | undefined;
 }
 
 /**
- * <p>A complex type that describes a location where chat logs will be stored. Each member
- *       represents the configuration of one log destination. For logging, you define only one type of
- *       destination (for CloudWatch Logs, Kinesis Firehose, or S3).</p>
+ * A complex type that describes a location where chat logs will be stored. Each member represents the configuration of one log destination. For logging, you define only one type of destination (for CloudWatch Logs, Kinesis Firehose, or S3).
+ *
  * @public
  */
 export type DestinationConfiguration =
@@ -146,7 +152,8 @@ export type DestinationConfiguration =
  */
 export namespace DestinationConfiguration {
   /**
-   * <p>An Amazon S3 destination configuration where chat activity will be logged.</p>
+   * An Amazon S3 destination configuration where chat activity will be logged.
+   *
    * @public
    */
   export interface S3Member {
@@ -157,8 +164,8 @@ export namespace DestinationConfiguration {
   }
 
   /**
-   * <p>An Amazon CloudWatch Logs destination configuration where chat activity will be
-   *       logged.</p>
+   * An Amazon CloudWatch Logs destination configuration where chat activity will be logged.
+   *
    * @public
    */
   export interface CloudWatchLogsMember {
@@ -169,8 +176,8 @@ export namespace DestinationConfiguration {
   }
 
   /**
-   * <p>An Amazon Kinesis Data Firehose destination configuration where chat activity will be
-   *       logged.</p>
+   * An Amazon Kinesis Data Firehose destination configuration where chat activity will be logged.
+   *
    * @public
    */
   export interface FirehoseMember {
@@ -207,24 +214,22 @@ export namespace DestinationConfiguration {
  */
 export interface CreateLoggingConfigurationRequest {
   /**
-   * <p>Logging-configuration name. The value does not need to be unique.</p>
+   * Logging-configuration name. The value does not need to be unique.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>A complex type that contains a destination configuration for where chat content will be
-   *          logged. There can be only one type of destination (<code>cloudWatchLogs</code>,
-   *             <code>firehose</code>, or <code>s3</code>) in a
-   *          <code>destinationConfiguration</code>.</p>
+   * A complex type that contains a destination configuration for where chat content will be logged. There can be only one type of destination (`cloudWatchLogs`, `firehose`, or `s3`) in a `destinationConfiguration`.
+   *
    * @public
    */
   destinationConfiguration: DestinationConfiguration | undefined;
 
   /**
-   * <p>Tags to attach to the resource. Array of maps, each of the form <code>string:string
-   *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS Chat has no constraints on tags beyond what is
-   *          documented there.</p>
+   * Tags to attach to the resource. Array of maps, each of the form `string:string (key:value)`. See [Best practices and strategies](https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html) in *Tagging Amazon Web Services Resources and Tag Editor* for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS Chat has no constraints on tags beyond what is documented there.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -235,81 +240,78 @@ export interface CreateLoggingConfigurationRequest {
  */
 export interface CreateLoggingConfigurationResponse {
   /**
-   * <p>Logging-configuration ARN, assigned by the system.</p>
+   * Logging-configuration ARN, assigned by the system.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>Logging-configuration ID, generated by the system. This is a relative identifier, the
-   *          part of the ARN that uniquely identifies the logging configuration.</p>
+   * Logging-configuration ID, generated by the system. This is a relative identifier, the part of the ARN that uniquely identifies the logging configuration.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>Time when the logging configuration was created. This is an ISO 8601 timestamp;
-   *             <i>note that this is returned as a string</i>.</p>
+   * Time when the logging configuration was created. This is an ISO 8601 timestamp; *note that this is returned as a string*.
+   *
    * @public
    */
   createTime?: Date | undefined;
 
   /**
-   * <p>Time of the logging configuration’s last update. This is an ISO 8601 timestamp;
-   *             <i>note that this is returned as a string</i>.</p>
+   * Time of the logging configuration’s last update. This is an ISO 8601 timestamp; *note that this is returned as a string*.
+   *
    * @public
    */
   updateTime?: Date | undefined;
 
   /**
-   * <p>Logging-configuration name, from the request (if specified).</p>
+   * Logging-configuration name, from the request (if specified).
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>A complex type that contains a destination configuration for where chat content will be
-   *          logged, from the request. There is only one type of destination
-   *             (<code>cloudWatchLogs</code>, <code>firehose</code>, or <code>s3</code>) in a
-   *             <code>destinationConfiguration</code>.</p>
+   * A complex type that contains a destination configuration for where chat content will be logged, from the request. There is only one type of destination (`cloudWatchLogs`, `firehose`, or `s3`) in a `destinationConfiguration`.
+   *
    * @public
    */
   destinationConfiguration?: DestinationConfiguration | undefined;
 
   /**
-   * <p>The state of the logging configuration. When the state is <code>ACTIVE</code>, the
-   *          configuration is ready to log chat content.</p>
+   * The state of the logging configuration. When the state is `ACTIVE`, the configuration is ready to log chat content.
+   *
    * @public
    */
   state?: CreateLoggingConfigurationState | undefined;
 
   /**
-   * <p>Tags attached to the resource, from the request (if specified). Array of maps, each of
-   *          the form <code>string:string (key:value)</code>.</p>
+   * Tags attached to the resource, from the request (if specified). Array of maps, each of the form `string:string (key:value)`.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Configuration information for optional message review.</p>
+ * Configuration information for optional message review.
+ *
  * @public
  */
 export interface MessageReviewHandler {
   /**
-   * <p>Identifier of the message review handler. Currently this must be an ARN of a lambda
-   *       function.</p>
+   * Identifier of the message review handler. Currently this must be an ARN of a lambda function.
+   *
    * @public
    */
   uri?: string | undefined;
 
   /**
-   * <p>Specifies the fallback behavior (whether the message is allowed or denied) if the handler
-   *       does not return a valid response, encounters an error, or times out. (For the timeout period,
-   *       see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/service-quotas.html"> Service
-   *         Quotas</a>.) If allowed, the message is delivered with returned content to all users
-   *       connected to the room. If denied, the message is not delivered to any user. Default:
-   *         <code>ALLOW</code>.</p>
+   * Specifies the fallback behavior (whether the message is allowed or denied) if the handler does not return a valid response, encounters an error, or times out. (For the timeout period, see [Service Quotas](https://docs.aws.amazon.com/ivs/latest/userguide/service-quotas.html).) If allowed, the message is delivered with returned content to all users connected to the room. If denied, the message is not delivered to any user. Default: `ALLOW`.
+   *
    * @public
    */
   fallbackResult?: FallbackResult | undefined;
@@ -320,42 +322,43 @@ export interface MessageReviewHandler {
  */
 export interface CreateRoomRequest {
   /**
-   * <p>Room name. The value does not need to be unique.</p>
+   * Room name. The value does not need to be unique.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Maximum number of messages per second that can be sent to the room (by all clients).
-   *          Default: 10. </p>
+   * Maximum number of messages per second that can be sent to the room (by all clients). Default: 10.
+   *
    * @public
    */
   maximumMessageRatePerSecond?: number | undefined;
 
   /**
-   * <p>Maximum number of characters in a single message. Messages are expected to be UTF-8
-   *          encoded and this limit applies specifically to rune/code-point count, not number of bytes.
-   *          Default: 500.</p>
+   * Maximum number of characters in a single message. Messages are expected to be UTF-8 encoded and this limit applies specifically to rune/code-point count, not number of bytes. Default: 500.
+   *
    * @public
    */
   maximumMessageLength?: number | undefined;
 
   /**
-   * <p>Configuration information for optional review of messages.</p>
+   * Configuration information for optional review of messages.
+   *
    * @public
    */
   messageReviewHandler?: MessageReviewHandler | undefined;
 
   /**
-   * <p>Tags to attach to the resource. Array of maps, each of the form <code>string:string
-   *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS Chat has no constraints beyond what is documented
-   *          there.</p>
+   * Tags to attach to the resource. Array of maps, each of the form `string:string (key:value)`. See [Best practices and strategies](https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html) in *Tagging Amazon Web Services Resources and Tag Editor* for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS Chat has no constraints beyond what is documented there.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Array of logging-configuration identifiers attached to the room.</p>
+   * Array of logging-configuration identifiers attached to the room.
+   *
    * @public
    */
   loggingConfigurationIdentifiers?: string[] | undefined;
@@ -366,67 +369,71 @@ export interface CreateRoomRequest {
  */
 export interface CreateRoomResponse {
   /**
-   * <p>Room ARN, assigned by the system.</p>
+   * Room ARN, assigned by the system.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>Room ID, generated by the system. This is a relative identifier, the part of the ARN
-   *          that uniquely identifies the room.</p>
+   * Room ID, generated by the system. This is a relative identifier, the part of the ARN that uniquely identifies the room.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>Room name, from the request (if specified).</p>
+   * Room name, from the request (if specified).
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Time when the room was created. This is an ISO 8601 timestamp; <i>note that this
-   *             is returned as a string</i>.</p>
+   * Time when the room was created. This is an ISO 8601 timestamp; *note that this is returned as a string*.
+   *
    * @public
    */
   createTime?: Date | undefined;
 
   /**
-   * <p>Time of the room’s last update. This is an ISO 8601 timestamp; <i>note that this
-   *             is returned as a string</i>.</p>
+   * Time of the room’s last update. This is an ISO 8601 timestamp; *note that this is returned as a string*.
+   *
    * @public
    */
   updateTime?: Date | undefined;
 
   /**
-   * <p>Maximum number of messages per second that can be sent to the room (by all clients),
-   *          from the request (if specified).</p>
+   * Maximum number of messages per second that can be sent to the room (by all clients), from the request (if specified).
+   *
    * @public
    */
   maximumMessageRatePerSecond?: number | undefined;
 
   /**
-   * <p>Maximum number of characters in a single message, from the request (if
-   *          specified).</p>
+   * Maximum number of characters in a single message, from the request (if specified).
+   *
    * @public
    */
   maximumMessageLength?: number | undefined;
 
   /**
-   * <p>Configuration information for optional review of messages.</p>
+   * Configuration information for optional review of messages.
+   *
    * @public
    */
   messageReviewHandler?: MessageReviewHandler | undefined;
 
   /**
-   * <p>Tags attached to the resource, from the request (if specified).</p>
+   * Tags attached to the resource, from the request (if specified).
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Array of logging configurations attached to the room, from the request (if
-   *          specified).</p>
+   * Array of logging configurations attached to the room, from the request (if specified).
+   *
    * @public
    */
   loggingConfigurationIdentifiers?: string[] | undefined;
@@ -437,7 +444,8 @@ export interface CreateRoomResponse {
  */
 export interface DeleteLoggingConfigurationRequest {
   /**
-   * <p>Identifier of the logging configuration to be deleted.</p>
+   * Identifier of the logging configuration to be deleted.
+   *
    * @public
    */
   identifier: string | undefined;
@@ -448,22 +456,22 @@ export interface DeleteLoggingConfigurationRequest {
  */
 export interface DeleteMessageRequest {
   /**
-   * <p>Identifier of the room where the message should be deleted. Currently this must be an
-   *          ARN. </p>
+   * Identifier of the room where the message should be deleted. Currently this must be an ARN.
+   *
    * @public
    */
   roomIdentifier: string | undefined;
 
   /**
-   * <p>ID of the message to be deleted. This is the <code>Id</code> field in the received
-   *          message (see <a href="https://docs.aws.amazon.com/ivs/latest/chatmsgapireference/actions-message-subscribe.html"> Message
-   *             (Subscribe)</a> in the Chat Messaging API).</p>
+   * ID of the message to be deleted. This is the `Id` field in the received message (see [Message (Subscribe)](https://docs.aws.amazon.com/ivs/latest/chatmsgapireference/actions-message-subscribe.html) in the Chat Messaging API).
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>Reason for deleting the message.</p>
+   * Reason for deleting the message.
+   *
    * @public
    */
   reason?: string | undefined;
@@ -474,7 +482,8 @@ export interface DeleteMessageRequest {
  */
 export interface DeleteMessageResponse {
   /**
-   * <p>Operation identifier, generated by Amazon IVS Chat.</p>
+   * Operation identifier, generated by Amazon IVS Chat.
+   *
    * @public
    */
   id?: string | undefined;
@@ -485,7 +494,8 @@ export interface DeleteMessageResponse {
  */
 export interface DeleteRoomRequest {
   /**
-   * <p>Identifier of the room to be deleted. Currently this must be an ARN.</p>
+   * Identifier of the room to be deleted. Currently this must be an ARN.
+   *
    * @public
    */
   identifier: string | undefined;
@@ -496,20 +506,22 @@ export interface DeleteRoomRequest {
  */
 export interface DisconnectUserRequest {
   /**
-   * <p>Identifier of the room from which the user's clients should be disconnected. Currently
-   *          this must be an ARN.</p>
+   * Identifier of the room from which the user's clients should be disconnected. Currently this must be an ARN.
+   *
    * @public
    */
   roomIdentifier: string | undefined;
 
   /**
-   * <p>ID of the user (connection) to disconnect from the room.</p>
+   * ID of the user (connection) to disconnect from the room.
+   *
    * @public
    */
   userId: string | undefined;
 
   /**
-   * <p>Reason for disconnecting the user.</p>
+   * Reason for disconnecting the user.
+   *
    * @public
    */
   reason?: string | undefined;
@@ -525,7 +537,8 @@ export interface DisconnectUserResponse {}
  */
 export interface GetLoggingConfigurationRequest {
   /**
-   * <p>Identifier of the logging configuration to be retrieved.</p>
+   * Identifier of the logging configuration to be retrieved.
+   *
    * @public
    */
   identifier: string | undefined;
@@ -536,58 +549,57 @@ export interface GetLoggingConfigurationRequest {
  */
 export interface GetLoggingConfigurationResponse {
   /**
-   * <p>Logging-configuration ARN, from the request (if <code>identifier</code> was an
-   *          ARN).</p>
+   * Logging-configuration ARN, from the request (if `identifier` was an ARN).
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>Logging-configuration ID, generated by the system. This is a relative identifier, the
-   *          part of the ARN that uniquely identifies the logging configuration.</p>
+   * Logging-configuration ID, generated by the system. This is a relative identifier, the part of the ARN that uniquely identifies the logging configuration.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>Time when the logging configuration was created. This is an ISO 8601 timestamp;
-   *             <i>note that this is returned as a string</i>.</p>
+   * Time when the logging configuration was created. This is an ISO 8601 timestamp; *note that this is returned as a string*.
+   *
    * @public
    */
   createTime?: Date | undefined;
 
   /**
-   * <p>Time of the logging configuration’s last update. This is an ISO 8601 timestamp;
-   *             <i>note that this is returned as a string</i>.</p>
+   * Time of the logging configuration’s last update. This is an ISO 8601 timestamp; *note that this is returned as a string*.
+   *
    * @public
    */
   updateTime?: Date | undefined;
 
   /**
-   * <p>Logging-configuration name. This value does not need to be unique.</p>
+   * Logging-configuration name. This value does not need to be unique.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>A complex type that contains a destination configuration for where chat content will be
-   *          logged. There is only one type of destination (<code>cloudWatchLogs</code>,
-   *             <code>firehose</code>, or <code>s3</code>) in a
-   *          <code>destinationConfiguration</code>.</p>
+   * A complex type that contains a destination configuration for where chat content will be logged. There is only one type of destination (`cloudWatchLogs`, `firehose`, or `s3`) in a `destinationConfiguration`.
+   *
    * @public
    */
   destinationConfiguration?: DestinationConfiguration | undefined;
 
   /**
-   * <p>The state of the logging configuration. When the state is <code>ACTIVE</code>, the
-   *          configuration is ready to log chat content.</p>
+   * The state of the logging configuration. When the state is `ACTIVE`, the configuration is ready to log chat content.
+   *
    * @public
    */
   state?: LoggingConfigurationState | undefined;
 
   /**
-   * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string
-   *             (key:value)</code>.</p>
+   * Tags attached to the resource. Array of maps, each of the form `string:string (key:value)`.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -598,8 +610,8 @@ export interface GetLoggingConfigurationResponse {
  */
 export interface GetRoomRequest {
   /**
-   * <p>Identifier of the room for which the configuration is to be retrieved. Currently this
-   *          must be an ARN.</p>
+   * Identifier of the room for which the configuration is to be retrieved. Currently this must be an ARN.
+   *
    * @public
    */
   identifier: string | undefined;
@@ -610,68 +622,71 @@ export interface GetRoomRequest {
  */
 export interface GetRoomResponse {
   /**
-   * <p>Room ARN, from the request (if <code>identifier</code> was an ARN).</p>
+   * Room ARN, from the request (if `identifier` was an ARN).
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>Room ID, generated by the system. This is a relative identifier, the part of the ARN
-   *          that uniquely identifies the room.</p>
+   * Room ID, generated by the system. This is a relative identifier, the part of the ARN that uniquely identifies the room.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>Room name. The value does not need to be unique.</p>
+   * Room name. The value does not need to be unique.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Time when the room was created. This is an ISO 8601 timestamp; <i>note that this
-   *             is returned as a string</i>.</p>
+   * Time when the room was created. This is an ISO 8601 timestamp; *note that this is returned as a string*.
+   *
    * @public
    */
   createTime?: Date | undefined;
 
   /**
-   * <p>Time of the room’s last update. This is an ISO 8601 timestamp; <i>note that this
-   *             is returned as a string</i>.</p>
+   * Time of the room’s last update. This is an ISO 8601 timestamp; *note that this is returned as a string*.
+   *
    * @public
    */
   updateTime?: Date | undefined;
 
   /**
-   * <p>Maximum number of messages per second that can be sent to the room (by all clients).
-   *          Default: 10.</p>
+   * Maximum number of messages per second that can be sent to the room (by all clients). Default: 10.
+   *
    * @public
    */
   maximumMessageRatePerSecond?: number | undefined;
 
   /**
-   * <p>Maximum number of characters in a single message. Messages are expected to be UTF-8
-   *          encoded and this limit applies specifically to rune/code-point count, not number of bytes.
-   *          Default: 500.</p>
+   * Maximum number of characters in a single message. Messages are expected to be UTF-8 encoded and this limit applies specifically to rune/code-point count, not number of bytes. Default: 500.
+   *
    * @public
    */
   maximumMessageLength?: number | undefined;
 
   /**
-   * <p>Configuration information for optional review of messages.</p>
+   * Configuration information for optional review of messages.
+   *
    * @public
    */
   messageReviewHandler?: MessageReviewHandler | undefined;
 
   /**
-   * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string
-   *             (key:value)</code>.</p>
+   * Tags attached to the resource. Array of maps, each of the form `string:string (key:value)`.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Array of logging configurations attached to the room.</p>
+   * Array of logging configurations attached to the room.
+   *
    * @public
    */
   loggingConfigurationIdentifiers?: string[] | undefined;
@@ -682,75 +697,78 @@ export interface GetRoomResponse {
  */
 export interface ListLoggingConfigurationsRequest {
   /**
-   * <p>The first logging configurations to retrieve. This is used for pagination; see the
-   *             <code>nextToken</code> response field.</p>
+   * The first logging configurations to retrieve. This is used for pagination; see the `nextToken` response field.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Maximum number of logging configurations to return. Default: 50.</p>
+   * Maximum number of logging configurations to return. Default: 50.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Summary information about a logging configuration.</p>
+ * Summary information about a logging configuration.
+ *
  * @public
  */
 export interface LoggingConfigurationSummary {
   /**
-   * <p>Logging-configuration ARN.</p>
+   * Logging-configuration ARN.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>Logging-configuration ID, generated by the system. This is a relative identifier, the part
-   *       of the ARN that uniquely identifies the room.</p>
+   * Logging-configuration ID, generated by the system. This is a relative identifier, the part of the ARN that uniquely identifies the room.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>Time when the logging configuration was created. This is an ISO 8601 timestamp;
-   *         <i>note that this is returned as a string</i>.</p>
+   * Time when the logging configuration was created. This is an ISO 8601 timestamp; *note that this is returned as a string*.
+   *
    * @public
    */
   createTime?: Date | undefined;
 
   /**
-   * <p>Time of the logging configuration’s last update. This is an ISO 8601 timestamp;
-   *         <i>note that this is returned as a string</i>.</p>
+   * Time of the logging configuration’s last update. This is an ISO 8601 timestamp; *note that this is returned as a string*.
+   *
    * @public
    */
   updateTime?: Date | undefined;
 
   /**
-   * <p>Logging-configuration name. The value does not need to be unique.</p>
+   * Logging-configuration name. The value does not need to be unique.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>A complex type that contains a destination configuration for where chat content will be
-   *       logged.</p>
+   * A complex type that contains a destination configuration for where chat content will be logged.
+   *
    * @public
    */
   destinationConfiguration?: DestinationConfiguration | undefined;
 
   /**
-   * <p>The state of the logging configuration. When this is <code>ACTIVE</code>, the
-   *       configuration is ready for logging chat content.</p>
+   * The state of the logging configuration. When this is `ACTIVE`, the configuration is ready for logging chat content.
+   *
    * @public
    */
   state?: LoggingConfigurationState | undefined;
 
   /**
-   * <p>Tags to attach to the resource. Array of maps, each of the form <code>string:string
-   *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS Chat has no constraints on tags beyond what is documented
-   *       there.</p>
+   * Tags to attach to the resource. Array of maps, each of the form `string:string (key:value)`. See [Best practices and strategies](https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html) in *Tagging Amazon Web Services Resources and Tag Editor* for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS Chat has no constraints on tags beyond what is documented there.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -761,16 +779,15 @@ export interface LoggingConfigurationSummary {
  */
 export interface ListLoggingConfigurationsResponse {
   /**
-   * <p>List of the matching logging configurations (summary information only). There is only
-   *          one type of destination (<code>cloudWatchLogs</code>, <code>firehose</code>, or
-   *             <code>s3</code>) in a <code>destinationConfiguration</code>.</p>
+   * List of the matching logging configurations (summary information only). There is only one type of destination (`cloudWatchLogs`, `firehose`, or `s3`) in a `destinationConfiguration`.
+   *
    * @public
    */
   loggingConfigurations: LoggingConfigurationSummary[] | undefined;
 
   /**
-   * <p>If there are more logging configurations than <code>maxResults</code>, use
-   *             <code>nextToken</code> in the request to get the next set.</p>
+   * If there are more logging configurations than `maxResults`, use `nextToken` in the request to get the next set.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -781,91 +798,99 @@ export interface ListLoggingConfigurationsResponse {
  */
 export interface ListRoomsRequest {
   /**
-   * <p>Filters the list to match the specified room name.</p>
+   * Filters the list to match the specified room name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The first room to retrieve. This is used for pagination; see the <code>nextToken</code>
-   *          response field.</p>
+   * The first room to retrieve. This is used for pagination; see the `nextToken` response field.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Maximum number of rooms to return. Default: 50.</p>
+   * Maximum number of rooms to return. Default: 50.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Filters the list to match the specified message review handler URI.</p>
+   * Filters the list to match the specified message review handler URI.
+   *
    * @public
    */
   messageReviewHandlerUri?: string | undefined;
 
   /**
-   * <p>Logging-configuration identifier.</p>
+   * Logging-configuration identifier.
+   *
    * @public
    */
   loggingConfigurationIdentifier?: string | undefined;
 }
 
 /**
- * <p>Summary information about a room.</p>
+ * Summary information about a room.
+ *
  * @public
  */
 export interface RoomSummary {
   /**
-   * <p>Room ARN.</p>
+   * Room ARN.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>Room ID, generated by the system. This is a relative identifier, the part of the ARN that
-   *       uniquely identifies the room.</p>
+   * Room ID, generated by the system. This is a relative identifier, the part of the ARN that uniquely identifies the room.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>Room name. The value does not need to be unique.</p>
+   * Room name. The value does not need to be unique.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Configuration information for optional review of messages.</p>
+   * Configuration information for optional review of messages.
+   *
    * @public
    */
   messageReviewHandler?: MessageReviewHandler | undefined;
 
   /**
-   * <p>Time when the room was created. This is an ISO 8601 timestamp; <i>note that this is
-   *         returned as a string</i>. </p>
+   * Time when the room was created. This is an ISO 8601 timestamp; *note that this is returned as a string*.
+   *
    * @public
    */
   createTime?: Date | undefined;
 
   /**
-   * <p>Time of the room’s last update. This is an ISO 8601 timestamp; <i>note that this is
-   *         returned as a string</i>. </p>
+   * Time of the room’s last update. This is an ISO 8601 timestamp; *note that this is returned as a string*.
+   *
    * @public
    */
   updateTime?: Date | undefined;
 
   /**
-   * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string
-   *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS Chat has no constraints beyond what is documented
-   *       there.</p>
+   * Tags attached to the resource. Array of maps, each of the form `string:string (key:value)`. See [Best practices and strategies](https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html) in *Tagging Amazon Web Services Resources and Tag Editor* for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS Chat has no constraints beyond what is documented there.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>List of logging-configuration identifiers attached to the room.</p>
+   * List of logging-configuration identifiers attached to the room.
+   *
    * @public
    */
   loggingConfigurationIdentifiers?: string[] | undefined;
@@ -876,14 +901,15 @@ export interface RoomSummary {
  */
 export interface ListRoomsResponse {
   /**
-   * <p>List of the matching rooms (summary information only).</p>
+   * List of the matching rooms (summary information only).
+   *
    * @public
    */
   rooms: RoomSummary[] | undefined;
 
   /**
-   * <p>If there are more rooms than <code>maxResults</code>, use <code>nextToken</code> in the
-   *          request to get the next set.</p>
+   * If there are more rooms than `maxResults`, use `nextToken` in the request to get the next set.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -894,7 +920,8 @@ export interface ListRoomsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The ARN of the resource to be retrieved. The ARN must be URL-encoded.</p>
+   * The ARN of the resource to be retrieved. The ARN must be URL-encoded.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -905,8 +932,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string
-   *             (key:value)</code>.</p>
+   * Tags attached to the resource. Array of maps, each of the form `string:string (key:value)`.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -917,21 +944,22 @@ export interface ListTagsForResourceResponse {
  */
 export interface SendEventRequest {
   /**
-   * <p>Identifier of the room to which the event will be sent. Currently this must be an
-   *          ARN.</p>
+   * Identifier of the room to which the event will be sent. Currently this must be an ARN.
+   *
    * @public
    */
   roomIdentifier: string | undefined;
 
   /**
-   * <p>Application-defined name of the event to send to clients.</p>
+   * Application-defined name of the event to send to clients.
+   *
    * @public
    */
   eventName: string | undefined;
 
   /**
-   * <p>Application-defined metadata to attach to the event sent to clients. The maximum length
-   *          of the metadata is 1 KB total.</p>
+   * Application-defined metadata to attach to the event sent to clients. The maximum length of the metadata is 1 KB total.
+   *
    * @public
    */
   attributes?: Record<string, string> | undefined;
@@ -942,8 +970,8 @@ export interface SendEventRequest {
  */
 export interface SendEventResponse {
   /**
-   * <p>An identifier generated by Amazon IVS Chat. This identifier must be used in subsequent
-   *          operations for this message, such as DeleteMessage.</p>
+   * An identifier generated by Amazon IVS Chat. This identifier must be used in subsequent operations for this message, such as DeleteMessage.
+   *
    * @public
    */
   id?: string | undefined;
@@ -954,15 +982,15 @@ export interface SendEventResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The ARN of the resource to be tagged. The ARN must be URL-encoded.</p>
+   * The ARN of the resource to be tagged. The ARN must be URL-encoded.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>Array of tags to be added or updated. Array of maps, each of the form
-   *             <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS Chat has no constraints beyond what is documented
-   *          there.</p>
+   * Array of tags to be added or updated. Array of maps, each of the form `string:string (key:value)`. See [Best practices and strategies](https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html) in *Tagging Amazon Web Services Resources and Tag Editor* for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS Chat has no constraints beyond what is documented there.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -978,15 +1006,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The ARN of the resource to be untagged. The ARN must be URL-encoded.</p>
+   * The ARN of the resource to be untagged. The ARN must be URL-encoded.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>Array of tags to be removed. Array of maps, each of the form <code>string:string
-   *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS Chat has no constraints beyond what is documented
-   *          there.</p>
+   * Array of tags to be removed. Array of maps, each of the form `string:string (key:value)`. See [Best practices and strategies](https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html) in *Tagging Amazon Web Services Resources and Tag Editor* for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS Chat has no constraints beyond what is documented there.
+   *
    * @public
    */
   tagKeys: string[] | undefined;
@@ -1002,22 +1030,22 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateLoggingConfigurationRequest {
   /**
-   * <p>Identifier of the logging configuration to be updated.</p>
+   * Identifier of the logging configuration to be updated.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>Logging-configuration name. The value does not need to be unique.</p>
+   * Logging-configuration name. The value does not need to be unique.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>A complex type that contains a destination configuration for where chat content will be
-   *          logged. There can be only one type of destination (<code>cloudWatchLogs</code>,
-   *             <code>firehose</code>, or <code>s3</code>) in a
-   *          <code>destinationConfiguration</code>.</p>
+   * A complex type that contains a destination configuration for where chat content will be logged. There can be only one type of destination (`cloudWatchLogs`, `firehose`, or `s3`) in a `destinationConfiguration`.
+   *
    * @public
    */
   destinationConfiguration?: DestinationConfiguration | undefined;
@@ -1028,58 +1056,57 @@ export interface UpdateLoggingConfigurationRequest {
  */
 export interface UpdateLoggingConfigurationResponse {
   /**
-   * <p>Logging-configuration ARN, from the request (if <code>identifier</code> was an
-   *          ARN).</p>
+   * Logging-configuration ARN, from the request (if `identifier` was an ARN).
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>Logging-configuration ID, generated by the system. This is a relative identifier, the
-   *          part of the ARN that uniquely identifies the room.</p>
+   * Logging-configuration ID, generated by the system. This is a relative identifier, the part of the ARN that uniquely identifies the room.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>Time when the logging configuration was created. This is an ISO 8601 timestamp;
-   *             <i>note that this is returned as a string</i>.</p>
+   * Time when the logging configuration was created. This is an ISO 8601 timestamp; *note that this is returned as a string*.
+   *
    * @public
    */
   createTime?: Date | undefined;
 
   /**
-   * <p>Time of the logging configuration’s last update. This is an ISO 8601 timestamp;
-   *             <i>note that this is returned as a string</i>.</p>
+   * Time of the logging configuration’s last update. This is an ISO 8601 timestamp; *note that this is returned as a string*.
+   *
    * @public
    */
   updateTime?: Date | undefined;
 
   /**
-   * <p>Logging-configuration name, from the request (if specified).</p>
+   * Logging-configuration name, from the request (if specified).
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>A complex type that contains a destination configuration for where chat content will be
-   *          logged, from the request. There is only one type of destination
-   *             (<code>cloudWatchLogs</code>, <code>firehose</code>, or <code>s3</code>) in a
-   *             <code>destinationConfiguration</code>.</p>
+   * A complex type that contains a destination configuration for where chat content will be logged, from the request. There is only one type of destination (`cloudWatchLogs`, `firehose`, or `s3`) in a `destinationConfiguration`.
+   *
    * @public
    */
   destinationConfiguration?: DestinationConfiguration | undefined;
 
   /**
-   * <p>The state of the logging configuration. When the state is <code>ACTIVE</code>, the
-   *          configuration is ready to log chat content.</p>
+   * The state of the logging configuration. When the state is `ACTIVE`, the configuration is ready to log chat content.
+   *
    * @public
    */
   state?: UpdateLoggingConfigurationState | undefined;
 
   /**
-   * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string
-   *             (key:value)</code>. </p>
+   * Tags attached to the resource. Array of maps, each of the form `string:string (key:value)`.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1090,42 +1117,43 @@ export interface UpdateLoggingConfigurationResponse {
  */
 export interface UpdateRoomRequest {
   /**
-   * <p>Identifier of the room to be updated. Currently this must be an ARN.</p>
+   * Identifier of the room to be updated. Currently this must be an ARN.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>Room name. The value does not need to be unique.</p>
+   * Room name. The value does not need to be unique.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Maximum number of messages per second that can be sent to the room (by all clients).
-   *          Default: 10.</p>
+   * Maximum number of messages per second that can be sent to the room (by all clients). Default: 10.
+   *
    * @public
    */
   maximumMessageRatePerSecond?: number | undefined;
 
   /**
-   * <p>The maximum number of characters in a single message. Messages are expected to be UTF-8
-   *          encoded and this limit applies specifically to rune/code-point count, not number of bytes.
-   *          Default: 500.</p>
+   * The maximum number of characters in a single message. Messages are expected to be UTF-8 encoded and this limit applies specifically to rune/code-point count, not number of bytes. Default: 500.
+   *
    * @public
    */
   maximumMessageLength?: number | undefined;
 
   /**
-   * <p>Configuration information for optional review of messages. Specify an empty
-   *             <code>uri</code> string to disassociate a message review handler from the specified
-   *          room.</p>
+   * Configuration information for optional review of messages. Specify an empty `uri` string to disassociate a message review handler from the specified room.
+   *
    * @public
    */
   messageReviewHandler?: MessageReviewHandler | undefined;
 
   /**
-   * <p>Array of logging-configuration identifiers attached to the room.</p>
+   * Array of logging-configuration identifiers attached to the room.
+   *
    * @public
    */
   loggingConfigurationIdentifiers?: string[] | undefined;
@@ -1136,68 +1164,71 @@ export interface UpdateRoomRequest {
  */
 export interface UpdateRoomResponse {
   /**
-   * <p>Room ARN, from the request (if <code>identifier</code> was an ARN).</p>
+   * Room ARN, from the request (if `identifier` was an ARN).
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>Room ID, generated by the system. This is a relative identifier, the part of the ARN
-   *          that uniquely identifies the room.</p>
+   * Room ID, generated by the system. This is a relative identifier, the part of the ARN that uniquely identifies the room.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>Room name, from the request (if specified).</p>
+   * Room name, from the request (if specified).
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Time when the room was created. This is an ISO 8601 timestamp; <i>note that this
-   *             is returned as a string</i>.</p>
+   * Time when the room was created. This is an ISO 8601 timestamp; *note that this is returned as a string*.
+   *
    * @public
    */
   createTime?: Date | undefined;
 
   /**
-   * <p>Time of the room’s last update. This is an ISO 8601 timestamp; <i>note that this
-   *             is returned as a string</i>.</p>
+   * Time of the room’s last update. This is an ISO 8601 timestamp; *note that this is returned as a string*.
+   *
    * @public
    */
   updateTime?: Date | undefined;
 
   /**
-   * <p>Maximum number of messages per second that can be sent to the room (by all clients),
-   *          from the request (if specified).</p>
+   * Maximum number of messages per second that can be sent to the room (by all clients), from the request (if specified).
+   *
    * @public
    */
   maximumMessageRatePerSecond?: number | undefined;
 
   /**
-   * <p>Maximum number of characters in a single message, from the request (if
-   *          specified).</p>
+   * Maximum number of characters in a single message, from the request (if specified).
+   *
    * @public
    */
   maximumMessageLength?: number | undefined;
 
   /**
-   * <p>Configuration information for optional review of messages.</p>
+   * Configuration information for optional review of messages.
+   *
    * @public
    */
   messageReviewHandler?: MessageReviewHandler | undefined;
 
   /**
-   * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string
-   *             (key:value)</code>.</p>
+   * Tags attached to the resource. Array of maps, each of the form `string:string (key:value)`.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Array of logging configurations attached to the room, from the request (if
-   *          specified).</p>
+   * Array of logging configurations attached to the room, from the request (if specified).
+   *
    * @public
    */
   loggingConfigurationIdentifiers?: string[] | undefined;

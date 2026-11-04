@@ -23,36 +23,21 @@ export interface CreateUserPoolDomainCommandInput extends CreateUserPoolDomainRe
 export interface CreateUserPoolDomainCommandOutput extends CreateUserPoolDomainResponse, __MetadataBearer {}
 
 /**
- * <p>A user pool domain hosts managed login, an authorization server and web server for
- *             authentication in your application. This operation creates a new user pool prefix domain
- *             or custom domain and sets the managed login branding version. Set the branding version
- *             to <code>1</code> for hosted UI (classic) or <code>2</code> for managed login. When you
- *             choose a custom domain, you must provide an SSL certificate in the US East (N. Virginia)
- *             Amazon Web Services Region in your request.</p>
- *          <p>Your prefix domain might take up to one minute to take effect. Your custom domain is
- *             online within five minutes, but it can take up to one hour to distribute your SSL
- *             certificate.</p>
- *          <p>For more information about adding a custom domain to your user pool, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html">Configuring a user pool domain</a>.</p>
- *          <note>
- *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
- *     this operation, you must use IAM credentials to authorize requests, and you must
- *     grant yourself the corresponding IAM permission in a policy.</p>
- *             <p class="title">
- *                <b>Learn more</b>
- *             </p>
- *             <ul>
- *                <li>
- *                   <p>
- *                      <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html">Signing Amazon Web Services API Requests</a>
- *                   </p>
- *                </li>
- *                <li>
- *                   <p>
- *                      <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using the Amazon Cognito user pools API and user pool endpoints</a>
- *                   </p>
- *                </li>
- *             </ul>
- *          </note>
+ * A user pool domain hosts managed login, an authorization server and web server for authentication in your application. This operation creates a new user pool prefix domain or custom domain and sets the managed login branding version. Set the branding version to `1` for hosted UI (classic) or `2` for managed login. When you choose a custom domain, you must provide an SSL certificate in the US East (N. Virginia) Amazon Web Services Region in your request.
+ *
+ * Your prefix domain might take up to one minute to take effect. Your custom domain is online within five minutes, but it can take up to one hour to distribute your SSL certificate.
+ *
+ * For more information about adding a custom domain to your user pool, see [Configuring a user pool domain](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html).
+ *
+ * > **Note:**
+ * >
+ * > Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.
+ * >
+ * > **Learn more**
+ * >
+ * > - [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+ * > - [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -98,49 +83,45 @@ export interface CreateUserPoolDomainCommandOutput extends CreateUserPoolDomainR
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>This exception is thrown if two or more modifications are happening
- *             concurrently.</p>
+ *
+ * This exception is thrown if two or more modifications are happening concurrently.
  *
  * @throws {@link FeatureUnavailableInTierException} (client fault)
- *  <p>This exception is thrown when a feature that you attempted to use or configure
- *             isn't included in your user pool's current feature plan. This can occur
- *             when:</p>
- *          <ul>
- *             <li>
- *                <p>You configure a feature that your feature plan doesn't support.</p>
- *             </li>
- *             <li>
- *                <p>You make a request that uses a feature that requires a higher feature
- *                     plan.</p>
- *             </li>
- *          </ul>
- *          <p>To resolve this issue, upgrade your user pool to a feature plan that includes the
- *             feature.</p>
+ *
+ * This exception is thrown when a feature that you attempted to use or configure isn't included in your user pool's current feature plan. This can occur when:
+ *
+ * - You configure a feature that your feature plan doesn't support.
+ * - You make a request that uses a feature that requires a higher feature plan.
+ *
+ * To resolve this issue, upgrade your user pool to a feature plan that includes the feature.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * This exception is thrown when Amazon Cognito encounters an internal error.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
- *             parameter.</p>
+ *
+ * This exception is thrown when the Amazon Cognito service encounters an invalid parameter.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services
- *             resource.</p>
+ *
+ * This exception is thrown when a user exceeds the limit for a requested Amazon Web Services resource.
  *
  * @throws {@link NotAuthorizedException} (client fault)
- *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * This exception is thrown when a user isn't authorized.
  *
  * @throws {@link OperationNotEnabledException} (client fault)
- *  <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+ *
+ * This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
- *             resource.</p>
+ *
+ * This exception is thrown when the Amazon Cognito service can't find the requested resource.
  *
  * @throws {@link CognitoIdentityProviderServiceException}
- * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * Base exception class for all service exceptions from CognitoIdentityProvider service.
  *
  * @public
  */

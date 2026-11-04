@@ -26,8 +26,8 @@ export interface GetReservedNodeExchangeOfferingsCommandInput extends GetReserve
 export interface GetReservedNodeExchangeOfferingsCommandOutput extends GetReservedNodeExchangeOfferingsOutputMessage, __MetadataBearer {}
 
 /**
- * <p>Returns an array of DC2 ReservedNodeOfferings that matches the payment type, term,
- *             and usage price of the given DC1 reserved node.</p>
+ * Returns an array of DC2 ReservedNodeOfferings that matches the payment type, term, and usage price of the given DC1 reserved node.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,27 +74,32 @@ export interface GetReservedNodeExchangeOfferingsCommandOutput extends GetReserv
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link DependentServiceUnavailableFault} (client fault)
- *  <p>Your request cannot be completed because a dependent internal service is
- *             temporarily unavailable. Wait 30 to 60 seconds and try again.</p>
+ *
+ * Your request cannot be completed because a dependent internal service is temporarily unavailable. Wait 30 to 60 seconds and try again.
  *
  * @throws {@link InvalidReservedNodeStateFault} (client fault)
- *  <p>Indicates that the Reserved Node being exchanged is not in an active state.</p>
+ *
+ * Indicates that the Reserved Node being exchanged is not in an active state.
  *
  * @throws {@link ReservedNodeAlreadyMigratedFault} (client fault)
- *  <p>Indicates that the reserved node has already been exchanged.</p>
+ *
+ * Indicates that the reserved node has already been exchanged.
  *
  * @throws {@link ReservedNodeNotFoundFault} (client fault)
- *  <p>The specified reserved compute node not found.</p>
+ *
+ * The specified reserved compute node not found.
  *
  * @throws {@link ReservedNodeOfferingNotFoundFault} (client fault)
- *  <p>Specified offering does not exist.</p>
+ *
+ * Specified offering does not exist.
  *
  * @throws {@link UnsupportedOperationFault} (client fault)
- *  <p>The requested operation isn't supported.</p>
+ *
+ * The requested operation isn't supported.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

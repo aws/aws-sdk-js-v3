@@ -23,7 +23,8 @@ export interface UpdateTableObjectsCommandInput extends UpdateTableObjectsReques
 export interface UpdateTableObjectsCommandOutput extends UpdateTableObjectsResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the manifest of Amazon S3 objects that make up the specified governed table.</p>
+ * Updates the manifest of Amazon S3 objects that make up the specified governed table.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,35 +71,44 @@ export interface UpdateTableObjectsCommandOutput extends UpdateTableObjectsRespo
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Two processes are trying to modify a resource simultaneously.</p>
+ *
+ * Two processes are trying to modify a resource simultaneously.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist.</p>
+ *
+ * A specified entity does not exist.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link ResourceNotReadyException} (client fault)
- *  <p>Contains details about an error related to a resource which is not ready for a transaction.</p>
+ *
+ * Contains details about an error related to a resource which is not ready for a transaction.
  *
  * @throws {@link TransactionCanceledException} (client fault)
- *  <p>Contains details about an error related to a transaction that was cancelled.</p>
+ *
+ * Contains details about an error related to a transaction that was cancelled.
  *
  * @throws {@link TransactionCommitInProgressException} (client fault)
- *  <p>Contains details about an error related to a transaction commit that was in progress.</p>
+ *
+ * Contains details about an error related to a transaction commit that was in progress.
  *
  * @throws {@link TransactionCommittedException} (client fault)
- *  <p>Contains details about an error where the specified transaction has already been committed and cannot be used for <code>UpdateTableObjects</code>.</p>
+ *
+ * Contains details about an error where the specified transaction has already been committed and cannot be used for `UpdateTableObjects`.
  *
  * @throws {@link LakeFormationServiceException}
- * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * Base exception class for all service exceptions from LakeFormation service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface GetTaxRegistrationDocumentCommandInput extends GetTaxRegistrati
 export interface GetTaxRegistrationDocumentCommandOutput extends GetTaxRegistrationDocumentResponse, __MetadataBearer {}
 
 /**
- * <p>Downloads your tax documents to the Amazon S3 bucket that you specify in your request.</p>
+ * Downloads your tax documents to the Amazon S3 bucket that you specify in your request.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,14 +59,16 @@ export interface GetTaxRegistrationDocumentCommandOutput extends GetTaxRegistrat
  * @see {@link TaxSettingsClientResolvedConfig | config} for TaxSettingsClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The exception thrown when an unexpected error occurs when processing a request.</p>
+ *
+ * The exception thrown when an unexpected error occurs when processing a request.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The exception when the input doesn't pass validation for at least one of the input parameters. </p>
+ *
+ * The exception when the input doesn't pass validation for at least one of the input parameters.
  *
  * @throws {@link TaxSettingsServiceException}
- * <p>Base exception class for all service exceptions from TaxSettings service.</p>
  *
+ * Base exception class for all service exceptions from TaxSettings service.
  *
  * @public
  */

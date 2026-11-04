@@ -23,32 +23,22 @@ export interface GetGeoLocationCommandInput extends GetGeoLocationRequest {}
 export interface GetGeoLocationCommandOutput extends GetGeoLocationResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about whether a specified geographic location is supported for Amazon
- * 			Route 53 geolocation resource record sets.</p>
- *          <p>Route 53 does not perform authorization for this API because it retrieves information
- * 			that is already available to the public.</p>
- *          <p>Use the following syntax to determine whether a continent is supported for
- * 			geolocation:</p>
- *          <p>
- *             <code>GET /2013-04-01/geolocation?continentcode=<i>two-letter abbreviation for
- * 					a continent</i>
- *             </code>
- *          </p>
- *          <p>Use the following syntax to determine whether a country is supported for
- * 			geolocation:</p>
- *          <p>
- *             <code>GET /2013-04-01/geolocation?countrycode=<i>two-character country
- * 					code</i>
- *             </code>
- *          </p>
- *          <p>Use the following syntax to determine whether a subdivision of a country is supported
- * 			for geolocation:</p>
- *          <p>
- *             <code>GET /2013-04-01/geolocation?countrycode=<i>two-character country
- * 					code</i>&subdivisioncode=<i>subdivision
- * 			code</i>
- *             </code>
- *          </p>
+ * Gets information about whether a specified geographic location is supported for Amazon Route 53 geolocation resource record sets.
+ *
+ * Route 53 does not perform authorization for this API because it retrieves information that is already available to the public.
+ *
+ * Use the following syntax to determine whether a continent is supported for geolocation:
+ *
+ * `GET /2013-04-01/geolocation?continentcode=two-letter abbreviation for a continent`
+ *
+ * Use the following syntax to determine whether a country is supported for geolocation:
+ *
+ * `GET /2013-04-01/geolocation?countrycode=two-character country code`
+ *
+ * Use the following syntax to determine whether a subdivision of a country is supported for geolocation:
+ *
+ * `GET /2013-04-01/geolocation?countrycode=two-character country code&subdivisioncode=subdivision code`
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,16 +74,16 @@ export interface GetGeoLocationCommandOutput extends GetGeoLocationResponse, __M
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link NoSuchGeoLocation} (client fault)
- *  <p>Amazon Route 53 doesn't support the specified geographic location. For a list of
- * 			supported geolocation codes, see the <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GeoLocation.html">GeoLocation</a> data
- * 			type.</p>
+ *
+ * Amazon Route 53 doesn't support the specified geographic location. For a list of supported geolocation codes, see the [GeoLocation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GeoLocation.html) data type.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @public
  */

@@ -23,9 +23,10 @@ export interface ResetSnapshotAttributeCommandInput extends ResetSnapshotAttribu
 export interface ResetSnapshotAttributeCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Resets permission settings for the specified snapshot.</p>
- *          <p>For more information about modifying snapshot permissions, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-modifying-snapshot-permissions.html">Share a snapshot</a> in the
- *         <i>Amazon EBS User Guide</i>.</p>
+ * Resets permission settings for the specified snapshot.
+ *
+ * For more information about modifying snapshot permissions, see [Share a snapshot](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-modifying-snapshot-permissions.html) in the *Amazon EBS User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,8 +53,8 @@ export interface ResetSnapshotAttributeCommandOutput extends __MetadataBearer {}
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To reset a snapshot attribute
  * ```javascript

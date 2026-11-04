@@ -23,8 +23,8 @@ export interface ListScheduledQueriesCommandInput extends ListScheduledQueriesRe
 export interface ListScheduledQueriesCommandOutput extends ListScheduledQueriesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all scheduled queries in your account and region. You can filter results by state to
- *       show only enabled or disabled queries.</p>
+ * Lists all scheduled queries in your account and region. You can filter results by state to show only enabled or disabled queries.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,22 +85,24 @@ export interface ListScheduledQueriesCommandOutput extends ListScheduledQueriesR
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permissions to perform this action.</p>
+ *
+ * You don't have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred while processing the request. This exception is returned
- *       when the service encounters an unexpected condition that prevents it from fulfilling the
- *       request.</p>
+ *
+ * An internal server error occurred while processing the request. This exception is returned when the service encounters an unexpected condition that prevents it from fulfilling the request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled because of quota limits.</p>
+ *
+ * The request was throttled because of quota limits.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One of the parameters for the request is not valid.</p>
+ *
+ * One of the parameters for the request is not valid.
  *
  * @throws {@link CloudWatchLogsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchLogs service.
  *
  * @public
  */

@@ -23,8 +23,8 @@ export interface CreateCustomDomainAssociationCommandInput extends CreateCustomD
 export interface CreateCustomDomainAssociationCommandOutput extends CreateCustomDomainAssociationResult, __MetadataBearer {}
 
 /**
- * <p>Used to create a custom domain name for a cluster. Properties include the custom domain name, the
- *             cluster the custom domain is associated with, and the certificate Amazon Resource Name (ARN).</p>
+ * Used to create a custom domain name for a cluster. Properties include the custom domain name, the cluster the custom domain is associated with, and the certificate Amazon Resource Name (ARN).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,18 +56,20 @@ export interface CreateCustomDomainAssociationCommandOutput extends CreateCustom
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
- *         </p>
+ *
+ * The `ClusterIdentifier` parameter does not refer to an existing cluster.
  *
  * @throws {@link CustomCnameAssociationFault} (client fault)
- *  <p>An error occurred when an attempt was made to change the custom domain association.</p>
+ *
+ * An error occurred when an attempt was made to change the custom domain association.
  *
  * @throws {@link UnsupportedOperationFault} (client fault)
- *  <p>The requested operation isn't supported.</p>
+ *
+ * The requested operation isn't supported.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

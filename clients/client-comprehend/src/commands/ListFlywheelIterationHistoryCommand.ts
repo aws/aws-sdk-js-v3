@@ -23,9 +23,8 @@ export interface ListFlywheelIterationHistoryCommandInput extends ListFlywheelIt
 export interface ListFlywheelIterationHistoryCommandOutput extends ListFlywheelIterationHistoryResponse, __MetadataBearer {}
 
 /**
- * <p>Information about the history of a flywheel iteration.
- *       For more information about flywheels, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html">
- *       Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
+ * Information about the history of a flywheel iteration. For more information about flywheels, see [Flywheel overview](https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html) in the *Amazon Comprehend Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,24 +82,28 @@ export interface ListFlywheelIterationHistoryCommandOutput extends ListFlywheelI
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link InvalidFilterException} (client fault)
- *  <p>The filter specified for the operation is invalid. Specify a different
- *       filter.</p>
+ *
+ * The filter specified for the operation is invalid. Specify a different filter.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is invalid.</p>
+ *
+ * The request is invalid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+ *
+ * The specified resource ARN was not found. Check the ARN and try your request again.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
+ * The number of requests exceeds the limit. Resubmit your request later.
  *
  * @throws {@link ComprehendServiceException}
- * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * Base exception class for all service exceptions from Comprehend service.
  *
  * @public
  */

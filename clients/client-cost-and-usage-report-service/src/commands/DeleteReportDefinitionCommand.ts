@@ -23,8 +23,8 @@ export interface DeleteReportDefinitionCommandInput extends DeleteReportDefiniti
 export interface DeleteReportDefinitionCommandOutput extends DeleteReportDefinitionResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified report. Any tags associated with the report are also
- *       deleted.</p>
+ * Deletes the specified report. Any tags associated with the report are also deleted.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,14 +51,16 @@ export interface DeleteReportDefinitionCommandOutput extends DeleteReportDefinit
  * @see {@link CostAndUsageReportServiceClientResolvedConfig | config} for CostAndUsageReportServiceClient's `config` shape.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>An error on the server occurred during the processing of your request. Try again later.</p>
+ *
+ * An error on the server occurred during the processing of your request. Try again later.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link CostAndUsageReportServiceServiceException}
- * <p>Base exception class for all service exceptions from CostAndUsageReportService service.</p>
  *
+ * Base exception class for all service exceptions from CostAndUsageReportService service.
  *
  * @example To delete the AWS Cost and Usage report named ExampleReport.
  * ```javascript

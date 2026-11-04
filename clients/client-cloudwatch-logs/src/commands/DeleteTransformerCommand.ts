@@ -23,12 +23,10 @@ export interface DeleteTransformerCommandInput extends DeleteTransformerRequest 
 export interface DeleteTransformerCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the log transformer for the specified log group. As soon as you do this, the
- *       transformation of incoming log events according to that transformer stops. If this account has
- *       an account-level transformer that applies to this log group, the log group begins using that
- *       account-level transformer when this log-group level transformer is deleted.</p>
- *          <p>After you delete a transformer, be sure to edit any metric filters or subscription filters
- *       that relied on the transformed versions of the log events.</p>
+ * Deletes the log transformer for the specified log group. As soon as you do this, the transformation of incoming log events according to that transformer stops. If this account has an account-level transformer that applies to this log group, the log group begins using that account-level transformer when this log-group level transformer is deleted.
+ *
+ * After you delete a transformer, be sure to edit any metric filters or subscription filters that relied on the transformed versions of the log events.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,23 +51,28 @@ export interface DeleteTransformerCommandOutput extends __MetadataBearer {}
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  * @throws {@link InvalidOperationException} (client fault)
- *  <p>The operation is not valid on the specified resource.</p>
+ *
+ * The operation is not valid on the specified resource.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is specified incorrectly.</p>
+ *
+ * A parameter is specified incorrectly.
  *
  * @throws {@link OperationAbortedException} (client fault)
- *  <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+ *
+ * Multiple concurrent requests to update the same resource were in conflict.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service cannot complete the request.</p>
+ *
+ * The service cannot complete the request.
  *
  * @throws {@link CloudWatchLogsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchLogs service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface DeleteConnectionGroupCommandInput extends DeleteConnectionGroup
 export interface DeleteConnectionGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a connection group.</p>
+ * Deletes a connection group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,26 +50,32 @@ export interface DeleteConnectionGroupCommandOutput extends __MetadataBearer {}
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link AccessDenied} (client fault)
- *  <p>Access denied.</p>
+ *
+ * Access denied.
  *
  * @throws {@link CannotDeleteEntityWhileInUse} (client fault)
- *  <p>The entity cannot be deleted while it is in use.</p>
+ *
+ * The entity cannot be deleted while it is in use.
  *
  * @throws {@link EntityNotFound} (client fault)
- *  <p>The entity was not found.</p>
+ *
+ * The entity was not found.
  *
  * @throws {@link InvalidIfMatchVersion} (client fault)
- *  <p>The <code>If-Match</code> version is missing or not valid.</p>
+ *
+ * The `If-Match` version is missing or not valid.
  *
  * @throws {@link PreconditionFailed} (client fault)
- *  <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+ *
+ * The precondition in one or more of the request fields evaluated to `false`.
  *
  * @throws {@link ResourceNotDisabled} (client fault)
- *  <p>The specified CloudFront resource hasn't been disabled yet.</p>
+ *
+ * The specified CloudFront resource hasn't been disabled yet.
  *
  * @throws {@link CloudFrontServiceException}
- * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * Base exception class for all service exceptions from CloudFront service.
  *
  * @public
  */

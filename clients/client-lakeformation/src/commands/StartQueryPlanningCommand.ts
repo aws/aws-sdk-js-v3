@@ -23,8 +23,10 @@ export interface StartQueryPlanningCommandInput extends StartQueryPlanningReques
 export interface StartQueryPlanningCommandOutput extends StartQueryPlanningResponse, __MetadataBearer {}
 
 /**
- * <p>Submits a request to process a query statement.</p>
- *          <p>This operation generates work units that can be retrieved with the <code>GetWorkUnits</code> operation as soon as the query state is WORKUNITS_AVAILABLE or FINISHED.</p>
+ * Submits a request to process a query statement.
+ *
+ * This operation generates work units that can be retrieved with the `GetWorkUnits` operation as soon as the query state is WORKUNITS_AVAILABLE or FINISHED.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,20 +62,24 @@ export interface StartQueryPlanningCommandOutput extends StartQueryPlanningRespo
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to a resource was denied.</p>
+ *
+ * Access to a resource was denied.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link ThrottledException} (client fault)
- *  <p>Contains details about an error where the query request was throttled.</p>
+ *
+ * Contains details about an error where the query request was throttled.
  *
  * @throws {@link LakeFormationServiceException}
- * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * Base exception class for all service exceptions from LakeFormation service.
  *
  * @public
  */

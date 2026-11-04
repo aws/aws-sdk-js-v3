@@ -23,52 +23,26 @@ export interface AssociateContactWithUserCommandInput extends AssociateContactWi
 export interface AssociateContactWithUserCommandOutput extends AssociateContactWithUserResponse, __MetadataBearer {}
 
 /**
- * <p>Associates a queued contact with an agent.</p>
- *          <p>
- *             <b>Use cases</b>
- *          </p>
- *          <p>Following are common uses cases for this API:</p>
- *          <ul>
- *             <li>
- *                <p>Programmatically assign queued contacts to available users.</p>
- *             </li>
- *             <li>
- *                <p>Leverage the IAM context key <code>connect:PreferredUserArn</code> to restrict contact association to specific
- *      preferred user.</p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Important things to know</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>Use this API with chat, email, task, and voice contacts. For voice callbacks, this API does not support customer-first mode.</p>
- *             </li>
- *             <li>
- *                <p>This API can be used to offer a contact to an agent even if the agent is currently at maximum concurrency
- *      for the channel.</p>
- *             </li>
- *             <li>
- *                <p>Use it to associate contacts with users regardless of their current state, including custom states. Ensure
- *      your application logic accounts for user availability before making associations.</p>
- *             </li>
- *             <li>
- *                <p>It honors the IAM context key <code>connect:PreferredUserArn</code> to prevent unauthorized contact
- *      associations.</p>
- *             </li>
- *             <li>
- *                <p>It respects the IAM context key <code>connect:PreferredUserArn</code> to enforce authorization controls and
- *      prevent unauthorized contact associations. Verify that your IAM policies are properly configured to support your
- *      intended use cases.</p>
- *             </li>
- *             <li>
- *                <p>The service quota <i>Queues per routing profile per instance</i> applies to manually assigned
- *      queues, too. For more information about this quota, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas">Connect Customer
- *       quotas</a> in the <i>Connect Customer Administrator Guide</i>.</p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Connect Customer endpoints and quotas</a>.</p>
+ * Associates a queued contact with an agent.
+ *
+ * **Use cases**
+ *
+ * Following are common uses cases for this API:
+ *
+ * - Programmatically assign queued contacts to available users.
+ * - Leverage the IAM context key `connect:PreferredUserArn` to restrict contact association to specific preferred user.
+ *
+ * **Important things to know**
+ *
+ * - Use this API with chat, email, task, and voice contacts. For voice callbacks, this API does not support customer-first mode.
+ * - This API can be used to offer a contact to an agent even if the agent is currently at maximum concurrency for the channel.
+ * - Use it to associate contacts with users regardless of their current state, including custom states. Ensure your application logic accounts for user availability before making associations.
+ * - It honors the IAM context key `connect:PreferredUserArn` to prevent unauthorized contact associations.
+ * - It respects the IAM context key `connect:PreferredUserArn` to enforce authorization controls and prevent unauthorized contact associations. Verify that your IAM policies are properly configured to support your intended use cases.
+ * - The service quota *Queues per routing profile per instance* applies to manually assigned queues, too. For more information about this quota, see [Connect Customer quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas) in the *Connect Customer Administrator Guide*.
+ *
+ * **Endpoints**: See [Connect Customer endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,26 +69,32 @@ export interface AssociateContactWithUserCommandOutput extends AssociateContactW
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

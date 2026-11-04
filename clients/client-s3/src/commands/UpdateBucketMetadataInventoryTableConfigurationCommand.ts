@@ -23,91 +23,32 @@ export interface UpdateBucketMetadataInventoryTableConfigurationCommandInput ext
 export interface UpdateBucketMetadataInventoryTableConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Enables or disables a live inventory table for an S3 Metadata configuration on a general
- *       purpose bucket. For more information, see
- *       <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html">Accelerating
- *         data discovery with S3 Metadata</a> in the <i>Amazon S3 User Guide</i>.</p>
- *          <dl>
- *             <dt>Permissions</dt>
- *             <dd>
- *                <p>To use this operation, you must have the following permissions. For more information, see
- *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html">Setting up permissions for configuring metadata tables</a> in the
- *             <i>Amazon S3 User Guide</i>.</p>
- *                <p>If you want to encrypt your inventory table with server-side encryption with Key Management Service
- *             (KMS) keys (SSE-KMS), you need additional permissions in your KMS key policy. For more
- *             information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html">
- *               Setting up permissions for configuring metadata tables</a> in the
- *             <i>Amazon S3 User Guide</i>.</p>
- *                <ul>
- *                   <li>
- *                      <p>
- *                         <code>s3:UpdateBucketMetadataInventoryTableConfiguration</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <code>s3tables:CreateTableBucket</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <code>s3tables:CreateNamespace</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <code>s3tables:GetTable</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <code>s3tables:CreateTable</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <code>s3tables:PutTablePolicy</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <code>s3tables:PutTableEncryption</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <code>kms:DescribeKey</code>
- *                      </p>
- *                   </li>
- *                </ul>
- *             </dd>
- *          </dl>
- *          <p>The following operations are related to <code>UpdateBucketMetadataInventoryTableConfiguration</code>:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html">CreateBucketMetadataConfiguration</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketMetadataConfiguration.html">DeleteBucketMetadataConfiguration</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketMetadataConfiguration.html">GetBucketMetadataConfiguration</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UpdateBucketMetadataJournalTableConfiguration.html">UpdateBucketMetadataJournalTableConfiguration</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
+ * Enables or disables a live inventory table for an S3 Metadata configuration on a general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) in the *Amazon S3 User Guide*.
+ *
+ * - **Permissions**
+ *
+ *   To use this operation, you must have the following permissions. For more information, see [Setting up permissions for configuring metadata tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html) in the *Amazon S3 User Guide*.
+ *
+ *   If you want to encrypt your inventory table with server-side encryption with Key Management Service (KMS) keys (SSE-KMS), you need additional permissions in your KMS key policy. For more information, see [Setting up permissions for configuring metadata tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html) in the *Amazon S3 User Guide*.
+ *
+ *   - `s3:UpdateBucketMetadataInventoryTableConfiguration`
+ *   - `s3tables:CreateTableBucket`
+ *   - `s3tables:CreateNamespace`
+ *   - `s3tables:GetTable`
+ *   - `s3tables:CreateTable`
+ *   - `s3tables:PutTablePolicy`
+ *   - `s3tables:PutTableEncryption`
+ *   - `kms:DescribeKey`
+ *
+ * The following operations are related to `UpdateBucketMetadataInventoryTableConfiguration`:
+ *
+ * - [CreateBucketMetadataConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html)
+ * - [DeleteBucketMetadataConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketMetadataConfiguration.html)
+ * - [GetBucketMetadataConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketMetadataConfiguration.html)
+ * - [UpdateBucketMetadataJournalTableConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_UpdateBucketMetadataJournalTableConfiguration.html)
+ *
+ * > **Important:** You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -142,8 +83,8 @@ export interface UpdateBucketMetadataInventoryTableConfigurationCommandOutput ex
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  * @throws {@link S3ServiceException}
- * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * Base exception class for all service exceptions from S3 service.
  *
  * @public
  */

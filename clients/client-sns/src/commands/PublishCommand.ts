@@ -23,24 +23,18 @@ export interface PublishCommandInput extends PublishInput {}
 export interface PublishCommandOutput extends PublishResponse, __MetadataBearer {}
 
 /**
- * <p>Sends a message to an Amazon SNS topic, a text message (SMS message) directly to a phone
- *             number, or a message to a mobile platform endpoint (when you specify the
- *                 <code>TargetArn</code>).</p>
- *          <p>If you send a message to a topic, Amazon SNS delivers the message to each endpoint that is
- *             subscribed to the topic. The format of the message depends on the notification protocol
- *             for each subscribed endpoint.</p>
- *          <p>When a <code>messageId</code> is returned, the message is saved and Amazon SNS immediately
- *             delivers it to subscribers.</p>
- *          <p>To use the <code>Publish</code> action for publishing a message to a mobile endpoint,
- *             such as an app on a Kindle device or mobile phone, you must specify the EndpointArn for
- *             the TargetArn parameter. The EndpointArn is returned when making a call with the
- *                 <code>CreatePlatformEndpoint</code> action. </p>
- *          <p>For more information about formatting messages, see <a href="https://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-custommessage.html">Send Custom
- *                 Platform-Specific Payloads in Messages to Mobile Devices</a>. </p>
- *          <important>
- *             <p>You can publish messages only to topics and endpoints in the same
- *                 Amazon Web Services Region.</p>
- *          </important>
+ * Sends a message to an Amazon SNS topic, a text message (SMS message) directly to a phone number, or a message to a mobile platform endpoint (when you specify the `TargetArn`).
+ *
+ * If you send a message to a topic, Amazon SNS delivers the message to each endpoint that is subscribed to the topic. The format of the message depends on the notification protocol for each subscribed endpoint.
+ *
+ * When a `messageId` is returned, the message is saved and Amazon SNS immediately delivers it to subscribers.
+ *
+ * To use the `Publish` action for publishing a message to a mobile endpoint, such as an app on a Kindle device or mobile phone, you must specify the EndpointArn for the TargetArn parameter. The EndpointArn is returned when making a call with the `CreatePlatformEndpoint` action.
+ *
+ * For more information about formatting messages, see [Send Custom Platform-Specific Payloads in Messages to Mobile Devices](https://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-custommessage.html).
+ *
+ * > **Important:** You can publish messages only to topics and endpoints in the same Amazon Web Services Region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,63 +76,68 @@ export interface PublishCommandOutput extends PublishResponse, __MetadataBearer 
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
  *
  * @throws {@link AuthorizationErrorException} (client fault)
- *  <p>Indicates that the user has been denied access to the requested resource.</p>
+ *
+ * Indicates that the user has been denied access to the requested resource.
  *
  * @throws {@link EndpointDisabledException} (client fault)
- *  <p>Exception error indicating endpoint disabled.</p>
+ *
+ * Exception error indicating endpoint disabled.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>Indicates an internal service error.</p>
+ *
+ * Indicates an internal service error.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Indicates that a request parameter does not comply with the associated
- *             constraints.</p>
+ *
+ * Indicates that a request parameter does not comply with the associated constraints.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+ *
+ * Indicates that a request parameter does not comply with the associated constraints.
  *
  * @throws {@link InvalidSecurityException} (client fault)
- *  <p>The credential signature isn't valid. You must use an HTTPS endpoint and sign your
- *             request using Signature Version 4.</p>
+ *
+ * The credential signature isn't valid. You must use an HTTPS endpoint and sign your request using Signature Version 4.
  *
  * @throws {@link KMSAccessDeniedException} (client fault)
- *  <p>The ciphertext references a key that doesn't exist or that you don't have access
- *             to.</p>
+ *
+ * The ciphertext references a key that doesn't exist or that you don't have access to.
  *
  * @throws {@link KMSDisabledException} (client fault)
- *  <p>The request was rejected because the specified Amazon Web Services KMS key isn't
- *             enabled.</p>
+ *
+ * The request was rejected because the specified Amazon Web Services KMS key isn't enabled.
  *
  * @throws {@link KMSInvalidStateException} (client fault)
- *  <p>The request was rejected because the state of the specified resource isn't valid for
- *             this request. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of Amazon Web Services KMS keys</a> in the <i>Key Management Service Developer
- *                 Guide</i>.</p>
+ *
+ * The request was rejected because the state of the specified resource isn't valid for this request. For more information, see [Key states of Amazon Web Services KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the *Key Management Service Developer Guide*.
  *
  * @throws {@link KMSNotFoundException} (client fault)
- *  <p>The request was rejected because the specified entity or resource can't be
- *             found.</p>
+ *
+ * The request was rejected because the specified entity or resource can't be found.
  *
  * @throws {@link KMSOptInRequired} (client fault)
- *  <p>The Amazon Web Services access key ID needs a subscription for the service.</p>
+ *
+ * The Amazon Web Services access key ID needs a subscription for the service.
  *
  * @throws {@link KMSThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. For more information about
- *             throttling, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second">Limits</a> in
- *             the <i>Key Management Service Developer Guide.</i>
- *          </p>
+ *
+ * The request was denied due to request throttling. For more information about throttling, see [Limits](https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second) in the *Key Management Service Developer Guide.*
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>Indicates that the requested resource does not exist.</p>
+ *
+ * Indicates that the requested resource does not exist.
  *
  * @throws {@link PlatformApplicationDisabledException} (client fault)
- *  <p>Exception error indicating platform application disabled.</p>
+ *
+ * Exception error indicating platform application disabled.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Indicates that a parameter in the request is invalid.</p>
+ *
+ * Indicates that a parameter in the request is invalid.
  *
  * @throws {@link SNSServiceException}
- * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * Base exception class for all service exceptions from SNS service.
  *
  * @public
  */

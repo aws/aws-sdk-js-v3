@@ -23,23 +23,20 @@ export interface GetRouteServerPropagationsCommandInput extends GetRouteServerPr
 export interface GetRouteServerPropagationsCommandOutput extends GetRouteServerPropagationsResult, __MetadataBearer {}
 
 /**
- * <p>Gets information about the route propagations for the specified route server.</p>
- *          <p>When enabled, route server propagation installs the routes in the FIB on the route table you've specified. Route server supports IPv4 and IPv6 route propagation.</p>
- *          <p>Amazon VPC Route Server simplifies routing for traffic between workloads that are deployed within a VPC and its internet gateways. With this feature,
- * VPC Route Server dynamically updates VPC and internet gateway route tables with your preferred IPv4 or IPv6 routes to achieve routing fault tolerance for those workloads. This enables you to automatically reroute traffic within a VPC, which increases the manageability of VPC routing and interoperability with third-party workloads.</p>
- *          <p>Route server supports the follow route table types:</p>
- *          <ul>
- *             <li>
- *                <p>VPC route tables not associated with subnets</p>
- *             </li>
- *             <li>
- *                <p>Subnet route tables</p>
- *             </li>
- *             <li>
- *                <p>Internet gateway route tables</p>
- *             </li>
- *          </ul>
- *          <p>Route server does not support route tables associated with virtual private gateways. To propagate routes into a transit gateway route table, use <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html">Transit Gateway Connect</a>.</p>
+ * Gets information about the route propagations for the specified route server.
+ *
+ * When enabled, route server propagation installs the routes in the FIB on the route table you've specified. Route server supports IPv4 and IPv6 route propagation.
+ *
+ * Amazon VPC Route Server simplifies routing for traffic between workloads that are deployed within a VPC and its internet gateways. With this feature, VPC Route Server dynamically updates VPC and internet gateway route tables with your preferred IPv4 or IPv6 routes to achieve routing fault tolerance for those workloads. This enables you to automatically reroute traffic within a VPC, which increases the manageability of VPC routing and interoperability with third-party workloads.
+ *
+ * Route server supports the follow route table types:
+ *
+ * - VPC route tables not associated with subnets
+ * - Subnet route tables
+ * - Internet gateway route tables
+ *
+ * Route server does not support route tables associated with virtual private gateways. To propagate routes into a transit gateway route table, use [Transit Gateway Connect](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,8 +71,8 @@ export interface GetRouteServerPropagationsCommandOutput extends GetRouteServerP
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

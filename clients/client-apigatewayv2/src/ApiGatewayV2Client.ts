@@ -678,7 +678,8 @@ export type ApiGatewayV2ClientResolvedConfigType = __SmithyResolvedConfiguration
 export interface ApiGatewayV2ClientResolvedConfig extends ApiGatewayV2ClientResolvedConfigType {}
 
 /**
- * <p>Amazon API Gateway V2</p>
+ * Amazon API Gateway V2
+ *
  * @public
  */
 export class ApiGatewayV2Client extends __Client<

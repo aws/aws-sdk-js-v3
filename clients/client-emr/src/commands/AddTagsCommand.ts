@@ -23,11 +23,8 @@ export interface AddTagsCommandInput extends AddTagsInput {}
 export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
 
 /**
- * <p>Adds tags to an Amazon EMR resource, such as a cluster or an Amazon EMR
- *          Studio. Tags make it easier to associate resources in various ways, such as grouping
- *          clusters to track your Amazon EMR resource allocation costs. For more information,
- *          see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html">Tag
- *             Clusters</a>. </p>
+ * Adds tags to an Amazon EMR resource, such as a cluster or an Amazon EMR Studio. Tags make it easier to associate resources in various ways, such as grouping clusters to track your Amazon EMR resource allocation costs. For more information, see [Tag Clusters](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,15 +56,16 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Amazon EMR
- *          service.</p>
+ *
+ * This exception occurs when there is an internal failure in the Amazon EMR service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>This exception occurs when there is something wrong with user input.</p>
+ *
+ * This exception occurs when there is something wrong with user input.
  *
  * @throws {@link EMRServiceException}
- * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * Base exception class for all service exceptions from EMR service.
  *
  * @public
  */

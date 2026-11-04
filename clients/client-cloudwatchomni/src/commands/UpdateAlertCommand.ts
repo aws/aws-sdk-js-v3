@@ -113,8 +113,8 @@ export interface UpdateAlertCommandOutput extends UpdateAlertOutput, __MetadataB
  *  A parameter is specified incorrectly.
  *
  * @throws {@link CloudWatchOmniServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchOmni service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchOmni service.
  *
  * @example Raise an alert's thresholds
  * ```javascript

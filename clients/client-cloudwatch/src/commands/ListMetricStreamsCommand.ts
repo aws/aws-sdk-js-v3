@@ -23,7 +23,8 @@ export interface ListMetricStreamsCommandInput extends ListMetricStreamsInput {}
 export interface ListMetricStreamsCommandOutput extends ListMetricStreamsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of metric streams in this account.</p>
+ * Returns a list of metric streams in this account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,21 +63,24 @@ export interface ListMetricStreamsCommandOutput extends ListMetricStreamsOutput,
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  * @throws {@link InternalServiceFault} (server fault)
- *  <p>Request processing has failed due to some unknown error, exception, or
- *             failure.</p>
+ *
+ * Request processing has failed due to some unknown error, exception, or failure.
  *
  * @throws {@link InvalidNextToken} (client fault)
- *  <p>The next token specified is invalid.</p>
+ *
+ * The next token specified is invalid.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value of an input parameter is bad or out-of-range.</p>
+ *
+ * The value of an input parameter is bad or out-of-range.
  *
  * @throws {@link MissingRequiredParameterException} (client fault)
- *  <p>An input parameter that is required is missing.</p>
+ *
+ * An input parameter that is required is missing.
  *
  * @throws {@link CloudWatchServiceException}
- * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatch service.
  *
  * @public
  */

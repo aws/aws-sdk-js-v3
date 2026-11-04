@@ -23,12 +23,10 @@ export interface ListStreamsCommandInput extends ListStreamsInput {}
 export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns an array of stream ARNs associated with the current account and endpoint. If the
- *         <code>TableName</code> parameter is present, then <code>ListStreams</code> will return only the
- *       streams ARNs for that table.</p>
- *          <note>
- *             <p>You can call <code>ListStreams</code> at a maximum rate of 5 times per second.</p>
- *          </note>
+ * Returns an array of stream ARNs associated with the current account and endpoint. If the `TableName` parameter is present, then `ListStreams` will return only the streams ARNs for that table.
+ *
+ * > **Note:** You can call `ListStreams` at a maximum rate of 5 times per second.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,16 +62,16 @@ export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataB
  * @see {@link DynamoDBStreamsClientResolvedConfig | config} for DynamoDBStreamsClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The operation tried to access a nonexistent table or index. The resource
- *             might not be specified correctly, or its status might not be
- *             <code>ACTIVE</code>.</p>
+ *
+ * The operation tried to access a nonexistent table or index. The resource might not be specified correctly, or its status might not be `ACTIVE`.
  *
  * @throws {@link DynamoDBStreamsServiceException}
- * <p>Base exception class for all service exceptions from DynamoDBStreams service.</p>
  *
+ * Base exception class for all service exceptions from DynamoDBStreams service.
  *
  * @example To list all of the stream ARNs
  * ```javascript

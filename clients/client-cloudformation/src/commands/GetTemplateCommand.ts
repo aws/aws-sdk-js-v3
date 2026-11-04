@@ -23,13 +23,12 @@ export interface GetTemplateCommandInput extends GetTemplateInput {}
 export interface GetTemplateCommandOutput extends GetTemplateOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the template body for a specified stack. You can get the template for running or
- *       deleted stacks.</p>
- *          <p>For deleted stacks, <code>GetTemplate</code> returns the template for up to 90 days after
- *       the stack has been deleted.</p>
- *          <note>
- *             <p>If the template doesn't exist, a <code>ValidationError</code> is returned.</p>
- *          </note>
+ * Returns the template body for a specified stack. You can get the template for running or deleted stacks.
+ *
+ * For deleted stacks, `GetTemplate` returns the template for up to 90 days after the stack has been deleted.
+ *
+ * > **Note:** If the template doesn't exist, a `ValidationError` is returned.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,12 +60,12 @@ export interface GetTemplateCommandOutput extends GetTemplateOutput, __MetadataB
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link ChangeSetNotFoundException} (client fault)
- *  <p>The specified change set name or ID doesn't exit. To view valid change sets for a stack, use the
- *    <code>ListChangeSets</code> operation.</p>
+ *
+ * The specified change set name or ID doesn't exit. To view valid change sets for a stack, use the `ListChangeSets` operation.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

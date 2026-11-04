@@ -23,12 +23,8 @@ export interface SendAlexaOfferToMasterCommandInput extends SendAlexaOfferToMast
 export interface SendAlexaOfferToMasterCommandOutput extends SendAlexaOfferToMasterResponse, __MetadataBearer {}
 
 /**
- * <p>This API allows you to connect WebRTC-enabled devices with Alexa display devices. When
- *             invoked, it sends the Alexa Session Description Protocol (SDP) offer to the master peer.
- *             The offer is delivered as soon as the master is connected to the specified signaling
- *             channel. This API returns the SDP answer from the connected master. If the master is not
- *             connected to the signaling channel, redelivery requests are made until the message
- *             expires.</p>
+ * This API allows you to connect WebRTC-enabled devices with Alexa display devices. When invoked, it sends the Alexa Session Description Protocol (SDP) offer to the master peer. The offer is delivered as soon as the master is connected to the specified signaling channel. This API returns the SDP answer from the connected master. If the master is not connected to the signaling channel, redelivery requests are made until the message expires.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,21 +53,24 @@ export interface SendAlexaOfferToMasterCommandOutput extends SendAlexaOfferToMas
  * @see {@link KinesisVideoSignalingClientResolvedConfig | config} for KinesisVideoSignalingClient's `config` shape.
  *
  * @throws {@link ClientLimitExceededException} (client fault)
- *  <p>Your request was throttled because you have exceeded the limit of allowed client
- *             calls. Try making the call later.</p>
+ *
+ * Your request was throttled because you have exceeded the limit of allowed client calls. Try making the call later.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>The value for this input parameter is invalid.</p>
+ *
+ * The value for this input parameter is invalid.
  *
  * @throws {@link NotAuthorizedException} (client fault)
- *  <p>The caller is not authorized to perform this operation.</p>
+ *
+ * The caller is not authorized to perform this operation.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource is not found.</p>
+ *
+ * The specified resource is not found.
  *
  * @throws {@link KinesisVideoSignalingServiceException}
- * <p>Base exception class for all service exceptions from KinesisVideoSignaling service.</p>
  *
+ * Base exception class for all service exceptions from KinesisVideoSignaling service.
  *
  * @public
  */

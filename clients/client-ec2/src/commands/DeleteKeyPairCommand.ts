@@ -23,7 +23,8 @@ export interface DeleteKeyPairCommandInput extends DeleteKeyPairRequest {}
 export interface DeleteKeyPairCommandOutput extends DeleteKeyPairResult, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified key pair, by removing the public key from Amazon EC2.</p>
+ * Deletes the specified key pair, by removing the public key from Amazon EC2.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,8 +54,8 @@ export interface DeleteKeyPairCommandOutput extends DeleteKeyPairResult, __Metad
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To delete a key pair
  * ```javascript

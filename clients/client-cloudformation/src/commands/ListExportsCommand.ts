@@ -23,11 +23,10 @@ export interface ListExportsCommandInput extends ListExportsInput {}
 export interface ListExportsCommandOutput extends ListExportsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists all exported output values in the account and Region in which you call this action.
- *       Use this action to see the exported output values that you can import into other stacks. To
- *       import values, use the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/intrinsic-function-reference-importvalue.html"> Fn::ImportValue</a> function.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-exports.html">Get exported outputs
- *         from a deployed CloudFormation stack</a>.</p>
+ * Lists all exported output values in the account and Region in which you call this action. Use this action to see the exported output values that you can import into other stacks. To import values, use the [Fn::ImportValue](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/intrinsic-function-reference-importvalue.html) function.
+ *
+ * For more information, see [Get exported outputs from a deployed CloudFormation stack](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-exports.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,8 +60,8 @@ export interface ListExportsCommandOutput extends ListExportsOutput, __MetadataB
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

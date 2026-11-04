@@ -26,7 +26,10 @@ export interface ListDistributionTenantsByCustomizationCommandInput extends List
 export interface ListDistributionTenantsByCustomizationCommandOutput extends ListDistributionTenantsByCustomizationResult, __MetadataBearer {}
 
 /**
- * <p>Lists distribution tenants by the customization that you specify.</p> <p>You must specify either the <code>CertificateArn</code> parameter or <code>WebACLArn</code> parameter, but not both in the same request.</p>
+ * Lists distribution tenants by the customization that you specify.
+ *
+ * You must specify either the `CertificateArn` parameter or `WebACLArn` parameter, but not both in the same request.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,17 +94,20 @@ export interface ListDistributionTenantsByCustomizationCommandOutput extends Lis
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link AccessDenied} (client fault)
- *  <p>Access denied.</p>
+ *
+ * Access denied.
  *
  * @throws {@link EntityNotFound} (client fault)
- *  <p>The entity was not found.</p>
+ *
+ * The entity was not found.
  *
  * @throws {@link InvalidArgument} (client fault)
- *  <p>An argument is invalid.</p>
+ *
+ * An argument is invalid.
  *
  * @throws {@link CloudFrontServiceException}
- * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * Base exception class for all service exceptions from CloudFront service.
  *
  * @public
  */

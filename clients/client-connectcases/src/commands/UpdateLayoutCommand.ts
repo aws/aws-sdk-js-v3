@@ -23,7 +23,14 @@ export interface UpdateLayoutCommandInput extends UpdateLayoutRequest {}
 export interface UpdateLayoutCommandOutput extends UpdateLayoutResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the attributes of an existing layout.</p> <p>If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body.</p> <p>A <code>ValidationException</code> is returned when you add non-existent <code>fieldIds</code> to a layout.</p> <note> <p>Title and Status fields cannot be part of layouts because they are not configurable.</p> </note>
+ * Updates the attributes of an existing layout.
+ *
+ * If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body.
+ *
+ * A `ValidationException` is returned when you add non-existent `fieldIds` to a layout.
+ *
+ * > **Note:** Title and Status fields cannot be part of layouts because they are not configurable.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,29 +89,36 @@ export interface UpdateLayoutCommandOutput extends UpdateLayoutResponse, __Metad
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+ *
+ * The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>We couldn't process your request because of an issue with the server. Try again later.</p>
+ *
+ * We couldn't process your request because of an issue with the server. Try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>We couldn't find the requested resource. Check that your resources exists and were created in the same Amazon Web Services Region as your request, and try your request again.</p>
+ *
+ * We couldn't find the requested resource. Check that your resources exists and were created in the same Amazon Web Services Region as your request, and try your request again.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The service quota has been exceeded. For a list of service quotas, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ *
+ * The service quota has been exceeded. For a list of service quotas, see [Amazon Connect Service Quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html) in the *Amazon Connect Administrator Guide*.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The rate has been exceeded for this API. Please try again after a few minutes.</p>
+ *
+ * The rate has been exceeded for this API. Please try again after a few minutes.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. Check the syntax and try again.</p>
+ *
+ * The request isn't valid. Check the syntax and try again.
  *
  * @throws {@link ConnectCasesServiceException}
- * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ * Base exception class for all service exceptions from ConnectCases service.
  *
  * @public
  */

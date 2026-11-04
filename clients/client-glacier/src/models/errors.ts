@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { GlacierServiceException as __BaseException } from "./GlacierServiceException";
 
 /**
- * <p>Returned if a parameter of the request is incorrectly specified.</p>
+ * Returned if a parameter of the request is incorrectly specified.
+ *
  * @public
  */
 export class InvalidParameterValueException extends __BaseException {
@@ -12,13 +13,15 @@ export class InvalidParameterValueException extends __BaseException {
   readonly name = "InvalidParameterValueException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Client</p>
+   * Client
+   *
    * @public
    */
   type?: string | undefined;
 
   /**
-   * <p>400 Bad Request</p>
+   * 400 Bad Request
+   *
    * @public
    */
   code?: string | undefined;
@@ -39,7 +42,8 @@ export class InvalidParameterValueException extends __BaseException {
 }
 
 /**
- * <p>Returned if a required header or parameter is missing from the request.</p>
+ * Returned if a required header or parameter is missing from the request.
+ *
  * @public
  */
 export class MissingParameterValueException extends __BaseException {
@@ -47,13 +51,15 @@ export class MissingParameterValueException extends __BaseException {
   readonly name = "MissingParameterValueException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Client.</p>
+   * Client.
+   *
    * @public
    */
   type?: string | undefined;
 
   /**
-   * <p>400 Bad Request</p>
+   * 400 Bad Request
+   *
    * @public
    */
   code?: string | undefined;
@@ -74,7 +80,8 @@ export class MissingParameterValueException extends __BaseException {
 }
 
 /**
- * <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+ * Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.
+ *
  * @public
  */
 export class NoLongerSupportedException extends __BaseException {
@@ -82,13 +89,15 @@ export class NoLongerSupportedException extends __BaseException {
   readonly name = "NoLongerSupportedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Client</p>
+   * Client
+   *
    * @public
    */
   type?: string | undefined;
 
   /**
-   * <p>400 Bad Request</p>
+   * 400 Bad Request
+   *
    * @public
    */
   code?: string | undefined;
@@ -109,8 +118,8 @@ export class NoLongerSupportedException extends __BaseException {
 }
 
 /**
- * <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't
- *          exist.</p>
+ * Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -118,13 +127,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Client</p>
+   * Client
+   *
    * @public
    */
   type?: string | undefined;
 
   /**
-   * <p>404 Not Found</p>
+   * 404 Not Found
+   *
    * @public
    */
   code?: string | undefined;
@@ -145,7 +156,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Returned if the service cannot complete the request.</p>
+ * Returned if the service cannot complete the request.
+ *
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -153,13 +165,15 @@ export class ServiceUnavailableException extends __BaseException {
   readonly name = "ServiceUnavailableException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>Server</p>
+   * Server
+   *
    * @public
    */
   type?: string | undefined;
 
   /**
-   * <p>500 Internal Server Error</p>
+   * 500 Internal Server Error
+   *
    * @public
    */
   code?: string | undefined;
@@ -180,7 +194,8 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>Returned if the request results in a vault or account limit being exceeded.</p>
+ * Returned if the request results in a vault or account limit being exceeded.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -188,13 +203,15 @@ export class LimitExceededException extends __BaseException {
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Client</p>
+   * Client
+   *
    * @public
    */
   type?: string | undefined;
 
   /**
-   * <p>400 Bad Request</p>
+   * 400 Bad Request
+   *
    * @public
    */
   code?: string | undefined;
@@ -215,9 +232,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>Returned if there is insufficient capacity to process this expedited request. This
- *          error only applies to expedited retrievals and not to standard or bulk
- *          retrievals.</p>
+ * Returned if there is insufficient capacity to process this expedited request. This error only applies to expedited retrievals and not to standard or bulk retrievals.
+ *
  * @public
  */
 export class InsufficientCapacityException extends __BaseException {
@@ -242,8 +258,8 @@ export class InsufficientCapacityException extends __BaseException {
 }
 
 /**
- * <p>Returned if a retrieval job would exceed the current data policy's retrieval rate
- *          limit. For more information about data retrieval policies,</p>
+ * Returned if a retrieval job would exceed the current data policy's retrieval rate limit. For more information about data retrieval policies,
+ *
  * @public
  */
 export class PolicyEnforcedException extends __BaseException {
@@ -251,13 +267,15 @@ export class PolicyEnforcedException extends __BaseException {
   readonly name = "PolicyEnforcedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Client</p>
+   * Client
+   *
    * @public
    */
   type?: string | undefined;
 
   /**
-   * <p>PolicyEnforcedException</p>
+   * PolicyEnforcedException
+   *
    * @public
    */
   code?: string | undefined;
@@ -278,8 +296,8 @@ export class PolicyEnforcedException extends __BaseException {
 }
 
 /**
- * <p>Returned if, when uploading an archive, Amazon Glacier times out while receiving the
- *          upload.</p>
+ * Returned if, when uploading an archive, Amazon Glacier times out while receiving the upload.
+ *
  * @public
  */
 export class RequestTimeoutException extends __BaseException {
@@ -287,13 +305,15 @@ export class RequestTimeoutException extends __BaseException {
   readonly name = "RequestTimeoutException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Client</p>
+   * Client
+   *
    * @public
    */
   type?: string | undefined;
 
   /**
-   * <p>408 Request Timeout</p>
+   * 408 Request Timeout
+   *
    * @public
    */
   code?: string | undefined;

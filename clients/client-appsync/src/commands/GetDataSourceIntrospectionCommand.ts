@@ -23,9 +23,8 @@ export interface GetDataSourceIntrospectionCommandInput extends GetDataSourceInt
 export interface GetDataSourceIntrospectionCommandOutput extends GetDataSourceIntrospectionResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the record of an existing introspection. If the retrieval is successful, the
- *          result of the instrospection will also be returned. If the retrieval fails the operation,
- *          an error message will be returned instead.</p>
+ * Retrieves the record of an existing introspection. If the retrieval is successful, the result of the instrospection will also be returned. If the retrieval fails the operation, an error message will be returned instead.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -101,19 +100,20 @@ export interface GetDataSourceIntrospectionCommandOutput extends GetDataSourceIn
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request is not well formed. For example, a value is invalid or a required field is
- *          missing. Check the field values, and then try again.</p>
+ *
+ * The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and then try again.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An internal AppSync error occurred. Try your request again.</p>
+ *
+ * An internal AppSync error occurred. Try your request again.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource specified in the request was not found. Check the resource, and then try
- *          again.</p>
+ *
+ * The resource specified in the request was not found. Check the resource, and then try again.
  *
  * @throws {@link AppSyncServiceException}
- * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * Base exception class for all service exceptions from AppSync service.
  *
  * @public
  */

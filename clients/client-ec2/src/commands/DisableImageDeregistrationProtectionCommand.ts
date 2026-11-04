@@ -26,13 +26,12 @@ export interface DisableImageDeregistrationProtectionCommandInput extends Disabl
 export interface DisableImageDeregistrationProtectionCommandOutput extends DisableImageDeregistrationProtectionResult, __MetadataBearer {}
 
 /**
- * <p>Disables deregistration protection for an AMI. When deregistration protection is disabled,
- *       the AMI can be deregistered.</p>
- *          <p>If you chose to include a 24-hour cooldown period when you enabled deregistration
- *       protection for the AMI, then, when you disable deregistration protection, you won’t
- *       immediately be able to deregister the AMI.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deregistration-protection.html">Protect an Amazon EC2 AMI from
- *         deregistration</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * Disables deregistration protection for an AMI. When deregistration protection is disabled, the AMI can be deregistered.
+ *
+ * If you chose to include a 24-hour cooldown period when you enabled deregistration protection for the AMI, then, when you disable deregistration protection, you won’t immediately be able to deregister the AMI.
+ *
+ * For more information, see [Protect an Amazon EC2 AMI from deregistration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deregistration-protection.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,8 +59,8 @@ export interface DisableImageDeregistrationProtectionCommandOutput extends Disab
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

@@ -23,13 +23,12 @@ export interface CreateAppBlockCommandInput extends CreateAppBlockRequest {}
 export interface CreateAppBlockCommandOutput extends CreateAppBlockResult, __MetadataBearer {}
 
 /**
- * <p>Creates an app block.</p>
- *          <p>App blocks are a WorkSpaces Applications resource that stores the details about the
- *             virtual hard disk in an S3 bucket. It also stores the setup script with details about
- *             how to mount the virtual hard disk. The virtual hard disk includes the application
- *             binaries and other files necessary to launch your applications. Multiple applications
- *             can be assigned to a single app block.</p>
- *          <p>This is only supported for Elastic fleets.</p>
+ * Creates an app block.
+ *
+ * App blocks are a WorkSpaces Applications resource that stores the details about the virtual hard disk in an S3 bucket. It also stores the setup script with details about how to mount the virtual hard disk. The virtual hard disk includes the application binaries and other files necessary to launch your applications. Multiple applications can be assigned to a single app block.
+ *
+ * This is only supported for Elastic fleets.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -120,20 +119,24 @@ export interface CreateAppBlockCommandOutput extends CreateAppBlockResult, __Met
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>An API error occurred. Wait a few minutes and try again.</p>
+ *
+ * An API error occurred. Wait a few minutes and try again.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The requested limit exceeds the permitted limit for an account.</p>
+ *
+ * The requested limit exceeds the permitted limit for an account.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>The attempted operation is not permitted.</p>
+ *
+ * The attempted operation is not permitted.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>The specified resource already exists.</p>
+ *
+ * The specified resource already exists.
  *
  * @throws {@link AppStreamServiceException}
- * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * Base exception class for all service exceptions from AppStream service.
  *
  * @public
  */

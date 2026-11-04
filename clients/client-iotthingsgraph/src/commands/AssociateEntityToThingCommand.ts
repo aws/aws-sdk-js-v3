@@ -23,8 +23,9 @@ export interface AssociateEntityToThingCommandInput extends AssociateEntityToThi
 export interface AssociateEntityToThingCommandOutput extends AssociateEntityToThingResponse, __MetadataBearer {}
 
 /**
- * <p>Associates a device with a concrete thing that is in the user's registry.</p>
- *          <p>A thing can be associated with only one device at a time. If you associate a thing with a new device id, its previous association will be removed.</p>
+ * Associates a device with a concrete thing that is in the user's registry.
+ *
+ * A thing can be associated with only one device at a time. If you associate a thing with a new device id, its previous association will be removed.
  *
  * @deprecated since: 2022-08-30.
  * @example
@@ -53,20 +54,16 @@ export interface AssociateEntityToThingCommandOutput extends AssociateEntityToTh
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p></p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p></p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p></p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p></p>
  *
  * @throws {@link IoTThingsGraphServiceException}
- * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ * Base exception class for all service exceptions from IoTThingsGraph service.
  *
  * @public
  */

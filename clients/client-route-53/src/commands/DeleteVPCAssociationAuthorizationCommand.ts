@@ -26,18 +26,10 @@ export interface DeleteVPCAssociationAuthorizationCommandInput extends DeleteVPC
 export interface DeleteVPCAssociationAuthorizationCommandOutput extends DeleteVPCAssociationAuthorizationResponse, __MetadataBearer {}
 
 /**
- * <p>Removes authorization to submit an <code>AssociateVPCWithHostedZone</code> request to
- * 			associate a specified VPC with a hosted zone that was created by a different account.
- * 			You must use the account that created the hosted zone to submit a
- * 				<code>DeleteVPCAssociationAuthorization</code> request.</p>
- *          <important>
- *             <p>Sending this request only prevents the Amazon Web Services account that created the
- * 				VPC from associating the VPC with the Amazon Route 53 hosted zone in the future. If
- * 				the VPC is already associated with the hosted zone,
- * 					<code>DeleteVPCAssociationAuthorization</code> won't disassociate the VPC from
- * 				the hosted zone. If you want to delete an existing association, use
- * 					<code>DisassociateVPCFromHostedZone</code>.</p>
- *          </important>
+ * Removes authorization to submit an `AssociateVPCWithHostedZone` request to associate a specified VPC with a hosted zone that was created by a different account. You must use the account that created the hosted zone to submit a `DeleteVPCAssociationAuthorization` request.
+ *
+ * > **Important:** Sending this request only prevents the Amazon Web Services account that created the VPC from associating the VPC with the Amazon Route 53 hosted zone in the future. If the VPC is already associated with the hosted zone, `DeleteVPCAssociationAuthorization` won't disassociate the VPC from the hosted zone. If you want to delete an existing association, use `DisassociateVPCFromHostedZone`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,26 +58,28 @@ export interface DeleteVPCAssociationAuthorizationCommandOutput extends DeleteVP
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link ConcurrentModification} (client fault)
- *  <p>Another user submitted a request to create, update, or delete the object at the same
- * 			time that you did. Retry the request. </p>
+ *
+ * Another user submitted a request to create, update, or delete the object at the same time that you did. Retry the request.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link InvalidVPCId} (client fault)
- *  <p>The VPC ID that you specified either isn't a valid ID or the current account is not
- * 			authorized to access this VPC.</p>
+ *
+ * The VPC ID that you specified either isn't a valid ID or the current account is not authorized to access this VPC.
  *
  * @throws {@link NoSuchHostedZone} (client fault)
- *  <p>No hosted zone exists with the ID that you specified.</p>
+ *
+ * No hosted zone exists with the ID that you specified.
  *
  * @throws {@link VPCAssociationAuthorizationNotFound} (client fault)
- *  <p>The VPC that you specified is not authorized to be associated with the hosted
- * 			zone.</p>
+ *
+ * The VPC that you specified is not authorized to be associated with the hosted zone.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @public
  */

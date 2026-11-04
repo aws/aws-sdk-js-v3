@@ -23,8 +23,10 @@ export interface DescribePortfolioCommandInput extends DescribePortfolioInput {}
 export interface DescribePortfolioCommandOutput extends DescribePortfolioOutput, __MetadataBearer {}
 
 /**
- * <p>Gets information about the specified portfolio.</p>
- *          <p>A delegated admin is authorized to invoke this command.</p>
+ * Gets information about the specified portfolio.
+ *
+ * A delegated admin is authorized to invoke this command.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,11 +81,12 @@ export interface DescribePortfolioCommandOutput extends DescribePortfolioOutput,
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ServiceCatalogServiceException}
- * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * Base exception class for all service exceptions from ServiceCatalog service.
  *
  * @public
  */

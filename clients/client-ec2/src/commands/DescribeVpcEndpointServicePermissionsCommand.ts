@@ -26,8 +26,8 @@ export interface DescribeVpcEndpointServicePermissionsCommandInput extends Descr
 export interface DescribeVpcEndpointServicePermissionsCommandOutput extends DescribeVpcEndpointServicePermissionsResult, __MetadataBearer {}
 
 /**
- * <p>Describes the principals (service consumers) that are permitted to discover your VPC
- *             endpoint service. Principal ARNs with path components aren't supported.</p>
+ * Describes the principals (service consumers) that are permitted to discover your VPC endpoint service. Principal ARNs with path components aren't supported.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,8 +79,8 @@ export interface DescribeVpcEndpointServicePermissionsCommandOutput extends Desc
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

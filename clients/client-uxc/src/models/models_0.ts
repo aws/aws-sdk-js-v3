@@ -11,37 +11,43 @@ export interface GetAccountCustomizationsInput {}
  */
 export interface GetAccountCustomizationsOutput {
   /**
-   * <p>The account color preference. A value of <code>none</code> indicates that you have not set a color.</p>
+   * The account color preference. A value of `none` indicates that you have not set a color.
+   *
    * @public
    */
   accountColor?: AccountColor | undefined;
 
   /**
-   * <p>The list of Amazon Web Services service identifiers that are visible to the account in the Amazon Web Services Management Console. A value of <code>null</code> indicates that you have not configured this feature and all services are visible. For valid service identifiers, call <a href="https://docs.aws.amazon.com/awsconsolehelpdocs/latest/APIReference/API_ListServices.html">ListServices</a>.</p>
+   * The list of Amazon Web Services service identifiers that are visible to the account in the Amazon Web Services Management Console. A value of `null` indicates that you have not configured this feature and all services are visible. For valid service identifiers, call [ListServices](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/APIReference/API_ListServices.html).
+   *
    * @public
    */
   visibleServices?: string[] | undefined;
 
   /**
-   * <p>The list of Amazon Web Services Region codes that are visible to the account in the Amazon Web Services Management Console. A value of <code>null</code> indicates that you have not configured this feature and all Regions are visible. For a list of valid Region codes, see <a href="https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html">Amazon Web Services Regions</a>.</p>
+   * The list of Amazon Web Services Region codes that are visible to the account in the Amazon Web Services Management Console. A value of `null` indicates that you have not configured this feature and all Regions are visible. For a list of valid Region codes, see [Amazon Web Services Regions](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html).
+   *
    * @public
    */
   visibleRegions?: string[] | undefined;
 }
 
 /**
- * <p>Describes a validation exception for a specific field.</p>
+ * Describes a validation exception for a specific field.
+ *
  * @public
  */
 export interface ValidationExceptionField {
   /**
-   * <p>The field name with the validation exception.</p>
+   * The field name with the validation exception.
+   *
    * @public
    */
   path: string | undefined;
 
   /**
-   * <p>A message describing the validation exception.</p>
+   * A message describing the validation exception.
+   *
    * @public
    */
   message: string | undefined;
@@ -52,13 +58,15 @@ export interface ValidationExceptionField {
  */
 export interface ListServicesInput {
   /**
-   * <p>The token for retrieving the next page of results. Use the <code>nextToken</code> value from a previous response.</p>
+   * The token for retrieving the next page of results. Use the `nextToken` value from a previous response.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   maxResults?: number | undefined;
@@ -69,13 +77,15 @@ export interface ListServicesInput {
  */
 export interface ListServicesOutput {
   /**
-   * <p>The token for retrieving the next page of results. This value is <code>null</code> when no more results are available.</p>
+   * The token for retrieving the next page of results. This value is `null` when no more results are available.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The list of available Amazon Web Services service identifiers.</p>
+   * The list of available Amazon Web Services service identifiers.
+   *
    * @public
    */
   services?: string[] | undefined;
@@ -86,19 +96,22 @@ export interface ListServicesOutput {
  */
 export interface UpdateAccountCustomizationsInput {
   /**
-   * <p>The account color preference to set. Set to <code>none</code> to reset to the default (no color).</p>
+   * The account color preference to set. Set to `none` to reset to the default (no color).
+   *
    * @public
    */
   accountColor?: AccountColor | undefined;
 
   /**
-   * <p>The list of Amazon Web Services service identifiers to make visible in the Amazon Web Services Management Console. Set to <code>null</code> to reset to the default, which makes all services visible. For valid service identifiers, call <a href="https://docs.aws.amazon.com/awsconsolehelpdocs/latest/APIReference/API_ListServices.html">ListServices</a>.</p>
+   * The list of Amazon Web Services service identifiers to make visible in the Amazon Web Services Management Console. Set to `null` to reset to the default, which makes all services visible. For valid service identifiers, call [ListServices](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/APIReference/API_ListServices.html).
+   *
    * @public
    */
   visibleServices?: string[] | undefined;
 
   /**
-   * <p>The list of Amazon Web Services Region codes to make visible in the Amazon Web Services Management Console. Set to <code>null</code> to reset to the default, which makes all Regions visible. For a list of valid Region codes, see <a href="https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html">Amazon Web Services Regions</a>.</p>
+   * The list of Amazon Web Services Region codes to make visible in the Amazon Web Services Management Console. Set to `null` to reset to the default, which makes all Regions visible. For a list of valid Region codes, see [Amazon Web Services Regions](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html).
+   *
    * @public
    */
   visibleRegions?: string[] | undefined;
@@ -109,19 +122,22 @@ export interface UpdateAccountCustomizationsInput {
  */
 export interface UpdateAccountCustomizationsOutput {
   /**
-   * <p>The current account color preference after the update.</p>
+   * The current account color preference after the update.
+   *
    * @public
    */
   accountColor?: AccountColor | undefined;
 
   /**
-   * <p>The current list of visible service identifiers after the update.</p>
+   * The current list of visible service identifiers after the update.
+   *
    * @public
    */
   visibleServices?: string[] | undefined;
 
   /**
-   * <p>The current list of visible Region codes after the update.</p>
+   * The current list of visible Region codes after the update.
+   *
    * @public
    */
   visibleRegions?: string[] | undefined;

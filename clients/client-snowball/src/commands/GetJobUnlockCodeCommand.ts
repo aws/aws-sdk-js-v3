@@ -23,19 +23,12 @@ export interface GetJobUnlockCodeCommandInput extends GetJobUnlockCodeRequest {}
 export interface GetJobUnlockCodeCommandOutput extends GetJobUnlockCodeResult, __MetadataBearer {}
 
 /**
- * <p>Returns the <code>UnlockCode</code> code value for the specified job. A particular
- *         <code>UnlockCode</code> value can be accessed for up to 360 days after the associated job
- *       has been created.</p>
- *          <p>The <code>UnlockCode</code> value is a 29-character code with 25 alphanumeric
- *       characters and 4 hyphens. This code is used to decrypt the manifest file when it is passed
- *       along with the manifest to the Snow device through the Snowball client when the client is
- *       started for the first time. The only valid status for calling this API is
- *         <code>WithCustomer</code> as the manifest and <code>Unlock</code> code values are used for
- *       securing your device and should only be used when you have the device.</p>
- *          <p>As a best practice, we recommend that you don't save a copy of the
- *         <code>UnlockCode</code> in the same location as the manifest file for that job. Saving these
- *       separately helps prevent unauthorized parties from gaining access to the Snow device
- *       associated with that job.</p>
+ * Returns the `UnlockCode` code value for the specified job. A particular `UnlockCode` value can be accessed for up to 360 days after the associated job has been created.
+ *
+ * The `UnlockCode` value is a 29-character code with 25 alphanumeric characters and 4 hyphens. This code is used to decrypt the manifest file when it is passed along with the manifest to the Snow device through the Snowball client when the client is started for the first time. The only valid status for calling this API is `WithCustomer` as the manifest and `Unlock` code values are used for securing your device and should only be used when you have the device.
+ *
+ * As a best practice, we recommend that you don't save a copy of the `UnlockCode` in the same location as the manifest file for that job. Saving these separately helps prevent unauthorized parties from gaining access to the Snow device associated with that job.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,16 +55,16 @@ export interface GetJobUnlockCodeCommandOutput extends GetJobUnlockCodeResult, _
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
  * @throws {@link InvalidJobStateException} (client fault)
- *  <p>The action can't be performed because the job's current state doesn't allow that action
- *       to be performed.</p>
+ *
+ * The action can't be performed because the job's current state doesn't allow that action to be performed.
  *
  * @throws {@link InvalidResourceException} (client fault)
- *  <p>The specified resource can't be found. Check the information you provided in your last
- *       request, and try again.</p>
+ *
+ * The specified resource can't be found. Check the information you provided in your last request, and try again.
  *
  * @throws {@link SnowballServiceException}
- * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ * Base exception class for all service exceptions from Snowball service.
  *
  * @example To get the unlock code for a job you've created for AWS Snowball
  * ```javascript

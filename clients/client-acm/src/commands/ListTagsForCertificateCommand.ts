@@ -23,7 +23,10 @@ export interface ListTagsForCertificateCommandInput extends ListTagsForCertifica
 export interface ListTagsForCertificateCommandOutput extends ListTagsForCertificateResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the tags that have been applied to the ACM certificate. Use the certificate's Amazon Resource Name (ARN) to specify the certificate. To add a tag to an ACM certificate, use the <a>AddTagsToCertificate</a> action. To delete a tag, use the <a>RemoveTagsFromCertificate</a> action. </p> <note> <p>This action applies only to the <code>certificate</code> resource type. For all other ACM resource types, use <a>ListTagsForResource</a> instead.</p> </note>
+ * Lists the tags that have been applied to the ACM certificate. Use the certificate's Amazon Resource Name (ARN) to specify the certificate. To add a tag to an ACM certificate, use the AddTagsToCertificate action. To delete a tag, use the RemoveTagsFromCertificate action.
+ *
+ * > **Note:** This action applies only to the `certificate` resource type. For all other ACM resource types, use ListTagsForResource instead.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,17 +58,20 @@ export interface ListTagsForCertificateCommandOutput extends ListTagsForCertific
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
  *
  * @throws {@link InvalidArnException} (client fault)
- *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+ *
+ * The requested Amazon Resource Name (ARN) does not refer to an existing resource.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified certificate cannot be found in the caller's account or the caller's account cannot be found.</p>
+ *
+ * The specified certificate cannot be found in the caller's account or the caller's account cannot be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The supplied input failed to satisfy constraints of an Amazon Web Services service.</p>
+ *
+ * The supplied input failed to satisfy constraints of an Amazon Web Services service.
  *
  * @throws {@link ACMServiceException}
- * <p>Base exception class for all service exceptions from ACM service.</p>
  *
+ * Base exception class for all service exceptions from ACM service.
  *
  * @public
  */

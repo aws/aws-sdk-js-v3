@@ -23,8 +23,8 @@ export interface ListOpsMetadataCommandInput extends ListOpsMetadataRequest {}
 export interface ListOpsMetadataCommandOutput extends ListOpsMetadataResult, __MetadataBearer {}
 
 /**
- * <p>Amazon Web Services Systems Manager calls this API operation when displaying all Application Manager OpsMetadata objects or
- *    blobs.</p>
+ * Amazon Web Services Systems Manager calls this API operation when displaying all Application Manager OpsMetadata objects or blobs.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,14 +69,16 @@ export interface ListOpsMetadataCommandOutput extends ListOpsMetadataResult, __M
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link OpsMetadataInvalidArgumentException} (client fault)
- *  <p>One of the arguments passed is invalid. </p>
+ *
+ * One of the arguments passed is invalid.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

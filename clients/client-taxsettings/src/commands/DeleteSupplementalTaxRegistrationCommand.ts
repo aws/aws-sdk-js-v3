@@ -26,7 +26,8 @@ export interface DeleteSupplementalTaxRegistrationCommandInput extends DeleteSup
 export interface DeleteSupplementalTaxRegistrationCommandOutput extends DeleteSupplementalTaxRegistrationResponse, __MetadataBearer {}
 
 /**
- * <p> Deletes a supplemental tax registration for a single account. </p>
+ * Deletes a supplemental tax registration for a single account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,20 +52,24 @@ export interface DeleteSupplementalTaxRegistrationCommandOutput extends DeleteSu
  * @see {@link TaxSettingsClientResolvedConfig | config} for TaxSettingsClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The exception when the input is creating conflict with the given state.</p>
+ *
+ * The exception when the input is creating conflict with the given state.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The exception thrown when an unexpected error occurs when processing a request.</p>
+ *
+ * The exception thrown when an unexpected error occurs when processing a request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The exception thrown when the input doesn't have a resource associated to it.</p>
+ *
+ * The exception thrown when the input doesn't have a resource associated to it.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The exception when the input doesn't pass validation for at least one of the input parameters. </p>
+ *
+ * The exception when the input doesn't pass validation for at least one of the input parameters.
  *
  * @throws {@link TaxSettingsServiceException}
- * <p>Base exception class for all service exceptions from TaxSettings service.</p>
  *
+ * Base exception class for all service exceptions from TaxSettings service.
  *
  * @public
  */

@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>Amazon CloudFront KeyValueStore Service to View and Update Data in a KVS Resource</p>
+ * Amazon CloudFront KeyValueStore Service to View and Update Data in a KVS Resource
  *
  * @packageDocumentation
  */

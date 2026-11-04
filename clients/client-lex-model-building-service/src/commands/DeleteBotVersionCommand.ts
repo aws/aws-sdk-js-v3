@@ -23,10 +23,9 @@ export interface DeleteBotVersionCommandInput extends DeleteBotVersionRequest {}
 export interface DeleteBotVersionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a specific version of a bot. To delete all versions of a
- *       bot, use the <a>DeleteBot</a> operation. </p>
- *          <p>This operation requires permissions for the
- *         <code>lex:DeleteBotVersion</code> action.</p>
+ * Deletes a specific version of a bot. To delete all versions of a bot, use the DeleteBot operation.
+ *
+ * This operation requires permissions for the `lex:DeleteBotVersion` action.
  *
  * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @example
@@ -54,45 +53,40 @@ export interface DeleteBotVersionCommandOutput extends __MetadataBearer {}
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request is not well formed. For example, a value is invalid or
- *       a required field is missing. Check the field values, and try
- *       again.</p>
+ *
+ * The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p> There was a conflict processing the request. Try your request
- *       again. </p>
+ *
+ * There was a conflict processing the request. Try your request again.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An internal Amazon Lex error occurred. Try your request again.</p>
+ *
+ * An internal Amazon Lex error occurred. Try your request again.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request exceeded a limit. Try your request again.</p>
+ *
+ * The request exceeded a limit. Try your request again.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource specified in the request was not found. Check the
- *       resource and try again.</p>
+ *
+ * The resource specified in the request was not found. Check the resource and try again.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The resource that you are attempting to delete is referred to by
- *       another resource. Use this information to remove references to the
- *       resource that you are trying to delete.</p>
- *          <p>The body of the exception contains a JSON object that describes the
- *       resource.</p>
- *          <p>
- *             <code>{ "resourceType": BOT | BOTALIAS | BOTCHANNEL |
- *         INTENT,</code>
- *          </p>
- *          <p>
- *             <code>"resourceReference": {</code>
- *          </p>
- *          <p>
- *             <code>"name": <i>string</i>, "version":
- *           <i>string</i> } }</code>
- *          </p>
+ *
+ * The resource that you are attempting to delete is referred to by another resource. Use this information to remove references to the resource that you are trying to delete.
+ *
+ * The body of the exception contains a JSON object that describes the resource.
+ *
+ * `{ "resourceType": BOT | BOTALIAS | BOTCHANNEL | INTENT,`
+ *
+ * `"resourceReference": {`
+ *
+ * `"name": string, "version": string } }`
  *
  * @throws {@link LexModelBuildingServiceServiceException}
- * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * Base exception class for all service exceptions from LexModelBuildingService service.
  *
  * @public
  */

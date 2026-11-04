@@ -23,7 +23,8 @@ export interface ListEnvironmentsCommandInput extends ListEnvironmentsRequest {}
 export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the Amazon EVS environments in your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+ * Lists the Amazon EVS environments in your Amazon Web Services account in the specified Amazon Web Services Region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,11 +67,12 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResponse,
  * @see {@link EvsClientResolvedConfig | config} for EvsClient's `config` shape.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+ *
+ * The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.
  *
  * @throws {@link EvsServiceException}
- * <p>Base exception class for all service exceptions from Evs service.</p>
  *
+ * Base exception class for all service exceptions from Evs service.
  *
  * @public
  */

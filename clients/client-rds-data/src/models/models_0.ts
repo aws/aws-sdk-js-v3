@@ -2,283 +2,336 @@
 import type { DecimalReturnType, LongReturnType, RecordsFormatType, TypeHint } from "./enums";
 
 /**
- * <p>The request parameters represent the input of a request to start a SQL transaction.</p>
+ * The request parameters represent the input of a request to start a SQL transaction.
+ *
  * @public
  */
 export interface BeginTransactionRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.</p>
+   * The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The name or ARN of the secret that enables access to the DB cluster.</p>
+   * The name or ARN of the secret that enables access to the DB cluster.
+   *
    * @public
    */
   secretArn: string | undefined;
 
   /**
-   * <p>The name of the database.</p>
+   * The name of the database.
+   *
    * @public
    */
   database?: string | undefined;
 
   /**
-   * <p>The name of the database schema.</p>
+   * The name of the database schema.
+   *
    * @public
    */
   schema?: string | undefined;
 }
 
 /**
- * <p>The response elements represent the output of a request to start a SQL transaction.</p>
+ * The response elements represent the output of a request to start a SQL transaction.
+ *
  * @public
  */
 export interface BeginTransactionResponse {
   /**
-   * <p>The transaction ID of the transaction started by the call.</p>
+   * The transaction ID of the transaction started by the call.
+   *
    * @public
    */
   transactionId?: string | undefined;
 }
 
 /**
- * <p>Contains the metadata for a column.</p>
+ * Contains the metadata for a column.
+ *
  * @public
  */
 export interface ColumnMetadata {
   /**
-   * <p>The name of the column.</p>
+   * The name of the column.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The type of the column.</p>
+   * The type of the column.
+   *
    * @public
    */
   type?: number | undefined;
 
   /**
-   * <p>The database-specific data type of the column.</p>
+   * The database-specific data type of the column.
+   *
    * @public
    */
   typeName?: string | undefined;
 
   /**
-   * <p>The label for the column.</p>
+   * The label for the column.
+   *
    * @public
    */
   label?: string | undefined;
 
   /**
-   * <p>The name of the schema that owns the table that includes the column.</p>
+   * The name of the schema that owns the table that includes the column.
+   *
    * @public
    */
   schemaName?: string | undefined;
 
   /**
-   * <p>The name of the table that includes the column.</p>
+   * The name of the table that includes the column.
+   *
    * @public
    */
   tableName?: string | undefined;
 
   /**
-   * <p>A value that indicates whether the column increments automatically.</p>
+   * A value that indicates whether the column increments automatically.
+   *
    * @public
    */
   isAutoIncrement?: boolean | undefined;
 
   /**
-   * <p>A value that indicates whether an integer column is signed.</p>
+   * A value that indicates whether an integer column is signed.
+   *
    * @public
    */
   isSigned?: boolean | undefined;
 
   /**
-   * <p>A value that indicates whether the column contains currency values.</p>
+   * A value that indicates whether the column contains currency values.
+   *
    * @public
    */
   isCurrency?: boolean | undefined;
 
   /**
-   * <p>A value that indicates whether the column is case-sensitive.</p>
+   * A value that indicates whether the column is case-sensitive.
+   *
    * @public
    */
   isCaseSensitive?: boolean | undefined;
 
   /**
-   * <p>A value that indicates whether the column is nullable.</p>
+   * A value that indicates whether the column is nullable.
+   *
    * @public
    */
   nullable?: number | undefined;
 
   /**
-   * <p>The precision value of a decimal number column.</p>
+   * The precision value of a decimal number column.
+   *
    * @public
    */
   precision?: number | undefined;
 
   /**
-   * <p>The scale value of a decimal number column.</p>
+   * The scale value of a decimal number column.
+   *
    * @public
    */
   scale?: number | undefined;
 
   /**
-   * <p>The type of the column.</p>
+   * The type of the column.
+   *
    * @public
    */
   arrayBaseColumnType?: number | undefined;
 }
 
 /**
- * <p>The request parameters represent the input of a commit transaction request.</p>
+ * The request parameters represent the input of a commit transaction request.
+ *
  * @public
  */
 export interface CommitTransactionRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.</p>
+   * The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The name or ARN of the secret that enables access to the DB cluster.</p>
+   * The name or ARN of the secret that enables access to the DB cluster.
+   *
    * @public
    */
   secretArn: string | undefined;
 
   /**
-   * <p>The identifier of the transaction to end and commit.</p>
+   * The identifier of the transaction to end and commit.
+   *
    * @public
    */
   transactionId: string | undefined;
 }
 
 /**
- * <p>The response elements represent the output of a commit transaction request.</p>
+ * The response elements represent the output of a commit transaction request.
+ *
  * @public
  */
 export interface CommitTransactionResponse {
   /**
-   * <p>The status of the commit operation.</p>
+   * The status of the commit operation.
+   *
    * @public
    */
   transactionStatus?: string | undefined;
 }
 
 /**
- * <p>The request parameters represent the input of a request to run one or more SQL statements.</p>
+ * The request parameters represent the input of a request to run one or more SQL statements.
+ *
  * @public
  */
 export interface ExecuteSqlRequest {
   /**
-   * <p>The ARN of the Aurora Serverless DB cluster.</p>
+   * The ARN of the Aurora Serverless DB cluster.
+   *
    * @public
    */
   dbClusterOrInstanceArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the secret that enables access to the DB cluster. Enter the database user name and password for the credentials in the secret.</p> <p>For information about creating the secret, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_database_secret.html">Create a database secret</a>.</p>
+   * The Amazon Resource Name (ARN) of the secret that enables access to the DB cluster. Enter the database user name and password for the credentials in the secret.
+   *
+   * For information about creating the secret, see [Create a database secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_database_secret.html).
+   *
    * @public
    */
   awsSecretStoreArn: string | undefined;
 
   /**
-   * <p>One or more SQL statements to run on the DB cluster.</p> <p>You can separate SQL statements from each other with a semicolon (;). Any valid SQL statement is permitted, including data definition, data manipulation, and commit statements. </p>
+   * One or more SQL statements to run on the DB cluster.
+   *
+   * You can separate SQL statements from each other with a semicolon (;). Any valid SQL statement is permitted, including data definition, data manipulation, and commit statements.
+   *
    * @public
    */
   sqlStatements: string | undefined;
 
   /**
-   * <p>The name of the database.</p>
+   * The name of the database.
+   *
    * @public
    */
   database?: string | undefined;
 
   /**
-   * <p>The name of the database schema.</p>
+   * The name of the database schema.
+   *
    * @public
    */
   schema?: string | undefined;
 }
 
 /**
- * <p>The metadata of the result set returned by a SQL statement.</p>
+ * The metadata of the result set returned by a SQL statement.
+ *
  * @public
  */
 export interface ResultSetMetadata {
   /**
-   * <p>The number of columns in the result set.</p>
+   * The number of columns in the result set.
+   *
    * @public
    */
   columnCount?: number | undefined;
 
   /**
-   * <p>The metadata of the columns in the result set.</p>
+   * The metadata of the columns in the result set.
+   *
    * @public
    */
   columnMetadata?: ColumnMetadata[] | undefined;
 }
 
 /**
- * <p>Options that control how the result set is returned.</p>
+ * Options that control how the result set is returned.
+ *
  * @public
  */
 export interface ResultSetOptions {
   /**
-   * <p>A value that indicates how a field of <code>DECIMAL</code> type is represented in the response. The value of <code>STRING</code>, the default, specifies that it is converted to a String value. The value of <code>DOUBLE_OR_LONG</code> specifies that it is converted to a Long value if its scale is 0, or to a Double value otherwise.</p> <note> <p>Conversion to Double or Long can result in roundoff errors due to precision loss. We recommend converting to String, especially when working with currency values.</p> </note>
+   * A value that indicates how a field of `DECIMAL` type is represented in the response. The value of `STRING`, the default, specifies that it is converted to a String value. The value of `DOUBLE_OR_LONG` specifies that it is converted to a Long value if its scale is 0, or to a Double value otherwise.
+   *
+   * > **Note:** Conversion to Double or Long can result in roundoff errors due to precision loss. We recommend converting to String, especially when working with currency values.
+   *
    * @public
    */
   decimalReturnType?: DecimalReturnType | undefined;
 
   /**
-   * <p>A value that indicates how a field of <code>LONG</code> type is represented. Allowed values are <code>LONG</code> and <code>STRING</code>. The default is <code>LONG</code>. Specify <code>STRING</code> if the length or precision of numeric values might cause truncation or rounding errors. </p>
+   * A value that indicates how a field of `LONG` type is represented. Allowed values are `LONG` and `STRING`. The default is `LONG`. Specify `STRING` if the length or precision of numeric values might cause truncation or rounding errors.
+   *
    * @public
    */
   longReturnType?: LongReturnType | undefined;
 }
 
 /**
- * <p>The request parameters represent the input of a request to perform a rollback of a transaction.</p>
+ * The request parameters represent the input of a request to perform a rollback of a transaction.
+ *
  * @public
  */
 export interface RollbackTransactionRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.</p>
+   * The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The name or ARN of the secret that enables access to the DB cluster.</p>
+   * The name or ARN of the secret that enables access to the DB cluster.
+   *
    * @public
    */
   secretArn: string | undefined;
 
   /**
-   * <p>The identifier of the transaction to roll back.</p>
+   * The identifier of the transaction to roll back.
+   *
    * @public
    */
   transactionId: string | undefined;
 }
 
 /**
- * <p>The response elements represent the output of a request to perform a rollback of a transaction.</p>
+ * The response elements represent the output of a request to perform a rollback of a transaction.
+ *
  * @public
  */
 export interface RollbackTransactionResponse {
   /**
-   * <p>The status of the rollback operation.</p>
+   * The status of the rollback operation.
+   *
    * @public
    */
   transactionStatus?: string | undefined;
 }
 
 /**
- * <p>Contains an array.</p>
+ * Contains an array.
+ *
  * @public
  */
 export type ArrayValue =
@@ -294,7 +347,8 @@ export type ArrayValue =
  */
 export namespace ArrayValue {
   /**
-   * <p>An array of Boolean values. Can contain null values.</p>
+   * An array of Boolean values. Can contain null values.
+   *
    * @public
    */
   export interface BooleanValuesMember {
@@ -307,7 +361,8 @@ export namespace ArrayValue {
   }
 
   /**
-   * <p>An array of integers. Can contain null values.</p>
+   * An array of integers. Can contain null values.
+   *
    * @public
    */
   export interface LongValuesMember {
@@ -320,7 +375,8 @@ export namespace ArrayValue {
   }
 
   /**
-   * <p>An array of floating-point numbers. Can contain null values.</p>
+   * An array of floating-point numbers. Can contain null values.
+   *
    * @public
    */
   export interface DoubleValuesMember {
@@ -333,7 +389,8 @@ export namespace ArrayValue {
   }
 
   /**
-   * <p>An array of strings. Can contain null values.</p>
+   * An array of strings. Can contain null values.
+   *
    * @public
    */
   export interface StringValuesMember {
@@ -346,7 +403,8 @@ export namespace ArrayValue {
   }
 
   /**
-   * <p>An array of arrays. Can contain null values.</p>
+   * An array of arrays. Can contain null values.
+   *
    * @public
    */
   export interface ArrayValuesMember {
@@ -385,7 +443,8 @@ export namespace ArrayValue {
 }
 
 /**
- * <p>Contains a value.</p>
+ * Contains a value.
+ *
  * @public
  */
 export type Field =
@@ -403,7 +462,8 @@ export type Field =
  */
 export namespace Field {
   /**
-   * <p>A NULL value.</p>
+   * A NULL value.
+   *
    * @public
    */
   export interface IsNullMember {
@@ -418,7 +478,8 @@ export namespace Field {
   }
 
   /**
-   * <p>A value of Boolean data type.</p>
+   * A value of Boolean data type.
+   *
    * @public
    */
   export interface BooleanValueMember {
@@ -433,7 +494,8 @@ export namespace Field {
   }
 
   /**
-   * <p>A value of long data type.</p>
+   * A value of long data type.
+   *
    * @public
    */
   export interface LongValueMember {
@@ -448,7 +510,8 @@ export namespace Field {
   }
 
   /**
-   * <p>A value of double data type.</p>
+   * A value of double data type.
+   *
    * @public
    */
   export interface DoubleValueMember {
@@ -463,7 +526,8 @@ export namespace Field {
   }
 
   /**
-   * <p>A value of string data type.</p>
+   * A value of string data type.
+   *
    * @public
    */
   export interface StringValueMember {
@@ -478,7 +542,8 @@ export namespace Field {
   }
 
   /**
-   * <p>A value of BLOB data type.</p>
+   * A value of BLOB data type.
+   *
    * @public
    */
   export interface BlobValueMember {
@@ -493,7 +558,8 @@ export namespace Field {
   }
 
   /**
-   * <p>An array of values.</p>
+   * An array of values.
+   *
    * @public
    */
   export interface ArrayValueMember {
@@ -538,43 +604,59 @@ export namespace Field {
 }
 
 /**
- * <p>A parameter used in a SQL statement.</p>
+ * A parameter used in a SQL statement.
+ *
  * @public
  */
 export interface SqlParameter {
   /**
-   * <p>The name of the parameter.</p>
+   * The name of the parameter.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The value of the parameter.</p>
+   * The value of the parameter.
+   *
    * @public
    */
   value?: Field | undefined;
 
   /**
-   * <p>A hint that specifies the correct object type for data type mapping. Possible values are as follows:</p> <ul> <li> <p> <code>DATE</code> - The corresponding <code>String</code> parameter value is sent as an object of <code>DATE</code> type to the database. The accepted format is <code>YYYY-MM-DD</code>.</p> </li> <li> <p> <code>DECIMAL</code> - The corresponding <code>String</code> parameter value is sent as an object of <code>DECIMAL</code> type to the database.</p> </li> <li> <p> <code>JSON</code> - The corresponding <code>String</code> parameter value is sent as an object of <code>JSON</code> type to the database.</p> </li> <li> <p> <code>TIME</code> - The corresponding <code>String</code> parameter value is sent as an object of <code>TIME</code> type to the database. The accepted format is <code>HH:MM:SS[.FFF]</code>.</p> </li> <li> <p> <code>TIMESTAMP</code> - The corresponding <code>String</code> parameter value is sent as an object of <code>TIMESTAMP</code> type to the database. The accepted format is <code>YYYY-MM-DD HH:MM:SS[.FFF]</code>.</p> </li> <li> <p> <code>UUID</code> - The corresponding <code>String</code> parameter value is sent as an object of <code>UUID</code> type to the database. </p> </li> </ul>
+   * A hint that specifies the correct object type for data type mapping. Possible values are as follows:
+   *
+   * - `DATE` - The corresponding `String` parameter value is sent as an object of `DATE` type to the database. The accepted format is `YYYY-MM-DD`.
+   * - `DECIMAL` - The corresponding `String` parameter value is sent as an object of `DECIMAL` type to the database.
+   * - `JSON` - The corresponding `String` parameter value is sent as an object of `JSON` type to the database.
+   * - `TIME` - The corresponding `String` parameter value is sent as an object of `TIME` type to the database. The accepted format is `HH:MM:SS[.FFF]`.
+   * - `TIMESTAMP` - The corresponding `String` parameter value is sent as an object of `TIMESTAMP` type to the database. The accepted format is `YYYY-MM-DD HH:MM:SS[.FFF]`.
+   * - `UUID` - The corresponding `String` parameter value is sent as an object of `UUID` type to the database.
+   *
    * @public
    */
   typeHint?: TypeHint | undefined;
 }
 
 /**
- * <p>The response elements represent the results of an update.</p>
+ * The response elements represent the results of an update.
+ *
  * @public
  */
 export interface UpdateResult {
   /**
-   * <p>Values for fields generated during the request.</p>
+   * Values for fields generated during the request.
+   *
    * @public
    */
   generatedFields?: Field[] | undefined;
 }
 
 /**
- * <p>Contains the value of a column.</p> <note> <p>This data structure is only used with the deprecated <code>ExecuteSql</code> operation. Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation instead.</p> </note>
+ * Contains the value of a column.
+ *
+ * > **Note:** This data structure is only used with the deprecated `ExecuteSql` operation. Use the `BatchExecuteStatement` or `ExecuteStatement` operation instead.
+ *
  * @public
  */
 export type Value =
@@ -595,7 +677,8 @@ export type Value =
  */
 export namespace Value {
   /**
-   * <p>A NULL value.</p>
+   * A NULL value.
+   *
    * @public
    */
   export interface IsNullMember {
@@ -613,7 +696,8 @@ export namespace Value {
   }
 
   /**
-   * <p>A value for a column of BIT data type.</p>
+   * A value for a column of BIT data type.
+   *
    * @public
    */
   export interface BitValueMember {
@@ -631,7 +715,8 @@ export namespace Value {
   }
 
   /**
-   * <p>A value for a column of big integer data type.</p>
+   * A value for a column of big integer data type.
+   *
    * @public
    */
   export interface BigIntValueMember {
@@ -649,7 +734,8 @@ export namespace Value {
   }
 
   /**
-   * <p>A value for a column of integer data type.</p>
+   * A value for a column of integer data type.
+   *
    * @public
    */
   export interface IntValueMember {
@@ -667,7 +753,8 @@ export namespace Value {
   }
 
   /**
-   * <p>A value for a column of double data type.</p>
+   * A value for a column of double data type.
+   *
    * @public
    */
   export interface DoubleValueMember {
@@ -685,7 +772,8 @@ export namespace Value {
   }
 
   /**
-   * <p>A value for a column of real data type.</p>
+   * A value for a column of real data type.
+   *
    * @public
    */
   export interface RealValueMember {
@@ -703,7 +791,8 @@ export namespace Value {
   }
 
   /**
-   * <p>A value for a column of string data type.</p>
+   * A value for a column of string data type.
+   *
    * @public
    */
   export interface StringValueMember {
@@ -721,7 +810,8 @@ export namespace Value {
   }
 
   /**
-   * <p>A value for a column of BLOB data type.</p>
+   * A value for a column of BLOB data type.
+   *
    * @public
    */
   export interface BlobValueMember {
@@ -739,7 +829,8 @@ export namespace Value {
   }
 
   /**
-   * <p>An array of column values.</p>
+   * An array of column values.
+   *
    * @public
    */
   export interface ArrayValuesMember {
@@ -757,7 +848,8 @@ export namespace Value {
   }
 
   /**
-   * <p>A value for a column of STRUCT data type.</p>
+   * A value for a column of STRUCT data type.
+   *
    * @public
    */
   export interface StructValueMember {
@@ -811,240 +903,323 @@ export namespace Value {
 }
 
 /**
- * <p>The request parameters represent the input of a request to run a SQL statement against a database.</p>
+ * The request parameters represent the input of a request to run a SQL statement against a database.
+ *
  * @public
  */
 export interface ExecuteStatementRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.</p>
+   * The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The ARN of the secret that enables access to the DB cluster. Enter the database user name and password for the credentials in the secret.</p> <p>For information about creating the secret, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_database_secret.html">Create a database secret</a>.</p> <note> <p>When you use the CLI on Linux to reference a secret created in the RDS console, the ARN might include special characters like <code>rds!cluster</code>. If you enclose the ARN in double quotes, the <code>!</code> character might trigger a shell expansion error, such as <code>-bash: !cluster: event not found</code>. To avoid this, escape the exclamation mark (\!) in the ARN or enclose the entire ARN in single quotes (') instead of double quotes.</p> <p>Alternatively, disable shell history expansion by running <code>set +H</code> before you execute the command.</p> </note>
+   * The ARN of the secret that enables access to the DB cluster. Enter the database user name and password for the credentials in the secret.
+   *
+   * For information about creating the secret, see [Create a database secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_database_secret.html).
+   *
+   * > **Note:**
+   * >
+   * > When you use the CLI on Linux to reference a secret created in the RDS console, the ARN might include special characters like `rds!cluster`. If you enclose the ARN in double quotes, the `!` character might trigger a shell expansion error, such as `-bash: !cluster: event not found`. To avoid this, escape the exclamation mark (\!) in the ARN or enclose the entire ARN in single quotes (') instead of double quotes.
+   * >
+   * > Alternatively, disable shell history expansion by running `set +H` before you execute the command.
+   *
    * @public
    */
   secretArn: string | undefined;
 
   /**
-   * <p>The SQL statement to run.</p>
+   * The SQL statement to run.
+   *
    * @public
    */
   sql: string | undefined;
 
   /**
-   * <p>The name of the database.</p>
+   * The name of the database.
+   *
    * @public
    */
   database?: string | undefined;
 
   /**
-   * <p>The name of the database schema.</p> <note> <p>Currently, the <code>schema</code> parameter isn't supported.</p> </note>
+   * The name of the database schema.
+   *
+   * > **Note:** Currently, the `schema` parameter isn't supported.
+   *
    * @public
    */
   schema?: string | undefined;
 
   /**
-   * <p>The parameters for the SQL statement.</p> <note> <p>Array parameters are not supported.</p> </note>
+   * The parameters for the SQL statement.
+   *
+   * > **Note:** Array parameters are not supported.
+   *
    * @public
    */
   parameters?: SqlParameter[] | undefined;
 
   /**
-   * <p>The identifier of a transaction that was started by using the <code>BeginTransaction</code> operation. Specify the transaction ID of the transaction that you want to include the SQL statement in.</p> <p>If the SQL statement is not part of a transaction, don't set this parameter.</p>
+   * The identifier of a transaction that was started by using the `BeginTransaction` operation. Specify the transaction ID of the transaction that you want to include the SQL statement in.
+   *
+   * If the SQL statement is not part of a transaction, don't set this parameter.
+   *
    * @public
    */
   transactionId?: string | undefined;
 
   /**
-   * <p>A value that indicates whether to include metadata in the results.</p>
+   * A value that indicates whether to include metadata in the results.
+   *
    * @public
    */
   includeResultMetadata?: boolean | undefined;
 
   /**
-   * <p>A value that indicates whether to continue running the statement after the call times out. By default, the statement stops running when the call times out.</p> <note> <p>For DDL statements, we recommend continuing to run the statement after the call times out. When a DDL statement terminates before it is finished running, it can result in errors and possibly corrupted data structures.</p> </note>
+   * A value that indicates whether to continue running the statement after the call times out. By default, the statement stops running when the call times out.
+   *
+   * > **Note:** For DDL statements, we recommend continuing to run the statement after the call times out. When a DDL statement terminates before it is finished running, it can result in errors and possibly corrupted data structures.
+   *
    * @public
    */
   continueAfterTimeout?: boolean | undefined;
 
   /**
-   * <p>Options that control how the result set is returned.</p>
+   * Options that control how the result set is returned.
+   *
    * @public
    */
   resultSetOptions?: ResultSetOptions | undefined;
 
   /**
-   * <p>A value that indicates whether to format the result set as a single JSON string. This parameter only applies to <code>SELECT</code> statements and is ignored for other types of statements. Allowed values are <code>NONE</code> and <code>JSON</code>. The default value is <code>NONE</code>. The result is returned in the <code>formattedRecords</code> field.</p> <p>For usage information about the JSON format for result sets, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using the Data API</a> in the <i>Amazon Aurora User Guide</i>.</p>
+   * A value that indicates whether to format the result set as a single JSON string. This parameter only applies to `SELECT` statements and is ignored for other types of statements. Allowed values are `NONE` and `JSON`. The default value is `NONE`. The result is returned in the `formattedRecords` field.
+   *
+   * For usage information about the JSON format for result sets, see [Using the Data API](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html) in the *Amazon Aurora User Guide*.
+   *
    * @public
    */
   formatRecordsAs?: RecordsFormatType | undefined;
 }
 
 /**
- * <p>A structure value returned by a call.</p> <note> <p>This data structure is only used with the deprecated <code>ExecuteSql</code> operation. Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation instead.</p> </note>
+ * A structure value returned by a call.
+ *
+ * > **Note:** This data structure is only used with the deprecated `ExecuteSql` operation. Use the `BatchExecuteStatement` or `ExecuteStatement` operation instead.
+ *
  * @public
  */
 export interface StructValue {
   /**
-   * <p>The attributes returned in the record.</p>
+   * The attributes returned in the record.
+   *
    * @public
    */
   attributes?: Value[] | undefined;
 }
 
 /**
- * <p>The request parameters represent the input of a SQL statement over an array of data.</p>
+ * The request parameters represent the input of a SQL statement over an array of data.
+ *
  * @public
  */
 export interface BatchExecuteStatementRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.</p>
+   * The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The ARN of the secret that enables access to the DB cluster. Enter the database user name and password for the credentials in the secret.</p> <p>For information about creating the secret, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_database_secret.html">Create a database secret</a>.</p>
+   * The ARN of the secret that enables access to the DB cluster. Enter the database user name and password for the credentials in the secret.
+   *
+   * For information about creating the secret, see [Create a database secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_database_secret.html).
+   *
    * @public
    */
   secretArn: string | undefined;
 
   /**
-   * <p>The SQL statement to run. Don't include a semicolon (;) at the end of the SQL statement.</p>
+   * The SQL statement to run. Don't include a semicolon (;) at the end of the SQL statement.
+   *
    * @public
    */
   sql: string | undefined;
 
   /**
-   * <p>The name of the database.</p>
+   * The name of the database.
+   *
    * @public
    */
   database?: string | undefined;
 
   /**
-   * <p>The name of the database schema.</p> <note> <p>Currently, the <code>schema</code> parameter isn't supported.</p> </note>
+   * The name of the database schema.
+   *
+   * > **Note:** Currently, the `schema` parameter isn't supported.
+   *
    * @public
    */
   schema?: string | undefined;
 
   /**
-   * <p>The parameter set for the batch operation.</p> <p>The SQL statement is executed as many times as the number of parameter sets provided. To execute a SQL statement with no parameters, use one of the following options:</p> <ul> <li> <p>Specify one or more empty parameter sets.</p> </li> <li> <p>Use the <code>ExecuteStatement</code> operation instead of the <code>BatchExecuteStatement</code> operation.</p> </li> </ul> <note> <p>Array parameters are not supported.</p> </note>
+   * The parameter set for the batch operation.
+   *
+   * The SQL statement is executed as many times as the number of parameter sets provided. To execute a SQL statement with no parameters, use one of the following options:
+   *
+   * - Specify one or more empty parameter sets.
+   * - Use the `ExecuteStatement` operation instead of the `BatchExecuteStatement` operation.
+   *
+   * > **Note:** Array parameters are not supported.
+   *
    * @public
    */
   parameterSets?: SqlParameter[][] | undefined;
 
   /**
-   * <p>The identifier of a transaction that was started by using the <code>BeginTransaction</code> operation. Specify the transaction ID of the transaction that you want to include the SQL statement in.</p> <p>If the SQL statement is not part of a transaction, don't set this parameter.</p>
+   * The identifier of a transaction that was started by using the `BeginTransaction` operation. Specify the transaction ID of the transaction that you want to include the SQL statement in.
+   *
+   * If the SQL statement is not part of a transaction, don't set this parameter.
+   *
    * @public
    */
   transactionId?: string | undefined;
 }
 
 /**
- * <p>The response elements represent the output of a SQL statement over an array of data.</p>
+ * The response elements represent the output of a SQL statement over an array of data.
+ *
  * @public
  */
 export interface BatchExecuteStatementResponse {
   /**
-   * <p>The execution results of each batch entry.</p>
+   * The execution results of each batch entry.
+   *
    * @public
    */
   updateResults?: UpdateResult[] | undefined;
 }
 
 /**
- * <p>A record returned by a call.</p> <note> <p>This data structure is only used with the deprecated <code>ExecuteSql</code> operation. Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation instead.</p> </note>
+ * A record returned by a call.
+ *
+ * > **Note:** This data structure is only used with the deprecated `ExecuteSql` operation. Use the `BatchExecuteStatement` or `ExecuteStatement` operation instead.
+ *
  * @public
  */
 export interface _Record {
   /**
-   * <p>The values returned in the record.</p>
+   * The values returned in the record.
+   *
    * @public
    */
   values?: Value[] | undefined;
 }
 
 /**
- * <p>The response elements represent the output of a request to run a SQL statement against a database.</p>
+ * The response elements represent the output of a request to run a SQL statement against a database.
+ *
  * @public
  */
 export interface ExecuteStatementResponse {
   /**
-   * <p>The records returned by the SQL statement. This field is blank if the <code>formatRecordsAs</code> parameter is set to <code>JSON</code>.</p>
+   * The records returned by the SQL statement. This field is blank if the `formatRecordsAs` parameter is set to `JSON`.
+   *
    * @public
    */
   records?: Field[][] | undefined;
 
   /**
-   * <p>Metadata for the columns included in the results. This field is blank if the <code>formatRecordsAs</code> parameter is set to <code>JSON</code>.</p>
+   * Metadata for the columns included in the results. This field is blank if the `formatRecordsAs` parameter is set to `JSON`.
+   *
    * @public
    */
   columnMetadata?: ColumnMetadata[] | undefined;
 
   /**
-   * <p>The number of records updated by the request.</p>
+   * The number of records updated by the request.
+   *
    * @public
    */
   numberOfRecordsUpdated?: number | undefined;
 
   /**
-   * <p>Values for fields generated during a DML request.</p> <note> <p>The <code>generatedFields</code> data isn't supported by Aurora PostgreSQL. To get the values of generated fields, use the <code>RETURNING</code> clause. For more information, see <a href="https://www.postgresql.org/docs/10/dml-returning.html">Returning Data From Modified Rows</a> in the PostgreSQL documentation.</p> </note>
+   * Values for fields generated during a DML request.
+   *
+   * > **Note:** The `generatedFields` data isn't supported by Aurora PostgreSQL. To get the values of generated fields, use the `RETURNING` clause. For more information, see [Returning Data From Modified Rows](https://www.postgresql.org/docs/10/dml-returning.html) in the PostgreSQL documentation.
+   *
    * @public
    */
   generatedFields?: Field[] | undefined;
 
   /**
-   * <p>A string value that represents the result set of a <code>SELECT</code> statement in JSON format. This value is only present when the <code>formatRecordsAs</code> parameter is set to <code>JSON</code>.</p> <p>The size limit for this field is currently 10 MB. If the JSON-formatted string representing the result set requires more than 10 MB, the call returns an error.</p>
+   * A string value that represents the result set of a `SELECT` statement in JSON format. This value is only present when the `formatRecordsAs` parameter is set to `JSON`.
+   *
+   * The size limit for this field is currently 10 MB. If the JSON-formatted string representing the result set requires more than 10 MB, the call returns an error.
+   *
    * @public
    */
   formattedRecords?: string | undefined;
 }
 
 /**
- * <p>The result set returned by a SQL statement.</p> <note> <p>This data structure is only used with the deprecated <code>ExecuteSql</code> operation. Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation instead.</p> </note>
+ * The result set returned by a SQL statement.
+ *
+ * > **Note:** This data structure is only used with the deprecated `ExecuteSql` operation. Use the `BatchExecuteStatement` or `ExecuteStatement` operation instead.
+ *
  * @public
  */
 export interface ResultFrame {
   /**
-   * <p>The result-set metadata in the result set.</p>
+   * The result-set metadata in the result set.
+   *
    * @public
    */
   resultSetMetadata?: ResultSetMetadata | undefined;
 
   /**
-   * <p>The records in the result set.</p>
+   * The records in the result set.
+   *
    * @public
    */
   records?: _Record[] | undefined;
 }
 
 /**
- * <p>The result of a SQL statement.</p> <note> <p>This data structure is only used with the deprecated <code>ExecuteSql</code> operation. Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation instead.</p> </note>
+ * The result of a SQL statement.
+ *
+ * > **Note:** This data structure is only used with the deprecated `ExecuteSql` operation. Use the `BatchExecuteStatement` or `ExecuteStatement` operation instead.
+ *
  * @public
  */
 export interface SqlStatementResult {
   /**
-   * <p>The result set of the SQL statement.</p>
+   * The result set of the SQL statement.
+   *
    * @public
    */
   resultFrame?: ResultFrame | undefined;
 
   /**
-   * <p>The number of records updated by a SQL statement.</p>
+   * The number of records updated by a SQL statement.
+   *
    * @public
    */
   numberOfRecordsUpdated?: number | undefined;
 }
 
 /**
- * <p>The response elements represent the output of a request to run one or more SQL statements.</p>
+ * The response elements represent the output of a request to run one or more SQL statements.
+ *
  * @public
  */
 export interface ExecuteSqlResponse {
   /**
-   * <p>The results of the SQL statement or statements.</p>
+   * The results of the SQL statement or statements.
+   *
    * @public
    */
   sqlStatementResults?: SqlStatementResult[] | undefined;

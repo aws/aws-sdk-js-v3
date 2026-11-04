@@ -23,7 +23,8 @@ export interface DescribeVerifiedAccessInstancesCommandInput extends DescribeVer
 export interface DescribeVerifiedAccessInstancesCommandOutput extends DescribeVerifiedAccessInstancesResult, __MetadataBearer {}
 
 /**
- * <p>Describes the specified Amazon Web Services Verified Access instances.</p>
+ * Describes the specified Amazon Web Services Verified Access instances.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,8 +94,8 @@ export interface DescribeVerifiedAccessInstancesCommandOutput extends DescribeVe
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

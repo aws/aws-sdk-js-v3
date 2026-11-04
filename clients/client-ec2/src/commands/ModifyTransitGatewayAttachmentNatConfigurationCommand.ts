@@ -26,22 +26,18 @@ export interface ModifyTransitGatewayAttachmentNatConfigurationCommandInput exte
 export interface ModifyTransitGatewayAttachmentNatConfigurationCommandOutput extends ModifyTransitGatewayAttachmentNatConfigurationResult, __MetadataBearer {}
 
 /**
- * <p>Modifies the NAT configuration for the specified transit gateway attachment. Use this operation to do the following:</p>
- *          <ul>
- *             <li>
- *                <p>Enable or disable NAT gateway support for the attachment.</p>
- *             </li>
- *             <li>
- *                <p>Specify whether the transit gateway installs routes for the NAT CIDRs.</p>
- *             </li>
- *             <li>
- *                <p>Replace the NAT gateway rules for the attachment.</p>
- *             </li>
- *          </ul>
- *          <p>Only the owner of the transit gateway can modify the NAT configuration.</p>
- *          <p>With NAT gateway support enabled, the transit gateway translates addresses in each rule's <code>MatchSourceCidr</code> range
- *          to the corresponding addresses in its <code>NatCidr</code> range.</p>
- *          <p>The transit gateway applies changes asynchronously. To check the result, use <code>GetTransitGatewayAttachmentNatConfiguration</code>.</p>
+ * Modifies the NAT configuration for the specified transit gateway attachment. Use this operation to do the following:
+ *
+ * - Enable or disable NAT gateway support for the attachment.
+ * - Specify whether the transit gateway installs routes for the NAT CIDRs.
+ * - Replace the NAT gateway rules for the attachment.
+ *
+ * Only the owner of the transit gateway can modify the NAT configuration.
+ *
+ * With NAT gateway support enabled, the transit gateway translates addresses in each rule's `MatchSourceCidr` range to the corresponding addresses in its `NatCidr` range.
+ *
+ * The transit gateway applies changes asynchronously. To check the result, use `GetTransitGatewayAttachmentNatConfiguration`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -89,8 +85,8 @@ export interface ModifyTransitGatewayAttachmentNatConfigurationCommandOutput ext
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

@@ -23,15 +23,10 @@ export interface ModifyWorkspacePropertiesCommandInput extends ModifyWorkspacePr
 export interface ModifyWorkspacePropertiesCommandOutput extends ModifyWorkspacePropertiesResult, __MetadataBearer {}
 
 /**
- * <p>Modifies the specified WorkSpace properties. For important information about how to
- *          modify the size of the root and user volumes, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html"> Modify a WorkSpace</a>.
- *       </p>
- *          <note>
- *             <p>The <code>MANUAL</code> running mode value is only supported by Amazon WorkSpaces
- *             Core. Contact your account team to be allow-listed to use this value. For more
- *             information, see <a href="http://aws.amazon.com/workspaces/core/">Amazon WorkSpaces
- *                Core</a>.</p>
- *          </note>
+ * Modifies the specified WorkSpace properties. For important information about how to modify the size of the root and user volumes, see [Modify a WorkSpace](https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html).
+ *
+ * > **Note:** The `MANUAL` running mode value is only supported by Amazon WorkSpaces Core. Contact your account team to be allow-listed to use this value. For more information, see [Amazon WorkSpaces Core](http://aws.amazon.com/workspaces/core/).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,31 +68,36 @@ export interface ModifyWorkspacePropertiesCommandOutput extends ModifyWorkspaceP
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The user is not authorized to access a resource.</p>
+ *
+ * The user is not authorized to access a resource.
  *
  * @throws {@link InvalidParameterValuesException} (client fault)
- *  <p>One or more parameter values are not valid.</p>
+ *
+ * One or more parameter values are not valid.
  *
  * @throws {@link InvalidResourceStateException} (client fault)
- *  <p>The state of the resource is not valid for this operation.</p>
+ *
+ * The state of the resource is not valid for this operation.
  *
  * @throws {@link OperationInProgressException} (client fault)
- *  <p>The properties of this WorkSpace are currently being modified. Try again in a moment.</p>
+ *
+ * The properties of this WorkSpace are currently being modified. Try again in a moment.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link ResourceUnavailableException} (client fault)
- *  <p>The specified resource is not available.</p>
+ *
+ * The specified resource is not available.
  *
  * @throws {@link UnsupportedWorkspaceConfigurationException} (client fault)
- *  <p>The configuration of this WorkSpace is not supported for this operation. For more information, see
- *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/required-service-components.html">Required
- *             Configuration and Service Components for WorkSpaces </a>.</p>
+ *
+ * The configuration of this WorkSpace is not supported for this operation. For more information, see [Required Configuration and Service Components for WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/required-service-components.html).
  *
  * @throws {@link WorkSpacesServiceException}
- * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * Base exception class for all service exceptions from WorkSpaces service.
  *
  * @public
  */

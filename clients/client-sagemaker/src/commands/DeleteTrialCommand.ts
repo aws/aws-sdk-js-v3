@@ -23,7 +23,8 @@ export interface DeleteTrialCommandInput extends DeleteTrialRequest {}
 export interface DeleteTrialCommandOutput extends DeleteTrialResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified trial. All trial components that make up the trial must be deleted first. Use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrialComponent.html">DescribeTrialComponent</a> API to get the list of trial components.</p>
+ * Deletes the specified trial. All trial components that make up the trial must be deleted first. Use the [DescribeTrialComponent](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrialComponent.html) API to get the list of trial components.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,11 +51,12 @@ export interface DeleteTrialCommandOutput extends DeleteTrialResponse, __Metadat
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Resource being access is not found.</p>
+ *
+ * Resource being access is not found.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

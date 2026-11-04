@@ -1221,12 +1221,10 @@ export interface Outposts {
 }
 
 /**
- * <p>Amazon Web Services Outposts is a fully managed service that extends Amazon Web Services infrastructure, APIs, and tools to
- *       customer premises. By providing local access to Amazon Web Services managed infrastructure, Amazon Web Services Outposts enables
- *       customers to build and run applications on premises using the same programming interfaces as
- *       in Amazon Web Services Regions, while using local compute and storage resources for lower latency and local
- *       data processing needs.</p>
- *          <p>You can use certain Amazon EC2 API actions for Amazon Web Services Outposts. For more information on these API actions, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/operation-list-outposts.html">Amazon Web Services Outposts actions</a> in the <i>Amazon EC2 API Reference</i>.</p>
+ * Amazon Web Services Outposts is a fully managed service that extends Amazon Web Services infrastructure, APIs, and tools to customer premises. By providing local access to Amazon Web Services managed infrastructure, Amazon Web Services Outposts enables customers to build and run applications on premises using the same programming interfaces as in Amazon Web Services Regions, while using local compute and storage resources for lower latency and local data processing needs.
+ *
+ * You can use certain Amazon EC2 API actions for Amazon Web Services Outposts. For more information on these API actions, see [Amazon Web Services Outposts actions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/operation-list-outposts.html) in the *Amazon EC2 API Reference*.
+ *
  * @public
  */
 export class Outposts extends OutpostsClient implements Outposts {}

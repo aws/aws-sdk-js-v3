@@ -14,72 +14,84 @@ import type {
 } from "./enums";
 
 /**
- * <p>Summary of an AccountRecommendationLifecycle for an Organization Recommendation</p>
+ * Summary of an AccountRecommendationLifecycle for an Organization Recommendation
+ *
  * @public
  */
 export interface AccountRecommendationLifecycleSummary {
   /**
-   * <p>The AWS account ID</p>
+   * The AWS account ID
+   *
    * @public
    */
   accountId?: string | undefined;
 
   /**
-   * <p>The Recommendation ARN</p>
+   * The Recommendation ARN
+   *
    * @public
    */
   accountRecommendationArn?: string | undefined;
 
   /**
-   * <p>The lifecycle stage from AWS Trusted Advisor Priority</p>
+   * The lifecycle stage from AWS Trusted Advisor Priority
+   *
    * @public
    */
   lifecycleStage?: RecommendationLifecycleStage | undefined;
 
   /**
-   * <p>The person on whose behalf a Technical Account Manager (TAM) updated the recommendation. This information is only available when a Technical Account Manager takes an action on a recommendation managed by AWS Trusted Advisor Priority </p>
+   * The person on whose behalf a Technical Account Manager (TAM) updated the recommendation. This information is only available when a Technical Account Manager takes an action on a recommendation managed by AWS Trusted Advisor Priority
+   *
    * @public
    */
   updatedOnBehalfOf?: string | undefined;
 
   /**
-   * <p>The job title of the person on whose behalf a Technical Account Manager (TAM) updated the recommendation. This information is only available when a Technical Account Manager takes an action on a recommendation managed by AWS Trusted Advisor Priority </p>
+   * The job title of the person on whose behalf a Technical Account Manager (TAM) updated the recommendation. This information is only available when a Technical Account Manager takes an action on a recommendation managed by AWS Trusted Advisor Priority
+   *
    * @public
    */
   updatedOnBehalfOfJobTitle?: string | undefined;
 
   /**
-   * <p>Reason for the lifecycle stage change</p>
+   * Reason for the lifecycle stage change
+   *
    * @public
    */
   updateReason?: string | undefined;
 
   /**
-   * <p>Reason code for the lifecycle state change</p>
+   * Reason code for the lifecycle state change
+   *
    * @public
    */
   updateReasonCode?: UpdateRecommendationLifecycleStageReasonCode | undefined;
 
   /**
-   * <p>When the Recommendation was last updated</p>
+   * When the Recommendation was last updated
+   *
    * @public
    */
   lastUpdatedAt?: Date | undefined;
 }
 
 /**
- * <p>The request entry for Recommendation Resource exclusion. Each entry is a combination of Recommendation Resource ARN and corresponding exclusion status</p>
+ * The request entry for Recommendation Resource exclusion. Each entry is a combination of Recommendation Resource ARN and corresponding exclusion status
+ *
  * @public
  */
 export interface RecommendationResourceExclusion {
   /**
-   * <p>The ARN of the Recommendation Resource</p>
+   * The ARN of the Recommendation Resource
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The exclusion status</p>
+   * The exclusion status
+   *
    * @public
    */
   isExcluded: boolean | undefined;
@@ -90,31 +102,36 @@ export interface RecommendationResourceExclusion {
  */
 export interface BatchUpdateRecommendationResourceExclusionRequest {
   /**
-   * <p>A list of recommendation resource ARNs and exclusion status to update</p>
+   * A list of recommendation resource ARNs and exclusion status to update
+   *
    * @public
    */
   recommendationResourceExclusions: RecommendationResourceExclusion[] | undefined;
 }
 
 /**
- * <p>The error entry for Recommendation Resource exclusion. Each entry is a combination of Recommendation Resource ARN, error code and error message</p>
+ * The error entry for Recommendation Resource exclusion. Each entry is a combination of Recommendation Resource ARN, error code and error message
+ *
  * @public
  */
 export interface UpdateRecommendationResourceExclusionError {
   /**
-   * <p>The ARN of the Recommendation Resource</p>
+   * The ARN of the Recommendation Resource
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The error code</p>
+   * The error code
+   *
    * @public
    */
   errorCode?: string | undefined;
 
   /**
-   * <p>The error message</p>
+   * The error message
+   *
    * @public
    */
   errorMessage?: string | undefined;
@@ -125,85 +142,99 @@ export interface UpdateRecommendationResourceExclusionError {
  */
 export interface BatchUpdateRecommendationResourceExclusionResponse {
   /**
-   * <p>A list of recommendation resource ARNs whose exclusion status failed to update, if any</p>
+   * A list of recommendation resource ARNs whose exclusion status failed to update, if any
+   *
    * @public
    */
   batchUpdateRecommendationResourceExclusionErrors: UpdateRecommendationResourceExclusionError[] | undefined;
 }
 
 /**
- * <p>A summary of an AWS Trusted Advisor Check</p>
+ * A summary of an AWS Trusted Advisor Check
+ *
  * @public
  */
 export interface CheckSummary {
   /**
-   * <p>The unique identifier of the AWS Trusted Advisor Check</p>
+   * The unique identifier of the AWS Trusted Advisor Check
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The ARN of the AWS Trusted Advisor Check</p>
+   * The ARN of the AWS Trusted Advisor Check
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The name of the AWS Trusted Advisor Check</p>
+   * The name of the AWS Trusted Advisor Check
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description of what the AWS Trusted Advisor Check is monitoring</p>
+   * A description of what the AWS Trusted Advisor Check is monitoring
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p>The Recommendation pillars that the AWS Trusted Advisor Check falls under</p>
+   * The Recommendation pillars that the AWS Trusted Advisor Check falls under
+   *
    * @public
    */
   pillars: RecommendationPillar[] | undefined;
 
   /**
-   * <p>The AWS Services that the Check applies to</p>
+   * The AWS Services that the Check applies to
+   *
    * @public
    */
   awsServices: string[] | undefined;
 
   /**
-   * <p>The source of the Recommendation</p>
+   * The source of the Recommendation
+   *
    * @public
    */
   source: RecommendationSource | undefined;
 
   /**
-   * <p>The column headings for the metadata returned in the resource</p>
+   * The column headings for the metadata returned in the resource
+   *
    * @public
    */
   metadata: Record<string, string> | undefined;
 
   /**
-   * <p>Indicates whether this check is supported by the ListRecommendationsForResource API.</p>
+   * Indicates whether this check is supported by the ListRecommendationsForResource API.
+   *
    * @public
    */
   resourceArnQueryable?: boolean | undefined;
 
   /**
-   * <p>The AWS resource types that this check evaluates (for example, AWS::EC2::Instance).</p>
+   * The AWS resource types that this check evaluates (for example, AWS::EC2::Instance).
+   *
    * @public
    */
   awsResourceTypes?: string[] | undefined;
 
   /**
-   * <p>The granularity level at which the check operates: resource, account, or account_region.</p>
+   * The granularity level at which the check operates: resource, account, or account_region.
+   *
    * @public
    */
   checkGranularity?: string | undefined;
 
   /**
-   * <p>The recommendation identifier associated with the check.</p>
+   * The recommendation identifier associated with the check.
+   *
    * @public
    */
   recommendationId?: string | undefined;
@@ -214,199 +245,232 @@ export interface CheckSummary {
  */
 export interface GetOrganizationRecommendationRequest {
   /**
-   * <p>The Recommendation identifier</p>
+   * The Recommendation identifier
+   *
    * @public
    */
   organizationRecommendationIdentifier: string | undefined;
 }
 
 /**
- * <p>Cost optimizing aggregates for a Recommendation</p>
+ * Cost optimizing aggregates for a Recommendation
+ *
  * @public
  */
 export interface RecommendationCostOptimizingAggregates {
   /**
-   * <p>The estimated monthly savings</p>
+   * The estimated monthly savings
+   *
    * @public
    */
   estimatedMonthlySavings: number | undefined;
 
   /**
-   * <p>The estimated percently monthly savings</p>
+   * The estimated percently monthly savings
+   *
    * @public
    */
   estimatedPercentMonthlySavings: number | undefined;
 }
 
 /**
- * <p>Recommendation pillar aggregates</p>
+ * Recommendation pillar aggregates
+ *
  * @public
  */
 export interface RecommendationPillarSpecificAggregates {
   /**
-   * <p>Cost optimizing aggregates</p>
+   * Cost optimizing aggregates
+   *
    * @public
    */
   costOptimizing?: RecommendationCostOptimizingAggregates | undefined;
 }
 
 /**
- * <p>Aggregation of Recommendation Resources</p>
+ * Aggregation of Recommendation Resources
+ *
  * @public
  */
 export interface RecommendationResourcesAggregates {
   /**
-   * <p>The number of AWS resources that were flagged to be OK according to the Trusted Advisor check</p>
+   * The number of AWS resources that were flagged to be OK according to the Trusted Advisor check
+   *
    * @public
    */
   okCount: number | undefined;
 
   /**
-   * <p>The number of AWS resources that were flagged to have warning according to the Trusted Advisor check </p>
+   * The number of AWS resources that were flagged to have warning according to the Trusted Advisor check
+   *
    * @public
    */
   warningCount: number | undefined;
 
   /**
-   * <p>The number of AWS resources that were flagged to have errors according to the Trusted Advisor check</p>
+   * The number of AWS resources that were flagged to have errors according to the Trusted Advisor check
+   *
    * @public
    */
   errorCount: number | undefined;
 
   /**
-   * <p>The number of AWS resources belonging to this Trusted Advisor check that were excluded by the customer</p>
+   * The number of AWS resources belonging to this Trusted Advisor check that were excluded by the customer
+   *
    * @public
    */
   excludedCount?: number | undefined;
 }
 
 /**
- * <p>A Recommendation for accounts within an Organization</p>
+ * A Recommendation for accounts within an Organization
+ *
  * @public
  */
 export interface OrganizationRecommendation {
   /**
-   * <p>The ID which identifies where the Recommendation was produced</p>
+   * The ID which identifies where the Recommendation was produced
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>Whether the Recommendation was automated or generated by AWS Trusted Advisor Priority</p>
+   * Whether the Recommendation was automated or generated by AWS Trusted Advisor Priority
+   *
    * @public
    */
   type: RecommendationType | undefined;
 
   /**
-   * <p>The AWS Trusted Advisor Check ARN that relates to the Recommendation</p>
+   * The AWS Trusted Advisor Check ARN that relates to the Recommendation
+   *
    * @public
    */
   checkArn?: string | undefined;
 
   /**
-   * <p>The status of the Recommendation</p>
+   * The status of the Recommendation
+   *
    * @public
    */
   status: RecommendationStatus | undefined;
 
   /**
-   * <p>The lifecycle stage from AWS Trusted Advisor Priority</p>
+   * The lifecycle stage from AWS Trusted Advisor Priority
+   *
    * @public
    */
   lifecycleStage?: RecommendationLifecycleStage | undefined;
 
   /**
-   * <p>The Pillars that the Recommendation is optimizing</p>
+   * The Pillars that the Recommendation is optimizing
+   *
    * @public
    */
   pillars: RecommendationPillar[] | undefined;
 
   /**
-   * <p>The source of the Recommendation</p>
+   * The source of the Recommendation
+   *
    * @public
    */
   source: RecommendationSource | undefined;
 
   /**
-   * <p>The AWS Services that the Recommendation applies to</p>
+   * The AWS Services that the Recommendation applies to
+   *
    * @public
    */
   awsServices?: string[] | undefined;
 
   /**
-   * <p>The name of the AWS Trusted Advisor Recommendation</p>
+   * The name of the AWS Trusted Advisor Recommendation
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>An aggregation of all resources</p>
+   * An aggregation of all resources
+   *
    * @public
    */
   resourcesAggregates: RecommendationResourcesAggregates | undefined;
 
   /**
-   * <p>The pillar aggregations for cost savings</p>
+   * The pillar aggregations for cost savings
+   *
    * @public
    */
   pillarSpecificAggregates?: RecommendationPillarSpecificAggregates | undefined;
 
   /**
-   * <p>When the Recommendation was created, if created by AWS Trusted Advisor Priority</p>
+   * When the Recommendation was created, if created by AWS Trusted Advisor Priority
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>When the Recommendation was last updated</p>
+   * When the Recommendation was last updated
+   *
    * @public
    */
   lastUpdatedAt?: Date | undefined;
 
   /**
-   * <p>The ARN of the Recommendation</p>
+   * The ARN of the Recommendation
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>A description for AWS Trusted Advisor recommendations</p>
+   * A description for AWS Trusted Advisor recommendations
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p>The creator, if created by AWS Trusted Advisor Priority</p>
+   * The creator, if created by AWS Trusted Advisor Priority
+   *
    * @public
    */
   createdBy?: string | undefined;
 
   /**
-   * <p>The person on whose behalf a Technical Account Manager (TAM) updated the recommendation. This information is only available when a Technical Account Manager takes an action on a recommendation managed by AWS Trusted Advisor Priority </p>
+   * The person on whose behalf a Technical Account Manager (TAM) updated the recommendation. This information is only available when a Technical Account Manager takes an action on a recommendation managed by AWS Trusted Advisor Priority
+   *
    * @public
    */
   updatedOnBehalfOf?: string | undefined;
 
   /**
-   * <p>The job title of the person on whose behalf a Technical Account Manager (TAM) updated the recommendation. This information is only available when a Technical Account Manager takes an action on a recommendation managed by AWS Trusted Advisor Priority </p>
+   * The job title of the person on whose behalf a Technical Account Manager (TAM) updated the recommendation. This information is only available when a Technical Account Manager takes an action on a recommendation managed by AWS Trusted Advisor Priority
+   *
    * @public
    */
   updatedOnBehalfOfJobTitle?: string | undefined;
 
   /**
-   * <p>Reason for the lifecycle stage change</p>
+   * Reason for the lifecycle stage change
+   *
    * @public
    */
   updateReason?: string | undefined;
 
   /**
-   * <p>Reason code for the lifecycle state change</p>
+   * Reason code for the lifecycle state change
+   *
    * @public
    */
   updateReasonCode?: UpdateRecommendationLifecycleStageReasonCode | undefined;
 
   /**
-   * <p>When the Recommendation was resolved</p>
+   * When the Recommendation was resolved
+   *
    * @public
    */
   resolvedAt?: Date | undefined;
@@ -417,7 +481,8 @@ export interface OrganizationRecommendation {
  */
 export interface GetOrganizationRecommendationResponse {
   /**
-   * <p>The Recommendation</p>
+   * The Recommendation
+   *
    * @public
    */
   organizationRecommendation?: OrganizationRecommendation | undefined;
@@ -428,151 +493,176 @@ export interface GetOrganizationRecommendationResponse {
  */
 export interface GetRecommendationRequest {
   /**
-   * <p>The Recommendation identifier</p>
+   * The Recommendation identifier
+   *
    * @public
    */
   recommendationIdentifier: string | undefined;
 
   /**
-   * <p>The ISO 639-1 code for the language that you want your recommendations to appear in.</p>
+   * The ISO 639-1 code for the language that you want your recommendations to appear in.
+   *
    * @public
    */
   language?: RecommendationLanguage | undefined;
 }
 
 /**
- * <p>A Recommendation for an Account</p>
+ * A Recommendation for an Account
+ *
  * @public
  */
 export interface Recommendation {
   /**
-   * <p>The ID which identifies where the Recommendation was produced</p>
+   * The ID which identifies where the Recommendation was produced
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>Whether the Recommendation was automated or generated by AWS Trusted Advisor Priority</p>
+   * Whether the Recommendation was automated or generated by AWS Trusted Advisor Priority
+   *
    * @public
    */
   type: RecommendationType | undefined;
 
   /**
-   * <p>The AWS Trusted Advisor Check ARN that relates to the Recommendation</p>
+   * The AWS Trusted Advisor Check ARN that relates to the Recommendation
+   *
    * @public
    */
   checkArn?: string | undefined;
 
   /**
-   * <p>The status of the Recommendation</p>
+   * The status of the Recommendation
+   *
    * @public
    */
   status: RecommendationStatus | undefined;
 
   /**
-   * <p>The lifecycle stage from AWS Trusted Advisor Priority</p>
+   * The lifecycle stage from AWS Trusted Advisor Priority
+   *
    * @public
    */
   lifecycleStage?: RecommendationLifecycleStage | undefined;
 
   /**
-   * <p>The Pillars that the Recommendation is optimizing</p>
+   * The Pillars that the Recommendation is optimizing
+   *
    * @public
    */
   pillars: RecommendationPillar[] | undefined;
 
   /**
-   * <p>The source of the Recommendation</p>
+   * The source of the Recommendation
+   *
    * @public
    */
   source: RecommendationSource | undefined;
 
   /**
-   * <p>The AWS Services that the Recommendation applies to</p>
+   * The AWS Services that the Recommendation applies to
+   *
    * @public
    */
   awsServices?: string[] | undefined;
 
   /**
-   * <p>The name of the AWS Trusted Advisor Recommendation</p>
+   * The name of the AWS Trusted Advisor Recommendation
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>An aggregation of all resources</p>
+   * An aggregation of all resources
+   *
    * @public
    */
   resourcesAggregates: RecommendationResourcesAggregates | undefined;
 
   /**
-   * <p>The pillar aggregations for cost savings</p>
+   * The pillar aggregations for cost savings
+   *
    * @public
    */
   pillarSpecificAggregates?: RecommendationPillarSpecificAggregates | undefined;
 
   /**
-   * <p>When the Recommendation was created, if created by AWS Trusted Advisor Priority</p>
+   * When the Recommendation was created, if created by AWS Trusted Advisor Priority
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>When the Recommendation was last updated</p>
+   * When the Recommendation was last updated
+   *
    * @public
    */
   lastUpdatedAt?: Date | undefined;
 
   /**
-   * <p>The ARN of the Recommendation</p>
+   * The ARN of the Recommendation
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>This attribute provides additional details about potential discrepancies in check status determination.</p>
+   * This attribute provides additional details about potential discrepancies in check status determination.
+   *
    * @public
    */
   statusReason?: StatusReason | undefined;
 
   /**
-   * <p>A description for AWS Trusted Advisor recommendations</p>
+   * A description for AWS Trusted Advisor recommendations
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p>The creator, if created by AWS Trusted Advisor Priority</p>
+   * The creator, if created by AWS Trusted Advisor Priority
+   *
    * @public
    */
   createdBy?: string | undefined;
 
   /**
-   * <p>The person on whose behalf a Technical Account Manager (TAM) updated the recommendation. This information is only available when a Technical Account Manager takes an action on a recommendation managed by AWS Trusted Advisor Priority </p>
+   * The person on whose behalf a Technical Account Manager (TAM) updated the recommendation. This information is only available when a Technical Account Manager takes an action on a recommendation managed by AWS Trusted Advisor Priority
+   *
    * @public
    */
   updatedOnBehalfOf?: string | undefined;
 
   /**
-   * <p>The job title of the person on whose behalf a Technical Account Manager (TAM) updated the recommendation. This information is only available when a Technical Account Manager takes an action on a recommendation managed by AWS Trusted Advisor Priority </p>
+   * The job title of the person on whose behalf a Technical Account Manager (TAM) updated the recommendation. This information is only available when a Technical Account Manager takes an action on a recommendation managed by AWS Trusted Advisor Priority
+   *
    * @public
    */
   updatedOnBehalfOfJobTitle?: string | undefined;
 
   /**
-   * <p>Reason for the lifecycle stage change</p>
+   * Reason for the lifecycle stage change
+   *
    * @public
    */
   updateReason?: string | undefined;
 
   /**
-   * <p>Reason code for the lifecycle state change</p>
+   * Reason code for the lifecycle state change
+   *
    * @public
    */
   updateReasonCode?: UpdateRecommendationLifecycleStageReasonCode | undefined;
 
   /**
-   * <p>When the Recommendation was resolved</p>
+   * When the Recommendation was resolved
+   *
    * @public
    */
   resolvedAt?: Date | undefined;
@@ -583,7 +673,8 @@ export interface Recommendation {
  */
 export interface GetRecommendationResponse {
   /**
-   * <p>The Recommendation</p>
+   * The Recommendation
+   *
    * @public
    */
   recommendation?: Recommendation | undefined;
@@ -594,37 +685,43 @@ export interface GetRecommendationResponse {
  */
 export interface ListChecksRequest {
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. </p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The pillar of the check</p>
+   * The pillar of the check
+   *
    * @public
    */
   pillar?: RecommendationPillar | undefined;
 
   /**
-   * <p>The aws service associated with the check</p>
+   * The aws service associated with the check
+   *
    * @public
    */
   awsService?: string | undefined;
 
   /**
-   * <p>The source of the check</p>
+   * The source of the check
+   *
    * @public
    */
   source?: RecommendationSource | undefined;
 
   /**
-   * <p>The ISO 639-1 code for the language that you want your checks to appear in.</p>
+   * The ISO 639-1 code for the language that you want your checks to appear in.
+   *
    * @public
    */
   language?: RecommendationLanguage | undefined;
@@ -635,13 +732,15 @@ export interface ListChecksRequest {
  */
 export interface ListChecksResponse {
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. </p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The list of Checks</p>
+   * The list of Checks
+   *
    * @public
    */
   checkSummaries: CheckSummary[] | undefined;
@@ -652,25 +751,29 @@ export interface ListChecksResponse {
  */
 export interface ListOrganizationRecommendationAccountsRequest {
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. </p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The Recommendation identifier</p>
+   * The Recommendation identifier
+   *
    * @public
    */
   organizationRecommendationIdentifier: string | undefined;
 
   /**
-   * <p>An account affected by this organization recommendation</p>
+   * An account affected by this organization recommendation
+   *
    * @public
    */
   affectedAccountId?: string | undefined;
@@ -681,13 +784,15 @@ export interface ListOrganizationRecommendationAccountsRequest {
  */
 export interface ListOrganizationRecommendationAccountsResponse {
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. </p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The account recommendations lifecycles that are applicable to the Recommendation</p>
+   * The account recommendations lifecycles that are applicable to the Recommendation
+   *
    * @public
    */
   accountRecommendationLifecycleSummaries: AccountRecommendationLifecycleSummary[] | undefined;
@@ -698,109 +803,127 @@ export interface ListOrganizationRecommendationAccountsResponse {
  */
 export interface ListOrganizationRecommendationResourcesRequest {
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. </p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The status of the resource</p>
+   * The status of the resource
+   *
    * @public
    */
   status?: ResourceStatus | undefined;
 
   /**
-   * <p>The exclusion status of the resource</p>
+   * The exclusion status of the resource
+   *
    * @public
    */
   exclusionStatus?: ExclusionStatus | undefined;
 
   /**
-   * <p>The AWS Region code of the resource</p>
+   * The AWS Region code of the resource
+   *
    * @public
    */
   regionCode?: string | undefined;
 
   /**
-   * <p>The AWS Organization organization's Recommendation identifier</p>
+   * The AWS Organization organization's Recommendation identifier
+   *
    * @public
    */
   organizationRecommendationIdentifier: string | undefined;
 
   /**
-   * <p>An account affected by this organization recommendation</p>
+   * An account affected by this organization recommendation
+   *
    * @public
    */
   affectedAccountId?: string | undefined;
 }
 
 /**
- * <p>Organization Recommendation Resource Summary</p>
+ * Organization Recommendation Resource Summary
+ *
  * @public
  */
 export interface OrganizationRecommendationResourceSummary {
   /**
-   * <p>The ID of the Recommendation Resource</p>
+   * The ID of the Recommendation Resource
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The ARN of the Recommendation Resource</p>
+   * The ARN of the Recommendation Resource
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The AWS resource identifier. There are certain checks that generate recommendation resources without an awsResourceId.</p>
+   * The AWS resource identifier. There are certain checks that generate recommendation resources without an awsResourceId.
+   *
    * @public
    */
   awsResourceId: string | undefined;
 
   /**
-   * <p>The AWS Region code that the Recommendation Resource is in</p>
+   * The AWS Region code that the Recommendation Resource is in
+   *
    * @public
    */
   regionCode: string | undefined;
 
   /**
-   * <p>The current status of the Recommendation Resource</p>
+   * The current status of the Recommendation Resource
+   *
    * @public
    */
   status: ResourceStatus | undefined;
 
   /**
-   * <p>Metadata associated with the Recommendation Resource</p>
+   * Metadata associated with the Recommendation Resource
+   *
    * @public
    */
   metadata: Record<string, string> | undefined;
 
   /**
-   * <p>When the Recommendation Resource was last updated</p>
+   * When the Recommendation Resource was last updated
+   *
    * @public
    */
   lastUpdatedAt: Date | undefined;
 
   /**
-   * <p>The exclusion status of the Recommendation Resource</p>
+   * The exclusion status of the Recommendation Resource
+   *
    * @public
    */
   exclusionStatus?: ExclusionStatus | undefined;
 
   /**
-   * <p>The AWS account ID</p>
+   * The AWS account ID
+   *
    * @public
    */
   accountId?: string | undefined;
 
   /**
-   * <p>The Recommendation ARN</p>
+   * The Recommendation ARN
+   *
    * @public
    */
   recommendationArn: string | undefined;
@@ -811,13 +934,15 @@ export interface OrganizationRecommendationResourceSummary {
  */
 export interface ListOrganizationRecommendationResourcesResponse {
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. </p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>A list of Recommendation Resources</p>
+   * A list of Recommendation Resources
+   *
    * @public
    */
   organizationRecommendationResourceSummaries: OrganizationRecommendationResourceSummary[] | undefined;
@@ -828,151 +953,176 @@ export interface ListOrganizationRecommendationResourcesResponse {
  */
 export interface ListOrganizationRecommendationsRequest {
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. </p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The type of the Recommendation</p>
+   * The type of the Recommendation
+   *
    * @public
    */
   type?: RecommendationType | undefined;
 
   /**
-   * <p>The status of the Recommendation</p>
+   * The status of the Recommendation
+   *
    * @public
    */
   status?: RecommendationStatus | undefined;
 
   /**
-   * <p>The pillar of the Recommendation</p>
+   * The pillar of the Recommendation
+   *
    * @public
    */
   pillar?: RecommendationPillar | undefined;
 
   /**
-   * <p>The aws service associated with the Recommendation</p>
+   * The aws service associated with the Recommendation
+   *
    * @public
    */
   awsService?: string | undefined;
 
   /**
-   * <p>The source of the Recommendation</p>
+   * The source of the Recommendation
+   *
    * @public
    */
   source?: RecommendationSource | undefined;
 
   /**
-   * <p>The check identifier of the Recommendation</p>
+   * The check identifier of the Recommendation
+   *
    * @public
    */
   checkIdentifier?: string | undefined;
 
   /**
-   * <p>After the last update of the Recommendation</p>
+   * After the last update of the Recommendation
+   *
    * @public
    */
   afterLastUpdatedAt?: Date | undefined;
 
   /**
-   * <p>Before the last update of the Recommendation</p>
+   * Before the last update of the Recommendation
+   *
    * @public
    */
   beforeLastUpdatedAt?: Date | undefined;
 }
 
 /**
- * <p>Summary of recommendation for accounts within an Organization</p>
+ * Summary of recommendation for accounts within an Organization
+ *
  * @public
  */
 export interface OrganizationRecommendationSummary {
   /**
-   * <p>The ID which identifies where the Recommendation was produced</p>
+   * The ID which identifies where the Recommendation was produced
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>Whether the Recommendation was automated or generated by AWS Trusted Advisor Priority</p>
+   * Whether the Recommendation was automated or generated by AWS Trusted Advisor Priority
+   *
    * @public
    */
   type: RecommendationType | undefined;
 
   /**
-   * <p>The AWS Trusted Advisor Check ARN that relates to the Recommendation</p>
+   * The AWS Trusted Advisor Check ARN that relates to the Recommendation
+   *
    * @public
    */
   checkArn?: string | undefined;
 
   /**
-   * <p>The status of the Recommendation</p>
+   * The status of the Recommendation
+   *
    * @public
    */
   status: RecommendationStatus | undefined;
 
   /**
-   * <p>The lifecycle stage from AWS Trusted Advisor Priority</p>
+   * The lifecycle stage from AWS Trusted Advisor Priority
+   *
    * @public
    */
   lifecycleStage?: RecommendationLifecycleStage | undefined;
 
   /**
-   * <p>The Pillars that the Recommendation is optimizing</p>
+   * The Pillars that the Recommendation is optimizing
+   *
    * @public
    */
   pillars: RecommendationPillar[] | undefined;
 
   /**
-   * <p>The source of the Recommendation</p>
+   * The source of the Recommendation
+   *
    * @public
    */
   source: RecommendationSource | undefined;
 
   /**
-   * <p>The AWS Services that the Recommendation applies to</p>
+   * The AWS Services that the Recommendation applies to
+   *
    * @public
    */
   awsServices?: string[] | undefined;
 
   /**
-   * <p>The name of the AWS Trusted Advisor Recommendation</p>
+   * The name of the AWS Trusted Advisor Recommendation
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>An aggregation of all resources</p>
+   * An aggregation of all resources
+   *
    * @public
    */
   resourcesAggregates: RecommendationResourcesAggregates | undefined;
 
   /**
-   * <p>The pillar aggregations for cost savings</p>
+   * The pillar aggregations for cost savings
+   *
    * @public
    */
   pillarSpecificAggregates?: RecommendationPillarSpecificAggregates | undefined;
 
   /**
-   * <p>When the Recommendation was created, if created by AWS Trusted Advisor Priority</p>
+   * When the Recommendation was created, if created by AWS Trusted Advisor Priority
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>When the Recommendation was last updated</p>
+   * When the Recommendation was last updated
+   *
    * @public
    */
   lastUpdatedAt?: Date | undefined;
 
   /**
-   * <p>The ARN of the Recommendation</p>
+   * The ARN of the Recommendation
+   *
    * @public
    */
   arn: string | undefined;
@@ -983,13 +1133,15 @@ export interface OrganizationRecommendationSummary {
  */
 export interface ListOrganizationRecommendationsResponse {
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. </p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The list of Recommendations</p>
+   * The list of Recommendations
+   *
    * @public
    */
   organizationRecommendationSummaries: OrganizationRecommendationSummary[] | undefined;
@@ -1000,103 +1152,120 @@ export interface ListOrganizationRecommendationsResponse {
  */
 export interface ListRecommendationResourcesRequest {
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. </p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The status of the resource</p>
+   * The status of the resource
+   *
    * @public
    */
   status?: ResourceStatus | undefined;
 
   /**
-   * <p>The exclusion status of the resource</p>
+   * The exclusion status of the resource
+   *
    * @public
    */
   exclusionStatus?: ExclusionStatus | undefined;
 
   /**
-   * <p>The AWS Region code of the resource</p>
+   * The AWS Region code of the resource
+   *
    * @public
    */
   regionCode?: string | undefined;
 
   /**
-   * <p>The Recommendation identifier</p>
+   * The Recommendation identifier
+   *
    * @public
    */
   recommendationIdentifier: string | undefined;
 
   /**
-   * <p>The ISO 639-1 code for the language that you want your recommendations to appear in.</p>
+   * The ISO 639-1 code for the language that you want your recommendations to appear in.
+   *
    * @public
    */
   language?: RecommendationLanguage | undefined;
 }
 
 /**
- * <p>Summary of a Recommendation Resource</p>
+ * Summary of a Recommendation Resource
+ *
  * @public
  */
 export interface RecommendationResourceSummary {
   /**
-   * <p>The ID of the Recommendation Resource</p>
+   * The ID of the Recommendation Resource
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The ARN of the Recommendation Resource</p>
+   * The ARN of the Recommendation Resource
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The AWS resource identifier. There are certain checks that generate recommendation resources without an awsResourceId.</p>
+   * The AWS resource identifier. There are certain checks that generate recommendation resources without an awsResourceId.
+   *
    * @public
    */
   awsResourceId: string | undefined;
 
   /**
-   * <p>The AWS Region code that the Recommendation Resource is in</p>
+   * The AWS Region code that the Recommendation Resource is in
+   *
    * @public
    */
   regionCode: string | undefined;
 
   /**
-   * <p>The current status of the Recommendation Resource</p>
+   * The current status of the Recommendation Resource
+   *
    * @public
    */
   status: ResourceStatus | undefined;
 
   /**
-   * <p>Metadata associated with the Recommendation Resource</p>
+   * Metadata associated with the Recommendation Resource
+   *
    * @public
    */
   metadata: Record<string, string> | undefined;
 
   /**
-   * <p>When the Recommendation Resource was last updated</p>
+   * When the Recommendation Resource was last updated
+   *
    * @public
    */
   lastUpdatedAt: Date | undefined;
 
   /**
-   * <p>The exclusion status of the Recommendation Resource</p>
+   * The exclusion status of the Recommendation Resource
+   *
    * @public
    */
   exclusionStatus?: ExclusionStatus | undefined;
 
   /**
-   * <p>The Recommendation ARN</p>
+   * The Recommendation ARN
+   *
    * @public
    */
   recommendationArn: string | undefined;
@@ -1107,13 +1276,15 @@ export interface RecommendationResourceSummary {
  */
 export interface ListRecommendationResourcesResponse {
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. </p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>A list of Recommendation Resources</p>
+   * A list of Recommendation Resources
+   *
    * @public
    */
   recommendationResourceSummaries: RecommendationResourceSummary[] | undefined;
@@ -1124,163 +1295,190 @@ export interface ListRecommendationResourcesResponse {
  */
 export interface ListRecommendationsRequest {
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. </p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The type of the Recommendation</p>
+   * The type of the Recommendation
+   *
    * @public
    */
   type?: RecommendationType | undefined;
 
   /**
-   * <p>The status of the Recommendation</p>
+   * The status of the Recommendation
+   *
    * @public
    */
   status?: RecommendationStatus | undefined;
 
   /**
-   * <p>The pillar of the Recommendation</p>
+   * The pillar of the Recommendation
+   *
    * @public
    */
   pillar?: RecommendationPillar | undefined;
 
   /**
-   * <p>The aws service associated with the Recommendation</p>
+   * The aws service associated with the Recommendation
+   *
    * @public
    */
   awsService?: string | undefined;
 
   /**
-   * <p>The source of the Recommendation</p>
+   * The source of the Recommendation
+   *
    * @public
    */
   source?: RecommendationSource | undefined;
 
   /**
-   * <p>The check identifier of the Recommendation</p>
+   * The check identifier of the Recommendation
+   *
    * @public
    */
   checkIdentifier?: string | undefined;
 
   /**
-   * <p>After the last update of the Recommendation</p>
+   * After the last update of the Recommendation
+   *
    * @public
    */
   afterLastUpdatedAt?: Date | undefined;
 
   /**
-   * <p>Before the last update of the Recommendation</p>
+   * Before the last update of the Recommendation
+   *
    * @public
    */
   beforeLastUpdatedAt?: Date | undefined;
 
   /**
-   * <p>The ISO 639-1 code for the language that you want your recommendations to appear in.</p>
+   * The ISO 639-1 code for the language that you want your recommendations to appear in.
+   *
    * @public
    */
   language?: RecommendationLanguage | undefined;
 }
 
 /**
- * <p>Summary of Recommendation for an Account</p>
+ * Summary of Recommendation for an Account
+ *
  * @public
  */
 export interface RecommendationSummary {
   /**
-   * <p>The ID which identifies where the Recommendation was produced</p>
+   * The ID which identifies where the Recommendation was produced
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>Whether the Recommendation was automated or generated by AWS Trusted Advisor Priority</p>
+   * Whether the Recommendation was automated or generated by AWS Trusted Advisor Priority
+   *
    * @public
    */
   type: RecommendationType | undefined;
 
   /**
-   * <p>The AWS Trusted Advisor Check ARN that relates to the Recommendation</p>
+   * The AWS Trusted Advisor Check ARN that relates to the Recommendation
+   *
    * @public
    */
   checkArn?: string | undefined;
 
   /**
-   * <p>The status of the Recommendation</p>
+   * The status of the Recommendation
+   *
    * @public
    */
   status: RecommendationStatus | undefined;
 
   /**
-   * <p>The lifecycle stage from AWS Trusted Advisor Priority</p>
+   * The lifecycle stage from AWS Trusted Advisor Priority
+   *
    * @public
    */
   lifecycleStage?: RecommendationLifecycleStage | undefined;
 
   /**
-   * <p>The Pillars that the Recommendation is optimizing</p>
+   * The Pillars that the Recommendation is optimizing
+   *
    * @public
    */
   pillars: RecommendationPillar[] | undefined;
 
   /**
-   * <p>The source of the Recommendation</p>
+   * The source of the Recommendation
+   *
    * @public
    */
   source: RecommendationSource | undefined;
 
   /**
-   * <p>The AWS Services that the Recommendation applies to</p>
+   * The AWS Services that the Recommendation applies to
+   *
    * @public
    */
   awsServices?: string[] | undefined;
 
   /**
-   * <p>The name of the AWS Trusted Advisor Recommendation</p>
+   * The name of the AWS Trusted Advisor Recommendation
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>An aggregation of all resources</p>
+   * An aggregation of all resources
+   *
    * @public
    */
   resourcesAggregates: RecommendationResourcesAggregates | undefined;
 
   /**
-   * <p>The pillar aggregations for cost savings</p>
+   * The pillar aggregations for cost savings
+   *
    * @public
    */
   pillarSpecificAggregates?: RecommendationPillarSpecificAggregates | undefined;
 
   /**
-   * <p>When the Recommendation was created, if created by AWS Trusted Advisor Priority</p>
+   * When the Recommendation was created, if created by AWS Trusted Advisor Priority
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>When the Recommendation was last updated</p>
+   * When the Recommendation was last updated
+   *
    * @public
    */
   lastUpdatedAt?: Date | undefined;
 
   /**
-   * <p>The ARN of the Recommendation</p>
+   * The ARN of the Recommendation
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>This attribute provides additional details about potential discrepancies in check status determination.</p>
+   * This attribute provides additional details about potential discrepancies in check status determination.
+   *
    * @public
    */
   statusReason?: StatusReason | undefined;
@@ -1291,13 +1489,15 @@ export interface RecommendationSummary {
  */
 export interface ListRecommendationsResponse {
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. </p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The list of Recommendations</p>
+   * The list of Recommendations
+   *
    * @public
    */
   recommendationSummaries: RecommendationSummary[] | undefined;
@@ -1308,97 +1508,113 @@ export interface ListRecommendationsResponse {
  */
 export interface ListRecommendationsForResourceRequest {
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. </p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page</p>
+   * The maximum number of results to return per page
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The ARN of the AWS resource to query recommendations for</p>
+   * The ARN of the AWS resource to query recommendations for
+   *
    * @public
    */
   awsResourceArn: string | undefined;
 
   /**
-   * <p>The pillar that the recommendation belongs to</p>
+   * The pillar that the recommendation belongs to
+   *
    * @public
    */
   pillar?: RecommendationPillar | undefined;
 
   /**
-   * <p>The current status of the Recommendation Resource</p>
+   * The current status of the Recommendation Resource
+   *
    * @public
    */
   status?: ResourceStatus | undefined;
 
   /**
-   * <p>The AWS Trusted Advisor Check ARN that relates to the Recommendation</p>
+   * The AWS Trusted Advisor Check ARN that relates to the Recommendation
+   *
    * @public
    */
   checkArn?: string | undefined;
 
   /**
-   * <p>The ISO 639-1 code for the language that you want your recommendations to appear in.</p>
+   * The ISO 639-1 code for the language that you want your recommendations to appear in.
+   *
    * @public
    */
   language?: RecommendationLanguage | undefined;
 }
 
 /**
- * <p>Summary of a Recommendation for a specific AWS Resource</p>
+ * Summary of a Recommendation for a specific AWS Resource
+ *
  * @public
  */
 export interface RecommendationForResourceSummary {
   /**
-   * <p>The Check ARN</p>
+   * The Check ARN
+   *
    * @public
    */
   checkArn: string | undefined;
 
   /**
-   * <p>The Recommendation ARN</p>
+   * The Recommendation ARN
+   *
    * @public
    */
   recommendationArn: string | undefined;
 
   /**
-   * <p>The AWS Resource ARN</p>
+   * The AWS Resource ARN
+   *
    * @public
    */
   awsResourceArn: string | undefined;
 
   /**
-   * <p>The current status of the recommendation</p>
+   * The current status of the recommendation
+   *
    * @public
    */
   status: ResourceStatus | undefined;
 
   /**
-   * <p>When the recommendation was last updated</p>
+   * When the recommendation was last updated
+   *
    * @public
    */
   lastUpdatedAt: Date | undefined;
 
   /**
-   * <p>The exclusion status of the recommendation</p>
+   * The exclusion status of the recommendation
+   *
    * @public
    */
   exclusionStatus: ExclusionStatus | undefined;
 
   /**
-   * <p>Metadata associated with the recommendation</p>
+   * Metadata associated with the recommendation
+   *
    * @public
    */
   metadata: Record<string, string> | undefined;
 
   /**
-   * <p>The Pillars that the Recommendation is optimizing</p>
+   * The Pillars that the Recommendation is optimizing
+   *
    * @public
    */
   pillars: RecommendationPillar[] | undefined;
@@ -1409,13 +1625,15 @@ export interface RecommendationForResourceSummary {
  */
 export interface ListRecommendationsForResourceResponse {
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. </p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>List of Trusted Advisor recommendations associated with the given AWS resource</p>
+   * List of Trusted Advisor recommendations associated with the given AWS resource
+   *
    * @public
    */
   recommendationForResourceSummaries: RecommendationForResourceSummary[] | undefined;
@@ -1426,25 +1644,29 @@ export interface ListRecommendationsForResourceResponse {
  */
 export interface UpdateOrganizationRecommendationLifecycleRequest {
   /**
-   * <p>The new lifecycle stage</p>
+   * The new lifecycle stage
+   *
    * @public
    */
   lifecycleStage: UpdateRecommendationLifecycleStage | undefined;
 
   /**
-   * <p>Reason for the lifecycle stage change</p>
+   * Reason for the lifecycle stage change
+   *
    * @public
    */
   updateReason?: string | undefined;
 
   /**
-   * <p>Reason code for the lifecycle state change</p>
+   * Reason code for the lifecycle state change
+   *
    * @public
    */
   updateReasonCode?: UpdateRecommendationLifecycleStageReasonCode | undefined;
 
   /**
-   * <p>The Recommendation identifier for AWS Trusted Advisor Priority recommendations</p>
+   * The Recommendation identifier for AWS Trusted Advisor Priority recommendations
+   *
    * @public
    */
   organizationRecommendationIdentifier: string | undefined;
@@ -1455,25 +1677,29 @@ export interface UpdateOrganizationRecommendationLifecycleRequest {
  */
 export interface UpdateRecommendationLifecycleRequest {
   /**
-   * <p>The new lifecycle stage</p>
+   * The new lifecycle stage
+   *
    * @public
    */
   lifecycleStage: UpdateRecommendationLifecycleStage | undefined;
 
   /**
-   * <p>Reason for the lifecycle stage change</p>
+   * Reason for the lifecycle stage change
+   *
    * @public
    */
   updateReason?: string | undefined;
 
   /**
-   * <p>Reason code for the lifecycle state change</p>
+   * Reason code for the lifecycle state change
+   *
    * @public
    */
   updateReasonCode?: UpdateRecommendationLifecycleStageReasonCode | undefined;
 
   /**
-   * <p>The Recommendation identifier for AWS Trusted Advisor Priority recommendations</p>
+   * The Recommendation identifier for AWS Trusted Advisor Priority recommendations
+   *
    * @public
    */
   recommendationIdentifier: string | undefined;

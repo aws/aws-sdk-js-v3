@@ -23,18 +23,10 @@ export interface UpdatePipeCommandInput extends UpdatePipeRequest {}
 export interface UpdatePipeCommandOutput extends UpdatePipeResponse, __MetadataBearer {}
 
 /**
- * <p>Update an existing pipe. When you call <code>UpdatePipe</code>, EventBridge only the
- *          updates fields you have specified in the request; the rest remain unchanged. The exception
- *          to this is if you modify any Amazon Web Services-service specific fields in the
- *             <code>SourceParameters</code>, <code>EnrichmentParameters</code>, or
- *             <code>TargetParameters</code> objects. For example,
- *             <code>DynamoDBStreamParameters</code> or <code>EventBridgeEventBusParameters</code>.
- *          EventBridge updates the fields in these objects atomically as one and overrides existing
- *          values. This is by design, and means that if you don't specify an optional field in one of
- *          these <code>Parameters</code> objects, EventBridge sets that field to its system-default
- *          value during the update.</p>
- *          <p>For more information about pipes, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html">
- *             Amazon EventBridge Pipes</a> in the Amazon EventBridge User Guide.</p>
+ * Update an existing pipe. When you call `UpdatePipe`, EventBridge only the updates fields you have specified in the request; the rest remain unchanged. The exception to this is if you modify any Amazon Web Services-service specific fields in the `SourceParameters`, `EnrichmentParameters`, or `TargetParameters` objects. For example, `DynamoDBStreamParameters` or `EventBridgeEventBusParameters`. EventBridge updates the fields in these objects atomically as one and overrides existing values. This is by design, and means that if you don't specify an optional field in one of these `Parameters` objects, EventBridge sets that field to its system-default value during the update.
+ *
+ * For more information about pipes, see [Amazon EventBridge Pipes](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html) in the Amazon EventBridge User Guide.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -399,23 +391,28 @@ export interface UpdatePipeCommandOutput extends UpdatePipeResponse, __MetadataB
  * @see {@link PipesClientResolvedConfig | config} for PipesClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>An action you attempted resulted in an exception.</p>
+ *
+ * An action you attempted resulted in an exception.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * This exception occurs due to unexpected causes.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>An entity that you specified does not exist.</p>
+ *
+ * An entity that you specified does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>An action was throttled.</p>
+ *
+ * An action was throttled.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Indicates that an error has occurred while performing a validate operation.</p>
+ *
+ * Indicates that an error has occurred while performing a validate operation.
  *
  * @throws {@link PipesServiceException}
- * <p>Base exception class for all service exceptions from Pipes service.</p>
  *
+ * Base exception class for all service exceptions from Pipes service.
  *
  * @public
  */

@@ -23,12 +23,10 @@ export interface DescribeFolderContentsCommandInput extends DescribeFolderConten
 export interface DescribeFolderContentsCommandOutput extends DescribeFolderContentsResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the contents of the specified folder, including its documents and
- *             subfolders.</p>
- *          <p>By default, Amazon WorkDocs returns the first 100 active document and folder
- *             metadata items. If there are more results, the response includes a marker that you can
- *             use to request the next set of results. You can also request initialized
- *             documents.</p>
+ * Describes the contents of the specified folder, including its documents and subfolders.
+ *
+ * By default, Amazon WorkDocs returns the first 100 active document and folder metadata items. If there are more results, the response includes a marker that you can use to request the next set of results. You can also request initialized documents.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -111,28 +109,32 @@ export interface DescribeFolderContentsCommandOutput extends DescribeFolderConte
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
  *
  * @throws {@link EntityNotExistsException} (client fault)
- *  <p>The resource does not exist.</p>
+ *
+ * The resource does not exist.
  *
  * @throws {@link FailedDependencyException} (client fault)
- *  <p>The Directory Service cannot reach an on-premises instance. Or a dependency
- *             under the control of the organization is failing, such as a connected Active
- *             Directory.</p>
+ *
+ * The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>The pagination marker or limit fields are not valid.</p>
+ *
+ * The pagination marker or limit fields are not valid.
  *
  * @throws {@link ProhibitedStateException} (client fault)
- *  <p>The specified document version is not in the INITIALIZED state.</p>
+ *
+ * The specified document version is not in the INITIALIZED state.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>One or more of the dependencies is unavailable.</p>
+ *
+ * One or more of the dependencies is unavailable.
  *
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
- *  <p>The caller does not have access to perform the action on the resource.</p>
+ *
+ * The caller does not have access to perform the action on the resource.
  *
  * @throws {@link WorkDocsServiceException}
- * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * Base exception class for all service exceptions from WorkDocs service.
  *
  * @public
  */

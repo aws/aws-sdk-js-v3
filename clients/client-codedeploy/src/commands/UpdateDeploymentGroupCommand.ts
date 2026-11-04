@@ -23,7 +23,8 @@ export interface UpdateDeploymentGroupCommandInput extends UpdateDeploymentGroup
 export interface UpdateDeploymentGroupCommandOutput extends UpdateDeploymentGroupOutput, __MetadataBearer {}
 
 /**
- * <p>Changes information about a deployment group.</p>
+ * Changes information about a deployment group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -184,139 +185,142 @@ export interface UpdateDeploymentGroupCommandOutput extends UpdateDeploymentGrou
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  * @throws {@link AlarmsLimitExceededException} (client fault)
- *  <p>The maximum number of alarms for a deployment group (10) was exceeded.</p>
+ *
+ * The maximum number of alarms for a deployment group (10) was exceeded.
  *
  * @throws {@link ApplicationDoesNotExistException} (client fault)
- *  <p>The application does not exist with the user or Amazon Web Services account.</p>
+ *
+ * The application does not exist with the user or Amazon Web Services account.
  *
  * @throws {@link ApplicationNameRequiredException} (client fault)
- *  <p>The minimum number of required application names was not specified.</p>
+ *
+ * The minimum number of required application names was not specified.
  *
  * @throws {@link DeploymentConfigDoesNotExistException} (client fault)
- *  <p>The deployment configuration does not exist with the user or Amazon Web Services account.</p>
+ *
+ * The deployment configuration does not exist with the user or Amazon Web Services account.
  *
  * @throws {@link DeploymentGroupAlreadyExistsException} (client fault)
- *  <p>A deployment group with the specified name with the user or Amazon Web Services account
- *             already exists.</p>
+ *
+ * A deployment group with the specified name with the user or Amazon Web Services account already exists.
  *
  * @throws {@link DeploymentGroupDoesNotExistException} (client fault)
- *  <p>The named deployment group with the user or Amazon Web Services account does not
- *             exist.</p>
+ *
+ * The named deployment group with the user or Amazon Web Services account does not exist.
  *
  * @throws {@link DeploymentGroupNameRequiredException} (client fault)
- *  <p>The deployment group name was not specified.</p>
+ *
+ * The deployment group name was not specified.
  *
  * @throws {@link ECSServiceMappingLimitExceededException} (client fault)
- *  <p> The Amazon ECS service is associated with more than one deployment groups. An
- *             Amazon ECS service can be associated with only one deployment group. </p>
+ *
+ * The Amazon ECS service is associated with more than one deployment groups. An Amazon ECS service can be associated with only one deployment group.
  *
  * @throws {@link InvalidAlarmConfigException} (client fault)
- *  <p>The format of the alarm configuration is invalid. Possible causes include:</p>
- *          <ul>
- *             <li>
- *                <p>The alarm list is null.</p>
- *             </li>
- *             <li>
- *                <p>The alarm object is null.</p>
- *             </li>
- *             <li>
- *                <p>The alarm name is empty or null or exceeds the limit of 255 characters.</p>
- *             </li>
- *             <li>
- *                <p>Two alarms with the same name have been specified.</p>
- *             </li>
- *             <li>
- *                <p>The alarm configuration is enabled, but the alarm list is empty.</p>
- *             </li>
- *          </ul>
+ *
+ * The format of the alarm configuration is invalid. Possible causes include:
+ *
+ * - The alarm list is null.
+ * - The alarm object is null.
+ * - The alarm name is empty or null or exceeds the limit of 255 characters.
+ * - Two alarms with the same name have been specified.
+ * - The alarm configuration is enabled, but the alarm list is empty.
  *
  * @throws {@link InvalidApplicationNameException} (client fault)
- *  <p>The application name was specified in an invalid format.</p>
+ *
+ * The application name was specified in an invalid format.
  *
  * @throws {@link InvalidAutoRollbackConfigException} (client fault)
- *  <p>The automatic rollback configuration was specified in an invalid format. For example,
- *             automatic rollback is enabled, but an invalid triggering event type or no event types
- *             were listed.</p>
+ *
+ * The automatic rollback configuration was specified in an invalid format. For example, automatic rollback is enabled, but an invalid triggering event type or no event types were listed.
  *
  * @throws {@link InvalidAutoScalingGroupException} (client fault)
- *  <p>The Auto Scaling group was specified in an invalid format or does not
- *             exist.</p>
+ *
+ * The Auto Scaling group was specified in an invalid format or does not exist.
  *
  * @throws {@link InvalidAutoScalingGroupProcessToSuspendException} (client fault)
- *  <p>The <code>autoScalingGroupProcessesToSuspend</code> list in
- *             <code>ec2DeploymentOptions</code> contains a process that is not valid. Valid values
- *             are <code>Terminate</code>, <code>AZRebalance</code>, <code>InstanceRefresh</code>,
- *             and <code>ScheduledActions</code>. Process names are case sensitive.</p>
+ *
+ * The `autoScalingGroupProcessesToSuspend` list in `ec2DeploymentOptions` contains a process that is not valid. Valid values are `Terminate`, `AZRebalance`, `InstanceRefresh`, and `ScheduledActions`. Process names are case sensitive.
  *
  * @throws {@link InvalidBlueGreenDeploymentConfigurationException} (client fault)
- *  <p>The configuration for the blue/green deployment group was provided in an invalid
- *             format. For information about deployment configuration format, see <a>CreateDeploymentConfig</a>.</p>
+ *
+ * The configuration for the blue/green deployment group was provided in an invalid format. For information about deployment configuration format, see CreateDeploymentConfig.
  *
  * @throws {@link InvalidDeploymentConfigNameException} (client fault)
- *  <p>The deployment configuration name was specified in an invalid format.</p>
+ *
+ * The deployment configuration name was specified in an invalid format.
  *
  * @throws {@link InvalidDeploymentGroupNameException} (client fault)
- *  <p>The deployment group name was specified in an invalid format.</p>
+ *
+ * The deployment group name was specified in an invalid format.
  *
  * @throws {@link InvalidDeploymentStyleException} (client fault)
- *  <p>An invalid deployment style was specified. Valid deployment types include "IN_PLACE"
- *             and "BLUE_GREEN." Valid deployment options include "WITH_TRAFFIC_CONTROL" and
- *             "WITHOUT_TRAFFIC_CONTROL."</p>
+ *
+ * An invalid deployment style was specified. Valid deployment types include "IN_PLACE" and "BLUE_GREEN." Valid deployment options include "WITH_TRAFFIC_CONTROL" and "WITHOUT_TRAFFIC_CONTROL."
  *
  * @throws {@link InvalidEC2TagCombinationException} (client fault)
- *  <p>A call was submitted that specified both Ec2TagFilters and Ec2TagSet, but only one of
- *             these data types can be used in a single call.</p>
+ *
+ * A call was submitted that specified both Ec2TagFilters and Ec2TagSet, but only one of these data types can be used in a single call.
  *
  * @throws {@link InvalidEC2TagException} (client fault)
- *  <p>The tag was specified in an invalid format.</p>
+ *
+ * The tag was specified in an invalid format.
  *
  * @throws {@link InvalidECSServiceException} (client fault)
- *  <p> The Amazon ECS service identifier is not valid. </p>
+ *
+ * The Amazon ECS service identifier is not valid.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input was specified in an invalid format.</p>
+ *
+ * The input was specified in an invalid format.
  *
  * @throws {@link InvalidLoadBalancerInfoException} (client fault)
- *  <p>An invalid load balancer name, or no load balancer name, was specified.</p>
+ *
+ * An invalid load balancer name, or no load balancer name, was specified.
  *
  * @throws {@link InvalidOnPremisesTagCombinationException} (client fault)
- *  <p>A call was submitted that specified both OnPremisesTagFilters and OnPremisesTagSet,
- *             but only one of these data types can be used in a single call.</p>
+ *
+ * A call was submitted that specified both OnPremisesTagFilters and OnPremisesTagSet, but only one of these data types can be used in a single call.
  *
  * @throws {@link InvalidRoleException} (client fault)
- *  <p>The service role ARN was specified in an invalid format. Or, if an Auto Scaling
- *             group was specified, the specified service role does not grant the appropriate
- *             permissions to Amazon EC2 Auto Scaling.</p>
+ *
+ * The service role ARN was specified in an invalid format. Or, if an Auto Scaling group was specified, the specified service role does not grant the appropriate permissions to Amazon EC2 Auto Scaling.
  *
  * @throws {@link InvalidTagException} (client fault)
- *  <p>The tag was specified in an invalid format.</p>
+ *
+ * The tag was specified in an invalid format.
  *
  * @throws {@link InvalidTargetGroupPairException} (client fault)
- *  <p> A target group pair associated with this deployment is not valid. </p>
+ *
+ * A target group pair associated with this deployment is not valid.
  *
  * @throws {@link InvalidTrafficRoutingConfigurationException} (client fault)
- *  <p> The configuration that specifies how traffic is routed during a deployment is
- *             invalid.</p>
+ *
+ * The configuration that specifies how traffic is routed during a deployment is invalid.
  *
  * @throws {@link InvalidTriggerConfigException} (client fault)
- *  <p>The trigger was specified in an invalid format.</p>
+ *
+ * The trigger was specified in an invalid format.
  *
  * @throws {@link LifecycleHookLimitExceededException} (client fault)
- *  <p>The limit for lifecycle hooks was exceeded.</p>
+ *
+ * The limit for lifecycle hooks was exceeded.
  *
  * @throws {@link TagSetListLimitExceededException} (client fault)
- *  <p>The number of tag groups included in the tag set list exceeded the maximum allowed
- *             limit of 3.</p>
+ *
+ * The number of tag groups included in the tag set list exceeded the maximum allowed limit of 3.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>An API function was called too frequently.</p>
+ *
+ * An API function was called too frequently.
  *
  * @throws {@link TriggerTargetsLimitExceededException} (client fault)
- *  <p>The maximum allowed number of triggers was exceeded.</p>
+ *
+ * The maximum allowed number of triggers was exceeded.
  *
  * @throws {@link CodeDeployServiceException}
- * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * Base exception class for all service exceptions from CodeDeploy service.
  *
  * @public
  */

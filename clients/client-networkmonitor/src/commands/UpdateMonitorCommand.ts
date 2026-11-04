@@ -23,10 +23,8 @@ export interface UpdateMonitorCommandInput extends UpdateMonitorInput {}
 export interface UpdateMonitorCommandOutput extends UpdateMonitorOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the <code>aggregationPeriod</code> for a monitor. Monitors support an
- *                 <code>aggregationPeriod</code> of either <code>30</code> or <code>60</code> seconds.
- *             This action requires  the <code>monitorName</code> and <code>probeId</code> parameter.
- *             Run <code>ListMonitors</code> to get a list of monitor names.  </p>
+ * Updates the `aggregationPeriod` for a monitor. Monitors support an `aggregationPeriod` of either `30` or `60` seconds. This action requires the `monitorName` and `probeId` parameter. Run `ListMonitors` to get a list of monitor names.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,26 +58,32 @@ export interface UpdateMonitorCommandOutput extends UpdateMonitorOutput, __Metad
  * @see {@link NetworkMonitorClientResolvedConfig | config} for NetworkMonitorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>This request exceeds a service quota.</p>
+ *
+ * This request exceeds a service quota.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling</p>
+ *
+ * The request was denied due to request throttling
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One of the parameters for the request is not valid.</p>
+ *
+ * One of the parameters for the request is not valid.
  *
  * @throws {@link NetworkMonitorServiceException}
- * <p>Base exception class for all service exceptions from NetworkMonitor service.</p>
  *
+ * Base exception class for all service exceptions from NetworkMonitor service.
  *
  * @public
  */

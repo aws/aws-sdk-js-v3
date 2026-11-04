@@ -26,10 +26,9 @@ export interface AcceptEnvironmentAccountConnectionCommandInput extends AcceptEn
 export interface AcceptEnvironmentAccountConnectionCommandOutput extends AcceptEnvironmentAccountConnectionOutput, __MetadataBearer {}
 
 /**
- * <p>In a management account, an environment account connection request is accepted. When the environment account connection request is accepted, Proton
- *       can use the associated IAM role to provision environment infrastructure resources in the associated environment account.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment account
- *         connections</a> in the <i>Proton User guide</i>.</p>
+ * In a management account, an environment account connection request is accepted. When the environment account connection request is accepted, Proton can use the associated IAM role to provision environment infrastructure resources in the associated environment account.
+ *
+ * For more information, see [Environment account connections](https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html) in the *Proton User guide*.
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example
@@ -70,26 +69,32 @@ export interface AcceptEnvironmentAccountConnectionCommandOutput extends AcceptE
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>There <i>isn't</i> sufficient access for performing this action.</p>
+ *
+ * There *isn't* sufficient access for performing this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request <i>couldn't</i> be made due to a conflicting operation or resource.</p>
+ *
+ * The request *couldn't* be made due to a conflicting operation or resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request failed to register with the service.</p>
+ *
+ * The request failed to register with the service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource <i>wasn't</i> found.</p>
+ *
+ * The requested resource *wasn't* found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+ *
+ * The input is invalid or an out-of-range value was supplied for the input parameter.
  *
  * @throws {@link ProtonServiceException}
- * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * Base exception class for all service exceptions from Proton service.
  *
  * @public
  */

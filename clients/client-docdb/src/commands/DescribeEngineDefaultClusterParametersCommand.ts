@@ -26,8 +26,8 @@ export interface DescribeEngineDefaultClusterParametersCommandInput extends Desc
 export interface DescribeEngineDefaultClusterParametersCommandOutput extends DescribeEngineDefaultClusterParametersResult, __MetadataBearer {}
 
 /**
- * <p>Returns the default engine and system parameter information for the cluster database
- *             engine.</p>
+ * Returns the default engine and system parameter information for the cluster database engine.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,8 +81,8 @@ export interface DescribeEngineDefaultClusterParametersCommandOutput extends Des
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  * @throws {@link DocDBServiceException}
- * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * Base exception class for all service exceptions from DocDB service.
  *
  * @public
  */

@@ -23,17 +23,14 @@ export interface SendDelegationTokenCommandInput extends SendDelegationTokenRequ
 export interface SendDelegationTokenCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Sends the exchange token for an accepted delegation request.</p>
- *          <p>The exchange token is sent to the partner via an asynchronous notification channel, established by the partner.</p>
- *          <p>The delegation request must be in the <code>ACCEPTED</code> state when calling this API. After the
- *             <code>SendDelegationToken</code> API
- *             call is successful, the request transitions to a <code>FINALIZED</code> state and cannot be rolled back. However, a user may reject
- *         an accepted request before the <code>SendDelegationToken</code> API is called.</p>
- *          <p>
- *             For more details, see
- *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-temporary-delegation.html#temporary-delegation-managing-permissions">
- *                 Managing Permissions for Delegation Requests</a>.
- *         </p>
+ * Sends the exchange token for an accepted delegation request.
+ *
+ * The exchange token is sent to the partner via an asynchronous notification channel, established by the partner.
+ *
+ * The delegation request must be in the `ACCEPTED` state when calling this API. After the `SendDelegationToken` API call is successful, the request transitions to a `FINALIZED` state and cannot be rolled back. However, a user may reject an accepted request before the `SendDelegationToken` API is called.
+ *
+ * For more details, see [Managing Permissions for Delegation Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-temporary-delegation.html#temporary-delegation-managing-permissions).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,24 +55,24 @@ export interface SendDelegationTokenCommandOutput extends __MetadataBearer {}
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>The request was rejected because multiple requests to change this object were submitted
- *       simultaneously. Wait a few minutes and submit your request again.</p>
+ *
+ * The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
- *       input parameter.</p>
+ *
+ * The request was rejected because an invalid or out-of-range value was supplied for an input parameter.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @public
  */

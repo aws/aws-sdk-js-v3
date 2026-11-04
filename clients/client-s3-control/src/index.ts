@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p> Amazon Web Services S3 Control provides access to Amazon S3 control plane actions. </p>
+ * Amazon Web Services S3 Control provides access to Amazon S3 control plane actions.
  *
  * @packageDocumentation
  */

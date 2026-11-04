@@ -23,10 +23,10 @@ export interface RegisterOnPremisesInstanceCommandInput extends RegisterOnPremis
 export interface RegisterOnPremisesInstanceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Registers an on-premises instance.</p>
- *          <note>
- *             <p>Only one IAM ARN (an IAM session ARN or IAM user ARN) is supported in the request. You cannot use both.</p>
- *          </note>
+ * Registers an on-premises instance.
+ *
+ * > **Note:** Only one IAM ARN (an IAM session ARN or IAM user ARN) is supported in the request. You cannot use both.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,40 +53,48 @@ export interface RegisterOnPremisesInstanceCommandOutput extends __MetadataBeare
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  * @throws {@link IamArnRequiredException} (client fault)
- *  <p>No IAM ARN was included in the request. You must use an IAM session ARN or user ARN in the request.</p>
+ *
+ * No IAM ARN was included in the request. You must use an IAM session ARN or user ARN in the request.
  *
  * @throws {@link IamSessionArnAlreadyRegisteredException} (client fault)
- *  <p>The request included an IAM session ARN that has already been used to
- *             register a different instance.</p>
+ *
+ * The request included an IAM session ARN that has already been used to register a different instance.
  *
  * @throws {@link IamUserArnAlreadyRegisteredException} (client fault)
- *  <p>The specified user ARN is already registered with an on-premises instance.</p>
+ *
+ * The specified user ARN is already registered with an on-premises instance.
  *
  * @throws {@link IamUserArnRequiredException} (client fault)
- *  <p>An user ARN was not specified.</p>
+ *
+ * An user ARN was not specified.
  *
  * @throws {@link InstanceNameAlreadyRegisteredException} (client fault)
- *  <p>The specified on-premises instance name is already registered.</p>
+ *
+ * The specified on-premises instance name is already registered.
  *
  * @throws {@link InstanceNameRequiredException} (client fault)
- *  <p>An on-premises instance name was not specified.</p>
+ *
+ * An on-premises instance name was not specified.
  *
  * @throws {@link InvalidIamSessionArnException} (client fault)
- *  <p>The IAM session ARN was specified in an invalid format.</p>
+ *
+ * The IAM session ARN was specified in an invalid format.
  *
  * @throws {@link InvalidIamUserArnException} (client fault)
- *  <p>The user ARN was specified in an invalid format.</p>
+ *
+ * The user ARN was specified in an invalid format.
  *
  * @throws {@link InvalidInstanceNameException} (client fault)
- *  <p>The on-premises instance name was specified in an invalid format.</p>
+ *
+ * The on-premises instance name was specified in an invalid format.
  *
  * @throws {@link MultipleIamArnsProvidedException} (client fault)
- *  <p>Both an user ARN and an IAM session ARN were included in the request.
- *             Use only one ARN type.</p>
+ *
+ * Both an user ARN and an IAM session ARN were included in the request. Use only one ARN type.
  *
  * @throws {@link CodeDeployServiceException}
- * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * Base exception class for all service exceptions from CodeDeploy service.
  *
  * @public
  */

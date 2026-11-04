@@ -26,7 +26,8 @@ export interface GetAutoshiftObserverNotificationStatusCommandInput extends GetA
 export interface GetAutoshiftObserverNotificationStatusCommandOutput extends GetAutoshiftObserverNotificationStatusResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the status of the autoshift observer notification. Autoshift observer notifications notify you through Amazon EventBridge when there is an autoshift event for zonal autoshift. The status can be <code>ENABLED</code> or <code>DISABLED</code>. When <code>ENABLED</code>, a notification is sent when an autoshift is triggered. When <code>DISABLED</code>, notifications are not sent. </p>
+ * Returns the status of the autoshift observer notification. Autoshift observer notifications notify you through Amazon EventBridge when there is an autoshift event for zonal autoshift. The status can be `ENABLED` or `DISABLED`. When `ENABLED`, a notification is sent when an autoshift is triggered. When `DISABLED`, notifications are not sent.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,17 +52,20 @@ export interface GetAutoshiftObserverNotificationStatusCommandOutput extends Get
  * @see {@link ARCZonalShiftClientResolvedConfig | config} for ARCZonalShiftClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>There was an internal server error.</p>
+ *
+ * There was an internal server error.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ARCZonalShiftServiceException}
- * <p>Base exception class for all service exceptions from ARCZonalShift service.</p>
  *
+ * Base exception class for all service exceptions from ARCZonalShift service.
  *
  * @public
  */

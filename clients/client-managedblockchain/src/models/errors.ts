@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { ManagedBlockchainServiceException as __BaseException } from "./ManagedBlockchainServiceException";
 
 /**
- * <p>You don't have sufficient access to perform this action.</p>
+ * You don't have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ * The request processing has failed because of an unknown error, exception or failure.
+ *
  * @public
  */
 export class InternalServiceErrorException extends __BaseException {
@@ -48,7 +50,8 @@ export class InternalServiceErrorException extends __BaseException {
 }
 
 /**
- * <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+ * The action or operation requested is invalid. Verify that the action is typed correctly.
+ *
  * @public
  */
 export class InvalidRequestException extends __BaseException {
@@ -71,7 +74,8 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * <p>A resource request is issued for a resource that already exists.</p>
+ * A resource request is issued for a resource that already exists.
+ *
  * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -94,8 +98,8 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The maximum number of resources of that type already exist. Ensure the resources requested
- *          are within the boundaries of the service edition and your account limits.</p>
+ * The maximum number of resources of that type already exist. Ensure the resources requested are within the boundaries of the service edition and your account limits.
+ *
  * @public
  */
 export class ResourceLimitExceededException extends __BaseException {
@@ -118,10 +122,8 @@ export class ResourceLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The request or operation couldn't be performed because a service is
- *          throttling requests. The most common source of throttling errors is
- *          creating resources that exceed your service limit for this resource type.
- *          Request a limit increase or delete unused resources if possible.</p>
+ * The request or operation couldn't be performed because a service is throttling requests. The most common source of throttling errors is creating resources that exceed your service limit for this resource type. Request a limit increase or delete unused resources if possible.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -142,7 +144,6 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p></p>
  * @public
  */
 export class TooManyTagsException extends __BaseException {
@@ -151,7 +152,6 @@ export class TooManyTagsException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p></p>
    * @public
    */
   ResourceName?: string | undefined;
@@ -171,7 +171,8 @@ export class TooManyTagsException extends __BaseException {
 }
 
 /**
- * <p>A requested resource doesn't exist. It may have been deleted or referenced incorrectly.</p>
+ * A requested resource doesn't exist. It may have been deleted or referenced incorrectly.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -180,7 +181,8 @@ export class ResourceNotFoundException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>A requested resource doesn't exist. It may have been deleted or referenced inaccurately.</p>
+   * A requested resource doesn't exist. It may have been deleted or referenced inaccurately.
+   *
    * @public
    */
   ResourceName?: string | undefined;
@@ -200,7 +202,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The requested resource exists but isn't in a status that can complete the operation.</p>
+ * The requested resource exists but isn't in a status that can complete the operation.
+ *
  * @public
  */
 export class ResourceNotReadyException extends __BaseException {
@@ -223,7 +226,6 @@ export class ResourceNotReadyException extends __BaseException {
 }
 
 /**
- * <p></p>
  * @public
  */
 export class IllegalActionException extends __BaseException {

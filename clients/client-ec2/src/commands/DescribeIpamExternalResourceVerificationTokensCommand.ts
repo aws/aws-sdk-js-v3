@@ -26,9 +26,10 @@ export interface DescribeIpamExternalResourceVerificationTokensCommandInput exte
 export interface DescribeIpamExternalResourceVerificationTokensCommandOutput extends DescribeIpamExternalResourceVerificationTokensResult, __MetadataBearer {}
 
 /**
- * <p>Describe verification tokens.</p>
- *          <p>A verification token is an Amazon Web Services-generated random value that you can use to prove ownership of an external resource. For example, you can use a verification token to validate that you control a public IP address range when you bring an IP address range to Amazon Web Services (BYOIP).
- * </p>
+ * Describe verification tokens.
+ *
+ * A verification token is an Amazon Web Services-generated random value that you can use to prove ownership of an external resource. For example, you can use a verification token to validate that you control a public IP address range when you bring an IP address range to Amazon Web Services (BYOIP).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,8 +89,8 @@ export interface DescribeIpamExternalResourceVerificationTokensCommandOutput ext
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

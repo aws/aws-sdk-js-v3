@@ -1,8 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>Amazon Lookout for Equipment is a machine learning service that uses advanced analytics to identify
- *          anomalies in machines from sensor data for use in predictive maintenance. </p>
+ * Amazon Lookout for Equipment is a machine learning service that uses advanced analytics to identify anomalies in machines from sensor data for use in predictive maintenance.
  *
  * @packageDocumentation
  */

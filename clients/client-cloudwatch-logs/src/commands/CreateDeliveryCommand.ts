@@ -23,39 +23,23 @@ export interface CreateDeliveryCommandInput extends CreateDeliveryRequest {}
 export interface CreateDeliveryCommandOutput extends CreateDeliveryResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a <i>delivery</i>. A delivery is a connection between a logical
- *         <i>delivery source</i> and a logical <i>delivery destination</i>
- *       that you have already created.</p>
- *          <p>Only some Amazon Web Services services support being configured as a delivery source using
- *       this operation. These services are listed as <b>Supported [V2
- *         Permissions]</b> in the table at <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html">Enabling logging from
- *           Amazon Web Services services.</a>
- *          </p>
- *          <p>A delivery destination can represent a log group in CloudWatch Logs, an Amazon S3 bucket, a delivery stream in Firehose, or X-Ray.</p>
- *          <p>To configure logs delivery between a supported Amazon Web Services service and a
- *       destination, you must do the following:</p>
- *          <ul>
- *             <li>
- *                <p>Create a delivery source, which is a logical object that represents the resource that
- *           is actually sending the logs. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html">PutDeliverySource</a>.</p>
- *             </li>
- *             <li>
- *                <p>Create a <i>delivery destination</i>, which is a logical object that
- *           represents the actual delivery destination. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.html">PutDeliveryDestination</a>.</p>
- *             </li>
- *             <li>
- *                <p>If you are delivering logs cross-account, you must use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationPolicy.html">PutDeliveryDestinationPolicy</a> in the destination account to assign an IAM policy to the destination. This policy allows delivery to that destination.
- *         </p>
- *             </li>
- *             <li>
- *                <p>Use <code>CreateDelivery</code> to create a <i>delivery</i> by pairing
- *           exactly one delivery source and one delivery destination. </p>
- *             </li>
- *          </ul>
- *          <p>You can configure a single delivery source to send logs to multiple destinations by
- *       creating multiple deliveries. You can also create multiple deliveries to configure multiple
- *       delivery sources to send logs to the same delivery destination.</p>
- *          <p>To update an existing delivery configuration, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateDeliveryConfiguration.html">UpdateDeliveryConfiguration</a>.</p>
+ * Creates a *delivery*. A delivery is a connection between a logical *delivery source* and a logical *delivery destination* that you have already created.
+ *
+ * Only some Amazon Web Services services support being configured as a delivery source using this operation. These services are listed as **Supported [V2 Permissions]** in the table at [Enabling logging from Amazon Web Services services.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html)
+ *
+ * A delivery destination can represent a log group in CloudWatch Logs, an Amazon S3 bucket, a delivery stream in Firehose, or X-Ray.
+ *
+ * To configure logs delivery between a supported Amazon Web Services service and a destination, you must do the following:
+ *
+ * - Create a delivery source, which is a logical object that represents the resource that is actually sending the logs. For more information, see [PutDeliverySource](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html).
+ * - Create a *delivery destination*, which is a logical object that represents the actual delivery destination. For more information, see [PutDeliveryDestination](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.html).
+ * - If you are delivering logs cross-account, you must use [PutDeliveryDestinationPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationPolicy.html) in the destination account to assign an IAM policy to the destination. This policy allows delivery to that destination.
+ * - Use `CreateDelivery` to create a *delivery* by pairing exactly one delivery source and one delivery destination.
+ *
+ * You can configure a single delivery source to send logs to multiple destinations by creating multiple deliveries. You can also create multiple deliveries to configure multiple delivery sources to send logs to the same delivery destination.
+ *
+ * To update an existing delivery configuration, use [UpdateDeliveryConfiguration](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateDeliveryConfiguration.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -111,29 +95,36 @@ export interface CreateDeliveryCommandOutput extends CreateDeliveryResponse, __M
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permissions to perform this action.</p>
+ *
+ * You don't have sufficient permissions to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>This operation attempted to create a resource that already exists.</p>
+ *
+ * This operation attempted to create a resource that already exists.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>This request exceeds a service quota.</p>
+ *
+ * This request exceeds a service quota.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service cannot complete the request.</p>
+ *
+ * The service cannot complete the request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled because of quota limits.</p>
+ *
+ * The request was throttled because of quota limits.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One of the parameters for the request is not valid.</p>
+ *
+ * One of the parameters for the request is not valid.
  *
  * @throws {@link CloudWatchLogsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchLogs service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface ModifyTargetGroupAttributesCommandInput extends ModifyTargetGro
 export interface ModifyTargetGroupAttributesCommandOutput extends ModifyTargetGroupAttributesOutput, __MetadataBearer {}
 
 /**
- * <p>Modifies the specified attributes of the specified target group.</p>
+ * Modifies the specified attributes of the specified target group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,14 +62,16 @@ export interface ModifyTargetGroupAttributesCommandOutput extends ModifyTargetGr
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
  * @throws {@link InvalidConfigurationRequestException} (client fault)
- *  <p>The requested configuration is not valid.</p>
+ *
+ * The requested configuration is not valid.
  *
  * @throws {@link TargetGroupNotFoundException} (client fault)
- *  <p>The specified target group does not exist.</p>
+ *
+ * The specified target group does not exist.
  *
  * @throws {@link ElasticLoadBalancingV2ServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancingV2 service.
  *
  * @example To modify the deregistration delay timeout
  * ```javascript

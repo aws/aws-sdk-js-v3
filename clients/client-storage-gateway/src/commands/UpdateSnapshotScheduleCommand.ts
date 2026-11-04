@@ -23,14 +23,12 @@ export interface UpdateSnapshotScheduleCommandInput extends UpdateSnapshotSchedu
 export interface UpdateSnapshotScheduleCommandOutput extends UpdateSnapshotScheduleOutput, __MetadataBearer {}
 
 /**
- * <p>Updates a snapshot schedule configured for a gateway volume. This operation is only
- *          supported in the cached volume and stored volume gateway types.</p>
- *          <p>The default snapshot schedule for volume is once every 24 hours, starting at the
- *          creation time of the volume. You can use this API to change the snapshot schedule
- *          configured for the volume.</p>
- *          <p>In the request you must identify the gateway volume whose snapshot schedule you want to
- *          update, and the schedule information, including when you want the snapshot to begin on a
- *          day and the frequency (in hours) of snapshots.</p>
+ * Updates a snapshot schedule configured for a gateway volume. This operation is only supported in the cached volume and stored volume gateway types.
+ *
+ * The default snapshot schedule for volume is once every 24 hours, starting at the creation time of the volume. You can use this API to change the snapshot schedule configured for the volume.
+ *
+ * In the request you must identify the gateway volume whose snapshot schedule you want to update, and the schedule information, including when you want the snapshot to begin on a day and the frequency (in hours) of snapshots.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,16 +64,16 @@ export interface UpdateSnapshotScheduleCommandOutput extends UpdateSnapshotSched
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @example To update a volume snapshot schedule
  * ```javascript

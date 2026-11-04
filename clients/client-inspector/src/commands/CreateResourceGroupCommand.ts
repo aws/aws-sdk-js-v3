@@ -23,10 +23,8 @@ export interface CreateResourceGroupCommandInput extends CreateResourceGroupRequ
 export interface CreateResourceGroupCommandOutput extends CreateResourceGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a resource group using the specified set of tags (key and value pairs) that
- *          are used to select the EC2 instances to be included in an Amazon Inspector assessment
- *          target. The created resource group is then used to create an Amazon Inspector assessment
- *          target. For more information, see <a>CreateAssessmentTarget</a>.</p>
+ * Creates a resource group using the specified set of tags (key and value pairs) that are used to select the EC2 instances to be included in an Amazon Inspector assessment target. The created resource group is then used to create an Amazon Inspector assessment target. For more information, see CreateAssessmentTarget.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,25 +56,28 @@ export interface CreateResourceGroupCommandOutput extends CreateResourceGroupRes
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have required permissions to access the requested resource.</p>
+ *
+ * You do not have required permissions to access the requested resource.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>Internal server error.</p>
+ *
+ * Internal server error.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
- *          input parameter.</p>
+ *
+ * The request was rejected because an invalid or out-of-range value was supplied for an input parameter.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current
- *          AWS account limits. The error code describes the limit exceeded.</p>
+ *
+ * The request was rejected because it attempted to create resources beyond the current AWS account limits. The error code describes the limit exceeded.
  *
  * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
- *  <p>The serice is temporary unavailable.</p>
+ *
+ * The serice is temporary unavailable.
  *
  * @throws {@link InspectorServiceException}
- * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * Base exception class for all service exceptions from Inspector service.
  *
  * @example Create resource group
  * ```javascript

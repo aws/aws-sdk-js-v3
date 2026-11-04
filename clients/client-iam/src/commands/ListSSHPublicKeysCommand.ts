@@ -23,14 +23,12 @@ export interface ListSSHPublicKeysCommandInput extends ListSSHPublicKeysRequest 
 export interface ListSSHPublicKeysCommandOutput extends ListSSHPublicKeysResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about the SSH public keys associated with the specified IAM
- *             user. If none exists, the operation returns an empty list.</p>
- *          <p>The SSH public keys returned by this operation are used only for authenticating the
- *             IAM user to an CodeCommit repository. For more information about using SSH keys to
- *             authenticate to an CodeCommit repository, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html">Set up CodeCommit for
- *                 SSH connections</a> in the <i>CodeCommit User Guide</i>.</p>
- *          <p>Although each user is limited to a small number of keys, you can still paginate the
- *             results using the <code>MaxItems</code> and <code>Marker</code> parameters.</p>
+ * Returns information about the SSH public keys associated with the specified IAM user. If none exists, the operation returns an empty list.
+ *
+ * The SSH public keys returned by this operation are used only for authenticating the IAM user to an CodeCommit repository. For more information about using SSH keys to authenticate to an CodeCommit repository, see [Set up CodeCommit for SSH connections](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html) in the *CodeCommit User Guide*.
+ *
+ * Although each user is limited to a small number of keys, you can still paginate the results using the `MaxItems` and `Marker` parameters.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,12 +66,12 @@ export interface ListSSHPublicKeysCommandOutput extends ListSSHPublicKeysRespons
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @public
  */

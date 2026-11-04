@@ -23,17 +23,16 @@ export interface CreateAccessGrantsInstanceCommandInput extends CreateAccessGran
 export interface CreateAccessGrantsInstanceCommandOutput extends CreateAccessGrantsInstanceResult, __MetadataBearer {}
 
 /**
- * <p>Creates an S3 Access Grants instance, which serves as a logical grouping for access grants. You can create one S3 Access Grants instance per Region per account. </p>
- *          <dl>
- *             <dt>Permissions</dt>
- *             <dd>
- *                <p>You must have the <code>s3:CreateAccessGrantsInstance</code> permission to use this operation. </p>
- *             </dd>
- *             <dt>Additional Permissions</dt>
- *             <dd>
- *                <p>To associate an IAM Identity Center instance with your S3 Access Grants instance, you must also have the <code>sso:DescribeInstance</code>, <code>sso:CreateApplication</code>, <code>sso:PutApplicationGrant</code>, and <code>sso:PutApplicationAuthenticationMethod</code> permissions. </p>
- *             </dd>
- *          </dl>
+ * Creates an S3 Access Grants instance, which serves as a logical grouping for access grants. You can create one S3 Access Grants instance per Region per account.
+ *
+ * - **Permissions**
+ *
+ *   You must have the `s3:CreateAccessGrantsInstance` permission to use this operation.
+ *
+ * - **Additional Permissions**
+ *
+ *   To associate an IAM Identity Center instance with your S3 Access Grants instance, you must also have the `sso:DescribeInstance`, `sso:CreateApplication`, `sso:PutApplicationGrant`, and `sso:PutApplicationAuthenticationMethod` permissions.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,8 +71,8 @@ export interface CreateAccessGrantsInstanceCommandOutput extends CreateAccessGra
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
  * @throws {@link S3ControlServiceException}
- * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * Base exception class for all service exceptions from S3Control service.
  *
  * @public
  */

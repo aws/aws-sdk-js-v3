@@ -26,7 +26,8 @@ export interface DescribeUsageReportSubscriptionsCommandInput extends DescribeUs
 export interface DescribeUsageReportSubscriptionsCommandOutput extends DescribeUsageReportSubscriptionsResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list that describes one or more usage report subscriptions.</p>
+ * Retrieves a list that describes one or more usage report subscriptions.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,14 +68,16 @@ export interface DescribeUsageReportSubscriptionsCommandOutput extends DescribeU
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  * @throws {@link InvalidAccountStatusException} (client fault)
- *  <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
+ *
+ * The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link AppStreamServiceException}
- * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * Base exception class for all service exceptions from AppStream service.
  *
  * @public
  */

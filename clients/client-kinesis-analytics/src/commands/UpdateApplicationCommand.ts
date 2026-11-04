@@ -23,16 +23,16 @@ export interface UpdateApplicationCommandInput extends UpdateApplicationRequest 
 export interface UpdateApplicationCommandOutput extends UpdateApplicationResponse, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
- *          </note>
- *         <p>Updates an existing Amazon Kinesis Analytics application. Using this API,
- *             you can update application code, input configuration, and
- *             output configuration. </p>
- *         <p>Note that Amazon Kinesis Analytics updates the <code>CurrentApplicationVersionId</code>
- *             each time you update your application. </p>
- *         <p>This operation requires permission for the
- *             <code>kinesisanalytics:UpdateApplication</code> action.</p>
+ * > **Note:** This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see [Amazon Kinesis Data Analytics API V2 Documentation](/kinesisanalytics/latest/apiv2/Welcome.html).
+ *
+ *
+ *
+ * Updates an existing Amazon Kinesis Analytics application. Using this API, you can update application code, input configuration, and output configuration.
+ *
+ * Note that Amazon Kinesis Analytics updates the `CurrentApplicationVersionId` each time you update your application.
+ *
+ * This operation requires permission for the `kinesisanalytics:UpdateApplication` action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -167,26 +167,32 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * @see {@link KinesisAnalyticsClientResolvedConfig | config} for KinesisAnalyticsClient's `config` shape.
  *
  * @throws {@link CodeValidationException} (client fault)
- *  <p>User-provided application code (query) is invalid. This can be a simple syntax error.</p>
+ *
+ * User-provided application code (query) is invalid. This can be a simple syntax error.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.</p>
+ *
+ * Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>Specified input parameter value is invalid.</p>
+ *
+ * Specified input parameter value is invalid.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>Application is not available for this operation.</p>
+ *
+ * Application is not available for this operation.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Specified application can't be found.</p>
+ *
+ * Specified application can't be found.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
+ *
+ * The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation.
  *
  * @throws {@link KinesisAnalyticsServiceException}
- * <p>Base exception class for all service exceptions from KinesisAnalytics service.</p>
  *
+ * Base exception class for all service exceptions from KinesisAnalytics service.
  *
  * @public
  */

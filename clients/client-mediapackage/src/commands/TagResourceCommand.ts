@@ -52,9 +52,8 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @see {@link MediaPackageClientResolvedConfig | config} for MediaPackageClient's `config` shape.
  *
  * @throws {@link MediaPackageServiceException}
- * <p>Base exception class for all service exceptions from MediaPackage service.</p>
  *
- *
+ * Base exception class for all service exceptions from MediaPackage service.
  */
 export class TagResourceCommand extends command<TagResourceCommandInput, TagResourceCommandOutput>(
   _ep0,

@@ -23,11 +23,8 @@ export interface DeleteDataTableCommandInput extends DeleteDataTableRequest {}
 export interface DeleteDataTableCommandOutput extends DeleteDataTableResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a data table and all associated attributes, versions, audits, and values. Does not update any references
- *    to the data table, even from other data tables. This includes dynamic values and conditional validations. System
- *    managed data tables are not deletable by customers. API users may delete the table at any time. When deletion is
- *    requested from the admin website, a warning is shown alerting the user of the most recent time the table and its
- *    values were accessed.</p>
+ * Deletes a data table and all associated attributes, versions, audits, and values. Does not update any references to the data table, even from other data tables. This includes dynamic values and conditional validations. System managed data tables are not deletable by customers. API users may delete the table at any time. When deletion is requested from the admin website, a warning is shown alerting the user of the most recent time the table and its values were accessed.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,30 +50,36 @@ export interface DeleteDataTableCommandOutput extends DeleteDataTableResponse, _
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Operation cannot be performed at this time as there is a conflict with another operation or contact
- *    state.</p>
+ *
+ * Operation cannot be performed at this time as there is a conflict with another operation or contact state.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

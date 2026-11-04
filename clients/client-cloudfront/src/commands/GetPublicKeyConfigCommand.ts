@@ -23,7 +23,8 @@ export interface GetPublicKeyConfigCommandInput extends GetPublicKeyConfigReques
 export interface GetPublicKeyConfigCommandOutput extends GetPublicKeyConfigResult, __MetadataBearer {}
 
 /**
- * <p>Gets a public key configuration.</p>
+ * Gets a public key configuration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,14 +57,16 @@ export interface GetPublicKeyConfigCommandOutput extends GetPublicKeyConfigResul
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link AccessDenied} (client fault)
- *  <p>Access denied.</p>
+ *
+ * Access denied.
  *
  * @throws {@link NoSuchPublicKey} (client fault)
- *  <p>The specified public key doesn't exist.</p>
+ *
+ * The specified public key doesn't exist.
  *
  * @throws {@link CloudFrontServiceException}
- * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * Base exception class for all service exceptions from CloudFront service.
  *
  * @public
  */

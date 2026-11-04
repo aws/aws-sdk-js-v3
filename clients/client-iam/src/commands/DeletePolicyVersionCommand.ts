@@ -23,12 +23,12 @@ export interface DeletePolicyVersionCommandInput extends DeletePolicyVersionRequ
 export interface DeletePolicyVersionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified version from the specified managed policy.</p>
- *          <p>You cannot delete the default version from a policy using this operation. To delete
- *             the default version from a policy, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeletePolicy.html">DeletePolicy</a>. To find
- *             out which version of a policy is marked as the default version, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListPolicyVersions.html">ListPolicyVersions</a>.</p>
- *          <p>For information about versions for managed policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for managed
- *                 policies</a> in the <i>IAM User Guide</i>.</p>
+ * Deletes the specified version from the specified managed policy.
+ *
+ * You cannot delete the default version from a policy using this operation. To delete the default version from a policy, use [DeletePolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeletePolicy.html). To find out which version of a policy is marked as the default version, use [ListPolicyVersions](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListPolicyVersions.html).
+ *
+ * For information about versions for managed policies, see [Versioning for managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html) in the *IAM User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,28 +54,28 @@ export interface DeletePolicyVersionCommandOutput extends __MetadataBearer {}
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link DeleteConflictException} (client fault)
- *  <p>The request was rejected because it attempted to delete a resource that has attached
- *       subordinate entities. The error message describes these entities.</p>
+ *
+ * The request was rejected because it attempted to delete a resource that has attached subordinate entities. The error message describes these entities.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
- *       input parameter.</p>
+ *
+ * The request was rejected because an invalid or out-of-range value was supplied for an input parameter.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current
- *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+ *
+ * The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @public
  */

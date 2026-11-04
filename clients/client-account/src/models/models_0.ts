@@ -13,19 +13,26 @@ import type {
  */
 export interface AcceptPrimaryEmailUpdateRequest {
   /**
-   * <p>Specifies the 12-digit account ID number of the Amazon Web Services account that you want to access or modify with this operation. To use this parameter, the caller must be an identity in the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">organization's management account</a> or a delegated administrator account. The specified account ID must be a member account in the same organization. The organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">all features enabled</a>, and the organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">trusted access</a> enabled for the Account Management service, and optionally a <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin">delegated admin</a> account assigned.</p> <p>This operation can only be called from the management account or the delegated administrator account of an organization for a member account.</p> <note> <p>The management account can't specify its own <code>AccountId</code>.</p> </note>
+   * Specifies the 12-digit account ID number of the Amazon Web Services account that you want to access or modify with this operation. To use this parameter, the caller must be an identity in the [organization's management account](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account) or a delegated administrator account. The specified account ID must be a member account in the same organization. The organization must have [all features enabled](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html), and the organization must have [trusted access](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html) enabled for the Account Management service, and optionally a [delegated admin](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin) account assigned.
+   *
+   * This operation can only be called from the management account or the delegated administrator account of an organization for a member account.
+   *
+   * > **Note:** The management account can't specify its own `AccountId`.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The new primary email address for use with the specified account. This must match the <code>PrimaryEmail</code> from the <code>StartPrimaryEmailUpdate</code> API call.</p>
+   * The new primary email address for use with the specified account. This must match the `PrimaryEmail` from the `StartPrimaryEmailUpdate` API call.
+   *
    * @public
    */
   PrimaryEmail: string | undefined;
 
   /**
-   * <p>The OTP code sent to the <code>PrimaryEmail</code> specified on the <code>StartPrimaryEmailUpdate</code> API call.</p>
+   * The OTP code sent to the `PrimaryEmail` specified on the `StartPrimaryEmailUpdate` API call.
+   *
    * @public
    */
   Otp: string | undefined;
@@ -36,25 +43,29 @@ export interface AcceptPrimaryEmailUpdateRequest {
  */
 export interface AcceptPrimaryEmailUpdateResponse {
   /**
-   * <p>Retrieves the status of the accepted primary email update request.</p>
+   * Retrieves the status of the accepted primary email update request.
+   *
    * @public
    */
   Status?: PrimaryEmailUpdateStatus | undefined;
 }
 
 /**
- * <p>The input failed to meet the constraints specified by the Amazon Web Services service in a specified field.</p>
+ * The input failed to meet the constraints specified by the Amazon Web Services service in a specified field.
+ *
  * @public
  */
 export interface ValidationExceptionField {
   /**
-   * <p>The field name where the invalid entry was detected.</p>
+   * The field name where the invalid entry was detected.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A message about the validation exception.</p>
+   * A message about the validation exception.
+   *
    * @public
    */
   message: string | undefined;
@@ -65,7 +76,16 @@ export interface ValidationExceptionField {
  */
 export interface GetAccountInformationRequest {
   /**
-   * <p>Specifies the 12 digit account ID number of the Amazon Web Services account that you want to access or modify with this operation.</p> <p>If you do not specify this parameter, it defaults to the Amazon Web Services account of the identity used to call the operation.</p> <p>To use this parameter, the caller must be an identity in the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">organization's management account</a> or a delegated administrator account, and the specified account ID must be a member account in the same organization. The organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">all features enabled</a>, and the organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-account.html">trusted access</a> enabled for the Account Management service, and optionally a <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin">delegated administrator</a> account assigned.</p> <note> <p>The management account can't specify its own <code>AccountId</code>; it must call the operation in standalone context by not including the <code>AccountId</code> parameter.</p> </note> <p>To call this operation on an account that is not a member of an organization, then don't specify this parameter, and call the operation using an identity belonging to the account whose contacts you wish to retrieve or modify.</p>
+   * Specifies the 12 digit account ID number of the Amazon Web Services account that you want to access or modify with this operation.
+   *
+   * If you do not specify this parameter, it defaults to the Amazon Web Services account of the identity used to call the operation.
+   *
+   * To use this parameter, the caller must be an identity in the [organization's management account](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account) or a delegated administrator account, and the specified account ID must be a member account in the same organization. The organization must have [all features enabled](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html), and the organization must have [trusted access](https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-account.html) enabled for the Account Management service, and optionally a [delegated administrator](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin) account assigned.
+   *
+   * > **Note:** The management account can't specify its own `AccountId`; it must call the operation in standalone context by not including the `AccountId` parameter.
+   *
+   * To call this operation on an account that is not a member of an organization, then don't specify this parameter, and call the operation using an identity belonging to the account whose contacts you wish to retrieve or modify.
+   *
    * @public
    */
   AccountId?: string | undefined;
@@ -76,25 +96,35 @@ export interface GetAccountInformationRequest {
  */
 export interface GetAccountInformationResponse {
   /**
-   * <p>Specifies the 12-digit account ID number of the Amazon Web Services account that you want to access or modify with this operation. To use this parameter, the caller must be an identity in the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">organization's management account</a> or a delegated administrator account. The specified account ID must be a member account in the same organization. The organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">all features enabled</a>, and the organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">trusted access</a> enabled for the Account Management service, and optionally a <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin">delegated admin</a> account assigned.</p> <p>This operation can only be called from the management account or the delegated administrator account of an organization for a member account.</p> <note> <p>The management account can't specify its own <code>AccountId</code>.</p> </note>
+   * Specifies the 12-digit account ID number of the Amazon Web Services account that you want to access or modify with this operation. To use this parameter, the caller must be an identity in the [organization's management account](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account) or a delegated administrator account. The specified account ID must be a member account in the same organization. The organization must have [all features enabled](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html), and the organization must have [trusted access](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html) enabled for the Account Management service, and optionally a [delegated admin](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin) account assigned.
+   *
+   * This operation can only be called from the management account or the delegated administrator account of an organization for a member account.
+   *
+   * > **Note:** The management account can't specify its own `AccountId`.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The name of the account.</p>
+   * The name of the account.
+   *
    * @public
    */
   AccountName?: string | undefined;
 
   /**
-   * <p>The date and time the account was created.</p>
+   * The date and time the account was created.
+   *
    * @public
    */
   AccountCreatedDate?: Date | undefined;
 
   /**
-   * <p>The state of the account. Each account state represents a specific phase in the account lifecycle. Use this information to manage account access, automate workflows, or trigger actions based on account state changes.</p> <p>Valid values: <code>PENDING_ACTIVATION | ACTIVE | SUSPENDED | CLOSED</code> </p>
+   * The state of the account. Each account state represents a specific phase in the account lifecycle. Use this information to manage account access, automate workflows, or trigger actions based on account state changes.
+   *
+   * Valid values: `PENDING_ACTIVATION | ACTIVE | SUSPENDED | CLOSED`
+   *
    * @public
    */
   AccountState?: AccountState | undefined;
@@ -105,13 +135,23 @@ export interface GetAccountInformationResponse {
  */
 export interface PutAccountNameRequest {
   /**
-   * <p>The name of the account.</p>
+   * The name of the account.
+   *
    * @public
    */
   AccountName: string | undefined;
 
   /**
-   * <p>Specifies the 12 digit account ID number of the Amazon Web Services account that you want to access or modify with this operation.</p> <p>If you do not specify this parameter, it defaults to the Amazon Web Services account of the identity used to call the operation.</p> <p>To use this parameter, the caller must be an identity in the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">organization's management account</a> or a delegated administrator account, and the specified account ID must be a member account in the same organization. The organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">all features enabled</a>, and the organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-account.html">trusted access</a> enabled for the Account Management service, and optionally a <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin">delegated administrator</a> account assigned.</p> <note> <p>The management account can't specify its own <code>AccountId</code>; it must call the operation in standalone context by not including the <code>AccountId</code> parameter.</p> </note> <p>To call this operation on an account that is not a member of an organization, then don't specify this parameter, and call the operation using an identity belonging to the account whose contacts you wish to retrieve or modify.</p>
+   * Specifies the 12 digit account ID number of the Amazon Web Services account that you want to access or modify with this operation.
+   *
+   * If you do not specify this parameter, it defaults to the Amazon Web Services account of the identity used to call the operation.
+   *
+   * To use this parameter, the caller must be an identity in the [organization's management account](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account) or a delegated administrator account, and the specified account ID must be a member account in the same organization. The organization must have [all features enabled](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html), and the organization must have [trusted access](https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-account.html) enabled for the Account Management service, and optionally a [delegated administrator](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin) account assigned.
+   *
+   * > **Note:** The management account can't specify its own `AccountId`; it must call the operation in standalone context by not including the `AccountId` parameter.
+   *
+   * To call this operation on an account that is not a member of an organization, then don't specify this parameter, and call the operation using an identity belonging to the account whose contacts you wish to retrieve or modify.
+   *
    * @public
    */
   AccountId?: string | undefined;
@@ -122,13 +162,23 @@ export interface PutAccountNameRequest {
  */
 export interface DeleteAlternateContactRequest {
   /**
-   * <p>Specifies which of the alternate contacts to delete. </p>
+   * Specifies which of the alternate contacts to delete.
+   *
    * @public
    */
   AlternateContactType: AlternateContactType | undefined;
 
   /**
-   * <p>Specifies the 12 digit account ID number of the Amazon Web Services account that you want to access or modify with this operation.</p> <p>If you do not specify this parameter, it defaults to the Amazon Web Services account of the identity used to call the operation.</p> <p>To use this parameter, the caller must be an identity in the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">organization's management account</a> or a delegated administrator account, and the specified account ID must be a member account in the same organization. The organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">all features enabled</a>, and the organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-account.html">trusted access</a> enabled for the Account Management service, and optionally a <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin">delegated administrator</a> account assigned.</p> <note> <p>The management account can't specify its own <code>AccountId</code>; it must call the operation in standalone context by not including the <code>AccountId</code> parameter.</p> </note> <p>To call this operation on an account that is not a member of an organization, then don't specify this parameter, and call the operation using an identity belonging to the account whose contacts you wish to retrieve or modify.</p>
+   * Specifies the 12 digit account ID number of the Amazon Web Services account that you want to access or modify with this operation.
+   *
+   * If you do not specify this parameter, it defaults to the Amazon Web Services account of the identity used to call the operation.
+   *
+   * To use this parameter, the caller must be an identity in the [organization's management account](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account) or a delegated administrator account, and the specified account ID must be a member account in the same organization. The organization must have [all features enabled](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html), and the organization must have [trusted access](https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-account.html) enabled for the Account Management service, and optionally a [delegated administrator](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin) account assigned.
+   *
+   * > **Note:** The management account can't specify its own `AccountId`; it must call the operation in standalone context by not including the `AccountId` parameter.
+   *
+   * To call this operation on an account that is not a member of an organization, then don't specify this parameter, and call the operation using an identity belonging to the account whose contacts you wish to retrieve or modify.
+   *
    * @public
    */
   AccountId?: string | undefined;
@@ -139,49 +189,65 @@ export interface DeleteAlternateContactRequest {
  */
 export interface GetAlternateContactRequest {
   /**
-   * <p>Specifies which alternate contact you want to retrieve.</p>
+   * Specifies which alternate contact you want to retrieve.
+   *
    * @public
    */
   AlternateContactType: AlternateContactType | undefined;
 
   /**
-   * <p>Specifies the 12 digit account ID number of the Amazon Web Services account that you want to access or modify with this operation.</p> <p>If you do not specify this parameter, it defaults to the Amazon Web Services account of the identity used to call the operation.</p> <p>To use this parameter, the caller must be an identity in the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">organization's management account</a> or a delegated administrator account, and the specified account ID must be a member account in the same organization. The organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">all features enabled</a>, and the organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-account.html">trusted access</a> enabled for the Account Management service, and optionally a <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin">delegated administrator</a> account assigned.</p> <note> <p>The management account can't specify its own <code>AccountId</code>; it must call the operation in standalone context by not including the <code>AccountId</code> parameter.</p> </note> <p>To call this operation on an account that is not a member of an organization, then don't specify this parameter, and call the operation using an identity belonging to the account whose contacts you wish to retrieve or modify.</p>
+   * Specifies the 12 digit account ID number of the Amazon Web Services account that you want to access or modify with this operation.
+   *
+   * If you do not specify this parameter, it defaults to the Amazon Web Services account of the identity used to call the operation.
+   *
+   * To use this parameter, the caller must be an identity in the [organization's management account](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account) or a delegated administrator account, and the specified account ID must be a member account in the same organization. The organization must have [all features enabled](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html), and the organization must have [trusted access](https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-account.html) enabled for the Account Management service, and optionally a [delegated administrator](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin) account assigned.
+   *
+   * > **Note:** The management account can't specify its own `AccountId`; it must call the operation in standalone context by not including the `AccountId` parameter.
+   *
+   * To call this operation on an account that is not a member of an organization, then don't specify this parameter, and call the operation using an identity belonging to the account whose contacts you wish to retrieve or modify.
+   *
    * @public
    */
   AccountId?: string | undefined;
 }
 
 /**
- * <p>A structure that contains the details of an alternate contact associated with an Amazon Web Services account</p>
+ * A structure that contains the details of an alternate contact associated with an Amazon Web Services account
+ *
  * @public
  */
 export interface AlternateContact {
   /**
-   * <p>The name associated with this alternate contact.</p>
+   * The name associated with this alternate contact.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The title associated with this alternate contact.</p>
+   * The title associated with this alternate contact.
+   *
    * @public
    */
   Title?: string | undefined;
 
   /**
-   * <p>The email address associated with this alternate contact.</p>
+   * The email address associated with this alternate contact.
+   *
    * @public
    */
   EmailAddress?: string | undefined;
 
   /**
-   * <p>The phone number associated with this alternate contact.</p>
+   * The phone number associated with this alternate contact.
+   *
    * @public
    */
   PhoneNumber?: string | undefined;
 
   /**
-   * <p>The type of alternate contact.</p>
+   * The type of alternate contact.
+   *
    * @public
    */
   AlternateContactType?: AlternateContactType | undefined;
@@ -192,7 +258,8 @@ export interface AlternateContact {
  */
 export interface GetAlternateContactResponse {
   /**
-   * <p>A structure that contains the details for the specified alternate contact.</p>
+   * A structure that contains the details for the specified alternate contact.
+   *
    * @public
    */
   AlternateContact?: AlternateContact | undefined;
@@ -203,37 +270,51 @@ export interface GetAlternateContactResponse {
  */
 export interface PutAlternateContactRequest {
   /**
-   * <p>Specifies a name for the alternate contact.</p>
+   * Specifies a name for the alternate contact.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>Specifies a title for the alternate contact.</p>
+   * Specifies a title for the alternate contact.
+   *
    * @public
    */
   Title: string | undefined;
 
   /**
-   * <p>Specifies an email address for the alternate contact. </p>
+   * Specifies an email address for the alternate contact.
+   *
    * @public
    */
   EmailAddress: string | undefined;
 
   /**
-   * <p>Specifies a phone number for the alternate contact.</p>
+   * Specifies a phone number for the alternate contact.
+   *
    * @public
    */
   PhoneNumber: string | undefined;
 
   /**
-   * <p>Specifies which alternate contact you want to create or update.</p>
+   * Specifies which alternate contact you want to create or update.
+   *
    * @public
    */
   AlternateContactType: AlternateContactType | undefined;
 
   /**
-   * <p>Specifies the 12 digit account ID number of the Amazon Web Services account that you want to access or modify with this operation.</p> <p>If you do not specify this parameter, it defaults to the Amazon Web Services account of the identity used to call the operation.</p> <p>To use this parameter, the caller must be an identity in the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">organization's management account</a> or a delegated administrator account, and the specified account ID must be a member account in the same organization. The organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">all features enabled</a>, and the organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-account.html">trusted access</a> enabled for the Account Management service, and optionally a <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin">delegated administrator</a> account assigned.</p> <note> <p>The management account can't specify its own <code>AccountId</code>; it must call the operation in standalone context by not including the <code>AccountId</code> parameter.</p> </note> <p>To call this operation on an account that is not a member of an organization, then don't specify this parameter, and call the operation using an identity belonging to the account whose contacts you wish to retrieve or modify.</p>
+   * Specifies the 12 digit account ID number of the Amazon Web Services account that you want to access or modify with this operation.
+   *
+   * If you do not specify this parameter, it defaults to the Amazon Web Services account of the identity used to call the operation.
+   *
+   * To use this parameter, the caller must be an identity in the [organization's management account](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account) or a delegated administrator account, and the specified account ID must be a member account in the same organization. The organization must have [all features enabled](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html), and the organization must have [trusted access](https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-account.html) enabled for the Account Management service, and optionally a [delegated administrator](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin) account assigned.
+   *
+   * > **Note:** The management account can't specify its own `AccountId`; it must call the operation in standalone context by not including the `AccountId` parameter.
+   *
+   * To call this operation on an account that is not a member of an organization, then don't specify this parameter, and call the operation using an identity belonging to the account whose contacts you wish to retrieve or modify.
+   *
    * @public
    */
   AccountId?: string | undefined;
@@ -244,7 +325,16 @@ export interface PutAlternateContactRequest {
  */
 export interface GetGovCloudAccountInformationRequest {
   /**
-   * <p>Specifies the 12 digit account ID number of the Amazon Web Services account that you want to access or modify with this operation.</p> <p>If you do not specify this parameter, it defaults to the Amazon Web Services account of the identity used to call the operation.</p> <p>To use this parameter, the caller must be an identity in the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">organization's management account</a> or a delegated administrator account, and the specified account ID must be a member account in the same organization. The organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">all features enabled</a>, and the organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-account.html">trusted access</a> enabled for the Account Management service, and optionally a <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin">delegated administrator</a> account assigned.</p> <note> <p>The management account can't specify its own <code>AccountId</code>; it must call the operation in standalone context by not including the <code>AccountId</code> parameter.</p> </note> <p>To call this operation on an account that is not a member of an organization, then don't specify this parameter, and call the operation using an identity belonging to the account whose contacts you wish to retrieve or modify.</p>
+   * Specifies the 12 digit account ID number of the Amazon Web Services account that you want to access or modify with this operation.
+   *
+   * If you do not specify this parameter, it defaults to the Amazon Web Services account of the identity used to call the operation.
+   *
+   * To use this parameter, the caller must be an identity in the [organization's management account](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account) or a delegated administrator account, and the specified account ID must be a member account in the same organization. The organization must have [all features enabled](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html), and the organization must have [trusted access](https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-account.html) enabled for the Account Management service, and optionally a [delegated administrator](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin) account assigned.
+   *
+   * > **Note:** The management account can't specify its own `AccountId`; it must call the operation in standalone context by not including the `AccountId` parameter.
+   *
+   * To call this operation on an account that is not a member of an organization, then don't specify this parameter, and call the operation using an identity belonging to the account whose contacts you wish to retrieve or modify.
+   *
    * @public
    */
   StandardAccountId?: string | undefined;
@@ -255,13 +345,15 @@ export interface GetGovCloudAccountInformationRequest {
  */
 export interface GetGovCloudAccountInformationResponse {
   /**
-   * <p>The 12-digit account ID number of the linked GovCloud account.</p>
+   * The 12-digit account ID number of the linked GovCloud account.
+   *
    * @public
    */
   GovCloudAccountId: string | undefined;
 
   /**
-   * <p>The account state of the linked GovCloud account.</p>
+   * The account state of the linked GovCloud account.
+   *
    * @public
    */
   AccountState: AwsAccountState | undefined;
@@ -272,85 +364,103 @@ export interface GetGovCloudAccountInformationResponse {
  */
 export interface GetContactInformationRequest {
   /**
-   * <p>Specifies the 12-digit account ID number of the Amazon Web Services account that you want to access or modify with this operation. If you don't specify this parameter, it defaults to the Amazon Web Services account of the identity used to call the operation. To use this parameter, the caller must be an identity in the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">organization's management account</a> or a delegated administrator account. The specified account ID must be a member account in the same organization. The organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">all features enabled</a>, and the organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">trusted access</a> enabled for the Account Management service, and optionally a <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin">delegated admin</a> account assigned.</p> <note> <p>The management account can't specify its own <code>AccountId</code>. It must call the operation in standalone context by not including the <code>AccountId</code> parameter.</p> </note> <p>To call this operation on an account that is not a member of an organization, don't specify this parameter. Instead, call the operation using an identity belonging to the account whose contacts you wish to retrieve or modify.</p>
+   * Specifies the 12-digit account ID number of the Amazon Web Services account that you want to access or modify with this operation. If you don't specify this parameter, it defaults to the Amazon Web Services account of the identity used to call the operation. To use this parameter, the caller must be an identity in the [organization's management account](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account) or a delegated administrator account. The specified account ID must be a member account in the same organization. The organization must have [all features enabled](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html), and the organization must have [trusted access](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html) enabled for the Account Management service, and optionally a [delegated admin](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin) account assigned.
+   *
+   * > **Note:** The management account can't specify its own `AccountId`. It must call the operation in standalone context by not including the `AccountId` parameter.
+   *
+   * To call this operation on an account that is not a member of an organization, don't specify this parameter. Instead, call the operation using an identity belonging to the account whose contacts you wish to retrieve or modify.
+   *
    * @public
    */
   AccountId?: string | undefined;
 }
 
 /**
- * <p>Contains the details of the primary contact information associated with an Amazon Web Services account.</p>
+ * Contains the details of the primary contact information associated with an Amazon Web Services account.
+ *
  * @public
  */
 export interface ContactInformation {
   /**
-   * <p>The full name of the primary contact address.</p>
+   * The full name of the primary contact address.
+   *
    * @public
    */
   FullName: string | undefined;
 
   /**
-   * <p>The first line of the primary contact address.</p>
+   * The first line of the primary contact address.
+   *
    * @public
    */
   AddressLine1: string | undefined;
 
   /**
-   * <p>The second line of the primary contact address, if any.</p>
+   * The second line of the primary contact address, if any.
+   *
    * @public
    */
   AddressLine2?: string | undefined;
 
   /**
-   * <p>The third line of the primary contact address, if any.</p>
+   * The third line of the primary contact address, if any.
+   *
    * @public
    */
   AddressLine3?: string | undefined;
 
   /**
-   * <p>The city of the primary contact address.</p>
+   * The city of the primary contact address.
+   *
    * @public
    */
   City: string | undefined;
 
   /**
-   * <p>The state or region of the primary contact address. If the mailing address is within the United States (US), the value in this field can be either a two character state code (for example, <code>NJ</code>) or the full state name (for example, <code>New Jersey</code>). This field is required in the following countries: <code>US</code>, <code>CA</code>, <code>GB</code>, <code>DE</code>, <code>JP</code>, <code>IN</code>, and <code>BR</code>.</p>
+   * The state or region of the primary contact address. If the mailing address is within the United States (US), the value in this field can be either a two character state code (for example, `NJ`) or the full state name (for example, `New Jersey`). This field is required in the following countries: `US`, `CA`, `GB`, `DE`, `JP`, `IN`, and `BR`.
+   *
    * @public
    */
   StateOrRegion?: string | undefined;
 
   /**
-   * <p>The district or county of the primary contact address, if any.</p>
+   * The district or county of the primary contact address, if any.
+   *
    * @public
    */
   DistrictOrCounty?: string | undefined;
 
   /**
-   * <p>The postal code of the primary contact address.</p>
+   * The postal code of the primary contact address.
+   *
    * @public
    */
   PostalCode: string | undefined;
 
   /**
-   * <p>The ISO-3166 two-letter country code for the primary contact address.</p>
+   * The ISO-3166 two-letter country code for the primary contact address.
+   *
    * @public
    */
   CountryCode: string | undefined;
 
   /**
-   * <p>The phone number of the primary contact information. The number will be validated and, in some countries, checked for activation.</p>
+   * The phone number of the primary contact information. The number will be validated and, in some countries, checked for activation.
+   *
    * @public
    */
   PhoneNumber: string | undefined;
 
   /**
-   * <p>The name of the company associated with the primary contact information, if any.</p>
+   * The name of the company associated with the primary contact information, if any.
+   *
    * @public
    */
   CompanyName?: string | undefined;
 
   /**
-   * <p>The URL of the website associated with the primary contact information, if any.</p>
+   * The URL of the website associated with the primary contact information, if any.
+   *
    * @public
    */
   WebsiteUrl?: string | undefined;
@@ -361,13 +471,20 @@ export interface ContactInformation {
  */
 export interface GetContactInformationResponse {
   /**
-   * <p>Contains the details of the primary contact information associated with an Amazon Web Services account.</p>
+   * Contains the details of the primary contact information associated with an Amazon Web Services account.
+   *
    * @public
    */
   ContactInformation?: ContactInformation | undefined;
 
   /**
-   * <p>The verification status of the phone number in the primary contact information associated with an Amazon Web Services account. Valid values:</p> <ul> <li> <p> <code>PENDING</code> – A one-time passcode has been sent and is waiting to be submitted.</p> </li> <li> <p> <code>VERIFIED</code> – The phone number has been verified.</p> </li> <li> <p> <code>UNVERIFIED</code> – The phone number has not been verified.</p> </li> <li> <p> <code>NOT_SUPPORTED</code> – Phone number verification isn't available for this account.</p> </li> </ul>
+   * The verification status of the phone number in the primary contact information associated with an Amazon Web Services account. Valid values:
+   *
+   * - `PENDING` – A one-time passcode has been sent and is waiting to be submitted.
+   * - `VERIFIED` – The phone number has been verified.
+   * - `UNVERIFIED` – The phone number has not been verified.
+   * - `NOT_SUPPORTED` – Phone number verification isn't available for this account.
+   *
    * @public
    */
   VerificationStatus?: PhoneNumberVerificationStatus | undefined;
@@ -378,13 +495,19 @@ export interface GetContactInformationResponse {
  */
 export interface PutContactInformationRequest {
   /**
-   * <p>Contains the details of the primary contact information associated with an Amazon Web Services account.</p>
+   * Contains the details of the primary contact information associated with an Amazon Web Services account.
+   *
    * @public
    */
   ContactInformation: ContactInformation | undefined;
 
   /**
-   * <p>Specifies the 12-digit account ID number of the Amazon Web Services account that you want to access or modify with this operation. If you don't specify this parameter, it defaults to the Amazon Web Services account of the identity used to call the operation. To use this parameter, the caller must be an identity in the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">organization's management account</a> or a delegated administrator account. The specified account ID must be a member account in the same organization. The organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">all features enabled</a>, and the organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-account.html">trusted access</a> enabled for the Account Management service, and optionally a <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin">delegated administrator</a> account assigned.</p> <note> <p>The management account can't specify its own <code>AccountId</code>. It must call the operation in standalone context by not including the <code>AccountId</code> parameter.</p> </note> <p>To call this operation on an account that is not a member of an organization, don't specify this parameter. Instead, call the operation using an identity belonging to the account whose contacts you wish to retrieve or modify.</p>
+   * Specifies the 12-digit account ID number of the Amazon Web Services account that you want to access or modify with this operation. If you don't specify this parameter, it defaults to the Amazon Web Services account of the identity used to call the operation. To use this parameter, the caller must be an identity in the [organization's management account](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account) or a delegated administrator account. The specified account ID must be a member account in the same organization. The organization must have [all features enabled](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html), and the organization must have [trusted access](https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-account.html) enabled for the Account Management service, and optionally a [delegated administrator](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin) account assigned.
+   *
+   * > **Note:** The management account can't specify its own `AccountId`. It must call the operation in standalone context by not including the `AccountId` parameter.
+   *
+   * To call this operation on an account that is not a member of an organization, don't specify this parameter. Instead, call the operation using an identity belonging to the account whose contacts you wish to retrieve or modify.
+   *
    * @public
    */
   AccountId?: string | undefined;
@@ -395,7 +518,16 @@ export interface PutContactInformationRequest {
  */
 export interface SendPhoneNumberVerificationRequest {
   /**
-   * <p>Specifies the 12 digit account ID number of the Amazon Web Services account that you want to access or modify with this operation.</p> <p>If you do not specify this parameter, it defaults to the Amazon Web Services account of the identity used to call the operation.</p> <p>To use this parameter, the caller must be an identity in the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">organization's management account</a> or a delegated administrator account, and the specified account ID must be a member account in the same organization. The organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">all features enabled</a>, and the organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-account.html">trusted access</a> enabled for the Account Management service, and optionally a <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin">delegated administrator</a> account assigned.</p> <note> <p>The management account can't specify its own <code>AccountId</code>; it must call the operation in standalone context by not including the <code>AccountId</code> parameter.</p> </note> <p>To call this operation on an account that is not a member of an organization, then don't specify this parameter, and call the operation using an identity belonging to the account whose contacts you wish to retrieve or modify.</p>
+   * Specifies the 12 digit account ID number of the Amazon Web Services account that you want to access or modify with this operation.
+   *
+   * If you do not specify this parameter, it defaults to the Amazon Web Services account of the identity used to call the operation.
+   *
+   * To use this parameter, the caller must be an identity in the [organization's management account](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account) or a delegated administrator account, and the specified account ID must be a member account in the same organization. The organization must have [all features enabled](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html), and the organization must have [trusted access](https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-account.html) enabled for the Account Management service, and optionally a [delegated administrator](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin) account assigned.
+   *
+   * > **Note:** The management account can't specify its own `AccountId`; it must call the operation in standalone context by not including the `AccountId` parameter.
+   *
+   * To call this operation on an account that is not a member of an organization, then don't specify this parameter, and call the operation using an identity belonging to the account whose contacts you wish to retrieve or modify.
+   *
    * @public
    */
   AccountId?: string | undefined;
@@ -406,7 +538,13 @@ export interface SendPhoneNumberVerificationRequest {
  */
 export interface SendPhoneNumberVerificationResponse {
   /**
-   * <p>The verification status of the phone number in the primary contact information after the one-time passcode is sent. Valid values:</p> <ul> <li> <p> <code>PENDING</code> – A one-time passcode has been sent and is waiting to be submitted.</p> </li> <li> <p> <code>VERIFIED</code> – The phone number has been verified.</p> </li> <li> <p> <code>UNVERIFIED</code> – The phone number has not been verified.</p> </li> <li> <p> <code>NOT_SUPPORTED</code> – Phone number verification isn't available for this account.</p> </li> </ul>
+   * The verification status of the phone number in the primary contact information after the one-time passcode is sent. Valid values:
+   *
+   * - `PENDING` – A one-time passcode has been sent and is waiting to be submitted.
+   * - `VERIFIED` – The phone number has been verified.
+   * - `UNVERIFIED` – The phone number has not been verified.
+   * - `NOT_SUPPORTED` – Phone number verification isn't available for this account.
+   *
    * @public
    */
   Status?: PhoneNumberVerificationStatus | undefined;
@@ -417,13 +555,23 @@ export interface SendPhoneNumberVerificationResponse {
  */
 export interface VerifyPhoneNumberRequest {
   /**
-   * <p>Specifies the 12 digit account ID number of the Amazon Web Services account that you want to access or modify with this operation.</p> <p>If you do not specify this parameter, it defaults to the Amazon Web Services account of the identity used to call the operation.</p> <p>To use this parameter, the caller must be an identity in the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">organization's management account</a> or a delegated administrator account, and the specified account ID must be a member account in the same organization. The organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">all features enabled</a>, and the organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-account.html">trusted access</a> enabled for the Account Management service, and optionally a <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin">delegated administrator</a> account assigned.</p> <note> <p>The management account can't specify its own <code>AccountId</code>; it must call the operation in standalone context by not including the <code>AccountId</code> parameter.</p> </note> <p>To call this operation on an account that is not a member of an organization, then don't specify this parameter, and call the operation using an identity belonging to the account whose contacts you wish to retrieve or modify.</p>
+   * Specifies the 12 digit account ID number of the Amazon Web Services account that you want to access or modify with this operation.
+   *
+   * If you do not specify this parameter, it defaults to the Amazon Web Services account of the identity used to call the operation.
+   *
+   * To use this parameter, the caller must be an identity in the [organization's management account](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account) or a delegated administrator account, and the specified account ID must be a member account in the same organization. The organization must have [all features enabled](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html), and the organization must have [trusted access](https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-account.html) enabled for the Account Management service, and optionally a [delegated administrator](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin) account assigned.
+   *
+   * > **Note:** The management account can't specify its own `AccountId`; it must call the operation in standalone context by not including the `AccountId` parameter.
+   *
+   * To call this operation on an account that is not a member of an organization, then don't specify this parameter, and call the operation using an identity belonging to the account whose contacts you wish to retrieve or modify.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The one-time passcode sent to the phone number in the primary contact information by the <code>SendPhoneNumberVerification</code> operation.</p>
+   * The one-time passcode sent to the phone number in the primary contact information by the `SendPhoneNumberVerification` operation.
+   *
    * @public
    */
   Otp: string | undefined;
@@ -434,7 +582,13 @@ export interface VerifyPhoneNumberRequest {
  */
 export interface VerifyPhoneNumberResponse {
   /**
-   * <p>The verification status of the phone number in the primary contact information after the submitted one-time passcode is evaluated. Valid values:</p> <ul> <li> <p> <code>PENDING</code> – A one-time passcode has been sent and is waiting to be submitted.</p> </li> <li> <p> <code>VERIFIED</code> – The phone number has been verified.</p> </li> <li> <p> <code>UNVERIFIED</code> – The phone number has not been verified.</p> </li> <li> <p> <code>NOT_SUPPORTED</code> – Phone number verification isn't available for this account.</p> </li> </ul>
+   * The verification status of the phone number in the primary contact information after the submitted one-time passcode is evaluated. Valid values:
+   *
+   * - `PENDING` – A one-time passcode has been sent and is waiting to be submitted.
+   * - `VERIFIED` – The phone number has been verified.
+   * - `UNVERIFIED` – The phone number has not been verified.
+   * - `NOT_SUPPORTED` – Phone number verification isn't available for this account.
+   *
    * @public
    */
   Status?: PhoneNumberVerificationStatus | undefined;
@@ -445,7 +599,12 @@ export interface VerifyPhoneNumberResponse {
  */
 export interface GetPrimaryEmailRequest {
   /**
-   * <p>Specifies the 12-digit account ID number of the Amazon Web Services account that you want to access or modify with this operation. To use this parameter, the caller must be an identity in the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">organization's management account</a> or a delegated administrator account. The specified account ID must be a member account in the same organization. The organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">all features enabled</a>, and the organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">trusted access</a> enabled for the Account Management service, and optionally a <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin">delegated admin</a> account assigned.</p> <p>This operation can only be called from the management account or the delegated administrator account of an organization for a member account.</p> <note> <p>The management account can't specify its own <code>AccountId</code>.</p> </note>
+   * Specifies the 12-digit account ID number of the Amazon Web Services account that you want to access or modify with this operation. To use this parameter, the caller must be an identity in the [organization's management account](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account) or a delegated administrator account. The specified account ID must be a member account in the same organization. The organization must have [all features enabled](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html), and the organization must have [trusted access](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html) enabled for the Account Management service, and optionally a [delegated admin](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin) account assigned.
+   *
+   * This operation can only be called from the management account or the delegated administrator account of an organization for a member account.
+   *
+   * > **Note:** The management account can't specify its own `AccountId`.
+   *
    * @public
    */
   AccountId: string | undefined;
@@ -456,7 +615,8 @@ export interface GetPrimaryEmailRequest {
  */
 export interface GetPrimaryEmailResponse {
   /**
-   * <p>Retrieves the primary email address associated with the specified account.</p>
+   * Retrieves the primary email address associated with the specified account.
+   *
    * @public
    */
   PrimaryEmail?: string | undefined;
@@ -467,7 +627,12 @@ export interface GetPrimaryEmailResponse {
  */
 export interface GetPrimaryEmailUpdateStatusRequest {
   /**
-   * <p>Specifies the 12-digit account ID number of the Amazon Web Services account that you want to access or modify with this operation. To use this parameter, the caller must be an identity in the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">organization's management account</a> or a delegated administrator account. The specified account ID must be a member account in the same organization. The organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">all features enabled</a>, and the organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">trusted access</a> enabled for the Account Management service, and optionally a <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin">delegated admin</a> account assigned.</p> <p>This operation can only be called from the management account or the delegated administrator account of an organization for a member account.</p> <note> <p>The management account can't specify its own <code>AccountId</code>.</p> </note>
+   * Specifies the 12-digit account ID number of the Amazon Web Services account that you want to access or modify with this operation. To use this parameter, the caller must be an identity in the [organization's management account](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account) or a delegated administrator account. The specified account ID must be a member account in the same organization. The organization must have [all features enabled](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html), and the organization must have [trusted access](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html) enabled for the Account Management service, and optionally a [delegated admin](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin) account assigned.
+   *
+   * This operation can only be called from the management account or the delegated administrator account of an organization for a member account.
+   *
+   * > **Note:** The management account can't specify its own `AccountId`.
+   *
    * @public
    */
   AccountId?: string | undefined;
@@ -478,13 +643,15 @@ export interface GetPrimaryEmailUpdateStatusRequest {
  */
 export interface GetPrimaryEmailUpdateStatusResponse {
   /**
-   * <p>The status of the most recent primary email update request.</p>
+   * The status of the most recent primary email update request.
+   *
    * @public
    */
   Status: PrimaryEmailUpdateStatus | undefined;
 
   /**
-   * <p>The date and time that the most recent primary email update status was last changed.</p>
+   * The date and time that the most recent primary email update status was last changed.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
@@ -495,13 +662,19 @@ export interface GetPrimaryEmailUpdateStatusResponse {
  */
 export interface StartPrimaryEmailUpdateRequest {
   /**
-   * <p>Specifies the 12-digit account ID number of the Amazon Web Services account that you want to access or modify with this operation. To use this parameter, the caller must be an identity in the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">organization's management account</a> or a delegated administrator account. The specified account ID must be a member account in the same organization. The organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">all features enabled</a>, and the organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">trusted access</a> enabled for the Account Management service, and optionally a <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin">delegated admin</a> account assigned.</p> <p>This operation can only be called from the management account or the delegated administrator account of an organization for a member account.</p> <note> <p>The management account can't specify its own <code>AccountId</code>.</p> </note>
+   * Specifies the 12-digit account ID number of the Amazon Web Services account that you want to access or modify with this operation. To use this parameter, the caller must be an identity in the [organization's management account](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account) or a delegated administrator account. The specified account ID must be a member account in the same organization. The organization must have [all features enabled](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html), and the organization must have [trusted access](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html) enabled for the Account Management service, and optionally a [delegated admin](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin) account assigned.
+   *
+   * This operation can only be called from the management account or the delegated administrator account of an organization for a member account.
+   *
+   * > **Note:** The management account can't specify its own `AccountId`.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The new primary email address (also known as the root user email address) to use in the specified account.</p>
+   * The new primary email address (also known as the root user email address) to use in the specified account.
+   *
    * @public
    */
   PrimaryEmail: string | undefined;
@@ -512,7 +685,8 @@ export interface StartPrimaryEmailUpdateRequest {
  */
 export interface StartPrimaryEmailUpdateResponse {
   /**
-   * <p>The status of the primary email update request.</p>
+   * The status of the primary email update request.
+   *
    * @public
    */
   Status?: PrimaryEmailUpdateStatus | undefined;
@@ -523,13 +697,19 @@ export interface StartPrimaryEmailUpdateResponse {
  */
 export interface DisableRegionRequest {
   /**
-   * <p>Specifies the 12-digit account ID number of the Amazon Web Services account that you want to access or modify with this operation. If you don't specify this parameter, it defaults to the Amazon Web Services account of the identity used to call the operation. To use this parameter, the caller must be an identity in the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">organization's management account</a> or a delegated administrator account. The specified account ID must be a member account in the same organization. The organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">all features enabled</a>, and the organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">trusted access</a> enabled for the Account Management service, and optionally a <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin">delegated admin</a> account assigned.</p> <note> <p>The management account can't specify its own <code>AccountId</code>. It must call the operation in standalone context by not including the <code>AccountId</code> parameter.</p> </note> <p>To call this operation on an account that is not a member of an organization, don't specify this parameter. Instead, call the operation using an identity belonging to the account whose contacts you wish to retrieve or modify.</p>
+   * Specifies the 12-digit account ID number of the Amazon Web Services account that you want to access or modify with this operation. If you don't specify this parameter, it defaults to the Amazon Web Services account of the identity used to call the operation. To use this parameter, the caller must be an identity in the [organization's management account](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account) or a delegated administrator account. The specified account ID must be a member account in the same organization. The organization must have [all features enabled](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html), and the organization must have [trusted access](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html) enabled for the Account Management service, and optionally a [delegated admin](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin) account assigned.
+   *
+   * > **Note:** The management account can't specify its own `AccountId`. It must call the operation in standalone context by not including the `AccountId` parameter.
+   *
+   * To call this operation on an account that is not a member of an organization, don't specify this parameter. Instead, call the operation using an identity belonging to the account whose contacts you wish to retrieve or modify.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>Specifies the Region-code for a given Region name (for example, <code>af-south-1</code>). When you disable a Region, Amazon Web Services performs actions to deactivate that Region in your account, such as destroying IAM resources in the Region. This process takes a few minutes for most accounts, but this can take several hours. You cannot enable the Region until the disabling process is fully completed.</p>
+   * Specifies the Region-code for a given Region name (for example, `af-south-1`). When you disable a Region, Amazon Web Services performs actions to deactivate that Region in your account, such as destroying IAM resources in the Region. This process takes a few minutes for most accounts, but this can take several hours. You cannot enable the Region until the disabling process is fully completed.
+   *
    * @public
    */
   RegionName: string | undefined;
@@ -540,13 +720,19 @@ export interface DisableRegionRequest {
  */
 export interface EnableRegionRequest {
   /**
-   * <p>Specifies the 12-digit account ID number of the Amazon Web Services account that you want to access or modify with this operation. If you don't specify this parameter, it defaults to the Amazon Web Services account of the identity used to call the operation. To use this parameter, the caller must be an identity in the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">organization's management account</a> or a delegated administrator account. The specified account ID must be a member account in the same organization. The organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">all features enabled</a>, and the organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">trusted access</a> enabled for the Account Management service, and optionally a <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin">delegated admin</a> account assigned.</p> <note> <p>The management account can't specify its own <code>AccountId</code>. It must call the operation in standalone context by not including the <code>AccountId</code> parameter.</p> </note> <p>To call this operation on an account that is not a member of an organization, don't specify this parameter. Instead, call the operation using an identity belonging to the account whose contacts you wish to retrieve or modify.</p>
+   * Specifies the 12-digit account ID number of the Amazon Web Services account that you want to access or modify with this operation. If you don't specify this parameter, it defaults to the Amazon Web Services account of the identity used to call the operation. To use this parameter, the caller must be an identity in the [organization's management account](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account) or a delegated administrator account. The specified account ID must be a member account in the same organization. The organization must have [all features enabled](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html), and the organization must have [trusted access](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html) enabled for the Account Management service, and optionally a [delegated admin](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin) account assigned.
+   *
+   * > **Note:** The management account can't specify its own `AccountId`. It must call the operation in standalone context by not including the `AccountId` parameter.
+   *
+   * To call this operation on an account that is not a member of an organization, don't specify this parameter. Instead, call the operation using an identity belonging to the account whose contacts you wish to retrieve or modify.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>Specifies the Region-code for a given Region name (for example, <code>af-south-1</code>). When you enable a Region, Amazon Web Services performs actions to prepare your account in that Region, such as distributing your IAM resources to the Region. This process takes a few minutes for most accounts, but it can take several hours. You cannot use the Region until this process is complete. Furthermore, you cannot disable the Region until the enabling process is fully completed.</p>
+   * Specifies the Region-code for a given Region name (for example, `af-south-1`). When you enable a Region, Amazon Web Services performs actions to prepare your account in that Region, such as distributing your IAM resources to the Region. This process takes a few minutes for most accounts, but it can take several hours. You cannot use the Region until this process is complete. Furthermore, you cannot disable the Region until the enabling process is fully completed.
+   *
    * @public
    */
   RegionName: string | undefined;
@@ -557,13 +743,19 @@ export interface EnableRegionRequest {
  */
 export interface GetRegionOptStatusRequest {
   /**
-   * <p>Specifies the 12-digit account ID number of the Amazon Web Services account that you want to access or modify with this operation. If you don't specify this parameter, it defaults to the Amazon Web Services account of the identity used to call the operation. To use this parameter, the caller must be an identity in the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">organization's management account</a> or a delegated administrator account. The specified account ID must be a member account in the same organization. The organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">all features enabled</a>, and the organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">trusted access</a> enabled for the Account Management service, and optionally a <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin">delegated admin</a> account assigned.</p> <note> <p>The management account can't specify its own <code>AccountId</code>. It must call the operation in standalone context by not including the <code>AccountId</code> parameter.</p> </note> <p>To call this operation on an account that is not a member of an organization, don't specify this parameter. Instead, call the operation using an identity belonging to the account whose contacts you wish to retrieve or modify.</p>
+   * Specifies the 12-digit account ID number of the Amazon Web Services account that you want to access or modify with this operation. If you don't specify this parameter, it defaults to the Amazon Web Services account of the identity used to call the operation. To use this parameter, the caller must be an identity in the [organization's management account](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account) or a delegated administrator account. The specified account ID must be a member account in the same organization. The organization must have [all features enabled](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html), and the organization must have [trusted access](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html) enabled for the Account Management service, and optionally a [delegated admin](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin) account assigned.
+   *
+   * > **Note:** The management account can't specify its own `AccountId`. It must call the operation in standalone context by not including the `AccountId` parameter.
+   *
+   * To call this operation on an account that is not a member of an organization, don't specify this parameter. Instead, call the operation using an identity belonging to the account whose contacts you wish to retrieve or modify.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>Specifies the Region-code for a given Region name (for example, <code>af-south-1</code>). This function will return the status of whatever Region you pass into this parameter. </p>
+   * Specifies the Region-code for a given Region name (for example, `af-south-1`). This function will return the status of whatever Region you pass into this parameter.
+   *
    * @public
    */
   RegionName: string | undefined;
@@ -574,13 +766,15 @@ export interface GetRegionOptStatusRequest {
  */
 export interface GetRegionOptStatusResponse {
   /**
-   * <p>The Region code that was passed in.</p>
+   * The Region code that was passed in.
+   *
    * @public
    */
   RegionName?: string | undefined;
 
   /**
-   * <p>One of the potential statuses a Region can undergo (Enabled, Enabling, Disabled, Disabling, Enabled_By_Default).</p>
+   * One of the potential statuses a Region can undergo (Enabled, Enabling, Disabled, Disabling, Enabled_By_Default).
+   *
    * @public
    */
   RegionOptStatus?: RegionOptStatus | undefined;
@@ -591,43 +785,54 @@ export interface GetRegionOptStatusResponse {
  */
 export interface ListRegionsRequest {
   /**
-   * <p>Specifies the 12-digit account ID number of the Amazon Web Services account that you want to access or modify with this operation. If you don't specify this parameter, it defaults to the Amazon Web Services account of the identity used to call the operation. To use this parameter, the caller must be an identity in the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">organization's management account</a> or a delegated administrator account. The specified account ID must be a member account in the same organization. The organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">all features enabled</a>, and the organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">trusted access</a> enabled for the Account Management service, and optionally a <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin">delegated admin</a> account assigned.</p> <note> <p>The management account can't specify its own <code>AccountId</code>. It must call the operation in standalone context by not including the <code>AccountId</code> parameter.</p> </note> <p>To call this operation on an account that is not a member of an organization, don't specify this parameter. Instead, call the operation using an identity belonging to the account whose contacts you wish to retrieve or modify.</p>
+   * Specifies the 12-digit account ID number of the Amazon Web Services account that you want to access or modify with this operation. If you don't specify this parameter, it defaults to the Amazon Web Services account of the identity used to call the operation. To use this parameter, the caller must be an identity in the [organization's management account](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account) or a delegated administrator account. The specified account ID must be a member account in the same organization. The organization must have [all features enabled](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html), and the organization must have [trusted access](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html) enabled for the Account Management service, and optionally a [delegated admin](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin) account assigned.
+   *
+   * > **Note:** The management account can't specify its own `AccountId`. It must call the operation in standalone context by not including the `AccountId` parameter.
+   *
+   * To call this operation on an account that is not a member of an organization, don't specify this parameter. Instead, call the operation using an identity belonging to the account whose contacts you wish to retrieve or modify.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The total number of items to return in the command’s output. If the total number of items available is more than the value specified, a <code>NextToken</code> is provided in the command’s output. To resume pagination, provide the <code>NextToken</code> value in the <code>starting-token</code> argument of a subsequent command. Do not use the <code>NextToken</code> response element directly outside of the Amazon Web Services CLI. For usage examples, see <a href="http://docs.aws.amazon.com/cli/latest/userguide/pagination.html">Pagination</a> in the <i>Amazon Web Services Command Line Interface User Guide</i>. </p>
+   * The total number of items to return in the command’s output. If the total number of items available is more than the value specified, a `NextToken` is provided in the command’s output. To resume pagination, provide the `NextToken` value in the `starting-token` argument of a subsequent command. Do not use the `NextToken` response element directly outside of the Amazon Web Services CLI. For usage examples, see [Pagination](http://docs.aws.amazon.com/cli/latest/userguide/pagination.html) in the *Amazon Web Services Command Line Interface User Guide*.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>A token used to specify where to start paginating. This is the <code>NextToken</code> from a previously truncated response. For usage examples, see <a href="http://docs.aws.amazon.com/cli/latest/userguide/pagination.html">Pagination</a> in the <i>Amazon Web Services Command Line Interface User Guide</i>.</p>
+   * A token used to specify where to start paginating. This is the `NextToken` from a previously truncated response. For usage examples, see [Pagination](http://docs.aws.amazon.com/cli/latest/userguide/pagination.html) in the *Amazon Web Services Command Line Interface User Guide*.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>A list of Region statuses (Enabling, Enabled, Disabling, Disabled, Enabled_by_default) to use to filter the list of Regions for a given account. For example, passing in a value of ENABLING will only return a list of Regions with a Region status of ENABLING.</p>
+   * A list of Region statuses (Enabling, Enabled, Disabling, Disabled, Enabled_by_default) to use to filter the list of Regions for a given account. For example, passing in a value of ENABLING will only return a list of Regions with a Region status of ENABLING.
+   *
    * @public
    */
   RegionOptStatusContains?: RegionOptStatus[] | undefined;
 }
 
 /**
- * <p>This is a structure that expresses the Region for a given account, consisting of a name and opt-in status.</p>
+ * This is a structure that expresses the Region for a given account, consisting of a name and opt-in status.
+ *
  * @public
  */
 export interface Region {
   /**
-   * <p>The Region code of a given Region (for example, <code>us-east-1</code>).</p>
+   * The Region code of a given Region (for example, `us-east-1`).
+   *
    * @public
    */
   RegionName?: string | undefined;
 
   /**
-   * <p>One of potential statuses a Region can undergo (Enabled, Enabling, Disabled, Disabling, Enabled_By_Default).</p>
+   * One of potential statuses a Region can undergo (Enabled, Enabling, Disabled, Disabling, Enabled_By_Default).
+   *
    * @public
    */
   RegionOptStatus?: RegionOptStatus | undefined;
@@ -638,13 +843,15 @@ export interface Region {
  */
 export interface ListRegionsResponse {
   /**
-   * <p>If there is more data to be returned, this will be populated. It should be passed into the <code>next-token</code> request parameter of <code>list-regions</code>.</p>
+   * If there is more data to be returned, this will be populated. It should be passed into the `next-token` request parameter of `list-regions`.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>This is a list of Regions for a given account, or if the filtered parameter was used, a list of Regions that match the filter criteria set in the <code>filter</code> parameter.</p>
+   * This is a list of Regions for a given account, or if the filtered parameter was used, a list of Regions that match the filter criteria set in the `filter` parameter.
+   *
    * @public
    */
   Regions?: Region[] | undefined;

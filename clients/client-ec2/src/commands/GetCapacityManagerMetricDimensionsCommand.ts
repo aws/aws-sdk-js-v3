@@ -26,10 +26,8 @@ export interface GetCapacityManagerMetricDimensionsCommandInput extends GetCapac
 export interface GetCapacityManagerMetricDimensionsCommandOutput extends GetCapacityManagerMetricDimensionsResult, __MetadataBearer {}
 
 /**
- * <p>
- * Retrieves the available dimension values for capacity metrics within a specified time range. This is useful for discovering what accounts,
- * regions, instance families, and other dimensions have data available for filtering and grouping.
- * </p>
+ * Retrieves the available dimension values for capacity metrics within a specified time range. This is useful for discovering what accounts, regions, instance families, and other dimensions have data available for filtering and grouping.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -105,8 +103,8 @@ export interface GetCapacityManagerMetricDimensionsCommandOutput extends GetCapa
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

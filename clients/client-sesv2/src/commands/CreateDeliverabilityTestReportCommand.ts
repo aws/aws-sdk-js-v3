@@ -23,13 +23,8 @@ export interface CreateDeliverabilityTestReportCommandInput extends CreateDelive
 export interface CreateDeliverabilityTestReportCommandOutput extends CreateDeliverabilityTestReportResponse, __MetadataBearer {}
 
 /**
- * <p>Create a new predictive inbox placement test. Predictive inbox placement tests can help you predict how your messages will be handled
- *             by various email providers around the world. When you perform a predictive inbox placement test, you provide a
- *             sample message that contains the content that you plan to send to your customers. Amazon SES
- *             then sends that message to special email addresses spread across several major email
- *             providers. After about 24 hours, the test is complete, and you can use the
- *                 <code>GetDeliverabilityTestReport</code> operation to view the results of the
- *             test.</p>
+ * Create a new predictive inbox placement test. Predictive inbox placement tests can help you predict how your messages will be handled by various email providers around the world. When you perform a predictive inbox placement test, you provide a sample message that contains the content that you plan to send to your customers. Amazon SES then sends that message to special email addresses spread across several major email providers. After about 24 hours, the test is complete, and you can use the `GetDeliverabilityTestReport` operation to view the results of the test.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -129,37 +124,44 @@ export interface CreateDeliverabilityTestReportCommandOutput extends CreateDeliv
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  * @throws {@link AccountSuspendedException} (client fault)
- *  <p>The message can't be sent because the account's ability to send email has been
- *             permanently restricted.</p>
+ *
+ * The message can't be sent because the account's ability to send email has been permanently restricted.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link ConcurrentModificationException} (server fault)
- *  <p>The resource is being modified by another operation or thread.</p>
+ *
+ * The resource is being modified by another operation or thread.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>There are too many instances of the specified resource type.</p>
+ *
+ * There are too many instances of the specified resource type.
  *
  * @throws {@link MailFromDomainNotVerifiedException} (client fault)
- *  <p>The message can't be sent because the sending domain isn't verified.</p>
+ *
+ * The message can't be sent because the sending domain isn't verified.
  *
  * @throws {@link MessageRejected} (client fault)
- *  <p>The message can't be sent because it contains invalid content.</p>
+ *
+ * The message can't be sent because it contains invalid content.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * The resource you attempted to access doesn't exist.
  *
  * @throws {@link SendingPausedException} (client fault)
- *  <p>The message can't be sent because the account's ability to send email is currently
- *             paused.</p>
+ *
+ * The message can't be sent because the account's ability to send email is currently paused.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Too many requests have been made to the operation.</p>
+ *
+ * Too many requests have been made to the operation.
  *
  * @throws {@link SESv2ServiceException}
- * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * Base exception class for all service exceptions from SESv2 service.
  *
  * @public
  */

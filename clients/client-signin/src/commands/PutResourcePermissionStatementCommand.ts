@@ -83,8 +83,8 @@ export interface PutResourcePermissionStatementCommandOutput extends PutResource
  *  The request failed because it contains a malformed, missing, or invalid parameter.
  *
  * @throws {@link SigninServiceException}
- * <p>Base exception class for all service exceptions from Signin service.</p>
  *
+ * Base exception class for all service exceptions from Signin service.
  *
  * @public
  */

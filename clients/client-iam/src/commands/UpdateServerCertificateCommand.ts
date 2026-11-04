@@ -23,26 +23,14 @@ export interface UpdateServerCertificateCommandInput extends UpdateServerCertifi
 export interface UpdateServerCertificateCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Updates the name and/or the path of the specified server certificate stored in
- *             IAM.</p>
- *          <p>For more information about working with server certificates, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
- *                 with server certificates</a> in the <i>IAM User Guide</i>. This
- *             topic also includes a list of Amazon Web Services services that can use the server certificates that
- *             you manage with IAM.</p>
- *          <important>
- *             <p>You should understand the implications of changing a server certificate's path or
- *                 name. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs_manage.html#RenamingServerCerts">Renaming a server certificate</a> in the
- *                     <i>IAM User Guide</i>.</p>
- *          </important>
- *          <note>
- *             <p>The person making the request (the principal), must have permission to change the
- *                 server certificate with the old name and the new name. For example, to change the
- *                 certificate named <code>ProductionCert</code> to <code>ProdCert</code>, the
- *                 principal must have a policy that allows them to update both certificates. If the
- *                 principal has permission to update the <code>ProductionCert</code> group, but not
- *                 the <code>ProdCert</code> certificate, then the update fails. For more information
- *                 about permissions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access management</a> in the <i>IAM User Guide</i>.</p>
- *          </note>
+ * Updates the name and/or the path of the specified server certificate stored in IAM.
+ *
+ * For more information about working with server certificates, see [Working with server certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html) in the *IAM User Guide*. This topic also includes a list of Amazon Web Services services that can use the server certificates that you manage with IAM.
+ *
+ * > **Important:** You should understand the implications of changing a server certificate's path or name. For more information, see [Renaming a server certificate](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs_manage.html#RenamingServerCerts) in the *IAM User Guide*.
+ *
+ * > **Note:** The person making the request (the principal), must have permission to change the server certificate with the old name and the new name. For example, to change the certificate named `ProductionCert` to `ProdCert`, the principal must have a policy that allows them to update both certificates. If the principal has permission to update the `ProductionCert` group, but not the `ProdCert` certificate, then the update fails. For more information about permissions, see [Access management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the *IAM User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,24 +57,24 @@ export interface UpdateServerCertificateCommandOutput extends __MetadataBearer {
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link EntityAlreadyExistsException} (client fault)
- *  <p>The request was rejected because it attempted to create a resource that already
- *       exists.</p>
+ *
+ * The request was rejected because it attempted to create a resource that already exists.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current
- *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+ *
+ * The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @public
  */

@@ -23,8 +23,8 @@ export interface DeleteTriggerCommandInput extends DeleteTriggerRequest {}
 export interface DeleteTriggerCommandOutput extends DeleteTriggerResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a specified trigger. If the trigger is not found, no
- *       exception is thrown.</p>
+ * Deletes a specified trigger. If the trigger is not found, no exception is thrown.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,20 +51,24 @@ export interface DeleteTriggerCommandOutput extends DeleteTriggerResponse, __Met
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Two processes are trying to modify a resource simultaneously.</p>
+ *
+ * Two processes are trying to modify a resource simultaneously.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

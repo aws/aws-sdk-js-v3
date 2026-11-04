@@ -23,15 +23,12 @@ export interface SearchUsersByImageCommandInput extends SearchUsersByImageReques
 export interface SearchUsersByImageCommandOutput extends SearchUsersByImageResponse, __MetadataBearer {}
 
 /**
- * <p>Searches for UserIDs using a supplied image. It first detects the largest face in the
- *       image, and then searches a specified collection for matching UserIDs. </p>
- *          <p>The operation returns an array of UserIDs that match the face in the supplied image,
- *       ordered by similarity score with the highest similarity first. It also returns a bounding box
- *       for the face found in the input image. </p>
- *          <p>Information about faces detected in the supplied image, but not used for the search, is
- *       returned in an array of <code>UnsearchedFace</code> objects. If no valid face is detected in
- *       the image, the response will contain an empty <code>UserMatches</code> list and no
- *         <code>SearchedFace</code> object. </p>
+ * Searches for UserIDs using a supplied image. It first detects the largest face in the image, and then searches a specified collection for matching UserIDs.
+ *
+ * The operation returns an array of UserIDs that match the face in the supplied image, ordered by similarity score with the highest similarity first. It also returns a bounding box for the face found in the input image.
+ *
+ * Information about faces detected in the supplied image, but not used for the search, is returned in an array of `UnsearchedFace` objects. If no valid face is detected in the image, the response will contain an empty `UserMatches` list and no `SearchedFace` object.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -239,40 +236,44 @@ export interface SearchUsersByImageCommandOutput extends SearchUsersByImageRespo
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You are not authorized to perform the action.</p>
+ *
+ * You are not authorized to perform the action.
  *
  * @throws {@link ImageTooLargeException} (client fault)
- *  <p>The input image size exceeds the allowed limit. If you are calling
- *       DetectProtectiveEquipment, the image size or resolution exceeds the allowed limit. For more
- *       information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide.
- *     </p>
+ *
+ * The input image size exceeds the allowed limit. If you are calling DetectProtectiveEquipment, the image size or resolution exceeds the allowed limit. For more information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * Amazon Rekognition experienced a service issue. Try your call again.
  *
  * @throws {@link InvalidImageFormatException} (client fault)
- *  <p>The provided image format is not supported. </p>
+ *
+ * The provided image format is not supported.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
- *       operation again.</p>
+ *
+ * Input parameter violated a constraint. Validate your parameter before calling the API operation again.
  *
  * @throws {@link InvalidS3ObjectException} (client fault)
- *  <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
+ *
+ * Amazon Rekognition is unable to access the S3 object specified in the request.
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
- *  <p>The number of requests exceeded your throughput limit. If you want to increase this
- *       limit, contact Amazon Rekognition.</p>
+ *
+ * The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource specified in the request cannot be found.</p>
+ *
+ * The resource specified in the request cannot be found.
  *
  * @throws {@link ThrottlingException} (server fault)
- *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
+ * Amazon Rekognition is temporarily unable to process the request. Try your call again.
  *
  * @throws {@link RekognitionServiceException}
- * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * Base exception class for all service exceptions from Rekognition service.
  *
  * @example SearchUsersByImage
  * ```javascript

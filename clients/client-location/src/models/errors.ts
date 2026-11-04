@@ -6,7 +6,8 @@ import { LocationServiceException as __BaseException } from "./LocationServiceEx
 import type { ValidationExceptionField } from "./models_0";
 
 /**
- * <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+ * The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -29,7 +30,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request was unsuccessful because of a conflict.</p>
+ * The request was unsuccessful because of a conflict.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -52,7 +54,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+ * The request has failed to process because of an unknown server error, exception, or failure.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -76,7 +79,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The operation was denied because the request would exceed the maximum <a href="https://docs.aws.amazon.com/location/previous/developerguide/location-quotas.html">quota</a> set for Amazon Location Service.</p>
+ * The operation was denied because the request would exceed the maximum [quota](https://docs.aws.amazon.com/location/previous/developerguide/location-quotas.html) set for Amazon Location Service.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -84,7 +88,8 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message with the reason for the service quota exceeded exception error.</p>
+   * A message with the reason for the service quota exceeded exception error.
+   *
    * @public
    */
   Message: string | undefined;
@@ -103,7 +108,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request was denied because of request throttling.</p>
+ * The request was denied because of request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -127,7 +133,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input failed to meet the constraints specified by the AWS service. </p>
+ * The input failed to meet the constraints specified by the AWS service.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -136,13 +143,15 @@ export class ValidationException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p>A message with the reason for the validation exception error.</p>
+   * A message with the reason for the validation exception error.
+   *
    * @public
    */
   Reason: ValidationExceptionReason | undefined;
 
   /**
-   * <p>The field where the invalid entry was detected.</p>
+   * The field where the invalid entry was detected.
+   *
    * @public
    */
   FieldList: ValidationExceptionField[] | undefined;
@@ -163,7 +172,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The resource that you've entered was not found in your AWS account.</p>
+ * The resource that you've entered was not found in your AWS account.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {

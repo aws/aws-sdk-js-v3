@@ -6,7 +6,8 @@ import type { BadRequestReason, ResourceType } from "./enums";
 import type { BadRequestDetails } from "./models_0";
 
 /**
- * <p>The input fails to satisfy the constraints specified by the service.</p>
+ * The input fails to satisfy the constraints specified by the service.
+ *
  * @public
  */
 export class BadRequestException extends __BaseException {
@@ -15,13 +16,15 @@ export class BadRequestException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>Code indicating the reason the request was invalid.</p>
+   * Code indicating the reason the request was invalid.
+   *
    * @public
    */
   Reason?: BadRequestReason | undefined;
 
   /**
-   * <p>Details describing why the request was invalid.</p>
+   * Details describing why the request was invalid.
+   *
    * @public
    */
   Details?: BadRequestDetails | undefined;
@@ -42,7 +45,8 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * <p>There was an internal failure in the service.</p>
+ * There was an internal failure in the service.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -65,7 +69,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The requested resource could not be found.</p>
+ * The requested resource could not be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -74,14 +79,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The type of resource that was not found.</p>
+   * The type of resource that was not found.
+   *
    * @public
    */
   ResourceType?: ResourceType | undefined;
 
   /**
-   * <p>A map indicating which parameters in the request reference the resource that was not
-   *          found.</p>
+   * A map indicating which parameters in the request reference the resource that was not found.
+   *
    * @public
    */
   ReferencedBy?: Record<string, string> | undefined;
@@ -102,7 +108,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {

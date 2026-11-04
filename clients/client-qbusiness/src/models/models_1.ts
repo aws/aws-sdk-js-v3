@@ -24,31 +24,36 @@ import type {
  */
 export interface UpdateChatResponseConfigurationRequest {
   /**
-   * <p>The unique identifier of the Amazon Q Business application containing the chat response configuration to update.</p>
+   * The unique identifier of the Amazon Q Business application containing the chat response configuration to update.
+   *
    * @public
    */
   applicationId: string | undefined;
 
   /**
-   * <p>The unique identifier of the chat response configuration to update within the specified application.</p>
+   * The unique identifier of the chat response configuration to update within the specified application.
+   *
    * @public
    */
   chatResponseConfigurationId: string | undefined;
 
   /**
-   * <p>The new human-readable name to assign to the chat response configuration, making it easier to identify among multiple configurations.</p>
+   * The new human-readable name to assign to the chat response configuration, making it easier to identify among multiple configurations.
+   *
    * @public
    */
   displayName?: string | undefined;
 
   /**
-   * <p>The updated collection of response configuration settings that define how Amazon Q Business generates and formats responses to user queries.</p>
+   * The updated collection of response configuration settings that define how Amazon Q Business generates and formats responses to user queries.
+   *
    * @public
    */
   responseConfigurations: Partial<Record<ResponseConfigurationType, ResponseConfiguration>> | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request. This helps prevent the same update from being processed multiple times if retries occur.</p>
+   * A unique, case-sensitive identifier to ensure idempotency of the request. This helps prevent the same update from being processed multiple times if retries occur.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -64,19 +69,22 @@ export interface UpdateChatResponseConfigurationResponse {}
  */
 export interface UpdateSubscriptionRequest {
   /**
-   * <p>The identifier of the Amazon Q Business application where the subscription update should take effect.</p>
+   * The identifier of the Amazon Q Business application where the subscription update should take effect.
+   *
    * @public
    */
   applicationId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q Business subscription to be updated.</p>
+   * The identifier of the Amazon Q Business subscription to be updated.
+   *
    * @public
    */
   subscriptionId: string | undefined;
 
   /**
-   * <p>The type of the Amazon Q Business subscription to be updated.</p>
+   * The type of the Amazon Q Business subscription to be updated.
+   *
    * @public
    */
   type: SubscriptionType | undefined;
@@ -87,19 +95,22 @@ export interface UpdateSubscriptionRequest {
  */
 export interface UpdateSubscriptionResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Q Business subscription that was updated.</p>
+   * The Amazon Resource Name (ARN) of the Amazon Q Business subscription that was updated.
+   *
    * @public
    */
   subscriptionArn?: string | undefined;
 
   /**
-   * <p>The type of your current Amazon Q Business subscription.</p>
+   * The type of your current Amazon Q Business subscription.
+   *
    * @public
    */
   currentSubscription?: SubscriptionDetails | undefined;
 
   /**
-   * <p>The type of the Amazon Q Business subscription for the next month.</p>
+   * The type of the Amazon Q Business subscription for the next month.
+   *
    * @public
    */
   nextSubscription?: SubscriptionDetails | undefined;
@@ -110,25 +121,29 @@ export interface UpdateSubscriptionResponse {
  */
 export interface UpdateUserRequest {
   /**
-   * <p>The identifier of the application the user is attached to.</p>
+   * The identifier of the application the user is attached to.
+   *
    * @public
    */
   applicationId: string | undefined;
 
   /**
-   * <p>The email id attached to the user.</p>
+   * The email id attached to the user.
+   *
    * @public
    */
   userId: string | undefined;
 
   /**
-   * <p>The user aliases attached to the user id that are to be updated.</p>
+   * The user aliases attached to the user id that are to be updated.
+   *
    * @public
    */
   userAliasesToUpdate?: UserAlias[] | undefined;
 
   /**
-   * <p>The user aliases attached to the user id that are to be deleted.</p>
+   * The user aliases attached to the user id that are to be deleted.
+   *
    * @public
    */
   userAliasesToDelete?: UserAlias[] | undefined;
@@ -139,97 +154,113 @@ export interface UpdateUserRequest {
  */
 export interface UpdateUserResponse {
   /**
-   * <p>The user aliases that have been to be added to a user id.</p>
+   * The user aliases that have been to be added to a user id.
+   *
    * @public
    */
   userAliasesAdded?: UserAlias[] | undefined;
 
   /**
-   * <p>The user aliases attached to a user id that have been updated.</p>
+   * The user aliases attached to a user id that have been updated.
+   *
    * @public
    */
   userAliasesUpdated?: UserAlias[] | undefined;
 
   /**
-   * <p>The user aliases that have been deleted from a user id.</p>
+   * The user aliases that have been deleted from a user id.
+   *
    * @public
    */
   userAliasesDeleted?: UserAlias[] | undefined;
 }
 
 /**
- * <p>Enables filtering of responses based on document attributes or metadata fields.</p>
+ * Enables filtering of responses based on document attributes or metadata fields.
+ *
  * @public
  */
 export interface AttributeFilter {
   /**
-   * <p>Performs a logical <code>AND</code> operation on all supplied filters.</p>
+   * Performs a logical `AND` operation on all supplied filters.
+   *
    * @public
    */
   andAllFilters?: AttributeFilter[] | undefined;
 
   /**
-   * <p> Performs a logical <code>OR</code> operation on all supplied filters. </p>
+   * Performs a logical `OR` operation on all supplied filters.
+   *
    * @public
    */
   orAllFilters?: AttributeFilter[] | undefined;
 
   /**
-   * <p>Performs a logical <code>NOT</code> operation on all supplied filters. </p>
+   * Performs a logical `NOT` operation on all supplied filters.
+   *
    * @public
    */
   notFilter?: AttributeFilter | undefined;
 
   /**
-   * <p>Performs an equals operation on two document attributes or metadata fields. Supported for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value types</a>: <code>dateValue</code>, <code>longValue</code>, <code>stringListValue</code> and <code>stringValue</code>.</p>
+   * Performs an equals operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html): `dateValue`, `longValue`, `stringListValue` and `stringValue`.
+   *
    * @public
    */
   equalsTo?: DocumentAttribute | undefined;
 
   /**
-   * <p>Returns <code>true</code> when a document contains all the specified document attributes or metadata fields. Supported for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value types</a>: <code>stringListValue</code>.</p>
+   * Returns `true` when a document contains all the specified document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html): `stringListValue`.
+   *
    * @public
    */
   containsAll?: DocumentAttribute | undefined;
 
   /**
-   * <p>Returns <code>true</code> when a document contains any of the specified document attributes or metadata fields. Supported for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value types</a>: <code>stringListValue</code>.</p>
+   * Returns `true` when a document contains any of the specified document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html): `stringListValue`.
+   *
    * @public
    */
   containsAny?: DocumentAttribute | undefined;
 
   /**
-   * <p>Performs a greater than operation on two document attributes or metadata fields. Supported for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value types</a>: <code>dateValue</code> and <code>longValue</code>.</p>
+   * Performs a greater than operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html): `dateValue` and `longValue`.
+   *
    * @public
    */
   greaterThan?: DocumentAttribute | undefined;
 
   /**
-   * <p>Performs a greater or equals than operation on two document attributes or metadata fields. Supported for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value types</a>: <code>dateValue</code> and <code>longValue</code>. </p>
+   * Performs a greater or equals than operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html): `dateValue` and `longValue`.
+   *
    * @public
    */
   greaterThanOrEquals?: DocumentAttribute | undefined;
 
   /**
-   * <p>Performs a less than operation on two document attributes or metadata fields. Supported for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value types</a>: <code>dateValue</code> and <code>longValue</code>.</p>
+   * Performs a less than operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html): `dateValue` and `longValue`.
+   *
    * @public
    */
   lessThan?: DocumentAttribute | undefined;
 
   /**
-   * <p>Performs a less than or equals operation on two document attributes or metadata fields.Supported for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value type</a>: <code>dateValue</code> and <code>longValue</code>. </p>
+   * Performs a less than or equals operation on two document attributes or metadata fields.Supported for the following [document attribute value type](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html): `dateValue` and `longValue`.
+   *
    * @public
    */
   lessThanOrEquals?: DocumentAttribute | undefined;
 }
 
 /**
- * <p>Specifies filters to apply to an allowed action.</p>
+ * Specifies filters to apply to an allowed action.
+ *
  * @public
  */
 export interface ActionFilterConfiguration {
   /**
-   * <p>Enables filtering of responses based on document attributes or metadata fields.</p>
+   * Enables filtering of responses based on document attributes or metadata fields.
+   *
    * @public
    */
   documentAttributeFilter: AttributeFilter | undefined;
@@ -240,103 +271,136 @@ export interface ActionFilterConfiguration {
  */
 export interface ChatSyncInput {
   /**
-   * <p>The identifier of the Amazon Q Business application linked to the Amazon Q Business conversation.</p>
+   * The identifier of the Amazon Q Business application linked to the Amazon Q Business conversation.
+   *
    * @public
    */
   applicationId: string | undefined;
 
   /**
-   * <p>The identifier of the user attached to the chat input.</p>
+   * The identifier of the user attached to the chat input.
+   *
    * @public
    */
   userId?: string | undefined;
 
   /**
-   * <p>The group names that a user associated with the chat input belongs to.</p>
+   * The group names that a user associated with the chat input belongs to.
+   *
    * @public
    */
   userGroups?: string[] | undefined;
 
   /**
-   * <p>A end user message in a conversation.</p>
+   * A end user message in a conversation.
+   *
    * @public
    */
   userMessage?: string | undefined;
 
   /**
-   * <p>A list of files uploaded directly during chat. You can upload a maximum of 5 files of upto 10 MB each.</p>
+   * A list of files uploaded directly during chat. You can upload a maximum of 5 files of upto 10 MB each.
+   *
    * @public
    */
   attachments?: AttachmentInput[] | undefined;
 
   /**
-   * <p>A request from an end user to perform an Amazon Q Business plugin action.</p>
+   * A request from an end user to perform an Amazon Q Business plugin action.
+   *
    * @public
    */
   actionExecution?: ActionExecution | undefined;
 
   /**
-   * <p>An authentication verification event response by a third party authentication server to Amazon Q Business.</p>
+   * An authentication verification event response by a third party authentication server to Amazon Q Business.
+   *
    * @public
    */
   authChallengeResponse?: AuthChallengeResponse | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q Business conversation.</p>
+   * The identifier of the Amazon Q Business conversation.
+   *
    * @public
    */
   conversationId?: string | undefined;
 
   /**
-   * <p>The identifier of the previous system message in a conversation.</p>
+   * The identifier of the previous system message in a conversation.
+   *
    * @public
    */
   parentMessageId?: string | undefined;
 
   /**
-   * <p>Enables filtering of Amazon Q Business web experience responses based on document attributes or metadata fields.</p>
+   * Enables filtering of Amazon Q Business web experience responses based on document attributes or metadata fields.
+   *
    * @public
    */
   attributeFilter?: AttributeFilter | undefined;
 
   /**
-   * <p>The <code>chatMode</code> parameter determines the chat modes available to Amazon Q Business users:</p> <ul> <li> <p> <code>RETRIEVAL_MODE</code> - If you choose this mode, Amazon Q generates responses solely from the data sources connected and indexed by the application. If an answer is not found in the data sources or there are no data sources available, Amazon Q will respond with a "<i>No Answer Found</i>" message, unless LLM knowledge has been enabled. In that case, Amazon Q will generate a response from the LLM knowledge</p> </li> <li> <p> <code>CREATOR_MODE</code> - By selecting this mode, you can choose to generate responses only from the LLM knowledge. You can also attach files and have Amazon Q generate a response based on the data in those files. If the attached files do not contain an answer for the query, Amazon Q will automatically fall back to generating a response from the LLM knowledge.</p> </li> <li> <p> <code>PLUGIN_MODE</code> - By selecting this mode, users can choose to use plugins in chat to get their responses.</p> </li> </ul> <note> <p>If none of the modes are selected, Amazon Q will only respond using the information from the attached files.</p> </note> <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/guardrails.html">Admin controls and guardrails</a>, <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/plugins.html">Plugins</a>, and <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/using-web-experience.html#chat-source-scope">Response sources</a>.</p>
+   * The `chatMode` parameter determines the chat modes available to Amazon Q Business users:
+   *
+   * - `RETRIEVAL_MODE` - If you choose this mode, Amazon Q generates responses solely from the data sources connected and indexed by the application. If an answer is not found in the data sources or there are no data sources available, Amazon Q will respond with a "*No Answer Found*" message, unless LLM knowledge has been enabled. In that case, Amazon Q will generate a response from the LLM knowledge
+   * - `CREATOR_MODE` - By selecting this mode, you can choose to generate responses only from the LLM knowledge. You can also attach files and have Amazon Q generate a response based on the data in those files. If the attached files do not contain an answer for the query, Amazon Q will automatically fall back to generating a response from the LLM knowledge.
+   * - `PLUGIN_MODE` - By selecting this mode, users can choose to use plugins in chat to get their responses.
+   *
+   * > **Note:** If none of the modes are selected, Amazon Q will only respond using the information from the attached files.
+   *
+   * For more information, see [Admin controls and guardrails](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/guardrails.html), [Plugins](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/plugins.html), and [Response sources](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/using-web-experience.html#chat-source-scope).
+   *
    * @public
    */
   chatMode?: ChatMode | undefined;
 
   /**
-   * <p>The chat mode configuration for an Amazon Q Business application.</p>
+   * The chat mode configuration for an Amazon Q Business application.
+   *
    * @public
    */
   chatModeConfiguration?: ChatModeConfiguration | undefined;
 
   /**
-   * <p>A token that you provide to identify a chat request.</p>
+   * A token that you provide to identify a chat request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 }
 
 /**
- * <p>A configuration event activated by an end user request to select a specific chat mode.</p>
+ * A configuration event activated by an end user request to select a specific chat mode.
+ *
  * @public
  */
 export interface ConfigurationEvent {
   /**
-   * <p>The chat modes available to an Amazon Q Business end user.</p> <ul> <li> <p> <code>RETRIEVAL_MODE</code> - The default chat mode for an Amazon Q Business application. When this mode is enabled, Amazon Q Business generates responses only from data sources connected to an Amazon Q Business application.</p> </li> <li> <p> <code>CREATOR_MODE</code> - By selecting this mode, users can choose to generate responses only from the LLM knowledge, without consulting connected data sources, for a chat request.</p> </li> <li> <p> <code>PLUGIN_MODE</code> - By selecting this mode, users can choose to use plugins in chat.</p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/guardrails.html">Admin controls and guardrails</a>, <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/plugins.html">Plugins</a>, and <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/using-web-experience.html#chat-source-scope">Conversation settings</a>.</p>
+   * The chat modes available to an Amazon Q Business end user.
+   *
+   * - `RETRIEVAL_MODE` - The default chat mode for an Amazon Q Business application. When this mode is enabled, Amazon Q Business generates responses only from data sources connected to an Amazon Q Business application.
+   * - `CREATOR_MODE` - By selecting this mode, users can choose to generate responses only from the LLM knowledge, without consulting connected data sources, for a chat request.
+   * - `PLUGIN_MODE` - By selecting this mode, users can choose to use plugins in chat.
+   *
+   * For more information, see [Admin controls and guardrails](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/guardrails.html), [Plugins](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/plugins.html), and [Conversation settings](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/using-web-experience.html#chat-source-scope).
+   *
    * @public
    */
   chatMode?: ChatMode | undefined;
 
   /**
-   * <p>Configuration information for Amazon Q Business conversation modes.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/guardrails.html">Admin controls and guardrails</a> and <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/using-web-experience.html#chat-source-scope">Conversation settings</a>.</p>
+   * Configuration information for Amazon Q Business conversation modes.
+   *
+   * For more information, see [Admin controls and guardrails](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/guardrails.html) and [Conversation settings](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/using-web-experience.html#chat-source-scope).
+   *
    * @public
    */
   chatModeConfiguration?: ChatModeConfiguration | undefined;
 
   /**
-   * <p>Enables filtering of responses based on document attributes or metadata fields.</p>
+   * Enables filtering of responses based on document attributes or metadata fields.
+   *
    * @public
    */
   attributeFilter?: AttributeFilter | undefined;
@@ -347,62 +411,72 @@ export interface ConfigurationEvent {
  */
 export interface SearchRelevantContentRequest {
   /**
-   * <p>The unique identifier of the Amazon Q Business application to search.</p>
+   * The unique identifier of the Amazon Q Business application to search.
+   *
    * @public
    */
   applicationId: string | undefined;
 
   /**
-   * <p>The text to search for.</p>
+   * The text to search for.
+   *
    * @public
    */
   queryText: string | undefined;
 
   /**
-   * <p>The source of content to search in.</p>
+   * The source of content to search in.
+   *
    * @public
    */
   contentSource: ContentSource | undefined;
 
   /**
-   * <p>Enables filtering of responses based on document attributes or metadata fields.</p>
+   * Enables filtering of responses based on document attributes or metadata fields.
+   *
    * @public
    */
   attributeFilter?: AttributeFilter | undefined;
 
   /**
-   * <p>The maximum number of results to return.</p>
+   * The maximum number of results to return.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next set of results. (You received this token from a previous call.)</p>
+   * The token for the next set of results. (You received this token from a previous call.)
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Specifies an allowed action and its associated filter configuration.</p>
+ * Specifies an allowed action and its associated filter configuration.
+ *
  * @public
  */
 export interface ActionConfiguration {
   /**
-   * <p>The Amazon Q Business action that is allowed.</p>
+   * The Amazon Q Business action that is allowed.
+   *
    * @public
    */
   action: string | undefined;
 
   /**
-   * <p>The filter configuration for the action, if any.</p>
+   * The filter configuration for the action, if any.
+   *
    * @public
    */
   filterConfiguration?: ActionFilterConfiguration | undefined;
 }
 
 /**
- * <p>The streaming input for the <code>Chat</code> API.</p>
+ * The streaming input for the `Chat` API.
+ *
  * @public
  */
 export type ChatInputStream =
@@ -419,7 +493,8 @@ export type ChatInputStream =
  */
 export namespace ChatInputStream {
   /**
-   * <p>A configuration event activated by an end user request to select a specific chat mode.</p>
+   * A configuration event activated by an end user request to select a specific chat mode.
+   *
    * @public
    */
   export interface ConfigurationEventMember {
@@ -433,7 +508,8 @@ export namespace ChatInputStream {
   }
 
   /**
-   * <p>Information about the payload of the <code>ChatInputStream</code> event containing the end user message input.</p>
+   * Information about the payload of the `ChatInputStream` event containing the end user message input.
+   *
    * @public
    */
   export interface TextEventMember {
@@ -447,7 +523,8 @@ export namespace ChatInputStream {
   }
 
   /**
-   * <p>A request by an end user to upload a file during chat.</p>
+   * A request by an end user to upload a file during chat.
+   *
    * @public
    */
   export interface AttachmentEventMember {
@@ -461,7 +538,8 @@ export namespace ChatInputStream {
   }
 
   /**
-   * <p>A request from an end user to perform an Amazon Q Business plugin action.</p>
+   * A request from an end user to perform an Amazon Q Business plugin action.
+   *
    * @public
    */
   export interface ActionExecutionEventMember {
@@ -475,7 +553,8 @@ export namespace ChatInputStream {
   }
 
   /**
-   * <p>The end of the streaming input for the <code>Chat</code> API.</p>
+   * The end of the streaming input for the `Chat` API.
+   *
    * @public
    */
   export interface EndOfInputEventMember {
@@ -489,7 +568,8 @@ export namespace ChatInputStream {
   }
 
   /**
-   * <p>An authentication verification event response by a third party authentication server to Amazon Q Business.</p>
+   * An authentication verification event response by a third party authentication server to Amazon Q Business.
+   *
    * @public
    */
   export interface AuthChallengeResponseEventMember {
@@ -535,43 +615,50 @@ export namespace ChatInputStream {
  */
 export interface ChatInput {
   /**
-   * <p>The identifier of the Amazon Q Business application linked to a streaming Amazon Q Business conversation.</p>
+   * The identifier of the Amazon Q Business application linked to a streaming Amazon Q Business conversation.
+   *
    * @public
    */
   applicationId: string | undefined;
 
   /**
-   * <p>The identifier of the user attached to the chat input. </p>
+   * The identifier of the user attached to the chat input.
+   *
    * @public
    */
   userId?: string | undefined;
 
   /**
-   * <p>The group names that a user associated with the chat input belongs to.</p>
+   * The group names that a user associated with the chat input belongs to.
+   *
    * @public
    */
   userGroups?: string[] | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q Business conversation.</p>
+   * The identifier of the Amazon Q Business conversation.
+   *
    * @public
    */
   conversationId?: string | undefined;
 
   /**
-   * <p>The identifier used to associate a user message with a AI generated response.</p>
+   * The identifier used to associate a user message with a AI generated response.
+   *
    * @public
    */
   parentMessageId?: string | undefined;
 
   /**
-   * <p>A token that you provide to identify the chat input.</p>
+   * A token that you provide to identify the chat input.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The streaming input for the <code>Chat</code> API.</p>
+   * The streaming input for the `Chat` API.
+   *
    * @public
    */
   inputStream?: AsyncIterable<ChatInputStream> | undefined;
@@ -582,43 +669,50 @@ export interface ChatInput {
  */
 export interface CreateDataAccessorRequest {
   /**
-   * <p>The unique identifier of the Amazon Q Business application.</p>
+   * The unique identifier of the Amazon Q Business application.
+   *
    * @public
    */
   applicationId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role for the ISV that will be accessing the data.</p>
+   * The Amazon Resource Name (ARN) of the IAM role for the ISV that will be accessing the data.
+   *
    * @public
    */
   principal: string | undefined;
 
   /**
-   * <p>A list of action configurations specifying the allowed actions and any associated filters.</p>
+   * A list of action configurations specifying the allowed actions and any associated filters.
+   *
    * @public
    */
   actionConfigurations: ActionConfiguration[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier you provide to ensure idempotency of the request.</p>
+   * A unique, case-sensitive identifier you provide to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>A friendly name for the data accessor.</p>
+   * A friendly name for the data accessor.
+   *
    * @public
    */
   displayName: string | undefined;
 
   /**
-   * <p>The authentication configuration details for the data accessor. This specifies how the ISV will authenticate when accessing data through this data accessor.</p>
+   * The authentication configuration details for the data accessor. This specifies how the ISV will authenticate when accessing data through this data accessor.
+   *
    * @public
    */
   authenticationDetail?: DataAccessorAuthenticationDetail | undefined;
 
   /**
-   * <p>The tags to associate with the data accessor.</p>
+   * The tags to associate with the data accessor.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
@@ -629,61 +723,71 @@ export interface CreateDataAccessorRequest {
  */
 export interface GetDataAccessorResponse {
   /**
-   * <p>The friendly name of the data accessor.</p>
+   * The friendly name of the data accessor.
+   *
    * @public
    */
   displayName?: string | undefined;
 
   /**
-   * <p>The unique identifier of the data accessor.</p>
+   * The unique identifier of the data accessor.
+   *
    * @public
    */
   dataAccessorId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the data accessor.</p>
+   * The Amazon Resource Name (ARN) of the data accessor.
+   *
    * @public
    */
   dataAccessorArn?: string | undefined;
 
   /**
-   * <p>The unique identifier of the Amazon Q Business application associated with this data accessor.</p>
+   * The unique identifier of the Amazon Q Business application associated with this data accessor.
+   *
    * @public
    */
   applicationId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM Identity Center application associated with this data accessor.</p>
+   * The Amazon Resource Name (ARN) of the IAM Identity Center application associated with this data accessor.
+   *
    * @public
    */
   idcApplicationArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role for the ISV associated with this data accessor.</p>
+   * The Amazon Resource Name (ARN) of the IAM role for the ISV associated with this data accessor.
+   *
    * @public
    */
   principal?: string | undefined;
 
   /**
-   * <p>The list of action configurations specifying the allowed actions and any associated filters.</p>
+   * The list of action configurations specifying the allowed actions and any associated filters.
+   *
    * @public
    */
   actionConfigurations?: ActionConfiguration[] | undefined;
 
   /**
-   * <p>The authentication configuration details for the data accessor. This specifies how the ISV authenticates when accessing data through this data accessor.</p>
+   * The authentication configuration details for the data accessor. This specifies how the ISV authenticates when accessing data through this data accessor.
+   *
    * @public
    */
   authenticationDetail?: DataAccessorAuthenticationDetail | undefined;
 
   /**
-   * <p>The timestamp when the data accessor was created.</p>
+   * The timestamp when the data accessor was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when the data accessor was last updated.</p>
+   * The timestamp when the data accessor was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -694,31 +798,36 @@ export interface GetDataAccessorResponse {
  */
 export interface UpdateDataAccessorRequest {
   /**
-   * <p>The unique identifier of the Amazon Q Business application.</p>
+   * The unique identifier of the Amazon Q Business application.
+   *
    * @public
    */
   applicationId: string | undefined;
 
   /**
-   * <p>The unique identifier of the data accessor to update.</p>
+   * The unique identifier of the data accessor to update.
+   *
    * @public
    */
   dataAccessorId: string | undefined;
 
   /**
-   * <p>The updated list of action configurations specifying the allowed actions and any associated filters.</p>
+   * The updated list of action configurations specifying the allowed actions and any associated filters.
+   *
    * @public
    */
   actionConfigurations: ActionConfiguration[] | undefined;
 
   /**
-   * <p>The updated authentication configuration details for the data accessor. This specifies how the ISV will authenticate when accessing data through this data accessor.</p>
+   * The updated authentication configuration details for the data accessor. This specifies how the ISV will authenticate when accessing data through this data accessor.
+   *
    * @public
    */
   authenticationDetail?: DataAccessorAuthenticationDetail | undefined;
 
   /**
-   * <p>The updated friendly name for the data accessor.</p>
+   * The updated friendly name for the data accessor.
+   *
    * @public
    */
   displayName?: string | undefined;

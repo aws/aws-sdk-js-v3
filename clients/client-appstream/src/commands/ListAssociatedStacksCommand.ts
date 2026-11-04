@@ -23,7 +23,8 @@ export interface ListAssociatedStacksCommandInput extends ListAssociatedStacksRe
 export interface ListAssociatedStacksCommandOutput extends ListAssociatedStacksResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves the name of the stack with which the specified fleet is associated.</p>
+ * Retrieves the name of the stack with which the specified fleet is associated.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,8 +55,8 @@ export interface ListAssociatedStacksCommandOutput extends ListAssociatedStacksR
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  * @throws {@link AppStreamServiceException}
- * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * Base exception class for all service exceptions from AppStream service.
  *
  * @public
  */

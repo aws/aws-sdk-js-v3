@@ -26,7 +26,8 @@ export interface DescribeReplicationConfigurationTemplatesCommandInput extends D
 export interface DescribeReplicationConfigurationTemplatesCommandOutput extends DescribeReplicationConfigurationTemplatesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all ReplicationConfigurationTemplates, filtered by Source Server IDs.</p>
+ * Lists all ReplicationConfigurationTemplates, filtered by Source Server IDs.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,23 +94,28 @@ export interface DescribeReplicationConfigurationTemplatesCommandOutput extends 
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource for this operation was not found.</p>
+ *
+ * The resource for this operation was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link UninitializedAccountException} (client fault)
- *  <p>The account performing the request has not been initialized.</p>
+ *
+ * The account performing the request has not been initialized.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the AWS service.</p>
+ *
+ * The input fails to satisfy the constraints specified by the AWS service.
  *
  * @throws {@link DrsServiceException}
- * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ * Base exception class for all service exceptions from Drs service.
  *
  * @public
  */

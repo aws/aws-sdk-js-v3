@@ -23,7 +23,10 @@ export interface GetNotificationEventCommandInput extends GetNotificationEventRe
 export interface GetNotificationEventCommandOutput extends GetNotificationEventResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a specified <code>NotificationEvent</code>.</p> <important> <p>User Notifications stores notifications in the individual Regions you register as notification hubs and the Region of the source event rule. <code>GetNotificationEvent</code> only returns notifications stored in the same Region in which the action is called. User Notifications doesn't backfill notifications to new Regions selected as notification hubs. For this reason, we recommend that you make calls in your oldest registered notification hub. For more information, see <a href="https://docs.aws.amazon.com/notifications/latest/userguide/notification-hubs.html">Notification hubs</a> in the <i>Amazon Web Services User Notifications User Guide</i>.</p> </important>
+ * Returns a specified `NotificationEvent`.
+ *
+ * > **Important:** User Notifications stores notifications in the individual Regions you register as notification hubs and the Region of the source event rule. `GetNotificationEvent` only returns notifications stored in the same Region in which the action is called. User Notifications doesn't backfill notifications to new Regions selected as notification hubs. For this reason, we recommend that you make calls in your oldest registered notification hub. For more information, see [Notification hubs](https://docs.aws.amazon.com/notifications/latest/userguide/notification-hubs.html) in the *Amazon Web Services User Notifications User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -154,23 +157,28 @@ export interface GetNotificationEventCommandOutput extends GetNotificationEventR
  * @see {@link NotificationsClientResolvedConfig | config} for NotificationsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * User does not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error during processing of request.</p>
+ *
+ * Unexpected error during processing of request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Request references a resource which does not exist. </p>
+ *
+ * Request references a resource which does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Request was denied due to request throttling. </p>
+ *
+ * Request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>This exception is thrown when the notification event fails validation.</p>
+ *
+ * This exception is thrown when the notification event fails validation.
  *
  * @throws {@link NotificationsServiceException}
- * <p>Base exception class for all service exceptions from Notifications service.</p>
  *
+ * Base exception class for all service exceptions from Notifications service.
  *
  * @public
  */

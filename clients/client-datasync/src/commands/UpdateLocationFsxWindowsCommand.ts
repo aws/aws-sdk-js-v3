@@ -23,10 +23,10 @@ export interface UpdateLocationFsxWindowsCommandInput extends UpdateLocationFsxW
 export interface UpdateLocationFsxWindowsCommandOutput extends UpdateLocationFsxWindowsResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies the following configuration parameters of the Amazon FSx for Windows File Server
- *       transfer location that you're using with DataSync.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html">Configuring DataSync
- *         transfers with FSx for Windows File Server</a>.</p>
+ * Modifies the following configuration parameters of the Amazon FSx for Windows File Server transfer location that you're using with DataSync.
+ *
+ * For more information, see [Configuring DataSync transfers with FSx for Windows File Server](https://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,15 +63,16 @@ export interface UpdateLocationFsxWindowsCommandOutput extends UpdateLocationFsx
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception is thrown when an error occurs in the DataSync
- *       service.</p>
+ *
+ * This exception is thrown when an error occurs in the DataSync service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * This exception is thrown when the client submits a malformed request.
  *
  * @throws {@link DataSyncServiceException}
- * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * Base exception class for all service exceptions from DataSync service.
  *
  * @public
  */

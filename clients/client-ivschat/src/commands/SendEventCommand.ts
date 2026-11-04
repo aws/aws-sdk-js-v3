@@ -23,9 +23,8 @@ export interface SendEventCommandInput extends SendEventRequest {}
 export interface SendEventCommandOutput extends SendEventResponse, __MetadataBearer {}
 
 /**
- * <p>Sends an event to a room. Use this within your application’s business logic to send
- *          events to clients of a room; e.g., to notify clients to change the way the chat UI is
- *          rendered.</p>
+ * Sends an event to a room. Use this within your application’s business logic to send events to clients of a room; e.g., to notify clients to change the way the chat UI is rendered.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,23 +55,18 @@ export interface SendEventCommandOutput extends SendEventResponse, __MetadataBea
  * @see {@link IvschatClientResolvedConfig | config} for IvschatClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p/>
  *
  * @throws {@link PendingVerification} (client fault)
- *  <p/>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p/>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p/>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p/>
  *
  * @throws {@link IvschatServiceException}
- * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
+ * Base exception class for all service exceptions from Ivschat service.
  *
  * @public
  */

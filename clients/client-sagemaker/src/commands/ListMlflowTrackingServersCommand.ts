@@ -23,7 +23,8 @@ export interface ListMlflowTrackingServersCommandInput extends ListMlflowTrackin
 export interface ListMlflowTrackingServersCommandOutput extends ListMlflowTrackingServersResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all MLflow Tracking Servers.</p>
+ * Lists all MLflow Tracking Servers.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,8 +69,8 @@ export interface ListMlflowTrackingServersCommandOutput extends ListMlflowTracki
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

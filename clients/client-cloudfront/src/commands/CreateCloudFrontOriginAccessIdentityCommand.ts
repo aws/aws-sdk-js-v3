@@ -26,7 +26,8 @@ export interface CreateCloudFrontOriginAccessIdentityCommandInput extends Create
 export interface CreateCloudFrontOriginAccessIdentityCommandOutput extends CreateCloudFrontOriginAccessIdentityResult, __MetadataBearer {}
 
 /**
- * <p>Creates a new origin access identity. If you're using Amazon S3 for your origin, you can use an origin access identity to require users to access your content using a CloudFront URL instead of the Amazon S3 URL. For more information about how to use origin access identities, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving Private Content through CloudFront</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+ * Creates a new origin access identity. If you're using Amazon S3 for your origin, you can use an origin access identity to require users to access your content using a CloudFront URL instead of the Amazon S3 URL. For more information about how to use origin access identities, see [Serving Private Content through CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,23 +66,28 @@ export interface CreateCloudFrontOriginAccessIdentityCommandOutput extends Creat
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link CloudFrontOriginAccessIdentityAlreadyExists} (client fault)
- *  <p>If the <code>CallerReference</code> is a value you already sent in a previous request to create an identity but the content of the <code>CloudFrontOriginAccessIdentityConfig</code> is different from the original request, CloudFront returns a <code>CloudFrontOriginAccessIdentityAlreadyExists</code> error. </p>
+ *
+ * If the `CallerReference` is a value you already sent in a previous request to create an identity but the content of the `CloudFrontOriginAccessIdentityConfig` is different from the original request, CloudFront returns a `CloudFrontOriginAccessIdentityAlreadyExists` error.
  *
  * @throws {@link InconsistentQuantities} (client fault)
- *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
+ *
+ * The value of `Quantity` and the size of `Items` don't match.
  *
  * @throws {@link InvalidArgument} (client fault)
- *  <p>An argument is invalid.</p>
+ *
+ * An argument is invalid.
  *
  * @throws {@link MissingBody} (client fault)
- *  <p>This operation requires a body. Ensure that the body is present and the <code>Content-Type</code> header is set.</p>
+ *
+ * This operation requires a body. Ensure that the body is present and the `Content-Type` header is set.
  *
  * @throws {@link TooManyCloudFrontOriginAccessIdentities} (client fault)
- *  <p>Processing your request would cause you to exceed the maximum number of origin access identities allowed.</p>
+ *
+ * Processing your request would cause you to exceed the maximum number of origin access identities allowed.
  *
  * @throws {@link CloudFrontServiceException}
- * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * Base exception class for all service exceptions from CloudFront service.
  *
  * @public
  */

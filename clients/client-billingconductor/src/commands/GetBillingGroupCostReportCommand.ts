@@ -23,7 +23,8 @@ export interface GetBillingGroupCostReportCommandInput extends GetBillingGroupCo
 export interface GetBillingGroupCostReportCommandOutput extends GetBillingGroupCostReportOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves the margin summary report, which includes the Amazon Web Services cost and charged amount (pro forma cost) by Amazon Web Services service for a specific billing group.</p>
+ * Retrieves the margin summary report, which includes the Amazon Web Services cost and charged amount (pro forma cost) by Amazon Web Services service for a specific billing group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,23 +76,28 @@ export interface GetBillingGroupCostReportCommandOutput extends GetBillingGroupC
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action. </p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred while processing a request. </p>
+ *
+ * An unexpected error occurred while processing a request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request references a resource that doesn't exist. </p>
+ *
+ * The request references a resource that doesn't exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. </p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+ *
+ * The input doesn't match with the constraints specified by Amazon Web Services services.
  *
  * @throws {@link BillingconductorServiceException}
- * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ * Base exception class for all service exceptions from Billingconductor service.
  *
  * @public
  */

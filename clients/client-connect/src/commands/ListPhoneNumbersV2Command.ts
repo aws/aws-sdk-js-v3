@@ -23,22 +23,15 @@ export interface ListPhoneNumbersV2CommandInput extends ListPhoneNumbersV2Reques
 export interface ListPhoneNumbersV2CommandOutput extends ListPhoneNumbersV2Response, __MetadataBearer {}
 
 /**
- * <p>Lists phone numbers claimed to your Connect Customer instance or traffic distribution group. If the provided <code>TargetArn</code>
- *    is a traffic distribution group, you can call this API in both Amazon Web Services Regions associated with traffic distribution group.</p>
- *          <p>For more information about phone numbers, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html">Set Up Phone Numbers for Your Contact
- *     Center</a> in the <i>Connect Customer Administrator Guide</i>.</p>
- *          <note>
- *             <ul>
- *                <li>
- *                   <p>When given an instance ARN, <code>ListPhoneNumbersV2</code> returns only the phone numbers claimed to the
- *       instance.</p>
- *                </li>
- *                <li>
- *                   <p>When given a traffic distribution group ARN <code>ListPhoneNumbersV2</code> returns only the phone numbers claimed to the
- *       traffic distribution group.</p>
- *                </li>
- *             </ul>
- *          </note>
+ * Lists phone numbers claimed to your Connect Customer instance or traffic distribution group. If the provided `TargetArn` is a traffic distribution group, you can call this API in both Amazon Web Services Regions associated with traffic distribution group.
+ *
+ * For more information about phone numbers, see [Set Up Phone Numbers for Your Contact Center](https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html) in the *Connect Customer Administrator Guide*.
+ *
+ * > **Note:**
+ * >
+ * > - When given an instance ARN, `ListPhoneNumbersV2` returns only the phone numbers claimed to the instance.
+ * > - When given a traffic distribution group ARN `ListPhoneNumbersV2` returns only the phone numbers claimed to the traffic distribution group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,23 +81,28 @@ export interface ListPhoneNumbersV2CommandOutput extends ListPhoneNumbersV2Respo
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

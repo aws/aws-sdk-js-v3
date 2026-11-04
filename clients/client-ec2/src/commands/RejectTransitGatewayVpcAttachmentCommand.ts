@@ -26,10 +26,10 @@ export interface RejectTransitGatewayVpcAttachmentCommandInput extends RejectTra
 export interface RejectTransitGatewayVpcAttachmentCommandOutput extends RejectTransitGatewayVpcAttachmentResult, __MetadataBearer {}
 
 /**
- * <p>Rejects a request to attach a VPC to a transit gateway.</p>
- *          <p>The VPC attachment must be in the <code>pendingAcceptance</code> state.
- *          Use <a>DescribeTransitGatewayVpcAttachments</a> to view your pending VPC attachment requests.
- *          Use <a>AcceptTransitGatewayVpcAttachment</a> to accept a VPC attachment request.</p>
+ * Rejects a request to attach a VPC to a transit gateway.
+ *
+ * The VPC attachment must be in the `pendingAcceptance` state. Use DescribeTransitGatewayVpcAttachments to view your pending VPC attachment requests. Use AcceptTransitGatewayVpcAttachment to accept a VPC attachment request.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,8 +79,8 @@ export interface RejectTransitGatewayVpcAttachmentCommandOutput extends RejectTr
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

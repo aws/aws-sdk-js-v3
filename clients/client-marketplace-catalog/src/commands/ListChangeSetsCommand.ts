@@ -23,12 +23,10 @@ export interface ListChangeSetsCommandInput extends ListChangeSetsRequest {}
 export interface ListChangeSetsCommandOutput extends ListChangeSetsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the list of change sets owned by the account being used to make the call. You
- *             can filter this list by providing any combination of <code>entityId</code>,
- *                 <code>ChangeSetName</code>, and status. If you provide more than one filter, the API
- *             operation applies a logical AND between the filters.</p>
- *          <p>You can describe a change during the 60-day request history retention period for API
- *             calls.</p>
+ * Returns the list of change sets owned by the account being used to make the call. You can filter this list by providing any combination of `entityId`, `ChangeSetName`, and status. If you provide more than one filter, the API operation applies a logical AND between the filters.
+ *
+ * You can describe a change during the 60-day request history retention period for API calls.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,24 +81,32 @@ export interface ListChangeSetsCommandOutput extends ListChangeSetsResponse, __M
  * @see {@link MarketplaceCatalogClientResolvedConfig | config} for MarketplaceCatalogClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access is denied.</p>
- *          <p>HTTP status code: 403</p>
+ *
+ * Access is denied.
+ *
+ * HTTP status code: 403
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>There was an internal service exception.</p>
- *          <p>HTTP status code: 500</p>
+ *
+ * There was an internal service exception.
+ *
+ * HTTP status code: 500
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Too many requests.</p>
- *          <p>HTTP status code: 429</p>
+ *
+ * Too many requests.
+ *
+ * HTTP status code: 429
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An error occurred during validation.</p>
- *          <p>HTTP status code: 422</p>
+ *
+ * An error occurred during validation.
+ *
+ * HTTP status code: 422
  *
  * @throws {@link MarketplaceCatalogServiceException}
- * <p>Base exception class for all service exceptions from MarketplaceCatalog service.</p>
  *
+ * Base exception class for all service exceptions from MarketplaceCatalog service.
  *
  * @public
  */

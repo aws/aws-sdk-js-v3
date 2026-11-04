@@ -23,10 +23,10 @@ export interface DeleteRestoreTestingSelectionCommandInput extends DeleteRestore
 export interface DeleteRestoreTestingSelectionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Input the Restore Testing Plan name and Restore Testing Selection
- *          name.</p>
- *          <p>All testing selections associated with a restore testing plan must
- *          be deleted before the restore testing plan can be deleted.</p>
+ * Input the Restore Testing Plan name and Restore Testing Selection name.
+ *
+ * All testing selections associated with a restore testing plan must be deleted before the restore testing plan can be deleted.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,14 +52,16 @@ export interface DeleteRestoreTestingSelectionCommandOutput extends __MetadataBe
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A resource that is required for the action doesn't exist.</p>
+ *
+ * A resource that is required for the action doesn't exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The request failed due to a temporary failure of the server.</p>
+ *
+ * The request failed due to a temporary failure of the server.
  *
  * @throws {@link BackupServiceException}
- * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * Base exception class for all service exceptions from Backup service.
  *
  * @public
  */

@@ -23,26 +23,15 @@ export interface GetPublicAccessBlockCommandInput extends GetPublicAccessBlockRe
 export interface GetPublicAccessBlockCommandOutput extends GetPublicAccessBlockOutput, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This operation is not supported by directory buckets.</p>
- *          </note>
- *          <p>Retrieves the <code>PublicAccessBlock</code> configuration for an Amazon Web Services account. This
- *          operation returns the effective account-level configuration, which may inherit from
- *          organization-level policies. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html"> Using Amazon S3 block
- *             public access</a>.</p>
- *          <p>Related actions include:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeletePublicAccessBlock.html">DeletePublicAccessBlock</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutPublicAccessBlock.html">PutPublicAccessBlock</a>
- *                </p>
- *             </li>
- *          </ul>
+ * > **Note:** This operation is not supported by directory buckets.
+ *
+ * Retrieves the `PublicAccessBlock` configuration for an Amazon Web Services account. This operation returns the effective account-level configuration, which may inherit from organization-level policies. For more information, see [Using Amazon S3 block public access](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
+ *
+ * Related actions include:
+ *
+ * - [DeletePublicAccessBlock](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeletePublicAccessBlock.html)
+ * - [PutPublicAccessBlock](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutPublicAccessBlock.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,13 +63,12 @@ export interface GetPublicAccessBlockCommandOutput extends GetPublicAccessBlockO
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
  * @throws {@link NoSuchPublicAccessBlockConfiguration} (client fault)
- *  <p>Amazon S3 throws this exception if you make a <code>GetPublicAccessBlock</code> request
- *          against an account that doesn't have a <code>PublicAccessBlockConfiguration</code>
- *          set.</p>
+ *
+ * Amazon S3 throws this exception if you make a `GetPublicAccessBlock` request against an account that doesn't have a `PublicAccessBlockConfiguration` set.
  *
  * @throws {@link S3ControlServiceException}
- * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * Base exception class for all service exceptions from S3Control service.
  *
  * @public
  */

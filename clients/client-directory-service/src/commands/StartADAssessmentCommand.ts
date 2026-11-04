@@ -23,23 +23,16 @@ export interface StartADAssessmentCommandInput extends StartADAssessmentRequest 
 export interface StartADAssessmentCommandOutput extends StartADAssessmentResult, __MetadataBearer {}
 
 /**
- * <p>Initiates a directory assessment to validate your self-managed AD environment for
- *             hybrid domain join. The assessment checks compatibility and connectivity of the
- *             self-managed AD environment.</p>
- *          <p>A directory assessment is automatically created when you create a hybrid directory.
- *             There are two types of assessments: <code>CUSTOMER</code> and <code>SYSTEM</code>. Your
- *             Amazon Web Services account has a limit of 100 <code>CUSTOMER</code> directory assessments.</p>
- *          <p>The assessment process typically takes 30 minutes or more to complete. The assessment
- *             process is asynchronous and you can monitor it with
- *             <code>DescribeADAssessment</code>.</p>
- *          <p>The <code>InstanceIds</code> must have a one-to-one correspondence with
- *                 <code>CustomerDnsIps</code>, meaning that if the IP address for instance i-10243410
- *             is 10.24.34.100 and the IP address for instance i-10243420 is 10.24.34.200, then the
- *             input arrays must maintain the same order relationship, either [10.24.34.100,
- *             10.24.34.200] paired with [i-10243410, i-10243420] or [10.24.34.200, 10.24.34.100]
- *             paired with [i-10243420, i-10243410].</p>
- *          <p>Note: You must provide exactly one <code>DirectoryId</code> or
- *                 <code>AssessmentConfiguration</code>.</p>
+ * Initiates a directory assessment to validate your self-managed AD environment for hybrid domain join. The assessment checks compatibility and connectivity of the self-managed AD environment.
+ *
+ * A directory assessment is automatically created when you create a hybrid directory. There are two types of assessments: `CUSTOMER` and `SYSTEM`. Your Amazon Web Services account has a limit of 100 `CUSTOMER` directory assessments.
+ *
+ * The assessment process typically takes 30 minutes or more to complete. The assessment process is asynchronous and you can monitor it with `DescribeADAssessment`.
+ *
+ * The `InstanceIds` must have a one-to-one correspondence with `CustomerDnsIps`, meaning that if the IP address for instance i-10243410 is 10.24.34.100 and the IP address for instance i-10243420 is 10.24.34.200, then the input arrays must maintain the same order relationship, either [10.24.34.100, 10.24.34.200] paired with [i-10243410, i-10243420] or [10.24.34.200, 10.24.34.100] paired with [i-10243420, i-10243410].
+ *
+ * Note: You must provide exactly one `DirectoryId` or `AssessmentConfiguration`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,34 +77,36 @@ export interface StartADAssessmentCommandOutput extends StartADAssessmentResult,
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  * @throws {@link ADAssessmentLimitExceededException} (client fault)
- *  <p>A directory assessment is automatically created when you create a hybrid directory.
- *             There are two types of assessments: <code>CUSTOMER</code> and <code>SYSTEM</code>. Your
- *             Amazon Web Services account has a limit of 100 <code>CUSTOMER</code> directory assessments.</p>
- *          <p>If you attempt to create a hybrid directory; and you already have 100
- *                 <code>CUSTOMER</code> directory assessments;, you will encounter an error. Delete
- *             assessments to free up capacity before trying again.</p>
- *          <p>You can request an increase to your <code>CUSTOMER</code> directory assessment quota
- *             by contacting customer support or delete existing CUSTOMER directory assessments; to
- *             free up capacity.</p>
+ *
+ * A directory assessment is automatically created when you create a hybrid directory. There are two types of assessments: `CUSTOMER` and `SYSTEM`. Your Amazon Web Services account has a limit of 100 `CUSTOMER` directory assessments.
+ *
+ * If you attempt to create a hybrid directory; and you already have 100 `CUSTOMER` directory assessments;, you will encounter an error. Delete assessments to free up capacity before trying again.
+ *
+ * You can request an increase to your `CUSTOMER` directory assessment quota by contacting customer support or delete existing CUSTOMER directory assessments; to free up capacity.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>A client exception has occurred.</p>
+ *
+ * A client exception has occurred.
  *
  * @throws {@link DirectoryDoesNotExistException} (client fault)
- *  <p>The specified directory does not exist in the system.</p>
+ *
+ * The specified directory does not exist in the system.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * An exception has occurred in Directory Service.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>The operation is not supported.</p>
+ *
+ * The operation is not supported.
  *
  * @throws {@link DirectoryServiceServiceException}
- * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * Base exception class for all service exceptions from DirectoryService service.
  *
  * @public
  */

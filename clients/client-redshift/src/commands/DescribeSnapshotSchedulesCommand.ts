@@ -23,7 +23,8 @@ export interface DescribeSnapshotSchedulesCommandInput extends DescribeSnapshotS
 export interface DescribeSnapshotSchedulesCommandOutput extends DescribeSnapshotSchedulesOutputMessage, __MetadataBearer {}
 
 /**
- * <p>Returns a list of snapshot schedules. </p>
+ * Returns a list of snapshot schedules.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,8 +85,8 @@ export interface DescribeSnapshotSchedulesCommandOutput extends DescribeSnapshot
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

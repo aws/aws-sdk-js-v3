@@ -23,32 +23,18 @@ export interface PutScalingPolicyCommandInput extends PutScalingPolicyRequest {}
 export interface PutScalingPolicyCommandOutput extends PutScalingPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates or updates a scaling policy for an Application Auto Scaling scalable target.</p>
- *          <p>Each scalable target is identified by a service namespace, resource ID, and scalable
- *          dimension. A scaling policy applies to the scalable target identified by those three
- *          attributes. You cannot create a scaling policy until you have registered the resource as a
- *          scalable target.</p>
- *          <p>Multiple scaling policies can be in force at the same time for the same scalable target.
- *          You can have one or more target tracking scaling policies, one or more step scaling
- *          policies, or both. However, there is a chance that multiple policies could conflict,
- *          instructing the scalable target to scale out or in at the same time. Application Auto Scaling gives
- *          precedence to the policy that provides the largest capacity for both scale out and scale
- *          in. For example, if one policy increases capacity by 3, another policy increases capacity
- *          by 200 percent, and the current capacity is 10, Application Auto Scaling uses the policy with the highest
- *          calculated capacity (200% of 10 = 20) and scales out to 30. </p>
- *          <p>We recommend caution, however, when using target tracking scaling policies with step
- *          scaling policies because conflicts between these policies can cause undesirable behavior.
- *          For example, if the step scaling policy initiates a scale-in activity before the target
- *          tracking policy is ready to scale in, the scale-in activity will not be blocked. After the
- *          scale-in activity completes, the target tracking policy could instruct the scalable target
- *          to scale out again. </p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html">Target tracking scaling policies</a>, <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html">Step scaling policies</a>, and <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/aas-create-predictive-scaling-policy.html">Predictive scaling policies</a>
- *             in the <i>Application Auto Scaling User Guide</i>.</p>
- *          <note>
- *             <p>If a scalable target is deregistered, the scalable target is no longer available to
- *             use scaling policies. Any scaling policies that were specified for the scalable target
- *             are deleted.</p>
- *          </note>
+ * Creates or updates a scaling policy for an Application Auto Scaling scalable target.
+ *
+ * Each scalable target is identified by a service namespace, resource ID, and scalable dimension. A scaling policy applies to the scalable target identified by those three attributes. You cannot create a scaling policy until you have registered the resource as a scalable target.
+ *
+ * Multiple scaling policies can be in force at the same time for the same scalable target. You can have one or more target tracking scaling policies, one or more step scaling policies, or both. However, there is a chance that multiple policies could conflict, instructing the scalable target to scale out or in at the same time. Application Auto Scaling gives precedence to the policy that provides the largest capacity for both scale out and scale in. For example, if one policy increases capacity by 3, another policy increases capacity by 200 percent, and the current capacity is 10, Application Auto Scaling uses the policy with the highest calculated capacity (200% of 10 = 20) and scales out to 30.
+ *
+ * We recommend caution, however, when using target tracking scaling policies with step scaling policies because conflicts between these policies can cause undesirable behavior. For example, if the step scaling policy initiates a scale-in activity before the target tracking policy is ready to scale in, the scale-in activity will not be blocked. After the scale-in activity completes, the target tracking policy could instruct the scalable target to scale out again.
+ *
+ * For more information, see [Target tracking scaling policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html), [Step scaling policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html), and [Predictive scaling policies](https://docs.aws.amazon.com/autoscaling/application/userguide/aas-create-predictive-scaling-policy.html) in the *Application Auto Scaling User Guide*.
+ *
+ * > **Note:** If a scalable target is deregistered, the scalable target is no longer available to use scaling policies. Any scaling policies that were specified for the scalable target are deleted.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -237,35 +223,32 @@ export interface PutScalingPolicyCommandOutput extends PutScalingPolicyResponse,
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
  *
  * @throws {@link ConcurrentUpdateException} (server fault)
- *  <p>Concurrent updates caused an exception, for example, if you request an update to an
- *          Application Auto Scaling resource that already has a pending update.</p>
+ *
+ * Concurrent updates caused an exception, for example, if you request an update to an Application Auto Scaling resource that already has a pending update.
  *
  * @throws {@link FailedResourceAccessException} (client fault)
- *  <p>Failed access to resources caused an exception. This exception is thrown when Application Auto Scaling
- *          is unable to retrieve the alarms associated with a scaling policy due to a client error,
- *          for example, if the role ARN specified for a scalable target does not have permission to
- *          call the CloudWatch <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html">DescribeAlarms</a> on your behalf.</p>
+ *
+ * Failed access to resources caused an exception. This exception is thrown when Application Auto Scaling is unable to retrieve the alarms associated with a scaling policy due to a client error, for example, if the role ARN specified for a scalable target does not have permission to call the CloudWatch [DescribeAlarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html) on your behalf.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an internal error.</p>
+ *
+ * The service encountered an internal error.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>A per-account resource limit is exceeded. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-limits.html">Application Auto Scaling service quotas</a>.</p>
+ *
+ * A per-account resource limit is exceeded. For more information, see [Application Auto Scaling service quotas](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-limits.html).
  *
  * @throws {@link ObjectNotFoundException} (client fault)
- *  <p>The specified object could not be found. For any operation that depends on the existence
- *          of a scalable target, this exception is thrown if the scalable target with the specified
- *          service namespace, resource ID, and scalable dimension does not exist. For any operation
- *          that deletes or deregisters a resource, this exception is thrown if the resource cannot be
- *          found.</p>
+ *
+ * The specified object could not be found. For any operation that depends on the existence of a scalable target, this exception is thrown if the scalable target with the specified service namespace, resource ID, and scalable dimension does not exist. For any operation that deletes or deregisters a resource, this exception is thrown if the resource cannot be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An exception was thrown for a validation issue. Review the available parameters for the
- *          API request.</p>
+ *
+ * An exception was thrown for a validation issue. Review the available parameters for the API request.
  *
  * @throws {@link ApplicationAutoScalingServiceException}
- * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from ApplicationAutoScaling service.
  *
  * @example To apply a target tracking scaling policy with a predefined metric specification
  * ```javascript

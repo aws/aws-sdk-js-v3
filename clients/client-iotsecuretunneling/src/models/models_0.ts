@@ -6,14 +6,15 @@ import type { ClientMode, ConnectionStatus, TunnelStatus } from "./enums";
  */
 export interface CloseTunnelRequest {
   /**
-   * <p>The ID of the tunnel to close.</p>
+   * The ID of the tunnel to close.
+   *
    * @public
    */
   tunnelId: string | undefined;
 
   /**
-   * <p>When set to true, IoT Secure Tunneling deletes the tunnel data
-   * 			immediately.</p>
+   * When set to true, IoT Secure Tunneling deletes the tunnel data immediately.
+   *
    * @public
    */
   delete?: boolean | undefined;
@@ -25,19 +26,21 @@ export interface CloseTunnelRequest {
 export interface CloseTunnelResponse {}
 
 /**
- * <p>The state of a connection.</p>
+ * The state of a connection.
+ *
  * @public
  */
 export interface ConnectionState {
   /**
-   * <p>The connection status of the tunnel. Valid values are <code>CONNECTED</code> and
-   * 				<code>DISCONNECTED</code>.</p>
+   * The connection status of the tunnel. Valid values are `CONNECTED` and `DISCONNECTED`.
+   *
    * @public
    */
   status?: ConnectionStatus | undefined;
 
   /**
-   * <p>The last time the connection status was updated.</p>
+   * The last time the connection status was updated.
+   *
    * @public
    */
   lastUpdatedAt?: Date | undefined;
@@ -48,135 +51,148 @@ export interface ConnectionState {
  */
 export interface DescribeTunnelRequest {
   /**
-   * <p>The tunnel to describe.</p>
+   * The tunnel to describe.
+   *
    * @public
    */
   tunnelId: string | undefined;
 }
 
 /**
- * <p>The destination configuration.</p>
+ * The destination configuration.
+ *
  * @public
  */
 export interface DestinationConfig {
   /**
-   * <p>The name of the IoT thing to which you want to connect.</p>
+   * The name of the IoT thing to which you want to connect.
+   *
    * @public
    */
   thingName?: string | undefined;
 
   /**
-   * <p>A list of service names that identify the target application. The IoT client
-   * 			running on the destination device reads this value and uses it to look up a port or an
-   * 			IP address and a port. The IoT client instantiates the local proxy, which uses this
-   * 			information to connect to the destination application.</p>
+   * A list of service names that identify the target application. The IoT client running on the destination device reads this value and uses it to look up a port or an IP address and a port. The IoT client instantiates the local proxy, which uses this information to connect to the destination application.
+   *
    * @public
    */
   services: string[] | undefined;
 }
 
 /**
- * <p>An arbitary key/value pair used to add searchable metadata to secure tunnel
- * 			resources.</p>
+ * An arbitary key/value pair used to add searchable metadata to secure tunnel resources.
+ *
  * @public
  */
 export interface Tag {
   /**
-   * <p>The key of the tag.</p>
+   * The key of the tag.
+   *
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>The value of the tag.</p>
+   * The value of the tag.
+   *
    * @public
    */
   value: string | undefined;
 }
 
 /**
- * <p>Tunnel timeout configuration.</p>
+ * Tunnel timeout configuration.
+ *
  * @public
  */
 export interface TimeoutConfig {
   /**
-   * <p>The maximum amount of time (in minutes) a tunnel can remain open. If not specified,
-   * 			maxLifetimeTimeoutMinutes defaults to 720 minutes. Valid values are from 1 minute to 12
-   * 			hours (720 minutes) </p>
+   * The maximum amount of time (in minutes) a tunnel can remain open. If not specified, maxLifetimeTimeoutMinutes defaults to 720 minutes. Valid values are from 1 minute to 12 hours (720 minutes)
+   *
    * @public
    */
   maxLifetimeTimeoutMinutes?: number | undefined;
 }
 
 /**
- * <p>A connection between a source computer and a destination device.</p>
+ * A connection between a source computer and a destination device.
+ *
  * @public
  */
 export interface Tunnel {
   /**
-   * <p>A unique alpha-numeric ID that identifies a tunnel.</p>
+   * A unique alpha-numeric ID that identifies a tunnel.
+   *
    * @public
    */
   tunnelId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a tunnel.</p>
+   * The Amazon Resource Name (ARN) of a tunnel.
+   *
    * @public
    */
   tunnelArn?: string | undefined;
 
   /**
-   * <p>The status of a tunnel. Valid values are: Open and Closed.</p>
+   * The status of a tunnel. Valid values are: Open and Closed.
+   *
    * @public
    */
   status?: TunnelStatus | undefined;
 
   /**
-   * <p>The connection state of the source application.</p>
+   * The connection state of the source application.
+   *
    * @public
    */
   sourceConnectionState?: ConnectionState | undefined;
 
   /**
-   * <p>The connection state of the destination application.</p>
+   * The connection state of the destination application.
+   *
    * @public
    */
   destinationConnectionState?: ConnectionState | undefined;
 
   /**
-   * <p>A description of the tunnel.</p>
+   * A description of the tunnel.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The destination configuration that specifies the thing name of the destination
-   * 			device and a service name that the local proxy uses to connect to the destination
-   * 			application.</p>
+   * The destination configuration that specifies the thing name of the destination device and a service name that the local proxy uses to connect to the destination application.
+   *
    * @public
    */
   destinationConfig?: DestinationConfig | undefined;
 
   /**
-   * <p>Timeout configuration for the tunnel.</p>
+   * Timeout configuration for the tunnel.
+   *
    * @public
    */
   timeoutConfig?: TimeoutConfig | undefined;
 
   /**
-   * <p>A list of tag metadata associated with the secure tunnel.</p>
+   * A list of tag metadata associated with the secure tunnel.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p>The time when the tunnel was created.</p>
+   * The time when the tunnel was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The last time the tunnel was updated.</p>
+   * The last time the tunnel was updated.
+   *
    * @public
    */
   lastUpdatedAt?: Date | undefined;
@@ -187,7 +203,8 @@ export interface Tunnel {
  */
 export interface DescribeTunnelResponse {
   /**
-   * <p>The tunnel being described.</p>
+   * The tunnel being described.
+   *
    * @public
    */
   tunnel?: Tunnel | undefined;
@@ -198,7 +215,8 @@ export interface DescribeTunnelResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The resource ARN.</p>
+   * The resource ARN.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -209,7 +227,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>The tags for the specified resource.</p>
+   * The tags for the specified resource.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
@@ -220,62 +239,71 @@ export interface ListTagsForResourceResponse {
  */
 export interface ListTunnelsRequest {
   /**
-   * <p>The name of the IoT thing associated with the destination device.</p>
+   * The name of the IoT thing associated with the destination device.
+   *
    * @public
    */
   thingName?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return at once.</p>
+   * The maximum number of results to return at once.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>To retrieve the next set of results, the nextToken value from a previous response;
-   * 			otherwise null to receive the first set of results.</p>
+   * To retrieve the next set of results, the nextToken value from a previous response; otherwise null to receive the first set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Information about the tunnel.</p>
+ * Information about the tunnel.
+ *
  * @public
  */
 export interface TunnelSummary {
   /**
-   * <p>The unique alpha-numeric identifier for the tunnel.</p>
+   * The unique alpha-numeric identifier for the tunnel.
+   *
    * @public
    */
   tunnelId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name of the tunnel. </p>
+   * The Amazon Resource Name of the tunnel.
+   *
    * @public
    */
   tunnelArn?: string | undefined;
 
   /**
-   * <p>The status of a tunnel. Valid values are: Open and Closed.</p>
+   * The status of a tunnel. Valid values are: Open and Closed.
+   *
    * @public
    */
   status?: TunnelStatus | undefined;
 
   /**
-   * <p>A description of the tunnel.</p>
+   * A description of the tunnel.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The time the tunnel was created.</p>
+   * The time the tunnel was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The time the tunnel was last updated.</p>
+   * The time the tunnel was last updated.
+   *
    * @public
    */
   lastUpdatedAt?: Date | undefined;
@@ -286,14 +314,15 @@ export interface TunnelSummary {
  */
 export interface ListTunnelsResponse {
   /**
-   * <p>A short description of the tunnels in an Amazon Web Services account.</p>
+   * A short description of the tunnels in an Amazon Web Services account.
+   *
    * @public
    */
   tunnelSummaries?: TunnelSummary[] | undefined;
 
   /**
-   * <p>The token to use to get the next set of results, or null if there are no additional
-   * 			results.</p>
+   * The token to use to get the next set of results, or null if there are no additional results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -304,25 +333,29 @@ export interface ListTunnelsResponse {
  */
 export interface OpenTunnelRequest {
   /**
-   * <p>A short text description of the tunnel. </p>
+   * A short text description of the tunnel.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>A collection of tag metadata.</p>
+   * A collection of tag metadata.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p>The destination configuration for the OpenTunnel request.</p>
+   * The destination configuration for the OpenTunnel request.
+   *
    * @public
    */
   destinationConfig?: DestinationConfig | undefined;
 
   /**
-   * <p>Timeout configuration for a tunnel.</p>
+   * Timeout configuration for a tunnel.
+   *
    * @public
    */
   timeoutConfig?: TimeoutConfig | undefined;
@@ -333,27 +366,29 @@ export interface OpenTunnelRequest {
  */
 export interface OpenTunnelResponse {
   /**
-   * <p>A unique alpha-numeric tunnel ID.</p>
+   * A unique alpha-numeric tunnel ID.
+   *
    * @public
    */
   tunnelId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name for the tunnel.</p>
+   * The Amazon Resource Name for the tunnel.
+   *
    * @public
    */
   tunnelArn?: string | undefined;
 
   /**
-   * <p>The access token the source local proxy uses to connect to IoT Secure
-   * 			Tunneling.</p>
+   * The access token the source local proxy uses to connect to IoT Secure Tunneling.
+   *
    * @public
    */
   sourceAccessToken?: string | undefined;
 
   /**
-   * <p>The access token the destination local proxy uses to connect to IoT Secure
-   * 			Tunneling.</p>
+   * The access token the destination local proxy uses to connect to IoT Secure Tunneling.
+   *
    * @public
    */
   destinationAccessToken?: string | undefined;
@@ -364,20 +399,22 @@ export interface OpenTunnelResponse {
  */
 export interface RotateTunnelAccessTokenRequest {
   /**
-   * <p>The tunnel for which you want to rotate the access tokens.</p>
+   * The tunnel for which you want to rotate the access tokens.
+   *
    * @public
    */
   tunnelId: string | undefined;
 
   /**
-   * <p>The mode of the client that will use the client token, which can be either the source
-   * 			or destination, or both source and destination.</p>
+   * The mode of the client that will use the client token, which can be either the source or destination, or both source and destination.
+   *
    * @public
    */
   clientMode: ClientMode | undefined;
 
   /**
-   * <p>The destination configuration.</p>
+   * The destination configuration.
+   *
    * @public
    */
   destinationConfig?: DestinationConfig | undefined;
@@ -388,21 +425,22 @@ export interface RotateTunnelAccessTokenRequest {
  */
 export interface RotateTunnelAccessTokenResponse {
   /**
-   * <p>The Amazon Resource Name for the tunnel.</p>
+   * The Amazon Resource Name for the tunnel.
+   *
    * @public
    */
   tunnelArn?: string | undefined;
 
   /**
-   * <p>The client access token that the source local proxy uses to connect to IoT Secure
-   * 			Tunneling.</p>
+   * The client access token that the source local proxy uses to connect to IoT Secure Tunneling.
+   *
    * @public
    */
   sourceAccessToken?: string | undefined;
 
   /**
-   * <p>The client access token that the destination local proxy uses to connect to IoT
-   * 			Secure Tunneling.</p>
+   * The client access token that the destination local proxy uses to connect to IoT Secure Tunneling.
+   *
    * @public
    */
   destinationAccessToken?: string | undefined;
@@ -413,13 +451,15 @@ export interface RotateTunnelAccessTokenResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The ARN of the resource.</p>
+   * The ARN of the resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The tags for the resource.</p>
+   * The tags for the resource.
+   *
    * @public
    */
   tags: Tag[] | undefined;
@@ -435,13 +475,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The resource ARN.</p>
+   * The resource ARN.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The keys of the tags to remove.</p>
+   * The keys of the tags to remove.
+   *
    * @public
    */
   tagKeys: string[] | undefined;

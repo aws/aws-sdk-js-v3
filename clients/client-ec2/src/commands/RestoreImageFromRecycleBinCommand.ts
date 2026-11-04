@@ -23,9 +23,8 @@ export interface RestoreImageFromRecycleBinCommandInput extends RestoreImageFrom
 export interface RestoreImageFromRecycleBinCommandOutput extends RestoreImageFromRecycleBinResult, __MetadataBearer {}
 
 /**
- * <p>Restores an AMI from the Recycle Bin. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recover deleted Amazon EBS
- *         snapshots and EBS-back AMIs with Recycle Bin</a> in the
- *         <i>Amazon EC2 User Guide</i>.</p>
+ * Restores an AMI from the Recycle Bin. For more information, see [Recover deleted Amazon EBS snapshots and EBS-back AMIs with Recycle Bin](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,8 +52,8 @@ export interface RestoreImageFromRecycleBinCommandOutput extends RestoreImageFro
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

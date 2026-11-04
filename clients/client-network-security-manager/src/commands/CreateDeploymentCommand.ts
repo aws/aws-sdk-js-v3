@@ -23,7 +23,8 @@ export interface CreateDeploymentCommandInput extends CreateDeploymentInput {}
 export interface CreateDeploymentCommandOutput extends CreateDeploymentOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a deployment. A deployment applies one or more policies to the accounts and resources selected by a scope. Use <code>isPublished</code> to create the deployment in published (<code>ACTIVE</code>) or draft (<code>DRAFT</code>) state. The response includes coverage information and any warnings about the deployment.</p>
+ * Creates a deployment. A deployment applies one or more policies to the accounts and resources selected by a scope. Use `isPublished` to create the deployment in published (`ACTIVE`) or draft (`DRAFT`) state. The response includes coverage information and any warnings about the deployment.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -109,32 +110,40 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentOutput, _
  * @see {@link NetworkSecurityManagerClientResolvedConfig | config} for NetworkSecurityManagerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request conflicts with the current state of the resource. For example, the resource was modified concurrently, or it is in a state that does not allow the requested operation.</p>
+ *
+ * The request conflicts with the current state of the resource. For example, the resource was modified concurrently, or it is in a state that does not allow the requested operation.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing failed because of an internal error in the service. This is a retryable error.</p>
+ *
+ * The request processing failed because of an internal error in the service. This is a retryable error.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would exceed a service quota.</p>
+ *
+ * The request would exceed a service quota.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is temporarily unavailable. This is a retryable error.</p>
+ *
+ * The service is temporarily unavailable. This is a retryable error.
  *
  * @throws {@link TagPolicyViolationException} (client fault)
- *  <p>The request violates a tag policy that is in effect for the account or organization.</p>
+ *
+ * The request violates a tag policy that is in effect for the account or organization.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied because of request throttling. Reduce your request rate and try again.</p>
+ *
+ * The request was denied because of request throttling. Reduce your request rate and try again.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request failed validation. For details, see the <code>reason</code> and <code>fieldList</code> members of the response.</p>
+ *
+ * The request failed validation. For details, see the `reason` and `fieldList` members of the response.
  *
  * @throws {@link NetworkSecurityManagerServiceException}
- * <p>Base exception class for all service exceptions from NetworkSecurityManager service.</p>
  *
+ * Base exception class for all service exceptions from NetworkSecurityManager service.
  *
  * @example Create a deployment
  * ```javascript

@@ -23,7 +23,8 @@ export interface GetInsightsCommandInput extends GetInsightsRequest {}
 export interface GetInsightsCommandOutput extends GetInsightsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the latest analytics data for all your current active assessments. </p>
+ * Gets the latest analytics data for all your current active assessments.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,16 +57,16 @@ export interface GetInsightsCommandOutput extends GetInsightsResponse, __Metadat
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p> Your account isn't registered with Audit Manager. Check the delegated
- *          administrator setup on the Audit Manager settings page, and try again. </p>
+ *
+ * Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> An internal service error occurred during the processing of your request. Try again
- *          later. </p>
+ *
+ * An internal service error occurred during the processing of your request. Try again later.
  *
  * @throws {@link AuditManagerServiceException}
- * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * Base exception class for all service exceptions from AuditManager service.
  *
  * @public
  */

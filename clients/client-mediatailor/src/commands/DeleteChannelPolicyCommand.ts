@@ -23,7 +23,8 @@ export interface DeleteChannelPolicyCommandInput extends DeleteChannelPolicyRequ
 export interface DeleteChannelPolicyCommandOutput extends DeleteChannelPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>The channel policy to delete.</p>
+ * The channel policy to delete.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,8 +49,8 @@ export interface DeleteChannelPolicyCommandOutput extends DeleteChannelPolicyRes
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
  * @throws {@link MediaTailorServiceException}
- * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ * Base exception class for all service exceptions from MediaTailor service.
  *
  * @public
  */

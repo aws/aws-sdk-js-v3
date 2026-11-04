@@ -23,23 +23,14 @@ export interface DescribeClusterParameterGroupsCommandInput extends DescribeClus
 export interface DescribeClusterParameterGroupsCommandOutput extends ClusterParameterGroupsMessage, __MetadataBearer {}
 
 /**
- * <p>Returns a list of Amazon Redshift parameter groups, including parameter groups you
- *             created and the default parameter group. For each parameter group, the response includes
- *             the parameter group name, description, and parameter group family name. You can
- *             optionally specify a name to retrieve the description of a specific parameter
- *             group.</p>
- *          <p>
- * For more information about parameters and parameter groups, go to
- * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift Parameter Groups</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
- *          <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
- *             all parameter groups that match any combination of the specified keys and values. For
- *             example, if you have <code>owner</code> and <code>environment</code> for tag keys, and
- *                 <code>admin</code> and <code>test</code> for tag values, all parameter groups that
- *             have any combination of those values are returned.</p>
- *          <p>If both tag keys and values are omitted from the request, parameter groups are
- *             returned regardless of whether they have tag keys or values associated with
- *             them.</p>
+ * Returns a list of Amazon Redshift parameter groups, including parameter groups you created and the default parameter group. For each parameter group, the response includes the parameter group name, description, and parameter group family name. You can optionally specify a name to retrieve the description of a specific parameter group.
+ *
+ * For more information about parameters and parameter groups, go to [Amazon Redshift Parameter Groups](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html) in the *Amazon Redshift Cluster Management Guide*.
+ *
+ * If you specify both tag keys and tag values in the same request, Amazon Redshift returns all parameter groups that match any combination of the specified keys and values. For example, if you have `owner` and `environment` for tag keys, and `admin` and `test` for tag values, all parameter groups that have any combination of those values are returned.
+ *
+ * If both tag keys and values are omitted from the request, parameter groups are returned regardless of whether they have tag keys or values associated with them.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,14 +78,16 @@ export interface DescribeClusterParameterGroupsCommandOutput extends ClusterPara
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterParameterGroupNotFoundFault} (client fault)
- *  <p>The parameter group name does not refer to an existing parameter group.</p>
+ *
+ * The parameter group name does not refer to an existing parameter group.
  *
  * @throws {@link InvalidTagFault} (client fault)
- *  <p>The tag is invalid.</p>
+ *
+ * The tag is invalid.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

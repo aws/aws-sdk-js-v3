@@ -55,37 +55,43 @@ import type {
  */
 export interface ListProfileObjectTypeTemplatesRequest {
   /**
-   * <p>The pagination token from the previous ListObjectTypeTemplates API call.</p>
+   * The pagination token from the previous ListObjectTypeTemplates API call.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of objects returned per page.</p>
+   * The maximum number of objects returned per page.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>A ProfileObjectTypeTemplate in a list of ProfileObjectTypeTemplates.</p>
+ * A ProfileObjectTypeTemplate in a list of ProfileObjectTypeTemplates.
+ *
  * @public
  */
 export interface ListProfileObjectTypeTemplateItem {
   /**
-   * <p>A unique identifier for the object template.</p>
+   * A unique identifier for the object template.
+   *
    * @public
    */
   TemplateId?: string | undefined;
 
   /**
-   * <p>The name of the source of the object template.</p>
+   * The name of the source of the object template.
+   *
    * @public
    */
   SourceName?: string | undefined;
 
   /**
-   * <p>The source of the object template.</p>
+   * The source of the object template.
+   *
    * @public
    */
   SourceObject?: string | undefined;
@@ -96,13 +102,15 @@ export interface ListProfileObjectTypeTemplateItem {
  */
 export interface ListProfileObjectTypeTemplatesResponse {
   /**
-   * <p>The list of ListProfileObjectType template instances.</p>
+   * The list of ListProfileObjectType template instances.
+   *
    * @public
    */
   Items?: ListProfileObjectTypeTemplateItem[] | undefined;
 
   /**
-   * <p>The pagination token from the previous ListObjectTypeTemplates API call. </p>
+   * The pagination token from the previous ListObjectTypeTemplates API call.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -113,73 +121,85 @@ export interface ListProfileObjectTypeTemplatesResponse {
  */
 export interface ListRecommenderFiltersRequest {
   /**
-   * <p>The unique name of the domain.</p>
+   * The unique name of the domain.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>The maximum number of recommender filters to return in the response. The default value is 100.</p>
+   * The maximum number of recommender filters to return in the response. The default value is 100.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>A token received from a previous ListRecommenderFilters call to retrieve the next page of results.</p>
+   * A token received from a previous ListRecommenderFilters call to retrieve the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Provides a summary of a recommender filter's configuration and current state.</p>
+ * Provides a summary of a recommender filter's configuration and current state.
+ *
  * @public
  */
 export interface RecommenderFilterSummary {
   /**
-   * <p>The name of the recommender filter.</p>
+   * The name of the recommender filter.
+   *
    * @public
    */
   RecommenderFilterName?: string | undefined;
 
   /**
-   * <p>The name of the recommender schema associated with this recommender filter.</p>
+   * The name of the recommender schema associated with this recommender filter.
+   *
    * @public
    */
   RecommenderSchemaName?: string | undefined;
 
   /**
-   * <p>The filter expression that defines which items to include or exclude from recommendations.</p>
+   * The filter expression that defines which items to include or exclude from recommendations.
+   *
    * @public
    */
   RecommenderFilterExpression?: string | undefined;
 
   /**
-   * <p>The timestamp when the recommender filter was created.</p>
+   * The timestamp when the recommender filter was created.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>A description of the recommender filter's purpose and characteristics.</p>
+   * A description of the recommender filter's purpose and characteristics.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The current operational status of the recommender filter.</p>
+   * The current operational status of the recommender filter.
+   *
    * @public
    */
   Status?: RecommenderFilterStatus | undefined;
 
   /**
-   * <p>If the recommender filter is in a failed state, provides the reason for the failure.</p>
+   * If the recommender filter is in a failed state, provides the reason for the failure.
+   *
    * @public
    */
   FailureReason?: string | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -190,13 +210,15 @@ export interface RecommenderFilterSummary {
  */
 export interface ListRecommenderFiltersResponse {
   /**
-   * <p>A token to retrieve the next page of results. Null if there are no more results to retrieve.</p>
+   * A token to retrieve the next page of results. Null if there are no more results to retrieve.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>A list of recommender filters and their properties in the specified domain.</p>
+   * A list of recommender filters and their properties in the specified domain.
+   *
    * @public
    */
   RecommenderFilters?: RecommenderFilterSummary[] | undefined;
@@ -207,31 +229,36 @@ export interface ListRecommenderFiltersResponse {
  */
 export interface ListRecommenderRecipesRequest {
   /**
-   * <p>The maximum number of recommender recipes to return in the response. The default value is 100.</p>
+   * The maximum number of recommender recipes to return in the response. The default value is 100.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>A token received from a previous ListRecommenderRecipes call to retrieve the next page of results.</p>
+   * A token received from a previous ListRecommenderRecipes call to retrieve the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Defines the algorithm and approach used to generate recommendations.</p>
+ * Defines the algorithm and approach used to generate recommendations.
+ *
  * @public
  */
 export interface RecommenderRecipe {
   /**
-   * <p>The name of the recommender recipe.</p>
+   * The name of the recommender recipe.
+   *
    * @public
    */
   name?: RecommenderRecipeName | undefined;
 
   /**
-   * <p>A description of the recommender recipe's purpose and functionality.</p>
+   * A description of the recommender recipe's purpose and functionality.
+   *
    * @public
    */
   description?: string | undefined;
@@ -242,13 +269,15 @@ export interface RecommenderRecipe {
  */
 export interface ListRecommenderRecipesResponse {
   /**
-   * <p>A token to retrieve the next page of results. Null if there are no more results to retrieve.</p>
+   * A token to retrieve the next page of results. Null if there are no more results to retrieve.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>A list of available recommender recipes and their properties.</p>
+   * A list of available recommender recipes and their properties.
+   *
    * @public
    */
   RecommenderRecipes?: RecommenderRecipe[] | undefined;
@@ -259,91 +288,106 @@ export interface ListRecommenderRecipesResponse {
  */
 export interface ListRecommendersRequest {
   /**
-   * <p>The unique name of the domain.</p>
+   * The unique name of the domain.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>The maximum number of recommenders to return in the response. The default value is 100.</p>
+   * The maximum number of recommenders to return in the response. The default value is 100.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>A token received from a previous ListRecommenders call to retrieve the next page of results.</p>
+   * A token received from a previous ListRecommenders call to retrieve the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Provides a summary of a recommender's configuration and current state.</p>
+ * Provides a summary of a recommender's configuration and current state.
+ *
  * @public
  */
 export interface RecommenderSummary {
   /**
-   * <p>The name of the recommender.</p>
+   * The name of the recommender.
+   *
    * @public
    */
   RecommenderName?: string | undefined;
 
   /**
-   * <p>The name of the recipe used by this recommender.</p>
+   * The name of the recipe used by this recommender.
+   *
    * @public
    */
   RecipeName?: RecommenderRecipeName | undefined;
 
   /**
-   * <p>The name of the recommender schema associated with this recommender.</p>
+   * The name of the recommender schema associated with this recommender.
+   *
    * @public
    */
   RecommenderSchemaName?: string | undefined;
 
   /**
-   * <p>The configuration settings applied to this recommender.</p>
+   * The configuration settings applied to this recommender.
+   *
    * @public
    */
   RecommenderConfig?: RecommenderConfig | undefined;
 
   /**
-   * <p>The timestamp when the recommender was created.</p>
+   * The timestamp when the recommender was created.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>A description of the recommender's purpose and characteristics.</p>
+   * A description of the recommender's purpose and characteristics.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The current operational status of the recommender.</p>
+   * The current operational status of the recommender.
+   *
    * @public
    */
   Status?: RecommenderStatus | undefined;
 
   /**
-   * <p>The timestamp of when the recommender was edited.</p>
+   * The timestamp of when the recommender was edited.
+   *
    * @public
    */
   LastUpdatedAt?: Date | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>If the recommender is in a failed state, provides the reason for the failure.</p>
+   * If the recommender is in a failed state, provides the reason for the failure.
+   *
    * @public
    */
   FailureReason?: string | undefined;
 
   /**
-   * <p>Information about the most recent update performed on the recommender, including its status and timing.</p>
+   * Information about the most recent update performed on the recommender, including its status and timing.
+   *
    * @public
    */
   LatestRecommenderUpdate?: RecommenderUpdate | undefined;
@@ -354,13 +398,15 @@ export interface RecommenderSummary {
  */
 export interface ListRecommendersResponse {
   /**
-   * <p>A token to retrieve the next page of results. Null if there are no more results to retrieve.</p>
+   * A token to retrieve the next page of results. Null if there are no more results to retrieve.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>A list of recommenders and their properties in the specified domain.</p>
+   * A list of recommenders and their properties in the specified domain.
+   *
    * @public
    */
   Recommenders?: RecommenderSummary[] | undefined;
@@ -371,49 +417,57 @@ export interface ListRecommendersResponse {
  */
 export interface ListRecommenderSchemasRequest {
   /**
-   * <p>The unique name of the domain.</p>
+   * The unique name of the domain.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>The maximum number of recommender schemas to return in the response. The default value is 100.</p>
+   * The maximum number of recommender schemas to return in the response. The default value is 100.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>A token received from a previous ListRecommenderSchemas call to retrieve the next page of results.</p>
+   * A token received from a previous ListRecommenderSchemas call to retrieve the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Provides a summary of a recommender schema's configuration and current state.</p>
+ * Provides a summary of a recommender schema's configuration and current state.
+ *
  * @public
  */
 export interface RecommenderSchemaSummary {
   /**
-   * <p>The name of the recommender schema.</p>
+   * The name of the recommender schema.
+   *
    * @public
    */
   RecommenderSchemaName: string | undefined;
 
   /**
-   * <p>A map of dataset type to column definitions included in the schema.</p>
+   * A map of dataset type to column definitions included in the schema.
+   *
    * @public
    */
   Fields: Record<string, RecommenderSchemaField[]> | undefined;
 
   /**
-   * <p>The timestamp when the recommender schema was created.</p>
+   * The timestamp when the recommender schema was created.
+   *
    * @public
    */
   CreatedAt: Date | undefined;
 
   /**
-   * <p>The current operational status of the recommender schema.</p>
+   * The current operational status of the recommender schema.
+   *
    * @public
    */
   Status: RecommenderSchemaStatus | undefined;
@@ -424,13 +478,15 @@ export interface RecommenderSchemaSummary {
  */
 export interface ListRecommenderSchemasResponse {
   /**
-   * <p>A token to retrieve the next page of results. Null if there are no more results to retrieve.</p>
+   * A token to retrieve the next page of results. Null if there are no more results to retrieve.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>A list of recommender schemas and their properties in the specified domain.</p>
+   * A list of recommender schemas and their properties in the specified domain.
+   *
    * @public
    */
   RecommenderSchemas?: RecommenderSchemaSummary[] | undefined;
@@ -441,20 +497,22 @@ export interface ListRecommenderSchemasResponse {
  */
 export interface ListRuleBasedMatchesRequest {
   /**
-   * <p>The pagination token from the previous <code>ListRuleBasedMatches</code> API
-   *          call.</p>
+   * The pagination token from the previous `ListRuleBasedMatches` API call.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of <code>MatchIds</code> returned per page.</p>
+   * The maximum number of `MatchIds` returned per page.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The unique name of the domain.</p>
+   * The unique name of the domain.
+   *
    * @public
    */
   DomainName: string | undefined;
@@ -465,14 +523,15 @@ export interface ListRuleBasedMatchesRequest {
  */
 export interface ListRuleBasedMatchesResponse {
   /**
-   * <p>The list of <code>MatchIds</code> for the given domain.</p>
+   * The list of `MatchIds` for the given domain.
+   *
    * @public
    */
   MatchIds?: string[] | undefined;
 
   /**
-   * <p>The pagination token from the previous <code>ListRuleBasedMatches</code> API
-   *          call.</p>
+   * The pagination token from the previous `ListRuleBasedMatches` API call.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -483,70 +542,82 @@ export interface ListRuleBasedMatchesResponse {
  */
 export interface ListSegmentDefinitionsRequest {
   /**
-   * <p>The unique identifier of the domain.</p>
+   * The unique identifier of the domain.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>The maximum number of objects returned per page.</p>
+   * The maximum number of objects returned per page.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The pagination token from the previous call. </p>
+   * The pagination token from the previous call.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Object holding the segment definition fields.</p>
+ * Object holding the segment definition fields.
+ *
  * @public
  */
 export interface SegmentDefinitionItem {
   /**
-   * <p>Name of the segment definition.</p>
+   * Name of the segment definition.
+   *
    * @public
    */
   SegmentDefinitionName?: string | undefined;
 
   /**
-   * <p>Display name of the segment definition.</p>
+   * Display name of the segment definition.
+   *
    * @public
    */
   DisplayName?: string | undefined;
 
   /**
-   * <p>The description of the segment definition.</p>
+   * The description of the segment definition.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The arn of the segment definition.</p>
+   * The arn of the segment definition.
+   *
    * @public
    */
   SegmentDefinitionArn?: string | undefined;
 
   /**
-   * <p>When the segment definition was created.</p>
+   * When the segment definition was created.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The tags belonging to the segment definition.</p>
+   * The tags belonging to the segment definition.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The segment type.</p>
-   *          <p> Classic : Segments created using traditional SegmentGroup structure</p>
-   *          <p> Enhanced : Segments created using SQL queries
-   *       </p>
+   * The segment type.
+   *
+   * Classic : Segments created using traditional SegmentGroup structure
+   *
+   * Enhanced : Segments created using SQL queries
+   *
    * @public
    */
   SegmentType?: SegmentType | undefined;
@@ -557,13 +628,15 @@ export interface SegmentDefinitionItem {
  */
 export interface ListSegmentDefinitionsResponse {
   /**
-   * <p>The pagination token from the previous call.</p>
+   * The pagination token from the previous call.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>List of segment definitions.</p>
+   * List of segment definitions.
+   *
    * @public
    */
   Items?: SegmentDefinitionItem[] | undefined;
@@ -574,78 +647,70 @@ export interface ListSegmentDefinitionsResponse {
  */
 export interface ListSegmentSubscriptionEventsRequest {
   /**
-   * <p>The unique name of the domain.</p>
+   * The unique name of the domain.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>The unique name of the segment definition. </p>
+   * The unique name of the segment definition.
+   *
    * @public
    */
   SegmentDefinitionName: string | undefined;
 
   /**
-   * <p>The maximum number of events to return per page. </p>
+   * The maximum number of events to return per page.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The pagination token from the previous call to retrieve the next page of results. </p>
+   * The pagination token from the previous call to retrieve the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Represents a single segment membership event. </p>
+ * Represents a single segment membership event.
+ *
  * @public
  */
 export interface SubscriptionEventItem {
   /**
-   * <p>The unique identifier of a customer profile.</p>
+   * The unique identifier of a customer profile.
+   *
    * @public
    */
   ProfileId?: string | undefined;
 
   /**
-   * <p>The timestamp of when the membership change was detected. </p>
+   * The timestamp of when the membership change was detected.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
 
   /**
-   * <p>The type of event that triggered the membership change. The following are valid values:
-   *       </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>LIVE</b>: Real-time event triggered by a profile or
-   *                calculated attribute change (Classic segments only). </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>SCHEDULE</b>: Event generated during a scheduled
-   *                execution. </p>
-   *             </li>
-   *          </ul>
+   * The type of event that triggered the membership change. The following are valid values:
+   *
+   * - **LIVE**: Real-time event triggered by a profile or calculated attribute change (Classic segments only).
+   * - **SCHEDULE**: Event generated during a scheduled execution.
+   *
    * @public
    */
   EventType?: SubscriptionEventType | undefined;
 
   /**
-   * <p>Whether the profile joined or left the segment. The following are valid values: </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>JOINED</b>: The profile joined the segment. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>LEFT</b>: The profile left the segment. </p>
-   *             </li>
-   *          </ul>
+   * Whether the profile joined or left the segment. The following are valid values:
+   *
+   * - **JOINED**: The profile joined the segment.
+   * - **LEFT**: The profile left the segment.
+   *
    * @public
    */
   Event?: SubscriptionEvent | undefined;
@@ -656,13 +721,15 @@ export interface SubscriptionEventItem {
  */
 export interface ListSegmentSubscriptionEventsResponse {
   /**
-   * <p>A list of segment membership events. </p>
+   * A list of segment membership events.
+   *
    * @public
    */
   Events?: SubscriptionEventItem[] | undefined;
 
   /**
-   * <p>The pagination token to use to retrieve the next page of results. </p>
+   * The pagination token to use to retrieve the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -673,7 +740,8 @@ export interface ListSegmentSubscriptionEventsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The ARN of the resource for which you want to view tags.</p>
+   * The ARN of the resource for which you want to view tags.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -684,7 +752,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -695,68 +764,78 @@ export interface ListTagsForResourceResponse {
  */
 export interface ListUploadJobsRequest {
   /**
-   * <p>The unique name of the domain to list upload jobs for. </p>
+   * The unique name of the domain to list upload jobs for.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>The maximum number of upload jobs to return per page. </p>
+   * The maximum number of upload jobs to return per page.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The pagination token from the previous call to retrieve the next page of results.
-   *       </p>
+   * The pagination token from the previous call to retrieve the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>The summary information for an individual upload job. </p>
+ * The summary information for an individual upload job.
+ *
  * @public
  */
 export interface UploadJobItem {
   /**
-   * <p>The unique identifier of the upload job. </p>
+   * The unique identifier of the upload job.
+   *
    * @public
    */
   JobId?: string | undefined;
 
   /**
-   * <p>The name of the upload job. </p>
+   * The name of the upload job.
+   *
    * @public
    */
   DisplayName?: string | undefined;
 
   /**
-   * <p>The current status of the upload job. </p>
+   * The current status of the upload job.
+   *
    * @public
    */
   Status?: UploadJobStatus | undefined;
 
   /**
-   * <p>The reason for the current status of the upload job. </p>
+   * The reason for the current status of the upload job.
+   *
    * @public
    */
   StatusReason?: StatusReason | undefined;
 
   /**
-   * <p>The timestamp when the upload job was created. </p>
+   * The timestamp when the upload job was created.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when the upload job was completed. </p>
+   * The timestamp when the upload job was completed.
+   *
    * @public
    */
   CompletedAt?: Date | undefined;
 
   /**
-   * <p>The expiry duration for the profiles ingested with the upload job. </p>
+   * The expiry duration for the profiles ingested with the upload job.
+   *
    * @public
    */
   DataExpiry?: number | undefined;
@@ -767,13 +846,15 @@ export interface UploadJobItem {
  */
 export interface ListUploadJobsResponse {
   /**
-   * <p>The pagination token to use to retrieve the next page of results. </p>
+   * The pagination token to use to retrieve the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The list of upload jobs for the specified domain. </p>
+   * The list of upload jobs for the specified domain.
+   *
    * @public
    */
   Items?: UploadJobItem[] | undefined;
@@ -784,86 +865,99 @@ export interface ListUploadJobsResponse {
  */
 export interface ListWorkflowsRequest {
   /**
-   * <p>The unique name of the domain.</p>
+   * The unique name of the domain.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>The type of workflow. The only supported value is APPFLOW_INTEGRATION.</p>
+   * The type of workflow. The only supported value is APPFLOW_INTEGRATION.
+   *
    * @public
    */
   WorkflowType?: WorkflowType | undefined;
 
   /**
-   * <p>Status of workflow execution.</p>
+   * Status of workflow execution.
+   *
    * @public
    */
   Status?: Status | undefined;
 
   /**
-   * <p>Retrieve workflows started after timestamp.</p>
+   * Retrieve workflows started after timestamp.
+   *
    * @public
    */
   QueryStartDate?: Date | undefined;
 
   /**
-   * <p>Retrieve workflows ended after timestamp.</p>
+   * Retrieve workflows ended after timestamp.
+   *
    * @public
    */
   QueryEndDate?: Date | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>A workflow in list of workflows.</p>
+ * A workflow in list of workflows.
+ *
  * @public
  */
 export interface ListWorkflowsItem {
   /**
-   * <p>The type of workflow. The only supported value is APPFLOW_INTEGRATION.</p>
+   * The type of workflow. The only supported value is APPFLOW_INTEGRATION.
+   *
    * @public
    */
   WorkflowType: WorkflowType | undefined;
 
   /**
-   * <p>Unique identifier for the workflow.</p>
+   * Unique identifier for the workflow.
+   *
    * @public
    */
   WorkflowId: string | undefined;
 
   /**
-   * <p>Status of workflow execution.</p>
+   * Status of workflow execution.
+   *
    * @public
    */
   Status: Status | undefined;
 
   /**
-   * <p>Description for workflow execution status.</p>
+   * Description for workflow execution status.
+   *
    * @public
    */
   StatusDescription: string | undefined;
 
   /**
-   * <p>Creation timestamp for workflow.</p>
+   * Creation timestamp for workflow.
+   *
    * @public
    */
   CreatedAt: Date | undefined;
 
   /**
-   * <p>Last updated timestamp for workflow.</p>
+   * Last updated timestamp for workflow.
+   *
    * @public
    */
   LastUpdatedAt: Date | undefined;
@@ -874,157 +968,183 @@ export interface ListWorkflowsItem {
  */
 export interface ListWorkflowsResponse {
   /**
-   * <p>List containing workflow details.</p>
+   * List containing workflow details.
+   *
    * @public
    */
   Items?: ListWorkflowsItem[] | undefined;
 
   /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * If there are additional results, this is the token for the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>A duplicate customer profile that is to be merged into a main profile. </p>
+ * A duplicate customer profile that is to be merged into a main profile.
+ *
  * @public
  */
 export interface FieldSourceProfileIds {
   /**
-   * <p>A unique identifier for the account number field to be merged. </p>
+   * A unique identifier for the account number field to be merged.
+   *
    * @public
    */
   AccountNumber?: string | undefined;
 
   /**
-   * <p>A unique identifier for the additional information field to be merged.</p>
+   * A unique identifier for the additional information field to be merged.
+   *
    * @public
    */
   AdditionalInformation?: string | undefined;
 
   /**
-   * <p>A unique identifier for the party type field to be merged.</p>
+   * A unique identifier for the party type field to be merged.
+   *
    * @public
    */
   PartyType?: string | undefined;
 
   /**
-   * <p>A unique identifier for the business name field to be merged.</p>
+   * A unique identifier for the business name field to be merged.
+   *
    * @public
    */
   BusinessName?: string | undefined;
 
   /**
-   * <p>A unique identifier for the first name field to be merged.</p>
+   * A unique identifier for the first name field to be merged.
+   *
    * @public
    */
   FirstName?: string | undefined;
 
   /**
-   * <p>A unique identifier for the middle name field to be merged.</p>
+   * A unique identifier for the middle name field to be merged.
+   *
    * @public
    */
   MiddleName?: string | undefined;
 
   /**
-   * <p>A unique identifier for the last name field to be merged.</p>
+   * A unique identifier for the last name field to be merged.
+   *
    * @public
    */
   LastName?: string | undefined;
 
   /**
-   * <p>A unique identifier for the birthdate field to be merged.</p>
+   * A unique identifier for the birthdate field to be merged.
+   *
    * @public
    */
   BirthDate?: string | undefined;
 
   /**
-   * <p>A unique identifier for the gender field to be merged.</p>
+   * A unique identifier for the gender field to be merged.
+   *
    * @public
    */
   Gender?: string | undefined;
 
   /**
-   * <p>A unique identifier for the phone number field to be merged.</p>
+   * A unique identifier for the phone number field to be merged.
+   *
    * @public
    */
   PhoneNumber?: string | undefined;
 
   /**
-   * <p>A unique identifier for the mobile phone number field to be merged.</p>
+   * A unique identifier for the mobile phone number field to be merged.
+   *
    * @public
    */
   MobilePhoneNumber?: string | undefined;
 
   /**
-   * <p>A unique identifier for the home phone number field to be merged.</p>
+   * A unique identifier for the home phone number field to be merged.
+   *
    * @public
    */
   HomePhoneNumber?: string | undefined;
 
   /**
-   * <p>A unique identifier for the business phone number field to be merged.</p>
+   * A unique identifier for the business phone number field to be merged.
+   *
    * @public
    */
   BusinessPhoneNumber?: string | undefined;
 
   /**
-   * <p>A unique identifier for the email address field to be merged.</p>
+   * A unique identifier for the email address field to be merged.
+   *
    * @public
    */
   EmailAddress?: string | undefined;
 
   /**
-   * <p>A unique identifier for the personal email address field to be merged.</p>
+   * A unique identifier for the personal email address field to be merged.
+   *
    * @public
    */
   PersonalEmailAddress?: string | undefined;
 
   /**
-   * <p>A unique identifier for the party type field to be merged.</p>
+   * A unique identifier for the party type field to be merged.
+   *
    * @public
    */
   BusinessEmailAddress?: string | undefined;
 
   /**
-   * <p>A unique identifier for the party type field to be merged.</p>
+   * A unique identifier for the party type field to be merged.
+   *
    * @public
    */
   Address?: string | undefined;
 
   /**
-   * <p>A unique identifier for the shipping address field to be merged.</p>
+   * A unique identifier for the shipping address field to be merged.
+   *
    * @public
    */
   ShippingAddress?: string | undefined;
 
   /**
-   * <p>A unique identifier for the mailing address field to be merged.</p>
+   * A unique identifier for the mailing address field to be merged.
+   *
    * @public
    */
   MailingAddress?: string | undefined;
 
   /**
-   * <p>A unique identifier for the billing type field to be merged.</p>
+   * A unique identifier for the billing type field to be merged.
+   *
    * @public
    */
   BillingAddress?: string | undefined;
 
   /**
-   * <p>A unique identifier for the attributes field to be merged.</p>
+   * A unique identifier for the attributes field to be merged.
+   *
    * @public
    */
   Attributes?: Record<string, string> | undefined;
 
   /**
-   * <p>A unique identifier for the profile type field to be merged.</p>
+   * A unique identifier for the profile type field to be merged.
+   *
    * @public
    */
   ProfileType?: string | undefined;
 
   /**
-   * <p>A unique identifier for the engagement preferences field to be merged.</p>
+   * A unique identifier for the engagement preferences field to be merged.
+   *
    * @public
    */
   EngagementPreferences?: string | undefined;
@@ -1035,27 +1155,29 @@ export interface FieldSourceProfileIds {
  */
 export interface MergeProfilesRequest {
   /**
-   * <p>The unique name of the domain.</p>
+   * The unique name of the domain.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>The identifier of the profile to be taken.</p>
+   * The identifier of the profile to be taken.
+   *
    * @public
    */
   MainProfileId: string | undefined;
 
   /**
-   * <p>The identifier of the profile to be merged into MainProfileId.</p>
+   * The identifier of the profile to be merged into MainProfileId.
+   *
    * @public
    */
   ProfileIdsToBeMerged: string[] | undefined;
 
   /**
-   * <p>The identifiers of the fields in the profile that has the information you want to apply
-   *          to the merge. For example, say you want to merge EmailAddress from Profile1 into
-   *          MainProfile. This would be the identifier of the EmailAddress field in Profile1. </p>
+   * The identifiers of the fields in the profile that has the information you want to apply to the merge. For example, say you want to merge EmailAddress from Profile1 into MainProfile. This would be the identifier of the EmailAddress field in Profile1.
+   *
    * @public
    */
   FieldSourceProfileIds?: FieldSourceProfileIds | undefined;
@@ -1066,7 +1188,8 @@ export interface MergeProfilesRequest {
  */
 export interface MergeProfilesResponse {
   /**
-   * <p>A message that indicates the merge request is complete.</p>
+   * A message that indicates the merge request is complete.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1077,37 +1200,43 @@ export interface MergeProfilesResponse {
  */
 export interface PutDomainObjectTypeRequest {
   /**
-   * <p>The unique name of the domain.</p>
+   * The unique name of the domain.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>The unique name of the domain object type.</p>
+   * The unique name of the domain object type.
+   *
    * @public
    */
   ObjectTypeName: string | undefined;
 
   /**
-   * <p>The description of the domain object type.</p>
+   * The description of the domain object type.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The customer provided KMS key used to encrypt this type of domain object.</p>
+   * The customer provided KMS key used to encrypt this type of domain object.
+   *
    * @public
    */
   EncryptionKey?: string | undefined;
 
   /**
-   * <p>A map of field names to their corresponding domain object type field definitions.</p>
+   * A map of field names to their corresponding domain object type field definitions.
+   *
    * @public
    */
   Fields: Record<string, DomainObjectTypeField> | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -1118,43 +1247,50 @@ export interface PutDomainObjectTypeRequest {
  */
 export interface PutDomainObjectTypeResponse {
   /**
-   * <p>The unique name of the domain object type.</p>
+   * The unique name of the domain object type.
+   *
    * @public
    */
   ObjectTypeName?: string | undefined;
 
   /**
-   * <p>The description of the domain object type.</p>
+   * The description of the domain object type.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The customer provided KMS key used to encrypt this type of domain object.</p>
+   * The customer provided KMS key used to encrypt this type of domain object.
+   *
    * @public
    */
   EncryptionKey?: string | undefined;
 
   /**
-   * <p>A map of field names to their corresponding domain object type field definitions.</p>
+   * A map of field names to their corresponding domain object type field definitions.
+   *
    * @public
    */
   Fields?: Record<string, DomainObjectTypeField> | undefined;
 
   /**
-   * <p>The timestamp of when the domain object type was created.</p>
+   * The timestamp of when the domain object type was created.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp of when the domain object type was most recently edited.</p>
+   * The timestamp of when the domain object type was most recently edited.
+   *
    * @public
    */
   LastUpdatedAt?: Date | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -1165,59 +1301,64 @@ export interface PutDomainObjectTypeResponse {
  */
 export interface PutIntegrationRequest {
   /**
-   * <p>The unique name of the domain.</p>
+   * The unique name of the domain.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>The URI of the S3 bucket or any other type of data source.</p>
+   * The URI of the S3 bucket or any other type of data source.
+   *
    * @public
    */
   Uri?: string | undefined;
 
   /**
-   * <p>The name of the profile object type.</p>
+   * The name of the profile object type.
+   *
    * @public
    */
   ObjectTypeName?: string | undefined;
 
   /**
-   * <p>A map in which each key is an event type from an external application such as Segment or Shopify, and each value is an <code>ObjectTypeName</code> (template) used to ingest the event.
-   * It supports the following event types: <code>SegmentIdentify</code>, <code>ShopifyCreateCustomers</code>, <code>ShopifyUpdateCustomers</code>, <code>ShopifyCreateDraftOrders</code>,
-   * <code>ShopifyUpdateDraftOrders</code>, <code>ShopifyCreateOrders</code>, and <code>ShopifyUpdatedOrders</code>.</p>
+   * A map in which each key is an event type from an external application such as Segment or Shopify, and each value is an `ObjectTypeName` (template) used to ingest the event. It supports the following event types: `SegmentIdentify`, `ShopifyCreateCustomers`, `ShopifyUpdateCustomers`, `ShopifyCreateDraftOrders`, `ShopifyUpdateDraftOrders`, `ShopifyCreateOrders`, and `ShopifyUpdatedOrders`.
+   *
    * @public
    */
   ObjectTypeNames?: Record<string, string> | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The configuration that controls how Customer Profiles retrieves data from the
-   *          source.</p>
+   * The configuration that controls how Customer Profiles retrieves data from the source.
+   *
    * @public
    */
   FlowDefinition?: FlowDefinition | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role. The Integration uses this role to make
-   *          Customer Profiles requests on your behalf.</p>
+   * The Amazon Resource Name (ARN) of the IAM role. The Integration uses this role to make Customer Profiles requests on your behalf.
+   *
    * @public
    */
   RoleArn?: string | undefined;
 
   /**
-   * <p>A list of unique names for active event triggers associated with the integration.</p>
+   * A list of unique names for active event triggers associated with the integration.
+   *
    * @public
    */
   EventTriggerNames?: string[] | undefined;
 
   /**
-   * <p>Specifies whether the integration applies to profile level data (associated with profiles) or domain level data (not associated with any specific profile). The default value is PROFILE.</p>
+   * Specifies whether the integration applies to profile level data (associated with profiles) or domain level data (not associated with any specific profile). The default value is PROFILE.
+   *
    * @public
    */
   Scope?: Scope | undefined;
@@ -1228,79 +1369,85 @@ export interface PutIntegrationRequest {
  */
 export interface PutIntegrationResponse {
   /**
-   * <p>The unique name of the domain.</p>
+   * The unique name of the domain.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>The URI of the S3 bucket or any other type of data source.</p>
+   * The URI of the S3 bucket or any other type of data source.
+   *
    * @public
    */
   Uri: string | undefined;
 
   /**
-   * <p>The name of the profile object type.</p>
+   * The name of the profile object type.
+   *
    * @public
    */
   ObjectTypeName?: string | undefined;
 
   /**
-   * <p>The timestamp of when the domain was created.</p>
+   * The timestamp of when the domain was created.
+   *
    * @public
    */
   CreatedAt: Date | undefined;
 
   /**
-   * <p>The timestamp of when the domain was most recently edited.</p>
+   * The timestamp of when the domain was most recently edited.
+   *
    * @public
    */
   LastUpdatedAt: Date | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>A map in which each key is an event type from an external application such as Segment or Shopify, and each value is an <code>ObjectTypeName</code> (template) used to ingest the event.
-   * It supports the following event types: <code>SegmentIdentify</code>, <code>ShopifyCreateCustomers</code>, <code>ShopifyUpdateCustomers</code>, <code>ShopifyCreateDraftOrders</code>,
-   * <code>ShopifyUpdateDraftOrders</code>, <code>ShopifyCreateOrders</code>, and <code>ShopifyUpdatedOrders</code>.</p>
+   * A map in which each key is an event type from an external application such as Segment or Shopify, and each value is an `ObjectTypeName` (template) used to ingest the event. It supports the following event types: `SegmentIdentify`, `ShopifyCreateCustomers`, `ShopifyUpdateCustomers`, `ShopifyCreateDraftOrders`, `ShopifyUpdateDraftOrders`, `ShopifyCreateOrders`, and `ShopifyUpdatedOrders`.
+   *
    * @public
    */
   ObjectTypeNames?: Record<string, string> | undefined;
 
   /**
-   * <p>Unique identifier for the workflow.</p>
+   * Unique identifier for the workflow.
+   *
    * @public
    */
   WorkflowId?: string | undefined;
 
   /**
-   * <p>Boolean that shows if the Flow that's associated with the Integration is created in
-   *          Amazon Appflow, or with ObjectTypeName equals _unstructured via API/CLI in
-   *          flowDefinition.</p>
+   * Boolean that shows if the Flow that's associated with the Integration is created in Amazon Appflow, or with ObjectTypeName equals _unstructured via API/CLI in flowDefinition.
+   *
    * @public
    */
   IsUnstructured?: boolean | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role. The Integration uses this role to make
-   *          Customer Profiles requests on your behalf.</p>
+   * The Amazon Resource Name (ARN) of the IAM role. The Integration uses this role to make Customer Profiles requests on your behalf.
+   *
    * @public
    */
   RoleArn?: string | undefined;
 
   /**
-   * <p>A list of unique names for active event triggers associated with the integration. This
-   *          list would be empty if no Event Trigger is associated with the integration.</p>
+   * A list of unique names for active event triggers associated with the integration. This list would be empty if no Event Trigger is associated with the integration.
+   *
    * @public
    */
   EventTriggerNames?: string[] | undefined;
 
   /**
-   * <p>Specifies whether the integration applies to profile level data (associated with profiles) or domain level data (not associated with any specific profile). The default value is PROFILE.</p>
+   * Specifies whether the integration applies to profile level data (associated with profiles) or domain level data (not associated with any specific profile). The default value is PROFILE.
+   *
    * @public
    */
   Scope?: Scope | undefined;
@@ -1311,19 +1458,22 @@ export interface PutIntegrationResponse {
  */
 export interface PutProfileObjectRequest {
   /**
-   * <p>The name of the profile object type.</p>
+   * The name of the profile object type.
+   *
    * @public
    */
   ObjectTypeName: string | undefined;
 
   /**
-   * <p>A string that is serialized from a JSON object.</p>
+   * A string that is serialized from a JSON object.
+   *
    * @public
    */
   Object: string | undefined;
 
   /**
-   * <p>The unique name of the domain.</p>
+   * The unique name of the domain.
+   *
    * @public
    */
   DomainName: string | undefined;
@@ -1334,7 +1484,8 @@ export interface PutProfileObjectRequest {
  */
 export interface PutProfileObjectResponse {
   /**
-   * <p>The unique identifier of the profile object generated by the service.</p>
+   * The unique identifier of the profile object generated by the service.
+   *
    * @public
    */
   ProfileObjectUniqueKey?: string | undefined;
@@ -1345,91 +1496,92 @@ export interface PutProfileObjectResponse {
  */
 export interface PutProfileObjectTypeRequest {
   /**
-   * <p>The unique name of the domain.</p>
+   * The unique name of the domain.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>The name of the profile object type.</p>
+   * The name of the profile object type.
+   *
    * @public
    */
   ObjectTypeName: string | undefined;
 
   /**
-   * <p>Description of the profile object type.</p>
+   * Description of the profile object type.
+   *
    * @public
    */
   Description: string | undefined;
 
   /**
-   * <p>A unique identifier for the object template. For some attributes in the request, the
-   *          service will use the default value from the object template when TemplateId is present. If
-   *          these attributes are present in the request, the service may return a
-   *             <code>BadRequestException</code>. These attributes include: AllowProfileCreation,
-   *          SourceLastUpdatedTimestampFormat, Fields, and Keys. For example, if AllowProfileCreation is
-   *          set to true when TemplateId is set, the service may return a
-   *             <code>BadRequestException</code>.</p>
+   * A unique identifier for the object template. For some attributes in the request, the service will use the default value from the object template when TemplateId is present. If these attributes are present in the request, the service may return a `BadRequestException`. These attributes include: AllowProfileCreation, SourceLastUpdatedTimestampFormat, Fields, and Keys. For example, if AllowProfileCreation is set to true when TemplateId is set, the service may return a `BadRequestException`.
+   *
    * @public
    */
   TemplateId?: string | undefined;
 
   /**
-   * <p>The number of days until the data in the object expires.</p>
+   * The number of days until the data in the object expires.
+   *
    * @public
    */
   ExpirationDays?: number | undefined;
 
   /**
-   * <p>The customer-provided key to encrypt the profile object that will be created in this
-   *          profile object type.</p>
+   * The customer-provided key to encrypt the profile object that will be created in this profile object type.
+   *
    * @public
    */
   EncryptionKey?: string | undefined;
 
   /**
-   * <p>Indicates whether a profile should be created when data is received if one doesn’t exist
-   *          for an object of this type. The default is <code>FALSE</code>. If the AllowProfileCreation
-   *          flag is set to <code>FALSE</code>, then the service tries to fetch a standard profile and
-   *          associate this object with the profile. If it is set to <code>TRUE</code>, and if no match
-   *          is found, then the service creates a new standard profile.</p>
+   * Indicates whether a profile should be created when data is received if one doesn’t exist for an object of this type. The default is `FALSE`. If the AllowProfileCreation flag is set to `FALSE`, then the service tries to fetch a standard profile and associate this object with the profile. If it is set to `TRUE`, and if no match is found, then the service creates a new standard profile.
+   *
    * @public
    */
   AllowProfileCreation?: boolean | undefined;
 
   /**
-   * <p>The format of your <code>sourceLastUpdatedTimestamp</code> that was previously set up.
-   *       </p>
+   * The format of your `sourceLastUpdatedTimestamp` that was previously set up.
+   *
    * @public
    */
   SourceLastUpdatedTimestampFormat?: string | undefined;
 
   /**
-   * <p>The amount of profile object max count assigned to the object type</p>
+   * The amount of profile object max count assigned to the object type
+   *
    * @public
    */
   MaxProfileObjectCount?: number | undefined;
 
   /**
-   * <p>An integer that determines the priority of this object type when data from multiple sources is ingested. Lower values take priority. Object types without a specified source priority default to the lowest priority.</p>
+   * An integer that determines the priority of this object type when data from multiple sources is ingested. Lower values take priority. Object types without a specified source priority default to the lowest priority.
+   *
    * @public
    */
   SourcePriority?: number | undefined;
 
   /**
-   * <p>A map of the name and ObjectType field.</p>
+   * A map of the name and ObjectType field.
+   *
    * @public
    */
   Fields?: Record<string, ObjectTypeField> | undefined;
 
   /**
-   * <p>A list of unique keys that can be used to map data to the profile.</p>
+   * A list of unique keys that can be used to map data to the profile.
+   *
    * @public
    */
   Keys?: Record<string, ObjectTypeKey[]> | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -1440,98 +1592,106 @@ export interface PutProfileObjectTypeRequest {
  */
 export interface PutProfileObjectTypeResponse {
   /**
-   * <p>The name of the profile object type.</p>
+   * The name of the profile object type.
+   *
    * @public
    */
   ObjectTypeName: string | undefined;
 
   /**
-   * <p>Description of the profile object type.</p>
+   * Description of the profile object type.
+   *
    * @public
    */
   Description: string | undefined;
 
   /**
-   * <p>A unique identifier for the object template.</p>
+   * A unique identifier for the object template.
+   *
    * @public
    */
   TemplateId?: string | undefined;
 
   /**
-   * <p>The number of days until the data in the object expires.</p>
+   * The number of days until the data in the object expires.
+   *
    * @public
    */
   ExpirationDays?: number | undefined;
 
   /**
-   * <p>The customer-provided key to encrypt the profile object that will be created in this
-   *          profile object type.</p>
+   * The customer-provided key to encrypt the profile object that will be created in this profile object type.
+   *
    * @public
    */
   EncryptionKey?: string | undefined;
 
   /**
-   * <p>Indicates whether a profile should be created when data is received if one doesn’t exist
-   *          for an object of this type. The default is <code>FALSE</code>. If the AllowProfileCreation
-   *          flag is set to <code>FALSE</code>, then the service tries to fetch a standard profile and
-   *          associate this object with the profile. If it is set to <code>TRUE</code>, and if no match
-   *          is found, then the service creates a new standard profile.</p>
+   * Indicates whether a profile should be created when data is received if one doesn’t exist for an object of this type. The default is `FALSE`. If the AllowProfileCreation flag is set to `FALSE`, then the service tries to fetch a standard profile and associate this object with the profile. If it is set to `TRUE`, and if no match is found, then the service creates a new standard profile.
+   *
    * @public
    */
   AllowProfileCreation?: boolean | undefined;
 
   /**
-   * <p>The format of your <code>sourceLastUpdatedTimestamp</code> that was previously set up in
-   *          fields that were parsed using <a href="https://docs.oracle.com/javase/10/docs/api/java/text/SimpleDateFormat.html">SimpleDateFormat</a>. If you have <code>sourceLastUpdatedTimestamp</code> in your
-   *          field, you must set up <code>sourceLastUpdatedTimestampFormat</code>.</p>
+   * The format of your `sourceLastUpdatedTimestamp` that was previously set up in fields that were parsed using [SimpleDateFormat](https://docs.oracle.com/javase/10/docs/api/java/text/SimpleDateFormat.html). If you have `sourceLastUpdatedTimestamp` in your field, you must set up `sourceLastUpdatedTimestampFormat`.
+   *
    * @public
    */
   SourceLastUpdatedTimestampFormat?: string | undefined;
 
   /**
-   * <p>The amount of profile object max count assigned to the object type.</p>
+   * The amount of profile object max count assigned to the object type.
+   *
    * @public
    */
   MaxProfileObjectCount?: number | undefined;
 
   /**
-   * <p>The amount of provisioned profile object max count available.</p>
+   * The amount of provisioned profile object max count available.
+   *
    * @public
    */
   MaxAvailableProfileObjectCount?: number | undefined;
 
   /**
-   * <p>An integer that determines the priority of this object type when data from multiple sources is ingested. Lower values take priority. Object types without a specified source priority default to the lowest priority.</p>
+   * An integer that determines the priority of this object type when data from multiple sources is ingested. Lower values take priority. Object types without a specified source priority default to the lowest priority.
+   *
    * @public
    */
   SourcePriority?: number | undefined;
 
   /**
-   * <p>A map of the name and ObjectType field.</p>
+   * A map of the name and ObjectType field.
+   *
    * @public
    */
   Fields?: Record<string, ObjectTypeField> | undefined;
 
   /**
-   * <p>A list of unique keys that can be used to map data to the profile.</p>
+   * A list of unique keys that can be used to map data to the profile.
+   *
    * @public
    */
   Keys?: Record<string, ObjectTypeKey[]> | undefined;
 
   /**
-   * <p>The timestamp of when the domain was created.</p>
+   * The timestamp of when the domain was created.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp of when the domain was most recently edited.</p>
+   * The timestamp of when the domain was most recently edited.
+   *
    * @public
    */
   LastUpdatedAt?: Date | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -1542,20 +1702,22 @@ export interface PutProfileObjectTypeResponse {
  */
 export interface PutSegmentSubscriptionRequest {
   /**
-   * <p>The unique name of the domain.</p>
+   * The unique name of the domain.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>The unique name of the segment definition. </p>
+   * The unique name of the segment definition.
+   *
    * @public
    */
   SegmentDefinitionName: string | undefined;
 
   /**
-   * <p>The optional schedule configuration that controls how often membership snapshots are run.
-   *          If not provided, the subscription defaults to a 24-hour interval. </p>
+   * The optional schedule configuration that controls how often membership snapshots are run. If not provided, the subscription defaults to a 24-hour interval.
+   *
    * @public
    */
   ScheduleConfiguration?: ScheduleConfiguration | undefined;
@@ -1566,39 +1728,27 @@ export interface PutSegmentSubscriptionRequest {
  */
 export interface PutSegmentSubscriptionResponse {
   /**
-   * <p>The current lifecycle status of the subscription. The following are valid values: </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>STARTING</b>: Initial snapshot is in progress. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>RUNNING</b>: Notifications are active and running.
-   *             </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>STOPPED</b>: Notifications have been stopped. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>FAILED</b>: Notifications failed (for example, the
-   *                Amazon Kinesis data stream became inaccessible). </p>
-   *             </li>
-   *          </ul>
+   * The current lifecycle status of the subscription. The following are valid values:
+   *
+   * - **STARTING**: Initial snapshot is in progress.
+   * - **RUNNING**: Notifications are active and running.
+   * - **STOPPED**: Notifications have been stopped.
+   * - **FAILED**: Notifications failed (for example, the Amazon Kinesis data stream became inaccessible).
+   *
    * @public
    */
   Status?: SegmentSubscriptionStatus | undefined;
 
   /**
-   * <p>The schedule configuration for the subscription, if configured. </p>
+   * The schedule configuration for the subscription, if configured.
+   *
    * @public
    */
   ScheduleConfiguration?: ScheduleConfiguration | undefined;
 
   /**
-   * <p>The timestamp of when the subscription was started. </p>
+   * The timestamp of when the subscription was started.
+   *
    * @public
    */
   StartedAt?: Date | undefined;
@@ -1609,72 +1759,59 @@ export interface PutSegmentSubscriptionResponse {
  */
 export interface SearchProfilesRequest {
   /**
-   * <p>The pagination token from the previous SearchProfiles API call.</p>
+   * The pagination token from the previous SearchProfiles API call.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of objects returned per page.</p>
-   *          <p>The default is 20 if this parameter is not included in the request.</p>
+   * The maximum number of objects returned per page.
+   *
+   * The default is 20 if this parameter is not included in the request.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The unique name of the domain.</p>
+   * The unique name of the domain.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>A searchable identifier of a customer profile. The predefined keys you can use to search include: _account, _profileId,
-   *          _assetId, _caseId, _orderId, _fullName, _phone, _email, _ctrContactId, _marketoLeadId,
-   *          _salesforceAccountId, _salesforceContactId, _salesforceAssetId, _zendeskUserId,
-   *          _zendeskExternalId, _zendeskTicketId, _serviceNowSystemId, _serviceNowIncidentId,
-   *          _segmentUserId, _shopifyCustomerId, _shopifyOrderId.</p>
+   * A searchable identifier of a customer profile. The predefined keys you can use to search include: _account, _profileId, _assetId, _caseId, _orderId, _fullName, _phone, _email, _ctrContactId, _marketoLeadId, _salesforceAccountId, _salesforceContactId, _salesforceAssetId, _zendeskUserId, _zendeskExternalId, _zendeskTicketId, _serviceNowSystemId, _serviceNowIncidentId, _segmentUserId, _shopifyCustomerId, _shopifyOrderId.
+   *
    * @public
    */
   KeyName: string | undefined;
 
   /**
-   * <p>A list of key values.</p>
+   * A list of key values.
+   *
    * @public
    */
   Values: string[] | undefined;
 
   /**
-   * <p>A list of <code>AdditionalSearchKey</code> objects that are each searchable identifiers
-   *          of a profile. Each <code>AdditionalSearchKey</code> object contains a <code>KeyName</code>
-   *          and a list of <code>Values</code> associated with that specific key (i.e., a key-value(s)
-   *          pair). These additional search keys will be used in conjunction with the
-   *             <code>LogicalOperator</code> and the required <code>KeyName</code> and
-   *             <code>Values</code> parameters to search for profiles that satisfy the search criteria.
-   *       </p>
+   * A list of `AdditionalSearchKey` objects that are each searchable identifiers of a profile. Each `AdditionalSearchKey` object contains a `KeyName` and a list of `Values` associated with that specific key (i.e., a key-value(s) pair). These additional search keys will be used in conjunction with the `LogicalOperator` and the required `KeyName` and `Values` parameters to search for profiles that satisfy the search criteria.
+   *
    * @public
    */
   AdditionalSearchKeys?: AdditionalSearchKey[] | undefined;
 
   /**
-   * <p>Relationship between all specified search keys that will be used to search for profiles.
-   *          This includes the required <code>KeyName</code> and <code>Values</code> parameters as well
-   *          as any key-value(s) pairs specified in the <code>AdditionalSearchKeys</code> list.</p>
-   *          <p>This parameter influences which profiles will be returned in the response in the
-   *          following manner:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AND</code> - The response only includes profiles that match all of the
-   *                search keys.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OR</code> - The response includes profiles that match at least one of the
-   *                search keys.</p>
-   *             </li>
-   *          </ul>
-   *          <p>The <code>OR</code> relationship is the default behavior if this parameter is not
-   *          included in the request.</p>
+   * Relationship between all specified search keys that will be used to search for profiles. This includes the required `KeyName` and `Values` parameters as well as any key-value(s) pairs specified in the `AdditionalSearchKeys` list.
+   *
+   * This parameter influences which profiles will be returned in the response in the following manner:
+   *
+   * - `AND` - The response only includes profiles that match all of the search keys.
+   * - `OR` - The response includes profiles that match at least one of the search keys.
+   *
+   * The `OR` relationship is the default behavior if this parameter is not included in the request.
+   *
    * @public
    */
   LogicalOperator?: LogicalOperator | undefined;
@@ -1685,49 +1822,57 @@ export interface SearchProfilesRequest {
  */
 export interface SearchProfilesResponse {
   /**
-   * <p>The list of Profiles matching the search criteria.</p>
+   * The list of Profiles matching the search criteria.
+   *
    * @public
    */
   Items?: Profile[] | undefined;
 
   /**
-   * <p>The pagination token from the previous SearchProfiles API call.</p>
+   * The pagination token from the previous SearchProfiles API call.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Configuration for metadata to include in recommendation responses.</p>
+ * Configuration for metadata to include in recommendation responses.
+ *
  * @public
  */
 export interface RecommendationMetadata {
   /**
-   * <p>A list of metadata column names from your Items dataset to include in the recommendation response.</p>
+   * A list of metadata column names from your Items dataset to include in the recommendation response.
+   *
    * @public
    */
   Columns?: string[] | undefined;
 }
 
 /**
- * <p>The recommender used to generate the recommendations.</p>
+ * The recommender used to generate the recommendations.
+ *
  * @public
  */
 export interface Recommender {
   /**
-   * <p>The unique name of the recommender.</p>
+   * The unique name of the recommender.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>A list of filters to apply to the returned recommendations. Filters define criteria for including or excluding items from the recommendation results.</p>
+   * A list of filters to apply to the returned recommendations. Filters define criteria for including or excluding items from the recommendation results.
+   *
    * @public
    */
   Filters?: RecommenderFilter[] | undefined;
 
   /**
-   * <p>A list of promotional filters to apply to the recommendations. Promotional filters allow you to promote specific items within a configurable subset of recommendation results.</p>
+   * A list of promotional filters to apply to the recommendations. Promotional filters allow you to promote specific items within a configurable subset of recommendation results.
+   *
    * @public
    */
   PromotionalFilters?: RecommenderPromotionalFilter[] | undefined;
@@ -1738,56 +1883,64 @@ export interface Recommender {
  */
 export interface SearchRecommendationsRequest {
   /**
-   * <p>The unique name of the domain.</p>
+   * The unique name of the domain.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>A searchable identifier of a customer profile. You can use a predefined key, such as
-   *          <code>_profileId</code>, <code>_phone</code>, or <code>_email</code>, or a custom-defined key.</p>
+   * A searchable identifier of a customer profile. You can use a predefined key, such as `_profileId`, `_phone`, or `_email`, or a custom-defined key.
+   *
    * @public
    */
   KeyName: string | undefined;
 
   /**
-   * <p>A list of key values. Provide one value for each field of the search key.</p>
+   * A list of key values. Provide one value for each field of the search key.
+   *
    * @public
    */
   KeyValues: string[] | undefined;
 
   /**
-   * <p>The recommender used to generate the recommendations.</p>
+   * The recommender used to generate the recommendations.
+   *
    * @public
    */
   Recommender: Recommender | undefined;
 
   /**
-   * <p>A list of item IDs to rank for the user. Use this when you want to re-rank a specific set of items rather than getting recommendations from the full item catalog. Required for personalized-ranking use cases.</p>
+   * A list of item IDs to rank for the user. Use this when you want to re-rank a specific set of items rather than getting recommendations from the full item catalog. Required for personalized-ranking use cases.
+   *
    * @public
    */
   CandidateIds?: string[] | undefined;
 
   /**
-   * <p>The contextual metadata used to provide dynamic runtime information to tailor recommendations.</p>
+   * The contextual metadata used to provide dynamic runtime information to tailor recommendations.
+   *
    * @public
    */
   Context?: Record<string, string> | undefined;
 
   /**
-   * <p>Runtime diversity configuration for this request. Enables diversity-aware recommendations and optionally supplies values for placeholder-based diversity caps configured on the recommender.</p>
+   * Runtime diversity configuration for this request. Enables diversity-aware recommendations and optionally supplies values for placeholder-based diversity caps configured on the recommender.
+   *
    * @public
    */
   Diversity?: RecommendationDiversityConfig | undefined;
 
   /**
-   * <p>Configuration for metadata to include in recommendation responses.</p>
+   * Configuration for metadata to include in recommendation responses.
+   *
    * @public
    */
   Metadata?: RecommendationMetadata | undefined;
 
   /**
-   * <p>The maximum number of recommendations to return. The default value is 5.</p>
+   * The maximum number of recommendations to return. The default value is 5.
+   *
    * @public
    */
   MaxRecommendations?: number | undefined;
@@ -1798,13 +1951,15 @@ export interface SearchRecommendationsRequest {
  */
 export interface SearchRecommendationsResponse {
   /**
-   * <p>The unique identifier of the profile for which to retrieve recommendations.</p>
+   * The unique identifier of the profile for which to retrieve recommendations.
+   *
    * @public
    */
   ProfileId?: string | undefined;
 
   /**
-   * <p>List of recommendations generated by the recommender.</p>
+   * List of recommendations generated by the recommender.
+   *
    * @public
    */
   Recommendations?: Recommendation[] | undefined;
@@ -1815,13 +1970,15 @@ export interface SearchRecommendationsResponse {
  */
 export interface StartRecommenderRequest {
   /**
-   * <p>The unique name of the domain.</p>
+   * The unique name of the domain.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>The name of the recommender to start.</p>
+   * The name of the recommender to start.
+   *
    * @public
    */
   RecommenderName: string | undefined;
@@ -1837,13 +1994,15 @@ export interface StartRecommenderResponse {}
  */
 export interface StartUploadJobRequest {
   /**
-   * <p>The unique name of the domain containing the upload job to start. </p>
+   * The unique name of the domain containing the upload job to start.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>The unique identifier of the upload job to start. </p>
+   * The unique identifier of the upload job to start.
+   *
    * @public
    */
   JobId: string | undefined;
@@ -1859,13 +2018,15 @@ export interface StartUploadJobResponse {}
  */
 export interface StopRecommenderRequest {
   /**
-   * <p>The unique name of the domain.</p>
+   * The unique name of the domain.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>The name of the recommender to stop.</p>
+   * The name of the recommender to stop.
+   *
    * @public
    */
   RecommenderName: string | undefined;
@@ -1881,13 +2042,15 @@ export interface StopRecommenderResponse {}
  */
 export interface StopUploadJobRequest {
   /**
-   * <p>The unique name of the domain containing the upload job to stop. </p>
+   * The unique name of the domain containing the upload job to stop.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>The unique identifier of the upload job to stop. </p>
+   * The unique identifier of the upload job to stop.
+   *
    * @public
    */
   JobId: string | undefined;
@@ -1903,13 +2066,15 @@ export interface StopUploadJobResponse {}
  */
 export interface TagResourceRequest {
   /**
-   * <p>The ARN of the resource that you're adding tags to.</p>
+   * The ARN of the resource that you're adding tags to.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -1925,13 +2090,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The ARN of the resource from which you are removing tags.</p>
+   * The ARN of the resource from which you are removing tags.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The list of tag keys to remove from the resource.</p>
+   * The list of tag keys to remove from the resource.
+   *
    * @public
    */
   tagKeys: string[] | undefined;
@@ -1947,32 +2114,36 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateCalculatedAttributeDefinitionRequest {
   /**
-   * <p>The unique name of the domain.</p>
+   * The unique name of the domain.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>The unique name of the calculated attribute.</p>
+   * The unique name of the calculated attribute.
+   *
    * @public
    */
   CalculatedAttributeName: string | undefined;
 
   /**
-   * <p>The display name of the calculated attribute.</p>
+   * The display name of the calculated attribute.
+   *
    * @public
    */
   DisplayName?: string | undefined;
 
   /**
-   * <p>The description of the calculated attribute.</p>
+   * The description of the calculated attribute.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The conditions including range, object count, and threshold for the calculated
-   *          attribute.</p>
+   * The conditions including range, object count, and threshold for the calculated attribute.
+   *
    * @public
    */
   Conditions?: Conditions | undefined;
@@ -1983,79 +2154,85 @@ export interface UpdateCalculatedAttributeDefinitionRequest {
  */
 export interface UpdateCalculatedAttributeDefinitionResponse {
   /**
-   * <p>The unique name of the calculated attribute.</p>
+   * The unique name of the calculated attribute.
+   *
    * @public
    */
   CalculatedAttributeName?: string | undefined;
 
   /**
-   * <p>The display name of the calculated attribute.</p>
+   * The display name of the calculated attribute.
+   *
    * @public
    */
   DisplayName?: string | undefined;
 
   /**
-   * <p>The description of the calculated attribute.</p>
+   * The description of the calculated attribute.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The timestamp of when the calculated attribute definition was created.</p>
+   * The timestamp of when the calculated attribute definition was created.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp of when the calculated attribute definition was most recently
-   *          edited.</p>
+   * The timestamp of when the calculated attribute definition was most recently edited.
+   *
    * @public
    */
   LastUpdatedAt?: Date | undefined;
 
   /**
-   * <p>The aggregation operation to perform for the calculated attribute.</p>
+   * The aggregation operation to perform for the calculated attribute.
+   *
    * @public
    */
   Statistic?: Statistic | undefined;
 
   /**
-   * <p>The conditions including range, object count, and threshold for the calculated
-   *          attribute.</p>
+   * The conditions including range, object count, and threshold for the calculated attribute.
+   *
    * @public
    */
   Conditions?: Conditions | undefined;
 
   /**
-   * <p>The mathematical expression and a list of attribute items specified in that
-   *          expression.</p>
+   * The mathematical expression and a list of attribute items specified in that expression.
+   *
    * @public
    */
   AttributeDetails?: AttributeDetails | undefined;
 
   /**
-   * <p>Whether historical data ingested before the Calculated Attribute was created should be
-   *          included in calculations.</p>
+   * Whether historical data ingested before the Calculated Attribute was created should be included in calculations.
+   *
    * @public
    */
   UseHistoricalData?: boolean | undefined;
 
   /**
-   * <p>Status of the Calculated Attribute creation (whether all historical data has been
-   *          indexed.)</p>
+   * Status of the Calculated Attribute creation (whether all historical data has been indexed.)
+   *
    * @public
    */
   Status?: ReadinessStatus | undefined;
 
   /**
-   * <p>Information indicating if the Calculated Attribute is ready for use by confirming all
-   *          historical data has been processed and reflected.</p>
+   * Information indicating if the Calculated Attribute is ready for use by confirming all historical data has been processed and reflected.
+   *
    * @public
    */
   Readiness?: Readiness | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -2066,68 +2243,59 @@ export interface UpdateCalculatedAttributeDefinitionResponse {
  */
 export interface UpdateDomainRequest {
   /**
-   * <p>The unique name of the domain.</p>
+   * The unique name of the domain.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>The default number of days until the data within the domain expires.</p>
+   * The default number of days until the data within the domain expires.
+   *
    * @public
    */
   DefaultExpirationDays?: number | undefined;
 
   /**
-   * <p>The default encryption key, which is an AWS managed key, is used when no specific type
-   *          of encryption key is specified. It is used to encrypt all data before it is placed in
-   *          permanent or semi-permanent storage. If specified as an empty string, it will clear any
-   *          existing value.</p>
+   * The default encryption key, which is an AWS managed key, is used when no specific type of encryption key is specified. It is used to encrypt all data before it is placed in permanent or semi-permanent storage. If specified as an empty string, it will clear any existing value.
+   *
    * @public
    */
   DefaultEncryptionKey?: string | undefined;
 
   /**
-   * <p>The URL of the SQS dead letter queue, which is used for reporting errors associated with
-   *          ingesting data from third party applications. If specified as an empty string, it will
-   *          clear any existing value. You must set up a policy on the DeadLetterQueue for the
-   *          SendMessage operation to enable Amazon Connect Customer Profiles to send messages to the
-   *          DeadLetterQueue.</p>
+   * The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications. If specified as an empty string, it will clear any existing value. You must set up a policy on the DeadLetterQueue for the SendMessage operation to enable Amazon Connect Customer Profiles to send messages to the DeadLetterQueue.
+   *
    * @public
    */
   DeadLetterQueueUrl?: string | undefined;
 
   /**
-   * <p>The process of matching duplicate profiles. If <code>Matching</code> = <code>true</code>, Amazon Connect Customer Profiles starts a weekly
-   * batch process called Identity Resolution Job. If you do not specify a date and time for Identity Resolution Job to run, by default it runs every
-   * Saturday at 12AM UTC to detect duplicate profiles in your domains. </p>
-   *          <p>After the Identity Resolution Job completes, use the
-   * <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html">GetMatches</a>
-   * API to return and review the results. Or, if you have configured <code>ExportingConfig</code> in the <code>MatchingRequest</code>, you can download the results from
-   * S3.</p>
+   * The process of matching duplicate profiles. If `Matching` = `true`, Amazon Connect Customer Profiles starts a weekly batch process called Identity Resolution Job. If you do not specify a date and time for Identity Resolution Job to run, by default it runs every Saturday at 12AM UTC to detect duplicate profiles in your domains.
+   *
+   * After the Identity Resolution Job completes, use the [GetMatches](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html) API to return and review the results. Or, if you have configured `ExportingConfig` in the `MatchingRequest`, you can download the results from S3.
+   *
    * @public
    */
   Matching?: MatchingRequest | undefined;
 
   /**
-   * <p>The process of matching duplicate profiles using the rule-Based matching. If
-   *             <code>RuleBasedMatching</code> = true, Connect Customer Customer Profiles will start
-   *          to match and merge your profiles according to your configuration in the
-   *             <code>RuleBasedMatchingRequest</code>. You can use the <code>ListRuleBasedMatches</code>
-   *          and <code>GetSimilarProfiles</code> API to return and review the results. Also, if you have
-   *          configured <code>ExportingConfig</code> in the <code>RuleBasedMatchingRequest</code>, you
-   *          can download the results from S3.</p>
+   * The process of matching duplicate profiles using the rule-Based matching. If `RuleBasedMatching` = true, Connect Customer Customer Profiles will start to match and merge your profiles according to your configuration in the `RuleBasedMatchingRequest`. You can use the `ListRuleBasedMatches` and `GetSimilarProfiles` API to return and review the results. Also, if you have configured `ExportingConfig` in the `RuleBasedMatchingRequest`, you can download the results from S3.
+   *
    * @public
    */
   RuleBasedMatching?: RuleBasedMatchingRequest | undefined;
 
   /**
-   * <p>Set to true to enabled data store for this domain.</p>
+   * Set to true to enabled data store for this domain.
+   *
    * @public
    */
   DataStore?: DataStoreRequest | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -2138,76 +2306,73 @@ export interface UpdateDomainRequest {
  */
 export interface UpdateDomainResponse {
   /**
-   * <p>The unique name of the domain.</p>
+   * The unique name of the domain.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>The default number of days until the data within the domain expires.</p>
+   * The default number of days until the data within the domain expires.
+   *
    * @public
    */
   DefaultExpirationDays?: number | undefined;
 
   /**
-   * <p>The default encryption key, which is an AWS managed key, is used when no specific type
-   *          of encryption key is specified. It is used to encrypt all data before it is placed in
-   *          permanent or semi-permanent storage.</p>
+   * The default encryption key, which is an AWS managed key, is used when no specific type of encryption key is specified. It is used to encrypt all data before it is placed in permanent or semi-permanent storage.
+   *
    * @public
    */
   DefaultEncryptionKey?: string | undefined;
 
   /**
-   * <p>The URL of the SQS dead letter queue, which is used for reporting errors associated with
-   *          ingesting data from third party applications.</p>
+   * The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.
+   *
    * @public
    */
   DeadLetterQueueUrl?: string | undefined;
 
   /**
-   * <p>The process of matching duplicate profiles. If <code>Matching</code> = <code>true</code>, Amazon Connect Customer Profiles starts a weekly
-   * batch process called Identity Resolution Job. If you do not specify a date and time for Identity Resolution Job to run, by default it runs every
-   * Saturday at 12AM UTC to detect duplicate profiles in your domains. </p>
-   *          <p>After the Identity Resolution Job completes, use the
-   * <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html">GetMatches</a>
-   * API to return and review the results. Or, if you have configured <code>ExportingConfig</code> in the <code>MatchingRequest</code>, you can download the results from
-   * S3.</p>
+   * The process of matching duplicate profiles. If `Matching` = `true`, Amazon Connect Customer Profiles starts a weekly batch process called Identity Resolution Job. If you do not specify a date and time for Identity Resolution Job to run, by default it runs every Saturday at 12AM UTC to detect duplicate profiles in your domains.
+   *
+   * After the Identity Resolution Job completes, use the [GetMatches](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html) API to return and review the results. Or, if you have configured `ExportingConfig` in the `MatchingRequest`, you can download the results from S3.
+   *
    * @public
    */
   Matching?: MatchingResponse | undefined;
 
   /**
-   * <p>The process of matching duplicate profiles using the rule-Based matching. If
-   *             <code>RuleBasedMatching</code> = true, Connect Customer Customer Profiles will start
-   *          to match and merge your profiles according to your configuration in the
-   *             <code>RuleBasedMatchingRequest</code>. You can use the <code>ListRuleBasedMatches</code>
-   *          and <code>GetSimilarProfiles</code> API to return and review the results. Also, if you have
-   *          configured <code>ExportingConfig</code> in the <code>RuleBasedMatchingRequest</code>, you
-   *          can download the results from S3.</p>
+   * The process of matching duplicate profiles using the rule-Based matching. If `RuleBasedMatching` = true, Connect Customer Customer Profiles will start to match and merge your profiles according to your configuration in the `RuleBasedMatchingRequest`. You can use the `ListRuleBasedMatches` and `GetSimilarProfiles` API to return and review the results. Also, if you have configured `ExportingConfig` in the `RuleBasedMatchingRequest`, you can download the results from S3.
+   *
    * @public
    */
   RuleBasedMatching?: RuleBasedMatchingResponse | undefined;
 
   /**
-   * <p>The data store.</p>
+   * The data store.
+   *
    * @public
    */
   DataStore?: DataStoreResponse | undefined;
 
   /**
-   * <p>The timestamp of when the domain was created.</p>
+   * The timestamp of when the domain was created.
+   *
    * @public
    */
   CreatedAt: Date | undefined;
 
   /**
-   * <p>The timestamp of when the domain was most recently edited.</p>
+   * The timestamp of when the domain was most recently edited.
+   *
    * @public
    */
   LastUpdatedAt: Date | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -2218,45 +2383,50 @@ export interface UpdateDomainResponse {
  */
 export interface UpdateDomainLayoutRequest {
   /**
-   * <p>The unique name of the domain.</p>
+   * The unique name of the domain.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>The unique name of the layout.</p>
+   * The unique name of the layout.
+   *
    * @public
    */
   LayoutDefinitionName: string | undefined;
 
   /**
-   * <p>The description of the layout</p>
+   * The description of the layout
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The display name of the layout</p>
+   * The display name of the layout
+   *
    * @public
    */
   DisplayName?: string | undefined;
 
   /**
-   * <p>If set to true for a layout, this layout will be used by default to view data. If set to
-   *          false, then the layout will not be used by default, but it can be used to view data by
-   *          explicitly selecting it in the console.</p>
+   * If set to true for a layout, this layout will be used by default to view data. If set to false, then the layout will not be used by default, but it can be used to view data by explicitly selecting it in the console.
+   *
    * @public
    */
   IsDefault?: boolean | undefined;
 
   /**
-   * <p>The type of layout that can be used to view data under a Customer Profiles domain.</p>
+   * The type of layout that can be used to view data under a Customer Profiles domain.
+   *
    * @public
    */
   LayoutType?: LayoutType | undefined;
 
   /**
-   * <p>A customizable layout that can be used to view data under a Customer Profiles domain.</p>
+   * A customizable layout that can be used to view data under a Customer Profiles domain.
+   *
    * @public
    */
   Layout?: string | undefined;
@@ -2267,63 +2437,71 @@ export interface UpdateDomainLayoutRequest {
  */
 export interface UpdateDomainLayoutResponse {
   /**
-   * <p>The unique name of the layout.</p>
+   * The unique name of the layout.
+   *
    * @public
    */
   LayoutDefinitionName?: string | undefined;
 
   /**
-   * <p>The description of the layout</p>
+   * The description of the layout
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The display name of the layout</p>
+   * The display name of the layout
+   *
    * @public
    */
   DisplayName?: string | undefined;
 
   /**
-   * <p>If set to true for a layout, this layout will be used by default to view data. If set to
-   *          false, then the layout will not be used by default, but it can be used to view data by
-   *          explicitly selecting it in the console.</p>
+   * If set to true for a layout, this layout will be used by default to view data. If set to false, then the layout will not be used by default, but it can be used to view data by explicitly selecting it in the console.
+   *
    * @public
    */
   IsDefault?: boolean | undefined;
 
   /**
-   * <p>The type of layout that can be used to view data under a Customer Profiles domain.</p>
+   * The type of layout that can be used to view data under a Customer Profiles domain.
+   *
    * @public
    */
   LayoutType?: LayoutType | undefined;
 
   /**
-   * <p>A customizable layout that can be used to view data under a Customer Profiles domain.</p>
+   * A customizable layout that can be used to view data under a Customer Profiles domain.
+   *
    * @public
    */
   Layout?: string | undefined;
 
   /**
-   * <p>The version used to create layout.</p>
+   * The version used to create layout.
+   *
    * @public
    */
   Version?: string | undefined;
 
   /**
-   * <p>The timestamp of when the layout was created.</p>
+   * The timestamp of when the layout was created.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp of when the layout was most recently updated.</p>
+   * The timestamp of when the layout was most recently updated.
+   *
    * @public
    */
   LastUpdatedAt?: Date | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -2334,45 +2512,50 @@ export interface UpdateDomainLayoutResponse {
  */
 export interface UpdateEventTriggerRequest {
   /**
-   * <p>The unique name of the domain.</p>
+   * The unique name of the domain.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>The unique name of the event trigger.</p>
+   * The unique name of the event trigger.
+   *
    * @public
    */
   EventTriggerName: string | undefined;
 
   /**
-   * <p>The unique name of the object type.</p>
+   * The unique name of the object type.
+   *
    * @public
    */
   ObjectTypeName?: string | undefined;
 
   /**
-   * <p>The description of the event trigger.</p>
+   * The description of the event trigger.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>A list of conditions that determine when an event should trigger the destination.</p>
+   * A list of conditions that determine when an event should trigger the destination.
+   *
    * @public
    */
   EventTriggerConditions?: EventTriggerCondition[] | undefined;
 
   /**
-   * <p>The destination is triggered only for profiles that meet the criteria of a segment
-   *          definition.</p>
+   * The destination is triggered only for profiles that meet the criteria of a segment definition.
+   *
    * @public
    */
   SegmentFilter?: string | undefined;
 
   /**
-   * <p>Defines limits controlling whether an event triggers the destination, based on ingestion
-   *          latency and the number of invocations per profile over specific time periods.</p>
+   * Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
+   *
    * @public
    */
   EventTriggerLimits?: EventTriggerLimits | undefined;
@@ -2383,123 +2566,141 @@ export interface UpdateEventTriggerRequest {
  */
 export interface UpdateEventTriggerResponse {
   /**
-   * <p>The unique name of the event trigger.</p>
+   * The unique name of the event trigger.
+   *
    * @public
    */
   EventTriggerName?: string | undefined;
 
   /**
-   * <p>The unique name of the object type.</p>
+   * The unique name of the object type.
+   *
    * @public
    */
   ObjectTypeName?: string | undefined;
 
   /**
-   * <p>The description of the event trigger.</p>
+   * The description of the event trigger.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>A list of conditions that determine when an event should trigger the destination.</p>
+   * A list of conditions that determine when an event should trigger the destination.
+   *
    * @public
    */
   EventTriggerConditions?: EventTriggerCondition[] | undefined;
 
   /**
-   * <p>The destination is triggered only for profiles that meet the criteria of a segment
-   *          definition.</p>
+   * The destination is triggered only for profiles that meet the criteria of a segment definition.
+   *
    * @public
    */
   SegmentFilter?: string | undefined;
 
   /**
-   * <p>Defines limits controlling whether an event triggers the destination, based on ingestion
-   *          latency and the number of invocations per profile over specific time periods.</p>
+   * Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
+   *
    * @public
    */
   EventTriggerLimits?: EventTriggerLimits | undefined;
 
   /**
-   * <p>The timestamp of when the event trigger was created.</p>
+   * The timestamp of when the event trigger was created.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp of when the event trigger was most recently updated.</p>
+   * The timestamp of when the event trigger was most recently updated.
+   *
    * @public
    */
   LastUpdatedAt?: Date | undefined;
 
   /**
-   * <p>An array of key-value pairs to apply to this resource.</p>
+   * An array of key-value pairs to apply to this resource.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Updates associated with the address properties of a customer profile.</p>
+ * Updates associated with the address properties of a customer profile.
+ *
  * @public
  */
 export interface UpdateAddress {
   /**
-   * <p>The first line of a customer address.</p>
+   * The first line of a customer address.
+   *
    * @public
    */
   Address1?: string | undefined;
 
   /**
-   * <p>The second line of a customer address.</p>
+   * The second line of a customer address.
+   *
    * @public
    */
   Address2?: string | undefined;
 
   /**
-   * <p>The third line of a customer address.</p>
+   * The third line of a customer address.
+   *
    * @public
    */
   Address3?: string | undefined;
 
   /**
-   * <p>The fourth line of a customer address.</p>
+   * The fourth line of a customer address.
+   *
    * @public
    */
   Address4?: string | undefined;
 
   /**
-   * <p>The city in which a customer lives.</p>
+   * The city in which a customer lives.
+   *
    * @public
    */
   City?: string | undefined;
 
   /**
-   * <p>The county in which a customer lives.</p>
+   * The county in which a customer lives.
+   *
    * @public
    */
   County?: string | undefined;
 
   /**
-   * <p>The state in which a customer lives.</p>
+   * The state in which a customer lives.
+   *
    * @public
    */
   State?: string | undefined;
 
   /**
-   * <p>The province in which a customer lives.</p>
+   * The province in which a customer lives.
+   *
    * @public
    */
   Province?: string | undefined;
 
   /**
-   * <p>The country in which a customer lives.</p>
+   * The country in which a customer lives.
+   *
    * @public
    */
   Country?: string | undefined;
 
   /**
-   * <p>The postal code of a customer address.</p>
+   * The postal code of a customer address.
+   *
    * @public
    */
   PostalCode?: string | undefined;
@@ -2510,31 +2711,35 @@ export interface UpdateAddress {
  */
 export interface UpdateProfileRequest {
   /**
-   * <p>The unique name of the domain.</p>
+   * The unique name of the domain.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>The unique identifier of a customer profile.</p>
+   * The unique identifier of a customer profile.
+   *
    * @public
    */
   ProfileId: string | undefined;
 
   /**
-   * <p>Any additional information relevant to the customer’s profile.</p>
+   * Any additional information relevant to the customer’s profile.
+   *
    * @public
    */
   AdditionalInformation?: string | undefined;
 
   /**
-   * <p>An account number that you have assigned to the customer.</p>
+   * An account number that you have assigned to the customer.
+   *
    * @public
    */
   AccountNumber?: string | undefined;
 
   /**
-   * <p>The type of profile used to describe the customer.</p>
+   * The type of profile used to describe the customer.
    *
    * @deprecated deprecated.
    * @public
@@ -2542,37 +2747,42 @@ export interface UpdateProfileRequest {
   PartyType?: PartyType | undefined;
 
   /**
-   * <p>The name of the customer’s business.</p>
+   * The name of the customer’s business.
+   *
    * @public
    */
   BusinessName?: string | undefined;
 
   /**
-   * <p>The customer’s first name.</p>
+   * The customer’s first name.
+   *
    * @public
    */
   FirstName?: string | undefined;
 
   /**
-   * <p>The customer’s middle name.</p>
+   * The customer’s middle name.
+   *
    * @public
    */
   MiddleName?: string | undefined;
 
   /**
-   * <p>The customer’s last name.</p>
+   * The customer’s last name.
+   *
    * @public
    */
   LastName?: string | undefined;
 
   /**
-   * <p>The customer’s birth date. </p>
+   * The customer’s birth date.
+   *
    * @public
    */
   BirthDate?: string | undefined;
 
   /**
-   * <p>The gender with which the customer identifies. </p>
+   * The gender with which the customer identifies.
    *
    * @deprecated deprecated.
    * @public
@@ -2580,100 +2790,113 @@ export interface UpdateProfileRequest {
   Gender?: Gender | undefined;
 
   /**
-   * <p>The customer’s phone number, which has not been specified as a mobile, home, or business
-   *          number. </p>
+   * The customer’s phone number, which has not been specified as a mobile, home, or business number.
+   *
    * @public
    */
   PhoneNumber?: string | undefined;
 
   /**
-   * <p>The customer’s mobile phone number.</p>
+   * The customer’s mobile phone number.
+   *
    * @public
    */
   MobilePhoneNumber?: string | undefined;
 
   /**
-   * <p>The customer’s home phone number.</p>
+   * The customer’s home phone number.
+   *
    * @public
    */
   HomePhoneNumber?: string | undefined;
 
   /**
-   * <p>The customer’s business phone number.</p>
+   * The customer’s business phone number.
+   *
    * @public
    */
   BusinessPhoneNumber?: string | undefined;
 
   /**
-   * <p>The customer’s email address, which has not been specified as a personal or business
-   *          address. </p>
+   * The customer’s email address, which has not been specified as a personal or business address.
+   *
    * @public
    */
   EmailAddress?: string | undefined;
 
   /**
-   * <p>The customer’s personal email address.</p>
+   * The customer’s personal email address.
+   *
    * @public
    */
   PersonalEmailAddress?: string | undefined;
 
   /**
-   * <p>The customer’s business email address.</p>
+   * The customer’s business email address.
+   *
    * @public
    */
   BusinessEmailAddress?: string | undefined;
 
   /**
-   * <p>A generic address associated with the customer that is not mailing, shipping, or
-   *          billing.</p>
+   * A generic address associated with the customer that is not mailing, shipping, or billing.
+   *
    * @public
    */
   Address?: UpdateAddress | undefined;
 
   /**
-   * <p>The customer’s shipping address.</p>
+   * The customer’s shipping address.
+   *
    * @public
    */
   ShippingAddress?: UpdateAddress | undefined;
 
   /**
-   * <p>The customer’s mailing address.</p>
+   * The customer’s mailing address.
+   *
    * @public
    */
   MailingAddress?: UpdateAddress | undefined;
 
   /**
-   * <p>The customer’s billing address.</p>
+   * The customer’s billing address.
+   *
    * @public
    */
   BillingAddress?: UpdateAddress | undefined;
 
   /**
-   * <p>A key value pair of attributes of a customer profile.</p>
+   * A key value pair of attributes of a customer profile.
+   *
    * @public
    */
   Attributes?: Record<string, string> | undefined;
 
   /**
-   * <p>An alternative to <code>PartyType</code> which accepts any string as input.</p>
+   * An alternative to `PartyType` which accepts any string as input.
+   *
    * @public
    */
   PartyTypeString?: string | undefined;
 
   /**
-   * <p>An alternative to <code>Gender</code> which accepts any string as input.</p>
+   * An alternative to `Gender` which accepts any string as input.
+   *
    * @public
    */
   GenderString?: string | undefined;
 
   /**
-   * <p>Determines the type of the profile.</p>
+   * Determines the type of the profile.
+   *
    * @public
    */
   ProfileType?: ProfileType | undefined;
 
   /**
-   * <p>Object that defines users preferred methods of engagement.</p>
+   * Object that defines users preferred methods of engagement.
+   *
    * @public
    */
   EngagementPreferences?: EngagementPreferences | undefined;
@@ -2684,7 +2907,8 @@ export interface UpdateProfileRequest {
  */
 export interface UpdateProfileResponse {
   /**
-   * <p>The unique identifier of a customer profile.</p>
+   * The unique identifier of a customer profile.
+   *
    * @public
    */
   ProfileId: string | undefined;
@@ -2695,31 +2919,36 @@ export interface UpdateProfileResponse {
  */
 export interface UpdateRecommenderRequest {
   /**
-   * <p>The unique name of the domain.</p>
+   * The unique name of the domain.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>The name of the recommender to update.</p>
+   * The name of the recommender to update.
+   *
    * @public
    */
   RecommenderName: string | undefined;
 
   /**
-   * <p>The new description to assign to the recommender.</p>
+   * The new description to assign to the recommender.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The new configuration settings to apply to the recommender, including updated parameters and settings that define its behavior.</p>
+   * The new configuration settings to apply to the recommender, including updated parameters and settings that define its behavior.
+   *
    * @public
    */
   RecommenderConfig?: RecommenderConfig | undefined;
 
   /**
-   * <p>The name of a specific recommender version to activate as part of this update (for example, to roll back to a previously trained version).</p>
+   * The name of a specific recommender version to activate as part of this update (for example, to roll back to a previously trained version).
+   *
    * @public
    */
   RecommenderVersionName?: string | undefined;
@@ -2730,7 +2959,8 @@ export interface UpdateRecommenderRequest {
  */
 export interface UpdateRecommenderResponse {
   /**
-   * <p>The name of the recommender that was updated.</p>
+   * The name of the recommender that was updated.
+   *
    * @public
    */
   RecommenderName: string | undefined;

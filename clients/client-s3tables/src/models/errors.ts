@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { S3TablesServiceException as __BaseException } from "./S3TablesServiceException";
 
 /**
- * <p>The action cannot be performed because you do not have the required permission.</p>
+ * The action cannot be performed because you do not have the required permission.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request is invalid or malformed.</p>
+ * The request is invalid or malformed.
+ *
  * @public
  */
 export class BadRequestException extends __BaseException {
@@ -46,7 +48,8 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
+ * The request failed because there is a conflict with a previous write. You can retry the request.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -67,7 +70,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The caller isn't authorized to make the request.</p>
+ * The caller isn't authorized to make the request.
+ *
  * @public
  */
 export class ForbiddenException extends __BaseException {
@@ -88,7 +92,8 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
- * <p>The request failed due to an internal server error.</p>
+ * The request failed due to an internal server error.
+ *
  * @public
  */
 export class InternalServerErrorException extends __BaseException {
@@ -109,7 +114,8 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the specified resource could not be found.</p>
+ * The request was rejected because the specified resource could not be found.
+ *
  * @public
  */
 export class NotFoundException extends __BaseException {
@@ -130,7 +136,8 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * <p>The limit on the number of requests per second was exceeded.</p>
+ * The limit on the number of requests per second was exceeded.
+ *
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
@@ -151,7 +158,8 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * <p>The requested operation is not allowed on this resource. This may occur when attempting to modify a resource that is managed by a service or has restrictions that prevent the operation.</p>
+ * The requested operation is not allowed on this resource. This may occur when attempting to modify a resource that is managed by a service or has restrictions that prevent the operation.
+ *
  * @public
  */
 export class MethodNotAllowedException extends __BaseException {

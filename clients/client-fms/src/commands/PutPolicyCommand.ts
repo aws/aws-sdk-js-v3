@@ -23,63 +23,25 @@ export interface PutPolicyCommandInput extends PutPolicyRequest {}
 export interface PutPolicyCommandOutput extends PutPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Firewall Manager policy.</p>
- *          <p>A Firewall Manager policy is specific to the individual policy type. If you want to enforce multiple
- * 		policy types across accounts, you can create multiple policies. You can create more than one
- * 		policy for each type. </p>
- *          <p>If you add a new account to an organization that you created with Organizations, Firewall Manager
- * 		automatically applies the policy to the resources in that account that are within scope of
- * 		the policy. </p>
- *          <p>Firewall Manager provides the following types of policies: </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <b>WAF policy</b> - This policy applies WAF web ACL
- * 				protections to specified accounts and resources. </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Shield Advanced policy</b> - This policy applies Shield Advanced
- * 				protection to specified accounts and resources. </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Security Groups policy</b> - This type of policy gives you
- * 				control over security groups that are in use throughout your organization in
- * 				Organizations and lets you enforce a baseline set of rules across your organization. </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Network ACL policy</b> - This type of policy gives you
- * 				control over the network ACLs that are in use throughout your organization in
- * 				Organizations and lets you enforce a baseline set of first and last network ACL rules across your organization. </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Network Firewall policy</b> - This policy applies
- * 				Network Firewall protection to your organization's VPCs. </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>DNS Firewall policy</b> - This policy applies
- * 				Amazon Route 53 Resolver DNS Firewall protections to your organization's VPCs. </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Third-party firewall policy</b> - This policy applies third-party firewall protections. Third-party firewalls are available by subscription through the Amazon Web Services Marketplace console at <a href="http://aws.amazon.com/marketplace">Amazon Web Services Marketplace</a>.</p>
- *                <ul>
- *                   <li>
- *                      <p>
- *                         <b>Palo Alto Networks Cloud NGFW policy</b> - This policy applies Palo Alto Networks Cloud Next Generation Firewall (NGFW) protections and Palo Alto Networks Cloud NGFW rulestacks to your organization's VPCs.</p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <b>Fortigate CNF policy</b> - This policy applies
- * 						Fortigate Cloud Native Firewall (CNF) protections. Fortigate CNF is a cloud-centered solution that blocks Zero-Day threats and secures cloud infrastructures with industry-leading advanced threat prevention, smart web application firewalls (WAF), and API protection.</p>
- *                   </li>
- *                </ul>
- *             </li>
- *          </ul>
+ * Creates an Firewall Manager policy.
+ *
+ * A Firewall Manager policy is specific to the individual policy type. If you want to enforce multiple policy types across accounts, you can create multiple policies. You can create more than one policy for each type.
+ *
+ * If you add a new account to an organization that you created with Organizations, Firewall Manager automatically applies the policy to the resources in that account that are within scope of the policy.
+ *
+ * Firewall Manager provides the following types of policies:
+ *
+ * - **WAF policy** - This policy applies WAF web ACL protections to specified accounts and resources.
+ * - **Shield Advanced policy** - This policy applies Shield Advanced protection to specified accounts and resources.
+ * - **Security Groups policy** - This type of policy gives you control over security groups that are in use throughout your organization in Organizations and lets you enforce a baseline set of rules across your organization.
+ * - **Network ACL policy** - This type of policy gives you control over the network ACLs that are in use throughout your organization in Organizations and lets you enforce a baseline set of first and last network ACL rules across your organization.
+ * - **Network Firewall policy** - This policy applies Network Firewall protection to your organization's VPCs.
+ * - **DNS Firewall policy** - This policy applies Amazon Route 53 Resolver DNS Firewall protections to your organization's VPCs.
+ * - **Third-party firewall policy** - This policy applies third-party firewall protections. Third-party firewalls are available by subscription through the Amazon Web Services Marketplace console at [Amazon Web Services Marketplace](http://aws.amazon.com/marketplace).
+ *
+ *   - **Palo Alto Networks Cloud NGFW policy** - This policy applies Palo Alto Networks Cloud Next Generation Firewall (NGFW) protections and Palo Alto Networks Cloud NGFW rulestacks to your organization's VPCs.
+ *   - **Fortigate CNF policy** - This policy applies Fortigate Cloud Native Firewall (CNF) protections. Fortigate CNF is a cloud-centered solution that blocks Zero-Day threats and secures cloud infrastructures with industry-leading advanced threat prevention, smart web application firewalls (WAF), and API protection.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -283,34 +245,32 @@ export interface PutPolicyCommandOutput extends PutPolicyResponse, __MetadataBea
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
  *
  * @throws {@link InternalErrorException} (client fault)
- *  <p>The operation failed because of a system problem, even though the request was valid. Retry
- *       your request.</p>
+ *
+ * The operation failed because of a system problem, even though the request was valid. Retry your request.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The parameters of the request were invalid.</p>
+ *
+ * The parameters of the request were invalid.
  *
  * @throws {@link InvalidOperationException} (client fault)
- *  <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have
- *         submitted an <code>AssociateAdminAccount</code> request for an account ID that
- *             was already set as the Firewall Manager administrator. Or you might have tried to access a Region
- *   that's disabled by default, and that you need to enable for the Firewall Manager
- *   administrator account and for Organizations before you can access it.</p>
+ *
+ * The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have submitted an `AssociateAdminAccount` request for an account ID that was already set as the Firewall Manager administrator. Or you might have tried to access a Region that's disabled by default, and that you need to enable for the Firewall Manager administrator account and for Organizations before you can access it.
  *
  * @throws {@link InvalidTypeException} (client fault)
- *  <p>The value of the <code>Type</code> parameter is invalid.</p>
+ *
+ * The value of the `Type` parameter is invalid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The operation exceeds a resource limit, for example, the maximum number of
- *         <code>policy</code> objects that you can create for an Amazon Web Services account. For more information,
- *       see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-limits.html">Firewall
- *         Manager Limits</a> in the <i>WAF Developer Guide</i>.</p>
+ *
+ * The operation exceeds a resource limit, for example, the maximum number of `policy` objects that you can create for an Amazon Web Services account. For more information, see [Firewall Manager Limits](https://docs.aws.amazon.com/waf/latest/developerguide/fms-limits.html) in the *WAF Developer Guide*.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link FMSServiceException}
- * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ * Base exception class for all service exceptions from FMS service.
  *
  * @public
  */

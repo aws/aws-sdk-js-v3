@@ -26,22 +26,13 @@ export interface DescribeMountTargetSecurityGroupsCommandInput extends DescribeM
 export interface DescribeMountTargetSecurityGroupsCommandOutput extends DescribeMountTargetSecurityGroupsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the security groups currently in effect for a mount target. This operation
- *       requires that the network interface of the mount target has been created and the lifecycle
- *       state of the mount target is not <code>deleted</code>.</p>
- *          <p>This operation requires permissions for the following actions:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>elasticfilesystem:DescribeMountTargetSecurityGroups</code> action on the mount
- *           target's file system. </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>ec2:DescribeNetworkInterfaceAttribute</code> action on the mount target's
- *           network interface. </p>
- *             </li>
- *          </ul>
+ * Returns the security groups currently in effect for a mount target. This operation requires that the network interface of the mount target has been created and the lifecycle state of the mount target is not `deleted`.
+ *
+ * This operation requires permissions for the following actions:
+ *
+ * - `elasticfilesystem:DescribeMountTargetSecurityGroups` action on the mount target's file system.
+ * - `ec2:DescribeNetworkInterfaceAttribute` action on the mount target's network interface.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,23 +61,24 @@ export interface DescribeMountTargetSecurityGroupsCommandOutput extends Describe
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>Returned if the request is malformed or contains an error such as an invalid
- *             parameter value or a missing required parameter.</p>
+ *
+ * Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.
  *
  * @throws {@link IncorrectMountTargetState} (client fault)
- *  <p>Returned if the mount target is not in the correct state for the
- *             operation.</p>
+ *
+ * Returned if the mount target is not in the correct state for the operation.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Returned if an error occurred on the server side.</p>
+ *
+ * Returned if an error occurred on the server side.
  *
  * @throws {@link MountTargetNotFound} (client fault)
- *  <p>Returned if there is no mount target with the specified ID found in the
- *             caller's Amazon Web Services account.</p>
+ *
+ * Returned if there is no mount target with the specified ID found in the caller's Amazon Web Services account.
  *
  * @throws {@link EFSServiceException}
- * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * Base exception class for all service exceptions from EFS service.
  *
  * @example To describe the security groups for a mount target
  * ```javascript

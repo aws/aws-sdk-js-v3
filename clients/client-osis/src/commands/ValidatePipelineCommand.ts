@@ -23,9 +23,8 @@ export interface ValidatePipelineCommandInput extends ValidatePipelineRequest {}
 export interface ValidatePipelineCommandOutput extends ValidatePipelineResponse, __MetadataBearer {}
 
 /**
- * <p>Checks whether an OpenSearch Ingestion pipeline configuration is valid prior to creation. For
- *    more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html">Creating Amazon OpenSearch
- *     Ingestion pipelines</a>.</p>
+ * Checks whether an OpenSearch Ingestion pipeline configuration is valid prior to creation. For more information, see [Creating Amazon OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,21 +56,24 @@ export interface ValidatePipelineCommandOutput extends ValidatePipelineResponse,
  * @see {@link OSISClientResolvedConfig | config} for OSISClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permissions to access the resource.</p>
+ *
+ * You don't have permissions to access the resource.
  *
  * @throws {@link DisabledOperationException} (client fault)
- *  <p>Exception is thrown when an operation has been disabled.</p>
+ *
+ * Exception is thrown when an operation has been disabled.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>The request failed because of an unknown error, exception, or failure (the failure is
- *    internal to the service).</p>
+ *
+ * The request failed because of an unknown error, exception, or failure (the failure is internal to the service).
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An exception for missing or invalid input fields.</p>
+ *
+ * An exception for missing or invalid input fields.
  *
  * @throws {@link OSISServiceException}
- * <p>Base exception class for all service exceptions from OSIS service.</p>
  *
+ * Base exception class for all service exceptions from OSIS service.
  *
  * @public
  */

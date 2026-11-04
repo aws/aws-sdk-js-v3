@@ -23,20 +23,16 @@ export interface CreateLoadBalancerCommandInput extends CreateAccessPointInput {
 export interface CreateLoadBalancerCommandOutput extends CreateAccessPointOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a Classic Load Balancer.</p>
+ * Creates a Classic Load Balancer.
  *
- *         <p>You can add listeners, security groups, subnets, and tags when you create your load balancer,
- *             or you can add them later using <a>CreateLoadBalancerListeners</a>,
- *             <a>ApplySecurityGroupsToLoadBalancer</a>, <a>AttachLoadBalancerToSubnets</a>,
- *             and <a>AddTags</a>.</p>
- *         <p>To describe your current load balancers, see <a>DescribeLoadBalancers</a>.
- *             When you are finished with a load balancer, you can delete it using
- *             <a>DeleteLoadBalancer</a>.</p>
+ * You can add listeners, security groups, subnets, and tags when you create your load balancer, or you can add them later using CreateLoadBalancerListeners, ApplySecurityGroupsToLoadBalancer, AttachLoadBalancerToSubnets, and AddTags.
  *
- *         <p>You can create up to 20 load balancers per region per account.
- *             You can request an increase for the number of load balancers for your account.
- *             For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html">Limits for Your Classic Load Balancer</a>
- *             in the <i>Classic Load Balancers Guide</i>.</p>
+ * To describe your current load balancers, see DescribeLoadBalancers. When you are finished with a load balancer, you can delete it using DeleteLoadBalancer.
+ *
+ *
+ *
+ * You can create up to 20 load balancers per region per account. You can request an increase for the number of load balancers for your account. For more information, see [Limits for Your Classic Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html) in the *Classic Load Balancers Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,46 +84,56 @@ export interface CreateLoadBalancerCommandOutput extends CreateAccessPointOutput
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
  * @throws {@link CertificateNotFoundException} (client fault)
- *  <p>The specified ARN does not refer to a valid SSL certificate in AWS Identity and Access Management (IAM)
- *             or AWS Certificate Manager (ACM). Note that if you recently uploaded the certificate to IAM, this error might
- *             indicate that the certificate is not fully available yet.</p>
+ *
+ * The specified ARN does not refer to a valid SSL certificate in AWS Identity and Access Management (IAM) or AWS Certificate Manager (ACM). Note that if you recently uploaded the certificate to IAM, this error might indicate that the certificate is not fully available yet.
  *
  * @throws {@link DuplicateAccessPointNameException} (client fault)
- *  <p>The specified load balancer name already exists for this account.</p>
+ *
+ * The specified load balancer name already exists for this account.
  *
  * @throws {@link DuplicateTagKeysException} (client fault)
- *  <p>A tag key was specified more than once.</p>
+ *
+ * A tag key was specified more than once.
  *
  * @throws {@link InvalidConfigurationRequestException} (client fault)
- *  <p>The requested configuration change is not valid.</p>
+ *
+ * The requested configuration change is not valid.
  *
  * @throws {@link InvalidSchemeException} (client fault)
- *  <p>The specified value for the schema is not valid. You can only specify a scheme for load balancers in a VPC.</p>
+ *
+ * The specified value for the schema is not valid. You can only specify a scheme for load balancers in a VPC.
  *
  * @throws {@link InvalidSecurityGroupException} (client fault)
- *  <p>One or more of the specified security groups do not exist.</p>
+ *
+ * One or more of the specified security groups do not exist.
  *
  * @throws {@link InvalidSubnetException} (client fault)
- *  <p>The specified VPC has no associated Internet gateway.</p>
+ *
+ * The specified VPC has no associated Internet gateway.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>This operation is not allowed.</p>
+ *
+ * This operation is not allowed.
  *
  * @throws {@link SubnetNotFoundException} (client fault)
- *  <p>One or more of the specified subnets do not exist.</p>
+ *
+ * One or more of the specified subnets do not exist.
  *
  * @throws {@link TooManyAccessPointsException} (client fault)
- *  <p>The quota for the number of load balancers has been reached.</p>
+ *
+ * The quota for the number of load balancers has been reached.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>The quota for the number of tags that can be assigned to a load balancer has been reached.</p>
+ *
+ * The quota for the number of tags that can be assigned to a load balancer has been reached.
  *
  * @throws {@link UnsupportedProtocolException} (client fault)
- *  <p>The specified protocol or signature version is not supported.</p>
+ *
+ * The specified protocol or signature version is not supported.
  *
  * @throws {@link ElasticLoadBalancingServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancing service.
  *
  * @example To create an HTTP load balancer in a VPC
  * ```javascript

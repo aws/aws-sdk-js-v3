@@ -23,7 +23,8 @@ export interface RollbackStageCommandInput extends RollbackStageInput {}
 export interface RollbackStageCommandOutput extends RollbackStageOutput, __MetadataBearer {}
 
 /**
- * <p>Rolls back a stage execution.</p>
+ * Rolls back a stage execution.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,34 +53,36 @@ export interface RollbackStageCommandOutput extends RollbackStageOutput, __Metad
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Your request cannot be handled because the pipeline is busy handling ongoing
- *             activities. Try again later.</p>
+ *
+ * Your request cannot be handled because the pipeline is busy handling ongoing activities. Try again later.
  *
  * @throws {@link PipelineExecutionNotFoundException} (client fault)
- *  <p>The pipeline execution was specified in an invalid format or cannot be found, or an
- *             execution ID does not belong to the specified pipeline. </p>
+ *
+ * The pipeline execution was specified in an invalid format or cannot be found, or an execution ID does not belong to the specified pipeline.
  *
  * @throws {@link PipelineExecutionOutdatedException} (client fault)
- *  <p>The specified pipeline execution is outdated and cannot be used as a target pipeline
- *             execution for rollback.</p>
+ *
+ * The specified pipeline execution is outdated and cannot be used as a target pipeline execution for rollback.
  *
  * @throws {@link PipelineNotFoundException} (client fault)
- *  <p>The pipeline was specified in an invalid format or cannot be found.</p>
+ *
+ * The pipeline was specified in an invalid format or cannot be found.
  *
  * @throws {@link StageNotFoundException} (client fault)
- *  <p>The stage was specified in an invalid format or cannot be found.</p>
+ *
+ * The stage was specified in an invalid format or cannot be found.
  *
  * @throws {@link UnableToRollbackStageException} (client fault)
- *  <p>Unable to roll back the stage. The cause might be if the pipeline version has changed
- *             since the target pipeline execution was deployed, the stage is currently running, or an
- *             incorrect target pipeline execution ID was provided.</p>
+ *
+ * Unable to roll back the stage. The cause might be if the pipeline version has changed since the target pipeline execution was deployed, the stage is currently running, or an incorrect target pipeline execution ID was provided.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The validation was specified in an invalid format.</p>
+ *
+ * The validation was specified in an invalid format.
  *
  * @throws {@link CodePipelineServiceException}
- * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * Base exception class for all service exceptions from CodePipeline service.
  *
  * @public
  */

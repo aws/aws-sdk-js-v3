@@ -23,10 +23,8 @@ export interface DescribeConnectorsCommandInput extends DescribeConnectorsReques
 export interface DescribeConnectorsCommandOutput extends DescribeConnectorsResponse, __MetadataBearer {}
 
 /**
- * <p> Describes the connectors vended by Amazon AppFlow for specified connector types. If
- *       you don't specify a connector type, this operation describes all connectors vended by Amazon AppFlow. If there are more connectors than can be returned in one page, the response
- *       contains a <code>nextToken</code> object, which can be be passed in to the next call to the
- *         <code>DescribeConnectors</code> API operation to retrieve the next page. </p>
+ * Describes the connectors vended by Amazon AppFlow for specified connector types. If you don't specify a connector type, this operation describes all connectors vended by Amazon AppFlow. If there are more connectors than can be returned in one page, the response contains a `nextToken` object, which can be be passed in to the next call to the `DescribeConnectors` API operation to retrieve the next page.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -246,15 +244,16 @@ export interface DescribeConnectorsCommandOutput extends DescribeConnectorsRespo
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> An internal service error occurred during the processing of your request. Try again
- *       later. </p>
+ *
+ * An internal service error occurred during the processing of your request. Try again later.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> The request has invalid or missing parameters. </p>
+ *
+ * The request has invalid or missing parameters.
  *
  * @throws {@link AppflowServiceException}
- * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ * Base exception class for all service exceptions from Appflow service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface TagResourceCommandInput extends TagResourceInput {}
 export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Assigns one or more tags (key-value pairs) to the specified EventBridge Scheduler resource. You can only assign tags to schedule groups.</p>
+ * Assigns one or more tags (key-value pairs) to the specified EventBridge Scheduler resource. You can only assign tags to schedule groups.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,23 +55,28 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * @see {@link SchedulerClientResolvedConfig | config} for SchedulerClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting the resource can cause an inconsistent state.</p>
+ *
+ * Updating or deleting the resource can cause an inconsistent state.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error encountered while processing the request.</p>
+ *
+ * Unexpected error encountered while processing the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request references a resource which does not exist.</p>
+ *
+ * The request references a resource which does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an AWS service.
  *
  * @throws {@link SchedulerServiceException}
- * <p>Base exception class for all service exceptions from Scheduler service.</p>
  *
+ * Base exception class for all service exceptions from Scheduler service.
  *
  * @public
  */

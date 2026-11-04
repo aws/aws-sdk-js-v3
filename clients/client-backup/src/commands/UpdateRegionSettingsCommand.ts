@@ -23,10 +23,10 @@ export interface UpdateRegionSettingsCommandInput extends UpdateRegionSettingsIn
 export interface UpdateRegionSettingsCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Updates the current service opt-in settings for the Region.</p>
- *          <p>Use
- *          the <code>DescribeRegionSettings</code> API to determine the resource types that are
- *          supported.</p>
+ * Updates the current service opt-in settings for the Region.
+ *
+ * Use the `DescribeRegionSettings` API to determine the resource types that are supported.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,18 +56,20 @@ export interface UpdateRegionSettingsCommandOutput extends __MetadataBearer {}
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
- *          out of range.</p>
+ *
+ * Indicates that something is wrong with a parameter's value. For example, the value is out of range.
  *
  * @throws {@link MissingParameterValueException} (client fault)
- *  <p>Indicates that a required parameter is missing.</p>
+ *
+ * Indicates that a required parameter is missing.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The request failed due to a temporary failure of the server.</p>
+ *
+ * The request failed due to a temporary failure of the server.
  *
  * @throws {@link BackupServiceException}
- * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * Base exception class for all service exceptions from Backup service.
  *
  * @public
  */

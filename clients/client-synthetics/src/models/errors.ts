@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { SyntheticsServiceException as __BaseException } from "./SyntheticsServiceException";
 
 /**
- * <p>You don't have permission to perform this operation on this resource.</p>
+ * You don't have permission to perform this operation on this resource.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>A conflicting operation is already in progress.</p>
+ * A conflicting operation is already in progress.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -50,7 +52,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>An unknown internal error occurred.</p>
+ * An unknown internal error occurred.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -73,7 +76,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>One of the specified resources was not found.</p>
+ * One of the specified resources was not found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -96,7 +100,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request exceeded a service quota value.</p>
+ * The request exceeded a service quota value.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -119,7 +124,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>A parameter could not be validated.</p>
+ * A parameter could not be validated.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -142,7 +148,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The request was not valid.</p>
+ * The request was not valid.
+ *
  * @public
  */
 export class BadRequestException extends __BaseException {
@@ -165,7 +172,8 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * <p>One of the input resources is larger than is allowed.</p>
+ * One of the input resources is larger than is allowed.
+ *
  * @public
  */
 export class RequestEntityTooLargeException extends __BaseException {
@@ -188,7 +196,8 @@ export class RequestEntityTooLargeException extends __BaseException {
 }
 
 /**
- * <p>An internal failure occurred. Try the operation again.</p>
+ * An internal failure occurred. Try the operation again.
+ *
  * @public
  */
 export class InternalFailureException extends __BaseException {
@@ -211,7 +220,8 @@ export class InternalFailureException extends __BaseException {
 }
 
 /**
- * <p>The specified resource was not found.</p>
+ * The specified resource was not found.
+ *
  * @public
  */
 export class NotFoundException extends __BaseException {
@@ -234,7 +244,8 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * <p>There were too many simultaneous requests. Try the operation again.</p>
+ * There were too many simultaneous requests. Try the operation again.
+ *
  * @public
  */
 export class TooManyRequestsException extends __BaseException {

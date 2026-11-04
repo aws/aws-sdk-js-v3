@@ -23,9 +23,8 @@ export interface BatchDetectDominantLanguageCommandInput extends BatchDetectDomi
 export interface BatchDetectDominantLanguageCommandOutput extends BatchDetectDominantLanguageResponse, __MetadataBearer {}
 
 /**
- * <p>Determines the dominant language of the input text for a batch of documents. For a list
- *       of languages that Amazon Comprehend can detect, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html">Amazon Comprehend Supported Languages</a>.
- *     </p>
+ * Determines the dominant language of the input text for a batch of documents. For a list of languages that Amazon Comprehend can detect, see [Amazon Comprehend Supported Languages](https://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,21 +70,24 @@ export interface BatchDetectDominantLanguageCommandOutput extends BatchDetectDom
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  * @throws {@link BatchSizeLimitExceededException} (client fault)
- *  <p>The number of documents in the request exceeds the limit of 25. Try your request again
- *       with fewer documents.</p>
+ *
+ * The number of documents in the request exceeds the limit of 25. Try your request again with fewer documents.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is invalid.</p>
+ *
+ * The request is invalid.
  *
  * @throws {@link TextSizeLimitExceededException} (client fault)
- *  <p>The size of the input text exceeds the limit. Use a smaller document.</p>
+ *
+ * The size of the input text exceeds the limit. Use a smaller document.
  *
  * @throws {@link ComprehendServiceException}
- * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * Base exception class for all service exceptions from Comprehend service.
  *
  * @public
  */

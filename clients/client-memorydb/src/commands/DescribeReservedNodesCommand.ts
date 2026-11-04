@@ -23,7 +23,8 @@ export interface DescribeReservedNodesCommandInput extends DescribeReservedNodes
 export interface DescribeReservedNodesCommandOutput extends DescribeReservedNodesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about reserved nodes for this account, or about a specified reserved node.</p>
+ * Returns information about reserved nodes for this account, or about a specified reserved node.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,20 +77,24 @@ export interface DescribeReservedNodesCommandOutput extends DescribeReservedNode
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>The specified parameter combination is not valid.</p>
+ *
+ * The specified parameter combination is not valid.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The specified parameter value is not valid.</p>
+ *
+ * The specified parameter value is not valid.
  *
  * @throws {@link ReservedNodeNotFoundFault} (client fault)
- *  <p>The requested node does not exist.</p>
+ *
+ * The requested node does not exist.
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
- *  <p>The required service-linked role was not found.</p>
+ *
+ * The required service-linked role was not found.
  *
  * @throws {@link MemoryDBServiceException}
- * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * Base exception class for all service exceptions from MemoryDB service.
  *
  * @public
  */

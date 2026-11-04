@@ -23,11 +23,12 @@ export interface StartAppBlockBuilderCommandInput extends StartAppBlockBuilderRe
 export interface StartAppBlockBuilderCommandOutput extends StartAppBlockBuilderResult, __MetadataBearer {}
 
 /**
- * <p>Starts an app block builder.</p>
- *          <p>An app block builder can only be started when it's associated with an app
- *             block.</p>
- *          <p>Starting an app block builder starts a new instance, which is equivalent to an elastic
- *             fleet instance with application builder assistance functionality.</p>
+ * Starts an app block builder.
+ *
+ * An app block builder can only be started when it's associated with an app block.
+ *
+ * Starting an app block builder starts a new instance, which is equivalent to an elastic fleet instance with application builder assistance functionality.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,29 +92,36 @@ export interface StartAppBlockBuilderCommandOutput extends StartAppBlockBuilderR
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>An API error occurred. Wait a few minutes and try again.</p>
+ *
+ * An API error occurred. Wait a few minutes and try again.
  *
  * @throws {@link InvalidAccountStatusException} (client fault)
- *  <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
+ *
+ * The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The requested limit exceeds the permitted limit for an account.</p>
+ *
+ * The requested limit exceeds the permitted limit for an account.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>The attempted operation is not permitted.</p>
+ *
+ * The attempted operation is not permitted.
  *
  * @throws {@link RequestLimitExceededException} (client fault)
- *  <p>WorkSpaces Applications can’t process the request right now because the Describe calls from your AWS account are being throttled by Amazon EC2. Try again later.</p>
+ *
+ * WorkSpaces Applications can’t process the request right now because the Describe calls from your AWS account are being throttled by Amazon EC2. Try again later.
  *
  * @throws {@link ResourceNotAvailableException} (client fault)
- *  <p>The specified resource exists and is not in use, but isn't available.</p>
+ *
+ * The specified resource exists and is not in use, but isn't available.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link AppStreamServiceException}
- * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * Base exception class for all service exceptions from AppStream service.
  *
  * @public
  */

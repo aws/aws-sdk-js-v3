@@ -23,14 +23,10 @@ export interface GetReputationEntityCommandInput extends GetReputationEntityRequ
 export interface GetReputationEntityCommandOutput extends GetReputationEntityResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieve information about a specific reputation entity, including its reputation
- *             management policy, customer-managed status, Amazon Web Services Amazon SES-managed status, and aggregate
- *             sending status.</p>
- *          <p>
- *             <i>Reputation entities</i> represent resources in your Amazon SES account that have reputation
- *             tracking and management capabilities. The reputation impact reflects the highest
- *             impact reputation finding for the entity. Reputation findings can be retrieved
- *             using the <code>ListRecommendations</code> operation.</p>
+ * Retrieve information about a specific reputation entity, including its reputation management policy, customer-managed status, Amazon Web Services Amazon SES-managed status, and aggregate sending status.
+ *
+ * *Reputation entities* represent resources in your Amazon SES account that have reputation tracking and management capabilities. The reputation impact reflects the highest impact reputation finding for the entity. Reputation findings can be retrieved using the `ListRecommendations` operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,17 +70,20 @@ export interface GetReputationEntityCommandOutput extends GetReputationEntityRes
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * The resource you attempted to access doesn't exist.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Too many requests have been made to the operation.</p>
+ *
+ * Too many requests have been made to the operation.
  *
  * @throws {@link SESv2ServiceException}
- * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * Base exception class for all service exceptions from SESv2 service.
  *
  * @public
  */

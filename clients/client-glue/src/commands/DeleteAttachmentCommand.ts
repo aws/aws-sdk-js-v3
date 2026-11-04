@@ -23,7 +23,8 @@ export interface DeleteAttachmentCommandInput extends DeleteAttachmentRequest {}
 export interface DeleteAttachmentCommandOutput extends DeleteAttachmentResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a form attachment from an asset in Glue Data Catalog.</p>
+ * Deletes a form attachment from an asset in Glue Data Catalog.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,26 +56,32 @@ export interface DeleteAttachmentCommandOutput extends DeleteAttachmentResponse,
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to a resource was denied.</p>
+ *
+ * Access to a resource was denied.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Two processes are trying to modify a resource simultaneously.</p>
+ *
+ * Two processes are trying to modify a resource simultaneously.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling threshhold was exceeded.</p>
+ *
+ * The throttling threshhold was exceeded.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

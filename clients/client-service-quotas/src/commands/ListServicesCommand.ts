@@ -23,7 +23,8 @@ export interface ListServicesCommandInput extends ListServicesRequest {}
 export interface ListServicesCommandOutput extends ListServicesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the names and codes for the Amazon Web Services services integrated with Service Quotas.</p>
+ * Lists the names and codes for the Amazon Web Services services integrated with Service Quotas.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,24 +58,28 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permission to perform this action.</p>
+ *
+ * You do not have sufficient permission to perform this action.
  *
  * @throws {@link IllegalArgumentException} (client fault)
- *  <p>Invalid input was provided.</p>
+ *
+ * Invalid input was provided.
  *
  * @throws {@link InvalidPaginationTokenException} (client fault)
- *  <p>Invalid input was provided.</p>
+ *
+ * Invalid input was provided.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>Something went wrong.</p>
+ *
+ * Something went wrong.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Due to throttling, the request was denied. Slow down the rate of request calls, or
- *             request an increase for this quota.</p>
+ *
+ * Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.
  *
  * @throws {@link ServiceQuotasServiceException}
- * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>
  *
+ * Base exception class for all service exceptions from ServiceQuotas service.
  *
  * @public
  */

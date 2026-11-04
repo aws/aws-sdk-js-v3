@@ -23,8 +23,8 @@ export interface ListAccessorsCommandInput extends ListAccessorsInput {}
 export interface ListAccessorsCommandOutput extends ListAccessorsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of the accessors and their properties. Accessor objects are containers that have the
- *          information required for token based access to your Ethereum nodes.</p>
+ * Returns a list of the accessors and their properties. Accessor objects are containers that have the information required for token based access to your Ethereum nodes.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,23 +63,24 @@ export interface ListAccessorsCommandOutput extends ListAccessorsOutput, __Metad
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * You don't have sufficient access to perform this action.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+ *
+ * The action or operation requested is invalid. Verify that the action is typed correctly.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request or operation couldn't be performed because a service is
- *          throttling requests. The most common source of throttling errors is
- *          creating resources that exceed your service limit for this resource type.
- *          Request a limit increase or delete unused resources if possible.</p>
+ *
+ * The request or operation couldn't be performed because a service is throttling requests. The most common source of throttling errors is creating resources that exceed your service limit for this resource type. Request a limit increase or delete unused resources if possible.
  *
  * @throws {@link ManagedBlockchainServiceException}
- * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ * Base exception class for all service exceptions from ManagedBlockchain service.
  *
  * @public
  */

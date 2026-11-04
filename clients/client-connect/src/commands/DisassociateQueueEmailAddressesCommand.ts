@@ -23,21 +23,14 @@ export interface DisassociateQueueEmailAddressesCommandInput extends Disassociat
 export interface DisassociateQueueEmailAddressesCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Removes the association between a set of email addresses and a queue. After disassociation, agents will no longer be able to select these email addresses as "From" addresses when replying to inbound email contacts or initiating outbound email contacts in this queue.</p>
- *          <p>
- *             <b>Important things to know</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>Agents will no longer see these email addresses in their "From" address selection options for this queue.</p>
- *             </li>
- *             <li>
- *                <p>The email addresses themselves are not deleted from the instance, only their availability for agent selection in this queue is removed.</p>
- *             </li>
- *             <li>
- *                <p>Changes take effect immediately and will affect the agent experience in the Contact Control Panel (CCP).</p>
- *             </li>
- *          </ul>
+ * Removes the association between a set of email addresses and a queue. After disassociation, agents will no longer be able to select these email addresses as "From" addresses when replying to inbound email contacts or initiating outbound email contacts in this queue.
+ *
+ * **Important things to know**
+ *
+ * - Agents will no longer see these email addresses in their "From" address selection options for this queue.
+ * - The email addresses themselves are not deleted from the instance, only their availability for agent selection in this queue is removed.
+ * - Changes take effect immediately and will affect the agent experience in the Contact Control Panel (CCP).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,26 +60,32 @@ export interface DisassociateQueueEmailAddressesCommandOutput extends __Metadata
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

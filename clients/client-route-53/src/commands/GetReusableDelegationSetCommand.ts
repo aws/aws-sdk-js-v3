@@ -23,8 +23,8 @@ export interface GetReusableDelegationSetCommandInput extends GetReusableDelegat
 export interface GetReusableDelegationSetCommandOutput extends GetReusableDelegationSetResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about a specified reusable delegation set, including the four
- * 			name servers that are assigned to the delegation set.</p>
+ * Retrieves information about a specified reusable delegation set, including the four name servers that are assigned to the delegation set.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,17 +57,20 @@ export interface GetReusableDelegationSetCommandOutput extends GetReusableDelega
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link DelegationSetNotReusable} (client fault)
- *  <p>A reusable delegation set with the specified ID does not exist.</p>
+ *
+ * A reusable delegation set with the specified ID does not exist.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link NoSuchDelegationSet} (client fault)
- *  <p>A reusable delegation set with the specified ID does not exist.</p>
+ *
+ * A reusable delegation set with the specified ID does not exist.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @public
  */

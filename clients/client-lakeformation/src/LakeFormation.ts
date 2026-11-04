@@ -1821,8 +1821,10 @@ export interface LakeFormation {
 }
 
 /**
- * <fullname>Lake Formation</fullname>
- *          <p>Defines the public endpoint for the Lake Formation service.</p>
+ * Lake Formation
+ *
+ * Defines the public endpoint for the Lake Formation service.
+ *
  * @public
  */
 export class LakeFormation extends LakeFormationClient implements LakeFormation {}

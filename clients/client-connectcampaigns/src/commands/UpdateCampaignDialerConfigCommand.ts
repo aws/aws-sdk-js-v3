@@ -76,8 +76,8 @@ export interface UpdateCampaignDialerConfigCommandOutput extends __MetadataBeare
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
  * @throws {@link ConnectCampaignsServiceException}
- * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
+ * Base exception class for all service exceptions from ConnectCampaigns service.
  *
  * @public
  */

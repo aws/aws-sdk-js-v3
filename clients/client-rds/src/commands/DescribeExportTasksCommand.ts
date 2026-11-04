@@ -23,7 +23,8 @@ export interface DescribeExportTasksCommandInput extends DescribeExportTasksMess
 export interface DescribeExportTasksCommandOutput extends ExportTasksMessage, __MetadataBearer {}
 
 /**
- * <p>Returns information about a snapshot or cluster export to Amazon S3. This API operation supports pagination.</p>
+ * Returns information about a snapshot or cluster export to Amazon S3. This API operation supports pagination.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,11 +85,12 @@ export interface DescribeExportTasksCommandOutput extends ExportTasksMessage, __
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link ExportTaskNotFoundFault} (client fault)
- *  <p>The export task doesn't exist.</p>
+ *
+ * The export task doesn't exist.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To describe snapshot export tasks
  * ```javascript

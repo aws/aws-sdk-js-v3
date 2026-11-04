@@ -23,13 +23,12 @@ export interface BatchUpdateVehicleCommandInput extends BatchUpdateVehicleReques
 export interface BatchUpdateVehicleCommandOutput extends BatchUpdateVehicleResponse, __MetadataBearer {}
 
 /**
- * <p> Updates a group, or batch, of vehicles.</p>
- *          <note>
- *             <p> You must specify a decoder manifest and a vehicle model (model manifest) for each
- *                 vehicle. </p>
- *          </note>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/update-vehicles-cli.html">Update multiple
- *                 vehicles (AWS CLI)</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>. </p>
+ * Updates a group, or batch, of vehicles.
+ *
+ * > **Note:** You must specify a decoder manifest and a vehicle model (model manifest) for each vehicle.
+ *
+ * For more information, see [Update multiple vehicles (AWS CLI)](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/update-vehicles-cli.html) in the *Amazon Web Services IoT FleetWise Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -109,23 +108,28 @@ export interface BatchUpdateVehicleCommandOutput extends BatchUpdateVehicleRespo
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * You don't have sufficient permission to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request couldn't be completed because the server temporarily failed.</p>
+ *
+ * The request couldn't be completed because the server temporarily failed.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>A service quota was exceeded. </p>
+ *
+ * A service quota was exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request couldn't be completed due to throttling.</p>
+ *
+ * The request couldn't be completed due to throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link IoTFleetWiseServiceException}
- * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * Base exception class for all service exceptions from IoTFleetWise service.
  *
  * @public
  */

@@ -23,70 +23,30 @@ export interface PutLifecycleConfigurationCommandInput extends PutLifecycleConfi
 export interface PutLifecycleConfigurationCommandOutput extends LifecycleConfigurationDescription, __MetadataBearer {}
 
 /**
- * <p>Use this action to manage storage for your file system. A
- *         <code>LifecycleConfiguration</code> consists of one or more <code>LifecyclePolicy</code>
- *       objects that define the following:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <b>
- *                      <code>TransitionToIA</code>
- *                   </b> –
- *           When to move files in the file system from primary storage (Standard storage class) into the Infrequent Access
- *         (IA) storage.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>
- *                      <code>TransitionToArchive</code>
- *                   </b> –
- *           When to move files in the file system from their current storage class (either IA or Standard storage) into the
- *          Archive storage.</p>
- *                <p>File systems cannot transition into Archive storage before transitioning into IA  storage. Therefore,
- *         TransitionToArchive must either not be set or must be later than TransitionToIA.</p>
- *                <note>
- *                   <p> The Archive storage class is available only for file systems that use the Elastic throughput mode
- * and the General Purpose performance mode. </p>
- *                </note>
- *             </li>
- *          </ul>
- *          <ul>
- *             <li>
- *                <p>
- *                   <b>
- *                      <code>TransitionToPrimaryStorageClass</code>
- *                   </b> –
- *           Whether to move files in the file system back to primary storage (Standard storage class) after they are accessed in IA
- *         or Archive storage.</p>
- *             </li>
- *          </ul>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html"> Managing file system
- *       storage</a>.</p>
- *          <p>Each Amazon EFS file system supports one lifecycle configuration, which applies to
- *       all files in the file system. If a <code>LifecycleConfiguration</code> object already exists
- *       for the specified file system, a <code>PutLifecycleConfiguration</code> call modifies the
- *       existing configuration. A <code>PutLifecycleConfiguration</code> call with an empty
- *         <code>LifecyclePolicies</code> array in the request body deletes any existing
- *         <code>LifecycleConfiguration</code>. In the request, specify the following: </p>
- *          <ul>
- *             <li>
- *                <p>The ID for the file system for which you are enabling, disabling, or modifying
- *           lifecycle management.</p>
- *             </li>
- *             <li>
- *                <p>A <code>LifecyclePolicies</code> array of <code>LifecyclePolicy</code> objects that
- *           define when to move files to IA storage, to Archive storage,
- *           and back to primary storage.</p>
- *                <note>
- *                   <p>Amazon EFS requires that each <code>LifecyclePolicy</code>
- *           object have only have a single transition, so the <code>LifecyclePolicies</code> array needs to be structured with separate
- *           <code>LifecyclePolicy</code> objects. See the example requests in the following section for more information.</p>
- *                </note>
- *             </li>
- *          </ul>
- *          <p>This operation requires permissions for the <code>elasticfilesystem:PutLifecycleConfiguration</code> operation.</p>
- *          <p>To apply a <code>LifecycleConfiguration</code> object to an encrypted file system, you
- *       need the same Key Management Service permissions as when you created the encrypted file system.</p>
+ * Use this action to manage storage for your file system. A `LifecycleConfiguration` consists of one or more `LifecyclePolicy` objects that define the following:
+ *
+ * - **`TransitionToIA`** – When to move files in the file system from primary storage (Standard storage class) into the Infrequent Access (IA) storage.
+ * - **`TransitionToArchive`** – When to move files in the file system from their current storage class (either IA or Standard storage) into the Archive storage.
+ *
+ *   File systems cannot transition into Archive storage before transitioning into IA storage. Therefore, TransitionToArchive must either not be set or must be later than TransitionToIA.
+ *
+ *   > **Note:** The Archive storage class is available only for file systems that use the Elastic throughput mode and the General Purpose performance mode.
+ *
+ * - **`TransitionToPrimaryStorageClass`** – Whether to move files in the file system back to primary storage (Standard storage class) after they are accessed in IA or Archive storage.
+ *
+ * For more information, see [Managing file system storage](https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html).
+ *
+ * Each Amazon EFS file system supports one lifecycle configuration, which applies to all files in the file system. If a `LifecycleConfiguration` object already exists for the specified file system, a `PutLifecycleConfiguration` call modifies the existing configuration. A `PutLifecycleConfiguration` call with an empty `LifecyclePolicies` array in the request body deletes any existing `LifecycleConfiguration`. In the request, specify the following:
+ *
+ * - The ID for the file system for which you are enabling, disabling, or modifying lifecycle management.
+ * - A `LifecyclePolicies` array of `LifecyclePolicy` objects that define when to move files to IA storage, to Archive storage, and back to primary storage.
+ *
+ *   > **Note:** Amazon EFS requires that each `LifecyclePolicy` object have only have a single transition, so the `LifecyclePolicies` array needs to be structured with separate `LifecyclePolicy` objects. See the example requests in the following section for more information.
+ *
+ * This operation requires permissions for the `elasticfilesystem:PutLifecycleConfiguration` operation.
+ *
+ * To apply a `LifecycleConfiguration` object to an encrypted file system, you need the same Key Management Service permissions as when you created the encrypted file system.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -126,22 +86,24 @@ export interface PutLifecycleConfigurationCommandOutput extends LifecycleConfigu
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>Returned if the request is malformed or contains an error such as an invalid
- *             parameter value or a missing required parameter.</p>
+ *
+ * Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.
  *
  * @throws {@link FileSystemNotFound} (client fault)
- *  <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the
- *             requester's Amazon Web Services account.</p>
+ *
+ * Returned if the specified `FileSystemId` value doesn't exist in the requester's Amazon Web Services account.
  *
  * @throws {@link IncorrectFileSystemLifeCycleState} (client fault)
- *  <p>Returned if the file system's lifecycle state is not "available".</p>
+ *
+ * Returned if the file system's lifecycle state is not "available".
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Returned if an error occurred on the server side.</p>
+ *
+ * Returned if an error occurred on the server side.
  *
  * @throws {@link EFSServiceException}
- * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * Base exception class for all service exceptions from EFS service.
  *
  * @example Creates a new lifecycleconfiguration object for a file system
  * ```javascript

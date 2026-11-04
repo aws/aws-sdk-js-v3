@@ -23,16 +23,10 @@ export interface DeleteCertificateAuthorityCommandInput extends DeleteCertificat
 export interface DeleteCertificateAuthorityCommandOutput extends DeleteCertificateAuthorityResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a certificate authority (CA) from your cluster.</p>
- *          <p>Deleting a certificate authority removes its public certificate from the cluster's
- *             trust bundle. You can't delete the certificate authority that's currently signing
- *             certificates for the cluster (its <code>signingStatus</code> is <code>IN_USE</code>) — to
- *             remove the outgoing CA, first activate the successor CA with <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_ActivateCertificateAuthority.html">
- *                <code>ActivateCertificateAuthority</code>
- *             </a>. Amazon EKS also protects a successor CA
- *             from deletion in certain cases to keep a valid rotation path — for example, a successor
- *             that Amazon EKS appended can't be deleted while it's the only successor on the cluster. This is
- *             an asynchronous operation that returns an <code>update</code> object.</p>
+ * Deletes a certificate authority (CA) from your cluster.
+ *
+ * Deleting a certificate authority removes its public certificate from the cluster's trust bundle. You can't delete the certificate authority that's currently signing certificates for the cluster (its `signingStatus` is `IN_USE`) — to remove the outgoing CA, first activate the successor CA with [`ActivateCertificateAuthority`](https://docs.aws.amazon.com/eks/latest/APIReference/API_ActivateCertificateAuthority.html). Amazon EKS also protects a successor CA from deletion in certain cases to keep a valid rotation path — for example, a successor that Amazon EKS appended can't be deleted while it's the only successor on the cluster. This is an asynchronous operation that returns an `update` object.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,27 +88,28 @@ export interface DeleteCertificateAuthorityCommandOutput extends DeleteCertifica
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is in use.</p>
+ *
+ * The specified resource is in use.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource could not be found. You can view your available clusters with
- *                 <code>ListClusters</code>. You can view your available managed node groups with
- *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region
- *             specific.</p>
+ *
+ * The specified resource could not be found. You can view your available clusters with `ListClusters`. You can view your available managed node groups with `ListNodegroups`. Amazon EKS clusters and node groups are Amazon Web Services Region specific.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is unavailable. Back off and retry the operation.</p>
+ *
+ * The service is unavailable. Back off and retry the operation.
  *
  * @throws {@link EKSServiceException}
- * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * Base exception class for all service exceptions from EKS service.
  *
  * @public
  */

@@ -23,8 +23,8 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Adds metadata tags to a DataBrew resource, such as a dataset, project, recipe, job, or
- *             schedule.</p>
+ * Adds metadata tags to a DataBrew resource, such as a dataset, project, recipe, job, or schedule.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,17 +52,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal service failure occurred.</p>
+ *
+ * An internal service failure occurred.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>One or more resources can't be found.</p>
+ *
+ * One or more resources can't be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input parameters for this request failed validation.</p>
+ *
+ * The input parameters for this request failed validation.
  *
  * @throws {@link DataBrewServiceException}
- * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ * Base exception class for all service exceptions from DataBrew service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface DescribePatchBaselinesCommandInput extends DescribePatchBaselin
 export interface DescribePatchBaselinesCommandOutput extends DescribePatchBaselinesResult, __MetadataBearer {}
 
 /**
- * <p>Lists the patch baselines in your Amazon Web Services account.</p>
+ * Lists the patch baselines in your Amazon Web Services account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,11 +69,12 @@ export interface DescribePatchBaselinesCommandOutput extends DescribePatchBaseli
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

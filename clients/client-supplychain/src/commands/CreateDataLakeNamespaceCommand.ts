@@ -23,7 +23,8 @@ export interface CreateDataLakeNamespaceCommandInput extends CreateDataLakeNames
 export interface CreateDataLakeNamespaceCommandOutput extends CreateDataLakeNamespaceResponse, __MetadataBearer {}
 
 /**
- * <p>Enables you to programmatically create an Amazon Web Services Supply Chain data lake namespace. Developers can create the namespaces for a given instance ID.</p>
+ * Enables you to programmatically create an Amazon Web Services Supply Chain data lake namespace. Developers can create the namespaces for a given instance ID.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,29 +63,36 @@ export interface CreateDataLakeNamespaceCommandOutput extends CreateDataLakeName
  * @see {@link SupplyChainClientResolvedConfig | config} for SupplyChainClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have the required privileges to perform this action.</p>
+ *
+ * You do not have the required privileges to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ *
+ * Updating or deleting a resource can cause an inconsistent state.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error during processing of request.</p>
+ *
+ * Unexpected error during processing of request.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Request would cause a service quota to be exceeded.</p>
+ *
+ * Request would cause a service quota to be exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Request was denied due to request throttling.</p>
+ *
+ * Request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by an AWS service.</p>
+ *
+ * The input does not satisfy the constraints specified by an AWS service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Request references a resource which does not exist.</p>
+ *
+ * Request references a resource which does not exist.
  *
  * @throws {@link SupplyChainServiceException}
- * <p>Base exception class for all service exceptions from SupplyChain service.</p>
  *
+ * Base exception class for all service exceptions from SupplyChain service.
  *
  * @example Create a data lake namespace
  * ```javascript

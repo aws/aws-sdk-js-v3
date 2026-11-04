@@ -23,9 +23,8 @@ export interface AcceptResourceShareInvitationCommandInput extends AcceptResourc
 export interface AcceptResourceShareInvitationCommandOutput extends AcceptResourceShareInvitationResponse, __MetadataBearer {}
 
 /**
- * <p>Accepts an invitation to a resource share from another Amazon Web Services account. After you accept the
- *             invitation, the resources included in the resource share are available to interact with in the
- *             relevant Amazon Web Services Management Consoles and tools.</p>
+ * Accepts an invitation to a resource share from another Amazon Web Services account. After you accept the invitation, the resources included in the resource share are available to interact with in the relevant Amazon Web Services Management Consoles and tools.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,44 +75,48 @@ export interface AcceptResourceShareInvitationCommandOutput extends AcceptResour
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
  *
  * @throws {@link IdempotentParameterMismatchException} (client fault)
- *  <p>The operation failed because the client token input parameter matched one that was
- *             used with a previous call to the operation, but at least one of the other input
- *             parameters is different from the previous call.</p>
+ *
+ * The operation failed because the client token input parameter matched one that was used with a previous call to the operation, but at least one of the other input parameters is different from the previous call.
  *
  * @throws {@link InvalidClientTokenException} (client fault)
- *  <p>The operation failed because the specified client token isn't valid.</p>
+ *
+ * The operation failed because the specified client token isn't valid.
  *
  * @throws {@link MalformedArnException} (client fault)
- *  <p>The operation failed because the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> has a format that isn't
- *             valid.</p>
+ *
+ * The operation failed because the specified [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) has a format that isn't valid.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>The operation failed because the requested operation isn't permitted.</p>
+ *
+ * The operation failed because the requested operation isn't permitted.
  *
  * @throws {@link ResourceShareInvitationAlreadyAcceptedException} (client fault)
- *  <p>The operation failed because the specified invitation was already accepted.</p>
+ *
+ * The operation failed because the specified invitation was already accepted.
  *
  * @throws {@link ResourceShareInvitationAlreadyRejectedException} (client fault)
- *  <p>The operation failed because the specified invitation was already rejected.</p>
+ *
+ * The operation failed because the specified invitation was already rejected.
  *
  * @throws {@link ResourceShareInvitationArnNotFoundException} (client fault)
- *  <p>The operation failed because the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> for an invitation was not
- *             found.</p>
+ *
+ * The operation failed because the specified [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) for an invitation was not found.
  *
  * @throws {@link ResourceShareInvitationExpiredException} (client fault)
- *  <p>The operation failed because the specified invitation is past its expiration date and
- *             time.</p>
+ *
+ * The operation failed because the specified invitation is past its expiration date and time.
  *
  * @throws {@link ServerInternalException} (server fault)
- *  <p>The operation failed because the service could not respond to the request due to an
- *             internal problem. Try again later.</p>
+ *
+ * The operation failed because the service could not respond to the request due to an internal problem. Try again later.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The operation failed because the service isn't available. Try again later.</p>
+ *
+ * The operation failed because the service isn't available. Try again later.
  *
  * @throws {@link RAMServiceException}
- * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ * Base exception class for all service exceptions from RAM service.
  *
  * @public
  */

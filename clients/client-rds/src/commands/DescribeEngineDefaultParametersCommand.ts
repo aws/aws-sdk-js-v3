@@ -23,7 +23,8 @@ export interface DescribeEngineDefaultParametersCommandInput extends DescribeEng
 export interface DescribeEngineDefaultParametersCommandOutput extends DescribeEngineDefaultParametersResult, __MetadataBearer {}
 
 /**
- * <p>Returns the default engine and system parameter information for the specified database engine.</p>
+ * Returns the default engine and system parameter information for the specified database engine.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,8 +81,8 @@ export interface DescribeEngineDefaultParametersCommandOutput extends DescribeEn
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To describe the default engine and system parameter information for the database engine
  * ```javascript

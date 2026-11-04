@@ -23,9 +23,10 @@ export interface ListTagsCommandInput extends ListTagsRequest {}
 export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all tags currently on a named resource. A tag is a key-value pair where the key and value are case-sensitive. You can use tags to categorize and track your MemoryDB resources. For more information, see <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/Tagging-Resources.html">Tagging your MemoryDB resources</a>.</p>
- *          <p>When you add or remove tags from multi region clusters, you might not immediately see the latest effective tags in the ListTags API response due to it being eventually consistent specifically for multi region clusters. For more information, see <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/Tagging-Resources.html">Tagging your MemoryDB resources</a>.</p>
- *          <p></p>
+ * Lists all tags currently on a named resource. A tag is a key-value pair where the key and value are case-sensitive. You can use tags to categorize and track your MemoryDB resources. For more information, see [Tagging your MemoryDB resources](https://docs.aws.amazon.com/MemoryDB/latest/devguide/Tagging-Resources.html).
+ *
+ * When you add or remove tags from multi region clusters, you might not immediately see the latest effective tags in the ListTags API response due to it being eventually consistent specifically for multi region clusters. For more information, see [Tagging your MemoryDB resources](https://docs.aws.amazon.com/MemoryDB/latest/devguide/Tagging-Resources.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,41 +58,52 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  * @throws {@link ACLNotFoundFault} (client fault)
- *  <p>The specified ACL does not exist.</p>
+ *
+ * The specified ACL does not exist.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The specified cluster does not exist.</p>
+ *
+ * The specified cluster does not exist.
  *
  * @throws {@link InvalidARNFault} (client fault)
- *  <p>The specified Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * The specified Amazon Resource Name (ARN) is not valid.
  *
  * @throws {@link InvalidClusterStateFault} (client fault)
- *  <p>The cluster is not in a valid state for the requested operation.</p>
+ *
+ * The cluster is not in a valid state for the requested operation.
  *
  * @throws {@link MultiRegionClusterNotFoundFault} (client fault)
- *  <p>The specified multi-Region cluster does not exist.</p>
+ *
+ * The specified multi-Region cluster does not exist.
  *
  * @throws {@link MultiRegionParameterGroupNotFoundFault} (client fault)
- *  <p>The specified multi-Region parameter group does not exist.</p>
+ *
+ * The specified multi-Region parameter group does not exist.
  *
  * @throws {@link ParameterGroupNotFoundFault} (client fault)
- *  <p>The specified parameter group does not exist.</p>
+ *
+ * The specified parameter group does not exist.
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
- *  <p>The required service-linked role was not found.</p>
+ *
+ * The required service-linked role was not found.
  *
  * @throws {@link SnapshotNotFoundFault} (client fault)
- *  <p>The specified snapshot does not exist.</p>
+ *
+ * The specified snapshot does not exist.
  *
  * @throws {@link SubnetGroupNotFoundFault} (client fault)
- *  <p>The specified subnet group does not exist.</p>
+ *
+ * The specified subnet group does not exist.
  *
  * @throws {@link UserNotFoundFault} (client fault)
- *  <p>The specified user does not exist.</p>
+ *
+ * The specified user does not exist.
  *
  * @throws {@link MemoryDBServiceException}
- * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * Base exception class for all service exceptions from MemoryDB service.
  *
  * @public
  */

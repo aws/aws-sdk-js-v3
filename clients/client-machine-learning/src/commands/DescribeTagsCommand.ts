@@ -23,7 +23,8 @@ export interface DescribeTagsCommandInput extends DescribeTagsInput {}
 export interface DescribeTagsCommandOutput extends DescribeTagsOutput, __MetadataBearer {}
 
 /**
- * <p>Describes one or more of the tags for your Amazon ML object.</p>
+ * Describes one or more of the tags for your Amazon ML object.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,17 +59,20 @@ export interface DescribeTagsCommandOutput extends DescribeTagsOutput, __Metadat
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An error on the server occurred when trying to process a request.</p>
+ *
+ * An error on the server occurred when trying to process a request.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+ *
+ * An error on the client occurred. Typically, the cause is an invalid input value.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A specified resource cannot be located.</p>
+ *
+ * A specified resource cannot be located.
  *
  * @throws {@link MachineLearningServiceException}
- * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ * Base exception class for all service exceptions from MachineLearning service.
  *
  * @public
  */

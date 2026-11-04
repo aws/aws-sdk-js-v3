@@ -23,7 +23,8 @@ export interface StopCompositionCommandInput extends StopCompositionRequest {}
 export interface StopCompositionCommandOutput extends StopCompositionResponse, __MetadataBearer {}
 
 /**
- * <p>Stops and deletes a Composition resource. Any broadcast from the Composition resource is stopped.</p>
+ * Stops and deletes a Composition resource. Any broadcast from the Composition resource is stopped.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,26 +49,32 @@ export interface StopCompositionCommandOutput extends StopCompositionResponse, _
  * @see {@link IVSRealTimeClientResolvedConfig | config} for IVSRealTimeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * User does not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ *
+ * Updating or deleting a resource can cause an inconsistent state.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error during processing of request.</p>
+ *
+ * Unexpected error during processing of request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Request references a resource which does not exist.</p>
+ *
+ * Request references a resource which does not exist.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Request would cause a service quota to be exceeded.</p>
+ *
+ * Request would cause a service quota to be exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link IVSRealTimeServiceException}
- * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ * Base exception class for all service exceptions from IVSRealTime service.
  *
  * @public
  */

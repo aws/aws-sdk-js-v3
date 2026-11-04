@@ -23,7 +23,8 @@ export interface DescribeLoadBalancersCommandInput extends DescribeAccessPointsI
 export interface DescribeLoadBalancersCommandOutput extends DescribeAccessPointsOutput, __MetadataBearer {}
 
 /**
- * <p>Describes the specified the load balancers. If no load balancers are specified, the call describes all of your load balancers.</p>
+ * Describes the specified the load balancers. If no load balancers are specified, the call describes all of your load balancers.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -129,14 +130,16 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeAccessPoints
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
  * @throws {@link AccessPointNotFoundException} (client fault)
- *  <p>The specified load balancer does not exist.</p>
+ *
+ * The specified load balancer does not exist.
  *
  * @throws {@link DependencyThrottleException} (client fault)
- *  <p>A request made by Elastic Load Balancing to another service exceeds the maximum request rate permitted for your account.</p>
+ *
+ * A request made by Elastic Load Balancing to another service exceeds the maximum request rate permitted for your account.
  *
  * @throws {@link ElasticLoadBalancingServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancing service.
  *
  * @example To describe one of your load balancers
  * ```javascript

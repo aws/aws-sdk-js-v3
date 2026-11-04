@@ -23,20 +23,12 @@ export interface AssociateConnectionWithLagCommandInput extends AssociateConnect
 export interface AssociateConnectionWithLagCommandOutput extends Connection, __MetadataBearer {}
 
 /**
- * <p>Associates an existing connection with a link aggregation group (LAG). The connection
- *       is interrupted and re-established as a member of the LAG (connectivity to Amazon Web Services is
- *       interrupted). The connection must be hosted on the same Direct Connect endpoint as the LAG, and its
- *       bandwidth must match the bandwidth for the LAG. You can re-associate a connection that's
- *       currently associated with a different LAG; however, if removing the connection would cause
- *       the original LAG to fall below its setting for minimum number of operational connections,
- *       the request fails.</p>
- *          <p>Any virtual interfaces that are directly associated with the connection are
- *       automatically re-associated with the LAG. If the connection was originally associated
- *       with a different LAG, the virtual interfaces remain associated with the original
- *       LAG.</p>
- *          <p>For interconnects, any hosted connections are automatically re-associated with the
- *       LAG. If the interconnect was originally associated with a different LAG, the hosted
- *       connections remain associated with the original LAG.</p>
+ * Associates an existing connection with a link aggregation group (LAG). The connection is interrupted and re-established as a member of the LAG (connectivity to Amazon Web Services is interrupted). The connection must be hosted on the same Direct Connect endpoint as the LAG, and its bandwidth must match the bandwidth for the LAG. You can re-associate a connection that's currently associated with a different LAG; however, if removing the connection would cause the original LAG to fall below its setting for minimum number of operational connections, the request fails.
+ *
+ * Any virtual interfaces that are directly associated with the connection are automatically re-associated with the LAG. If the connection was originally associated with a different LAG, the virtual interfaces remain associated with the original LAG.
+ *
+ * For interconnects, any hosted connections are automatically re-associated with the LAG. If the interconnect was originally associated with a different LAG, the hosted connections remain associated with the original LAG.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -109,17 +101,20 @@ export interface AssociateConnectionWithLagCommandOutput extends Connection, __M
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  * @throws {@link DirectConnectClientException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link DirectConnectServerException} (server fault)
- *  <p>A server-side error occurred.</p>
+ *
+ * A server-side error occurred.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The rate limiter limit has been exceeded for the connection. You cannot add more rate limiters to virtual interfaces on this connection.</p>
+ *
+ * The rate limiter limit has been exceeded for the connection. You cannot add more rate limiters to virtual interfaces on this connection.
  *
  * @throws {@link DirectConnectServiceException}
- * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * Base exception class for all service exceptions from DirectConnect service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface UpdateCommentCommandInput extends UpdateCommentInput {}
 export interface UpdateCommentCommandOutput extends UpdateCommentOutput, __MetadataBearer {}
 
 /**
- * <p>Replaces the contents of a comment.</p>
+ * Replaces the contents of a comment.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,30 +67,36 @@ export interface UpdateCommentCommandOutput extends UpdateCommentOutput, __Metad
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  * @throws {@link CommentContentRequiredException} (client fault)
- *  <p>The comment is empty. You must provide some content for a comment. The content cannot be null.</p>
+ *
+ * The comment is empty. You must provide some content for a comment. The content cannot be null.
  *
  * @throws {@link CommentContentSizeLimitExceededException} (client fault)
- *  <p>The comment is too large. Comments are limited to 10,240 characters.</p>
+ *
+ * The comment is too large. Comments are limited to 10,240 characters.
  *
  * @throws {@link CommentDeletedException} (client fault)
- *  <p>This comment has already been deleted. You cannot edit or delete a deleted comment.</p>
+ *
+ * This comment has already been deleted. You cannot edit or delete a deleted comment.
  *
  * @throws {@link CommentDoesNotExistException} (client fault)
- *  <p>No comment exists with the provided ID. Verify that you have used the correct ID, and
- *             then try again.</p>
+ *
+ * No comment exists with the provided ID. Verify that you have used the correct ID, and then try again.
  *
  * @throws {@link CommentIdRequiredException} (client fault)
- *  <p>The comment ID is missing or null. A comment ID is required.</p>
+ *
+ * The comment ID is missing or null. A comment ID is required.
  *
  * @throws {@link CommentNotCreatedByCallerException} (client fault)
- *  <p>You cannot modify or delete this comment. Only comment authors can modify or delete their comments.</p>
+ *
+ * You cannot modify or delete this comment. Only comment authors can modify or delete their comments.
  *
  * @throws {@link InvalidCommentIdException} (client fault)
- *  <p>The comment ID is not in a valid format. Make sure that you have provided the full comment ID.</p>
+ *
+ * The comment ID is not in a valid format. Make sure that you have provided the full comment ID.
  *
  * @throws {@link CodeCommitServiceException}
- * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * Base exception class for all service exceptions from CodeCommit service.
  *
  * @public
  */

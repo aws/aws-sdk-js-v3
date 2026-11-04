@@ -23,7 +23,28 @@ export interface CalculateRouteCommandInput extends CalculateRouteRequest {}
 export interface CalculateRouteCommandOutput extends CalculateRouteResponse, __MetadataBearer {}
 
 /**
- * <important> <p>This operation is no longer current and may be deprecated in the future. We recommend you upgrade to <a href="/location/latest/APIReference/API_CalculateRoutes.html"> <code>CalculateRoutes</code> </a> or <a href="/location/latest/APIReference/API_CalculateIsolines.html"> <code>CalculateIsolines</code> </a> unless you require Grab data.</p> <ul> <li> <p> <code>CalculateRoute</code> is part of a previous Amazon Location Service Routes API (version 1) which has been superseded by a more intuitive, powerful, and complete API (version 2).</p> </li> <li> <p>The version 2 <code>CalculateRoutes</code> operation gives better results for point-to-point routing, while the version 2 <code>CalculateIsolines</code> operation adds support for calculating service areas and travel time envelopes.</p> </li> <li> <p>If you are using an Amazon Web Services SDK or the Amazon Web Services CLI, note that the Routes API version 2 is found under <code>geo-routes</code> or <code>geo_routes</code>, not under <code>location</code>.</p> </li> <li> <p>Since Grab is not yet fully supported in Routes API version 2, we recommend you continue using API version 1 when using Grab.</p> </li> </ul> </important> <p> <a href="https://docs.aws.amazon.com/location/previous/developerguide/calculate-route.html">Calculates a route</a> given the following required parameters: <code>DeparturePosition</code> and <code>DestinationPosition</code>. Requires that you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create a route calculator resource</a>.</p> <p>By default, a request that doesn't specify a departure time uses the best time of day to travel with the best traffic conditions when calculating the route.</p> <p>Additional options include:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/location/previous/developerguide/departure-time.html">Specifying a departure time</a> using either <code>DepartureTime</code> or <code>DepartNow</code>. This calculates a route based on predictive traffic data at the given time. </p> <note> <p>You can't specify both <code>DepartureTime</code> and <code>DepartNow</code> in a single request. Specifying both parameters returns a validation error.</p> </note> </li> <li> <p> <a href="https://docs.aws.amazon.com/location/previous/developerguide/travel-mode.html">Specifying a travel mode</a> using TravelMode sets the transportation mode used to calculate the routes. This also lets you specify additional route preferences in <code>CarModeOptions</code> if traveling by <code>Car</code>, or <code>TruckModeOptions</code> if traveling by <code>Truck</code>.</p> <note> <p>If you specify <code>walking</code> for the travel mode and your data provider is Esri, the start and destination must be within 40km.</p> </note> </li> </ul>
+ * > **Important:**
+ * >
+ * > This operation is no longer current and may be deprecated in the future. We recommend you upgrade to [`CalculateRoutes`](/location/latest/APIReference/API_CalculateRoutes.html) or [`CalculateIsolines`](/location/latest/APIReference/API_CalculateIsolines.html) unless you require Grab data.
+ * >
+ * > - `CalculateRoute` is part of a previous Amazon Location Service Routes API (version 1) which has been superseded by a more intuitive, powerful, and complete API (version 2).
+ * > - The version 2 `CalculateRoutes` operation gives better results for point-to-point routing, while the version 2 `CalculateIsolines` operation adds support for calculating service areas and travel time envelopes.
+ * > - If you are using an Amazon Web Services SDK or the Amazon Web Services CLI, note that the Routes API version 2 is found under `geo-routes` or `geo_routes`, not under `location`.
+ * > - Since Grab is not yet fully supported in Routes API version 2, we recommend you continue using API version 1 when using Grab.
+ *
+ * [Calculates a route](https://docs.aws.amazon.com/location/previous/developerguide/calculate-route.html) given the following required parameters: `DeparturePosition` and `DestinationPosition`. Requires that you first [create a route calculator resource](https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html).
+ *
+ * By default, a request that doesn't specify a departure time uses the best time of day to travel with the best traffic conditions when calculating the route.
+ *
+ * Additional options include:
+ *
+ * - [Specifying a departure time](https://docs.aws.amazon.com/location/previous/developerguide/departure-time.html) using either `DepartureTime` or `DepartNow`. This calculates a route based on predictive traffic data at the given time.
+ *
+ *   > **Note:** You can't specify both `DepartureTime` and `DepartNow` in a single request. Specifying both parameters returns a validation error.
+ * - [Specifying a travel mode](https://docs.aws.amazon.com/location/previous/developerguide/travel-mode.html) using TravelMode sets the transportation mode used to calculate the routes. This also lets you specify additional route preferences in `CarModeOptions` if traveling by `Car`, or `TruckModeOptions` if traveling by `Truck`.
+ *
+ *   > **Note:** If you specify `walking` for the travel mode and your data provider is Esri, the start and destination must be within 40km.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -127,23 +148,28 @@ export interface CalculateRouteCommandOutput extends CalculateRouteResponse, __M
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+ *
+ * The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+ *
+ * The request has failed to process because of an unknown server error, exception, or failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource that you've entered was not found in your AWS account.</p>
+ *
+ * The resource that you've entered was not found in your AWS account.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied because of request throttling.</p>
+ *
+ * The request was denied because of request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input failed to meet the constraints specified by the AWS service. </p>
+ *
+ * The input failed to meet the constraints specified by the AWS service.
  *
  * @throws {@link LocationServiceException}
- * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * Base exception class for all service exceptions from Location service.
  *
  * @public
  */

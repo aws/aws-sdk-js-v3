@@ -23,7 +23,8 @@ export interface DescribeStackRefactorCommandInput extends DescribeStackRefactor
 export interface DescribeStackRefactorCommandOutput extends DescribeStackRefactorOutput, __MetadataBearer {}
 
 /**
- * <p>Describes the stack refactor status.</p>
+ * Describes the stack refactor status.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,11 +59,12 @@ export interface DescribeStackRefactorCommandOutput extends DescribeStackRefacto
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link StackRefactorNotFoundException} (client fault)
- *  <p>The specified stack refactor can't be found.</p>
+ *
+ * The specified stack refactor can't be found.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

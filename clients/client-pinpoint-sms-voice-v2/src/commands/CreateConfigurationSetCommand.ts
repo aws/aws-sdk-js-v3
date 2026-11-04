@@ -23,7 +23,12 @@ export interface CreateConfigurationSetCommandInput extends CreateConfigurationS
 export interface CreateConfigurationSetCommandOutput extends CreateConfigurationSetResult, __MetadataBearer {}
 
 /**
- * <p>Creates a new configuration set. After you create the configuration set, you can add one or more event destinations to it.</p> <p>A configuration set is a set of rules that you apply to the SMS and voice messages that you send.</p> <p>When you send a message, you can optionally specify a single configuration set.</p>
+ * Creates a new configuration set. After you create the configuration set, you can add one or more event destinations to it.
+ *
+ * A configuration set is a set of rules that you apply to the SMS and voice messages that you send.
+ *
+ * When you send a message, you can optionally specify a single configuration set.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,26 +70,32 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+ *
+ * The request was denied because you don't have sufficient permissions to access the resource.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+ *
+ * Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+ *
+ * The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would cause a service quota to be exceeded.</p>
+ *
+ * The request would cause a service quota to be exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+ *
+ * An error that occurred because too many requests were sent during a certain amount of time.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A validation exception for a field.</p>
+ *
+ * A validation exception for a field.
  *
  * @throws {@link PinpointSMSVoiceV2ServiceException}
- * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * Base exception class for all service exceptions from PinpointSMSVoiceV2 service.
  *
  * @public
  */

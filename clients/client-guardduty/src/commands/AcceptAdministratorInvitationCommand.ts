@@ -23,7 +23,8 @@ export interface AcceptAdministratorInvitationCommandInput extends AcceptAdminis
 export interface AcceptAdministratorInvitationCommandOutput extends AcceptAdministratorInvitationResponse, __MetadataBearer {}
 
 /**
- * <p>Accepts the invitation to be a member account and get monitored by a GuardDuty administrator account that sent the invitation.</p>
+ * Accepts the invitation to be a member account and get monitored by a GuardDuty administrator account that sent the invitation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,14 +51,16 @@ export interface AcceptAdministratorInvitationCommandOutput extends AcceptAdmini
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>A bad request exception object.</p>
+ *
+ * A bad request exception object.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>An internal server error exception object.</p>
+ *
+ * An internal server error exception object.
  *
  * @throws {@link GuardDutyServiceException}
- * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * Base exception class for all service exceptions from GuardDuty service.
  *
  * @public
  */

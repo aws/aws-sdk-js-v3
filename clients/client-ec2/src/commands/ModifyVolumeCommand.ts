@@ -23,22 +23,16 @@ export interface ModifyVolumeCommandInput extends ModifyVolumeRequest {}
 export interface ModifyVolumeCommandOutput extends ModifyVolumeResult, __MetadataBearer {}
 
 /**
- * <p>You can modify several parameters of an existing EBS volume, including volume size, volume
- *       type, and IOPS capacity. If your EBS volume is attached to a current-generation EC2 instance
- *       type, you might be able to apply these changes without stopping the instance or detaching the
- *       volume from it. For more information about modifying EBS volumes, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-modify-volume.html">Amazon EBS Elastic Volumes</a>
- *       in the <i>Amazon EBS User Guide</i>.</p>
- *          <p>When you complete a resize operation on your volume, you need to extend the volume's
- *       file-system size to take advantage of the new storage capacity. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/recognize-expanded-volume-linux.html">Extend the file system</a>.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/monitoring-volume-modifications.html">Monitor the progress of volume modifications</a> in the <i>Amazon EBS User Guide</i>.</p>
- *          <p>With previous-generation instance types, resizing an EBS volume might require detaching and
- *       reattaching the volume or stopping and restarting the instance.</p>
- *          <p>After you initiate a volume modification, you must wait for that modification to reach the
- *       <code>completed</code> state before you can initiate another modification for the same volume.
- *       You can modify a volume up to four times within a rolling 24-hour period, as long as the volume
- *       is in the <code>in-use</code> or <code>available</code> state, and all previous modifications
- *       for that volume are <code>completed</code>. If you exceed this limit, you get an error message
- *       that indicates when you can perform your next modification.</p>
+ * You can modify several parameters of an existing EBS volume, including volume size, volume type, and IOPS capacity. If your EBS volume is attached to a current-generation EC2 instance type, you might be able to apply these changes without stopping the instance or detaching the volume from it. For more information about modifying EBS volumes, see [Amazon EBS Elastic Volumes](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-modify-volume.html) in the *Amazon EBS User Guide*.
+ *
+ * When you complete a resize operation on your volume, you need to extend the volume's file-system size to take advantage of the new storage capacity. For more information, see [Extend the file system](https://docs.aws.amazon.com/ebs/latest/userguide/recognize-expanded-volume-linux.html).
+ *
+ * For more information, see [Monitor the progress of volume modifications](https://docs.aws.amazon.com/ebs/latest/userguide/monitoring-volume-modifications.html) in the *Amazon EBS User Guide*.
+ *
+ * With previous-generation instance types, resizing an EBS volume might require detaching and reattaching the volume or stopping and restarting the instance.
+ *
+ * After you initiate a volume modification, you must wait for that modification to reach the `completed` state before you can initiate another modification for the same volume. You can modify a volume up to four times within a rolling 24-hour period, as long as the volume is in the `in-use` or `available` state, and all previous modifications for that volume are `completed`. If you exceed this limit, you get an error message that indicates when you can perform your next modification.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,8 +87,8 @@ export interface ModifyVolumeCommandOutput extends ModifyVolumeResult, __Metadat
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

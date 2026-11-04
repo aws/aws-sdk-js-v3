@@ -23,9 +23,8 @@ export interface SearchAvailablePhoneNumbersCommandInput extends SearchAvailable
 export interface SearchAvailablePhoneNumbersCommandOutput extends SearchAvailablePhoneNumbersResponse, __MetadataBearer {}
 
 /**
- * <p>Searches for available phone numbers that you can claim to your Connect Customer instance or traffic distribution group. If the
- *    provided <code>TargetArn</code> is a traffic distribution group, you can call this API in both Amazon Web Services Regions associated with
- *    the traffic distribution group.</p>
+ * Searches for available phone numbers that you can claim to your Connect Customer instance or traffic distribution group. If the provided `TargetArn` is a traffic distribution group, you can call this API in both Amazon Web Services Regions associated with the traffic distribution group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,20 +64,24 @@ export interface SearchAvailablePhoneNumbersCommandOutput extends SearchAvailabl
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

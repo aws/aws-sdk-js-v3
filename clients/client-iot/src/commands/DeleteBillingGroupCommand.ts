@@ -23,8 +23,10 @@ export interface DeleteBillingGroupCommandInput extends DeleteBillingGroupReques
 export interface DeleteBillingGroupCommandOutput extends DeleteBillingGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the billing group.</p>
- *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteBillingGroup</a> action.</p>
+ * Deletes the billing group.
+ *
+ * Requires permission to access the [DeleteBillingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,22 +52,24 @@ export interface DeleteBillingGroupCommandOutput extends DeleteBillingGroupRespo
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An unexpected error has occurred.</p>
+ *
+ * An unexpected error has occurred.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The rate exceeds the limit.</p>
+ *
+ * The rate exceeds the limit.
  *
  * @throws {@link VersionConflictException} (client fault)
- *  <p>An exception thrown when the version of an entity specified with the
- *             <code>expectedVersion</code> parameter does not match the latest version in the
- *          system.</p>
+ *
+ * An exception thrown when the version of an entity specified with the `expectedVersion` parameter does not match the latest version in the system.
  *
  * @throws {@link IoTServiceException}
- * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * Base exception class for all service exceptions from IoT service.
  *
  * @public
  */

@@ -23,8 +23,8 @@ export interface GetPartnerAccountCommandInput extends GetPartnerAccountRequest 
 export interface GetPartnerAccountCommandOutput extends GetPartnerAccountResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about a partner account. If <code>PartnerAccountId</code> and
- *                 <code>PartnerType</code> are <code>null</code>, returns all partner accounts.</p>
+ * Gets information about a partner account. If `PartnerAccountId` and `PartnerType` are `null`, returns all partner accounts.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,20 +57,24 @@ export interface GetPartnerAccountCommandOutput extends GetPartnerAccountRespons
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred while processing a request.</p>
+ *
+ * An unexpected error occurred while processing a request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource does not exist.</p>
+ *
+ * Resource does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied because it exceeded the allowed API request rate.</p>
+ *
+ * The request was denied because it exceeded the allowed API request rate.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input did not meet the specified constraints.</p>
+ *
+ * The input did not meet the specified constraints.
  *
  * @throws {@link IoTWirelessServiceException}
- * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * Base exception class for all service exceptions from IoTWireless service.
  *
  * @public
  */

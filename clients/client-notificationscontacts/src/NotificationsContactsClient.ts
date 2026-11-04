@@ -312,7 +312,8 @@ export type NotificationsContactsClientResolvedConfigType = __SmithyResolvedConf
 export interface NotificationsContactsClientResolvedConfig extends NotificationsContactsClientResolvedConfigType {}
 
 /**
- * <p>AWS User Notifications Contacts is a service that allows you to create and manage email contacts for AWS User Notifications. The AWS User Notifications Contacts API Reference provides descriptions, API request parameters, and the JSON response for all email contact related API actions.</p>
+ * AWS User Notifications Contacts is a service that allows you to create and manage email contacts for AWS User Notifications. The AWS User Notifications Contacts API Reference provides descriptions, API request parameters, and the JSON response for all email contact related API actions.
+ *
  * @public
  */
 export class NotificationsContactsClient extends __Client<

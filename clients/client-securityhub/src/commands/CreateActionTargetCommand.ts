@@ -23,9 +23,10 @@ export interface CreateActionTargetCommandInput extends CreateActionTargetReques
 export interface CreateActionTargetCommandOutput extends CreateActionTargetResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a custom action target in Security Hub CSPM.</p>
- *          <p>You can use custom actions on findings and insights in Security Hub CSPM to trigger target actions
- *          in Amazon CloudWatch Events.</p>
+ * Creates a custom action target in Security Hub CSPM.
+ *
+ * You can use custom actions on findings and insights in Security Hub CSPM to trigger target actions in Amazon CloudWatch Events.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,25 +55,28 @@ export interface CreateActionTargetCommandOutput extends CreateActionTargetRespo
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>Internal server error.</p>
+ *
+ * Internal server error.
  *
  * @throws {@link InvalidAccessException} (client fault)
- *  <p>The account doesn't have permission to perform this action.</p>
+ *
+ * The account doesn't have permission to perform this action.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because you supplied an invalid or out-of-range value for an
- *          input parameter.</p>
+ *
+ * The request was rejected because you supplied an invalid or out-of-range value for an input parameter.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
- *          account or throttling limits. The error code describes the limit exceeded.</p>
+ *
+ * The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.
  *
  * @throws {@link ResourceConflictException} (client fault)
- *  <p>The resource specified in the request conflicts with an existing resource.</p>
+ *
+ * The resource specified in the request conflicts with an existing resource.
  *
  * @throws {@link SecurityHubServiceException}
- * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * Base exception class for all service exceptions from SecurityHub service.
  *
  * @example To create a custom action target
  * ```javascript

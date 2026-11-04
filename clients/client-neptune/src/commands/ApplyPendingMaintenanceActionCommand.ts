@@ -23,7 +23,8 @@ export interface ApplyPendingMaintenanceActionCommandInput extends ApplyPendingM
 export interface ApplyPendingMaintenanceActionCommandOutput extends ApplyPendingMaintenanceActionResult, __MetadataBearer {}
 
 /**
- * <p>Applies a pending maintenance action to a resource (for example, to a DB instance).</p>
+ * Applies a pending maintenance action to a resource (for example, to a DB instance).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,11 +65,12 @@ export interface ApplyPendingMaintenanceActionCommandOutput extends ApplyPending
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The specified resource ID was not found.</p>
+ *
+ * The specified resource ID was not found.
  *
  * @throws {@link NeptuneServiceException}
- * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * Base exception class for all service exceptions from Neptune service.
  *
  * @public
  */

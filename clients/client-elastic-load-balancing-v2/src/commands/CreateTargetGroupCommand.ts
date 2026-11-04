@@ -23,30 +23,16 @@ export interface CreateTargetGroupCommandInput extends CreateTargetGroupInput {}
 export interface CreateTargetGroupCommandOutput extends CreateTargetGroupOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a target group.</p>
- *          <p>For more information, see the following:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html">Target
- *             groups for your Application Load Balancers</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html">Target groups
- *             for your Network Load Balancers</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/target-groups.html">Target groups for your
- *             Gateway Load Balancers</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>This operation is idempotent, which means that it completes at most one time. If you
- *       attempt to create multiple target groups with the same settings, each call succeeds.</p>
+ * Creates a target group.
+ *
+ * For more information, see the following:
+ *
+ * - [Target groups for your Application Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html)
+ * - [Target groups for your Network Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html)
+ * - [Target groups for your Gateway Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/target-groups.html)
+ *
+ * This operation is idempotent, which means that it completes at most one time. If you attempt to create multiple target groups with the same settings, each call succeeds.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -125,21 +111,24 @@ export interface CreateTargetGroupCommandOutput extends CreateTargetGroupOutput,
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
  * @throws {@link DuplicateTargetGroupNameException} (client fault)
- *  <p>A target group with the specified name already exists.</p>
+ *
+ * A target group with the specified name already exists.
  *
  * @throws {@link InvalidConfigurationRequestException} (client fault)
- *  <p>The requested configuration is not valid.</p>
+ *
+ * The requested configuration is not valid.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>You've reached the limit on the number of tags for this resource.</p>
+ *
+ * You've reached the limit on the number of tags for this resource.
  *
  * @throws {@link TooManyTargetGroupsException} (client fault)
- *  <p>You've reached the limit on the number of target groups for your Amazon Web Services
- *       account.</p>
+ *
+ * You've reached the limit on the number of target groups for your Amazon Web Services account.
  *
  * @throws {@link ElasticLoadBalancingV2ServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancingV2 service.
  *
  * @example To create a target group
  * ```javascript

@@ -26,7 +26,12 @@ export interface StartDBInstanceAutomatedBackupsReplicationCommandInput extends 
 export interface StartDBInstanceAutomatedBackupsReplicationCommandOutput extends StartDBInstanceAutomatedBackupsReplicationResult, __MetadataBearer {}
 
 /**
- * <p>Enables replication of automated backups to a different Amazon Web Services Region.</p> <p>This command doesn't apply to RDS Custom.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html"> Replicating Automated Backups to Another Amazon Web Services Region</a> in the <i>Amazon RDS User Guide.</i> </p>
+ * Enables replication of automated backups to a different Amazon Web Services Region.
+ *
+ * This command doesn't apply to RDS Custom.
+ *
+ * For more information, see [Replicating Automated Backups to Another Amazon Web Services Region](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html) in the *Amazon RDS User Guide.*
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -119,26 +124,32 @@ export interface StartDBInstanceAutomatedBackupsReplicationCommandOutput extends
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBInstanceAutomatedBackupQuotaExceededFault} (client fault)
- *  <p>The quota for retained automated backups was exceeded. This prevents you from retaining any additional automated backups. The retained automated backups quota is the same as your DB instance quota.</p>
+ *
+ * The quota for retained automated backups was exceeded. This prevents you from retaining any additional automated backups. The retained automated backups quota is the same as your DB instance quota.
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *
+ * `DBInstanceIdentifier` doesn't refer to an existing DB instance.
  *
  * @throws {@link InvalidDBInstanceAutomatedBackupStateFault} (client fault)
- *  <p>The automated backup is in an invalid state. For example, this automated backup is associated with an active instance.</p>
+ *
+ * The automated backup is in an invalid state. For example, this automated backup is associated with an active instance.
  *
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
- *  <p>The DB instance isn't in a valid state.</p>
+ *
+ * The DB instance isn't in a valid state.
  *
  * @throws {@link KMSKeyNotAccessibleFault} (client fault)
- *  <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+ *
+ * An error occurred accessing an Amazon Web Services KMS key.
  *
  * @throws {@link StorageTypeNotSupportedFault} (client fault)
- *  <p>The specified <code>StorageType</code> can't be associated with the DB instance.</p>
+ *
+ * The specified `StorageType` can't be associated with the DB instance.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To enable cross-Region automated backups
  * ```javascript

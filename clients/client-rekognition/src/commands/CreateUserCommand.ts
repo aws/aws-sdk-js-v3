@@ -23,14 +23,10 @@ export interface CreateUserCommandInput extends CreateUserRequest {}
 export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new User within a collection specified by <code>CollectionId</code>. Takes
- *         <code>UserId</code> as a parameter, which is a user provided ID which should be unique
- *       within the collection. The provided <code>UserId</code> will alias the system generated UUID
- *       to make the <code>UserId</code> more user friendly. </p>
- *          <p>Uses a <code>ClientToken</code>, an idempotency token that ensures a call to
- *         <code>CreateUser</code> completes only once. If the value is not supplied, the AWS SDK
- *       generates an idempotency token for the requests. This prevents retries after a network error
- *       results from making multiple <code>CreateUser</code> calls. </p>
+ * Creates a new User within a collection specified by `CollectionId`. Takes `UserId` as a parameter, which is a user provided ID which should be unique within the collection. The provided `UserId` will alias the system generated UUID to make the `UserId` more user friendly.
+ *
+ * Uses a `ClientToken`, an idempotency token that ensures a call to `CreateUser` completes only once. If the value is not supplied, the AWS SDK generates an idempotency token for the requests. This prevents retries after a network error results from making multiple `CreateUser` calls.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,41 +53,44 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You are not authorized to perform the action.</p>
+ *
+ * You are not authorized to perform the action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p> A User with the same Id already exists within the collection, or the update or deletion
- *       of the User caused an inconsistent state. ** </p>
+ *
+ * A User with the same Id already exists within the collection, or the update or deletion of the User caused an inconsistent state. **
  *
  * @throws {@link IdempotentParameterMismatchException} (client fault)
- *  <p>A <code>ClientRequestToken</code> input parameter was reused with an operation, but at least one of the other input
- *         parameters is different from the previous call to the operation.</p>
+ *
+ * A `ClientRequestToken` input parameter was reused with an operation, but at least one of the other input parameters is different from the previous call to the operation.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * Amazon Rekognition experienced a service issue. Try your call again.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
- *       operation again.</p>
+ *
+ * Input parameter violated a constraint. Validate your parameter before calling the API operation again.
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
- *  <p>The number of requests exceeded your throughput limit. If you want to increase this
- *       limit, contact Amazon Rekognition.</p>
+ *
+ * The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource specified in the request cannot be found.</p>
+ *
+ * The resource specified in the request cannot be found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p></p>
- *          <p>The size of the collection exceeds the allowed limit. For more information,
- *       see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
+ *
+ * The size of the collection exceeds the allowed limit. For more information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide.
  *
  * @throws {@link ThrottlingException} (server fault)
- *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
+ * Amazon Rekognition is temporarily unable to process the request. Try your call again.
  *
  * @throws {@link RekognitionServiceException}
- * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * Base exception class for all service exceptions from Rekognition service.
  *
  * @example CreateUser
  * ```javascript

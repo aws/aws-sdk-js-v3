@@ -23,7 +23,8 @@ export interface DeleteBatchImportJobCommandInput extends DeleteBatchImportJobRe
 export interface DeleteBatchImportJobCommandOutput extends DeleteBatchImportJobResult, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified batch import job ID record. This action does not delete the data that was batch imported.  </p>
+ * Deletes the specified batch import job ID record. This action does not delete the data that was batch imported.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,20 +49,24 @@ export interface DeleteBatchImportJobCommandOutput extends DeleteBatchImportJobR
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+ *
+ * An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as `PutExternalModel`, that specifies a role that is not in your account.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An exception indicating an internal server error.</p>
+ *
+ * An exception indicating an internal server error.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>An exception indicating a throttling error.</p>
+ *
+ * An exception indicating a throttling error.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An exception indicating a specified value is not allowed.</p>
+ *
+ * An exception indicating a specified value is not allowed.
  *
  * @throws {@link FraudDetectorServiceException}
- * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * Base exception class for all service exceptions from FraudDetector service.
  *
  * @public
  */

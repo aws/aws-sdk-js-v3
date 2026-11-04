@@ -23,11 +23,12 @@ export interface CreateCustomVerificationEmailTemplateCommandInput extends Creat
 export interface CreateCustomVerificationEmailTemplateCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Creates a new custom verification email template.</p>
- *          <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
- *                 Custom Verification Email Templates</a> in the <i>Amazon SES Developer
- *                 Guide</i>.</p>
- *          <p>You can execute this operation no more than once per second.</p>
+ * Creates a new custom verification email template.
+ *
+ * For more information about custom verification email templates, see [Using Custom Verification Email Templates](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom) in the *Amazon SES Developer Guide*.
+ *
+ * You can execute this operation no more than once per second.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,24 +58,24 @@ export interface CreateCustomVerificationEmailTemplateCommandOutput extends __Me
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link CustomVerificationEmailInvalidContentException} (client fault)
- *  <p>Indicates that custom verification email template provided content is invalid.</p>
+ *
+ * Indicates that custom verification email template provided content is invalid.
  *
  * @throws {@link CustomVerificationEmailTemplateAlreadyExistsException} (client fault)
- *  <p>Indicates that a custom verification email template with the name you specified
- *             already exists.</p>
+ *
+ * Indicates that a custom verification email template with the name you specified already exists.
  *
  * @throws {@link FromEmailAddressNotVerifiedException} (client fault)
- *  <p>Indicates that the sender address specified for a custom verification email is not
- *             verified, and is therefore not eligible to send the custom verification email. </p>
+ *
+ * Indicates that the sender address specified for a custom verification email is not verified, and is therefore not eligible to send the custom verification email.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>Indicates that a resource could not be created because of service limits. For a list
- *             of Amazon SES limits, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html">Amazon SES Developer
- *             Guide</a>.</p>
+ *
+ * Indicates that a resource could not be created because of service limits. For a list of Amazon SES limits, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html).
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @public
  */

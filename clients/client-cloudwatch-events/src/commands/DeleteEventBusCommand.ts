@@ -23,8 +23,8 @@ export interface DeleteEventBusCommandInput extends DeleteEventBusRequest {}
 export interface DeleteEventBusCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified custom event bus or partner event bus. All rules associated with
- *       this event bus need to be deleted. You can't delete your account's default event bus.</p>
+ * Deletes the specified custom event bus or partner event bus. All rules associated with this event bus need to be deleted. You can't delete your account's default event bus.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,14 +49,16 @@ export interface DeleteEventBusCommandOutput extends __MetadataBearer {}
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+ *
+ * There is concurrent modification on a rule, target, archive, or replay.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * This exception occurs due to unexpected causes.
  *
  * @throws {@link CloudWatchEventsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchEvents service.
  *
  * @public
  */

@@ -27,246 +27,287 @@ import type {
 } from "./enums";
 
 /**
- * <p>Contains supported Amazon EBS volume information for an AMI fulfillment option.</p>
+ * Contains supported Amazon EBS volume information for an AMI fulfillment option.
+ *
  * @public
  */
 export interface AmazonMachineImageEbsVolume {
   /**
-   * <p>The supported Amazon EBS volume types.</p>
+   * The supported Amazon EBS volume types.
+   *
    * @public
    */
   volumeTypes: string[] | undefined;
 
   /**
-   * <p>The total number of provisioned IOPS supported.</p>
+   * The total number of provisioned IOPS supported.
+   *
    * @public
    */
   iops?: number | undefined;
 }
 
 /**
- * <p>Describes an operating system supported by an AMI fulfillment option.</p>
+ * Describes an operating system supported by an AMI fulfillment option.
+ *
  * @public
  */
 export interface AmazonMachineImageOperatingSystem {
   /**
-   * <p>The operating system family, such as Linux or Windows.</p>
+   * The operating system family, such as Linux or Windows.
+   *
    * @public
    */
   operatingSystemFamilyName: string | undefined;
 
   /**
-   * <p>The specific operating system name, such as Amazon Linux 2 or Windows Server 2022.</p>
+   * The specific operating system name, such as Amazon Linux 2 or Windows Server 2022.
+   *
    * @public
    */
   operatingSystemName: string | undefined;
 
   /**
-   * <p>The version of the operating system.</p>
+   * The version of the operating system.
+   *
    * @public
    */
   operatingSystemVersion?: string | undefined;
 }
 
 /**
- * <p>Contains a recommended security group configuration for an AMI fulfillment option.</p>
+ * Contains a recommended security group configuration for an AMI fulfillment option.
+ *
  * @public
  */
 export interface AmazonMachineImageSecurityGroup {
   /**
-   * <p>The IP protocol name, such as <code>tcp</code>.</p>
+   * The IP protocol name, such as `tcp`.
+   *
    * @public
    */
   protocol: string | undefined;
 
   /**
-   * <p>The start of the port range.</p>
+   * The start of the port range.
+   *
    * @public
    */
   fromPort: number | undefined;
 
   /**
-   * <p>The end of the port range.</p>
+   * The end of the port range.
+   *
    * @public
    */
   toPort: number | undefined;
 
   /**
-   * <p>The IP address ranges in CIDR format.</p>
+   * The IP address ranges in CIDR format.
+   *
    * @public
    */
   cidrIpAddresses: string[] | undefined;
 }
 
 /**
- * <p>Recommended instance types for running an AMI fulfillment option.</p>
+ * Recommended instance types for running an AMI fulfillment option.
+ *
  * @public
  */
 export interface AmazonMachineImageRecommendation {
   /**
-   * <p>The recommended EC2 instance type for this AMI.</p>
+   * The recommended EC2 instance type for this AMI.
+   *
    * @public
    */
   instanceType: string | undefined;
 
   /**
-   * <p>The recommended security group configurations for this AMI.</p>
+   * The recommended security group configurations for this AMI.
+   *
    * @public
    */
   securityGroups?: AmazonMachineImageSecurityGroup[] | undefined;
 }
 
 /**
- * <p>Describes an Amazon Machine Image (AMI) fulfillment option, including version details, supported operating systems, and recommended instance types.</p>
+ * Describes an Amazon Machine Image (AMI) fulfillment option, including version details, supported operating systems, and recommended instance types.
+ *
  * @public
  */
 export interface AmazonMachineImageFulfillmentOption {
   /**
-   * <p>The unique identifier of the fulfillment option.</p>
+   * The unique identifier of the fulfillment option.
+   *
    * @public
    */
   fulfillmentOptionId: string | undefined;
 
   /**
-   * <p>The display name of the fulfillment option version.</p>
+   * The display name of the fulfillment option version.
+   *
    * @public
    */
   fulfillmentOptionName: string | undefined;
 
   /**
-   * <p>The version identifier of the fulfillment option.</p>
+   * The version identifier of the fulfillment option.
+   *
    * @public
    */
   fulfillmentOptionVersion?: string | undefined;
 
   /**
-   * <p>The category of the fulfillment option.</p>
+   * The category of the fulfillment option.
+   *
    * @public
    */
   fulfillmentOptionType: FulfillmentOptionType | undefined;
 
   /**
-   * <p>A human-readable name for the fulfillment option type.</p>
+   * A human-readable name for the fulfillment option type.
+   *
    * @public
    */
   fulfillmentOptionDisplayName: string | undefined;
 
   /**
-   * <p>The operating systems supported by this AMI.</p>
+   * The operating systems supported by this AMI.
+   *
    * @public
    */
   operatingSystems: AmazonMachineImageOperatingSystem[] | undefined;
 
   /**
-   * <p>Recommended instance types for running this AMI.</p>
+   * Recommended instance types for running this AMI.
+   *
    * @public
    */
   recommendation?: AmazonMachineImageRecommendation | undefined;
 
   /**
-   * <p>Release notes describing changes in this version of the fulfillment option.</p>
+   * Release notes describing changes in this version of the fulfillment option.
+   *
    * @public
    */
   releaseNotes?: string | undefined;
 
   /**
-   * <p>Instructions on how to deploy and use this fulfillment option.</p>
+   * Instructions on how to deploy and use this fulfillment option.
+   *
    * @public
    */
   usageInstructions?: string | undefined;
 
   /**
-   * <p>The date and time when the AMI became available for fulfillment.</p>
+   * The date and time when the AMI became available for fulfillment.
+   *
    * @public
    */
   availableFromTime?: Date | undefined;
 
   /**
-   * <p>The URL pattern for accessing the product when an instance is running.</p>
+   * The URL pattern for accessing the product when an instance is running.
+   *
    * @public
    */
   accessUrlTemplate?: string | undefined;
 
   /**
-   * <p>The architecture of the AMI, such as <code>x86_64</code>.</p>
+   * The architecture of the AMI, such as `x86_64`.
+   *
    * @public
    */
   architecture: string | undefined;
 
   /**
-   * <p>The alias of the AMI associated with this fulfillment option.</p>
+   * The alias of the AMI associated with this fulfillment option.
+   *
    * @public
    */
   amiAlias?: string | undefined;
 
   /**
-   * <p>The supported Amazon EBS volume configuration for the AMI.</p>
+   * The supported Amazon EBS volume configuration for the AMI.
+   *
    * @public
    */
   ebsVolume?: AmazonMachineImageEbsVolume | undefined;
 
   /**
-   * <p>A short description of the fulfillment option.</p>
+   * A short description of the fulfillment option.
+   *
    * @public
    */
   shortDescription?: string | undefined;
 }
 
 /**
- * <p>Describes an AWS service supported by a fulfillment option.</p>
+ * Describes an AWS service supported by a fulfillment option.
+ *
  * @public
  */
 export interface AwsSupportedService {
   /**
-   * <p>The machine-readable identifier of the supported service.</p>
+   * The machine-readable identifier of the supported service.
+   *
    * @public
    */
   supportedServiceType: string | undefined;
 
   /**
-   * <p>The human-readable name of the supported service.</p>
+   * The human-readable name of the supported service.
+   *
    * @public
    */
   displayName: string | undefined;
 
   /**
-   * <p>A description of the supported service.</p>
+   * A description of the supported service.
+   *
    * @public
    */
   description: string | undefined;
 }
 
 /**
- * <p>Describes an API-based fulfillment option, where the product is accessed through an API integration.</p>
+ * Describes an API-based fulfillment option, where the product is accessed through an API integration.
+ *
  * @public
  */
 export interface ApiFulfillmentOption {
   /**
-   * <p>The unique identifier of the fulfillment option.</p>
+   * The unique identifier of the fulfillment option.
+   *
    * @public
    */
   fulfillmentOptionId: string | undefined;
 
   /**
-   * <p>The category of the fulfillment option.</p>
+   * The category of the fulfillment option.
+   *
    * @public
    */
   fulfillmentOptionType: FulfillmentOptionType | undefined;
 
   /**
-   * <p>A human-readable name for the fulfillment option type.</p>
+   * A human-readable name for the fulfillment option type.
+   *
    * @public
    */
   fulfillmentOptionDisplayName: string | undefined;
 
   /**
-   * <p>Instructions on how to integrate with and use this API.</p>
+   * Instructions on how to integrate with and use this API.
+   *
    * @public
    */
   usageInstructions?: string | undefined;
 
   /**
-   * <p>The AWS services supported by this API integration.</p>
+   * The AWS services supported by this API integration.
+   *
    * @public
    */
   awsSupportedServices: AwsSupportedService[] | undefined;
@@ -277,254 +318,296 @@ export interface ApiFulfillmentOption {
  */
 export interface GetListingInput {
   /**
-   * <p>A BCP 47 language tag or comma-separated priority list specifying the preferred locale for response content. See <code>Locale</code> for supported values, constraints, fallback behavior, and the default locale. If omitted, the service returns content in the default locale.</p>
+   * A BCP 47 language tag or comma-separated priority list specifying the preferred locale for response content. See `Locale` for supported values, constraints, fallback behavior, and the default locale. If omitted, the service returns content in the default locale.
+   *
    * @public
    */
   locale?: string | undefined;
 
   /**
-   * <p>The unique identifier of the listing to retrieve.</p>
+   * The unique identifier of the listing to retrieve.
+   *
    * @public
    */
   listingId: string | undefined;
 }
 
 /**
- * <p>Information about a seller, including the profile identifier and display name.</p>
+ * Information about a seller, including the profile identifier and display name.
+ *
  * @public
  */
 export interface SellerInformation {
   /**
-   * <p>The unique identifier of the seller profile.</p>
+   * The unique identifier of the seller profile.
+   *
    * @public
    */
   sellerProfileId: string | undefined;
 
   /**
-   * <p>The human-readable name of the seller.</p>
+   * The human-readable name of the seller.
+   *
    * @public
    */
   displayName: string | undefined;
 }
 
 /**
- * <p>Summary information about an offer, including the offer identifier, name, and seller of record.</p>
+ * Summary information about an offer, including the offer identifier, name, and seller of record.
+ *
  * @public
  */
 export interface OfferInformation {
   /**
-   * <p>The unique identifier of the offer.</p>
+   * The unique identifier of the offer.
+   *
    * @public
    */
   offerId: string | undefined;
 
   /**
-   * <p>The display name of the offer.</p>
+   * The display name of the offer.
+   *
    * @public
    */
   offerName?: string | undefined;
 
   /**
-   * <p>The entity responsible for selling the product under this offer.</p>
+   * The entity responsible for selling the product under this offer.
+   *
    * @public
    */
   sellerOfRecord: SellerInformation | undefined;
 }
 
 /**
- * <p>Summary information about a product, including the identifier, name, and manufacturer.</p>
+ * Summary information about a product, including the identifier, name, and manufacturer.
+ *
  * @public
  */
 export interface ProductInformation {
   /**
-   * <p>The unique identifier of the product.</p>
+   * The unique identifier of the product.
+   *
    * @public
    */
   productId: string | undefined;
 
   /**
-   * <p>The human-readable display name of the product.</p>
+   * The human-readable display name of the product.
+   *
    * @public
    */
   productName: string | undefined;
 
   /**
-   * <p>The entity who manufactured the product.</p>
+   * The entity who manufactured the product.
+   *
    * @public
    */
   manufacturer: SellerInformation | undefined;
 }
 
 /**
- * <p>A product and offer associated with a listing.</p>
+ * A product and offer associated with a listing.
+ *
  * @public
  */
 export interface ListingAssociatedEntity {
   /**
-   * <p>Information about the product associated with the listing.</p>
+   * Information about the product associated with the listing.
+   *
    * @public
    */
   product?: ProductInformation | undefined;
 
   /**
-   * <p>Information about the default offer associated with the listing.</p>
+   * Information about the default offer associated with the listing.
+   *
    * @public
    */
   offer?: OfferInformation | undefined;
 }
 
 /**
- * <p>A badge indicating a special attribute of a listing, such as free tier eligibility or Quick Launch support.</p>
+ * A badge indicating a special attribute of a listing, such as free tier eligibility or Quick Launch support.
+ *
  * @public
  */
 export interface ListingBadge {
   /**
-   * <p>The human-readable name of the badge.</p>
+   * The human-readable name of the badge.
+   *
    * @public
    */
   displayName: string | undefined;
 
   /**
-   * <p>The machine-readable type of the badge.</p>
+   * The machine-readable type of the badge.
+   *
    * @public
    */
   badgeType: ListingBadgeType | undefined;
 }
 
 /**
- * <p>A category used to classify a listing or product into a logical group.</p>
+ * A category used to classify a listing or product into a logical group.
+ *
  * @public
  */
 export interface Category {
   /**
-   * <p>The machine-readable identifier of the category.</p>
+   * The machine-readable identifier of the category.
+   *
    * @public
    */
   categoryId: string | undefined;
 
   /**
-   * <p>The human-readable name of the category.</p>
+   * The human-readable name of the category.
+   *
    * @public
    */
   displayName: string | undefined;
 }
 
 /**
- * <p>A summary of a fulfillment option available for deploying or accessing a listing or product.</p>
+ * A summary of a fulfillment option available for deploying or accessing a listing or product.
+ *
  * @public
  */
 export interface FulfillmentOptionSummary {
   /**
-   * <p>The machine-readable type of the fulfillment option, such as <code>SAAS</code> or <code>AMAZON_MACHINE_IMAGE</code>.</p>
+   * The machine-readable type of the fulfillment option, such as `SAAS` or `AMAZON_MACHINE_IMAGE`.
+   *
    * @public
    */
   fulfillmentOptionType: FulfillmentOptionType | undefined;
 
   /**
-   * <p>The human-readable name of the fulfillment option type.</p>
+   * The human-readable name of the fulfillment option type.
+   *
    * @public
    */
   displayName: string | undefined;
 }
 
 /**
- * <p>A pricing model that determines how buyers are charged for a listing, such as usage-based, contract, BYOL, or free.</p>
+ * A pricing model that determines how buyers are charged for a listing, such as usage-based, contract, BYOL, or free.
+ *
  * @public
  */
 export interface PricingModel {
   /**
-   * <p>The machine-readable type of the pricing model.</p>
+   * The machine-readable type of the pricing model.
+   *
    * @public
    */
   pricingModelType: PricingModelType | undefined;
 
   /**
-   * <p>The human-readable name of the pricing model.</p>
+   * The human-readable name of the pricing model.
+   *
    * @public
    */
   displayName: string | undefined;
 }
 
 /**
- * <p>A pricing unit that defines the billing dimension for a listing, such as users, hosts, bandwidth, or data.</p>
+ * A pricing unit that defines the billing dimension for a listing, such as users, hosts, bandwidth, or data.
+ *
  * @public
  */
 export interface PricingUnit {
   /**
-   * <p>The machine-readable type of the pricing unit.</p>
+   * The machine-readable type of the pricing unit.
+   *
    * @public
    */
   pricingUnitType: PricingUnitType | undefined;
 
   /**
-   * <p>The human-readable name of the pricing unit.</p>
+   * The human-readable name of the pricing unit.
+   *
    * @public
    */
   displayName: string | undefined;
 }
 
 /**
- * <p>An embedded promotional image for a product.</p>
+ * An embedded promotional image for a product.
+ *
  * @public
  */
 export interface PromotionalEmbeddedImage {
   /**
-   * <p>The title displayed when hovering over the image.</p>
+   * The title displayed when hovering over the image.
+   *
    * @public
    */
   title: string | undefined;
 
   /**
-   * <p>The URL of the image file.</p>
+   * The URL of the image file.
+   *
    * @public
    */
   url: string | undefined;
 
   /**
-   * <p>An optional description of the image.</p>
+   * An optional description of the image.
+   *
    * @public
    */
   description?: string | undefined;
 }
 
 /**
- * <p>An embedded promotional video for a product.</p>
+ * An embedded promotional video for a product.
+ *
  * @public
  */
 export interface PromotionalEmbeddedVideo {
   /**
-   * <p>The title displayed when hovering over the video.</p>
+   * The title displayed when hovering over the video.
+   *
    * @public
    */
   title: string | undefined;
 
   /**
-   * <p>The URL of the video file.</p>
+   * The URL of the video file.
+   *
    * @public
    */
   url: string | undefined;
 
   /**
-   * <p>The URL of the high-resolution preview image for the video.</p>
+   * The URL of the high-resolution preview image for the video.
+   *
    * @public
    */
   preview: string | undefined;
 
   /**
-   * <p>The URL of the thumbnail image for the video.</p>
+   * The URL of the thumbnail image for the video.
+   *
    * @public
    */
   thumbnail: string | undefined;
 
   /**
-   * <p>An optional description of the video.</p>
+   * An optional description of the video.
+   *
    * @public
    */
   description?: string | undefined;
 }
 
 /**
- * <p>Embedded promotional media for a product, such as images or videos. Each element contains exactly one media type.</p>
+ * Embedded promotional media for a product, such as images or videos. Each element contains exactly one media type.
+ *
  * @public
  */
 export type PromotionalMedia =
@@ -537,7 +620,8 @@ export type PromotionalMedia =
  */
 export namespace PromotionalMedia {
   /**
-   * <p>An embedded promotional image for a product.</p>
+   * An embedded promotional image for a product.
+   *
    * @public
    */
   export interface EmbeddedImageMember {
@@ -547,7 +631,8 @@ export namespace PromotionalMedia {
   }
 
   /**
-   * <p>An embedded promotional video for a product.</p>
+   * An embedded promotional video for a product.
+   *
    * @public
    */
   export interface EmbeddedVideoMember {
@@ -577,138 +662,161 @@ export namespace PromotionalMedia {
 }
 
 /**
- * <p>A resource that provides supplementary information about a product, such as documentation links, support contacts, or usage instructions.</p>
+ * A resource that provides supplementary information about a product, such as documentation links, support contacts, or usage instructions.
+ *
  * @public
  */
 export interface Resource {
   /**
-   * <p>The category of the resource, such as manufacturer support or usage instructions.</p>
+   * The category of the resource, such as manufacturer support or usage instructions.
+   *
    * @public
    */
   resourceType: ResourceType | undefined;
 
   /**
-   * <p>The format of the resource content, such as a URL, email address, or text.</p>
+   * The format of the resource content, such as a URL, email address, or text.
+   *
    * @public
    */
   contentType: ResourceContentType | undefined;
 
   /**
-   * <p>The resource content. Interpretation depends on the content type.</p>
+   * The resource content. Interpretation depends on the content type.
+   *
    * @public
    */
   value: string | undefined;
 
   /**
-   * <p>An optional human-readable label for the resource.</p>
+   * An optional human-readable label for the resource.
+   *
    * @public
    */
   displayName?: string | undefined;
 }
 
 /**
- * <p>A review summary from a specific source, including the average rating and total review count.</p>
+ * A review summary from a specific source, including the average rating and total review count.
+ *
  * @public
  */
 export interface ReviewSourceSummary {
   /**
-   * <p>The name of the review source, such as AWS Marketplace.</p>
+   * The name of the review source, such as AWS Marketplace.
+   *
    * @public
    */
   sourceName: string | undefined;
 
   /**
-   * <p>The machine-readable identifier of the review source.</p>
+   * The machine-readable identifier of the review source.
+   *
    * @public
    */
   sourceId: ReviewSourceId | undefined;
 
   /**
-   * <p>The URL where the reviews can be accessed at the source.</p>
+   * The URL where the reviews can be accessed at the source.
+   *
    * @public
    */
   sourceUrl?: string | undefined;
 
   /**
-   * <p>The average rating across all reviews from this source.</p>
+   * The average rating across all reviews from this source.
+   *
    * @public
    */
   averageRating: string | undefined;
 
   /**
-   * <p>The total number of reviews available from this source.</p>
+   * The total number of reviews available from this source.
+   *
    * @public
    */
   totalReviews: number | undefined;
 }
 
 /**
- * <p>A summary of customer reviews available for a listing, aggregated by review source.</p>
+ * A summary of customer reviews available for a listing, aggregated by review source.
+ *
  * @public
  */
 export interface ReviewSummary {
   /**
-   * <p>Review summaries from different sources, such as AWS Marketplace.</p>
+   * Review summaries from different sources, such as AWS Marketplace.
+   *
    * @public
    */
   reviewSourceSummaries: ReviewSourceSummary[] | undefined;
 }
 
 /**
- * <p>An engagement option available to potential buyers of a product, such as requesting a private offer or a demo.</p>
+ * An engagement option available to potential buyers of a product, such as requesting a private offer or a demo.
+ *
  * @public
  */
 export interface SellerEngagement {
   /**
-   * <p>The type of engagement, such as <code>REQUEST_FOR_PRIVATE_OFFER</code> or <code>REQUEST_FOR_DEMO</code>.</p>
+   * The type of engagement, such as `REQUEST_FOR_PRIVATE_OFFER` or `REQUEST_FOR_DEMO`.
+   *
    * @public
    */
   engagementType: SellerEngagementType | undefined;
 
   /**
-   * <p>The format of the engagement value, such as a URL.</p>
+   * The format of the engagement value, such as a URL.
+   *
    * @public
    */
   contentType: SellerEngagementContentType | undefined;
 
   /**
-   * <p>The engagement value, such as a URL to the engagement form.</p>
+   * The engagement value, such as a URL to the engagement form.
+   *
    * @public
    */
   value: string | undefined;
 }
 
 /**
- * <p>A use case describing a scenario where the product can be applied.</p>
+ * A use case describing a scenario where the product can be applied.
+ *
  * @public
  */
 export interface UseCase {
   /**
-   * <p>A description of the use case.</p>
+   * A description of the use case.
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p>The human-readable name of the use case.</p>
+   * The human-readable name of the use case.
+   *
    * @public
    */
   displayName: string | undefined;
 
   /**
-   * <p>The machine-readable identifier of the use case.</p>
+   * The machine-readable identifier of the use case.
+   *
    * @public
    */
   value: string | undefined;
 }
 
 /**
- * <p>An entry in the list of use cases for a listing.</p>
+ * An entry in the list of use cases for a listing.
+ *
  * @public
  */
 export interface UseCaseEntry {
   /**
-   * <p>The use case details.</p>
+   * The use case details.
+   *
    * @public
    */
   useCase: UseCase | undefined;
@@ -719,127 +827,148 @@ export interface UseCaseEntry {
  */
 export interface GetListingOutput {
   /**
-   * <p>The locale of the returned content. Indicates whether the response contains content in the requested locale, or fell back to the default locale. See <code>Locale</code> for details.</p>
+   * The locale of the returned content. Indicates whether the response contains content in the requested locale, or fell back to the default locale. See `Locale` for details.
+   *
    * @public
    */
   locale?: string | undefined;
 
   /**
-   * <p>The products and offers associated with this listing. Each entity contains product and offer information.</p>
+   * The products and offers associated with this listing. Each entity contains product and offer information.
+   *
    * @public
    */
   associatedEntities: ListingAssociatedEntity[] | undefined;
 
   /**
-   * <p>Badges indicating special attributes of the listing, such as free tier eligibility, free trial availability, or Quick Launch support.</p>
+   * Badges indicating special attributes of the listing, such as free tier eligibility, free trial availability, or Quick Launch support.
+   *
    * @public
    */
   badges: ListingBadge[] | undefined;
 
   /**
-   * <p>The name of the catalog that the listing belongs to.</p>
+   * The name of the catalog that the listing belongs to.
+   *
    * @public
    */
   catalog: string | undefined;
 
   /**
-   * <p>The categories used to classify this listing into logical groups.</p>
+   * The categories used to classify this listing into logical groups.
+   *
    * @public
    */
   categories: Category[] | undefined;
 
   /**
-   * <p>A summary of fulfillment options available for deploying or accessing the listing, such as AMI, SaaS, or Container.</p>
+   * A summary of fulfillment options available for deploying or accessing the listing, such as AMI, SaaS, or Container.
+   *
    * @public
    */
   fulfillmentOptionSummaries: FulfillmentOptionSummary[] | undefined;
 
   /**
-   * <p>A list of key features that the listing offers to customers.</p>
+   * A list of key features that the listing offers to customers.
+   *
    * @public
    */
   highlights: string[] | undefined;
 
   /**
-   * <p>Optional guidance explaining how to use data in this listing. Primarily defines how to integrate with a multi-product listing.</p>
+   * Optional guidance explaining how to use data in this listing. Primarily defines how to integrate with a multi-product listing.
+   *
    * @public
    */
   integrationGuide?: string | undefined;
 
   /**
-   * <p>The unique identifier of the listing.</p>
+   * The unique identifier of the listing.
+   *
    * @public
    */
   listingId: string | undefined;
 
   /**
-   * <p>The human-readable display name of the listing.</p>
+   * The human-readable display name of the listing.
+   *
    * @public
    */
   listingName: string | undefined;
 
   /**
-   * <p>The URL of the logo thumbnail image for the listing.</p>
+   * The URL of the logo thumbnail image for the listing.
+   *
    * @public
    */
   logoThumbnailUrl: string | undefined;
 
   /**
-   * <p>A detailed description of what the listing offers, in paragraph format.</p>
+   * A detailed description of what the listing offers, in paragraph format.
+   *
    * @public
    */
   longDescription: string | undefined;
 
   /**
-   * <p>The pricing models for offers associated with this listing, such as usage-based, contract, BYOL, or free.</p>
+   * The pricing models for offers associated with this listing, such as usage-based, contract, BYOL, or free.
+   *
    * @public
    */
   pricingModels: PricingModel[] | undefined;
 
   /**
-   * <p>The pricing units that define the billing dimensions for offers associated with this listing, such as users, hosts, or data.</p>
+   * The pricing units that define the billing dimensions for offers associated with this listing, such as users, hosts, or data.
+   *
    * @public
    */
   pricingUnits: PricingUnit[] | undefined;
 
   /**
-   * <p>Embedded promotional media provided by the creator of the product, such as images and videos.</p>
+   * Embedded promotional media provided by the creator of the product, such as images and videos.
+   *
    * @public
    */
   promotionalMedia: PromotionalMedia[] | undefined;
 
   /**
-   * <p>The entity who created and published the listing.</p>
+   * The entity who created and published the listing.
+   *
    * @public
    */
   publisher: SellerInformation | undefined;
 
   /**
-   * <p>Resources that provide further information about using the product or requesting support, such as documentation links, support contacts, and usage instructions.</p>
+   * Resources that provide further information about using the product or requesting support, such as documentation links, support contacts, and usage instructions.
+   *
    * @public
    */
   resources: Resource[] | undefined;
 
   /**
-   * <p>A summary of customer reviews available for the listing, including average rating and total review count by source.</p>
+   * A summary of customer reviews available for the listing, including average rating and total review count by source.
+   *
    * @public
    */
   reviewSummary?: ReviewSummary | undefined;
 
   /**
-   * <p>Engagement options available to potential buyers, such as requesting a private offer or requesting a demo.</p>
+   * Engagement options available to potential buyers, such as requesting a private offer or requesting a demo.
+   *
    * @public
    */
   sellerEngagements: SellerEngagement[] | undefined;
 
   /**
-   * <p>A 1–3 sentence summary describing the key aspects of the listing.</p>
+   * A 1–3 sentence summary describing the key aspects of the listing.
+   *
    * @public
    */
   shortDescription: string | undefined;
 
   /**
-   * <p>Use cases associated with the listing, describing scenarios where the product can be applied.</p>
+   * Use cases associated with the listing, describing scenarios where the product can be applied.
+   *
    * @public
    */
   useCases: UseCaseEntry[] | undefined;
@@ -850,67 +979,78 @@ export interface GetListingOutput {
  */
 export interface GetOfferInput {
   /**
-   * <p>A BCP 47 language tag or comma-separated priority list specifying the preferred locale for response content. See <code>Locale</code> for supported values, constraints, fallback behavior, and the default locale. If omitted, the service returns content in the default locale.</p>
+   * A BCP 47 language tag or comma-separated priority list specifying the preferred locale for response content. See `Locale` for supported values, constraints, fallback behavior, and the default locale. If omitted, the service returns content in the default locale.
+   *
    * @public
    */
   locale?: string | undefined;
 
   /**
-   * <p>The unique identifier of the offer to retrieve.</p>
+   * The unique identifier of the offer to retrieve.
+   *
    * @public
    */
   offerId: string | undefined;
 }
 
 /**
- * <p>Summary information about an offer set, including the identifier and seller of record.</p>
+ * Summary information about an offer set, including the identifier and seller of record.
+ *
  * @public
  */
 export interface OfferSetInformation {
   /**
-   * <p>The unique identifier of the offer set.</p>
+   * The unique identifier of the offer set.
+   *
    * @public
    */
   offerSetId: string | undefined;
 
   /**
-   * <p>The entity responsible for selling the products under this offer set.</p>
+   * The entity responsible for selling the products under this offer set.
+   *
    * @public
    */
   sellerOfRecord: SellerInformation | undefined;
 }
 
 /**
- * <p>A product and optional offer set associated with an offer.</p>
+ * A product and optional offer set associated with an offer.
+ *
  * @public
  */
 export interface OfferAssociatedEntity {
   /**
-   * <p>Information about the product associated with the offer.</p>
+   * Information about the product associated with the offer.
+   *
    * @public
    */
   product: ProductInformation | undefined;
 
   /**
-   * <p>Information about the offer set, if the offer is part of a bundled offer set.</p>
+   * Information about the offer set, if the offer is part of a bundled offer set.
+   *
    * @public
    */
   offerSet?: OfferSetInformation | undefined;
 }
 
 /**
- * <p>A badge indicating a special attribute of a purchase option, such as private pricing or future dated.</p>
+ * A badge indicating a special attribute of a purchase option, such as private pricing or future dated.
+ *
  * @public
  */
 export interface PurchaseOptionBadge {
   /**
-   * <p>The human-readable name of the badge.</p>
+   * The human-readable name of the badge.
+   *
    * @public
    */
   displayName: string | undefined;
 
   /**
-   * <p>The machine-readable type of the badge.</p>
+   * The machine-readable type of the badge.
+   *
    * @public
    */
   badgeType: PurchaseOptionBadgeType | undefined;
@@ -921,73 +1061,85 @@ export interface PurchaseOptionBadge {
  */
 export interface GetOfferOutput {
   /**
-   * <p>The locale of the returned content. Indicates whether the response contains content in the requested locale, or fell back to the default locale. See <code>Locale</code> for details.</p>
+   * The locale of the returned content. Indicates whether the response contains content in the requested locale, or fell back to the default locale. See `Locale` for details.
+   *
    * @public
    */
   locale?: string | undefined;
 
   /**
-   * <p>The unique identifier of the offer.</p>
+   * The unique identifier of the offer.
+   *
    * @public
    */
   offerId: string | undefined;
 
   /**
-   * <p>The name of the catalog that the offer belongs to.</p>
+   * The name of the catalog that the offer belongs to.
+   *
    * @public
    */
   catalog: string | undefined;
 
   /**
-   * <p>The display name of the offer. This is free-form text provided by the seller.</p>
+   * The display name of the offer. This is free-form text provided by the seller.
+   *
    * @public
    */
   offerName?: string | undefined;
 
   /**
-   * <p>The date and time until when the offer can be procured. This value is null for offers that never expire.</p>
+   * The date and time until when the offer can be procured. This value is null for offers that never expire.
+   *
    * @public
    */
   expirationTime?: Date | undefined;
 
   /**
-   * <p>The date and time when the offer became available to the buyer.</p>
+   * The date and time when the offer became available to the buyer.
+   *
    * @public
    */
   availableFromTime?: Date | undefined;
 
   /**
-   * <p>The entity responsible for selling the product under this offer.</p>
+   * The entity responsible for selling the product under this offer.
+   *
    * @public
    */
   sellerOfRecord: SellerInformation | undefined;
 
   /**
-   * <p>The products and offer sets associated with this offer.</p>
+   * The products and offer sets associated with this offer.
+   *
    * @public
    */
   associatedEntities: OfferAssociatedEntity[] | undefined;
 
   /**
-   * <p>An encoded string to be passed by the acceptor of the terms when creating an agreement.</p>
+   * An encoded string to be passed by the acceptor of the terms when creating an agreement.
+   *
    * @public
    */
   agreementProposalId: string | undefined;
 
   /**
-   * <p>The identifier of the existing agreement that this offer would replace. Enables agreement-based offer functionality.</p>
+   * The identifier of the existing agreement that this offer would replace. Enables agreement-based offer functionality.
+   *
    * @public
    */
   replacementAgreementId?: string | undefined;
 
   /**
-   * <p>The pricing model that determines how buyers are charged, such as usage-based, contract, BYOL, or free.</p>
+   * The pricing model that determines how buyers are charged, such as usage-based, contract, BYOL, or free.
+   *
    * @public
    */
   pricingModel: PricingModel | undefined;
 
   /**
-   * <p>Badges indicating special attributes of the offer, such as private pricing, future dated, or replacement offer.</p>
+   * Badges indicating special attributes of the offer, such as private pricing, future dated, or replacement offer.
+   *
    * @public
    */
   badges: PurchaseOptionBadge[] | undefined;
@@ -998,31 +1150,36 @@ export interface GetOfferOutput {
  */
 export interface GetOfferSetInput {
   /**
-   * <p>A BCP 47 language tag or comma-separated priority list specifying the preferred locale for response content. See <code>Locale</code> for supported values, constraints, fallback behavior, and the default locale. If omitted, the service returns content in the default locale.</p>
+   * A BCP 47 language tag or comma-separated priority list specifying the preferred locale for response content. See `Locale` for supported values, constraints, fallback behavior, and the default locale. If omitted, the service returns content in the default locale.
+   *
    * @public
    */
   locale?: string | undefined;
 
   /**
-   * <p>The unique identifier of the offer set to retrieve.</p>
+   * The unique identifier of the offer set to retrieve.
+   *
    * @public
    */
   offerSetId: string | undefined;
 }
 
 /**
- * <p>A product and offer associated with an offer set.</p>
+ * A product and offer associated with an offer set.
+ *
  * @public
  */
 export interface OfferSetAssociatedEntity {
   /**
-   * <p>Information about the product associated with the offer set.</p>
+   * Information about the product associated with the offer set.
+   *
    * @public
    */
   product: ProductInformation | undefined;
 
   /**
-   * <p>Information about the offer associated with the offer set.</p>
+   * Information about the offer associated with the offer set.
+   *
    * @public
    */
   offer: OfferInformation | undefined;
@@ -1033,61 +1190,71 @@ export interface OfferSetAssociatedEntity {
  */
 export interface GetOfferSetOutput {
   /**
-   * <p>The locale of the returned content. Indicates whether the response contains content in the requested locale, or fell back to the default locale. See <code>Locale</code> for details.</p>
+   * The locale of the returned content. Indicates whether the response contains content in the requested locale, or fell back to the default locale. See `Locale` for details.
+   *
    * @public
    */
   locale?: string | undefined;
 
   /**
-   * <p>The unique identifier of the offer set.</p>
+   * The unique identifier of the offer set.
+   *
    * @public
    */
   offerSetId: string | undefined;
 
   /**
-   * <p>The name of the catalog that the offer set belongs to.</p>
+   * The name of the catalog that the offer set belongs to.
+   *
    * @public
    */
   catalog: string | undefined;
 
   /**
-   * <p>The display name of the offer set.</p>
+   * The display name of the offer set.
+   *
    * @public
    */
   offerSetName?: string | undefined;
 
   /**
-   * <p>The date and time when the offer set became available to the buyer.</p>
+   * The date and time when the offer set became available to the buyer.
+   *
    * @public
    */
   availableFromTime?: Date | undefined;
 
   /**
-   * <p>The date and time when the offer set expires and is no longer available for procurement.</p>
+   * The date and time when the offer set expires and is no longer available for procurement.
+   *
    * @public
    */
   expirationTime?: Date | undefined;
 
   /**
-   * <p>Detailed information about the offer set that helps buyers understand its purpose and contents.</p>
+   * Detailed information about the offer set that helps buyers understand its purpose and contents.
+   *
    * @public
    */
   buyerNotes?: string | undefined;
 
   /**
-   * <p>The entity responsible for selling the products under this offer set.</p>
+   * The entity responsible for selling the products under this offer set.
+   *
    * @public
    */
   sellerOfRecord: SellerInformation | undefined;
 
   /**
-   * <p>Badges indicating special attributes of the offer set, such as private pricing or future dated.</p>
+   * Badges indicating special attributes of the offer set, such as private pricing or future dated.
+   *
    * @public
    */
   badges: PurchaseOptionBadge[] | undefined;
 
   /**
-   * <p>The products and offers included in this offer set.</p>
+   * The products and offers included in this offer set.
+   *
    * @public
    */
   associatedEntities: OfferSetAssociatedEntity[] | undefined;
@@ -1098,512 +1265,597 @@ export interface GetOfferSetOutput {
  */
 export interface GetOfferTermsInput {
   /**
-   * <p>A BCP 47 language tag or comma-separated priority list specifying the preferred locale for response content. See <code>Locale</code> for supported values, constraints, fallback behavior, and the default locale. If omitted, the service returns content in the default locale.</p>
+   * A BCP 47 language tag or comma-separated priority list specifying the preferred locale for response content. See `Locale` for supported values, constraints, fallback behavior, and the default locale. If omitted, the service returns content in the default locale.
+   *
    * @public
    */
   locale?: string | undefined;
 
   /**
-   * <p>The unique identifier of the offer whose terms to retrieve.</p>
+   * The unique identifier of the offer whose terms to retrieve.
+   *
    * @public
    */
   offerId: string | undefined;
 
   /**
-   * <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to get more results.</p>
+   * The maximum number of results that are returned per call. You can use `nextToken` to get more results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token to retrieve the next page.</p>
+   * If `nextToken` is returned, there are more results available. Make the call again using the returned token to retrieve the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Defines a Bring Your Own License (BYOL) pricing term, where buyers use their existing license for the product.</p>
+ * Defines a Bring Your Own License (BYOL) pricing term, where buyers use their existing license for the product.
+ *
  * @public
  */
 export interface ByolPricingTerm {
   /**
-   * <p>The unique identifier of the term.</p>
+   * The unique identifier of the term.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The category of the term.</p>
+   * The category of the term.
+   *
    * @public
    */
   type: TermType | undefined;
 }
 
 /**
- * <p>Constraints that control how a buyer can configure a rate card.</p>
+ * Constraints that control how a buyer can configure a rate card.
+ *
  * @public
  */
 export interface Constraints {
   /**
-   * <p>Whether the buyer can select multiple dimensions. Values are <code>Allowed</code> or <code>Disallowed</code>.</p>
+   * Whether the buyer can select multiple dimensions. Values are `Allowed` or `Disallowed`.
+   *
    * @public
    */
   multipleDimensionSelection: RateCardConstraintType | undefined;
 
   /**
-   * <p>Whether the buyer can configure quantities. Values are <code>Allowed</code> or <code>Disallowed</code>.</p>
+   * Whether the buyer can configure quantities. Values are `Allowed` or `Disallowed`.
+   *
    * @public
    */
   quantityConfiguration: RateCardConstraintType | undefined;
 }
 
 /**
- * <p>A label used to group or categorize pricing dimensions, such as by region or SageMaker option.</p>
+ * A label used to group or categorize pricing dimensions, such as by region or SageMaker option.
+ *
  * @public
  */
 export interface DimensionLabel {
   /**
-   * <p>The type of the dimension label, such as <code>Region</code> or <code>SagemakerOption</code>.</p>
+   * The type of the dimension label, such as `Region` or `SagemakerOption`.
+   *
    * @public
    */
   labelType: DimensionLabelType | undefined;
 
   /**
-   * <p>The value used to group dimensions together.</p>
+   * The value used to group dimensions together.
+   *
    * @public
    */
   labelValue: string | undefined;
 
   /**
-   * <p>The human-readable display name of the label.</p>
+   * The human-readable display name of the label.
+   *
    * @public
    */
   displayName?: string | undefined;
 }
 
 /**
- * <p>A per-unit rate within a rate card, defining the price for a specific dimension.</p>
+ * A per-unit rate within a rate card, defining the price for a specific dimension.
+ *
  * @public
  */
 export interface RateCardItem {
   /**
-   * <p>The machine-readable key identifying the dimension being priced.</p>
+   * The machine-readable key identifying the dimension being priced.
+   *
    * @public
    */
   dimensionKey: string | undefined;
 
   /**
-   * <p>The human-readable name of the dimension.</p>
+   * The human-readable name of the dimension.
+   *
    * @public
    */
   displayName: string | undefined;
 
   /**
-   * <p>A description of the dimension being priced.</p>
+   * A description of the dimension being priced.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Labels used to categorize this dimension, such as by region.</p>
+   * Labels used to categorize this dimension, such as by region.
+   *
    * @public
    */
   dimensionLabels?: DimensionLabel[] | undefined;
 
   /**
-   * <p>The unit of measurement for the dimension.</p>
+   * The unit of measurement for the dimension.
+   *
    * @public
    */
   unit: string | undefined;
 
   /**
-   * <p>The price per unit for the dimension.</p>
+   * The price per unit for the dimension.
+   *
    * @public
    */
   price: string | undefined;
 }
 
 /**
- * <p>A selector used to choose a specific configuration within a configurable upfront rate card.</p>
+ * A selector used to choose a specific configuration within a configurable upfront rate card.
+ *
  * @public
  */
 export interface Selector {
   /**
-   * <p>The category of the selector, such as <code>Duration</code>.</p>
+   * The category of the selector, such as `Duration`.
+   *
    * @public
    */
   type: SelectorType | undefined;
 
   /**
-   * <p>The value of the selector.</p>
+   * The value of the selector.
+   *
    * @public
    */
   value: string | undefined;
 }
 
 /**
- * <p>A rate card item within a configurable upfront pricing term, including a selector for choosing the configuration and per-unit rates.</p>
+ * A rate card item within a configurable upfront pricing term, including a selector for choosing the configuration and per-unit rates.
+ *
  * @public
  */
 export interface ConfigurableUpfrontRateCardItem {
   /**
-   * <p>The selector criteria for this rate card, such as duration.</p>
+   * The selector criteria for this rate card, such as duration.
+   *
    * @public
    */
   selector: Selector | undefined;
 
   /**
-   * <p>Constraints on how the buyer can configure this rate card, such as whether multiple dimensions can be selected.</p>
+   * Constraints on how the buyer can configure this rate card, such as whether multiple dimensions can be selected.
+   *
    * @public
    */
   constraints: Constraints | undefined;
 
   /**
-   * <p>The per-unit rates for this configuration.</p>
+   * The per-unit rates for this configuration.
+   *
    * @public
    */
   rateCard: RateCardItem[] | undefined;
 }
 
 /**
- * <p>Defines a configurable upfront pricing term with selectable rate cards, where buyers choose from predefined pricing configurations.</p>
+ * Defines a configurable upfront pricing term with selectable rate cards, where buyers choose from predefined pricing configurations.
+ *
  * @public
  */
 export interface ConfigurableUpfrontPricingTerm {
   /**
-   * <p>The unique identifier of the term.</p>
+   * The unique identifier of the term.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The category of the term.</p>
+   * The category of the term.
+   *
    * @public
    */
   type: TermType | undefined;
 
   /**
-   * <p>Defines the currency for the prices in this term.</p>
+   * Defines the currency for the prices in this term.
+   *
    * @public
    */
   currencyCode: string | undefined;
 
   /**
-   * <p>The rate cards available for selection, each with a selector, constraints, and per-unit rates.</p>
+   * The rate cards available for selection, each with a selector, constraints, and per-unit rates.
+   *
    * @public
    */
   rateCards?: ConfigurableUpfrontRateCardItem[] | undefined;
 }
 
 /**
- * <p>An entitlement granted to the buyer as part of a pricing term.</p>
+ * An entitlement granted to the buyer as part of a pricing term.
+ *
  * @public
  */
 export interface GrantItem {
   /**
-   * <p>The machine-readable key identifying the entitlement dimension.</p>
+   * The machine-readable key identifying the entitlement dimension.
+   *
    * @public
    */
   dimensionKey: string | undefined;
 
   /**
-   * <p>The human-readable name of the entitlement dimension.</p>
+   * The human-readable name of the entitlement dimension.
+   *
    * @public
    */
   displayName: string | undefined;
 
   /**
-   * <p>A description of the entitlement.</p>
+   * A description of the entitlement.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Labels used to categorize this entitlement, such as by region.</p>
+   * Labels used to categorize this entitlement, such as by region.
+   *
    * @public
    */
   dimensionLabels?: DimensionLabel[] | undefined;
 
   /**
-   * <p>The unit of measurement for the entitlement.</p>
+   * The unit of measurement for the entitlement.
+   *
    * @public
    */
   unit: string | undefined;
 
   /**
-   * <p>The maximum quantity of the entitlement that can be granted.</p>
+   * The maximum quantity of the entitlement that can be granted.
+   *
    * @public
    */
   maxQuantity?: number | undefined;
 }
 
 /**
- * <p>Defines a fixed upfront pricing term with a pre-paid amount and granted entitlements.</p>
+ * Defines a fixed upfront pricing term with a pre-paid amount and granted entitlements.
+ *
  * @public
  */
 export interface FixedUpfrontPricingTerm {
   /**
-   * <p>The unique identifier of the term.</p>
+   * The unique identifier of the term.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The category of the term.</p>
+   * The category of the term.
+   *
    * @public
    */
   type: TermType | undefined;
 
   /**
-   * <p>Defines the currency for the prices in this term.</p>
+   * Defines the currency for the prices in this term.
+   *
    * @public
    */
   currencyCode: string | undefined;
 
   /**
-   * <p>The duration of the fixed pricing term, in ISO 8601 format.</p>
+   * The duration of the fixed pricing term, in ISO 8601 format.
+   *
    * @public
    */
   duration?: string | undefined;
 
   /**
-   * <p>The price charged upfront for this term.</p>
+   * The price charged upfront for this term.
+   *
    * @public
    */
   price: string | undefined;
 
   /**
-   * <p>The entitlements granted to the buyer as part of this term.</p>
+   * The entitlements granted to the buyer as part of this term.
+   *
    * @public
    */
   grants: GrantItem[] | undefined;
 }
 
 /**
- * <p>Defines a free trial pricing term that enables customers to try the product before purchasing.</p>
+ * Defines a free trial pricing term that enables customers to try the product before purchasing.
+ *
  * @public
  */
 export interface FreeTrialPricingTerm {
   /**
-   * <p>The unique identifier of the term.</p>
+   * The unique identifier of the term.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The category of the term.</p>
+   * The category of the term.
+   *
    * @public
    */
   type: TermType | undefined;
 
   /**
-   * <p>The duration of the free trial period.</p>
+   * The duration of the free trial period.
+   *
    * @public
    */
   duration?: string | undefined;
 
   /**
-   * <p>The entitlements granted to the buyer during the free trial.</p>
+   * The entitlements granted to the buyer during the free trial.
+   *
    * @public
    */
   grants: GrantItem[] | undefined;
 }
 
 /**
- * <p>A legal document associated with a legal term, such as a EULA or data subscription agreement.</p>
+ * A legal document associated with a legal term, such as a EULA or data subscription agreement.
+ *
  * @public
  */
 export interface DocumentItem {
   /**
-   * <p>The category of the legal document, such as <code>StandardEula</code> or <code>CustomEula</code>.</p>
+   * The category of the legal document, such as `StandardEula` or `CustomEula`.
+   *
    * @public
    */
   type: LegalDocumentType | undefined;
 
   /**
-   * <p>The URL where the legal document can be accessed.</p>
+   * The URL where the legal document can be accessed.
+   *
    * @public
    */
   url: string | undefined;
 
   /**
-   * <p>The version of the standard contract, if applicable.</p>
+   * The version of the standard contract, if applicable.
+   *
    * @public
    */
   version?: string | undefined;
 }
 
 /**
- * <p>Defines a legal term containing documents proposed to buyers, such as EULAs and data subscription agreements.</p>
+ * Defines a legal term containing documents proposed to buyers, such as EULAs and data subscription agreements.
+ *
  * @public
  */
 export interface LegalTerm {
   /**
-   * <p>The unique identifier of the term.</p>
+   * The unique identifier of the term.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The category of the term.</p>
+   * The category of the term.
+   *
    * @public
    */
   type: TermType | undefined;
 
   /**
-   * <p>The legal documents proposed to the buyer as part of this term.</p>
+   * The legal documents proposed to the buyer as part of this term.
+   *
    * @public
    */
   documents: DocumentItem[] | undefined;
 }
 
 /**
- * <p>Defines a net payment term that sets how many days after the invoice date the payment is due.</p>
+ * Defines a net payment term that sets how many days after the invoice date the payment is due.
+ *
  * @public
  */
 export interface NetPaymentTerm {
   /**
-   * <p>The unique identifier of the term.</p>
+   * The unique identifier of the term.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The category of the term.</p>
+   * The category of the term.
+   *
    * @public
    */
   type: TermType | undefined;
 
   /**
-   * <p>The duration after invoice date by which payment is due.</p>
+   * The duration after invoice date by which payment is due.
+   *
    * @public
    */
   paymentDuePeriod: string | undefined;
 }
 
 /**
- * <p>A payment installment within a payment schedule term.</p>
+ * A payment installment within a payment schedule term.
+ *
  * @public
  */
 export interface ScheduleItem {
   /**
-   * <p>The date when the payment is due.</p>
+   * The date when the payment is due.
+   *
    * @public
    */
   chargeDate: Date | undefined;
 
   /**
-   * <p>The amount to be charged on the charge date.</p>
+   * The amount to be charged on the charge date.
+   *
    * @public
    */
   chargeAmount: string | undefined;
 }
 
 /**
- * <p>Defines a payment schedule term with installment payments at specified dates.</p>
+ * Defines a payment schedule term with installment payments at specified dates.
+ *
  * @public
  */
 export interface PaymentScheduleTerm {
   /**
-   * <p>The unique identifier of the term.</p>
+   * The unique identifier of the term.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The category of the term.</p>
+   * The category of the term.
+   *
    * @public
    */
   type: TermType | undefined;
 
   /**
-   * <p>Defines the currency for the prices in this term.</p>
+   * Defines the currency for the prices in this term.
+   *
    * @public
    */
   currencyCode: string | undefined;
 
   /**
-   * <p>The payment schedule installments, each with a charge date and amount.</p>
+   * The payment schedule installments, each with a charge date and amount.
+   *
    * @public
    */
   schedule: ScheduleItem[] | undefined;
 }
 
 /**
- * <p>Defines a recurring payment term with fixed charges at regular billing intervals.</p>
+ * Defines a recurring payment term with fixed charges at regular billing intervals.
+ *
  * @public
  */
 export interface RecurringPaymentTerm {
   /**
-   * <p>The unique identifier of the term.</p>
+   * The unique identifier of the term.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The category of the term.</p>
+   * The category of the term.
+   *
    * @public
    */
   type: TermType | undefined;
 
   /**
-   * <p>Defines the currency for the prices in this term.</p>
+   * Defines the currency for the prices in this term.
+   *
    * @public
    */
   currencyCode: string | undefined;
 
   /**
-   * <p>The billing period frequency, such as <code>Monthly</code>.</p>
+   * The billing period frequency, such as `Monthly`.
+   *
    * @public
    */
   billingPeriod: BillingPeriodType | undefined;
 
   /**
-   * <p>The amount charged each billing period.</p>
+   * The amount charged each billing period.
+   *
    * @public
    */
   price: string | undefined;
 }
 
 /**
- * <p>A single fixed price increase percentage applied at each renewal cycle.</p>
+ * A single fixed price increase percentage applied at each renewal cycle.
+ *
  * @public
  */
 export interface FixedPercentage {
   /**
-   * <p>The percentage value applied at each renewal cycle.</p>
+   * The percentage value applied at each renewal cycle.
+   *
    * @public
    */
   percentageValue: string | undefined;
 }
 
 /**
- * <p>A price increase percentage range with minimum, maximum, and default values.</p>
+ * A price increase percentage range with minimum, maximum, and default values.
+ *
  * @public
  */
 export interface PercentageRange {
   /**
-   * <p>The minimum percentage by which the price can increase at each renewal cycle.</p>
+   * The minimum percentage by which the price can increase at each renewal cycle.
+   *
    * @public
    */
   minimumValue: string | undefined;
 
   /**
-   * <p>The maximum percentage by which the price can increase at each renewal cycle.</p>
+   * The maximum percentage by which the price can increase at each renewal cycle.
+   *
    * @public
    */
   maximumValue: string | undefined;
 
   /**
-   * <p>The percentage increase applied by default when no other value is finalized before the adjustment deadline. Falls between <code>minimumValue</code> and <code>maximumValue</code>.</p>
+   * The percentage increase applied by default when no other value is finalized before the adjustment deadline. Falls between `minimumValue` and `maximumValue`.
+   *
    * @public
    */
   defaultValue: string | undefined;
 }
 
 /**
- * <p>The pricing adjustment that applies at each renewal cycle, expressed as either a fixed percentage or a percentage range. Exactly one variant is present.</p>
+ * The pricing adjustment that applies at each renewal cycle, expressed as either a fixed percentage or a percentage range. Exactly one variant is present.
+ *
  * @public
  */
 export type PriceIncrease =
@@ -1616,7 +1868,8 @@ export type PriceIncrease =
  */
 export namespace PriceIncrease {
   /**
-   * <p>A single fixed percentage applied uniformly at every renewal cycle.</p>
+   * A single fixed percentage applied uniformly at every renewal cycle.
+   *
    * @public
    */
   export interface FixedPercentageMember {
@@ -1626,7 +1879,8 @@ export namespace PriceIncrease {
   }
 
   /**
-   * <p>A percentage band with minimum, maximum, and default values that bound the price increase at each renewal cycle.</p>
+   * A percentage band with minimum, maximum, and default values that bound the price increase at each renewal cycle.
+   *
    * @public
    */
   export interface PercentageRangeMember {
@@ -1656,43 +1910,50 @@ export namespace PriceIncrease {
 }
 
 /**
- * <p>A single installment entry in the renewal payment schedule.</p>
+ * A single installment entry in the renewal payment schedule.
+ *
  * @public
  */
 export interface PaymentScheduleEntry {
   /**
-   * <p>The relative offset from the renewal agreement start date when this installment is due, represented in ISO 8601 duration format (for example, P1M or P30D).</p>
+   * The relative offset from the renewal agreement start date when this installment is due, represented in ISO 8601 duration format (for example, P1M or P30D).
+   *
    * @public
    */
   chargeDateOffset: string | undefined;
 
   /**
-   * <p>The percentage of the increased Total Contract Value (TCV) to charge in this installment. All entries in a schedule sum to 100.00.</p>
+   * The percentage of the increased Total Contract Value (TCV) to charge in this installment. All entries in a schedule sum to 100.00.
+   *
    * @public
    */
   chargePercentage: string | undefined;
 
   /**
-   * <p>The optional calendar day of month on which the charge occurs. When absent, the charge day is derived from <code>chargeDateOffset</code>. For months with fewer days than the specified day, the charge occurs on the last day of the month. For example, if <code>dayOfMonth</code> is 31, the charge in April occurs on April 30.</p>
+   * The optional calendar day of month on which the charge occurs. When absent, the charge day is derived from `chargeDateOffset`. For months with fewer days than the specified day, the charge occurs on the last day of the month. For example, if `dayOfMonth` is 31, the charge in April occurs on April 30.
+   *
    * @public
    */
   dayOfMonth?: number | undefined;
 }
 
 /**
- * <p>A template for the payment schedule term on the renewal offer.</p>
+ * A template for the payment schedule term on the renewal offer.
+ *
  * @public
  */
 export interface PaymentScheduleTermTemplate {
   /**
-   * <p>An ordered list of installment entries for the renewal payment schedule.</p>
+   * An ordered list of installment entries for the renewal payment schedule.
+   *
    * @public
    */
   schedule: PaymentScheduleEntry[] | undefined;
 }
 
 /**
- * <p>A structural template defining how a specific term type is reshaped on each renewal cycle. Exactly one variant is present.</p>
+ * A structural template defining how a specific term type is reshaped on each renewal cycle. Exactly one variant is present.
+ *
  * @public
  */
 export type TermTemplate =
@@ -1704,7 +1965,8 @@ export type TermTemplate =
  */
 export namespace TermTemplate {
   /**
-   * <p>The installment schedule used to structure payments on the renewal offer.</p>
+   * The installment schedule used to structure payments on the renewal offer.
+   *
    * @public
    */
   export interface PaymentScheduleTermTemplateMember {
@@ -1731,187 +1993,218 @@ export namespace TermTemplate {
 }
 
 /**
- * <p>Defines a renewal term that enables automatic agreement renewal.</p>
+ * Defines a renewal term that enables automatic agreement renewal.
+ *
  * @public
  */
 export interface RenewalTerm {
   /**
-   * <p>The unique identifier of the term.</p>
+   * The unique identifier of the term.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The category of the term.</p>
+   * The category of the term.
+   *
    * @public
    */
   type: TermType | undefined;
 
   /**
-   * <p>The maximum number of renewals allowed on this offer. Absent means unlimited renewals.</p>
+   * The maximum number of renewals allowed on this offer. Absent means unlimited renewals.
+   *
    * @public
    */
   maxRenewals?: number | undefined;
 
   /**
-   * <p>The duration before the agreement end date when the lockout window begins, in ISO 8601 format (for example, P30D). Absent means no lockout.</p>
+   * The duration before the agreement end date when the lockout window begins, in ISO 8601 format (for example, P30D). Absent means no lockout.
+   *
    * @public
    */
   lockoutPeriod?: string | undefined;
 
   /**
-   * <p>The duration before the agreement end date by which the renewal price is finalized, represented in ISO 8601 format (for example, P30D). Only applicable with <code>PercentageRange</code>.</p>
+   * The duration before the agreement end date by which the renewal price is finalized, represented in ISO 8601 format (for example, P30D). Only applicable with `PercentageRange`.
+   *
    * @public
    */
   adjustmentDeadline?: string | undefined;
 
   /**
-   * <p>The price increase applied at each renewal cycle. Absent means identical pricing on renewal.</p>
+   * The price increase applied at each renewal cycle. Absent means identical pricing on renewal.
+   *
    * @public
    */
   priceIncrease?: PriceIncrease | undefined;
 
   /**
-   * <p>Structural templates defining how specific terms are reshaped on each renewal cycle. Absent for upfront-only offers.</p>
+   * Structural templates defining how specific terms are reshaped on each renewal cycle. Absent for upfront-only offers.
+   *
    * @public
    */
   termTemplates?: TermTemplate[] | undefined;
 }
 
 /**
- * <p>Defines a support term that includes the refund policy for the offer.</p>
+ * Defines a support term that includes the refund policy for the offer.
+ *
  * @public
  */
 export interface SupportTerm {
   /**
-   * <p>The unique identifier of the term.</p>
+   * The unique identifier of the term.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The category of the term.</p>
+   * The category of the term.
+   *
    * @public
    */
   type: TermType | undefined;
 
   /**
-   * <p>The refund policy description for the offer.</p>
+   * The refund policy description for the offer.
+   *
    * @public
    */
   refundPolicy: string | undefined;
 }
 
 /**
- * <p>A rate card within a usage-based pricing term, containing per-unit rates.</p>
+ * A rate card within a usage-based pricing term, containing per-unit rates.
+ *
  * @public
  */
 export interface UsageBasedRateCardItem {
   /**
-   * <p>The per-unit rates for this usage-based rate card.</p>
+   * The per-unit rates for this usage-based rate card.
+   *
    * @public
    */
   rateCard: RateCardItem[] | undefined;
 }
 
 /**
- * <p>Defines a usage-based pricing term (typically pay-as-you-go), where buyers are charged based on product usage.</p>
+ * Defines a usage-based pricing term (typically pay-as-you-go), where buyers are charged based on product usage.
+ *
  * @public
  */
 export interface UsageBasedPricingTerm {
   /**
-   * <p>The unique identifier of the term.</p>
+   * The unique identifier of the term.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The category of the term.</p>
+   * The category of the term.
+   *
    * @public
    */
   type: TermType | undefined;
 
   /**
-   * <p>Defines the currency for the prices in this term.</p>
+   * Defines the currency for the prices in this term.
+   *
    * @public
    */
   currencyCode: string | undefined;
 
   /**
-   * <p>The rate cards containing per-unit rates for usage-based pricing.</p>
+   * The rate cards containing per-unit rates for usage-based pricing.
+   *
    * @public
    */
   rateCards: UsageBasedRateCardItem[] | undefined;
 }
 
 /**
- * <p>Defines a validity term that specifies the duration or date range of an agreement.</p>
+ * Defines a validity term that specifies the duration or date range of an agreement.
+ *
  * @public
  */
 export interface ValidityTerm {
   /**
-   * <p>The unique identifier of the term.</p>
+   * The unique identifier of the term.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The category of the term.</p>
+   * The category of the term.
+   *
    * @public
    */
   type: TermType | undefined;
 
   /**
-   * <p>The duration of the agreement, in ISO 8601 format.</p>
+   * The duration of the agreement, in ISO 8601 format.
+   *
    * @public
    */
   agreementDuration?: string | undefined;
 
   /**
-   * <p>The date when the agreement ends.</p>
+   * The date when the agreement ends.
+   *
    * @public
    */
   agreementEndDate?: Date | undefined;
 
   /**
-   * <p>The date when the agreement starts.</p>
+   * The date when the agreement starts.
+   *
    * @public
    */
   agreementStartDate?: Date | undefined;
 }
 
 /**
- * <p>Defines a variable payment term with a maximum total charge amount.</p>
+ * Defines a variable payment term with a maximum total charge amount.
+ *
  * @public
  */
 export interface VariablePaymentTerm {
   /**
-   * <p>The unique identifier of the term.</p>
+   * The unique identifier of the term.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The category of the term.</p>
+   * The category of the term.
+   *
    * @public
    */
   type: TermType | undefined;
 
   /**
-   * <p>Defines the currency for the prices in this term.</p>
+   * Defines the currency for the prices in this term.
+   *
    * @public
    */
   currencyCode: string | undefined;
 
   /**
-   * <p>The maximum total amount that can be charged under this term.</p>
+   * The maximum total amount that can be charged under this term.
+   *
    * @public
    */
   maxTotalChargeAmount: string | undefined;
 }
 
 /**
- * <p>A term attached to an offer. Each element contains exactly one term type, such as a pricing term, legal term, or payment schedule term.</p>
+ * A term attached to an offer. Each element contains exactly one term type, such as a pricing term, legal term, or payment schedule term.
+ *
  * @public
  */
 export type OfferTerm =
@@ -1935,7 +2228,8 @@ export type OfferTerm =
  */
 export namespace OfferTerm {
   /**
-   * <p>Defines a Bring Your Own License (BYOL) pricing term, where buyers use their existing license for the product.</p>
+   * Defines a Bring Your Own License (BYOL) pricing term, where buyers use their existing license for the product.
+   *
    * @public
    */
   export interface ByolPricingTermMember {
@@ -1956,7 +2250,8 @@ export namespace OfferTerm {
   }
 
   /**
-   * <p>Defines a configurable upfront pricing term with selectable rate cards, where buyers choose from predefined pricing configurations.</p>
+   * Defines a configurable upfront pricing term with selectable rate cards, where buyers choose from predefined pricing configurations.
+   *
    * @public
    */
   export interface ConfigurableUpfrontPricingTermMember {
@@ -1977,7 +2272,8 @@ export namespace OfferTerm {
   }
 
   /**
-   * <p>Defines a fixed upfront pricing term with a pre-paid amount and granted entitlements.</p>
+   * Defines a fixed upfront pricing term with a pre-paid amount and granted entitlements.
+   *
    * @public
    */
   export interface FixedUpfrontPricingTermMember {
@@ -1998,7 +2294,8 @@ export namespace OfferTerm {
   }
 
   /**
-   * <p>Defines a free trial pricing term that enables customers to try the product before purchasing.</p>
+   * Defines a free trial pricing term that enables customers to try the product before purchasing.
+   *
    * @public
    */
   export interface FreeTrialPricingTermMember {
@@ -2019,7 +2316,8 @@ export namespace OfferTerm {
   }
 
   /**
-   * <p>Defines a legal term containing documents proposed to buyers, such as EULAs and data subscription agreements.</p>
+   * Defines a legal term containing documents proposed to buyers, such as EULAs and data subscription agreements.
+   *
    * @public
    */
   export interface LegalTermMember {
@@ -2040,7 +2338,8 @@ export namespace OfferTerm {
   }
 
   /**
-   * <p>Defines a payment schedule term with installment payments at specified dates.</p>
+   * Defines a payment schedule term with installment payments at specified dates.
+   *
    * @public
    */
   export interface PaymentScheduleTermMember {
@@ -2061,7 +2360,8 @@ export namespace OfferTerm {
   }
 
   /**
-   * <p>Defines a recurring payment term with fixed charges at regular billing intervals.</p>
+   * Defines a recurring payment term with fixed charges at regular billing intervals.
+   *
    * @public
    */
   export interface RecurringPaymentTermMember {
@@ -2082,7 +2382,8 @@ export namespace OfferTerm {
   }
 
   /**
-   * <p>Defines a renewal term that enables automatic agreement renewal.</p>
+   * Defines a renewal term that enables automatic agreement renewal.
+   *
    * @public
    */
   export interface RenewalTermMember {
@@ -2103,7 +2404,8 @@ export namespace OfferTerm {
   }
 
   /**
-   * <p>Defines a support term that includes the refund policy for the offer.</p>
+   * Defines a support term that includes the refund policy for the offer.
+   *
    * @public
    */
   export interface SupportTermMember {
@@ -2124,7 +2426,8 @@ export namespace OfferTerm {
   }
 
   /**
-   * <p>Defines a usage-based pricing term (typically pay-as-you-go), where buyers are charged based on product usage.</p>
+   * Defines a usage-based pricing term (typically pay-as-you-go), where buyers are charged based on product usage.
+   *
    * @public
    */
   export interface UsageBasedPricingTermMember {
@@ -2145,7 +2448,8 @@ export namespace OfferTerm {
   }
 
   /**
-   * <p>Defines a validity term that specifies the duration or date range of an agreement.</p>
+   * Defines a validity term that specifies the duration or date range of an agreement.
+   *
    * @public
    */
   export interface ValidityTermMember {
@@ -2166,7 +2470,8 @@ export namespace OfferTerm {
   }
 
   /**
-   * <p>Defines a variable payment term with a maximum total charge amount.</p>
+   * Defines a variable payment term with a maximum total charge amount.
+   *
    * @public
    */
   export interface VariablePaymentTermMember {
@@ -2187,7 +2492,8 @@ export namespace OfferTerm {
   }
 
   /**
-   * <p>A net payment term.</p>
+   * A net payment term.
+   *
    * @public
    */
   export interface NetPaymentTermMember {
@@ -2254,19 +2560,22 @@ export namespace OfferTerm {
  */
 export interface GetOfferTermsOutput {
   /**
-   * <p>The locale of the returned content. Indicates whether the response contains content in the requested locale, or fell back to the default locale. See <code>Locale</code> for details.</p>
+   * The locale of the returned content. Indicates whether the response contains content in the requested locale, or fell back to the default locale. See `Locale` for details.
+   *
    * @public
    */
   locale?: string | undefined;
 
   /**
-   * <p>The terms attached to the offer. Each element contains exactly one term type.</p>
+   * The terms attached to the offer. Each element contains exactly one term type.
+   *
    * @public
    */
   offerTerms: OfferTerm[] | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token to retrieve the next page.</p>
+   * If `nextToken` is returned, there are more results available. Make the call again using the returned token to retrieve the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2277,13 +2586,15 @@ export interface GetOfferTermsOutput {
  */
 export interface GetProductInput {
   /**
-   * <p>A BCP 47 language tag or comma-separated priority list specifying the preferred locale for response content. See <code>Locale</code> for supported values, constraints, fallback behavior, and the default locale. If omitted, the service returns content in the default locale.</p>
+   * A BCP 47 language tag or comma-separated priority list specifying the preferred locale for response content. See `Locale` for supported values, constraints, fallback behavior, and the default locale. If omitted, the service returns content in the default locale.
+   *
    * @public
    */
   locale?: string | undefined;
 
   /**
-   * <p>The unique identifier of the product to retrieve.</p>
+   * The unique identifier of the product to retrieve.
+   *
    * @public
    */
   productId: string | undefined;
@@ -2294,97 +2605,113 @@ export interface GetProductInput {
  */
 export interface GetProductOutput {
   /**
-   * <p>The locale of the returned content. Indicates whether the response contains content in the requested locale, or fell back to the default locale. See <code>Locale</code> for details.</p>
+   * The locale of the returned content. Indicates whether the response contains content in the requested locale, or fell back to the default locale. See `Locale` for details.
+   *
    * @public
    */
   locale?: string | undefined;
 
   /**
-   * <p>The unique identifier of the product.</p>
+   * The unique identifier of the product.
+   *
    * @public
    */
   productId: string | undefined;
 
   /**
-   * <p>The name of the catalog that the product belongs to.</p>
+   * The name of the catalog that the product belongs to.
+   *
    * @public
    */
   catalog: string | undefined;
 
   /**
-   * <p>The human-readable display name of the product.</p>
+   * The human-readable display name of the product.
+   *
    * @public
    */
   productName: string | undefined;
 
   /**
-   * <p>The entity who manufactured the product.</p>
+   * The entity who manufactured the product.
+   *
    * @public
    */
   manufacturer: SellerInformation | undefined;
 
   /**
-   * <p>Indicates whether the product is deployed on AWS infrastructure.</p>
+   * Indicates whether the product is deployed on AWS infrastructure.
+   *
    * @public
    */
   deployedOnAws: DeployedOnAwsStatus | undefined;
 
   /**
-   * <p>A 1–3 sentence summary describing the key aspects of the product.</p>
+   * A 1–3 sentence summary describing the key aspects of the product.
+   *
    * @public
    */
   shortDescription: string | undefined;
 
   /**
-   * <p>A detailed description of what the product does, in paragraph format.</p>
+   * A detailed description of what the product does, in paragraph format.
+   *
    * @public
    */
   longDescription: string | undefined;
 
   /**
-   * <p>The URL of the logo thumbnail image for the product.</p>
+   * The URL of the logo thumbnail image for the product.
+   *
    * @public
    */
   logoThumbnailUrl: string | undefined;
 
   /**
-   * <p>A summary of fulfillment options available for deploying or accessing the product, such as AMI, SaaS, or Container.</p>
+   * A summary of fulfillment options available for deploying or accessing the product, such as AMI, SaaS, or Container.
+   *
    * @public
    */
   fulfillmentOptionSummaries: FulfillmentOptionSummary[] | undefined;
 
   /**
-   * <p>The categories used to classify this product into logical groups.</p>
+   * The categories used to classify this product into logical groups.
+   *
    * @public
    */
   categories: Category[] | undefined;
 
   /**
-   * <p>A list of key features that the product offers to customers.</p>
+   * A list of key features that the product offers to customers.
+   *
    * @public
    */
   highlights: string[] | undefined;
 
   /**
-   * <p>Embedded promotional media provided by the creator of the product, such as images and videos.</p>
+   * Embedded promotional media provided by the creator of the product, such as images and videos.
+   *
    * @public
    */
   promotionalMedia: PromotionalMedia[] | undefined;
 
   /**
-   * <p>Resources that provide further information about using the product or requesting support, such as documentation links, support contacts, and usage instructions.</p>
+   * Resources that provide further information about using the product or requesting support, such as documentation links, support contacts, and usage instructions.
+   *
    * @public
    */
   resources: Resource[] | undefined;
 
   /**
-   * <p>Engagement options available to potential buyers, such as requesting a private offer or requesting a demo.</p>
+   * Engagement options available to potential buyers, such as requesting a private offer or requesting a demo.
+   *
    * @public
    */
   sellerEngagements: SellerEngagement[] | undefined;
 
   /**
-   * <p>The default listing identifier associated with the product.</p>
+   * The default listing identifier associated with the product.
+   *
    * @public
    */
   listingId: string | undefined;
@@ -2395,680 +2722,793 @@ export interface GetProductOutput {
  */
 export interface ListFulfillmentOptionsInput {
   /**
-   * <p>A BCP 47 language tag or comma-separated priority list specifying the preferred locale for response content. See <code>Locale</code> for supported values, constraints, fallback behavior, and the default locale. If omitted, the service returns content in the default locale.</p>
+   * A BCP 47 language tag or comma-separated priority list specifying the preferred locale for response content. See `Locale` for supported values, constraints, fallback behavior, and the default locale. If omitted, the service returns content in the default locale.
+   *
    * @public
    */
   locale?: string | undefined;
 
   /**
-   * <p>The unique identifier of the product for which to list fulfillment options.</p>
+   * The unique identifier of the product for which to list fulfillment options.
+   *
    * @public
    */
   productId: string | undefined;
 
   /**
-   * <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to get more results.</p>
+   * The maximum number of results that are returned per call. You can use `nextToken` to get more results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token to retrieve the next page.</p>
+   * If `nextToken` is returned, there are more results available. Make the call again using the returned token to retrieve the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Describes an AWS CloudFormation template fulfillment option for infrastructure deployment.</p>
+ * Describes an AWS CloudFormation template fulfillment option for infrastructure deployment.
+ *
  * @public
  */
 export interface CloudFormationFulfillmentOption {
   /**
-   * <p>The unique identifier of the fulfillment option.</p>
+   * The unique identifier of the fulfillment option.
+   *
    * @public
    */
   fulfillmentOptionId: string | undefined;
 
   /**
-   * <p>The display name of the fulfillment option version.</p>
+   * The display name of the fulfillment option version.
+   *
    * @public
    */
   fulfillmentOptionName: string | undefined;
 
   /**
-   * <p>The category of the fulfillment option.</p>
+   * The category of the fulfillment option.
+   *
    * @public
    */
   fulfillmentOptionType: FulfillmentOptionType | undefined;
 
   /**
-   * <p>A human-readable name for the fulfillment option type.</p>
+   * A human-readable name for the fulfillment option type.
+   *
    * @public
    */
   fulfillmentOptionDisplayName: string | undefined;
 
   /**
-   * <p>The version identifier of the fulfillment option.</p>
+   * The version identifier of the fulfillment option.
+   *
    * @public
    */
   fulfillmentOptionVersion?: string | undefined;
 
   /**
-   * <p>Release notes describing changes in this version of the fulfillment option.</p>
+   * Release notes describing changes in this version of the fulfillment option.
+   *
    * @public
    */
   releaseNotes?: string | undefined;
 
   /**
-   * <p>Instructions on how to deploy and use this CloudFormation template.</p>
+   * Instructions on how to deploy and use this CloudFormation template.
+   *
    * @public
    */
   usageInstructions?: string | undefined;
 
   /**
-   * <p>The date and time when the CloudFormation fulfillment option became available for fulfillment.</p>
+   * The date and time when the CloudFormation fulfillment option became available for fulfillment.
+   *
    * @public
    */
   availableFromTime?: Date | undefined;
 
   /**
-   * <p>A short description of the fulfillment option.</p>
+   * A short description of the fulfillment option.
+   *
    * @public
    */
   shortDescription?: string | undefined;
 
   /**
-   * <p>A detailed description of the fulfillment option.</p>
+   * A detailed description of the fulfillment option.
+   *
    * @public
    */
   longDescription?: string | undefined;
 }
 
 /**
- * <p>Describes an operating system supported by a container fulfillment option.</p>
+ * Describes an operating system supported by a container fulfillment option.
+ *
  * @public
  */
 export interface ContainerOperatingSystem {
   /**
-   * <p>The operating system family, such as Linux.</p>
+   * The operating system family, such as Linux.
+   *
    * @public
    */
   operatingSystemFamilyName: string | undefined;
 
   /**
-   * <p>The specific operating system name.</p>
+   * The specific operating system name.
+   *
    * @public
    */
   operatingSystemName: string | undefined;
 }
 
 /**
- * <p>Describes a container image fulfillment option for container-based deployment.</p>
+ * Describes a container image fulfillment option for container-based deployment.
+ *
  * @public
  */
 export interface ContainerFulfillmentOption {
   /**
-   * <p>The unique identifier of the fulfillment option.</p>
+   * The unique identifier of the fulfillment option.
+   *
    * @public
    */
   fulfillmentOptionId: string | undefined;
 
   /**
-   * <p>The display name of the fulfillment option version.</p>
+   * The display name of the fulfillment option version.
+   *
    * @public
    */
   fulfillmentOptionName: string | undefined;
 
   /**
-   * <p>The category of the fulfillment option.</p>
+   * The category of the fulfillment option.
+   *
    * @public
    */
   fulfillmentOptionType: FulfillmentOptionType | undefined;
 
   /**
-   * <p>A human-readable name for the fulfillment option type.</p>
+   * A human-readable name for the fulfillment option type.
+   *
    * @public
    */
   fulfillmentOptionDisplayName: string | undefined;
 
   /**
-   * <p>The version identifier of the fulfillment option.</p>
+   * The version identifier of the fulfillment option.
+   *
    * @public
    */
   fulfillmentOptionVersion?: string | undefined;
 
   /**
-   * <p>The operating systems supported by this container image.</p>
+   * The operating systems supported by this container image.
+   *
    * @public
    */
   operatingSystems?: ContainerOperatingSystem[] | undefined;
 
   /**
-   * <p>The AWS services supported by this container deployment.</p>
+   * The AWS services supported by this container deployment.
+   *
    * @public
    */
   awsSupportedServices?: AwsSupportedService[] | undefined;
 
   /**
-   * <p>Release notes describing changes in this version of the fulfillment option.</p>
+   * Release notes describing changes in this version of the fulfillment option.
+   *
    * @public
    */
   releaseNotes?: string | undefined;
 
   /**
-   * <p>Instructions on how to deploy and use this container image.</p>
+   * Instructions on how to deploy and use this container image.
+   *
    * @public
    */
   usageInstructions?: string | undefined;
 }
 
 /**
- * <p>Describes a data artifact within a Data Exchange fulfillment option.</p>
+ * Describes a data artifact within a Data Exchange fulfillment option.
+ *
  * @public
  */
 export interface DataArtifact {
   /**
-   * <p>A description of the data artifact.</p>
+   * A description of the data artifact.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the data artifact.</p>
+   * The Amazon Resource Name (ARN) of the data artifact.
+   *
    * @public
    */
   resourceArn?: string | undefined;
 
   /**
-   * <p>The type of the data artifact resource.</p>
+   * The type of the data artifact resource.
+   *
    * @public
    */
   resourceType: string | undefined;
 
   /**
-   * <p>The classification of sensitive data contained in the dataset.</p>
+   * The classification of sensitive data contained in the dataset.
+   *
    * @public
    */
   dataClassification: string | undefined;
 }
 
 /**
- * <p>Describes an AWS Data Exchange fulfillment option for data set delivery.</p>
+ * Describes an AWS Data Exchange fulfillment option for data set delivery.
+ *
  * @public
  */
 export interface DataExchangeFulfillmentOption {
   /**
-   * <p>The unique identifier of the fulfillment option.</p>
+   * The unique identifier of the fulfillment option.
+   *
    * @public
    */
   fulfillmentOptionId: string | undefined;
 
   /**
-   * <p>The category of the fulfillment option.</p>
+   * The category of the fulfillment option.
+   *
    * @public
    */
   fulfillmentOptionType: FulfillmentOptionType | undefined;
 
   /**
-   * <p>A human-readable name for the fulfillment option type.</p>
+   * A human-readable name for the fulfillment option type.
+   *
    * @public
    */
   fulfillmentOptionDisplayName: string | undefined;
 
   /**
-   * <p>The data artifacts included in this Data Exchange fulfillment option.</p>
+   * The data artifacts included in this Data Exchange fulfillment option.
+   *
    * @public
    */
   dataArtifacts?: DataArtifact[] | undefined;
 }
 
 /**
- * <p>Describes an EC2 Image Builder component fulfillment option.</p>
+ * Describes an EC2 Image Builder component fulfillment option.
+ *
  * @public
  */
 export interface Ec2ImageBuilderComponentFulfillmentOption {
   /**
-   * <p>The unique identifier of the fulfillment option.</p>
+   * The unique identifier of the fulfillment option.
+   *
    * @public
    */
   fulfillmentOptionId: string | undefined;
 
   /**
-   * <p>The display name of the fulfillment option version.</p>
+   * The display name of the fulfillment option version.
+   *
    * @public
    */
   fulfillmentOptionName: string | undefined;
 
   /**
-   * <p>The category of the fulfillment option.</p>
+   * The category of the fulfillment option.
+   *
    * @public
    */
   fulfillmentOptionType: FulfillmentOptionType | undefined;
 
   /**
-   * <p>A human-readable name for the fulfillment option type.</p>
+   * A human-readable name for the fulfillment option type.
+   *
    * @public
    */
   fulfillmentOptionDisplayName: string | undefined;
 
   /**
-   * <p>The version identifier of the fulfillment option.</p>
+   * The version identifier of the fulfillment option.
+   *
    * @public
    */
   fulfillmentOptionVersion?: string | undefined;
 
   /**
-   * <p>The operating systems supported by this EC2 Image Builder component.</p>
+   * The operating systems supported by this EC2 Image Builder component.
+   *
    * @public
    */
   operatingSystems?: ContainerOperatingSystem[] | undefined;
 
   /**
-   * <p>The AWS services supported by this EC2 Image Builder component.</p>
+   * The AWS services supported by this EC2 Image Builder component.
+   *
    * @public
    */
   awsSupportedServices?: AwsSupportedService[] | undefined;
 
   /**
-   * <p>Release notes describing changes in this version of the fulfillment option.</p>
+   * Release notes describing changes in this version of the fulfillment option.
+   *
    * @public
    */
   releaseNotes?: string | undefined;
 
   /**
-   * <p>Instructions on how to deploy and use this EC2 Image Builder component.</p>
+   * Instructions on how to deploy and use this EC2 Image Builder component.
+   *
    * @public
    */
   usageInstructions?: string | undefined;
 }
 
 /**
- * <p>Describes an operating system supported by an EKS add-on fulfillment option.</p>
+ * Describes an operating system supported by an EKS add-on fulfillment option.
+ *
  * @public
  */
 export interface EksAddOnOperatingSystem {
   /**
-   * <p>The operating system family, such as Linux.</p>
+   * The operating system family, such as Linux.
+   *
    * @public
    */
   operatingSystemFamilyName: string | undefined;
 
   /**
-   * <p>The specific operating system name.</p>
+   * The specific operating system name.
+   *
    * @public
    */
   operatingSystemName: string | undefined;
 }
 
 /**
- * <p>Describes an Amazon EKS add-on fulfillment option.</p>
+ * Describes an Amazon EKS add-on fulfillment option.
+ *
  * @public
  */
 export interface EksAddOnFulfillmentOption {
   /**
-   * <p>The unique identifier of the fulfillment option.</p>
+   * The unique identifier of the fulfillment option.
+   *
    * @public
    */
   fulfillmentOptionId: string | undefined;
 
   /**
-   * <p>The display name of the fulfillment option version.</p>
+   * The display name of the fulfillment option version.
+   *
    * @public
    */
   fulfillmentOptionName: string | undefined;
 
   /**
-   * <p>The category of the fulfillment option.</p>
+   * The category of the fulfillment option.
+   *
    * @public
    */
   fulfillmentOptionType: FulfillmentOptionType | undefined;
 
   /**
-   * <p>A human-readable name for the fulfillment option type.</p>
+   * A human-readable name for the fulfillment option type.
+   *
    * @public
    */
   fulfillmentOptionDisplayName: string | undefined;
 
   /**
-   * <p>The version identifier of the fulfillment option.</p>
+   * The version identifier of the fulfillment option.
+   *
    * @public
    */
   fulfillmentOptionVersion?: string | undefined;
 
   /**
-   * <p>The operating systems supported by this EKS add-on.</p>
+   * The operating systems supported by this EKS add-on.
+   *
    * @public
    */
   operatingSystems?: EksAddOnOperatingSystem[] | undefined;
 
   /**
-   * <p>Release notes describing changes in this version of the fulfillment option.</p>
+   * Release notes describing changes in this version of the fulfillment option.
+   *
    * @public
    */
   releaseNotes?: string | undefined;
 
   /**
-   * <p>Instructions on how to deploy and use this EKS add-on.</p>
+   * Instructions on how to deploy and use this EKS add-on.
+   *
    * @public
    */
   usageInstructions?: string | undefined;
 
   /**
-   * <p>The AWS services supported by this EKS add-on.</p>
+   * The AWS services supported by this EKS add-on.
+   *
    * @public
    */
   awsSupportedServices?: AwsSupportedService[] | undefined;
 }
 
 /**
- * <p>Describes an operating system supported by a Helm chart fulfillment option.</p>
+ * Describes an operating system supported by a Helm chart fulfillment option.
+ *
  * @public
  */
 export interface HelmOperatingSystem {
   /**
-   * <p>The operating system family, such as Linux.</p>
+   * The operating system family, such as Linux.
+   *
    * @public
    */
   operatingSystemFamilyName: string | undefined;
 
   /**
-   * <p>The specific operating system name.</p>
+   * The specific operating system name.
+   *
    * @public
    */
   operatingSystemName: string | undefined;
 }
 
 /**
- * <p>Describes a Helm chart fulfillment option for Kubernetes deployment.</p>
+ * Describes a Helm chart fulfillment option for Kubernetes deployment.
+ *
  * @public
  */
 export interface HelmFulfillmentOption {
   /**
-   * <p>The unique identifier of the fulfillment option.</p>
+   * The unique identifier of the fulfillment option.
+   *
    * @public
    */
   fulfillmentOptionId: string | undefined;
 
   /**
-   * <p>The display name of the fulfillment option version.</p>
+   * The display name of the fulfillment option version.
+   *
    * @public
    */
   fulfillmentOptionName: string | undefined;
 
   /**
-   * <p>The category of the fulfillment option.</p>
+   * The category of the fulfillment option.
+   *
    * @public
    */
   fulfillmentOptionType: FulfillmentOptionType | undefined;
 
   /**
-   * <p>A human-readable name for the fulfillment option type.</p>
+   * A human-readable name for the fulfillment option type.
+   *
    * @public
    */
   fulfillmentOptionDisplayName: string | undefined;
 
   /**
-   * <p>The version identifier of the fulfillment option.</p>
+   * The version identifier of the fulfillment option.
+   *
    * @public
    */
   fulfillmentOptionVersion?: string | undefined;
 
   /**
-   * <p>The operating systems supported by this Helm chart.</p>
+   * The operating systems supported by this Helm chart.
+   *
    * @public
    */
   operatingSystems?: HelmOperatingSystem[] | undefined;
 
   /**
-   * <p>Release notes describing changes in this version of the fulfillment option.</p>
+   * Release notes describing changes in this version of the fulfillment option.
+   *
    * @public
    */
   releaseNotes?: string | undefined;
 
   /**
-   * <p>The AWS services supported by this Helm chart deployment.</p>
+   * The AWS services supported by this Helm chart deployment.
+   *
    * @public
    */
   awsSupportedServices?: AwsSupportedService[] | undefined;
 
   /**
-   * <p>Instructions on how to deploy and use this Helm chart.</p>
+   * Instructions on how to deploy and use this Helm chart.
+   *
    * @public
    */
   usageInstructions?: string | undefined;
 }
 
 /**
- * <p>Describes a professional services fulfillment option.</p>
+ * Describes a professional services fulfillment option.
+ *
  * @public
  */
 export interface ProfessionalServicesFulfillmentOption {
   /**
-   * <p>The unique identifier of the fulfillment option.</p>
+   * The unique identifier of the fulfillment option.
+   *
    * @public
    */
   fulfillmentOptionId: string | undefined;
 
   /**
-   * <p>The category of the fulfillment option.</p>
+   * The category of the fulfillment option.
+   *
    * @public
    */
   fulfillmentOptionType: FulfillmentOptionType | undefined;
 
   /**
-   * <p>A human-readable name for the fulfillment option type.</p>
+   * A human-readable name for the fulfillment option type.
+   *
    * @public
    */
   fulfillmentOptionDisplayName: string | undefined;
 }
 
 /**
- * <p>Describes a Software as a Service (SaaS) fulfillment option.</p>
+ * Describes a Software as a Service (SaaS) fulfillment option.
+ *
  * @public
  */
 export interface SaasFulfillmentOption {
   /**
-   * <p>The unique identifier of the fulfillment option.</p>
+   * The unique identifier of the fulfillment option.
+   *
    * @public
    */
   fulfillmentOptionId: string | undefined;
 
   /**
-   * <p>The category of the fulfillment option.</p>
+   * The category of the fulfillment option.
+   *
    * @public
    */
   fulfillmentOptionType: FulfillmentOptionType | undefined;
 
   /**
-   * <p>A human-readable name for the fulfillment option type.</p>
+   * A human-readable name for the fulfillment option type.
+   *
    * @public
    */
   fulfillmentOptionDisplayName: string | undefined;
 
   /**
-   * <p>The URL of the seller's software registration landing page.</p>
+   * The URL of the seller's software registration landing page.
+   *
    * @public
    */
   fulfillmentUrl?: string | undefined;
 
   /**
-   * <p>Instructions on how to access and use this SaaS product.</p>
+   * Instructions on how to access and use this SaaS product.
+   *
    * @public
    */
   usageInstructions?: string | undefined;
 
   /**
-   * <p>The date and time when the SaaS product became available for fulfillment.</p>
+   * The date and time when the SaaS product became available for fulfillment.
+   *
    * @public
    */
   availableFromTime?: Date | undefined;
 
   /**
-   * <p>The URL that a buyer uses to launch the seller's SaaS product. This URL is distinct from <code>fulfillmentUrl</code>, which is the seller's software registration landing page.</p>
+   * The URL that a buyer uses to launch the seller's SaaS product. This URL is distinct from `fulfillmentUrl`, which is the seller's software registration landing page.
+   *
    * @public
    */
   launchUrl?: string | undefined;
 
   /**
-   * <p>Specifies whether the SaaS product supports quick-launch deployment.</p>
+   * Specifies whether the SaaS product supports quick-launch deployment.
+   *
    * @public
    */
   quickLaunch: SaasQuickLaunchStatus | undefined;
 }
 
 /**
- * <p>Recommended instance types for training and inference with a SageMaker algorithm.</p>
+ * Recommended instance types for training and inference with a SageMaker algorithm.
+ *
  * @public
  */
 export interface SageMakerAlgorithmRecommendation {
   /**
-   * <p>The recommended instance type for batch inference.</p>
+   * The recommended instance type for batch inference.
+   *
    * @public
    */
   recommendedBatchTransformInstanceType: string | undefined;
 
   /**
-   * <p>The recommended instance type for real-time inference.</p>
+   * The recommended instance type for real-time inference.
+   *
    * @public
    */
   recommendedRealtimeInferenceInstanceType?: string | undefined;
 
   /**
-   * <p>The recommended instance type for training.</p>
+   * The recommended instance type for training.
+   *
    * @public
    */
   recommendedTrainingInstanceType: string | undefined;
 }
 
 /**
- * <p>Describes an Amazon SageMaker algorithm fulfillment option, including version details and recommended instance types.</p>
+ * Describes an Amazon SageMaker algorithm fulfillment option, including version details and recommended instance types.
+ *
  * @public
  */
 export interface SageMakerAlgorithmFulfillmentOption {
   /**
-   * <p>The unique identifier of the fulfillment option.</p>
+   * The unique identifier of the fulfillment option.
+   *
    * @public
    */
   fulfillmentOptionId: string | undefined;
 
   /**
-   * <p>The category of the fulfillment option.</p>
+   * The category of the fulfillment option.
+   *
    * @public
    */
   fulfillmentOptionType: FulfillmentOptionType | undefined;
 
   /**
-   * <p>A human-readable name for the fulfillment option type.</p>
+   * A human-readable name for the fulfillment option type.
+   *
    * @public
    */
   fulfillmentOptionDisplayName: string | undefined;
 
   /**
-   * <p>The version identifier of the fulfillment option.</p>
+   * The version identifier of the fulfillment option.
+   *
    * @public
    */
   fulfillmentOptionVersion?: string | undefined;
 
   /**
-   * <p>Release notes describing changes in this version of the fulfillment option.</p>
+   * Release notes describing changes in this version of the fulfillment option.
+   *
    * @public
    */
   releaseNotes?: string | undefined;
 
   /**
-   * <p>Instructions on how to use this SageMaker algorithm.</p>
+   * Instructions on how to use this SageMaker algorithm.
+   *
    * @public
    */
   usageInstructions?: string | undefined;
 
   /**
-   * <p>Recommended instance types for training and inference with this algorithm.</p>
+   * Recommended instance types for training and inference with this algorithm.
+   *
    * @public
    */
   recommendation?: SageMakerAlgorithmRecommendation | undefined;
 }
 
 /**
- * <p>Recommended instance types for inference with a SageMaker model.</p>
+ * Recommended instance types for inference with a SageMaker model.
+ *
  * @public
  */
 export interface SageMakerModelRecommendation {
   /**
-   * <p>The recommended instance type for batch inference.</p>
+   * The recommended instance type for batch inference.
+   *
    * @public
    */
   recommendedBatchTransformInstanceType: string | undefined;
 
   /**
-   * <p>The recommended instance type for real-time inference.</p>
+   * The recommended instance type for real-time inference.
+   *
    * @public
    */
   recommendedRealtimeInferenceInstanceType?: string | undefined;
 }
 
 /**
- * <p>Describes an Amazon SageMaker model fulfillment option, including version details and recommended instance types.</p>
+ * Describes an Amazon SageMaker model fulfillment option, including version details and recommended instance types.
+ *
  * @public
  */
 export interface SageMakerModelFulfillmentOption {
   /**
-   * <p>The unique identifier of the fulfillment option.</p>
+   * The unique identifier of the fulfillment option.
+   *
    * @public
    */
   fulfillmentOptionId: string | undefined;
 
   /**
-   * <p>The category of the fulfillment option.</p>
+   * The category of the fulfillment option.
+   *
    * @public
    */
   fulfillmentOptionType: FulfillmentOptionType | undefined;
 
   /**
-   * <p>A human-readable name for the fulfillment option type.</p>
+   * A human-readable name for the fulfillment option type.
+   *
    * @public
    */
   fulfillmentOptionDisplayName: string | undefined;
 
   /**
-   * <p>The version identifier of the fulfillment option.</p>
+   * The version identifier of the fulfillment option.
+   *
    * @public
    */
   fulfillmentOptionVersion?: string | undefined;
 
   /**
-   * <p>Release notes describing changes in this version of the fulfillment option.</p>
+   * Release notes describing changes in this version of the fulfillment option.
+   *
    * @public
    */
   releaseNotes?: string | undefined;
 
   /**
-   * <p>Instructions on how to use this SageMaker model.</p>
+   * Instructions on how to use this SageMaker model.
+   *
    * @public
    */
   usageInstructions?: string | undefined;
 
   /**
-   * <p>Recommended instance types for inference with this model.</p>
+   * Recommended instance types for inference with this model.
+   *
    * @public
    */
   recommendation?: SageMakerModelRecommendation | undefined;
 
   /**
-   * <p>The MIME types that this model accepts as input.</p>
+   * The MIME types that this model accepts as input.
+   *
    * @public
    */
   supportedContentTypes?: string[] | undefined;
 
   /**
-   * <p>The MIME types that this model returns as output.</p>
+   * The MIME types that this model returns as output.
+   *
    * @public
    */
   supportedResponseMimeTypes?: string[] | undefined;
 }
 
 /**
- * <p>Describes a fulfillment option for a product. Each element contains exactly one fulfillment option type.</p>
+ * Describes a fulfillment option for a product. Each element contains exactly one fulfillment option type.
+ *
  * @public
  */
 export type FulfillmentOption =
@@ -3091,7 +3531,8 @@ export type FulfillmentOption =
  */
 export namespace FulfillmentOption {
   /**
-   * <p>An Amazon Machine Image (AMI) fulfillment option for EC2 deployment.</p>
+   * An Amazon Machine Image (AMI) fulfillment option for EC2 deployment.
+   *
    * @public
    */
   export interface AmazonMachineImageFulfillmentOptionMember {
@@ -3111,7 +3552,8 @@ export namespace FulfillmentOption {
   }
 
   /**
-   * <p>An API-based fulfillment option for programmatic integration.</p>
+   * An API-based fulfillment option for programmatic integration.
+   *
    * @public
    */
   export interface ApiFulfillmentOptionMember {
@@ -3131,7 +3573,8 @@ export namespace FulfillmentOption {
   }
 
   /**
-   * <p>An AWS CloudFormation template fulfillment option for infrastructure deployment.</p>
+   * An AWS CloudFormation template fulfillment option for infrastructure deployment.
+   *
    * @public
    */
   export interface CloudFormationFulfillmentOptionMember {
@@ -3151,7 +3594,8 @@ export namespace FulfillmentOption {
   }
 
   /**
-   * <p>A container image fulfillment option for container-based deployment.</p>
+   * A container image fulfillment option for container-based deployment.
+   *
    * @public
    */
   export interface ContainerFulfillmentOptionMember {
@@ -3171,7 +3615,8 @@ export namespace FulfillmentOption {
   }
 
   /**
-   * <p>A Helm chart fulfillment option for Kubernetes deployment.</p>
+   * A Helm chart fulfillment option for Kubernetes deployment.
+   *
    * @public
    */
   export interface HelmFulfillmentOptionMember {
@@ -3191,7 +3636,8 @@ export namespace FulfillmentOption {
   }
 
   /**
-   * <p>An Amazon EKS add-on fulfillment option.</p>
+   * An Amazon EKS add-on fulfillment option.
+   *
    * @public
    */
   export interface EksAddOnFulfillmentOptionMember {
@@ -3211,7 +3657,8 @@ export namespace FulfillmentOption {
   }
 
   /**
-   * <p>An EC2 Image Builder component fulfillment option.</p>
+   * An EC2 Image Builder component fulfillment option.
+   *
    * @public
    */
   export interface Ec2ImageBuilderComponentFulfillmentOptionMember {
@@ -3231,7 +3678,8 @@ export namespace FulfillmentOption {
   }
 
   /**
-   * <p>An AWS Data Exchange fulfillment option for data set delivery.</p>
+   * An AWS Data Exchange fulfillment option for data set delivery.
+   *
    * @public
    */
   export interface DataExchangeFulfillmentOptionMember {
@@ -3251,7 +3699,8 @@ export namespace FulfillmentOption {
   }
 
   /**
-   * <p>A professional services fulfillment option.</p>
+   * A professional services fulfillment option.
+   *
    * @public
    */
   export interface ProfessionalServicesFulfillmentOptionMember {
@@ -3271,7 +3720,8 @@ export namespace FulfillmentOption {
   }
 
   /**
-   * <p>A Software as a Service (SaaS) fulfillment option.</p>
+   * A Software as a Service (SaaS) fulfillment option.
+   *
    * @public
    */
   export interface SaasFulfillmentOptionMember {
@@ -3291,7 +3741,8 @@ export namespace FulfillmentOption {
   }
 
   /**
-   * <p>An Amazon SageMaker algorithm fulfillment option.</p>
+   * An Amazon SageMaker algorithm fulfillment option.
+   *
    * @public
    */
   export interface SageMakerAlgorithmFulfillmentOptionMember {
@@ -3311,7 +3762,8 @@ export namespace FulfillmentOption {
   }
 
   /**
-   * <p>An Amazon SageMaker model fulfillment option.</p>
+   * An Amazon SageMaker model fulfillment option.
+   *
    * @public
    */
   export interface SageMakerModelFulfillmentOptionMember {
@@ -3375,37 +3827,80 @@ export namespace FulfillmentOption {
  */
 export interface ListFulfillmentOptionsOutput {
   /**
-   * <p>A BCP 47 language tag or comma-separated priority list of language tags that specifies the preferred locale for response content. The field accepts a maximum of two language tags.</p> <p>The service resolves a locale string to the nearest supported locale. If no supported locale matches, the service applies the fallback behavior described below.</p> <ul> <li> <p> <b>Preferred locale</b> (first tag) – The locale you want the service to return content in.</p> </li> <li> <p> <b>Fallback locale</b> (optional, second tag) – The service default locale (<code>en-US</code> or <code>en</code>). The service returns content in this locale when translated content for the preferred locale is unavailable.</p> </li> </ul> <p>The field is optional. If omitted or null, the service returns content in the default locale (<code>en-US</code>).</p> <p> <b>Supported locales:</b> </p> <ul> <li> <p> <code>en-US</code> – English (service default, also resolves from <code>en</code>)</p> </li> <li> <p> <code>fr</code> – French</p> </li> <li> <p> <code>es</code> – Spanish</p> </li> <li> <p> <code>ko</code> – Korean</p> </li> <li> <p> <code>ja</code> – Japanese</p> </li> </ul> <p> <b>Fallback behavior:</b> </p> <ul> <li> <p>If translated content for the preferred locale is unavailable, the service returns content in the default locale.</p> </li> <li> <p>If the preferred locale is not supported and no fallback is provided, the service returns a <code>ValidationException</code>.</p> </li> <li> <p>If you provide an unsupported locale with the default locale as fallback (for example, <code>xx, en-US</code>), the service returns content in the default locale.</p> </li> </ul> <p> <b>Response locale field (Get APIs):</b> The <code>locale</code> field in Get API responses indicates the locale of the returned content. You can use this field to determine whether the response contains content in the requested locale or the default locale.</p> <p> <b>Examples:</b> </p> <ul> <li> <p> <code>fr</code> – Request French content. If unavailable, falls back to <code>en-US</code>.</p> </li> <li> <p> <code>fr, en-US</code> – Request French content with explicit fallback to English.</p> </li> <li> <p> <code>en-US</code> – Request content in the default locale.</p> </li> </ul>
+   * A BCP 47 language tag or comma-separated priority list of language tags that specifies the preferred locale for response content. The field accepts a maximum of two language tags.
+   *
+   * The service resolves a locale string to the nearest supported locale. If no supported locale matches, the service applies the fallback behavior described below.
+   *
+   * - **Preferred locale** (first tag) – The locale you want the service to return content in.
+   * - **Fallback locale** (optional, second tag) – The service default locale (`en-US` or `en`). The service returns content in this locale when translated content for the preferred locale is unavailable.
+   *
+   * The field is optional. If omitted or null, the service returns content in the default locale (`en-US`).
+   *
+   * **Supported locales:**
+   *
+   * - `en-US` – English (service default, also resolves from `en`)
+   * - `fr` – French
+   * - `es` – Spanish
+   * - `ko` – Korean
+   * - `ja` – Japanese
+   *
+   * **Fallback behavior:**
+   *
+   * - If translated content for the preferred locale is unavailable, the service returns content in the default locale.
+   * - If the preferred locale is not supported and no fallback is provided, the service returns a `ValidationException`.
+   * - If you provide an unsupported locale with the default locale as fallback (for example, `xx, en-US`), the service returns content in the default locale.
+   *
+   * **Response locale field (Get APIs):** The `locale` field in Get API responses indicates the locale of the returned content. You can use this field to determine whether the response contains content in the requested locale or the default locale.
+   *
+   * **Examples:**
+   *
+   * - `fr` – Request French content. If unavailable, falls back to `en-US`.
+   * - `fr, en-US` – Request French content with explicit fallback to English.
+   * - `en-US` – Request content in the default locale.
+   *
    * @public
    */
   locale?: string | undefined;
 
   /**
-   * <p>The fulfillment options available for the product. Each option describes how the buyer can deploy or access the product.</p>
+   * The fulfillment options available for the product. Each option describes how the buyer can deploy or access the product.
+   *
    * @public
    */
   fulfillmentOptions: FulfillmentOption[] | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token to retrieve the next page.</p>
+   * If `nextToken` is returned, there are more results available. Make the call again using the returned token to retrieve the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>A filter used to narrow purchase option results by product, seller, type, visibility, or availability.</p>
+ * A filter used to narrow purchase option results by product, seller, type, visibility, or availability.
+ *
  * @public
  */
 export interface PurchaseOptionFilter {
   /**
-   * <p>The type of filter to apply, such as <code>PRODUCT_ID</code>, <code>VISIBILITY_SCOPE</code>, or <code>PURCHASE_OPTION_TYPE</code>.</p>
+   * The type of filter to apply, such as `PRODUCT_ID`, `VISIBILITY_SCOPE`, or `PURCHASE_OPTION_TYPE`.
+   *
    * @public
    */
   filterType: PurchaseOptionFilterType | undefined;
 
   /**
-   * <p>The values to filter by. Supported values depend on <code>filterType</code>:</p> <ul> <li> <p> <code>PRODUCT_ID</code> – One or more product identifiers to filter by.</p> </li> <li> <p> <code>SELLER_OF_RECORD_PROFILE_ID</code> – One or more seller profile identifiers to filter by.</p> </li> <li> <p> <code>PURCHASE_OPTION_TYPE</code> – One or more purchase option types to filter by: <code>OFFER</code> or <code>OFFERSET</code>.</p> </li> <li> <p> <code>VISIBILITY_SCOPE</code> – The visibility scope to filter by: <code>PRIVATE</code>.</p> </li> <li> <p> <code>AVAILABILITY_STATUS</code> – One or more availability statuses to filter by: <code>AVAILABLE</code> or <code>EXPIRED</code>.</p> </li> </ul> <p>To retrieve private offers and offer sets visible to you, use <code>VISIBILITY_SCOPE</code> with <code>PRIVATE</code>. OR logic combines multiple values within the same filter.</p>
+   * The values to filter by. Supported values depend on `filterType`:
+   *
+   * - `PRODUCT_ID` – One or more product identifiers to filter by.
+   * - `SELLER_OF_RECORD_PROFILE_ID` – One or more seller profile identifiers to filter by.
+   * - `PURCHASE_OPTION_TYPE` – One or more purchase option types to filter by: `OFFER` or `OFFERSET`.
+   * - `VISIBILITY_SCOPE` – The visibility scope to filter by: `PRIVATE`.
+   * - `AVAILABILITY_STATUS` – One or more availability statuses to filter by: `AVAILABLE` or `EXPIRED`.
+   *
+   * To retrieve private offers and offer sets visible to you, use `VISIBILITY_SCOPE` with `PRIVATE`. OR logic combines multiple values within the same filter.
+   *
    * @public
    */
   filterValues: string[] | undefined;
@@ -3416,109 +3911,127 @@ export interface PurchaseOptionFilter {
  */
 export interface ListPurchaseOptionsInput {
   /**
-   * <p>A BCP 47 language tag or comma-separated priority list specifying the preferred locale for response content. See <code>Locale</code> for supported values, constraints, fallback behavior, and the default locale. If omitted, the service returns content in the default locale.</p>
+   * A BCP 47 language tag or comma-separated priority list specifying the preferred locale for response content. See `Locale` for supported values, constraints, fallback behavior, and the default locale. If omitted, the service returns content in the default locale.
+   *
    * @public
    */
   locale?: string | undefined;
 
   /**
-   * <p>Filters to narrow the results. Multiple filters are combined with AND logic. Multiple values within the same filter are combined with OR logic.</p>
+   * Filters to narrow the results. Multiple filters are combined with AND logic. Multiple values within the same filter are combined with OR logic.
+   *
    * @public
    */
   filters?: PurchaseOptionFilter[] | undefined;
 
   /**
-   * <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to get more results.</p>
+   * The maximum number of results that are returned per call. You can use `nextToken` to get more results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token to retrieve the next page.</p>
+   * If `nextToken` is returned, there are more results available. Make the call again using the returned token to retrieve the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>A product, offer, and optional offer set associated with a purchase option.</p>
+ * A product, offer, and optional offer set associated with a purchase option.
+ *
  * @public
  */
 export interface PurchaseOptionAssociatedEntity {
   /**
-   * <p>Information about the product associated with the purchase option.</p>
+   * Information about the product associated with the purchase option.
+   *
    * @public
    */
   product: ProductInformation | undefined;
 
   /**
-   * <p>Information about the offer associated with the purchase option.</p>
+   * Information about the offer associated with the purchase option.
+   *
    * @public
    */
   offer: OfferInformation | undefined;
 
   /**
-   * <p>Information about the offer set, if the purchase option is part of a bundled offer set.</p>
+   * Information about the offer set, if the purchase option is part of a bundled offer set.
+   *
    * @public
    */
   offerSet?: OfferSetInformation | undefined;
 }
 
 /**
- * <p>Summary information about a purchase option (offer or offer set) available to the buyer, including the seller, badges, and associated products.</p>
+ * Summary information about a purchase option (offer or offer set) available to the buyer, including the seller, badges, and associated products.
+ *
  * @public
  */
 export interface PurchaseOptionSummary {
   /**
-   * <p>The unique identifier of the purchase option.</p>
+   * The unique identifier of the purchase option.
+   *
    * @public
    */
   purchaseOptionId: string | undefined;
 
   /**
-   * <p>The name of the catalog that the purchase option belongs to.</p>
+   * The name of the catalog that the purchase option belongs to.
+   *
    * @public
    */
   catalog: string | undefined;
 
   /**
-   * <p>The type of purchase option. Values are <code>OFFER</code> for a single-product offer or <code>OFFERSET</code> for a bundled offer set.</p>
+   * The type of purchase option. Values are `OFFER` for a single-product offer or `OFFERSET` for a bundled offer set.
+   *
    * @public
    */
   purchaseOptionType: PurchaseOptionType | undefined;
 
   /**
-   * <p>The display name of the purchase option.</p>
+   * The display name of the purchase option.
+   *
    * @public
    */
   purchaseOptionName?: string | undefined;
 
   /**
-   * <p>The date and time when the purchase option became available to the buyer.</p>
+   * The date and time when the purchase option became available to the buyer.
+   *
    * @public
    */
   availableFromTime?: Date | undefined;
 
   /**
-   * <p>The date and time when the purchase option expires and is no longer available for procurement.</p>
+   * The date and time when the purchase option expires and is no longer available for procurement.
+   *
    * @public
    */
   expirationTime?: Date | undefined;
 
   /**
-   * <p>The entity responsible for selling the product under this purchase option.</p>
+   * The entity responsible for selling the product under this purchase option.
+   *
    * @public
    */
   sellerOfRecord: SellerInformation | undefined;
 
   /**
-   * <p>Badges indicating special attributes of the purchase option, such as private pricing or future dated.</p>
+   * Badges indicating special attributes of the purchase option, such as private pricing or future dated.
+   *
    * @public
    */
   badges?: PurchaseOptionBadge[] | undefined;
 
   /**
-   * <p>The products, offers, and offer sets associated with this purchase option.</p>
+   * The products, offers, and offer sets associated with this purchase option.
+   *
    * @public
    */
   associatedEntities: PurchaseOptionAssociatedEntity[] | undefined;
@@ -3529,31 +4042,36 @@ export interface PurchaseOptionSummary {
  */
 export interface ListPurchaseOptionsOutput {
   /**
-   * <p>The purchase options available to the buyer. Each option is either an offer for a single product or an offer set spanning multiple products.</p>
+   * The purchase options available to the buyer. Each option is either an offer for a single product or an offer set spanning multiple products.
+   *
    * @public
    */
   purchaseOptions?: PurchaseOptionSummary[] | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token to retrieve the next page.</p>
+   * If `nextToken` is returned, there are more results available. Make the call again using the returned token to retrieve the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>A filter used to narrow search results by attribute, such as category, pricing model, or fulfillment type.</p>
+ * A filter used to narrow search results by attribute, such as category, pricing model, or fulfillment type.
+ *
  * @public
  */
 export interface SearchFilter {
   /**
-   * <p>The type of filter to apply.</p>
+   * The type of filter to apply.
+   *
    * @public
    */
   filterType: SearchFilterType | undefined;
 
   /**
-   * <p>The values to filter by. Term filters accept multiple values (OR logic). Range filters (MIN/MAX_AVERAGE_CUSTOMER_RATING) accept a single value between 0.0 and 5.0.</p>
+   * The values to filter by. Term filters accept multiple values (OR logic). Range filters (MIN/MAX_AVERAGE_CUSTOMER_RATING) accept a single value between 0.0 and 5.0.
+   *
    * @public
    */
   filterValues: string[] | undefined;
@@ -3564,61 +4082,71 @@ export interface SearchFilter {
  */
 export interface SearchFacetsInput {
   /**
-   * <p>A BCP 47 language tag or comma-separated priority list specifying the preferred locale for response content. See <code>Locale</code> for supported values, constraints, fallback behavior, and the default locale. If omitted, the service returns content in the default locale.</p>
+   * A BCP 47 language tag or comma-separated priority list specifying the preferred locale for response content. See `Locale` for supported values, constraints, fallback behavior, and the default locale. If omitted, the service returns content in the default locale.
+   *
    * @public
    */
   locale?: string | undefined;
 
   /**
-   * <p>The search query text to filter listings before retrieving facets.</p>
+   * The search query text to filter listings before retrieving facets.
+   *
    * @public
    */
   searchText?: string | undefined;
 
   /**
-   * <p>Filters to apply before retrieving facets. Multiple filters are combined with AND logic. Multiple values within the same filter are combined with OR logic.</p>
+   * Filters to apply before retrieving facets. Multiple filters are combined with AND logic. Multiple values within the same filter are combined with OR logic.
+   *
    * @public
    */
   filters?: SearchFilter[] | undefined;
 
   /**
-   * <p>A list of specific facet types to retrieve. If empty or null, all available facets are returned.</p>
+   * A list of specific facet types to retrieve. If empty or null, all available facets are returned.
+   *
    * @public
    */
   facetTypes?: SearchFacetType[] | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token to retrieve the next page.</p>
+   * If `nextToken` is returned, there are more results available. Make the call again using the returned token to retrieve the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>A facet value with display information and a count of matching listings. Used to build filter and browse experiences.</p>
+ * A facet value with display information and a count of matching listings. Used to build filter and browse experiences.
+ *
  * @public
  */
 export interface ListingFacet {
   /**
-   * <p>The internal value used for filtering when passed back in a search filter.</p>
+   * The internal value used for filtering when passed back in a search filter.
+   *
    * @public
    */
   value: string | undefined;
 
   /**
-   * <p>The human-readable name of the facet value, suitable for display in a user interface.</p>
+   * The human-readable name of the facet value, suitable for display in a user interface.
+   *
    * @public
    */
   displayName: string | undefined;
 
   /**
-   * <p>The parent facet value for hierarchical facets, such as subcategories.</p>
+   * The parent facet value for hierarchical facets, such as subcategories.
+   *
    * @public
    */
   parent?: string | undefined;
 
   /**
-   * <p>The number of listings matching this facet value.</p>
+   * The number of listings matching this facet value.
+   *
    * @public
    */
   count: number | undefined;
@@ -3629,19 +4157,22 @@ export interface ListingFacet {
  */
 export interface SearchFacetsOutput {
   /**
-   * <p>The total number of listings matching the search criteria.</p>
+   * The total number of listings matching the search criteria.
+   *
    * @public
    */
   totalResults: number | undefined;
 
   /**
-   * <p>A map of facet types to their corresponding facet values. Each facet value includes a display name, internal value, and count of matching listings.</p>
+   * A map of facet types to their corresponding facet values. Each facet value includes a display name, internal value, and count of matching listings.
+   *
    * @public
    */
   listingFacets: Partial<Record<SearchFacetType, ListingFacet[]>> | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token to retrieve the next page.</p>
+   * If `nextToken` is returned, there are more results available. Make the call again using the returned token to retrieve the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -3652,139 +4183,162 @@ export interface SearchFacetsOutput {
  */
 export interface SearchListingsInput {
   /**
-   * <p>A BCP 47 language tag or comma-separated priority list specifying the preferred locale for response content. See <code>Locale</code> for supported values, constraints, fallback behavior, and the default locale. If omitted, the service returns content in the default locale.</p>
+   * A BCP 47 language tag or comma-separated priority list specifying the preferred locale for response content. See `Locale` for supported values, constraints, fallback behavior, and the default locale. If omitted, the service returns content in the default locale.
+   *
    * @public
    */
   locale?: string | undefined;
 
   /**
-   * <p>The search query text to find relevant listings.</p>
+   * The search query text to find relevant listings.
+   *
    * @public
    */
   searchText?: string | undefined;
 
   /**
-   * <p>Filters to narrow search results. Multiple filters are combined with AND logic. Multiple values within the same filter are combined with OR logic.</p>
+   * Filters to narrow search results. Multiple filters are combined with AND logic. Multiple values within the same filter are combined with OR logic.
+   *
    * @public
    */
   filters?: SearchFilter[] | undefined;
 
   /**
-   * <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to get more results.</p>
+   * The maximum number of results that are returned per call. You can use `nextToken` to get more results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The field to sort results by. Valid values are <code>RELEVANCE</code> and <code>AVERAGE_CUSTOMER_RATING</code>.</p>
+   * The field to sort results by. Valid values are `RELEVANCE` and `AVERAGE_CUSTOMER_RATING`.
+   *
    * @public
    */
   sortBy?: SearchListingsSortBy | undefined;
 
   /**
-   * <p>The sort direction. Valid values are <code>DESCENDING</code> and <code>ASCENDING</code>.</p>
+   * The sort direction. Valid values are `DESCENDING` and `ASCENDING`.
+   *
    * @public
    */
   sortOrder?: SearchListingsSortOrder | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token to retrieve the next page.</p>
+   * If `nextToken` is returned, there are more results available. Make the call again using the returned token to retrieve the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>A product associated with a listing summary.</p>
+ * A product associated with a listing summary.
+ *
  * @public
  */
 export interface ListingSummaryAssociatedEntity {
   /**
-   * <p>Information about the associated product.</p>
+   * Information about the associated product.
+   *
    * @public
    */
   product?: ProductInformation | undefined;
 }
 
 /**
- * <p>Summary information about a listing returned by search operations, including the listing name, description, badges, categories, pricing models, reviews, and associated products.</p>
+ * Summary information about a listing returned by search operations, including the listing name, description, badges, categories, pricing models, reviews, and associated products.
+ *
  * @public
  */
 export interface ListingSummary {
   /**
-   * <p>The unique identifier of the listing.</p>
+   * The unique identifier of the listing.
+   *
    * @public
    */
   listingId: string | undefined;
 
   /**
-   * <p>The human-readable display name of the listing.</p>
+   * The human-readable display name of the listing.
+   *
    * @public
    */
   listingName: string | undefined;
 
   /**
-   * <p>The entity who created and published the listing.</p>
+   * The entity who created and published the listing.
+   *
    * @public
    */
   publisher: SellerInformation | undefined;
 
   /**
-   * <p>A summary of fulfillment options available for the listing.</p>
+   * A summary of fulfillment options available for the listing.
+   *
    * @public
    */
   fulfillmentOptionSummaries: FulfillmentOptionSummary[] | undefined;
 
   /**
-   * <p>The name of the catalog that the listing belongs to.</p>
+   * The name of the catalog that the listing belongs to.
+   *
    * @public
    */
   catalog: string | undefined;
 
   /**
-   * <p>A 1–3 sentence summary describing the key aspects of the listing.</p>
+   * A 1–3 sentence summary describing the key aspects of the listing.
+   *
    * @public
    */
   shortDescription: string | undefined;
 
   /**
-   * <p>The URL of the logo thumbnail image for the listing.</p>
+   * The URL of the logo thumbnail image for the listing.
+   *
    * @public
    */
   logoThumbnailUrl: string | undefined;
 
   /**
-   * <p>The categories used to classify this listing into logical groups.</p>
+   * The categories used to classify this listing into logical groups.
+   *
    * @public
    */
   categories: Category[] | undefined;
 
   /**
-   * <p>Badges indicating special attributes of the listing.</p>
+   * Badges indicating special attributes of the listing.
+   *
    * @public
    */
   badges: ListingBadge[] | undefined;
 
   /**
-   * <p>A summary of customer reviews for the listing.</p>
+   * A summary of customer reviews for the listing.
+   *
    * @public
    */
   reviewSummary: ReviewSummary | undefined;
 
   /**
-   * <p>The pricing models for offers associated with this listing.</p>
+   * The pricing models for offers associated with this listing.
+   *
    * @public
    */
   pricingModels: PricingModel[] | undefined;
 
   /**
-   * <p>The pricing units that define the billing dimensions for offers associated with this listing.</p>
+   * The pricing units that define the billing dimensions for offers associated with this listing.
+   *
    * @public
    */
   pricingUnits: PricingUnit[] | undefined;
 
   /**
-   * <p>The products associated with this listing.</p>
+   * The products associated with this listing.
+   *
    * @public
    */
   associatedEntities: ListingSummaryAssociatedEntity[] | undefined;
@@ -3795,19 +4349,22 @@ export interface ListingSummary {
  */
 export interface SearchListingsOutput {
   /**
-   * <p>The total number of listings matching the search criteria.</p>
+   * The total number of listings matching the search criteria.
+   *
    * @public
    */
   totalResults: number | undefined;
 
   /**
-   * <p>The listing summaries matching the search criteria. Each summary includes the listing name, description, badges, categories, pricing models, reviews, and associated products.</p>
+   * The listing summaries matching the search criteria. Each summary includes the listing name, description, badges, categories, pricing models, reviews, and associated products.
+   *
    * @public
    */
   listingSummaries: ListingSummary[] | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token to retrieve the next page.</p>
+   * If `nextToken` is returned, there are more results available. Make the call again using the returned token to retrieve the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;

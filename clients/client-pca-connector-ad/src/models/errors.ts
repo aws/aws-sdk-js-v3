@@ -5,11 +5,8 @@ import type { ValidationExceptionReason } from "./enums";
 import { PcaConnectorAdServiceException as __BaseException } from "./PcaConnectorAdServiceException";
 
 /**
- * <p>You can receive this error if you attempt to create a resource share when you don't have
- *          the required permissions. This can be caused by insufficient permissions in policies
- *          attached to your Amazon Web Services Identity and Access Management (IAM) principal. It can also happen
- *          because of restrictions in place from an Amazon Web Services Organizations service control policy (SCP)
- *          that affects your Amazon Web Services account. </p>
+ * You can receive this error if you attempt to create a resource share when you don't have the required permissions. This can be caused by insufficient permissions in policies attached to your Amazon Web Services Identity and Access Management (IAM) principal. It can also happen because of restrictions in place from an Amazon Web Services Organizations service control policy (SCP) that affects your Amazon Web Services account.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -32,8 +29,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>This request cannot be completed for one of the following reasons because the requested
- *          resource was being concurrently modified by another request.</p>
+ * This request cannot be completed for one of the following reasons because the requested resource was being concurrently modified by another request.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -42,13 +39,15 @@ export class ConflictException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p>The identifier of the Amazon Web Services resource.</p>
+   * The identifier of the Amazon Web Services resource.
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>The resource type, which can be one of <code>Connector</code>, <code>Template</code>, <code>TemplateGroupAccessControlEntry</code>, <code>ServicePrincipalName</code>, or <code>DirectoryRegistration</code>.</p>
+   * The resource type, which can be one of `Connector`, `Template`, `TemplateGroupAccessControlEntry`, `ServicePrincipalName`, or `DirectoryRegistration`.
+   *
    * @public
    */
   ResourceType: string | undefined;
@@ -69,8 +68,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The request processing has failed because of an unknown error, exception or failure with
- *          an internal server. </p>
+ * The request processing has failed because of an unknown error, exception or failure with an internal server.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -94,8 +93,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The operation tried to access a nonexistent resource. The resource might not be
- *          specified correctly, or its status might not be ACTIVE.</p>
+ * The operation tried to access a nonexistent resource. The resource might not be specified correctly, or its status might not be ACTIVE.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -104,13 +103,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p>The identifier of the Amazon Web Services resource.</p>
+   * The identifier of the Amazon Web Services resource.
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>The resource type, which can be one of <code>Connector</code>, <code>Template</code>, <code>TemplateGroupAccessControlEntry</code>, <code>ServicePrincipalName</code>, or <code>DirectoryRegistration</code>.</p>
+   * The resource type, which can be one of `Connector`, `Template`, `TemplateGroupAccessControlEntry`, `ServicePrincipalName`, or `DirectoryRegistration`.
+   *
    * @public
    */
   ResourceType: string | undefined;
@@ -131,7 +132,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Request would cause a service quota to be exceeded.</p>
+ * Request would cause a service quota to be exceeded.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -140,25 +142,29 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p>The identifier of the Amazon Web Services resource.</p>
+   * The identifier of the Amazon Web Services resource.
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>The resource type, which can be one of <code>Connector</code>, <code>Template</code>, <code>TemplateGroupAccessControlEntry</code>, <code>ServicePrincipalName</code>, or <code>DirectoryRegistration</code>.</p>
+   * The resource type, which can be one of `Connector`, `Template`, `TemplateGroupAccessControlEntry`, `ServicePrincipalName`, or `DirectoryRegistration`.
+   *
    * @public
    */
   ResourceType: string | undefined;
 
   /**
-   * <p>Identifies the originating service.</p>
+   * Identifies the originating service.
+   *
    * @public
    */
   ServiceCode: string | undefined;
 
   /**
-   * <p>The code associated with the service quota.</p>
+   * The code associated with the service quota.
+   *
    * @public
    */
   QuotaCode: string | undefined;
@@ -181,7 +187,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The limit on the number of requests per second was exceeded. </p>
+ * The limit on the number of requests per second was exceeded.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -193,13 +200,15 @@ export class ThrottlingException extends __BaseException {
   };
   Message: string | undefined;
   /**
-   * <p>Identifies the originating service.</p>
+   * Identifies the originating service.
+   *
    * @public
    */
   ServiceCode?: string | undefined;
 
   /**
-   * <p>The code associated with the quota.</p>
+   * The code associated with the quota.
+   *
    * @public
    */
   QuotaCode?: string | undefined;
@@ -220,8 +229,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>An input validation error occurred. For example, invalid characters in a template name,
- *          or if a pagination token is invalid. </p>
+ * An input validation error occurred. For example, invalid characters in a template name, or if a pagination token is invalid.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -230,8 +239,8 @@ export class ValidationException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p>The reason for the validation error. This won't be return for every
-   *          validation exception.</p>
+   * The reason for the validation error. This won't be return for every validation exception.
+   *
    * @public
    */
   Reason?: ValidationExceptionReason | undefined;

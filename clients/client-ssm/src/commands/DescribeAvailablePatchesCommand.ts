@@ -23,11 +23,10 @@ export interface DescribeAvailablePatchesCommandInput extends DescribeAvailableP
 export interface DescribeAvailablePatchesCommandOutput extends DescribeAvailablePatchesResult, __MetadataBearer {}
 
 /**
- * <p>Lists all patches eligible to be included in a patch baseline.</p>
- *          <note>
- *             <p>Currently, <code>DescribeAvailablePatches</code> supports only the Amazon Linux 1, Amazon
- *     Linux 2, and Windows Server operating systems.</p>
- *          </note>
+ * Lists all patches eligible to be included in a patch baseline.
+ *
+ * > **Note:** Currently, `DescribeAvailablePatches` supports only the Amazon Linux 1, Amazon Linux 2, and Windows Server operating systems.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -96,11 +95,12 @@ export interface DescribeAvailablePatchesCommandOutput extends DescribeAvailable
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

@@ -26,8 +26,10 @@ export interface DeleteIpamPrefixListResolverTargetCommandInput extends DeleteIp
 export interface DeleteIpamPrefixListResolverTargetCommandOutput extends DeleteIpamPrefixListResolverTargetResult, __MetadataBearer {}
 
 /**
- * <p>Deletes an IPAM prefix list resolver target. This removes the association between the resolver and the managed prefix list, stopping automatic CIDR synchronization.</p>
- *          <p>For more information about IPAM prefix list resolver, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/automate-prefix-list-updates.html">Automate prefix list updates with IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ * Deletes an IPAM prefix list resolver target. This removes the association between the resolver and the managed prefix list, stopping automatic CIDR synchronization.
+ *
+ * For more information about IPAM prefix list resolver, see [Automate prefix list updates with IPAM](https://docs.aws.amazon.com/vpc/latest/ipam/automate-prefix-list-updates.html) in the *Amazon VPC IPAM User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,8 +75,8 @@ export interface DeleteIpamPrefixListResolverTargetCommandOutput extends DeleteI
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

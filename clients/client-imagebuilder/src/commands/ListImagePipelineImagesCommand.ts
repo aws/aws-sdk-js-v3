@@ -23,7 +23,8 @@ export interface ListImagePipelineImagesCommandInput extends ListImagePipelineIm
 export interface ListImagePipelineImagesCommandOutput extends ListImagePipelineImagesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of images created by the specified pipeline.</p>
+ * Returns a list of images created by the specified pipeline.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -162,38 +163,40 @@ export interface ListImagePipelineImagesCommandOutput extends ListImagePipelineI
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  * @throws {@link CallRateLimitExceededException} (client fault)
- *  <p>You have exceeded the permitted request rate for the Amazon EC2 APIs that Image Builder
- * 			calls on your behalf. Retry with an increasing or variable delay between
- * 			requests.</p>
+ *
+ * You have exceeded the permitted request rate for the Amazon EC2 APIs that Image Builder calls on your behalf. Retry with an increasing or variable delay between requests.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>A generic client error. This error usually indicates that the request
- * 			failed a validation check, such as when a downstream service rejects a
- * 			configured value.</p>
+ *
+ * A generic client error. This error usually indicates that the request failed a validation check, such as when a downstream service rejects a configured value.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>You are not authorized to perform the requested operation.</p>
+ *
+ * You are not authorized to perform the requested operation.
  *
  * @throws {@link InvalidPaginationTokenException} (client fault)
- *  <p>You have provided an invalid pagination token in your request.</p>
+ *
+ * You have provided an invalid pagination token in your request.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is malformed or otherwise invalid. Verify the request and try
- * 			again.</p>
+ *
+ * The request is malformed or otherwise invalid. Verify the request and try again.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>At least one of the resources referenced by your request does not exist.</p>
+ *
+ * At least one of the resources referenced by your request does not exist.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>An internal server error occurred while Image Builder processed the request.
- * 			Retrying the request may succeed.</p>
+ *
+ * An internal server error occurred while Image Builder processed the request. Retrying the request may succeed.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is unable to process your request at this time.</p>
+ *
+ * The service is unable to process your request at this time.
  *
  * @throws {@link ImagebuilderServiceException}
- * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * Base exception class for all service exceptions from Imagebuilder service.
  *
  * @example List the images that an image pipeline created
  * ```javascript

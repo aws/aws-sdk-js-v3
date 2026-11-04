@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { MediaTailorServiceException as __BaseException } from "./MediaTailorServiceException";
 
 /**
- * <p>A request contains unexpected data.</p>
+ * A request contains unexpected data.
+ *
  * @public
  */
 export class BadRequestException extends __BaseException {

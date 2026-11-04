@@ -23,9 +23,8 @@ export interface DeleteMedicalTranscriptionJobCommandInput extends DeleteMedical
 export interface DeleteMedicalTranscriptionJobCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a medical transcription job. To use this operation, specify the name of the
- *             job you want to delete using <code>MedicalTranscriptionJobName</code>. Job names are
- *             case sensitive.</p>
+ * Deletes a medical transcription job. To use this operation, specify the name of the job you want to delete using `MedicalTranscriptionJobName`. Job names are case sensitive.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,22 +49,20 @@ export interface DeleteMedicalTranscriptionJobCommandOutput extends __MetadataBe
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>Your request didn't pass one or more validation tests. This can occur when the entity
- *             you're trying to delete doesn't exist or if it's in a non-terminal state (such as
- *                 <code>IN PROGRESS</code>). See the exception message field for more
- *             information.</p>
+ *
+ * Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as `IN PROGRESS`). See the exception message field for more information.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>There was an internal error. Check the error message, correct the issue, and try your
- *             request again.</p>
+ *
+ * There was an internal error. Check the error message, correct the issue, and try your request again.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You've either sent too many requests or your input file is too long. Wait before
- *             retrying your request, or use a smaller file and try your request again.</p>
+ *
+ * You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.
  *
  * @throws {@link TranscribeServiceException}
- * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * Base exception class for all service exceptions from Transcribe service.
  *
  * @public
  */

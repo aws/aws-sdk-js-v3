@@ -23,32 +23,10 @@ export interface ListLaunchPathsCommandInput extends ListLaunchPathsInput {}
 export interface ListLaunchPathsCommandOutput extends ListLaunchPathsOutput, __MetadataBearer {}
 
 /**
- * <p>
- *          Lists the paths
- *          to the specified product.
- *          A path describes
- *          how the user
- *          gets access
- *          to a specified product
- *          and is necessary
- *          when provisioning a product.
- *          A path also determines the constraints
- *          that are put on a product.
- *          A path is dependent
- *          on a specific product, porfolio, and principal.
- *       </p>
- *          <note>
- *             <p>
- *             When provisioning a product
- *             that's been added
- *             to a portfolio,
- *             you must grant your user, group, or role access
- *             to the portfolio.
- *             For more information,
- *             see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/catalogs_portfolios_users.html">Granting users access</a>
- *             in the <i>Service Catalog User Guide</i>.
- *          </p>
- *          </note>
+ * Lists the paths to the specified product. A path describes how the user gets access to a specified product and is necessary when provisioning a product. A path also determines the constraints that are put on a product. A path is dependent on a specific product, porfolio, and principal.
+ *
+ * > **Note:** When provisioning a product that's been added to a portfolio, you must grant your user, group, or role access to the portfolio. For more information, see [Granting users access](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/catalogs_portfolios_users.html) in the *Service Catalog User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -96,14 +74,16 @@ export interface ListLaunchPathsCommandOutput extends ListLaunchPathsOutput, __M
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  * @throws {@link InvalidParametersException} (client fault)
- *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * One or more parameters provided to the operation are not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ServiceCatalogServiceException}
- * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * Base exception class for all service exceptions from ServiceCatalog service.
  *
  * @public
  */

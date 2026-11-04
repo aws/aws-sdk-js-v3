@@ -23,27 +23,22 @@ export interface DeleteConfigRuleCommandInput extends DeleteConfigRuleRequest {}
 export interface DeleteConfigRuleCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified Config rule and all of its evaluation
- * 			results.</p>
- *          <p>Config sets the state of a rule to <code>DELETING</code>
- * 			until the deletion is complete. You cannot update a rule while it is
- * 			in this state. If you make a <code>PutConfigRule</code> or
- * 				<code>DeleteConfigRule</code> request for the rule, you will
- * 			receive a <code>ResourceInUseException</code>.</p>
- *          <p>You can check the state of a rule by using the
- * 				<code>DescribeConfigRules</code> request.</p>
- *          <note>
- *             <p>
- *                <b>Recommendation: Consider excluding the <code>AWS::Config::ResourceCompliance</code> resource type from recording before deleting rules</b>
- *             </p>
- *             <p>Deleting rules creates configuration items (CIs) for <code>AWS::Config::ResourceCompliance</code>
- * 				that can affect your costs for the configuration recorder. If you are deleting rules which evaluate a large number of resource types,
- * 				this can lead to a spike in the number of CIs recorded.</p>
- *             <p>To avoid the associated costs, you can opt to disable recording
- * 				for the <code>AWS::Config::ResourceCompliance</code> resource type before deleting rules, and re-enable recording after the rules have been deleted.</p>
- *             <p>However, since deleting rules is an asynchronous process, it might take an hour or more to complete. During the time
- * 				when recording is disabled for <code>AWS::Config::ResourceCompliance</code>, rule evaluations will not be recorded in the associated resource’s history.</p>
- *          </note>
+ * Deletes the specified Config rule and all of its evaluation results.
+ *
+ * Config sets the state of a rule to `DELETING` until the deletion is complete. You cannot update a rule while it is in this state. If you make a `PutConfigRule` or `DeleteConfigRule` request for the rule, you will receive a `ResourceInUseException`.
+ *
+ * You can check the state of a rule by using the `DescribeConfigRules` request.
+ *
+ * > **Note:**
+ * >
+ * > **Recommendation: Consider excluding the `AWS::Config::ResourceCompliance` resource type from recording before deleting rules**
+ * >
+ * > Deleting rules creates configuration items (CIs) for `AWS::Config::ResourceCompliance` that can affect your costs for the configuration recorder. If you are deleting rules which evaluate a large number of resource types, this can lead to a spike in the number of CIs recorded.
+ * >
+ * > To avoid the associated costs, you can opt to disable recording for the `AWS::Config::ResourceCompliance` resource type before deleting rules, and re-enable recording after the rules have been deleted.
+ * >
+ * > However, since deleting rules is an asynchronous process, it might take an hour or more to complete. During the time when recording is disabled for `AWS::Config::ResourceCompliance`, rule evaluations will not be recorded in the associated resource’s history.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,37 +63,24 @@ export interface DeleteConfigRuleCommandOutput extends __MetadataBearer {}
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  * @throws {@link NoSuchConfigRuleException} (client fault)
- *  <p>The Config rule in the request is not valid. Verify that the rule is an Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
+ *
+ * The Config rule in the request is not valid. Verify that the rule is an Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>You see this exception in the following cases: </p>
- *          <ul>
- *             <li>
- *                <p>For DeleteConfigRule, Config is deleting this rule. Try your request again later.</p>
- *             </li>
- *             <li>
- *                <p>For DeleteConfigRule, the rule is deleting your evaluation results. Try your request again later.</p>
- *             </li>
- *             <li>
- *                <p>For DeleteConfigRule, a remediation action is associated with the rule and Config cannot delete this rule. Delete the remediation action associated with the rule before deleting the rule and try your request again later.</p>
- *             </li>
- *             <li>
- *                <p>For PutConfigOrganizationRule, organization Config rule deletion is in progress. Try your request again later.</p>
- *             </li>
- *             <li>
- *                <p>For DeleteOrganizationConfigRule, organization Config rule creation is in progress. Try your request again later.</p>
- *             </li>
- *             <li>
- *                <p>For PutConformancePack and PutOrganizationConformancePack, a conformance pack creation, update, and deletion is in progress. Try your request again later.</p>
- *             </li>
- *             <li>
- *                <p>For DeleteConformancePack, a conformance pack creation, update, and deletion is in progress. Try your request again later.</p>
- *             </li>
- *          </ul>
+ *
+ * You see this exception in the following cases:
+ *
+ * - For DeleteConfigRule, Config is deleting this rule. Try your request again later.
+ * - For DeleteConfigRule, the rule is deleting your evaluation results. Try your request again later.
+ * - For DeleteConfigRule, a remediation action is associated with the rule and Config cannot delete this rule. Delete the remediation action associated with the rule before deleting the rule and try your request again later.
+ * - For PutConfigOrganizationRule, organization Config rule deletion is in progress. Try your request again later.
+ * - For DeleteOrganizationConfigRule, organization Config rule creation is in progress. Try your request again later.
+ * - For PutConformancePack and PutOrganizationConformancePack, a conformance pack creation, update, and deletion is in progress. Try your request again later.
+ * - For DeleteConformancePack, a conformance pack creation, update, and deletion is in progress. Try your request again later.
  *
  * @throws {@link ConfigServiceServiceException}
- * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * Base exception class for all service exceptions from ConfigService service.
  *
  * @public
  */

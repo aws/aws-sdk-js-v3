@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>Provides APIs to create, manage, and operate AWS Lambda MicroVMs and their associated MicroVM Image environments.</p>
+ * Provides APIs to create, manage, and operate AWS Lambda MicroVMs and their associated MicroVM Image environments.
  *
  * @packageDocumentation
  */

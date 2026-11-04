@@ -24,44 +24,25 @@ export interface DescribeContactCommandInput extends DescribeContactRequest {}
 export interface DescribeContactCommandOutput extends DescribeContactResponse, __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Connect Customer and is subject to change.</p>
- *          <p>Describes the specified contact. </p>
- *          <p>
- *             <b>Use cases</b>
- *          </p>
- *          <p>Following are common uses cases for this API:</p>
- *          <ul>
- *             <li>
- *                <p>Retrieve contact information such as the caller's phone number and the specific number the caller dialed to
- *      integrate into custom monitoring or custom agent experience solutions.</p>
- *             </li>
- *             <li>
- *                <p>Detect when a customer chat session disconnects due to a network issue on the agent's end. Use the
- *      DisconnectReason field in the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/ctr-data-model.html#ctr-ContactTraceRecord">ContactTraceRecord</a> to detect
- *      this event and then re-queue the chat for followup.</p>
- *             </li>
- *             <li>
- *                <p>Identify after contact work (ACW) duration and call recordings information when a COMPLETED event is received
- *      by using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-events.html">contact event
- *       stream</a>. </p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Important things to know</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>SystemEndpoint</code> is not populated for contacts with initiation method of MONITOR, QUEUE_TRANSFER,
- *      or CALLBACK</p>
- *             </li>
- *             <li>
- *                <p>Contact information remains available in Connect Customer for 24 months from the
- *       <code>InitiationTimestamp</code>, and then it is deleted. Only contact information that is available in Connect Customer is returned by this API.</p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Connect Customer endpoints and quotas</a>.</p>
+ * This API is in preview release for Connect Customer and is subject to change.
+ *
+ * Describes the specified contact.
+ *
+ * **Use cases**
+ *
+ * Following are common uses cases for this API:
+ *
+ * - Retrieve contact information such as the caller's phone number and the specific number the caller dialed to integrate into custom monitoring or custom agent experience solutions.
+ * - Detect when a customer chat session disconnects due to a network issue on the agent's end. Use the DisconnectReason field in the [ContactTraceRecord](https://docs.aws.amazon.com/connect/latest/adminguide/ctr-data-model.html#ctr-ContactTraceRecord) to detect this event and then re-queue the chat for followup.
+ * - Identify after contact work (ACW) duration and call recordings information when a COMPLETED event is received by using the [contact event stream](https://docs.aws.amazon.com/connect/latest/adminguide/contact-events.html).
+ *
+ * **Important things to know**
+ *
+ * - `SystemEndpoint` is not populated for contacts with initiation method of MONITOR, QUEUE_TRANSFER, or CALLBACK
+ * - Contact information remains available in Connect Customer for 24 months from the `InitiationTimestamp`, and then it is deleted. Only contact information that is available in Connect Customer is returned by this API.
+ *
+ * **Endpoints**: See [Connect Customer endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -465,23 +446,28 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

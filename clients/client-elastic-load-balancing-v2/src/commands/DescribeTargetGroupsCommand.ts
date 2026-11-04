@@ -23,10 +23,8 @@ export interface DescribeTargetGroupsCommandInput extends DescribeTargetGroupsIn
 export interface DescribeTargetGroupsCommandOutput extends DescribeTargetGroupsOutput, __MetadataBearer {}
 
 /**
- * <p>Describes the specified target groups or all of your target groups. By default, all target
- *       groups are described. Alternatively, you can specify one of the following to filter the
- *       results: the ARN of the load balancer, the names of one or more target groups, or the ARNs of
- *       one or more target groups.</p>
+ * Describes the specified target groups or all of your target groups. By default, all target groups are described. Alternatively, you can specify one of the following to filter the results: the ARN of the load balancer, the names of one or more target groups, or the ARNs of one or more target groups.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -89,14 +87,16 @@ export interface DescribeTargetGroupsCommandOutput extends DescribeTargetGroupsO
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
  * @throws {@link LoadBalancerNotFoundException} (client fault)
- *  <p>The specified load balancer does not exist.</p>
+ *
+ * The specified load balancer does not exist.
  *
  * @throws {@link TargetGroupNotFoundException} (client fault)
- *  <p>The specified target group does not exist.</p>
+ *
+ * The specified target group does not exist.
  *
  * @throws {@link ElasticLoadBalancingV2ServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancingV2 service.
  *
  * @example To describe a target group
  * ```javascript

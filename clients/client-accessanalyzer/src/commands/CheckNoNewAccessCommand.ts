@@ -23,7 +23,10 @@ export interface CheckNoNewAccessCommandInput extends CheckNoNewAccessRequest {}
 export interface CheckNoNewAccessCommandOutput extends CheckNoNewAccessResponse, __MetadataBearer {}
 
 /**
- * <p>Checks whether new access is allowed for an updated policy when compared to the existing policy.</p> <p>You can find examples for reference policies and learn how to set up and run a custom policy check for new access in the <a href="https://github.com/aws-samples/iam-access-analyzer-custom-policy-check-samples">IAM Access Analyzer custom policy checks samples</a> repository on GitHub. The reference policies in this repository are meant to be passed to the <code>existingPolicyDocument</code> request parameter.</p>
+ * Checks whether new access is allowed for an updated policy when compared to the existing policy.
+ *
+ * You can find examples for reference policies and learn how to set up and run a custom policy check for new access in the [IAM Access Analyzer custom policy checks samples](https://github.com/aws-samples/iam-access-analyzer-custom-policy-check-samples) repository on GitHub. The reference policies in this repository are meant to be passed to the `existingPolicyDocument` request parameter.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,26 +63,32 @@ export interface CheckNoNewAccessCommandOutput extends CheckNoNewAccessResponse,
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal server error.</p>
+ *
+ * Internal server error.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid.</p>
+ *
+ * The specified parameter is invalid.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Throttling limit exceeded error.</p>
+ *
+ * Throttling limit exceeded error.
  *
  * @throws {@link UnprocessableEntityException} (client fault)
- *  <p>The specified entity could not be processed.</p>
+ *
+ * The specified entity could not be processed.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Validation exception error.</p>
+ *
+ * Validation exception error.
  *
  * @throws {@link AccessAnalyzerServiceException}
- * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ * Base exception class for all service exceptions from AccessAnalyzer service.
  *
  * @public
  */

@@ -23,13 +23,12 @@ export interface AddListenerCertificatesCommandInput extends AddListenerCertific
 export interface AddListenerCertificatesCommandOutput extends AddListenerCertificatesOutput, __MetadataBearer {}
 
 /**
- * <p>Adds the specified SSL server certificate to the certificate list for the specified HTTPS
- *       or TLS listener.</p>
- *          <p>If the certificate in already in the certificate list, the call is successful but the
- *       certificate is not added again.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/https-listener-certificates.html">SSL
- *         certificates</a> in the <i>Application Load Balancers Guide</i> or <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/tls-listener-certificates.html">Server
- *         certificates</a> in the <i>Network Load Balancers Guide</i>.</p>
+ * Adds the specified SSL server certificate to the certificate list for the specified HTTPS or TLS listener.
+ *
+ * If the certificate in already in the certificate list, the call is successful but the certificate is not added again.
+ *
+ * For more information, see [SSL certificates](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/https-listener-certificates.html) in the *Application Load Balancers Guide* or [Server certificates](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/tls-listener-certificates.html) in the *Network Load Balancers Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,17 +66,20 @@ export interface AddListenerCertificatesCommandOutput extends AddListenerCertifi
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
  * @throws {@link CertificateNotFoundException} (client fault)
- *  <p>The specified certificate does not exist.</p>
+ *
+ * The specified certificate does not exist.
  *
  * @throws {@link ListenerNotFoundException} (client fault)
- *  <p>The specified listener does not exist.</p>
+ *
+ * The specified listener does not exist.
  *
  * @throws {@link TooManyCertificatesException} (client fault)
- *  <p>You've reached the limit on the number of certificates per load balancer.</p>
+ *
+ * You've reached the limit on the number of certificates per load balancer.
  *
  * @throws {@link ElasticLoadBalancingV2ServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancingV2 service.
  *
  * @public
  */

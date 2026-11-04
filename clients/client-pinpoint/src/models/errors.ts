@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { PinpointServiceException as __BaseException } from "./PinpointServiceException";
 
 /**
- * <p>Provides information about an API request or response.</p>
+ * Provides information about an API request or response.
+ *
  * @public
  */
 export class BadRequestException extends __BaseException {
@@ -12,13 +13,15 @@ export class BadRequestException extends __BaseException {
   readonly name = "BadRequestException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The message that's returned from the API.</p>
+   * The message that's returned from the API.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The unique identifier for the request or response.</p>
+   * The unique identifier for the request or response.
+   *
    * @public
    */
   RequestID?: string | undefined;
@@ -38,7 +41,8 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * <p>Provides information about an API request or response.</p>
+ * Provides information about an API request or response.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -46,13 +50,15 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The message that's returned from the API.</p>
+   * The message that's returned from the API.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The unique identifier for the request or response.</p>
+   * The unique identifier for the request or response.
+   *
    * @public
    */
   RequestID?: string | undefined;
@@ -72,7 +78,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>Provides information about an API request or response.</p>
+ * Provides information about an API request or response.
+ *
  * @public
  */
 export class ForbiddenException extends __BaseException {
@@ -80,13 +87,15 @@ export class ForbiddenException extends __BaseException {
   readonly name = "ForbiddenException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The message that's returned from the API.</p>
+   * The message that's returned from the API.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The unique identifier for the request or response.</p>
+   * The unique identifier for the request or response.
+   *
    * @public
    */
   RequestID?: string | undefined;
@@ -106,7 +115,8 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
- * <p>Provides information about an API request or response.</p>
+ * Provides information about an API request or response.
+ *
  * @public
  */
 export class InternalServerErrorException extends __BaseException {
@@ -114,13 +124,15 @@ export class InternalServerErrorException extends __BaseException {
   readonly name = "InternalServerErrorException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>The message that's returned from the API.</p>
+   * The message that's returned from the API.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The unique identifier for the request or response.</p>
+   * The unique identifier for the request or response.
+   *
    * @public
    */
   RequestID?: string | undefined;
@@ -140,7 +152,8 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
- * <p>Provides information about an API request or response.</p>
+ * Provides information about an API request or response.
+ *
  * @public
  */
 export class MethodNotAllowedException extends __BaseException {
@@ -148,13 +161,15 @@ export class MethodNotAllowedException extends __BaseException {
   readonly name = "MethodNotAllowedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The message that's returned from the API.</p>
+   * The message that's returned from the API.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The unique identifier for the request or response.</p>
+   * The unique identifier for the request or response.
+   *
    * @public
    */
   RequestID?: string | undefined;
@@ -174,7 +189,8 @@ export class MethodNotAllowedException extends __BaseException {
 }
 
 /**
- * <p>Provides information about an API request or response.</p>
+ * Provides information about an API request or response.
+ *
  * @public
  */
 export class NotFoundException extends __BaseException {
@@ -182,13 +198,15 @@ export class NotFoundException extends __BaseException {
   readonly name = "NotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The message that's returned from the API.</p>
+   * The message that's returned from the API.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The unique identifier for the request or response.</p>
+   * The unique identifier for the request or response.
+   *
    * @public
    */
   RequestID?: string | undefined;
@@ -208,7 +226,8 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * <p>Provides information about an API request or response.</p>
+ * Provides information about an API request or response.
+ *
  * @public
  */
 export class PayloadTooLargeException extends __BaseException {
@@ -216,13 +235,15 @@ export class PayloadTooLargeException extends __BaseException {
   readonly name = "PayloadTooLargeException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The message that's returned from the API.</p>
+   * The message that's returned from the API.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The unique identifier for the request or response.</p>
+   * The unique identifier for the request or response.
+   *
    * @public
    */
   RequestID?: string | undefined;
@@ -242,7 +263,8 @@ export class PayloadTooLargeException extends __BaseException {
 }
 
 /**
- * <p>Provides information about an API request or response.</p>
+ * Provides information about an API request or response.
+ *
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
@@ -250,13 +272,15 @@ export class TooManyRequestsException extends __BaseException {
   readonly name = "TooManyRequestsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The message that's returned from the API.</p>
+   * The message that's returned from the API.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The unique identifier for the request or response.</p>
+   * The unique identifier for the request or response.
+   *
    * @public
    */
   RequestID?: string | undefined;

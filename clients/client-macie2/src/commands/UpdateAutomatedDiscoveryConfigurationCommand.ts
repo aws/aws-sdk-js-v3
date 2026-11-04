@@ -26,7 +26,8 @@ export interface UpdateAutomatedDiscoveryConfigurationCommandInput extends Updat
 export interface UpdateAutomatedDiscoveryConfigurationCommandOutput extends UpdateAutomatedDiscoveryConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Changes the configuration settings and status of automated sensitive data discovery for an organization or standalone account.</p>
+ * Changes the configuration settings and status of automated sensitive data discovery for an organization or standalone account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,20 +53,24 @@ export interface UpdateAutomatedDiscoveryConfigurationCommandOutput extends Upda
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+ *
+ * Provides information about an error that occurred due to insufficient access to a specified resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+ *
+ * Provides information about an error that occurred due to an unknown internal server error, exception, or failure.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+ *
+ * Provides information about an error that occurred because too many requests were sent during a certain amount of time.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+ *
+ * Provides information about an error that occurred due to a syntax error in a request.
  *
  * @throws {@link Macie2ServiceException}
- * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * Base exception class for all service exceptions from Macie2 service.
  *
  * @public
  */

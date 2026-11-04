@@ -23,7 +23,8 @@ export interface GetTelemetryEvaluationStatusCommandInput {}
 export interface GetTelemetryEvaluationStatusCommandOutput extends GetTelemetryEvaluationStatusOutput, __MetadataBearer {}
 
 /**
- * <p> Returns the current onboarding status of the telemetry config feature, including the status of the feature and reason the feature failed to start or stop. </p>
+ * Returns the current onboarding status of the telemetry config feature, including the status of the feature and reason the feature failed to start or stop.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,17 +59,20 @@ export interface GetTelemetryEvaluationStatusCommandOutput extends GetTelemetryE
  * @see {@link ObservabilityAdminClientResolvedConfig | config} for ObservabilityAdminClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
+ *
+ * Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see [Access management for Amazon Web Services resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the IAM user guide.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
+ *
+ * Indicates the request has failed to process because of an unknown server error, exception, or failure.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p> The request throughput limit was exceeded. </p>
+ *
+ * The request throughput limit was exceeded.
  *
  * @throws {@link ObservabilityAdminServiceException}
- * <p>Base exception class for all service exceptions from ObservabilityAdmin service.</p>
  *
+ * Base exception class for all service exceptions from ObservabilityAdmin service.
  *
  * @public
  */

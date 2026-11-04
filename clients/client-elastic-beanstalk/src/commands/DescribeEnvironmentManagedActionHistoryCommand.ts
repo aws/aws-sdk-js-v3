@@ -26,7 +26,8 @@ export interface DescribeEnvironmentManagedActionHistoryCommandInput extends Des
 export interface DescribeEnvironmentManagedActionHistoryCommandOutput extends DescribeEnvironmentManagedActionHistoryResult, __MetadataBearer {}
 
 /**
- * <p>Lists an environment's completed and failed managed actions.</p>
+ * Lists an environment's completed and failed managed actions.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,11 +69,12 @@ export interface DescribeEnvironmentManagedActionHistoryCommandOutput extends De
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  * @throws {@link ElasticBeanstalkServiceException} (client fault)
- *  <p>A generic service exception has occurred.</p>
+ *
+ * A generic service exception has occurred.
  *
  * @throws {@link ElasticBeanstalkSyntheticServiceException}
- * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * Base exception class for all service exceptions from ElasticBeanstalk service.
  *
  * @public
  */

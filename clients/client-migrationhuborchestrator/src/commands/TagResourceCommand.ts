@@ -23,7 +23,8 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Tag a resource by specifying its Amazon Resource Name (ARN).</p>
+ * Tag a resource by specifying its Amazon Resource Name (ARN).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,14 +52,16 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource is not available.</p>
+ *
+ * The resource is not available.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an AWS service.
  *
  * @throws {@link MigrationHubOrchestratorServiceException}
- * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
+ * Base exception class for all service exceptions from MigrationHubOrchestrator service.
  *
  * @public
  */

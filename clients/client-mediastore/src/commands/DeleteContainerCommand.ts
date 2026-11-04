@@ -23,9 +23,8 @@ export interface DeleteContainerCommandInput extends DeleteContainerInput {}
 export interface DeleteContainerCommandOutput extends DeleteContainerOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified container. Before you make a <code>DeleteContainer</code>
- *          request, delete any objects in the container or in any folders in the container. You can
- *          delete only empty containers. </p>
+ * Deletes the specified container. Before you make a `DeleteContainer` request, delete any objects in the container or in any folders in the container. You can delete only empty containers.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,18 +49,20 @@ export interface DeleteContainerCommandOutput extends DeleteContainerOutput, __M
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
  *
  * @throws {@link ContainerInUseException} (client fault)
- *  <p>The container that you specified in the request already exists or is being
- *          updated.</p>
+ *
+ * The container that you specified in the request already exists or is being updated.
  *
  * @throws {@link ContainerNotFoundException} (client fault)
- *  <p>The container that you specified in the request does not exist.</p>
+ *
+ * The container that you specified in the request does not exist.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>The service is temporarily unavailable.</p>
+ *
+ * The service is temporarily unavailable.
  *
  * @throws {@link MediaStoreServiceException}
- * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
+ * Base exception class for all service exceptions from MediaStore service.
  *
  * @public
  */

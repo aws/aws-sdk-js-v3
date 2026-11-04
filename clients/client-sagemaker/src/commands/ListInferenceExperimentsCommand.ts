@@ -23,7 +23,8 @@ export interface ListInferenceExperimentsCommandInput extends ListInferenceExper
 export interface ListInferenceExperimentsCommandOutput extends ListInferenceExperimentsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the list of all inference experiments.</p>
+ * Returns the list of all inference experiments.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,8 +78,8 @@ export interface ListInferenceExperimentsCommandOutput extends ListInferenceExpe
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceInpu
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the tags associated with the specified resource.</p>
+ * Lists the tags associated with the specified resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,23 +53,28 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @see {@link NetworkSecurityManagerClientResolvedConfig | config} for NetworkSecurityManagerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing failed because of an internal error in the service. This is a retryable error.</p>
+ *
+ * The request processing failed because of an internal error in the service. This is a retryable error.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found. Verify that the resource identifier is correct and that the resource exists, then try your request again.</p>
+ *
+ * The specified resource was not found. Verify that the resource identifier is correct and that the resource exists, then try your request again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied because of request throttling. Reduce your request rate and try again.</p>
+ *
+ * The request was denied because of request throttling. Reduce your request rate and try again.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request failed validation. For details, see the <code>reason</code> and <code>fieldList</code> members of the response.</p>
+ *
+ * The request failed validation. For details, see the `reason` and `fieldList` members of the response.
  *
  * @throws {@link NetworkSecurityManagerServiceException}
- * <p>Base exception class for all service exceptions from NetworkSecurityManager service.</p>
  *
+ * Base exception class for all service exceptions from NetworkSecurityManager service.
  *
  * @example List the tags on a resource
  * ```javascript

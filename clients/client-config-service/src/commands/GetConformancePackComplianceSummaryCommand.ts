@@ -26,7 +26,8 @@ export interface GetConformancePackComplianceSummaryCommandInput extends GetConf
 export interface GetConformancePackComplianceSummaryCommandOutput extends GetConformancePackComplianceSummaryResponse, __MetadataBearer {}
 
 /**
- * <p>Returns compliance details for the conformance pack based on the cumulative compliance results of all the rules in that conformance pack.</p>
+ * Returns compliance details for the conformance pack based on the cumulative compliance results of all the rules in that conformance pack.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,19 +64,20 @@ export interface GetConformancePackComplianceSummaryCommandOutput extends GetCon
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  * @throws {@link InvalidLimitException} (client fault)
- *  <p>The specified limit is outside the allowable range.</p>
+ *
+ * The specified limit is outside the allowable range.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The specified next token is not valid. Specify the
- * 				<code>nextToken</code> string that was returned in the previous
- * 			response to get the next page of results.</p>
+ *
+ * The specified next token is not valid. Specify the `nextToken` string that was returned in the previous response to get the next page of results.
  *
  * @throws {@link NoSuchConformancePackException} (client fault)
- *  <p>You specified one or more conformance packs that do not exist.</p>
+ *
+ * You specified one or more conformance packs that do not exist.
  *
  * @throws {@link ConfigServiceServiceException}
- * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * Base exception class for all service exceptions from ConfigService service.
  *
  * @public
  */

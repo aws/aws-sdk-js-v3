@@ -23,7 +23,8 @@ export interface BatchDeleteScheduledActionCommandInput extends BatchDeleteSched
 export interface BatchDeleteScheduledActionCommandOutput extends BatchDeleteScheduledActionAnswer, __MetadataBearer {}
 
 /**
- * <p>Deletes one or more scheduled actions for the specified Auto Scaling group.</p>
+ * Deletes one or more scheduled actions for the specified Auto Scaling group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,12 +60,12 @@ export interface BatchDeleteScheduledActionCommandOutput extends BatchDeleteSche
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  * @throws {@link ResourceContentionFault} (server fault)
- *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
- *             instance, or load balancer).</p>
+ *
+ * You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).
  *
  * @throws {@link AutoScalingServiceException}
- * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from AutoScaling service.
  *
  * @public
  */

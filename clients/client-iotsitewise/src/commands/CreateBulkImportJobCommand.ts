@@ -23,29 +23,18 @@ export interface CreateBulkImportJobCommandInput extends CreateBulkImportJobRequ
 export interface CreateBulkImportJobCommandOutput extends CreateBulkImportJobResponse, __MetadataBearer {}
 
 /**
- * <p>Defines a job to ingest data to IoT SiteWise from Amazon S3. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/CreateBulkImportJob.html">Create a
- *         bulk import job (CLI)</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
- *          <important>
- *             <p>Before you create a bulk import job that ingests data into time series outside of a
- *         workspace, you must enable IoT SiteWise warm tier or IoT SiteWise cold tier. For more information about how
- *         to configure storage settings, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_PutStorageConfiguration.html">PutStorageConfiguration</a>. This requirement doesn't apply to bulk import jobs that
- *         ingest data into a session dataset in a workspace (jobs that specify a
- *         <code>workspaceName</code> and <code>datasetId</code>). Those jobs don't use IoT SiteWise warm or
- *         cold tier storage.</p>
- *             <p>Bulk import is designed to store historical data to IoT SiteWise.</p>
- *             <ul>
- *                <li>
- *                   <p>Newly ingested data in the hot tier triggers notifications and computations.</p>
- *                </li>
- *                <li>
- *                   <p>After data moves from the hot tier to the warm or cold tier based on retention
- *             settings, it does not trigger computations or notifications.</p>
- *                </li>
- *                <li>
- *                   <p>Data older than 7 days does not trigger computations or notifications.</p>
- *                </li>
- *             </ul>
- *          </important>
+ * Defines a job to ingest data to IoT SiteWise from Amazon S3. For more information, see [Create a bulk import job (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/CreateBulkImportJob.html) in the *Amazon Simple Storage Service User Guide*.
+ *
+ * > **Important:**
+ * >
+ * > Before you create a bulk import job that ingests data into time series outside of a workspace, you must enable IoT SiteWise warm tier or IoT SiteWise cold tier. For more information about how to configure storage settings, see [PutStorageConfiguration](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_PutStorageConfiguration.html). This requirement doesn't apply to bulk import jobs that ingest data into a session dataset in a workspace (jobs that specify a `workspaceName` and `datasetId`). Those jobs don't use IoT SiteWise warm or cold tier storage.
+ * >
+ * > Bulk import is designed to store historical data to IoT SiteWise.
+ * >
+ * > - Newly ingested data in the hot tier triggers notifications and computations.
+ * > - After data moves from the hot tier to the warm or cold tier based on retention settings, it does not trigger computations or notifications.
+ * > - Data older than 7 days does not trigger computations or notifications.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -117,37 +106,40 @@ export interface CreateBulkImportJobCommandOutput extends CreateBulkImportJobRes
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  * @throws {@link ConflictingOperationException} (client fault)
- *  <p>Your request has conflicting operations. This can occur if you're trying to perform more
- *       than one operation on the same resource at the same time.</p>
+ *
+ * Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>IoT SiteWise can't process your request right now. Try again later.</p>
+ *
+ * IoT SiteWise can't process your request right now. Try again later.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *       unsupported characters. Check your request and try again.</p>
+ *
+ * The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You've reached the quota for a resource. For example, this can occur if you're trying to
- *       associate more than the allowed number of child assets or attempting to create more than the
- *       allowed number of properties for an asset model.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ *
+ * You've reached the quota for a resource. For example, this can occur if you're trying to associate more than the allowed number of child assets or attempting to create more than the allowed number of properties for an asset model.
+ *
+ * For more information, see [Quotas](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html) in the *IoT SiteWise User Guide*.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>The resource already exists.</p>
+ *
+ * The resource already exists.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource can't be found.</p>
+ *
+ * The requested resource can't be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Your request exceeded a rate limit. For example, you might have exceeded the number of
- *       IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so
- *       on.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ *
+ * Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.
+ *
+ * For more information, see [Quotas](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html) in the *IoT SiteWise User Guide*.
  *
  * @throws {@link IoTSiteWiseServiceException}
- * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * Base exception class for all service exceptions from IoTSiteWise service.
  *
  * @public
  */

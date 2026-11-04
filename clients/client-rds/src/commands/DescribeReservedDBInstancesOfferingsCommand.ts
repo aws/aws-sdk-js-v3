@@ -26,7 +26,8 @@ export interface DescribeReservedDBInstancesOfferingsCommandInput extends Descri
 export interface DescribeReservedDBInstancesOfferingsCommandOutput extends ReservedDBInstancesOfferingMessage, __MetadataBearer {}
 
 /**
- * <p>Lists available reserved DB instance offerings.</p>
+ * Lists available reserved DB instance offerings.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,11 +88,12 @@ export interface DescribeReservedDBInstancesOfferingsCommandOutput extends Reser
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link ReservedDBInstancesOfferingNotFoundFault} (client fault)
- *  <p>Specified offering does not exist.</p>
+ *
+ * Specified offering does not exist.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To describe reserved DB instance offerings
  * ```javascript

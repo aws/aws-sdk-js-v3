@@ -23,7 +23,8 @@ export interface CreateCidrCollectionCommandInput extends CreateCidrCollectionRe
 export interface CreateCidrCollectionCommandOutput extends CreateCidrCollectionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a CIDR collection in the current Amazon Web Services account.</p>
+ * Creates a CIDR collection in the current Amazon Web Services account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,23 +58,24 @@ export interface CreateCidrCollectionCommandOutput extends CreateCidrCollectionR
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link CidrCollectionAlreadyExistsException} (client fault)
- *  <p>A CIDR collection with this name and a different caller reference already exists in this account.</p>
+ *
+ * A CIDR collection with this name and a different caller reference already exists in this account.
  *
  * @throws {@link ConcurrentModification} (client fault)
- *  <p>Another user submitted a request to create, update, or delete the object at the same
- * 			time that you did. Retry the request. </p>
+ *
+ * Another user submitted a request to create, update, or delete the object at the same time that you did. Retry the request.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link LimitsExceeded} (client fault)
- *  <p>This operation can't be completed because the current account has reached the
- * 			limit on the resource you are trying to create. To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the Amazon Web Services Support
- * 			Center.</p>
+ *
+ * This operation can't be completed because the current account has reached the limit on the resource you are trying to create. To request a higher limit, [create a case](http://aws.amazon.com/route53-request) with the Amazon Web Services Support Center.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @public
  */

@@ -23,9 +23,8 @@ export interface StartCanaryCommandInput extends StartCanaryRequest {}
 export interface StartCanaryCommandOutput extends StartCanaryResponse, __MetadataBearer {}
 
 /**
- * <p>Use this operation to run a canary that has already been created.
- *          The frequency of the canary runs is determined by the value of the canary's <code>Schedule</code>. To see a canary's schedule,
- *          use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_GetCanary.html">GetCanary</a>.</p>
+ * Use this operation to run a canary that has already been created. The frequency of the canary runs is determined by the value of the canary's `Schedule`. To see a canary's schedule, use [GetCanary](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_GetCanary.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,20 +49,24 @@ export interface StartCanaryCommandOutput extends StartCanaryResponse, __Metadat
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A conflicting operation is already in progress.</p>
+ *
+ * A conflicting operation is already in progress.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unknown internal error occurred.</p>
+ *
+ * An unknown internal error occurred.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>One of the specified resources was not found.</p>
+ *
+ * One of the specified resources was not found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A parameter could not be validated.</p>
+ *
+ * A parameter could not be validated.
  *
  * @throws {@link SyntheticsServiceException}
- * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ * Base exception class for all service exceptions from Synthetics service.
  *
  * @public
  */

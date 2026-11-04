@@ -23,12 +23,14 @@ export interface DeleteBatchPredictionCommandInput extends DeleteBatchPrediction
 export interface DeleteBatchPredictionCommandOutput extends DeleteBatchPredictionOutput, __MetadataBearer {}
 
 /**
- * <p>Assigns the DELETED status to a <code>BatchPrediction</code>, rendering it unusable.</p>
- *         <p>After using the <code>DeleteBatchPrediction</code> operation, you can use the <a>GetBatchPrediction</a>
- *             operation to verify that the status of the <code>BatchPrediction</code> changed to DELETED.</p>
+ * Assigns the DELETED status to a `BatchPrediction`, rendering it unusable.
  *
- *         <p>
- *             <b>Caution:</b> The result of the <code>DeleteBatchPrediction</code> operation is irreversible.</p>
+ * After using the `DeleteBatchPrediction` operation, you can use the GetBatchPrediction operation to verify that the status of the `BatchPrediction` changed to DELETED.
+ *
+ *
+ *
+ * **Caution:** The result of the `DeleteBatchPrediction` operation is irreversible.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,17 +57,20 @@ export interface DeleteBatchPredictionCommandOutput extends DeleteBatchPredictio
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An error on the server occurred when trying to process a request.</p>
+ *
+ * An error on the server occurred when trying to process a request.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+ *
+ * An error on the client occurred. Typically, the cause is an invalid input value.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A specified resource cannot be located.</p>
+ *
+ * A specified resource cannot be located.
  *
  * @throws {@link MachineLearningServiceException}
- * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ * Base exception class for all service exceptions from MachineLearning service.
  *
  * @public
  */

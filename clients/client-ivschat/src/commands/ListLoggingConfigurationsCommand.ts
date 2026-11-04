@@ -23,8 +23,8 @@ export interface ListLoggingConfigurationsCommandInput extends ListLoggingConfig
 export interface ListLoggingConfigurationsCommandOutput extends ListLoggingConfigurationsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets summary information about all your logging configurations in the AWS region where
- *          the API request is processed.</p>
+ * Gets summary information about all your logging configurations in the AWS region where the API request is processed.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,14 +76,12 @@ export interface ListLoggingConfigurationsCommandOutput extends ListLoggingConfi
  * @see {@link IvschatClientResolvedConfig | config} for IvschatClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p/>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p/>
  *
  * @throws {@link IvschatServiceException}
- * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
+ * Base exception class for all service exceptions from Ivschat service.
  *
  * @public
  */

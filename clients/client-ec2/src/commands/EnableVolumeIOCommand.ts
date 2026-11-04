@@ -23,8 +23,8 @@ export interface EnableVolumeIOCommandInput extends EnableVolumeIORequest {}
 export interface EnableVolumeIOCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Enables I/O operations for a volume that had I/O operations disabled because the data on
- *       the volume was potentially inconsistent.</p>
+ * Enables I/O operations for a volume that had I/O operations disabled because the data on the volume was potentially inconsistent.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,8 +50,8 @@ export interface EnableVolumeIOCommandOutput extends __MetadataBearer {}
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To enable I/O for a volume
  * ```javascript

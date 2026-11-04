@@ -23,7 +23,8 @@ export interface UpdateStreamingDistributionCommandInput extends UpdateStreaming
 export interface UpdateStreamingDistributionCommandOutput extends UpdateStreamingDistributionResult, __MetadataBearer {}
 
 /**
- * <p>Update a streaming distribution.</p>
+ * Update a streaming distribution.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -129,50 +130,64 @@ export interface UpdateStreamingDistributionCommandOutput extends UpdateStreamin
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link AccessDenied} (client fault)
- *  <p>Access denied.</p>
+ *
+ * Access denied.
  *
  * @throws {@link CNAMEAlreadyExists} (client fault)
- *  <p>The CNAME specified is already defined for CloudFront.</p>
+ *
+ * The CNAME specified is already defined for CloudFront.
  *
  * @throws {@link IllegalUpdate} (client fault)
- *  <p>The update contains modifications that are not allowed.</p>
+ *
+ * The update contains modifications that are not allowed.
  *
  * @throws {@link InconsistentQuantities} (client fault)
- *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
+ *
+ * The value of `Quantity` and the size of `Items` don't match.
  *
  * @throws {@link InvalidArgument} (client fault)
- *  <p>An argument is invalid.</p>
+ *
+ * An argument is invalid.
  *
  * @throws {@link InvalidIfMatchVersion} (client fault)
- *  <p>The <code>If-Match</code> version is missing or not valid.</p>
+ *
+ * The `If-Match` version is missing or not valid.
  *
  * @throws {@link InvalidOriginAccessControl} (client fault)
- *  <p>The origin access control is not valid.</p>
+ *
+ * The origin access control is not valid.
  *
  * @throws {@link InvalidOriginAccessIdentity} (client fault)
- *  <p>The origin access identity is not valid or doesn't exist.</p>
+ *
+ * The origin access identity is not valid or doesn't exist.
  *
  * @throws {@link MissingBody} (client fault)
- *  <p>This operation requires a body. Ensure that the body is present and the <code>Content-Type</code> header is set.</p>
+ *
+ * This operation requires a body. Ensure that the body is present and the `Content-Type` header is set.
  *
  * @throws {@link NoSuchStreamingDistribution} (client fault)
- *  <p>The specified streaming distribution does not exist.</p>
+ *
+ * The specified streaming distribution does not exist.
  *
  * @throws {@link PreconditionFailed} (client fault)
- *  <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+ *
+ * The precondition in one or more of the request fields evaluated to `false`.
  *
  * @throws {@link TooManyStreamingDistributionCNAMEs} (client fault)
- *  <p>Your request contains more CNAMEs than are allowed per distribution.</p>
+ *
+ * Your request contains more CNAMEs than are allowed per distribution.
  *
  * @throws {@link TooManyTrustedSigners} (client fault)
- *  <p>Your request contains more trusted signers than are allowed per distribution.</p>
+ *
+ * Your request contains more trusted signers than are allowed per distribution.
  *
  * @throws {@link TrustedSignerDoesNotExist} (client fault)
- *  <p>One or more of your trusted signers don't exist.</p>
+ *
+ * One or more of your trusted signers don't exist.
  *
  * @throws {@link CloudFrontServiceException}
- * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * Base exception class for all service exceptions from CloudFront service.
  *
  * @public
  */

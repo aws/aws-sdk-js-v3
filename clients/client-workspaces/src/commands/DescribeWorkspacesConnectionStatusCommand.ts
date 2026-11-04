@@ -26,7 +26,8 @@ export interface DescribeWorkspacesConnectionStatusCommandInput extends Describe
 export interface DescribeWorkspacesConnectionStatusCommandOutput extends DescribeWorkspacesConnectionStatusResult, __MetadataBearer {}
 
 /**
- * <p>Describes the connection status of the specified WorkSpaces.</p>
+ * Describes the connection status of the specified WorkSpaces.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,11 +65,12 @@ export interface DescribeWorkspacesConnectionStatusCommandOutput extends Describ
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  * @throws {@link InvalidParameterValuesException} (client fault)
- *  <p>One or more parameter values are not valid.</p>
+ *
+ * One or more parameter values are not valid.
  *
  * @throws {@link WorkSpacesServiceException}
- * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * Base exception class for all service exceptions from WorkSpaces service.
  *
  * @public
  */

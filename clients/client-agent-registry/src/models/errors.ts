@@ -6,7 +6,8 @@ import type { ValidationExceptionReason } from "./enums";
 import type { ValidationExceptionField } from "./models_0";
 
 /**
- * <p>The caller is not authorized to perform the requested action.</p>
+ * The caller is not authorized to perform the requested action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request failed due to an unexpected internal error; the caller may retry.</p>
+ * The request failed due to an unexpected internal error; the caller may retry.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -48,7 +50,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The requested resource was not found.</p>
+ * The requested resource was not found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -69,7 +72,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling; the caller may retry after a delay.</p>
+ * The request was denied due to request throttling; the caller may retry after a delay.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -90,7 +94,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The request could not be authenticated.</p>
+ * The request could not be authenticated.
+ *
  * @public
  */
 export class UnauthorizedException extends __BaseException {
@@ -111,7 +116,8 @@ export class UnauthorizedException extends __BaseException {
 }
 
 /**
- * <p>The request failed validation of one or more input fields.</p>
+ * The request failed validation of one or more input fields.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -119,13 +125,15 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The reason the request failed validation.</p>
+   * The reason the request failed validation.
+   *
    * @public
    */
   reason: ValidationExceptionReason | undefined;
 
   /**
-   * <p>The list of input fields that failed validation.</p>
+   * The list of input fields that failed validation.
+   *
    * @public
    */
   fieldList?: ValidationExceptionField[] | undefined;

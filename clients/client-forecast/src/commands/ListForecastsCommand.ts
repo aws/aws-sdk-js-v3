@@ -23,11 +23,8 @@ export interface ListForecastsCommandInput extends ListForecastsRequest {}
 export interface ListForecastsCommandOutput extends ListForecastsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of forecasts created using the <a>CreateForecast</a> operation.
- *       For each forecast, this operation returns a summary of its properties, including its Amazon
- *       Resource Name (ARN). To retrieve the complete set of properties, specify the ARN with the
- *         <a>DescribeForecast</a> operation. You can filter the list using an array of
- *         <a>Filter</a> objects.</p>
+ * Returns a list of forecasts created using the CreateForecast operation. For each forecast, this operation returns a summary of its properties, including its Amazon Resource Name (ARN). To retrieve the complete set of properties, specify the ARN with the DescribeForecast operation. You can filter the list using an array of Filter objects.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,15 +72,16 @@ export interface ListForecastsCommandOutput extends ListForecastsResponse, __Met
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>We can't process the request because it includes an invalid value or a value that exceeds
- *       the valid range.</p>
+ *
+ * We can't process the request because it includes an invalid value or a value that exceeds the valid range.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The token is not valid. Tokens expire after 24 hours.</p>
+ *
+ * The token is not valid. Tokens expire after 24 hours.
  *
  * @throws {@link ForecastServiceException}
- * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * Base exception class for all service exceptions from Forecast service.
  *
  * @public
  */

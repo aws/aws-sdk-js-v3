@@ -23,8 +23,8 @@ export interface ListMailboxPermissionsCommandInput extends ListMailboxPermissio
 export interface ListMailboxPermissionsCommandOutput extends ListMailboxPermissionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the mailbox permissions associated with a user, group, or resource
- *          mailbox.</p>
+ * Lists the mailbox permissions associated with a user, group, or resource mailbox.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,23 +63,24 @@ export interface ListMailboxPermissionsCommandOutput extends ListMailboxPermissi
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>The identifier supplied for the user, group, or resource does not exist in your
- *          organization.</p>
+ *
+ * The identifier supplied for the user, group, or resource does not exist in your organization.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the input parameters don't match the service's restrictions.</p>
+ *
+ * One or more of the input parameters don't match the service's restrictions.
  *
  * @throws {@link OrganizationNotFoundException} (client fault)
- *  <p>An operation received a valid organization identifier that either doesn't belong or
- *          exist in the system.</p>
+ *
+ * An operation received a valid organization identifier that either doesn't belong or exist in the system.
  *
  * @throws {@link OrganizationStateException} (client fault)
- *  <p>The organization must have a valid state to perform certain
- *          operations on the organization or its members.</p>
+ *
+ * The organization must have a valid state to perform certain operations on the organization or its members.
  *
  * @throws {@link WorkMailServiceException}
- * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * Base exception class for all service exceptions from WorkMail service.
  *
  * @public
  */

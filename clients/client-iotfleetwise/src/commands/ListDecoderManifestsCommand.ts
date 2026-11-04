@@ -23,10 +23,10 @@ export interface ListDecoderManifestsCommandInput extends ListDecoderManifestsRe
 export interface ListDecoderManifestsCommandOutput extends ListDecoderManifestsResponse, __MetadataBearer {}
 
 /**
- * <p> Lists decoder manifests. </p>
- *          <note>
- *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
- *          </note>
+ * Lists decoder manifests.
+ *
+ * > **Note:** This API operation uses pagination. Specify the `nextToken` parameter in the request to return more results.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,20 +68,24 @@ export interface ListDecoderManifestsCommandOutput extends ListDecoderManifestsR
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * You don't have sufficient permission to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request couldn't be completed because the server temporarily failed.</p>
+ *
+ * The request couldn't be completed because the server temporarily failed.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request couldn't be completed due to throttling.</p>
+ *
+ * The request couldn't be completed due to throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link IoTFleetWiseServiceException}
- * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * Base exception class for all service exceptions from IoTFleetWise service.
  *
  * @public
  */

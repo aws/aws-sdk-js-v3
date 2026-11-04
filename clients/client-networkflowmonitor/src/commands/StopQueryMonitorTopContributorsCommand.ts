@@ -23,7 +23,10 @@ export interface StopQueryMonitorTopContributorsCommandInput extends StopQueryMo
 export interface StopQueryMonitorTopContributorsCommandOutput extends StopQueryMonitorTopContributorsOutput, __MetadataBearer {}
 
 /**
- * <p>Stop a top contributors query for a monitor. Specify the query that you want to stop by providing a query ID and a monitor name. </p> <p>Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type. Top contributors can be across all workload insights, for a given scope, or for a specific monitor. Use the applicable call for the top contributors that you want to be returned.</p>
+ * Stop a top contributors query for a monitor. Specify the query that you want to stop by providing a query ID and a monitor name.
+ *
+ * Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type. Top contributors can be across all workload insights, for a given scope, or for a specific monitor. Use the applicable call for the top contributors that you want to be returned.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,23 +52,28 @@ export interface StopQueryMonitorTopContributorsCommandOutput extends StopQueryM
  * @see {@link NetworkFlowMonitorClientResolvedConfig | config} for NetworkFlowMonitorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * You don't have sufficient permission to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error occurred.</p>
+ *
+ * An internal error occurred.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request exceeded a service quota.</p>
+ *
+ * The request exceeded a service quota.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Invalid request.</p>
+ *
+ * Invalid request.
  *
  * @throws {@link NetworkFlowMonitorServiceException}
- * <p>Base exception class for all service exceptions from NetworkFlowMonitor service.</p>
  *
+ * Base exception class for all service exceptions from NetworkFlowMonitor service.
  *
  * @public
  */

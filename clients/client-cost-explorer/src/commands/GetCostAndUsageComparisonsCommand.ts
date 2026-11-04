@@ -23,9 +23,8 @@ export interface GetCostAndUsageComparisonsCommandInput extends GetCostAndUsageC
 export interface GetCostAndUsageComparisonsCommandOutput extends GetCostAndUsageComparisonsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves cost and usage comparisons for your account between two periods within the last
- *       13 months. If you have enabled multi-year data at monthly granularity, you can go back up to
- *       38 months.</p>
+ * Retrieves cost and usage comparisons for your account between two periods within the last 13 months. If you have enabled multi-year data at monthly granularity, you can go back up to 38 months.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -251,25 +250,28 @@ export interface GetCostAndUsageComparisonsCommandOutput extends GetCostAndUsage
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
  * @throws {@link BillingViewHealthStatusException} (client fault)
- *  <p>
- *             The billing view status must be <code>HEALTHY</code> to perform this action. Try again when the status is <code>HEALTHY</code>.
- *         </p>
+ *
+ * The billing view status must be `HEALTHY` to perform this action. Try again when the status is `HEALTHY`.
  *
  * @throws {@link DataUnavailableException} (client fault)
- *  <p>The requested data is unavailable.</p>
+ *
+ * The requested data is unavailable.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The pagination token is invalid. Try again without a pagination token.</p>
+ *
+ * The pagination token is invalid. Try again without a pagination token.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ * You made too many calls in a short period of time. Try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The specified ARN in the request doesn't exist. </p>
+ *
+ * The specified ARN in the request doesn't exist.
  *
  * @throws {@link CostExplorerServiceException}
- * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * Base exception class for all service exceptions from CostExplorer service.
  *
  * @public
  */

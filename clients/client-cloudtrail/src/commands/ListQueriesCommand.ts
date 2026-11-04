@@ -23,16 +23,10 @@ export interface ListQueriesCommandInput extends ListQueriesRequest {}
 export interface ListQueriesCommandOutput extends ListQueriesResponse, __MetadataBearer {}
 
 /**
- * <important>
- *             <p>CloudTrail Lake will no longer be open to new customers starting May 31, 2026. If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-service-availability-change.html">CloudTrail Lake availability change</a>.</p>
- *          </important>
- *          <p>Returns a list of queries and query statuses for the past seven days. You must specify
- *          an ARN value for <code>EventDataStore</code>. Optionally, to shorten the list of results,
- *          you can specify a time range, formatted as timestamps, by adding <code>StartTime</code> and
- *             <code>EndTime</code> parameters, and a <code>QueryStatus</code> value. Valid values for
- *             <code>QueryStatus</code> include <code>QUEUED</code>, <code>RUNNING</code>,
- *             <code>FINISHED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, or
- *             <code>CANCELLED</code>.</p>
+ * > **Important:** CloudTrail Lake will no longer be open to new customers starting May 31, 2026. If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [CloudTrail Lake availability change](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-service-availability-change.html).
+ *
+ * Returns a list of queries and query statuses for the past seven days. You must specify an ARN value for `EventDataStore`. Optionally, to shorten the list of results, you can specify a time range, formatted as timestamps, by adding `StartTime` and `EndTime` parameters, and a `QueryStatus` value. Valid values for `QueryStatus` include `QUEUED`, `RUNNING`, `FINISHED`, `FAILED`, `TIMED_OUT`, or `CANCELLED`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,46 +65,52 @@ export interface ListQueriesCommandOutput extends ListQueriesResponse, __Metadat
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
  * @throws {@link EventDataStoreARNInvalidException} (client fault)
- *  <p>The specified event data store ARN is not valid or does not map to an event data store
- *          in your account.</p>
+ *
+ * The specified event data store ARN is not valid or does not map to an event data store in your account.
  *
  * @throws {@link EventDataStoreNotFoundException} (client fault)
- *  <p>The specified event data store was not found.</p>
+ *
+ * The specified event data store was not found.
  *
  * @throws {@link InactiveEventDataStoreException} (client fault)
- *  <p>The event data store is inactive.</p>
+ *
+ * The event data store is inactive.
  *
  * @throws {@link InvalidDateRangeException} (client fault)
- *  <p>A date range for the query was specified that is not valid. Be sure that the start time
- *          is chronologically before the end time. For more information about writing a query, see
- *             <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-create-edit-query.html">Create or edit a query</a> in the <i>CloudTrail User Guide</i>.</p>
+ *
+ * A date range for the query was specified that is not valid. Be sure that the start time is chronologically before the end time. For more information about writing a query, see [Create or edit a query](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-create-edit-query.html) in the *CloudTrail User Guide*.
  *
  * @throws {@link InvalidMaxResultsException} (client fault)
- *  <p>This exception is thrown if the limit specified is not valid.</p>
+ *
+ * This exception is thrown if the limit specified is not valid.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>A token that is not valid, or a token that was previously used in a request with
- *          different parameters. This exception is thrown if the token is not valid.</p>
+ *
+ * A token that is not valid, or a token that was previously used in a request with different parameters. This exception is thrown if the token is not valid.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The request includes a parameter that is not valid.</p>
+ *
+ * The request includes a parameter that is not valid.
  *
  * @throws {@link InvalidQueryStatusException} (client fault)
- *  <p>The query status is not valid for the operation.</p>
+ *
+ * The query status is not valid for the operation.
  *
  * @throws {@link NoManagementAccountSLRExistsException} (client fault)
- *  <p> This exception is thrown when the management account does not have a service-linked
- *          role. </p>
+ *
+ * This exception is thrown when the management account does not have a service-linked role.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * This exception is thrown when the requested operation is not permitted.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>This exception is thrown when the requested operation is not supported.</p>
+ *
+ * This exception is thrown when the requested operation is not supported.
  *
  * @throws {@link CloudTrailServiceException}
- * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * Base exception class for all service exceptions from CloudTrail service.
  *
  * @public
  */

@@ -23,11 +23,10 @@ export interface RegisterThingCommandInput extends RegisterThingRequest {}
 export interface RegisterThingCommandOutput extends RegisterThingResponse, __MetadataBearer {}
 
 /**
- * <p>Provisions a thing in the device registry. RegisterThing calls other IoT control
- *          plane APIs. These calls might exceed your account level <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_iot">
- *             IoT Throttling Limits</a> and cause throttle errors. Please contact <a href="https://console.aws.amazon.com/support/home">Amazon Web Services Customer Support</a> to raise
- *          your throttling limits if necessary.</p>
- *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RegisterThing</a> action.</p>
+ * Provisions a thing in the device registry. RegisterThing calls other IoT control plane APIs. These calls might exceed your account level [IoT Throttling Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_iot) and cause throttle errors. Please contact [Amazon Web Services Customer Support](https://console.aws.amazon.com/support/home) to raise your throttling limits if necessary.
+ *
+ * Requires permission to access the [RegisterThing](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,30 +59,36 @@ export interface RegisterThingCommandOutput extends RegisterThingResponse, __Met
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  * @throws {@link ConflictingResourceUpdateException} (client fault)
- *  <p>A conflicting resource update exception. This exception is thrown when two pending
- *          updates cause a conflict.</p>
+ *
+ * A conflicting resource update exception. This exception is thrown when two pending updates cause a conflict.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An unexpected error has occurred.</p>
+ *
+ * An unexpected error has occurred.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceRegistrationFailureException} (client fault)
- *  <p>The resource registration failed.</p>
+ *
+ * The resource registration failed.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is temporarily unavailable.</p>
+ *
+ * The service is temporarily unavailable.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The rate exceeds the limit.</p>
+ *
+ * The rate exceeds the limit.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>You are not authorized to perform this operation.</p>
+ *
+ * You are not authorized to perform this operation.
  *
  * @throws {@link IoTServiceException}
- * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * Base exception class for all service exceptions from IoT service.
  *
  * @public
  */

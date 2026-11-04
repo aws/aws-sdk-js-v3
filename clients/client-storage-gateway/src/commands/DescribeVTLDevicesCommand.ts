@@ -23,9 +23,10 @@ export interface DescribeVTLDevicesCommandInput extends DescribeVTLDevicesInput 
 export interface DescribeVTLDevicesCommandOutput extends DescribeVTLDevicesOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a description of virtual tape library (VTL) devices for the specified tape
- *          gateway. In the response, Storage Gateway returns VTL device information.</p>
- *          <p>This operation is only supported in the tape gateway type.</p>
+ * Returns a description of virtual tape library (VTL) devices for the specified tape gateway. In the response, Storage Gateway returns VTL device information.
+ *
+ * This operation is only supported in the tape gateway type.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,16 +73,16 @@ export interface DescribeVTLDevicesCommandOutput extends DescribeVTLDevicesOutpu
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @example To describe virtual tape library (VTL) devices of a single gateway
  * ```javascript

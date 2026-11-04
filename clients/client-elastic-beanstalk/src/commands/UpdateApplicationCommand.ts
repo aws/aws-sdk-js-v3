@@ -23,11 +23,10 @@ export interface UpdateApplicationCommandInput extends UpdateApplicationMessage 
 export interface UpdateApplicationCommandOutput extends ApplicationDescriptionMessage, __MetadataBearer {}
 
 /**
- * <p>Updates the specified application to have the specified properties.</p>
- *          <note>
- *             <p>If a property (for example, <code>description</code>) is not provided, the value remains
- *         unchanged. To clear these properties, specify an empty string.</p>
- *          </note>
+ * Updates the specified application to have the specified properties.
+ *
+ * > **Note:** If a property (for example, `description`) is not provided, the value remains unchanged. To clear these properties, specify an empty string.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,8 +81,8 @@ export interface UpdateApplicationCommandOutput extends ApplicationDescriptionMe
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  * @throws {@link ElasticBeanstalkSyntheticServiceException}
- * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * Base exception class for all service exceptions from ElasticBeanstalk service.
  *
  * @example To change an application's description
  * ```javascript

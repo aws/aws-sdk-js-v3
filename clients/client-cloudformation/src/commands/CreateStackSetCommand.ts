@@ -23,7 +23,8 @@ export interface CreateStackSetCommandInput extends CreateStackSetInput {}
 export interface CreateStackSetCommandOutput extends CreateStackSetOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a StackSet.</p>
+ * Creates a StackSet.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,19 +87,22 @@ export interface CreateStackSetCommandOutput extends CreateStackSetOutput, __Met
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link CreatedButModifiedException} (client fault)
- *  <p>The specified resource exists, but has been changed.</p>
+ *
+ * The specified resource exists, but has been changed.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The quota for the resource has already been reached.</p>
- *          <p>For information about resource and stack limitations, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html">CloudFormation quotas</a> in the
- *    <i>CloudFormation User Guide</i>.</p>
+ *
+ * The quota for the resource has already been reached.
+ *
+ * For information about resource and stack limitations, see [CloudFormation quotas](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html) in the *CloudFormation User Guide*.
  *
  * @throws {@link NameAlreadyExistsException} (client fault)
- *  <p>The specified name is already in use.</p>
+ *
+ * The specified name is already in use.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

@@ -23,71 +23,33 @@ export interface CreateVpcPeeringAuthorizationCommandInput extends CreateVpcPeer
 export interface CreateVpcPeeringAuthorizationCommandOutput extends CreateVpcPeeringAuthorizationOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This API works with the following fleet types:</b> EC2</p>
- *          <p>Requests authorization to create or delete a peer connection between the VPC for your
- *             Amazon GameLift Servers fleet and a virtual private cloud (VPC) in your Amazon Web Services account. VPC peering enables the game servers on
- *             your fleet to communicate directly with other Amazon Web Services resources. After you've received
- *             authorization, use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateVpcPeeringConnection.html">CreateVpcPeeringConnection</a> to establish the peering connection. For more
- *             information, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC Peering with Amazon GameLift Servers
- *                 Fleets</a>.</p>
- *          <p>You can peer with VPCs that are owned by any Amazon Web Services account you have access to,
- *             including the account that you use to manage your Amazon GameLift Servers fleets. You cannot peer with
- *             VPCs that are in different Regions.</p>
- *          <p>To request authorization to create a connection, call this operation from the Amazon Web Services
- *             account with the VPC that you want to peer to your Amazon GameLift Servers fleet. For example, to enable
- *             your game servers to retrieve data from a DynamoDB table, use the account that manages
- *             that DynamoDB resource. Identify the following values: (1) The ID of the VPC that you
- *             want to peer with, and (2) the ID of the Amazon Web Services account that you use to manage Amazon GameLift Servers. If
- *             successful, VPC peering is authorized for the specified VPC. </p>
- *          <p>To request authorization to delete a connection, call this operation from the Amazon Web Services
- *             account with the VPC that is peered with your Amazon GameLift Servers fleet. Identify the following
- *             values: (1) VPC ID that you want to delete the peering connection for, and (2) ID of the
- *             Amazon Web Services account that you use to manage Amazon GameLift Servers. </p>
- *          <p>The authorization remains valid for 24 hours unless it is canceled. You must create or
- *             delete the peering connection while the authorization is valid. </p>
- *          <note>
- *             <p>Amazon GameLift Servers uses the caller's credentials to update peer-VPC resources. The IAM user
- *                 that calls this operation must have the following Amazon EC2 permissions enabled:</p>
- *             <ul>
- *                <li>
- *                   <p>
- *                      <code>ec2:AcceptVpcPeeringConnection</code>
- *                   </p>
- *                </li>
- *                <li>
- *                   <p>
- *                      <code>ec2:AuthorizeSecurityGroupEgress</code>
- *                   </p>
- *                </li>
- *                <li>
- *                   <p>
- *                      <code>ec2:AuthorizeSecurityGroupIngress</code>
- *                   </p>
- *                </li>
- *                <li>
- *                   <p>
- *                      <code>ec2:CreateRoute</code>
- *                   </p>
- *                </li>
- *                <li>
- *                   <p>
- *                      <code>ec2:DescribeRouteTables</code>
- *                   </p>
- *                </li>
- *                <li>
- *                   <p>
- *                      <code>ec2:DescribeSecurityGroups</code>
- *                   </p>
- *                </li>
- *             </ul>
- *          </note>
- *          <p>
- *             <b>Related actions</b>
- *          </p>
- *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
- *          </p>
+ * **This API works with the following fleet types:** EC2
+ *
+ * Requests authorization to create or delete a peer connection between the VPC for your Amazon GameLift Servers fleet and a virtual private cloud (VPC) in your Amazon Web Services account. VPC peering enables the game servers on your fleet to communicate directly with other Amazon Web Services resources. After you've received authorization, use [CreateVpcPeeringConnection](https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateVpcPeeringConnection.html) to establish the peering connection. For more information, see [VPC Peering with Amazon GameLift Servers Fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html).
+ *
+ * You can peer with VPCs that are owned by any Amazon Web Services account you have access to, including the account that you use to manage your Amazon GameLift Servers fleets. You cannot peer with VPCs that are in different Regions.
+ *
+ * To request authorization to create a connection, call this operation from the Amazon Web Services account with the VPC that you want to peer to your Amazon GameLift Servers fleet. For example, to enable your game servers to retrieve data from a DynamoDB table, use the account that manages that DynamoDB resource. Identify the following values: (1) The ID of the VPC that you want to peer with, and (2) the ID of the Amazon Web Services account that you use to manage Amazon GameLift Servers. If successful, VPC peering is authorized for the specified VPC.
+ *
+ * To request authorization to delete a connection, call this operation from the Amazon Web Services account with the VPC that is peered with your Amazon GameLift Servers fleet. Identify the following values: (1) VPC ID that you want to delete the peering connection for, and (2) ID of the Amazon Web Services account that you use to manage Amazon GameLift Servers.
+ *
+ * The authorization remains valid for 24 hours unless it is canceled. You must create or delete the peering connection while the authorization is valid.
+ *
+ * > **Note:**
+ * >
+ * > Amazon GameLift Servers uses the caller's credentials to update peer-VPC resources. The IAM user that calls this operation must have the following Amazon EC2 permissions enabled:
+ * >
+ * > - `ec2:AcceptVpcPeeringConnection`
+ * > - `ec2:AuthorizeSecurityGroupEgress`
+ * > - `ec2:AuthorizeSecurityGroupIngress`
+ * > - `ec2:CreateRoute`
+ * > - `ec2:DescribeRouteTables`
+ * > - `ec2:DescribeSecurityGroups`
+ *
+ * **Related actions**
+ *
+ * [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -121,22 +83,24 @@ export interface CreateVpcPeeringAuthorizationCommandOutput extends CreateVpcPee
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an unrecoverable internal failure while processing the
- *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
- *             values before retrying.</p>
+ *
+ * One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resource was not found. The resource was either not created yet or deleted.</p>
+ *
+ * The requested resource was not found. The resource was either not created yet or deleted.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * The client failed authentication. Clients should not retry such requests.
  *
  * @throws {@link GameLiftServiceException}
- * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * Base exception class for all service exceptions from GameLift service.
  *
  * @public
  */

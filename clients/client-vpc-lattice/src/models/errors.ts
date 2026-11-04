@@ -6,7 +6,8 @@ import type { ValidationExceptionField } from "./models_0";
 import { VPCLatticeServiceException as __BaseException } from "./VPCLatticeServiceException";
 
 /**
- * <p>The user does not have sufficient access to perform this action.</p>
+ * The user does not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request conflicts with the current state of the resource. Updating or deleting a resource can cause an inconsistent state.</p>
+ * The request conflicts with the current state of the resource. Updating or deleting a resource can cause an inconsistent state.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -35,13 +37,15 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The resource ID.</p>
+   * The resource ID.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The resource type.</p>
+   * The resource type.
+   *
    * @public
    */
   resourceType: string | undefined;
@@ -62,7 +66,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>An unexpected error occurred while processing the request.</p>
+ * An unexpected error occurred while processing the request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -71,7 +76,8 @@ export class InternalServerException extends __BaseException {
   readonly $fault = "server" as const;
   $retryable = {};
   /**
-   * <p>The number of seconds to wait before retrying.</p>
+   * The number of seconds to wait before retrying.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -91,7 +97,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The request references a resource that does not exist.</p>
+ * The request references a resource that does not exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -99,13 +106,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The resource ID.</p>
+   * The resource ID.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The resource type.</p>
+   * The resource type.
+   *
    * @public
    */
   resourceType: string | undefined;
@@ -126,7 +135,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The limit on the number of requests per second was exceeded.</p>
+ * The limit on the number of requests per second was exceeded.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -137,19 +147,22 @@ export class ThrottlingException extends __BaseException {
     throttling: true,
   };
   /**
-   * <p>The service code.</p>
+   * The service code.
+   *
    * @public
    */
   serviceCode?: string | undefined;
 
   /**
-   * <p>The ID of the service quota that was exceeded.</p>
+   * The ID of the service quota that was exceeded.
+   *
    * @public
    */
   quotaCode?: string | undefined;
 
   /**
-   * <p>The number of seconds to wait before retrying.</p>
+   * The number of seconds to wait before retrying.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -171,7 +184,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+ * The input does not satisfy the constraints specified by an Amazon Web Services service.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -179,13 +193,15 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The reason.</p>
+   * The reason.
+   *
    * @public
    */
   reason: ValidationExceptionReason | undefined;
 
   /**
-   * <p>The fields that failed validation.</p>
+   * The fields that failed validation.
+   *
    * @public
    */
   fieldList?: ValidationExceptionField[] | undefined;
@@ -206,7 +222,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The request would cause a service quota to be exceeded.</p>
+ * The request would cause a service quota to be exceeded.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -214,25 +231,29 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The resource ID.</p>
+   * The resource ID.
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>The resource type.</p>
+   * The resource type.
+   *
    * @public
    */
   resourceType: string | undefined;
 
   /**
-   * <p>The service code.</p>
+   * The service code.
+   *
    * @public
    */
   serviceCode: string | undefined;
 
   /**
-   * <p>The ID of the service quota that was exceeded.</p>
+   * The ID of the service quota that was exceeded.
+   *
    * @public
    */
   quotaCode: string | undefined;

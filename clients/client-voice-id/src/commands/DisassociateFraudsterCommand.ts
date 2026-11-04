@@ -23,10 +23,8 @@ export interface DisassociateFraudsterCommandInput extends DisassociateFraudster
 export interface DisassociateFraudsterCommandOutput extends DisassociateFraudsterResponse, __MetadataBearer {}
 
 /**
- * <p>Disassociates the fraudsters from the watchlist specified. Voice ID always expects a
- *             fraudster to be a part of at least one watchlist. If
- *             you try to disassociate a fraudster from its only watchlist, a <code>ValidationException</code> is thrown.
- *             </p>
+ * Disassociates the fraudsters from the watchlist specified. Voice ID always expects a fraudster to be a part of at least one watchlist. If you try to disassociate a fraudster from its only watchlist, a `ValidationException` is thrown.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,33 +60,32 @@ export interface DisassociateFraudsterCommandOutput extends DisassociateFraudste
  * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action. Check the error message
- *             and try again.</p>
+ *
+ * You do not have sufficient permissions to perform this action. Check the error message and try again.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request failed due to a conflict. Check the <code>ConflictType</code> and error
- *             message for more details.</p>
+ *
+ * The request failed due to a conflict. Check the `ConflictType` and error message for more details.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request failed due to an unknown error on the server side.</p>
+ *
+ * The request failed due to an unknown error on the server side.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource cannot be found. Check the <code>ResourceType</code> and error
- *             message for more details.</p>
+ *
+ * The specified resource cannot be found. Check the `ResourceType` and error message for more details.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. Please slow down your request rate.
- *             Refer to <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html##voiceid-api-quotas">
- *                 Amazon Connect Voice ID Service API throttling quotas </a> and try your
- *             request again.</p>
+ *
+ * The request was denied due to request throttling. Please slow down your request rate. Refer to [Amazon Connect Voice ID Service API throttling quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html##voiceid-api-quotas) and try your request again.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request failed one or more validations; check the error message for more
- *             details.</p>
+ *
+ * The request failed one or more validations; check the error message for more details.
  *
  * @throws {@link VoiceIDServiceException}
- * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
+ * Base exception class for all service exceptions from VoiceID service.
  *
  * @public
  */

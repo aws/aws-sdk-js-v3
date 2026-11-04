@@ -23,8 +23,10 @@ export interface PutLifecyclePolicyCommandInput extends PutLifecyclePolicyInput 
 export interface PutLifecyclePolicyCommandOutput extends PutLifecyclePolicyOutput, __MetadataBearer {}
 
 /**
- * <p>Writes an object lifecycle policy to a container. If the container already has an object lifecycle policy, the service replaces the existing policy with the new policy. It takes up to 20 minutes for the change to take effect.</p>
- *          <p>For information about how to construct an object lifecycle policy, see <a href="https://docs.aws.amazon.com/mediastore/latest/ug/policies-object-lifecycle-components.html">Components of an Object Lifecycle Policy</a>.</p>
+ * Writes an object lifecycle policy to a container. If the container already has an object lifecycle policy, the service replaces the existing policy with the new policy. It takes up to 20 minutes for the change to take effect.
+ *
+ * For information about how to construct an object lifecycle policy, see [Components of an Object Lifecycle Policy](https://docs.aws.amazon.com/mediastore/latest/ug/policies-object-lifecycle-components.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,18 +52,20 @@ export interface PutLifecyclePolicyCommandOutput extends PutLifecyclePolicyOutpu
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
  *
  * @throws {@link ContainerInUseException} (client fault)
- *  <p>The container that you specified in the request already exists or is being
- *          updated.</p>
+ *
+ * The container that you specified in the request already exists or is being updated.
  *
  * @throws {@link ContainerNotFoundException} (client fault)
- *  <p>The container that you specified in the request does not exist.</p>
+ *
+ * The container that you specified in the request does not exist.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>The service is temporarily unavailable.</p>
+ *
+ * The service is temporarily unavailable.
  *
  * @throws {@link MediaStoreServiceException}
- * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
+ * Base exception class for all service exceptions from MediaStore service.
  *
  * @public
  */

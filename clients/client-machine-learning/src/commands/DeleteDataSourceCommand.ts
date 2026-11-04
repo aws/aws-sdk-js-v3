@@ -23,10 +23,12 @@ export interface DeleteDataSourceCommandInput extends DeleteDataSourceInput {}
 export interface DeleteDataSourceCommandOutput extends DeleteDataSourceOutput, __MetadataBearer {}
 
 /**
- * <p>Assigns the DELETED status to a <code>DataSource</code>, rendering it unusable.</p>
- *         <p>After using the <code>DeleteDataSource</code> operation, you can use the <a>GetDataSource</a> operation to verify that the status of the <code>DataSource</code> changed to DELETED.</p>
- *         <p>
- *             <b>Caution:</b> The results of the <code>DeleteDataSource</code> operation are irreversible.</p>
+ * Assigns the DELETED status to a `DataSource`, rendering it unusable.
+ *
+ * After using the `DeleteDataSource` operation, you can use the GetDataSource operation to verify that the status of the `DataSource` changed to DELETED.
+ *
+ * **Caution:** The results of the `DeleteDataSource` operation are irreversible.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,17 +55,20 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceOutput, _
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An error on the server occurred when trying to process a request.</p>
+ *
+ * An error on the server occurred when trying to process a request.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+ *
+ * An error on the client occurred. Typically, the cause is an invalid input value.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A specified resource cannot be located.</p>
+ *
+ * A specified resource cannot be located.
  *
  * @throws {@link MachineLearningServiceException}
- * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ * Base exception class for all service exceptions from MachineLearning service.
  *
  * @public
  */

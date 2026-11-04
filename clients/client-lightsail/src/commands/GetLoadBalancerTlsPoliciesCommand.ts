@@ -23,10 +23,10 @@ export interface GetLoadBalancerTlsPoliciesCommandInput extends GetLoadBalancerT
 export interface GetLoadBalancerTlsPoliciesCommandOutput extends GetLoadBalancerTlsPoliciesResult, __MetadataBearer {}
 
 /**
- * <p>Returns a list of TLS security policies that you can apply to Lightsail load
- *       balancers.</p>
- *          <p>For more information about load balancer TLS security policies, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configure-load-balancer-tls-security-policy">Configuring TLS security policies on your Amazon Lightsail load
- *         balancers</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
+ * Returns a list of TLS security policies that you can apply to Lightsail load balancers.
+ *
+ * For more information about load balancer TLS security policies, see [Configuring TLS security policies on your Amazon Lightsail load balancers](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configure-load-balancer-tls-security-policy) in the *Amazon Lightsail Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,36 +66,34 @@ export interface GetLoadBalancerTlsPoliciesCommandOutput extends GetLoadBalancer
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
- *       credentials to access a resource.</p>
+ *
+ * Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.
  *
  * @throws {@link AccountSetupInProgressException} (client fault)
- *  <p>Lightsail throws this exception when an account is still in the setup in progress
- *       state.</p>
+ *
+ * Lightsail throws this exception when an account is still in the setup in progress state.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>Lightsail throws this exception when user input does not conform to the validation rules
- *       of an input field.</p>
- *          <note>
- *             <p>Domain and distribution APIs are only available in the N. Virginia
- *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
- *         Region configuration to <code>us-east-1</code> to create, view, or edit these
- *         resources.</p>
- *          </note>
+ *
+ * Lightsail throws this exception when user input does not conform to the validation rules of an input field.
+ *
+ * > **Note:** Domain and distribution APIs are only available in the N. Virginia (`us-east-1`) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to `us-east-1` to create, view, or edit these resources.
  *
  * @throws {@link RegionSetupInProgressException} (client fault)
- *  <p>Lightsail throws this exception when an operation is performed on resources in an opt-in
- *       Region that is currently being set up.</p>
+ *
+ * Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>A general service exception.</p>
+ *
+ * A general service exception.
  *
  * @throws {@link UnauthenticatedException} (client fault)
- *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
+ * Lightsail throws this exception when the user has not been authenticated.
  *
  * @throws {@link LightsailServiceException}
- * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * Base exception class for all service exceptions from Lightsail service.
  *
  * @public
  */

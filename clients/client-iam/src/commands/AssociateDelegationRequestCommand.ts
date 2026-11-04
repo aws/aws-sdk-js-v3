@@ -23,27 +23,14 @@ export interface AssociateDelegationRequestCommandInput extends AssociateDelegat
 export interface AssociateDelegationRequestCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Associates a delegation request with the current identity.</p>
- *          <p>If the partner that created the delegation request has specified the owner account during creation,
- *             only an identity from that owner account can call the <code>AssociateDelegationRequest</code> API for
- *             the specified delegation request. Once the <code>AssociateDelegationRequest</code> API call is successful,
- *             the ARN of the current calling identity will be stored as the
- *             <code>ownerId</code>
- *             of the request.
- *         </p>
- *          <p>If the partner that created the delegation request has not specified the owner account during creation,
- *             any caller from any account can call the <code>AssociateDelegationRequest</code> API for
- *             the delegation request. Once this API call is successful, the ARN of the current calling identity will be stored as the
- *             <code>ownerId</code>
- *             and the Amazon Web Services account ID of the current calling identity will be stored as the
- *             <code>ownerAccount</code>
- *             of the request.
- *         </p>
- *          <p>
- *             For more details, see
- *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-temporary-delegation.html#temporary-delegation-managing-permissions">
- *                 Managing Permissions for Delegation Requests</a>.
- *         </p>
+ * Associates a delegation request with the current identity.
+ *
+ * If the partner that created the delegation request has specified the owner account during creation, only an identity from that owner account can call the `AssociateDelegationRequest` API for the specified delegation request. Once the `AssociateDelegationRequest` API call is successful, the ARN of the current calling identity will be stored as the `ownerId` of the request.
+ *
+ * If the partner that created the delegation request has not specified the owner account during creation, any caller from any account can call the `AssociateDelegationRequest` API for the delegation request. Once this API call is successful, the ARN of the current calling identity will be stored as the `ownerId` and the Amazon Web Services account ID of the current calling identity will be stored as the `ownerAccount` of the request.
+ *
+ * For more details, see [Managing Permissions for Delegation Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-temporary-delegation.html#temporary-delegation-managing-permissions).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,24 +55,24 @@ export interface AssociateDelegationRequestCommandOutput extends __MetadataBeare
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>The request was rejected because multiple requests to change this object were submitted
- *       simultaneously. Wait a few minutes and submit your request again.</p>
+ *
+ * The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
- *       input parameter.</p>
+ *
+ * The request was rejected because an invalid or out-of-range value was supplied for an input parameter.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @public
  */

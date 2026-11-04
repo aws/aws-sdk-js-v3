@@ -23,8 +23,8 @@ export interface CreateUserCommandInput extends CreateUserRequest {}
 export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a user in a Simple AD or Microsoft AD directory. The status of a newly
- *             created user is "ACTIVE". New users can access Amazon WorkDocs.</p>
+ * Creates a user in a Simple AD or Microsoft AD directory. The status of a newly created user is "ACTIVE". New users can access Amazon WorkDocs.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,25 +84,28 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
  *
  * @throws {@link EntityAlreadyExistsException} (client fault)
- *  <p>The resource already exists.</p>
+ *
+ * The resource already exists.
  *
  * @throws {@link FailedDependencyException} (client fault)
- *  <p>The Directory Service cannot reach an on-premises instance. Or a dependency
- *             under the control of the organization is failing, such as a connected Active
- *             Directory.</p>
+ *
+ * The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>One or more of the dependencies is unavailable.</p>
+ *
+ * One or more of the dependencies is unavailable.
  *
  * @throws {@link UnauthorizedOperationException} (client fault)
- *  <p>The operation is not permitted.</p>
+ *
+ * The operation is not permitted.
  *
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
- *  <p>The caller does not have access to perform the action on the resource.</p>
+ *
+ * The caller does not have access to perform the action on the resource.
  *
  * @throws {@link WorkDocsServiceException}
- * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * Base exception class for all service exceptions from WorkDocs service.
  *
  * @public
  */

@@ -23,7 +23,10 @@ export interface ListIdentityStoresCommandInput extends ListIdentityStoresReques
 export interface ListIdentityStoresCommandOutput extends ListIdentityStoresResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the identity stores that you have access to. This operation returns only the identity store ID and Amazon Resource Name (ARN) of each identity store. To obtain additional information about an identity store, call <code>DescribeIdentityStore</code>.</p> <p>This operation returns results in paginated form. Use the <code>NextToken</code> parameter to retrieve additional pages of results.</p>
+ * Lists the identity stores that you have access to. This operation returns only the identity store ID and Amazon Resource Name (ARN) of each identity store. To obtain additional information about an identity store, call `DescribeIdentityStore`.
+ *
+ * This operation returns results in paginated form. Use the `NextToken` parameter to retrieve additional pages of results.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,20 +60,24 @@ export interface ListIdentityStoresCommandOutput extends ListIdentityStoresRespo
  * @see {@link IdentitystoreClientResolvedConfig | config} for IdentitystoreClient's `config` shape.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request failed because it contains a syntax error.</p>
+ *
+ * The request failed because it contains a syntax error.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure with an internal server.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure with an internal server.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+ *
+ * Indicates that the principal has crossed the throttling limits of the API operations.
  *
  * @throws {@link IdentitystoreServiceException}
- * <p>Base exception class for all service exceptions from Identitystore service.</p>
  *
+ * Base exception class for all service exceptions from Identitystore service.
  *
  * @public
  */

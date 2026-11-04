@@ -23,7 +23,8 @@ export interface GetStageCommandInput extends GetStageRequest {}
 export interface GetStageCommandOutput extends GetStageResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information for the specified stage.</p>
+ * Gets information for the specified stage.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,17 +82,20 @@ export interface GetStageCommandOutput extends GetStageResponse, __MetadataBeare
  * @see {@link IVSRealTimeClientResolvedConfig | config} for IVSRealTimeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * User does not have sufficient access to perform this action.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Request references a resource which does not exist.</p>
+ *
+ * Request references a resource which does not exist.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link IVSRealTimeServiceException}
- * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ * Base exception class for all service exceptions from IVSRealTime service.
  *
  * @public
  */

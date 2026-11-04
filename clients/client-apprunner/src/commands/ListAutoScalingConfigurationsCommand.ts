@@ -23,11 +23,10 @@ export interface ListAutoScalingConfigurationsCommandInput extends ListAutoScali
 export interface ListAutoScalingConfigurationsCommandOutput extends ListAutoScalingConfigurationsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of active App Runner automatic scaling configurations in your Amazon Web Services account. You can query the revisions for a specific
- *       configuration name or the revisions for all active configurations in your account. You can optionally query only the latest revision of each requested
- *       name.</p>
- *          <p>To retrieve a full description of a particular configuration revision, call  and provide one of
- *       the ARNs returned by <code>ListAutoScalingConfigurations</code>.</p>
+ * Returns a list of active App Runner automatic scaling configurations in your Amazon Web Services account. You can query the revisions for a specific configuration name or the revisions for all active configurations in your account. You can optionally query only the latest revision of each requested name.
+ *
+ * To retrieve a full description of a particular configuration revision, call and provide one of the ARNs returned by `ListAutoScalingConfigurations`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,14 +67,16 @@ export interface ListAutoScalingConfigurationsCommandOutput extends ListAutoScal
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>An unexpected service exception occurred.</p>
+ *
+ * An unexpected service exception occurred.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+ *
+ * One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.
  *
  * @throws {@link AppRunnerServiceException}
- * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ * Base exception class for all service exceptions from AppRunner service.
  *
  * @public
  */

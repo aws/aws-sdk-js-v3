@@ -23,7 +23,10 @@ export interface AssociateUserCommandInput extends AssociateUserRequest {}
 export interface AssociateUserCommandOutput extends AssociateUserResponse, __MetadataBearer {}
 
 /**
- * <p>Associates the user to an EC2 instance to utilize user-based subscriptions.</p> <note> <p>Your estimated bill for charges on the number of users and related costs will take 48 hours to appear for billing periods that haven't closed (marked as <b>Pending</b> billing status) in Amazon Web Services Billing. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/invoice.html">Viewing your monthly charges</a> in the <i>Amazon Web Services Billing User Guide</i>.</p> </note>
+ * Associates the user to an EC2 instance to utilize user-based subscriptions.
+ *
+ * > **Note:** Your estimated bill for charges on the number of users and related costs will take 48 hours to appear for billing periods that haven't closed (marked as **Pending** billing status) in Amazon Web Services Billing. For more information, see [Viewing your monthly charges](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/invoice.html) in the *Amazon Web Services Billing User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -116,29 +119,36 @@ export interface AssociateUserCommandOutput extends AssociateUserResponse, __Met
  * @see {@link LicenseManagerUserSubscriptionsClientResolvedConfig | config} for LicenseManagerUserSubscriptionsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * You don't have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (server fault)
- *  <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
+ *
+ * The request couldn't be completed because it conflicted with the current state of the resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An exception occurred with the service.</p>
+ *
+ * An exception occurred with the service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource couldn't be found.</p>
+ *
+ * The resource couldn't be found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request failed because a service quota is exceeded.</p>
+ *
+ * The request failed because a service quota is exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied because of request throttling. Retry the request.</p>
+ *
+ * The request was denied because of request throttling. Retry the request.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A parameter is not valid.</p>
+ *
+ * A parameter is not valid.
  *
  * @throws {@link LicenseManagerUserSubscriptionsServiceException}
- * <p>Base exception class for all service exceptions from LicenseManagerUserSubscriptions service.</p>
  *
+ * Base exception class for all service exceptions from LicenseManagerUserSubscriptions service.
  *
  * @public
  */

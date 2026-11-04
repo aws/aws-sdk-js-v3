@@ -23,27 +23,14 @@ export interface DeleteMessageCommandInput extends DeleteMessageRequest {}
 export interface DeleteMessageCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified message from the specified queue. To select the message to
- *             delete, use the <code>ReceiptHandle</code> of the message (<i>not</i> the
- *                 <code>MessageId</code> which you receive when you send the message). Amazon SQS can
- *             delete a message from a queue even if a visibility timeout setting causes the message to
- *             be locked by another consumer. Amazon SQS automatically deletes messages left in a queue
- *             longer than the retention period configured for the queue. </p>
- *          <note>
- *             <p>Each time you receive a message, meaning when a consumer retrieves a message from
- *                 the queue, it comes with a unique <code>ReceiptHandle</code>. If you receive the
- *                 same message more than once, you will get a different <code>ReceiptHandle</code>
- *                 each time. When you want to delete a message using the <code>DeleteMessage</code>
- *                 action, you must use the <code>ReceiptHandle</code> from the most recent time you
- *                 received the message. If you use an old <code>ReceiptHandle</code>, the request will
- *                 succeed, but the message might not be deleted. </p>
- *             <p>For standard queues, it is possible to receive a message even after you
- *                 delete it. This might happen on rare occasions if one of the servers which stores a
- *                 copy of the message is unavailable when you send the request to delete the message.
- *                 The copy remains on the server and might be returned to you during a subsequent
- *                 receive request. You should ensure that your application is idempotent, so that
- *                 receiving a message more than once does not cause issues.</p>
- *          </note>
+ * Deletes the specified message from the specified queue. To select the message to delete, use the `ReceiptHandle` of the message (*not* the `MessageId` which you receive when you send the message). Amazon SQS can delete a message from a queue even if a visibility timeout setting causes the message to be locked by another consumer. Amazon SQS automatically deletes messages left in a queue longer than the retention period configured for the queue.
+ *
+ * > **Note:**
+ * >
+ * > Each time you receive a message, meaning when a consumer retrieves a message from the queue, it comes with a unique `ReceiptHandle`. If you receive the same message more than once, you will get a different `ReceiptHandle` each time. When you want to delete a message using the `DeleteMessage` action, you must use the `ReceiptHandle` from the most recent time you received the message. If you use an old `ReceiptHandle`, the request will succeed, but the message might not be deleted.
+ * >
+ * > For standard queues, it is possible to receive a message even after you delete it. This might happen on rare occasions if one of the servers which stores a copy of the message is unavailable when you send the request to delete the message. The copy remains on the server and might be returned to you during a subsequent receive request. You should ensure that your application is idempotent, so that receiving a message more than once does not cause issues.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,41 +56,39 @@ export interface DeleteMessageCommandOutput extends __MetadataBearer {}
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
  * @throws {@link InvalidAddress} (client fault)
- *  <p>The specified ID is invalid.</p>
+ *
+ * The specified ID is invalid.
  *
  * @throws {@link InvalidIdFormat} (client fault)
- *  <p>The specified receipt handle isn't valid for the current version.</p>
+ *
+ * The specified receipt handle isn't valid for the current version.
  *
  * @throws {@link InvalidSecurity} (client fault)
- *  <p>The request was not made over HTTPS or did not use SigV4 for signing.</p>
+ *
+ * The request was not made over HTTPS or did not use SigV4 for signing.
  *
  * @throws {@link QueueDoesNotExist} (client fault)
- *  <p>Ensure that the <code>QueueUrl</code> is correct and that the queue has not been
- *             deleted.</p>
+ *
+ * Ensure that the `QueueUrl` is correct and that the queue has not been deleted.
  *
  * @throws {@link ReceiptHandleIsInvalid} (client fault)
- *  <p>The specified receipt handle isn't valid.</p>
+ *
+ * The specified receipt handle isn't valid.
  *
  * @throws {@link RequestThrottled} (client fault)
- *  <p>The request was denied due to request throttling.</p>
- *          <ul>
- *             <li>
- *                <p>Exceeds the permitted request rate for the queue or for the recipient of the
- *                     request.</p>
- *             </li>
- *             <li>
- *                <p>Ensure that the request rate is within the Amazon SQS limits for
- *                     sending messages. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-quotas.html#quotas-requests">Amazon SQS quotas</a> in the <i>Amazon SQS
- *                         Developer Guide</i>.</p>
- *             </li>
- *          </ul>
+ *
+ * The request was denied due to request throttling.
+ *
+ * - Exceeds the permitted request rate for the queue or for the recipient of the request.
+ * - Ensure that the request rate is within the Amazon SQS limits for sending messages. For more information, see [Amazon SQS quotas](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-quotas.html#quotas-requests) in the *Amazon SQS Developer Guide*.
  *
  * @throws {@link UnsupportedOperation} (client fault)
- *  <p>Error code 400. Unsupported operation.</p>
+ *
+ * Error code 400. Unsupported operation.
  *
  * @throws {@link SQSServiceException}
- * <p>Base exception class for all service exceptions from SQS service.</p>
  *
+ * Base exception class for all service exceptions from SQS service.
  *
  * @public
  */

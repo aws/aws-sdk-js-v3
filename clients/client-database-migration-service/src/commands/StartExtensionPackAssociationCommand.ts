@@ -23,20 +23,16 @@ export interface StartExtensionPackAssociationCommandInput extends StartExtensio
 export interface StartExtensionPackAssociationCommandOutput extends StartExtensionPackAssociationResponse, __MetadataBearer {}
 
 /**
- * <p>Queues the installation of the extension pack on your target database. If other
- *          requests created by <code>Start*</code> operations are already in the migration project's
- *          queue, the installation begins after they complete.</p>
- *          <p>This operation requires a non-virtual target data provider.</p>
- *          <p>If the extension pack already exists, the operation reinstalls it. To ensure
- *          compatibility, reconvert your database objects if the version has changed since your last
- *          conversion. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/extension-pack.html">Using extension packs in DMS Schema Conversion</a>.</p>
- *          <p>To check the status of the request, call
- *          <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeExtensionPackAssociations.html">DescribeExtensionPackAssociations</a> using the returned
- *          <code>RequestIdentifier</code> as a filter.</p>
- *          <p>
- *             <b>Required permissions:</b>
- *             <code>dms:AssociateExtensionPack</code>. For more information, see
- *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
+ * Queues the installation of the extension pack on your target database. If other requests created by `Start*` operations are already in the migration project's queue, the installation begins after they complete.
+ *
+ * This operation requires a non-virtual target data provider.
+ *
+ * If the extension pack already exists, the operation reinstalls it. To ensure compatibility, reconvert your database objects if the version has changed since your last conversion. For more information, see [Using extension packs in DMS Schema Conversion](https://docs.aws.amazon.com/dms/latest/userguide/extension-pack.html).
+ *
+ * To check the status of the request, call [DescribeExtensionPackAssociations](https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeExtensionPackAssociations.html) using the returned `RequestIdentifier` as a filter.
+ *
+ * **Required permissions:** `dms:AssociateExtensionPack`. For more information, see [Actions, resources, and condition keys for Database Migration Service](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,34 +59,40 @@ export interface StartExtensionPackAssociationCommandOutput extends StartExtensi
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedFault} (client fault)
- *  <p>DMS was denied access to the endpoint. Check that the
- *             role is correctly configured.</p>
+ *
+ * DMS was denied access to the endpoint. Check that the role is correctly configured.
  *
  * @throws {@link InvalidResourceStateFault} (client fault)
- *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
+ * The resource is in a state that prevents it from being used for database migration.
  *
  * @throws {@link KMSKeyNotAccessibleFault} (client fault)
- *  <p>DMS cannot access the KMS key.</p>
+ *
+ * DMS cannot access the KMS key.
  *
  * @throws {@link ResourceAlreadyExistsFault} (client fault)
- *  <p>The resource you are attempting to create already exists.</p>
+ *
+ * The resource you are attempting to create already exists.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link ResourceQuotaExceededFault} (client fault)
- *  <p>The quota for this resource quota has been exceeded.</p>
+ *
+ * The quota for this resource quota has been exceeded.
  *
  * @throws {@link S3AccessDeniedFault} (client fault)
- *  <p>Insufficient privileges are preventing access to an Amazon S3 object.</p>
+ *
+ * Insufficient privileges are preventing access to an Amazon S3 object.
  *
  * @throws {@link S3ResourceNotFoundFault} (client fault)
- *  <p>A specified Amazon S3 bucket, bucket folder, or other object can't be
- *             found.</p>
+ *
+ * A specified Amazon S3 bucket, bucket folder, or other object can't be found.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @example Install the extension pack on the target database
  * ```javascript

@@ -23,8 +23,8 @@ export interface DescribeChangeSetHooksCommandInput extends DescribeChangeSetHoo
 export interface DescribeChangeSetHooksCommandOutput extends DescribeChangeSetHooksOutput, __MetadataBearer {}
 
 /**
- * <p>Returns Hook-related information for the change set and a list of changes that
- *       CloudFormation makes when you run the change set.</p>
+ * Returns Hook-related information for the change set and a list of changes that CloudFormation makes when you run the change set.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,12 +76,12 @@ export interface DescribeChangeSetHooksCommandOutput extends DescribeChangeSetHo
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link ChangeSetNotFoundException} (client fault)
- *  <p>The specified change set name or ID doesn't exit. To view valid change sets for a stack, use the
- *    <code>ListChangeSets</code> operation.</p>
+ *
+ * The specified change set name or ID doesn't exit. To view valid change sets for a stack, use the `ListChangeSets` operation.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

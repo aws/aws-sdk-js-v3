@@ -23,10 +23,10 @@ export interface DescribeBackupAccessPointCommandInput extends DescribeBackupAcc
 export interface DescribeBackupAccessPointCommandOutput extends DescribeBackupAccessPointResponse, __MetadataBearer {}
 
 /**
- * <p>Returns metadata about a backup access point, including its status and the details of the underlying
- *          Amazon S3 access point.</p>
- *          <p>After a backup access point reaches the <code>AVAILABLE</code> status, use this operation to retrieve the
- *          Amazon S3 access point ARN and alias that you need to read the backup data.</p>
+ * Returns metadata about a backup access point, including its status and the details of the underlying Amazon S3 access point.
+ *
+ * After a backup access point reaches the `AVAILABLE` status, use this operation to retrieve the Amazon S3 access point ARN and alias that you need to read the backup data.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,25 +65,28 @@ export interface DescribeBackupAccessPointCommandOutput extends DescribeBackupAc
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
- *          out of range.</p>
+ *
+ * Indicates that something is wrong with a parameter's value. For example, the value is out of range.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Indicates that something is wrong with the input to the request. For example, a
- *          parameter is of the wrong type.</p>
+ *
+ * Indicates that something is wrong with the input to the request. For example, a parameter is of the wrong type.
  *
  * @throws {@link MissingParameterValueException} (client fault)
- *  <p>Indicates that a required parameter is missing.</p>
+ *
+ * Indicates that a required parameter is missing.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A resource that is required for the action doesn't exist.</p>
+ *
+ * A resource that is required for the action doesn't exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The request failed due to a temporary failure of the server.</p>
+ *
+ * The request failed due to a temporary failure of the server.
  *
  * @throws {@link BackupServiceException}
- * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * Base exception class for all service exceptions from Backup service.
  *
  * @public
  */

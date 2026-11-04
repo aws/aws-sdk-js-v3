@@ -23,17 +23,11 @@ export interface CreateResolverEndpointCommandInput extends CreateResolverEndpoi
 export interface CreateResolverEndpointCommandOutput extends CreateResolverEndpointResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a Resolver endpoint. There are two types of Resolver endpoints, inbound and outbound:</p>
- *          <ul>
- *             <li>
- *                <p>An <i>inbound Resolver endpoint</i> forwards DNS queries to the DNS service for a VPC
- * 				from your network.</p>
- *             </li>
- *             <li>
- *                <p>An <i>outbound Resolver endpoint</i> forwards DNS queries from the DNS service for a VPC
- * 				to your network.</p>
- *             </li>
- *          </ul>
+ * Creates a Resolver endpoint. There are two types of Resolver endpoints, inbound and outbound:
+ *
+ * - An *inbound Resolver endpoint* forwards DNS queries to the DNS service for a VPC from your network.
+ * - An *outbound Resolver endpoint* forwards DNS queries from the DNS service for a VPC to your network.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -113,34 +107,42 @@ export interface CreateResolverEndpointCommandOutput extends CreateResolverEndpo
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p>
- *          <p>This error can also be thrown when a customer has reached the 5120 character limit for a
- * 			resource policy for CloudWatch Logs.</p>
+ *
+ * The current account doesn't have the IAM permissions required to perform the specified Resolver operation.
+ *
+ * This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.
  *
  * @throws {@link InternalServiceErrorException} (client fault)
- *  <p>We encountered an unknown error. Try again in a few minutes.</p>
+ *
+ * We encountered an unknown error. Try again in a few minutes.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters in this request are not valid.</p>
+ *
+ * One or more parameters in this request are not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is invalid.</p>
+ *
+ * The request is invalid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request caused one or more limits to be exceeded.</p>
+ *
+ * The request caused one or more limits to be exceeded.
  *
  * @throws {@link ResourceExistsException} (client fault)
- *  <p>The resource that you tried to create already exists.</p>
+ *
+ * The resource that you tried to create already exists.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource doesn't exist.</p>
+ *
+ * The specified resource doesn't exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled. Try again in a few minutes.</p>
+ *
+ * The request was throttled. Try again in a few minutes.
  *
  * @throws {@link Route53ResolverServiceException}
- * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * Base exception class for all service exceptions from Route53Resolver service.
  *
  * @public
  */

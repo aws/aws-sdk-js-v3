@@ -23,7 +23,8 @@ export interface UpdateCloudConnectorCommandInput extends UpdateCloudConnectorRe
 export interface UpdateCloudConnectorCommandOutput extends UpdateCloudConnectorResult, __MetadataBearer {}
 
 /**
- * <p>Updates an existing cloud connector with new configuration details.</p>
+ * Updates an existing cloud connector with new configuration details.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,18 +69,20 @@ export interface UpdateCloudConnectorCommandOutput extends UpdateCloudConnectorR
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>An error occurred because of a conflict with a concurrent request or the current state of
- *    the resource. Retry your request.</p>
+ *
+ * An error occurred because of a conflict with a concurrent request or the current state of the resource. Retry your request.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified parameter to be shared could not be found.</p>
+ *
+ * The specified parameter to be shared could not be found.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

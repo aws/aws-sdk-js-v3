@@ -23,13 +23,10 @@ export interface CreateMultiRegionEndpointCommandInput extends CreateMultiRegion
 export interface CreateMultiRegionEndpointCommandOutput extends CreateMultiRegionEndpointResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a multi-region endpoint (global-endpoint).</p>
- *          <p>The primary region is going to be the AWS-Region where the operation is executed.
- *             The secondary region has to be provided in request's parameters.
- *             From the data flow standpoint there is no difference between primary
- *             and secondary regions - sending traffic is divided between the two.
- *             The primary region is the region where the resource has been created and where it can be managed.
- *         </p>
+ * Creates a multi-region endpoint (global-endpoint).
+ *
+ * The primary region is going to be the AWS-Region where the operation is executed. The secondary region has to be provided in request's parameters. From the data flow standpoint there is no difference between primary and secondary regions - sending traffic is divided between the two. The primary region is the region where the resource has been created and where it can be managed.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,20 +67,24 @@ export interface CreateMultiRegionEndpointCommandOutput extends CreateMultiRegio
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  * @throws {@link AlreadyExistsException} (client fault)
- *  <p>The resource specified in your request already exists.</p>
+ *
+ * The resource specified in your request already exists.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>There are too many instances of the specified resource type.</p>
+ *
+ * There are too many instances of the specified resource type.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Too many requests have been made to the operation.</p>
+ *
+ * Too many requests have been made to the operation.
  *
  * @throws {@link SESv2ServiceException}
- * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * Base exception class for all service exceptions from SESv2 service.
  *
  * @public
  */

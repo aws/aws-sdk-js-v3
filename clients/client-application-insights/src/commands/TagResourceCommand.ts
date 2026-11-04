@@ -23,14 +23,10 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Add one or more tags (keys and values) to a specified application. A
- *             <i>tag</i> is a label that you optionally define and associate with an
- *          application. Tags can help you categorize and manage application in different ways, such as
- *          by purpose, owner, environment, or other criteria. </p>
- *          <p>Each tag consists of a required <i>tag key</i> and an associated
- *             <i>tag value</i>, both of which you define. A tag key is a general label
- *          that acts as a category for more specific tag values. A tag value acts as a descriptor
- *          within a tag key.</p>
+ * Add one or more tags (keys and values) to a specified application. A *tag* is a label that you optionally define and associate with an application. Tags can help you categorize and manage application in different ways, such as by purpose, owner, environment, or other criteria.
+ *
+ * Each tag consists of a required *tag key* and an associated *tag value*, both of which you define. A tag key is a general label that acts as a category for more specific tag values. A tag value acts as a descriptor within a tag key.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,18 +57,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource does not exist in the customer account.</p>
+ *
+ * The resource does not exist in the customer account.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>The number of the provided tags is beyond the limit, or the number of total tags you are
- *          trying to attach to the specified resource exceeds the limit.</p>
+ *
+ * The number of the provided tags is beyond the limit, or the number of total tags you are trying to attach to the specified resource exceeds the limit.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The parameter is not valid.</p>
+ *
+ * The parameter is not valid.
  *
  * @throws {@link ApplicationInsightsServiceException}
- * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ * Base exception class for all service exceptions from ApplicationInsights service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface UpdateEndpointCommandInput extends UpdateEndpointRequest {}
 export interface UpdateEndpointCommandOutput extends UpdateEndpointResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new endpoint for an application or updates the settings and attributes of an existing endpoint for an application. You can also use this operation to define custom attributes for an endpoint. If an update includes one or more values for a custom attribute, Amazon Pinpoint replaces (overwrites) any existing values with the new values.</p>
+ * Creates a new endpoint for an application or updates the settings and attributes of an existing endpoint for an application. You can also use this operation to define custom attributes for an endpoint. If an update includes one or more values for a custom attribute, Amazon Pinpoint replaces (overwrites) any existing values with the new values.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -96,29 +97,36 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointResponse, __M
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>Provides information about an API request or response.</p>
+ *
+ * Provides information about an API request or response.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>Provides information about an API request or response.</p>
+ *
+ * Provides information about an API request or response.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>Provides information about an API request or response.</p>
+ *
+ * Provides information about an API request or response.
  *
  * @throws {@link MethodNotAllowedException} (client fault)
- *  <p>Provides information about an API request or response.</p>
+ *
+ * Provides information about an API request or response.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>Provides information about an API request or response.</p>
+ *
+ * Provides information about an API request or response.
  *
  * @throws {@link PayloadTooLargeException} (client fault)
- *  <p>Provides information about an API request or response.</p>
+ *
+ * Provides information about an API request or response.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Provides information about an API request or response.</p>
+ *
+ * Provides information about an API request or response.
  *
  * @throws {@link PinpointServiceException}
- * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * Base exception class for all service exceptions from Pinpoint service.
  *
  * @public
  */

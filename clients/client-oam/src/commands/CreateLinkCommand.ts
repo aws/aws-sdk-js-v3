@@ -23,7 +23,16 @@ export interface CreateLinkCommandInput extends CreateLinkInput {}
 export interface CreateLinkCommandOutput extends CreateLinkOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a link between a source account and a sink that you have created in a monitoring account. After the link is created, data is sent from the source account to the monitoring account. When you create a link, you can optionally specify filters that specify which metric namespaces and which log groups are shared from the source account to the monitoring account.</p> <p>Before you create a link, you must create a sink in the monitoring account and create a sink policy in that account. The sink policy must permit the source account to link to it. You can grant permission to source accounts by granting permission to an entire organization or to individual accounts.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_CreateSink.html">CreateSink</a> and <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_PutSinkPolicy.html">PutSinkPolicy</a>.</p> <p>Each monitoring account can be linked to as many as 100,000 source accounts.</p> <p>Each source account can be linked to as many as five monitoring accounts.</p>
+ * Creates a link between a source account and a sink that you have created in a monitoring account. After the link is created, data is sent from the source account to the monitoring account. When you create a link, you can optionally specify filters that specify which metric namespaces and which log groups are shared from the source account to the monitoring account.
+ *
+ * Before you create a link, you must create a sink in the monitoring account and create a sink policy in that account. The sink policy must permit the source account to link to it. You can grant permission to source accounts by granting permission to an entire organization or to individual accounts.
+ *
+ * For more information, see [CreateSink](https://docs.aws.amazon.com/OAM/latest/APIReference/API_CreateSink.html) and [PutSinkPolicy](https://docs.aws.amazon.com/OAM/latest/APIReference/API_PutSinkPolicy.html).
+ *
+ * Each monitoring account can be linked to as many as 100,000 source accounts.
+ *
+ * Each source account can be linked to as many as five monitoring accounts.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,23 +92,28 @@ export interface CreateLinkCommandOutput extends CreateLinkOutput, __MetadataBea
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A resource was in an inconsistent state during an update or a deletion.</p>
+ *
+ * A resource was in an inconsistent state during an update or a deletion.
  *
  * @throws {@link InternalServiceFault} (server fault)
- *  <p>Unexpected error while processing the request. Retry the request.</p>
+ *
+ * Unexpected error while processing the request. Retry the request.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is specified incorrectly.</p>
+ *
+ * A parameter is specified incorrectly.
  *
  * @throws {@link MissingRequiredParameterException} (client fault)
- *  <p>A required parameter is missing from the request.</p>
+ *
+ * A required parameter is missing from the request.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would cause a service quota to be exceeded.</p>
+ *
+ * The request would cause a service quota to be exceeded.
  *
  * @throws {@link OAMServiceException}
- * <p>Base exception class for all service exceptions from OAM service.</p>
  *
+ * Base exception class for all service exceptions from OAM service.
  *
  * @public
  */

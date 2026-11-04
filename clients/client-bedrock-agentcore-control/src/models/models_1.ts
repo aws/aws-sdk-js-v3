@@ -68,13 +68,15 @@ import type {
  */
 export interface GetGatewayRuleRequest {
   /**
-   * <p>The identifier of the gateway containing the rule.</p>
+   * The identifier of the gateway containing the rule.
+   *
    * @public
    */
   gatewayIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the rule to retrieve.</p>
+   * The unique identifier of the rule to retrieve.
+   *
    * @public
    */
   ruleId: string | undefined;
@@ -87,61 +89,71 @@ export interface GetGatewayRuleRequest {
  */
 export interface GetGatewayRuleResponse {
   /**
-   * <p>The unique identifier of the gateway rule.</p>
+   * The unique identifier of the gateway rule.
+   *
    * @public
    */
   ruleId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the gateway that the rule belongs to.</p>
+   * The Amazon Resource Name (ARN) of the gateway that the rule belongs to.
+   *
    * @public
    */
   gatewayArn: string | undefined;
 
   /**
-   * <p>The priority of the rule. Rules are evaluated in order of priority, with lower numbers evaluated first.</p>
+   * The priority of the rule. Rules are evaluated in order of priority, with lower numbers evaluated first.
+   *
    * @public
    */
   priority: number | undefined;
 
   /**
-   * <p>The conditions that must be met for the rule to apply.</p>
+   * The conditions that must be met for the rule to apply.
+   *
    * @public
    */
   conditions?: Condition[] | undefined;
 
   /**
-   * <p>The actions to take when the rule conditions are met.</p>
+   * The actions to take when the rule conditions are met.
+   *
    * @public
    */
   actions: Action[] | undefined;
 
   /**
-   * <p>The description of the gateway rule.</p>
+   * The description of the gateway rule.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The timestamp when the rule was created.</p>
+   * The timestamp when the rule was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The current status of the rule.</p>
+   * The current status of the rule.
+   *
    * @public
    */
   status: GatewayRuleStatus | undefined;
 
   /**
-   * <p>System-managed metadata for rules created by automated processes.</p>
+   * System-managed metadata for rules created by automated processes.
+   *
    * @public
    */
   system?: SystemManagedBlock | undefined;
 
   /**
-   * <p>The timestamp when the rule was last updated.</p>
+   * The timestamp when the rule was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -152,85 +164,99 @@ export interface GetGatewayRuleResponse {
  */
 export interface ListGatewayRulesRequest {
   /**
-   * <p>The identifier of the gateway to list rules for.</p>
+   * The identifier of the gateway to list rules for.
+   *
    * @public
    */
   gatewayIdentifier: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the `nextToken` field when making another request to return the next batch of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The pagination token from a previous request.</p>
+   * The pagination token from a previous request.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Detailed information about a gateway rule.</p>
+ * Detailed information about a gateway rule.
+ *
  * @public
  */
 export interface GatewayRuleDetail {
   /**
-   * <p>The unique identifier of the gateway rule.</p>
+   * The unique identifier of the gateway rule.
+   *
    * @public
    */
   ruleId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the gateway that the rule belongs to.</p>
+   * The Amazon Resource Name (ARN) of the gateway that the rule belongs to.
+   *
    * @public
    */
   gatewayArn: string | undefined;
 
   /**
-   * <p>The priority of the rule. Rules are evaluated in order of priority, with lower numbers evaluated first.</p>
+   * The priority of the rule. Rules are evaluated in order of priority, with lower numbers evaluated first.
+   *
    * @public
    */
   priority: number | undefined;
 
   /**
-   * <p>The conditions that must be met for the rule to apply.</p>
+   * The conditions that must be met for the rule to apply.
+   *
    * @public
    */
   conditions?: Condition[] | undefined;
 
   /**
-   * <p>The actions to take when the rule conditions are met.</p>
+   * The actions to take when the rule conditions are met.
+   *
    * @public
    */
   actions: Action[] | undefined;
 
   /**
-   * <p>The description of the gateway rule.</p>
+   * The description of the gateway rule.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The timestamp when the rule was created.</p>
+   * The timestamp when the rule was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The current status of the rule.</p>
+   * The current status of the rule.
+   *
    * @public
    */
   status: GatewayRuleStatus | undefined;
 
   /**
-   * <p>System-managed metadata for rules created by automated processes.</p>
+   * System-managed metadata for rules created by automated processes.
+   *
    * @public
    */
   system?: SystemManagedBlock | undefined;
 
   /**
-   * <p>The timestamp when the rule was last updated.</p>
+   * The timestamp when the rule was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -241,13 +267,15 @@ export interface GatewayRuleDetail {
  */
 export interface ListGatewayRulesResponse {
   /**
-   * <p>The list of gateway rules.</p>
+   * The list of gateway rules.
+   *
    * @public
    */
   gatewayRules: GatewayRuleDetail[] | undefined;
 
   /**
-   * <p>The pagination token to use in a subsequent request.</p>
+   * The pagination token to use in a subsequent request.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -258,37 +286,43 @@ export interface ListGatewayRulesResponse {
  */
 export interface UpdateGatewayRuleRequest {
   /**
-   * <p>The identifier of the gateway containing the rule.</p>
+   * The identifier of the gateway containing the rule.
+   *
    * @public
    */
   gatewayIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the rule to update.</p>
+   * The unique identifier of the rule to update.
+   *
    * @public
    */
   ruleId: string | undefined;
 
   /**
-   * <p>The updated priority of the rule.</p>
+   * The updated priority of the rule.
+   *
    * @public
    */
   priority?: number | undefined;
 
   /**
-   * <p>The updated conditions for the rule.</p>
+   * The updated conditions for the rule.
+   *
    * @public
    */
   conditions?: Condition[] | undefined;
 
   /**
-   * <p>The updated actions for the rule.</p>
+   * The updated actions for the rule.
+   *
    * @public
    */
   actions?: Action[] | undefined;
 
   /**
-   * <p>The updated description of the rule.</p>
+   * The updated description of the rule.
+   *
    * @public
    */
   description?: string | undefined;
@@ -301,98 +335,114 @@ export interface UpdateGatewayRuleRequest {
  */
 export interface UpdateGatewayRuleResponse {
   /**
-   * <p>The unique identifier of the gateway rule.</p>
+   * The unique identifier of the gateway rule.
+   *
    * @public
    */
   ruleId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the gateway that the rule belongs to.</p>
+   * The Amazon Resource Name (ARN) of the gateway that the rule belongs to.
+   *
    * @public
    */
   gatewayArn: string | undefined;
 
   /**
-   * <p>The priority of the rule. Rules are evaluated in order of priority, with lower numbers evaluated first.</p>
+   * The priority of the rule. Rules are evaluated in order of priority, with lower numbers evaluated first.
+   *
    * @public
    */
   priority: number | undefined;
 
   /**
-   * <p>The conditions that must be met for the rule to apply.</p>
+   * The conditions that must be met for the rule to apply.
+   *
    * @public
    */
   conditions?: Condition[] | undefined;
 
   /**
-   * <p>The actions to take when the rule conditions are met.</p>
+   * The actions to take when the rule conditions are met.
+   *
    * @public
    */
   actions: Action[] | undefined;
 
   /**
-   * <p>The description of the gateway rule.</p>
+   * The description of the gateway rule.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The timestamp when the rule was created.</p>
+   * The timestamp when the rule was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The current status of the rule.</p>
+   * The current status of the rule.
+   *
    * @public
    */
   status: GatewayRuleStatus | undefined;
 
   /**
-   * <p>System-managed metadata for rules created by automated processes.</p>
+   * System-managed metadata for rules created by automated processes.
+   *
    * @public
    */
   system?: SystemManagedBlock | undefined;
 
   /**
-   * <p>The timestamp when the rule was last updated.</p>
+   * The timestamp when the rule was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * <p>A reference to a PEM-encoded private CA certificate stored as an Amazon S3 object.</p>
+ * A reference to a PEM-encoded private CA certificate stored as an Amazon S3 object.
+ *
  * @public
  */
 export interface S3CertificateConfiguration {
   /**
-   * <p>The URI of the Amazon S3 object that contains the PEM-encoded certificate.</p>
+   * The URI of the Amazon S3 object that contains the PEM-encoded certificate.
+   *
    * @public
    */
   uri: string | undefined;
 
   /**
-   * <p>The account ID of the Amazon S3 bucket owner. This ID is used for cross-account access to the bucket.</p>
+   * The account ID of the Amazon S3 bucket owner. This ID is used for cross-account access to the bucket.
+   *
    * @public
    */
   bucketOwnerAccountId?: string | undefined;
 }
 
 /**
- * <p>A reference to a PEM-encoded private CA certificate stored in an Amazon Web Services Secrets Manager secret.</p>
+ * A reference to a PEM-encoded private CA certificate stored in an Amazon Web Services Secrets Manager secret.
+ *
  * @public
  */
 export interface SecretsManagerCertificateConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the PEM-encoded certificate.</p>
+   * The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the PEM-encoded certificate.
+   *
    * @public
    */
   secretArn: string | undefined;
 }
 
 /**
- * <p>A reference to a private certificate authority (CA) certificate that the gateway uses to verify TLS connections to the target endpoint. Use this when the target presents a certificate issued by a private CA that is not trusted by default. Specify exactly one certificate source. The configuration is a reference only and never contains the certificate content.</p>
+ * A reference to a private certificate authority (CA) certificate that the gateway uses to verify TLS connections to the target endpoint. Use this when the target presents a certificate issued by a private CA that is not trusted by default. Specify exactly one certificate source. The configuration is a reference only and never contains the certificate content.
+ *
  * @public
  */
 export type CertificateConfiguration =
@@ -405,7 +455,8 @@ export type CertificateConfiguration =
  */
 export namespace CertificateConfiguration {
   /**
-   * <p>The Amazon S3 location of the PEM-encoded private CA certificate.</p>
+   * The Amazon S3 location of the PEM-encoded private CA certificate.
+   *
    * @public
    */
   export interface S3Member {
@@ -415,7 +466,8 @@ export namespace CertificateConfiguration {
   }
 
   /**
-   * <p>The Amazon Web Services Secrets Manager location of the PEM-encoded private CA certificate.</p>
+   * The Amazon Web Services Secrets Manager location of the PEM-encoded private CA certificate.
+   *
    * @public
    */
   export interface SecretsManagerMember {
@@ -445,91 +497,110 @@ export namespace CertificateConfiguration {
 }
 
 /**
- * <p>An API key credential provider for gateway authentication. This structure contains the configuration for authenticating with the target endpoint using an API key.</p>
+ * An API key credential provider for gateway authentication. This structure contains the configuration for authenticating with the target endpoint using an API key.
+ *
  * @public
  */
 export interface GatewayApiKeyCredentialProvider {
   /**
-   * <p>The Amazon Resource Name (ARN) of the API key credential provider. This ARN identifies the provider in Amazon Web Services.</p>
+   * The Amazon Resource Name (ARN) of the API key credential provider. This ARN identifies the provider in Amazon Web Services.
+   *
    * @public
    */
   providerArn: string | undefined;
 
   /**
-   * <p>The name of the credential parameter for the API key. This parameter name is used when sending the API key to the target endpoint.</p>
+   * The name of the credential parameter for the API key. This parameter name is used when sending the API key to the target endpoint.
+   *
    * @public
    */
   credentialParameterName?: string | undefined;
 
   /**
-   * <p>The prefix for the API key credential. This prefix is added to the API key when sending it to the target endpoint.</p>
+   * The prefix for the API key credential. This prefix is added to the API key when sending it to the target endpoint.
+   *
    * @public
    */
   credentialPrefix?: string | undefined;
 
   /**
-   * <p>The location of the API key credential. This field specifies where in the request the API key should be placed.</p>
+   * The location of the API key credential. This field specifies where in the request the API key should be placed.
+   *
    * @public
    */
   credentialLocation?: ApiKeyCredentialLocation | undefined;
 }
 
 /**
- * <p>An IAM credential provider for gateway authentication. This structure contains the configuration for authenticating with the target endpoint using IAM credentials and SigV4 signing.</p>
+ * An IAM credential provider for gateway authentication. This structure contains the configuration for authenticating with the target endpoint using IAM credentials and SigV4 signing.
+ *
  * @public
  */
 export interface IamCredentialProvider {
   /**
-   * <p>The target Amazon Web Services service name used for SigV4 signing. This value identifies the service that the gateway authenticates with when making requests to the target endpoint.</p>
+   * The target Amazon Web Services service name used for SigV4 signing. This value identifies the service that the gateway authenticates with when making requests to the target endpoint.
+   *
    * @public
    */
   service: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region used for SigV4 signing. If not specified, defaults to the gateway's Region.</p>
+   * The Amazon Web Services Region used for SigV4 signing. If not specified, defaults to the gateway's Region.
+   *
    * @public
    */
   region?: string | undefined;
 }
 
 /**
- * <p>An OAuth credential provider for gateway authentication. This structure contains the configuration for authenticating with the target endpoint using OAuth.</p>
+ * An OAuth credential provider for gateway authentication. This structure contains the configuration for authenticating with the target endpoint using OAuth.
+ *
  * @public
  */
 export interface OAuthCredentialProvider {
   /**
-   * <p>The Amazon Resource Name (ARN) of the OAuth credential provider. This ARN identifies the provider in Amazon Web Services.</p>
+   * The Amazon Resource Name (ARN) of the OAuth credential provider. This ARN identifies the provider in Amazon Web Services.
+   *
    * @public
    */
   providerArn: string | undefined;
 
   /**
-   * <p>The OAuth scopes for the credential provider. These scopes define the level of access requested from the OAuth provider.</p>
+   * The OAuth scopes for the credential provider. These scopes define the level of access requested from the OAuth provider.
+   *
    * @public
    */
   scopes: string[] | undefined;
 
   /**
-   * <p>The custom parameters for the OAuth credential provider. These parameters provide additional configuration for the OAuth authentication process.</p>
+   * The custom parameters for the OAuth credential provider. These parameters provide additional configuration for the OAuth authentication process.
+   *
    * @public
    */
   customParameters?: Record<string, string> | undefined;
 
   /**
-   * <p>Specifies the kind of credentials to use for authorization:</p> <ul> <li> <p> <code>CLIENT_CREDENTIALS</code> - Authorization with a client ID and secret.</p> </li> <li> <p> <code>AUTHORIZATION_CODE</code> - Authorization with a token that is specific to an individual end user.</p> </li> <li> <p> <code>TOKEN_EXCHANGE</code> - Authorization using on-behalf-of token exchange. An inbound user token is exchanged for a downstream access token scoped to the target audience.</p> </li> </ul>
+   * Specifies the kind of credentials to use for authorization:
+   *
+   * - `CLIENT_CREDENTIALS` - Authorization with a client ID and secret.
+   * - `AUTHORIZATION_CODE` - Authorization with a token that is specific to an individual end user.
+   * - `TOKEN_EXCHANGE` - Authorization using on-behalf-of token exchange. An inbound user token is exchanged for a downstream access token scoped to the target audience.
+   *
    * @public
    */
   grantType?: OAuthGrantType | undefined;
 
   /**
-   * <p>The URL where the end user's browser is redirected after obtaining the authorization code. Generally points to the customer's application.</p>
+   * The URL where the end user's browser is redirected after obtaining the authorization code. Generally points to the customer's application.
+   *
    * @public
    */
   defaultReturnUrl?: string | undefined;
 }
 
 /**
- * <p>A credential provider for gateway authentication. This structure contains the configuration for authenticating with the target endpoint.</p>
+ * A credential provider for gateway authentication. This structure contains the configuration for authenticating with the target endpoint.
+ *
  * @public
  */
 export type CredentialProvider =
@@ -543,7 +614,8 @@ export type CredentialProvider =
  */
 export namespace CredentialProvider {
   /**
-   * <p>The OAuth credential provider. This provider uses OAuth authentication to access the target endpoint.</p>
+   * The OAuth credential provider. This provider uses OAuth authentication to access the target endpoint.
+   *
    * @public
    */
   export interface OauthCredentialProviderMember {
@@ -554,7 +626,8 @@ export namespace CredentialProvider {
   }
 
   /**
-   * <p>The API key credential provider. This provider uses an API key to authenticate with the target endpoint.</p>
+   * The API key credential provider. This provider uses an API key to authenticate with the target endpoint.
+   *
    * @public
    */
   export interface ApiKeyCredentialProviderMember {
@@ -565,7 +638,8 @@ export namespace CredentialProvider {
   }
 
   /**
-   * <p>The IAM credential provider. This provider uses IAM authentication with SigV4 signing to access the target endpoint.</p>
+   * The IAM credential provider. This provider uses IAM authentication with SigV4 signing to access the target endpoint.
+   *
    * @public
    */
   export interface IamCredentialProviderMember {
@@ -598,67 +672,78 @@ export namespace CredentialProvider {
 }
 
 /**
- * <p>The configuration for a credential provider. This structure defines how the gateway authenticates with the target endpoint.</p>
+ * The configuration for a credential provider. This structure defines how the gateway authenticates with the target endpoint.
+ *
  * @public
  */
 export interface CredentialProviderConfiguration {
   /**
-   * <p>The type of credential provider. This field specifies which authentication method the gateway uses.</p>
+   * The type of credential provider. This field specifies which authentication method the gateway uses.
+   *
    * @public
    */
   credentialProviderType: CredentialProviderType | undefined;
 
   /**
-   * <p>The credential provider. This field contains the specific configuration for the credential provider type.</p>
+   * The credential provider. This field contains the specific configuration for the credential provider type.
+   *
    * @public
    */
   credentialProvider?: CredentialProvider | undefined;
 }
 
 /**
- * <p>Configuration for HTTP header and query parameter propagation between the gateway and target servers.</p>
+ * Configuration for HTTP header and query parameter propagation between the gateway and target servers.
+ *
  * @public
  */
 export interface MetadataConfiguration {
   /**
-   * <p>A list of HTTP headers that are allowed to be propagated from incoming client requests to the target.</p>
+   * A list of HTTP headers that are allowed to be propagated from incoming client requests to the target.
+   *
    * @public
    */
   allowedRequestHeaders?: string[] | undefined;
 
   /**
-   * <p>A list of URL query parameters that are allowed to be propagated from incoming gateway URL to the target.</p>
+   * A list of URL query parameters that are allowed to be propagated from incoming gateway URL to the target.
+   *
    * @public
    */
   allowedQueryParameters?: string[] | undefined;
 
   /**
-   * <p>A list of HTTP headers that are allowed to be propagated from the target response back to the client.</p>
+   * A list of HTTP headers that are allowed to be propagated from the target response back to the client.
+   *
    * @public
    */
   allowedResponseHeaders?: string[] | undefined;
 }
 
 /**
- * <p>The Amazon S3 configuration for a gateway. This structure defines how the gateway accesses files in Amazon S3.</p>
+ * The Amazon S3 configuration for a gateway. This structure defines how the gateway accesses files in Amazon S3.
+ *
  * @public
  */
 export interface S3Configuration {
   /**
-   * <p>The URI of the Amazon S3 object. This URI specifies the location of the object in Amazon S3.</p>
+   * The URI of the Amazon S3 object. This URI specifies the location of the object in Amazon S3.
+   *
    * @public
    */
   uri?: string | undefined;
 
   /**
-   * <p>The account ID of the Amazon S3 bucket owner. This ID is used for cross-account access to the bucket.</p>
+   * The account ID of the Amazon S3 bucket owner. This ID is used for cross-account access to the bucket.
+   *
    * @public
    */
   bucketOwnerAccountId?: string | undefined;
 }
 
 /**
- * <p>Configuration for API schema.</p>
+ * Configuration for API schema.
+ *
  * @public
  */
 export type ApiSchemaConfiguration =
@@ -671,7 +756,8 @@ export type ApiSchemaConfiguration =
  */
 export namespace ApiSchemaConfiguration {
   /**
-   * <p>The Amazon S3 configuration for a gateway. This structure defines how the gateway accesses files in Amazon S3.</p>
+   * The Amazon S3 configuration for a gateway. This structure defines how the gateway accesses files in Amazon S3.
+   *
    * @public
    */
   export interface S3Member {
@@ -681,7 +767,8 @@ export namespace ApiSchemaConfiguration {
   }
 
   /**
-   * <p>The inline payload containing the API schema definition.</p>
+   * The inline payload containing the API schema definition.
+   *
    * @public
    */
   export interface InlinePayloadMember {
@@ -711,139 +798,170 @@ export namespace ApiSchemaConfiguration {
 }
 
 /**
- * <p>The API schema configuration for an HTTP target. This schema defines the API structure that the target exposes.</p>
+ * The API schema configuration for an HTTP target. This schema defines the API structure that the target exposes.
+ *
  * @public
  */
 export interface HttpApiSchemaConfiguration {
   /**
-   * <p>Configuration for API schema.</p>
+   * Configuration for API schema.
+   *
    * @public
    */
   source: ApiSchemaConfiguration | undefined;
 }
 
 /**
- * <p>Configuration for an AgentCore Runtime target. Specifies the agent runtime to route requests to via HTTP.</p>
+ * Configuration for an AgentCore Runtime target. Specifies the agent runtime to route requests to via HTTP.
+ *
  * @public
  */
 export interface RuntimeTargetConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the AgentCore Runtime to route requests to.</p>
+   * The Amazon Resource Name (ARN) of the AgentCore Runtime to route requests to.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The qualifier for the agent runtime, used to target a specific endpoint version. If not specified, the default endpoint is used.</p>
+   * The qualifier for the agent runtime, used to target a specific endpoint version. If not specified, the default endpoint is used.
+   *
    * @public
    */
   qualifier?: string | undefined;
 
   /**
-   * <p>The API schema configuration that defines the structure of the runtime target's API.</p>
+   * The API schema configuration that defines the structure of the runtime target's API.
+   *
    * @public
    */
   schema?: HttpApiSchemaConfiguration | undefined;
 }
 
 /**
- * <p>The source identifying the HTTP connector integration.</p>
+ * The source identifying the HTTP connector integration.
+ *
  * @public
  */
 export interface HttpConnectorSource {
   /**
-   * <p>The identifier for the HTTP connector integration.</p>
+   * The identifier for the HTTP connector integration.
+   *
    * @public
    */
   connectorId: string | undefined;
 }
 
 /**
- * <p>The configuration for an HTTP connector target. Use this configuration when you want to route HTTP requests through a managed connector.</p>
+ * The configuration for an HTTP connector target. Use this configuration when you want to route HTTP requests through a managed connector.
+ *
  * @public
  */
 export interface HttpConnectorTargetConfiguration {
   /**
-   * <p>The source configuration identifying which HTTP connector to use.</p>
+   * The source configuration identifying which HTTP connector to use.
+   *
    * @public
    */
   source: HttpConnectorSource | undefined;
 
   /**
-   * <p>The resource parameters for this connector (for example, <code>memoryId</code>). The service validates these parameters against the request path at runtime.</p>
+   * The resource parameters for this connector (for example, `memoryId`). The service validates these parameters against the request path at runtime.
+   *
    * @public
    */
   parameters?: Record<string, string> | undefined;
 }
 
 /**
- * <p>The configuration for session-sticky routing to a target. Session stickiness routes requests that share a session identifier to the same target.</p>
+ * The configuration for session-sticky routing to a target. Session stickiness routes requests that share a session identifier to the same target.
+ *
  * @public
  */
 export interface StickinessConfiguration {
   /**
-   * <p>The expression that identifies where to extract the session identifier from the request (for example, <code>$context.header.x-session-id</code>).</p>
+   * The expression that identifies where to extract the session identifier from the request (for example, `$context.header.x-session-id`).
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The session stickiness timeout, in seconds. After this duration of inactivity, the session affinity expires. Valid values range from 1 to 86400.</p>
+   * The session stickiness timeout, in seconds. After this duration of inactivity, the session affinity expires. Valid values range from 1 to 86400.
+   *
    * @public
    */
   timeout?: number | undefined;
 
   /**
-   * <p>Additional headers to include in session affinity routing. When set, requests are only considered part of the same session if both the <code>identifier</code> and all composite identifier values match.</p>
+   * Additional headers to include in session affinity routing. When set, requests are only considered part of the same session if both the `identifier` and all composite identifier values match.
+   *
    * @public
    */
   compositeIdentifier?: string[] | undefined;
 }
 
 /**
- * <p>The configuration for an HTTP passthrough target. A passthrough target forwards requests directly to an external HTTP endpoint.</p>
+ * The configuration for an HTTP passthrough target. A passthrough target forwards requests directly to an external HTTP endpoint.
+ *
  * @public
  */
 export interface PassthroughTargetConfiguration {
   /**
-   * <p>The HTTPS endpoint that the gateway forwards requests to for this passthrough target.</p>
+   * The HTTPS endpoint that the gateway forwards requests to for this passthrough target.
+   *
    * @public
    */
   endpoint: string | undefined;
 
   /**
-   * <p>The application protocol that the passthrough target implements. This value is required for passthrough targets:</p> <ul> <li> <p> <code>MCP</code> - The Model Context Protocol.</p> </li> <li> <p> <code>A2A</code> - The Agent-to-Agent protocol.</p> </li> <li> <p> <code>INFERENCE</code> - The protocol for routing requests to a large language model (LLM) provider.</p> </li> <li> <p> <code>CUSTOM</code> - A custom application protocol.</p> </li> </ul>
+   * The application protocol that the passthrough target implements. This value is required for passthrough targets:
+   *
+   * - `MCP` - The Model Context Protocol.
+   * - `A2A` - The Agent-to-Agent protocol.
+   * - `INFERENCE` - The protocol for routing requests to a large language model (LLM) provider.
+   * - `CUSTOM` - A custom application protocol.
+   *
    * @public
    */
   protocolType: PassthroughProtocolType | undefined;
 
   /**
-   * <p>The API schema configuration that defines the structure of the passthrough target's API.</p>
+   * The API schema configuration that defines the structure of the passthrough target's API.
+   *
    * @public
    */
   schema?: HttpApiSchemaConfiguration | undefined;
 
   /**
-   * <p>The session stickiness configuration for the passthrough target. This configuration routes requests within the same session to the same target.</p>
+   * The session stickiness configuration for the passthrough target. This configuration routes requests within the same session to the same target.
+   *
    * @public
    */
   stickinessConfiguration?: StickinessConfiguration | undefined;
 
   /**
-   * <p>A map of static query parameters that the gateway always appends to the outbound URL when forwarding requests to the target. The total outbound URL length, which includes the endpoint and the percent-encoded query parameters, is enforced by the service.</p>
+   * A map of static query parameters that the gateway always appends to the outbound URL when forwarding requests to the target. The total outbound URL length, which includes the endpoint and the percent-encoded query parameters, is enforced by the service.
+   *
    * @public
    */
   staticQueryParameters?: Record<string, string> | undefined;
 
   /**
-   * <p>Controls precedence when a client request supplies a query parameter whose name matches a configured static query parameter. If not set, defaults to <code>CLIENT_OVERRIDE</code>:</p> <ul> <li> <p> <code>CLIENT_OVERRIDE</code> - The client-supplied value overrides the configured static value for that parameter name.</p> </li> <li> <p> <code>STATIC_OVERRIDE</code> - The configured static value is retained, overriding the client-supplied value for that parameter name.</p> </li> </ul>
+   * Controls precedence when a client request supplies a query parameter whose name matches a configured static query parameter. If not set, defaults to `CLIENT_OVERRIDE`:
+   *
+   * - `CLIENT_OVERRIDE` - The client-supplied value overrides the configured static value for that parameter name.
+   * - `STATIC_OVERRIDE` - The configured static value is retained, overriding the client-supplied value for that parameter name.
+   *
    * @public
    */
   staticQueryParameterConflictResolution?: StaticQueryParameterConflictResolution | undefined;
 }
 
 /**
- * <p>The HTTP target configuration for a gateway target. Contains the configuration for HTTP-based target endpoints.</p>
+ * The HTTP target configuration for a gateway target. Contains the configuration for HTTP-based target endpoints.
+ *
  * @public
  */
 export type HttpTargetConfiguration =
@@ -857,7 +975,8 @@ export type HttpTargetConfiguration =
  */
 export namespace HttpTargetConfiguration {
   /**
-   * <p>The AgentCore Runtime target configuration for HTTP-based communication with an agent runtime.</p>
+   * The AgentCore Runtime target configuration for HTTP-based communication with an agent runtime.
+   *
    * @public
    */
   export interface AgentcoreRuntimeMember {
@@ -868,7 +987,8 @@ export namespace HttpTargetConfiguration {
   }
 
   /**
-   * <p>The passthrough configuration for the HTTP target. A passthrough target forwards requests directly to an external HTTP endpoint.</p>
+   * The passthrough configuration for the HTTP target. A passthrough target forwards requests directly to an external HTTP endpoint.
+   *
    * @public
    */
   export interface PassthroughMember {
@@ -879,7 +999,8 @@ export namespace HttpTargetConfiguration {
   }
 
   /**
-   * <p>The connector-based configuration for the HTTP target. Use this configuration when you want to route HTTP requests through a managed connector.</p>
+   * The connector-based configuration for the HTTP target. Use this configuration when you want to route HTTP requests through a managed connector.
+   *
    * @public
    */
   export interface ConnectorMember {
@@ -912,121 +1033,141 @@ export namespace HttpTargetConfiguration {
 }
 
 /**
- * <p>The source identifying the inference connector.</p>
+ * The source identifying the inference connector.
+ *
  * @public
  */
 export interface InferenceConnectorSource {
   /**
-   * <p>The identifier for the inference connector (for example, <code>bedrock-mantle</code>, <code>openai</code>, or <code>anthropic</code>).</p>
+   * The identifier for the inference connector (for example, `bedrock-mantle`, `openai`, or `anthropic`).
+   *
    * @public
    */
   connectorId: string | undefined;
 }
 
 /**
- * <p>The configuration for a connector-based inference target. This configuration uses a built-in connector that provides predefined rules for a large language model (LLM) provider.</p>
+ * The configuration for a connector-based inference target. This configuration uses a built-in connector that provides predefined rules for a large language model (LLM) provider.
+ *
  * @public
  */
 export interface InferenceConnectorTargetConfiguration {
   /**
-   * <p>The source configuration identifying which inference connector to use.</p>
+   * The source configuration identifying which inference connector to use.
+   *
    * @public
    */
   source: InferenceConnectorSource | undefined;
 }
 
 /**
- * <p>The configuration that controls how a provider prefix is applied to model IDs during translation.</p>
+ * The configuration that controls how a provider prefix is applied to model IDs during translation.
+ *
  * @public
  */
 export interface ProviderPrefix {
   /**
-   * <p>Whether clients can omit the provider prefix from model IDs. If <code>true</code>, the gateway accepts model IDs without the prefix and restores the full prefixed form before forwarding to the provider. The default is <code>false</code>.</p>
+   * Whether clients can omit the provider prefix from model IDs. If `true`, the gateway accepts model IDs without the prefix and restores the full prefixed form before forwarding to the provider. The default is `false`.
+   *
    * @public
    */
   strip?: boolean | undefined;
 
   /**
-   * <p>The single character that separates the provider prefix from the model name (for example, <code>.</code>). The default is <code>.</code>.</p>
+   * The single character that separates the provider prefix from the model name (for example, `.`). The default is `.`.
+   *
    * @public
    */
   separator?: string | undefined;
 }
 
 /**
- * <p>The configuration that translates model IDs between client-facing names and provider model IDs.</p>
+ * The configuration that translates model IDs between client-facing names and provider model IDs.
+ *
  * @public
  */
 export interface ModelMapping {
   /**
-   * <p>The provider prefix configuration used for model ID translation.</p>
+   * The provider prefix configuration used for model ID translation.
+   *
    * @public
    */
   providerPrefix?: ProviderPrefix | undefined;
 }
 
 /**
- * <p>A model entry that specifies a model supported for an inference operation.</p>
+ * A model entry that specifies a model supported for an inference operation.
+ *
  * @public
  */
 export interface ModelEntry {
   /**
-   * <p>The model ID or glob pattern that identifies the model (for example, <code>anthropic.claude-opus-*</code> or <code>openai.gpt-oss-*</code>).</p>
+   * The model ID or glob pattern that identifies the model (for example, `anthropic.claude-opus-*` or `openai.gpt-oss-*`).
+   *
    * @public
    */
   model: string | undefined;
 }
 
 /**
- * <p>The configuration for a specific inference operation, including its request path and the models that the operation supports.</p>
+ * The configuration for a specific inference operation, including its request path and the models that the operation supports.
+ *
  * @public
  */
 export interface InferenceOperationConfiguration {
   /**
-   * <p>The request path for this operation (for example, <code>/v1/messages</code> or <code>/v1/responses</code>).</p>
+   * The request path for this operation (for example, `/v1/messages` or `/v1/responses`).
+   *
    * @public
    */
   path: string | undefined;
 
   /**
-   * <p>The provider path to forward requests to, if it differs from the request path. For example, <code>/anthropic/v1/messages</code> when the provider expects a different path than the client-facing <code>/v1/messages</code>.</p>
+   * The provider path to forward requests to, if it differs from the request path. For example, `/anthropic/v1/messages` when the provider expects a different path than the client-facing `/v1/messages`.
+   *
    * @public
    */
   providerPath?: string | undefined;
 
   /**
-   * <p>The list of models supported for this operation.</p>
+   * The list of models supported for this operation.
+   *
    * @public
    */
   models?: ModelEntry[] | undefined;
 }
 
 /**
- * <p>The configuration for a provider-based inference target. This configuration explicitly defines the endpoint, model mapping, and operations used to route requests to a large language model (LLM) provider.</p>
+ * The configuration for a provider-based inference target. This configuration explicitly defines the endpoint, model mapping, and operations used to route requests to a large language model (LLM) provider.
+ *
  * @public
  */
 export interface InferenceProviderTargetConfiguration {
   /**
-   * <p>The HTTPS endpoint of the inference provider that the gateway forwards requests to.</p>
+   * The HTTPS endpoint of the inference provider that the gateway forwards requests to.
+   *
    * @public
    */
   endpoint: string | undefined;
 
   /**
-   * <p>The configuration that translates client-facing model IDs to the model IDs expected by the provider.</p>
+   * The configuration that translates client-facing model IDs to the model IDs expected by the provider.
+   *
    * @public
    */
   modelMapping?: ModelMapping | undefined;
 
   /**
-   * <p>A list of per-operation configurations that map request paths to the models supported for each operation.</p>
+   * A list of per-operation configurations that map request paths to the models supported for each operation.
+   *
    * @public
    */
   operations?: InferenceOperationConfiguration[] | undefined;
 }
 
 /**
- * <p>The configuration for an inference target. An inference target routes requests to a large language model (LLM) provider, either through a built-in connector or an explicitly configured provider.</p>
+ * The configuration for an inference target. An inference target routes requests to a large language model (LLM) provider, either through a built-in connector or an explicitly configured provider.
+ *
  * @public
  */
 export type InferenceTargetConfiguration =
@@ -1039,7 +1180,8 @@ export type InferenceTargetConfiguration =
  */
 export namespace InferenceTargetConfiguration {
   /**
-   * <p>The connector-based inference configuration. Use this option to route requests to an LLM provider through a built-in connector that includes predefined provider rules.</p>
+   * The connector-based inference configuration. Use this option to route requests to an LLM provider through a built-in connector that includes predefined provider rules.
+   *
    * @public
    */
   export interface ConnectorMember {
@@ -1049,7 +1191,8 @@ export namespace InferenceTargetConfiguration {
   }
 
   /**
-   * <p>The provider-based inference configuration. Use this option to explicitly configure the endpoint, model mapping, and operations for an LLM provider.</p>
+   * The provider-based inference configuration. Use this option to explicitly configure the endpoint, model mapping, and operations for an LLM provider.
+   *
    * @public
    */
   export interface ProviderMember {
@@ -1079,193 +1222,225 @@ export namespace InferenceTargetConfiguration {
 }
 
 /**
- * <p>Specifies which operations from an API Gateway REST API are exposed as tools. Tool names and descriptions are derived from the operationId and description fields in the API's exported OpenAPI specification.</p>
+ * Specifies which operations from an API Gateway REST API are exposed as tools. Tool names and descriptions are derived from the operationId and description fields in the API's exported OpenAPI specification.
+ *
  * @public
  */
 export interface ApiGatewayToolFilter {
   /**
-   * <p>Resource path to match in the REST API. Supports exact paths (for example, <code>/pets</code>) or wildcard paths (for example, <code>/pets/*</code> to match all paths under <code>/pets</code>). Must match existing paths in the REST API.</p>
+   * Resource path to match in the REST API. Supports exact paths (for example, `/pets`) or wildcard paths (for example, `/pets/*` to match all paths under `/pets`). Must match existing paths in the REST API.
+   *
    * @public
    */
   filterPath: string | undefined;
 
   /**
-   * <p>The methods to filter for.</p>
+   * The methods to filter for.
+   *
    * @public
    */
   methods: RestApiMethod[] | undefined;
 }
 
 /**
- * <p>Settings to override configurations for a tool.</p>
+ * Settings to override configurations for a tool.
+ *
  * @public
  */
 export interface ApiGatewayToolOverride {
   /**
-   * <p>The name of tool. Identifies the tool in the Model Context Protocol.</p>
+   * The name of tool. Identifies the tool in the Model Context Protocol.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the tool. Provides information about the purpose and usage of the tool. If not provided, uses the description from the API's OpenAPI specification.</p>
+   * The description of the tool. Provides information about the purpose and usage of the tool. If not provided, uses the description from the API's OpenAPI specification.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Resource path in the REST API (e.g., <code>/pets</code>). Must explicitly match an existing path in the REST API.</p>
+   * Resource path in the REST API (e.g., `/pets`). Must explicitly match an existing path in the REST API.
+   *
    * @public
    */
   path: string | undefined;
 
   /**
-   * <p>The HTTP method to expose for the specified path.</p>
+   * The HTTP method to expose for the specified path.
+   *
    * @public
    */
   method: RestApiMethod | undefined;
 }
 
 /**
- * <p>The configuration for defining REST API tool filters and overrides for the gateway target.</p>
+ * The configuration for defining REST API tool filters and overrides for the gateway target.
+ *
  * @public
  */
 export interface ApiGatewayToolConfiguration {
   /**
-   * <p>A list of explicit tool definitions with optional custom names and descriptions.</p>
+   * A list of explicit tool definitions with optional custom names and descriptions.
+   *
    * @public
    */
   toolOverrides?: ApiGatewayToolOverride[] | undefined;
 
   /**
-   * <p>A list of path and method patterns to expose as tools using metadata from the REST API's OpenAPI specification.</p>
+   * A list of path and method patterns to expose as tools using metadata from the REST API's OpenAPI specification.
+   *
    * @public
    */
   toolFilters: ApiGatewayToolFilter[] | undefined;
 }
 
 /**
- * <p>The configuration for an Amazon API Gateway target.</p>
+ * The configuration for an Amazon API Gateway target.
+ *
  * @public
  */
 export interface ApiGatewayTargetConfiguration {
   /**
-   * <p>The ID of the API Gateway REST API.</p>
+   * The ID of the API Gateway REST API.
+   *
    * @public
    */
   restApiId: string | undefined;
 
   /**
-   * <p>The ID of the stage of the REST API to add as a target.</p>
+   * The ID of the stage of the REST API to add as a target.
+   *
    * @public
    */
   stage: string | undefined;
 
   /**
-   * <p>The configuration for defining REST API tool filters and overrides for the gateway target.</p>
+   * The configuration for defining REST API tool filters and overrides for the gateway target.
+   *
    * @public
    */
   apiGatewayToolConfiguration: ApiGatewayToolConfiguration | undefined;
 }
 
 /**
- * <p>Specifies a parameter override for a connector tool, allowing you to control parameter visibility and descriptions.</p>
+ * Specifies a parameter override for a connector tool, allowing you to control parameter visibility and descriptions.
+ *
  * @public
  */
 export interface ConnectorParameterOverride {
   /**
-   * <p>A JSON Pointer path identifying the parameter (for example, <code>/numberOfResults</code> or <code>/filter</code>).</p>
+   * A JSON Pointer path identifying the parameter (for example, `/numberOfResults` or `/filter`).
+   *
    * @public
    */
   path: string | undefined;
 
   /**
-   * <p>An agent-facing description override for this parameter.</p>
+   * An agent-facing description override for this parameter.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Whether this parameter is visible to the agent. If not specified, uses the service default.</p>
+   * Whether this parameter is visible to the agent. If not specified, uses the service default.
+   *
    * @public
    */
   visible?: boolean | undefined;
 }
 
 /**
- * <p>Configuration for a single tool within a connector.</p>
+ * Configuration for a single tool within a connector.
+ *
  * @public
  */
 export interface ConnectorConfiguration {
   /**
-   * <p>The tool or operation name (for example, <code>retrieve</code> or <code>webSearch</code>).</p>
+   * The tool or operation name (for example, `retrieve` or `webSearch`).
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>An agent-facing description override for this tool.</p>
+   * An agent-facing description override for this tool.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Parameters to set as fixed or default values when provisioning this tool.</p>
+   * Parameters to set as fixed or default values when provisioning this tool.
+   *
    * @public
    */
   parameterValues?: __DocumentType | undefined;
 
   /**
-   * <p>Parameters to expose to the agent at runtime, with optional description overrides.</p>
+   * Parameters to expose to the agent at runtime, with optional description overrides.
+   *
    * @public
    */
   parameterOverrides?: ConnectorParameterOverride[] | undefined;
 }
 
 /**
- * <p>The source identifying the connector integration.</p>
+ * The source identifying the connector integration.
+ *
  * @public
  */
 export interface ConnectorSource {
   /**
-   * <p>The identifier for the connector integration (for example, <code>bedrock-knowledge-bases</code>).</p>
+   * The identifier for the connector integration (for example, `bedrock-knowledge-bases`).
+   *
    * @public
    */
   connectorId: string | undefined;
 
   /**
-   * <p>The version of the connector to use (for example, <code>1.1.0</code>). If you don't specify a version, the service uses the latest available version.</p>
+   * The version of the connector to use (for example, `1.1.0`). If you don't specify a version, the service uses the latest available version.
+   *
    * @public
    */
   version?: string | undefined;
 }
 
 /**
- * <p>Configuration for a connector integration target. Connectors provide pre-built integrations with Amazon Web Services services and third-party tools.</p>
+ * Configuration for a connector integration target. Connectors provide pre-built integrations with Amazon Web Services services and third-party tools.
+ *
  * @public
  */
 export interface ConnectorTargetConfiguration {
   /**
-   * <p>The source configuration identifying which connector to use.</p>
+   * The source configuration identifying which connector to use.
+   *
    * @public
    */
   source: ConnectorSource | undefined;
 
   /**
-   * <p>A list of tool names to enable from this connector. If absent, all tools provided by the connector are enabled.</p>
+   * A list of tool names to enable from this connector. If absent, all tools provided by the connector are enabled.
+   *
    * @public
    */
   enabled?: string[] | undefined;
 
   /**
-   * <p>A list of per-tool configurations for the connector.</p>
+   * A list of per-tool configurations for the connector.
+   *
    * @public
    */
   configurations?: ConnectorConfiguration[] | undefined;
 }
 
 /**
- * <p>The MCP tool schema configuration for an MCP server target. The tool schema must be aligned with the MCP specification.</p>
+ * The MCP tool schema configuration for an MCP server target. The tool schema must be aligned with the MCP specification.
+ *
  * @public
  */
 export type McpToolSchemaConfiguration =
@@ -1278,7 +1453,8 @@ export type McpToolSchemaConfiguration =
  */
 export namespace McpToolSchemaConfiguration {
   /**
-   * <p>The Amazon S3 location of the tool schema. This location contains the schema definition file.</p>
+   * The Amazon S3 location of the tool schema. This location contains the schema definition file.
+   *
    * @public
    */
   export interface S3Member {
@@ -1288,7 +1464,8 @@ export namespace McpToolSchemaConfiguration {
   }
 
   /**
-   * <p>The inline payload containing the MCP tool schema definition.</p>
+   * The inline payload containing the MCP tool schema definition.
+   *
    * @public
    */
   export interface InlinePayloadMember {
@@ -1318,55 +1495,64 @@ export namespace McpToolSchemaConfiguration {
 }
 
 /**
- * <p>The target configuration for the MCP server.</p>
+ * The target configuration for the MCP server.
+ *
  * @public
  */
 export interface McpServerTargetConfiguration {
   /**
-   * <p>The endpoint for the MCP server target configuration.</p>
+   * The endpoint for the MCP server target configuration.
+   *
    * @public
    */
   endpoint: string | undefined;
 
   /**
-   * <p>A static tool list for the MCP server target. It is supported for all credential providers. Dynamic tool discovery/synchronization will be disabled when a target is configured with mcpToolSchema.</p>
+   * A static tool list for the MCP server target. It is supported for all credential providers. Dynamic tool discovery/synchronization will be disabled when a target is configured with mcpToolSchema.
+   *
    * @public
    */
   mcpToolSchema?: McpToolSchemaConfiguration | undefined;
 
   /**
-   * <p>The listing mode for the MCP server target configuration. MCP resources for default targets are cached at the control plane for faster access. MCP resources for dynamic targets will be dynamically retrieved when listing tools.</p>
+   * The listing mode for the MCP server target configuration. MCP resources for default targets are cached at the control plane for faster access. MCP resources for dynamic targets will be dynamically retrieved when listing tools.
+   *
    * @public
    */
   listingMode?: ListingMode | undefined;
 
   /**
-   * <p>Priority for resolving MCP server targets with shared resource URIs. Lower values take precedence. Defaults to 1000 when not set.</p>
+   * Priority for resolving MCP server targets with shared resource URIs. Lower values take precedence. Defaults to 1000 when not set.
+   *
    * @public
    */
   resourcePriority?: number | undefined;
 }
 
 /**
- * <p>OAuth2-specific authorization data, including the authorization URL and user identifier for the authorization session.</p>
+ * OAuth2-specific authorization data, including the authorization URL and user identifier for the authorization session.
+ *
  * @public
  */
 export interface OAuth2AuthorizationData {
   /**
-   * <p>The URL to initiate the authorization process. This URL is provided when the OAuth2 access token requires user authorization.</p>
+   * The URL to initiate the authorization process. This URL is provided when the OAuth2 access token requires user authorization.
+   *
    * @public
    */
   authorizationUrl: string | undefined;
 
   /**
-   * <p>The user identifier associated with the OAuth2 authorization session that is defined by AgentCore Gateway.</p>
+   * The user identifier associated with the OAuth2 authorization session that is defined by AgentCore Gateway.
+   *
    * @public
    */
   userId?: string | undefined;
 }
 
 /**
- * <p>Contains the authorization data that is returned when a gateway target is configured with a credential provider with authorization code grant type and requires user federation.</p>
+ * Contains the authorization data that is returned when a gateway target is configured with a credential provider with authorization code grant type and requires user federation.
+ *
  * @public
  */
 export type AuthorizationData =
@@ -1378,7 +1564,8 @@ export type AuthorizationData =
  */
 export namespace AuthorizationData {
   /**
-   * <p>OAuth2 authorization data for the gateway target.</p>
+   * OAuth2 authorization data for the gateway target.
+   *
    * @public
    */
   export interface Oauth2Member {
@@ -1405,24 +1592,28 @@ export namespace AuthorizationData {
 }
 
 /**
- * <p>Details of a resource created and managed by the gateway for private endpoint connectivity.</p>
+ * Details of a resource created and managed by the gateway for private endpoint connectivity.
+ *
  * @public
  */
 export interface ManagedResourceDetails {
   /**
-   * <p>The domain associated with this managed resource.</p>
+   * The domain associated with this managed resource.
+   *
    * @public
    */
   domain?: string | undefined;
 
   /**
-   * <p>The ARN of the VPC Lattice resource gateway created in your account.</p>
+   * The ARN of the VPC Lattice resource gateway created in your account.
+   *
    * @public
    */
   resourceGatewayArn?: string | undefined;
 
   /**
-   * <p>The ARN of the service network resource association.</p>
+   * The ARN of the service network resource association.
+   *
    * @public
    */
   resourceAssociationArn?: string | undefined;
@@ -1433,13 +1624,15 @@ export interface ManagedResourceDetails {
  */
 export interface DeleteGatewayTargetRequest {
   /**
-   * <p>The unique identifier of the gateway associated with the target.</p>
+   * The unique identifier of the gateway associated with the target.
+   *
    * @public
    */
   gatewayIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the gateway target to delete.</p>
+   * The unique identifier of the gateway target to delete.
+   *
    * @public
    */
   targetId: string | undefined;
@@ -1450,25 +1643,29 @@ export interface DeleteGatewayTargetRequest {
  */
 export interface DeleteGatewayTargetResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the gateway.</p>
+   * The Amazon Resource Name (ARN) of the gateway.
+   *
    * @public
    */
   gatewayArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the deleted gateway target.</p>
+   * The unique identifier of the deleted gateway target.
+   *
    * @public
    */
   targetId: string | undefined;
 
   /**
-   * <p>The current status of the gateway target deletion.</p>
+   * The current status of the gateway target deletion.
+   *
    * @public
    */
   status: TargetStatus | undefined;
 
   /**
-   * <p>The reasons for the current status of the gateway target deletion.</p>
+   * The reasons for the current status of the gateway target deletion.
+   *
    * @public
    */
   statusReasons?: string[] | undefined;
@@ -1479,13 +1676,15 @@ export interface DeleteGatewayTargetResponse {
  */
 export interface GetGatewayTargetRequest {
   /**
-   * <p>The identifier of the gateway that contains the target.</p>
+   * The identifier of the gateway that contains the target.
+   *
    * @public
    */
   gatewayIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the target to retrieve.</p>
+   * The unique identifier of the target to retrieve.
+   *
    * @public
    */
   targetId: string | undefined;
@@ -1496,91 +1695,106 @@ export interface GetGatewayTargetRequest {
  */
 export interface ListGatewayTargetsRequest {
   /**
-   * <p>The identifier of the gateway to list targets for.</p>
+   * The identifier of the gateway to list targets for.
+   *
    * @public
    */
   gatewayIdentifier: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the `nextToken` field when making another request to return the next batch of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * If the total number of results is greater than the `maxResults` value provided in the request, enter the token returned in the `nextToken` field in the response in this field to return the next batch of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Contains summary information about a gateway target. A target represents an endpoint that the gateway can connect to.</p>
+ * Contains summary information about a gateway target. A target represents an endpoint that the gateway can connect to.
+ *
  * @public
  */
 export interface TargetSummary {
   /**
-   * <p>The unique identifier of the target.</p>
+   * The unique identifier of the target.
+   *
    * @public
    */
   targetId: string | undefined;
 
   /**
-   * <p>The name of the target.</p>
+   * The name of the target.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The current status of the target.</p>
+   * The current status of the target.
+   *
    * @public
    */
   status: TargetStatus | undefined;
 
   /**
-   * <p>The description of the target.</p>
+   * The description of the target.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The timestamp when the target was created.</p>
+   * The timestamp when the target was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the target was last updated.</p>
+   * The timestamp when the target was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>Priority for resolving resource URI conflicts across targets. Lower values take precedence. Defaults to 1000 when not set.</p>
+   * Priority for resolving resource URI conflicts across targets. Lower values take precedence. Defaults to 1000 when not set.
+   *
    * @public
    */
   resourcePriority?: number | undefined;
 
   /**
-   * <p>The timestamp when the target was last synchronized.</p>
+   * The timestamp when the target was last synchronized.
+   *
    * @public
    */
   lastSynchronizedAt?: Date | undefined;
 
   /**
-   * <p>Contains the authorization data that is returned when a gateway target is configured with a credential provider with authorization code grant type and requires user federation.</p>
+   * Contains the authorization data that is returned when a gateway target is configured with a credential provider with authorization code grant type and requires user federation.
+   *
    * @public
    */
   authorizationData?: AuthorizationData | undefined;
 
   /**
-   * <p>The type of the target.</p>
+   * The type of the target.
+   *
    * @public
    */
   targetType?: TargetType | undefined;
 
   /**
-   * <p>The listing mode for the target. MCP resources for <code>DEFAULT</code> targets are cached at the control plane for faster access. MCP resources for <code>DYNAMIC</code> targets are retrieved dynamically when listing tools.</p>
+   * The listing mode for the target. MCP resources for `DEFAULT` targets are cached at the control plane for faster access. MCP resources for `DYNAMIC` targets are retrieved dynamically when listing tools.
+   *
    * @public
    */
   listingMode?: ListingMode | undefined;
@@ -1591,13 +1805,15 @@ export interface TargetSummary {
  */
 export interface ListGatewayTargetsResponse {
   /**
-   * <p>The list of gateway target summaries.</p>
+   * The list of gateway target summaries.
+   *
    * @public
    */
   items: TargetSummary[] | undefined;
 
   /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * If the total number of results is greater than the `maxResults` value provided in the request, use this token when making another request in the `nextToken` field to return the next batch of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1608,13 +1824,15 @@ export interface ListGatewayTargetsResponse {
  */
 export interface SynchronizeGatewayTargetsRequest {
   /**
-   * <p>The gateway Identifier.</p>
+   * The gateway Identifier.
+   *
    * @public
    */
   gatewayIdentifier: string | undefined;
 
   /**
-   * <p>The target ID list.</p>
+   * The target ID list.
+   *
    * @public
    */
   targetIdList: string[] | undefined;
@@ -1625,7 +1843,8 @@ export interface SynchronizeGatewayTargetsRequest {
  */
 export interface GetResourcePolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource for which to retrieve the resource policy.</p>
+   * The Amazon Resource Name (ARN) of the resource for which to retrieve the resource policy.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -1636,7 +1855,8 @@ export interface GetResourcePolicyRequest {
  */
 export interface GetResourcePolicyResponse {
   /**
-   * <p>The resource policy associated with the specified resource.</p>
+   * The resource policy associated with the specified resource.
+   *
    * @public
    */
   policy?: string | undefined;
@@ -1647,25 +1867,29 @@ export interface GetResourcePolicyResponse {
  */
 export interface GetTokenVaultRequest {
   /**
-   * <p>The unique identifier of the token vault to retrieve.</p>
+   * The unique identifier of the token vault to retrieve.
+   *
    * @public
    */
   tokenVaultId?: string | undefined;
 }
 
 /**
- * <p>Contains the KMS configuration for a resource.</p>
+ * Contains the KMS configuration for a resource.
+ *
  * @public
  */
 export interface KmsConfiguration {
   /**
-   * <p>The type of KMS key (CustomerManagedKey or ServiceManagedKey).</p>
+   * The type of KMS key (CustomerManagedKey or ServiceManagedKey).
+   *
    * @public
    */
   keyType: KeyType | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key.</p>
+   * The Amazon Resource Name (ARN) of the KMS key.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
@@ -1676,19 +1900,22 @@ export interface KmsConfiguration {
  */
 export interface GetTokenVaultResponse {
   /**
-   * <p>The ID of the token vault.</p>
+   * The ID of the token vault.
+   *
    * @public
    */
   tokenVaultId: string | undefined;
 
   /**
-   * <p>The KMS configuration for the token vault.</p>
+   * The KMS configuration for the token vault.
+   *
    * @public
    */
   kmsConfiguration: KmsConfiguration | undefined;
 
   /**
-   * <p>The timestamp when the token vault was last modified.</p>
+   * The timestamp when the token vault was last modified.
+   *
    * @public
    */
   lastModifiedDate: Date | undefined;
@@ -1699,109 +1926,127 @@ export interface GetTokenVaultResponse {
  */
 export interface CreateHarnessEndpointRequest {
   /**
-   * <p>The ID of the harness to create an endpoint for.</p>
+   * The ID of the harness to create an endpoint for.
+   *
    * @public
    */
   harnessId: string | undefined;
 
   /**
-   * <p>The name of the endpoint. Must start with a letter and contain only alphanumeric characters and underscores.</p>
+   * The name of the endpoint. Must start with a letter and contain only alphanumeric characters and underscores.
+   *
    * @public
    */
   endpointName: string | undefined;
 
   /**
-   * <p>The harness version that the endpoint points to and serves invocations from.</p>
+   * The harness version that the endpoint points to and serves invocations from.
+   *
    * @public
    */
   targetVersion?: string | undefined;
 
   /**
-   * <p>A description of the endpoint.</p>
+   * A description of the endpoint.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * A unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>Tags to apply to the endpoint resource.</p>
+   * Tags to apply to the endpoint resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Representation of a harness endpoint. An endpoint is a named, stable reference to a specific version of a harness that callers invoke, allowing the underlying version to be updated without changing how the agent is invoked.</p>
+ * Representation of a harness endpoint. An endpoint is a named, stable reference to a specific version of a harness that callers invoke, allowing the underlying version to be updated without changing how the agent is invoked.
+ *
  * @public
  */
 export interface HarnessEndpoint {
   /**
-   * <p>The ID of the harness that the endpoint belongs to.</p>
+   * The ID of the harness that the endpoint belongs to.
+   *
    * @public
    */
   harnessId: string | undefined;
 
   /**
-   * <p>The name of the harness that the endpoint belongs to.</p>
+   * The name of the harness that the endpoint belongs to.
+   *
    * @public
    */
   harnessName: string | undefined;
 
   /**
-   * <p>The name of the endpoint.</p>
+   * The name of the endpoint.
+   *
    * @public
    */
   endpointName: string | undefined;
 
   /**
-   * <p>The ARN of the endpoint.</p>
+   * The ARN of the endpoint.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The status of the endpoint.</p>
+   * The status of the endpoint.
+   *
    * @public
    */
   status: HarnessEndpointStatus | undefined;
 
   /**
-   * <p>The timestamp when the endpoint was created.</p>
+   * The timestamp when the endpoint was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the endpoint was last updated.</p>
+   * The timestamp when the endpoint was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The harness version that the endpoint is currently serving.</p>
+   * The harness version that the endpoint is currently serving.
+   *
    * @public
    */
   liveVersion?: string | undefined;
 
   /**
-   * <p>The harness version that the endpoint points to. While an update is in progress, this can differ from the live version until the endpoint finishes transitioning.</p>
+   * The harness version that the endpoint points to. While an update is in progress, this can differ from the live version until the endpoint finishes transitioning.
+   *
    * @public
    */
   targetVersion?: string | undefined;
 
   /**
-   * <p>The description of the endpoint.</p>
+   * The description of the endpoint.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The reason the endpoint's last create or update operation failed.</p>
+   * The reason the endpoint's last create or update operation failed.
+   *
    * @public
    */
   failureReason?: string | undefined;
@@ -1812,7 +2057,8 @@ export interface HarnessEndpoint {
  */
 export interface CreateHarnessEndpointResponse {
   /**
-   * <p>The endpoint that was created.</p>
+   * The endpoint that was created.
+   *
    * @public
    */
   endpoint: HarnessEndpoint | undefined;
@@ -1823,19 +2069,22 @@ export interface CreateHarnessEndpointResponse {
  */
 export interface DeleteHarnessEndpointRequest {
   /**
-   * <p>The ID of the harness that the endpoint belongs to.</p>
+   * The ID of the harness that the endpoint belongs to.
+   *
    * @public
    */
   harnessId: string | undefined;
 
   /**
-   * <p>The name of the endpoint to delete.</p>
+   * The name of the endpoint to delete.
+   *
    * @public
    */
   endpointName: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * A unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -1846,7 +2095,8 @@ export interface DeleteHarnessEndpointRequest {
  */
 export interface DeleteHarnessEndpointResponse {
   /**
-   * <p>The endpoint that was deleted.</p>
+   * The endpoint that was deleted.
+   *
    * @public
    */
   endpoint: HarnessEndpoint | undefined;
@@ -1857,13 +2107,15 @@ export interface DeleteHarnessEndpointResponse {
  */
 export interface GetHarnessEndpointRequest {
   /**
-   * <p>The ID of the harness that the endpoint belongs to.</p>
+   * The ID of the harness that the endpoint belongs to.
+   *
    * @public
    */
   harnessId: string | undefined;
 
   /**
-   * <p>The name of the endpoint to retrieve.</p>
+   * The name of the endpoint to retrieve.
+   *
    * @public
    */
   endpointName: string | undefined;
@@ -1874,7 +2126,8 @@ export interface GetHarnessEndpointRequest {
  */
 export interface GetHarnessEndpointResponse {
   /**
-   * <p>The endpoint resource.</p>
+   * The endpoint resource.
+   *
    * @public
    */
   endpoint: HarnessEndpoint | undefined;
@@ -1885,19 +2138,22 @@ export interface GetHarnessEndpointResponse {
  */
 export interface ListHarnessEndpointsRequest {
   /**
-   * <p>The ID of the harness whose endpoints are listed.</p>
+   * The ID of the harness whose endpoints are listed.
+   *
    * @public
    */
   harnessId: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next set of results.</p>
+   * The token for the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1908,13 +2164,15 @@ export interface ListHarnessEndpointsRequest {
  */
 export interface ListHarnessEndpointsResponse {
   /**
-   * <p>The list of harness endpoints.</p>
+   * The list of harness endpoints.
+   *
    * @public
    */
   endpoints: HarnessEndpoint[] | undefined;
 
   /**
-   * <p>The token for the next set of results.</p>
+   * The token for the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1925,31 +2183,36 @@ export interface ListHarnessEndpointsResponse {
  */
 export interface UpdateHarnessEndpointRequest {
   /**
-   * <p>The ID of the harness that the endpoint belongs to.</p>
+   * The ID of the harness that the endpoint belongs to.
+   *
    * @public
    */
   harnessId: string | undefined;
 
   /**
-   * <p>The name of the endpoint to update.</p>
+   * The name of the endpoint to update.
+   *
    * @public
    */
   endpointName: string | undefined;
 
   /**
-   * <p>The harness version that the endpoint points to. If not specified, the existing value is retained.</p>
+   * The harness version that the endpoint points to. If not specified, the existing value is retained.
+   *
    * @public
    */
   targetVersion?: string | undefined;
 
   /**
-   * <p>A description of the endpoint. If not specified, the existing value is retained.</p>
+   * A description of the endpoint. If not specified, the existing value is retained.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * A unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -1960,38 +2223,44 @@ export interface UpdateHarnessEndpointRequest {
  */
 export interface UpdateHarnessEndpointResponse {
   /**
-   * <p>The updated endpoint.</p>
+   * The updated endpoint.
+   *
    * @public
    */
   endpoint: HarnessEndpoint | undefined;
 }
 
 /**
- * <p>The AgentCore Runtime environment request configuration.</p>
+ * The AgentCore Runtime environment request configuration.
+ *
  * @public
  */
 export interface HarnessAgentCoreRuntimeEnvironmentRequest {
   /**
-   * <p>LifecycleConfiguration lets you manage the lifecycle of runtime sessions and resources in AgentCore Runtime. This configuration helps optimize resource utilization by automatically cleaning up idle sessions and preventing long-running instances from consuming resources indefinitely.</p>
+   * LifecycleConfiguration lets you manage the lifecycle of runtime sessions and resources in AgentCore Runtime. This configuration helps optimize resource utilization by automatically cleaning up idle sessions and preventing long-running instances from consuming resources indefinitely.
+   *
    * @public
    */
   lifecycleConfiguration?: LifecycleConfiguration | undefined;
 
   /**
-   * <p>SecurityConfig for the Agent.</p>
+   * SecurityConfig for the Agent.
+   *
    * @public
    */
   networkConfiguration?: NetworkConfiguration | undefined;
 
   /**
-   * <p>The filesystem configurations for the runtime environment.</p>
+   * The filesystem configurations for the runtime environment.
+   *
    * @public
    */
   filesystemConfigurations?: FilesystemConfiguration[] | undefined;
 }
 
 /**
- * <p>The environment provider request configuration.</p>
+ * The environment provider request configuration.
+ *
  * @public
  */
 export type HarnessEnvironmentProviderRequest =
@@ -2003,7 +2272,8 @@ export type HarnessEnvironmentProviderRequest =
  */
 export namespace HarnessEnvironmentProviderRequest {
   /**
-   * <p>The AgentCore Runtime environment configuration.</p>
+   * The AgentCore Runtime environment configuration.
+   *
    * @public
    */
   export interface AgentCoreRuntimeEnvironmentMember {
@@ -2030,7 +2300,8 @@ export namespace HarnessEnvironmentProviderRequest {
 }
 
 /**
- * <p>The environment artifact for a harness, such as a container image containing custom dependencies.</p>
+ * The environment artifact for a harness, such as a container image containing custom dependencies.
+ *
  * @public
  */
 export type HarnessEnvironmentArtifact =
@@ -2042,7 +2313,8 @@ export type HarnessEnvironmentArtifact =
  */
 export namespace HarnessEnvironmentArtifact {
   /**
-   * <p>Representation of a container configuration.</p>
+   * Representation of a container configuration.
+   *
    * @public
    */
   export interface ContainerConfigurationMember {
@@ -2069,55 +2341,64 @@ export namespace HarnessEnvironmentArtifact {
 }
 
 /**
- * <p>The configuration for an Amazon EventBridge hook target.</p>
+ * The configuration for an Amazon EventBridge hook target.
+ *
  * @public
  */
 export interface HarnessHookEventBridgeTarget {
   /**
-   * <p>The ARN of the Amazon EventBridge event bus to send hook events to.</p>
+   * The ARN of the Amazon EventBridge event bus to send hook events to.
+   *
    * @public
    */
   arn: string | undefined;
 }
 
 /**
- * <p>The configuration for an Amazon Web Services Lambda hook target.</p>
+ * The configuration for an Amazon Web Services Lambda hook target.
+ *
  * @public
  */
 export interface HarnessHookLambdaTarget {
   /**
-   * <p>The ARN of the Lambda function to invoke.</p>
+   * The ARN of the Lambda function to invoke.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The maximum number of seconds to wait for the Lambda function response. The default is 60 seconds.</p>
+   * The maximum number of seconds to wait for the Lambda function response. The default is 60 seconds.
+   *
    * @public
    */
   timeoutSeconds?: number | undefined;
 
   /**
-   * <p>The behavior when the Lambda function times out, returns an error, or returns an invalid response. The default is <code>DENY</code>.</p>
+   * The behavior when the Lambda function times out, returns an error, or returns an invalid response. The default is `DENY`.
+   *
    * @public
    */
   failureMode?: HarnessHookFailureMode | undefined;
 }
 
 /**
- * <p>The configuration for an Amazon SNS hook target.</p>
+ * The configuration for an Amazon SNS hook target.
+ *
  * @public
  */
 export interface HarnessHookSnsTarget {
   /**
-   * <p>The ARN of the Amazon SNS topic to publish hook events to.</p>
+   * The ARN of the Amazon SNS topic to publish hook events to.
+   *
    * @public
    */
   arn: string | undefined;
 }
 
 /**
- * <p>The target that receives lifecycle hook events. Specify one target type.</p>
+ * The target that receives lifecycle hook events. Specify one target type.
+ *
  * @public
  */
 export type HarnessHookTarget =
@@ -2131,7 +2412,8 @@ export type HarnessHookTarget =
  */
 export namespace HarnessHookTarget {
   /**
-   * <p>A Lambda hook target that invokes an Amazon Web Services Lambda function synchronously and waits for its response.</p>
+   * A Lambda hook target that invokes an Amazon Web Services Lambda function synchronously and waits for its response.
+   *
    * @public
    */
   export interface LambdaMember {
@@ -2142,7 +2424,8 @@ export namespace HarnessHookTarget {
   }
 
   /**
-   * <p>An Amazon SNS hook target that publishes the hook event without waiting for a response.</p>
+   * An Amazon SNS hook target that publishes the hook event without waiting for a response.
+   *
    * @public
    */
   export interface SnsMember {
@@ -2153,7 +2436,8 @@ export namespace HarnessHookTarget {
   }
 
   /**
-   * <p>An Amazon EventBridge hook target that sends the hook event without waiting for a response.</p>
+   * An Amazon EventBridge hook target that sends the hook event without waiting for a response.
+   *
    * @public
    */
   export interface EventBridgeMember {
@@ -2186,79 +2470,92 @@ export namespace HarnessHookTarget {
 }
 
 /**
- * <p>The configuration for a hook that runs after an invocation completes.</p>
+ * The configuration for a hook that runs after an invocation completes.
+ *
  * @public
  */
 export interface HarnessAfterInvocationHook {
   /**
-   * <p>The name of the hook.</p>
+   * The name of the hook.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The target that receives the hook event.</p>
+   * The target that receives the hook event.
+   *
    * @public
    */
   target: HarnessHookTarget | undefined;
 }
 
 /**
- * <p>The configuration for a hook that runs after a tool call completes.</p>
+ * The configuration for a hook that runs after a tool call completes.
+ *
  * @public
  */
 export interface HarnessAfterToolCallHook {
   /**
-   * <p>The name of the hook.</p>
+   * The name of the hook.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The target that receives the hook event.</p>
+   * The target that receives the hook event.
+   *
    * @public
    */
   target: HarnessHookTarget | undefined;
 }
 
 /**
- * <p>The configuration for a hook that runs before an invocation begins.</p>
+ * The configuration for a hook that runs before an invocation begins.
+ *
  * @public
  */
 export interface HarnessBeforeInvocationHook {
   /**
-   * <p>The name of the hook.</p>
+   * The name of the hook.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The target that receives the hook event.</p>
+   * The target that receives the hook event.
+   *
    * @public
    */
   target: HarnessHookTarget | undefined;
 }
 
 /**
- * <p>The configuration for a hook that runs before the agent calls a tool.</p>
+ * The configuration for a hook that runs before the agent calls a tool.
+ *
  * @public
  */
 export interface HarnessBeforeToolCallHook {
   /**
-   * <p>The name of the hook.</p>
+   * The name of the hook.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The target that receives the hook event.</p>
+   * The target that receives the hook event.
+   *
    * @public
    */
   target: HarnessHookTarget | undefined;
 }
 
 /**
- * <p>A lifecycle hook configuration. Specify one hook type.</p>
+ * A lifecycle hook configuration. Specify one hook type.
+ *
  * @public
  */
 export type HarnessHook =
@@ -2273,7 +2570,8 @@ export type HarnessHook =
  */
 export namespace HarnessHook {
   /**
-   * <p>A hook that runs before an invocation begins.</p>
+   * A hook that runs before an invocation begins.
+   *
    * @public
    */
   export interface BeforeInvocationMember {
@@ -2285,7 +2583,8 @@ export namespace HarnessHook {
   }
 
   /**
-   * <p>A hook that runs after an invocation completes.</p>
+   * A hook that runs after an invocation completes.
+   *
    * @public
    */
   export interface AfterInvocationMember {
@@ -2297,7 +2596,8 @@ export namespace HarnessHook {
   }
 
   /**
-   * <p>A hook that runs before the agent calls a tool.</p>
+   * A hook that runs before the agent calls a tool.
+   *
    * @public
    */
   export interface BeforeToolCallMember {
@@ -2309,7 +2609,8 @@ export namespace HarnessHook {
   }
 
   /**
-   * <p>A hook that runs after a tool call completes.</p>
+   * A hook that runs after a tool call completes.
+   *
    * @public
    */
   export interface AfterToolCallMember {
@@ -2345,97 +2646,113 @@ export namespace HarnessHook {
 }
 
 /**
- * <p>Configuration for memory retrieval within a namespace.</p>
+ * Configuration for memory retrieval within a namespace.
+ *
  * @public
  */
 export interface HarnessAgentCoreMemoryRetrievalConfig {
   /**
-   * <p>The maximum number of memory entries to retrieve.</p>
+   * The maximum number of memory entries to retrieve.
+   *
    * @public
    */
   topK?: number | undefined;
 
   /**
-   * <p>The minimum relevance score for retrieved memories.</p>
+   * The minimum relevance score for retrieved memories.
+   *
    * @public
    */
   relevanceScore?: number | undefined;
 
   /**
-   * <p>The ID of the retrieval strategy to use.</p>
+   * The ID of the retrieval strategy to use.
+   *
    * @public
    */
   strategyId?: string | undefined;
 }
 
 /**
- * <p>Configuration for AgentCore Memory integration.</p>
+ * Configuration for AgentCore Memory integration.
+ *
  * @public
  */
 export interface HarnessAgentCoreMemoryConfiguration {
   /**
-   * <p>The ARN of the AgentCore Memory resource.</p>
+   * The ARN of the AgentCore Memory resource.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The actor ID for memory operations.</p>
+   * The actor ID for memory operations.
+   *
    * @public
    */
   actorId?: string | undefined;
 
   /**
-   * <p>The number of messages to retrieve from memory.</p>
+   * The number of messages to retrieve from memory.
+   *
    * @public
    */
   messagesCount?: number | undefined;
 
   /**
-   * <p>The retrieval configuration for long-term memory, mapping namespace path templates to retrieval settings.</p>
+   * The retrieval configuration for long-term memory, mapping namespace path templates to retrieval settings.
+   *
    * @public
    */
   retrievalConfig?: Record<string, HarnessAgentCoreMemoryRetrievalConfig> | undefined;
 }
 
 /**
- * <p>Explicitly opt out of memory.</p>
+ * Explicitly opt out of memory.
+ *
  * @public
  */
 export interface HarnessDisabledMemoryConfiguration {}
 
 /**
- * <p>Configuration for managed memory creation.</p>
+ * Configuration for managed memory creation.
+ *
  * @public
  */
 export interface HarnessManagedMemoryConfiguration {
   /**
-   * <p>The ARN of the managed AgentCore Memory resource. Read-only on Get, ignored on Create/Update input.</p>
+   * The ARN of the managed AgentCore Memory resource. Read-only on Get, ignored on Create/Update input.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>Strategy types to enable. Defaults to [SEMANTIC, SUMMARIZATION].</p>
+   * Strategy types to enable. Defaults to [SEMANTIC, SUMMARIZATION].
+   *
    * @public
    */
   strategies?: HarnessManagedMemoryStrategyType[] | undefined;
 
   /**
-   * <p>Event retention in days. Defaults to 30.</p>
+   * Event retention in days. Defaults to 30.
+   *
    * @public
    */
   eventExpiryDuration?: number | undefined;
 
   /**
-   * <p>Customer-managed KMS key. Defaults to Amazon Web Services-owned key. Not updatable after creation.</p>
+   * Customer-managed KMS key. Defaults to Amazon Web Services-owned key. Not updatable after creation.
+   *
    * @public
    */
   encryptionKeyArn?: string | undefined;
 }
 
 /**
- * <p>The memory configuration for a harness.</p>
+ * The memory configuration for a harness.
+ *
  * @public
  */
 export type HarnessMemoryConfiguration =
@@ -2449,7 +2766,8 @@ export type HarnessMemoryConfiguration =
  */
 export namespace HarnessMemoryConfiguration {
   /**
-   * <p>The AgentCore Memory configuration.</p>
+   * The AgentCore Memory configuration.
+   *
    * @public
    */
   export interface AgentCoreMemoryConfigurationMember {
@@ -2460,7 +2778,8 @@ export namespace HarnessMemoryConfiguration {
   }
 
   /**
-   * <p>Harness creates and manages a memory resource in the customer's account.</p>
+   * Harness creates and manages a memory resource in the customer's account.
+   *
    * @public
    */
   export interface ManagedMemoryConfigurationMember {
@@ -2471,7 +2790,8 @@ export namespace HarnessMemoryConfiguration {
   }
 
   /**
-   * <p>Explicitly opt out of memory.</p>
+   * Explicitly opt out of memory.
+   *
    * @public
    */
   export interface DisabledMember {
@@ -2504,199 +2824,232 @@ export namespace HarnessMemoryConfiguration {
 }
 
 /**
- * <p>Configuration for an Amazon Bedrock model provider.</p>
+ * Configuration for an Amazon Bedrock model provider.
+ *
  * @public
  */
 export interface HarnessBedrockModelConfig {
   /**
-   * <p>The Bedrock model ID.</p>
+   * The Bedrock model ID.
+   *
    * @public
    */
   modelId: string | undefined;
 
   /**
-   * <p>The maximum number of tokens to allow in the generated response per model call.</p>
+   * The maximum number of tokens to allow in the generated response per model call.
+   *
    * @public
    */
   maxTokens?: number | undefined;
 
   /**
-   * <p>The temperature to set when calling the model.</p>
+   * The temperature to set when calling the model.
+   *
    * @public
    */
   temperature?: number | undefined;
 
   /**
-   * <p>The topP set when calling the model.</p>
+   * The topP set when calling the model.
+   *
    * @public
    */
   topP?: number | undefined;
 
   /**
-   * <p>The API format to use when calling the Bedrock provider.</p>
+   * The API format to use when calling the Bedrock provider.
+   *
    * @public
    */
   apiFormat?: HarnessBedrockApiFormat | undefined;
 
   /**
-   * <p>Provider-specific parameters passed through to the model provider unchanged.</p>
+   * Provider-specific parameters passed through to the model provider unchanged.
+   *
    * @public
    */
   additionalParams?: __DocumentType | undefined;
 }
 
 /**
- * <p>Configuration for a Google Gemini model provider. Requires an API key stored in AgentCore Identity.</p>
+ * Configuration for a Google Gemini model provider. Requires an API key stored in AgentCore Identity.
+ *
  * @public
  */
 export interface HarnessGeminiModelConfig {
   /**
-   * <p>The Gemini model ID.</p>
+   * The Gemini model ID.
+   *
    * @public
    */
   modelId: string | undefined;
 
   /**
-   * <p>The ARN of your Gemini API key on AgentCore Identity.</p>
+   * The ARN of your Gemini API key on AgentCore Identity.
+   *
    * @public
    */
   apiKeyArn: string | undefined;
 
   /**
-   * <p>The maximum number of tokens to allow in the generated response per model call.</p>
+   * The maximum number of tokens to allow in the generated response per model call.
+   *
    * @public
    */
   maxTokens?: number | undefined;
 
   /**
-   * <p>The temperature to set when calling the model.</p>
+   * The temperature to set when calling the model.
+   *
    * @public
    */
   temperature?: number | undefined;
 
   /**
-   * <p>The topP set when calling the model.</p>
+   * The topP set when calling the model.
+   *
    * @public
    */
   topP?: number | undefined;
 
   /**
-   * <p>The topK set when calling the model.</p>
+   * The topK set when calling the model.
+   *
    * @public
    */
   topK?: number | undefined;
 
   /**
-   * <p>Provider-specific parameters passed through to the Gemini model provider unchanged.</p>
+   * Provider-specific parameters passed through to the Gemini model provider unchanged.
+   *
    * @public
    */
   additionalParams?: __DocumentType | undefined;
 }
 
 /**
- * <p>Configuration for a LiteLLM model provider, enabling connection to third-party model providers.</p>
+ * Configuration for a LiteLLM model provider, enabling connection to third-party model providers.
+ *
  * @public
  */
 export interface HarnessLiteLlmModelConfig {
   /**
-   * <p>The LiteLLM model identifier (e.g., "anthropic/claude-3-sonnet").</p>
+   * The LiteLLM model identifier (e.g., "anthropic/claude-3-sonnet").
+   *
    * @public
    */
   modelId: string | undefined;
 
   /**
-   * <p>The ARN of the API key in AgentCore Identity for authenticating with the model provider.</p>
+   * The ARN of the API key in AgentCore Identity for authenticating with the model provider.
+   *
    * @public
    */
   apiKeyArn?: string | undefined;
 
   /**
-   * <p>The base URL for the model provider's API endpoint.</p>
+   * The base URL for the model provider's API endpoint.
+   *
    * @public
    */
   apiBase?: string | undefined;
 
   /**
-   * <p>The maximum number of tokens to allow in the generated response per iteration.</p>
+   * The maximum number of tokens to allow in the generated response per iteration.
+   *
    * @public
    */
   maxTokens?: number | undefined;
 
   /**
-   * <p>The temperature to set when calling the model.</p>
+   * The temperature to set when calling the model.
+   *
    * @public
    */
   temperature?: number | undefined;
 
   /**
-   * <p>The topP set when calling the model.</p>
+   * The topP set when calling the model.
+   *
    * @public
    */
   topP?: number | undefined;
 
   /**
-   * <p>Provider-specific parameters passed through to the model provider unchanged.</p>
+   * Provider-specific parameters passed through to the model provider unchanged.
+   *
    * @public
    */
   additionalParams?: __DocumentType | undefined;
 }
 
 /**
- * <p>Configuration for an OpenAI model provider. Requires an API key stored in AgentCore Identity.</p>
+ * Configuration for an OpenAI model provider. Requires an API key stored in AgentCore Identity.
+ *
  * @public
  */
 export interface HarnessOpenAiModelConfig {
   /**
-   * <p>The OpenAI model ID.</p>
+   * The OpenAI model ID.
+   *
    * @public
    */
   modelId: string | undefined;
 
   /**
-   * <p>The ARN of your OpenAI API key on AgentCore Identity.</p>
+   * The ARN of your OpenAI API key on AgentCore Identity.
+   *
    * @public
    */
   apiKeyArn: string | undefined;
 
   /**
-   * <p>Optional custom endpoint URL for an OpenAI-compatible endpoint.</p>
+   * Optional custom endpoint URL for an OpenAI-compatible endpoint.
+   *
    * @public
    */
   apiBase?: string | undefined;
 
   /**
-   * <p>The maximum number of tokens to allow in the generated response per model call.</p>
+   * The maximum number of tokens to allow in the generated response per model call.
+   *
    * @public
    */
   maxTokens?: number | undefined;
 
   /**
-   * <p>The temperature to set when calling the model.</p>
+   * The temperature to set when calling the model.
+   *
    * @public
    */
   temperature?: number | undefined;
 
   /**
-   * <p>The topP set when calling the model.</p>
+   * The topP set when calling the model.
+   *
    * @public
    */
   topP?: number | undefined;
 
   /**
-   * <p>The API format to use when calling the OpenAI provider.</p>
+   * The API format to use when calling the OpenAI provider.
+   *
    * @public
    */
   apiFormat?: HarnessOpenAiApiFormat | undefined;
 
   /**
-   * <p>Provider-specific parameters passed through to the model provider unchanged.</p>
+   * Provider-specific parameters passed through to the model provider unchanged.
+   *
    * @public
    */
   additionalParams?: __DocumentType | undefined;
 }
 
 /**
- * <p>Specification of which model to use.</p>
+ * Specification of which model to use.
+ *
  * @public
  */
 export type HarnessModelConfiguration =
@@ -2711,7 +3064,8 @@ export type HarnessModelConfiguration =
  */
 export namespace HarnessModelConfiguration {
   /**
-   * <p>Configuration for an Amazon Bedrock model.</p>
+   * Configuration for an Amazon Bedrock model.
+   *
    * @public
    */
   export interface BedrockModelConfigMember {
@@ -2723,7 +3077,8 @@ export namespace HarnessModelConfiguration {
   }
 
   /**
-   * <p>Configuration for an OpenAI model.</p>
+   * Configuration for an OpenAI model.
+   *
    * @public
    */
   export interface OpenAiModelConfigMember {
@@ -2735,7 +3090,8 @@ export namespace HarnessModelConfiguration {
   }
 
   /**
-   * <p>Configuration for a Google Gemini model.</p>
+   * Configuration for a Google Gemini model.
+   *
    * @public
    */
   export interface GeminiModelConfigMember {
@@ -2747,7 +3103,8 @@ export namespace HarnessModelConfiguration {
   }
 
   /**
-   * <p>The LiteLLM model configuration for connecting to third-party model providers.</p>
+   * The LiteLLM model configuration for connecting to third-party model providers.
+   *
    * @public
    */
   export interface LiteLlmModelConfigMember {
@@ -2783,73 +3140,85 @@ export namespace HarnessModelConfiguration {
 }
 
 /**
- * <p>Passed to show that Amazon Web Services Skills should be included.</p>
+ * Passed to show that Amazon Web Services Skills should be included.
+ *
  * @public
  */
 export interface HarnessSkillAwsSkillsSource {
   /**
-   * <p>Optionally filter allowed skills with glob syntax, e.g., ['core-skills/*'].</p>
+   * Optionally filter allowed skills with glob syntax, e.g., ['core-skills/*'].
+   *
    * @public
    */
   paths?: string[] | undefined;
 }
 
 /**
- * <p>Authentication configuration for accessing a private git repository.</p>
+ * Authentication configuration for accessing a private git repository.
+ *
  * @public
  */
 export interface HarnessSkillGitAuth {
   /**
-   * <p>The ARN of the credential in AgentCore Identity containing the password or personal access token.</p>
+   * The ARN of the credential in AgentCore Identity containing the password or personal access token.
+   *
    * @public
    */
   credentialArn: string | undefined;
 
   /**
-   * <p>Username for authentication. Defaults to 'oauth2' if not specified.</p>
+   * Username for authentication. Defaults to 'oauth2' if not specified.
+   *
    * @public
    */
   username?: string | undefined;
 }
 
 /**
- * <p>A git repository source for a skill.</p>
+ * A git repository source for a skill.
+ *
  * @public
  */
 export interface HarnessSkillGitSource {
   /**
-   * <p>The HTTPS URL of the git repository.</p>
+   * The HTTPS URL of the git repository.
+   *
    * @public
    */
   url: string | undefined;
 
   /**
-   * <p>Subdirectory within the repository containing the skill.</p>
+   * Subdirectory within the repository containing the skill.
+   *
    * @public
    */
   path?: string | undefined;
 
   /**
-   * <p>Authentication configuration for private repositories.</p>
+   * Authentication configuration for private repositories.
+   *
    * @public
    */
   auth?: HarnessSkillGitAuth | undefined;
 }
 
 /**
- * <p>An S3 source for a skill.</p>
+ * An S3 source for a skill.
+ *
  * @public
  */
 export interface HarnessSkillS3Source {
   /**
-   * <p>The S3 URI pointing to the skill directory (e.g., s3://bucket/skills/my-skill/).</p>
+   * The S3 URI pointing to the skill directory (e.g., s3://bucket/skills/my-skill/).
+   *
    * @public
    */
   uri: string | undefined;
 }
 
 /**
- * <p>A skill available to the agent.</p>
+ * A skill available to the agent.
+ *
  * @public
  */
 export type HarnessSkill =
@@ -2864,7 +3233,8 @@ export type HarnessSkill =
  */
 export namespace HarnessSkill {
   /**
-   * <p>The filesystem path to the skill definition.</p>
+   * The filesystem path to the skill definition.
+   *
    * @public
    */
   export interface PathMember {
@@ -2876,7 +3246,8 @@ export namespace HarnessSkill {
   }
 
   /**
-   * <p>An S3 source containing the skill.</p>
+   * An S3 source containing the skill.
+   *
    * @public
    */
   export interface S3Member {
@@ -2888,7 +3259,8 @@ export namespace HarnessSkill {
   }
 
   /**
-   * <p>A git repository containing the skill.</p>
+   * A git repository containing the skill.
+   *
    * @public
    */
   export interface GitMember {
@@ -2900,7 +3272,8 @@ export namespace HarnessSkill {
   }
 
   /**
-   * <p>Amazon Web Services Skills baked into the harness's underlying Runtime.</p>
+   * Amazon Web Services Skills baked into the harness's underlying Runtime.
+   *
    * @public
    */
   export interface AwsSkillsMember {
@@ -2936,7 +3309,8 @@ export namespace HarnessSkill {
 }
 
 /**
- * <p>A content block in the system prompt.</p>
+ * A content block in the system prompt.
+ *
  * @public
  */
 export type HarnessSystemContentBlock =
@@ -2948,7 +3322,8 @@ export type HarnessSystemContentBlock =
  */
 export namespace HarnessSystemContentBlock {
   /**
-   * <p>The text content of the system prompt block.</p>
+   * The text content of the system prompt block.
+   *
    * @public
    */
   export interface TextMember {
@@ -2975,31 +3350,36 @@ export namespace HarnessSystemContentBlock {
 }
 
 /**
- * <p>Configuration for AgentCore Browser.</p>
+ * Configuration for AgentCore Browser.
+ *
  * @public
  */
 export interface HarnessAgentCoreBrowserConfig {
   /**
-   * <p>If not populated, the built-in Browser ARN is used.</p>
+   * If not populated, the built-in Browser ARN is used.
+   *
    * @public
    */
   browserArn?: string | undefined;
 }
 
 /**
- * <p>Configuration for AgentCore Code Interpreter.</p>
+ * Configuration for AgentCore Code Interpreter.
+ *
  * @public
  */
 export interface HarnessAgentCoreCodeInterpreterConfig {
   /**
-   * <p>If not populated, the built-in Code Interpreter ARN is used.</p>
+   * If not populated, the built-in Code Interpreter ARN is used.
+   *
    * @public
    */
   codeInterpreterArn?: string | undefined;
 }
 
 /**
- * <p>Authentication method for calling a Gateway.</p>
+ * Authentication method for calling a Gateway.
+ *
  * @public
  */
 export type HarnessGatewayOutboundAuth =
@@ -3013,7 +3393,8 @@ export type HarnessGatewayOutboundAuth =
  */
 export namespace HarnessGatewayOutboundAuth {
   /**
-   * <p>SigV4-sign requests using the agent's execution role.</p>
+   * SigV4-sign requests using the agent's execution role.
+   *
    * @public
    */
   export interface AwsIamMember {
@@ -3024,7 +3405,8 @@ export namespace HarnessGatewayOutboundAuth {
   }
 
   /**
-   * <p>No authentication.</p>
+   * No authentication.
+   *
    * @public
    */
   export interface NoneMember {
@@ -3035,7 +3417,10 @@ export namespace HarnessGatewayOutboundAuth {
   }
 
   /**
-   * <p>Use OAuth credentials for outbound authentication to the gateway.</p> <p>The <code>AUTHORIZATION_CODE</code> grant type is not supported for outbound authentication from a harness to an AgentCore Gateway, even when <code>defaultReturnUrl</code> is specified.</p>
+   * Use OAuth credentials for outbound authentication to the gateway.
+   *
+   * The `AUTHORIZATION_CODE` grant type is not supported for outbound authentication from a harness to an AgentCore Gateway, even when `defaultReturnUrl` is specified.
+   *
    * @public
    */
   export interface OauthMember {
@@ -3068,61 +3453,71 @@ export namespace HarnessGatewayOutboundAuth {
 }
 
 /**
- * <p>Configuration for AgentCore Gateway.</p>
+ * Configuration for AgentCore Gateway.
+ *
  * @public
  */
 export interface HarnessAgentCoreGatewayConfig {
   /**
-   * <p>The ARN of the desired AgentCore Gateway.</p>
+   * The ARN of the desired AgentCore Gateway.
+   *
    * @public
    */
   gatewayArn: string | undefined;
 
   /**
-   * <p>How harness authenticates to this Gateway. Defaults to AWS_IAM (SigV4) if omitted.</p>
+   * How harness authenticates to this Gateway. Defaults to AWS_IAM (SigV4) if omitted.
+   *
    * @public
    */
   outboundAuth?: HarnessGatewayOutboundAuth | undefined;
 }
 
 /**
- * <p>Configuration for an inline function tool. When the agent calls this tool, the tool call is returned to the caller for external execution.</p>
+ * Configuration for an inline function tool. When the agent calls this tool, the tool call is returned to the caller for external execution.
+ *
  * @public
  */
 export interface HarnessInlineFunctionConfig {
   /**
-   * <p>Description of what the tool does, provided to the model.</p>
+   * Description of what the tool does, provided to the model.
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p>JSON Schema describing the tool's input parameters.</p>
+   * JSON Schema describing the tool's input parameters.
+   *
    * @public
    */
   inputSchema: __DocumentType | undefined;
 }
 
 /**
- * <p>Configuration for connecting to a remote MCP server.</p>
+ * Configuration for connecting to a remote MCP server.
+ *
  * @public
  */
 export interface HarnessRemoteMcpConfig {
   /**
-   * <p>URL of the MCP endpoint.</p>
+   * URL of the MCP endpoint.
+   *
    * @public
    */
   url: string | undefined;
 
   /**
-   * <p>Custom headers to include when connecting to the remote MCP server.</p>
+   * Custom headers to include when connecting to the remote MCP server.
+   *
    * @public
    */
   headers?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Configuration union for different tool types.</p>
+ * Configuration union for different tool types.
+ *
  * @public
  */
 export type HarnessToolConfiguration =
@@ -3138,7 +3533,8 @@ export type HarnessToolConfiguration =
  */
 export namespace HarnessToolConfiguration {
   /**
-   * <p>Configuration for remote MCP server.</p>
+   * Configuration for remote MCP server.
+   *
    * @public
    */
   export interface RemoteMcpMember {
@@ -3151,7 +3547,8 @@ export namespace HarnessToolConfiguration {
   }
 
   /**
-   * <p>Configuration for AgentCore Browser.</p>
+   * Configuration for AgentCore Browser.
+   *
    * @public
    */
   export interface AgentCoreBrowserMember {
@@ -3164,7 +3561,8 @@ export namespace HarnessToolConfiguration {
   }
 
   /**
-   * <p>Configuration for AgentCore Gateway.</p>
+   * Configuration for AgentCore Gateway.
+   *
    * @public
    */
   export interface AgentCoreGatewayMember {
@@ -3177,7 +3575,8 @@ export namespace HarnessToolConfiguration {
   }
 
   /**
-   * <p>Configuration for an inline function tool.</p>
+   * Configuration for an inline function tool.
+   *
    * @public
    */
   export interface InlineFunctionMember {
@@ -3190,7 +3589,8 @@ export namespace HarnessToolConfiguration {
   }
 
   /**
-   * <p>Configuration for AgentCore Code Interpreter.</p>
+   * Configuration for AgentCore Code Interpreter.
+   *
    * @public
    */
   export interface AgentCoreCodeInterpreterMember {
@@ -3229,67 +3629,78 @@ export namespace HarnessToolConfiguration {
 }
 
 /**
- * <p>A tool available to the agent loop.</p>
+ * A tool available to the agent loop.
+ *
  * @public
  */
 export interface HarnessTool {
   /**
-   * <p>The type of tool.</p>
+   * The type of tool.
+   *
    * @public
    */
   type: HarnessToolType | undefined;
 
   /**
-   * <p>Unique name for the tool. If not provided, a name will be inferred or generated.</p>
+   * Unique name for the tool. If not provided, a name will be inferred or generated.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Tool-specific configuration.</p>
+   * Tool-specific configuration.
+   *
    * @public
    */
   config?: HarnessToolConfiguration | undefined;
 }
 
 /**
- * <p>Configuration for sliding window truncation strategy.</p>
+ * Configuration for sliding window truncation strategy.
+ *
  * @public
  */
 export interface HarnessSlidingWindowConfiguration {
   /**
-   * <p>The number of recent messages to retain in the context window.</p>
+   * The number of recent messages to retain in the context window.
+   *
    * @public
    */
   messagesCount?: number | undefined;
 }
 
 /**
- * <p>Configuration for summarization-based truncation strategy.</p>
+ * Configuration for summarization-based truncation strategy.
+ *
  * @public
  */
 export interface HarnessSummarizationConfiguration {
   /**
-   * <p>The ratio of content to summarize.</p>
+   * The ratio of content to summarize.
+   *
    * @public
    */
   summaryRatio?: number | undefined;
 
   /**
-   * <p>The number of recent messages to preserve without summarization.</p>
+   * The number of recent messages to preserve without summarization.
+   *
    * @public
    */
   preserveRecentMessages?: number | undefined;
 
   /**
-   * <p>The system prompt used for generating summaries.</p>
+   * The system prompt used for generating summaries.
+   *
    * @public
    */
   summarizationSystemPrompt?: string | undefined;
 }
 
 /**
- * <p>Strategy-specific truncation configuration.</p>
+ * Strategy-specific truncation configuration.
+ *
  * @public
  */
 export type HarnessTruncationStrategyConfiguration =
@@ -3302,7 +3713,8 @@ export type HarnessTruncationStrategyConfiguration =
  */
 export namespace HarnessTruncationStrategyConfiguration {
   /**
-   * <p>Configuration for sliding window truncation.</p>
+   * Configuration for sliding window truncation.
+   *
    * @public
    */
   export interface SlidingWindowMember {
@@ -3312,7 +3724,8 @@ export namespace HarnessTruncationStrategyConfiguration {
   }
 
   /**
-   * <p>Configuration for summarization-based truncation.</p>
+   * Configuration for summarization-based truncation.
+   *
    * @public
    */
   export interface SummarizationMember {
@@ -3342,18 +3755,21 @@ export namespace HarnessTruncationStrategyConfiguration {
 }
 
 /**
- * <p>Configuration for truncating conversation context when it exceeds model limits.</p>
+ * Configuration for truncating conversation context when it exceeds model limits.
+ *
  * @public
  */
 export interface HarnessTruncationConfiguration {
   /**
-   * <p>The truncation strategy to use.</p>
+   * The truncation strategy to use.
+   *
    * @public
    */
   strategy: HarnessTruncationStrategy | undefined;
 
   /**
-   * <p>The strategy-specific configuration.</p>
+   * The strategy-specific configuration.
+   *
    * @public
    */
   config?: HarnessTruncationStrategyConfiguration | undefined;
@@ -3364,164 +3780,191 @@ export interface HarnessTruncationConfiguration {
  */
 export interface CreateHarnessRequest {
   /**
-   * <p>The name of the harness. Must start with a letter and contain only alphanumeric characters and underscores.</p>
+   * The name of the harness. Must start with a letter and contain only alphanumeric characters and underscores.
+   *
    * @public
    */
   harnessName: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * A unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The ARN of the IAM role that the harness assumes when running. This role must have permissions for the services the agent needs to access, such as Amazon Bedrock for model invocation.</p>
+   * The ARN of the IAM role that the harness assumes when running. This role must have permissions for the services the agent needs to access, such as Amazon Bedrock for model invocation.
+   *
    * @public
    */
   executionRoleArn: string | undefined;
 
   /**
-   * <p>The compute environment configuration for the harness, including network and lifecycle settings.</p>
+   * The compute environment configuration for the harness, including network and lifecycle settings.
+   *
    * @public
    */
   environment?: HarnessEnvironmentProviderRequest | undefined;
 
   /**
-   * <p>The environment artifact for the harness, such as a custom container image containing additional dependencies.</p>
+   * The environment artifact for the harness, such as a custom container image containing additional dependencies.
+   *
    * @public
    */
   environmentArtifact?: HarnessEnvironmentArtifact | undefined;
 
   /**
-   * <p>Environment variables to set in the harness runtime environment.</p>
+   * Environment variables to set in the harness runtime environment.
+   *
    * @public
    */
   environmentVariables?: Record<string, string> | undefined;
 
   /**
-   * <p>Represents inbound authorization configuration options used to authenticate incoming requests. </p>
+   * Represents inbound authorization configuration options used to authenticate incoming requests.
+   *
    * @public
    */
   authorizerConfiguration?: AuthorizerConfiguration | undefined;
 
   /**
-   * <p>The model configuration for the harness. Supports Amazon Bedrock, OpenAI, and Google Gemini model providers.</p>
+   * The model configuration for the harness. Supports Amazon Bedrock, OpenAI, and Google Gemini model providers.
+   *
    * @public
    */
   model?: HarnessModelConfiguration | undefined;
 
   /**
-   * <p>The system prompt that defines the agent's behavior and instructions.</p>
+   * The system prompt that defines the agent's behavior and instructions.
+   *
    * @public
    */
   systemPrompt?: HarnessSystemContentBlock[] | undefined;
 
   /**
-   * <p>The tools available to the agent, such as remote MCP servers, AgentCore Gateway, AgentCore Browser, Code Interpreter, or inline functions.</p>
+   * The tools available to the agent, such as remote MCP servers, AgentCore Gateway, AgentCore Browser, Code Interpreter, or inline functions.
+   *
    * @public
    */
   tools?: HarnessTool[] | undefined;
 
   /**
-   * <p>The skills available to the agent. Skills are bundles of files that the agent can pull into its context on demand.</p>
+   * The skills available to the agent. Skills are bundles of files that the agent can pull into its context on demand.
+   *
    * @public
    */
   skills?: HarnessSkill[] | undefined;
 
   /**
-   * <p>The tools that the agent is allowed to use. Supports glob patterns such as * for all tools, @builtin for all built-in tools, or @serverName/toolName for specific MCP server tools.</p>
+   * The tools that the agent is allowed to use. Supports glob patterns such as * for all tools, @builtin for all built-in tools, or @serverName/toolName for specific MCP server tools.
+   *
    * @public
    */
   allowedTools?: string[] | undefined;
 
   /**
-   * <p>The AgentCore Memory configuration for persisting conversation context across sessions.</p>
+   * The AgentCore Memory configuration for persisting conversation context across sessions.
+   *
    * @public
    */
   memory?: HarnessMemoryConfiguration | undefined;
 
   /**
-   * <p>The truncation configuration for managing conversation context when it exceeds model limits.</p>
+   * The truncation configuration for managing conversation context when it exceeds model limits.
+   *
    * @public
    */
   truncation?: HarnessTruncationConfiguration | undefined;
 
   /**
-   * <p>The lifecycle hooks to run at defined points in the agent loop.</p>
+   * The lifecycle hooks to run at defined points in the agent loop.
+   *
    * @public
    */
   hooks?: HarnessHook[] | undefined;
 
   /**
-   * <p>The maximum number of iterations the agent loop can execute per invocation.</p>
+   * The maximum number of iterations the agent loop can execute per invocation.
+   *
    * @public
    */
   maxIterations?: number | undefined;
 
   /**
-   * <p>The maximum total number of output tokens the agent can generate across all model calls within a single invocation.</p>
+   * The maximum total number of output tokens the agent can generate across all model calls within a single invocation.
+   *
    * @public
    */
   maxTokens?: number | undefined;
 
   /**
-   * <p>The maximum duration in seconds for the agent loop execution per invocation.</p>
+   * The maximum duration in seconds for the agent loop execution per invocation.
+   *
    * @public
    */
   timeoutSeconds?: number | undefined;
 
   /**
-   * <p>Tags to apply to the harness resource.</p>
+   * Tags to apply to the harness resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>The AgentCore Runtime environment for a harness.</p>
+ * The AgentCore Runtime environment for a harness.
+ *
  * @public
  */
 export interface HarnessAgentCoreRuntimeEnvironment {
   /**
-   * <p>The ARN of the underlying AgentCore Runtime.</p>
+   * The ARN of the underlying AgentCore Runtime.
+   *
    * @public
    */
   agentRuntimeArn: string | undefined;
 
   /**
-   * <p>The name of the underlying AgentCore Runtime.</p>
+   * The name of the underlying AgentCore Runtime.
+   *
    * @public
    */
   agentRuntimeName: string | undefined;
 
   /**
-   * <p>The ID of the underlying AgentCore Runtime.</p>
+   * The ID of the underlying AgentCore Runtime.
+   *
    * @public
    */
   agentRuntimeId: string | undefined;
 
   /**
-   * <p>LifecycleConfiguration lets you manage the lifecycle of runtime sessions and resources in AgentCore Runtime. This configuration helps optimize resource utilization by automatically cleaning up idle sessions and preventing long-running instances from consuming resources indefinitely.</p>
+   * LifecycleConfiguration lets you manage the lifecycle of runtime sessions and resources in AgentCore Runtime. This configuration helps optimize resource utilization by automatically cleaning up idle sessions and preventing long-running instances from consuming resources indefinitely.
+   *
    * @public
    */
   lifecycleConfiguration: LifecycleConfiguration | undefined;
 
   /**
-   * <p>SecurityConfig for the Agent.</p>
+   * SecurityConfig for the Agent.
+   *
    * @public
    */
   networkConfiguration: NetworkConfiguration | undefined;
 
   /**
-   * <p>The filesystem configurations for the runtime environment.</p>
+   * The filesystem configurations for the runtime environment.
+   *
    * @public
    */
   filesystemConfigurations?: FilesystemConfiguration[] | undefined;
 }
 
 /**
- * <p>The environment provider for a harness.</p>
+ * The environment provider for a harness.
+ *
  * @public
  */
 export type HarnessEnvironmentProvider =
@@ -3533,7 +3976,8 @@ export type HarnessEnvironmentProvider =
  */
 export namespace HarnessEnvironmentProvider {
   /**
-   * <p>The AgentCore Runtime environment configuration.</p>
+   * The AgentCore Runtime environment configuration.
+   *
    * @public
    */
   export interface AgentCoreRuntimeEnvironmentMember {
@@ -3560,150 +4004,175 @@ export namespace HarnessEnvironmentProvider {
 }
 
 /**
- * <p>Representation of a harness.</p>
+ * Representation of a harness.
+ *
  * @public
  */
 export interface Harness {
   /**
-   * <p>The ID of the harness.</p>
+   * The ID of the harness.
+   *
    * @public
    */
   harnessId: string | undefined;
 
   /**
-   * <p>The name of the harness.</p>
+   * The name of the harness.
+   *
    * @public
    */
   harnessName: string | undefined;
 
   /**
-   * <p>The ARN of the harness.</p>
+   * The ARN of the harness.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The status of the harness.</p>
+   * The status of the harness.
+   *
    * @public
    */
   status: HarnessStatus | undefined;
 
   /**
-   * <p>The version of the harness. Incremented on every successful UpdateHarness.</p>
+   * The version of the harness. Incremented on every successful UpdateHarness.
+   *
    * @public
    */
   harnessVersion?: string | undefined;
 
   /**
-   * <p>IAM role the harness assumes when running.</p>
+   * IAM role the harness assumes when running.
+   *
    * @public
    */
   executionRoleArn: string | undefined;
 
   /**
-   * <p>The createdAt time of the harness.</p>
+   * The createdAt time of the harness.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The updatedAt time of the harness.</p>
+   * The updatedAt time of the harness.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The configuration of the default model used by the Harness.</p>
+   * The configuration of the default model used by the Harness.
+   *
    * @public
    */
   model: HarnessModelConfiguration | undefined;
 
   /**
-   * <p>The system prompt of the harness.</p>
+   * The system prompt of the harness.
+   *
    * @public
    */
   systemPrompt: HarnessSystemContentBlock[] | undefined;
 
   /**
-   * <p>The tools of the harness.</p>
+   * The tools of the harness.
+   *
    * @public
    */
   tools: HarnessTool[] | undefined;
 
   /**
-   * <p>The skills of the harness.</p>
+   * The skills of the harness.
+   *
    * @public
    */
   skills: HarnessSkill[] | undefined;
 
   /**
-   * <p>The allowed tools of the harness. All tools are allowed by default.</p>
+   * The allowed tools of the harness. All tools are allowed by default.
+   *
    * @public
    */
   allowedTools: string[] | undefined;
 
   /**
-   * <p>Configuration for truncating model context.</p>
+   * Configuration for truncating model context.
+   *
    * @public
    */
   truncation: HarnessTruncationConfiguration | undefined;
 
   /**
-   * <p>The compute environment on which the Harness runs.</p>
+   * The compute environment on which the Harness runs.
+   *
    * @public
    */
   environment: HarnessEnvironmentProvider | undefined;
 
   /**
-   * <p>The environment artifact (e.g., container) in which the Harness operates.</p>
+   * The environment artifact (e.g., container) in which the Harness operates.
+   *
    * @public
    */
   environmentArtifact?: HarnessEnvironmentArtifact | undefined;
 
   /**
-   * <p>Environment variables exposed in the environment in which the harness operates.</p>
+   * Environment variables exposed in the environment in which the harness operates.
+   *
    * @public
    */
   environmentVariables?: Record<string, string> | undefined;
 
   /**
-   * <p>Represents inbound authorization configuration options used to authenticate incoming requests. </p>
+   * Represents inbound authorization configuration options used to authenticate incoming requests.
+   *
    * @public
    */
   authorizerConfiguration?: AuthorizerConfiguration | undefined;
 
   /**
-   * <p>AgentCore Memory instance configuration for short and long term memory.</p>
+   * AgentCore Memory instance configuration for short and long term memory.
+   *
    * @public
    */
   memory?: HarnessMemoryConfiguration | undefined;
 
   /**
-   * <p>The lifecycle hooks configured for the harness.</p>
+   * The lifecycle hooks configured for the harness.
+   *
    * @public
    */
   hooks?: HarnessHook[] | undefined;
 
   /**
-   * <p>The maximum number of iterations in the agent loop allowed before exiting per invocation.</p>
+   * The maximum number of iterations in the agent loop allowed before exiting per invocation.
+   *
    * @public
    */
   maxIterations?: number | undefined;
 
   /**
-   * <p>The maximum total number of output tokens the agent can generate across all model calls within a single invocation.</p>
+   * The maximum total number of output tokens the agent can generate across all model calls within a single invocation.
+   *
    * @public
    */
   maxTokens?: number | undefined;
 
   /**
-   * <p>The maximum duration per invocation.</p>
+   * The maximum duration per invocation.
+   *
    * @public
    */
   timeoutSeconds?: number | undefined;
 
   /**
-   * <p>Reason why create or update operations fail.</p>
+   * Reason why create or update operations fail.
+   *
    * @public
    */
   failureReason?: string | undefined;
@@ -3714,7 +4183,8 @@ export interface Harness {
  */
 export interface CreateHarnessResponse {
   /**
-   * <p>The harness that was created.</p>
+   * The harness that was created.
+   *
    * @public
    */
   harness: Harness | undefined;
@@ -3725,19 +4195,22 @@ export interface CreateHarnessResponse {
  */
 export interface DeleteHarnessRequest {
   /**
-   * <p>The ID of the harness to delete.</p>
+   * The ID of the harness to delete.
+   *
    * @public
    */
   harnessId: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * A unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>Whether to delete the managed memory on harness deletion. Default: true. If false, the memory is disassociated and becomes a regular customer-owned resource.</p>
+   * Whether to delete the managed memory on harness deletion. Default: true. If false, the memory is disassociated and becomes a regular customer-owned resource.
+   *
    * @public
    */
   deleteManagedMemory?: boolean | undefined;
@@ -3748,7 +4221,8 @@ export interface DeleteHarnessRequest {
  */
 export interface DeleteHarnessResponse {
   /**
-   * <p>The harness that was deleted.</p>
+   * The harness that was deleted.
+   *
    * @public
    */
   harness?: Harness | undefined;
@@ -3759,13 +4233,15 @@ export interface DeleteHarnessResponse {
  */
 export interface GetHarnessRequest {
   /**
-   * <p>The ID of the harness to retrieve.</p>
+   * The ID of the harness to retrieve.
+   *
    * @public
    */
   harnessId: string | undefined;
 
   /**
-   * <p>Specific version of the harness to retrieve. If omitted, returns the current Harness configuration, including its status.</p>
+   * Specific version of the harness to retrieve. If omitted, returns the current Harness configuration, including its status.
+   *
    * @public
    */
   harnessVersion?: string | undefined;
@@ -3776,7 +4252,8 @@ export interface GetHarnessRequest {
  */
 export interface GetHarnessResponse {
   /**
-   * <p>The harness resource.</p>
+   * The harness resource.
+   *
    * @public
    */
   harness: Harness | undefined;
@@ -3787,61 +4264,71 @@ export interface GetHarnessResponse {
  */
 export interface ListHarnessesRequest {
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next set of results.</p>
+   * The token for the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Summary information about a harness.</p>
+ * Summary information about a harness.
+ *
  * @public
  */
 export interface HarnessSummary {
   /**
-   * <p>The ID of the harness.</p>
+   * The ID of the harness.
+   *
    * @public
    */
   harnessId: string | undefined;
 
   /**
-   * <p>The name of the harness.</p>
+   * The name of the harness.
+   *
    * @public
    */
   harnessName: string | undefined;
 
   /**
-   * <p>The ARN of the harness.</p>
+   * The ARN of the harness.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The current status of the harness.</p>
+   * The current status of the harness.
+   *
    * @public
    */
   status: HarnessStatus | undefined;
 
   /**
-   * <p>The timestamp when the harness was created.</p>
+   * The timestamp when the harness was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the harness was last updated.</p>
+   * The timestamp when the harness was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The latest version of the harness.</p>
+   * The latest version of the harness.
+   *
    * @public
    */
   harnessVersion?: string | undefined;
@@ -3852,13 +4339,15 @@ export interface HarnessSummary {
  */
 export interface ListHarnessesResponse {
   /**
-   * <p>The list of harness summaries.</p>
+   * The list of harness summaries.
+   *
    * @public
    */
   harnesses: HarnessSummary[] | undefined;
 
   /**
-   * <p>The token for the next set of results.</p>
+   * The token for the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -3869,73 +4358,85 @@ export interface ListHarnessesResponse {
  */
 export interface ListHarnessVersionsRequest {
   /**
-   * <p>The ID of the harness whose versions are listed.</p>
+   * The ID of the harness whose versions are listed.
+   *
    * @public
    */
   harnessId: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next set of results.</p>
+   * The token for the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Summary information about a single version of a harness.</p>
+ * Summary information about a single version of a harness.
+ *
  * @public
  */
 export interface HarnessVersionSummary {
   /**
-   * <p>The ID of the harness.</p>
+   * The ID of the harness.
+   *
    * @public
    */
   harnessId: string | undefined;
 
   /**
-   * <p>The name of the harness.</p>
+   * The name of the harness.
+   *
    * @public
    */
   harnessName: string | undefined;
 
   /**
-   * <p>The ARN of the harness.</p>
+   * The ARN of the harness.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The version of the harness that this summary describes.</p>
+   * The version of the harness that this summary describes.
+   *
    * @public
    */
   harnessVersion: string | undefined;
 
   /**
-   * <p>The status of this harness version.</p>
+   * The status of this harness version.
+   *
    * @public
    */
   status: HarnessStatus | undefined;
 
   /**
-   * <p>The timestamp when this harness version was created.</p>
+   * The timestamp when this harness version was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when this harness version was last updated.</p>
+   * The timestamp when this harness version was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>Reason why the create or update operation for this harness version failed.</p>
+   * Reason why the create or update operation for this harness version failed.
+   *
    * @public
    */
   failureReason?: string | undefined;
@@ -3946,49 +4447,57 @@ export interface HarnessVersionSummary {
  */
 export interface ListHarnessVersionsResponse {
   /**
-   * <p>The list of harness version summaries.</p>
+   * The list of harness version summaries.
+   *
    * @public
    */
   harnessVersions: HarnessVersionSummary[] | undefined;
 
   /**
-   * <p>The token for the next set of results.</p>
+   * The token for the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Wrapper for updating an optional AuthorizerConfiguration field with PATCH semantics. When present in an update request, the authorizer configuration is replaced with optionalValue. When absent, the authorizer configuration is left unchanged. To unset, include the wrapper with optionalValue not specified.</p>
+ * Wrapper for updating an optional AuthorizerConfiguration field with PATCH semantics. When present in an update request, the authorizer configuration is replaced with optionalValue. When absent, the authorizer configuration is left unchanged. To unset, include the wrapper with optionalValue not specified.
+ *
  * @public
  */
 export interface UpdatedAuthorizerConfiguration {
   /**
-   * <p>The updated authorizer configuration value. If not specified, it will clear the current authorizer configuration of the resource.</p>
+   * The updated authorizer configuration value. If not specified, it will clear the current authorizer configuration of the resource.
+   *
    * @public
    */
   optionalValue?: AuthorizerConfiguration | undefined;
 }
 
 /**
- * <p>Wrapper for updating the environment artifact configuration.</p>
+ * Wrapper for updating the environment artifact configuration.
+ *
  * @public
  */
 export interface UpdatedHarnessEnvironmentArtifact {
   /**
-   * <p>The updated environment artifact value, or null to clear the existing configuration.</p>
+   * The updated environment artifact value, or null to clear the existing configuration.
+   *
    * @public
    */
   optionalValue?: HarnessEnvironmentArtifact | undefined;
 }
 
 /**
- * <p>Wrapper for updating the memory configuration.</p>
+ * Wrapper for updating the memory configuration.
+ *
  * @public
  */
 export interface UpdatedHarnessMemoryConfiguration {
   /**
-   * <p>The updated memory configuration value, or null to clear the existing configuration.</p>
+   * The updated memory configuration value, or null to clear the existing configuration.
+   *
    * @public
    */
   optionalValue?: HarnessMemoryConfiguration | undefined;
@@ -3999,109 +4508,127 @@ export interface UpdatedHarnessMemoryConfiguration {
  */
 export interface UpdateHarnessRequest {
   /**
-   * <p>The ID of the harness to update.</p>
+   * The ID of the harness to update.
+   *
    * @public
    */
   harnessId: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * A unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The ARN of the IAM role that the harness assumes when running. If not specified, the existing value is retained.</p>
+   * The ARN of the IAM role that the harness assumes when running. If not specified, the existing value is retained.
+   *
    * @public
    */
   executionRoleArn?: string | undefined;
 
   /**
-   * <p>The compute environment configuration for the harness. If not specified, the existing value is retained.</p>
+   * The compute environment configuration for the harness. If not specified, the existing value is retained.
+   *
    * @public
    */
   environment?: HarnessEnvironmentProviderRequest | undefined;
 
   /**
-   * <p>The environment artifact for the harness. Use the optionalValue wrapper to set a new value, or set it to null to clear the existing configuration.</p>
+   * The environment artifact for the harness. Use the optionalValue wrapper to set a new value, or set it to null to clear the existing configuration.
+   *
    * @public
    */
   environmentArtifact?: UpdatedHarnessEnvironmentArtifact | undefined;
 
   /**
-   * <p>Environment variables to set in the harness runtime environment. If specified, this replaces all existing environment variables. If not specified, the existing value is retained.</p>
+   * Environment variables to set in the harness runtime environment. If specified, this replaces all existing environment variables. If not specified, the existing value is retained.
+   *
    * @public
    */
   environmentVariables?: Record<string, string> | undefined;
 
   /**
-   * <p>Wrapper for updating an optional AuthorizerConfiguration field with PATCH semantics. When present in an update request, the authorizer configuration is replaced with optionalValue. When absent, the authorizer configuration is left unchanged. To unset, include the wrapper with optionalValue not specified.</p>
+   * Wrapper for updating an optional AuthorizerConfiguration field with PATCH semantics. When present in an update request, the authorizer configuration is replaced with optionalValue. When absent, the authorizer configuration is left unchanged. To unset, include the wrapper with optionalValue not specified.
+   *
    * @public
    */
   authorizerConfiguration?: UpdatedAuthorizerConfiguration | undefined;
 
   /**
-   * <p>The model configuration for the harness. If not specified, the existing value is retained.</p>
+   * The model configuration for the harness. If not specified, the existing value is retained.
+   *
    * @public
    */
   model?: HarnessModelConfiguration | undefined;
 
   /**
-   * <p>The system prompt that defines the agent's behavior. If not specified, the existing value is retained.</p>
+   * The system prompt that defines the agent's behavior. If not specified, the existing value is retained.
+   *
    * @public
    */
   systemPrompt?: HarnessSystemContentBlock[] | undefined;
 
   /**
-   * <p>The tools available to the agent. If specified, this replaces all existing tools. If not specified, the existing value is retained.</p>
+   * The tools available to the agent. If specified, this replaces all existing tools. If not specified, the existing value is retained.
+   *
    * @public
    */
   tools?: HarnessTool[] | undefined;
 
   /**
-   * <p>The skills available to the agent. If specified, this replaces all existing skills. If not specified, the existing value is retained.</p>
+   * The skills available to the agent. If specified, this replaces all existing skills. If not specified, the existing value is retained.
+   *
    * @public
    */
   skills?: HarnessSkill[] | undefined;
 
   /**
-   * <p>The tools that the agent is allowed to use. If specified, this replaces all existing allowed tools. If not specified, the existing value is retained.</p>
+   * The tools that the agent is allowed to use. If specified, this replaces all existing allowed tools. If not specified, the existing value is retained.
+   *
    * @public
    */
   allowedTools?: string[] | undefined;
 
   /**
-   * <p>The AgentCore Memory configuration. Use the optionalValue wrapper to set a new value, or set it to null to clear the existing configuration.</p>
+   * The AgentCore Memory configuration. Use the optionalValue wrapper to set a new value, or set it to null to clear the existing configuration.
+   *
    * @public
    */
   memory?: UpdatedHarnessMemoryConfiguration | undefined;
 
   /**
-   * <p>The truncation configuration for managing conversation context. If not specified, the existing value is retained.</p>
+   * The truncation configuration for managing conversation context. If not specified, the existing value is retained.
+   *
    * @public
    */
   truncation?: HarnessTruncationConfiguration | undefined;
 
   /**
-   * <p>The lifecycle hooks to run at defined points in the agent loop. If specified, this replaces all existing hooks. If not specified, the existing hooks are retained.</p>
+   * The lifecycle hooks to run at defined points in the agent loop. If specified, this replaces all existing hooks. If not specified, the existing hooks are retained.
+   *
    * @public
    */
   hooks?: HarnessHook[] | undefined;
 
   /**
-   * <p>The maximum number of iterations the agent loop can execute per invocation. If not specified, the existing value is retained.</p>
+   * The maximum number of iterations the agent loop can execute per invocation. If not specified, the existing value is retained.
+   *
    * @public
    */
   maxIterations?: number | undefined;
 
   /**
-   * <p>The maximum total number of output tokens the agent can generate across all model calls within a single invocation. If not specified, the existing value is retained.</p>
+   * The maximum total number of output tokens the agent can generate across all model calls within a single invocation. If not specified, the existing value is retained.
+   *
    * @public
    */
   maxTokens?: number | undefined;
 
   /**
-   * <p>The maximum duration in seconds for the agent loop execution per invocation. If not specified, the existing value is retained.</p>
+   * The maximum duration in seconds for the agent loop execution per invocation. If not specified, the existing value is retained.
+   *
    * @public
    */
   timeoutSeconds?: number | undefined;
@@ -4112,7 +4639,8 @@ export interface UpdateHarnessRequest {
  */
 export interface UpdateHarnessResponse {
   /**
-   * <p>The updated harness.</p>
+   * The updated harness.
+   *
    * @public
    */
   harness: Harness | undefined;
@@ -4123,7 +4651,8 @@ export interface UpdateHarnessResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource for which you want to list tags.</p>
+   * The Amazon Resource Name (ARN) of the resource for which you want to list tags.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -4134,116 +4663,135 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>The tags associated with the resource.</p>
+   * The tags associated with the resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>A metadata key indexed for filtering.</p>
+ * A metadata key indexed for filtering.
+ *
  * @public
  */
 export interface IndexedKey {
   /**
-   * <p>The metadata key name to index.</p>
+   * The metadata key name to index.
+   *
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>The data type of the indexed key.</p>
+   * The data type of the indexed key.
+   *
    * @public
    */
   type: MetadataValueType | undefined;
 }
 
 /**
- * <p>Configurations for overriding the consolidation step of the episodic memory strategy.</p>
+ * Configurations for overriding the consolidation step of the episodic memory strategy.
+ *
  * @public
  */
 export interface EpisodicOverrideConsolidationConfigurationInput {
   /**
-   * <p>The text to append to the prompt for the consolidation step of the episodic memory strategy.</p>
+   * The text to append to the prompt for the consolidation step of the episodic memory strategy.
+   *
    * @public
    */
   appendToPrompt: string | undefined;
 
   /**
-   * <p>The model ID to use for the consolidation step of the episodic memory strategy.</p>
+   * The model ID to use for the consolidation step of the episodic memory strategy.
+   *
    * @public
    */
   modelId: string | undefined;
 }
 
 /**
- * <p>Configurations for overriding the extraction step of the episodic memory strategy.</p>
+ * Configurations for overriding the extraction step of the episodic memory strategy.
+ *
  * @public
  */
 export interface EpisodicOverrideExtractionConfigurationInput {
   /**
-   * <p>The text to append to the prompt for the extraction step of the episodic memory strategy.</p>
+   * The text to append to the prompt for the extraction step of the episodic memory strategy.
+   *
    * @public
    */
   appendToPrompt: string | undefined;
 
   /**
-   * <p>The model ID to use for the extraction step of the episodic memory strategy.</p>
+   * The model ID to use for the extraction step of the episodic memory strategy.
+   *
    * @public
    */
   modelId: string | undefined;
 }
 
 /**
- * <p>Validation for NUMBER fields.</p>
+ * Validation for NUMBER fields.
+ *
  * @public
  */
 export interface NumberValidation {
   /**
-   * <p>Minimum allowed value.</p>
+   * Minimum allowed value.
+   *
    * @public
    */
   minValue?: number | undefined;
 
   /**
-   * <p>Maximum allowed value.</p>
+   * Maximum allowed value.
+   *
    * @public
    */
   maxValue?: number | undefined;
 }
 
 /**
- * <p>Validation for STRINGLIST fields.</p>
+ * Validation for STRINGLIST fields.
+ *
  * @public
  */
 export interface StringListValidation {
   /**
-   * <p>Allowed values for items in this STRINGLIST field.</p>
+   * Allowed values for items in this STRINGLIST field.
+   *
    * @public
    */
   allowedValues?: string[] | undefined;
 
   /**
-   * <p>Maximum number of items in the string list.</p>
+   * Maximum number of items in the string list.
+   *
    * @public
    */
   maxItems?: number | undefined;
 }
 
 /**
- * <p>Validation for STRING fields.</p>
+ * Validation for STRING fields.
+ *
  * @public
  */
 export interface StringValidation {
   /**
-   * <p>Allowed values for this STRING field.</p>
+   * Allowed values for this STRING field.
+   *
    * @public
    */
   allowedValues: string[] | undefined;
 }
 
 /**
- * <p>Validation rules for extracted metadata values. Only one type can be specified, matching the field's data type.</p>
+ * Validation rules for extracted metadata values. Only one type can be specified, matching the field's data type.
+ *
  * @public
  */
 export type Validation =
@@ -4257,7 +4805,8 @@ export type Validation =
  */
 export namespace Validation {
   /**
-   * <p>Validation for STRING fields.</p>
+   * Validation for STRING fields.
+   *
    * @public
    */
   export interface StringValidationMember {
@@ -4268,7 +4817,8 @@ export namespace Validation {
   }
 
   /**
-   * <p>Validation for STRINGLIST fields.</p>
+   * Validation for STRINGLIST fields.
+   *
    * @public
    */
   export interface StringListValidationMember {
@@ -4279,7 +4829,8 @@ export namespace Validation {
   }
 
   /**
-   * <p>Validation for NUMBER fields.</p>
+   * Validation for NUMBER fields.
+   *
    * @public
    */
   export interface NumberValidationMember {
@@ -4312,31 +4863,36 @@ export namespace Validation {
 }
 
 /**
- * <p>Model-based metadata extraction configuration.</p>
+ * Model-based metadata extraction configuration.
+ *
  * @public
  */
 export interface LlmExtractionConfig {
   /**
-   * <p>Instructions for extraction. Supports built-in operators like LATEST_VALUE or custom natural-language instructions.</p>
+   * Instructions for extraction. Supports built-in operators like LATEST_VALUE or custom natural-language instructions.
+   *
    * @public
    */
   llmExtractionInstruction?: string | undefined;
 
   /**
-   * <p>Description of what this metadata field represents.</p>
+   * Description of what this metadata field represents.
+   *
    * @public
    */
   definition: string | undefined;
 
   /**
-   * <p>Validation rules to constrain extracted values.</p>
+   * Validation rules to constrain extracted values.
+   *
    * @public
    */
   validation?: Validation | undefined;
 }
 
 /**
- * <p>Configuration for metadata extraction from conversational content.</p>
+ * Configuration for metadata extraction from conversational content.
+ *
  * @public
  */
 export type ExtractionConfig =
@@ -4348,7 +4904,8 @@ export type ExtractionConfig =
  */
 export namespace ExtractionConfig {
   /**
-   * <p>Model-based extraction using a definition and instructions.</p>
+   * Model-based extraction using a definition and instructions.
+   *
    * @public
    */
   export interface LlmExtractionConfigMember {
@@ -4375,66 +4932,76 @@ export namespace ExtractionConfig {
 }
 
 /**
- * <p>A metadata field definition within a strategy's schema.</p>
+ * A metadata field definition within a strategy's schema.
+ *
  * @public
  */
 export interface MetadataSchemaEntry {
   /**
-   * <p>The metadata field name. Must match an indexed key to be queryable via metadata filters.</p>
+   * The metadata field name. Must match an indexed key to be queryable via metadata filters.
+   *
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>The MetadataValueType.</p>
+   * The MetadataValueType.
+   *
    * @public
    */
   type?: MetadataValueType | undefined;
 
   /**
-   * <p>Specifies whether the metadata value is extracted by the LLM or passed through deterministically from the event.</p>
+   * Specifies whether the metadata value is extracted by the LLM or passed through deterministically from the event.
+   *
    * @public
    */
   extractionType?: ExtractionType | undefined;
 
   /**
-   * <p>Configuration for extracting this metadata value from conversational content. Applicable only if extractionType is LLM inferred.</p>
+   * Configuration for extracting this metadata value from conversational content. Applicable only if extractionType is LLM inferred.
+   *
    * @public
    */
   extractionConfig?: ExtractionConfig | undefined;
 }
 
 /**
- * <p>Schema for metadata on memory records generated by a strategy.</p>
+ * Schema for metadata on memory records generated by a strategy.
+ *
  * @public
  */
 export interface MemoryRecordSchema {
   /**
-   * <p>The metadata field definitions for this strategy.</p>
+   * The metadata field definitions for this strategy.
+   *
    * @public
    */
   metadataSchema?: MetadataSchemaEntry[] | undefined;
 }
 
 /**
- * <p>Configurations for overriding the reflection step of the episodic memory strategy.</p>
+ * Configurations for overriding the reflection step of the episodic memory strategy.
+ *
  * @public
  */
 export interface EpisodicOverrideReflectionConfigurationInput {
   /**
-   * <p>The text to append to the prompt for reflection step of the episodic memory strategy.</p>
+   * The text to append to the prompt for reflection step of the episodic memory strategy.
+   *
    * @public
    */
   appendToPrompt: string | undefined;
 
   /**
-   * <p>The model ID to use for the reflection step of the episodic memory strategy.</p>
+   * The model ID to use for the reflection step of the episodic memory strategy.
+   *
    * @public
    */
   modelId: string | undefined;
 
   /**
-   * <p>This is a legacy parameter, use <code>namespaceTemplates</code>. The namespaces to use for episodic reflection. Can be less nested than the episodic namespaces.</p>
+   * This is a legacy parameter, use `namespaceTemplates`. The namespaces to use for episodic reflection. Can be less nested than the episodic namespaces.
    *
    * @deprecated (since 2026-03-02) Use namespaceTemplates instead.
    * @public
@@ -4442,98 +5009,114 @@ export interface EpisodicOverrideReflectionConfigurationInput {
   namespaces?: string[] | undefined;
 
   /**
-   * <p>The namespaceTemplates to use for episodic reflection. Can be less nested than the episodic namespaces.</p>
+   * The namespaceTemplates to use for episodic reflection. Can be less nested than the episodic namespaces.
+   *
    * @public
    */
   namespaceTemplates?: string[] | undefined;
 
   /**
-   * <p>Schema for metadata fields on records generated by this reflection override.</p>
+   * Schema for metadata fields on records generated by this reflection override.
+   *
    * @public
    */
   memoryRecordSchema?: MemoryRecordSchema | undefined;
 }
 
 /**
- * <p>Input for the configuration to override the episodic memory strategy.</p>
+ * Input for the configuration to override the episodic memory strategy.
+ *
  * @public
  */
 export interface EpisodicOverrideConfigurationInput {
   /**
-   * <p>Contains configurations for overriding the extraction step of the episodic memory strategy.</p>
+   * Contains configurations for overriding the extraction step of the episodic memory strategy.
+   *
    * @public
    */
   extraction?: EpisodicOverrideExtractionConfigurationInput | undefined;
 
   /**
-   * <p>Contains configurations for overriding the consolidation step of the episodic memory strategy.</p>
+   * Contains configurations for overriding the consolidation step of the episodic memory strategy.
+   *
    * @public
    */
   consolidation?: EpisodicOverrideConsolidationConfigurationInput | undefined;
 
   /**
-   * <p>Contains configurations for overriding the reflection step of the episodic memory strategy.</p>
+   * Contains configurations for overriding the reflection step of the episodic memory strategy.
+   *
    * @public
    */
   reflection?: EpisodicOverrideReflectionConfigurationInput | undefined;
 }
 
 /**
- * <p>The configuration to invoke a self-managed memory processing pipeline with.</p>
+ * The configuration to invoke a self-managed memory processing pipeline with.
+ *
  * @public
  */
 export interface InvocationConfigurationInput {
   /**
-   * <p>The ARN of the SNS topic for job notifications.</p>
+   * The ARN of the SNS topic for job notifications.
+   *
    * @public
    */
   topicArn: string | undefined;
 
   /**
-   * <p>The S3 bucket name for event payload delivery.</p>
+   * The S3 bucket name for event payload delivery.
+   *
    * @public
    */
   payloadDeliveryBucketName: string | undefined;
 }
 
 /**
- * <p>The trigger configuration based on a message.</p>
+ * The trigger configuration based on a message.
+ *
  * @public
  */
 export interface MessageBasedTriggerInput {
   /**
-   * <p>The number of messages that trigger memory processing.</p>
+   * The number of messages that trigger memory processing.
+   *
    * @public
    */
   messageCount?: number | undefined;
 }
 
 /**
- * <p>Trigger configuration based on time.</p>
+ * Trigger configuration based on time.
+ *
  * @public
  */
 export interface TimeBasedTriggerInput {
   /**
-   * <p>Idle session timeout (seconds) that triggers memory processing.</p>
+   * Idle session timeout (seconds) that triggers memory processing.
+   *
    * @public
    */
   idleSessionTimeout?: number | undefined;
 }
 
 /**
- * <p>Trigger configuration based on tokens.</p>
+ * Trigger configuration based on tokens.
+ *
  * @public
  */
 export interface TokenBasedTriggerInput {
   /**
-   * <p>Number of tokens that trigger memory processing.</p>
+   * Number of tokens that trigger memory processing.
+   *
    * @public
    */
   tokenCount?: number | undefined;
 }
 
 /**
- * <p>Condition that triggers memory processing.</p>
+ * Condition that triggers memory processing.
+ *
  * @public
  */
 export type TriggerConditionInput =
@@ -4547,7 +5130,8 @@ export type TriggerConditionInput =
  */
 export namespace TriggerConditionInput {
   /**
-   * <p>Message based trigger configuration.</p>
+   * Message based trigger configuration.
+   *
    * @public
    */
   export interface MessageBasedTriggerMember {
@@ -4558,7 +5142,8 @@ export namespace TriggerConditionInput {
   }
 
   /**
-   * <p>Token based trigger configuration.</p>
+   * Token based trigger configuration.
+   *
    * @public
    */
   export interface TokenBasedTriggerMember {
@@ -4569,7 +5154,8 @@ export namespace TriggerConditionInput {
   }
 
   /**
-   * <p>Time based trigger configuration.</p>
+   * Time based trigger configuration.
+   *
    * @public
    */
   export interface TimeBasedTriggerMember {
@@ -4602,169 +5188,197 @@ export namespace TriggerConditionInput {
 }
 
 /**
- * <p>Input configuration for a self-managed memory strategy.</p>
+ * Input configuration for a self-managed memory strategy.
+ *
  * @public
  */
 export interface SelfManagedConfigurationInput {
   /**
-   * <p>A list of conditions that trigger memory processing.</p>
+   * A list of conditions that trigger memory processing.
+   *
    * @public
    */
   triggerConditions?: TriggerConditionInput[] | undefined;
 
   /**
-   * <p>Configuration to invoke a self-managed memory processing pipeline with.</p>
+   * Configuration to invoke a self-managed memory processing pipeline with.
+   *
    * @public
    */
   invocationConfiguration: InvocationConfigurationInput | undefined;
 
   /**
-   * <p>Number of historical messages to include in processing context.</p>
+   * Number of historical messages to include in processing context.
+   *
    * @public
    */
   historicalContextWindowSize?: number | undefined;
 }
 
 /**
- * <p>Input for semantic override consolidation configuration in a memory strategy.</p>
+ * Input for semantic override consolidation configuration in a memory strategy.
+ *
  * @public
  */
 export interface SemanticOverrideConsolidationConfigurationInput {
   /**
-   * <p>The text to append to the prompt for semantic consolidation.</p>
+   * The text to append to the prompt for semantic consolidation.
+   *
    * @public
    */
   appendToPrompt: string | undefined;
 
   /**
-   * <p>The model ID to use for semantic consolidation.</p>
+   * The model ID to use for semantic consolidation.
+   *
    * @public
    */
   modelId: string | undefined;
 }
 
 /**
- * <p>Input for semantic override extraction configuration in a memory strategy.</p>
+ * Input for semantic override extraction configuration in a memory strategy.
+ *
  * @public
  */
 export interface SemanticOverrideExtractionConfigurationInput {
   /**
-   * <p>The text to append to the prompt for semantic extraction.</p>
+   * The text to append to the prompt for semantic extraction.
+   *
    * @public
    */
   appendToPrompt: string | undefined;
 
   /**
-   * <p>The model ID to use for semantic extraction.</p>
+   * The model ID to use for semantic extraction.
+   *
    * @public
    */
   modelId: string | undefined;
 }
 
 /**
- * <p>Input for semantic override configuration in a memory strategy.</p>
+ * Input for semantic override configuration in a memory strategy.
+ *
  * @public
  */
 export interface SemanticOverrideConfigurationInput {
   /**
-   * <p>The extraction configuration for a semantic override.</p>
+   * The extraction configuration for a semantic override.
+   *
    * @public
    */
   extraction?: SemanticOverrideExtractionConfigurationInput | undefined;
 
   /**
-   * <p>The consolidation configuration for a semantic override.</p>
+   * The consolidation configuration for a semantic override.
+   *
    * @public
    */
   consolidation?: SemanticOverrideConsolidationConfigurationInput | undefined;
 }
 
 /**
- * <p>Input for summary override consolidation configuration in a memory strategy.</p>
+ * Input for summary override consolidation configuration in a memory strategy.
+ *
  * @public
  */
 export interface SummaryOverrideConsolidationConfigurationInput {
   /**
-   * <p>The text to append to the prompt for summary consolidation.</p>
+   * The text to append to the prompt for summary consolidation.
+   *
    * @public
    */
   appendToPrompt: string | undefined;
 
   /**
-   * <p>The model ID to use for summary consolidation.</p>
+   * The model ID to use for summary consolidation.
+   *
    * @public
    */
   modelId: string | undefined;
 }
 
 /**
- * <p>Input for summary override configuration in a memory strategy.</p>
+ * Input for summary override configuration in a memory strategy.
+ *
  * @public
  */
 export interface SummaryOverrideConfigurationInput {
   /**
-   * <p>The consolidation configuration for a summary override.</p>
+   * The consolidation configuration for a summary override.
+   *
    * @public
    */
   consolidation?: SummaryOverrideConsolidationConfigurationInput | undefined;
 }
 
 /**
- * <p>Input for user preference override consolidation configuration in a memory strategy.</p>
+ * Input for user preference override consolidation configuration in a memory strategy.
+ *
  * @public
  */
 export interface UserPreferenceOverrideConsolidationConfigurationInput {
   /**
-   * <p>The text to append to the prompt for user preference consolidation.</p>
+   * The text to append to the prompt for user preference consolidation.
+   *
    * @public
    */
   appendToPrompt: string | undefined;
 
   /**
-   * <p>The model ID to use for user preference consolidation.</p>
+   * The model ID to use for user preference consolidation.
+   *
    * @public
    */
   modelId: string | undefined;
 }
 
 /**
- * <p>Input for user preference override extraction configuration in a memory strategy.</p>
+ * Input for user preference override extraction configuration in a memory strategy.
+ *
  * @public
  */
 export interface UserPreferenceOverrideExtractionConfigurationInput {
   /**
-   * <p>The text to append to the prompt for user preference extraction.</p>
+   * The text to append to the prompt for user preference extraction.
+   *
    * @public
    */
   appendToPrompt: string | undefined;
 
   /**
-   * <p>The model ID to use for user preference extraction.</p>
+   * The model ID to use for user preference extraction.
+   *
    * @public
    */
   modelId: string | undefined;
 }
 
 /**
- * <p>Input for user preference override configuration in a memory strategy.</p>
+ * Input for user preference override configuration in a memory strategy.
+ *
  * @public
  */
 export interface UserPreferenceOverrideConfigurationInput {
   /**
-   * <p>The extraction configuration for a user preference override.</p>
+   * The extraction configuration for a user preference override.
+   *
    * @public
    */
   extraction?: UserPreferenceOverrideExtractionConfigurationInput | undefined;
 
   /**
-   * <p>The consolidation configuration for a user preference override.</p>
+   * The consolidation configuration for a user preference override.
+   *
    * @public
    */
   consolidation?: UserPreferenceOverrideConsolidationConfigurationInput | undefined;
 }
 
 /**
- * <p>Input for custom configuration of a memory strategy.</p>
+ * Input for custom configuration of a memory strategy.
+ *
  * @public
  */
 export type CustomConfigurationInput =
@@ -4780,7 +5394,8 @@ export type CustomConfigurationInput =
  */
 export namespace CustomConfigurationInput {
   /**
-   * <p>The semantic override configuration for a custom memory strategy.</p>
+   * The semantic override configuration for a custom memory strategy.
+   *
    * @public
    */
   export interface SemanticOverrideMember {
@@ -4793,7 +5408,8 @@ export namespace CustomConfigurationInput {
   }
 
   /**
-   * <p>The summary override configuration for a custom memory strategy.</p>
+   * The summary override configuration for a custom memory strategy.
+   *
    * @public
    */
   export interface SummaryOverrideMember {
@@ -4806,7 +5422,8 @@ export namespace CustomConfigurationInput {
   }
 
   /**
-   * <p>The user preference override configuration for a custom memory strategy.</p>
+   * The user preference override configuration for a custom memory strategy.
+   *
    * @public
    */
   export interface UserPreferenceOverrideMember {
@@ -4819,7 +5436,8 @@ export namespace CustomConfigurationInput {
   }
 
   /**
-   * <p>The episodic memory strategy override configuration for a custom memory strategy.</p>
+   * The episodic memory strategy override configuration for a custom memory strategy.
+   *
    * @public
    */
   export interface EpisodicOverrideMember {
@@ -4832,7 +5450,8 @@ export namespace CustomConfigurationInput {
   }
 
   /**
-   * <p>The self managed configuration for a custom memory strategy.</p>
+   * The self managed configuration for a custom memory strategy.
+   *
    * @public
    */
   export interface SelfManagedConfigurationMember {
@@ -4871,7 +5490,8 @@ export namespace CustomConfigurationInput {
 }
 
 /**
- * <p>Specifies the record expiry (long-term memory time-to-live) for a memory strategy. Provide exactly one of <code>recordExpiryDurationDays</code> or <code>action</code>. Set <code>recordExpiryDurationDays</code> to configure or update the time-to-live, or set <code>action</code> to <code>REMOVE</code> to remove a previously configured time-to-live.</p>
+ * Specifies the record expiry (long-term memory time-to-live) for a memory strategy. Provide exactly one of `recordExpiryDurationDays` or `action`. Set `recordExpiryDurationDays` to configure or update the time-to-live, or set `action` to `REMOVE` to remove a previously configured time-to-live.
+ *
  * @public
  */
 export type RecordExpirySpecification =
@@ -4884,7 +5504,8 @@ export type RecordExpirySpecification =
  */
 export namespace RecordExpirySpecification {
   /**
-   * <p>The duration, in days, after which memory records generated by this strategy expire. The minimum is 31 days.</p>
+   * The duration, in days, after which memory records generated by this strategy expire. The minimum is 31 days.
+   *
    * @public
    */
   export interface RecordExpiryDurationDaysMember {
@@ -4894,7 +5515,8 @@ export namespace RecordExpirySpecification {
   }
 
   /**
-   * <p>The action to apply to the existing record expiry (long-term memory time-to-live) configuration. Set to <code>REMOVE</code> to remove a previously configured time-to-live so that newer records no longer expire. This value is not applicable on create paths.</p>
+   * The action to apply to the existing record expiry (long-term memory time-to-live) configuration. Set to `REMOVE` to remove a previously configured time-to-live so that newer records no longer expire. This value is not applicable on create paths.
+   *
    * @public
    */
   export interface ActionMember {
@@ -4924,24 +5546,27 @@ export namespace RecordExpirySpecification {
 }
 
 /**
- * <p>Input for creating a custom memory strategy.</p>
+ * Input for creating a custom memory strategy.
+ *
  * @public
  */
 export interface CustomMemoryStrategyInput {
   /**
-   * <p>The name of the custom memory strategy.</p>
+   * The name of the custom memory strategy.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the custom memory strategy.</p>
+   * The description of the custom memory strategy.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>This is a legacy parameter, use <code>namespaceTemplates</code>. The namespaces associated with the custom memory strategy.</p>
+   * This is a legacy parameter, use `namespaceTemplates`. The namespaces associated with the custom memory strategy.
    *
    * @deprecated (since 2026-03-02) Use namespaceTemplates instead.
    * @public
@@ -4949,37 +5574,42 @@ export interface CustomMemoryStrategyInput {
   namespaces?: string[] | undefined;
 
   /**
-   * <p>The namespaceTemplates associated with the custom memory strategy.</p>
+   * The namespaceTemplates associated with the custom memory strategy.
+   *
    * @public
    */
   namespaceTemplates?: string[] | undefined;
 
   /**
-   * <p>The configuration for the custom memory strategy.</p>
+   * The configuration for the custom memory strategy.
+   *
    * @public
    */
   configuration?: CustomConfigurationInput | undefined;
 
   /**
-   * <p>Schema for metadata fields on records generated by this strategy.</p>
+   * Schema for metadata fields on records generated by this strategy.
+   *
    * @public
    */
   memoryRecordSchema?: MemoryRecordSchema | undefined;
 
   /**
-   * <p>The record expiry (long-term memory time-to-live) configuration for memory records generated by this strategy. Set <code>recordExpiryDurationDays</code> to the number of days after which records expire. If not specified, records generated by this strategy do not expire.</p>
+   * The record expiry (long-term memory time-to-live) configuration for memory records generated by this strategy. Set `recordExpiryDurationDays` to the number of days after which records expire. If not specified, records generated by this strategy do not expire.
+   *
    * @public
    */
   recordExpirySpecification?: RecordExpirySpecification | undefined;
 }
 
 /**
- * <p>An episodic reflection configuration input.</p>
+ * An episodic reflection configuration input.
+ *
  * @public
  */
 export interface EpisodicReflectionConfigurationInput {
   /**
-   * <p>This is a legacy parameter, use <code>namespaceTemplates</code>. The namespaces over which to create reflections. Can be less nested than episode namespaces.</p>
+   * This is a legacy parameter, use `namespaceTemplates`. The namespaces over which to create reflections. Can be less nested than episode namespaces.
    *
    * @deprecated (since 2026-03-02) Use namespaceTemplates instead.
    * @public
@@ -4987,37 +5617,42 @@ export interface EpisodicReflectionConfigurationInput {
   namespaces?: string[] | undefined;
 
   /**
-   * <p>The namespaceTemplates over which to create reflections. Can be less nested than episode namespaces.</p>
+   * The namespaceTemplates over which to create reflections. Can be less nested than episode namespaces.
+   *
    * @public
    */
   namespaceTemplates?: string[] | undefined;
 
   /**
-   * <p>Schema for metadata fields on records generated by reflections.</p>
+   * Schema for metadata fields on records generated by reflections.
+   *
    * @public
    */
   memoryRecordSchema?: MemoryRecordSchema | undefined;
 }
 
 /**
- * <p>Input for creating an episodic memory strategy.</p>
+ * Input for creating an episodic memory strategy.
+ *
  * @public
  */
 export interface EpisodicMemoryStrategyInput {
   /**
-   * <p>The name of the episodic memory strategy.</p>
+   * The name of the episodic memory strategy.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the episodic memory strategy.</p>
+   * The description of the episodic memory strategy.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>This is a legacy parameter, use <code>namespaceTemplates</code>. The namespaces for which to create episodes.</p>
+   * This is a legacy parameter, use `namespaceTemplates`. The namespaces for which to create episodes.
    *
    * @deprecated (since 2026-03-02) Use namespaceTemplates instead.
    * @public
@@ -5025,49 +5660,56 @@ export interface EpisodicMemoryStrategyInput {
   namespaces?: string[] | undefined;
 
   /**
-   * <p>The namespaceTemplates for which to create episodes.</p>
+   * The namespaceTemplates for which to create episodes.
+   *
    * @public
    */
   namespaceTemplates?: string[] | undefined;
 
   /**
-   * <p>The configuration for the reflections created with the episodic memory strategy.</p>
+   * The configuration for the reflections created with the episodic memory strategy.
+   *
    * @public
    */
   reflectionConfiguration?: EpisodicReflectionConfigurationInput | undefined;
 
   /**
-   * <p>Schema for metadata fields on records generated by this strategy.</p>
+   * Schema for metadata fields on records generated by this strategy.
+   *
    * @public
    */
   memoryRecordSchema?: MemoryRecordSchema | undefined;
 
   /**
-   * <p>The record expiry (long-term memory time-to-live) configuration for memory records generated by this strategy. Set <code>recordExpiryDurationDays</code> to the number of days after which records expire. If not specified, records generated by this strategy do not expire.</p>
+   * The record expiry (long-term memory time-to-live) configuration for memory records generated by this strategy. Set `recordExpiryDurationDays` to the number of days after which records expire. If not specified, records generated by this strategy do not expire.
+   *
    * @public
    */
   recordExpirySpecification?: RecordExpirySpecification | undefined;
 }
 
 /**
- * <p>Input for creating a semantic memory strategy.</p>
+ * Input for creating a semantic memory strategy.
+ *
  * @public
  */
 export interface SemanticMemoryStrategyInput {
   /**
-   * <p>The name of the semantic memory strategy.</p>
+   * The name of the semantic memory strategy.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the semantic memory strategy.</p>
+   * The description of the semantic memory strategy.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>This is a legacy parameter, use <code>namespaceTemplates</code>. The namespaces associated with the semantic memory strategy.</p>
+   * This is a legacy parameter, use `namespaceTemplates`. The namespaces associated with the semantic memory strategy.
    *
    * @deprecated (since 2026-03-02) Use namespaceTemplates instead.
    * @public
@@ -5075,43 +5717,49 @@ export interface SemanticMemoryStrategyInput {
   namespaces?: string[] | undefined;
 
   /**
-   * <p>The namespaceTemplates associated with the semantic memory strategy.</p>
+   * The namespaceTemplates associated with the semantic memory strategy.
+   *
    * @public
    */
   namespaceTemplates?: string[] | undefined;
 
   /**
-   * <p>Schema for metadata on memory records generated by a strategy.</p>
+   * Schema for metadata on memory records generated by a strategy.
+   *
    * @public
    */
   memoryRecordSchema?: MemoryRecordSchema | undefined;
 
   /**
-   * <p>The record expiry (long-term memory time-to-live) configuration for memory records generated by this strategy. Set <code>recordExpiryDurationDays</code> to the number of days after which records expire. If not specified, records generated by this strategy do not expire.</p>
+   * The record expiry (long-term memory time-to-live) configuration for memory records generated by this strategy. Set `recordExpiryDurationDays` to the number of days after which records expire. If not specified, records generated by this strategy do not expire.
+   *
    * @public
    */
   recordExpirySpecification?: RecordExpirySpecification | undefined;
 }
 
 /**
- * <p>Input for creating a summary memory strategy.</p>
+ * Input for creating a summary memory strategy.
+ *
  * @public
  */
 export interface SummaryMemoryStrategyInput {
   /**
-   * <p>The name of the summary memory strategy.</p>
+   * The name of the summary memory strategy.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the summary memory strategy.</p>
+   * The description of the summary memory strategy.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>This is a legacy parameter, use <code>namespaceTemplates</code>. The namespaces associated with the summary memory strategy.</p>
+   * This is a legacy parameter, use `namespaceTemplates`. The namespaces associated with the summary memory strategy.
    *
    * @deprecated (since 2026-03-02) Use namespaceTemplates instead.
    * @public
@@ -5119,43 +5767,49 @@ export interface SummaryMemoryStrategyInput {
   namespaces?: string[] | undefined;
 
   /**
-   * <p>The namespaceTemplates associated with the summary memory strategy.</p>
+   * The namespaceTemplates associated with the summary memory strategy.
+   *
    * @public
    */
   namespaceTemplates?: string[] | undefined;
 
   /**
-   * <p>Schema for metadata fields on records generated by this strategy.</p>
+   * Schema for metadata fields on records generated by this strategy.
+   *
    * @public
    */
   memoryRecordSchema?: MemoryRecordSchema | undefined;
 
   /**
-   * <p>The record expiry (long-term memory time-to-live) configuration for memory records generated by this strategy. Set <code>recordExpiryDurationDays</code> to the number of days after which records expire. If not specified, records generated by this strategy do not expire.</p>
+   * The record expiry (long-term memory time-to-live) configuration for memory records generated by this strategy. Set `recordExpiryDurationDays` to the number of days after which records expire. If not specified, records generated by this strategy do not expire.
+   *
    * @public
    */
   recordExpirySpecification?: RecordExpirySpecification | undefined;
 }
 
 /**
- * <p>Input for creating a user preference memory strategy.</p>
+ * Input for creating a user preference memory strategy.
+ *
  * @public
  */
 export interface UserPreferenceMemoryStrategyInput {
   /**
-   * <p>The name of the user preference memory strategy.</p>
+   * The name of the user preference memory strategy.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the user preference memory strategy.</p>
+   * The description of the user preference memory strategy.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>This is a legacy parameter, use <code>namespaceTemplates</code>. The namespaces associated with the user preference memory strategy.</p>
+   * This is a legacy parameter, use `namespaceTemplates`. The namespaces associated with the user preference memory strategy.
    *
    * @deprecated (since 2026-03-02) Use namespaceTemplates instead.
    * @public
@@ -5163,26 +5817,30 @@ export interface UserPreferenceMemoryStrategyInput {
   namespaces?: string[] | undefined;
 
   /**
-   * <p>The namespaceTemplates associated with the user preference memory strategy.</p>
+   * The namespaceTemplates associated with the user preference memory strategy.
+   *
    * @public
    */
   namespaceTemplates?: string[] | undefined;
 
   /**
-   * <p>Schema for metadata fields on records generated by this strategy.</p>
+   * Schema for metadata fields on records generated by this strategy.
+   *
    * @public
    */
   memoryRecordSchema?: MemoryRecordSchema | undefined;
 
   /**
-   * <p>The record expiry (long-term memory time-to-live) configuration for memory records generated by this strategy. Set <code>recordExpiryDurationDays</code> to the number of days after which records expire. If not specified, records generated by this strategy do not expire.</p>
+   * The record expiry (long-term memory time-to-live) configuration for memory records generated by this strategy. Set `recordExpiryDurationDays` to the number of days after which records expire. If not specified, records generated by this strategy do not expire.
+   *
    * @public
    */
   recordExpirySpecification?: RecordExpirySpecification | undefined;
 }
 
 /**
- * <p>Contains input information for creating a memory strategy.</p>
+ * Contains input information for creating a memory strategy.
+ *
  * @public
  */
 export type MemoryStrategyInput =
@@ -5198,7 +5856,8 @@ export type MemoryStrategyInput =
  */
 export namespace MemoryStrategyInput {
   /**
-   * <p>Input for creating a semantic memory strategy.</p>
+   * Input for creating a semantic memory strategy.
+   *
    * @public
    */
   export interface SemanticMemoryStrategyMember {
@@ -5211,7 +5870,8 @@ export namespace MemoryStrategyInput {
   }
 
   /**
-   * <p>Input for creating a summary memory strategy.</p>
+   * Input for creating a summary memory strategy.
+   *
    * @public
    */
   export interface SummaryMemoryStrategyMember {
@@ -5224,7 +5884,8 @@ export namespace MemoryStrategyInput {
   }
 
   /**
-   * <p>Input for creating a user preference memory strategy.</p>
+   * Input for creating a user preference memory strategy.
+   *
    * @public
    */
   export interface UserPreferenceMemoryStrategyMember {
@@ -5237,7 +5898,8 @@ export namespace MemoryStrategyInput {
   }
 
   /**
-   * <p>Input for creating a custom memory strategy.</p>
+   * Input for creating a custom memory strategy.
+   *
    * @public
    */
   export interface CustomMemoryStrategyMember {
@@ -5250,7 +5912,8 @@ export namespace MemoryStrategyInput {
   }
 
   /**
-   * <p>Input for creating an episodic memory strategy</p>
+   * Input for creating an episodic memory strategy
+   *
    * @public
    */
   export interface EpisodicMemoryStrategyMember {
@@ -5289,79 +5952,92 @@ export namespace MemoryStrategyInput {
 }
 
 /**
- * <p>The validation rules for namespace variable values. When you specify multiple rules, the service enforces a logical <code>AND</code> across all provided key-value pairs.</p>
+ * The validation rules for namespace variable values. When you specify multiple rules, the service enforces a logical `AND` across all provided key-value pairs.
+ *
  * @public
  */
 export interface NamespaceKeyValidation {
   /**
-   * <p>The allowed values for this namespace variable key.</p>
+   * The allowed values for this namespace variable key.
+   *
    * @public
    */
   allowedValues?: string[] | undefined;
 
   /**
-   * <p>A regex pattern that the namespace variable key-value must match.</p>
+   * A regex pattern that the namespace variable key-value must match.
+   *
    * @public
    */
   regexPattern?: string | undefined;
 }
 
 /**
- * <p>A namespace variable key definition with optional <code>NamespaceKeyValidation</code> rules.</p>
+ * A namespace variable key definition with optional `NamespaceKeyValidation` rules.
+ *
  * @public
  */
 export interface NamespaceKeyEntry {
   /**
-   * <p>The namespace variable key name.</p>
+   * The namespace variable key name.
+   *
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>The validation rules that constrain values for this namespace variable at runtime (<code>CreateEvent</code> API).</p>
+   * The validation rules that constrain values for this namespace variable at runtime (`CreateEvent` API).
+   *
    * @public
    */
   validation?: NamespaceKeyValidation | undefined;
 }
 
 /**
- * <p>Defines what content to stream and at what level of detail.</p>
+ * Defines what content to stream and at what level of detail.
+ *
  * @public
  */
 export interface ContentConfiguration {
   /**
-   * <p>Type of content to stream.</p>
+   * Type of content to stream.
+   *
    * @public
    */
   type: ContentType | undefined;
 
   /**
-   * <p>Level of detail for streamed content.</p>
+   * Level of detail for streamed content.
+   *
    * @public
    */
   level?: ContentLevel | undefined;
 }
 
 /**
- * <p>Configuration for Kinesis Data Stream delivery.</p>
+ * Configuration for Kinesis Data Stream delivery.
+ *
  * @public
  */
 export interface KinesisResource {
   /**
-   * <p>ARN of the Kinesis Data Stream.</p>
+   * ARN of the Kinesis Data Stream.
+   *
    * @public
    */
   dataStreamArn: string | undefined;
 
   /**
-   * <p>Content configurations for stream delivery.</p>
+   * Content configurations for stream delivery.
+   *
    * @public
    */
   contentConfigurations: ContentConfiguration[] | undefined;
 }
 
 /**
- * <p>Supported stream delivery resource types.</p>
+ * Supported stream delivery resource types.
+ *
  * @public
  */
 export type StreamDeliveryResource =
@@ -5373,7 +6049,8 @@ export type StreamDeliveryResource =
  */
 export namespace StreamDeliveryResource {
   /**
-   * <p>Kinesis Data Stream configuration.</p>
+   * Kinesis Data Stream configuration.
+   *
    * @public
    */
   export interface KinesisMember {
@@ -5400,12 +6077,14 @@ export namespace StreamDeliveryResource {
 }
 
 /**
- * <p>Configuration for streaming memory record data to external resources.</p>
+ * Configuration for streaming memory record data to external resources.
+ *
  * @public
  */
 export interface StreamDeliveryResources {
   /**
-   * <p>List of stream delivery resource configurations.</p>
+   * List of stream delivery resource configurations.
+   *
    * @public
    */
   resources: StreamDeliveryResource[] | undefined;
@@ -5416,146 +6095,170 @@ export interface StreamDeliveryResources {
  */
 export interface CreateMemoryInput {
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request but does not return an error.</p>
+   * A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request but does not return an error.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The name of the memory. The name must be unique within your account.</p>
+   * The name of the memory. The name must be unique within your account.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the memory.</p>
+   * The description of the memory.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the memory data.</p>
+   * The Amazon Resource Name (ARN) of the KMS key used to encrypt the memory data.
+   *
    * @public
    */
   encryptionKeyArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that provides permissions for the memory to access Amazon Web Services services.</p>
+   * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the memory to access Amazon Web Services services.
+   *
    * @public
    */
   memoryExecutionRoleArn?: string | undefined;
 
   /**
-   * <p>The duration after which memory events expire. Specified as an ISO 8601 duration.</p>
+   * The duration after which memory events expire. Specified as an ISO 8601 duration.
+   *
    * @public
    */
   eventExpiryDuration: number | undefined;
 
   /**
-   * <p>The memory strategies to use for this memory. Strategies define how information is extracted, processed, and consolidated.</p>
+   * The memory strategies to use for this memory. Strategies define how information is extracted, processed, and consolidated.
+   *
    * @public
    */
   memoryStrategies?: MemoryStrategyInput[] | undefined;
 
   /**
-   * <p>Metadata keys to index for filtering. Once declared, indexed keys cannot be removed.</p>
+   * Metadata keys to index for filtering. Once declared, indexed keys cannot be removed.
+   *
    * @public
    */
   indexedKeys?: IndexedKey[] | undefined;
 
   /**
-   * <p>The namespace variable key definitions with optional validation rules. Use these <code>namespaceKeys</code> in <code>namespaceTemplates</code> to control namespace hierarchy.</p>
+   * The namespace variable key definitions with optional validation rules. Use these `namespaceKeys` in `namespaceTemplates` to control namespace hierarchy.
+   *
    * @public
    */
   namespaceKeys?: NamespaceKeyEntry[] | undefined;
 
   /**
-   * <p>Configuration for streaming memory record data to external resources.</p>
+   * Configuration for streaming memory record data to external resources.
+   *
    * @public
    */
   streamDeliveryResources?: StreamDeliveryResources | undefined;
 
   /**
-   * <p>A map of tag keys and values to assign to an AgentCore Memory. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
+   * A map of tag keys and values to assign to an AgentCore Memory. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Contains configurations to override the default consolidation step for the episodic memory strategy.</p>
+ * Contains configurations to override the default consolidation step for the episodic memory strategy.
+ *
  * @public
  */
 export interface EpisodicConsolidationOverride {
   /**
-   * <p>The text appended to the prompt for the consolidation step of the episodic memory strategy.</p>
+   * The text appended to the prompt for the consolidation step of the episodic memory strategy.
+   *
    * @public
    */
   appendToPrompt: string | undefined;
 
   /**
-   * <p>The model ID used for the consolidation step of the episodic memory strategy.</p>
+   * The model ID used for the consolidation step of the episodic memory strategy.
+   *
    * @public
    */
   modelId: string | undefined;
 }
 
 /**
- * <p>Contains semantic consolidation override configuration.</p>
+ * Contains semantic consolidation override configuration.
+ *
  * @public
  */
 export interface SemanticConsolidationOverride {
   /**
-   * <p>The text to append to the prompt for semantic consolidation.</p>
+   * The text to append to the prompt for semantic consolidation.
+   *
    * @public
    */
   appendToPrompt: string | undefined;
 
   /**
-   * <p>The model ID to use for semantic consolidation.</p>
+   * The model ID to use for semantic consolidation.
+   *
    * @public
    */
   modelId: string | undefined;
 }
 
 /**
- * <p>Contains summary consolidation override configuration.</p>
+ * Contains summary consolidation override configuration.
+ *
  * @public
  */
 export interface SummaryConsolidationOverride {
   /**
-   * <p>The text to append to the prompt for summary consolidation.</p>
+   * The text to append to the prompt for summary consolidation.
+   *
    * @public
    */
   appendToPrompt: string | undefined;
 
   /**
-   * <p>The model ID to use for summary consolidation.</p>
+   * The model ID to use for summary consolidation.
+   *
    * @public
    */
   modelId: string | undefined;
 }
 
 /**
- * <p>Contains user preference consolidation override configuration.</p>
+ * Contains user preference consolidation override configuration.
+ *
  * @public
  */
 export interface UserPreferenceConsolidationOverride {
   /**
-   * <p>The text to append to the prompt for user preference consolidation.</p>
+   * The text to append to the prompt for user preference consolidation.
+   *
    * @public
    */
   appendToPrompt: string | undefined;
 
   /**
-   * <p>The model ID to use for user preference consolidation.</p>
+   * The model ID to use for user preference consolidation.
+   *
    * @public
    */
   modelId: string | undefined;
 }
 
 /**
- * <p>Contains custom consolidation configuration information.</p>
+ * Contains custom consolidation configuration information.
+ *
  * @public
  */
 export type CustomConsolidationConfiguration =
@@ -5570,7 +6273,8 @@ export type CustomConsolidationConfiguration =
  */
 export namespace CustomConsolidationConfiguration {
   /**
-   * <p>The semantic consolidation override configuration.</p>
+   * The semantic consolidation override configuration.
+   *
    * @public
    */
   export interface SemanticConsolidationOverrideMember {
@@ -5582,7 +6286,8 @@ export namespace CustomConsolidationConfiguration {
   }
 
   /**
-   * <p>The summary consolidation override configuration.</p>
+   * The summary consolidation override configuration.
+   *
    * @public
    */
   export interface SummaryConsolidationOverrideMember {
@@ -5594,7 +6299,8 @@ export namespace CustomConsolidationConfiguration {
   }
 
   /**
-   * <p>The user preference consolidation override configuration.</p>
+   * The user preference consolidation override configuration.
+   *
    * @public
    */
   export interface UserPreferenceConsolidationOverrideMember {
@@ -5606,7 +6312,8 @@ export namespace CustomConsolidationConfiguration {
   }
 
   /**
-   * <p>The configurations to override the default consolidation step for the episodic memory strategy.</p>
+   * The configurations to override the default consolidation step for the episodic memory strategy.
+   *
    * @public
    */
   export interface EpisodicConsolidationOverrideMember {
@@ -5642,7 +6349,8 @@ export namespace CustomConsolidationConfiguration {
 }
 
 /**
- * <p>Contains consolidation configuration information for a memory strategy.</p>
+ * Contains consolidation configuration information for a memory strategy.
+ *
  * @public
  */
 export type ConsolidationConfiguration =
@@ -5654,7 +6362,8 @@ export type ConsolidationConfiguration =
  */
 export namespace ConsolidationConfiguration {
   /**
-   * <p>The custom consolidation configuration.</p>
+   * The custom consolidation configuration.
+   *
    * @public
    */
   export interface CustomConsolidationConfigurationMember {
@@ -5681,61 +6390,71 @@ export namespace ConsolidationConfiguration {
 }
 
 /**
- * <p>Contains configurations to override the default extraction step for the episodic memory strategy.</p>
+ * Contains configurations to override the default extraction step for the episodic memory strategy.
+ *
  * @public
  */
 export interface EpisodicExtractionOverride {
   /**
-   * <p>The text appended to the prompt for the extraction step of the episodic memory strategy.</p>
+   * The text appended to the prompt for the extraction step of the episodic memory strategy.
+   *
    * @public
    */
   appendToPrompt: string | undefined;
 
   /**
-   * <p>The model ID used for the extraction step of the episodic memory strategy.</p>
+   * The model ID used for the extraction step of the episodic memory strategy.
+   *
    * @public
    */
   modelId: string | undefined;
 }
 
 /**
- * <p>Contains semantic extraction override configuration.</p>
+ * Contains semantic extraction override configuration.
+ *
  * @public
  */
 export interface SemanticExtractionOverride {
   /**
-   * <p>The text to append to the prompt for semantic extraction.</p>
+   * The text to append to the prompt for semantic extraction.
+   *
    * @public
    */
   appendToPrompt: string | undefined;
 
   /**
-   * <p>The model ID to use for semantic extraction.</p>
+   * The model ID to use for semantic extraction.
+   *
    * @public
    */
   modelId: string | undefined;
 }
 
 /**
- * <p>Contains user preference extraction override configuration.</p>
+ * Contains user preference extraction override configuration.
+ *
  * @public
  */
 export interface UserPreferenceExtractionOverride {
   /**
-   * <p>The text to append to the prompt for user preference extraction.</p>
+   * The text to append to the prompt for user preference extraction.
+   *
    * @public
    */
   appendToPrompt: string | undefined;
 
   /**
-   * <p>The model ID to use for user preference extraction.</p>
+   * The model ID to use for user preference extraction.
+   *
    * @public
    */
   modelId: string | undefined;
 }
 
 /**
- * <p>Contains custom extraction configuration information.</p>
+ * Contains custom extraction configuration information.
+ *
  * @public
  */
 export type CustomExtractionConfiguration =
@@ -5749,7 +6468,8 @@ export type CustomExtractionConfiguration =
  */
 export namespace CustomExtractionConfiguration {
   /**
-   * <p>The semantic extraction override configuration.</p>
+   * The semantic extraction override configuration.
+   *
    * @public
    */
   export interface SemanticExtractionOverrideMember {
@@ -5760,7 +6480,8 @@ export namespace CustomExtractionConfiguration {
   }
 
   /**
-   * <p>The user preference extraction override configuration.</p>
+   * The user preference extraction override configuration.
+   *
    * @public
    */
   export interface UserPreferenceExtractionOverrideMember {
@@ -5771,7 +6492,8 @@ export namespace CustomExtractionConfiguration {
   }
 
   /**
-   * <p>The configurations to override the default extraction step for the episodic memory strategy.</p>
+   * The configurations to override the default extraction step for the episodic memory strategy.
+   *
    * @public
    */
   export interface EpisodicExtractionOverrideMember {
@@ -5804,7 +6526,8 @@ export namespace CustomExtractionConfiguration {
 }
 
 /**
- * <p>Contains extraction configuration information for a memory strategy.</p>
+ * Contains extraction configuration information for a memory strategy.
+ *
  * @public
  */
 export type ExtractionConfiguration =
@@ -5816,7 +6539,8 @@ export type ExtractionConfiguration =
  */
 export namespace ExtractionConfiguration {
   /**
-   * <p>The custom extraction configuration.</p>
+   * The custom extraction configuration.
+   *
    * @public
    */
   export interface CustomExtractionConfigurationMember {
@@ -5843,24 +6567,27 @@ export namespace ExtractionConfiguration {
 }
 
 /**
- * <p>Contains configurations to override the default reflection step for the episodic memory strategy.</p>
+ * Contains configurations to override the default reflection step for the episodic memory strategy.
+ *
  * @public
  */
 export interface EpisodicReflectionOverride {
   /**
-   * <p>The text appended to the prompt for the reflection step of the episodic memory strategy.</p>
+   * The text appended to the prompt for the reflection step of the episodic memory strategy.
+   *
    * @public
    */
   appendToPrompt: string | undefined;
 
   /**
-   * <p>The model ID used for the reflection step of the episodic memory strategy.</p>
+   * The model ID used for the reflection step of the episodic memory strategy.
+   *
    * @public
    */
   modelId: string | undefined;
 
   /**
-   * <p>This is a legacy parameter. The namespaces over which reflections were created. Can be less nested than the episodic namespaces.</p>
+   * This is a legacy parameter. The namespaces over which reflections were created. Can be less nested than the episodic namespaces.
    *
    * @deprecated (since 2026-03-02) Use namespaceTemplates instead.
    * @public
@@ -5868,20 +6595,23 @@ export interface EpisodicReflectionOverride {
   namespaces?: string[] | undefined;
 
   /**
-   * <p>The namespaceTemplates over which reflections were created. Can be less nested than the episodic namespaces.</p>
+   * The namespaceTemplates over which reflections were created. Can be less nested than the episodic namespaces.
+   *
    * @public
    */
   namespaceTemplates?: string[] | undefined;
 
   /**
-   * <p>Schema for metadata fields on records generated by this reflection override.</p>
+   * Schema for metadata fields on records generated by this reflection override.
+   *
    * @public
    */
   memoryRecordSchema?: MemoryRecordSchema | undefined;
 }
 
 /**
- * <p>Contains configurations for a custom reflection strategy.</p>
+ * Contains configurations for a custom reflection strategy.
+ *
  * @public
  */
 export type CustomReflectionConfiguration =
@@ -5893,7 +6623,8 @@ export type CustomReflectionConfiguration =
  */
 export namespace CustomReflectionConfiguration {
   /**
-   * <p>The configuration for a reflection strategy to override the default one.</p>
+   * The configuration for a reflection strategy to override the default one.
+   *
    * @public
    */
   export interface EpisodicReflectionOverrideMember {
@@ -5920,12 +6651,13 @@ export namespace CustomReflectionConfiguration {
 }
 
 /**
- * <p>The configuration for the reflections created with the episodic memory strategy.</p>
+ * The configuration for the reflections created with the episodic memory strategy.
+ *
  * @public
  */
 export interface EpisodicReflectionConfiguration {
   /**
-   * <p>This is a legacy parameter, use <code>namespaceTemplates</code>. The namespaces for which to create reflections. Can be less nested than the episodic namespaces.</p>
+   * This is a legacy parameter, use `namespaceTemplates`. The namespaces for which to create reflections. Can be less nested than the episodic namespaces.
    *
    * @deprecated (since 2026-03-02) Use namespaceTemplates instead.
    * @public
@@ -5933,20 +6665,23 @@ export interface EpisodicReflectionConfiguration {
   namespaces?: string[] | undefined;
 
   /**
-   * <p>The namespaceTemplates for which to create reflections. Can be less nested than the episodic namespaces.</p>
+   * The namespaceTemplates for which to create reflections. Can be less nested than the episodic namespaces.
+   *
    * @public
    */
   namespaceTemplates?: string[] | undefined;
 
   /**
-   * <p>"Schema for metadata fields on records generated by reflections.</p>
+   * "Schema for metadata fields on records generated by reflections.
+   *
    * @public
    */
   memoryRecordSchema?: MemoryRecordSchema | undefined;
 }
 
 /**
- * <p>Contains reflection configuration information for a memory strategy.</p>
+ * Contains reflection configuration information for a memory strategy.
+ *
  * @public
  */
 export type ReflectionConfiguration =
@@ -5959,7 +6694,8 @@ export type ReflectionConfiguration =
  */
 export namespace ReflectionConfiguration {
   /**
-   * <p>The configuration for a custom reflection strategy.</p>
+   * The configuration for a custom reflection strategy.
+   *
    * @public
    */
   export interface CustomReflectionConfigurationMember {
@@ -5969,7 +6705,8 @@ export namespace ReflectionConfiguration {
   }
 
   /**
-   * <p>The configuration for the episodic reflection strategy.</p>
+   * The configuration for the episodic reflection strategy.
+   *
    * @public
    */
   export interface EpisodicReflectionConfigurationMember {
@@ -5999,61 +6736,71 @@ export namespace ReflectionConfiguration {
 }
 
 /**
- * <p>The configuration to invoke a self-managed memory processing pipeline with.</p>
+ * The configuration to invoke a self-managed memory processing pipeline with.
+ *
  * @public
  */
 export interface InvocationConfiguration {
   /**
-   * <p>The ARN of the SNS topic for job notifications.</p>
+   * The ARN of the SNS topic for job notifications.
+   *
    * @public
    */
   topicArn: string | undefined;
 
   /**
-   * <p>The S3 bucket name for event payload delivery.</p>
+   * The S3 bucket name for event payload delivery.
+   *
    * @public
    */
   payloadDeliveryBucketName: string | undefined;
 }
 
 /**
- * <p>The trigger configuration based on a message.</p>
+ * The trigger configuration based on a message.
+ *
  * @public
  */
 export interface MessageBasedTrigger {
   /**
-   * <p>The number of messages that trigger memory processing.</p>
+   * The number of messages that trigger memory processing.
+   *
    * @public
    */
   messageCount?: number | undefined;
 }
 
 /**
- * <p>Trigger configuration based on time.</p>
+ * Trigger configuration based on time.
+ *
  * @public
  */
 export interface TimeBasedTrigger {
   /**
-   * <p>Idle session timeout (seconds) that triggers memory processing.</p>
+   * Idle session timeout (seconds) that triggers memory processing.
+   *
    * @public
    */
   idleSessionTimeout?: number | undefined;
 }
 
 /**
- * <p>Trigger configuration based on tokens.</p>
+ * Trigger configuration based on tokens.
+ *
  * @public
  */
 export interface TokenBasedTrigger {
   /**
-   * <p>Number of tokens that trigger memory processing.</p>
+   * Number of tokens that trigger memory processing.
+   *
    * @public
    */
   tokenCount?: number | undefined;
 }
 
 /**
- * <p>Condition that triggers memory processing.</p>
+ * Condition that triggers memory processing.
+ *
  * @public
  */
 export type TriggerCondition =
@@ -6067,7 +6814,8 @@ export type TriggerCondition =
  */
 export namespace TriggerCondition {
   /**
-   * <p>Message based trigger configuration.</p>
+   * Message based trigger configuration.
+   *
    * @public
    */
   export interface MessageBasedTriggerMember {
@@ -6078,7 +6826,8 @@ export namespace TriggerCondition {
   }
 
   /**
-   * <p>Token based trigger configuration.</p>
+   * Token based trigger configuration.
+   *
    * @public
    */
   export interface TokenBasedTriggerMember {
@@ -6089,7 +6838,8 @@ export namespace TriggerCondition {
   }
 
   /**
-   * <p>Time based trigger configuration.</p>
+   * Time based trigger configuration.
+   *
    * @public
    */
   export interface TimeBasedTriggerMember {
@@ -6122,102 +6872,118 @@ export namespace TriggerCondition {
 }
 
 /**
- * <p>A configuration for a self-managed memory strategy.</p>
+ * A configuration for a self-managed memory strategy.
+ *
  * @public
  */
 export interface SelfManagedConfiguration {
   /**
-   * <p>A list of conditions that trigger memory processing.</p>
+   * A list of conditions that trigger memory processing.
+   *
    * @public
    */
   triggerConditions: TriggerCondition[] | undefined;
 
   /**
-   * <p>The configuration to use when invoking memory processing.</p>
+   * The configuration to use when invoking memory processing.
+   *
    * @public
    */
   invocationConfiguration: InvocationConfiguration | undefined;
 
   /**
-   * <p>The number of historical messages to include in processing context.</p>
+   * The number of historical messages to include in processing context.
+   *
    * @public
    */
   historicalContextWindowSize: number | undefined;
 }
 
 /**
- * <p>Contains configuration information for a memory strategy.</p>
+ * Contains configuration information for a memory strategy.
+ *
  * @public
  */
 export interface StrategyConfiguration {
   /**
-   * <p>The type of override for the strategy configuration.</p>
+   * The type of override for the strategy configuration.
+   *
    * @public
    */
   type?: OverrideType | undefined;
 
   /**
-   * <p>The extraction configuration for the memory strategy.</p>
+   * The extraction configuration for the memory strategy.
+   *
    * @public
    */
   extraction?: ExtractionConfiguration | undefined;
 
   /**
-   * <p>The consolidation configuration for the memory strategy.</p>
+   * The consolidation configuration for the memory strategy.
+   *
    * @public
    */
   consolidation?: ConsolidationConfiguration | undefined;
 
   /**
-   * <p>The reflection configuration for the memory strategy.</p>
+   * The reflection configuration for the memory strategy.
+   *
    * @public
    */
   reflection?: ReflectionConfiguration | undefined;
 
   /**
-   * <p>Self-managed configuration settings.</p>
+   * Self-managed configuration settings.
+   *
    * @public
    */
   selfManagedConfiguration?: SelfManagedConfiguration | undefined;
 }
 
 /**
- * <p>Contains information about a memory strategy.</p>
+ * Contains information about a memory strategy.
+ *
  * @public
  */
 export interface MemoryStrategy {
   /**
-   * <p>The unique identifier of the memory strategy.</p>
+   * The unique identifier of the memory strategy.
+   *
    * @public
    */
   strategyId: string | undefined;
 
   /**
-   * <p>The name of the memory strategy.</p>
+   * The name of the memory strategy.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the memory strategy.</p>
+   * The description of the memory strategy.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The configuration of the memory strategy.</p>
+   * The configuration of the memory strategy.
+   *
    * @public
    */
   configuration?: StrategyConfiguration | undefined;
 
   /**
-   * <p>The type of the memory strategy.</p>
+   * The type of the memory strategy.
+   *
    * @public
    */
   type: MemoryStrategyType | undefined;
 
   /**
-   * <p>This is a legacy parameter. The namespaces associated with the memory strategy.</p>
+   * This is a legacy parameter. The namespaces associated with the memory strategy.
    *
    * @deprecated (since 2026-03-02) Use namespaceTemplates instead.
    * @public
@@ -6225,139 +6991,162 @@ export interface MemoryStrategy {
   namespaces: string[] | undefined;
 
   /**
-   * <p>The namespaceTemplates associated with the memory strategy.</p>
+   * The namespaceTemplates associated with the memory strategy.
+   *
    * @public
    */
   namespaceTemplates: string[] | undefined;
 
   /**
-   * <p>The timestamp when the memory strategy was created.</p>
+   * The timestamp when the memory strategy was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when the memory strategy was last updated.</p>
+   * The timestamp when the memory strategy was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The current status of the memory strategy.</p>
+   * The current status of the memory strategy.
+   *
    * @public
    */
   status?: MemoryStrategyStatus | undefined;
 
   /**
-   * <p>Schema for metadata fields on records generated by this strategy.</p>
+   * Schema for metadata fields on records generated by this strategy.
+   *
    * @public
    */
   memoryRecordSchema?: MemoryRecordSchema | undefined;
 
   /**
-   * <p>The effective record expiry (long-term memory time-to-live), in days, for memory records generated by this strategy. New records expire this many days after they are created. If not set, records generated by this strategy do not expire.</p>
+   * The effective record expiry (long-term memory time-to-live), in days, for memory records generated by this strategy. New records expire this many days after they are created. If not set, records generated by this strategy do not expire.
+   *
    * @public
    */
   recordExpiryDurationDays?: number | undefined;
 }
 
 /**
- * <p>Contains information about a memory resource.</p>
+ * Contains information about a memory resource.
+ *
  * @public
  */
 export interface Memory {
   /**
-   * <p>The Amazon Resource Name (ARN) of the memory.</p>
+   * The Amazon Resource Name (ARN) of the memory.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The unique identifier of the memory.</p>
+   * The unique identifier of the memory.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the memory.</p>
+   * The name of the memory.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the memory.</p>
+   * The description of the memory.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The ARN of the KMS key used to encrypt the memory.</p>
+   * The ARN of the KMS key used to encrypt the memory.
+   *
    * @public
    */
   encryptionKeyArn?: string | undefined;
 
   /**
-   * <p>The ARN of the IAM role that provides permissions for the memory.</p>
+   * The ARN of the IAM role that provides permissions for the memory.
+   *
    * @public
    */
   memoryExecutionRoleArn?: string | undefined;
 
   /**
-   * <p>The number of days after which memory events will expire.</p>
+   * The number of days after which memory events will expire.
+   *
    * @public
    */
   eventExpiryDuration: number | undefined;
 
   /**
-   * <p>The current status of the memory.</p>
+   * The current status of the memory.
+   *
    * @public
    */
   status: MemoryStatus | undefined;
 
   /**
-   * <p>The reason for failure if the memory is in a failed state.</p>
+   * The reason for failure if the memory is in a failed state.
+   *
    * @public
    */
   failureReason?: string | undefined;
 
   /**
-   * <p>The timestamp when the memory was created.</p>
+   * The timestamp when the memory was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the memory was last updated.</p>
+   * The timestamp when the memory was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The list of memory strategies associated with this memory.</p>
+   * The list of memory strategies associated with this memory.
+   *
    * @public
    */
   strategies?: MemoryStrategy[] | undefined;
 
   /**
-   * <p>The indexed metadata keys for this memory. Only indexed keys can be used in metadata filters.</p>
+   * The indexed metadata keys for this memory. Only indexed keys can be used in metadata filters.
+   *
    * @public
    */
   indexedKeys?: IndexedKey[] | undefined;
 
   /**
-   * <p>The namespace variable key definitions for this memory. Namespace keys define custom variables used in <code>namespaceTemplates</code> with optional validation rules.</p>
+   * The namespace variable key definitions for this memory. Namespace keys define custom variables used in `namespaceTemplates` with optional validation rules.
+   *
    * @public
    */
   namespaceKeys?: NamespaceKeyEntry[] | undefined;
 
   /**
-   * <p>Configuration for streaming memory record data to external resources.</p>
+   * Configuration for streaming memory record data to external resources.
+   *
    * @public
    */
   streamDeliveryResources?: StreamDeliveryResources | undefined;
 
   /**
-   * <p>ARN of the resource managing this memory (e.g. a harness). When set, strategy modifications and deletion are only allowed through the managing resource.</p>
+   * ARN of the resource managing this memory (e.g. a harness). When set, strategy modifications and deletion are only allowed through the managing resource.
+   *
    * @public
    */
   managedByResourceArn?: string | undefined;
@@ -6368,7 +7157,8 @@ export interface Memory {
  */
 export interface CreateMemoryOutput {
   /**
-   * <p>The details of the created memory, including its ID, ARN, name, description, and configuration settings.</p>
+   * The details of the created memory, including its ID, ARN, name, description, and configuration settings.
+   *
    * @public
    */
   memory?: Memory | undefined;
@@ -6379,13 +7169,15 @@ export interface CreateMemoryOutput {
  */
 export interface DeleteMemoryInput {
   /**
-   * <p>A client token is used for keeping track of idempotent requests. It can contain a session id which can be around 250 chars, combined with a unique Amazon Web Services identifier.</p>
+   * A client token is used for keeping track of idempotent requests. It can contain a session id which can be around 250 chars, combined with a unique Amazon Web Services identifier.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The unique identifier of the memory to delete.</p>
+   * The unique identifier of the memory to delete.
+   *
    * @public
    */
   memoryId: string | undefined;
@@ -6396,13 +7188,15 @@ export interface DeleteMemoryInput {
  */
 export interface DeleteMemoryOutput {
   /**
-   * <p>The unique identifier of the deleted AgentCore Memory resource.</p>
+   * The unique identifier of the deleted AgentCore Memory resource.
+   *
    * @public
    */
   memoryId: string | undefined;
 
   /**
-   * <p>The current status of the AgentCore Memory resource deletion.</p>
+   * The current status of the AgentCore Memory resource deletion.
+   *
    * @public
    */
   status?: MemoryStatus | undefined;
@@ -6413,13 +7207,15 @@ export interface DeleteMemoryOutput {
  */
 export interface GetMemoryInput {
   /**
-   * <p>The unique identifier of the memory to retrieve.</p>
+   * The unique identifier of the memory to retrieve.
+   *
    * @public
    */
   memoryId: string | undefined;
 
   /**
-   * <p>The level of detail to return for the memory.</p>
+   * The level of detail to return for the memory.
+   *
    * @public
    */
   view?: MemoryView | undefined;
@@ -6430,7 +7226,8 @@ export interface GetMemoryInput {
  */
 export interface GetMemoryOutput {
   /**
-   * <p>The retrieved AgentCore Memory resource details.</p>
+   * The retrieved AgentCore Memory resource details.
+   *
    * @public
    */
   memory: Memory | undefined;
@@ -6441,55 +7238,64 @@ export interface GetMemoryOutput {
  */
 export interface ListMemoriesInput {
   /**
-   * <p>The maximum number of results to return in a single call. The default value is 10. The maximum value is 50.</p>
+   * The maximum number of results to return in a single call. The default value is 10. The maximum value is 50.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Contains summary information about a memory resource.</p>
+ * Contains summary information about a memory resource.
+ *
  * @public
  */
 export interface MemorySummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the memory.</p>
+   * The Amazon Resource Name (ARN) of the memory.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The unique identifier of the memory.</p>
+   * The unique identifier of the memory.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The current status of the memory.</p>
+   * The current status of the memory.
+   *
    * @public
    */
   status?: MemoryStatus | undefined;
 
   /**
-   * <p>The timestamp when the memory was created.</p>
+   * The timestamp when the memory was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the memory was last updated.</p>
+   * The timestamp when the memory was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>ARN of the resource managing this memory (e.g. a harness). Null if not managed.</p>
+   * ARN of the resource managing this memory (e.g. a harness). Null if not managed.
+   *
    * @public
    */
   managedByResourceArn?: string | undefined;
@@ -6500,32 +7306,37 @@ export interface MemorySummary {
  */
 export interface ListMemoriesOutput {
   /**
-   * <p>The list of AgentCore Memory resource summaries.</p>
+   * The list of AgentCore Memory resource summaries.
+   *
    * @public
    */
   memories: MemorySummary[] | undefined;
 
   /**
-   * <p>A token to retrieve the next page of results.</p>
+   * A token to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Input for deleting a memory strategy.</p>
+ * Input for deleting a memory strategy.
+ *
  * @public
  */
 export interface DeleteMemoryStrategyInput {
   /**
-   * <p>The unique identifier of the memory strategy to delete.</p>
+   * The unique identifier of the memory strategy to delete.
+   *
    * @public
    */
   memoryStrategyId: string | undefined;
 }
 
 /**
- * <p>Input for a custom consolidation configuration.</p>
+ * Input for a custom consolidation configuration.
+ *
  * @public
  */
 export type CustomConsolidationConfigurationInput =
@@ -6540,7 +7351,8 @@ export type CustomConsolidationConfigurationInput =
  */
 export namespace CustomConsolidationConfigurationInput {
   /**
-   * <p>The semantic consolidation override configuration input.</p>
+   * The semantic consolidation override configuration input.
+   *
    * @public
    */
   export interface SemanticConsolidationOverrideMember {
@@ -6552,7 +7364,8 @@ export namespace CustomConsolidationConfigurationInput {
   }
 
   /**
-   * <p>The summary consolidation override configuration input.</p>
+   * The summary consolidation override configuration input.
+   *
    * @public
    */
   export interface SummaryConsolidationOverrideMember {
@@ -6564,7 +7377,8 @@ export namespace CustomConsolidationConfigurationInput {
   }
 
   /**
-   * <p>The user preference consolidation override configuration input.</p>
+   * The user preference consolidation override configuration input.
+   *
    * @public
    */
   export interface UserPreferenceConsolidationOverrideMember {
@@ -6576,7 +7390,8 @@ export namespace CustomConsolidationConfigurationInput {
   }
 
   /**
-   * <p>Configurations to override the consolidation step of the episodic strategy.</p>
+   * Configurations to override the consolidation step of the episodic strategy.
+   *
    * @public
    */
   export interface EpisodicConsolidationOverrideMember {
@@ -6612,7 +7427,8 @@ export namespace CustomConsolidationConfigurationInput {
 }
 
 /**
- * <p>Contains information for modifying a consolidation configuration.</p>
+ * Contains information for modifying a consolidation configuration.
+ *
  * @public
  */
 export type ModifyConsolidationConfiguration =
@@ -6624,7 +7440,8 @@ export type ModifyConsolidationConfiguration =
  */
 export namespace ModifyConsolidationConfiguration {
   /**
-   * <p>The updated custom consolidation configuration.</p>
+   * The updated custom consolidation configuration.
+   *
    * @public
    */
   export interface CustomConsolidationConfigurationMember {
@@ -6651,7 +7468,8 @@ export namespace ModifyConsolidationConfiguration {
 }
 
 /**
- * <p>Input for a custom extraction configuration.</p>
+ * Input for a custom extraction configuration.
+ *
  * @public
  */
 export type CustomExtractionConfigurationInput =
@@ -6665,7 +7483,8 @@ export type CustomExtractionConfigurationInput =
  */
 export namespace CustomExtractionConfigurationInput {
   /**
-   * <p>The semantic extraction override configuration input.</p>
+   * The semantic extraction override configuration input.
+   *
    * @public
    */
   export interface SemanticExtractionOverrideMember {
@@ -6676,7 +7495,8 @@ export namespace CustomExtractionConfigurationInput {
   }
 
   /**
-   * <p>The user preference extraction override configuration input.</p>
+   * The user preference extraction override configuration input.
+   *
    * @public
    */
   export interface UserPreferenceExtractionOverrideMember {
@@ -6687,7 +7507,8 @@ export namespace CustomExtractionConfigurationInput {
   }
 
   /**
-   * <p>Configurations to override the extraction step of the episodic strategy.</p>
+   * Configurations to override the extraction step of the episodic strategy.
+   *
    * @public
    */
   export interface EpisodicExtractionOverrideMember {
@@ -6720,7 +7541,8 @@ export namespace CustomExtractionConfigurationInput {
 }
 
 /**
- * <p>Contains information for modifying an extraction configuration.</p>
+ * Contains information for modifying an extraction configuration.
+ *
  * @public
  */
 export type ModifyExtractionConfiguration =
@@ -6732,7 +7554,8 @@ export type ModifyExtractionConfiguration =
  */
 export namespace ModifyExtractionConfiguration {
   /**
-   * <p>The updated custom extraction configuration.</p>
+   * The updated custom extraction configuration.
+   *
    * @public
    */
   export interface CustomExtractionConfigurationMember {
@@ -6759,7 +7582,8 @@ export namespace ModifyExtractionConfiguration {
 }
 
 /**
- * <p>Input for a custom reflection configuration.</p>
+ * Input for a custom reflection configuration.
+ *
  * @public
  */
 export type CustomReflectionConfigurationInput =
@@ -6771,7 +7595,8 @@ export type CustomReflectionConfigurationInput =
  */
 export namespace CustomReflectionConfigurationInput {
   /**
-   * <p>The reflection override configuration input.</p>
+   * The reflection override configuration input.
+   *
    * @public
    */
   export interface EpisodicReflectionOverrideMember {
@@ -6798,7 +7623,8 @@ export namespace CustomReflectionConfigurationInput {
 }
 
 /**
- * <p>Contains information for modifying a reflection configuration.</p>
+ * Contains information for modifying a reflection configuration.
+ *
  * @public
  */
 export type ModifyReflectionConfiguration =
@@ -6811,7 +7637,8 @@ export type ModifyReflectionConfiguration =
  */
 export namespace ModifyReflectionConfiguration {
   /**
-   * <p>The updated episodic reflection configuration.</p>
+   * The updated episodic reflection configuration.
+   *
    * @public
    */
   export interface EpisodicReflectionConfigurationMember {
@@ -6821,7 +7648,8 @@ export namespace ModifyReflectionConfiguration {
   }
 
   /**
-   * <p>The updated custom reflection configuration.</p>
+   * The updated custom reflection configuration.
+   *
    * @public
    */
   export interface CustomReflectionConfigurationMember {
@@ -6851,96 +7679,111 @@ export namespace ModifyReflectionConfiguration {
 }
 
 /**
- * <p>The configuration for updating invocation settings.</p>
+ * The configuration for updating invocation settings.
+ *
  * @public
  */
 export interface ModifyInvocationConfigurationInput {
   /**
-   * <p>The updated ARN of the SNS topic for job notifications.</p>
+   * The updated ARN of the SNS topic for job notifications.
+   *
    * @public
    */
   topicArn?: string | undefined;
 
   /**
-   * <p>The updated S3 bucket name for event payload delivery.</p>
+   * The updated S3 bucket name for event payload delivery.
+   *
    * @public
    */
   payloadDeliveryBucketName?: string | undefined;
 }
 
 /**
- * <p>The configuration for updating the self-managed memory strategy.</p>
+ * The configuration for updating the self-managed memory strategy.
+ *
  * @public
  */
 export interface ModifySelfManagedConfiguration {
   /**
-   * <p>The updated list of conditions that trigger memory processing.</p>
+   * The updated list of conditions that trigger memory processing.
+   *
    * @public
    */
   triggerConditions?: TriggerConditionInput[] | undefined;
 
   /**
-   * <p>The updated configuration to invoke self-managed memory processing pipeline.</p>
+   * The updated configuration to invoke self-managed memory processing pipeline.
+   *
    * @public
    */
   invocationConfiguration?: ModifyInvocationConfigurationInput | undefined;
 
   /**
-   * <p>The updated number of historical messages to include in processing context.</p>
+   * The updated number of historical messages to include in processing context.
+   *
    * @public
    */
   historicalContextWindowSize?: number | undefined;
 }
 
 /**
- * <p>Contains information for modifying a strategy configuration.</p>
+ * Contains information for modifying a strategy configuration.
+ *
  * @public
  */
 export interface ModifyStrategyConfiguration {
   /**
-   * <p>The updated extraction configuration.</p>
+   * The updated extraction configuration.
+   *
    * @public
    */
   extraction?: ModifyExtractionConfiguration | undefined;
 
   /**
-   * <p>The updated consolidation configuration.</p>
+   * The updated consolidation configuration.
+   *
    * @public
    */
   consolidation?: ModifyConsolidationConfiguration | undefined;
 
   /**
-   * <p>The updated reflection configuration.</p>
+   * The updated reflection configuration.
+   *
    * @public
    */
   reflection?: ModifyReflectionConfiguration | undefined;
 
   /**
-   * <p>The updated self-managed configuration.</p>
+   * The updated self-managed configuration.
+   *
    * @public
    */
   selfManagedConfiguration?: ModifySelfManagedConfiguration | undefined;
 }
 
 /**
- * <p>Input for modifying a memory strategy.</p>
+ * Input for modifying a memory strategy.
+ *
  * @public
  */
 export interface ModifyMemoryStrategyInput {
   /**
-   * <p>The unique identifier of the memory strategy to modify.</p>
+   * The unique identifier of the memory strategy to modify.
+   *
    * @public
    */
   memoryStrategyId: string | undefined;
 
   /**
-   * <p>The updated description of the memory strategy.</p>
+   * The updated description of the memory strategy.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>This is a legacy parameter, use <code>namespaceTemplates</code>. The updated namespaces for the memory strategy.</p>
+   * This is a legacy parameter, use `namespaceTemplates`. The updated namespaces for the memory strategy.
    *
    * @deprecated (since 2026-03-02) Use namespaceTemplates instead.
    * @public
@@ -6948,49 +7791,57 @@ export interface ModifyMemoryStrategyInput {
   namespaces?: string[] | undefined;
 
   /**
-   * <p>The updated namespaceTemplates for the memory strategy.</p>
+   * The updated namespaceTemplates for the memory strategy.
+   *
    * @public
    */
   namespaceTemplates?: string[] | undefined;
 
   /**
-   * <p>The updated configuration for the memory strategy.</p>
+   * The updated configuration for the memory strategy.
+   *
    * @public
    */
   configuration?: ModifyStrategyConfiguration | undefined;
 
   /**
-   * <p>Updated metadata schema for records generated by this strategy.</p>
+   * Updated metadata schema for records generated by this strategy.
+   *
    * @public
    */
   memoryRecordSchema?: MemoryRecordSchema | undefined;
 
   /**
-   * <p>Updates or removes the record expiry (long-term memory time-to-live) for this strategy. Set <code>recordExpiryDurationDays</code> to configure or update the number of days after which records expire, or set <code>action</code> to <code>REMOVE</code> to remove a previously configured time-to-live so that newer records no longer expire. The change applies only to records created after the update.</p>
+   * Updates or removes the record expiry (long-term memory time-to-live) for this strategy. Set `recordExpiryDurationDays` to configure or update the number of days after which records expire, or set `action` to `REMOVE` to remove a previously configured time-to-live so that newer records no longer expire. The change applies only to records created after the update.
+   *
    * @public
    */
   recordExpirySpecification?: RecordExpirySpecification | undefined;
 }
 
 /**
- * <p>Contains information for modifying memory strategies.</p>
+ * Contains information for modifying memory strategies.
+ *
  * @public
  */
 export interface ModifyMemoryStrategies {
   /**
-   * <p>The list of memory strategies to add.</p>
+   * The list of memory strategies to add.
+   *
    * @public
    */
   addMemoryStrategies?: MemoryStrategyInput[] | undefined;
 
   /**
-   * <p>The list of memory strategies to modify.</p>
+   * The list of memory strategies to modify.
+   *
    * @public
    */
   modifyMemoryStrategies?: ModifyMemoryStrategyInput[] | undefined;
 
   /**
-   * <p>The list of memory strategies to delete.</p>
+   * The list of memory strategies to delete.
+   *
    * @public
    */
   deleteMemoryStrategies?: DeleteMemoryStrategyInput[] | undefined;
@@ -7001,55 +7852,64 @@ export interface ModifyMemoryStrategies {
  */
 export interface UpdateMemoryInput {
   /**
-   * <p>A client token is used for keeping track of idempotent requests. It can contain a session id which can be around 250 chars, combined with a unique Amazon Web Services identifier.</p>
+   * A client token is used for keeping track of idempotent requests. It can contain a session id which can be around 250 chars, combined with a unique Amazon Web Services identifier.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The unique identifier of the memory to update.</p>
+   * The unique identifier of the memory to update.
+   *
    * @public
    */
   memoryId: string | undefined;
 
   /**
-   * <p>The updated description of the AgentCore Memory resource.</p>
+   * The updated description of the AgentCore Memory resource.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The number of days after which memory events will expire, between 7 and 365 days.</p>
+   * The number of days after which memory events will expire, between 7 and 365 days.
+   *
    * @public
    */
   eventExpiryDuration?: number | undefined;
 
   /**
-   * <p>The ARN of the IAM role that provides permissions for the AgentCore Memory resource.</p>
+   * The ARN of the IAM role that provides permissions for the AgentCore Memory resource.
+   *
    * @public
    */
   memoryExecutionRoleArn?: string | undefined;
 
   /**
-   * <p>The memory strategies to add, modify, or delete.</p>
+   * The memory strategies to add, modify, or delete.
+   *
    * @public
    */
   memoryStrategies?: ModifyMemoryStrategies | undefined;
 
   /**
-   * <p>Additional metadata keys to index. Previously indexed keys cannot be removed.</p>
+   * Additional metadata keys to index. Previously indexed keys cannot be removed.
+   *
    * @public
    */
   addIndexedKeys?: IndexedKey[] | undefined;
 
   /**
-   * <p>The namespace variable key definitions with validation rules for this memory. This value fully replaces the existing set — any key you omit is removed. Any referenced <code>namespaceKey</code> omission will throw ValidationException.</p>
+   * The namespace variable key definitions with validation rules for this memory. This value fully replaces the existing set — any key you omit is removed. Any referenced `namespaceKey` omission will throw ValidationException.
+   *
    * @public
    */
   namespaceKeys?: NamespaceKeyEntry[] | undefined;
 
   /**
-   * <p>Configuration for streaming memory record data to external resources.</p>
+   * Configuration for streaming memory record data to external resources.
+   *
    * @public
    */
   streamDeliveryResources?: StreamDeliveryResources | undefined;
@@ -7060,80 +7920,93 @@ export interface UpdateMemoryInput {
  */
 export interface UpdateMemoryOutput {
   /**
-   * <p>The updated AgentCore Memory resource details.</p>
+   * The updated AgentCore Memory resource details.
+   *
    * @public
    */
   memory?: Memory | undefined;
 }
 
 /**
- * <p>Configuration settings for connecting to Atlassian services using OAuth2 authentication. This includes the client credentials required to authenticate with Atlassian's OAuth2 authorization server.</p>
+ * Configuration settings for connecting to Atlassian services using OAuth2 authentication. This includes the client credentials required to authenticate with Atlassian's OAuth2 authorization server.
+ *
  * @public
  */
 export interface AtlassianOauth2ProviderConfigInput {
   /**
-   * <p>The client ID for the Atlassian OAuth2 provider. This identifier is assigned by Atlassian when you register your application.</p>
+   * The client ID for the Atlassian OAuth2 provider. This identifier is assigned by Atlassian when you register your application.
+   *
    * @public
    */
   clientId: string | undefined;
 
   /**
-   * <p>The client secret for the Atlassian OAuth2 provider. This secret is assigned by Atlassian and used along with the client ID to authenticate your application.</p>
+   * The client secret for the Atlassian OAuth2 provider. This secret is assigned by Atlassian and used along with the client ID to authenticate your application.
+   *
    * @public
    */
   clientSecret?: string | undefined;
 
   /**
-   * <p>A reference to the Amazon Web Services Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * A reference to the Amazon Web Services Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when `clientSecretSource` is set to `EXTERNAL`.
+   *
    * @public
    */
   clientSecretConfig?: SecretReference | undefined;
 
   /**
-   * <p>The source type of the client secret for the Atlassian OAuth2 provider. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
+   * The source type of the client secret for the Atlassian OAuth2 provider. Use `MANAGED` if the secret is managed by the service, or `EXTERNAL` if you manage the secret yourself in Amazon Web Services Secrets Manager.
+   *
    * @public
    */
   clientSecretSource?: SecretSourceType | undefined;
 }
 
 /**
- * <p>Contains the authorization server metadata for an OAuth2 provider.</p>
+ * Contains the authorization server metadata for an OAuth2 provider.
+ *
  * @public
  */
 export interface Oauth2AuthorizationServerMetadata {
   /**
-   * <p>The issuer URL for the OAuth2 authorization server.</p>
+   * The issuer URL for the OAuth2 authorization server.
+   *
    * @public
    */
   issuer: string | undefined;
 
   /**
-   * <p>The authorization endpoint URL for the OAuth2 authorization server.</p>
+   * The authorization endpoint URL for the OAuth2 authorization server.
+   *
    * @public
    */
   authorizationEndpoint: string | undefined;
 
   /**
-   * <p>The token endpoint URL for the OAuth2 authorization server.</p>
+   * The token endpoint URL for the OAuth2 authorization server.
+   *
    * @public
    */
   tokenEndpoint: string | undefined;
 
   /**
-   * <p>The supported response types for the OAuth2 authorization server.</p>
+   * The supported response types for the OAuth2 authorization server.
+   *
    * @public
    */
   responseTypes?: string[] | undefined;
 
   /**
-   * <p>The authentication methods supported by the token endpoint. This specifies how clients can authenticate when requesting tokens from the authorization server.</p>
+   * The authentication methods supported by the token endpoint. This specifies how clients can authenticate when requesting tokens from the authorization server.
+   *
    * @public
    */
   tokenEndpointAuthMethods?: string[] | undefined;
 }
 
 /**
- * <p>Contains the discovery information for an OAuth2 provider.</p>
+ * Contains the discovery information for an OAuth2 provider.
+ *
  * @public
  */
 export type Oauth2Discovery =
@@ -7146,7 +8019,8 @@ export type Oauth2Discovery =
  */
 export namespace Oauth2Discovery {
   /**
-   * <p>The discovery URL for the OAuth2 provider.</p>
+   * The discovery URL for the OAuth2 provider.
+   *
    * @public
    */
   export interface DiscoveryUrlMember {
@@ -7156,7 +8030,8 @@ export namespace Oauth2Discovery {
   }
 
   /**
-   * <p>The authorization server metadata for the OAuth2 provider.</p>
+   * The authorization server metadata for the OAuth2 provider.
+   *
    * @public
    */
   export interface AuthorizationServerMetadataMember {
@@ -7186,73 +8061,85 @@ export namespace Oauth2Discovery {
 }
 
 /**
- * <p>Specifies the client authentication method to use for the on-behalf-of token exchange.</p>
+ * Specifies the client authentication method to use for the on-behalf-of token exchange.
+ *
  * @public
  */
 export interface OnBehalfOfAuthenticationConfig {
   /**
-   * <p>The client authentication method to use during the on-behalf-of token exchange. The <code>NO_CLIENT</code> option omits the <code>clientId</code> and <code>clientSecret</code> during the on-behalf-of token exchange with the identity provider.</p>
+   * The client authentication method to use during the on-behalf-of token exchange. The `NO_CLIENT` option omits the `clientId` and `clientSecret` during the on-behalf-of token exchange with the identity provider.
+   *
    * @public
    */
   clientAuthenticationMethod: OnBehalfOfClientAuthenticationMethod | undefined;
 }
 
 /**
- * <p>Configuration for RFC 8693 token exchange.</p>
+ * Configuration for RFC 8693 token exchange.
+ *
  * @public
  */
 export interface TokenExchangeGrantTypeConfigType {
   /**
-   * <p>The content type for the actor token in the token exchange.</p>
+   * The content type for the actor token in the token exchange.
+   *
    * @public
    */
   actorTokenContent: ActorTokenContentType | undefined;
 
   /**
-   * <p>The scopes for the actor token. Only valid when actorTokenContent is M2M.</p>
+   * The scopes for the actor token. Only valid when actorTokenContent is M2M.
+   *
    * @public
    */
   actorTokenScopes?: string[] | undefined;
 }
 
 /**
- * <p>Configuration for on-behalf-of token exchange.</p>
+ * Configuration for on-behalf-of token exchange.
+ *
  * @public
  */
 export interface OnBehalfOfTokenExchangeConfigType {
   /**
-   * <p>The grant type for the on-behalf-of token exchange.</p>
+   * The grant type for the on-behalf-of token exchange.
+   *
    * @public
    */
   grantType: OnBehalfOfTokenExchangeGrantTypeType | undefined;
 
   /**
-   * <p>Configuration specific to the TOKEN_EXCHANGE grant type (RFC 8693).</p>
+   * Configuration specific to the TOKEN_EXCHANGE grant type (RFC 8693).
+   *
    * @public
    */
   tokenExchangeGrantTypeConfig?: TokenExchangeGrantTypeConfigType | undefined;
 
   /**
-   * <p>Specify the client authentication configuration to use for the on-behalf-of token exchange. With this configuration, you override the provider level client authentication method for the on-behalf-of exchange with the identity provider. If you don't specify this configuration, we use the provider level client authentication method.</p>
+   * Specify the client authentication configuration to use for the on-behalf-of token exchange. With this configuration, you override the provider level client authentication method for the on-behalf-of exchange with the identity provider. If you don't specify this configuration, we use the provider level client authentication method.
+   *
    * @public
    */
   onBehalfOfAuthenticationConfig?: OnBehalfOfAuthenticationConfig | undefined;
 }
 
 /**
- * <p>Contains the KMS key configuration for a JWT client assertion.</p>
+ * Contains the KMS key configuration for a JWT client assertion.
+ *
  * @public
  */
 export interface KmsKeySourceType {
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to sign the JWT client assertion. The key must be an asymmetric key with key usage SIGN_VERIFY and a key spec compatible with the configured signing algorithm.</p>
+   * The Amazon Resource Name (ARN) of the KMS key used to sign the JWT client assertion. The key must be an asymmetric key with key usage SIGN_VERIFY and a key spec compatible with the configured signing algorithm.
+   *
    * @public
    */
   kmsKeyArn: string | undefined;
 }
 
 /**
- * <p>Contains the private key source configuration for a JWT client assertion.</p>
+ * Contains the private key source configuration for a JWT client assertion.
+ *
  * @public
  */
 export type PrivateKeySource =
@@ -7264,7 +8151,8 @@ export type PrivateKeySource =
  */
 export namespace PrivateKeySource {
   /**
-   * <p>The KMS key source for the JWT client assertion.</p>
+   * The KMS key source for the JWT client assertion.
+   *
    * @public
    */
   export interface KmsKeySourceMember {
@@ -7291,337 +8179,393 @@ export namespace PrivateKeySource {
 }
 
 /**
- * <p>The private key configuration for private_key_jwt client authentication.</p>
+ * The private key configuration for private_key_jwt client authentication.
+ *
  * @public
  */
 export interface PrivateKeyJwtConfig {
   /**
-   * <p>The private key source for the JWT client assertion.</p>
+   * The private key source for the JWT client assertion.
+   *
    * @public
    */
   privateKeySource?: PrivateKeySource | undefined;
 
   /**
-   * <p>The algorithm used to sign the JWT client assertion. Valid values are <code>RS256</code>, <code>PS256</code>, and <code>ES256</code>.</p>
+   * The algorithm used to sign the JWT client assertion. Valid values are `RS256`, `PS256`, and `ES256`.
+   *
    * @public
    */
   signingAlgorithm?: SigningAlgorithm | undefined;
 
   /**
-   * <p>A map of additional claims to include in the JWT client assertion header. Standard header claims such as <code>alg</code> and <code>typ</code> cannot be added.</p>
+   * A map of additional claims to include in the JWT client assertion header. Standard header claims such as `alg` and `typ` cannot be added.
+   *
    * @public
    */
   additionalHeaderClaims?: Record<string, string> | undefined;
 
   /**
-   * <p>A map of additional claims to include in the JWT client assertion payload. Payload claims generated by the service, such as <code>iss</code>, <code>sub</code>, <code>jti</code>, and <code>exp</code>, cannot be added.</p>
+   * A map of additional claims to include in the JWT client assertion payload. Payload claims generated by the service, such as `iss`, `sub`, `jti`, and `exp`, cannot be added.
+   *
    * @public
    */
   additionalPayloadClaims?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Input configuration for a custom OAuth2 provider.</p>
+ * Input configuration for a custom OAuth2 provider.
+ *
  * @public
  */
 export interface CustomOauth2ProviderConfigInput {
   /**
-   * <p>The OAuth2 discovery information for the custom provider.</p>
+   * The OAuth2 discovery information for the custom provider.
+   *
    * @public
    */
   oauthDiscovery: Oauth2Discovery | undefined;
 
   /**
-   * <p>The client ID for the custom OAuth2 provider.</p>
+   * The client ID for the custom OAuth2 provider.
+   *
    * @public
    */
   clientId?: string | undefined;
 
   /**
-   * <p>The client secret for the custom OAuth2 provider.</p>
+   * The client secret for the custom OAuth2 provider.
+   *
    * @public
    */
   clientSecret?: string | undefined;
 
   /**
-   * <p>A reference to the Amazon Web Services Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * A reference to the Amazon Web Services Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when `clientSecretSource` is set to `EXTERNAL`.
+   *
    * @public
    */
   clientSecretConfig?: SecretReference | undefined;
 
   /**
-   * <p>The source type of the client secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
+   * The source type of the client secret. Use `MANAGED` if the secret is managed by the service, or `EXTERNAL` if you manage the secret yourself in Amazon Web Services Secrets Manager.
+   *
    * @public
    */
   clientSecretSource?: SecretSourceType | undefined;
 
   /**
-   * <p>The configuration for on-behalf-of token exchange. This enables authentication flows that use RFC 8693 token exchange or RFC 7523 JWT authorization grants.</p>
+   * The configuration for on-behalf-of token exchange. This enables authentication flows that use RFC 8693 token exchange or RFC 7523 JWT authorization grants.
+   *
    * @public
    */
   onBehalfOfTokenExchangeConfig?: OnBehalfOfTokenExchangeConfigType | undefined;
 
   /**
-   * <p>The client authentication method to use when authenticating with the token endpoint.</p>
+   * The client authentication method to use when authenticating with the token endpoint.
+   *
    * @public
    */
   clientAuthenticationMethod?: ClientAuthenticationMethodType | undefined;
 
   /**
-   * <p>The private_key_jwt client authentication configuration for this credential provider. When specified, the credential provider uses JWT client assertions to authenticate with the token endpoint.</p>
+   * The private_key_jwt client authentication configuration for this credential provider. When specified, the credential provider uses JWT client assertions to authenticate with the token endpoint.
+   *
    * @public
    */
   privateKeyJwtConfig?: PrivateKeyJwtConfig | undefined;
 
   /**
-   * <p>The default private endpoint for the custom OAuth2 provider, enabling secure connectivity through a VPC Lattice resource configuration.</p>
+   * The default private endpoint for the custom OAuth2 provider, enabling secure connectivity through a VPC Lattice resource configuration.
+   *
    * @public
    */
   privateEndpoint?: PrivateEndpoint | undefined;
 
   /**
-   * <p>The private endpoint overrides for the custom OAuth2 provider configuration.</p>
+   * The private endpoint overrides for the custom OAuth2 provider configuration.
+   *
    * @public
    */
   privateEndpointOverrides?: PrivateEndpointOverride[] | undefined;
 }
 
 /**
- * <p>Input configuration for a GitHub OAuth2 provider.</p>
+ * Input configuration for a GitHub OAuth2 provider.
+ *
  * @public
  */
 export interface GithubOauth2ProviderConfigInput {
   /**
-   * <p>The client ID for the GitHub OAuth2 provider.</p>
+   * The client ID for the GitHub OAuth2 provider.
+   *
    * @public
    */
   clientId: string | undefined;
 
   /**
-   * <p>The client secret for the GitHub OAuth2 provider.</p>
+   * The client secret for the GitHub OAuth2 provider.
+   *
    * @public
    */
   clientSecret?: string | undefined;
 
   /**
-   * <p>A reference to the Amazon Web Services Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * A reference to the Amazon Web Services Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when `clientSecretSource` is set to `EXTERNAL`.
+   *
    * @public
    */
   clientSecretConfig?: SecretReference | undefined;
 
   /**
-   * <p>The source type of the client secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
+   * The source type of the client secret. Use `MANAGED` if the secret is managed by the service, or `EXTERNAL` if you manage the secret yourself in Amazon Web Services Secrets Manager.
+   *
    * @public
    */
   clientSecretSource?: SecretSourceType | undefined;
 }
 
 /**
- * <p>Input configuration for a Google OAuth2 provider.</p>
+ * Input configuration for a Google OAuth2 provider.
+ *
  * @public
  */
 export interface GoogleOauth2ProviderConfigInput {
   /**
-   * <p>The client ID for the Google OAuth2 provider.</p>
+   * The client ID for the Google OAuth2 provider.
+   *
    * @public
    */
   clientId: string | undefined;
 
   /**
-   * <p>The client secret for the Google OAuth2 provider.</p>
+   * The client secret for the Google OAuth2 provider.
+   *
    * @public
    */
   clientSecret?: string | undefined;
 
   /**
-   * <p>A reference to the Amazon Web Services Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * A reference to the Amazon Web Services Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when `clientSecretSource` is set to `EXTERNAL`.
+   *
    * @public
    */
   clientSecretConfig?: SecretReference | undefined;
 
   /**
-   * <p>The source type of the client secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
+   * The source type of the client secret. Use `MANAGED` if the secret is managed by the service, or `EXTERNAL` if you manage the secret yourself in Amazon Web Services Secrets Manager.
+   *
    * @public
    */
   clientSecretSource?: SecretSourceType | undefined;
 }
 
 /**
- * <p>Configuration settings for connecting to a supported OAuth2 provider. This includes client credentials and OAuth2 discovery information for providers that have built-in support.</p>
+ * Configuration settings for connecting to a supported OAuth2 provider. This includes client credentials and OAuth2 discovery information for providers that have built-in support.
+ *
  * @public
  */
 export interface IncludedOauth2ProviderConfigInput {
   /**
-   * <p>The client ID for the supported OAuth2 provider. This identifier is assigned by the OAuth2 provider when you register your application.</p>
+   * The client ID for the supported OAuth2 provider. This identifier is assigned by the OAuth2 provider when you register your application.
+   *
    * @public
    */
   clientId: string | undefined;
 
   /**
-   * <p>The client secret for the supported OAuth2 provider. This secret is assigned by the OAuth2 provider and used along with the client ID to authenticate your application.</p>
+   * The client secret for the supported OAuth2 provider. This secret is assigned by the OAuth2 provider and used along with the client ID to authenticate your application.
+   *
    * @public
    */
   clientSecret?: string | undefined;
 
   /**
-   * <p>A reference to the Amazon Web Services Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * A reference to the Amazon Web Services Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when `clientSecretSource` is set to `EXTERNAL`.
+   *
    * @public
    */
   clientSecretConfig?: SecretReference | undefined;
 
   /**
-   * <p>The source type of the client secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
+   * The source type of the client secret. Use `MANAGED` if the secret is managed by the service, or `EXTERNAL` if you manage the secret yourself in Amazon Web Services Secrets Manager.
+   *
    * @public
    */
   clientSecretSource?: SecretSourceType | undefined;
 
   /**
-   * <p>Token issuer of your isolated OAuth2 application tenant. This URL identifies the authorization server that issues tokens for this provider.</p>
+   * Token issuer of your isolated OAuth2 application tenant. This URL identifies the authorization server that issues tokens for this provider.
+   *
    * @public
    */
   issuer?: string | undefined;
 
   /**
-   * <p>OAuth2 authorization endpoint for your isolated OAuth2 application tenant. This is where users are redirected to authenticate and authorize access to their resources.</p>
+   * OAuth2 authorization endpoint for your isolated OAuth2 application tenant. This is where users are redirected to authenticate and authorize access to their resources.
+   *
    * @public
    */
   authorizationEndpoint?: string | undefined;
 
   /**
-   * <p>OAuth2 token endpoint for your isolated OAuth2 application tenant. This is where authorization codes are exchanged for access tokens.</p>
+   * OAuth2 token endpoint for your isolated OAuth2 application tenant. This is where authorization codes are exchanged for access tokens.
+   *
    * @public
    */
   tokenEndpoint?: string | undefined;
 }
 
 /**
- * <p>Configuration settings for connecting to LinkedIn services using OAuth2 authentication. This includes the client credentials required to authenticate with LinkedIn's OAuth2 authorization server.</p>
+ * Configuration settings for connecting to LinkedIn services using OAuth2 authentication. This includes the client credentials required to authenticate with LinkedIn's OAuth2 authorization server.
+ *
  * @public
  */
 export interface LinkedinOauth2ProviderConfigInput {
   /**
-   * <p>The client ID for the LinkedIn OAuth2 provider. This identifier is assigned by LinkedIn when you register your application.</p>
+   * The client ID for the LinkedIn OAuth2 provider. This identifier is assigned by LinkedIn when you register your application.
+   *
    * @public
    */
   clientId: string | undefined;
 
   /**
-   * <p>The client secret for the LinkedIn OAuth2 provider. This secret is assigned by LinkedIn and used along with the client ID to authenticate your application.</p>
+   * The client secret for the LinkedIn OAuth2 provider. This secret is assigned by LinkedIn and used along with the client ID to authenticate your application.
+   *
    * @public
    */
   clientSecret?: string | undefined;
 
   /**
-   * <p>A reference to the Amazon Web Services Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * A reference to the Amazon Web Services Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when `clientSecretSource` is set to `EXTERNAL`.
+   *
    * @public
    */
   clientSecretConfig?: SecretReference | undefined;
 
   /**
-   * <p>The source type of the client secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
+   * The source type of the client secret. Use `MANAGED` if the secret is managed by the service, or `EXTERNAL` if you manage the secret yourself in Amazon Web Services Secrets Manager.
+   *
    * @public
    */
   clientSecretSource?: SecretSourceType | undefined;
 }
 
 /**
- * <p>Input configuration for a Microsoft OAuth2 provider.</p>
+ * Input configuration for a Microsoft OAuth2 provider.
+ *
  * @public
  */
 export interface MicrosoftOauth2ProviderConfigInput {
   /**
-   * <p>The client ID for the Microsoft OAuth2 provider.</p>
+   * The client ID for the Microsoft OAuth2 provider.
+   *
    * @public
    */
   clientId: string | undefined;
 
   /**
-   * <p>The client secret for the Microsoft OAuth2 provider.</p>
+   * The client secret for the Microsoft OAuth2 provider.
+   *
    * @public
    */
   clientSecret?: string | undefined;
 
   /**
-   * <p>A reference to the Amazon Web Services Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * A reference to the Amazon Web Services Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when `clientSecretSource` is set to `EXTERNAL`.
+   *
    * @public
    */
   clientSecretConfig?: SecretReference | undefined;
 
   /**
-   * <p>The source type of the client secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
+   * The source type of the client secret. Use `MANAGED` if the secret is managed by the service, or `EXTERNAL` if you manage the secret yourself in Amazon Web Services Secrets Manager.
+   *
    * @public
    */
   clientSecretSource?: SecretSourceType | undefined;
 
   /**
-   * <p>The Microsoft Entra ID (formerly Azure AD) tenant ID for your organization. This identifies the specific tenant within Microsoft's identity platform where your application is registered.</p>
+   * The Microsoft Entra ID (formerly Azure AD) tenant ID for your organization. This identifies the specific tenant within Microsoft's identity platform where your application is registered.
+   *
    * @public
    */
   tenantId?: string | undefined;
 }
 
 /**
- * <p>Input configuration for a Salesforce OAuth2 provider.</p>
+ * Input configuration for a Salesforce OAuth2 provider.
+ *
  * @public
  */
 export interface SalesforceOauth2ProviderConfigInput {
   /**
-   * <p>The client ID for the Salesforce OAuth2 provider.</p>
+   * The client ID for the Salesforce OAuth2 provider.
+   *
    * @public
    */
   clientId: string | undefined;
 
   /**
-   * <p>The client secret for the Salesforce OAuth2 provider.</p>
+   * The client secret for the Salesforce OAuth2 provider.
+   *
    * @public
    */
   clientSecret?: string | undefined;
 
   /**
-   * <p>A reference to the Amazon Web Services Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * A reference to the Amazon Web Services Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when `clientSecretSource` is set to `EXTERNAL`.
+   *
    * @public
    */
   clientSecretConfig?: SecretReference | undefined;
 
   /**
-   * <p>The source type of the client secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
+   * The source type of the client secret. Use `MANAGED` if the secret is managed by the service, or `EXTERNAL` if you manage the secret yourself in Amazon Web Services Secrets Manager.
+   *
    * @public
    */
   clientSecretSource?: SecretSourceType | undefined;
 }
 
 /**
- * <p>Input configuration for a Slack OAuth2 provider.</p>
+ * Input configuration for a Slack OAuth2 provider.
+ *
  * @public
  */
 export interface SlackOauth2ProviderConfigInput {
   /**
-   * <p>The client ID for the Slack OAuth2 provider.</p>
+   * The client ID for the Slack OAuth2 provider.
+   *
    * @public
    */
   clientId: string | undefined;
 
   /**
-   * <p>The client secret for the Slack OAuth2 provider.</p>
+   * The client secret for the Slack OAuth2 provider.
+   *
    * @public
    */
   clientSecret?: string | undefined;
 
   /**
-   * <p>A reference to the Amazon Web Services Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * A reference to the Amazon Web Services Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when `clientSecretSource` is set to `EXTERNAL`.
+   *
    * @public
    */
   clientSecretConfig?: SecretReference | undefined;
 
   /**
-   * <p>The source type of the client secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
+   * The source type of the client secret. Use `MANAGED` if the secret is managed by the service, or `EXTERNAL` if you manage the secret yourself in Amazon Web Services Secrets Manager.
+   *
    * @public
    */
   clientSecretSource?: SecretSourceType | undefined;
 }
 
 /**
- * <p>Contains the input configuration for an OAuth2 provider.</p>
+ * Contains the input configuration for an OAuth2 provider.
+ *
  * @public
  */
 export type Oauth2ProviderConfigInput =
@@ -7641,7 +8585,8 @@ export type Oauth2ProviderConfigInput =
  */
 export namespace Oauth2ProviderConfigInput {
   /**
-   * <p>The configuration for a custom OAuth2 provider.</p>
+   * The configuration for a custom OAuth2 provider.
+   *
    * @public
    */
   export interface CustomOauth2ProviderConfigMember {
@@ -7658,7 +8603,8 @@ export namespace Oauth2ProviderConfigInput {
   }
 
   /**
-   * <p>The configuration for a Google OAuth2 provider.</p>
+   * The configuration for a Google OAuth2 provider.
+   *
    * @public
    */
   export interface GoogleOauth2ProviderConfigMember {
@@ -7675,7 +8621,8 @@ export namespace Oauth2ProviderConfigInput {
   }
 
   /**
-   * <p>The configuration for a GitHub OAuth2 provider.</p>
+   * The configuration for a GitHub OAuth2 provider.
+   *
    * @public
    */
   export interface GithubOauth2ProviderConfigMember {
@@ -7692,7 +8639,8 @@ export namespace Oauth2ProviderConfigInput {
   }
 
   /**
-   * <p>The configuration for a Slack OAuth2 provider.</p>
+   * The configuration for a Slack OAuth2 provider.
+   *
    * @public
    */
   export interface SlackOauth2ProviderConfigMember {
@@ -7709,7 +8657,8 @@ export namespace Oauth2ProviderConfigInput {
   }
 
   /**
-   * <p>The configuration for a Salesforce OAuth2 provider.</p>
+   * The configuration for a Salesforce OAuth2 provider.
+   *
    * @public
    */
   export interface SalesforceOauth2ProviderConfigMember {
@@ -7726,7 +8675,8 @@ export namespace Oauth2ProviderConfigInput {
   }
 
   /**
-   * <p>The configuration for a Microsoft OAuth2 provider.</p>
+   * The configuration for a Microsoft OAuth2 provider.
+   *
    * @public
    */
   export interface MicrosoftOauth2ProviderConfigMember {
@@ -7743,7 +8693,8 @@ export namespace Oauth2ProviderConfigInput {
   }
 
   /**
-   * <p>Configuration settings for Atlassian OAuth2 provider integration.</p>
+   * Configuration settings for Atlassian OAuth2 provider integration.
+   *
    * @public
    */
   export interface AtlassianOauth2ProviderConfigMember {
@@ -7760,7 +8711,8 @@ export namespace Oauth2ProviderConfigInput {
   }
 
   /**
-   * <p>Configuration settings for LinkedIn OAuth2 provider integration.</p>
+   * Configuration settings for LinkedIn OAuth2 provider integration.
+   *
    * @public
    */
   export interface LinkedinOauth2ProviderConfigMember {
@@ -7777,7 +8729,8 @@ export namespace Oauth2ProviderConfigInput {
   }
 
   /**
-   * <p>The configuration for a non-custom OAuth2 provider. This includes settings for supported OAuth2 providers that have built-in integration support.</p>
+   * The configuration for a non-custom OAuth2 provider. This includes settings for supported OAuth2 providers that have built-in integration support.
+   *
    * @public
    */
   export interface IncludedOauth2ProviderConfigMember {
@@ -7832,224 +8785,261 @@ export namespace Oauth2ProviderConfigInput {
  */
 export interface CreateOauth2CredentialProviderRequest {
   /**
-   * <p>The name of the OAuth2 credential provider. The name must be unique within your account.</p>
+   * The name of the OAuth2 credential provider. The name must be unique within your account.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The vendor of the OAuth2 credential provider. This specifies which OAuth2 implementation to use.</p>
+   * The vendor of the OAuth2 credential provider. This specifies which OAuth2 implementation to use.
+   *
    * @public
    */
   credentialProviderVendor: CredentialProviderVendorType | undefined;
 
   /**
-   * <p>The configuration settings for the OAuth2 provider, including client ID, client secret, and other vendor-specific settings.</p>
+   * The configuration settings for the OAuth2 provider, including client ID, client secret, and other vendor-specific settings.
+   *
    * @public
    */
   oauth2ProviderConfigInput: Oauth2ProviderConfigInput | undefined;
 
   /**
-   * <p>A map of tag keys and values to assign to the OAuth2 credential provider. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
+   * A map of tag keys and values to assign to the OAuth2 credential provider. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>The configuration details returned for an Atlassian OAuth2 provider, including the client ID and OAuth2 discovery information.</p>
+ * The configuration details returned for an Atlassian OAuth2 provider, including the client ID and OAuth2 discovery information.
+ *
  * @public
  */
 export interface AtlassianOauth2ProviderConfigOutput {
   /**
-   * <p>Contains the discovery information for an OAuth2 provider.</p>
+   * Contains the discovery information for an OAuth2 provider.
+   *
    * @public
    */
   oauthDiscovery: Oauth2Discovery | undefined;
 
   /**
-   * <p>The client ID for the Atlassian OAuth2 provider.</p>
+   * The client ID for the Atlassian OAuth2 provider.
+   *
    * @public
    */
   clientId?: string | undefined;
 }
 
 /**
- * <p>Output configuration for a custom OAuth2 provider.</p>
+ * Output configuration for a custom OAuth2 provider.
+ *
  * @public
  */
 export interface CustomOauth2ProviderConfigOutput {
   /**
-   * <p>The OAuth2 discovery information for the custom provider.</p>
+   * The OAuth2 discovery information for the custom provider.
+   *
    * @public
    */
   oauthDiscovery: Oauth2Discovery | undefined;
 
   /**
-   * <p>The client ID for the custom OAuth2 provider.</p>
+   * The client ID for the custom OAuth2 provider.
+   *
    * @public
    */
   clientId?: string | undefined;
 
   /**
-   * <p>The configuration for on-behalf-of token exchange.</p>
+   * The configuration for on-behalf-of token exchange.
+   *
    * @public
    */
   onBehalfOfTokenExchangeConfig?: OnBehalfOfTokenExchangeConfigType | undefined;
 
   /**
-   * <p>The client authentication method used when authenticating with the token endpoint.</p>
+   * The client authentication method used when authenticating with the token endpoint.
+   *
    * @public
    */
   clientAuthenticationMethod?: ClientAuthenticationMethodType | undefined;
 
   /**
-   * <p>The default private endpoint for the custom OAuth2 provider, enabling secure connectivity through a VPC Lattice resource configuration.</p>
+   * The default private endpoint for the custom OAuth2 provider, enabling secure connectivity through a VPC Lattice resource configuration.
+   *
    * @public
    */
   privateEndpoint?: PrivateEndpoint | undefined;
 
   /**
-   * <p>The private endpoint overrides for the custom OAuth2 provider configuration.</p>
+   * The private endpoint overrides for the custom OAuth2 provider configuration.
+   *
    * @public
    */
   privateEndpointOverrides?: PrivateEndpointOverride[] | undefined;
 
   /**
-   * <p>The configuration for private_key_jwt client authentication used by this OAuth2 credential provider.</p>
+   * The configuration for private_key_jwt client authentication used by this OAuth2 credential provider.
+   *
    * @public
    */
   privateKeyJwtConfig?: PrivateKeyJwtConfig | undefined;
 }
 
 /**
- * <p>Output configuration for a GitHub OAuth2 provider.</p>
+ * Output configuration for a GitHub OAuth2 provider.
+ *
  * @public
  */
 export interface GithubOauth2ProviderConfigOutput {
   /**
-   * <p>The OAuth2 discovery information for the GitHub provider.</p>
+   * The OAuth2 discovery information for the GitHub provider.
+   *
    * @public
    */
   oauthDiscovery: Oauth2Discovery | undefined;
 
   /**
-   * <p>The client ID for the GitHub OAuth2 provider.</p>
+   * The client ID for the GitHub OAuth2 provider.
+   *
    * @public
    */
   clientId?: string | undefined;
 }
 
 /**
- * <p>Output configuration for a Google OAuth2 provider.</p>
+ * Output configuration for a Google OAuth2 provider.
+ *
  * @public
  */
 export interface GoogleOauth2ProviderConfigOutput {
   /**
-   * <p>The OAuth2 discovery information for the Google provider.</p>
+   * The OAuth2 discovery information for the Google provider.
+   *
    * @public
    */
   oauthDiscovery: Oauth2Discovery | undefined;
 
   /**
-   * <p>The client ID for the Google OAuth2 provider.</p>
+   * The client ID for the Google OAuth2 provider.
+   *
    * @public
    */
   clientId?: string | undefined;
 }
 
 /**
- * <p>The configuration details returned for a supported OAuth2 provider, including client credentials and OAuth2 discovery information.</p>
+ * The configuration details returned for a supported OAuth2 provider, including client credentials and OAuth2 discovery information.
+ *
  * @public
  */
 export interface IncludedOauth2ProviderConfigOutput {
   /**
-   * <p>Contains the discovery information for an OAuth2 provider.</p>
+   * Contains the discovery information for an OAuth2 provider.
+   *
    * @public
    */
   oauthDiscovery: Oauth2Discovery | undefined;
 
   /**
-   * <p>The client ID for the supported OAuth2 provider.</p>
+   * The client ID for the supported OAuth2 provider.
+   *
    * @public
    */
   clientId?: string | undefined;
 }
 
 /**
- * <p>The configuration details returned for a LinkedIn OAuth2 provider, including the client ID and OAuth2 discovery information.</p>
+ * The configuration details returned for a LinkedIn OAuth2 provider, including the client ID and OAuth2 discovery information.
+ *
  * @public
  */
 export interface LinkedinOauth2ProviderConfigOutput {
   /**
-   * <p>Contains the discovery information for an OAuth2 provider.</p>
+   * Contains the discovery information for an OAuth2 provider.
+   *
    * @public
    */
   oauthDiscovery: Oauth2Discovery | undefined;
 
   /**
-   * <p>The client ID for the LinkedIn OAuth2 provider.</p>
+   * The client ID for the LinkedIn OAuth2 provider.
+   *
    * @public
    */
   clientId?: string | undefined;
 }
 
 /**
- * <p>Output configuration for a Microsoft OAuth2 provider.</p>
+ * Output configuration for a Microsoft OAuth2 provider.
+ *
  * @public
  */
 export interface MicrosoftOauth2ProviderConfigOutput {
   /**
-   * <p>The OAuth2 discovery information for the Microsoft provider.</p>
+   * The OAuth2 discovery information for the Microsoft provider.
+   *
    * @public
    */
   oauthDiscovery: Oauth2Discovery | undefined;
 
   /**
-   * <p>The client ID for the Microsoft OAuth2 provider.</p>
+   * The client ID for the Microsoft OAuth2 provider.
+   *
    * @public
    */
   clientId?: string | undefined;
 }
 
 /**
- * <p>Output configuration for a Salesforce OAuth2 provider.</p>
+ * Output configuration for a Salesforce OAuth2 provider.
+ *
  * @public
  */
 export interface SalesforceOauth2ProviderConfigOutput {
   /**
-   * <p>The OAuth2 discovery information for the Salesforce provider.</p>
+   * The OAuth2 discovery information for the Salesforce provider.
+   *
    * @public
    */
   oauthDiscovery: Oauth2Discovery | undefined;
 
   /**
-   * <p>The client ID for the Salesforce OAuth2 provider.</p>
+   * The client ID for the Salesforce OAuth2 provider.
+   *
    * @public
    */
   clientId?: string | undefined;
 }
 
 /**
- * <p>Output configuration for a Slack OAuth2 provider.</p>
+ * Output configuration for a Slack OAuth2 provider.
+ *
  * @public
  */
 export interface SlackOauth2ProviderConfigOutput {
   /**
-   * <p>The OAuth2 discovery information for the Slack provider.</p>
+   * The OAuth2 discovery information for the Slack provider.
+   *
    * @public
    */
   oauthDiscovery: Oauth2Discovery | undefined;
 
   /**
-   * <p>The client ID for the Slack OAuth2 provider.</p>
+   * The client ID for the Slack OAuth2 provider.
+   *
    * @public
    */
   clientId?: string | undefined;
 }
 
 /**
- * <p>Contains the output configuration for an OAuth2 provider.</p>
+ * Contains the output configuration for an OAuth2 provider.
+ *
  * @public
  */
 export type Oauth2ProviderConfigOutput =
@@ -8069,7 +9059,8 @@ export type Oauth2ProviderConfigOutput =
  */
 export namespace Oauth2ProviderConfigOutput {
   /**
-   * <p>The output configuration for a custom OAuth2 provider.</p>
+   * The output configuration for a custom OAuth2 provider.
+   *
    * @public
    */
   export interface CustomOauth2ProviderConfigMember {
@@ -8086,7 +9077,8 @@ export namespace Oauth2ProviderConfigOutput {
   }
 
   /**
-   * <p>The output configuration for a Google OAuth2 provider.</p>
+   * The output configuration for a Google OAuth2 provider.
+   *
    * @public
    */
   export interface GoogleOauth2ProviderConfigMember {
@@ -8103,7 +9095,8 @@ export namespace Oauth2ProviderConfigOutput {
   }
 
   /**
-   * <p>The output configuration for a GitHub OAuth2 provider.</p>
+   * The output configuration for a GitHub OAuth2 provider.
+   *
    * @public
    */
   export interface GithubOauth2ProviderConfigMember {
@@ -8120,7 +9113,8 @@ export namespace Oauth2ProviderConfigOutput {
   }
 
   /**
-   * <p>The output configuration for a Slack OAuth2 provider.</p>
+   * The output configuration for a Slack OAuth2 provider.
+   *
    * @public
    */
   export interface SlackOauth2ProviderConfigMember {
@@ -8137,7 +9131,8 @@ export namespace Oauth2ProviderConfigOutput {
   }
 
   /**
-   * <p>The output configuration for a Salesforce OAuth2 provider.</p>
+   * The output configuration for a Salesforce OAuth2 provider.
+   *
    * @public
    */
   export interface SalesforceOauth2ProviderConfigMember {
@@ -8154,7 +9149,8 @@ export namespace Oauth2ProviderConfigOutput {
   }
 
   /**
-   * <p>The output configuration for a Microsoft OAuth2 provider.</p>
+   * The output configuration for a Microsoft OAuth2 provider.
+   *
    * @public
    */
   export interface MicrosoftOauth2ProviderConfigMember {
@@ -8171,7 +9167,8 @@ export namespace Oauth2ProviderConfigOutput {
   }
 
   /**
-   * <p>The configuration details for the Atlassian OAuth2 provider.</p>
+   * The configuration details for the Atlassian OAuth2 provider.
+   *
    * @public
    */
   export interface AtlassianOauth2ProviderConfigMember {
@@ -8188,7 +9185,8 @@ export namespace Oauth2ProviderConfigOutput {
   }
 
   /**
-   * <p>The configuration details for the LinkedIn OAuth2 provider.</p>
+   * The configuration details for the LinkedIn OAuth2 provider.
+   *
    * @public
    */
   export interface LinkedinOauth2ProviderConfigMember {
@@ -8205,7 +9203,8 @@ export namespace Oauth2ProviderConfigOutput {
   }
 
   /**
-   * <p>The configuration for a non-custom OAuth2 provider. This includes the configuration details for supported OAuth2 providers that have built-in integration support.</p>
+   * The configuration for a non-custom OAuth2 provider. This includes the configuration details for supported OAuth2 providers that have built-in integration support.
+   *
    * @public
    */
   export interface IncludedOauth2ProviderConfigMember {
@@ -8260,49 +9259,57 @@ export namespace Oauth2ProviderConfigOutput {
  */
 export interface CreateOauth2CredentialProviderResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the client secret in Amazon Web Services Secrets Manager.</p>
+   * The Amazon Resource Name (ARN) of the client secret in Amazon Web Services Secrets Manager.
+   *
    * @public
    */
   clientSecretArn: Secret | undefined;
 
   /**
-   * <p>The JSON key used to extract the client secret value from the Amazon Web Services Secrets Manager secret.</p>
+   * The JSON key used to extract the client secret value from the Amazon Web Services Secrets Manager secret.
+   *
    * @public
    */
   clientSecretJsonKey?: string | undefined;
 
   /**
-   * <p>The source type of the client secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in Amazon Web Services Secrets Manager.</p>
+   * The source type of the client secret. Either `MANAGED` if the secret is managed by the service, or `EXTERNAL` if managed by the user in Amazon Web Services Secrets Manager.
+   *
    * @public
    */
   clientSecretSource?: SecretSourceType | undefined;
 
   /**
-   * <p>The name of the OAuth2 credential provider.</p>
+   * The name of the OAuth2 credential provider.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the OAuth2 credential provider.</p>
+   * The Amazon Resource Name (ARN) of the OAuth2 credential provider.
+   *
    * @public
    */
   credentialProviderArn: string | undefined;
 
   /**
-   * <p>Callback URL to register on the OAuth2 credential provider as an allowed callback URL. This URL is where the OAuth2 authorization server redirects users after they complete the authorization flow.</p>
+   * Callback URL to register on the OAuth2 credential provider as an allowed callback URL. This URL is where the OAuth2 authorization server redirects users after they complete the authorization flow.
+   *
    * @public
    */
   callbackUrl?: string | undefined;
 
   /**
-   * <p>Contains the output configuration for an OAuth2 provider.</p>
+   * Contains the output configuration for an OAuth2 provider.
+   *
    * @public
    */
   oauth2ProviderConfigOutput?: Oauth2ProviderConfigOutput | undefined;
 
   /**
-   * <p>The current status of the OAuth2 credential provider.</p>
+   * The current status of the OAuth2 credential provider.
+   *
    * @public
    */
   status?: Status | undefined;
@@ -8313,7 +9320,8 @@ export interface CreateOauth2CredentialProviderResponse {
  */
 export interface DeleteOauth2CredentialProviderRequest {
   /**
-   * <p>The name of the OAuth2 credential provider to delete.</p>
+   * The name of the OAuth2 credential provider to delete.
+   *
    * @public
    */
   name: string | undefined;
@@ -8329,7 +9337,8 @@ export interface DeleteOauth2CredentialProviderResponse {}
  */
 export interface GetOauth2CredentialProviderRequest {
   /**
-   * <p>The name of the OAuth2 credential provider to retrieve.</p>
+   * The name of the OAuth2 credential provider to retrieve.
+   *
    * @public
    */
   name: string | undefined;
@@ -8340,73 +9349,85 @@ export interface GetOauth2CredentialProviderRequest {
  */
 export interface GetOauth2CredentialProviderResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the client secret in Amazon Web Services Secrets Manager.</p>
+   * The Amazon Resource Name (ARN) of the client secret in Amazon Web Services Secrets Manager.
+   *
    * @public
    */
   clientSecretArn: Secret | undefined;
 
   /**
-   * <p>The JSON key used to extract the client secret value from the Amazon Web Services Secrets Manager secret.</p>
+   * The JSON key used to extract the client secret value from the Amazon Web Services Secrets Manager secret.
+   *
    * @public
    */
   clientSecretJsonKey?: string | undefined;
 
   /**
-   * <p>The source type of the client secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in Amazon Web Services Secrets Manager.</p>
+   * The source type of the client secret. Either `MANAGED` if the secret is managed by the service, or `EXTERNAL` if managed by the user in Amazon Web Services Secrets Manager.
+   *
    * @public
    */
   clientSecretSource?: SecretSourceType | undefined;
 
   /**
-   * <p>The name of the OAuth2 credential provider.</p>
+   * The name of the OAuth2 credential provider.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>ARN of the credential provider requested.</p>
+   * ARN of the credential provider requested.
+   *
    * @public
    */
   credentialProviderArn: string | undefined;
 
   /**
-   * <p>The vendor of the OAuth2 credential provider.</p>
+   * The vendor of the OAuth2 credential provider.
+   *
    * @public
    */
   credentialProviderVendor: CredentialProviderVendorType | undefined;
 
   /**
-   * <p>Callback URL to register on the OAuth2 credential provider as an allowed callback URL. This URL is where the OAuth2 authorization server redirects users after they complete the authorization flow.</p>
+   * Callback URL to register on the OAuth2 credential provider as an allowed callback URL. This URL is where the OAuth2 authorization server redirects users after they complete the authorization flow.
+   *
    * @public
    */
   callbackUrl?: string | undefined;
 
   /**
-   * <p>The configuration output for the OAuth2 provider.</p>
+   * The configuration output for the OAuth2 provider.
+   *
    * @public
    */
   oauth2ProviderConfigOutput: Oauth2ProviderConfigOutput | undefined;
 
   /**
-   * <p>The timestamp when the OAuth2 credential provider was created.</p>
+   * The timestamp when the OAuth2 credential provider was created.
+   *
    * @public
    */
   createdTime: Date | undefined;
 
   /**
-   * <p>The timestamp when the OAuth2 credential provider was last updated.</p>
+   * The timestamp when the OAuth2 credential provider was last updated.
+   *
    * @public
    */
   lastUpdatedTime: Date | undefined;
 
   /**
-   * <p>The current status of the OAuth2 credential provider.</p>
+   * The current status of the OAuth2 credential provider.
+   *
    * @public
    */
   status?: Status | undefined;
 
   /**
-   * <p>The reason for failure if the OAuth2 credential provider is in a failed state.</p>
+   * The reason for failure if the OAuth2 credential provider is in a failed state.
+   *
    * @public
    */
   failureReason?: string | undefined;
@@ -8417,49 +9438,57 @@ export interface GetOauth2CredentialProviderResponse {
  */
 export interface ListOauth2CredentialProvidersRequest {
   /**
-   * <p>Pagination token.</p>
+   * Pagination token.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Maximum number of results to return.</p>
+   * Maximum number of results to return.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Contains information about an OAuth2 credential provider.</p>
+ * Contains information about an OAuth2 credential provider.
+ *
  * @public
  */
 export interface Oauth2CredentialProviderItem {
   /**
-   * <p>The name of the OAuth2 credential provider.</p>
+   * The name of the OAuth2 credential provider.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The vendor of the OAuth2 credential provider.</p>
+   * The vendor of the OAuth2 credential provider.
+   *
    * @public
    */
   credentialProviderVendor: CredentialProviderVendorType | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the OAuth2 credential provider.</p>
+   * The Amazon Resource Name (ARN) of the OAuth2 credential provider.
+   *
    * @public
    */
   credentialProviderArn: string | undefined;
 
   /**
-   * <p>The timestamp when the OAuth2 credential provider was created.</p>
+   * The timestamp when the OAuth2 credential provider was created.
+   *
    * @public
    */
   createdTime: Date | undefined;
 
   /**
-   * <p>The timestamp when the OAuth2 credential provider was last updated.</p>
+   * The timestamp when the OAuth2 credential provider was last updated.
+   *
    * @public
    */
   lastUpdatedTime: Date | undefined;
@@ -8470,13 +9499,15 @@ export interface Oauth2CredentialProviderItem {
  */
 export interface ListOauth2CredentialProvidersResponse {
   /**
-   * <p>The list of OAuth2 credential providers.</p>
+   * The list of OAuth2 credential providers.
+   *
    * @public
    */
   credentialProviders: Oauth2CredentialProviderItem[] | undefined;
 
   /**
-   * <p>Pagination token for the next page of results.</p>
+   * Pagination token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -8487,19 +9518,22 @@ export interface ListOauth2CredentialProvidersResponse {
  */
 export interface UpdateOauth2CredentialProviderRequest {
   /**
-   * <p>The name of the OAuth2 credential provider to update.</p>
+   * The name of the OAuth2 credential provider to update.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The vendor of the OAuth2 credential provider.</p>
+   * The vendor of the OAuth2 credential provider.
+   *
    * @public
    */
   credentialProviderVendor: CredentialProviderVendorType | undefined;
 
   /**
-   * <p>The configuration input for the OAuth2 provider.</p>
+   * The configuration input for the OAuth2 provider.
+   *
    * @public
    */
   oauth2ProviderConfigInput: Oauth2ProviderConfigInput | undefined;
@@ -8510,110 +9544,128 @@ export interface UpdateOauth2CredentialProviderRequest {
  */
 export interface UpdateOauth2CredentialProviderResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the client secret in Amazon Web Services Secrets Manager.</p>
+   * The Amazon Resource Name (ARN) of the client secret in Amazon Web Services Secrets Manager.
+   *
    * @public
    */
   clientSecretArn: Secret | undefined;
 
   /**
-   * <p>The JSON key used to extract the client secret value from the Amazon Web Services Secrets Manager secret.</p>
+   * The JSON key used to extract the client secret value from the Amazon Web Services Secrets Manager secret.
+   *
    * @public
    */
   clientSecretJsonKey?: string | undefined;
 
   /**
-   * <p>The source type of the client secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in Amazon Web Services Secrets Manager.</p>
+   * The source type of the client secret. Either `MANAGED` if the secret is managed by the service, or `EXTERNAL` if managed by the user in Amazon Web Services Secrets Manager.
+   *
    * @public
    */
   clientSecretSource?: SecretSourceType | undefined;
 
   /**
-   * <p>The name of the OAuth2 credential provider.</p>
+   * The name of the OAuth2 credential provider.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The vendor of the OAuth2 credential provider.</p>
+   * The vendor of the OAuth2 credential provider.
+   *
    * @public
    */
   credentialProviderVendor: CredentialProviderVendorType | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the OAuth2 credential provider.</p>
+   * The Amazon Resource Name (ARN) of the OAuth2 credential provider.
+   *
    * @public
    */
   credentialProviderArn: string | undefined;
 
   /**
-   * <p>Callback URL to register on the OAuth2 credential provider as an allowed callback URL. This URL is where the OAuth2 authorization server redirects users after they complete the authorization flow.</p>
+   * Callback URL to register on the OAuth2 credential provider as an allowed callback URL. This URL is where the OAuth2 authorization server redirects users after they complete the authorization flow.
+   *
    * @public
    */
   callbackUrl?: string | undefined;
 
   /**
-   * <p>The configuration output for the OAuth2 provider.</p>
+   * The configuration output for the OAuth2 provider.
+   *
    * @public
    */
   oauth2ProviderConfigOutput: Oauth2ProviderConfigOutput | undefined;
 
   /**
-   * <p>The timestamp when the OAuth2 credential provider was created.</p>
+   * The timestamp when the OAuth2 credential provider was created.
+   *
    * @public
    */
   createdTime: Date | undefined;
 
   /**
-   * <p>The timestamp when the OAuth2 credential provider was last updated.</p>
+   * The timestamp when the OAuth2 credential provider was last updated.
+   *
    * @public
    */
   lastUpdatedTime: Date | undefined;
 
   /**
-   * <p>The current status of the updated OAuth2 credential provider.</p>
+   * The current status of the updated OAuth2 credential provider.
+   *
    * @public
    */
   status?: Status | undefined;
 }
 
 /**
- * <p>Configuration for periodic batch evaluation clustering, specifying how often clustering jobs run.</p>
+ * Configuration for periodic batch evaluation clustering, specifying how often clustering jobs run.
+ *
  * @public
  */
 export interface ClusteringConfig {
   /**
-   * <p>The list of frequencies at which clustering batch evaluations are triggered.</p>
+   * The list of frequencies at which clustering batch evaluations are triggered.
+   *
    * @public
    */
   frequencies: ClusteringFrequency[] | undefined;
 }
 
 /**
- * <p> The configuration for reading agent traces from CloudWatch logs as input for online evaluation. </p>
+ * The configuration for reading agent traces from CloudWatch logs as input for online evaluation.
+ *
  * @public
  */
 export interface CloudWatchLogsInputConfig {
   /**
-   * <p> The list of CloudWatch log group names to monitor for agent traces.</p>
+   * The list of CloudWatch log group names to monitor for agent traces.
+   *
    * @public
    */
   logGroupNames?: string[] | undefined;
 
   /**
-   * <p> The list of CloudWatch log group name prefixes to monitor for agent traces. Specify this instead of <code>logGroupNames</code> to match log groups by prefix. Specify either <code>logGroupNames</code> or <code>logGroupNamePrefixes</code>, not both. One of the two is required. </p>
+   * The list of CloudWatch log group name prefixes to monitor for agent traces. Specify this instead of `logGroupNames` to match log groups by prefix. Specify either `logGroupNames` or `logGroupNamePrefixes`, not both. One of the two is required.
+   *
    * @public
    */
   logGroupNamePrefixes?: string[] | undefined;
 
   /**
-   * <p> The list of service names to filter traces within the specified log groups. Used to identify relevant agent sessions. </p>
+   * The list of service names to filter traces within the specified log groups. Used to identify relevant agent sessions.
+   *
    * @public
    */
   serviceNames: string[] | undefined;
 }
 
 /**
- * <p> The configuration that specifies where to read agent traces for online evaluation. </p>
+ * The configuration that specifies where to read agent traces for online evaluation.
+ *
  * @public
  */
 export type DataSourceConfig =
@@ -8625,7 +9677,8 @@ export type DataSourceConfig =
  */
 export namespace DataSourceConfig {
   /**
-   * <p> The CloudWatch logs configuration for reading agent traces from log groups. </p>
+   * The CloudWatch logs configuration for reading agent traces from log groups.
+   *
    * @public
    */
   export interface CloudWatchLogsMember {
@@ -8652,7 +9705,8 @@ export namespace DataSourceConfig {
 }
 
 /**
- * <p> The reference to an evaluator used in online evaluation configurations, containing the evaluator identifier. </p>
+ * The reference to an evaluator used in online evaluation configurations, containing the evaluator identifier.
+ *
  * @public
  */
 export type EvaluatorReference =
@@ -8664,7 +9718,8 @@ export type EvaluatorReference =
  */
 export namespace EvaluatorReference {
   /**
-   * <p> The unique identifier of the evaluator. Can reference builtin evaluators (e.g., Builtin.Helpfulness) or custom evaluators. </p>
+   * The unique identifier of the evaluator. Can reference builtin evaluators (e.g., Builtin.Helpfulness) or custom evaluators.
+   *
    * @public
    */
   export interface EvaluatorIdMember {
@@ -8691,55 +9746,67 @@ export namespace EvaluatorReference {
 }
 
 /**
- * <p>A reference to an insight analysis to run against sessions during evaluation. Insights provide deeper analysis beyond individual evaluator scores, including failure detection, user intent clustering, and execution summarization.</p>
+ * A reference to an insight analysis to run against sessions during evaluation. Insights provide deeper analysis beyond individual evaluator scores, including failure detection, user intent clustering, and execution summarization.
+ *
  * @public
  */
 export interface Insight {
   /**
-   * <p>The unique identifier of the insight to run.</p>
+   * The unique identifier of the insight to run.
+   *
    * @public
    */
   insightId: string | undefined;
 }
 
 /**
- * <p> The configuration for writing evaluation results to CloudWatch logs with embedded metric format (EMF) for monitoring. </p>
+ * The configuration for writing evaluation results to CloudWatch logs with embedded metric format (EMF) for monitoring.
+ *
  * @public
  */
 export interface CloudWatchOutputConfig {
   /**
-   * <p> The name of the CloudWatch log group where evaluation results will be written. An existing log group is used as-is; otherwise the service creates it, which requires the evaluation execution role to grant <code>logs:CreateLogGroup</code> on the log group. Don't specify this value when <code>resultDestination</code> is <code>SOURCE_LOG_GROUP</code>. The name can't be under the service-reserved <code>/aws/bedrock-agentcore/evaluations/</code> namespace, apart from this configuration's own service-managed default group. </p>
+   * The name of the CloudWatch log group where evaluation results will be written. An existing log group is used as-is; otherwise the service creates it, which requires the evaluation execution role to grant `logs:CreateLogGroup` on the log group. Don't specify this value when `resultDestination` is `SOURCE_LOG_GROUP`. The name can't be under the service-reserved `/aws/bedrock-agentcore/evaluations/` namespace, apart from this configuration's own service-managed default group.
+   *
    * @public
    */
   logGroupName?: string | undefined;
 
   /**
-   * <p> The CloudWatch metrics namespace where evaluation result metrics are published. If you omit this value, the service publishes metrics to <code>Bedrock-AgentCore/Evaluations</code>. This value can't begin with <code>AWS/</code>. </p>
+   * The CloudWatch metrics namespace where evaluation result metrics are published. If you omit this value, the service publishes metrics to `Bedrock-AgentCore/Evaluations`. This value can't begin with `AWS/`.
+   *
    * @public
    */
   metricsNamespace?: string | undefined;
 
   /**
-   * <p> The destination where evaluation results are written. Valid values: </p> <ul> <li> <p> <code>DEDICATED_LOG_GROUP</code> (default) – Writes results to a dedicated result log group.</p> </li> <li> <p> <code>SOURCE_LOG_GROUP</code> – Writes results back to the log group that the agent traces were read from. If you use this value, don't specify <code>logGroupName</code>.</p> </li> </ul>
+   * The destination where evaluation results are written. Valid values:
+   *
+   * - `DEDICATED_LOG_GROUP` (default) – Writes results to a dedicated result log group.
+   * - `SOURCE_LOG_GROUP` – Writes results back to the log group that the agent traces were read from. If you use this value, don't specify `logGroupName`.
+   *
    * @public
    */
   resultDestination?: ResultDestination | undefined;
 }
 
 /**
- * <p> The configuration that specifies where evaluation results should be written for monitoring and analysis. </p>
+ * The configuration that specifies where evaluation results should be written for monitoring and analysis.
+ *
  * @public
  */
 export interface OutputConfig {
   /**
-   * <p> The CloudWatch configuration for writing evaluation results to CloudWatch logs with embedded metric format. </p>
+   * The CloudWatch configuration for writing evaluation results to CloudWatch logs with embedded metric format.
+   *
    * @public
    */
   cloudWatchConfig: CloudWatchOutputConfig | undefined;
 }
 
 /**
- * <p> The value used in filter comparisons, supporting different data types for flexible filtering criteria. </p>
+ * The value used in filter comparisons, supporting different data types for flexible filtering criteria.
+ *
  * @public
  */
 export type FilterValue =
@@ -8753,7 +9820,8 @@ export type FilterValue =
  */
 export namespace FilterValue {
   /**
-   * <p> The string value for text-based filtering. </p>
+   * The string value for text-based filtering.
+   *
    * @public
    */
   export interface StringValueMember {
@@ -8764,7 +9832,8 @@ export namespace FilterValue {
   }
 
   /**
-   * <p> The numeric value for numerical filtering and comparisons. </p>
+   * The numeric value for numerical filtering and comparisons.
+   *
    * @public
    */
   export interface DoubleValueMember {
@@ -8775,7 +9844,8 @@ export namespace FilterValue {
   }
 
   /**
-   * <p> The boolean value for true/false filtering conditions. </p>
+   * The boolean value for true/false filtering conditions.
+   *
    * @public
    */
   export interface BooleanValueMember {
@@ -8808,72 +9878,84 @@ export namespace FilterValue {
 }
 
 /**
- * <p> The filter that applies conditions to agent traces during online evaluation to determine which traces should be evaluated. </p>
+ * The filter that applies conditions to agent traces during online evaluation to determine which traces should be evaluated.
+ *
  * @public
  */
 export interface Filter {
   /**
-   * <p> The key or field name to filter on within the agent trace data. </p>
+   * The key or field name to filter on within the agent trace data.
+   *
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p> The comparison operator to use for filtering. </p>
+   * The comparison operator to use for filtering.
+   *
    * @public
    */
   operator: FilterOperator | undefined;
 
   /**
-   * <p> The value to compare against using the specified operator. </p>
+   * The value to compare against using the specified operator.
+   *
    * @public
    */
   value: FilterValue | undefined;
 }
 
 /**
- * <p> The configuration that controls what percentage of agent traces are sampled for evaluation to manage evaluation volume and costs. </p>
+ * The configuration that controls what percentage of agent traces are sampled for evaluation to manage evaluation volume and costs.
+ *
  * @public
  */
 export interface SamplingConfig {
   /**
-   * <p> The percentage of agent traces to sample for evaluation, ranging from 0.01% to 100%. </p>
+   * The percentage of agent traces to sample for evaluation, ranging from 0.01% to 100%.
+   *
    * @public
    */
   samplingPercentage: number | undefined;
 }
 
 /**
- * <p> The configuration that defines how agent sessions are detected and when they are considered complete for evaluation. </p>
+ * The configuration that defines how agent sessions are detected and when they are considered complete for evaluation.
+ *
  * @public
  */
 export interface SessionConfig {
   /**
-   * <p> The number of minutes of inactivity after which an agent session is considered complete and ready for evaluation. Default is 15 minutes. </p>
+   * The number of minutes of inactivity after which an agent session is considered complete and ready for evaluation. Default is 15 minutes.
+   *
    * @public
    */
   sessionTimeoutMinutes: number | undefined;
 }
 
 /**
- * <p> The evaluation rule that defines sampling configuration, filtering criteria, and session detection settings for online evaluation. </p>
+ * The evaluation rule that defines sampling configuration, filtering criteria, and session detection settings for online evaluation.
+ *
  * @public
  */
 export interface Rule {
   /**
-   * <p> The sampling configuration that determines what percentage of agent traces to evaluate. </p>
+   * The sampling configuration that determines what percentage of agent traces to evaluate.
+   *
    * @public
    */
   samplingConfig: SamplingConfig | undefined;
 
   /**
-   * <p> The list of filters that determine which agent traces should be included in the evaluation based on trace properties. </p>
+   * The list of filters that determine which agent traces should be included in the evaluation based on trace properties.
+   *
    * @public
    */
   filters?: Filter[] | undefined;
 
   /**
-   * <p> The session configuration that defines timeout settings for detecting when agent sessions are complete and ready for evaluation. </p>
+   * The session configuration that defines timeout settings for detecting when agent sessions are complete and ready for evaluation.
+   *
    * @public
    */
   sessionConfig?: SessionConfig | undefined;
@@ -8884,73 +9966,85 @@ export interface Rule {
  */
 export interface CreateOnlineEvaluationConfigRequest {
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p> The name of the online evaluation configuration. Must be unique within your account. </p>
+   * The name of the online evaluation configuration. Must be unique within your account.
+   *
    * @public
    */
   onlineEvaluationConfigName: string | undefined;
 
   /**
-   * <p> The description of the online evaluation configuration that explains its monitoring purpose and scope. </p>
+   * The description of the online evaluation configuration that explains its monitoring purpose and scope.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p> The evaluation rule that defines sampling configuration, filters, and session detection settings for the online evaluation. </p>
+   * The evaluation rule that defines sampling configuration, filters, and session detection settings for the online evaluation.
+   *
    * @public
    */
   rule: Rule | undefined;
 
   /**
-   * <p> The data source configuration that specifies CloudWatch log groups and service names to monitor for agent traces. </p>
+   * The data source configuration that specifies CloudWatch log groups and service names to monitor for agent traces.
+   *
    * @public
    */
   dataSourceConfig: DataSourceConfig | undefined;
 
   /**
-   * <p> The list of evaluators to apply during online evaluation. Can include both built-in evaluators and custom evaluators created with <code>CreateEvaluator</code>. </p>
+   * The list of evaluators to apply during online evaluation. Can include both built-in evaluators and custom evaluators created with `CreateEvaluator`.
+   *
    * @public
    */
   evaluators?: EvaluatorReference[] | undefined;
 
   /**
-   * <p>The list of insight types to run against agent sessions.</p>
+   * The list of insight types to run against agent sessions.
+   *
    * @public
    */
   insights?: Insight[] | undefined;
 
   /**
-   * <p>Configuration for periodic batch evaluation clustering of insight results.</p>
+   * Configuration for periodic batch evaluation clustering of insight results.
+   *
    * @public
    */
   clusteringConfig?: ClusteringConfig | undefined;
 
   /**
-   * <p> The configuration that specifies where evaluation results should be written for monitoring and analysis. </p>
+   * The configuration that specifies where evaluation results should be written for monitoring and analysis.
+   *
    * @public
    */
   outputConfig?: OutputConfig | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the IAM role that grants permissions to read from CloudWatch logs, write evaluation results, and invoke Amazon Bedrock models for evaluation. If the configuration references evaluators encrypted with a customer managed KMS key, this role must also have <code>kms:Decrypt</code> permission on the KMS key. The service validates this permission at configuration creation time. For more information, see <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/evaluations-encryption.html">Encryption at rest for AgentCore Evaluations</a>. </p>
+   * The Amazon Resource Name (ARN) of the IAM role that grants permissions to read from CloudWatch logs, write evaluation results, and invoke Amazon Bedrock models for evaluation. If the configuration references evaluators encrypted with a customer managed KMS key, this role must also have `kms:Decrypt` permission on the KMS key. The service validates this permission at configuration creation time. For more information, see [Encryption at rest for AgentCore Evaluations](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/evaluations-encryption.html).
+   *
    * @public
    */
   evaluationExecutionRoleArn: string | undefined;
 
   /**
-   * <p> Whether to enable the online evaluation configuration immediately upon creation. If true, evaluation begins automatically. </p>
+   * Whether to enable the online evaluation configuration immediately upon creation. If true, evaluation begins automatically.
+   *
    * @public
    */
   enableOnCreate: boolean | undefined;
 
   /**
-   * <p>A map of tag keys and values to assign to an AgentCore Online Evaluation Config. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
+   * A map of tag keys and values to assign to an AgentCore Online Evaluation Config. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -8961,43 +10055,50 @@ export interface CreateOnlineEvaluationConfigRequest {
  */
 export interface CreateOnlineEvaluationConfigResponse {
   /**
-   * <p> The Amazon Resource Name (ARN) of the created online evaluation configuration. </p>
+   * The Amazon Resource Name (ARN) of the created online evaluation configuration.
+   *
    * @public
    */
   onlineEvaluationConfigArn: string | undefined;
 
   /**
-   * <p> The unique identifier of the created online evaluation configuration. </p>
+   * The unique identifier of the created online evaluation configuration.
+   *
    * @public
    */
   onlineEvaluationConfigId: string | undefined;
 
   /**
-   * <p> The timestamp when the online evaluation configuration was created. </p>
+   * The timestamp when the online evaluation configuration was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p> The configuration that specifies where evaluation results should be written for monitoring and analysis. </p>
+   * The configuration that specifies where evaluation results should be written for monitoring and analysis.
+   *
    * @public
    */
   outputConfig?: OutputConfig | undefined;
 
   /**
-   * <p> The status of the online evaluation configuration. </p>
+   * The status of the online evaluation configuration.
+   *
    * @public
    */
   status: OnlineEvaluationConfigStatus | undefined;
 
   /**
-   * <p> The execution status indicating whether the online evaluation is currently running. </p>
+   * The execution status indicating whether the online evaluation is currently running.
+   *
    * @public
    */
   executionStatus: OnlineEvaluationExecutionStatus | undefined;
 
   /**
-   * <p> The reason for failure if the online evaluation configuration creation or execution failed. </p>
+   * The reason for failure if the online evaluation configuration creation or execution failed.
+   *
    * @public
    */
   failureReason?: string | undefined;
@@ -9008,7 +10109,8 @@ export interface CreateOnlineEvaluationConfigResponse {
  */
 export interface DeleteOnlineEvaluationConfigRequest {
   /**
-   * <p> The unique identifier of the online evaluation configuration to delete. </p>
+   * The unique identifier of the online evaluation configuration to delete.
+   *
    * @public
    */
   onlineEvaluationConfigId: string | undefined;
@@ -9019,19 +10121,22 @@ export interface DeleteOnlineEvaluationConfigRequest {
  */
 export interface DeleteOnlineEvaluationConfigResponse {
   /**
-   * <p> The Amazon Resource Name (ARN) of the deleted online evaluation configuration. </p>
+   * The Amazon Resource Name (ARN) of the deleted online evaluation configuration.
+   *
    * @public
    */
   onlineEvaluationConfigArn: string | undefined;
 
   /**
-   * <p> The unique identifier of the deleted online evaluation configuration. </p>
+   * The unique identifier of the deleted online evaluation configuration.
+   *
    * @public
    */
   onlineEvaluationConfigId: string | undefined;
 
   /**
-   * <p> The status of the online evaluation configuration deletion operation. </p>
+   * The status of the online evaluation configuration deletion operation.
+   *
    * @public
    */
   status: OnlineEvaluationConfigStatus | undefined;
@@ -9042,7 +10147,8 @@ export interface DeleteOnlineEvaluationConfigResponse {
  */
 export interface GetOnlineEvaluationConfigRequest {
   /**
-   * <p> The unique identifier of the online evaluation configuration to retrieve. </p>
+   * The unique identifier of the online evaluation configuration to retrieve.
+   *
    * @public
    */
   onlineEvaluationConfigId: string | undefined;
@@ -9053,97 +10159,113 @@ export interface GetOnlineEvaluationConfigRequest {
  */
 export interface GetOnlineEvaluationConfigResponse {
   /**
-   * <p> The Amazon Resource Name (ARN) of the online evaluation configuration. </p>
+   * The Amazon Resource Name (ARN) of the online evaluation configuration.
+   *
    * @public
    */
   onlineEvaluationConfigArn: string | undefined;
 
   /**
-   * <p> The unique identifier of the online evaluation configuration. </p>
+   * The unique identifier of the online evaluation configuration.
+   *
    * @public
    */
   onlineEvaluationConfigId: string | undefined;
 
   /**
-   * <p> The name of the online evaluation configuration. </p>
+   * The name of the online evaluation configuration.
+   *
    * @public
    */
   onlineEvaluationConfigName: string | undefined;
 
   /**
-   * <p> The description of the online evaluation configuration. </p>
+   * The description of the online evaluation configuration.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p> The evaluation rule containing sampling configuration, filters, and session settings. </p>
+   * The evaluation rule containing sampling configuration, filters, and session settings.
+   *
    * @public
    */
   rule: Rule | undefined;
 
   /**
-   * <p> The data source configuration specifying CloudWatch log groups and service names to monitor. </p>
+   * The data source configuration specifying CloudWatch log groups and service names to monitor.
+   *
    * @public
    */
   dataSourceConfig: DataSourceConfig | undefined;
 
   /**
-   * <p> The list of evaluators applied during online evaluation. </p>
+   * The list of evaluators applied during online evaluation.
+   *
    * @public
    */
   evaluators?: EvaluatorReference[] | undefined;
 
   /**
-   * <p>The list of insight types configured for this evaluation.</p>
+   * The list of insight types configured for this evaluation.
+   *
    * @public
    */
   insights?: Insight[] | undefined;
 
   /**
-   * <p>The clustering configuration for periodic batch evaluation.</p>
+   * The clustering configuration for periodic batch evaluation.
+   *
    * @public
    */
   clusteringConfig?: ClusteringConfig | undefined;
 
   /**
-   * <p> The output configuration specifying where evaluation results are written. </p>
+   * The output configuration specifying where evaluation results are written.
+   *
    * @public
    */
   outputConfig?: OutputConfig | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the IAM role used for evaluation execution. </p>
+   * The Amazon Resource Name (ARN) of the IAM role used for evaluation execution.
+   *
    * @public
    */
   evaluationExecutionRoleArn?: string | undefined;
 
   /**
-   * <p> The status of the online evaluation configuration. </p>
+   * The status of the online evaluation configuration.
+   *
    * @public
    */
   status: OnlineEvaluationConfigStatus | undefined;
 
   /**
-   * <p> The execution status indicating whether the online evaluation is currently running. </p>
+   * The execution status indicating whether the online evaluation is currently running.
+   *
    * @public
    */
   executionStatus: OnlineEvaluationExecutionStatus | undefined;
 
   /**
-   * <p> The timestamp when the online evaluation configuration was created. </p>
+   * The timestamp when the online evaluation configuration was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p> The timestamp when the online evaluation configuration was last updated. </p>
+   * The timestamp when the online evaluation configuration was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p> The reason for failure if the online evaluation configuration execution failed. </p>
+   * The reason for failure if the online evaluation configuration execution failed.
+   *
    * @public
    */
   failureReason?: string | undefined;
@@ -9154,85 +10276,99 @@ export interface GetOnlineEvaluationConfigResponse {
  */
 export interface ListOnlineEvaluationConfigsRequest {
   /**
-   * <p> The pagination token from a previous request to retrieve the next page of results. </p>
+   * The pagination token from a previous request to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p> The maximum number of online evaluation configurations to return in a single response. </p>
+   * The maximum number of online evaluation configurations to return in a single response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p> The summary information about an online evaluation configuration, including basic metadata and execution status. </p>
+ * The summary information about an online evaluation configuration, including basic metadata and execution status.
+ *
  * @public
  */
 export interface OnlineEvaluationConfigSummary {
   /**
-   * <p> The Amazon Resource Name (ARN) of the online evaluation configuration. </p>
+   * The Amazon Resource Name (ARN) of the online evaluation configuration.
+   *
    * @public
    */
   onlineEvaluationConfigArn: string | undefined;
 
   /**
-   * <p> The unique identifier of the online evaluation configuration. </p>
+   * The unique identifier of the online evaluation configuration.
+   *
    * @public
    */
   onlineEvaluationConfigId: string | undefined;
 
   /**
-   * <p> The name of the online evaluation configuration. </p>
+   * The name of the online evaluation configuration.
+   *
    * @public
    */
   onlineEvaluationConfigName: string | undefined;
 
   /**
-   * <p> The description of the online evaluation configuration. </p>
+   * The description of the online evaluation configuration.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p> The status of the online evaluation configuration. </p>
+   * The status of the online evaluation configuration.
+   *
    * @public
    */
   status: OnlineEvaluationConfigStatus | undefined;
 
   /**
-   * <p> The execution status indicating whether the online evaluation is currently running. </p>
+   * The execution status indicating whether the online evaluation is currently running.
+   *
    * @public
    */
   executionStatus: OnlineEvaluationExecutionStatus | undefined;
 
   /**
-   * <p> The timestamp when the online evaluation configuration was created. </p>
+   * The timestamp when the online evaluation configuration was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p> The timestamp when the online evaluation configuration was last updated. </p>
+   * The timestamp when the online evaluation configuration was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p> The reason for failure if the online evaluation configuration execution failed. </p>
+   * The reason for failure if the online evaluation configuration execution failed.
+   *
    * @public
    */
   failureReason?: string | undefined;
 
   /**
-   * <p>The list of insight types configured for this evaluation.</p>
+   * The list of insight types configured for this evaluation.
+   *
    * @public
    */
   insights?: Insight[] | undefined;
 
   /**
-   * <p>The clustering configuration for periodic batch evaluation.</p>
+   * The clustering configuration for periodic batch evaluation.
+   *
    * @public
    */
   clusteringConfig?: ClusteringConfig | undefined;
@@ -9243,13 +10379,15 @@ export interface OnlineEvaluationConfigSummary {
  */
 export interface ListOnlineEvaluationConfigsResponse {
   /**
-   * <p> The list of online evaluation configuration summaries containing basic information about each configuration. </p>
+   * The list of online evaluation configuration summaries containing basic information about each configuration.
+   *
    * @public
    */
   onlineEvaluationConfigs: OnlineEvaluationConfigSummary[] | undefined;
 
   /**
-   * <p> The pagination token to use in a subsequent request to retrieve the next page of results. </p>
+   * The pagination token to use in a subsequent request to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -9260,67 +10398,78 @@ export interface ListOnlineEvaluationConfigsResponse {
  */
 export interface UpdateOnlineEvaluationConfigRequest {
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p> The unique identifier of the online evaluation configuration to update. </p>
+   * The unique identifier of the online evaluation configuration to update.
+   *
    * @public
    */
   onlineEvaluationConfigId: string | undefined;
 
   /**
-   * <p> The updated description of the online evaluation configuration. </p>
+   * The updated description of the online evaluation configuration.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p> The updated evaluation rule containing sampling configuration, filters, and session settings. </p>
+   * The updated evaluation rule containing sampling configuration, filters, and session settings.
+   *
    * @public
    */
   rule?: Rule | undefined;
 
   /**
-   * <p> The updated data source configuration specifying CloudWatch log groups and service names to monitor. </p>
+   * The updated data source configuration specifying CloudWatch log groups and service names to monitor.
+   *
    * @public
    */
   dataSourceConfig?: DataSourceConfig | undefined;
 
   /**
-   * <p> The updated list of evaluators to apply during online evaluation. </p>
+   * The updated list of evaluators to apply during online evaluation.
+   *
    * @public
    */
   evaluators?: EvaluatorReference[] | undefined;
 
   /**
-   * <p>The updated list of insight types to run against agent sessions.</p>
+   * The updated list of insight types to run against agent sessions.
+   *
    * @public
    */
   insights?: Insight[] | undefined;
 
   /**
-   * <p>The updated clustering configuration for periodic batch evaluation.</p>
+   * The updated clustering configuration for periodic batch evaluation.
+   *
    * @public
    */
   clusteringConfig?: ClusteringConfig | undefined;
 
   /**
-   * <p> The configuration that specifies where evaluation results should be written for monitoring and analysis. </p>
+   * The configuration that specifies where evaluation results should be written for monitoring and analysis.
+   *
    * @public
    */
   outputConfig?: OutputConfig | undefined;
 
   /**
-   * <p> The updated Amazon Resource Name (ARN) of the IAM role used for evaluation execution. </p>
+   * The updated Amazon Resource Name (ARN) of the IAM role used for evaluation execution.
+   *
    * @public
    */
   evaluationExecutionRoleArn?: string | undefined;
 
   /**
-   * <p> The updated execution status to enable or disable the online evaluation. </p>
+   * The updated execution status to enable or disable the online evaluation.
+   *
    * @public
    */
   executionStatus?: OnlineEvaluationExecutionStatus | undefined;
@@ -9331,146 +10480,170 @@ export interface UpdateOnlineEvaluationConfigRequest {
  */
 export interface UpdateOnlineEvaluationConfigResponse {
   /**
-   * <p> The Amazon Resource Name (ARN) of the updated online evaluation configuration. </p>
+   * The Amazon Resource Name (ARN) of the updated online evaluation configuration.
+   *
    * @public
    */
   onlineEvaluationConfigArn: string | undefined;
 
   /**
-   * <p> The unique identifier of the updated online evaluation configuration. </p>
+   * The unique identifier of the updated online evaluation configuration.
+   *
    * @public
    */
   onlineEvaluationConfigId: string | undefined;
 
   /**
-   * <p> The timestamp when the online evaluation configuration was last updated. </p>
+   * The timestamp when the online evaluation configuration was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p> The status of the online evaluation configuration. </p>
+   * The status of the online evaluation configuration.
+   *
    * @public
    */
   status: OnlineEvaluationConfigStatus | undefined;
 
   /**
-   * <p> The execution status indicating whether the online evaluation is currently running. </p>
+   * The execution status indicating whether the online evaluation is currently running.
+   *
    * @public
    */
   executionStatus: OnlineEvaluationExecutionStatus | undefined;
 
   /**
-   * <p> The reason for failure if the online evaluation configuration update or execution failed. </p>
+   * The reason for failure if the online evaluation configuration update or execution failed.
+   *
    * @public
    */
   failureReason?: string | undefined;
 }
 
 /**
- * <p>Coinbase CDP configuration — credentials provided by Coinbase Developer Platform.</p>
+ * Coinbase CDP configuration — credentials provided by Coinbase Developer Platform.
+ *
  * @public
  */
 export interface CoinbaseCdpConfigurationInput {
   /**
-   * <p>The API key identifier provided by Coinbase Developer Platform.</p>
+   * The API key identifier provided by Coinbase Developer Platform.
+   *
    * @public
    */
   apiKeyId: string | undefined;
 
   /**
-   * <p>The API key secret provided by Coinbase Developer Platform.</p>
+   * The API key secret provided by Coinbase Developer Platform.
+   *
    * @public
    */
   apiKeySecret?: string | undefined;
 
   /**
-   * <p>The source type of the API key secret for the Coinbase Developer Platform. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
+   * The source type of the API key secret for the Coinbase Developer Platform. Use `MANAGED` if the secret is managed by the service, or `EXTERNAL` if you manage the secret yourself in Amazon Web Services Secrets Manager.
+   *
    * @public
    */
   apiKeySecretSource?: SecretSourceType | undefined;
 
   /**
-   * <p>A reference to the Amazon Web Services Secrets Manager secret that stores the API key secret. This includes the secret ID and the JSON key used to extract the API key secret value from the secret. Required when <code>apiKeySecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * A reference to the Amazon Web Services Secrets Manager secret that stores the API key secret. This includes the secret ID and the JSON key used to extract the API key secret value from the secret. Required when `apiKeySecretSource` is set to `EXTERNAL`.
+   *
    * @public
    */
   apiKeySecretConfig?: SecretReference | undefined;
 
   /**
-   * <p>The wallet secret provided by Coinbase Developer Platform.</p>
+   * The wallet secret provided by Coinbase Developer Platform.
+   *
    * @public
    */
   walletSecret?: string | undefined;
 
   /**
-   * <p>The source type of the wallet secret for the Coinbase Developer Platform. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
+   * The source type of the wallet secret for the Coinbase Developer Platform. Use `MANAGED` if the secret is managed by the service, or `EXTERNAL` if you manage the secret yourself in Amazon Web Services Secrets Manager.
+   *
    * @public
    */
   walletSecretSource?: SecretSourceType | undefined;
 
   /**
-   * <p>A reference to the Amazon Web Services Secrets Manager secret that stores the wallet secret. This includes the secret ID and the JSON key used to extract the wallet secret value from the secret. Required when <code>walletSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * A reference to the Amazon Web Services Secrets Manager secret that stores the wallet secret. This includes the secret ID and the JSON key used to extract the wallet secret value from the secret. Required when `walletSecretSource` is set to `EXTERNAL`.
+   *
    * @public
    */
   walletSecretConfig?: SecretReference | undefined;
 }
 
 /**
- * <p>Stripe Privy configuration — credentials provided by Stripe and Privy.</p>
+ * Stripe Privy configuration — credentials provided by Stripe and Privy.
+ *
  * @public
  */
 export interface StripePrivyConfigurationInput {
   /**
-   * <p>The app ID provided by Privy.</p>
+   * The app ID provided by Privy.
+   *
    * @public
    */
   appId: string | undefined;
 
   /**
-   * <p>The app secret provided by Privy.</p>
+   * The app secret provided by Privy.
+   *
    * @public
    */
   appSecret?: string | undefined;
 
   /**
-   * <p>The source type of the app secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
+   * The source type of the app secret. Use `MANAGED` if the secret is managed by the service, or `EXTERNAL` if you manage the secret yourself in Amazon Web Services Secrets Manager.
+   *
    * @public
    */
   appSecretSource?: SecretSourceType | undefined;
 
   /**
-   * <p>A reference to the Amazon Web Services Secrets Manager secret that stores the app secret. This includes the secret ID and the JSON key used to extract the app secret value from the secret. Required when <code>appSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * A reference to the Amazon Web Services Secrets Manager secret that stores the app secret. This includes the secret ID and the JSON key used to extract the app secret value from the secret. Required when `appSecretSource` is set to `EXTERNAL`.
+   *
    * @public
    */
   appSecretConfig?: SecretReference | undefined;
 
   /**
-   * <p>The authorization private key for the Stripe Privy integration.</p>
+   * The authorization private key for the Stripe Privy integration.
+   *
    * @public
    */
   authorizationPrivateKey?: string | undefined;
 
   /**
-   * <p>The source type of the authorization private key. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
+   * The source type of the authorization private key. Use `MANAGED` if the secret is managed by the service, or `EXTERNAL` if you manage the secret yourself in Amazon Web Services Secrets Manager.
+   *
    * @public
    */
   authorizationPrivateKeySource?: SecretSourceType | undefined;
 
   /**
-   * <p>A reference to the Amazon Web Services Secrets Manager secret that stores the authorization private key. This includes the secret ID and the JSON key used to extract the authorization private key value from the secret. Required when <code>authorizationPrivateKeySource</code> is set to <code>EXTERNAL</code>.</p>
+   * A reference to the Amazon Web Services Secrets Manager secret that stores the authorization private key. This includes the secret ID and the JSON key used to extract the authorization private key value from the secret. Required when `authorizationPrivateKeySource` is set to `EXTERNAL`.
+   *
    * @public
    */
   authorizationPrivateKeyConfig?: SecretReference | undefined;
 
   /**
-   * <p>The authorization ID for the Stripe Privy integration.</p>
+   * The authorization ID for the Stripe Privy integration.
+   *
    * @public
    */
   authorizationId: string | undefined;
 }
 
 /**
- * <p>Provider configuration input — contains secrets for creation and update. Varies by vendor type.</p>
+ * Provider configuration input — contains secrets for creation and update. Varies by vendor type.
+ *
  * @public
  */
 export type PaymentProviderConfigurationInput =
@@ -9483,7 +10656,8 @@ export type PaymentProviderConfigurationInput =
  */
 export namespace PaymentProviderConfigurationInput {
   /**
-   * <p>The Coinbase CDP configuration.</p>
+   * The Coinbase CDP configuration.
+   *
    * @public
    */
   export interface CoinbaseCdpConfigurationMember {
@@ -9493,7 +10667,8 @@ export namespace PaymentProviderConfigurationInput {
   }
 
   /**
-   * <p>The Stripe Privy configuration.</p>
+   * The Stripe Privy configuration.
+   *
    * @public
    */
   export interface StripePrivyConfigurationMember {
@@ -9527,134 +10702,156 @@ export namespace PaymentProviderConfigurationInput {
  */
 export interface CreatePaymentCredentialProviderRequest {
   /**
-   * <p>Unique name for the payment credential provider.</p>
+   * Unique name for the payment credential provider.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The vendor type for the payment credential provider (e.g., CoinbaseCDP, StripePrivy).</p>
+   * The vendor type for the payment credential provider (e.g., CoinbaseCDP, StripePrivy).
+   *
    * @public
    */
   credentialProviderVendor: PaymentCredentialProviderVendorType | undefined;
 
   /**
-   * <p>Configuration specific to the vendor, including API credentials.</p>
+   * Configuration specific to the vendor, including API credentials.
+   *
    * @public
    */
   providerConfigurationInput: PaymentProviderConfigurationInput | undefined;
 
   /**
-   * <p>Optional tags for resource organization.</p>
+   * Optional tags for resource organization.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Coinbase CDP configuration output with secret ARNs.</p>
+ * Coinbase CDP configuration output with secret ARNs.
+ *
  * @public
  */
 export interface CoinbaseCdpConfigurationOutput {
   /**
-   * <p>The API key identifier provided by Coinbase Developer Platform.</p>
+   * The API key identifier provided by Coinbase Developer Platform.
+   *
    * @public
    */
   apiKeyId: string | undefined;
 
   /**
-   * <p>Contains information about a secret in Amazon Web Services Secrets Manager.</p>
+   * Contains information about a secret in Amazon Web Services Secrets Manager.
+   *
    * @public
    */
   apiKeySecretArn: Secret | undefined;
 
   /**
-   * <p>The JSON key used to extract the API key secret value from the Amazon Web Services Secrets Manager secret.</p>
+   * The JSON key used to extract the API key secret value from the Amazon Web Services Secrets Manager secret.
+   *
    * @public
    */
   apiKeySecretJsonKey?: string | undefined;
 
   /**
-   * <p>The source type of the API key secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in Amazon Web Services Secrets Manager.</p>
+   * The source type of the API key secret. Either `MANAGED` if the secret is managed by the service, or `EXTERNAL` if managed by the user in Amazon Web Services Secrets Manager.
+   *
    * @public
    */
   apiKeySecretSource?: SecretSourceType | undefined;
 
   /**
-   * <p>Contains information about a secret in Amazon Web Services Secrets Manager.</p>
+   * Contains information about a secret in Amazon Web Services Secrets Manager.
+   *
    * @public
    */
   walletSecretArn: Secret | undefined;
 
   /**
-   * <p>The JSON key used to extract the wallet secret value from the Amazon Web Services Secrets Manager secret.</p>
+   * The JSON key used to extract the wallet secret value from the Amazon Web Services Secrets Manager secret.
+   *
    * @public
    */
   walletSecretJsonKey?: string | undefined;
 
   /**
-   * <p>The source type of the wallet secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in Amazon Web Services Secrets Manager.</p>
+   * The source type of the wallet secret. Either `MANAGED` if the secret is managed by the service, or `EXTERNAL` if managed by the user in Amazon Web Services Secrets Manager.
+   *
    * @public
    */
   walletSecretSource?: SecretSourceType | undefined;
 }
 
 /**
- * <p>Stripe Privy configuration output with secret ARNs.</p>
+ * Stripe Privy configuration output with secret ARNs.
+ *
  * @public
  */
 export interface StripePrivyConfigurationOutput {
   /**
-   * <p>The app ID provided by Privy.</p>
+   * The app ID provided by Privy.
+   *
    * @public
    */
   appId: string | undefined;
 
   /**
-   * <p>Contains information about a secret in Amazon Web Services Secrets Manager.</p>
+   * Contains information about a secret in Amazon Web Services Secrets Manager.
+   *
    * @public
    */
   appSecretArn: Secret | undefined;
 
   /**
-   * <p>The JSON key used to extract the app secret value from the Amazon Web Services Secrets Manager secret.</p>
+   * The JSON key used to extract the app secret value from the Amazon Web Services Secrets Manager secret.
+   *
    * @public
    */
   appSecretJsonKey?: string | undefined;
 
   /**
-   * <p>The source type of the app secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in Amazon Web Services Secrets Manager.</p>
+   * The source type of the app secret. Either `MANAGED` if the secret is managed by the service, or `EXTERNAL` if managed by the user in Amazon Web Services Secrets Manager.
+   *
    * @public
    */
   appSecretSource?: SecretSourceType | undefined;
 
   /**
-   * <p>Contains information about a secret in Amazon Web Services Secrets Manager.</p>
+   * Contains information about a secret in Amazon Web Services Secrets Manager.
+   *
    * @public
    */
   authorizationPrivateKeyArn: Secret | undefined;
 
   /**
-   * <p>The JSON key used to extract the authorization private key value from the Amazon Web Services Secrets Manager secret.</p>
+   * The JSON key used to extract the authorization private key value from the Amazon Web Services Secrets Manager secret.
+   *
    * @public
    */
   authorizationPrivateKeyJsonKey?: string | undefined;
 
   /**
-   * <p>The source type of the authorization private key. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in Amazon Web Services Secrets Manager.</p>
+   * The source type of the authorization private key. Either `MANAGED` if the secret is managed by the service, or `EXTERNAL` if managed by the user in Amazon Web Services Secrets Manager.
+   *
    * @public
    */
   authorizationPrivateKeySource?: SecretSourceType | undefined;
 
   /**
-   * <p>The authorization ID for the Stripe Privy integration.</p>
+   * The authorization ID for the Stripe Privy integration.
+   *
    * @public
    */
   authorizationId: string | undefined;
 }
 
 /**
- * <p>Provider configuration output — no raw secrets, only ARNs. Varies by vendor type.</p>
+ * Provider configuration output — no raw secrets, only ARNs. Varies by vendor type.
+ *
  * @public
  */
 export type PaymentProviderConfigurationOutput =
@@ -9667,7 +10864,8 @@ export type PaymentProviderConfigurationOutput =
  */
 export namespace PaymentProviderConfigurationOutput {
   /**
-   * <p>The Coinbase CDP configuration.</p>
+   * The Coinbase CDP configuration.
+   *
    * @public
    */
   export interface CoinbaseCdpConfigurationMember {
@@ -9677,7 +10875,8 @@ export namespace PaymentProviderConfigurationOutput {
   }
 
   /**
-   * <p>The Stripe Privy configuration.</p>
+   * The Stripe Privy configuration.
+   *
    * @public
    */
   export interface StripePrivyConfigurationMember {
@@ -9711,25 +10910,29 @@ export namespace PaymentProviderConfigurationOutput {
  */
 export interface CreatePaymentCredentialProviderResponse {
   /**
-   * <p>The name of the created payment credential provider.</p>
+   * The name of the created payment credential provider.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The vendor type for the created payment credential provider.</p>
+   * The vendor type for the created payment credential provider.
+   *
    * @public
    */
   credentialProviderVendor: PaymentCredentialProviderVendorType | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the created payment credential provider.</p>
+   * The Amazon Resource Name (ARN) of the created payment credential provider.
+   *
    * @public
    */
   credentialProviderArn: string | undefined;
 
   /**
-   * <p>Output configuration (contains secret ARNs, excludes actual secret values).</p>
+   * Output configuration (contains secret ARNs, excludes actual secret values).
+   *
    * @public
    */
   providerConfigurationOutput: PaymentProviderConfigurationOutput | undefined;
@@ -9740,7 +10943,8 @@ export interface CreatePaymentCredentialProviderResponse {
  */
 export interface DeletePaymentCredentialProviderRequest {
   /**
-   * <p>The name of the payment credential provider to delete.</p>
+   * The name of the payment credential provider to delete.
+   *
    * @public
    */
   name: string | undefined;
@@ -9756,7 +10960,8 @@ export interface DeletePaymentCredentialProviderResponse {}
  */
 export interface GetPaymentCredentialProviderRequest {
   /**
-   * <p>The name of the payment credential provider to retrieve.</p>
+   * The name of the payment credential provider to retrieve.
+   *
    * @public
    */
   name: string | undefined;
@@ -9767,43 +10972,50 @@ export interface GetPaymentCredentialProviderRequest {
  */
 export interface GetPaymentCredentialProviderResponse {
   /**
-   * <p>The name of the payment credential provider.</p>
+   * The name of the payment credential provider.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the payment credential provider.</p>
+   * The Amazon Resource Name (ARN) of the payment credential provider.
+   *
    * @public
    */
   credentialProviderArn: string | undefined;
 
   /**
-   * <p>The vendor type for the payment credential provider.</p>
+   * The vendor type for the payment credential provider.
+   *
    * @public
    */
   credentialProviderVendor: PaymentCredentialProviderVendorType | undefined;
 
   /**
-   * <p>Output configuration (contains secret ARNs, excludes actual secret values).</p>
+   * Output configuration (contains secret ARNs, excludes actual secret values).
+   *
    * @public
    */
   providerConfigurationOutput: PaymentProviderConfigurationOutput | undefined;
 
   /**
-   * <p>The timestamp when the payment credential provider was created.</p>
+   * The timestamp when the payment credential provider was created.
+   *
    * @public
    */
   createdTime: Date | undefined;
 
   /**
-   * <p>The timestamp when the payment credential provider was last updated.</p>
+   * The timestamp when the payment credential provider was last updated.
+   *
    * @public
    */
   lastUpdatedTime: Date | undefined;
 
   /**
-   * <p>The tags associated with the payment credential provider.</p>
+   * The tags associated with the payment credential provider.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -9814,49 +11026,57 @@ export interface GetPaymentCredentialProviderResponse {
  */
 export interface ListPaymentCredentialProvidersRequest {
   /**
-   * <p>Pagination token.</p>
+   * Pagination token.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Maximum number of results to return.</p>
+   * Maximum number of results to return.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Contains summary information about a payment credential provider.</p>
+ * Contains summary information about a payment credential provider.
+ *
  * @public
  */
 export interface PaymentCredentialProviderItem {
   /**
-   * <p>The name of the payment credential provider.</p>
+   * The name of the payment credential provider.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The vendor type for the payment credential provider.</p>
+   * The vendor type for the payment credential provider.
+   *
    * @public
    */
   credentialProviderVendor: PaymentCredentialProviderVendorType | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the payment credential provider.</p>
+   * The Amazon Resource Name (ARN) of the payment credential provider.
+   *
    * @public
    */
   credentialProviderArn: string | undefined;
 
   /**
-   * <p>The timestamp when the payment credential provider was created.</p>
+   * The timestamp when the payment credential provider was created.
+   *
    * @public
    */
   createdTime: Date | undefined;
 
   /**
-   * <p>The timestamp when the payment credential provider was last updated.</p>
+   * The timestamp when the payment credential provider was last updated.
+   *
    * @public
    */
   lastUpdatedTime: Date | undefined;
@@ -9867,13 +11087,15 @@ export interface PaymentCredentialProviderItem {
  */
 export interface ListPaymentCredentialProvidersResponse {
   /**
-   * <p>The list of payment credential providers.</p>
+   * The list of payment credential providers.
+   *
    * @public
    */
   credentialProviders: PaymentCredentialProviderItem[] | undefined;
 
   /**
-   * <p>Pagination token for the next page of results.</p>
+   * Pagination token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -9884,19 +11106,22 @@ export interface ListPaymentCredentialProvidersResponse {
  */
 export interface UpdatePaymentCredentialProviderRequest {
   /**
-   * <p>The name of the payment credential provider to update.</p>
+   * The name of the payment credential provider to update.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The vendor type for the payment credential provider (e.g., CoinbaseCDP, StripePrivy).</p>
+   * The vendor type for the payment credential provider (e.g., CoinbaseCDP, StripePrivy).
+   *
    * @public
    */
   credentialProviderVendor: PaymentCredentialProviderVendorType | undefined;
 
   /**
-   * <p>Configuration specific to the vendor, including API credentials.</p>
+   * Configuration specific to the vendor, including API credentials.
+   *
    * @public
    */
   providerConfigurationInput: PaymentProviderConfigurationInput | undefined;
@@ -9907,37 +11132,43 @@ export interface UpdatePaymentCredentialProviderRequest {
  */
 export interface UpdatePaymentCredentialProviderResponse {
   /**
-   * <p>The name of the updated payment credential provider.</p>
+   * The name of the updated payment credential provider.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The vendor type for the updated payment credential provider.</p>
+   * The vendor type for the updated payment credential provider.
+   *
    * @public
    */
   credentialProviderVendor: PaymentCredentialProviderVendorType | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the updated payment credential provider.</p>
+   * The Amazon Resource Name (ARN) of the updated payment credential provider.
+   *
    * @public
    */
   credentialProviderArn: string | undefined;
 
   /**
-   * <p>Output configuration (contains secret ARNs, excludes actual secret values).</p>
+   * Output configuration (contains secret ARNs, excludes actual secret values).
+   *
    * @public
    */
   providerConfigurationOutput: PaymentProviderConfigurationOutput | undefined;
 
   /**
-   * <p>The timestamp when the payment credential provider was created.</p>
+   * The timestamp when the payment credential provider was created.
+   *
    * @public
    */
   createdTime: Date | undefined;
 
   /**
-   * <p>The timestamp when the payment credential provider was last updated.</p>
+   * The timestamp when the payment credential provider was last updated.
+   *
    * @public
    */
   lastUpdatedTime: Date | undefined;
@@ -9948,49 +11179,60 @@ export interface UpdatePaymentCredentialProviderResponse {
  */
 export interface CreatePaymentManagerRequest {
   /**
-   * <p>The name of the payment manager.</p>
+   * The name of the payment manager.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description of the payment manager.</p>
+   * A description of the payment manager.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The type of authorizer to use for the payment manager.</p> <ul> <li> <p> <code>CUSTOM_JWT</code> - Authorize with a bearer token.</p> </li> <li> <p> <code>AWS_IAM</code> - Authorize with your Amazon Web Services IAM credentials.</p> </li> </ul>
+   * The type of authorizer to use for the payment manager.
+   *
+   * - `CUSTOM_JWT` - Authorize with a bearer token.
+   * - `AWS_IAM` - Authorize with your Amazon Web Services IAM credentials.
+   *
    * @public
    */
   authorizerType: PaymentsAuthorizerType | undefined;
 
   /**
-   * <p>The authorizer configuration for the payment manager.</p>
+   * The authorizer configuration for the payment manager.
+   *
    * @public
    */
   authorizerConfiguration?: AuthorizerConfiguration | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that the payment manager assumes to access resources on your behalf.</p>
+   * The Amazon Resource Name (ARN) of the IAM role that the payment manager assumes to access resources on your behalf.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>A map of tag keys and values to assign to the payment manager.</p>
+   * A map of tag keys and values to assign to the payment manager.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the customer managed KMS key to use for encrypting sensitive payment manager data at rest. If you don't specify a key, the data is encrypted with an Amazon Web Services owned key.</p>
+   * The Amazon Resource Name (ARN) of the customer managed KMS key to use for encrypting sensitive payment manager data at rest. If you don't specify a key, the data is encrypted with an Amazon Web Services owned key.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;

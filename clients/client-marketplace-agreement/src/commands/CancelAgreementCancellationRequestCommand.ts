@@ -26,7 +26,10 @@ export interface CancelAgreementCancellationRequestCommandInput extends CancelAg
 export interface CancelAgreementCancellationRequestCommandOutput extends CancelAgreementCancellationRequestOutput, __MetadataBearer {}
 
 /**
- * <p>Allows sellers (proposers) to withdraw an existing agreement cancellation request that is in a pending state. Once cancelled, the cancellation request transitions to <code>CANCELLED</code> status and can no longer be approved or rejected by the buyer.</p> <note> <p>Only cancellation requests in <code>PENDING_APPROVAL</code> status can be cancelled. A <code>ConflictException</code> is thrown if the cancellation request is in any other status.</p> </note>
+ * Allows sellers (proposers) to withdraw an existing agreement cancellation request that is in a pending state. Once cancelled, the cancellation request transitions to `CANCELLED` status and can no longer be approved or rejected by the buyer.
+ *
+ * > **Note:** Only cancellation requests in `PENDING_APPROVAL` status can be cancelled. A `ConflictException` is thrown if the cancellation request is in any other status.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,26 +65,32 @@ export interface CancelAgreementCancellationRequestCommandOutput extends CancelA
  * @see {@link MarketplaceAgreementClientResolvedConfig | config} for MarketplaceAgreementClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * User does not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Request was denied due to a resource conflict.</p>
+ *
+ * Request was denied due to a resource conflict.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error during processing of request.</p>
+ *
+ * Unexpected error during processing of request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Request references a resource which does not exist.</p>
+ *
+ * Request references a resource which does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Request was denied due to request throttling.</p>
+ *
+ * Request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the service.</p>
+ *
+ * The input fails to satisfy the constraints specified by the service.
  *
  * @throws {@link MarketplaceAgreementServiceException}
- * <p>Base exception class for all service exceptions from MarketplaceAgreement service.</p>
  *
+ * Base exception class for all service exceptions from MarketplaceAgreement service.
  *
  * @example Cancel a cancellation request
  * ```javascript

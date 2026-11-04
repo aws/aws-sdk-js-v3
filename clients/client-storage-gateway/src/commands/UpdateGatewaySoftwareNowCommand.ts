@@ -23,20 +23,12 @@ export interface UpdateGatewaySoftwareNowCommandInput extends UpdateGatewaySoftw
 export interface UpdateGatewaySoftwareNowCommandOutput extends UpdateGatewaySoftwareNowOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the gateway virtual machine (VM) software. The request immediately triggers the
- *          software update.</p>
- *          <note>
- *             <p>When you make this request, you get a <code>200 OK</code> success response
- *             immediately. However, it might take some time for the update to complete. You can call
- *                <a>DescribeGatewayInformation</a> to verify the gateway is in the
- *                <code>STATE_RUNNING</code> state.</p>
- *          </note>
- *          <important>
- *             <p>A software update forces a system restart of your gateway. You can minimize the
- *             chance of any disruption to your applications by increasing your iSCSI Initiators'
- *             timeouts. For more information about increasing iSCSI Initiator timeouts for Windows and
- *             Linux, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorWindowsClient.html#CustomizeWindowsiSCSISettings">Customizing your Windows iSCSI settings</a> and <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorRedHatClient.html#CustomizeLinuxiSCSISettings">Customizing your Linux iSCSI settings</a>, respectively.</p>
- *          </important>
+ * Updates the gateway virtual machine (VM) software. The request immediately triggers the software update.
+ *
+ * > **Note:** When you make this request, you get a `200 OK` success response immediately. However, it might take some time for the update to complete. You can call DescribeGatewayInformation to verify the gateway is in the `STATE_RUNNING` state.
+ *
+ * > **Important:** A software update forces a system restart of your gateway. You can minimize the chance of any disruption to your applications by increasing your iSCSI Initiators' timeouts. For more information about increasing iSCSI Initiator timeouts for Windows and Linux, see [Customizing your Windows iSCSI settings](https://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorWindowsClient.html#CustomizeWindowsiSCSISettings) and [Customizing your Linux iSCSI settings](https://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorRedHatClient.html#CustomizeLinuxiSCSISettings), respectively.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,16 +55,16 @@ export interface UpdateGatewaySoftwareNowCommandOutput extends UpdateGatewaySoft
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @example To update a gateway's VM software
  * ```javascript

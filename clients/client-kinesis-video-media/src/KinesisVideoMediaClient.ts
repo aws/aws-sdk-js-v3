@@ -277,7 +277,6 @@ export type KinesisVideoMediaClientResolvedConfigType = __SmithyResolvedConfigur
 export interface KinesisVideoMediaClientResolvedConfig extends KinesisVideoMediaClientResolvedConfigType {}
 
 /**
- * <p></p>
  * @public
  */
 export class KinesisVideoMediaClient extends __Client<

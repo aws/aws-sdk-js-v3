@@ -23,7 +23,8 @@ export interface CreateRepositoryLinkCommandInput extends CreateRepositoryLinkIn
 export interface CreateRepositoryLinkCommandOutput extends CreateRepositoryLinkOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a link to a specified external Git repository. A repository link allows Git sync to monitor and sync changes to files in a specified Git repository.</p>
+ * Creates a link to a specified external Git repository. A repository link allows Git sync to monitor and sync changes to files in a specified Git repository.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,29 +68,36 @@ export interface CreateRepositoryLinkCommandOutput extends CreateRepositoryLinkO
  * @see {@link CodeConnectionsClientResolvedConfig | config} for CodeConnectionsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time. </p>
+ *
+ * Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Received an internal server exception. Try again later.</p>
+ *
+ * Received an internal server exception. Try again later.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input is not valid. Verify that the action is typed correctly.</p>
+ *
+ * The input is not valid. Verify that the action is typed correctly.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>Exceeded the maximum limit for connections.</p>
+ *
+ * Exceeded the maximum limit for connections.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>Unable to create resource. Resource already exists.</p>
+ *
+ * Unable to create resource. Resource already exists.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link CodeConnectionsServiceException}
- * <p>Base exception class for all service exceptions from CodeConnections service.</p>
  *
+ * Base exception class for all service exceptions from CodeConnections service.
  *
  * @public
  */

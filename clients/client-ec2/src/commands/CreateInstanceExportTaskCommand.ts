@@ -23,10 +23,10 @@ export interface CreateInstanceExportTaskCommandInput extends CreateInstanceExpo
 export interface CreateInstanceExportTaskCommandOutput extends CreateInstanceExportTaskResult, __MetadataBearer {}
 
 /**
- * <p>Exports a running or stopped instance to an Amazon S3 bucket.</p>
- *          <p>For information about the prerequisites for your Amazon S3 bucket, supported operating systems,
- *    image formats, and known limitations for the types of instances you can export, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html">Exporting an instance as a VM Using VM
- *     Import/Export</a> in the <i>VM Import/Export User Guide</i>.</p>
+ * Exports a running or stopped instance to an Amazon S3 bucket.
+ *
+ * For information about the prerequisites for your Amazon S3 bucket, supported operating systems, image formats, and known limitations for the types of instances you can export, see [Exporting an instance as a VM Using VM Import/Export](https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) in the *VM Import/Export User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,8 +93,8 @@ export interface CreateInstanceExportTaskCommandOutput extends CreateInstanceExp
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

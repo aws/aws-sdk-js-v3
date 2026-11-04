@@ -23,8 +23,8 @@ export interface CreateVPCEConfigurationCommandInput extends CreateVPCEConfigura
 export interface CreateVPCEConfigurationCommandOutput extends CreateVPCEConfigurationResult, __MetadataBearer {}
 
 /**
- * <p>Creates a configuration record in Device Farm for your Amazon Virtual Private Cloud
- *             (VPC) endpoint.</p>
+ * Creates a configuration record in Device Farm for your Amazon Virtual Private Cloud (VPC) endpoint.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,17 +60,20 @@ export interface CreateVPCEConfigurationCommandOutput extends CreateVPCEConfigur
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
  * @throws {@link ArgumentException} (client fault)
- *  <p>An invalid argument was specified.</p>
+ *
+ * An invalid argument was specified.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>A limit was exceeded.</p>
+ *
+ * A limit was exceeded.
  *
  * @throws {@link ServiceAccountException} (client fault)
- *  <p>There was a problem with the service account.</p>
+ *
+ * There was a problem with the service account.
  *
  * @throws {@link DeviceFarmServiceException}
- * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * Base exception class for all service exceptions from DeviceFarm service.
  *
  * @public
  */

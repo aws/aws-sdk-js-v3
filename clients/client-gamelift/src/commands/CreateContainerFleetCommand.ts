@@ -23,112 +23,42 @@ export interface CreateContainerFleetCommandInput extends CreateContainerFleetIn
 export interface CreateContainerFleetCommandOutput extends CreateContainerFleetOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This API works with the following fleet types:</b> Container</p>
- *          <p>Creates a managed fleet of Amazon Elastic Compute Cloud (Amazon EC2) instances to host your containerized game
- *             servers. Use this operation to define how to deploy a container architecture onto each
- *             fleet instance and configure fleet settings. You can create a container fleet in any
- *             Amazon Web Services Regions that Amazon GameLift Servers supports for multi-location fleets. A container fleet can be
- *             deployed to a single location or multiple locations. Container fleets are deployed with
- *             Amazon Linux 2023 as the instance operating system.</p>
- *          <p>Define the fleet's container architecture using container group definitions. Each
- *             fleet can have one of the following container group types:</p>
- *          <ul>
- *             <li>
- *                <p>The game server container group runs your game server build and dependent software. Amazon GameLift Servers
- *                     deploys one or more replicas of this container group to each fleet instance. The
- *                     number of replicas depends on the computing capabilities of the fleet instance
- *                     in use. </p>
- *             </li>
- *             <li>
- *                <p>An optional per-instance container group might be used to run other software that only needs
- *                     to run once per instance, such as background services, logging, or test
- *                     processes. One per-instance container group is deployed to each fleet instance. </p>
- *             </li>
- *          </ul>
- *          <p>Each container group can include the definition for one or more containers. A
- *             container definition specifies a container image that is stored in an Amazon Elastic Container Registry (Amazon ECR)
- *             public or private repository.</p>
- *          <p>
- *             <b>Request options</b>
- *          </p>
- *          <p>Use this operation to make the following types of requests. Most fleet settings have
- *             default values, so you can create a working fleet with a minimal configuration and
- *             default values, which you can customize later.</p>
- *          <ul>
- *             <li>
- *                <p>Create a fleet with no container groups. You can configure a container fleet and then add
- *                     container group definitions later. In this scenario, no fleet instances are
- *                     deployed, and the fleet can't host game sessions until you add a game server
- *                     container group definition. Provide the following required parameter
- *                     values:</p>
- *                <ul>
- *                   <li>
- *                      <p>
- *                         <code>FleetRoleArn</code>
- *                      </p>
- *                   </li>
- *                </ul>
- *             </li>
- *             <li>
- *                <p>Create a fleet with a game server container group. Provide the following required parameter
- *                     values:</p>
- *                <ul>
- *                   <li>
- *                      <p>
- *                         <code>FleetRoleArn</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <code>GameServerContainerGroupDefinitionName</code>
- *                      </p>
- *                   </li>
- *                </ul>
- *             </li>
- *             <li>
- *                <p>Create a fleet with a game server container group and a per-instance container group. Provide
- *                     the following required parameter values:</p>
- *                <ul>
- *                   <li>
- *                      <p>
- *                         <code>FleetRoleArn</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <code>GameServerContainerGroupDefinitionName</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <code>PerInstanceContainerGroupDefinitionName</code>
- *                      </p>
- *                   </li>
- *                </ul>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Results</b>
- *          </p>
- *          <p>If successful, this operation creates a new container fleet resource, places it in
- *                 <code>PENDING</code> status, and initiates the <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-all.html#fleets-creation-workflow">fleet creation workflow</a>. For fleets with container groups, this workflow
- *             starts a fleet deployment and transitions the status to <code>ACTIVE</code>. Fleets
- *             without a container group are placed in <code>CREATED</code> status.</p>
- *          <p>You can update most of the properties of a fleet, including container group
- *             definitions, and deploy the update across all fleet instances. Use
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateContainerFleet.html">UpdateContainerFleet</a>
- *             to deploy a new game server version update across the container fleet. </p>
- *          <note>
- *             <p>A managed fleet's runtime environment depends on the Amazon Machine Image (AMI)
- *                 version it uses. When a new fleet is created, Amazon GameLift Servers assigns the
- *                 latest available AMI version to the fleet, and all compute instances in that fleet
- *                 are deployed with that version. To update the AMI version, you must create a new
- *                 fleet. As a best practice, we recommend replacing your managed fleets every 30
- *                 days to maintain a secure and up-to-date runtime environment for your hosted game
- *                 servers. For guidance, see <a href="https://docs.aws.amazon.com/gameliftservers/latest/developerguide/security-best-practices.html">
- *                     Security best practices for Amazon GameLift Servers</a>.</p>
- *          </note>
+ * **This API works with the following fleet types:** Container
+ *
+ * Creates a managed fleet of Amazon Elastic Compute Cloud (Amazon EC2) instances to host your containerized game servers. Use this operation to define how to deploy a container architecture onto each fleet instance and configure fleet settings. You can create a container fleet in any Amazon Web Services Regions that Amazon GameLift Servers supports for multi-location fleets. A container fleet can be deployed to a single location or multiple locations. Container fleets are deployed with Amazon Linux 2023 as the instance operating system.
+ *
+ * Define the fleet's container architecture using container group definitions. Each fleet can have one of the following container group types:
+ *
+ * - The game server container group runs your game server build and dependent software. Amazon GameLift Servers deploys one or more replicas of this container group to each fleet instance. The number of replicas depends on the computing capabilities of the fleet instance in use.
+ * - An optional per-instance container group might be used to run other software that only needs to run once per instance, such as background services, logging, or test processes. One per-instance container group is deployed to each fleet instance.
+ *
+ * Each container group can include the definition for one or more containers. A container definition specifies a container image that is stored in an Amazon Elastic Container Registry (Amazon ECR) public or private repository.
+ *
+ * **Request options**
+ *
+ * Use this operation to make the following types of requests. Most fleet settings have default values, so you can create a working fleet with a minimal configuration and default values, which you can customize later.
+ *
+ * - Create a fleet with no container groups. You can configure a container fleet and then add container group definitions later. In this scenario, no fleet instances are deployed, and the fleet can't host game sessions until you add a game server container group definition. Provide the following required parameter values:
+ *
+ *   - `FleetRoleArn`
+ * - Create a fleet with a game server container group. Provide the following required parameter values:
+ *
+ *   - `FleetRoleArn`
+ *   - `GameServerContainerGroupDefinitionName`
+ * - Create a fleet with a game server container group and a per-instance container group. Provide the following required parameter values:
+ *
+ *   - `FleetRoleArn`
+ *   - `GameServerContainerGroupDefinitionName`
+ *   - `PerInstanceContainerGroupDefinitionName`
+ *
+ * **Results**
+ *
+ * If successful, this operation creates a new container fleet resource, places it in `PENDING` status, and initiates the [fleet creation workflow](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-all.html#fleets-creation-workflow). For fleets with container groups, this workflow starts a fleet deployment and transitions the status to `ACTIVE`. Fleets without a container group are placed in `CREATED` status.
+ *
+ * You can update most of the properties of a fleet, including container group definitions, and deploy the update across all fleet instances. Use [UpdateContainerFleet](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateContainerFleet.html) to deploy a new game server version update across the container fleet.
+ *
+ * > **Note:** A managed fleet's runtime environment depends on the Amazon Machine Image (AMI) version it uses. When a new fleet is created, Amazon GameLift Servers assigns the latest available AMI version to the fleet, and all compute instances in that fleet are deployed with that version. To update the AMI version, you must create a new fleet. As a best practice, we recommend replacing your managed fleets every 30 days to maintain a secure and up-to-date runtime environment for your hosted game servers. For guidance, see [Security best practices for Amazon GameLift Servers](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/security-best-practices.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -249,37 +179,36 @@ export interface CreateContainerFleetCommandOutput extends CreateContainerFleetO
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The requested operation would cause a conflict with the current state of a service
- *             resource associated with the request. Resolve the conflict before retrying this
- *             request.</p>
- *          <p></p>
+ *
+ * The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an unrecoverable internal failure while processing the
- *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
- *             values before retrying.</p>
+ *
+ * One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The requested operation would cause the resource to exceed the allowed service limit.
- *             Resolve the issue before retrying.</p>
+ *
+ * The requested operation would cause the resource to exceed the allowed service limit. Resolve the issue before retrying.
  *
  * @throws {@link TaggingFailedException} (client fault)
- *  <p>The requested tagging operation did not succeed. This may be due to invalid tag format
- *             or the maximum tag limit may have been exceeded. Resolve the issue before
- *             retrying.</p>
+ *
+ * The requested tagging operation did not succeed. This may be due to invalid tag format or the maximum tag limit may have been exceeded. Resolve the issue before retrying.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * The client failed authentication. Clients should not retry such requests.
  *
  * @throws {@link UnsupportedRegionException} (client fault)
- *  <p>The requested operation is not supported in the Region specified.</p>
+ *
+ * The requested operation is not supported in the Region specified.
  *
  * @throws {@link GameLiftServiceException}
- * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * Base exception class for all service exceptions from GameLift service.
  *
  * @public
  */

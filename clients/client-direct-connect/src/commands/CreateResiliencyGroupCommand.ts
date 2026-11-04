@@ -23,8 +23,8 @@ export interface CreateResiliencyGroupCommandInput extends CreateResiliencyGroup
 export interface CreateResiliencyGroupCommandOutput extends CreateResiliencyGroupResult, __MetadataBearer {}
 
 /**
- * <p>Creates a resiliency group. A resiliency group lets you group Direct Connect connections together
- *       and manage them as a single unit to meet a target resiliency model.</p>
+ * Creates a resiliency group. A resiliency group lets you group Direct Connect connections together and manage them as a single unit to meet a target resiliency model.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,23 +72,28 @@ export interface CreateResiliencyGroupCommandOutput extends CreateResiliencyGrou
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  * @throws {@link DirectConnectClientException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link DirectConnectServerException} (server fault)
- *  <p>A server-side error occurred.</p>
+ *
+ * A server-side error occurred.
  *
  * @throws {@link DuplicateTagKeysException} (client fault)
- *  <p>A tag key was specified more than once.</p>
+ *
+ * A tag key was specified more than once.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The rate limiter limit has been exceeded for the connection. You cannot add more rate limiters to virtual interfaces on this connection.</p>
+ *
+ * The rate limiter limit has been exceeded for the connection. You cannot add more rate limiters to virtual interfaces on this connection.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>You have reached the limit on the number of tags that can be assigned.</p>
+ *
+ * You have reached the limit on the number of tags that can be assigned.
  *
  * @throws {@link DirectConnectServiceException}
- * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * Base exception class for all service exceptions from DirectConnect service.
  *
  * @public
  */

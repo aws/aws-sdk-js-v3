@@ -23,7 +23,14 @@ export interface SearchImageSetsCommandInput extends SearchImageSetsRequest {}
 export interface SearchImageSetsCommandOutput extends SearchImageSetsResponse, __MetadataBearer {}
 
 /**
- * <p>Search image sets based on defined input attributes.</p> <note> <p> <code>SearchImageSets</code> accepts a single search query parameter and returns a paginated response of all image sets that have the matching criteria. All date range queries must be input as <code>(lowerBound, upperBound)</code>.</p> <p>By default, <code>SearchImageSets</code> uses the <code>updatedAt</code> field for sorting in descending order from newest to oldest.</p> </note>
+ * Search image sets based on defined input attributes.
+ *
+ * > **Note:**
+ * >
+ * > `SearchImageSets` accepts a single search query parameter and returns a paginated response of all image sets that have the matching criteria. All date range queries must be input as `(lowerBound, upperBound)`.
+ * >
+ * > By default, `SearchImageSets` uses the `updatedAt` field for sorting in descending order from newest to oldest.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -112,26 +119,32 @@ export interface SearchImageSetsCommandOutput extends SearchImageSetsResponse, _
  * @see {@link MedicalImagingClientResolvedConfig | config} for MedicalImagingClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The user does not have sufficient access to perform this action.</p>
+ *
+ * The user does not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ *
+ * Updating or deleting a resource can cause an inconsistent state.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred during processing of the request.</p>
+ *
+ * An unexpected error occurred during processing of the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request references a resource which does not exist.</p>
+ *
+ * The request references a resource which does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to throttling.</p>
+ *
+ * The request was denied due to throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints set by the service.</p>
+ *
+ * The input fails to satisfy the constraints set by the service.
  *
  * @throws {@link MedicalImagingServiceException}
- * <p>Base exception class for all service exceptions from MedicalImaging service.</p>
  *
+ * Base exception class for all service exceptions from MedicalImaging service.
  *
  * @public
  */

@@ -23,11 +23,10 @@ export interface DeleteDatasetCommandInput extends DeleteDatasetRequest {}
 export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the specific dataset. The dataset will be deleted permanently, and the action can't
- *          be undone. Datasets that this dataset was merged with will no longer report the merge. Any
- *          subsequent operation on this dataset will result in a
- *             ResourceNotFoundException.</p>
- *           <p>This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials.</p>
+ * Deletes the specific dataset. The dataset will be deleted permanently, and the action can't be undone. Datasets that this dataset was merged with will no longer report the merge. Any subsequent operation on this dataset will result in a ResourceNotFoundException.
+ *
+ * This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,8 +87,8 @@ export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __Met
  *       throttled.
  *
  * @throws {@link CognitoSyncServiceException}
- * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
+ * Base exception class for all service exceptions from CognitoSync service.
  *
  * @public
  */

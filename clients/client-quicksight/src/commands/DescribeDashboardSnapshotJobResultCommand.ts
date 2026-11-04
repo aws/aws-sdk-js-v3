@@ -26,58 +26,36 @@ export interface DescribeDashboardSnapshotJobResultCommandInput extends Describe
 export interface DescribeDashboardSnapshotJobResultCommandOutput extends DescribeDashboardSnapshotJobResultResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the result of an existing snapshot job that has finished running.</p>
- *          <p>A finished snapshot job will return a <code>COMPLETED</code> or <code>FAILED</code> status when you poll the job with a <code>DescribeDashboardSnapshotJob</code> API call.</p>
- *          <p>If the job has not finished running, this operation returns a message that says <code>Dashboard Snapshot Job with id <SnapshotjobId> has not reached a terminal state.</code>.</p>
- *          <p>
- *             <b>Registered user support</b>
- *          </p>
- *          <p>This API can be called as before to get the result of a job started by the same Quick Sight user. The result for the user will be returned in <code>RegisteredUsers</code> response attribute. The attribute will contain a list with at most one object in it.</p>
- *          <p>
- *             <b>Possible error scenarios</b>
- *          </p>
- *          <p>The request fails with an Access Denied error in the following scenarios:</p>
- *          <ul>
- *             <li>
- *                <p>The credentials have expired.</p>
- *             </li>
- *             <li>
- *                <p>The job was started by a different user.</p>
- *             </li>
- *             <li>
- *                <p>The registered user doesn't have access to the specified dashboard.</p>
- *             </li>
- *          </ul>
- *          <p>The request succeeds but the job fails in the following scenarios:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>DASHBOARD_ACCESS_DENIED</code> - The registered user lost access to the dashboard.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>CAPABILITY_RESTRICTED</code> - The registered user is restricted from exporting data in <b>all</b> selected formats.</p>
- *             </li>
- *          </ul>
- *          <p>The request succeeds but the response contains an error code in the following scenarios:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>CAPABILITY_RESTRICTED</code> - The registered user is restricted from exporting data in <b>some</b> selected formats.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>RLS_CHANGED</code> - Row-level security settings have changed. Re-run the job with current settings.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>CLS_CHANGED</code> - Column-level security settings have changed. Re-run the job with current settings.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>DATASET_DELETED</code> - The dataset has been deleted. Verify the dataset exists before re-running the job.</p>
- *             </li>
- *          </ul>
+ * Describes the result of an existing snapshot job that has finished running.
+ *
+ * A finished snapshot job will return a `COMPLETED` or `FAILED` status when you poll the job with a `DescribeDashboardSnapshotJob` API call.
+ *
+ * If the job has not finished running, this operation returns a message that says `Dashboard Snapshot Job with id <SnapshotjobId> has not reached a terminal state.`.
+ *
+ * **Registered user support**
+ *
+ * This API can be called as before to get the result of a job started by the same Quick Sight user. The result for the user will be returned in `RegisteredUsers` response attribute. The attribute will contain a list with at most one object in it.
+ *
+ * **Possible error scenarios**
+ *
+ * The request fails with an Access Denied error in the following scenarios:
+ *
+ * - The credentials have expired.
+ * - The job was started by a different user.
+ * - The registered user doesn't have access to the specified dashboard.
+ *
+ * The request succeeds but the job fails in the following scenarios:
+ *
+ * - `DASHBOARD_ACCESS_DENIED` - The registered user lost access to the dashboard.
+ * - `CAPABILITY_RESTRICTED` - The registered user is restricted from exporting data in **all** selected formats.
+ *
+ * The request succeeds but the response contains an error code in the following scenarios:
+ *
+ * - `CAPABILITY_RESTRICTED` - The registered user is restricted from exporting data in **some** selected formats.
+ * - `RLS_CHANGED` - Row-level security settings have changed. Re-run the job with current settings.
+ * - `CLS_CHANGED` - Column-level security settings have changed. Re-run the job with current settings.
+ * - `DATASET_DELETED` - The dataset has been deleted. Verify the dataset exists before re-running the job.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -197,35 +175,36 @@ export interface DescribeDashboardSnapshotJobResultCommandOutput extends Describ
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have access to this item. The provided credentials couldn't be
- * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
- * 			correct permissions, and that you are using the correct credentials.</p>
+ *
+ * You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An internal failure occurred.</p>
+ *
+ * An internal failure occurred.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more parameters has a value that isn't valid.</p>
+ *
+ * One or more parameters has a value that isn't valid.
  *
  * @throws {@link PreconditionNotMetException} (client fault)
- *  <p>One or more preconditions aren't met.</p>
+ *
+ * One or more preconditions aren't met.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>One or more resources can't be found.</p>
+ *
+ * One or more resources can't be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Access is throttled.</p>
+ *
+ * Access is throttled.
  *
  * @throws {@link UnsupportedUserEditionException} (client fault)
- *  <p>This error indicates that you are calling an operation on an Amazon Quick Suite
- * 			subscription where the edition doesn't include support for that operation. Amazon
- * 			Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and
- * 			capability is available in every edition.</p>
+ *
+ * This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.
  *
  * @throws {@link QuickSightServiceException}
- * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * Base exception class for all service exceptions from QuickSight service.
  *
  * @public
  */

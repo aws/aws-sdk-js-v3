@@ -23,33 +23,17 @@ export interface CreateReplicationConfigurationCommandInput extends CreateReplic
 export interface CreateReplicationConfigurationCommandOutput extends ReplicationConfigurationDescription, __MetadataBearer {}
 
 /**
- * <p>Creates a replication conﬁguration to either a new or existing EFS file system.
- *       For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-replication.html">Amazon EFS replication</a> in the <i>Amazon EFS User
- *         Guide</i>. The replication configuration specifies the following:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <b>Source file system</b> – The EFS file
- *           system that you want to replicate. </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Destination file system</b> – The destination file
- *           system to which the source file system is replicated. There can only be one destination
- *           file system in a replication configuration. </p>
- *                <note>
- *                   <p>A file system can be part of only one replication configuration. </p>
- *                </note>
- *                <p>The destination parameters for the replication configuration depend on
- *           whether you are replicating to a new file system or to an existing file system, and if you
- *           are replicating across Amazon Web Services accounts. See <a>DestinationToCreate</a> for more information.</p>
- *             </li>
- *          </ul>
- *          <p>This operation requires permissions for the <code>elasticfilesystem:CreateReplicationConfiguration</code>
- *        action. Additionally, other permissions are required depending on how you are replicating file systems.
- *        For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-replication.html#efs-replication-permissions">Required permissions for replication</a>
- *       in the <i>Amazon EFS User
- *              Guide</i>.</p>
+ * Creates a replication conﬁguration to either a new or existing EFS file system. For more information, see [Amazon EFS replication](https://docs.aws.amazon.com/efs/latest/ug/efs-replication.html) in the *Amazon EFS User Guide*. The replication configuration specifies the following:
+ *
+ * - **Source file system** – The EFS file system that you want to replicate.
+ * - **Destination file system** – The destination file system to which the source file system is replicated. There can only be one destination file system in a replication configuration.
+ *
+ *   > **Note:** A file system can be part of only one replication configuration.
+ *
+ *   The destination parameters for the replication configuration depend on whether you are replicating to a new file system or to an existing file system, and if you are replicating across Amazon Web Services accounts. See DestinationToCreate for more information.
+ *
+ * This operation requires permissions for the `elasticfilesystem:CreateReplicationConfiguration` action. Additionally, other permissions are required depending on how you are replicating file systems. For more information, see [Required permissions for replication](https://docs.aws.amazon.com/efs/latest/ug/efs-replication.html#efs-replication-permissions) in the *Amazon EFS User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -101,50 +85,52 @@ export interface CreateReplicationConfigurationCommandOutput extends Replication
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>Returned if the request is malformed or contains an error such as an invalid
- *             parameter value or a missing required parameter.</p>
+ *
+ * Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Returned if the source file system in a replication is encrypted but the destination file system is unencrypted.</p>
+ *
+ * Returned if the source file system in a replication is encrypted but the destination file system is unencrypted.
  *
  * @throws {@link FileSystemLimitExceeded} (client fault)
- *  <p>Returned if the Amazon Web Services account has already created the maximum number of file systems
- *             allowed per account.</p>
+ *
+ * Returned if the Amazon Web Services account has already created the maximum number of file systems allowed per account.
  *
  * @throws {@link FileSystemNotFound} (client fault)
- *  <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the
- *             requester's Amazon Web Services account.</p>
+ *
+ * Returned if the specified `FileSystemId` value doesn't exist in the requester's Amazon Web Services account.
  *
  * @throws {@link IncorrectFileSystemLifeCycleState} (client fault)
- *  <p>Returned if the file system's lifecycle state is not "available".</p>
+ *
+ * Returned if the file system's lifecycle state is not "available".
  *
  * @throws {@link InsufficientThroughputCapacity} (server fault)
- *  <p>Returned if there's not enough capacity to provision additional throughput. This value
- *             might be returned when you try to create a file system in provisioned throughput mode,
- *             when you attempt to increase the provisioned throughput of an existing file system, or
- *             when you attempt to change an existing file system from Bursting Throughput to
- *             Provisioned Throughput mode. Try again later.</p>
+ *
+ * Returned if there's not enough capacity to provision additional throughput. This value might be returned when you try to create a file system in provisioned throughput mode, when you attempt to increase the provisioned throughput of an existing file system, or when you attempt to change an existing file system from Bursting Throughput to Provisioned Throughput mode. Try again later.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Returned if an error occurred on the server side.</p>
+ *
+ * Returned if an error occurred on the server side.
  *
  * @throws {@link ReplicationNotFound} (client fault)
- *  <p>Returned if the specified file system does not have a replication
- *             configuration.</p>
+ *
+ * Returned if the specified file system does not have a replication configuration.
  *
  * @throws {@link ThroughputLimitExceeded} (client fault)
- *  <p>Returned if the throughput mode or amount of provisioned throughput can't be changed
- *             because the throughput limit of 1024 MiB/s has been reached.</p>
+ *
+ * Returned if the throughput mode or amount of provisioned throughput can't be changed because the throughput limit of 1024 MiB/s has been reached.
  *
  * @throws {@link UnsupportedAvailabilityZone} (client fault)
- *  <p>Returned if the requested Amazon EFS functionality is not available in the specified Availability Zone.</p>
+ *
+ * Returned if the requested Amazon EFS functionality is not available in the specified Availability Zone.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Returned if the Backup service is not available in the Amazon Web Services Region in which the request was made.</p>
+ *
+ * Returned if the Backup service is not available in the Amazon Web Services Region in which the request was made.
  *
  * @throws {@link EFSServiceException}
- * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * Base exception class for all service exceptions from EFS service.
  *
  * @public
  */

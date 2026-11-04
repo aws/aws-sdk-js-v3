@@ -65,8 +65,8 @@ export interface ListAvailableMeteredProductsCommandOutput extends ListAvailable
  *  Your request exceeded a request rate quota.
  *
  * @throws {@link DeadlineServiceException}
- * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ * Base exception class for all service exceptions from Deadline service.
  *
  * @public
  */

@@ -72,9 +72,8 @@ export interface ExportSchemaCommandOutput extends ExportSchemaResponse, __Metad
  * @throws {@link UnauthorizedException} (client fault)
  *
  * @throws {@link SchemasServiceException}
- * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
- *
+ * Base exception class for all service exceptions from Schemas service.
  */
 export class ExportSchemaCommand extends command<ExportSchemaCommandInput, ExportSchemaCommandOutput>(
   _ep0,

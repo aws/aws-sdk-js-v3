@@ -23,13 +23,10 @@ export interface DeleteDataSourceCommandInput extends DeleteDataSourceRequest {}
 export interface DeleteDataSourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an Amazon Kendra data source connector. An exception is not thrown if the
- *       data source is already being deleted. While the data source is being deleted, the
- *         <code>Status</code> field returned by a call to the <code>DescribeDataSource</code> API is
- *       set to <code>DELETING</code>. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/delete-data-source.html">Deleting Data Sources</a>.</p>
- *          <p>Deleting an entire data source or re-syncing your index after deleting specific documents
- *       from a data source could take up to an hour or more, depending on the number of documents you
- *       want to delete.</p>
+ * Deletes an Amazon Kendra data source connector. An exception is not thrown if the data source is already being deleted. While the data source is being deleted, the `Status` field returned by a call to the `DescribeDataSource` API is set to `DELETING`. For more information, see [Deleting Data Sources](https://docs.aws.amazon.com/kendra/latest/dg/delete-data-source.html).
+ *
+ * Deleting an entire data source or re-syncing your index after deleting specific documents from a data source could take up to an hour or more, depending on the number of documents you want to delete.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,32 +52,32 @@ export interface DeleteDataSourceCommandOutput extends __MetadataBearer {}
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action. Please ensure you have the
- *             required permission policies and user accounts and try again.</p>
+ *
+ * You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A conflict occurred with the request. Please fix any inconsistences with your
- *             resources and try again.</p>
+ *
+ * A conflict occurred with the request. Please fix any inconsistences with your resources and try again.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
+ *
+ * An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact [Support](http://aws.amazon.com/contact-us/) for help.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct
- *             resource and try again.</p>
+ *
+ * The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. Please reduce the number of requests
- *             and try again.</p>
+ *
+ * The request was denied due to request throttling. Please reduce the number of requests and try again.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
- *             Please provide the correct input and try again.</p>
+ *
+ * The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.
  *
  * @throws {@link KendraServiceException}
- * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * Base exception class for all service exceptions from Kendra service.
  *
  * @public
  */

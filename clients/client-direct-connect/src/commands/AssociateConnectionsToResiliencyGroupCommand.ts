@@ -26,9 +26,8 @@ export interface AssociateConnectionsToResiliencyGroupCommandInput extends Assoc
 export interface AssociateConnectionsToResiliencyGroupCommandOutput extends AssociateConnectionsToResiliencyGroupResult, __MetadataBearer {}
 
 /**
- * <p>Associates one or more connections with the specified resiliency group. This operation is
- *       atomic: either all of the specified connections are associated, or the operation fails and no
- *       changes are made.</p>
+ * Associates one or more connections with the specified resiliency group. This operation is atomic: either all of the specified connections are associated, or the operation fails and no changes are made.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,17 +64,20 @@ export interface AssociateConnectionsToResiliencyGroupCommandOutput extends Asso
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  * @throws {@link DirectConnectClientException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link DirectConnectServerException} (server fault)
- *  <p>A server-side error occurred.</p>
+ *
+ * A server-side error occurred.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The rate limiter limit has been exceeded for the connection. You cannot add more rate limiters to virtual interfaces on this connection.</p>
+ *
+ * The rate limiter limit has been exceeded for the connection. You cannot add more rate limiters to virtual interfaces on this connection.
  *
  * @throws {@link DirectConnectServiceException}
- * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * Base exception class for all service exceptions from DirectConnect service.
  *
  * @public
  */

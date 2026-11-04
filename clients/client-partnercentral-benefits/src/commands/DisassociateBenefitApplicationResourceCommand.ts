@@ -26,7 +26,8 @@ export interface DisassociateBenefitApplicationResourceCommandInput extends Disa
 export interface DisassociateBenefitApplicationResourceCommandOutput extends DisassociateBenefitApplicationResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Removes the association between an AWS resource and a benefit application.</p>
+ * Removes the association between an AWS resource and a benefit application.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,26 +58,32 @@ export interface DisassociateBenefitApplicationResourceCommandOutput extends Dis
  * @see {@link PartnerCentralBenefitsClientResolvedConfig | config} for PartnerCentralBenefitsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Thrown when the caller does not have sufficient permissions to perform the requested operation.</p>
+ *
+ * Thrown when the caller does not have sufficient permissions to perform the requested operation.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Thrown when the request conflicts with the current state of the resource, such as attempting to modify a resource that has been changed by another process.</p>
+ *
+ * Thrown when the request conflicts with the current state of the resource, such as attempting to modify a resource that has been changed by another process.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Thrown when an unexpected error occurs on the server side during request processing.</p>
+ *
+ * Thrown when an unexpected error occurs on the server side during request processing.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Thrown when the requested resource cannot be found or does not exist.</p>
+ *
+ * Thrown when the requested resource cannot be found or does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Thrown when the request rate exceeds the allowed limits and the request is being throttled.</p>
+ *
+ * Thrown when the request rate exceeds the allowed limits and the request is being throttled.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Thrown when the request contains invalid parameters or fails input validation requirements.</p>
+ *
+ * Thrown when the request contains invalid parameters or fails input validation requirements.
  *
  * @throws {@link PartnerCentralBenefitsServiceException}
- * <p>Base exception class for all service exceptions from PartnerCentralBenefits service.</p>
  *
+ * Base exception class for all service exceptions from PartnerCentralBenefits service.
  *
  * @public
  */

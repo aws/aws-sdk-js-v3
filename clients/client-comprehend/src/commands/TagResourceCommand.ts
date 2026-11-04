@@ -23,10 +23,8 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Associates a specific tag with an Amazon Comprehend resource. A tag is a key-value pair
- *       that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with
- *       "Sales" as the key might be added to a resource to indicate its use by the sales department.
- *     </p>
+ * Associates a specific tag with an Amazon Comprehend resource. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,26 +55,28 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Concurrent modification of the tags associated with an Amazon Comprehend resource is not
- *       supported. </p>
+ *
+ * Concurrent modification of the tags associated with an Amazon Comprehend resource is not supported.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is invalid.</p>
+ *
+ * The request is invalid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+ *
+ * The specified resource ARN was not found. Check the ARN and try your request again.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>The request contains more tags than can be associated with a resource (50 tags per
- *       resource). The maximum number of tags includes both existing tags and those included in your
- *       current request. </p>
+ *
+ * The request contains more tags than can be associated with a resource (50 tags per resource). The maximum number of tags includes both existing tags and those included in your current request.
  *
  * @throws {@link ComprehendServiceException}
- * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * Base exception class for all service exceptions from Comprehend service.
  *
  * @public
  */

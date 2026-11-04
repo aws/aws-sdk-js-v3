@@ -23,13 +23,8 @@ export interface CreateSamplingRuleCommandInput extends CreateSamplingRuleReques
 export interface CreateSamplingRuleCommandOutput extends CreateSamplingRuleResult, __MetadataBearer {}
 
 /**
- * <p>Creates a rule to control sampling behavior for instrumented applications. Services
- *          retrieve rules with <a href="https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingRules.html">GetSamplingRules</a>, and evaluate each rule in ascending
- *          order of <i>priority</i> for each request. If a rule matches, the service
- *          records a trace, borrowing it from the reservoir size. After 10 seconds, the service
- *          reports back to X-Ray with <a href="https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html">GetSamplingTargets</a> to get updated versions of
- *          each in-use rule. The updated rule contains a trace quota that the service can use instead
- *          of borrowing from the reservoir.</p>
+ * Creates a rule to control sampling behavior for instrumented applications. Services retrieve rules with [GetSamplingRules](https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingRules.html), and evaluate each rule in ascending order of *priority* for each request. If a rule matches, the service records a trace, borrowing it from the reservoir size. After 10 seconds, the service reports back to X-Ray with [GetSamplingTargets](https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html) to get updated versions of each in-use rule. The updated rule contains a trace quota that the service can use instead of borrowing from the reservoir.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -106,17 +101,20 @@ export interface CreateSamplingRuleCommandOutput extends CreateSamplingRuleResul
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is missing required parameters or has invalid parameters.</p>
+ *
+ * The request is missing required parameters or has invalid parameters.
  *
  * @throws {@link RuleLimitExceededException} (client fault)
- *  <p>You have reached the maximum number of sampling rules.</p>
+ *
+ * You have reached the maximum number of sampling rules.
  *
  * @throws {@link ThrottledException} (client fault)
- *  <p>The request exceeds the maximum number of requests per second.</p>
+ *
+ * The request exceeds the maximum number of requests per second.
  *
  * @throws {@link XRayServiceException}
- * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ * Base exception class for all service exceptions from XRay service.
  *
  * @public
  */

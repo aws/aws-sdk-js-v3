@@ -23,7 +23,8 @@ export interface ListJobRunAttemptsCommandInput extends ListJobRunAttemptsReques
 export interface ListJobRunAttemptsCommandOutput extends ListJobRunAttemptsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all attempt of a job run.</p>
+ * Lists all attempt of a job run.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,17 +73,20 @@ export interface ListJobRunAttemptsCommandOutput extends ListJobRunAttemptsRespo
  * @see {@link EMRServerlessClientResolvedConfig | config} for EMRServerlessClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link EMRServerlessServiceException}
- * <p>Base exception class for all service exceptions from EMRServerless service.</p>
  *
+ * Base exception class for all service exceptions from EMRServerless service.
  *
  * @public
  */

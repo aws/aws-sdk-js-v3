@@ -23,9 +23,8 @@ export interface EnableOutboundWebIdentityFederationCommandInput {}
 export interface EnableOutboundWebIdentityFederationCommandOutput extends EnableOutboundWebIdentityFederationResponse, __MetadataBearer {}
 
 /**
- * <p>Enables the outbound identity federation feature for your Amazon Web Services account. When enabled, IAM principals in your account
- *             can use the <code>GetWebIdentityToken</code> API to obtain JSON Web Tokens (JWTs) for secure authentication with external services.
- *             This operation also generates a unique issuer URL for your Amazon Web Services account. </p>
+ * Enables the outbound identity federation feature for your Amazon Web Services account. When enabled, IAM principals in your account can use the `GetWebIdentityToken` API to obtain JSON Web Tokens (JWTs) for secure authentication with external services. This operation also generates a unique issuer URL for your Amazon Web Services account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,12 +49,12 @@ export interface EnableOutboundWebIdentityFederationCommandOutput extends Enable
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link FeatureEnabledException} (client fault)
- *  <p>The request failed because outbound identity federation is already enabled for your Amazon Web Services account. You
- *       cannot enable the feature multiple times. To fetch the current configuration (including the unique issuer URL), use the <code>GetOutboundWebIdentityFederationInfo</code> operation.</p>
+ *
+ * The request failed because outbound identity federation is already enabled for your Amazon Web Services account. You cannot enable the feature multiple times. To fetch the current configuration (including the unique issuer URL), use the `GetOutboundWebIdentityFederationInfo` operation.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @public
  */

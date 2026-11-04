@@ -23,37 +23,20 @@ export interface StopInstancesCommandInput extends StopInstancesRequest {}
 export interface StopInstancesCommandOutput extends StopInstancesResult, __MetadataBearer {}
 
 /**
- * <p>Stops an Amazon EBS-backed instance. You can restart your instance at any time using
- *             the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_StartInstances.html">StartInstances</a> API. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html">Stop and start Amazon EC2
- *                 instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
- *          <p>When you stop or hibernate an instance, we shut it down. By default, this includes a
- *             graceful operating system (OS) shutdown. To bypass the graceful shutdown, use the
- *                 <code>skipOsShutdown</code> parameter; however, this might risk data
- *             integrity.</p>
- *          <p>You can use the StopInstances operation together with the <code>Hibernate</code>
- *             parameter to hibernate an instance if the instance is <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enabling-hibernation.html">enabled for
- *                 hibernation</a> and meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html">hibernation
- *                 prerequisites</a>. Stopping an instance doesn't preserve data stored in RAM,
- *             while hibernation does. If hibernation fails, a normal shutdown occurs. For more
- *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your Amazon EC2
- *                 instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
- *          <p>If your instance appears stuck in the <code>stopping</code> state, there might be an
- *             issue with the underlying host computer. You can use the StopInstances operation
- *             together with the Force parameter to force stop your instance. For more information, see
- *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html">Troubleshoot
- *                     Amazon EC2 instance stop issues</a> in the
- *                 <i>Amazon EC2 User Guide</i>.</p>
- *          <p>Stopping and hibernating an instance differs from rebooting or terminating it. For
- *             example, a stopped or hibernated instance retains its root volume and any data volumes,
- *             unlike terminated instances where these volumes are automatically deleted. For more
- *             information about the differences between stopping, hibernating, rebooting, and
- *             terminating instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Amazon EC2
- *                 instance state changes</a> in the <i>Amazon EC2 User Guide</i>.</p>
- *          <p>We don't charge for instance usage or data transfer fees when an instance is stopped.
- *             However, the root volume and any data volumes remain and continue to persist your data,
- *             and you're charged for volume usage. Every time you start your instance, Amazon EC2 charges a one-minute minimum for instance usage, followed by per-second
- *             billing.</p>
- *          <p>You can't stop or hibernate instance store-backed instances.</p>
+ * Stops an Amazon EBS-backed instance. You can restart your instance at any time using the [StartInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_StartInstances.html) API. For more information, see [Stop and start Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html) in the *Amazon EC2 User Guide*.
+ *
+ * When you stop or hibernate an instance, we shut it down. By default, this includes a graceful operating system (OS) shutdown. To bypass the graceful shutdown, use the `skipOsShutdown` parameter; however, this might risk data integrity.
+ *
+ * You can use the StopInstances operation together with the `Hibernate` parameter to hibernate an instance if the instance is [enabled for hibernation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enabling-hibernation.html) and meets the [hibernation prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html). Stopping an instance doesn't preserve data stored in RAM, while hibernation does. If hibernation fails, a normal shutdown occurs. For more information, see [Hibernate your Amazon EC2 instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html) in the *Amazon EC2 User Guide*.
+ *
+ * If your instance appears stuck in the `stopping` state, there might be an issue with the underlying host computer. You can use the StopInstances operation together with the Force parameter to force stop your instance. For more information, see [Troubleshoot Amazon EC2 instance stop issues](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html) in the *Amazon EC2 User Guide*.
+ *
+ * Stopping and hibernating an instance differs from rebooting or terminating it. For example, a stopped or hibernated instance retains its root volume and any data volumes, unlike terminated instances where these volumes are automatically deleted. For more information about the differences between stopping, hibernating, rebooting, and terminating instances, see [Amazon EC2 instance state changes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) in the *Amazon EC2 User Guide*.
+ *
+ * We don't charge for instance usage or data transfer fees when an instance is stopped. However, the root volume and any data volumes remain and continue to persist your data, and you're charged for volume usage. Every time you start your instance, Amazon EC2 charges a one-minute minimum for instance usage, followed by per-second billing.
+ *
+ * You can't stop or hibernate instance store-backed instances.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -98,8 +81,8 @@ export interface StopInstancesCommandOutput extends StopInstancesResult, __Metad
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To stop a running EC2 instance
  * ```javascript

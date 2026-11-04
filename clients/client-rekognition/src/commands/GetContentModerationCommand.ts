@@ -23,33 +23,20 @@ export interface GetContentModerationCommandInput extends GetContentModerationRe
 export interface GetContentModerationCommandOutput extends GetContentModerationResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the inappropriate, unwanted, or offensive content analysis results for a Amazon Rekognition Video analysis started by
- *        <a>StartContentModeration</a>. For a list of moderation labels in Amazon Rekognition, see
- *        <a href="https://docs.aws.amazon.com/rekognition/latest/dg/moderation.html#moderation-api">Using the image and video moderation APIs</a>.</p>
- *          <p>Amazon Rekognition Video inappropriate or offensive content detection in a stored video is an asynchronous operation. You start analysis by calling
- *        <a>StartContentModeration</a> which returns a job identifier (<code>JobId</code>).
- *        When analysis finishes, Amazon Rekognition Video publishes a completion status to the Amazon Simple Notification Service
- *        topic registered in the initial call to <code>StartContentModeration</code>.
- *        To get the results of the content analysis, first check that the status value published to the Amazon SNS
- *        topic is <code>SUCCEEDED</code>. If so, call  <code>GetContentModeration</code> and pass the job identifier
- *        (<code>JobId</code>) from the initial call to <code>StartContentModeration</code>. </p>
- *          <p>For more information, see Working with Stored Videos in the
- *      Amazon Rekognition Devlopers Guide.</p>
- *          <p>
- *             <code>GetContentModeration</code> returns detected inappropriate, unwanted, or offensive content moderation labels,
- *       and the time they are detected, in an array, <code>ModerationLabels</code>, of
- *       <a>ContentModerationDetection</a> objects.
- *      </p>
- *          <p>By default, the moderated labels are returned sorted by time, in milliseconds from the start of the
- *        video. You can also sort them by moderated label by specifying <code>NAME</code> for the <code>SortBy</code>
- *        input parameter. </p>
- *          <p>Since video analysis can return a large number of results, use the <code>MaxResults</code> parameter to limit
- *       the number of labels returned in a single call to <code>GetContentModeration</code>. If there are more results than
- *        specified in <code>MaxResults</code>, the value of <code>NextToken</code> in the operation response contains a
- *        pagination token for getting the next set of results. To get the next page of results, call <code>GetContentModeration</code>
- *        and populate the <code>NextToken</code> request parameter with the value of <code>NextToken</code>
- *        returned from the previous call to <code>GetContentModeration</code>.</p>
- *          <p>For more information, see moderating content in the Amazon Rekognition Developer Guide.</p>
+ * Gets the inappropriate, unwanted, or offensive content analysis results for a Amazon Rekognition Video analysis started by StartContentModeration. For a list of moderation labels in Amazon Rekognition, see [Using the image and video moderation APIs](https://docs.aws.amazon.com/rekognition/latest/dg/moderation.html#moderation-api).
+ *
+ * Amazon Rekognition Video inappropriate or offensive content detection in a stored video is an asynchronous operation. You start analysis by calling StartContentModeration which returns a job identifier (`JobId`). When analysis finishes, Amazon Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic registered in the initial call to `StartContentModeration`. To get the results of the content analysis, first check that the status value published to the Amazon SNS topic is `SUCCEEDED`. If so, call `GetContentModeration` and pass the job identifier (`JobId`) from the initial call to `StartContentModeration`.
+ *
+ * For more information, see Working with Stored Videos in the Amazon Rekognition Devlopers Guide.
+ *
+ * `GetContentModeration` returns detected inappropriate, unwanted, or offensive content moderation labels, and the time they are detected, in an array, `ModerationLabels`, of ContentModerationDetection objects.
+ *
+ * By default, the moderated labels are returned sorted by time, in milliseconds from the start of the video. You can also sort them by moderated label by specifying `NAME` for the `SortBy` input parameter.
+ *
+ * Since video analysis can return a large number of results, use the `MaxResults` parameter to limit the number of labels returned in a single call to `GetContentModeration`. If there are more results than specified in `MaxResults`, the value of `NextToken` in the operation response contains a pagination token for getting the next set of results. To get the next page of results, call `GetContentModeration` and populate the `NextToken` request parameter with the value of `NextToken` returned from the previous call to `GetContentModeration`.
+ *
+ * For more information, see moderating content in the Amazon Rekognition Developer Guide.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -125,31 +112,36 @@ export interface GetContentModerationCommandOutput extends GetContentModerationR
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You are not authorized to perform the action.</p>
+ *
+ * You are not authorized to perform the action.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * Amazon Rekognition experienced a service issue. Try your call again.
  *
  * @throws {@link InvalidPaginationTokenException} (client fault)
- *  <p>Pagination token in the request is not valid.</p>
+ *
+ * Pagination token in the request is not valid.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
- *       operation again.</p>
+ *
+ * Input parameter violated a constraint. Validate your parameter before calling the API operation again.
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
- *  <p>The number of requests exceeded your throughput limit. If you want to increase this
- *       limit, contact Amazon Rekognition.</p>
+ *
+ * The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource specified in the request cannot be found.</p>
+ *
+ * The resource specified in the request cannot be found.
  *
  * @throws {@link ThrottlingException} (server fault)
- *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
+ * Amazon Rekognition is temporarily unable to process the request. Try your call again.
  *
  * @throws {@link RekognitionServiceException}
- * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * Base exception class for all service exceptions from Rekognition service.
  *
  * @public
  */

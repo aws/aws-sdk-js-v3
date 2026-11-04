@@ -23,10 +23,10 @@ export interface ImportApplicationUsageCommandInput extends ImportApplicationUsa
 export interface ImportApplicationUsageCommandOutput extends ImportApplicationUsageResult, __MetadataBearer {}
 
 /**
- * <p>Ingests application usage data from Amazon Simple Storage Service (Amazon S3).</p>
- *          <p>The data must already exist in the S3 location. As part of the action, AWS Application Cost Profiler
- *       copies the object from your S3 bucket to an S3 bucket owned by Amazon for processing
- *       asynchronously.</p>
+ * Ingests application usage data from Amazon Simple Storage Service (Amazon S3).
+ *
+ * The data must already exist in the S3 location. As part of the action, AWS Application Cost Profiler copies the object from your S3 bucket to an S3 bucket owned by Amazon for processing asynchronously.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,20 +57,24 @@ export interface ImportApplicationUsageCommandOutput extends ImportApplicationUs
  * @see {@link ApplicationCostProfilerClientResolvedConfig | config} for ApplicationCostProfilerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have permission to perform this action.</p>
+ *
+ * You do not have permission to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The calls to AWS Application Cost Profiler API are throttled. The request was denied.</p>
+ *
+ * The calls to AWS Application Cost Profiler API are throttled. The request was denied.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints for the API.</p>
+ *
+ * The input fails to satisfy the constraints for the API.
  *
  * @throws {@link ApplicationCostProfilerServiceException}
- * <p>Base exception class for all service exceptions from ApplicationCostProfiler service.</p>
  *
+ * Base exception class for all service exceptions from ApplicationCostProfiler service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface GetVerifiedAccessEndpointPolicyCommandInput extends GetVerified
 export interface GetVerifiedAccessEndpointPolicyCommandOutput extends GetVerifiedAccessEndpointPolicyResult, __MetadataBearer {}
 
 /**
- * <p>Get the Verified Access policy associated with the endpoint.</p>
+ * Get the Verified Access policy associated with the endpoint.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,8 +53,8 @@ export interface GetVerifiedAccessEndpointPolicyCommandOutput extends GetVerifie
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

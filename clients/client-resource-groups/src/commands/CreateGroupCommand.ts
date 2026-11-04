@@ -23,22 +23,14 @@ export interface CreateGroupCommandInput extends CreateGroupInput {}
 export interface CreateGroupCommandOutput extends CreateGroupOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a resource group with the specified name and description. You can optionally
- *             include either a resource query or a service configuration. For more information about
- *             constructing a resource query, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/getting_started-query.html">Build queries and groups in
- *                 Resource Groups</a> in the <i>Resource Groups User Guide</i>. For more information
- *             about service-linked groups and service configurations, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service configurations for Resource Groups</a>.</p>
- *          <p>
- *             <b>Minimum permissions</b>
- *          </p>
- *          <p>To run this command, you must have the following permissions:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>resource-groups:CreateGroup</code>
- *                </p>
- *             </li>
- *          </ul>
+ * Creates a resource group with the specified name and description. You can optionally include either a resource query or a service configuration. For more information about constructing a resource query, see [Build queries and groups in Resource Groups](https://docs.aws.amazon.com/ARG/latest/userguide/getting_started-query.html) in the *Resource Groups User Guide*. For more information about service-linked groups and service configurations, see [Service configurations for Resource Groups](https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html).
+ *
+ * **Minimum permissions**
+ *
+ * To run this command, you must have the following permissions:
+ *
+ * - `resource-groups:CreateGroup`
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -136,24 +128,28 @@ export interface CreateGroupCommandOutput extends CreateGroupOutput, __MetadataB
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request includes one or more parameters that violate validation rules.</p>
+ *
+ * The request includes one or more parameters that violate validation rules.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>The caller isn't authorized to make the request. Check permissions.</p>
+ *
+ * The caller isn't authorized to make the request. Check permissions.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>An internal error occurred while processing the request. Try again later.</p>
+ *
+ * An internal error occurred while processing the request. Try again later.
  *
  * @throws {@link MethodNotAllowedException} (client fault)
- *  <p>The request uses an HTTP method that isn't allowed for the specified resource.</p>
+ *
+ * The request uses an HTTP method that isn't allowed for the specified resource.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>You've exceeded throttling limits by making too many requests in a period of
- *             time.</p>
+ *
+ * You've exceeded throttling limits by making too many requests in a period of time.
  *
  * @throws {@link ResourceGroupsServiceException}
- * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
+ * Base exception class for all service exceptions from ResourceGroups service.
  *
  * @public
  */

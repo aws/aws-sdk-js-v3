@@ -6,7 +6,8 @@ import type { ValidationExceptionReason } from "./enums";
 import type { ValidationExceptionField } from "./models_0";
 
 /**
- * <p>The operation failed because the calling identity doesn't have the minimum required permissions.</p>
+ * The operation failed because the calling identity doesn't have the minimum required permissions.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -14,7 +15,8 @@ export class AccessDeniedException extends __BaseException {
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The value populated to the <code>x-amzn-ErrorType</code> response header by API Gateway.</p>
+   * The value populated to the `x-amzn-ErrorType` response header by API Gateway.
+   *
    * @public
    */
   errorType?: string | undefined;
@@ -34,7 +36,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request could not be processed because of a conflict in the current status of the resource. For example, this happens if you try to enable a Region that is currently being disabled (in a status of DISABLING) or if you try to change an account’s root user email to an email address which is already in use.</p>
+ * The request could not be processed because of a conflict in the current status of the resource. For example, this happens if you try to enable a Region that is currently being disabled (in a status of DISABLING) or if you try to change an account’s root user email to an email address which is already in use.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -42,7 +45,8 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The value populated to the <code>x-amzn-ErrorType</code> response header by API Gateway.</p>
+   * The value populated to the `x-amzn-ErrorType` response header by API Gateway.
+   *
    * @public
    */
   errorType?: string | undefined;
@@ -62,7 +66,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The operation failed because of an error internal to Amazon Web Services. Try your operation again later.</p>
+ * The operation failed because of an error internal to Amazon Web Services. Try your operation again later.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -71,7 +76,8 @@ export class InternalServerException extends __BaseException {
   readonly $fault = "server" as const;
   $retryable = {};
   /**
-   * <p>The value populated to the <code>x-amzn-ErrorType</code> response header by API Gateway.</p>
+   * The value populated to the `x-amzn-ErrorType` response header by API Gateway.
+   *
    * @public
    */
   errorType?: string | undefined;
@@ -91,7 +97,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The operation failed because it specified a resource that can't be found.</p>
+ * The operation failed because it specified a resource that can't be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -99,7 +106,8 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The value populated to the <code>x-amzn-ErrorType</code> response header by API Gateway.</p>
+   * The value populated to the `x-amzn-ErrorType` response header by API Gateway.
+   *
    * @public
    */
   errorType?: string | undefined;
@@ -119,7 +127,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The operation failed because it was called too frequently and exceeded a throttle limit.</p>
+ * The operation failed because it was called too frequently and exceeded a throttle limit.
+ *
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
@@ -130,7 +139,8 @@ export class TooManyRequestsException extends __BaseException {
     throttling: true,
   };
   /**
-   * <p>The value populated to the <code>x-amzn-ErrorType</code> response header by API Gateway.</p>
+   * The value populated to the `x-amzn-ErrorType` response header by API Gateway.
+   *
    * @public
    */
   errorType?: string | undefined;
@@ -150,7 +160,8 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * <p>The operation failed because one of the input parameters was invalid.</p>
+ * The operation failed because one of the input parameters was invalid.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -158,13 +169,15 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The reason that validation failed.</p>
+   * The reason that validation failed.
+   *
    * @public
    */
   reason?: ValidationExceptionReason | undefined;
 
   /**
-   * <p>The field where the invalid entry was detected.</p>
+   * The field where the invalid entry was detected.
+   *
    * @public
    */
   fieldList?: ValidationExceptionField[] | undefined;
@@ -185,7 +198,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The operation failed because it specified a resource that is not currently available.</p>
+ * The operation failed because it specified a resource that is not currently available.
+ *
  * @public
  */
 export class ResourceUnavailableException extends __BaseException {
@@ -193,7 +207,8 @@ export class ResourceUnavailableException extends __BaseException {
   readonly name = "ResourceUnavailableException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The value populated to the <code>x-amzn-ErrorType</code> response header by API Gateway.</p>
+   * The value populated to the `x-amzn-ErrorType` response header by API Gateway.
+   *
    * @public
    */
   errorType?: string | undefined;

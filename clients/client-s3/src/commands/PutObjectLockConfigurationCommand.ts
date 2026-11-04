@@ -23,32 +23,18 @@ export interface PutObjectLockConfigurationCommandInput extends PutObjectLockCon
 export interface PutObjectLockConfigurationCommandOutput extends PutObjectLockConfigurationOutput, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This operation is not supported for directory buckets.</p>
- *          </note>
- *          <p>Places an Object Lock configuration on the specified bucket. The rule specified in the Object Lock
- *       configuration will be applied by default to every new object placed in the specified bucket. For more
- *       information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
- *         Objects</a>. </p>
- *          <note>
- *             <ul>
- *                <li>
- *                   <p>The <code>DefaultRetention</code> settings require both a mode and a period.</p>
- *                </li>
- *                <li>
- *                   <p>The <code>DefaultRetention</code> period can be either <code>Days</code> or <code>Years</code>
- *             but you must select one. You cannot specify <code>Days</code> and <code>Years</code> at the same
- *             time.</p>
- *                </li>
- *                <li>
- *                   <p>You can enable Object Lock for new or existing buckets. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-configure.html">Configuring
- *               Object Lock</a>.</p>
- *                </li>
- *             </ul>
- *          </note>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
+ * > **Note:** This operation is not supported for directory buckets.
+ *
+ * Places an Object Lock configuration on the specified bucket. The rule specified in the Object Lock configuration will be applied by default to every new object placed in the specified bucket. For more information, see [Locking Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html).
+ *
+ * > **Note:**
+ * >
+ * > - The `DefaultRetention` settings require both a mode and a period.
+ * > - The `DefaultRetention` period can be either `Days` or `Years` but you must select one. You cannot specify `Days` and `Years` at the same time.
+ * > - You can enable Object Lock for new or existing buckets. For more information, see [Configuring Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-configure.html).
+ *
+ * > **Important:** You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,8 +80,8 @@ export interface PutObjectLockConfigurationCommandOutput extends PutObjectLockCo
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  * @throws {@link S3ServiceException}
- * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * Base exception class for all service exceptions from S3 service.
  *
  * @public
  */

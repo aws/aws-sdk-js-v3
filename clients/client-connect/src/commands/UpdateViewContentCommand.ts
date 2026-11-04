@@ -23,11 +23,10 @@ export interface UpdateViewContentCommandInput extends UpdateViewContentRequest 
 export interface UpdateViewContentCommandOutput extends UpdateViewContentResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the view content of the given view identifier in the specified Connect Customer instance.</p>
- *          <p>It performs content validation if <code>Status</code> is set to <code>SAVED</code> and performs full content
- *    validation if <code>Status</code> is <code>PUBLISHED</code>. Note that the <code>$SAVED</code> alias' content will
- *    always be updated, but the <code>$LATEST</code> alias' content will only be updated if <code>Status</code> is
- *     <code>PUBLISHED</code>.</p>
+ * Updates the view content of the given view identifier in the specified Connect Customer instance.
+ *
+ * It performs content validation if `Status` is set to `SAVED` and performs full content validation if `Status` is `PUBLISHED`. Note that the `$SAVED` alias' content will always be updated, but the `$LATEST` alias' content will only be updated if `Status` is `PUBLISHED`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,31 +83,36 @@ export interface UpdateViewContentCommandOutput extends UpdateViewContentRespons
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>That resource is already in use (for example, you're trying to add a record with the same name as an existing
- *    record). If you are trying to delete a resource (for example, DeleteHoursOfOperation or DeletePredefinedAttribute),
- *    remove its reference from related resources and then try again.</p>
+ *
+ * That resource is already in use (for example, you're trying to add a record with the same name as an existing record). If you are trying to delete a resource (for example, DeleteHoursOfOperation or DeletePredefinedAttribute), remove its reference from related resources and then try again.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Displayed when rate-related API limits are exceeded.</p>
+ *
+ * Displayed when rate-related API limits are exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

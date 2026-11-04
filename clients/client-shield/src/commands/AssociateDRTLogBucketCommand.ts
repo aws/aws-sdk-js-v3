@@ -23,8 +23,10 @@ export interface AssociateDRTLogBucketCommandInput extends AssociateDRTLogBucket
 export interface AssociateDRTLogBucketCommandOutput extends AssociateDRTLogBucketResponse, __MetadataBearer {}
 
 /**
- * <p>Authorizes the Shield Response Team (SRT) to access the specified Amazon S3 bucket containing log data such as Application Load Balancer access logs, CloudFront logs, or logs from third party sources. You can associate up to 10 Amazon S3 buckets with your subscription.</p>
- *          <p>To use the services of the SRT and make an <code>AssociateDRTLogBucket</code> request, you must be subscribed to the <a href="http://aws.amazon.com/premiumsupport/business-support/">Business Support plan</a> or the <a href="http://aws.amazon.com/premiumsupport/enterprise-support/">Enterprise Support plan</a>.</p>
+ * Authorizes the Shield Response Team (SRT) to access the specified Amazon S3 bucket containing log data such as Application Load Balancer access logs, CloudFront logs, or logs from third party sources. You can associate up to 10 Amazon S3 buckets with your subscription.
+ *
+ * To use the services of the SRT and make an `AssociateDRTLogBucket` request, you must be subscribed to the [Business Support plan](http://aws.amazon.com/premiumsupport/business-support/) or the [Enterprise Support plan](http://aws.amazon.com/premiumsupport/enterprise-support/).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,33 +51,40 @@ export interface AssociateDRTLogBucketCommandOutput extends AssociateDRTLogBucke
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
  *
  * @throws {@link AccessDeniedForDependencyException} (client fault)
- *  <p>In order to grant the necessary access to the Shield Response Team (SRT) the user submitting the request must have the <code>iam:PassRole</code> permission. This error indicates the user did not have the appropriate permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">Granting a User Permissions to Pass a Role to an Amazon Web Services Service</a>. </p>
+ *
+ * In order to grant the necessary access to the Shield Response Team (SRT) the user submitting the request must have the `iam:PassRole` permission. This error indicates the user did not have the appropriate permissions. For more information, see [Granting a User Permissions to Pass a Role to an Amazon Web Services Service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html).
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+ *
+ * Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.
  *
  * @throws {@link InvalidOperationException} (client fault)
- *  <p>Exception that indicates that the operation would not cause any change to occur.</p>
+ *
+ * Exception that indicates that the operation would not cause any change to occur.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Exception that indicates that the parameters passed to the API are invalid. If available, this exception includes details in additional properties. </p>
+ *
+ * Exception that indicates that the parameters passed to the API are invalid. If available, this exception includes details in additional properties.
  *
  * @throws {@link LimitsExceededException} (client fault)
- *  <p>Exception that indicates that the operation would exceed a limit.</p>
+ *
+ * Exception that indicates that the operation would exceed a limit.
  *
  * @throws {@link NoAssociatedRoleException} (client fault)
- *  <p>The ARN of the role that you specified does not exist.</p>
+ *
+ * The ARN of the role that you specified does not exist.
  *
  * @throws {@link OptimisticLockException} (client fault)
- *  <p>Exception that indicates that the resource state has been modified by another
- *          client. Retrieve the resource and then retry your request.</p>
+ *
+ * Exception that indicates that the resource state has been modified by another client. Retrieve the resource and then retry your request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+ *
+ * Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties.
  *
  * @throws {@link ShieldServiceException}
- * <p>Base exception class for all service exceptions from Shield service.</p>
  *
+ * Base exception class for all service exceptions from Shield service.
  *
  * @public
  */

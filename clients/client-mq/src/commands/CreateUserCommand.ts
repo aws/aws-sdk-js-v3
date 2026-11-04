@@ -23,7 +23,10 @@ export interface CreateUserCommandInput extends CreateUserRequest {}
 export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an ActiveMQ user.</p> <important><p>Do not add personally identifiable information (PII) or other confidential or sensitive information in broker usernames. Broker usernames are accessible to other Amazon Web Services services, including CloudWatch Logs. Broker usernames are not intended to be used for private or sensitive data.</p></important>
+ * Creates an ActiveMQ user.
+ *
+ * > **Important:** Do not add personally identifiable information (PII) or other confidential or sensitive information in broker usernames. Broker usernames are accessible to other Amazon Web Services services, including CloudWatch Logs. Broker usernames are not intended to be used for private or sensitive data.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,23 +58,28 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * @see {@link MqClientResolvedConfig | config} for MqClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link MqServiceException}
- * <p>Base exception class for all service exceptions from Mq service.</p>
  *
+ * Base exception class for all service exceptions from Mq service.
  *
  * @public
  */

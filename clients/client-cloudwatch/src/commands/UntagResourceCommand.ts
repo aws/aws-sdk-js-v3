@@ -23,8 +23,8 @@ export interface UntagResourceCommandInput extends UntagResourceInput {}
 export interface UntagResourceCommandOutput extends UntagResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Removes one or more tags from the specified resource. Currently, alarms, dashboards,
- *             metric streams and Contributor Insights rules support tagging.</p>
+ * Removes one or more tags from the specified resource. Currently, alarms, dashboards, metric streams and Contributor Insights rules support tagging.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,24 +52,28 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>More than one process tried to modify a resource at the same time.</p>
+ *
+ * More than one process tried to modify a resource at the same time.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>This operation attempted to create a resource that already exists.</p>
+ *
+ * This operation attempted to create a resource that already exists.
  *
  * @throws {@link InternalServiceFault} (server fault)
- *  <p>Request processing has failed due to some unknown error, exception, or
- *             failure.</p>
+ *
+ * Request processing has failed due to some unknown error, exception, or failure.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value of an input parameter is bad or out-of-range.</p>
+ *
+ * The value of an input parameter is bad or out-of-range.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The named resource does not exist.</p>
+ *
+ * The named resource does not exist.
  *
  * @throws {@link CloudWatchServiceException}
- * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatch service.
  *
  * @public
  */

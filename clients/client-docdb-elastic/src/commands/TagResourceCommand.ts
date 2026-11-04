@@ -23,7 +23,8 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Adds metadata tags to an elastic cluster resource</p>
+ * Adds metadata tags to an elastic cluster resource
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,20 +52,24 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link DocDBElasticClientResolvedConfig | config} for DocDBElasticClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>There was an internal server error.</p>
+ *
+ * There was an internal server error.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource could not be located.</p>
+ *
+ * The specified resource could not be located.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>ThrottlingException will be thrown when request was denied due to request throttling.</p>
+ *
+ * ThrottlingException will be thrown when request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A structure defining a validation exception.</p>
+ *
+ * A structure defining a validation exception.
  *
  * @throws {@link DocDBElasticServiceException}
- * <p>Base exception class for all service exceptions from DocDBElastic service.</p>
  *
+ * Base exception class for all service exceptions from DocDBElastic service.
  *
  * @public
  */

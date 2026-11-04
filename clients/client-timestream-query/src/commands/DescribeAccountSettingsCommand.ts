@@ -23,8 +23,10 @@ export interface DescribeAccountSettingsCommandInput extends DescribeAccountSett
 export interface DescribeAccountSettingsCommandOutput extends DescribeAccountSettingsResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the settings for your account that include the query pricing model and the configured maximum TCUs the service can use for your query workload.</p>
- *          <p>You're charged only for the duration of compute units used for your workloads.</p>
+ * Describes the settings for your account that include the query pricing model and the configured maximum TCUs the service can use for your query workload.
+ *
+ * You're charged only for the duration of compute units used for your workloads.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,20 +69,24 @@ export interface DescribeAccountSettingsCommandOutput extends DescribeAccountSet
  * @see {@link TimestreamQueryClientResolvedConfig | config} for TimestreamQueryClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have the necessary permissions to access the account settings.</p>
+ *
+ * You do not have the necessary permissions to access the account settings.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred while processing the request.</p>
+ *
+ * An internal server error occurred while processing the request.
  *
  * @throws {@link InvalidEndpointException} (client fault)
- *  <p>The requested endpoint is invalid.</p>
+ *
+ * The requested endpoint is invalid.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled due to excessive requests.</p>
+ *
+ * The request was throttled due to excessive requests.
  *
  * @throws {@link TimestreamQueryServiceException}
- * <p>Base exception class for all service exceptions from TimestreamQuery service.</p>
  *
+ * Base exception class for all service exceptions from TimestreamQuery service.
  *
  * @public
  */

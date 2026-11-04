@@ -23,118 +23,53 @@ export interface EncryptCommandInput extends EncryptRequest {}
 export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer {}
 
 /**
- * <p>Encrypts plaintext of up to 4,096 bytes using a KMS key. You can use a symmetric or
- *       asymmetric KMS key with a <code>KeyUsage</code> of <code>ENCRYPT_DECRYPT</code>.</p>
- *          <p>You can use this operation to encrypt small amounts of arbitrary data, such as a personal
- *       identifier or database password, or other sensitive information. You don't need to use the
- *         <code>Encrypt</code> operation to encrypt a data key. The <a>GenerateDataKey</a>
- *       and <a>GenerateDataKeyPair</a> operations return a plaintext data key and an
- *       encrypted copy of that data key.</p>
- *          <p>If you use a symmetric encryption KMS key, you can use an encryption context to add
- *       additional security to your encryption operation. If you specify an
- *         <code>EncryptionContext</code> when encrypting data, you must specify the same encryption
- *       context (a case-sensitive exact match) when decrypting the data. Otherwise, the request to
- *       decrypt fails with an <code>InvalidCiphertextException</code>. For more information, see
- *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html">Encryption
- *         Context</a> in the <i>Key Management Service Developer Guide</i>.</p>
- *          <p>If you specify an asymmetric KMS key, you must also specify the encryption algorithm. The
- *       algorithm must be compatible with the KMS key spec.</p>
- *          <important>
- *             <p>When you use an asymmetric KMS key to encrypt or reencrypt data, be sure to record the KMS key and encryption algorithm that you choose. You will be required to provide the same KMS key and encryption algorithm when you decrypt the data. If the KMS key and algorithm do not match the values used to encrypt the data, the decrypt operation fails.</p>
- *             <p>You are not required to supply the key ID and encryption algorithm when you decrypt with symmetric encryption KMS keys because KMS stores this information in the ciphertext blob. KMS cannot store metadata in ciphertext generated with asymmetric keys. The standard format for asymmetric key ciphertext does not include configurable fields.</p>
- *          </important>
- *          <p>The maximum size of the data that you can encrypt varies with the type of KMS key and the
- *       encryption algorithm that you choose.</p>
- *          <ul>
- *             <li>
- *                <p>Symmetric encryption KMS keys</p>
- *                <ul>
- *                   <li>
- *                      <p>
- *                         <code>SYMMETRIC_DEFAULT</code>: 4096 bytes</p>
- *                   </li>
- *                </ul>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>RSA_2048</code>
- *                </p>
- *                <ul>
- *                   <li>
- *                      <p>
- *                         <code>RSAES_OAEP_SHA_1</code>: 214 bytes</p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <code>RSAES_OAEP_SHA_256</code>: 190 bytes</p>
- *                   </li>
- *                </ul>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>RSA_3072</code>
- *                </p>
- *                <ul>
- *                   <li>
- *                      <p>
- *                         <code>RSAES_OAEP_SHA_1</code>: 342 bytes</p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <code>RSAES_OAEP_SHA_256</code>: 318 bytes</p>
- *                   </li>
- *                </ul>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>RSA_4096</code>
- *                </p>
- *                <ul>
- *                   <li>
- *                      <p>
- *                         <code>RSAES_OAEP_SHA_1</code>: 470 bytes</p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <code>RSAES_OAEP_SHA_256</code>: 446 bytes</p>
- *                   </li>
- *                </ul>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>SM2PKE</code>: 1024 bytes (China Regions only)</p>
- *             </li>
- *          </ul>
- *          <p>The KMS key that you use for this operation must be in a compatible key state. For
- * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
- *          <p>
- *             <b>Cross-account use</b>: Yes. To perform this operation with a KMS key in a different Amazon Web Services account, specify
- *   the key ARN or alias ARN in the value of the <code>KeyId</code> parameter.</p>
- *          <p>
- *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:Encrypt</a> (key policy)</p>
- *          <p>
- *             <b>Related operations:</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>Decrypt</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>GenerateDataKey</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>GenerateDataKeyPair</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
+ * Encrypts plaintext of up to 4,096 bytes using a KMS key. You can use a symmetric or asymmetric KMS key with a `KeyUsage` of `ENCRYPT_DECRYPT`.
+ *
+ * You can use this operation to encrypt small amounts of arbitrary data, such as a personal identifier or database password, or other sensitive information. You don't need to use the `Encrypt` operation to encrypt a data key. The GenerateDataKey and GenerateDataKeyPair operations return a plaintext data key and an encrypted copy of that data key.
+ *
+ * If you use a symmetric encryption KMS key, you can use an encryption context to add additional security to your encryption operation. If you specify an `EncryptionContext` when encrypting data, you must specify the same encryption context (a case-sensitive exact match) when decrypting the data. Otherwise, the request to decrypt fails with an `InvalidCiphertextException`. For more information, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html) in the *Key Management Service Developer Guide*.
+ *
+ * If you specify an asymmetric KMS key, you must also specify the encryption algorithm. The algorithm must be compatible with the KMS key spec.
+ *
+ * > **Important:**
+ * >
+ * > When you use an asymmetric KMS key to encrypt or reencrypt data, be sure to record the KMS key and encryption algorithm that you choose. You will be required to provide the same KMS key and encryption algorithm when you decrypt the data. If the KMS key and algorithm do not match the values used to encrypt the data, the decrypt operation fails.
+ * >
+ * > You are not required to supply the key ID and encryption algorithm when you decrypt with symmetric encryption KMS keys because KMS stores this information in the ciphertext blob. KMS cannot store metadata in ciphertext generated with asymmetric keys. The standard format for asymmetric key ciphertext does not include configurable fields.
+ *
+ * The maximum size of the data that you can encrypt varies with the type of KMS key and the encryption algorithm that you choose.
+ *
+ * - Symmetric encryption KMS keys
+ *
+ *   - `SYMMETRIC_DEFAULT`: 4096 bytes
+ * - `RSA_2048`
+ *
+ *   - `RSAES_OAEP_SHA_1`: 214 bytes
+ *   - `RSAES_OAEP_SHA_256`: 190 bytes
+ * - `RSA_3072`
+ *
+ *   - `RSAES_OAEP_SHA_1`: 342 bytes
+ *   - `RSAES_OAEP_SHA_256`: 318 bytes
+ * - `RSA_4096`
+ *
+ *   - `RSAES_OAEP_SHA_1`: 470 bytes
+ *   - `RSAES_OAEP_SHA_256`: 446 bytes
+ * - `SM2PKE`: 1024 bytes (China Regions only)
+ *
+ * The KMS key that you use for this operation must be in a compatible key state. For details, see [Key states of KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the *Key Management Service Developer Guide*.
+ *
+ * **Cross-account use**: Yes. To perform this operation with a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN in the value of the `KeyId` parameter.
+ *
+ * **Required permissions**: [kms:Encrypt](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy)
+ *
+ * **Related operations:**
+ *
+ * - Decrypt
+ * - GenerateDataKey
+ * - GenerateDataKeyPair
+ *
+ * **Eventual consistency**: The KMS API follows an eventual consistency model. For more information, see [KMS eventual consistency](https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -172,76 +107,58 @@ export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer 
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
  * @throws {@link DependencyTimeoutException} (server fault)
- *  <p>The system timed out while trying to fulfill the request. You can retry the
- *       request.</p>
+ *
+ * The system timed out while trying to fulfill the request. You can retry the request.
  *
  * @throws {@link DisabledException} (client fault)
- *  <p>The request was rejected because the specified KMS key is not enabled.</p>
+ *
+ * The request was rejected because the specified KMS key is not enabled.
  *
  * @throws {@link DryRunOperationException} (client fault)
- *  <p> The request was rejected because the DryRun parameter was specified. </p>
+ *
+ * The request was rejected because the DryRun parameter was specified.
  *
  * @throws {@link InvalidGrantTokenException} (client fault)
- *  <p>The request was rejected because the specified grant token is not valid.</p>
+ *
+ * The request was rejected because the specified grant token is not valid.
  *
  * @throws {@link InvalidKeyUsageException} (client fault)
- *  <p>The request was rejected for one of the following reasons: </p>
- *          <ul>
- *             <li>
- *                <p>The <code>KeyUsage</code> value of the KMS key is incompatible with the API
- *           operation.</p>
- *             </li>
- *             <li>
- *                <p>The encryption algorithm or signing algorithm specified for the operation is
- *           incompatible with the type of key material in the KMS key <code>(KeySpec</code>).</p>
- *             </li>
- *          </ul>
- *          <p>For encrypting, decrypting, re-encrypting, and generating data keys, the
- *         <code>KeyUsage</code> must be <code>ENCRYPT_DECRYPT</code>. For signing and verifying
- *       messages, the <code>KeyUsage</code> must be <code>SIGN_VERIFY</code>. For generating and
- *       verifying message authentication codes (MACs), the <code>KeyUsage</code> must be
- *         <code>GENERATE_VERIFY_MAC</code>. For deriving key agreement secrets, the
- *         <code>KeyUsage</code> must be <code>KEY_AGREEMENT</code>. For encapsulating and decapsulating
- *       shared secrets, the <code>KeyUsage</code> must be <code>ENCAPSULATE_DECAPSULATE</code>. To find
- *       the <code>KeyUsage</code> of a KMS key, use the <a>DescribeKey</a> operation.</p>
- *          <p>To find the encryption or signing algorithms supported for a particular KMS key, use the
- *         <a>DescribeKey</a> operation.</p>
+ *
+ * The request was rejected for one of the following reasons:
+ *
+ * - The `KeyUsage` value of the KMS key is incompatible with the API operation.
+ * - The encryption algorithm or signing algorithm specified for the operation is incompatible with the type of key material in the KMS key `(KeySpec`).
+ *
+ * For encrypting, decrypting, re-encrypting, and generating data keys, the `KeyUsage` must be `ENCRYPT_DECRYPT`. For signing and verifying messages, the `KeyUsage` must be `SIGN_VERIFY`. For generating and verifying message authentication codes (MACs), the `KeyUsage` must be `GENERATE_VERIFY_MAC`. For deriving key agreement secrets, the `KeyUsage` must be `KEY_AGREEMENT`. For encapsulating and decapsulating shared secrets, the `KeyUsage` must be `ENCAPSULATE_DECAPSULATE`. To find the `KeyUsage` of a KMS key, use the DescribeKey operation.
+ *
+ * To find the encryption or signing algorithms supported for a particular KMS key, use the DescribeKey operation.
  *
  * @throws {@link KeyUnavailableException} (server fault)
- *  <p>The request was rejected because the specified KMS key was not available. You can retry
- *       the request.</p>
+ *
+ * The request was rejected because the specified KMS key was not available. You can retry the request.
  *
  * @throws {@link KMSInternalException} (server fault)
- *  <p>The request was rejected because an internal exception occurred. The request can be
- *       retried.</p>
+ *
+ * The request was rejected because an internal exception occurred. The request can be retried.
  *
  * @throws {@link KMSInvalidStateException} (client fault)
- *  <p>The request was rejected because the state of the specified resource is not valid for this
- *       request.</p>
- *          <p>This exceptions means one of the following:</p>
- *          <ul>
- *             <li>
- *                <p>The key state of the KMS key is not compatible with the operation. </p>
- *                <p>To find the key state, use the <a>DescribeKey</a> operation. For more
- *           information about which key states are compatible with each KMS operation, see
- *           <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>
- *                      <i>Key Management Service Developer Guide</i>
- *                   </i>.</p>
- *             </li>
- *             <li>
- *                <p>For cryptographic operations on KMS keys in custom key stores, this exception
- *           represents a general failure with many possible causes. To identify the cause, see the
- *           error message that accompanies the exception.</p>
- *             </li>
- *          </ul>
+ *
+ * The request was rejected because the state of the specified resource is not valid for this request.
+ *
+ * This exceptions means one of the following:
+ *
+ * - The key state of the KMS key is not compatible with the operation.
+ *
+ *   To find the key state, use the DescribeKey operation. For more information about which key states are compatible with each KMS operation, see [Key states of KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the **Key Management Service Developer Guide** .
+ * - For cryptographic operations on KMS keys in custom key stores, this exception represents a general failure with many possible causes. To identify the cause, see the error message that accompanies the exception.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The request was rejected because the specified entity or resource could not be
- *       found.</p>
+ *
+ * The request was rejected because the specified entity or resource could not be found.
  *
  * @throws {@link KMSServiceException}
- * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * Base exception class for all service exceptions from KMS service.
  *
  * @example To encrypt data with a symmetric encryption KMS key
  * ```javascript

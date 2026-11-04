@@ -26,12 +26,12 @@ export interface ListCustomVerificationEmailTemplatesCommandInput extends ListCu
 export interface ListCustomVerificationEmailTemplatesCommandOutput extends ListCustomVerificationEmailTemplatesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the existing custom verification email templates for your account in the current
- *                 Amazon Web Services Region.</p>
- *          <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
- *                 custom verification email templates</a> in the <i>Amazon SES Developer
- *                 Guide</i>.</p>
- *          <p>You can execute this operation no more than once per second.</p>
+ * Lists the existing custom verification email templates for your account in the current Amazon Web Services Region.
+ *
+ * For more information about custom verification email templates, see [Using custom verification email templates](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom) in the *Amazon SES Developer Guide*.
+ *
+ * You can execute this operation no more than once per second.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,14 +68,16 @@ export interface ListCustomVerificationEmailTemplatesCommandOutput extends ListC
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Too many requests have been made to the operation.</p>
+ *
+ * Too many requests have been made to the operation.
  *
  * @throws {@link SESv2ServiceException}
- * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * Base exception class for all service exceptions from SESv2 service.
  *
  * @public
  */

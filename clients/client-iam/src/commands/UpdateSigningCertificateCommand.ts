@@ -23,14 +23,10 @@ export interface UpdateSigningCertificateCommandInput extends UpdateSigningCerti
 export interface UpdateSigningCertificateCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Changes the status of the specified user signing certificate from active to disabled,
- *             or vice versa. This operation can be used to disable an IAM user's signing
- *             certificate as part of a certificate rotation work flow.</p>
- *          <p>If the <code>UserName</code> field is not specified, the user name is determined
- *             implicitly based on the Amazon Web Services access key ID used to sign the request. This operation
- *             works for access keys under the Amazon Web Services account. Consequently, you can use this operation
- *             to manage Amazon Web Services account root user credentials even if the Amazon Web Services account has no associated
- *             users.</p>
+ * Changes the status of the specified user signing certificate from active to disabled, or vice versa. This operation can be used to disable an IAM user's signing certificate as part of a certificate rotation work flow.
+ *
+ * If the `UserName` field is not specified, the user name is determined implicitly based on the Amazon Web Services access key ID used to sign the request. This operation works for access keys under the Amazon Web Services account. Consequently, you can use this operation to manage Amazon Web Services account root user credentials even if the Amazon Web Services account has no associated users.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,24 +53,24 @@ export interface UpdateSigningCertificateCommandOutput extends __MetadataBearer 
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
- *       input parameter.</p>
+ *
+ * The request was rejected because an invalid or out-of-range value was supplied for an input parameter.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current
- *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+ *
+ * The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @example To change the active status of a signing certificate for an IAM user
  * ```javascript

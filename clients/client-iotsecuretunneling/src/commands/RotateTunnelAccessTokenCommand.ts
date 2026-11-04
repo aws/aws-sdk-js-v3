@@ -23,15 +23,12 @@ export interface RotateTunnelAccessTokenCommandInput extends RotateTunnelAccessT
 export interface RotateTunnelAccessTokenCommandOutput extends RotateTunnelAccessTokenResponse, __MetadataBearer {}
 
 /**
- * <p>Revokes the current client access token (CAT) and returns new CAT for clients to
- * 			use when reconnecting to secure tunneling to access the same tunnel.</p>
- *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RotateTunnelAccessToken</a> action.</p>
- *          <note>
- *             <p>Rotating the CAT doesn't extend the tunnel duration. For example, say the tunnel
- * 				duration is 12 hours and the tunnel has already been open for 4 hours. When you
- * 				rotate the access tokens, the new tokens that are generated can only be used for the
- * 				remaining 8 hours.</p>
- *          </note>
+ * Revokes the current client access token (CAT) and returns new CAT for clients to use when reconnecting to secure tunneling to access the same tunnel.
+ *
+ * Requires permission to access the [RotateTunnelAccessToken](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
+ *
+ * > **Note:** Rotating the CAT doesn't extend the tunnel duration. For example, say the tunnel duration is 12 hours and the tunnel has already been open for 4 hours. When you rotate the access tokens, the new tokens that are generated can only be used for the remaining 8 hours.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,11 +64,12 @@ export interface RotateTunnelAccessTokenCommandOutput extends RotateTunnelAccess
  * @see {@link IoTSecureTunnelingClientResolvedConfig | config} for IoTSecureTunnelingClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Thrown when an operation is attempted on a resource that does not exist.</p>
+ *
+ * Thrown when an operation is attempted on a resource that does not exist.
  *
  * @throws {@link IoTSecureTunnelingServiceException}
- * <p>Base exception class for all service exceptions from IoTSecureTunneling service.</p>
  *
+ * Base exception class for all service exceptions from IoTSecureTunneling service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface TerminateSessionCommandInput extends TerminateSessionRequest {}
 export interface TerminateSessionCommandOutput extends TerminateSessionResponse, __MetadataBearer {}
 
 /**
- * <p>Terminates the specified session. After you terminate a session, it enters the <code>TERMINATING</code> state and then the <code>TERMINATED</code> state. You can still access the Spark History Server for a terminated session through the <code>GetResourceDashboard</code> operation.</p>
+ * Terminates the specified session. After you terminate a session, it enters the `TERMINATING` state and then the `TERMINATED` state. You can still access the Spark History Server for a terminated session through the `GetResourceDashboard` operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,17 +53,20 @@ export interface TerminateSessionCommandOutput extends TerminateSessionResponse,
  * @see {@link EMRServerlessClientResolvedConfig | config} for EMRServerlessClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link EMRServerlessServiceException}
- * <p>Base exception class for all service exceptions from EMRServerless service.</p>
  *
+ * Base exception class for all service exceptions from EMRServerless service.
  *
  * @public
  */

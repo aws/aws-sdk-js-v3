@@ -273,15 +273,10 @@ export type SageMakerMetricsClientResolvedConfigType = __SmithyResolvedConfigura
 export interface SageMakerMetricsClientResolvedConfig extends SageMakerMetricsClientResolvedConfigType {}
 
 /**
- * <p>Contains all data plane API operations and data types for Amazon SageMaker Metrics.
- *          Use these APIs to put and retrieve (get) features related to your training run.</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_metrics_BatchPutMetrics.html">BatchPutMetrics</a>
- *                </p>
- *             </li>
- *          </ul>
+ * Contains all data plane API operations and data types for Amazon SageMaker Metrics. Use these APIs to put and retrieve (get) features related to your training run.
+ *
+ * - [BatchPutMetrics](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_metrics_BatchPutMetrics.html)
+ *
  * @public
  */
 export class SageMakerMetricsClient extends __Client<

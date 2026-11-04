@@ -26,13 +26,10 @@ export interface CreateConfigurationSetEventDestinationCommandInput extends Crea
 export interface CreateConfigurationSetEventDestinationCommandOutput extends CreateConfigurationSetEventDestinationResponse, __MetadataBearer {}
 
 /**
- * <p>Create an event destination. In Amazon Pinpoint, <i>events</i> include message
- *             sends, deliveries, opens, clicks, bounces, and complaints. <i>Event
- *                 destinations</i> are places that you can send information about these events
- *             to. For example, you can send event data to Amazon SNS to receive notifications when you
- *             receive bounces or complaints, or you can use Amazon Kinesis Data Firehose to stream data to Amazon S3 for long-term
- *             storage.</p>
- *         <p>A single configuration set can include more than one event destination.</p>
+ * Create an event destination. In Amazon Pinpoint, *events* include message sends, deliveries, opens, clicks, bounces, and complaints. *Event destinations* are places that you can send information about these events to. For example, you can send event data to Amazon SNS to receive notifications when you receive bounces or complaints, or you can use Amazon Kinesis Data Firehose to stream data to Amazon S3 for long-term storage.
+ *
+ * A single configuration set can include more than one event destination.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,23 +80,28 @@ export interface CreateConfigurationSetEventDestinationCommandOutput extends Cre
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
  *
  * @throws {@link AlreadyExistsException} (client fault)
- *  <p>The resource specified in your request already exists.</p>
+ *
+ * The resource specified in your request already exists.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>There are too many instances of the specified resource type.</p>
+ *
+ * There are too many instances of the specified resource type.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * The resource you attempted to access doesn't exist.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Too many requests have been made to the operation.</p>
+ *
+ * Too many requests have been made to the operation.
  *
  * @throws {@link PinpointEmailServiceException}
- * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ * Base exception class for all service exceptions from PinpointEmail service.
  *
  * @public
  */

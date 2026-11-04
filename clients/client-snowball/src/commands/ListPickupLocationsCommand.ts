@@ -23,7 +23,8 @@ export interface ListPickupLocationsCommandInput extends ListPickupLocationsRequ
 export interface ListPickupLocationsCommandOutput extends ListPickupLocationsResult, __MetadataBearer {}
 
 /**
- * <p>A list of locations from which the customer can choose to pickup a device.</p>
+ * A list of locations from which the customer can choose to pickup a device.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,12 +71,12 @@ export interface ListPickupLocationsCommandOutput extends ListPickupLocationsRes
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
  * @throws {@link InvalidResourceException} (client fault)
- *  <p>The specified resource can't be found. Check the information you provided in your last
- *       request, and try again.</p>
+ *
+ * The specified resource can't be found. Check the information you provided in your last request, and try again.
  *
  * @throws {@link SnowballServiceException}
- * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ * Base exception class for all service exceptions from Snowball service.
  *
  * @example To get a list of locations from which the customer can choose to pickup a device.
  * ```javascript

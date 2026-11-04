@@ -23,12 +23,8 @@ export interface StopDeploymentCommandInput extends StopDeploymentRequest {}
 export interface StopDeploymentCommandOutput extends Deployment, __MetadataBearer {}
 
 /**
- * <p>Stops a deployment. This API action works only on deployments that have a status of
- *             <code>DEPLOYING</code>, unless an <code>AllowRevert</code> parameter is supplied. If the
- *             <code>AllowRevert</code> parameter is supplied, the status of an in-progress deployment
- *          will be <code>ROLLED_BACK</code>. The status of a completed deployment will be
- *             <code>REVERTED</code>. AppConfig only allows a revert within 72 hours of
- *          deployment completion.</p>
+ * Stops a deployment. This API action works only on deployments that have a status of `DEPLOYING`, unless an `AllowRevert` parameter is supplied. If the `AllowRevert` parameter is supplied, the status of an in-progress deployment will be `ROLLED_BACK`. The status of a completed deployment will be `REVERTED`. AppConfig only allows a revert within 72 hours of deployment completion.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -106,17 +102,20 @@ export interface StopDeploymentCommandOutput extends Deployment, __MetadataBeare
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>There was an internal failure in the AppConfig service.</p>
+ *
+ * There was an internal failure in the AppConfig service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource could not be found.</p>
+ *
+ * The requested resource could not be found.
  *
  * @throws {@link AppConfigServiceException}
- * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * Base exception class for all service exceptions from AppConfig service.
  *
  * @example To stop configuration deployment
  * ```javascript

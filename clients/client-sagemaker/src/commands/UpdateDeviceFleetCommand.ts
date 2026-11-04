@@ -23,7 +23,8 @@ export interface UpdateDeviceFleetCommandInput extends UpdateDeviceFleetRequest 
 export interface UpdateDeviceFleetCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Updates a fleet of devices.</p>
+ * Updates a fleet of devices.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,11 +58,12 @@ export interface UpdateDeviceFleetCommandOutput extends __MetadataBearer {}
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceInUse} (client fault)
- *  <p>Resource being accessed is in use.</p>
+ *
+ * Resource being accessed is in use.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

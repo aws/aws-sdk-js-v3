@@ -23,16 +23,10 @@ export interface DescribeDataRepositoryTasksCommandInput extends DescribeDataRep
 export interface DescribeDataRepositoryTasksCommandOutput extends DescribeDataRepositoryTasksResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the description of specific Amazon FSx for Lustre or Amazon File Cache data repository tasks, if
- *             one or more <code>TaskIds</code> values are provided in the request, or if filters are used in the request.
- *             You can use filters to narrow the response to include just tasks for specific file systems or caches,
- *             or tasks in a specific lifecycle state. Otherwise, it returns all data repository tasks owned
- *             by your Amazon Web Services account in the Amazon Web Services Region of the endpoint that you're calling.</p>
- *          <p>When retrieving all tasks, you can paginate the response by using  the optional <code>MaxResults</code>
- *             parameter to limit the number of tasks returned in a response. If more tasks remain,
- *             a <code>NextToken</code> value is returned in the response. In this case, send a later
- *             request with the <code>NextToken</code> request parameter set to the value of
- *             <code>NextToken</code> from the last response.</p>
+ * Returns the description of specific Amazon FSx for Lustre or Amazon File Cache data repository tasks, if one or more `TaskIds` values are provided in the request, or if filters are used in the request. You can use filters to narrow the response to include just tasks for specific file systems or caches, or tasks in a specific lifecycle state. Otherwise, it returns all data repository tasks owned by your Amazon Web Services account in the Amazon Web Services Region of the endpoint that you're calling.
+ *
+ * When retrieving all tasks, you can paginate the response by using the optional `MaxResults` parameter to limit the number of tasks returned in a response. If more tasks remain, a `NextToken` value is returned in the response. In this case, send a later request with the `NextToken` request parameter set to the value of `NextToken` from the last response.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -116,20 +110,24 @@ export interface DescribeDataRepositoryTasksCommandOutput extends DescribeDataRe
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * A generic error indicating a failure with a client request.
  *
  * @throws {@link DataRepositoryTaskNotFound} (client fault)
- *  <p>The data repository task or tasks you specified could not be found.</p>
+ *
+ * The data repository task or tasks you specified could not be found.
  *
  * @throws {@link FileSystemNotFound} (client fault)
- *  <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
+ *
+ * No Amazon FSx file systems were found based upon supplied parameters.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * A generic error indicating a server-side failure.
  *
  * @throws {@link FSxServiceException}
- * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * Base exception class for all service exceptions from FSx service.
  *
  * @public
  */

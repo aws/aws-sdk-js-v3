@@ -23,30 +23,19 @@ export interface CreateRestoreTestingSelectionCommandInput extends CreateRestore
 export interface CreateRestoreTestingSelectionCommandOutput extends CreateRestoreTestingSelectionOutput, __MetadataBearer {}
 
 /**
- * <p>This request can be sent after CreateRestoreTestingPlan request
- *          returns successfully. This is the second part of creating a resource testing
- *          plan, and it must be completed sequentially.</p>
- *          <p>This consists of <code>RestoreTestingSelectionName</code>,
- *          <code>ProtectedResourceType</code>, and one of the following:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>ProtectedResourceArns</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>ProtectedResourceConditions</code>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>Each protected resource type can have one single value.</p>
- *          <p>A restore testing selection can include a wildcard value ("*") for
- *          <code>ProtectedResourceArns</code> along with <code>ProtectedResourceConditions</code>.
- *          Alternatively, you can include up to 30 specific protected resource ARNs in
- *          <code>ProtectedResourceArns</code>.</p>
- *          <p>Cannot select by both protected resource types AND specific ARNs.
- *          Request will fail if both are included.</p>
+ * This request can be sent after CreateRestoreTestingPlan request returns successfully. This is the second part of creating a resource testing plan, and it must be completed sequentially.
+ *
+ * This consists of `RestoreTestingSelectionName`, `ProtectedResourceType`, and one of the following:
+ *
+ * - `ProtectedResourceArns`
+ * - `ProtectedResourceConditions`
+ *
+ * Each protected resource type can have one single value.
+ *
+ * A restore testing selection can include a wildcard value ("*") for `ProtectedResourceArns` along with `ProtectedResourceConditions`. Alternatively, you can include up to 30 specific protected resource ARNs in `ProtectedResourceArns`.
+ *
+ * Cannot select by both protected resource types AND specific ARNs. Request will fail if both are included.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -103,28 +92,32 @@ export interface CreateRestoreTestingSelectionCommandOutput extends CreateRestor
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  * @throws {@link AlreadyExistsException} (client fault)
- *  <p>The required resource already exists.</p>
+ *
+ * The required resource already exists.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
- *          out of range.</p>
+ *
+ * Indicates that something is wrong with a parameter's value. For example, the value is out of range.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>A limit in the request has been exceeded; for example, a maximum number of items allowed
- *          in a request.</p>
+ *
+ * A limit in the request has been exceeded; for example, a maximum number of items allowed in a request.
  *
  * @throws {@link MissingParameterValueException} (client fault)
- *  <p>Indicates that a required parameter is missing.</p>
+ *
+ * Indicates that a required parameter is missing.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A resource that is required for the action doesn't exist.</p>
+ *
+ * A resource that is required for the action doesn't exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The request failed due to a temporary failure of the server.</p>
+ *
+ * The request failed due to a temporary failure of the server.
  *
  * @throws {@link BackupServiceException}
- * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * Base exception class for all service exceptions from Backup service.
  *
  * @public
  */

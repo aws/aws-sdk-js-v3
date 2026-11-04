@@ -23,7 +23,8 @@ export interface DeleteTagsCommandInput extends DeleteTagsType {}
 export interface DeleteTagsCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified tags.</p>
+ * Deletes the specified tags.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,15 +57,16 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  * @throws {@link ResourceContentionFault} (server fault)
- *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
- *             instance, or load balancer).</p>
+ *
+ * You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).
  *
  * @throws {@link ResourceInUseFault} (client fault)
- *  <p>The operation can't be performed because the resource is in use.</p>
+ *
+ * The operation can't be performed because the resource is in use.
  *
  * @throws {@link AutoScalingServiceException}
- * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from AutoScaling service.
  *
  * @example To delete a tag from an Auto Scaling group
  * ```javascript

@@ -23,34 +23,26 @@ export interface GetBucketNotificationConfigurationCommandInput extends GetBucke
 export interface GetBucketNotificationConfigurationCommandOutput extends NotificationConfiguration, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This operation is not supported for directory buckets.</p>
- *          </note>
- *          <p>Returns the notification configuration of a bucket.</p>
- *          <p>If notifications are not enabled on the bucket, the action returns an empty
- *         <code>NotificationConfiguration</code> element.</p>
- *          <p>By default, you must be the bucket owner to read the notification configuration of a bucket.
- *       However, the bucket owner can use a bucket policy to grant permission to other users to read this
- *       configuration with the <code>s3:GetBucketNotification</code> permission.</p>
- *          <p>When you use this API operation with an access point, provide the alias of the access point in place of the bucket name.</p>
- *          <p>When you use this API operation with an Object Lambda access point, provide the alias of the Object Lambda access point in place of the bucket name.
- * If the Object Lambda access point alias in a request is not valid, the error code <code>InvalidAccessPointAliasError</code> is returned.
- * For more information about <code>InvalidAccessPointAliasError</code>, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList">List of
- *             Error Codes</a>.</p>
- *          <p>For more information about setting and reading the notification configuration on a bucket, see
- *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Setting Up Notification
- *         of Bucket Events</a>. For more information about bucket policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using Bucket Policies</a>.</p>
- *          <p>The following action is related to <code>GetBucketNotification</code>:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketNotification.html">PutBucketNotification</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
+ * > **Note:** This operation is not supported for directory buckets.
+ *
+ * Returns the notification configuration of a bucket.
+ *
+ * If notifications are not enabled on the bucket, the action returns an empty `NotificationConfiguration` element.
+ *
+ * By default, you must be the bucket owner to read the notification configuration of a bucket. However, the bucket owner can use a bucket policy to grant permission to other users to read this configuration with the `s3:GetBucketNotification` permission.
+ *
+ * When you use this API operation with an access point, provide the alias of the access point in place of the bucket name.
+ *
+ * When you use this API operation with an Object Lambda access point, provide the alias of the Object Lambda access point in place of the bucket name. If the Object Lambda access point alias in a request is not valid, the error code `InvalidAccessPointAliasError` is returned. For more information about `InvalidAccessPointAliasError`, see [List of Error Codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList).
+ *
+ * For more information about setting and reading the notification configuration on a bucket, see [Setting Up Notification of Bucket Events](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html). For more information about bucket policies, see [Using Bucket Policies](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html).
+ *
+ * The following action is related to `GetBucketNotification`:
+ *
+ * - [PutBucketNotification](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketNotification.html)
+ *
+ * > **Important:** You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -135,8 +127,8 @@ export interface GetBucketNotificationConfigurationCommandOutput extends Notific
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  * @throws {@link S3ServiceException}
- * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * Base exception class for all service exceptions from S3 service.
  *
  * @public
  */

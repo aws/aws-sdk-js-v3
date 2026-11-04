@@ -23,7 +23,8 @@ export interface UpdateCrawlerScheduleCommandInput extends UpdateCrawlerSchedule
 export interface UpdateCrawlerScheduleCommandOutput extends UpdateCrawlerScheduleResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the schedule of a crawler using a <code>cron</code> expression. </p>
+ * Updates the schedule of a crawler using a `cron` expression.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,23 +50,28 @@ export interface UpdateCrawlerScheduleCommandOutput extends UpdateCrawlerSchedul
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link SchedulerTransitioningException} (client fault)
- *  <p>The specified scheduler is transitioning.</p>
+ *
+ * The specified scheduler is transitioning.
  *
  * @throws {@link VersionMismatchException} (client fault)
- *  <p>There was a version conflict.</p>
+ *
+ * There was a version conflict.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

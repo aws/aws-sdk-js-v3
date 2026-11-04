@@ -23,7 +23,10 @@ export interface GetCreditsCommandInput extends GetCreditsRequest {}
 export interface GetCreditsCommandOutput extends GetCreditsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the list of Amazon Web Services account credits for the specified account. Each credit includes its identifier, type, monetary amounts, applicable products, expiration, sharing configuration, and current enabled status.</p> <p>When the caller is the management account of a consolidated billing family and <code>payerAccountFlag</code> is <code>true</code>, the response aggregates credits across the entire family. Otherwise, the response includes only credits owned by the account specified in <code>accountId</code>.</p>
+ * Returns the list of Amazon Web Services account credits for the specified account. Each credit includes its identifier, type, monetary amounts, applicable products, expiration, sharing configuration, and current enabled status.
+ *
+ * When the caller is the management account of a consolidated billing family and `payerAccountFlag` is `true`, the response aggregates credits across the entire family. Otherwise, the response includes only credits owned by the account specified in `accountId`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,20 +94,24 @@ export interface GetCreditsCommandOutput extends GetCreditsResponse, __MetadataB
  * @see {@link BillingClientResolvedConfig | config} for BillingClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * You don't have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing failed because of an unknown error, exception, or failure. </p>
+ *
+ * The request processing failed because of an unknown error, exception, or failure.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. </p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link BillingServiceException}
- * <p>Base exception class for all service exceptions from Billing service.</p>
  *
+ * Base exception class for all service exceptions from Billing service.
  *
  * @public
  */

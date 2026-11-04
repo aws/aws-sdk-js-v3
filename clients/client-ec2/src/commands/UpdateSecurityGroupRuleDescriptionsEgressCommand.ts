@@ -26,10 +26,8 @@ export interface UpdateSecurityGroupRuleDescriptionsEgressCommandInput extends U
 export interface UpdateSecurityGroupRuleDescriptionsEgressCommandOutput extends UpdateSecurityGroupRuleDescriptionsEgressResult, __MetadataBearer {}
 
 /**
- * <p>Updates the description of an egress (outbound) security group rule. You
- * 			can replace an existing description, or add a description to a rule that did not have one
- * 			previously. You can remove a description for a security group rule by omitting the
- * 			description parameter in the request.</p>
+ * Updates the description of an egress (outbound) security group rule. You can replace an existing description, or add a description to a rule that did not have one previously. You can remove a description for a security group rule by omitting the description parameter in the request.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -100,8 +98,8 @@ export interface UpdateSecurityGroupRuleDescriptionsEgressCommandOutput extends 
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To update an outbound security group rule description
  * ```javascript

@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { DataBrewServiceException as __BaseException } from "./DataBrewServiceException";
 
 /**
- * <p>Access to the specified resource was denied.</p>
+ * Access to the specified resource was denied.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ * Updating or deleting a resource can cause an inconsistent state.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -50,7 +52,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>One or more resources can't be found.</p>
+ * One or more resources can't be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -73,7 +76,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The input parameters for this request failed validation.</p>
+ * The input parameters for this request failed validation.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -96,7 +100,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>A service quota is exceeded.</p>
+ * A service quota is exceeded.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -119,7 +124,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>An internal service failure occurred.</p>
+ * An internal service failure occurred.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {

@@ -23,7 +23,8 @@ export interface ImportHypervisorConfigurationCommandInput extends ImportHypervi
 export interface ImportHypervisorConfigurationCommandOutput extends ImportHypervisorConfigurationOutput, __MetadataBearer {}
 
 /**
- * <p>Connect to a hypervisor by importing its configuration.</p>
+ * Connect to a hypervisor by importing its configuration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,23 +61,28 @@ export interface ImportHypervisorConfigurationCommandOutput extends ImportHyperv
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The operation cannot proceed because you have insufficient permissions.</p>
+ *
+ * The operation cannot proceed because you have insufficient permissions.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The operation cannot proceed because it is not supported.</p>
+ *
+ * The operation cannot proceed because it is not supported.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The operation did not succeed because an internal error occurred. Try again later.</p>
+ *
+ * The operation did not succeed because an internal error occurred. Try again later.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>TPS has been limited to protect against intentional or unintentional high request volumes.</p>
+ *
+ * TPS has been limited to protect against intentional or unintentional high request volumes.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The operation did not succeed because a validation error occurred.</p>
+ *
+ * The operation did not succeed because a validation error occurred.
  *
  * @throws {@link BackupGatewayServiceException}
- * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
+ * Base exception class for all service exceptions from BackupGateway service.
  *
  * @public
  */

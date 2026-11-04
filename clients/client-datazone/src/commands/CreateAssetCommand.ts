@@ -23,7 +23,22 @@ export interface CreateAssetCommandInput extends CreateAssetInput {}
 export interface CreateAssetCommandOutput extends CreateAssetOutput, __MetadataBearer {}
 
 /**
- * <p>Creates an asset in Amazon DataZone catalog.</p> <p>Before creating assets, make sure that the following requirements are met:</p> <ul> <li> <p> <code>--domain-identifier</code> must refer to an existing domain.</p> </li> <li> <p> <code>--owning-project-identifier</code> must be a valid project within the domain.</p> </li> <li> <p>Asset type must be created beforehand using <code>create-asset-type</code>, or be a supported system-defined type. For more information, see <a href="https://docs.aws.amazon.com/cli/latest/reference/datazone/create-asset-type.html">create-asset-type</a>.</p> </li> <li> <p> <code>--type-revision</code> (if used) must match a valid revision of the asset type.</p> </li> <li> <p> <code>formsInput</code> is required when it is associated as required in the <code>asset-type</code>. For more information, see <a href="https://docs.aws.amazon.com/cli/latest/reference/datazone/create-form-type.html">create-form-type</a>.</p> </li> <li> <p>Form content must include all required fields as per the form schema (e.g., <code>bucketArn</code>).</p> </li> </ul> <p>You must invoke the following pre-requisite commands before invoking this API:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/datazone/latest/APIReference/API_CreateFormType.html">CreateFormType</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/datazone/latest/APIReference/API_CreateAssetType.html">CreateAssetType</a> </p> </li> </ul>
+ * Creates an asset in Amazon DataZone catalog.
+ *
+ * Before creating assets, make sure that the following requirements are met:
+ *
+ * - `--domain-identifier` must refer to an existing domain.
+ * - `--owning-project-identifier` must be a valid project within the domain.
+ * - Asset type must be created beforehand using `create-asset-type`, or be a supported system-defined type. For more information, see [create-asset-type](https://docs.aws.amazon.com/cli/latest/reference/datazone/create-asset-type.html).
+ * - `--type-revision` (if used) must match a valid revision of the asset type.
+ * - `formsInput` is required when it is associated as required in the `asset-type`. For more information, see [create-form-type](https://docs.aws.amazon.com/cli/latest/reference/datazone/create-form-type.html).
+ * - Form content must include all required fields as per the form schema (e.g., `bucketArn`).
+ *
+ * You must invoke the following pre-requisite commands before invoking this API:
+ *
+ * - [CreateFormType](https://docs.aws.amazon.com/datazone/latest/APIReference/API_CreateFormType.html)
+ * - [CreateAssetType](https://docs.aws.amazon.com/datazone/latest/APIReference/API_CreateAssetType.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -126,32 +141,40 @@ export interface CreateAssetCommandOutput extends CreateAssetOutput, __MetadataB
  * @see {@link DataZoneClientResolvedConfig | config} for DataZoneClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>There is a conflict while performing this action.</p>
+ *
+ * There is a conflict while performing this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request has failed because of an unknown error, exception or failure.</p>
+ *
+ * The request has failed because of an unknown error, exception or failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource cannot be found.</p>
+ *
+ * The specified resource cannot be found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request has exceeded the specified service quota.</p>
+ *
+ * The request has exceeded the specified service quota.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by the Amazon Web Services service.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>You do not have permission to perform this action.</p>
+ *
+ * You do not have permission to perform this action.
  *
  * @throws {@link DataZoneServiceException}
- * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * Base exception class for all service exceptions from DataZone service.
  *
  * @public
  */

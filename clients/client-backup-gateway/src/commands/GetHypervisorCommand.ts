@@ -23,7 +23,8 @@ export interface GetHypervisorCommandInput extends GetHypervisorInput {}
 export interface GetHypervisorCommandOutput extends GetHypervisorOutput, __MetadataBearer {}
 
 /**
- * <p>This action requests information about the specified hypervisor to which the gateway will connect. A hypervisor is hardware, software, or firmware that creates and manages virtual machines, and allocates resources to them.</p>
+ * This action requests information about the specified hypervisor to which the gateway will connect. A hypervisor is hardware, software, or firmware that creates and manages virtual machines, and allocates resources to them.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,20 +61,24 @@ export interface GetHypervisorCommandOutput extends GetHypervisorOutput, __Metad
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A resource that is required for the action wasn't found.</p>
+ *
+ * A resource that is required for the action wasn't found.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The operation did not succeed because an internal error occurred. Try again later.</p>
+ *
+ * The operation did not succeed because an internal error occurred. Try again later.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>TPS has been limited to protect against intentional or unintentional high request volumes.</p>
+ *
+ * TPS has been limited to protect against intentional or unintentional high request volumes.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The operation did not succeed because a validation error occurred.</p>
+ *
+ * The operation did not succeed because a validation error occurred.
  *
  * @throws {@link BackupGatewayServiceException}
- * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
+ * Base exception class for all service exceptions from BackupGateway service.
  *
  * @public
  */

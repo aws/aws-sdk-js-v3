@@ -23,49 +23,25 @@ export interface ListHostedZonesByVPCCommandInput extends ListHostedZonesByVPCRe
 export interface ListHostedZonesByVPCCommandOutput extends ListHostedZonesByVPCResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all the private hosted zones that a specified VPC is associated with, regardless
- * 			of which Amazon Web Services account or Amazon Web Services service owns the hosted zones.
- * 			The <code>HostedZoneOwner</code> structure in the response contains one of the following
- * 			values:</p>
- *          <ul>
- *             <li>
- *                <p>An <code>OwningAccount</code> element, which contains the account number of
- * 					either the current Amazon Web Services account or another Amazon Web Services account. Some services, such as Cloud Map, create
- * 					hosted zones using the current account. </p>
- *             </li>
- *             <li>
- *                <p>An <code>OwningService</code> element, which identifies the Amazon Web Services
- * 					service that created and owns the hosted zone. For example, if a hosted zone was
- * 					created by Amazon Elastic File System (Amazon EFS), the value of
- * 						<code>Owner</code> is <code>efs.amazonaws.com</code>. </p>
- *             </li>
- *          </ul>
- *          <p>
- *             <code>ListHostedZonesByVPC</code> returns the hosted zones associated with the specified VPC and does not reflect the hosted zone
- * 			associations to VPCs via Route 53 Profiles. To get the associations to a Profile, call the <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_ListProfileResourceAssociations.html">ListProfileResourceAssociations</a> API.</p>
- *          <note>
- *             <p>When listing private hosted zones, the hosted zone and the Amazon VPC must
- * 				belong to the same partition where the hosted zones were created. A partition is a
- * 				group of Amazon Web Services Regions. Each Amazon Web Services account is scoped to
- * 				one partition.</p>
- *             <p>The following are the supported partitions:</p>
- *             <ul>
- *                <li>
- *                   <p>
- *                      <code>aws</code> - Amazon Web Services Regions</p>
- *                </li>
- *                <li>
- *                   <p>
- *                      <code>aws-cn</code> - China Regions</p>
- *                </li>
- *                <li>
- *                   <p>
- *                      <code>aws-us-gov</code> - Amazon Web Services GovCloud (US) Region</p>
- *                </li>
- *             </ul>
- *             <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Access Management</a>
- * 				in the <i>Amazon Web Services General Reference</i>.</p>
- *          </note>
+ * Lists all the private hosted zones that a specified VPC is associated with, regardless of which Amazon Web Services account or Amazon Web Services service owns the hosted zones. The `HostedZoneOwner` structure in the response contains one of the following values:
+ *
+ * - An `OwningAccount` element, which contains the account number of either the current Amazon Web Services account or another Amazon Web Services account. Some services, such as Cloud Map, create hosted zones using the current account.
+ * - An `OwningService` element, which identifies the Amazon Web Services service that created and owns the hosted zone. For example, if a hosted zone was created by Amazon Elastic File System (Amazon EFS), the value of `Owner` is `efs.amazonaws.com`.
+ *
+ * `ListHostedZonesByVPC` returns the hosted zones associated with the specified VPC and does not reflect the hosted zone associations to VPCs via Route 53 Profiles. To get the associations to a Profile, call the [ListProfileResourceAssociations](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_ListProfileResourceAssociations.html) API.
+ *
+ * > **Note:**
+ * >
+ * > When listing private hosted zones, the hosted zone and the Amazon VPC must belong to the same partition where the hosted zones were created. A partition is a group of Amazon Web Services Regions. Each Amazon Web Services account is scoped to one partition.
+ * >
+ * > The following are the supported partitions:
+ * >
+ * > - `aws` - Amazon Web Services Regions
+ * > - `aws-cn` - China Regions
+ * > - `aws-us-gov` - Amazon Web Services GovCloud (US) Region
+ * >
+ * > For more information, see [Access Management](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -106,15 +82,16 @@ export interface ListHostedZonesByVPCCommandOutput extends ListHostedZonesByVPCR
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link InvalidPaginationToken} (client fault)
- *  <p>The value that you specified to get the second or subsequent page of results is
- * 			invalid.</p>
+ *
+ * The value that you specified to get the second or subsequent page of results is invalid.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @public
  */

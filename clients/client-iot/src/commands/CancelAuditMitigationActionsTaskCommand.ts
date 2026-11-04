@@ -26,10 +26,10 @@ export interface CancelAuditMitigationActionsTaskCommandInput extends CancelAudi
 export interface CancelAuditMitigationActionsTaskCommandOutput extends CancelAuditMitigationActionsTaskResponse, __MetadataBearer {}
 
 /**
- * <p>Cancels a mitigation action task that is in progress. If the task
- *       is not
- *       in progress, an InvalidRequestException occurs.</p>
- *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CancelAuditMitigationActionsTask</a> action.</p>
+ * Cancels a mitigation action task that is in progress. If the task is not in progress, an InvalidRequestException occurs.
+ *
+ * Requires permission to access the [CancelAuditMitigationActionsTask](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,20 +54,24 @@ export interface CancelAuditMitigationActionsTaskCommandOutput extends CancelAud
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An unexpected error has occurred.</p>
+ *
+ * An unexpected error has occurred.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The rate exceeds the limit.</p>
+ *
+ * The rate exceeds the limit.
  *
  * @throws {@link IoTServiceException}
- * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * Base exception class for all service exceptions from IoT service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Shows the tags associated with this resource.</p>
+ * Shows the tags associated with this resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,17 +53,20 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link BraketClientResolvedConfig | config} for BraketClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The request failed because of an unknown error.</p>
+ *
+ * The request failed because of an unknown error.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input request failed to satisfy constraints expected by Amazon Braket.</p>
+ *
+ * The input request failed to satisfy constraints expected by Amazon Braket.
  *
  * @throws {@link BraketServiceException}
- * <p>Base exception class for all service exceptions from Braket service.</p>
  *
+ * Base exception class for all service exceptions from Braket service.
  *
  * @public
  */

@@ -23,13 +23,12 @@ export interface ModifyVolumeAttributeCommandInput extends ModifyVolumeAttribute
 export interface ModifyVolumeAttributeCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Modifies a volume attribute.</p>
- *          <p>By default, all I/O operations for the volume are suspended when the data on the volume is
- *       determined to be potentially inconsistent, to prevent undetectable, latent data corruption.
- *       The I/O access to the volume can be resumed by first enabling I/O access and then checking the
- *       data consistency on your volume.</p>
- *          <p>You can change the default behavior to resume I/O operations. We recommend that you change
- *       this only for boot volumes or for volumes that are stateless or disposable.</p>
+ * Modifies a volume attribute.
+ *
+ * By default, all I/O operations for the volume are suspended when the data on the volume is determined to be potentially inconsistent, to prevent undetectable, latent data corruption. The I/O access to the volume can be resumed by first enabling I/O access and then checking the data consistency on your volume.
+ *
+ * You can change the default behavior to resume I/O operations. We recommend that you change this only for boot volumes or for volumes that are stateless or disposable.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,8 +57,8 @@ export interface ModifyVolumeAttributeCommandOutput extends __MetadataBearer {}
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To modify a volume attribute
  * ```javascript

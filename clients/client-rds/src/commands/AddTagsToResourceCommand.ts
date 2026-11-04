@@ -23,7 +23,10 @@ export interface AddTagsToResourceCommandInput extends AddTagsToResourceMessage 
 export interface AddTagsToResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Adds metadata tags to an Amazon RDS resource. These tags can also be used with cost allocation reporting to track cost associated with Amazon RDS resources, or used in a Condition statement in an IAM policy for Amazon RDS.</p> <p>For an overview on tagging your relational database resources, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a> or <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html">Tagging Amazon Aurora and Amazon RDS Resources</a>. </p>
+ * Adds metadata tags to an Amazon RDS resource. These tags can also be used with cost allocation reporting to track cost associated with Amazon RDS resources, or used in a Condition statement in an IAM policy for Amazon RDS.
+ *
+ * For an overview on tagging your relational database resources, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) or [Tagging Amazon Aurora and Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,53 +57,68 @@ export interface AddTagsToResourceCommandOutput extends __MetadataBearer {}
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link BlueGreenDeploymentNotFoundFault} (client fault)
- *  <p> <code>BlueGreenDeploymentIdentifier</code> doesn't refer to an existing blue/green deployment.</p>
+ *
+ * `BlueGreenDeploymentIdentifier` doesn't refer to an existing blue/green deployment.
  *
  * @throws {@link DBCapacityReservationNotFoundFault} (client fault)
- *  <p> <code>DBCapacityReservationIdentifier</code> doesn't refer to an existing DB capacity reservation.</p>
+ *
+ * `DBCapacityReservationIdentifier` doesn't refer to an existing DB capacity reservation.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *
+ * `DBClusterIdentifier` doesn't refer to an existing DB cluster.
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *
+ * `DBInstanceIdentifier` doesn't refer to an existing DB instance.
  *
  * @throws {@link DBProxyEndpointNotFoundFault} (client fault)
- *  <p>The DB proxy endpoint doesn't exist.</p>
+ *
+ * The DB proxy endpoint doesn't exist.
  *
  * @throws {@link DBProxyNotFoundFault} (client fault)
- *  <p>The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+ *
+ * The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.
  *
  * @throws {@link DBProxyTargetGroupNotFoundFault} (client fault)
- *  <p>The specified target group isn't available for a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+ *
+ * The specified target group isn't available for a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.
  *
  * @throws {@link DBShardGroupNotFoundFault} (client fault)
- *  <p>The specified DB shard group name wasn't found.</p>
+ *
+ * The specified DB shard group name wasn't found.
  *
  * @throws {@link DBSnapshotNotFoundFault} (client fault)
- *  <p> <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
+ *
+ * `DBSnapshotIdentifier` doesn't refer to an existing DB snapshot.
  *
  * @throws {@link DBSnapshotTenantDatabaseNotFoundFault} (client fault)
- *  <p>The specified snapshot tenant database wasn't found.</p>
+ *
+ * The specified snapshot tenant database wasn't found.
  *
  * @throws {@link IntegrationNotFoundFault} (client fault)
- *  <p>The specified integration could not be found.</p>
+ *
+ * The specified integration could not be found.
  *
  * @throws {@link InvalidDBClusterEndpointStateFault} (client fault)
- *  <p>The requested operation can't be performed on the endpoint while the endpoint is in this state.</p>
+ *
+ * The requested operation can't be performed on the endpoint while the endpoint is in this state.
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
- *  <p>The requested operation can't be performed while the cluster is in this state.</p>
+ *
+ * The requested operation can't be performed while the cluster is in this state.
  *
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
- *  <p>The DB instance isn't in a valid state.</p>
+ *
+ * The DB instance isn't in a valid state.
  *
  * @throws {@link TenantDatabaseNotFoundFault} (client fault)
- *  <p>The specified tenant database wasn't found in the DB instance.</p>
+ *
+ * The specified tenant database wasn't found in the DB instance.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To add tags to a resource
  * ```javascript

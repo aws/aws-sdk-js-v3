@@ -23,7 +23,8 @@ export interface PrepareMigrationCommandInput extends PrepareMigrationRequest {}
 export interface PrepareMigrationCommandOutput extends PrepareMigrationResponse, __MetadataBearer {}
 
 /**
- * <p>Prepares the serverless cache for data migration by validating the configuration and setting up the migration resources.</p>
+ * Prepares the serverless cache for data migration by validating the configuration and setting up the migration resources.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -114,20 +115,24 @@ export interface PrepareMigrationCommandOutput extends PrepareMigrationResponse,
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link InvalidServerlessCacheStateFault} (client fault)
- *  <p>The account for these credentials is not currently active.</p>
+ *
+ * The account for these credentials is not currently active.
  *
  * @throws {@link ServerlessCacheAlreadyUnderMigrationFault} (client fault)
- *  <p>A migration is already in progress for this serverless cache. You cannot start another migration until the current one completes.</p>
+ *
+ * A migration is already in progress for this serverless cache. You cannot start another migration until the current one completes.
  *
  * @throws {@link ServerlessCacheNotFoundFault} (client fault)
- *  <p>The serverless cache was not found or does not exist.</p>
+ *
+ * The serverless cache was not found or does not exist.
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @public
  */

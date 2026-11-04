@@ -23,8 +23,8 @@ export interface DeleteAccountAliasCommandInput extends DeleteAccountAliasReques
 export interface DeleteAccountAliasCommandOutput extends DeleteAccountAliasResult, __MetadataBearer {}
 
 /**
- * <p>Deletes an alias for an Amazon Web Services account ID. The alias appears in the Amazon Web Services Support App page of the
- *       Amazon Web Services Support Center. The alias also appears in Slack messages from the Amazon Web Services Support App.</p>
+ * Deletes an alias for an Amazon Web Services account ID. The alias appears in the Amazon Web Services Support App page of the Amazon Web Services Support Center. The alias also appears in Slack messages from the Amazon Web Services Support App.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -47,18 +47,20 @@ export interface DeleteAccountAliasCommandOutput extends DeleteAccountAliasResul
  * @see {@link SupportAppClientResolvedConfig | config} for SupportAppClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * You don't have sufficient permission to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>We can’t process your request right now because of a server issue. Try again later.</p>
+ *
+ * We can’t process your request right now because of a server issue. Try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource is missing or doesn't exist, such as an account alias, Slack
- *       channel configuration, or Slack workspace configuration.</p>
+ *
+ * The specified resource is missing or doesn't exist, such as an account alias, Slack channel configuration, or Slack workspace configuration.
  *
  * @throws {@link SupportAppServiceException}
- * <p>Base exception class for all service exceptions from SupportApp service.</p>
  *
+ * Base exception class for all service exceptions from SupportApp service.
  *
  * @public
  */

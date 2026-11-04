@@ -23,7 +23,8 @@ export interface ListEdgeDeploymentPlansCommandInput extends ListEdgeDeploymentP
 export interface ListEdgeDeploymentPlansCommandOutput extends ListEdgeDeploymentPlansResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all edge deployment plans.</p>
+ * Lists all edge deployment plans.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,8 +72,8 @@ export interface ListEdgeDeploymentPlansCommandOutput extends ListEdgeDeployment
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

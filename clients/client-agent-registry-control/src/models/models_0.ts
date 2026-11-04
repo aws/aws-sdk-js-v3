@@ -24,61 +24,71 @@ import type {
 } from "./enums";
 
 /**
- * <p>The configuration for an IAM role credential provider that signs requests to a registry record's source with Amazon Web Services Signature Version 4 (SigV4).</p>
+ * The configuration for an IAM role credential provider that signs requests to a registry record's source with Amazon Web Services Signature Version 4 (SigV4).
+ *
  * @public
  */
 export interface RegistryRecordIamCredentialProvider {
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role to assume for request signing.</p>
+   * The Amazon Resource Name (ARN) of the IAM role to assume for request signing.
+   *
    * @public
    */
   roleArn?: string | undefined;
 
   /**
-   * <p>The service name to use for request signing, such as execute-api.</p>
+   * The service name to use for request signing, such as execute-api.
+   *
    * @public
    */
   service?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region to use for request signing. If not specified, the Region is derived from the source URL hostname, falling back to the Region of the registry.</p>
+   * The Amazon Web Services Region to use for request signing. If not specified, the Region is derived from the source URL hostname, falling back to the Region of the registry.
+   *
    * @public
    */
   region?: string | undefined;
 }
 
 /**
- * <p>The configuration for an OAuth 2.0 credential provider that authenticates requests to a registry record's source.</p>
+ * The configuration for an OAuth 2.0 credential provider that authenticates requests to a registry record's source.
+ *
  * @public
  */
 export interface RegistryRecordOAuthCredentialProvider {
   /**
-   * <p>The Amazon Resource Name (ARN) of the OAuth 2.0 credential provider resource in Amazon Bedrock AgentCore Identity.</p>
+   * The Amazon Resource Name (ARN) of the OAuth 2.0 credential provider resource in Amazon Bedrock AgentCore Identity.
+   *
    * @public
    */
   providerArn: string | undefined;
 
   /**
-   * <p>The OAuth 2.0 grant type used to obtain access tokens.</p>
+   * The OAuth 2.0 grant type used to obtain access tokens.
+   *
    * @public
    */
   grantType?: RegistryRecordOAuthGrantType | undefined;
 
   /**
-   * <p>The OAuth 2.0 scopes to request when obtaining access tokens.</p>
+   * The OAuth 2.0 scopes to request when obtaining access tokens.
+   *
    * @public
    */
   scopes?: string[] | undefined;
 
   /**
-   * <p>Additional parameters to include in the OAuth 2.0 token request.</p>
+   * Additional parameters to include in the OAuth 2.0 token request.
+   *
    * @public
    */
   customParameters?: Record<string, string> | undefined;
 }
 
 /**
- * <p>The credential provider details for a registry record. Exactly one member is populated, matching the configured credential provider type.</p>
+ * The credential provider details for a registry record. Exactly one member is populated, matching the configured credential provider type.
+ *
  * @public
  */
 export type RegistryRecordCredentialProviderUnion =
@@ -91,7 +101,8 @@ export type RegistryRecordCredentialProviderUnion =
  */
 export namespace RegistryRecordCredentialProviderUnion {
   /**
-   * <p>The OAuth 2.0 credential provider details.</p>
+   * The OAuth 2.0 credential provider details.
+   *
    * @public
    */
   export interface OauthCredentialProviderMember {
@@ -101,7 +112,8 @@ export namespace RegistryRecordCredentialProviderUnion {
   }
 
   /**
-   * <p>The IAM role credential provider details.</p>
+   * The IAM role credential provider details.
+   *
    * @public
    */
   export interface IamCredentialProviderMember {
@@ -131,79 +143,92 @@ export namespace RegistryRecordCredentialProviderUnion {
 }
 
 /**
- * <p>A credential provider configuration that specifies how to authenticate when fetching descriptor content from a registry record's source URL.</p>
+ * A credential provider configuration that specifies how to authenticate when fetching descriptor content from a registry record's source URL.
+ *
  * @public
  */
 export interface RegistryRecordCredentialProviderConfiguration {
   /**
-   * <p>The type of credential provider.</p>
+   * The type of credential provider.
+   *
    * @public
    */
   credentialProviderType: RegistryRecordCredentialProviderType | undefined;
 
   /**
-   * <p>The credential provider details corresponding to the specified credential provider type.</p>
+   * The credential provider details corresponding to the specified credential provider type.
+   *
    * @public
    */
   credentialProvider: RegistryRecordCredentialProviderUnion | undefined;
 }
 
 /**
- * <p>URL-based descriptor source configuration, with credential provider configurations for authenticated URL retrieval.</p>
+ * URL-based descriptor source configuration, with credential provider configurations for authenticated URL retrieval.
+ *
  * @public
  */
 export interface DescriptorSourceFromUrl {
   /**
-   * <p>The URL from which the descriptor content is retrieved.</p>
+   * The URL from which the descriptor content is retrieved.
+   *
    * @public
    */
   url: string | undefined;
 
   /**
-   * <p>The credential providers used to authenticate when fetching descriptor content from the source URL.</p>
+   * The credential providers used to authenticate when fetching descriptor content from the source URL.
+   *
    * @public
    */
   credentialProviderConfigurations?: RegistryRecordCredentialProviderConfiguration[] | undefined;
 }
 
 /**
- * <p>The source configuration that defines where descriptor content is retrieved from.</p>
+ * The source configuration that defines where descriptor content is retrieved from.
+ *
  * @public
  */
 export interface DescriptorSource {
   /**
-   * <p>URL-based descriptor source, populated when descriptor content is synchronized from a URL.</p>
+   * URL-based descriptor source, populated when descriptor content is synchronized from a URL.
+   *
    * @public
    */
   fromUrl?: DescriptorSourceFromUrl | undefined;
 }
 
 /**
- * <p>Descriptor that defines the content of an A2A (Agent-to-Agent) agent card registry record. The content is validated against the A2A protocol schema.</p>
+ * Descriptor that defines the content of an A2A (Agent-to-Agent) agent card registry record. The content is validated against the A2A protocol schema.
+ *
  * @public
  */
 export interface A2aAgentCardDescriptor {
   /**
-   * <p>The A2A agent card content, serialized as descriptor payload data.</p>
+   * The A2A agent card content, serialized as descriptor payload data.
+   *
    * @public
    */
   data?: string | undefined;
 
   /**
-   * <p>The schema version of the descriptor payload.</p>
+   * The schema version of the descriptor payload.
+   *
    * @public
    */
   dataSchemaVersion?: string | undefined;
 
   /**
-   * <p>The optional source configuration used to synchronize the A2A agent card descriptor content.</p>
+   * The optional source configuration used to synchronize the A2A agent card descriptor content.
+   *
    * @public
    */
   source?: DescriptorSource | undefined;
 }
 
 /**
- * <p>The expected value used to match a claim. Exactly one member is set.</p>
+ * The expected value used to match a claim. Exactly one member is set.
+ *
  * @public
  */
 export type ClaimMatchValueType =
@@ -216,7 +241,8 @@ export type ClaimMatchValueType =
  */
 export namespace ClaimMatchValueType {
   /**
-   * <p>A single string value to match the claim against.</p>
+   * A single string value to match the claim against.
+   *
    * @public
    */
   export interface MatchValueStringMember {
@@ -226,7 +252,8 @@ export namespace ClaimMatchValueType {
   }
 
   /**
-   * <p>A list of string values to match the claim against.</p>
+   * A list of string values to match the claim against.
+   *
    * @public
    */
   export interface MatchValueStringListMember {
@@ -256,91 +283,106 @@ export namespace ClaimMatchValueType {
 }
 
 /**
- * <p>The value and match operator used to authorize a claim during JWT validation.</p>
+ * The value and match operator used to authorize a claim during JWT validation.
+ *
  * @public
  */
 export interface AuthorizingClaimMatchValueType {
   /**
-   * <p>The expected value or values that the claim is compared against.</p>
+   * The expected value or values that the claim is compared against.
+   *
    * @public
    */
   claimMatchValue: ClaimMatchValueType | undefined;
 
   /**
-   * <p>The operator used to compare the claim value against the expected value.</p>
+   * The operator used to compare the claim value against the expected value.
+   *
    * @public
    */
   claimMatchOperator: ClaimMatchOperatorType | undefined;
 }
 
 /**
- * <p>A validation rule applied to a single claim of an inbound JWT.</p>
+ * A validation rule applied to a single claim of an inbound JWT.
+ *
  * @public
  */
 export interface CustomClaimValidationType {
   /**
-   * <p>The name of the claim in the inbound token to validate.</p>
+   * The name of the claim in the inbound token to validate.
+   *
    * @public
    */
   inboundTokenClaimName: string | undefined;
 
   /**
-   * <p>The value type of the claim in the inbound token, either a string or an array of strings.</p>
+   * The value type of the claim in the inbound token, either a string or an array of strings.
+   *
    * @public
    */
   inboundTokenClaimValueType: InboundTokenClaimValueType | undefined;
 
   /**
-   * <p>The value and match operator used to authorize the claim.</p>
+   * The value and match operator used to authorize the claim.
+   *
    * @public
    */
   authorizingClaimMatchValue: AuthorizingClaimMatchValueType | undefined;
 }
 
 /**
- * <p>A service-managed private endpoint provisioned within a customer VPC.</p>
+ * A service-managed private endpoint provisioned within a customer VPC.
+ *
  * @public
  */
 export interface ManagedVpcResource {
   /**
-   * <p>The identifier of the VPC in which the private endpoint is provisioned.</p>
+   * The identifier of the VPC in which the private endpoint is provisioned.
+   *
    * @public
    */
   vpcIdentifier: string | undefined;
 
   /**
-   * <p>The identifiers of the subnets in which the private endpoint network interfaces are placed.</p>
+   * The identifiers of the subnets in which the private endpoint network interfaces are placed.
+   *
    * @public
    */
   subnetIds: string[] | undefined;
 
   /**
-   * <p>The IP address type used by the private endpoint, either IPV4 or IPV6.</p>
+   * The IP address type used by the private endpoint, either IPV4 or IPV6.
+   *
    * @public
    */
   endpointIpAddressType: EndpointIpAddressType | undefined;
 
   /**
-   * <p>The identifiers of the security groups associated with the private endpoint network interfaces.</p>
+   * The identifiers of the security groups associated with the private endpoint network interfaces.
+   *
    * @public
    */
   securityGroupIds?: string[] | undefined;
 
   /**
-   * <p>The tags applied to the service-managed VPC resource.</p>
+   * The tags applied to the service-managed VPC resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The routing domain used to resolve traffic through the private endpoint.</p>
+   * The routing domain used to resolve traffic through the private endpoint.
+   *
    * @public
    */
   routingDomain?: string | undefined;
 }
 
 /**
- * <p>A self-managed private endpoint backed by a VPC Lattice resource configuration. Exactly one member is set.</p>
+ * A self-managed private endpoint backed by a VPC Lattice resource configuration. Exactly one member is set.
+ *
  * @public
  */
 export type SelfManagedLatticeResource =
@@ -352,7 +394,8 @@ export type SelfManagedLatticeResource =
  */
 export namespace SelfManagedLatticeResource {
   /**
-   * <p>The identifier of the VPC Lattice resource configuration, specified as a resource configuration ID or ARN.</p>
+   * The identifier of the VPC Lattice resource configuration, specified as a resource configuration ID or ARN.
+   *
    * @public
    */
   export interface ResourceConfigurationIdentifierMember {
@@ -379,7 +422,8 @@ export namespace SelfManagedLatticeResource {
 }
 
 /**
- * <p>A private network endpoint used to reach a resource over a private path. Exactly one member is set.</p>
+ * A private network endpoint used to reach a resource over a private path. Exactly one member is set.
+ *
  * @public
  */
 export type PrivateEndpoint =
@@ -392,7 +436,8 @@ export type PrivateEndpoint =
  */
 export namespace PrivateEndpoint {
   /**
-   * <p>A private endpoint backed by a self-managed VPC Lattice resource configuration.</p>
+   * A private endpoint backed by a self-managed VPC Lattice resource configuration.
+   *
    * @public
    */
   export interface SelfManagedLatticeResourceMember {
@@ -402,7 +447,8 @@ export namespace PrivateEndpoint {
   }
 
   /**
-   * <p>A private endpoint backed by a service-managed VPC resource.</p>
+   * A private endpoint backed by a service-managed VPC resource.
+   *
    * @public
    */
   export interface ManagedVpcResourceMember {
@@ -432,73 +478,85 @@ export namespace PrivateEndpoint {
 }
 
 /**
- * <p>A mapping of a domain to the private endpoint used to reach it.</p>
+ * A mapping of a domain to the private endpoint used to reach it.
+ *
  * @public
  */
 export interface PrivateEndpointOverride {
   /**
-   * <p>The domain name to which this private endpoint override applies.</p>
+   * The domain name to which this private endpoint override applies.
+   *
    * @public
    */
   domain: string | undefined;
 
   /**
-   * <p>The private endpoint used to reach the specified domain.</p>
+   * The private endpoint used to reach the specified domain.
+   *
    * @public
    */
   privateEndpoint: PrivateEndpoint | undefined;
 }
 
 /**
- * <p>Configuration for a custom JWT authorizer that validates inbound bearer tokens against an OpenID Connect identity provider.</p>
+ * Configuration for a custom JWT authorizer that validates inbound bearer tokens against an OpenID Connect identity provider.
+ *
  * @public
  */
 export interface CustomJWTAuthorizerConfiguration {
   /**
-   * <p>The OpenID Connect discovery URL used to retrieve the identity provider's metadata and signing keys.</p>
+   * The OpenID Connect discovery URL used to retrieve the identity provider's metadata and signing keys.
+   *
    * @public
    */
   discoveryUrl: string | undefined;
 
   /**
-   * <p>The audience values accepted during JWT validation. A token is rejected if none of its audience claims match.</p>
+   * The audience values accepted during JWT validation. A token is rejected if none of its audience claims match.
+   *
    * @public
    */
   allowedAudience?: string[] | undefined;
 
   /**
-   * <p>The client identifiers accepted during JWT validation. A token is rejected if it was not issued to one of these clients.</p>
+   * The client identifiers accepted during JWT validation. A token is rejected if it was not issued to one of these clients.
+   *
    * @public
    */
   allowedClients?: string[] | undefined;
 
   /**
-   * <p>The scopes accepted during JWT validation. A token is rejected if it does not carry one of these scopes.</p>
+   * The scopes accepted during JWT validation. A token is rejected if it does not carry one of these scopes.
+   *
    * @public
    */
   allowedScopes?: string[] | undefined;
 
   /**
-   * <p>Additional custom claim validations applied to the inbound JWT.</p>
+   * Additional custom claim validations applied to the inbound JWT.
+   *
    * @public
    */
   customClaims?: CustomClaimValidationType[] | undefined;
 
   /**
-   * <p>The private endpoint used to reach the identity provider's discovery URL over a private network path.</p>
+   * The private endpoint used to reach the identity provider's discovery URL over a private network path.
+   *
    * @public
    */
   privateEndpoint?: PrivateEndpoint | undefined;
 
   /**
-   * <p>Per-domain private endpoint overrides that route specific identity provider domains through distinct private endpoints.</p>
+   * Per-domain private endpoint overrides that route specific identity provider domains through distinct private endpoints.
+   *
    * @public
    */
   privateEndpointOverrides?: PrivateEndpointOverride[] | undefined;
 }
 
 /**
- * <p>The authorizer configuration for a registry. Exactly one member is set.</p>
+ * The authorizer configuration for a registry. Exactly one member is set.
+ *
  * @public
  */
 export type AuthorizerConfiguration =
@@ -510,7 +568,8 @@ export type AuthorizerConfiguration =
  */
 export namespace AuthorizerConfiguration {
   /**
-   * <p>Configuration for a custom JWT authorizer.</p>
+   * Configuration for a custom JWT authorizer.
+   *
    * @public
    */
   export interface CustomJWTAuthorizerMember {
@@ -537,78 +596,91 @@ export namespace AuthorizerConfiguration {
 }
 
 /**
- * <p>The workload identity details associated with a source resource. Present on the source details of a provenance entry when the upstream resource has a workload identity configured.</p>
+ * The workload identity details associated with a source resource. Present on the source details of a provenance entry when the upstream resource has a workload identity configured.
+ *
  * @public
  */
 export interface WorkloadIdentityDetails {
   /**
-   * <p>The Amazon Resource Name (ARN) of the workload identity associated with the source resource.</p>
+   * The Amazon Resource Name (ARN) of the workload identity associated with the source resource.
+   *
    * @public
    */
   workloadIdentityArn: string | undefined;
 }
 
 /**
- * <p>The source details for a registry record that was auto-detected from an Amazon Bedrock AgentCore Gateway resource.</p>
+ * The source details for a registry record that was auto-detected from an Amazon Bedrock AgentCore Gateway resource.
+ *
  * @public
  */
 export interface AgentCoreGatewaySourceDetails {
   /**
-   * <p>The protocol type of the AgentCore Gateway resource that the registry record was detected from, for example <code>MCP</code>.</p>
+   * The protocol type of the AgentCore Gateway resource that the registry record was detected from, for example `MCP`.
+   *
    * @public
    */
   protocolType?: AgentCoreGatewayProtocolType | undefined;
 
   /**
-   * <p>The type of authorizer configured on the AgentCore Gateway resource that the registry record was detected from.</p>
+   * The type of authorizer configured on the AgentCore Gateway resource that the registry record was detected from.
+   *
    * @public
    */
   authorizerType?: string | undefined;
 
   /**
-   * <p>The authorizer configuration for a registry. Exactly one member is set.</p>
+   * The authorizer configuration for a registry. Exactly one member is set.
+   *
    * @public
    */
   authorizerConfiguration?: AuthorizerConfiguration | undefined;
 
   /**
-   * <p>The workload identity details for the AgentCore Gateway resource. Present when the gateway has a workload identity configured.</p>
+   * The workload identity details for the AgentCore Gateway resource. Present when the gateway has a workload identity configured.
+   *
    * @public
    */
   workloadIdentityDetails?: WorkloadIdentityDetails | undefined;
 }
 
 /**
- * <p>The protocol configuration of an AgentCore Runtime resource that a registry record was auto-detected from.</p>
+ * The protocol configuration of an AgentCore Runtime resource that a registry record was auto-detected from.
+ *
  * @public
  */
 export interface AgentCoreRuntimeProtocolConfiguration {
   /**
-   * <p>The server protocol used by the AgentCore Runtime, such as <code>MCP</code>, <code>HTTP</code>, <code>A2A</code>, or <code>AGUI</code>.</p>
+   * The server protocol used by the AgentCore Runtime, such as `MCP`, `HTTP`, `A2A`, or `AGUI`.
+   *
    * @public
    */
   serverProtocol?: AgentCoreRuntimeServerProtocol | undefined;
 }
 
 /**
- * <p>The source details for a registry record that was auto-detected from an Amazon Bedrock AgentCore Runtime resource.</p>
+ * The source details for a registry record that was auto-detected from an Amazon Bedrock AgentCore Runtime resource.
+ *
  * @public
  */
 export interface AgentCoreRuntimeSourceDetails {
   /**
-   * <p>The protocol configuration of the AgentCore Runtime resource that the registry record was detected from.</p>
+   * The protocol configuration of the AgentCore Runtime resource that the registry record was detected from.
+   *
    * @public
    */
   protocolConfiguration?: AgentCoreRuntimeProtocolConfiguration | undefined;
 
   /**
-   * <p>The authorizer configuration for a registry. Exactly one member is set.</p>
+   * The authorizer configuration for a registry. Exactly one member is set.
+   *
    * @public
    */
   authorizerConfiguration?: AuthorizerConfiguration | undefined;
 
   /**
-   * <p>The workload identity details for the AgentCore Runtime resource. Present when the runtime has a workload identity configured.</p>
+   * The workload identity details for the AgentCore Runtime resource. Present when the runtime has a workload identity configured.
+   *
    * @public
    */
   workloadIdentityDetails?: WorkloadIdentityDetails | undefined;
@@ -619,7 +691,8 @@ export interface AgentCoreRuntimeSourceDetails {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource to list tags for. Supported resources include registries and registry records.</p>
+   * The Amazon Resource Name (ARN) of the resource to list tags for. Supported resources include registries and registry records.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -630,230 +703,268 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>The tags currently associated with the resource, as a map of tag keys to tag values.</p>
+   * The tags currently associated with the resource, as a map of tag keys to tag values.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Describes a single input field that failed validation.</p>
+ * Describes a single input field that failed validation.
+ *
  * @public
  */
 export interface ValidationExceptionField {
   /**
-   * <p>The name of the field that failed validation.</p>
+   * The name of the field that failed validation.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description of why the field failed validation.</p>
+   * A description of why the field failed validation.
+   *
    * @public
    */
   message: string | undefined;
 }
 
 /**
- * <p>Markdown-format descriptor containing an agent skills document.</p>
+ * Markdown-format descriptor containing an agent skills document.
+ *
  * @public
  */
 export interface AgentSkillsMdDescriptor {
   /**
-   * <p>The agent skills markdown content, serialized as descriptor payload data.</p>
+   * The agent skills markdown content, serialized as descriptor payload data.
+   *
    * @public
    */
   data?: string | undefined;
 
   /**
-   * <p>The schema version of the descriptor payload.</p>
+   * The schema version of the descriptor payload.
+   *
    * @public
    */
   dataSchemaVersion?: string | undefined;
 
   /**
-   * <p>The optional source configuration used to synchronize the agent skills markdown content.</p>
+   * The optional source configuration used to synchronize the agent skills markdown content.
+   *
    * @public
    */
   source?: DescriptorSource | undefined;
 }
 
 /**
- * <p>Additional data associated with an agent skills definition descriptor.</p>
+ * Additional data associated with an agent skills definition descriptor.
+ *
  * @public
  */
 export interface AgentSkillsAdditionalData {
   /**
-   * <p>The markdown skill content associated with an agent skills definition.</p>
+   * The markdown skill content associated with an agent skills definition.
+   *
    * @public
    */
   skillMd?: AgentSkillsMdDescriptor | undefined;
 }
 
 /**
- * <p>Descriptor that defines an agent skills registry record and its associated content.</p>
+ * Descriptor that defines an agent skills registry record and its associated content.
+ *
  * @public
  */
 export interface AgentSkillsDefinitionDescriptor {
   /**
-   * <p>The agent skills definition content, serialized as descriptor payload data.</p>
+   * The agent skills definition content, serialized as descriptor payload data.
+   *
    * @public
    */
   data?: string | undefined;
 
   /**
-   * <p>The schema version of the descriptor payload.</p>
+   * The schema version of the descriptor payload.
+   *
    * @public
    */
   dataSchemaVersion?: string | undefined;
 
   /**
-   * <p>Additional data associated with the agent skills definition descriptor.</p>
+   * Additional data associated with the agent skills definition descriptor.
+   *
    * @public
    */
   additionalData?: AgentSkillsAdditionalData | undefined;
 }
 
 /**
- * <p>A registry record descriptor for the AG-UI (Agent-User Interaction) protocol.</p>
+ * A registry record descriptor for the AG-UI (Agent-User Interaction) protocol.
+ *
  * @public
  */
 export interface AgUiDescriptor {
   /**
-   * <p>The source configuration that defines where descriptor content is retrieved from.</p>
+   * The source configuration that defines where descriptor content is retrieved from.
+   *
    * @public
    */
   source?: DescriptorSource | undefined;
 }
 
 /**
- * <p>Custom descriptor for user-defined content</p>
+ * Custom descriptor for user-defined content
+ *
  * @public
  */
 export interface CustomDescriptor {
   /**
-   * <p>The custom descriptor content, serialized as descriptor payload data.</p>
+   * The custom descriptor content, serialized as descriptor payload data.
+   *
    * @public
    */
   data?: string | undefined;
 }
 
 /**
- * <p>A registry record descriptor for the HTTP protocol. This descriptor is source-only: its content is synchronized from the configured source URL rather than supplied inline.</p>
+ * A registry record descriptor for the HTTP protocol. This descriptor is source-only: its content is synchronized from the configured source URL rather than supplied inline.
+ *
  * @public
  */
 export interface HttpDescriptor {
   /**
-   * <p>The source configuration that defines where descriptor content is retrieved from.</p>
+   * The source configuration that defines where descriptor content is retrieved from.
+   *
    * @public
    */
   source?: DescriptorSource | undefined;
 }
 
 /**
- * <p>MCP tools descriptor containing tool definitions</p>
+ * MCP tools descriptor containing tool definitions
+ *
  * @public
  */
 export interface McpToolsDescriptor {
   /**
-   * <p>The MCP tools descriptor content, serialized as descriptor payload data.</p>
+   * The MCP tools descriptor content, serialized as descriptor payload data.
+   *
    * @public
    */
   data?: string | undefined;
 
   /**
-   * <p>The schema version of the descriptor payload.</p>
+   * The schema version of the descriptor payload.
+   *
    * @public
    */
   dataSchemaVersion?: string | undefined;
 }
 
 /**
- * <p>Additional data for an MCP server descriptor</p>
+ * Additional data for an MCP server descriptor
+ *
  * @public
  */
 export interface McpServerAdditionalData {
   /**
-   * <p>The MCP tools descriptor that defines the tools exposed by the MCP server.</p>
+   * The MCP tools descriptor that defines the tools exposed by the MCP server.
+   *
    * @public
    */
   tools?: McpToolsDescriptor | undefined;
 }
 
 /**
- * <p>Descriptor that defines the content of an MCP (Model Context Protocol) server registry record, including the server definition and its tool definitions. The content is validated against the MCP protocol schema.</p>
+ * Descriptor that defines the content of an MCP (Model Context Protocol) server registry record, including the server definition and its tool definitions. The content is validated against the MCP protocol schema.
+ *
  * @public
  */
 export interface McpServerDescriptor {
   /**
-   * <p>The MCP server descriptor content, serialized as descriptor payload data.</p>
+   * The MCP server descriptor content, serialized as descriptor payload data.
+   *
    * @public
    */
   data?: string | undefined;
 
   /**
-   * <p>The schema version of the descriptor payload.</p>
+   * The schema version of the descriptor payload.
+   *
    * @public
    */
   dataSchemaVersion?: string | undefined;
 
   /**
-   * <p>Additional data associated with the MCP server descriptor, such as tool definitions.</p>
+   * Additional data associated with the MCP server descriptor, such as tool definitions.
+   *
    * @public
    */
   additionalData?: McpServerAdditionalData | undefined;
 
   /**
-   * <p>The optional source configuration used to synchronize the MCP server descriptor content.</p>
+   * The optional source configuration used to synchronize the MCP server descriptor content.
+   *
    * @public
    */
   source?: DescriptorSource | undefined;
 }
 
 /**
- * <p>The typed set of descriptors for a registry record. Exactly one descriptor field is populated based on the record type.</p>
+ * The typed set of descriptors for a registry record. Exactly one descriptor field is populated based on the record type.
+ *
  * @public
  */
 export interface Descriptors {
   /**
-   * <p>The MCP server descriptor, populated when the record type is MCP.</p>
+   * The MCP server descriptor, populated when the record type is MCP.
+   *
    * @public
    */
   mcpServer?: McpServerDescriptor | undefined;
 
   /**
-   * <p>The A2A agent card descriptor, populated when the record type is AGENT.</p>
+   * The A2A agent card descriptor, populated when the record type is AGENT.
+   *
    * @public
    */
   a2aAgentCard?: A2aAgentCardDescriptor | undefined;
 
   /**
-   * <p>The agent skills definition descriptor, populated when the record type is SKILL.</p>
+   * The agent skills definition descriptor, populated when the record type is SKILL.
+   *
    * @public
    */
   agentSkillsDefinition?: AgentSkillsDefinitionDescriptor | undefined;
 
   /**
-   * <p>The custom descriptor, populated when the record type is CUSTOM.</p>
+   * The custom descriptor, populated when the record type is CUSTOM.
+   *
    * @public
    */
   custom?: CustomDescriptor | undefined;
 
   /**
-   * <p>The HTTP descriptor, populated for records detected from an HTTP protocol source.</p>
+   * The HTTP descriptor, populated for records detected from an HTTP protocol source.
+   *
    * @public
    */
   http?: HttpDescriptor | undefined;
 
   /**
-   * <p>The AG-UI descriptor, populated for records detected from an AG-UI protocol source.</p>
+   * The AG-UI descriptor, populated for records detected from an AG-UI protocol source.
+   *
    * @public
    */
   agui?: AgUiDescriptor | undefined;
 }
 
 /**
- * <p>The details about the upstream source from which a registry record was detected. Exactly one member is populated, corresponding to the source type.</p>
+ * The details about the upstream source from which a registry record was detected. Exactly one member is populated, corresponding to the source type.
+ *
  * @public
  */
 export type SourceDetails =
@@ -866,7 +977,8 @@ export type SourceDetails =
  */
 export namespace SourceDetails {
   /**
-   * <p>The source details for a registry record that was auto-detected from an Amazon Bedrock AgentCore Runtime resource. Populated when the source type is <code>AWS::BedrockAgentCore::Runtime</code>.</p>
+   * The source details for a registry record that was auto-detected from an Amazon Bedrock AgentCore Runtime resource. Populated when the source type is `AWS::BedrockAgentCore::Runtime`.
+   *
    * @public
    */
   export interface AgentcoreRuntimeMember {
@@ -876,7 +988,8 @@ export namespace SourceDetails {
   }
 
   /**
-   * <p>The source details for a registry record that was auto-detected from an Amazon Bedrock AgentCore Gateway resource. Populated when the source type is <code>AWS::BedrockAgentCore::Gateway</code>.</p>
+   * The source details for a registry record that was auto-detected from an Amazon Bedrock AgentCore Gateway resource. Populated when the source type is `AWS::BedrockAgentCore::Gateway`.
+   *
    * @public
    */
   export interface AgentcoreGatewayMember {
@@ -906,30 +1019,35 @@ export namespace SourceDetails {
 }
 
 /**
- * <p>A provenance entry that describes the lineage of a registry record. Records that were auto-detected by Amazon Web Services Agent Registry carry a provenance entry that links the record back to its upstream source.</p>
+ * A provenance entry that describes the lineage of a registry record. Records that were auto-detected by Amazon Web Services Agent Registry carry a provenance entry that links the record back to its upstream source.
+ *
  * @public
  */
 export interface Provenance {
   /**
-   * <p>The relationship between the registry record and its upstream source. <code>DETECTED_FROM</code> indicates that the record was auto-detected from the source resource.</p>
+   * The relationship between the registry record and its upstream source. `DETECTED_FROM` indicates that the record was auto-detected from the source resource.
+   *
    * @public
    */
   relation: ProvenanceRelation | undefined;
 
   /**
-   * <p>The identifier of the upstream source that the registry record was detected from.</p>
+   * The identifier of the upstream source that the registry record was detected from.
+   *
    * @public
    */
   sourceId: string | undefined;
 
   /**
-   * <p>The type of the upstream source that the registry record was detected from.</p>
+   * The type of the upstream source that the registry record was detected from.
+   *
    * @public
    */
   sourceType?: SourceType | undefined;
 
   /**
-   * <p>Additional details about the upstream source that the registry record was detected from, such as the AgentCore Gateway or Runtime configuration. The populated member corresponds to the source type.</p>
+   * Additional details about the upstream source that the registry record was detected from, such as the AgentCore Gateway or Runtime configuration. The populated member corresponds to the source type.
+   *
    * @public
    */
   sourceDetails?: SourceDetails | undefined;
@@ -940,85 +1058,99 @@ export interface Provenance {
  */
 export interface CreateRegistryRecordRequest {
   /**
-   * <p>The identifier of the registry in which to create the record (ARN or ID)</p>
+   * The identifier of the registry in which to create the record (ARN or ID)
+   *
    * @public
    */
   registryId: string | undefined;
 
   /**
-   * <p>The name of the registry record</p>
+   * The name of the registry record
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The human-readable display name of the registry record</p>
+   * The human-readable display name of the registry record
+   *
    * @public
    */
   displayName?: string | undefined;
 
   /**
-   * <p>The description of the registry record</p>
+   * The description of the registry record
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The type of the registry record, which determines the descriptor format</p>
+   * The type of the registry record, which determines the descriptor format
+   *
    * @public
    */
   recordType: RecordType | undefined;
 
   /**
-   * <p>The typed descriptor content for the registry record</p>
+   * The typed descriptor content for the registry record
+   *
    * @public
    */
   descriptors: Descriptors | undefined;
 
   /**
-   * <p>The version of the registry record</p>
+   * The version of the registry record
+   *
    * @public
    */
   recordVersion?: string | undefined;
 
   /**
-   * <p>Client token for idempotency</p>
+   * Client token for idempotency
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The provenance lineage entries for the registry record. This field is reserved for the Amazon Web Services Agent Registry auto-detection service principal. Requests that include this field from other callers are rejected.</p>
+   * The provenance lineage entries for the registry record. This field is reserved for the Amazon Web Services Agent Registry auto-detection service principal. Requests that include this field from other callers are rejected.
+   *
    * @public
    */
   provenance?: Provenance[] | undefined;
 
   /**
-   * <p>The custom metadata for the record. Values are strings or JSON booleans.</p>
+   * The custom metadata for the record. Values are strings or JSON booleans.
+   *
    * @public
    */
   customMetadata?: __DocumentType | undefined;
 
   /**
-   * <p>Tags to associate with the registry record</p>
+   * Tags to associate with the registry record
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Response structure for creating a registry record</p>
+ * Response structure for creating a registry record
+ *
  * @public
  */
 export interface CreateRegistryRecordResponse {
   /**
-   * <p>The ARN of the created registry record</p>
+   * The ARN of the created registry record
+   *
    * @public
    */
   recordArn: string | undefined;
 
   /**
-   * <p>The status of the registry record, set to CREATING while the asynchronous workflow is in progress</p>
+   * The status of the registry record, set to CREATING while the asynchronous workflow is in progress
+   *
    * @public
    */
   status: RegistryRecordStatus | undefined;
@@ -1029,20 +1161,23 @@ export interface CreateRegistryRecordResponse {
  */
 export interface DeleteRegistryRecordRequest {
   /**
-   * <p>The identifier of the registry containing the record (ARN or ID)</p>
+   * The identifier of the registry containing the record (ARN or ID)
+   *
    * @public
    */
   registryId: string | undefined;
 
   /**
-   * <p>The identifier of the registry record to delete (ARN or ID)</p>
+   * The identifier of the registry record to delete (ARN or ID)
+   *
    * @public
    */
   recordId: string | undefined;
 }
 
 /**
- * <p>Response structure for deleting a registry record</p>
+ * Response structure for deleting a registry record
+ *
  * @public
  */
 export interface DeleteRegistryRecordResponse {}
@@ -1052,145 +1187,169 @@ export interface DeleteRegistryRecordResponse {}
  */
 export interface GetRegistryRecordRequest {
   /**
-   * <p>The identifier of the registry containing the record (ARN or ID)</p>
+   * The identifier of the registry containing the record (ARN or ID)
+   *
    * @public
    */
   registryId: string | undefined;
 
   /**
-   * <p>The identifier of the registry record to retrieve (ARN or ID)</p>
+   * The identifier of the registry record to retrieve (ARN or ID)
+   *
    * @public
    */
   recordId: string | undefined;
 }
 
 /**
- * <p>Response structure for retrieving a registry record</p>
+ * Response structure for retrieving a registry record
+ *
  * @public
  */
 export interface GetRegistryRecordResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the parent registry that owns the record.</p>
+   * The Amazon Resource Name (ARN) of the parent registry that owns the record.
+   *
    * @public
    */
   registryArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the registry record.</p>
+   * The Amazon Resource Name (ARN) of the registry record.
+   *
    * @public
    */
   recordArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the registry record.</p>
+   * The unique identifier of the registry record.
+   *
    * @public
    */
   recordId: string | undefined;
 
   /**
-   * <p>The name of the registry record. Names are unique within a registry.</p>
+   * The name of the registry record. Names are unique within a registry.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The human-readable display name of the registry record.</p>
+   * The human-readable display name of the registry record.
+   *
    * @public
    */
   displayName?: string | undefined;
 
   /**
-   * <p>A description of the registry record.</p>
+   * A description of the registry record.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The type of the registry record, such as MCP, AGENT, SKILL, or CUSTOM.</p>
+   * The type of the registry record, such as MCP, AGENT, SKILL, or CUSTOM.
+   *
    * @public
    */
   recordType: RecordType | undefined;
 
   /**
-   * <p>The typed descriptors that define the content of the registry record.</p>
+   * The typed descriptors that define the content of the registry record.
+   *
    * @public
    */
   descriptors?: Descriptors | undefined;
 
   /**
-   * <p>The version identifier of the registry record.</p>
+   * The version identifier of the registry record.
+   *
    * @public
    */
   recordVersion?: string | undefined;
 
   /**
-   * <p>The lifecycle status of the registry record.</p>
+   * The lifecycle status of the registry record.
+   *
    * @public
    */
   status: RegistryRecordStatus | undefined;
 
   /**
-   * <p>The timestamp when the registry record was created.</p>
+   * The timestamp when the registry record was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the registry record was last updated.</p>
+   * The timestamp when the registry record was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The reason for the current status. Typically populated when the status indicates a failure state.</p>
+   * The reason for the current status. Typically populated when the status indicates a failure state.
+   *
    * @public
    */
   statusReason?: string | undefined;
 
   /**
-   * <p>The provenance lineage entries for the registry record. Populated for records created by auto-detection; each entry identifies the upstream source that the record was detected from.</p>
+   * The provenance lineage entries for the registry record. Populated for records created by auto-detection; each entry identifies the upstream source that the record was detected from.
+   *
    * @public
    */
   provenance?: Provenance[] | undefined;
 
   /**
-   * <p>Specifies whether the registry record was created by auto-detection. <code>true</code> indicates the record was automatically created by the service based on the registry's auto-detection configuration; <code>false</code> indicates the record was created through a control-plane API call.</p>
+   * Specifies whether the registry record was created by auto-detection. `true` indicates the record was automatically created by the service based on the registry's auto-detection configuration; `false` indicates the record was created through a control-plane API call.
+   *
    * @public
    */
   createdByAutoDetection?: boolean | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services account that created the registry record.</p>
+   * The ID of the Amazon Web Services account that created the registry record.
+   *
    * @public
    */
   createdBy?: string | undefined;
 
   /**
-   * <p>The custom metadata attached to this registry record. Values are strings (maximum 128 characters) or booleans.</p>
+   * The custom metadata attached to this registry record. Values are strings (maximum 128 characters) or booleans.
+   *
    * @public
    */
   customMetadata?: __DocumentType | undefined;
 
   /**
-   * <p>Indicates whether this record's custom metadata conforms to the registry's current schema. This status is computed at read time against the latest schema.</p>
+   * Indicates whether this record's custom metadata conforms to the registry's current schema. This status is computed at read time against the latest schema.
+   *
    * @public
    */
   customMetadataSchemaComplianceStatus?: CustomMetadataSchemaComplianceStatus | undefined;
 }
 
 /**
- * <p>A single filter applied to a ListRegistryRecords request.</p>
+ * A single filter applied to a ListRegistryRecords request.
+ *
  * @public
  */
 export interface RegistryRecordFilter {
   /**
-   * <p>The attribute to filter on</p>
+   * The attribute to filter on
+   *
    * @public
    */
   name: RegistryRecordFilterName | undefined;
 
   /**
-   * <p>The values to match for the attribute</p>
+   * The values to match for the attribute
+   *
    * @public
    */
   values: string[] | undefined;
@@ -1201,163 +1360,190 @@ export interface RegistryRecordFilter {
  */
 export interface ListRegistryRecordsRequest {
   /**
-   * <p>The identifier of the registry to list records from (ARN or ID)</p>
+   * The identifier of the registry to list records from (ARN or ID)
+   *
    * @public
    */
   registryId: string | undefined;
 
   /**
-   * <p>Maximum number of records to return</p>
+   * Maximum number of records to return
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Token for pagination</p>
+   * Token for pagination
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Filters to apply to the registry record list</p>
+   * Filters to apply to the registry record list
+   *
    * @public
    */
   filters?: RegistryRecordFilter[] | undefined;
 }
 
 /**
- * <p>A condensed provenance entry surfaced in list results. Contains the source identity of a lineage entry without the source details returned by <code>GetRegistryRecord</code>.</p>
+ * A condensed provenance entry surfaced in list results. Contains the source identity of a lineage entry without the source details returned by `GetRegistryRecord`.
+ *
  * @public
  */
 export interface ProvenanceSummary {
   /**
-   * <p>The relationship between the registry record and its upstream source. <code>DETECTED_FROM</code> indicates that the record was auto-detected from the source resource.</p>
+   * The relationship between the registry record and its upstream source. `DETECTED_FROM` indicates that the record was auto-detected from the source resource.
+   *
    * @public
    */
   relation: ProvenanceRelation | undefined;
 
   /**
-   * <p>The identifier of the upstream source that the registry record was detected from.</p>
+   * The identifier of the upstream source that the registry record was detected from.
+   *
    * @public
    */
   sourceId: string | undefined;
 
   /**
-   * <p>The type of the upstream source that the registry record was detected from.</p>
+   * The type of the upstream source that the registry record was detected from.
+   *
    * @public
    */
   sourceType?: SourceType | undefined;
 }
 
 /**
- * <p>A summary of a registry record returned by list operations. Contains identifying and lifecycle fields but omits descriptor content.</p>
+ * A summary of a registry record returned by list operations. Contains identifying and lifecycle fields but omits descriptor content.
+ *
  * @public
  */
 export interface RegistryRecordSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the parent registry that owns the record.</p>
+   * The Amazon Resource Name (ARN) of the parent registry that owns the record.
+   *
    * @public
    */
   registryArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the registry record.</p>
+   * The Amazon Resource Name (ARN) of the registry record.
+   *
    * @public
    */
   recordArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the registry record.</p>
+   * The unique identifier of the registry record.
+   *
    * @public
    */
   recordId: string | undefined;
 
   /**
-   * <p>The name of the registry record. Names are unique within a registry.</p>
+   * The name of the registry record. Names are unique within a registry.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The human-readable display name of the registry record.</p>
+   * The human-readable display name of the registry record.
+   *
    * @public
    */
   displayName?: string | undefined;
 
   /**
-   * <p>A description of the registry record.</p>
+   * A description of the registry record.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The type of the registry record, such as MCP, AGENT, SKILL, or CUSTOM.</p>
+   * The type of the registry record, such as MCP, AGENT, SKILL, or CUSTOM.
+   *
    * @public
    */
   recordType: RecordType | undefined;
 
   /**
-   * <p>The version identifier of the registry record.</p>
+   * The version identifier of the registry record.
+   *
    * @public
    */
   recordVersion: string | undefined;
 
   /**
-   * <p>The lifecycle status of the registry record.</p>
+   * The lifecycle status of the registry record.
+   *
    * @public
    */
   status: RegistryRecordStatus | undefined;
 
   /**
-   * <p>The timestamp when the registry record was created.</p>
+   * The timestamp when the registry record was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the registry record was last updated.</p>
+   * The timestamp when the registry record was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>Specifies whether the registry record was created by auto-detection. <code>true</code> indicates the record was automatically created by the service based on the registry's auto-detection configuration; <code>false</code> indicates the record was created through a control-plane API call.</p>
+   * Specifies whether the registry record was created by auto-detection. `true` indicates the record was automatically created by the service based on the registry's auto-detection configuration; `false` indicates the record was created through a control-plane API call.
+   *
    * @public
    */
   createdByAutoDetection?: boolean | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services account that created the registry record.</p>
+   * The ID of the Amazon Web Services account that created the registry record.
+   *
    * @public
    */
   createdBy?: string | undefined;
 
   /**
-   * <p>The condensed provenance lineage for the registry record. Each entry contains the source relation, source identifier, and source type of an auto-detection lineage entry. Populated for records created by auto-detection.</p>
+   * The condensed provenance lineage for the registry record. Each entry contains the source relation, source identifier, and source type of an auto-detection lineage entry. Populated for records created by auto-detection.
+   *
    * @public
    */
   provenanceSummaryList?: ProvenanceSummary[] | undefined;
 
   /**
-   * <p>Indicates whether this record's custom metadata conforms to the registry's current schema.</p>
+   * Indicates whether this record's custom metadata conforms to the registry's current schema.
+   *
    * @public
    */
   customMetadataSchemaComplianceStatus?: CustomMetadataSchemaComplianceStatus | undefined;
 }
 
 /**
- * <p>Response structure for listing registry records</p>
+ * Response structure for listing registry records
+ *
  * @public
  */
 export interface ListRegistryRecordsResponse {
   /**
-   * <p>List of registry record summaries</p>
+   * List of registry record summaries
+   *
    * @public
    */
   registryRecords: RegistryRecordSummary[] | undefined;
 
   /**
-   * <p>Token for next page of results</p>
+   * Token for next page of results
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1368,475 +1554,554 @@ export interface ListRegistryRecordsResponse {
  */
 export interface SubmitRegistryRecordForApprovalRequest {
   /**
-   * <p>The identifier of the registry containing the record (ARN or ID)</p>
+   * The identifier of the registry containing the record (ARN or ID)
+   *
    * @public
    */
   registryId: string | undefined;
 
   /**
-   * <p>The identifier of the registry record to submit for approval (ARN or ID)</p>
+   * The identifier of the registry record to submit for approval (ARN or ID)
+   *
    * @public
    */
   recordId: string | undefined;
 }
 
 /**
- * <p>Response structure for submitting a registry record for approval</p>
+ * Response structure for submitting a registry record for approval
+ *
  * @public
  */
 export interface SubmitRegistryRecordForApprovalResponse {
   /**
-   * <p>The ARN of the registry</p>
+   * The ARN of the registry
+   *
    * @public
    */
   registryArn: string | undefined;
 
   /**
-   * <p>The ARN of the registry record</p>
+   * The ARN of the registry record
+   *
    * @public
    */
   recordArn: string | undefined;
 
   /**
-   * <p>The ID of the registry record</p>
+   * The ID of the registry record
+   *
    * @public
    */
   recordId: string | undefined;
 
   /**
-   * <p>The resulting status of the registry record</p>
+   * The resulting status of the registry record
+   *
    * @public
    */
   status: RegistryRecordStatus | undefined;
 
   /**
-   * <p>The timestamp when the record was last updated</p>
+   * The timestamp when the record was last updated
+   *
    * @public
    */
   updatedAt: Date | undefined;
 }
 
 /**
- * <p>The custom metadata patch wrapper. Omit to leave the existing metadata unchanged; supply with a null value to clear all metadata; supply with key-value pairs to replace the existing metadata.</p>
+ * The custom metadata patch wrapper. Omit to leave the existing metadata unchanged; supply with a null value to clear all metadata; supply with key-value pairs to replace the existing metadata.
+ *
  * @public
  */
 export interface UpdatedCustomMetadataMap {
   /**
-   * <p>The value to set for this field. Omit the wrapper to leave the field unchanged.</p>
+   * The value to set for this field. Omit the wrapper to leave the field unchanged.
+   *
    * @public
    */
   optionalValue?: __DocumentType | undefined;
 }
 
 /**
- * <p>Wrapper for updating an optional Description field with PATCH semantics</p>
+ * Wrapper for updating an optional Description field with PATCH semantics
+ *
  * @public
  */
 export interface UpdatedDescription {
   /**
-   * <p>The value to set for this field. Omit the wrapper to leave the field unchanged.</p>
+   * The value to set for this field. Omit the wrapper to leave the field unchanged.
+   *
    * @public
    */
   optionalValue?: string | undefined;
 }
 
 /**
- * <p>Leaf patch wrapper for descriptor data. Omit to leave unchanged; supply an empty object to unset; supply optionalValue to set.</p>
+ * Leaf patch wrapper for descriptor data. Omit to leave unchanged; supply an empty object to unset; supply optionalValue to set.
+ *
  * @public
  */
 export interface UpdatedDescriptorData {
   /**
-   * <p>The value to set for this field. Omit the wrapper to leave the field unchanged.</p>
+   * The value to set for this field. Omit the wrapper to leave the field unchanged.
+   *
    * @public
    */
   optionalValue?: string | undefined;
 }
 
 /**
- * <p>Leaf patch wrapper for a descriptor's data schema version. Omit to leave unchanged; supply an empty object to unset; supply optionalValue to set.</p>
+ * Leaf patch wrapper for a descriptor's data schema version. Omit to leave unchanged; supply an empty object to unset; supply optionalValue to set.
+ *
  * @public
  */
 export interface UpdatedDataSchemaVersion {
   /**
-   * <p>The value to set for this field. Omit the wrapper to leave the field unchanged.</p>
+   * The value to set for this field. Omit the wrapper to leave the field unchanged.
+   *
    * @public
    */
   optionalValue?: string | undefined;
 }
 
 /**
- * <p>Leaf patch wrapper for a descriptor's source configuration. Omit to leave unchanged; supply an empty object to unset; supply optionalValue to set.</p>
+ * Leaf patch wrapper for a descriptor's source configuration. Omit to leave unchanged; supply an empty object to unset; supply optionalValue to set.
+ *
  * @public
  */
 export interface UpdatedDescriptorSource {
   /**
-   * <p>The value to set for this field. Omit the wrapper to leave the field unchanged.</p>
+   * The value to set for this field. Omit the wrapper to leave the field unchanged.
+   *
    * @public
    */
   optionalValue?: DescriptorSource | undefined;
 }
 
 /**
- * <p>The set of A2A agent card descriptor fields that can be individually updated.</p>
+ * The set of A2A agent card descriptor fields that can be individually updated.
+ *
  * @public
  */
 export interface UpdatedA2aAgentCardDescriptorFields {
   /**
-   * <p>The patch for the descriptor's data field.</p>
+   * The patch for the descriptor's data field.
+   *
    * @public
    */
   data?: UpdatedDescriptorData | undefined;
 
   /**
-   * <p>The patch for the descriptor's data schema version field.</p>
+   * The patch for the descriptor's data schema version field.
+   *
    * @public
    */
   dataSchemaVersion?: UpdatedDataSchemaVersion | undefined;
 
   /**
-   * <p>The patch for the descriptor's source field.</p>
+   * The patch for the descriptor's source field.
+   *
    * @public
    */
   source?: UpdatedDescriptorSource | undefined;
 }
 
 /**
- * <p>The A2A agent card descriptor patch wrapper. Omit to leave the descriptor unchanged; supply an empty object to remove it; supply optionalValue to patch its fields.</p>
+ * The A2A agent card descriptor patch wrapper. Omit to leave the descriptor unchanged; supply an empty object to remove it; supply optionalValue to patch its fields.
+ *
  * @public
  */
 export interface UpdatedA2aAgentCardDescriptor {
   /**
-   * <p>The value to set for this field. Omit the wrapper to leave the field unchanged.</p>
+   * The value to set for this field. Omit the wrapper to leave the field unchanged.
+   *
    * @public
    */
   optionalValue?: UpdatedA2aAgentCardDescriptorFields | undefined;
 }
 
 /**
- * <p>The set of agent skills markdown descriptor fields that can be individually updated.</p>
+ * The set of agent skills markdown descriptor fields that can be individually updated.
+ *
  * @public
  */
 export interface UpdatedAgentSkillsMdDescriptorFields {
   /**
-   * <p>The patch for the descriptor's data field.</p>
+   * The patch for the descriptor's data field.
+   *
    * @public
    */
   data?: UpdatedDescriptorData | undefined;
 
   /**
-   * <p>The patch for the descriptor's data schema version field.</p>
+   * The patch for the descriptor's data schema version field.
+   *
    * @public
    */
   dataSchemaVersion?: UpdatedDataSchemaVersion | undefined;
 
   /**
-   * <p>The patch for the descriptor's source field.</p>
+   * The patch for the descriptor's source field.
+   *
    * @public
    */
   source?: UpdatedDescriptorSource | undefined;
 }
 
 /**
- * <p>The agent skills markdown descriptor patch wrapper. Omit to leave the descriptor unchanged; supply an empty object to remove it; supply optionalValue to patch its fields.</p>
+ * The agent skills markdown descriptor patch wrapper. Omit to leave the descriptor unchanged; supply an empty object to remove it; supply optionalValue to patch its fields.
+ *
  * @public
  */
 export interface UpdatedAgentSkillsMdDescriptor {
   /**
-   * <p>The value to set for this field. Omit the wrapper to leave the field unchanged.</p>
+   * The value to set for this field. Omit the wrapper to leave the field unchanged.
+   *
    * @public
    */
   optionalValue?: UpdatedAgentSkillsMdDescriptorFields | undefined;
 }
 
 /**
- * <p>The set of agent skills additional-data fields that can be individually updated.</p>
+ * The set of agent skills additional-data fields that can be individually updated.
+ *
  * @public
  */
 export interface UpdatedAgentSkillsAdditionalDataFields {
   /**
-   * <p>The patch for the agent skills markdown descriptor field.</p>
+   * The patch for the agent skills markdown descriptor field.
+   *
    * @public
    */
   skillMd?: UpdatedAgentSkillsMdDescriptor | undefined;
 }
 
 /**
- * <p>The agent skills additional-data patch wrapper. Omit to leave the additional data unchanged; supply an empty object to remove it; supply optionalValue to patch its fields.</p>
+ * The agent skills additional-data patch wrapper. Omit to leave the additional data unchanged; supply an empty object to remove it; supply optionalValue to patch its fields.
+ *
  * @public
  */
 export interface UpdatedAgentSkillsAdditionalData {
   /**
-   * <p>The value to set for this field. Omit the wrapper to leave the field unchanged.</p>
+   * The value to set for this field. Omit the wrapper to leave the field unchanged.
+   *
    * @public
    */
   optionalValue?: UpdatedAgentSkillsAdditionalDataFields | undefined;
 }
 
 /**
- * <p>The set of agent skills definition descriptor fields that can be individually updated.</p>
+ * The set of agent skills definition descriptor fields that can be individually updated.
+ *
  * @public
  */
 export interface UpdatedAgentSkillsDefinitionDescriptorFields {
   /**
-   * <p>The patch for the descriptor's data field.</p>
+   * The patch for the descriptor's data field.
+   *
    * @public
    */
   data?: UpdatedDescriptorData | undefined;
 
   /**
-   * <p>The patch for the descriptor's data schema version field.</p>
+   * The patch for the descriptor's data schema version field.
+   *
    * @public
    */
   dataSchemaVersion?: UpdatedDataSchemaVersion | undefined;
 
   /**
-   * <p>The patch for the descriptor's additional data field.</p>
+   * The patch for the descriptor's additional data field.
+   *
    * @public
    */
   additionalData?: UpdatedAgentSkillsAdditionalData | undefined;
 }
 
 /**
- * <p>The agent skills definition descriptor patch wrapper. Omit to leave the descriptor unchanged; supply an empty object to remove it; supply optionalValue to patch its fields.</p>
+ * The agent skills definition descriptor patch wrapper. Omit to leave the descriptor unchanged; supply an empty object to remove it; supply optionalValue to patch its fields.
+ *
  * @public
  */
 export interface UpdatedAgentSkillsDefinitionDescriptor {
   /**
-   * <p>The value to set for this field. Omit the wrapper to leave the field unchanged.</p>
+   * The value to set for this field. Omit the wrapper to leave the field unchanged.
+   *
    * @public
    */
   optionalValue?: UpdatedAgentSkillsDefinitionDescriptorFields | undefined;
 }
 
 /**
- * <p>The set of AG-UI descriptor fields that can be individually updated.</p>
+ * The set of AG-UI descriptor fields that can be individually updated.
+ *
  * @public
  */
 export interface UpdatedAgUiDescriptorFields {
   /**
-   * <p>The patch for the descriptor's source field.</p>
+   * The patch for the descriptor's source field.
+   *
    * @public
    */
   source?: UpdatedDescriptorSource | undefined;
 }
 
 /**
- * <p>The AG-UI descriptor patch wrapper. Omit to leave the descriptor unchanged; supply an empty object to remove it; supply optionalValue to patch its fields.</p>
+ * The AG-UI descriptor patch wrapper. Omit to leave the descriptor unchanged; supply an empty object to remove it; supply optionalValue to patch its fields.
+ *
  * @public
  */
 export interface UpdatedAgUiDescriptor {
   /**
-   * <p>The value to set for this field. Omit the wrapper to leave the field unchanged.</p>
+   * The value to set for this field. Omit the wrapper to leave the field unchanged.
+   *
    * @public
    */
   optionalValue?: UpdatedAgUiDescriptorFields | undefined;
 }
 
 /**
- * <p>The set of custom descriptor fields that can be individually updated.</p>
+ * The set of custom descriptor fields that can be individually updated.
+ *
  * @public
  */
 export interface UpdatedCustomDescriptorFields {
   /**
-   * <p>The patch for the descriptor's data field.</p>
+   * The patch for the descriptor's data field.
+   *
    * @public
    */
   data?: UpdatedDescriptorData | undefined;
 }
 
 /**
- * <p>The custom descriptor patch wrapper. Omit to leave the descriptor unchanged; supply an empty object to remove it; supply optionalValue to patch its fields.</p>
+ * The custom descriptor patch wrapper. Omit to leave the descriptor unchanged; supply an empty object to remove it; supply optionalValue to patch its fields.
+ *
  * @public
  */
 export interface UpdatedCustomDescriptor {
   /**
-   * <p>The value to set for this field. Omit the wrapper to leave the field unchanged.</p>
+   * The value to set for this field. Omit the wrapper to leave the field unchanged.
+   *
    * @public
    */
   optionalValue?: UpdatedCustomDescriptorFields | undefined;
 }
 
 /**
- * <p>The set of HTTP descriptor fields that can be individually updated.</p>
+ * The set of HTTP descriptor fields that can be individually updated.
+ *
  * @public
  */
 export interface UpdatedHttpDescriptorFields {
   /**
-   * <p>The patch for the descriptor's source field.</p>
+   * The patch for the descriptor's source field.
+   *
    * @public
    */
   source?: UpdatedDescriptorSource | undefined;
 }
 
 /**
- * <p>The HTTP descriptor patch wrapper. Omit to leave the descriptor unchanged; supply an empty object to remove it; supply optionalValue to patch its fields.</p>
+ * The HTTP descriptor patch wrapper. Omit to leave the descriptor unchanged; supply an empty object to remove it; supply optionalValue to patch its fields.
+ *
  * @public
  */
 export interface UpdatedHttpDescriptor {
   /**
-   * <p>The value to set for this field. Omit the wrapper to leave the field unchanged.</p>
+   * The value to set for this field. Omit the wrapper to leave the field unchanged.
+   *
    * @public
    */
   optionalValue?: UpdatedHttpDescriptorFields | undefined;
 }
 
 /**
- * <p>The set of MCP tools descriptor fields that can be individually updated.</p>
+ * The set of MCP tools descriptor fields that can be individually updated.
+ *
  * @public
  */
 export interface UpdatedMcpToolsDescriptorFields {
   /**
-   * <p>The patch for the descriptor's data field.</p>
+   * The patch for the descriptor's data field.
+   *
    * @public
    */
   data?: UpdatedDescriptorData | undefined;
 
   /**
-   * <p>The patch for the descriptor's data schema version field.</p>
+   * The patch for the descriptor's data schema version field.
+   *
    * @public
    */
   dataSchemaVersion?: UpdatedDataSchemaVersion | undefined;
 }
 
 /**
- * <p>The MCP tools descriptor patch wrapper. Omit to leave the tools descriptor unchanged; supply an empty object to remove it; supply optionalValue to patch its fields.</p>
+ * The MCP tools descriptor patch wrapper. Omit to leave the tools descriptor unchanged; supply an empty object to remove it; supply optionalValue to patch its fields.
+ *
  * @public
  */
 export interface UpdatedMcpToolsDescriptor {
   /**
-   * <p>The value to set for this field. Omit the wrapper to leave the field unchanged.</p>
+   * The value to set for this field. Omit the wrapper to leave the field unchanged.
+   *
    * @public
    */
   optionalValue?: UpdatedMcpToolsDescriptorFields | undefined;
 }
 
 /**
- * <p>The set of MCP server additional-data fields that can be individually updated.</p>
+ * The set of MCP server additional-data fields that can be individually updated.
+ *
  * @public
  */
 export interface UpdatedMcpServerAdditionalDataFields {
   /**
-   * <p>The patch for the MCP tools descriptor field.</p>
+   * The patch for the MCP tools descriptor field.
+   *
    * @public
    */
   tools?: UpdatedMcpToolsDescriptor | undefined;
 }
 
 /**
- * <p>The MCP server additional-data patch wrapper. Omit to leave the additional data unchanged; supply an empty object to remove it; supply optionalValue to patch its fields.</p>
+ * The MCP server additional-data patch wrapper. Omit to leave the additional data unchanged; supply an empty object to remove it; supply optionalValue to patch its fields.
+ *
  * @public
  */
 export interface UpdatedMcpServerAdditionalData {
   /**
-   * <p>The value to set for this field. Omit the wrapper to leave the field unchanged.</p>
+   * The value to set for this field. Omit the wrapper to leave the field unchanged.
+   *
    * @public
    */
   optionalValue?: UpdatedMcpServerAdditionalDataFields | undefined;
 }
 
 /**
- * <p>The set of MCP server descriptor fields that can be individually updated.</p>
+ * The set of MCP server descriptor fields that can be individually updated.
+ *
  * @public
  */
 export interface UpdatedMcpServerDescriptorFields {
   /**
-   * <p>The patch for the descriptor's data field.</p>
+   * The patch for the descriptor's data field.
+   *
    * @public
    */
   data?: UpdatedDescriptorData | undefined;
 
   /**
-   * <p>The patch for the descriptor's data schema version field.</p>
+   * The patch for the descriptor's data schema version field.
+   *
    * @public
    */
   dataSchemaVersion?: UpdatedDataSchemaVersion | undefined;
 
   /**
-   * <p>The patch for the descriptor's source field.</p>
+   * The patch for the descriptor's source field.
+   *
    * @public
    */
   source?: UpdatedDescriptorSource | undefined;
 
   /**
-   * <p>The patch for the descriptor's additional data field.</p>
+   * The patch for the descriptor's additional data field.
+   *
    * @public
    */
   additionalData?: UpdatedMcpServerAdditionalData | undefined;
 }
 
 /**
- * <p>The MCP server descriptor patch wrapper. Omit to leave the descriptor unchanged; supply an empty object to remove it; supply optionalValue to patch its fields.</p>
+ * The MCP server descriptor patch wrapper. Omit to leave the descriptor unchanged; supply an empty object to remove it; supply optionalValue to patch its fields.
+ *
  * @public
  */
 export interface UpdatedMcpServerDescriptor {
   /**
-   * <p>The value to set for this field. Omit the wrapper to leave the field unchanged.</p>
+   * The value to set for this field. Omit the wrapper to leave the field unchanged.
+   *
    * @public
    */
   optionalValue?: UpdatedMcpServerDescriptorFields | undefined;
 }
 
 /**
- * <p>The patchable descriptor fields applied during an UpdateRegistryRecord call. Each field is independently patchable.</p>
+ * The patchable descriptor fields applied during an UpdateRegistryRecord call. Each field is independently patchable.
+ *
  * @public
  */
 export interface UpdatedDescriptorsFields {
   /**
-   * <p>The patch for the MCP server descriptor.</p>
+   * The patch for the MCP server descriptor.
+   *
    * @public
    */
   mcpServer?: UpdatedMcpServerDescriptor | undefined;
 
   /**
-   * <p>The patch for the A2A agent card descriptor.</p>
+   * The patch for the A2A agent card descriptor.
+   *
    * @public
    */
   a2aAgentCard?: UpdatedA2aAgentCardDescriptor | undefined;
 
   /**
-   * <p>The patch for the agent skills definition descriptor.</p>
+   * The patch for the agent skills definition descriptor.
+   *
    * @public
    */
   agentSkillsDefinition?: UpdatedAgentSkillsDefinitionDescriptor | undefined;
 
   /**
-   * <p>The patch for the custom descriptor.</p>
+   * The patch for the custom descriptor.
+   *
    * @public
    */
   custom?: UpdatedCustomDescriptor | undefined;
 
   /**
-   * <p>The patch for the HTTP descriptor.</p>
+   * The patch for the HTTP descriptor.
+   *
    * @public
    */
   http?: UpdatedHttpDescriptor | undefined;
 
   /**
-   * <p>The patch for the AG-UI descriptor.</p>
+   * The patch for the AG-UI descriptor.
+   *
    * @public
    */
   agui?: UpdatedAgUiDescriptor | undefined;
 }
 
 /**
- * <p>The top-level descriptors patch wrapper used in UpdateRegistryRecord. Omit to leave the current descriptors unchanged; supply an empty object to clear them; supply optionalValue to apply a per-field patch.</p>
+ * The top-level descriptors patch wrapper used in UpdateRegistryRecord. Omit to leave the current descriptors unchanged; supply an empty object to clear them; supply optionalValue to apply a per-field patch.
+ *
  * @public
  */
 export interface UpdatedDescriptors {
   /**
-   * <p>The value to set for this field. Omit the wrapper to leave the field unchanged.</p>
+   * The value to set for this field. Omit the wrapper to leave the field unchanged.
+   *
    * @public
    */
   optionalValue?: UpdatedDescriptorsFields | undefined;
 }
 
 /**
- * <p>Leaf patch wrapper for a registry record's display name. Omit to leave unchanged; supply an empty object to unset; supply optionalValue to set.</p>
+ * Leaf patch wrapper for a registry record's display name. Omit to leave unchanged; supply an empty object to unset; supply optionalValue to set.
+ *
  * @public
  */
 export interface UpdatedDisplayName {
   /**
-   * <p>The value to set for this field. Omit the wrapper to leave the field unchanged.</p>
+   * The value to set for this field. Omit the wrapper to leave the field unchanged.
+   *
    * @public
    */
   optionalValue?: string | undefined;
@@ -1847,181 +2112,211 @@ export interface UpdatedDisplayName {
  */
 export interface UpdateRegistryRecordRequest {
   /**
-   * <p>The identifier of the registry containing the record (ARN or ID)</p>
+   * The identifier of the registry containing the record (ARN or ID)
+   *
    * @public
    */
   registryId: string | undefined;
 
   /**
-   * <p>The identifier of the registry record to update (ARN or ID)</p>
+   * The identifier of the registry record to update (ARN or ID)
+   *
    * @public
    */
   recordId: string | undefined;
 
   /**
-   * <p>The updated name of the registry record. Omit to leave the name unchanged.</p>
+   * The updated name of the registry record. Omit to leave the name unchanged.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The updated display name of the registry record. Omit to leave the display name unchanged; provide an empty wrapper to unset it.</p>
+   * The updated display name of the registry record. Omit to leave the display name unchanged; provide an empty wrapper to unset it.
+   *
    * @public
    */
   displayName?: UpdatedDisplayName | undefined;
 
   /**
-   * <p>The updated description of the registry record. Omit to leave the description unchanged; provide an empty wrapper to unset it.</p>
+   * The updated description of the registry record. Omit to leave the description unchanged; provide an empty wrapper to unset it.
+   *
    * @public
    */
   description?: UpdatedDescription | undefined;
 
   /**
-   * <p>The updated type of the registry record. Omit to leave the record type unchanged.</p>
+   * The updated type of the registry record. Omit to leave the record type unchanged.
+   *
    * @public
    */
   recordType?: RecordType | undefined;
 
   /**
-   * <p>The updated typed descriptor content for the registry record. Omit to leave the descriptors unchanged.</p>
+   * The updated typed descriptor content for the registry record. Omit to leave the descriptors unchanged.
+   *
    * @public
    */
   descriptors?: UpdatedDescriptors | undefined;
 
   /**
-   * <p>The updated version of the registry record. Omit to leave the version unchanged.</p>
+   * The updated version of the registry record. Omit to leave the version unchanged.
+   *
    * @public
    */
   recordVersion?: string | undefined;
 
   /**
-   * <p>The updated custom metadata for the registry record. Values can be strings (maximum 128 characters) or native JSON booleans (<code>true</code> or <code>false</code>). Omit to leave the existing metadata unchanged. Supply the wrapper with a full replacement set to update, or with a null value to clear all metadata.</p>
+   * The updated custom metadata for the registry record. Values can be strings (maximum 128 characters) or native JSON booleans (`true` or `false`). Omit to leave the existing metadata unchanged. Supply the wrapper with a full replacement set to update, or with a null value to clear all metadata.
+   *
    * @public
    */
   customMetadata?: UpdatedCustomMetadataMap | undefined;
 
   /**
-   * <p>Whether to trigger synchronization of the record's descriptor content from its source</p>
+   * Whether to trigger synchronization of the record's descriptor content from its source
+   *
    * @public
    */
   triggerSynchronization?: boolean | undefined;
 
   /**
-   * <p>The provenance lineage re-assertion for the registry record. This field is reserved for the Amazon Web Services Agent Registry auto-detection service principal. Requests that include this field from other callers are rejected. The source identity of an existing lineage is immutable; a re-assertion may only refresh the source details.</p>
+   * The provenance lineage re-assertion for the registry record. This field is reserved for the Amazon Web Services Agent Registry auto-detection service principal. Requests that include this field from other callers are rejected. The source identity of an existing lineage is immutable; a re-assertion may only refresh the source details.
+   *
    * @public
    */
   provenance?: Provenance[] | undefined;
 }
 
 /**
- * <p>Response structure for updating a registry record</p>
+ * Response structure for updating a registry record
+ *
  * @public
  */
 export interface UpdateRegistryRecordResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the parent registry that owns the record.</p>
+   * The Amazon Resource Name (ARN) of the parent registry that owns the record.
+   *
    * @public
    */
   registryArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the registry record.</p>
+   * The Amazon Resource Name (ARN) of the registry record.
+   *
    * @public
    */
   recordArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the registry record.</p>
+   * The unique identifier of the registry record.
+   *
    * @public
    */
   recordId: string | undefined;
 
   /**
-   * <p>The name of the registry record. Names are unique within a registry.</p>
+   * The name of the registry record. Names are unique within a registry.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The human-readable display name of the registry record.</p>
+   * The human-readable display name of the registry record.
+   *
    * @public
    */
   displayName?: string | undefined;
 
   /**
-   * <p>A description of the registry record.</p>
+   * A description of the registry record.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The type of the registry record, such as MCP, AGENT, SKILL, or CUSTOM.</p>
+   * The type of the registry record, such as MCP, AGENT, SKILL, or CUSTOM.
+   *
    * @public
    */
   recordType: RecordType | undefined;
 
   /**
-   * <p>The typed descriptors that define the content of the registry record.</p>
+   * The typed descriptors that define the content of the registry record.
+   *
    * @public
    */
   descriptors?: Descriptors | undefined;
 
   /**
-   * <p>The version identifier of the registry record.</p>
+   * The version identifier of the registry record.
+   *
    * @public
    */
   recordVersion?: string | undefined;
 
   /**
-   * <p>The lifecycle status of the registry record.</p>
+   * The lifecycle status of the registry record.
+   *
    * @public
    */
   status: RegistryRecordStatus | undefined;
 
   /**
-   * <p>The timestamp when the registry record was created.</p>
+   * The timestamp when the registry record was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the registry record was last updated.</p>
+   * The timestamp when the registry record was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The reason for the current status. Typically populated when the status indicates a failure state.</p>
+   * The reason for the current status. Typically populated when the status indicates a failure state.
+   *
    * @public
    */
   statusReason?: string | undefined;
 
   /**
-   * <p>The provenance lineage entries for the registry record. Populated for records created by auto-detection; each entry identifies the upstream source that the record was detected from.</p>
+   * The provenance lineage entries for the registry record. Populated for records created by auto-detection; each entry identifies the upstream source that the record was detected from.
+   *
    * @public
    */
   provenance?: Provenance[] | undefined;
 
   /**
-   * <p>Specifies whether the registry record was created by auto-detection. <code>true</code> indicates the record was automatically created by the service based on the registry's auto-detection configuration; <code>false</code> indicates the record was created through a control-plane API call.</p>
+   * Specifies whether the registry record was created by auto-detection. `true` indicates the record was automatically created by the service based on the registry's auto-detection configuration; `false` indicates the record was created through a control-plane API call.
+   *
    * @public
    */
   createdByAutoDetection?: boolean | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services account that created the registry record.</p>
+   * The ID of the Amazon Web Services account that created the registry record.
+   *
    * @public
    */
   createdBy?: string | undefined;
 
   /**
-   * <p>The custom metadata attached to this registry record. Values are strings (maximum 128 characters) or booleans.</p>
+   * The custom metadata attached to this registry record. Values are strings (maximum 128 characters) or booleans.
+   *
    * @public
    */
   customMetadata?: __DocumentType | undefined;
 
   /**
-   * <p>Indicates whether this record's custom metadata conforms to the registry's current schema. This status is computed at read time against the latest schema.</p>
+   * Indicates whether this record's custom metadata conforms to the registry's current schema. This status is computed at read time against the latest schema.
+   *
    * @public
    */
   customMetadataSchemaComplianceStatus?: CustomMetadataSchemaComplianceStatus | undefined;
@@ -2032,697 +2327,813 @@ export interface UpdateRegistryRecordResponse {
  */
 export interface UpdateRegistryRecordStatusRequest {
   /**
-   * <p>The identifier of the registry containing the record (ARN or ID)</p>
+   * The identifier of the registry containing the record (ARN or ID)
+   *
    * @public
    */
   registryId: string | undefined;
 
   /**
-   * <p>The identifier of the registry record to update the status of (ARN or ID)</p>
+   * The identifier of the registry record to update the status of (ARN or ID)
+   *
    * @public
    */
   recordId: string | undefined;
 
   /**
-   * <p>The target status for the registry record</p>
+   * The target status for the registry record
+   *
    * @public
    */
   status: RegistryRecordStatus | undefined;
 
   /**
-   * <p>The reason for the status change, for example why the record was approved, rejected, or deprecated</p>
+   * The reason for the status change, for example why the record was approved, rejected, or deprecated
+   *
    * @public
    */
   statusReason: string | undefined;
 }
 
 /**
- * <p>Response structure for updating a registry record status</p>
+ * Response structure for updating a registry record status
+ *
  * @public
  */
 export interface UpdateRegistryRecordStatusResponse {
   /**
-   * <p>The ARN of the registry</p>
+   * The ARN of the registry
+   *
    * @public
    */
   registryArn: string | undefined;
 
   /**
-   * <p>The ARN of the registry record</p>
+   * The ARN of the registry record
+   *
    * @public
    */
   recordArn: string | undefined;
 
   /**
-   * <p>The ID of the registry record</p>
+   * The ID of the registry record
+   *
    * @public
    */
   recordId: string | undefined;
 
   /**
-   * <p>The resulting status of the registry record</p>
+   * The resulting status of the registry record
+   *
    * @public
    */
   status: RegistryRecordStatus | undefined;
 
   /**
-   * <p>The reason for the status change</p>
+   * The reason for the status change
+   *
    * @public
    */
   statusReason: string | undefined;
 
   /**
-   * <p>The timestamp when the record was last updated</p>
+   * The timestamp when the record was last updated
+   *
    * @public
    */
   updatedAt: Date | undefined;
 }
 
 /**
- * <p>Configuration for the registry's record approval workflow. Controls whether records submitted for approval require manual review before they become approved and discoverable, or are auto-approved. When no auto-approval rules are configured, submitted records require manual review.</p>
+ * Configuration for the registry's record approval workflow. Controls whether records submitted for approval require manual review before they become approved and discoverable, or are auto-approved. When no auto-approval rules are configured, submitted records require manual review.
+ *
  * @public
  */
 export interface ApprovalConfiguration {
   /**
-   * <p>The rules that determine which registry records are automatically approved on submission. When omitted or empty, submitted records require manual review.</p>
+   * The rules that determine which registry records are automatically approved on submission. When omitted or empty, submitted records require manual review.
+   *
    * @public
    */
   autoApprovalRules?: AutoApprovalRule[] | undefined;
 }
 
 /**
- * <p>The customer-defined auto-detection settings for a registry.</p>
+ * The customer-defined auto-detection settings for a registry.
+ *
  * @public
  */
 export interface AutoDetectionConfiguration {
   /**
-   * <p>The source from which resources are detected. For example, <code>ORGANIZATION</code> sources resources from all member accounts of an Amazon Web Services organization.</p>
+   * The source from which resources are detected. For example, `ORGANIZATION` sources resources from all member accounts of an Amazon Web Services organization.
+   *
    * @public
    */
   scope: AutoDetectionScope | undefined;
 
   /**
-   * <p>Specifies whether auto-detection is requested for the registry. Setting this to <code>true</code> is necessary but not sufficient for auto-detection to become active; the preconditions of the configured scope must also be met.</p>
+   * Specifies whether auto-detection is requested for the registry. Setting this to `true` is necessary but not sufficient for auto-detection to become active; the preconditions of the configured scope must also be met.
+   *
    * @public
    */
   enabled: boolean | undefined;
 }
 
 /**
- * <p>The custom metadata fields for one record type, in addition to the common attributes defined in <code>defaultSchema</code>.</p>
+ * The custom metadata fields for one record type, in addition to the common attributes defined in `defaultSchema`.
+ *
  * @public
  */
 export interface RecordTypeSchemaOverride {
   /**
-   * <p>The record type these fields apply to.</p>
+   * The record type these fields apply to.
+   *
    * @public
    */
   recordType: RecordType | undefined;
 
   /**
-   * <p>A JSON Schema with the fields for this record type.</p>
+   * A JSON Schema with the fields for this record type.
+   *
    * @public
    */
   schema: string | undefined;
 }
 
 /**
- * <p>The custom metadata fields that records in the registry can carry. <code>defaultSchema</code> defines the common attributes for every record type, and <code>recordTypeSchemaOverrides</code> adds fields for individual record types.</p>
+ * The custom metadata fields that records in the registry can carry. `defaultSchema` defines the common attributes for every record type, and `recordTypeSchemaOverrides` adds fields for individual record types.
+ *
  * @public
  */
 export interface CustomMetadataSchemaConfiguration {
   /**
-   * <p>A JSON Schema with the common attributes: fields that records of every record type can carry.</p>
+   * A JSON Schema with the common attributes: fields that records of every record type can carry.
+   *
    * @public
    */
   defaultSchema?: string | undefined;
 
   /**
-   * <p>The fields for individual record types. Records of a record type can carry the common attributes defined in <code>defaultSchema</code> plus that record type's fields.</p>
+   * The fields for individual record types. Records of a record type can carry the common attributes defined in `defaultSchema` plus that record type's fields.
+   *
    * @public
    */
   recordTypeSchemaOverrides?: RecordTypeSchemaOverride[] | undefined;
 }
 
 /**
- * <p>Discovery configuration for the registry. Controls how consumers are authorized to search the registry and invoke its MCP endpoint.</p>
+ * Discovery configuration for the registry. Controls how consumers are authorized to search the registry and invoke its MCP endpoint.
+ *
  * @public
  */
 export interface DiscoveryConfiguration {
   /**
-   * <p>The authorizer configuration for the registry. Required when authorizerType is CUSTOM_JWT.</p>
+   * The authorizer configuration for the registry. Required when authorizerType is CUSTOM_JWT.
+   *
    * @public
    */
   authorizerConfiguration?: AuthorizerConfiguration | undefined;
 
   /**
-   * <p>The type of authorizer that controls how consumers access the registry's search and MCP invoke operations.</p>
+   * The type of authorizer that controls how consumers access the registry's search and MCP invoke operations.
+   *
    * @public
    */
   authorizerType?: RegistryAuthorizerType | undefined;
 }
 
 /**
- * <p>The server-side encryption configuration for a registry. Specifies a customer-managed Amazon Web Services KMS key used to encrypt the registry's content.</p>
+ * The server-side encryption configuration for a registry. Specifies a customer-managed Amazon Web Services KMS key used to encrypt the registry's content.
+ *
  * @public
  */
 export interface EncryptionConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the customer-managed Amazon Web Services KMS key used to encrypt the registry's content. The key must be a symmetric encryption key in the same Amazon Web Services account and Region as the registry.</p>
+   * The Amazon Resource Name (ARN) of the customer-managed Amazon Web Services KMS key used to encrypt the registry's content. The key must be a symmetric encryption key in the same Amazon Web Services account and Region as the registry.
+   *
    * @public
    */
   kmsKeyArn: string | undefined;
 }
 
 /**
- * <p>Request structure for creating a registry</p>
+ * Request structure for creating a registry
+ *
  * @public
  */
 export interface CreateRegistryRequest {
   /**
-   * <p>The name of the registry</p>
+   * The name of the registry
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the registry</p>
+   * The description of the registry
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The optional server-side encryption configuration for the registry. When you provide this field, the specified customer-managed Amazon Web Services KMS key encrypts the registry's content. Omit this field to use an Amazon Web Services-owned encryption key. You cannot change the encryption configuration after registry creation.</p>
+   * The optional server-side encryption configuration for the registry. When you provide this field, the specified customer-managed Amazon Web Services KMS key encrypts the registry's content. Omit this field to use an Amazon Web Services-owned encryption key. You cannot change the encryption configuration after registry creation.
+   *
    * @public
    */
   encryptionConfiguration?: EncryptionConfiguration | undefined;
 
   /**
-   * <p>Discovery configuration for the registry</p>
+   * Discovery configuration for the registry
+   *
    * @public
    */
   discoveryConfiguration?: DiscoveryConfiguration | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, the service ignores the request, but does not return an error.</p>
+   * A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, the service ignores the request, but does not return an error.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>Tags to associate with the registry</p>
+   * Tags to associate with the registry
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Approval configuration for registry records</p>
+   * Approval configuration for registry records
+   *
    * @public
    */
   approvalConfiguration?: ApprovalConfiguration | undefined;
 
   /**
-   * <p>The optional custom metadata schema configuration for the registry. When provided, registry records can carry structured metadata validated against this schema.</p>
+   * The optional custom metadata schema configuration for the registry. When provided, registry records can carry structured metadata validated against this schema.
+   *
    * @public
    */
   customMetadataSchemaConfiguration?: CustomMetadataSchemaConfiguration | undefined;
 
   /**
-   * <p>The optional auto-detection configuration for the registry. When provided, the registry is automatically populated with resources discovered according to the configuration. Omit this field for registries whose records are managed exclusively through the Agent Registry Control API.</p>
+   * The optional auto-detection configuration for the registry. When provided, the registry is automatically populated with resources discovered according to the configuration. Omit this field for registries whose records are managed exclusively through the Agent Registry Control API.
+   *
    * @public
    */
   autoDetectionConfiguration?: AutoDetectionConfiguration | undefined;
 }
 
 /**
- * <p>Response structure for creating a registry</p>
+ * Response structure for creating a registry
+ *
  * @public
  */
 export interface CreateRegistryResponse {
   /**
-   * <p>The ARN of the created registry</p>
+   * The ARN of the created registry
+   *
    * @public
    */
   registryArn: string | undefined;
 }
 
 /**
- * <p>Request structure for deleting a registry</p>
+ * Request structure for deleting a registry
+ *
  * @public
  */
 export interface DeleteRegistryRequest {
   /**
-   * <p>The identifier of the registry to delete (ARN or ID)</p>
+   * The identifier of the registry to delete (ARN or ID)
+   *
    * @public
    */
   registryId: string | undefined;
 }
 
 /**
- * <p>Response structure for deleting a registry</p>
+ * Response structure for deleting a registry
+ *
  * @public
  */
 export interface DeleteRegistryResponse {
   /**
-   * <p>Current status of the registry, set to DELETING when deletion is initiated</p>
+   * Current status of the registry, set to DELETING when deletion is initiated
+   *
    * @public
    */
   status: RegistryStatus | undefined;
 }
 
 /**
- * <p>Request structure for getting a registry</p>
+ * Request structure for getting a registry
+ *
  * @public
  */
 export interface GetRegistryRequest {
   /**
-   * <p>The identifier of the registry to retrieve (ARN or ID)</p>
+   * The identifier of the registry to retrieve (ARN or ID)
+   *
    * @public
    */
   registryId: string | undefined;
 }
 
 /**
- * <p>The auto-detection properties for a registry, including the requested configuration and the current detection status. When auto-detection is enabled and the scope preconditions are met, the registry is automatically populated with discovered resources.</p>
+ * The auto-detection properties for a registry, including the requested configuration and the current detection status. When auto-detection is enabled and the scope preconditions are met, the registry is automatically populated with discovered resources.
+ *
  * @public
  */
 export interface AutoDetection {
   /**
-   * <p>The auto-detection settings that control how resources are discovered for the registry.</p>
+   * The auto-detection settings that control how resources are discovered for the registry.
+   *
    * @public
    */
   configuration: AutoDetectionConfiguration | undefined;
 
   /**
-   * <p>The current auto-detection status. <code>ACTIVE</code> indicates that the registry is actively being populated with detected resources. <code>INACTIVE</code> indicates that the preconditions required at the configured scope are not currently met.</p>
+   * The current auto-detection status. `ACTIVE` indicates that the registry is actively being populated with detected resources. `INACTIVE` indicates that the preconditions required at the configured scope are not currently met.
+   *
    * @public
    */
   status: AutoDetectionStatus | undefined;
 
   /**
-   * <p>A human-readable explanation of the current auto-detection status. Typically populated when the status requires additional context.</p>
+   * A human-readable explanation of the current auto-detection status. Typically populated when the status requires additional context.
+   *
    * @public
    */
   statusReason?: string | undefined;
 }
 
 /**
- * <p>Response structure for getting a registry</p>
+ * Response structure for getting a registry
+ *
  * @public
  */
 export interface GetRegistryResponse {
   /**
-   * <p>The name of the registry</p>
+   * The name of the registry
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the registry</p>
+   * The description of the registry
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The unique identifier of the registry</p>
+   * The unique identifier of the registry
+   *
    * @public
    */
   registryId: string | undefined;
 
   /**
-   * <p>The ARN of the registry</p>
+   * The ARN of the registry
+   *
    * @public
    */
   registryArn: string | undefined;
 
   /**
-   * <p>Discovery configuration for the registry</p>
+   * Discovery configuration for the registry
+   *
    * @public
    */
   discoveryConfiguration?: DiscoveryConfiguration | undefined;
 
   /**
-   * <p>The server-side encryption configuration for the registry. Appears only when a customer-managed Amazon Web Services KMS key encrypts the registry.</p>
+   * The server-side encryption configuration for the registry. Appears only when a customer-managed Amazon Web Services KMS key encrypts the registry.
+   *
    * @public
    */
   encryptionConfiguration?: EncryptionConfiguration | undefined;
 
   /**
-   * <p>Approval configuration for registry records</p>
+   * Approval configuration for registry records
+   *
    * @public
    */
   approvalConfiguration?: ApprovalConfiguration | undefined;
 
   /**
-   * <p>The custom metadata schema configuration for this registry, if one has been defined.</p>
+   * The custom metadata schema configuration for this registry, if one has been defined.
+   *
    * @public
    */
   customMetadataSchemaConfiguration?: CustomMetadataSchemaConfiguration | undefined;
 
   /**
-   * <p>Current status of the registry</p>
+   * Current status of the registry
+   *
    * @public
    */
   status: RegistryStatus | undefined;
 
   /**
-   * <p>The reason for the current status. Typically populated when the status indicates a failure state.</p>
+   * The reason for the current status. Typically populated when the status indicates a failure state.
+   *
    * @public
    */
   statusReason?: string | undefined;
 
   /**
-   * <p>The registry's auto-detection properties, including the requested configuration and the current detection status. Present only when auto-detection was configured for the registry.</p>
+   * The registry's auto-detection properties, including the requested configuration and the current detection status. Present only when auto-detection was configured for the registry.
+   *
    * @public
    */
   autoDetection?: AutoDetection | undefined;
 
   /**
-   * <p>The timestamp when the registry was created</p>
+   * The timestamp when the registry was created
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the registry was last updated</p>
+   * The timestamp when the registry was last updated
+   *
    * @public
    */
   updatedAt: Date | undefined;
 }
 
 /**
- * <p>A single filter applied to a ListRegistries request.</p>
+ * A single filter applied to a ListRegistries request.
+ *
  * @public
  */
 export interface RegistryFilter {
   /**
-   * <p>The attribute to filter on</p>
+   * The attribute to filter on
+   *
    * @public
    */
   name: RegistryFilterName | undefined;
 
   /**
-   * <p>The values to match for the attribute</p>
+   * The values to match for the attribute
+   *
    * @public
    */
   values: string[] | undefined;
 }
 
 /**
- * <p>Request structure for listing registries</p>
+ * Request structure for listing registries
+ *
  * @public
  */
 export interface ListRegistriesRequest {
   /**
-   * <p>Maximum number of results to return</p>
+   * Maximum number of results to return
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Token for pagination</p>
+   * Token for pagination
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Filters to apply to the registry list</p>
+   * Filters to apply to the registry list
+   *
    * @public
    */
   filters?: RegistryFilter[] | undefined;
 }
 
 /**
- * <p>Registry summary for list operations</p>
+ * Registry summary for list operations
+ *
  * @public
  */
 export interface RegistrySummary {
   /**
-   * <p>Registry name</p>
+   * Registry name
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Registry description</p>
+   * Registry description
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Unique registry identifier</p>
+   * Unique registry identifier
+   *
    * @public
    */
   registryId: string | undefined;
 
   /**
-   * <p>Registry Amazon Resource Name</p>
+   * Registry Amazon Resource Name
+   *
    * @public
    */
   registryArn: string | undefined;
 
   /**
-   * <p>Discovery configuration for the registry</p>
+   * Discovery configuration for the registry
+   *
    * @public
    */
   discoveryConfiguration?: DiscoveryConfiguration | undefined;
 
   /**
-   * <p>Current status of the registry</p>
+   * Current status of the registry
+   *
    * @public
    */
   status: RegistryStatus | undefined;
 
   /**
-   * <p>The reason for the current status. Typically populated when the status indicates a failure state.</p>
+   * The reason for the current status. Typically populated when the status indicates a failure state.
+   *
    * @public
    */
   statusReason?: string | undefined;
 
   /**
-   * <p>The registry's auto-detection properties, including the requested configuration and the current detection status. Present only when auto-detection was configured for the registry.</p>
+   * The registry's auto-detection properties, including the requested configuration and the current detection status. Present only when auto-detection was configured for the registry.
+   *
    * @public
    */
   autoDetection?: AutoDetection | undefined;
 
   /**
-   * <p>The timestamp when the registry was created</p>
+   * The timestamp when the registry was created
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the registry was last updated</p>
+   * The timestamp when the registry was last updated
+   *
    * @public
    */
   updatedAt: Date | undefined;
 }
 
 /**
- * <p>Response structure for listing registries</p>
+ * Response structure for listing registries
+ *
  * @public
  */
 export interface ListRegistriesResponse {
   /**
-   * <p>List of registry summaries</p>
+   * List of registry summaries
+   *
    * @public
    */
   registries: RegistrySummary[] | undefined;
 
   /**
-   * <p>Token for next page of results</p>
+   * Token for next page of results
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>A wrapper for updating the approval configuration of a registry. Include this wrapper to replace the approval configuration with the specified value; omit it to leave the approval configuration unchanged.</p>
+ * A wrapper for updating the approval configuration of a registry. Include this wrapper to replace the approval configuration with the specified value; omit it to leave the approval configuration unchanged.
+ *
  * @public
  */
 export interface UpdatedApprovalConfiguration {
   /**
-   * <p>The value to set for this field. Omit the wrapper to leave the field unchanged.</p>
+   * The value to set for this field. Omit the wrapper to leave the field unchanged.
+   *
    * @public
    */
   optionalValue?: ApprovalConfiguration | undefined;
 }
 
 /**
- * <p>A wrapper for updating the auto-detection configuration of a registry with PATCH semantics. Include this wrapper to replace the auto-detection configuration with the specified value. Omit it to leave the auto-detection configuration unchanged. To clear the configuration, include the wrapper with a null <code>optionalValue</code>.</p>
+ * A wrapper for updating the auto-detection configuration of a registry with PATCH semantics. Include this wrapper to replace the auto-detection configuration with the specified value. Omit it to leave the auto-detection configuration unchanged. To clear the configuration, include the wrapper with a null `optionalValue`.
+ *
  * @public
  */
 export interface UpdatedAutoDetectionConfiguration {
   /**
-   * <p>The value to set for this field. Omit the wrapper to leave the field unchanged.</p>
+   * The value to set for this field. Omit the wrapper to leave the field unchanged.
+   *
    * @public
    */
   optionalValue?: AutoDetectionConfiguration | undefined;
 }
 
 /**
- * <p>The custom metadata schema configuration patch wrapper. Omit to leave the existing schema unchanged.</p>
+ * The custom metadata schema configuration patch wrapper. Omit to leave the existing schema unchanged.
+ *
  * @public
  */
 export interface UpdatedCustomMetadataSchemaConfiguration {
   /**
-   * <p>The value to set for this field. Omit the wrapper to leave the field unchanged.</p>
+   * The value to set for this field. Omit the wrapper to leave the field unchanged.
+   *
    * @public
    */
   optionalValue?: CustomMetadataSchemaConfiguration | undefined;
 }
 
 /**
- * <p>Wrapper for updating an optional authorizer configuration with PATCH semantics.</p>
+ * Wrapper for updating an optional authorizer configuration with PATCH semantics.
+ *
  * @public
  */
 export interface UpdatedAuthorizerConfiguration {
   /**
-   * <p>The new authorizer configuration to set. Omit to leave the existing configuration unchanged.</p>
+   * The new authorizer configuration to set. Omit to leave the existing configuration unchanged.
+   *
    * @public
    */
   optionalValue?: AuthorizerConfiguration | undefined;
 }
 
 /**
- * <p>The discovery configuration fields to update on a registry. Omit this structure to leave the discovery configuration unchanged.</p>
+ * The discovery configuration fields to update on a registry. Omit this structure to leave the discovery configuration unchanged.
+ *
  * @public
  */
 export interface UpdatedDiscoveryConfiguration {
   /**
-   * <p>Authorization configuration for the registry, with PATCH semantics</p>
+   * Authorization configuration for the registry, with PATCH semantics
+   *
    * @public
    */
   authorizerConfiguration?: UpdatedAuthorizerConfiguration | undefined;
 }
 
 /**
- * <p>Request structure for updating a registry</p>
+ * Request structure for updating a registry
+ *
  * @public
  */
 export interface UpdateRegistryRequest {
   /**
-   * <p>The identifier of the registry to update (ARN or ID)</p>
+   * The identifier of the registry to update (ARN or ID)
+   *
    * @public
    */
   registryId: string | undefined;
 
   /**
-   * <p>The updated name of the registry</p>
+   * The updated name of the registry
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The updated description of the registry</p>
+   * The updated description of the registry
+   *
    * @public
    */
   description?: UpdatedDescription | undefined;
 
   /**
-   * <p>The updated discovery configuration. Changing the discovery authorization can break existing consumers that rely on the previous authorization type.</p>
+   * The updated discovery configuration. Changing the discovery authorization can break existing consumers that rely on the previous authorization type.
+   *
    * @public
    */
   discoveryConfiguration?: UpdatedDiscoveryConfiguration | undefined;
 
   /**
-   * <p>The updated approval configuration. The change applies only to records that move to PENDING_APPROVAL after the update; records already in PENDING_APPROVAL are unaffected.</p>
+   * The updated approval configuration. The change applies only to records that move to PENDING_APPROVAL after the update; records already in PENDING_APPROVAL are unaffected.
+   *
    * @public
    */
   approvalConfiguration?: UpdatedApprovalConfiguration | undefined;
 
   /**
-   * <p>The new custom metadata schema configuration, which replaces the current one. You can add fields and allowed values, but you can't remove a field or an allowed value, or change a field's type.</p>
+   * The new custom metadata schema configuration, which replaces the current one. You can add fields and allowed values, but you can't remove a field or an allowed value, or change a field's type.
+   *
    * @public
    */
   customMetadataSchemaConfiguration?: UpdatedCustomMetadataSchemaConfiguration | undefined;
 
   /**
-   * <p>The updated auto-detection configuration for the registry, with PATCH semantics. Omit this field to leave the current configuration unchanged. Supply an empty wrapper to unset it. Supply <code>optionalValue</code> to replace it.</p>
+   * The updated auto-detection configuration for the registry, with PATCH semantics. Omit this field to leave the current configuration unchanged. Supply an empty wrapper to unset it. Supply `optionalValue` to replace it.
+   *
    * @public
    */
   autoDetectionConfiguration?: UpdatedAutoDetectionConfiguration | undefined;
 }
 
 /**
- * <p>Response structure for updating a registry</p>
+ * Response structure for updating a registry
+ *
  * @public
  */
 export interface UpdateRegistryResponse {
   /**
-   * <p>The name of the registry</p>
+   * The name of the registry
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the registry</p>
+   * The description of the registry
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The unique identifier of the registry</p>
+   * The unique identifier of the registry
+   *
    * @public
    */
   registryId: string | undefined;
 
   /**
-   * <p>The ARN of the registry</p>
+   * The ARN of the registry
+   *
    * @public
    */
   registryArn: string | undefined;
 
   /**
-   * <p>Discovery configuration for the registry</p>
+   * Discovery configuration for the registry
+   *
    * @public
    */
   discoveryConfiguration?: DiscoveryConfiguration | undefined;
 
   /**
-   * <p>The server-side encryption configuration for the registry. Appears only when a customer-managed Amazon Web Services KMS key encrypts the registry.</p>
+   * The server-side encryption configuration for the registry. Appears only when a customer-managed Amazon Web Services KMS key encrypts the registry.
+   *
    * @public
    */
   encryptionConfiguration?: EncryptionConfiguration | undefined;
 
   /**
-   * <p>Approval configuration for registry records</p>
+   * Approval configuration for registry records
+   *
    * @public
    */
   approvalConfiguration?: ApprovalConfiguration | undefined;
 
   /**
-   * <p>The custom metadata schema configuration for this registry, if one has been defined.</p>
+   * The custom metadata schema configuration for this registry, if one has been defined.
+   *
    * @public
    */
   customMetadataSchemaConfiguration?: CustomMetadataSchemaConfiguration | undefined;
 
   /**
-   * <p>Current status of the registry</p>
+   * Current status of the registry
+   *
    * @public
    */
   status: RegistryStatus | undefined;
 
   /**
-   * <p>The reason for the current status. Typically populated when the status indicates a failure state.</p>
+   * The reason for the current status. Typically populated when the status indicates a failure state.
+   *
    * @public
    */
   statusReason?: string | undefined;
 
   /**
-   * <p>The registry's auto-detection properties, including the requested configuration and the current detection status. Present only when auto-detection was configured for the registry.</p>
+   * The registry's auto-detection properties, including the requested configuration and the current detection status. Present only when auto-detection was configured for the registry.
+   *
    * @public
    */
   autoDetection?: AutoDetection | undefined;
 
   /**
-   * <p>The timestamp when the registry was created</p>
+   * The timestamp when the registry was created
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the registry was last updated</p>
+   * The timestamp when the registry was last updated
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -2733,13 +3144,15 @@ export interface UpdateRegistryResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource to tag. Supported resources include registries and registry records.</p>
+   * The Amazon Resource Name (ARN) of the resource to tag. Supported resources include registries and registry records.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The tags to apply to the resource, as a map of tag keys to tag values. Tag keys must be unique within the request.</p>
+   * The tags to apply to the resource, as a map of tag keys to tag values. Tag keys must be unique within the request.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -2755,13 +3168,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource to remove tags from. Supported resources include registries and registry records.</p>
+   * The Amazon Resource Name (ARN) of the resource to remove tags from. Supported resources include registries and registry records.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The keys of the tags to remove from the resource. Tags with keys not included in this list remain on the resource.</p>
+   * The keys of the tags to remove from the resource. Tags with keys not included in this list remain on the resource.
+   *
    * @public
    */
   tagKeys: string[] | undefined;

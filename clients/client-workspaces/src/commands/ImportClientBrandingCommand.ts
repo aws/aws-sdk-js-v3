@@ -23,34 +23,17 @@ export interface ImportClientBrandingCommandInput extends ImportClientBrandingRe
 export interface ImportClientBrandingCommandOutput extends ImportClientBrandingResult, __MetadataBearer {}
 
 /**
- * <p>Imports client branding. Client branding allows you to customize your WorkSpace's client
- *          login portal. You can tailor your login portal company logo, the support email address,
- *          support link, link to reset password, and a custom message for users trying to sign
- *          in.</p>
- *          <p>After you import client branding, the default branding experience for the specified
- *          platform type is replaced with the imported experience</p>
- *          <note>
- *             <ul>
- *                <li>
- *                   <p>You must specify at least one platform type when importing client
- *                   branding.</p>
- *                </li>
- *                <li>
- *                   <p>You can import up to 6 MB of data with each request. If your request exceeds
- *                   this limit, you can import client branding for different platform types using
- *                   separate requests.</p>
- *                </li>
- *                <li>
- *                   <p>In each platform type, the <code>SupportEmail</code> and
- *                      <code>SupportLink</code> parameters are mutually exclusive. You can specify
- *                   only one parameter for each platform type, but not both.</p>
- *                </li>
- *                <li>
- *                   <p>Imported data can take up to a minute to appear in the WorkSpaces
- *                   client.</p>
- *                </li>
- *             </ul>
- *          </note>
+ * Imports client branding. Client branding allows you to customize your WorkSpace's client login portal. You can tailor your login portal company logo, the support email address, support link, link to reset password, and a custom message for users trying to sign in.
+ *
+ * After you import client branding, the default branding experience for the specified platform type is replaced with the imported experience
+ *
+ * > **Note:**
+ * >
+ * > - You must specify at least one platform type when importing client branding.
+ * > - You can import up to 6 MB of data with each request. If your request exceeds this limit, you can import client branding for different platform types using separate requests.
+ * > - In each platform type, the `SupportEmail` and `SupportLink` parameters are mutually exclusive. You can specify only one parameter for each platform type, but not both.
+ * > - Imported data can take up to a minute to appear in the WorkSpaces client.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -184,20 +167,24 @@ export interface ImportClientBrandingCommandOutput extends ImportClientBrandingR
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The user is not authorized to access a resource.</p>
+ *
+ * The user is not authorized to access a resource.
  *
  * @throws {@link InvalidParameterValuesException} (client fault)
- *  <p>One or more parameter values are not valid.</p>
+ *
+ * One or more parameter values are not valid.
  *
  * @throws {@link ResourceLimitExceededException} (client fault)
- *  <p>Your resource limits have been exceeded.</p>
+ *
+ * Your resource limits have been exceeded.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link WorkSpacesServiceException}
- * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * Base exception class for all service exceptions from WorkSpaces service.
  *
  * @public
  */

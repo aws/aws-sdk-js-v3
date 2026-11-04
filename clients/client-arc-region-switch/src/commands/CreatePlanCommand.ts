@@ -23,7 +23,10 @@ export interface CreatePlanCommandInput extends CreatePlanRequest {}
 export interface CreatePlanCommandOutput extends CreatePlanResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new Region switch plan. A plan defines the steps required to shift traffic from one Amazon Web Services Region to another.</p> <p>You must specify a name for the plan, the primary Region, and at least one additional Region. You can also provide a description, execution role, recovery time objective, associated alarms, triggers, and workflows that define the steps to execute during a Region switch.</p>
+ * Creates a new Region switch plan. A plan defines the steps required to shift traffic from one Amazon Web Services Region to another.
+ *
+ * You must specify a name for the plan, the primary Region, and at least one additional Region. You can also provide a description, execution role, recovery time objective, associated alarms, triggers, and workflows that define the steps to execute during a Region switch.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -1173,8 +1176,8 @@ export interface CreatePlanCommandOutput extends CreatePlanResponse, __MetadataB
  * @see {@link ARCRegionSwitchClientResolvedConfig | config} for ARCRegionSwitchClient's `config` shape.
  *
  * @throws {@link ARCRegionSwitchServiceException}
- * <p>Base exception class for all service exceptions from ARCRegionSwitch service.</p>
  *
+ * Base exception class for all service exceptions from ARCRegionSwitch service.
  *
  * @public
  */

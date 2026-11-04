@@ -23,7 +23,8 @@ export interface ExpireSessionCommandInput extends ExpireSessionRequest {}
 export interface ExpireSessionCommandOutput extends ExpireSessionResult, __MetadataBearer {}
 
 /**
- * <p>Immediately stops the specified streaming session.</p>
+ * Immediately stops the specified streaming session.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,8 +49,8 @@ export interface ExpireSessionCommandOutput extends ExpireSessionResult, __Metad
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  * @throws {@link AppStreamServiceException}
- * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * Base exception class for all service exceptions from AppStream service.
  *
  * @public
  */

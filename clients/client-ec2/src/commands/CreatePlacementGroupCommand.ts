@@ -23,18 +23,12 @@ export interface CreatePlacementGroupCommandInput extends CreatePlacementGroupRe
 export interface CreatePlacementGroupCommandOutput extends CreatePlacementGroupResult, __MetadataBearer {}
 
 /**
- * <p>Creates a placement group in which to launch instances. The strategy of the placement
- *             group determines how the instances are organized within the group. </p>
- *          <p>A <code>cluster</code> placement group is a logical grouping of instances within a
- *             single Availability Zone that benefit from low network latency, high network throughput.
- *             A <code>spread</code> placement group places instances on distinct hardware. A
- *                 <code>partition</code> placement group places groups of instances in different
- *             partitions, where instances in one partition do not share the same hardware with
- *             instances in another partition. A <code>precision-time</code> placement group places
- *             instances on supported hardware with direct access to high-precision time sources in
- *             Amazon Web Services infrastructure.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement groups</a> in the
- *                 <i>Amazon EC2 User Guide</i>.</p>
+ * Creates a placement group in which to launch instances. The strategy of the placement group determines how the instances are organized within the group.
+ *
+ * A `cluster` placement group is a logical grouping of instances within a single Availability Zone that benefit from low network latency, high network throughput. A `spread` placement group places instances on distinct hardware. A `partition` placement group places groups of instances in different partitions, where instances in one partition do not share the same hardware with instances in another partition. A `precision-time` placement group places instances on supported hardware with direct access to high-precision time sources in Amazon Web Services infrastructure.
+ *
+ * For more information, see [Placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -102,8 +96,8 @@ export interface CreatePlacementGroupCommandOutput extends CreatePlacementGroupR
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To create a placement group
  * ```javascript

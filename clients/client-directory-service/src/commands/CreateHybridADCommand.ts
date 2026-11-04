@@ -23,12 +23,12 @@ export interface CreateHybridADCommandInput extends CreateHybridADRequest {}
 export interface CreateHybridADCommandOutput extends CreateHybridADResult, __MetadataBearer {}
 
 /**
- * <p>Creates a hybrid directory that connects your self-managed Active Directory (AD)
- *             infrastructure and Amazon Web Services.</p>
- *          <p>You must have a successful directory assessment using <a>StartADAssessment</a> to validate your environment compatibility before you
- *             use this operation.</p>
- *          <p>Updates are applied asynchronously. Use <a>DescribeDirectories</a> to
- *             monitor the progress of directory creation.</p>
+ * Creates a hybrid directory that connects your self-managed Active Directory (AD) infrastructure and Amazon Web Services.
+ *
+ * You must have a successful directory assessment using StartADAssessment to validate your environment compatibility before you use this operation.
+ *
+ * Updates are applied asynchronously. Use DescribeDirectories to monitor the progress of directory creation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,39 +62,40 @@ export interface CreateHybridADCommandOutput extends CreateHybridADResult, __Met
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  * @throws {@link ADAssessmentLimitExceededException} (client fault)
- *  <p>A directory assessment is automatically created when you create a hybrid directory.
- *             There are two types of assessments: <code>CUSTOMER</code> and <code>SYSTEM</code>. Your
- *             Amazon Web Services account has a limit of 100 <code>CUSTOMER</code> directory assessments.</p>
- *          <p>If you attempt to create a hybrid directory; and you already have 100
- *                 <code>CUSTOMER</code> directory assessments;, you will encounter an error. Delete
- *             assessments to free up capacity before trying again.</p>
- *          <p>You can request an increase to your <code>CUSTOMER</code> directory assessment quota
- *             by contacting customer support or delete existing CUSTOMER directory assessments; to
- *             free up capacity.</p>
+ *
+ * A directory assessment is automatically created when you create a hybrid directory. There are two types of assessments: `CUSTOMER` and `SYSTEM`. Your Amazon Web Services account has a limit of 100 `CUSTOMER` directory assessments.
+ *
+ * If you attempt to create a hybrid directory; and you already have 100 `CUSTOMER` directory assessments;, you will encounter an error. Delete assessments to free up capacity before trying again.
+ *
+ * You can request an increase to your `CUSTOMER` directory assessment quota by contacting customer support or delete existing CUSTOMER directory assessments; to free up capacity.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>A client exception has occurred.</p>
+ *
+ * A client exception has occurred.
  *
  * @throws {@link DirectoryLimitExceededException} (client fault)
- *  <p>The maximum number of directories in the region has been reached. You can use the
- *                 <a>GetDirectoryLimits</a> operation to determine your directory limits in
- *             the region.</p>
+ *
+ * The maximum number of directories in the region has been reached. You can use the GetDirectoryLimits operation to determine your directory limits in the region.
  *
  * @throws {@link EntityDoesNotExistException} (client fault)
- *  <p>The specified entity could not be found.</p>
+ *
+ * The specified entity could not be found.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * An exception has occurred in Directory Service.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>The operation is not supported.</p>
+ *
+ * The operation is not supported.
  *
  * @throws {@link DirectoryServiceServiceException}
- * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * Base exception class for all service exceptions from DirectoryService service.
  *
  * @public
  */

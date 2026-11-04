@@ -23,10 +23,10 @@ export interface DescribeActivityCommandInput extends DescribeActivityInput {}
 export interface DescribeActivityCommandOutput extends DescribeActivityOutput, __MetadataBearer {}
 
 /**
- * <p>Describes an activity.</p>
- *          <note>
- *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
- *          </note>
+ * Describes an activity.
+ *
+ * > **Note:** This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,14 +60,16 @@ export interface DescribeActivityCommandOutput extends DescribeActivityOutput, _
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
  * @throws {@link ActivityDoesNotExist} (client fault)
- *  <p>The specified activity does not exist.</p>
+ *
+ * The specified activity does not exist.
  *
  * @throws {@link InvalidArn} (client fault)
- *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * The provided Amazon Resource Name (ARN) is not valid.
  *
  * @throws {@link SFNServiceException}
- * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * Base exception class for all service exceptions from SFN service.
  *
  * @public
  */

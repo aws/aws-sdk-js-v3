@@ -23,9 +23,8 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Removes a specific tag associated with an Amazon Translate resource.
- *       For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/tagging.html">
- *         Tagging your resources</a>.</p>
+ * Removes a specific tag associated with an Amazon Translate resource. For more information, see [Tagging your resources](https://docs.aws.amazon.com/translate/latest/dg/tagging.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,24 +52,24 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Another modification is being made. That modification must complete before you can make
- *       your change.</p>
+ *
+ * Another modification is being made. That modification must complete before you can make your change.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value of the parameter is not valid. Review the value of the parameter you are using
- *       to correct it, and then retry your operation.</p>
+ *
+ * The value of the parameter is not valid. Review the value of the parameter you are using to correct it, and then retry your operation.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource you are looking for has not been found. Review the resource you're looking
- *       for and see if a different resource will accomplish your needs before retrying the revised
- *       request.</p>
+ *
+ * The resource you are looking for has not been found. Review the resource you're looking for and see if a different resource will accomplish your needs before retrying the revised request.
  *
  * @throws {@link TranslateServiceException}
- * <p>Base exception class for all service exceptions from Translate service.</p>
  *
+ * Base exception class for all service exceptions from Translate service.
  *
  * @public
  */

@@ -23,8 +23,8 @@ export interface GetPortfolioSummaryCommandInput extends GetPortfolioSummaryRequ
 export interface GetPortfolioSummaryCommandOutput extends GetPortfolioSummaryResponse, __MetadataBearer {}
 
 /**
- * <p> Retrieves overall summary including the number of servers to rehost and the overall
- *       number of anti-patterns. </p>
+ * Retrieves overall summary including the number of servers to rehost and the overall number of anti-patterns.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -99,18 +99,20 @@ export interface GetPortfolioSummaryCommandOutput extends GetPortfolioSummaryRes
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p> The user does not have permission to perform the action. Check the
- *       AWS Identity and Access Management (IAM) policy associated with this user.</p>
+ *
+ * The user does not have permission to perform the action. Check the AWS Identity and Access Management (IAM) policy associated with this user.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> The server experienced an internal error. Try again. </p>
+ *
+ * The server experienced an internal error. Try again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p> The request was denied due to request throttling. </p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link MigrationHubStrategyServiceException}
- * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
+ * Base exception class for all service exceptions from MigrationHubStrategy service.
  *
  * @public
  */

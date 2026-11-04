@@ -23,9 +23,8 @@ export interface StartTriggerCommandInput extends StartTriggerRequest {}
 export interface StartTriggerCommandOutput extends StartTriggerResponse, __MetadataBearer {}
 
 /**
- * <p>Starts an existing trigger. See <a href="https://docs.aws.amazon.com/glue/latest/dg/trigger-job.html">Triggering
- *       Jobs</a> for information about how different types of trigger are
- *       started.</p>
+ * Starts an existing trigger. See [Triggering Jobs](https://docs.aws.amazon.com/glue/latest/dg/trigger-job.html) for information about how different types of trigger are started.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,26 +51,32 @@ export interface StartTriggerCommandOutput extends StartTriggerResponse, __Metad
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link ConcurrentRunsExceededException} (client fault)
- *  <p>Too many jobs are being run concurrently.</p>
+ *
+ * Too many jobs are being run concurrently.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
- *  <p>A resource numerical limit was exceeded.</p>
+ *
+ * A resource numerical limit was exceeded.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

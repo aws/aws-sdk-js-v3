@@ -1,9 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>
- *  With Amazon Route 53 Profiles you can share Route 53 configurations with VPCs and AWS accounts
- * </p>
+ * With Amazon Route 53 Profiles you can share Route 53 configurations with VPCs and AWS accounts
  *
  * @packageDocumentation
  */

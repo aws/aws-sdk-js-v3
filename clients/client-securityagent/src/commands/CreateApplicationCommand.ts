@@ -23,7 +23,8 @@ export interface CreateApplicationCommandInput extends CreateApplicationRequest 
 export interface CreateApplicationCommandOutput extends CreateApplicationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new application. An application is the top-level organizational unit that supports IAM Identity Center integration.</p>
+ * Creates a new application. An application is the top-level organizational unit that supports IAM Identity Center integration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,8 +56,8 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * @see {@link SecurityAgentClientResolvedConfig | config} for SecurityAgentClient's `config` shape.
  *
  * @throws {@link SecurityAgentServiceException}
- * <p>Base exception class for all service exceptions from SecurityAgent service.</p>
  *
+ * Base exception class for all service exceptions from SecurityAgent service.
  *
  * @public
  */

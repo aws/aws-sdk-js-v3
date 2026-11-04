@@ -23,10 +23,8 @@ export interface UpdateCostAllocationTagsStatusCommandInput extends UpdateCostAl
 export interface UpdateCostAllocationTagsStatusCommandOutput extends UpdateCostAllocationTagsStatusResponse, __MetadataBearer {}
 
 /**
- * <p>Updates status for cost allocation tags in bulk, with maximum batch size of 20. If the tag
- *       status that's updated is the same as the existing tag status, the request doesn't fail.
- *       Instead, it doesn't have any effect on the tag status (for example, activating the active
- *       tag). </p>
+ * Updates status for cost allocation tags in bulk, with maximum batch size of 20. If the tag status that's updated is the same as the existing tag status, the request doesn't fail. Instead, it doesn't have any effect on the tag status (for example, activating the active tag).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,11 +62,12 @@ export interface UpdateCostAllocationTagsStatusCommandOutput extends UpdateCostA
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ * You made too many calls in a short period of time. Try again later.
  *
  * @throws {@link CostExplorerServiceException}
- * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * Base exception class for all service exceptions from CostExplorer service.
  *
  * @public
  */

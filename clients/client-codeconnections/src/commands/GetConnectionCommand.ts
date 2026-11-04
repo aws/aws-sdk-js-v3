@@ -23,7 +23,8 @@ export interface GetConnectionCommandInput extends GetConnectionInput {}
 export interface GetConnectionCommandOutput extends GetConnectionOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the connection ARN and details such as status, owner, and provider type.</p>
+ * Returns the connection ARN and details such as status, owner, and provider type.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,14 +58,16 @@ export interface GetConnectionCommandOutput extends GetConnectionOutput, __Metad
  * @see {@link CodeConnectionsClientResolvedConfig | config} for CodeConnectionsClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource not found. Verify the connection resource ARN and try again.</p>
+ *
+ * Resource not found. Verify the connection resource ARN and try again.
  *
  * @throws {@link ResourceUnavailableException} (client fault)
- *  <p>Resource not found. Verify the ARN for the host resource and try again.</p>
+ *
+ * Resource not found. Verify the ARN for the host resource and try again.
  *
  * @throws {@link CodeConnectionsServiceException}
- * <p>Base exception class for all service exceptions from CodeConnections service.</p>
  *
+ * Base exception class for all service exceptions from CodeConnections service.
  *
  * @public
  */

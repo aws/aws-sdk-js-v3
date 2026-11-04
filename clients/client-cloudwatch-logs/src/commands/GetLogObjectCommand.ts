@@ -23,23 +23,10 @@ export interface GetLogObjectCommandInput extends GetLogObjectRequest {}
 export interface GetLogObjectCommandOutput extends GetLogObjectResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a large logging object (LLO) and streams it back. This API is used to fetch the
- *       content of large portions of log events that have been ingested through the
- *       PutOpenTelemetryLogs API. When log events contain fields that would cause the total event size
- *       to exceed 1MB, CloudWatch Logs automatically processes up to 10 fields, starting with the
- *       largest fields. Each field is truncated as needed to keep the total event size as close to 1MB
- *       as possible. The excess portions are stored as Large Log Objects (LLOs) and these fields are
- *       processed separately and LLO reference system fields (in the format
- *         <code>@ptr.$[path.to.field]</code>) are added. The path in the reference field reflects the
- *       original JSON structure where the large field was located. For example, this could be
- *         <code>@ptr.$['input']['message']</code>, <code>@ptr.$['AAA']['BBB']['CCC']['DDD']</code>,
- *         <code>@ptr.$['AAA']</code>, or any other path matching your log structure.</p>
- *          <note>
- *             <p>The <code>GetLogObject</code> API routes requests using SDK host prefix injection. SDK versions released before April 1, 2026 route to
- *             <code>streaming-logs.<i>Region</i>.amazonaws.com</code>, which does not support VPC endpoints. SDK versions released on or after April 1, 2026 route to
- *             <code>stream-logs.<i>Region</i>.amazonaws.com</code>, which supports VPC endpoints. To set up a VPC endpoint for this API, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/cloudwatch-logs-and-interface-VPC.html#create-VPC-endpoint-for-CloudWatchLogs">Creating a VPC endpoint for CloudWatch Logs
- *         </a>.</p>
- *          </note>
+ * Retrieves a large logging object (LLO) and streams it back. This API is used to fetch the content of large portions of log events that have been ingested through the PutOpenTelemetryLogs API. When log events contain fields that would cause the total event size to exceed 1MB, CloudWatch Logs automatically processes up to 10 fields, starting with the largest fields. Each field is truncated as needed to keep the total event size as close to 1MB as possible. The excess portions are stored as Large Log Objects (LLOs) and these fields are processed separately and LLO reference system fields (in the format `@ptr.$[path.to.field]`) are added. The path in the reference field reflects the original JSON structure where the large field was located. For example, this could be `@ptr.$['input']['message']`, `@ptr.$['AAA']['BBB']['CCC']['DDD']`, `@ptr.$['AAA']`, or any other path matching your log structure.
+ *
+ * > **Note:** The `GetLogObject` API routes requests using SDK host prefix injection. SDK versions released before April 1, 2026 route to `streaming-logs.Region.amazonaws.com`, which does not support VPC endpoints. SDK versions released on or after April 1, 2026 route to `stream-logs.Region.amazonaws.com`, which supports VPC endpoints. To set up a VPC endpoint for this API, see [Creating a VPC endpoint for CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/cloudwatch-logs-and-interface-VPC.html#create-VPC-endpoint-for-CloudWatchLogs).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,23 +61,28 @@ export interface GetLogObjectCommandOutput extends GetLogObjectResponse, __Metad
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permissions to perform this action.</p>
+ *
+ * You don't have sufficient permissions to perform this action.
  *
  * @throws {@link InvalidOperationException} (client fault)
- *  <p>The operation is not valid on the specified resource.</p>
+ *
+ * The operation is not valid on the specified resource.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is specified incorrectly.</p>
+ *
+ * A parameter is specified incorrectly.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You have reached the maximum number of resources that can be created.</p>
+ *
+ * You have reached the maximum number of resources that can be created.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link CloudWatchLogsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchLogs service.
  *
  * @public
  */

@@ -23,33 +23,21 @@ export interface ModifyLoadBalancerAttributesCommandInput extends ModifyLoadBala
 export interface ModifyLoadBalancerAttributesCommandOutput extends ModifyLoadBalancerAttributesOutput, __MetadataBearer {}
 
 /**
- * <p>Modifies the attributes of the specified load balancer.</p>
- *         <p>You can modify the load balancer attributes, such as <code>AccessLogs</code>, <code>ConnectionDraining</code>, and
- *             <code>CrossZoneLoadBalancing</code> by either enabling or disabling them. Or, you can modify the load balancer attribute
- *             <code>ConnectionSettings</code> by specifying an idle connection timeout value for your load balancer.</p>
- *         <p>For more information, see the following in the <i>Classic Load Balancers Guide</i>:</p>
- *         <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html">Cross-Zone Load Balancing</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html">Connection Draining</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/access-log-collection.html">Access Logs</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html">Idle Connection Timeout</a>
- *                </p>
- *             </li>
- *          </ul>
+ * Modifies the attributes of the specified load balancer.
+ *
+ *
+ *
+ * You can modify the load balancer attributes, such as `AccessLogs`, `ConnectionDraining`, and `CrossZoneLoadBalancing` by either enabling or disabling them. Or, you can modify the load balancer attribute `ConnectionSettings` by specifying an idle connection timeout value for your load balancer.
+ *
+ *
+ *
+ * For more information, see the following in the *Classic Load Balancers Guide*:
+ *
+ * - [Cross-Zone Load Balancing](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html)
+ * - [Connection Draining](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html)
+ * - [Access Logs](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/access-log-collection.html)
+ * - [Idle Connection Timeout](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -124,17 +112,20 @@ export interface ModifyLoadBalancerAttributesCommandOutput extends ModifyLoadBal
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
  * @throws {@link AccessPointNotFoundException} (client fault)
- *  <p>The specified load balancer does not exist.</p>
+ *
+ * The specified load balancer does not exist.
  *
  * @throws {@link InvalidConfigurationRequestException} (client fault)
- *  <p>The requested configuration change is not valid.</p>
+ *
+ * The requested configuration change is not valid.
  *
  * @throws {@link LoadBalancerAttributeNotFoundException} (client fault)
- *  <p>The specified load balancer attribute does not exist.</p>
+ *
+ * The specified load balancer attribute does not exist.
  *
  * @throws {@link ElasticLoadBalancingServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancing service.
  *
  * @example To enable cross-zone load balancing
  * ```javascript

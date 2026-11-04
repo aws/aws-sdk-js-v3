@@ -23,23 +23,13 @@ export interface ListInsightsCommandInput extends ListInsightsRequest {}
 export interface ListInsightsCommandOutput extends ListInsightsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of all insights checked for against the specified cluster. You can
- *             filter which insights are returned by category, associated Kubernetes version, and
- *             status. The default filter lists all categories and every status.</p>
- *          <p>The following lists the available categories:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>UPGRADE_READINESS</code>: Amazon EKS identifies issues that could impact your
- *                     ability to upgrade to new versions of Kubernetes. These are called upgrade insights.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>MISCONFIGURATION</code>: Amazon EKS identifies misconfiguration in your EKS
- *                     Hybrid Nodes setup that could impair functionality of your cluster or
- *                     workloads. These are called configuration insights.</p>
- *             </li>
- *          </ul>
+ * Returns a list of all insights checked for against the specified cluster. You can filter which insights are returned by category, associated Kubernetes version, and status. The default filter lists all categories and every status.
+ *
+ * The following lists the available categories:
+ *
+ * - `UPGRADE_READINESS`: Amazon EKS identifies issues that could impact your ability to upgrade to new versions of Kubernetes. These are called upgrade insights.
+ * - `MISCONFIGURATION`: Amazon EKS identifies misconfiguration in your EKS Hybrid Nodes setup that could impair functionality of your cluster or workloads. These are called configuration insights.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,25 +84,24 @@ export interface ListInsightsCommandOutput extends ListInsightsResponse, __Metad
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is invalid given the state of the cluster. Check the state of the cluster
- *             and the associated operations.</p>
+ *
+ * The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource could not be found. You can view your available clusters with
- *                 <code>ListClusters</code>. You can view your available managed node groups with
- *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region
- *             specific.</p>
+ *
+ * The specified resource could not be found. You can view your available clusters with `ListClusters`. You can view your available managed node groups with `ListNodegroups`. Amazon EKS clusters and node groups are Amazon Web Services Region specific.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link EKSServiceException}
- * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * Base exception class for all service exceptions from EKS service.
  *
  * @public
  */

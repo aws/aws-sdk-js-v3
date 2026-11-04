@@ -23,22 +23,12 @@ export interface DeleteClusterCommandInput extends DeleteClusterMessage {}
 export interface DeleteClusterCommandOutput extends DeleteClusterResult, __MetadataBearer {}
 
 /**
- * <p>Deletes a previously provisioned cluster without its final snapshot being created. A successful response from the web
- *             service indicates that the request was received correctly. Use <a>DescribeClusters</a> to monitor the status of the deletion. The delete
- *             operation cannot be canceled or reverted once submitted.
- * For more information about managing clusters, go to
- * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
- *          <p>If you want to shut down the cluster and retain it for future use, set
- *                 <i>SkipFinalClusterSnapshot</i> to <code>false</code> and specify a
- *             name for <i>FinalClusterSnapshotIdentifier</i>. You can later restore this
- *             snapshot to resume using the cluster. If a final cluster snapshot is requested, the
- *             status of the cluster will be "final-snapshot" while the snapshot is being taken, then
- *             it's "deleting" once Amazon Redshift begins deleting the cluster. </p>
- *          <p>
- * For more information about managing clusters, go to
- * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
+ * Deletes a previously provisioned cluster without its final snapshot being created. A successful response from the web service indicates that the request was received correctly. Use DescribeClusters to monitor the status of the deletion. The delete operation cannot be canceled or reverted once submitted. For more information about managing clusters, go to [Amazon Redshift Clusters](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html) in the *Amazon Redshift Cluster Management Guide*.
+ *
+ * If you want to shut down the cluster and retain it for future use, set *SkipFinalClusterSnapshot* to `false` and specify a name for *FinalClusterSnapshotIdentifier*. You can later restore this snapshot to resume using the cluster. If a final cluster snapshot is requested, the status of the cluster will be "final-snapshot" while the snapshot is being taken, then it's "deleting" once Amazon Redshift begins deleting the cluster.
+ *
+ * For more information about managing clusters, go to [Amazon Redshift Clusters](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html) in the *Amazon Redshift Cluster Management Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -272,27 +262,30 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResult, __Metad
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
- *         </p>
+ *
+ * The `ClusterIdentifier` parameter does not refer to an existing cluster.
  *
  * @throws {@link ClusterSnapshotAlreadyExistsFault} (client fault)
- *  <p>The value specified as a snapshot identifier is already used by an existing
- *             snapshot.</p>
+ *
+ * The value specified as a snapshot identifier is already used by an existing snapshot.
  *
  * @throws {@link ClusterSnapshotQuotaExceededFault} (client fault)
- *  <p>The request would result in the user exceeding the allowed number of cluster
- *             snapshots.</p>
+ *
+ * The request would result in the user exceeding the allowed number of cluster snapshots.
  *
  * @throws {@link InvalidClusterStateFault} (client fault)
- *  <p>The specified cluster is not in the <code>available</code> state. </p>
+ *
+ * The specified cluster is not in the `available` state.
  *
  * @throws {@link InvalidRetentionPeriodFault} (client fault)
- *  <p>The retention period specified is either in the past or is not a valid value.</p>
- *          <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+ *
+ * The retention period specified is either in the past or is not a valid value.
+ *
+ * The value must be either -1 or an integer between 1 and 3,653.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

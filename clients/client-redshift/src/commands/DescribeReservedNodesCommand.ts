@@ -23,7 +23,8 @@ export interface DescribeReservedNodesCommandInput extends DescribeReservedNodes
 export interface DescribeReservedNodesCommandOutput extends ReservedNodesMessage, __MetadataBearer {}
 
 /**
- * <p>Returns the descriptions of the reserved nodes.</p>
+ * Returns the descriptions of the reserved nodes.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,15 +75,16 @@ export interface DescribeReservedNodesCommandOutput extends ReservedNodesMessage
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link DependentServiceUnavailableFault} (client fault)
- *  <p>Your request cannot be completed because a dependent internal service is
- *             temporarily unavailable. Wait 30 to 60 seconds and try again.</p>
+ *
+ * Your request cannot be completed because a dependent internal service is temporarily unavailable. Wait 30 to 60 seconds and try again.
  *
  * @throws {@link ReservedNodeNotFoundFault} (client fault)
- *  <p>The specified reserved compute node not found.</p>
+ *
+ * The specified reserved compute node not found.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

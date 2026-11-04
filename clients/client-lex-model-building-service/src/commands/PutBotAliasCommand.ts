@@ -23,12 +23,9 @@ export interface PutBotAliasCommandInput extends PutBotAliasRequest {}
 export interface PutBotAliasCommandOutput extends PutBotAliasResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an alias for the specified version of the bot or replaces
- *       an alias for the specified bot. To change the version of the bot that the
- *       alias points to, replace the alias. For more information about aliases,
- *       see <a>versioning-aliases</a>.</p>
- *          <p>This operation requires permissions for the
- *         <code>lex:PutBotAlias</code> action. </p>
+ * Creates an alias for the specified version of the bot or replaces an alias for the specified bot. To change the version of the bot that the alias points to, replace the alias. For more information about aliases, see versioning-aliases.
+ *
+ * This operation requires permissions for the `lex:PutBotAlias` action.
  *
  * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @example
@@ -102,28 +99,28 @@ export interface PutBotAliasCommandOutput extends PutBotAliasResponse, __Metadat
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request is not well formed. For example, a value is invalid or
- *       a required field is missing. Check the field values, and try
- *       again.</p>
+ *
+ * The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p> There was a conflict processing the request. Try your request
- *       again. </p>
+ *
+ * There was a conflict processing the request. Try your request again.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An internal Amazon Lex error occurred. Try your request again.</p>
+ *
+ * An internal Amazon Lex error occurred. Try your request again.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request exceeded a limit. Try your request again.</p>
+ *
+ * The request exceeded a limit. Try your request again.
  *
  * @throws {@link PreconditionFailedException} (client fault)
- *  <p> The checksum of the resource that you are trying to change does
- *       not match the checksum in the request. Check the resource's checksum and
- *       try again.</p>
+ *
+ * The checksum of the resource that you are trying to change does not match the checksum in the request. Check the resource's checksum and try again.
  *
  * @throws {@link LexModelBuildingServiceServiceException}
- * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * Base exception class for all service exceptions from LexModelBuildingService service.
  *
  * @public
  */

@@ -24,12 +24,10 @@ export interface SearchRoutingProfilesCommandInput extends SearchRoutingProfiles
 export interface SearchRoutingProfilesCommandOutput extends SearchRoutingProfilesResponse, __MetadataBearer {}
 
 /**
- * <p>Searches routing profiles in an Connect Customer instance, with optional filtering.</p>
- *          <note>
- *             <p>
- *                <code>SearchRoutingProfiles</code> does not populate LastModifiedRegion, LastModifiedTime,
- *     MediaConcurrencies.CrossChannelBehavior, and AgentAvailabilityTimer in its response, but <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeRoutingProfile.html">DescribeRoutingProfile</a> does.</p>
- *          </note>
+ * Searches routing profiles in an Connect Customer instance, with optional filtering.
+ *
+ * > **Note:** `SearchRoutingProfiles` does not populate LastModifiedRegion, LastModifiedTime, MediaConcurrencies.CrossChannelBehavior, and AgentAvailabilityTimer in its response, but [DescribeRoutingProfile](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeRoutingProfile.html) does.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -147,23 +145,28 @@ export interface SearchRoutingProfilesCommandOutput extends SearchRoutingProfile
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

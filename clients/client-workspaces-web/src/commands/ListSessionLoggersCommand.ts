@@ -23,7 +23,8 @@ export interface ListSessionLoggersCommandInput extends ListSessionLoggersReques
 export interface ListSessionLoggersCommandOutput extends ListSessionLoggersResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all available session logger resources.</p>
+ * Lists all available session logger resources.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,20 +68,24 @@ export interface ListSessionLoggersCommandOutput extends ListSessionLoggersRespo
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access is denied.</p>
+ *
+ * Access is denied.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>There is an internal server error.</p>
+ *
+ * There is an internal server error.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>There is a throttling error.</p>
+ *
+ * There is a throttling error.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>There is a validation error.</p>
+ *
+ * There is a validation error.
  *
  * @throws {@link WorkSpacesWebServiceException}
- * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ * Base exception class for all service exceptions from WorkSpacesWeb service.
  *
  * @example List All Session Loggers
  * ```javascript

@@ -23,9 +23,8 @@ export interface GetCredentialReportCommandInput {}
 export interface GetCredentialReportCommandOutput extends GetCredentialReportResponse, __MetadataBearer {}
 
 /**
- * <p> Retrieves a credential report for the Amazon Web Services account. For more information about the
- *             credential report, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Getting credential reports</a> in
- *             the <i>IAM User Guide</i>.</p>
+ * Retrieves a credential report for the Amazon Web Services account. For more information about the credential report, see [Getting credential reports](https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html) in the *IAM User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,25 +51,24 @@ export interface GetCredentialReportCommandOutput extends GetCredentialReportRes
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link CredentialReportExpiredException} (client fault)
- *  <p>The request was rejected because the most recent credential report has expired. To
- *       generate a new credential report, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GenerateCredentialReport.html">GenerateCredentialReport</a>. For more information about credential report expiration,
- *       see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Getting
- *         credential reports</a> in the <i>IAM User Guide</i>.</p>
+ *
+ * The request was rejected because the most recent credential report has expired. To generate a new credential report, use [GenerateCredentialReport](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GenerateCredentialReport.html). For more information about credential report expiration, see [Getting credential reports](https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html) in the *IAM User Guide*.
  *
  * @throws {@link CredentialReportNotPresentException} (client fault)
- *  <p>The request was rejected because the credential report does not exist. To generate a
- *       credential report, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GenerateCredentialReport.html">GenerateCredentialReport</a>.</p>
+ *
+ * The request was rejected because the credential report does not exist. To generate a credential report, use [GenerateCredentialReport](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GenerateCredentialReport.html).
  *
  * @throws {@link CredentialReportNotReadyException} (client fault)
- *  <p>The request was rejected because the credential report is still being generated.</p>
+ *
+ * The request was rejected because the credential report is still being generated.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface DescribeLineageGroupCommandInput extends DescribeLineageGroupRe
 export interface DescribeLineageGroupCommandOutput extends DescribeLineageGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Provides a list of properties for the requested lineage group. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/xaccount-lineage-tracking.html"> Cross-Account Lineage Tracking </a> in the <i>Amazon SageMaker Developer Guide</i>.</p>
+ * Provides a list of properties for the requested lineage group. For more information, see [Cross-Account Lineage Tracking](https://docs.aws.amazon.com/sagemaker/latest/dg/xaccount-lineage-tracking.html) in the *Amazon SageMaker Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,11 +76,12 @@ export interface DescribeLineageGroupCommandOutput extends DescribeLineageGroupR
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Resource being access is not found.</p>
+ *
+ * Resource being access is not found.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

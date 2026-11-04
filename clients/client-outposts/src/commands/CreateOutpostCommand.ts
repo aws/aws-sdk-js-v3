@@ -23,8 +23,10 @@ export interface CreateOutpostCommandInput extends CreateOutpostInput {}
 export interface CreateOutpostCommandOutput extends CreateOutpostOutput, __MetadataBearer {}
 
 /**
- * <p>Creates an Outpost.</p>
- *          <p>You can specify either an Availability one or an AZ ID.</p>
+ * Creates an Outpost.
+ *
+ * You can specify either an Availability one or an AZ ID.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,26 +78,32 @@ export interface CreateOutpostCommandOutput extends CreateOutpostOutput, __Metad
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have permission to perform this operation.</p>
+ *
+ * You do not have permission to perform this operation.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting this resource can cause an inconsistent state.</p>
+ *
+ * Updating or deleting this resource can cause an inconsistent state.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error has occurred.</p>
+ *
+ * An internal error has occurred.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The specified request is not valid.</p>
+ *
+ * The specified request is not valid.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You have exceeded a service quota.</p>
+ *
+ * You have exceeded a service quota.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A parameter is not valid.</p>
+ *
+ * A parameter is not valid.
  *
  * @throws {@link OutpostsServiceException}
- * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ * Base exception class for all service exceptions from Outposts service.
  *
  * @public
  */

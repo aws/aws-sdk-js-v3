@@ -23,7 +23,8 @@ export interface CreateDBInstanceCommandInput extends CreateDBInstanceMessage {}
 export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, __MetadataBearer {}
 
 /**
- * <p>Creates a new DB instance.</p>
+ * Creates a new DB instance.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -242,75 +243,82 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  * @throws {@link AuthorizationNotFoundFault} (client fault)
- *  <p>Specified CIDRIP or EC2 security group is not authorized for the specified DB security group.</p>
- *          <p>Neptune may not also be authorized via IAM to perform necessary actions on your behalf.</p>
+ *
+ * Specified CIDRIP or EC2 security group is not authorized for the specified DB security group.
+ *
+ * Neptune may not also be authorized via IAM to perform necessary actions on your behalf.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p>
- *             <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+ *
+ * *DBClusterIdentifier* does not refer to an existing DB cluster.
  *
  * @throws {@link DBInstanceAlreadyExistsFault} (client fault)
- *  <p>User already has a DB instance with the given identifier.</p>
+ *
+ * User already has a DB instance with the given identifier.
  *
  * @throws {@link DBParameterGroupNotFoundFault} (client fault)
- *  <p>
- *             <i>DBParameterGroupName</i> does not refer to an
- *       existing DB parameter group.</p>
+ *
+ * *DBParameterGroupName* does not refer to an existing DB parameter group.
  *
  * @throws {@link DBSecurityGroupNotFoundFault} (client fault)
- *  <p>
- *             <i>DBSecurityGroupName</i> does not refer
- *       to an existing DB security group.</p>
+ *
+ * *DBSecurityGroupName* does not refer to an existing DB security group.
  *
  * @throws {@link DBSubnetGroupDoesNotCoverEnoughAZs} (client fault)
- *  <p>Subnets in the DB subnet group should cover at least two Availability
- *       Zones unless there is only one Availability Zone.</p>
+ *
+ * Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.
  *
  * @throws {@link DBSubnetGroupNotFoundFault} (client fault)
- *  <p>
- *             <i>DBSubnetGroupName</i> does not refer to an
- *       existing DB subnet group.</p>
+ *
+ * *DBSubnetGroupName* does not refer to an existing DB subnet group.
  *
  * @throws {@link DomainNotFoundFault} (client fault)
- *  <p>
- *             <i>Domain</i> does not refer to an existing Active Directory Domain.</p>
+ *
+ * *Domain* does not refer to an existing Active Directory Domain.
  *
  * @throws {@link InstanceQuotaExceededFault} (client fault)
- *  <p>Request would result in user exceeding the allowed number of DB instances.</p>
+ *
+ * Request would result in user exceeding the allowed number of DB instances.
  *
  * @throws {@link InsufficientDBInstanceCapacityFault} (client fault)
- *  <p>Specified DB instance class is not available in the specified Availability Zone.</p>
+ *
+ * Specified DB instance class is not available in the specified Availability Zone.
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
- *  <p>The DB cluster is not in a valid state.</p>
+ *
+ * The DB cluster is not in a valid state.
  *
  * @throws {@link InvalidSubnet} (client fault)
- *  <p>The requested subnet is invalid, or multiple subnets were requested that are
- *       not all in a common VPC.</p>
+ *
+ * The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.
  *
  * @throws {@link InvalidVPCNetworkStateFault} (client fault)
- *  <p>DB subnet group does not cover all Availability Zones after it is created
- *       because users' change.</p>
+ *
+ * DB subnet group does not cover all Availability Zones after it is created because users' change.
  *
  * @throws {@link KMSKeyNotAccessibleFault} (client fault)
- *  <p>Error accessing KMS key.</p>
+ *
+ * Error accessing KMS key.
  *
  * @throws {@link OptionGroupNotFoundFault} (client fault)
- *  <p>The designated option group could not be found.</p>
+ *
+ * The designated option group could not be found.
  *
  * @throws {@link ProvisionedIopsNotAvailableInAZFault} (client fault)
- *  <p>Provisioned IOPS not available in the specified Availability Zone.</p>
+ *
+ * Provisioned IOPS not available in the specified Availability Zone.
  *
  * @throws {@link StorageQuotaExceededFault} (client fault)
- *  <p>Request would result in user exceeding the allowed amount of storage available across all DB instances.</p>
+ *
+ * Request would result in user exceeding the allowed amount of storage available across all DB instances.
  *
  * @throws {@link StorageTypeNotSupportedFault} (client fault)
- *  <p>
- *             <i>StorageType</i> specified cannot be associated with the DB Instance.</p>
+ *
+ * *StorageType* specified cannot be associated with the DB Instance.
  *
  * @throws {@link NeptuneServiceException}
- * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * Base exception class for all service exceptions from Neptune service.
  *
  * @public
  */

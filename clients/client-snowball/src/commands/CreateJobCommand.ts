@@ -23,161 +23,65 @@ export interface CreateJobCommandInput extends CreateJobRequest {}
 export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBearer {}
 
 /**
- * <p>Creates a job to import or export data between Amazon S3 and your on-premises data
- *       center. Your Amazon Web Services account must have the right trust policies and permissions in
- *       place to create a job for a Snow device. If you're creating a job for a node in a cluster, you
- *       only need to provide the <code>clusterId</code> value; the other job attributes are inherited
- *       from the cluster. </p>
- *          <note>
- *             <p>Only the Snowball; Edge device type is supported when ordering clustered jobs.</p>
- *             <p>The device capacity is optional.</p>
- *             <p>Availability of device types differ by Amazon Web Services Region. For more information
- *         about Region availability, see <a href="https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/?p=ngi&loc=4">Amazon Web Services Regional Services</a>.</p>
- *          </note>
- *          <p></p>
- *          <p class="title">
- *             <b>Snow Family devices and their capacities.</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>Device type: <b>SNC1_SSD</b>
- *                </p>
- *                <ul>
- *                   <li>
- *                      <p>Capacity: T14</p>
- *                   </li>
- *                   <li>
- *                      <p>Description: Snowcone </p>
- *                   </li>
- *                </ul>
- *                <p></p>
- *             </li>
- *             <li>
- *                <p>Device type: <b>SNC1_HDD</b>
- *                </p>
- *                <ul>
- *                   <li>
- *                      <p>Capacity: T8</p>
- *                   </li>
- *                   <li>
- *                      <p>Description: Snowcone </p>
- *                   </li>
- *                </ul>
- *                <p></p>
- *             </li>
- *             <li>
- *                <p>Device type: <b>EDGE_S</b>
- *                </p>
- *                <ul>
- *                   <li>
- *                      <p>Capacity: T98</p>
- *                   </li>
- *                   <li>
- *                      <p>Description: Snowball Edge Storage Optimized for data transfer only </p>
- *                   </li>
- *                </ul>
- *                <p></p>
- *             </li>
- *             <li>
- *                <p>Device type: <b>EDGE_CG</b>
- *                </p>
- *                <ul>
- *                   <li>
- *                      <p>Capacity: T42</p>
- *                   </li>
- *                   <li>
- *                      <p>Description: Snowball Edge Compute Optimized with GPU</p>
- *                   </li>
- *                </ul>
- *                <p></p>
- *             </li>
- *             <li>
- *                <p>Device type: <b>EDGE_C</b>
- *                </p>
- *                <ul>
- *                   <li>
- *                      <p>Capacity: T42</p>
- *                   </li>
- *                   <li>
- *                      <p>Description: Snowball Edge Compute Optimized without GPU</p>
- *                   </li>
- *                </ul>
- *                <p></p>
- *             </li>
- *             <li>
- *                <p>Device type: <b>EDGE</b>
- *                </p>
- *                <ul>
- *                   <li>
- *                      <p>Capacity: T100</p>
- *                   </li>
- *                   <li>
- *                      <p>Description: Snowball Edge Storage Optimized with EC2 Compute</p>
- *                   </li>
- *                </ul>
- *                <note>
- *                   <p>This device is replaced with T98.</p>
- *                </note>
- *                <p></p>
- *             </li>
- *             <li>
- *                <p>Device type: <b>STANDARD</b>
- *                </p>
- *                <ul>
- *                   <li>
- *                      <p>Capacity: T50</p>
- *                   </li>
- *                   <li>
- *                      <p>Description: Original Snowball device</p>
- *                      <note>
- *                         <p>This device is only available in the Ningxia, Beijing, and Singapore Amazon Web Services Region
- *               </p>
- *                      </note>
- *                   </li>
- *                </ul>
- *                <p></p>
- *             </li>
- *             <li>
- *                <p>Device type: <b>STANDARD</b>
- *                </p>
- *                <ul>
- *                   <li>
- *                      <p>Capacity: T80</p>
- *                   </li>
- *                   <li>
- *                      <p>Description: Original Snowball device</p>
- *                      <note>
- *                         <p>This device is only available in the Ningxia, Beijing, and Singapore Amazon Web Services Region. </p>
- *                      </note>
- *                   </li>
- *                </ul>
- *                <p></p>
- *             </li>
- *             <li>
- *                <p>Snow Family device type: <b>RACK_5U_C</b>
- *                </p>
- *                <ul>
- *                   <li>
- *                      <p>Capacity: T13 </p>
- *                   </li>
- *                   <li>
- *                      <p>Description: Snowblade.</p>
- *                   </li>
- *                </ul>
- *             </li>
- *             <li>
- *                <p>Device type: <b>V3_5S</b>
- *                </p>
- *                <ul>
- *                   <li>
- *                      <p>Capacity: T240</p>
- *                   </li>
- *                   <li>
- *                      <p>Description: Snowball Edge Storage Optimized 210TB</p>
- *                   </li>
- *                </ul>
- *             </li>
- *          </ul>
+ * Creates a job to import or export data between Amazon S3 and your on-premises data center. Your Amazon Web Services account must have the right trust policies and permissions in place to create a job for a Snow device. If you're creating a job for a node in a cluster, you only need to provide the `clusterId` value; the other job attributes are inherited from the cluster.
+ *
+ * > **Note:**
+ * >
+ * > Only the Snowball; Edge device type is supported when ordering clustered jobs.
+ * >
+ * > The device capacity is optional.
+ * >
+ * > Availability of device types differ by Amazon Web Services Region. For more information about Region availability, see [Amazon Web Services Regional Services](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/?p=ngi&loc=4).
+ *
+ * **Snow Family devices and their capacities.**
+ *
+ * - Device type: **SNC1_SSD**
+ *
+ *   - Capacity: T14
+ *   - Description: Snowcone
+ * - Device type: **SNC1_HDD**
+ *
+ *   - Capacity: T8
+ *   - Description: Snowcone
+ * - Device type: **EDGE_S**
+ *
+ *   - Capacity: T98
+ *   - Description: Snowball Edge Storage Optimized for data transfer only
+ * - Device type: **EDGE_CG**
+ *
+ *   - Capacity: T42
+ *   - Description: Snowball Edge Compute Optimized with GPU
+ * - Device type: **EDGE_C**
+ *
+ *   - Capacity: T42
+ *   - Description: Snowball Edge Compute Optimized without GPU
+ * - Device type: **EDGE**
+ *
+ *   - Capacity: T100
+ *   - Description: Snowball Edge Storage Optimized with EC2 Compute
+ *
+ *   > **Note:** This device is replaced with T98.
+ * - Device type: **STANDARD**
+ *
+ *   - Capacity: T50
+ *   - Description: Original Snowball device
+ *
+ *     > **Note:** This device is only available in the Ningxia, Beijing, and Singapore Amazon Web Services Region
+ * - Device type: **STANDARD**
+ *
+ *   - Capacity: T80
+ *   - Description: Original Snowball device
+ *
+ *     > **Note:** This device is only available in the Ningxia, Beijing, and Singapore Amazon Web Services Region.
+ * - Snow Family device type: **RACK_5U_C**
+ *
+ *   - Capacity: T13
+ *   - Description: Snowblade.
+ * - Device type: **V3_5S**
+ *
+ *   - Capacity: T240
+ *   - Description: Snowball Edge Storage Optimized 210TB
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -298,28 +202,28 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
  * @throws {@link ClusterLimitExceededException} (client fault)
- *  <p>Job creation failed. Currently, clusters support five nodes. If you have fewer than
- *       five nodes for your cluster and you have more nodes to create for this cluster, try again and
- *       create jobs until your cluster has exactly five nodes.</p>
+ *
+ * Job creation failed. Currently, clusters support five nodes. If you have fewer than five nodes for your cluster and you have more nodes to create for this cluster, try again and create jobs until your cluster has exactly five nodes.
  *
  * @throws {@link Ec2RequestFailedException} (client fault)
- *  <p>Your user lacks the necessary Amazon EC2 permissions to perform the attempted
- *       action.</p>
+ *
+ * Your user lacks the necessary Amazon EC2 permissions to perform the attempted action.
  *
  * @throws {@link InvalidInputCombinationException} (client fault)
- *  <p>Job or cluster creation failed. One or more inputs were invalid. Confirm that the <a>CreateClusterRequest$SnowballType</a> value supports your <a>CreateJobRequest$JobType</a>, and try again.</p>
+ *
+ * Job or cluster creation failed. One or more inputs were invalid. Confirm that the CreateClusterRequest$SnowballType value supports your CreateJobRequest$JobType, and try again.
  *
  * @throws {@link InvalidResourceException} (client fault)
- *  <p>The specified resource can't be found. Check the information you provided in your last
- *       request, and try again.</p>
+ *
+ * The specified resource can't be found. Check the information you provided in your last request, and try again.
  *
  * @throws {@link KMSRequestFailedException} (client fault)
- *  <p>The provided Key Management Service key lacks the permissions to perform the specified
- *         <a>CreateJob</a> or <a>UpdateJob</a> action.</p>
+ *
+ * The provided Key Management Service key lacks the permissions to perform the specified CreateJob or UpdateJob action.
  *
  * @throws {@link SnowballServiceException}
- * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ * Base exception class for all service exceptions from Snowball service.
  *
  * @example To create a job
  * ```javascript

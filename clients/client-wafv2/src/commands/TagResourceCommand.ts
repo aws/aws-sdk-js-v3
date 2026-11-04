@@ -23,14 +23,10 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Associates tags with the specified Amazon Web Services resource. Tags are key:value pairs that you can
- *          use to categorize and manage your resources, for purposes like billing. For example, you
- *          might set the tag key to "customer" and the value to the customer name or ID. You can
- *          specify one or more tags to add to each Amazon Web Services resource, up to 50 tags for a
- *          resource.</p>
- *          <p>You can tag the Amazon Web Services resources that you manage through WAF: web ACLs, rule
- *          groups, IP sets, and regex pattern sets. You can't manage or view tags through the WAF
- *          console. </p>
+ * Associates tags with the specified Amazon Web Services resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing. For example, you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each Amazon Web Services resource, up to 50 tags for a resource.
+ *
+ * You can tag the Amazon Web Services resources that you manage through WAF: web ACLs, rule groups, IP sets, and regex pattern sets. You can't manage or view tags through the WAF console.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,55 +57,41 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
  *
  * @throws {@link WAFInternalErrorException} (server fault)
- *  <p>Your request is valid, but WAF couldn’t perform the operation because of a system
- *          problem. Retry your request. </p>
+ *
+ * Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request.
  *
  * @throws {@link WAFInvalidOperationException} (client fault)
- *  <p>The operation isn't valid. </p>
+ *
+ * The operation isn't valid.
  *
  * @throws {@link WAFInvalidParameterException} (client fault)
- *  <p>The operation failed because WAF didn't recognize a parameter in the request. For
- *          example: </p>
- *          <ul>
- *             <li>
- *                <p>You specified a parameter name or value that isn't valid.</p>
- *             </li>
- *             <li>
- *                <p>Your nested statement isn't valid. You might have tried to nest a statement that
- *                can’t be nested. </p>
- *             </li>
- *             <li>
- *                <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that
- *                isn't among the types available at <a>DefaultAction</a>.</p>
- *             </li>
- *             <li>
- *                <p>Your request references an ARN that is malformed, or corresponds to a resource
- *                with which a web ACL can't be associated.</p>
- *             </li>
- *          </ul>
+ *
+ * The operation failed because WAF didn't recognize a parameter in the request. For example:
+ *
+ * - You specified a parameter name or value that isn't valid.
+ * - Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested.
+ * - You tried to update a `WebACL` with a `DefaultAction` that isn't among the types available at DefaultAction.
+ * - Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.
  *
  * @throws {@link WAFLimitsExceededException} (client fault)
- *  <p>WAF couldn’t perform the operation because you exceeded your resource limit. For
- *          example, the maximum number of <code>WebACL</code> objects that you can create for an Amazon Web Services
- *          account. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF quotas</a> in the
- *             <i>WAF Developer Guide</i>.</p>
+ *
+ * WAF couldn’t perform the operation because you exceeded your resource limit. For example, the maximum number of `WebACL` objects that you can create for an Amazon Web Services account. For more information, see [WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the *WAF Developer Guide*.
  *
  * @throws {@link WAFNonexistentItemException} (client fault)
- *  <p>WAF couldn’t perform the operation because your resource doesn't exist.
- *        If you've just created a resource that you're using in this operation, you might
- *        just need to wait a few minutes. It can take from a few seconds to a number of minutes
- *        for changes to propagate. </p>
+ *
+ * WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate.
  *
  * @throws {@link WAFTagOperationException} (client fault)
- *  <p>An error occurred during the tagging operation. Retry your request.</p>
+ *
+ * An error occurred during the tagging operation. Retry your request.
  *
  * @throws {@link WAFTagOperationInternalErrorException} (server fault)
- *  <p>WAF couldn’t perform your tagging operation because of an internal error. Retry
- *          your request.</p>
+ *
+ * WAF couldn’t perform your tagging operation because of an internal error. Retry your request.
  *
  * @throws {@link WAFV2ServiceException}
- * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * Base exception class for all service exceptions from WAFV2 service.
  *
  * @public
  */

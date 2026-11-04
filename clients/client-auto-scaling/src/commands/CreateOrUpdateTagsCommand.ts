@@ -23,11 +23,12 @@ export interface CreateOrUpdateTagsCommandInput extends CreateOrUpdateTagsType {
 export interface CreateOrUpdateTagsCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Creates or updates tags for the specified Auto Scaling group.</p>
- *          <p>When you specify a tag with a key that already exists, the operation overwrites the
- *             previous tag definition, and you do not get an error message.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-tagging.html">Tag Auto Scaling groups and
- *                 instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ * Creates or updates tags for the specified Auto Scaling group.
+ *
+ * When you specify a tag with a key that already exists, the operation overwrites the previous tag definition, and you do not get an error message.
+ *
+ * For more information, see [Tag Auto Scaling groups and instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-tagging.html) in the *Amazon EC2 Auto Scaling User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,24 +61,24 @@ export interface CreateOrUpdateTagsCommandOutput extends __MetadataBearer {}
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  * @throws {@link AlreadyExistsFault} (client fault)
- *  <p>You already have an Auto Scaling group or launch configuration with this name.</p>
+ *
+ * You already have an Auto Scaling group or launch configuration with this name.
  *
  * @throws {@link LimitExceededFault} (client fault)
- *  <p>You have already reached a limit for your Amazon EC2 Auto Scaling
- *             resources (for example, Auto Scaling groups, launch configurations, or lifecycle hooks). For
- *             more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html">DescribeAccountLimits</a> in the <i>Amazon EC2 Auto Scaling API
- *             Reference</i>.</p>
+ *
+ * You have already reached a limit for your Amazon EC2 Auto Scaling resources (for example, Auto Scaling groups, launch configurations, or lifecycle hooks). For more information, see [DescribeAccountLimits](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html) in the *Amazon EC2 Auto Scaling API Reference*.
  *
  * @throws {@link ResourceContentionFault} (server fault)
- *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
- *             instance, or load balancer).</p>
+ *
+ * You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).
  *
  * @throws {@link ResourceInUseFault} (client fault)
- *  <p>The operation can't be performed because the resource is in use.</p>
+ *
+ * The operation can't be performed because the resource is in use.
  *
  * @throws {@link AutoScalingServiceException}
- * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from AutoScaling service.
  *
  * @example To create or update tags for an Auto Scaling group
  * ```javascript

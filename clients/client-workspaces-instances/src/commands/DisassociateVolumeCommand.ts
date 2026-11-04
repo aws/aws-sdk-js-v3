@@ -23,7 +23,8 @@ export interface DisassociateVolumeCommandInput extends DisassociateVolumeReques
 export interface DisassociateVolumeCommandOutput extends DisassociateVolumeResponse, __MetadataBearer {}
 
 /**
- * <p>Detaches a volume from a WorkSpace Instance.</p>
+ * Detaches a volume from a WorkSpace Instance.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,26 +52,32 @@ export interface DisassociateVolumeCommandOutput extends DisassociateVolumeRespo
  * @see {@link WorkspacesInstancesClientResolvedConfig | config} for WorkspacesInstancesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Indicates insufficient permissions to perform the requested action.</p>
+ *
+ * Indicates insufficient permissions to perform the requested action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Signals a conflict with the current state of the resource.</p>
+ *
+ * Signals a conflict with the current state of the resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Indicates an unexpected server-side error occurred.</p>
+ *
+ * Indicates an unexpected server-side error occurred.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Indicates the requested resource could not be found.</p>
+ *
+ * Indicates the requested resource could not be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Indicates the request rate has exceeded limits.</p>
+ *
+ * Indicates the request rate has exceeded limits.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Indicates invalid input parameters in the request.</p>
+ *
+ * Indicates invalid input parameters in the request.
  *
  * @throws {@link WorkspacesInstancesServiceException}
- * <p>Base exception class for all service exceptions from WorkspacesInstances service.</p>
  *
+ * Base exception class for all service exceptions from WorkspacesInstances service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface GetCaseCommandInput extends GetCaseRequest {}
 export interface GetCaseCommandOutput extends GetCaseResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the attributes of a case.</p>
+ * Returns the attributes of a case.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -101,38 +102,28 @@ export interface GetCaseCommandOutput extends GetCaseResponse, __MetadataBearer 
  * @see {@link SecurityIRClientResolvedConfig | config} for SecurityIRClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p/>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p/>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p/>
  *
  * @throws {@link InvalidTokenException} (client fault)
- *  <p/>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p/>
  *
  * @throws {@link SecurityIncidentResponseNotActiveException} (client fault)
- *  <p/>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p/>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p/>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p/>
  *
  * @throws {@link SecurityIRServiceException}
- * <p>Base exception class for all service exceptions from SecurityIR service.</p>
  *
+ * Base exception class for all service exceptions from SecurityIR service.
  *
- * @example Invoke GetCase
- * ```javascript
+ * @example Invoke GetCase```javascript
  * //
  * const input = {
  *   caseId: "8403556009"

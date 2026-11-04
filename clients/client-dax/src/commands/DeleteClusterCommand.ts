@@ -23,11 +23,8 @@ export interface DeleteClusterCommandInput extends DeleteClusterRequest {}
 export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a previously provisioned DAX cluster.
- *                 <i>DeleteCluster</i> deletes all associated nodes, node endpoints and
- *             the DAX cluster itself. When you receive a successful response from this
- *             action, DAX immediately begins deleting the cluster; you cannot cancel or
- *             revert this action.</p>
+ * Deletes a previously provisioned DAX cluster. *DeleteCluster* deletes all associated nodes, node endpoints and the DAX cluster itself. When you receive a successful response from this action, DAX immediately begins deleting the cluster; you cannot cancel or revert this action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -109,25 +106,28 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The requested cluster ID does not refer to an existing DAX
- *             cluster.</p>
+ *
+ * The requested cluster ID does not refer to an existing DAX cluster.
  *
  * @throws {@link InvalidClusterStateFault} (client fault)
- *  <p>The requested DAX cluster is not in the
- *                 <i>available</i> state.</p>
+ *
+ * The requested DAX cluster is not in the *available* state.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * Two or more incompatible parameters were specified.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
- *  <p>The specified service linked role (SLR) was not found.</p>
+ *
+ * The specified service linked role (SLR) was not found.
  *
  * @throws {@link DAXServiceException}
- * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ * Base exception class for all service exceptions from DAX service.
  *
  * @public
  */

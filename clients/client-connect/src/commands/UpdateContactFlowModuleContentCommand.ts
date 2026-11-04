@@ -23,10 +23,10 @@ export interface UpdateContactFlowModuleContentCommandInput extends UpdateContac
 export interface UpdateContactFlowModuleContentCommandOutput extends UpdateContactFlowModuleContentResponse, __MetadataBearer {}
 
 /**
- * <p>Updates specified flow module for the specified Connect Customer instance. </p>
- *          <p>Use the <code>$SAVED</code> alias in the request to describe the <code>SAVED</code> content of a Flow. For
- *    example, <code>arn:aws:.../contact-flow/\{id\}:$SAVED</code>. After a flow is published, <code>$SAVED</code> needs to
- *    be supplied to view saved content that has not been published.</p>
+ * Updates specified flow module for the specified Connect Customer instance.
+ *
+ * Use the `$SAVED` alias in the request to describe the `SAVED` content of a Flow. For example, `arn:aws:.../contact-flow/\{id\}:$SAVED`. After a flow is published, `$SAVED` needs to be supplied to view saved content that has not been published.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,26 +54,32 @@ export interface UpdateContactFlowModuleContentCommandOutput extends UpdateConta
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidContactFlowModuleException} (client fault)
- *  <p>The problems with the module. Please fix before trying again.</p>
+ *
+ * The problems with the module. Please fix before trying again.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

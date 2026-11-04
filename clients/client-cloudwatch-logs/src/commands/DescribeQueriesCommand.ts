@@ -23,13 +23,10 @@ export interface DescribeQueriesCommandInput extends DescribeQueriesRequest {}
 export interface DescribeQueriesCommandOutput extends DescribeQueriesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of CloudWatch Logs Insights queries that are scheduled, running, or have
- *       been run recently in this account. You can request all queries or limit it to queries of a
- *       specific log group or queries with a certain status.</p>
- *          <p>This operation includes both interactive queries started directly by users and automated
- *       queries executed by scheduled query configurations. Scheduled query executions appear in the
- *       results alongside manually initiated queries, providing visibility into all query activity in
- *       your account.</p>
+ * Returns a list of CloudWatch Logs Insights queries that are scheduled, running, or have been run recently in this account. You can request all queries or limit it to queries of a specific log group or queries with a certain status.
+ *
+ * This operation includes both interactive queries started directly by users and automated queries executed by scheduled query configurations. Scheduled query executions appear in the results alongside manually initiated queries, providing visibility into all query activity in your account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,17 +70,20 @@ export interface DescribeQueriesCommandOutput extends DescribeQueriesResponse, _
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is specified incorrectly.</p>
+ *
+ * A parameter is specified incorrectly.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service cannot complete the request.</p>
+ *
+ * The service cannot complete the request.
  *
  * @throws {@link CloudWatchLogsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchLogs service.
  *
  * @public
  */

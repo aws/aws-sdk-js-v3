@@ -23,7 +23,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the tags for the specified resource.</p>
+ * Lists the tags for the specified resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,8 +53,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link FisClientResolvedConfig | config} for FisClient's `config` shape.
  *
  * @throws {@link FisServiceException}
- * <p>Base exception class for all service exceptions from Fis service.</p>
  *
+ * Base exception class for all service exceptions from Fis service.
  *
  * @public
  */

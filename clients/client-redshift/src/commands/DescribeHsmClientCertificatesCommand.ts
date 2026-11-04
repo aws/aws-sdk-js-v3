@@ -23,16 +23,12 @@ export interface DescribeHsmClientCertificatesCommandInput extends DescribeHsmCl
 export interface DescribeHsmClientCertificatesCommandOutput extends HsmClientCertificateMessage, __MetadataBearer {}
 
 /**
- * <p>Returns information about the specified HSM client certificate. If no certificate
- *             ID is specified, returns information about all the HSM certificates owned by your Amazon Web Services account.</p>
- *          <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
- *             all HSM client certificates that match any combination of the specified keys and values.
- *             For example, if you have <code>owner</code> and <code>environment</code> for tag keys,
- *             and <code>admin</code> and <code>test</code> for tag values, all HSM client certificates
- *             that have any combination of those values are returned.</p>
- *          <p>If both tag keys and values are omitted from the request, HSM client certificates
- *             are returned regardless of whether they have tag keys or values associated with
- *             them.</p>
+ * Returns information about the specified HSM client certificate. If no certificate ID is specified, returns information about all the HSM certificates owned by your Amazon Web Services account.
+ *
+ * If you specify both tag keys and tag values in the same request, Amazon Redshift returns all HSM client certificates that match any combination of the specified keys and values. For example, if you have `owner` and `environment` for tag keys, and `admin` and `test` for tag values, all HSM client certificates that have any combination of those values are returned.
+ *
+ * If both tag keys and values are omitted from the request, HSM client certificates are returned regardless of whether they have tag keys or values associated with them.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,15 +75,16 @@ export interface DescribeHsmClientCertificatesCommandOutput extends HsmClientCer
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link HsmClientCertificateNotFoundFault} (client fault)
- *  <p>There is no Amazon Redshift HSM client certificate with the specified
- *             identifier.</p>
+ *
+ * There is no Amazon Redshift HSM client certificate with the specified identifier.
  *
  * @throws {@link InvalidTagFault} (client fault)
- *  <p>The tag is invalid.</p>
+ *
+ * The tag is invalid.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

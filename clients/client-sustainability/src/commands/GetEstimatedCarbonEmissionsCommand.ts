@@ -23,7 +23,8 @@ export interface GetEstimatedCarbonEmissionsCommandInput extends GetEstimatedCar
 export interface GetEstimatedCarbonEmissionsCommandOutput extends GetEstimatedCarbonEmissionsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns estimated carbon emission values based on customer grouping and filtering parameters. We recommend using pagination to ensure that the operation returns quickly and successfully. </p>
+ * Returns estimated carbon emission values based on customer grouping and filtering parameters. We recommend using pagination to ensure that the operation returns quickly and successfully.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,20 +91,24 @@ export interface GetEstimatedCarbonEmissionsCommandOutput extends GetEstimatedCa
  * @see {@link SustainabilityClientResolvedConfig | config} for SustainabilityClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception, or failure.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link SustainabilityServiceException}
- * <p>Base exception class for all service exceptions from Sustainability service.</p>
  *
+ * Base exception class for all service exceptions from Sustainability service.
  *
  * @example GetEstimatedCarbonEmissionsSuccess
  * ```javascript

@@ -23,27 +23,18 @@ export interface StartOutboundVoiceContactCommandInput extends StartOutboundVoic
 export interface StartOutboundVoiceContactCommandOutput extends StartOutboundVoiceContactResponse, __MetadataBearer {}
 
 /**
- * <p>Places an outbound call to a contact, and then initiates the flow. It performs the actions in the flow that's
- *    specified (in <code>ContactFlowId</code>).</p>
- *          <p>Agents do not initiate the outbound API, which means that they do not dial the contact. If the flow places an
- *    outbound call to a contact, and then puts the contact in queue, the call is then routed to the agent, like any other
- *    inbound case.</p>
- *          <p>Dialing timeout for this operation can be configured with the “RingTimeoutInSeconds” parameter. If not
- *    specified, the default dialing timeout will be 60 seconds which means if the call is not connected within 60 seconds,
- *    it fails.</p>
- *          <note>
- *             <p>UK numbers with a 447 prefix are not allowed by default. Before you can dial these UK mobile numbers, you must
- *     submit a service quota increase request. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Connect Customer Service Quotas</a> in the
- *       <i>Connect Customer Administrator Guide</i>. </p>
- *          </note>
- *          <note>
- *             <p>Campaign calls are not allowed by default. Before you can make a call with <code>TrafficType</code> =
- *      <code>CAMPAIGN</code>, you must submit a service quota increase request to the quota <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#outbound-communications-quotas">Connect Customer campaigns</a>. </p>
- *          </note>
- *          <note>
- *             <p>For Preview dialing mode, only the Amazon Connect outbound campaigns service principal is allowed to assume a
- *     role in your account and call this API with OutboundStrategy. </p>
- *          </note>
+ * Places an outbound call to a contact, and then initiates the flow. It performs the actions in the flow that's specified (in `ContactFlowId`).
+ *
+ * Agents do not initiate the outbound API, which means that they do not dial the contact. If the flow places an outbound call to a contact, and then puts the contact in queue, the call is then routed to the agent, like any other inbound case.
+ *
+ * Dialing timeout for this operation can be configured with the “RingTimeoutInSeconds” parameter. If not specified, the default dialing timeout will be 60 seconds which means if the call is not connected within 60 seconds, it fails.
+ *
+ * > **Note:** UK numbers with a 447 prefix are not allowed by default. Before you can dial these UK mobile numbers, you must submit a service quota increase request. For more information, see [Connect Customer Service Quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html) in the *Connect Customer Administrator Guide*.
+ *
+ * > **Note:** Campaign calls are not allowed by default. Before you can make a call with `TrafficType` = `CAMPAIGN`, you must submit a service quota increase request to the quota [Connect Customer campaigns](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#outbound-communications-quotas).
+ *
+ * > **Note:** For Preview dialing mode, only the Amazon Connect outbound campaigns service principal is allowed to assume a role in your account and call this API with OutboundStrategy.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -112,29 +103,36 @@ export interface StartOutboundVoiceContactCommandOutput extends StartOutboundVoi
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link DestinationNotAllowedException} (client fault)
- *  <p>Outbound calls to the destination number are not allowed.</p>
+ *
+ * Outbound calls to the destination number are not allowed.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The allowed limit for the resource has been exceeded.</p>
+ *
+ * The allowed limit for the resource has been exceeded.
  *
  * @throws {@link OutboundContactNotPermittedException} (client fault)
- *  <p>The contact is not permitted.</p>
+ *
+ * The contact is not permitted.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

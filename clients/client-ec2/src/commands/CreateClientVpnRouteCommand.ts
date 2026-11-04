@@ -23,8 +23,8 @@ export interface CreateClientVpnRouteCommandInput extends CreateClientVpnRouteRe
 export interface CreateClientVpnRouteCommandOutput extends CreateClientVpnRouteResult, __MetadataBearer {}
 
 /**
- * <p>Adds a route to a network to a Client VPN endpoint. Each Client VPN endpoint has a route table that describes the
- * 			available destination network routes. Each route in the route table specifies the path for traﬃc to speciﬁc resources or networks.</p>
+ * Adds a route to a network to a Client VPN endpoint. Each Client VPN endpoint has a route table that describes the available destination network routes. Each route in the route table specifies the path for traﬃc to speciﬁc resources or networks.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,8 +59,8 @@ export interface CreateClientVpnRouteCommandOutput extends CreateClientVpnRouteR
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

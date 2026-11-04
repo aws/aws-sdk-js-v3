@@ -23,9 +23,8 @@ export interface DescribeCacheSecurityGroupsCommandInput extends DescribeCacheSe
 export interface DescribeCacheSecurityGroupsCommandOutput extends CacheSecurityGroupMessage, __MetadataBearer {}
 
 /**
- * <p>Returns a list of cache security group descriptions. If a cache security group name is
- *             specified, the list contains only the description of that group. This applicable only
- *             when you have ElastiCache in Classic setup </p>
+ * Returns a list of cache security group descriptions. If a cache security group name is specified, the list contains only the description of that group. This applicable only when you have ElastiCache in Classic setup
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,18 +68,20 @@ export interface DescribeCacheSecurityGroupsCommandOutput extends CacheSecurityG
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link CacheSecurityGroupNotFoundFault} (client fault)
- *  <p>The requested cache security group name does not refer to an existing cache security
- *             group.</p>
+ *
+ * The requested cache security group name does not refer to an existing cache security group.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * Two or more incompatible parameters were specified.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @example DescribeCacheSecurityGroups
  * ```javascript

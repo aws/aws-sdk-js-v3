@@ -23,7 +23,10 @@ export interface UpdateClusterCommandInput extends UpdateClusterRequest {}
 export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a cluster configuration. You can update the scheduler version, modify scheduler settings, and update accounting configuration for an existing cluster. For more information about updating the scheduler version, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_version_update.html">Updating the scheduler version on a cluster</a> in the <i>PCS User Guide</i>. </p> <note> <p>You can only update clusters that are in <code>ACTIVE</code>, <code>UPDATE_FAILED</code>, or <code>SUSPENDED</code> state. All associated resources (queues and compute node groups) must be in <code>ACTIVE</code> state before you can update the cluster.</p> </note>
+ * Updates a cluster configuration. You can update the scheduler version, modify scheduler settings, and update accounting configuration for an existing cluster. For more information about updating the scheduler version, see [Updating the scheduler version on a cluster](https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_version_update.html) in the *PCS User Guide*.
+ *
+ * > **Note:** You can only update clusters that are in `ACTIVE`, `UPDATE_FAILED`, or `SUSPENDED` state. All associated resources (queues and compute node groups) must be in `ACTIVE` state before you can update the cluster.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -156,26 +159,55 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  * @see {@link PCSClientResolvedConfig | config} for PCSClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permission to perform the action.</p> <p> <u>Examples</u> </p> <ul> <li> <p>The launch template instance profile doesn't pass <code>iam:PassRole</code> verification.</p> </li> <li> <p>There is a mismatch between the account ID and cluster ID.</p> </li> <li> <p>The cluster ID doesn't exist.</p> </li> <li> <p>The EC2 instance isn't present.</p> </li> </ul>
+ *
+ * You don't have permission to perform the action.
+ *
+ * Examples
+ *
+ * - The launch template instance profile doesn't pass `iam:PassRole` verification.
+ * - There is a mismatch between the account ID and cluster ID.
+ * - The cluster ID doesn't exist.
+ * - The EC2 instance isn't present.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Your request has conflicting operations. This can occur if you're trying to perform more than 1 operation on the same resource at the same time.</p> <p> <u>Examples</u> </p> <ul> <li> <p>A cluster with the same name already exists.</p> </li> <li> <p>A cluster isn't in <code>ACTIVE</code> status.</p> </li> <li> <p>A cluster to delete is in an unstable state. For example, because it still has <code>ACTIVE</code> node groups or queues.</p> </li> <li> <p>A queue already exists in a cluster.</p> </li> </ul>
+ *
+ * Your request has conflicting operations. This can occur if you're trying to perform more than 1 operation on the same resource at the same time.
+ *
+ * Examples
+ *
+ * - A cluster with the same name already exists.
+ * - A cluster isn't in `ACTIVE` status.
+ * - A cluster to delete is in an unstable state. For example, because it still has `ACTIVE` node groups or queues.
+ * - A queue already exists in a cluster.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>PCS can't process your request right now. Try again later.</p>
+ *
+ * PCS can't process your request right now. Try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource can't be found. The cluster, node group, or queue you're attempting to get, update, list, or delete doesn't exist.</p> <p> <u>Examples</u> </p>
+ *
+ * The requested resource can't be found. The cluster, node group, or queue you're attempting to get, update, list, or delete doesn't exist.
+ *
+ * Examples
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Your request exceeded a request rate quota. Check the resource's request rate quota and try again.</p>
+ *
+ * Your request exceeded a request rate quota. Check the resource's request rate quota and try again.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid.</p> <p> <u>Examples</u> </p> <ul> <li> <p>Your request contains malformed JSON or unsupported characters.</p> </li> <li> <p>The scheduler version isn't supported.</p> </li> <li> <p>There are networking related errors, such as network validation failure.</p> </li> <li> <p>AMI type is <code>CUSTOM</code> and the launch template doesn't define the AMI ID, or the AMI type is AL2 and the launch template defines the AMI.</p> </li> </ul>
+ *
+ * The request isn't valid.
+ *
+ * Examples
+ *
+ * - Your request contains malformed JSON or unsupported characters.
+ * - The scheduler version isn't supported.
+ * - There are networking related errors, such as network validation failure.
+ * - AMI type is `CUSTOM` and the launch template doesn't define the AMI ID, or the AMI type is AL2 and the launch template defines the AMI.
  *
  * @throws {@link PCSServiceException}
- * <p>Base exception class for all service exceptions from PCS service.</p>
  *
+ * Base exception class for all service exceptions from PCS service.
  *
  * @public
  */

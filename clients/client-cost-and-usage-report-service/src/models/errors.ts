@@ -6,7 +6,8 @@ import {
 } from "./CostAndUsageReportServiceServiceException";
 
 /**
- * <p>An error on the server occurred during the processing of your request. Try again later.</p>
+ * An error on the server occurred during the processing of your request. Try again later.
+ *
  * @public
  */
 export class InternalErrorException extends __BaseException {
@@ -14,7 +15,8 @@ export class InternalErrorException extends __BaseException {
   readonly name = "InternalErrorException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>A message to show the detail of the exception.</p>
+   * A message to show the detail of the exception.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -33,7 +35,8 @@ export class InternalErrorException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -41,7 +44,8 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message to show the detail of the exception.</p>
+   * A message to show the detail of the exception.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -60,7 +64,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The specified report (<code>ReportName</code>) in the request doesn't exist.</p>
+ * The specified report (`ReportName`) in the request doesn't exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -68,7 +73,8 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message to show the detail of the exception.</p>
+   * A message to show the detail of the exception.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -87,7 +93,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>A report with the specified name already exists in the account. Specify a different report name.</p>
+ * A report with the specified name already exists in the account. Specify a different report name.
+ *
  * @public
  */
 export class DuplicateReportNameException extends __BaseException {
@@ -95,7 +102,8 @@ export class DuplicateReportNameException extends __BaseException {
   readonly name = "DuplicateReportNameException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message to show the detail of the exception.</p>
+   * A message to show the detail of the exception.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -114,7 +122,8 @@ export class DuplicateReportNameException extends __BaseException {
 }
 
 /**
- * <p>This account already has five reports defined. To define a new report, you must delete an existing report.</p>
+ * This account already has five reports defined. To define a new report, you must delete an existing report.
+ *
  * @public
  */
 export class ReportLimitReachedException extends __BaseException {
@@ -122,7 +131,8 @@ export class ReportLimitReachedException extends __BaseException {
   readonly name = "ReportLimitReachedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message to show the detail of the exception.</p>
+   * A message to show the detail of the exception.
+   *
    * @public
    */
   Message?: string | undefined;

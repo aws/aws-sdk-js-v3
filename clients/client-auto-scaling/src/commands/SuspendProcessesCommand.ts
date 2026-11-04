@@ -23,13 +23,12 @@ export interface SuspendProcessesCommandInput extends ScalingProcessQuery {}
 export interface SuspendProcessesCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Suspends the specified auto scaling processes, or all processes, for the specified
- *             Auto Scaling group.</p>
- *          <p>If you suspend either the <code>Launch</code> or <code>Terminate</code> process types,
- *             it can prevent other process types from functioning properly. For more information, see
- *                 <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html">Suspend and resume
- *                 Amazon EC2 Auto Scaling processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
- *          <p>To resume processes that have been suspended, call the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_ResumeProcesses.html">ResumeProcesses</a> API.</p>
+ * Suspends the specified auto scaling processes, or all processes, for the specified Auto Scaling group.
+ *
+ * If you suspend either the `Launch` or `Terminate` process types, it can prevent other process types from functioning properly. For more information, see [Suspend and resume Amazon EC2 Auto Scaling processes](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html) in the *Amazon EC2 Auto Scaling User Guide*.
+ *
+ * To resume processes that have been suspended, call the [ResumeProcesses](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_ResumeProcesses.html) API.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,15 +56,16 @@ export interface SuspendProcessesCommandOutput extends __MetadataBearer {}
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  * @throws {@link ResourceContentionFault} (server fault)
- *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
- *             instance, or load balancer).</p>
+ *
+ * You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).
  *
  * @throws {@link ResourceInUseFault} (client fault)
- *  <p>The operation can't be performed because the resource is in use.</p>
+ *
+ * The operation can't be performed because the resource is in use.
  *
  * @throws {@link AutoScalingServiceException}
- * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from AutoScaling service.
  *
  * @example To suspend Auto Scaling processes
  * ```javascript

@@ -6,46 +6,44 @@ import type { GroupScope, GroupType, MemberType, UpdateType } from "./enums";
  */
 export interface AddGroupMemberRequest {
   /**
-   * <p> The identifier (ID) of the directory that's associated with the group. </p>
+   * The identifier (ID) of the directory that's associated with the group.
+   *
    * @public
    */
   DirectoryId: string | undefined;
 
   /**
-   * <p> The name of the group. </p>
+   * The name of the group.
+   *
    * @public
    */
   GroupName: string | undefined;
 
   /**
-   * <p> The <code>SAMAccountName</code> of the user, group, or computer to add as a group member.
-   *     </p>
+   * The `SAMAccountName` of the user, group, or computer to add as a group member.
+   *
    * @public
    */
   MemberName: string | undefined;
 
   /**
-   * <p> The domain name that's associated with the group member. This parameter is required only
-   *       when adding a member outside of your Managed Microsoft AD domain to a group inside of your
-   *       Managed Microsoft AD domain. This parameter defaults to the Managed Microsoft AD domain. </p>
-   *          <note>
-   *             <p> This parameter is case insensitive. </p>
-   *          </note>
+   * The domain name that's associated with the group member. This parameter is required only when adding a member outside of your Managed Microsoft AD domain to a group inside of your Managed Microsoft AD domain. This parameter defaults to the Managed Microsoft AD domain.
+   *
+   * > **Note:** This parameter is case insensitive.
+   *
    * @public
    */
   MemberRealm?: string | undefined;
 
   /**
-   * <p> A unique and case-sensitive identifier that you provide to make sure the idempotency of
-   *       the request, so multiple identical calls have the same effect as one single call. </p>
-   *          <p> A client token is valid for 8 hours after the first request that uses it completes. After
-   *       8 hours, any request with the same client token is treated as a new request. If the request
-   *       succeeds, any future uses of that token will be idempotent for another 8 hours. </p>
-   *          <p> If you submit a request with the same client token but change one of the other parameters
-   *       within the 8-hour idempotency window, Directory Service Data returns an <code>ConflictException</code>. </p>
-   *          <note>
-   *             <p> This parameter is optional when using the CLI or SDK. </p>
-   *          </note>
+   * A unique and case-sensitive identifier that you provide to make sure the idempotency of the request, so multiple identical calls have the same effect as one single call.
+   *
+   * A client token is valid for 8 hours after the first request that uses it completes. After 8 hours, any request with the same client token is treated as a new request. If the request succeeds, any future uses of that token will be idempotent for another 8 hours.
+   *
+   * If you submit a request with the same client token but change one of the other parameters within the 8-hour idempotency window, Directory Service Data returns an `ConflictException`.
+   *
+   * > **Note:** This parameter is optional when using the CLI or SDK.
+   *
    * @public
    */
   ClientToken?: string | undefined;
@@ -57,10 +55,8 @@ export interface AddGroupMemberRequest {
 export interface AddGroupMemberResult {}
 
 /**
- * <p> The data type for an attribute. Each attribute value is described as a name-value pair.
- *       The name is the AD schema name, and the value is the data itself. For a list of supported
- *       attributes, see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_data_attributes.html">Directory Service Data Attributes</a>.
- *     </p>
+ * The data type for an attribute. Each attribute value is described as a name-value pair. The name is the AD schema name, and the value is the data itself. For a list of supported attributes, see [Directory Service Data Attributes](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_data_attributes.html).
+ *
  * @public
  */
 export type AttributeValue =
@@ -75,10 +71,10 @@ export type AttributeValue =
  */
 export namespace AttributeValue {
   /**
-   * <p> Indicates that the attribute type value is a string. For example: </p>
-   *          <p>
-   *             <code>"S": "S Group"</code>
-   *          </p>
+   * Indicates that the attribute type value is a string. For example:
+   *
+   * `"S": "S Group"`
+   *
    * @public
    */
   export interface SMember {
@@ -90,10 +86,10 @@ export namespace AttributeValue {
   }
 
   /**
-   * <p> Indicates that the attribute type value is a number. For example: </p>
-   *          <p>
-   *             <code>"N": "16"</code>
-   *          </p>
+   * Indicates that the attribute type value is a number. For example:
+   *
+   * `"N": "16"`
+   *
    * @public
    */
   export interface NMember {
@@ -105,10 +101,10 @@ export namespace AttributeValue {
   }
 
   /**
-   * <p> Indicates that the attribute type value is a boolean. For example: </p>
-   *          <p>
-   *             <code>"BOOL": true</code>
-   *          </p>
+   * Indicates that the attribute type value is a boolean. For example:
+   *
+   * `"BOOL": true`
+   *
    * @public
    */
   export interface BOOLMember {
@@ -120,11 +116,10 @@ export namespace AttributeValue {
   }
 
   /**
-   * <p> Indicates that the attribute type value is a string set. For example: </p>
-   *          <p>
-   *             <code>"SS": ["sample_service_class/host.sample.com:1234/sample_service_name_1",
-   *         "sample_service_class/host.sample.com:1234/sample_service_name_2"]</code>
-   *          </p>
+   * Indicates that the attribute type value is a string set. For example:
+   *
+   * `"SS": ["sample_service_class/host.sample.com:1234/sample_service_name_1", "sample_service_class/host.sample.com:1234/sample_service_name_2"]`
+   *
    * @public
    */
   export interface SSMember {
@@ -164,47 +159,49 @@ export namespace AttributeValue {
  */
 export interface CreateGroupRequest {
   /**
-   * <p> The identifier (ID) of the directory that's associated with the group. </p>
+   * The identifier (ID) of the directory that's associated with the group.
+   *
    * @public
    */
   DirectoryId: string | undefined;
 
   /**
-   * <p> The name of the group. </p>
+   * The name of the group.
+   *
    * @public
    */
   SAMAccountName: string | undefined;
 
   /**
-   * <p> The AD group type. For details, see <a href="https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#how-active-directory-security-groups-work">Active Directory security group type</a>.</p>
+   * The AD group type. For details, see [Active Directory security group type](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#how-active-directory-security-groups-work).
+   *
    * @public
    */
   GroupType?: GroupType | undefined;
 
   /**
-   * <p> The scope of the AD group. For details, see <a href="https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#group-scope">Active Directory security group scope</a>. </p>
+   * The scope of the AD group. For details, see [Active Directory security group scope](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#group-scope).
+   *
    * @public
    */
   GroupScope?: GroupScope | undefined;
 
   /**
-   * <p> An expression that defines one or more attributes with the data type and value of each
-   *       attribute. </p>
+   * An expression that defines one or more attributes with the data type and value of each attribute.
+   *
    * @public
    */
   OtherAttributes?: Record<string, AttributeValue> | undefined;
 
   /**
-   * <p> A unique and case-sensitive identifier that you provide to make sure the idempotency of
-   *       the request, so multiple identical calls have the same effect as one single call. </p>
-   *          <p> A client token is valid for 8 hours after the first request that uses it completes. After
-   *       8 hours, any request with the same client token is treated as a new request. If the request
-   *       succeeds, any future uses of that token will be idempotent for another 8 hours. </p>
-   *          <p> If you submit a request with the same client token but change one of the other parameters
-   *       within the 8-hour idempotency window, Directory Service Data returns an <code>ConflictException</code>. </p>
-   *          <note>
-   *             <p> This parameter is optional when using the CLI or SDK. </p>
-   *          </note>
+   * A unique and case-sensitive identifier that you provide to make sure the idempotency of the request, so multiple identical calls have the same effect as one single call.
+   *
+   * A client token is valid for 8 hours after the first request that uses it completes. After 8 hours, any request with the same client token is treated as a new request. If the request succeeds, any future uses of that token will be idempotent for another 8 hours.
+   *
+   * If you submit a request with the same client token but change one of the other parameters within the 8-hour idempotency window, Directory Service Data returns an `ConflictException`.
+   *
+   * > **Note:** This parameter is optional when using the CLI or SDK.
+   *
    * @public
    */
   ClientToken?: string | undefined;
@@ -215,19 +212,22 @@ export interface CreateGroupRequest {
  */
 export interface CreateGroupResult {
   /**
-   * <p> The identifier (ID) of the directory that's associated with the group. </p>
+   * The identifier (ID) of the directory that's associated with the group.
+   *
    * @public
    */
   DirectoryId?: string | undefined;
 
   /**
-   * <p> The name of the group. </p>
+   * The name of the group.
+   *
    * @public
    */
   SAMAccountName?: string | undefined;
 
   /**
-   * <p> The unique security identifier (SID) of the group. </p>
+   * The unique security identifier (SID) of the group.
+   *
    * @public
    */
   SID?: string | undefined;
@@ -238,57 +238,58 @@ export interface CreateGroupResult {
  */
 export interface CreateUserRequest {
   /**
-   * <p> The identifier (ID) of the directory that’s associated with the user. </p>
+   * The identifier (ID) of the directory that’s associated with the user.
+   *
    * @public
    */
   DirectoryId: string | undefined;
 
   /**
-   * <p> The name of the user. </p>
+   * The name of the user.
+   *
    * @public
    */
   SAMAccountName: string | undefined;
 
   /**
-   * <p> The email address of the user. </p>
+   * The email address of the user.
+   *
    * @public
    */
   EmailAddress?: string | undefined;
 
   /**
-   * <p> The first name of the user. </p>
+   * The first name of the user.
+   *
    * @public
    */
   GivenName?: string | undefined;
 
   /**
-   * <p> The last name of the user. </p>
+   * The last name of the user.
+   *
    * @public
    */
   Surname?: string | undefined;
 
   /**
-   * <p> An expression that defines one or more attribute names with the data type and value of
-   *       each attribute. A key is an attribute name, and the value is a list of maps. For a list of
-   *       supported attributes, see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_data_attributes.html">Directory Service Data Attributes</a>. </p>
-   *          <note>
-   *             <p> Attribute names are case insensitive. </p>
-   *          </note>
+   * An expression that defines one or more attribute names with the data type and value of each attribute. A key is an attribute name, and the value is a list of maps. For a list of supported attributes, see [Directory Service Data Attributes](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_data_attributes.html).
+   *
+   * > **Note:** Attribute names are case insensitive.
+   *
    * @public
    */
   OtherAttributes?: Record<string, AttributeValue> | undefined;
 
   /**
-   * <p> A unique and case-sensitive identifier that you provide to make sure the idempotency of
-   *       the request, so multiple identical calls have the same effect as one single call. </p>
-   *          <p> A client token is valid for 8 hours after the first request that uses it completes. After
-   *       8 hours, any request with the same client token is treated as a new request. If the request
-   *       succeeds, any future uses of that token will be idempotent for another 8 hours. </p>
-   *          <p> If you submit a request with the same client token but change one of the other parameters
-   *       within the 8-hour idempotency window, Directory Service Data returns an <code>ConflictException</code>. </p>
-   *          <note>
-   *             <p> This parameter is optional when using the CLI or SDK. </p>
-   *          </note>
+   * A unique and case-sensitive identifier that you provide to make sure the idempotency of the request, so multiple identical calls have the same effect as one single call.
+   *
+   * A client token is valid for 8 hours after the first request that uses it completes. After 8 hours, any request with the same client token is treated as a new request. If the request succeeds, any future uses of that token will be idempotent for another 8 hours.
+   *
+   * If you submit a request with the same client token but change one of the other parameters within the 8-hour idempotency window, Directory Service Data returns an `ConflictException`.
+   *
+   * > **Note:** This parameter is optional when using the CLI or SDK.
+   *
    * @public
    */
   ClientToken?: string | undefined;
@@ -299,19 +300,22 @@ export interface CreateUserRequest {
  */
 export interface CreateUserResult {
   /**
-   * <p> The identifier (ID) of the directory where the address block is added. </p>
+   * The identifier (ID) of the directory where the address block is added.
+   *
    * @public
    */
   DirectoryId?: string | undefined;
 
   /**
-   * <p> The unique security identifier (SID) of the user. </p>
+   * The unique security identifier (SID) of the user.
+   *
    * @public
    */
   SID?: string | undefined;
 
   /**
-   * <p> The name of the user. </p>
+   * The name of the user.
+   *
    * @public
    */
   SAMAccountName?: string | undefined;
@@ -322,28 +326,28 @@ export interface CreateUserResult {
  */
 export interface DeleteGroupRequest {
   /**
-   * <p> The identifier (ID) of the directory that's associated with the group. </p>
+   * The identifier (ID) of the directory that's associated with the group.
+   *
    * @public
    */
   DirectoryId: string | undefined;
 
   /**
-   * <p> The name of the group. </p>
+   * The name of the group.
+   *
    * @public
    */
   SAMAccountName: string | undefined;
 
   /**
-   * <p> A unique and case-sensitive identifier that you provide to make sure the idempotency of
-   *       the request, so multiple identical calls have the same effect as one single call. </p>
-   *          <p> A client token is valid for 8 hours after the first request that uses it completes. After
-   *       8 hours, any request with the same client token is treated as a new request. If the request
-   *       succeeds, any future uses of that token will be idempotent for another 8 hours. </p>
-   *          <p> If you submit a request with the same client token but change one of the other parameters
-   *       within the 8-hour idempotency window, Directory Service Data returns an <code>ConflictException</code>. </p>
-   *          <note>
-   *             <p> This parameter is optional when using the CLI or SDK. </p>
-   *          </note>
+   * A unique and case-sensitive identifier that you provide to make sure the idempotency of the request, so multiple identical calls have the same effect as one single call.
+   *
+   * A client token is valid for 8 hours after the first request that uses it completes. After 8 hours, any request with the same client token is treated as a new request. If the request succeeds, any future uses of that token will be idempotent for another 8 hours.
+   *
+   * If you submit a request with the same client token but change one of the other parameters within the 8-hour idempotency window, Directory Service Data returns an `ConflictException`.
+   *
+   * > **Note:** This parameter is optional when using the CLI or SDK.
+   *
    * @public
    */
   ClientToken?: string | undefined;
@@ -359,28 +363,28 @@ export interface DeleteGroupResult {}
  */
 export interface DeleteUserRequest {
   /**
-   * <p> The identifier (ID) of the directory that's associated with the user. </p>
+   * The identifier (ID) of the directory that's associated with the user.
+   *
    * @public
    */
   DirectoryId: string | undefined;
 
   /**
-   * <p> The name of the user. </p>
+   * The name of the user.
+   *
    * @public
    */
   SAMAccountName: string | undefined;
 
   /**
-   * <p> A unique and case-sensitive identifier that you provide to make sure the idempotency of
-   *       the request, so multiple identical calls have the same effect as one single call. </p>
-   *          <p> A client token is valid for 8 hours after the first request that uses it completes. After
-   *       8 hours, any request with the same client token is treated as a new request. If the request
-   *       succeeds, any future uses of that token will be idempotent for another 8 hours. </p>
-   *          <p> If you submit a request with the same client token but change one of the other parameters
-   *       within the 8-hour idempotency window, Directory Service Data returns an <code>ConflictException</code>. </p>
-   *          <note>
-   *             <p> This parameter is optional when using the CLI or SDK. </p>
-   *          </note>
+   * A unique and case-sensitive identifier that you provide to make sure the idempotency of the request, so multiple identical calls have the same effect as one single call.
+   *
+   * A client token is valid for 8 hours after the first request that uses it completes. After 8 hours, any request with the same client token is treated as a new request. If the request succeeds, any future uses of that token will be idempotent for another 8 hours.
+   *
+   * If you submit a request with the same client token but change one of the other parameters within the 8-hour idempotency window, Directory Service Data returns an `ConflictException`.
+   *
+   * > **Note:** This parameter is optional when using the CLI or SDK.
+   *
    * @public
    */
   ClientToken?: string | undefined;
@@ -396,32 +400,35 @@ export interface DeleteUserResult {}
  */
 export interface DescribeGroupRequest {
   /**
-   * <p>The Identifier (ID) of the directory associated with the group.</p>
+   * The Identifier (ID) of the directory associated with the group.
+   *
    * @public
    */
   DirectoryId: string | undefined;
 
   /**
-   * <p> The domain name that's associated with the group. </p>
-   *          <note>
-   *             <p> This parameter is optional, so you can return groups outside of your Managed Microsoft AD
-   *         domain. When no value is defined, only your Managed Microsoft AD groups are returned. </p>
-   *             <p> This value is case insensitive. </p>
-   *          </note>
+   * The domain name that's associated with the group.
+   *
+   * > **Note:**
+   * >
+   * > This parameter is optional, so you can return groups outside of your Managed Microsoft AD domain. When no value is defined, only your Managed Microsoft AD groups are returned.
+   * >
+   * > This value is case insensitive.
+   *
    * @public
    */
   Realm?: string | undefined;
 
   /**
-   * <p> The name of the group. </p>
+   * The name of the group.
+   *
    * @public
    */
   SAMAccountName: string | undefined;
 
   /**
-   * <p> One or more attributes to be returned for the group. For a list of supported attributes,
-   *       see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_data_attributes.html">Directory Service Data Attributes</a>.
-   *     </p>
+   * One or more attributes to be returned for the group. For a list of supported attributes, see [Directory Service Data Attributes](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_data_attributes.html).
+   *
    * @public
    */
   OtherAttributes?: string[] | undefined;
@@ -432,50 +439,57 @@ export interface DescribeGroupRequest {
  */
 export interface DescribeGroupResult {
   /**
-   * <p> The identifier (ID) of the directory that's associated with the group. </p>
+   * The identifier (ID) of the directory that's associated with the group.
+   *
    * @public
    */
   DirectoryId?: string | undefined;
 
   /**
-   * <p> The domain name that's associated with the group. </p>
+   * The domain name that's associated with the group.
+   *
    * @public
    */
   Realm?: string | undefined;
 
   /**
-   * <p> The unique security identifier (SID) of the group. </p>
+   * The unique security identifier (SID) of the group.
+   *
    * @public
    */
   SID?: string | undefined;
 
   /**
-   * <p> The name of the group. </p>
+   * The name of the group.
+   *
    * @public
    */
   SAMAccountName?: string | undefined;
 
   /**
-   * <p> The <a href="https://learn.microsoft.com/en-us/windows/win32/ad/object-names-and-identities#distinguished-name">distinguished name</a> of the object. </p>
+   * The [distinguished name](https://learn.microsoft.com/en-us/windows/win32/ad/object-names-and-identities#distinguished-name) of the object.
+   *
    * @public
    */
   DistinguishedName?: string | undefined;
 
   /**
-   * <p> The AD group type. For details, see <a href="https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#how-active-directory-security-groups-work">Active Directory security group type</a>. </p>
+   * The AD group type. For details, see [Active Directory security group type](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#how-active-directory-security-groups-work).
+   *
    * @public
    */
   GroupType?: GroupType | undefined;
 
   /**
-   * <p> The scope of the AD group. For details, see <a href="https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#group-scope">Active Directory security groups</a>. </p>
+   * The scope of the AD group. For details, see [Active Directory security groups](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#group-scope).
+   *
    * @public
    */
   GroupScope?: GroupScope | undefined;
 
   /**
-   * <p> The attribute values that are returned for the attribute names that are included in the
-   *       request. </p>
+   * The attribute values that are returned for the attribute names that are included in the request.
+   *
    * @public
    */
   OtherAttributes?: Record<string, AttributeValue> | undefined;
@@ -486,31 +500,35 @@ export interface DescribeGroupResult {
  */
 export interface DescribeUserRequest {
   /**
-   * <p> The identifier (ID) of the directory that's associated with the user. </p>
+   * The identifier (ID) of the directory that's associated with the user.
+   *
    * @public
    */
   DirectoryId: string | undefined;
 
   /**
-   * <p> The name of the user. </p>
+   * The name of the user.
+   *
    * @public
    */
   SAMAccountName: string | undefined;
 
   /**
-   * <p> One or more attribute names to be returned for the user. A key is an attribute name, and
-   *       the value is a list of maps. For a list of supported attributes, see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_data_attributes.html">Directory Service Data Attributes</a>. </p>
+   * One or more attribute names to be returned for the user. A key is an attribute name, and the value is a list of maps. For a list of supported attributes, see [Directory Service Data Attributes](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_data_attributes.html).
+   *
    * @public
    */
   OtherAttributes?: string[] | undefined;
 
   /**
-   * <p> The domain name that's associated with the user. </p>
-   *          <note>
-   *             <p> This parameter is optional, so you can return users outside your Managed Microsoft AD domain.
-   *         When no value is defined, only your Managed Microsoft AD users are returned. </p>
-   *             <p> This value is case insensitive. </p>
-   *          </note>
+   * The domain name that's associated with the user.
+   *
+   * > **Note:**
+   * >
+   * > This parameter is optional, so you can return users outside your Managed Microsoft AD domain. When no value is defined, only your Managed Microsoft AD users are returned.
+   * >
+   * > This value is case insensitive.
+   *
    * @public
    */
   Realm?: string | undefined;
@@ -521,73 +539,80 @@ export interface DescribeUserRequest {
  */
 export interface DescribeUserResult {
   /**
-   * <p> The identifier (ID) of the directory that's associated with the user. </p>
+   * The identifier (ID) of the directory that's associated with the user.
+   *
    * @public
    */
   DirectoryId?: string | undefined;
 
   /**
-   * <p> The domain name that's associated with the user. </p>
+   * The domain name that's associated with the user.
+   *
    * @public
    */
   Realm?: string | undefined;
 
   /**
-   * <p> The unique security identifier (SID) of the user. </p>
+   * The unique security identifier (SID) of the user.
+   *
    * @public
    */
   SID?: string | undefined;
 
   /**
-   * <p> The name of the user. </p>
+   * The name of the user.
+   *
    * @public
    */
   SAMAccountName?: string | undefined;
 
   /**
-   * <p> The <a href="https://learn.microsoft.com/en-us/windows/win32/ad/object-names-and-identities#distinguished-name">distinguished name</a> of the object. </p>
+   * The [distinguished name](https://learn.microsoft.com/en-us/windows/win32/ad/object-names-and-identities#distinguished-name) of the object.
+   *
    * @public
    */
   DistinguishedName?: string | undefined;
 
   /**
-   * <p> The UPN that is an Internet-style login name for a user and is based on the Internet
-   *       standard <a href="https://datatracker.ietf.org/doc/html/rfc822">RFC 822</a>. The UPN is shorter
-   *       than the distinguished name and easier to remember. </p>
+   * The UPN that is an Internet-style login name for a user and is based on the Internet standard [RFC 822](https://datatracker.ietf.org/doc/html/rfc822). The UPN is shorter than the distinguished name and easier to remember.
+   *
    * @public
    */
   UserPrincipalName?: string | undefined;
 
   /**
-   * <p> The email address of the user. </p>
+   * The email address of the user.
+   *
    * @public
    */
   EmailAddress?: string | undefined;
 
   /**
-   * <p> The first name of the user. </p>
+   * The first name of the user.
+   *
    * @public
    */
   GivenName?: string | undefined;
 
   /**
-   * <p> The last name of the user. </p>
+   * The last name of the user.
+   *
    * @public
    */
   Surname?: string | undefined;
 
   /**
-   * <p> Indicates whether the user account is active. </p>
+   * Indicates whether the user account is active.
+   *
    * @public
    */
   Enabled?: boolean | undefined;
 
   /**
-   * <p> The attribute values that are returned for the attribute names that are included in the
-   *       request. </p>
-   *          <note>
-   *             <p> Attribute names are case insensitive. </p>
-   *          </note>
+   * The attribute values that are returned for the attribute names that are included in the request.
+   *
+   * > **Note:** Attribute names are case insensitive.
+   *
    * @public
    */
   OtherAttributes?: Record<string, AttributeValue> | undefined;
@@ -598,28 +623,28 @@ export interface DescribeUserResult {
  */
 export interface DisableUserRequest {
   /**
-   * <p> The identifier (ID) of the directory that's associated with the user. </p>
+   * The identifier (ID) of the directory that's associated with the user.
+   *
    * @public
    */
   DirectoryId: string | undefined;
 
   /**
-   * <p> The name of the user. </p>
+   * The name of the user.
+   *
    * @public
    */
   SAMAccountName: string | undefined;
 
   /**
-   * <p> A unique and case-sensitive identifier that you provide to make sure the idempotency of
-   *       the request, so multiple identical calls have the same effect as one single call. </p>
-   *          <p> A client token is valid for 8 hours after the first request that uses it completes. After
-   *       8 hours, any request with the same client token is treated as a new request. If the request
-   *       succeeds, any future uses of that token will be idempotent for another 8 hours. </p>
-   *          <p> If you submit a request with the same client token but change one of the other parameters
-   *       within the 8-hour idempotency window, Directory Service Data returns an <code>ConflictException</code>. </p>
-   *          <note>
-   *             <p> This parameter is optional when using the CLI or SDK. </p>
-   *          </note>
+   * A unique and case-sensitive identifier that you provide to make sure the idempotency of the request, so multiple identical calls have the same effect as one single call.
+   *
+   * A client token is valid for 8 hours after the first request that uses it completes. After 8 hours, any request with the same client token is treated as a new request. If the request succeeds, any future uses of that token will be idempotent for another 8 hours.
+   *
+   * If you submit a request with the same client token but change one of the other parameters within the 8-hour idempotency window, Directory Service Data returns an `ConflictException`.
+   *
+   * > **Note:** This parameter is optional when using the CLI or SDK.
+   *
    * @public
    */
   ClientToken?: string | undefined;
@@ -635,72 +660,79 @@ export interface DisableUserResult {}
  */
 export interface ListGroupMembersRequest {
   /**
-   * <p> The identifier (ID) of the directory that's associated with the group. </p>
+   * The identifier (ID) of the directory that's associated with the group.
+   *
    * @public
    */
   DirectoryId: string | undefined;
 
   /**
-   * <p> The domain name that's associated with the group. </p>
-   *          <note>
-   *             <p> This parameter is optional, so you can return members from a group outside of your
-   *         Managed Microsoft AD domain. When no value is defined, only members of your Managed Microsoft AD groups are
-   *         returned. </p>
-   *             <p> This value is case insensitive. </p>
-   *          </note>
+   * The domain name that's associated with the group.
+   *
+   * > **Note:**
+   * >
+   * > This parameter is optional, so you can return members from a group outside of your Managed Microsoft AD domain. When no value is defined, only members of your Managed Microsoft AD groups are returned.
+   * >
+   * > This value is case insensitive.
+   *
    * @public
    */
   Realm?: string | undefined;
 
   /**
-   * <p> The domain name that's associated with the group member. This parameter defaults to the
-   *       Managed Microsoft AD domain. </p>
-   *          <note>
-   *             <p> This parameter is optional and case insensitive. </p>
-   *          </note>
+   * The domain name that's associated with the group member. This parameter defaults to the Managed Microsoft AD domain.
+   *
+   * > **Note:** This parameter is optional and case insensitive.
+   *
    * @public
    */
   MemberRealm?: string | undefined;
 
   /**
-   * <p> The name of the group. </p>
+   * The name of the group.
+   *
    * @public
    */
   SAMAccountName: string | undefined;
 
   /**
-   * <p>An encoded paging token for paginated calls that can be passed back to retrieve the next
-   *       page.</p>
+   * An encoded paging token for paginated calls that can be passed back to retrieve the next page.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p> The maximum number of results to be returned per request. </p>
+   * The maximum number of results to be returned per request.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>A member object that contains identifying information for a specified member.</p>
+ * A member object that contains identifying information for a specified member.
+ *
  * @public
  */
 export interface Member {
   /**
-   * <p> The unique security identifier (SID) of the group member. </p>
+   * The unique security identifier (SID) of the group member.
+   *
    * @public
    */
   SID: string | undefined;
 
   /**
-   * <p> The name of the group member. </p>
+   * The name of the group member.
+   *
    * @public
    */
   SAMAccountName: string | undefined;
 
   /**
-   * <p> The AD type of the member object.</p>
+   * The AD type of the member object.
+   *
    * @public
    */
   MemberType: MemberType | undefined;
@@ -711,32 +743,36 @@ export interface Member {
  */
 export interface ListGroupMembersResult {
   /**
-   * <p>Identifier (ID) of the directory associated with the group.</p>
+   * Identifier (ID) of the directory associated with the group.
+   *
    * @public
    */
   DirectoryId?: string | undefined;
 
   /**
-   * <p> The domain name that's associated with the group. </p>
+   * The domain name that's associated with the group.
+   *
    * @public
    */
   Realm?: string | undefined;
 
   /**
-   * <p> The domain name that's associated with the member. </p>
+   * The domain name that's associated with the member.
+   *
    * @public
    */
   MemberRealm?: string | undefined;
 
   /**
-   * <p> The member information that the request returns. </p>
+   * The member information that the request returns.
+   *
    * @public
    */
   Members?: Member[] | undefined;
 
   /**
-   * <p> An encoded paging token for paginated calls that can be passed back to retrieve the next
-   *       page. </p>
+   * An encoded paging token for paginated calls that can be passed back to retrieve the next page.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -747,61 +783,70 @@ export interface ListGroupMembersResult {
  */
 export interface ListGroupsRequest {
   /**
-   * <p> The identifier (ID) of the directory that's associated with the group. </p>
+   * The identifier (ID) of the directory that's associated with the group.
+   *
    * @public
    */
   DirectoryId: string | undefined;
 
   /**
-   * <p> The domain name associated with the directory. </p>
-   *          <note>
-   *             <p> This parameter is optional, so you can return groups outside of your Managed Microsoft AD
-   *         domain. When no value is defined, only your Managed Microsoft AD groups are returned. </p>
-   *             <p> This value is case insensitive. </p>
-   *          </note>
+   * The domain name associated with the directory.
+   *
+   * > **Note:**
+   * >
+   * > This parameter is optional, so you can return groups outside of your Managed Microsoft AD domain. When no value is defined, only your Managed Microsoft AD groups are returned.
+   * >
+   * > This value is case insensitive.
+   *
    * @public
    */
   Realm?: string | undefined;
 
   /**
-   * <p> An encoded paging token for paginated calls that can be passed back to retrieve the next
-   *       page. </p>
+   * An encoded paging token for paginated calls that can be passed back to retrieve the next page.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p> The maximum number of results to be returned per request. </p>
+   * The maximum number of results to be returned per request.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>A structure containing a subset of fields of a group object from a directory.</p>
+ * A structure containing a subset of fields of a group object from a directory.
+ *
  * @public
  */
 export interface GroupSummary {
   /**
-   * <p>The unique security identifier (SID) of the group.</p>
+   * The unique security identifier (SID) of the group.
+   *
    * @public
    */
   SID: string | undefined;
 
   /**
-   * <p>The name of the group.</p>
+   * The name of the group.
+   *
    * @public
    */
   SAMAccountName: string | undefined;
 
   /**
-   * <p>The AD group type. For details, see <a href="https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#how-active-directory-security-groups-work">Active Directory security group type</a>.</p>
+   * The AD group type. For details, see [Active Directory security group type](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#how-active-directory-security-groups-work).
+   *
    * @public
    */
   GroupType: GroupType | undefined;
 
   /**
-   * <p>The scope of the AD group. For details, see <a href="https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#group-scope">Active Directory security groups</a>.</p>
+   * The scope of the AD group. For details, see [Active Directory security groups](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#group-scope).
+   *
    * @public
    */
   GroupScope: GroupScope | undefined;
@@ -812,26 +857,29 @@ export interface GroupSummary {
  */
 export interface ListGroupsResult {
   /**
-   * <p> The identifier (ID) of the directory that's associated with the group. </p>
+   * The identifier (ID) of the directory that's associated with the group.
+   *
    * @public
    */
   DirectoryId?: string | undefined;
 
   /**
-   * <p>The domain name associated with the group.</p>
+   * The domain name associated with the group.
+   *
    * @public
    */
   Realm?: string | undefined;
 
   /**
-   * <p> The group information that the request returns. </p>
+   * The group information that the request returns.
+   *
    * @public
    */
   Groups?: GroupSummary[] | undefined;
 
   /**
-   * <p> An encoded paging token for paginated calls that can be passed back to retrieve the next
-   *       page. </p>
+   * An encoded paging token for paginated calls that can be passed back to retrieve the next page.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -842,50 +890,55 @@ export interface ListGroupsResult {
  */
 export interface ListGroupsForMemberRequest {
   /**
-   * <p> The identifier (ID) of the directory that's associated with the member. </p>
+   * The identifier (ID) of the directory that's associated with the member.
+   *
    * @public
    */
   DirectoryId: string | undefined;
 
   /**
-   * <p> The domain name that's associated with the group. </p>
-   *          <note>
-   *             <p> This parameter is optional, so you can return groups outside of your Managed Microsoft AD
-   *         domain. When no value is defined, only your Managed Microsoft AD groups are returned. </p>
-   *             <p> This value is case insensitive and defaults to your Managed Microsoft AD domain. </p>
-   *          </note>
+   * The domain name that's associated with the group.
+   *
+   * > **Note:**
+   * >
+   * > This parameter is optional, so you can return groups outside of your Managed Microsoft AD domain. When no value is defined, only your Managed Microsoft AD groups are returned.
+   * >
+   * > This value is case insensitive and defaults to your Managed Microsoft AD domain.
+   *
    * @public
    */
   Realm?: string | undefined;
 
   /**
-   * <p> The domain name that's associated with the group member. </p>
-   *          <note>
-   *             <p> This parameter is optional, so you can limit your results to the group members in a
-   *         specific domain. </p>
-   *             <p> This parameter is case insensitive and defaults to <code>Realm</code>
-   *             </p>
-   *          </note>
+   * The domain name that's associated with the group member.
+   *
+   * > **Note:**
+   * >
+   * > This parameter is optional, so you can limit your results to the group members in a specific domain.
+   * >
+   * > This parameter is case insensitive and defaults to `Realm`
+   *
    * @public
    */
   MemberRealm?: string | undefined;
 
   /**
-   * <p> The <code>SAMAccountName</code> of the user, group, or computer that's a member of the
-   *       group. </p>
+   * The `SAMAccountName` of the user, group, or computer that's a member of the group.
+   *
    * @public
    */
   SAMAccountName: string | undefined;
 
   /**
-   * <p> An encoded paging token for paginated calls that can be passed back to retrieve the next
-   *       page. </p>
+   * An encoded paging token for paginated calls that can be passed back to retrieve the next page.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p> The maximum number of results to be returned per request. </p>
+   * The maximum number of results to be returned per request.
+   *
    * @public
    */
   MaxResults?: number | undefined;
@@ -896,32 +949,36 @@ export interface ListGroupsForMemberRequest {
  */
 export interface ListGroupsForMemberResult {
   /**
-   * <p> The identifier (ID) of the directory that's associated with the member. </p>
+   * The identifier (ID) of the directory that's associated with the member.
+   *
    * @public
    */
   DirectoryId?: string | undefined;
 
   /**
-   * <p> The domain that's associated with the group. </p>
+   * The domain that's associated with the group.
+   *
    * @public
    */
   Realm?: string | undefined;
 
   /**
-   * <p> The domain that's associated with the member. </p>
+   * The domain that's associated with the member.
+   *
    * @public
    */
   MemberRealm?: string | undefined;
 
   /**
-   * <p> The group information that the request returns. </p>
+   * The group information that the request returns.
+   *
    * @public
    */
   Groups?: GroupSummary[] | undefined;
 
   /**
-   * <p> An encoded paging token for paginated calls that can be passed back to retrieve the next
-   *       page. </p>
+   * An encoded paging token for paginated calls that can be passed back to retrieve the next page.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -932,67 +989,77 @@ export interface ListGroupsForMemberResult {
  */
 export interface ListUsersRequest {
   /**
-   * <p> The identifier (ID) of the directory that's associated with the user. </p>
+   * The identifier (ID) of the directory that's associated with the user.
+   *
    * @public
    */
   DirectoryId: string | undefined;
 
   /**
-   * <p> The domain name that's associated with the user. </p>
-   *          <note>
-   *             <p> This parameter is optional, so you can return users outside of your Managed Microsoft AD
-   *         domain. When no value is defined, only your Managed Microsoft AD users are returned. </p>
-   *             <p> This value is case insensitive. </p>
-   *          </note>
+   * The domain name that's associated with the user.
+   *
+   * > **Note:**
+   * >
+   * > This parameter is optional, so you can return users outside of your Managed Microsoft AD domain. When no value is defined, only your Managed Microsoft AD users are returned.
+   * >
+   * > This value is case insensitive.
+   *
    * @public
    */
   Realm?: string | undefined;
 
   /**
-   * <p> An encoded paging token for paginated calls that can be passed back to retrieve the next
-   *       page. </p>
+   * An encoded paging token for paginated calls that can be passed back to retrieve the next page.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p> The maximum number of results to be returned per request. </p>
+   * The maximum number of results to be returned per request.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>A structure containing a subset of the fields of a user object from a directory.</p>
+ * A structure containing a subset of the fields of a user object from a directory.
+ *
  * @public
  */
 export interface UserSummary {
   /**
-   * <p> The unique security identifier (SID) of the user.</p>
+   * The unique security identifier (SID) of the user.
+   *
    * @public
    */
   SID: string | undefined;
 
   /**
-   * <p>The name of the user.</p>
+   * The name of the user.
+   *
    * @public
    */
   SAMAccountName: string | undefined;
 
   /**
-   * <p>The first name of the user. </p>
+   * The first name of the user.
+   *
    * @public
    */
   GivenName?: string | undefined;
 
   /**
-   * <p>The last name of the user.</p>
+   * The last name of the user.
+   *
    * @public
    */
   Surname?: string | undefined;
 
   /**
-   * <p>Indicates whether the user account is active.</p>
+   * Indicates whether the user account is active.
+   *
    * @public
    */
   Enabled: boolean | undefined;
@@ -1003,26 +1070,29 @@ export interface UserSummary {
  */
 export interface ListUsersResult {
   /**
-   * <p> The identifier (ID) of the directory that's associated with the user. </p>
+   * The identifier (ID) of the directory that's associated with the user.
+   *
    * @public
    */
   DirectoryId?: string | undefined;
 
   /**
-   * <p> The domain that's associated with the user. </p>
+   * The domain that's associated with the user.
+   *
    * @public
    */
   Realm?: string | undefined;
 
   /**
-   * <p> The user information that the request returns. </p>
+   * The user information that the request returns.
+   *
    * @public
    */
   Users?: UserSummary[] | undefined;
 
   /**
-   * <p> An encoded paging token for paginated calls that can be passed back to retrieve the next
-   *       page. </p>
+   * An encoded paging token for paginated calls that can be passed back to retrieve the next page.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1033,45 +1103,44 @@ export interface ListUsersResult {
  */
 export interface RemoveGroupMemberRequest {
   /**
-   * <p> The identifier (ID) of the directory that's associated with the member. </p>
+   * The identifier (ID) of the directory that's associated with the member.
+   *
    * @public
    */
   DirectoryId: string | undefined;
 
   /**
-   * <p> The name of the group. </p>
+   * The name of the group.
+   *
    * @public
    */
   GroupName: string | undefined;
 
   /**
-   * <p> The <code>SAMAccountName</code> of the user, group, or computer to remove from the group.
-   *     </p>
+   * The `SAMAccountName` of the user, group, or computer to remove from the group.
+   *
    * @public
    */
   MemberName: string | undefined;
 
   /**
-   * <p> The domain name that's associated with the group member. This parameter defaults to the
-   *       Managed Microsoft AD domain. </p>
-   *          <note>
-   *             <p> This parameter is optional and case insensitive. </p>
-   *          </note>
+   * The domain name that's associated with the group member. This parameter defaults to the Managed Microsoft AD domain.
+   *
+   * > **Note:** This parameter is optional and case insensitive.
+   *
    * @public
    */
   MemberRealm?: string | undefined;
 
   /**
-   * <p> A unique and case-sensitive identifier that you provide to make sure the idempotency of
-   *       the request, so multiple identical calls have the same effect as one single call. </p>
-   *          <p> A client token is valid for 8 hours after the first request that uses it completes. After
-   *       8 hours, any request with the same client token is treated as a new request. If the request
-   *       succeeds, any future uses of that token will be idempotent for another 8 hours. </p>
-   *          <p> If you submit a request with the same client token but change one of the other parameters
-   *       within the 8-hour idempotency window, Directory Service Data returns an <code>ConflictException</code>. </p>
-   *          <note>
-   *             <p> This parameter is optional when using the CLI or SDK. </p>
-   *          </note>
+   * A unique and case-sensitive identifier that you provide to make sure the idempotency of the request, so multiple identical calls have the same effect as one single call.
+   *
+   * A client token is valid for 8 hours after the first request that uses it completes. After 8 hours, any request with the same client token is treated as a new request. If the request succeeds, any future uses of that token will be idempotent for another 8 hours.
+   *
+   * If you submit a request with the same client token but change one of the other parameters within the 8-hour idempotency window, Directory Service Data returns an `ConflictException`.
+   *
+   * > **Note:** This parameter is optional when using the CLI or SDK.
+   *
    * @public
    */
   ClientToken?: string | undefined;
@@ -1087,94 +1156,100 @@ export interface RemoveGroupMemberResult {}
  */
 export interface SearchGroupsRequest {
   /**
-   * <p> The identifier (ID) of the directory that's associated with the group. </p>
+   * The identifier (ID) of the directory that's associated with the group.
+   *
    * @public
    */
   DirectoryId: string | undefined;
 
   /**
-   * <p> The attribute value that you want to search for. </p>
-   *          <note>
-   *             <p> Wildcard <code>(*)</code> searches aren't supported. For a list of supported
-   *         attributes, see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_data_attributes.html">Directory Service Data
-   *           Attributes</a>. </p>
-   *          </note>
+   * The attribute value that you want to search for.
+   *
+   * > **Note:** Wildcard `(*)` searches aren't supported. For a list of supported attributes, see [Directory Service Data Attributes](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_data_attributes.html).
+   *
    * @public
    */
   SearchString: string | undefined;
 
   /**
-   * <p> One or more data attributes that are used to search for a group. For a list of supported
-   *       attributes, see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_data_attributes.html">Directory Service Data Attributes</a>.
-   *     </p>
+   * One or more data attributes that are used to search for a group. For a list of supported attributes, see [Directory Service Data Attributes](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_data_attributes.html).
+   *
    * @public
    */
   SearchAttributes: string[] | undefined;
 
   /**
-   * <p> The domain name that's associated with the group. </p>
-   *          <note>
-   *             <p> This parameter is optional, so you can return groups outside of your Managed Microsoft AD
-   *         domain. When no value is defined, only your Managed Microsoft AD groups are returned. </p>
-   *             <p> This value is case insensitive. </p>
-   *          </note>
+   * The domain name that's associated with the group.
+   *
+   * > **Note:**
+   * >
+   * > This parameter is optional, so you can return groups outside of your Managed Microsoft AD domain. When no value is defined, only your Managed Microsoft AD groups are returned.
+   * >
+   * > This value is case insensitive.
+   *
    * @public
    */
   Realm?: string | undefined;
 
   /**
-   * <p> An encoded paging token for paginated calls that can be passed back to retrieve the next
-   *       page. </p>
+   * An encoded paging token for paginated calls that can be passed back to retrieve the next page.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p> The maximum number of results to be returned per request. </p>
+   * The maximum number of results to be returned per request.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p> A group object that contains identifying information and attributes for a specified
- *       group. </p>
+ * A group object that contains identifying information and attributes for a specified group.
+ *
  * @public
  */
 export interface Group {
   /**
-   * <p> The unique security identifier (SID) of the group. </p>
+   * The unique security identifier (SID) of the group.
+   *
    * @public
    */
   SID?: string | undefined;
 
   /**
-   * <p> The name of the group. </p>
+   * The name of the group.
+   *
    * @public
    */
   SAMAccountName: string | undefined;
 
   /**
-   * <p>The <a href="https://learn.microsoft.com/en-us/windows/win32/ad/object-names-and-identities#distinguished-name">distinguished name</a> of the object. </p>
+   * The [distinguished name](https://learn.microsoft.com/en-us/windows/win32/ad/object-names-and-identities#distinguished-name) of the object.
+   *
    * @public
    */
   DistinguishedName?: string | undefined;
 
   /**
-   * <p> The AD group type. For details, see <a href="https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#how-active-directory-security-groups-work">Active Directory security group type</a>. </p>
+   * The AD group type. For details, see [Active Directory security group type](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#how-active-directory-security-groups-work).
+   *
    * @public
    */
   GroupType?: GroupType | undefined;
 
   /**
-   * <p> The scope of the AD group. For details, see <a href="https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#group-scope">Active Directory security groups</a>
-   *          </p>
+   * The scope of the AD group. For details, see [Active Directory security groups](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#group-scope)
+   *
    * @public
    */
   GroupScope?: GroupScope | undefined;
 
   /**
-   * <p> An expression of one or more attributes, data types, and the values of a group. </p>
+   * An expression of one or more attributes, data types, and the values of a group.
+   *
    * @public
    */
   OtherAttributes?: Record<string, AttributeValue> | undefined;
@@ -1185,26 +1260,29 @@ export interface Group {
  */
 export interface SearchGroupsResult {
   /**
-   * <p> The identifier (ID) of the directory that's associated with the group. </p>
+   * The identifier (ID) of the directory that's associated with the group.
+   *
    * @public
    */
   DirectoryId?: string | undefined;
 
   /**
-   * <p> The domain that's associated with the group. </p>
+   * The domain that's associated with the group.
+   *
    * @public
    */
   Realm?: string | undefined;
 
   /**
-   * <p> The group information that the request returns. </p>
+   * The group information that the request returns.
+   *
    * @public
    */
   Groups?: Group[] | undefined;
 
   /**
-   * <p> An encoded paging token for paginated calls that can be passed back to retrieve the next
-   *       page. </p>
+   * An encoded paging token for paginated calls that can be passed back to retrieve the next page.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1215,114 +1293,121 @@ export interface SearchGroupsResult {
  */
 export interface SearchUsersRequest {
   /**
-   * <p> The identifier (ID) of the directory that's associated with the user. </p>
+   * The identifier (ID) of the directory that's associated with the user.
+   *
    * @public
    */
   DirectoryId: string | undefined;
 
   /**
-   * <p> The domain name that's associated with the user. </p>
-   *          <note>
-   *             <p> This parameter is optional, so you can return users outside of your Managed Microsoft AD
-   *         domain. When no value is defined, only your Managed Microsoft AD users are returned. </p>
-   *             <p> This value is case insensitive. </p>
-   *          </note>
+   * The domain name that's associated with the user.
+   *
+   * > **Note:**
+   * >
+   * > This parameter is optional, so you can return users outside of your Managed Microsoft AD domain. When no value is defined, only your Managed Microsoft AD users are returned.
+   * >
+   * > This value is case insensitive.
+   *
    * @public
    */
   Realm?: string | undefined;
 
   /**
-   * <p> The attribute value that you want to search for. </p>
-   *          <note>
-   *             <p> Wildcard <code>(*)</code> searches aren't supported. For a list of supported
-   *         attributes, see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_data_attributes.html">Directory Service Data
-   *           Attributes</a>. </p>
-   *          </note>
+   * The attribute value that you want to search for.
+   *
+   * > **Note:** Wildcard `(*)` searches aren't supported. For a list of supported attributes, see [Directory Service Data Attributes](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_data_attributes.html).
+   *
    * @public
    */
   SearchString: string | undefined;
 
   /**
-   * <p> One or more data attributes that are used to search for a user. For a list of supported
-   *       attributes, see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_data_attributes.html">Directory Service Data Attributes</a>.
-   *     </p>
+   * One or more data attributes that are used to search for a user. For a list of supported attributes, see [Directory Service Data Attributes](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_data_attributes.html).
+   *
    * @public
    */
   SearchAttributes: string[] | undefined;
 
   /**
-   * <p> An encoded paging token for paginated calls that can be passed back to retrieve the next
-   *       page. </p>
+   * An encoded paging token for paginated calls that can be passed back to retrieve the next page.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p> The maximum number of results to be returned per request. </p>
+   * The maximum number of results to be returned per request.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p> A user object that contains identifying information and attributes for a specified user.
- *     </p>
+ * A user object that contains identifying information and attributes for a specified user.
+ *
  * @public
  */
 export interface User {
   /**
-   * <p> The unique security identifier (SID) of the user. </p>
+   * The unique security identifier (SID) of the user.
+   *
    * @public
    */
   SID?: string | undefined;
 
   /**
-   * <p> The name of the user. </p>
+   * The name of the user.
+   *
    * @public
    */
   SAMAccountName: string | undefined;
 
   /**
-   * <p> The <a href="https://learn.microsoft.com/en-us/windows/win32/ad/object-names-and-identities#distinguished-name">distinguished name</a> of the object. </p>
+   * The [distinguished name](https://learn.microsoft.com/en-us/windows/win32/ad/object-names-and-identities#distinguished-name) of the object.
+   *
    * @public
    */
   DistinguishedName?: string | undefined;
 
   /**
-   * <p> The UPN that is an internet-style login name for a user and based on the internet
-   *       standard <a href="https://datatracker.ietf.org/doc/html/rfc822">RFC 822</a>. The UPN is shorter
-   *       than the distinguished name and easier to remember. </p>
+   * The UPN that is an internet-style login name for a user and based on the internet standard [RFC 822](https://datatracker.ietf.org/doc/html/rfc822). The UPN is shorter than the distinguished name and easier to remember.
+   *
    * @public
    */
   UserPrincipalName?: string | undefined;
 
   /**
-   * <p> The email address of the user. </p>
+   * The email address of the user.
+   *
    * @public
    */
   EmailAddress?: string | undefined;
 
   /**
-   * <p> The first name of the user. </p>
+   * The first name of the user.
+   *
    * @public
    */
   GivenName?: string | undefined;
 
   /**
-   * <p> The last name of the user. </p>
+   * The last name of the user.
+   *
    * @public
    */
   Surname?: string | undefined;
 
   /**
-   * <p> Indicates whether the user account is active. </p>
+   * Indicates whether the user account is active.
+   *
    * @public
    */
   Enabled?: boolean | undefined;
 
   /**
-   * <p> An expression that includes one or more attributes, data types, and values of a
-   *       user.</p>
+   * An expression that includes one or more attributes, data types, and values of a user.
+   *
    * @public
    */
   OtherAttributes?: Record<string, AttributeValue> | undefined;
@@ -1333,26 +1418,29 @@ export interface User {
  */
 export interface SearchUsersResult {
   /**
-   * <p> The identifier (ID) of the directory where the address block is added. </p>
+   * The identifier (ID) of the directory where the address block is added.
+   *
    * @public
    */
   DirectoryId?: string | undefined;
 
   /**
-   * <p> The domain that's associated with the user. </p>
+   * The domain that's associated with the user.
+   *
    * @public
    */
   Realm?: string | undefined;
 
   /**
-   * <p> The user information that the request returns. </p>
+   * The user information that the request returns.
+   *
    * @public
    */
   Users?: User[] | undefined;
 
   /**
-   * <p> An encoded paging token for paginated calls that can be passed back to retrieve the next
-   *       page. </p>
+   * An encoded paging token for paginated calls that can be passed back to retrieve the next page.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1363,55 +1451,56 @@ export interface SearchUsersResult {
  */
 export interface UpdateGroupRequest {
   /**
-   * <p> The identifier (ID) of the directory that's associated with the group. </p>
+   * The identifier (ID) of the directory that's associated with the group.
+   *
    * @public
    */
   DirectoryId: string | undefined;
 
   /**
-   * <p> The name of the group. </p>
+   * The name of the group.
+   *
    * @public
    */
   SAMAccountName: string | undefined;
 
   /**
-   * <p> The AD group type. For details, see <a href="https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#how-active-directory-security-groups-work">Active Directory security group type</a>. </p>
+   * The AD group type. For details, see [Active Directory security group type](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#how-active-directory-security-groups-work).
+   *
    * @public
    */
   GroupType?: GroupType | undefined;
 
   /**
-   * <p> The scope of the AD group. For details, see <a href="https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#group-scope">Active Directory security groups</a>. </p>
+   * The scope of the AD group. For details, see [Active Directory security groups](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#group-scope).
+   *
    * @public
    */
   GroupScope?: GroupScope | undefined;
 
   /**
-   * <p> An expression that defines one or more attributes with the data type and the value of
-   *       each attribute. </p>
+   * An expression that defines one or more attributes with the data type and the value of each attribute.
+   *
    * @public
    */
   OtherAttributes?: Record<string, AttributeValue> | undefined;
 
   /**
-   * <p> The type of update to be performed. If no value exists for the attribute, use
-   *         <code>ADD</code>. Otherwise, use <code>REPLACE</code> to change an attribute value or
-   *         <code>REMOVE</code> to clear the attribute value. </p>
+   * The type of update to be performed. If no value exists for the attribute, use `ADD`. Otherwise, use `REPLACE` to change an attribute value or `REMOVE` to clear the attribute value.
+   *
    * @public
    */
   UpdateType?: UpdateType | undefined;
 
   /**
-   * <p> A unique and case-sensitive identifier that you provide to make sure the idempotency of
-   *       the request, so multiple identical calls have the same effect as one single call. </p>
-   *          <p> A client token is valid for 8 hours after the first request that uses it completes. After
-   *       8 hours, any request with the same client token is treated as a new request. If the request
-   *       succeeds, any future uses of that token will be idempotent for another 8 hours. </p>
-   *          <p> If you submit a request with the same client token but change one of the other parameters
-   *       within the 8-hour idempotency window, Directory Service Data returns an <code>ConflictException</code>. </p>
-   *          <note>
-   *             <p> This parameter is optional when using the CLI or SDK. </p>
-   *          </note>
+   * A unique and case-sensitive identifier that you provide to make sure the idempotency of the request, so multiple identical calls have the same effect as one single call.
+   *
+   * A client token is valid for 8 hours after the first request that uses it completes. After 8 hours, any request with the same client token is treated as a new request. If the request succeeds, any future uses of that token will be idempotent for another 8 hours.
+   *
+   * If you submit a request with the same client token but change one of the other parameters within the 8-hour idempotency window, Directory Service Data returns an `ConflictException`.
+   *
+   * > **Note:** This parameter is optional when using the CLI or SDK.
+   *
    * @public
    */
   ClientToken?: string | undefined;
@@ -1427,65 +1516,65 @@ export interface UpdateGroupResult {}
  */
 export interface UpdateUserRequest {
   /**
-   * <p> The identifier (ID) of the directory that's associated with the user. </p>
+   * The identifier (ID) of the directory that's associated with the user.
+   *
    * @public
    */
   DirectoryId: string | undefined;
 
   /**
-   * <p> The name of the user. </p>
+   * The name of the user.
+   *
    * @public
    */
   SAMAccountName: string | undefined;
 
   /**
-   * <p> The email address of the user. </p>
+   * The email address of the user.
+   *
    * @public
    */
   EmailAddress?: string | undefined;
 
   /**
-   * <p> The first name of the user. </p>
+   * The first name of the user.
+   *
    * @public
    */
   GivenName?: string | undefined;
 
   /**
-   * <p> The last name of the user. </p>
+   * The last name of the user.
+   *
    * @public
    */
   Surname?: string | undefined;
 
   /**
-   * <p> An expression that defines one or more attribute names with the data type and value of
-   *       each attribute. A key is an attribute name, and the value is a list of maps. For a list of
-   *       supported attributes, see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_data_attributes.html">Directory Service Data Attributes</a>. </p>
-   *          <note>
-   *             <p> Attribute names are case insensitive. </p>
-   *          </note>
+   * An expression that defines one or more attribute names with the data type and value of each attribute. A key is an attribute name, and the value is a list of maps. For a list of supported attributes, see [Directory Service Data Attributes](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_data_attributes.html).
+   *
+   * > **Note:** Attribute names are case insensitive.
+   *
    * @public
    */
   OtherAttributes?: Record<string, AttributeValue> | undefined;
 
   /**
-   * <p> The type of update to be performed. If no value exists for the attribute, use
-   *         <code>ADD</code>. Otherwise, use <code>REPLACE</code> to change an attribute value or
-   *         <code>REMOVE</code> to clear the attribute value. </p>
+   * The type of update to be performed. If no value exists for the attribute, use `ADD`. Otherwise, use `REPLACE` to change an attribute value or `REMOVE` to clear the attribute value.
+   *
    * @public
    */
   UpdateType?: UpdateType | undefined;
 
   /**
-   * <p> A unique and case-sensitive identifier that you provide to make sure the idempotency of
-   *       the request, so multiple identical calls have the same effect as one single call. </p>
-   *          <p> A client token is valid for 8 hours after the first request that uses it completes. After
-   *       8 hours, any request with the same client token is treated as a new request. If the request
-   *       succeeds, any future uses of that token will be idempotent for another 8 hours. </p>
-   *          <p> If you submit a request with the same client token but change one of the other parameters
-   *       within the 8-hour idempotency window, Directory Service Data returns an <code>ConflictException</code>. </p>
-   *          <note>
-   *             <p> This parameter is optional when using the CLI or SDK. </p>
-   *          </note>
+   * A unique and case-sensitive identifier that you provide to make sure the idempotency of the request, so multiple identical calls have the same effect as one single call.
+   *
+   * A client token is valid for 8 hours after the first request that uses it completes. After 8 hours, any request with the same client token is treated as a new request. If the request succeeds, any future uses of that token will be idempotent for another 8 hours.
+   *
+   * If you submit a request with the same client token but change one of the other parameters within the 8-hour idempotency window, Directory Service Data returns an `ConflictException`.
+   *
+   * > **Note:** This parameter is optional when using the CLI or SDK.
+   *
    * @public
    */
   ClientToken?: string | undefined;

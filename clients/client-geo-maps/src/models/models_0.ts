@@ -22,13 +22,101 @@ import type {
  */
 export interface GetGlyphsRequest {
   /**
-   * <p>Name of the <code>FontStack</code> to retrieve. </p> <p>Example: <code>Amazon Ember Bold,Noto Sans Bold</code>.</p> <p>The supported font stacks are as follows:</p> <ul> <li> <p>Amazon Ember Bold</p> </li> <li> <p>Amazon Ember Bold Italic</p> </li> <li> <p>Amazon Ember Bold,Noto Sans Bold</p> </li> <li> <p>Amazon Ember Bold,Noto Sans Bold,Noto Sans Arabic Bold</p> </li> <li> <p>Amazon Ember Condensed RC BdItalic</p> </li> <li> <p>Amazon Ember Condensed RC Bold</p> </li> <li> <p>Amazon Ember Condensed RC Bold Italic</p> </li> <li> <p>Amazon Ember Condensed RC Bold,Noto Sans Bold</p> </li> <li> <p>Amazon Ember Condensed RC Bold,Noto Sans Bold,Noto Sans Arabic Condensed Bold</p> </li> <li> <p>Amazon Ember Condensed RC Light</p> </li> <li> <p>Amazon Ember Condensed RC Light Italic</p> </li> <li> <p>Amazon Ember Condensed RC LtItalic</p> </li> <li> <p>Amazon Ember Condensed RC Regular</p> </li> <li> <p>Amazon Ember Condensed RC Regular Italic</p> </li> <li> <p>Amazon Ember Condensed RC Regular,Noto Sans Regular</p> </li> <li> <p>Amazon Ember Condensed RC Regular,Noto Sans Regular,Noto Sans Arabic Condensed Regular</p> </li> <li> <p>Amazon Ember Condensed RC RgItalic</p> </li> <li> <p>Amazon Ember Condensed RC ThItalic</p> </li> <li> <p>Amazon Ember Condensed RC Thin</p> </li> <li> <p>Amazon Ember Condensed RC Thin Italic</p> </li> <li> <p>Amazon Ember Heavy</p> </li> <li> <p>Amazon Ember Heavy Italic</p> </li> <li> <p>Amazon Ember Light</p> </li> <li> <p>Amazon Ember Light Italic</p> </li> <li> <p>Amazon Ember Medium</p> </li> <li> <p>Amazon Ember Medium Italic</p> </li> <li> <p>Amazon Ember Medium,Noto Sans Medium</p> </li> <li> <p>Amazon Ember Medium,Noto Sans Medium,Noto Sans Arabic Medium</p> </li> <li> <p>Amazon Ember Regular</p> </li> <li> <p>Amazon Ember Regular Italic</p> </li> <li> <p>Amazon Ember Regular Italic,Noto Sans Italic</p> </li> <li> <p>Amazon Ember Regular Italic,Noto Sans Italic,Noto Sans Arabic Regular</p> </li> <li> <p>Amazon Ember Regular,Noto Sans Regular</p> </li> <li> <p>Amazon Ember Regular,Noto Sans Regular,Noto Sans Arabic Regular</p> </li> <li> <p>Amazon Ember Thin</p> </li> <li> <p>Amazon Ember Thin Italic</p> </li> <li> <p>AmazonEmberCdRC_Bd</p> </li> <li> <p>AmazonEmberCdRC_BdIt</p> </li> <li> <p>AmazonEmberCdRC_Lt</p> </li> <li> <p>AmazonEmberCdRC_LtIt</p> </li> <li> <p>AmazonEmberCdRC_Rg</p> </li> <li> <p>AmazonEmberCdRC_RgIt</p> </li> <li> <p>AmazonEmberCdRC_Th</p> </li> <li> <p>AmazonEmberCdRC_ThIt</p> </li> <li> <p>AmazonEmber_Bd</p> </li> <li> <p>AmazonEmber_BdIt</p> </li> <li> <p>AmazonEmber_He</p> </li> <li> <p>AmazonEmber_HeIt</p> </li> <li> <p>AmazonEmber_Lt</p> </li> <li> <p>AmazonEmber_LtIt</p> </li> <li> <p>AmazonEmber_Md</p> </li> <li> <p>AmazonEmber_MdIt</p> </li> <li> <p>AmazonEmber_Rg</p> </li> <li> <p>AmazonEmber_RgIt</p> </li> <li> <p>AmazonEmber_Th</p> </li> <li> <p>AmazonEmber_ThIt</p> </li> <li> <p>Noto Sans Black</p> </li> <li> <p>Noto Sans Black Italic</p> </li> <li> <p>Noto Sans Bold</p> </li> <li> <p>Noto Sans Bold Italic</p> </li> <li> <p>Noto Sans Extra Bold</p> </li> <li> <p>Noto Sans Extra Bold Italic</p> </li> <li> <p>Noto Sans Extra Light</p> </li> <li> <p>Noto Sans Extra Light Italic</p> </li> <li> <p>Noto Sans Italic</p> </li> <li> <p>Noto Sans Light</p> </li> <li> <p>Noto Sans Light Italic</p> </li> <li> <p>Noto Sans Medium</p> </li> <li> <p>Noto Sans Medium Italic</p> </li> <li> <p>Noto Sans Regular</p> </li> <li> <p>Noto Sans Semi Bold</p> </li> <li> <p>Noto Sans Semi Bold Italic</p> </li> <li> <p>Noto Sans Thin</p> </li> <li> <p>Noto Sans Thin Italic</p> </li> <li> <p>NotoSans-Bold</p> </li> <li> <p>NotoSans-Italic</p> </li> <li> <p>NotoSans-Medium</p> </li> <li> <p>NotoSans-Regular</p> </li> <li> <p>Open Sans Regular,Arial Unicode MS Regular</p> </li> </ul>
+   * Name of the `FontStack` to retrieve.
+   *
+   * Example: `Amazon Ember Bold,Noto Sans Bold`.
+   *
+   * The supported font stacks are as follows:
+   *
+   * - Amazon Ember Bold
+   * - Amazon Ember Bold Italic
+   * - Amazon Ember Bold,Noto Sans Bold
+   * - Amazon Ember Bold,Noto Sans Bold,Noto Sans Arabic Bold
+   * - Amazon Ember Condensed RC BdItalic
+   * - Amazon Ember Condensed RC Bold
+   * - Amazon Ember Condensed RC Bold Italic
+   * - Amazon Ember Condensed RC Bold,Noto Sans Bold
+   * - Amazon Ember Condensed RC Bold,Noto Sans Bold,Noto Sans Arabic Condensed Bold
+   * - Amazon Ember Condensed RC Light
+   * - Amazon Ember Condensed RC Light Italic
+   * - Amazon Ember Condensed RC LtItalic
+   * - Amazon Ember Condensed RC Regular
+   * - Amazon Ember Condensed RC Regular Italic
+   * - Amazon Ember Condensed RC Regular,Noto Sans Regular
+   * - Amazon Ember Condensed RC Regular,Noto Sans Regular,Noto Sans Arabic Condensed Regular
+   * - Amazon Ember Condensed RC RgItalic
+   * - Amazon Ember Condensed RC ThItalic
+   * - Amazon Ember Condensed RC Thin
+   * - Amazon Ember Condensed RC Thin Italic
+   * - Amazon Ember Heavy
+   * - Amazon Ember Heavy Italic
+   * - Amazon Ember Light
+   * - Amazon Ember Light Italic
+   * - Amazon Ember Medium
+   * - Amazon Ember Medium Italic
+   * - Amazon Ember Medium,Noto Sans Medium
+   * - Amazon Ember Medium,Noto Sans Medium,Noto Sans Arabic Medium
+   * - Amazon Ember Regular
+   * - Amazon Ember Regular Italic
+   * - Amazon Ember Regular Italic,Noto Sans Italic
+   * - Amazon Ember Regular Italic,Noto Sans Italic,Noto Sans Arabic Regular
+   * - Amazon Ember Regular,Noto Sans Regular
+   * - Amazon Ember Regular,Noto Sans Regular,Noto Sans Arabic Regular
+   * - Amazon Ember Thin
+   * - Amazon Ember Thin Italic
+   * - AmazonEmberCdRC_Bd
+   * - AmazonEmberCdRC_BdIt
+   * - AmazonEmberCdRC_Lt
+   * - AmazonEmberCdRC_LtIt
+   * - AmazonEmberCdRC_Rg
+   * - AmazonEmberCdRC_RgIt
+   * - AmazonEmberCdRC_Th
+   * - AmazonEmberCdRC_ThIt
+   * - AmazonEmber_Bd
+   * - AmazonEmber_BdIt
+   * - AmazonEmber_He
+   * - AmazonEmber_HeIt
+   * - AmazonEmber_Lt
+   * - AmazonEmber_LtIt
+   * - AmazonEmber_Md
+   * - AmazonEmber_MdIt
+   * - AmazonEmber_Rg
+   * - AmazonEmber_RgIt
+   * - AmazonEmber_Th
+   * - AmazonEmber_ThIt
+   * - Noto Sans Black
+   * - Noto Sans Black Italic
+   * - Noto Sans Bold
+   * - Noto Sans Bold Italic
+   * - Noto Sans Extra Bold
+   * - Noto Sans Extra Bold Italic
+   * - Noto Sans Extra Light
+   * - Noto Sans Extra Light Italic
+   * - Noto Sans Italic
+   * - Noto Sans Light
+   * - Noto Sans Light Italic
+   * - Noto Sans Medium
+   * - Noto Sans Medium Italic
+   * - Noto Sans Regular
+   * - Noto Sans Semi Bold
+   * - Noto Sans Semi Bold Italic
+   * - Noto Sans Thin
+   * - Noto Sans Thin Italic
+   * - NotoSans-Bold
+   * - NotoSans-Italic
+   * - NotoSans-Medium
+   * - NotoSans-Regular
+   * - Open Sans Regular,Arial Unicode MS Regular
+   *
    * @public
    */
   FontStack: string | undefined;
 
   /**
-   * <p>A Unicode range of characters to download glyphs for. This must be aligned to multiples of 256. </p> <p>Example: <code>0-255.pbf</code> </p>
+   * A Unicode range of characters to download glyphs for. This must be aligned to multiples of 256.
+   *
+   * Example: `0-255.pbf`
+   *
    * @public
    */
   FontUnicodeRange: string | undefined;
@@ -39,25 +127,29 @@ export interface GetGlyphsRequest {
  */
 export interface GetGlyphsResponse {
   /**
-   * <p>The Glyph, as a binary blob.</p>
+   * The Glyph, as a binary blob.
+   *
    * @public
    */
   Blob?: Uint8Array | undefined;
 
   /**
-   * <p>Header that represents the format of the response. The response returns the following as the HTTP body.</p>
+   * Header that represents the format of the response. The response returns the following as the HTTP body.
+   *
    * @public
    */
   ContentType?: string | undefined;
 
   /**
-   * <p>Header that instructs caching configuration for the client.</p>
+   * Header that instructs caching configuration for the client.
+   *
    * @public
    */
   CacheControl?: string | undefined;
 
   /**
-   * <p>The glyph's Etag.</p>
+   * The glyph's Etag.
+   *
    * @public
    */
   ETag?: string | undefined;
@@ -68,25 +160,41 @@ export interface GetGlyphsResponse {
  */
 export interface GetSpritesRequest {
   /**
-   * <p> <code>Sprites</code> API: The name of the sprite ﬁle to retrieve, following pattern <code>sprites(@2x)?\.(png|json)</code>.</p> <p>Example: <code>sprites.png</code> </p>
+   * `Sprites` API: The name of the sprite ﬁle to retrieve, following pattern `sprites(@2x)?\.(png|json)`.
+   *
+   * Example: `sprites.png`
+   *
    * @public
    */
   FileName: string | undefined;
 
   /**
-   * <p>Style specifies the desired map style for the <code>Sprites</code> APIs.</p>
+   * Style specifies the desired map style for the `Sprites` APIs.
+   *
    * @public
    */
   Style: MapStyle | undefined;
 
   /**
-   * <p>Sets the color tone for the map sprites, such as dark and light.</p> <p>Example: <code>Light</code> </p> <p>Default value: <code>Light</code> </p> <note> <p>Valid values for ColorScheme are case sensitive.</p> </note>
+   * Sets the color tone for the map sprites, such as dark and light.
+   *
+   * Example: `Light`
+   *
+   * Default value: `Light`
+   *
+   * > **Note:** Valid values for ColorScheme are case sensitive.
+   *
    * @public
    */
   ColorScheme: ColorScheme | undefined;
 
   /**
-   * <p>Optimizes map styles for specific use case or industry. You can choose allowed variant only with Standard map style.</p> <p>Example: <code>Default</code> </p> <note> <p>Valid values for Variant are case sensitive.</p> </note>
+   * Optimizes map styles for specific use case or industry. You can choose allowed variant only with Standard map style.
+   *
+   * Example: `Default`
+   *
+   * > **Note:** Valid values for Variant are case sensitive.
+   *
    * @public
    */
   Variant: Variant | undefined;
@@ -97,25 +205,29 @@ export interface GetSpritesRequest {
  */
 export interface GetSpritesResponse {
   /**
-   * <p>The body of the sprite sheet or JSON offset file (image/png or application/json, depending on input).</p>
+   * The body of the sprite sheet or JSON offset file (image/png or application/json, depending on input).
+   *
    * @public
    */
   Blob?: Uint8Array | undefined;
 
   /**
-   * <p>Header that represents the format of the response. The response returns the following as the HTTP body.</p>
+   * Header that represents the format of the response. The response returns the following as the HTTP body.
+   *
    * @public
    */
   ContentType?: string | undefined;
 
   /**
-   * <p>Header that instructs caching configuration for the client.</p>
+   * Header that instructs caching configuration for the client.
+   *
    * @public
    */
   CacheControl?: string | undefined;
 
   /**
-   * <p>The sprite's Etag.</p>
+   * The sprite's Etag.
+   *
    * @public
    */
   ETag?: string | undefined;
@@ -126,121 +238,273 @@ export interface GetSpritesResponse {
  */
 export interface GetStaticMapRequest {
   /**
-   * <p>Takes in two pairs of coordinates in World Geodetic System (WGS 84) format: [longitude, latitude], denoting south-westerly and north-easterly edges of the image. The underlying area becomes the view of the image. </p> <p>Example: -123.17075,49.26959,-123.08125,49.31429</p>
+   * Takes in two pairs of coordinates in World Geodetic System (WGS 84) format: [longitude, latitude], denoting south-westerly and north-easterly edges of the image. The underlying area becomes the view of the image.
+   *
+   * Example: -123.17075,49.26959,-123.08125,49.31429
+   *
    * @public
    */
   BoundingBox?: string | undefined;
 
   /**
-   * <p>Takes in two or more pair of coordinates in World Geodetic System (WGS 84) format: [longitude, latitude], with each coordinate separated by a comma. The API will generate an image to encompass all of the provided coordinates. </p> <note> <p>Cannot be used with <code>Zoom</code> and or <code>Radius</code> </p> </note> <p>Example: 97.170451,78.039098,99.045536,27.176178</p>
+   * Takes in two or more pair of coordinates in World Geodetic System (WGS 84) format: [longitude, latitude], with each coordinate separated by a comma. The API will generate an image to encompass all of the provided coordinates.
+   *
+   * > **Note:** Cannot be used with `Zoom` and or `Radius`
+   *
+   * Example: 97.170451,78.039098,99.045536,27.176178
+   *
    * @public
    */
   BoundedPositions?: string | undefined;
 
   /**
-   * <p>Takes in a pair of coordinates in World Geodetic System (WGS 84) format: [longitude, latitude], which becomes the center point of the image. This parameter requires that either zoom or radius is set.</p> <note> <p>Cannot be used with <code>Zoom</code> and or <code>Radius</code> </p> </note> <p>Example: 49.295,-123.108</p>
+   * Takes in a pair of coordinates in World Geodetic System (WGS 84) format: [longitude, latitude], which becomes the center point of the image. This parameter requires that either zoom or radius is set.
+   *
+   * > **Note:** Cannot be used with `Zoom` and or `Radius`
+   *
+   * Example: 49.295,-123.108
+   *
    * @public
    */
   Center?: string | undefined;
 
   /**
-   * <p>Sets the color tone for the map, such as dark and light.</p> <p>Example: <code>Light</code> </p> <p>Default value: <code>Light</code> </p> <note> <p>Valid values for <code>ColorScheme</code> are case sensitive.</p> </note>
+   * Sets the color tone for the map, such as dark and light.
+   *
+   * Example: `Light`
+   *
+   * Default value: `Light`
+   *
+   * > **Note:** Valid values for `ColorScheme` are case sensitive.
+   *
    * @public
    */
   ColorScheme?: ColorScheme | undefined;
 
   /**
-   * <p>Takes in a string to draw geometries on the image. The input is a comma separated format as follows format: <code>[Lon, Lat]</code> </p> <p>Example: <code>line:-122.407653,37.798557,-122.413291,37.802443;color=%23DD0000;width=7;outline-color=#00DD00;outline-width=5yd|point:-122.40572,37.80004;label=Fog Hill Market;size=large;text-color=%23DD0000;color=#EE4B2B</code> </p> <note> <p>Currently it supports the following geometry types: point, line and polygon. It does not support multiPoint , multiLine and multiPolgyon.</p> </note>
+   * Takes in a string to draw geometries on the image. The input is a comma separated format as follows format: `[Lon, Lat]`
+   *
+   * Example: `line:-122.407653,37.798557,-122.413291,37.802443;color=%23DD0000;width=7;outline-color=#00DD00;outline-width=5yd|point:-122.40572,37.80004;label=Fog Hill Market;size=large;text-color=%23DD0000;color=#EE4B2B`
+   *
+   * > **Note:** Currently it supports the following geometry types: point, line and polygon. It does not support multiPoint , multiLine and multiPolgyon.
+   *
    * @public
    */
   CompactOverlay?: string | undefined;
 
   /**
-   * <p>It is a flag that takes in true or false. It prevents the labels that are on the edge of the image from being cut or obscured.</p>
+   * It is a flag that takes in true or false. It prevents the labels that are on the edge of the image from being cut or obscured.
+   *
    * @public
    */
   CropLabels?: boolean | undefined;
 
   /**
-   * <p>Takes in a string to draw geometries on the image. The input is a valid GeoJSON collection object. </p> <p>Example: <code>\{"type":"FeatureCollection","features": [\{"type":"Feature","geometry":\{"type":"MultiPoint","coordinates": [[-90.076345,51.504107],[-0.074451,51.506892]]\},"properties": \{"color":"#00DD00"\}\}]\}</code> </p>
+   * Takes in a string to draw geometries on the image. The input is a valid GeoJSON collection object.
+   *
+   * Example: `\{"type":"FeatureCollection","features": [\{"type":"Feature","geometry":\{"type":"MultiPoint","coordinates": [[-90.076345,51.504107],[-0.074451,51.506892]]\},"properties": \{"color":"#00DD00"\}\}]\}`
+   *
    * @public
    */
   GeoJsonOverlay?: string | undefined;
 
   /**
-   * <p>Specifies the height of the map image.</p>
+   * Specifies the height of the map image.
+   *
    * @public
    */
   Height: number | undefined;
 
   /**
-   * <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4 signature must be provided when making a request. </p>
+   * Optional: The API key to be used for authorization. Either an API key or valid SigV4 signature must be provided when making a request.
+   *
    * @public
    */
   Key?: string | undefined;
 
   /**
-   * <p>Overrides the label size auto-calculated by <code>FileName</code>. Takes in one of the values - <code>Small</code> or <code>Large</code>.</p>
+   * Overrides the label size auto-calculated by `FileName`. Takes in one of the values - `Small` or `Large`.
+   *
    * @public
    */
   LabelSize?: LabelSize | undefined;
 
   /**
-   * <p>Specifies the language on the map labels using the BCP 47 language tag, limited to ISO 639-1 two-letter language codes. If the specified language data isn't available for the map image, the labels will default to the regional primary language.</p> <p>Supported codes:</p> <ul> <li> <p> <code>ar</code> </p> </li> <li> <p> <code>as</code> </p> </li> <li> <p> <code>az</code> </p> </li> <li> <p> <code>be</code> </p> </li> <li> <p> <code>bg</code> </p> </li> <li> <p> <code>bn</code> </p> </li> <li> <p> <code>bs</code> </p> </li> <li> <p> <code>ca</code> </p> </li> <li> <p> <code>cs</code> </p> </li> <li> <p> <code>cy</code> </p> </li> <li> <p> <code>da</code> </p> </li> <li> <p> <code>de</code> </p> </li> <li> <p> <code>el</code> </p> </li> <li> <p> <code>en</code> </p> </li> <li> <p> <code>es</code> </p> </li> <li> <p> <code>et</code> </p> </li> <li> <p> <code>eu</code> </p> </li> <li> <p> <code>fi</code> </p> </li> <li> <p> <code>fo</code> </p> </li> <li> <p> <code>fr</code> </p> </li> <li> <p> <code>ga</code> </p> </li> <li> <p> <code>gl</code> </p> </li> <li> <p> <code>gn</code> </p> </li> <li> <p> <code>gu</code> </p> </li> <li> <p> <code>he</code> </p> </li> <li> <p> <code>hi</code> </p> </li> <li> <p> <code>hr</code> </p> </li> <li> <p> <code>hu</code> </p> </li> <li> <p> <code>hy</code> </p> </li> <li> <p> <code>id</code> </p> </li> <li> <p> <code>is</code> </p> </li> <li> <p> <code>it</code> </p> </li> <li> <p> <code>ja</code> </p> </li> <li> <p> <code>ka</code> </p> </li> <li> <p> <code>kk</code> </p> </li> <li> <p> <code>km</code> </p> </li> <li> <p> <code>kn</code> </p> </li> <li> <p> <code>ko</code> </p> </li> <li> <p> <code>ky</code> </p> </li> <li> <p> <code>lt</code> </p> </li> <li> <p> <code>lv</code> </p> </li> <li> <p> <code>mk</code> </p> </li> <li> <p> <code>ml</code> </p> </li> <li> <p> <code>mr</code> </p> </li> <li> <p> <code>ms</code> </p> </li> <li> <p> <code>mt</code> </p> </li> <li> <p> <code>my</code> </p> </li> <li> <p> <code>nl</code> </p> </li> <li> <p> <code>no</code> </p> </li> <li> <p> <code>or</code> </p> </li> <li> <p> <code>pa</code> </p> </li> <li> <p> <code>pl</code> </p> </li> <li> <p> <code>pt</code> </p> </li> <li> <p> <code>ro</code> </p> </li> <li> <p> <code>ru</code> </p> </li> <li> <p> <code>sk</code> </p> </li> <li> <p> <code>sl</code> </p> </li> <li> <p> <code>sq</code> </p> </li> <li> <p> <code>sr</code> </p> </li> <li> <p> <code>sv</code> </p> </li> <li> <p> <code>ta</code> </p> </li> <li> <p> <code>te</code> </p> </li> <li> <p> <code>th</code> </p> </li> <li> <p> <code>tr</code> </p> </li> <li> <p> <code>uk</code> </p> </li> <li> <p> <code>uz</code> </p> </li> <li> <p> <code>vi</code> </p> </li> <li> <p> <code>zh</code> </p> </li> </ul>
+   * Specifies the language on the map labels using the BCP 47 language tag, limited to ISO 639-1 two-letter language codes. If the specified language data isn't available for the map image, the labels will default to the regional primary language.
+   *
+   * Supported codes:
+   *
+   * - `ar`
+   * - `as`
+   * - `az`
+   * - `be`
+   * - `bg`
+   * - `bn`
+   * - `bs`
+   * - `ca`
+   * - `cs`
+   * - `cy`
+   * - `da`
+   * - `de`
+   * - `el`
+   * - `en`
+   * - `es`
+   * - `et`
+   * - `eu`
+   * - `fi`
+   * - `fo`
+   * - `fr`
+   * - `ga`
+   * - `gl`
+   * - `gn`
+   * - `gu`
+   * - `he`
+   * - `hi`
+   * - `hr`
+   * - `hu`
+   * - `hy`
+   * - `id`
+   * - `is`
+   * - `it`
+   * - `ja`
+   * - `ka`
+   * - `kk`
+   * - `km`
+   * - `kn`
+   * - `ko`
+   * - `ky`
+   * - `lt`
+   * - `lv`
+   * - `mk`
+   * - `ml`
+   * - `mr`
+   * - `ms`
+   * - `mt`
+   * - `my`
+   * - `nl`
+   * - `no`
+   * - `or`
+   * - `pa`
+   * - `pl`
+   * - `pt`
+   * - `ro`
+   * - `ru`
+   * - `sk`
+   * - `sl`
+   * - `sq`
+   * - `sr`
+   * - `sv`
+   * - `ta`
+   * - `te`
+   * - `th`
+   * - `tr`
+   * - `uk`
+   * - `uz`
+   * - `vi`
+   * - `zh`
+   *
    * @public
    */
   Language?: string | undefined;
 
   /**
-   * <p>Applies additional space (in pixels) around overlay feature to prevent them from being cut or obscured.</p> <note> <p>Value for max and min is determined by:</p> <p>Min: <code>1</code> </p> <p>Max: <code>min(height, width)/4</code> </p> </note> <p>Example: <code>100</code> </p>
+   * Applies additional space (in pixels) around overlay feature to prevent them from being cut or obscured.
+   *
+   * > **Note:**
+   * >
+   * > Value for max and min is determined by:
+   * >
+   * > Min: `1`
+   * >
+   * > Max: `min(height, width)/4`
+   *
+   * Example: `100`
+   *
    * @public
    */
   Padding?: number | undefined;
 
   /**
-   * <p>Specifies the political view, using ISO 3166-2 or ISO 3166-3 country code format.</p> <p>The following political views are currently supported:</p> <ul> <li> <p> <code>ARG</code>: Argentina's view on the Southern Patagonian Ice Field and Tierra Del Fuego, including the Falkland Islands, South Georgia, and South Sandwich Islands</p> </li> <li> <p> <code>EGY</code>: Egypt's view on Bir Tawil</p> </li> <li> <p> <code>IND</code>: India's view on Gilgit-Baltistan</p> </li> <li> <p> <code>KEN</code>: Kenya's view on the Ilemi Triangle</p> </li> <li> <p> <code>MAR</code>: Morocco's view on Western Sahara</p> </li> <li> <p> <code>RUS</code>: Russia's view on Crimea</p> </li> <li> <p> <code>SDN</code>: Sudan's view on the Halaib Triangle</p> </li> <li> <p> <code>SRB</code>: Serbia's view on Kosovo, Vukovar, and Sarengrad Islands</p> </li> <li> <p> <code>SUR</code>: Suriname's view on the Courantyne Headwaters and Lawa Headwaters</p> </li> <li> <p> <code>SYR</code>: Syria's view on the Golan Heights</p> </li> <li> <p> <code>TUR</code>: Turkey's view on Cyprus and Northern Cyprus</p> </li> <li> <p> <code>TZA</code>: Tanzania's view on Lake Malawi</p> </li> <li> <p> <code>URY</code>: Uruguay's view on Rincon de Artigas</p> </li> <li> <p> <code>VNM</code>: Vietnam's view on the Paracel Islands and Spratly Islands</p> </li> </ul>
+   * Specifies the political view, using ISO 3166-2 or ISO 3166-3 country code format.
+   *
+   * The following political views are currently supported:
+   *
+   * - `ARG`: Argentina's view on the Southern Patagonian Ice Field and Tierra Del Fuego, including the Falkland Islands, South Georgia, and South Sandwich Islands
+   * - `EGY`: Egypt's view on Bir Tawil
+   * - `IND`: India's view on Gilgit-Baltistan
+   * - `KEN`: Kenya's view on the Ilemi Triangle
+   * - `MAR`: Morocco's view on Western Sahara
+   * - `RUS`: Russia's view on Crimea
+   * - `SDN`: Sudan's view on the Halaib Triangle
+   * - `SRB`: Serbia's view on Kosovo, Vukovar, and Sarengrad Islands
+   * - `SUR`: Suriname's view on the Courantyne Headwaters and Lawa Headwaters
+   * - `SYR`: Syria's view on the Golan Heights
+   * - `TUR`: Turkey's view on Cyprus and Northern Cyprus
+   * - `TZA`: Tanzania's view on Lake Malawi
+   * - `URY`: Uruguay's view on Rincon de Artigas
+   * - `VNM`: Vietnam's view on the Paracel Islands and Spratly Islands
+   *
    * @public
    */
   PoliticalView?: string | undefined;
 
   /**
-   * <p>Determines if the result image will display icons representing points of interest on the map.</p>
+   * Determines if the result image will display icons representing points of interest on the map.
+   *
    * @public
    */
   PointsOfInterests?: MapFeatureMode | undefined;
 
   /**
-   * <p>Used with center parameter, it specifies the zoom of the image where you can control it on a granular level. Takes in any value <code>&gt;= 1</code>. </p> <p>Example: <code>1500</code> </p> <note> <p>Cannot be used with <code>Zoom</code>.</p> </note> <p> <b>Unit</b>: <code>Meters</code> </p> <p/>
+   * Used with center parameter, it specifies the zoom of the image where you can control it on a granular level. Takes in any value `>= 1`.
+   *
+   * Example: `1500`
+   *
+   * > **Note:** Cannot be used with `Zoom`.
+   *
+   * **Unit**: `Meters`
+   *
    * @public
    */
   Radius?: number | undefined;
 
   /**
-   * <p>The map scaling parameter to size the image, icons, and labels. It follows the pattern of <code>^map(@2x)?$</code>.</p> <p>Example: <code>map, map@2x</code> </p>
+   * The map scaling parameter to size the image, icons, and labels. It follows the pattern of `^map(@2x)?$`.
+   *
+   * Example: `map, map@2x`
+   *
    * @public
    */
   FileName: string | undefined;
 
   /**
-   * <p>Displays a scale on the bottom right of the map image with the unit specified in the input. </p> <p>Example: <code>KilometersMiles, Miles, Kilometers, MilesKilometers</code> </p>
+   * Displays a scale on the bottom right of the map image with the unit specified in the input.
+   *
+   * Example: `KilometersMiles, Miles, Kilometers, MilesKilometers`
+   *
    * @public
    */
   ScaleBarUnit?: ScaleBarUnit | undefined;
 
   /**
-   * <p> <code>Style</code> specifies the desired map style.</p>
+   * `Style` specifies the desired map style.
+   *
    * @public
    */
   Style?: StaticMapStyle | undefined;
 
   /**
-   * <p>Specifies the width of the map image.</p>
+   * Specifies the width of the map image.
+   *
    * @public
    */
   Width: number | undefined;
 
   /**
-   * <p>Specifies the zoom level of the map image.</p> <note> <p>Cannot be used with <code>Radius</code>.</p> </note>
+   * Specifies the zoom level of the map image.
+   *
+   * > **Note:** Cannot be used with `Radius`.
+   *
    * @public
    */
   Zoom?: number | undefined;
@@ -251,49 +515,57 @@ export interface GetStaticMapRequest {
  */
 export interface GetStaticMapResponse {
   /**
-   * <p>The blob represents a map image as a <code>jpeg</code> for the <code>GetStaticMap</code> API.</p>
+   * The blob represents a map image as a `jpeg` for the `GetStaticMap` API.
+   *
    * @public
    */
   Blob?: Uint8Array | undefined;
 
   /**
-   * <p>Header that represents the format of the response. The response returns the following as the HTTP body.</p>
+   * Header that represents the format of the response. The response returns the following as the HTTP body.
+   *
    * @public
    */
   ContentType?: string | undefined;
 
   /**
-   * <p>Header that instructs caching configuration for the client.</p>
+   * Header that instructs caching configuration for the client.
+   *
    * @public
    */
   CacheControl?: string | undefined;
 
   /**
-   * <p>The static map's Etag.</p>
+   * The static map's Etag.
+   *
    * @public
    */
   ETag?: string | undefined;
 
   /**
-   * <p>The pricing bucket for which the request is charged at.</p>
+   * The pricing bucket for which the request is charged at.
+   *
    * @public
    */
   PricingBucket: string | undefined;
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by the Amazon Location service.</p>
+ * The input fails to satisfy the constraints specified by the Amazon Location service.
+ *
  * @public
  */
 export interface ValidationExceptionField {
   /**
-   * <p>The name of the resource.</p>
+   * The name of the resource.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The error message.</p>
+   * The error message.
+   *
    * @public
    */
   Message: string | undefined;
@@ -304,67 +576,144 @@ export interface ValidationExceptionField {
  */
 export interface GetStyleDescriptorRequest {
   /**
-   * <p>Style specifies the desired map style. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only the <code>Standard</code> and <code>Monochrome</code> values.</p>
+   * Style specifies the desired map style. For [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers, `ap-southeast-1` and `ap-southeast-5` regions support only the `Standard` and `Monochrome` values.
+   *
    * @public
    */
   Style: MapStyle | undefined;
 
   /**
-   * <p>Sets the color tone for the map, such as dark and light.</p> <p>Example: <code>Light</code> </p> <p>Default value: <code>Light</code> </p> <note> <p>Valid values for ColorScheme are case sensitive.</p> </note>
+   * Sets the color tone for the map, such as dark and light.
+   *
+   * Example: `Light`
+   *
+   * Default value: `Light`
+   *
+   * > **Note:** Valid values for ColorScheme are case sensitive.
+   *
    * @public
    */
   ColorScheme?: ColorScheme | undefined;
 
   /**
-   * <p>Specifies the political view using ISO 3166-2 or ISO 3166-3 country code format. Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers.</p> <p>The following political views are currently supported:</p> <ul> <li> <p> <code>ARG</code>: Argentina's view on the Southern Patagonian Ice Field and Tierra Del Fuego, including the Falkland Islands, South Georgia, and South Sandwich Islands</p> </li> <li> <p> <code>EGY</code>: Egypt's view on Bir Tawil</p> </li> <li> <p> <code>IND</code>: India's view on Gilgit-Baltistan</p> </li> <li> <p> <code>KEN</code>: Kenya's view on the Ilemi Triangle</p> </li> <li> <p> <code>MAR</code>: Morocco's view on Western Sahara</p> </li> <li> <p> <code>RUS</code>: Russia's view on Crimea</p> </li> <li> <p> <code>SDN</code>: Sudan's view on the Halaib Triangle</p> </li> <li> <p> <code>SRB</code>: Serbia's view on Kosovo, Vukovar, and Sarengrad Islands</p> </li> <li> <p> <code>SUR</code>: Suriname's view on the Courantyne Headwaters and Lawa Headwaters</p> </li> <li> <p> <code>SYR</code>: Syria's view on the Golan Heights</p> </li> <li> <p> <code>TUR</code>: Turkey's view on Cyprus and Northern Cyprus</p> </li> <li> <p> <code>TZA</code>: Tanzania's view on Lake Malawi</p> </li> <li> <p> <code>URY</code>: Uruguay's view on Rincon de Artigas</p> </li> <li> <p> <code>VNM</code>: Vietnam's view on the Paracel Islands and Spratly Islands</p> </li> </ul>
+   * Specifies the political view using ISO 3166-2 or ISO 3166-3 country code format. Not supported in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
+   * The following political views are currently supported:
+   *
+   * - `ARG`: Argentina's view on the Southern Patagonian Ice Field and Tierra Del Fuego, including the Falkland Islands, South Georgia, and South Sandwich Islands
+   * - `EGY`: Egypt's view on Bir Tawil
+   * - `IND`: India's view on Gilgit-Baltistan
+   * - `KEN`: Kenya's view on the Ilemi Triangle
+   * - `MAR`: Morocco's view on Western Sahara
+   * - `RUS`: Russia's view on Crimea
+   * - `SDN`: Sudan's view on the Halaib Triangle
+   * - `SRB`: Serbia's view on Kosovo, Vukovar, and Sarengrad Islands
+   * - `SUR`: Suriname's view on the Courantyne Headwaters and Lawa Headwaters
+   * - `SYR`: Syria's view on the Golan Heights
+   * - `TUR`: Turkey's view on Cyprus and Northern Cyprus
+   * - `TZA`: Tanzania's view on Lake Malawi
+   * - `URY`: Uruguay's view on Rincon de Artigas
+   * - `VNM`: Vietnam's view on the Paracel Islands and Spratly Islands
+   *
    * @public
    */
   PoliticalView?: string | undefined;
 
   /**
-   * <p>Adjusts how physical terrain details are rendered on the map. Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers.</p> <p>The following terrain styles are currently supported:</p> <ul> <li> <p> <code>Hillshade</code>: Displays the physical terrain details through shading and highlighting of elevation change and geographic features.</p> </li> <li> <p> <code>Terrain3D</code>: Displays physical terrain details and elevations as a three-dimensional model.</p> </li> </ul> <p> <code>Hillshade</code> is valid only for the <code>Standard</code> and <code>Monochrome</code> map styles.</p>
+   * Adjusts how physical terrain details are rendered on the map. Not supported in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
+   * The following terrain styles are currently supported:
+   *
+   * - `Hillshade`: Displays the physical terrain details through shading and highlighting of elevation change and geographic features.
+   * - `Terrain3D`: Displays physical terrain details and elevations as a three-dimensional model.
+   *
+   * `Hillshade` is valid only for the `Standard` and `Monochrome` map styles.
+   *
    * @public
    */
   Terrain?: Terrain | undefined;
 
   /**
-   * <p>Displays the shape and steepness of terrain features using elevation lines. The density value controls how densely the available contour line information is rendered on the map. Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers.</p> <p>This parameter is valid for all map styles except <code>Satellite</code>.</p>
+   * Displays the shape and steepness of terrain features using elevation lines. The density value controls how densely the available contour line information is rendered on the map. Not supported in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
+   * This parameter is valid for all map styles except `Satellite`.
+   *
    * @public
    */
   ContourDensity?: ContourDensity | undefined;
 
   /**
-   * <p>Displays real-time traffic information overlay on map, such as incident events and flow events. Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers.</p> <p>This parameter is valid for all map styles except <code>Satellite</code>.</p>
+   * Displays real-time traffic information overlay on map, such as incident events and flow events. Not supported in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
+   * This parameter is valid for all map styles except `Satellite`.
+   *
    * @public
    */
   Traffic?: Traffic | undefined;
 
   /**
-   * <p>Renders additional map information relevant to selected travel modes. Information for multiple travel modes can be displayed simultaneously, although this increases the overall information density rendered on the map. Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers.</p> <p>This parameter is valid for all map styles except <code>Satellite</code>.</p>
+   * Renders additional map information relevant to selected travel modes. Information for multiple travel modes can be displayed simultaneously, although this increases the overall information density rendered on the map. Not supported in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
+   * This parameter is valid for all map styles except `Satellite`.
+   *
    * @public
    */
   TravelModes?: TravelMode[] | undefined;
 
   /**
-   * <p>Adjusts how building details are rendered on the map.</p> <p>The following building styles are currently supported:</p> <ul> <li> <p> <code>Buildings3D</code>: Displays buildings as three-dimensional extrusions on the map.</p> </li> </ul> <p> <code>Buildings3D</code> is valid only for the <code>Standard</code> and <code>Monochrome</code> map styles.</p>
+   * Adjusts how building details are rendered on the map.
+   *
+   * The following building styles are currently supported:
+   *
+   * - `Buildings3D`: Displays buildings as three-dimensional extrusions on the map.
+   *
+   * `Buildings3D` is valid only for the `Standard` and `Monochrome` map styles.
+   *
    * @public
    */
   Buildings?: Buildings | undefined;
 
   /**
-   * <p>Controls how densely points of interest are rendered on the map. The density value controls the zoom level at which each category of points of interest appears, and how quickly less prominent points of interest are revealed as you zoom in. Denser values display more points of interest at lower zoom levels.</p> <p>Use <code>Off</code> to hide all points of interest. When you omit this parameter, the map renders at <code>Default</code> density.</p> <note> <p>The difference between density values is most noticeable at mid-range zoom levels. At high zoom levels, all density values converge on displaying every available point of interest.</p> </note> <p>This parameter is valid only for the <code>Standard</code> and <code>Hybrid</code> map styles. In <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, this parameter is valid only for the <code>Standard</code> map style.</p>
+   * Controls how densely points of interest are rendered on the map. The density value controls the zoom level at which each category of points of interest appears, and how quickly less prominent points of interest are revealed as you zoom in. Denser values display more points of interest at lower zoom levels.
+   *
+   * Use `Off` to hide all points of interest. When you omit this parameter, the map renders at `Default` density.
+   *
+   * > **Note:** The difference between density values is most noticeable at mid-range zoom levels. At high zoom levels, all density values converge on displaying every available point of interest.
+   *
+   * This parameter is valid only for the `Standard` and `Hybrid` map styles. In `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers, this parameter is valid only for the `Standard` map style.
+   *
    * @public
    */
   PoiDensity?: PoiDensity | undefined;
 
   /**
-   * <p>Renders only the specified categories of points of interest. When you omit this parameter, the map renders all categories.</p> <p>The following categories are currently supported:</p> <ul> <li> <p> <code>FoodAndDrink</code> </p> </li> <li> <p> <code>Entertainment</code> </p> </li> <li> <p> <code>SightsAndMuseums</code> </p> </li> <li> <p> <code>Transportation</code> </p> </li> <li> <p> <code>Accommodations</code> </p> </li> <li> <p> <code>LeisureAndOutdoor</code> </p> </li> <li> <p> <code>Shopping</code> </p> </li> <li> <p> <code>BusinessAndServices</code> </p> </li> <li> <p> <code>FacilitiesAndBuildings</code> </p> </li> </ul> <p>Specify each category as a separate <code>poi-categories</code> query parameter. Duplicate values are rejected.</p> <note> <p>This parameter has no effect when <code>poi-density</code> is set to <code>Off</code>, which hides all points of interest regardless of category.</p> </note> <p>This parameter is valid only for the <code>Standard</code> and <code>Hybrid</code> map styles. In <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, this parameter is valid only for the <code>Standard</code> map style.</p>
+   * Renders only the specified categories of points of interest. When you omit this parameter, the map renders all categories.
+   *
+   * The following categories are currently supported:
+   *
+   * - `FoodAndDrink`
+   * - `Entertainment`
+   * - `SightsAndMuseums`
+   * - `Transportation`
+   * - `Accommodations`
+   * - `LeisureAndOutdoor`
+   * - `Shopping`
+   * - `BusinessAndServices`
+   * - `FacilitiesAndBuildings`
+   *
+   * Specify each category as a separate `poi-categories` query parameter. Duplicate values are rejected.
+   *
+   * > **Note:** This parameter has no effect when `poi-density` is set to `Off`, which hides all points of interest regardless of category.
+   *
+   * This parameter is valid only for the `Standard` and `Hybrid` map styles. In `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers, this parameter is valid only for the `Standard` map style.
+   *
    * @public
    */
   PoiCategories?: PoiCategory[] | undefined;
 
   /**
-   * <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4 signature must be provided when making a request. </p>
+   * Optional: The API key to be used for authorization. Either an API key or valid SigV4 signature must be provided when making a request.
+   *
    * @public
    */
   Key?: string | undefined;
@@ -375,25 +724,29 @@ export interface GetStyleDescriptorRequest {
  */
 export interface GetStyleDescriptorResponse {
   /**
-   * <p>This Blob contains the body of the style descriptor which is in application/json format.</p>
+   * This Blob contains the body of the style descriptor which is in application/json format.
+   *
    * @public
    */
   Blob?: Uint8Array | undefined;
 
   /**
-   * <p>Header that represents the format of the response. The response returns the following as the HTTP body.</p>
+   * Header that represents the format of the response. The response returns the following as the HTTP body.
+   *
    * @public
    */
   ContentType?: string | undefined;
 
   /**
-   * <p>Header that instructs caching configuration for the client.</p>
+   * Header that instructs caching configuration for the client.
+   *
    * @public
    */
   CacheControl?: string | undefined;
 
   /**
-   * <p>The style descriptor's Etag.</p>
+   * The style descriptor's Etag.
+   *
    * @public
    */
   ETag?: string | undefined;
@@ -404,37 +757,45 @@ export interface GetStyleDescriptorResponse {
  */
 export interface GetTileRequest {
   /**
-   * <p>A list of optional additional parameters such as map styles that can be requested for each result. Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers.</p>
+   * A list of optional additional parameters such as map styles that can be requested for each result. Not supported in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
    * @public
    */
   AdditionalFeatures?: TileAdditionalFeature[] | undefined;
 
   /**
-   * <p>Specifies the desired tile set. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only the <code>vector.basemap</code> value.</p> <p>Valid Values: <code>raster.satellite | vector.basemap | vector.traffic | raster.dem</code> </p>
+   * Specifies the desired tile set. For [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers, `ap-southeast-1` and `ap-southeast-5` regions support only the `vector.basemap` value.
+   *
+   * Valid Values: `raster.satellite | vector.basemap | vector.traffic | raster.dem`
+   *
    * @public
    */
   Tileset: string | undefined;
 
   /**
-   * <p>The zoom value for the map tile.</p>
+   * The zoom value for the map tile.
+   *
    * @public
    */
   Z: string | undefined;
 
   /**
-   * <p>The X axis value for the map tile.</p>
+   * The X axis value for the map tile.
+   *
    * @public
    */
   X: string | undefined;
 
   /**
-   * <p>The Y axis value for the map tile.</p>
+   * The Y axis value for the map tile.
+   *
    * @public
    */
   Y: string | undefined;
 
   /**
-   * <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4 signature must be provided when making a request. </p>
+   * Optional: The API key to be used for authorization. Either an API key or valid SigV4 signature must be provided when making a request.
+   *
    * @public
    */
   Key?: string | undefined;
@@ -445,31 +806,36 @@ export interface GetTileRequest {
  */
 export interface GetTileResponse {
   /**
-   * <p>The blob represents a vector tile in <code>mvt</code> or a raster tile in an image format.</p>
+   * The blob represents a vector tile in `mvt` or a raster tile in an image format.
+   *
    * @public
    */
   Blob?: Uint8Array | undefined;
 
   /**
-   * <p>Header that represents the format of the response. The response returns the following as the HTTP body.</p>
+   * Header that represents the format of the response. The response returns the following as the HTTP body.
+   *
    * @public
    */
   ContentType?: string | undefined;
 
   /**
-   * <p>Header that instructs caching configuration for the client.</p>
+   * Header that instructs caching configuration for the client.
+   *
    * @public
    */
   CacheControl?: string | undefined;
 
   /**
-   * <p>The pricing bucket for which the request is charged at.</p>
+   * The pricing bucket for which the request is charged at.
+   *
    * @public
    */
   ETag?: string | undefined;
 
   /**
-   * <p>The pricing bucket for which the request is charged at.</p>
+   * The pricing bucket for which the request is charged at.
+   *
    * @public
    */
   PricingBucket: string | undefined;

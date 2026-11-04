@@ -23,9 +23,10 @@ export interface DescribeApplicationCommandInput extends DescribeApplicationRequ
 export interface DescribeApplicationCommandOutput extends DescribeApplicationResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about a specific Managed Service for Apache Flink application.</p>
- *          <p>If you want to retrieve a list of all applications in your account,
- *       use the <a>ListApplications</a> operation.</p>
+ * Returns information about a specific Managed Service for Apache Flink application.
+ *
+ * If you want to retrieve a list of all applications in your account, use the ListApplications operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -295,17 +296,20 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>The specified input parameter value is not valid.</p>
+ *
+ * The specified input parameter value is not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request JSON is not valid for the operation.</p>
+ *
+ * The request JSON is not valid for the operation.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Specified application can't be found.</p>
+ *
+ * Specified application can't be found.
  *
  * @throws {@link KinesisAnalyticsV2ServiceException}
- * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ * Base exception class for all service exceptions from KinesisAnalyticsV2 service.
  *
  * @public
  */

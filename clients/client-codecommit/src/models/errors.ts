@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { CodeCommitServiceException as __BaseException } from "./CodeCommitServiceException";
 
 /**
- * <p>The specified Amazon Resource Name (ARN) does not exist in the Amazon Web Services account.</p>
+ * The specified Amazon Resource Name (ARN) does not exist in the Amazon Web Services account.
+ *
  * @public
  */
 export class ActorDoesNotExistException extends __BaseException {
@@ -25,7 +26,8 @@ export class ActorDoesNotExistException extends __BaseException {
 }
 
 /**
- * <p>The content for the approval rule is empty. You must provide some content for an approval rule. The content cannot be null.</p>
+ * The content for the approval rule is empty. You must provide some content for an approval rule. The content cannot be null.
+ *
  * @public
  */
 export class ApprovalRuleContentRequiredException extends __BaseException {
@@ -46,7 +48,8 @@ export class ApprovalRuleContentRequiredException extends __BaseException {
 }
 
 /**
- * <p>The specified approval rule does not exist.</p>
+ * The specified approval rule does not exist.
+ *
  * @public
  */
 export class ApprovalRuleDoesNotExistException extends __BaseException {
@@ -67,8 +70,8 @@ export class ApprovalRuleDoesNotExistException extends __BaseException {
 }
 
 /**
- * <p>An approval rule with that name already exists. Approval rule names must be unique
- *             within the scope of a pull request.</p>
+ * An approval rule with that name already exists. Approval rule names must be unique within the scope of a pull request.
+ *
  * @public
  */
 export class ApprovalRuleNameAlreadyExistsException extends __BaseException {
@@ -89,7 +92,8 @@ export class ApprovalRuleNameAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>An approval rule name is required, but was not specified.</p>
+ * An approval rule name is required, but was not specified.
+ *
  * @public
  */
 export class ApprovalRuleNameRequiredException extends __BaseException {
@@ -110,7 +114,8 @@ export class ApprovalRuleNameRequiredException extends __BaseException {
 }
 
 /**
- * <p>The content for the approval rule template is empty. You must provide some content for an approval rule template. The content cannot be null.</p>
+ * The content for the approval rule template is empty. You must provide some content for an approval rule template. The content cannot be null.
+ *
  * @public
  */
 export class ApprovalRuleTemplateContentRequiredException extends __BaseException {
@@ -131,8 +136,8 @@ export class ApprovalRuleTemplateContentRequiredException extends __BaseExceptio
 }
 
 /**
- * <p>The specified approval rule template does not exist. Verify that the name is correct and that you are signed in to the Amazon Web Services Region where the template
- *         was created, and then try again.</p>
+ * The specified approval rule template does not exist. Verify that the name is correct and that you are signed in to the Amazon Web Services Region where the template was created, and then try again.
+ *
  * @public
  */
 export class ApprovalRuleTemplateDoesNotExistException extends __BaseException {
@@ -153,8 +158,8 @@ export class ApprovalRuleTemplateDoesNotExistException extends __BaseException {
 }
 
 /**
- * <p>The approval rule template is associated with one or more repositories. You cannot delete a template that is associated with a repository. Remove
- *         all associations, and then try again.</p>
+ * The approval rule template is associated with one or more repositories. You cannot delete a template that is associated with a repository. Remove all associations, and then try again.
+ *
  * @public
  */
 export class ApprovalRuleTemplateInUseException extends __BaseException {
@@ -175,9 +180,8 @@ export class ApprovalRuleTemplateInUseException extends __BaseException {
 }
 
 /**
- * <p>You cannot create an approval rule template with that name because a template with
- *             that name already exists in this Amazon Web Services Region for your Amazon Web Services account. Approval rule template
- *             names must be unique.</p>
+ * You cannot create an approval rule template with that name because a template with that name already exists in this Amazon Web Services Region for your Amazon Web Services account. Approval rule template names must be unique.
+ *
  * @public
  */
 export class ApprovalRuleTemplateNameAlreadyExistsException extends __BaseException {
@@ -198,7 +202,8 @@ export class ApprovalRuleTemplateNameAlreadyExistsException extends __BaseExcept
 }
 
 /**
- * <p>An approval rule template name is required, but was not specified.</p>
+ * An approval rule template name is required, but was not specified.
+ *
  * @public
  */
 export class ApprovalRuleTemplateNameRequiredException extends __BaseException {
@@ -219,7 +224,8 @@ export class ApprovalRuleTemplateNameRequiredException extends __BaseException {
 }
 
 /**
- * <p>An approval state is required, but was not specified.</p>
+ * An approval state is required, but was not specified.
+ *
  * @public
  */
 export class ApprovalStateRequiredException extends __BaseException {
@@ -240,7 +246,8 @@ export class ApprovalStateRequiredException extends __BaseException {
 }
 
 /**
- * <p>An encryption integrity check failed.</p>
+ * An encryption integrity check failed.
+ *
  * @public
  */
 export class EncryptionIntegrityChecksFailedException extends __BaseException {
@@ -261,7 +268,8 @@ export class EncryptionIntegrityChecksFailedException extends __BaseException {
 }
 
 /**
- * <p>An encryption key could not be accessed.</p>
+ * An encryption key could not be accessed.
+ *
  * @public
  */
 export class EncryptionKeyAccessDeniedException extends __BaseException {
@@ -282,7 +290,8 @@ export class EncryptionKeyAccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The encryption key is disabled.</p>
+ * The encryption key is disabled.
+ *
  * @public
  */
 export class EncryptionKeyDisabledException extends __BaseException {
@@ -303,7 +312,8 @@ export class EncryptionKeyDisabledException extends __BaseException {
 }
 
 /**
- * <p>No encryption key was found.</p>
+ * No encryption key was found.
+ *
  * @public
  */
 export class EncryptionKeyNotFoundException extends __BaseException {
@@ -324,7 +334,8 @@ export class EncryptionKeyNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The encryption key is not available.</p>
+ * The encryption key is not available.
+ *
  * @public
  */
 export class EncryptionKeyUnavailableException extends __BaseException {
@@ -345,10 +356,8 @@ export class EncryptionKeyUnavailableException extends __BaseException {
 }
 
 /**
- * <p>The name of the approval rule template is not valid. Template names must be between 1
- *             and 100 valid characters in length. For more information about limits in CodeCommit,
- *             see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Quotas</a> in the <i>
- *                CodeCommit User Guide</i>.</p>
+ * The name of the approval rule template is not valid. Template names must be between 1 and 100 valid characters in length. For more information about limits in CodeCommit, see [Quotas](https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html) in the *CodeCommit User Guide*.
+ *
  * @public
  */
 export class InvalidApprovalRuleTemplateNameException extends __BaseException {
@@ -369,12 +378,10 @@ export class InvalidApprovalRuleTemplateNameException extends __BaseException {
 }
 
 /**
- * <p>A specified repository name is not valid.</p>
- *          <note>
- *             <p>This exception occurs only when a specified repository name is not valid. Other
- *                 exceptions occur when a required repository parameter is missing, or when a
- *                 specified repository does not exist.</p>
- *          </note>
+ * A specified repository name is not valid.
+ *
+ * > **Note:** This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.
+ *
  * @public
  */
 export class InvalidRepositoryNameException extends __BaseException {
@@ -395,8 +402,8 @@ export class InvalidRepositoryNameException extends __BaseException {
 }
 
 /**
- * <p>The maximum number of approval rule templates for a repository has been exceeded. You cannot associate more than 25
- *         approval rule templates with a repository.</p>
+ * The maximum number of approval rule templates for a repository has been exceeded. You cannot associate more than 25 approval rule templates with a repository.
+ *
  * @public
  */
 export class MaximumRuleTemplatesAssociatedWithRepositoryException extends __BaseException {
@@ -417,7 +424,8 @@ export class MaximumRuleTemplatesAssociatedWithRepositoryException extends __Bas
 }
 
 /**
- * <p>The specified repository does not exist.</p>
+ * The specified repository does not exist.
+ *
  * @public
  */
 export class RepositoryDoesNotExistException extends __BaseException {
@@ -438,7 +446,8 @@ export class RepositoryDoesNotExistException extends __BaseException {
 }
 
 /**
- * <p>A repository name is required, but was not specified.</p>
+ * A repository name is required, but was not specified.
+ *
  * @public
  */
 export class RepositoryNameRequiredException extends __BaseException {
@@ -459,7 +468,8 @@ export class RepositoryNameRequiredException extends __BaseException {
 }
 
 /**
- * <p>The specified Amazon Resource Name (ARN) does not exist in the Amazon Web Services account.</p>
+ * The specified Amazon Resource Name (ARN) does not exist in the Amazon Web Services account.
+ *
  * @public
  */
 export class AuthorDoesNotExistException extends __BaseException {
@@ -480,7 +490,8 @@ export class AuthorDoesNotExistException extends __BaseException {
 }
 
 /**
- * <p>The maximum number of allowed repository names was exceeded. Currently, this number is 100.</p>
+ * The maximum number of allowed repository names was exceeded. Currently, this number is 100.
+ *
  * @public
  */
 export class MaximumRepositoryNamesExceededException extends __BaseException {
@@ -501,7 +512,8 @@ export class MaximumRepositoryNamesExceededException extends __BaseException {
 }
 
 /**
- * <p>At least one repository name object is required, but was not specified.</p>
+ * At least one repository name object is required, but was not specified.
+ *
  * @public
  */
 export class RepositoryNamesRequiredException extends __BaseException {
@@ -522,7 +534,8 @@ export class RepositoryNamesRequiredException extends __BaseException {
 }
 
 /**
- * <p>The specified commit does not exist or no commit was specified, and the specified repository has no default branch.</p>
+ * The specified commit does not exist or no commit was specified, and the specified repository has no default branch.
+ *
  * @public
  */
 export class CommitDoesNotExistException extends __BaseException {
@@ -543,7 +556,8 @@ export class CommitDoesNotExistException extends __BaseException {
 }
 
 /**
- * <p>A commit was not specified.</p>
+ * A commit was not specified.
+ *
  * @public
  */
 export class CommitRequiredException extends __BaseException {
@@ -564,7 +578,8 @@ export class CommitRequiredException extends __BaseException {
 }
 
 /**
- * <p>The specified commit is not valid.</p>
+ * The specified commit is not valid.
+ *
  * @public
  */
 export class InvalidCommitException extends __BaseException {
@@ -585,7 +600,8 @@ export class InvalidCommitException extends __BaseException {
 }
 
 /**
- * <p>The specified conflict detail level is not valid.</p>
+ * The specified conflict detail level is not valid.
+ *
  * @public
  */
 export class InvalidConflictDetailLevelException extends __BaseException {
@@ -606,7 +622,8 @@ export class InvalidConflictDetailLevelException extends __BaseException {
 }
 
 /**
- * <p>The specified conflict resolution strategy is not valid.</p>
+ * The specified conflict resolution strategy is not valid.
+ *
  * @public
  */
 export class InvalidConflictResolutionStrategyException extends __BaseException {
@@ -627,7 +644,8 @@ export class InvalidConflictResolutionStrategyException extends __BaseException 
 }
 
 /**
- * <p>The specified continuation token is not valid.</p>
+ * The specified continuation token is not valid.
+ *
  * @public
  */
 export class InvalidContinuationTokenException extends __BaseException {
@@ -648,7 +666,8 @@ export class InvalidContinuationTokenException extends __BaseException {
 }
 
 /**
- * <p>The specified value for the number of conflict files to return is not valid.</p>
+ * The specified value for the number of conflict files to return is not valid.
+ *
  * @public
  */
 export class InvalidMaxConflictFilesException extends __BaseException {
@@ -669,7 +688,8 @@ export class InvalidMaxConflictFilesException extends __BaseException {
 }
 
 /**
- * <p>The specified value for the number of merge hunks to return is not valid.</p>
+ * The specified value for the number of merge hunks to return is not valid.
+ *
  * @public
  */
 export class InvalidMaxMergeHunksException extends __BaseException {
@@ -690,7 +710,8 @@ export class InvalidMaxMergeHunksException extends __BaseException {
 }
 
 /**
- * <p>The specified merge option is not valid for this operation. Not all merge strategies are supported for all operations.</p>
+ * The specified merge option is not valid for this operation. Not all merge strategies are supported for all operations.
+ *
  * @public
  */
 export class InvalidMergeOptionException extends __BaseException {
@@ -711,7 +732,8 @@ export class InvalidMergeOptionException extends __BaseException {
 }
 
 /**
- * <p>The number of files to load exceeds the allowed limit.</p>
+ * The number of files to load exceeds the allowed limit.
+ *
  * @public
  */
 export class MaximumFileContentToLoadExceededException extends __BaseException {
@@ -732,7 +754,8 @@ export class MaximumFileContentToLoadExceededException extends __BaseException {
 }
 
 /**
- * <p>The number of items to compare between the source or destination branches and the merge base has exceeded the maximum allowed.</p>
+ * The number of items to compare between the source or destination branches and the merge base has exceeded the maximum allowed.
+ *
  * @public
  */
 export class MaximumItemsToCompareExceededException extends __BaseException {
@@ -753,7 +776,8 @@ export class MaximumItemsToCompareExceededException extends __BaseException {
 }
 
 /**
- * <p>A merge option or stategy is required, and none was provided.</p>
+ * A merge option or stategy is required, and none was provided.
+ *
  * @public
  */
 export class MergeOptionRequiredException extends __BaseException {
@@ -774,8 +798,8 @@ export class MergeOptionRequiredException extends __BaseException {
 }
 
 /**
- * <p>The divergence between the tips of the provided commit specifiers is too great to determine whether there might be
- *             any merge conflicts. Locally compare the specifiers using <code>git diff</code> or a diff tool.</p>
+ * The divergence between the tips of the provided commit specifiers is too great to determine whether there might be any merge conflicts. Locally compare the specifiers using `git diff` or a diff tool.
+ *
  * @public
  */
 export class TipsDivergenceExceededException extends __BaseException {
@@ -796,7 +820,8 @@ export class TipsDivergenceExceededException extends __BaseException {
 }
 
 /**
- * <p>The maximum number of allowed commit IDs in a batch request is 100. Verify that your batch requests contains no more than 100 commit IDs, and then try again.</p>
+ * The maximum number of allowed commit IDs in a batch request is 100. Verify that your batch requests contains no more than 100 commit IDs, and then try again.
+ *
  * @public
  */
 export class CommitIdsLimitExceededException extends __BaseException {
@@ -817,7 +842,8 @@ export class CommitIdsLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>A list of commit IDs is required, but was either not specified or the list was empty.</p>
+ * A list of commit IDs is required, but was either not specified or the list was empty.
+ *
  * @public
  */
 export class CommitIdsListRequiredException extends __BaseException {
@@ -838,7 +864,8 @@ export class CommitIdsListRequiredException extends __BaseException {
 }
 
 /**
- * <p>The before commit ID and the after commit ID are the same, which is not valid. The before commit ID and the after commit ID must be different commit IDs.</p>
+ * The before commit ID and the after commit ID are the same, which is not valid. The before commit ID and the after commit ID must be different commit IDs.
+ *
  * @public
  */
 export class BeforeCommitIdAndAfterCommitIdAreSameException extends __BaseException {
@@ -859,7 +886,8 @@ export class BeforeCommitIdAndAfterCommitIdAreSameException extends __BaseExcept
 }
 
 /**
- * <p>The specified blob does not exist.</p>
+ * The specified blob does not exist.
+ *
  * @public
  */
 export class BlobIdDoesNotExistException extends __BaseException {
@@ -880,7 +908,8 @@ export class BlobIdDoesNotExistException extends __BaseException {
 }
 
 /**
- * <p>A blob ID is required, but was not specified.</p>
+ * A blob ID is required, but was not specified.
+ *
  * @public
  */
 export class BlobIdRequiredException extends __BaseException {
@@ -901,7 +930,8 @@ export class BlobIdRequiredException extends __BaseException {
 }
 
 /**
- * <p>The specified branch does not exist.</p>
+ * The specified branch does not exist.
+ *
  * @public
  */
 export class BranchDoesNotExistException extends __BaseException {
@@ -922,9 +952,8 @@ export class BranchDoesNotExistException extends __BaseException {
 }
 
 /**
- * <p>Cannot create the branch with the specified name because the commit conflicts with an existing branch with the same name.
+ * Cannot create the branch with the specified name because the commit conflicts with an existing branch with the same name. Branch names must be unique.
  *
- *             Branch names must be unique.</p>
  * @public
  */
 export class BranchNameExistsException extends __BaseException {
@@ -945,8 +974,8 @@ export class BranchNameExistsException extends __BaseException {
 }
 
 /**
- * <p>The specified branch name is not valid because it is a tag name. Enter the name of a
- *             branch in the repository. For a list of valid branch names, use <a>ListBranches</a>.</p>
+ * The specified branch name is not valid because it is a tag name. Enter the name of a branch in the repository. For a list of valid branch names, use ListBranches.
+ *
  * @public
  */
 export class BranchNameIsTagNameException extends __BaseException {
@@ -967,7 +996,8 @@ export class BranchNameIsTagNameException extends __BaseException {
 }
 
 /**
- * <p>A branch name is required, but was not specified.</p>
+ * A branch name is required, but was not specified.
+ *
  * @public
  */
 export class BranchNameRequiredException extends __BaseException {
@@ -988,8 +1018,8 @@ export class BranchNameRequiredException extends __BaseException {
 }
 
 /**
- * <p>The approval rule cannot be deleted from the pull request because it was created by an
- *             approval rule template and applied to the pull request automatically.</p>
+ * The approval rule cannot be deleted from the pull request because it was created by an approval rule template and applied to the pull request automatically.
+ *
  * @public
  */
 export class CannotDeleteApprovalRuleFromTemplateException extends __BaseException {
@@ -1010,8 +1040,8 @@ export class CannotDeleteApprovalRuleFromTemplateException extends __BaseExcepti
 }
 
 /**
- * <p>The approval rule cannot be modified for the pull request because it was created by an
- *             approval rule template and applied to the pull request automatically.</p>
+ * The approval rule cannot be modified for the pull request because it was created by an approval rule template and applied to the pull request automatically.
+ *
  * @public
  */
 export class CannotModifyApprovalRuleFromTemplateException extends __BaseException {
@@ -1032,11 +1062,8 @@ export class CannotModifyApprovalRuleFromTemplateException extends __BaseExcepti
 }
 
 /**
- * <p>A client request token is required. A client request token is an unique,
- *             client-generated idempotency token that, when provided in a request, ensures the request
- *             cannot be repeated with a changed parameter. If a request is received with the same
- *             parameters and a token is included, the request returns information about the initial
- *             request that used that token.</p>
+ * A client request token is required. A client request token is an unique, client-generated idempotency token that, when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request returns information about the initial request that used that token.
+ *
  * @public
  */
 export class ClientRequestTokenRequiredException extends __BaseException {
@@ -1057,7 +1084,8 @@ export class ClientRequestTokenRequiredException extends __BaseException {
 }
 
 /**
- * <p>The content of the approval rule template is not valid.</p>
+ * The content of the approval rule template is not valid.
+ *
  * @public
  */
 export class InvalidApprovalRuleTemplateContentException extends __BaseException {
@@ -1078,10 +1106,8 @@ export class InvalidApprovalRuleTemplateContentException extends __BaseException
 }
 
 /**
- * <p>The description for the approval rule template is not valid because it exceeds the
- *             maximum characters allowed for a description. For more information about limits in CodeCommit,
- *             see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Quotas</a> in the <i>
- *                CodeCommit User Guide</i>.</p>
+ * The description for the approval rule template is not valid because it exceeds the maximum characters allowed for a description. For more information about limits in CodeCommit, see [Quotas](https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html) in the *CodeCommit User Guide*.
+ *
  * @public
  */
 export class InvalidApprovalRuleTemplateDescriptionException extends __BaseException {
@@ -1102,7 +1128,8 @@ export class InvalidApprovalRuleTemplateDescriptionException extends __BaseExcep
 }
 
 /**
- * <p>The maximum number of approval rule templates has been exceeded for this Amazon Web Services Region. </p>
+ * The maximum number of approval rule templates has been exceeded for this Amazon Web Services Region.
+ *
  * @public
  */
 export class NumberOfRuleTemplatesExceededException extends __BaseException {
@@ -1123,7 +1150,8 @@ export class NumberOfRuleTemplatesExceededException extends __BaseException {
 }
 
 /**
- * <p>A commit ID was not specified.</p>
+ * A commit ID was not specified.
+ *
  * @public
  */
 export class CommitIdRequiredException extends __BaseException {
@@ -1144,7 +1172,8 @@ export class CommitIdRequiredException extends __BaseException {
 }
 
 /**
- * <p>The specified reference name is not valid.</p>
+ * The specified reference name is not valid.
+ *
  * @public
  */
 export class InvalidBranchNameException extends __BaseException {
@@ -1165,7 +1194,8 @@ export class InvalidBranchNameException extends __BaseException {
 }
 
 /**
- * <p>The specified commit ID is not valid.</p>
+ * The specified commit ID is not valid.
+ *
  * @public
  */
 export class InvalidCommitIdException extends __BaseException {
@@ -1186,7 +1216,8 @@ export class InvalidCommitIdException extends __BaseException {
 }
 
 /**
- * <p>The commit message is too long. Provide a shorter string. </p>
+ * The commit message is too long. Provide a shorter string.
+ *
  * @public
  */
 export class CommitMessageLengthExceededException extends __BaseException {
@@ -1207,8 +1238,8 @@ export class CommitMessageLengthExceededException extends __BaseException {
 }
 
 /**
- * <p>A file cannot be added to the repository because the specified path name has the same name as a file that already exists in this repository.
- *         Either provide a different name for the file, or specify a different path for the file.</p>
+ * A file cannot be added to the repository because the specified path name has the same name as a file that already exists in this repository. Either provide a different name for the file, or specify a different path for the file.
+ *
  * @public
  */
 export class DirectoryNameConflictsWithFileNameException extends __BaseException {
@@ -1229,9 +1260,8 @@ export class DirectoryNameConflictsWithFileNameException extends __BaseException
 }
 
 /**
- * <p>The commit cannot be created because both a source file and file content have been
- *             specified for the same file. You cannot provide both. Either specify a source file or
- *             provide the file content directly.</p>
+ * The commit cannot be created because both a source file and file content have been specified for the same file. You cannot provide both. Either specify a source file or provide the file content directly.
+ *
  * @public
  */
 export class FileContentAndSourceFileSpecifiedException extends __BaseException {
@@ -1252,9 +1282,8 @@ export class FileContentAndSourceFileSpecifiedException extends __BaseException 
 }
 
 /**
- * <p>The file cannot be added because it is too large. The maximum file size is 6 MB, and
- *             the combined file content change size is 7 MB. Consider making these changes using a Git
- *             client.</p>
+ * The file cannot be added because it is too large. The maximum file size is 6 MB, and the combined file content change size is 7 MB. Consider making these changes using a Git client.
+ *
  * @public
  */
 export class FileContentSizeLimitExceededException extends __BaseException {
@@ -1275,8 +1304,8 @@ export class FileContentSizeLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The specified file does not exist. Verify that you have used the correct file name,
- *             full path, and extension.</p>
+ * The specified file does not exist. Verify that you have used the correct file name, full path, and extension.
+ *
  * @public
  */
 export class FileDoesNotExistException extends __BaseException {
@@ -1297,7 +1326,8 @@ export class FileDoesNotExistException extends __BaseException {
 }
 
 /**
- * <p>The commit cannot be created because no files have been specified as added, updated, or changed (PutFile or DeleteFile) for the commit.</p>
+ * The commit cannot be created because no files have been specified as added, updated, or changed (PutFile or DeleteFile) for the commit.
+ *
  * @public
  */
 export class FileEntryRequiredException extends __BaseException {
@@ -1318,8 +1348,8 @@ export class FileEntryRequiredException extends __BaseException {
 }
 
 /**
- * <p>The commit cannot be created because no file mode has been specified. A file mode is
- *             required to update mode permissions for a file.</p>
+ * The commit cannot be created because no file mode has been specified. A file mode is required to update mode permissions for a file.
+ *
  * @public
  */
 export class FileModeRequiredException extends __BaseException {
@@ -1340,8 +1370,8 @@ export class FileModeRequiredException extends __BaseException {
 }
 
 /**
- * <p>A file cannot be added to the repository because the specified file name has the same name as a directory in this repository. Either provide
- *         another name for the file, or add the file in a directory that does not match the file name.</p>
+ * A file cannot be added to the repository because the specified file name has the same name as a directory in this repository. Either provide another name for the file, or add the file in a directory that does not match the file name.
+ *
  * @public
  */
 export class FileNameConflictsWithDirectoryNameException extends __BaseException {
@@ -1362,8 +1392,8 @@ export class FileNameConflictsWithDirectoryNameException extends __BaseException
 }
 
 /**
- * <p>The commit cannot be created because a specified file path points to a submodule. Verify that the destination files
- *         have valid file paths that do not point to a submodule.</p>
+ * The commit cannot be created because a specified file path points to a submodule. Verify that the destination files have valid file paths that do not point to a submodule.
+ *
  * @public
  */
 export class FilePathConflictsWithSubmodulePathException extends __BaseException {
@@ -1384,9 +1414,8 @@ export class FilePathConflictsWithSubmodulePathException extends __BaseException
 }
 
 /**
- * <p>The commit cannot be created because at least one of the overall changes in the commit results in a
- *             folder whose contents exceed the limit of 6 MB. Either reduce the number and size of your changes,
- *         or split the changes across multiple folders.</p>
+ * The commit cannot be created because at least one of the overall changes in the commit results in a folder whose contents exceed the limit of 6 MB. Either reduce the number and size of your changes, or split the changes across multiple folders.
+ *
  * @public
  */
 export class FolderContentSizeLimitExceededException extends __BaseException {
@@ -1407,7 +1436,8 @@ export class FolderContentSizeLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The specified deletion parameter is not valid.</p>
+ * The specified deletion parameter is not valid.
+ *
  * @public
  */
 export class InvalidDeletionParameterException extends __BaseException {
@@ -1428,8 +1458,8 @@ export class InvalidDeletionParameterException extends __BaseException {
 }
 
 /**
- * <p>The specified email address either contains one or more characters that are not allowed, or it exceeds the maximum number of characters
- *         allowed for an email address.</p>
+ * The specified email address either contains one or more characters that are not allowed, or it exceeds the maximum number of characters allowed for an email address.
+ *
  * @public
  */
 export class InvalidEmailException extends __BaseException {
@@ -1450,7 +1480,8 @@ export class InvalidEmailException extends __BaseException {
 }
 
 /**
- * <p>The specified file mode permission is not valid. For a list of valid file mode permissions, see <a>PutFile</a>. </p>
+ * The specified file mode permission is not valid. For a list of valid file mode permissions, see PutFile.
+ *
  * @public
  */
 export class InvalidFileModeException extends __BaseException {
@@ -1471,8 +1502,8 @@ export class InvalidFileModeException extends __BaseException {
 }
 
 /**
- * <p>The parent commit ID is not valid. The commit ID cannot be empty, and must match the head commit ID for the branch of the repository where you
- *         want to add or update a file.</p>
+ * The parent commit ID is not valid. The commit ID cannot be empty, and must match the head commit ID for the branch of the repository where you want to add or update a file.
+ *
  * @public
  */
 export class InvalidParentCommitIdException extends __BaseException {
@@ -1493,7 +1524,8 @@ export class InvalidParentCommitIdException extends __BaseException {
 }
 
 /**
- * <p>The specified path is not valid.</p>
+ * The specified path is not valid.
+ *
  * @public
  */
 export class InvalidPathException extends __BaseException {
@@ -1514,8 +1546,8 @@ export class InvalidPathException extends __BaseException {
 }
 
 /**
- * <p>The number of specified files to change as part of this commit exceeds the maximum number of files
- *         that can be changed in a single commit. Consider using a Git client for these changes.</p>
+ * The number of specified files to change as part of this commit exceeds the maximum number of files that can be changed in a single commit. Consider using a Git client for these changes.
+ *
  * @public
  */
 export class MaximumFileEntriesExceededException extends __BaseException {
@@ -1536,7 +1568,8 @@ export class MaximumFileEntriesExceededException extends __BaseException {
 }
 
 /**
- * <p>The user name is not valid because it has exceeded the character limit for author names. </p>
+ * The user name is not valid because it has exceeded the character limit for author names.
+ *
  * @public
  */
 export class NameLengthExceededException extends __BaseException {
@@ -1557,7 +1590,8 @@ export class NameLengthExceededException extends __BaseException {
 }
 
 /**
- * <p>The commit cannot be created because no changes will be made to the repository as a result of this commit. A commit must contain at least one change.</p>
+ * The commit cannot be created because no changes will be made to the repository as a result of this commit. A commit must contain at least one change.
+ *
  * @public
  */
 export class NoChangeException extends __BaseException {
@@ -1578,7 +1612,8 @@ export class NoChangeException extends __BaseException {
 }
 
 /**
- * <p>The parent commit ID is not valid because it does not exist. The specified parent commit ID does not exist in the specified branch of the repository.</p>
+ * The parent commit ID is not valid because it does not exist. The specified parent commit ID does not exist in the specified branch of the repository.
+ *
  * @public
  */
 export class ParentCommitDoesNotExistException extends __BaseException {
@@ -1599,8 +1634,8 @@ export class ParentCommitDoesNotExistException extends __BaseException {
 }
 
 /**
- * <p>The file could not be added because the provided parent commit ID is not the current tip of the specified branch. To view the full commit ID of the current head
- *         of the branch, use <a>GetBranch</a>.</p>
+ * The file could not be added because the provided parent commit ID is not the current tip of the specified branch. To view the full commit ID of the current head of the branch, use GetBranch.
+ *
  * @public
  */
 export class ParentCommitIdOutdatedException extends __BaseException {
@@ -1621,8 +1656,8 @@ export class ParentCommitIdOutdatedException extends __BaseException {
 }
 
 /**
- * <p>A parent commit ID is required. To view the full commit ID of a branch in a repository, use <a>GetBranch</a> or a Git command
- *         (for example, git pull or git log).</p>
+ * A parent commit ID is required. To view the full commit ID of a branch in a repository, use GetBranch or a Git command (for example, git pull or git log).
+ *
  * @public
  */
 export class ParentCommitIdRequiredException extends __BaseException {
@@ -1643,7 +1678,8 @@ export class ParentCommitIdRequiredException extends __BaseException {
 }
 
 /**
- * <p>The folderPath for a location cannot be null.</p>
+ * The folderPath for a location cannot be null.
+ *
  * @public
  */
 export class PathRequiredException extends __BaseException {
@@ -1664,7 +1700,8 @@ export class PathRequiredException extends __BaseException {
 }
 
 /**
- * <p>The commit cannot be created because one or more files specified in the commit reference both a file and a folder.</p>
+ * The commit cannot be created because one or more files specified in the commit reference both a file and a folder.
+ *
  * @public
  */
 export class PutFileEntryConflictException extends __BaseException {
@@ -1685,7 +1722,8 @@ export class PutFileEntryConflictException extends __BaseException {
 }
 
 /**
- * <p>The commit cannot be created because one of the changes specifies copying or moving a .gitkeep file.</p>
+ * The commit cannot be created because one of the changes specifies copying or moving a .gitkeep file.
+ *
  * @public
  */
 export class RestrictedSourceFileException extends __BaseException {
@@ -1706,9 +1744,8 @@ export class RestrictedSourceFileException extends __BaseException {
 }
 
 /**
- * <p>The commit cannot be created because one or more changes in this commit duplicate actions in the same file path. For example,
- *         you cannot make the same delete request to the same file in the same file path twice, or make a delete request and a move request to the same
- *         file as part of the same commit.</p>
+ * The commit cannot be created because one or more changes in this commit duplicate actions in the same file path. For example, you cannot make the same delete request to the same file in the same file path twice, or make a delete request and a move request to the same file as part of the same commit.
+ *
  * @public
  */
 export class SamePathRequestException extends __BaseException {
@@ -1729,7 +1766,8 @@ export class SamePathRequestException extends __BaseException {
 }
 
 /**
- * <p>The commit cannot be created because no source files or file content have been specified for the commit.</p>
+ * The commit cannot be created because no source files or file content have been specified for the commit.
+ *
  * @public
  */
 export class SourceFileOrContentRequiredException extends __BaseException {
@@ -1750,8 +1788,8 @@ export class SourceFileOrContentRequiredException extends __BaseException {
 }
 
 /**
- * <p>The client request token is not valid. Either the token is not in a valid format, or
- *             the token has been used in a previous request and cannot be reused.</p>
+ * The client request token is not valid. Either the token is not in a valid format, or the token has been used in a previous request and cannot be reused.
+ *
  * @public
  */
 export class IdempotencyParameterMismatchException extends __BaseException {
@@ -1772,7 +1810,8 @@ export class IdempotencyParameterMismatchException extends __BaseException {
 }
 
 /**
- * <p>The client request token is not valid.</p>
+ * The client request token is not valid.
+ *
  * @public
  */
 export class InvalidClientRequestTokenException extends __BaseException {
@@ -1793,8 +1832,8 @@ export class InvalidClientRequestTokenException extends __BaseException {
 }
 
 /**
- * <p>The pull request description is not valid. Descriptions cannot be more than 1,000
- *             characters.</p>
+ * The pull request description is not valid. Descriptions cannot be more than 1,000 characters.
+ *
  * @public
  */
 export class InvalidDescriptionException extends __BaseException {
@@ -1815,9 +1854,8 @@ export class InvalidDescriptionException extends __BaseException {
 }
 
 /**
- * <p>The specified reference name format is not valid. Reference names must conform to the
- *             Git references format (for example, refs/heads/main). For more information, see <a href="https://git-scm.com/book/en/v2/Git-Internals-Git-References">Git Internals -
- *                 Git References</a> or consult your Git documentation.</p>
+ * The specified reference name format is not valid. Reference names must conform to the Git references format (for example, refs/heads/main). For more information, see [Git Internals - Git References](https://git-scm.com/book/en/v2/Git-Internals-Git-References) or consult your Git documentation.
+ *
  * @public
  */
 export class InvalidReferenceNameException extends __BaseException {
@@ -1838,7 +1876,8 @@ export class InvalidReferenceNameException extends __BaseException {
 }
 
 /**
- * <p>The target for the pull request is not valid. A target must contain the full values for the repository name, source branch, and destination branch for the pull request.</p>
+ * The target for the pull request is not valid. A target must contain the full values for the repository name, source branch, and destination branch for the pull request.
+ *
  * @public
  */
 export class InvalidTargetException extends __BaseException {
@@ -1859,8 +1898,8 @@ export class InvalidTargetException extends __BaseException {
 }
 
 /**
- * <p>The targets for the pull request is not valid or not in a valid format. Targets are a list of target objects. Each target object must contain the full values for
- *             the repository name, source branch, and destination branch for a pull request.</p>
+ * The targets for the pull request is not valid or not in a valid format. Targets are a list of target objects. Each target object must contain the full values for the repository name, source branch, and destination branch for a pull request.
+ *
  * @public
  */
 export class InvalidTargetsException extends __BaseException {
@@ -1881,7 +1920,8 @@ export class InvalidTargetsException extends __BaseException {
 }
 
 /**
- * <p>The title of the pull request is not valid. Pull request titles cannot exceed 100 characters in length.</p>
+ * The title of the pull request is not valid. Pull request titles cannot exceed 100 characters in length.
+ *
  * @public
  */
 export class InvalidTitleException extends __BaseException {
@@ -1902,8 +1942,8 @@ export class InvalidTitleException extends __BaseException {
 }
 
 /**
- * <p>You cannot create the pull request because the repository has too many open pull requests.
- *             The maximum number of open pull requests for a repository is 1,000. Close one or more open pull requests, and then try again.</p>
+ * You cannot create the pull request because the repository has too many open pull requests. The maximum number of open pull requests for a repository is 1,000. Close one or more open pull requests, and then try again.
+ *
  * @public
  */
 export class MaximumOpenPullRequestsExceededException extends __BaseException {
@@ -1924,7 +1964,8 @@ export class MaximumOpenPullRequestsExceededException extends __BaseException {
 }
 
 /**
- * <p>You cannot include more than one repository in a pull request. Make sure you have specified only one repository name in your request, and then try again.</p>
+ * You cannot include more than one repository in a pull request. Make sure you have specified only one repository name in your request, and then try again.
+ *
  * @public
  */
 export class MultipleRepositoriesInPullRequestException extends __BaseException {
@@ -1945,7 +1986,8 @@ export class MultipleRepositoriesInPullRequestException extends __BaseException 
 }
 
 /**
- * <p>The specified reference does not exist. You must provide a full commit ID.</p>
+ * The specified reference does not exist. You must provide a full commit ID.
+ *
  * @public
  */
 export class ReferenceDoesNotExistException extends __BaseException {
@@ -1966,7 +2008,8 @@ export class ReferenceDoesNotExistException extends __BaseException {
 }
 
 /**
- * <p>A reference name is required, but none was provided.</p>
+ * A reference name is required, but none was provided.
+ *
  * @public
  */
 export class ReferenceNameRequiredException extends __BaseException {
@@ -1987,7 +2030,8 @@ export class ReferenceNameRequiredException extends __BaseException {
 }
 
 /**
- * <p>The specified reference is not a supported type. </p>
+ * The specified reference is not a supported type.
+ *
  * @public
  */
 export class ReferenceTypeNotSupportedException extends __BaseException {
@@ -2008,8 +2052,8 @@ export class ReferenceTypeNotSupportedException extends __BaseException {
 }
 
 /**
- * <p>The source branch and destination branch for the pull request are the same. You must
- *             specify different branches for the source and destination.</p>
+ * The source branch and destination branch for the pull request are the same. You must specify different branches for the source and destination.
+ *
  * @public
  */
 export class SourceAndDestinationAreSameException extends __BaseException {
@@ -2030,7 +2074,8 @@ export class SourceAndDestinationAreSameException extends __BaseException {
 }
 
 /**
- * <p>A pull request target is required. It cannot be empty or null. A pull request target must contain the full values for the repository name, source branch, and destination branch for the pull request.</p>
+ * A pull request target is required. It cannot be empty or null. A pull request target must contain the full values for the repository name, source branch, and destination branch for the pull request.
+ *
  * @public
  */
 export class TargetRequiredException extends __BaseException {
@@ -2051,7 +2096,8 @@ export class TargetRequiredException extends __BaseException {
 }
 
 /**
- * <p>An array of target objects is required. It cannot be empty or null.</p>
+ * An array of target objects is required. It cannot be empty or null.
+ *
  * @public
  */
 export class TargetsRequiredException extends __BaseException {
@@ -2072,7 +2118,8 @@ export class TargetsRequiredException extends __BaseException {
 }
 
 /**
- * <p>A pull request title is required. It cannot be empty or null.</p>
+ * A pull request title is required. It cannot be empty or null.
+ *
  * @public
  */
 export class TitleRequiredException extends __BaseException {
@@ -2093,7 +2140,8 @@ export class TitleRequiredException extends __BaseException {
 }
 
 /**
- * <p>The content for the approval rule is not valid.</p>
+ * The content for the approval rule is not valid.
+ *
  * @public
  */
 export class InvalidApprovalRuleContentException extends __BaseException {
@@ -2114,7 +2162,8 @@ export class InvalidApprovalRuleContentException extends __BaseException {
 }
 
 /**
- * <p>The name for the approval rule is not valid.</p>
+ * The name for the approval rule is not valid.
+ *
  * @public
  */
 export class InvalidApprovalRuleNameException extends __BaseException {
@@ -2135,7 +2184,8 @@ export class InvalidApprovalRuleNameException extends __BaseException {
 }
 
 /**
- * <p>The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.</p>
+ * The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.
+ *
  * @public
  */
 export class InvalidPullRequestIdException extends __BaseException {
@@ -2156,7 +2206,8 @@ export class InvalidPullRequestIdException extends __BaseException {
 }
 
 /**
- * <p>The approval rule cannot be added. The pull request has the maximum number of approval rules associated with it.</p>
+ * The approval rule cannot be added. The pull request has the maximum number of approval rules associated with it.
+ *
  * @public
  */
 export class NumberOfRulesExceededException extends __BaseException {
@@ -2177,7 +2228,8 @@ export class NumberOfRulesExceededException extends __BaseException {
 }
 
 /**
- * <p>The pull request status cannot be updated because it is already closed.</p>
+ * The pull request status cannot be updated because it is already closed.
+ *
  * @public
  */
 export class PullRequestAlreadyClosedException extends __BaseException {
@@ -2198,7 +2250,8 @@ export class PullRequestAlreadyClosedException extends __BaseException {
 }
 
 /**
- * <p>The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.</p>
+ * The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.
+ *
  * @public
  */
 export class PullRequestDoesNotExistException extends __BaseException {
@@ -2219,7 +2272,8 @@ export class PullRequestDoesNotExistException extends __BaseException {
 }
 
 /**
- * <p>A pull request ID is required, but none was provided.</p>
+ * A pull request ID is required, but none was provided.
+ *
  * @public
  */
 export class PullRequestIdRequiredException extends __BaseException {
@@ -2240,7 +2294,8 @@ export class PullRequestIdRequiredException extends __BaseException {
 }
 
 /**
- * <p>The Key Management Service encryption key is not valid.</p>
+ * The Key Management Service encryption key is not valid.
+ *
  * @public
  */
 export class EncryptionKeyInvalidIdException extends __BaseException {
@@ -2261,8 +2316,8 @@ export class EncryptionKeyInvalidIdException extends __BaseException {
 }
 
 /**
- * <p>A KMS encryption key was used to try and encrypt or decrypt a repository, but either the repository or the key was not
- *         in a valid state to support the operation.</p>
+ * A KMS encryption key was used to try and encrypt or decrypt a repository, but either the repository or the key was not in a valid state to support the operation.
+ *
  * @public
  */
 export class EncryptionKeyInvalidUsageException extends __BaseException {
@@ -2283,7 +2338,8 @@ export class EncryptionKeyInvalidUsageException extends __BaseException {
 }
 
 /**
- * <p>The specified repository description is not valid.</p>
+ * The specified repository description is not valid.
+ *
  * @public
  */
 export class InvalidRepositoryDescriptionException extends __BaseException {
@@ -2304,7 +2360,8 @@ export class InvalidRepositoryDescriptionException extends __BaseException {
 }
 
 /**
- * <p>The specified tag is not valid. Key names cannot be prefixed with aws:.</p>
+ * The specified tag is not valid. Key names cannot be prefixed with aws:.
+ *
  * @public
  */
 export class InvalidSystemTagUsageException extends __BaseException {
@@ -2325,7 +2382,8 @@ export class InvalidSystemTagUsageException extends __BaseException {
 }
 
 /**
- * <p>The map of tags is not valid.</p>
+ * The map of tags is not valid.
+ *
  * @public
  */
 export class InvalidTagsMapException extends __BaseException {
@@ -2346,7 +2404,8 @@ export class InvalidTagsMapException extends __BaseException {
 }
 
 /**
- * <p>The requested action is not allowed.</p>
+ * The requested action is not allowed.
+ *
  * @public
  */
 export class OperationNotAllowedException extends __BaseException {
@@ -2367,7 +2426,8 @@ export class OperationNotAllowedException extends __BaseException {
 }
 
 /**
- * <p>A repository resource limit was exceeded.</p>
+ * A repository resource limit was exceeded.
+ *
  * @public
  */
 export class RepositoryLimitExceededException extends __BaseException {
@@ -2388,7 +2448,8 @@ export class RepositoryLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The specified repository name already exists.</p>
+ * The specified repository name already exists.
+ *
  * @public
  */
 export class RepositoryNameExistsException extends __BaseException {
@@ -2409,7 +2470,8 @@ export class RepositoryNameExistsException extends __BaseException {
 }
 
 /**
- * <p>The tag policy is not valid.</p>
+ * The tag policy is not valid.
+ *
  * @public
  */
 export class TagPolicyException extends __BaseException {
@@ -2430,7 +2492,8 @@ export class TagPolicyException extends __BaseException {
 }
 
 /**
- * <p>The maximum number of tags for an CodeCommit resource has been exceeded.</p>
+ * The maximum number of tags for an CodeCommit resource has been exceeded.
+ *
  * @public
  */
 export class TooManyTagsException extends __BaseException {
@@ -2451,7 +2514,8 @@ export class TooManyTagsException extends __BaseException {
 }
 
 /**
- * <p>The merge cannot be completed because the target branch has been modified. Another user might have modified the target branch while the merge was in progress. Wait a few minutes, and then try again.</p>
+ * The merge cannot be completed because the target branch has been modified. Another user might have modified the target branch while the merge was in progress. Wait a few minutes, and then try again.
+ *
  * @public
  */
 export class ConcurrentReferenceUpdateException extends __BaseException {
@@ -2472,7 +2536,8 @@ export class ConcurrentReferenceUpdateException extends __BaseException {
 }
 
 /**
- * <p>The specified conflict resolution list is not valid.</p>
+ * The specified conflict resolution list is not valid.
+ *
  * @public
  */
 export class InvalidConflictResolutionException extends __BaseException {
@@ -2493,7 +2558,8 @@ export class InvalidConflictResolutionException extends __BaseException {
 }
 
 /**
- * <p>Automerge was specified for resolving the conflict, but the replacement type is not valid or content is missing. </p>
+ * Automerge was specified for resolving the conflict, but the replacement type is not valid or content is missing.
+ *
  * @public
  */
 export class InvalidReplacementContentException extends __BaseException {
@@ -2514,7 +2580,8 @@ export class InvalidReplacementContentException extends __BaseException {
 }
 
 /**
- * <p>Automerge was specified for resolving the conflict, but the specified replacement type is not valid.</p>
+ * Automerge was specified for resolving the conflict, but the specified replacement type is not valid.
+ *
  * @public
  */
 export class InvalidReplacementTypeException extends __BaseException {
@@ -2535,7 +2602,8 @@ export class InvalidReplacementTypeException extends __BaseException {
 }
 
 /**
- * <p>The pull request cannot be merged automatically into the destination branch. You must manually merge the branches and resolve any conflicts.</p>
+ * The pull request cannot be merged automatically into the destination branch. You must manually merge the branches and resolve any conflicts.
+ *
  * @public
  */
 export class ManualMergeRequiredException extends __BaseException {
@@ -2556,7 +2624,8 @@ export class ManualMergeRequiredException extends __BaseException {
 }
 
 /**
- * <p>The number of allowed conflict resolution entries was exceeded.</p>
+ * The number of allowed conflict resolution entries was exceeded.
+ *
  * @public
  */
 export class MaximumConflictResolutionEntriesExceededException extends __BaseException {
@@ -2577,7 +2646,8 @@ export class MaximumConflictResolutionEntriesExceededException extends __BaseExc
 }
 
 /**
- * <p>More than one conflict resolution entries exists for the conflict. A conflict can have only one conflict resolution entry.</p>
+ * More than one conflict resolution entries exists for the conflict. A conflict can have only one conflict resolution entry.
+ *
  * @public
  */
 export class MultipleConflictResolutionEntriesException extends __BaseException {
@@ -2598,7 +2668,8 @@ export class MultipleConflictResolutionEntriesException extends __BaseException 
 }
 
 /**
- * <p>USE_NEW_CONTENT was specified, but no replacement content has been provided.</p>
+ * USE_NEW_CONTENT was specified, but no replacement content has been provided.
+ *
  * @public
  */
 export class ReplacementContentRequiredException extends __BaseException {
@@ -2619,7 +2690,8 @@ export class ReplacementContentRequiredException extends __BaseException {
 }
 
 /**
- * <p>A replacement type is required.</p>
+ * A replacement type is required.
+ *
  * @public
  */
 export class ReplacementTypeRequiredException extends __BaseException {
@@ -2640,7 +2712,8 @@ export class ReplacementTypeRequiredException extends __BaseException {
 }
 
 /**
- * <p>The specified branch is the default branch for the repository, and cannot be deleted. To delete this branch, you must first set another branch as the default branch.</p>
+ * The specified branch is the default branch for the repository, and cannot be deleted. To delete this branch, you must first set another branch as the default branch.
+ *
  * @public
  */
 export class DefaultBranchCannotBeDeletedException extends __BaseException {
@@ -2661,7 +2734,8 @@ export class DefaultBranchCannotBeDeletedException extends __BaseException {
 }
 
 /**
- * <p>This comment has already been deleted. You cannot edit or delete a deleted comment.</p>
+ * This comment has already been deleted. You cannot edit or delete a deleted comment.
+ *
  * @public
  */
 export class CommentDeletedException extends __BaseException {
@@ -2682,8 +2756,8 @@ export class CommentDeletedException extends __BaseException {
 }
 
 /**
- * <p>No comment exists with the provided ID. Verify that you have used the correct ID, and
- *             then try again.</p>
+ * No comment exists with the provided ID. Verify that you have used the correct ID, and then try again.
+ *
  * @public
  */
 export class CommentDoesNotExistException extends __BaseException {
@@ -2704,7 +2778,8 @@ export class CommentDoesNotExistException extends __BaseException {
 }
 
 /**
- * <p>The comment ID is missing or null. A comment ID is required.</p>
+ * The comment ID is missing or null. A comment ID is required.
+ *
  * @public
  */
 export class CommentIdRequiredException extends __BaseException {
@@ -2725,7 +2800,8 @@ export class CommentIdRequiredException extends __BaseException {
 }
 
 /**
- * <p>The comment ID is not in a valid format. Make sure that you have provided the full comment ID.</p>
+ * The comment ID is not in a valid format. Make sure that you have provided the full comment ID.
+ *
  * @public
  */
 export class InvalidCommentIdException extends __BaseException {
@@ -2746,8 +2822,8 @@ export class InvalidCommentIdException extends __BaseException {
 }
 
 /**
- * <p>The Amazon Resource Name (ARN) is not valid. Make sure that you have provided the full ARN for the user who initiated the change for the pull request,
- *             and then try again.</p>
+ * The Amazon Resource Name (ARN) is not valid. Make sure that you have provided the full ARN for the user who initiated the change for the pull request, and then try again.
+ *
  * @public
  */
 export class InvalidActorArnException extends __BaseException {
@@ -2768,7 +2844,8 @@ export class InvalidActorArnException extends __BaseException {
 }
 
 /**
- * <p>The specified number of maximum results is not valid.</p>
+ * The specified number of maximum results is not valid.
+ *
  * @public
  */
 export class InvalidMaxResultsException extends __BaseException {
@@ -2789,7 +2866,8 @@ export class InvalidMaxResultsException extends __BaseException {
 }
 
 /**
- * <p>The pull request event type is not valid. </p>
+ * The pull request event type is not valid.
+ *
  * @public
  */
 export class InvalidPullRequestEventTypeException extends __BaseException {
@@ -2810,7 +2888,8 @@ export class InvalidPullRequestEventTypeException extends __BaseException {
 }
 
 /**
- * <p>The revision ID is not valid. Use GetPullRequest to determine the value.</p>
+ * The revision ID is not valid. Use GetPullRequest to determine the value.
+ *
  * @public
  */
 export class InvalidRevisionIdException extends __BaseException {
@@ -2831,7 +2910,8 @@ export class InvalidRevisionIdException extends __BaseException {
 }
 
 /**
- * <p>A revision ID is required, but was not provided.</p>
+ * A revision ID is required, but was not provided.
+ *
  * @public
  */
 export class RevisionIdRequiredException extends __BaseException {
@@ -2852,7 +2932,8 @@ export class RevisionIdRequiredException extends __BaseException {
 }
 
 /**
- * <p>The revision ID provided in the request does not match the current revision ID. Use GetPullRequest to retrieve the current revision ID.</p>
+ * The revision ID provided in the request does not match the current revision ID. Use GetPullRequest to retrieve the current revision ID.
+ *
  * @public
  */
 export class RevisionNotCurrentException extends __BaseException {
@@ -2873,9 +2954,8 @@ export class RevisionNotCurrentException extends __BaseException {
 }
 
 /**
- * <p>The specified file exceeds the file size limit for CodeCommit. For more information about limits in CodeCommit, see
- *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Quotas</a> in the <i>
- *                CodeCommit User Guide</i>.</p>
+ * The specified file exceeds the file size limit for CodeCommit. For more information about limits in CodeCommit, see [Quotas](https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html) in the *CodeCommit User Guide*.
+ *
  * @public
  */
 export class FileTooLargeException extends __BaseException {
@@ -2896,7 +2976,8 @@ export class FileTooLargeException extends __BaseException {
 }
 
 /**
- * <p>The specified blob is not valid.</p>
+ * The specified blob is not valid.
+ *
  * @public
  */
 export class InvalidBlobIdException extends __BaseException {
@@ -2917,7 +2998,8 @@ export class InvalidBlobIdException extends __BaseException {
 }
 
 /**
- * <p>The specified input is either not valid, or it could not be validated.</p>
+ * The specified input is either not valid, or it could not be validated.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -2938,7 +3020,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The Amazon Resource Name (ARN) of the user or identity is not valid.</p>
+ * The Amazon Resource Name (ARN) of the user or identity is not valid.
+ *
  * @public
  */
 export class InvalidReactionUserArnException extends __BaseException {
@@ -2959,7 +3042,8 @@ export class InvalidReactionUserArnException extends __BaseException {
 }
 
 /**
- * <p>The repository does not contain any pull requests with that pull request ID. Use GetPullRequest to verify the correct repository name for the pull request ID.</p>
+ * The repository does not contain any pull requests with that pull request ID. Use GetPullRequest to verify the correct repository name for the pull request ID.
+ *
  * @public
  */
 export class RepositoryNotAssociatedWithPullRequestException extends __BaseException {
@@ -2980,7 +3064,8 @@ export class RepositoryNotAssociatedWithPullRequestException extends __BaseExcep
 }
 
 /**
- * <p>The specified commit ID does not exist.</p>
+ * The specified commit ID does not exist.
+ *
  * @public
  */
 export class CommitIdDoesNotExistException extends __BaseException {
@@ -3001,7 +3086,8 @@ export class CommitIdDoesNotExistException extends __BaseException {
 }
 
 /**
- * <p>The specified path does not exist.</p>
+ * The specified path does not exist.
+ *
  * @public
  */
 export class PathDoesNotExistException extends __BaseException {
@@ -3022,8 +3108,8 @@ export class PathDoesNotExistException extends __BaseException {
 }
 
 /**
- * <p>The specified folder does not exist. Either the folder name is not correct, or you did
- *             not enter the full path to the folder.</p>
+ * The specified folder does not exist. Either the folder name is not correct, or you did not enter the full path to the folder.
+ *
  * @public
  */
 export class FolderDoesNotExistException extends __BaseException {
@@ -3044,7 +3130,8 @@ export class FolderDoesNotExistException extends __BaseException {
 }
 
 /**
- * <p>The destination commit specifier is not valid. You must provide a valid branch name, tag, or full commit ID. </p>
+ * The destination commit specifier is not valid. You must provide a valid branch name, tag, or full commit ID.
+ *
  * @public
  */
 export class InvalidDestinationCommitSpecifierException extends __BaseException {
@@ -3065,7 +3152,8 @@ export class InvalidDestinationCommitSpecifierException extends __BaseException 
 }
 
 /**
- * <p>The source commit specifier is not valid. You must provide a valid branch name, tag, or full commit ID.</p>
+ * The source commit specifier is not valid. You must provide a valid branch name, tag, or full commit ID.
+ *
  * @public
  */
 export class InvalidSourceCommitSpecifierException extends __BaseException {
@@ -3086,7 +3174,8 @@ export class InvalidSourceCommitSpecifierException extends __BaseException {
 }
 
 /**
- * <p>The Amazon Resource Name (ARN) is not valid. Make sure that you have provided the full ARN for the author of the pull request, and then try again.</p>
+ * The Amazon Resource Name (ARN) is not valid. Make sure that you have provided the full ARN for the author of the pull request, and then try again.
+ *
  * @public
  */
 export class InvalidAuthorArnException extends __BaseException {
@@ -3107,7 +3196,8 @@ export class InvalidAuthorArnException extends __BaseException {
 }
 
 /**
- * <p>The pull request status is not valid. The only valid values are <code>OPEN</code> and <code>CLOSED</code>.</p>
+ * The pull request status is not valid. The only valid values are `OPEN` and `CLOSED`.
+ *
  * @public
  */
 export class InvalidPullRequestStatusException extends __BaseException {
@@ -3128,7 +3218,8 @@ export class InvalidPullRequestStatusException extends __BaseException {
 }
 
 /**
- * <p>The specified sort order is not valid.</p>
+ * The specified sort order is not valid.
+ *
  * @public
  */
 export class InvalidOrderException extends __BaseException {
@@ -3149,7 +3240,8 @@ export class InvalidOrderException extends __BaseException {
 }
 
 /**
- * <p>The specified sort by value is not valid.</p>
+ * The specified sort by value is not valid.
+ *
  * @public
  */
 export class InvalidSortByException extends __BaseException {
@@ -3170,10 +3262,8 @@ export class InvalidSortByException extends __BaseException {
 }
 
 /**
- * <p>The value for the resource ARN is not valid. For more information about resources in CodeCommit, see
- *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">
- *                CodeCommit Resources and Operations</a>
- *             in the CodeCommit User Guide.</p>
+ * The value for the resource ARN is not valid. For more information about resources in CodeCommit, see [CodeCommit Resources and Operations](https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats) in the CodeCommit User Guide.
+ *
  * @public
  */
 export class InvalidResourceArnException extends __BaseException {
@@ -3194,10 +3284,8 @@ export class InvalidResourceArnException extends __BaseException {
 }
 
 /**
- * <p>A valid Amazon Resource Name (ARN) for an CodeCommit resource is required. For a list of valid resources in CodeCommit, see
- *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">
- *                CodeCommit Resources and Operations</a>
- *             in the CodeCommit User Guide.</p>
+ * A valid Amazon Resource Name (ARN) for an CodeCommit resource is required. For a list of valid resources in CodeCommit, see [CodeCommit Resources and Operations](https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats) in the CodeCommit User Guide.
+ *
  * @public
  */
 export class ResourceArnRequiredException extends __BaseException {
@@ -3218,7 +3306,8 @@ export class ResourceArnRequiredException extends __BaseException {
 }
 
 /**
- * <p>The specified target branch is not valid.</p>
+ * The specified target branch is not valid.
+ *
  * @public
  */
 export class InvalidTargetBranchException extends __BaseException {
@@ -3239,7 +3328,8 @@ export class InvalidTargetBranchException extends __BaseException {
 }
 
 /**
- * <p>The pull request cannot be merged because one or more approval rules applied to the pull request have conditions that have not been met.</p>
+ * The pull request cannot be merged because one or more approval rules applied to the pull request have conditions that have not been met.
+ *
  * @public
  */
 export class PullRequestApprovalRulesNotSatisfiedException extends __BaseException {
@@ -3260,8 +3350,8 @@ export class PullRequestApprovalRulesNotSatisfiedException extends __BaseExcepti
 }
 
 /**
- * <p>The tip of the source branch in the destination repository does not match the tip of the source branch specified in your request.
- *             The pull request might have been updated. Make sure that you have the latest changes.</p>
+ * The tip of the source branch in the destination repository does not match the tip of the source branch specified in your request. The pull request might have been updated. Make sure that you have the latest changes.
+ *
  * @public
  */
 export class TipOfSourceReferenceIsDifferentException extends __BaseException {
@@ -3282,7 +3372,8 @@ export class TipOfSourceReferenceIsDifferentException extends __BaseException {
 }
 
 /**
- * <p>The override status is not valid. Valid statuses are OVERRIDE and REVOKE.</p>
+ * The override status is not valid. Valid statuses are OVERRIDE and REVOKE.
+ *
  * @public
  */
 export class InvalidOverrideStatusException extends __BaseException {
@@ -3303,7 +3394,8 @@ export class InvalidOverrideStatusException extends __BaseException {
 }
 
 /**
- * <p>The pull request has already had its approval rules set to override.</p>
+ * The pull request has already had its approval rules set to override.
+ *
  * @public
  */
 export class OverrideAlreadySetException extends __BaseException {
@@ -3324,7 +3416,8 @@ export class OverrideAlreadySetException extends __BaseException {
 }
 
 /**
- * <p>An override status is required, but no value was provided. Valid values include OVERRIDE and REVOKE.</p>
+ * An override status is required, but no value was provided. Valid values include OVERRIDE and REVOKE.
+ *
  * @public
  */
 export class OverrideStatusRequiredException extends __BaseException {
@@ -3345,7 +3438,8 @@ export class OverrideStatusRequiredException extends __BaseException {
 }
 
 /**
- * <p>The comment is empty. You must provide some content for a comment. The content cannot be null.</p>
+ * The comment is empty. You must provide some content for a comment. The content cannot be null.
+ *
  * @public
  */
 export class CommentContentRequiredException extends __BaseException {
@@ -3366,7 +3460,8 @@ export class CommentContentRequiredException extends __BaseException {
 }
 
 /**
- * <p>The comment is too large. Comments are limited to 10,240 characters.</p>
+ * The comment is too large. Comments are limited to 10,240 characters.
+ *
  * @public
  */
 export class CommentContentSizeLimitExceededException extends __BaseException {
@@ -3387,8 +3482,8 @@ export class CommentContentSizeLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The location of the file is not valid. Make sure that you include the file name and
- *             extension.</p>
+ * The location of the file is not valid. Make sure that you include the file name and extension.
+ *
  * @public
  */
 export class InvalidFileLocationException extends __BaseException {
@@ -3409,7 +3504,8 @@ export class InvalidFileLocationException extends __BaseException {
 }
 
 /**
- * <p>The position is not valid. Make sure that the line number exists in the version of the file you want to comment on.</p>
+ * The position is not valid. Make sure that the line number exists in the version of the file you want to comment on.
+ *
  * @public
  */
 export class InvalidFilePositionException extends __BaseException {
@@ -3430,7 +3526,8 @@ export class InvalidFilePositionException extends __BaseException {
 }
 
 /**
- * <p>Either the enum is not in a valid format, or the specified file version enum is not valid in respect to the current file version.</p>
+ * Either the enum is not in a valid format, or the specified file version enum is not valid in respect to the current file version.
+ *
  * @public
  */
 export class InvalidRelativeFileVersionEnumException extends __BaseException {
@@ -3451,8 +3548,8 @@ export class InvalidRelativeFileVersionEnumException extends __BaseException {
 }
 
 /**
- * <p>The value of the reaction is not valid. For more information, see the <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">
- *                CodeCommit User Guide</a>.</p>
+ * The value of the reaction is not valid. For more information, see the [CodeCommit User Guide](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html).
+ *
  * @public
  */
 export class InvalidReactionValueException extends __BaseException {
@@ -3473,7 +3570,8 @@ export class InvalidReactionValueException extends __BaseException {
 }
 
 /**
- * <p>The number of reactions has been exceeded. Reactions are limited to one reaction per user for each individual comment ID.</p>
+ * The number of reactions has been exceeded. Reactions are limited to one reaction per user for each individual comment ID.
+ *
  * @public
  */
 export class ReactionLimitExceededException extends __BaseException {
@@ -3494,7 +3592,8 @@ export class ReactionLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>A reaction value is required. </p>
+ * A reaction value is required.
+ *
  * @public
  */
 export class ReactionValueRequiredException extends __BaseException {
@@ -3515,7 +3614,8 @@ export class ReactionValueRequiredException extends __BaseException {
 }
 
 /**
- * <p>The file cannot be added because it is empty. Empty files cannot be added to the repository with this API.</p>
+ * The file cannot be added because it is empty. Empty files cannot be added to the repository with this API.
+ *
  * @public
  */
 export class FileContentRequiredException extends __BaseException {
@@ -3536,8 +3636,8 @@ export class FileContentRequiredException extends __BaseException {
 }
 
 /**
- * <p>The file was not added or updated because the content of the file is exactly the same as the content of that file in the repository and branch
- *         that you specified.</p>
+ * The file was not added or updated because the content of the file is exactly the same as the content of that file in the repository and branch that you specified.
+ *
  * @public
  */
 export class SameFileContentException extends __BaseException {
@@ -3558,7 +3658,8 @@ export class SameFileContentException extends __BaseException {
 }
 
 /**
- * <p>One or more branch names specified for the trigger is not valid.</p>
+ * One or more branch names specified for the trigger is not valid.
+ *
  * @public
  */
 export class InvalidRepositoryTriggerBranchNameException extends __BaseException {
@@ -3579,7 +3680,8 @@ export class InvalidRepositoryTriggerBranchNameException extends __BaseException
 }
 
 /**
- * <p>The custom data provided for the trigger is not valid.</p>
+ * The custom data provided for the trigger is not valid.
+ *
  * @public
  */
 export class InvalidRepositoryTriggerCustomDataException extends __BaseException {
@@ -3600,7 +3702,8 @@ export class InvalidRepositoryTriggerCustomDataException extends __BaseException
 }
 
 /**
- * <p>The Amazon Resource Name (ARN) for the trigger is not valid for the specified destination. The most common reason for this error is that the ARN does not meet the requirements for the service type.</p>
+ * The Amazon Resource Name (ARN) for the trigger is not valid for the specified destination. The most common reason for this error is that the ARN does not meet the requirements for the service type.
+ *
  * @public
  */
 export class InvalidRepositoryTriggerDestinationArnException extends __BaseException {
@@ -3621,7 +3724,8 @@ export class InvalidRepositoryTriggerDestinationArnException extends __BaseExcep
 }
 
 /**
- * <p>One or more events specified for the trigger is not valid. Check to make sure that all events specified match the requirements for allowed events.</p>
+ * One or more events specified for the trigger is not valid. Check to make sure that all events specified match the requirements for allowed events.
+ *
  * @public
  */
 export class InvalidRepositoryTriggerEventsException extends __BaseException {
@@ -3642,7 +3746,8 @@ export class InvalidRepositoryTriggerEventsException extends __BaseException {
 }
 
 /**
- * <p>The name of the trigger is not valid.</p>
+ * The name of the trigger is not valid.
+ *
  * @public
  */
 export class InvalidRepositoryTriggerNameException extends __BaseException {
@@ -3663,9 +3768,8 @@ export class InvalidRepositoryTriggerNameException extends __BaseException {
 }
 
 /**
- * <p>The Amazon Web Services Region for the trigger target does not match the Amazon Web Services Region for the
- *             repository. Triggers must be created in the same Amazon Web Services Region as the target for the
- *             trigger.</p>
+ * The Amazon Web Services Region for the trigger target does not match the Amazon Web Services Region for the repository. Triggers must be created in the same Amazon Web Services Region as the target for the trigger.
+ *
  * @public
  */
 export class InvalidRepositoryTriggerRegionException extends __BaseException {
@@ -3686,7 +3790,8 @@ export class InvalidRepositoryTriggerRegionException extends __BaseException {
 }
 
 /**
- * <p>The number of branches for the trigger was exceeded.</p>
+ * The number of branches for the trigger was exceeded.
+ *
  * @public
  */
 export class MaximumBranchesExceededException extends __BaseException {
@@ -3707,7 +3812,8 @@ export class MaximumBranchesExceededException extends __BaseException {
 }
 
 /**
- * <p>The number of triggers allowed for the repository was exceeded.</p>
+ * The number of triggers allowed for the repository was exceeded.
+ *
  * @public
  */
 export class MaximumRepositoryTriggersExceededException extends __BaseException {
@@ -3728,8 +3834,8 @@ export class MaximumRepositoryTriggersExceededException extends __BaseException 
 }
 
 /**
- * <p>At least one branch name is required, but was not specified in the trigger
- *             configuration.</p>
+ * At least one branch name is required, but was not specified in the trigger configuration.
+ *
  * @public
  */
 export class RepositoryTriggerBranchNameListRequiredException extends __BaseException {
@@ -3750,8 +3856,8 @@ export class RepositoryTriggerBranchNameListRequiredException extends __BaseExce
 }
 
 /**
- * <p>A destination ARN for the target service for the trigger is required, but was not
- *             specified.</p>
+ * A destination ARN for the target service for the trigger is required, but was not specified.
+ *
  * @public
  */
 export class RepositoryTriggerDestinationArnRequiredException extends __BaseException {
@@ -3772,7 +3878,8 @@ export class RepositoryTriggerDestinationArnRequiredException extends __BaseExce
 }
 
 /**
- * <p>At least one event for the trigger is required, but was not specified.</p>
+ * At least one event for the trigger is required, but was not specified.
+ *
  * @public
  */
 export class RepositoryTriggerEventsListRequiredException extends __BaseException {
@@ -3793,7 +3900,8 @@ export class RepositoryTriggerEventsListRequiredException extends __BaseExceptio
 }
 
 /**
- * <p>A name for the trigger is required, but was not specified.</p>
+ * A name for the trigger is required, but was not specified.
+ *
  * @public
  */
 export class RepositoryTriggerNameRequiredException extends __BaseException {
@@ -3814,7 +3922,8 @@ export class RepositoryTriggerNameRequiredException extends __BaseException {
 }
 
 /**
- * <p>The list of triggers for the repository is required, but was not specified.</p>
+ * The list of triggers for the repository is required, but was not specified.
+ *
  * @public
  */
 export class RepositoryTriggersListRequiredException extends __BaseException {
@@ -3835,7 +3944,8 @@ export class RepositoryTriggersListRequiredException extends __BaseException {
 }
 
 /**
- * <p>A map of tags is required.</p>
+ * A map of tags is required.
+ *
  * @public
  */
 export class TagsMapRequiredException extends __BaseException {
@@ -3856,7 +3966,8 @@ export class TagsMapRequiredException extends __BaseException {
 }
 
 /**
- * <p>The list of tags is not valid.</p>
+ * The list of tags is not valid.
+ *
  * @public
  */
 export class InvalidTagKeysListException extends __BaseException {
@@ -3877,7 +3988,8 @@ export class InvalidTagKeysListException extends __BaseException {
 }
 
 /**
- * <p>A list of tag keys is required. The list cannot be empty or null.</p>
+ * A list of tag keys is required. The list cannot be empty or null.
+ *
  * @public
  */
 export class TagKeysListRequiredException extends __BaseException {
@@ -3898,7 +4010,8 @@ export class TagKeysListRequiredException extends __BaseException {
 }
 
 /**
- * <p>The SHA-256 hash signature for the rule content is not valid.</p>
+ * The SHA-256 hash signature for the rule content is not valid.
+ *
  * @public
  */
 export class InvalidRuleContentSha256Exception extends __BaseException {
@@ -3919,7 +4032,8 @@ export class InvalidRuleContentSha256Exception extends __BaseException {
 }
 
 /**
- * <p>You cannot modify or delete this comment. Only comment authors can modify or delete their comments.</p>
+ * You cannot modify or delete this comment. Only comment authors can modify or delete their comments.
+ *
  * @public
  */
 export class CommentNotCreatedByCallerException extends __BaseException {
@@ -3940,7 +4054,8 @@ export class CommentNotCreatedByCallerException extends __BaseException {
 }
 
 /**
- * <p>The state for the approval is not valid. Valid values include APPROVE and REVOKE. </p>
+ * The state for the approval is not valid. Valid values include APPROVE and REVOKE.
+ *
  * @public
  */
 export class InvalidApprovalStateException extends __BaseException {
@@ -3961,7 +4076,8 @@ export class InvalidApprovalStateException extends __BaseException {
 }
 
 /**
- * <p>The number of approvals required for the approval rule exceeds the maximum number allowed.</p>
+ * The number of approvals required for the approval rule exceeds the maximum number allowed.
+ *
  * @public
  */
 export class MaximumNumberOfApprovalsExceededException extends __BaseException {
@@ -3982,8 +4098,8 @@ export class MaximumNumberOfApprovalsExceededException extends __BaseException {
 }
 
 /**
- * <p>The approval cannot be applied because the user approving the pull request matches the user who created the pull request. You cannot approve a pull
- *         request that you created.</p>
+ * The approval cannot be applied because the user approving the pull request matches the user who created the pull request. You cannot approve a pull request that you created.
+ *
  * @public
  */
 export class PullRequestCannotBeApprovedByAuthorException extends __BaseException {
@@ -4004,7 +4120,8 @@ export class PullRequestCannotBeApprovedByAuthorException extends __BaseExceptio
 }
 
 /**
- * <p>The pull request status update is not valid. The only valid update is from <code>OPEN</code> to <code>CLOSED</code>.</p>
+ * The pull request status update is not valid. The only valid update is from `OPEN` to `CLOSED`.
+ *
  * @public
  */
 export class InvalidPullRequestStatusUpdateException extends __BaseException {
@@ -4025,7 +4142,8 @@ export class InvalidPullRequestStatusUpdateException extends __BaseException {
 }
 
 /**
- * <p>A pull request status is required, but none was provided.</p>
+ * A pull request status is required, but none was provided.
+ *
  * @public
  */
 export class PullRequestStatusRequiredException extends __BaseException {
@@ -4046,7 +4164,8 @@ export class PullRequestStatusRequiredException extends __BaseException {
 }
 
 /**
- * <p>A KMS encryption key ID is required but was not specified.</p>
+ * A KMS encryption key ID is required but was not specified.
+ *
  * @public
  */
 export class EncryptionKeyRequiredException extends __BaseException {

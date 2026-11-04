@@ -23,15 +23,10 @@ export interface UpdateScheduleCommandInput extends UpdateScheduleInput {}
 export interface UpdateScheduleCommandOutput extends UpdateScheduleOutput, __MetadataBearer {}
 
 /**
- * <p>
- *          Updates the specified schedule. When you call <code>UpdateSchedule</code>, EventBridge Scheduler uses all values, including empty values, specified in the request and
- *          overrides the existing schedule. This is by design. This means that if you do not set an optional field in your request, that field will be set to
- *          its system-default value after the update.
- *       </p>
- *          <p>
- *          Before calling this operation, we recommend that you call the <code>GetSchedule</code> API operation and make a note of all optional parameters
- *          for your <code>UpdateSchedule</code> call.
- *       </p>
+ * Updates the specified schedule. When you call `UpdateSchedule`, EventBridge Scheduler uses all values, including empty values, specified in the request and overrides the existing schedule. This is by design. This means that if you do not set an optional field in your request, that field will be set to its system-default value after the update.
+ *
+ * Before calling this operation, we recommend that you call the `GetSchedule` API operation and make a note of all optional parameters for your `UpdateSchedule` call.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -148,23 +143,28 @@ export interface UpdateScheduleCommandOutput extends UpdateScheduleOutput, __Met
  * @see {@link SchedulerClientResolvedConfig | config} for SchedulerClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting the resource can cause an inconsistent state.</p>
+ *
+ * Updating or deleting the resource can cause an inconsistent state.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error encountered while processing the request.</p>
+ *
+ * Unexpected error encountered while processing the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request references a resource which does not exist.</p>
+ *
+ * The request references a resource which does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an AWS service.
  *
  * @throws {@link SchedulerServiceException}
- * <p>Base exception class for all service exceptions from Scheduler service.</p>
  *
+ * Base exception class for all service exceptions from Scheduler service.
  *
  * @public
  */

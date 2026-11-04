@@ -23,7 +23,8 @@ export interface CreateSavingsPlanCommandInput extends CreateSavingsPlanRequest 
 export interface CreateSavingsPlanCommandOutput extends CreateSavingsPlanResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a Savings Plan.</p>
+ * Creates a Savings Plan.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,20 +58,24 @@ export interface CreateSavingsPlanCommandOutput extends CreateSavingsPlanRespons
  * @see {@link SavingsplansClientResolvedConfig | config} for SavingsplansClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred.</p>
+ *
+ * An unexpected error occurred.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>A service quota has been exceeded.</p>
+ *
+ * A service quota has been exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One of the input parameters is not valid.</p>
+ *
+ * One of the input parameters is not valid.
  *
  * @throws {@link SavingsplansServiceException}
- * <p>Base exception class for all service exceptions from Savingsplans service.</p>
  *
+ * Base exception class for all service exceptions from Savingsplans service.
  *
  * @public
  */

@@ -26,8 +26,8 @@ export interface DescribePendingMaintenanceActionsCommandInput extends DescribeP
 export interface DescribePendingMaintenanceActionsCommandOutput extends DescribePendingMaintenanceActionsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of upcoming maintenance events for replication instances in your account
- *          in the current Region.</p>
+ * Returns a list of upcoming maintenance events for replication instances in your account in the current Region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,11 +79,12 @@ export interface DescribePendingMaintenanceActionsCommandOutput extends Describe
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @public
  */

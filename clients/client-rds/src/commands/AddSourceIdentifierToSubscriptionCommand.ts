@@ -26,7 +26,8 @@ export interface AddSourceIdentifierToSubscriptionCommandInput extends AddSource
 export interface AddSourceIdentifierToSubscriptionCommandOutput extends AddSourceIdentifierToSubscriptionResult, __MetadataBearer {}
 
 /**
- * <p>Adds a source identifier to an existing RDS event notification subscription.</p>
+ * Adds a source identifier to an existing RDS event notification subscription.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,14 +70,16 @@ export interface AddSourceIdentifierToSubscriptionCommandOutput extends AddSourc
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link SourceNotFoundFault} (client fault)
- *  <p>The requested source could not be found.</p>
+ *
+ * The requested source could not be found.
  *
  * @throws {@link SubscriptionNotFoundFault} (client fault)
- *  <p>The subscription name does not exist.</p>
+ *
+ * The subscription name does not exist.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To add a source identifier to a subscription
  * ```javascript

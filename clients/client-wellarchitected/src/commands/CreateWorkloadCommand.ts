@@ -23,7 +23,25 @@ export interface CreateWorkloadCommandInput extends CreateWorkloadInput {}
 export interface CreateWorkloadCommandOutput extends CreateWorkloadOutput, __MetadataBearer {}
 
 /**
- * <p>Create a new workload.</p> <p>The owner of a workload can share the workload with other Amazon Web Services accounts, users, an organization, and organizational units (OUs) in the same Amazon Web Services Region. Only the owner of a workload can delete it.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/define-workload.html">Defining a Workload</a> in the <i>Well-Architected Tool User Guide</i>.</p> <important> <p>Either <code>AwsRegions</code>, <code>NonAwsRegions</code>, or both must be specified when creating a workload.</p> <p>You also must specify <code>ReviewOwner</code>, even though the parameter is listed as not being required in the following section. </p> </important> <p>When creating a workload using a review template, you must have the following IAM permissions:</p> <ul> <li> <p> <code>wellarchitected:GetReviewTemplate</code> </p> </li> <li> <p> <code>wellarchitected:GetReviewTemplateAnswer</code> </p> </li> <li> <p> <code>wellarchitected:ListReviewTemplateAnswers</code> </p> </li> <li> <p> <code>wellarchitected:GetReviewTemplateLensReview</code> </p> </li> </ul>
+ * Create a new workload.
+ *
+ * The owner of a workload can share the workload with other Amazon Web Services accounts, users, an organization, and organizational units (OUs) in the same Amazon Web Services Region. Only the owner of a workload can delete it.
+ *
+ * For more information, see [Defining a Workload](https://docs.aws.amazon.com/wellarchitected/latest/userguide/define-workload.html) in the *Well-Architected Tool User Guide*.
+ *
+ * > **Important:**
+ * >
+ * > Either `AwsRegions`, `NonAwsRegions`, or both must be specified when creating a workload.
+ * >
+ * > You also must specify `ReviewOwner`, even though the parameter is listed as not being required in the following section.
+ *
+ * When creating a workload using a review template, you must have the following IAM permissions:
+ *
+ * - `wellarchitected:GetReviewTemplate`
+ * - `wellarchitected:GetReviewTemplateAnswer`
+ * - `wellarchitected:ListReviewTemplateAnswers`
+ * - `wellarchitected:GetReviewTemplateLensReview`
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -97,29 +115,36 @@ export interface CreateWorkloadCommandOutput extends CreateWorkloadOutput, __Met
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * User does not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The resource has already been processed, was deleted, or is too large.</p>
+ *
+ * The resource has already been processed, was deleted, or is too large.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>There is a problem with the Well-Architected Tool API service.</p>
+ *
+ * There is a problem with the Well-Architected Tool API service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource was not found.</p>
+ *
+ * The requested resource was not found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The user has reached their resource quota.</p>
+ *
+ * The user has reached their resource quota.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Request was denied due to request throttling.</p>
+ *
+ * Request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The user input is not valid.</p>
+ *
+ * The user input is not valid.
  *
  * @throws {@link WellArchitectedServiceException}
- * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ * Base exception class for all service exceptions from WellArchitected service.
  *
  * @public
  */

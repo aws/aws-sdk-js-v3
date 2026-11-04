@@ -23,7 +23,8 @@ export interface ModifyEventSubscriptionCommandInput extends ModifyEventSubscrip
 export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscriptionResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies an existing DMS event notification subscription. </p>
+ * Modifies an existing DMS event notification subscription.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,39 +71,48 @@ export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscri
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedFault} (client fault)
- *  <p>DMS was denied access to the endpoint. Check that the
- *             role is correctly configured.</p>
+ *
+ * DMS was denied access to the endpoint. Check that the role is correctly configured.
  *
  * @throws {@link KMSAccessDeniedFault} (client fault)
- *  <p>The ciphertext references a key that doesn't exist or that the DMS account doesn't have access to.</p>
+ *
+ * The ciphertext references a key that doesn't exist or that the DMS account doesn't have access to.
  *
  * @throws {@link KMSDisabledFault} (client fault)
- *  <p>The specified KMS key isn't enabled.</p>
+ *
+ * The specified KMS key isn't enabled.
  *
  * @throws {@link KMSInvalidStateFault} (client fault)
- *  <p>The state of the specified KMS resource isn't valid for this request.</p>
+ *
+ * The state of the specified KMS resource isn't valid for this request.
  *
  * @throws {@link KMSNotFoundFault} (client fault)
- *  <p>The specified KMS entity or resource can't be found.</p>
+ *
+ * The specified KMS entity or resource can't be found.
  *
  * @throws {@link KMSThrottlingFault} (client fault)
- *  <p>This request triggered KMS request throttling.</p>
+ *
+ * This request triggered KMS request throttling.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link ResourceQuotaExceededFault} (client fault)
- *  <p>The quota for this resource quota has been exceeded.</p>
+ *
+ * The quota for this resource quota has been exceeded.
  *
  * @throws {@link SNSInvalidTopicFault} (client fault)
- *  <p>The SNS topic is invalid.</p>
+ *
+ * The SNS topic is invalid.
  *
  * @throws {@link SNSNoAuthorizationFault} (client fault)
- *  <p>You are not authorized for the SNS subscription.</p>
+ *
+ * You are not authorized for the SNS subscription.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @public
  */

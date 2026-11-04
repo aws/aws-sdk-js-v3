@@ -6,7 +6,8 @@ import type { CoreNetworkPolicyError, ValidationExceptionField } from "./models_
 import { NetworkManagerServiceException as __BaseException } from "./NetworkManagerServiceException";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -29,8 +30,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>There was a conflict processing the request. Updating or deleting the resource can
- *             cause an inconsistent state.</p>
+ * There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -39,13 +40,15 @@ export class ConflictException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p>The ID of the resource.</p>
+   * The ID of the resource.
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>The resource type.</p>
+   * The resource type.
+   *
    * @public
    */
   ResourceType: string | undefined;
@@ -66,7 +69,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The request has failed due to an internal error.</p>
+ * The request has failed due to an internal error.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -75,7 +79,8 @@ export class InternalServerException extends __BaseException {
   readonly $fault = "server" as const;
   Message: string | undefined;
   /**
-   * <p>Indicates when to retry the request.</p>
+   * Indicates when to retry the request.
+   *
    * @public
    */
   RetryAfterSeconds?: number | undefined;
@@ -95,7 +100,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The specified resource could not be found.</p>
+ * The specified resource could not be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -104,19 +110,22 @@ export class ResourceNotFoundException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p>The ID of the resource.</p>
+   * The ID of the resource.
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>The resource type.</p>
+   * The resource type.
+   *
    * @public
    */
   ResourceType: string | undefined;
 
   /**
-   * <p>The specified resource could not be found.</p>
+   * The specified resource could not be found.
+   *
    * @public
    */
   Context?: Record<string, string> | undefined;
@@ -138,7 +147,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -147,7 +157,8 @@ export class ThrottlingException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p>Indicates when to retry the request.</p>
+   * Indicates when to retry the request.
+   *
    * @public
    */
   RetryAfterSeconds?: number | undefined;
@@ -167,7 +178,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints.</p>
+ * The input fails to satisfy the constraints.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -176,13 +188,15 @@ export class ValidationException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p>The reason for the error.</p>
+   * The reason for the error.
+   *
    * @public
    */
   Reason?: ValidationExceptionReason | undefined;
 
   /**
-   * <p>The fields that caused the error, if applicable.</p>
+   * The fields that caused the error, if applicable.
+   *
    * @public
    */
   Fields?: ValidationExceptionField[] | undefined;
@@ -203,7 +217,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>A service limit was exceeded.</p>
+ * A service limit was exceeded.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -211,31 +226,36 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error message.</p>
+   * The error message.
+   *
    * @public
    */
   Message: string | undefined;
 
   /**
-   * <p>The ID of the resource.</p>
+   * The ID of the resource.
+   *
    * @public
    */
   ResourceId?: string | undefined;
 
   /**
-   * <p>The resource type.</p>
+   * The resource type.
+   *
    * @public
    */
   ResourceType?: string | undefined;
 
   /**
-   * <p>The limit code.</p>
+   * The limit code.
+   *
    * @public
    */
   LimitCode: string | undefined;
 
   /**
-   * <p>The service code.</p>
+   * The service code.
+   *
    * @public
    */
   ServiceCode: string | undefined;
@@ -258,7 +278,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>Describes a core network policy exception.</p>
+ * Describes a core network policy exception.
+ *
  * @public
  */
 export class CoreNetworkPolicyException extends __BaseException {
@@ -267,7 +288,8 @@ export class CoreNetworkPolicyException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p>Describes a core network policy exception.</p>
+   * Describes a core network policy exception.
+   *
    * @public
    */
   Errors?: CoreNetworkPolicyError[] | undefined;

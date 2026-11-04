@@ -23,7 +23,8 @@ export interface DeletePlatformVersionCommandInput extends DeletePlatformVersion
 export interface DeletePlatformVersionCommandOutput extends DeletePlatformVersionResult, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified version of a custom platform.</p>
+ * Deletes the specified version of a custom platform.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,21 +68,24 @@ export interface DeletePlatformVersionCommandOutput extends DeletePlatformVersio
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  * @throws {@link ElasticBeanstalkServiceException} (client fault)
- *  <p>A generic service exception has occurred.</p>
+ *
+ * A generic service exception has occurred.
  *
  * @throws {@link InsufficientPrivilegesException} (client fault)
- *  <p>The specified account does not have sufficient privileges for one or more Amazon Web Services services.</p>
+ *
+ * The specified account does not have sufficient privileges for one or more Amazon Web Services services.
  *
  * @throws {@link OperationInProgressException} (client fault)
- *  <p>Unable to perform the specified operation because another operation that effects an
- *       element in this activity is already in progress.</p>
+ *
+ * Unable to perform the specified operation because another operation that effects an element in this activity is already in progress.
  *
  * @throws {@link PlatformVersionStillReferencedException} (client fault)
- *  <p>You cannot delete the platform version because there are still environments running on it.</p>
+ *
+ * You cannot delete the platform version because there are still environments running on it.
  *
  * @throws {@link ElasticBeanstalkSyntheticServiceException}
- * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * Base exception class for all service exceptions from ElasticBeanstalk service.
  *
  * @public
  */

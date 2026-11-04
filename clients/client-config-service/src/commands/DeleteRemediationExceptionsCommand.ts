@@ -23,11 +23,10 @@ export interface DeleteRemediationExceptionsCommandInput extends DeleteRemediati
 export interface DeleteRemediationExceptionsCommandOutput extends DeleteRemediationExceptionsResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes one or more remediation exceptions mentioned in the resource keys.</p>
- *          <note>
- *             <p>Config generates a remediation exception when a problem occurs executing a remediation action to a specific resource.
- * 			Remediation exceptions blocks auto-remediation until the exception is cleared.</p>
- *          </note>
+ * Deletes one or more remediation exceptions mentioned in the resource keys.
+ *
+ * > **Note:** Config generates a remediation exception when a problem occurs executing a remediation action to a specific resource. Remediation exceptions blocks auto-remediation until the exception is cleared.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,11 +69,12 @@ export interface DeleteRemediationExceptionsCommandOutput extends DeleteRemediat
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  * @throws {@link NoSuchRemediationExceptionException} (client fault)
- *  <p>You tried to delete a remediation exception that does not exist.</p>
+ *
+ * You tried to delete a remediation exception that does not exist.
  *
  * @throws {@link ConfigServiceServiceException}
- * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * Base exception class for all service exceptions from ConfigService service.
  *
  * @public
  */

@@ -23,19 +23,14 @@ export interface UpdateModelVersionStatusCommandInput extends UpdateModelVersion
 export interface UpdateModelVersionStatusCommandOutput extends UpdateModelVersionStatusResult, __MetadataBearer {}
 
 /**
- * <p>Updates the status of a model version.</p>
- *          <p>You can perform the following status updates:</p>
- *          <ol>
- *             <li>
- *                <p>Change the <code>TRAINING_IN_PROGRESS</code> status to <code>TRAINING_CANCELLED</code>.</p>
- *             </li>
- *             <li>
- *                <p>Change the <code>TRAINING_COMPLETE</code> status to <code>ACTIVE</code>.</p>
- *             </li>
- *             <li>
- *                <p>Change <code>ACTIVE</code> to <code>INACTIVE</code>.</p>
- *             </li>
- *          </ol>
+ * Updates the status of a model version.
+ *
+ * You can perform the following status updates:
+ *
+ * 1. Change the `TRAINING_IN_PROGRESS` status to `TRAINING_CANCELLED`.
+ * 2. Change the `TRAINING_COMPLETE` status to `ACTIVE`.
+ * 3. Change `ACTIVE` to `INACTIVE`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,26 +58,32 @@ export interface UpdateModelVersionStatusCommandOutput extends UpdateModelVersio
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+ *
+ * An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as `PutExternalModel`, that specifies a role that is not in your account.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>An exception indicating there was a conflict during a delete operation.</p>
+ *
+ * An exception indicating there was a conflict during a delete operation.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An exception indicating an internal server error.</p>
+ *
+ * An exception indicating an internal server error.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An exception indicating the specified resource was not found.</p>
+ *
+ * An exception indicating the specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>An exception indicating a throttling error.</p>
+ *
+ * An exception indicating a throttling error.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An exception indicating a specified value is not allowed.</p>
+ *
+ * An exception indicating a specified value is not allowed.
  *
  * @throws {@link FraudDetectorServiceException}
- * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * Base exception class for all service exceptions from FraudDetector service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface ListRequesterGatewaysCommandInput extends ListRequesterGateways
 export interface ListRequesterGatewaysCommandOutput extends ListRequesterGatewaysResponse, __MetadataBearer {}
 
 /**
- * <p>Lists requester gateways.</p>
+ * Lists requester gateways.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,14 +55,16 @@ export interface ListRequesterGatewaysCommandOutput extends ListRequesterGateway
  * @see {@link RTBFabricClientResolvedConfig | config} for RTBFabricClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request could not be completed because of an internal server error. Try your call again.</p>
+ *
+ * The request could not be completed because of an internal server error. Try your call again.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request could not be completed because it fails satisfy the constraints specified by the service.</p>
+ *
+ * The request could not be completed because it fails satisfy the constraints specified by the service.
  *
  * @throws {@link RTBFabricServiceException}
- * <p>Base exception class for all service exceptions from RTBFabric service.</p>
  *
+ * Base exception class for all service exceptions from RTBFabric service.
  *
  * @example List requester gateways with default pagination
  * ```javascript

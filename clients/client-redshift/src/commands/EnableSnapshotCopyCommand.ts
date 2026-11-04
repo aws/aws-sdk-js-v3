@@ -23,8 +23,8 @@ export interface EnableSnapshotCopyCommandInput extends EnableSnapshotCopyMessag
 export interface EnableSnapshotCopyCommandOutput extends EnableSnapshotCopyResult, __MetadataBearer {}
 
 /**
- * <p>Enables the automatic copy of snapshots from one region to another region for a
- *             specified cluster.</p>
+ * Enables the automatic copy of snapshots from one region to another region for a specified cluster.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -259,46 +259,54 @@ export interface EnableSnapshotCopyCommandOutput extends EnableSnapshotCopyResul
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
- *         </p>
+ *
+ * The `ClusterIdentifier` parameter does not refer to an existing cluster.
  *
  * @throws {@link CopyToRegionDisabledFault} (client fault)
- *  <p>Cross-region snapshot copy was temporarily disabled. Try your request
- *             again.</p>
+ *
+ * Cross-region snapshot copy was temporarily disabled. Try your request again.
  *
  * @throws {@link DependentServiceRequestThrottlingFault} (client fault)
- *  <p>The request cannot be completed because a dependent service is throttling requests
- *             made by Amazon Redshift on your behalf. Wait and retry the request.</p>
+ *
+ * The request cannot be completed because a dependent service is throttling requests made by Amazon Redshift on your behalf. Wait and retry the request.
  *
  * @throws {@link IncompatibleOrderableOptions} (client fault)
- *  <p>The specified options are incompatible.</p>
+ *
+ * The specified options are incompatible.
  *
  * @throws {@link InvalidClusterStateFault} (client fault)
- *  <p>The specified cluster is not in the <code>available</code> state. </p>
+ *
+ * The specified cluster is not in the `available` state.
  *
  * @throws {@link InvalidRetentionPeriodFault} (client fault)
- *  <p>The retention period specified is either in the past or is not a valid value.</p>
- *          <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+ *
+ * The retention period specified is either in the past or is not a valid value.
+ *
+ * The value must be either -1 or an integer between 1 and 3,653.
  *
  * @throws {@link LimitExceededFault} (client fault)
- *  <p>The encryption key has exceeded its grant limit in Amazon Web Services KMS.</p>
+ *
+ * The encryption key has exceeded its grant limit in Amazon Web Services KMS.
  *
  * @throws {@link SnapshotCopyAlreadyEnabledFault} (client fault)
- *  <p>The cluster already has cross-region snapshot copy enabled.</p>
+ *
+ * The cluster already has cross-region snapshot copy enabled.
  *
  * @throws {@link SnapshotCopyGrantNotFoundFault} (client fault)
- *  <p>The specified snapshot copy grant can't be found. Make sure that the name is typed
- *             correctly and that the grant exists in the destination region.</p>
+ *
+ * The specified snapshot copy grant can't be found. Make sure that the name is typed correctly and that the grant exists in the destination region.
  *
  * @throws {@link UnauthorizedOperation} (client fault)
- *  <p>Your account is not authorized to perform the requested operation.</p>
+ *
+ * Your account is not authorized to perform the requested operation.
  *
  * @throws {@link UnknownSnapshotCopyRegionFault} (client fault)
- *  <p>The specified region is incorrect or does not exist.</p>
+ *
+ * The specified region is incorrect or does not exist.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

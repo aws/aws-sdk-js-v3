@@ -23,10 +23,10 @@ export interface DescribeUploadBufferCommandInput extends DescribeUploadBufferIn
 export interface DescribeUploadBufferCommandOutput extends DescribeUploadBufferOutput, __MetadataBearer {}
 
 /**
- * <p>Returns information about the upload buffer of a gateway. This operation is supported
- *          for the stored volume, cached volume, and tape gateway types.</p>
- *          <p>The response includes disk IDs that are configured as upload buffer space, and it
- *          includes the amount of upload buffer space allocated and used.</p>
+ * Returns information about the upload buffer of a gateway. This operation is supported for the stored volume, cached volume, and tape gateway types.
+ *
+ * The response includes disk IDs that are configured as upload buffer space, and it includes the amount of upload buffer space allocated and used.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,16 +58,16 @@ export interface DescribeUploadBufferCommandOutput extends DescribeUploadBufferO
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @example To describe upload buffer of a gateway
  * ```javascript

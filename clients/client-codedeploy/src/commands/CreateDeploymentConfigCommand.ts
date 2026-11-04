@@ -23,7 +23,8 @@ export interface CreateDeploymentConfigCommandInput extends CreateDeploymentConf
 export interface CreateDeploymentConfigCommandOutput extends CreateDeploymentConfigOutput, __MetadataBearer {}
 
 /**
- * <p> Creates a deployment configuration. </p>
+ * Creates a deployment configuration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,33 +75,40 @@ export interface CreateDeploymentConfigCommandOutput extends CreateDeploymentCon
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  * @throws {@link DeploymentConfigAlreadyExistsException} (client fault)
- *  <p>A deployment configuration with the specified name with the user or Amazon Web Services account already exists.</p>
+ *
+ * A deployment configuration with the specified name with the user or Amazon Web Services account already exists.
  *
  * @throws {@link DeploymentConfigLimitExceededException} (client fault)
- *  <p>The deployment configurations limit was exceeded.</p>
+ *
+ * The deployment configurations limit was exceeded.
  *
  * @throws {@link DeploymentConfigNameRequiredException} (client fault)
- *  <p>The deployment configuration name was not specified.</p>
+ *
+ * The deployment configuration name was not specified.
  *
  * @throws {@link InvalidComputePlatformException} (client fault)
- *  <p>The computePlatform is invalid. The computePlatform should be <code>Lambda</code>, <code>Server</code>, or <code>ECS</code>.</p>
+ *
+ * The computePlatform is invalid. The computePlatform should be `Lambda`, `Server`, or `ECS`.
  *
  * @throws {@link InvalidDeploymentConfigNameException} (client fault)
- *  <p>The deployment configuration name was specified in an invalid format.</p>
+ *
+ * The deployment configuration name was specified in an invalid format.
  *
  * @throws {@link InvalidMinimumHealthyHostValueException} (client fault)
- *  <p>The minimum healthy instance value was specified in an invalid format.</p>
+ *
+ * The minimum healthy instance value was specified in an invalid format.
  *
  * @throws {@link InvalidTrafficRoutingConfigurationException} (client fault)
- *  <p> The configuration that specifies how traffic is routed during a deployment is
- *             invalid.</p>
+ *
+ * The configuration that specifies how traffic is routed during a deployment is invalid.
  *
  * @throws {@link InvalidZonalDeploymentConfigurationException} (client fault)
- *  <p>The <code>ZonalConfig</code> object is not valid.</p>
+ *
+ * The `ZonalConfig` object is not valid.
  *
  * @throws {@link CodeDeployServiceException}
- * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * Base exception class for all service exceptions from CodeDeploy service.
  *
  * @public
  */

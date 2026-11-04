@@ -23,8 +23,10 @@ export interface UpdateDataSourceCommandInput extends UpdateDataSourceInput {}
 export interface UpdateDataSourceCommandOutput extends UpdateDataSourceOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the <code>DataSourceName</code> of a <code>DataSource</code>.</p>
- *         <p>You can use the <code>GetDataSource</code> operation to view the contents of the updated data element.</p>
+ * Updates the `DataSourceName` of a `DataSource`.
+ *
+ * You can use the `GetDataSource` operation to view the contents of the updated data element.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,17 +54,20 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceOutput, _
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An error on the server occurred when trying to process a request.</p>
+ *
+ * An error on the server occurred when trying to process a request.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+ *
+ * An error on the client occurred. Typically, the cause is an invalid input value.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A specified resource cannot be located.</p>
+ *
+ * A specified resource cannot be located.
  *
  * @throws {@link MachineLearningServiceException}
- * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ * Base exception class for all service exceptions from MachineLearning service.
  *
  * @public
  */

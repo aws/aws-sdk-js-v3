@@ -23,10 +23,10 @@ export interface GetAccountSummaryCommandInput {}
 export interface GetAccountSummaryCommandOutput extends GetAccountSummaryResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about IAM entity usage and IAM quotas in the Amazon Web Services
- *             account.</p>
- *          <p> For information about IAM quotas, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS quotas</a> in the
- *                 <i>IAM User Guide</i>.</p>
+ * Retrieves information about IAM entity usage and IAM quotas in the Amazon Web Services account.
+ *
+ * For information about IAM quotas, see [IAM and STS quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the *IAM User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,12 +53,12 @@ export interface GetAccountSummaryCommandOutput extends GetAccountSummaryRespons
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @example To get information about IAM entity quotas and usage in the current account
  * ```javascript

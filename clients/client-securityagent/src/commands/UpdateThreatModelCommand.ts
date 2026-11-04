@@ -23,7 +23,8 @@ export interface UpdateThreatModelCommandInput extends UpdateThreatModelInput {}
 export interface UpdateThreatModelCommandOutput extends UpdateThreatModelOutput, __MetadataBearer {}
 
 /**
- * <p>Updates an existing threat model configuration.</p>
+ * Updates an existing threat model configuration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -224,8 +225,8 @@ export interface UpdateThreatModelCommandOutput extends UpdateThreatModelOutput,
  * @see {@link SecurityAgentClientResolvedConfig | config} for SecurityAgentClient's `config` shape.
  *
  * @throws {@link SecurityAgentServiceException}
- * <p>Base exception class for all service exceptions from SecurityAgent service.</p>
  *
+ * Base exception class for all service exceptions from SecurityAgent service.
  *
  * @public
  */

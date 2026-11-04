@@ -23,10 +23,8 @@ export interface AddTagsToResourceCommandInput extends AddTagsToResourceMessage 
 export interface AddTagsToResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Adds metadata tags to an Amazon DocumentDB resource. You can use these tags
- *             with cost allocation reporting to track costs that are associated
- *             with Amazon DocumentDB resources or in a <code>Condition</code> statement in
- *             an Identity and Access Management (IAM) policy for Amazon DocumentDB.</p>
+ * Adds metadata tags to an Amazon DocumentDB resource. You can use these tags with cost allocation reporting to track costs that are associated with Amazon DocumentDB resources or in a `Condition` statement in an Identity and Access Management (IAM) policy for Amazon DocumentDB.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,20 +55,20 @@ export interface AddTagsToResourceCommandOutput extends __MetadataBearer {}
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p>
- *             <code>DBClusterIdentifier</code> doesn't refer to an existing cluster. </p>
+ *
+ * `DBClusterIdentifier` doesn't refer to an existing cluster.
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p>
- *             <code>DBInstanceIdentifier</code> doesn't refer to an existing instance. </p>
+ *
+ * `DBInstanceIdentifier` doesn't refer to an existing instance.
  *
  * @throws {@link DBSnapshotNotFoundFault} (client fault)
- *  <p>
- *             <code>DBSnapshotIdentifier</code> doesn't refer to an existing snapshot. </p>
+ *
+ * `DBSnapshotIdentifier` doesn't refer to an existing snapshot.
  *
  * @throws {@link DocDBServiceException}
- * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * Base exception class for all service exceptions from DocDB service.
  *
  * @public
  */

@@ -23,11 +23,10 @@ export interface DescribeMovingAddressesCommandInput extends DescribeMovingAddre
 export interface DescribeMovingAddressesCommandOutput extends DescribeMovingAddressesResult, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This action is deprecated.</p>
- *          </note>
- *          <p>Describes your Elastic IP addresses that are being moved from or being restored to the EC2-Classic platform.
- *       This request does not return information about any other Elastic IP addresses in your account.</p>
+ * > **Note:** This action is deprecated.
+ *
+ * Describes your Elastic IP addresses that are being moved from or being restored to the EC2-Classic platform. This request does not return information about any other Elastic IP addresses in your account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,8 +72,8 @@ export interface DescribeMovingAddressesCommandOutput extends DescribeMovingAddr
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To describe your moving addresses
  * ```javascript

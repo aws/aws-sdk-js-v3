@@ -23,9 +23,10 @@ export interface DeleteIpamScopeCommandInput extends DeleteIpamScopeRequest {}
 export interface DeleteIpamScopeCommandOutput extends DeleteIpamScopeResult, __MetadataBearer {}
 
 /**
- * <p>Delete the scope for an IPAM. You cannot delete the default scopes.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/delete-scope-ipam.html">Delete a scope</a> in the <i>Amazon VPC IPAM User Guide</i>.
- *       </p>
+ * Delete the scope for an IPAM. You cannot delete the default scopes.
+ *
+ * For more information, see [Delete a scope](https://docs.aws.amazon.com/vpc/latest/ipam/delete-scope-ipam.html) in the *Amazon VPC IPAM User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,8 +75,8 @@ export interface DeleteIpamScopeCommandOutput extends DeleteIpamScopeResult, __M
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

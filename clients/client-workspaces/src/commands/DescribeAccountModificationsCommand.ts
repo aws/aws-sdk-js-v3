@@ -23,8 +23,8 @@ export interface DescribeAccountModificationsCommandInput extends DescribeAccoun
 export interface DescribeAccountModificationsCommandOutput extends DescribeAccountModificationsResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list that describes modifications to the configuration of Bring Your Own
- *          License (BYOL) for the specified account.</p>
+ * Retrieves a list that describes modifications to the configuration of Bring Your Own License (BYOL) for the specified account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,11 +61,12 @@ export interface DescribeAccountModificationsCommandOutput extends DescribeAccou
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The user is not authorized to access a resource.</p>
+ *
+ * The user is not authorized to access a resource.
  *
  * @throws {@link WorkSpacesServiceException}
- * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * Base exception class for all service exceptions from WorkSpaces service.
  *
  * @public
  */

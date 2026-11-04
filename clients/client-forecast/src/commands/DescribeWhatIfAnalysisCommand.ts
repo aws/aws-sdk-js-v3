@@ -23,29 +23,15 @@ export interface DescribeWhatIfAnalysisCommandInput extends DescribeWhatIfAnalys
 export interface DescribeWhatIfAnalysisCommandOutput extends DescribeWhatIfAnalysisResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the what-if analysis created using the <a>CreateWhatIfAnalysis</a> operation.</p>
- *          <p>In addition to listing the properties provided in the <code>CreateWhatIfAnalysis</code> request, this operation lists the following properties:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>CreationTime</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>LastModificationTime</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Message</code> - If an error occurred, information about the error.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Status</code>
- *                </p>
- *             </li>
- *          </ul>
+ * Describes the what-if analysis created using the CreateWhatIfAnalysis operation.
+ *
+ * In addition to listing the properties provided in the `CreateWhatIfAnalysis` request, this operation lists the following properties:
+ *
+ * - `CreationTime`
+ * - `LastModificationTime`
+ * - `Message` - If an error occurred, information about the error.
+ * - `Status`
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -99,16 +85,16 @@ export interface DescribeWhatIfAnalysisCommandOutput extends DescribeWhatIfAnaly
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>We can't process the request because it includes an invalid value or a value that exceeds
- *       the valid range.</p>
+ *
+ * We can't process the request because it includes an invalid value or a value that exceeds the valid range.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
- *       again.</p>
+ *
+ * We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.
  *
  * @throws {@link ForecastServiceException}
- * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * Base exception class for all service exceptions from Forecast service.
  *
  * @public
  */

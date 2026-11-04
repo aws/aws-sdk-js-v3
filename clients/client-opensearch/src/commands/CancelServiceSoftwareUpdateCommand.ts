@@ -23,11 +23,8 @@ export interface CancelServiceSoftwareUpdateCommandInput extends CancelServiceSo
 export interface CancelServiceSoftwareUpdateCommandOutput extends CancelServiceSoftwareUpdateResponse, __MetadataBearer {}
 
 /**
- * <p>Cancels a scheduled service software update for an Amazon OpenSearch Service domain.
- *             You can only perform this operation before the <code>AutomatedUpdateDate</code> and when
- *             the domain's <code>UpdateStatus</code> is <code>PENDING_UPDATE</code>. For more
- *             information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html">Service
- *                 software updates in Amazon OpenSearch Service</a>.</p>
+ * Cancels a scheduled service software update for an Amazon OpenSearch Service domain. You can only perform this operation before the `AutomatedUpdateDate` and when the domain's `UpdateStatus` is `PENDING_UPDATE`. For more information, see [Service software updates in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,20 +60,24 @@ export interface CancelServiceSoftwareUpdateCommandOutput extends CancelServiceS
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
  * @throws {@link BaseException} (client fault)
- *  <p>An error occurred while processing the request.</p>
+ *
+ * An error occurred while processing the request.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+ *
+ * Request processing failed because of an unknown error, exception, or internal failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+ *
+ * An exception for accessing or deleting a resource that doesn't exist.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+ *
+ * An exception for accessing or deleting a resource that doesn't exist.
  *
  * @throws {@link OpenSearchServiceException}
- * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * Base exception class for all service exceptions from OpenSearch service.
  *
  * @public
  */

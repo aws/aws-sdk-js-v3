@@ -23,7 +23,8 @@ export interface UpdateRegistryCommandInput extends UpdateRegistryRequest {}
 export interface UpdateRegistryCommandOutput extends UpdateRegistryResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a registry.</p>
+ * Updates a registry.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,8 +69,8 @@ export interface UpdateRegistryCommandOutput extends UpdateRegistryResponse, __M
  * @throws {@link UnauthorizedException} (client fault)
  *
  * @throws {@link SchemasServiceException}
- * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
+ * Base exception class for all service exceptions from Schemas service.
  *
  * @public
  */

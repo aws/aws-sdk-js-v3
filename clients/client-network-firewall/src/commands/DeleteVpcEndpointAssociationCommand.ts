@@ -23,13 +23,10 @@ export interface DeleteVpcEndpointAssociationCommandInput extends DeleteVpcEndpo
 export interface DeleteVpcEndpointAssociationCommandOutput extends DeleteVpcEndpointAssociationResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified <a>VpcEndpointAssociation</a>.</p>
- *          <p>You can check whether an endpoint association is
- *          in use by reviewing the route tables for the Availability Zones where you have the endpoint subnet mapping.
- *          You can retrieve the subnet mapping by calling <a>DescribeVpcEndpointAssociation</a>.
- *          You define and update the route tables through Amazon VPC. As needed, update the route tables for the
- *          Availability Zone to remove the firewall endpoint for the association. When the route tables no longer use the firewall endpoint,
- *          you can remove the endpoint association safely.</p>
+ * Deletes the specified VpcEndpointAssociation.
+ *
+ * You can check whether an endpoint association is in use by reviewing the route tables for the Availability Zones where you have the endpoint subnet mapping. You can retrieve the subnet mapping by calling DescribeVpcEndpointAssociation. You define and update the route tables through Amazon VPC. As needed, update the route tables for the Availability Zone to remove the firewall endpoint for the association. When the route tables no longer use the firewall endpoint, you can remove the endpoint association safely.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,38 +83,32 @@ export interface DeleteVpcEndpointAssociationCommandOutput extends DeleteVpcEndp
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Your request is valid, but Network Firewall couldn't perform the operation because of a
- *          system problem. Retry your request. </p>
+ *
+ * Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request.
  *
  * @throws {@link InvalidOperationException} (client fault)
- *  <p>The operation failed because it's not valid. For example, you might have tried to delete
- *          a rule group or firewall policy that's in use.</p>
+ *
+ * The operation failed because it's not valid. For example, you might have tried to delete a rule group or firewall policy that's in use.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The operation failed because of a problem with your request. Examples include: </p>
- *          <ul>
- *             <li>
- *                <p>You specified an unsupported parameter name or value.</p>
- *             </li>
- *             <li>
- *                <p>You tried to update a property with a value that isn't among the available
- *                types.</p>
- *             </li>
- *             <li>
- *                <p>Your request references an ARN that is malformed, or corresponds to a resource
- *                that isn't valid in the context of the request.</p>
- *             </li>
- *          </ul>
+ *
+ * The operation failed because of a problem with your request. Examples include:
+ *
+ * - You specified an unsupported parameter name or value.
+ * - You tried to update a property with a value that isn't among the available types.
+ * - Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Unable to locate a resource using the parameters that you provided.</p>
+ *
+ * Unable to locate a resource using the parameters that you provided.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Unable to process the request due to throttling limitations.</p>
+ *
+ * Unable to process the request due to throttling limitations.
  *
  * @throws {@link NetworkFirewallServiceException}
- * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ * Base exception class for all service exceptions from NetworkFirewall service.
  *
  * @public
  */

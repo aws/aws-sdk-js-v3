@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <fullname>Amazon Mechanical Turk API Reference</fullname>
+ * Amazon Mechanical Turk API Reference
  *
  * @packageDocumentation
  */

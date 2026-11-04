@@ -23,7 +23,8 @@ export interface PromoteReadReplicaDBClusterCommandInput extends PromoteReadRepl
 export interface PromoteReadReplicaDBClusterCommandOutput extends PromoteReadReplicaDBClusterResult, __MetadataBearer {}
 
 /**
- * <p>Not supported.</p>
+ * Not supported.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -146,15 +147,16 @@ export interface PromoteReadReplicaDBClusterCommandOutput extends PromoteReadRep
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p>
- *             <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+ *
+ * *DBClusterIdentifier* does not refer to an existing DB cluster.
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
- *  <p>The DB cluster is not in a valid state.</p>
+ *
+ * The DB cluster is not in a valid state.
  *
  * @throws {@link NeptuneServiceException}
- * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * Base exception class for all service exceptions from Neptune service.
  *
  * @public
  */

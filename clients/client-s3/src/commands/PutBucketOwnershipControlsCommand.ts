@@ -23,29 +23,19 @@ export interface PutBucketOwnershipControlsCommandInput extends PutBucketOwnersh
 export interface PutBucketOwnershipControlsCommandOutput extends __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This operation is not supported for directory buckets.</p>
- *          </note>
- *          <p>Creates or modifies <code>OwnershipControls</code> for an Amazon S3 bucket. To use this operation, you
- *       must have the <code>s3:PutBucketOwnershipControls</code> permission. For more information about Amazon S3
- *       permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-with-s3-actions.html">Specifying permissions in a policy</a>. </p>
- *          <p>For information about Amazon S3 Object Ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/user-guide/about-object-ownership.html">Using object ownership</a>. </p>
- *          <p>The following operations are related to <code>PutBucketOwnershipControls</code>:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>GetBucketOwnershipControls</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteBucketOwnershipControls</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
+ * > **Note:** This operation is not supported for directory buckets.
+ *
+ * Creates or modifies `OwnershipControls` for an Amazon S3 bucket. To use this operation, you must have the `s3:PutBucketOwnershipControls` permission. For more information about Amazon S3 permissions, see [Specifying permissions in a policy](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-with-s3-actions.html).
+ *
+ * For information about Amazon S3 Object Ownership, see [Using object ownership](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/about-object-ownership.html).
+ *
+ * The following operations are related to `PutBucketOwnershipControls`:
+ *
+ * - GetBucketOwnershipControls
+ * - DeleteBucketOwnershipControls
+ *
+ * > **Important:** You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,8 +70,8 @@ export interface PutBucketOwnershipControlsCommandOutput extends __MetadataBeare
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  * @throws {@link S3ServiceException}
- * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * Base exception class for all service exceptions from S3 service.
  *
  * @public
  */

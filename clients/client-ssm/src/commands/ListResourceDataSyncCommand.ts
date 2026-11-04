@@ -23,15 +23,10 @@ export interface ListResourceDataSyncCommandInput extends ListResourceDataSyncRe
 export interface ListResourceDataSyncCommandOutput extends ListResourceDataSyncResult, __MetadataBearer {}
 
 /**
- * <p>Lists your resource data sync configurations. Includes information about the last time a
- *    sync attempted to start, the last sync status, and the last time a sync successfully
- *    completed.</p>
- *          <p>The number of sync configurations might be too large to return using a single call to
- *     <code>ListResourceDataSync</code>. You can limit the number of sync configurations returned by
- *    using the <code>MaxResults</code> parameter. To determine whether there are more sync
- *    configurations to list, check the value of <code>NextToken</code> in the output. If there are
- *    more sync configurations to list, you can request them by specifying the <code>NextToken</code>
- *    returned in the call to the parameter of a subsequent call. </p>
+ * Lists your resource data sync configurations. Includes information about the last time a sync attempted to start, the last sync status, and the last time a sync successfully completed.
+ *
+ * The number of sync configurations might be too large to return using a single call to `ListResourceDataSync`. You can limit the number of sync configurations returned by using the `MaxResults` parameter. To determine whether there are more sync configurations to list, check the value of `NextToken` in the output. If there are more sync configurations to list, you can request them by specifying the `NextToken` returned in the call to the parameter of a subsequent call.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -99,17 +94,20 @@ export interface ListResourceDataSyncCommandOutput extends ListResourceDataSyncR
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidNextToken} (client fault)
- *  <p>The specified token isn't valid.</p>
+ *
+ * The specified token isn't valid.
  *
  * @throws {@link ResourceDataSyncInvalidConfigurationException} (client fault)
- *  <p>The specified sync configuration is invalid.</p>
+ *
+ * The specified sync configuration is invalid.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

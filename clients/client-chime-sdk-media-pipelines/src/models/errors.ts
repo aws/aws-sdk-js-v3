@@ -5,7 +5,8 @@ import { ChimeSDKMediaPipelinesServiceException as __BaseException } from "./Chi
 import type { ErrorCode } from "./enums";
 
 /**
- * <p>The input parameters don't match the service's restrictions.</p>
+ * The input parameters don't match the service's restrictions.
+ *
  * @public
  */
 export class BadRequestException extends __BaseException {
@@ -15,7 +16,8 @@ export class BadRequestException extends __BaseException {
   Code?: ErrorCode | undefined;
   Message?: string | undefined;
   /**
-   * <p>The request ID associated with the call responsible for the exception.</p>
+   * The request ID associated with the call responsible for the exception.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -36,7 +38,8 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * <p>The client is permanently forbidden from making the request.</p>
+ * The client is permanently forbidden from making the request.
+ *
  * @public
  */
 export class ForbiddenException extends __BaseException {
@@ -46,7 +49,8 @@ export class ForbiddenException extends __BaseException {
   Code?: ErrorCode | undefined;
   Message?: string | undefined;
   /**
-   * <p>The request id associated with the call responsible for the exception.</p>
+   * The request id associated with the call responsible for the exception.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -67,7 +71,8 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
- * <p>The request exceeds the resource limit.</p>
+ * The request exceeds the resource limit.
+ *
  * @public
  */
 export class ResourceLimitExceededException extends __BaseException {
@@ -77,7 +82,8 @@ export class ResourceLimitExceededException extends __BaseException {
   Code?: ErrorCode | undefined;
   Message?: string | undefined;
   /**
-   * <p>The request ID associated with the call responsible for the exception.</p>
+   * The request ID associated with the call responsible for the exception.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -98,7 +104,8 @@ export class ResourceLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The service encountered an unexpected error.</p>
+ * The service encountered an unexpected error.
+ *
  * @public
  */
 export class ServiceFailureException extends __BaseException {
@@ -108,7 +115,8 @@ export class ServiceFailureException extends __BaseException {
   Code?: ErrorCode | undefined;
   Message?: string | undefined;
   /**
-   * <p>The request ID associated with the call responsible for the exception.</p>
+   * The request ID associated with the call responsible for the exception.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -129,7 +137,8 @@ export class ServiceFailureException extends __BaseException {
 }
 
 /**
- * <p>The service is currently unavailable.</p>
+ * The service is currently unavailable.
+ *
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -139,7 +148,8 @@ export class ServiceUnavailableException extends __BaseException {
   Code?: ErrorCode | undefined;
   Message?: string | undefined;
   /**
-   * <p>The request ID associated with the call responsible for the exception.</p>
+   * The request ID associated with the call responsible for the exception.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -160,7 +170,8 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>The client exceeded its request rate limit.</p>
+ * The client exceeded its request rate limit.
+ *
  * @public
  */
 export class ThrottledClientException extends __BaseException {
@@ -170,7 +181,8 @@ export class ThrottledClientException extends __BaseException {
   Code?: ErrorCode | undefined;
   Message?: string | undefined;
   /**
-   * <p>The request ID associated with the call responsible for the exception.</p>
+   * The request ID associated with the call responsible for the exception.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -191,7 +203,8 @@ export class ThrottledClientException extends __BaseException {
 }
 
 /**
- * <p>The client is not currently authorized to make the request.</p>
+ * The client is not currently authorized to make the request.
+ *
  * @public
  */
 export class UnauthorizedClientException extends __BaseException {
@@ -201,7 +214,8 @@ export class UnauthorizedClientException extends __BaseException {
   Code?: ErrorCode | undefined;
   Message?: string | undefined;
   /**
-   * <p>The request ID associated with the call responsible for the exception.</p>
+   * The request ID associated with the call responsible for the exception.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -222,7 +236,8 @@ export class UnauthorizedClientException extends __BaseException {
 }
 
 /**
- * <p>One or more of the resources in the request does not exist in the system.</p>
+ * One or more of the resources in the request does not exist in the system.
+ *
  * @public
  */
 export class NotFoundException extends __BaseException {
@@ -232,7 +247,8 @@ export class NotFoundException extends __BaseException {
   Code?: ErrorCode | undefined;
   Message?: string | undefined;
   /**
-   * <p>The request ID associated with the call responsible for the exception.</p>
+   * The request ID associated with the call responsible for the exception.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -253,8 +269,8 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request could not be processed because of conflict in the current state of the
- *          resource.</p>
+ * The request could not be processed because of conflict in the current state of the resource.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -264,7 +280,8 @@ export class ConflictException extends __BaseException {
   Code?: ErrorCode | undefined;
   Message?: string | undefined;
   /**
-   * <p>The request ID associated with the call responsible for the exception.</p>
+   * The request ID associated with the call responsible for the exception.
+   *
    * @public
    */
   RequestId?: string | undefined;

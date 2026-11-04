@@ -23,12 +23,10 @@ export interface DecreaseReplicationFactorCommandInput extends DecreaseReplicati
 export interface DecreaseReplicationFactorCommandOutput extends DecreaseReplicationFactorResponse, __MetadataBearer {}
 
 /**
- * <p>Removes one or more nodes from a DAX cluster.</p>
- *          <note>
- *             <p>You cannot use <code>DecreaseReplicationFactor</code> to remove the last node
- *                 in a DAX cluster. If you need to do this, use
- *                     <code>DeleteCluster</code> instead.</p>
- *          </note>
+ * Removes one or more nodes from a DAX cluster.
+ *
+ * > **Note:** You cannot use `DecreaseReplicationFactor` to remove the last node in a DAX cluster. If you need to do this, use `DeleteCluster` instead.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -117,28 +115,32 @@ export interface DecreaseReplicationFactorCommandOutput extends DecreaseReplicat
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The requested cluster ID does not refer to an existing DAX
- *             cluster.</p>
+ *
+ * The requested cluster ID does not refer to an existing DAX cluster.
  *
  * @throws {@link InvalidClusterStateFault} (client fault)
- *  <p>The requested DAX cluster is not in the
- *                 <i>available</i> state.</p>
+ *
+ * The requested DAX cluster is not in the *available* state.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * Two or more incompatible parameters were specified.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link NodeNotFoundFault} (client fault)
- *  <p>None of the nodes in the cluster have the given node ID.</p>
+ *
+ * None of the nodes in the cluster have the given node ID.
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
- *  <p>The specified service linked role (SLR) was not found.</p>
+ *
+ * The specified service linked role (SLR) was not found.
  *
  * @throws {@link DAXServiceException}
- * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ * Base exception class for all service exceptions from DAX service.
  *
  * @public
  */

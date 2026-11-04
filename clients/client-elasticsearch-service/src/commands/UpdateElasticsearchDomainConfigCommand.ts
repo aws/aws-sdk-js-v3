@@ -26,7 +26,8 @@ export interface UpdateElasticsearchDomainConfigCommandInput extends UpdateElast
 export interface UpdateElasticsearchDomainConfigCommandOutput extends UpdateElasticsearchDomainConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies the cluster configuration of the specified Elasticsearch domain, setting as setting the instance type and the number of instances. </p>
+ * Modifies the cluster configuration of the specified Elasticsearch domain, setting as setting the instance type and the number of instances.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -388,26 +389,32 @@ export interface UpdateElasticsearchDomainConfigCommandOutput extends UpdateElas
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
  *
  * @throws {@link BaseException} (client fault)
- *  <p>An error occurred while processing the request.</p>
+ *
+ * An error occurred while processing the request.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.
  *
  * @throws {@link InvalidTypeException} (client fault)
- *  <p>An exception for trying to create or access sub-resource that is either invalid or not supported. Gives http status code of 409.</p>
+ *
+ * An exception for trying to create or access sub-resource that is either invalid or not supported. Gives http status code of 409.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>An exception for trying to create more than allowed resources or sub-resources. Gives http status code of 409.</p>
+ *
+ * An exception for trying to create more than allowed resources or sub-resources. Gives http status code of 409.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+ *
+ * An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+ *
+ * An exception for missing / invalid input fields. Gives http status code of 400.
  *
  * @throws {@link ElasticsearchServiceServiceException}
- * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ * Base exception class for all service exceptions from ElasticsearchService service.
  *
  * @public
  */

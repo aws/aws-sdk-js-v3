@@ -49,863 +49,951 @@ import type {
 } from "./enums";
 
 /**
- * <p>Defines the configuration for an <code>ActiveSpeakerOnly</code> video tile.</p>
+ * Defines the configuration for an `ActiveSpeakerOnly` video tile.
+ *
  * @public
  */
 export interface ActiveSpeakerOnlyConfiguration {
   /**
-   * <p>The position of the <code>ActiveSpeakerOnly</code> video tile.</p>
+   * The position of the `ActiveSpeakerOnly` video tile.
+   *
    * @public
    */
   ActiveSpeakerPosition?: ActiveSpeakerPosition | undefined;
 }
 
 /**
- * <p>Allows you to specify additional settings for your Call Analytics post-call request, including output locations for your redacted transcript, which IAM role to use, and which encryption key to use.</p>
- *          <p>
- *             <code>DataAccessRoleArn</code> and <code>OutputLocation</code> are required fields.</p>
- *          <p>
- *             <code>PostCallAnalyticsSettings</code> provides the same insights as a Call Analytics post-call transcription. For more information, refer to
- *          <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-post-call.html">Post-call analytics with real-time transcriptions</a> in the <i>Amazon Transcribe Developer Guide</i>.</p>
+ * Allows you to specify additional settings for your Call Analytics post-call request, including output locations for your redacted transcript, which IAM role to use, and which encryption key to use.
+ *
+ * `DataAccessRoleArn` and `OutputLocation` are required fields.
+ *
+ * `PostCallAnalyticsSettings` provides the same insights as a Call Analytics post-call transcription. For more information, refer to [Post-call analytics with real-time transcriptions](https://docs.aws.amazon.com/transcribe/latest/dg/tca-post-call.html) in the *Amazon Transcribe Developer Guide*.
+ *
  * @public
  */
 export interface PostCallAnalyticsSettings {
   /**
-   * <p>The URL of the Amazon S3 bucket that contains the post-call data.</p>
+   * The URL of the Amazon S3 bucket that contains the post-call data.
+   *
    * @public
    */
   OutputLocation: string | undefined;
 
   /**
-   * <p>The ARN of the role used by Amazon Web Services Transcribe to upload your post call analysis. For more information, see
-   *          <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-post-call.html">Post-call analytics with real-time transcriptions</a> in the <i>Amazon Transcribe Developer Guide</i>.</p>
+   * The ARN of the role used by Amazon Web Services Transcribe to upload your post call analysis. For more information, see [Post-call analytics with real-time transcriptions](https://docs.aws.amazon.com/transcribe/latest/dg/tca-post-call.html) in the *Amazon Transcribe Developer Guide*.
+   *
    * @public
    */
   DataAccessRoleArn: string | undefined;
 
   /**
-   * <p>The content redaction output settings for a post-call analysis task.</p>
+   * The content redaction output settings for a post-call analysis task.
+   *
    * @public
    */
   ContentRedactionOutput?: ContentRedactionOutput | undefined;
 
   /**
-   * <p>The ID of the KMS (Key Management Service) key used to encrypt the output.</p>
+   * The ID of the KMS (Key Management Service) key used to encrypt the output.
+   *
    * @public
    */
   OutputEncryptionKMSKeyId?: string | undefined;
 }
 
 /**
- * <p>A structure that contains the configuration settings for an Amazon Transcribe call
- *          analytics processor.</p>
+ * A structure that contains the configuration settings for an Amazon Transcribe call analytics processor.
+ *
  * @public
  */
 export interface AmazonTranscribeCallAnalyticsProcessorConfiguration {
   /**
-   * <p>The language code in the configuration.</p>
+   * The language code in the configuration.
+   *
    * @public
    */
   LanguageCode: CallAnalyticsLanguageCode | undefined;
 
   /**
-   * <p>Specifies the name of the custom vocabulary to use when processing a transcription. Note
-   *          that vocabulary names are case sensitive.</p>
-   *          <p>If the language of the specified custom vocabulary doesn't match the language identified in your media, the custom vocabulary is not applied to your transcription.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html">Custom vocabularies</a> in the <i>Amazon Transcribe Developer Guide</i>.</p>
-   *          <p>Length Constraints: Minimum length of 1. Maximum length of 200. </p>
+   * Specifies the name of the custom vocabulary to use when processing a transcription. Note that vocabulary names are case sensitive.
+   *
+   * If the language of the specified custom vocabulary doesn't match the language identified in your media, the custom vocabulary is not applied to your transcription.
+   *
+   * For more information, see [Custom vocabularies](https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html) in the *Amazon Transcribe Developer Guide*.
+   *
+   * Length Constraints: Minimum length of 1. Maximum length of 200.
+   *
    * @public
    */
   VocabularyName?: string | undefined;
 
   /**
-   * <p>Specifies the name of the custom vocabulary filter to use when processing a
-   *          transcription. Note that vocabulary filter names are case sensitive.</p>
-   *          <p>If the language of the specified custom vocabulary filter doesn't match the language identified in your media, the vocabulary filter is not applied to your transcription.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/vocabulary-filtering.html">Using vocabulary filtering with unwanted words</a>
-   *          in the <i>Amazon Transcribe Developer Guide</i>.</p>
-   *          <p>Length Constraints: Minimum length of 1. Maximum length of 200. </p>
+   * Specifies the name of the custom vocabulary filter to use when processing a transcription. Note that vocabulary filter names are case sensitive.
+   *
+   * If the language of the specified custom vocabulary filter doesn't match the language identified in your media, the vocabulary filter is not applied to your transcription.
+   *
+   * For more information, see [Using vocabulary filtering with unwanted words](https://docs.aws.amazon.com/transcribe/latest/dg/vocabulary-filtering.html) in the *Amazon Transcribe Developer Guide*.
+   *
+   * Length Constraints: Minimum length of 1. Maximum length of 200.
+   *
    * @public
    */
   VocabularyFilterName?: string | undefined;
 
   /**
-   * <p>Specifies how to apply a vocabulary filter to a transcript.</p>
-   *          <p>To replace words with <b>***</b>, choose <code>mask</code>.</p>
-   *          <p>To delete words, choose <code>remove</code>.</p>
-   *          <p>To flag words without changing them, choose <code>tag</code>. </p>
+   * Specifies how to apply a vocabulary filter to a transcript.
+   *
+   * To replace words with *******, choose `mask`.
+   *
+   * To delete words, choose `remove`.
+   *
+   * To flag words without changing them, choose `tag`.
+   *
    * @public
    */
   VocabularyFilterMethod?: VocabularyFilterMethod | undefined;
 
   /**
-   * <p>Specifies the name of the custom language model to use when processing a transcription.
-   *          Note that language model names are case sensitive.</p>
-   *          <p>The language of the specified language model must match the language code specified
-   *          in the transcription request. If the languages don't match, the custom language model isn't
-   *          applied. Language mismatches don't generate errors or warnings.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-language-models.html">Custom language models</a> in the <i>Amazon Transcribe Developer Guide</i>.</p>
+   * Specifies the name of the custom language model to use when processing a transcription. Note that language model names are case sensitive.
+   *
+   * The language of the specified language model must match the language code specified in the transcription request. If the languages don't match, the custom language model isn't applied. Language mismatches don't generate errors or warnings.
+   *
+   * For more information, see [Custom language models](https://docs.aws.amazon.com/transcribe/latest/dg/custom-language-models.html) in the *Amazon Transcribe Developer Guide*.
+   *
    * @public
    */
   LanguageModelName?: string | undefined;
 
   /**
-   * <p>Enables partial result stabilization for your transcription. Partial result stabilization can reduce latency in your output, but may impact accuracy.
-   *          For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html#streaming-partial-result-stabilization">Partial-result stabilization</a>
-   *          in the <i>Amazon Transcribe Developer Guide</i>.</p>
+   * Enables partial result stabilization for your transcription. Partial result stabilization can reduce latency in your output, but may impact accuracy. For more information, see [Partial-result stabilization](https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html#streaming-partial-result-stabilization) in the *Amazon Transcribe Developer Guide*.
+   *
    * @public
    */
   EnablePartialResultsStabilization?: boolean | undefined;
 
   /**
-   * <p>Specifies the level of stability to use when you enable partial results stabilization
-   *             (<code>EnablePartialResultsStabilization</code>).</p>
-   *          <p>Low stability provides the highest accuracy. High stability transcribes faster, but with slightly lower accuracy.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html#streaming-partial-result-stabilization">Partial-result stabilization</a>
-   *          in the <i>Amazon Transcribe Developer Guide</i>.</p>
+   * Specifies the level of stability to use when you enable partial results stabilization (`EnablePartialResultsStabilization`).
+   *
+   * Low stability provides the highest accuracy. High stability transcribes faster, but with slightly lower accuracy.
+   *
+   * For more information, see [Partial-result stabilization](https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html#streaming-partial-result-stabilization) in the *Amazon Transcribe Developer Guide*.
+   *
    * @public
    */
   PartialResultsStability?: PartialResultsStability | undefined;
 
   /**
-   * <p>Labels all personally identifiable information (PII) identified in your transcript.</p>
-   *          <p>Content identification is performed at the segment level; PII specified in <code>PiiEntityTypes</code> is flagged upon complete transcription of an audio segment.</p>
-   *          <p>You can’t set <code>ContentIdentificationType</code> and <code>ContentRedactionType</code> in the same request. If you do, your request returns a <code>BadRequestException</code>.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction.html">Redacting or identifying personally identifiable information</a>
-   *          in the <i>Amazon Transcribe Developer Guide</i>.</p>
+   * Labels all personally identifiable information (PII) identified in your transcript.
+   *
+   * Content identification is performed at the segment level; PII specified in `PiiEntityTypes` is flagged upon complete transcription of an audio segment.
+   *
+   * You can’t set `ContentIdentificationType` and `ContentRedactionType` in the same request. If you do, your request returns a `BadRequestException`.
+   *
+   * For more information, see [Redacting or identifying personally identifiable information](https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction.html) in the *Amazon Transcribe Developer Guide*.
+   *
    * @public
    */
   ContentIdentificationType?: ContentType | undefined;
 
   /**
-   * <p>Redacts all personally identifiable information (PII) identified in your transcript.</p>
-   *          <p>Content redaction is performed at the segment level; PII specified in <code>PiiEntityTypes</code> is redacted upon complete transcription of an audio segment.</p>
-   *          <p>You can’t set <code>ContentRedactionType</code> and <code>ContentIdentificationType</code> in the same request. If you do, your request returns a <code>BadRequestException</code>.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction.html">Redacting or identifying personally identifiable information</a>
-   *          in the <i>Amazon Transcribe Developer Guide</i>.</p>
+   * Redacts all personally identifiable information (PII) identified in your transcript.
+   *
+   * Content redaction is performed at the segment level; PII specified in `PiiEntityTypes` is redacted upon complete transcription of an audio segment.
+   *
+   * You can’t set `ContentRedactionType` and `ContentIdentificationType` in the same request. If you do, your request returns a `BadRequestException`.
+   *
+   * For more information, see [Redacting or identifying personally identifiable information](https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction.html) in the *Amazon Transcribe Developer Guide*.
+   *
    * @public
    */
   ContentRedactionType?: ContentType | undefined;
 
   /**
-   * <p>Specifies the types of personally identifiable information (PII) to redact from a transcript. You can include as many types as you'd like, or you can select <code>ALL</code>.</p>
-   *          <p>To include <code>PiiEntityTypes</code> in your Call Analytics request, you must also include <code>ContentIdentificationType</code> or <code>ContentRedactionType</code>, but you can't include both. </p>
-   *          <p>Values must be comma-separated and can include: <code>ADDRESS</code>, <code>BANK_ACCOUNT_NUMBER</code>, <code>BANK_ROUTING</code>, <code>CREDIT_DEBIT_CVV</code>,
-   *                <code>CREDIT_DEBIT_EXPIRY</code>, <code>CREDIT_DEBIT_NUMBER</code>, <code>EMAIL</code>,
-   *                <code>NAME</code>, <code>PHONE</code>, <code>PIN</code>, <code>SSN</code>, or <code>ALL</code>.</p>
-   *          <p>Length Constraints: Minimum length of 1. Maximum length of 300.</p>
+   * Specifies the types of personally identifiable information (PII) to redact from a transcript. You can include as many types as you'd like, or you can select `ALL`.
+   *
+   * To include `PiiEntityTypes` in your Call Analytics request, you must also include `ContentIdentificationType` or `ContentRedactionType`, but you can't include both.
+   *
+   * Values must be comma-separated and can include: `ADDRESS`, `BANK_ACCOUNT_NUMBER`, `BANK_ROUTING`, `CREDIT_DEBIT_CVV`, `CREDIT_DEBIT_EXPIRY`, `CREDIT_DEBIT_NUMBER`, `EMAIL`, `NAME`, `PHONE`, `PIN`, `SSN`, or `ALL`.
+   *
+   * Length Constraints: Minimum length of 1. Maximum length of 300.
+   *
    * @public
    */
   PiiEntityTypes?: string | undefined;
 
   /**
-   * <p>If true, <code>UtteranceEvents</code> with <code>IsPartial: true</code> are filtered out of the insights target.</p>
+   * If true, `UtteranceEvents` with `IsPartial: true` are filtered out of the insights target.
+   *
    * @public
    */
   FilterPartialResults?: boolean | undefined;
 
   /**
-   * <p>The settings for a post-call analysis task in an analytics configuration.</p>
+   * The settings for a post-call analysis task in an analytics configuration.
+   *
    * @public
    */
   PostCallAnalyticsSettings?: PostCallAnalyticsSettings | undefined;
 
   /**
-   * <p>By default, all <code>CategoryEvents</code> are sent to the insights target. If this parameter is specified, only included categories are sent to the insights target. </p>
+   * By default, all `CategoryEvents` are sent to the insights target. If this parameter is specified, only included categories are sent to the insights target.
+   *
    * @public
    */
   CallAnalyticsStreamCategories?: string[] | undefined;
 }
 
 /**
- * <p>A structure that contains the configuration settings for an Amazon Transcribe processor.</p>
- *          <note>
- *             <p>Calls to this API must include a <code>LanguageCode</code>, <code>IdentifyLanguage</code>, or <code>IdentifyMultipleLanguages</code> parameter.
- *          If you include more than one of those parameters, your transcription job fails.</p>
- *          </note>
+ * A structure that contains the configuration settings for an Amazon Transcribe processor.
+ *
+ * > **Note:** Calls to this API must include a `LanguageCode`, `IdentifyLanguage`, or `IdentifyMultipleLanguages` parameter. If you include more than one of those parameters, your transcription job fails.
+ *
  * @public
  */
 export interface AmazonTranscribeProcessorConfiguration {
   /**
-   * <p>The language code that represents the language spoken in your audio.</p>
-   *          <p>If you're unsure of the language spoken in your audio, consider using
-   *             <code>IdentifyLanguage</code> to enable automatic language identification.</p>
-   *          <p>For a list of languages that real-time Call Analytics supports, see the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported languages table</a>
-   *          in the <i>Amazon Transcribe Developer Guide</i>.</p>
+   * The language code that represents the language spoken in your audio.
+   *
+   * If you're unsure of the language spoken in your audio, consider using `IdentifyLanguage` to enable automatic language identification.
+   *
+   * For a list of languages that real-time Call Analytics supports, see the [Supported languages table](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) in the *Amazon Transcribe Developer Guide*.
+   *
    * @public
    */
   LanguageCode?: CallAnalyticsLanguageCode | undefined;
 
   /**
-   * <p>The name of the custom vocabulary that you specified in your Call Analytics
-   *          request.</p>
-   *          <p>Length Constraints: Minimum length of 1. Maximum length of 200.</p>
+   * The name of the custom vocabulary that you specified in your Call Analytics request.
+   *
+   * Length Constraints: Minimum length of 1. Maximum length of 200.
+   *
    * @public
    */
   VocabularyName?: string | undefined;
 
   /**
-   * <p>The name of the custom vocabulary filter that you specified in your Call Analytics
-   *          request.</p>
-   *          <p>Length Constraints: Minimum length of 1. Maximum length of 200.</p>
+   * The name of the custom vocabulary filter that you specified in your Call Analytics request.
+   *
+   * Length Constraints: Minimum length of 1. Maximum length of 200.
+   *
    * @public
    */
   VocabularyFilterName?: string | undefined;
 
   /**
-   * <p>The vocabulary filtering method used in your Call Analytics transcription.</p>
+   * The vocabulary filtering method used in your Call Analytics transcription.
+   *
    * @public
    */
   VocabularyFilterMethod?: VocabularyFilterMethod | undefined;
 
   /**
-   * <p>Enables speaker partitioning (diarization) in your transcription output. Speaker partitioning labels the speech from individual speakers in your media file.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/diarization.html">Partitioning speakers (diarization)</a> in the <i>Amazon Transcribe Developer Guide</i>.</p>
+   * Enables speaker partitioning (diarization) in your transcription output. Speaker partitioning labels the speech from individual speakers in your media file.
+   *
+   * For more information, see [Partitioning speakers (diarization)](https://docs.aws.amazon.com/transcribe/latest/dg/diarization.html) in the *Amazon Transcribe Developer Guide*.
+   *
    * @public
    */
   ShowSpeakerLabel?: boolean | undefined;
 
   /**
-   * <p>Enables partial result stabilization for your transcription. Partial result stabilization can reduce latency in your output, but may impact accuracy.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html#streaming-partial-result-stabilization">Partial-result stabilization</a>
-   *          in the <i>Amazon Transcribe Developer Guide</i>.</p>
+   * Enables partial result stabilization for your transcription. Partial result stabilization can reduce latency in your output, but may impact accuracy.
+   *
+   * For more information, see [Partial-result stabilization](https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html#streaming-partial-result-stabilization) in the *Amazon Transcribe Developer Guide*.
+   *
    * @public
    */
   EnablePartialResultsStabilization?: boolean | undefined;
 
   /**
-   * <p>The level of stability to use when you enable partial results stabilization
-   *             (<code>EnablePartialResultsStabilization</code>).</p>
-   *          <p>Low stability provides the highest accuracy. High stability transcribes faster, but with slightly lower accuracy.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html#streaming-partial-result-stabilization">Partial-result stabilization</a>
-   *          in the <i>Amazon Transcribe Developer Guide</i>.</p>
+   * The level of stability to use when you enable partial results stabilization (`EnablePartialResultsStabilization`).
+   *
+   * Low stability provides the highest accuracy. High stability transcribes faster, but with slightly lower accuracy.
+   *
+   * For more information, see [Partial-result stabilization](https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html#streaming-partial-result-stabilization) in the *Amazon Transcribe Developer Guide*.
+   *
    * @public
    */
   PartialResultsStability?: PartialResultsStability | undefined;
 
   /**
-   * <p>Labels all personally identifiable information (PII) identified in your transcript.</p>
-   *          <p>Content identification is performed at the segment level; PII specified in
-   *             <code>PiiEntityTypes</code> is flagged upon complete transcription of an audio
-   *          segment.</p>
-   *          <p>You can’t set <code>ContentIdentificationType</code> and
-   *             <code>ContentRedactionType</code> in the same request. If you set both, your request
-   *          returns a <code>BadRequestException</code>.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction.html">Redacting or identifying personally identifiable information</a>
-   *          in the <i>Amazon Transcribe Developer Guide</i>.</p>
+   * Labels all personally identifiable information (PII) identified in your transcript.
+   *
+   * Content identification is performed at the segment level; PII specified in `PiiEntityTypes` is flagged upon complete transcription of an audio segment.
+   *
+   * You can’t set `ContentIdentificationType` and `ContentRedactionType` in the same request. If you set both, your request returns a `BadRequestException`.
+   *
+   * For more information, see [Redacting or identifying personally identifiable information](https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction.html) in the *Amazon Transcribe Developer Guide*.
+   *
    * @public
    */
   ContentIdentificationType?: ContentType | undefined;
 
   /**
-   * <p>Redacts all personally identifiable information (PII) identified in your transcript.</p>
-   *          <p>Content redaction is performed at the segment level; PII specified in PiiEntityTypes is redacted upon complete transcription of an audio segment.</p>
-   *          <p>You can’t set ContentRedactionType and ContentIdentificationType in the same request. If you set both, your request returns a <code>BadRequestException</code>.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction.html">Redacting or identifying personally identifiable information</a>
-   *          in the <i>Amazon Transcribe Developer Guide</i>.</p>
+   * Redacts all personally identifiable information (PII) identified in your transcript.
+   *
+   * Content redaction is performed at the segment level; PII specified in PiiEntityTypes is redacted upon complete transcription of an audio segment.
+   *
+   * You can’t set ContentRedactionType and ContentIdentificationType in the same request. If you set both, your request returns a `BadRequestException`.
+   *
+   * For more information, see [Redacting or identifying personally identifiable information](https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction.html) in the *Amazon Transcribe Developer Guide*.
+   *
    * @public
    */
   ContentRedactionType?: ContentType | undefined;
 
   /**
-   * <p>The types of personally identifiable information (PII) to redact from a transcript. You
-   *          can include as many types as you'd like, or you can select <code>ALL</code>.</p>
-   *          <p>To include <code>PiiEntityTypes</code> in your Call Analytics request, you must also include <code>ContentIdentificationType</code> or <code>ContentRedactionType</code>, but you can't include both.</p>
-   *          <p>Values must be comma-separated and can include: <code>ADDRESS</code>, <code>BANK_ACCOUNT_NUMBER</code>, <code>BANK_ROUTING</code>, <code>CREDIT_DEBIT_CVV</code>,
-   *          <code>CREDIT_DEBIT_EXPIRY</code>, <code>CREDIT_DEBIT_NUMBER</code>, <code>EMAIL</code>,
-   *          <code>NAME</code>, <code>PHONE</code>, <code>PIN</code>, <code>SSN</code>, or <code>ALL</code>.</p>
-   *          <p>If you leave this parameter empty, the default behavior is equivalent to <code>ALL</code>.</p>
+   * The types of personally identifiable information (PII) to redact from a transcript. You can include as many types as you'd like, or you can select `ALL`.
+   *
+   * To include `PiiEntityTypes` in your Call Analytics request, you must also include `ContentIdentificationType` or `ContentRedactionType`, but you can't include both.
+   *
+   * Values must be comma-separated and can include: `ADDRESS`, `BANK_ACCOUNT_NUMBER`, `BANK_ROUTING`, `CREDIT_DEBIT_CVV`, `CREDIT_DEBIT_EXPIRY`, `CREDIT_DEBIT_NUMBER`, `EMAIL`, `NAME`, `PHONE`, `PIN`, `SSN`, or `ALL`.
+   *
+   * If you leave this parameter empty, the default behavior is equivalent to `ALL`.
+   *
    * @public
    */
   PiiEntityTypes?: string | undefined;
 
   /**
-   * <p>The name of the custom language model that you want to use when processing your
-   *          transcription. Note that language model names are case sensitive.</p>
-   *          <p>The language of the specified language model must match the language code you specify in your transcription request. If the languages don't match, the custom language model isn't applied.
-   *             There are no errors or warnings associated with a language mismatch.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-language-models.html">Custom language models</a> in the <i>Amazon Transcribe Developer Guide</i>.</p>
+   * The name of the custom language model that you want to use when processing your transcription. Note that language model names are case sensitive.
+   *
+   * The language of the specified language model must match the language code you specify in your transcription request. If the languages don't match, the custom language model isn't applied. There are no errors or warnings associated with a language mismatch.
+   *
+   * For more information, see [Custom language models](https://docs.aws.amazon.com/transcribe/latest/dg/custom-language-models.html) in the *Amazon Transcribe Developer Guide*.
+   *
    * @public
    */
   LanguageModelName?: string | undefined;
 
   /**
-   * <p>If true, <code>TranscriptEvents</code> with <code>IsPartial: true</code> are filtered out of the insights target.</p>
+   * If true, `TranscriptEvents` with `IsPartial: true` are filtered out of the insights target.
+   *
    * @public
    */
   FilterPartialResults?: boolean | undefined;
 
   /**
-   * <p>Turns language identification on or off.</p>
+   * Turns language identification on or off.
+   *
    * @public
    */
   IdentifyLanguage?: boolean | undefined;
 
   /**
-   * <p>Turns language identification on or off for multiple languages.</p>
-   *          <note>
-   *             <p>Calls to this API must include a <code>LanguageCode</code>, <code>IdentifyLanguage</code>, or <code>IdentifyMultipleLanguages</code> parameter.
-   *          If you include more than one of those parameters, your transcription job fails.</p>
-   *          </note>
+   * Turns language identification on or off for multiple languages.
+   *
+   * > **Note:** Calls to this API must include a `LanguageCode`, `IdentifyLanguage`, or `IdentifyMultipleLanguages` parameter. If you include more than one of those parameters, your transcription job fails.
+   *
    * @public
    */
   IdentifyMultipleLanguages?: boolean | undefined;
 
   /**
-   * <p>The language options for the transcription, such as automatic language detection.</p>
+   * The language options for the transcription, such as automatic language detection.
+   *
    * @public
    */
   LanguageOptions?: string | undefined;
 
   /**
-   * <p>The preferred language for the transcription.</p>
+   * The preferred language for the transcription.
+   *
    * @public
    */
   PreferredLanguage?: CallAnalyticsLanguageCode | undefined;
 
   /**
-   * <p>The names of the custom vocabulary or vocabularies used during transcription.</p>
+   * The names of the custom vocabulary or vocabularies used during transcription.
+   *
    * @public
    */
   VocabularyNames?: string | undefined;
 
   /**
-   * <p>The names of the custom vocabulary filter or filters using during transcription.</p>
+   * The names of the custom vocabulary filter or filters using during transcription.
+   *
    * @public
    */
   VocabularyFilterNames?: string | undefined;
 }
 
 /**
- * <p>The audio artifact concatenation configuration object.</p>
+ * The audio artifact concatenation configuration object.
+ *
  * @public
  */
 export interface AudioConcatenationConfiguration {
   /**
-   * <p>Enables or disables the configuration object.</p>
+   * Enables or disables the configuration object.
+   *
    * @public
    */
   State: AudioArtifactsConcatenationState | undefined;
 }
 
 /**
- * <p>The composited video configuration object for a specified
- *          media pipeline. <code>SourceType</code> must be
- *          <code>ChimeSdkMeeting</code>.</p>
+ * The composited video configuration object for a specified media pipeline. `SourceType` must be `ChimeSdkMeeting`.
+ *
  * @public
  */
 export interface CompositedVideoConcatenationConfiguration {
   /**
-   * <p>Enables or disables the configuration object.</p>
+   * Enables or disables the configuration object.
+   *
    * @public
    */
   State: ArtifactsConcatenationState | undefined;
 }
 
 /**
- * <p>The composited content configuration object for a specified
- *          media pipeline. </p>
+ * The composited content configuration object for a specified media pipeline.
+ *
  * @public
  */
 export interface ContentConcatenationConfiguration {
   /**
-   * <p>Enables or disables the configuration object.</p>
+   * Enables or disables the configuration object.
+   *
    * @public
    */
   State: ArtifactsConcatenationState | undefined;
 }
 
 /**
- * <p>The content configuration object's data channel.</p>
+ * The content configuration object's data channel.
+ *
  * @public
  */
 export interface DataChannelConcatenationConfiguration {
   /**
-   * <p>Enables or disables the configuration object.</p>
+   * Enables or disables the configuration object.
+   *
    * @public
    */
   State: ArtifactsConcatenationState | undefined;
 }
 
 /**
- * <p>The configuration object for an event concatenation pipeline.</p>
+ * The configuration object for an event concatenation pipeline.
+ *
  * @public
  */
 export interface MeetingEventsConcatenationConfiguration {
   /**
-   * <p>Enables or disables the configuration object.</p>
+   * Enables or disables the configuration object.
+   *
    * @public
    */
   State: ArtifactsConcatenationState | undefined;
 }
 
 /**
- * <p>The configuration object for concatenating transcription messages.</p>
+ * The configuration object for concatenating transcription messages.
+ *
  * @public
  */
 export interface TranscriptionMessagesConcatenationConfiguration {
   /**
-   * <p>Enables or disables the configuration object.</p>
+   * Enables or disables the configuration object.
+   *
    * @public
    */
   State: ArtifactsConcatenationState | undefined;
 }
 
 /**
- * <p>The configuration object of a video concatenation pipeline.</p>
+ * The configuration object of a video concatenation pipeline.
+ *
  * @public
  */
 export interface VideoConcatenationConfiguration {
   /**
-   * <p>Enables or disables the configuration object.</p>
+   * Enables or disables the configuration object.
+   *
    * @public
    */
   State: ArtifactsConcatenationState | undefined;
 }
 
 /**
- * <p>The configuration for the artifacts concatenation.</p>
+ * The configuration for the artifacts concatenation.
+ *
  * @public
  */
 export interface ArtifactsConcatenationConfiguration {
   /**
-   * <p>The configuration for the audio artifacts concatenation.</p>
+   * The configuration for the audio artifacts concatenation.
+   *
    * @public
    */
   Audio: AudioConcatenationConfiguration | undefined;
 
   /**
-   * <p>The configuration for the video artifacts concatenation.</p>
+   * The configuration for the video artifacts concatenation.
+   *
    * @public
    */
   Video: VideoConcatenationConfiguration | undefined;
 
   /**
-   * <p>The configuration for the content artifacts concatenation.</p>
+   * The configuration for the content artifacts concatenation.
+   *
    * @public
    */
   Content: ContentConcatenationConfiguration | undefined;
 
   /**
-   * <p>The configuration for the data channel artifacts concatenation.</p>
+   * The configuration for the data channel artifacts concatenation.
+   *
    * @public
    */
   DataChannel: DataChannelConcatenationConfiguration | undefined;
 
   /**
-   * <p>The configuration for the transcription messages artifacts concatenation.</p>
+   * The configuration for the transcription messages artifacts concatenation.
+   *
    * @public
    */
   TranscriptionMessages: TranscriptionMessagesConcatenationConfiguration | undefined;
 
   /**
-   * <p>The configuration for the meeting events artifacts concatenation.</p>
+   * The configuration for the meeting events artifacts concatenation.
+   *
    * @public
    */
   MeetingEvents: MeetingEventsConcatenationConfiguration | undefined;
 
   /**
-   * <p>The configuration for the composited video artifacts concatenation.</p>
+   * The configuration for the composited video artifacts concatenation.
+   *
    * @public
    */
   CompositedVideo: CompositedVideoConcatenationConfiguration | undefined;
 }
 
 /**
- * <p>The audio artifact configuration object.</p>
+ * The audio artifact configuration object.
+ *
  * @public
  */
 export interface AudioArtifactsConfiguration {
   /**
-   * <p>The MUX type of the audio artifact configuration object.</p>
+   * The MUX type of the audio artifact configuration object.
+   *
    * @public
    */
   MuxType: AudioMuxType | undefined;
 }
 
 /**
- * <p>Defines the configuration settings for the horizontal layout.</p>
+ * Defines the configuration settings for the horizontal layout.
+ *
  * @public
  */
 export interface HorizontalLayoutConfiguration {
   /**
-   * <p>Sets the automatic ordering of the video tiles.</p>
+   * Sets the automatic ordering of the video tiles.
+   *
    * @public
    */
   TileOrder?: TileOrder | undefined;
 
   /**
-   * <p>Sets the position of horizontal tiles.</p>
+   * Sets the position of horizontal tiles.
+   *
    * @public
    */
   TilePosition?: HorizontalTilePosition | undefined;
 
   /**
-   * <p>The maximum number of video tiles to display.</p>
+   * The maximum number of video tiles to display.
+   *
    * @public
    */
   TileCount?: number | undefined;
 
   /**
-   * <p>Specifies the aspect ratio of all video tiles.</p>
+   * Specifies the aspect ratio of all video tiles.
+   *
    * @public
    */
   TileAspectRatio?: string | undefined;
 }
 
 /**
- * <p>Defines the configuration for a presenter-only video tile.</p>
+ * Defines the configuration for a presenter-only video tile.
+ *
  * @public
  */
 export interface PresenterOnlyConfiguration {
   /**
-   * <p>Defines the position of the presenter video tile. Default: <code>TopRight</code>.</p>
+   * Defines the position of the presenter video tile. Default: `TopRight`.
+   *
    * @public
    */
   PresenterPosition?: PresenterPosition | undefined;
 }
 
 /**
- * <p>Defines the configuration settings for a vertical layout.</p>
+ * Defines the configuration settings for a vertical layout.
+ *
  * @public
  */
 export interface VerticalLayoutConfiguration {
   /**
-   * <p>Sets the automatic ordering of the video tiles.</p>
+   * Sets the automatic ordering of the video tiles.
+   *
    * @public
    */
   TileOrder?: TileOrder | undefined;
 
   /**
-   * <p>Sets the position of vertical tiles.</p>
+   * Sets the position of vertical tiles.
+   *
    * @public
    */
   TilePosition?: VerticalTilePosition | undefined;
 
   /**
-   * <p>The maximum number of tiles to display.</p>
+   * The maximum number of tiles to display.
+   *
    * @public
    */
   TileCount?: number | undefined;
 
   /**
-   * <p>Sets the aspect ratio of the video tiles, such as 16:9.</p>
+   * Sets the aspect ratio of the video tiles, such as 16:9.
+   *
    * @public
    */
   TileAspectRatio?: string | undefined;
 }
 
 /**
- * <p>Defines the settings for a video tile.</p>
+ * Defines the settings for a video tile.
+ *
  * @public
  */
 export interface VideoAttribute {
   /**
-   * <p>Sets the corner radius of all video tiles.</p>
+   * Sets the corner radius of all video tiles.
+   *
    * @public
    */
   CornerRadius?: number | undefined;
 
   /**
-   * <p>Defines the border color of all video tiles.</p>
+   * Defines the border color of all video tiles.
+   *
    * @public
    */
   BorderColor?: BorderColor | undefined;
 
   /**
-   * <p>Defines the highlight color for the active video tile.</p>
+   * Defines the highlight color for the active video tile.
+   *
    * @public
    */
   HighlightColor?: HighlightColor | undefined;
 
   /**
-   * <p>Defines the border thickness for all video tiles.</p>
+   * Defines the border thickness for all video tiles.
+   *
    * @public
    */
   BorderThickness?: number | undefined;
 }
 
 /**
- * <p>Specifies the type of grid layout.</p>
+ * Specifies the type of grid layout.
+ *
  * @public
  */
 export interface GridViewConfiguration {
   /**
-   * <p>Defines the layout of the video tiles when content sharing is enabled.</p>
+   * Defines the layout of the video tiles when content sharing is enabled.
+   *
    * @public
    */
   ContentShareLayout: ContentShareLayoutOption | undefined;
 
   /**
-   * <p>Defines the configuration options for a presenter only video tile.</p>
+   * Defines the configuration options for a presenter only video tile.
+   *
    * @public
    */
   PresenterOnlyConfiguration?: PresenterOnlyConfiguration | undefined;
 
   /**
-   * <p>The configuration settings for an <code>ActiveSpeakerOnly</code> video tile.</p>
+   * The configuration settings for an `ActiveSpeakerOnly` video tile.
+   *
    * @public
    */
   ActiveSpeakerOnlyConfiguration?: ActiveSpeakerOnlyConfiguration | undefined;
 
   /**
-   * <p>The configuration settings for a horizontal layout.</p>
+   * The configuration settings for a horizontal layout.
+   *
    * @public
    */
   HorizontalLayoutConfiguration?: HorizontalLayoutConfiguration | undefined;
 
   /**
-   * <p>The configuration settings for a vertical layout.</p>
+   * The configuration settings for a vertical layout.
+   *
    * @public
    */
   VerticalLayoutConfiguration?: VerticalLayoutConfiguration | undefined;
 
   /**
-   * <p>The attribute settings for the video tiles.</p>
+   * The attribute settings for the video tiles.
+   *
    * @public
    */
   VideoAttribute?: VideoAttribute | undefined;
 
   /**
-   * <p>The orientation setting, horizontal or vertical.</p>
+   * The orientation setting, horizontal or vertical.
+   *
    * @public
    */
   CanvasOrientation?: CanvasOrientation | undefined;
 }
 
 /**
- * <p>Specifies the configuration for compositing video artifacts.</p>
+ * Specifies the configuration for compositing video artifacts.
+ *
  * @public
  */
 export interface CompositedVideoArtifactsConfiguration {
   /**
-   * <p>The layout setting, such as <code>GridView</code> in the configuration object.</p>
+   * The layout setting, such as `GridView` in the configuration object.
+   *
    * @public
    */
   Layout?: LayoutOption | undefined;
 
   /**
-   * <p>The video resolution setting in the configuration object. Default: HD at 1280 x 720. FHD resolution: 1920 x 1080.</p>
+   * The video resolution setting in the configuration object. Default: HD at 1280 x 720. FHD resolution: 1920 x 1080.
+   *
    * @public
    */
   Resolution?: ResolutionOption | undefined;
 
   /**
-   * <p>The <code>GridView</code> configuration setting.</p>
+   * The `GridView` configuration setting.
+   *
    * @public
    */
   GridViewConfiguration: GridViewConfiguration | undefined;
 }
 
 /**
- * <p>The content artifact object.</p>
+ * The content artifact object.
+ *
  * @public
  */
 export interface ContentArtifactsConfiguration {
   /**
-   * <p>Indicates whether the content artifact is enabled or disabled.</p>
+   * Indicates whether the content artifact is enabled or disabled.
+   *
    * @public
    */
   State: ArtifactsState | undefined;
 
   /**
-   * <p>The MUX type of the artifact configuration.</p>
+   * The MUX type of the artifact configuration.
+   *
    * @public
    */
   MuxType?: ContentMuxType | undefined;
 }
 
 /**
- * <p>The video artifact configuration object.</p>
+ * The video artifact configuration object.
+ *
  * @public
  */
 export interface VideoArtifactsConfiguration {
   /**
-   * <p>Indicates whether the video artifact is enabled or disabled.</p>
+   * Indicates whether the video artifact is enabled or disabled.
+   *
    * @public
    */
   State: ArtifactsState | undefined;
 
   /**
-   * <p>The MUX type of the video artifact configuration object.</p>
+   * The MUX type of the video artifact configuration object.
+   *
    * @public
    */
   MuxType?: VideoMuxType | undefined;
 }
 
 /**
- * <p>The configuration for the artifacts.</p>
+ * The configuration for the artifacts.
+ *
  * @public
  */
 export interface ArtifactsConfiguration {
   /**
-   * <p>The configuration for the audio artifacts.</p>
+   * The configuration for the audio artifacts.
+   *
    * @public
    */
   Audio: AudioArtifactsConfiguration | undefined;
 
   /**
-   * <p>The configuration for the video artifacts.</p>
+   * The configuration for the video artifacts.
+   *
    * @public
    */
   Video: VideoArtifactsConfiguration | undefined;
 
   /**
-   * <p>The configuration for the content artifacts.</p>
+   * The configuration for the content artifacts.
+   *
    * @public
    */
   Content: ContentArtifactsConfiguration | undefined;
 
   /**
-   * <p>Enables video compositing.</p>
+   * Enables video compositing.
+   *
    * @public
    */
   CompositedVideo?: CompositedVideoArtifactsConfiguration | undefined;
 }
 
 /**
- * <p>Defines an audio channel in a Kinesis video stream.</p>
+ * Defines an audio channel in a Kinesis video stream.
+ *
  * @public
  */
 export interface ChannelDefinition {
   /**
-   * <p>The channel ID.</p>
+   * The channel ID.
+   *
    * @public
    */
   ChannelId: number | undefined;
 
   /**
-   * <p>Specifies whether the audio in a channel belongs to the <code>AGENT</code> or <code>CUSTOMER</code>.</p>
+   * Specifies whether the audio in a channel belongs to the `AGENT` or `CUSTOMER`.
+   *
    * @public
    */
   ParticipantRole?: ParticipantRole | undefined;
 }
 
 /**
- * <p>The video streams for a specified media pipeline. The total number of
- *          video streams can't exceed 25.</p>
+ * The video streams for a specified media pipeline. The total number of video streams can't exceed 25.
+ *
  * @public
  */
 export interface SelectedVideoStreams {
   /**
-   * <p>The attendee IDs of the streams selected for a media pipeline. </p>
+   * The attendee IDs of the streams selected for a media pipeline.
+   *
    * @public
    */
   AttendeeIds?: string[] | undefined;
 
   /**
-   * <p>The external user IDs of the streams selected for a media pipeline.</p>
+   * The external user IDs of the streams selected for a media pipeline.
+   *
    * @public
    */
   ExternalUserIds?: string[] | undefined;
 }
 
 /**
- * <p>Source configuration for a specified media pipeline.</p>
+ * Source configuration for a specified media pipeline.
+ *
  * @public
  */
 export interface SourceConfiguration {
   /**
-   * <p>The selected video streams for a specified media pipeline. The number
-   *          of video streams can't exceed 25.</p>
+   * The selected video streams for a specified media pipeline. The number of video streams can't exceed 25.
+   *
    * @public
    */
   SelectedVideoStreams?: SelectedVideoStreams | undefined;
 }
 
 /**
- * <p>The configuration object of the Amazon Chime SDK meeting for a specified media pipeline. <code>SourceType</code> must be <code>ChimeSdkMeeting</code>.</p>
+ * The configuration object of the Amazon Chime SDK meeting for a specified media pipeline. `SourceType` must be `ChimeSdkMeeting`.
+ *
  * @public
  */
 export interface ChimeSdkMeetingConfiguration {
   /**
-   * <p>The source configuration for a specified media pipeline.</p>
+   * The source configuration for a specified media pipeline.
+   *
    * @public
    */
   SourceConfiguration?: SourceConfiguration | undefined;
 
   /**
-   * <p>The configuration for the artifacts in an Amazon Chime SDK meeting.</p>
+   * The configuration for the artifacts in an Amazon Chime SDK meeting.
+   *
    * @public
    */
   ArtifactsConfiguration?: ArtifactsConfiguration | undefined;
 }
 
 /**
- * <p>Contains server side encryption parameters to be used by media capture pipeline. The
- *          parameters can also be used by media concatenation pipeline taking media capture pipeline
- *          as a media source.</p>
+ * Contains server side encryption parameters to be used by media capture pipeline. The parameters can also be used by media concatenation pipeline taking media capture pipeline as a media source.
+ *
  * @public
  */
 export interface SseAwsKeyManagementParams {
   /**
-   * <p>The KMS key you want to use to encrypt your media pipeline output.
-   *          Decryption is required for concatenation pipeline. If using a key located in the current
-   *          Amazon Web Services account, you can specify your KMS key in one of four
-   *          ways:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Use the KMS key ID itself. For example,
-   *                <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>Use an alias for the KMS key ID. For example,
-   *                <code>alias/ExampleAlias</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>Use the Amazon Resource Name (ARN) for the KMS key ID. For example,
-   *                <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>Use the ARN for the KMS key alias. For example,
-   *                <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p>
-   *             </li>
-   *          </ul>
-   *          <p>If using a key located in a different Amazon Web Services account than the current
-   *          Amazon Web Services account, you can specify your KMS key in one of two
-   *          ways:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Use the ARN for the KMS key ID. For example,
-   *                <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>Use the ARN for the KMS key alias. For example,
-   *                <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p>
-   *             </li>
-   *          </ul>
-   *          <p>If you don't specify an encryption key, your output is encrypted with the default
-   *          Amazon S3 key (SSE-S3).</p>
-   *          <p>Note that the role specified in the <code>SinkIamRoleArn</code> request parameter must
-   *          have permission to use the specified KMS key.</p>
+   * The KMS key you want to use to encrypt your media pipeline output. Decryption is required for concatenation pipeline. If using a key located in the current Amazon Web Services account, you can specify your KMS key in one of four ways:
+   *
+   * - Use the KMS key ID itself. For example, `1234abcd-12ab-34cd-56ef-1234567890ab`.
+   * - Use an alias for the KMS key ID. For example, `alias/ExampleAlias`.
+   * - Use the Amazon Resource Name (ARN) for the KMS key ID. For example, `arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab`.
+   * - Use the ARN for the KMS key alias. For example, `arn:aws:kms:region:account-ID:alias/ExampleAlias`.
+   *
+   * If using a key located in a different Amazon Web Services account than the current Amazon Web Services account, you can specify your KMS key in one of two ways:
+   *
+   * - Use the ARN for the KMS key ID. For example, `arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab`.
+   * - Use the ARN for the KMS key alias. For example, `arn:aws:kms:region:account-ID:alias/ExampleAlias`.
+   *
+   * If you don't specify an encryption key, your output is encrypted with the default Amazon S3 key (SSE-S3).
+   *
+   * Note that the role specified in the `SinkIamRoleArn` request parameter must have permission to use the specified KMS key.
+   *
    * @public
    */
   AwsKmsKeyId: string | undefined;
 
   /**
-   * <p>Base64-encoded string of a UTF-8 encoded JSON, which contains the encryption context as
-   *          non-secret key-value pair known as encryption context pairs, that provides an added layer
-   *          of security for your data. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html">KMS encryption
-   *             context</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric keys in KMS</a> in the <i>Key Management Service Developer
-   *                      Guide</i>.</p>
+   * Base64-encoded string of a UTF-8 encoded JSON, which contains the encryption context as non-secret key-value pair known as encryption context pairs, that provides an added layer of security for your data. For more information, see [KMS encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html) and [Asymmetric keys in KMS](https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html) in the *Key Management Service Developer Guide*.
+   *
    * @public
    */
   AwsKmsEncryptionContext?: string | undefined;
 }
 
 /**
- * <p>A key/value pair that grants users access to meeting resources.</p>
+ * A key/value pair that grants users access to meeting resources.
+ *
  * @public
  */
 export interface Tag {
   /**
-   * <p>The key half of a tag.</p>
+   * The key half of a tag.
+   *
    * @public
    */
   Key: string | undefined;
 
   /**
-   * <p>The value half of a tag.</p>
+   * The value half of a tag.
+   *
    * @public
    */
   Value: string | undefined;
@@ -916,152 +1004,157 @@ export interface Tag {
  */
 export interface CreateMediaCapturePipelineRequest {
   /**
-   * <p>Source type from which the media artifacts are captured. A Chime SDK Meeting is the only
-   *          supported source.</p>
+   * Source type from which the media artifacts are captured. A Chime SDK Meeting is the only supported source.
+   *
    * @public
    */
   SourceType: MediaPipelineSourceType | undefined;
 
   /**
-   * <p>ARN of the source from which the media artifacts are captured.</p>
+   * ARN of the source from which the media artifacts are captured.
+   *
    * @public
    */
   SourceArn: string | undefined;
 
   /**
-   * <p>Destination type to which the media artifacts are saved. You must use an S3 bucket.</p>
+   * Destination type to which the media artifacts are saved. You must use an S3 bucket.
+   *
    * @public
    */
   SinkType: MediaPipelineSinkType | undefined;
 
   /**
-   * <p>The ARN of the sink type.</p>
+   * The ARN of the sink type.
+   *
    * @public
    */
   SinkArn: string | undefined;
 
   /**
-   * <p>The unique identifier for the client request. The token makes the API request idempotent. Use a unique token for each media pipeline request.</p>
+   * The unique identifier for the client request. The token makes the API request idempotent. Use a unique token for each media pipeline request.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
 
   /**
-   * <p>The configuration for a specified media pipeline. <code>SourceType</code> must
-   *          be <code>ChimeSdkMeeting</code>.</p>
+   * The configuration for a specified media pipeline. `SourceType` must be `ChimeSdkMeeting`.
+   *
    * @public
    */
   ChimeSdkMeetingConfiguration?: ChimeSdkMeetingConfiguration | undefined;
 
   /**
-   * <p>An object that contains server side encryption parameters to be used by media capture
-   *          pipeline. The parameters can also be used by media concatenation pipeline taking media
-   *          capture pipeline as a media source.</p>
+   * An object that contains server side encryption parameters to be used by media capture pipeline. The parameters can also be used by media concatenation pipeline taking media capture pipeline as a media source.
+   *
    * @public
    */
   SseAwsKeyManagementParams?: SseAwsKeyManagementParams | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the sink role to be used with <code>AwsKmsKeyId</code>
-   *          in <code>SseAwsKeyManagementParams</code>. Can only interact with <code>S3Bucket</code>
-   *          sink type. The role must belong to the caller’s account and be able to act on behalf of the
-   *          caller during the API call. All minimum policy permissions requirements for the caller to
-   *          perform sink-related actions are the same for <code>SinkIamRoleArn</code>.</p>
-   *          <p>Additionally, the role must have permission to <code>kms:GenerateDataKey</code> using
-   *          KMS key supplied as <code>AwsKmsKeyId</code> in <code>SseAwsKeyManagementParams</code>. If
-   *          media concatenation will be required later, the role must also have permission to
-   *          <code>kms:Decrypt</code> for the same KMS key.</p>
+   * The Amazon Resource Name (ARN) of the sink role to be used with `AwsKmsKeyId` in `SseAwsKeyManagementParams`. Can only interact with `S3Bucket` sink type. The role must belong to the caller’s account and be able to act on behalf of the caller during the API call. All minimum policy permissions requirements for the caller to perform sink-related actions are the same for `SinkIamRoleArn`.
+   *
+   * Additionally, the role must have permission to `kms:GenerateDataKey` using KMS key supplied as `AwsKmsKeyId` in `SseAwsKeyManagementParams`. If media concatenation will be required later, the role must also have permission to `kms:Decrypt` for the same KMS key.
+   *
    * @public
    */
   SinkIamRoleArn?: string | undefined;
 
   /**
-   * <p>The tag key-value pairs.</p>
+   * The tag key-value pairs.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 }
 
 /**
- * <p>A media pipeline object consisting of an ID, source type, source ARN, a sink
- *          type, a sink ARN, and a configuration object.</p>
+ * A media pipeline object consisting of an ID, source type, source ARN, a sink type, a sink ARN, and a configuration object.
+ *
  * @public
  */
 export interface MediaCapturePipeline {
   /**
-   * <p>The ID of a media pipeline.</p>
+   * The ID of a media pipeline.
+   *
    * @public
    */
   MediaPipelineId?: string | undefined;
 
   /**
-   * <p>The ARN of the media capture pipeline</p>
+   * The ARN of the media capture pipeline
+   *
    * @public
    */
   MediaPipelineArn?: string | undefined;
 
   /**
-   * <p>Source type from which media artifacts are saved. You must use
-   *          <code>ChimeMeeting</code>.</p>
+   * Source type from which media artifacts are saved. You must use `ChimeMeeting`.
+   *
    * @public
    */
   SourceType?: MediaPipelineSourceType | undefined;
 
   /**
-   * <p>ARN of the source from which the media artifacts are saved.</p>
+   * ARN of the source from which the media artifacts are saved.
+   *
    * @public
    */
   SourceArn?: string | undefined;
 
   /**
-   * <p>The status of the media pipeline.</p>
+   * The status of the media pipeline.
+   *
    * @public
    */
   Status?: MediaPipelineStatus | undefined;
 
   /**
-   * <p>Destination type to which the media artifacts are saved. You must use an S3
-   *          Bucket.</p>
+   * Destination type to which the media artifacts are saved. You must use an S3 Bucket.
+   *
    * @public
    */
   SinkType?: MediaPipelineSinkType | undefined;
 
   /**
-   * <p>ARN of the destination to which the media artifacts are saved.</p>
+   * ARN of the destination to which the media artifacts are saved.
+   *
    * @public
    */
   SinkArn?: string | undefined;
 
   /**
-   * <p>The time at which the pipeline was created, in ISO 8601 format.</p>
+   * The time at which the pipeline was created, in ISO 8601 format.
+   *
    * @public
    */
   CreatedTimestamp?: Date | undefined;
 
   /**
-   * <p>The time at which the pipeline was updated, in ISO 8601 format.</p>
+   * The time at which the pipeline was updated, in ISO 8601 format.
+   *
    * @public
    */
   UpdatedTimestamp?: Date | undefined;
 
   /**
-   * <p>The configuration for a specified media pipeline. <code>SourceType</code> must
-   *          be <code>ChimeSdkMeeting</code>.</p>
+   * The configuration for a specified media pipeline. `SourceType` must be `ChimeSdkMeeting`.
+   *
    * @public
    */
   ChimeSdkMeetingConfiguration?: ChimeSdkMeetingConfiguration | undefined;
 
   /**
-   * <p>An object that contains server side encryption parameters to be used by media capture
-   *          pipeline. The parameters can also be used by media concatenation pipeline taking media
-   *          capture pipeline as a media source.</p>
+   * An object that contains server side encryption parameters to be used by media capture pipeline. The parameters can also be used by media concatenation pipeline taking media capture pipeline as a media source.
+   *
    * @public
    */
   SseAwsKeyManagementParams?: SseAwsKeyManagementParams | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the sink role to be used with <code>AwsKmsKeyId</code>
-   *          in <code>SseAwsKeyManagementParams</code>.</p>
+   * The Amazon Resource Name (ARN) of the sink role to be used with `AwsKmsKeyId` in `SseAwsKeyManagementParams`.
+   *
    * @public
    */
   SinkIamRoleArn?: string | undefined;
@@ -1072,87 +1165,99 @@ export interface MediaCapturePipeline {
  */
 export interface CreateMediaCapturePipelineResponse {
   /**
-   * <p>A media pipeline object, the ID, source type, source ARN, sink type, and sink
-   *          ARN of a media pipeline object.</p>
+   * A media pipeline object, the ID, source type, source ARN, sink type, and sink ARN of a media pipeline object.
+   *
    * @public
    */
   MediaCapturePipeline?: MediaCapturePipeline | undefined;
 }
 
 /**
- * <p>The configuration settings for the S3 bucket.</p>
+ * The configuration settings for the S3 bucket.
+ *
  * @public
  */
 export interface S3BucketSinkConfiguration {
   /**
-   * <p>The destination URL of the S3 bucket.</p>
+   * The destination URL of the S3 bucket.
+   *
    * @public
    */
   Destination: string | undefined;
 }
 
 /**
- * <p>The data sink of the configuration object.</p>
+ * The data sink of the configuration object.
+ *
  * @public
  */
 export interface ConcatenationSink {
   /**
-   * <p>The type of data sink in the configuration object.</p>
+   * The type of data sink in the configuration object.
+   *
    * @public
    */
   Type: ConcatenationSinkType | undefined;
 
   /**
-   * <p>The configuration settings for an Amazon S3 bucket sink.</p>
+   * The configuration settings for an Amazon S3 bucket sink.
+   *
    * @public
    */
   S3BucketSinkConfiguration: S3BucketSinkConfiguration | undefined;
 }
 
 /**
- * <p>The configuration object of the Amazon Chime SDK meeting concatenation for a specified
- *          media pipeline.</p>
+ * The configuration object of the Amazon Chime SDK meeting concatenation for a specified media pipeline.
+ *
  * @public
  */
 export interface ChimeSdkMeetingConcatenationConfiguration {
   /**
-   * <p>The configuration for the artifacts in an Amazon Chime SDK meeting concatenation.</p>
+   * The configuration for the artifacts in an Amazon Chime SDK meeting concatenation.
+   *
    * @public
    */
   ArtifactsConfiguration: ArtifactsConcatenationConfiguration | undefined;
 }
 
 /**
- * <p>The source configuration object of a media capture pipeline.</p>
+ * The source configuration object of a media capture pipeline.
+ *
  * @public
  */
 export interface MediaCapturePipelineSourceConfiguration {
   /**
-   * <p>The media pipeline ARN in the configuration object of a media capture pipeline.</p>
+   * The media pipeline ARN in the configuration object of a media capture pipeline.
+   *
    * @public
    */
   MediaPipelineArn: string | undefined;
 
   /**
-   * <p>The meeting configuration settings in a media capture pipeline configuration object. </p>
+   * The meeting configuration settings in a media capture pipeline configuration object.
+   *
    * @public
    */
   ChimeSdkMeetingConfiguration: ChimeSdkMeetingConcatenationConfiguration | undefined;
 }
 
 /**
- * <p>The source type and media pipeline configuration settings in a configuration object.</p>
+ * The source type and media pipeline configuration settings in a configuration object.
+ *
  * @public
  */
 export interface ConcatenationSource {
   /**
-   * <p>The type of concatenation source in a configuration object.</p>
+   * The type of concatenation source in a configuration object.
+   *
    * @public
    */
   Type: ConcatenationSourceType | undefined;
 
   /**
-   * <p>The concatenation settings for the media pipeline in a configuration object.</p>
+   * The concatenation settings for the media pipeline in a configuration object.
+   *
    * @public
    */
   MediaCapturePipelineSourceConfiguration: MediaCapturePipelineSourceConfiguration | undefined;
@@ -1163,74 +1268,85 @@ export interface ConcatenationSource {
  */
 export interface CreateMediaConcatenationPipelineRequest {
   /**
-   * <p>An object that specifies the sources for the media concatenation pipeline.</p>
+   * An object that specifies the sources for the media concatenation pipeline.
+   *
    * @public
    */
   Sources: ConcatenationSource[] | undefined;
 
   /**
-   * <p>An object that specifies the data sinks for the media concatenation pipeline.</p>
+   * An object that specifies the data sinks for the media concatenation pipeline.
+   *
    * @public
    */
   Sinks: ConcatenationSink[] | undefined;
 
   /**
-   * <p>The unique identifier for the client request. The token makes the API request
-   *          idempotent. Use a unique token for each media concatenation pipeline request.</p>
+   * The unique identifier for the client request. The token makes the API request idempotent. Use a unique token for each media concatenation pipeline request.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
 
   /**
-   * <p>The tags associated with the media concatenation pipeline.</p>
+   * The tags associated with the media concatenation pipeline.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 }
 
 /**
- * <p>Concatenates audio and video data from one or more data streams.</p>
+ * Concatenates audio and video data from one or more data streams.
+ *
  * @public
  */
 export interface MediaConcatenationPipeline {
   /**
-   * <p>The ID of the media pipeline being concatenated.</p>
+   * The ID of the media pipeline being concatenated.
+   *
    * @public
    */
   MediaPipelineId?: string | undefined;
 
   /**
-   * <p>The ARN of the media pipeline that you specify in the <code>SourceConfiguration</code> object.</p>
+   * The ARN of the media pipeline that you specify in the `SourceConfiguration` object.
+   *
    * @public
    */
   MediaPipelineArn?: string | undefined;
 
   /**
-   * <p>The data sources being concatenated.</p>
+   * The data sources being concatenated.
+   *
    * @public
    */
   Sources?: ConcatenationSource[] | undefined;
 
   /**
-   * <p>The data sinks of the concatenation pipeline.</p>
+   * The data sinks of the concatenation pipeline.
+   *
    * @public
    */
   Sinks?: ConcatenationSink[] | undefined;
 
   /**
-   * <p>The status of the concatenation pipeline.</p>
+   * The status of the concatenation pipeline.
+   *
    * @public
    */
   Status?: MediaPipelineStatus | undefined;
 
   /**
-   * <p>The time at which the concatenation pipeline was created.</p>
+   * The time at which the concatenation pipeline was created.
+   *
    * @public
    */
   CreatedTimestamp?: Date | undefined;
 
   /**
-   * <p>The time at which the concatenation pipeline was last updated.</p>
+   * The time at which the concatenation pipeline was last updated.
+   *
    * @public
    */
   UpdatedTimestamp?: Date | undefined;
@@ -1241,180 +1357,196 @@ export interface MediaConcatenationPipeline {
  */
 export interface CreateMediaConcatenationPipelineResponse {
   /**
-   * <p>A media concatenation pipeline object, the ID, source type, <code>MediaPipelineARN</code>, and sink of a
-   *          media concatenation pipeline object.</p>
+   * A media concatenation pipeline object, the ID, source type, `MediaPipelineARN`, and sink of a media concatenation pipeline object.
+   *
    * @public
    */
   MediaConcatenationPipeline?: MediaConcatenationPipeline | undefined;
 }
 
 /**
- * <p>The range of timestamps to return.</p>
+ * The range of timestamps to return.
+ *
  * @public
  */
 export interface TimestampRange {
   /**
-   * <p>The starting timestamp for the specified range.</p>
+   * The starting timestamp for the specified range.
+   *
    * @public
    */
   StartTimestamp: Date | undefined;
 
   /**
-   * <p>The ending timestamp for the specified range.</p>
+   * The ending timestamp for the specified range.
+   *
    * @public
    */
   EndTimestamp: Date | undefined;
 }
 
 /**
- * <p>Describes the timestamp range and timestamp origin of a range of fragments.</p>
- *          <p>Only fragments with a start timestamp greater than or equal to the given start time and less than or equal to the end time are returned.
- *          For example, say a stream contains fragments with the following start timestamps:</p>
- *          <ul>
- *             <li>
- *                <p>00:00:00</p>
- *             </li>
- *             <li>
- *                <p>00:00:02</p>
- *             </li>
- *             <li>
- *                <p>00:00:04</p>
- *             </li>
- *             <li>
- *                <p>00:00:06</p>
- *             </li>
- *          </ul>
- *          <p>A fragment selector range with a start time of 00:00:01 and end time of 00:00:04 would return the fragments with start times of 00:00:02 and 00:00:04.</p>
+ * Describes the timestamp range and timestamp origin of a range of fragments.
+ *
+ * Only fragments with a start timestamp greater than or equal to the given start time and less than or equal to the end time are returned. For example, say a stream contains fragments with the following start timestamps:
+ *
+ * - 00:00:00
+ * - 00:00:02
+ * - 00:00:04
+ * - 00:00:06
+ *
+ * A fragment selector range with a start time of 00:00:01 and end time of 00:00:04 would return the fragments with start times of 00:00:02 and 00:00:04.
+ *
  * @public
  */
 export interface FragmentSelector {
   /**
-   * <p>The origin of the timestamps to use, <code>Server</code> or <code>Producer</code>. For more information, see
-   *          <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_dataplane_StartSelector.html">StartSelectorType</a> in the <i>Amazon Kinesis Video Streams Developer Guide</i>.</p>
+   * The origin of the timestamps to use, `Server` or `Producer`. For more information, see [StartSelectorType](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_dataplane_StartSelector.html) in the *Amazon Kinesis Video Streams Developer Guide*.
+   *
    * @public
    */
   FragmentSelectorType: FragmentSelectorType | undefined;
 
   /**
-   * <p>The range of timestamps to return.</p>
+   * The range of timestamps to return.
+   *
    * @public
    */
   TimestampRange: TimestampRange | undefined;
 }
 
 /**
- * <p>A structure that holds the settings for recording media.</p>
+ * A structure that holds the settings for recording media.
+ *
  * @public
  */
 export interface RecordingStreamConfiguration {
   /**
-   * <p>The ARN of the recording stream.</p>
+   * The ARN of the recording stream.
+   *
    * @public
    */
   StreamArn?: string | undefined;
 }
 
 /**
- * <p>A structure that contains the runtime settings for recording a Kinesis video stream.</p>
+ * A structure that contains the runtime settings for recording a Kinesis video stream.
+ *
  * @public
  */
 export interface KinesisVideoStreamRecordingSourceRuntimeConfiguration {
   /**
-   * <p>The stream or streams to be recorded.</p>
+   * The stream or streams to be recorded.
+   *
    * @public
    */
   Streams: RecordingStreamConfiguration[] | undefined;
 
   /**
-   * <p>Describes the timestamp range and timestamp origin of a range of fragments in the Kinesis video stream.</p>
+   * Describes the timestamp range and timestamp origin of a range of fragments in the Kinesis video stream.
+   *
    * @public
    */
   FragmentSelector: FragmentSelector | undefined;
 }
 
 /**
- * <p>Defines a streaming channel.</p>
+ * Defines a streaming channel.
+ *
  * @public
  */
 export interface StreamChannelDefinition {
   /**
-   * <p>The number of channels in a streaming channel.</p>
+   * The number of channels in a streaming channel.
+   *
    * @public
    */
   NumberOfChannels: number | undefined;
 
   /**
-   * <p>The definitions of the channels in a streaming channel.</p>
+   * The definitions of the channels in a streaming channel.
+   *
    * @public
    */
   ChannelDefinitions?: ChannelDefinition[] | undefined;
 }
 
 /**
- * <p>The configuration settings for a stream.</p>
+ * The configuration settings for a stream.
+ *
  * @public
  */
 export interface StreamConfiguration {
   /**
-   * <p>The ARN of the stream.</p>
+   * The ARN of the stream.
+   *
    * @public
    */
   StreamArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the fragment to begin processing.</p>
+   * The unique identifier of the fragment to begin processing.
+   *
    * @public
    */
   FragmentNumber?: string | undefined;
 
   /**
-   * <p>The streaming channel definition in the stream configuration.</p>
+   * The streaming channel definition in the stream configuration.
+   *
    * @public
    */
   StreamChannelDefinition: StreamChannelDefinition | undefined;
 }
 
 /**
- * <p>The runtime configuration settings for the Kinesis video stream source.</p>
+ * The runtime configuration settings for the Kinesis video stream source.
+ *
  * @public
  */
 export interface KinesisVideoStreamSourceRuntimeConfiguration {
   /**
-   * <p>The streams in the source runtime configuration of a Kinesis video stream.</p>
+   * The streams in the source runtime configuration of a Kinesis video stream.
+   *
    * @public
    */
   Streams: StreamConfiguration[] | undefined;
 
   /**
-   * <p>Specifies the encoding of your input audio. Supported format: PCM (only signed 16-bit little-endian audio formats, which does not include WAV)</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-input.html#how-input-audio">Media formats</a> in the <i>Amazon Transcribe Developer Guide</i>.</p>
+   * Specifies the encoding of your input audio. Supported format: PCM (only signed 16-bit little-endian audio formats, which does not include WAV)
+   *
+   * For more information, see [Media formats](https://docs.aws.amazon.com/transcribe/latest/dg/how-input.html#how-input-audio) in the *Amazon Transcribe Developer Guide*.
+   *
    * @public
    */
   MediaEncoding: MediaEncoding | undefined;
 
   /**
-   * <p>The sample rate of the input audio (in hertz). Low-quality audio, such as telephone
-   *          audio, is typically around 8,000 Hz. High-quality audio typically ranges from 16,000 Hz to
-   *          48,000 Hz. Note that the sample rate you specify must match that of your audio.</p>
-   *          <p>Valid Range: Minimum value of 8000. Maximum value of 48000.</p>
+   * The sample rate of the input audio (in hertz). Low-quality audio, such as telephone audio, is typically around 8,000 Hz. High-quality audio typically ranges from 16,000 Hz to 48,000 Hz. Note that the sample rate you specify must match that of your audio.
+   *
+   * Valid Range: Minimum value of 8000. Maximum value of 48000.
+   *
    * @public
    */
   MediaSampleRate: number | undefined;
 }
 
 /**
- * <p>A structure that holds the settings for transmitting media files to the Amazon S3 bucket. If specified, the settings in this structure override any settings in <code>S3RecordingSinkConfiguration</code>.</p>
+ * A structure that holds the settings for transmitting media files to the Amazon S3 bucket. If specified, the settings in this structure override any settings in `S3RecordingSinkConfiguration`.
+ *
  * @public
  */
 export interface S3RecordingSinkRuntimeConfiguration {
   /**
-   * <p>The URI of the S3 bucket used as the sink.</p>
+   * The URI of the S3 bucket used as the sink.
+   *
    * @public
    */
   Destination: string | undefined;
 
   /**
-   * <p>The file format for the media files sent to the Amazon S3 bucket.</p>
+   * The file format for the media files sent to the Amazon S3 bucket.
+   *
    * @public
    */
   RecordingFileFormat: RecordingFileFormat | undefined;
@@ -1425,128 +1557,148 @@ export interface S3RecordingSinkRuntimeConfiguration {
  */
 export interface CreateMediaInsightsPipelineRequest {
   /**
-   * <p>The ARN of the pipeline's configuration.</p>
+   * The ARN of the pipeline's configuration.
+   *
    * @public
    */
   MediaInsightsPipelineConfigurationArn: string | undefined;
 
   /**
-   * <p>The runtime configuration for the Kinesis video stream source of the media insights
-   *          pipeline.</p>
+   * The runtime configuration for the Kinesis video stream source of the media insights pipeline.
+   *
    * @public
    */
   KinesisVideoStreamSourceRuntimeConfiguration?: KinesisVideoStreamSourceRuntimeConfiguration | undefined;
 
   /**
-   * <p>The runtime metadata for the media insights pipeline. Consists of a key-value map of strings.</p>
+   * The runtime metadata for the media insights pipeline. Consists of a key-value map of strings.
+   *
    * @public
    */
   MediaInsightsRuntimeMetadata?: Record<string, string> | undefined;
 
   /**
-   * <p>The runtime configuration for the Kinesis video recording stream source.</p>
+   * The runtime configuration for the Kinesis video recording stream source.
+   *
    * @public
    */
   KinesisVideoStreamRecordingSourceRuntimeConfiguration?: KinesisVideoStreamRecordingSourceRuntimeConfiguration | undefined;
 
   /**
-   * <p>The runtime configuration for the S3 recording sink. If specified, the settings in this structure override any settings in <code>S3RecordingSinkConfiguration</code>.</p>
+   * The runtime configuration for the S3 recording sink. If specified, the settings in this structure override any settings in `S3RecordingSinkConfiguration`.
+   *
    * @public
    */
   S3RecordingSinkRuntimeConfiguration?: S3RecordingSinkRuntimeConfiguration | undefined;
 
   /**
-   * <p>The tags assigned to the media insights pipeline.</p>
+   * The tags assigned to the media insights pipeline.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>The unique identifier for the media insights pipeline request.</p>
+   * The unique identifier for the media insights pipeline request.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
 }
 
 /**
- * <p>The status of the pipeline element.</p>
+ * The status of the pipeline element.
+ *
  * @public
  */
 export interface MediaInsightsPipelineElementStatus {
   /**
-   * <p>The type of status.</p>
+   * The type of status.
+   *
    * @public
    */
   Type?: MediaInsightsPipelineConfigurationElementType | undefined;
 
   /**
-   * <p>The element's status.</p>
+   * The element's status.
+   *
    * @public
    */
   Status?: MediaPipelineElementStatus | undefined;
 }
 
 /**
- * <p>A media pipeline that streams call analytics data.</p>
+ * A media pipeline that streams call analytics data.
+ *
  * @public
  */
 export interface MediaInsightsPipeline {
   /**
-   * <p>The ID of a media insights pipeline.</p>
+   * The ID of a media insights pipeline.
+   *
    * @public
    */
   MediaPipelineId?: string | undefined;
 
   /**
-   * <p>The ARN of a media insights pipeline.</p>
+   * The ARN of a media insights pipeline.
+   *
    * @public
    */
   MediaPipelineArn?: string | undefined;
 
   /**
-   * <p>The ARN of a media insight pipeline's configuration settings.</p>
+   * The ARN of a media insight pipeline's configuration settings.
+   *
    * @public
    */
   MediaInsightsPipelineConfigurationArn?: string | undefined;
 
   /**
-   * <p>The status of a media insights pipeline.</p>
+   * The status of a media insights pipeline.
+   *
    * @public
    */
   Status?: MediaPipelineStatus | undefined;
 
   /**
-   * <p>The configuration settings for a Kinesis runtime video stream in a media insights pipeline.</p>
+   * The configuration settings for a Kinesis runtime video stream in a media insights pipeline.
+   *
    * @public
    */
   KinesisVideoStreamSourceRuntimeConfiguration?: KinesisVideoStreamSourceRuntimeConfiguration | undefined;
 
   /**
-   * <p>The runtime metadata of a media insights pipeline.</p>
+   * The runtime metadata of a media insights pipeline.
+   *
    * @public
    */
   MediaInsightsRuntimeMetadata?: Record<string, string> | undefined;
 
   /**
-   * <p>The runtime configuration settings for a Kinesis recording video stream in a media insights pipeline.</p>
+   * The runtime configuration settings for a Kinesis recording video stream in a media insights pipeline.
+   *
    * @public
    */
   KinesisVideoStreamRecordingSourceRuntimeConfiguration?: KinesisVideoStreamRecordingSourceRuntimeConfiguration | undefined;
 
   /**
-   * <p>The runtime configuration of the Amazon S3 bucket that stores recordings in a media insights pipeline.</p>
+   * The runtime configuration of the Amazon S3 bucket that stores recordings in a media insights pipeline.
+   *
    * @public
    */
   S3RecordingSinkRuntimeConfiguration?: S3RecordingSinkRuntimeConfiguration | undefined;
 
   /**
-   * <p>The time at which the media insights pipeline was created.</p>
+   * The time at which the media insights pipeline was created.
+   *
    * @public
    */
   CreatedTimestamp?: Date | undefined;
 
   /**
-   * <p>The statuses that the elements in a media insights pipeline can have during data processing.</p>
+   * The statuses that the elements in a media insights pipeline can have during data processing.
+   *
    * @public
    */
   ElementStatuses?: MediaInsightsPipelineElementStatus[] | undefined;
@@ -1557,279 +1709,323 @@ export interface MediaInsightsPipeline {
  */
 export interface CreateMediaInsightsPipelineResponse {
   /**
-   * <p>The media insights pipeline object.</p>
+   * The media insights pipeline object.
+   *
    * @public
    */
   MediaInsightsPipeline: MediaInsightsPipeline | undefined;
 }
 
 /**
- * <p>A structure that contains the configuration settings for a Kinesis Data Stream sink.</p>
+ * A structure that contains the configuration settings for a Kinesis Data Stream sink.
+ *
  * @public
  */
 export interface KinesisDataStreamSinkConfiguration {
   /**
-   * <p>The ARN of the sink.</p>
+   * The ARN of the sink.
+   *
    * @public
    */
   InsightsTarget?: string | undefined;
 }
 
 /**
- * <p>A structure that contains the configuration settings for an AWS Lambda function's data sink.</p>
+ * A structure that contains the configuration settings for an AWS Lambda function's data sink.
+ *
  * @public
  */
 export interface LambdaFunctionSinkConfiguration {
   /**
-   * <p>The ARN of the sink.</p>
+   * The ARN of the sink.
+   *
    * @public
    */
   InsightsTarget?: string | undefined;
 }
 
 /**
- * <p>The structure that holds the settings for transmitting media to the Amazon S3 bucket. These values are used as defaults if <code>S3RecordingSinkRuntimeConfiguration</code> is not specified.</p>
+ * The structure that holds the settings for transmitting media to the Amazon S3 bucket. These values are used as defaults if `S3RecordingSinkRuntimeConfiguration` is not specified.
+ *
  * @public
  */
 export interface S3RecordingSinkConfiguration {
   /**
-   * <p>The default URI of the Amazon S3 bucket used as the recording sink.</p>
+   * The default URI of the Amazon S3 bucket used as the recording sink.
+   *
    * @public
    */
   Destination?: string | undefined;
 
   /**
-   * <p>The default file format for the media files sent to the Amazon S3 bucket.</p>
+   * The default file format for the media files sent to the Amazon S3 bucket.
+   *
    * @public
    */
   RecordingFileFormat?: RecordingFileFormat | undefined;
 }
 
 /**
- * <p>The configuration settings for the SNS topic sink.</p>
+ * The configuration settings for the SNS topic sink.
+ *
  * @public
  */
 export interface SnsTopicSinkConfiguration {
   /**
-   * <p>The ARN of the SNS sink.</p>
+   * The ARN of the SNS sink.
+   *
    * @public
    */
   InsightsTarget?: string | undefined;
 }
 
 /**
- * <p>The configuration settings for the SQS sink.</p>
+ * The configuration settings for the SQS sink.
+ *
  * @public
  */
 export interface SqsQueueSinkConfiguration {
   /**
-   * <p>The ARN of the SQS sink.</p>
+   * The ARN of the SQS sink.
+   *
    * @public
    */
   InsightsTarget?: string | undefined;
 }
 
 /**
- * <p>The configuration settings for a voice analytics processor.</p>
+ * The configuration settings for a voice analytics processor.
+ *
  * @public
  */
 export interface VoiceAnalyticsProcessorConfiguration {
   /**
-   * <p>The status of the speaker search task.</p>
+   * The status of the speaker search task.
+   *
    * @public
    */
   SpeakerSearchStatus?: VoiceAnalyticsConfigurationStatus | undefined;
 
   /**
-   * <p>The status of the voice tone analysis task.</p>
+   * The status of the voice tone analysis task.
+   *
    * @public
    */
   VoiceToneAnalysisStatus?: VoiceAnalyticsConfigurationStatus | undefined;
 }
 
 /**
- * <p>A static structure that contains the configuration data for a <code>VoiceEnhancementSinkConfiguration</code> element.</p>
+ * A static structure that contains the configuration data for a `VoiceEnhancementSinkConfiguration` element.
+ *
  * @public
  */
 export interface VoiceEnhancementSinkConfiguration {
   /**
-   * <p>Disables the <code>VoiceEnhancementSinkConfiguration</code> element.</p>
+   * Disables the `VoiceEnhancementSinkConfiguration` element.
+   *
    * @public
    */
   Disabled?: boolean | undefined;
 }
 
 /**
- * <p>An element in a media insights pipeline configuration.</p>
+ * An element in a media insights pipeline configuration.
+ *
  * @public
  */
 export interface MediaInsightsPipelineConfigurationElement {
   /**
-   * <p>The element type.</p>
+   * The element type.
+   *
    * @public
    */
   Type: MediaInsightsPipelineConfigurationElementType | undefined;
 
   /**
-   * <p>The analytics configuration settings for transcribing audio in a media insights pipeline configuration element.</p>
+   * The analytics configuration settings for transcribing audio in a media insights pipeline configuration element.
+   *
    * @public
    */
   AmazonTranscribeCallAnalyticsProcessorConfiguration?: AmazonTranscribeCallAnalyticsProcessorConfiguration | undefined;
 
   /**
-   * <p>The transcription processor configuration settings in a media insights pipeline
-   *          configuration element.</p>
+   * The transcription processor configuration settings in a media insights pipeline configuration element.
+   *
    * @public
    */
   AmazonTranscribeProcessorConfiguration?: AmazonTranscribeProcessorConfiguration | undefined;
 
   /**
-   * <p>The configuration settings for the Kinesis Data Stream Sink in a media insights pipeline configuration element.</p>
+   * The configuration settings for the Kinesis Data Stream Sink in a media insights pipeline configuration element.
+   *
    * @public
    */
   KinesisDataStreamSinkConfiguration?: KinesisDataStreamSinkConfiguration | undefined;
 
   /**
-   * <p>The configuration settings for the Amazon S3 recording bucket in a media insights pipeline configuration element.</p>
+   * The configuration settings for the Amazon S3 recording bucket in a media insights pipeline configuration element.
+   *
    * @public
    */
   S3RecordingSinkConfiguration?: S3RecordingSinkConfiguration | undefined;
 
   /**
-   * <p>The voice analytics configuration settings in a media insights pipeline configuration element.</p>
+   * The voice analytics configuration settings in a media insights pipeline configuration element.
+   *
    * @public
    */
   VoiceAnalyticsProcessorConfiguration?: VoiceAnalyticsProcessorConfiguration | undefined;
 
   /**
-   * <p>The configuration settings for the Amazon Web Services Lambda sink in a media insights pipeline configuration element.</p>
+   * The configuration settings for the Amazon Web Services Lambda sink in a media insights pipeline configuration element.
+   *
    * @public
    */
   LambdaFunctionSinkConfiguration?: LambdaFunctionSinkConfiguration | undefined;
 
   /**
-   * <p>The configuration settings for an SQS queue sink in a media insights pipeline configuration element.</p>
+   * The configuration settings for an SQS queue sink in a media insights pipeline configuration element.
+   *
    * @public
    */
   SqsQueueSinkConfiguration?: SqsQueueSinkConfiguration | undefined;
 
   /**
-   * <p>The configuration settings for an SNS topic sink in a media insights pipeline configuration element.</p>
+   * The configuration settings for an SNS topic sink in a media insights pipeline configuration element.
+   *
    * @public
    */
   SnsTopicSinkConfiguration?: SnsTopicSinkConfiguration | undefined;
 
   /**
-   * <p>The configuration settings for voice enhancement sink in a media insights pipeline configuration element.</p>
+   * The configuration settings for voice enhancement sink in a media insights pipeline configuration element.
+   *
    * @public
    */
   VoiceEnhancementSinkConfiguration?: VoiceEnhancementSinkConfiguration | undefined;
 }
 
 /**
- * <p>A structure that contains the configuration settings for an issue detection task.</p>
+ * A structure that contains the configuration settings for an issue detection task.
+ *
  * @public
  */
 export interface IssueDetectionConfiguration {
   /**
-   * <p>The name of the issue detection rule.</p>
+   * The name of the issue detection rule.
+   *
    * @public
    */
   RuleName: string | undefined;
 }
 
 /**
- * <p>A structure that contains the settings for a keyword match task.</p>
+ * A structure that contains the settings for a keyword match task.
+ *
  * @public
  */
 export interface KeywordMatchConfiguration {
   /**
-   * <p>The name of the keyword match rule.</p>
+   * The name of the keyword match rule.
+   *
    * @public
    */
   RuleName: string | undefined;
 
   /**
-   * <p>The keywords or phrases that you want to match.</p>
+   * The keywords or phrases that you want to match.
+   *
    * @public
    */
   Keywords: string[] | undefined;
 
   /**
-   * <p>Matches keywords or phrases on their presence or absence. If set to <code>TRUE</code>, the rule matches when all
-   *          the specified keywords or phrases are absent. Default: <code>FALSE</code>.</p>
+   * Matches keywords or phrases on their presence or absence. If set to `TRUE`, the rule matches when all the specified keywords or phrases are absent. Default: `FALSE`.
+   *
    * @public
    */
   Negate?: boolean | undefined;
 }
 
 /**
- * <p>A structure that contains the configuration settings for a sentiment analysis task.</p>
+ * A structure that contains the configuration settings for a sentiment analysis task.
+ *
  * @public
  */
 export interface SentimentConfiguration {
   /**
-   * <p>The name of the rule in the sentiment configuration.</p>
+   * The name of the rule in the sentiment configuration.
+   *
    * @public
    */
   RuleName: string | undefined;
 
   /**
-   * <p>The type of sentiment, <code>POSITIVE</code>, <code>NEGATIVE</code>, or <code>NEUTRAL</code>.</p>
+   * The type of sentiment, `POSITIVE`, `NEGATIVE`, or `NEUTRAL`.
+   *
    * @public
    */
   SentimentType: SentimentType | undefined;
 
   /**
-   * <p>Specifies the analysis interval.</p>
+   * Specifies the analysis interval.
+   *
    * @public
    */
   TimePeriod: number | undefined;
 }
 
 /**
- * <p>Specifies the words or phrases that trigger an alert.</p>
+ * Specifies the words or phrases that trigger an alert.
+ *
  * @public
  */
 export interface RealTimeAlertRule {
   /**
-   * <p>The type of alert rule.</p>
+   * The type of alert rule.
+   *
    * @public
    */
   Type: RealTimeAlertRuleType | undefined;
 
   /**
-   * <p>Specifies the settings for matching the keywords in a real-time alert rule.</p>
+   * Specifies the settings for matching the keywords in a real-time alert rule.
+   *
    * @public
    */
   KeywordMatchConfiguration?: KeywordMatchConfiguration | undefined;
 
   /**
-   * <p>Specifies the settings for predicting sentiment in a real-time alert rule.</p>
+   * Specifies the settings for predicting sentiment in a real-time alert rule.
+   *
    * @public
    */
   SentimentConfiguration?: SentimentConfiguration | undefined;
 
   /**
-   * <p>Specifies the issue detection settings for a real-time alert rule.</p>
+   * Specifies the issue detection settings for a real-time alert rule.
+   *
    * @public
    */
   IssueDetectionConfiguration?: IssueDetectionConfiguration | undefined;
 }
 
 /**
- * <p>A structure that contains the configuration settings for real-time alerts.</p>
+ * A structure that contains the configuration settings for real-time alerts.
+ *
  * @public
  */
 export interface RealTimeAlertConfiguration {
   /**
-   * <p>Turns off real-time alerts.</p>
+   * Turns off real-time alerts.
+   *
    * @public
    */
   Disabled?: boolean | undefined;
 
   /**
-   * <p>The rules in the alert. Rules specify the words or phrases that you want to be notified about.</p>
+   * The rules in the alert. Rules specify the words or phrases that you want to be notified about.
+   *
    * @public
    */
   Rules?: RealTimeAlertRule[] | undefined;
@@ -1840,93 +2036,106 @@ export interface RealTimeAlertConfiguration {
  */
 export interface CreateMediaInsightsPipelineConfigurationRequest {
   /**
-   * <p>The name of the media insights pipeline configuration.</p>
+   * The name of the media insights pipeline configuration.
+   *
    * @public
    */
   MediaInsightsPipelineConfigurationName: string | undefined;
 
   /**
-   * <p>The ARN of the role used by the service to access Amazon Web Services resources,
-   *          including <code>Transcribe</code> and <code>Transcribe Call Analytics</code>, on the
-   *          caller’s behalf.</p>
+   * The ARN of the role used by the service to access Amazon Web Services resources, including `Transcribe` and `Transcribe Call Analytics`, on the caller’s behalf.
+   *
    * @public
    */
   ResourceAccessRoleArn: string | undefined;
 
   /**
-   * <p>The configuration settings for the real-time alerts in a media insights pipeline configuration.</p>
+   * The configuration settings for the real-time alerts in a media insights pipeline configuration.
+   *
    * @public
    */
   RealTimeAlertConfiguration?: RealTimeAlertConfiguration | undefined;
 
   /**
-   * <p>The elements in the request, such as a processor for Amazon Transcribe or a sink for a Kinesis Data Stream.</p>
+   * The elements in the request, such as a processor for Amazon Transcribe or a sink for a Kinesis Data Stream.
+   *
    * @public
    */
   Elements: MediaInsightsPipelineConfigurationElement[] | undefined;
 
   /**
-   * <p>The tags assigned to the media insights pipeline configuration.</p>
+   * The tags assigned to the media insights pipeline configuration.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>The unique identifier for the media insights pipeline configuration request.</p>
+   * The unique identifier for the media insights pipeline configuration request.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
 }
 
 /**
- * <p>A structure that contains the configuration settings for a media insights pipeline.</p>
+ * A structure that contains the configuration settings for a media insights pipeline.
+ *
  * @public
  */
 export interface MediaInsightsPipelineConfiguration {
   /**
-   * <p>The name of the configuration.</p>
+   * The name of the configuration.
+   *
    * @public
    */
   MediaInsightsPipelineConfigurationName?: string | undefined;
 
   /**
-   * <p>The ARN of the configuration.</p>
+   * The ARN of the configuration.
+   *
    * @public
    */
   MediaInsightsPipelineConfigurationArn?: string | undefined;
 
   /**
-   * <p>The ARN of the role used by the service to access Amazon Web Services resources.</p>
+   * The ARN of the role used by the service to access Amazon Web Services resources.
+   *
    * @public
    */
   ResourceAccessRoleArn?: string | undefined;
 
   /**
-   * <p>Lists the rules that trigger a real-time alert.</p>
+   * Lists the rules that trigger a real-time alert.
+   *
    * @public
    */
   RealTimeAlertConfiguration?: RealTimeAlertConfiguration | undefined;
 
   /**
-   * <p>The elements in the configuration.</p>
+   * The elements in the configuration.
+   *
    * @public
    */
   Elements?: MediaInsightsPipelineConfigurationElement[] | undefined;
 
   /**
-   * <p>The ID of the configuration.</p>
+   * The ID of the configuration.
+   *
    * @public
    */
   MediaInsightsPipelineConfigurationId?: string | undefined;
 
   /**
-   * <p>The time at which the configuration was created.</p>
+   * The time at which the configuration was created.
+   *
    * @public
    */
   CreatedTimestamp?: Date | undefined;
 
   /**
-   * <p>The time at which the configuration was last updated.</p>
+   * The time at which the configuration was last updated.
+   *
    * @public
    */
   UpdatedTimestamp?: Date | undefined;
@@ -1937,97 +2146,113 @@ export interface MediaInsightsPipelineConfiguration {
  */
 export interface CreateMediaInsightsPipelineConfigurationResponse {
   /**
-   * <p>The configuration settings for the media insights pipeline.</p>
+   * The configuration settings for the media insights pipeline.
+   *
    * @public
    */
   MediaInsightsPipelineConfiguration?: MediaInsightsPipelineConfiguration | undefined;
 }
 
 /**
- * <p>The media pipeline's RTMP configuration object.</p>
+ * The media pipeline's RTMP configuration object.
+ *
  * @public
  */
 export interface LiveConnectorRTMPConfiguration {
   /**
-   * <p>The URL of the RTMP configuration.</p>
+   * The URL of the RTMP configuration.
+   *
    * @public
    */
   Url: string | undefined;
 
   /**
-   * <p>The audio channels set for the RTMP configuration</p>
+   * The audio channels set for the RTMP configuration
+   *
    * @public
    */
   AudioChannels?: AudioChannelsOption | undefined;
 
   /**
-   * <p>The audio sample rate set for the RTMP configuration. Default: 48000.</p>
+   * The audio sample rate set for the RTMP configuration. Default: 48000.
+   *
    * @public
    */
   AudioSampleRate?: string | undefined;
 }
 
 /**
- * <p>The media pipeline's sink configuration settings.</p>
+ * The media pipeline's sink configuration settings.
+ *
  * @public
  */
 export interface LiveConnectorSinkConfiguration {
   /**
-   * <p>The sink configuration's sink type.</p>
+   * The sink configuration's sink type.
+   *
    * @public
    */
   SinkType: LiveConnectorSinkType | undefined;
 
   /**
-   * <p>The sink configuration's RTMP configuration settings.</p>
+   * The sink configuration's RTMP configuration settings.
+   *
    * @public
    */
   RTMPConfiguration: LiveConnectorRTMPConfiguration | undefined;
 }
 
 /**
- * <p>The media pipeline's configuration object.</p>
+ * The media pipeline's configuration object.
+ *
  * @public
  */
 export interface ChimeSdkMeetingLiveConnectorConfiguration {
   /**
-   * <p>The configuration object's Chime SDK meeting ARN.</p>
+   * The configuration object's Chime SDK meeting ARN.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The configuration object's multiplex type.</p>
+   * The configuration object's multiplex type.
+   *
    * @public
    */
   MuxType: LiveConnectorMuxType | undefined;
 
   /**
-   * <p>The media pipeline's composited video.</p>
+   * The media pipeline's composited video.
+   *
    * @public
    */
   CompositedVideo?: CompositedVideoArtifactsConfiguration | undefined;
 
   /**
-   * <p>The source configuration settings of the media pipeline's configuration object.</p>
+   * The source configuration settings of the media pipeline's configuration object.
+   *
    * @public
    */
   SourceConfiguration?: SourceConfiguration | undefined;
 }
 
 /**
- * <p>The data source configuration object of a streaming media pipeline.</p>
+ * The data source configuration object of a streaming media pipeline.
+ *
  * @public
  */
 export interface LiveConnectorSourceConfiguration {
   /**
-   * <p>The source configuration's media source type.</p>
+   * The source configuration's media source type.
+   *
    * @public
    */
   SourceType: LiveConnectorSourceType | undefined;
 
   /**
-   * <p>The configuration settings of the connector pipeline.</p>
+   * The configuration settings of the connector pipeline.
+   *
    * @public
    */
   ChimeSdkMeetingLiveConnectorConfiguration: ChimeSdkMeetingLiveConnectorConfiguration | undefined;
@@ -2038,73 +2263,85 @@ export interface LiveConnectorSourceConfiguration {
  */
 export interface CreateMediaLiveConnectorPipelineRequest {
   /**
-   * <p>The media live connector pipeline's data sources.</p>
+   * The media live connector pipeline's data sources.
+   *
    * @public
    */
   Sources: LiveConnectorSourceConfiguration[] | undefined;
 
   /**
-   * <p>The media live connector pipeline's data sinks.</p>
+   * The media live connector pipeline's data sinks.
+   *
    * @public
    */
   Sinks: LiveConnectorSinkConfiguration[] | undefined;
 
   /**
-   * <p>The token assigned to the client making the request.</p>
+   * The token assigned to the client making the request.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
 
   /**
-   * <p>The tags associated with the media live connector pipeline.</p>
+   * The tags associated with the media live connector pipeline.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 }
 
 /**
- * <p>The connector pipeline.</p>
+ * The connector pipeline.
+ *
  * @public
  */
 export interface MediaLiveConnectorPipeline {
   /**
-   * <p>The connector pipeline's data sources.</p>
+   * The connector pipeline's data sources.
+   *
    * @public
    */
   Sources?: LiveConnectorSourceConfiguration[] | undefined;
 
   /**
-   * <p>The connector pipeline's data sinks.</p>
+   * The connector pipeline's data sinks.
+   *
    * @public
    */
   Sinks?: LiveConnectorSinkConfiguration[] | undefined;
 
   /**
-   * <p>The connector pipeline's ID.</p>
+   * The connector pipeline's ID.
+   *
    * @public
    */
   MediaPipelineId?: string | undefined;
 
   /**
-   * <p>The connector pipeline's ARN.</p>
+   * The connector pipeline's ARN.
+   *
    * @public
    */
   MediaPipelineArn?: string | undefined;
 
   /**
-   * <p>The connector pipeline's status.</p>
+   * The connector pipeline's status.
+   *
    * @public
    */
   Status?: MediaPipelineStatus | undefined;
 
   /**
-   * <p>The time at which the connector pipeline was created.</p>
+   * The time at which the connector pipeline was created.
+   *
    * @public
    */
   CreatedTimestamp?: Date | undefined;
 
   /**
-   * <p>The time at which the connector pipeline was last updated.</p>
+   * The time at which the connector pipeline was last updated.
+   *
    * @public
    */
   UpdatedTimestamp?: Date | undefined;
@@ -2115,39 +2352,37 @@ export interface MediaLiveConnectorPipeline {
  */
 export interface CreateMediaLiveConnectorPipelineResponse {
   /**
-   * <p>The new media live connector pipeline.</p>
+   * The new media live connector pipeline.
+   *
    * @public
    */
   MediaLiveConnectorPipeline?: MediaLiveConnectorPipeline | undefined;
 }
 
 /**
- * <p>The configuration of an Kinesis video stream.</p>
- *          <note>
- *             <p>If a meeting uses an opt-in Region as its
- *          <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_CreateMeeting.html#chimesdk-meeting-chime_CreateMeeting-request-MediaRegion">MediaRegion</a>,
- *          the KVS stream must be in that same Region. For example, if a meeting uses the <code>af-south-1</code> Region, the KVS stream must also be in <code>af-south-1</code>. However, if the meeting uses a
- *          Region that AWS turns on by default, the KVS stream can be in any available Region, including an opt-in Region. For example, if the meeting uses <code>ca-central-1</code>, the KVS stream can be in
- *          <code>eu-west-2</code>, <code>us-east-1</code>, <code>af-south-1</code>, or any other Region that the Amazon Chime SDK supports.</p>
- *             <p>To learn  which AWS Region a meeting uses, call the <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_GetMeeting.html">GetMeeting</a> API and
- *             use the <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_CreateMeeting.html#chimesdk-meeting-chime_CreateMeeting-request-MediaRegion">MediaRegion</a>
- *             parameter from the response.</p>
- *             <p>For more information about opt-in Regions, refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/sdk-available-regions.html">Available Regions</a> in the
- *             <i>Amazon Chime SDK Developer Guide</i>, and
- *             <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-regions.html#rande-manage-enable.html">Specify which AWS Regions your account can use</a>,
- *             in the <i>AWS Account Management Reference Guide</i>.</p>
- *          </note>
+ * The configuration of an Kinesis video stream.
+ *
+ * > **Note:**
+ * >
+ * > If a meeting uses an opt-in Region as its [MediaRegion](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_CreateMeeting.html#chimesdk-meeting-chime_CreateMeeting-request-MediaRegion), the KVS stream must be in that same Region. For example, if a meeting uses the `af-south-1` Region, the KVS stream must also be in `af-south-1`. However, if the meeting uses a Region that AWS turns on by default, the KVS stream can be in any available Region, including an opt-in Region. For example, if the meeting uses `ca-central-1`, the KVS stream can be in `eu-west-2`, `us-east-1`, `af-south-1`, or any other Region that the Amazon Chime SDK supports.
+ * >
+ * > To learn which AWS Region a meeting uses, call the [GetMeeting](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_GetMeeting.html) API and use the [MediaRegion](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_CreateMeeting.html#chimesdk-meeting-chime_CreateMeeting-request-MediaRegion) parameter from the response.
+ * >
+ * > For more information about opt-in Regions, refer to [Available Regions](https://docs.aws.amazon.com/chime-sdk/latest/dg/sdk-available-regions.html) in the *Amazon Chime SDK Developer Guide*, and [Specify which AWS Regions your account can use](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-regions.html#rande-manage-enable.html), in the *AWS Account Management Reference Guide*.
+ *
  * @public
  */
 export interface KinesisVideoStreamConfiguration {
   /**
-   * <p>The Amazon Web Services Region of the video stream.</p>
+   * The Amazon Web Services Region of the video stream.
+   *
    * @public
    */
   Region: string | undefined;
 
   /**
-   * <p>The amount of time that data is retained.</p>
+   * The amount of time that data is retained.
+   *
    * @public
    */
   DataRetentionInHours?: number | undefined;
@@ -2158,79 +2393,92 @@ export interface KinesisVideoStreamConfiguration {
  */
 export interface CreateMediaPipelineKinesisVideoStreamPoolRequest {
   /**
-   * <p>The configuration settings for the stream.</p>
+   * The configuration settings for the stream.
+   *
    * @public
    */
   StreamConfiguration: KinesisVideoStreamConfiguration | undefined;
 
   /**
-   * <p>The name of the pool.</p>
+   * The name of the pool.
+   *
    * @public
    */
   PoolName: string | undefined;
 
   /**
-   * <p>The token assigned to the client making the request.</p>
+   * The token assigned to the client making the request.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
 
   /**
-   * <p>The tags assigned to the stream pool.</p>
+   * The tags assigned to the stream pool.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 }
 
 /**
- * <p>The video stream pool configuration object.</p>
+ * The video stream pool configuration object.
+ *
  * @public
  */
 export interface KinesisVideoStreamPoolConfiguration {
   /**
-   * <p>The ARN of the video stream pool configuration.</p>
+   * The ARN of the video stream pool configuration.
+   *
    * @public
    */
   PoolArn?: string | undefined;
 
   /**
-   * <p>The name of the video stream pool configuration.</p>
+   * The name of the video stream pool configuration.
+   *
    * @public
    */
   PoolName?: string | undefined;
 
   /**
-   * <p>The ID of the video stream pool in the configuration.</p>
+   * The ID of the video stream pool in the configuration.
+   *
    * @public
    */
   PoolId?: string | undefined;
 
   /**
-   * <p>The status of the video stream pool in the configuration. </p>
+   * The status of the video stream pool in the configuration.
+   *
    * @public
    */
   PoolStatus?: KinesisVideoStreamPoolStatus | undefined;
 
   /**
-   * <p>The size of the video stream pool in the configuration.</p>
+   * The size of the video stream pool in the configuration.
+   *
    * @public
    */
   PoolSize?: number | undefined;
 
   /**
-   * <p>The Kinesis video stream pool configuration object.</p>
+   * The Kinesis video stream pool configuration object.
+   *
    * @public
    */
   StreamConfiguration?: KinesisVideoStreamConfiguration | undefined;
 
   /**
-   * <p>The time at which the configuration was created.</p>
+   * The time at which the configuration was created.
+   *
    * @public
    */
   CreatedTimestamp?: Date | undefined;
 
   /**
-   * <p>The time at which the configuration was updated.</p>
+   * The time at which the configuration was updated.
+   *
    * @public
    */
   UpdatedTimestamp?: Date | undefined;
@@ -2241,58 +2489,66 @@ export interface KinesisVideoStreamPoolConfiguration {
  */
 export interface CreateMediaPipelineKinesisVideoStreamPoolResponse {
   /**
-   * <p>The configuration for applying the streams to the pool.</p>
-   *          <note>
-   *             <p></p>
-   *          </note>
+   * The configuration for applying the streams to the pool.
+   *
+   * > **Note:**
+   *
    * @public
    */
   KinesisVideoStreamPoolConfiguration?: KinesisVideoStreamPoolConfiguration | undefined;
 }
 
 /**
- * <p>Structure that contains the settings for a media stream sink.</p>
+ * Structure that contains the settings for a media stream sink.
+ *
  * @public
  */
 export interface MediaStreamSink {
   /**
-   * <p>The ARN of the Kinesis Video Stream pool returned by the <a>CreateMediaPipelineKinesisVideoStreamPool</a> API.</p>
+   * The ARN of the Kinesis Video Stream pool returned by the CreateMediaPipelineKinesisVideoStreamPool API.
+   *
    * @public
    */
   SinkArn: string | undefined;
 
   /**
-   * <p>The media stream sink's type.</p>
+   * The media stream sink's type.
+   *
    * @public
    */
   SinkType: MediaStreamPipelineSinkType | undefined;
 
   /**
-   * <p>Specifies the number of streams that the sink can accept.</p>
+   * Specifies the number of streams that the sink can accept.
+   *
    * @public
    */
   ReservedStreamCapacity: number | undefined;
 
   /**
-   * <p>The media stream sink's media stream type.</p>
+   * The media stream sink's media stream type.
+   *
    * @public
    */
   MediaStreamType: MediaStreamType | undefined;
 }
 
 /**
- * <p>Structure that contains the settings for media stream sources.</p>
+ * Structure that contains the settings for media stream sources.
+ *
  * @public
  */
 export interface MediaStreamSource {
   /**
-   * <p>The type of media stream source.</p>
+   * The type of media stream source.
+   *
    * @public
    */
   SourceType: MediaPipelineSourceType | undefined;
 
   /**
-   * <p>The ARN of the meeting.</p>
+   * The ARN of the meeting.
+   *
    * @public
    */
   SourceArn: string | undefined;
@@ -2303,73 +2559,85 @@ export interface MediaStreamSource {
  */
 export interface CreateMediaStreamPipelineRequest {
   /**
-   * <p>The data sources for the media pipeline.</p>
+   * The data sources for the media pipeline.
+   *
    * @public
    */
   Sources: MediaStreamSource[] | undefined;
 
   /**
-   * <p>The data sink for the media pipeline.</p>
+   * The data sink for the media pipeline.
+   *
    * @public
    */
   Sinks: MediaStreamSink[] | undefined;
 
   /**
-   * <p>The token assigned to the client making the request.</p>
+   * The token assigned to the client making the request.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
 
   /**
-   * <p>The tags assigned to the media pipeline.</p>
+   * The tags assigned to the media pipeline.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 }
 
 /**
- * <p>Structure that contains the settings for a media stream pipeline.</p>
+ * Structure that contains the settings for a media stream pipeline.
+ *
  * @public
  */
 export interface MediaStreamPipeline {
   /**
-   * <p>The ID of the media stream pipeline</p>
+   * The ID of the media stream pipeline
+   *
    * @public
    */
   MediaPipelineId?: string | undefined;
 
   /**
-   * <p>The ARN of the media stream pipeline.</p>
+   * The ARN of the media stream pipeline.
+   *
    * @public
    */
   MediaPipelineArn?: string | undefined;
 
   /**
-   * <p>The time at which the media stream pipeline was created.</p>
+   * The time at which the media stream pipeline was created.
+   *
    * @public
    */
   CreatedTimestamp?: Date | undefined;
 
   /**
-   * <p>The time at which the media stream pipeline was updated.</p>
+   * The time at which the media stream pipeline was updated.
+   *
    * @public
    */
   UpdatedTimestamp?: Date | undefined;
 
   /**
-   * <p>The status of the media stream pipeline.</p>
+   * The status of the media stream pipeline.
+   *
    * @public
    */
   Status?: MediaPipelineStatus | undefined;
 
   /**
-   * <p>The media stream pipeline's data sources.</p>
+   * The media stream pipeline's data sources.
+   *
    * @public
    */
   Sources?: MediaStreamSource[] | undefined;
 
   /**
-   * <p>The media stream pipeline's data sinks.</p>
+   * The media stream pipeline's data sinks.
+   *
    * @public
    */
   Sinks?: MediaStreamSink[] | undefined;
@@ -2380,7 +2648,8 @@ export interface MediaStreamPipeline {
  */
 export interface CreateMediaStreamPipelineResponse {
   /**
-   * <p>The requested media pipeline.</p>
+   * The requested media pipeline.
+   *
    * @public
    */
   MediaStreamPipeline?: MediaStreamPipeline | undefined;
@@ -2391,7 +2660,8 @@ export interface CreateMediaStreamPipelineResponse {
  */
 export interface DeleteMediaCapturePipelineRequest {
   /**
-   * <p>The ID of the media pipeline being deleted. </p>
+   * The ID of the media pipeline being deleted.
+   *
    * @public
    */
   MediaPipelineId: string | undefined;
@@ -2402,7 +2672,8 @@ export interface DeleteMediaCapturePipelineRequest {
  */
 export interface DeleteMediaInsightsPipelineConfigurationRequest {
   /**
-   * <p>The unique identifier of the resource to be deleted. Valid values include the name and ARN of the media insights pipeline configuration.</p>
+   * The unique identifier of the resource to be deleted. Valid values include the name and ARN of the media insights pipeline configuration.
+   *
    * @public
    */
   Identifier: string | undefined;
@@ -2413,7 +2684,8 @@ export interface DeleteMediaInsightsPipelineConfigurationRequest {
  */
 export interface DeleteMediaPipelineRequest {
   /**
-   * <p>The ID of the media pipeline to delete.</p>
+   * The ID of the media pipeline to delete.
+   *
    * @public
    */
   MediaPipelineId: string | undefined;
@@ -2424,7 +2696,8 @@ export interface DeleteMediaPipelineRequest {
  */
 export interface DeleteMediaPipelineKinesisVideoStreamPoolRequest {
   /**
-   * <p>The unique identifier of the requested resource. Valid values include the name and ARN of the media pipeline Kinesis Video Stream pool.</p>
+   * The unique identifier of the requested resource. Valid values include the name and ARN of the media pipeline Kinesis Video Stream pool.
+   *
    * @public
    */
   Identifier: string | undefined;
@@ -2435,7 +2708,8 @@ export interface DeleteMediaPipelineKinesisVideoStreamPoolRequest {
  */
 export interface GetMediaCapturePipelineRequest {
   /**
-   * <p>The ID of the pipeline that you want to get.</p>
+   * The ID of the pipeline that you want to get.
+   *
    * @public
    */
   MediaPipelineId: string | undefined;
@@ -2446,7 +2720,8 @@ export interface GetMediaCapturePipelineRequest {
  */
 export interface GetMediaCapturePipelineResponse {
   /**
-   * <p>The media pipeline object.</p>
+   * The media pipeline object.
+   *
    * @public
    */
   MediaCapturePipeline?: MediaCapturePipeline | undefined;
@@ -2457,7 +2732,8 @@ export interface GetMediaCapturePipelineResponse {
  */
 export interface GetMediaInsightsPipelineConfigurationRequest {
   /**
-   * <p>The unique identifier of the requested resource.  Valid values include the name and ARN of the media insights pipeline configuration.</p>
+   * The unique identifier of the requested resource. Valid values include the name and ARN of the media insights pipeline configuration.
+   *
    * @public
    */
   Identifier: string | undefined;
@@ -2468,7 +2744,8 @@ export interface GetMediaInsightsPipelineConfigurationRequest {
  */
 export interface GetMediaInsightsPipelineConfigurationResponse {
   /**
-   * <p>The requested media insights pipeline configuration.</p>
+   * The requested media insights pipeline configuration.
+   *
    * @public
    */
   MediaInsightsPipelineConfiguration?: MediaInsightsPipelineConfiguration | undefined;
@@ -2479,43 +2756,50 @@ export interface GetMediaInsightsPipelineConfigurationResponse {
  */
 export interface GetMediaPipelineRequest {
   /**
-   * <p>The ID of the pipeline that you want to get.</p>
+   * The ID of the pipeline that you want to get.
+   *
    * @public
    */
   MediaPipelineId: string | undefined;
 }
 
 /**
- * <p>A pipeline consisting of a media capture, media concatenation, or live-streaming pipeline.</p>
+ * A pipeline consisting of a media capture, media concatenation, or live-streaming pipeline.
+ *
  * @public
  */
 export interface MediaPipeline {
   /**
-   * <p>A pipeline that enables users to capture audio and video.</p>
+   * A pipeline that enables users to capture audio and video.
+   *
    * @public
    */
   MediaCapturePipeline?: MediaCapturePipeline | undefined;
 
   /**
-   * <p>The connector pipeline of the media pipeline.</p>
+   * The connector pipeline of the media pipeline.
+   *
    * @public
    */
   MediaLiveConnectorPipeline?: MediaLiveConnectorPipeline | undefined;
 
   /**
-   * <p>The media concatenation pipeline in a media pipeline.</p>
+   * The media concatenation pipeline in a media pipeline.
+   *
    * @public
    */
   MediaConcatenationPipeline?: MediaConcatenationPipeline | undefined;
 
   /**
-   * <p>The media insights pipeline of a media pipeline.</p>
+   * The media insights pipeline of a media pipeline.
+   *
    * @public
    */
   MediaInsightsPipeline?: MediaInsightsPipeline | undefined;
 
   /**
-   * <p>Designates a media pipeline as a media stream pipeline.</p>
+   * Designates a media pipeline as a media stream pipeline.
+   *
    * @public
    */
   MediaStreamPipeline?: MediaStreamPipeline | undefined;
@@ -2526,7 +2810,8 @@ export interface MediaPipeline {
  */
 export interface GetMediaPipelineResponse {
   /**
-   * <p>The media pipeline object.</p>
+   * The media pipeline object.
+   *
    * @public
    */
   MediaPipeline?: MediaPipeline | undefined;
@@ -2537,7 +2822,8 @@ export interface GetMediaPipelineResponse {
  */
 export interface GetMediaPipelineKinesisVideoStreamPoolRequest {
   /**
-   * <p>The unique identifier of the requested resource. Valid values include the name and ARN of the media pipeline Kinesis Video Stream pool.</p>
+   * The unique identifier of the requested resource. Valid values include the name and ARN of the media pipeline Kinesis Video Stream pool.
+   *
    * @public
    */
   Identifier: string | undefined;
@@ -2548,7 +2834,8 @@ export interface GetMediaPipelineKinesisVideoStreamPoolRequest {
  */
 export interface GetMediaPipelineKinesisVideoStreamPoolResponse {
   /**
-   * <p>The video stream pool configuration object.</p>
+   * The video stream pool configuration object.
+   *
    * @public
    */
   KinesisVideoStreamPoolConfiguration?: KinesisVideoStreamPoolConfiguration | undefined;
@@ -2559,44 +2846,50 @@ export interface GetMediaPipelineKinesisVideoStreamPoolResponse {
  */
 export interface GetSpeakerSearchTaskRequest {
   /**
-   * <p>The unique identifier of the resource to be updated. Valid values include the ID and ARN of the media insights pipeline.</p>
+   * The unique identifier of the resource to be updated. Valid values include the ID and ARN of the media insights pipeline.
+   *
    * @public
    */
   Identifier: string | undefined;
 
   /**
-   * <p>The ID of the speaker search task.</p>
+   * The ID of the speaker search task.
+   *
    * @public
    */
   SpeakerSearchTaskId: string | undefined;
 }
 
 /**
- * <p>A representation of an asynchronous request to perform speaker search analysis on a
- *          media insights pipeline.</p>
+ * A representation of an asynchronous request to perform speaker search analysis on a media insights pipeline.
+ *
  * @public
  */
 export interface SpeakerSearchTask {
   /**
-   * <p>The speaker search task ID.</p>
+   * The speaker search task ID.
+   *
    * @public
    */
   SpeakerSearchTaskId?: string | undefined;
 
   /**
-   * <p>The status of the speaker search task.</p>
+   * The status of the speaker search task.
+   *
    * @public
    */
   SpeakerSearchTaskStatus?: MediaPipelineTaskStatus | undefined;
 
   /**
-   * <p>The time at which a speaker search task was created.</p>
+   * The time at which a speaker search task was created.
+   *
    * @public
    */
   CreatedTimestamp?: Date | undefined;
 
   /**
-   * <p>The time at which a speaker search task was updated.</p>
+   * The time at which a speaker search task was updated.
+   *
    * @public
    */
   UpdatedTimestamp?: Date | undefined;
@@ -2607,7 +2900,8 @@ export interface SpeakerSearchTask {
  */
 export interface GetSpeakerSearchTaskResponse {
   /**
-   * <p>The details of the speaker search task.</p>
+   * The details of the speaker search task.
+   *
    * @public
    */
   SpeakerSearchTask?: SpeakerSearchTask | undefined;
@@ -2618,43 +2912,50 @@ export interface GetSpeakerSearchTaskResponse {
  */
 export interface GetVoiceToneAnalysisTaskRequest {
   /**
-   * <p>The unique identifier of the resource to be updated. Valid values include the ID and ARN of the media insights pipeline.</p>
+   * The unique identifier of the resource to be updated. Valid values include the ID and ARN of the media insights pipeline.
+   *
    * @public
    */
   Identifier: string | undefined;
 
   /**
-   * <p>The ID of the voice tone analysis task.</p>
+   * The ID of the voice tone analysis task.
+   *
    * @public
    */
   VoiceToneAnalysisTaskId: string | undefined;
 }
 
 /**
- * <p>A representation of an asynchronous request to perform voice tone analysis on a media insights pipeline.</p>
+ * A representation of an asynchronous request to perform voice tone analysis on a media insights pipeline.
+ *
  * @public
  */
 export interface VoiceToneAnalysisTask {
   /**
-   * <p>The ID of the voice tone analysis task.</p>
+   * The ID of the voice tone analysis task.
+   *
    * @public
    */
   VoiceToneAnalysisTaskId?: string | undefined;
 
   /**
-   * <p>The status of a voice tone analysis task.</p>
+   * The status of a voice tone analysis task.
+   *
    * @public
    */
   VoiceToneAnalysisTaskStatus?: MediaPipelineTaskStatus | undefined;
 
   /**
-   * <p>The time at which a voice tone analysis task was created.</p>
+   * The time at which a voice tone analysis task was created.
+   *
    * @public
    */
   CreatedTimestamp?: Date | undefined;
 
   /**
-   * <p>The time at which a voice tone analysis task was updated.</p>
+   * The time at which a voice tone analysis task was updated.
+   *
    * @public
    */
   UpdatedTimestamp?: Date | undefined;
@@ -2665,7 +2966,8 @@ export interface VoiceToneAnalysisTask {
  */
 export interface GetVoiceToneAnalysisTaskResponse {
   /**
-   * <p>The details of the voice tone analysis task.</p>
+   * The details of the voice tone analysis task.
+   *
    * @public
    */
   VoiceToneAnalysisTask?: VoiceToneAnalysisTask | undefined;
@@ -2676,31 +2978,36 @@ export interface GetVoiceToneAnalysisTaskResponse {
  */
 export interface ListMediaCapturePipelinesRequest {
   /**
-   * <p>The token used to retrieve the next page of results.</p>
+   * The token used to retrieve the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. Valid Range: 1 - 99.</p>
+   * The maximum number of results to return in a single call. Valid Range: 1 - 99.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>The summary data of a media capture pipeline.</p>
+ * The summary data of a media capture pipeline.
+ *
  * @public
  */
 export interface MediaCapturePipelineSummary {
   /**
-   * <p>The ID of the media pipeline in the summary.</p>
+   * The ID of the media pipeline in the summary.
+   *
    * @public
    */
   MediaPipelineId?: string | undefined;
 
   /**
-   * <p>The ARN of the media pipeline in the summary.</p>
+   * The ARN of the media pipeline in the summary.
+   *
    * @public
    */
   MediaPipelineArn?: string | undefined;
@@ -2711,13 +3018,15 @@ export interface MediaCapturePipelineSummary {
  */
 export interface ListMediaCapturePipelinesResponse {
   /**
-   * <p>The media pipeline objects in the list.</p>
+   * The media pipeline objects in the list.
+   *
    * @public
    */
   MediaCapturePipelines?: MediaCapturePipelineSummary[] | undefined;
 
   /**
-   * <p>The token used to retrieve the next page of results. </p>
+   * The token used to retrieve the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2728,37 +3037,43 @@ export interface ListMediaCapturePipelinesResponse {
  */
 export interface ListMediaInsightsPipelineConfigurationsRequest {
   /**
-   * <p>The token used to return the next page of results.</p>
+   * The token used to return the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>A summary of the media insights pipeline configuration.</p>
+ * A summary of the media insights pipeline configuration.
+ *
  * @public
  */
 export interface MediaInsightsPipelineConfigurationSummary {
   /**
-   * <p>The name of the media insights pipeline configuration.</p>
+   * The name of the media insights pipeline configuration.
+   *
    * @public
    */
   MediaInsightsPipelineConfigurationName?: string | undefined;
 
   /**
-   * <p>The ID of the media insights pipeline configuration.</p>
+   * The ID of the media insights pipeline configuration.
+   *
    * @public
    */
   MediaInsightsPipelineConfigurationId?: string | undefined;
 
   /**
-   * <p>The ARN of the media insights pipeline configuration.</p>
+   * The ARN of the media insights pipeline configuration.
+   *
    * @public
    */
   MediaInsightsPipelineConfigurationArn?: string | undefined;
@@ -2769,13 +3084,15 @@ export interface MediaInsightsPipelineConfigurationSummary {
  */
 export interface ListMediaInsightsPipelineConfigurationsResponse {
   /**
-   * <p>The requested list of media insights pipeline configurations.</p>
+   * The requested list of media insights pipeline configurations.
+   *
    * @public
    */
   MediaInsightsPipelineConfigurations?: MediaInsightsPipelineConfigurationSummary[] | undefined;
 
   /**
-   * <p>The token used to return the next page of results. </p>
+   * The token used to return the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2786,37 +3103,43 @@ export interface ListMediaInsightsPipelineConfigurationsResponse {
  */
 export interface ListMediaPipelineKinesisVideoStreamPoolsRequest {
   /**
-   * <p>The token used to return the next page of results. </p>
+   * The token used to return the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>A summary of the Kinesis video stream pool.</p>
+ * A summary of the Kinesis video stream pool.
+ *
  * @public
  */
 export interface KinesisVideoStreamPoolSummary {
   /**
-   * <p>The name of the video stream pool.</p>
+   * The name of the video stream pool.
+   *
    * @public
    */
   PoolName?: string | undefined;
 
   /**
-   * <p>The ID of the video stream pool.</p>
+   * The ID of the video stream pool.
+   *
    * @public
    */
   PoolId?: string | undefined;
 
   /**
-   * <p>The ARN of the video stream pool.</p>
+   * The ARN of the video stream pool.
+   *
    * @public
    */
   PoolArn?: string | undefined;
@@ -2827,13 +3150,15 @@ export interface KinesisVideoStreamPoolSummary {
  */
 export interface ListMediaPipelineKinesisVideoStreamPoolsResponse {
   /**
-   * <p>The list of video stream pools.</p>
+   * The list of video stream pools.
+   *
    * @public
    */
   KinesisVideoStreamPools?: KinesisVideoStreamPoolSummary[] | undefined;
 
   /**
-   * <p>The token used to return the next page of results.</p>
+   * The token used to return the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2844,31 +3169,36 @@ export interface ListMediaPipelineKinesisVideoStreamPoolsResponse {
  */
 export interface ListMediaPipelinesRequest {
   /**
-   * <p>The token used to retrieve the next page of results.</p>
+   * The token used to retrieve the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. Valid Range: 1 - 99.</p>
+   * The maximum number of results to return in a single call. Valid Range: 1 - 99.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>The summary of the media pipeline.</p>
+ * The summary of the media pipeline.
+ *
  * @public
  */
 export interface MediaPipelineSummary {
   /**
-   * <p>The ID of the media pipeline in the summary.</p>
+   * The ID of the media pipeline in the summary.
+   *
    * @public
    */
   MediaPipelineId?: string | undefined;
 
   /**
-   * <p>The ARN of the media pipeline in the summary.</p>
+   * The ARN of the media pipeline in the summary.
+   *
    * @public
    */
   MediaPipelineArn?: string | undefined;
@@ -2879,13 +3209,15 @@ export interface MediaPipelineSummary {
  */
 export interface ListMediaPipelinesResponse {
   /**
-   * <p>The media pipeline objects in the list.</p>
+   * The media pipeline objects in the list.
+   *
    * @public
    */
   MediaPipelines?: MediaPipelineSummary[] | undefined;
 
   /**
-   * <p>The token used to retrieve the next page of results. </p>
+   * The token used to retrieve the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2896,7 +3228,8 @@ export interface ListMediaPipelinesResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The ARN of the media pipeline associated with any tags. The ARN consists of the pipeline's region, resource ID, and pipeline ID.</p>
+   * The ARN of the media pipeline associated with any tags. The ARN consists of the pipeline's region, resource ID, and pipeline ID.
+   *
    * @public
    */
   ResourceARN: string | undefined;
@@ -2907,31 +3240,36 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>The tags associated with the specified media pipeline.</p>
+   * The tags associated with the specified media pipeline.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 }
 
 /**
- * <p>The task configuration settings for the Kinesis video stream source.</p>
+ * The task configuration settings for the Kinesis video stream source.
+ *
  * @public
  */
 export interface KinesisVideoStreamSourceTaskConfiguration {
   /**
-   * <p>The ARN of the stream.</p>
+   * The ARN of the stream.
+   *
    * @public
    */
   StreamArn: string | undefined;
 
   /**
-   * <p>The channel ID.</p>
+   * The channel ID.
+   *
    * @public
    */
   ChannelId: number | undefined;
 
   /**
-   * <p>The unique identifier of the fragment to begin processing.</p>
+   * The unique identifier of the fragment to begin processing.
+   *
    * @public
    */
   FragmentNumber?: string | undefined;
@@ -2942,26 +3280,29 @@ export interface KinesisVideoStreamSourceTaskConfiguration {
  */
 export interface StartSpeakerSearchTaskRequest {
   /**
-   * <p>The unique identifier of the resource to be updated. Valid values include the ID and ARN of the media insights pipeline.</p>
+   * The unique identifier of the resource to be updated. Valid values include the ID and ARN of the media insights pipeline.
+   *
    * @public
    */
   Identifier: string | undefined;
 
   /**
-   * <p>The ARN of the voice profile domain that will store the voice profile.</p>
+   * The ARN of the voice profile domain that will store the voice profile.
+   *
    * @public
    */
   VoiceProfileDomainArn: string | undefined;
 
   /**
-   * <p>The task configuration for the Kinesis video stream source of the media insights
-   *          pipeline.</p>
+   * The task configuration for the Kinesis video stream source of the media insights pipeline.
+   *
    * @public
    */
   KinesisVideoStreamSourceTaskConfiguration?: KinesisVideoStreamSourceTaskConfiguration | undefined;
 
   /**
-   * <p>The unique identifier for the client request. Use a different token for different speaker search tasks.</p>
+   * The unique identifier for the client request. Use a different token for different speaker search tasks.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
@@ -2972,7 +3313,8 @@ export interface StartSpeakerSearchTaskRequest {
  */
 export interface StartSpeakerSearchTaskResponse {
   /**
-   * <p>The details of the speaker search task.</p>
+   * The details of the speaker search task.
+   *
    * @public
    */
   SpeakerSearchTask?: SpeakerSearchTask | undefined;
@@ -2983,26 +3325,29 @@ export interface StartSpeakerSearchTaskResponse {
  */
 export interface StartVoiceToneAnalysisTaskRequest {
   /**
-   * <p>The unique identifier of the resource to be updated. Valid values include the ID and ARN of the media insights pipeline.</p>
+   * The unique identifier of the resource to be updated. Valid values include the ID and ARN of the media insights pipeline.
+   *
    * @public
    */
   Identifier: string | undefined;
 
   /**
-   * <p>The language code.</p>
+   * The language code.
+   *
    * @public
    */
   LanguageCode: VoiceAnalyticsLanguageCode | undefined;
 
   /**
-   * <p>The task configuration for the Kinesis video stream source of the media insights
-   *          pipeline.</p>
+   * The task configuration for the Kinesis video stream source of the media insights pipeline.
+   *
    * @public
    */
   KinesisVideoStreamSourceTaskConfiguration?: KinesisVideoStreamSourceTaskConfiguration | undefined;
 
   /**
-   * <p>The unique identifier for the client request. Use a different token for different voice tone analysis tasks.</p>
+   * The unique identifier for the client request. Use a different token for different voice tone analysis tasks.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
@@ -3013,7 +3358,8 @@ export interface StartVoiceToneAnalysisTaskRequest {
  */
 export interface StartVoiceToneAnalysisTaskResponse {
   /**
-   * <p>The details of the voice tone analysis task.</p>
+   * The details of the voice tone analysis task.
+   *
    * @public
    */
   VoiceToneAnalysisTask?: VoiceToneAnalysisTask | undefined;
@@ -3024,13 +3370,15 @@ export interface StartVoiceToneAnalysisTaskResponse {
  */
 export interface StopSpeakerSearchTaskRequest {
   /**
-   * <p>The unique identifier of the resource to be updated. Valid values include the ID and ARN of the media insights pipeline.</p>
+   * The unique identifier of the resource to be updated. Valid values include the ID and ARN of the media insights pipeline.
+   *
    * @public
    */
   Identifier: string | undefined;
 
   /**
-   * <p>The speaker search task ID.</p>
+   * The speaker search task ID.
+   *
    * @public
    */
   SpeakerSearchTaskId: string | undefined;
@@ -3041,13 +3389,15 @@ export interface StopSpeakerSearchTaskRequest {
  */
 export interface StopVoiceToneAnalysisTaskRequest {
   /**
-   * <p>The unique identifier of the resource to be updated. Valid values include the ID and ARN of the media insights pipeline.</p>
+   * The unique identifier of the resource to be updated. Valid values include the ID and ARN of the media insights pipeline.
+   *
    * @public
    */
   Identifier: string | undefined;
 
   /**
-   * <p>The ID of the voice tone analysis task.</p>
+   * The ID of the voice tone analysis task.
+   *
    * @public
    */
   VoiceToneAnalysisTaskId: string | undefined;
@@ -3058,13 +3408,15 @@ export interface StopVoiceToneAnalysisTaskRequest {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The ARN of the media pipeline associated with any tags. The ARN consists of the pipeline's endpoint region, resource ID, and pipeline ID.</p>
+   * The ARN of the media pipeline associated with any tags. The ARN consists of the pipeline's endpoint region, resource ID, and pipeline ID.
+   *
    * @public
    */
   ResourceARN: string | undefined;
 
   /**
-   * <p>The tags associated with the specified media pipeline.</p>
+   * The tags associated with the specified media pipeline.
+   *
    * @public
    */
   Tags: Tag[] | undefined;
@@ -3080,13 +3432,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The ARN of the pipeline that you want to untag.</p>
+   * The ARN of the pipeline that you want to untag.
+   *
    * @public
    */
   ResourceARN: string | undefined;
 
   /**
-   * <p>The key/value pairs in the tag that you want to remove.</p>
+   * The key/value pairs in the tag that you want to remove.
+   *
    * @public
    */
   TagKeys: string[] | undefined;
@@ -3102,25 +3456,29 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateMediaInsightsPipelineConfigurationRequest {
   /**
-   * <p>The unique identifier for the resource to be updated. Valid values include the name and ARN of the media insights pipeline configuration.</p>
+   * The unique identifier for the resource to be updated. Valid values include the name and ARN of the media insights pipeline configuration.
+   *
    * @public
    */
   Identifier: string | undefined;
 
   /**
-   * <p>The ARN of the role used by the service to access Amazon Web Services resources.</p>
+   * The ARN of the role used by the service to access Amazon Web Services resources.
+   *
    * @public
    */
   ResourceAccessRoleArn: string | undefined;
 
   /**
-   * <p>The configuration settings for real-time alerts for the media insights pipeline.</p>
+   * The configuration settings for real-time alerts for the media insights pipeline.
+   *
    * @public
    */
   RealTimeAlertConfiguration?: RealTimeAlertConfiguration | undefined;
 
   /**
-   * <p>The elements in the request, such as a processor for Amazon Transcribe or a sink for a Kinesis Data Stream..</p>
+   * The elements in the request, such as a processor for Amazon Transcribe or a sink for a Kinesis Data Stream..
+   *
    * @public
    */
   Elements: MediaInsightsPipelineConfigurationElement[] | undefined;
@@ -3131,7 +3489,8 @@ export interface UpdateMediaInsightsPipelineConfigurationRequest {
  */
 export interface UpdateMediaInsightsPipelineConfigurationResponse {
   /**
-   * <p>The updated configuration settings.</p>
+   * The updated configuration settings.
+   *
    * @public
    */
   MediaInsightsPipelineConfiguration?: MediaInsightsPipelineConfiguration | undefined;
@@ -3142,25 +3501,29 @@ export interface UpdateMediaInsightsPipelineConfigurationResponse {
  */
 export interface UpdateMediaInsightsPipelineStatusRequest {
   /**
-   * <p>The unique identifier of the resource to be updated. Valid values include the ID and ARN of the media insights pipeline.</p>
+   * The unique identifier of the resource to be updated. Valid values include the ID and ARN of the media insights pipeline.
+   *
    * @public
    */
   Identifier: string | undefined;
 
   /**
-   * <p>The requested status of the media insights pipeline.</p>
+   * The requested status of the media insights pipeline.
+   *
    * @public
    */
   UpdateStatus: MediaPipelineStatusUpdate | undefined;
 }
 
 /**
- * <p>The updated Kinesis video stream configuration object.</p>
+ * The updated Kinesis video stream configuration object.
+ *
  * @public
  */
 export interface KinesisVideoStreamConfigurationUpdate {
   /**
-   * <p>The updated time that data is retained.</p>
+   * The updated time that data is retained.
+   *
    * @public
    */
   DataRetentionInHours?: number | undefined;
@@ -3171,13 +3534,15 @@ export interface KinesisVideoStreamConfigurationUpdate {
  */
 export interface UpdateMediaPipelineKinesisVideoStreamPoolRequest {
   /**
-   * <p>The unique identifier of the requested resource. Valid values include the name and ARN of the media pipeline Kinesis Video Stream pool.</p>
+   * The unique identifier of the requested resource. Valid values include the name and ARN of the media pipeline Kinesis Video Stream pool.
+   *
    * @public
    */
   Identifier: string | undefined;
 
   /**
-   * <p>The configuration settings for the video stream.</p>
+   * The configuration settings for the video stream.
+   *
    * @public
    */
   StreamConfiguration?: KinesisVideoStreamConfigurationUpdate | undefined;
@@ -3188,7 +3553,8 @@ export interface UpdateMediaPipelineKinesisVideoStreamPoolRequest {
  */
 export interface UpdateMediaPipelineKinesisVideoStreamPoolResponse {
   /**
-   * <p>The video stream pool configuration object.</p>
+   * The video stream pool configuration object.
+   *
    * @public
    */
   KinesisVideoStreamPoolConfiguration?: KinesisVideoStreamPoolConfiguration | undefined;

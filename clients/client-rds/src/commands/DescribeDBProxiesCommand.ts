@@ -23,7 +23,8 @@ export interface DescribeDBProxiesCommandInput extends DescribeDBProxiesRequest 
 export interface DescribeDBProxiesCommandOutput extends DescribeDBProxiesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about DB proxies.</p>
+ * Returns information about DB proxies.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,11 +96,12 @@ export interface DescribeDBProxiesCommandOutput extends DescribeDBProxiesRespons
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBProxyNotFoundFault} (client fault)
- *  <p>The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+ *
+ * The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @public
  */

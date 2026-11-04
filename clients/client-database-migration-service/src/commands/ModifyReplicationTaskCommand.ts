@@ -23,10 +23,12 @@ export interface ModifyReplicationTaskCommandInput extends ModifyReplicationTask
 export interface ModifyReplicationTaskCommandOutput extends ModifyReplicationTaskResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies the specified replication task.</p>
- *          <p>You can't modify the task endpoints. The task must be stopped before you can modify it. </p>
- *          <p>For more information about DMS tasks, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html">Working with Migration Tasks</a> in the
- *             <i>Database Migration Service User Guide</i>.</p>
+ * Modifies the specified replication task.
+ *
+ * You can't modify the task endpoints. The task must be stopped before you can modify it.
+ *
+ * For more information about DMS tasks, see [Working with Migration Tasks](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html) in the *Database Migration Service User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,20 +95,24 @@ export interface ModifyReplicationTaskCommandOutput extends ModifyReplicationTas
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link InvalidResourceStateFault} (client fault)
- *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
+ * The resource is in a state that prevents it from being used for database migration.
  *
  * @throws {@link KMSKeyNotAccessibleFault} (client fault)
- *  <p>DMS cannot access the KMS key.</p>
+ *
+ * DMS cannot access the KMS key.
  *
  * @throws {@link ResourceAlreadyExistsFault} (client fault)
- *  <p>The resource you are attempting to create already exists.</p>
+ *
+ * The resource you are attempting to create already exists.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @public
  */

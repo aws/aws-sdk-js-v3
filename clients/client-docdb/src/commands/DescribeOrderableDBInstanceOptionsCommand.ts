@@ -23,7 +23,8 @@ export interface DescribeOrderableDBInstanceOptionsCommandInput extends Describe
 export interface DescribeOrderableDBInstanceOptionsCommandOutput extends OrderableDBInstanceOptionsMessage, __MetadataBearer {}
 
 /**
- * <p>Returns a list of orderable instance options for the specified engine.</p>
+ * Returns a list of orderable instance options for the specified engine.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,8 +80,8 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput extends Orderab
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  * @throws {@link DocDBServiceException}
- * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * Base exception class for all service exceptions from DocDB service.
  *
  * @public
  */

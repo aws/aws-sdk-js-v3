@@ -23,7 +23,8 @@ export interface UpdateWorkflowCommandInput extends UpdateMigrationWorkflowReque
 export interface UpdateWorkflowCommandOutput extends UpdateMigrationWorkflowResponse, __MetadataBearer {}
 
 /**
- * <p>Update a migration workflow.</p>
+ * Update a migration workflow.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,23 +94,28 @@ export interface UpdateWorkflowCommandOutput extends UpdateMigrationWorkflowResp
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error has occurred.</p>
+ *
+ * An internal error has occurred.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource is not available.</p>
+ *
+ * The resource is not available.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an AWS service.
  *
  * @throws {@link MigrationHubOrchestratorServiceException}
- * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
+ * Base exception class for all service exceptions from MigrationHubOrchestrator service.
  *
  * @public
  */

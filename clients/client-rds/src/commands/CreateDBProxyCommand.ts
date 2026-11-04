@@ -23,7 +23,8 @@ export interface CreateDBProxyCommandInput extends CreateDBProxyRequest {}
 export interface CreateDBProxyCommandOutput extends CreateDBProxyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new DB proxy.</p>
+ * Creates a new DB proxy.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -112,17 +113,20 @@ export interface CreateDBProxyCommandOutput extends CreateDBProxyResponse, __Met
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBProxyAlreadyExistsFault} (client fault)
- *  <p>The specified proxy name must be unique for all proxies owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+ *
+ * The specified proxy name must be unique for all proxies owned by your Amazon Web Services account in the specified Amazon Web Services Region.
  *
  * @throws {@link DBProxyQuotaExceededFault} (client fault)
- *  <p>Your Amazon Web Services account already has the maximum number of proxies in the specified Amazon Web Services Region.</p>
+ *
+ * Your Amazon Web Services account already has the maximum number of proxies in the specified Amazon Web Services Region.
  *
  * @throws {@link InvalidSubnet} (client fault)
- *  <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
+ *
+ * The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @public
  */

@@ -23,14 +23,11 @@ export interface DescribeConnectionLoaCommandInput extends DescribeConnectionLoa
 export interface DescribeConnectionLoaCommandOutput extends DescribeConnectionLoaResponse, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>Deprecated. Use <a>DescribeLoa</a> instead.</p>
- *          </note>
- *          <p>Gets the LOA-CFA for a connection.</p>
- *          <p>The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document that your APN partner or
- *       service provider uses when establishing your cross connect to Amazon Web Services at the colocation facility. For more information,
- *       see <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html">Requesting Cross Connects
- *       at Direct Connect Locations</a> in the <i>Direct Connect User Guide</i>.</p>
+ * > **Note:** Deprecated. Use DescribeLoa instead.
+ *
+ * Gets the LOA-CFA for a connection.
+ *
+ * The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document that your APN partner or service provider uses when establishing your cross connect to Amazon Web Services at the colocation facility. For more information, see [Requesting Cross Connects at Direct Connect Locations](https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html) in the *Direct Connect User Guide*.
  *
  * @deprecated deprecated.
  * @example
@@ -64,14 +61,16 @@ export interface DescribeConnectionLoaCommandOutput extends DescribeConnectionLo
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  * @throws {@link DirectConnectClientException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link DirectConnectServerException} (server fault)
- *  <p>A server-side error occurred.</p>
+ *
+ * A server-side error occurred.
  *
  * @throws {@link DirectConnectServiceException}
- * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * Base exception class for all service exceptions from DirectConnect service.
  *
  * @public
  */

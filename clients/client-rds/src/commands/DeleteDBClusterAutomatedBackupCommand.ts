@@ -23,7 +23,8 @@ export interface DeleteDBClusterAutomatedBackupCommandInput extends DeleteDBClus
 export interface DeleteDBClusterAutomatedBackupCommandOutput extends DeleteDBClusterAutomatedBackupResult, __MetadataBearer {}
 
 /**
- * <p>Deletes automated backups using the <code>DbClusterResourceId</code> value of the source DB cluster or the Amazon Resource Name (ARN) of the automated backups.</p>
+ * Deletes automated backups using the `DbClusterResourceId` value of the source DB cluster or the Amazon Resource Name (ARN) of the automated backups.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -89,14 +90,16 @@ export interface DeleteDBClusterAutomatedBackupCommandOutput extends DeleteDBClu
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBClusterAutomatedBackupNotFoundFault} (client fault)
- *  <p>No automated backup for this DB cluster was found.</p>
+ *
+ * No automated backup for this DB cluster was found.
  *
  * @throws {@link InvalidDBClusterAutomatedBackupStateFault} (client fault)
- *  <p>The automated backup is in an invalid state. For example, this automated backup is associated with an active cluster.</p>
+ *
+ * The automated backup is in an invalid state. For example, this automated backup is associated with an active cluster.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @public
  */

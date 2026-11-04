@@ -23,8 +23,8 @@ export interface DescribeJobDefinitionsCommandInput extends DescribeJobDefinitio
 export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefinitionsResponse, __MetadataBearer {}
 
 /**
- * <p>Describes a list of job definitions. You can specify a <code>status</code> (such as
- *         <code>ACTIVE</code>) to only return job definitions that match that status.</p>
+ * Describes a list of job definitions. You can specify a `status` (such as `ACTIVE`) to only return job definitions that match that status.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -692,16 +692,16 @@ export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefiniti
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf
- *    of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier
- *    that's not valid.</p>
+ *
+ * These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server issue.</p>
+ *
+ * These errors are usually caused by a server issue.
  *
  * @throws {@link BatchServiceException}
- * <p>Base exception class for all service exceptions from Batch service.</p>
  *
+ * Base exception class for all service exceptions from Batch service.
  *
  * @example To describe active job definitions
  * ```javascript

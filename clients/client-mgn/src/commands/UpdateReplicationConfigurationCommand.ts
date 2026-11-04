@@ -23,7 +23,8 @@ export interface UpdateReplicationConfigurationCommandInput extends UpdateReplic
 export interface UpdateReplicationConfigurationCommandOutput extends ReplicationConfiguration, __MetadataBearer {}
 
 /**
- * <p>Allows you to update multiple ReplicationConfigurations by Source Server ID.</p>
+ * Allows you to update multiple ReplicationConfigurations by Source Server ID.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -123,23 +124,28 @@ export interface UpdateReplicationConfigurationCommandOutput extends Replication
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Operation denied due to a file permission or access check error.</p>
+ *
+ * Operation denied due to a file permission or access check error.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+ *
+ * The request could not be completed due to a conflict with the current state of the target resource.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource not found exception.</p>
+ *
+ * Resource not found exception.
  *
  * @throws {@link UninitializedAccountException} (client fault)
- *  <p>Uninitialized account exception.</p>
+ *
+ * Uninitialized account exception.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Validate exception.</p>
+ *
+ * Validate exception.
  *
  * @throws {@link MgnServiceException}
- * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * Base exception class for all service exceptions from Mgn service.
  *
  * @public
  */

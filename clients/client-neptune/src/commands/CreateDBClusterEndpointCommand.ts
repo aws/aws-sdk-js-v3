@@ -23,7 +23,8 @@ export interface CreateDBClusterEndpointCommandInput extends CreateDBClusterEndp
 export interface CreateDBClusterEndpointCommandOutput extends CreateDBClusterEndpointOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a new custom endpoint and associates it with an Amazon Neptune DB cluster.</p>
+ * Creates a new custom endpoint and associates it with an Amazon Neptune DB cluster.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,28 +78,32 @@ export interface CreateDBClusterEndpointCommandOutput extends CreateDBClusterEnd
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  * @throws {@link DBClusterEndpointAlreadyExistsFault} (client fault)
- *  <p>The specified custom endpoint cannot be created because it already exists.</p>
+ *
+ * The specified custom endpoint cannot be created because it already exists.
  *
  * @throws {@link DBClusterEndpointQuotaExceededFault} (client fault)
- *  <p>The cluster already has the maximum number of custom endpoints.</p>
+ *
+ * The cluster already has the maximum number of custom endpoints.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p>
- *             <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+ *
+ * *DBClusterIdentifier* does not refer to an existing DB cluster.
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p>
- *             <i>DBInstanceIdentifier</i> does not refer to an existing DB instance.</p>
+ *
+ * *DBInstanceIdentifier* does not refer to an existing DB instance.
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
- *  <p>The DB cluster is not in a valid state.</p>
+ *
+ * The DB cluster is not in a valid state.
  *
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
- *  <p>The specified DB instance is not in the <i>available</i> state.</p>
+ *
+ * The specified DB instance is not in the *available* state.
  *
  * @throws {@link NeptuneServiceException}
- * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * Base exception class for all service exceptions from Neptune service.
  *
  * @public
  */

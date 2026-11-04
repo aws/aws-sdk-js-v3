@@ -26,27 +26,12 @@ export interface AssociateQualificationWithWorkerCommandInput extends AssociateQ
 export interface AssociateQualificationWithWorkerCommandOutput extends AssociateQualificationWithWorkerResponse, __MetadataBearer {}
 
 /**
- * <p>
- *             The <code>AssociateQualificationWithWorker</code> operation gives a Worker a
- *             Qualification. <code>AssociateQualificationWithWorker</code> does not require that the Worker
- *             submit a Qualification request. It gives the Qualification directly to the Worker.
- *         </p>
+ * The `AssociateQualificationWithWorker` operation gives a Worker a Qualification. `AssociateQualificationWithWorker` does not require that the Worker submit a Qualification request. It gives the Qualification directly to the Worker.
  *
- *         <p>
- *             You can only assign a Qualification of a Qualification type that you created (using
- *             the <code>CreateQualificationType</code> operation).
- *         </p>
+ * You can only assign a Qualification of a Qualification type that you created (using the `CreateQualificationType` operation).
  *
- *         <note>
- *             <p>
- *                 Note: <code>AssociateQualificationWithWorker</code> does not affect any pending Qualification
- *                 requests for the Qualification by the Worker. If you assign a Qualification to a
- *                 Worker, then later grant a Qualification request made by the Worker, the granting of
- *                 the request may modify the Qualification score. To resolve a pending Qualification
- *                 request without affecting the Qualification the Worker already has, reject the
- *                 request with the <code>RejectQualificationRequest</code> operation.
- *             </p>
- *         </note>
+ * > **Note:** Note: `AssociateQualificationWithWorker` does not affect any pending Qualification requests for the Qualification by the Worker. If you assign a Qualification to a Worker, then later grant a Qualification request made by the Worker, the granting of the request may modify the Qualification score. To resolve a pending Qualification request without affecting the Qualification the Worker already has, reject the request with the `RejectQualificationRequest` operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,14 +59,16 @@ export interface AssociateQualificationWithWorkerCommandOutput extends Associate
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
  *
  * @throws {@link RequestError} (client fault)
- *  <p>Your request is invalid.</p>
+ *
+ * Your request is invalid.
  *
  * @throws {@link ServiceFault} (server fault)
- *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
+ * Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.
  *
  * @throws {@link MTurkServiceException}
- * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * Base exception class for all service exceptions from MTurk service.
  *
  * @public
  */

@@ -23,10 +23,8 @@ export interface DeleteVpnGatewayCommandInput extends DeleteVpnGatewayRequest {}
 export interface DeleteVpnGatewayCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified virtual private gateway. You must first detach the virtual
- *             private gateway from the VPC. Note that you don't need to delete the virtual private
- *             gateway if you plan to delete and recreate the VPN connection between your VPC and your
- *             network.</p>
+ * Deletes the specified virtual private gateway. You must first detach the virtual private gateway from the VPC. Note that you don't need to delete the virtual private gateway if you plan to delete and recreate the VPN connection between your VPC and your network.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,8 +50,8 @@ export interface DeleteVpnGatewayCommandOutput extends __MetadataBearer {}
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

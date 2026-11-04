@@ -23,11 +23,10 @@ export interface GetCorsPolicyCommandInput extends GetCorsPolicyInput {}
 export interface GetCorsPolicyCommandOutput extends GetCorsPolicyOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the cross-origin resource sharing (CORS) configuration information that is
- *          set for the container.</p>
- *          <p>To use this operation, you must have permission to perform the
- *             <code>MediaStore:GetCorsPolicy</code> action. By default, the container owner has this
- *          permission and can grant it to others.</p>
+ * Returns the cross-origin resource sharing (CORS) configuration information that is set for the container.
+ *
+ * To use this operation, you must have permission to perform the `MediaStore:GetCorsPolicy` action. By default, the container owner has this permission and can grant it to others.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,21 +69,24 @@ export interface GetCorsPolicyCommandOutput extends GetCorsPolicyOutput, __Metad
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
  *
  * @throws {@link ContainerInUseException} (client fault)
- *  <p>The container that you specified in the request already exists or is being
- *          updated.</p>
+ *
+ * The container that you specified in the request already exists or is being updated.
  *
  * @throws {@link ContainerNotFoundException} (client fault)
- *  <p>The container that you specified in the request does not exist.</p>
+ *
+ * The container that you specified in the request does not exist.
  *
  * @throws {@link CorsPolicyNotFoundException} (client fault)
- *  <p>The CORS policy that you specified in the request does not exist.</p>
+ *
+ * The CORS policy that you specified in the request does not exist.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>The service is temporarily unavailable.</p>
+ *
+ * The service is temporarily unavailable.
  *
  * @throws {@link MediaStoreServiceException}
- * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
+ * Base exception class for all service exceptions from MediaStore service.
  *
  * @public
  */

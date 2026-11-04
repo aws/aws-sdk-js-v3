@@ -26,7 +26,8 @@ export interface ListRepositoriesForApprovalRuleTemplateCommandInput extends Lis
 export interface ListRepositoriesForApprovalRuleTemplateCommandOutput extends ListRepositoriesForApprovalRuleTemplateOutput, __MetadataBearer {}
 
 /**
- * <p>Lists all repositories associated with the specified approval rule template.</p>
+ * Lists all repositories associated with the specified approval rule template.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,42 +59,48 @@ export interface ListRepositoriesForApprovalRuleTemplateCommandOutput extends Li
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  * @throws {@link ApprovalRuleTemplateDoesNotExistException} (client fault)
- *  <p>The specified approval rule template does not exist. Verify that the name is correct and that you are signed in to the Amazon Web Services Region where the template
- *         was created, and then try again.</p>
+ *
+ * The specified approval rule template does not exist. Verify that the name is correct and that you are signed in to the Amazon Web Services Region where the template was created, and then try again.
  *
  * @throws {@link ApprovalRuleTemplateNameRequiredException} (client fault)
- *  <p>An approval rule template name is required, but was not specified.</p>
+ *
+ * An approval rule template name is required, but was not specified.
  *
  * @throws {@link EncryptionIntegrityChecksFailedException} (server fault)
- *  <p>An encryption integrity check failed.</p>
+ *
+ * An encryption integrity check failed.
  *
  * @throws {@link EncryptionKeyAccessDeniedException} (client fault)
- *  <p>An encryption key could not be accessed.</p>
+ *
+ * An encryption key could not be accessed.
  *
  * @throws {@link EncryptionKeyDisabledException} (client fault)
- *  <p>The encryption key is disabled.</p>
+ *
+ * The encryption key is disabled.
  *
  * @throws {@link EncryptionKeyNotFoundException} (client fault)
- *  <p>No encryption key was found.</p>
+ *
+ * No encryption key was found.
  *
  * @throws {@link EncryptionKeyUnavailableException} (client fault)
- *  <p>The encryption key is not available.</p>
+ *
+ * The encryption key is not available.
  *
  * @throws {@link InvalidApprovalRuleTemplateNameException} (client fault)
- *  <p>The name of the approval rule template is not valid. Template names must be between 1
- *             and 100 valid characters in length. For more information about limits in CodeCommit,
- *             see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Quotas</a> in the <i>
- *                CodeCommit User Guide</i>.</p>
+ *
+ * The name of the approval rule template is not valid. Template names must be between 1 and 100 valid characters in length. For more information about limits in CodeCommit, see [Quotas](https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html) in the *CodeCommit User Guide*.
  *
  * @throws {@link InvalidContinuationTokenException} (client fault)
- *  <p>The specified continuation token is not valid.</p>
+ *
+ * The specified continuation token is not valid.
  *
  * @throws {@link InvalidMaxResultsException} (client fault)
- *  <p>The specified number of maximum results is not valid.</p>
+ *
+ * The specified number of maximum results is not valid.
  *
  * @throws {@link CodeCommitServiceException}
- * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * Base exception class for all service exceptions from CodeCommit service.
  *
  * @public
  */

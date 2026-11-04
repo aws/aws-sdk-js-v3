@@ -23,7 +23,10 @@ export interface DeleteDBSnapshotCommandInput extends DeleteDBSnapshotMessage {}
 export interface DeleteDBSnapshotCommandOutput extends DeleteDBSnapshotResult, __MetadataBearer {}
 
 /**
- * <p>Deletes a DB snapshot. If the snapshot is being copied, the copy operation is terminated.</p> <note> <p>The DB snapshot must be in the <code>available</code> state to be deleted.</p> </note>
+ * Deletes a DB snapshot. If the snapshot is being copied, the copy operation is terminated.
+ *
+ * > **Note:** The DB snapshot must be in the `available` state to be deleted.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -112,14 +115,16 @@ export interface DeleteDBSnapshotCommandOutput extends DeleteDBSnapshotResult, _
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBSnapshotNotFoundFault} (client fault)
- *  <p> <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
+ *
+ * `DBSnapshotIdentifier` doesn't refer to an existing DB snapshot.
  *
  * @throws {@link InvalidDBSnapshotStateFault} (client fault)
- *  <p>The state of the DB snapshot doesn't allow deletion.</p>
+ *
+ * The state of the DB snapshot doesn't allow deletion.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To delete a DB snapshot
  * ```javascript

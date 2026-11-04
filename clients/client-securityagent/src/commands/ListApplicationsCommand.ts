@@ -23,7 +23,8 @@ export interface ListApplicationsCommandInput extends ListApplicationsRequest {}
 export interface ListApplicationsCommandOutput extends ListApplicationsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a paginated list of application summaries in your account.</p>
+ * Returns a paginated list of application summaries in your account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,8 +60,8 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * @see {@link SecurityAgentClientResolvedConfig | config} for SecurityAgentClient's `config` shape.
  *
  * @throws {@link SecurityAgentServiceException}
- * <p>Base exception class for all service exceptions from SecurityAgent service.</p>
  *
+ * Base exception class for all service exceptions from SecurityAgent service.
  *
  * @public
  */

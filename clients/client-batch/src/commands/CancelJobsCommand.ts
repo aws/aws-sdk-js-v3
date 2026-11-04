@@ -23,32 +23,20 @@ export interface CancelJobsCommandInput extends CancelJobsRequest {}
 export interface CancelJobsCommandOutput extends CancelJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Cancels up to 50 jobs in an Batch job queue. This is a bulk version of <a>CancelJob</a>. Jobs that are in a
- *         <code>SUBMITTED</code>, <code>PENDING</code>, or <code>RUNNABLE</code> state are cancelled
- *       and the job status is updated to <code>FAILED</code>.</p>
- *          <note>
- *             <p>A <code>PENDING</code> job is cancelled after all dependency jobs are completed.
- *         Therefore, it might take longer than expected to cancel a job in <code>PENDING</code>
- *         status.</p>
- *             <p>When you try to cancel an array parent job in <code>PENDING</code>, Batch attempts to
- *         cancel all child jobs. The array parent job is cancelled when all child jobs are
- *         completed.</p>
- *          </note>
- *          <p>Jobs that progressed to the <code>STARTING</code> or <code>RUNNING</code> state aren't
- *       cancelled. These jobs must be terminated with the <a>TerminateJob</a> or
- *         <a>TerminateJobs</a> operation.</p>
- *          <p>Batch reports the result for each job individually in the response. Jobs that
- *       were processed successfully are reported in the <code>successful</code> list. Jobs that
- *       encountered errors are reported in the <code>errors</code> list. The response returns an
- *       HTTP status code of <code>200</code> even when some jobs encountered errors, so check the
- *       <code>errors</code> list. Jobs that can't be found are treated as successfully
- *       processed.</p>
- *          <important>
- *             <p>This operation requires <code>batch:CancelJob</code> permission for each job in the
- *         request. There is no separate <code>batch:CancelJobs</code> IAM action. If a caller's IAM
- *         policy grants <code>batch:CancelJob</code>, they can use both the singular
- *         <a>CancelJob</a> and bulk <code>CancelJobs</code> operations.</p>
- *          </important>
+ * Cancels up to 50 jobs in an Batch job queue. This is a bulk version of CancelJob. Jobs that are in a `SUBMITTED`, `PENDING`, or `RUNNABLE` state are cancelled and the job status is updated to `FAILED`.
+ *
+ * > **Note:**
+ * >
+ * > A `PENDING` job is cancelled after all dependency jobs are completed. Therefore, it might take longer than expected to cancel a job in `PENDING` status.
+ * >
+ * > When you try to cancel an array parent job in `PENDING`, Batch attempts to cancel all child jobs. The array parent job is cancelled when all child jobs are completed.
+ *
+ * Jobs that progressed to the `STARTING` or `RUNNING` state aren't cancelled. These jobs must be terminated with the TerminateJob or TerminateJobs operation.
+ *
+ * Batch reports the result for each job individually in the response. Jobs that were processed successfully are reported in the `successful` list. Jobs that encountered errors are reported in the `errors` list. The response returns an HTTP status code of `200` even when some jobs encountered errors, so check the `errors` list. Jobs that can't be found are treated as successfully processed.
+ *
+ * > **Important:** This operation requires `batch:CancelJob` permission for each job in the request. There is no separate `batch:CancelJobs` IAM action. If a caller's IAM policy grants `batch:CancelJob`, they can use both the singular CancelJob and bulk `CancelJobs` operations.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,16 +75,16 @@ export interface CancelJobsCommandOutput extends CancelJobsResponse, __MetadataB
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf
- *    of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier
- *    that's not valid.</p>
+ *
+ * These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server issue.</p>
+ *
+ * These errors are usually caused by a server issue.
  *
  * @throws {@link BatchServiceException}
- * <p>Base exception class for all service exceptions from Batch service.</p>
  *
+ * Base exception class for all service exceptions from Batch service.
  *
  * @example To cancel multiple jobs
  * ```javascript

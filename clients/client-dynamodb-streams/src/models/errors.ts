@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { DynamoDBStreamsServiceException as __BaseException } from "./DynamoDBStreamsServiceException";
 
 /**
- * <p>An error occurred on the server side.</p>
+ * An error occurred on the server side.
+ *
  * @public
  */
 export class InternalServerError extends __BaseException {
@@ -25,9 +26,8 @@ export class InternalServerError extends __BaseException {
 }
 
 /**
- * <p>The operation tried to access a nonexistent table or index. The resource
- *             might not be specified correctly, or its status might not be
- *             <code>ACTIVE</code>.</p>
+ * The operation tried to access a nonexistent table or index. The resource might not be specified correctly, or its status might not be `ACTIVE`.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -48,9 +48,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The shard iterator has expired and can no longer be used to retrieve stream records. A shard
- *       iterator expires 15 minutes after it is retrieved using the <code>GetShardIterator</code>
- *       action.</p>
+ * The shard iterator has expired and can no longer be used to retrieve stream records. A shard iterator expires 15 minutes after it is retrieved using the `GetShardIterator` action.
+ *
  * @public
  */
 export class ExpiredIteratorException extends __BaseException {
@@ -71,20 +70,20 @@ export class ExpiredIteratorException extends __BaseException {
 }
 
 /**
- * <p>There is no limit to the number of daily on-demand backups that can be taken. </p>
- *          <p>For most purposes, up to 500 simultaneous table operations are allowed per account. These operations
- *           include <code>CreateTable</code>, <code>UpdateTable</code>,
- *           <code>DeleteTable</code>,<code>UpdateTimeToLive</code>,
- *           <code>RestoreTableFromBackup</code>, and <code>RestoreTableToPointInTime</code>. </p>
- *          <p>When you are creating a table with one or more secondary
- *           indexes, you can have up to 250 such requests running at a time. However, if the table or
- *           index specifications are complex, then DynamoDB might temporarily reduce the number
- *           of concurrent operations.</p>
- *          <p>When importing into DynamoDB, up to 50 simultaneous import table operations are allowed per account.</p>
- *          <p>There is a soft account quota of 2,500 tables.</p>
- *          <p>GetRecords was called with a value of more than 1000 for the limit request parameter.</p>
- *          <p>More than 2 processes are reading from the same streams shard at the same time. Exceeding
- *           this limit may result in request throttling.</p>
+ * There is no limit to the number of daily on-demand backups that can be taken.
+ *
+ * For most purposes, up to 500 simultaneous table operations are allowed per account. These operations include `CreateTable`, `UpdateTable`, `DeleteTable`,`UpdateTimeToLive`, `RestoreTableFromBackup`, and `RestoreTableToPointInTime`.
+ *
+ * When you are creating a table with one or more secondary indexes, you can have up to 250 such requests running at a time. However, if the table or index specifications are complex, then DynamoDB might temporarily reduce the number of concurrent operations.
+ *
+ * When importing into DynamoDB, up to 50 simultaneous import table operations are allowed per account.
+ *
+ * There is a soft account quota of 2,500 tables.
+ *
+ * GetRecords was called with a value of more than 1000 for the limit request parameter.
+ *
+ * More than 2 processes are reading from the same streams shard at the same time. Exceeding this limit may result in request throttling.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -105,18 +104,13 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The operation attempted to read past the oldest stream record in a shard.</p>
- *          <p>In DynamoDB Streams, there is a 24 hour limit on data retention. Stream records whose age exceeds this limit are subject to removal (trimming) from the stream. You might receive a TrimmedDataAccessException if:</p>
- *          <ul>
- *             <li>
- *                <p>You request a shard iterator with a sequence number older than the trim point (24 hours).</p>
- *             </li>
- *             <li>
- *                <p>You obtain a shard iterator, but before you use the iterator in a <code>GetRecords</code>
- *         request, a stream record in the shard exceeds the 24 hour period and is trimmed. This causes
- *         the iterator to access a record that no longer exists.</p>
- *             </li>
- *          </ul>
+ * The operation attempted to read past the oldest stream record in a shard.
+ *
+ * In DynamoDB Streams, there is a 24 hour limit on data retention. Stream records whose age exceeds this limit are subject to removal (trimming) from the stream. You might receive a TrimmedDataAccessException if:
+ *
+ * - You request a shard iterator with a sequence number older than the trim point (24 hours).
+ * - You obtain a shard iterator, but before you use the iterator in a `GetRecords` request, a stream record in the shard exceeds the 24 hour period and is trimmed. This causes the iterator to access a record that no longer exists.
+ *
  * @public
  */
 export class TrimmedDataAccessException extends __BaseException {

@@ -23,11 +23,8 @@ export interface DetachVolumeCommandInput extends DetachVolumeInput {}
 export interface DetachVolumeCommandOutput extends DetachVolumeOutput, __MetadataBearer {}
 
 /**
- * <p>Disconnects a volume from an iSCSI connection and then detaches the volume from the
- *          specified gateway. Detaching and attaching a volume enables you to recover your data from
- *          one gateway to a different gateway without creating a snapshot. It also makes it easier to
- *          move your volumes from an on-premises gateway to a gateway hosted on an Amazon EC2
- *          instance. This operation is only supported in the volume gateway type.</p>
+ * Disconnects a volume from an iSCSI connection and then detaches the volume from the specified gateway. Detaching and attaching a volume enables you to recover your data from one gateway to a different gateway without creating a snapshot. It also makes it easier to move your volumes from an on-premises gateway to a gateway hosted on an Amazon EC2 instance. This operation is only supported in the volume gateway type.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,16 +52,16 @@ export interface DetachVolumeCommandOutput extends DetachVolumeOutput, __Metadat
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @public
  */

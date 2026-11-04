@@ -23,9 +23,10 @@ export interface CreateGroupCommandInput extends CreateGroupRequest {}
 export interface CreateGroupCommandOutput extends CreateGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new group.</p>
- *          <p> For information about the number of groups you can create, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS
- *                 quotas</a> in the <i>IAM User Guide</i>.</p>
+ * Creates a new group.
+ *
+ * For information about the number of groups you can create, see [IAM and STS quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the *IAM User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,24 +60,24 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link EntityAlreadyExistsException} (client fault)
- *  <p>The request was rejected because it attempted to create a resource that already
- *       exists.</p>
+ *
+ * The request was rejected because it attempted to create a resource that already exists.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current
- *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+ *
+ * The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @example To create an IAM group
  * ```javascript

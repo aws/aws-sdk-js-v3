@@ -23,8 +23,10 @@ export interface DeleteRouteServerEndpointCommandInput extends DeleteRouteServer
 export interface DeleteRouteServerEndpointCommandOutput extends DeleteRouteServerEndpointResult, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified route server endpoint.</p>
- *          <p>A route server endpoint is an Amazon Web Services-managed component inside a subnet that facilitates <a href="https://en.wikipedia.org/wiki/Border_Gateway_Protocol">BGP (Border Gateway Protocol)</a> connections between your route server and your BGP peers.</p>
+ * Deletes the specified route server endpoint.
+ *
+ * A route server endpoint is an Amazon Web Services-managed component inside a subnet that facilitates [BGP (Border Gateway Protocol)](https://en.wikipedia.org/wiki/Border_Gateway_Protocol) connections between your route server and your BGP peers.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,8 +69,8 @@ export interface DeleteRouteServerEndpointCommandOutput extends DeleteRouteServe
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

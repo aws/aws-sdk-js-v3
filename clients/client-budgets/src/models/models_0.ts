@@ -22,840 +22,802 @@ import type {
 } from "./enums";
 
 /**
- * <p>The trigger threshold of the action. </p>
+ * The trigger threshold of the action.
+ *
  * @public
  */
 export interface ActionThreshold {
   /**
-   * <p> The threshold of a notification.</p>
+   * The threshold of a notification.
+   *
    * @public
    */
   ActionThresholdValue: number | undefined;
 
   /**
-   * <p> The type of threshold for a notification.</p>
+   * The type of threshold for a notification.
+   *
    * @public
    */
   ActionThresholdType: ThresholdType | undefined;
 }
 
 /**
- * <p>The Identity and Access Management (IAM) action definition details. </p>
+ * The Identity and Access Management (IAM) action definition details.
+ *
  * @public
  */
 export interface IamActionDefinition {
   /**
-   * <p>The Amazon Resource Name (ARN) of the policy to be attached. </p>
+   * The Amazon Resource Name (ARN) of the policy to be attached.
+   *
    * @public
    */
   PolicyArn: string | undefined;
 
   /**
-   * <p>A list of roles to be attached. There must be at least one role. </p>
+   * A list of roles to be attached. There must be at least one role.
+   *
    * @public
    */
   Roles?: string[] | undefined;
 
   /**
-   * <p>A list of groups to be attached. There must be at least one group. </p>
+   * A list of groups to be attached. There must be at least one group.
+   *
    * @public
    */
   Groups?: string[] | undefined;
 
   /**
-   * <p>A list of users to be attached. There must be at least one user. </p>
+   * A list of users to be attached. There must be at least one user.
+   *
    * @public
    */
   Users?: string[] | undefined;
 }
 
 /**
- * <p>The service control policies (SCP) action definition details. </p>
+ * The service control policies (SCP) action definition details.
+ *
  * @public
  */
 export interface ScpActionDefinition {
   /**
-   * <p>The policy ID attached. </p>
+   * The policy ID attached.
+   *
    * @public
    */
   PolicyId: string | undefined;
 
   /**
-   * <p>A list of target IDs. </p>
+   * A list of target IDs.
+   *
    * @public
    */
   TargetIds: string[] | undefined;
 }
 
 /**
- * <p>The Amazon Web Services Systems Manager (SSM) action definition details. </p>
+ * The Amazon Web Services Systems Manager (SSM) action definition details.
+ *
  * @public
  */
 export interface SsmActionDefinition {
   /**
-   * <p>The action subType. </p>
+   * The action subType.
+   *
    * @public
    */
   ActionSubType: ActionSubType | undefined;
 
   /**
-   * <p>The Region to run the SSM document. </p>
+   * The Region to run the SSM document.
+   *
    * @public
    */
   Region: string | undefined;
 
   /**
-   * <p>The EC2 and RDS instance IDs. </p>
+   * The EC2 and RDS instance IDs.
+   *
    * @public
    */
   InstanceIds: string[] | undefined;
 }
 
 /**
- * <p>Specifies all of the type-specific parameters. </p>
+ * Specifies all of the type-specific parameters.
+ *
  * @public
  */
 export interface Definition {
   /**
-   * <p>The Identity and Access Management (IAM) action definition details. </p>
+   * The Identity and Access Management (IAM) action definition details.
+   *
    * @public
    */
   IamActionDefinition?: IamActionDefinition | undefined;
 
   /**
-   * <p>The service control policies (SCPs) action definition details. </p>
+   * The service control policies (SCPs) action definition details.
+   *
    * @public
    */
   ScpActionDefinition?: ScpActionDefinition | undefined;
 
   /**
-   * <p>The Amazon Web Services Systems Manager (SSM) action definition details. </p>
+   * The Amazon Web Services Systems Manager (SSM) action definition details.
+   *
    * @public
    */
   SsmActionDefinition?: SsmActionDefinition | undefined;
 }
 
 /**
- * <p>The subscriber to a budget notification. The subscriber consists of a subscription
- * 			type and either an Amazon SNS topic or an email address.</p>
- *          <p>For example, an email subscriber has the following parameters:</p>
- *          <ul>
- *             <li>
- *                <p>A <code>subscriptionType</code> of <code>EMAIL</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>An <code>address</code> of <code>example@example.com</code>
- *                </p>
- *             </li>
- *          </ul>
+ * The subscriber to a budget notification. The subscriber consists of a subscription type and either an Amazon SNS topic or an email address.
+ *
+ * For example, an email subscriber has the following parameters:
+ *
+ * - A `subscriptionType` of `EMAIL`
+ * - An `address` of `example@example.com`
+ *
  * @public
  */
 export interface Subscriber {
   /**
-   * <p>The type of notification that Amazon Web Services sends to a subscriber.</p>
+   * The type of notification that Amazon Web Services sends to a subscriber.
+   *
    * @public
    */
   SubscriptionType: SubscriptionType | undefined;
 
   /**
-   * <p>The address that Amazon Web Services sends budget notifications to, either an SNS topic
-   * 			or an email.</p>
-   *          <p>When you create a subscriber, the value of <code>Address</code> can't contain line
-   * 			breaks.</p>
+   * The address that Amazon Web Services sends budget notifications to, either an SNS topic or an email.
+   *
+   * When you create a subscriber, the value of `Address` can't contain line breaks.
+   *
    * @public
    */
   Address: string | undefined;
 }
 
 /**
- * <p>A budget action resource. </p>
+ * A budget action resource.
+ *
  * @public
  */
 export interface Action {
   /**
-   * <p>A system-generated universally unique identifier (UUID) for the action. </p>
+   * A system-generated universally unique identifier (UUID) for the action.
+   *
    * @public
    */
   ActionId: string | undefined;
 
   /**
-   * <p> A string that represents the budget name. The ":" and "\" characters, and the
-   * 			"/action/" substring, aren't allowed.</p>
-   *          <p>Budget names are validated for content. Names that contain phone numbers, URLs, or
-   * 			email addresses combined with certain terms may be rejected.</p>
+   * A string that represents the budget name. The ":" and "\" characters, and the "/action/" substring, aren't allowed.
+   *
+   * Budget names are validated for content. Names that contain phone numbers, URLs, or email addresses combined with certain terms may be rejected.
+   *
    * @public
    */
   BudgetName: string | undefined;
 
   /**
-   * <p> The type of a notification. It must be ACTUAL or FORECASTED.</p>
+   * The type of a notification. It must be ACTUAL or FORECASTED.
+   *
    * @public
    */
   NotificationType: NotificationType | undefined;
 
   /**
-   * <p>The type of action. This defines the type of tasks that can be carried out by this
-   * 			action. This field also determines the format for definition. </p>
+   * The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition.
+   *
    * @public
    */
   ActionType: ActionType | undefined;
 
   /**
-   * <p>The trigger threshold of the action. </p>
+   * The trigger threshold of the action.
+   *
    * @public
    */
   ActionThreshold: ActionThreshold | undefined;
 
   /**
-   * <p>Where you specify all of the type-specific parameters. </p>
+   * Where you specify all of the type-specific parameters.
+   *
    * @public
    */
   Definition: Definition | undefined;
 
   /**
-   * <p>The role passed for action execution and reversion. Roles and actions must be in the
-   * 			same account. </p>
+   * The role passed for action execution and reversion. Roles and actions must be in the same account.
+   *
    * @public
    */
   ExecutionRoleArn: string | undefined;
 
   /**
-   * <p>This specifies if the action needs manual or automatic approval. </p>
+   * This specifies if the action needs manual or automatic approval.
+   *
    * @public
    */
   ApprovalModel: ApprovalModel | undefined;
 
   /**
-   * <p>The status of the action. </p>
+   * The status of the action.
+   *
    * @public
    */
   Status: ActionStatus | undefined;
 
   /**
-   * <p> A list of subscribers.</p>
+   * A list of subscribers.
+   *
    * @public
    */
   Subscribers: Subscriber[] | undefined;
 }
 
 /**
- * <p>The description of the details for the event. </p>
+ * The description of the details for the event.
+ *
  * @public
  */
 export interface ActionHistoryDetails {
   /**
-   * <p> A generic string.</p>
+   * A generic string.
+   *
    * @public
    */
   Message: string | undefined;
 
   /**
-   * <p>The budget action resource. </p>
+   * The budget action resource.
+   *
    * @public
    */
   Action: Action | undefined;
 }
 
 /**
- * <p>The historical records for a budget action. </p>
+ * The historical records for a budget action.
+ *
  * @public
  */
 export interface ActionHistory {
   /**
-   * <p> A generic time stamp. In Java, it's transformed to a <code>Date</code> object.</p>
+   * A generic time stamp. In Java, it's transformed to a `Date` object.
+   *
    * @public
    */
   Timestamp: Date | undefined;
 
   /**
-   * <p>The status of action at the time of the event. </p>
+   * The status of action at the time of the event.
+   *
    * @public
    */
   Status: ActionStatus | undefined;
 
   /**
-   * <p>This distinguishes between whether the events are triggered by the user or are
-   * 			generated by the system. </p>
+   * This distinguishes between whether the events are triggered by the user or are generated by the system.
+   *
    * @public
    */
   EventType: EventType | undefined;
 
   /**
-   * <p>The description of the details for the event. </p>
+   * The description of the details for the event.
+   *
    * @public
    */
   ActionHistoryDetails: ActionHistoryDetails | undefined;
 }
 
 /**
- * <p>The parameters that define or describe the historical data that your auto-adjusting
- * 			budget is based on.</p>
+ * The parameters that define or describe the historical data that your auto-adjusting budget is based on.
+ *
  * @public
  */
 export interface HistoricalOptions {
   /**
-   * <p>The number of budget periods included in the moving-average calculation that
-   * 			determines your auto-adjusted budget amount. The maximum value depends on the
-   * 				<code>TimeUnit</code> granularity of the budget:</p>
-   *          <ul>
-   *             <li>
-   *                <p>For the <code>DAILY</code> granularity, the maximum value is
-   * 					<code>60</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>MONTHLY</code> granularity, the maximum value is
-   * 					<code>12</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>QUARTERLY</code> granularity, the maximum value is
-   * 						<code>4</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>ANNUALLY</code> granularity, the maximum value is
-   * 					<code>1</code>.</p>
-   *             </li>
-   *          </ul>
+   * The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount. The maximum value depends on the `TimeUnit` granularity of the budget:
+   *
+   * - For the `DAILY` granularity, the maximum value is `60`.
+   * - For the `MONTHLY` granularity, the maximum value is `12`.
+   * - For the `QUARTERLY` granularity, the maximum value is `4`.
+   * - For the `ANNUALLY` granularity, the maximum value is `1`.
+   *
    * @public
    */
   BudgetAdjustmentPeriod: number | undefined;
 
   /**
-   * <p>The integer that describes how many budget periods in your
-   * 				<code>BudgetAdjustmentPeriod</code> are included in the calculation of your current
-   * 				<code>BudgetLimit</code>. If the first budget period in your
-   * 				<code>BudgetAdjustmentPeriod</code> has no cost data, then that budget period isn’t
-   * 			included in the average that determines your budget limit. </p>
-   *          <p>For example, if you set <code>BudgetAdjustmentPeriod</code> as <code>4</code>
-   * 			quarters, but your account had no cost data in the first quarter, then only the last
-   * 			three quarters are included in the calculation. In this scenario,
-   * 				<code>LookBackAvailablePeriods</code> returns <code>3</code>. </p>
-   *          <p>You can’t set your own <code>LookBackAvailablePeriods</code>. The value is
-   * 			automatically calculated from the <code>BudgetAdjustmentPeriod</code> and your
-   * 			historical cost data.</p>
+   * The integer that describes how many budget periods in your `BudgetAdjustmentPeriod` are included in the calculation of your current `BudgetLimit`. If the first budget period in your `BudgetAdjustmentPeriod` has no cost data, then that budget period isn’t included in the average that determines your budget limit.
+   *
+   * For example, if you set `BudgetAdjustmentPeriod` as `4` quarters, but your account had no cost data in the first quarter, then only the last three quarters are included in the calculation. In this scenario, `LookBackAvailablePeriods` returns `3`.
+   *
+   * You can’t set your own `LookBackAvailablePeriods`. The value is automatically calculated from the `BudgetAdjustmentPeriod` and your historical cost data.
+   *
    * @public
    */
   LookBackAvailablePeriods?: number | undefined;
 }
 
 /**
- * <p>The parameters that determine the budget amount for an auto-adjusting budget.</p>
+ * The parameters that determine the budget amount for an auto-adjusting budget.
+ *
  * @public
  */
 export interface AutoAdjustData {
   /**
-   * <p>The string that defines whether your budget auto-adjusts based on historical or
-   * 			forecasted data.</p>
+   * The string that defines whether your budget auto-adjusts based on historical or forecasted data.
+   *
    * @public
    */
   AutoAdjustType: AutoAdjustType | undefined;
 
   /**
-   * <p>The parameters that define or describe the historical data that your auto-adjusting
-   * 			budget is based on.</p>
+   * The parameters that define or describe the historical data that your auto-adjusting budget is based on.
+   *
    * @public
    */
   HistoricalOptions?: HistoricalOptions | undefined;
 
   /**
-   * <p>The last time that your budget was auto-adjusted.</p>
+   * The last time that your budget was auto-adjusted.
+   *
    * @public
    */
   LastAutoAdjustTime?: Date | undefined;
 }
 
 /**
- * <p>The amount of cost or usage that's measured for a budget.</p>
- *          <p>
- *             <i>Cost example:</i> A <code>Spend</code> for <code>3 USD</code> of
- * 			costs has the following parameters:</p>
- *          <ul>
- *             <li>
- *                <p>An <code>Amount</code> of <code>3</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>A <code>Unit</code> of <code>USD</code>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>
- *             <i>Usage example:</i> A <code>Spend</code> for <code>3 GB</code> of S3
- * 			usage has the following parameters:</p>
- *          <ul>
- *             <li>
- *                <p>An <code>Amount</code> of <code>3</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>A <code>Unit</code> of <code>GB</code>
- *                </p>
- *             </li>
- *          </ul>
+ * The amount of cost or usage that's measured for a budget.
+ *
+ * *Cost example:* A `Spend` for `3 USD` of costs has the following parameters:
+ *
+ * - An `Amount` of `3`
+ * - A `Unit` of `USD`
+ *
+ * *Usage example:* A `Spend` for `3 GB` of S3 usage has the following parameters:
+ *
+ * - An `Amount` of `3`
+ * - A `Unit` of `GB`
+ *
  * @public
  */
 export interface Spend {
   /**
-   * <p>The cost or usage amount that's associated with a budget forecast, actual spend, or
-   * 			budget threshold.</p>
+   * The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold.
+   *
    * @public
    */
   Amount: string | undefined;
 
   /**
-   * <p>The unit of measurement that's used for the budget forecast, actual spend, or budget
-   * 			threshold.</p>
+   * The unit of measurement that's used for the budget forecast, actual spend, or budget threshold.
+   *
    * @public
    */
   Unit: string | undefined;
 }
 
 /**
- * <p>The spend objects that are associated with this budget. The <code>actualSpend</code>
- * 			tracks how much you've used, cost, usage, RI units, or Savings Plans units and the
- * 				<code>forecastedSpend</code> tracks how much that you're predicted to spend based on
- * 			your historical usage profile.</p>
- *          <p>For example, if it's the 20th of the month and you have spent <code>50</code> dollars
- * 			on Amazon EC2, your <code>actualSpend</code> is <code>50 USD</code>, and your
- * 				<code>forecastedSpend</code> is <code>75 USD</code>.</p>
+ * The spend objects that are associated with this budget. The `actualSpend` tracks how much you've used, cost, usage, RI units, or Savings Plans units and the `forecastedSpend` tracks how much that you're predicted to spend based on your historical usage profile.
+ *
+ * For example, if it's the 20th of the month and you have spent `50` dollars on Amazon EC2, your `actualSpend` is `50 USD`, and your `forecastedSpend` is `75 USD`.
+ *
  * @public
  */
 export interface CalculatedSpend {
   /**
-   * <p>The amount of cost, usage, RI units, or Savings Plans units that you used.</p>
+   * The amount of cost, usage, RI units, or Savings Plans units that you used.
+   *
    * @public
    */
   ActualSpend: Spend | undefined;
 
   /**
-   * <p>The amount of cost, usage, RI units, or Savings Plans units that you're forecasted to
-   * 			use.</p>
+   * The amount of cost, usage, RI units, or Savings Plans units that you're forecasted to use.
+   *
    * @public
    */
   ForecastedSpend?: Spend | undefined;
 }
 
 /**
- * <p>The types of cost that are included in a <code>COST</code> budget, such as tax and
- * 			subscriptions.</p>
- *          <p>
- *             <code>USAGE</code>, <code>RI_UTILIZATION</code>, <code>RI_COVERAGE</code>,
- * 				<code>SAVINGS_PLANS_UTILIZATION</code>, and <code>SAVINGS_PLANS_COVERAGE</code>
- * 			budgets don't have <code>CostTypes</code>.</p>
+ * The types of cost that are included in a `COST` budget, such as tax and subscriptions.
+ *
+ * `USAGE`, `RI_UTILIZATION`, `RI_COVERAGE`, `SAVINGS_PLANS_UTILIZATION`, and `SAVINGS_PLANS_COVERAGE` budgets don't have `CostTypes`.
+ *
  * @public
  */
 export interface CostTypes {
   /**
-   * <p>Specifies whether a budget includes taxes.</p>
-   *          <p>The default value is <code>true</code>.</p>
+   * Specifies whether a budget includes taxes.
+   *
+   * The default value is `true`.
+   *
    * @public
    */
   IncludeTax?: boolean | undefined;
 
   /**
-   * <p>Specifies whether a budget includes subscriptions.</p>
-   *          <p>The default value is <code>true</code>.</p>
+   * Specifies whether a budget includes subscriptions.
+   *
+   * The default value is `true`.
+   *
    * @public
    */
   IncludeSubscription?: boolean | undefined;
 
   /**
-   * <p>Specifies whether a budget uses a blended rate.</p>
-   *          <p>The default value is <code>false</code>.</p>
+   * Specifies whether a budget uses a blended rate.
+   *
+   * The default value is `false`.
+   *
    * @public
    */
   UseBlended?: boolean | undefined;
 
   /**
-   * <p>Specifies whether a budget includes refunds.</p>
-   *          <p>The default value is <code>true</code>.</p>
+   * Specifies whether a budget includes refunds.
+   *
+   * The default value is `true`.
+   *
    * @public
    */
   IncludeRefund?: boolean | undefined;
 
   /**
-   * <p>Specifies whether a budget includes credits.</p>
-   *          <p>The default value is <code>true</code>.</p>
+   * Specifies whether a budget includes credits.
+   *
+   * The default value is `true`.
+   *
    * @public
    */
   IncludeCredit?: boolean | undefined;
 
   /**
-   * <p>Specifies whether a budget includes upfront RI costs.</p>
-   *          <p>The default value is <code>true</code>.</p>
+   * Specifies whether a budget includes upfront RI costs.
+   *
+   * The default value is `true`.
+   *
    * @public
    */
   IncludeUpfront?: boolean | undefined;
 
   /**
-   * <p>Specifies whether a budget includes recurring fees such as monthly RI fees.</p>
-   *          <p>The default value is <code>true</code>.</p>
+   * Specifies whether a budget includes recurring fees such as monthly RI fees.
+   *
+   * The default value is `true`.
+   *
    * @public
    */
   IncludeRecurring?: boolean | undefined;
 
   /**
-   * <p>Specifies whether a budget includes non-RI subscription costs.</p>
-   *          <p>The default value is <code>true</code>.</p>
+   * Specifies whether a budget includes non-RI subscription costs.
+   *
+   * The default value is `true`.
+   *
    * @public
    */
   IncludeOtherSubscription?: boolean | undefined;
 
   /**
-   * <p>Specifies whether a budget includes support subscription fees.</p>
-   *          <p>The default value is <code>true</code>.</p>
+   * Specifies whether a budget includes support subscription fees.
+   *
+   * The default value is `true`.
+   *
    * @public
    */
   IncludeSupport?: boolean | undefined;
 
   /**
-   * <p>Specifies whether a budget includes discounts.</p>
-   *          <p>The default value is <code>true</code>.</p>
+   * Specifies whether a budget includes discounts.
+   *
+   * The default value is `true`.
+   *
    * @public
    */
   IncludeDiscount?: boolean | undefined;
 
   /**
-   * <p>Specifies whether a budget uses the amortized rate.</p>
-   *          <p>The default value is <code>false</code>.</p>
+   * Specifies whether a budget uses the amortized rate.
+   *
+   * The default value is `false`.
+   *
    * @public
    */
   UseAmortized?: boolean | undefined;
 }
 
 /**
- * <p>The cost category values used for filtering the costs.</p>
+ * The cost category values used for filtering the costs.
+ *
  * @public
  */
 export interface CostCategoryValues {
   /**
-   * <p>The unique name of the cost category.</p>
+   * The unique name of the cost category.
+   *
    * @public
    */
   Key?: string | undefined;
 
   /**
-   * <p>The specific value of the cost category.</p>
+   * The specific value of the cost category.
+   *
    * @public
    */
   Values?: string[] | undefined;
 
   /**
-   * <p>The match options that you can use to filter your results. </p>
+   * The match options that you can use to filter your results.
+   *
    * @public
    */
   MatchOptions?: MatchOption[] | undefined;
 }
 
 /**
- * <p>Contains the specifications for the filters to use for your request.</p>
+ * Contains the specifications for the filters to use for your request.
+ *
  * @public
  */
 export interface ExpressionDimensionValues {
   /**
-   * <p>The name of the dimension that you want to filter on.</p>
+   * The name of the dimension that you want to filter on.
+   *
    * @public
    */
   Key: Dimension | undefined;
 
   /**
-   * <p>The metadata values you can specify to filter upon, so that the results all match at least
-   * 			one of the specified values.</p>
+   * The metadata values you can specify to filter upon, so that the results all match at least one of the specified values.
+   *
    * @public
    */
   Values: string[] | undefined;
 
   /**
-   * <p>The match options that you can use to filter your results. You can specify only one of these
-   * 			values in the array.</p>
+   * The match options that you can use to filter your results. You can specify only one of these values in the array.
+   *
    * @public
    */
   MatchOptions?: MatchOption[] | undefined;
 }
 
 /**
- * <p>The product attribute values used for filtering the costs by key and value pairs.
- * 			Product attributes are supported for Amazon Bedrock only.</p>
+ * The product attribute values used for filtering the costs by key and value pairs. Product attributes are supported for Amazon Bedrock only.
+ *
  * @public
  */
 export interface ProductAttributeValues {
   /**
-   * <p>The name of the product attribute to filter on. Valid values are the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>feature</code> – The feature that was used, such as
-   * 					<code>On-demand Inference</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>inferenceType</code> – The type of inference usage, such as
-   * 					<code>Input tokens</code> or <code>Output tokens</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>model</code> – The model, such as <code>Claude Sonnet 5</code> or
-   * 					<code>Claude Haiku 4.5</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>provider</code> – The model provider, such as <code>Anthropic</code>,
-   * 					<code>Cohere</code>, or <code>Amazon</code>.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Keys are case-sensitive.</p>
+   * The name of the product attribute to filter on. Valid values are the following:
+   *
+   * - `feature` – The feature that was used, such as `On-demand Inference`.
+   * - `inferenceType` – The type of inference usage, such as `Input tokens` or `Output tokens`.
+   * - `model` – The model, such as `Claude Sonnet 5` or `Claude Haiku 4.5`.
+   * - `provider` – The model provider, such as `Anthropic`, `Cohere`, or `Amazon`.
+   *
+   * Keys are case-sensitive.
+   *
    * @public
    */
   Key: string | undefined;
 
   /**
-   * <p>The specific values of the product attribute, such as <code>Claude Sonnet 5</code> for
-   * 			the <code>model</code> key. Values are matched exactly.</p>
-   *          <p>
-   *             <code>Values</code> is required unless <code>MatchOptions</code> is
-   * 			<code>ABSENT</code>. To match costs that have no value for the key, set
-   * 			<code>MatchOptions</code> to <code>ABSENT</code> and omit <code>Values</code>.</p>
+   * The specific values of the product attribute, such as `Claude Sonnet 5` for the `model` key. Values are matched exactly.
+   *
+   * `Values` is required unless `MatchOptions` is `ABSENT`. To match costs that have no value for the key, set `MatchOptions` to `ABSENT` and omit `Values`.
+   *
    * @public
    */
   Values?: string[] | undefined;
 
   /**
-   * <p>The match options for the <code>ProductAttributes</code> filter. Valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ABSENT</code> – Matches costs that have no value for the attribute.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CASE_SENSITIVE</code> – Requires an exact case match.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>EQUALS</code> – Matches costs where the attribute equals the specified
-   * 					value.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Specify either <code>EQUALS</code> or <code>ABSENT</code>. You can add
-   * 			<code>CASE_SENSITIVE</code> to <code>EQUALS</code>, but you can't use it by itself or
-   * 			with <code>ABSENT</code>.</p>
+   * The match options for the `ProductAttributes` filter. Valid values:
+   *
+   * - `ABSENT` – Matches costs that have no value for the attribute.
+   * - `CASE_SENSITIVE` – Requires an exact case match.
+   * - `EQUALS` – Matches costs where the attribute equals the specified value.
+   *
+   * Specify either `EQUALS` or `ABSENT`. You can add `CASE_SENSITIVE` to `EQUALS`, but you can't use it by itself or with `ABSENT`.
+   *
    * @public
    */
   MatchOptions?: MatchOption[] | undefined;
 }
 
 /**
- * <p>The values that are available for a tag.</p>
+ * The values that are available for a tag.
+ *
  * @public
  */
 export interface TagValues {
   /**
-   * <p>The key for the tag.</p>
+   * The key for the tag.
+   *
    * @public
    */
   Key?: string | undefined;
 
   /**
-   * <p>The specific value of the tag.</p>
+   * The specific value of the tag.
+   *
    * @public
    */
   Values?: string[] | undefined;
 
   /**
-   * <p>The match options that you can use to filter your results.</p>
+   * The match options that you can use to filter your results.
+   *
    * @public
    */
   MatchOptions?: MatchOption[] | undefined;
 }
 
 /**
- * <p>Provides information about the current operational state of a billing view resource,
- * 			including its ability to access and update based on its associated billing view.</p>
+ * Provides information about the current operational state of a billing view resource, including its ability to access and update based on its associated billing view.
+ *
  * @public
  */
 export interface HealthStatus {
   /**
-   * <p>The current status of the billing view resource.</p>
+   * The current status of the billing view resource.
+   *
    * @public
    */
   Status?: HealthStatusValue | undefined;
 
   /**
-   * <p>The reason for the current status.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BILLING_VIEW_NO_ACCESS</code>: The billing view resource does not grant
-   * 						<code>billing:GetBillingViewData</code> permission to this account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>BILLING_VIEW_UNHEALTHY</code>:  The billing view associated with the
-   * 					budget is unhealthy.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FILTER_INVALID</code>: The filter contains reference to an account you
-   * 					do not have access to.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MULTI_YEAR_HISTORICAL_DATA_DISABLED</code>: The budget is not being updated. Enable multi-year historical data in your Cost Management preferences.</p>
-   *             </li>
-   *          </ul>
+   * The reason for the current status.
+   *
+   * - `BILLING_VIEW_NO_ACCESS`: The billing view resource does not grant `billing:GetBillingViewData` permission to this account.
+   * - `BILLING_VIEW_UNHEALTHY`: The billing view associated with the budget is unhealthy.
+   * - `FILTER_INVALID`: The filter contains reference to an account you do not have access to.
+   * - `MULTI_YEAR_HISTORICAL_DATA_DISABLED`: The budget is not being updated. Enable multi-year historical data in your Cost Management preferences.
+   *
    * @public
    */
   StatusReason?: HealthStatusReason | undefined;
 
   /**
-   * <p> A generic time stamp. In Java, it's transformed to a <code>Date</code> object.</p>
+   * A generic time stamp. In Java, it's transformed to a `Date` object.
+   *
    * @public
    */
   LastUpdatedTime?: Date | undefined;
 }
 
 /**
- * <p>The period of time that's covered by a budget. The period has a start date and an end
- * 			date. The start date must come before the end date. There are no restrictions on the end
- * 			date. </p>
+ * The period of time that's covered by a budget. The period has a start date and an end date. The start date must come before the end date. There are no restrictions on the end date.
+ *
  * @public
  */
 export interface TimePeriod {
   /**
-   * <p>The start date for a budget. If you created your budget and didn't specify a start
-   * 			date, Amazon Web Services defaults to the start of your chosen time period (DAILY,
-   * 			MONTHLY, QUARTERLY, ANNUALLY, or CUSTOM). For example, if you created your budget on January 24,
-   * 			2018, chose <code>DAILY</code>, and didn't set a start date, Amazon Web Services set your
-   * 			start date to <code>01/24/18 00:00 UTC</code>. If you chose <code>MONTHLY</code>,
-   * 				Amazon Web Services set your start date to <code>01/01/18 00:00 UTC</code>. The
-   * 			defaults are the same for the Billing and Cost Management console and the API.</p>
-   *          <p>You can change your start date with the <code>UpdateBudget</code> operation.</p>
+   * The start date for a budget. If you created your budget and didn't specify a start date, Amazon Web Services defaults to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, ANNUALLY, or CUSTOM). For example, if you created your budget on January 24, 2018, chose `DAILY`, and didn't set a start date, Amazon Web Services set your start date to `01/24/18 00:00 UTC`. If you chose `MONTHLY`, Amazon Web Services set your start date to `01/01/18 00:00 UTC`. The defaults are the same for the Billing and Cost Management console and the API.
+   *
+   * You can change your start date with the `UpdateBudget` operation.
+   *
    * @public
    */
   Start?: Date | undefined;
 
   /**
-   * <p>The end date for a budget. If you didn't specify an end date, Amazon Web Services set
-   * 			your end date to <code>06/15/87 00:00 UTC</code>. The defaults are the same for the
-   * 				Billing and Cost Management console and the API.</p>
-   *          <p>After the end date, Amazon Web Services deletes the budget and all the associated
-   * 			notifications and subscribers. You can change your end date with the
-   * 				<code>UpdateBudget</code> operation.</p>
+   * The end date for a budget. If you didn't specify an end date, Amazon Web Services set your end date to `06/15/87 00:00 UTC`. The defaults are the same for the Billing and Cost Management console and the API.
+   *
+   * After the end date, Amazon Web Services deletes the budget and all the associated notifications and subscribers. You can change your end date with the `UpdateBudget` operation.
+   *
    * @public
    */
   End?: Date | undefined;
 }
 
 /**
- * <p>A notification that's associated with a budget. A budget can have up to ten
- * 			notifications. </p>
- *          <p>Each notification must have at least one subscriber. A notification can have one SNS
- * 			subscriber and up to 10 email subscribers, for a total of 11 subscribers.</p>
- *          <p>For example, if you have a budget for 200 dollars and you want to be notified when you
- * 			go over 160 dollars, create a notification with the following parameters:</p>
- *          <ul>
- *             <li>
- *                <p>A notificationType of <code>ACTUAL</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>A <code>thresholdType</code> of <code>PERCENTAGE</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>A <code>comparisonOperator</code> of <code>GREATER_THAN</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>A notification <code>threshold</code> of <code>80</code>
- *                </p>
- *             </li>
- *          </ul>
+ * A notification that's associated with a budget. A budget can have up to ten notifications.
+ *
+ * Each notification must have at least one subscriber. A notification can have one SNS subscriber and up to 10 email subscribers, for a total of 11 subscribers.
+ *
+ * For example, if you have a budget for 200 dollars and you want to be notified when you go over 160 dollars, create a notification with the following parameters:
+ *
+ * - A notificationType of `ACTUAL`
+ * - A `thresholdType` of `PERCENTAGE`
+ * - A `comparisonOperator` of `GREATER_THAN`
+ * - A notification `threshold` of `80`
+ *
  * @public
  */
 export interface Notification {
   /**
-   * <p>Specifies whether the notification is for how much you have spent
-   * 			(<code>ACTUAL</code>) or for how much that you're forecasted to spend
-   * 				(<code>FORECASTED</code>).</p>
+   * Specifies whether the notification is for how much you have spent (`ACTUAL`) or for how much that you're forecasted to spend (`FORECASTED`).
+   *
    * @public
    */
   NotificationType: NotificationType | undefined;
 
   /**
-   * <p>The comparison that's used for this notification.</p>
+   * The comparison that's used for this notification.
+   *
    * @public
    */
   ComparisonOperator: ComparisonOperator | undefined;
 
   /**
-   * <p>The threshold that's associated with a notification. Thresholds are always a
-   * 			percentage, and many customers find value being alerted between 50% - 200% of the
-   * 			budgeted amount. The maximum limit for your threshold is 1,000,000% above the budgeted
-   * 			amount.</p>
+   * The threshold that's associated with a notification. Thresholds are always a percentage, and many customers find value being alerted between 50% - 200% of the budgeted amount. The maximum limit for your threshold is 1,000,000% above the budgeted amount.
+   *
    * @public
    */
   Threshold: number | undefined;
 
   /**
-   * <p>The type of threshold for a notification. For <code>ABSOLUTE_VALUE</code> thresholds,
-   * 				Amazon Web Services notifies you when you go over or are forecasted to go over your
-   * 			total cost threshold. For
-   * 				<code>PERCENTAGE</code> thresholds, Amazon Web Services notifies you when you go over
-   * 			or are forecasted to go over a certain percentage of your forecasted spend. For example,
-   * 			if you have a budget for 200 dollars and you have a <code>PERCENTAGE</code> threshold of
-   * 			80%, Amazon Web Services notifies you when you go over 160 dollars.</p>
+   * The type of threshold for a notification. For `ABSOLUTE_VALUE` thresholds, Amazon Web Services notifies you when you go over or are forecasted to go over your total cost threshold. For `PERCENTAGE` thresholds, Amazon Web Services notifies you when you go over or are forecasted to go over a certain percentage of your forecasted spend. For example, if you have a budget for 200 dollars and you have a `PERCENTAGE` threshold of 80%, Amazon Web Services notifies you when you go over 160 dollars.
+   *
    * @public
    */
   ThresholdType?: ThresholdType | undefined;
 
   /**
-   * <p>Specifies whether this notification is in alarm. If a budget notification is in the
-   * 				<code>ALARM</code> state, you passed the set threshold for the budget.</p>
+   * Specifies whether this notification is in alarm. If a budget notification is in the `ALARM` state, you passed the set threshold for the budget.
+   *
    * @public
    */
   NotificationState?: NotificationState | undefined;
 }
 
 /**
- * <p>A notification with subscribers. A notification can have one SNS subscriber and up to
- * 			10 email subscribers, for a total of 11 subscribers.</p>
+ * A notification with subscribers. A notification can have one SNS subscriber and up to 10 email subscribers, for a total of 11 subscribers.
+ *
  * @public
  */
 export interface NotificationWithSubscribers {
   /**
-   * <p>The notification that's associated with a budget.</p>
+   * The notification that's associated with a budget.
+   *
    * @public
    */
   Notification: Notification | undefined;
 
   /**
-   * <p>A list of subscribers who are subscribed to this notification.</p>
+   * A list of subscribers who are subscribed to this notification.
+   *
    * @public
    */
   Subscribers: Subscriber[] | undefined;
 }
 
 /**
- * <p>The tag structure that contains a tag key and value.</p>
+ * The tag structure that contains a tag key and value.
+ *
  * @public
  */
 export interface ResourceTag {
   /**
-   * <p>The key that's associated with the tag.</p>
+   * The key that's associated with the tag.
+   *
    * @public
    */
   Key: string | undefined;
 
   /**
-   * <p>The value that's associated with the tag.</p>
+   * The value that's associated with the tag.
+   *
    * @public
    */
   Value: string | undefined;
 }
 
 /**
- * <p> Response of CreateBudget </p>
+ * Response of CreateBudget
+ *
  * @public
  */
 export interface CreateBudgetResponse {}
@@ -865,71 +827,73 @@ export interface CreateBudgetResponse {}
  */
 export interface CreateBudgetActionRequest {
   /**
-   * <p>The account ID of the user. It's a 12-digit number.</p>
+   * The account ID of the user. It's a 12-digit number.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p> A string that represents the budget name. The ":" and "\" characters, and the
-   * 			"/action/" substring, aren't allowed.</p>
-   *          <p>Budget names are validated for content. Names that contain phone numbers, URLs, or
-   * 			email addresses combined with certain terms may be rejected.</p>
+   * A string that represents the budget name. The ":" and "\" characters, and the "/action/" substring, aren't allowed.
+   *
+   * Budget names are validated for content. Names that contain phone numbers, URLs, or email addresses combined with certain terms may be rejected.
+   *
    * @public
    */
   BudgetName: string | undefined;
 
   /**
-   * <p> The type of a notification. It must be ACTUAL or FORECASTED.</p>
+   * The type of a notification. It must be ACTUAL or FORECASTED.
+   *
    * @public
    */
   NotificationType: NotificationType | undefined;
 
   /**
-   * <p>
-   *          The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition.
-   *       </p>
+   * The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition.
+   *
    * @public
    */
   ActionType: ActionType | undefined;
 
   /**
-   * <p>The trigger threshold of the action. </p>
+   * The trigger threshold of the action.
+   *
    * @public
    */
   ActionThreshold: ActionThreshold | undefined;
 
   /**
-   * <p>Specifies all of the type-specific parameters. </p>
+   * Specifies all of the type-specific parameters.
+   *
    * @public
    */
   Definition: Definition | undefined;
 
   /**
-   * <p>
-   *          The role passed for action execution and reversion. Roles and actions must be in the same account.
-   *       </p>
+   * The role passed for action execution and reversion. Roles and actions must be in the same account.
+   *
    * @public
    */
   ExecutionRoleArn: string | undefined;
 
   /**
-   * <p>
-   *          This specifies if the action needs manual or automatic approval.
-   *       </p>
+   * This specifies if the action needs manual or automatic approval.
+   *
    * @public
    */
   ApprovalModel: ApprovalModel | undefined;
 
   /**
-   * <p> A list of subscribers.</p>
+   * A list of subscribers.
+   *
    * @public
    */
   Subscribers: Subscriber[] | undefined;
 
   /**
-   * <p>An optional list of tags to associate with the specified budget action. Each tag consists of a
-   *          key and a value, and each key must be unique for the resource.</p>
+   * An optional list of tags to associate with the specified budget action. Each tag consists of a key and a value, and each key must be unique for the resource.
+   *
    * @public
    */
   ResourceTags?: ResourceTag[] | undefined;
@@ -940,121 +904,137 @@ export interface CreateBudgetActionRequest {
  */
 export interface CreateBudgetActionResponse {
   /**
-   * <p>The account ID of the user. It's a 12-digit number.</p>
+   * The account ID of the user. It's a 12-digit number.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p> A string that represents the budget name. The ":" and "\" characters, and the
-   * 			"/action/" substring, aren't allowed.</p>
-   *          <p>Budget names are validated for content. Names that contain phone numbers, URLs, or
-   * 			email addresses combined with certain terms may be rejected.</p>
+   * A string that represents the budget name. The ":" and "\" characters, and the "/action/" substring, aren't allowed.
+   *
+   * Budget names are validated for content. Names that contain phone numbers, URLs, or email addresses combined with certain terms may be rejected.
+   *
    * @public
    */
   BudgetName: string | undefined;
 
   /**
-   * <p>
-   *          A system-generated universally unique identifier (UUID) for the action.
-   *       </p>
+   * A system-generated universally unique identifier (UUID) for the action.
+   *
    * @public
    */
   ActionId: string | undefined;
 }
 
 /**
- * <p> Request of CreateNotification </p>
+ * Request of CreateNotification
+ *
  * @public
  */
 export interface CreateNotificationRequest {
   /**
-   * <p>The <code>accountId</code> that is associated with the budget that you want to create a notification for.</p>
+   * The `accountId` that is associated with the budget that you want to create a notification for.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The name of the budget that you want Amazon Web Services to notify you about. Budget names must be unique within an account.</p>
+   * The name of the budget that you want Amazon Web Services to notify you about. Budget names must be unique within an account.
+   *
    * @public
    */
   BudgetName: string | undefined;
 
   /**
-   * <p>The notification that you want to create.</p>
+   * The notification that you want to create.
+   *
    * @public
    */
   Notification: Notification | undefined;
 
   /**
-   * <p>A list of subscribers that you want to associate with the notification. Each notification can have one SNS subscriber and up to 10 email subscribers.</p>
+   * A list of subscribers that you want to associate with the notification. Each notification can have one SNS subscriber and up to 10 email subscribers.
+   *
    * @public
    */
   Subscribers: Subscriber[] | undefined;
 }
 
 /**
- * <p> Response of CreateNotification </p>
+ * Response of CreateNotification
+ *
  * @public
  */
 export interface CreateNotificationResponse {}
 
 /**
- * <p> Request of CreateSubscriber </p>
+ * Request of CreateSubscriber
+ *
  * @public
  */
 export interface CreateSubscriberRequest {
   /**
-   * <p>The <code>accountId</code> that is associated with the budget that you want to create a subscriber for.</p>
+   * The `accountId` that is associated with the budget that you want to create a subscriber for.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The name of the budget that you want to subscribe to. Budget names must be unique within an account.</p>
+   * The name of the budget that you want to subscribe to. Budget names must be unique within an account.
+   *
    * @public
    */
   BudgetName: string | undefined;
 
   /**
-   * <p>The notification that you want to create a subscriber for.</p>
+   * The notification that you want to create a subscriber for.
+   *
    * @public
    */
   Notification: Notification | undefined;
 
   /**
-   * <p>The subscriber that you want to associate with a budget notification.</p>
+   * The subscriber that you want to associate with a budget notification.
+   *
    * @public
    */
   Subscriber: Subscriber | undefined;
 }
 
 /**
- * <p> Response of CreateSubscriber </p>
+ * Response of CreateSubscriber
+ *
  * @public
  */
 export interface CreateSubscriberResponse {}
 
 /**
- * <p> Request of DeleteBudget </p>
+ * Request of DeleteBudget
+ *
  * @public
  */
 export interface DeleteBudgetRequest {
   /**
-   * <p>The <code>accountId</code> that is associated with the budget that you want to delete.</p>
+   * The `accountId` that is associated with the budget that you want to delete.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The name of the budget that you want to delete.</p>
+   * The name of the budget that you want to delete.
+   *
    * @public
    */
   BudgetName: string | undefined;
 }
 
 /**
- * <p> Response of DeleteBudget </p>
+ * Response of DeleteBudget
+ *
  * @public
  */
 export interface DeleteBudgetResponse {}
@@ -1064,24 +1044,24 @@ export interface DeleteBudgetResponse {}
  */
 export interface DeleteBudgetActionRequest {
   /**
-   * <p>The account ID of the user. It's a 12-digit number.</p>
+   * The account ID of the user. It's a 12-digit number.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p> A string that represents the budget name. The ":" and "\" characters, and the
-   * 			"/action/" substring, aren't allowed.</p>
-   *          <p>Budget names are validated for content. Names that contain phone numbers, URLs, or
-   * 			email addresses combined with certain terms may be rejected.</p>
+   * A string that represents the budget name. The ":" and "\" characters, and the "/action/" substring, aren't allowed.
+   *
+   * Budget names are validated for content. Names that contain phone numbers, URLs, or email addresses combined with certain terms may be rejected.
+   *
    * @public
    */
   BudgetName: string | undefined;
 
   /**
-   * <p>
-   *          A system-generated universally unique identifier (UUID) for the action.
-   *       </p>
+   * A system-generated universally unique identifier (UUID) for the action.
+   *
    * @public
    */
   ActionId: string | undefined;
@@ -1092,114 +1072,129 @@ export interface DeleteBudgetActionRequest {
  */
 export interface DeleteBudgetActionResponse {
   /**
-   * <p>The account ID of the user. It's a 12-digit number.</p>
+   * The account ID of the user. It's a 12-digit number.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p> A string that represents the budget name. The ":" and "\" characters, and the
-   * 			"/action/" substring, aren't allowed.</p>
-   *          <p>Budget names are validated for content. Names that contain phone numbers, URLs, or
-   * 			email addresses combined with certain terms may be rejected.</p>
+   * A string that represents the budget name. The ":" and "\" characters, and the "/action/" substring, aren't allowed.
+   *
+   * Budget names are validated for content. Names that contain phone numbers, URLs, or email addresses combined with certain terms may be rejected.
+   *
    * @public
    */
   BudgetName: string | undefined;
 
   /**
-   * <p>A budget action resource. </p>
+   * A budget action resource.
+   *
    * @public
    */
   Action: Action | undefined;
 }
 
 /**
- * <p> Request of DeleteNotification </p>
+ * Request of DeleteNotification
+ *
  * @public
  */
 export interface DeleteNotificationRequest {
   /**
-   * <p>The <code>accountId</code> that is associated with the budget whose notification you want to delete.</p>
+   * The `accountId` that is associated with the budget whose notification you want to delete.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The name of the budget whose notification you want to delete.</p>
+   * The name of the budget whose notification you want to delete.
+   *
    * @public
    */
   BudgetName: string | undefined;
 
   /**
-   * <p>The notification that you want to delete.</p>
+   * The notification that you want to delete.
+   *
    * @public
    */
   Notification: Notification | undefined;
 }
 
 /**
- * <p> Response of DeleteNotification </p>
+ * Response of DeleteNotification
+ *
  * @public
  */
 export interface DeleteNotificationResponse {}
 
 /**
- * <p> Request of DeleteSubscriber </p>
+ * Request of DeleteSubscriber
+ *
  * @public
  */
 export interface DeleteSubscriberRequest {
   /**
-   * <p>The <code>accountId</code> that is associated with the budget whose subscriber you want to delete.</p>
+   * The `accountId` that is associated with the budget whose subscriber you want to delete.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The name of the budget whose subscriber you want to delete.</p>
+   * The name of the budget whose subscriber you want to delete.
+   *
    * @public
    */
   BudgetName: string | undefined;
 
   /**
-   * <p>The notification whose subscriber you want to delete.</p>
+   * The notification whose subscriber you want to delete.
+   *
    * @public
    */
   Notification: Notification | undefined;
 
   /**
-   * <p>The subscriber that you want to delete.</p>
+   * The subscriber that you want to delete.
+   *
    * @public
    */
   Subscriber: Subscriber | undefined;
 }
 
 /**
- * <p> Response of DeleteSubscriber </p>
+ * Response of DeleteSubscriber
+ *
  * @public
  */
 export interface DeleteSubscriberResponse {}
 
 /**
- * <p> Request of DescribeBudget </p>
+ * Request of DescribeBudget
+ *
  * @public
  */
 export interface DescribeBudgetRequest {
   /**
-   * <p>The <code>accountId</code> that is associated with the budget that you want a description of.</p>
+   * The `accountId` that is associated with the budget that you want a description of.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The name of the budget that you want a description of.</p>
+   * The name of the budget that you want a description of.
+   *
    * @public
    */
   BudgetName: string | undefined;
 
   /**
-   * <p>Specifies whether the response includes the filter expression associated with the
-   *          budget. By showing the filter expression, you can see detailed filtering logic applied to
-   *          the budget, such as Amazon Web Services services or tags that are being tracked.</p>
+   * Specifies whether the response includes the filter expression associated with the budget. By showing the filter expression, you can see detailed filtering logic applied to the budget, such as Amazon Web Services services or tags that are being tracked.
+   *
    * @public
    */
   ShowFilterExpression?: boolean | undefined;
@@ -1210,24 +1205,24 @@ export interface DescribeBudgetRequest {
  */
 export interface DescribeBudgetActionRequest {
   /**
-   * <p>The account ID of the user. It's a 12-digit number.</p>
+   * The account ID of the user. It's a 12-digit number.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p> A string that represents the budget name. The ":" and "\" characters, and the
-   * 			"/action/" substring, aren't allowed.</p>
-   *          <p>Budget names are validated for content. Names that contain phone numbers, URLs, or
-   * 			email addresses combined with certain terms may be rejected.</p>
+   * A string that represents the budget name. The ":" and "\" characters, and the "/action/" substring, aren't allowed.
+   *
+   * Budget names are validated for content. Names that contain phone numbers, URLs, or email addresses combined with certain terms may be rejected.
+   *
    * @public
    */
   BudgetName: string | undefined;
 
   /**
-   * <p>
-   *          A system-generated universally unique identifier (UUID) for the action.
-   *       </p>
+   * A system-generated universally unique identifier (UUID) for the action.
+   *
    * @public
    */
   ActionId: string | undefined;
@@ -1238,24 +1233,24 @@ export interface DescribeBudgetActionRequest {
  */
 export interface DescribeBudgetActionResponse {
   /**
-   * <p>The account ID of the user. It's a 12-digit number.</p>
+   * The account ID of the user. It's a 12-digit number.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p> A string that represents the budget name. The ":" and "\" characters, and the
-   * 			"/action/" substring, aren't allowed.</p>
-   *          <p>Budget names are validated for content. Names that contain phone numbers, URLs, or
-   * 			email addresses combined with certain terms may be rejected.</p>
+   * A string that represents the budget name. The ":" and "\" characters, and the "/action/" substring, aren't allowed.
+   *
+   * Budget names are validated for content. Names that contain phone numbers, URLs, or email addresses combined with certain terms may be rejected.
+   *
    * @public
    */
   BudgetName: string | undefined;
 
   /**
-   * <p>
-   *          A budget action resource.
-   *       </p>
+   * A budget action resource.
+   *
    * @public
    */
   Action: Action | undefined;
@@ -1266,45 +1261,45 @@ export interface DescribeBudgetActionResponse {
  */
 export interface DescribeBudgetActionHistoriesRequest {
   /**
-   * <p>The account ID of the user. It's a 12-digit number.</p>
+   * The account ID of the user. It's a 12-digit number.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p> A string that represents the budget name. The ":" and "\" characters, and the
-   * 			"/action/" substring, aren't allowed.</p>
-   *          <p>Budget names are validated for content. Names that contain phone numbers, URLs, or
-   * 			email addresses combined with certain terms may be rejected.</p>
+   * A string that represents the budget name. The ":" and "\" characters, and the "/action/" substring, aren't allowed.
+   *
+   * Budget names are validated for content. Names that contain phone numbers, URLs, or email addresses combined with certain terms may be rejected.
+   *
    * @public
    */
   BudgetName: string | undefined;
 
   /**
-   * <p>
-   *          A system-generated universally unique identifier (UUID) for the action.
-   *       </p>
+   * A system-generated universally unique identifier (UUID) for the action.
+   *
    * @public
    */
   ActionId: string | undefined;
 
   /**
-   * <p>The period of time that's covered by a budget. The period has a start date and an end
-   * 			date. The start date must come before the end date. There are no restrictions on the end
-   * 			date. </p>
+   * The period of time that's covered by a budget. The period has a start date and an end date. The start date must come before the end date. There are no restrictions on the end date.
+   *
    * @public
    */
   TimePeriod?: TimePeriod | undefined;
 
   /**
-   * <p> An integer that represents how many entries a paginated response contains. The
-   * 			maximum is 100.</p>
+   * An integer that represents how many entries a paginated response contains. The maximum is 100.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p> A generic string.</p>
+   * A generic string.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1315,15 +1310,15 @@ export interface DescribeBudgetActionHistoriesRequest {
  */
 export interface DescribeBudgetActionHistoriesResponse {
   /**
-   * <p>
-   *          The historical record of the budget action resource.
-   *       </p>
+   * The historical record of the budget action resource.
+   *
    * @public
    */
   ActionHistories: ActionHistory[] | undefined;
 
   /**
-   * <p> A generic string.</p>
+   * A generic string.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1334,20 +1329,22 @@ export interface DescribeBudgetActionHistoriesResponse {
  */
 export interface DescribeBudgetActionsForAccountRequest {
   /**
-   * <p>The account ID of the user. It's a 12-digit number.</p>
+   * The account ID of the user. It's a 12-digit number.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p> An integer that represents how many entries a paginated response contains. The
-   * 			maximum is 100.</p>
+   * An integer that represents how many entries a paginated response contains. The maximum is 100.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p> A generic string.</p>
+   * A generic string.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1358,15 +1355,15 @@ export interface DescribeBudgetActionsForAccountRequest {
  */
 export interface DescribeBudgetActionsForAccountResponse {
   /**
-   * <p>
-   *          A list of the budget action resources information.
-   *       </p>
+   * A list of the budget action resources information.
+   *
    * @public
    */
   Actions: Action[] | undefined;
 
   /**
-   * <p> A generic string.</p>
+   * A generic string.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1377,29 +1374,31 @@ export interface DescribeBudgetActionsForAccountResponse {
  */
 export interface DescribeBudgetActionsForBudgetRequest {
   /**
-   * <p>The account ID of the user. It's a 12-digit number.</p>
+   * The account ID of the user. It's a 12-digit number.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p> A string that represents the budget name. The ":" and "\" characters, and the
-   * 			"/action/" substring, aren't allowed.</p>
-   *          <p>Budget names are validated for content. Names that contain phone numbers, URLs, or
-   * 			email addresses combined with certain terms may be rejected.</p>
+   * A string that represents the budget name. The ":" and "\" characters, and the "/action/" substring, aren't allowed.
+   *
+   * Budget names are validated for content. Names that contain phone numbers, URLs, or email addresses combined with certain terms may be rejected.
+   *
    * @public
    */
   BudgetName: string | undefined;
 
   /**
-   * <p> An integer that represents how many entries a paginated response contains. The
-   * 			maximum is 100.</p>
+   * An integer that represents how many entries a paginated response contains. The maximum is 100.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p> A generic string.</p>
+   * A generic string.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1410,15 +1409,15 @@ export interface DescribeBudgetActionsForBudgetRequest {
  */
 export interface DescribeBudgetActionsForBudgetResponse {
   /**
-   * <p>
-   *          A list of the budget action resources information.
-   *       </p>
+   * A list of the budget action resources information.
+   *
    * @public
    */
   Actions: Action[] | undefined;
 
   /**
-   * <p> A generic string.</p>
+   * A generic string.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1429,43 +1428,45 @@ export interface DescribeBudgetActionsForBudgetResponse {
  */
 export interface DescribeBudgetNotificationsForAccountRequest {
   /**
-   * <p>The account ID of the user. It's a 12-digit number.</p>
+   * The account ID of the user. It's a 12-digit number.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p> An integer that represents how many budgets a paginated response contains. The
-   * 			default is 50. </p>
+   * An integer that represents how many budgets a paginated response contains. The default is 50.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p> A generic string.</p>
+   * A generic string.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>
- *          The budget name and associated notifications for an account.
- *       </p>
+ * The budget name and associated notifications for an account.
+ *
  * @public
  */
 export interface BudgetNotificationsForAccount {
   /**
-   * <p> A list of notifications.</p>
+   * A list of notifications.
+   *
    * @public
    */
   Notifications?: Notification[] | undefined;
 
   /**
-   * <p> A string that represents the budget name. The ":" and "\" characters, and the
-   * 			"/action/" substring, aren't allowed.</p>
-   *          <p>Budget names are validated for content. Names that contain phone numbers, URLs, or
-   * 			email addresses combined with certain terms may be rejected.</p>
+   * A string that represents the budget name. The ":" and "\" characters, and the "/action/" substring, aren't allowed.
+   *
+   * Budget names are validated for content. Names that contain phone numbers, URLs, or email addresses combined with certain terms may be rejected.
+   *
    * @public
    */
   BudgetName?: string | undefined;
@@ -1476,13 +1477,15 @@ export interface BudgetNotificationsForAccount {
  */
 export interface DescribeBudgetNotificationsForAccountResponse {
   /**
-   * <p> A list of budget names and associated notifications for an account. </p>
+   * A list of budget names and associated notifications for an account.
+   *
    * @public
    */
   BudgetNotificationsForAccount?: BudgetNotificationsForAccount[] | undefined;
 
   /**
-   * <p> A generic string.</p>
+   * A generic string.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1493,197 +1496,220 @@ export interface DescribeBudgetNotificationsForAccountResponse {
  */
 export interface DescribeBudgetPerformanceHistoryRequest {
   /**
-   * <p>The account ID of the user. It's a 12-digit number.</p>
+   * The account ID of the user. It's a 12-digit number.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p> A string that represents the budget name. The ":" and "\" characters, and the
-   * 			"/action/" substring, aren't allowed.</p>
-   *          <p>Budget names are validated for content. Names that contain phone numbers, URLs, or
-   * 			email addresses combined with certain terms may be rejected.</p>
+   * A string that represents the budget name. The ":" and "\" characters, and the "/action/" substring, aren't allowed.
+   *
+   * Budget names are validated for content. Names that contain phone numbers, URLs, or email addresses combined with certain terms may be rejected.
+   *
    * @public
    */
   BudgetName: string | undefined;
 
   /**
-   * <p>Retrieves how often the budget went into an <code>ALARM</code> state for the specified time period.</p>
+   * Retrieves how often the budget went into an `ALARM` state for the specified time period.
+   *
    * @public
    */
   TimePeriod?: TimePeriod | undefined;
 
   /**
-   * <p> An integer that represents how many entries a paginated response contains. The
-   * 			maximum is 100.</p>
+   * An integer that represents how many entries a paginated response contains. The maximum is 100.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p> A generic string.</p>
+   * A generic string.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>The amount of cost or usage that you created the budget for, compared to your actual
- * 			costs or usage.</p>
+ * The amount of cost or usage that you created the budget for, compared to your actual costs or usage.
+ *
  * @public
  */
 export interface BudgetedAndActualAmounts {
   /**
-   * <p>The amount of cost or usage that you created the budget for.</p>
+   * The amount of cost or usage that you created the budget for.
+   *
    * @public
    */
   BudgetedAmount?: Spend | undefined;
 
   /**
-   * <p>Your actual costs or usage for a budget period.</p>
+   * Your actual costs or usage for a budget period.
+   *
    * @public
    */
   ActualAmount?: Spend | undefined;
 
   /**
-   * <p>The time period that's covered by this budget comparison.</p>
+   * The time period that's covered by this budget comparison.
+   *
    * @public
    */
   TimePeriod?: TimePeriod | undefined;
 }
 
 /**
- * <p> Request of DescribeBudgets </p>
+ * Request of DescribeBudgets
+ *
  * @public
  */
 export interface DescribeBudgetsRequest {
   /**
-   * <p>The <code>accountId</code> that is associated with the budgets that you want to
-   *          describe.</p>
+   * The `accountId` that is associated with the budgets that you want to describe.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>An integer that represents how many budgets a paginated response contains. The default is
-   *          100.</p>
+   * An integer that represents how many budgets a paginated response contains. The default is 100.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The pagination token that you include in your request to indicate the next set of results that you want to retrieve.</p>
+   * The pagination token that you include in your request to indicate the next set of results that you want to retrieve.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>Specifies whether the response includes the filter expression associated with the
-   *          budgets. By showing the filter expression, you can see detailed filtering logic applied to
-   *          the budgets, such as Amazon Web Services services or tags that are being tracked.</p>
+   * Specifies whether the response includes the filter expression associated with the budgets. By showing the filter expression, you can see detailed filtering logic applied to the budgets, such as Amazon Web Services services or tags that are being tracked.
+   *
    * @public
    */
   ShowFilterExpression?: boolean | undefined;
 }
 
 /**
- * <p> Request of DescribeNotificationsForBudget </p>
+ * Request of DescribeNotificationsForBudget
+ *
  * @public
  */
 export interface DescribeNotificationsForBudgetRequest {
   /**
-   * <p>The <code>accountId</code> that is associated with the budget whose notifications you want
-   *          descriptions of.</p>
+   * The `accountId` that is associated with the budget whose notifications you want descriptions of.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The name of the budget whose notifications you want descriptions of.</p>
+   * The name of the budget whose notifications you want descriptions of.
+   *
    * @public
    */
   BudgetName: string | undefined;
 
   /**
-   * <p>An optional integer that represents how many entries a paginated response contains.</p>
+   * An optional integer that represents how many entries a paginated response contains.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The pagination token that you include in your request to indicate the next set of results that you want to retrieve.</p>
+   * The pagination token that you include in your request to indicate the next set of results that you want to retrieve.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p> Response of GetNotificationsForBudget </p>
+ * Response of GetNotificationsForBudget
+ *
  * @public
  */
 export interface DescribeNotificationsForBudgetResponse {
   /**
-   * <p>A list of notifications that are associated with a budget.</p>
+   * A list of notifications that are associated with a budget.
+   *
    * @public
    */
   Notifications?: Notification[] | undefined;
 
   /**
-   * <p>The pagination token in the service response that indicates the next set of results that you can retrieve.</p>
+   * The pagination token in the service response that indicates the next set of results that you can retrieve.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p> Request of DescribeSubscribersForNotification </p>
+ * Request of DescribeSubscribersForNotification
+ *
  * @public
  */
 export interface DescribeSubscribersForNotificationRequest {
   /**
-   * <p>The <code>accountId</code> that is associated with the budget whose subscribers you want descriptions of.</p>
+   * The `accountId` that is associated with the budget whose subscribers you want descriptions of.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The name of the budget whose subscribers you want descriptions of.</p>
+   * The name of the budget whose subscribers you want descriptions of.
+   *
    * @public
    */
   BudgetName: string | undefined;
 
   /**
-   * <p>The notification whose subscribers you want to list.</p>
+   * The notification whose subscribers you want to list.
+   *
    * @public
    */
   Notification: Notification | undefined;
 
   /**
-   * <p>An optional integer that represents how many entries a paginated response contains.</p>
+   * An optional integer that represents how many entries a paginated response contains.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The pagination token that you include in your request to indicate the next set of results that you want to retrieve.</p>
+   * The pagination token that you include in your request to indicate the next set of results that you want to retrieve.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p> Response of DescribeSubscribersForNotification </p>
+ * Response of DescribeSubscribersForNotification
+ *
  * @public
  */
 export interface DescribeSubscribersForNotificationResponse {
   /**
-   * <p>A list of subscribers that are associated with a notification.</p>
+   * A list of subscribers that are associated with a notification.
+   *
    * @public
    */
   Subscribers?: Subscriber[] | undefined;
 
   /**
-   * <p>The pagination token in the service response that indicates the next set of results that you can retrieve.</p>
+   * The pagination token in the service response that indicates the next set of results that you can retrieve.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1694,32 +1720,31 @@ export interface DescribeSubscribersForNotificationResponse {
  */
 export interface ExecuteBudgetActionRequest {
   /**
-   * <p>The account ID of the user. It's a 12-digit number.</p>
+   * The account ID of the user. It's a 12-digit number.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p> A string that represents the budget name. The ":" and "\" characters, and the
-   * 			"/action/" substring, aren't allowed.</p>
-   *          <p>Budget names are validated for content. Names that contain phone numbers, URLs, or
-   * 			email addresses combined with certain terms may be rejected.</p>
+   * A string that represents the budget name. The ":" and "\" characters, and the "/action/" substring, aren't allowed.
+   *
+   * Budget names are validated for content. Names that contain phone numbers, URLs, or email addresses combined with certain terms may be rejected.
+   *
    * @public
    */
   BudgetName: string | undefined;
 
   /**
-   * <p>
-   *          A system-generated universally unique identifier (UUID) for the action.
-   *       </p>
+   * A system-generated universally unique identifier (UUID) for the action.
+   *
    * @public
    */
   ActionId: string | undefined;
 
   /**
-   * <p>
-   *          The type of execution.
-   *       </p>
+   * The type of execution.
+   *
    * @public
    */
   ExecutionType: ExecutionType | undefined;
@@ -1730,32 +1755,31 @@ export interface ExecuteBudgetActionRequest {
  */
 export interface ExecuteBudgetActionResponse {
   /**
-   * <p>The account ID of the user. It's a 12-digit number.</p>
+   * The account ID of the user. It's a 12-digit number.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p> A string that represents the budget name. The ":" and "\" characters, and the
-   * 			"/action/" substring, aren't allowed.</p>
-   *          <p>Budget names are validated for content. Names that contain phone numbers, URLs, or
-   * 			email addresses combined with certain terms may be rejected.</p>
+   * A string that represents the budget name. The ":" and "\" characters, and the "/action/" substring, aren't allowed.
+   *
+   * Budget names are validated for content. Names that contain phone numbers, URLs, or email addresses combined with certain terms may be rejected.
+   *
    * @public
    */
   BudgetName: string | undefined;
 
   /**
-   * <p>
-   *          A system-generated universally unique identifier (UUID) for the action.
-   *       </p>
+   * A system-generated universally unique identifier (UUID) for the action.
+   *
    * @public
    */
   ActionId: string | undefined;
 
   /**
-   * <p>
-   *          The type of execution.
-   *       </p>
+   * The type of execution.
+   *
    * @public
    */
   ExecutionType: ExecutionType | undefined;
@@ -1766,7 +1790,8 @@ export interface ExecuteBudgetActionResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The unique identifier for the resource.</p>
+   * The unique identifier for the resource.
+   *
    * @public
    */
   ResourceARN: string | undefined;
@@ -1777,7 +1802,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>The tags associated with the resource.</p>
+   * The tags associated with the resource.
+   *
    * @public
    */
   ResourceTags?: ResourceTag[] | undefined;
@@ -1788,13 +1814,15 @@ export interface ListTagsForResourceResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The unique identifier for the resource.</p>
+   * The unique identifier for the resource.
+   *
    * @public
    */
   ResourceARN: string | undefined;
 
   /**
-   * <p>The tags associated with the resource.</p>
+   * The tags associated with the resource.
+   *
    * @public
    */
   ResourceTags: ResourceTag[] | undefined;
@@ -1810,13 +1838,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The unique identifier for the resource.</p>
+   * The unique identifier for the resource.
+   *
    * @public
    */
   ResourceARN: string | undefined;
 
   /**
-   * <p>The key that's associated with the tag.</p>
+   * The key that's associated with the tag.
+   *
    * @public
    */
   ResourceTagKeys: string[] | undefined;
@@ -1828,7 +1858,8 @@ export interface UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 /**
- * <p> Response of UpdateBudget </p>
+ * Response of UpdateBudget
+ *
  * @public
  */
 export interface UpdateBudgetResponse {}
@@ -1838,64 +1869,66 @@ export interface UpdateBudgetResponse {}
  */
 export interface UpdateBudgetActionRequest {
   /**
-   * <p>The account ID of the user. It's a 12-digit number.</p>
+   * The account ID of the user. It's a 12-digit number.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p> A string that represents the budget name. The ":" and "\" characters, and the
-   * 			"/action/" substring, aren't allowed.</p>
-   *          <p>Budget names are validated for content. Names that contain phone numbers, URLs, or
-   * 			email addresses combined with certain terms may be rejected.</p>
+   * A string that represents the budget name. The ":" and "\" characters, and the "/action/" substring, aren't allowed.
+   *
+   * Budget names are validated for content. Names that contain phone numbers, URLs, or email addresses combined with certain terms may be rejected.
+   *
    * @public
    */
   BudgetName: string | undefined;
 
   /**
-   * <p>
-   *          A system-generated universally unique identifier (UUID) for the action.
-   *       </p>
+   * A system-generated universally unique identifier (UUID) for the action.
+   *
    * @public
    */
   ActionId: string | undefined;
 
   /**
-   * <p> The type of a notification. It must be ACTUAL or FORECASTED.</p>
+   * The type of a notification. It must be ACTUAL or FORECASTED.
+   *
    * @public
    */
   NotificationType?: NotificationType | undefined;
 
   /**
-   * <p>The trigger threshold of the action. </p>
+   * The trigger threshold of the action.
+   *
    * @public
    */
   ActionThreshold?: ActionThreshold | undefined;
 
   /**
-   * <p>Specifies all of the type-specific parameters. </p>
+   * Specifies all of the type-specific parameters.
+   *
    * @public
    */
   Definition?: Definition | undefined;
 
   /**
-   * <p>
-   *          The role passed for action execution and reversion. Roles and actions must be in the same account.
-   *       </p>
+   * The role passed for action execution and reversion. Roles and actions must be in the same account.
+   *
    * @public
    */
   ExecutionRoleArn?: string | undefined;
 
   /**
-   * <p>
-   *          This specifies if the action needs manual or automatic approval.
-   *       </p>
+   * This specifies if the action needs manual or automatic approval.
+   *
    * @public
    */
   ApprovalModel?: ApprovalModel | undefined;
 
   /**
-   * <p> A list of subscribers.</p>
+   * A list of subscribers.
+   *
    * @public
    */
   Subscribers?: Subscriber[] | undefined;
@@ -1906,253 +1939,242 @@ export interface UpdateBudgetActionRequest {
  */
 export interface UpdateBudgetActionResponse {
   /**
-   * <p>The account ID of the user. It's a 12-digit number.</p>
+   * The account ID of the user. It's a 12-digit number.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p> A string that represents the budget name. The ":" and "\" characters, and the
-   * 			"/action/" substring, aren't allowed.</p>
-   *          <p>Budget names are validated for content. Names that contain phone numbers, URLs, or
-   * 			email addresses combined with certain terms may be rejected.</p>
+   * A string that represents the budget name. The ":" and "\" characters, and the "/action/" substring, aren't allowed.
+   *
+   * Budget names are validated for content. Names that contain phone numbers, URLs, or email addresses combined with certain terms may be rejected.
+   *
    * @public
    */
   BudgetName: string | undefined;
 
   /**
-   * <p>
-   *          The previous action resource information.
-   *       </p>
+   * The previous action resource information.
+   *
    * @public
    */
   OldAction: Action | undefined;
 
   /**
-   * <p>
-   *          The updated action resource information.
-   *       </p>
+   * The updated action resource information.
+   *
    * @public
    */
   NewAction: Action | undefined;
 }
 
 /**
- * <p> Request of UpdateNotification </p>
+ * Request of UpdateNotification
+ *
  * @public
  */
 export interface UpdateNotificationRequest {
   /**
-   * <p>The <code>accountId</code> that is associated with the budget whose notification you want to update.</p>
+   * The `accountId` that is associated with the budget whose notification you want to update.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The name of the budget whose notification you want to update.</p>
+   * The name of the budget whose notification you want to update.
+   *
    * @public
    */
   BudgetName: string | undefined;
 
   /**
-   * <p>The previous notification that is associated with a budget.</p>
+   * The previous notification that is associated with a budget.
+   *
    * @public
    */
   OldNotification: Notification | undefined;
 
   /**
-   * <p>The updated notification to be associated with a budget.</p>
+   * The updated notification to be associated with a budget.
+   *
    * @public
    */
   NewNotification: Notification | undefined;
 }
 
 /**
- * <p> Response of UpdateNotification </p>
+ * Response of UpdateNotification
+ *
  * @public
  */
 export interface UpdateNotificationResponse {}
 
 /**
- * <p> Request of UpdateSubscriber </p>
+ * Request of UpdateSubscriber
+ *
  * @public
  */
 export interface UpdateSubscriberRequest {
   /**
-   * <p>The <code>accountId</code> that is associated with the budget whose subscriber you want to update.</p>
+   * The `accountId` that is associated with the budget whose subscriber you want to update.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The name of the budget whose subscriber you want to update.</p>
+   * The name of the budget whose subscriber you want to update.
+   *
    * @public
    */
   BudgetName: string | undefined;
 
   /**
-   * <p>The notification whose subscriber you want to update.</p>
+   * The notification whose subscriber you want to update.
+   *
    * @public
    */
   Notification: Notification | undefined;
 
   /**
-   * <p>The previous subscriber that is associated with a budget notification.</p>
+   * The previous subscriber that is associated with a budget notification.
+   *
    * @public
    */
   OldSubscriber: Subscriber | undefined;
 
   /**
-   * <p>The updated subscriber that is associated with a budget notification.</p>
+   * The updated subscriber that is associated with a budget notification.
+   *
    * @public
    */
   NewSubscriber: Subscriber | undefined;
 }
 
 /**
- * <p> Response of UpdateSubscriber </p>
+ * Response of UpdateSubscriber
+ *
  * @public
  */
 export interface UpdateSubscriberResponse {}
 
 /**
- * <p>Use Expression to filter in various Budgets APIs.</p>
+ * Use Expression to filter in various Budgets APIs.
+ *
  * @public
  */
 export interface Expression {
   /**
-   * <p>Return results that match either Dimension object.</p>
+   * Return results that match either Dimension object.
+   *
    * @public
    */
   Or?: Expression[] | undefined;
 
   /**
-   * <p>Return results that match both Dimension objects.</p>
+   * Return results that match both Dimension objects.
+   *
    * @public
    */
   And?: Expression[] | undefined;
 
   /**
-   * <p>Return results that don't match a Dimension object.</p>
+   * Return results that don't match a Dimension object.
+   *
    * @public
    */
   Not?: Expression | undefined;
 
   /**
-   * <p>The specific Dimension to use for Expression.</p>
+   * The specific Dimension to use for Expression.
+   *
    * @public
    */
   Dimensions?: ExpressionDimensionValues | undefined;
 
   /**
-   * <p>The specific Tag to use for Expression.</p>
+   * The specific Tag to use for Expression.
+   *
    * @public
    */
   Tags?: TagValues | undefined;
 
   /**
-   * <p>The filter that's based on CostCategoryValues.</p>
+   * The filter that's based on CostCategoryValues.
+   *
    * @public
    */
   CostCategories?: CostCategoryValues | undefined;
 
   /**
-   * <p>The filter that limits results based on the values of specific product attributes.</p>
+   * The filter that limits results based on the values of specific product attributes.
+   *
    * @public
    */
   ProductAttributes?: ProductAttributeValues | undefined;
 }
 
 /**
- * <p>Represents the output of the <code>CreateBudget</code> operation. The content consists
- * 			of the detailed metadata and data file information, and the current status of the
- * 				<code>budget</code> object.</p>
- *          <p>This is the Amazon Resource Name (ARN) pattern for a budget: </p>
- *          <p>
- *             <code>arn:aws:budgets::AccountId:budget/budgetName</code>
- *          </p>
+ * Represents the output of the `CreateBudget` operation. The content consists of the detailed metadata and data file information, and the current status of the `budget` object.
+ *
+ * This is the Amazon Resource Name (ARN) pattern for a budget:
+ *
+ * `arn:aws:budgets::AccountId:budget/budgetName`
+ *
  * @public
  */
 export interface Budget {
   /**
-   * <p>The name of a budget. The name must be unique within an account. The <code>:</code>
-   * 			and <code>\</code> characters, and the "/action/" substring, aren't allowed in
-   * 				<code>BudgetName</code>.</p>
-   *          <p>Budget names are validated for content. Names that contain phone numbers, URLs, or
-   * 			email addresses combined with certain terms may be rejected.</p>
+   * The name of a budget. The name must be unique within an account. The `:` and `\` characters, and the "/action/" substring, aren't allowed in `BudgetName`.
+   *
+   * Budget names are validated for content. Names that contain phone numbers, URLs, or email addresses combined with certain terms may be rejected.
+   *
    * @public
    */
   BudgetName: string | undefined;
 
   /**
-   * <p>The total amount of cost, usage, RI utilization, RI coverage, Savings Plans
-   * 			utilization, or Savings Plans coverage that you want to track with your budget.</p>
-   *          <p>
-   *             <code>BudgetLimit</code> is required for cost or usage budgets, but optional for RI or
-   * 			Savings Plans utilization or coverage budgets. RI and Savings Plans utilization or
-   * 			coverage budgets default to <code>100</code>. This is the only valid value for RI or
-   * 			Savings Plans utilization or coverage budgets. You can't use <code>BudgetLimit</code>
-   * 			with <code>PlannedBudgetLimits</code> for <code>CreateBudget</code> and
-   * 				<code>UpdateBudget</code> actions. </p>
+   * The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget.
+   *
+   * `BudgetLimit` is required for cost or usage budgets, but optional for RI or Savings Plans utilization or coverage budgets. RI and Savings Plans utilization or coverage budgets default to `100`. This is the only valid value for RI or Savings Plans utilization or coverage budgets. You can't use `BudgetLimit` with `PlannedBudgetLimits` for `CreateBudget` and `UpdateBudget` actions.
+   *
    * @public
    */
   BudgetLimit?: Spend | undefined;
 
   /**
-   * <p>A map containing multiple <code>BudgetLimit</code>, including current or future
-   * 			limits.</p>
-   *          <p>
-   *             <code>PlannedBudgetLimits</code> is available for cost or usage budget and supports
-   * 			both monthly and quarterly <code>TimeUnit</code>. </p>
-   *          <p>For monthly budgets, provide 12 months of <code>PlannedBudgetLimits</code> values.
-   * 			This must start from the current month and include the next 11 months. The
-   * 				<code>key</code> is the start of the month, <code>UTC</code> in epoch seconds. </p>
-   *          <p>For quarterly budgets, provide four quarters of <code>PlannedBudgetLimits</code> value
-   * 			entries in standard calendar quarter increments. This must start from the current
-   * 			quarter and include the next three quarters. The <code>key</code> is the start of the
-   * 			quarter, <code>UTC</code> in epoch seconds. </p>
-   *          <p>If the planned budget expires before 12 months for monthly or four quarters for
-   * 			quarterly, provide the <code>PlannedBudgetLimits</code> values only for the remaining
-   * 			periods.</p>
-   *          <p>If the budget begins at a date in the future, provide <code>PlannedBudgetLimits</code>
-   * 			values from the start date of the budget. </p>
-   *          <p>After all of the <code>BudgetLimit</code> values in <code>PlannedBudgetLimits</code>
-   * 			are used, the budget continues to use the last limit as the <code>BudgetLimit</code>. At
-   * 			that point, the planned budget provides the same experience as a fixed budget. </p>
-   *          <p>
-   *             <code>DescribeBudget</code> and <code>DescribeBudgets</code> response along with
-   * 				<code>PlannedBudgetLimits</code> also contain <code>BudgetLimit</code> representing
-   * 			the current month or quarter limit present in <code>PlannedBudgetLimits</code>. This
-   * 			only applies to budgets that are created with <code>PlannedBudgetLimits</code>. Budgets
-   * 			that are created without <code>PlannedBudgetLimits</code> only contain
-   * 				<code>BudgetLimit</code>. They don't contain
-   * 			<code>PlannedBudgetLimits</code>.</p>
+   * A map containing multiple `BudgetLimit`, including current or future limits.
+   *
+   * `PlannedBudgetLimits` is available for cost or usage budget and supports both monthly and quarterly `TimeUnit`.
+   *
+   * For monthly budgets, provide 12 months of `PlannedBudgetLimits` values. This must start from the current month and include the next 11 months. The `key` is the start of the month, `UTC` in epoch seconds.
+   *
+   * For quarterly budgets, provide four quarters of `PlannedBudgetLimits` value entries in standard calendar quarter increments. This must start from the current quarter and include the next three quarters. The `key` is the start of the quarter, `UTC` in epoch seconds.
+   *
+   * If the planned budget expires before 12 months for monthly or four quarters for quarterly, provide the `PlannedBudgetLimits` values only for the remaining periods.
+   *
+   * If the budget begins at a date in the future, provide `PlannedBudgetLimits` values from the start date of the budget.
+   *
+   * After all of the `BudgetLimit` values in `PlannedBudgetLimits` are used, the budget continues to use the last limit as the `BudgetLimit`. At that point, the planned budget provides the same experience as a fixed budget.
+   *
+   * `DescribeBudget` and `DescribeBudgets` response along with `PlannedBudgetLimits` also contain `BudgetLimit` representing the current month or quarter limit present in `PlannedBudgetLimits`. This only applies to budgets that are created with `PlannedBudgetLimits`. Budgets that are created without `PlannedBudgetLimits` only contain `BudgetLimit`. They don't contain `PlannedBudgetLimits`.
+   *
    * @public
    */
   PlannedBudgetLimits?: Record<string, Spend> | undefined;
 
   /**
-   * <p>The cost filters, such as <code>Region</code>, <code>Service</code>,
-   * 				<code>LinkedAccount</code>, <code>Tag</code>, or <code>CostCategory</code>, that are
-   * 			applied to a budget.</p>
-   *          <p>Amazon Web Services Budgets supports the following services as a <code>Service</code> filter for RI budgets:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Amazon EC2</p>
-   *             </li>
-   *             <li>
-   *                <p>Amazon Redshift</p>
-   *             </li>
-   *             <li>
-   *                <p>Amazon Relational Database Service</p>
-   *             </li>
-   *             <li>
-   *                <p>Amazon ElastiCache</p>
-   *             </li>
-   *             <li>
-   *                <p>Amazon OpenSearch Service</p>
-   *             </li>
-   *          </ul>
+   * The cost filters, such as `Region`, `Service`, `LinkedAccount`, `Tag`, or `CostCategory`, that are applied to a budget.
+   *
+   * Amazon Web Services Budgets supports the following services as a `Service` filter for RI budgets:
+   *
+   * - Amazon EC2
+   * - Amazon Redshift
+   * - Amazon Relational Database Service
+   * - Amazon ElastiCache
+   * - Amazon OpenSearch Service
    *
    * @deprecated (since 2025-04-18) CostFilters lack support for newer dimensions and filtering options. Please consider using the new 'FilterExpression' field.
    * @public
@@ -2160,11 +2182,9 @@ export interface Budget {
   CostFilters?: Record<string, string[]> | undefined;
 
   /**
-   * <p>The types of costs that are included in this <code>COST</code> budget.</p>
-   *          <p>
-   *             <code>USAGE</code>, <code>RI_UTILIZATION</code>, <code>RI_COVERAGE</code>,
-   * 				<code>SAVINGS_PLANS_UTILIZATION</code>, and <code>SAVINGS_PLANS_COVERAGE</code>
-   * 			budgets do not have <code>CostTypes</code>.</p>
+   * The types of costs that are included in this `COST` budget.
+   *
+   * `USAGE`, `RI_UTILIZATION`, `RI_COVERAGE`, `SAVINGS_PLANS_UTILIZATION`, and `SAVINGS_PLANS_COVERAGE` budgets do not have `CostTypes`.
    *
    * @deprecated (since 2025-04-18) CostTypes lack support for newer record type dimensions and filtering options. Please consider using the new 'Metrics' field.
    * @public
@@ -2172,182 +2192,186 @@ export interface Budget {
   CostTypes?: CostTypes | undefined;
 
   /**
-   * <p>The length of time until a budget resets the actual and forecasted spend.</p>
+   * The length of time until a budget resets the actual and forecasted spend.
+   *
    * @public
    */
   TimeUnit: TimeUnit | undefined;
 
   /**
-   * <p>The period of time that's covered by a budget. You set the start date and end date. The
-   * 			start date must come before the end date. The end date must come before <code>06/15/87
-   * 				00:00 UTC</code>. </p>
-   *          <p>If you create your budget and don't specify a start date, Amazon Web Services defaults
-   * 			to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, ANNUALLY, or CUSTOM). For
-   * 			example, if you created your budget on January 24, 2018, chose <code>DAILY</code>, and
-   * 			didn't set a start date, Amazon Web Services set your start date to <code>01/24/18 00:00
-   * 				UTC</code>. If you chose <code>MONTHLY</code>, Amazon Web Services set your start
-   * 			date to <code>01/01/18 00:00 UTC</code>. If you didn't specify an end date, Amazon Web Services set your end date to <code>06/15/87 00:00 UTC</code>. The defaults are
-   * 			the same for the Billing and Cost Management console and the API. </p>
-   *          <p>You can change either date with the <code>UpdateBudget</code> operation.</p>
-   *          <p>After the end date, Amazon Web Services deletes the budget and all the associated
-   * 			notifications and subscribers.</p>
+   * The period of time that's covered by a budget. You set the start date and end date. The start date must come before the end date. The end date must come before `06/15/87 00:00 UTC`.
+   *
+   * If you create your budget and don't specify a start date, Amazon Web Services defaults to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, ANNUALLY, or CUSTOM). For example, if you created your budget on January 24, 2018, chose `DAILY`, and didn't set a start date, Amazon Web Services set your start date to `01/24/18 00:00 UTC`. If you chose `MONTHLY`, Amazon Web Services set your start date to `01/01/18 00:00 UTC`. If you didn't specify an end date, Amazon Web Services set your end date to `06/15/87 00:00 UTC`. The defaults are the same for the Billing and Cost Management console and the API.
+   *
+   * You can change either date with the `UpdateBudget` operation.
+   *
+   * After the end date, Amazon Web Services deletes the budget and all the associated notifications and subscribers.
+   *
    * @public
    */
   TimePeriod?: TimePeriod | undefined;
 
   /**
-   * <p>The actual and forecasted cost or usage that the budget tracks.</p>
+   * The actual and forecasted cost or usage that the budget tracks.
+   *
    * @public
    */
   CalculatedSpend?: CalculatedSpend | undefined;
 
   /**
-   * <p>Specifies whether this budget tracks costs, usage, RI utilization, RI coverage,
-   * 			Savings Plans utilization, or Savings Plans coverage.</p>
+   * Specifies whether this budget tracks costs, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage.
+   *
    * @public
    */
   BudgetType: BudgetType | undefined;
 
   /**
-   * <p>The last time that you updated this budget.</p>
+   * The last time that you updated this budget.
+   *
    * @public
    */
   LastUpdatedTime?: Date | undefined;
 
   /**
-   * <p>The parameters that determine the budget amount for an auto-adjusting budget.</p>
+   * The parameters that determine the budget amount for an auto-adjusting budget.
+   *
    * @public
    */
   AutoAdjustData?: AutoAdjustData | undefined;
 
   /**
-   * <p>The filtering dimensions for the budget and their corresponding values.</p>
+   * The filtering dimensions for the budget and their corresponding values.
+   *
    * @public
    */
   FilterExpression?: Expression | undefined;
 
   /**
-   * <p>The definition for how the budget data is aggregated.</p>
+   * The definition for how the budget data is aggregated.
+   *
    * @public
    */
   Metrics?: Metric[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) that uniquely identifies a specific billing view. The ARN is
-   * 			used to specify which particular billing view you want to interact with or retrieve
-   * 			information from when making API calls related to Amazon Web Services Billing and Cost
-   * 			Management features. The BillingViewArn can be retrieved by calling the ListBillingViews
-   * 			API.</p>
+   * The Amazon Resource Name (ARN) that uniquely identifies a specific billing view. The ARN is used to specify which particular billing view you want to interact with or retrieve information from when making API calls related to Amazon Web Services Billing and Cost Management features. The BillingViewArn can be retrieved by calling the ListBillingViews API.
+   *
    * @public
    */
   BillingViewArn?: string | undefined;
 
   /**
-   * <p>The current operational state of a Billing View derived resource.</p>
+   * The current operational state of a Billing View derived resource.
+   *
    * @public
    */
   HealthStatus?: HealthStatus | undefined;
 }
 
 /**
- * <p>A history of the state of a budget at the end of the budget's specified time
- * 			period.</p>
+ * A history of the state of a budget at the end of the budget's specified time period.
+ *
  * @public
  */
 export interface BudgetPerformanceHistory {
   /**
-   * <p> A string that represents the budget name. The ":" and "\" characters, and the
-   * 			"/action/" substring, aren't allowed.</p>
-   *          <p>Budget names are validated for content. Names that contain phone numbers, URLs, or
-   * 			email addresses combined with certain terms may be rejected.</p>
+   * A string that represents the budget name. The ":" and "\" characters, and the "/action/" substring, aren't allowed.
+   *
+   * Budget names are validated for content. Names that contain phone numbers, URLs, or email addresses combined with certain terms may be rejected.
+   *
    * @public
    */
   BudgetName?: string | undefined;
 
   /**
-   * <p> The type of a budget. It must be one of the following types: </p>
-   *          <p>
-   *             <code>COST</code>, <code>USAGE</code>, <code>RI_UTILIZATION</code>,
-   * 				<code>RI_COVERAGE</code>, <code>SAVINGS_PLANS_UTILIZATION</code>, or
-   * 				<code>SAVINGS_PLANS_COVERAGE</code>.</p>
+   * The type of a budget. It must be one of the following types:
+   *
+   * `COST`, `USAGE`, `RI_UTILIZATION`, `RI_COVERAGE`, `SAVINGS_PLANS_UTILIZATION`, or `SAVINGS_PLANS_COVERAGE`.
+   *
    * @public
    */
   BudgetType?: BudgetType | undefined;
 
   /**
-   * <p>The history of the cost filters for a budget during the specified time period.</p>
+   * The history of the cost filters for a budget during the specified time period.
+   *
    * @public
    */
   CostFilters?: Record<string, string[]> | undefined;
 
   /**
-   * <p>The history of the cost types for a budget during the specified time period.</p>
+   * The history of the cost types for a budget during the specified time period.
+   *
    * @public
    */
   CostTypes?: CostTypes | undefined;
 
   /**
-   * <p> The time unit of the budget, such as MONTHLY or QUARTERLY.</p>
+   * The time unit of the budget, such as MONTHLY or QUARTERLY.
+   *
    * @public
    */
   TimeUnit?: TimeUnit | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) that uniquely identifies a specific billing view. The ARN is
-   * 			used to specify which particular billing view you want to interact with or retrieve
-   * 			information from when making API calls related to Amazon Web Services Billing and Cost
-   * 			Management features. The BillingViewArn can be retrieved by calling the ListBillingViews
-   * 			API.</p>
+   * The Amazon Resource Name (ARN) that uniquely identifies a specific billing view. The ARN is used to specify which particular billing view you want to interact with or retrieve information from when making API calls related to Amazon Web Services Billing and Cost Management features. The BillingViewArn can be retrieved by calling the ListBillingViews API.
+   *
    * @public
    */
   BillingViewArn?: string | undefined;
 
   /**
-   * <p>A list of amounts of cost or usage that you created budgets for, which are compared to
-   * 			your actual costs or usage.</p>
+   * A list of amounts of cost or usage that you created budgets for, which are compared to your actual costs or usage.
+   *
    * @public
    */
   BudgetedAndActualAmountsList?: BudgetedAndActualAmounts[] | undefined;
 
   /**
-   * <p>The filtering dimensions for the budget and their corresponding values.</p>
+   * The filtering dimensions for the budget and their corresponding values.
+   *
    * @public
    */
   FilterExpression?: Expression | undefined;
 
   /**
-   * <p>The definition for how the budget data is aggregated.</p>
+   * The definition for how the budget data is aggregated.
+   *
    * @public
    */
   Metrics?: Metric[] | undefined;
 }
 
 /**
- * <p> Request of CreateBudget </p>
+ * Request of CreateBudget
+ *
  * @public
  */
 export interface CreateBudgetRequest {
   /**
-   * <p>The <code>accountId</code> that is associated with the budget.</p>
+   * The `accountId` that is associated with the budget.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The budget object that you want to create.</p>
+   * The budget object that you want to create.
+   *
    * @public
    */
   Budget: Budget | undefined;
 
   /**
-   * <p>A notification that you want to associate with a budget. A budget can have up to five notifications, and each notification can have one SNS subscriber and up to 10 email subscribers. If you include notifications and subscribers in your <code>CreateBudget</code> call, Amazon Web Services creates the notifications and subscribers for you.</p>
+   * A notification that you want to associate with a budget. A budget can have up to five notifications, and each notification can have one SNS subscriber and up to 10 email subscribers. If you include notifications and subscribers in your `CreateBudget` call, Amazon Web Services creates the notifications and subscribers for you.
+   *
    * @public
    */
   NotificationsWithSubscribers?: NotificationWithSubscribers[] | undefined;
 
   /**
-   * <p>An optional list of tags to associate with the specified budget. Each tag consists of a
-   *          key and a value, and each key must be unique for the resource.</p>
+   * An optional list of tags to associate with the specified budget. Each tag consists of a key and a value, and each key must be unique for the resource.
+   *
    * @public
    */
   ResourceTags?: ResourceTag[] | undefined;
@@ -2358,62 +2382,73 @@ export interface CreateBudgetRequest {
  */
 export interface DescribeBudgetPerformanceHistoryResponse {
   /**
-   * <p>The history of how often the budget has gone into an <code>ALARM</code> state.</p>
-   *          <p>For <code>DAILY</code> budgets, the history saves the state of the budget for the last 60 days. For <code>MONTHLY</code> budgets, the history saves the state of the budget for the current month plus the last 12 months. For <code>QUARTERLY</code> budgets, the history saves the state of the budget for the last four quarters.</p>
+   * The history of how often the budget has gone into an `ALARM` state.
+   *
+   * For `DAILY` budgets, the history saves the state of the budget for the last 60 days. For `MONTHLY` budgets, the history saves the state of the budget for the current month plus the last 12 months. For `QUARTERLY` budgets, the history saves the state of the budget for the last four quarters.
+   *
    * @public
    */
   BudgetPerformanceHistory?: BudgetPerformanceHistory | undefined;
 
   /**
-   * <p> A generic string.</p>
+   * A generic string.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p> Response of DescribeBudget </p>
+ * Response of DescribeBudget
+ *
  * @public
  */
 export interface DescribeBudgetResponse {
   /**
-   * <p>The description of the budget.</p>
+   * The description of the budget.
+   *
    * @public
    */
   Budget?: Budget | undefined;
 }
 
 /**
- * <p> Request of UpdateBudget </p>
+ * Request of UpdateBudget
+ *
  * @public
  */
 export interface UpdateBudgetRequest {
   /**
-   * <p>The <code>accountId</code> that is associated with the budget that you want to update.</p>
+   * The `accountId` that is associated with the budget that you want to update.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The budget that you want to update your budget to.</p>
+   * The budget that you want to update your budget to.
+   *
    * @public
    */
   NewBudget: Budget | undefined;
 }
 
 /**
- * <p> Response of DescribeBudgets </p>
+ * Response of DescribeBudgets
+ *
  * @public
  */
 export interface DescribeBudgetsResponse {
   /**
-   * <p>A list of budgets.</p>
+   * A list of budgets.
+   *
    * @public
    */
   Budgets?: Budget[] | undefined;
 
   /**
-   * <p>The pagination token in the service response that indicates the next set of results that you can retrieve.</p>
+   * The pagination token in the service response that indicates the next set of results that you can retrieve.
+   *
    * @public
    */
   NextToken?: string | undefined;

@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { ApplicationCostProfilerServiceException as __BaseException } from "./ApplicationCostProfilerServiceException";
 
 /**
- * <p>You do not have permission to perform this action.</p>
+ * You do not have permission to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>An internal server error occurred. Retry your request.</p>
+ * An internal server error occurred. Retry your request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -46,7 +48,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The calls to AWS Application Cost Profiler API are throttled. The request was denied.</p>
+ * The calls to AWS Application Cost Profiler API are throttled. The request was denied.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -67,7 +70,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints for the API.</p>
+ * The input fails to satisfy the constraints for the API.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -88,7 +92,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>Your request exceeds one or more of the service quotas.</p>
+ * Your request exceeds one or more of the service quotas.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {

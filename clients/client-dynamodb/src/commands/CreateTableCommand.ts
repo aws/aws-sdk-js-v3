@@ -23,19 +23,14 @@ export interface CreateTableCommandInput extends CreateTableInput {}
 export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataBearer {}
 
 /**
- * <p>The <code>CreateTable</code> operation adds a new table to your account. In an Amazon Web Services account, table names must be unique within each Region. That is, you can
- *             have two tables with same name if you create the tables in different Regions.</p>
- *          <p>
- *             <code>CreateTable</code> is an asynchronous operation. Upon receiving a
- *                 <code>CreateTable</code> request, DynamoDB immediately returns a response with a
- *                 <code>TableStatus</code> of <code>CREATING</code>. After the table is created,
- *             DynamoDB sets the <code>TableStatus</code> to <code>ACTIVE</code>. You can perform read
- *             and write operations only on an <code>ACTIVE</code> table. </p>
- *          <p>You can optionally define secondary indexes on the new table, as part of the
- *                 <code>CreateTable</code> operation. If you want to create multiple tables with
- *             secondary indexes on them, you must create the tables sequentially. Only one table with
- *             secondary indexes can be in the <code>CREATING</code> state at any given time.</p>
- *          <p>You can use the <code>DescribeTable</code> action to check the table status.</p>
+ * The `CreateTable` operation adds a new table to your account. In an Amazon Web Services account, table names must be unique within each Region. That is, you can have two tables with same name if you create the tables in different Regions.
+ *
+ * `CreateTable` is an asynchronous operation. Upon receiving a `CreateTable` request, DynamoDB immediately returns a response with a `TableStatus` of `CREATING`. After the table is created, DynamoDB sets the `TableStatus` to `ACTIVE`. You can perform read and write operations only on an `ACTIVE` table.
+ *
+ * You can optionally define secondary indexes on the new table, as part of the `CreateTable` operation. If you want to create multiple tables with secondary indexes on them, you must create the tables sequentially. Only one table with secondary indexes can be in the `CREATING` state at any given time.
+ *
+ * You can use the `DescribeTable` action to check the table status.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -381,48 +376,40 @@ export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataB
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidEndpointException} (client fault)
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>There is no limit to the number of daily on-demand backups that can be taken. </p>
- *          <p>For most purposes, up to 500 simultaneous table operations are allowed per account.
- *             These operations include <code>CreateTable</code>, <code>UpdateTable</code>,
- *                 <code>DeleteTable</code>,<code>UpdateTimeToLive</code>,
- *                 <code>RestoreTableFromBackup</code>, and <code>RestoreTableToPointInTime</code>. </p>
- *          <p>When you are creating a table with one or more secondary indexes, you can have up
- *             to 250 such requests running at a time. However, if the table or index specifications
- *             are complex, then DynamoDB might temporarily reduce the number of concurrent
- *             operations.</p>
- *          <p>When importing into DynamoDB, up to 50 simultaneous import table operations are
- *             allowed per account.</p>
- *          <p>There is a soft account quota of 2,500 tables.</p>
- *          <p>GetRecords was called with a value of more than 1000 for the limit request
- *             parameter.</p>
- *          <p>More than 2 processes are reading from the same streams shard at the same time.
- *             Exceeding this limit may result in request throttling.</p>
+ *
+ * There is no limit to the number of daily on-demand backups that can be taken.
+ *
+ * For most purposes, up to 500 simultaneous table operations are allowed per account. These operations include `CreateTable`, `UpdateTable`, `DeleteTable`,`UpdateTimeToLive`, `RestoreTableFromBackup`, and `RestoreTableToPointInTime`.
+ *
+ * When you are creating a table with one or more secondary indexes, you can have up to 250 such requests running at a time. However, if the table or index specifications are complex, then DynamoDB might temporarily reduce the number of concurrent operations.
+ *
+ * When importing into DynamoDB, up to 50 simultaneous import table operations are allowed per account.
+ *
+ * There is a soft account quota of 2,500 tables.
+ *
+ * GetRecords was called with a value of more than 1000 for the limit request parameter.
+ *
+ * More than 2 processes are reading from the same streams shard at the same time. Exceeding this limit may result in request throttling.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The operation conflicts with the resource's availability. For example:</p>
- *          <ul>
- *             <li>
- *                <p>You attempted to recreate an existing table.</p>
- *             </li>
- *             <li>
- *                <p>You tried to delete a table currently in the <code>CREATING</code>
- *                     state.</p>
- *             </li>
- *             <li>
- *                <p>You tried to update a resource that was already being updated.</p>
- *             </li>
- *          </ul>
- *          <p>When appropriate, wait for the ongoing update to complete and attempt the request
- *             again.</p>
+ *
+ * The operation conflicts with the resource's availability. For example:
+ *
+ * - You attempted to recreate an existing table.
+ * - You tried to delete a table currently in the `CREATING` state.
+ * - You tried to update a resource that was already being updated.
+ *
+ * When appropriate, wait for the ongoing update to complete and attempt the request again.
  *
  * @throws {@link DynamoDBServiceException}
- * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * Base exception class for all service exceptions from DynamoDB service.
  *
  * @public
  */

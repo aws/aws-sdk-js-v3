@@ -26,7 +26,8 @@ export interface ListDataQualityStatisticAnnotationsCommandInput extends ListDat
 export interface ListDataQualityStatisticAnnotationsCommandOutput extends ListDataQualityStatisticAnnotationsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieve annotations for a data quality statistic.</p>
+ * Retrieve annotations for a data quality statistic.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,14 +72,16 @@ export interface ListDataQualityStatisticAnnotationsCommandOutput extends ListDa
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

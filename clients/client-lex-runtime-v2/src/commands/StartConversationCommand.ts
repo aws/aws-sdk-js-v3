@@ -23,66 +23,28 @@ export interface StartConversationCommandInput extends StartConversationRequest 
 export interface StartConversationCommandOutput extends StartConversationResponse, __MetadataBearer {}
 
 /**
- * <p>Starts an HTTP/2 bidirectional event stream that enables you to send
- *          audio, text, or DTMF input in real time. After your application starts
- *          a conversation, users send input to Amazon Lex V2 as a stream of events. Amazon Lex V2
- *          processes the incoming events and responds with streaming text or audio
- *          events.
- *       </p>
- *          <p>Audio input must be in the following format: <code>audio/lpcm
- *             sample-rate=8000 sample-size-bits=16 channel-count=1;
- *             is-big-endian=false</code>.</p>
- *          <p>If the optional post-fulfillment response is specified, the messages
- *          are returned as follows. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_PostFulfillmentStatusSpecification.html">PostFulfillmentStatusSpecification</a>.</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <b>Success message</b> - Returned if
- *                the Lambda function completes successfully and the intent state is
- *                fulfilled or ready fulfillment if the message is present.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Failed message</b> - The failed
- *                message is returned if the Lambda function throws an exception or
- *                if the Lambda function returns a failed intent state without a
- *                message.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Timeout message</b> - If you
- *                don't configure a timeout message and a timeout, and the Lambda
- *                function doesn't return within 30 seconds, the timeout message is
- *                returned. If you configure a timeout, the timeout message is
- *                returned when the period times out. </p>
- *             </li>
- *          </ul>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/streaming-progress.html#progress-complete.html">Completion message</a>.</p>
- *          <p>If the optional update message is configured, it is played at the
- *          specified frequency while the Lambda function is running and the update
- *          message state is active. If the fulfillment update message is not
- *          active, the Lambda function runs with a 30 second timeout. </p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/streaming-progress.html#progress-update.html">Update message </a>
- *          </p>
- *          <p>The <code>StartConversation</code> operation is supported only in
- *          the following SDKs: </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/goto/SdkForCpp/runtime.lex.v2-2020-08-07/StartConversation">AWS SDK for C++</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/goto/SdkForJavaV2/runtime.lex.v2-2020-08-07/StartConversation">AWS SDK for Java V2</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/goto/SdkForRubyV3/runtime.lex.v2-2020-08-07/StartConversation">AWS SDK for Ruby V3</a>
- *                </p>
- *             </li>
- *          </ul>
+ * Starts an HTTP/2 bidirectional event stream that enables you to send audio, text, or DTMF input in real time. After your application starts a conversation, users send input to Amazon Lex V2 as a stream of events. Amazon Lex V2 processes the incoming events and responds with streaming text or audio events.
+ *
+ * Audio input must be in the following format: `audio/lpcm sample-rate=8000 sample-size-bits=16 channel-count=1; is-big-endian=false`.
+ *
+ * If the optional post-fulfillment response is specified, the messages are returned as follows. For more information, see [PostFulfillmentStatusSpecification](https://docs.aws.amazon.com/lexv2/latest/dg/API_PostFulfillmentStatusSpecification.html).
+ *
+ * - **Success message** - Returned if the Lambda function completes successfully and the intent state is fulfilled or ready fulfillment if the message is present.
+ * - **Failed message** - The failed message is returned if the Lambda function throws an exception or if the Lambda function returns a failed intent state without a message.
+ * - **Timeout message** - If you don't configure a timeout message and a timeout, and the Lambda function doesn't return within 30 seconds, the timeout message is returned. If you configure a timeout, the timeout message is returned when the period times out.
+ *
+ * For more information, see [Completion message](https://docs.aws.amazon.com/lexv2/latest/dg/streaming-progress.html#progress-complete.html).
+ *
+ * If the optional update message is configured, it is played at the specified frequency while the Lambda function is running and the update message state is active. If the fulfillment update message is not active, the Lambda function runs with a 30 second timeout.
+ *
+ * For more information, see [Update message](https://docs.aws.amazon.com/lexv2/latest/dg/streaming-progress.html#progress-update.html)
+ *
+ * The `StartConversation` operation is supported only in the following SDKs:
+ *
+ * - [AWS SDK for C++](https://docs.aws.amazon.com/goto/SdkForCpp/runtime.lex.v2-2020-08-07/StartConversation)
+ * - [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/runtime.lex.v2-2020-08-07/StartConversation)
+ * - [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/runtime.lex.v2-2020-08-07/StartConversation)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -440,20 +402,16 @@ export interface StartConversationCommandOutput extends StartConversationRespons
  * @see {@link LexRuntimeV2ClientResolvedConfig | config} for LexRuntimeV2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p></p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p></p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p></p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p></p>
  *
  * @throws {@link LexRuntimeV2ServiceException}
- * <p>Base exception class for all service exceptions from LexRuntimeV2 service.</p>
  *
+ * Base exception class for all service exceptions from LexRuntimeV2 service.
  *
  * @public
  */

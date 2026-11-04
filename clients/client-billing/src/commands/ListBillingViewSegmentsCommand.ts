@@ -23,7 +23,12 @@ export interface ListBillingViewSegmentsCommandInput extends ListBillingViewSegm
 export interface ListBillingViewSegmentsCommandOutput extends ListBillingViewSegmentsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the segments of a billing view over a given time period. Each segment identifies the billing domain (<code>PRO_FORMA</code> or <code>BILLABLE</code>) and the account relationships that apply during its time range.</p> <p>If you don't provide an <code>arn</code>, the response includes segments for the caller's <code>PRIMARY</code> billing view.</p> <p>If a mid-period change occurs, the response includes multiple segments, each with its own time range. The response omits hidden segments, so the segments it returns might not cover the entire requested time period.</p>
+ * Lists the segments of a billing view over a given time period. Each segment identifies the billing domain (`PRO_FORMA` or `BILLABLE`) and the account relationships that apply during its time range.
+ *
+ * If you don't provide an `arn`, the response includes segments for the caller's `PRIMARY` billing view.
+ *
+ * If a mid-period change occurs, the response includes multiple segments, each with its own time range. The response omits hidden segments, so the segments it returns might not cover the entire requested time period.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,26 +73,32 @@ export interface ListBillingViewSegmentsCommandOutput extends ListBillingViewSeg
  * @see {@link BillingClientResolvedConfig | config} for BillingClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * You don't have sufficient access to perform this action.
  *
  * @throws {@link BillingViewHealthStatusException} (client fault)
- *  <p> Exception thrown when a billing view's health status prevents an operation from being performed. This may occur if the billing view is in a state other than <code>HEALTHY</code>.</p>
+ *
+ * Exception thrown when a billing view's health status prevents an operation from being performed. This may occur if the billing view is in a state other than `HEALTHY`.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing failed because of an unknown error, exception, or failure. </p>
+ *
+ * The request processing failed because of an unknown error, exception, or failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The specified ARN in the request doesn't exist. </p>
+ *
+ * The specified ARN in the request doesn't exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. </p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link BillingServiceException}
- * <p>Base exception class for all service exceptions from Billing service.</p>
  *
+ * Base exception class for all service exceptions from Billing service.
  *
  * @example Invoke ListBillingViewSegments
  * ```javascript

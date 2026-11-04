@@ -387,8 +387,8 @@ export type VoiceIDClientResolvedConfigType = __SmithyResolvedConfiguration<__Ht
 export interface VoiceIDClientResolvedConfig extends VoiceIDClientResolvedConfigType {}
 
 /**
- * <p>Amazon Connect Voice ID provides real-time caller authentication and fraud risk detection, which
- *             make voice interactions in contact centers more secure and efficient.</p>
+ * Amazon Connect Voice ID provides real-time caller authentication and fraud risk detection, which make voice interactions in contact centers more secure and efficient.
+ *
  * @public
  */
 export class VoiceIDClient extends __Client<

@@ -23,7 +23,8 @@ export interface GetServiceLevelObjectiveCommandInput extends GetServiceLevelObj
 export interface GetServiceLevelObjectiveCommandOutput extends GetServiceLevelObjectiveOutput, __MetadataBearer {}
 
 /**
- * <p>Returns information about one SLO created in the account. </p>
+ * Returns information about one SLO created in the account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -247,17 +248,20 @@ export interface GetServiceLevelObjectiveCommandOutput extends GetServiceLevelOb
  * @see {@link ApplicationSignalsClientResolvedConfig | config} for ApplicationSignalsClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource not found.</p>
+ *
+ * Resource not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled because of quota limits.</p>
+ *
+ * The request was throttled because of quota limits.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The resource is not valid.</p>
+ *
+ * The resource is not valid.
  *
  * @throws {@link ApplicationSignalsServiceException}
- * <p>Base exception class for all service exceptions from ApplicationSignals service.</p>
  *
+ * Base exception class for all service exceptions from ApplicationSignals service.
  *
  * @public
  */

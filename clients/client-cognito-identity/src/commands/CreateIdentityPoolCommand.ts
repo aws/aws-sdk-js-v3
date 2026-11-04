@@ -23,41 +23,19 @@ export interface CreateIdentityPoolCommandInput extends CreateIdentityPoolInput 
 export interface CreateIdentityPoolCommandOutput extends IdentityPool, __MetadataBearer {}
 
 /**
- * <p>Creates a new identity pool. The identity pool is a store of user identity
- *          information that is specific to your Amazon Web Services account. The keys for
- *             <code>SupportedLoginProviders</code> are as follows:</p>
- *          <ul>
- *             <li>
- *                <p>Facebook: <code>graph.facebook.com</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>Google: <code>accounts.google.com</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>Sign in With Apple: <code>appleid.apple.com</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>Amazon: <code>www.amazon.com</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>Twitter: <code>api.twitter.com</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>Digits: <code>www.digits.com</code>
- *                </p>
- *             </li>
- *          </ul>
- *          <important>
- *             <p>If you don't provide a value for a parameter, Amazon Cognito sets it to its default value.
- *       </p>
- *          </important>
- *          <p>You must use Amazon Web Services developer credentials to call this
- *          operation.</p>
+ * Creates a new identity pool. The identity pool is a store of user identity information that is specific to your Amazon Web Services account. The keys for `SupportedLoginProviders` are as follows:
+ *
+ * - Facebook: `graph.facebook.com`
+ * - Google: `accounts.google.com`
+ * - Sign in With Apple: `appleid.apple.com`
+ * - Amazon: `www.amazon.com`
+ * - Twitter: `api.twitter.com`
+ * - Digits: `www.digits.com`
+ *
+ * > **Important:** If you don't provide a value for a parameter, Amazon Cognito sets it to its default value.
+ *
+ * You must use Amazon Web Services developer credentials to call this operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -129,27 +107,32 @@ export interface CreateIdentityPoolCommandOutput extends IdentityPool, __Metadat
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>Thrown when the service encounters an error during processing the request.</p>
+ *
+ * Thrown when the service encounters an error during processing the request.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Thrown for missing or bad input parameter(s).</p>
+ *
+ * Thrown for missing or bad input parameter(s).
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>Thrown when the total number of user pools has exceeded a preset limit.</p>
+ *
+ * Thrown when the total number of user pools has exceeded a preset limit.
  *
  * @throws {@link NotAuthorizedException} (client fault)
- *  <p>Thrown when a user is not authorized to access the requested resource.</p>
+ *
+ * Thrown when a user is not authorized to access the requested resource.
  *
  * @throws {@link ResourceConflictException} (client fault)
- *  <p>Thrown when a user tries to use a login which is already linked to another
- *          account.</p>
+ *
+ * Thrown when a user tries to use a login which is already linked to another account.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Thrown when a request is throttled.</p>
+ *
+ * Thrown when a request is throttled.
  *
  * @throws {@link CognitoIdentityServiceException}
- * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ * Base exception class for all service exceptions from CognitoIdentity service.
  *
  * @public
  */

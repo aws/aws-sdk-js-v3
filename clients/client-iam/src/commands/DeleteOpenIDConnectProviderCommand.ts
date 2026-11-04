@@ -23,12 +23,12 @@ export interface DeleteOpenIDConnectProviderCommandInput extends DeleteOpenIDCon
 export interface DeleteOpenIDConnectProviderCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an OpenID Connect identity provider (IdP) resource object in IAM.</p>
- *          <p>Deleting an IAM OIDC provider resource does not update any roles that reference the
- *             provider as a principal in their trust policies. Any attempt to assume a role that
- *             references a deleted provider fails.</p>
- *          <p>This operation is idempotent; it does not fail or return an error if you call the
- *             operation for a provider that does not exist.</p>
+ * Deletes an OpenID Connect identity provider (IdP) resource object in IAM.
+ *
+ * Deleting an IAM OIDC provider resource does not update any roles that reference the provider as a principal in their trust policies. Any attempt to assume a role that references a deleted provider fails.
+ *
+ * This operation is idempotent; it does not fail or return an error if you call the operation for a provider that does not exist.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,20 +53,20 @@ export interface DeleteOpenIDConnectProviderCommandOutput extends __MetadataBear
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
- *       input parameter.</p>
+ *
+ * The request was rejected because an invalid or out-of-range value was supplied for an input parameter.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @public
  */

@@ -23,10 +23,8 @@ export interface GetJobQueueSnapshotCommandInput extends GetJobQueueSnapshotRequ
 export interface GetJobQueueSnapshotCommandOutput extends GetJobQueueSnapshotResponse, __MetadataBearer {}
 
 /**
- * <p>Provides a snapshot of job queue state, including ordering of <code>RUNNABLE</code> jobs, as well as capacity utilization for already dispatched jobs.
- *     The first 100 <code>RUNNABLE</code> jobs in the job queue are listed in order of dispatch. For job queues with an attached
- *     quota-share policy, the first <code>RUNNABLE</code> job in each quota share is also listed. Capacity utilization for the job queue is provided, as well as
- *     break downs by share for job queues with attached fair-share or quota-share scheduling policies.</p>
+ * Provides a snapshot of job queue state, including ordering of `RUNNABLE` jobs, as well as capacity utilization for already dispatched jobs. The first 100 `RUNNABLE` jobs in the job queue are listed in order of dispatch. For job queues with an attached quota-share policy, the first `RUNNABLE` job in each quota share is also listed. Capacity utilization for the job queue is provided, as well as break downs by share for job queues with attached fair-share or quota-share scheduling policies.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -108,16 +106,16 @@ export interface GetJobQueueSnapshotCommandOutput extends GetJobQueueSnapshotRes
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf
- *    of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier
- *    that's not valid.</p>
+ *
+ * These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server issue.</p>
+ *
+ * These errors are usually caused by a server issue.
  *
  * @throws {@link BatchServiceException}
- * <p>Base exception class for all service exceptions from Batch service.</p>
  *
+ * Base exception class for all service exceptions from Batch service.
  *
  * @public
  */

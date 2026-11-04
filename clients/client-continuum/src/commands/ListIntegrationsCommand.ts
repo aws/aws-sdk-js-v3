@@ -88,8 +88,8 @@ export interface ListIntegrationsCommandOutput extends ListIntegrationsOutput, _
  * @throws {@link ValidationException} (client fault)
  *
  * @throws {@link ContinuumServiceException}
- * <p>Base exception class for all service exceptions from Continuum service.</p>
  *
+ * Base exception class for all service exceptions from Continuum service.
  *
  * @public
  */

@@ -6,7 +6,8 @@ import type { ValidationExceptionReason } from "./enums";
 import type { ValidationExceptionField } from "./models_0";
 
 /**
- * <p>You don't have sufficient access to perform this action.</p>
+ * You don't have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p> The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
+ * The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -35,13 +37,15 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p> The identifier for the service resource associated with the request. </p>
+   * The identifier for the service resource associated with the request.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p> The type of resource associated with the request. </p>
+   * The type of resource associated with the request.
+   *
    * @public
    */
   resourceType: string | undefined;
@@ -62,7 +66,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The request processing failed because of an unknown error, exception, or failure. </p>
+ * The request processing failed because of an unknown error, exception, or failure.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -83,7 +88,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p> The specified ARN in the request doesn't exist. </p>
+ * The specified ARN in the request doesn't exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -91,13 +97,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p> Value is a list of resource IDs that were not found. </p>
+   * Value is a list of resource IDs that were not found.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p> Value is the type of resource that was not found. </p>
+   * Value is the type of resource that was not found.
+   *
    * @public
    */
   resourceType: string | undefined;
@@ -118,7 +126,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling. </p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -139,7 +148,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -147,13 +157,15 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+   * The input fails to satisfy the constraints specified by an Amazon Web Services service.
+   *
    * @public
    */
   reason: ValidationExceptionReason | undefined;
 
   /**
-   * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+   * The input fails to satisfy the constraints specified by an Amazon Web Services service.
+   *
    * @public
    */
   fieldList?: ValidationExceptionField[] | undefined;
@@ -174,7 +186,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p> Exception thrown when a billing view's health status prevents an operation from being performed. This may occur if the billing view is in a state other than <code>HEALTHY</code>.</p>
+ * Exception thrown when a billing view's health status prevents an operation from being performed. This may occur if the billing view is in a state other than `HEALTHY`.
+ *
  * @public
  */
 export class BillingViewHealthStatusException extends __BaseException {
@@ -195,7 +208,8 @@ export class BillingViewHealthStatusException extends __BaseException {
 }
 
 /**
- * <p> You've reached the limit of resources you can create, or exceeded the size of an individual resource. </p>
+ * You've reached the limit of resources you can create, or exceeded the size of an individual resource.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -203,25 +217,29 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p> The ID of the resource. </p>
+   * The ID of the resource.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p> The type of Amazon Web Services resource. </p>
+   * The type of Amazon Web Services resource.
+   *
    * @public
    */
   resourceType: string | undefined;
 
   /**
-   * <p> The container for the <code>serviceCode</code>. </p>
+   * The container for the `serviceCode`.
+   *
    * @public
    */
   serviceCode: string | undefined;
 
   /**
-   * <p> The container for the <code>quotaCode</code>. </p>
+   * The container for the `quotaCode`.
+   *
    * @public
    */
   quotaCode: string | undefined;

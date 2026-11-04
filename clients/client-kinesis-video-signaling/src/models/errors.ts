@@ -4,8 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { KinesisVideoSignalingServiceException as __BaseException } from "./KinesisVideoSignalingServiceException";
 
 /**
- * <p>Your request was throttled because you have exceeded the limit of allowed client
- *             calls. Try making the call later.</p>
+ * Your request was throttled because you have exceeded the limit of allowed client calls. Try making the call later.
+ *
  * @public
  */
 export class ClientLimitExceededException extends __BaseException {
@@ -28,7 +28,8 @@ export class ClientLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The value for this input parameter is invalid.</p>
+ * The value for this input parameter is invalid.
+ *
  * @public
  */
 export class InvalidArgumentException extends __BaseException {
@@ -51,7 +52,8 @@ export class InvalidArgumentException extends __BaseException {
 }
 
 /**
- * <p>The specified client is invalid.</p>
+ * The specified client is invalid.
+ *
  * @public
  */
 export class InvalidClientException extends __BaseException {
@@ -72,7 +74,8 @@ export class InvalidClientException extends __BaseException {
 }
 
 /**
- * <p>The caller is not authorized to perform this operation.</p>
+ * The caller is not authorized to perform this operation.
+ *
  * @public
  */
 export class NotAuthorizedException extends __BaseException {
@@ -95,7 +98,8 @@ export class NotAuthorizedException extends __BaseException {
 }
 
 /**
- * <p>The specified resource is not found.</p>
+ * The specified resource is not found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -118,9 +122,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>If the client session is expired. Once the client is connected, the session is valid
- *             for 45 minutes. Client should reconnect to the channel to continue sending/receiving
- *             messages.</p>
+ * If the client session is expired. Once the client is connected, the session is valid for 45 minutes. Client should reconnect to the channel to continue sending/receiving messages.
+ *
  * @public
  */
 export class SessionExpiredException extends __BaseException {

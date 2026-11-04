@@ -23,27 +23,14 @@ export interface AddRoleToInstanceProfileCommandInput extends AddRoleToInstanceP
 export interface AddRoleToInstanceProfileCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Adds the specified IAM role to the specified instance profile. An instance profile
- *             can contain only one role, and this quota cannot be increased. You can remove the
- *             existing role and then add a different role to an instance profile. You must then wait
- *             for the change to appear across all of Amazon Web Services because of <a href="https://en.wikipedia.org/wiki/Eventual_consistency">eventual
- *                 consistency</a>. To force the change, you must <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisassociateIamInstanceProfile.html">disassociate the instance profile</a> and then <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateIamInstanceProfile.html">associate the
- *                 instance profile</a>, or you can stop your instance and then restart it.</p>
- *          <note>
- *             <p>The caller of this operation must be granted the <code>PassRole</code> permission
- *                 on the IAM role by a permissions policy.</p>
- *          </note>
- *          <important>
- *             <p>When using the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#available-keys-for-iam">iam:AssociatedResourceArn</a> condition in a policy to restrict the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">PassRole</a> IAM action, special considerations apply if the policy is
- *                 intended to define access for the <code>AddRoleToInstanceProfile</code> action. In
- *                 this case, you cannot specify a Region or instance ID in the EC2 instance ARN. The
- *                 ARN value must be <code>arn:aws:ec2:*:CallerAccountId:instance/*</code>. Using any
- *                 other ARN value may lead to unexpected evaluation results.</p>
- *          </important>
- *          <p> For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM roles</a> in the
- *                 <i>IAM User Guide</i>. For more information about instance profiles,
- *             see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html">Using
- *                 instance profiles</a> in the <i>IAM User Guide</i>.</p>
+ * Adds the specified IAM role to the specified instance profile. An instance profile can contain only one role, and this quota cannot be increased. You can remove the existing role and then add a different role to an instance profile. You must then wait for the change to appear across all of Amazon Web Services because of [eventual consistency](https://en.wikipedia.org/wiki/Eventual_consistency). To force the change, you must [disassociate the instance profile](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisassociateIamInstanceProfile.html) and then [associate the instance profile](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateIamInstanceProfile.html), or you can stop your instance and then restart it.
+ *
+ * > **Note:** The caller of this operation must be granted the `PassRole` permission on the IAM role by a permissions policy.
+ *
+ * > **Important:** When using the [iam:AssociatedResourceArn](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#available-keys-for-iam) condition in a policy to restrict the [PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html) IAM action, special considerations apply if the policy is intended to define access for the `AddRoleToInstanceProfile` action. In this case, you cannot specify a Region or instance ID in the EC2 instance ARN. The ARN value must be `arn:aws:ec2:*:CallerAccountId:instance/*`. Using any other ARN value may lead to unexpected evaluation results.
+ *
+ * For more information about roles, see [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) in the *IAM User Guide*. For more information about instance profiles, see [Using instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html) in the *IAM User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,30 +56,28 @@ export interface AddRoleToInstanceProfileCommandOutput extends __MetadataBearer 
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link EntityAlreadyExistsException} (client fault)
- *  <p>The request was rejected because it attempted to create a resource that already
- *       exists.</p>
+ *
+ * The request was rejected because it attempted to create a resource that already exists.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current
- *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+ *
+ * The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link UnmodifiableEntityException} (client fault)
- *  <p>The request was rejected because service-linked roles are protected Amazon Web Services resources. Only
- *       the service that depends on the service-linked role can modify or delete the role on your
- *       behalf. The error message includes the name of the service that depends on this service-linked
- *       role. You must request the change through that service.</p>
+ *
+ * The request was rejected because service-linked roles are protected Amazon Web Services resources. Only the service that depends on the service-linked role can modify or delete the role on your behalf. The error message includes the name of the service that depends on this service-linked role. You must request the change through that service.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @example To add a role to an instance profile
  * ```javascript

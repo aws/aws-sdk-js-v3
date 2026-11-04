@@ -23,32 +23,22 @@ export interface CreateLogAnomalyDetectorCommandInput extends CreateLogAnomalyDe
 export interface CreateLogAnomalyDetectorCommandOutput extends CreateLogAnomalyDetectorResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an <i>anomaly detector</i> that regularly scans one or more log
- *       groups and look for patterns and anomalies in the logs.</p>
- *          <p>An anomaly detector can help surface issues by automatically discovering anomalies in your
- *       log event traffic. An anomaly detector uses machine learning algorithms to scan log events and
- *       find <i>patterns</i>. A pattern is a shared text structure that recurs among
- *       your log fields. Patterns provide a useful tool for analyzing large sets of logs because a
- *       large number of log events can often be compressed into a few patterns.</p>
- *          <p>The anomaly detector uses pattern recognition to find <code>anomalies</code>, which are
- *       unusual log events. It uses the <code>evaluationFrequency</code> to compare current log events
- *       and patterns with trained baselines. </p>
- *          <p>Fields within a pattern are called <i>tokens</i>. Fields that vary within a
- *       pattern, such as a request ID or timestamp, are referred to as <i>dynamic
- *         tokens</i> and represented by <code><*></code>. </p>
- *          <p>The following is an example of a pattern:</p>
- *          <p>
- *             <code>[INFO] Request time: <*> ms</code>
- *          </p>
- *          <p>This pattern represents log events like <code>[INFO] Request time: 327 ms</code> and other
- *       similar log events that differ only by the number, in this csse 327. When the pattern is
- *       displayed, the different numbers are replaced by <code><*></code>
- *          </p>
- *          <note>
- *             <p>Any parts of log events that are masked as sensitive data are not scanned for anomalies.
- *         For more information about masking sensitive data, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html">Help protect sensitive log
- *           data with masking</a>. </p>
- *          </note>
+ * Creates an *anomaly detector* that regularly scans one or more log groups and look for patterns and anomalies in the logs.
+ *
+ * An anomaly detector can help surface issues by automatically discovering anomalies in your log event traffic. An anomaly detector uses machine learning algorithms to scan log events and find *patterns*. A pattern is a shared text structure that recurs among your log fields. Patterns provide a useful tool for analyzing large sets of logs because a large number of log events can often be compressed into a few patterns.
+ *
+ * The anomaly detector uses pattern recognition to find `anomalies`, which are unusual log events. It uses the `evaluationFrequency` to compare current log events and patterns with trained baselines.
+ *
+ * Fields within a pattern are called *tokens*. Fields that vary within a pattern, such as a request ID or timestamp, are referred to as *dynamic tokens* and represented by `<*>`.
+ *
+ * The following is an example of a pattern:
+ *
+ * `[INFO] Request time: <*> ms`
+ *
+ * This pattern represents log events like `[INFO] Request time: 327 ms` and other similar log events that differ only by the number, in this csse 327. When the pattern is displayed, the different numbers are replaced by `<*>`
+ *
+ * > **Note:** Any parts of log events that are masked as sensitive data are not scanned for anomalies. For more information about masking sensitive data, see [Help protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,23 +75,28 @@ export interface CreateLogAnomalyDetectorCommandOutput extends CreateLogAnomalyD
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is specified incorrectly.</p>
+ *
+ * A parameter is specified incorrectly.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You have reached the maximum number of resources that can be created.</p>
+ *
+ * You have reached the maximum number of resources that can be created.
  *
  * @throws {@link OperationAbortedException} (client fault)
- *  <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+ *
+ * Multiple concurrent requests to update the same resource were in conflict.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service cannot complete the request.</p>
+ *
+ * The service cannot complete the request.
  *
  * @throws {@link CloudWatchLogsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchLogs service.
  *
  * @public
  */

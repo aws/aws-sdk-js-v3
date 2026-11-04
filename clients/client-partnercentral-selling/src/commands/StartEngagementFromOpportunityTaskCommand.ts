@@ -26,7 +26,8 @@ export interface StartEngagementFromOpportunityTaskCommandInput extends StartEng
 export interface StartEngagementFromOpportunityTaskCommandOutput extends StartEngagementFromOpportunityTaskResponse, __MetadataBearer {}
 
 /**
- * <p>Similar to <code>StartEngagementByAcceptingInvitationTask</code>, this action is asynchronous and performs multiple steps before completion. This action orchestrates a comprehensive workflow that combines multiple API operations into a single task to create and initiate an engagement from an existing opportunity. It automatically executes a sequence of operations including <code>GetOpportunity</code>, <code>CreateEngagement</code> (if it doesn't exist), <code>CreateResourceSnapshot</code>, <code>CreateResourceSnapshotJob</code>, <code>CreateEngagementInvitation</code> (if not already invited/accepted), and <code>SubmitOpportunity</code>. </p>
+ * Similar to `StartEngagementByAcceptingInvitationTask`, this action is asynchronous and performs multiple steps before completion. This action orchestrates a comprehensive workflow that combines multiple API operations into a single task to create and initiate an engagement from an existing opportunity. It automatically executes a sequence of operations including `GetOpportunity`, `CreateEngagement` (if it doesn't exist), `CreateResourceSnapshot`, `CreateResourceSnapshotJob`, `CreateEngagementInvitation` (if not already invited/accepted), and `SubmitOpportunity`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,29 +75,50 @@ export interface StartEngagementFromOpportunityTaskCommandOutput extends StartEn
  * @see {@link PartnerCentralSellingClientResolvedConfig | config} for PartnerCentralSellingClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>This error occurs when you don't have permission to perform the requested action.</p> <p>You don’t have access to this action or resource. Review IAM policies or contact your AWS administrator for assistance.</p>
+ *
+ * This error occurs when you don't have permission to perform the requested action.
+ *
+ * You don’t have access to this action or resource. Review IAM policies or contact your AWS administrator for assistance.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>This error occurs when the request can’t be processed due to a conflict with the target resource's current state, which could result from updating or deleting the resource.</p> <p>Suggested action: Fetch the latest state of the resource, verify the state, and retry the request.</p>
+ *
+ * This error occurs when the request can’t be processed due to a conflict with the target resource's current state, which could result from updating or deleting the resource.
+ *
+ * Suggested action: Fetch the latest state of the resource, verify the state, and retry the request.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This error occurs when the specified resource can’t be found or doesn't exist. Resource ID and type might be incorrect.</p> <p>Suggested action: This is usually a transient error. Retry after the provided retry delay or a short interval. If the problem persists, contact AWS support.</p>
+ *
+ * This error occurs when the specified resource can’t be found or doesn't exist. Resource ID and type might be incorrect.
+ *
+ * Suggested action: This is usually a transient error. Retry after the provided retry delay or a short interval. If the problem persists, contact AWS support.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This error occurs when the specified resource can't be found. The resource might not exist, or isn't visible with the current credentials.</p> <p>Suggested action: Verify that the resource ID is correct and the resource is in the expected AWS region. Check IAM permissions for accessing the resource.</p>
+ *
+ * This error occurs when the specified resource can't be found. The resource might not exist, or isn't visible with the current credentials.
+ *
+ * Suggested action: Verify that the resource ID is correct and the resource is in the expected AWS region. Check IAM permissions for accessing the resource.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>This error occurs when the request would cause a service quota to be exceeded. Service quotas represent the maximum allowed use of a specific resource, and this error indicates that the request would surpass that limit.</p> <p>Suggested action: Review the <a href="https://docs.aws.amazon.com/partner-central/latest/selling-api/quotas.html">Quotas</a> for the resource, and either reduce usage or request a quota increase.</p>
+ *
+ * This error occurs when the request would cause a service quota to be exceeded. Service quotas represent the maximum allowed use of a specific resource, and this error indicates that the request would surpass that limit.
+ *
+ * Suggested action: Review the [Quotas](https://docs.aws.amazon.com/partner-central/latest/selling-api/quotas.html) for the resource, and either reduce usage or request a quota increase.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>This error occurs when there are too many requests sent. Review the provided quotas and adapt your usage to avoid throttling.</p> <p>This error occurs when there are too many requests sent. Review the provided <a href="https://docs.aws.amazon.com/partner-central/latest/selling-api/quotas.html">Quotas</a> and retry after the provided delay.</p>
+ *
+ * This error occurs when there are too many requests sent. Review the provided quotas and adapt your usage to avoid throttling.
+ *
+ * This error occurs when there are too many requests sent. Review the provided [Quotas](https://docs.aws.amazon.com/partner-central/latest/selling-api/quotas.html) and retry after the provided delay.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the service or business validation rules.</p> <p>Suggested action: Review the error message, including the failed fields and reasons, to correct the request payload.</p>
+ *
+ * The input fails to satisfy the constraints specified by the service or business validation rules.
+ *
+ * Suggested action: Review the error message, including the failed fields and reasons, to correct the request payload.
  *
  * @throws {@link PartnerCentralSellingServiceException}
- * <p>Base exception class for all service exceptions from PartnerCentralSelling service.</p>
  *
+ * Base exception class for all service exceptions from PartnerCentralSelling service.
  *
  * @public
  */

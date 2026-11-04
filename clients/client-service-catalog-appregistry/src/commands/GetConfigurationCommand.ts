@@ -23,10 +23,8 @@ export interface GetConfigurationCommandInput {}
 export interface GetConfigurationCommandOutput extends GetConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>
- *       Retrieves a <code>TagKey</code> configuration
- *       from an account.
- *     </p>
+ * Retrieves a `TagKey` configuration from an account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,11 +53,12 @@ export interface GetConfigurationCommandOutput extends GetConfigurationResponse,
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The service is experiencing internal problems.</p>
+ *
+ * The service is experiencing internal problems.
  *
  * @throws {@link ServiceCatalogAppRegistryServiceException}
- * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
+ * Base exception class for all service exceptions from ServiceCatalogAppRegistry service.
  *
  * @public
  */

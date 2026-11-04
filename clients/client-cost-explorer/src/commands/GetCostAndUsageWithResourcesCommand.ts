@@ -23,20 +23,12 @@ export interface GetCostAndUsageWithResourcesCommandInput extends GetCostAndUsag
 export interface GetCostAndUsageWithResourcesCommandOutput extends GetCostAndUsageWithResourcesResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves cost and usage metrics with resources for your account. You can specify which
- *       cost and usage-related metric, such as <code>BlendedCosts</code> or
- *       <code>UsageQuantity</code>, that you want the request to return. You can also filter and group
- *       your data by various dimensions, such as <code>SERVICE</code> or <code>AZ</code>, in a
- *       specific time range. For a complete list of valid dimensions, see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html">GetDimensionValues</a> operation. Management account in an organization in Organizations have access to all member accounts.</p>
- *          <p>Hourly granularity is only available for EC2-Instances (Elastic Compute Cloud)
- *       resource-level data. All other resource-level data is available at daily
- *       granularity.</p>
- *          <note>
- *             <p>This is an opt-in only feature. You can enable this feature from the Cost Explorer
- *         Settings page. For information about how to access the Settings page, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ce-access.html">Controlling
- *           Access for Cost Explorer</a> in the <i>Billing and Cost Management User
- *           Guide</i>.</p>
- *          </note>
+ * Retrieves cost and usage metrics with resources for your account. You can specify which cost and usage-related metric, such as `BlendedCosts` or `UsageQuantity`, that you want the request to return. You can also filter and group your data by various dimensions, such as `SERVICE` or `AZ`, in a specific time range. For a complete list of valid dimensions, see the [GetDimensionValues](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html) operation. Management account in an organization in Organizations have access to all member accounts.
+ *
+ * Hourly granularity is only available for EC2-Instances (Elastic Compute Cloud) resource-level data. All other resource-level data is available at daily granularity.
+ *
+ * > **Note:** This is an opt-in only feature. You can enable this feature from the Cost Explorer Settings page. For information about how to access the Settings page, see [Controlling Access for Cost Explorer](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ce-access.html) in the *Billing and Cost Management User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -201,32 +193,36 @@ export interface GetCostAndUsageWithResourcesCommandOutput extends GetCostAndUsa
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
  * @throws {@link BillExpirationException} (client fault)
- *  <p>The requested report expired. Update the date interval and try again.</p>
+ *
+ * The requested report expired. Update the date interval and try again.
  *
  * @throws {@link BillingViewHealthStatusException} (client fault)
- *  <p>
- *             The billing view status must be <code>HEALTHY</code> to perform this action. Try again when the status is <code>HEALTHY</code>.
- *         </p>
+ *
+ * The billing view status must be `HEALTHY` to perform this action. Try again when the status is `HEALTHY`.
  *
  * @throws {@link DataUnavailableException} (client fault)
- *  <p>The requested data is unavailable.</p>
+ *
+ * The requested data is unavailable.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The pagination token is invalid. Try again without a pagination token.</p>
+ *
+ * The pagination token is invalid. Try again without a pagination token.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ * You made too many calls in a short period of time. Try again later.
  *
  * @throws {@link RequestChangedException} (client fault)
- *  <p>Your request parameters changed between pages. Try again with the old parameters or
- *             without a pagination token.</p>
+ *
+ * Your request parameters changed between pages. Try again with the old parameters or without a pagination token.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The specified ARN in the request doesn't exist. </p>
+ *
+ * The specified ARN in the request doesn't exist.
  *
  * @throws {@link CostExplorerServiceException}
- * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * Base exception class for all service exceptions from CostExplorer service.
  *
  * @public
  */

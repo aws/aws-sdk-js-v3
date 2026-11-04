@@ -23,8 +23,8 @@ export interface GetSoftwareUpdatesCommandInput extends GetSoftwareUpdatesReques
 export interface GetSoftwareUpdatesCommandOutput extends GetSoftwareUpdatesResult, __MetadataBearer {}
 
 /**
- * <p>Returns an Amazon S3 presigned URL for an update file associated with a specified
- *         <code>JobId</code>.</p>
+ * Returns an Amazon S3 presigned URL for an update file associated with a specified `JobId`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,16 +51,16 @@ export interface GetSoftwareUpdatesCommandOutput extends GetSoftwareUpdatesResul
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
  * @throws {@link InvalidJobStateException} (client fault)
- *  <p>The action can't be performed because the job's current state doesn't allow that action
- *       to be performed.</p>
+ *
+ * The action can't be performed because the job's current state doesn't allow that action to be performed.
  *
  * @throws {@link InvalidResourceException} (client fault)
- *  <p>The specified resource can't be found. Check the information you provided in your last
- *       request, and try again.</p>
+ *
+ * The specified resource can't be found. Check the information you provided in your last request, and try again.
  *
  * @throws {@link SnowballServiceException}
- * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ * Base exception class for all service exceptions from Snowball service.
  *
  * @public
  */

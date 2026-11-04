@@ -23,7 +23,8 @@ export interface ListImportFileEnrichmentsCommandInput extends ListImportFileEnr
 export interface ListImportFileEnrichmentsCommandOutput extends ListImportFileEnrichmentsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists import file enrichment jobs with optional filtering by job IDs.</p>
+ * Lists import file enrichment jobs with optional filtering by job IDs.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,11 +75,12 @@ export interface ListImportFileEnrichmentsCommandOutput extends ListImportFileEn
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Validate exception.</p>
+ *
+ * Validate exception.
  *
  * @throws {@link MgnServiceException}
- * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * Base exception class for all service exceptions from Mgn service.
  *
  * @example Sample ListImportFileEnrichments call
  * ```javascript

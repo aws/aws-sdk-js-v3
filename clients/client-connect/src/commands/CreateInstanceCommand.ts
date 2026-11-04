@@ -23,15 +23,14 @@ export interface CreateInstanceCommandInput extends CreateInstanceRequest {}
 export interface CreateInstanceCommandOutput extends CreateInstanceResponse, __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Connect Customer and is subject to change.</p>
- *          <p>Initiates an Connect Customer instance with all the supported channels enabled. It does not attach any
- *    storage, such as Amazon Simple Storage Service (Amazon S3) or Amazon Kinesis. It also does not allow for any
- *    configurations on features, such as Contact Lens for Connect Customer. </p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-instances.html">Create an Connect Customer instance</a> in the
- *      <i>Connect Customer Administrator Guide</i>.</p>
- *          <p>Connect Customer enforces a limit on the total number of instances that you can create or delete in 30 days.
- * If you exceed this limit, you will get an error message indicating there has been an excessive number of attempts at creating or deleting instances.
- * You must wait 30 days before you can restart creating and deleting instances in your account.</p>
+ * This API is in preview release for Connect Customer and is subject to change.
+ *
+ * Initiates an Connect Customer instance with all the supported channels enabled. It does not attach any storage, such as Amazon Simple Storage Service (Amazon S3) or Amazon Kinesis. It also does not allow for any configurations on features, such as Contact Lens for Connect Customer.
+ *
+ * For more information, see [Create an Connect Customer instance](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-instances.html) in the *Connect Customer Administrator Guide*.
+ *
+ * Connect Customer enforces a limit on the total number of instances that you can create or delete in 30 days. If you exceed this limit, you will get an error message indicating there has been an excessive number of attempts at creating or deleting instances. You must wait 30 days before you can restart creating and deleting instances in your account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,23 +66,28 @@ export interface CreateInstanceCommandOutput extends CreateInstanceResponse, __M
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The service quota has been exceeded.</p>
+ *
+ * The service quota has been exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

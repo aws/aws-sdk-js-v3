@@ -26,12 +26,12 @@ export interface RegisterTransitGatewayMulticastGroupSourcesCommandInput extends
 export interface RegisterTransitGatewayMulticastGroupSourcesCommandOutput extends RegisterTransitGatewayMulticastGroupSourcesResult, __MetadataBearer {}
 
 /**
- * <p>Registers sources (network interfaces) with the specified  transit gateway multicast group.</p>
- *          <p>A multicast source is a network interface attached to a supported instance that sends
- *             multicast traffic. For more information about supported instances, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-multicast-overview.html">Multicast
- *                 on transit gateways</a> in the <i>Amazon Web Services Transit Gateways Guide</i>.</p>
- *          <p>After you add the source, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SearchTransitGatewayMulticastGroups.html">SearchTransitGatewayMulticastGroups</a> to verify that the source was added to the multicast
- *             group.</p>
+ * Registers sources (network interfaces) with the specified transit gateway multicast group.
+ *
+ * A multicast source is a network interface attached to a supported instance that sends multicast traffic. For more information about supported instances, see [Multicast on transit gateways](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-multicast-overview.html) in the *Amazon Web Services Transit Gateways Guide*.
+ *
+ * After you add the source, use [SearchTransitGatewayMulticastGroups](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SearchTransitGatewayMulticastGroups.html) to verify that the source was added to the multicast group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,8 +69,8 @@ export interface RegisterTransitGatewayMulticastGroupSourcesCommandOutput extend
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

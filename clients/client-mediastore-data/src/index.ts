@@ -1,9 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>An AWS Elemental MediaStore asset is an object, similar to an object in the Amazon S3
- *          service. Objects are the fundamental entities that are stored in AWS Elemental
- *          MediaStore.</p>
+ * An AWS Elemental MediaStore asset is an object, similar to an object in the Amazon S3 service. Objects are the fundamental entities that are stored in AWS Elemental MediaStore.
  *
  * @packageDocumentation
  */

@@ -23,7 +23,8 @@ export interface DeleteDeploymentCommandInput extends DeleteDeploymentInput {}
 export interface DeleteDeploymentCommandOutput extends DeleteDeploymentOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes a deployment.</p>
+ * Deletes a deployment.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,20 +52,24 @@ export interface DeleteDeploymentCommandOutput extends DeleteDeploymentOutput, _
  * @see {@link LaunchWizardClientResolvedConfig | config} for LaunchWizardClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error has occurred. Retry your request, but if the problem persists, contact us with details by posting a question on <a href="https://repost.aws/">re:Post</a>.</p>
+ *
+ * An internal error has occurred. Retry your request, but if the problem persists, contact us with details by posting a question on [re:Post](https://repost.aws/).
  *
  * @throws {@link ResourceLimitException} (client fault)
- *  <p>You have exceeded an Launch Wizard resource limit. For example, you might have too many deployments in progress.</p>
+ *
+ * You have exceeded an Launch Wizard resource limit. For example, you might have too many deployments in progress.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified workload or deployment resource can't be found.</p>
+ *
+ * The specified workload or deployment resource can't be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link LaunchWizardServiceException}
- * <p>Base exception class for all service exceptions from LaunchWizard service.</p>
  *
+ * Base exception class for all service exceptions from LaunchWizard service.
  *
  * @example Delete a deployment.
  * ```javascript

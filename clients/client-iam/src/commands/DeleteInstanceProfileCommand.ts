@@ -23,16 +23,12 @@ export interface DeleteInstanceProfileCommandInput extends DeleteInstanceProfile
 export interface DeleteInstanceProfileCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified instance profile. The instance profile must not have an
- *             associated role.</p>
- *          <important>
- *             <p>Make sure that you do not have any Amazon EC2 instances running with the instance
- *                 profile you are about to delete. Deleting a role or instance profile that is
- *                 associated with a running instance will break any applications running on the
- *                 instance.</p>
- *          </important>
- *          <p>For more information about instance profiles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html">Using
- *                 instance profiles</a> in the <i>IAM User Guide</i>.</p>
+ * Deletes the specified instance profile. The instance profile must not have an associated role.
+ *
+ * > **Important:** Make sure that you do not have any Amazon EC2 instances running with the instance profile you are about to delete. Deleting a role or instance profile that is associated with a running instance will break any applications running on the instance.
+ *
+ * For more information about instance profiles, see [Using instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html) in the *IAM User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,24 +53,24 @@ export interface DeleteInstanceProfileCommandOutput extends __MetadataBearer {}
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link DeleteConflictException} (client fault)
- *  <p>The request was rejected because it attempted to delete a resource that has attached
- *       subordinate entities. The error message describes these entities.</p>
+ *
+ * The request was rejected because it attempted to delete a resource that has attached subordinate entities. The error message describes these entities.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current
- *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+ *
+ * The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @example To delete an instance profile
  * ```javascript

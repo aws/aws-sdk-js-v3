@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { CloudSearchServiceException as __BaseException } from "./CloudSearchServiceException";
 
 /**
- * <p>An error occurred while processing the request.</p>
+ * An error occurred while processing the request.
+ *
  * @public
  */
 export class BaseException extends __BaseException {
@@ -12,13 +13,15 @@ export class BaseException extends __BaseException {
   readonly name = "BaseException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A machine-parsable string error or warning code.</p>
+   * A machine-parsable string error or warning code.
+   *
    * @public
    */
   Code?: string | undefined;
 
   /**
-   * <p>A human-readable string error or warning message.</p>
+   * A human-readable string error or warning message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -38,8 +41,8 @@ export class BaseException extends __BaseException {
 }
 
 /**
- * <p>An internal error occurred while processing the request. If this problem persists,
- *       report an issue from the <a href="http://status.aws.amazon.com/" target="_blank">Service Health Dashboard</a>.</p>
+ * An internal error occurred while processing the request. If this problem persists, report an issue from the [Service Health Dashboard](http://status.aws.amazon.com/).
+ *
  * @public
  */
 export class InternalException extends __BaseException {
@@ -47,13 +50,15 @@ export class InternalException extends __BaseException {
   readonly name = "InternalException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>A machine-parsable string error or warning code.</p>
+   * A machine-parsable string error or warning code.
+   *
    * @public
    */
   Code?: string | undefined;
 
   /**
-   * <p>A human-readable string error or warning message.</p>
+   * A human-readable string error or warning message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -73,7 +78,8 @@ export class InternalException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
+ * The request was rejected because it attempted to reference a resource that does not exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -81,13 +87,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A machine-parsable string error or warning code.</p>
+   * A machine-parsable string error or warning code.
+   *
    * @public
    */
   Code?: string | undefined;
 
   /**
-   * <p>A human-readable string error or warning message.</p>
+   * A human-readable string error or warning message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -107,7 +115,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because it has invalid parameters.</p>
+ * The request was rejected because it has invalid parameters.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -115,13 +124,15 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A machine-parsable string error or warning code.</p>
+   * A machine-parsable string error or warning code.
+   *
    * @public
    */
   Code?: string | undefined;
 
   /**
-   * <p>A human-readable string error or warning message.</p>
+   * A human-readable string error or warning message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -141,7 +152,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because a resource limit has already been met.</p>
+ * The request was rejected because a resource limit has already been met.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -149,13 +161,15 @@ export class LimitExceededException extends __BaseException {
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A machine-parsable string error or warning code.</p>
+   * A machine-parsable string error or warning code.
+   *
    * @public
    */
   Code?: string | undefined;
 
   /**
-   * <p>A human-readable string error or warning message.</p>
+   * A human-readable string error or warning message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -175,7 +189,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because it attempted to create a resource that already exists.</p>
+ * The request was rejected because it attempted to create a resource that already exists.
+ *
  * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -183,13 +198,15 @@ export class ResourceAlreadyExistsException extends __BaseException {
   readonly name = "ResourceAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A machine-parsable string error or warning code.</p>
+   * A machine-parsable string error or warning code.
+   *
    * @public
    */
   Code?: string | undefined;
 
   /**
-   * <p>A human-readable string error or warning message.</p>
+   * A human-readable string error or warning message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -209,7 +226,8 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because it specified an invalid type definition.</p>
+ * The request was rejected because it specified an invalid type definition.
+ *
  * @public
  */
 export class InvalidTypeException extends __BaseException {
@@ -217,13 +235,15 @@ export class InvalidTypeException extends __BaseException {
   readonly name = "InvalidTypeException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A machine-parsable string error or warning code.</p>
+   * A machine-parsable string error or warning code.
+   *
    * @public
    */
   Code?: string | undefined;
 
   /**
-   * <p>A human-readable string error or warning message.</p>
+   * A human-readable string error or warning message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -243,7 +263,8 @@ export class InvalidTypeException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because it attempted an operation which is not enabled.</p>
+ * The request was rejected because it attempted an operation which is not enabled.
+ *
  * @public
  */
 export class DisabledOperationException extends __BaseException {
@@ -251,13 +272,15 @@ export class DisabledOperationException extends __BaseException {
   readonly name = "DisabledOperationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A machine-parsable string error or warning code.</p>
+   * A machine-parsable string error or warning code.
+   *
    * @public
    */
   Code?: string | undefined;
 
   /**
-   * <p>A human-readable string error or warning message.</p>
+   * A human-readable string error or warning message.
+   *
    * @public
    */
   Message?: string | undefined;

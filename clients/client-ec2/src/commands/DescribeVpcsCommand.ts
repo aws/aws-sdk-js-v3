@@ -23,9 +23,8 @@ export interface DescribeVpcsCommandInput extends DescribeVpcsRequest {}
 export interface DescribeVpcsCommandOutput extends DescribeVpcsResult, __MetadataBearer {}
 
 /**
- * <p>Describes your VPCs. The default is to describe all your VPCs.
- *           Alternatively, you can specify specific VPC IDs or filter the results to
- *           include only the VPCs that match specific criteria.</p>
+ * Describes your VPCs. The default is to describe all your VPCs. Alternatively, you can specify specific VPC IDs or filter the results to include only the VPCs that match specific criteria.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -147,8 +146,8 @@ export interface DescribeVpcsCommandOutput extends DescribeVpcsResult, __Metadat
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To describe a VPC
  * ```javascript

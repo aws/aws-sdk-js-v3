@@ -36,43 +36,49 @@ import type {
 } from "./models_0";
 
 /**
- * <p>Information about a Sidewalk router.</p>
+ * Information about a Sidewalk router.
+ *
  * @public
  */
 export interface SidewalkSendDataToDevice {
   /**
-   * <p>The sequence number.</p>
+   * The sequence number.
+   *
    * @public
    */
   Seq?: number | undefined;
 
   /**
-   * <p>Sidewalk device message type. Default value is
-   *             <code>CUSTOM_COMMAND_ID_NOTIFY</code>.</p>
+   * Sidewalk device message type. Default value is `CUSTOM_COMMAND_ID_NOTIFY`.
+   *
    * @public
    */
   MessageType?: MessageType | undefined;
 
   /**
-   * <p>The duration of time in seconds to retry sending the ACK.</p>
+   * The duration of time in seconds to retry sending the ACK.
+   *
    * @public
    */
   AckModeRetryDurationSecs?: number | undefined;
 }
 
 /**
- * <p>WirelessMetadata object.</p>
+ * WirelessMetadata object.
+ *
  * @public
  */
 export interface WirelessMetadata {
   /**
-   * <p>LoRaWAN device info.</p>
+   * LoRaWAN device info.
+   *
    * @public
    */
   LoRaWAN?: LoRaWANSendDataToDevice | undefined;
 
   /**
-   * <p>The Sidewalk account credentials.</p>
+   * The Sidewalk account credentials.
+   *
    * @public
    */
   Sidewalk?: SidewalkSendDataToDevice | undefined;
@@ -83,26 +89,29 @@ export interface WirelessMetadata {
  */
 export interface SendDataToWirelessDeviceRequest {
   /**
-   * <p>The ID of the wireless device to receive the data.</p>
+   * The ID of the wireless device to receive the data.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The transmit mode to use to send data to the wireless device. Can be: <code>0</code>
-   *             for UM (unacknowledge mode) or <code>1</code> for AM (acknowledge mode).</p>
+   * The transmit mode to use to send data to the wireless device. Can be: `0` for UM (unacknowledge mode) or `1` for AM (acknowledge mode).
+   *
    * @public
    */
   TransmitMode: number | undefined;
 
   /**
-   * <p>The binary to be sent to the end device, encoded in base64.</p>
+   * The binary to be sent to the end device, encoded in base64.
+   *
    * @public
    */
   PayloadData: string | undefined;
 
   /**
-   * <p>Metadata about the message request.</p>
+   * Metadata about the message request.
+   *
    * @public
    */
   WirelessMetadata?: WirelessMetadata | undefined;
@@ -113,7 +122,8 @@ export interface SendDataToWirelessDeviceRequest {
  */
 export interface SendDataToWirelessDeviceResponse {
   /**
-   * <p>The ID of the message sent to the wireless device.</p>
+   * The ID of the message sent to the wireless device.
+   *
    * @public
    */
   MessageId?: string | undefined;
@@ -124,21 +134,22 @@ export interface SendDataToWirelessDeviceResponse {
  */
 export interface StartBulkAssociateWirelessDeviceWithMulticastGroupRequest {
   /**
-   * <p>The ID of the multicast group.</p>
+   * The ID of the multicast group.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>Query string used to search for wireless devices as part of the bulk associate and
-   *             disassociate process.</p>
+   * Query string used to search for wireless devices as part of the bulk associate and disassociate process.
+   *
    * @public
    */
   QueryString?: string | undefined;
 
   /**
-   * <p>The tag to attach to the specified resource. Tags are metadata that you can use to
-   *             manage a resource.</p>
+   * The tag to attach to the specified resource. Tags are metadata that you can use to manage a resource.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -154,21 +165,22 @@ export interface StartBulkAssociateWirelessDeviceWithMulticastGroupResponse {}
  */
 export interface StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest {
   /**
-   * <p>The ID of the multicast group.</p>
+   * The ID of the multicast group.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>Query string used to search for wireless devices as part of the bulk associate and
-   *             disassociate process.</p>
+   * Query string used to search for wireless devices as part of the bulk associate and disassociate process.
+   *
    * @public
    */
   QueryString?: string | undefined;
 
   /**
-   * <p>The tag to attach to the specified resource. Tags are metadata that you can use to
-   *             manage a resource.</p>
+   * The tag to attach to the specified resource. Tags are metadata that you can use to manage a resource.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -180,12 +192,14 @@ export interface StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest {
 export interface StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse {}
 
 /**
- * <p>The LoRaWAN information used to start a FUOTA task.</p>
+ * The LoRaWAN information used to start a FUOTA task.
+ *
  * @public
  */
 export interface LoRaWANStartFuotaTask {
   /**
-   * <p>Start time of a FUOTA task.</p>
+   * Start time of a FUOTA task.
+   *
    * @public
    */
   StartTime?: Date | undefined;
@@ -196,13 +210,15 @@ export interface LoRaWANStartFuotaTask {
  */
 export interface StartFuotaTaskRequest {
   /**
-   * <p>The ID of a FUOTA task.</p>
+   * The ID of a FUOTA task.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The LoRaWAN information used to start a FUOTA task.</p>
+   * The LoRaWAN information used to start a FUOTA task.
+   *
    * @public
    */
   LoRaWAN?: LoRaWANStartFuotaTask | undefined;
@@ -218,13 +234,15 @@ export interface StartFuotaTaskResponse {}
  */
 export interface StartMulticastGroupSessionRequest {
   /**
-   * <p>The ID of the multicast group.</p>
+   * The ID of the multicast group.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The LoRaWAN information used with the multicast session.</p>
+   * The LoRaWAN information used with the multicast session.
+   *
    * @public
    */
   LoRaWAN: LoRaWANMulticastSession | undefined;
@@ -236,19 +254,21 @@ export interface StartMulticastGroupSessionRequest {
 export interface StartMulticastGroupSessionResponse {}
 
 /**
- * <p>Information about an import task created for an individual Sidewalk device.</p>
+ * Information about an import task created for an individual Sidewalk device.
+ *
  * @public
  */
 export interface SidewalkSingleStartImportInfo {
   /**
-   * <p>The Sidewalk manufacturing serial number (SMSN) of the device added to the import
-   *             task.</p>
+   * The Sidewalk manufacturing serial number (SMSN) of the device added to the import task.
+   *
    * @public
    */
   SidewalkManufacturingSn?: string | undefined;
 
   /**
-   * <p>The Positioning object of the Sidewalk device.</p>
+   * The Positioning object of the Sidewalk device.
+   *
    * @public
    */
   Positioning?: SidewalkPositioning | undefined;
@@ -259,46 +279,43 @@ export interface SidewalkSingleStartImportInfo {
  */
 export interface StartSingleWirelessDeviceImportTaskRequest {
   /**
-   * <p>The name of the Sidewalk destination that describes the IoT rule to route messages
-   *             from the device in the import task that will be onboarded to AWS IoT Wireless.</p>
+   * The name of the Sidewalk destination that describes the IoT rule to route messages from the device in the import task that will be onboarded to AWS IoT Wireless.
+   *
    * @public
    */
   DestinationName: string | undefined;
 
   /**
-   * <p>Each resource must have a unique client request token. The client token is used to
-   *             implement idempotency. It ensures that the request completes no more than one time. If
-   *             you retry a request with the same token and the same parameters, the request will
-   *             complete successfully. However, if you try to create a new resource using the same token
-   *             but different parameters, an HTTP 409 conflict occurs. If you omit this value, AWS SDKs
-   *             will automatically generate a unique client request. For more information about
-   *             idempotency, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency in Amazon
-   *                 EC2 API requests</a>.</p>
+   * Each resource must have a unique client request token. The client token is used to implement idempotency. It ensures that the request completes no more than one time. If you retry a request with the same token and the same parameters, the request will complete successfully. However, if you try to create a new resource using the same token but different parameters, an HTTP 409 conflict occurs. If you omit this value, AWS SDKs will automatically generate a unique client request. For more information about idempotency, see [Ensuring idempotency in Amazon EC2 API requests](https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html).
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
 
   /**
-   * <p>The name of the wireless device for which an import task is being started.</p>
+   * The name of the wireless device for which an import task is being started.
+   *
    * @public
    */
   DeviceName?: string | undefined;
 
   /**
-   * <p>The tag to attach to the specified resource. Tags are metadata that you can use to
-   *             manage a resource.</p>
+   * The tag to attach to the specified resource. Tags are metadata that you can use to manage a resource.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>The integration status of the Device Location feature for Sidewalk devices.</p>
+   * The integration status of the Device Location feature for Sidewalk devices.
+   *
    * @public
    */
   Positioning?: PositioningConfigStatus | undefined;
 
   /**
-   * <p>The Sidewalk-related parameters for importing a single wireless device.</p>
+   * The Sidewalk-related parameters for importing a single wireless device.
+   *
    * @public
    */
   Sidewalk: SidewalkSingleStartImportInfo | undefined;
@@ -309,39 +326,43 @@ export interface StartSingleWirelessDeviceImportTaskRequest {
  */
 export interface StartSingleWirelessDeviceImportTaskResponse {
   /**
-   * <p>The import task ID.</p>
+   * The import task ID.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The ARN (Amazon Resource Name) of the import task.</p>
+   * The ARN (Amazon Resource Name) of the import task.
+   *
    * @public
    */
   Arn?: string | undefined;
 }
 
 /**
- * <p>Information about an import task created for bulk provisioning.</p>
+ * Information about an import task created for bulk provisioning.
+ *
  * @public
  */
 export interface SidewalkStartImportInfo {
   /**
-   * <p>The CSV file contained in an S3 bucket that's used for adding devices to an import
-   *             task.</p>
+   * The CSV file contained in an S3 bucket that's used for adding devices to an import task.
+   *
    * @public
    */
   DeviceCreationFile?: string | undefined;
 
   /**
-   * <p>The IAM role that allows AWS IoT Wireless to access the CSV file in the S3
-   *             bucket.</p>
+   * The IAM role that allows AWS IoT Wireless to access the CSV file in the S3 bucket.
+   *
    * @public
    */
   Role?: string | undefined;
 
   /**
-   * <p>The Positioning object of the Sidewalk device.</p>
+   * The Positioning object of the Sidewalk device.
+   *
    * @public
    */
   Positioning?: SidewalkPositioning | undefined;
@@ -352,41 +373,36 @@ export interface SidewalkStartImportInfo {
  */
 export interface StartWirelessDeviceImportTaskRequest {
   /**
-   * <p>The name of the Sidewalk destination that describes the IoT rule to route messages
-   *             from the devices in the import task that are onboarded to AWS IoT Wireless.</p>
+   * The name of the Sidewalk destination that describes the IoT rule to route messages from the devices in the import task that are onboarded to AWS IoT Wireless.
+   *
    * @public
    */
   DestinationName: string | undefined;
 
   /**
-   * <p>Each resource must have a unique client request token. The client token is used to
-   *             implement idempotency. It ensures that the request completes no more than one time. If
-   *             you retry a request with the same token and the same parameters, the request will
-   *             complete successfully. However, if you try to create a new resource using the same token
-   *             but different parameters, an HTTP 409 conflict occurs. If you omit this value, AWS SDKs
-   *             will automatically generate a unique client request. For more information about
-   *             idempotency, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency in Amazon
-   *                 EC2 API requests</a>.</p>
+   * Each resource must have a unique client request token. The client token is used to implement idempotency. It ensures that the request completes no more than one time. If you retry a request with the same token and the same parameters, the request will complete successfully. However, if you try to create a new resource using the same token but different parameters, an HTTP 409 conflict occurs. If you omit this value, AWS SDKs will automatically generate a unique client request. For more information about idempotency, see [Ensuring idempotency in Amazon EC2 API requests](https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html).
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
 
   /**
-   * <p>The tag to attach to the specified resource. Tags are metadata that you can use to
-   *             manage a resource.</p>
+   * The tag to attach to the specified resource. Tags are metadata that you can use to manage a resource.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>The integration status of the Device Location feature for Sidewalk devices.</p>
+   * The integration status of the Device Location feature for Sidewalk devices.
+   *
    * @public
    */
   Positioning?: PositioningConfigStatus | undefined;
 
   /**
-   * <p>The Sidewalk-related parameters for importing wireless devices that need to be
-   *             provisioned in bulk.</p>
+   * The Sidewalk-related parameters for importing wireless devices that need to be provisioned in bulk.
+   *
    * @public
    */
   Sidewalk: SidewalkStartImportInfo | undefined;
@@ -397,13 +413,15 @@ export interface StartWirelessDeviceImportTaskRequest {
  */
 export interface StartWirelessDeviceImportTaskResponse {
   /**
-   * <p>The import task ID.</p>
+   * The import task ID.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The ARN (Amazon Resource Name) of the import task.</p>
+   * The ARN (Amazon Resource Name) of the import task.
+   *
    * @public
    */
   Arn?: string | undefined;
@@ -414,14 +432,15 @@ export interface StartWirelessDeviceImportTaskResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The ARN of the resource to add tags to.</p>
+   * The ARN of the resource to add tags to.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>Adds to or modifies the tags of the given resource. Tags are metadata that you can use
-   *             to manage a resource.</p>
+   * Adds to or modifies the tags of the given resource. Tags are metadata that you can use to manage a resource.
+   *
    * @public
    */
   Tags: Tag[] | undefined;
@@ -437,7 +456,8 @@ export interface TagResourceResponse {}
  */
 export interface TestWirelessDeviceRequest {
   /**
-   * <p>The ID of the wireless device to test.</p>
+   * The ID of the wireless device to test.
+   *
    * @public
    */
   Id: string | undefined;
@@ -448,7 +468,8 @@ export interface TestWirelessDeviceRequest {
  */
 export interface TestWirelessDeviceResponse {
   /**
-   * <p>The result returned by the test.</p>
+   * The result returned by the test.
+   *
    * @public
    */
   Result?: string | undefined;
@@ -459,13 +480,15 @@ export interface TestWirelessDeviceResponse {
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The ARN of the resource to remove tags from.</p>
+   * The ARN of the resource to remove tags from.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>A list of the keys of the tags to remove from the resource.</p>
+   * A list of the keys of the tags to remove from the resource.
+   *
    * @public
    */
   TagKeys: string[] | undefined;
@@ -481,31 +504,36 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateDestinationRequest {
   /**
-   * <p>The new name of the resource.</p>
+   * The new name of the resource.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The type of value in <code>Expression</code>.</p>
+   * The type of value in `Expression`.
+   *
    * @public
    */
   ExpressionType?: ExpressionType | undefined;
 
   /**
-   * <p>The new rule name or topic rule to send messages to.</p>
+   * The new rule name or topic rule to send messages to.
+   *
    * @public
    */
   Expression?: string | undefined;
 
   /**
-   * <p>A new description of the resource.</p>
+   * A new description of the resource.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The ARN of the IAM Role that authorizes the destination.</p>
+   * The ARN of the IAM Role that authorizes the destination.
+   *
    * @public
    */
   RoleArn?: string | undefined;
@@ -521,36 +549,36 @@ export interface UpdateDestinationResponse {}
  */
 export interface UpdateEventConfigurationByResourceTypesRequest {
   /**
-   * <p>Device registration state resource type event configuration object for enabling and
-   *             disabling wireless gateway topic.</p>
+   * Device registration state resource type event configuration object for enabling and disabling wireless gateway topic.
+   *
    * @public
    */
   DeviceRegistrationState?: DeviceRegistrationStateResourceTypeEventConfiguration | undefined;
 
   /**
-   * <p>Proximity resource type event configuration object for enabling and disabling wireless
-   *             gateway topic.</p>
+   * Proximity resource type event configuration object for enabling and disabling wireless gateway topic.
+   *
    * @public
    */
   Proximity?: ProximityResourceTypeEventConfiguration | undefined;
 
   /**
-   * <p>Join resource type event configuration object for enabling and disabling wireless
-   *             device topic.</p>
+   * Join resource type event configuration object for enabling and disabling wireless device topic.
+   *
    * @public
    */
   Join?: JoinResourceTypeEventConfiguration | undefined;
 
   /**
-   * <p>Connection status resource type event configuration object for enabling and disabling
-   *             wireless gateway topic.</p>
+   * Connection status resource type event configuration object for enabling and disabling wireless gateway topic.
+   *
    * @public
    */
   ConnectionStatus?: ConnectionStatusResourceTypeEventConfiguration | undefined;
 
   /**
-   * <p>Message delivery status resource type event configuration object for enabling and
-   *             disabling wireless device topic.</p>
+   * Message delivery status resource type event configuration object for enabling and disabling wireless device topic.
+   *
    * @public
    */
   MessageDeliveryStatus?: MessageDeliveryStatusResourceTypeEventConfiguration | undefined;
@@ -566,74 +594,73 @@ export interface UpdateEventConfigurationByResourceTypesResponse {}
  */
 export interface UpdateFuotaTaskRequest {
   /**
-   * <p>The ID of a FUOTA task.</p>
+   * The ID of a FUOTA task.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The name of a FUOTA task.</p>
+   * The name of a FUOTA task.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The description of the new resource.</p>
+   * The description of the new resource.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The LoRaWAN information used with a FUOTA task.</p>
+   * The LoRaWAN information used with a FUOTA task.
+   *
    * @public
    */
   LoRaWAN?: LoRaWANFuotaTask | undefined;
 
   /**
-   * <p>The S3 URI points to a firmware update image that is to be used with a FUOTA
-   *             task.</p>
+   * The S3 URI points to a firmware update image that is to be used with a FUOTA task.
+   *
    * @public
    */
   FirmwareUpdateImage?: string | undefined;
 
   /**
-   * <p>The firmware update role that is to be used with a FUOTA task.</p>
+   * The firmware update role that is to be used with a FUOTA task.
+   *
    * @public
    */
   FirmwareUpdateRole?: string | undefined;
 
   /**
-   * <p>The percentage of the added fragments that are redundant. For example, if the size of
-   *             the firmware image file is 100 bytes and the fragment size is 10 bytes, with
-   *                 <code>RedundancyPercent</code> set to 50(%), the final number of encoded fragments
-   *             is (100 / 10) + (100 / 10 * 50%) = 15.</p>
+   * The percentage of the added fragments that are redundant. For example, if the size of the firmware image file is 100 bytes and the fragment size is 10 bytes, with `RedundancyPercent` set to 50(%), the final number of encoded fragments is (100 / 10) + (100 / 10 * 50%) = 15.
+   *
    * @public
    */
   RedundancyPercent?: number | undefined;
 
   /**
-   * <p>The size of each fragment in bytes. This parameter is supported only for FUOTA tasks
-   *             with multicast groups.</p>
+   * The size of each fragment in bytes. This parameter is supported only for FUOTA tasks with multicast groups.
+   *
    * @public
    */
   FragmentSizeBytes?: number | undefined;
 
   /**
-   * <p>The interval for sending fragments in milliseconds, rounded to the nearest
-   *             second.</p>
-   *          <note>
-   *             <p>This interval only determines the timing for when the Cloud sends down the
-   *                 fragments to yor device. There can be a delay for when your device will receive
-   *                 these fragments. This delay depends on the device's class and the communication
-   *                 delay with the cloud.</p>
-   *          </note>
+   * The interval for sending fragments in milliseconds, rounded to the nearest second.
+   *
+   * > **Note:** This interval only determines the timing for when the Cloud sends down the fragments to yor device. There can be a delay for when your device will receive these fragments. This delay depends on the device's class and the communication delay with the cloud.
+   *
    * @public
    */
   FragmentIntervalMS?: number | undefined;
 
   /**
-   * <p>The descriptor is the metadata about the file that is transferred to the device using
-   *             FUOTA, such as the software version. It is a binary field encoded in base64.</p>
+   * The descriptor is the metadata about the file that is transferred to the device using FUOTA, such as the software version. It is a binary field encoded in base64.
+   *
    * @public
    */
   Descriptor?: string | undefined;
@@ -649,27 +676,29 @@ export interface UpdateFuotaTaskResponse {}
  */
 export interface UpdateLogLevelsByResourceTypesRequest {
   /**
-   * <p>The log level for a log message. The log levels can be disabled, or set to
-   *                 <code>ERROR</code> to display less verbose logs containing only error information,
-   *             or to <code>INFO</code> for more detailed logs.</p>
+   * The log level for a log message. The log levels can be disabled, or set to `ERROR` to display less verbose logs containing only error information, or to `INFO` for more detailed logs.
+   *
    * @public
    */
   DefaultLogLevel?: LogLevel | undefined;
 
   /**
-   * <p>The list of FUOTA task log options.</p>
+   * The list of FUOTA task log options.
+   *
    * @public
    */
   FuotaTaskLogOptions?: FuotaTaskLogOption[] | undefined;
 
   /**
-   * <p>The list of wireless device log options.</p>
+   * The list of wireless device log options.
+   *
    * @public
    */
   WirelessDeviceLogOptions?: WirelessDeviceLogOption[] | undefined;
 
   /**
-   * <p>The list of wireless gateway log options.</p>
+   * The list of wireless gateway log options.
+   *
    * @public
    */
   WirelessGatewayLogOptions?: WirelessGatewayLogOption[] | undefined;
@@ -685,7 +714,8 @@ export interface UpdateLogLevelsByResourceTypesResponse {}
  */
 export interface UpdateMetricConfigurationRequest {
   /**
-   * <p>The value to be used to set summary metric configuration.</p>
+   * The value to be used to set summary metric configuration.
+   *
    * @public
    */
   SummaryMetric?: SummaryMetricConfiguration | undefined;
@@ -701,25 +731,29 @@ export interface UpdateMetricConfigurationResponse {}
  */
 export interface UpdateMulticastGroupRequest {
   /**
-   * <p>The ID of the multicast group.</p>
+   * The ID of the multicast group.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The name of the multicast group.</p>
+   * The name of the multicast group.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The description of the new resource.</p>
+   * The description of the new resource.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The LoRaWAN information that is to be used with the multicast group.</p>
+   * The LoRaWAN information that is to be used with the multicast group.
+   *
    * @public
    */
   LoRaWAN?: LoRaWANMulticast | undefined;
@@ -735,61 +769,64 @@ export interface UpdateMulticastGroupResponse {}
  */
 export interface UpdateNetworkAnalyzerConfigurationRequest {
   /**
-   * <p>Name of the network analyzer configuration.</p>
+   * Name of the network analyzer configuration.
+   *
    * @public
    */
   ConfigurationName: string | undefined;
 
   /**
-   * <p>Trace content for your wireless devices, gateways, and multicast groups.</p>
+   * Trace content for your wireless devices, gateways, and multicast groups.
+   *
    * @public
    */
   TraceContent?: TraceContent | undefined;
 
   /**
-   * <p>Wireless device resources to add to the network analyzer configuration. Provide the
-   *                 <code>WirelessDeviceId</code> of the resource to add in the input array.</p>
+   * Wireless device resources to add to the network analyzer configuration. Provide the `WirelessDeviceId` of the resource to add in the input array.
+   *
    * @public
    */
   WirelessDevicesToAdd?: string[] | undefined;
 
   /**
-   * <p>Wireless device resources to remove from the network analyzer configuration. Provide
-   *             the <code>WirelessDeviceId</code> of the resources to remove in the input array.</p>
+   * Wireless device resources to remove from the network analyzer configuration. Provide the `WirelessDeviceId` of the resources to remove in the input array.
+   *
    * @public
    */
   WirelessDevicesToRemove?: string[] | undefined;
 
   /**
-   * <p>Wireless gateway resources to add to the network analyzer configuration. Provide the
-   *                 <code>WirelessGatewayId</code> of the resource to add in the input array.</p>
+   * Wireless gateway resources to add to the network analyzer configuration. Provide the `WirelessGatewayId` of the resource to add in the input array.
+   *
    * @public
    */
   WirelessGatewaysToAdd?: string[] | undefined;
 
   /**
-   * <p>Wireless gateway resources to remove from the network analyzer configuration. Provide
-   *             the <code>WirelessGatewayId</code> of the resources to remove in the input array.</p>
+   * Wireless gateway resources to remove from the network analyzer configuration. Provide the `WirelessGatewayId` of the resources to remove in the input array.
+   *
    * @public
    */
   WirelessGatewaysToRemove?: string[] | undefined;
 
   /**
-   * <p>The description of the new resource.</p>
+   * The description of the new resource.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Multicast group resources to add to the network analyzer configuration. Provide the
-   *                 <code>MulticastGroupId</code> of the resource to add in the input array.</p>
+   * Multicast group resources to add to the network analyzer configuration. Provide the `MulticastGroupId` of the resource to add in the input array.
+   *
    * @public
    */
   MulticastGroupsToAdd?: string[] | undefined;
 
   /**
-   * <p>Multicast group resources to remove from the network analyzer configuration. Provide
-   *             the <code>MulticastGroupId</code> of the resources to remove in the input array.</p>
+   * Multicast group resources to remove from the network analyzer configuration. Provide the `MulticastGroupId` of the resources to remove in the input array.
+   *
    * @public
    */
   MulticastGroupsToRemove?: string[] | undefined;
@@ -801,12 +838,14 @@ export interface UpdateNetworkAnalyzerConfigurationRequest {
 export interface UpdateNetworkAnalyzerConfigurationResponse {}
 
 /**
- * <p>Sidewalk update.</p>
+ * Sidewalk update.
+ *
  * @public
  */
 export interface SidewalkUpdateAccount {
   /**
-   * <p>The new Sidewalk application server private key.</p>
+   * The new Sidewalk application server private key.
+   *
    * @public
    */
   AppServerPrivateKey?: string | undefined;
@@ -817,19 +856,22 @@ export interface SidewalkUpdateAccount {
  */
 export interface UpdatePartnerAccountRequest {
   /**
-   * <p>The Sidewalk account credentials.</p>
+   * The Sidewalk account credentials.
+   *
    * @public
    */
   Sidewalk: SidewalkUpdateAccount | undefined;
 
   /**
-   * <p>The ID of the partner account to update.</p>
+   * The ID of the partner account to update.
+   *
    * @public
    */
   PartnerAccountId: string | undefined;
 
   /**
-   * <p>The partner type.</p>
+   * The partner type.
+   *
    * @public
    */
   PartnerType: PartnerType | undefined;
@@ -846,19 +888,22 @@ export interface UpdatePartnerAccountResponse {}
  */
 export interface UpdatePositionRequest {
   /**
-   * <p>Resource identifier of the resource for which position is updated.</p>
+   * Resource identifier of the resource for which position is updated.
+   *
    * @public
    */
   ResourceIdentifier: string | undefined;
 
   /**
-   * <p>Resource type of the resource for which position is updated.</p>
+   * Resource type of the resource for which position is updated.
+   *
    * @public
    */
   ResourceType: PositionResourceType | undefined;
 
   /**
-   * <p>The position information of the resource.</p>
+   * The position information of the resource.
+   *
    * @public
    */
   Position: number[] | undefined;
@@ -875,51 +920,57 @@ export interface UpdatePositionResponse {}
  */
 export interface UpdateResourceEventConfigurationRequest {
   /**
-   * <p>Resource identifier to opt in for event messaging.</p>
+   * Resource identifier to opt in for event messaging.
+   *
    * @public
    */
   Identifier: string | undefined;
 
   /**
-   * <p>Identifier type of the particular resource identifier for event configuration.</p>
+   * Identifier type of the particular resource identifier for event configuration.
+   *
    * @public
    */
   IdentifierType: IdentifierType | undefined;
 
   /**
-   * <p>Partner type of the resource if the identifier type is
-   *             <code>PartnerAccountId</code>
-   *          </p>
+   * Partner type of the resource if the identifier type is `PartnerAccountId`
+   *
    * @public
    */
   PartnerType?: EventNotificationPartnerType | undefined;
 
   /**
-   * <p>Event configuration for the device registration state event.</p>
+   * Event configuration for the device registration state event.
+   *
    * @public
    */
   DeviceRegistrationState?: DeviceRegistrationStateEventConfiguration | undefined;
 
   /**
-   * <p>Event configuration for the proximity event.</p>
+   * Event configuration for the proximity event.
+   *
    * @public
    */
   Proximity?: ProximityEventConfiguration | undefined;
 
   /**
-   * <p>Event configuration for the join event.</p>
+   * Event configuration for the join event.
+   *
    * @public
    */
   Join?: JoinEventConfiguration | undefined;
 
   /**
-   * <p>Event configuration for the connection status event.</p>
+   * Event configuration for the connection status event.
+   *
    * @public
    */
   ConnectionStatus?: ConnectionStatusEventConfiguration | undefined;
 
   /**
-   * <p>Event configuration for the message delivery status event.</p>
+   * Event configuration for the message delivery status event.
+   *
    * @public
    */
   MessageDeliveryStatus?: MessageDeliveryStatusEventConfiguration | undefined;
@@ -935,24 +986,22 @@ export interface UpdateResourceEventConfigurationResponse {}
  */
 export interface UpdateResourcePositionRequest {
   /**
-   * <p>The identifier of the resource for which position information is updated. It can be
-   *             the wireless device ID or the wireless gateway ID, depending on the resource
-   *             type.</p>
+   * The identifier of the resource for which position information is updated. It can be the wireless device ID or the wireless gateway ID, depending on the resource type.
+   *
    * @public
    */
   ResourceIdentifier: string | undefined;
 
   /**
-   * <p>The type of resource for which position information is updated, which can be a
-   *             wireless device or a wireless gateway.</p>
+   * The type of resource for which position information is updated, which can be a wireless device or a wireless gateway.
+   *
    * @public
    */
   ResourceType: PositionResourceType | undefined;
 
   /**
-   * <p>The position information of the resource, displayed as a JSON payload. The payload
-   *             uses the GeoJSON format, which a format that's used to encode geographic data
-   *             structures. For more information, see <a href="https://geojson.org/">GeoJSON</a>.</p>
+   * The position information of the resource, displayed as a JSON payload. The payload uses the GeoJSON format, which a format that's used to encode geographic data structures. For more information, see [GeoJSON](https://geojson.org/).
+   *
    * @public
    */
   GeoJsonPayload?: Uint8Array | undefined;
@@ -964,91 +1013,105 @@ export interface UpdateResourcePositionRequest {
 export interface UpdateResourcePositionResponse {}
 
 /**
- * <p>ABP device object for LoRaWAN specification v1.0.x</p>
+ * ABP device object for LoRaWAN specification v1.0.x
+ *
  * @public
  */
 export interface UpdateAbpV1_0_x {
   /**
-   * <p>The FCnt init value.</p>
+   * The FCnt init value.
+   *
    * @public
    */
   FCntStart?: number | undefined;
 }
 
 /**
- * <p>ABP device object for LoRaWAN specification v1.1</p>
+ * ABP device object for LoRaWAN specification v1.1
+ *
  * @public
  */
 export interface UpdateAbpV1_1 {
   /**
-   * <p>The FCnt init value.</p>
+   * The FCnt init value.
+   *
    * @public
    */
   FCntStart?: number | undefined;
 }
 
 /**
- * <p>Object for updating the FPorts information.</p>
+ * Object for updating the FPorts information.
+ *
  * @public
  */
 export interface UpdateFPorts {
   /**
-   * <p>Positioning FPorts for the ClockSync, Stream, and GNSS functions.</p>
+   * Positioning FPorts for the ClockSync, Stream, and GNSS functions.
+   *
    * @public
    */
   Positioning?: Positioning | undefined;
 
   /**
-   * <p>LoRaWAN application, which can be used for geolocation by activating
-   *             positioning.</p>
+   * LoRaWAN application, which can be used for geolocation by activating positioning.
+   *
    * @public
    */
   Applications?: ApplicationConfig[] | undefined;
 }
 
 /**
- * <p>LoRaWAN object for update functions.</p>
+ * LoRaWAN object for update functions.
+ *
  * @public
  */
 export interface LoRaWANUpdateDevice {
   /**
-   * <p>The ID of the device profile for the wireless device.</p>
+   * The ID of the device profile for the wireless device.
+   *
    * @public
    */
   DeviceProfileId?: string | undefined;
 
   /**
-   * <p>The ID of the service profile.</p>
+   * The ID of the service profile.
+   *
    * @public
    */
   ServiceProfileId?: string | undefined;
 
   /**
-   * <p>ABP device object for update APIs for v1.1</p>
+   * ABP device object for update APIs for v1.1
+   *
    * @public
    */
   AbpV1_1?: UpdateAbpV1_1 | undefined;
 
   /**
-   * <p>ABP device object for update APIs for v1.0.x</p>
+   * ABP device object for update APIs for v1.0.x
+   *
    * @public
    */
   AbpV1_0_x?: UpdateAbpV1_0_x | undefined;
 
   /**
-   * <p>FPorts object for the positioning information of the device.</p>
+   * FPorts object for the positioning information of the device.
+   *
    * @public
    */
   FPorts?: UpdateFPorts | undefined;
 }
 
 /**
- * <p>Sidewalk object for updating a wireless device.</p>
+ * Sidewalk object for updating a wireless device.
+ *
  * @public
  */
 export interface SidewalkUpdateWirelessDevice {
   /**
-   * <p>The Positioning object of the Sidewalk device.</p>
+   * The Positioning object of the Sidewalk device.
+   *
    * @public
    */
   Positioning?: SidewalkPositioning | undefined;
@@ -1059,47 +1122,52 @@ export interface SidewalkUpdateWirelessDevice {
  */
 export interface UpdateWirelessDeviceRequest {
   /**
-   * <p>The ID of the resource to update.</p>
+   * The ID of the resource to update.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The name of the new destination for the device.</p>
+   * The name of the new destination for the device.
+   *
    * @public
    */
   DestinationName?: string | undefined;
 
   /**
-   * <p>The new name of the resource.</p>
-   *          <note>
-   *             <p>The following special characters aren't accepted: <code>&lt;&gt;^#~$</code>
-   *             </p>
-   *          </note>
+   * The new name of the resource.
+   *
+   * > **Note:** The following special characters aren't accepted: `<>^#~$`
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>A new description of the resource.</p>
+   * A new description of the resource.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The updated wireless device's configuration.</p>
+   * The updated wireless device's configuration.
+   *
    * @public
    */
   LoRaWAN?: LoRaWANUpdateDevice | undefined;
 
   /**
-   * <p>The integration status of the Device Location feature for LoRaWAN and Sidewalk devices.</p>
+   * The integration status of the Device Location feature for LoRaWAN and Sidewalk devices.
+   *
    * @public
    */
   Positioning?: PositioningConfigStatus | undefined;
 
   /**
-   * <p>The updated sidewalk properties.</p>
+   * The updated sidewalk properties.
+   *
    * @public
    */
   Sidewalk?: SidewalkUpdateWirelessDevice | undefined;
@@ -1111,13 +1179,14 @@ export interface UpdateWirelessDeviceRequest {
 export interface UpdateWirelessDeviceResponse {}
 
 /**
- * <p>Sidewalk object information for updating an import task.</p>
+ * Sidewalk object information for updating an import task.
+ *
  * @public
  */
 export interface SidewalkUpdateImportInfo {
   /**
-   * <p>The CSV file contained in an S3 bucket that's used for appending devices to an
-   *             existing import task.</p>
+   * The CSV file contained in an S3 bucket that's used for appending devices to an existing import task.
+   *
    * @public
    */
   DeviceCreationFile?: string | undefined;
@@ -1128,13 +1197,15 @@ export interface SidewalkUpdateImportInfo {
  */
 export interface UpdateWirelessDeviceImportTaskRequest {
   /**
-   * <p>The identifier of the import task to be updated.</p>
+   * The identifier of the import task to be updated.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The Sidewalk-related parameters of the import task to be updated.</p>
+   * The Sidewalk-related parameters of the import task to be updated.
+   *
    * @public
    */
   Sidewalk: SidewalkUpdateImportInfo | undefined;
@@ -1150,42 +1221,45 @@ export interface UpdateWirelessDeviceImportTaskResponse {}
  */
 export interface UpdateWirelessGatewayRequest {
   /**
-   * <p>The ID of the resource to update.</p>
+   * The ID of the resource to update.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The new name of the resource.</p>
-   *          <note>
-   *             <p>The following special characters aren't accepted: <code>&lt;&gt;^#~$</code>
-   *             </p>
-   *          </note>
+   * The new name of the resource.
+   *
+   * > **Note:** The following special characters aren't accepted: `<>^#~$`
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>A new description of the resource.</p>
+   * A new description of the resource.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>A list of JoinEuiRange used by LoRa gateways to filter LoRa frames.</p>
+   * A list of JoinEuiRange used by LoRa gateways to filter LoRa frames.
+   *
    * @public
    */
   JoinEuiFilters?: string[][] | undefined;
 
   /**
-   * <p>A list of NetId values that are used by LoRa gateways to filter the uplink
-   *             frames.</p>
+   * A list of NetId values that are used by LoRa gateways to filter the uplink frames.
+   *
    * @public
    */
   NetIdFilters?: string[] | undefined;
 
   /**
-   * <p>The MaxEIRP value.</p>
+   * The MaxEIRP value.
+   *
    * @public
    */
   MaxEirp?: number | undefined;

@@ -23,7 +23,10 @@ export interface UpdateAnalyzerCommandInput extends UpdateAnalyzerRequest {}
 export interface UpdateAnalyzerCommandOutput extends UpdateAnalyzerResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies the configuration of an existing analyzer.</p> <note> <p>This action is not supported for external access analyzers.</p> </note>
+ * Modifies the configuration of an existing analyzer.
+ *
+ * > **Note:** This action is not supported for external access analyzers.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -121,26 +124,32 @@ export interface UpdateAnalyzerCommandOutput extends UpdateAnalyzerResponse, __M
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A conflict exception error.</p>
+ *
+ * A conflict exception error.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal server error.</p>
+ *
+ * Internal server error.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource could not be found.</p>
+ *
+ * The specified resource could not be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Throttling limit exceeded error.</p>
+ *
+ * Throttling limit exceeded error.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Validation exception error.</p>
+ *
+ * Validation exception error.
  *
  * @throws {@link AccessAnalyzerServiceException}
- * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ * Base exception class for all service exceptions from AccessAnalyzer service.
  *
  * @public
  */

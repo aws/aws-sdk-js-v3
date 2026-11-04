@@ -23,7 +23,8 @@ export interface RemoveRoleFromDBClusterCommandInput extends RemoveRoleFromDBClu
 export interface RemoveRoleFromDBClusterCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Disassociates an Identity and Access Management (IAM) role from a DB cluster.</p>
+ * Disassociates an Identity and Access Management (IAM) role from a DB cluster.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,18 +51,20 @@ export interface RemoveRoleFromDBClusterCommandOutput extends __MetadataBearer {
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p>
- *             <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+ *
+ * *DBClusterIdentifier* does not refer to an existing DB cluster.
  *
  * @throws {@link DBClusterRoleNotFoundFault} (client fault)
- *  <p>The specified IAM role Amazon Resource Name (ARN) is not associated with the specified DB cluster.</p>
+ *
+ * The specified IAM role Amazon Resource Name (ARN) is not associated with the specified DB cluster.
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
- *  <p>The DB cluster is not in a valid state.</p>
+ *
+ * The DB cluster is not in a valid state.
  *
  * @throws {@link NeptuneServiceException}
- * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * Base exception class for all service exceptions from Neptune service.
  *
  * @public
  */

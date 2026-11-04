@@ -23,9 +23,8 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Associates a set of tags with a DAX resource.
- *              You can call <code>TagResource</code> up to
- *             5 times per second, per account. </p>
+ * Associates a set of tags with a DAX resource. You can call `TagResource` up to 5 times per second, per account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,31 +62,36 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The requested cluster ID does not refer to an existing DAX
- *             cluster.</p>
+ *
+ * The requested cluster ID does not refer to an existing DAX cluster.
  *
  * @throws {@link InvalidARNFault} (client fault)
- *  <p>The Amazon Resource Name (ARN) supplied in the request is not valid.</p>
+ *
+ * The Amazon Resource Name (ARN) supplied in the request is not valid.
  *
  * @throws {@link InvalidClusterStateFault} (client fault)
- *  <p>The requested DAX cluster is not in the
- *                 <i>available</i> state.</p>
+ *
+ * The requested DAX cluster is not in the *available* state.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * Two or more incompatible parameters were specified.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
- *  <p>The specified service linked role (SLR) was not found.</p>
+ *
+ * The specified service linked role (SLR) was not found.
  *
  * @throws {@link TagQuotaPerResourceExceeded} (client fault)
- *  <p>You have exceeded the maximum number of tags for this DAX cluster.</p>
+ *
+ * You have exceeded the maximum number of tags for this DAX cluster.
  *
  * @throws {@link DAXServiceException}
- * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ * Base exception class for all service exceptions from DAX service.
  *
  * @public
  */

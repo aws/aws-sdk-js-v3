@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { DataPipelineServiceException as __BaseException } from "./DataPipelineServiceException";
 
 /**
- * <p>An internal service error occurred.</p>
+ * An internal service error occurred.
+ *
  * @public
  */
 export class InternalServiceError extends __BaseException {
@@ -25,7 +26,8 @@ export class InternalServiceError extends __BaseException {
 }
 
 /**
- * <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
+ * The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.
+ *
  * @public
  */
 export class InvalidRequestException extends __BaseException {
@@ -46,7 +48,8 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * <p>The specified pipeline has been deleted.</p>
+ * The specified pipeline has been deleted.
+ *
  * @public
  */
 export class PipelineDeletedException extends __BaseException {
@@ -67,7 +70,8 @@ export class PipelineDeletedException extends __BaseException {
 }
 
 /**
- * <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
+ * The specified pipeline was not found. Verify that you used the correct user and account identifiers.
+ *
  * @public
  */
 export class PipelineNotFoundException extends __BaseException {
@@ -88,7 +92,8 @@ export class PipelineNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The specified task was not found. </p>
+ * The specified task was not found.
+ *
  * @public
  */
 export class TaskNotFoundException extends __BaseException {

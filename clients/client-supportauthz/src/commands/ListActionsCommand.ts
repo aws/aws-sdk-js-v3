@@ -23,7 +23,8 @@ export interface ListActionsCommandInput extends ListActionsInput {}
 export interface ListActionsCommandOutput extends ListActionsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists available support actions for a specified AWS service. Use pagination to ensure that the operation returns quickly and successfully.</p>
+ * Lists available support actions for a specified AWS service. Use pagination to ensure that the operation returns quickly and successfully.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,20 +60,24 @@ export interface ListActionsCommandOutput extends ListActionsOutput, __MetadataB
  * @see {@link SupportAuthZClientResolvedConfig | config} for SupportAuthZClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permissions to perform this operation.</p>
+ *
+ * You don't have sufficient permissions to perform this operation.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal service error occurred. Try again later.</p>
+ *
+ * An internal service error occurred. Try again later.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request rate exceeded the allowed limit. Try again later.</p>
+ *
+ * The request rate exceeded the allowed limit. Try again later.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the service.</p>
+ *
+ * The input fails to satisfy the constraints specified by the service.
  *
  * @throws {@link SupportAuthZServiceException}
- * <p>Base exception class for all service exceptions from SupportAuthZ service.</p>
  *
+ * Base exception class for all service exceptions from SupportAuthZ service.
  *
  * @public
  */

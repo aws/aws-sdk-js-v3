@@ -23,63 +23,33 @@ export interface DecapsulateCommandInput extends DecapsulateRequest {}
 export interface DecapsulateCommandOutput extends DecapsulateResponse, __MetadataBearer {}
 
 /**
- * <p>Recovers the shared secret that was encapsulated with the public key of an ML-KEM KMS key.
- *       Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM), specified in <a href="https://csrc.nist.gov/pubs/fips/203/final">FIPS 203</a> on the NIST website, is a
- *       post-quantum algorithm for establishing a shared secret between two parties. For an example
- *       of how two parties establish a shared secret over an insecure channel using ML-KEM, see
- *       <a href="https://docs.aws.amazon.com/kms/latest/developerguide/pqkeys.html#mlkem">ML-KEM
- *       keys in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
- *          <p>The Decapsulate operation is not available in China Regions.</p>
- *          <p>
- *             <code>Decapsulate</code> returns the shared secret as a 32-byte value. You can use it directly
- *     as key material, or run it through a key derivation function to derive multiple keys and nonces.</p>
- *          <important>
- *             <p>
- *                <code>Decapsulate</code> returns an <code>InvalidCiphertextException</code> when the
- *           length of the <code>SharedSecretCiphertextBlob</code> is inconsistent with the ML-KEM key
- *           spec. In all other cases, <code>Decapsulate</code> returns a 32-byte pseudo-random
- *           value. This is true even when the <code>SharedSecretCiphertextBlob</code> was created using
- *           a different ML-KEM key or altered from its original value. This behavior is a security
- *           feature called <i>implicit rejection</i> that helps protect against
- *           chosen-ciphertext attacks.</p>
- *             <p>Because a response does not indicate that the ciphertext and key are valid, confirm the
- *           two parties derived the same shared secret before using it.</p>
- *          </important>
- *          <p>The KMS key that you use for this operation must be in a compatible key state. For
- * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
- *          <p>
- *             <b>Cross-account use</b>: Yes. To perform this operation with a KMS key in a different Amazon Web Services account, specify
- *   the key ARN or alias ARN in the value of the <code>KeyId</code> parameter.</p>
- *          <p>
- *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:Decapsulate</a> (key policy)</p>
- *          <p>
- *             <b>Related operations:</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>Encapsulate</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>CreateKey</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>GetPublicKey</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DescribeKey</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
+ * Recovers the shared secret that was encapsulated with the public key of an ML-KEM KMS key. Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM), specified in [FIPS 203](https://csrc.nist.gov/pubs/fips/203/final) on the NIST website, is a post-quantum algorithm for establishing a shared secret between two parties. For an example of how two parties establish a shared secret over an insecure channel using ML-KEM, see [ML-KEM keys in KMS](https://docs.aws.amazon.com/kms/latest/developerguide/pqkeys.html#mlkem) in the *Key Management Service Developer Guide*.
+ *
+ * The Decapsulate operation is not available in China Regions.
+ *
+ * `Decapsulate` returns the shared secret as a 32-byte value. You can use it directly as key material, or run it through a key derivation function to derive multiple keys and nonces.
+ *
+ * > **Important:**
+ * >
+ * > `Decapsulate` returns an `InvalidCiphertextException` when the length of the `SharedSecretCiphertextBlob` is inconsistent with the ML-KEM key spec. In all other cases, `Decapsulate` returns a 32-byte pseudo-random value. This is true even when the `SharedSecretCiphertextBlob` was created using a different ML-KEM key or altered from its original value. This behavior is a security feature called *implicit rejection* that helps protect against chosen-ciphertext attacks.
+ * >
+ * > Because a response does not indicate that the ciphertext and key are valid, confirm the two parties derived the same shared secret before using it.
+ *
+ * The KMS key that you use for this operation must be in a compatible key state. For details, see [Key states of KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the *Key Management Service Developer Guide*.
+ *
+ * **Cross-account use**: Yes. To perform this operation with a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN in the value of the `KeyId` parameter.
+ *
+ * **Required permissions**: [kms:Decapsulate](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy)
+ *
+ * **Related operations:**
+ *
+ * - Encapsulate
+ * - CreateKey
+ * - GetPublicKey
+ * - DescribeKey
+ *
+ * **Eventual consistency**: The KMS API follows an eventual consistency model. For more information, see [KMS eventual consistency](https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -114,87 +84,66 @@ export interface DecapsulateCommandOutput extends DecapsulateResponse, __Metadat
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
  * @throws {@link DependencyTimeoutException} (server fault)
- *  <p>The system timed out while trying to fulfill the request. You can retry the
- *       request.</p>
+ *
+ * The system timed out while trying to fulfill the request. You can retry the request.
  *
  * @throws {@link DisabledException} (client fault)
- *  <p>The request was rejected because the specified KMS key is not enabled.</p>
+ *
+ * The request was rejected because the specified KMS key is not enabled.
  *
  * @throws {@link DryRunOperationException} (client fault)
- *  <p> The request was rejected because the DryRun parameter was specified. </p>
+ *
+ * The request was rejected because the DryRun parameter was specified.
  *
  * @throws {@link InvalidCiphertextException} (client fault)
- *  <p>From the <a>Decrypt</a> or <a>ReEncrypt</a> operation, the request
- *       was rejected because the specified ciphertext, or additional authenticated data incorporated
- *       into the ciphertext, such as the encryption context, is corrupted, missing, or otherwise
- *       invalid.</p>
- *          <p>From the <a>ImportKeyMaterial</a> operation, the request was rejected because
- *       KMS could not decrypt the encrypted (wrapped) key material. </p>
- *          <p>From the <a>Decapsulate</a> operation, the request was rejected because the
- *       length of the <code>SharedSecretCiphertextBlob</code> is inconsistent with the specified ML-KEM
- *       key spec.</p>
+ *
+ * From the Decrypt or ReEncrypt operation, the request was rejected because the specified ciphertext, or additional authenticated data incorporated into the ciphertext, such as the encryption context, is corrupted, missing, or otherwise invalid.
+ *
+ * From the ImportKeyMaterial operation, the request was rejected because KMS could not decrypt the encrypted (wrapped) key material.
+ *
+ * From the Decapsulate operation, the request was rejected because the length of the `SharedSecretCiphertextBlob` is inconsistent with the specified ML-KEM key spec.
  *
  * @throws {@link InvalidGrantTokenException} (client fault)
- *  <p>The request was rejected because the specified grant token is not valid.</p>
+ *
+ * The request was rejected because the specified grant token is not valid.
  *
  * @throws {@link InvalidKeyUsageException} (client fault)
- *  <p>The request was rejected for one of the following reasons: </p>
- *          <ul>
- *             <li>
- *                <p>The <code>KeyUsage</code> value of the KMS key is incompatible with the API
- *           operation.</p>
- *             </li>
- *             <li>
- *                <p>The encryption algorithm or signing algorithm specified for the operation is
- *           incompatible with the type of key material in the KMS key <code>(KeySpec</code>).</p>
- *             </li>
- *          </ul>
- *          <p>For encrypting, decrypting, re-encrypting, and generating data keys, the
- *         <code>KeyUsage</code> must be <code>ENCRYPT_DECRYPT</code>. For signing and verifying
- *       messages, the <code>KeyUsage</code> must be <code>SIGN_VERIFY</code>. For generating and
- *       verifying message authentication codes (MACs), the <code>KeyUsage</code> must be
- *         <code>GENERATE_VERIFY_MAC</code>. For deriving key agreement secrets, the
- *         <code>KeyUsage</code> must be <code>KEY_AGREEMENT</code>. For encapsulating and decapsulating
- *       shared secrets, the <code>KeyUsage</code> must be <code>ENCAPSULATE_DECAPSULATE</code>. To find
- *       the <code>KeyUsage</code> of a KMS key, use the <a>DescribeKey</a> operation.</p>
- *          <p>To find the encryption or signing algorithms supported for a particular KMS key, use the
- *         <a>DescribeKey</a> operation.</p>
+ *
+ * The request was rejected for one of the following reasons:
+ *
+ * - The `KeyUsage` value of the KMS key is incompatible with the API operation.
+ * - The encryption algorithm or signing algorithm specified for the operation is incompatible with the type of key material in the KMS key `(KeySpec`).
+ *
+ * For encrypting, decrypting, re-encrypting, and generating data keys, the `KeyUsage` must be `ENCRYPT_DECRYPT`. For signing and verifying messages, the `KeyUsage` must be `SIGN_VERIFY`. For generating and verifying message authentication codes (MACs), the `KeyUsage` must be `GENERATE_VERIFY_MAC`. For deriving key agreement secrets, the `KeyUsage` must be `KEY_AGREEMENT`. For encapsulating and decapsulating shared secrets, the `KeyUsage` must be `ENCAPSULATE_DECAPSULATE`. To find the `KeyUsage` of a KMS key, use the DescribeKey operation.
+ *
+ * To find the encryption or signing algorithms supported for a particular KMS key, use the DescribeKey operation.
  *
  * @throws {@link KeyUnavailableException} (server fault)
- *  <p>The request was rejected because the specified KMS key was not available. You can retry
- *       the request.</p>
+ *
+ * The request was rejected because the specified KMS key was not available. You can retry the request.
  *
  * @throws {@link KMSInternalException} (server fault)
- *  <p>The request was rejected because an internal exception occurred. The request can be
- *       retried.</p>
+ *
+ * The request was rejected because an internal exception occurred. The request can be retried.
  *
  * @throws {@link KMSInvalidStateException} (client fault)
- *  <p>The request was rejected because the state of the specified resource is not valid for this
- *       request.</p>
- *          <p>This exceptions means one of the following:</p>
- *          <ul>
- *             <li>
- *                <p>The key state of the KMS key is not compatible with the operation. </p>
- *                <p>To find the key state, use the <a>DescribeKey</a> operation. For more
- *           information about which key states are compatible with each KMS operation, see
- *           <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>
- *                      <i>Key Management Service Developer Guide</i>
- *                   </i>.</p>
- *             </li>
- *             <li>
- *                <p>For cryptographic operations on KMS keys in custom key stores, this exception
- *           represents a general failure with many possible causes. To identify the cause, see the
- *           error message that accompanies the exception.</p>
- *             </li>
- *          </ul>
+ *
+ * The request was rejected because the state of the specified resource is not valid for this request.
+ *
+ * This exceptions means one of the following:
+ *
+ * - The key state of the KMS key is not compatible with the operation.
+ *
+ *   To find the key state, use the DescribeKey operation. For more information about which key states are compatible with each KMS operation, see [Key states of KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the **Key Management Service Developer Guide** .
+ * - For cryptographic operations on KMS keys in custom key stores, this exception represents a general failure with many possible causes. To identify the cause, see the error message that accompanies the exception.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The request was rejected because the specified entity or resource could not be
- *       found.</p>
+ *
+ * The request was rejected because the specified entity or resource could not be found.
  *
  * @throws {@link KMSServiceException}
- * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * Base exception class for all service exceptions from KMS service.
  *
  * @example To recover a shared secret from its encapsulated ciphertext
  * ```javascript

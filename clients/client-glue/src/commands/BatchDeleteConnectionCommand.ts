@@ -23,7 +23,8 @@ export interface BatchDeleteConnectionCommandInput extends BatchDeleteConnection
 export interface BatchDeleteConnectionCommandOutput extends BatchDeleteConnectionResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a list of connection definitions from the Data Catalog.</p>
+ * Deletes a list of connection definitions from the Data Catalog.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,14 +62,16 @@ export interface BatchDeleteConnectionCommandOutput extends BatchDeleteConnectio
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

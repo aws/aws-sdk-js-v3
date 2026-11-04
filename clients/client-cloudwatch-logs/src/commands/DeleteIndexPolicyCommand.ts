@@ -23,18 +23,14 @@ export interface DeleteIndexPolicyCommandInput extends DeleteIndexPolicyRequest 
 export interface DeleteIndexPolicyCommandOutput extends DeleteIndexPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a log-group level field index policy that was applied to a single log group. The
- *       indexing of the log events that happened before you delete the policy will still be used for
- *       as many as 30 days to improve CloudWatch Logs Insights queries.</p>
- *          <p>If the deleted policy included facet configurations, those facets will no longer be
- *       available for interactive exploration in the CloudWatch Logs Insights console for this log
- *       group. However, facet data is retained for up to 30 days.</p>
- *          <p>You can't use this operation to delete an account-level index policy. Instead, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteAccountPolicy.html">DeleteAccountPolicy</a>.</p>
- *          <p>If you delete a log-group level field index policy and there is an account-level field
- *       index policy, in a few minutes the log group begins using that account-wide policy to index
- *       new incoming log events. This operation only affects log group-level policies, including any
- *       facet configurations, and preserves any data source-based account policies that may apply to
- *       the log group.</p>
+ * Deletes a log-group level field index policy that was applied to a single log group. The indexing of the log events that happened before you delete the policy will still be used for as many as 30 days to improve CloudWatch Logs Insights queries.
+ *
+ * If the deleted policy included facet configurations, those facets will no longer be available for interactive exploration in the CloudWatch Logs Insights console for this log group. However, facet data is retained for up to 30 days.
+ *
+ * You can't use this operation to delete an account-level index policy. Instead, use [DeleteAccountPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteAccountPolicy.html).
+ *
+ * If you delete a log-group level field index policy and there is an account-level field index policy, in a few minutes the log group begins using that account-wide policy to index new incoming log events. This operation only affects log group-level policies, including any facet configurations, and preserves any data source-based account policies that may apply to the log group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,23 +55,28 @@ export interface DeleteIndexPolicyCommandOutput extends DeleteIndexPolicyRespons
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is specified incorrectly.</p>
+ *
+ * A parameter is specified incorrectly.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You have reached the maximum number of resources that can be created.</p>
+ *
+ * You have reached the maximum number of resources that can be created.
  *
  * @throws {@link OperationAbortedException} (client fault)
- *  <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+ *
+ * Multiple concurrent requests to update the same resource were in conflict.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service cannot complete the request.</p>
+ *
+ * The service cannot complete the request.
  *
  * @throws {@link CloudWatchLogsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchLogs service.
  *
  * @public
  */

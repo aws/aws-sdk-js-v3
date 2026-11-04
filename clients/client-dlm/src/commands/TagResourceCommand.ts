@@ -23,7 +23,8 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Adds the specified tags to the specified resource.</p>
+ * Adds the specified tags to the specified resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,18 +52,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link DLMClientResolvedConfig | config} for DLMClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The service failed in an unexpected way.</p>
+ *
+ * The service failed in an unexpected way.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Bad request. The request is missing required parameters or has invalid
- * 			parameters.</p>
+ *
+ * Bad request. The request is missing required parameters or has invalid parameters.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A requested resource was not found.</p>
+ *
+ * A requested resource was not found.
  *
  * @throws {@link DLMServiceException}
- * <p>Base exception class for all service exceptions from DLM service.</p>
  *
+ * Base exception class for all service exceptions from DLM service.
  *
  * @public
  */

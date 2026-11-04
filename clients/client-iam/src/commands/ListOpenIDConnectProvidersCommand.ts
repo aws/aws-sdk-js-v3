@@ -23,12 +23,10 @@ export interface ListOpenIDConnectProvidersCommandInput extends ListOpenIDConnec
 export interface ListOpenIDConnectProvidersCommandOutput extends ListOpenIDConnectProvidersResponse, __MetadataBearer {}
 
 /**
- * <p>Lists information about the IAM OpenID Connect (OIDC) provider resource objects
- *             defined in the Amazon Web Services account.</p>
- *          <note>
- *             <p>IAM resource-listing operations return a subset of the available
- *    attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view all of the information for an OIDC provider, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOpenIDConnectProvider.html">GetOpenIDConnectProvider</a>.</p>
- *          </note>
+ * Lists information about the IAM OpenID Connect (OIDC) provider resource objects defined in the Amazon Web Services account.
+ *
+ * > **Note:** IAM resource-listing operations return a subset of the available attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view all of the information for an OIDC provider, see [GetOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOpenIDConnectProvider.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,12 +55,12 @@ export interface ListOpenIDConnectProvidersCommandOutput extends ListOpenIDConne
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @public
  */

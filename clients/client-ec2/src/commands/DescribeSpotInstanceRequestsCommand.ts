@@ -23,22 +23,14 @@ export interface DescribeSpotInstanceRequestsCommandInput extends DescribeSpotIn
 export interface DescribeSpotInstanceRequestsCommandOutput extends DescribeSpotInstanceRequestsResult, __MetadataBearer {}
 
 /**
- * <p>Describes the specified Spot Instance requests.</p>
- *          <p>You can use <code>DescribeSpotInstanceRequests</code> to find a running Spot Instance by
- *             examining the response. If the status of the Spot Instance is <code>fulfilled</code>, the
- *             instance ID appears in the response and contains the identifier of the instance.
- *             Alternatively, you can use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances">DescribeInstances</a>
- *             with a filter to look for instances where the instance lifecycle is
- *             <code>spot</code>.</p>
- *          <p>We recommend that you set <code>MaxResults</code> to a value between 5 and 1000 to
- *             limit the number of items returned. This paginates the output, which makes the list
- *             more manageable and returns the items faster. If the list of items exceeds your
- *                 <code>MaxResults</code> value, then that number of items is returned along with a
- *                 <code>NextToken</code> value that can be passed to a subsequent
- *                 <code>DescribeSpotInstanceRequests</code> request to retrieve the remaining
- *             items.</p>
- *          <p>Spot Instance requests are deleted four hours after they are canceled and their instances are
- *             terminated.</p>
+ * Describes the specified Spot Instance requests.
+ *
+ * You can use `DescribeSpotInstanceRequests` to find a running Spot Instance by examining the response. If the status of the Spot Instance is `fulfilled`, the instance ID appears in the response and contains the identifier of the instance. Alternatively, you can use [DescribeInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances) with a filter to look for instances where the instance lifecycle is `spot`.
+ *
+ * We recommend that you set `MaxResults` to a value between 5 and 1000 to limit the number of items returned. This paginates the output, which makes the list more manageable and returns the items faster. If the list of items exceeds your `MaxResults` value, then that number of items is returned along with a `NextToken` value that can be passed to a subsequent `DescribeSpotInstanceRequests` request to retrieve the remaining items.
+ *
+ * Spot Instance requests are deleted four hours after they are canceled and their instances are terminated.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -221,8 +213,8 @@ export interface DescribeSpotInstanceRequestsCommandOutput extends DescribeSpotI
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To describe a Spot Instance request
  * ```javascript

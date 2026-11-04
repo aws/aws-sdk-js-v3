@@ -23,10 +23,10 @@ export interface CreateReportPlanCommandInput extends CreateReportPlanInput {}
 export interface CreateReportPlanCommandOutput extends CreateReportPlanOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a report plan. A report plan is a document that contains information about the
- *          contents of the report and where Backup will deliver it.</p>
- *          <p>If you call <code>CreateReportPlan</code> with a plan that already exists, you receive
- *          an <code>AlreadyExistsException</code> exception.</p>
+ * Creates a report plan. A report plan is a document that contains information about the contents of the report and where Backup will deliver it.
+ *
+ * If you call `CreateReportPlan` with a plan that already exists, you receive an `AlreadyExistsException` exception.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,25 +83,28 @@ export interface CreateReportPlanCommandOutput extends CreateReportPlanOutput, _
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  * @throws {@link AlreadyExistsException} (client fault)
- *  <p>The required resource already exists.</p>
+ *
+ * The required resource already exists.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
- *          out of range.</p>
+ *
+ * Indicates that something is wrong with a parameter's value. For example, the value is out of range.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>A limit in the request has been exceeded; for example, a maximum number of items allowed
- *          in a request.</p>
+ *
+ * A limit in the request has been exceeded; for example, a maximum number of items allowed in a request.
  *
  * @throws {@link MissingParameterValueException} (client fault)
- *  <p>Indicates that a required parameter is missing.</p>
+ *
+ * Indicates that a required parameter is missing.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The request failed due to a temporary failure of the server.</p>
+ *
+ * The request failed due to a temporary failure of the server.
  *
  * @throws {@link BackupServiceException}
- * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * Base exception class for all service exceptions from Backup service.
  *
  * @public
  */

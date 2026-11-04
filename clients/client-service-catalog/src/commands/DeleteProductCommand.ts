@@ -23,9 +23,12 @@ export interface DeleteProductCommandInput extends DeleteProductInput {}
 export interface DeleteProductCommandOutput extends DeleteProductOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified product.</p>
- *          <p>You cannot delete a product if it was shared with you or is associated with a portfolio.</p>
- *          <p>A delegated admin is authorized to invoke this command.</p>
+ * Deletes the specified product.
+ *
+ * You cannot delete a product if it was shared with you or is associated with a portfolio.
+ *
+ * A delegated admin is authorized to invoke this command.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,22 +54,24 @@ export interface DeleteProductCommandOutput extends DeleteProductOutput, __Metad
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  * @throws {@link InvalidParametersException} (client fault)
- *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * One or more parameters provided to the operation are not valid.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>A resource that is currently in use. Ensure that the resource is not in use and retry the operation.</p>
+ *
+ * A resource that is currently in use. Ensure that the resource is not in use and retry the operation.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link TagOptionNotMigratedException} (client fault)
- *  <p>An operation requiring TagOptions failed because the TagOptions migration process has
- *          not been performed for this account. Use the Amazon Web Services Management Console to perform the migration
- *          process before retrying the operation.</p>
+ *
+ * An operation requiring TagOptions failed because the TagOptions migration process has not been performed for this account. Use the Amazon Web Services Management Console to perform the migration process before retrying the operation.
  *
  * @throws {@link ServiceCatalogServiceException}
- * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * Base exception class for all service exceptions from ServiceCatalog service.
  *
  * @public
  */

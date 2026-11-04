@@ -23,28 +23,18 @@ export interface CreateAliasCommandInput extends CreateAliasInput {}
 export interface CreateAliasCommandOutput extends CreateAliasOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
- *          <p>Creates an alias for a fleet. In most situations, you can use an alias ID in place of
- *             a fleet ID. An alias provides a level of abstraction for a fleet that is useful when
- *             redirecting player traffic from one fleet to another, such as when updating your game
- *             build. </p>
- *          <p>Amazon GameLift Servers supports two types of routing strategies for aliases: simple and terminal. A
- *             simple alias points to an active fleet. A terminal alias is used to display messaging or
- *             link to a URL instead of routing players to an active fleet. For example, you might use
- *             a terminal alias when a game version is no longer supported and you want to direct
- *             players to an upgrade site. </p>
- *          <p>To create a fleet alias, specify an alias name, routing strategy, and optional
- *             description. Each simple alias can point to only one fleet, but a fleet can have
- *             multiple aliases. If successful, a new alias record is returned, including an alias ID
- *             and an ARN. You can reassign an alias to another fleet by calling
- *                 <code>UpdateAlias</code>.</p>
- *          <p>
- *             <b>Related actions</b>
- *          </p>
- *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
- *          </p>
+ * **This API works with the following fleet types:** EC2, Anywhere, Container
+ *
+ * Creates an alias for a fleet. In most situations, you can use an alias ID in place of a fleet ID. An alias provides a level of abstraction for a fleet that is useful when redirecting player traffic from one fleet to another, such as when updating your game build.
+ *
+ * Amazon GameLift Servers supports two types of routing strategies for aliases: simple and terminal. A simple alias points to an active fleet. A terminal alias is used to display messaging or link to a URL instead of routing players to an active fleet. For example, you might use a terminal alias when a game version is no longer supported and you want to direct players to an upgrade site.
+ *
+ * To create a fleet alias, specify an alias name, routing strategy, and optional description. Each simple alias can point to only one fleet, but a fleet can have multiple aliases. If successful, a new alias record is returned, including an alias ID and an ARN. You can reassign an alias to another fleet by calling `UpdateAlias`.
+ *
+ * **Related actions**
+ *
+ * [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,34 +85,32 @@ export interface CreateAliasCommandOutput extends CreateAliasOutput, __MetadataB
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The requested operation would cause a conflict with the current state of a service
- *             resource associated with the request. Resolve the conflict before retrying this
- *             request.</p>
- *          <p></p>
+ *
+ * The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an unrecoverable internal failure while processing the
- *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
- *             values before retrying.</p>
+ *
+ * One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The requested operation would cause the resource to exceed the allowed service limit.
- *             Resolve the issue before retrying.</p>
+ *
+ * The requested operation would cause the resource to exceed the allowed service limit. Resolve the issue before retrying.
  *
  * @throws {@link TaggingFailedException} (client fault)
- *  <p>The requested tagging operation did not succeed. This may be due to invalid tag format
- *             or the maximum tag limit may have been exceeded. Resolve the issue before
- *             retrying.</p>
+ *
+ * The requested tagging operation did not succeed. This may be due to invalid tag format or the maximum tag limit may have been exceeded. Resolve the issue before retrying.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * The client failed authentication. Clients should not retry such requests.
  *
  * @throws {@link GameLiftServiceException}
- * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * Base exception class for all service exceptions from GameLift service.
  *
  * @public
  */

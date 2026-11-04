@@ -23,7 +23,10 @@ export interface RemoveFromGlobalClusterCommandInput extends RemoveFromGlobalClu
 export interface RemoveFromGlobalClusterCommandOutput extends RemoveFromGlobalClusterResult, __MetadataBearer {}
 
 /**
- * <p>Detaches an Aurora secondary cluster from an Aurora global database cluster. The cluster becomes a standalone cluster with read-write capability instead of being read-only and receiving data from a primary cluster in a different Region.</p> <note> <p>This operation only applies to Aurora DB clusters.</p> </note>
+ * Detaches an Aurora secondary cluster from an Aurora global database cluster. The cluster becomes a standalone cluster with read-write capability instead of being read-only and receiving data from a primary cluster in a different Region.
+ *
+ * > **Note:** This operation only applies to Aurora DB clusters.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,20 +90,24 @@ export interface RemoveFromGlobalClusterCommandOutput extends RemoveFromGlobalCl
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *
+ * `DBClusterIdentifier` doesn't refer to an existing DB cluster.
  *
  * @throws {@link GlobalClusterNotFoundFault} (client fault)
- *  <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster.</p>
+ *
+ * The `GlobalClusterIdentifier` doesn't refer to an existing global database cluster.
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
- *  <p>The requested operation can't be performed while the cluster is in this state.</p>
+ *
+ * The requested operation can't be performed while the cluster is in this state.
  *
  * @throws {@link InvalidGlobalClusterStateFault} (client fault)
- *  <p>The global cluster is in an invalid state and can't perform the requested operation.</p>
+ *
+ * The global cluster is in an invalid state and can't perform the requested operation.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To detach an Aurora secondary cluster from an Aurora global database cluster
  * ```javascript

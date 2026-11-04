@@ -23,7 +23,12 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Removes one or more tags from an ACM resource.</p> <note> <p>Use this action for all ACM resource types except the <code>certificate</code> resource type. For certificate resources, use <a>RemoveTagsFromCertificate</a> instead.</p> </note> <p>To add one or more tags, use the <a>TagResource</a> action. To view all of the tags that have been applied to a resource, use the <a>ListTagsForResource</a> action.</p>
+ * Removes one or more tags from an ACM resource.
+ *
+ * > **Note:** Use this action for all ACM resource types except the `certificate` resource type. For certificate resources, use RemoveTagsFromCertificate instead.
+ *
+ * To add one or more tags, use the TagResource action. To view all of the tags that have been applied to a resource, use the ListTagsForResource action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,14 +56,16 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified certificate cannot be found in the caller's account or the caller's account cannot be found.</p>
+ *
+ * The specified certificate cannot be found in the caller's account or the caller's account cannot be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The supplied input failed to satisfy constraints of an Amazon Web Services service.</p>
+ *
+ * The supplied input failed to satisfy constraints of an Amazon Web Services service.
  *
  * @throws {@link ACMServiceException}
- * <p>Base exception class for all service exceptions from ACM service.</p>
  *
+ * Base exception class for all service exceptions from ACM service.
  *
  * @public
  */

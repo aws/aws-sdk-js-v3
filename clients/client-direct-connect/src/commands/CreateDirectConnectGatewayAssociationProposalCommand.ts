@@ -26,8 +26,10 @@ export interface CreateDirectConnectGatewayAssociationProposalCommandInput exten
 export interface CreateDirectConnectGatewayAssociationProposalCommandOutput extends CreateDirectConnectGatewayAssociationProposalResult, __MetadataBearer {}
 
 /**
- * <p>Creates a proposal to associate the specified virtual private gateway or transit gateway with the specified Direct Connect gateway.</p>
- *          <p>You can associate a Direct Connect gateway and virtual private gateway or transit gateway that is owned by any Amazon Web Services account. </p>
+ * Creates a proposal to associate the specified virtual private gateway or transit gateway with the specified Direct Connect gateway.
+ *
+ * You can associate a Direct Connect gateway and virtual private gateway or transit gateway that is owned by any Amazon Web Services account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,14 +89,16 @@ export interface CreateDirectConnectGatewayAssociationProposalCommandOutput exte
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  * @throws {@link DirectConnectClientException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link DirectConnectServerException} (server fault)
- *  <p>A server-side error occurred.</p>
+ *
+ * A server-side error occurred.
  *
  * @throws {@link DirectConnectServiceException}
- * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * Base exception class for all service exceptions from DirectConnect service.
  *
  * @public
  */

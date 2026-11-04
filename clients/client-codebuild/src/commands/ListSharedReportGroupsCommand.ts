@@ -23,8 +23,8 @@ export interface ListSharedReportGroupsCommandInput extends ListSharedReportGrou
 export interface ListSharedReportGroupsCommandOutput extends ListSharedReportGroupsOutput, __MetadataBearer {}
 
 /**
- * <p> Gets a list of report groups that are shared with other Amazon Web Services accounts or users.
- *         </p>
+ * Gets a list of report groups that are shared with other Amazon Web Services accounts or users.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,11 +57,12 @@ export interface ListSharedReportGroupsCommandOutput extends ListSharedReportGro
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input value that was provided is not valid.</p>
+ *
+ * The input value that was provided is not valid.
  *
  * @throws {@link CodeBuildServiceException}
- * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * Base exception class for all service exceptions from CodeBuild service.
  *
  * @public
  */

@@ -26,17 +26,14 @@ export interface SetIdentityFeedbackForwardingEnabledCommandInput extends SetIde
 export interface SetIdentityFeedbackForwardingEnabledCommandOutput extends SetIdentityFeedbackForwardingEnabledResponse, __MetadataBearer {}
 
 /**
- * <p>Given an identity (an email address or a domain), enables or disables whether Amazon SES
- *             forwards bounce and complaint notifications as email. Feedback forwarding can only be
- *             disabled when Amazon Simple Notification Service (Amazon SNS) topics are specified for both bounces and
- *             complaints.</p>
- *          <note>
- *             <p>Feedback forwarding does not apply to delivery notifications. Delivery
- *                 notifications are only available through Amazon SNS.</p>
- *          </note>
- *          <p>You can execute this operation no more than once per second.</p>
- *          <p>For more information about using notifications with Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity-using-notifications.html">Amazon SES
- *                 Developer Guide</a>.</p>
+ * Given an identity (an email address or a domain), enables or disables whether Amazon SES forwards bounce and complaint notifications as email. Feedback forwarding can only be disabled when Amazon Simple Notification Service (Amazon SNS) topics are specified for both bounces and complaints.
+ *
+ * > **Note:** Feedback forwarding does not apply to delivery notifications. Delivery notifications are only available through Amazon SNS.
+ *
+ * You can execute this operation no more than once per second.
+ *
+ * For more information about using notifications with Amazon SES, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity-using-notifications.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,8 +59,8 @@ export interface SetIdentityFeedbackForwardingEnabledCommandOutput extends SetId
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @example SetIdentityFeedbackForwardingEnabled
  * ```javascript

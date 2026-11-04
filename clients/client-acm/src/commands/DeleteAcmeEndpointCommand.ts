@@ -23,7 +23,8 @@ export interface DeleteAcmeEndpointCommandInput extends DeleteAcmeEndpointReques
 export interface DeleteAcmeEndpointCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an ACME endpoint. After deletion, the endpoint URL is no longer accessible and ACME clients cannot issue certificates through it. Any existing external account bindings and domain validations associated with the endpoint are also deleted.</p>
+ * Deletes an ACME endpoint. After deletion, the endpoint URL is no longer accessible and ACME clients cannot issue certificates through it. Any existing external account bindings and domain validations associated with the endpoint are also deleted.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,23 +49,28 @@ export interface DeleteAcmeEndpointCommandOutput extends __MetadataBearer {}
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have access required to perform this action.</p>
+ *
+ * You do not have access required to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>You are trying to update a resource or configuration that is already being created or updated. Wait for the previous operation to finish and try again.</p>
+ *
+ * You are trying to update a resource or configuration that is already being created or updated. Wait for the previous operation to finish and try again.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception, or failure.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied because it exceeded a quota.</p>
+ *
+ * The request was denied because it exceeded a quota.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The supplied input failed to satisfy constraints of an Amazon Web Services service.</p>
+ *
+ * The supplied input failed to satisfy constraints of an Amazon Web Services service.
  *
  * @throws {@link ACMServiceException}
- * <p>Base exception class for all service exceptions from ACM service.</p>
  *
+ * Base exception class for all service exceptions from ACM service.
  *
  * @public
  */

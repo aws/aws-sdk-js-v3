@@ -67,8 +67,8 @@ export interface DeleteConnectInstanceConfigCommandOutput extends __MetadataBear
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
  * @throws {@link ConnectCampaignsV2ServiceException}
- * <p>Base exception class for all service exceptions from ConnectCampaignsV2 service.</p>
  *
+ * Base exception class for all service exceptions from ConnectCampaignsV2 service.
  *
  * @public
  */

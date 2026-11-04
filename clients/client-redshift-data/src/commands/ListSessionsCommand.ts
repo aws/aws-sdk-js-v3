@@ -23,7 +23,10 @@ export interface ListSessionsCommandInput extends ListSessionsRequest {}
 export interface ListSessionsCommandOutput extends ListSessionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the sessions that the caller created in the last 24 hours. By default, only sessions with a status of <code>AVAILABLE</code> or <code>BUSY</code> are returned. You can filter the results by session status, compute target (cluster or serverless workgroup), or database. To retrieve the metadata for a single session, provide the <code>SessionId</code> parameter. Use <code>NextToken</code> to page through the session list.</p> <p>Returns only the sessions that the caller created. When identity-enhanced role sessions are used, you must provide either the <code>ClusterIdentifier</code> or <code>WorkgroupName</code> parameter to ensure that the IAM Identity Center user can only access the Amazon Redshift IAM Identity Center applications they are assigned. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-overview.html"> Trusted identity propagation overview</a>.</p>
+ * Lists the sessions that the caller created in the last 24 hours. By default, only sessions with a status of `AVAILABLE` or `BUSY` are returned. You can filter the results by session status, compute target (cluster or serverless workgroup), or database. To retrieve the metadata for a single session, provide the `SessionId` parameter. Use `NextToken` to page through the session list.
+ *
+ * Returns only the sessions that the caller created. When identity-enhanced role sessions are used, you must provide either the `ClusterIdentifier` or `WorkgroupName` parameter to ensure that the IAM Identity Center user can only access the Amazon Redshift IAM Identity Center applications they are assigned. For more information, see [Trusted identity propagation overview](https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-overview.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,17 +75,20 @@ export interface ListSessionsCommandOutput extends ListSessionsResponse, __Metad
  * @see {@link RedshiftDataClientResolvedConfig | config} for RedshiftDataClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
+ *
+ * The Amazon Redshift Data API operation failed due to invalid input.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The Amazon Redshift Data API operation failed due to a missing resource. </p>
+ *
+ * The Amazon Redshift Data API operation failed due to a missing resource.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
+ *
+ * The Amazon Redshift Data API operation failed due to invalid input.
  *
  * @throws {@link RedshiftDataServiceException}
- * <p>Base exception class for all service exceptions from RedshiftData service.</p>
  *
+ * Base exception class for all service exceptions from RedshiftData service.
  *
  * @public
  */

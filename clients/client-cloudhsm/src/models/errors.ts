@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { CloudHSMServiceException as __BaseException } from "./CloudHSMServiceException";
 
 /**
- * <p>Indicates that an internal error occurred.</p>
+ * Indicates that an internal error occurred.
+ *
  * @public
  */
 export class CloudHsmInternalException extends __BaseException {
@@ -12,7 +13,8 @@ export class CloudHsmInternalException extends __BaseException {
   readonly name = "CloudHsmInternalException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>Indicates if the action can be retried.</p>
+   * Indicates if the action can be retried.
+   *
    * @public
    */
   retryable?: boolean | undefined;
@@ -32,7 +34,8 @@ export class CloudHsmInternalException extends __BaseException {
 }
 
 /**
- * <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
+ * Indicates that an exception occurred in the AWS CloudHSM service.
+ *
  * @public
  */
 export class CloudHsmServiceException extends __BaseException {
@@ -40,7 +43,8 @@ export class CloudHsmServiceException extends __BaseException {
   readonly name = "CloudHsmServiceException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Indicates if the action can be retried.</p>
+   * Indicates if the action can be retried.
+   *
    * @public
    */
   retryable?: boolean | undefined;
@@ -60,7 +64,8 @@ export class CloudHsmServiceException extends __BaseException {
 }
 
 /**
- * <p>Indicates that one or more of the request parameters are not valid.</p>
+ * Indicates that one or more of the request parameters are not valid.
+ *
  * @public
  */
 export class InvalidRequestException extends __BaseException {
@@ -68,7 +73,8 @@ export class InvalidRequestException extends __BaseException {
   readonly name = "InvalidRequestException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Indicates if the action can be retried.</p>
+   * Indicates if the action can be retried.
+   *
    * @public
    */
   retryable?: boolean | undefined;

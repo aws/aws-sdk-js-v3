@@ -4,8 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { ForecastServiceException as __BaseException } from "./ForecastServiceException";
 
 /**
- * <p>We can't process the request because it includes an invalid value or a value that exceeds
- *       the valid range.</p>
+ * We can't process the request because it includes an invalid value or a value that exceeds the valid range.
+ *
  * @public
  */
 export class InvalidInputException extends __BaseException {
@@ -28,7 +28,8 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
- * <p>The limit on the number of resources per account has been exceeded.</p>
+ * The limit on the number of resources per account has been exceeded.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -51,7 +52,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>There is already a resource with this name. Try again with a different name.</p>
+ * There is already a resource with this name. Try again with a different name.
+ *
  * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -74,7 +76,8 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The specified resource is in use.</p>
+ * The specified resource is in use.
+ *
  * @public
  */
 export class ResourceInUseException extends __BaseException {
@@ -97,8 +100,8 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
- * <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
- *       again.</p>
+ * We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -121,7 +124,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The token is not valid. Tokens expire after 24 hours.</p>
+ * The token is not valid. Tokens expire after 24 hours.
+ *
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {

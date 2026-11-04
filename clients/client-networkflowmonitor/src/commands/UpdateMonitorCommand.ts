@@ -23,7 +23,8 @@ export interface UpdateMonitorCommandInput extends UpdateMonitorInput {}
 export interface UpdateMonitorCommandOutput extends UpdateMonitorOutput, __MetadataBearer {}
 
 /**
- * <p>Update a monitor to add or remove local or remote resources.</p>
+ * Update a monitor to add or remove local or remote resources.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,23 +95,28 @@ export interface UpdateMonitorCommandOutput extends UpdateMonitorOutput, __Metad
  * @see {@link NetworkFlowMonitorClientResolvedConfig | config} for NetworkFlowMonitorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * You don't have sufficient permission to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error occurred.</p>
+ *
+ * An internal error occurred.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request specifies a resource that doesn't exist.</p>
+ *
+ * The request specifies a resource that doesn't exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Invalid request.</p>
+ *
+ * Invalid request.
  *
  * @throws {@link NetworkFlowMonitorServiceException}
- * <p>Base exception class for all service exceptions from NetworkFlowMonitor service.</p>
  *
+ * Base exception class for all service exceptions from NetworkFlowMonitor service.
  *
  * @public
  */

@@ -23,9 +23,8 @@ export interface UpdateCostCategoryDefinitionCommandInput extends UpdateCostCate
 export interface UpdateCostCategoryDefinitionCommandOutput extends UpdateCostCategoryDefinitionResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an existing cost category. Changes made to the cost category rules will be used to
- *       categorize the current month’s expenses and future expenses. This won’t change categorization
- *       for the previous months.</p>
+ * Updates an existing cost category. Changes made to the cost category rules will be used to categorize the current month’s expenses and future expenses. This won’t change categorization for the previous months.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -164,18 +163,20 @@ export interface UpdateCostCategoryDefinitionCommandOutput extends UpdateCostCat
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ * You made too many calls in a short period of time. Try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The specified ARN in the request doesn't exist. </p>
+ *
+ * The specified ARN in the request doesn't exist.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p> You've reached the limit on the number of resources you can create, or exceeded the
- *             size of an individual resource. </p>
+ *
+ * You've reached the limit on the number of resources you can create, or exceeded the size of an individual resource.
  *
  * @throws {@link CostExplorerServiceException}
- * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * Base exception class for all service exceptions from CostExplorer service.
  *
  * @public
  */

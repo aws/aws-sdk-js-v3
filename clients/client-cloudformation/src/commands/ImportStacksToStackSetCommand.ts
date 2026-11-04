@@ -23,10 +23,8 @@ export interface ImportStacksToStackSetCommandInput extends ImportStacksToStackS
 export interface ImportStacksToStackSetCommandOutput extends ImportStacksToStackSetOutput, __MetadataBearer {}
 
 /**
- * <p>Import existing stacks into a new StackSets. Use the stack import operation to import up
- *       to 10 stacks into a new StackSet in the same account as the source stack or in a different
- *       administrator account and Region, by specifying the stack ID of the stack you intend to
- *       import.</p>
+ * Import existing stacks into a new StackSets. Use the stack import operation to import up to 10 stacks into a new StackSet in the same account as the source stack or in a different administrator account and Region, by specifying the stack ID of the stack you intend to import.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,32 +71,38 @@ export interface ImportStacksToStackSetCommandOutput extends ImportStacksToStack
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link InvalidOperationException} (client fault)
- *  <p>The specified operation isn't valid.</p>
+ *
+ * The specified operation isn't valid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The quota for the resource has already been reached.</p>
- *          <p>For information about resource and stack limitations, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html">CloudFormation quotas</a> in the
- *    <i>CloudFormation User Guide</i>.</p>
+ *
+ * The quota for the resource has already been reached.
+ *
+ * For information about resource and stack limitations, see [CloudFormation quotas](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html) in the *CloudFormation User Guide*.
  *
  * @throws {@link OperationIdAlreadyExistsException} (client fault)
- *  <p>The specified operation ID already exists.</p>
+ *
+ * The specified operation ID already exists.
  *
  * @throws {@link OperationInProgressException} (client fault)
- *  <p>Another operation is currently in progress for this StackSet. Only one operation can be performed for a stack
- *    set at a given time.</p>
+ *
+ * Another operation is currently in progress for this StackSet. Only one operation can be performed for a stack set at a given time.
  *
  * @throws {@link StackNotFoundException} (client fault)
- *  <p>The specified stack ARN doesn't exist or stack doesn't exist corresponding to the ARN in input.</p>
+ *
+ * The specified stack ARN doesn't exist or stack doesn't exist corresponding to the ARN in input.
  *
  * @throws {@link StackSetNotFoundException} (client fault)
- *  <p>The specified StackSet doesn't exist.</p>
+ *
+ * The specified StackSet doesn't exist.
  *
  * @throws {@link StaleRequestException} (client fault)
- *  <p>Another operation has been performed on this StackSet since the specified operation was performed.</p>
+ *
+ * Another operation has been performed on this StackSet since the specified operation was performed.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

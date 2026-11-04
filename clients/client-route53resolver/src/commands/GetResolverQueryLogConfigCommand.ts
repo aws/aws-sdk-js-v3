@@ -23,8 +23,8 @@ export interface GetResolverQueryLogConfigCommandInput extends GetResolverQueryL
 export interface GetResolverQueryLogConfigCommandOutput extends GetResolverQueryLogConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about a specified Resolver query logging configuration, such as the number of VPCs that the configuration
- * 			is logging queries for and the location that logs are sent to. </p>
+ * Gets information about a specified Resolver query logging configuration, such as the number of VPCs that the configuration is logging queries for and the location that logs are sent to.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,28 +62,34 @@ export interface GetResolverQueryLogConfigCommandOutput extends GetResolverQuery
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p>
- *          <p>This error can also be thrown when a customer has reached the 5120 character limit for a
- * 			resource policy for CloudWatch Logs.</p>
+ *
+ * The current account doesn't have the IAM permissions required to perform the specified Resolver operation.
+ *
+ * This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.
  *
  * @throws {@link InternalServiceErrorException} (client fault)
- *  <p>We encountered an unknown error. Try again in a few minutes.</p>
+ *
+ * We encountered an unknown error. Try again in a few minutes.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters in this request are not valid.</p>
+ *
+ * One or more parameters in this request are not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is invalid.</p>
+ *
+ * The request is invalid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource doesn't exist.</p>
+ *
+ * The specified resource doesn't exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled. Try again in a few minutes.</p>
+ *
+ * The request was throttled. Try again in a few minutes.
  *
  * @throws {@link Route53ResolverServiceException}
- * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * Base exception class for all service exceptions from Route53Resolver service.
  *
  * @public
  */

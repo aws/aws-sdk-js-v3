@@ -23,12 +23,10 @@ export interface UpdateConfigurationSetSendingEnabledCommandInput extends Update
 export interface UpdateConfigurationSetSendingEnabledCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Enables or disables email sending for messages sent using a specific configuration set
- *             in a given Amazon Web Services Region. You can use this operation in conjunction with Amazon CloudWatch alarms
- *             to temporarily pause email sending for a configuration set when the reputation metrics
- *             for that configuration set (such as your bounce on complaint rate) exceed certain
- *             thresholds.</p>
- *          <p>You can execute this operation no more than once per second.</p>
+ * Enables or disables email sending for messages sent using a specific configuration set in a given Amazon Web Services Region. You can use this operation in conjunction with Amazon CloudWatch alarms to temporarily pause email sending for a configuration set when the reputation metrics for that configuration set (such as your bounce on complaint rate) exceed certain thresholds.
+ *
+ * You can execute this operation no more than once per second.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,11 +52,12 @@ export interface UpdateConfigurationSetSendingEnabledCommandOutput extends __Met
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link ConfigurationSetDoesNotExistException} (client fault)
- *  <p>Indicates that the configuration set does not exist.</p>
+ *
+ * Indicates that the configuration set does not exist.
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @example UpdateConfigurationSetReputationMetricsEnabled
  * ```javascript

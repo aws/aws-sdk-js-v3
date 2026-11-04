@@ -23,7 +23,24 @@ export interface CreateInvestigationGroupCommandInput extends CreateInvestigatio
 export interface CreateInvestigationGroupCommandOutput extends CreateInvestigationGroupOutput, __MetadataBearer {}
 
 /**
- * <p>Creates an <i>investigation group</i> in your account. Creating an investigation group is a one-time setup task for each Region in your account. It is a necessary task to be able to perform investigations.</p> <p>Settings in the investigation group help you centrally manage the common properties of your investigations, such as the following:</p> <ul> <li> <p>Who can access the investigations</p> </li> <li> <p>Whether investigation data is encrypted with a customer managed Key Management Service key.</p> </li> <li> <p>How long investigations and their data are retained by default.</p> </li> </ul> <p>Currently, you can have one investigation group in each Region in your account. Each investigation in a Region is a part of the investigation group in that Region</p> <p>To create an investigation group and set up CloudWatch investigations, you must be signed in to an IAM principal that has either the <code>AIOpsConsoleAdminPolicy</code> or the <code>AdministratorAccess</code> IAM policy attached, or to an account that has similar permissions.</p> <important> <p>You can configure CloudWatch alarms to start investigations and add events to investigations. If you create your investigation group with <code>CreateInvestigationGroup</code> and you want to enable alarms to do this, you must use <code>PutInvestigationGroupPolicy</code> to create a resource policy that grants this permission to CloudWatch alarms. </p> <p>For more information about configuring CloudWatch alarms, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html">Using Amazon CloudWatch alarms</a> </p> </important>
+ * Creates an *investigation group* in your account. Creating an investigation group is a one-time setup task for each Region in your account. It is a necessary task to be able to perform investigations.
+ *
+ * Settings in the investigation group help you centrally manage the common properties of your investigations, such as the following:
+ *
+ * - Who can access the investigations
+ * - Whether investigation data is encrypted with a customer managed Key Management Service key.
+ * - How long investigations and their data are retained by default.
+ *
+ * Currently, you can have one investigation group in each Region in your account. Each investigation in a Region is a part of the investigation group in that Region
+ *
+ * To create an investigation group and set up CloudWatch investigations, you must be signed in to an IAM principal that has either the `AIOpsConsoleAdminPolicy` or the `AdministratorAccess` IAM policy attached, or to an account that has similar permissions.
+ *
+ * > **Important:**
+ * >
+ * > You can configure CloudWatch alarms to start investigations and add events to investigations. If you create your investigation group with `CreateInvestigationGroup` and you want to enable alarms to do this, you must use `PutInvestigationGroupPolicy` to create a resource policy that grants this permission to CloudWatch alarms.
+ * >
+ * > For more information about configuring CloudWatch alarms, see [Using Amazon CloudWatch alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,32 +90,40 @@ export interface CreateInvestigationGroupCommandOutput extends CreateInvestigati
  * @see {@link AIOpsClientResolvedConfig | config} for AIOpsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permissions to perform this action.</p>
+ *
+ * You don't have sufficient permissions to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>This operation couldn't be completed because of a conflict in resource states.</p>
+ *
+ * This operation couldn't be completed because of a conflict in resource states.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. You can try again later.</p>
+ *
+ * An internal server error occurred. You can try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource doesn't exist.</p>
+ *
+ * The specified resource doesn't exist.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>This request exceeds a service quota.</p>
+ *
+ * This request exceeds a service quota.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled because of quota limits. You can try again later.</p>
+ *
+ * The request was throttled because of quota limits. You can try again later.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>This operation or its parameters aren't formatted correctly.</p>
+ *
+ * This operation or its parameters aren't formatted correctly.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>Access id denied for this operation, or this operation is not valid for the specified resource.</p>
+ *
+ * Access id denied for this operation, or this operation is not valid for the specified resource.
  *
  * @throws {@link AIOpsServiceException}
- * <p>Base exception class for all service exceptions from AIOps service.</p>
  *
+ * Base exception class for all service exceptions from AIOps service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface DescribeTagOptionCommandInput extends DescribeTagOptionInput {}
 export interface DescribeTagOptionCommandOutput extends DescribeTagOptionOutput, __MetadataBearer {}
 
 /**
- * <p>Gets information about the specified TagOption.</p>
+ * Gets information about the specified TagOption.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,16 +57,16 @@ export interface DescribeTagOptionCommandOutput extends DescribeTagOptionOutput,
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link TagOptionNotMigratedException} (client fault)
- *  <p>An operation requiring TagOptions failed because the TagOptions migration process has
- *          not been performed for this account. Use the Amazon Web Services Management Console to perform the migration
- *          process before retrying the operation.</p>
+ *
+ * An operation requiring TagOptions failed because the TagOptions migration process has not been performed for this account. Use the Amazon Web Services Management Console to perform the migration process before retrying the operation.
  *
  * @throws {@link ServiceCatalogServiceException}
- * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * Base exception class for all service exceptions from ServiceCatalog service.
  *
  * @public
  */

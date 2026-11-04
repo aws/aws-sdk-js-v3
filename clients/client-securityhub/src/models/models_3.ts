@@ -99,45 +99,50 @@ import type {
 } from "./models_2";
 
 /**
- * <p>Contains information about the action to take for a policy in an unused permissions finding.</p>
+ * Contains information about the action to take for a policy in an unused permissions finding.
+ *
  * @public
  */
 export interface UnusedPermissionsRecommendationStep {
   /**
-   * <p>A recommendation of whether to create or detach a policy for an unused permissions finding.</p>
+   * A recommendation of whether to create or detach a policy for an unused permissions finding.
+   *
    * @public
    */
   RecommendedAction?: string | undefined;
 
   /**
-   * <p>The contents of the existing policy identified by <code>ExistingPolicyId</code> which needs to be replaced,
-   *           when the <code>RecommendedAction</code> is <code>CREATE_POLICY</code>.</p>
+   * The contents of the existing policy identified by `ExistingPolicyId` which needs to be replaced, when the `RecommendedAction` is `CREATE_POLICY`.
+   *
    * @public
    */
   ExistingPolicy?: string | undefined;
 
   /**
-   * <p>The ID of an existing policy to be replaced or detached.</p>
+   * The ID of an existing policy to be replaced or detached.
+   *
    * @public
    */
   ExistingPolicyId?: string | undefined;
 
   /**
-   * <p>The time at which the existing policy for the unused permissions finding was last updated.</p>
+   * The time at which the existing policy for the unused permissions finding was last updated.
+   *
    * @public
    */
   PolicyUpdatedAt?: Date | undefined;
 
   /**
-   * <p>The contents of the least-privileged recommended replacement for <code>ExistingPolicyId</code>,
-   *           when the <code>RecommendedAction</code> is <code>CREATE_POLICY</code>.</p>
+   * The contents of the least-privileged recommended replacement for `ExistingPolicyId`, when the `RecommendedAction` is `CREATE_POLICY`.
+   *
    * @public
    */
   RecommendedPolicy?: string | undefined;
 }
 
 /**
- * <p>Contains information about a recommended step to remediate a Security Hub finding.</p>
+ * Contains information about a recommended step to remediate a Security Hub finding.
+ *
  * @public
  */
 export type RecommendationStep =
@@ -149,7 +154,8 @@ export type RecommendationStep =
  */
 export namespace RecommendationStep {
   /**
-   * <p>A recommended step to remediate an unused permissions finding.</p>
+   * A recommended step to remediate an unused permissions finding.
+   *
    * @public
    */
   export interface UnusedPermissionsMember {
@@ -180,92 +186,106 @@ export namespace RecommendationStep {
  */
 export interface GetRecommendedPolicyV2Response {
   /**
-   * <p>The pagination token to use to request the next page of results.</p>
+   * The pagination token to use to request the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The type of recommendation for the finding.</p>
+   * The type of recommendation for the finding.
+   *
    * @public
    */
   RecommendationType?: RecommendationType | undefined;
 
   /**
-   * <p>The recommended steps to take to resolve the finding.</p>
+   * The recommended steps to take to resolve the finding.
+   *
    * @public
    */
   RecommendationSteps?: RecommendationStep[] | undefined;
 
   /**
-   * <p>Detailed information for a <code>FAILED</code> retrieval status.</p>
+   * Detailed information for a `FAILED` retrieval status.
+   *
    * @public
    */
   Error?: RecommendationError | undefined;
 
   /**
-   * <p>The current status of the recommended policy retrieval.</p>
+   * The current status of the recommended policy retrieval.
+   *
    * @public
    */
   Status?: RecommendationStatus | undefined;
 
   /**
-   * <p>The ARN of the resource of the finding.</p>
+   * The ARN of the resource of the finding.
+   *
    * @public
    */
   ResourceArn?: string | undefined;
 }
 
 /**
- * <p>The condition to apply to the string filter.</p>
+ * The condition to apply to the string filter.
+ *
  * @public
  */
 export interface RemediationStringFilterCondition {
   /**
-   * <p>The value the string filter is comparing against.</p>
+   * The value the string filter is comparing against.
+   *
    * @public
    */
   Value: string | undefined;
 }
 
 /**
- * <p>A string filter for filtering remediation targets.</p>
+ * A string filter for filtering remediation targets.
+ *
  * @public
  */
 export interface RemediationStringFilter {
   /**
-   * <p>The name of the filter field. Valid values are <code>Resource.Type</code>, <code>Priority</code>, <code>Status</code>, <code>Resource.Id</code>, <code>Resource.ResourceOwnerAccountId</code>, and <code>Resource.CloudProvider</code>.</p>
+   * The name of the filter field. Valid values are `Resource.Type`, `Priority`, `Status`, `Resource.Id`, `Resource.ResourceOwnerAccountId`, and `Resource.CloudProvider`.
+   *
    * @public
    */
   FieldName: RemediationStringField | undefined;
 
   /**
-   * <p>The string filter definition.</p>
+   * The string filter definition.
+   *
    * @public
    */
   Filter: RemediationStringFilterCondition | undefined;
 }
 
 /**
- * <p>Enables the creation of criteria for remediation targets.</p>
+ * Enables the creation of criteria for remediation targets.
+ *
  * @public
  */
 export interface RemediationCompositeFilter {
   /**
-   * <p>Enables filtering based on string field values.</p>
+   * Enables filtering based on string field values.
+   *
    * @public
    */
   StringFilters?: RemediationStringFilter[] | undefined;
 }
 
 /**
- * <p>Contains the criteria used to filter remediation targets, such as resource type, priority,
- *          or status.</p>
+ * Contains the criteria used to filter remediation targets, such as resource type, priority, or status.
+ *
  * @public
  */
 export interface RemediationFilters {
   /**
-   * <p>A collection of complex filtering conditions that can be applied to remediation target data.</p>
+   * A collection of complex filtering conditions that can be applied to remediation target data.
+   *
    * @public
    */
   CompositeFilters?: RemediationCompositeFilter[] | undefined;
@@ -276,614 +296,677 @@ export interface RemediationFilters {
  */
 export interface GetRemediationsV2Request {
   /**
-   * <p>The unique identifier (ID) of an existing remediation target to return. Returns the single
-   *          matching target. You can't use <code>TargetUid</code> together with <code>MetadataUid</code>
-   *          or <code>Filters</code>.</p>
+   * The unique identifier (ID) of an existing remediation target to return. Returns the single matching target. You can't use `TargetUid` together with `MetadataUid` or `Filters`.
+   *
    * @public
    */
   TargetUid?: string | undefined;
 
   /**
-   * <p>The unique identifier (ID) of the Security Hub exposure finding, found under the
-   *          <code>metadata.uid</code> field of the finding. Returns the remediation targets associated with
-   *          that finding. You can't use <code>MetadataUid</code> together with <code>TargetUid</code> or
-   *          <code>Filters</code>.</p>
+   * The unique identifier (ID) of the Security Hub exposure finding, found under the `metadata.uid` field of the finding. Returns the remediation targets associated with that finding. You can't use `MetadataUid` together with `TargetUid` or `Filters`.
+   *
    * @public
    */
   MetadataUid?: string | undefined;
 
   /**
-   * <p>Filters remediation targets based on a set of criteria. You can't use <code>Filters</code>
-   *          together with <code>TargetUid</code> or <code>MetadataUid</code>.</p>
+   * Filters remediation targets based on a set of criteria. You can't use `Filters` together with `TargetUid` or `MetadataUid`.
+   *
    * @public
    */
   Filters?: RemediationFilters | undefined;
 
   /**
-   * <p>Specifies whether to show remediation target guidance.</p>
+   * Specifies whether to show remediation target guidance.
+   *
    * @public
    */
   ShowGuidance?: boolean | undefined;
 
   /**
-   * <p>The format of the remediation guidance examples to return. Valid values are <code>All</code>,
-   *          <code>AwsCli</code>, <code>Cli</code>, <code>Python</code>, <code>Terraform</code>,
-   *          <code>Cdk</code>, <code>CloudFormation</code>, <code>IaC</code>, and <code>Template</code>.
-   *          If you don't specify a value, all formats are returned. Applies only when
-   *          <code>ShowGuidance</code> is <code>true</code>.</p>
+   * The format of the remediation guidance examples to return. Valid values are `All`, `AwsCli`, `Cli`, `Python`, `Terraform`, `Cdk`, `CloudFormation`, `IaC`, and `Template`. If you don't specify a value, all formats are returned. Applies only when `ShowGuidance` is `true`.
+   *
    * @public
    */
   GuidanceFormat?: GuidanceFormat | undefined;
 
   /**
-   * <p>The maximum number of results to return. Valid range is 1-100. If you don't specify a value,
-   *          the operation returns up to 25 results.</p>
+   * The maximum number of results to return. Valid range is 1-100. If you don't specify a value, the operation returns up to 25 results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token used to paginate the remediations target list returned.
-   *          On your first call to <code>GetRemediationsV2</code>, omit this parameter or set it
-   *          to <code>NULL</code>. For subsequent calls, use the <code>NextToken</code> value returned in
-   *          the previous response to retrieve the next page of results.</p>
+   * The token used to paginate the remediations target list returned. On your first call to `GetRemediationsV2`, omit this parameter or set it to `NULL`. For subsequent calls, use the `NextToken` value returned in the previous response to retrieve the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>The context behind the remediation target's existence and guidance.</p>
+ * The context behind the remediation target's existence and guidance.
+ *
  * @public
  */
 export interface RemediationGuidanceContext {
   /**
-   * <p>Explains the cause which directly created the remediation target.</p>
+   * Explains the cause which directly created the remediation target.
+   *
    * @public
    */
   ProblemStatement?: string | undefined;
 
   /**
-   * <p>An assessment of the existing risk the remediation target creates.</p>
+   * An assessment of the existing risk the remediation target creates.
+   *
    * @public
    */
   RiskAssessment?: string | undefined;
 
   /**
-   * <p>The scope of the resources affected by the resolution of the remediation target.</p>
+   * The scope of the resources affected by the resolution of the remediation target.
+   *
    * @public
    */
   AffectedScope?: string | undefined;
 
   /**
-   * <p>An array of prerequisite steps in resolving the remediation target.</p>
+   * An array of prerequisite steps in resolving the remediation target.
+   *
    * @public
    */
   Prerequisites?: string[] | undefined;
 }
 
 /**
- * <p>Provided remediation guidance examples in different formats that can be run for remediating the target.</p>
+ * Provided remediation guidance examples in different formats that can be run for remediating the target.
+ *
  * @public
  */
 export interface RemediationGuidanceExamples {
   /**
-   * <p>An CLI snippet version of the example.</p>
+   * An CLI snippet version of the example.
+   *
    * @public
    */
   AwsCli?: string | undefined;
 
   /**
-   * <p>A CLI snippet version of the example.</p>
+   * A CLI snippet version of the example.
+   *
    * @public
    */
   Cli?: string | undefined;
 
   /**
-   * <p>A Python snippet version of the example.</p>
+   * A Python snippet version of the example.
+   *
    * @public
    */
   Python?: string | undefined;
 
   /**
-   * <p>A Terraform snippet version of the example.</p>
+   * A Terraform snippet version of the example.
+   *
    * @public
    */
   Terraform?: string | undefined;
 
   /**
-   * <p>A CDK snippet version of the example.</p>
+   * A CDK snippet version of the example.
+   *
    * @public
    */
   Cdk?: string | undefined;
 
   /**
-   * <p>A CloudFormation snippet version of the example.</p>
+   * A CloudFormation snippet version of the example.
+   *
    * @public
    */
   CloudFormation?: string | undefined;
 
   /**
-   * <p>An IaC snippet version of the example.</p>
+   * An IaC snippet version of the example.
+   *
    * @public
    */
   IaC?: string | undefined;
 
   /**
-   * <p>A Template snippet version of the example.</p>
+   * A Template snippet version of the example.
+   *
    * @public
    */
   Template?: string | undefined;
 }
 
 /**
- * <p>The metadata of the remediation guidance.</p>
+ * The metadata of the remediation guidance.
+ *
  * @public
  */
 export interface RemediationGuidanceMetadata {
   /**
-   * <p>The resource type of the remediation target.</p>
+   * The resource type of the remediation target.
+   *
    * @public
    */
   ResourceType: string | undefined;
 
   /**
-   * <p>The exposure type of the related exposure findings.</p>
+   * The exposure type of the related exposure findings.
+   *
    * @public
    */
   ExposureType: string | undefined;
 
   /**
-   * <p>The titles of traits this guidance applies to.</p>
+   * The titles of traits this guidance applies to.
+   *
    * @public
    */
   TraitTitles: string[] | undefined;
 
   /**
-   * <p>The extent to which changes made in accordance with the guidance can be reversed, for example <code>Fully reversible</code>.</p>
+   * The extent to which changes made in accordance with the guidance can be reversed, for example `Fully reversible`.
+   *
    * @public
    */
   Reversibility: string | undefined;
 
   /**
-   * <p>When the fix takes effect, for example <code>Immediate</code> or <code>Deferred</code>.</p>
+   * When the fix takes effect, for example `Immediate` or `Deferred`.
+   *
    * @public
    */
   FixEffect: string | undefined;
 
   /**
-   * <p>The risk when implementing the guidance provided.</p>
+   * The risk when implementing the guidance provided.
+   *
    * @public
    */
   RiskLevel: string | undefined;
 
   /**
-   * <p>The extent to which the guidance can be automated, for example <code>Full</code>.</p>
+   * The extent to which the guidance can be automated, for example `Full`.
+   *
    * @public
    */
   AutomationLevel?: string | undefined;
 
   /**
-   * <p>Specifies whether human review is required.</p>
+   * Specifies whether human review is required.
+   *
    * @public
    */
   HumanReviewRequired?: boolean | undefined;
 
   /**
-   * <p>Timestamp of when the guidance was generated.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * Timestamp of when the guidance was generated.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   GeneratedAt?: Date | undefined;
 
   /**
-   * <p>Verification status of the guidance.</p>
+   * Verification status of the guidance.
+   *
    * @public
    */
   VerificationStatus?: string | undefined;
 }
 
 /**
- * <p>A parameter used in running the guidance steps.</p>
+ * A parameter used in running the guidance steps.
+ *
  * @public
  */
 export interface RemediationParameter {
   /**
-   * <p>The name of the parameter.</p>
+   * The name of the parameter.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The type of the parameter.</p>
+   * The type of the parameter.
+   *
    * @public
    */
   Type: string | undefined;
 
   /**
-   * <p>A description of the parameter.</p>
+   * A description of the parameter.
+   *
    * @public
    */
   Description: string | undefined;
 
   /**
-   * <p>Specifies whether the parameter is required for running the guidance steps.</p>
+   * Specifies whether the parameter is required for running the guidance steps.
+   *
    * @public
    */
   Required?: boolean | undefined;
 }
 
 /**
- * <p>A step in the remediation guidance.</p>
+ * A step in the remediation guidance.
+ *
  * @public
  */
 export interface RemediationStep {
   /**
-   * <p>The phase of the remediation plan that this step belongs to (for example, <code>FIX</code>).</p>
+   * The phase of the remediation plan that this step belongs to (for example, `FIX`).
+   *
    * @public
    */
   Phase: string | undefined;
 
   /**
-   * <p>A description of what the step does.</p>
+   * A description of what the step does.
+   *
    * @public
    */
   Description: string | undefined;
 
   /**
-   * <p>Which service this step is performed in.</p>
+   * Which service this step is performed in.
+   *
    * @public
    */
   Service: string | undefined;
 
   /**
-   * <p>The action to be taken for this step.</p>
+   * The action to be taken for this step.
+   *
    * @public
    */
   Action: string | undefined;
 
   /**
-   * <p>The logic behind the existence of this step.</p>
+   * The logic behind the existence of this step.
+   *
    * @public
    */
   Logic?: string | undefined;
 
   /**
-   * <p>The inverse of the step, to be used if the step needs to be rolled back.</p>
+   * The inverse of the step, to be used if the step needs to be rolled back.
+   *
    * @public
    */
   Inverse?: string | undefined;
 
   /**
-   * <p>The action to take after the step to verify its success.</p>
+   * The action to take after the step to verify its success.
+   *
    * @public
    */
   VerifyAfter?: string | undefined;
 }
 
 /**
- * <p>The specification of the remediation target guidance. This outlines required resource parameters
- *          and permissions, remediation steps, and the end state.</p>
+ * The specification of the remediation target guidance. This outlines required resource parameters and permissions, remediation steps, and the end state.
+ *
  * @public
  */
 export interface RemediationGuidanceSpecification {
   /**
-   * <p>An array of the parameters used in running the steps provided.</p>
+   * An array of the parameters used in running the steps provided.
+   *
    * @public
    */
   Parameters?: RemediationParameter[] | undefined;
 
   /**
-   * <p>An array of ordered steps for resolving the remediation targets.</p>
+   * An array of ordered steps for resolving the remediation targets.
+   *
    * @public
    */
   Steps?: RemediationStep[] | undefined;
 
   /**
-   * <p>The expected end state of the associated resources after completion of the steps.</p>
+   * The expected end state of the associated resources after completion of the steps.
+   *
    * @public
    */
   ExpectedEndState?: string | undefined;
 
   /**
-   * <p>An array of required permissions to run the steps.</p>
+   * An array of required permissions to run the steps.
+   *
    * @public
    */
   RequiredPermissions?: string[] | undefined;
 }
 
 /**
- * <p>A remediation guidebook outlining guidance in resolving the remediation target.</p>
+ * A remediation guidebook outlining guidance in resolving the remediation target.
+ *
  * @public
  */
 export interface RemediationGuidance {
   /**
-   * <p>The name of the remediation target type.</p>
+   * The name of the remediation target type.
+   *
    * @public
    */
   TargetTypeName: string | undefined;
 
   /**
-   * <p>The remediation pattern of the remediation target.</p>
+   * The remediation pattern of the remediation target.
+   *
    * @public
    */
   Pattern: string | undefined;
 
   /**
-   * <p>The guidance version.</p>
+   * The guidance version.
+   *
    * @public
    */
   Version: string | undefined;
 
   /**
-   * <p>The context behind the remediation target's existence and guidance.</p>
+   * The context behind the remediation target's existence and guidance.
+   *
    * @public
    */
   Context: RemediationGuidanceContext | undefined;
 
   /**
-   * <p>The specification of the remediation target guidance. This outlines required resource parameters
-   *          and permissions, remediation steps, and the end state.</p>
+   * The specification of the remediation target guidance. This outlines required resource parameters and permissions, remediation steps, and the end state.
+   *
    * @public
    */
   Specification: RemediationGuidanceSpecification | undefined;
 
   /**
-   * <p>Provided remediation guidance examples in different formats that can be run for remediating the target.</p>
+   * Provided remediation guidance examples in different formats that can be run for remediating the target.
+   *
    * @public
    */
   Examples: RemediationGuidanceExamples | undefined;
 
   /**
-   * <p>The metadata of the remediation guidance.</p>
+   * The metadata of the remediation guidance.
+   *
    * @public
    */
   Metadata: RemediationGuidanceMetadata | undefined;
 }
 
 /**
- * <p>The outcome from resolving the remediation target.</p>
+ * The outcome from resolving the remediation target.
+ *
  * @public
  */
 export interface RemediationOutcome {
   /**
-   * <p>The number of associated exposure findings that are resolved by remediating the target.</p>
+   * The number of associated exposure findings that are resolved by remediating the target.
+   *
    * @public
    */
   ResolvedFindingsCount: number | undefined;
 
   /**
-   * <p>The number of associated exposure findings whose severity is reduced by remediating the target.</p>
+   * The number of associated exposure findings whose severity is reduced by remediating the target.
+   *
    * @public
    */
   SeverityReductionFindingsCount: number | undefined;
 
   /**
-   * <p>The number of associated exposure findings whose severity is unchanged by remediating the target.</p>
+   * The number of associated exposure findings whose severity is unchanged by remediating the target.
+   *
    * @public
    */
   SeverityUnchangedCount: number | undefined;
 }
 
 /**
- * <p>A knowledge base article that provides additional guidance related to the remediation target.</p>
+ * A knowledge base article that provides additional guidance related to the remediation target.
+ *
  * @public
  */
 export interface KbArticle {
   /**
-   * <p>The title of the <code>KbArticle</code>.</p>
+   * The title of the `KbArticle`.
+   *
    * @public
    */
   Title: string | undefined;
 
   /**
-   * <p>The URL of the <code>KbArticle</code>.</p>
+   * The URL of the `KbArticle`.
+   *
    * @public
    */
   Url: string | undefined;
 }
 
 /**
- * <p>A summary of the remediation target.</p>
+ * A summary of the remediation target.
+ *
  * @public
  */
 export interface RemediationSummaryDetail {
   /**
-   * <p>A summarized action to take for the remediation target.</p>
+   * A summarized action to take for the remediation target.
+   *
    * @public
    */
   Action: string | undefined;
 
   /**
-   * <p>A description of the remediation target.</p>
+   * A description of the remediation target.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Specifies whether the effect of this target is immediate.</p>
+   * Specifies whether the effect of this target is immediate.
+   *
    * @public
    */
   IsImmediate: boolean | undefined;
 
   /**
-   * <p>An array of steps to be taken after remediation.</p>
+   * An array of steps to be taken after remediation.
+   *
    * @public
    */
   PostRemediationSteps?: string[] | undefined;
 
   /**
-   * <p>An array of <code>KbArticle</code> objects.</p>
+   * An array of `KbArticle` objects.
+   *
    * @public
    */
   KbArticles?: KbArticle[] | undefined;
 }
 
 /**
- * <p>Provides comprehensive details about a resource.</p>
+ * Provides comprehensive details about a resource.
+ *
  * @public
  */
 export interface RemediationResource {
   /**
-   * <p>The Amazon Web Services account that recorded the resource data in Security Hub.</p>
+   * The Amazon Web Services account that recorded the resource data in Security Hub.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region in which Security Hub recorded the resource data.</p>
+   * The Amazon Web Services Region in which Security Hub recorded the resource data.
+   *
    * @public
    */
   Region: string | undefined;
 
   /**
-   * <p>The identifier of the cloud account that owns the resource. For Amazon Web Services resources, this is the Amazon Web Services account ID. For Azure resources, this is the Azure subscription ID.</p>
+   * The identifier of the cloud account that owns the resource. For Amazon Web Services resources, this is the Amazon Web Services account ID. For Azure resources, this is the Azure subscription ID.
+   *
    * @public
    */
   ResourceOwnerAccountId?: string | undefined;
 
   /**
-   * <p>The identifier of the cloud organization that owns the resource. For Amazon Web Services resources, this is the Organizations ID. For Azure resources, this is the Azure tenant ID.</p>
+   * The identifier of the cloud organization that owns the resource. For Amazon Web Services resources, this is the Organizations ID. For Azure resources, this is the Azure tenant ID.
+   *
    * @public
    */
   ResourceOwnerOrgId?: string | undefined;
 
   /**
-   * <p>The type of the resource.</p>
+   * The type of the resource.
+   *
    * @public
    */
   Type: string | undefined;
 
   /**
-   * <p>The name of the resource.</p>
+   * The name of the resource.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The unique identifier for a resource.</p>
+   * The unique identifier for a resource.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The global identifier used to identify a resource.</p>
+   * The global identifier used to identify a resource.
+   *
    * @public
    */
   ResourceGuid?: string | undefined;
 
   /**
-   * <p>The native cloud region where the resource is located. For Amazon Web Services, this is an Amazon Web Services Region (for example, <code>us-east-1</code>). For Azure resources, this is the Azure region (for example, <code>westus2</code>). This field is always included.</p>
+   * The native cloud region where the resource is located. For Amazon Web Services, this is an Amazon Web Services Region (for example, `us-east-1`). For Azure resources, this is the Azure region (for example, `westus2`). This field is always included.
+   *
    * @public
    */
   ResourceRegion: string | undefined;
 
   /**
-   * <p>The cloud provider where the resource exists.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AWS</code> specifies that the resource exists in Amazon Web Services.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Azure</code> specifies that the resource exists in Microsoft Azure.</p>
-   *             </li>
-   *          </ul>
+   * The cloud provider where the resource exists.
+   *
+   * - `AWS` specifies that the resource exists in Amazon Web Services.
+   * - `Azure` specifies that the resource exists in Microsoft Azure.
+   *
    * @public
    */
   CloudProvider: CloudProviderName | undefined;
 }
 
 /**
- * <p>The trait associated with the remediation target.</p>
+ * The trait associated with the remediation target.
+ *
  * @public
  */
 export interface RemediationTrait {
   /**
-   * <p>The trait type.</p>
+   * The trait type.
+   *
    * @public
    */
   Type: string | undefined;
 
   /**
-   * <p>The trait title.</p>
+   * The trait title.
+   *
    * @public
    */
   Title: string | undefined;
 }
 
 /**
- * <p>A remediation target.</p>
+ * A remediation target.
+ *
  * @public
  */
 export interface RemediationV2Item {
   /**
-   * <p>The unique identifier (ID) of the remediation target.</p>
+   * The unique identifier (ID) of the remediation target.
+   *
    * @public
    */
   TargetUid: string | undefined;
 
   /**
-   * <p>The outcome of the remediation target's resolution.</p>
+   * The outcome of the remediation target's resolution.
+   *
    * @public
    */
   Outcome: RemediationOutcome | undefined;
 
   /**
-   * <p>The remediation target's priority. Valid values are <code>Critical</code>, <code>High</code>, <code>Medium</code>, and <code>Low</code>.</p>
+   * The remediation target's priority. Valid values are `Critical`, `High`, `Medium`, and `Low`.
+   *
    * @public
    */
   Priority: RemediationPriority | undefined;
 
   /**
-   * <p>A summary of the remediation target.</p>
+   * A summary of the remediation target.
+   *
    * @public
    */
   RemediationSummary: RemediationSummaryDetail | undefined;
 
   /**
-   * <p>The remediation target's associated resource.</p>
+   * The remediation target's associated resource.
+   *
    * @public
    */
   Resource: RemediationResource | undefined;
 
   /**
-   * <p>The current status of the remediation target.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>New</code> specifies that the remediation target was newly identified.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Updated</code> specifies that the remediation target changed after it was identified.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Resolved</code> specifies that the remediation target is no longer present.</p>
-   *             </li>
-   *          </ul>
+   * The current status of the remediation target.
+   *
+   * - `New` specifies that the remediation target was newly identified.
+   * - `Updated` specifies that the remediation target changed after it was identified.
+   * - `Resolved` specifies that the remediation target is no longer present.
+   *
    * @public
    */
   Status: RemediationStatus | undefined;
 
   /**
-   * <p>The trait associated with the remediation target.</p>
+   * The trait associated with the remediation target.
+   *
    * @public
    */
   Trait: RemediationTrait | undefined;
 
   /**
-   * <p>The remediation target's guidance. Returned only when <code>ShowGuidance</code> is
-   *          <code>true</code> in the request.</p>
+   * The remediation target's guidance. Returned only when `ShowGuidance` is `true` in the request.
+   *
    * @public
    */
   Guidance?: RemediationGuidance | undefined;
 
   /**
-   * <p>The remediation target's last updated timestamp.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * The remediation target's last updated timestamp.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
@@ -894,26 +977,29 @@ export interface RemediationV2Item {
  */
 export interface GetRemediationsV2Response {
   /**
-   * <p>An array of remediation targets returned by the operation.</p>
+   * An array of remediation targets returned by the operation.
+   *
    * @public
    */
   Items: RemediationV2Item[] | undefined;
 
   /**
-   * <p>The pagination token to use to request the next page of results.
-   *          Otherwise, this parameter is null.</p>
+   * The pagination token to use to request the next page of results. Otherwise, this parameter is null.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Defines the data boundary for a resources query. Scopes determine which organizational units or organizations to retrieve data from.</p>
+ * Defines the data boundary for a resources query. Scopes determine which organizational units or organizations to retrieve data from.
+ *
  * @public
  */
 export interface ResourceScopes {
   /**
-   * <p>A list of Organizations scopes to include in the query results. Each entry in the list specifies an organization or organizational unit to include for the delegated administrator's account. If the list specifies multiple entries, the entries are combined using OR logic.</p>
+   * A list of Organizations scopes to include in the query results. Each entry in the list specifies an organization or organizational unit to include for the delegated administrator's account. If the list specifies multiple entries, the entries are combined using OR logic.
+   *
    * @public
    */
   AwsOrganizations?: AwsOrganizationScope[] | undefined;
@@ -924,101 +1010,87 @@ export interface ResourceScopes {
  */
 export interface GetResourcesStatisticsV2Response {
   /**
-   * <p>The aggregated statistics about resources based on the specified grouping rule.</p>
+   * The aggregated statistics about resources based on the specified grouping rule.
+   *
    * @public
    */
   GroupByResults: GroupByResult[] | undefined;
 }
 
 /**
- * <p>A filter for string-based fields in resources trend data, such as resource type or account ID.</p>
+ * A filter for string-based fields in resources trend data, such as resource type or account ID.
+ *
  * @public
  */
 export interface ResourcesTrendsStringFilter {
   /**
-   * <p>The name of the resources field to filter on. You can specify one of the following fields.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>account_id</code> – The Amazon Web Services account ID that owns the resource.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>region</code> – The Amazon Web Services Region of the resource.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource_type</code> – The type of the resource.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource_category</code> – The category of the resource.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource_cloud_provider</code> – The cloud provider of the resource. Valid values are <code>AWS</code> and <code>Azure</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource_region</code> – The Region of the resource. For an Amazon Web Services resource, this is the Amazon Web Services Region. For an Azure resource, this is the Azure Region, such as <code>eastus</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource_owner_id</code> – The identifier of the account that owns the resource. For an Amazon Web Services resource, this is the Amazon Web Services account ID. For an Azure resource, this is the Azure subscription ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource_owner_organization_id</code> – The identifier of the organization that owns the resource. For an Amazon Web Services resource, this is the Amazon Web Services organization ID. For an Azure resource, this is the Azure tenant ID.</p>
-   *             </li>
-   *          </ul>
+   * The name of the resources field to filter on. You can specify one of the following fields.
+   *
+   * - `account_id` – The Amazon Web Services account ID that owns the resource.
+   * - `region` – The Amazon Web Services Region of the resource.
+   * - `resource_type` – The type of the resource.
+   * - `resource_category` – The category of the resource.
+   * - `resource_cloud_provider` – The cloud provider of the resource. Valid values are `AWS` and `Azure`.
+   * - `resource_region` – The Region of the resource. For an Amazon Web Services resource, this is the Amazon Web Services Region. For an Azure resource, this is the Azure Region, such as `eastus`.
+   * - `resource_owner_id` – The identifier of the account that owns the resource. For an Amazon Web Services resource, this is the Amazon Web Services account ID. For an Azure resource, this is the Azure subscription ID.
+   * - `resource_owner_organization_id` – The identifier of the organization that owns the resource. For an Amazon Web Services resource, this is the Amazon Web Services organization ID. For an Azure resource, this is the Azure tenant ID.
+   *
    * @public
    */
   FieldName?: ResourcesTrendsStringField | undefined;
 
   /**
-   * <p>A string filter for filtering Security Hub CSPM findings.</p>
+   * A string filter for filtering Security Hub CSPM findings.
+   *
    * @public
    */
   Filter?: StringFilter | undefined;
 }
 
 /**
- * <p>Contains counts of resources for trend analysis.</p>
+ * Contains counts of resources for trend analysis.
+ *
  * @public
  */
 export interface ResourcesCount {
   /**
-   * <p>The total count of all resources for the given time interval.</p>
+   * The total count of all resources for the given time interval.
+   *
    * @public
    */
   AllResources: number | undefined;
 }
 
 /**
- * <p>Contains the aggregated resource count values for a specific point in the resources trend timeline.</p>
+ * Contains the aggregated resource count values for a specific point in the resources trend timeline.
+ *
  * @public
  */
 export interface ResourcesTrendsValues {
   /**
-   * <p>The resource count statistics for this data point in the trend timeline.</p>
+   * The resource count statistics for this data point in the trend timeline.
+   *
    * @public
    */
   ResourcesCount: ResourcesCount | undefined;
 }
 
 /**
- * <p>Contains the resource trend metrics data for a specific time point in the requested time period.</p>
+ * Contains the resource trend metrics data for a specific time point in the requested time period.
+ *
  * @public
  */
 export interface ResourcesTrendsMetricsResult {
   /**
-   * <p>The timestamp for this data point in the resources trend metrics.</p>
+   * The timestamp for this data point in the resources trend metrics.
+   *
    * @public
    */
   Timestamp: Date | undefined;
 
   /**
-   * <p>The resource trend metric values associated with this timestamp, including resource counts.</p>
+   * The resource trend metric values associated with this timestamp, including resource counts.
+   *
    * @public
    */
   TrendsValues: ResourcesTrendsValues | undefined;
@@ -1029,277 +1101,323 @@ export interface ResourcesTrendsMetricsResult {
  */
 export interface GetResourcesTrendsV2Response {
   /**
-   * <p>The time interval granularity for the returned trend data (such as DAILY or WEEKLY).</p>
+   * The time interval granularity for the returned trend data (such as DAILY or WEEKLY).
+   *
    * @public
    */
   Granularity: GranularityField | undefined;
 
   /**
-   * <p>The collection of time-series trend metrics, including counts of resources across the specified time period.</p>
+   * The collection of time-series trend metrics, including counts of resources across the specified time period.
+   *
    * @public
    */
   TrendsMetrics: ResourcesTrendsMetricsResult[] | undefined;
 
   /**
-   * <p>The token to use for retrieving the next page of results, if more trend data is available.</p>
+   * The token to use for retrieving the next page of results, if more trend data is available.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>A comprehensive distribution of security findings by severity level for Amazon Web Services resources.</p>
+ * A comprehensive distribution of security findings by severity level for Amazon Web Services resources.
+ *
  * @public
  */
 export interface ResourceSeverityBreakdown {
   /**
-   * <p>The number of findings not in any of the severity categories.</p>
+   * The number of findings not in any of the severity categories.
+   *
    * @public
    */
   Other?: number | undefined;
 
   /**
-   * <p>The number of findings with a severity level of fatal.</p>
+   * The number of findings with a severity level of fatal.
+   *
    * @public
    */
   Fatal?: number | undefined;
 
   /**
-   * <p>The number of findings with a severity level of critical.</p>
+   * The number of findings with a severity level of critical.
+   *
    * @public
    */
   Critical?: number | undefined;
 
   /**
-   * <p>The number of findings with a severity level of high.</p>
+   * The number of findings with a severity level of high.
+   *
    * @public
    */
   High?: number | undefined;
 
   /**
-   * <p>The number of findings with a severity level of medium.</p>
+   * The number of findings with a severity level of medium.
+   *
    * @public
    */
   Medium?: number | undefined;
 
   /**
-   * <p>The number of findings with a severity level of low.</p>
+   * The number of findings with a severity level of low.
+   *
    * @public
    */
   Low?: number | undefined;
 
   /**
-   * <p>The number of findings that provide security-related information.</p>
+   * The number of findings that provide security-related information.
+   *
    * @public
    */
   Informational?: number | undefined;
 
   /**
-   * <p>The number of findings with a severity level cannot be determined.</p>
+   * The number of findings with a severity level cannot be determined.
+   *
    * @public
    */
   Unknown?: number | undefined;
 }
 
 /**
- * <p>A list of summaries for all finding types on a resource.</p>
+ * A list of summaries for all finding types on a resource.
+ *
  * @public
  */
 export interface ResourceFindingsSummary {
   /**
-   * <p>The category or classification of the security finding.</p>
+   * The category or classification of the security finding.
+   *
    * @public
    */
   FindingType: string | undefined;
 
   /**
-   * <p>The name of the product associated with the security finding.</p>
+   * The name of the product associated with the security finding.
+   *
    * @public
    */
   ProductName: string | undefined;
 
   /**
-   * <p>The total count of security findings.</p>
+   * The total count of security findings.
+   *
    * @public
    */
   TotalFindings: number | undefined;
 
   /**
-   * <p>A breakdown of security findings by their severity levels.</p>
+   * A breakdown of security findings by their severity levels.
+   *
    * @public
    */
   Severities?: ResourceSeverityBreakdown | undefined;
 }
 
 /**
- * <p>Additional details about a resource that are specific to its category. For AI/ML resources and their host resources, this structure contains <code>AIDetails</code>.</p>
+ * Additional details about a resource that are specific to its category. For AI/ML resources and their host resources, this structure contains `AIDetails`.
+ *
  * @public
  */
 export interface ResourceInfo {
   /**
-   * <p>Details that are specific to self-hosted AI resources and their host resources.</p>
+   * Details that are specific to self-hosted AI resources and their host resources.
+   *
    * @public
    */
   AIDetails?: AIDetails | undefined;
 }
 
 /**
- * <p>Represents tag information associated with Amazon Web Services resources.</p>
+ * Represents tag information associated with Amazon Web Services resources.
+ *
  * @public
  */
 export interface ResourceTag {
   /**
-   * <p>The identifier or name of the tag.</p>
+   * The identifier or name of the tag.
+   *
    * @public
    */
   Key: string | undefined;
 
   /**
-   * <p>The data associated with the tag key.</p>
+   * The data associated with the tag key.
+   *
    * @public
    */
   Value: string | undefined;
 }
 
 /**
- * <p>Provides comprehensive details about an Amazon Web Services resource and its associated security findings.</p>
+ * Provides comprehensive details about an Amazon Web Services resource and its associated security findings.
+ *
  * @public
  */
 export interface ResourceResult {
   /**
-   * <p>The global identifier used to identify a resource.</p>
+   * The global identifier used to identify a resource.
+   *
    * @public
    */
   ResourceGuid?: string | undefined;
 
   /**
-   * <p>The unique identifier for a resource.</p>
+   * The unique identifier for a resource.
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account that recorded the resource data in Security Hub.</p>
+   * The Amazon Web Services account that recorded the resource data in Security Hub.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The name of the Amazon Web Services account that's associated with the resource.</p>
+   * The name of the Amazon Web Services account that's associated with the resource.
+   *
    * @public
    */
   AccountName?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region that recorded the resource data in Security Hub.</p>
+   * The Amazon Web Services Region that recorded the resource data in Security Hub.
+   *
    * @public
    */
   Region: string | undefined;
 
   /**
-   * <p>The cloud provider where the resource exists. Valid values are <code>AWS</code> and <code>Azure</code>. This field is always included.</p>
+   * The cloud provider where the resource exists. Valid values are `AWS` and `Azure`. This field is always included.
+   *
    * @public
    */
   ResourceProvider?: string | undefined;
 
   /**
-   * <p>The identifier of the cloud account that owns the resource. For Amazon Web Services resources, this is the Amazon Web Services account ID. For Azure resources, this is the Azure subscription ID.</p>
+   * The identifier of the cloud account that owns the resource. For Amazon Web Services resources, this is the Amazon Web Services account ID. For Azure resources, this is the Azure subscription ID.
+   *
    * @public
    */
   ResourceOwnerAccountId?: string | undefined;
 
   /**
-   * <p>The identifier of the cloud organization that owns the resource. For Amazon Web Services resources, this is the Organizations ID. For Azure resources, this is the Azure tenant ID.</p>
+   * The identifier of the cloud organization that owns the resource. For Amazon Web Services resources, this is the Organizations ID. For Azure resources, this is the Azure tenant ID.
+   *
    * @public
    */
   ResourceOwnerOrgId?: string | undefined;
 
   /**
-   * <p>The cloud partition where the resource exists. For Amazon Web Services, valid values include <code>aws</code>, <code>aws-cn</code>, and <code>aws-us-gov</code>. This field isn't returned for cloud providers that don't use partitions.</p>
+   * The cloud partition where the resource exists. For Amazon Web Services, valid values include `aws`, `aws-cn`, and `aws-us-gov`. This field isn't returned for cloud providers that don't use partitions.
+   *
    * @public
    */
   ResourceCloudPartition?: string | undefined;
 
   /**
-   * <p>The native cloud region where the resource is located. For Amazon Web Services, this is an Amazon Web Services Region (for example, <code>us-east-1</code>). For Azure resources, this is the Azure region (for example, <code>westus2</code>). This field is always included.</p>
+   * The native cloud region where the resource is located. For Amazon Web Services, this is an Amazon Web Services Region (for example, `us-east-1`). For Azure resources, this is the Azure region (for example, `westus2`). This field is always included.
+   *
    * @public
    */
   ResourceRegion?: string | undefined;
 
   /**
-   * <p>The grouping where the resource belongs.</p>
+   * The grouping where the resource belongs.
+   *
    * @public
    */
   ResourceCategory?: ResourceCategory | undefined;
 
   /**
-   * <p>The type of resource.</p>
+   * The type of resource.
+   *
    * @public
    */
   ResourceType: string | undefined;
 
   /**
-   * <p>The name of the resource.</p>
+   * The name of the resource.
+   *
    * @public
    */
   ResourceName?: string | undefined;
 
   /**
-   * <p>The time when the resource was created.</p>
+   * The time when the resource was created.
+   *
    * @public
    */
   ResourceCreationTimeDt?: string | undefined;
 
   /**
-   * <p>The timestamp when information about the resource was captured.</p>
+   * The timestamp when information about the resource was captured.
+   *
    * @public
    */
   ResourceDetailCaptureTimeDt: string | undefined;
 
   /**
-   * <p>An aggregated view of security findings associated with a resource.</p>
+   * An aggregated view of security findings associated with a resource.
+   *
    * @public
    */
   FindingsSummary?: ResourceFindingsSummary[] | undefined;
 
   /**
-   * <p>The key-value pairs associated with a resource.</p>
+   * The key-value pairs associated with a resource.
+   *
    * @public
    */
   ResourceTags?: ResourceTag[] | undefined;
 
   /**
-   * <p>The configuration details of a resource.</p>
+   * The configuration details of a resource.
+   *
    * @public
    */
   ResourceConfig: __DocumentType | undefined;
 
   /**
-   * <p>The AI/ML sub-grouping of the resource. Present only when <code>ResourceCategory</code> is <code>AI/ML</code>.</p>
+   * The AI/ML sub-grouping of the resource. Present only when `ResourceCategory` is `AI/ML`.
+   *
    * @public
    */
   ResourceSubCategory?: ResourceSubCategory | undefined;
 
   /**
-   * <p>Specifies how the resource was discovered. If the value is <code>Managed</code>, the resource is natively provided by a cloud service provider. If the value is <code>SelfHosted</code>, the resource is hosted on customer-managed infrastructure, such as a compute instance or container image.</p>
+   * Specifies how the resource was discovered. If the value is `Managed`, the resource is natively provided by a cloud service provider. If the value is `SelfHosted`, the resource is hosted on customer-managed infrastructure, such as a compute instance or container image.
+   *
    * @public
    */
   DiscoveryType?: DiscoveryType | undefined;
 
   /**
-   * <p>Additional resource-type-specific details. For self-hosted AI resources and their host resources, contains an <code>AIDetails</code> structure.</p>
+   * Additional resource-type-specific details. For self-hosted AI resources and their host resources, contains an `AIDetails` structure.
+   *
    * @public
    */
   ResourceInfo?: ResourceInfo | undefined;
 
   /**
-   * <p>The criticality assigned to a resource.</p>
+   * The criticality assigned to a resource.
+   *
    * @public
    */
   ResourceCriticality?: ResourceCriticality | undefined;
 
   /**
-   * <p>The sources of criticalities determined from a resource.</p>
+   * The sources of criticalities determined from a resource.
+   *
    * @public
    */
   CriticalitySources?: CriticalitySource[] | undefined;
@@ -1310,14 +1428,15 @@ export interface ResourceResult {
  */
 export interface GetResourcesV2Response {
   /**
-   * <p>An array of resources returned by the operation.</p>
+   * An array of resources returned by the operation.
+   *
    * @public
    */
   Resources: ResourceResult[] | undefined;
 
   /**
-   * <p>The pagination token to use to request the next page of results.
-   *          Otherwise, this parameter is null.</p>
+   * The pagination token to use to request the next page of results. Otherwise, this parameter is null.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1328,119 +1447,99 @@ export interface GetResourcesV2Response {
  */
 export interface GetSecurityControlDefinitionRequest {
   /**
-   * <p>
-   *             The ID of the security control to retrieve the definition for. This field doesn’t accept an Amazon Resource Name (ARN).
-   *         </p>
+   * The ID of the security control to retrieve the definition for. This field doesn’t accept an Amazon Resource Name (ARN).
+   *
    * @public
    */
   SecurityControlId: string | undefined;
 }
 
 /**
- * <p>
- *             An object that describes a security control parameter and the options for customizing it.
- *         </p>
+ * An object that describes a security control parameter and the options for customizing it.
+ *
  * @public
  */
 export interface ParameterDefinition {
   /**
-   * <p>
-   *             Description of a control parameter.
-   *         </p>
+   * Description of a control parameter.
+   *
    * @public
    */
   Description: string | undefined;
 
   /**
-   * <p>
-   *             The options for customizing a control parameter. Customization options vary based on the data type of the parameter.
-   *         </p>
+   * The options for customizing a control parameter. Customization options vary based on the data type of the parameter.
+   *
    * @public
    */
   ConfigurationOptions: ConfigurationOptions | undefined;
 }
 
 /**
- * <p>
- *          Provides metadata for a security control, including its unique standard-agnostic identifier, title, description,
- *          severity, availability in Amazon Web Services Regions, and a link to remediation steps.
- *       </p>
+ * Provides metadata for a security control, including its unique standard-agnostic identifier, title, description, severity, availability in Amazon Web Services Regions, and a link to remediation steps.
+ *
  * @public
  */
 export interface SecurityControlDefinition {
   /**
-   * <p>
-   *          The unique identifier of a security control across standards. Values for this field typically consist of an
-   *          Amazon Web Services service name and a number (for example, APIGateway.3). This parameter differs from
-   *          <code>SecurityControlArn</code>, which is a unique Amazon Resource Name (ARN) assigned to a control. The
-   *          ARN references the security control ID (for example, arn:aws:securityhub:eu-central-1:123456789012:security-control/APIGateway.3).
-   *       </p>
+   * The unique identifier of a security control across standards. Values for this field typically consist of an Amazon Web Services service name and a number (for example, APIGateway.3). This parameter differs from `SecurityControlArn`, which is a unique Amazon Resource Name (ARN) assigned to a control. The ARN references the security control ID (for example, arn:aws:securityhub:eu-central-1:123456789012:security-control/APIGateway.3).
+   *
    * @public
    */
   SecurityControlId: string | undefined;
 
   /**
-   * <p>
-   *          The title of a security control.
-   *       </p>
+   * The title of a security control.
+   *
    * @public
    */
   Title: string | undefined;
 
   /**
-   * <p> The description of a security control across standards. This typically summarizes how
-   *             Security Hub CSPM evaluates the control and the conditions under which it produces a
-   *          failed finding. This parameter doesn't reference a specific standard. </p>
+   * The description of a security control across standards. This typically summarizes how Security Hub CSPM evaluates the control and the conditions under which it produces a failed finding. This parameter doesn't reference a specific standard.
+   *
    * @public
    */
   Description: string | undefined;
 
   /**
-   * <p>
-   *          A link to Security Hub CSPM documentation that explains how to remediate a failed finding for a security control.
-   *       </p>
+   * A link to Security Hub CSPM documentation that explains how to remediate a failed finding for a security control.
+   *
    * @public
    */
   RemediationUrl: string | undefined;
 
   /**
-   * <p>
-   *          The severity of a security control. For more information about how Security Hub CSPM determines control severity,
-   *          see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/controls-findings-create-update.html#control-findings-severity">Assigning severity to control findings</a> in the
-   *          <i>Security Hub CSPM User Guide</i>.
-   *       </p>
+   * The severity of a security control. For more information about how Security Hub CSPM determines control severity, see [Assigning severity to control findings](https://docs.aws.amazon.com/securityhub/latest/userguide/controls-findings-create-update.html#control-findings-severity) in the *Security Hub CSPM User Guide*.
+   *
    * @public
    */
   SeverityRating: SeverityRating | undefined;
 
   /**
-   * <p>
-   *          Specifies whether a security control is available in the current Amazon Web Services Region.
-   *       </p>
+   * Specifies whether a security control is available in the current Amazon Web Services Region.
+   *
    * @public
    */
   CurrentRegionAvailability: RegionAvailabilityStatus | undefined;
 
   /**
-   * <p>
-   *             Security control properties that you can customize. Currently, only parameter customization is supported for select
-   *             controls. An empty array is returned for controls that don’t support custom properties.
-   *         </p>
+   * Security control properties that you can customize. Currently, only parameter customization is supported for select controls. An empty array is returned for controls that don’t support custom properties.
+   *
    * @public
    */
   CustomizableProperties?: SecurityControlProperty[] | undefined;
 
   /**
-   * <p>
-   *             An object that provides a security control parameter name, description, and the options for customizing it. This
-   * object is excluded for a control that doesn't support custom parameters.
-   *         </p>
+   * An object that provides a security control parameter name, description, and the options for customizing it. This object is excluded for a control that doesn't support custom parameters.
+   *
    * @public
    */
   ParameterDefinitions?: Record<string, ParameterDefinition> | undefined;
 
   /**
-   * <p>The cloud provider whose resources the security control evaluates. For example, <code>AWS</code> or <code>Azure</code>.</p>
+   * The cloud provider whose resources the security control evaluates. For example, `AWS` or `Azure`.
+   *
    * @public
    */
   Provider?: SecurityControlsProvider | undefined;
@@ -1451,10 +1550,8 @@ export interface SecurityControlDefinition {
  */
 export interface GetSecurityControlDefinitionResponse {
   /**
-   * <p>
-   *          Provides metadata for a security control, including its unique standard-agnostic identifier, title, description,
-   *          severity, availability in Amazon Web Services Regions, and a link to remediation steps.
-   *       </p>
+   * Provides metadata for a security control, including its unique standard-agnostic identifier, title, description, severity, availability in Amazon Web Services Regions, and a link to remediation steps.
+   *
    * @public
    */
   SecurityControlDefinition: SecurityControlDefinition | undefined;
@@ -1465,7 +1562,8 @@ export interface GetSecurityControlDefinitionResponse {
  */
 export interface InviteMembersRequest {
   /**
-   * <p>The list of account IDs of the Amazon Web Services accounts to invite to Security Hub CSPM as members. </p>
+   * The list of account IDs of the Amazon Web Services accounts to invite to Security Hub CSPM as members.
+   *
    * @public
    */
   AccountIds: string[] | undefined;
@@ -1476,20 +1574,22 @@ export interface InviteMembersRequest {
  */
 export interface InviteMembersResponse {
   /**
-   * <p>The list of Amazon Web Services accounts that could not be processed. For each account, the list
-   *          includes the account ID and the email address.</p>
+   * The list of Amazon Web Services accounts that could not be processed. For each account, the list includes the account ID and the email address.
+   *
    * @public
    */
   UnprocessedAccounts?: Result[] | undefined;
 }
 
 /**
- * <p>The parameters used to modify an existing Jira Cloud integration.</p>
+ * The parameters used to modify an existing Jira Cloud integration.
+ *
  * @public
  */
 export interface JiraCloudUpdateConfiguration {
   /**
-   * <p>The project key for a JiraCloud instance.</p>
+   * The project key for a JiraCloud instance.
+   *
    * @public
    */
   ProjectKey?: string | undefined;
@@ -1500,15 +1600,15 @@ export interface JiraCloudUpdateConfiguration {
  */
 export interface ListAggregatorsV2Request {
   /**
-   * <p>The token required for pagination.
-   *          On your first call, set the value of this parameter to <code>NULL</code>.
-   *          For subsequent calls, to continue listing data, set the value of this parameter to the value returned in the previous response.</p>
+   * The token required for pagination. On your first call, set the value of this parameter to `NULL`. For subsequent calls, to continue listing data, set the value of this parameter to the value returned in the previous response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return.</p>
+   * The maximum number of results to return.
+   *
    * @public
    */
   MaxResults?: number | undefined;
@@ -1519,14 +1619,15 @@ export interface ListAggregatorsV2Request {
  */
 export interface ListAggregatorsV2Response {
   /**
-   * <p>An array of aggregators.</p>
+   * An array of aggregators.
+   *
    * @public
    */
   AggregatorsV2?: AggregatorV2[] | undefined;
 
   /**
-   * <p>The pagination token to use to request the next page of results.
-   *          Otherwise, this parameter is null.</p>
+   * The pagination token to use to request the next page of results. Otherwise, this parameter is null.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1537,18 +1638,15 @@ export interface ListAggregatorsV2Response {
  */
 export interface ListAutomationRulesRequest {
   /**
-   * <p>
-   *          A token to specify where to start paginating the response. This is the <code>NextToken</code>
-   *          from a previously truncated response. On your first call to the <code>ListAutomationRules</code>
-   *          API, set the value of this parameter to <code>NULL</code>.
-   *       </p>
+   * A token to specify where to start paginating the response. This is the `NextToken` from a previously truncated response. On your first call to the `ListAutomationRules` API, set the value of this parameter to `NULL`.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p> The maximum number of rules to return in the response. This currently ranges from 1 to
-   *          100. </p>
+   * The maximum number of rules to return in the response. This currently ranges from 1 to 100.
+   *
    * @public
    */
   MaxResults?: number | undefined;
@@ -1559,18 +1657,15 @@ export interface ListAutomationRulesRequest {
  */
 export interface ListAutomationRulesResponse {
   /**
-   * <p>
-   *          Metadata for rules in the calling account. The response includes rules with a
-   *          <code>RuleStatus</code> of <code>ENABLED</code> and <code>DISABLED</code>.
-   *       </p>
+   * Metadata for rules in the calling account. The response includes rules with a `RuleStatus` of `ENABLED` and `DISABLED`.
+   *
    * @public
    */
   AutomationRulesMetadata?: AutomationRulesMetadata[] | undefined;
 
   /**
-   * <p>
-   *          A pagination token for the response.
-   *       </p>
+   * A pagination token for the response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1581,15 +1676,15 @@ export interface ListAutomationRulesResponse {
  */
 export interface ListAutomationRulesV2Request {
   /**
-   * <p>The token required for pagination.
-   *          On your first call, set the value of this parameter to <code>NULL</code>.
-   *          For subsequent calls, to continue listing data, set the value of this parameter to the value returned in the previous response.</p>
+   * The token required for pagination. On your first call, set the value of this parameter to `NULL`. For subsequent calls, to continue listing data, set the value of this parameter to the value returned in the previous response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return.</p>
+   * The maximum number of results to return.
+   *
    * @public
    */
   MaxResults?: number | undefined;
@@ -1600,14 +1695,15 @@ export interface ListAutomationRulesV2Request {
  */
 export interface ListAutomationRulesV2Response {
   /**
-   * <p>An array of automation rules.</p>
+   * An array of automation rules.
+   *
    * @public
    */
   Rules?: AutomationRulesMetadataV2[] | undefined;
 
   /**
-   * <p>The pagination token to use to request the next page of results.
-   *          Otherwise, this parameter is null.</p>
+   * The pagination token to use to request the next page of results. Otherwise, this parameter is null.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1618,25 +1714,15 @@ export interface ListAutomationRulesV2Response {
  */
 export interface ListConfigurationPoliciesRequest {
   /**
-   * <p>
-   *             The NextToken value that's returned from a previous paginated <code>ListConfigurationPolicies</code> request where
-   *             <code>MaxResults</code> was used but the results exceeded the value of that parameter. Pagination continues from the
-   *             <code>MaxResults</code> was used but the results exceeded the value of that parameter. Pagination continues from the
-   *             end of the previous response that returned the <code>NextToken</code> value. This value is <code>null</code> when
-   *             there are no more results to return.
-   *         </p>
+   * The NextToken value that's returned from a previous paginated `ListConfigurationPolicies` request where `MaxResults` was used but the results exceeded the value of that parameter. Pagination continues from the `MaxResults` was used but the results exceeded the value of that parameter. Pagination continues from the end of the previous response that returned the `NextToken` value. This value is `null` when there are no more results to return.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>
-   *             The maximum number of results that's returned by <code>ListConfigurationPolicies</code> in each page of the response.
-   *             When this parameter is used, <code>ListConfigurationPolicies</code> returns the specified number of results in a
-   *             single page and a <code>NextToken</code> response element. You can see the remaining results of the initial request
-   *             by sending another <code>ListConfigurationPolicies</code> request with the returned <code>NextToken</code> value. A
-   *             valid range for <code>MaxResults</code> is between 1 and 100.
-   *         </p>
+   * The maximum number of results that's returned by `ListConfigurationPolicies` in each page of the response. When this parameter is used, `ListConfigurationPolicies` returns the specified number of results in a single page and a `NextToken` response element. You can see the remaining results of the initial request by sending another `ListConfigurationPolicies` request with the returned `NextToken` value. A valid range for `MaxResults` is between 1 and 100.
+   *
    * @public
    */
   MaxResults?: number | undefined;
@@ -1647,19 +1733,15 @@ export interface ListConfigurationPoliciesRequest {
  */
 export interface ListConfigurationPoliciesResponse {
   /**
-   * <p>
-   *             Provides metadata for each of your configuration policies.
-   *         </p>
+   * Provides metadata for each of your configuration policies.
+   *
    * @public
    */
   ConfigurationPolicySummaries?: ConfigurationPolicySummary[] | undefined;
 
   /**
-   * <p>
-   *             The <code>NextToken</code> value to include in the next <code>ListConfigurationPolicies</code> request. When the
-   *             results of a <code>ListConfigurationPolicies</code> request exceed <code>MaxResults</code>, this value can be used to
-   *             retrieve the next page of results. This value is <code>null</code> when there are no more results to return.
-   *         </p>
+   * The `NextToken` value to include in the next `ListConfigurationPolicies` request. When the results of a `ListConfigurationPolicies` request exceed `MaxResults`, this value can be used to retrieve the next page of results. This value is `null` when there are no more results to return.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1670,33 +1752,22 @@ export interface ListConfigurationPoliciesResponse {
  */
 export interface ListConfigurationPolicyAssociationsRequest {
   /**
-   * <p>
-   *             The <code>NextToken</code> value that's returned from a previous paginated <code>ListConfigurationPolicyAssociations</code>
-   *             request where <code>MaxResults</code> was used but the results exceeded the value of that parameter. Pagination
-   *             continues from the end of the previous response that returned the <code>NextToken</code> value. This value is <code>null</code>
-   *             when there are no more results to return.
-   *         </p>
+   * The `NextToken` value that's returned from a previous paginated `ListConfigurationPolicyAssociations` request where `MaxResults` was used but the results exceeded the value of that parameter. Pagination continues from the end of the previous response that returned the `NextToken` value. This value is `null` when there are no more results to return.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>
-   *             The maximum number of results that's returned by <code>ListConfigurationPolicies</code> in each page of the response.
-   *             When this parameter is used, <code>ListConfigurationPolicyAssociations</code> returns the specified number of results
-   *             in a single page and a <code>NextToken</code> response element. You can see the remaining results of the initial
-   *             request by sending another <code>ListConfigurationPolicyAssociations</code> request with the returned <code>NextToken</code>
-   *             value. A valid range for <code>MaxResults</code> is between 1 and 100.
-   *         </p>
+   * The maximum number of results that's returned by `ListConfigurationPolicies` in each page of the response. When this parameter is used, `ListConfigurationPolicyAssociations` returns the specified number of results in a single page and a `NextToken` response element. You can see the remaining results of the initial request by sending another `ListConfigurationPolicyAssociations` request with the returned `NextToken` value. A valid range for `MaxResults` is between 1 and 100.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>
-   *             Options for filtering the <code>ListConfigurationPolicyAssociations</code> response. You can filter by the Amazon Resource Name (ARN) or
-   *             universally unique identifier (UUID) of a configuration, <code>AssociationType</code>, or <code>AssociationStatus</code>.
-   *         </p>
+   * Options for filtering the `ListConfigurationPolicyAssociations` response. You can filter by the Amazon Resource Name (ARN) or universally unique identifier (UUID) of a configuration, `AssociationType`, or `AssociationStatus`.
+   *
    * @public
    */
   Filters?: AssociationFilters | undefined;
@@ -1707,20 +1778,15 @@ export interface ListConfigurationPolicyAssociationsRequest {
  */
 export interface ListConfigurationPolicyAssociationsResponse {
   /**
-   * <p>
-   *             An object that contains the details of each configuration policy association that’s returned in a
-   *             <code>ListConfigurationPolicyAssociations</code> request.
-   *         </p>
+   * An object that contains the details of each configuration policy association that’s returned in a `ListConfigurationPolicyAssociations` request.
+   *
    * @public
    */
   ConfigurationPolicyAssociationSummaries?: ConfigurationPolicyAssociationSummary[] | undefined;
 
   /**
-   * <p>
-   *             The <code>NextToken</code> value to include in the next <code>ListConfigurationPolicyAssociations</code> request. When
-   *             the results of a <code>ListConfigurationPolicyAssociations</code> request exceed <code>MaxResults</code>, this value
-   *             can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.
-   *         </p>
+   * The `NextToken` value to include in the next `ListConfigurationPolicyAssociations` request. When the results of a `ListConfigurationPolicyAssociations` request exceed `MaxResults`, this value can be used to retrieve the next page of results. This value is `null` when there are no more results to return.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1731,31 +1797,36 @@ export interface ListConfigurationPolicyAssociationsResponse {
  */
 export interface ListConnectorsRequest {
   /**
-   * <p>The pagination token to request the next page of results.</p>
+   * The pagination token to request the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return.</p>
+   * The maximum number of results to return.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The name of the cloud provider to filter connectors by.</p>
+   * The name of the cloud provider to filter connectors by.
+   *
    * @public
    */
   ProviderName?: CspmConnectorProviderName | undefined;
 
   /**
-   * <p>The connectivity status to filter connectors by.</p>
+   * The connectivity status to filter connectors by.
+   *
    * @public
    */
   ConnectorStatus?: CspmConnectorStatus | undefined;
 
   /**
-   * <p>The enablement status to filter connectors by.</p>
+   * The enablement status to filter connectors by.
+   *
    * @public
    */
   EnablementStatus?: CspmEnablementStatus | undefined;
@@ -1766,13 +1837,15 @@ export interface ListConnectorsRequest {
  */
 export interface ListConnectorsResponse {
   /**
-   * <p>The pagination token to use to request the next page of results. If there are no additional results, this value is null.</p>
+   * The pagination token to use to request the next page of results. If there are no additional results, this value is null.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>An array of connector summaries.</p>
+   * An array of connector summaries.
+   *
    * @public
    */
   Connectors: CspmConnectorSummary[] | undefined;
@@ -1783,31 +1856,36 @@ export interface ListConnectorsResponse {
  */
 export interface ListConnectorsV2Request {
   /**
-   * <p>The pagination token per the Amazon Web Services Pagination standard</p>
+   * The pagination token per the Amazon Web Services Pagination standard
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to be returned.</p>
+   * The maximum number of results to be returned.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The name of the third-party provider.</p>
+   * The name of the third-party provider.
+   *
    * @public
    */
   ProviderName?: ConnectorProviderName | undefined;
 
   /**
-   * <p>The status for the connectorV2.</p>
+   * The status for the connectorV2.
+   *
    * @public
    */
   ConnectorStatus?: ConnectorStatus | undefined;
 
   /**
-   * <p>The enablement status to filter connectors by.</p>
+   * The enablement status to filter connectors by.
+   *
    * @public
    */
   EnablementStatus?: EnablementStatus | undefined;
@@ -1818,14 +1896,15 @@ export interface ListConnectorsV2Request {
  */
 export interface ListConnectorsV2Response {
   /**
-   * <p>The pagination token to use to request the next page of results.
-   *          Otherwise, this parameter is null.</p>
+   * The pagination token to use to request the next page of results. Otherwise, this parameter is null.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>An array of connectorV2 summaries.</p>
+   * An array of connectorV2 summaries.
+   *
    * @public
    */
   Connectors: ConnectorSummary[] | undefined;
@@ -1836,17 +1915,17 @@ export interface ListConnectorsV2Response {
  */
 export interface ListEnabledProductsForImportRequest {
   /**
-   * <p>The token that is required for pagination. On your first call to the
-   *             <code>ListEnabledProductsForImport</code> operation, set the value of this parameter to
-   *             <code>NULL</code>.</p>
-   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
-   *          parameter to the value returned from the previous response.</p>
+   * The token that is required for pagination. On your first call to the `ListEnabledProductsForImport` operation, set the value of this parameter to `NULL`.
+   *
+   * For subsequent calls to the operation, to continue listing data, set the value of this parameter to the value returned from the previous response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of items to return in the response.</p>
+   * The maximum number of items to return in the response.
+   *
    * @public
    */
   MaxResults?: number | undefined;
@@ -1857,13 +1936,15 @@ export interface ListEnabledProductsForImportRequest {
  */
 export interface ListEnabledProductsForImportResponse {
   /**
-   * <p>The list of ARNs for the resources that represent your subscriptions to products. </p>
+   * The list of ARNs for the resources that represent your subscriptions to products.
+   *
    * @public
    */
   ProductSubscriptions?: string[] | undefined;
 
   /**
-   * <p>The pagination token to use to request the next page of results.</p>
+   * The pagination token to use to request the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1874,27 +1955,29 @@ export interface ListEnabledProductsForImportResponse {
  */
 export interface ListExportJobsV2Request {
   /**
-   * <p>Filters the results to export jobs that have the specified status.</p>
+   * Filters the results to export jobs that have the specified status.
+   *
    * @public
    */
   Status?: ExportStatus | undefined;
 
   /**
-   * <p>Filters the results to export jobs that produce the specified data type.</p>
+   * Filters the results to export jobs that produce the specified data type.
+   *
    * @public
    */
   DataType?: ExportDataType | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. Valid range is 1–20.</p>
+   * The maximum number of results to return in a single call. Valid range is 1–20.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token required for pagination.
-   *          On your first call, set the value of this parameter to <code>NULL</code>.
-   *          For subsequent calls, to continue listing data, set the value of this parameter to the value returned in the previous response.</p>
+   * The token required for pagination. On your first call, set the value of this parameter to `NULL`. For subsequent calls, to continue listing data, set the value of this parameter to the value returned in the previous response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1905,13 +1988,15 @@ export interface ListExportJobsV2Request {
  */
 export interface ListExportJobsV2Response {
   /**
-   * <p>The export jobs that match the request, as <code>ExportSummary</code> objects.</p>
+   * The export jobs that match the request, as `ExportSummary` objects.
+   *
    * @public
    */
   Items: ExportSummary[] | undefined;
 
   /**
-   * <p>The pagination token to use to request the next page of results. Otherwise, this parameter is null.</p>
+   * The pagination token to use to request the next page of results. Otherwise, this parameter is null.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1922,23 +2007,22 @@ export interface ListExportJobsV2Response {
  */
 export interface ListExposuresByRemediationV2Request {
   /**
-   * <p>The unique identifier (ID) of an existing remediation target to list exposure findings for.</p>
+   * The unique identifier (ID) of an existing remediation target to list exposure findings for.
+   *
    * @public
    */
   TargetUid: string | undefined;
 
   /**
-   * <p>The maximum number of results to return. Valid range is 1-100. If you don't specify a value,
-   *          the operation returns up to 25 results.</p>
+   * The maximum number of results to return. Valid range is 1-100. If you don't specify a value, the operation returns up to 25 results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token used to paginate the exposures list returned.
-   *          On your first call to <code>ListExposuresByRemediationV2</code>, omit this parameter or set it
-   *          to <code>NULL</code>. For subsequent calls, use the <code>NextToken</code> value returned in
-   *          the previous response to retrieve the next page of results.</p>
+   * The token used to paginate the exposures list returned. On your first call to `ListExposuresByRemediationV2`, omit this parameter or set it to `NULL`. For subsequent calls, use the `NextToken` value returned in the previous response to retrieve the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1949,38 +2033,43 @@ export interface ListExposuresByRemediationV2Request {
  */
 export interface ListExposuresByRemediationV2Response {
   /**
-   * <p>An array of exposure findings returned by the operation.</p>
+   * An array of exposure findings returned by the operation.
+   *
    * @public
    */
   Items: ExposureFinding[] | undefined;
 
   /**
-   * <p>The unique identifier (ID) of the remediation target that the exposure findings are associated with.</p>
+   * The unique identifier (ID) of the remediation target that the exposure findings are associated with.
+   *
    * @public
    */
   TargetUid: string | undefined;
 
   /**
-   * <p>Provides comprehensive details about a resource.</p>
+   * Provides comprehensive details about a resource.
+   *
    * @public
    */
   Resource: RemediationResource | undefined;
 
   /**
-   * <p>The total count of exposure findings associated with the remediation target.</p>
+   * The total count of exposure findings associated with the remediation target.
+   *
    * @public
    */
   TotalCount: number | undefined;
 
   /**
-   * <p>The specific trait associated with the remediation target.</p>
+   * The specific trait associated with the remediation target.
+   *
    * @public
    */
   Trait: RemediationTrait | undefined;
 
   /**
-   * <p>The pagination token to use to request the next page of results.
-   *          Otherwise, this parameter is null.</p>
+   * The pagination token to use to request the next page of results. Otherwise, this parameter is null.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1991,13 +2080,15 @@ export interface ListExposuresByRemediationV2Response {
  */
 export interface ListFindingAggregatorsRequest {
   /**
-   * <p>The token returned with the previous set of results. Identifies the next set of results to return.</p>
+   * The token returned with the previous set of results. Identifies the next set of results to return.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return. This operation currently only returns a single result.</p>
+   * The maximum number of results to return. This operation currently only returns a single result.
+   *
    * @public
    */
   MaxResults?: number | undefined;
@@ -2008,15 +2099,17 @@ export interface ListFindingAggregatorsRequest {
  */
 export interface ListFindingAggregatorsResponse {
   /**
-   * <p>The list of finding aggregators. This operation currently only returns a single result.</p>
+   * The list of finding aggregators. This operation currently only returns a single result.
+   *
    * @public
    */
   FindingAggregators?: FindingAggregator[] | undefined;
 
   /**
-   * <p>If there are more results, this is the token to provide in the next call to <code>ListFindingAggregators</code>.</p>
-   *          <p>This operation currently only returns a single result.
-   *       </p>
+   * If there are more results, this is the token to provide in the next call to `ListFindingAggregators`.
+   *
+   * This operation currently only returns a single result.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2027,35 +2120,32 @@ export interface ListFindingAggregatorsResponse {
  */
 export interface ListFreeTrialStatusesV2Request {
   /**
-   * <p>The Amazon Web Services account identifiers to list free trial status for. You can specify accounts other than your own only if you are a delegated Security Hub administrator.</p>
+   * The Amazon Web Services account identifiers to list free trial status for. You can specify accounts other than your own only if you are a delegated Security Hub administrator.
+   *
    * @public
    */
   AccountIds?: string[] | undefined;
 
   /**
-   * <p>The free trial statuses to filter the results by. Valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ACTIVE</code> returns only features with an ongoing free trial period.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INACTIVE</code> returns only features whose free trial period has ended, or that never started.</p>
-   *             </li>
-   *          </ul>
+   * The free trial statuses to filter the results by. Valid values:
+   *
+   * - `ACTIVE` returns only features with an ongoing free trial period.
+   * - `INACTIVE` returns only features whose free trial period has ended, or that never started.
+   *
    * @public
    */
   Statuses?: FreeTrialStatusValue[] | undefined;
 
   /**
-   * <p>The maximum number of results to return. If you don't specify a value, Security Hub returns up to 100 results.</p>
+   * The maximum number of results to return. If you don't specify a value, Security Hub returns up to 100 results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The pagination token to request the next page of results.</p>
+   * The pagination token to request the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2066,13 +2156,15 @@ export interface ListFreeTrialStatusesV2Request {
  */
 export interface ListFreeTrialStatusesV2Response {
   /**
-   * <p>An array of free trial statuses, one for each account in scope.</p>
+   * An array of free trial statuses, one for each account in scope.
+   *
    * @public
    */
   AccountFreeTrialStatuses: AccountFreeTrialStatus[] | undefined;
 
   /**
-   * <p>The pagination token to use to request the next page of results. If there are no additional results, this value is null.</p>
+   * The pagination token to use to request the next page of results. If there are no additional results, this value is null.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2083,17 +2175,17 @@ export interface ListFreeTrialStatusesV2Response {
  */
 export interface ListInvitationsRequest {
   /**
-   * <p>The maximum number of items to return in the response. </p>
+   * The maximum number of items to return in the response.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token that is required for pagination. On your first call to the
-   *             <code>ListInvitations</code> operation, set the value of this parameter to
-   *             <code>NULL</code>.</p>
-   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
-   *          parameter to the value returned from the previous response.</p>
+   * The token that is required for pagination. On your first call to the `ListInvitations` operation, set the value of this parameter to `NULL`.
+   *
+   * For subsequent calls to the operation, to continue listing data, set the value of this parameter to the value returned from the previous response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2104,13 +2196,15 @@ export interface ListInvitationsRequest {
  */
 export interface ListInvitationsResponse {
   /**
-   * <p>The details of the invitations returned by the operation.</p>
+   * The details of the invitations returned by the operation.
+   *
    * @public
    */
   Invitations?: Invitation[] | undefined;
 
   /**
-   * <p>The pagination token to use to request the next page of results.</p>
+   * The pagination token to use to request the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2121,28 +2215,28 @@ export interface ListInvitationsResponse {
  */
 export interface ListMembersRequest {
   /**
-   * <p>Specifies which member accounts to include in the response based on their relationship
-   *          status with the administrator account. The default value is <code>TRUE</code>.</p>
-   *          <p>If <code>OnlyAssociated</code> is set to <code>TRUE</code>, the response includes member
-   *          accounts whose relationship status with the administrator account is set to <code>ENABLED</code>.</p>
-   *          <p>If <code>OnlyAssociated</code> is set to <code>FALSE</code>, the response includes all
-   *          existing member accounts. </p>
+   * Specifies which member accounts to include in the response based on their relationship status with the administrator account. The default value is `TRUE`.
+   *
+   * If `OnlyAssociated` is set to `TRUE`, the response includes member accounts whose relationship status with the administrator account is set to `ENABLED`.
+   *
+   * If `OnlyAssociated` is set to `FALSE`, the response includes all existing member accounts.
+   *
    * @public
    */
   OnlyAssociated?: boolean | undefined;
 
   /**
-   * <p>The maximum number of items to return in the response. </p>
+   * The maximum number of items to return in the response.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token that is required for pagination. On your first call to the
-   *             <code>ListMembers</code> operation, set the value of this parameter to
-   *          <code>NULL</code>.</p>
-   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
-   *          parameter to the value returned from the previous response.</p>
+   * The token that is required for pagination. On your first call to the `ListMembers` operation, set the value of this parameter to `NULL`.
+   *
+   * For subsequent calls to the operation, to continue listing data, set the value of this parameter to the value returned from the previous response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2153,13 +2247,15 @@ export interface ListMembersRequest {
  */
 export interface ListMembersResponse {
   /**
-   * <p>Member details returned by the operation.</p>
+   * Member details returned by the operation.
+   *
    * @public
    */
   Members?: Member[] | undefined;
 
   /**
-   * <p>The pagination token to use to request the next page of results.</p>
+   * The pagination token to use to request the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2170,23 +2266,22 @@ export interface ListMembersResponse {
  */
 export interface ListOrganizationAdminAccountsRequest {
   /**
-   * <p>The maximum number of items to return in the response.</p>
+   * The maximum number of items to return in the response.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token that is required for pagination. On your first call to the
-   *             <code>ListOrganizationAdminAccounts</code> operation, set the value of this parameter to
-   *             <code>NULL</code>. For subsequent calls to the operation, to continue listing data, set
-   *          the value of this parameter to the value returned from the previous response. </p>
+   * The token that is required for pagination. On your first call to the `ListOrganizationAdminAccounts` operation, set the value of this parameter to `NULL`. For subsequent calls to the operation, to continue listing data, set the value of this parameter to the value returned from the previous response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The feature where the delegated administrator account is listed.
-   *          Defaults to Security Hub CSPM if not specified.</p>
+   * The feature where the delegated administrator account is listed. Defaults to Security Hub CSPM if not specified.
+   *
    * @public
    */
   Feature?: SecurityHubFeature | undefined;
@@ -2197,20 +2292,22 @@ export interface ListOrganizationAdminAccountsRequest {
  */
 export interface ListOrganizationAdminAccountsResponse {
   /**
-   * <p>The list of Security Hub CSPM administrator accounts.</p>
+   * The list of Security Hub CSPM administrator accounts.
+   *
    * @public
    */
   AdminAccounts?: AdminAccount[] | undefined;
 
   /**
-   * <p>The pagination token to use to request the next page of results.</p>
+   * The pagination token to use to request the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The feature where the delegated administrator account is listed.
-   *          Defaults to Security Hub CSPM CSPM if not specified.</p>
+   * The feature where the delegated administrator account is listed. Defaults to Security Hub CSPM CSPM if not specified.
+   *
    * @public
    */
   Feature?: SecurityHubFeature | undefined;
@@ -2221,33 +2318,29 @@ export interface ListOrganizationAdminAccountsResponse {
  */
 export interface ListSecurityControlDefinitionsRequest {
   /**
-   * <p>
-   *          The Amazon Resource Name (ARN) of the standard that you want to view controls for.
-   *       </p>
+   * The Amazon Resource Name (ARN) of the standard that you want to view controls for.
+   *
    * @public
    */
   StandardsArn?: string | undefined;
 
   /**
-   * <p>
-   *          Optional pagination parameter.
-   *       </p>
+   * Optional pagination parameter.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p> An optional parameter that limits the total results of the API response to the
-   *          specified number. If this parameter isn't provided in the request, the results include the
-   *          first 25 security controls that apply to the specified standard. The results also include a
-   *             <code>NextToken</code> parameter that you can use in a subsequent API call to get the
-   *          next 25 controls. This repeats until all controls for the standard are returned. </p>
+   * An optional parameter that limits the total results of the API response to the specified number. If this parameter isn't provided in the request, the results include the first 25 security controls that apply to the specified standard. The results also include a `NextToken` parameter that you can use in a subsequent API call to get the next 25 controls. This repeats until all controls for the standard are returned.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>A list of cloud providers to filter the security control definitions by. For example, specify <code>Azure</code> to return only controls that evaluate Azure resources.</p>
+   * A list of cloud providers to filter the security control definitions by. For example, specify `Azure` to return only controls that evaluate Azure resources.
+   *
    * @public
    */
   Providers?: SecurityControlsProvider[] | undefined;
@@ -2258,16 +2351,15 @@ export interface ListSecurityControlDefinitionsRequest {
  */
 export interface ListSecurityControlDefinitionsResponse {
   /**
-   * <p>
-   *          An array of controls that apply to the specified standard.
-   *       </p>
+   * An array of controls that apply to the specified standard.
+   *
    * @public
    */
   SecurityControlDefinitions: SecurityControlDefinition[] | undefined;
 
   /**
-   * <p> A pagination parameter that's included in the response only if it was included in the
-   *          request. </p>
+   * A pagination parameter that's included in the response only if it was included in the request.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2278,107 +2370,92 @@ export interface ListSecurityControlDefinitionsResponse {
  */
 export interface ListStandardsControlAssociationsRequest {
   /**
-   * <p>
-   *          The identifier of the control (identified with <code>SecurityControlId</code>, <code>SecurityControlArn</code>, or a mix of both parameters) that you
-   *          want to determine the enablement status of in each enabled standard.
-   *       </p>
+   * The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters) that you want to determine the enablement status of in each enabled standard.
+   *
    * @public
    */
   SecurityControlId: string | undefined;
 
   /**
-   * <p>
-   *          Optional pagination parameter.
-   *       </p>
+   * Optional pagination parameter.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p> An optional parameter that limits the total results of the API response to the
-   *          specified number. If this parameter isn't provided in the request, the results include the
-   *          first 25 standard and control associations. The results also include a
-   *             <code>NextToken</code> parameter that you can use in a subsequent API call to get the
-   *          next 25 associations. This repeats until all associations for the specified control are
-   *          returned. The number of results is limited by the number of supported Security Hub CSPM
-   *          standards that you've enabled in the calling account. </p>
+   * An optional parameter that limits the total results of the API response to the specified number. If this parameter isn't provided in the request, the results include the first 25 standard and control associations. The results also include a `NextToken` parameter that you can use in a subsequent API call to get the next 25 associations. This repeats until all associations for the specified control are returned. The number of results is limited by the number of supported Security Hub CSPM standards that you've enabled in the calling account.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p> An array that provides the enablement status and other details for each control that
- *          applies to each enabled standard. </p>
+ * An array that provides the enablement status and other details for each control that applies to each enabled standard.
+ *
  * @public
  */
 export interface StandardsControlAssociationSummary {
   /**
-   * <p>
-   *          The Amazon Resource Name (ARN) of a standard.
-   *       </p>
+   * The Amazon Resource Name (ARN) of a standard.
+   *
    * @public
    */
   StandardsArn: string | undefined;
 
   /**
-   * <p>
-   *          A unique standard-agnostic identifier for a control. Values for this field typically consist of an
-   *          Amazon Web Services service and a number, such as APIGateway.5. This field doesn't reference a specific standard.
-   *       </p>
+   * A unique standard-agnostic identifier for a control. Values for this field typically consist of an Amazon Web Services service and a number, such as APIGateway.5. This field doesn't reference a specific standard.
+   *
    * @public
    */
   SecurityControlId: string | undefined;
 
   /**
-   * <p> The ARN of a control, such as
-   *             <code>arn:aws:securityhub:eu-central-1:123456789012:security-control/S3.1</code>. This
-   *          parameter doesn't mention a specific standard. </p>
+   * The ARN of a control, such as `arn:aws:securityhub:eu-central-1:123456789012:security-control/S3.1`. This parameter doesn't mention a specific standard.
+   *
    * @public
    */
   SecurityControlArn: string | undefined;
 
   /**
-   * <p>
-   *          The enablement status of a control in a specific standard.
-   *       </p>
+   * The enablement status of a control in a specific standard.
+   *
    * @public
    */
   AssociationStatus: AssociationStatus | undefined;
 
   /**
-   * <p>
-   *          The requirement that underlies this control in the compliance framework related to the standard.
-   *       </p>
+   * The requirement that underlies this control in the compliance framework related to the standard.
+   *
    * @public
    */
   RelatedRequirements?: string[] | undefined;
 
   /**
-   * <p>The last time that a control's enablement status in a specified standard was updated.</p>
+   * The last time that a control's enablement status in a specified standard was updated.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
 
   /**
-   * <p>The reason for updating a control's enablement status in a specified standard.</p>
+   * The reason for updating a control's enablement status in a specified standard.
+   *
    * @public
    */
   UpdatedReason?: string | undefined;
 
   /**
-   * <p>
-   *          The title of a control.
-   *       </p>
+   * The title of a control.
+   *
    * @public
    */
   StandardsControlTitle?: string | undefined;
 
   /**
-   * <p>
-   *          The description of a control. This typically summarizes how Security Hub CSPM evaluates the control and the
-   *          conditions under which it produces a failed finding. The parameter may reference a specific standard.
-   *       </p>
+   * The description of a control. This typically summarizes how Security Hub CSPM evaluates the control and the conditions under which it produces a failed finding. The parameter may reference a specific standard.
+   *
    * @public
    */
   StandardsControlDescription?: string | undefined;
@@ -2389,15 +2466,15 @@ export interface StandardsControlAssociationSummary {
  */
 export interface ListStandardsControlAssociationsResponse {
   /**
-   * <p> An array that provides the enablement status and other details for each security
-   *          control that applies to each enabled standard. </p>
+   * An array that provides the enablement status and other details for each security control that applies to each enabled standard.
+   *
    * @public
    */
   StandardsControlAssociationSummaries: StandardsControlAssociationSummary[] | undefined;
 
   /**
-   * <p> A pagination parameter that's included in the response only if it was included in the
-   *          request. </p>
+   * A pagination parameter that's included in the response only if it was included in the request.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2408,7 +2485,8 @@ export interface ListStandardsControlAssociationsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The ARN of the resource to retrieve tags for.</p>
+   * The ARN of the resource to retrieve tags for.
+   *
    * @public
    */
   ResourceArn: string | undefined;
@@ -2419,26 +2497,30 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>The tags associated with a resource.</p>
+   * The tags associated with a resource.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>The parameters used to modify an existing ServiceNow integration.</p>
+ * The parameters used to modify an existing ServiceNow integration.
+ *
  * @public
  */
 export interface ServiceNowUpdateConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the ServiceNow credentials.</p>
+   * The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the ServiceNow credentials.
+   *
    * @public
    */
   SecretArn?: string | undefined;
 }
 
 /**
- * <p>The parameters required to update the configuration of an integration provider.</p>
+ * The parameters required to update the configuration of an integration provider.
+ *
  * @public
  */
 export type ProviderUpdateConfiguration =
@@ -2452,7 +2534,8 @@ export type ProviderUpdateConfiguration =
  */
 export namespace ProviderUpdateConfiguration {
   /**
-   * <p>The parameters required to update the configuration for a Jira Cloud integration.</p>
+   * The parameters required to update the configuration for a Jira Cloud integration.
+   *
    * @public
    */
   export interface JiraCloudMember {
@@ -2463,7 +2546,8 @@ export namespace ProviderUpdateConfiguration {
   }
 
   /**
-   * <p>The parameters required to update the configuration for a ServiceNow integration.</p>
+   * The parameters required to update the configuration for a ServiceNow integration.
+   *
    * @public
    */
   export interface ServiceNowMember {
@@ -2474,7 +2558,8 @@ export namespace ProviderUpdateConfiguration {
   }
 
   /**
-   * <p>The parameters required to update the configuration for a Microsoft Azure CSPM integration.</p>
+   * The parameters required to update the configuration for a Microsoft Azure CSPM integration.
+   *
    * @public
    */
   export interface AzureMember {
@@ -2511,13 +2596,15 @@ export namespace ProviderUpdateConfiguration {
  */
 export interface RegisterConnectorV2Request {
   /**
-   * <p>The authCode retrieved from authUrl to complete the OAuth 2.0 authorization code flow.</p>
+   * The authCode retrieved from authUrl to complete the OAuth 2.0 authorization code flow.
+   *
    * @public
    */
   AuthCode: string | undefined;
 
   /**
-   * <p>The authState retrieved from authUrl to complete the OAuth 2.0 authorization code flow.</p>
+   * The authState retrieved from authUrl to complete the OAuth 2.0 authorization code flow.
+   *
    * @public
    */
   AuthState: string | undefined;
@@ -2528,13 +2615,15 @@ export interface RegisterConnectorV2Request {
  */
 export interface RegisterConnectorV2Response {
   /**
-   * <p>The Amazon Resource Name (ARN) of the connectorV2.</p>
+   * The Amazon Resource Name (ARN) of the connectorV2.
+   *
    * @public
    */
   ConnectorArn?: string | undefined;
 
   /**
-   * <p>The UUID of the connectorV2 to identify connectorV2 resource.</p>
+   * The UUID of the connectorV2 to identify connectorV2 resource.
+   *
    * @public
    */
   ConnectorId: string | undefined;
@@ -2545,18 +2634,15 @@ export interface RegisterConnectorV2Response {
  */
 export interface StartConfigurationPolicyAssociationRequest {
   /**
-   * <p>
-   *             The Amazon Resource Name (ARN) of a configuration policy, the universally unique identifier (UUID) of a
-   *             configuration policy, or a value of <code>SELF_MANAGED_SECURITY_HUB</code> for a self-managed configuration.
-   *         </p>
+   * The Amazon Resource Name (ARN) of a configuration policy, the universally unique identifier (UUID) of a configuration policy, or a value of `SELF_MANAGED_SECURITY_HUB` for a self-managed configuration.
+   *
    * @public
    */
   ConfigurationPolicyIdentifier: string | undefined;
 
   /**
-   * <p>
-   *             The identifier of the target account, organizational unit, or the root to associate with the specified configuration.
-   *         </p>
+   * The identifier of the target account, organizational unit, or the root to associate with the specified configuration.
+   *
    * @public
    */
   Target: Target | undefined;
@@ -2567,58 +2653,50 @@ export interface StartConfigurationPolicyAssociationRequest {
  */
 export interface StartConfigurationPolicyAssociationResponse {
   /**
-   * <p>
-   *             The UUID of the configuration policy.
-   *         </p>
+   * The UUID of the configuration policy.
+   *
    * @public
    */
   ConfigurationPolicyId?: string | undefined;
 
   /**
-   * <p>
-   *             The identifier of the target account, organizational unit, or the organization root with which the configuration is associated.
-   *         </p>
+   * The identifier of the target account, organizational unit, or the organization root with which the configuration is associated.
+   *
    * @public
    */
   TargetId?: string | undefined;
 
   /**
-   * <p>
-   *             Indicates whether the target is an Amazon Web Services account, organizational unit, or the organization root.
-   *         </p>
+   * Indicates whether the target is an Amazon Web Services account, organizational unit, or the organization root.
+   *
    * @public
    */
   TargetType?: TargetType | undefined;
 
   /**
-   * <p>
-   *             Indicates whether the association between the specified target and the configuration was directly applied by the
-   *             Security Hub CSPM delegated administrator or inherited from a parent.
-   *         </p>
+   * Indicates whether the association between the specified target and the configuration was directly applied by the Security Hub CSPM delegated administrator or inherited from a parent.
+   *
    * @public
    */
   AssociationType?: AssociationType | undefined;
 
   /**
-   * <p>
-   *             The date and time, in UTC and ISO 8601 format, that the configuration policy association was last updated.
-   *         </p>
+   * The date and time, in UTC and ISO 8601 format, that the configuration policy association was last updated.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
 
   /**
-   * <p>
-   *             The current status of the association between the specified target and the configuration.
-   *         </p>
+   * The current status of the association between the specified target and the configuration.
+   *
    * @public
    */
   AssociationStatus?: ConfigurationPolicyAssociationStatus | undefined;
 
   /**
-   * <p>
-   *             An explanation for a <code>FAILED</code> value for <code>AssociationStatus</code>.
-   *         </p>
+   * An explanation for a `FAILED` value for `AssociationStatus`.
+   *
    * @public
    */
   AssociationStatusMessage?: string | undefined;
@@ -2629,18 +2707,15 @@ export interface StartConfigurationPolicyAssociationResponse {
  */
 export interface StartConfigurationPolicyDisassociationRequest {
   /**
-   * <p>
-   *             The identifier of the target account, organizational unit, or the root to disassociate from the specified configuration.
-   *         </p>
+   * The identifier of the target account, organizational unit, or the root to disassociate from the specified configuration.
+   *
    * @public
    */
   Target?: Target | undefined;
 
   /**
-   * <p>
-   *             The Amazon Resource Name (ARN) of a configuration policy, the universally unique identifier (UUID) of a
-   *             configuration policy, or a value of <code>SELF_MANAGED_SECURITY_HUB</code> for a self-managed configuration.
-   *         </p>
+   * The Amazon Resource Name (ARN) of a configuration policy, the universally unique identifier (UUID) of a configuration policy, or a value of `SELF_MANAGED_SECURITY_HUB` for a self-managed configuration.
+   *
    * @public
    */
   ConfigurationPolicyIdentifier: string | undefined;
@@ -2656,7 +2731,8 @@ export interface StartConfigurationPolicyDisassociationResponse {}
  */
 export interface StartExportJobV2Response {
   /**
-   * <p>The unique identifier of the export job that Security Hub started. Use this value with <code>GetExportJobV2</code> or <code>CancelExportJobV2</code>.</p>
+   * The unique identifier of the export job that Security Hub started. Use this value with `GetExportJobV2` or `CancelExportJobV2`.
+   *
    * @public
    */
   ExportJobId: string | undefined;
@@ -2667,13 +2743,15 @@ export interface StartExportJobV2Response {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The ARN of the resource to apply the tags to.</p>
+   * The ARN of the resource to apply the tags to.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>The tags to add to the resource. You can add up to 50 tags at a time. The tag keys can be no longer than 128 characters. The tag values can be no longer than 256 characters.</p>
+   * The tags to add to the resource. You can add up to 50 tags at a time. The tag keys can be no longer than 128 characters. The tag values can be no longer than 256 characters.
+   *
    * @public
    */
   Tags: Record<string, string> | undefined;
@@ -2689,13 +2767,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The ARN of the resource to remove the tags from.</p>
+   * The ARN of the resource to remove the tags from.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>The tag keys associated with the tags to remove from the resource. You can remove up to 50 tags at a time.</p>
+   * The tag keys associated with the tags to remove from the resource. You can remove up to 50 tags at a time.
+   *
    * @public
    */
   TagKeys: string[] | undefined;
@@ -2711,19 +2791,22 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateActionTargetRequest {
   /**
-   * <p>The ARN of the custom action target to update.</p>
+   * The ARN of the custom action target to update.
+   *
    * @public
    */
   ActionTargetArn: string | undefined;
 
   /**
-   * <p>The updated name of the custom action target.</p>
+   * The updated name of the custom action target.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The updated description for the custom action target.</p>
+   * The updated description for the custom action target.
+   *
    * @public
    */
   Description?: string | undefined;
@@ -2739,19 +2822,22 @@ export interface UpdateActionTargetResponse {}
  */
 export interface UpdateAggregatorV2Request {
   /**
-   * <p>The ARN of the Aggregator V2.</p>
+   * The ARN of the Aggregator V2.
+   *
    * @public
    */
   AggregatorV2Arn: string | undefined;
 
   /**
-   * <p>Determines how Amazon Web Services Regions should be linked to the Aggregator V2.</p>
+   * Determines how Amazon Web Services Regions should be linked to the Aggregator V2.
+   *
    * @public
    */
   RegionLinkingMode: string | undefined;
 
   /**
-   * <p>A list of Amazon Web Services Regions linked to the aggegation Region.</p>
+   * A list of Amazon Web Services Regions linked to the aggegation Region.
+   *
    * @public
    */
   LinkedRegions?: string[] | undefined;
@@ -2762,25 +2848,29 @@ export interface UpdateAggregatorV2Request {
  */
 export interface UpdateAggregatorV2Response {
   /**
-   * <p>The ARN of the Aggregator V2.</p>
+   * The ARN of the Aggregator V2.
+   *
    * @public
    */
   AggregatorV2Arn?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region where data is aggregated.</p>
+   * The Amazon Web Services Region where data is aggregated.
+   *
    * @public
    */
   AggregationRegion?: string | undefined;
 
   /**
-   * <p>Determines how Amazon Web Services Regions should be linked to the Aggregator V2.</p>
+   * Determines how Amazon Web Services Regions should be linked to the Aggregator V2.
+   *
    * @public
    */
   RegionLinkingMode?: string | undefined;
 
   /**
-   * <p>A list of Amazon Web Services Regions linked to the aggegation Region.</p>
+   * A list of Amazon Web Services Regions linked to the aggegation Region.
+   *
    * @public
    */
   LinkedRegions?: string[] | undefined;
@@ -2796,48 +2886,38 @@ export interface UpdateAutomationRuleV2Response {}
  */
 export interface UpdateConfigurationPolicyRequest {
   /**
-   * <p>
-   *             The Amazon Resource Name (ARN) or universally unique identifier (UUID) of the configuration policy.
-   *         </p>
+   * The Amazon Resource Name (ARN) or universally unique identifier (UUID) of the configuration policy.
+   *
    * @public
    */
   Identifier: string | undefined;
 
   /**
-   * <p>
-   *             The name of the configuration policy. Alphanumeric characters and the following ASCII characters are permitted:
-   *             <code>-, ., !, *, /</code>.
-   *         </p>
+   * The name of the configuration policy. Alphanumeric characters and the following ASCII characters are permitted: `-, ., !, *, /`.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>
-   *             The description of the configuration policy.
-   *         </p>
+   * The description of the configuration policy.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>
-   *             The reason for updating the configuration policy.
-   *         </p>
+   * The reason for updating the configuration policy.
+   *
    * @public
    */
   UpdatedReason?: string | undefined;
 
   /**
-   * <p>
-   *             An object that defines how Security Hub CSPM is configured. It includes whether Security Hub CSPM is enabled or
-   *             disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls.
-   *             If you provide a list of security controls that are enabled in the configuration policy, Security Hub CSPM disables all other controls (including newly
-   *             released controls). If you provide a list of security controls that are disabled in the configuration policy, Security Hub CSPM
-   *             enables all other controls (including newly released controls).
-   *         </p>
-   *          <p>When updating a configuration policy, provide a complete list of standards that you want to enable and a complete list
-   *             of controls that you want to enable or disable. The updated configuration replaces the current configuration.</p>
+   * An object that defines how Security Hub CSPM is configured. It includes whether Security Hub CSPM is enabled or disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls. If you provide a list of security controls that are enabled in the configuration policy, Security Hub CSPM disables all other controls (including newly released controls). If you provide a list of security controls that are disabled in the configuration policy, Security Hub CSPM enables all other controls (including newly released controls).
+   *
+   * When updating a configuration policy, provide a complete list of standards that you want to enable and a complete list of controls that you want to enable or disable. The updated configuration replaces the current configuration.
+   *
    * @public
    */
   ConfigurationPolicy?: Policy | undefined;
@@ -2848,61 +2928,50 @@ export interface UpdateConfigurationPolicyRequest {
  */
 export interface UpdateConfigurationPolicyResponse {
   /**
-   * <p>
-   *             The ARN of the configuration policy.
-   *         </p>
+   * The ARN of the configuration policy.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>
-   *             The UUID of the configuration policy.
-   *         </p>
+   * The UUID of the configuration policy.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>
-   *             The name of the configuration policy.
-   *         </p>
+   * The name of the configuration policy.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>
-   *             The description of the configuration policy.
-   *         </p>
+   * The description of the configuration policy.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>
-   *             The date and time, in UTC and ISO 8601 format, that the configuration policy was last updated.
-   *         </p>
+   * The date and time, in UTC and ISO 8601 format, that the configuration policy was last updated.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
 
   /**
-   * <p>
-   *             The date and time, in UTC and ISO 8601 format, that the configuration policy was created.
-   *         </p>
+   * The date and time, in UTC and ISO 8601 format, that the configuration policy was created.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>
-   *             An object that defines how Security Hub CSPM is configured. It includes whether Security Hub CSPM is enabled or
-   *             disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls. If the request included a
-   *             list of security controls that are enabled in the configuration policy, Security Hub CSPM disables all other controls (including
-   *             newly released controls). If the request included a list of security controls that are disabled in the configuration policy,
-   *             Security Hub CSPM enables all other controls (including newly released controls).
-   *         </p>
+   * An object that defines how Security Hub CSPM is configured. It includes whether Security Hub CSPM is enabled or disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls. If the request included a list of security controls that are enabled in the configuration policy, Security Hub CSPM disables all other controls (including newly released controls). If the request included a list of security controls that are disabled in the configuration policy, Security Hub CSPM enables all other controls (including newly released controls).
+   *
    * @public
    */
   ConfigurationPolicy?: Policy | undefined;
@@ -2913,19 +2982,22 @@ export interface UpdateConfigurationPolicyResponse {
  */
 export interface UpdateConnectorRequest {
   /**
-   * <p>The unique identifier of the connector to update.</p>
+   * The unique identifier of the connector to update.
+   *
    * @public
    */
   ConnectorId: string | undefined;
 
   /**
-   * <p>The updated description of the connector.</p>
+   * The updated description of the connector.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The updated cloud provider configuration for the connector.</p>
+   * The updated cloud provider configuration for the connector.
+   *
    * @public
    */
   Provider?: CspmProviderUpdateConfiguration | undefined;
@@ -2936,13 +3008,15 @@ export interface UpdateConnectorRequest {
  */
 export interface UpdateConnectorResponse {
   /**
-   * <p>The connectivity status of the connector after the update.</p>
+   * The connectivity status of the connector after the update.
+   *
    * @public
    */
   ConnectorStatus?: CspmConnectorStatus | undefined;
 
   /**
-   * <p>The enablement status of the connector after the update.</p>
+   * The enablement status of the connector after the update.
+   *
    * @public
    */
   EnablementStatus?: CspmEnablementStatus | undefined;
@@ -2953,19 +3027,22 @@ export interface UpdateConnectorResponse {
  */
 export interface UpdateConnectorV2Request {
   /**
-   * <p>The UUID of the connectorV2 to identify connectorV2 resource.</p>
+   * The UUID of the connectorV2 to identify connectorV2 resource.
+   *
    * @public
    */
   ConnectorId: string | undefined;
 
   /**
-   * <p>The description of the connectorV2.</p>
+   * The description of the connectorV2.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The third-party provider’s service configuration.</p>
+   * The third-party provider’s service configuration.
+   *
    * @public
    */
   Provider?: ProviderUpdateConfiguration | undefined;
@@ -2976,13 +3053,15 @@ export interface UpdateConnectorV2Request {
  */
 export interface UpdateConnectorV2Response {
   /**
-   * <p>The status of the connector after the update.</p>
+   * The status of the connector after the update.
+   *
    * @public
    */
   ConnectorStatus?: ConnectorStatus | undefined;
 
   /**
-   * <p>The enablement status of the connector after the update.</p>
+   * The enablement status of the connector after the update.
+   *
    * @public
    */
   EnablementStatus?: EnablementStatus | undefined;
@@ -2993,46 +3072,35 @@ export interface UpdateConnectorV2Response {
  */
 export interface UpdateFindingAggregatorRequest {
   /**
-   * <p>The ARN of the finding aggregator. To obtain the ARN, use <code>ListFindingAggregators</code>.</p>
+   * The ARN of the finding aggregator. To obtain the ARN, use `ListFindingAggregators`.
+   *
    * @public
    */
   FindingAggregatorArn: string | undefined;
 
   /**
-   * <p>Indicates whether to aggregate findings from all of the available Regions in the current partition. Also determines whether to automatically aggregate findings from new Regions as Security Hub CSPM supports them and you opt into them.</p>
-   *          <p>The selected option also determines how to use the Regions provided in the Regions list.</p>
-   *          <p>The options are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ALL_REGIONS</code> - Aggregates findings from all of the Regions where Security Hub CSPM is enabled. When you choose this option, Security Hub CSPM also automatically aggregates findings from new Regions as Security Hub CSPM supports them and you opt into them.
-   *          </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ALL_REGIONS_EXCEPT_SPECIFIED</code> - Aggregates findings from all of the Regions where Security Hub CSPM is enabled, except for the Regions listed in the <code>Regions</code> parameter. When you choose this option, Security Hub CSPM also automatically aggregates findings from new Regions as Security Hub CSPM supports them and you opt into them.
-   *          </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SPECIFIED_REGIONS</code> - Aggregates findings only from the Regions listed in the <code>Regions</code> parameter. Security Hub CSPM does not automatically aggregate findings from new Regions.
-   *          </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NO_REGIONS</code> - Aggregates no data because no Regions are selected as linked Regions.
-   *           </p>
-   *             </li>
-   *          </ul>
+   * Indicates whether to aggregate findings from all of the available Regions in the current partition. Also determines whether to automatically aggregate findings from new Regions as Security Hub CSPM supports them and you opt into them.
+   *
+   * The selected option also determines how to use the Regions provided in the Regions list.
+   *
+   * The options are as follows:
+   *
+   * - `ALL_REGIONS` - Aggregates findings from all of the Regions where Security Hub CSPM is enabled. When you choose this option, Security Hub CSPM also automatically aggregates findings from new Regions as Security Hub CSPM supports them and you opt into them.
+   * - `ALL_REGIONS_EXCEPT_SPECIFIED` - Aggregates findings from all of the Regions where Security Hub CSPM is enabled, except for the Regions listed in the `Regions` parameter. When you choose this option, Security Hub CSPM also automatically aggregates findings from new Regions as Security Hub CSPM supports them and you opt into them.
+   * - `SPECIFIED_REGIONS` - Aggregates findings only from the Regions listed in the `Regions` parameter. Security Hub CSPM does not automatically aggregate findings from new Regions.
+   * - `NO_REGIONS` - Aggregates no data because no Regions are selected as linked Regions.
+   *
    * @public
    */
   RegionLinkingMode: string | undefined;
 
   /**
-   * <p>If <code>RegionLinkingMode</code> is <code>ALL_REGIONS_EXCEPT_SPECIFIED</code>, then this is a space-separated list of Regions that don't replicate and send findings to the home Region.</p>
-   *          <p>If <code>RegionLinkingMode</code> is <code>SPECIFIED_REGIONS</code>, then this is a space-separated list of Regions that do replicate and send findings to the home Region.</p>
-   *          <p>An <code>InvalidInputException</code> error results if you populate this field while <code>RegionLinkingMode</code> is
-   *         <code>NO_REGIONS</code>.</p>
+   * If `RegionLinkingMode` is `ALL_REGIONS_EXCEPT_SPECIFIED`, then this is a space-separated list of Regions that don't replicate and send findings to the home Region.
+   *
+   * If `RegionLinkingMode` is `SPECIFIED_REGIONS`, then this is a space-separated list of Regions that do replicate and send findings to the home Region.
+   *
+   * An `InvalidInputException` error results if you populate this field while `RegionLinkingMode` is `NO_REGIONS`.
+   *
    * @public
    */
   Regions?: string[] | undefined;
@@ -3043,25 +3111,29 @@ export interface UpdateFindingAggregatorRequest {
  */
 export interface UpdateFindingAggregatorResponse {
   /**
-   * <p>The ARN of the finding aggregator.</p>
+   * The ARN of the finding aggregator.
+   *
    * @public
    */
   FindingAggregatorArn?: string | undefined;
 
   /**
-   * <p>The home Region. Findings generated in linked Regions are replicated and sent to the home Region.</p>
+   * The home Region. Findings generated in linked Regions are replicated and sent to the home Region.
+   *
    * @public
    */
   FindingAggregationRegion?: string | undefined;
 
   /**
-   * <p>Indicates whether to link all Regions, all Regions except for a list of excluded Regions, or a list of included Regions.</p>
+   * Indicates whether to link all Regions, all Regions except for a list of excluded Regions, or a list of included Regions.
+   *
    * @public
    */
   RegionLinkingMode?: string | undefined;
 
   /**
-   * <p>The list of excluded Regions or included Regions.</p>
+   * The list of excluded Regions or included Regions.
+   *
    * @public
    */
   Regions?: string[] | undefined;
@@ -3072,19 +3144,22 @@ export interface UpdateFindingAggregatorResponse {
  */
 export interface UpdateFindingsRequest {
   /**
-   * <p>A collection of attributes that specify which findings you want to update.</p>
+   * A collection of attributes that specify which findings you want to update.
+   *
    * @public
    */
   Filters: AwsSecurityFindingFilters | undefined;
 
   /**
-   * <p>The updated note for the finding.</p>
+   * The updated note for the finding.
+   *
    * @public
    */
   Note?: NoteUpdate | undefined;
 
   /**
-   * <p>The updated record state for the finding.</p>
+   * The updated record state for the finding.
+   *
    * @public
    */
   RecordState?: RecordState | undefined;
@@ -3100,25 +3175,29 @@ export interface UpdateFindingsResponse {}
  */
 export interface UpdateInsightRequest {
   /**
-   * <p>The ARN of the insight that you want to update.</p>
+   * The ARN of the insight that you want to update.
+   *
    * @public
    */
   InsightArn: string | undefined;
 
   /**
-   * <p>The updated name for the insight.</p>
+   * The updated name for the insight.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The updated filters that define this insight.</p>
+   * The updated filters that define this insight.
+   *
    * @public
    */
   Filters?: AwsSecurityFindingFilters | undefined;
 
   /**
-   * <p>The updated <code>GroupBy</code> attribute that defines this insight.</p>
+   * The updated `GroupBy` attribute that defines this insight.
+   *
    * @public
    */
   GroupByAttribute?: string | undefined;
@@ -3134,34 +3213,32 @@ export interface UpdateInsightResponse {}
  */
 export interface UpdateOrganizationConfigurationRequest {
   /**
-   * <p>Whether to automatically enable Security Hub CSPM in new member accounts when they join the organization.</p>
-   *          <p>If set to <code>true</code>, then Security Hub CSPM is automatically enabled in new accounts. If set to <code>false</code>,
-   *            then Security Hub CSPM isn't enabled in new accounts automatically. The default value is <code>false</code>.</p>
-   *          <p>If the <code>ConfigurationType</code> of your organization is set to <code>CENTRAL</code>, then this field is set
-   *            to <code>false</code> and can't be changed in the home Region and linked Regions. However, in that case, the delegated administrator can create a configuration
-   *             policy in which Security Hub CSPM is enabled and associate the policy with new organization accounts.</p>
+   * Whether to automatically enable Security Hub CSPM in new member accounts when they join the organization.
+   *
+   * If set to `true`, then Security Hub CSPM is automatically enabled in new accounts. If set to `false`, then Security Hub CSPM isn't enabled in new accounts automatically. The default value is `false`.
+   *
+   * If the `ConfigurationType` of your organization is set to `CENTRAL`, then this field is set to `false` and can't be changed in the home Region and linked Regions. However, in that case, the delegated administrator can create a configuration policy in which Security Hub CSPM is enabled and associate the policy with new organization accounts.
+   *
    * @public
    */
   AutoEnable: boolean | undefined;
 
   /**
-   * <p>Whether to automatically enable Security Hub CSPM <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-enable-disable.html">default standards</a>
-   *            in new member accounts when they join the organization.</p>
-   *          <p>The default value of this parameter is equal to <code>DEFAULT</code>.</p>
-   *          <p>If equal to <code>DEFAULT</code>, then Security Hub CSPM default standards are automatically enabled for new member
-   *            accounts. If equal to <code>NONE</code>, then default standards are not automatically enabled for new member
-   *            accounts.</p>
-   *          <p>If the <code>ConfigurationType</code> of your organization is set to <code>CENTRAL</code>, then this field is set
-   *            to <code>NONE</code> and can't be changed in the home Region and linked Regions. However, in that case, the delegated administrator can create a configuration
-   *             policy in which specific security standards are enabled and associate the policy with new organization accounts.</p>
+   * Whether to automatically enable Security Hub CSPM [default standards](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-enable-disable.html) in new member accounts when they join the organization.
+   *
+   * The default value of this parameter is equal to `DEFAULT`.
+   *
+   * If equal to `DEFAULT`, then Security Hub CSPM default standards are automatically enabled for new member accounts. If equal to `NONE`, then default standards are not automatically enabled for new member accounts.
+   *
+   * If the `ConfigurationType` of your organization is set to `CENTRAL`, then this field is set to `NONE` and can't be changed in the home Region and linked Regions. However, in that case, the delegated administrator can create a configuration policy in which specific security standards are enabled and associate the policy with new organization accounts.
+   *
    * @public
    */
   AutoEnableStandards?: AutoEnableStandards | undefined;
 
   /**
-   * <p>
-   *             Provides information about the way an organization is configured in Security Hub CSPM.
-   *         </p>
+   * Provides information about the way an organization is configured in Security Hub CSPM.
+   *
    * @public
    */
   OrganizationConfiguration?: OrganizationConfiguration | undefined;
@@ -3177,26 +3254,22 @@ export interface UpdateOrganizationConfigurationResponse {}
  */
 export interface UpdateSecurityControlRequest {
   /**
-   * <p>
-   *             The Amazon Resource Name (ARN) or ID of the control to update.
-   *         </p>
+   * The Amazon Resource Name (ARN) or ID of the control to update.
+   *
    * @public
    */
   SecurityControlId: string | undefined;
 
   /**
-   * <p>
-   *             An object that specifies which security control parameters to update.
-   *         </p>
+   * An object that specifies which security control parameters to update.
+   *
    * @public
    */
   Parameters: Record<string, ParameterConfiguration> | undefined;
 
   /**
-   * <p>
-   *             The most recent reason for updating the properties of the security control. This field accepts alphanumeric
-   * characters in addition to white spaces, dashes, and underscores.
-   *         </p>
+   * The most recent reason for updating the properties of the security control. This field accepts alphanumeric characters in addition to white spaces, dashes, and underscores.
+   *
    * @public
    */
   LastUpdateReason?: string | undefined;
@@ -3212,29 +3285,23 @@ export interface UpdateSecurityControlResponse {}
  */
 export interface UpdateSecurityHubConfigurationRequest {
   /**
-   * <p>Whether to automatically enable new controls when they are added to standards that are
-   *          enabled.</p>
-   *          <p>By default, this is set to <code>true</code>, and new controls are enabled
-   *          automatically. To not automatically enable new controls, set this to <code>false</code>.
-   *       </p>
-   *          <p>When you automatically enable new controls, you can interact with the controls in
-   *            the console and programmatically immediately after release. However, automatically enabled controls have a temporary default status of
-   *            <code>DISABLED</code>. It can take up to several days for Security Hub CSPM to process the control release and designate the
-   *            control as <code>ENABLED</code> in your account. During the processing period, you can manually enable or disable a
-   *            control, and Security Hub CSPM will maintain that designation regardless of whether you have <code>AutoEnableControls</code> set to
-   *            <code>true</code>.</p>
+   * Whether to automatically enable new controls when they are added to standards that are enabled.
+   *
+   * By default, this is set to `true`, and new controls are enabled automatically. To not automatically enable new controls, set this to `false`.
+   *
+   * When you automatically enable new controls, you can interact with the controls in the console and programmatically immediately after release. However, automatically enabled controls have a temporary default status of `DISABLED`. It can take up to several days for Security Hub CSPM to process the control release and designate the control as `ENABLED` in your account. During the processing period, you can manually enable or disable a control, and Security Hub CSPM will maintain that designation regardless of whether you have `AutoEnableControls` set to `true`.
+   *
    * @public
    */
   AutoEnableControls?: boolean | undefined;
 
   /**
-   * <p>Updates whether the calling account has consolidated control findings turned on.
-   *       If the value for this field is set to
-   *       <code>SECURITY_CONTROL</code>, Security Hub CSPM generates a single finding for a control check even when the check
-   *       applies to multiple enabled standards.</p>
-   *          <p>If the value for this field is set to <code>STANDARD_CONTROL</code>, Security Hub CSPM generates separate findings
-   *       for a control check when the check applies to multiple enabled standards.</p>
-   *          <p>For accounts that are part of an organization, this value can only be updated in the administrator account.</p>
+   * Updates whether the calling account has consolidated control findings turned on. If the value for this field is set to `SECURITY_CONTROL`, Security Hub CSPM generates a single finding for a control check even when the check applies to multiple enabled standards.
+   *
+   * If the value for this field is set to `STANDARD_CONTROL`, Security Hub CSPM generates separate findings for a control check when the check applies to multiple enabled standards.
+   *
+   * For accounts that are part of an organization, this value can only be updated in the administrator account.
+   *
    * @public
    */
   ControlFindingGenerator?: ControlFindingGenerator | undefined;
@@ -3250,20 +3317,22 @@ export interface UpdateSecurityHubConfigurationResponse {}
  */
 export interface UpdateStandardsControlRequest {
   /**
-   * <p>The ARN of the security standard control to enable or disable.</p>
+   * The ARN of the security standard control to enable or disable.
+   *
    * @public
    */
   StandardsControlArn: string | undefined;
 
   /**
-   * <p>The updated status of the security standard control.</p>
+   * The updated status of the security standard control.
+   *
    * @public
    */
   ControlStatus?: ControlStatus | undefined;
 
   /**
-   * <p>A description of the reason why you are disabling a security standard control. If you
-   *          are disabling a control, then this is required.</p>
+   * A description of the reason why you are disabling a security standard control. If you are disabling a control, then this is required.
+   *
    * @public
    */
   DisabledReason?: string | undefined;
@@ -3275,261 +3344,285 @@ export interface UpdateStandardsControlRequest {
 export interface UpdateStandardsControlResponse {}
 
 /**
- * <p>Enables the creation of filtering criteria for security findings.</p>
+ * Enables the creation of filtering criteria for security findings.
+ *
  * @public
  */
 export interface CompositeFilter {
   /**
-   * <p>Enables filtering based on string field values.</p>
+   * Enables filtering based on string field values.
+   *
    * @public
    */
   StringFilters?: OcsfStringFilter[] | undefined;
 
   /**
-   * <p>Enables filtering based on date and timestamp fields.</p>
+   * Enables filtering based on date and timestamp fields.
+   *
    * @public
    */
   DateFilters?: OcsfDateFilter[] | undefined;
 
   /**
-   * <p>Enables filtering  based on boolean field values.</p>
+   * Enables filtering based on boolean field values.
+   *
    * @public
    */
   BooleanFilters?: OcsfBooleanFilter[] | undefined;
 
   /**
-   * <p>Enables filtering based on numerical field values.</p>
+   * Enables filtering based on numerical field values.
+   *
    * @public
    */
   NumberFilters?: OcsfNumberFilter[] | undefined;
 
   /**
-   * <p>Enables filtering based on map field values.</p>
+   * Enables filtering based on map field values.
+   *
    * @public
    */
   MapFilters?: OcsfMapFilter[] | undefined;
 
   /**
-   * <p>A list of IP address filters that allowing you to filter findings based on IP address properties.</p>
+   * A list of IP address filters that allowing you to filter findings based on IP address properties.
+   *
    * @public
    */
   IpFilters?: OcsfIpFilter[] | undefined;
 
   /**
-   * <p>
-   *          Provides an additional level of filtering, creating a three-layer nested structure.
-   *          The first layer is a <code>CompositeFilters</code> array with a <code>CompositeOperator</code> (<code>AND</code>/<code>OR</code>).
-   *          The second layer is a <code>CompositeFilter</code> object that contains direct filters and <code>NestedCompositeFilters</code>.
-   *          The third layer is <code>NestedCompositeFilters</code>, which contains additional filter conditions.
-   *       </p>
+   * Provides an additional level of filtering, creating a three-layer nested structure. The first layer is a `CompositeFilters` array with a `CompositeOperator` (`AND`/`OR`). The second layer is a `CompositeFilter` object that contains direct filters and `NestedCompositeFilters`. The third layer is `NestedCompositeFilters`, which contains additional filter conditions.
+   *
    * @public
    */
   NestedCompositeFilters?: CompositeFilter[] | undefined;
 
   /**
-   * <p>The logical operator used to combine multiple filter conditions.</p>
+   * The logical operator used to combine multiple filter conditions.
+   *
    * @public
    */
   Operator?: AllowedOperators | undefined;
 }
 
 /**
- * <p>A filter structure that contains a logical combination of string filters and nested composite filters for findings trend data.</p>
+ * A filter structure that contains a logical combination of string filters and nested composite filters for findings trend data.
+ *
  * @public
  */
 export interface FindingsTrendsCompositeFilter {
   /**
-   * <p>A list of string filters that apply to findings trend data fields.</p>
+   * A list of string filters that apply to findings trend data fields.
+   *
    * @public
    */
   StringFilters?: FindingsTrendsStringFilter[] | undefined;
 
   /**
-   * <p>A list of nested composite filters that you can use to create complex filter conditions for findings trend data.</p>
+   * A list of nested composite filters that you can use to create complex filter conditions for findings trend data.
+   *
    * @public
    */
   NestedCompositeFilters?: FindingsTrendsCompositeFilter[] | undefined;
 
   /**
-   * <p>The logical operator (AND, OR) to apply between the string filters and nested composite filters.</p>
+   * The logical operator (AND, OR) to apply between the string filters and nested composite filters.
+   *
    * @public
    */
   Operator?: AllowedOperators | undefined;
 }
 
 /**
- * <p>Enables the creation of criteria for Amazon Web Services resources in Security Hub CSPM.</p>
+ * Enables the creation of criteria for Amazon Web Services resources in Security Hub CSPM.
+ *
  * @public
  */
 export interface ResourcesCompositeFilter {
   /**
-   * <p>Enables filtering based on string field values.</p>
+   * Enables filtering based on string field values.
+   *
    * @public
    */
   StringFilters?: ResourcesStringFilter[] | undefined;
 
   /**
-   * <p>Enables filtering based on date and timestamp field values.</p>
+   * Enables filtering based on date and timestamp field values.
+   *
    * @public
    */
   DateFilters?: ResourcesDateFilter[] | undefined;
 
   /**
-   * <p>Enables filtering based on numerical field values.</p>
+   * Enables filtering based on numerical field values.
+   *
    * @public
    */
   NumberFilters?: ResourcesNumberFilter[] | undefined;
 
   /**
-   * <p>Enables filtering based on map-based field values.</p>
+   * Enables filtering based on map-based field values.
+   *
    * @public
    */
   MapFilters?: ResourcesMapFilter[] | undefined;
 
   /**
-   * <p>
-   *          Provides an additional level of filtering, creating a three-layer nested structure.
-   *          The first layer is a <code>CompositeFilters</code> array with a <code>CompositeOperator</code> (<code>AND</code>/<code>OR</code>).
-   *          The second layer is a <code>CompositeFilter</code> object that contains direct filters and <code>NestedCompositeFilters</code>.
-   *          The third layer is <code>NestedCompositeFilters</code>, which contains additional filter conditions.
-   *       </p>
+   * Provides an additional level of filtering, creating a three-layer nested structure. The first layer is a `CompositeFilters` array with a `CompositeOperator` (`AND`/`OR`). The second layer is a `CompositeFilter` object that contains direct filters and `NestedCompositeFilters`. The third layer is `NestedCompositeFilters`, which contains additional filter conditions.
+   *
    * @public
    */
   NestedCompositeFilters?: ResourcesCompositeFilter[] | undefined;
 
   /**
-   * <p>The logical operator used to combine multiple filter conditions.</p>
+   * The logical operator used to combine multiple filter conditions.
+   *
    * @public
    */
   Operator?: AllowedOperators | undefined;
 }
 
 /**
- * <p>A filter structure that contains a logical combination of string filters and nested composite filters for resources trend data.</p>
+ * A filter structure that contains a logical combination of string filters and nested composite filters for resources trend data.
+ *
  * @public
  */
 export interface ResourcesTrendsCompositeFilter {
   /**
-   * <p>A list of string filters that apply to resources trend data fields.</p>
+   * A list of string filters that apply to resources trend data fields.
+   *
    * @public
    */
   StringFilters?: ResourcesTrendsStringFilter[] | undefined;
 
   /**
-   * <p>A list of nested composite filters that you can use to create complex filter conditions for resources trend data.</p>
+   * A list of nested composite filters that you can use to create complex filter conditions for resources trend data.
+   *
    * @public
    */
   NestedCompositeFilters?: ResourcesTrendsCompositeFilter[] | undefined;
 
   /**
-   * <p>The logical operator (AND, OR) to apply between the string filters and nested composite filters.</p>
+   * The logical operator (AND, OR) to apply between the string filters and nested composite filters.
+   *
    * @public
    */
   Operator?: AllowedOperators | undefined;
 }
 
 /**
- * <p>The structure that defines filters to apply to findings trend data queries.</p>
+ * The structure that defines filters to apply to findings trend data queries.
+ *
  * @public
  */
 export interface FindingsTrendsFilters {
   /**
-   * <p>A list of composite filters to apply to the findings trend data.</p>
+   * A list of composite filters to apply to the findings trend data.
+   *
    * @public
    */
   CompositeFilters?: FindingsTrendsCompositeFilter[] | undefined;
 
   /**
-   * <p>The logical operator (AND, OR) to apply between multiple composite filters.</p>
+   * The logical operator (AND, OR) to apply between multiple composite filters.
+   *
    * @public
    */
   CompositeOperator?: AllowedOperators | undefined;
 }
 
 /**
- * <p>Specifies the filtering criteria for security findings using OCSF.</p>
+ * Specifies the filtering criteria for security findings using OCSF.
+ *
  * @public
  */
 export interface OcsfFindingFilters {
   /**
-   * <p>Enables the creation of complex filtering conditions by combining filter criteria.</p>
+   * Enables the creation of complex filtering conditions by combining filter criteria.
+   *
    * @public
    */
   CompositeFilters?: CompositeFilter[] | undefined;
 
   /**
-   * <p>The logical operators used to combine the filtering on multiple <code>CompositeFilters</code>.</p>
+   * The logical operators used to combine the filtering on multiple `CompositeFilters`.
+   *
    * @public
    */
   CompositeOperator?: AllowedOperators | undefined;
 }
 
 /**
- * <p>Enables filtering of Amazon Web Services resources based on data.</p>
+ * Enables filtering of Amazon Web Services resources based on data.
+ *
  * @public
  */
 export interface ResourcesFilters {
   /**
-   * <p>A collection of complex filtering conditions that can be applied to Amazon Web Services resources.</p>
+   * A collection of complex filtering conditions that can be applied to Amazon Web Services resources.
+   *
    * @public
    */
   CompositeFilters?: ResourcesCompositeFilter[] | undefined;
 
   /**
-   * <p>The logical operator used to combine multiple filter conditions in the structure.</p>
+   * The logical operator used to combine multiple filter conditions in the structure.
+   *
    * @public
    */
   CompositeOperator?: AllowedOperators | undefined;
 }
 
 /**
- * <p>The structure that defines filters to apply to resources trend data queries.</p>
+ * The structure that defines filters to apply to resources trend data queries.
+ *
  * @public
  */
 export interface ResourcesTrendsFilters {
   /**
-   * <p>A list of composite filters to apply to the resources trend data.</p>
+   * A list of composite filters to apply to the resources trend data.
+   *
    * @public
    */
   CompositeFilters?: ResourcesTrendsCompositeFilter[] | undefined;
 
   /**
-   * <p>The logical operator (AND, OR) to apply between multiple composite filters.</p>
+   * The logical operator (AND, OR) to apply between multiple composite filters.
+   *
    * @public
    */
   CompositeOperator?: AllowedOperators | undefined;
 }
 
 /**
- * <p>The configuration for a findings export: the output format, an optional set of filters, and the fields to include.</p>
+ * The configuration for a findings export: the output format, an optional set of filters, and the fields to include.
+ *
  * @public
  */
 export interface FindingsOutput {
   /**
-   * <p>The output format of the export. <code>CSV</code> produces comma-separated rows that are suitable for spreadsheets and analysis tools. <code>OCSF_JSON</code> produces newline-delimited JSON records in the Open Cybersecurity Schema Framework (OCSF) format used elsewhere in Security Hub.</p>
+   * The output format of the export. `CSV` produces comma-separated rows that are suitable for spreadsheets and analysis tools. `OCSF_JSON` produces newline-delimited JSON records in the Open Cybersecurity Schema Framework (OCSF) format used elsewhere in Security Hub.
+   *
    * @public
    */
   Format: FindingsExportFormat | undefined;
 
   /**
-   * <p>An optional set of OCSF finding filters that restrict which findings are exported. The filter structure is the same as the one used by <code>GetFindingsV2</code>. If you omit this member, Security Hub exports all findings available to the caller. When echoed by <code>GetExportJobV2</code>, relative date ranges are returned unresolved.</p>
+   * An optional set of OCSF finding filters that restrict which findings are exported. The filter structure is the same as the one used by `GetFindingsV2`. If you omit this member, Security Hub exports all findings available to the caller. When echoed by `GetExportJobV2`, relative date ranges are returned unresolved.
+   *
    * @public
    */
   Filters?: OcsfFindingFilters | undefined;
 
   /**
-   * <p>The OCSF finding fields to include in the export, specified as OCSF field paths (for example, <code>finding_info.title</code> or <code>severity</code>). You can specify from 1 to 50 fields.</p>
-   *          <p>Whether this parameter is required depends on the value of <code>Format</code>:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CSV</code> – Required. The field paths that you specify become the columns of the output, in the order that you provide them. If you omit this parameter, the request returns a <code>ValidationException</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OCSF_JSON</code> – Not supported. This format includes each finding in full, so field selection doesn't apply. If you specify this parameter, the request returns a <code>ValidationException</code>.</p>
-   *             </li>
-   *          </ul>
+   * The OCSF finding fields to include in the export, specified as OCSF field paths (for example, `finding_info.title` or `severity`). You can specify from 1 to 50 fields.
+   *
+   * Whether this parameter is required depends on the value of `Format`:
+   *
+   * - `CSV` – Required. The field paths that you specify become the columns of the output, in the order that you provide them. If you omit this parameter, the request returns a `ValidationException`.
+   * - `OCSF_JSON` – Not supported. This format includes each finding in full, so field selection doesn't apply. If you specify this parameter, the request returns a `ValidationException`.
+   *
    * @public
    */
   SelectedFields?: FindingsSelectableField[] | undefined;
@@ -3540,31 +3633,36 @@ export interface FindingsOutput {
  */
 export interface GetFindingsTrendsV2Request {
   /**
-   * <p>The filters to apply to the findings trend data.</p>
+   * The filters to apply to the findings trend data.
+   *
    * @public
    */
   Filters?: FindingsTrendsFilters | undefined;
 
   /**
-   * <p>The starting timestamp for the time period to analyze findings trends, in ISO 8601 format.</p>
+   * The starting timestamp for the time period to analyze findings trends, in ISO 8601 format.
+   *
    * @public
    */
   StartTime: Date | undefined;
 
   /**
-   * <p>The ending timestamp for the time period to analyze findings trends, in ISO 8601 format.</p>
+   * The ending timestamp for the time period to analyze findings trends, in ISO 8601 format.
+   *
    * @public
    */
   EndTime: Date | undefined;
 
   /**
-   * <p>The token to use for paginating results. This value is returned in the response if more results are available.</p>
+   * The token to use for paginating results. This value is returned in the response if more results are available.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of trend data points to return in a single response.</p>
+   * The maximum number of trend data points to return in a single response.
+   *
    * @public
    */
   MaxResults?: number | undefined;
@@ -3575,39 +3673,40 @@ export interface GetFindingsTrendsV2Request {
  */
 export interface GetFindingsV2Request {
   /**
-   * <p>The finding attributes used to define a condition to filter the returned OCSF findings.
-   *          You can filter up to 10 composite filters.
-   *          For each filter type inside of a composite filter, you can provide up to 20 filters.</p>
+   * The finding attributes used to define a condition to filter the returned OCSF findings. You can filter up to 10 composite filters. For each filter type inside of a composite filter, you can provide up to 20 filters.
+   *
    * @public
    */
   Filters?: OcsfFindingFilters | undefined;
 
   /**
-   * <p>Limits the results to findings from specific organizational units or from the delegated administrator's organization.
-   *          Only the delegated administrator account can use this parameter. Other accounts receive an <code>AccessDeniedException</code>.</p>
-   *          <p>This parameter is optional. If you omit it, the delegated administrator sees findings from all accounts across the entire organization. Other accounts see only their own findings.</p>
-   *          <p>You can specify up to 10 entries in <code>Scopes.AwsOrganizations</code>. If multiple entries are specified, the entries are combined using OR logic.</p>
+   * Limits the results to findings from specific organizational units or from the delegated administrator's organization. Only the delegated administrator account can use this parameter. Other accounts receive an `AccessDeniedException`.
+   *
+   * This parameter is optional. If you omit it, the delegated administrator sees findings from all accounts across the entire organization. Other accounts see only their own findings.
+   *
+   * You can specify up to 10 entries in `Scopes.AwsOrganizations`. If multiple entries are specified, the entries are combined using OR logic.
+   *
    * @public
    */
   Scopes?: FindingScopes | undefined;
 
   /**
-   * <p>The finding attributes used to sort the list of returned findings.</p>
+   * The finding attributes used to sort the list of returned findings.
+   *
    * @public
    */
   SortCriteria?: SortCriterion[] | undefined;
 
   /**
-   * <p>
-   *          The token required for pagination.
-   *          On your first call, set the value of this parameter to <code>NULL</code>.
-   *          For subsequent calls, to continue listing data, set the value of this parameter to the value returned in the previous response.</p>
+   * The token required for pagination. On your first call, set the value of this parameter to `NULL`. For subsequent calls, to continue listing data, set the value of this parameter to the value returned in the previous response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return.</p>
+   * The maximum number of results to return.
+   *
    * @public
    */
   MaxResults?: number | undefined;
@@ -3618,31 +3717,36 @@ export interface GetFindingsV2Request {
  */
 export interface GetResourcesTrendsV2Request {
   /**
-   * <p>The filters to apply to the resources trend data.</p>
+   * The filters to apply to the resources trend data.
+   *
    * @public
    */
   Filters?: ResourcesTrendsFilters | undefined;
 
   /**
-   * <p>The starting timestamp for the time period to analyze resources trends, in ISO 8601 format.</p>
+   * The starting timestamp for the time period to analyze resources trends, in ISO 8601 format.
+   *
    * @public
    */
   StartTime: Date | undefined;
 
   /**
-   * <p>The ending timestamp for the time period to analyze resources trends, in ISO 8601 format.</p>
+   * The ending timestamp for the time period to analyze resources trends, in ISO 8601 format.
+   *
    * @public
    */
   EndTime: Date | undefined;
 
   /**
-   * <p>The token to use for paginating results. This value is returned in the response if more results are available.</p>
+   * The token to use for paginating results. This value is returned in the response if more results are available.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of trend data points to return in a single response.</p>
+   * The maximum number of trend data points to return in a single response.
+   *
    * @public
    */
   MaxResults?: number | undefined;
@@ -3653,79 +3757,90 @@ export interface GetResourcesTrendsV2Request {
  */
 export interface GetResourcesV2Request {
   /**
-   * <p>Filters resources based on a set of criteria.</p>
+   * Filters resources based on a set of criteria.
+   *
    * @public
    */
   Filters?: ResourcesFilters | undefined;
 
   /**
-   * <p>Limits the results to resources from specific organizational units or from the delegated administrator's organization.
-   *          Only the delegated administrator account can use this parameter. Other accounts receive an <code>AccessDeniedException</code>.</p>
-   *          <p>This parameter is optional. If you omit it, the delegated administrator sees resources from all accounts across the entire organization. Other accounts see only their own resources.</p>
-   *          <p>You can specify up to 10 entries in <code>Scopes.AwsOrganizations</code>. If multiple entries are specified, the entries are combined using OR logic.</p>
+   * Limits the results to resources from specific organizational units or from the delegated administrator's organization. Only the delegated administrator account can use this parameter. Other accounts receive an `AccessDeniedException`.
+   *
+   * This parameter is optional. If you omit it, the delegated administrator sees resources from all accounts across the entire organization. Other accounts see only their own resources.
+   *
+   * You can specify up to 10 entries in `Scopes.AwsOrganizations`. If multiple entries are specified, the entries are combined using OR logic.
+   *
    * @public
    */
   Scopes?: ResourceScopes | undefined;
 
   /**
-   * <p>The resource attributes used to sort the list of returned resources.</p>
+   * The resource attributes used to sort the list of returned resources.
+   *
    * @public
    */
   SortCriteria?: SortCriterion[] | undefined;
 
   /**
-   * <p>The token required for pagination.
-   *          On your first call, set the value of this parameter to <code>NULL</code>.
-   *          For subsequent calls, to continue listing data, set the value of this parameter to the value returned in the previous response.</p>
+   * The token required for pagination. On your first call, set the value of this parameter to `NULL`. For subsequent calls, to continue listing data, set the value of this parameter to the value returned in the previous response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return.</p>
+   * The maximum number of results to return.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>Defines the how the finding attribute should be grouped.</p>
+ * Defines the how the finding attribute should be grouped.
+ *
  * @public
  */
 export interface GroupByRule {
   /**
-   * <p>The criteria used to select which security findings should be included in the grouping operation.</p>
+   * The criteria used to select which security findings should be included in the grouping operation.
+   *
    * @public
    */
   Filters?: OcsfFindingFilters | undefined;
 
   /**
-   * <p>The attribute by which filtered findings should be grouped.</p>
+   * The attribute by which filtered findings should be grouped.
+   *
    * @public
    */
   GroupByField: GroupByField | undefined;
 }
 
 /**
- * <p>Defines the configuration for organizing and categorizing Amazon Web Services resources based on associated security findings.</p>
+ * Defines the configuration for organizing and categorizing Amazon Web Services resources based on associated security findings.
+ *
  * @public
  */
 export interface ResourceGroupByRule {
   /**
-   * <p>Specifies the attribute that resources should be grouped by.</p>
+   * Specifies the attribute that resources should be grouped by.
+   *
    * @public
    */
   GroupByField: ResourceGroupByField | undefined;
 
   /**
-   * <p>The criteria used to select resources and associated security findings.</p>
+   * The criteria used to select resources and associated security findings.
+   *
    * @public
    */
   Filters?: ResourcesFilters | undefined;
 }
 
 /**
- * <p>Specifies what data to export and how to format it. This is a union: you must specify exactly one member. Currently, the only supported member is <code>Findings</code>.</p>
+ * Specifies what data to export and how to format it. This is a union: you must specify exactly one member. Currently, the only supported member is `Findings`.
+ *
  * @public
  */
 export type ExportOutput =
@@ -3737,7 +3852,8 @@ export type ExportOutput =
  */
 export namespace ExportOutput {
   /**
-   * <p>Configures an export of Security Hub findings, including the output format and any filters or selected fields.</p>
+   * Configures an export of Security Hub findings, including the output format and any filters or selected fields.
+   *
    * @public
    */
   export interface FindingsMember {
@@ -3768,69 +3884,82 @@ export namespace ExportOutput {
  */
 export interface GetExportJobV2Response {
   /**
-   * <p>The unique identifier of the export job.</p>
+   * The unique identifier of the export job.
+   *
    * @public
    */
   ExportJobId: string | undefined;
 
   /**
-   * <p>The user-provided name of the export job, if one was specified when the job was started.</p>
+   * The user-provided name of the export job, if one was specified when the job was started.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The current state of the export job.</p>
+   * The current state of the export job.
+   *
    * @public
    */
   Status: ExportStatus | undefined;
 
   /**
-   * <p>The category of data that the export job produces.</p>
+   * The category of data that the export job produces.
+   *
    * @public
    */
   DataType: ExportDataType | undefined;
 
   /**
-   * <p>The output configuration that the export job was started with, including the format and any filters or selected fields.</p>
+   * The output configuration that the export job was started with, including the format and any filters or selected fields.
+   *
    * @public
    */
   OutputConfiguration?: ExportOutput | undefined;
 
   /**
-   * <p>The organization scopes that the export job was started with, echoed verbatim. This parameter is absent if the caller didn't supply <code>Scopes</code>. It contains only the organization or organizational unit (OU) identifiers that the caller submitted; it never contains resolved member-account identifiers.</p>
+   * The organization scopes that the export job was started with, echoed verbatim. This parameter is absent if the caller didn't supply `Scopes`. It contains only the organization or organizational unit (OU) identifiers that the caller submitted; it never contains resolved member-account identifiers.
+   *
    * @public
    */
   Scopes?: ExportScopes | undefined;
 
   /**
-   * <p>The destination that the export job writes to.</p>
+   * The destination that the export job writes to.
+   *
    * @public
    */
   Destination: ExportDestination | undefined;
 
   /**
-   * <p>A code that classifies why the export job failed. Present only when <code>Status</code> is <code>FAILED</code>.</p>
+   * A code that classifies why the export job failed. Present only when `Status` is `FAILED`.
+   *
    * @public
    */
   FailureCode?: ExportFailureCode | undefined;
 
   /**
-   * <p>A human-readable message that provides more detail about why the export job failed. Present only when <code>Status</code> is <code>FAILED</code>.</p>
+   * A human-readable message that provides more detail about why the export job failed. Present only when `Status` is `FAILED`.
+   *
    * @public
    */
   FailureMessage?: string | undefined;
 
   /**
-   * <p>The time when the export job was created.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * The time when the export job was created.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   StartedAt: Date | undefined;
 
   /**
-   * <p>The time when the export job reached a terminal state (<code>SUCCEEDED</code>, <code>FAILED</code>, or <code>CANCELLED</code>). This parameter is absent while the job is <code>RUNNING</code>.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * The time when the export job reached a terminal state (`SUCCEEDED`, `FAILED`, or `CANCELLED`). This parameter is absent while the job is `RUNNING`.
+   *
+   * For more information about the validation and formatting of timestamp fields in Security Hub, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+   *
    * @public
    */
   EndedAt?: Date | undefined;
@@ -3841,30 +3970,33 @@ export interface GetExportJobV2Response {
  */
 export interface GetFindingStatisticsV2Request {
   /**
-   * <p>Specifies how security findings should be aggregated and organized in the statistical analysis.
-   *       It can accept up to 5 <code>groupBy</code> fields in a single call.</p>
+   * Specifies how security findings should be aggregated and organized in the statistical analysis. It can accept up to 5 `groupBy` fields in a single call.
+   *
    * @public
    */
   GroupByRules: GroupByRule[] | undefined;
 
   /**
-   * <p>Limits the results to findings from specific organizational units or from the delegated administrator's organization.
-   *          Only the delegated administrator account can use this parameter. Other accounts receive an <code>AccessDeniedException</code>.</p>
-   *          <p>This parameter is optional. If you omit it, the delegated administrator sees statistics from all accounts across the entire organization. Other accounts see only statistics for their own findings.</p>
-   *          <p>You can specify up to 10 entries in <code>Scopes.AwsOrganizations</code>. If multiple entries are specified, the entries are combined using OR logic.</p>
+   * Limits the results to findings from specific organizational units or from the delegated administrator's organization. Only the delegated administrator account can use this parameter. Other accounts receive an `AccessDeniedException`.
+   *
+   * This parameter is optional. If you omit it, the delegated administrator sees statistics from all accounts across the entire organization. Other accounts see only statistics for their own findings.
+   *
+   * You can specify up to 10 entries in `Scopes.AwsOrganizations`. If multiple entries are specified, the entries are combined using OR logic.
+   *
    * @public
    */
   Scopes?: FindingScopes | undefined;
 
   /**
-   * <p>Orders the aggregation count in descending or ascending order.
-   *          Descending order is the default.</p>
+   * Orders the aggregation count in descending or ascending order. Descending order is the default.
+   *
    * @public
    */
   SortOrder?: SortOrder | undefined;
 
   /**
-   * <p>The maximum number of results to be returned.</p>
+   * The maximum number of results to be returned.
+   *
    * @public
    */
   MaxStatisticResults?: number | undefined;
@@ -3875,28 +4007,33 @@ export interface GetFindingStatisticsV2Request {
  */
 export interface GetResourcesStatisticsV2Request {
   /**
-   * <p>How resource statistics should be aggregated and organized in the response.</p>
+   * How resource statistics should be aggregated and organized in the response.
+   *
    * @public
    */
   GroupByRules: ResourceGroupByRule[] | undefined;
 
   /**
-   * <p>Limits the results to resources from specific organizational units or from the delegated administrator's organization.
-   *          Only the delegated administrator account can use this parameter. Other accounts receive an <code>AccessDeniedException</code>.</p>
-   *          <p>This parameter is optional. If you omit it, the delegated administrator sees statistics from all accounts across the entire organization. Other accounts see only statistics for their own resources.</p>
-   *          <p>You can specify up to 10 entries in <code>Scopes.AwsOrganizations</code>. If multiple entries are specified, the entries are combined using OR logic.</p>
+   * Limits the results to resources from specific organizational units or from the delegated administrator's organization. Only the delegated administrator account can use this parameter. Other accounts receive an `AccessDeniedException`.
+   *
+   * This parameter is optional. If you omit it, the delegated administrator sees statistics from all accounts across the entire organization. Other accounts see only statistics for their own resources.
+   *
+   * You can specify up to 10 entries in `Scopes.AwsOrganizations`. If multiple entries are specified, the entries are combined using OR logic.
+   *
    * @public
    */
   Scopes?: ResourceScopes | undefined;
 
   /**
-   * <p>Sorts aggregated statistics.</p>
+   * Sorts aggregated statistics.
+   *
    * @public
    */
   SortOrder?: SortOrder | undefined;
 
   /**
-   * <p>The maximum number of results to be returned.</p>
+   * The maximum number of results to be returned.
+   *
    * @public
    */
   MaxStatisticResults?: number | undefined;
@@ -3907,40 +4044,48 @@ export interface GetResourcesStatisticsV2Request {
  */
 export interface StartExportJobV2Request {
   /**
-   * <p>An optional, user-provided name for the export job that helps you identify it in <code>ListExportJobsV2</code> results. The value can be 1–256 characters. Alphanumeric characters, spaces, and the following ASCII characters are permitted: <code>. _ , : ( ) / + -</code>.</p>
+   * An optional, user-provided name for the export job that helps you identify it in `ListExportJobsV2` results. The value can be 1–256 characters. Alphanumeric characters, spaces, and the following ASCII characters are permitted: `. _ , : ( ) / + -`.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The destination that Security Hub writes the export to. You must specify exactly one destination type. Currently, the only supported type is Amazon S3.</p>
+   * The destination that Security Hub writes the export to. You must specify exactly one destination type. Currently, the only supported type is Amazon S3.
+   *
    * @public
    */
   Destination: ExportDestination | undefined;
 
   /**
-   * <p>Specifies what data to export and how to format it. You must specify exactly one output type. Currently, the only supported type is <code>Findings</code>.</p>
+   * Specifies what data to export and how to format it. You must specify exactly one output type. Currently, the only supported type is `Findings`.
+   *
    * @public
    */
   OutputConfiguration: ExportOutput | undefined;
 
   /**
-   * <p>Limits the export to findings from specific organizational units (OUs) or from the delegated administrator's organization. Only the delegated administrator account can use this parameter; other accounts that specify it receive an <code>AccessDeniedException</code>.</p>
-   *          <p>This parameter is optional. If you omit it, the delegated administrator exports findings from all accounts across the entire organization, and other accounts export only their own findings.</p>
-   *          <p>You can specify up to 10 entries in <code>Scopes.AwsOrganizations</code>. If you specify multiple entries, Security Hub combines them using OR logic.</p>
+   * Limits the export to findings from specific organizational units (OUs) or from the delegated administrator's organization. Only the delegated administrator account can use this parameter; other accounts that specify it receive an `AccessDeniedException`.
+   *
+   * This parameter is optional. If you omit it, the delegated administrator exports findings from all accounts across the entire organization, and other accounts export only their own findings.
+   *
+   * You can specify up to 10 entries in `Scopes.AwsOrganizations`. If you specify multiple entries, Security Hub combines them using OR logic.
+   *
    * @public
    */
   Scopes?: ExportScopes | undefined;
 
   /**
-   * <p>A unique identifier used to ensure idempotency.</p>
+   * A unique identifier used to ensure idempotency.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 }
 
 /**
- * <p>Defines the parameters and conditions used to evaluate and filter security findings or resources.</p>
+ * Defines the parameters and conditions used to evaluate and filter security findings or resources.
+ *
  * @public
  */
 export type Criteria =
@@ -3953,7 +4098,8 @@ export type Criteria =
  */
 export namespace Criteria {
   /**
-   * <p>The filtering conditions that align with OCSF standards.</p>
+   * The filtering conditions that align with OCSF standards.
+   *
    * @public
    */
   export interface OcsfFindingCriteriaMember {
@@ -3963,7 +4109,8 @@ export namespace Criteria {
   }
 
   /**
-   * <p>The filtering conditions for resources.</p>
+   * The filtering conditions for resources.
+   *
    * @public
    */
   export interface ResourceCriteriaMember {
@@ -3997,49 +4144,57 @@ export namespace Criteria {
  */
 export interface CreateAutomationRuleV2Request {
   /**
-   * <p>The name of the V2 automation rule.</p>
+   * The name of the V2 automation rule.
+   *
    * @public
    */
   RuleName: string | undefined;
 
   /**
-   * <p>The status of the V2 automation rule.</p>
+   * The status of the V2 automation rule.
+   *
    * @public
    */
   RuleStatus?: RuleStatusV2 | undefined;
 
   /**
-   * <p>A description of the V2 automation rule.</p>
+   * A description of the V2 automation rule.
+   *
    * @public
    */
   Description: string | undefined;
 
   /**
-   * <p>The value for the rule priority.</p>
+   * The value for the rule priority.
+   *
    * @public
    */
   RuleOrder: number | undefined;
 
   /**
-   * <p>The filtering type and configuration of the automation rule.</p>
+   * The filtering type and configuration of the automation rule.
+   *
    * @public
    */
   Criteria: Criteria | undefined;
 
   /**
-   * <p>A list of actions to be performed when the rule criteria is met.</p>
+   * A list of actions to be performed when the rule criteria is met.
+   *
    * @public
    */
   Actions: AutomationRulesActionV2[] | undefined;
 
   /**
-   * <p>A list of key-value pairs associated with the V2 automation rule.</p>
+   * A list of key-value pairs associated with the V2 automation rule.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>A unique identifier used to ensure idempotency.</p>
+   * A unique identifier used to ensure idempotency.
+   *
    * @public
    */
   ClientToken?: string | undefined;
@@ -4050,61 +4205,71 @@ export interface CreateAutomationRuleV2Request {
  */
 export interface GetAutomationRuleV2Response {
   /**
-   * <p>The ARN of the V2 automation rule.</p>
+   * The ARN of the V2 automation rule.
+   *
    * @public
    */
   RuleArn?: string | undefined;
 
   /**
-   * <p>The ID of the V2 automation rule.</p>
+   * The ID of the V2 automation rule.
+   *
    * @public
    */
   RuleId?: string | undefined;
 
   /**
-   * <p>The value for the rule priority.</p>
+   * The value for the rule priority.
+   *
    * @public
    */
   RuleOrder?: number | undefined;
 
   /**
-   * <p>The name of the V2 automation rule.</p>
+   * The name of the V2 automation rule.
+   *
    * @public
    */
   RuleName?: string | undefined;
 
   /**
-   * <p>The status of the V2 automation automation rule.</p>
+   * The status of the V2 automation automation rule.
+   *
    * @public
    */
   RuleStatus?: RuleStatusV2 | undefined;
 
   /**
-   * <p>A description of the automation rule.</p>
+   * A description of the automation rule.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The filtering type and configuration of the V2 automation rule.</p>
+   * The filtering type and configuration of the V2 automation rule.
+   *
    * @public
    */
   Criteria?: Criteria | undefined;
 
   /**
-   * <p>A list of actions performed when the rule criteria is met.</p>
+   * A list of actions performed when the rule criteria is met.
+   *
    * @public
    */
   Actions?: AutomationRulesActionV2[] | undefined;
 
   /**
-   * <p>The timestamp when the V2 automation rule was created.</p>
+   * The timestamp when the V2 automation rule was created.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when the V2 automation rule was updated.</p>
+   * The timestamp when the V2 automation rule was updated.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
@@ -4115,43 +4280,50 @@ export interface GetAutomationRuleV2Response {
  */
 export interface UpdateAutomationRuleV2Request {
   /**
-   * <p>The ARN of the automation rule.</p>
+   * The ARN of the automation rule.
+   *
    * @public
    */
   Identifier: string | undefined;
 
   /**
-   * <p>The status of the automation rule.</p>
+   * The status of the automation rule.
+   *
    * @public
    */
   RuleStatus?: RuleStatusV2 | undefined;
 
   /**
-   * <p>Represents a value for the rule priority.</p>
+   * Represents a value for the rule priority.
+   *
    * @public
    */
   RuleOrder?: number | undefined;
 
   /**
-   * <p>A description of the automation rule.</p>
+   * A description of the automation rule.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The name of the automation rule.</p>
+   * The name of the automation rule.
+   *
    * @public
    */
   RuleName?: string | undefined;
 
   /**
-   * <p>The filtering type and configuration of the automation rule.</p>
+   * The filtering type and configuration of the automation rule.
+   *
    * @public
    */
   Criteria?: Criteria | undefined;
 
   /**
-   * <p>A list of actions to be performed when the rule criteria is met.</p>
+   * A list of actions to be performed when the rule criteria is met.
+   *
    * @public
    */
   Actions?: AutomationRulesActionV2[] | undefined;

@@ -23,13 +23,10 @@ export interface DescribeStacksCommandInput extends DescribeStacksInput {}
 export interface DescribeStacksCommandOutput extends DescribeStacksOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the description for the specified stack; if no stack name was specified, then it
- *       returns the description for all the stacks created. For more information about a stack's event
- *       history, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stack-resource-configuration-complete.html">Understand CloudFormation stack creation events</a> in the
- *         <i>CloudFormation User Guide</i>.</p>
- *          <note>
- *             <p>If the stack doesn't exist, a <code>ValidationError</code> is returned.</p>
- *          </note>
+ * Returns the description for the specified stack; if no stack name was specified, then it returns the description for all the stacks created. For more information about a stack's event history, see [Understand CloudFormation stack creation events](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stack-resource-configuration-complete.html) in the *CloudFormation User Guide*.
+ *
+ * > **Note:** If the stack doesn't exist, a `ValidationError` is returned.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -130,8 +127,8 @@ export interface DescribeStacksCommandOutput extends DescribeStacksOutput, __Met
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

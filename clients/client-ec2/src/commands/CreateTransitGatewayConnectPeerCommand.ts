@@ -23,11 +23,12 @@ export interface CreateTransitGatewayConnectPeerCommandInput extends CreateTrans
 export interface CreateTransitGatewayConnectPeerCommandOutput extends CreateTransitGatewayConnectPeerResult, __MetadataBearer {}
 
 /**
- * <p>Creates a Connect peer for a specified transit gateway Connect attachment between a
- *             transit gateway and an appliance.</p>
- *          <p>The peer address and transit gateway address must be the same IP address family (IPv4 or IPv6).</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html#tgw-connect-peer">Connect peers</a>
- *             in the <i>Amazon Web Services Transit Gateways Guide</i>.</p>
+ * Creates a Connect peer for a specified transit gateway Connect attachment between a transit gateway and an appliance.
+ *
+ * The peer address and transit gateway address must be the same IP address family (IPv4 or IPv6).
+ *
+ * For more information, see [Connect peers](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html#tgw-connect-peer) in the *Amazon Web Services Transit Gateways Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -102,8 +103,8 @@ export interface CreateTransitGatewayConnectPeerCommandOutput extends CreateTran
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

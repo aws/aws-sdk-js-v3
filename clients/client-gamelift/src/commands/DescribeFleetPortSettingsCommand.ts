@@ -23,34 +23,21 @@ export interface DescribeFleetPortSettingsCommandInput extends DescribeFleetPort
 export interface DescribeFleetPortSettingsCommandOutput extends DescribeFleetPortSettingsOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This API works with the following fleet types:</b> EC2</p>
- *          <p>Retrieves a fleet's inbound connection permissions. Connection permissions specify IP
- *             addresses and port settings that incoming traffic can use to access server processes in
- *             the fleet. Game server processes that are running in the fleet must use a port that
- *             falls within this range. </p>
- *          <p>Use this operation in the following ways: </p>
- *          <ul>
- *             <li>
- *                <p>To retrieve the port settings for a fleet, identify the fleet's unique
- *                     identifier. </p>
- *             </li>
- *             <li>
- *                <p>To check the status of recent updates to a fleet remote location, specify the
- *                     fleet ID and a location. Port setting updates can take time to propagate across
- *                     all locations. </p>
- *             </li>
- *          </ul>
- *          <p>If successful, a set of <code>IpPermission</code> objects is returned for the
- *             requested fleet ID. When specifying a location, this operation returns a pending status.
- *             If the requested fleet has been deleted, the result set is empty.</p>
- *          <p>
- *             <b>Learn more</b>
- *          </p>
- *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift Servers
- *                 fleets</a>
- *          </p>
+ * **This API works with the following fleet types:** EC2
+ *
+ * Retrieves a fleet's inbound connection permissions. Connection permissions specify IP addresses and port settings that incoming traffic can use to access server processes in the fleet. Game server processes that are running in the fleet must use a port that falls within this range.
+ *
+ * Use this operation in the following ways:
+ *
+ * - To retrieve the port settings for a fleet, identify the fleet's unique identifier.
+ * - To check the status of recent updates to a fleet remote location, specify the fleet ID and a location. Port setting updates can take time to propagate across all locations.
+ *
+ * If successful, a set of `IpPermission` objects is returned for the requested fleet ID. When specifying a location, this operation returns a pending status. If the requested fleet has been deleted, the result set is empty.
+ *
+ * **Learn more**
+ *
+ * [Setting up Amazon GameLift Servers fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -89,25 +76,28 @@ export interface DescribeFleetPortSettingsCommandOutput extends DescribeFleetPor
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an unrecoverable internal failure while processing the
- *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
- *             values before retrying.</p>
+ *
+ * One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resource was not found. The resource was either not created yet or deleted.</p>
+ *
+ * The requested resource was not found. The resource was either not created yet or deleted.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * The client failed authentication. Clients should not retry such requests.
  *
  * @throws {@link UnsupportedRegionException} (client fault)
- *  <p>The requested operation is not supported in the Region specified.</p>
+ *
+ * The requested operation is not supported in the Region specified.
  *
  * @throws {@link GameLiftServiceException}
- * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * Base exception class for all service exceptions from GameLift service.
  *
  * @public
  */

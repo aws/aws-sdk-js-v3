@@ -23,7 +23,16 @@ export interface CreateWorkflowVersionCommandInput extends CreateWorkflowVersion
 export interface CreateWorkflowVersionCommandOutput extends CreateWorkflowVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new workflow version for the workflow that you specify with the <code>workflowId</code> parameter.</p> <p>When you create a new version of a workflow, you need to specify the configuration for the new version. It doesn't inherit any configuration values from the workflow.</p> <p>Provide a version name that is unique for this workflow. You cannot change the name after HealthOmics creates the version.</p> <note> <p>Don't include any personally identifiable information (PII) in the version name. Version names appear in the workflow version ARN.</p> </note> <p>For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflow-versions.html">Workflow versioning in Amazon Web Services HealthOmics</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+ * Creates a new workflow version for the workflow that you specify with the `workflowId` parameter.
+ *
+ * When you create a new version of a workflow, you need to specify the configuration for the new version. It doesn't inherit any configuration values from the workflow.
+ *
+ * Provide a version name that is unique for this workflow. You cannot change the name after HealthOmics creates the version.
+ *
+ * > **Note:** Don't include any personally identifiable information (PII) in the version name. Version names appear in the workflow version ARN.
+ *
+ * For more information, see [Workflow versioning in Amazon Web Services HealthOmics](https://docs.aws.amazon.com/omics/latest/dev/workflow-versions.html) in the *Amazon Web Services HealthOmics User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -110,32 +119,40 @@ export interface CreateWorkflowVersionCommandOutput extends CreateWorkflowVersio
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request cannot be applied to the target resource in its current state.</p>
+ *
+ * The request cannot be applied to the target resource in its current state.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred. Try the request again.</p>
+ *
+ * An unexpected error occurred. Try the request again.
  *
  * @throws {@link RequestTimeoutException} (client fault)
- *  <p>The request timed out.</p>
+ *
+ * The request timed out.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The target resource was not found in the current Region.</p>
+ *
+ * The target resource was not found in the current Region.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request exceeds a service quota.</p>
+ *
+ * The request exceeds a service quota.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link OmicsServiceException}
- * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * Base exception class for all service exceptions from Omics service.
  *
  * @public
  */

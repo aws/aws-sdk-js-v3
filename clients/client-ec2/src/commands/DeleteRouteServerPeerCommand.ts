@@ -23,19 +23,14 @@ export interface DeleteRouteServerPeerCommandInput extends DeleteRouteServerPeer
 export interface DeleteRouteServerPeerCommandOutput extends DeleteRouteServerPeerResult, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified BGP peer from a route server.</p>
- *          <p>A route server peer is a session between a route server endpoint and the device deployed in Amazon Web Services (such as a firewall appliance or other network security function running on an EC2 instance). The device must meet these requirements:</p>
- *          <ul>
- *             <li>
- *                <p>Have an elastic network interface in the VPC</p>
- *             </li>
- *             <li>
- *                <p>Support BGP (Border Gateway Protocol)</p>
- *             </li>
- *             <li>
- *                <p>Can initiate BGP sessions</p>
- *             </li>
- *          </ul>
+ * Deletes the specified BGP peer from a route server.
+ *
+ * A route server peer is a session between a route server endpoint and the device deployed in Amazon Web Services (such as a firewall appliance or other network security function running on an EC2 instance). The device must meet these requirements:
+ *
+ * - Have an elastic network interface in the VPC
+ * - Support BGP (Border Gateway Protocol)
+ * - Can initiate BGP sessions
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,8 +85,8 @@ export interface DeleteRouteServerPeerCommandOutput extends DeleteRouteServerPee
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

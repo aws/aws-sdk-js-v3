@@ -23,7 +23,8 @@ export interface DeleteDBClusterParameterGroupCommandInput extends DeleteDBClust
 export interface DeleteDBClusterParameterGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a specified cluster parameter group. The cluster parameter group to be deleted can't be associated with any clusters.</p>
+ * Deletes a specified cluster parameter group. The cluster parameter group to be deleted can't be associated with any clusters.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,15 +49,16 @@ export interface DeleteDBClusterParameterGroupCommandOutput extends __MetadataBe
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  * @throws {@link DBParameterGroupNotFoundFault} (client fault)
- *  <p>
- *             <code>DBParameterGroupName</code> doesn't refer to an existing parameter group. </p>
+ *
+ * `DBParameterGroupName` doesn't refer to an existing parameter group.
  *
  * @throws {@link InvalidDBParameterGroupStateFault} (client fault)
- *  <p>The parameter group is in use, or it is in a state that is not valid. If you are trying to delete the parameter group, you can't delete it when the parameter group is in this state.</p>
+ *
+ * The parameter group is in use, or it is in a state that is not valid. If you are trying to delete the parameter group, you can't delete it when the parameter group is in this state.
  *
  * @throws {@link DocDBServiceException}
- * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * Base exception class for all service exceptions from DocDB service.
  *
  * @public
  */

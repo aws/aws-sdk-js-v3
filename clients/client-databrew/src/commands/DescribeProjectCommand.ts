@@ -23,7 +23,8 @@ export interface DescribeProjectCommandInput extends DescribeProjectRequest {}
 export interface DescribeProjectCommandOutput extends DescribeProjectResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the definition of a specific DataBrew project.</p>
+ * Returns the definition of a specific DataBrew project.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,14 +69,16 @@ export interface DescribeProjectCommandOutput extends DescribeProjectResponse, _
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>One or more resources can't be found.</p>
+ *
+ * One or more resources can't be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input parameters for this request failed validation.</p>
+ *
+ * The input parameters for this request failed validation.
  *
  * @throws {@link DataBrewServiceException}
- * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ * Base exception class for all service exceptions from DataBrew service.
  *
  * @public
  */

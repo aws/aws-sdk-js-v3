@@ -23,7 +23,8 @@ export interface ListRegionsCommandInput extends ListRegionsRequest {}
 export interface ListRegionsCommandOutput extends ListRegionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all the Regions for a given account and their respective opt-in statuses. Optionally, this list can be filtered by the <code>region-opt-status-contains</code> parameter. </p>
+ * Lists all the Regions for a given account and their respective opt-in statuses. Optionally, this list can be filtered by the `region-opt-status-contains` parameter.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,20 +62,24 @@ export interface ListRegionsCommandOutput extends ListRegionsResponse, __Metadat
  * @see {@link AccountClientResolvedConfig | config} for AccountClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The operation failed because the calling identity doesn't have the minimum required permissions.</p>
+ *
+ * The operation failed because the calling identity doesn't have the minimum required permissions.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The operation failed because of an error internal to Amazon Web Services. Try your operation again later.</p>
+ *
+ * The operation failed because of an error internal to Amazon Web Services. Try your operation again later.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The operation failed because it was called too frequently and exceeded a throttle limit.</p>
+ *
+ * The operation failed because it was called too frequently and exceeded a throttle limit.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The operation failed because one of the input parameters was invalid.</p>
+ *
+ * The operation failed because one of the input parameters was invalid.
  *
  * @throws {@link AccountServiceException}
- * <p>Base exception class for all service exceptions from Account service.</p>
  *
+ * Base exception class for all service exceptions from Account service.
  *
  * @public
  */

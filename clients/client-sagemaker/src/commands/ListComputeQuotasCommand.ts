@@ -23,7 +23,8 @@ export interface ListComputeQuotasCommandInput extends ListComputeQuotasRequest 
 export interface ListComputeQuotasCommandOutput extends ListComputeQuotasResponse, __MetadataBearer {}
 
 /**
- * <p>List the resource allocation definitions.</p>
+ * List the resource allocation definitions.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -108,8 +109,8 @@ export interface ListComputeQuotasCommandOutput extends ListComputeQuotasRespons
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

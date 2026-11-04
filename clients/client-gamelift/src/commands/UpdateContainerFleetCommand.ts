@@ -23,79 +23,34 @@ export interface UpdateContainerFleetCommandInput extends UpdateContainerFleetIn
 export interface UpdateContainerFleetCommandOutput extends UpdateContainerFleetOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This API works with the following fleet types:</b> Container</p>
- *          <p>Updates the properties of a managed container fleet. Depending on the properties being
- *             updated, this operation might initiate a fleet deployment. You can track deployments for
- *             a fleet using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetDeployment.html">https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetDeployment.html</a>.</p>
- *          <note>
- *             <p>A managed fleet's runtime environment, which depends on the fleet's
- *                 Amazon Machine Image (AMI) version, can't be updated. You must create a new
- *                 fleet. As a best practice, we recommend replacing your managed fleets every 30
- *                 days to maintain a secure and up-to-date runtime environment for your hosted game
- *                 servers. For guidance, see <a href="https://docs.aws.amazon.com/gameliftservers/latest/developerguide/security-best-practices.html">
- *                     Security best practices for Amazon GameLift Servers</a>.</p>
- *          </note>
- *          <p>
- *             <b>Request options</b>
- *          </p>
- *          <p>As with CreateContainerFleet, many fleet properties use common defaults or are
- *             calculated based on the fleet's container group definitions. </p>
- *          <ul>
- *             <li>
- *                <p>Update fleet properties that result in a fleet deployment. Include only those
- *                     properties that you want to change. Specify deployment configuration
- *                     settings.</p>
- *             </li>
- *             <li>
- *                <p>Update fleet properties that don't result in a fleet deployment. Include only
- *                     those properties that you want to change.</p>
- *             </li>
- *          </ul>
- *          <p>Changes to the following properties initiate a fleet deployment: </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>GameServerContainerGroupDefinition</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>PerInstanceContainerGroupDefinition</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>GameServerContainerGroupsPerInstance</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>InstanceInboundPermissions</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>InstanceConnectionPortRange</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>LogConfiguration</code>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Results</b>
- *          </p>
- *          <p>If successful, this operation updates the container fleet resource, and might initiate
- *             a new deployment of fleet resources using the deployment configuration provided. A
- *             deployment replaces existing fleet instances with new instances that are deployed with
- *             the updated fleet properties. The fleet is placed in <code>UPDATING</code> status until
- *             the deployment is complete, then returns to <code>ACTIVE</code>. </p>
- *          <p>You can have only one update deployment active at a time for a fleet. If a second
- *             update request initiates a deployment while another deployment is in progress, the first
- *             deployment is cancelled.</p>
+ * **This API works with the following fleet types:** Container
+ *
+ * Updates the properties of a managed container fleet. Depending on the properties being updated, this operation might initiate a fleet deployment. You can track deployments for a fleet using [https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetDeployment.html](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetDeployment.html).
+ *
+ * > **Note:** A managed fleet's runtime environment, which depends on the fleet's Amazon Machine Image (AMI) version, can't be updated. You must create a new fleet. As a best practice, we recommend replacing your managed fleets every 30 days to maintain a secure and up-to-date runtime environment for your hosted game servers. For guidance, see [Security best practices for Amazon GameLift Servers](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/security-best-practices.html).
+ *
+ * **Request options**
+ *
+ * As with CreateContainerFleet, many fleet properties use common defaults or are calculated based on the fleet's container group definitions.
+ *
+ * - Update fleet properties that result in a fleet deployment. Include only those properties that you want to change. Specify deployment configuration settings.
+ * - Update fleet properties that don't result in a fleet deployment. Include only those properties that you want to change.
+ *
+ * Changes to the following properties initiate a fleet deployment:
+ *
+ * - `GameServerContainerGroupDefinition`
+ * - `PerInstanceContainerGroupDefinition`
+ * - `GameServerContainerGroupsPerInstance`
+ * - `InstanceInboundPermissions`
+ * - `InstanceConnectionPortRange`
+ * - `LogConfiguration`
+ *
+ * **Results**
+ *
+ * If successful, this operation updates the container fleet resource, and might initiate a new deployment of fleet resources using the deployment configuration provided. A deployment replaces existing fleet instances with new instances that are deployed with the updated fleet properties. The fleet is placed in `UPDATING` status until the deployment is complete, then returns to `ACTIVE`.
+ *
+ * You can have only one update deployment active at a time for a fleet. If a second update request initiates a deployment while another deployment is in progress, the first deployment is cancelled.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -218,34 +173,36 @@ export interface UpdateContainerFleetCommandOutput extends UpdateContainerFleetO
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an unrecoverable internal failure while processing the
- *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
- *             values before retrying.</p>
+ *
+ * One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The requested operation would cause the resource to exceed the allowed service limit.
- *             Resolve the issue before retrying.</p>
+ *
+ * The requested operation would cause the resource to exceed the allowed service limit. Resolve the issue before retrying.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resource was not found. The resource was either not created yet or deleted.</p>
+ *
+ * The requested resource was not found. The resource was either not created yet or deleted.
  *
  * @throws {@link NotReadyException} (client fault)
- *  <p> The operation failed because Amazon GameLift Servers has not yet finished validating this compute. We
- *             recommend attempting 8 to 10 retries over 3 to 5 minutes with <a href="http://aws.amazon.com/blogs/https:/aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/">exponential
- *                 backoffs and jitter</a>. </p>
+ *
+ * The operation failed because Amazon GameLift Servers has not yet finished validating this compute. We recommend attempting 8 to 10 retries over 3 to 5 minutes with [exponential backoffs and jitter](http://aws.amazon.com/blogs/https:/aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/).
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * The client failed authentication. Clients should not retry such requests.
  *
  * @throws {@link UnsupportedRegionException} (client fault)
- *  <p>The requested operation is not supported in the Region specified.</p>
+ *
+ * The requested operation is not supported in the Region specified.
  *
  * @throws {@link GameLiftServiceException}
- * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * Base exception class for all service exceptions from GameLift service.
  *
  * @public
  */

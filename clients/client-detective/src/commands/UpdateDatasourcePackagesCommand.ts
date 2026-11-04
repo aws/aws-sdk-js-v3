@@ -23,7 +23,8 @@ export interface UpdateDatasourcePackagesCommandInput extends UpdateDatasourcePa
 export interface UpdateDatasourcePackagesCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Starts a data source package for the Detective behavior graph.</p>
+ * Starts a data source package for the Detective behavior graph.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,34 +52,31 @@ export interface UpdateDatasourcePackagesCommandOutput extends __MetadataBearer 
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request issuer does not have permission to access this resource or perform this
- *          operation.</p>
+ *
+ * The request issuer does not have permission to access this resource or perform this operation.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request was valid but failed because of a problem with the service.</p>
+ *
+ * The request was valid but failed because of a problem with the service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request refers to a nonexistent resource.</p>
+ *
+ * The request refers to a nonexistent resource.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>This request cannot be completed for one of the following reasons.</p>
- *          <ul>
- *             <li>
- *                <p>This request cannot be completed if it would cause the number of member accounts in the
- *             behavior graph to exceed the maximum allowed. A behavior graph cannot have more than 1,200
- *             member accounts.</p>
- *             </li>
- *             <li>
- *                <p>This request cannot be completed if the current volume ingested is above the limit of 10 TB per day. Detective will not allow you to add additional member accounts.</p>
- *             </li>
- *          </ul>
+ *
+ * This request cannot be completed for one of the following reasons.
+ *
+ * - This request cannot be completed if it would cause the number of member accounts in the behavior graph to exceed the maximum allowed. A behavior graph cannot have more than 1,200 member accounts.
+ * - This request cannot be completed if the current volume ingested is above the limit of 10 TB per day. Detective will not allow you to add additional member accounts.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request parameters are invalid.</p>
+ *
+ * The request parameters are invalid.
  *
  * @throws {@link DetectiveServiceException}
- * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ * Base exception class for all service exceptions from Detective service.
  *
  * @public
  */

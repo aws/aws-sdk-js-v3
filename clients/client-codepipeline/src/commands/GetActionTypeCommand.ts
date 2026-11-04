@@ -23,9 +23,8 @@ export interface GetActionTypeCommandInput extends GetActionTypeInput {}
 export interface GetActionTypeCommandOutput extends GetActionTypeOutput, __MetadataBearer {}
 
 /**
- * <p>Returns information about an action type created for an external provider, where the
- *             action is to be used by customers of the external provider. The action can be created
- *             with any supported integration model.</p>
+ * Returns information about an action type created for an external provider, where the action is to be used by customers of the external provider. The action can be created with any supported integration model.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -110,14 +109,16 @@ export interface GetActionTypeCommandOutput extends GetActionTypeOutput, __Metad
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  * @throws {@link ActionTypeNotFoundException} (client fault)
- *  <p>The specified action type cannot be found.</p>
+ *
+ * The specified action type cannot be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The validation was specified in an invalid format.</p>
+ *
+ * The validation was specified in an invalid format.
  *
  * @throws {@link CodePipelineServiceException}
- * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * Base exception class for all service exceptions from CodePipeline service.
  *
  * @public
  */

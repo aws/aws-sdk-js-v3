@@ -26,7 +26,8 @@ export interface DescribeTrunkInterfaceAssociationsCommandInput extends Describe
 export interface DescribeTrunkInterfaceAssociationsCommandOutput extends DescribeTrunkInterfaceAssociationsResult, __MetadataBearer {}
 
 /**
- * <p>Describes one or more network interface trunk associations.</p>
+ * Describes one or more network interface trunk associations.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,8 +83,8 @@ export interface DescribeTrunkInterfaceAssociationsCommandOutput extends Describ
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface ModifyTrustStoreCommandInput extends ModifyTrustStoreInput {}
 export interface ModifyTrustStoreCommandOutput extends ModifyTrustStoreOutput, __MetadataBearer {}
 
 /**
- * <p>Update the ca certificate bundle for the specified trust store.</p>
+ * Update the ca certificate bundle for the specified trust store.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,17 +62,20 @@ export interface ModifyTrustStoreCommandOutput extends ModifyTrustStoreOutput, _
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
  * @throws {@link CaCertificatesBundleNotFoundException} (client fault)
- *  <p>The specified ca certificate bundle does not exist.</p>
+ *
+ * The specified ca certificate bundle does not exist.
  *
  * @throws {@link InvalidCaCertificatesBundleException} (client fault)
- *  <p>The specified ca certificate bundle is in an invalid format, or corrupt.</p>
+ *
+ * The specified ca certificate bundle is in an invalid format, or corrupt.
  *
  * @throws {@link TrustStoreNotFoundException} (client fault)
- *  <p>The specified trust store does not exist.</p>
+ *
+ * The specified trust store does not exist.
  *
  * @throws {@link ElasticLoadBalancingV2ServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancingV2 service.
  *
  * @public
  */

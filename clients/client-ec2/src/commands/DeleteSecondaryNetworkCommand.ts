@@ -23,7 +23,8 @@ export interface DeleteSecondaryNetworkCommandInput extends DeleteSecondaryNetwo
 export interface DeleteSecondaryNetworkCommandOutput extends DeleteSecondaryNetworkResult, __MetadataBearer {}
 
 /**
- * <p>Deletes a secondary network. You must delete all secondary subnets in the secondary network before you can delete the secondary network.</p>
+ * Deletes a secondary network. You must delete all secondary subnets in the secondary network before you can delete the secondary network.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,8 +75,8 @@ export interface DeleteSecondaryNetworkCommandOutput extends DeleteSecondaryNetw
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To delete a secondary network
  * ```javascript

@@ -23,20 +23,14 @@ export interface UpdateConfigurationTemplateCommandInput extends UpdateConfigura
 export interface UpdateConfigurationTemplateCommandOutput extends ConfigurationSettingsDescription, __MetadataBearer {}
 
 /**
- * <p>Updates the specified configuration template to have the specified properties or
- *       configuration option values.</p>
- *          <note>
- *             <p>If a property (for example, <code>ApplicationName</code>) is not provided, its value
- *         remains unchanged. To clear such properties, specify an empty string.</p>
- *          </note>
- *          <p>Related Topics</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>DescribeConfigurationOptions</a>
- *                </p>
- *             </li>
- *          </ul>
+ * Updates the specified configuration template to have the specified properties or configuration option values.
+ *
+ * > **Note:** If a property (for example, `ApplicationName`) is not provided, its value remains unchanged. To clear such properties, specify an empty string.
+ *
+ * Related Topics
+ *
+ * - DescribeConfigurationOptions
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -96,14 +90,16 @@ export interface UpdateConfigurationTemplateCommandOutput extends ConfigurationS
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  * @throws {@link InsufficientPrivilegesException} (client fault)
- *  <p>The specified account does not have sufficient privileges for one or more Amazon Web Services services.</p>
+ *
+ * The specified account does not have sufficient privileges for one or more Amazon Web Services services.
  *
  * @throws {@link TooManyBucketsException} (client fault)
- *  <p>The specified account has reached its limit of Amazon S3 buckets.</p>
+ *
+ * The specified account has reached its limit of Amazon S3 buckets.
  *
  * @throws {@link ElasticBeanstalkSyntheticServiceException}
- * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * Base exception class for all service exceptions from ElasticBeanstalk service.
  *
  * @example To update a configuration template
  * ```javascript

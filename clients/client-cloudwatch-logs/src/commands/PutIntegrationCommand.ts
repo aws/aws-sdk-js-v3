@@ -23,14 +23,12 @@ export interface PutIntegrationCommandInput extends PutIntegrationRequest {}
 export interface PutIntegrationCommandOutput extends PutIntegrationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an integration between CloudWatch Logs and another service in this account.
- *       Currently, only integrations with OpenSearch Service are supported, and currently you can have
- *       only one integration in your account.</p>
- *          <p>Integrating with OpenSearch Service makes it possible for you to create curated vended
- *       logs dashboards, powered by OpenSearch Service analytics. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-OpenSearch-Dashboards.html">Vended log
- *         dashboards powered by Amazon OpenSearch Service</a>.</p>
- *          <p>You can use this operation only to create a new integration. You can't modify an existing
- *       integration.</p>
+ * Creates an integration between CloudWatch Logs and another service in this account. Currently, only integrations with OpenSearch Service are supported, and currently you can have only one integration in your account.
+ *
+ * Integrating with OpenSearch Service makes it possible for you to create curated vended logs dashboards, powered by OpenSearch Service analytics. For more information, see [Vended log dashboards powered by Amazon OpenSearch Service](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-OpenSearch-Dashboards.html).
+ *
+ * You can use this operation only to create a new integration. You can't modify an existing integration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,20 +68,24 @@ export interface PutIntegrationCommandOutput extends PutIntegrationResponse, __M
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is specified incorrectly.</p>
+ *
+ * A parameter is specified incorrectly.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You have reached the maximum number of resources that can be created.</p>
+ *
+ * You have reached the maximum number of resources that can be created.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service cannot complete the request.</p>
+ *
+ * The service cannot complete the request.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One of the parameters for the request is not valid.</p>
+ *
+ * One of the parameters for the request is not valid.
  *
  * @throws {@link CloudWatchLogsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchLogs service.
  *
  * @public
  */

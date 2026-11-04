@@ -23,14 +23,12 @@ export interface DeleteIpamPoolCommandInput extends DeleteIpamPoolRequest {}
 export interface DeleteIpamPoolCommandOutput extends DeleteIpamPoolResult, __MetadataBearer {}
 
 /**
- * <p>Delete an IPAM pool.</p>
- *          <note>
- *             <p>You cannot delete an IPAM pool if there are allocations in it or CIDRs provisioned to it. To release
- *          allocations, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReleaseIpamPoolAllocation.html">ReleaseIpamPoolAllocation</a>. To deprovision pool
- *          CIDRs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeprovisionIpamPoolCidr.html">DeprovisionIpamPoolCidr</a>.</p>
- *          </note>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/delete-pool-ipam.html">Delete a pool</a> in the <i>Amazon VPC IPAM User Guide</i>.
- *       </p>
+ * Delete an IPAM pool.
+ *
+ * > **Note:** You cannot delete an IPAM pool if there are allocations in it or CIDRs provisioned to it. To release allocations, see [ReleaseIpamPoolAllocation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReleaseIpamPoolAllocation.html). To deprovision pool CIDRs, see [DeprovisionIpamPoolCidr](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeprovisionIpamPoolCidr.html).
+ *
+ * For more information, see [Delete a pool](https://docs.aws.amazon.com/vpc/latest/ipam/delete-pool-ipam.html) in the *Amazon VPC IPAM User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -99,8 +97,8 @@ export interface DeleteIpamPoolCommandOutput extends DeleteIpamPoolResult, __Met
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

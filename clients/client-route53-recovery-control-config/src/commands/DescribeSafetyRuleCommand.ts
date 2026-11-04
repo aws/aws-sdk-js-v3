@@ -23,7 +23,8 @@ export interface DescribeSafetyRuleCommandInput extends DescribeSafetyRuleReques
 export interface DescribeSafetyRuleCommandOutput extends DescribeSafetyRuleResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about a safety rule.</p>
+ * Returns information about a safety rule.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,14 +85,16 @@ export interface DescribeSafetyRuleCommandOutput extends DescribeSafetyRuleRespo
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>404 response - MalformedQueryString. The query string contains a syntax error or resource not found.</p>
+ *
+ * 404 response - MalformedQueryString. The query string contains a syntax error or resource not found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
+ *
+ * 400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.
  *
  * @throws {@link Route53RecoveryControlConfigServiceException}
- * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
+ * Base exception class for all service exceptions from Route53RecoveryControlConfig service.
  *
  * @public
  */

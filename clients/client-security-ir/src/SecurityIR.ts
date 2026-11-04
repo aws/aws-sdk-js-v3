@@ -654,7 +654,8 @@ export interface SecurityIR {
 }
 
 /**
- * <p>This guide documents the action and response elements for use of the service.</p>
+ * This guide documents the action and response elements for use of the service.
+ *
  * @public
  */
 export class SecurityIR extends SecurityIRClient implements SecurityIR {}

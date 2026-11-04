@@ -23,7 +23,8 @@ export interface UpdateArchiveCommandInput extends UpdateArchiveRequest {}
 export interface UpdateArchiveCommandOutput extends UpdateArchiveResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the attributes of an existing email archive.</p>
+ * Updates the attributes of an existing email archive.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,26 +53,32 @@ export interface UpdateArchiveCommandOutput extends UpdateArchiveResponse, __Met
  * @see {@link MailManagerClientResolvedConfig | config} for MailManagerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Occurs when a user is denied access to a specific resource or action.</p>
+ *
+ * Occurs when a user is denied access to a specific resource or action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+ *
+ * The request configuration has conflicts. For details, see the accompanying error message.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Occurs when a requested resource is not found.</p>
+ *
+ * Occurs when a requested resource is not found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Occurs when an operation exceeds a predefined service quota or limit.</p>
+ *
+ * Occurs when an operation exceeds a predefined service quota or limit.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.</p>
+ *
+ * Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request validation has failed. For details, see the accompanying error message.</p>
+ *
+ * The request validation has failed. For details, see the accompanying error message.
  *
  * @throws {@link MailManagerServiceException}
- * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ * Base exception class for all service exceptions from MailManager service.
  *
  * @public
  */

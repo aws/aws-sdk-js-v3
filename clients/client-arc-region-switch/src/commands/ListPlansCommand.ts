@@ -23,7 +23,8 @@ export interface ListPlansCommandInput extends ListPlansRequest {}
 export interface ListPlansCommandOutput extends ListPlansResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all Region switch plans in your Amazon Web Services account.</p>
+ * Lists all Region switch plans in your Amazon Web Services account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,8 +70,8 @@ export interface ListPlansCommandOutput extends ListPlansResponse, __MetadataBea
  * @see {@link ARCRegionSwitchClientResolvedConfig | config} for ARCRegionSwitchClient's `config` shape.
  *
  * @throws {@link ARCRegionSwitchServiceException}
- * <p>Base exception class for all service exceptions from ARCRegionSwitch service.</p>
  *
+ * Base exception class for all service exceptions from ARCRegionSwitch service.
  *
  * @public
  */

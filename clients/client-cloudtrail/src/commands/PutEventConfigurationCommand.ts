@@ -23,7 +23,8 @@ export interface PutEventConfigurationCommandInput extends PutEventConfiguration
 export interface PutEventConfigurationCommandOutput extends PutEventConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the event configuration settings for the specified event data store or trail. This operation supports updating the maximum event size, adding or modifying context key selectors for event data store, and configuring aggregation settings for the trail.</p>
+ * Updates the event configuration settings for the specified event data store or trail. This operation supports updating the maximum event size, adding or modifying context key selectors for event data store, and configuring aggregation settings for the trail.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,109 +87,98 @@ export interface PutEventConfigurationCommandOutput extends PutEventConfiguratio
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
  * @throws {@link CloudTrailARNInvalidException} (client fault)
- *  <p>This exception is thrown when an operation is called with an ARN that is not valid.</p>
- *          <p>The following is the format of a trail ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
- *          </p>
- *          <p>The following is the format of an event data store ARN:
- *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
- *          </p>
- *          <p>The following is the format of a dashboard ARN: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code>
- *          </p>
- *          <p>The following is the format of a channel ARN:
- *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
- *          </p>
+ *
+ * This exception is thrown when an operation is called with an ARN that is not valid.
+ *
+ * The following is the format of a trail ARN: `arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail`
+ *
+ * The following is the format of an event data store ARN: `arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE`
+ *
+ * The following is the format of a dashboard ARN: `arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash`
+ *
+ * The following is the format of a channel ARN: `arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890`
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>This exception is thrown when the specified resource is not ready for an operation. This
- *          can occur when you try to run an operation on a resource before CloudTrail has time
- *          to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the
- *          operation again.</p>
+ *
+ * This exception is thrown when the specified resource is not ready for an operation. This can occur when you try to run an operation on a resource before CloudTrail has time to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the operation again.
  *
  * @throws {@link EventDataStoreARNInvalidException} (client fault)
- *  <p>The specified event data store ARN is not valid or does not map to an event data store
- *          in your account.</p>
+ *
+ * The specified event data store ARN is not valid or does not map to an event data store in your account.
  *
  * @throws {@link EventDataStoreNotFoundException} (client fault)
- *  <p>The specified event data store was not found.</p>
+ *
+ * The specified event data store was not found.
  *
  * @throws {@link InactiveEventDataStoreException} (client fault)
- *  <p>The event data store is inactive.</p>
+ *
+ * The event data store is inactive.
  *
  * @throws {@link InsufficientDependencyServiceAccessPermissionException} (client fault)
- *  <p>This exception is thrown when the IAM identity that is used to create
- *          the organization resource lacks one or more required permissions for creating an
- *          organization resource in a required service.</p>
+ *
+ * This exception is thrown when the IAM identity that is used to create the organization resource lacks one or more required permissions for creating an organization resource in a required service.
  *
  * @throws {@link InsufficientIAMAccessPermissionException} (client fault)
- *  <p>The task can't be completed because you are signed in with an account that lacks permissions to view or create a service-linked role. Sign in with an account that has the required permissions and then try again.</p>
+ *
+ * The task can't be completed because you are signed in with an account that lacks permissions to view or create a service-linked role. Sign in with an account that has the required permissions and then try again.
  *
  * @throws {@link InvalidEventDataStoreCategoryException} (client fault)
- *  <p>This exception is thrown when event categories of specified event data stores are not
- *          valid.</p>
+ *
+ * This exception is thrown when event categories of specified event data stores are not valid.
  *
  * @throws {@link InvalidEventDataStoreStatusException} (client fault)
- *  <p>The event data store is not in a status that supports the operation.</p>
+ *
+ * The event data store is not in a status that supports the operation.
  *
  * @throws {@link InvalidHomeRegionException} (client fault)
- *  <p>This exception is thrown when an operation is called on a trail from a Region other than
- *          the Region in which the trail was created.</p>
+ *
+ * This exception is thrown when an operation is called on a trail from a Region other than the Region in which the trail was created.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>This exception is thrown when the combination of parameters provided is not
- *          valid.</p>
+ *
+ * This exception is thrown when the combination of parameters provided is not valid.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The request includes a parameter that is not valid.</p>
+ *
+ * The request includes a parameter that is not valid.
  *
  * @throws {@link InvalidTrailNameException} (client fault)
- *  <p>This exception is thrown when the provided trail name is not valid. Trail names must
- *          meet the following requirements:</p>
- *          <ul>
- *             <li>
- *                <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores
- *                (_), or dashes (-)</p>
- *             </li>
- *             <li>
- *                <p>Start with a letter or number, and end with a letter or number</p>
- *             </li>
- *             <li>
- *                <p>Be between 3 and 128 characters</p>
- *             </li>
- *             <li>
- *                <p>Have no adjacent periods, underscores or dashes. Names like
- *                   <code>my-_namespace</code> and <code>my--namespace</code> are not valid.</p>
- *             </li>
- *             <li>
- *                <p>Not be in IP address format (for example, 192.168.5.4)</p>
- *             </li>
- *          </ul>
+ *
+ * This exception is thrown when the provided trail name is not valid. Trail names must meet the following requirements:
+ *
+ * - Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)
+ * - Start with a letter or number, and end with a letter or number
+ * - Be between 3 and 128 characters
+ * - Have no adjacent periods, underscores or dashes. Names like `my-_namespace` and `my--namespace` are not valid.
+ * - Not be in IP address format (for example, 192.168.5.4)
  *
  * @throws {@link NoManagementAccountSLRExistsException} (client fault)
- *  <p> This exception is thrown when the management account does not have a service-linked
- *          role. </p>
+ *
+ * This exception is thrown when the management account does not have a service-linked role.
  *
  * @throws {@link NotOrganizationMasterAccountException} (client fault)
- *  <p>This exception is thrown when the Amazon Web Services account making the request to
- *          create or update an organization trail or event data store is not the management account
- *          for an organization in Organizations. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a> or <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-organizations.html">Organization event data stores</a>.</p>
+ *
+ * This exception is thrown when the Amazon Web Services account making the request to create or update an organization trail or event data store is not the management account for an organization in Organizations. For more information, see [Prepare For Creating a Trail For Your Organization](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html) or [Organization event data stores](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-organizations.html).
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * This exception is thrown when the requested operation is not permitted.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>
- *          This exception is thrown when the request rate exceeds the limit.
- *       </p>
+ *
+ * This exception is thrown when the request rate exceeds the limit.
  *
  * @throws {@link TrailNotFoundException} (client fault)
- *  <p>This exception is thrown when the trail with the given name is not found.</p>
+ *
+ * This exception is thrown when the trail with the given name is not found.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>This exception is thrown when the requested operation is not supported.</p>
+ *
+ * This exception is thrown when the requested operation is not supported.
  *
  * @throws {@link CloudTrailServiceException}
- * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * Base exception class for all service exceptions from CloudTrail service.
  *
  * @public
  */

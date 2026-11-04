@@ -657,7 +657,8 @@ export type DrsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHa
 export interface DrsClientResolvedConfig extends DrsClientResolvedConfigType {}
 
 /**
- * <p>AWS Elastic Disaster Recovery Service.</p>
+ * AWS Elastic Disaster Recovery Service.
+ *
  * @public
  */
 export class DrsClient extends __Client<

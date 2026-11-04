@@ -23,25 +23,18 @@ export interface AssignPrivateIpAddressesCommandInput extends AssignPrivateIpAdd
 export interface AssignPrivateIpAddressesCommandOutput extends AssignPrivateIpAddressesResult, __MetadataBearer {}
 
 /**
- * <p>Assigns the specified secondary private IP addresses to the specified network
- *             interface.</p>
- *          <p>You can specify specific secondary IP addresses, or you can specify the number of
- *             secondary IP addresses to be automatically assigned from the subnet's CIDR block range.
- *             The number of secondary IP addresses that you can assign to an instance varies by
- *             instance type. For more information about Elastic IP addresses, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP
- *                 Addresses</a> in the <i>Amazon EC2 User Guide</i>.</p>
- *          <p>When you move a secondary private IP address to another network interface, any Elastic
- *             IP address that is associated with the IP address is also moved.</p>
- *          <p>Remapping an IP address is an asynchronous operation. When you move an IP address from
- *             one network interface to another, check
- *                 <code>network/interfaces/macs/mac/local-ipv4s</code> in the instance metadata to
- *             confirm that the remapping is complete.</p>
- *          <p>You must specify either the IP addresses or the IP address count in the
- *             request.</p>
- *          <p>You can optionally use Prefix Delegation on the network interface. You must specify
- *             either the IPv4 Prefix Delegation prefixes, or the IPv4 Prefix Delegation count. For
- *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html"> Assigning prefixes to network
- *                 interfaces</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * Assigns the specified secondary private IP addresses to the specified network interface.
+ *
+ * You can specify specific secondary IP addresses, or you can specify the number of secondary IP addresses to be automatically assigned from the subnet's CIDR block range. The number of secondary IP addresses that you can assign to an instance varies by instance type. For more information about Elastic IP addresses, see [Elastic IP Addresses](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html) in the *Amazon EC2 User Guide*.
+ *
+ * When you move a secondary private IP address to another network interface, any Elastic IP address that is associated with the IP address is also moved.
+ *
+ * Remapping an IP address is an asynchronous operation. When you move an IP address from one network interface to another, check `network/interfaces/macs/mac/local-ipv4s` in the instance metadata to confirm that the remapping is complete.
+ *
+ * You must specify either the IP addresses or the IP address count in the request.
+ *
+ * You can optionally use Prefix Delegation on the network interface. You must specify either the IPv4 Prefix Delegation prefixes, or the IPv4 Prefix Delegation count. For information, see [Assigning prefixes to network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,8 +80,8 @@ export interface AssignPrivateIpAddressesCommandOutput extends AssignPrivateIpAd
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To assign a specific secondary private IP address to an interface
  * ```javascript

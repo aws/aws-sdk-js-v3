@@ -23,7 +23,17 @@ export interface QueryVectorsCommandInput extends QueryVectorsInput {}
 export interface QueryVectorsCommandOutput extends QueryVectorsOutput, __MetadataBearer {}
 
 /**
- * <p>Performs an approximate nearest neighbor search query in a vector index using a query vector. By default, it returns the keys of approximate nearest neighbors. You can optionally include the computed distance (between the query vector and each vector in the response) and metadata of each vector in the response.</p> <p>To specify the vector index, you can either use both the vector bucket name and the vector index name, or use the vector index Amazon Resource Name (ARN). </p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3vectors:QueryVectors</code> permission to use this operation. Additional permissions are required based on the request parameters you specify:</p> <ul> <li> <p>With only <code>s3vectors:QueryVectors</code> permission, you can retrieve vector keys of approximate nearest neighbors and computed distances between these vectors. This permission is sufficient only when you don't set any metadata filters and don't request metadata (by keeping the <code>returnMetadata</code> parameter set to <code>false</code> or not specified).</p> </li> <li> <p>If you specify a metadata filter or set <code>returnMetadata</code> to true, you must have both <code>s3vectors:QueryVectors</code> and <code>s3vectors:GetVectors</code> permissions. The request fails with a <code>403 Forbidden error</code> if you request metadata filtering or metadata without the <code>s3vectors:GetVectors</code> permission.</p> </li> </ul> </dd> </dl>
+ * Performs an approximate nearest neighbor search query in a vector index using a query vector. By default, it returns the keys of approximate nearest neighbors. You can optionally include the computed distance (between the query vector and each vector in the response) and metadata of each vector in the response.
+ *
+ * To specify the vector index, you can either use both the vector bucket name and the vector index name, or use the vector index Amazon Resource Name (ARN).
+ *
+ * - **Permissions**
+ *
+ *   You must have the `s3vectors:QueryVectors` permission to use this operation. Additional permissions are required based on the request parameters you specify:
+ *
+ *   - With only `s3vectors:QueryVectors` permission, you can retrieve vector keys of approximate nearest neighbors and computed distances between these vectors. This permission is sufficient only when you don't set any metadata filters and don't request metadata (by keeping the `returnMetadata` parameter set to `false` or not specified).
+ *   - If you specify a metadata filter or set `returnMetadata` to true, you must have both `s3vectors:QueryVectors` and `s3vectors:GetVectors` permissions. The request fails with a `403 Forbidden error` if you request metadata filtering or metadata without the `s3vectors:GetVectors` permission.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,41 +81,59 @@ export interface QueryVectorsCommandOutput extends QueryVectorsOutput, __Metadat
  * @see {@link S3VectorsClientResolvedConfig | config} for S3VectorsClient's `config` shape.
  *
  * @throws {@link KmsDisabledException} (client fault)
- *  <p>The specified Amazon Web Services KMS key isn't enabled.</p>
+ *
+ * The specified Amazon Web Services KMS key isn't enabled.
  *
  * @throws {@link KmsInvalidKeyUsageException} (client fault)
- *  <p>The request was rejected for one of the following reasons: </p> <ul> <li> <p>The <code>KeyUsage</code> value of the KMS key is incompatible with the API operation.</p> </li> <li> <p>The encryption algorithm or signing algorithm specified for the operation is incompatible with the type of key material in the KMS key (<code>KeySpec</code>).</p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html#API_Encrypt_Errors">InvalidKeyUsageException</a> in the <i>Amazon Web Services Key Management Service API Reference</i>.</p>
+ *
+ * The request was rejected for one of the following reasons:
+ *
+ * - The `KeyUsage` value of the KMS key is incompatible with the API operation.
+ * - The encryption algorithm or signing algorithm specified for the operation is incompatible with the type of key material in the KMS key (`KeySpec`).
+ *
+ * For more information, see [InvalidKeyUsageException](https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html#API_Encrypt_Errors) in the *Amazon Web Services Key Management Service API Reference*.
  *
  * @throws {@link KmsInvalidStateException} (client fault)
- *  <p>The key state of the KMS key isn't compatible with the operation.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html#API_Encrypt_Errors">KMSInvalidStateException</a> in the <i>Amazon Web Services Key Management Service API Reference</i>.</p>
+ *
+ * The key state of the KMS key isn't compatible with the operation.
+ *
+ * For more information, see [KMSInvalidStateException](https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html#API_Encrypt_Errors) in the *Amazon Web Services Key Management Service API Reference*.
  *
  * @throws {@link KmsNotFoundException} (client fault)
- *  <p>The KMS key can't be found.</p>
+ *
+ * The KMS key can't be found.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The request was rejected because the specified resource can't be found.</p>
+ *
+ * The request was rejected because the specified resource can't be found.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is unavailable. Wait briefly and retry your request. If it continues to fail, increase your waiting time between retries.</p>
+ *
+ * The service is unavailable. Wait briefly and retry your request. If it continues to fail, increase your waiting time between retries.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access denied.</p>
+ *
+ * Access denied.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request failed due to an internal server error.</p>
+ *
+ * The request failed due to an internal server error.
  *
  * @throws {@link RequestTimeoutException} (client fault)
- *  <p>The request timed out. Retry your request.</p>
+ *
+ * The request timed out. Retry your request.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The requested action isn't valid.</p>
+ *
+ * The requested action isn't valid.
  *
  * @throws {@link S3VectorsServiceException}
- * <p>Base exception class for all service exceptions from S3Vectors service.</p>
  *
+ * Base exception class for all service exceptions from S3Vectors service.
  *
  * @public
  */

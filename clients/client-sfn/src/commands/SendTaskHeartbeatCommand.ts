@@ -23,21 +23,10 @@ export interface SendTaskHeartbeatCommandInput extends SendTaskHeartbeatInput {}
 export interface SendTaskHeartbeatCommandOutput extends SendTaskHeartbeatOutput, __MetadataBearer {}
 
 /**
- * <p>Used by activity workers and Task states using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token">callback</a>
- *       pattern, and optionally Task states using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-sync">job run</a> pattern to report to Step Functions that the task represented by the specified
- *         <code>taskToken</code> is still making progress. This action resets the
- *         <code>Heartbeat</code> clock. The <code>Heartbeat</code> threshold is specified in the state
- *       machine's Amazon States Language definition (<code>HeartbeatSeconds</code>). This action does not in itself
- *       create an event in the execution history. However, if the task times out, the execution
- *       history contains an <code>ActivityTimedOut</code> entry for activities, or a
- *         <code>TaskTimedOut</code> entry for tasks using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-sync">job run</a> or
- *         <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token">callback</a>
- *       pattern.</p>
- *          <note>
- *             <p>The <code>Timeout</code> of a task, defined in the state machine's Amazon States Language definition, is
- *         its maximum allowed duration, regardless of the number of <a>SendTaskHeartbeat</a> requests received. Use <code>HeartbeatSeconds</code> to configure the timeout interval
- *         for heartbeats.</p>
- *          </note>
+ * Used by activity workers and Task states using the [callback](https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token) pattern, and optionally Task states using the [job run](https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-sync) pattern to report to Step Functions that the task represented by the specified `taskToken` is still making progress. This action resets the `Heartbeat` clock. The `Heartbeat` threshold is specified in the state machine's Amazon States Language definition (`HeartbeatSeconds`). This action does not in itself create an event in the execution history. However, if the task times out, the execution history contains an `ActivityTimedOut` entry for activities, or a `TaskTimedOut` entry for tasks using the [job run](https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-sync) or [callback](https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token) pattern.
+ *
+ * > **Note:** The `Timeout` of a task, defined in the state machine's Amazon States Language definition, is its maximum allowed duration, regardless of the number of SendTaskHeartbeat requests received. Use `HeartbeatSeconds` to configure the timeout interval for heartbeats.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,17 +51,20 @@ export interface SendTaskHeartbeatCommandOutput extends SendTaskHeartbeatOutput,
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
  * @throws {@link InvalidToken} (client fault)
- *  <p>The provided token is not valid.</p>
+ *
+ * The provided token is not valid.
  *
  * @throws {@link TaskDoesNotExist} (client fault)
- *  <p>The activity does not exist.</p>
+ *
+ * The activity does not exist.
  *
  * @throws {@link TaskTimedOut} (client fault)
- *  <p>The task token has either expired or the task associated with the token has already been closed.</p>
+ *
+ * The task token has either expired or the task associated with the token has already been closed.
  *
  * @throws {@link SFNServiceException}
- * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * Base exception class for all service exceptions from SFN service.
  *
  * @public
  */

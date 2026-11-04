@@ -23,8 +23,8 @@ export interface GetAWSOrganizationsAccessStatusCommandInput extends GetAWSOrgan
 export interface GetAWSOrganizationsAccessStatusCommandOutput extends GetAWSOrganizationsAccessStatusOutput, __MetadataBearer {}
 
 /**
- * <p>Get the Access Status for Organizations portfolio share feature. This API can only be
- *          called by the management account in the organization or by a delegated admin.</p>
+ * Get the Access Status for Organizations portfolio share feature. This API can only be called by the management account in the organization or by a delegated admin.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,14 +49,16 @@ export interface GetAWSOrganizationsAccessStatusCommandOutput extends GetAWSOrga
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  * @throws {@link OperationNotSupportedException} (client fault)
- *  <p>The operation is not supported.</p>
+ *
+ * The operation is not supported.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ServiceCatalogServiceException}
- * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * Base exception class for all service exceptions from ServiceCatalog service.
  *
  * @public
  */

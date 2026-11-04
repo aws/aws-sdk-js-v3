@@ -23,8 +23,8 @@ export interface ListApprovalRuleTemplatesCommandInput extends ListApprovalRuleT
 export interface ListApprovalRuleTemplatesCommandOutput extends ListApprovalRuleTemplatesOutput, __MetadataBearer {}
 
 /**
- * <p>Lists all approval rule templates in the specified Amazon Web Services Region in your Amazon Web Services account. If
- *             an Amazon Web Services Region is not specified, the Amazon Web Services Region where you are signed in is used.</p>
+ * Lists all approval rule templates in the specified Amazon Web Services Region in your Amazon Web Services account. If an Amazon Web Services Region is not specified, the Amazon Web Services Region where you are signed in is used.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,14 +55,16 @@ export interface ListApprovalRuleTemplatesCommandOutput extends ListApprovalRule
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  * @throws {@link InvalidContinuationTokenException} (client fault)
- *  <p>The specified continuation token is not valid.</p>
+ *
+ * The specified continuation token is not valid.
  *
  * @throws {@link InvalidMaxResultsException} (client fault)
- *  <p>The specified number of maximum results is not valid.</p>
+ *
+ * The specified number of maximum results is not valid.
  *
  * @throws {@link CodeCommitServiceException}
- * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * Base exception class for all service exceptions from CodeCommit service.
  *
  * @public
  */

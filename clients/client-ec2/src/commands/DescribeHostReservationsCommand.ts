@@ -23,8 +23,8 @@ export interface DescribeHostReservationsCommandInput extends DescribeHostReserv
 export interface DescribeHostReservationsCommandOutput extends DescribeHostReservationsResult, __MetadataBearer {}
 
 /**
- * <p>Describes reservations that are associated with Dedicated Hosts in your
- *             account.</p>
+ * Describes reservations that are associated with Dedicated Hosts in your account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,8 +88,8 @@ export interface DescribeHostReservationsCommandOutput extends DescribeHostReser
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

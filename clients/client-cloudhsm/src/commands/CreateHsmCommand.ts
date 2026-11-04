@@ -23,26 +23,15 @@ export interface CreateHsmCommandInput extends CreateHsmRequest {}
 export interface CreateHsmCommandOutput extends CreateHsmResponse, __MetadataBearer {}
 
 /**
- * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
- *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
- *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
- *       CloudHSM Classic User Guide</a>, and the <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS CloudHSM Classic API Reference</a>.</p>
- *          <p>
- *             <b>For information about the current version of AWS
- *       CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS CloudHSM</a>, the
- *       <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS CloudHSM User Guide</a>,
- *       and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS CloudHSM API
- *       Reference</a>.</p>
- *          <p>Creates an uninitialized HSM instance.</p>
- *          <p>There is an upfront fee charged for each HSM instance that you create with the
- *         <code>CreateHsm</code> operation. If you accidentally provision an HSM and want to request a
- *       refund, delete the instance using the <a>DeleteHsm</a> operation, go to the <a href="https://console.aws.amazon.com/support/home">AWS Support Center</a>, create a new case, and select
- *         <b>Account and Billing Support</b>.</p>
- *          <important>
- *             <p>It can take up to 20 minutes to create and provision an HSM. You can monitor the
- *         status of the HSM with the <a>DescribeHsm</a> operation. The HSM is ready to be
- *         initialized when the status changes to <code>RUNNING</code>.</p>
- *          </important>
+ * This is documentation for **AWS CloudHSM Classic**. For more information, see [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the [AWS CloudHSM Classic User Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS CloudHSM Classic API Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/).
+ *
+ * **For information about the current version of AWS CloudHSM**, see [AWS CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/), and the [AWS CloudHSM API Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
+ *
+ * Creates an uninitialized HSM instance.
+ *
+ * There is an upfront fee charged for each HSM instance that you create with the `CreateHsm` operation. If you accidentally provision an HSM and want to request a refund, delete the instance using the DeleteHsm operation, go to the [AWS Support Center](https://console.aws.amazon.com/support/home), create a new case, and select **Account and Billing Support**.
+ *
+ * > **Important:** It can take up to 20 minutes to create and provision an HSM. You can monitor the status of the HSM with the DescribeHsm operation. The HSM is ready to be initialized when the status changes to `RUNNING`.
  *
  * @deprecated This API is deprecated.
  * @example
@@ -78,17 +67,20 @@ export interface CreateHsmCommandOutput extends CreateHsmResponse, __MetadataBea
  * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.
  *
  * @throws {@link CloudHsmInternalException} (server fault)
- *  <p>Indicates that an internal error occurred.</p>
+ *
+ * Indicates that an internal error occurred.
  *
  * @throws {@link CloudHsmServiceException} (client fault)
- *  <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
+ *
+ * Indicates that an exception occurred in the AWS CloudHSM service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Indicates that one or more of the request parameters are not valid.</p>
+ *
+ * Indicates that one or more of the request parameters are not valid.
  *
  * @throws {@link CloudHSMServiceException}
- * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
+ * Base exception class for all service exceptions from CloudHSM service.
  *
  * @public
  */

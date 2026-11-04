@@ -23,7 +23,8 @@ export interface UpdatePullRequestDescriptionCommandInput extends UpdatePullRequ
 export interface UpdatePullRequestDescriptionCommandOutput extends UpdatePullRequestDescriptionOutput, __MetadataBearer {}
 
 /**
- * <p>Replaces the contents of the description of a pull request.</p>
+ * Replaces the contents of the description of a pull request.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -92,24 +93,28 @@ export interface UpdatePullRequestDescriptionCommandOutput extends UpdatePullReq
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  * @throws {@link InvalidDescriptionException} (client fault)
- *  <p>The pull request description is not valid. Descriptions cannot be more than 1,000
- *             characters.</p>
+ *
+ * The pull request description is not valid. Descriptions cannot be more than 1,000 characters.
  *
  * @throws {@link InvalidPullRequestIdException} (client fault)
- *  <p>The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.</p>
+ *
+ * The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.
  *
  * @throws {@link PullRequestAlreadyClosedException} (client fault)
- *  <p>The pull request status cannot be updated because it is already closed.</p>
+ *
+ * The pull request status cannot be updated because it is already closed.
  *
  * @throws {@link PullRequestDoesNotExistException} (client fault)
- *  <p>The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.</p>
+ *
+ * The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.
  *
  * @throws {@link PullRequestIdRequiredException} (client fault)
- *  <p>A pull request ID is required, but none was provided.</p>
+ *
+ * A pull request ID is required, but none was provided.
  *
  * @throws {@link CodeCommitServiceException}
- * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * Base exception class for all service exceptions from CodeCommit service.
  *
  * @public
  */

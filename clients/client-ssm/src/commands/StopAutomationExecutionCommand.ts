@@ -23,7 +23,8 @@ export interface StopAutomationExecutionCommandInput extends StopAutomationExecu
 export interface StopAutomationExecutionCommandOutput extends StopAutomationExecutionResult, __MetadataBearer {}
 
 /**
- * <p>Stop an Automation that is currently running.</p>
+ * Stop an Automation that is currently running.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,18 +50,20 @@ export interface StopAutomationExecutionCommandOutput extends StopAutomationExec
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link AutomationExecutionNotFoundException} (client fault)
- *  <p>There is no automation execution information for the requested automation execution
- *    ID.</p>
+ *
+ * There is no automation execution information for the requested automation execution ID.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidAutomationStatusUpdateException} (client fault)
- *  <p>The specified update status operation isn't valid.</p>
+ *
+ * The specified update status operation isn't valid.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

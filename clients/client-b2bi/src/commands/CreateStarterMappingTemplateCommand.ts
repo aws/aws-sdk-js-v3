@@ -23,7 +23,14 @@ export interface CreateStarterMappingTemplateCommandInput extends CreateStarterM
 export interface CreateStarterMappingTemplateCommandOutput extends CreateStarterMappingTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Amazon Web Services B2B Data Interchange uses a mapping template in JSONata or XSLT format to transform a customer input file into a JSON or XML file that can be converted to EDI.</p> <p>If you provide a sample EDI file with the same structure as the EDI files that you wish to generate, then the service can generate a mapping template. The starter template contains placeholder values which you can replace with JSONata or XSLT expressions to take data from your input file and insert it into the JSON or XML file that is used to generate the EDI.</p> <p>If you do not provide a sample EDI file, then the service can generate a mapping template based on the EDI settings in the <code>templateDetails</code> parameter. </p> <p> Currently, we only support generating a template that can generate the input to produce an Outbound X12 EDI file.</p>
+ * Amazon Web Services B2B Data Interchange uses a mapping template in JSONata or XSLT format to transform a customer input file into a JSON or XML file that can be converted to EDI.
+ *
+ * If you provide a sample EDI file with the same structure as the EDI files that you wish to generate, then the service can generate a mapping template. The starter template contains placeholder values which you can replace with JSONata or XSLT expressions to take data from your input file and insert it into the JSON or XML file that is used to generate the EDI.
+ *
+ * If you do not provide a sample EDI file, then the service can generate a mapping template based on the EDI settings in the `templateDetails` parameter.
+ *
+ * Currently, we only support generating a template that can generate the input to produce an Outbound X12 EDI file.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,20 +67,24 @@ export interface CreateStarterMappingTemplateCommandOutput extends CreateStarter
  * @see {@link B2biClientResolvedConfig | config} for B2biClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception is thrown when an error occurs in the Amazon Web Services B2B Data Interchange service.</p>
+ *
+ * This exception is thrown when an error occurs in the Amazon Web Services B2B Data Interchange service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Occurs when the requested resource does not exist, or cannot be found. In some cases, the resource exists in a region other than the region specified in the API call.</p>
+ *
+ * Occurs when the requested resource does not exist, or cannot be found. In some cases, the resource exists in a region other than the region specified in the API call.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Occurs when a B2BI object cannot be validated against a request from another object. This exception can be thrown during standard EDI validation or when custom validation rules fail, such as when element length constraints are violated, invalid codes are used in code list validations, or required elements are missing based on configured element requirement rules.</p>
+ *
+ * Occurs when a B2BI object cannot be validated against a request from another object. This exception can be thrown during standard EDI validation or when custom validation rules fail, such as when element length constraints are violated, invalid codes are used in code list validations, or required elements are missing based on configured element requirement rules.
  *
  * @throws {@link B2biServiceException}
- * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
+ * Base exception class for all service exceptions from B2bi service.
  *
  * @example Sample CreateStarterMappingTemplate call
  * ```javascript

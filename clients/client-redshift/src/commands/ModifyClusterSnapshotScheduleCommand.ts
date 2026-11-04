@@ -23,7 +23,8 @@ export interface ModifyClusterSnapshotScheduleCommandInput extends ModifyCluster
 export interface ModifyClusterSnapshotScheduleCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Modifies a snapshot schedule for a cluster.</p>
+ * Modifies a snapshot schedule for a cluster.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,18 +51,20 @@ export interface ModifyClusterSnapshotScheduleCommandOutput extends __MetadataBe
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
- *         </p>
+ *
+ * The `ClusterIdentifier` parameter does not refer to an existing cluster.
  *
  * @throws {@link InvalidClusterSnapshotScheduleStateFault} (client fault)
- *  <p>The cluster snapshot schedule state is not valid.</p>
+ *
+ * The cluster snapshot schedule state is not valid.
  *
  * @throws {@link SnapshotScheduleNotFoundFault} (client fault)
- *  <p>We could not find the specified snapshot schedule. </p>
+ *
+ * We could not find the specified snapshot schedule.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

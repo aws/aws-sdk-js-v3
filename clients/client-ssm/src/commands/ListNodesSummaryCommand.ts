@@ -23,8 +23,8 @@ export interface ListNodesSummaryCommandInput extends ListNodesSummaryRequest {}
 export interface ListNodesSummaryCommandOutput extends ListNodesSummaryResult, __MetadataBearer {}
 
 /**
- * <p>Generates a summary of managed instance/node metadata based on the filters and aggregators
- *    you specify. Results are grouped by the input aggregator you specify.</p>
+ * Generates a summary of managed instance/node metadata based on the filters and aggregators you specify. Results are grouped by the input aggregator you specify.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,27 +82,32 @@ export interface ListNodesSummaryCommandOutput extends ListNodesSummaryResult, _
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidAggregatorException} (client fault)
- *  <p>The specified aggregator isn't valid for the group type. Verify that the aggregator you
- *    provided is supported.</p>
+ *
+ * The specified aggregator isn't valid for the group type. Verify that the aggregator you provided is supported.
  *
  * @throws {@link InvalidFilter} (client fault)
- *  <p>The filter name isn't valid. Verify that you entered the correct name and try again.</p>
+ *
+ * The filter name isn't valid. Verify that you entered the correct name and try again.
  *
  * @throws {@link InvalidNextToken} (client fault)
- *  <p>The specified token isn't valid.</p>
+ *
+ * The specified token isn't valid.
  *
  * @throws {@link ResourceDataSyncNotFoundException} (client fault)
- *  <p>The specified sync name wasn't found.</p>
+ *
+ * The specified sync name wasn't found.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>This operation is not supported for the current account. You must first enable the Systems Manager integrated experience in your account.</p>
+ *
+ * This operation is not supported for the current account. You must first enable the Systems Manager integrated experience in your account.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @example ListNodesSummary
  * ```javascript

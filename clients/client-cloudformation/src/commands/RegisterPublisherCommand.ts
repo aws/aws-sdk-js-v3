@@ -23,13 +23,10 @@ export interface RegisterPublisherCommandInput extends RegisterPublisherInput {}
 export interface RegisterPublisherCommandOutput extends RegisterPublisherOutput, __MetadataBearer {}
 
 /**
- * <p>Registers your account as a publisher of public extensions in the CloudFormation registry.
- *       Public extensions are available for use by all CloudFormation users. This publisher ID applies to
- *       your account in all Amazon Web Services Regions.</p>
- *          <p>For information about requirements for registering as a public extension publisher, see
- *         <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-prereqs">Prerequisite: Registering your account to publish CloudFormation extensions</a> in the
- *         <i>CloudFormation Command Line Interface (CLI) User Guide</i>.</p>
- *          <p></p>
+ * Registers your account as a publisher of public extensions in the CloudFormation registry. Public extensions are available for use by all CloudFormation users. This publisher ID applies to your account in all Amazon Web Services Regions.
+ *
+ * For information about requirements for registering as a public extension publisher, see [Prerequisite: Registering your account to publish CloudFormation extensions](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-prereqs) in the *CloudFormation Command Line Interface (CLI) User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,11 +54,12 @@ export interface RegisterPublisherCommandOutput extends RegisterPublisherOutput,
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link CFNRegistryException} (client fault)
- *  <p>An error occurred during a CloudFormation registry operation.</p>
+ *
+ * An error occurred during a CloudFormation registry operation.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

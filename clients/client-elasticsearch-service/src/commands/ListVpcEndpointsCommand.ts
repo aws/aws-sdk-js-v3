@@ -23,7 +23,8 @@ export interface ListVpcEndpointsCommandInput extends ListVpcEndpointsRequest {}
 export interface ListVpcEndpointsCommandOutput extends ListVpcEndpointsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves all Amazon OpenSearch Service-managed VPC endpoints in the current account and Region.</p>
+ * Retrieves all Amazon OpenSearch Service-managed VPC endpoints in the current account and Region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,17 +59,20 @@ export interface ListVpcEndpointsCommandOutput extends ListVpcEndpointsResponse,
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
  *
  * @throws {@link BaseException} (client fault)
- *  <p>An error occurred while processing the request.</p>
+ *
+ * An error occurred while processing the request.
  *
  * @throws {@link DisabledOperationException} (client fault)
- *  <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+ *
+ * An error occured because the client wanted to access a not supported operation. Gives http status code of 409.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.
  *
  * @throws {@link ElasticsearchServiceServiceException}
- * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ * Base exception class for all service exceptions from ElasticsearchService service.
  *
  * @public
  */

@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>Recovery Control Configuration API Reference for Amazon Route 53 Application Recovery Controller</p>
+ * Recovery Control Configuration API Reference for Amazon Route 53 Application Recovery Controller
  *
  * @packageDocumentation
  */

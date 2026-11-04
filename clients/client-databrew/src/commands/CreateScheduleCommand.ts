@@ -23,8 +23,8 @@ export interface CreateScheduleCommandInput extends CreateScheduleRequest {}
 export interface CreateScheduleCommandOutput extends CreateScheduleResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new schedule for one or more DataBrew jobs. Jobs can be run at a specific
- *             date and time, or at regular intervals.</p>
+ * Creates a new schedule for one or more DataBrew jobs. Jobs can be run at a specific date and time, or at regular intervals.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,17 +58,20 @@ export interface CreateScheduleCommandOutput extends CreateScheduleResponse, __M
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ *
+ * Updating or deleting a resource can cause an inconsistent state.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>A service quota is exceeded.</p>
+ *
+ * A service quota is exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input parameters for this request failed validation.</p>
+ *
+ * The input parameters for this request failed validation.
  *
  * @throws {@link DataBrewServiceException}
- * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ * Base exception class for all service exceptions from DataBrew service.
  *
  * @public
  */

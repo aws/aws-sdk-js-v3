@@ -23,7 +23,8 @@ export interface DescribeFlowCommandInput extends DescribeFlowRequest {}
 export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __MetadataBearer {}
 
 /**
- * <p> Provides a description of the specified flow. </p>
+ * Provides a description of the specified flow.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -357,16 +358,16 @@ export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __Metad
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> An internal service error occurred during the processing of your request. Try again
- *       later. </p>
+ *
+ * An internal service error occurred during the processing of your request. Try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The resource specified in the request (such as the source or destination connector
- *       profile) is not found. </p>
+ *
+ * The resource specified in the request (such as the source or destination connector profile) is not found.
  *
  * @throws {@link AppflowServiceException}
- * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ * Base exception class for all service exceptions from Appflow service.
  *
  * @public
  */

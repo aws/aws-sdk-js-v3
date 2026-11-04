@@ -23,7 +23,12 @@ export interface DeleteRealtimeLogConfigCommandInput extends DeleteRealtimeLogCo
 export interface DeleteRealtimeLogConfigCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a real-time log configuration.</p> <p>You cannot delete a real-time log configuration if it's attached to a cache behavior. First update your distributions to remove the real-time log configuration from all cache behaviors, then delete the real-time log configuration.</p> <p>To delete a real-time log configuration, you can provide the configuration's name or its Amazon Resource Name (ARN). You must provide at least one. If you provide both, CloudFront uses the name to identify the real-time log configuration to delete.</p>
+ * Deletes a real-time log configuration.
+ *
+ * You cannot delete a real-time log configuration if it's attached to a cache behavior. First update your distributions to remove the real-time log configuration from all cache behaviors, then delete the real-time log configuration.
+ *
+ * To delete a real-time log configuration, you can provide the configuration's name or its Amazon Resource Name (ARN). You must provide at least one. If you provide both, CloudFront uses the name to identify the real-time log configuration to delete.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,20 +54,24 @@ export interface DeleteRealtimeLogConfigCommandOutput extends __MetadataBearer {
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link AccessDenied} (client fault)
- *  <p>Access denied.</p>
+ *
+ * Access denied.
  *
  * @throws {@link InvalidArgument} (client fault)
- *  <p>An argument is invalid.</p>
+ *
+ * An argument is invalid.
  *
  * @throws {@link NoSuchRealtimeLogConfig} (client fault)
- *  <p>The real-time log configuration does not exist.</p>
+ *
+ * The real-time log configuration does not exist.
  *
  * @throws {@link RealtimeLogConfigInUse} (client fault)
- *  <p>Cannot delete the real-time log configuration because it is attached to one or more cache behaviors.</p>
+ *
+ * Cannot delete the real-time log configuration because it is attached to one or more cache behaviors.
  *
  * @throws {@link CloudFrontServiceException}
- * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * Base exception class for all service exceptions from CloudFront service.
  *
  * @public
  */

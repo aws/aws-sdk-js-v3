@@ -23,10 +23,10 @@ export interface ConnectDirectoryCommandInput extends ConnectDirectoryRequest {}
 export interface ConnectDirectoryCommandOutput extends ConnectDirectoryResult, __MetadataBearer {}
 
 /**
- * <p>Creates an AD Connector to connect to a self-managed directory.</p>
- *          <p>Before you call <code>ConnectDirectory</code>, ensure that all of the required permissions
- *       have been explicitly granted through a policy. For details about what permissions are required
- *       to run the <code>ConnectDirectory</code> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">Directory Service API Permissions: Actions, Resources, and Conditions Reference</a>.</p>
+ * Creates an AD Connector to connect to a self-managed directory.
+ *
+ * Before you call `ConnectDirectory`, ensure that all of the required permissions have been explicitly granted through a policy. For details about what permissions are required to run the `ConnectDirectory` operation, see [Directory Service API Permissions: Actions, Resources, and Conditions Reference](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,22 +77,24 @@ export interface ConnectDirectoryCommandOutput extends ConnectDirectoryResult, _
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>A client exception has occurred.</p>
+ *
+ * A client exception has occurred.
  *
  * @throws {@link DirectoryLimitExceededException} (client fault)
- *  <p>The maximum number of directories in the region has been reached. You can use the
- *                 <a>GetDirectoryLimits</a> operation to determine your directory limits in
- *             the region.</p>
+ *
+ * The maximum number of directories in the region has been reached. You can use the GetDirectoryLimits operation to determine your directory limits in the region.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * An exception has occurred in Directory Service.
  *
  * @throws {@link DirectoryServiceServiceException}
- * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * Base exception class for all service exceptions from DirectoryService service.
  *
  * @example To connect to an on-premises directory
  * ```javascript

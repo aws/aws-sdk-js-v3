@@ -23,19 +23,12 @@ export interface ListIdentitiesCommandInput extends ListIdentitiesRequest {}
 export interface ListIdentitiesCommandOutput extends ListIdentitiesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list containing all of the identities (email addresses and domains) for your
- *             Amazon Web Services account in the current Amazon Web Services Region, regardless of verification status.</p>
- *          <p>You can execute this operation no more than once per second.</p>
- *          <note>
- *             <p>It's recommended that for successive pagination calls of this API, you continue to
- *                 the use the same parameter/value pairs as used in the original call, e.g., if you
- *                 used <code>IdentityType=Domain</code> in the the original call and received a
- *                     <code>NextToken</code> in the response, you should continue providing the
- *                     <code>IdentityType=Domain</code> parameter for further <code>NextToken</code>
- *                 calls; however, if you didn't provide the <code>IdentityType</code> parameter in the
- *                 original call, then continue to not provide it for successive pagination calls.
- *                 Using this protocol will ensure consistent results.</p>
- *          </note>
+ * Returns a list containing all of the identities (email addresses and domains) for your Amazon Web Services account in the current Amazon Web Services Region, regardless of verification status.
+ *
+ * You can execute this operation no more than once per second.
+ *
+ * > **Note:** It's recommended that for successive pagination calls of this API, you continue to the use the same parameter/value pairs as used in the original call, e.g., if you used `IdentityType=Domain` in the the original call and received a `NextToken` in the response, you should continue providing the `IdentityType=Domain` parameter for further `NextToken` calls; however, if you didn't provide the `IdentityType` parameter in the original call, then continue to not provide it for successive pagination calls. Using this protocol will ensure consistent results.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,8 +60,8 @@ export interface ListIdentitiesCommandOutput extends ListIdentitiesResponse, __M
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @example ListIdentities
  * ```javascript

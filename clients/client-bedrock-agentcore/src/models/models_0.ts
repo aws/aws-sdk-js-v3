@@ -56,55 +56,64 @@ import type {
 } from "./errors";
 
 /**
- * <p> The agent card definition for A2A descriptors, including the schema version and inline content that describes the agent's capabilities.</p>
+ * The agent card definition for A2A descriptors, including the schema version and inline content that describes the agent's capabilities.
+ *
  * @public
  */
 export interface AgentCardDefinition {
   /**
-   * <p> The schema version of the agent card definition.</p>
+   * The schema version of the agent card definition.
+   *
    * @public
    */
   schemaVersion?: string | undefined;
 
   /**
-   * <p> The inline content of the agent card definition.</p>
+   * The inline content of the agent card definition.
+   *
    * @public
    */
   inlineContent?: string | undefined;
 }
 
 /**
- * <p> The A2A (Agent-to-Agent) descriptor configuration for a registry record.</p>
+ * The A2A (Agent-to-Agent) descriptor configuration for a registry record.
+ *
  * @public
  */
 export interface A2aDescriptor {
   /**
-   * <p> The agent card definition that describes the agent's capabilities and interface.</p>
+   * The agent card definition that describes the agent's capabilities and interface.
+   *
    * @public
    */
   agentCard: AgentCardDefinition | undefined;
 }
 
 /**
- * <p>An online evaluation configuration associated with a specific A/B test variant.</p>
+ * An online evaluation configuration associated with a specific A/B test variant.
+ *
  * @public
  */
 export interface PerVariantOnlineEvaluationConfig {
   /**
-   * <p>The name of the variant this evaluation configuration applies to.</p>
+   * The name of the variant this evaluation configuration applies to.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the online evaluation configuration for this variant.</p>
+   * The Amazon Resource Name (ARN) of the online evaluation configuration for this variant.
+   *
    * @public
    */
   onlineEvaluationConfigArn: string | undefined;
 }
 
 /**
- * <p>The evaluation configuration for an A/B test, specifying which online evaluation configurations to use for measuring variant performance.</p>
+ * The evaluation configuration for an A/B test, specifying which online evaluation configurations to use for measuring variant performance.
+ *
  * @public
  */
 export type ABTestEvaluationConfig =
@@ -117,7 +126,8 @@ export type ABTestEvaluationConfig =
  */
 export namespace ABTestEvaluationConfig {
   /**
-   * <p>The Amazon Resource Name (ARN) of a single online evaluation configuration to use for both variants.</p>
+   * The Amazon Resource Name (ARN) of a single online evaluation configuration to use for both variants.
+   *
    * @public
    */
   export interface OnlineEvaluationConfigArnMember {
@@ -127,7 +137,8 @@ export namespace ABTestEvaluationConfig {
   }
 
   /**
-   * <p>Per-variant online evaluation configurations, allowing different evaluation settings for each variant.</p>
+   * Per-variant online evaluation configurations, allowing different evaluation settings for each variant.
+   *
    * @public
    */
   export interface PerVariantOnlineEvaluationConfigMember {
@@ -157,294 +168,343 @@ export namespace ABTestEvaluationConfig {
 }
 
 /**
- * <p>Statistics for the control variant in an A/B test.</p>
+ * Statistics for the control variant in an A/B test.
+ *
  * @public
  */
 export interface ControlStats {
   /**
-   * <p>The name of the control variant.</p>
+   * The name of the control variant.
+   *
    * @public
    */
   variantName: string | undefined;
 
   /**
-   * <p>The number of sessions evaluated for the control variant.</p>
+   * The number of sessions evaluated for the control variant.
+   *
    * @public
    */
   sampleSize: number | undefined;
 
   /**
-   * <p>The mean evaluation score for the control variant.</p>
+   * The mean evaluation score for the control variant.
+   *
    * @public
    */
   mean: number | undefined;
 }
 
 /**
- * <p>A confidence interval for a statistical measurement.</p>
+ * A confidence interval for a statistical measurement.
+ *
  * @public
  */
 export interface ConfidenceInterval {
   /**
-   * <p>The lower bound of the confidence interval.</p>
+   * The lower bound of the confidence interval.
+   *
    * @public
    */
   lower?: number | undefined;
 
   /**
-   * <p>The upper bound of the confidence interval.</p>
+   * The upper bound of the confidence interval.
+   *
    * @public
    */
   upper?: number | undefined;
 }
 
 /**
- * <p>Statistical results for a treatment variant compared against the control.</p>
+ * Statistical results for a treatment variant compared against the control.
+ *
  * @public
  */
 export interface VariantResult {
   /**
-   * <p>The name of the treatment variant.</p>
+   * The name of the treatment variant.
+   *
    * @public
    */
   variantName: string | undefined;
 
   /**
-   * <p>The number of sessions evaluated for this variant.</p>
+   * The number of sessions evaluated for this variant.
+   *
    * @public
    */
   sampleSize: number | undefined;
 
   /**
-   * <p>The mean evaluation score for this variant.</p>
+   * The mean evaluation score for this variant.
+   *
    * @public
    */
   mean: number | undefined;
 
   /**
-   * <p>The absolute change in mean score compared to the control variant.</p>
+   * The absolute change in mean score compared to the control variant.
+   *
    * @public
    */
   absoluteChange?: number | undefined;
 
   /**
-   * <p>The percentage change in mean score compared to the control variant.</p>
+   * The percentage change in mean score compared to the control variant.
+   *
    * @public
    */
   percentChange?: number | undefined;
 
   /**
-   * <p>The p-value indicating the statistical significance of the observed difference.</p>
+   * The p-value indicating the statistical significance of the observed difference.
+   *
    * @public
    */
   pValue?: number | undefined;
 
   /**
-   * <p>The confidence interval for the observed difference.</p>
+   * The confidence interval for the observed difference.
+   *
    * @public
    */
   confidenceInterval?: ConfidenceInterval | undefined;
 
   /**
-   * <p>Whether the observed difference is statistically significant.</p>
+   * Whether the observed difference is statistically significant.
+   *
    * @public
    */
   isSignificant: boolean | undefined;
 }
 
 /**
- * <p>Statistical metrics for a single evaluator comparing control and treatment variants.</p>
+ * Statistical metrics for a single evaluator comparing control and treatment variants.
+ *
  * @public
  */
 export interface EvaluatorMetric {
   /**
-   * <p>The Amazon Resource Name (ARN) of the evaluator.</p>
+   * The Amazon Resource Name (ARN) of the evaluator.
+   *
    * @public
    */
   evaluatorArn: string | undefined;
 
   /**
-   * <p>The statistics for the control variant.</p>
+   * The statistics for the control variant.
+   *
    * @public
    */
   controlStats: ControlStats | undefined;
 
   /**
-   * <p>The results for each treatment variant compared against the control.</p>
+   * The results for each treatment variant compared against the control.
+   *
    * @public
    */
   variantResults: VariantResult[] | undefined;
 }
 
 /**
- * <p>The statistical results of an A/B test.</p>
+ * The statistical results of an A/B test.
+ *
  * @public
  */
 export interface ABTestResults {
   /**
-   * <p>The timestamp when the analysis was performed.</p>
+   * The timestamp when the analysis was performed.
+   *
    * @public
    */
   analysisTimestamp?: Date | undefined;
 
   /**
-   * <p>The per-evaluator metrics comparing control and treatment variants.</p>
+   * The per-evaluator metrics comparing control and treatment variants.
+   *
    * @public
    */
   evaluatorMetrics: EvaluatorMetric[] | undefined;
 }
 
 /**
- * <p>Summary information about an A/B test.</p>
+ * Summary information about an A/B test.
+ *
  * @public
  */
 export interface ABTestSummary {
   /**
-   * <p>The unique identifier of the A/B test.</p>
+   * The unique identifier of the A/B test.
+   *
    * @public
    */
   abTestId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the A/B test.</p>
+   * The Amazon Resource Name (ARN) of the A/B test.
+   *
    * @public
    */
   abTestArn: string | undefined;
 
   /**
-   * <p>The name of the A/B test.</p>
+   * The name of the A/B test.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The current status of the A/B test.</p>
+   * The current status of the A/B test.
+   *
    * @public
    */
   status: ABTestStatus | undefined;
 
   /**
-   * <p>The execution status of the A/B test.</p>
+   * The execution status of the A/B test.
+   *
    * @public
    */
   executionStatus: ABTestExecutionStatus | undefined;
 
   /**
-   * <p>The description of the A/B test.</p>
+   * The description of the A/B test.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the gateway used for traffic splitting.</p>
+   * The Amazon Resource Name (ARN) of the gateway used for traffic splitting.
+   *
    * @public
    */
   gatewayArn?: string | undefined;
 
   /**
-   * <p>The timestamp when the A/B test was created.</p>
+   * The timestamp when the A/B test was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the A/B test was last updated.</p>
+   * The timestamp when the A/B test was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 }
 
 /**
- * <p>Contains summary information about an actor in an AgentCore Memory resource.</p>
+ * Contains summary information about an actor in an AgentCore Memory resource.
+ *
  * @public
  */
 export interface ActorSummary {
   /**
-   * <p>The unique identifier of the actor.</p>
+   * The unique identifier of the actor.
+   *
    * @public
    */
   actorId: string | undefined;
 }
 
 /**
- * <p>A signal indicating a detected failure within a span.</p>
+ * A signal indicating a detected failure within a span.
+ *
  * @public
  */
 export interface InsightsFailureSignal {
   /**
-   * <p>The failure category classification for this signal.</p>
+   * The failure category classification for this signal.
+   *
    * @public
    */
   category: InsightsFailureCategory | undefined;
 
   /**
-   * <p>The evidence supporting the failure detection.</p>
+   * The evidence supporting the failure detection.
+   *
    * @public
    */
   evidence: string | undefined;
 
   /**
-   * <p>The confidence score of the failure detection.</p>
+   * The confidence score of the failure detection.
+   *
    * @public
    */
   confidence: number | undefined;
 }
 
 /**
- * <p>Details about a specific span where a failure was detected.</p>
+ * Details about a specific span where a failure was detected.
+ *
  * @public
  */
 export interface FailureSpanDetail {
   /**
-   * <p>The unique identifier of the span where the failure occurred.</p>
+   * The unique identifier of the span where the failure occurred.
+   *
    * @public
    */
   spanId: string | undefined;
 
   /**
-   * <p>The trace identifier associated with the failure span.</p>
+   * The trace identifier associated with the failure span.
+   *
    * @public
    */
   traceId: string | undefined;
 
   /**
-   * <p>The failure signals detected in this span.</p>
+   * The failure signals detected in this span.
+   *
    * @public
    */
   signals: InsightsFailureSignal[] | undefined;
 }
 
 /**
- * <p>A session affected by a detected failure pattern, including root cause details.</p>
+ * A session affected by a detected failure pattern, including root cause details.
+ *
  * @public
  */
 export interface AffectedSession {
   /**
-   * <p>The unique identifier of the affected session.</p>
+   * The unique identifier of the affected session.
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>An explanation of how the failure manifested in this session.</p>
+   * An explanation of how the failure manifested in this session.
+   *
    * @public
    */
   explanation: string | undefined;
 
   /**
-   * <p>The type of fix recommended for this failure.</p>
+   * The type of fix recommended for this failure.
+   *
    * @public
    */
   fixType: string | undefined;
 
   /**
-   * <p>The specific fix recommendation for this session.</p>
+   * The specific fix recommendation for this session.
+   *
    * @public
    */
   recommendation: string | undefined;
 
   /**
-   * <p>The list of spans where failures were detected in this session.</p>
+   * The list of spans where failures were detected in this session.
+   *
    * @public
    */
   failureSpans: FailureSpanDetail[] | undefined;
@@ -455,19 +515,22 @@ export interface AffectedSession {
  */
 export interface GetAgentCardRequest {
   /**
-   * <p>The session ID that the AgentCore Runtime agent is using. </p>
+   * The session ID that the AgentCore Runtime agent is using.
+   *
    * @public
    */
   runtimeSessionId?: string | undefined;
 
   /**
-   * <p>The ARN of the AgentCore Runtime agent for which you want to get the A2A agent card.</p>
+   * The ARN of the AgentCore Runtime agent for which you want to get the A2A agent card.
+   *
    * @public
    */
   agentRuntimeArn: string | undefined;
 
   /**
-   * <p>Optional qualifier to specify an agent alias, such as <code>prod</code>code&gt; or <code>dev</code>. If you don't provide a value, the DEFAULT alias is used. </p>
+   * Optional qualifier to specify an agent alias, such as `prod`code&gt; or `dev`. If you don't provide a value, the DEFAULT alias is used.
+   *
    * @public
    */
   qualifier?: string | undefined;
@@ -478,37 +541,43 @@ export interface GetAgentCardRequest {
  */
 export interface GetAgentCardResponse {
   /**
-   * <p>The ID of the session associated with the AgentCore Runtime agent.</p>
+   * The ID of the session associated with the AgentCore Runtime agent.
+   *
    * @public
    */
   runtimeSessionId?: string | undefined;
 
   /**
-   * <p>An agent card document that contains metadata and capabilities for an AgentCore Runtime agent.</p>
+   * An agent card document that contains metadata and capabilities for an AgentCore Runtime agent.
+   *
    * @public
    */
   agentCard: __DocumentType | undefined;
 
   /**
-   * <p>The status code of the request.</p>
+   * The status code of the request.
+   *
    * @public
    */
   statusCode?: number | undefined;
 }
 
 /**
- * <p>Stores information about a field passed inside a request that resulted in an exception.</p>
+ * Stores information about a field passed inside a request that resulted in an exception.
+ *
  * @public
  */
 export interface ValidationExceptionField {
   /**
-   * <p>The name of the field.</p>
+   * The name of the field.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A message describing why this field failed validation.</p>
+   * A message describing why this field failed validation.
+   *
    * @public
    */
   message: string | undefined;
@@ -519,97 +588,117 @@ export interface ValidationExceptionField {
  */
 export interface InvokeAgentRuntimeRequest {
   /**
-   * <p>The MIME type of the input data in the payload. This tells the agent runtime how to interpret the payload data. Common values include application/json for JSON data.</p>
+   * The MIME type of the input data in the payload. This tells the agent runtime how to interpret the payload data. Common values include application/json for JSON data.
+   *
    * @public
    */
   contentType?: string | undefined;
 
   /**
-   * <p>The desired MIME type for the response from the agent runtime. This tells the agent runtime what format to use for the response data. Common values include application/json for JSON data.</p>
+   * The desired MIME type for the response from the agent runtime. This tells the agent runtime what format to use for the response data. Common values include application/json for JSON data.
+   *
    * @public
    */
   accept?: string | undefined;
 
   /**
-   * <p>The identifier of the MCP session.</p>
+   * The identifier of the MCP session.
+   *
    * @public
    */
   mcpSessionId?: string | undefined;
 
   /**
-   * <p>The identifier of the runtime session.</p>
+   * The identifier of the runtime session.
+   *
    * @public
    */
   runtimeSessionId?: string | undefined;
 
   /**
-   * <p>The version of the MCP protocol being used.</p>
+   * The version of the MCP protocol being used.
+   *
    * @public
    */
   mcpProtocolVersion?: string | undefined;
 
   /**
-   * <p>The MCP method being invoked. For example, <code>tools/call</code>, <code>resources/read</code>, or <code>prompts/get</code>.</p>
+   * The MCP method being invoked. For example, `tools/call`, `resources/read`, or `prompts/get`.
+   *
    * @public
    */
   mcpMethod?: string | undefined;
 
   /**
-   * <p>The name of the MCP resource, tool, or prompt being accessed. The value depends on the method:</p> <ul> <li> <p> <code>tools/call</code> – The tool name.</p> </li> <li> <p> <code>resources/read</code> – The resource URI.</p> </li> <li> <p> <code>prompts/get</code> – The prompt name.</p> </li> </ul>
+   * The name of the MCP resource, tool, or prompt being accessed. The value depends on the method:
+   *
+   * - `tools/call` – The tool name.
+   * - `resources/read` – The resource URI.
+   * - `prompts/get` – The prompt name.
+   *
    * @public
    */
   mcpName?: string | undefined;
 
   /**
-   * <p>The identifier of the runtime user.</p>
+   * The identifier of the runtime user.
+   *
    * @public
    */
   runtimeUserId?: string | undefined;
 
   /**
-   * <p>The trace identifier for request tracking.</p>
+   * The trace identifier for request tracking.
+   *
    * @public
    */
   traceId?: string | undefined;
 
   /**
-   * <p>The parent trace information for distributed tracing.</p>
+   * The parent trace information for distributed tracing.
+   *
    * @public
    */
   traceParent?: string | undefined;
 
   /**
-   * <p>The trace state information for distributed tracing.</p>
+   * The trace state information for distributed tracing.
+   *
    * @public
    */
   traceState?: string | undefined;
 
   /**
-   * <p>Additional context information for distributed tracing.</p>
+   * Additional context information for distributed tracing.
+   *
    * @public
    */
   baggage?: string | undefined;
 
   /**
-   * <p>The identifier of the agent runtime to invoke. You can specify either the full Amazon Web Services Resource Name (ARN) or the agent ID. If you use the agent ID, you must also provide the <code>accountId</code> query parameter.</p>
+   * The identifier of the agent runtime to invoke. You can specify either the full Amazon Web Services Resource Name (ARN) or the agent ID. If you use the agent ID, you must also provide the `accountId` query parameter.
+   *
    * @public
    */
   agentRuntimeArn: string | undefined;
 
   /**
-   * <p>The qualifier to use for the agent runtime. This is an endpoint name that points to a specific version. If not specified, Amazon Bedrock AgentCore uses the default endpoint of the agent runtime.</p>
+   * The qualifier to use for the agent runtime. This is an endpoint name that points to a specific version. If not specified, Amazon Bedrock AgentCore uses the default endpoint of the agent runtime.
+   *
    * @public
    */
   qualifier?: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Web Services account for the agent runtime resource. This parameter is required when you specify an agent ID instead of the full ARN for <code>agentRuntimeArn</code>.</p>
+   * The identifier of the Amazon Web Services account for the agent runtime resource. This parameter is required when you specify an agent ID instead of the full ARN for `agentRuntimeArn`.
+   *
    * @public
    */
   accountId?: string | undefined;
 
   /**
-   * <p>The input data to send to the agent runtime. The format of this data depends on the specific agent configuration and must match the specified content type. For most agents, this is a JSON object containing the user's request.</p>
+   * The input data to send to the agent runtime. The format of this data depends on the specific agent configuration and must match the specified content type. For most agents, this is a JSON object containing the user's request.
+   *
    * @public
    */
   payload: Uint8Array | undefined;
@@ -620,230 +709,268 @@ export interface InvokeAgentRuntimeRequest {
  */
 export interface InvokeAgentRuntimeResponse {
   /**
-   * <p>The identifier of the runtime session.</p>
+   * The identifier of the runtime session.
+   *
    * @public
    */
   runtimeSessionId?: string | undefined;
 
   /**
-   * <p>The HTTPS endpoint that addresses this runtime session directly. This value is returned only when the agent runtime is configured with allowed ports and direct runtime access is available for the session. If this value is not present, use <code>InvokeAgentRuntime</code> to communicate with the session.</p>
+   * The HTTPS endpoint that addresses this runtime session directly. This value is returned only when the agent runtime is configured with allowed ports and direct runtime access is available for the session. If this value is not present, use `InvokeAgentRuntime` to communicate with the session.
+   *
    * @public
    */
   sessionEndpointUrl?: string | undefined;
 
   /**
-   * <p>The identifier of the MCP session.</p>
+   * The identifier of the MCP session.
+   *
    * @public
    */
   mcpSessionId?: string | undefined;
 
   /**
-   * <p>The version of the MCP protocol being used.</p>
+   * The version of the MCP protocol being used.
+   *
    * @public
    */
   mcpProtocolVersion?: string | undefined;
 
   /**
-   * <p>The trace identifier for request tracking.</p>
+   * The trace identifier for request tracking.
+   *
    * @public
    */
   traceId?: string | undefined;
 
   /**
-   * <p>The parent trace information for distributed tracing.</p>
+   * The parent trace information for distributed tracing.
+   *
    * @public
    */
   traceParent?: string | undefined;
 
   /**
-   * <p>The trace state information for distributed tracing.</p>
+   * The trace state information for distributed tracing.
+   *
    * @public
    */
   traceState?: string | undefined;
 
   /**
-   * <p>Additional context information for distributed tracing.</p>
+   * Additional context information for distributed tracing.
+   *
    * @public
    */
   baggage?: string | undefined;
 
   /**
-   * <p>The MIME type of the response data. This indicates how to interpret the response data. Common values include application/json for JSON data.</p>
+   * The MIME type of the response data. This indicates how to interpret the response data. Common values include application/json for JSON data.
+   *
    * @public
    */
   contentType: string | undefined;
 
   /**
-   * <p>The response data from the agent runtime. The format of this data depends on the specific agent configuration and the requested accept type. For most agents, this is a JSON object containing the agent's response to the user's request.</p>
+   * The response data from the agent runtime. The format of this data depends on the specific agent configuration and the requested accept type. For most agents, this is a JSON object containing the agent's response to the user's request.
+   *
    * @public
    */
   response?: StreamingBlobTypes | undefined;
 
   /**
-   * <p>The HTTP status code of the response. A status code of 200 indicates a successful operation. Other status codes indicate various error conditions.</p>
+   * The HTTP status code of the response. A status code of 200 indicates a successful operation. Other status codes indicate various error conditions.
+   *
    * @public
    */
   statusCode?: number | undefined;
 }
 
 /**
- * <p>The request body structure for the <code>InvokeAgentRuntimeCommand</code> operation, containing the command to execute and optional configuration parameters.</p>
+ * The request body structure for the `InvokeAgentRuntimeCommand` operation, containing the command to execute and optional configuration parameters.
+ *
  * @public
  */
 export interface InvokeAgentRuntimeCommandRequestBody {
   /**
-   * <p>The shell command to execute on the agent runtime. This command is executed in the runtime environment and its output is streamed back to the caller.</p>
+   * The shell command to execute on the agent runtime. This command is executed in the runtime environment and its output is streamed back to the caller.
+   *
    * @public
    */
   command: string | undefined;
 
   /**
-   * <p>The maximum duration in seconds to wait for the command to complete. If the command execution exceeds this timeout, it will be terminated. Default is 300 seconds. Minimum is 1 second. Maximum is 3600 seconds.</p>
+   * The maximum duration in seconds to wait for the command to complete. If the command execution exceeds this timeout, it will be terminated. Default is 300 seconds. Minimum is 1 second. Maximum is 3600 seconds.
+   *
    * @public
    */
   timeout?: number | undefined;
 }
 
 /**
- * <p>Request for InvokeAgentRuntimeCommand operation.</p>
+ * Request for InvokeAgentRuntimeCommand operation.
+ *
  * @public
  */
 export interface InvokeAgentRuntimeCommandRequest {
   /**
-   * <p>The MIME type of the input data in the request payload. This tells the agent runtime how to interpret the payload data. Common values include application/json for JSON data.</p>
+   * The MIME type of the input data in the request payload. This tells the agent runtime how to interpret the payload data. Common values include application/json for JSON data.
+   *
    * @public
    */
   contentType?: string | undefined;
 
   /**
-   * <p>The desired MIME type for the response from the agent runtime command. This tells the agent runtime what format to use for the response data. Common values include application/json for JSON data.</p>
+   * The desired MIME type for the response from the agent runtime command. This tells the agent runtime what format to use for the response data. Common values include application/json for JSON data.
+   *
    * @public
    */
   accept?: string | undefined;
 
   /**
-   * <p>The unique identifier of the runtime session in which to execute the command. This session ID is used to maintain state and context across multiple command invocations.</p>
+   * The unique identifier of the runtime session in which to execute the command. This session ID is used to maintain state and context across multiple command invocations.
+   *
    * @public
    */
   runtimeSessionId?: string | undefined;
 
   /**
-   * <p>The trace identifier for request tracking.</p>
+   * The trace identifier for request tracking.
+   *
    * @public
    */
   traceId?: string | undefined;
 
   /**
-   * <p>The parent trace information for distributed tracing.</p>
+   * The parent trace information for distributed tracing.
+   *
    * @public
    */
   traceParent?: string | undefined;
 
   /**
-   * <p>The trace state information for distributed tracing.</p>
+   * The trace state information for distributed tracing.
+   *
    * @public
    */
   traceState?: string | undefined;
 
   /**
-   * <p>Additional context information for distributed tracing.</p>
+   * Additional context information for distributed tracing.
+   *
    * @public
    */
   baggage?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the agent runtime on which to execute the command. This identifies the specific agent runtime environment where the command will run.</p>
+   * The Amazon Resource Name (ARN) of the agent runtime on which to execute the command. This identifies the specific agent runtime environment where the command will run.
+   *
    * @public
    */
   agentRuntimeArn: string | undefined;
 
   /**
-   * <p>The qualifier to use for the agent runtime. This is an endpoint name that points to a specific version. If not specified, Amazon Bedrock AgentCore uses the default endpoint of the agent runtime.</p>
+   * The qualifier to use for the agent runtime. This is an endpoint name that points to a specific version. If not specified, Amazon Bedrock AgentCore uses the default endpoint of the agent runtime.
+   *
    * @public
    */
   qualifier?: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Web Services account for the agent runtime resource. This parameter is required when you specify an agent ID instead of the full ARN for <code>agentRuntimeArn</code>.</p>
+   * The identifier of the Amazon Web Services account for the agent runtime resource. This parameter is required when you specify an agent ID instead of the full ARN for `agentRuntimeArn`.
+   *
    * @public
    */
   accountId?: string | undefined;
 
   /**
-   * <p>The request body containing the command to execute and optional configuration parameters such as timeout settings.</p>
+   * The request body containing the command to execute and optional configuration parameters such as timeout settings.
+   *
    * @public
    */
   body: InvokeAgentRuntimeCommandRequestBody | undefined;
 }
 
 /**
- * <p>An event that contains incremental output from a command execution. This event streams standard output and standard error content as it becomes available during command execution.</p>
+ * An event that contains incremental output from a command execution. This event streams standard output and standard error content as it becomes available during command execution.
+ *
  * @public
  */
 export interface ContentDeltaEvent {
   /**
-   * <p>The standard output content from the command execution. This field contains the incremental output written to stdout by the executing command.</p>
+   * The standard output content from the command execution. This field contains the incremental output written to stdout by the executing command.
+   *
    * @public
    */
   stdout?: string | undefined;
 
   /**
-   * <p>The standard error content from the command execution. This field contains the incremental output written to stderr by the executing command.</p>
+   * The standard error content from the command execution. This field contains the incremental output written to stderr by the executing command.
+   *
    * @public
    */
   stderr?: string | undefined;
 }
 
 /**
- * <p>An event that signals the start of content streaming from a command execution. This event is sent when the command begins producing output.</p>
+ * An event that signals the start of content streaming from a command execution. This event is sent when the command begins producing output.
+ *
  * @public
  */
 export interface ContentStartEvent {}
 
 /**
- * <p>An event that signals the completion of a command execution. This event contains the final status and exit code of the executed command.</p>
+ * An event that signals the completion of a command execution. This event contains the final status and exit code of the executed command.
+ *
  * @public
  */
 export interface ContentStopEvent {
   /**
-   * <p>The exit code returned by the executed command. An exit code of 0 indicates successful execution, -1 indicates a platform error, and values greater than 0 indicate command-specific errors.</p>
+   * The exit code returned by the executed command. An exit code of 0 indicates successful execution, -1 indicates a platform error, and values greater than 0 indicate command-specific errors.
+   *
    * @public
    */
   exitCode: number | undefined;
 
   /**
-   * <p>The final status of the command execution. Valid values are <code>COMPLETED</code> for successful completion or <code>TIMED_OUT</code> if the command exceeded the specified timeout.</p>
+   * The final status of the command execution. Valid values are `COMPLETED` for successful completion or `TIMED_OUT` if the command exceeded the specified timeout.
+   *
    * @public
    */
   status: CommandExecutionStatus | undefined;
 }
 
 /**
- * <p>A structure representing a response chunk that contains exactly one of the possible event types: <code>contentStart</code>, <code>contentDelta</code>, or <code>contentStop</code>.</p>
+ * A structure representing a response chunk that contains exactly one of the possible event types: `contentStart`, `contentDelta`, or `contentStop`.
+ *
  * @public
  */
 export interface ResponseChunk {
   /**
-   * <p>An event indicating the start of content streaming from the command execution. This is the first chunk received.</p>
+   * An event indicating the start of content streaming from the command execution. This is the first chunk received.
+   *
    * @public
    */
   contentStart?: ContentStartEvent | undefined;
 
   /**
-   * <p>An event containing incremental output (stdout or stderr) from the command execution. These are the middle chunks.</p>
+   * An event containing incremental output (stdout or stderr) from the command execution. These are the middle chunks.
+   *
    * @public
    */
   contentDelta?: ContentDeltaEvent | undefined;
 
   /**
-   * <p>An event indicating the completion of the command execution, including the exit code and final status. This is the last chunk received.</p>
+   * An event indicating the completion of the command execution, including the exit code and final status. This is the last chunk received.
+   *
    * @public
    */
   contentStop?: ContentStopEvent | undefined;
 }
 
 /**
- * <p>The streaming output union for the <code>InvokeAgentRuntimeCommand</code> operation. This union delivers typed events: <code>contentStart</code> (first), <code>contentDelta</code> (middle), and <code>contentStop</code> (last).</p>
+ * The streaming output union for the `InvokeAgentRuntimeCommand` operation. This union delivers typed events: `contentStart` (first), `contentDelta` (middle), and `contentStop` (last).
+ *
  * @public
  */
 export type InvokeAgentRuntimeCommandStreamOutput =
@@ -862,7 +989,8 @@ export type InvokeAgentRuntimeCommandStreamOutput =
  */
 export namespace InvokeAgentRuntimeCommandStreamOutput {
   /**
-   * <p>A response chunk containing command execution events such as content start, content delta, or content stop events.</p>
+   * A response chunk containing command execution events such as content start, content delta, or content stop events.
+   *
    * @public
    */
   export interface ChunkMember {
@@ -878,7 +1006,8 @@ export namespace InvokeAgentRuntimeCommandStreamOutput {
   }
 
   /**
-   * <p>Exception events for error streaming.</p>
+   * Exception events for error streaming.
+   *
    * @public
    */
   export interface AccessDeniedExceptionMember {
@@ -894,7 +1023,8 @@ export namespace InvokeAgentRuntimeCommandStreamOutput {
   }
 
   /**
-   * <p>The exception that occurs when the service encounters an unexpected internal error. This is a temporary condition that will resolve itself with retries. We recommend implementing exponential backoff retry logic in your application.</p>
+   * The exception that occurs when the service encounters an unexpected internal error. This is a temporary condition that will resolve itself with retries. We recommend implementing exponential backoff retry logic in your application.
+   *
    * @public
    */
   export interface InternalServerExceptionMember {
@@ -910,7 +1040,8 @@ export namespace InvokeAgentRuntimeCommandStreamOutput {
   }
 
   /**
-   * <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+   * The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.
+   *
    * @public
    */
   export interface ResourceNotFoundExceptionMember {
@@ -926,7 +1057,8 @@ export namespace InvokeAgentRuntimeCommandStreamOutput {
   }
 
   /**
-   * <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
+   * The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.
+   *
    * @public
    */
   export interface ServiceQuotaExceededExceptionMember {
@@ -942,7 +1074,8 @@ export namespace InvokeAgentRuntimeCommandStreamOutput {
   }
 
   /**
-   * <p>The exception that occurs when the request was denied due to request throttling. This happens when you exceed the allowed request rate for an operation. Reduce the frequency of requests or implement exponential backoff retry logic in your application.</p>
+   * The exception that occurs when the request was denied due to request throttling. This happens when you exceed the allowed request rate for an operation. Reduce the frequency of requests or implement exponential backoff retry logic in your application.
+   *
    * @public
    */
   export interface ThrottlingExceptionMember {
@@ -958,7 +1091,8 @@ export namespace InvokeAgentRuntimeCommandStreamOutput {
   }
 
   /**
-   * <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+   * The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.
+   *
    * @public
    */
   export interface ValidationExceptionMember {
@@ -974,7 +1108,8 @@ export namespace InvokeAgentRuntimeCommandStreamOutput {
   }
 
   /**
-   * <p>The exception that occurs when there is an error in the runtime client. This can happen due to network issues, invalid configuration, or other client-side problems. Check the error message for specific details about the error.</p>
+   * The exception that occurs when there is an error in the runtime client. This can happen due to network issues, invalid configuration, or other client-side problems. Check the error message for specific details about the error.
+   *
    * @public
    */
   export interface RuntimeClientErrorMember {
@@ -1022,54 +1157,63 @@ export namespace InvokeAgentRuntimeCommandStreamOutput {
 }
 
 /**
- * <p>Response for InvokeAgentRuntimeCommand operation.</p>
+ * Response for InvokeAgentRuntimeCommand operation.
+ *
  * @public
  */
 export interface InvokeAgentRuntimeCommandResponse {
   /**
-   * <p>The unique identifier of the runtime session in which the command was executed.</p>
+   * The unique identifier of the runtime session in which the command was executed.
+   *
    * @public
    */
   runtimeSessionId?: string | undefined;
 
   /**
-   * <p>The trace identifier for request tracking.</p>
+   * The trace identifier for request tracking.
+   *
    * @public
    */
   traceId?: string | undefined;
 
   /**
-   * <p>The parent trace information for distributed tracing.</p>
+   * The parent trace information for distributed tracing.
+   *
    * @public
    */
   traceParent?: string | undefined;
 
   /**
-   * <p>The trace state information for distributed tracing.</p>
+   * The trace state information for distributed tracing.
+   *
    * @public
    */
   traceState?: string | undefined;
 
   /**
-   * <p>Additional context information for distributed tracing.</p>
+   * Additional context information for distributed tracing.
+   *
    * @public
    */
   baggage?: string | undefined;
 
   /**
-   * <p>The MIME type of the response data. This indicates how to interpret the response data. Common values include application/json for JSON data.</p>
+   * The MIME type of the response data. This indicates how to interpret the response data. Common values include application/json for JSON data.
+   *
    * @public
    */
   contentType: string | undefined;
 
   /**
-   * <p>The HTTP status code of the response. A status code of 200 indicates a successful operation. Other status codes indicate various error conditions.</p>
+   * The HTTP status code of the response. A status code of 200 indicates a successful operation. Other status codes indicate various error conditions.
+   *
    * @public
    */
   statusCode?: number | undefined;
 
   /**
-   * <p>The streaming output from the command execution. This stream contains events that provide real-time updates including standard output, standard error, and completion status.</p>
+   * The streaming output from the command execution. This stream contains events that provide real-time updates including standard output, standard error, and completion status.
+   *
    * @public
    */
   stream: AsyncIterable<InvokeAgentRuntimeCommandStreamOutput> | undefined;
@@ -1080,25 +1224,29 @@ export interface InvokeAgentRuntimeCommandResponse {
  */
 export interface StopRuntimeSessionRequest {
   /**
-   * <p>The ID of the session that you want to stop.</p>
+   * The ID of the session that you want to stop.
+   *
    * @public
    */
   runtimeSessionId: string | undefined;
 
   /**
-   * <p>The ARN of the agent that contains the session that you want to stop.</p>
+   * The ARN of the agent that contains the session that you want to stop.
+   *
    * @public
    */
   agentRuntimeArn: string | undefined;
 
   /**
-   * <p>Optional qualifier to specify an agent alias, such as <code>prod</code>code&gt; or <code>dev</code>. If you don't provide a value, the DEFAULT alias is used. </p>
+   * Optional qualifier to specify an agent alias, such as `prod`code&gt; or `dev`. If you don't provide a value, the DEFAULT alias is used.
+   *
    * @public
    */
   qualifier?: string | undefined;
 
   /**
-   * <p>Idempotent token used to identify the request. If you use the same token with multiple requests, the same response is returned. Use ClientToken to prevent the same request from being processed more than once.</p>
+   * Idempotent token used to identify the request. If you use the same token with multiple requests, the same response is returned. Use ClientToken to prevent the same request from being processed more than once.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -1109,80 +1257,93 @@ export interface StopRuntimeSessionRequest {
  */
 export interface StopRuntimeSessionResponse {
   /**
-   * <p>The ID of the session that you requested to stop.</p>
+   * The ID of the session that you requested to stop.
+   *
    * @public
    */
   runtimeSessionId?: string | undefined;
 
   /**
-   * <p>The status code of the request to stop the session.</p>
+   * The status code of the request to stop the session.
+   *
    * @public
    */
   statusCode?: number | undefined;
 }
 
 /**
- * <p> The structured skill definition with a schema version and inline content.</p>
+ * The structured skill definition with a schema version and inline content.
+ *
  * @public
  */
 export interface SkillDefinition {
   /**
-   * <p> The schema version of the skill definition. If you don't specify a version, the service detects it automatically.</p>
+   * The schema version of the skill definition. If you don't specify a version, the service detects it automatically.
+   *
    * @public
    */
   schemaVersion?: string | undefined;
 
   /**
-   * <p> The inline content of the skill definition.</p>
+   * The inline content of the skill definition.
+   *
    * @public
    */
   inlineContent?: string | undefined;
 }
 
 /**
- * <p> The skill markdown definition for agent skills descriptors.</p>
+ * The skill markdown definition for agent skills descriptors.
+ *
  * @public
  */
 export interface SkillMdDefinition {
   /**
-   * <p> The inline markdown content of the skill definition.</p>
+   * The inline markdown content of the skill definition.
+   *
    * @public
    */
   inlineContent?: string | undefined;
 }
 
 /**
- * <p> The agent skills descriptor configuration for a registry record.</p>
+ * The agent skills descriptor configuration for a registry record.
+ *
  * @public
  */
 export interface AgentSkillsDescriptor {
   /**
-   * <p> The skill description in markdown format.</p>
+   * The skill description in markdown format.
+   *
    * @public
    */
   skillMd: SkillMdDefinition | undefined;
 
   /**
-   * <p> The structured skill definition with a schema version and content.</p>
+   * The structured skill definition with a schema version and content.
+   *
    * @public
    */
   skillDefinition?: SkillDefinition | undefined;
 }
 
 /**
- * <p>Configuration for using a batch evaluation as the source of agent traces for recommendations.</p>
+ * Configuration for using a batch evaluation as the source of agent traces for recommendations.
+ *
  * @public
  */
 export interface BatchEvaluationTraceConfig {
   /**
-   * <p>The ARN of the completed batch evaluation to use as the trace source.</p>
+   * The ARN of the completed batch evaluation to use as the trace source.
+   *
    * @public
    */
   batchEvaluationArn: string | undefined;
 }
 
 /**
- * <p>A value used in filter comparisons, supporting different data types.</p>
+ * A value used in filter comparisons, supporting different data types.
+ *
  * @public
  */
 export type FilterValue =
@@ -1196,7 +1357,8 @@ export type FilterValue =
  */
 export namespace FilterValue {
   /**
-   * <p>A string value for text-based filtering.</p>
+   * A string value for text-based filtering.
+   *
    * @public
    */
   export interface StringValueMember {
@@ -1207,7 +1369,8 @@ export namespace FilterValue {
   }
 
   /**
-   * <p>A numeric value for numerical filtering and comparisons.</p>
+   * A numeric value for numerical filtering and comparisons.
+   *
    * @public
    */
   export interface DoubleValueMember {
@@ -1218,7 +1381,8 @@ export namespace FilterValue {
   }
 
   /**
-   * <p>A boolean value for true/false filtering conditions.</p>
+   * A boolean value for true/false filtering conditions.
+   *
    * @public
    */
   export interface BooleanValueMember {
@@ -1251,103 +1415,120 @@ export namespace FilterValue {
 }
 
 /**
- * <p>A filter for narrowing down agent traces from CloudWatch Logs based on key-value comparisons.</p>
+ * A filter for narrowing down agent traces from CloudWatch Logs based on key-value comparisons.
+ *
  * @public
  */
 export interface CloudWatchLogsFilter {
   /**
-   * <p>The key or field name to filter on within the agent trace data.</p>
+   * The key or field name to filter on within the agent trace data.
+   *
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>The comparison operator to use for filtering.</p>
+   * The comparison operator to use for filtering.
+   *
    * @public
    */
   operator: CloudWatchLogsFilterOperator | undefined;
 
   /**
-   * <p>The value to compare against using the specified operator.</p>
+   * The value to compare against using the specified operator.
+   *
    * @public
    */
   value: FilterValue | undefined;
 }
 
 /**
- * <p>A rule configuration for filtering agent traces from CloudWatch Logs.</p>
+ * A rule configuration for filtering agent traces from CloudWatch Logs.
+ *
  * @public
  */
 export interface CloudWatchLogsRule {
   /**
-   * <p>The list of filters to apply when reading agent traces.</p>
+   * The list of filters to apply when reading agent traces.
+   *
    * @public
    */
   filters?: CloudWatchLogsFilter[] | undefined;
 }
 
 /**
- * <p>Configuration for reading agent traces from CloudWatch Logs for recommendation analysis.</p>
+ * Configuration for reading agent traces from CloudWatch Logs for recommendation analysis.
+ *
  * @public
  */
 export interface CloudWatchLogsTraceConfig {
   /**
-   * <p>The list of CloudWatch log group ARNs to read agent traces from.</p>
+   * The list of CloudWatch log group ARNs to read agent traces from.
+   *
    * @public
    */
   logGroupArns: string[] | undefined;
 
   /**
-   * <p>The list of service names to filter traces within the specified log groups.</p>
+   * The list of service names to filter traces within the specified log groups.
+   *
    * @public
    */
   serviceNames: string[] | undefined;
 
   /**
-   * <p>The start time of the time range to read traces from.</p>
+   * The start time of the time range to read traces from.
+   *
    * @public
    */
   startTime: Date | undefined;
 
   /**
-   * <p>The end time of the time range to read traces from.</p>
+   * The end time of the time range to read traces from.
+   *
    * @public
    */
   endTime: Date | undefined;
 
   /**
-   * <p>Optional rule configuration for filtering traces.</p>
+   * Optional rule configuration for filtering traces.
+   *
    * @public
    */
   rule?: CloudWatchLogsRule | undefined;
 }
 
 /**
- * <p>Contains the configuration for reusing agent traces from an online evaluation configuration for recommendation analysis. Because online evaluation is a continuous stream, a time range specifies which evaluated sessions the recommendation includes.</p>
+ * Contains the configuration for reusing agent traces from an online evaluation configuration for recommendation analysis. Because online evaluation is a continuous stream, a time range specifies which evaluated sessions the recommendation includes.
+ *
  * @public
  */
 export interface OnlineEvaluationTraceConfig {
   /**
-   * <p>The ARN of the online evaluation configuration to reuse sessions from.</p>
+   * The ARN of the online evaluation configuration to reuse sessions from.
+   *
    * @public
    */
   onlineEvaluationConfigArn: string | undefined;
 
   /**
-   * <p>The start time of the time range. Only sessions evaluated at or after this timestamp are included.</p>
+   * The start time of the time range. Only sessions evaluated at or after this timestamp are included.
+   *
    * @public
    */
   startTime: Date | undefined;
 
   /**
-   * <p>The end time of the time range. Only sessions evaluated before this timestamp are included.</p>
+   * The end time of the time range. Only sessions evaluated before this timestamp are included.
+   *
    * @public
    */
   endTime: Date | undefined;
 }
 
 /**
- * <p>The configuration specifying where to read agent traces from for recommendation analysis.</p>
+ * The configuration specifying where to read agent traces from for recommendation analysis.
+ *
  * @public
  */
 export type AgentTracesConfig =
@@ -1362,7 +1543,8 @@ export type AgentTracesConfig =
  */
 export namespace AgentTracesConfig {
   /**
-   * <p>Agent traces provided as inline session spans in OpenTelemetry format.</p>
+   * Agent traces provided as inline session spans in OpenTelemetry format.
+   *
    * @public
    */
   export interface SessionSpansMember {
@@ -1374,7 +1556,8 @@ export namespace AgentTracesConfig {
   }
 
   /**
-   * <p>Agent traces read from CloudWatch Logs.</p>
+   * Agent traces read from CloudWatch Logs.
+   *
    * @public
    */
   export interface CloudwatchLogsMember {
@@ -1386,7 +1569,8 @@ export namespace AgentTracesConfig {
   }
 
   /**
-   * <p>Use a completed batch evaluation as the source of agent traces.</p>
+   * Use a completed batch evaluation as the source of agent traces.
+   *
    * @public
    */
   export interface BatchEvaluationMember {
@@ -1398,7 +1582,8 @@ export namespace AgentTracesConfig {
   }
 
   /**
-   * <p>Agent traces from an online evaluation configuration over a specified time range.</p>
+   * Agent traces from an online evaluation configuration over a specified time range.
+   *
    * @public
    */
   export interface OnlineEvaluationMember {
@@ -1438,37 +1623,43 @@ export namespace AgentTracesConfig {
  */
 export interface SaveBrowserSessionProfileRequest {
   /**
-   * <p>The trace identifier for request tracking.</p>
+   * The trace identifier for request tracking.
+   *
    * @public
    */
   traceId?: string | undefined;
 
   /**
-   * <p>The parent trace information for distributed tracing.</p>
+   * The parent trace information for distributed tracing.
+   *
    * @public
    */
   traceParent?: string | undefined;
 
   /**
-   * <p>The unique identifier for the browser profile. This identifier is used to reference the profile when starting new browser sessions. The identifier must follow the pattern of an alphanumeric name (up to 48 characters) followed by a hyphen and a 10-character alphanumeric suffix.</p>
+   * The unique identifier for the browser profile. This identifier is used to reference the profile when starting new browser sessions. The identifier must follow the pattern of an alphanumeric name (up to 48 characters) followed by a hyphen and a 10-character alphanumeric suffix.
+   *
    * @public
    */
   profileIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the browser associated with the session from which to save the profile.</p>
+   * The unique identifier of the browser associated with the session from which to save the profile.
+   *
    * @public
    */
   browserIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the browser session from which to save the profile. The session must be active when saving the profile.</p>
+   * The unique identifier of the browser session from which to save the profile. The session must be active when saving the profile.
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock AgentCore ignores the request, but does not return an error.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock AgentCore ignores the request, but does not return an error.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -1479,25 +1670,29 @@ export interface SaveBrowserSessionProfileRequest {
  */
 export interface SaveBrowserSessionProfileResponse {
   /**
-   * <p>The unique identifier of the saved browser profile.</p>
+   * The unique identifier of the saved browser profile.
+   *
    * @public
    */
   profileIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the browser associated with the session from which the profile was saved.</p>
+   * The unique identifier of the browser associated with the session from which the profile was saved.
+   *
    * @public
    */
   browserIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the browser session from which the profile was saved.</p>
+   * The unique identifier of the browser session from which the profile was saved.
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The timestamp when the browser profile was last updated. This value is in ISO 8601 format.</p>
+   * The timestamp when the browser profile was last updated. This value is in ISO 8601 format.
+   *
    * @public
    */
   lastUpdatedAt: Date | undefined;
@@ -1508,32 +1703,37 @@ export interface SaveBrowserSessionProfileResponse {
  */
 export interface GetBrowserSessionRequest {
   /**
-   * <p>The unique identifier of the browser associated with the session.</p>
+   * The unique identifier of the browser associated with the session.
+   *
    * @public
    */
   browserIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the browser session to retrieve.</p>
+   * The unique identifier of the browser session to retrieve.
+   *
    * @public
    */
   sessionId: string | undefined;
 }
 
 /**
- * <p>The Amazon Web Services Secrets Manager location configuration.</p>
+ * The Amazon Web Services Secrets Manager location configuration.
+ *
  * @public
  */
 export interface SecretsManagerLocation {
   /**
-   * <p>The ARN of the Amazon Web Services Secrets Manager secret containing the certificate.</p>
+   * The ARN of the Amazon Web Services Secrets Manager secret containing the certificate.
+   *
    * @public
    */
   secretArn: string | undefined;
 }
 
 /**
- * <p>The location from which to retrieve a certificate.</p>
+ * The location from which to retrieve a certificate.
+ *
  * @public
  */
 export type CertificateLocation =
@@ -1545,7 +1745,8 @@ export type CertificateLocation =
  */
 export namespace CertificateLocation {
   /**
-   * <p>The Amazon Web Services Secrets Manager location of the certificate.</p>
+   * The Amazon Web Services Secrets Manager location of the certificate.
+   *
    * @public
    */
   export interface SecretsManagerMember {
@@ -1572,43 +1773,50 @@ export namespace CertificateLocation {
 }
 
 /**
- * <p>A certificate to install in the browser or code interpreter session.</p>
+ * A certificate to install in the browser or code interpreter session.
+ *
  * @public
  */
 export interface Certificate {
   /**
-   * <p>The location of the certificate.</p>
+   * The location of the certificate.
+   *
    * @public
    */
   location: CertificateLocation | undefined;
 }
 
 /**
- * <p>The Amazon S3 location configuration of a resource.</p>
+ * The Amazon S3 location configuration of a resource.
+ *
  * @public
  */
 export interface S3Location {
   /**
-   * <p>The name of the Amazon S3 bucket where the resource is stored.</p>
+   * The name of the Amazon S3 bucket where the resource is stored.
+   *
    * @public
    */
   bucket: string | undefined;
 
   /**
-   * <p>The name of the Amazon S3 prefix/key where the resource is stored.</p>
+   * The name of the Amazon S3 prefix/key where the resource is stored.
+   *
    * @public
    */
   prefix: string | undefined;
 
   /**
-   * <p>The name of the Amazon S3 version ID where the resource is stored (Optional).</p>
+   * The name of the Amazon S3 version ID where the resource is stored (Optional).
+   *
    * @public
    */
   versionId?: string | undefined;
 }
 
 /**
- * <p>The location of the browser extension.</p>
+ * The location of the browser extension.
+ *
  * @public
  */
 export type ResourceLocation =
@@ -1620,7 +1828,8 @@ export type ResourceLocation =
  */
 export namespace ResourceLocation {
   /**
-   * <p>The Amazon S3 location of the resource. Use this when the resource is stored in an Amazon S3 bucket.</p>
+   * The Amazon S3 location of the resource. Use this when the resource is stored in an Amazon S3 bucket.
+   *
    * @public
    */
   export interface S3Member {
@@ -1647,85 +1856,102 @@ export namespace ResourceLocation {
 }
 
 /**
- * <p>Browser enterprise policy configuration.</p>
+ * Browser enterprise policy configuration.
+ *
  * @public
  */
 export interface BrowserEnterprisePolicy {
   /**
-   * <p>The location of the enterprise policy file.</p>
+   * The location of the enterprise policy file.
+   *
    * @public
    */
   location: ResourceLocation | undefined;
 
   /**
-   * <p>The enterprise policy type. See BrowserEnterprisePolicyType.</p>
+   * The enterprise policy type. See BrowserEnterprisePolicyType.
+   *
    * @public
    */
   type?: BrowserEnterprisePolicyType | undefined;
 }
 
 /**
- * <p>Browser extension configuration.</p>
+ * Browser extension configuration.
+ *
  * @public
  */
 export interface BrowserExtension {
   /**
-   * <p>The location where the browser extension files are stored. This specifies the source from which the extension will be loaded and installed.</p>
+   * The location where the browser extension files are stored. This specifies the source from which the extension will be loaded and installed.
+   *
    * @public
    */
   location: ResourceLocation | undefined;
 }
 
 /**
- * <p>The configuration for mounting an Amazon Elastic File System (Amazon EFS) access point that you own into a session.</p>
+ * The configuration for mounting an Amazon Elastic File System (Amazon EFS) access point that you own into a session.
+ *
  * @public
  */
 export interface EfsConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Elastic File System (Amazon EFS) access point to mount.</p>
+   * The Amazon Resource Name (ARN) of the Amazon Elastic File System (Amazon EFS) access point to mount.
+   *
    * @public
    */
   accessPointArn: string | undefined;
 
   /**
-   * <p>The absolute path within the session at which the access point is mounted, for example <code>/mnt/efs</code>. Each mount path must be unique across all file system configurations in the session.</p>
+   * The absolute path within the session at which the access point is mounted, for example `/mnt/efs`. Each mount path must be unique across all file system configurations in the session.
+   *
    * @public
    */
   mountPath: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Elastic File System (Amazon EFS) file system that owns the access point.</p>
+   * The Amazon Resource Name (ARN) of the Amazon Elastic File System (Amazon EFS) file system that owns the access point.
+   *
    * @public
    */
   fileSystemArn: string | undefined;
 }
 
 /**
- * <p>The configuration for mounting an Amazon Simple Storage Service (Amazon S3) Files access point that you own into a session.</p>
+ * The configuration for mounting an Amazon Simple Storage Service (Amazon S3) Files access point that you own into a session.
+ *
  * @public
  */
 export interface S3FilesConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Simple Storage Service (Amazon S3) Files access point to mount.</p>
+   * The Amazon Resource Name (ARN) of the Amazon Simple Storage Service (Amazon S3) Files access point to mount.
+   *
    * @public
    */
   accessPointArn: string | undefined;
 
   /**
-   * <p>The absolute path within the session at which the access point is mounted, for example <code>/mnt/s3data</code>. Each mount path must be unique across all file system configurations in the session.</p>
+   * The absolute path within the session at which the access point is mounted, for example `/mnt/s3data`. Each mount path must be unique across all file system configurations in the session.
+   *
    * @public
    */
   mountPath: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Simple Storage Service (Amazon S3) Files file system that owns the access point.</p>
+   * The Amazon Resource Name (ARN) of the Amazon Simple Storage Service (Amazon S3) Files file system that owns the access point.
+   *
    * @public
    */
   fileSystemArn: string | undefined;
 }
 
 /**
- * <p>Specifies a file system to mount into the session by providing exactly one of the following:</p> <ul> <li> <p> <code>s3FilesConfiguration</code> - Mounts an Amazon Simple Storage Service (Amazon S3) Files access point.</p> </li> <li> <p> <code>efsConfiguration</code> - Mounts an Amazon Elastic File System (Amazon EFS) access point.</p> </li> </ul>
+ * Specifies a file system to mount into the session by providing exactly one of the following:
+ *
+ * - `s3FilesConfiguration` - Mounts an Amazon Simple Storage Service (Amazon S3) Files access point.
+ * - `efsConfiguration` - Mounts an Amazon Elastic File System (Amazon EFS) access point.
+ *
  * @public
  */
 export type ToolsFileSystemConfiguration =
@@ -1738,7 +1964,8 @@ export type ToolsFileSystemConfiguration =
  */
 export namespace ToolsFileSystemConfiguration {
   /**
-   * <p>The configuration for mounting your own Amazon Simple Storage Service (Amazon S3) Files access point into the session.</p>
+   * The configuration for mounting your own Amazon Simple Storage Service (Amazon S3) Files access point into the session.
+   *
    * @public
    */
   export interface S3FilesConfigurationMember {
@@ -1748,7 +1975,8 @@ export namespace ToolsFileSystemConfiguration {
   }
 
   /**
-   * <p>The configuration for mounting your own Amazon Elastic File System (Amazon EFS) access point into the session.</p>
+   * The configuration for mounting your own Amazon Elastic File System (Amazon EFS) access point into the session.
+   *
    * @public
    */
   export interface EfsConfigurationMember {
@@ -1778,43 +2006,50 @@ export namespace ToolsFileSystemConfiguration {
 }
 
 /**
- * <p>The configuration for a browser profile in Amazon Bedrock AgentCore. A browser profile contains persistent browser data such as cookies and local storage that can be saved from one browser session and reused in subsequent sessions. Browser profiles enable continuity for tasks that require authentication, maintain user preferences, or depend on previously stored browser state.</p>
+ * The configuration for a browser profile in Amazon Bedrock AgentCore. A browser profile contains persistent browser data such as cookies and local storage that can be saved from one browser session and reused in subsequent sessions. Browser profiles enable continuity for tasks that require authentication, maintain user preferences, or depend on previously stored browser state.
+ *
  * @public
  */
 export interface BrowserProfileConfiguration {
   /**
-   * <p>The unique identifier of the browser profile. This identifier is used to reference the profile when starting new browser sessions or saving session data to the profile.</p>
+   * The unique identifier of the browser profile. This identifier is used to reference the profile when starting new browser sessions or saving session data to the profile.
+   *
    * @public
    */
   profileIdentifier: string | undefined;
 }
 
 /**
- * <p>Configuration for domains that should bypass all proxies and connect directly to the internet. These bypass rules take precedence over all proxy routing rules.</p>
+ * Configuration for domains that should bypass all proxies and connect directly to the internet. These bypass rules take precedence over all proxy routing rules.
+ *
  * @public
  */
 export interface ProxyBypass {
   /**
-   * <p>Array of domain patterns that should bypass the proxy. Supports <code>.amazonaws.com</code> for subdomain matching or <code>amazonaws.com</code> for exact domain matching. Requests to these domains connect directly without using any proxy. Maximum 253 characters per pattern.</p>
+   * Array of domain patterns that should bypass the proxy. Supports `.amazonaws.com` for subdomain matching or `amazonaws.com` for exact domain matching. Requests to these domains connect directly without using any proxy. Maximum 253 characters per pattern.
+   *
    * @public
    */
   domainPatterns?: string[] | undefined;
 }
 
 /**
- * <p>Configuration for HTTP Basic Authentication using credentials stored in Amazon Web Services Secrets Manager. The secret must contain a JSON object with <code>username</code> and <code>password</code> string fields. Username allows alphanumeric characters and <code>@._+=-</code> symbols (pattern: <code>^[a-zA-Z0-9@._+=\-]+$</code>). Password allows alphanumeric characters and <code>@._+=-!#$%&amp;*</code> symbols (pattern: <code>^[a-zA-Z0-9@._+=\-!#$%&amp;*]+$</code>). Both fields have a maximum length of 256 characters.</p>
+ * Configuration for HTTP Basic Authentication using credentials stored in Amazon Web Services Secrets Manager. The secret must contain a JSON object with `username` and `password` string fields. Username allows alphanumeric characters and `@._+=-` symbols (pattern: `^[a-zA-Z0-9@._+=\-]+$`). Password allows alphanumeric characters and `@._+=-!#$%&*` symbols (pattern: `^[a-zA-Z0-9@._+=\-!#$%&*]+$`). Both fields have a maximum length of 256 characters.
+ *
  * @public
  */
 export interface BasicAuth {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret containing proxy credentials. The secret must be a JSON object with <code>username</code> and <code>password</code> string fields that meet validation requirements. The caller must have <code>secretsmanager:GetSecretValue</code> permission for this ARN. Example secret format: <code>\{"username": "proxy_user", "password": "secure_password"\}</code> </p>
+   * The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret containing proxy credentials. The secret must be a JSON object with `username` and `password` string fields that meet validation requirements. The caller must have `secretsmanager:GetSecretValue` permission for this ARN. Example secret format: `\{"username": "proxy_user", "password": "secure_password"\}`
+   *
    * @public
    */
   secretArn: string | undefined;
 }
 
 /**
- * <p>Union type representing different proxy authentication methods. Currently supports HTTP Basic Authentication (username and password).</p>
+ * Union type representing different proxy authentication methods. Currently supports HTTP Basic Authentication (username and password).
+ *
  * @public
  */
 export type ProxyCredentials =
@@ -1826,7 +2061,8 @@ export type ProxyCredentials =
  */
 export namespace ProxyCredentials {
   /**
-   * <p>HTTP Basic Authentication credentials (username and password) stored in Amazon Web Services Secrets Manager.</p>
+   * HTTP Basic Authentication credentials (username and password) stored in Amazon Web Services Secrets Manager.
+   *
    * @public
    */
   export interface BasicAuthMember {
@@ -1853,37 +2089,43 @@ export namespace ProxyCredentials {
 }
 
 /**
- * <p>Configuration for a customer-managed external proxy server. Includes server location, optional domain-based routing patterns, and authentication credentials.</p>
+ * Configuration for a customer-managed external proxy server. Includes server location, optional domain-based routing patterns, and authentication credentials.
+ *
  * @public
  */
 export interface ExternalProxy {
   /**
-   * <p>The hostname of the proxy server. Must be a valid DNS hostname (maximum 253 characters).</p>
+   * The hostname of the proxy server. Must be a valid DNS hostname (maximum 253 characters).
+   *
    * @public
    */
   server: string | undefined;
 
   /**
-   * <p>The port number of the proxy server. Valid range: 1-65535.</p>
+   * The port number of the proxy server. Valid range: 1-65535.
+   *
    * @public
    */
   port: number | undefined;
 
   /**
-   * <p>Optional array of domain patterns that should route through this specific proxy. Supports <code>.example.com</code> for subdomain matching (matches any subdomain of example.com) or <code>example.com</code> for exact domain matching. If omitted, this proxy acts as a catch-all for domains not matched by other proxies. Maximum 100 patterns per proxy, each up to 253 characters.</p>
+   * Optional array of domain patterns that should route through this specific proxy. Supports `.example.com` for subdomain matching (matches any subdomain of example.com) or `example.com` for exact domain matching. If omitted, this proxy acts as a catch-all for domains not matched by other proxies. Maximum 100 patterns per proxy, each up to 253 characters.
+   *
    * @public
    */
   domainPatterns?: string[] | undefined;
 
   /**
-   * <p>Optional authentication credentials for the proxy server. If omitted, the proxy is accessed without authentication (useful for IP-allowlisted proxies).</p>
+   * Optional authentication credentials for the proxy server. If omitted, the proxy is accessed without authentication (useful for IP-allowlisted proxies).
+   *
    * @public
    */
   credentials?: ProxyCredentials | undefined;
 }
 
 /**
- * <p>Union type representing different proxy configurations. Currently supports external customer-managed proxies.</p>
+ * Union type representing different proxy configurations. Currently supports external customer-managed proxies.
+ *
  * @public
  */
 export type Proxy =
@@ -1895,7 +2137,8 @@ export type Proxy =
  */
 export namespace Proxy {
   /**
-   * <p>Configuration for an external customer-managed proxy server.</p>
+   * Configuration for an external customer-managed proxy server.
+   *
    * @public
    */
   export interface ExternalProxyMember {
@@ -1922,84 +2165,98 @@ export namespace Proxy {
 }
 
 /**
- * <p>Configuration for routing browser traffic through customer-managed proxy servers. Supports 1-5 proxy servers for domain-based routing and proxy bypass rules.</p>
+ * Configuration for routing browser traffic through customer-managed proxy servers. Supports 1-5 proxy servers for domain-based routing and proxy bypass rules.
+ *
  * @public
  */
 export interface ProxyConfiguration {
   /**
-   * <p>An array of 1-5 proxy server configurations for domain-based routing. Each proxy can specify which domains it handles via <code>domainPatterns</code>, enabling flexible routing of different traffic through different proxies based on destination domain.</p>
+   * An array of 1-5 proxy server configurations for domain-based routing. Each proxy can specify which domains it handles via `domainPatterns`, enabling flexible routing of different traffic through different proxies based on destination domain.
+   *
    * @public
    */
   proxies: Proxy[] | undefined;
 
   /**
-   * <p>Optional configuration for domains that should bypass all proxies and connect directly to their destination, like the internet. Takes precedence over all proxy routing rules.</p>
+   * Optional configuration for domains that should bypass all proxies and connect directly to their destination, like the internet. Takes precedence over all proxy routing rules.
+   *
    * @public
    */
   bypass?: ProxyBypass | undefined;
 }
 
 /**
- * <p>The configuration for a stream that enables programmatic control of a browser session in Amazon Bedrock AgentCore. This stream provides a bidirectional communication channel for sending commands to the browser and receiving responses, allowing agents to automate web interactions such as navigation, form filling, and element clicking.</p>
+ * The configuration for a stream that enables programmatic control of a browser session in Amazon Bedrock AgentCore. This stream provides a bidirectional communication channel for sending commands to the browser and receiving responses, allowing agents to automate web interactions such as navigation, form filling, and element clicking.
+ *
  * @public
  */
 export interface AutomationStream {
   /**
-   * <p>The endpoint URL for the automation stream. This URL is used to establish a WebSocket connection to the stream for sending commands and receiving responses.</p>
+   * The endpoint URL for the automation stream. This URL is used to establish a WebSocket connection to the stream for sending commands and receiving responses.
+   *
    * @public
    */
   streamEndpoint: string | undefined;
 
   /**
-   * <p>The current status of the automation stream. This indicates whether the stream is available for use. Possible values include ACTIVE, CONNECTING, and DISCONNECTED.</p>
+   * The current status of the automation stream. This indicates whether the stream is available for use. Possible values include ACTIVE, CONNECTING, and DISCONNECTED.
+   *
    * @public
    */
   streamStatus: AutomationStreamStatus | undefined;
 }
 
 /**
- * <p>The configuration for a stream that provides a visual representation of a browser session in Amazon Bedrock AgentCore. This stream enables agents to observe the current state of the browser, including rendered web pages, visual elements, and the results of interactions.</p>
+ * The configuration for a stream that provides a visual representation of a browser session in Amazon Bedrock AgentCore. This stream enables agents to observe the current state of the browser, including rendered web pages, visual elements, and the results of interactions.
+ *
  * @public
  */
 export interface LiveViewStream {
   /**
-   * <p>The endpoint URL for the live view stream. This URL is used to establish a connection to receive visual updates from the browser session.</p>
+   * The endpoint URL for the live view stream. This URL is used to establish a connection to receive visual updates from the browser session.
+   *
    * @public
    */
   streamEndpoint?: string | undefined;
 }
 
 /**
- * <p>The collection of streams associated with a browser session in Amazon Bedrock AgentCore. These streams provide different ways to interact with and observe the browser session, including programmatic control and visual representation of the browser content.</p>
+ * The collection of streams associated with a browser session in Amazon Bedrock AgentCore. These streams provide different ways to interact with and observe the browser session, including programmatic control and visual representation of the browser content.
+ *
  * @public
  */
 export interface BrowserSessionStream {
   /**
-   * <p>The stream that enables programmatic control of the browser. This stream allows agents to perform actions such as navigating to URLs, clicking elements, and filling forms.</p>
+   * The stream that enables programmatic control of the browser. This stream allows agents to perform actions such as navigating to URLs, clicking elements, and filling forms.
+   *
    * @public
    */
   automationStream: AutomationStream | undefined;
 
   /**
-   * <p>The stream that provides a visual representation of the browser content. This stream allows agents to observe the current state of the browser, including rendered web pages and visual elements.</p>
+   * The stream that provides a visual representation of the browser content. This stream allows agents to observe the current state of the browser, including rendered web pages and visual elements.
+   *
    * @public
    */
   liveViewStream?: LiveViewStream | undefined;
 }
 
 /**
- * <p>The configuration that defines the dimensions of a browser viewport in a browser session. The viewport determines the visible area of web content and affects how web pages are rendered and displayed. Proper viewport configuration ensures that web content is displayed correctly for the agent's browsing tasks.</p>
+ * The configuration that defines the dimensions of a browser viewport in a browser session. The viewport determines the visible area of web content and affects how web pages are rendered and displayed. Proper viewport configuration ensures that web content is displayed correctly for the agent's browsing tasks.
+ *
  * @public
  */
 export interface ViewPort {
   /**
-   * <p>The width of the viewport in pixels. This value determines the horizontal dimension of the visible area. Valid values range from 800 to 1920 pixels.</p>
+   * The width of the viewport in pixels. This value determines the horizontal dimension of the visible area. Valid values range from 800 to 1920 pixels.
+   *
    * @public
    */
   width: number | undefined;
 
   /**
-   * <p>The height of the viewport in pixels. This value determines the vertical dimension of the visible area. Valid values range from 600 to 1080 pixels.</p>
+   * The height of the viewport in pixels. This value determines the vertical dimension of the visible area. Valid values range from 600 to 1080 pixels.
+   *
    * @public
    */
   height: number | undefined;
@@ -2010,272 +2267,317 @@ export interface ViewPort {
  */
 export interface GetBrowserSessionResponse {
   /**
-   * <p>The identifier of the browser.</p>
+   * The identifier of the browser.
+   *
    * @public
    */
   browserIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the browser session.</p>
+   * The identifier of the browser session.
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The name of the browser session.</p>
+   * The name of the browser session.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The time at which the browser session was created.</p>
+   * The time at which the browser session was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The configuration that defines the dimensions of a browser viewport in a browser session. The viewport determines the visible area of web content and affects how web pages are rendered and displayed. Proper viewport configuration ensures that web content is displayed correctly for the agent's browsing tasks.</p>
+   * The configuration that defines the dimensions of a browser viewport in a browser session. The viewport determines the visible area of web content and affects how web pages are rendered and displayed. Proper viewport configuration ensures that web content is displayed correctly for the agent's browsing tasks.
+   *
    * @public
    */
   viewPort?: ViewPort | undefined;
 
   /**
-   * <p>The list of browser extensions that are configured in the browser session.</p>
+   * The list of browser extensions that are configured in the browser session.
+   *
    * @public
    */
   extensions?: BrowserExtension[] | undefined;
 
   /**
-   * <p>A list of files containing enterprise policies for the browser session.</p>
+   * A list of files containing enterprise policies for the browser session.
+   *
    * @public
    */
   enterprisePolicies?: BrowserEnterprisePolicy[] | undefined;
 
   /**
-   * <p>The browser profile configuration associated with this session. Contains the profile identifier that links to persistent browser data such as cookies and local storage.</p>
+   * The browser profile configuration associated with this session. Contains the profile identifier that links to persistent browser data such as cookies and local storage.
+   *
    * @public
    */
   profileConfiguration?: BrowserProfileConfiguration | undefined;
 
   /**
-   * <p>The timeout period for the browser session in seconds.</p>
+   * The timeout period for the browser session in seconds.
+   *
    * @public
    */
   sessionTimeoutSeconds?: number | undefined;
 
   /**
-   * <p>The current status of the browser session. Possible values include ACTIVE, STOPPING, and STOPPED.</p>
+   * The current status of the browser session. Possible values include ACTIVE, STOPPING, and STOPPED.
+   *
    * @public
    */
   status?: BrowserSessionStatus | undefined;
 
   /**
-   * <p>The streams associated with this browser session. These include the automation stream and live view stream.</p>
+   * The streams associated with this browser session. These include the automation stream and live view stream.
+   *
    * @public
    */
   streams?: BrowserSessionStream | undefined;
 
   /**
-   * <p>The active proxy configuration for this browser session. This field is only present if proxy configuration was provided when the session was started using <code>StartBrowserSession</code>. The configuration includes proxy servers, domain bypass rules and the proxy authentication credentials.</p>
+   * The active proxy configuration for this browser session. This field is only present if proxy configuration was provided when the session was started using `StartBrowserSession`. The configuration includes proxy servers, domain bypass rules and the proxy authentication credentials.
+   *
    * @public
    */
   proxyConfiguration?: ProxyConfiguration | undefined;
 
   /**
-   * <p>The list of certificates installed in the browser session.</p>
+   * The list of certificates installed in the browser session.
+   *
    * @public
    */
   certificates?: Certificate[] | undefined;
 
   /**
-   * <p>The file system configurations for the browser session. Each entry describes an access point and its mount path.</p>
+   * The file system configurations for the browser session. Each entry describes an access point and its mount path.
+   *
    * @public
    */
   filesystemConfigurations?: ToolsFileSystemConfiguration[] | undefined;
 
   /**
-   * <p>The artifact containing the session replay information.</p>
+   * The artifact containing the session replay information.
+   *
    * @public
    */
   sessionReplayArtifact?: string | undefined;
 
   /**
-   * <p>The time at which the browser session was last updated.</p>
+   * The time at which the browser session was last updated.
+   *
    * @public
    */
   lastUpdatedAt?: Date | undefined;
 }
 
 /**
- * <p>Arguments for a key press action.</p>
+ * Arguments for a key press action.
+ *
  * @public
  */
 export interface KeyPressArguments {
   /**
-   * <p>The key name to press (for example, <code>enter</code>, <code>tab</code>, <code>escape</code>).</p>
+   * The key name to press (for example, `enter`, `tab`, `escape`).
+   *
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>The number of times to press the key. Valid range: 1–100. Defaults to 1.</p>
+   * The number of times to press the key. Valid range: 1–100. Defaults to 1.
+   *
    * @public
    */
   presses?: number | undefined;
 }
 
 /**
- * <p>Arguments for a key shortcut action.</p>
+ * Arguments for a key shortcut action.
+ *
  * @public
  */
 export interface KeyShortcutArguments {
   /**
-   * <p>The key combination to press (for example, <code>["ctrl", "s"]</code>). Maximum 5 keys.</p>
+   * The key combination to press (for example, `["ctrl", "s"]`). Maximum 5 keys.
+   *
    * @public
    */
   keys: string[] | undefined;
 }
 
 /**
- * <p>Arguments for a key type action.</p>
+ * Arguments for a key type action.
+ *
  * @public
  */
 export interface KeyTypeArguments {
   /**
-   * <p>The text string to type. Maximum length: 10,000 characters.</p>
+   * The text string to type. Maximum length: 10,000 characters.
+   *
    * @public
    */
   text: string | undefined;
 }
 
 /**
- * <p>Arguments for a mouse click action.</p>
+ * Arguments for a mouse click action.
+ *
  * @public
  */
 export interface MouseClickArguments {
   /**
-   * <p>The X coordinate on screen where the click occurs.</p>
+   * The X coordinate on screen where the click occurs.
+   *
    * @public
    */
   x: number | undefined;
 
   /**
-   * <p>The Y coordinate on screen where the click occurs.</p>
+   * The Y coordinate on screen where the click occurs.
+   *
    * @public
    */
   y: number | undefined;
 
   /**
-   * <p>The mouse button to use. Defaults to <code>LEFT</code>.</p>
+   * The mouse button to use. Defaults to `LEFT`.
+   *
    * @public
    */
   button?: MouseButton | undefined;
 
   /**
-   * <p>The number of clicks to perform. Valid range: 1–10. Defaults to 1.</p>
+   * The number of clicks to perform. Valid range: 1–10. Defaults to 1.
+   *
    * @public
    */
   clickCount?: number | undefined;
 }
 
 /**
- * <p>Arguments for a mouse drag action.</p>
+ * Arguments for a mouse drag action.
+ *
  * @public
  */
 export interface MouseDragArguments {
   /**
-   * <p>The ending X coordinate for the drag.</p>
+   * The ending X coordinate for the drag.
+   *
    * @public
    */
   endX: number | undefined;
 
   /**
-   * <p>The ending Y coordinate for the drag.</p>
+   * The ending Y coordinate for the drag.
+   *
    * @public
    */
   endY: number | undefined;
 
   /**
-   * <p>The starting X coordinate for the drag.</p>
+   * The starting X coordinate for the drag.
+   *
    * @public
    */
   startX: number | undefined;
 
   /**
-   * <p>The starting Y coordinate for the drag.</p>
+   * The starting Y coordinate for the drag.
+   *
    * @public
    */
   startY: number | undefined;
 
   /**
-   * <p>The mouse button to use for the drag. Defaults to <code>LEFT</code>.</p>
+   * The mouse button to use for the drag. Defaults to `LEFT`.
+   *
    * @public
    */
   button?: MouseButton | undefined;
 }
 
 /**
- * <p>Arguments for a mouse move action.</p>
+ * Arguments for a mouse move action.
+ *
  * @public
  */
 export interface MouseMoveArguments {
   /**
-   * <p>The target X coordinate on screen.</p>
+   * The target X coordinate on screen.
+   *
    * @public
    */
   x: number | undefined;
 
   /**
-   * <p>The target Y coordinate on screen.</p>
+   * The target Y coordinate on screen.
+   *
    * @public
    */
   y: number | undefined;
 }
 
 /**
- * <p>Arguments for a mouse scroll action.</p>
+ * Arguments for a mouse scroll action.
+ *
  * @public
  */
 export interface MouseScrollArguments {
   /**
-   * <p>The X coordinate on screen where the scroll occurs.</p>
+   * The X coordinate on screen where the scroll occurs.
+   *
    * @public
    */
   x: number | undefined;
 
   /**
-   * <p>The Y coordinate on screen where the scroll occurs.</p>
+   * The Y coordinate on screen where the scroll occurs.
+   *
    * @public
    */
   y: number | undefined;
 
   /**
-   * <p>The horizontal scroll delta. Valid range: -1000 to 1000.</p>
+   * The horizontal scroll delta. Valid range: -1000 to 1000.
+   *
    * @public
    */
   deltaX?: number | undefined;
 
   /**
-   * <p>The vertical scroll delta. Valid range: -1000 to 1000. Negative values scroll down.</p>
+   * The vertical scroll delta. Valid range: -1000 to 1000. Negative values scroll down.
+   *
    * @public
    */
   deltaY?: number | undefined;
 }
 
 /**
- * <p>Arguments for a screenshot action.</p>
+ * Arguments for a screenshot action.
+ *
  * @public
  */
 export interface ScreenshotArguments {
   /**
-   * <p>The image format for the screenshot. Defaults to <code>PNG</code>.</p>
+   * The image format for the screenshot. Defaults to `PNG`.
+   *
    * @public
    */
   format?: ScreenshotFormat | undefined;
 }
 
 /**
- * <p>The browser action to perform. Exactly one member must be set per request.</p>
+ * The browser action to perform. Exactly one member must be set per request.
+ *
  * @public
  */
 export type BrowserAction =
@@ -2294,7 +2596,8 @@ export type BrowserAction =
  */
 export namespace BrowserAction {
   /**
-   * <p>Click at the specified coordinates.</p>
+   * Click at the specified coordinates.
+   *
    * @public
    */
   export interface MouseClickMember {
@@ -2310,7 +2613,8 @@ export namespace BrowserAction {
   }
 
   /**
-   * <p>Move the cursor to the specified coordinates.</p>
+   * Move the cursor to the specified coordinates.
+   *
    * @public
    */
   export interface MouseMoveMember {
@@ -2326,7 +2630,8 @@ export namespace BrowserAction {
   }
 
   /**
-   * <p>Drag from a start position to an end position.</p>
+   * Drag from a start position to an end position.
+   *
    * @public
    */
   export interface MouseDragMember {
@@ -2342,7 +2647,8 @@ export namespace BrowserAction {
   }
 
   /**
-   * <p>Scroll at the specified position.</p>
+   * Scroll at the specified position.
+   *
    * @public
    */
   export interface MouseScrollMember {
@@ -2358,7 +2664,8 @@ export namespace BrowserAction {
   }
 
   /**
-   * <p>Type a string of text.</p>
+   * Type a string of text.
+   *
    * @public
    */
   export interface KeyTypeMember {
@@ -2374,7 +2681,8 @@ export namespace BrowserAction {
   }
 
   /**
-   * <p>Press a key one or more times.</p>
+   * Press a key one or more times.
+   *
    * @public
    */
   export interface KeyPressMember {
@@ -2390,7 +2698,8 @@ export namespace BrowserAction {
   }
 
   /**
-   * <p>Press a key combination.</p>
+   * Press a key combination.
+   *
    * @public
    */
   export interface KeyShortcutMember {
@@ -2406,7 +2715,8 @@ export namespace BrowserAction {
   }
 
   /**
-   * <p>Capture a full-screen screenshot.</p>
+   * Capture a full-screen screenshot.
+   *
    * @public
    */
   export interface ScreenshotMember {
@@ -2454,181 +2764,211 @@ export namespace BrowserAction {
 }
 
 /**
- * <p>Request for the InvokeBrowser operation.</p>
+ * Request for the InvokeBrowser operation.
+ *
  * @public
  */
 export interface InvokeBrowserRequest {
   /**
-   * <p>The unique identifier of the browser associated with the session. This must match the identifier used when creating the session with <code>StartBrowserSession</code>.</p>
+   * The unique identifier of the browser associated with the session. This must match the identifier used when creating the session with `StartBrowserSession`.
+   *
    * @public
    */
   browserIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the browser session on which to perform the action. This must be an active session created with <code>StartBrowserSession</code>.</p>
+   * The unique identifier of the browser session on which to perform the action. This must be an active session created with `StartBrowserSession`.
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The browser action to perform. Exactly one member of the <code>BrowserAction</code> union must be set per request.</p>
+   * The browser action to perform. Exactly one member of the `BrowserAction` union must be set per request.
+   *
    * @public
    */
   action: BrowserAction | undefined;
 }
 
 /**
- * <p>The result of a key press action.</p>
+ * The result of a key press action.
+ *
  * @public
  */
 export interface KeyPressResult {
   /**
-   * <p>The status of the action execution.</p>
+   * The status of the action execution.
+   *
    * @public
    */
   status: BrowserActionStatus | undefined;
 
   /**
-   * <p>The error message. Present only when the action failed.</p>
+   * The error message. Present only when the action failed.
+   *
    * @public
    */
   error?: string | undefined;
 }
 
 /**
- * <p>The result of a key shortcut action.</p>
+ * The result of a key shortcut action.
+ *
  * @public
  */
 export interface KeyShortcutResult {
   /**
-   * <p>The status of the action execution.</p>
+   * The status of the action execution.
+   *
    * @public
    */
   status: BrowserActionStatus | undefined;
 
   /**
-   * <p>The error message. Present only when the action failed.</p>
+   * The error message. Present only when the action failed.
+   *
    * @public
    */
   error?: string | undefined;
 }
 
 /**
- * <p>The result of a key type action.</p>
+ * The result of a key type action.
+ *
  * @public
  */
 export interface KeyTypeResult {
   /**
-   * <p>The status of the action execution.</p>
+   * The status of the action execution.
+   *
    * @public
    */
   status: BrowserActionStatus | undefined;
 
   /**
-   * <p>The error message. Present only when the action failed.</p>
+   * The error message. Present only when the action failed.
+   *
    * @public
    */
   error?: string | undefined;
 }
 
 /**
- * <p>The result of a mouse click action.</p>
+ * The result of a mouse click action.
+ *
  * @public
  */
 export interface MouseClickResult {
   /**
-   * <p>The status of the action execution.</p>
+   * The status of the action execution.
+   *
    * @public
    */
   status: BrowserActionStatus | undefined;
 
   /**
-   * <p>The error message. Present only when the action failed.</p>
+   * The error message. Present only when the action failed.
+   *
    * @public
    */
   error?: string | undefined;
 }
 
 /**
- * <p>The result of a mouse drag action.</p>
+ * The result of a mouse drag action.
+ *
  * @public
  */
 export interface MouseDragResult {
   /**
-   * <p>The status of the action execution.</p>
+   * The status of the action execution.
+   *
    * @public
    */
   status: BrowserActionStatus | undefined;
 
   /**
-   * <p>The error message. Present only when the action failed.</p>
+   * The error message. Present only when the action failed.
+   *
    * @public
    */
   error?: string | undefined;
 }
 
 /**
- * <p>The result of a mouse move action.</p>
+ * The result of a mouse move action.
+ *
  * @public
  */
 export interface MouseMoveResult {
   /**
-   * <p>The status of the action execution.</p>
+   * The status of the action execution.
+   *
    * @public
    */
   status: BrowserActionStatus | undefined;
 
   /**
-   * <p>The error message. Present only when the action failed.</p>
+   * The error message. Present only when the action failed.
+   *
    * @public
    */
   error?: string | undefined;
 }
 
 /**
- * <p>The result of a mouse scroll action.</p>
+ * The result of a mouse scroll action.
+ *
  * @public
  */
 export interface MouseScrollResult {
   /**
-   * <p>The status of the action execution.</p>
+   * The status of the action execution.
+   *
    * @public
    */
   status: BrowserActionStatus | undefined;
 
   /**
-   * <p>The error message. Present only when the action failed.</p>
+   * The error message. Present only when the action failed.
+   *
    * @public
    */
   error?: string | undefined;
 }
 
 /**
- * <p>The result of a screenshot action.</p>
+ * The result of a screenshot action.
+ *
  * @public
  */
 export interface ScreenshotResult {
   /**
-   * <p>The status of the action execution.</p>
+   * The status of the action execution.
+   *
    * @public
    */
   status: BrowserActionStatus | undefined;
 
   /**
-   * <p>The error message. Present only when the action failed.</p>
+   * The error message. Present only when the action failed.
+   *
    * @public
    */
   error?: string | undefined;
 
   /**
-   * <p>The base64-encoded image data. Present only when the action succeeded.</p>
+   * The base64-encoded image data. Present only when the action succeeded.
+   *
    * @public
    */
   data?: Uint8Array | undefined;
 }
 
 /**
- * <p>The result of a browser action execution. Exactly one member is set, matching the action that was performed.</p>
+ * The result of a browser action execution. Exactly one member is set, matching the action that was performed.
+ *
  * @public
  */
 export type BrowserActionResult =
@@ -2647,7 +2987,8 @@ export type BrowserActionResult =
  */
 export namespace BrowserActionResult {
   /**
-   * <p>The result of a mouse click action.</p>
+   * The result of a mouse click action.
+   *
    * @public
    */
   export interface MouseClickMember {
@@ -2663,7 +3004,8 @@ export namespace BrowserActionResult {
   }
 
   /**
-   * <p>The result of a mouse move action.</p>
+   * The result of a mouse move action.
+   *
    * @public
    */
   export interface MouseMoveMember {
@@ -2679,7 +3021,8 @@ export namespace BrowserActionResult {
   }
 
   /**
-   * <p>The result of a mouse drag action.</p>
+   * The result of a mouse drag action.
+   *
    * @public
    */
   export interface MouseDragMember {
@@ -2695,7 +3038,8 @@ export namespace BrowserActionResult {
   }
 
   /**
-   * <p>The result of a mouse scroll action.</p>
+   * The result of a mouse scroll action.
+   *
    * @public
    */
   export interface MouseScrollMember {
@@ -2711,7 +3055,8 @@ export namespace BrowserActionResult {
   }
 
   /**
-   * <p>The result of a key type action.</p>
+   * The result of a key type action.
+   *
    * @public
    */
   export interface KeyTypeMember {
@@ -2727,7 +3072,8 @@ export namespace BrowserActionResult {
   }
 
   /**
-   * <p>The result of a key press action.</p>
+   * The result of a key press action.
+   *
    * @public
    */
   export interface KeyPressMember {
@@ -2743,7 +3089,8 @@ export namespace BrowserActionResult {
   }
 
   /**
-   * <p>The result of a key shortcut action.</p>
+   * The result of a key shortcut action.
+   *
    * @public
    */
   export interface KeyShortcutMember {
@@ -2759,7 +3106,8 @@ export namespace BrowserActionResult {
   }
 
   /**
-   * <p>The result of a screenshot action.</p>
+   * The result of a screenshot action.
+   *
    * @public
    */
   export interface ScreenshotMember {
@@ -2807,18 +3155,21 @@ export namespace BrowserActionResult {
 }
 
 /**
- * <p>Response for the InvokeBrowser operation.</p>
+ * Response for the InvokeBrowser operation.
+ *
  * @public
  */
 export interface InvokeBrowserResponse {
   /**
-   * <p>The result of the browser action. The member set in the result corresponds to the action that was performed.</p>
+   * The result of the browser action. The member set in the result corresponds to the action that was performed.
+   *
    * @public
    */
   result: BrowserActionResult | undefined;
 
   /**
-   * <p>The unique identifier of the browser session on which the action was performed.</p>
+   * The unique identifier of the browser session on which the action was performed.
+   *
    * @public
    */
   sessionId: string | undefined;
@@ -2829,67 +3180,78 @@ export interface InvokeBrowserResponse {
  */
 export interface ListBrowserSessionsRequest {
   /**
-   * <p>The unique identifier of the browser to list sessions for. If specified, only sessions for this browser are returned. If not specified, sessions for all browsers are returned.</p>
+   * The unique identifier of the browser to list sessions for. If specified, only sessions for this browser are returned. If not specified, sessions for all browsers are returned.
+   *
    * @public
    */
   browserIdentifier: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. The default value is 10. Valid values range from 1 to 100. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * The maximum number of results to return in a single call. The default value is 10. Valid values range from 1 to 100. To retrieve the remaining results, make another call with the returned `nextToken` value.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. If not specified, Amazon Bedrock AgentCore returns the first page of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. If not specified, Amazon Bedrock AgentCore returns the first page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The status of the browser sessions to list. Valid values include ACTIVE, STOPPING, and STOPPED. If not specified, sessions with any status are returned.</p>
+   * The status of the browser sessions to list. Valid values include ACTIVE, STOPPING, and STOPPED. If not specified, sessions with any status are returned.
+   *
    * @public
    */
   status?: BrowserSessionStatus | undefined;
 }
 
 /**
- * <p>A condensed representation of a browser session in Amazon Bedrock AgentCore. This structure contains key information about a browser session, including identifiers, status, and timestamps, without the full details of the session configuration and streams.</p>
+ * A condensed representation of a browser session in Amazon Bedrock AgentCore. This structure contains key information about a browser session, including identifiers, status, and timestamps, without the full details of the session configuration and streams.
+ *
  * @public
  */
 export interface BrowserSessionSummary {
   /**
-   * <p>The unique identifier of the browser associated with the session. This identifier specifies which browser environment is used for the session.</p>
+   * The unique identifier of the browser associated with the session. This identifier specifies which browser environment is used for the session.
+   *
    * @public
    */
   browserIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the browser session. This identifier is used in operations that interact with the session.</p>
+   * The unique identifier of the browser session. This identifier is used in operations that interact with the session.
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The name of the browser session. This name helps identify and manage the session.</p>
+   * The name of the browser session. This name helps identify and manage the session.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The current status of the browser session. Possible values include ACTIVE, STOPPING, and STOPPED.</p>
+   * The current status of the browser session. Possible values include ACTIVE, STOPPING, and STOPPED.
+   *
    * @public
    */
   status: BrowserSessionStatus | undefined;
 
   /**
-   * <p>The timestamp when the browser session was created. This value is in ISO 8601 format.</p>
+   * The timestamp when the browser session was created. This value is in ISO 8601 format.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the browser session was last updated. This value is in ISO 8601 format.</p>
+   * The timestamp when the browser session was last updated. This value is in ISO 8601 format.
+   *
    * @public
    */
   lastUpdatedAt?: Date | undefined;
@@ -2900,13 +3262,15 @@ export interface BrowserSessionSummary {
  */
 export interface ListBrowserSessionsResponse {
   /**
-   * <p>The list of browser sessions that match the specified criteria.</p>
+   * The list of browser sessions that match the specified criteria.
+   *
    * @public
    */
   items: BrowserSessionSummary[] | undefined;
 
   /**
-   * <p>The token to use in a subsequent <code>ListBrowserSessions</code> request to get the next set of results.</p>
+   * The token to use in a subsequent `ListBrowserSessions` request to get the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2917,79 +3281,92 @@ export interface ListBrowserSessionsResponse {
  */
 export interface StartBrowserSessionRequest {
   /**
-   * <p>The trace identifier for request tracking.</p>
+   * The trace identifier for request tracking.
+   *
    * @public
    */
   traceId?: string | undefined;
 
   /**
-   * <p>The parent trace information for distributed tracing.</p>
+   * The parent trace information for distributed tracing.
+   *
    * @public
    */
   traceParent?: string | undefined;
 
   /**
-   * <p>The unique identifier of the browser to use for this session. This identifier specifies which browser environment to initialize for the session.</p>
+   * The unique identifier of the browser to use for this session. This identifier specifies which browser environment to initialize for the session.
+   *
    * @public
    */
   browserIdentifier: string | undefined;
 
   /**
-   * <p>The name of the browser session. This name helps you identify and manage the session. The name does not need to be unique.</p>
+   * The name of the browser session. This name helps you identify and manage the session. The name does not need to be unique.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The duration in seconds (time-to-live) after which the session automatically terminates, regardless of ongoing activity. Defaults to 3600 seconds (1 hour). Recommended minimum: 60 seconds. Maximum allowed: 28,800 seconds (8 hours).</p>
+   * The duration in seconds (time-to-live) after which the session automatically terminates, regardless of ongoing activity. Defaults to 3600 seconds (1 hour). Recommended minimum: 60 seconds. Maximum allowed: 28,800 seconds (8 hours).
+   *
    * @public
    */
   sessionTimeoutSeconds?: number | undefined;
 
   /**
-   * <p>The dimensions of the browser viewport for this session. This determines the visible area of the web content and affects how web pages are rendered. If not specified, Amazon Bedrock AgentCore uses a default viewport size.</p>
+   * The dimensions of the browser viewport for this session. This determines the visible area of the web content and affects how web pages are rendered. If not specified, Amazon Bedrock AgentCore uses a default viewport size.
+   *
    * @public
    */
   viewPort?: ViewPort | undefined;
 
   /**
-   * <p>A list of browser extensions to load into the browser session.</p>
+   * A list of browser extensions to load into the browser session.
+   *
    * @public
    */
   extensions?: BrowserExtension[] | undefined;
 
   /**
-   * <p>The browser profile configuration to use for this session. A browser profile contains persistent data such as cookies and local storage that can be reused across multiple browser sessions. If specified, the session initializes with the profile's stored data, enabling continuity for tasks that require authentication or personalized settings.</p>
+   * The browser profile configuration to use for this session. A browser profile contains persistent data such as cookies and local storage that can be reused across multiple browser sessions. If specified, the session initializes with the profile's stored data, enabling continuity for tasks that require authentication or personalized settings.
+   *
    * @public
    */
   profileConfiguration?: BrowserProfileConfiguration | undefined;
 
   /**
-   * <p>Optional proxy configuration for routing browser traffic through customer-specified proxy servers. When provided, enables HTTP Basic authentication via Amazon Web Services Secrets Manager and domain-based routing rules. Requires <code>secretsmanager:GetSecretValue</code> IAM permission for the specified secret ARNs.</p>
+   * Optional proxy configuration for routing browser traffic through customer-specified proxy servers. When provided, enables HTTP Basic authentication via Amazon Web Services Secrets Manager and domain-based routing rules. Requires `secretsmanager:GetSecretValue` IAM permission for the specified secret ARNs.
+   *
    * @public
    */
   proxyConfiguration?: ProxyConfiguration | undefined;
 
   /**
-   * <p>A list of files containing enterprise policies for the browser.</p>
+   * A list of files containing enterprise policies for the browser.
+   *
    * @public
    */
   enterprisePolicies?: BrowserEnterprisePolicy[] | undefined;
 
   /**
-   * <p>A list of certificates to install in the browser session.</p>
+   * A list of certificates to install in the browser session.
+   *
    * @public
    */
   certificates?: Certificate[] | undefined;
 
   /**
-   * <p>The file system configurations to mount into the browser session. Use these configurations to mount your own Amazon Simple Storage Service (Amazon S3) Files or Amazon Elastic File System (Amazon EFS) access points. Your session can then read and write your data. If you don't specify this field, no additional file systems are mounted.</p>
+   * The file system configurations to mount into the browser session. Use these configurations to mount your own Amazon Simple Storage Service (Amazon S3) Files or Amazon Elastic File System (Amazon EFS) access points. Your session can then read and write your data. If you don't specify this field, no additional file systems are mounted.
+   *
    * @public
    */
   filesystemConfigurations?: ToolsFileSystemConfiguration[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock AgentCore ignores the request, but does not return an error. This parameter helps prevent the creation of duplicate sessions if there are temporary network issues.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock AgentCore ignores the request, but does not return an error. This parameter helps prevent the creation of duplicate sessions if there are temporary network issues.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -3000,25 +3377,29 @@ export interface StartBrowserSessionRequest {
  */
 export interface StartBrowserSessionResponse {
   /**
-   * <p>The identifier of the browser.</p>
+   * The identifier of the browser.
+   *
    * @public
    */
   browserIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the created browser session.</p>
+   * The unique identifier of the created browser session.
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The timestamp when the browser session was created.</p>
+   * The timestamp when the browser session was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The streams associated with this browser session. These include the automation stream and live view stream.</p>
+   * The streams associated with this browser session. These include the automation stream and live view stream.
+   *
    * @public
    */
   streams?: BrowserSessionStream | undefined;
@@ -3029,31 +3410,36 @@ export interface StartBrowserSessionResponse {
  */
 export interface StopBrowserSessionRequest {
   /**
-   * <p>The trace identifier for request tracking.</p>
+   * The trace identifier for request tracking.
+   *
    * @public
    */
   traceId?: string | undefined;
 
   /**
-   * <p>The parent trace information for distributed tracing.</p>
+   * The parent trace information for distributed tracing.
+   *
    * @public
    */
   traceParent?: string | undefined;
 
   /**
-   * <p>The unique identifier of the browser associated with the session.</p>
+   * The unique identifier of the browser associated with the session.
+   *
    * @public
    */
   browserIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the browser session to stop.</p>
+   * The unique identifier of the browser session to stop.
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock AgentCore ignores the request, but does not return an error.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock AgentCore ignores the request, but does not return an error.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -3064,38 +3450,44 @@ export interface StopBrowserSessionRequest {
  */
 export interface StopBrowserSessionResponse {
   /**
-   * <p>The identifier of the browser.</p>
+   * The identifier of the browser.
+   *
    * @public
    */
   browserIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the browser session.</p>
+   * The identifier of the browser session.
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The time at which the browser session was last updated.</p>
+   * The time at which the browser session was last updated.
+   *
    * @public
    */
   lastUpdatedAt: Date | undefined;
 }
 
 /**
- * <p>Contains information about an update to an automation stream.</p>
+ * Contains information about an update to an automation stream.
+ *
  * @public
  */
 export interface AutomationStreamUpdate {
   /**
-   * <p>The status of the automation stream.</p>
+   * The status of the automation stream.
+   *
    * @public
    */
   streamStatus?: AutomationStreamStatus | undefined;
 }
 
 /**
- * <p>Contains information about an update to a stream.</p>
+ * Contains information about an update to a stream.
+ *
  * @public
  */
 export type StreamUpdate =
@@ -3107,7 +3499,8 @@ export type StreamUpdate =
  */
 export namespace StreamUpdate {
   /**
-   * <p>The update to an automation stream.</p>
+   * The update to an automation stream.
+   *
    * @public
    */
   export interface AutomationStreamUpdateMember {
@@ -3138,25 +3531,29 @@ export namespace StreamUpdate {
  */
 export interface UpdateBrowserStreamRequest {
   /**
-   * <p>The identifier of the browser.</p>
+   * The identifier of the browser.
+   *
    * @public
    */
   browserIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the browser session.</p>
+   * The identifier of the browser session.
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The update to apply to the browser stream.</p>
+   * The update to apply to the browser stream.
+   *
    * @public
    */
   streamUpdate: StreamUpdate | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error.</p>
+   * A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -3167,25 +3564,29 @@ export interface UpdateBrowserStreamRequest {
  */
 export interface UpdateBrowserStreamResponse {
   /**
-   * <p>The identifier of the browser.</p>
+   * The identifier of the browser.
+   *
    * @public
    */
   browserIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the browser session.</p>
+   * The identifier of the browser session.
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The collection of streams associated with a browser session in Amazon Bedrock AgentCore. These streams provide different ways to interact with and observe the browser session, including programmatic control and visual representation of the browser content.</p>
+   * The collection of streams associated with a browser session in Amazon Bedrock AgentCore. These streams provide different ways to interact with and observe the browser session, including programmatic control and visual representation of the browser content.
+   *
    * @public
    */
   streams: BrowserSessionStream | undefined;
 
   /**
-   * <p>The time at which the browser stream was updated.</p>
+   * The time at which the browser stream was updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -3196,13 +3597,15 @@ export interface UpdateBrowserStreamResponse {
  */
 export interface DeleteCapacityProviderSessionRequest {
   /**
-   * <p>The unique identifier of the capacity provider associated with the session.</p>
+   * The unique identifier of the capacity provider associated with the session.
+   *
    * @public
    */
   capacityProviderId: string | undefined;
 
   /**
-   * <p>The unique identifier of the capacity provider session to delete.</p>
+   * The unique identifier of the capacity provider session to delete.
+   *
    * @public
    */
   sessionId: string | undefined;
@@ -3213,19 +3616,22 @@ export interface DeleteCapacityProviderSessionRequest {
  */
 export interface DeleteCapacityProviderSessionResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the capacity provider associated with the deleted session.</p>
+   * The Amazon Resource Name (ARN) of the capacity provider associated with the deleted session.
+   *
    * @public
    */
   capacityProviderArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the deleted capacity provider session.</p>
+   * The unique identifier of the deleted capacity provider session.
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The current status of the capacity provider session. When the status is <code>Deleting</code>, the session is being deleted and is not available. When the status is <code>Deleted</code>, the session is no longer available.</p>
+   * The current status of the capacity provider session. When the status is `Deleting`, the session is being deleted and is not available. When the status is `Deleted`, the session is no longer available.
+   *
    * @public
    */
   status: CapacityProviderSessionStatus | undefined;
@@ -3236,13 +3642,15 @@ export interface DeleteCapacityProviderSessionResponse {
  */
 export interface GetCodeInterpreterSessionRequest {
   /**
-   * <p>The unique identifier of the code interpreter associated with the session.</p>
+   * The unique identifier of the code interpreter associated with the session.
+   *
    * @public
    */
   codeInterpreterIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the code interpreter session to retrieve.</p>
+   * The unique identifier of the code interpreter session to retrieve.
+   *
    * @public
    */
   sessionId: string | undefined;
@@ -3253,49 +3661,57 @@ export interface GetCodeInterpreterSessionRequest {
  */
 export interface GetCodeInterpreterSessionResponse {
   /**
-   * <p>The identifier of the code interpreter.</p>
+   * The identifier of the code interpreter.
+   *
    * @public
    */
   codeInterpreterIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the code interpreter session.</p>
+   * The identifier of the code interpreter session.
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The name of the code interpreter session.</p>
+   * The name of the code interpreter session.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The time at which the code interpreter session was created.</p>
+   * The time at which the code interpreter session was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timeout period for the code interpreter session in seconds.</p>
+   * The timeout period for the code interpreter session in seconds.
+   *
    * @public
    */
   sessionTimeoutSeconds?: number | undefined;
 
   /**
-   * <p>The current status of the code interpreter session. Possible values include ACTIVE, STOPPING, and STOPPED.</p>
+   * The current status of the code interpreter session. Possible values include ACTIVE, STOPPING, and STOPPED.
+   *
    * @public
    */
   status?: CodeInterpreterSessionStatus | undefined;
 
   /**
-   * <p>The list of certificates installed in the code interpreter session.</p>
+   * The list of certificates installed in the code interpreter session.
+   *
    * @public
    */
   certificates?: Certificate[] | undefined;
 
   /**
-   * <p>The file system configurations for the code interpreter session. Each entry describes an access point and its mount path.</p>
+   * The file system configurations for the code interpreter session. Each entry describes an access point and its mount path.
+   *
    * @public
    */
   filesystemConfigurations?: ToolsFileSystemConfiguration[] | undefined;
@@ -3306,67 +3722,78 @@ export interface GetCodeInterpreterSessionResponse {
  */
 export interface ListCodeInterpreterSessionsRequest {
   /**
-   * <p>The unique identifier of the code interpreter to list sessions for. If specified, only sessions for this code interpreter are returned. If not specified, sessions for all code interpreters are returned.</p>
+   * The unique identifier of the code interpreter to list sessions for. If specified, only sessions for this code interpreter are returned. If not specified, sessions for all code interpreters are returned.
+   *
    * @public
    */
   codeInterpreterIdentifier: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. The default value is 10. Valid values range from 1 to 100. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * The maximum number of results to return in a single call. The default value is 10. Valid values range from 1 to 100. To retrieve the remaining results, make another call with the returned `nextToken` value.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. If not specified, Amazon Bedrock AgentCore returns the first page of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. If not specified, Amazon Bedrock AgentCore returns the first page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The status of the code interpreter sessions to list. Valid values include ACTIVE, STOPPING, and STOPPED. If not specified, sessions with any status are returned.</p>
+   * The status of the code interpreter sessions to list. Valid values include ACTIVE, STOPPING, and STOPPED. If not specified, sessions with any status are returned.
+   *
    * @public
    */
   status?: CodeInterpreterSessionStatus | undefined;
 }
 
 /**
- * <p>A condensed representation of a code interpreter session in Amazon Bedrock AgentCore. This structure contains key information about a code interpreter session, including identifiers, status, and timestamps, without the full details of the session configuration.</p>
+ * A condensed representation of a code interpreter session in Amazon Bedrock AgentCore. This structure contains key information about a code interpreter session, including identifiers, status, and timestamps, without the full details of the session configuration.
+ *
  * @public
  */
 export interface CodeInterpreterSessionSummary {
   /**
-   * <p>The unique identifier of the code interpreter associated with the session. This identifier specifies which code interpreter environment is used for the session.</p>
+   * The unique identifier of the code interpreter associated with the session. This identifier specifies which code interpreter environment is used for the session.
+   *
    * @public
    */
   codeInterpreterIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the code interpreter session. This identifier is used in operations that interact with the session.</p>
+   * The unique identifier of the code interpreter session. This identifier is used in operations that interact with the session.
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The name of the code interpreter session. This name helps identify and manage the session.</p>
+   * The name of the code interpreter session. This name helps identify and manage the session.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The current status of the code interpreter session. Possible values include ACTIVE, STOPPING, and STOPPED.</p>
+   * The current status of the code interpreter session. Possible values include ACTIVE, STOPPING, and STOPPED.
+   *
    * @public
    */
   status: CodeInterpreterSessionStatus | undefined;
 
   /**
-   * <p>The timestamp when the code interpreter session was created. This value is in ISO 8601 format.</p>
+   * The timestamp when the code interpreter session was created. This value is in ISO 8601 format.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the code interpreter session was last updated. This value is in ISO 8601 format.</p>
+   * The timestamp when the code interpreter session was last updated. This value is in ISO 8601 format.
+   *
    * @public
    */
   lastUpdatedAt?: Date | undefined;
@@ -3377,13 +3804,15 @@ export interface CodeInterpreterSessionSummary {
  */
 export interface ListCodeInterpreterSessionsResponse {
   /**
-   * <p>The list of code interpreter sessions that match the specified criteria.</p>
+   * The list of code interpreter sessions that match the specified criteria.
+   *
    * @public
    */
   items: CodeInterpreterSessionSummary[] | undefined;
 
   /**
-   * <p>The token to use in a subsequent <code>ListCodeInterpreterSessions</code> request to get the next set of results.</p>
+   * The token to use in a subsequent `ListCodeInterpreterSessions` request to get the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -3394,49 +3823,57 @@ export interface ListCodeInterpreterSessionsResponse {
  */
 export interface StartCodeInterpreterSessionRequest {
   /**
-   * <p>The trace identifier for request tracking.</p>
+   * The trace identifier for request tracking.
+   *
    * @public
    */
   traceId?: string | undefined;
 
   /**
-   * <p>The parent trace information for distributed tracing.</p>
+   * The parent trace information for distributed tracing.
+   *
    * @public
    */
   traceParent?: string | undefined;
 
   /**
-   * <p>The unique identifier of the code interpreter to use for this session. This identifier specifies which code interpreter environment to initialize for the session.</p>
+   * The unique identifier of the code interpreter to use for this session. This identifier specifies which code interpreter environment to initialize for the session.
+   *
    * @public
    */
   codeInterpreterIdentifier: string | undefined;
 
   /**
-   * <p>The name of the code interpreter session. This name helps you identify and manage the session. The name does not need to be unique.</p>
+   * The name of the code interpreter session. This name helps you identify and manage the session. The name does not need to be unique.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The duration in seconds (time-to-live) after which the session automatically terminates, regardless of ongoing activity. Defaults to 900 seconds (15 minutes). Recommended minimum: 60 seconds. Maximum allowed: 28,800 seconds (8 hours).</p>
+   * The duration in seconds (time-to-live) after which the session automatically terminates, regardless of ongoing activity. Defaults to 900 seconds (15 minutes). Recommended minimum: 60 seconds. Maximum allowed: 28,800 seconds (8 hours).
+   *
    * @public
    */
   sessionTimeoutSeconds?: number | undefined;
 
   /**
-   * <p>A list of certificates to install in the code interpreter session.</p>
+   * A list of certificates to install in the code interpreter session.
+   *
    * @public
    */
   certificates?: Certificate[] | undefined;
 
   /**
-   * <p>The file system configurations to mount into the code interpreter session. Use these configurations to mount your own Amazon Simple Storage Service (Amazon S3) Files or Amazon Elastic File System (Amazon EFS) access points. Your session can then read and write your data. If you don't specify this field, no additional file systems are mounted.</p>
+   * The file system configurations to mount into the code interpreter session. Use these configurations to mount your own Amazon Simple Storage Service (Amazon S3) Files or Amazon Elastic File System (Amazon EFS) access points. Your session can then read and write your data. If you don't specify this field, no additional file systems are mounted.
+   *
    * @public
    */
   filesystemConfigurations?: ToolsFileSystemConfiguration[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock AgentCore ignores the request, but does not return an error. This parameter helps prevent the creation of duplicate sessions if there are temporary network issues.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock AgentCore ignores the request, but does not return an error. This parameter helps prevent the creation of duplicate sessions if there are temporary network issues.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -3447,19 +3884,22 @@ export interface StartCodeInterpreterSessionRequest {
  */
 export interface StartCodeInterpreterSessionResponse {
   /**
-   * <p>The identifier of the code interpreter.</p>
+   * The identifier of the code interpreter.
+   *
    * @public
    */
   codeInterpreterIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the created code interpreter session.</p>
+   * The unique identifier of the created code interpreter session.
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The time at which the code interpreter session was created.</p>
+   * The time at which the code interpreter session was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
@@ -3470,31 +3910,36 @@ export interface StartCodeInterpreterSessionResponse {
  */
 export interface StopCodeInterpreterSessionRequest {
   /**
-   * <p>The trace identifier for request tracking.</p>
+   * The trace identifier for request tracking.
+   *
    * @public
    */
   traceId?: string | undefined;
 
   /**
-   * <p>The parent trace information for distributed tracing.</p>
+   * The parent trace information for distributed tracing.
+   *
    * @public
    */
   traceParent?: string | undefined;
 
   /**
-   * <p>The unique identifier of the code interpreter associated with the session.</p>
+   * The unique identifier of the code interpreter associated with the session.
+   *
    * @public
    */
   codeInterpreterIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the code interpreter session to stop.</p>
+   * The unique identifier of the code interpreter session to stop.
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock AgentCore ignores the request, but does not return an error.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock AgentCore ignores the request, but does not return an error.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -3505,26 +3950,30 @@ export interface StopCodeInterpreterSessionRequest {
  */
 export interface StopCodeInterpreterSessionResponse {
   /**
-   * <p>The identifier of the code interpreter.</p>
+   * The identifier of the code interpreter.
+   *
    * @public
    */
   codeInterpreterIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the code interpreter session.</p>
+   * The identifier of the code interpreter session.
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The timestamp when the code interpreter session was last updated.</p>
+   * The timestamp when the code interpreter session was last updated.
+   *
    * @public
    */
   lastUpdatedAt: Date | undefined;
 }
 
 /**
- * <p>The OAuth2.0 token or user ID that was used to generate the workload access token used for initiating the user authorization flow to retrieve OAuth2.0 tokens.</p>
+ * The OAuth2.0 token or user ID that was used to generate the workload access token used for initiating the user authorization flow to retrieve OAuth2.0 tokens.
+ *
  * @public
  */
 export type UserIdentifier =
@@ -3537,7 +3986,8 @@ export type UserIdentifier =
  */
 export namespace UserIdentifier {
   /**
-   * <p>The OAuth2.0 token issued by the user’s identity provider that was used to generate the workload access token</p>
+   * The OAuth2.0 token issued by the user’s identity provider that was used to generate the workload access token
+   *
    * @public
    */
   export interface UserTokenMember {
@@ -3547,7 +3997,8 @@ export namespace UserIdentifier {
   }
 
   /**
-   * <p>The ID of the user for whom you have retrieved a workload access token for</p>
+   * The ID of the user for whom you have retrieved a workload access token for
+   *
    * @public
    */
   export interface UserIdMember {
@@ -3581,13 +4032,15 @@ export namespace UserIdentifier {
  */
 export interface CompleteResourceTokenAuthRequest {
   /**
-   * <p>The OAuth2.0 token or user ID that was used to generate the workload access token used for initiating the user authorization flow to retrieve OAuth2.0 tokens.</p>
+   * The OAuth2.0 token or user ID that was used to generate the workload access token used for initiating the user authorization flow to retrieve OAuth2.0 tokens.
+   *
    * @public
    */
   userIdentifier: UserIdentifier | undefined;
 
   /**
-   * <p>Unique identifier for the user's authentication session for retrieving OAuth2 tokens. This ID tracks the authorization flow state across multiple requests and responses during the OAuth2 authentication process.</p>
+   * Unique identifier for the user's authentication session for retrieving OAuth2 tokens. This ID tracks the authorization flow state across multiple requests and responses during the OAuth2 authentication process.
+   *
    * @public
    */
   sessionUri: string | undefined;
@@ -3599,84 +4052,98 @@ export interface CompleteResourceTokenAuthRequest {
 export interface CompleteResourceTokenAuthResponse {}
 
 /**
- * <p>A filter to restrict which gateway target paths are included in the A/B test.</p>
+ * A filter to restrict which gateway target paths are included in the A/B test.
+ *
  * @public
  */
 export interface GatewayFilter {
   /**
-   * <p>A list of target path patterns to include in the A/B test.</p>
+   * A list of target path patterns to include in the A/B test.
+   *
    * @public
    */
   targetPaths?: string[] | undefined;
 }
 
 /**
- * <p>A reference to a specific version of a configuration bundle.</p>
+ * A reference to a specific version of a configuration bundle.
+ *
  * @public
  */
 export interface ConfigurationBundleRef {
   /**
-   * <p>The Amazon Resource Name (ARN) of the configuration bundle.</p>
+   * The Amazon Resource Name (ARN) of the configuration bundle.
+   *
    * @public
    */
   bundleArn: string | undefined;
 
   /**
-   * <p>The version of the configuration bundle.</p>
+   * The version of the configuration bundle.
+   *
    * @public
    */
   bundleVersion: string | undefined;
 }
 
 /**
- * <p>A reference to a gateway target.</p>
+ * A reference to a gateway target.
+ *
  * @public
  */
 export interface TargetRef {
   /**
-   * <p>The name of the gateway target.</p>
+   * The name of the gateway target.
+   *
    * @public
    */
   name: string | undefined;
 }
 
 /**
- * <p>The configuration for an A/B test variant.</p>
+ * The configuration for an A/B test variant.
+ *
  * @public
  */
 export interface VariantConfiguration {
   /**
-   * <p>A reference to a configuration bundle version to use for this variant.</p>
+   * A reference to a configuration bundle version to use for this variant.
+   *
    * @public
    */
   configurationBundle?: ConfigurationBundleRef | undefined;
 
   /**
-   * <p>A reference to a gateway target to route traffic to for this variant.</p>
+   * A reference to a gateway target to route traffic to for this variant.
+   *
    * @public
    */
   target?: TargetRef | undefined;
 }
 
 /**
- * <p>A variant in an A/B test, representing either the control (C) or treatment (T1) configuration.</p>
+ * A variant in an A/B test, representing either the control (C) or treatment (T1) configuration.
+ *
  * @public
  */
 export interface Variant {
   /**
-   * <p>The name of the variant. Must be <code>C</code> for control or <code>T1</code> for treatment.</p>
+   * The name of the variant. Must be `C` for control or `T1` for treatment.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The percentage of traffic to route to this variant. Weights across all variants must sum to 100.</p>
+   * The percentage of traffic to route to this variant. Weights across all variants must sum to 100.
+   *
    * @public
    */
   weight: number | undefined;
 
   /**
-   * <p>The configuration for this variant, including the configuration bundle or target reference.</p>
+   * The configuration for this variant, including the configuration bundle or target reference.
+   *
    * @public
    */
   variantConfiguration: VariantConfiguration | undefined;
@@ -3687,61 +4154,71 @@ export interface Variant {
  */
 export interface CreateABTestRequest {
   /**
-   * <p>The name of the A/B test. Must be unique within your account.</p>
+   * The name of the A/B test. Must be unique within your account.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the A/B test.</p>
+   * The description of the A/B test.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the gateway to use for traffic splitting.</p>
+   * The Amazon Resource Name (ARN) of the gateway to use for traffic splitting.
+   *
    * @public
    */
   gatewayArn: string | undefined;
 
   /**
-   * <p>The list of variants for the A/B test. Must contain exactly two variants: a control (C) and a treatment (T1), each with a configuration bundle or target reference and a traffic weight.</p>
+   * The list of variants for the A/B test. Must contain exactly two variants: a control (C) and a treatment (T1), each with a configuration bundle or target reference and a traffic weight.
+   *
    * @public
    */
   variants: Variant[] | undefined;
 
   /**
-   * <p>Optional filter to restrict which gateway target paths are included in the A/B test.</p>
+   * Optional filter to restrict which gateway target paths are included in the A/B test.
+   *
    * @public
    */
   gatewayFilter?: GatewayFilter | undefined;
 
   /**
-   * <p>The evaluation configuration specifying which online evaluation configurations to use for measuring variant performance.</p>
+   * The evaluation configuration specifying which online evaluation configurations to use for measuring variant performance.
+   *
    * @public
    */
   evaluationConfig: ABTestEvaluationConfig | undefined;
 
   /**
-   * <p>The IAM role ARN that grants permissions for the A/B test to access gateway and evaluation resources.</p>
+   * The IAM role ARN that grants permissions for the A/B test to access gateway and evaluation resources.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>Whether to enable the A/B test immediately upon creation. If true, traffic splitting begins automatically.</p>
+   * Whether to enable the A/B test immediately upon creation. If true, traffic splitting begins automatically.
+   *
    * @public
    */
   enableOnCreate?: boolean | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, the service ignores the request, but does not return an error.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, the service ignores the request, but does not return an error.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>A map of tag keys and values to associate with the A/B test.</p>
+   * A map of tag keys and values to associate with the A/B test.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -3752,37 +4229,43 @@ export interface CreateABTestRequest {
  */
 export interface CreateABTestResponse {
   /**
-   * <p>The unique identifier of the created A/B test.</p>
+   * The unique identifier of the created A/B test.
+   *
    * @public
    */
   abTestId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the created A/B test.</p>
+   * The Amazon Resource Name (ARN) of the created A/B test.
+   *
    * @public
    */
   abTestArn: string | undefined;
 
   /**
-   * <p>The name of the A/B test.</p>
+   * The name of the A/B test.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The status of the A/B test.</p>
+   * The status of the A/B test.
+   *
    * @public
    */
   status: ABTestStatus | undefined;
 
   /**
-   * <p>The execution status indicating whether the A/B test is currently running.</p>
+   * The execution status indicating whether the A/B test is currently running.
+   *
    * @public
    */
   executionStatus: ABTestExecutionStatus | undefined;
 
   /**
-   * <p>The timestamp when the A/B test was created.</p>
+   * The timestamp when the A/B test was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
@@ -3793,7 +4276,8 @@ export interface CreateABTestResponse {
  */
 export interface DeleteABTestRequest {
   /**
-   * <p>The unique identifier of the A/B test to delete.</p>
+   * The unique identifier of the A/B test to delete.
+   *
    * @public
    */
   abTestId: string | undefined;
@@ -3804,19 +4288,22 @@ export interface DeleteABTestRequest {
  */
 export interface DeleteABTestResponse {
   /**
-   * <p>The unique identifier of the deleted A/B test.</p>
+   * The unique identifier of the deleted A/B test.
+   *
    * @public
    */
   abTestId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the deleted A/B test.</p>
+   * The Amazon Resource Name (ARN) of the deleted A/B test.
+   *
    * @public
    */
   abTestArn: string | undefined;
 
   /**
-   * <p>The status of the A/B test deletion operation.</p>
+   * The status of the A/B test deletion operation.
+   *
    * @public
    */
   status: ABTestStatus | undefined;
@@ -3827,7 +4314,8 @@ export interface DeleteABTestResponse {
  */
 export interface DeleteBatchEvaluationRequest {
   /**
-   * <p>The unique identifier of the batch evaluation to delete.</p>
+   * The unique identifier of the batch evaluation to delete.
+   *
    * @public
    */
   batchEvaluationId: string | undefined;
@@ -3838,19 +4326,22 @@ export interface DeleteBatchEvaluationRequest {
  */
 export interface DeleteBatchEvaluationResponse {
   /**
-   * <p>The unique identifier of the deleted batch evaluation.</p>
+   * The unique identifier of the deleted batch evaluation.
+   *
    * @public
    */
   batchEvaluationId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the deleted batch evaluation.</p>
+   * The Amazon Resource Name (ARN) of the deleted batch evaluation.
+   *
    * @public
    */
   batchEvaluationArn: string | undefined;
 
   /**
-   * <p>The status of the batch evaluation deletion operation.</p>
+   * The status of the batch evaluation deletion operation.
+   *
    * @public
    */
   status: BatchEvaluationStatus | undefined;
@@ -3861,7 +4352,8 @@ export interface DeleteBatchEvaluationResponse {
  */
 export interface DeleteRecommendationRequest {
   /**
-   * <p>The unique identifier of the recommendation to delete.</p>
+   * The unique identifier of the recommendation to delete.
+   *
    * @public
    */
   recommendationId: string | undefined;
@@ -3872,20 +4364,23 @@ export interface DeleteRecommendationRequest {
  */
 export interface DeleteRecommendationResponse {
   /**
-   * <p>The unique identifier of the deleted recommendation.</p>
+   * The unique identifier of the deleted recommendation.
+   *
    * @public
    */
   recommendationId: string | undefined;
 
   /**
-   * <p>The status of the recommendation deletion operation.</p>
+   * The status of the recommendation deletion operation.
+   *
    * @public
    */
   status: RecommendationStatus | undefined;
 }
 
 /**
- * <p> The input data structure containing agent session spans in OpenTelemetry format. Supports traces from frameworks like Strands (AgentCore Runtime) and LangGraph with OpenInference instrumentation for comprehensive evaluation. </p>
+ * The input data structure containing agent session spans in OpenTelemetry format. Supports traces from frameworks like Strands (AgentCore Runtime) and LangGraph with OpenInference instrumentation for comprehensive evaluation.
+ *
  * @public
  */
 export type EvaluationInput =
@@ -3897,7 +4392,8 @@ export type EvaluationInput =
  */
 export namespace EvaluationInput {
   /**
-   * <p> The collection of spans representing agent execution traces within a session. Each span contains detailed information about tool calls, model interactions, and other agent activities that can be evaluated for quality and performance. </p>
+   * The collection of spans representing agent execution traces within a session. Each span contains detailed information about tool calls, model interactions, and other agent activities that can be evaluated for quality and performance.
+   *
    * @public
    */
   export interface SessionSpansMember {
@@ -3924,7 +4420,8 @@ export namespace EvaluationInput {
 }
 
 /**
- * <p> A content block for ground truth data in evaluation reference inputs. Supports text content for expected responses and assertions. </p>
+ * A content block for ground truth data in evaluation reference inputs. Supports text content for expected responses and assertions.
+ *
  * @public
  */
 export type EvaluationContent =
@@ -3936,7 +4433,8 @@ export type EvaluationContent =
  */
 export namespace EvaluationContent {
   /**
-   * <p> The text content of the ground truth data. Used for expected response text and assertion statements. </p>
+   * The text content of the ground truth data. Used for expected response text and assertion statements.
+   *
    * @public
    */
   export interface TextMember {
@@ -3963,31 +4461,36 @@ export namespace EvaluationContent {
 }
 
 /**
- * <p> The contextual information that uniquely identifies a span within the distributed tracing system. Contains session, trace, and span identifiers used to correlate evaluation results with specific agent execution points. </p>
+ * The contextual information that uniquely identifies a span within the distributed tracing system. Contains session, trace, and span identifiers used to correlate evaluation results with specific agent execution points.
+ *
  * @public
  */
 export interface SpanContext {
   /**
-   * <p> The unique identifier of the session containing this span. Sessions represent complete conversation flows and are detected using configurable <code>SessionTimeoutMinutes</code> (default 15 minutes). </p>
+   * The unique identifier of the session containing this span. Sessions represent complete conversation flows and are detected using configurable `SessionTimeoutMinutes` (default 15 minutes).
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p> The unique identifier of the trace containing this span. Traces represent individual request-response interactions within a session and group related spans together. </p>
+   * The unique identifier of the trace containing this span. Traces represent individual request-response interactions within a session and group related spans together.
+   *
    * @public
    */
   traceId?: string | undefined;
 
   /**
-   * <p> The unique identifier of the specific span being referenced. Spans represent individual operations like tool calls, model invocations, or other discrete actions within the agent's execution. </p>
+   * The unique identifier of the specific span being referenced. Spans represent individual operations like tool calls, model invocations, or other discrete actions within the agent's execution.
+   *
    * @public
    */
   spanId?: string | undefined;
 }
 
 /**
- * <p> The contextual information associated with an evaluation, including span context details that identify the specific traces and sessions being evaluated within the agent's execution flow. </p>
+ * The contextual information associated with an evaluation, including span context details that identify the specific traces and sessions being evaluated within the agent's execution flow.
+ *
  * @public
  */
 export type Context =
@@ -3999,7 +4502,8 @@ export type Context =
  */
 export namespace Context {
   /**
-   * <p> The span context information that uniquely identifies the trace and span being evaluated, including session ID, trace ID, and span ID for precise targeting within the agent's execution flow. </p>
+   * The span context information that uniquely identifies the trace and span being evaluated, including session ID, trace ID, and span ID for precise targeting within the agent's execution flow.
+   *
    * @public
    */
   export interface SpanContextMember {
@@ -4026,49 +4530,57 @@ export namespace Context {
 }
 
 /**
- * <p> The expected tool call trajectory for trajectory-based evaluation. </p>
+ * The expected tool call trajectory for trajectory-based evaluation.
+ *
  * @public
  */
 export interface EvaluationExpectedTrajectory {
   /**
-   * <p> The list of tool names representing the expected tool call sequence. </p>
+   * The list of tool names representing the expected tool call sequence.
+   *
    * @public
    */
   toolNames?: string[] | undefined;
 }
 
 /**
- * <p> A reference input containing ground truth data for evaluation, scoped to a specific context level (session or trace) through its span context. </p>
+ * A reference input containing ground truth data for evaluation, scoped to a specific context level (session or trace) through its span context.
+ *
  * @public
  */
 export interface EvaluationReferenceInput {
   /**
-   * <p> The span context that identifies which session or trace this reference input applies to, used for correlating ground truth with agent output. </p>
+   * The span context that identifies which session or trace this reference input applies to, used for correlating ground truth with agent output.
+   *
    * @public
    */
   context: Context | undefined;
 
   /**
-   * <p> The expected response for trace-level evaluation. Built-in evaluators that support this field compare the agent's actual response against this value for assessment. Custom evaluators can access it through the <code>\{expected_response\}</code> placeholder in their instructions. </p>
+   * The expected response for trace-level evaluation. Built-in evaluators that support this field compare the agent's actual response against this value for assessment. Custom evaluators can access it through the `\{expected_response\}` placeholder in their instructions.
+   *
    * @public
    */
   expectedResponse?: EvaluationContent | undefined;
 
   /**
-   * <p> A list of assertion statements for session-level evaluation. Each assertion describes an expected behavior or outcome the agent should demonstrate during the session. </p>
+   * A list of assertion statements for session-level evaluation. Each assertion describes an expected behavior or outcome the agent should demonstrate during the session.
+   *
    * @public
    */
   assertions?: EvaluationContent[] | undefined;
 
   /**
-   * <p> The expected tool call sequence for session-level trajectory evaluation. Contains a list of tool names representing the tools the agent is expected to invoke. </p>
+   * The expected tool call sequence for session-level trajectory evaluation. Contains a list of tool names representing the tools the agent is expected to invoke.
+   *
    * @public
    */
   expectedTrajectory?: EvaluationExpectedTrajectory | undefined;
 }
 
 /**
- * <p> The specification of which trace or span IDs to evaluate within the provided input data. Allows precise targeting of evaluation at different levels: tool calls, traces, or sessions. </p>
+ * The specification of which trace or span IDs to evaluate within the provided input data. Allows precise targeting of evaluation at different levels: tool calls, traces, or sessions.
+ *
  * @public
  */
 export type EvaluationTarget =
@@ -4081,7 +4593,8 @@ export type EvaluationTarget =
  */
 export namespace EvaluationTarget {
   /**
-   * <p> The list of specific span IDs to evaluate within the provided traces. Used to target evaluation at individual tool calls or specific operations within the agent's execution flow. </p>
+   * The list of specific span IDs to evaluate within the provided traces. Used to target evaluation at individual tool calls or specific operations within the agent's execution flow.
+   *
    * @public
    */
   export interface SpanIdsMember {
@@ -4091,7 +4604,8 @@ export namespace EvaluationTarget {
   }
 
   /**
-   * <p> The list of trace IDs to evaluate, representing complete request-response interactions. Used to evaluate entire conversation turns or specific agent interactions within a session. </p>
+   * The list of trace IDs to evaluate, representing complete request-response interactions. Used to evaluate entire conversation turns or specific agent interactions within a session.
+   *
    * @public
    */
   export interface TraceIdsMember {
@@ -4125,127 +4639,148 @@ export namespace EvaluationTarget {
  */
 export interface EvaluateRequest {
   /**
-   * <p> The unique identifier of the evaluator to use for scoring. Can be a built-in evaluator (e.g., <code>Builtin.Helpfulness</code>, <code>Builtin.Correctness</code>) or a custom evaluator Id created through the control plane API. </p>
+   * The unique identifier of the evaluator to use for scoring. Can be a built-in evaluator (e.g., `Builtin.Helpfulness`, `Builtin.Correctness`) or a custom evaluator Id created through the control plane API.
+   *
    * @public
    */
   evaluatorId: string | undefined;
 
   /**
-   * <p> The input data containing agent session spans to be evaluated. Includes a list of spans in OpenTelemetry format from supported frameworks like Strands (AgentCore Runtime) or LangGraph with OpenInference instrumentation. </p>
+   * The input data containing agent session spans to be evaluated. Includes a list of spans in OpenTelemetry format from supported frameworks like Strands (AgentCore Runtime) or LangGraph with OpenInference instrumentation.
+   *
    * @public
    */
   evaluationInput: EvaluationInput | undefined;
 
   /**
-   * <p> The specific trace or span IDs to evaluate within the provided input. Allows targeting evaluation at different levels: individual tool calls, single request-response interactions (traces), or entire conversation sessions. </p>
+   * The specific trace or span IDs to evaluate within the provided input. Allows targeting evaluation at different levels: individual tool calls, single request-response interactions (traces), or entire conversation sessions.
+   *
    * @public
    */
   evaluationTarget?: EvaluationTarget | undefined;
 
   /**
-   * <p> Ground truth data to compare against agent responses during evaluation. Allows to provide expected responses, assertions, and expected tool trajectories at different evaluation levels. Session-level reference inputs apply to the entire conversation, while trace-level reference inputs target specific request-response interactions identified by trace ID. </p>
+   * Ground truth data to compare against agent responses during evaluation. Allows to provide expected responses, assertions, and expected tool trajectories at different evaluation levels. Session-level reference inputs apply to the entire conversation, while trace-level reference inputs target specific request-response interactions identified by trace ID.
+   *
    * @public
    */
   evaluationReferenceInputs?: EvaluationReferenceInput[] | undefined;
 }
 
 /**
- * <p> The token consumption statistics for language model operations during evaluation. Provides detailed breakdown of input, output, and total tokens used for cost tracking and performance monitoring. </p>
+ * The token consumption statistics for language model operations during evaluation. Provides detailed breakdown of input, output, and total tokens used for cost tracking and performance monitoring.
+ *
  * @public
  */
 export interface TokenUsage {
   /**
-   * <p> The number of tokens consumed for input processing during the evaluation. Includes tokens from the evaluation prompt, agent traces, and any additional context provided to the evaluator model. </p>
+   * The number of tokens consumed for input processing during the evaluation. Includes tokens from the evaluation prompt, agent traces, and any additional context provided to the evaluator model.
+   *
    * @public
    */
   inputTokens?: number | undefined;
 
   /**
-   * <p> The number of tokens generated by the evaluator model in its response. Includes tokens for the score, explanation, and any additional output produced during the evaluation process. </p>
+   * The number of tokens generated by the evaluator model in its response. Includes tokens for the score, explanation, and any additional output produced during the evaluation process.
+   *
    * @public
    */
   outputTokens?: number | undefined;
 
   /**
-   * <p> The total number of tokens consumed during the evaluation, calculated as the sum of input and output tokens. Used for cost calculation and rate limiting within the service limits. </p>
+   * The total number of tokens consumed during the evaluation, calculated as the sum of input and output tokens. Used for cost calculation and rate limiting within the service limits.
+   *
    * @public
    */
   totalTokens?: number | undefined;
 }
 
 /**
- * <p> The comprehensive result of an evaluation containing the score, explanation, evaluator metadata, and execution details. Provides both quantitative ratings and qualitative insights about agent performance. </p>
+ * The comprehensive result of an evaluation containing the score, explanation, evaluator metadata, and execution details. Provides both quantitative ratings and qualitative insights about agent performance.
+ *
  * @public
  */
 export interface EvaluationResultContent {
   /**
-   * <p> The Amazon Resource Name (ARN) of the evaluator used to generate this result. For custom evaluators, this is the full ARN; for built-in evaluators, this follows the pattern <code>Builtin.\{EvaluatorName\}</code>. </p>
+   * The Amazon Resource Name (ARN) of the evaluator used to generate this result. For custom evaluators, this is the full ARN; for built-in evaluators, this follows the pattern `Builtin.\{EvaluatorName\}`.
+   *
    * @public
    */
   evaluatorArn: string | undefined;
 
   /**
-   * <p> The unique identifier of the evaluator that produced this result. This matches the <code>evaluatorId</code> provided in the evaluation request and can be used to identify which evaluator generated specific results. </p>
+   * The unique identifier of the evaluator that produced this result. This matches the `evaluatorId` provided in the evaluation request and can be used to identify which evaluator generated specific results.
+   *
    * @public
    */
   evaluatorId: string | undefined;
 
   /**
-   * <p> The human-readable name of the evaluator used for this evaluation. For built-in evaluators, this is the descriptive name (e.g., "Helpfulness", "Correctness"); for custom evaluators, this is the user-defined name. </p>
+   * The human-readable name of the evaluator used for this evaluation. For built-in evaluators, this is the descriptive name (e.g., "Helpfulness", "Correctness"); for custom evaluators, this is the user-defined name.
+   *
    * @public
    */
   evaluatorName: string | undefined;
 
   /**
-   * <p> The name of the dimension that this result scores. This field is set only on results produced by an evaluator that uses a multi-dimensional rating scale, where each dimension is scored independently. For evaluators with a single rating scale, this field is absent. </p>
+   * The name of the dimension that this result scores. This field is set only on results produced by an evaluator that uses a multi-dimensional rating scale, where each dimension is scored independently. For evaluators with a single rating scale, this field is absent.
+   *
    * @public
    */
   evaluationDimensionName?: string | undefined;
 
   /**
-   * <p> The detailed explanation provided by the evaluator describing the reasoning behind the assigned score. This qualitative feedback helps understand why specific ratings were given and provides actionable insights for improvement. </p>
+   * The detailed explanation provided by the evaluator describing the reasoning behind the assigned score. This qualitative feedback helps understand why specific ratings were given and provides actionable insights for improvement.
+   *
    * @public
    */
   explanation?: string | undefined;
 
   /**
-   * <p> The contextual information associated with this evaluation result, including span context details that identify the specific traces and sessions that were evaluated. </p>
+   * The contextual information associated with this evaluation result, including span context details that identify the specific traces and sessions that were evaluated.
+   *
    * @public
    */
   context: Context | undefined;
 
   /**
-   * <p> The numerical score assigned by the evaluator according to its configured rating scale. For numerical scales, this is a decimal value within the defined range. This field is not allowed for categorical scales. </p>
+   * The numerical score assigned by the evaluator according to its configured rating scale. For numerical scales, this is a decimal value within the defined range. This field is not allowed for categorical scales.
+   *
    * @public
    */
   value?: number | undefined;
 
   /**
-   * <p> The categorical label assigned by the evaluator when using a categorical rating scale. This provides a human-readable description of the evaluation result (e.g., "Excellent", "Good", "Poor") corresponding to the numerical value. For numerical scales, this field is optional and provides a natural language explanation of what the value means (e.g., value 0.5 = "Somewhat Helpful"). </p>
+   * The categorical label assigned by the evaluator when using a categorical rating scale. This provides a human-readable description of the evaluation result (e.g., "Excellent", "Good", "Poor") corresponding to the numerical value. For numerical scales, this field is optional and provides a natural language explanation of what the value means (e.g., value 0.5 = "Somewhat Helpful").
+   *
    * @public
    */
   label?: string | undefined;
 
   /**
-   * <p> The token consumption statistics for this evaluation, including input tokens, output tokens, and total tokens used by the underlying language model during the evaluation process. </p>
+   * The token consumption statistics for this evaluation, including input tokens, output tokens, and total tokens used by the underlying language model during the evaluation process.
+   *
    * @public
    */
   tokenUsage?: TokenUsage | undefined;
 
   /**
-   * <p> The error message describing what went wrong if the evaluation failed. Provides detailed information about evaluation failures to help diagnose and resolve issues with evaluator configuration or input data. </p>
+   * The error message describing what went wrong if the evaluation failed. Provides detailed information about evaluation failures to help diagnose and resolve issues with evaluator configuration or input data.
+   *
    * @public
    */
   errorMessage?: string | undefined;
 
   /**
-   * <p> The error code indicating the type of failure that occurred during evaluation. Used to programmatically identify and handle different categories of evaluation errors. </p>
+   * The error code indicating the type of failure that occurred during evaluation. Used to programmatically identify and handle different categories of evaluation errors.
+   *
    * @public
    */
   errorCode?: string | undefined;
 
   /**
-   * <p> The list of reference input field names that were provided but not used by the evaluator. Helps identify which ground truth data was not consumed during evaluation. </p>
+   * The list of reference input field names that were provided but not used by the evaluator. Helps identify which ground truth data was not consumed during evaluation.
+   *
    * @public
    */
   ignoredReferenceInputFields?: string[] | undefined;
@@ -4256,7 +4791,8 @@ export interface EvaluationResultContent {
  */
 export interface EvaluateResponse {
   /**
-   * <p> The detailed evaluation results containing scores, explanations, and metadata. Includes the evaluator information, numerical or categorical ratings based on the evaluator's rating scale, and token usage statistics for the evaluation process. </p>
+   * The detailed evaluation results containing scores, explanations, and metadata. Includes the evaluator information, numerical or categorical ratings based on the evaluator's rating scale, and token usage statistics for the evaluation process.
+   *
    * @public
    */
   evaluationResults: EvaluationResultContent[] | undefined;
@@ -4267,7 +4803,8 @@ export interface EvaluateResponse {
  */
 export interface GetABTestRequest {
   /**
-   * <p>The unique identifier of the A/B test to retrieve.</p>
+   * The unique identifier of the A/B test to retrieve.
+   *
    * @public
    */
   abTestId: string | undefined;
@@ -4278,115 +4815,134 @@ export interface GetABTestRequest {
  */
 export interface GetABTestResponse {
   /**
-   * <p>The unique identifier of the A/B test.</p>
+   * The unique identifier of the A/B test.
+   *
    * @public
    */
   abTestId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the A/B test.</p>
+   * The Amazon Resource Name (ARN) of the A/B test.
+   *
    * @public
    */
   abTestArn: string | undefined;
 
   /**
-   * <p>The name of the A/B test.</p>
+   * The name of the A/B test.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the A/B test.</p>
+   * The description of the A/B test.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The current status of the A/B test.</p>
+   * The current status of the A/B test.
+   *
    * @public
    */
   status: ABTestStatus | undefined;
 
   /**
-   * <p>The execution status indicating whether the A/B test is currently running.</p>
+   * The execution status indicating whether the A/B test is currently running.
+   *
    * @public
    */
   executionStatus: ABTestExecutionStatus | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the gateway used for traffic splitting.</p>
+   * The Amazon Resource Name (ARN) of the gateway used for traffic splitting.
+   *
    * @public
    */
   gatewayArn: string | undefined;
 
   /**
-   * <p>The list of variants in the A/B test.</p>
+   * The list of variants in the A/B test.
+   *
    * @public
    */
   variants: Variant[] | undefined;
 
   /**
-   * <p>The gateway filter restricting which target paths are included.</p>
+   * The gateway filter restricting which target paths are included.
+   *
    * @public
    */
   gatewayFilter?: GatewayFilter | undefined;
 
   /**
-   * <p>The evaluation configuration for measuring variant performance.</p>
+   * The evaluation configuration for measuring variant performance.
+   *
    * @public
    */
   evaluationConfig: ABTestEvaluationConfig | undefined;
 
   /**
-   * <p>The IAM role ARN used by the A/B test.</p>
+   * The IAM role ARN used by the A/B test.
+   *
    * @public
    */
   roleArn?: string | undefined;
 
   /**
-   * <p>The identifier of the current run of the A/B test.</p>
+   * The identifier of the current run of the A/B test.
+   *
    * @public
    */
   currentRunId?: string | undefined;
 
   /**
-   * <p>The error details if the A/B test encountered failures.</p>
+   * The error details if the A/B test encountered failures.
+   *
    * @public
    */
   errorDetails?: string[] | undefined;
 
   /**
-   * <p>The timestamp when the A/B test was started.</p>
+   * The timestamp when the A/B test was started.
+   *
    * @public
    */
   startedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when the A/B test was stopped.</p>
+   * The timestamp when the A/B test was stopped.
+   *
    * @public
    */
   stoppedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when the A/B test will automatically expire.</p>
+   * The timestamp when the A/B test will automatically expire.
+   *
    * @public
    */
   maxDurationExpiresAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when the A/B test was created.</p>
+   * The timestamp when the A/B test was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the A/B test was last updated.</p>
+   * The timestamp when the A/B test was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The statistical results of the A/B test, including per-evaluator metrics and significance analysis.</p>
+   * The statistical results of the A/B test, including per-evaluator metrics and significance analysis.
+   *
    * @public
    */
   results?: ABTestResults | undefined;
@@ -4397,122 +4953,142 @@ export interface GetABTestResponse {
  */
 export interface GetBatchEvaluationRequest {
   /**
-   * <p>The unique identifier of the batch evaluation to retrieve.</p>
+   * The unique identifier of the batch evaluation to retrieve.
+   *
    * @public
    */
   batchEvaluationId: string | undefined;
 }
 
 /**
- * <p>A pairing of a session with the specific trace IDs to evaluate within that session. Use this to evaluate individual traces rather than an entire session.</p>
+ * A pairing of a session with the specific trace IDs to evaluate within that session. Use this to evaluate individual traces rather than an entire session.
+ *
  * @public
  */
 export interface SessionTraceIds {
   /**
-   * <p>The unique identifier of the session that contains the traces to evaluate.</p>
+   * The unique identifier of the session that contains the traces to evaluate.
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The list of trace IDs within the session to evaluate.</p>
+   * The list of trace IDs within the session to evaluate.
+   *
    * @public
    */
   traceIds: string[] | undefined;
 }
 
 /**
- * <p>A time range filter for selecting sessions. Specifies the start and end times to narrow down which sessions are included.</p>
+ * A time range filter for selecting sessions. Specifies the start and end times to narrow down which sessions are included.
+ *
  * @public
  */
 export interface SessionFilterConfig {
   /**
-   * <p>The start time of the time range. Only sessions with activity at or after this timestamp are included.</p>
+   * The start time of the time range. Only sessions with activity at or after this timestamp are included.
+   *
    * @public
    */
   startTime?: Date | undefined;
 
   /**
-   * <p>The end time of the time range. Only sessions with activity before this timestamp are included.</p>
+   * The end time of the time range. Only sessions with activity before this timestamp are included.
+   *
    * @public
    */
   endTime?: Date | undefined;
 }
 
 /**
- * <p>Filter configuration for narrowing down CloudWatch Logs sessions for evaluation.</p>
+ * Filter configuration for narrowing down CloudWatch Logs sessions for evaluation.
+ *
  * @public
  */
 export interface CloudWatchFilterConfig {
   /**
-   * <p>A list of specific session IDs to evaluate. If specified, only these sessions are included in the evaluation.</p>
+   * A list of specific session IDs to evaluate. If specified, only these sessions are included in the evaluation.
+   *
    * @public
    */
   sessionIds?: string[] | undefined;
 
   /**
-   * <p>The time range filter for selecting sessions to evaluate.</p>
+   * The time range filter for selecting sessions to evaluate.
+   *
    * @public
    */
   timeRange?: SessionFilterConfig | undefined;
 
   /**
-   * <p>A list of session and trace ID pairs that restrict evaluation to specific traces within a session. If specified, only the listed traces are evaluated instead of the entire session.</p>
+   * A list of session and trace ID pairs that restrict evaluation to specific traces within a session. If specified, only the listed traces are evaluated instead of the entire session.
+   *
    * @public
    */
   sessionTraceIds?: SessionTraceIds[] | undefined;
 }
 
 /**
- * <p>The configuration for reading agent traces from CloudWatch Logs.</p>
+ * The configuration for reading agent traces from CloudWatch Logs.
+ *
  * @public
  */
 export interface CloudWatchLogsSource {
   /**
-   * <p>The list of agent service names to filter traces within the specified log groups.</p>
+   * The list of agent service names to filter traces within the specified log groups.
+   *
    * @public
    */
   serviceNames: string[] | undefined;
 
   /**
-   * <p>The list of CloudWatch log group names to read agent traces from. Maximum of 10 log groups.</p>
+   * The list of CloudWatch log group names to read agent traces from. Maximum of 10 log groups.
+   *
    * @public
    */
   logGroupNames?: string[] | undefined;
 
   /**
-   * <p>The list of CloudWatch log group name prefixes to read agent traces from. Specify this instead of <code>logGroupNames</code> to match log groups by prefix. Maximum of 5 prefixes. Specify either <code>logGroupNames</code> or <code>logGroupNamePrefixes</code>, not both. One of the two is required.</p>
+   * The list of CloudWatch log group name prefixes to read agent traces from. Specify this instead of `logGroupNames` to match log groups by prefix. Maximum of 5 prefixes. Specify either `logGroupNames` or `logGroupNamePrefixes`, not both. One of the two is required.
+   *
    * @public
    */
   logGroupNamePrefixes?: string[] | undefined;
 
   /**
-   * <p>Optional filter configuration to narrow down which sessions to evaluate.</p>
+   * Optional filter configuration to narrow down which sessions to evaluate.
+   *
    * @public
    */
   filterConfig?: CloudWatchFilterConfig | undefined;
 }
 
 /**
- * <p>A reference to an existing online evaluation configuration to use as the data source for batch evaluation.</p>
+ * A reference to an existing online evaluation configuration to use as the data source for batch evaluation.
+ *
  * @public
  */
 export interface OnlineEvaluationConfigSource {
   /**
-   * <p>The Amazon Resource Name (ARN) of the online evaluation configuration to use as the session source.</p>
+   * The Amazon Resource Name (ARN) of the online evaluation configuration to use as the session source.
+   *
    * @public
    */
   onlineEvaluationConfigArn: string | undefined;
 
   /**
-   * <p>Optional session filter configuration to narrow down which sessions from the online evaluation configuration to include.</p>
+   * Optional session filter configuration to narrow down which sessions from the online evaluation configuration to include.
+   *
    * @public
    */
   timeRange?: SessionFilterConfig | undefined;
 }
 
 /**
- * <p>Configuration for the data source used in evaluation.</p>
+ * Configuration for the data source used in evaluation.
+ *
  * @public
  */
 export type DataSourceConfig =
@@ -4525,7 +5101,8 @@ export type DataSourceConfig =
  */
 export namespace DataSourceConfig {
   /**
-   * <p>Configuration for pulling agent session traces from CloudWatch Logs.</p>
+   * Configuration for pulling agent session traces from CloudWatch Logs.
+   *
    * @public
    */
   export interface CloudWatchLogsMember {
@@ -4565,493 +5142,578 @@ export namespace DataSourceConfig {
 }
 
 /**
- * <p>Aggregated statistics for an evaluator.</p>
+ * Aggregated statistics for an evaluator.
+ *
  * @public
  */
 export interface EvaluatorStatistics {
   /**
-   * <p>The average score across all evaluated sessions for this evaluator.</p>
+   * The average score across all evaluated sessions for this evaluator.
+   *
    * @public
    */
   averageScore?: number | undefined;
 }
 
 /**
- * <p>Summary statistics for a single evaluator within a batch evaluation.</p>
+ * Summary statistics for a single evaluator within a batch evaluation.
+ *
  * @public
  */
 export interface EvaluatorSummary {
   /**
-   * <p>The unique identifier of the evaluator.</p>
+   * The unique identifier of the evaluator.
+   *
    * @public
    */
   evaluatorId?: string | undefined;
 
   /**
-   * <p>The name of the dimension that this summary covers. This field is set only for evaluators that use a multi-dimensional rating scale, where each dimension is summarized separately. For single-scale evaluators, this field is not set.</p>
+   * The name of the dimension that this summary covers. This field is set only for evaluators that use a multi-dimensional rating scale, where each dimension is summarized separately. For single-scale evaluators, this field is not set.
+   *
    * @public
    */
   evaluationDimensionName?: string | undefined;
 
   /**
-   * <p>The aggregated statistics for this evaluator.</p>
+   * The aggregated statistics for this evaluator.
+   *
    * @public
    */
   statistics?: EvaluatorStatistics | undefined;
 
   /**
-   * <p>The total number of sessions evaluated by this evaluator.</p>
+   * The total number of sessions evaluated by this evaluator.
+   *
    * @public
    */
   totalEvaluated?: number | undefined;
 
   /**
-   * <p>The total number of sessions that failed evaluation by this evaluator.</p>
+   * The total number of sessions that failed evaluation by this evaluator.
+   *
    * @public
    */
   totalFailed?: number | undefined;
 }
 
 /**
- * <p>Aggregated results from a batch evaluation, including session completion counts and evaluator score summaries.</p>
+ * Aggregated results from a batch evaluation, including session completion counts and evaluator score summaries.
+ *
  * @public
  */
 export interface EvaluationJobResults {
   /**
-   * <p>The number of sessions that have been successfully evaluated.</p>
+   * The number of sessions that have been successfully evaluated.
+   *
    * @public
    */
   numberOfSessionsCompleted?: number | undefined;
 
   /**
-   * <p>The number of sessions currently being evaluated.</p>
+   * The number of sessions currently being evaluated.
+   *
    * @public
    */
   numberOfSessionsInProgress?: number | undefined;
 
   /**
-   * <p>The number of sessions that failed evaluation.</p>
+   * The number of sessions that failed evaluation.
+   *
    * @public
    */
   numberOfSessionsFailed?: number | undefined;
 
   /**
-   * <p>The total number of sessions included in the batch evaluation.</p>
+   * The total number of sessions included in the batch evaluation.
+   *
    * @public
    */
   totalNumberOfSessions?: number | undefined;
 
   /**
-   * <p>The number of sessions that were ignored during evaluation.</p>
+   * The number of sessions that were ignored during evaluation.
+   *
    * @public
    */
   numberOfSessionsIgnored?: number | undefined;
 
   /**
-   * <p>A list of per-evaluator summary statistics.</p>
+   * A list of per-evaluator summary statistics.
+   *
    * @public
    */
   evaluatorSummaries?: EvaluatorSummary[] | undefined;
 }
 
 /**
- * <p>An evaluator to run against sessions during batch evaluation.</p>
+ * An evaluator to run against sessions during batch evaluation.
+ *
  * @public
  */
 export interface Evaluator {
   /**
-   * <p>The unique identifier of the evaluator. Can reference built-in evaluators (e.g., <code>Builtin.Helpfulness</code>) or custom evaluators.</p>
+   * The unique identifier of the evaluator. Can reference built-in evaluators (e.g., `Builtin.Helpfulness`) or custom evaluators.
+   *
    * @public
    */
   evaluatorId: string | undefined;
 }
 
 /**
- * <p>A session associated with an execution summary cluster.</p>
+ * A session associated with an execution summary cluster.
+ *
  * @public
  */
 export interface ExecutionSummaryAffectedSession {
   /**
-   * <p>The unique identifier of the session.</p>
+   * The unique identifier of the session.
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The approach taken by the agent during this session.</p>
+   * The approach taken by the agent during this session.
+   *
    * @public
    */
   approachTaken: string | undefined;
 
   /**
-   * <p>The final outcome of the session.</p>
+   * The final outcome of the session.
+   *
    * @public
    */
   finalOutcome: string | undefined;
 }
 
 /**
- * <p>A cluster of similar execution patterns identified across sessions.</p>
+ * A cluster of similar execution patterns identified across sessions.
+ *
  * @public
  */
 export interface ExecutionSummaryCluster {
   /**
-   * <p>The unique identifier of the execution summary cluster.</p>
+   * The unique identifier of the execution summary cluster.
+   *
    * @public
    */
   clusterId: number | undefined;
 
   /**
-   * <p>The name of the execution pattern cluster.</p>
+   * The name of the execution pattern cluster.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description of the execution pattern.</p>
+   * A description of the execution pattern.
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p>The number of sessions with this execution pattern.</p>
+   * The number of sessions with this execution pattern.
+   *
    * @public
    */
   affectedSessionCount: number | undefined;
 
   /**
-   * <p>The list of sessions with this execution pattern.</p>
+   * The list of sessions with this execution pattern.
+   *
    * @public
    */
   affectedSessions: ExecutionSummaryAffectedSession[] | undefined;
 }
 
 /**
- * <p>The execution summary clustering result containing grouped execution patterns identified across evaluated sessions.</p>
+ * The execution summary clustering result containing grouped execution patterns identified across evaluated sessions.
+ *
  * @public
  */
 export interface ExecutionSummaryClusteringResultContent {
   /**
-   * <p>The list of execution summary clusters identified across analyzed sessions.</p>
+   * The list of execution summary clusters identified across analyzed sessions.
+   *
    * @public
    */
   executionSummaries: ExecutionSummaryCluster[] | undefined;
 }
 
 /**
- * <p>A cluster of similar root causes identified within a failure subcategory.</p>
+ * A cluster of similar root causes identified within a failure subcategory.
+ *
  * @public
  */
 export interface RootCauseCluster {
   /**
-   * <p>The unique identifier of the root cause cluster.</p>
+   * The unique identifier of the root cause cluster.
+   *
    * @public
    */
   clusterId: number | undefined;
 
   /**
-   * <p>The name of the root cause cluster.</p>
+   * The name of the root cause cluster.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The root cause explanation for this cluster of failures.</p>
+   * The root cause explanation for this cluster of failures.
+   *
    * @public
    */
   rootCause: string | undefined;
 
   /**
-   * <p>The recommended fix for this root cause.</p>
+   * The recommended fix for this root cause.
+   *
    * @public
    */
   recommendation: string | undefined;
 
   /**
-   * <p>The number of sessions affected by this root cause.</p>
+   * The number of sessions affected by this root cause.
+   *
    * @public
    */
   affectedSessionCount: number | undefined;
 
   /**
-   * <p>The list of sessions affected by this root cause.</p>
+   * The list of sessions affected by this root cause.
+   *
    * @public
    */
   affectedSessions: AffectedSession[] | undefined;
 }
 
 /**
- * <p>A subcategory of failures within a top-level failure category.</p>
+ * A subcategory of failures within a top-level failure category.
+ *
  * @public
  */
 export interface FailureSubCategoryCluster {
   /**
-   * <p>The unique identifier of the failure subcategory cluster.</p>
+   * The unique identifier of the failure subcategory cluster.
+   *
    * @public
    */
   clusterId: number | undefined;
 
   /**
-   * <p>The name of the failure subcategory.</p>
+   * The name of the failure subcategory.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description of the failure subcategory pattern.</p>
+   * A description of the failure subcategory pattern.
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p>The number of sessions affected by this failure subcategory.</p>
+   * The number of sessions affected by this failure subcategory.
+   *
    * @public
    */
   affectedSessionCount: number | undefined;
 
   /**
-   * <p>The list of root cause clusters identified within this subcategory.</p>
+   * The list of root cause clusters identified within this subcategory.
+   *
    * @public
    */
   rootCauses: RootCauseCluster[] | undefined;
 }
 
 /**
- * <p>A top-level failure category identified by clustering similar failure patterns across sessions.</p>
+ * A top-level failure category identified by clustering similar failure patterns across sessions.
+ *
  * @public
  */
 export interface FailureCategoryCluster {
   /**
-   * <p>The unique identifier of the failure category cluster.</p>
+   * The unique identifier of the failure category cluster.
+   *
    * @public
    */
   clusterId: number | undefined;
 
   /**
-   * <p>The name of the failure category.</p>
+   * The name of the failure category.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description of the failure category pattern.</p>
+   * A description of the failure category pattern.
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p>The number of sessions affected by this failure category.</p>
+   * The number of sessions affected by this failure category.
+   *
    * @public
    */
   affectedSessionCount: number | undefined;
 
   /**
-   * <p>The list of failure subcategories within this category.</p>
+   * The list of failure subcategories within this category.
+   *
    * @public
    */
   subCategories: FailureSubCategoryCluster[] | undefined;
 }
 
 /**
- * <p>The failure analysis clustering result containing categorized failure clusters with root causes and remediation recommendations.</p>
+ * The failure analysis clustering result containing categorized failure clusters with root causes and remediation recommendations.
+ *
  * @public
  */
 export interface FailureAnalysisResultContent {
   /**
-   * <p>The list of failure category clusters identified across analyzed sessions.</p>
+   * The list of failure category clusters identified across analyzed sessions.
+   *
    * @public
    */
   failures: FailureCategoryCluster[] | undefined;
 }
 
 /**
- * <p>A failure found in a session.</p>
+ * A failure found in a session.
+ *
  * @public
  */
 export interface SessionFinding {
   /**
-   * <p>The identifier or name of the location in the session where the failure was found, interpreted according to <code>targetType</code>.</p>
+   * The identifier or name of the location in the session where the failure was found, interpreted according to `targetType`.
+   *
    * @public
    */
   targetId?: string | undefined;
 
   /**
-   * <p>The type of location that <code>targetId</code> refers to.</p>
+   * The type of location that `targetId` refers to.
+   *
    * @public
    */
   targetType?: FindingTargetType | undefined;
 
   /**
-   * <p>A description of the failure.</p>
+   * A description of the failure.
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p>The category of the failure.</p>
+   * The category of the failure.
+   *
    * @public
    */
   category?: string | undefined;
 
   /**
-   * <p>The confidence that the finding is a failure, from 0 to 1.</p>
+   * The confidence that the finding is a failure, from 0 to 1.
+   *
    * @public
    */
   confidence?: number | undefined;
 }
 
 /**
- * <p>A session affected by an insight or root cause. Use the session ID to find the per-session evaluation results in CloudWatch Logs.</p>
+ * A session affected by an insight or root cause. Use the session ID to find the per-session evaluation results in CloudWatch Logs.
+ *
  * @public
  */
 export interface SampleSession {
   /**
-   * <p>The unique identifier of the session.</p>
+   * The unique identifier of the session.
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The latest timestamp observed for the session in the batch evaluation input.</p>
+   * The latest timestamp observed for the session in the batch evaluation input.
+   *
    * @public
    */
   lastSeenAt?: Date | undefined;
 
   /**
-   * <p>The failures found in the session that belong to the insight or root cause, up to 10.</p>
+   * The failures found in the session that belong to the insight or root cause, up to 10.
+   *
    * @public
    */
   findings?: SessionFinding[] | undefined;
 }
 
 /**
- * <p>A root cause that contributes to an insight.</p>
+ * A root cause that contributes to an insight.
+ *
  * @public
  */
 export interface InsightRootCause {
   /**
-   * <p>A generated label for the root cause.</p>
+   * A generated label for the root cause.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>An explanation of how the root cause leads to the failures in the insight.</p>
+   * An explanation of how the root cause leads to the failures in the insight.
+   *
    * @public
    */
   explanation: string | undefined;
 
   /**
-   * <p>The number of distinct sessions affected by the root cause. A session can be affected by more than one root cause of the same insight.</p>
+   * The number of distinct sessions affected by the root cause. A session can be affected by more than one root cause of the same insight.
+   *
    * @public
    */
   affectedSessionCount?: number | undefined;
 
   /**
-   * <p>A suggested change to the agent that addresses the root cause.</p>
+   * A suggested change to the agent that addresses the root cause.
+   *
    * @public
    */
   suggestedFix?: string | undefined;
 
   /**
-   * <p>A sample of up to 10 sessions affected by the root cause.</p>
+   * A sample of up to 10 sessions affected by the root cause.
+   *
    * @public
    */
   sampleSessions?: SampleSession[] | undefined;
 }
 
 /**
- * <p>An insight that groups related failures found across the sessions in a batch evaluation.</p>
+ * An insight that groups related failures found across the sessions in a batch evaluation.
+ *
  * @public
  */
 export interface InsightResult {
   /**
-   * <p>The type of insight. <code>FAILURE</code> indicates a group of related failures.</p>
+   * The type of insight. `FAILURE` indicates a group of related failures.
+   *
    * @public
    */
   type: InsightType | undefined;
 
   /**
-   * <p>A generated label for the insight. The name is not an identifier and can differ between batch evaluations.</p>
+   * A generated label for the insight. The name is not an identifier and can differ between batch evaluations.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description of the failure pattern that the insight represents.</p>
+   * A description of the failure pattern that the insight represents.
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p>The timestamp when the insight was generated.</p>
+   * The timestamp when the insight was generated.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The number of distinct sessions affected by the insight.</p>
+   * The number of distinct sessions affected by the insight.
+   *
    * @public
    */
   affectedSessionCount?: number | undefined;
 
   /**
-   * <p>A sample of up to 10 sessions affected by the insight. Returned only when the insight has no root causes. Otherwise, sample sessions are returned for each root cause.</p>
+   * A sample of up to 10 sessions affected by the insight. Returned only when the insight has no root causes. Otherwise, sample sessions are returned for each root cause.
+   *
    * @public
    */
   sampleSessions?: SampleSession[] | undefined;
 
   /**
-   * <p>The root causes identified for the insight.</p>
+   * The root causes identified for the insight.
+   *
    * @public
    */
   rootCauses?: InsightRootCause[] | undefined;
 }
 
 /**
- * <p>A reference to an insight analysis to run against sessions during batch evaluation. Insights provide deeper analysis beyond individual evaluator scores, including failure detection, user intent clustering, and execution summarization.</p>
+ * A reference to an insight analysis to run against sessions during batch evaluation. Insights provide deeper analysis beyond individual evaluator scores, including failure detection, user intent clustering, and execution summarization.
+ *
  * @public
  */
 export interface Insight {
   /**
-   * <p>The unique identifier of the insight to run.</p>
+   * The unique identifier of the insight to run.
+   *
    * @public
    */
   insightId: string | undefined;
 }
 
 /**
- * <p>CloudWatch Logs destination for batch evaluation results.</p>
+ * CloudWatch Logs destination for batch evaluation results.
+ *
  * @public
  */
 export interface CloudWatchOutputConfig {
   /**
-   * <p>The name of the CloudWatch log group where evaluation results will be written. This value doesn't apply when <code>resultDestination</code> is <code>SOURCE_LOG_GROUP</code>, because results are written back to the trace source log group. The name can't be under the service-reserved <code>/aws/bedrock-agentcore/evaluations/</code> namespace, apart from the service-managed default group.</p>
+   * The name of the CloudWatch log group where evaluation results will be written. This value doesn't apply when `resultDestination` is `SOURCE_LOG_GROUP`, because results are written back to the trace source log group. The name can't be under the service-reserved `/aws/bedrock-agentcore/evaluations/` namespace, apart from the service-managed default group.
+   *
    * @public
    */
   logGroupName?: string | undefined;
 
   /**
-   * <p>The name of the CloudWatch log stream where evaluation results will be written.</p>
+   * The name of the CloudWatch log stream where evaluation results will be written.
+   *
    * @public
    */
   logStreamName?: string | undefined;
 
   /**
-   * <p>The CloudWatch metrics namespace where evaluation result metrics are published. If you omit this value, the service publishes metrics to <code>Bedrock-AgentCore/Evaluations</code>. This value can't begin with <code>AWS/</code>.</p>
+   * The CloudWatch metrics namespace where evaluation result metrics are published. If you omit this value, the service publishes metrics to `Bedrock-AgentCore/Evaluations`. This value can't begin with `AWS/`.
+   *
    * @public
    */
   metricsNamespace?: string | undefined;
 
   /**
-   * <p>The destination where evaluation results are written. Valid values:</p> <ul> <li> <p> <code>DEDICATED_LOG_GROUP</code> (default) – Writes results to a dedicated result log group.</p> </li> <li> <p> <code>SOURCE_LOG_GROUP</code> – Writes results back to the log group that the agent traces were read from. If you use this value, don't specify <code>logGroupName</code>.</p> </li> </ul>
+   * The destination where evaluation results are written. Valid values:
+   *
+   * - `DEDICATED_LOG_GROUP` (default) – Writes results to a dedicated result log group.
+   * - `SOURCE_LOG_GROUP` – Writes results back to the log group that the agent traces were read from. If you use this value, don't specify `logGroupName`.
+   *
    * @public
    */
   resultDestination?: ResultDestination | undefined;
 }
 
 /**
- * <p>Output destination configuration.</p>
+ * Output destination configuration.
+ *
  * @public
  */
 export type OutputConfig =
@@ -5063,7 +5725,8 @@ export type OutputConfig =
  */
 export namespace OutputConfig {
   /**
-   * <p>The CloudWatch Logs configuration for writing evaluation results.</p>
+   * The CloudWatch Logs configuration for writing evaluation results.
+   *
    * @public
    */
   export interface CloudWatchConfigMember {
@@ -5090,66 +5753,77 @@ export namespace OutputConfig {
 }
 
 /**
- * <p>A session associated with a user intent cluster.</p>
+ * A session associated with a user intent cluster.
+ *
  * @public
  */
 export interface UserIntentAffectedSession {
   /**
-   * <p>The unique identifier of the session.</p>
+   * The unique identifier of the session.
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The user messages from this session that contributed to the intent cluster.</p>
+   * The user messages from this session that contributed to the intent cluster.
+   *
    * @public
    */
   userMessages: string[] | undefined;
 }
 
 /**
- * <p>A cluster of similar user intents identified across sessions.</p>
+ * A cluster of similar user intents identified across sessions.
+ *
  * @public
  */
 export interface UserIntentCluster {
   /**
-   * <p>The unique identifier of the user intent cluster.</p>
+   * The unique identifier of the user intent cluster.
+   *
    * @public
    */
   clusterId: number | undefined;
 
   /**
-   * <p>The name of the user intent cluster.</p>
+   * The name of the user intent cluster.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description of the user intent pattern.</p>
+   * A description of the user intent pattern.
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p>The number of sessions with this user intent.</p>
+   * The number of sessions with this user intent.
+   *
    * @public
    */
   affectedSessionCount: number | undefined;
 
   /**
-   * <p>The list of sessions with this user intent.</p>
+   * The list of sessions with this user intent.
+   *
    * @public
    */
   affectedSessions: UserIntentAffectedSession[] | undefined;
 }
 
 /**
- * <p>The user intent clustering result containing grouped user intents identified across evaluated sessions.</p>
+ * The user intent clustering result containing grouped user intents identified across evaluated sessions.
+ *
  * @public
  */
 export interface UserIntentClusteringResultContent {
   /**
-   * <p>The list of user intent clusters identified across analyzed sessions.</p>
+   * The list of user intent clusters identified across analyzed sessions.
+   *
    * @public
    */
   userIntents: UserIntentCluster[] | undefined;
@@ -5160,109 +5834,127 @@ export interface UserIntentClusteringResultContent {
  */
 export interface GetBatchEvaluationResponse {
   /**
-   * <p>The unique identifier of the batch evaluation.</p>
+   * The unique identifier of the batch evaluation.
+   *
    * @public
    */
   batchEvaluationId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the batch evaluation.</p>
+   * The Amazon Resource Name (ARN) of the batch evaluation.
+   *
    * @public
    */
   batchEvaluationArn: string | undefined;
 
   /**
-   * <p>The name of the batch evaluation.</p>
+   * The name of the batch evaluation.
+   *
    * @public
    */
   batchEvaluationName: string | undefined;
 
   /**
-   * <p>The current status of the batch evaluation.</p>
+   * The current status of the batch evaluation.
+   *
    * @public
    */
   status: BatchEvaluationStatus | undefined;
 
   /**
-   * <p>The timestamp when the batch evaluation was created.</p>
+   * The timestamp when the batch evaluation was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The list of evaluators applied during the batch evaluation.</p>
+   * The list of evaluators applied during the batch evaluation.
+   *
    * @public
    */
   evaluators?: Evaluator[] | undefined;
 
   /**
-   * <p>The list of insight analyses applied during the batch evaluation.</p>
+   * The list of insight analyses applied during the batch evaluation.
+   *
    * @public
    */
   insights?: Insight[] | undefined;
 
   /**
-   * <p>The data source configuration specifying where agent traces are pulled from.</p>
+   * The data source configuration specifying where agent traces are pulled from.
+   *
    * @public
    */
   dataSourceConfig?: DataSourceConfig | undefined;
 
   /**
-   * <p>The output configuration specifying where evaluation results are written.</p>
+   * The output configuration specifying where evaluation results are written.
+   *
    * @public
    */
   outputConfig?: OutputConfig | undefined;
 
   /**
-   * <p>The aggregated evaluation results, including session completion counts and evaluator score summaries.</p>
+   * The aggregated evaluation results, including session completion counts and evaluator score summaries.
+   *
    * @public
    */
   evaluationResults?: EvaluationJobResults | undefined;
 
   /**
-   * <p>The insights generated when the batch evaluation includes the <code>Builtin.FailureAnalysis</code> evaluator. Each insight groups related failures found across the evaluated sessions. An empty list means that no failures were found. If the analysis fails, this field is omitted and <code>errorDetails</code> describes the error.</p>
+   * The insights generated when the batch evaluation includes the `Builtin.FailureAnalysis` evaluator. Each insight groups related failures found across the evaluated sessions. An empty list means that no failures were found. If the analysis fails, this field is omitted and `errorDetails` describes the error.
+   *
    * @public
    */
   insightResults?: InsightResult[] | undefined;
 
   /**
-   * <p>The failure analysis results from insights, containing categorized failure clusters with root causes and recommendations.</p>
+   * The failure analysis results from insights, containing categorized failure clusters with root causes and recommendations.
+   *
    * @public
    */
   failureAnalysisResult?: FailureAnalysisResultContent | undefined;
 
   /**
-   * <p>The user intent clustering results from insights, containing grouped user intents across evaluated sessions.</p>
+   * The user intent clustering results from insights, containing grouped user intents across evaluated sessions.
+   *
    * @public
    */
   userIntentResult?: UserIntentClusteringResultContent | undefined;
 
   /**
-   * <p>The execution summary clustering results from insights, containing grouped execution patterns across evaluated sessions.</p>
+   * The execution summary clustering results from insights, containing grouped execution patterns across evaluated sessions.
+   *
    * @public
    */
   executionSummaryResult?: ExecutionSummaryClusteringResultContent | undefined;
 
   /**
-   * <p>The error details if the batch evaluation encountered failures.</p>
+   * The error details if the batch evaluation encountered failures.
+   *
    * @public
    */
   errorDetails?: string[] | undefined;
 
   /**
-   * <p>The description of the batch evaluation.</p>
+   * The description of the batch evaluation.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The timestamp when the batch evaluation was last updated.</p>
+   * The timestamp when the batch evaluation was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The ARN of the KMS key used to encrypt evaluation data.</p>
+   * The ARN of the KMS key used to encrypt evaluation data.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
@@ -5273,62 +5965,72 @@ export interface GetBatchEvaluationResponse {
  */
 export interface GetRecommendationRequest {
   /**
-   * <p>The unique identifier of the recommendation to retrieve.</p>
+   * The unique identifier of the recommendation to retrieve.
+   *
    * @public
    */
   recommendationId: string | undefined;
 }
 
 /**
- * <p>A reference to an evaluator used for recommendation assessment.</p>
+ * A reference to an evaluator used for recommendation assessment.
+ *
  * @public
  */
 export interface RecommendationEvaluatorReference {
   /**
-   * <p>The Amazon Resource Name (ARN) of the evaluator.</p>
+   * The Amazon Resource Name (ARN) of the evaluator.
+   *
    * @public
    */
   evaluatorArn: string | undefined;
 }
 
 /**
- * <p>The evaluation configuration for assessing recommendation quality.</p>
+ * The evaluation configuration for assessing recommendation quality.
+ *
  * @public
  */
 export interface RecommendationEvaluationConfig {
   /**
-   * <p>The list of evaluators to use for assessing recommendation quality.</p>
+   * The list of evaluators to use for assessing recommendation quality.
+   *
    * @public
    */
   evaluators: RecommendationEvaluatorReference[] | undefined;
 }
 
 /**
- * <p>A system prompt sourced from a configuration bundle version.</p>
+ * A system prompt sourced from a configuration bundle version.
+ *
  * @public
  */
 export interface SystemPromptConfigurationBundle {
   /**
-   * <p>The Amazon Resource Name (ARN) of the configuration bundle.</p>
+   * The Amazon Resource Name (ARN) of the configuration bundle.
+   *
    * @public
    */
   bundleArn: string | undefined;
 
   /**
-   * <p>The version identifier of the configuration bundle.</p>
+   * The version identifier of the configuration bundle.
+   *
    * @public
    */
   versionId: string | undefined;
 
   /**
-   * <p>The JSON path within the configuration bundle that contains the system prompt.</p>
+   * The JSON path within the configuration bundle that contains the system prompt.
+   *
    * @public
    */
   systemPromptJsonPath: string | undefined;
 }
 
 /**
- * <p>The system prompt input, either as inline text or from a configuration bundle.</p>
+ * The system prompt input, either as inline text or from a configuration bundle.
+ *
  * @public
  */
 export type SystemPromptConfig =
@@ -5341,7 +6043,8 @@ export type SystemPromptConfig =
  */
 export namespace SystemPromptConfig {
   /**
-   * <p>The system prompt text provided inline.</p>
+   * The system prompt text provided inline.
+   *
    * @public
    */
   export interface TextMember {
@@ -5351,7 +6054,8 @@ export namespace SystemPromptConfig {
   }
 
   /**
-   * <p>The system prompt sourced from a configuration bundle version.</p>
+   * The system prompt sourced from a configuration bundle version.
+   *
    * @public
    */
   export interface ConfigurationBundleMember {
@@ -5381,73 +6085,85 @@ export namespace SystemPromptConfig {
 }
 
 /**
- * <p>Configuration for generating system prompt optimization recommendations.</p>
+ * Configuration for generating system prompt optimization recommendations.
+ *
  * @public
  */
 export interface SystemPromptRecommendationConfig {
   /**
-   * <p>The current system prompt to optimize.</p>
+   * The current system prompt to optimize.
+   *
    * @public
    */
   systemPrompt: SystemPromptConfig | undefined;
 
   /**
-   * <p>The agent traces to analyze for generating recommendations.</p>
+   * The agent traces to analyze for generating recommendations.
+   *
    * @public
    */
   agentTraces: AgentTracesConfig | undefined;
 
   /**
-   * <p>The evaluation configuration specifying which evaluator to use for assessing recommendation quality.</p>
+   * The evaluation configuration specifying which evaluator to use for assessing recommendation quality.
+   *
    * @public
    */
   evaluationConfig?: RecommendationEvaluationConfig | undefined;
 }
 
 /**
- * <p>Maps a tool name to its JSON path within a configuration bundle.</p>
+ * Maps a tool name to its JSON path within a configuration bundle.
+ *
  * @public
  */
 export interface ConfigurationBundleToolEntry {
   /**
-   * <p>The name of the tool.</p>
+   * The name of the tool.
+   *
    * @public
    */
   toolName: string | undefined;
 
   /**
-   * <p>The JSON path within the configuration bundle's components that contains the tool description.</p>
+   * The JSON path within the configuration bundle's components that contains the tool description.
+   *
    * @public
    */
   toolDescriptionJsonPath: string | undefined;
 }
 
 /**
- * <p>Tool descriptions sourced from a configuration bundle version.</p>
+ * Tool descriptions sourced from a configuration bundle version.
+ *
  * @public
  */
 export interface ToolDescriptionConfigurationBundle {
   /**
-   * <p>The Amazon Resource Name (ARN) of the configuration bundle.</p>
+   * The Amazon Resource Name (ARN) of the configuration bundle.
+   *
    * @public
    */
   bundleArn: string | undefined;
 
   /**
-   * <p>The version identifier of the configuration bundle.</p>
+   * The version identifier of the configuration bundle.
+   *
    * @public
    */
   versionId: string | undefined;
 
   /**
-   * <p>The list of tool entries mapping tool names to their JSON paths within the bundle.</p>
+   * The list of tool entries mapping tool names to their JSON paths within the bundle.
+   *
    * @public
    */
   tools: ConfigurationBundleToolEntry[] | undefined;
 }
 
 /**
- * <p>The tool description content.</p>
+ * The tool description content.
+ *
  * @public
  */
 export type ToolDescriptionConfig =
@@ -5459,7 +6175,8 @@ export type ToolDescriptionConfig =
  */
 export namespace ToolDescriptionConfig {
   /**
-   * <p>The tool description as inline text.</p>
+   * The tool description as inline text.
+   *
    * @public
    */
   export interface TextMember {
@@ -5486,37 +6203,43 @@ export namespace ToolDescriptionConfig {
 }
 
 /**
- * <p>A tool description input containing the tool name and its current description.</p>
+ * A tool description input containing the tool name and its current description.
+ *
  * @public
  */
 export interface ToolDescriptionInput {
   /**
-   * <p>The name of the tool.</p>
+   * The name of the tool.
+   *
    * @public
    */
   toolName: string | undefined;
 
   /**
-   * <p>The current description of the tool to optimize.</p>
+   * The current description of the tool to optimize.
+   *
    * @public
    */
   toolDescription: ToolDescriptionConfig | undefined;
 }
 
 /**
- * <p>Inline tool description input containing a list of tools.</p>
+ * Inline tool description input containing a list of tools.
+ *
  * @public
  */
 export interface ToolDescriptionTextInput {
   /**
-   * <p>The list of tool descriptions to optimize.</p>
+   * The list of tool descriptions to optimize.
+   *
    * @public
    */
   tools: ToolDescriptionInput[] | undefined;
 }
 
 /**
- * <p>The source of tool descriptions, either inline text or from a configuration bundle.</p>
+ * The source of tool descriptions, either inline text or from a configuration bundle.
+ *
  * @public
  */
 export type ToolDescriptionSource =
@@ -5529,7 +6252,8 @@ export type ToolDescriptionSource =
  */
 export namespace ToolDescriptionSource {
   /**
-   * <p>Tool descriptions provided as inline text.</p>
+   * Tool descriptions provided as inline text.
+   *
    * @public
    */
   export interface ToolDescriptionTextMember {
@@ -5539,7 +6263,8 @@ export namespace ToolDescriptionSource {
   }
 
   /**
-   * <p>Tool descriptions sourced from a configuration bundle version.</p>
+   * Tool descriptions sourced from a configuration bundle version.
+   *
    * @public
    */
   export interface ConfigurationBundleMember {
@@ -5569,25 +6294,29 @@ export namespace ToolDescriptionSource {
 }
 
 /**
- * <p>Configuration for generating tool description optimization recommendations.</p>
+ * Configuration for generating tool description optimization recommendations.
+ *
  * @public
  */
 export interface ToolDescriptionRecommendationConfig {
   /**
-   * <p>The current tool descriptions to optimize.</p>
+   * The current tool descriptions to optimize.
+   *
    * @public
    */
   toolDescription: ToolDescriptionSource | undefined;
 
   /**
-   * <p>The agent traces to analyze for generating tool description recommendations.</p>
+   * The agent traces to analyze for generating tool description recommendations.
+   *
    * @public
    */
   agentTraces: AgentTracesConfig | undefined;
 }
 
 /**
- * <p>The configuration for a recommendation, varying by recommendation type.</p>
+ * The configuration for a recommendation, varying by recommendation type.
+ *
  * @public
  */
 export type RecommendationConfig =
@@ -5600,7 +6329,8 @@ export type RecommendationConfig =
  */
 export namespace RecommendationConfig {
   /**
-   * <p>The configuration for a system prompt recommendation.</p>
+   * The configuration for a system prompt recommendation.
+   *
    * @public
    */
   export interface SystemPromptRecommendationConfigMember {
@@ -5610,7 +6340,8 @@ export namespace RecommendationConfig {
   }
 
   /**
-   * <p>The configuration for a tool description recommendation.</p>
+   * The configuration for a tool description recommendation.
+   *
    * @public
    */
   export interface ToolDescriptionRecommendationConfigMember {
@@ -5640,115 +6371,134 @@ export namespace RecommendationConfig {
 }
 
 /**
- * <p>A configuration bundle reference in a recommendation result.</p>
+ * A configuration bundle reference in a recommendation result.
+ *
  * @public
  */
 export interface RecommendationResultConfigurationBundle {
   /**
-   * <p>The Amazon Resource Name (ARN) of the configuration bundle.</p>
+   * The Amazon Resource Name (ARN) of the configuration bundle.
+   *
    * @public
    */
   bundleArn: string | undefined;
 
   /**
-   * <p>The version identifier of the configuration bundle containing the recommendation.</p>
+   * The version identifier of the configuration bundle containing the recommendation.
+   *
    * @public
    */
   versionId: string | undefined;
 }
 
 /**
- * <p>The result of a system prompt recommendation, containing the optimized prompt.</p>
+ * The result of a system prompt recommendation, containing the optimized prompt.
+ *
  * @public
  */
 export interface SystemPromptRecommendationResult {
   /**
-   * <p>The optimized system prompt text generated by the recommendation.</p>
+   * The optimized system prompt text generated by the recommendation.
+   *
    * @public
    */
   recommendedSystemPrompt?: string | undefined;
 
   /**
-   * <p>The configuration bundle containing the recommended system prompt, if the input was sourced from a configuration bundle.</p>
+   * The configuration bundle containing the recommended system prompt, if the input was sourced from a configuration bundle.
+   *
    * @public
    */
   configurationBundle?: RecommendationResultConfigurationBundle | undefined;
 
   /**
-   * <p>An explanation of why the recommendation was generated and what patterns were identified in the agent traces.</p>
+   * An explanation of why the recommendation was generated and what patterns were identified in the agent traces.
+   *
    * @public
    */
   explanation?: string | undefined;
 
   /**
-   * <p>The error code if the recommendation failed.</p>
+   * The error code if the recommendation failed.
+   *
    * @public
    */
   errorCode?: string | undefined;
 
   /**
-   * <p>The error message if the recommendation failed.</p>
+   * The error message if the recommendation failed.
+   *
    * @public
    */
   errorMessage?: string | undefined;
 }
 
 /**
- * <p>The output for a single tool description recommendation.</p>
+ * The output for a single tool description recommendation.
+ *
  * @public
  */
 export interface ToolDescriptionOutput {
   /**
-   * <p>The name of the tool.</p>
+   * The name of the tool.
+   *
    * @public
    */
   toolName: string | undefined;
 
   /**
-   * <p>The optimized tool description text generated by the recommendation.</p>
+   * The optimized tool description text generated by the recommendation.
+   *
    * @public
    */
   recommendedToolDescription?: string | undefined;
 
   /**
-   * <p>An explanation of why the recommendation was generated for this tool and what patterns were identified in the agent traces.</p>
+   * An explanation of why the recommendation was generated for this tool and what patterns were identified in the agent traces.
+   *
    * @public
    */
   explanation?: string | undefined;
 }
 
 /**
- * <p>The result of a tool description recommendation, containing optimized descriptions.</p>
+ * The result of a tool description recommendation, containing optimized descriptions.
+ *
  * @public
  */
 export interface ToolDescriptionRecommendationResult {
   /**
-   * <p>The list of tools with their recommended descriptions.</p>
+   * The list of tools with their recommended descriptions.
+   *
    * @public
    */
   tools?: ToolDescriptionOutput[] | undefined;
 
   /**
-   * <p>The configuration bundle containing the recommended tool descriptions, if the input was sourced from a configuration bundle.</p>
+   * The configuration bundle containing the recommended tool descriptions, if the input was sourced from a configuration bundle.
+   *
    * @public
    */
   configurationBundle?: RecommendationResultConfigurationBundle | undefined;
 
   /**
-   * <p>The error code if the recommendation failed.</p>
+   * The error code if the recommendation failed.
+   *
    * @public
    */
   errorCode?: string | undefined;
 
   /**
-   * <p>The error message if the recommendation failed.</p>
+   * The error message if the recommendation failed.
+   *
    * @public
    */
   errorMessage?: string | undefined;
 }
 
 /**
- * <p>The result of a recommendation, containing the optimized output.</p>
+ * The result of a recommendation, containing the optimized output.
+ *
  * @public
  */
 export type RecommendationResult =
@@ -5761,7 +6511,8 @@ export type RecommendationResult =
  */
 export namespace RecommendationResult {
   /**
-   * <p>The result of a system prompt recommendation.</p>
+   * The result of a system prompt recommendation.
+   *
    * @public
    */
   export interface SystemPromptRecommendationResultMember {
@@ -5771,7 +6522,8 @@ export namespace RecommendationResult {
   }
 
   /**
-   * <p>The result of a tool description recommendation.</p>
+   * The result of a tool description recommendation.
+   *
    * @public
    */
   export interface ToolDescriptionRecommendationResultMember {
@@ -5805,67 +6557,78 @@ export namespace RecommendationResult {
  */
 export interface GetRecommendationResponse {
   /**
-   * <p>The unique identifier of the recommendation.</p>
+   * The unique identifier of the recommendation.
+   *
    * @public
    */
   recommendationId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the recommendation.</p>
+   * The Amazon Resource Name (ARN) of the recommendation.
+   *
    * @public
    */
   recommendationArn: string | undefined;
 
   /**
-   * <p>The name of the recommendation.</p>
+   * The name of the recommendation.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the recommendation.</p>
+   * The description of the recommendation.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The type of recommendation.</p>
+   * The type of recommendation.
+   *
    * @public
    */
   type: RecommendationType | undefined;
 
   /**
-   * <p>The configuration for the recommendation.</p>
+   * The configuration for the recommendation.
+   *
    * @public
    */
   recommendationConfig: RecommendationConfig | undefined;
 
   /**
-   * <p>The current status of the recommendation.</p>
+   * The current status of the recommendation.
+   *
    * @public
    */
   status: RecommendationStatus | undefined;
 
   /**
-   * <p>The timestamp when the recommendation was created.</p>
+   * The timestamp when the recommendation was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the recommendation was last updated.</p>
+   * The timestamp when the recommendation was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The result of the recommendation, containing the optimized system prompt or tool descriptions. Only present when the recommendation status is <code>COMPLETED</code>.</p>
+   * The result of the recommendation, containing the optimized system prompt or tool descriptions. Only present when the recommendation status is `COMPLETED`.
+   *
    * @public
    */
   recommendationResult?: RecommendationResult | undefined;
 
   /**
-   * <p>The ARN of the KMS key used to encrypt recommendation data.</p>
+   * The ARN of the KMS key used to encrypt recommendation data.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
@@ -5876,13 +6639,15 @@ export interface GetRecommendationResponse {
  */
 export interface ListABTestsRequest {
   /**
-   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the `nextToken` field when making another request to return the next batch of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * If the total number of results is greater than the `maxResults` value provided in the request, enter the token returned in the `nextToken` field in the response in this field to return the next batch of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -5893,13 +6658,15 @@ export interface ListABTestsRequest {
  */
 export interface ListABTestsResponse {
   /**
-   * <p>The list of A/B test summaries.</p>
+   * The list of A/B test summaries.
+   *
    * @public
    */
   abTests: ABTestSummary[] | undefined;
 
   /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * If the total number of results is greater than the `maxResults` value provided in the request, use this token when making another request in the `nextToken` field to return the next batch of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -5910,91 +6677,106 @@ export interface ListABTestsResponse {
  */
 export interface ListBatchEvaluationsRequest {
   /**
-   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the `nextToken` field when making another request to return the next batch of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * If the total number of results is greater than the `maxResults` value provided in the request, enter the token returned in the `nextToken` field in the response in this field to return the next batch of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Summary representation for list responses.</p>
+ * Summary representation for list responses.
+ *
  * @public
  */
 export interface BatchEvaluationSummary {
   /**
-   * <p>The unique identifier of the batch evaluation.</p>
+   * The unique identifier of the batch evaluation.
+   *
    * @public
    */
   batchEvaluationId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the batch evaluation.</p>
+   * The Amazon Resource Name (ARN) of the batch evaluation.
+   *
    * @public
    */
   batchEvaluationArn: string | undefined;
 
   /**
-   * <p>The name of the batch evaluation.</p>
+   * The name of the batch evaluation.
+   *
    * @public
    */
   batchEvaluationName: string | undefined;
 
   /**
-   * <p>The current status of the batch evaluation.</p>
+   * The current status of the batch evaluation.
+   *
    * @public
    */
   status: BatchEvaluationStatus | undefined;
 
   /**
-   * <p>The timestamp when the batch evaluation was created.</p>
+   * The timestamp when the batch evaluation was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The description of the batch evaluation.</p>
+   * The description of the batch evaluation.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The list of evaluators applied during the batch evaluation.</p>
+   * The list of evaluators applied during the batch evaluation.
+   *
    * @public
    */
   evaluators?: Evaluator[] | undefined;
 
   /**
-   * <p>The list of insight analyses applied during the batch evaluation.</p>
+   * The list of insight analyses applied during the batch evaluation.
+   *
    * @public
    */
   insights?: Insight[] | undefined;
 
   /**
-   * <p>The aggregated evaluation results.</p>
+   * The aggregated evaluation results.
+   *
    * @public
    */
   evaluationResults?: EvaluationJobResults | undefined;
 
   /**
-   * <p>The error details if the batch evaluation encountered failures.</p>
+   * The error details if the batch evaluation encountered failures.
+   *
    * @public
    */
   errorDetails?: string[] | undefined;
 
   /**
-   * <p>The ARN of the KMS key used to encrypt evaluation data.</p>
+   * The ARN of the KMS key used to encrypt evaluation data.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The timestamp when the batch evaluation was last updated.</p>
+   * The timestamp when the batch evaluation was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -6005,13 +6787,15 @@ export interface BatchEvaluationSummary {
  */
 export interface ListBatchEvaluationsResponse {
   /**
-   * <p>The list of batch evaluation summaries.</p>
+   * The list of batch evaluation summaries.
+   *
    * @public
    */
   batchEvaluations: BatchEvaluationSummary[] | undefined;
 
   /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * If the total number of results is greater than the `maxResults` value provided in the request, use this token when making another request in the `nextToken` field to return the next batch of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -6022,73 +6806,85 @@ export interface ListBatchEvaluationsResponse {
  */
 export interface ListRecommendationsRequest {
   /**
-   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the `nextToken` field when making another request to return the next batch of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * If the total number of results is greater than the `maxResults` value provided in the request, enter the token returned in the `nextToken` field in the response in this field to return the next batch of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Optional filter to return only recommendations with the specified status.</p>
+   * Optional filter to return only recommendations with the specified status.
+   *
    * @public
    */
   statusFilter?: RecommendationStatus | undefined;
 }
 
 /**
- * <p>Summary information about a recommendation.</p>
+ * Summary information about a recommendation.
+ *
  * @public
  */
 export interface RecommendationSummary {
   /**
-   * <p>The unique identifier of the recommendation.</p>
+   * The unique identifier of the recommendation.
+   *
    * @public
    */
   recommendationId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the recommendation.</p>
+   * The Amazon Resource Name (ARN) of the recommendation.
+   *
    * @public
    */
   recommendationArn: string | undefined;
 
   /**
-   * <p>The name of the recommendation.</p>
+   * The name of the recommendation.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the recommendation.</p>
+   * The description of the recommendation.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The type of recommendation.</p>
+   * The type of recommendation.
+   *
    * @public
    */
   type: RecommendationType | undefined;
 
   /**
-   * <p>The current status of the recommendation.</p>
+   * The current status of the recommendation.
+   *
    * @public
    */
   status: RecommendationStatus | undefined;
 
   /**
-   * <p>The timestamp when the recommendation was created.</p>
+   * The timestamp when the recommendation was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the recommendation was last updated.</p>
+   * The timestamp when the recommendation was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -6099,20 +6895,23 @@ export interface RecommendationSummary {
  */
 export interface ListRecommendationsResponse {
   /**
-   * <p>The list of recommendation summaries.</p>
+   * The list of recommendation summaries.
+   *
    * @public
    */
   recommendationSummaries: RecommendationSummary[] | undefined;
 
   /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * If the total number of results is greater than the `maxResults` value provided in the request, use this token when making another request in the `nextToken` field to return the next batch of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>The input for a ground truth conversation turn.</p>
+ * The input for a ground truth conversation turn.
+ *
  * @public
  */
 export type GroundTruthTurnInput =
@@ -6124,7 +6923,8 @@ export type GroundTruthTurnInput =
  */
 export namespace GroundTruthTurnInput {
   /**
-   * <p>The text prompt for this conversation turn.</p>
+   * The text prompt for this conversation turn.
+   *
    * @public
    */
   export interface PromptMember {
@@ -6151,49 +6951,57 @@ export namespace GroundTruthTurnInput {
 }
 
 /**
- * <p>Ground truth data for a single conversation turn.</p>
+ * Ground truth data for a single conversation turn.
+ *
  * @public
  */
 export interface GroundTruthTurn {
   /**
-   * <p>The input for this conversation turn.</p>
+   * The input for this conversation turn.
+   *
    * @public
    */
   input?: GroundTruthTurnInput | undefined;
 
   /**
-   * <p>The expected response for this conversation turn.</p>
+   * The expected response for this conversation turn.
+   *
    * @public
    */
   expectedResponse?: EvaluationContent | undefined;
 }
 
 /**
- * <p>Inline ground truth data containing assertions, expected trajectories, and per-turn expected responses.</p>
+ * Inline ground truth data containing assertions, expected trajectories, and per-turn expected responses.
+ *
  * @public
  */
 export interface InlineGroundTruth {
   /**
-   * <p>Assertions for evaluation, reuses common model EvaluationContentList.</p>
+   * Assertions for evaluation, reuses common model EvaluationContentList.
+   *
    * @public
    */
   assertions?: EvaluationContent[] | undefined;
 
   /**
-   * <p>The expected tool call sequence for trajectory evaluation.</p>
+   * The expected tool call sequence for trajectory evaluation.
+   *
    * @public
    */
   expectedTrajectory?: EvaluationExpectedTrajectory | undefined;
 
   /**
-   * <p>A list of per-turn ground truth data, each containing an input prompt and expected response.</p>
+   * A list of per-turn ground truth data, each containing an input prompt and expected response.
+   *
    * @public
    */
   turns?: GroundTruthTurn[] | undefined;
 }
 
 /**
- * <p>Where to pull ground truth from.</p>
+ * Where to pull ground truth from.
+ *
  * @public
  */
 export type GroundTruthSource =
@@ -6205,7 +7013,8 @@ export type GroundTruthSource =
  */
 export namespace GroundTruthSource {
   /**
-   * <p>Inline ground truth data provided directly in the request.</p>
+   * Inline ground truth data provided directly in the request.
+   *
    * @public
    */
   export interface InlineMember {
@@ -6232,37 +7041,43 @@ export namespace GroundTruthSource {
 }
 
 /**
- * <p>Metadata for a specific session in a batch evaluation, including ground truth data and test scenario identifiers.</p>
+ * Metadata for a specific session in a batch evaluation, including ground truth data and test scenario identifiers.
+ *
  * @public
  */
 export interface SessionMetadataShape {
   /**
-   * <p>The unique identifier of the session this metadata applies to.</p>
+   * The unique identifier of the session this metadata applies to.
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>An optional test scenario identifier for categorizing and tracking evaluation results.</p>
+   * An optional test scenario identifier for categorizing and tracking evaluation results.
+   *
    * @public
    */
   testScenarioId?: string | undefined;
 
   /**
-   * <p>The ground truth data for this session, including expected responses and assertions.</p>
+   * The ground truth data for this session, including expected responses and assertions.
+   *
    * @public
    */
   groundTruth?: GroundTruthSource | undefined;
 
   /**
-   * <p>Additional key-value metadata associated with this session.</p>
+   * Additional key-value metadata associated with this session.
+   *
    * @public
    */
   metadata?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Metadata for the evaluation, including session-specific ground truth data.</p>
+ * Metadata for the evaluation, including session-specific ground truth data.
+ *
  * @public
  */
 export type EvaluationMetadata =
@@ -6274,7 +7089,8 @@ export type EvaluationMetadata =
  */
 export namespace EvaluationMetadata {
   /**
-   * <p>A list of session metadata entries containing ground truth data and test scenario identifiers for specific sessions.</p>
+   * A list of session metadata entries containing ground truth data and test scenario identifiers for specific sessions.
+   *
    * @public
    */
   export interface SessionMetadataMember {
@@ -6305,61 +7121,71 @@ export namespace EvaluationMetadata {
  */
 export interface StartBatchEvaluationRequest {
   /**
-   * <p>The name of the batch evaluation. Must be unique within your account.</p>
+   * The name of the batch evaluation. Must be unique within your account.
+   *
    * @public
    */
   batchEvaluationName: string | undefined;
 
   /**
-   * <p>The list of evaluators to apply during the batch evaluation. Can include both built-in evaluators and custom evaluators. Maximum of 10 evaluators.</p>
+   * The list of evaluators to apply during the batch evaluation. Can include both built-in evaluators and custom evaluators. Maximum of 10 evaluators.
+   *
    * @public
    */
   evaluators?: Evaluator[] | undefined;
 
   /**
-   * <p>The list of insight analyses to run against sessions during the batch evaluation. Maximum of 10 insights.</p>
+   * The list of insight analyses to run against sessions during the batch evaluation. Maximum of 10 insights.
+   *
    * @public
    */
   insights?: Insight[] | undefined;
 
   /**
-   * <p>The data source configuration that specifies where to pull agent session traces from for evaluation.</p>
+   * The data source configuration that specifies where to pull agent session traces from for evaluation.
+   *
    * @public
    */
   dataSourceConfig: DataSourceConfig | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, the service ignores the request, but does not return an error.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, the service ignores the request, but does not return an error.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>Optional metadata for the evaluation, including session-specific ground truth data and test scenario identifiers.</p>
+   * Optional metadata for the evaluation, including session-specific ground truth data and test scenario identifiers.
+   *
    * @public
    */
   evaluationMetadata?: EvaluationMetadata | undefined;
 
   /**
-   * <p>A map of tag keys and values to associate with the batch evaluation.</p>
+   * A map of tag keys and values to associate with the batch evaluation.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The ARN of the KMS key used to encrypt evaluation data. If provided, customer data is encrypted at rest with the specified key.</p>
+   * The ARN of the KMS key used to encrypt evaluation data. If provided, customer data is encrypted at rest with the specified key.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The description of the batch evaluation.</p>
+   * The description of the batch evaluation.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Output destination configuration.</p>
+   * Output destination configuration.
+   *
    * @public
    */
   outputConfig?: OutputConfig | undefined;
@@ -6370,67 +7196,78 @@ export interface StartBatchEvaluationRequest {
  */
 export interface StartBatchEvaluationResponse {
   /**
-   * <p>The unique identifier of the created batch evaluation.</p>
+   * The unique identifier of the created batch evaluation.
+   *
    * @public
    */
   batchEvaluationId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the created batch evaluation.</p>
+   * The Amazon Resource Name (ARN) of the created batch evaluation.
+   *
    * @public
    */
   batchEvaluationArn: string | undefined;
 
   /**
-   * <p>The name of the batch evaluation.</p>
+   * The name of the batch evaluation.
+   *
    * @public
    */
   batchEvaluationName: string | undefined;
 
   /**
-   * <p>The list of evaluators applied during the batch evaluation.</p>
+   * The list of evaluators applied during the batch evaluation.
+   *
    * @public
    */
   evaluators?: Evaluator[] | undefined;
 
   /**
-   * <p>The list of insight analyses applied during the batch evaluation.</p>
+   * The list of insight analyses applied during the batch evaluation.
+   *
    * @public
    */
   insights?: Insight[] | undefined;
 
   /**
-   * <p>The status of the batch evaluation.</p>
+   * The status of the batch evaluation.
+   *
    * @public
    */
   status: BatchEvaluationStatus | undefined;
 
   /**
-   * <p>The timestamp when the batch evaluation was created.</p>
+   * The timestamp when the batch evaluation was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The output configuration specifying where evaluation results are written.</p>
+   * The output configuration specifying where evaluation results are written.
+   *
    * @public
    */
   outputConfig?: OutputConfig | undefined;
 
   /**
-   * <p>The tags associated with the batch evaluation.</p>
+   * The tags associated with the batch evaluation.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The ARN of the KMS key used to encrypt evaluation data.</p>
+   * The ARN of the KMS key used to encrypt evaluation data.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The description of the batch evaluation.</p>
+   * The description of the batch evaluation.
+   *
    * @public
    */
   description?: string | undefined;
@@ -6441,43 +7278,50 @@ export interface StartBatchEvaluationResponse {
  */
 export interface StartRecommendationRequest {
   /**
-   * <p>The name of the recommendation. Must be unique within your account.</p>
+   * The name of the recommendation. Must be unique within your account.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the recommendation.</p>
+   * The description of the recommendation.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The type of recommendation to generate. Valid values are <code>SYSTEM_PROMPT_RECOMMENDATION</code> for system prompt optimization or <code>TOOL_DESCRIPTION_RECOMMENDATION</code> for tool description optimization.</p>
+   * The type of recommendation to generate. Valid values are `SYSTEM_PROMPT_RECOMMENDATION` for system prompt optimization or `TOOL_DESCRIPTION_RECOMMENDATION` for tool description optimization.
+   *
    * @public
    */
   type: RecommendationType | undefined;
 
   /**
-   * <p>The configuration for the recommendation, including the input to optimize, agent traces to analyze, and evaluation settings.</p>
+   * The configuration for the recommendation, including the input to optimize, agent traces to analyze, and evaluation settings.
+   *
    * @public
    */
   recommendationConfig: RecommendationConfig | undefined;
 
   /**
-   * <p>The ARN of the KMS key used to encrypt recommendation data. If provided, customer data is encrypted at rest with the specified key.</p>
+   * The ARN of the KMS key used to encrypt recommendation data. If provided, customer data is encrypted at rest with the specified key.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, the service ignores the request, but does not return an error.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, the service ignores the request, but does not return an error.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>A map of tag keys and values to associate with the recommendation.</p>
+   * A map of tag keys and values to associate with the recommendation.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -6488,55 +7332,64 @@ export interface StartRecommendationRequest {
  */
 export interface StartRecommendationResponse {
   /**
-   * <p>The unique identifier of the created recommendation.</p>
+   * The unique identifier of the created recommendation.
+   *
    * @public
    */
   recommendationId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the created recommendation.</p>
+   * The Amazon Resource Name (ARN) of the created recommendation.
+   *
    * @public
    */
   recommendationArn: string | undefined;
 
   /**
-   * <p>The name of the recommendation.</p>
+   * The name of the recommendation.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the recommendation.</p>
+   * The description of the recommendation.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The type of recommendation.</p>
+   * The type of recommendation.
+   *
    * @public
    */
   type: RecommendationType | undefined;
 
   /**
-   * <p>The configuration for the recommendation.</p>
+   * The configuration for the recommendation.
+   *
    * @public
    */
   recommendationConfig: RecommendationConfig | undefined;
 
   /**
-   * <p>The status of the recommendation.</p>
+   * The status of the recommendation.
+   *
    * @public
    */
   status: RecommendationStatus | undefined;
 
   /**
-   * <p>The timestamp when the recommendation was created.</p>
+   * The timestamp when the recommendation was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the recommendation was last updated.</p>
+   * The timestamp when the recommendation was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -6547,7 +7400,8 @@ export interface StartRecommendationResponse {
  */
 export interface StopBatchEvaluationRequest {
   /**
-   * <p>The unique identifier of the batch evaluation to stop.</p>
+   * The unique identifier of the batch evaluation to stop.
+   *
    * @public
    */
   batchEvaluationId: string | undefined;
@@ -6558,25 +7412,29 @@ export interface StopBatchEvaluationRequest {
  */
 export interface StopBatchEvaluationResponse {
   /**
-   * <p>The unique identifier of the stopped batch evaluation.</p>
+   * The unique identifier of the stopped batch evaluation.
+   *
    * @public
    */
   batchEvaluationId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the stopped batch evaluation.</p>
+   * The Amazon Resource Name (ARN) of the stopped batch evaluation.
+   *
    * @public
    */
   batchEvaluationArn: string | undefined;
 
   /**
-   * <p>The status of the batch evaluation after the stop request.</p>
+   * The status of the batch evaluation after the stop request.
+   *
    * @public
    */
   status: BatchEvaluationStatus | undefined;
 
   /**
-   * <p>The description of the batch evaluation.</p>
+   * The description of the batch evaluation.
+   *
    * @public
    */
   description?: string | undefined;
@@ -6587,55 +7445,64 @@ export interface StopBatchEvaluationResponse {
  */
 export interface UpdateABTestRequest {
   /**
-   * <p>The unique identifier of the A/B test to update.</p>
+   * The unique identifier of the A/B test to update.
+   *
    * @public
    */
   abTestId: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, the service ignores the request, but does not return an error.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, the service ignores the request, but does not return an error.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The updated name of the A/B test.</p>
+   * The updated name of the A/B test.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The updated description of the A/B test.</p>
+   * The updated description of the A/B test.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The updated list of variants.</p>
+   * The updated list of variants.
+   *
    * @public
    */
   variants?: Variant[] | undefined;
 
   /**
-   * <p>The updated gateway filter.</p>
+   * The updated gateway filter.
+   *
    * @public
    */
   gatewayFilter?: GatewayFilter | undefined;
 
   /**
-   * <p>The updated evaluation configuration.</p>
+   * The updated evaluation configuration.
+   *
    * @public
    */
   evaluationConfig?: ABTestEvaluationConfig | undefined;
 
   /**
-   * <p>The updated IAM role ARN.</p>
+   * The updated IAM role ARN.
+   *
    * @public
    */
   roleArn?: string | undefined;
 
   /**
-   * <p>The updated execution status to enable or disable the A/B test.</p>
+   * The updated execution status to enable or disable the A/B test.
+   *
    * @public
    */
   executionStatus?: ABTestExecutionStatus | undefined;
@@ -6646,31 +7513,36 @@ export interface UpdateABTestRequest {
  */
 export interface UpdateABTestResponse {
   /**
-   * <p>The unique identifier of the updated A/B test.</p>
+   * The unique identifier of the updated A/B test.
+   *
    * @public
    */
   abTestId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the updated A/B test.</p>
+   * The Amazon Resource Name (ARN) of the updated A/B test.
+   *
    * @public
    */
   abTestArn: string | undefined;
 
   /**
-   * <p>The status of the A/B test.</p>
+   * The status of the A/B test.
+   *
    * @public
    */
   status: ABTestStatus | undefined;
 
   /**
-   * <p>The execution status of the A/B test.</p>
+   * The execution status of the A/B test.
+   *
    * @public
    */
   executionStatus: ABTestExecutionStatus | undefined;
 
   /**
-   * <p>The timestamp when the A/B test was updated.</p>
+   * The timestamp when the A/B test was updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -6681,13 +7553,15 @@ export interface UpdateABTestResponse {
  */
 export interface GetResourceApiKeyRequest {
   /**
-   * <p>The identity token of the workload from which you want to retrieve the API key.</p>
+   * The identity token of the workload from which you want to retrieve the API key.
+   *
    * @public
    */
   workloadIdentityToken: string | undefined;
 
   /**
-   * <p>The credential provider name for the resource from which you are retrieving the API key.</p>
+   * The credential provider name for the resource from which you are retrieving the API key.
+   *
    * @public
    */
   resourceCredentialProviderName: string | undefined;
@@ -6698,7 +7572,8 @@ export interface GetResourceApiKeyRequest {
  */
 export interface GetResourceApiKeyResponse {
   /**
-   * <p>The API key associated with the resource requested.</p>
+   * The API key associated with the resource requested.
+   *
    * @public
    */
   apiKey: string | undefined;
@@ -6709,67 +7584,78 @@ export interface GetResourceApiKeyResponse {
  */
 export interface GetResourceOauth2TokenRequest {
   /**
-   * <p>The identity token of the workload from which you want to retrieve the OAuth2 token.</p>
+   * The identity token of the workload from which you want to retrieve the OAuth2 token.
+   *
    * @public
    */
   workloadIdentityToken: string | undefined;
 
   /**
-   * <p>The name of the resource's credential provider.</p>
+   * The name of the resource's credential provider.
+   *
    * @public
    */
   resourceCredentialProviderName: string | undefined;
 
   /**
-   * <p>The OAuth scopes being requested.</p>
+   * The OAuth scopes being requested.
+   *
    * @public
    */
   scopes: string[] | undefined;
 
   /**
-   * <p>The type of flow to be performed.</p>
+   * The type of flow to be performed.
+   *
    * @public
    */
   oauth2Flow: Oauth2FlowType | undefined;
 
   /**
-   * <p>Unique identifier for the user's authentication session for retrieving OAuth2 tokens. This ID tracks the authorization flow state across multiple requests and responses during the OAuth2 authentication process.</p>
+   * Unique identifier for the user's authentication session for retrieving OAuth2 tokens. This ID tracks the authorization flow state across multiple requests and responses during the OAuth2 authentication process.
+   *
    * @public
    */
   sessionUri?: string | undefined;
 
   /**
-   * <p>The callback URL to redirect to after the OAuth 2.0 token retrieval is complete. This URL must be one of the provided URLs configured for the workload identity.</p>
+   * The callback URL to redirect to after the OAuth 2.0 token retrieval is complete. This URL must be one of the provided URLs configured for the workload identity.
+   *
    * @public
    */
   resourceOauth2ReturnUrl?: string | undefined;
 
   /**
-   * <p>Indicates whether to always initiate a new three-legged OAuth (3LO) flow, regardless of any existing session.</p>
+   * Indicates whether to always initiate a new three-legged OAuth (3LO) flow, regardless of any existing session.
+   *
    * @public
    */
   forceAuthentication?: boolean | undefined;
 
   /**
-   * <p>A map of custom parameters to include in the authorization request to the resource credential provider. These parameters are in addition to the standard OAuth 2.0 flow parameters, and will not override them.</p>
+   * A map of custom parameters to include in the authorization request to the resource credential provider. These parameters are in addition to the standard OAuth 2.0 flow parameters, and will not override them.
+   *
    * @public
    */
   customParameters?: Record<string, string> | undefined;
 
   /**
-   * <p>An opaque string that will be sent back to the callback URL provided in resourceOauth2ReturnUrl. This state should be used to protect the callback URL of your application against CSRF attacks by ensuring the response corresponds to the original request.</p>
+   * An opaque string that will be sent back to the callback URL provided in resourceOauth2ReturnUrl. This state should be used to protect the callback URL of your application against CSRF attacks by ensuring the response corresponds to the original request.
+   *
    * @public
    */
   customState?: string | undefined;
 
   /**
-   * <p>The resources to include in the token request. These are used to specify the target resources for which the OAuth2 token is being requested.</p>
+   * The resources to include in the token request. These are used to specify the target resources for which the OAuth2 token is being requested.
+   *
    * @public
    */
   resources?: string[] | undefined;
 
   /**
-   * <p>The audiences to include in the token request. These are used to specify the intended recipients of the OAuth2 token.</p>
+   * The audiences to include in the token request. These are used to specify the intended recipients of the OAuth2 token.
+   *
    * @public
    */
   audiences?: string[] | undefined;
@@ -6780,98 +7666,114 @@ export interface GetResourceOauth2TokenRequest {
  */
 export interface GetResourceOauth2TokenResponse {
   /**
-   * <p>The URL to initiate the authorization process, provided when the access token requires user authorization.</p>
+   * The URL to initiate the authorization process, provided when the access token requires user authorization.
+   *
    * @public
    */
   authorizationUrl?: string | undefined;
 
   /**
-   * <p>The OAuth 2.0 access token to use.</p>
+   * The OAuth 2.0 access token to use.
+   *
    * @public
    */
   accessToken?: string | undefined;
 
   /**
-   * <p>Unique identifier for the user's authorization session for retrieving OAuth2 tokens. This matches the sessionId from the request and can be used to track the session state.</p>
+   * Unique identifier for the user's authorization session for retrieving OAuth2 tokens. This matches the sessionId from the request and can be used to track the session state.
+   *
    * @public
    */
   sessionUri?: string | undefined;
 
   /**
-   * <p>Status indicating whether the user's authorization session is in progress or has failed. This helps determine the next steps in the OAuth2 authentication flow.</p>
+   * Status indicating whether the user's authorization session is in progress or has failed. This helps determine the next steps in the OAuth2 authentication flow.
+   *
    * @public
    */
   sessionStatus?: SessionStatus | undefined;
 }
 
 /**
- * <p>Coinbase CDP token request parameters.</p>
+ * Coinbase CDP token request parameters.
+ *
  * @public
  */
 export interface CoinbaseCdpTokenRequestInput {
   /**
-   * <p>The HTTP method for the payment API request.</p>
+   * The HTTP method for the payment API request.
+   *
    * @public
    */
   requestMethod: PaymentHttpMethodType | undefined;
 
   /**
-   * <p>The host for the payment API request. Defaults to "api.cdp.coinbase.com".</p>
+   * The host for the payment API request. Defaults to "api.cdp.coinbase.com".
+   *
    * @public
    */
   requestHost?: string | undefined;
 
   /**
-   * <p>The path of the payment API request.</p>
+   * The path of the payment API request.
+   *
    * @public
    */
   requestPath: string | undefined;
 
   /**
-   * <p>Set to true for wallet write operations (requires walletSecret configured).</p>
+   * Set to true for wallet write operations (requires walletSecret configured).
+   *
    * @public
    */
   includeWalletAuthToken?: boolean | undefined;
 
   /**
-   * <p>Request body JSON — used to generate wallet auth JWT.</p>
+   * Request body JSON — used to generate wallet auth JWT.
+   *
    * @public
    */
   requestBody?: string | undefined;
 }
 
 /**
- * <p>Stripe Privy token request parameters.</p>
+ * Stripe Privy token request parameters.
+ *
  * @public
  */
 export interface StripePrivyTokenRequestInput {
   /**
-   * <p>The host for the Privy API request. Defaults to "api.privy.io".</p>
+   * The host for the Privy API request. Defaults to "api.privy.io".
+   *
    * @public
    */
   requestHost?: string | undefined;
 
   /**
-   * <p>The path of the Stripe Privy API request.</p>
+   * The path of the Stripe Privy API request.
+   *
    * @public
    */
   requestPath: string | undefined;
 
   /**
-   * <p>Request body JSON for the Privy API call.</p>
+   * Request body JSON for the Privy API call.
+   *
    * @public
    */
   requestBody: string | undefined;
 
   /**
-   * <p>Set to true to generate privy-authorization-signature.</p>
+   * Set to true to generate privy-authorization-signature.
+   *
    * @public
    */
   includeAuthorizationSignature?: boolean | undefined;
 }
 
 /**
- * <p>Vendor-specific token request configuration.</p>
+ * Vendor-specific token request configuration.
+ *
  * @public
  */
 export type PaymentTokenRequestInput =
@@ -6884,7 +7786,8 @@ export type PaymentTokenRequestInput =
  */
 export namespace PaymentTokenRequestInput {
   /**
-   * <p>The Coinbase CDP token request.</p>
+   * The Coinbase CDP token request.
+   *
    * @public
    */
   export interface CoinbaseCdpTokenRequestMember {
@@ -6894,7 +7797,8 @@ export namespace PaymentTokenRequestInput {
   }
 
   /**
-   * <p>The Stripe Privy token request.</p>
+   * The Stripe Privy token request.
+   *
    * @public
    */
   export interface StripePrivyTokenRequestMember {
@@ -6928,74 +7832,86 @@ export namespace PaymentTokenRequestInput {
  */
 export interface GetResourcePaymentTokenRequest {
   /**
-   * <p>Workload access token for authorization.</p>
+   * Workload access token for authorization.
+   *
    * @public
    */
   workloadIdentityToken: string | undefined;
 
   /**
-   * <p>Name of the payment credential provider to use.</p>
+   * Name of the payment credential provider to use.
+   *
    * @public
    */
   resourceCredentialProviderName: string | undefined;
 
   /**
-   * <p>Vendor-specific token request input. Contains all request parameters in a type-safe, vendor-specific structure.</p>
+   * Vendor-specific token request input. Contains all request parameters in a type-safe, vendor-specific structure.
+   *
    * @public
    */
   paymentTokenRequest: PaymentTokenRequestInput | undefined;
 }
 
 /**
- * <p>Coinbase CDP token response.</p>
+ * Coinbase CDP token response.
+ *
  * @public
  */
 export interface CoinbaseCdpTokenResponseOutput {
   /**
-   * <p>Bearer Token for Authorization header.</p>
+   * Bearer Token for Authorization header.
+   *
    * @public
    */
   bearerToken: string | undefined;
 
   /**
-   * <p>Wallet Auth Token for X-Wallet-Auth header.</p>
+   * Wallet Auth Token for X-Wallet-Auth header.
+   *
    * @public
    */
   walletAuthToken?: string | undefined;
 }
 
 /**
- * <p>Stripe Privy token response containing appId, basicAuthToken, and optionally authorizationSignature.</p>
+ * Stripe Privy token response containing appId, basicAuthToken, and optionally authorizationSignature.
+ *
  * @public
  */
 export interface StripePrivyTokenResponseOutput {
   /**
-   * <p>Base64-encoded ECDSA P-256 authorization signature (only present when includeAuthorizationSignature is true).</p>
+   * Base64-encoded ECDSA P-256 authorization signature (only present when includeAuthorizationSignature is true).
+   *
    * @public
    */
   authorizationSignature?: string | undefined;
 
   /**
-   * <p>Unix timestamp in milliseconds when the authorization signature expires.</p>
+   * Unix timestamp in milliseconds when the authorization signature expires.
+   *
    * @public
    */
   requestExpiry?: number | undefined;
 
   /**
-   * <p>The Privy app ID for the privy-app-id header.</p>
+   * The Privy app ID for the privy-app-id header.
+   *
    * @public
    */
   appId: string | undefined;
 
   /**
-   * <p>Base64-encoded Basic Auth token (appId:appSecret) for the Authorization header.</p>
+   * Base64-encoded Basic Auth token (appId:appSecret) for the Authorization header.
+   *
    * @public
    */
   basicAuthToken: string | undefined;
 }
 
 /**
- * <p>Vendor-specific token response configuration.</p>
+ * Vendor-specific token response configuration.
+ *
  * @public
  */
 export type PaymentTokenResponseOutput =
@@ -7008,7 +7924,8 @@ export type PaymentTokenResponseOutput =
  */
 export namespace PaymentTokenResponseOutput {
   /**
-   * <p>The Coinbase CDP token response.</p>
+   * The Coinbase CDP token response.
+   *
    * @public
    */
   export interface CoinbaseCdpTokenResponseMember {
@@ -7018,7 +7935,8 @@ export namespace PaymentTokenResponseOutput {
   }
 
   /**
-   * <p>The Stripe Privy token response.</p>
+   * The Stripe Privy token response.
+   *
    * @public
    */
   export interface StripePrivyTokenResponseMember {
@@ -7052,7 +7970,8 @@ export namespace PaymentTokenResponseOutput {
  */
 export interface GetResourcePaymentTokenResponse {
   /**
-   * <p>Vendor-specific token response output. Contains all response data in a type-safe, vendor-specific structure.</p>
+   * Vendor-specific token response output. Contains all response data in a type-safe, vendor-specific structure.
+   *
    * @public
    */
   paymentTokenResponse: PaymentTokenResponseOutput | undefined;
@@ -7063,7 +7982,8 @@ export interface GetResourcePaymentTokenResponse {
  */
 export interface GetWorkloadAccessTokenRequest {
   /**
-   * <p>The unique identifier for the registered workload.</p>
+   * The unique identifier for the registered workload.
+   *
    * @public
    */
   workloadName: string | undefined;
@@ -7074,7 +7994,8 @@ export interface GetWorkloadAccessTokenRequest {
  */
 export interface GetWorkloadAccessTokenResponse {
   /**
-   * <p>An opaque token representing the identity of both the workload and the user.</p>
+   * An opaque token representing the identity of both the workload and the user.
+   *
    * @public
    */
   workloadAccessToken: string | undefined;
@@ -7085,13 +8006,15 @@ export interface GetWorkloadAccessTokenResponse {
  */
 export interface GetWorkloadAccessTokenForJWTRequest {
   /**
-   * <p>The unique identifier for the registered workload.</p>
+   * The unique identifier for the registered workload.
+   *
    * @public
    */
   workloadName: string | undefined;
 
   /**
-   * <p>The OAuth 2.0 token issued by the user's identity provider.</p>
+   * The OAuth 2.0 token issued by the user's identity provider.
+   *
    * @public
    */
   userToken: string | undefined;
@@ -7102,7 +8025,8 @@ export interface GetWorkloadAccessTokenForJWTRequest {
  */
 export interface GetWorkloadAccessTokenForJWTResponse {
   /**
-   * <p>An opaque token representing the identity of both the workload and the user.</p>
+   * An opaque token representing the identity of both the workload and the user.
+   *
    * @public
    */
   workloadAccessToken: string | undefined;
@@ -7113,13 +8037,15 @@ export interface GetWorkloadAccessTokenForJWTResponse {
  */
 export interface GetWorkloadAccessTokenForUserIdRequest {
   /**
-   * <p>The name of the workload from which you want to retrieve the access token.</p>
+   * The name of the workload from which you want to retrieve the access token.
+   *
    * @public
    */
   workloadName: string | undefined;
 
   /**
-   * <p>The ID of the user for whom you are retrieving the access token.</p>
+   * The ID of the user for whom you are retrieving the access token.
+   *
    * @public
    */
   userId: string | undefined;
@@ -7130,97 +8056,113 @@ export interface GetWorkloadAccessTokenForUserIdRequest {
  */
 export interface GetWorkloadAccessTokenForUserIdResponse {
   /**
-   * <p>The access token for the specified workload.</p>
+   * The access token for the specified workload.
+   *
    * @public
    */
   workloadAccessToken: string | undefined;
 }
 
 /**
- * <p>A block of input content.</p>
+ * A block of input content.
+ *
  * @public
  */
 export interface InputContentBlock {
   /**
-   * <p>The path to the input content.</p>
+   * The path to the input content.
+   *
    * @public
    */
   path: string | undefined;
 
   /**
-   * <p>The text input content.</p>
+   * The text input content.
+   *
    * @public
    */
   text?: string | undefined;
 
   /**
-   * <p>The binary input content.</p>
+   * The binary input content.
+   *
    * @public
    */
   blob?: Uint8Array | undefined;
 }
 
 /**
- * <p>The collection of arguments that specify the operation to perform and its parameters when invoking a tool in Amazon Bedrock AgentCore. Different tools require different arguments, and this structure provides a flexible way to pass the appropriate arguments to each tool type.</p>
+ * The collection of arguments that specify the operation to perform and its parameters when invoking a tool in Amazon Bedrock AgentCore. Different tools require different arguments, and this structure provides a flexible way to pass the appropriate arguments to each tool type.
+ *
  * @public
  */
 export interface ToolArguments {
   /**
-   * <p>The code to execute in a code interpreter session. This is the source code in the specified programming language that will be executed by the code interpreter.</p>
+   * The code to execute in a code interpreter session. This is the source code in the specified programming language that will be executed by the code interpreter.
+   *
    * @public
    */
   code?: string | undefined;
 
   /**
-   * <p>The programming language of the code to execute. This tells the code interpreter which language runtime to use for execution.</p>
+   * The programming language of the code to execute. This tells the code interpreter which language runtime to use for execution.
+   *
    * @public
    */
   language?: ProgrammingLanguage | undefined;
 
   /**
-   * <p>Whether to clear the context for the tool.</p>
+   * Whether to clear the context for the tool.
+   *
    * @public
    */
   clearContext?: boolean | undefined;
 
   /**
-   * <p>The command to execute with the tool.</p>
+   * The command to execute with the tool.
+   *
    * @public
    */
   command?: string | undefined;
 
   /**
-   * <p>The path for the tool operation.</p>
+   * The path for the tool operation.
+   *
    * @public
    */
   path?: string | undefined;
 
   /**
-   * <p>The paths for the tool operation.</p>
+   * The paths for the tool operation.
+   *
    * @public
    */
   paths?: string[] | undefined;
 
   /**
-   * <p>The content for the tool operation.</p>
+   * The content for the tool operation.
+   *
    * @public
    */
   content?: InputContentBlock[] | undefined;
 
   /**
-   * <p>The directory path for the tool operation.</p>
+   * The directory path for the tool operation.
+   *
    * @public
    */
   directoryPath?: string | undefined;
 
   /**
-   * <p>The identifier of the task for the tool operation.</p>
+   * The identifier of the task for the tool operation.
+   *
    * @public
    */
   taskId?: string | undefined;
 
   /**
-   * <p>The runtime environment to use for code execution. If not specified, defaults to <code>deno</code> for JavaScript and TypeScript.</p>
+   * The runtime environment to use for code execution. If not specified, defaults to `deno` for JavaScript and TypeScript.
+   *
    * @public
    */
   runtime?: LanguageRuntime | undefined;
@@ -7231,206 +8173,240 @@ export interface ToolArguments {
  */
 export interface InvokeCodeInterpreterRequest {
   /**
-   * <p>The unique identifier of the code interpreter associated with the session. This must match the identifier used when creating the session with <code>StartCodeInterpreterSession</code>.</p>
+   * The unique identifier of the code interpreter associated with the session. This must match the identifier used when creating the session with `StartCodeInterpreterSession`.
+   *
    * @public
    */
   codeInterpreterIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the code interpreter session to use. This must be an active session created with <code>StartCodeInterpreterSession</code>. If the session has expired or been stopped, the request will fail.</p>
+   * The unique identifier of the code interpreter session to use. This must be an active session created with `StartCodeInterpreterSession`. If the session has expired or been stopped, the request will fail.
+   *
    * @public
    */
   sessionId?: string | undefined;
 
   /**
-   * <p>The trace identifier for request tracking.</p>
+   * The trace identifier for request tracking.
+   *
    * @public
    */
   traceId?: string | undefined;
 
   /**
-   * <p>The parent trace information for distributed tracing.</p>
+   * The parent trace information for distributed tracing.
+   *
    * @public
    */
   traceParent?: string | undefined;
 
   /**
-   * <p>The name of the code interpreter to invoke.</p>
+   * The name of the code interpreter to invoke.
+   *
    * @public
    */
   name: ToolName | undefined;
 
   /**
-   * <p>The arguments for the code interpreter. This includes the code to execute and any additional parameters such as the programming language, whether to clear the execution context, and other execution options. The structure of this parameter depends on the specific code interpreter being used.</p>
+   * The arguments for the code interpreter. This includes the code to execute and any additional parameters such as the programming language, whether to clear the execution context, and other execution options. The structure of this parameter depends on the specific code interpreter being used.
+   *
    * @public
    */
   arguments?: ToolArguments | undefined;
 }
 
 /**
- * <p>Contains information about resource content.</p>
+ * Contains information about resource content.
+ *
  * @public
  */
 export interface ResourceContent {
   /**
-   * <p>The type of resource content.</p>
+   * The type of resource content.
+   *
    * @public
    */
   type: ResourceContentType | undefined;
 
   /**
-   * <p>The URI of the resource content.</p>
+   * The URI of the resource content.
+   *
    * @public
    */
   uri?: string | undefined;
 
   /**
-   * <p>The MIME type of the resource content.</p>
+   * The MIME type of the resource content.
+   *
    * @public
    */
   mimeType?: string | undefined;
 
   /**
-   * <p>The text resource content.</p>
+   * The text resource content.
+   *
    * @public
    */
   text?: string | undefined;
 
   /**
-   * <p>The binary resource content.</p>
+   * The binary resource content.
+   *
    * @public
    */
   blob?: Uint8Array | undefined;
 }
 
 /**
- * <p>A block of content in a response.</p>
+ * A block of content in a response.
+ *
  * @public
  */
 export interface ContentBlock {
   /**
-   * <p>The type of content in the block.</p>
+   * The type of content in the block.
+   *
    * @public
    */
   type: ContentBlockType | undefined;
 
   /**
-   * <p>The text content of the block.</p>
+   * The text content of the block.
+   *
    * @public
    */
   text?: string | undefined;
 
   /**
-   * <p>The binary data content of the block.</p>
+   * The binary data content of the block.
+   *
    * @public
    */
   data?: Uint8Array | undefined;
 
   /**
-   * <p>The MIME type of the content.</p>
+   * The MIME type of the content.
+   *
    * @public
    */
   mimeType?: string | undefined;
 
   /**
-   * <p>The URI of the content.</p>
+   * The URI of the content.
+   *
    * @public
    */
   uri?: string | undefined;
 
   /**
-   * <p>The name of the content block.</p>
+   * The name of the content block.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The description of the content block.</p>
+   * The description of the content block.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The size of the content in bytes.</p>
+   * The size of the content in bytes.
+   *
    * @public
    */
   size?: number | undefined;
 
   /**
-   * <p>The resource associated with the content block.</p>
+   * The resource associated with the content block.
+   *
    * @public
    */
   resource?: ResourceContent | undefined;
 }
 
 /**
- * <p>Contains structured content from a tool result.</p>
+ * Contains structured content from a tool result.
+ *
  * @public
  */
 export interface ToolResultStructuredContent {
   /**
-   * <p>The identifier of the task that produced the result.</p>
+   * The identifier of the task that produced the result.
+   *
    * @public
    */
   taskId?: string | undefined;
 
   /**
-   * <p>The status of the task that produced the result.</p>
+   * The status of the task that produced the result.
+   *
    * @public
    */
   taskStatus?: TaskStatus | undefined;
 
   /**
-   * <p>The standard output from the tool execution.</p>
+   * The standard output from the tool execution.
+   *
    * @public
    */
   stdout?: string | undefined;
 
   /**
-   * <p>The standard error output from the tool execution.</p>
+   * The standard error output from the tool execution.
+   *
    * @public
    */
   stderr?: string | undefined;
 
   /**
-   * <p>The exit code from the tool execution.</p>
+   * The exit code from the tool execution.
+   *
    * @public
    */
   exitCode?: number | undefined;
 
   /**
-   * <p>The execution time of the tool operation in milliseconds.</p>
+   * The execution time of the tool operation in milliseconds.
+   *
    * @public
    */
   executionTime?: number | undefined;
 }
 
 /**
- * <p>The output produced by executing code in a code interpreter session in Amazon Bedrock AgentCore. This structure contains the results of code execution, including textual output, structured data, and error information. Agents use these results to generate responses that incorporate computation, data analysis, and visualization.</p>
+ * The output produced by executing code in a code interpreter session in Amazon Bedrock AgentCore. This structure contains the results of code execution, including textual output, structured data, and error information. Agents use these results to generate responses that incorporate computation, data analysis, and visualization.
+ *
  * @public
  */
 export interface CodeInterpreterResult {
   /**
-   * <p>The textual content of the execution result. This includes standard output from the code execution, such as print statements, console output, and text representations of results.</p>
+   * The textual content of the execution result. This includes standard output from the code execution, such as print statements, console output, and text representations of results.
+   *
    * @public
    */
   content: ContentBlock[] | undefined;
 
   /**
-   * <p>The structured content of the execution result. This includes additional metadata about the execution, such as execution time, memory usage, and structured representations of output data. The format depends on the specific code interpreter and execution context.</p>
+   * The structured content of the execution result. This includes additional metadata about the execution, such as execution time, memory usage, and structured representations of output data. The format depends on the specific code interpreter and execution context.
+   *
    * @public
    */
   structuredContent?: ToolResultStructuredContent | undefined;
 
   /**
-   * <p>Indicates whether the result represents an error. If true, the content contains error messages or exception information. If false, the content contains successful execution results.</p>
+   * Indicates whether the result represents an error. If true, the content contains error messages or exception information. If false, the content contains successful execution results.
+   *
    * @public
    */
   isError?: boolean | undefined;
 }
 
 /**
- * <p>Contains output from a code interpreter stream.</p>
+ * Contains output from a code interpreter stream.
+ *
  * @public
  */
 export type CodeInterpreterStreamOutput =
@@ -7449,7 +8425,8 @@ export type CodeInterpreterStreamOutput =
  */
 export namespace CodeInterpreterStreamOutput {
   /**
-   * <p>The output produced by executing code in a code interpreter session in Amazon Bedrock AgentCore. This structure contains the results of code execution, including textual output, structured data, and error information. Agents use these results to generate responses that incorporate computation, data analysis, and visualization.</p>
+   * The output produced by executing code in a code interpreter session in Amazon Bedrock AgentCore. This structure contains the results of code execution, including textual output, structured data, and error information. Agents use these results to generate responses that incorporate computation, data analysis, and visualization.
+   *
    * @public
    */
   export interface ResultMember {
@@ -7465,7 +8442,8 @@ export namespace CodeInterpreterStreamOutput {
   }
 
   /**
-   * <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+   * The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.
+   *
    * @public
    */
   export interface AccessDeniedExceptionMember {
@@ -7481,7 +8459,8 @@ export namespace CodeInterpreterStreamOutput {
   }
 
   /**
-   * <p>The exception that occurs when the request conflicts with the current state of the resource. This can happen when trying to modify a resource that is currently being modified by another request, or when trying to create a resource that already exists.</p>
+   * The exception that occurs when the request conflicts with the current state of the resource. This can happen when trying to modify a resource that is currently being modified by another request, or when trying to create a resource that already exists.
+   *
    * @public
    */
   export interface ConflictExceptionMember {
@@ -7497,7 +8476,8 @@ export namespace CodeInterpreterStreamOutput {
   }
 
   /**
-   * <p>The exception that occurs when the service encounters an unexpected internal error. This is a temporary condition that will resolve itself with retries. We recommend implementing exponential backoff retry logic in your application.</p>
+   * The exception that occurs when the service encounters an unexpected internal error. This is a temporary condition that will resolve itself with retries. We recommend implementing exponential backoff retry logic in your application.
+   *
    * @public
    */
   export interface InternalServerExceptionMember {
@@ -7513,7 +8493,8 @@ export namespace CodeInterpreterStreamOutput {
   }
 
   /**
-   * <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+   * The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.
+   *
    * @public
    */
   export interface ResourceNotFoundExceptionMember {
@@ -7529,7 +8510,8 @@ export namespace CodeInterpreterStreamOutput {
   }
 
   /**
-   * <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
+   * The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.
+   *
    * @public
    */
   export interface ServiceQuotaExceededExceptionMember {
@@ -7545,7 +8527,8 @@ export namespace CodeInterpreterStreamOutput {
   }
 
   /**
-   * <p>The exception that occurs when the request was denied due to request throttling. This happens when you exceed the allowed request rate for an operation. Reduce the frequency of requests or implement exponential backoff retry logic in your application.</p>
+   * The exception that occurs when the request was denied due to request throttling. This happens when you exceed the allowed request rate for an operation. Reduce the frequency of requests or implement exponential backoff retry logic in your application.
+   *
    * @public
    */
   export interface ThrottlingExceptionMember {
@@ -7561,7 +8544,8 @@ export namespace CodeInterpreterStreamOutput {
   }
 
   /**
-   * <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+   * The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.
+   *
    * @public
    */
   export interface ValidationExceptionMember {
@@ -7613,38 +8597,44 @@ export namespace CodeInterpreterStreamOutput {
  */
 export interface InvokeCodeInterpreterResponse {
   /**
-   * <p>The identifier of the code interpreter session.</p>
+   * The identifier of the code interpreter session.
+   *
    * @public
    */
   sessionId?: string | undefined;
 
   /**
-   * <p>The stream containing the results of the code execution. This includes output, errors, and execution status.</p>
+   * The stream containing the results of the code execution. This includes output, errors, and execution status.
+   *
    * @public
    */
   stream: AsyncIterable<CodeInterpreterStreamOutput> | undefined;
 }
 
 /**
- * <p>A block of reasoning text from the model.</p>
+ * A block of reasoning text from the model.
+ *
  * @public
  */
 export interface HarnessReasoningTextBlock {
   /**
-   * <p>The reasoning text.</p>
+   * The reasoning text.
+   *
    * @public
    */
   text: string | undefined;
 
   /**
-   * <p>Signature for verifying the reasoning content.</p>
+   * Signature for verifying the reasoning content.
+   *
    * @public
    */
   signature?: string | undefined;
 }
 
 /**
- * <p>Reasoning content from the model.</p>
+ * Reasoning content from the model.
+ *
  * @public
  */
 export type HarnessReasoningContentBlock =
@@ -7657,7 +8647,8 @@ export type HarnessReasoningContentBlock =
  */
 export namespace HarnessReasoningContentBlock {
   /**
-   * <p>The reasoning text.</p>
+   * The reasoning text.
+   *
    * @public
    */
   export interface ReasoningTextMember {
@@ -7667,7 +8658,8 @@ export namespace HarnessReasoningContentBlock {
   }
 
   /**
-   * <p>Redacted reasoning content.</p>
+   * Redacted reasoning content.
+   *
    * @public
    */
   export interface RedactedContentMember {
@@ -7697,7 +8689,8 @@ export namespace HarnessReasoningContentBlock {
 }
 
 /**
- * <p>A content block within a tool result.</p>
+ * A content block within a tool result.
+ *
  * @public
  */
 export type HarnessToolResultContentBlock =
@@ -7710,7 +8703,8 @@ export type HarnessToolResultContentBlock =
  */
 export namespace HarnessToolResultContentBlock {
   /**
-   * <p>Text content.</p>
+   * Text content.
+   *
    * @public
    */
   export interface TextMember {
@@ -7720,7 +8714,8 @@ export namespace HarnessToolResultContentBlock {
   }
 
   /**
-   * <p>JSON content.</p>
+   * JSON content.
+   *
    * @public
    */
   export interface JsonMember {
@@ -7750,73 +8745,85 @@ export namespace HarnessToolResultContentBlock {
 }
 
 /**
- * <p>The result of a tool execution.</p>
+ * The result of a tool execution.
+ *
  * @public
  */
 export interface HarnessToolResultBlock {
   /**
-   * <p>The tool use ID that this result corresponds to.</p>
+   * The tool use ID that this result corresponds to.
+   *
    * @public
    */
   toolUseId: string | undefined;
 
   /**
-   * <p>The content of the tool result.</p>
+   * The content of the tool result.
+   *
    * @public
    */
   content: HarnessToolResultContentBlock[] | undefined;
 
   /**
-   * <p>The status of the tool execution.</p>
+   * The status of the tool execution.
+   *
    * @public
    */
   status?: HarnessToolUseStatus | undefined;
 
   /**
-   * <p>The type of tool use that produced this result.</p>
+   * The type of tool use that produced this result.
+   *
    * @public
    */
   type?: HarnessToolUseType | undefined;
 }
 
 /**
- * <p>A tool use request from the model.</p>
+ * A tool use request from the model.
+ *
  * @public
  */
 export interface HarnessToolUseBlock {
   /**
-   * <p>The name of the tool to call.</p>
+   * The name of the tool to call.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The unique ID of this tool use.</p>
+   * The unique ID of this tool use.
+   *
    * @public
    */
   toolUseId: string | undefined;
 
   /**
-   * <p>The JSON input to pass to the tool.</p>
+   * The JSON input to pass to the tool.
+   *
    * @public
    */
   input: __DocumentType | undefined;
 
   /**
-   * <p>The type of tool use.</p>
+   * The type of tool use.
+   *
    * @public
    */
   type?: HarnessToolUseType | undefined;
 
   /**
-   * <p>The name of the MCP server providing this tool.</p>
+   * The name of the MCP server providing this tool.
+   *
    * @public
    */
   serverName?: string | undefined;
 }
 
 /**
- * <p>A content block within a message.</p>
+ * A content block within a message.
+ *
  * @public
  */
 export type HarnessContentBlock =
@@ -7831,7 +8838,8 @@ export type HarnessContentBlock =
  */
 export namespace HarnessContentBlock {
   /**
-   * <p>Text content.</p>
+   * Text content.
+   *
    * @public
    */
   export interface TextMember {
@@ -7843,7 +8851,8 @@ export namespace HarnessContentBlock {
   }
 
   /**
-   * <p>A tool use request from the model.</p>
+   * A tool use request from the model.
+   *
    * @public
    */
   export interface ToolUseMember {
@@ -7855,7 +8864,8 @@ export namespace HarnessContentBlock {
   }
 
   /**
-   * <p>A tool execution result.</p>
+   * A tool execution result.
+   *
    * @public
    */
   export interface ToolResultMember {
@@ -7867,7 +8877,8 @@ export namespace HarnessContentBlock {
   }
 
   /**
-   * <p>Model reasoning content.</p>
+   * Model reasoning content.
+   *
    * @public
    */
   export interface ReasoningContentMember {
@@ -7903,217 +8914,253 @@ export namespace HarnessContentBlock {
 }
 
 /**
- * <p>A message in the conversation.</p>
+ * A message in the conversation.
+ *
  * @public
  */
 export interface HarnessMessage {
   /**
-   * <p>The role of the message sender.</p>
+   * The role of the message sender.
+   *
    * @public
    */
   role: HarnessConversationRole | undefined;
 
   /**
-   * <p>The content blocks of the message.</p>
+   * The content blocks of the message.
+   *
    * @public
    */
   content: HarnessContentBlock[] | undefined;
 }
 
 /**
- * <p>Configuration for an Amazon Bedrock model provider.</p>
+ * Configuration for an Amazon Bedrock model provider.
+ *
  * @public
  */
 export interface HarnessBedrockModelConfig {
   /**
-   * <p>The Bedrock model ID.</p>
+   * The Bedrock model ID.
+   *
    * @public
    */
   modelId: string | undefined;
 
   /**
-   * <p>The maximum number of tokens to allow in the generated response per iteration.</p>
+   * The maximum number of tokens to allow in the generated response per iteration.
+   *
    * @public
    */
   maxTokens?: number | undefined;
 
   /**
-   * <p>The temperature to set when calling the model.</p>
+   * The temperature to set when calling the model.
+   *
    * @public
    */
   temperature?: number | undefined;
 
   /**
-   * <p>The topP set when calling the model.</p>
+   * The topP set when calling the model.
+   *
    * @public
    */
   topP?: number | undefined;
 
   /**
-   * <p>The API format to use when calling the Bedrock provider.</p>
+   * The API format to use when calling the Bedrock provider.
+   *
    * @public
    */
   apiFormat?: HarnessBedrockApiFormat | undefined;
 
   /**
-   * <p>Provider-specific parameters passed through to the model provider unchanged.</p>
+   * Provider-specific parameters passed through to the model provider unchanged.
+   *
    * @public
    */
   additionalParams?: __DocumentType | undefined;
 }
 
 /**
- * <p>Configuration for a Google Gemini model provider. Requires an API key stored in AgentCore Identity.</p>
+ * Configuration for a Google Gemini model provider. Requires an API key stored in AgentCore Identity.
+ *
  * @public
  */
 export interface HarnessGeminiModelConfig {
   /**
-   * <p>The Gemini model ID.</p>
+   * The Gemini model ID.
+   *
    * @public
    */
   modelId: string | undefined;
 
   /**
-   * <p>The ARN of your Gemini API key on AgentCore Identity.</p>
+   * The ARN of your Gemini API key on AgentCore Identity.
+   *
    * @public
    */
   apiKeyArn: string | undefined;
 
   /**
-   * <p>The maximum number of tokens to allow in the generated response per iteration.</p>
+   * The maximum number of tokens to allow in the generated response per iteration.
+   *
    * @public
    */
   maxTokens?: number | undefined;
 
   /**
-   * <p>The temperature to set when calling the model.</p>
+   * The temperature to set when calling the model.
+   *
    * @public
    */
   temperature?: number | undefined;
 
   /**
-   * <p>The topP set when calling the model.</p>
+   * The topP set when calling the model.
+   *
    * @public
    */
   topP?: number | undefined;
 
   /**
-   * <p>The topK set when calling the model.</p>
+   * The topK set when calling the model.
+   *
    * @public
    */
   topK?: number | undefined;
 
   /**
-   * <p>Provider-specific parameters passed through to the Gemini model provider unchanged.</p>
+   * Provider-specific parameters passed through to the Gemini model provider unchanged.
+   *
    * @public
    */
   additionalParams?: __DocumentType | undefined;
 }
 
 /**
- * <p>Configuration for a LiteLLM model provider, enabling connection to third-party model providers.</p>
+ * Configuration for a LiteLLM model provider, enabling connection to third-party model providers.
+ *
  * @public
  */
 export interface HarnessLiteLlmModelConfig {
   /**
-   * <p>The LiteLLM model identifier (e.g., "anthropic/claude-3-sonnet").</p>
+   * The LiteLLM model identifier (e.g., "anthropic/claude-3-sonnet").
+   *
    * @public
    */
   modelId: string | undefined;
 
   /**
-   * <p>The ARN of the API key in AgentCore Identity for authenticating with the model provider.</p>
+   * The ARN of the API key in AgentCore Identity for authenticating with the model provider.
+   *
    * @public
    */
   apiKeyArn?: string | undefined;
 
   /**
-   * <p>The base URL for the model provider's API endpoint.</p>
+   * The base URL for the model provider's API endpoint.
+   *
    * @public
    */
   apiBase?: string | undefined;
 
   /**
-   * <p>The maximum number of tokens to allow in the generated response per iteration.</p>
+   * The maximum number of tokens to allow in the generated response per iteration.
+   *
    * @public
    */
   maxTokens?: number | undefined;
 
   /**
-   * <p>The temperature to set when calling the model.</p>
+   * The temperature to set when calling the model.
+   *
    * @public
    */
   temperature?: number | undefined;
 
   /**
-   * <p>The topP set when calling the model.</p>
+   * The topP set when calling the model.
+   *
    * @public
    */
   topP?: number | undefined;
 
   /**
-   * <p>Provider-specific parameters passed through to the model provider unchanged.</p>
+   * Provider-specific parameters passed through to the model provider unchanged.
+   *
    * @public
    */
   additionalParams?: __DocumentType | undefined;
 }
 
 /**
- * <p>Configuration for an OpenAI model provider. Requires an API key stored in AgentCore Identity.</p>
+ * Configuration for an OpenAI model provider. Requires an API key stored in AgentCore Identity.
+ *
  * @public
  */
 export interface HarnessOpenAiModelConfig {
   /**
-   * <p>The OpenAI model ID.</p>
+   * The OpenAI model ID.
+   *
    * @public
    */
   modelId: string | undefined;
 
   /**
-   * <p>The ARN of your OpenAI API key on AgentCore Identity.</p>
+   * The ARN of your OpenAI API key on AgentCore Identity.
+   *
    * @public
    */
   apiKeyArn: string | undefined;
 
   /**
-   * <p>Optional custom endpoint URL for an OpenAI-compatible endpoint.</p>
+   * Optional custom endpoint URL for an OpenAI-compatible endpoint.
+   *
    * @public
    */
   apiBase?: string | undefined;
 
   /**
-   * <p>The maximum number of tokens to allow in the generated response per iteration.</p>
+   * The maximum number of tokens to allow in the generated response per iteration.
+   *
    * @public
    */
   maxTokens?: number | undefined;
 
   /**
-   * <p>The temperature to set when calling the model.</p>
+   * The temperature to set when calling the model.
+   *
    * @public
    */
   temperature?: number | undefined;
 
   /**
-   * <p>The topP set when calling the model.</p>
+   * The topP set when calling the model.
+   *
    * @public
    */
   topP?: number | undefined;
 
   /**
-   * <p>The API format to use when calling the OpenAI provider.</p>
+   * The API format to use when calling the OpenAI provider.
+   *
    * @public
    */
   apiFormat?: HarnessOpenAiApiFormat | undefined;
 
   /**
-   * <p>Provider-specific parameters passed through to the model provider unchanged.</p>
+   * Provider-specific parameters passed through to the model provider unchanged.
+   *
    * @public
    */
   additionalParams?: __DocumentType | undefined;
 }
 
 /**
- * <p>Specification of which model to use.</p>
+ * Specification of which model to use.
+ *
  * @public
  */
 export type HarnessModelConfiguration =
@@ -8128,7 +9175,8 @@ export type HarnessModelConfiguration =
  */
 export namespace HarnessModelConfiguration {
   /**
-   * <p>Configuration for an Amazon Bedrock model.</p>
+   * Configuration for an Amazon Bedrock model.
+   *
    * @public
    */
   export interface BedrockModelConfigMember {
@@ -8140,7 +9188,8 @@ export namespace HarnessModelConfiguration {
   }
 
   /**
-   * <p>Configuration for an OpenAI model.</p>
+   * Configuration for an OpenAI model.
+   *
    * @public
    */
   export interface OpenAiModelConfigMember {
@@ -8152,7 +9201,8 @@ export namespace HarnessModelConfiguration {
   }
 
   /**
-   * <p>Configuration for a Google Gemini model.</p>
+   * Configuration for a Google Gemini model.
+   *
    * @public
    */
   export interface GeminiModelConfigMember {
@@ -8164,7 +9214,8 @@ export namespace HarnessModelConfiguration {
   }
 
   /**
-   * <p>The LiteLLM model configuration for connecting to third-party model providers.</p>
+   * The LiteLLM model configuration for connecting to third-party model providers.
+   *
    * @public
    */
   export interface LiteLlmModelConfigMember {
@@ -8200,73 +9251,85 @@ export namespace HarnessModelConfiguration {
 }
 
 /**
- * <p>Passed to show that Amazon Web Services Skills should be included.</p>
+ * Passed to show that Amazon Web Services Skills should be included.
+ *
  * @public
  */
 export interface HarnessSkillAwsSkillsSource {
   /**
-   * <p>Optionally filter allowed skills with glob syntax, e.g., ['core-skills/*'].</p>
+   * Optionally filter allowed skills with glob syntax, e.g., ['core-skills/*'].
+   *
    * @public
    */
   paths?: string[] | undefined;
 }
 
 /**
- * <p>Authentication configuration for accessing a private git repository.</p>
+ * Authentication configuration for accessing a private git repository.
+ *
  * @public
  */
 export interface HarnessSkillGitAuth {
   /**
-   * <p>The ARN of the credential in AgentCore Identity containing the password or personal access token.</p>
+   * The ARN of the credential in AgentCore Identity containing the password or personal access token.
+   *
    * @public
    */
   credentialArn: string | undefined;
 
   /**
-   * <p>Username for authentication. Defaults to 'oauth2' if not specified.</p>
+   * Username for authentication. Defaults to 'oauth2' if not specified.
+   *
    * @public
    */
   username?: string | undefined;
 }
 
 /**
- * <p>A git repository source for a skill.</p>
+ * A git repository source for a skill.
+ *
  * @public
  */
 export interface HarnessSkillGitSource {
   /**
-   * <p>The HTTPS URL of the git repository.</p>
+   * The HTTPS URL of the git repository.
+   *
    * @public
    */
   url: string | undefined;
 
   /**
-   * <p>Subdirectory within the repository containing the skill.</p>
+   * Subdirectory within the repository containing the skill.
+   *
    * @public
    */
   path?: string | undefined;
 
   /**
-   * <p>Authentication configuration for private repositories.</p>
+   * Authentication configuration for private repositories.
+   *
    * @public
    */
   auth?: HarnessSkillGitAuth | undefined;
 }
 
 /**
- * <p>An S3 source for a skill.</p>
+ * An S3 source for a skill.
+ *
  * @public
  */
 export interface HarnessSkillS3Source {
   /**
-   * <p>The S3 URI pointing to the skill directory (e.g., s3://bucket/skills/my-skill/).</p>
+   * The S3 URI pointing to the skill directory (e.g., s3://bucket/skills/my-skill/).
+   *
    * @public
    */
   uri: string | undefined;
 }
 
 /**
- * <p>A skill available to the agent.</p>
+ * A skill available to the agent.
+ *
  * @public
  */
 export type HarnessSkill =
@@ -8281,7 +9344,8 @@ export type HarnessSkill =
  */
 export namespace HarnessSkill {
   /**
-   * <p>The filesystem path to the skill definition.</p>
+   * The filesystem path to the skill definition.
+   *
    * @public
    */
   export interface PathMember {
@@ -8293,7 +9357,8 @@ export namespace HarnessSkill {
   }
 
   /**
-   * <p>An S3 source containing the skill.</p>
+   * An S3 source containing the skill.
+   *
    * @public
    */
   export interface S3Member {
@@ -8305,7 +9370,8 @@ export namespace HarnessSkill {
   }
 
   /**
-   * <p>A git repository containing the skill.</p>
+   * A git repository containing the skill.
+   *
    * @public
    */
   export interface GitMember {
@@ -8317,7 +9383,8 @@ export namespace HarnessSkill {
   }
 
   /**
-   * <p>Amazon Web Services Skills baked into the Harness's underlying Runtime.</p>
+   * Amazon Web Services Skills baked into the Harness's underlying Runtime.
+   *
    * @public
    */
   export interface AwsSkillsMember {
@@ -8353,7 +9420,8 @@ export namespace HarnessSkill {
 }
 
 /**
- * <p>A content block in the system prompt.</p>
+ * A content block in the system prompt.
+ *
  * @public
  */
 export type HarnessSystemContentBlock =
@@ -8365,7 +9433,8 @@ export type HarnessSystemContentBlock =
  */
 export namespace HarnessSystemContentBlock {
   /**
-   * <p>The text content of the system prompt block.</p>
+   * The text content of the system prompt block.
+   *
    * @public
    */
   export interface TextMember {
@@ -8392,24 +9461,28 @@ export namespace HarnessSystemContentBlock {
 }
 
 /**
- * <p>Configuration for AgentCore Browser.</p>
+ * Configuration for AgentCore Browser.
+ *
  * @public
  */
 export interface HarnessAgentCoreBrowserConfig {
   /**
-   * <p>If not populated, the built-in Browser ARN is used.</p>
+   * If not populated, the built-in Browser ARN is used.
+   *
    * @public
    */
   browserArn?: string | undefined;
 }
 
 /**
- * <p>Configuration for AgentCore Code Interpreter.</p>
+ * Configuration for AgentCore Code Interpreter.
+ *
  * @public
  */
 export interface HarnessAgentCoreCodeInterpreterConfig {
   /**
-   * <p>If not populated, the built-in Code Interpreter ARN is used.</p>
+   * If not populated, the built-in Code Interpreter ARN is used.
+   *
    * @public
    */
   codeInterpreterArn?: string | undefined;
@@ -8421,43 +9494,50 @@ export interface HarnessAgentCoreCodeInterpreterConfig {
 export interface Unit {}
 
 /**
- * <p>Configuration for an OAuth 2.0 credential provider used to authenticate tool calls.</p>
+ * Configuration for an OAuth 2.0 credential provider used to authenticate tool calls.
+ *
  * @public
  */
 export interface OAuthCredentialProvider {
   /**
-   * <p>The ARN of the OAuth 2.0 credential provider in AgentCore Identity.</p>
+   * The ARN of the OAuth 2.0 credential provider in AgentCore Identity.
+   *
    * @public
    */
   providerArn: string | undefined;
 
   /**
-   * <p>The OAuth 2.0 scopes to request when obtaining an access token.</p>
+   * The OAuth 2.0 scopes to request when obtaining an access token.
+   *
    * @public
    */
   scopes: string[] | undefined;
 
   /**
-   * <p>Additional custom parameters to include in the OAuth 2.0 token request.</p>
+   * Additional custom parameters to include in the OAuth 2.0 token request.
+   *
    * @public
    */
   customParameters?: Record<string, string> | undefined;
 
   /**
-   * <p>The OAuth 2.0 grant type to use for authentication.</p>
+   * The OAuth 2.0 grant type to use for authentication.
+   *
    * @public
    */
   grantType?: OAuthGrantType | undefined;
 
   /**
-   * <p>The default return URL for the OAuth 2.0 authorization flow.</p>
+   * The default return URL for the OAuth 2.0 authorization flow.
+   *
    * @public
    */
   defaultReturnUrl?: string | undefined;
 }
 
 /**
- * <p>Authentication method for calling a Gateway.</p>
+ * Authentication method for calling a Gateway.
+ *
  * @public
  */
 export type HarnessGatewayOutboundAuth =
@@ -8471,7 +9551,8 @@ export type HarnessGatewayOutboundAuth =
  */
 export namespace HarnessGatewayOutboundAuth {
   /**
-   * <p>SigV4-sign requests using the agent's execution role.</p>
+   * SigV4-sign requests using the agent's execution role.
+   *
    * @public
    */
   export interface AwsIamMember {
@@ -8482,7 +9563,8 @@ export namespace HarnessGatewayOutboundAuth {
   }
 
   /**
-   * <p>No authentication.</p>
+   * No authentication.
+   *
    * @public
    */
   export interface NoneMember {
@@ -8493,7 +9575,10 @@ export namespace HarnessGatewayOutboundAuth {
   }
 
   /**
-   * <p>OAuth 2.0 authentication via AgentCore Identity.</p> <p>The <code>AUTHORIZATION_CODE</code> grant type is not supported for outbound authentication from a harness to an AgentCore Gateway, even when <code>defaultReturnUrl</code> is specified.</p>
+   * OAuth 2.0 authentication via AgentCore Identity.
+   *
+   * The `AUTHORIZATION_CODE` grant type is not supported for outbound authentication from a harness to an AgentCore Gateway, even when `defaultReturnUrl` is specified.
+   *
    * @public
    */
   export interface OauthMember {
@@ -8526,61 +9611,71 @@ export namespace HarnessGatewayOutboundAuth {
 }
 
 /**
- * <p>Configuration for AgentCore Gateway.</p>
+ * Configuration for AgentCore Gateway.
+ *
  * @public
  */
 export interface HarnessAgentCoreGatewayConfig {
   /**
-   * <p>The ARN of the desired AgentCore Gateway.</p>
+   * The ARN of the desired AgentCore Gateway.
+   *
    * @public
    */
   gatewayArn: string | undefined;
 
   /**
-   * <p>How harness authenticates to this Gateway. Defaults to AWS_IAM (SigV4) if omitted.</p>
+   * How harness authenticates to this Gateway. Defaults to AWS_IAM (SigV4) if omitted.
+   *
    * @public
    */
   outboundAuth?: HarnessGatewayOutboundAuth | undefined;
 }
 
 /**
- * <p>Configuration for an inline function tool. When the agent calls this tool, the tool call is returned to the caller for external execution.</p>
+ * Configuration for an inline function tool. When the agent calls this tool, the tool call is returned to the caller for external execution.
+ *
  * @public
  */
 export interface HarnessInlineFunctionConfig {
   /**
-   * <p>Description of what the tool does, provided to the model.</p>
+   * Description of what the tool does, provided to the model.
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p>JSON Schema describing the tool's input parameters.</p>
+   * JSON Schema describing the tool's input parameters.
+   *
    * @public
    */
   inputSchema: __DocumentType | undefined;
 }
 
 /**
- * <p>Configuration for connecting to a remote MCP server.</p>
+ * Configuration for connecting to a remote MCP server.
+ *
  * @public
  */
 export interface HarnessRemoteMcpConfig {
   /**
-   * <p>URL of the MCP endpoint.</p>
+   * URL of the MCP endpoint.
+   *
    * @public
    */
   url: string | undefined;
 
   /**
-   * <p>Custom headers to include when connecting to the remote MCP server.</p>
+   * Custom headers to include when connecting to the remote MCP server.
+   *
    * @public
    */
   headers?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Configuration union for different tool types.</p>
+ * Configuration union for different tool types.
+ *
  * @public
  */
 export type HarnessToolConfiguration =
@@ -8596,7 +9691,8 @@ export type HarnessToolConfiguration =
  */
 export namespace HarnessToolConfiguration {
   /**
-   * <p>Configuration for remote MCP server.</p>
+   * Configuration for remote MCP server.
+   *
    * @public
    */
   export interface RemoteMcpMember {
@@ -8609,7 +9705,8 @@ export namespace HarnessToolConfiguration {
   }
 
   /**
-   * <p>Configuration for AgentCore Browser.</p>
+   * Configuration for AgentCore Browser.
+   *
    * @public
    */
   export interface AgentCoreBrowserMember {
@@ -8622,7 +9719,8 @@ export namespace HarnessToolConfiguration {
   }
 
   /**
-   * <p>Configuration for AgentCore Gateway.</p>
+   * Configuration for AgentCore Gateway.
+   *
    * @public
    */
   export interface AgentCoreGatewayMember {
@@ -8635,7 +9733,8 @@ export namespace HarnessToolConfiguration {
   }
 
   /**
-   * <p>Configuration for an inline function tool.</p>
+   * Configuration for an inline function tool.
+   *
    * @public
    */
   export interface InlineFunctionMember {
@@ -8648,7 +9747,8 @@ export namespace HarnessToolConfiguration {
   }
 
   /**
-   * <p>Configuration for AgentCore Code Interpreter.</p>
+   * Configuration for AgentCore Code Interpreter.
+   *
    * @public
    */
   export interface AgentCoreCodeInterpreterMember {
@@ -8687,24 +9787,28 @@ export namespace HarnessToolConfiguration {
 }
 
 /**
- * <p>A tool available to the agent loop.</p>
+ * A tool available to the agent loop.
+ *
  * @public
  */
 export interface HarnessTool {
   /**
-   * <p>The type of tool.</p>
+   * The type of tool.
+   *
    * @public
    */
   type: HarnessToolType | undefined;
 
   /**
-   * <p>Unique name for the tool. If not provided, a name will be inferred or generated.</p>
+   * Unique name for the tool. If not provided, a name will be inferred or generated.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Tool-specific configuration.</p>
+   * Tool-specific configuration.
+   *
    * @public
    */
   config?: HarnessToolConfiguration | undefined;
@@ -8715,116 +9819,135 @@ export interface HarnessTool {
  */
 export interface InvokeHarnessRequest {
   /**
-   * <p>The ARN of the harness to invoke.</p>
+   * The ARN of the harness to invoke.
+   *
    * @public
    */
   harnessArn: string | undefined;
 
   /**
-   * <p>The endpoint name to invoke. If omitted, the DEFAULT endpoint is used.</p>
+   * The endpoint name to invoke. If omitted, the DEFAULT endpoint is used.
+   *
    * @public
    */
   qualifier?: string | undefined;
 
   /**
-   * <p>The session ID for the invocation. Use the same session ID across requests to continue a conversation.</p>
+   * The session ID for the invocation. Use the same session ID across requests to continue a conversation.
+   *
    * @public
    */
   runtimeSessionId: string | undefined;
 
   /**
-   * <p>An identifier for the end user making the request. This value is passed through to the runtime container.</p>
+   * An identifier for the end user making the request. This value is passed through to the runtime container.
+   *
    * @public
    */
   runtimeUserId?: string | undefined;
 
   /**
-   * <p>W3C trace context parent header containing version, trace ID, parent span ID, and trace flags.</p>
+   * W3C trace context parent header containing version, trace ID, parent span ID, and trace flags.
+   *
    * @public
    */
   traceParent?: string | undefined;
 
   /**
-   * <p>W3C trace context state header for vendor-specific trace information.</p>
+   * W3C trace context state header for vendor-specific trace information.
+   *
    * @public
    */
   traceState?: string | undefined;
 
   /**
-   * <p>Trace ID for maintaining observability through the operation.</p>
+   * Trace ID for maintaining observability through the operation.
+   *
    * @public
    */
   traceId?: string | undefined;
 
   /**
-   * <p>W3C Baggage header for user-defined context propagation. Format: key1=value1,key2=value2</p>
+   * W3C Baggage header for user-defined context propagation. Format: key1=value1,key2=value2
+   *
    * @public
    */
   baggage?: string | undefined;
 
   /**
-   * <p>The messages to send to the agent.</p>
+   * The messages to send to the agent.
+   *
    * @public
    */
   messages: HarnessMessage[] | undefined;
 
   /**
-   * <p>The model configuration to use for this invocation. If specified, overrides the harness default.</p>
+   * The model configuration to use for this invocation. If specified, overrides the harness default.
+   *
    * @public
    */
   model?: HarnessModelConfiguration | undefined;
 
   /**
-   * <p>The system prompt to use for this invocation. If specified, overrides the harness default.</p>
+   * The system prompt to use for this invocation. If specified, overrides the harness default.
+   *
    * @public
    */
   systemPrompt?: HarnessSystemContentBlock[] | undefined;
 
   /**
-   * <p>The tools available to the agent for this invocation. If specified, overrides the harness default.</p>
+   * The tools available to the agent for this invocation. If specified, overrides the harness default.
+   *
    * @public
    */
   tools?: HarnessTool[] | undefined;
 
   /**
-   * <p>The skills available to the agent for this invocation. If specified, overrides the harness default.</p>
+   * The skills available to the agent for this invocation. If specified, overrides the harness default.
+   *
    * @public
    */
   skills?: HarnessSkill[] | undefined;
 
   /**
-   * <p>The tools that the agent is allowed to use for this invocation. If specified, overrides the harness default.</p>
+   * The tools that the agent is allowed to use for this invocation. If specified, overrides the harness default.
+   *
    * @public
    */
   allowedTools?: string[] | undefined;
 
   /**
-   * <p>The maximum number of iterations the agent loop can execute. If specified, overrides the harness default.</p>
+   * The maximum number of iterations the agent loop can execute. If specified, overrides the harness default.
+   *
    * @public
    */
   maxIterations?: number | undefined;
 
   /**
-   * <p>The maximum number of tokens the agent can generate per iteration. If specified, overrides the harness default.</p>
+   * The maximum number of tokens the agent can generate per iteration. If specified, overrides the harness default.
+   *
    * @public
    */
   maxTokens?: number | undefined;
 
   /**
-   * <p>The maximum duration in seconds for the agent loop execution. If specified, overrides the harness default.</p>
+   * The maximum duration in seconds for the agent loop execution. If specified, overrides the harness default.
+   *
    * @public
    */
   timeoutSeconds?: number | undefined;
 
   /**
-   * <p>The actor ID for memory operations. Overrides the actor ID configured on the harness.</p>
+   * The actor ID for memory operations. Overrides the actor ID configured on the harness.
+   *
    * @public
    */
   actorId?: string | undefined;
 }
 
 /**
- * <p>A delta update to a reasoning content block.</p>
+ * A delta update to a reasoning content block.
+ *
  * @public
  */
 export type HarnessReasoningContentBlockDelta =
@@ -8838,7 +9961,8 @@ export type HarnessReasoningContentBlockDelta =
  */
 export namespace HarnessReasoningContentBlockDelta {
   /**
-   * <p>Reasoning text delta.</p>
+   * Reasoning text delta.
+   *
    * @public
    */
   export interface TextMember {
@@ -8849,7 +9973,8 @@ export namespace HarnessReasoningContentBlockDelta {
   }
 
   /**
-   * <p>Redacted reasoning content.</p>
+   * Redacted reasoning content.
+   *
    * @public
    */
   export interface RedactedContentMember {
@@ -8860,7 +9985,8 @@ export namespace HarnessReasoningContentBlockDelta {
   }
 
   /**
-   * <p>Signature for the reasoning content.</p>
+   * Signature for the reasoning content.
+   *
    * @public
    */
   export interface SignatureMember {
@@ -8893,7 +10019,8 @@ export namespace HarnessReasoningContentBlockDelta {
 }
 
 /**
- * <p>A delta update to a tool result content block.</p>
+ * A delta update to a tool result content block.
+ *
  * @public
  */
 export type HarnessToolResultBlockDelta =
@@ -8906,7 +10033,8 @@ export type HarnessToolResultBlockDelta =
  */
 export namespace HarnessToolResultBlockDelta {
   /**
-   * <p>A text tool result delta.</p>
+   * A text tool result delta.
+   *
    * @public
    */
   export interface TextMember {
@@ -8916,7 +10044,8 @@ export namespace HarnessToolResultBlockDelta {
   }
 
   /**
-   * <p>A JSON tool result delta.</p>
+   * A JSON tool result delta.
+   *
    * @public
    */
   export interface JsonMember {
@@ -8946,31 +10075,36 @@ export namespace HarnessToolResultBlockDelta {
 }
 
 /**
- * <p>Delta payload for a tool result metadata.</p>
+ * Delta payload for a tool result metadata.
+ *
  * @public
  */
 export interface HarnessToolResultMetadataBlockDelta {
   /**
-   * <p>The partial JSON-string fragment of the tool result metadata.</p>
+   * The partial JSON-string fragment of the tool result metadata.
+   *
    * @public
    */
   metadata: string | undefined;
 }
 
 /**
- * <p>Delta payload for tool use input.</p>
+ * Delta payload for tool use input.
+ *
  * @public
  */
 export interface HarnessToolUseBlockDelta {
   /**
-   * <p>The partial JSON input for the tool call.</p>
+   * The partial JSON input for the tool call.
+   *
    * @public
    */
   input: string | undefined;
 }
 
 /**
- * <p>A delta update to a content block.</p>
+ * A delta update to a content block.
+ *
  * @public
  */
 export type HarnessContentBlockDelta =
@@ -8986,7 +10120,8 @@ export type HarnessContentBlockDelta =
  */
 export namespace HarnessContentBlockDelta {
   /**
-   * <p>A text delta.</p>
+   * A text delta.
+   *
    * @public
    */
   export interface TextMember {
@@ -8999,7 +10134,8 @@ export namespace HarnessContentBlockDelta {
   }
 
   /**
-   * <p>A tool use input delta.</p>
+   * A tool use input delta.
+   *
    * @public
    */
   export interface ToolUseMember {
@@ -9012,7 +10148,8 @@ export namespace HarnessContentBlockDelta {
   }
 
   /**
-   * <p>A tool result delta.</p>
+   * A tool result delta.
+   *
    * @public
    */
   export interface ToolResultMember {
@@ -9025,7 +10162,8 @@ export namespace HarnessContentBlockDelta {
   }
 
   /**
-   * <p>A reasoning content delta.</p>
+   * A reasoning content delta.
+   *
    * @public
    */
   export interface ReasoningContentMember {
@@ -9038,7 +10176,8 @@ export namespace HarnessContentBlockDelta {
   }
 
   /**
-   * <p>A tool result metadata delta.</p>
+   * A tool result metadata delta.
+   *
    * @public
    */
   export interface ToolResultMetadataMember {
@@ -9077,73 +10216,85 @@ export namespace HarnessContentBlockDelta {
 }
 
 /**
- * <p>Event containing a delta update to a content block.</p>
+ * Event containing a delta update to a content block.
+ *
  * @public
  */
 export interface HarnessContentBlockDeltaEvent {
   /**
-   * <p>The index of the content block being updated.</p>
+   * The index of the content block being updated.
+   *
    * @public
    */
   contentBlockIndex: number | undefined;
 
   /**
-   * <p>The delta payload.</p>
+   * The delta payload.
+   *
    * @public
    */
   delta: HarnessContentBlockDelta | undefined;
 }
 
 /**
- * <p>Start payload for a tool result content block.</p>
+ * Start payload for a tool result content block.
+ *
  * @public
  */
 export interface HarnessToolResultBlockStart {
   /**
-   * <p>The tool use ID that this result corresponds to.</p>
+   * The tool use ID that this result corresponds to.
+   *
    * @public
    */
   toolUseId: string | undefined;
 
   /**
-   * <p>The status of the tool execution.</p>
+   * The status of the tool execution.
+   *
    * @public
    */
   status?: HarnessToolUseStatus | undefined;
 }
 
 /**
- * <p>Start payload for a tool use content block.</p>
+ * Start payload for a tool use content block.
+ *
  * @public
  */
 export interface HarnessToolUseBlockStart {
   /**
-   * <p>The unique ID of this tool use.</p>
+   * The unique ID of this tool use.
+   *
    * @public
    */
   toolUseId: string | undefined;
 
   /**
-   * <p>The name of the tool being called.</p>
+   * The name of the tool being called.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of tool use.</p>
+   * The type of tool use.
+   *
    * @public
    */
   type?: HarnessToolUseType | undefined;
 
   /**
-   * <p>The name of the MCP server providing this tool.</p>
+   * The name of the MCP server providing this tool.
+   *
    * @public
    */
   serverName?: string | undefined;
 }
 
 /**
- * <p>The start payload for a content block.</p>
+ * The start payload for a content block.
+ *
  * @public
  */
 export type HarnessContentBlockStart =
@@ -9156,7 +10307,8 @@ export type HarnessContentBlockStart =
  */
 export namespace HarnessContentBlockStart {
   /**
-   * <p>Start of a tool use content block.</p>
+   * Start of a tool use content block.
+   *
    * @public
    */
   export interface ToolUseMember {
@@ -9166,7 +10318,8 @@ export namespace HarnessContentBlockStart {
   }
 
   /**
-   * <p>Start of a tool result content block.</p>
+   * Start of a tool result content block.
+   *
    * @public
    */
   export interface ToolResultMember {
@@ -9196,163 +10349,190 @@ export namespace HarnessContentBlockStart {
 }
 
 /**
- * <p>Event indicating the start of a content block.</p>
+ * Event indicating the start of a content block.
+ *
  * @public
  */
 export interface HarnessContentBlockStartEvent {
   /**
-   * <p>The index of the content block within the message.</p>
+   * The index of the content block within the message.
+   *
    * @public
    */
   contentBlockIndex: number | undefined;
 
   /**
-   * <p>The content block start payload.</p>
+   * The content block start payload.
+   *
    * @public
    */
   start: HarnessContentBlockStart | undefined;
 }
 
 /**
- * <p>Event indicating the end of a content block.</p>
+ * Event indicating the end of a content block.
+ *
  * @public
  */
 export interface HarnessContentBlockStopEvent {
   /**
-   * <p>The index of the content block that ended.</p>
+   * The index of the content block that ended.
+   *
    * @public
    */
   contentBlockIndex: number | undefined;
 }
 
 /**
- * <p>A lifecycle hook event emitted in the invocation stream for visibility into hook decisions.</p>
+ * A lifecycle hook event emitted in the invocation stream for visibility into hook decisions.
+ *
  * @public
  */
 export interface HarnessHookEvent {
   /**
-   * <p>The unique identifier for this hook event.</p>
+   * The unique identifier for this hook event.
+   *
    * @public
    */
   hookEventId: string | undefined;
 
   /**
-   * <p>The name of the hook that ran.</p>
+   * The name of the hook that ran.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of lifecycle hook event.</p>
+   * The type of lifecycle hook event.
+   *
    * @public
    */
   type: HarnessHookEventType | undefined;
 
   /**
-   * <p>The decision applied to the hook event. This field is present only for blocking Lambda targets.</p>
+   * The decision applied to the hook event. This field is present only for blocking Lambda targets.
+   *
    * @public
    */
   decision?: HarnessHookDecision | undefined;
 
   /**
-   * <p>The optional reason for the applied decision.</p>
+   * The optional reason for the applied decision.
+   *
    * @public
    */
   reason?: string | undefined;
 }
 
 /**
- * <p>Event indicating the start of a message.</p>
+ * Event indicating the start of a message.
+ *
  * @public
  */
 export interface HarnessMessageStartEvent {
   /**
-   * <p>The role of the message sender.</p>
+   * The role of the message sender.
+   *
    * @public
    */
   role: HarnessConversationRole | undefined;
 }
 
 /**
- * <p>Event indicating the end of a message.</p>
+ * Event indicating the end of a message.
+ *
  * @public
  */
 export interface HarnessMessageStopEvent {
   /**
-   * <p>The reason the agent stopped generating.</p>
+   * The reason the agent stopped generating.
+   *
    * @public
    */
   stopReason: HarnessStopReason | undefined;
 }
 
 /**
- * <p>Latency metrics for the invocation.</p>
+ * Latency metrics for the invocation.
+ *
  * @public
  */
 export interface HarnessStreamMetrics {
   /**
-   * <p>The end-to-end latency of the invocation in milliseconds.</p>
+   * The end-to-end latency of the invocation in milliseconds.
+   *
    * @public
    */
   latencyMs: number | undefined;
 }
 
 /**
- * <p>Token usage counts for the invocation.</p>
+ * Token usage counts for the invocation.
+ *
  * @public
  */
 export interface HarnessTokenUsage {
   /**
-   * <p>The number of input tokens consumed.</p>
+   * The number of input tokens consumed.
+   *
    * @public
    */
   inputTokens: number | undefined;
 
   /**
-   * <p>The number of output tokens generated.</p>
+   * The number of output tokens generated.
+   *
    * @public
    */
   outputTokens: number | undefined;
 
   /**
-   * <p>The total number of tokens consumed.</p>
+   * The total number of tokens consumed.
+   *
    * @public
    */
   totalTokens: number | undefined;
 
   /**
-   * <p>The number of input tokens read from cache.</p>
+   * The number of input tokens read from cache.
+   *
    * @public
    */
   cacheReadInputTokens?: number | undefined;
 
   /**
-   * <p>The number of input tokens written to cache.</p>
+   * The number of input tokens written to cache.
+   *
    * @public
    */
   cacheWriteInputTokens?: number | undefined;
 }
 
 /**
- * <p>Token usage and latency metrics for the invocation.</p>
+ * Token usage and latency metrics for the invocation.
+ *
  * @public
  */
 export interface HarnessMetadataEvent {
   /**
-   * <p>Token usage counts.</p>
+   * Token usage counts.
+   *
    * @public
    */
   usage: HarnessTokenUsage | undefined;
 
   /**
-   * <p>Latency metrics.</p>
+   * Latency metrics.
+   *
    * @public
    */
   metrics: HarnessStreamMetrics | undefined;
 }
 
 /**
- * <p>The streaming events returned by a harness invocation.</p>
+ * The streaming events returned by a harness invocation.
+ *
  * @public
  */
 export type InvokeHarnessStreamOutput =
@@ -9373,7 +10553,8 @@ export type InvokeHarnessStreamOutput =
  */
 export namespace InvokeHarnessStreamOutput {
   /**
-   * <p>Indicates the start of a new message from the agent.</p>
+   * Indicates the start of a new message from the agent.
+   *
    * @public
    */
   export interface MessageStartMember {
@@ -9391,7 +10572,8 @@ export namespace InvokeHarnessStreamOutput {
   }
 
   /**
-   * <p>Indicates the start of a new content block.</p>
+   * Indicates the start of a new content block.
+   *
    * @public
    */
   export interface ContentBlockStartMember {
@@ -9409,7 +10591,8 @@ export namespace InvokeHarnessStreamOutput {
   }
 
   /**
-   * <p>A delta update to the current content block.</p>
+   * A delta update to the current content block.
+   *
    * @public
    */
   export interface ContentBlockDeltaMember {
@@ -9427,7 +10610,8 @@ export namespace InvokeHarnessStreamOutput {
   }
 
   /**
-   * <p>Indicates the end of the current content block.</p>
+   * Indicates the end of the current content block.
+   *
    * @public
    */
   export interface ContentBlockStopMember {
@@ -9445,7 +10629,8 @@ export namespace InvokeHarnessStreamOutput {
   }
 
   /**
-   * <p>Indicates the end of the current message.</p>
+   * Indicates the end of the current message.
+   *
    * @public
    */
   export interface MessageStopMember {
@@ -9463,7 +10648,8 @@ export namespace InvokeHarnessStreamOutput {
   }
 
   /**
-   * <p>Token usage and latency metrics for the invocation.</p>
+   * Token usage and latency metrics for the invocation.
+   *
    * @public
    */
   export interface MetadataMember {
@@ -9481,7 +10667,8 @@ export namespace InvokeHarnessStreamOutput {
   }
 
   /**
-   * <p>The exception that occurs when the service encounters an unexpected internal error. This is a temporary condition that will resolve itself with retries. We recommend implementing exponential backoff retry logic in your application.</p>
+   * The exception that occurs when the service encounters an unexpected internal error. This is a temporary condition that will resolve itself with retries. We recommend implementing exponential backoff retry logic in your application.
+   *
    * @public
    */
   export interface InternalServerExceptionMember {
@@ -9499,7 +10686,8 @@ export namespace InvokeHarnessStreamOutput {
   }
 
   /**
-   * <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+   * The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.
+   *
    * @public
    */
   export interface ValidationExceptionMember {
@@ -9517,7 +10705,8 @@ export namespace InvokeHarnessStreamOutput {
   }
 
   /**
-   * <p>An error returned by the runtime container during agent execution.</p>
+   * An error returned by the runtime container during agent execution.
+   *
    * @public
    */
   export interface RuntimeClientErrorMember {
@@ -9535,7 +10724,8 @@ export namespace InvokeHarnessStreamOutput {
   }
 
   /**
-   * <p>A lifecycle hook event emitted when a configured hook runs.</p>
+   * A lifecycle hook event emitted when a configured hook runs.
+   *
    * @public
    */
   export interface HookEventMember {
@@ -9593,14 +10783,16 @@ export namespace InvokeHarnessStreamOutput {
  */
 export interface InvokeHarnessResponse {
   /**
-   * <p>The streaming output from the harness invocation.</p>
+   * The streaming output from the harness invocation.
+   *
    * @public
    */
   stream: AsyncIterable<InvokeHarnessStreamOutput> | undefined;
 }
 
 /**
- * <p>Specifies the record expiry (long-term memory time-to-live) applied to the records in a batch request. Provide exactly one of <code>recordExpiryDurationDays</code> or <code>action</code>. Set <code>recordExpiryDurationDays</code> to configure or update the expiry, or set <code>action</code> to <code>REMOVE</code> to remove a previously configured expiry.</p>
+ * Specifies the record expiry (long-term memory time-to-live) applied to the records in a batch request. Provide exactly one of `recordExpiryDurationDays` or `action`. Set `recordExpiryDurationDays` to configure or update the expiry, or set `action` to `REMOVE` to remove a previously configured expiry.
+ *
  * @public
  */
 export type RecordExpirySpecification =
@@ -9613,7 +10805,8 @@ export type RecordExpirySpecification =
  */
 export namespace RecordExpirySpecification {
   /**
-   * <p>The duration, in days, after which the records in this request expire. The minimum is 31 days.</p>
+   * The duration, in days, after which the records in this request expire. The minimum is 31 days.
+   *
    * @public
    */
   export interface RecordExpiryDurationDaysMember {
@@ -9623,7 +10816,8 @@ export namespace RecordExpirySpecification {
   }
 
   /**
-   * <p>The action to apply to the existing record expiry configuration. Set to <code>REMOVE</code> to remove a previously configured expiry so that the records no longer expire. This value does not apply when creating records.</p>
+   * The action to apply to the existing record expiry configuration. Set to `REMOVE` to remove a previously configured expiry so that the records no longer expire. This value does not apply when creating records.
+   *
    * @public
    */
   export interface ActionMember {
@@ -9653,7 +10847,8 @@ export namespace RecordExpirySpecification {
 }
 
 /**
- * <p>Contains the content of a memory record.</p>
+ * Contains the content of a memory record.
+ *
  * @public
  */
 export type MemoryContent =
@@ -9665,7 +10860,8 @@ export type MemoryContent =
  */
 export namespace MemoryContent {
   /**
-   * <p>The text content of the memory record.</p>
+   * The text content of the memory record.
+   *
    * @public
    */
   export interface TextMember {
@@ -9692,7 +10888,8 @@ export namespace MemoryContent {
 }
 
 /**
- * <p>The value of a memory record metadata entry.</p>
+ * The value of a memory record metadata entry.
+ *
  * @public
  */
 export type MemoryRecordMetadataValue =
@@ -9707,7 +10904,8 @@ export type MemoryRecordMetadataValue =
  */
 export namespace MemoryRecordMetadataValue {
   /**
-   * <p>A string value.</p>
+   * A string value.
+   *
    * @public
    */
   export interface StringValueMember {
@@ -9719,7 +10917,8 @@ export namespace MemoryRecordMetadataValue {
   }
 
   /**
-   * <p>A list of string values.</p>
+   * A list of string values.
+   *
    * @public
    */
   export interface StringListValueMember {
@@ -9731,7 +10930,8 @@ export namespace MemoryRecordMetadataValue {
   }
 
   /**
-   * <p>A numeric value.</p>
+   * A numeric value.
+   *
    * @public
    */
   export interface NumberValueMember {
@@ -9743,7 +10943,8 @@ export namespace MemoryRecordMetadataValue {
   }
 
   /**
-   * <p>A timestamp value in ISO 8601 UTC format.</p>
+   * A timestamp value in ISO 8601 UTC format.
+   *
    * @public
    */
   export interface DateTimeValueMember {
@@ -9779,42 +10980,49 @@ export namespace MemoryRecordMetadataValue {
 }
 
 /**
- * <p>Input structure to create a new memory record.</p>
+ * Input structure to create a new memory record.
+ *
  * @public
  */
 export interface MemoryRecordCreateInput {
   /**
-   * <p>A client-provided identifier for tracking this specific record creation request.</p>
+   * A client-provided identifier for tracking this specific record creation request.
+   *
    * @public
    */
   requestIdentifier: string | undefined;
 
   /**
-   * <p>A list of namespace identifiers that categorize or group the memory record.</p>
+   * A list of namespace identifiers that categorize or group the memory record.
+   *
    * @public
    */
   namespaces: string[] | undefined;
 
   /**
-   * <p>The content to be stored within the memory record.</p>
+   * The content to be stored within the memory record.
+   *
    * @public
    */
   content: MemoryContent | undefined;
 
   /**
-   * <p>Time at which the memory record was created.</p>
+   * Time at which the memory record was created.
+   *
    * @public
    */
   timestamp: Date | undefined;
 
   /**
-   * <p>The ID of the memory strategy that defines how this memory record is grouped.</p>
+   * The ID of the memory strategy that defines how this memory record is grouped.
+   *
    * @public
    */
   memoryStrategyId?: string | undefined;
 
   /**
-   * <p>Metadata key-value pairs to be stored with the memory record.</p>
+   * Metadata key-value pairs to be stored with the memory record.
+   *
    * @public
    */
   metadata?: Record<string, MemoryRecordMetadataValue> | undefined;
@@ -9825,61 +11033,71 @@ export interface MemoryRecordCreateInput {
  */
 export interface BatchCreateMemoryRecordsInput {
   /**
-   * <p>The unique ID of the memory resource where records will be created.</p>
+   * The unique ID of the memory resource where records will be created.
+   *
    * @public
    */
   memoryId: string | undefined;
 
   /**
-   * <p>A list of memory record creation inputs to be processed in the batch operation.</p>
+   * A list of memory record creation inputs to be processed in the batch operation.
+   *
    * @public
    */
   records: MemoryRecordCreateInput[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure idempotent processing of the batch request.</p>
+   * A unique, case-sensitive identifier to ensure idempotent processing of the batch request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The record expiry (long-term memory time-to-live) applied to every record created by this request. Set <code>recordExpiryDurationDays</code> to the number of days after which the records expire. Only the expiry provided here is applied; the records' strategy association has no effect on their expiry. If you do not provide this value, the records do not expire. The <code>REMOVE</code> action does not apply when creating records.</p>
+   * The record expiry (long-term memory time-to-live) applied to every record created by this request. Set `recordExpiryDurationDays` to the number of days after which the records expire. Only the expiry provided here is applied; the records' strategy association has no effect on their expiry. If you do not provide this value, the records do not expire. The `REMOVE` action does not apply when creating records.
+   *
    * @public
    */
   recordExpirySpecification?: RecordExpirySpecification | undefined;
 }
 
 /**
- * <p>Output information returned after processing a memory record operation.</p>
+ * Output information returned after processing a memory record operation.
+ *
  * @public
  */
 export interface MemoryRecordOutput {
   /**
-   * <p>The unique ID associated to the memory record.</p>
+   * The unique ID associated to the memory record.
+   *
    * @public
    */
   memoryRecordId: string | undefined;
 
   /**
-   * <p>The status of the memory record operation (e.g., SUCCEEDED, FAILED).</p>
+   * The status of the memory record operation (e.g., SUCCEEDED, FAILED).
+   *
    * @public
    */
   status: MemoryRecordStatus | undefined;
 
   /**
-   * <p>The client-provided identifier that was used to track this record operation.</p>
+   * The client-provided identifier that was used to track this record operation.
+   *
    * @public
    */
   requestIdentifier?: string | undefined;
 
   /**
-   * <p>The error code returned when the memory record operation fails.</p>
+   * The error code returned when the memory record operation fails.
+   *
    * @public
    */
   errorCode?: number | undefined;
 
   /**
-   * <p>A human-readable error message describing why the memory record operation failed.</p>
+   * A human-readable error message describing why the memory record operation failed.
+   *
    * @public
    */
   errorMessage?: string | undefined;
@@ -9890,31 +11108,36 @@ export interface MemoryRecordOutput {
  */
 export interface BatchCreateMemoryRecordsOutput {
   /**
-   * <p>A list of memory records that were successfully created during the batch operation.</p>
+   * A list of memory records that were successfully created during the batch operation.
+   *
    * @public
    */
   successfulRecords: MemoryRecordOutput[] | undefined;
 
   /**
-   * <p>A list of memory records that failed to be created, including error details for each failure.</p>
+   * A list of memory records that failed to be created, including error details for each failure.
+   *
    * @public
    */
   failedRecords: MemoryRecordOutput[] | undefined;
 }
 
 /**
- * <p>Input structure to delete an existing memory record.</p>
+ * Input structure to delete an existing memory record.
+ *
  * @public
  */
 export interface MemoryRecordDeleteInput {
   /**
-   * <p>The unique ID of the memory record to be deleted.</p>
+   * The unique ID of the memory record to be deleted.
+   *
    * @public
    */
   memoryRecordId: string | undefined;
 
   /**
-   * <p>The namespace of the memory record being deleted. This value is used for IAM condition key authorization.</p>
+   * The namespace of the memory record being deleted. This value is used for IAM condition key authorization.
+   *
    * @public
    */
   namespace?: string | undefined;
@@ -9925,13 +11148,15 @@ export interface MemoryRecordDeleteInput {
  */
 export interface BatchDeleteMemoryRecordsInput {
   /**
-   * <p>The unique ID of the memory resource where records will be deleted.</p>
+   * The unique ID of the memory resource where records will be deleted.
+   *
    * @public
    */
   memoryId: string | undefined;
 
   /**
-   * <p>A list of memory record deletion inputs to be processed in the batch operation.</p>
+   * A list of memory record deletion inputs to be processed in the batch operation.
+   *
    * @public
    */
   records: MemoryRecordDeleteInput[] | undefined;
@@ -9942,61 +11167,71 @@ export interface BatchDeleteMemoryRecordsInput {
  */
 export interface BatchDeleteMemoryRecordsOutput {
   /**
-   * <p>A list of memory records that were successfully deleted during the batch operation.</p>
+   * A list of memory records that were successfully deleted during the batch operation.
+   *
    * @public
    */
   successfulRecords: MemoryRecordOutput[] | undefined;
 
   /**
-   * <p>A list of memory records that failed to be deleted, including error details for each failure.</p>
+   * A list of memory records that failed to be deleted, including error details for each failure.
+   *
    * @public
    */
   failedRecords: MemoryRecordOutput[] | undefined;
 }
 
 /**
- * <p>Input structure to update an existing memory record.</p>
+ * Input structure to update an existing memory record.
+ *
  * @public
  */
 export interface MemoryRecordUpdateInput {
   /**
-   * <p>The unique ID of the memory record to be updated.</p>
+   * The unique ID of the memory record to be updated.
+   *
    * @public
    */
   memoryRecordId: string | undefined;
 
   /**
-   * <p>Time at which the memory record was updated</p>
+   * Time at which the memory record was updated
+   *
    * @public
    */
   timestamp: Date | undefined;
 
   /**
-   * <p>The content to be stored within the memory record.</p>
+   * The content to be stored within the memory record.
+   *
    * @public
    */
   content?: MemoryContent | undefined;
 
   /**
-   * <p>The updated list of namespace identifiers for categorizing the memory record.</p>
+   * The updated list of namespace identifiers for categorizing the memory record.
+   *
    * @public
    */
   namespaces?: string[] | undefined;
 
   /**
-   * <p>The namespaces of the source memory record being updated. This value is used for IAM condition key authorization.</p>
+   * The namespaces of the source memory record being updated. This value is used for IAM condition key authorization.
+   *
    * @public
    */
   sourceNamespaces?: string[] | undefined;
 
   /**
-   * <p>The updated ID of the memory strategy that defines how this memory record is grouped.</p>
+   * The updated ID of the memory strategy that defines how this memory record is grouped.
+   *
    * @public
    */
   memoryStrategyId?: string | undefined;
 
   /**
-   * <p>Metadata key-value pairs to be stored with the memory record.</p>
+   * Metadata key-value pairs to be stored with the memory record.
+   *
    * @public
    */
   metadata?: Record<string, MemoryRecordMetadataValue> | undefined;
@@ -10007,19 +11242,29 @@ export interface MemoryRecordUpdateInput {
  */
 export interface BatchUpdateMemoryRecordsInput {
   /**
-   * <p>The unique ID of the memory resource where records will be updated.</p>
+   * The unique ID of the memory resource where records will be updated.
+   *
    * @public
    */
   memoryId: string | undefined;
 
   /**
-   * <p>A list of memory record update inputs to be processed in the batch operation.</p>
+   * A list of memory record update inputs to be processed in the batch operation.
+   *
    * @public
    */
   records: MemoryRecordUpdateInput[] | undefined;
 
   /**
-   * <p>The record expiry (long-term memory time-to-live) applied to every record updated by this request. Set <code>recordExpiryDurationDays</code> to configure or overwrite the number of days after which the records expire, or set <code>action</code> to <code>REMOVE</code> to clear a previously configured expiry so that the records no longer expire.</p> <p>When you do not provide this value, the service determines each record's expiry from its current state:</p> <ul> <li> <p>If the record already has an expiry configured, the service resets and reapplies the expiry based on the last applied <code>recordExpiryDurationDays</code>.</p> </li> <li> <p>If the record does not have an expiry configured, no expiry is applied and the record remains non-expiring. This is the outcome regardless of whether the record's strategy configures an expiry.</p> </li> </ul> <p>Providing an explicit <code>recordExpiryDurationDays</code> always takes precedence: it overwrites an existing expiry, or sets one on a record that previously had none.</p>
+   * The record expiry (long-term memory time-to-live) applied to every record updated by this request. Set `recordExpiryDurationDays` to configure or overwrite the number of days after which the records expire, or set `action` to `REMOVE` to clear a previously configured expiry so that the records no longer expire.
+   *
+   * When you do not provide this value, the service determines each record's expiry from its current state:
+   *
+   * - If the record already has an expiry configured, the service resets and reapplies the expiry based on the last applied `recordExpiryDurationDays`.
+   * - If the record does not have an expiry configured, no expiry is applied and the record remains non-expiring. This is the outcome regardless of whether the record's strategy configures an expiry.
+   *
+   * Providing an explicit `recordExpiryDurationDays` always takes precedence: it overwrites an existing expiry, or sets one on a record that previously had none.
+   *
    * @public
    */
   recordExpirySpecification?: RecordExpirySpecification | undefined;
@@ -10030,50 +11275,58 @@ export interface BatchUpdateMemoryRecordsInput {
  */
 export interface BatchUpdateMemoryRecordsOutput {
   /**
-   * <p>A list of memory records that were successfully updated during the batch operation.</p>
+   * A list of memory records that were successfully updated during the batch operation.
+   *
    * @public
    */
   successfulRecords: MemoryRecordOutput[] | undefined;
 
   /**
-   * <p>A list of memory records that failed to be updated, including error details for each failure.</p>
+   * A list of memory records that failed to be updated, including error details for each failure.
+   *
    * @public
    */
   failedRecords: MemoryRecordOutput[] | undefined;
 }
 
 /**
- * <p>Contains information about a branch in an AgentCore Memory resource. Branches allow for organizing events into different conversation threads or paths.</p>
+ * Contains information about a branch in an AgentCore Memory resource. Branches allow for organizing events into different conversation threads or paths.
+ *
  * @public
  */
 export interface Branch {
   /**
-   * <p>The identifier of the root event for this branch.</p>
+   * The identifier of the root event for this branch.
+   *
    * @public
    */
   rootEventId?: string | undefined;
 
   /**
-   * <p>The name of the branch.</p>
+   * The name of the branch.
+   *
    * @public
    */
   name: string | undefined;
 }
 
 /**
- * <p>The configuration for extraction behavior. Use this structure to specify namespace variable keys and their values for namespace substitution during long-term memory extraction.</p>
+ * The configuration for extraction behavior. Use this structure to specify namespace variable keys and their values for namespace substitution during long-term memory extraction.
+ *
  * @public
  */
 export interface ExtractionConfig {
   /**
-   * <p>A map of <code>namespaceKeys</code> to their values. The service substitutes these values into <code>namespaceTemplates</code> during long-term memory extraction to control namespace hierarchy.</p>
+   * A map of `namespaceKeys` to their values. The service substitutes these values into `namespaceTemplates` during long-term memory extraction to control namespace hierarchy.
+   *
    * @public
    */
   namespaceVariables?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Value associated with the <code>eventMetadata</code> key.</p>
+ * Value associated with the `eventMetadata` key.
+ *
  * @public
  */
 export type MetadataValue =
@@ -10085,7 +11338,8 @@ export type MetadataValue =
  */
 export namespace MetadataValue {
   /**
-   * <p>Value associated with the <code>eventMetadata</code> key.</p>
+   * Value associated with the `eventMetadata` key.
+   *
    * @public
    */
   export interface StringValueMember {
@@ -10112,7 +11366,8 @@ export namespace MetadataValue {
 }
 
 /**
- * <p>Contains the content of a memory item.</p>
+ * Contains the content of a memory item.
+ *
  * @public
  */
 export type Content =
@@ -10124,7 +11379,8 @@ export type Content =
  */
 export namespace Content {
   /**
-   * <p>The text content of the memory item.</p>
+   * The text content of the memory item.
+   *
    * @public
    */
   export interface TextMember {
@@ -10151,37 +11407,43 @@ export namespace Content {
 }
 
 /**
- * <p>Contains conversational content for an event payload.</p>
+ * Contains conversational content for an event payload.
+ *
  * @public
  */
 export interface Conversational {
   /**
-   * <p>The content of the conversation message.</p>
+   * The content of the conversation message.
+   *
    * @public
    */
   content: Content | undefined;
 
   /**
-   * <p>The role of the participant in the conversation (for example, "user" or "assistant").</p>
+   * The role of the participant in the conversation (for example, "user" or "assistant").
+   *
    * @public
    */
   role: Role | undefined;
 }
 
 /**
- * <p>Contains non-conversational, JSON-formatted content for an event payload. JSON payloads are extracted into long-term memory.</p>
+ * Contains non-conversational, JSON-formatted content for an event payload. JSON payloads are extracted into long-term memory.
+ *
  * @public
  */
 export interface MemoryJsonData {
   /**
-   * <p>The JSON content of the payload. Accepts any JSON value, including objects, arrays, strings, numbers, booleans, and null. The maximum size is 100 KB.</p>
+   * The JSON content of the payload. Accepts any JSON value, including objects, arrays, strings, numbers, booleans, and null. The maximum size is 100 KB.
+   *
    * @public
    */
   content: __DocumentType | undefined;
 }
 
 /**
- * <p>Contains the payload content for an event.</p>
+ * Contains the payload content for an event.
+ *
  * @public
  */
 export type PayloadType =
@@ -10195,7 +11457,8 @@ export type PayloadType =
  */
 export namespace PayloadType {
   /**
-   * <p>The conversational content of the payload.</p>
+   * The conversational content of the payload.
+   *
    * @public
    */
   export interface ConversationalMember {
@@ -10206,7 +11469,8 @@ export namespace PayloadType {
   }
 
   /**
-   * <p>The binary content of the payload.</p>
+   * The binary content of the payload.
+   *
    * @public
    */
   export interface BlobMember {
@@ -10217,7 +11481,8 @@ export namespace PayloadType {
   }
 
   /**
-   * <p>The JSON content of the payload. Use this type to store non-conversational, JSON-formatted data, such as behavioral events, activity logs, or system events.</p>
+   * The JSON content of the payload. Use this type to store non-conversational, JSON-formatted data, such as behavioral events, activity logs, or system events.
+   *
    * @public
    */
   export interface JsonMember {

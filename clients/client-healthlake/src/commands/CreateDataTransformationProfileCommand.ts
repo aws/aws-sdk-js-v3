@@ -26,7 +26,8 @@ export interface CreateDataTransformationProfileCommandInput extends CreateDataT
 export interface CreateDataTransformationProfileCommandOutput extends CreateDataTransformationProfileResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a data transformation profile in DRAFT state. Specify a built-in starter profile, an existing profile version, raw profile content, or a sample data file as the source.</p>
+ * Creates a data transformation profile in DRAFT state. Specify a built-in starter profile, an existing profile version, raw profile content, or a sample data file as the source.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,29 +83,36 @@ export interface CreateDataTransformationProfileCommandOutput extends CreateData
  * @see {@link HealthLakeClientResolvedConfig | config} for HealthLakeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access is denied. Your account is not authorized to perform this operation.</p>
+ *
+ * Access is denied. Your account is not authorized to perform this operation.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The data store is in a transition state and the user requested action cannot be performed.</p>
+ *
+ * The data store is in a transition state and the user requested action cannot be performed.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unknown internal error occurred in the service.</p>
+ *
+ * An unknown internal error occurred in the service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested data store was not found.</p>
+ *
+ * The requested data store was not found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request exceeds the service quota.</p>
+ *
+ * The request exceeds the service quota.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The user has exceeded their maximum number of allowed calls to the given API. </p>
+ *
+ * The user has exceeded their maximum number of allowed calls to the given API.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The user input parameter was invalid.</p>
+ *
+ * The user input parameter was invalid.
  *
  * @throws {@link HealthLakeServiceException}
- * <p>Base exception class for all service exceptions from HealthLake service.</p>
  *
+ * Base exception class for all service exceptions from HealthLake service.
  *
  * @public
  */

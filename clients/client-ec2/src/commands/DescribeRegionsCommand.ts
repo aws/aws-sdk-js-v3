@@ -23,14 +23,14 @@ export interface DescribeRegionsCommandInput extends DescribeRegionsRequest {}
 export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __MetadataBearer {}
 
 /**
- * <p>Describes the Regions that are enabled for your account, or all Regions.</p>
- *          <p>For a list of the Regions supported by Amazon EC2, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-endpoints.html">Amazon EC2 service endpoints</a>.</p>
- *          <p>For information about enabling and disabling Regions for your account, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-regions.html">Specify which Amazon Web Services Regions
- *       your account can use</a> in the <i>Amazon Web Services Account Management Reference Guide</i>.</p>
- *          <note>
- *             <p>The order of the elements in the response, including those within nested structures,
- *         might vary. Applications should not assume the elements appear in a particular order.</p>
- *          </note>
+ * Describes the Regions that are enabled for your account, or all Regions.
+ *
+ * For a list of the Regions supported by Amazon EC2, see [Amazon EC2 service endpoints](https://docs.aws.amazon.com/ec2/latest/devguide/ec2-endpoints.html).
+ *
+ * For information about enabling and disabling Regions for your account, see [Specify which Amazon Web Services Regions your account can use](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-regions.html) in the *Amazon Web Services Account Management Reference Guide*.
+ *
+ * > **Note:** The order of the elements in the response, including those within nested structures, might vary. Applications should not assume the elements appear in a particular order.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,8 +80,8 @@ export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __M
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To describe your regions
  * ```javascript

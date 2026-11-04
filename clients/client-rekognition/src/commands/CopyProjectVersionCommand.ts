@@ -23,31 +23,26 @@ export interface CopyProjectVersionCommandInput extends CopyProjectVersionReques
 export interface CopyProjectVersionCommandOutput extends CopyProjectVersionResponse, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This operation applies only to Amazon Rekognition Custom Labels.</p>
- *          </note>
- *          <p>Copies a version of an Amazon Rekognition Custom Labels model from a source project to a destination project. The source and
- *          destination projects can be in different AWS accounts but must be in the same AWS Region.
- *          You can't copy a model to another AWS service.
+ * > **Note:** This operation applies only to Amazon Rekognition Custom Labels.
  *
- *       </p>
- *          <p>To copy a model version to a different AWS account, you need to create a resource-based policy known as a
- *          <i>project policy</i>. You attach the project policy to the
- *          source project by calling <a>PutProjectPolicy</a>. The project policy
- *       gives permission to copy the model version from a trusting AWS account to a trusted account.</p>
- *          <p>For more information creating and attaching a project policy, see Attaching a project policy (SDK)
- *          in the <i>Amazon Rekognition Custom Labels Developer Guide</i>.
- *       </p>
- *          <p>If you are copying a model version to a project in the same AWS account, you don't need to create a project policy.</p>
- *          <note>
- *             <p>Copying project versions is supported only for Custom Labels models. </p>
- *             <p>To copy a model, the destination project, source project, and source model version
- *             must already exist.</p>
- *          </note>
- *          <p>Copying a model version takes a while to complete. To get the current status, call <a>DescribeProjectVersions</a> and check the value of <code>Status</code> in the
- *             <a>ProjectVersionDescription</a> object. The copy operation has finished when
- *          the value of <code>Status</code> is <code>COPYING_COMPLETED</code>.</p>
- *          <p>This operation requires permissions to perform the <code>rekognition:CopyProjectVersion</code> action.</p>
+ * Copies a version of an Amazon Rekognition Custom Labels model from a source project to a destination project. The source and destination projects can be in different AWS accounts but must be in the same AWS Region. You can't copy a model to another AWS service.
+ *
+ * To copy a model version to a different AWS account, you need to create a resource-based policy known as a *project policy*. You attach the project policy to the source project by calling PutProjectPolicy. The project policy gives permission to copy the model version from a trusting AWS account to a trusted account.
+ *
+ * For more information creating and attaching a project policy, see Attaching a project policy (SDK) in the *Amazon Rekognition Custom Labels Developer Guide*.
+ *
+ * If you are copying a model version to a project in the same AWS account, you don't need to create a project policy.
+ *
+ * > **Note:**
+ * >
+ * > Copying project versions is supported only for Custom Labels models.
+ * >
+ * > To copy a model, the destination project, source project, and source model version must already exist.
+ *
+ * Copying a model version takes a while to complete. To get the current status, call DescribeProjectVersions and check the value of `Status` in the ProjectVersionDescription object. The copy operation has finished when the value of `Status` is `COPYING_COMPLETED`.
+ *
+ * This operation requires permissions to perform the `rekognition:CopyProjectVersion` action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,43 +80,44 @@ export interface CopyProjectVersionCommandOutput extends CopyProjectVersionRespo
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You are not authorized to perform the action.</p>
+ *
+ * You are not authorized to perform the action.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * Amazon Rekognition experienced a service issue. Try your call again.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
- *       operation again.</p>
+ *
+ * Input parameter violated a constraint. Validate your parameter before calling the API operation again.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs
- *             concurrently, subsequent calls to start operations (ex:
- *             <code>StartLabelDetection</code>) will raise a <code>LimitExceededException</code>
- *             exception (HTTP status code: 400) until the number of concurrently running jobs is below
- *             the Amazon Rekognition service limit. </p>
+ *
+ * An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs concurrently, subsequent calls to start operations (ex: `StartLabelDetection`) will raise a `LimitExceededException` exception (HTTP status code: 400) until the number of concurrently running jobs is below the Amazon Rekognition service limit.
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
- *  <p>The number of requests exceeded your throughput limit. If you want to increase this
- *       limit, contact Amazon Rekognition.</p>
+ *
+ * The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is already being used.</p>
+ *
+ * The specified resource is already being used.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource specified in the request cannot be found.</p>
+ *
+ * The resource specified in the request cannot be found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p></p>
- *          <p>The size of the collection exceeds the allowed limit. For more information,
- *       see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
+ *
+ * The size of the collection exceeds the allowed limit. For more information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide.
  *
  * @throws {@link ThrottlingException} (server fault)
- *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
+ * Amazon Rekognition is temporarily unable to process the request. Try your call again.
  *
  * @throws {@link RekognitionServiceException}
- * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * Base exception class for all service exceptions from Rekognition service.
  *
  * @example CopyProjectVersion
  * ```javascript

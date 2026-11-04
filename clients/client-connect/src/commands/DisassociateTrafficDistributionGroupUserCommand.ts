@@ -26,8 +26,8 @@ export interface DisassociateTrafficDistributionGroupUserCommandInput extends Di
 export interface DisassociateTrafficDistributionGroupUserCommandOutput extends DisassociateTrafficDistributionGroupUserResponse, __MetadataBearer {}
 
 /**
- * <p>Disassociates an agent from a traffic distribution group. This API can be called only in the Region where the
- *    traffic distribution group is created.</p>
+ * Disassociates an agent from a traffic distribution group. This API can be called only in the Region where the traffic distribution group is created.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,26 +54,32 @@ export interface DisassociateTrafficDistributionGroupUserCommandOutput extends D
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceConflictException} (client fault)
- *  <p>A resource already has that name.</p>
+ *
+ * A resource already has that name.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

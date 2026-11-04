@@ -23,7 +23,10 @@ export interface GetCrlCommandInput extends ScalarCrlRequest {}
 export interface GetCrlCommandOutput extends CrlDetailResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a certificate revocation list (CRL).</p> <p> <b>Required permissions: </b> <code>rolesanywhere:GetCrl</code>. </p>
+ * Gets a certificate revocation list (CRL).
+ *
+ * **Required permissions:** `rolesanywhere:GetCrl`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,11 +62,12 @@ export interface GetCrlCommandOutput extends CrlDetailResponse, __MetadataBearer
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link RolesAnywhereServiceException}
- * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
+ * Base exception class for all service exceptions from RolesAnywhere service.
  *
  * @public
  */

@@ -23,7 +23,7 @@ export interface StartSupportDataExportCommandInput extends StartSupportDataExpo
 export interface StartSupportDataExportCommandOutput extends StartSupportDataExportResult, __MetadataBearer {}
 
 /**
- * <i>This target has been deprecated.</i> Given a data set type and a from date, asynchronously publishes the requested customer support data
+ * *This target has been deprecated.* Given a data set type and a from date, asynchronously publishes the requested customer support data
  *         to the specified S3 bucket and notifies the specified SNS topic once the data is available. Returns a unique request
  *         identifier that can be used to correlate requests with notifications from the SNS topic.
  *         Data sets will be published in comma-separated values (CSV) format with the file name \{data_set_type\}_YYYY-MM-DD'T'HH-mm-ss'Z'.csv.
@@ -70,8 +70,8 @@ export interface StartSupportDataExportCommandOutput extends StartSupportDataExp
  *  This exception is thrown when an internal service error occurs.
  *
  * @throws {@link MarketplaceCommerceAnalyticsServiceException}
- * <p>Base exception class for all service exceptions from MarketplaceCommerceAnalytics service.</p>
  *
+ * Base exception class for all service exceptions from MarketplaceCommerceAnalytics service.
  *
  * @public
  */

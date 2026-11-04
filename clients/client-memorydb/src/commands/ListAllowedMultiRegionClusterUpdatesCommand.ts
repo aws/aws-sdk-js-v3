@@ -26,7 +26,8 @@ export interface ListAllowedMultiRegionClusterUpdatesCommandInput extends ListAl
 export interface ListAllowedMultiRegionClusterUpdatesCommandOutput extends ListAllowedMultiRegionClusterUpdatesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the allowed updates for a multi-Region cluster.</p>
+ * Lists the allowed updates for a multi-Region cluster.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,17 +59,20 @@ export interface ListAllowedMultiRegionClusterUpdatesCommandOutput extends ListA
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>The specified parameter combination is not valid.</p>
+ *
+ * The specified parameter combination is not valid.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The specified parameter value is not valid.</p>
+ *
+ * The specified parameter value is not valid.
  *
  * @throws {@link MultiRegionClusterNotFoundFault} (client fault)
- *  <p>The specified multi-Region cluster does not exist.</p>
+ *
+ * The specified multi-Region cluster does not exist.
  *
  * @throws {@link MemoryDBServiceException}
- * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * Base exception class for all service exceptions from MemoryDB service.
  *
  * @public
  */

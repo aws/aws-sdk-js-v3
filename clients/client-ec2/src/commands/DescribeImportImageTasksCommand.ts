@@ -23,7 +23,8 @@ export interface DescribeImportImageTasksCommandInput extends DescribeImportImag
 export interface DescribeImportImageTasksCommandOutput extends DescribeImportImageTasksResult, __MetadataBearer {}
 
 /**
- * <p>Displays details about an import virtual machine or import snapshot tasks that are already created.</p>
+ * Displays details about an import virtual machine or import snapshot tasks that are already created.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -109,8 +110,8 @@ export interface DescribeImportImageTasksCommandOutput extends DescribeImportIma
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

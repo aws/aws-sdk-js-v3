@@ -23,10 +23,8 @@ export interface CancelJobCommandInput extends CancelJobRequest {}
 export interface CancelJobCommandOutput extends CancelJobResult, __MetadataBearer {}
 
 /**
- * <p>Cancels the specified job. You can only cancel a job before its <code>JobState</code>
- *       value changes to <code>PreparingAppliance</code>. Requesting the <code>ListJobs</code> or
- *         <code>DescribeJob</code> action returns a job's <code>JobState</code> as part of the
- *       response element data returned.</p>
+ * Cancels the specified job. You can only cancel a job before its `JobState` value changes to `PreparingAppliance`. Requesting the `ListJobs` or `DescribeJob` action returns a job's `JobState` as part of the response element data returned.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,20 +49,20 @@ export interface CancelJobCommandOutput extends CancelJobResult, __MetadataBeare
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
  * @throws {@link InvalidJobStateException} (client fault)
- *  <p>The action can't be performed because the job's current state doesn't allow that action
- *       to be performed.</p>
+ *
+ * The action can't be performed because the job's current state doesn't allow that action to be performed.
  *
  * @throws {@link InvalidResourceException} (client fault)
- *  <p>The specified resource can't be found. Check the information you provided in your last
- *       request, and try again.</p>
+ *
+ * The specified resource can't be found. Check the information you provided in your last request, and try again.
  *
  * @throws {@link KMSRequestFailedException} (client fault)
- *  <p>The provided Key Management Service key lacks the permissions to perform the specified
- *         <a>CreateJob</a> or <a>UpdateJob</a> action.</p>
+ *
+ * The provided Key Management Service key lacks the permissions to perform the specified CreateJob or UpdateJob action.
  *
  * @throws {@link SnowballServiceException}
- * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ * Base exception class for all service exceptions from Snowball service.
  *
  * @example To cancel a job for a Snowball device
  * ```javascript

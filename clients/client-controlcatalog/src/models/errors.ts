@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { ControlCatalogServiceException as __BaseException } from "./ControlCatalogServiceException";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>An internal service error occurred during the processing of your request. Try again later.</p>
+ * An internal service error occurred during the processing of your request. Try again later.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -51,7 +53,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -77,7 +80,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The request has invalid or missing parameters.</p>
+ * The request has invalid or missing parameters.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -100,7 +104,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The requested resource does not exist.</p>
+ * The requested resource does not exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {

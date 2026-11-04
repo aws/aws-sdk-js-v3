@@ -5,7 +5,8 @@ import { CloudDirectoryServiceException as __BaseException } from "./CloudDirect
 import type { BatchWriteExceptionType } from "./enums";
 
 /**
- * <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+ * Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling ListDirectories and check your permissions.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -28,7 +29,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Operations are only permitted on enabled directories.</p>
+ * Operations are only permitted on enabled directories.
+ *
  * @public
  */
 export class DirectoryNotEnabledException extends __BaseException {
@@ -51,8 +53,8 @@ export class DirectoryNotEnabledException extends __BaseException {
 }
 
 /**
- * <p>The <a>Facet</a> that you provided was not well formed or could not be
- *       validated with the schema.</p>
+ * The Facet that you provided was not well formed or could not be validated with the schema.
+ *
  * @public
  */
 export class FacetValidationException extends __BaseException {
@@ -75,7 +77,8 @@ export class FacetValidationException extends __BaseException {
 }
 
 /**
- * <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href="http://status.aws.amazon.com/">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+ * Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the [AWS Service Health Dashboard](http://status.aws.amazon.com/) site to see if there are any operational issues with the service.
+ *
  * @public
  */
 export class InternalServiceException extends __BaseException {
@@ -98,7 +101,8 @@ export class InternalServiceException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the provided ARN value is not valid.</p>
+ * Indicates that the provided ARN value is not valid.
+ *
  * @public
  */
 export class InvalidArnException extends __BaseException {
@@ -121,7 +125,8 @@ export class InvalidArnException extends __BaseException {
 }
 
 /**
- * <p>Indicates that limits are exceeded. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html">Limits</a> for more information.</p>
+ * Indicates that limits are exceeded. See [Limits](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html) for more information.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -144,7 +149,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The specified resource could not be found.</p>
+ * The specified resource could not be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -167,7 +173,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+ * Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.
+ *
  * @public
  */
 export class RetryableConflictException extends __BaseException {
@@ -190,8 +197,8 @@ export class RetryableConflictException extends __BaseException {
 }
 
 /**
- * <p>Indicates that your request is malformed in some manner. See the exception
- *       message.</p>
+ * Indicates that your request is malformed in some manner. See the exception message.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -214,8 +221,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>Indicates that an attempt to make an attachment was invalid. For example, attaching two nodes
- *       with a link type that is not applicable to the nodes or attempting to apply a schema to a directory a second time.</p>
+ * Indicates that an attempt to make an attachment was invalid. For example, attaching two nodes with a link type that is not applicable to the nodes or attempting to apply a schema to a directory a second time.
+ *
  * @public
  */
 export class InvalidAttachmentException extends __BaseException {
@@ -238,8 +245,8 @@ export class InvalidAttachmentException extends __BaseException {
 }
 
 /**
- * <p>Indicates that a schema could not be created due to a naming conflict. Please select a
- *       different name and then try again.</p>
+ * Indicates that a schema could not be created due to a naming conflict. Please select a different name and then try again.
+ *
  * @public
  */
 export class SchemaAlreadyExistsException extends __BaseException {
@@ -262,8 +269,8 @@ export class SchemaAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>Indicates that a link could not be created due to a naming conflict. Choose a different
- *       name and then try again.</p>
+ * Indicates that a link could not be created due to a naming conflict. Choose a different name and then try again.
+ *
  * @public
  */
 export class LinkNameAlreadyInUseException extends __BaseException {
@@ -286,7 +293,8 @@ export class LinkNameAlreadyInUseException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the requested operation can only operate on policy objects.</p>
+ * Indicates that the requested operation can only operate on policy objects.
+ *
  * @public
  */
 export class NotPolicyException extends __BaseException {
@@ -309,7 +317,8 @@ export class NotPolicyException extends __BaseException {
 }
 
 /**
- * <p>An object has been attempted to be attached to an object that does not have the appropriate attribute value.</p>
+ * An object has been attempted to be attached to an object that does not have the appropriate attribute value.
+ *
  * @public
  */
 export class IndexedAttributeMissingException extends __BaseException {
@@ -332,7 +341,8 @@ export class IndexedAttributeMissingException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the requested operation can only operate on index objects.</p>
+ * Indicates that the requested operation can only operate on index objects.
+ *
  * @public
  */
 export class NotIndexException extends __BaseException {
@@ -355,7 +365,8 @@ export class NotIndexException extends __BaseException {
 }
 
 /**
- * <p>A <code>BatchWrite</code> exception has occurred.</p>
+ * A `BatchWrite` exception has occurred.
+ *
  * @public
  */
 export class BatchWriteException extends __BaseException {
@@ -382,8 +393,8 @@ export class BatchWriteException extends __BaseException {
 }
 
 /**
- * <p>Indicates that a <a>Directory</a> could not be created due to a naming
- *       conflict. Choose a different name and try again.</p>
+ * Indicates that a Directory could not be created due to a naming conflict. Choose a different name and try again.
+ *
  * @public
  */
 export class DirectoryAlreadyExistsException extends __BaseException {
@@ -406,7 +417,8 @@ export class DirectoryAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>A facet with the same name already exists.</p>
+ * A facet with the same name already exists.
+ *
  * @public
  */
 export class FacetAlreadyExistsException extends __BaseException {
@@ -429,7 +441,8 @@ export class FacetAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>Occurs when any of the rule parameter keys or values are invalid.</p>
+ * Occurs when any of the rule parameter keys or values are invalid.
+ *
  * @public
  */
 export class InvalidRuleException extends __BaseException {
@@ -452,7 +465,8 @@ export class InvalidRuleException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the requested index type is not supported.</p>
+ * Indicates that the requested index type is not supported.
+ *
  * @public
  */
 export class UnsupportedIndexTypeException extends __BaseException {
@@ -475,8 +489,8 @@ export class UnsupportedIndexTypeException extends __BaseException {
 }
 
 /**
- * <p>A directory that has been deleted and to which access has been attempted. Note: The
- *       requested resource will eventually cease to exist.</p>
+ * A directory that has been deleted and to which access has been attempted. Note: The requested resource will eventually cease to exist.
+ *
  * @public
  */
 export class DirectoryDeletedException extends __BaseException {
@@ -499,7 +513,8 @@ export class DirectoryDeletedException extends __BaseException {
 }
 
 /**
- * <p>An operation can only operate on a disabled directory.</p>
+ * An operation can only operate on a disabled directory.
+ *
  * @public
  */
 export class DirectoryNotDisabledException extends __BaseException {
@@ -522,8 +537,8 @@ export class DirectoryNotDisabledException extends __BaseException {
 }
 
 /**
- * <p>Occurs when deleting a facet that contains an attribute that is a target to an
- *       attribute reference in a different facet.</p>
+ * Occurs when deleting a facet that contains an attribute that is a target to an attribute reference in a different facet.
+ *
  * @public
  */
 export class FacetInUseException extends __BaseException {
@@ -546,7 +561,8 @@ export class FacetInUseException extends __BaseException {
 }
 
 /**
- * <p>The specified <a>Facet</a> could not be found.</p>
+ * The specified Facet could not be found.
+ *
  * @public
  */
 export class FacetNotFoundException extends __BaseException {
@@ -569,8 +585,8 @@ export class FacetNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the requested operation cannot be completed because the object has not
- *       been detached from the tree.</p>
+ * Indicates that the requested operation cannot be completed because the object has not been detached from the tree.
+ *
  * @public
  */
 export class ObjectNotDetachedException extends __BaseException {
@@ -593,8 +609,8 @@ export class ObjectNotDetachedException extends __BaseException {
 }
 
 /**
- * <p>The object could not be deleted because links still exist. Remove the links and then
- *       try the operation again.</p>
+ * The object could not be deleted because links still exist. Remove the links and then try the operation again.
+ *
  * @public
  */
 export class StillContainsLinksException extends __BaseException {
@@ -617,7 +633,8 @@ export class StillContainsLinksException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the object is not attached to the index.</p>
+ * Indicates that the object is not attached to the index.
+ *
  * @public
  */
 export class ObjectAlreadyDetachedException extends __BaseException {
@@ -640,8 +657,8 @@ export class ObjectAlreadyDetachedException extends __BaseException {
 }
 
 /**
- * <p>Occurs when any invalid operations are performed on an object that is not a node, such
- *       as calling <code>ListObjectChildren</code> for a leaf node object.</p>
+ * Occurs when any invalid operations are performed on an object that is not a node, such as calling `ListObjectChildren` for a leaf node object.
+ *
  * @public
  */
 export class NotNodeException extends __BaseException {
@@ -664,7 +681,8 @@ export class NotNodeException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the <code>NextToken</code> value is not valid.</p>
+ * Indicates that the `NextToken` value is not valid.
+ *
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -687,7 +705,8 @@ export class InvalidNextTokenException extends __BaseException {
 }
 
 /**
- * <p>Cannot list the parents of a <a>Directory</a> root.</p>
+ * Cannot list the parents of a Directory root.
+ *
  * @public
  */
 export class CannotListParentOfRootException extends __BaseException {
@@ -710,7 +729,8 @@ export class CannotListParentOfRootException extends __BaseException {
 }
 
 /**
- * <p>Can occur for multiple reasons such as when you tag a resource that doesn’t exist or if you specify a higher number of tags for a resource than the allowed limit. Allowed limit is 50 tags per resource.</p>
+ * Can occur for multiple reasons such as when you tag a resource that doesn’t exist or if you specify a higher number of tags for a resource than the allowed limit. Allowed limit is 50 tags per resource.
+ *
  * @public
  */
 export class InvalidTaggingRequestException extends __BaseException {
@@ -733,7 +753,8 @@ export class InvalidTaggingRequestException extends __BaseException {
 }
 
 /**
- * <p>Indicates that a schema is already published.</p>
+ * Indicates that a schema is already published.
+ *
  * @public
  */
 export class SchemaAlreadyPublishedException extends __BaseException {
@@ -756,7 +777,8 @@ export class SchemaAlreadyPublishedException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the provided <code>SchemaDoc</code> value is not valid.</p>
+ * Indicates that the provided `SchemaDoc` value is not valid.
+ *
  * @public
  */
 export class InvalidSchemaDocException extends __BaseException {
@@ -779,8 +801,8 @@ export class InvalidSchemaDocException extends __BaseException {
 }
 
 /**
- * <p>An attempt to modify a <a>Facet</a> resulted in an invalid schema
- *       exception.</p>
+ * An attempt to modify a Facet resulted in an invalid schema exception.
+ *
  * @public
  */
 export class InvalidFacetUpdateException extends __BaseException {
@@ -803,7 +825,8 @@ export class InvalidFacetUpdateException extends __BaseException {
 }
 
 /**
- * <p>Indicates a failure occurred while performing a check for backward compatibility between the specified schema and the schema that is currently applied to the directory.</p>
+ * Indicates a failure occurred while performing a check for backward compatibility between the specified schema and the schema that is currently applied to the directory.
+ *
  * @public
  */
 export class IncompatibleSchemaException extends __BaseException {

@@ -23,7 +23,8 @@ export interface DeleteGroupCommandInput extends DeleteGroupRequest {}
 export interface DeleteGroupCommandOutput extends DeleteGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Delete a group within an identity store given <code>GroupId</code>.</p>
+ * Delete a group within an identity store given `GroupId`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,26 +51,35 @@ export interface DeleteGroupCommandOutput extends DeleteGroupResponse, __Metadat
  * @see {@link IdentitystoreClientResolvedConfig | config} for IdentitystoreClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>This request cannot be completed for one of the following reasons:</p> <ul> <li> <p>Performing the requested operation would violate an existing uniqueness claim in the identity store. Resolve the conflict before retrying this request.</p> </li> <li> <p>The requested resource was being concurrently modified by another request.</p> </li> </ul>
+ *
+ * This request cannot be completed for one of the following reasons:
+ *
+ * - Performing the requested operation would violate an existing uniqueness claim in the identity store. Resolve the conflict before retrying this request.
+ * - The requested resource was being concurrently modified by another request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Indicates that a requested resource is not found.</p>
+ *
+ * Indicates that a requested resource is not found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request failed because it contains a syntax error.</p>
+ *
+ * The request failed because it contains a syntax error.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure with an internal server.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure with an internal server.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+ *
+ * Indicates that the principal has crossed the throttling limits of the API operations.
  *
  * @throws {@link IdentitystoreServiceException}
- * <p>Base exception class for all service exceptions from Identitystore service.</p>
  *
+ * Base exception class for all service exceptions from Identitystore service.
  *
  * @public
  */

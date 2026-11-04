@@ -23,10 +23,10 @@ export interface CopyDBClusterSnapshotCommandInput extends CopyDBClusterSnapshot
 export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapshotResult, __MetadataBearer {}
 
 /**
- * <p>Copies a snapshot of a DB cluster.</p>
- *          <p>To copy a DB cluster snapshot from a shared manual DB cluster snapshot,
- *       <code>SourceDBClusterSnapshotIdentifier</code> must be the Amazon Resource Name (ARN) of the
- *       shared DB cluster snapshot.</p>
+ * Copies a snapshot of a DB cluster.
+ *
+ * To copy a DB cluster snapshot from a shared manual DB cluster snapshot, `SourceDBClusterSnapshotIdentifier` must be the Amazon Resource Name (ARN) of the shared DB cluster snapshot.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,28 +87,32 @@ export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapsho
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  * @throws {@link DBClusterSnapshotAlreadyExistsFault} (client fault)
- *  <p>User already has a DB cluster snapshot with the given identifier.</p>
+ *
+ * User already has a DB cluster snapshot with the given identifier.
  *
  * @throws {@link DBClusterSnapshotNotFoundFault} (client fault)
- *  <p>
- *             <i>DBClusterSnapshotIdentifier</i> does not refer to an existing
- *       DB cluster snapshot.</p>
+ *
+ * *DBClusterSnapshotIdentifier* does not refer to an existing DB cluster snapshot.
  *
  * @throws {@link InvalidDBClusterSnapshotStateFault} (client fault)
- *  <p>The supplied value is not a valid DB cluster snapshot state.</p>
+ *
+ * The supplied value is not a valid DB cluster snapshot state.
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
- *  <p>The DB cluster is not in a valid state.</p>
+ *
+ * The DB cluster is not in a valid state.
  *
  * @throws {@link KMSKeyNotAccessibleFault} (client fault)
- *  <p>Error accessing KMS key.</p>
+ *
+ * Error accessing KMS key.
  *
  * @throws {@link SnapshotQuotaExceededFault} (client fault)
- *  <p>Request would result in user exceeding the allowed number of DB snapshots.</p>
+ *
+ * Request would result in user exceeding the allowed number of DB snapshots.
  *
  * @throws {@link NeptuneServiceException}
- * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * Base exception class for all service exceptions from Neptune service.
  *
  * @public
  */

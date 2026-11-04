@@ -23,13 +23,10 @@ export interface UpdateLoginProfileCommandInput extends UpdateLoginProfileReques
 export interface UpdateLoginProfileCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Changes the password for the specified IAM user. You can use the CLI, the Amazon Web Services
- *             API, or the <b>Users</b> page in the IAM console to change
- *             the password for any IAM user. Use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ChangePassword.html">ChangePassword</a> to
- *             change your own password in the <b>My Security Credentials</b>
- *             page in the Amazon Web Services Management Console.</p>
- *          <p>For more information about modifying passwords, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html">Managing passwords</a> in the
- *                 <i>IAM User Guide</i>.</p>
+ * Changes the password for the specified IAM user. You can use the CLI, the Amazon Web Services API, or the **Users** page in the IAM console to change the password for any IAM user. Use [ChangePassword](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ChangePassword.html) to change your own password in the **My Security Credentials** page in the Amazon Web Services Management Console.
+ *
+ * For more information about modifying passwords, see [Managing passwords](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html) in the *IAM User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,30 +53,28 @@ export interface UpdateLoginProfileCommandOutput extends __MetadataBearer {}
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link EntityTemporarilyUnmodifiableException} (client fault)
- *  <p>The request was rejected because it referenced an entity that is temporarily unmodifiable,
- *       such as a user name that was deleted and then recreated. The error indicates that the request
- *       is likely to succeed if you try again after waiting several minutes. The error message
- *       describes the entity.</p>
+ *
+ * The request was rejected because it referenced an entity that is temporarily unmodifiable, such as a user name that was deleted and then recreated. The error indicates that the request is likely to succeed if you try again after waiting several minutes. The error message describes the entity.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current
- *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+ *
+ * The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link PasswordPolicyViolationException} (client fault)
- *  <p>The request was rejected because the provided password did not meet the requirements
- *       imposed by the account password policy.</p>
+ *
+ * The request was rejected because the provided password did not meet the requirements imposed by the account password policy.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @example To change the password for an IAM user
  * ```javascript

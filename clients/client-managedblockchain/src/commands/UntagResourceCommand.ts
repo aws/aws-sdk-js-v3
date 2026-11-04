@@ -23,8 +23,10 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Removes the specified tags from the Amazon Managed Blockchain resource.</p>
- *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
+ * Removes the specified tags from the Amazon Managed Blockchain resource.
+ *
+ * For more information about tags, see [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html) in the *Amazon Managed Blockchain Ethereum Developer Guide*, or [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html) in the *Amazon Managed Blockchain Hyperledger Fabric Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,20 +54,24 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+ *
+ * The action or operation requested is invalid. Verify that the action is typed correctly.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A requested resource doesn't exist. It may have been deleted or referenced incorrectly.</p>
+ *
+ * A requested resource doesn't exist. It may have been deleted or referenced incorrectly.
  *
  * @throws {@link ResourceNotReadyException} (client fault)
- *  <p>The requested resource exists but isn't in a status that can complete the operation.</p>
+ *
+ * The requested resource exists but isn't in a status that can complete the operation.
  *
  * @throws {@link ManagedBlockchainServiceException}
- * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ * Base exception class for all service exceptions from ManagedBlockchain service.
  *
  * @public
  */

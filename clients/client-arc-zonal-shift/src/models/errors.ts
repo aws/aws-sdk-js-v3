@@ -5,7 +5,8 @@ import { ARCZonalShiftServiceException as __BaseException } from "./ARCZonalShif
 import type { ConflictExceptionReason, ValidationExceptionReason } from "./enums";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -26,7 +27,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>There was an internal server error.</p>
+ * There was an internal server error.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -47,7 +49,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -68,7 +71,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -76,7 +80,8 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The reason for the validation exception.</p>
+   * The reason for the validation exception.
+   *
    * @public
    */
   reason: ValidationExceptionReason | undefined;
@@ -96,7 +101,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The request could not be processed because of conflict in the current state of the resource.</p>
+ * The request could not be processed because of conflict in the current state of the resource.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -104,13 +110,15 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The reason for the conflict exception.</p>
+   * The reason for the conflict exception.
+   *
    * @public
    */
   reason: ConflictExceptionReason | undefined;
 
   /**
-   * <p>The zonal shift ID associated with the conflict exception.</p>
+   * The zonal shift ID associated with the conflict exception.
+   *
    * @public
    */
   zonalShiftId?: string | undefined;
@@ -131,7 +139,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The input requested a resource that was not found.</p>
+ * The input requested a resource that was not found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {

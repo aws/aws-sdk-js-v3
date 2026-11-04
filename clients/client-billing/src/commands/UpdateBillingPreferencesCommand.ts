@@ -23,7 +23,10 @@ export interface UpdateBillingPreferencesCommandInput extends UpdateBillingPrefe
 export interface UpdateBillingPreferencesCommandOutput extends UpdateBillingPreferencesResponse, __MetadataBearer {}
 
 /**
- * <p>Updates billing preferences for the specified feature. Each feature targets a distinct billing capability and has its own set of supported keys. The action sets the value for each provided key; keys not present in the request are unchanged.</p> <p>Sharing keys (<code>RI_SHARING</code>, <code>CREDIT_SHARING</code>, <code>CREDIT_LEVEL_SHARING</code>, and sharing keys under <code>CREDIT_PREFERENCE_OPTIONS</code>) may only be set by the management account of a consolidated billing family. The <code>credit/\{creditId\}/status</code> key may be set by member accounts for credits they own, or by the management account for any credit in the family.</p>
+ * Updates billing preferences for the specified feature. Each feature targets a distinct billing capability and has its own set of supported keys. The action sets the value for each provided key; keys not present in the request are unchanged.
+ *
+ * Sharing keys (`RI_SHARING`, `CREDIT_SHARING`, `CREDIT_LEVEL_SHARING`, and sharing keys under `CREDIT_PREFERENCE_OPTIONS`) may only be set by the management account of a consolidated billing family. The `credit/\{creditId\}/status` key may be set by member accounts for credits they own, or by the management account for any credit in the family.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,20 +57,24 @@ export interface UpdateBillingPreferencesCommandOutput extends UpdateBillingPref
  * @see {@link BillingClientResolvedConfig | config} for BillingClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * You don't have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing failed because of an unknown error, exception, or failure. </p>
+ *
+ * The request processing failed because of an unknown error, exception, or failure.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. </p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link BillingServiceException}
- * <p>Base exception class for all service exceptions from Billing service.</p>
  *
+ * Base exception class for all service exceptions from Billing service.
  *
  * @public
  */

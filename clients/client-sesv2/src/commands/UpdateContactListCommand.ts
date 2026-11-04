@@ -23,7 +23,8 @@ export interface UpdateContactListCommandInput extends UpdateContactListRequest 
 export interface UpdateContactListCommandOutput extends UpdateContactListResponse, __MetadataBearer {}
 
 /**
- * <p>Updates contact list metadata. This operation does a complete replacement.</p>
+ * Updates contact list metadata. This operation does a complete replacement.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,20 +58,24 @@ export interface UpdateContactListCommandOutput extends UpdateContactListRespons
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link ConcurrentModificationException} (server fault)
- *  <p>The resource is being modified by another operation or thread.</p>
+ *
+ * The resource is being modified by another operation or thread.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * The resource you attempted to access doesn't exist.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Too many requests have been made to the operation.</p>
+ *
+ * Too many requests have been made to the operation.
  *
  * @throws {@link SESv2ServiceException}
- * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * Base exception class for all service exceptions from SESv2 service.
  *
  * @public
  */

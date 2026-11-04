@@ -23,7 +23,8 @@ export interface DescribeACLsCommandInput extends DescribeACLsRequest {}
 export interface DescribeACLsCommandOutput extends DescribeACLsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of ACLs.</p>
+ * Returns a list of ACLs.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,14 +75,16 @@ export interface DescribeACLsCommandOutput extends DescribeACLsResponse, __Metad
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  * @throws {@link ACLNotFoundFault} (client fault)
- *  <p>The specified ACL does not exist.</p>
+ *
+ * The specified ACL does not exist.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>The specified parameter combination is not valid.</p>
+ *
+ * The specified parameter combination is not valid.
  *
  * @throws {@link MemoryDBServiceException}
- * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * Base exception class for all service exceptions from MemoryDB service.
  *
  * @public
  */

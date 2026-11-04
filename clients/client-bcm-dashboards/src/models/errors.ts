@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { BCMDashboardsServiceException as __BaseException } from "./BCMDashboardsServiceException";
 
 /**
- * <p>You do not have sufficient permissions to perform this action. Verify your IAM permissions and any resource policies.</p>
+ * You do not have sufficient permissions to perform this action. Verify your IAM permissions and any resource policies.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>An internal error occurred while processing the request. Retry your request. If the problem persists, contact Amazon Web Services Support.</p>
+ * An internal error occurred while processing the request. Retry your request. If the problem persists, contact Amazon Web Services Support.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -46,7 +48,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The request would exceed a service quota. Review the service quotas for Amazon Web Services Billing and Cost Management Dashboards and retry your request.</p>
+ * The request would exceed a service quota. Review the service quotas for Amazon Web Services Billing and Cost Management Dashboards and retry your request.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -67,7 +70,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling. Reduce the frequency of requests and use exponential backoff.</p>
+ * The request was denied due to request throttling. Reduce the frequency of requests and use exponential backoff.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -88,7 +92,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input parameters do not satisfy the requirements. Check the error message for specific validation details.</p>
+ * The input parameters do not satisfy the requirements. Check the error message for specific validation details.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -109,7 +114,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The request could not be completed due to a conflict with the current state of the resource. For example, attempting to create a resource that already exists or is being created.</p>
+ * The request could not be completed due to a conflict with the current state of the resource. For example, attempting to create a resource that already exists or is being created.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -130,7 +136,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The specified resource (dashboard, policy, or widget) was not found. Verify the ARN and try again.</p>
+ * The specified resource (dashboard, policy, or widget) was not found. Verify the ARN and try again.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {

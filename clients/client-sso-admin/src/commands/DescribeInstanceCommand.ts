@@ -23,7 +23,12 @@ export interface DescribeInstanceCommandInput extends DescribeInstanceRequest {}
 export interface DescribeInstanceCommandOutput extends DescribeInstanceResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the details of an instance of IAM Identity Center. The status can be one of the following:</p> <ul> <li> <p> <code>CREATE_IN_PROGRESS</code> - The instance is in the process of being created. When the instance is ready for use, DescribeInstance returns the status of <code>ACTIVE</code>. While the instance is in the <code>CREATE_IN_PROGRESS</code> state, you can call only DescribeInstance and DeleteInstance operations.</p> </li> <li> <p> <code>DELETE_IN_PROGRESS</code> - The instance is being deleted. Returns <code>AccessDeniedException</code> after the delete operation completes. </p> </li> <li> <p> <code>ACTIVE</code> - The instance is active.</p> </li> </ul>
+ * Returns the details of an instance of IAM Identity Center. The status can be one of the following:
+ *
+ * - `CREATE_IN_PROGRESS` - The instance is in the process of being created. When the instance is ready for use, DescribeInstance returns the status of `ACTIVE`. While the instance is in the `CREATE_IN_PROGRESS` state, you can call only DescribeInstance and DeleteInstance operations.
+ * - `DELETE_IN_PROGRESS` - The instance is being deleted. Returns `AccessDeniedException` after the delete operation completes.
+ * - `ACTIVE` - The instance is active.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,20 +78,24 @@ export interface DescribeInstanceCommandOutput extends DescribeInstanceResponse,
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+ *
+ * The request processing has failed because of an unknown error, exception, or failure with an internal server.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+ *
+ * Indicates that the principal has crossed the throttling limits of the API operations.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request failed because it contains a syntax error.</p>
+ *
+ * The request failed because it contains a syntax error.
  *
  * @throws {@link SSOAdminServiceException}
- * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * Base exception class for all service exceptions from SSOAdmin service.
  *
  * @public
  */

@@ -23,14 +23,10 @@ export interface GetConfigurationSetCommandInput extends GetConfigurationSetRequ
 export interface GetConfigurationSetCommandOutput extends GetConfigurationSetResponse, __MetadataBearer {}
 
 /**
- * <p>Get information about an existing configuration set, including the dedicated IP pool
- *             that it's associated with, whether or not it's enabled for sending email, and
- *             more.</p>
- *         <p>In Amazon Pinpoint, <i>configuration sets</i> are groups of rules that you can
- *             apply to the emails you send. You apply a configuration set to an email by including a
- *             reference to the configuration set in the headers of the email. When you apply a
- *             configuration set to an email, all of the rules in that configuration set are applied to
- *             the email.</p>
+ * Get information about an existing configuration set, including the dedicated IP pool that it's associated with, whether or not it's enabled for sending email, and more.
+ *
+ * In Amazon Pinpoint, *configuration sets* are groups of rules that you can apply to the emails you send. You apply a configuration set to an email by including a reference to the configuration set in the headers of the email. When you apply a configuration set to an email, all of the rules in that configuration set are applied to the email.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,17 +73,20 @@ export interface GetConfigurationSetCommandOutput extends GetConfigurationSetRes
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * The resource you attempted to access doesn't exist.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Too many requests have been made to the operation.</p>
+ *
+ * Too many requests have been made to the operation.
  *
  * @throws {@link PinpointEmailServiceException}
- * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ * Base exception class for all service exceptions from PinpointEmail service.
  *
  * @public
  */

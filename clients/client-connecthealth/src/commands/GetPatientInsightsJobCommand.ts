@@ -23,7 +23,8 @@ export interface GetPatientInsightsJobCommandInput extends GetPatientInsightsJob
 export interface GetPatientInsightsJobCommandOutput extends GetPatientInsightsJobResponse, __MetadataBearer {}
 
 /**
- * <p>Get details of a started patient insights job.</p>
+ * Get details of a started patient insights job.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -89,23 +90,28 @@ export interface GetPatientInsightsJobCommandOutput extends GetPatientInsightsJo
  * @see {@link ConnectHealthClientResolvedConfig | config} for ConnectHealthClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>This error is thrown when the client does not supply proper credentials to the API.</p>
+ *
+ * This error is thrown when the client does not supply proper credentials to the API.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This error is thrown when a transient error causes our API to fail.</p>
+ *
+ * This error is thrown when a transient error causes our API to fail.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This error is thrown when the requested resource is not found.</p>
+ *
+ * This error is thrown when the requested resource is not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>This error is thrown when the client exceeds the allowed request rate.</p>
+ *
+ * This error is thrown when the client exceeds the allowed request rate.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>This error is thrown when the client supplies invalid input to the API.</p>
+ *
+ * This error is thrown when the client supplies invalid input to the API.
  *
  * @throws {@link ConnectHealthServiceException}
- * <p>Base exception class for all service exceptions from ConnectHealth service.</p>
  *
+ * Base exception class for all service exceptions from ConnectHealth service.
  *
  * @public
  */

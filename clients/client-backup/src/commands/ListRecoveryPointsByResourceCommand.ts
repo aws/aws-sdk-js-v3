@@ -23,12 +23,10 @@ export interface ListRecoveryPointsByResourceCommandInput extends ListRecoveryPo
 export interface ListRecoveryPointsByResourceCommandOutput extends ListRecoveryPointsByResourceOutput, __MetadataBearer {}
 
 /**
- * <p>The information about the recovery points of the type specified by a
- *          resource Amazon Resource Name (ARN).</p>
- *          <note>
- *             <p>For Amazon EFS and Amazon EC2, this action only lists recovery points
- *             created by Backup.</p>
- *          </note>
+ * The information about the recovery points of the type specified by a resource Amazon Resource Name (ARN).
+ *
+ * > **Note:** For Amazon EFS and Amazon EC2, this action only lists recovery points created by Backup.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,21 +81,24 @@ export interface ListRecoveryPointsByResourceCommandOutput extends ListRecoveryP
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
- *          out of range.</p>
+ *
+ * Indicates that something is wrong with a parameter's value. For example, the value is out of range.
  *
  * @throws {@link MissingParameterValueException} (client fault)
- *  <p>Indicates that a required parameter is missing.</p>
+ *
+ * Indicates that a required parameter is missing.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A resource that is required for the action doesn't exist.</p>
+ *
+ * A resource that is required for the action doesn't exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The request failed due to a temporary failure of the server.</p>
+ *
+ * The request failed due to a temporary failure of the server.
  *
  * @throws {@link BackupServiceException}
- * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * Base exception class for all service exceptions from Backup service.
  *
  * @public
  */

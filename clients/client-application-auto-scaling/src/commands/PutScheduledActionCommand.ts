@@ -23,21 +23,18 @@ export interface PutScheduledActionCommandInput extends PutScheduledActionReques
 export interface PutScheduledActionCommandOutput extends PutScheduledActionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates or updates a scheduled action for an Application Auto Scaling scalable target. </p>
- *          <p>Each scalable target is identified by a service namespace, resource ID, and scalable
- *          dimension. A scheduled action applies to the scalable target identified by those three
- *          attributes. You cannot create a scheduled action until you have registered the resource as
- *          a scalable target.</p>
- *          <p>When you specify start and end times with a recurring schedule using a cron expression
- *          or rates, they form the boundaries for when the recurring action starts and stops.</p>
- *          <p>To update a scheduled action, specify the parameters that you want to change. If you
- *          don't specify start and end times, the old values are deleted.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html">Scheduled scaling</a> in the <i>Application Auto Scaling User Guide</i>.</p>
- *          <note>
- *             <p>If a scalable target is deregistered, the scalable target is no longer available to
- *             run scheduled actions. Any scheduled actions that were specified for the scalable target
- *             are deleted.</p>
- *          </note>
+ * Creates or updates a scheduled action for an Application Auto Scaling scalable target.
+ *
+ * Each scalable target is identified by a service namespace, resource ID, and scalable dimension. A scheduled action applies to the scalable target identified by those three attributes. You cannot create a scheduled action until you have registered the resource as a scalable target.
+ *
+ * When you specify start and end times with a recurring schedule using a cron expression or rates, they form the boundaries for when the recurring action starts and stops.
+ *
+ * To update a scheduled action, specify the parameters that you want to change. If you don't specify start and end times, the old values are deleted.
+ *
+ * For more information, see [Scheduled scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html) in the *Application Auto Scaling User Guide*.
+ *
+ * > **Note:** If a scalable target is deregistered, the scalable target is no longer available to run scheduled actions. Any scheduled actions that were specified for the scalable target are deleted.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,29 +70,28 @@ export interface PutScheduledActionCommandOutput extends PutScheduledActionRespo
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
  *
  * @throws {@link ConcurrentUpdateException} (server fault)
- *  <p>Concurrent updates caused an exception, for example, if you request an update to an
- *          Application Auto Scaling resource that already has a pending update.</p>
+ *
+ * Concurrent updates caused an exception, for example, if you request an update to an Application Auto Scaling resource that already has a pending update.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an internal error.</p>
+ *
+ * The service encountered an internal error.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>A per-account resource limit is exceeded. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-limits.html">Application Auto Scaling service quotas</a>.</p>
+ *
+ * A per-account resource limit is exceeded. For more information, see [Application Auto Scaling service quotas](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-limits.html).
  *
  * @throws {@link ObjectNotFoundException} (client fault)
- *  <p>The specified object could not be found. For any operation that depends on the existence
- *          of a scalable target, this exception is thrown if the scalable target with the specified
- *          service namespace, resource ID, and scalable dimension does not exist. For any operation
- *          that deletes or deregisters a resource, this exception is thrown if the resource cannot be
- *          found.</p>
+ *
+ * The specified object could not be found. For any operation that depends on the existence of a scalable target, this exception is thrown if the scalable target with the specified service namespace, resource ID, and scalable dimension does not exist. For any operation that deletes or deregisters a resource, this exception is thrown if the resource cannot be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An exception was thrown for a validation issue. Review the available parameters for the
- *          API request.</p>
+ *
+ * An exception was thrown for a validation issue. Review the available parameters for the API request.
  *
  * @throws {@link ApplicationAutoScalingServiceException}
- * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from ApplicationAutoScaling service.
  *
  * @example To create a recurring scheduled action
  * ```javascript

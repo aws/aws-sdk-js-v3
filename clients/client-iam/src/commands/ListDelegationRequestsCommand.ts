@@ -23,14 +23,12 @@ export interface ListDelegationRequestsCommandInput extends ListDelegationReques
 export interface ListDelegationRequestsCommandOutput extends ListDelegationRequestsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists delegation requests based on the specified criteria.</p>
- *          <p>If a delegation request has no owner, even if it is assigned to a specific account, it will not be part of the
- *             <code>ListDelegationRequests</code> output for that account.</p>
- *          <p>
- *             For more details, see
- *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-temporary-delegation.html#temporary-delegation-managing-permissions">
- *                 Managing Permissions for Delegation Requests</a>.
- *         </p>
+ * Lists delegation requests based on the specified criteria.
+ *
+ * If a delegation request has no owner, even if it is assigned to a specific account, it will not be part of the `ListDelegationRequests` output for that account.
+ *
+ * For more details, see [Managing Permissions for Delegation Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-temporary-delegation.html#temporary-delegation-managing-permissions).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -97,20 +95,20 @@ export interface ListDelegationRequestsCommandOutput extends ListDelegationReque
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
- *       input parameter.</p>
+ *
+ * The request was rejected because an invalid or out-of-range value was supplied for an input parameter.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @public
  */

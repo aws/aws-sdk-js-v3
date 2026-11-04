@@ -66,8 +66,8 @@ export interface DeleteAccessGrantCommandOutput extends DeleteAccessGrantOutput,
  *  A parameter is specified incorrectly.
  *
  * @throws {@link CloudWatchOmniServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchOmni service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchOmni service.
  *
  * @example Delete an access grant
  * ```javascript

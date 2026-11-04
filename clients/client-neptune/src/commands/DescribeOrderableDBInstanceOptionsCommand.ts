@@ -23,7 +23,8 @@ export interface DescribeOrderableDBInstanceOptionsCommandInput extends Describe
 export interface DescribeOrderableDBInstanceOptionsCommandOutput extends OrderableDBInstanceOptionsMessage, __MetadataBearer {}
 
 /**
- * <p>Returns a list of orderable DB instance options for the specified engine.</p>
+ * Returns a list of orderable DB instance options for the specified engine.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -96,8 +97,8 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput extends Orderab
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  * @throws {@link NeptuneServiceException}
- * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * Base exception class for all service exceptions from Neptune service.
  *
  * @public
  */

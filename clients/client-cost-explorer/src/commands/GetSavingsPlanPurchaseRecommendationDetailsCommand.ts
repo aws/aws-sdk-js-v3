@@ -26,8 +26,8 @@ export interface GetSavingsPlanPurchaseRecommendationDetailsCommandInput extends
 export interface GetSavingsPlanPurchaseRecommendationDetailsCommandOutput extends GetSavingsPlanPurchaseRecommendationDetailsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the details for a Savings Plan recommendation. These details include the hourly
- *       data-points that construct the cost, coverage, and utilization charts.</p>
+ * Retrieves the details for a Savings Plan recommendation. These details include the hourly data-points that construct the cost, coverage, and utilization charts.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,14 +93,16 @@ export interface GetSavingsPlanPurchaseRecommendationDetailsCommandOutput extend
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
  * @throws {@link DataUnavailableException} (client fault)
- *  <p>The requested data is unavailable.</p>
+ *
+ * The requested data is unavailable.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ * You made too many calls in a short period of time. Try again later.
  *
  * @throws {@link CostExplorerServiceException}
- * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * Base exception class for all service exceptions from CostExplorer service.
  *
  * @public
  */

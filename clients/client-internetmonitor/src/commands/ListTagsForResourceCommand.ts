@@ -23,7 +23,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceInpu
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the tags for a resource. Tags are supported only for monitors in Amazon CloudWatch Internet Monitor.</p>
+ * Lists the tags for a resource. Tags are supported only for monitors in Amazon CloudWatch Internet Monitor.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,23 +53,28 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @see {@link InternetMonitorClientResolvedConfig | config} for InternetMonitorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * You don't have sufficient permission to perform this action.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>A bad request was received.</p>
+ *
+ * A bad request was received.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>There was an internal server error.</p>
+ *
+ * There was an internal server error.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The request specifies something that doesn't exist.</p>
+ *
+ * The request specifies something that doesn't exist.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>There were too many requests.</p>
+ *
+ * There were too many requests.
  *
  * @throws {@link InternetMonitorServiceException}
- * <p>Base exception class for all service exceptions from InternetMonitor service.</p>
  *
+ * Base exception class for all service exceptions from InternetMonitor service.
  *
  * @public
  */

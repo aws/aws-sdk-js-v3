@@ -23,7 +23,8 @@ export interface ListManagedDataIdentifiersCommandInput extends ListManagedDataI
 export interface ListManagedDataIdentifiersCommandOutput extends ListManagedDataIdentifiersResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about all the managed data identifiers that Amazon Macie currently provides.</p>
+ * Retrieves information about all the managed data identifiers that Amazon Macie currently provides.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,8 +57,8 @@ export interface ListManagedDataIdentifiersCommandOutput extends ListManagedData
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
  *
  * @throws {@link Macie2ServiceException}
- * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * Base exception class for all service exceptions from Macie2 service.
  *
  * @public
  */

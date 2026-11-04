@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { NetworkFlowMonitorServiceException as __BaseException } from "./NetworkFlowMonitorServiceException";
 
 /**
- * <p>You don't have sufficient permission to perform this action.</p>
+ * You don't have sufficient permission to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The requested resource is in use.</p>
+ * The requested resource is in use.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -46,7 +48,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>An internal error occurred.</p>
+ * An internal error occurred.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -68,7 +71,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The request exceeded a service quota.</p>
+ * The request exceeded a service quota.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -89,7 +93,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -113,7 +118,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>Invalid request.</p>
+ * Invalid request.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -134,7 +140,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The request specifies a resource that doesn't exist.</p>
+ * The request specifies a resource that doesn't exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {

@@ -23,7 +23,8 @@ export interface StopDataMigrationCommandInput extends StopDataMigrationMessage 
 export interface StopDataMigrationCommandOutput extends StopDataMigrationResponse, __MetadataBearer {}
 
 /**
- * <p>Stops the specified data migration.</p>
+ * Stops the specified data migration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -97,17 +98,20 @@ export interface StopDataMigrationCommandOutput extends StopDataMigrationRespons
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link FailedDependencyFault} (client fault)
- *  <p>A dependency threw an exception.</p>
+ *
+ * A dependency threw an exception.
  *
  * @throws {@link InvalidResourceStateFault} (client fault)
- *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
+ * The resource is in a state that prevents it from being used for database migration.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @public
  */

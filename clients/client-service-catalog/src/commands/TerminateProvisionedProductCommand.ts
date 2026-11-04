@@ -23,9 +23,12 @@ export interface TerminateProvisionedProductCommandInput extends TerminateProvis
 export interface TerminateProvisionedProductCommandOutput extends TerminateProvisionedProductOutput, __MetadataBearer {}
 
 /**
- * <p>Terminates the specified provisioned product.</p>
- *          <p>This operation does not delete any records associated with the provisioned product.</p>
- *          <p>You can check the status of this request using <a>DescribeRecord</a>.</p>
+ * Terminates the specified provisioned product.
+ *
+ * This operation does not delete any records associated with the provisioned product.
+ *
+ * You can check the status of this request using DescribeRecord.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,11 +85,12 @@ export interface TerminateProvisionedProductCommandOutput extends TerminateProvi
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ServiceCatalogServiceException}
- * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * Base exception class for all service exceptions from ServiceCatalog service.
  *
  * @public
  */

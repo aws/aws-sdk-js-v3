@@ -23,7 +23,8 @@ export interface DescribeDBProxyTargetGroupsCommandInput extends DescribeDBProxy
 export interface DescribeDBProxyTargetGroupsCommandOutput extends DescribeDBProxyTargetGroupsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about DB proxy target groups, represented by <code>DBProxyTargetGroup</code> data structures.</p>
+ * Returns information about DB proxy target groups, represented by `DBProxyTargetGroup` data structures.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,17 +82,20 @@ export interface DescribeDBProxyTargetGroupsCommandOutput extends DescribeDBProx
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBProxyNotFoundFault} (client fault)
- *  <p>The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+ *
+ * The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.
  *
  * @throws {@link DBProxyTargetGroupNotFoundFault} (client fault)
- *  <p>The specified target group isn't available for a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+ *
+ * The specified target group isn't available for a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.
  *
  * @throws {@link InvalidDBProxyStateFault} (client fault)
- *  <p>The requested operation can't be performed while the proxy is in this state.</p>
+ *
+ * The requested operation can't be performed while the proxy is in this state.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @public
  */

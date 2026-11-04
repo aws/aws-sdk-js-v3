@@ -23,9 +23,10 @@ export interface DisassociateIamInstanceProfileCommandInput extends Disassociate
 export interface DisassociateIamInstanceProfileCommandOutput extends DisassociateIamInstanceProfileResult, __MetadataBearer {}
 
 /**
- * <p>Disassociates an IAM instance profile from a running or stopped instance.</p>
- *          <p>Use <a>DescribeIamInstanceProfileAssociations</a> to get the association
- *             ID.</p>
+ * Disassociates an IAM instance profile from a running or stopped instance.
+ *
+ * Use DescribeIamInstanceProfileAssociations to get the association ID.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,8 +62,8 @@ export interface DisassociateIamInstanceProfileCommandOutput extends Disassociat
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To disassociate an IAM instance profile
  * ```javascript

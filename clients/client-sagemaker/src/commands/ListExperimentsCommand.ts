@@ -23,7 +23,8 @@ export interface ListExperimentsCommandInput extends ListExperimentsRequest {}
 export interface ListExperimentsCommandOutput extends ListExperimentsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all the experiments in your account. The list can be filtered to show only experiments that were created in a specific time range. The list can be sorted by experiment name or creation time.</p>
+ * Lists all the experiments in your account. The list can be filtered to show only experiments that were created in a specific time range. The list can be sorted by experiment name or creation time.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,8 +69,8 @@ export interface ListExperimentsCommandOutput extends ListExperimentsResponse, _
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

@@ -23,13 +23,10 @@ export interface CreateRuleCommandInput extends CreateRuleInput {}
 export interface CreateRuleCommandOutput extends CreateRuleOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a rule for the specified listener. The listener must be associated with an
- *       Application Load Balancer or a dual-stack Network Load Balancer.</p>
- *          <p>Each rule consists of a priority, one or more actions, and one or more conditions. Rules
- *       are evaluated in priority order, from the lowest value to the highest value. When the
- *       conditions for a rule are met, its actions are performed. If the conditions for no rules are
- *       met, the actions for the default rule are performed. For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#listener-rules">Listener rules</a> in the <i>Application Load Balancers Guide</i> or
- *         <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-listeners.html#listener-rules">Listener rules</a> in the <i>Network Load Balancers Guide</i>.</p>
+ * Creates a rule for the specified listener. The listener must be associated with an Application Load Balancer or a dual-stack Network Load Balancer.
+ *
+ * Each rule consists of a priority, one or more actions, and one or more conditions. Rules are evaluated in priority order, from the lowest value to the highest value. When the conditions for a rule are met, its actions are performed. If the conditions for no rules are met, the actions for the default rule are performed. For more information, see [Listener rules](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#listener-rules) in the *Application Load Balancers Guide* or [Listener rules](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-listeners.html#listener-rules) in the *Network Load Balancers Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -347,57 +344,68 @@ export interface CreateRuleCommandOutput extends CreateRuleOutput, __MetadataBea
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
  * @throws {@link IncompatibleProtocolsException} (client fault)
- *  <p>The specified configuration is not valid with this protocol.</p>
+ *
+ * The specified configuration is not valid with this protocol.
  *
  * @throws {@link InvalidConfigurationRequestException} (client fault)
- *  <p>The requested configuration is not valid.</p>
+ *
+ * The requested configuration is not valid.
  *
  * @throws {@link InvalidLoadBalancerActionException} (client fault)
- *  <p>The requested action is not valid.</p>
+ *
+ * The requested action is not valid.
  *
  * @throws {@link ListenerNotFoundException} (client fault)
- *  <p>The specified listener does not exist.</p>
+ *
+ * The specified listener does not exist.
  *
  * @throws {@link PriorityInUseException} (client fault)
- *  <p>The specified priority is in use.</p>
+ *
+ * The specified priority is in use.
  *
  * @throws {@link TargetGroupAssociationLimitException} (client fault)
- *  <p>You've reached the limit on the number of load balancers per target group.</p>
+ *
+ * You've reached the limit on the number of load balancers per target group.
  *
  * @throws {@link TargetGroupNotFoundException} (client fault)
- *  <p>The specified target group does not exist.</p>
+ *
+ * The specified target group does not exist.
  *
  * @throws {@link TooManyActionsException} (client fault)
- *  <p>You've reached the limit on the number of actions per rule.</p>
+ *
+ * You've reached the limit on the number of actions per rule.
  *
  * @throws {@link TooManyRegistrationsForTargetIdException} (client fault)
- *  <p>You've reached the limit on the number of times a target can be registered with a load
- *       balancer.</p>
+ *
+ * You've reached the limit on the number of times a target can be registered with a load balancer.
  *
  * @throws {@link TooManyRulesException} (client fault)
- *  <p>You've reached the limit on the number of rules per load balancer.</p>
+ *
+ * You've reached the limit on the number of rules per load balancer.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>You've reached the limit on the number of tags for this resource.</p>
+ *
+ * You've reached the limit on the number of tags for this resource.
  *
  * @throws {@link TooManyTargetGroupsException} (client fault)
- *  <p>You've reached the limit on the number of target groups for your Amazon Web Services
- *       account.</p>
+ *
+ * You've reached the limit on the number of target groups for your Amazon Web Services account.
  *
  * @throws {@link TooManyTargetsException} (client fault)
- *  <p>You've reached the limit on the number of targets.</p>
+ *
+ * You've reached the limit on the number of targets.
  *
  * @throws {@link TooManyUniqueTargetGroupsPerLoadBalancerException} (client fault)
- *  <p>You've reached the limit on the number of unique target groups per load balancer across
- *       all listeners. If a target group is used by multiple actions for a load balancer, it is
- *       counted as only one use.</p>
+ *
+ * You've reached the limit on the number of unique target groups per load balancer across all listeners. If a target group is used by multiple actions for a load balancer, it is counted as only one use.
  *
  * @throws {@link UnsupportedProtocolException} (client fault)
- *  <p>The specified protocol is not supported.</p>
+ *
+ * The specified protocol is not supported.
  *
  * @throws {@link ElasticLoadBalancingV2ServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancingV2 service.
  *
  * @example To create a rule
  * ```javascript

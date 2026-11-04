@@ -26,7 +26,8 @@ export interface DescribeInboundCrossClusterSearchConnectionsCommandInput extend
 export interface DescribeInboundCrossClusterSearchConnectionsCommandOutput extends DescribeInboundCrossClusterSearchConnectionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all the inbound cross-cluster search connections for a destination domain.</p>
+ * Lists all the inbound cross-cluster search connections for a destination domain.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,14 +82,16 @@ export interface DescribeInboundCrossClusterSearchConnectionsCommandOutput exten
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
  *
  * @throws {@link DisabledOperationException} (client fault)
- *  <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+ *
+ * An error occured because the client wanted to access a not supported operation. Gives http status code of 409.
  *
  * @throws {@link InvalidPaginationTokenException} (client fault)
- *  <p>The request processing has failed because of invalid pagination token provided by customer. Returns an HTTP status code of 400. </p>
+ *
+ * The request processing has failed because of invalid pagination token provided by customer. Returns an HTTP status code of 400.
  *
  * @throws {@link ElasticsearchServiceServiceException}
- * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ * Base exception class for all service exceptions from ElasticsearchService service.
  *
  * @public
  */

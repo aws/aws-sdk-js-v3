@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { RUMServiceException as __BaseException } from "./RUMServiceException";
 
 /**
- * <p>You don't have sufficient permissions to perform this action.</p>
+ * You don't have sufficient permissions to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>This operation attempted to create a resource that already exists.</p>
+ * This operation attempted to create a resource that already exists.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -33,13 +35,15 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The name of the resource that is associated with the error.</p>
+   * The name of the resource that is associated with the error.
+   *
    * @public
    */
   resourceName: string | undefined;
 
   /**
-   * <p>The type of the resource that is associated with the error.</p>
+   * The type of the resource that is associated with the error.
+   *
    * @public
    */
   resourceType?: string | undefined;
@@ -60,7 +64,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>Internal service exception.</p>
+ * Internal service exception.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -69,7 +74,8 @@ export class InternalServerException extends __BaseException {
   readonly $fault = "server" as const;
   $retryable = {};
   /**
-   * <p>The value of a parameter in the request caused an error.</p>
+   * The value of a parameter in the request caused an error.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -89,7 +95,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>Resource not found.</p>
+ * Resource not found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -97,13 +104,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The name of the resource that is associated with the error.</p>
+   * The name of the resource that is associated with the error.
+   *
    * @public
    */
   resourceName: string | undefined;
 
   /**
-   * <p>The type of the resource that is associated with the error.</p>
+   * The type of the resource that is associated with the error.
+   *
    * @public
    */
   resourceType?: string | undefined;
@@ -124,7 +133,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>This request exceeds a service quota.</p>
+ * This request exceeds a service quota.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -145,7 +155,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request was throttled because of quota limits.</p>
+ * The request was throttled because of quota limits.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -156,19 +167,22 @@ export class ThrottlingException extends __BaseException {
     throttling: true,
   };
   /**
-   * <p>The ID of the service that is associated with the error.</p>
+   * The ID of the service that is associated with the error.
+   *
    * @public
    */
   serviceCode?: string | undefined;
 
   /**
-   * <p>The ID of the service quota that was exceeded.</p>
+   * The ID of the service quota that was exceeded.
+   *
    * @public
    */
   quotaCode?: string | undefined;
 
   /**
-   * <p>The value of a parameter in the request caused an error.</p>
+   * The value of a parameter in the request caused an error.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -190,7 +204,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>One of the arguments for the request is not valid.</p>
+ * One of the arguments for the request is not valid.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -211,7 +226,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The policy revision ID that you provided doeesn't match the latest policy revision ID.</p>
+ * The policy revision ID that you provided doeesn't match the latest policy revision ID.
+ *
  * @public
  */
 export class InvalidPolicyRevisionIdException extends __BaseException {
@@ -232,7 +248,8 @@ export class InvalidPolicyRevisionIdException extends __BaseException {
 }
 
 /**
- * <p>The resource-based policy doesn't exist on this app monitor.</p>
+ * The resource-based policy doesn't exist on this app monitor.
+ *
  * @public
  */
 export class PolicyNotFoundException extends __BaseException {
@@ -253,7 +270,8 @@ export class PolicyNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The policy document that you specified is not formatted correctly.</p>
+ * The policy document that you specified is not formatted correctly.
+ *
  * @public
  */
 export class MalformedPolicyDocumentException extends __BaseException {
@@ -274,7 +292,8 @@ export class MalformedPolicyDocumentException extends __BaseException {
 }
 
 /**
- * <p>The policy document is too large. The limit is 4 KB.</p>
+ * The policy document is too large. The limit is 4 KB.
+ *
  * @public
  */
 export class PolicySizeLimitExceededException extends __BaseException {

@@ -27,13 +27,14 @@ import type {
 } from "./enums";
 
 /**
- * <p>Information about a route filter prefix that a customer can advertise through Border Gateway Protocol (BGP)
- *         over a public virtual interface.</p>
+ * Information about a route filter prefix that a customer can advertise through Border Gateway Protocol (BGP) over a public virtual interface.
+ *
  * @public
  */
 export interface RouteFilterPrefix {
   /**
-   * <p>The CIDR block for the advertised route. Separate multiple routes using commas. An IPv6 CIDR must use /64 or shorter.</p>
+   * The CIDR block for the advertised route. Separate multiple routes using commas. An IPv6 CIDR must use /64 or shorter.
+   *
    * @public
    */
   cidr?: string | undefined;
@@ -44,169 +45,176 @@ export interface RouteFilterPrefix {
  */
 export interface AcceptDirectConnectGatewayAssociationProposalRequest {
   /**
-   * <p>The ID of the Direct Connect gateway.</p>
+   * The ID of the Direct Connect gateway.
+   *
    * @public
    */
   directConnectGatewayId: string | undefined;
 
   /**
-   * <p>The ID of the request proposal.</p>
+   * The ID of the request proposal.
+   *
    * @public
    */
   proposalId: string | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services account that owns the virtual private gateway or transit gateway.</p>
+   * The ID of the Amazon Web Services account that owns the virtual private gateway or transit gateway.
+   *
    * @public
    */
   associatedGatewayOwnerAccount: string | undefined;
 
   /**
-   * <p>Overrides the Amazon VPC prefixes advertised to the Direct Connect gateway.</p>
-   *          <p>For information about how to set the prefixes, see <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes">Allowed Prefixes</a> in the <i>Direct Connect User Guide</i>.</p>
+   * Overrides the Amazon VPC prefixes advertised to the Direct Connect gateway.
+   *
+   * For information about how to set the prefixes, see [Allowed Prefixes](https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes) in the *Direct Connect User Guide*.
+   *
    * @public
    */
   overrideAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[] | undefined;
 }
 
 /**
- * <p>The Amazon Web Services Cloud WAN core network that the Direct Connect gateway is associated to. This is only returned when a Direct Connect gateway is associated to a Cloud WAN core network.</p>
+ * The Amazon Web Services Cloud WAN core network that the Direct Connect gateway is associated to. This is only returned when a Direct Connect gateway is associated to a Cloud WAN core network.
+ *
  * @public
  */
 export interface AssociatedCoreNetwork {
   /**
-   * <p>The ID of the Cloud WAN core network that the Direct Connect gateway is associated to.</p>
+   * The ID of the Cloud WAN core network that the Direct Connect gateway is associated to.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The account owner of the Cloud WAN core network.</p>
+   * The account owner of the Cloud WAN core network.
+   *
    * @public
    */
   ownerAccount?: string | undefined;
 
   /**
-   * <p>the ID of the Direct Connect gateway attachment.</p>
+   * the ID of the Direct Connect gateway attachment.
+   *
    * @public
    */
   attachmentId?: string | undefined;
 }
 
 /**
- * <p>Information about the associated gateway.</p>
+ * Information about the associated gateway.
+ *
  * @public
  */
 export interface AssociatedGateway {
   /**
-   * <p>The ID of the associated gateway.</p>
+   * The ID of the associated gateway.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The type of associated gateway.</p>
+   * The type of associated gateway.
+   *
    * @public
    */
   type?: GatewayType | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services account that owns the associated virtual private gateway or transit gateway.</p>
+   * The ID of the Amazon Web Services account that owns the associated virtual private gateway or transit gateway.
+   *
    * @public
    */
   ownerAccount?: string | undefined;
 
   /**
-   * <p>The Region where the associated gateway is located.</p>
+   * The Region where the associated gateway is located.
+   *
    * @public
    */
   region?: string | undefined;
 }
 
 /**
- * <p>Information about an association between a Direct Connect gateway and a virtual private gateway or transit gateway.</p>
+ * Information about an association between a Direct Connect gateway and a virtual private gateway or transit gateway.
+ *
  * @public
  */
 export interface DirectConnectGatewayAssociation {
   /**
-   * <p>The ID of the Direct Connect gateway.</p>
+   * The ID of the Direct Connect gateway.
+   *
    * @public
    */
   directConnectGatewayId?: string | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services account that owns the associated gateway.</p>
+   * The ID of the Amazon Web Services account that owns the associated gateway.
+   *
    * @public
    */
   directConnectGatewayOwnerAccount?: string | undefined;
 
   /**
-   * <p>The state of the association. The following are the possible values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>associating</code>: The initial state after calling <a>CreateDirectConnectGatewayAssociation</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>associated</code>: The Direct Connect gateway and virtual private gateway or transit gateway are successfully associated and ready to pass traffic.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>disassociating</code>: The initial state after calling <a>DeleteDirectConnectGatewayAssociation</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>disassociated</code>: The virtual private gateway or transit gateway is disassociated from the Direct Connect gateway. Traffic flow between the Direct Connect gateway and virtual private gateway or transit gateway is stopped.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>updating</code>: The CIDR blocks for the virtual private gateway or transit gateway are currently being updated. This could
-   *           be new CIDR blocks added or current CIDR blocks removed.</p>
-   *             </li>
-   *          </ul>
+   * The state of the association. The following are the possible values:
+   *
+   * - `associating`: The initial state after calling CreateDirectConnectGatewayAssociation.
+   * - `associated`: The Direct Connect gateway and virtual private gateway or transit gateway are successfully associated and ready to pass traffic.
+   * - `disassociating`: The initial state after calling DeleteDirectConnectGatewayAssociation.
+   * - `disassociated`: The virtual private gateway or transit gateway is disassociated from the Direct Connect gateway. Traffic flow between the Direct Connect gateway and virtual private gateway or transit gateway is stopped.
+   * - `updating`: The CIDR blocks for the virtual private gateway or transit gateway are currently being updated. This could be new CIDR blocks added or current CIDR blocks removed.
+   *
    * @public
    */
   associationState?: DirectConnectGatewayAssociationState | undefined;
 
   /**
-   * <p>The error message if the state of an object failed to advance.</p>
+   * The error message if the state of an object failed to advance.
+   *
    * @public
    */
   stateChangeError?: string | undefined;
 
   /**
-   * <p>Information about the associated gateway.</p>
+   * Information about the associated gateway.
+   *
    * @public
    */
   associatedGateway?: AssociatedGateway | undefined;
 
   /**
-   * <p>The ID of the Direct Connect gateway association.</p>
+   * The ID of the Direct Connect gateway association.
+   *
    * @public
    */
   associationId?: string | undefined;
 
   /**
-   * <p>The Amazon VPC prefixes to advertise to the Direct Connect gateway.</p>
+   * The Amazon VPC prefixes to advertise to the Direct Connect gateway.
+   *
    * @public
    */
   allowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[] | undefined;
 
   /**
-   * <p>The ID of the Cloud WAN core network associated with the Direct Connect gateway attachment.</p>
+   * The ID of the Cloud WAN core network associated with the Direct Connect gateway attachment.
+   *
    * @public
    */
   associatedCoreNetwork?: AssociatedCoreNetwork | undefined;
 
   /**
-   * <p>The ID of the virtual private gateway. Applies only to private virtual interfaces.</p>
+   * The ID of the virtual private gateway. Applies only to private virtual interfaces.
+   *
    * @public
    */
   virtualGatewayId?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region where the virtual private gateway is located.</p>
+   * The Amazon Web Services Region where the virtual private gateway is located.
    *
    * @deprecated deprecated.
    * @public
@@ -214,7 +222,8 @@ export interface DirectConnectGatewayAssociation {
   virtualGatewayRegion?: string | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services account that owns the virtual private gateway.</p>
+   * The ID of the Amazon Web Services account that owns the virtual private gateway.
+   *
    * @public
    */
   virtualGatewayOwnerAccount?: string | undefined;
@@ -225,26 +234,29 @@ export interface DirectConnectGatewayAssociation {
  */
 export interface AcceptDirectConnectGatewayAssociationProposalResult {
   /**
-   * <p>Information about an association between a Direct Connect gateway and a virtual gateway or transit gateway.</p>
+   * Information about an association between a Direct Connect gateway and a virtual gateway or transit gateway.
+   *
    * @public
    */
   directConnectGatewayAssociation?: DirectConnectGatewayAssociation | undefined;
 }
 
 /**
- * <p>The name and status of a customer agreement. </p>
+ * The name and status of a customer agreement.
+ *
  * @public
  */
 export interface CustomerAgreement {
   /**
-   * <p>The name of the agreement.</p>
+   * The name of the agreement.
+   *
    * @public
    */
   agreementName?: string | undefined;
 
   /**
-   * <p>The status of the customer agreement. This will be either <code>signed</code> or <code>unsigned</code>
-   *          </p>
+   * The status of the customer agreement. This will be either `signed` or `unsigned`
+   *
    * @public
    */
   status?: string | undefined;
@@ -255,247 +267,234 @@ export interface CustomerAgreement {
  */
 export interface AllocateConnectionOnInterconnectRequest {
   /**
-   * <p>The bandwidth of the connection. The possible values are 50Mbps, 100Mbps, 200Mbps,
-   *       300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps. Note that only those Direct Connect Partners
-   *       who have met specific requirements
-   *     are allowed to create a 1Gbps, 2Gbps, 5Gbps or 10Gbps hosted connection.</p>
+   * The bandwidth of the connection. The possible values are 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps. Note that only those Direct Connect Partners who have met specific requirements are allowed to create a 1Gbps, 2Gbps, 5Gbps or 10Gbps hosted connection.
+   *
    * @public
    */
   bandwidth: string | undefined;
 
   /**
-   * <p>The name of the provisioned connection.</p>
+   * The name of the provisioned connection.
+   *
    * @public
    */
   connectionName: string | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services account of the customer for whom the connection will be provisioned.</p>
+   * The ID of the Amazon Web Services account of the customer for whom the connection will be provisioned.
+   *
    * @public
    */
   ownerAccount: string | undefined;
 
   /**
-   * <p>The ID of the interconnect on which the connection will be provisioned.</p>
+   * The ID of the interconnect on which the connection will be provisioned.
+   *
    * @public
    */
   interconnectId: string | undefined;
 
   /**
-   * <p>The dedicated VLAN provisioned to the connection.</p>
+   * The dedicated VLAN provisioned to the connection.
+   *
    * @public
    */
   vlan: number | undefined;
 }
 
 /**
- * <p>Information about the MAC Security (MACsec) secret key.</p>
+ * Information about the MAC Security (MACsec) secret key.
+ *
  * @public
  */
 export interface MacSecKey {
   /**
-   * <p>The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key.</p>
+   * The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key.
+   *
    * @public
    */
   secretARN?: string | undefined;
 
   /**
-   * <p>The Connection Key Name (CKN) for the MAC Security secret key.</p>
+   * The Connection Key Name (CKN) for the MAC Security secret key.
+   *
    * @public
    */
   ckn?: string | undefined;
 
   /**
-   * <p>The state of the MAC Security (MACsec) secret key.</p>
-   *          <p>The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>associating</code>: The MAC Security (MACsec) secret key is being validated and not yet associated with the connection or LAG.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>associated</code>: The MAC Security (MACsec) secret key is validated and associated with the connection or LAG.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>disassociating</code>: The MAC Security (MACsec) secret key is being disassociated from the connection or LAG</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>disassociated</code>: The MAC Security (MACsec) secret key is no longer associated with the connection or LAG.</p>
-   *             </li>
-   *          </ul>
+   * The state of the MAC Security (MACsec) secret key.
+   *
+   * The possible values are:
+   *
+   * - `associating`: The MAC Security (MACsec) secret key is being validated and not yet associated with the connection or LAG.
+   * - `associated`: The MAC Security (MACsec) secret key is validated and associated with the connection or LAG.
+   * - `disassociating`: The MAC Security (MACsec) secret key is being disassociated from the connection or LAG
+   * - `disassociated`: The MAC Security (MACsec) secret key is no longer associated with the connection or LAG.
+   *
    * @public
    */
   state?: string | undefined;
 
   /**
-   * <p>The date that the MAC Security (MACsec) secret key takes effect. The value is displayed in UTC format.</p>
+   * The date that the MAC Security (MACsec) secret key takes effect. The value is displayed in UTC format.
+   *
    * @public
    */
   startOn?: string | undefined;
 }
 
 /**
- * <p>Contains information about the rate limiter status for a connection, including the maximum number of rate limiters allowed, the number currently in use, and the remaining capacity.</p>
+ * Contains information about the rate limiter status for a connection, including the maximum number of rate limiters allowed, the number currently in use, and the remaining capacity.
+ *
  * @public
  */
 export interface RateLimiterStatus {
   /**
-   * <p>The maximum number of rate limiters allowed on the connection.</p>
+   * The maximum number of rate limiters allowed on the connection.
+   *
    * @public
    */
   maxAllowed?: number | undefined;
 
   /**
-   * <p>The number of rate limiters currently in use on the connection.</p>
+   * The number of rate limiters currently in use on the connection.
+   *
    * @public
    */
   inUse?: number | undefined;
 
   /**
-   * <p>The number of rate limiters remaining (available) on the connection.</p>
+   * The number of rate limiters remaining (available) on the connection.
+   *
    * @public
    */
   remaining?: number | undefined;
 
   /**
-   * <p>The total bandwidth allocated across all rate limiters on the connection.</p>
+   * The total bandwidth allocated across all rate limiters on the connection.
+   *
    * @public
    */
   totalBandwidth?: string | undefined;
 }
 
 /**
- * <p>Information about a tag.</p>
+ * Information about a tag.
+ *
  * @public
  */
 export interface Tag {
   /**
-   * <p>The key.</p>
+   * The key.
+   *
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>The value.</p>
+   * The value.
+   *
    * @public
    */
   value?: string | undefined;
 }
 
 /**
- * <p>Information about an Direct Connect connection.</p>
+ * Information about an Direct Connect connection.
+ *
  * @public
  */
 export interface Connection {
   /**
-   * <p>The ID of the Amazon Web Services account that owns the connection.</p>
+   * The ID of the Amazon Web Services account that owns the connection.
+   *
    * @public
    */
   ownerAccount?: string | undefined;
 
   /**
-   * <p>The ID of the connection.</p>
+   * The ID of the connection.
+   *
    * @public
    */
   connectionId?: string | undefined;
 
   /**
-   * <p>The name of the connection.</p>
+   * The name of the connection.
+   *
    * @public
    */
   connectionName?: string | undefined;
 
   /**
-   * <p>The state of the connection. The following are the possible values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ordering</code>: The initial state of a hosted connection provisioned on an interconnect. The connection stays in the ordering state until the owner of the hosted connection confirms or declines the connection order.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>requested</code>: The initial state of a standard connection. The connection stays in the requested state until the Letter of Authorization (LOA) is sent to the customer.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>pending</code>: The connection has been approved and is being initialized.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>available</code>: The network link is up and the connection is ready for use.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>down</code>: The network link is down.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>deleting</code>: The connection is being deleted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>deleted</code>: The connection has been deleted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>rejected</code>: A hosted connection in the <code>ordering</code> state enters the <code>rejected</code> state if it is deleted by the customer.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>unknown</code>: The state of the connection is not available.</p>
-   *             </li>
-   *          </ul>
+   * The state of the connection. The following are the possible values:
+   *
+   * - `ordering`: The initial state of a hosted connection provisioned on an interconnect. The connection stays in the ordering state until the owner of the hosted connection confirms or declines the connection order.
+   * - `requested`: The initial state of a standard connection. The connection stays in the requested state until the Letter of Authorization (LOA) is sent to the customer.
+   * - `pending`: The connection has been approved and is being initialized.
+   * - `available`: The network link is up and the connection is ready for use.
+   * - `down`: The network link is down.
+   * - `deleting`: The connection is being deleted.
+   * - `deleted`: The connection has been deleted.
+   * - `rejected`: A hosted connection in the `ordering` state enters the `rejected` state if it is deleted by the customer.
+   * - `unknown`: The state of the connection is not available.
+   *
    * @public
    */
   connectionState?: ConnectionState | undefined;
 
   /**
-   * <p>The Amazon Web Services Region where the connection is located.</p>
+   * The Amazon Web Services Region where the connection is located.
+   *
    * @public
    */
   region?: string | undefined;
 
   /**
-   * <p>The location of the connection.</p>
+   * The location of the connection.
+   *
    * @public
    */
   location?: string | undefined;
 
   /**
-   * <p>The bandwidth of the connection.</p>
+   * The bandwidth of the connection.
+   *
    * @public
    */
   bandwidth?: string | undefined;
 
   /**
-   * <p>The ID of the VLAN.</p>
+   * The ID of the VLAN.
+   *
    * @public
    */
   vlan?: number | undefined;
 
   /**
-   * <p>The name of the Direct Connect service provider associated with the connection.</p>
+   * The name of the Direct Connect service provider associated with the connection.
+   *
    * @public
    */
   partnerName?: string | undefined;
 
   /**
-   * <p>The time of the most recent call to <a>DescribeLoa</a> for this connection.</p>
+   * The time of the most recent call to DescribeLoa for this connection.
+   *
    * @public
    */
   loaIssueTime?: Date | undefined;
 
   /**
-   * <p>The ID of the LAG.</p>
+   * The ID of the LAG.
+   *
    * @public
    */
   lagId?: string | undefined;
 
   /**
-   * <p>The Direct Connect endpoint on which the physical connection terminates.</p>
+   * The Direct Connect endpoint on which the physical connection terminates.
    *
    * @deprecated deprecated.
    * @public
@@ -503,106 +502,124 @@ export interface Connection {
   awsDevice?: string | undefined;
 
   /**
-   * <p>Indicates whether jumbo frames are supported.</p>
+   * Indicates whether jumbo frames are supported.
+   *
    * @public
    */
   jumboFrameCapable?: boolean | undefined;
 
   /**
-   * <p>The Direct Connect endpoint that terminates the physical connection.</p>
+   * The Direct Connect endpoint that terminates the physical connection.
+   *
    * @public
    */
   awsDeviceV2?: string | undefined;
 
   /**
-   * <p>The Direct Connect endpoint that terminates the logical connection. This device might be
-   *       different than the device that terminates the physical connection.</p>
+   * The Direct Connect endpoint that terminates the logical connection. This device might be different than the device that terminates the physical connection.
+   *
    * @public
    */
   awsLogicalDeviceId?: string | undefined;
 
   /**
-   * <p>Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).</p>
+   * Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
+   *
    * @public
    */
   hasLogicalRedundancy?: HasLogicalRedundancy | undefined;
 
   /**
-   * <p>The tags associated with the connection.</p>
+   * The tags associated with the connection.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p>The name of the service provider associated with the connection.</p>
+   * The name of the service provider associated with the connection.
+   *
    * @public
    */
   providerName?: string | undefined;
 
   /**
-   * <p>Indicates whether the connection supports MAC Security (MACsec).</p>
+   * Indicates whether the connection supports MAC Security (MACsec).
+   *
    * @public
    */
   macSecCapable?: boolean | undefined;
 
   /**
-   * <p>The MAC Security (MACsec) port link status of the connection.</p>
-   *          <p>The valid values are <code>Encryption Up</code>, which means that there is an active Connection Key Name, or <code>Encryption Down</code>.</p>
+   * The MAC Security (MACsec) port link status of the connection.
+   *
+   * The valid values are `Encryption Up`, which means that there is an active Connection Key Name, or `Encryption Down`.
+   *
    * @public
    */
   portEncryptionStatus?: string | undefined;
 
   /**
-   * <p>The MAC Security (MACsec) connection encryption mode.</p>
-   *          <p>The valid values are <code>no_encrypt</code>, <code>should_encrypt</code>, and <code>must_encrypt</code>.</p>
+   * The MAC Security (MACsec) connection encryption mode.
+   *
+   * The valid values are `no_encrypt`, `should_encrypt`, and `must_encrypt`.
+   *
    * @public
    */
   encryptionMode?: string | undefined;
 
   /**
-   * <p>The MAC Security (MACsec) security keys associated with the connection.</p>
+   * The MAC Security (MACsec) security keys associated with the connection.
+   *
    * @public
    */
   macSecKeys?: MacSecKey[] | undefined;
 
   /**
-   * <p>The rate limiter status for the connection, including how many rate limiters are in use and the maximum allowed.</p>
+   * The rate limiter status for the connection, including how many rate limiters are in use and the maximum allowed.
+   *
    * @public
    */
   rateLimiterStatus?: RateLimiterStatus | undefined;
 
   /**
-   * <p>Indicates whether the interconnect hosting this connection supports MAC Security (MACsec).</p>
+   * Indicates whether the interconnect hosting this connection supports MAC Security (MACsec).
+   *
    * @public
    */
   partnerInterconnectMacSecCapable?: boolean | undefined;
 
   /**
-   * <p>The total number of inbound IPv4 route prefixes you can allocate across the virtual interfaces on the connection. Not applicable to hosted connections or interconnects.</p>
+   * The total number of inbound IPv4 route prefixes you can allocate across the virtual interfaces on the connection. Not applicable to hosted connections or interconnects.
+   *
    * @public
    */
   prefixPoolSizeIpv4?: number | undefined;
 
   /**
-   * <p>The total number of inbound IPv6 route prefixes you can allocate across the virtual interfaces on the connection. Not applicable to hosted connections or interconnects.</p>
+   * The total number of inbound IPv6 route prefixes you can allocate across the virtual interfaces on the connection. Not applicable to hosted connections or interconnects.
+   *
    * @public
    */
   prefixPoolSizeIpv6?: number | undefined;
 
   /**
-   * <p>The number of inbound IPv4 route prefixes in the connection prefix pool not yet allocated to a virtual interface. Not applicable to hosted connections or interconnects.</p>
+   * The number of inbound IPv4 route prefixes in the connection prefix pool not yet allocated to a virtual interface. Not applicable to hosted connections or interconnects.
+   *
    * @public
    */
   prefixPoolUnallocatedCountIpv4?: number | undefined;
 
   /**
-   * <p>The number of inbound IPv6 route prefixes in the connection prefix pool not yet allocated to a virtual interface. Not applicable to hosted connections or interconnects.</p>
+   * The number of inbound IPv6 route prefixes in the connection prefix pool not yet allocated to a virtual interface. Not applicable to hosted connections or interconnects.
+   *
    * @public
    */
   prefixPoolUnallocatedCountIpv6?: number | undefined;
 
   /**
-   * <p>The billing mode of the connection.</p>
+   * The billing mode of the connection.
+   *
    * @public
    */
   billingMode?: BillingMode | undefined;
@@ -613,155 +630,142 @@ export interface Connection {
  */
 export interface AllocateHostedConnectionRequest {
   /**
-   * <p>The ID of the interconnect or LAG.</p>
+   * The ID of the interconnect or LAG.
+   *
    * @public
    */
   connectionId: string | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services account ID of the customer for the connection.</p>
+   * The ID of the Amazon Web Services account ID of the customer for the connection.
+   *
    * @public
    */
   ownerAccount: string | undefined;
 
   /**
-   * <p>The bandwidth of the connection. The possible values are 50Mbps, 100Mbps, 200Mbps,
-   *       300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps, and 25Gbps. Note that only those
-   *       Direct Connect Partners who have met specific requirements are allowed to create a 1Gbps, 2Gbps, 5Gbps,
-   *       10Gbps, or 25Gbps hosted connection. </p>
+   * The bandwidth of the connection. The possible values are 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps, and 25Gbps. Note that only those Direct Connect Partners who have met specific requirements are allowed to create a 1Gbps, 2Gbps, 5Gbps, 10Gbps, or 25Gbps hosted connection.
+   *
    * @public
    */
   bandwidth: string | undefined;
 
   /**
-   * <p>The name of the hosted connection.</p>
+   * The name of the hosted connection.
+   *
    * @public
    */
   connectionName: string | undefined;
 
   /**
-   * <p>The dedicated VLAN provisioned to the hosted connection.</p>
+   * The dedicated VLAN provisioned to the hosted connection.
+   *
    * @public
    */
   vlan: number | undefined;
 
   /**
-   * <p>The tags associated with the connection.</p>
+   * The tags associated with the connection.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 }
 
 /**
- * <p>Information about a private virtual interface to be provisioned on a connection.</p>
+ * Information about a private virtual interface to be provisioned on a connection.
+ *
  * @public
  */
 export interface NewPrivateVirtualInterfaceAllocation {
   /**
-   * <p>The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).</p>
+   * The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).
+   *
    * @public
    */
   virtualInterfaceName: string | undefined;
 
   /**
-   * <p>The ID of the VLAN.</p>
+   * The ID of the VLAN.
+   *
    * @public
    */
   vlan: number | undefined;
 
   /**
-   * <p>The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum, an error is returned. Use <code>asnLong</code> instead.</p>
-   *          <ul>
-   *             <li>
-   *                <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
-   *             </li>
-   *             <li>
-   *                <p>If you provide a value in the same API call for both <code>asn</code>
-   *                             and <code>asnLong</code>, the API will only accept the value for
-   *                                 <code>asnLong</code>.
-   *               </p>
-   *             </li>
-   *             <li>
-   *                <p>If you enter a 4-byte ASN for the <code>asn</code> parameter, the API returns an error.
-   *               </p>
-   *             </li>
-   *             <li>
-   *                <p>If you are using a 2-byte ASN, the API response will include the
-   * 2-byte value for both the <code>asn</code> and <code>asnLong</code> fields.</p>
-   *             </li>
-   *          </ul>
-   *          <p>The valid values are 1-2147483646.</p>
+   * The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum, an error is returned. Use `asnLong` instead.
+   *
+   * - You can use `asnLong` or `asn`, but not both. We recommend using `asnLong` as it supports a greater pool of numbers.
+   * - If you provide a value in the same API call for both `asn` and `asnLong`, the API will only accept the value for `asnLong`.
+   * - If you enter a 4-byte ASN for the `asn` parameter, the API returns an error.
+   * - If you are using a 2-byte ASN, the API response will include the 2-byte value for both the `asn` and `asnLong` fields.
+   *
+   * The valid values are 1-2147483646.
+   *
    * @public
    */
   asn?: number | undefined;
 
   /**
-   * <p>The ASN when allocating a new private virtual interface. The valid range is from 1 to 4294967294 for BGP configuration.</p>
-   *          <p>Note the following limitations when using <code>asnLong</code>:</p>
-   *          <ul>
-   *             <li>
-   *                <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>asnLong</code> accepts any valid ASN value, regardless if it's 2-byte or 4-byte.
-   *               </p>
-   *             </li>
-   *             <li>
-   *                <p>When using a 4-byte <code>asnLong</code>, the API response returns <code>0</code> for the legacy <code>asn</code> attribute since 4-byte ASN values exceed the maximum supported value of 2,147,483,647.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you are using a 2-byte ASN, the API response will include the
-   * 2-byte value for both the <code>asn</code> and <code>asnLong</code> fields.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you provide a value in the same API call for both <code>asn</code>
-   *                             and <code>asnLong</code>, the API will only accept the value for
-   *                                 <code>asnLong</code>.</p>
-   *             </li>
-   *          </ul>
+   * The ASN when allocating a new private virtual interface. The valid range is from 1 to 4294967294 for BGP configuration.
+   *
+   * Note the following limitations when using `asnLong`:
+   *
+   * - You can use `asnLong` or `asn`, but not both. We recommend using `asnLong` as it supports a greater pool of numbers.
+   * - `asnLong` accepts any valid ASN value, regardless if it's 2-byte or 4-byte.
+   * - When using a 4-byte `asnLong`, the API response returns `0` for the legacy `asn` attribute since 4-byte ASN values exceed the maximum supported value of 2,147,483,647.
+   * - If you are using a 2-byte ASN, the API response will include the 2-byte value for both the `asn` and `asnLong` fields.
+   * - If you provide a value in the same API call for both `asn` and `asnLong`, the API will only accept the value for `asnLong`.
+   *
    * @public
    */
   asnLong?: number | undefined;
 
   /**
-   * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 8500. The default value is 1500.</p>
+   * The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 8500. The default value is 1500.
+   *
    * @public
    */
   mtu?: number | undefined;
 
   /**
-   * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
+   * The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.
+   *
    * @public
    */
   authKey?: string | undefined;
 
   /**
-   * <p>The IP address assigned to the Amazon interface.</p>
+   * The IP address assigned to the Amazon interface.
+   *
    * @public
    */
   amazonAddress?: string | undefined;
 
   /**
-   * <p>The address family for the BGP peer.</p>
+   * The address family for the BGP peer.
+   *
    * @public
    */
   addressFamily?: AddressFamily | undefined;
 
   /**
-   * <p>The IP address assigned to the customer interface.</p>
+   * The IP address assigned to the customer interface.
+   *
    * @public
    */
   customerAddress?: string | undefined;
 
   /**
-   * <p>The tags associated with the private virtual interface.</p>
+   * The tags associated with the private virtual interface.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p>The rate limit (bandwidth allocation) to apply to the virtual interface. The rate limit restricts the maximum bandwidth that the virtual interface can use on the parent connection.</p>
+   * The rate limit (bandwidth allocation) to apply to the virtual interface. The rate limit restricts the maximum bandwidth that the virtual interface can use on the parent connection.
+   *
    * @public
    */
   rateLimit?: string | undefined;
@@ -772,557 +776,469 @@ export interface NewPrivateVirtualInterfaceAllocation {
  */
 export interface AllocatePrivateVirtualInterfaceRequest {
   /**
-   * <p>The ID of the connection on which the private virtual interface is provisioned.</p>
+   * The ID of the connection on which the private virtual interface is provisioned.
+   *
    * @public
    */
   connectionId: string | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services account that owns the virtual private interface.</p>
+   * The ID of the Amazon Web Services account that owns the virtual private interface.
+   *
    * @public
    */
   ownerAccount: string | undefined;
 
   /**
-   * <p>Information about the private virtual interface.</p>
+   * Information about the private virtual interface.
+   *
    * @public
    */
   newPrivateVirtualInterfaceAllocation: NewPrivateVirtualInterfaceAllocation | undefined;
 }
 
 /**
- * <p>Information about a BGP peer.</p>
+ * Information about a BGP peer.
+ *
  * @public
  */
 export interface BGPPeer {
   /**
-   * <p>The ID of the BGP peer.</p>
+   * The ID of the BGP peer.
+   *
    * @public
    */
   bgpPeerId?: string | undefined;
 
   /**
-   * <p>The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum, an error is returned. Use <code>asnLong</code> instead.</p>
-   *          <ul>
-   *             <li>
-   *                <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
-   *             </li>
-   *             <li>
-   *                <p>If you provide a value in the same API call for both <code>asn</code>
-   *                             and <code>asnLong</code>, the API will only accept the value for
-   *                                 <code>asnLong</code>.
-   *               </p>
-   *             </li>
-   *             <li>
-   *                <p>If you enter a 4-byte ASN for the <code>asn</code> parameter, the API returns an error.
-   *               </p>
-   *             </li>
-   *             <li>
-   *                <p>If you are using a 2-byte ASN, the API response will include the
-   * 2-byte value for both the <code>asn</code> and <code>asnLong</code> fields.</p>
-   *             </li>
-   *          </ul>
+   * The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum, an error is returned. Use `asnLong` instead.
+   *
+   * - You can use `asnLong` or `asn`, but not both. We recommend using `asnLong` as it supports a greater pool of numbers.
+   * - If you provide a value in the same API call for both `asn` and `asnLong`, the API will only accept the value for `asnLong`.
+   * - If you enter a 4-byte ASN for the `asn` parameter, the API returns an error.
+   * - If you are using a 2-byte ASN, the API response will include the 2-byte value for both the `asn` and `asnLong` fields.
+   *
    * @public
    */
   asn?: number | undefined;
 
   /**
-   * <p>The long ASN for the BGP peer. The valid range is from 1 to 4294967294 for BGP configuration. </p>
-   *          <p>Note the following limitations when using <code>asnLong</code>:</p>
-   *          <ul>
-   *             <li>
-   *                <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>asnLong</code> accepts any valid ASN value, regardless if it's 2-byte or 4-byte.
-   *               </p>
-   *             </li>
-   *             <li>
-   *                <p>When using a 4-byte <code>asnLong</code>, the API response returns <code>0</code> for the legacy <code>asn</code> attribute since 4-byte ASN values exceed the maximum supported value of 2,147,483,647.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you are using a 2-byte ASN, the API response will include the
-   * 2-byte value for both the <code>asn</code> and <code>asnLong</code> fields.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you provide a value in the same API call for both <code>asn</code>
-   *                             and <code>asnLong</code>, the API will only accept the value for
-   *                                 <code>asnLong</code>.</p>
-   *             </li>
-   *          </ul>
+   * The long ASN for the BGP peer. The valid range is from 1 to 4294967294 for BGP configuration.
+   *
+   * Note the following limitations when using `asnLong`:
+   *
+   * - You can use `asnLong` or `asn`, but not both. We recommend using `asnLong` as it supports a greater pool of numbers.
+   * - `asnLong` accepts any valid ASN value, regardless if it's 2-byte or 4-byte.
+   * - When using a 4-byte `asnLong`, the API response returns `0` for the legacy `asn` attribute since 4-byte ASN values exceed the maximum supported value of 2,147,483,647.
+   * - If you are using a 2-byte ASN, the API response will include the 2-byte value for both the `asn` and `asnLong` fields.
+   * - If you provide a value in the same API call for both `asn` and `asnLong`, the API will only accept the value for `asnLong`.
+   *
    * @public
    */
   asnLong?: number | undefined;
 
   /**
-   * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
+   * The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.
+   *
    * @public
    */
   authKey?: string | undefined;
 
   /**
-   * <p>The address family for the BGP peer.</p>
+   * The address family for the BGP peer.
+   *
    * @public
    */
   addressFamily?: AddressFamily | undefined;
 
   /**
-   * <p>The IP address assigned to the Amazon interface.</p>
+   * The IP address assigned to the Amazon interface.
+   *
    * @public
    */
   amazonAddress?: string | undefined;
 
   /**
-   * <p>The IP address assigned to the customer interface.</p>
+   * The IP address assigned to the customer interface.
+   *
    * @public
    */
   customerAddress?: string | undefined;
 
   /**
-   * <p>The state of the BGP peer. The following are the possible values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>verifying</code>: The BGP peering addresses or ASN require validation before the BGP peer can be created. This state applies only to public virtual interfaces.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>pending</code>: The BGP peer is created, and remains in this state until it is ready to be established.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>available</code>: The BGP peer is ready to be established.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>deleting</code>:  The BGP peer is being deleted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>deleted</code>:  The BGP peer is deleted and cannot be established.</p>
-   *             </li>
-   *          </ul>
+   * The state of the BGP peer. The following are the possible values:
+   *
+   * - `verifying`: The BGP peering addresses or ASN require validation before the BGP peer can be created. This state applies only to public virtual interfaces.
+   * - `pending`: The BGP peer is created, and remains in this state until it is ready to be established.
+   * - `available`: The BGP peer is ready to be established.
+   * - `deleting`: The BGP peer is being deleted.
+   * - `deleted`: The BGP peer is deleted and cannot be established.
+   *
    * @public
    */
   bgpPeerState?: BGPPeerState | undefined;
 
   /**
-   * <p>The status of the BGP peer. The following are the possible values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>up</code>: The BGP peer is established. This state does not indicate the
-   *         state of the routing function. Ensure that you are receiving routes over the BGP session.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>down</code>: The BGP peer is down.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>unknown</code>: The BGP peer status is not available.</p>
-   *             </li>
-   *          </ul>
+   * The status of the BGP peer. The following are the possible values:
+   *
+   * - `up`: The BGP peer is established. This state does not indicate the state of the routing function. Ensure that you are receiving routes over the BGP session.
+   * - `down`: The BGP peer is down.
+   * - `unknown`: The BGP peer status is not available.
+   *
    * @public
    */
   bgpStatus?: BGPStatus | undefined;
 
   /**
-   * <p>The Direct Connect endpoint that terminates the BGP peer.</p>
+   * The Direct Connect endpoint that terminates the BGP peer.
+   *
    * @public
    */
   awsDeviceV2?: string | undefined;
 
   /**
-   * <p>The Direct Connect endpoint that terminates the logical connection. This device might be
-   *       different than the device that terminates the physical connection.</p>
+   * The Direct Connect endpoint that terminates the logical connection. This device might be different than the device that terminates the physical connection.
+   *
    * @public
    */
   awsLogicalDeviceId?: string | undefined;
 }
 
 /**
- * <p>Information about a virtual interface.</p>
+ * Information about a virtual interface.
+ *
  * @public
  */
 export interface VirtualInterface {
   /**
-   * <p>The ID of the Amazon Web Services account that owns the virtual interface.</p>
+   * The ID of the Amazon Web Services account that owns the virtual interface.
+   *
    * @public
    */
   ownerAccount?: string | undefined;
 
   /**
-   * <p>The ID of the virtual interface.</p>
+   * The ID of the virtual interface.
+   *
    * @public
    */
   virtualInterfaceId?: string | undefined;
 
   /**
-   * <p>The location of the connection.</p>
+   * The location of the connection.
+   *
    * @public
    */
   location?: string | undefined;
 
   /**
-   * <p>The ID of the connection.</p>
+   * The ID of the connection.
+   *
    * @public
    */
   connectionId?: string | undefined;
 
   /**
-   * <p>The type of virtual interface. The possible values are <code>private</code>, <code>public</code> and <code>transit</code>.</p>
+   * The type of virtual interface. The possible values are `private`, `public` and `transit`.
+   *
    * @public
    */
   virtualInterfaceType?: string | undefined;
 
   /**
-   * <p>The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).</p>
+   * The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).
+   *
    * @public
    */
   virtualInterfaceName?: string | undefined;
 
   /**
-   * <p>The ID of the VLAN.</p>
+   * The ID of the VLAN.
+   *
    * @public
    */
   vlan?: number | undefined;
 
   /**
-   * <p>The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum, an error is returned. Use <code>asnLong</code> instead.</p>
-   *          <ul>
-   *             <li>
-   *                <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
-   *             </li>
-   *             <li>
-   *                <p>If you provide a value in the same API call for both <code>asn</code>
-   *                             and <code>asnLong</code>, the API will only accept the value for
-   *                                 <code>asnLong</code>.
-   *               </p>
-   *             </li>
-   *             <li>
-   *                <p>If you enter a 4-byte ASN for the <code>asn</code> parameter, the API returns an error.
-   *               </p>
-   *             </li>
-   *             <li>
-   *                <p>If you are using a 2-byte ASN, the API response will include the
-   * 2-byte value for both the <code>asn</code> and <code>asnLong</code> fields.</p>
-   *             </li>
-   *          </ul>
+   * The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum, an error is returned. Use `asnLong` instead.
+   *
+   * - You can use `asnLong` or `asn`, but not both. We recommend using `asnLong` as it supports a greater pool of numbers.
+   * - If you provide a value in the same API call for both `asn` and `asnLong`, the API will only accept the value for `asnLong`.
+   * - If you enter a 4-byte ASN for the `asn` parameter, the API returns an error.
+   * - If you are using a 2-byte ASN, the API response will include the 2-byte value for both the `asn` and `asnLong` fields.
+   *
    * @public
    */
   asn?: number | undefined;
 
   /**
-   * <p>The long ASN for the virtual interface. The valid range is from 1 to 4294967294 for BGP configuration.</p>
-   *          <p>Note the following limitations when using <code>asnLong</code>:</p>
-   *          <ul>
-   *             <li>
-   *                <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>asnLong</code> accepts any valid ASN value, regardless if it's 2-byte or 4-byte.
-   *               </p>
-   *             </li>
-   *             <li>
-   *                <p>When using a 4-byte <code>asnLong</code>, the API response returns <code>0</code> for the legacy <code>asn</code> attribute since 4-byte ASN values exceed the maximum supported value of 2,147,483,647.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you are using a 2-byte ASN, the API response will include the
-   * 2-byte value for both the <code>asn</code> and <code>asnLong</code> fields.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you provide a value in the same API call for both <code>asn</code>
-   *                             and <code>asnLong</code>, the API will only accept the value for
-   *                                 <code>asnLong</code>.</p>
-   *             </li>
-   *          </ul>
+   * The long ASN for the virtual interface. The valid range is from 1 to 4294967294 for BGP configuration.
+   *
+   * Note the following limitations when using `asnLong`:
+   *
+   * - You can use `asnLong` or `asn`, but not both. We recommend using `asnLong` as it supports a greater pool of numbers.
+   * - `asnLong` accepts any valid ASN value, regardless if it's 2-byte or 4-byte.
+   * - When using a 4-byte `asnLong`, the API response returns `0` for the legacy `asn` attribute since 4-byte ASN values exceed the maximum supported value of 2,147,483,647.
+   * - If you are using a 2-byte ASN, the API response will include the 2-byte value for both the `asn` and `asnLong` fields.
+   * - If you provide a value in the same API call for both `asn` and `asnLong`, the API will only accept the value for `asnLong`.
+   *
    * @public
    */
   asnLong?: number | undefined;
 
   /**
-   * <p>The autonomous system number (AS) for the Amazon side of the connection.</p>
+   * The autonomous system number (AS) for the Amazon side of the connection.
+   *
    * @public
    */
   amazonSideAsn?: number | undefined;
 
   /**
-   * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
+   * The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.
+   *
    * @public
    */
   authKey?: string | undefined;
 
   /**
-   * <p>The IP address assigned to the Amazon interface.</p>
+   * The IP address assigned to the Amazon interface.
+   *
    * @public
    */
   amazonAddress?: string | undefined;
 
   /**
-   * <p>The IP address assigned to the customer interface.</p>
+   * The IP address assigned to the customer interface.
+   *
    * @public
    */
   customerAddress?: string | undefined;
 
   /**
-   * <p>The address family for the BGP peer.</p>
+   * The address family for the BGP peer.
+   *
    * @public
    */
   addressFamily?: AddressFamily | undefined;
 
   /**
-   * <p>The state of the virtual interface. The following are the possible values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>confirming</code>: The creation of the virtual interface is pending confirmation from the virtual interface owner. If the owner of the virtual interface is different from the owner of the connection on which it is provisioned, then the virtual interface will remain in this state until it is confirmed by the virtual interface owner.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>verifying</code>: This state only applies to public virtual interfaces. Each public virtual interface needs validation before the virtual interface can be created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>pending</code>: A virtual interface is in this state from the time that it is created until the virtual interface is ready to forward traffic.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>available</code>: A virtual interface that is able to forward traffic.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>down</code>: A virtual interface that is BGP down.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>testing</code>: A virtual interface is in this state immediately after calling <a>StartBgpFailoverTest</a> and remains in this state during the duration of the test.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>deleting</code>: A virtual interface is in this state immediately after calling <a>DeleteVirtualInterface</a> until it can no longer forward traffic.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>deleted</code>: A virtual interface that cannot forward traffic.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>rejected</code>: The virtual interface owner has declined creation of the virtual interface. If a virtual interface in the <code>Confirming</code> state is deleted by the virtual interface owner, the virtual interface enters the <code>Rejected</code> state.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>unknown</code>: The state of the virtual interface is not available.</p>
-   *             </li>
-   *          </ul>
+   * The state of the virtual interface. The following are the possible values:
+   *
+   * - `confirming`: The creation of the virtual interface is pending confirmation from the virtual interface owner. If the owner of the virtual interface is different from the owner of the connection on which it is provisioned, then the virtual interface will remain in this state until it is confirmed by the virtual interface owner.
+   * - `verifying`: This state only applies to public virtual interfaces. Each public virtual interface needs validation before the virtual interface can be created.
+   * - `pending`: A virtual interface is in this state from the time that it is created until the virtual interface is ready to forward traffic.
+   * - `available`: A virtual interface that is able to forward traffic.
+   * - `down`: A virtual interface that is BGP down.
+   * - `testing`: A virtual interface is in this state immediately after calling StartBgpFailoverTest and remains in this state during the duration of the test.
+   * - `deleting`: A virtual interface is in this state immediately after calling DeleteVirtualInterface until it can no longer forward traffic.
+   * - `deleted`: A virtual interface that cannot forward traffic.
+   * - `rejected`: The virtual interface owner has declined creation of the virtual interface. If a virtual interface in the `Confirming` state is deleted by the virtual interface owner, the virtual interface enters the `Rejected` state.
+   * - `unknown`: The state of the virtual interface is not available.
+   *
    * @public
    */
   virtualInterfaceState?: VirtualInterfaceState | undefined;
 
   /**
-   * <p>The customer router configuration.</p>
+   * The customer router configuration.
+   *
    * @public
    */
   customerRouterConfig?: string | undefined;
 
   /**
-   * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 8500. The default value is 1500</p>
+   * The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 8500. The default value is 1500
+   *
    * @public
    */
   mtu?: number | undefined;
 
   /**
-   * <p>Indicates whether jumbo frames are supported.</p>
+   * Indicates whether jumbo frames are supported.
+   *
    * @public
    */
   jumboFrameCapable?: boolean | undefined;
 
   /**
-   * <p>The ID of the virtual private gateway. Applies only to private virtual interfaces.</p>
+   * The ID of the virtual private gateway. Applies only to private virtual interfaces.
+   *
    * @public
    */
   virtualGatewayId?: string | undefined;
 
   /**
-   * <p>The ID of the Direct Connect gateway.</p>
+   * The ID of the Direct Connect gateway.
+   *
    * @public
    */
   directConnectGatewayId?: string | undefined;
 
   /**
-   * <p>The routes to be advertised to the Amazon Web Services network in this Region. Applies to public virtual interfaces.</p>
+   * The routes to be advertised to the Amazon Web Services network in this Region. Applies to public virtual interfaces.
+   *
    * @public
    */
   routeFilterPrefixes?: RouteFilterPrefix[] | undefined;
 
   /**
-   * <p>The BGP peers configured on this virtual interface.</p>
+   * The BGP peers configured on this virtual interface.
+   *
    * @public
    */
   bgpPeers?: BGPPeer[] | undefined;
 
   /**
-   * <p>The Amazon Web Services Region where the virtual interface is located.</p>
+   * The Amazon Web Services Region where the virtual interface is located.
+   *
    * @public
    */
   region?: string | undefined;
 
   /**
-   * <p>The Direct Connect endpoint that terminates the physical connection.</p>
+   * The Direct Connect endpoint that terminates the physical connection.
+   *
    * @public
    */
   awsDeviceV2?: string | undefined;
 
   /**
-   * <p>The Direct Connect endpoint that terminates the logical connection. This device might be
-   *       different than the device that terminates the physical connection.</p>
+   * The Direct Connect endpoint that terminates the logical connection. This device might be different than the device that terminates the physical connection.
+   *
    * @public
    */
   awsLogicalDeviceId?: string | undefined;
 
   /**
-   * <p>The tags associated with the virtual interface.</p>
+   * The tags associated with the virtual interface.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p>Indicates whether SiteLink is enabled.</p>
+   * Indicates whether SiteLink is enabled.
+   *
    * @public
    */
   siteLinkEnabled?: boolean | undefined;
 
   /**
-   * <p>The number of inbound IPv4 route prefixes allocated to the virtual interface. Not applicable to public virtual interfaces.</p>
+   * The number of inbound IPv4 route prefixes allocated to the virtual interface. Not applicable to public virtual interfaces.
+   *
    * @public
    */
   prefixPoolAllocatedCountIpv4?: number | undefined;
 
   /**
-   * <p>The number of inbound IPv6 route prefixes allocated to the virtual interface. Not applicable to public virtual interfaces.</p>
+   * The number of inbound IPv6 route prefixes allocated to the virtual interface. Not applicable to public virtual interfaces.
+   *
    * @public
    */
   prefixPoolAllocatedCountIpv6?: number | undefined;
 
   /**
-   * <p>The rate limit (bandwidth allocation) applied to the virtual interface. The value must be one of the supported bandwidth values and cannot exceed the bandwidth of the parent connection or LAG. Supported values: <code>50Mbps</code>, <code>100Mbps</code>, <code>200Mbps</code>, <code>300Mbps</code>, <code>400Mbps</code>, <code>500Mbps</code>, <code>600Mbps</code>, <code>700Mbps</code>, <code>800Mbps</code>, <code>900Mbps</code>, <code>1Gbps</code>, <code>1.2Gbps</code>, <code>1.5Gbps</code>, <code>1.8Gbps</code>, <code>2Gbps</code>, <code>2.1Gbps</code>, <code>2.4Gbps</code>, <code>2.7Gbps</code>, <code>3Gbps</code>, <code>3.2Gbps</code>, <code>3.6Gbps</code>, <code>4Gbps</code>, <code>5Gbps</code>, <code>6Gbps</code>, <code>7Gbps</code>, <code>8Gbps</code>, <code>9Gbps</code>, <code>10Gbps</code>, <code>12Gbps</code>, <code>15Gbps</code>, <code>18Gbps</code>, <code>20Gbps</code>, <code>21Gbps</code>, <code>24Gbps</code>, <code>27Gbps</code>, <code>30Gbps</code>, <code>32Gbps</code>, <code>36Gbps</code>, <code>40Gbps</code>, <code>50Gbps</code>, <code>60Gbps</code>, <code>70Gbps</code>, <code>80Gbps</code>, <code>100Gbps</code>, <code>120Gbps</code>, <code>150Gbps</code>, <code>180Gbps</code>, <code>200Gbps</code>, <code>210Gbps</code>, <code>240Gbps</code>, <code>270Gbps</code>, <code>300Gbps</code>, <code>320Gbps</code>, <code>360Gbps</code>, <code>400Gbps</code>, <code>450Gbps</code>, <code>480Gbps</code>, <code>500Gbps</code>, <code>540Gbps</code>, <code>600Gbps</code>, <code>700Gbps</code>, <code>800Gbps</code>, <code>900Gbps</code>, <code>1Tbps</code>, <code>1.1Tbps</code>, <code>1.2Tbps</code>, <code>1.3Tbps</code>, <code>1.4Tbps</code>, <code>1.5Tbps</code>, <code>1.6Tbps</code>.</p>
+   * The rate limit (bandwidth allocation) applied to the virtual interface. The value must be one of the supported bandwidth values and cannot exceed the bandwidth of the parent connection or LAG. Supported values: `50Mbps`, `100Mbps`, `200Mbps`, `300Mbps`, `400Mbps`, `500Mbps`, `600Mbps`, `700Mbps`, `800Mbps`, `900Mbps`, `1Gbps`, `1.2Gbps`, `1.5Gbps`, `1.8Gbps`, `2Gbps`, `2.1Gbps`, `2.4Gbps`, `2.7Gbps`, `3Gbps`, `3.2Gbps`, `3.6Gbps`, `4Gbps`, `5Gbps`, `6Gbps`, `7Gbps`, `8Gbps`, `9Gbps`, `10Gbps`, `12Gbps`, `15Gbps`, `18Gbps`, `20Gbps`, `21Gbps`, `24Gbps`, `27Gbps`, `30Gbps`, `32Gbps`, `36Gbps`, `40Gbps`, `50Gbps`, `60Gbps`, `70Gbps`, `80Gbps`, `100Gbps`, `120Gbps`, `150Gbps`, `180Gbps`, `200Gbps`, `210Gbps`, `240Gbps`, `270Gbps`, `300Gbps`, `320Gbps`, `360Gbps`, `400Gbps`, `450Gbps`, `480Gbps`, `500Gbps`, `540Gbps`, `600Gbps`, `700Gbps`, `800Gbps`, `900Gbps`, `1Tbps`, `1.1Tbps`, `1.2Tbps`, `1.3Tbps`, `1.4Tbps`, `1.5Tbps`, `1.6Tbps`.
+   *
    * @public
    */
   rateLimit?: string | undefined;
 }
 
 /**
- * <p>Information about a public virtual interface to be provisioned on a connection.</p>
+ * Information about a public virtual interface to be provisioned on a connection.
+ *
  * @public
  */
 export interface NewPublicVirtualInterfaceAllocation {
   /**
-   * <p>The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).</p>
+   * The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).
+   *
    * @public
    */
   virtualInterfaceName: string | undefined;
 
   /**
-   * <p>The ID of the VLAN.</p>
+   * The ID of the VLAN.
+   *
    * @public
    */
   vlan: number | undefined;
 
   /**
-   * <p>The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum, an error is returned. Use <code>asnLong</code> instead.</p>
-   *          <ul>
-   *             <li>
-   *                <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
-   *             </li>
-   *             <li>
-   *                <p>If you provide a value in the same API call for both <code>asn</code>
-   *                             and <code>asnLong</code>, the API will only accept the value for
-   *                                 <code>asnLong</code>.
-   *               </p>
-   *             </li>
-   *             <li>
-   *                <p>If you enter a 4-byte ASN for the <code>asn</code> parameter, the API returns an error.
-   *               </p>
-   *             </li>
-   *             <li>
-   *                <p>If you are using a 2-byte ASN, the API response will include the
-   * 2-byte value for both the <code>asn</code> and <code>asnLong</code> fields.</p>
-   *             </li>
-   *          </ul>
-   *          <p>The valid values are 1-2147483646.</p>
+   * The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum, an error is returned. Use `asnLong` instead.
+   *
+   * - You can use `asnLong` or `asn`, but not both. We recommend using `asnLong` as it supports a greater pool of numbers.
+   * - If you provide a value in the same API call for both `asn` and `asnLong`, the API will only accept the value for `asnLong`.
+   * - If you enter a 4-byte ASN for the `asn` parameter, the API returns an error.
+   * - If you are using a 2-byte ASN, the API response will include the 2-byte value for both the `asn` and `asnLong` fields.
+   *
+   * The valid values are 1-2147483646.
+   *
    * @public
    */
   asn?: number | undefined;
 
   /**
-   * <p>The ASN when allocating a new public virtual interface. The valid range is from 1 to 4294967294 for BGP configuration.</p>
-   *          <p>Note the following limitations when using <code>asnLong</code>:</p>
-   *          <ul>
-   *             <li>
-   *                <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>asnLong</code> accepts any valid ASN value, regardless if it's 2-byte or 4-byte.
-   *               </p>
-   *             </li>
-   *             <li>
-   *                <p>When using a 4-byte <code>asnLong</code>, the API response returns <code>0</code> for the legacy <code>asn</code> attribute since 4-byte ASN values exceed the maximum supported value of 2,147,483,647.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you are using a 2-byte ASN, the API response will include the
-   * 2-byte value for both the <code>asn</code> and <code>asnLong</code> fields.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you provide a value in the same API call for both <code>asn</code>
-   *                             and <code>asnLong</code>, the API will only accept the value for
-   *                                 <code>asnLong</code>.</p>
-   *             </li>
-   *          </ul>
+   * The ASN when allocating a new public virtual interface. The valid range is from 1 to 4294967294 for BGP configuration.
+   *
+   * Note the following limitations when using `asnLong`:
+   *
+   * - You can use `asnLong` or `asn`, but not both. We recommend using `asnLong` as it supports a greater pool of numbers.
+   * - `asnLong` accepts any valid ASN value, regardless if it's 2-byte or 4-byte.
+   * - When using a 4-byte `asnLong`, the API response returns `0` for the legacy `asn` attribute since 4-byte ASN values exceed the maximum supported value of 2,147,483,647.
+   * - If you are using a 2-byte ASN, the API response will include the 2-byte value for both the `asn` and `asnLong` fields.
+   * - If you provide a value in the same API call for both `asn` and `asnLong`, the API will only accept the value for `asnLong`.
+   *
    * @public
    */
   asnLong?: number | undefined;
 
   /**
-   * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
+   * The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.
+   *
    * @public
    */
   authKey?: string | undefined;
 
   /**
-   * <p>The IP address assigned to the Amazon interface.</p>
+   * The IP address assigned to the Amazon interface.
+   *
    * @public
    */
   amazonAddress?: string | undefined;
 
   /**
-   * <p>The IP address assigned to the customer interface.</p>
+   * The IP address assigned to the customer interface.
+   *
    * @public
    */
   customerAddress?: string | undefined;
 
   /**
-   * <p>The address family for the BGP peer.</p>
+   * The address family for the BGP peer.
+   *
    * @public
    */
   addressFamily?: AddressFamily | undefined;
 
   /**
-   * <p>The routes to be advertised to the Amazon Web Services network in this Region. Applies to public virtual interfaces.</p>
+   * The routes to be advertised to the Amazon Web Services network in this Region. Applies to public virtual interfaces.
+   *
    * @public
    */
   routeFilterPrefixes?: RouteFilterPrefix[] | undefined;
 
   /**
-   * <p>The tags associated with the public virtual interface.</p>
+   * The tags associated with the public virtual interface.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p>The rate limit (bandwidth allocation) to apply to the virtual interface. The rate limit restricts the maximum bandwidth that the virtual interface can use on the parent connection.</p>
+   * The rate limit (bandwidth allocation) to apply to the virtual interface. The rate limit restricts the maximum bandwidth that the virtual interface can use on the parent connection.
+   *
    * @public
    */
   rateLimit?: string | undefined;
@@ -1333,134 +1249,121 @@ export interface NewPublicVirtualInterfaceAllocation {
  */
 export interface AllocatePublicVirtualInterfaceRequest {
   /**
-   * <p>The ID of the connection on which the public virtual interface is provisioned.</p>
+   * The ID of the connection on which the public virtual interface is provisioned.
+   *
    * @public
    */
   connectionId: string | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services account that owns the public virtual interface.</p>
+   * The ID of the Amazon Web Services account that owns the public virtual interface.
+   *
    * @public
    */
   ownerAccount: string | undefined;
 
   /**
-   * <p>Information about the public virtual interface.</p>
+   * Information about the public virtual interface.
+   *
    * @public
    */
   newPublicVirtualInterfaceAllocation: NewPublicVirtualInterfaceAllocation | undefined;
 }
 
 /**
- * <p>Information about a transit virtual interface to be provisioned on a connection.</p>
+ * Information about a transit virtual interface to be provisioned on a connection.
+ *
  * @public
  */
 export interface NewTransitVirtualInterfaceAllocation {
   /**
-   * <p>The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).</p>
+   * The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).
+   *
    * @public
    */
   virtualInterfaceName?: string | undefined;
 
   /**
-   * <p>The ID of the VLAN.</p>
+   * The ID of the VLAN.
+   *
    * @public
    */
   vlan?: number | undefined;
 
   /**
-   * <p>The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum, an error is returned. Use <code>asnLong</code> instead.</p>
-   *          <ul>
-   *             <li>
-   *                <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
-   *             </li>
-   *             <li>
-   *                <p>If you provide a value in the same API call for both <code>asn</code>
-   *                             and <code>asnLong</code>, the API will only accept the value for
-   *                                 <code>asnLong</code>.
-   *               </p>
-   *             </li>
-   *             <li>
-   *                <p>If you enter a 4-byte ASN for the <code>asn</code> parameter, the API returns an error.
-   *               </p>
-   *             </li>
-   *             <li>
-   *                <p>If you are using a 2-byte ASN, the API response will include the
-   * 2-byte value for both the <code>asn</code> and <code>asnLong</code> fields.</p>
-   *             </li>
-   *          </ul>
-   *          <p>The valid values are 1-2147483646.</p>
+   * The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum, an error is returned. Use `asnLong` instead.
+   *
+   * - You can use `asnLong` or `asn`, but not both. We recommend using `asnLong` as it supports a greater pool of numbers.
+   * - If you provide a value in the same API call for both `asn` and `asnLong`, the API will only accept the value for `asnLong`.
+   * - If you enter a 4-byte ASN for the `asn` parameter, the API returns an error.
+   * - If you are using a 2-byte ASN, the API response will include the 2-byte value for both the `asn` and `asnLong` fields.
+   *
+   * The valid values are 1-2147483646.
+   *
    * @public
    */
   asn?: number | undefined;
 
   /**
-   * <p>The ASN when allocating a new transit virtual interface. The valid range is from 1 to 4294967294 for BGP configuration.</p>
-   *          <p>Note the following limitations when using <code>asnLong</code>:</p>
-   *          <ul>
-   *             <li>
-   *                <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>asnLong</code> accepts any valid ASN value, regardless if it's 2-byte or 4-byte.
-   *               </p>
-   *             </li>
-   *             <li>
-   *                <p>When using a 4-byte <code>asnLong</code>, the API response returns <code>0</code> for the legacy <code>asn</code> attribute since 4-byte ASN values exceed the maximum supported value of 2,147,483,647.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you are using a 2-byte ASN, the API response will include the
-   * 2-byte value for both the <code>asn</code> and <code>asnLong</code> fields.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you provide a value in the same API call for both <code>asn</code>
-   *                             and <code>asnLong</code>, the API will only accept the value for
-   *                                 <code>asnLong</code>.</p>
-   *             </li>
-   *          </ul>
+   * The ASN when allocating a new transit virtual interface. The valid range is from 1 to 4294967294 for BGP configuration.
+   *
+   * Note the following limitations when using `asnLong`:
+   *
+   * - You can use `asnLong` or `asn`, but not both. We recommend using `asnLong` as it supports a greater pool of numbers.
+   * - `asnLong` accepts any valid ASN value, regardless if it's 2-byte or 4-byte.
+   * - When using a 4-byte `asnLong`, the API response returns `0` for the legacy `asn` attribute since 4-byte ASN values exceed the maximum supported value of 2,147,483,647.
+   * - If you are using a 2-byte ASN, the API response will include the 2-byte value for both the `asn` and `asnLong` fields.
+   * - If you provide a value in the same API call for both `asn` and `asnLong`, the API will only accept the value for `asnLong`.
+   *
    * @public
    */
   asnLong?: number | undefined;
 
   /**
-   * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 8500. The default value is 1500 </p>
+   * The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 8500. The default value is 1500
+   *
    * @public
    */
   mtu?: number | undefined;
 
   /**
-   * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
+   * The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.
+   *
    * @public
    */
   authKey?: string | undefined;
 
   /**
-   * <p>The IP address assigned to the Amazon interface.</p>
+   * The IP address assigned to the Amazon interface.
+   *
    * @public
    */
   amazonAddress?: string | undefined;
 
   /**
-   * <p>The IP address assigned to the customer interface.</p>
+   * The IP address assigned to the customer interface.
+   *
    * @public
    */
   customerAddress?: string | undefined;
 
   /**
-   * <p>The address family for the BGP peer.</p>
+   * The address family for the BGP peer.
+   *
    * @public
    */
   addressFamily?: AddressFamily | undefined;
 
   /**
-   * <p>The tags associated with the transitive virtual interface.</p>
+   * The tags associated with the transitive virtual interface.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p>The rate limit (bandwidth allocation) to apply to the virtual interface. The rate limit restricts the maximum bandwidth that the virtual interface can use on the parent connection.</p>
+   * The rate limit (bandwidth allocation) to apply to the virtual interface. The rate limit restricts the maximum bandwidth that the virtual interface can use on the parent connection.
+   *
    * @public
    */
   rateLimit?: string | undefined;
@@ -1471,19 +1374,22 @@ export interface NewTransitVirtualInterfaceAllocation {
  */
 export interface AllocateTransitVirtualInterfaceRequest {
   /**
-   * <p>The ID of the connection on which the transit virtual interface is provisioned.</p>
+   * The ID of the connection on which the transit virtual interface is provisioned.
+   *
    * @public
    */
   connectionId: string | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services account that owns the transit virtual interface.</p>
+   * The ID of the Amazon Web Services account that owns the transit virtual interface.
+   *
    * @public
    */
   ownerAccount: string | undefined;
 
   /**
-   * <p>Information about the transit virtual interface.</p>
+   * Information about the transit virtual interface.
+   *
    * @public
    */
   newTransitVirtualInterfaceAllocation: NewTransitVirtualInterfaceAllocation | undefined;
@@ -1494,26 +1400,31 @@ export interface AllocateTransitVirtualInterfaceRequest {
  */
 export interface AllocateTransitVirtualInterfaceResult {
   /**
-   * <p>Information about the transit virtual interface.</p>
+   * Information about the transit virtual interface.
+   *
    * @public
    */
   virtualInterface?: VirtualInterface | undefined;
 }
 
 /**
- * <p>A segment of an autonomous system (AS) path.</p>
+ * A segment of an autonomous system (AS) path.
+ *
  * @public
  */
 export interface AsPathSegment {
   /**
-   * <p>The type of the AS path segment.</p>
-   *          <p>The valid values are <code>seq</code> (an ordered <code>AS_SEQUENCE</code>) and <code>set</code> (an unordered <code>AS_SET</code>).</p>
+   * The type of the AS path segment.
+   *
+   * The valid values are `seq` (an ordered `AS_SEQUENCE`) and `set` (an unordered `AS_SET`).
+   *
    * @public
    */
   pathType?: AsPathType | undefined;
 
   /**
-   * <p>The autonomous system (AS) numbers in the segment.</p>
+   * The autonomous system (AS) numbers in the segment.
+   *
    * @public
    */
   path?: number[] | undefined;
@@ -1524,45 +1435,50 @@ export interface AsPathSegment {
  */
 export interface AssociateConnectionsToResiliencyGroupRequest {
   /**
-   * <p>The IDs or ARNs of the connections to associate with the resiliency group.</p>
+   * The IDs or ARNs of the connections to associate with the resiliency group.
+   *
    * @public
    */
   connectionIdentifiers: string[] | undefined;
 
   /**
-   * <p>The ID of the resiliency group.</p>
+   * The ID of the resiliency group.
+   *
    * @public
    */
   resiliencyGroupId: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *       request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 }
 
 /**
- * <p>Information about an association between a connection and a resiliency group.</p>
+ * Information about an association between a connection and a resiliency group.
+ *
  * @public
  */
 export interface ResiliencyGroupAssociation {
   /**
-   * <p>The ID of the resiliency group.</p>
+   * The ID of the resiliency group.
+   *
    * @public
    */
   resiliencyGroupId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the associated connection.</p>
+   * The Amazon Resource Name (ARN) of the associated connection.
+   *
    * @public
    */
   connectionArn?: string | undefined;
 
   /**
-   * <p>The state of the association. The valid values are <code>associating</code>,
-   *       <code>associated</code>, <code>disassociating</code>, and <code>disassociated</code>.</p>
+   * The state of the association. The valid values are `associating`, `associated`, `disassociating`, and `disassociated`.
+   *
    * @public
    */
   state?: ResiliencyGroupAssociationState | undefined;
@@ -1573,7 +1489,8 @@ export interface ResiliencyGroupAssociation {
  */
 export interface AssociateConnectionsToResiliencyGroupResult {
   /**
-   * <p>The connection associations for the resiliency group.</p>
+   * The connection associations for the resiliency group.
+   *
    * @public
    */
   resiliencyGroupAssociations?: ResiliencyGroupAssociation[] | undefined;
@@ -1584,13 +1501,15 @@ export interface AssociateConnectionsToResiliencyGroupResult {
  */
 export interface AssociateConnectionWithLagRequest {
   /**
-   * <p>The ID of the connection.</p>
+   * The ID of the connection.
+   *
    * @public
    */
   connectionId: string | undefined;
 
   /**
-   * <p>The ID of the LAG with which to associate the connection.</p>
+   * The ID of the LAG with which to associate the connection.
+   *
    * @public
    */
   lagId: string | undefined;
@@ -1601,13 +1520,15 @@ export interface AssociateConnectionWithLagRequest {
  */
 export interface AssociateHostedConnectionRequest {
   /**
-   * <p>The ID of the hosted connection.</p>
+   * The ID of the hosted connection.
+   *
    * @public
    */
   connectionId: string | undefined;
 
   /**
-   * <p>The ID of the interconnect or the LAG.</p>
+   * The ID of the interconnect or the LAG.
+   *
    * @public
    */
   parentConnectionId: string | undefined;
@@ -1618,34 +1539,47 @@ export interface AssociateHostedConnectionRequest {
  */
 export interface AssociateMacSecKeyRequest {
   /**
-   * <p>The ID of the dedicated connection (dxcon-xxxx), interconnect (dxcon-xxxx), or LAG (dxlag-xxxx).</p>
-   *          <p>You can use <a>DescribeConnections</a>, <a>DescribeInterconnects</a>, or <a>DescribeLags</a> to retrieve connection ID.</p>
+   * The ID of the dedicated connection (dxcon-xxxx), interconnect (dxcon-xxxx), or LAG (dxlag-xxxx).
+   *
+   * You can use DescribeConnections, DescribeInterconnects, or DescribeLags to retrieve connection ID.
+   *
    * @public
    */
   connectionId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the connection.</p>
-   *          <p>You can use <a>DescribeConnections</a> or <a>DescribeLags</a> to retrieve the MAC Security (MACsec) secret key.</p>
-   *          <p>If you use this request parameter, you do not use the <code>ckn</code> and <code>cak</code> request parameters.</p>
+   * The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the connection.
+   *
+   * You can use DescribeConnections or DescribeLags to retrieve the MAC Security (MACsec) secret key.
+   *
+   * If you use this request parameter, you do not use the `ckn` and `cak` request parameters.
+   *
    * @public
    */
   secretARN?: string | undefined;
 
   /**
-   * <p>The MAC Security (MACsec) CKN to associate with the connection.</p>
-   *          <p>You can create the CKN/CAK pair using an industry standard tool.</p>
-   *          <p> The valid values are 64 hexadecimal characters (0-9, A-E).</p>
-   *          <p>If you use this request parameter, you must use the <code>cak</code> request parameter and not use the <code>secretARN</code> request parameter.</p>
+   * The MAC Security (MACsec) CKN to associate with the connection.
+   *
+   * You can create the CKN/CAK pair using an industry standard tool.
+   *
+   * The valid values are 64 hexadecimal characters (0-9, A-E).
+   *
+   * If you use this request parameter, you must use the `cak` request parameter and not use the `secretARN` request parameter.
+   *
    * @public
    */
   ckn?: string | undefined;
 
   /**
-   * <p>The MAC Security (MACsec) CAK to associate with the connection.</p>
-   *          <p>You can create the CKN/CAK pair using an industry standard tool.</p>
-   *          <p> The valid values are 64 hexadecimal characters (0-9, A-E).</p>
-   *          <p>If you use this request parameter, you must use the <code>ckn</code> request parameter and not use the <code>secretARN</code> request parameter.</p>
+   * The MAC Security (MACsec) CAK to associate with the connection.
+   *
+   * You can create the CKN/CAK pair using an industry standard tool.
+   *
+   * The valid values are 64 hexadecimal characters (0-9, A-E).
+   *
+   * If you use this request parameter, you must use the `ckn` request parameter and not use the `secretARN` request parameter.
+   *
    * @public
    */
   cak?: string | undefined;
@@ -1656,13 +1590,15 @@ export interface AssociateMacSecKeyRequest {
  */
 export interface AssociateMacSecKeyResponse {
   /**
-   * <p>The ID of the dedicated connection (dxcon-xxxx), interconnect (dxcon-xxxx), or LAG (dxlag-xxxx).</p>
+   * The ID of the dedicated connection (dxcon-xxxx), interconnect (dxcon-xxxx), or LAG (dxlag-xxxx).
+   *
    * @public
    */
   connectionId?: string | undefined;
 
   /**
-   * <p>The MAC Security (MACsec) security keys associated with the connection.</p>
+   * The MAC Security (MACsec) security keys associated with the connection.
+   *
    * @public
    */
   macSecKeys?: MacSecKey[] | undefined;
@@ -1673,37 +1609,43 @@ export interface AssociateMacSecKeyResponse {
  */
 export interface AssociateVirtualInterfaceRequest {
   /**
-   * <p>The ID of the virtual interface.</p>
+   * The ID of the virtual interface.
+   *
    * @public
    */
   virtualInterfaceId: string | undefined;
 
   /**
-   * <p>The ID of the LAG or connection.</p>
+   * The ID of the LAG or connection.
+   *
    * @public
    */
   connectionId: string | undefined;
 }
 
 /**
- * <p>Information about a billing mode available at an Direct Connect location.</p>
+ * Information about a billing mode available at an Direct Connect location.
+ *
  * @public
  */
 export interface AvailableBillingMode {
   /**
-   * <p>The billing mode.</p>
+   * The billing mode.
+   *
    * @public
    */
   billingMode?: BillingMode | undefined;
 
   /**
-   * <p>The port speeds available for the billing mode.</p>
+   * The port speeds available for the billing mode.
+   *
    * @public
    */
   availablePortSpeeds?: string[] | undefined;
 
   /**
-   * <p>The Amazon Web Services Regions included with the billing mode.</p>
+   * The Amazon Web Services Regions included with the billing mode.
+   *
    * @public
    */
   includedRegions?: string[] | undefined;
@@ -1714,7 +1656,8 @@ export interface AvailableBillingMode {
  */
 export interface ConfirmConnectionRequest {
   /**
-   * <p>The ID of the hosted connection.</p>
+   * The ID of the hosted connection.
+   *
    * @public
    */
   connectionId: string | undefined;
@@ -1725,45 +1668,18 @@ export interface ConfirmConnectionRequest {
  */
 export interface ConfirmConnectionResponse {
   /**
-   * <p>The state of the connection. The following are the possible values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ordering</code>: The initial state of a hosted connection provisioned on an interconnect. The connection stays in the ordering state until the owner of the hosted connection confirms or declines the connection order.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>requested</code>: The initial state of a standard connection. The connection stays in the requested state until the Letter of Authorization (LOA) is sent to the customer.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>pending</code>: The connection has been approved and is being initialized.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>available</code>: The network link is up and the connection is ready for use.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>down</code>: The network link is down.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>deleting</code>: The connection is being deleted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>deleted</code>: The connection has been deleted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>rejected</code>: A hosted connection in the <code>ordering</code> state enters the <code>rejected</code> state if it is deleted by the customer.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>unknown</code>: The state of the connection is not available.</p>
-   *             </li>
-   *          </ul>
+   * The state of the connection. The following are the possible values:
+   *
+   * - `ordering`: The initial state of a hosted connection provisioned on an interconnect. The connection stays in the ordering state until the owner of the hosted connection confirms or declines the connection order.
+   * - `requested`: The initial state of a standard connection. The connection stays in the requested state until the Letter of Authorization (LOA) is sent to the customer.
+   * - `pending`: The connection has been approved and is being initialized.
+   * - `available`: The network link is up and the connection is ready for use.
+   * - `down`: The network link is down.
+   * - `deleting`: The connection is being deleted.
+   * - `deleted`: The connection has been deleted.
+   * - `rejected`: A hosted connection in the `ordering` state enters the `rejected` state if it is deleted by the customer.
+   * - `unknown`: The state of the connection is not available.
+   *
    * @public
    */
   connectionState?: ConnectionState | undefined;
@@ -1774,11 +1690,8 @@ export interface ConfirmConnectionResponse {
  */
 export interface ConfirmCustomerAgreementRequest {
   /**
-   * <p>
+   * The name of the customer agreement.
    *
-   *       The name of the customer agreement.
-   *
-   *     </p>
    * @public
    */
   agreementName?: string | undefined;
@@ -1789,9 +1702,8 @@ export interface ConfirmCustomerAgreementRequest {
  */
 export interface ConfirmCustomerAgreementResponse {
   /**
-   * <p>
-   *       The status of the customer agreement when the connection was created. This will be either <code>signed</code> or <code>unsigned</code>.
-   *     </p>
+   * The status of the customer agreement when the connection was created. This will be either `signed` or `unsigned`.
+   *
    * @public
    */
   status?: string | undefined;
@@ -1802,19 +1714,22 @@ export interface ConfirmCustomerAgreementResponse {
  */
 export interface ConfirmPrivateVirtualInterfaceRequest {
   /**
-   * <p>The ID of the virtual interface.</p>
+   * The ID of the virtual interface.
+   *
    * @public
    */
   virtualInterfaceId: string | undefined;
 
   /**
-   * <p>The ID of the virtual private gateway.</p>
+   * The ID of the virtual private gateway.
+   *
    * @public
    */
   virtualGatewayId?: string | undefined;
 
   /**
-   * <p>The ID of the Direct Connect gateway.</p>
+   * The ID of the Direct Connect gateway.
+   *
    * @public
    */
   directConnectGatewayId?: string | undefined;
@@ -1825,49 +1740,19 @@ export interface ConfirmPrivateVirtualInterfaceRequest {
  */
 export interface ConfirmPrivateVirtualInterfaceResponse {
   /**
-   * <p>The state of the virtual interface. The following are the possible values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>confirming</code>: The creation of the virtual interface is pending confirmation from the virtual interface owner. If the owner of the virtual interface is different from the owner of the connection on which it is provisioned, then the virtual interface will remain in this state until it is confirmed by the virtual interface owner.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>verifying</code>: This state only applies to public virtual interfaces. Each public virtual interface needs validation before the virtual interface can be created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>pending</code>: A virtual interface is in this state from the time that it is created until the virtual interface is ready to forward traffic.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>available</code>: A virtual interface that is able to forward traffic.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>down</code>: A virtual interface that is BGP down.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>testing</code>: A virtual interface is in this state immediately after calling <a>StartBgpFailoverTest</a> and remains in this state during the duration of the test.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>deleting</code>: A virtual interface is in this state immediately after calling <a>DeleteVirtualInterface</a> until it can no longer forward traffic.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>deleted</code>: A virtual interface that cannot forward traffic.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>rejected</code>: The virtual interface owner has declined creation of the virtual interface. If a virtual interface in the <code>Confirming</code> state is deleted by the virtual interface owner, the virtual interface enters the <code>Rejected</code> state.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>unknown</code>: The state of the virtual interface is not available.</p>
-   *             </li>
-   *          </ul>
+   * The state of the virtual interface. The following are the possible values:
+   *
+   * - `confirming`: The creation of the virtual interface is pending confirmation from the virtual interface owner. If the owner of the virtual interface is different from the owner of the connection on which it is provisioned, then the virtual interface will remain in this state until it is confirmed by the virtual interface owner.
+   * - `verifying`: This state only applies to public virtual interfaces. Each public virtual interface needs validation before the virtual interface can be created.
+   * - `pending`: A virtual interface is in this state from the time that it is created until the virtual interface is ready to forward traffic.
+   * - `available`: A virtual interface that is able to forward traffic.
+   * - `down`: A virtual interface that is BGP down.
+   * - `testing`: A virtual interface is in this state immediately after calling StartBgpFailoverTest and remains in this state during the duration of the test.
+   * - `deleting`: A virtual interface is in this state immediately after calling DeleteVirtualInterface until it can no longer forward traffic.
+   * - `deleted`: A virtual interface that cannot forward traffic.
+   * - `rejected`: The virtual interface owner has declined creation of the virtual interface. If a virtual interface in the `Confirming` state is deleted by the virtual interface owner, the virtual interface enters the `Rejected` state.
+   * - `unknown`: The state of the virtual interface is not available.
+   *
    * @public
    */
   virtualInterfaceState?: VirtualInterfaceState | undefined;
@@ -1878,7 +1763,8 @@ export interface ConfirmPrivateVirtualInterfaceResponse {
  */
 export interface ConfirmPublicVirtualInterfaceRequest {
   /**
-   * <p>The ID of the virtual interface.</p>
+   * The ID of the virtual interface.
+   *
    * @public
    */
   virtualInterfaceId: string | undefined;
@@ -1889,49 +1775,19 @@ export interface ConfirmPublicVirtualInterfaceRequest {
  */
 export interface ConfirmPublicVirtualInterfaceResponse {
   /**
-   * <p>The state of the virtual interface. The following are the possible values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>confirming</code>: The creation of the virtual interface is pending confirmation from the virtual interface owner. If the owner of the virtual interface is different from the owner of the connection on which it is provisioned, then the virtual interface will remain in this state until it is confirmed by the virtual interface owner.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>verifying</code>: This state only applies to public virtual interfaces. Each public virtual interface needs validation before the virtual interface can be created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>pending</code>: A virtual interface is in this state from the time that it is created until the virtual interface is ready to forward traffic.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>available</code>: A virtual interface that is able to forward traffic.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>down</code>: A virtual interface that is BGP down.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>testing</code>: A virtual interface is in this state immediately after calling <a>StartBgpFailoverTest</a> and remains in this state during the duration of the test.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>deleting</code>: A virtual interface is in this state immediately after calling <a>DeleteVirtualInterface</a> until it can no longer forward traffic.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>deleted</code>: A virtual interface that cannot forward traffic.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>rejected</code>: The virtual interface owner has declined creation of the virtual interface. If a virtual interface in the <code>Confirming</code> state is deleted by the virtual interface owner, the virtual interface enters the <code>Rejected</code> state.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>unknown</code>: The state of the virtual interface is not available.</p>
-   *             </li>
-   *          </ul>
+   * The state of the virtual interface. The following are the possible values:
+   *
+   * - `confirming`: The creation of the virtual interface is pending confirmation from the virtual interface owner. If the owner of the virtual interface is different from the owner of the connection on which it is provisioned, then the virtual interface will remain in this state until it is confirmed by the virtual interface owner.
+   * - `verifying`: This state only applies to public virtual interfaces. Each public virtual interface needs validation before the virtual interface can be created.
+   * - `pending`: A virtual interface is in this state from the time that it is created until the virtual interface is ready to forward traffic.
+   * - `available`: A virtual interface that is able to forward traffic.
+   * - `down`: A virtual interface that is BGP down.
+   * - `testing`: A virtual interface is in this state immediately after calling StartBgpFailoverTest and remains in this state during the duration of the test.
+   * - `deleting`: A virtual interface is in this state immediately after calling DeleteVirtualInterface until it can no longer forward traffic.
+   * - `deleted`: A virtual interface that cannot forward traffic.
+   * - `rejected`: The virtual interface owner has declined creation of the virtual interface. If a virtual interface in the `Confirming` state is deleted by the virtual interface owner, the virtual interface enters the `Rejected` state.
+   * - `unknown`: The state of the virtual interface is not available.
+   *
    * @public
    */
   virtualInterfaceState?: VirtualInterfaceState | undefined;
@@ -1942,13 +1798,15 @@ export interface ConfirmPublicVirtualInterfaceResponse {
  */
 export interface ConfirmTransitVirtualInterfaceRequest {
   /**
-   * <p>The ID of the virtual interface.</p>
+   * The ID of the virtual interface.
+   *
    * @public
    */
   virtualInterfaceId: string | undefined;
 
   /**
-   * <p>The ID of the Direct Connect gateway.</p>
+   * The ID of the Direct Connect gateway.
+   *
    * @public
    */
   directConnectGatewayId: string | undefined;
@@ -1959,49 +1817,19 @@ export interface ConfirmTransitVirtualInterfaceRequest {
  */
 export interface ConfirmTransitVirtualInterfaceResponse {
   /**
-   * <p>The state of the virtual interface. The following are the possible values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>confirming</code>: The creation of the virtual interface is pending confirmation from the virtual interface owner. If the owner of the virtual interface is different from the owner of the connection on which it is provisioned, then the virtual interface will remain in this state until it is confirmed by the virtual interface owner.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>verifying</code>: This state only applies to public virtual interfaces. Each public virtual interface needs validation before the virtual interface can be created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>pending</code>: A virtual interface is in this state from the time that it is created until the virtual interface is ready to forward traffic.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>available</code>: A virtual interface that is able to forward traffic.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>down</code>: A virtual interface that is BGP down.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>testing</code>: A virtual interface is in this state immediately after calling <a>StartBgpFailoverTest</a> and remains in this state during the duration of the test.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>deleting</code>: A virtual interface is in this state immediately after calling <a>DeleteVirtualInterface</a> until it can no longer forward traffic.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>deleted</code>: A virtual interface that cannot forward traffic.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>rejected</code>: The virtual interface owner has declined creation of the virtual interface. If a virtual interface in the <code>Confirming</code> state is deleted by the virtual interface owner, the virtual interface enters the <code>Rejected</code> state.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>unknown</code>: The state of the virtual interface is not available.</p>
-   *             </li>
-   *          </ul>
+   * The state of the virtual interface. The following are the possible values:
+   *
+   * - `confirming`: The creation of the virtual interface is pending confirmation from the virtual interface owner. If the owner of the virtual interface is different from the owner of the connection on which it is provisioned, then the virtual interface will remain in this state until it is confirmed by the virtual interface owner.
+   * - `verifying`: This state only applies to public virtual interfaces. Each public virtual interface needs validation before the virtual interface can be created.
+   * - `pending`: A virtual interface is in this state from the time that it is created until the virtual interface is ready to forward traffic.
+   * - `available`: A virtual interface that is able to forward traffic.
+   * - `down`: A virtual interface that is BGP down.
+   * - `testing`: A virtual interface is in this state immediately after calling StartBgpFailoverTest and remains in this state during the duration of the test.
+   * - `deleting`: A virtual interface is in this state immediately after calling DeleteVirtualInterface until it can no longer forward traffic.
+   * - `deleted`: A virtual interface that cannot forward traffic.
+   * - `rejected`: The virtual interface owner has declined creation of the virtual interface. If a virtual interface in the `Confirming` state is deleted by the virtual interface owner, the virtual interface enters the `Rejected` state.
+   * - `unknown`: The state of the virtual interface is not available.
+   *
    * @public
    */
   virtualInterfaceState?: VirtualInterfaceState | undefined;
@@ -2012,55 +1840,64 @@ export interface ConfirmTransitVirtualInterfaceResponse {
  */
 export interface Connections {
   /**
-   * <p>The connections.</p>
+   * The connections.
+   *
    * @public
    */
   connections?: Connection[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * The token to use to retrieve the next page of results. This value is `null` when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Information about a new BGP peer.</p>
+ * Information about a new BGP peer.
+ *
  * @public
  */
 export interface NewBGPPeer {
   /**
-   * <p>The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum, an error is returned. Use <code>asnLong</code> instead.</p>
+   * The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum, an error is returned. Use `asnLong` instead.
+   *
    * @public
    */
   asn?: number | undefined;
 
   /**
-   * <p>The long ASN for a new BGP peer.  The valid range is  from 1 to 4294967294.</p>
+   * The long ASN for a new BGP peer. The valid range is from 1 to 4294967294.
+   *
    * @public
    */
   asnLong?: number | undefined;
 
   /**
-   * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
+   * The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.
+   *
    * @public
    */
   authKey?: string | undefined;
 
   /**
-   * <p>The address family for the BGP peer.</p>
+   * The address family for the BGP peer.
+   *
    * @public
    */
   addressFamily?: AddressFamily | undefined;
 
   /**
-   * <p>The IP address assigned to the Amazon interface.</p>
+   * The IP address assigned to the Amazon interface.
+   *
    * @public
    */
   amazonAddress?: string | undefined;
 
   /**
-   * <p>The IP address assigned to the customer interface.</p>
+   * The IP address assigned to the customer interface.
+   *
    * @public
    */
   customerAddress?: string | undefined;
@@ -2071,13 +1908,15 @@ export interface NewBGPPeer {
  */
 export interface CreateBGPPeerRequest {
   /**
-   * <p>The ID of the virtual interface.</p>
+   * The ID of the virtual interface.
+   *
    * @public
    */
   virtualInterfaceId?: string | undefined;
 
   /**
-   * <p>Information about the BGP peer.</p>
+   * Information about the BGP peer.
+   *
    * @public
    */
   newBGPPeer?: NewBGPPeer | undefined;
@@ -2088,7 +1927,8 @@ export interface CreateBGPPeerRequest {
  */
 export interface CreateBGPPeerResponse {
   /**
-   * <p>The virtual interface.</p>
+   * The virtual interface.
+   *
    * @public
    */
   virtualInterface?: VirtualInterface | undefined;
@@ -2099,50 +1939,59 @@ export interface CreateBGPPeerResponse {
  */
 export interface CreateConnectionRequest {
   /**
-   * <p>The location of the connection.</p>
+   * The location of the connection.
+   *
    * @public
    */
   location: string | undefined;
 
   /**
-   * <p>The bandwidth of the connection.</p>
+   * The bandwidth of the connection.
+   *
    * @public
    */
   bandwidth: string | undefined;
 
   /**
-   * <p>The name of the connection.</p>
+   * The name of the connection.
+   *
    * @public
    */
   connectionName: string | undefined;
 
   /**
-   * <p>The ID of the LAG.</p>
+   * The ID of the LAG.
+   *
    * @public
    */
   lagId?: string | undefined;
 
   /**
-   * <p>The tags to associate with the lag.</p>
+   * The tags to associate with the lag.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p>The name of the service provider associated with the requested connection.</p>
+   * The name of the service provider associated with the requested connection.
+   *
    * @public
    */
   providerName?: string | undefined;
 
   /**
-   * <p>Indicates whether you want the connection to support MAC Security (MACsec).</p>
-   *          <p>MAC Security (MACsec) is unavailable on hosted connections. For information about MAC Security (MACsec) prerequisites, see  <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/MACSec.html">MAC Security in Direct Connect</a> in the <i>Direct Connect User Guide</i>.</p>
+   * Indicates whether you want the connection to support MAC Security (MACsec).
+   *
+   * MAC Security (MACsec) is unavailable on hosted connections. For information about MAC Security (MACsec) prerequisites, see [MAC Security in Direct Connect](https://docs.aws.amazon.com/directconnect/latest/UserGuide/MACSec.html) in the *Direct Connect User Guide*.
+   *
    * @public
    */
   requestMACSec?: boolean | undefined;
 
   /**
-   * <p>The billing mode for the connection.</p>
+   * The billing mode for the connection.
+   *
    * @public
    */
   billingMode?: RequestBillingMode | undefined;
@@ -2153,93 +2002,90 @@ export interface CreateConnectionRequest {
  */
 export interface CreateDirectConnectGatewayRequest {
   /**
-   * <p>The name of the Direct Connect gateway.</p>
+   * The name of the Direct Connect gateway.
+   *
    * @public
    */
   directConnectGatewayName: string | undefined;
 
   /**
-   * <p>The key-value pair tags associated with the request.</p>
+   * The key-value pair tags associated with the request.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p>The autonomous system number (ASN) for Border Gateway Protocol (BGP) to be configured
-   *       on the Amazon side of the connection. The ASN must be in the private range of 64,512 to
-   *       65,534 or 4,200,000,000 to 4,294,967,294. The default is 64512.</p>
+   * The autonomous system number (ASN) for Border Gateway Protocol (BGP) to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294. The default is 64512.
+   *
    * @public
    */
   amazonSideAsn?: number | undefined;
 }
 
 /**
- * <p>Information about a Direct Connect gateway, which enables you to connect virtual interfaces and virtual private gateway or transit gateways.</p>
+ * Information about a Direct Connect gateway, which enables you to connect virtual interfaces and virtual private gateway or transit gateways.
+ *
  * @public
  */
 export interface DirectConnectGateway {
   /**
-   * <p>The ID of the Direct Connect gateway.</p>
+   * The ID of the Direct Connect gateway.
+   *
    * @public
    */
   directConnectGatewayId?: string | undefined;
 
   /**
-   * <p>The name of the Direct Connect gateway.</p>
+   * The name of the Direct Connect gateway.
+   *
    * @public
    */
   directConnectGatewayName?: string | undefined;
 
   /**
-   * <p>The autonomous system number (AS) for the Amazon side of the connection.</p>
+   * The autonomous system number (AS) for the Amazon side of the connection.
+   *
    * @public
    */
   amazonSideAsn?: number | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services account that owns the Direct Connect gateway.</p>
+   * The ID of the Amazon Web Services account that owns the Direct Connect gateway.
+   *
    * @public
    */
   ownerAccount?: string | undefined;
 
   /**
-   * <p>The state of the Direct Connect gateway. The following are the possible values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>pending</code>: The initial state after calling <a>CreateDirectConnectGateway</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>available</code>: The Direct Connect gateway is ready for use.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>deleting</code>: The initial state after calling <a>DeleteDirectConnectGateway</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>deleted</code>: The Direct Connect gateway is deleted and cannot pass traffic.</p>
-   *             </li>
-   *          </ul>
+   * The state of the Direct Connect gateway. The following are the possible values:
+   *
+   * - `pending`: The initial state after calling CreateDirectConnectGateway.
+   * - `available`: The Direct Connect gateway is ready for use.
+   * - `deleting`: The initial state after calling DeleteDirectConnectGateway.
+   * - `deleted`: The Direct Connect gateway is deleted and cannot pass traffic.
+   *
    * @public
    */
   directConnectGatewayState?: DirectConnectGatewayState | undefined;
 
   /**
-   * <p>The error message if the state of an object failed to advance.</p>
+   * The error message if the state of an object failed to advance.
+   *
    * @public
    */
   stateChangeError?: string | undefined;
 
   /**
-   * <p>The total number of inbound route prefixes allocated to the attachments on the Direct Connect gateway. The count combines the IPv4 and IPv6 address families.</p>
+   * The total number of inbound route prefixes allocated to the attachments on the Direct Connect gateway. The count combines the IPv4 and IPv6 address families.
+   *
    * @public
    */
   totalPrefixPoolAllocations?: number | undefined;
 
   /**
-   * <p>Information about a tag.</p>
+   * Information about a tag.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
@@ -2250,7 +2096,8 @@ export interface DirectConnectGateway {
  */
 export interface CreateDirectConnectGatewayResult {
   /**
-   * <p>The Direct Connect gateway.</p>
+   * The Direct Connect gateway.
+   *
    * @public
    */
   directConnectGateway?: DirectConnectGateway | undefined;
@@ -2261,27 +2108,33 @@ export interface CreateDirectConnectGatewayResult {
  */
 export interface CreateDirectConnectGatewayAssociationRequest {
   /**
-   * <p>The ID of the Direct Connect gateway.</p>
+   * The ID of the Direct Connect gateway.
+   *
    * @public
    */
   directConnectGatewayId: string | undefined;
 
   /**
-   * <p>The ID of the virtual private gateway or transit gateway.</p>
+   * The ID of the virtual private gateway or transit gateway.
+   *
    * @public
    */
   gatewayId?: string | undefined;
 
   /**
-   * <p>The Amazon VPC prefixes to advertise to the Direct Connect gateway</p>
-   *          <p>This parameter is required when you create an association to a transit gateway.</p>
-   *          <p>For information about how to set the prefixes, see <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes">Allowed Prefixes</a> in the <i>Direct Connect User Guide</i>.</p>
+   * The Amazon VPC prefixes to advertise to the Direct Connect gateway
+   *
+   * This parameter is required when you create an association to a transit gateway.
+   *
+   * For information about how to set the prefixes, see [Allowed Prefixes](https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes) in the *Direct Connect User Guide*.
+   *
    * @public
    */
   addAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[] | undefined;
 
   /**
-   * <p>The ID of the virtual private gateway.</p>
+   * The ID of the virtual private gateway.
+   *
    * @public
    */
   virtualGatewayId?: string | undefined;
@@ -2292,7 +2145,8 @@ export interface CreateDirectConnectGatewayAssociationRequest {
  */
 export interface CreateDirectConnectGatewayAssociationResult {
   /**
-   * <p>The association to be created.</p>
+   * The association to be created.
+   *
    * @public
    */
   directConnectGatewayAssociation?: DirectConnectGatewayAssociation | undefined;
@@ -2303,93 +2157,96 @@ export interface CreateDirectConnectGatewayAssociationResult {
  */
 export interface CreateDirectConnectGatewayAssociationProposalRequest {
   /**
-   * <p>The ID of the Direct Connect gateway.</p>
+   * The ID of the Direct Connect gateway.
+   *
    * @public
    */
   directConnectGatewayId: string | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services account that owns the Direct Connect gateway.</p>
+   * The ID of the Amazon Web Services account that owns the Direct Connect gateway.
+   *
    * @public
    */
   directConnectGatewayOwnerAccount: string | undefined;
 
   /**
-   * <p>The ID of the virtual private gateway or transit gateway.</p>
+   * The ID of the virtual private gateway or transit gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The Amazon VPC prefixes to advertise to the Direct Connect gateway.</p>
+   * The Amazon VPC prefixes to advertise to the Direct Connect gateway.
+   *
    * @public
    */
   addAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[] | undefined;
 
   /**
-   * <p>The Amazon VPC prefixes to no longer advertise to the Direct Connect gateway.</p>
+   * The Amazon VPC prefixes to no longer advertise to the Direct Connect gateway.
+   *
    * @public
    */
   removeAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[] | undefined;
 }
 
 /**
- * <p>Information about the  proposal request to attach a virtual private gateway to a Direct Connect gateway. </p>
+ * Information about the proposal request to attach a virtual private gateway to a Direct Connect gateway.
+ *
  * @public
  */
 export interface DirectConnectGatewayAssociationProposal {
   /**
-   * <p>The ID of the association proposal.</p>
+   * The ID of the association proposal.
+   *
    * @public
    */
   proposalId?: string | undefined;
 
   /**
-   * <p>The ID of the Direct Connect gateway.</p>
+   * The ID of the Direct Connect gateway.
+   *
    * @public
    */
   directConnectGatewayId?: string | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services account that owns the Direct Connect gateway.</p>
+   * The ID of the Amazon Web Services account that owns the Direct Connect gateway.
+   *
    * @public
    */
   directConnectGatewayOwnerAccount?: string | undefined;
 
   /**
-   * <p>The state of the proposal. The following are possible values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>accepted</code>: The proposal has been accepted. The Direct Connect gateway association is available to use in this state.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>deleted</code>: The proposal has been deleted by the owner that made the proposal.  The Direct Connect gateway association cannot be used in this state.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>requested</code>: The proposal has been requested. The Direct Connect gateway association cannot be used in this state.</p>
-   *             </li>
-   *          </ul>
+   * The state of the proposal. The following are possible values:
+   *
+   * - `accepted`: The proposal has been accepted. The Direct Connect gateway association is available to use in this state.
+   * - `deleted`: The proposal has been deleted by the owner that made the proposal. The Direct Connect gateway association cannot be used in this state.
+   * - `requested`: The proposal has been requested. The Direct Connect gateway association cannot be used in this state.
+   *
    * @public
    */
   proposalState?: DirectConnectGatewayAssociationProposalState | undefined;
 
   /**
-   * <p>Information about the associated gateway.</p>
+   * Information about the associated gateway.
+   *
    * @public
    */
   associatedGateway?: AssociatedGateway | undefined;
 
   /**
-   * <p>The existing Amazon VPC prefixes advertised to the Direct Connect gateway.</p>
+   * The existing Amazon VPC prefixes advertised to the Direct Connect gateway.
+   *
    * @public
    */
   existingAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[] | undefined;
 
   /**
-   * <p>The Amazon VPC prefixes to advertise to the Direct Connect gateway.</p>
+   * The Amazon VPC prefixes to advertise to the Direct Connect gateway.
+   *
    * @public
    */
   requestedAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[] | undefined;
@@ -2400,7 +2257,8 @@ export interface DirectConnectGatewayAssociationProposal {
  */
 export interface CreateDirectConnectGatewayAssociationProposalResult {
   /**
-   * <p>Information about the Direct Connect gateway proposal.</p>
+   * Information about the Direct Connect gateway proposal.
+   *
    * @public
    */
   directConnectGatewayAssociationProposal?: DirectConnectGatewayAssociationProposal | undefined;
@@ -2411,134 +2269,127 @@ export interface CreateDirectConnectGatewayAssociationProposalResult {
  */
 export interface CreateInterconnectRequest {
   /**
-   * <p>The name of the interconnect.</p>
+   * The name of the interconnect.
+   *
    * @public
    */
   interconnectName: string | undefined;
 
   /**
-   * <p>The port bandwidth, in Gbps. The possible values are 1, 10, and 100.</p>
+   * The port bandwidth, in Gbps. The possible values are 1, 10, and 100.
+   *
    * @public
    */
   bandwidth: string | undefined;
 
   /**
-   * <p>The location of the interconnect.</p>
+   * The location of the interconnect.
+   *
    * @public
    */
   location: string | undefined;
 
   /**
-   * <p>The ID of the LAG.</p>
+   * The ID of the LAG.
+   *
    * @public
    */
   lagId?: string | undefined;
 
   /**
-   * <p>The tags to associate with the interconnect.</p>
+   * The tags to associate with the interconnect.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p>The name of the service provider associated with the interconnect.</p>
+   * The name of the service provider associated with the interconnect.
+   *
    * @public
    */
   providerName?: string | undefined;
 
   /**
-   * <p>Indicates whether you want the interconnect to support MAC Security (MACsec).</p>
+   * Indicates whether you want the interconnect to support MAC Security (MACsec).
+   *
    * @public
    */
   requestMACSec?: boolean | undefined;
 }
 
 /**
- * <p>Information about an interconnect.</p>
+ * Information about an interconnect.
+ *
  * @public
  */
 export interface Interconnect {
   /**
-   * <p>The ID of the interconnect.</p>
+   * The ID of the interconnect.
+   *
    * @public
    */
   interconnectId?: string | undefined;
 
   /**
-   * <p>The name of the interconnect.</p>
+   * The name of the interconnect.
+   *
    * @public
    */
   interconnectName?: string | undefined;
 
   /**
-   * <p>The state of the interconnect. The following are the possible values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>requested</code>: The initial state of an interconnect. The interconnect stays in the
-   *         requested state until the Letter of Authorization (LOA) is sent to the customer.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>pending</code>: The interconnect is approved, and is being initialized.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>available</code>: The network link is up, and the interconnect is ready for use.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>down</code>: The network link is down.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>deleting</code>: The interconnect is being deleted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>deleted</code>: The interconnect is deleted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>unknown</code>: The state of the interconnect is not available.</p>
-   *             </li>
-   *          </ul>
+   * The state of the interconnect. The following are the possible values:
+   *
+   * - `requested`: The initial state of an interconnect. The interconnect stays in the requested state until the Letter of Authorization (LOA) is sent to the customer.
+   * - `pending`: The interconnect is approved, and is being initialized.
+   * - `available`: The network link is up, and the interconnect is ready for use.
+   * - `down`: The network link is down.
+   * - `deleting`: The interconnect is being deleted.
+   * - `deleted`: The interconnect is deleted.
+   * - `unknown`: The state of the interconnect is not available.
+   *
    * @public
    */
   interconnectState?: InterconnectState | undefined;
 
   /**
-   * <p>The Amazon Web Services Region where the connection is located.</p>
+   * The Amazon Web Services Region where the connection is located.
+   *
    * @public
    */
   region?: string | undefined;
 
   /**
-   * <p>The location of the connection.</p>
+   * The location of the connection.
+   *
    * @public
    */
   location?: string | undefined;
 
   /**
-   * <p>The bandwidth of the connection.</p>
+   * The bandwidth of the connection.
+   *
    * @public
    */
   bandwidth?: string | undefined;
 
   /**
-   * <p>The time of the most recent call to <a>DescribeLoa</a> for this connection.</p>
+   * The time of the most recent call to DescribeLoa for this connection.
+   *
    * @public
    */
   loaIssueTime?: Date | undefined;
 
   /**
-   * <p>The ID of the LAG.</p>
+   * The ID of the LAG.
+   *
    * @public
    */
   lagId?: string | undefined;
 
   /**
-   * <p>The Direct Connect endpoint on which the physical connection terminates.</p>
+   * The Direct Connect endpoint on which the physical connection terminates.
    *
    * @deprecated deprecated.
    * @public
@@ -2546,64 +2397,75 @@ export interface Interconnect {
   awsDevice?: string | undefined;
 
   /**
-   * <p>Indicates whether jumbo frames are supported.</p>
+   * Indicates whether jumbo frames are supported.
+   *
    * @public
    */
   jumboFrameCapable?: boolean | undefined;
 
   /**
-   * <p>The Direct Connect endpoint that terminates the physical connection.</p>
+   * The Direct Connect endpoint that terminates the physical connection.
+   *
    * @public
    */
   awsDeviceV2?: string | undefined;
 
   /**
-   * <p>The Direct Connect endpoint that terminates the logical connection. This device might be
-   *       different than the device that terminates the physical connection.</p>
+   * The Direct Connect endpoint that terminates the logical connection. This device might be different than the device that terminates the physical connection.
+   *
    * @public
    */
   awsLogicalDeviceId?: string | undefined;
 
   /**
-   * <p>Indicates whether the interconnect supports a secondary BGP in the same address family (IPv4/IPv6).</p>
+   * Indicates whether the interconnect supports a secondary BGP in the same address family (IPv4/IPv6).
+   *
    * @public
    */
   hasLogicalRedundancy?: HasLogicalRedundancy | undefined;
 
   /**
-   * <p>The tags associated with the interconnect.</p>
+   * The tags associated with the interconnect.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p>The name of the service provider associated with the interconnect.</p>
+   * The name of the service provider associated with the interconnect.
+   *
    * @public
    */
   providerName?: string | undefined;
 
   /**
-   * <p>Indicates whether the interconnect supports MAC Security (MACsec).</p>
+   * Indicates whether the interconnect supports MAC Security (MACsec).
+   *
    * @public
    */
   macSecCapable?: boolean | undefined;
 
   /**
-   * <p>The MAC Security (MACsec) port link status.</p>
-   *          <p>The valid values are <code>Encryption Up</code>, which means that there is an active Connection Key Name, or <code>Encryption Down</code>.</p>
+   * The MAC Security (MACsec) port link status.
+   *
+   * The valid values are `Encryption Up`, which means that there is an active Connection Key Name, or `Encryption Down`.
+   *
    * @public
    */
   portEncryptionStatus?: string | undefined;
 
   /**
-   * <p>The MAC Security (MACsec) encryption mode.</p>
-   *          <p>The valid values are <code>no_encrypt</code>, <code>should_encrypt</code>, and <code>must_encrypt</code>.</p>
+   * The MAC Security (MACsec) encryption mode.
+   *
+   * The valid values are `no_encrypt`, `should_encrypt`, and `must_encrypt`.
+   *
    * @public
    */
   encryptionMode?: string | undefined;
 
   /**
-   * <p>The MAC Security (MACsec) security keys.</p>
+   * The MAC Security (MACsec) security keys.
+   *
    * @public
    */
   macSecKeys?: MacSecKey[] | undefined;
@@ -2614,167 +2476,157 @@ export interface Interconnect {
  */
 export interface CreateLagRequest {
   /**
-   * <p>The number of physical dedicated connections initially provisioned and bundled by the LAG.
-   *       You can have a maximum of four connections when the port speed is 1Gbps or 10Gbps, or two when
-   *       the port speed is 100Gbps or 400Gbps.</p>
+   * The number of physical dedicated connections initially provisioned and bundled by the LAG. You can have a maximum of four connections when the port speed is 1Gbps or 10Gbps, or two when the port speed is 100Gbps or 400Gbps.
+   *
    * @public
    */
   numberOfConnections: number | undefined;
 
   /**
-   * <p>The location for the LAG.</p>
+   * The location for the LAG.
+   *
    * @public
    */
   location: string | undefined;
 
   /**
-   * <p>The bandwidth of the individual physical dedicated connections bundled by the LAG. The
-   *       possible values are  1Gbps,10Gbps, 100Gbps, and 400Gbps. </p>
+   * The bandwidth of the individual physical dedicated connections bundled by the LAG. The possible values are 1Gbps,10Gbps, 100Gbps, and 400Gbps.
+   *
    * @public
    */
   connectionsBandwidth: string | undefined;
 
   /**
-   * <p>The name of the LAG.</p>
+   * The name of the LAG.
+   *
    * @public
    */
   lagName: string | undefined;
 
   /**
-   * <p>The ID of an existing dedicated connection to migrate to the LAG.</p>
+   * The ID of an existing dedicated connection to migrate to the LAG.
+   *
    * @public
    */
   connectionId?: string | undefined;
 
   /**
-   * <p>The tags to associate with the LAG.</p>
+   * The tags to associate with the LAG.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p>The tags to associate with the automtically created LAGs.</p>
+   * The tags to associate with the automtically created LAGs.
+   *
    * @public
    */
   childConnectionTags?: Tag[] | undefined;
 
   /**
-   * <p>The name of the service provider associated with the LAG.</p>
+   * The name of the service provider associated with the LAG.
+   *
    * @public
    */
   providerName?: string | undefined;
 
   /**
-   * <p>Indicates whether the connection will support MAC Security (MACsec).</p>
-   *          <note>
-   *             <p>All connections in the LAG must be capable of  supporting MAC Security (MACsec). For information about MAC Security (MACsec) prerequisties, see  <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites">MACsec prerequisties</a> in the <i>Direct Connect User Guide</i>.</p>
-   *          </note>
+   * Indicates whether the connection will support MAC Security (MACsec).
+   *
+   * > **Note:** All connections in the LAG must be capable of supporting MAC Security (MACsec). For information about MAC Security (MACsec) prerequisties, see [MACsec prerequisties](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) in the *Direct Connect User Guide*.
+   *
    * @public
    */
   requestMACSec?: boolean | undefined;
 
   /**
-   * <p>The billing mode for the LAG.</p>
+   * The billing mode for the LAG.
+   *
    * @public
    */
   billingMode?: RequestBillingMode | undefined;
 }
 
 /**
- * <p>Information about a link aggregation group (LAG).</p>
+ * Information about a link aggregation group (LAG).
+ *
  * @public
  */
 export interface Lag {
   /**
-   * <p>The individual bandwidth of the physical connections bundled by the LAG. The possible
-   *       values are 1Gbps, 10Gbps, 100Gbps, or 400 Gbps.. </p>
+   * The individual bandwidth of the physical connections bundled by the LAG. The possible values are 1Gbps, 10Gbps, 100Gbps, or 400 Gbps..
+   *
    * @public
    */
   connectionsBandwidth?: string | undefined;
 
   /**
-   * <p>The number of physical dedicated connections initially provisioned and bundled by the LAG.
-   *       You can have a maximum of four connections when the port speed is 1 Gbps or 10 Gbps, or two
-   *       when the port speed is 100 Gbps or 400 Gbps.</p>
+   * The number of physical dedicated connections initially provisioned and bundled by the LAG. You can have a maximum of four connections when the port speed is 1 Gbps or 10 Gbps, or two when the port speed is 100 Gbps or 400 Gbps.
+   *
    * @public
    */
   numberOfConnections?: number | undefined;
 
   /**
-   * <p>The ID of the LAG.</p>
+   * The ID of the LAG.
+   *
    * @public
    */
   lagId?: string | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services account that owns the LAG.</p>
+   * The ID of the Amazon Web Services account that owns the LAG.
+   *
    * @public
    */
   ownerAccount?: string | undefined;
 
   /**
-   * <p>The name of the LAG.</p>
+   * The name of the LAG.
+   *
    * @public
    */
   lagName?: string | undefined;
 
   /**
-   * <p>The state of the LAG. The following are the possible values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>requested</code>: The initial state of a LAG. The LAG stays in the
-   *                 requested state until the Letter of Authorization (LOA) is available.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>pending</code>: The LAG has been approved and is being initialized.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>available</code>: The network link is established and the LAG is ready for use.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>down</code>: The network link is down.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>deleting</code>: The LAG is being deleted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>deleted</code>: The LAG is deleted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>unknown</code>: The state of the LAG is not available.</p>
-   *             </li>
-   *          </ul>
+   * The state of the LAG. The following are the possible values:
+   *
+   * - `requested`: The initial state of a LAG. The LAG stays in the requested state until the Letter of Authorization (LOA) is available.
+   * - `pending`: The LAG has been approved and is being initialized.
+   * - `available`: The network link is established and the LAG is ready for use.
+   * - `down`: The network link is down.
+   * - `deleting`: The LAG is being deleted.
+   * - `deleted`: The LAG is deleted.
+   * - `unknown`: The state of the LAG is not available.
+   *
    * @public
    */
   lagState?: LagState | undefined;
 
   /**
-   * <p>The location of the LAG.</p>
+   * The location of the LAG.
+   *
    * @public
    */
   location?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region where the connection is located.</p>
+   * The Amazon Web Services Region where the connection is located.
+   *
    * @public
    */
   region?: string | undefined;
 
   /**
-   * <p>The minimum number of physical dedicated connections that must be operational for the LAG itself to be operational.</p>
+   * The minimum number of physical dedicated connections that must be operational for the LAG itself to be operational.
+   *
    * @public
    */
   minimumLinks?: number | undefined;
 
   /**
-   * <p>The Direct Connect endpoint that hosts the LAG.</p>
+   * The Direct Connect endpoint that hosts the LAG.
    *
    * @deprecated deprecated.
    * @public
@@ -2782,250 +2634,256 @@ export interface Lag {
   awsDevice?: string | undefined;
 
   /**
-   * <p>The Direct Connect endpoint that hosts the LAG.</p>
+   * The Direct Connect endpoint that hosts the LAG.
+   *
    * @public
    */
   awsDeviceV2?: string | undefined;
 
   /**
-   * <p>The Direct Connect endpoint that terminates the logical connection. This device might be
-   *       different than the device that terminates the physical connection.</p>
+   * The Direct Connect endpoint that terminates the logical connection. This device might be different than the device that terminates the physical connection.
+   *
    * @public
    */
   awsLogicalDeviceId?: string | undefined;
 
   /**
-   * <p>The connections bundled by the LAG.</p>
+   * The connections bundled by the LAG.
+   *
    * @public
    */
   connections?: Connection[] | undefined;
 
   /**
-   * <p>Indicates whether the LAG can host other connections.</p>
+   * Indicates whether the LAG can host other connections.
+   *
    * @public
    */
   allowsHostedConnections?: boolean | undefined;
 
   /**
-   * <p>Indicates whether jumbo frames are supported.</p>
+   * Indicates whether jumbo frames are supported.
+   *
    * @public
    */
   jumboFrameCapable?: boolean | undefined;
 
   /**
-   * <p>Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).</p>
+   * Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
+   *
    * @public
    */
   hasLogicalRedundancy?: HasLogicalRedundancy | undefined;
 
   /**
-   * <p>The tags associated with the LAG.</p>
+   * The tags associated with the LAG.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p>The name of the service provider associated with the LAG.</p>
+   * The name of the service provider associated with the LAG.
+   *
    * @public
    */
   providerName?: string | undefined;
 
   /**
-   * <p>Indicates whether the LAG supports MAC Security (MACsec).</p>
+   * Indicates whether the LAG supports MAC Security (MACsec).
+   *
    * @public
    */
   macSecCapable?: boolean | undefined;
 
   /**
-   * <p>The LAG MAC Security (MACsec) encryption mode.</p>
-   *          <p>The valid values are <code>no_encrypt</code>, <code>should_encrypt</code>, and <code>must_encrypt</code>.</p>
+   * The LAG MAC Security (MACsec) encryption mode.
+   *
+   * The valid values are `no_encrypt`, `should_encrypt`, and `must_encrypt`.
+   *
    * @public
    */
   encryptionMode?: string | undefined;
 
   /**
-   * <p>The MAC Security (MACsec) security keys associated with the LAG.</p>
+   * The MAC Security (MACsec) security keys associated with the LAG.
+   *
    * @public
    */
   macSecKeys?: MacSecKey[] | undefined;
 
   /**
-   * <p>The total number of inbound IPv4 route prefixes you can allocate across the virtual interfaces on the LAG. Not applicable to LAGs that are interconnects and support hosted connections.</p>
+   * The total number of inbound IPv4 route prefixes you can allocate across the virtual interfaces on the LAG. Not applicable to LAGs that are interconnects and support hosted connections.
+   *
    * @public
    */
   prefixPoolSizeIpv4?: number | undefined;
 
   /**
-   * <p>The total number of inbound IPv6 route prefixes you can allocate across the virtual interfaces on the LAG. Not applicable to LAGs that are interconnects and support hosted connections.</p>
+   * The total number of inbound IPv6 route prefixes you can allocate across the virtual interfaces on the LAG. Not applicable to LAGs that are interconnects and support hosted connections.
+   *
    * @public
    */
   prefixPoolSizeIpv6?: number | undefined;
 
   /**
-   * <p>The number of inbound IPv4 route prefixes in the LAG prefix pool not yet allocated to a virtual interface. Not applicable to LAGs that are interconnects and support hosted connections.</p>
+   * The number of inbound IPv4 route prefixes in the LAG prefix pool not yet allocated to a virtual interface. Not applicable to LAGs that are interconnects and support hosted connections.
+   *
    * @public
    */
   prefixPoolUnallocatedCountIpv4?: number | undefined;
 
   /**
-   * <p>The number of inbound IPv6 route prefixes in the LAG prefix pool not yet allocated to a virtual interface. Not applicable to LAGs that are interconnects and support hosted connections.</p>
+   * The number of inbound IPv6 route prefixes in the LAG prefix pool not yet allocated to a virtual interface. Not applicable to LAGs that are interconnects and support hosted connections.
+   *
    * @public
    */
   prefixPoolUnallocatedCountIpv6?: number | undefined;
 
   /**
-   * <p>The rate limiter status for the LAG, including how many rate limiters are in use and the maximum allowed.</p>
+   * The rate limiter status for the LAG, including how many rate limiters are in use and the maximum allowed.
+   *
    * @public
    */
   rateLimiterStatus?: RateLimiterStatus | undefined;
 
   /**
-   * <p>The billing mode of the LAG.</p>
+   * The billing mode of the LAG.
+   *
    * @public
    */
   billingMode?: BillingMode | undefined;
 }
 
 /**
- * <p>Information about a private virtual interface.</p>
+ * Information about a private virtual interface.
+ *
  * @public
  */
 export interface NewPrivateVirtualInterface {
   /**
-   * <p>The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).</p>
+   * The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).
+   *
    * @public
    */
   virtualInterfaceName: string | undefined;
 
   /**
-   * <p>The ID of the VLAN.</p>
+   * The ID of the VLAN.
+   *
    * @public
    */
   vlan: number | undefined;
 
   /**
-   * <p>The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum, an error is returned. Use <code>asnLong</code> instead.</p>
-   *          <ul>
-   *             <li>
-   *                <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
-   *             </li>
-   *             <li>
-   *                <p>If you provide a value in the same API call for both <code>asn</code>
-   *                             and <code>asnLong</code>, the API will only accept the value for
-   *                                 <code>asnLong</code>.
-   *               </p>
-   *             </li>
-   *             <li>
-   *                <p>If you enter a 4-byte ASN for the <code>asn</code> parameter, the API returns an error.
-   *               </p>
-   *             </li>
-   *             <li>
-   *                <p>If you are using a 2-byte ASN, the API response will include the
-   * 2-byte value for both the <code>asn</code> and <code>asnLong</code> fields.</p>
-   *             </li>
-   *          </ul>
-   *          <p>The valid values are 1-2147483646.</p>
+   * The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum, an error is returned. Use `asnLong` instead.
+   *
+   * - You can use `asnLong` or `asn`, but not both. We recommend using `asnLong` as it supports a greater pool of numbers.
+   * - If you provide a value in the same API call for both `asn` and `asnLong`, the API will only accept the value for `asnLong`.
+   * - If you enter a 4-byte ASN for the `asn` parameter, the API returns an error.
+   * - If you are using a 2-byte ASN, the API response will include the 2-byte value for both the `asn` and `asnLong` fields.
+   *
+   * The valid values are 1-2147483646.
+   *
    * @public
    */
   asn?: number | undefined;
 
   /**
-   * <p>The long ASN for a new private virtual interface. The valid range is from 1 to 4294967294 for BGP configuration.</p>
-   *          <p>Note the following limitations when using <code>asnLong</code>:</p>
-   *          <ul>
-   *             <li>
-   *                <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>asnLong</code> accepts any valid ASN value, regardless if it's 2-byte or 4-byte.
-   *               </p>
-   *             </li>
-   *             <li>
-   *                <p>When using a 4-byte <code>asnLong</code>, the API response returns <code>0</code> for the legacy <code>asn</code> attribute since 4-byte ASN values exceed the maximum supported value of 2,147,483,647.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you are using a 2-byte ASN, the API response will include the
-   * 2-byte value for both the <code>asn</code> and <code>asnLong</code> fields.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you provide a value in the same API call for both <code>asn</code>
-   *                             and <code>asnLong</code>, the API will only accept the value for
-   *                                 <code>asnLong</code>.</p>
-   *             </li>
-   *          </ul>
+   * The long ASN for a new private virtual interface. The valid range is from 1 to 4294967294 for BGP configuration.
+   *
+   * Note the following limitations when using `asnLong`:
+   *
+   * - You can use `asnLong` or `asn`, but not both. We recommend using `asnLong` as it supports a greater pool of numbers.
+   * - `asnLong` accepts any valid ASN value, regardless if it's 2-byte or 4-byte.
+   * - When using a 4-byte `asnLong`, the API response returns `0` for the legacy `asn` attribute since 4-byte ASN values exceed the maximum supported value of 2,147,483,647.
+   * - If you are using a 2-byte ASN, the API response will include the 2-byte value for both the `asn` and `asnLong` fields.
+   * - If you provide a value in the same API call for both `asn` and `asnLong`, the API will only accept the value for `asnLong`.
+   *
    * @public
    */
   asnLong?: number | undefined;
 
   /**
-   * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 8500. The default value is 1500.</p>
+   * The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 8500. The default value is 1500.
+   *
    * @public
    */
   mtu?: number | undefined;
 
   /**
-   * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
+   * The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.
+   *
    * @public
    */
   authKey?: string | undefined;
 
   /**
-   * <p>The IP address assigned to the Amazon interface.</p>
+   * The IP address assigned to the Amazon interface.
+   *
    * @public
    */
   amazonAddress?: string | undefined;
 
   /**
-   * <p>The IP address assigned to the customer interface.</p>
+   * The IP address assigned to the customer interface.
+   *
    * @public
    */
   customerAddress?: string | undefined;
 
   /**
-   * <p>The address family for the BGP peer.</p>
+   * The address family for the BGP peer.
+   *
    * @public
    */
   addressFamily?: AddressFamily | undefined;
 
   /**
-   * <p>The ID of the virtual private gateway.</p>
+   * The ID of the virtual private gateway.
+   *
    * @public
    */
   virtualGatewayId?: string | undefined;
 
   /**
-   * <p>The ID of the Direct Connect gateway.</p>
+   * The ID of the Direct Connect gateway.
+   *
    * @public
    */
   directConnectGatewayId?: string | undefined;
 
   /**
-   * <p>The tags associated with the private virtual interface.</p>
+   * The tags associated with the private virtual interface.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p>Indicates whether to enable or disable SiteLink.</p>
+   * Indicates whether to enable or disable SiteLink.
+   *
    * @public
    */
   enableSiteLink?: boolean | undefined;
 
   /**
-   * <p>The number of inbound IPv4 route prefixes to allocate to the virtual interface.</p>
+   * The number of inbound IPv4 route prefixes to allocate to the virtual interface.
+   *
    * @public
    */
   prefixPoolAllocatedCountIpv4?: number | undefined;
 
   /**
-   * <p>The number of inbound IPv6 route prefixes to allocate to the virtual interface.</p>
+   * The number of inbound IPv6 route prefixes to allocate to the virtual interface.
+   *
    * @public
    */
   prefixPoolAllocatedCountIpv6?: number | undefined;
 
   /**
-   * <p>The rate limit (bandwidth allocation) to apply to the virtual interface. The rate limit restricts the maximum bandwidth that the virtual interface can use on the parent connection.</p>
+   * The rate limit (bandwidth allocation) to apply to the virtual interface. The rate limit restricts the maximum bandwidth that the virtual interface can use on the parent connection.
+   *
    * @public
    */
   rateLimit?: string | undefined;
@@ -3036,127 +2894,112 @@ export interface NewPrivateVirtualInterface {
  */
 export interface CreatePrivateVirtualInterfaceRequest {
   /**
-   * <p>The ID of the connection.</p>
+   * The ID of the connection.
+   *
    * @public
    */
   connectionId: string | undefined;
 
   /**
-   * <p>Information about the private virtual interface.</p>
+   * Information about the private virtual interface.
+   *
    * @public
    */
   newPrivateVirtualInterface: NewPrivateVirtualInterface | undefined;
 }
 
 /**
- * <p>Information about a public virtual interface.</p>
+ * Information about a public virtual interface.
+ *
  * @public
  */
 export interface NewPublicVirtualInterface {
   /**
-   * <p>The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).</p>
+   * The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).
+   *
    * @public
    */
   virtualInterfaceName: string | undefined;
 
   /**
-   * <p>The ID of the VLAN.</p>
+   * The ID of the VLAN.
+   *
    * @public
    */
   vlan: number | undefined;
 
   /**
-   * <p>The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum, an error is returned. Use <code>asnLong</code> instead.</p>
-   *          <ul>
-   *             <li>
-   *                <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
-   *             </li>
-   *             <li>
-   *                <p>If you provide a value in the same API call for both <code>asn</code>
-   *                             and <code>asnLong</code>, the API will only accept the value for
-   *                                 <code>asnLong</code>.
-   *               </p>
-   *             </li>
-   *             <li>
-   *                <p>If you enter a 4-byte ASN for the <code>asn</code> parameter, the API returns an error.
-   *               </p>
-   *             </li>
-   *             <li>
-   *                <p>If you are using a 2-byte ASN, the API response will include the
-   * 2-byte value for both the <code>asn</code> and <code>asnLong</code> fields.</p>
-   *             </li>
-   *          </ul>
+   * The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum, an error is returned. Use `asnLong` instead.
+   *
+   * - You can use `asnLong` or `asn`, but not both. We recommend using `asnLong` as it supports a greater pool of numbers.
+   * - If you provide a value in the same API call for both `asn` and `asnLong`, the API will only accept the value for `asnLong`.
+   * - If you enter a 4-byte ASN for the `asn` parameter, the API returns an error.
+   * - If you are using a 2-byte ASN, the API response will include the 2-byte value for both the `asn` and `asnLong` fields.
+   *
    * @public
    */
   asn?: number | undefined;
 
   /**
-   * <p>The long ASN for a new public virtual interface. The valid range is from 1 to 4294967294 for BGP configuration.</p>
-   *          <p>Note the following limitations when using <code>asnLong</code>:</p>
-   *          <ul>
-   *             <li>
-   *                <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>asnLong</code> accepts any valid ASN value, regardless if it's 2-byte or 4-byte.
-   *               </p>
-   *             </li>
-   *             <li>
-   *                <p>When using a 4-byte <code>asnLong</code>, the API response returns <code>0</code> for the legacy <code>asn</code> attribute since 4-byte ASN values exceed the maximum supported value of 2,147,483,647.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you are using a 2-byte ASN, the API response will include the
-   * 2-byte value for both the <code>asn</code> and <code>asnLong</code> fields.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you provide a value in the same API call for both <code>asn</code>
-   *                             and <code>asnLong</code>, the API will only accept the value for
-   *                                 <code>asnLong</code>.</p>
-   *             </li>
-   *          </ul>
+   * The long ASN for a new public virtual interface. The valid range is from 1 to 4294967294 for BGP configuration.
+   *
+   * Note the following limitations when using `asnLong`:
+   *
+   * - You can use `asnLong` or `asn`, but not both. We recommend using `asnLong` as it supports a greater pool of numbers.
+   * - `asnLong` accepts any valid ASN value, regardless if it's 2-byte or 4-byte.
+   * - When using a 4-byte `asnLong`, the API response returns `0` for the legacy `asn` attribute since 4-byte ASN values exceed the maximum supported value of 2,147,483,647.
+   * - If you are using a 2-byte ASN, the API response will include the 2-byte value for both the `asn` and `asnLong` fields.
+   * - If you provide a value in the same API call for both `asn` and `asnLong`, the API will only accept the value for `asnLong`.
+   *
    * @public
    */
   asnLong?: number | undefined;
 
   /**
-   * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
+   * The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.
+   *
    * @public
    */
   authKey?: string | undefined;
 
   /**
-   * <p>The IP address assigned to the Amazon interface.</p>
+   * The IP address assigned to the Amazon interface.
+   *
    * @public
    */
   amazonAddress?: string | undefined;
 
   /**
-   * <p>The IP address assigned to the customer interface.</p>
+   * The IP address assigned to the customer interface.
+   *
    * @public
    */
   customerAddress?: string | undefined;
 
   /**
-   * <p>The address family for the BGP peer.</p>
+   * The address family for the BGP peer.
+   *
    * @public
    */
   addressFamily?: AddressFamily | undefined;
 
   /**
-   * <p>The routes to be advertised to the Amazon Web Services network in this Region. Applies to public virtual interfaces.</p>
+   * The routes to be advertised to the Amazon Web Services network in this Region. Applies to public virtual interfaces.
+   *
    * @public
    */
   routeFilterPrefixes?: RouteFilterPrefix[] | undefined;
 
   /**
-   * <p>The tags associated with the public virtual interface.</p>
+   * The tags associated with the public virtual interface.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p>The rate limit (bandwidth allocation) to apply to the virtual interface. The rate limit restricts the maximum bandwidth that the virtual interface can use on the parent connection.</p>
+   * The rate limit (bandwidth allocation) to apply to the virtual interface. The rate limit restricts the maximum bandwidth that the virtual interface can use on the parent connection.
+   *
    * @public
    */
   rateLimit?: string | undefined;
@@ -3167,13 +3010,15 @@ export interface NewPublicVirtualInterface {
  */
 export interface CreatePublicVirtualInterfaceRequest {
   /**
-   * <p>The ID of the connection.</p>
+   * The ID of the connection.
+   *
    * @public
    */
   connectionId: string | undefined;
 
   /**
-   * <p>Information about the public virtual interface.</p>
+   * Information about the public virtual interface.
+   *
    * @public
    */
   newPublicVirtualInterface: NewPublicVirtualInterface | undefined;
@@ -3184,77 +3029,85 @@ export interface CreatePublicVirtualInterfaceRequest {
  */
 export interface CreateResiliencyGroupRequest {
   /**
-   * <p>The name of the resiliency group.</p>
+   * The name of the resiliency group.
+   *
    * @public
    */
   resiliencyGroupName: string | undefined;
 
   /**
-   * <p>The resiliency model that the resiliency group is intended to meet. The valid values are
-   *       <code>maximum-resiliency</code>, <code>high-resiliency</code>, and
-   *       <code>basic-resiliency</code>.</p>
+   * The resiliency model that the resiliency group is intended to meet. The valid values are `maximum-resiliency`, `high-resiliency`, and `basic-resiliency`.
+   *
    * @public
    */
   intendedResiliencyModel: ResiliencyModel | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *       request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The tags to associate with the resiliency group.</p>
+   * The tags to associate with the resiliency group.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 }
 
 /**
- * <p>Information about a resiliency group.</p>
+ * Information about a resiliency group.
+ *
  * @public
  */
 export interface ResiliencyGroup {
   /**
-   * <p>The ID of the resiliency group.</p>
+   * The ID of the resiliency group.
+   *
    * @public
    */
   resiliencyGroupId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the resiliency group.</p>
+   * The Amazon Resource Name (ARN) of the resiliency group.
+   *
    * @public
    */
   resiliencyGroupArn?: string | undefined;
 
   /**
-   * <p>The name of the resiliency group.</p>
+   * The name of the resiliency group.
+   *
    * @public
    */
   resiliencyGroupName?: string | undefined;
 
   /**
-   * <p>The type of the resiliency group. The valid value is <code>Managed</code>.</p>
+   * The type of the resiliency group. The valid value is `Managed`.
+   *
    * @public
    */
   resiliencyGroupType?: ResiliencyGroupType | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services account that owns the resiliency group.</p>
+   * The ID of the Amazon Web Services account that owns the resiliency group.
+   *
    * @public
    */
   ownerAccount?: string | undefined;
 
   /**
-   * <p>The state of the resiliency group. The valid values are <code>pending</code>,
-   *       <code>available</code>, <code>deleting</code>, and <code>deleted</code>.</p>
+   * The state of the resiliency group. The valid values are `pending`, `available`, `deleting`, and `deleted`.
+   *
    * @public
    */
   state?: ResiliencyGroupState | undefined;
 
   /**
-   * <p>The tags associated with the resiliency group.</p>
+   * The tags associated with the resiliency group.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
@@ -3265,145 +3118,133 @@ export interface ResiliencyGroup {
  */
 export interface CreateResiliencyGroupResult {
   /**
-   * <p>Information about the resiliency group.</p>
+   * Information about the resiliency group.
+   *
    * @public
    */
   resiliencyGroup?: ResiliencyGroup | undefined;
 }
 
 /**
- * <p>Information about a transit virtual interface.</p>
+ * Information about a transit virtual interface.
+ *
  * @public
  */
 export interface NewTransitVirtualInterface {
   /**
-   * <p>The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).</p>
+   * The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).
+   *
    * @public
    */
   virtualInterfaceName?: string | undefined;
 
   /**
-   * <p>The ID of the VLAN.</p>
+   * The ID of the VLAN.
+   *
    * @public
    */
   vlan?: number | undefined;
 
   /**
-   * <p>The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum, an error is returned. Use <code>asnLong</code> instead.</p>
-   *          <ul>
-   *             <li>
-   *                <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
-   *             </li>
-   *             <li>
-   *                <p>If you provide a value in the same API call for both <code>asn</code>
-   *                             and <code>asnLong</code>, the API will only accept the value for
-   *                                 <code>asnLong</code>.
-   *               </p>
-   *             </li>
-   *             <li>
-   *                <p>If you enter a 4-byte ASN for the <code>asn</code> parameter, the API returns an error.
-   *               </p>
-   *             </li>
-   *             <li>
-   *                <p>If you are using a 2-byte ASN, the API response will include the
-   * 2-byte value for both the <code>asn</code> and <code>asnLong</code> fields.</p>
-   *             </li>
-   *          </ul>
+   * The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum, an error is returned. Use `asnLong` instead.
+   *
+   * - You can use `asnLong` or `asn`, but not both. We recommend using `asnLong` as it supports a greater pool of numbers.
+   * - If you provide a value in the same API call for both `asn` and `asnLong`, the API will only accept the value for `asnLong`.
+   * - If you enter a 4-byte ASN for the `asn` parameter, the API returns an error.
+   * - If you are using a 2-byte ASN, the API response will include the 2-byte value for both the `asn` and `asnLong` fields.
+   *
    * @public
    */
   asn?: number | undefined;
 
   /**
-   * <p>The long ASN for a new transit virtual interface.The valid range is from 1 to 4294967294 for BGP configuration.</p>
-   *          <p>Note the following limitations when using <code>asnLong</code>:</p>
-   *          <ul>
-   *             <li>
-   *                <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>asnLong</code> accepts any valid ASN value, regardless if it's 2-byte or 4-byte.
-   *               </p>
-   *             </li>
-   *             <li>
-   *                <p>When using a 4-byte <code>asnLong</code>, the API response returns <code>0</code> for the legacy <code>asn</code> attribute since 4-byte ASN values exceed the maximum supported value of 2,147,483,647.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you are using a 2-byte ASN, the API response will include the
-   * 2-byte value for both the <code>asn</code> and <code>asnLong</code> fields.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you provide a value in the same API call for both <code>asn</code>
-   *                             and <code>asnLong</code>, the API will only accept the value for
-   *                                 <code>asnLong</code>.</p>
-   *             </li>
-   *          </ul>
+   * The long ASN for a new transit virtual interface.The valid range is from 1 to 4294967294 for BGP configuration.
+   *
+   * Note the following limitations when using `asnLong`:
+   *
+   * - You can use `asnLong` or `asn`, but not both. We recommend using `asnLong` as it supports a greater pool of numbers.
+   * - `asnLong` accepts any valid ASN value, regardless if it's 2-byte or 4-byte.
+   * - When using a 4-byte `asnLong`, the API response returns `0` for the legacy `asn` attribute since 4-byte ASN values exceed the maximum supported value of 2,147,483,647.
+   * - If you are using a 2-byte ASN, the API response will include the 2-byte value for both the `asn` and `asnLong` fields.
+   * - If you provide a value in the same API call for both `asn` and `asnLong`, the API will only accept the value for `asnLong`.
+   *
    * @public
    */
   asnLong?: number | undefined;
 
   /**
-   * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 8500. The default value is 1500.</p>
+   * The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 8500. The default value is 1500.
+   *
    * @public
    */
   mtu?: number | undefined;
 
   /**
-   * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
+   * The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.
+   *
    * @public
    */
   authKey?: string | undefined;
 
   /**
-   * <p>The IP address assigned to the Amazon interface.</p>
+   * The IP address assigned to the Amazon interface.
+   *
    * @public
    */
   amazonAddress?: string | undefined;
 
   /**
-   * <p>The IP address assigned to the customer interface.</p>
+   * The IP address assigned to the customer interface.
+   *
    * @public
    */
   customerAddress?: string | undefined;
 
   /**
-   * <p>The address family for the BGP peer.</p>
+   * The address family for the BGP peer.
+   *
    * @public
    */
   addressFamily?: AddressFamily | undefined;
 
   /**
-   * <p>The ID of the Direct Connect gateway.</p>
+   * The ID of the Direct Connect gateway.
+   *
    * @public
    */
   directConnectGatewayId?: string | undefined;
 
   /**
-   * <p>The tags associated with the transitive virtual interface.</p>
+   * The tags associated with the transitive virtual interface.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p>Indicates whether to enable or disable SiteLink.</p>
+   * Indicates whether to enable or disable SiteLink.
+   *
    * @public
    */
   enableSiteLink?: boolean | undefined;
 
   /**
-   * <p>The number of inbound IPv4 route prefixes to allocate to the virtual interface.</p>
+   * The number of inbound IPv4 route prefixes to allocate to the virtual interface.
+   *
    * @public
    */
   prefixPoolAllocatedCountIpv4?: number | undefined;
 
   /**
-   * <p>The number of inbound IPv6 route prefixes to allocate to the virtual interface.</p>
+   * The number of inbound IPv6 route prefixes to allocate to the virtual interface.
+   *
    * @public
    */
   prefixPoolAllocatedCountIpv6?: number | undefined;
 
   /**
-   * <p>The rate limit (bandwidth allocation) to apply to the virtual interface. The rate limit restricts the maximum bandwidth that the virtual interface can use on the parent connection.</p>
+   * The rate limit (bandwidth allocation) to apply to the virtual interface. The rate limit restricts the maximum bandwidth that the virtual interface can use on the parent connection.
+   *
    * @public
    */
   rateLimit?: string | undefined;
@@ -3414,13 +3255,15 @@ export interface NewTransitVirtualInterface {
  */
 export interface CreateTransitVirtualInterfaceRequest {
   /**
-   * <p>The ID of the connection.</p>
+   * The ID of the connection.
+   *
    * @public
    */
   connectionId: string | undefined;
 
   /**
-   * <p>Information about the transit virtual interface.</p>
+   * Information about the transit virtual interface.
+   *
    * @public
    */
   newTransitVirtualInterface: NewTransitVirtualInterface | undefined;
@@ -3431,7 +3274,8 @@ export interface CreateTransitVirtualInterfaceRequest {
  */
 export interface CreateTransitVirtualInterfaceResult {
   /**
-   * <p>Information about a virtual interface.</p>
+   * Information about a virtual interface.
+   *
    * @public
    */
   virtualInterface?: VirtualInterface | undefined;
@@ -3442,73 +3286,49 @@ export interface CreateTransitVirtualInterfaceResult {
  */
 export interface DeleteBGPPeerRequest {
   /**
-   * <p>The ID of the virtual interface.</p>
+   * The ID of the virtual interface.
+   *
    * @public
    */
   virtualInterfaceId?: string | undefined;
 
   /**
-   * <p>The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum, an error is returned. Use <code>asnLong</code> instead.</p>
-   *          <ul>
-   *             <li>
-   *                <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
-   *             </li>
-   *             <li>
-   *                <p>If you provide a value in the same API call for both <code>asn</code>
-   *                             and <code>asnLong</code>, the API will only accept the value for
-   *                                 <code>asnLong</code>.
-   *               </p>
-   *             </li>
-   *             <li>
-   *                <p>If you enter a 4-byte ASN for the <code>asn</code> parameter, the API returns an error.
-   *               </p>
-   *             </li>
-   *             <li>
-   *                <p>If you are using a 2-byte ASN, the API response will include the
-   * 2-byte value for both the <code>asn</code> and <code>asnLong</code> fields.</p>
-   *             </li>
-   *          </ul>
+   * The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum, an error is returned. Use `asnLong` instead.
+   *
+   * - You can use `asnLong` or `asn`, but not both. We recommend using `asnLong` as it supports a greater pool of numbers.
+   * - If you provide a value in the same API call for both `asn` and `asnLong`, the API will only accept the value for `asnLong`.
+   * - If you enter a 4-byte ASN for the `asn` parameter, the API returns an error.
+   * - If you are using a 2-byte ASN, the API response will include the 2-byte value for both the `asn` and `asnLong` fields.
+   *
    * @public
    */
   asn?: number | undefined;
 
   /**
-   * <p>The long ASN for the BGP peer to be deleted from a Direct Connect virtual interface. The valid range is from 1 to 4294967294 for BGP configuration. </p>
-   *          <p>Note the following limitations when using <code>asnLong</code>:</p>
-   *          <ul>
-   *             <li>
-   *                <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>asnLong</code> accepts any valid ASN value, regardless if it's 2-byte or 4-byte.
-   *               </p>
-   *             </li>
-   *             <li>
-   *                <p>When using a 4-byte <code>asnLong</code>, the API response returns <code>0</code> for the legacy <code>asn</code> attribute since 4-byte ASN values exceed the maximum supported value of 2,147,483,647.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you are using a 2-byte ASN, the API response will include the
-   * 2-byte value for both the <code>asn</code> and <code>asnLong</code> fields.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you provide a value in the same API call for both <code>asn</code>
-   *                             and <code>asnLong</code>, the API will only accept the value for
-   *                                 <code>asnLong</code>.</p>
-   *             </li>
-   *          </ul>
+   * The long ASN for the BGP peer to be deleted from a Direct Connect virtual interface. The valid range is from 1 to 4294967294 for BGP configuration.
+   *
+   * Note the following limitations when using `asnLong`:
+   *
+   * - You can use `asnLong` or `asn`, but not both. We recommend using `asnLong` as it supports a greater pool of numbers.
+   * - `asnLong` accepts any valid ASN value, regardless if it's 2-byte or 4-byte.
+   * - When using a 4-byte `asnLong`, the API response returns `0` for the legacy `asn` attribute since 4-byte ASN values exceed the maximum supported value of 2,147,483,647.
+   * - If you are using a 2-byte ASN, the API response will include the 2-byte value for both the `asn` and `asnLong` fields.
+   * - If you provide a value in the same API call for both `asn` and `asnLong`, the API will only accept the value for `asnLong`.
+   *
    * @public
    */
   asnLong?: number | undefined;
 
   /**
-   * <p>The IP address assigned to the customer interface.</p>
+   * The IP address assigned to the customer interface.
+   *
    * @public
    */
   customerAddress?: string | undefined;
 
   /**
-   * <p>The ID of the BGP peer.</p>
+   * The ID of the BGP peer.
+   *
    * @public
    */
   bgpPeerId?: string | undefined;
@@ -3519,7 +3339,8 @@ export interface DeleteBGPPeerRequest {
  */
 export interface DeleteBGPPeerResponse {
   /**
-   * <p>The virtual interface.</p>
+   * The virtual interface.
+   *
    * @public
    */
   virtualInterface?: VirtualInterface | undefined;
@@ -3530,7 +3351,8 @@ export interface DeleteBGPPeerResponse {
  */
 export interface DeleteConnectionRequest {
   /**
-   * <p>The ID of the connection.</p>
+   * The ID of the connection.
+   *
    * @public
    */
   connectionId: string | undefined;
@@ -3541,7 +3363,8 @@ export interface DeleteConnectionRequest {
  */
 export interface DeleteDirectConnectGatewayRequest {
   /**
-   * <p>The ID of the Direct Connect gateway.</p>
+   * The ID of the Direct Connect gateway.
+   *
    * @public
    */
   directConnectGatewayId: string | undefined;
@@ -3552,7 +3375,8 @@ export interface DeleteDirectConnectGatewayRequest {
  */
 export interface DeleteDirectConnectGatewayResult {
   /**
-   * <p>The Direct Connect gateway.</p>
+   * The Direct Connect gateway.
+   *
    * @public
    */
   directConnectGateway?: DirectConnectGateway | undefined;
@@ -3563,19 +3387,22 @@ export interface DeleteDirectConnectGatewayResult {
  */
 export interface DeleteDirectConnectGatewayAssociationRequest {
   /**
-   * <p>The ID of the Direct Connect gateway association.</p>
+   * The ID of the Direct Connect gateway association.
+   *
    * @public
    */
   associationId?: string | undefined;
 
   /**
-   * <p>The ID of the Direct Connect gateway.</p>
+   * The ID of the Direct Connect gateway.
+   *
    * @public
    */
   directConnectGatewayId?: string | undefined;
 
   /**
-   * <p>The ID of the virtual private gateway.</p>
+   * The ID of the virtual private gateway.
+   *
    * @public
    */
   virtualGatewayId?: string | undefined;
@@ -3586,7 +3413,8 @@ export interface DeleteDirectConnectGatewayAssociationRequest {
  */
 export interface DeleteDirectConnectGatewayAssociationResult {
   /**
-   * <p>Information about the deleted association.</p>
+   * Information about the deleted association.
+   *
    * @public
    */
   directConnectGatewayAssociation?: DirectConnectGatewayAssociation | undefined;
@@ -3597,7 +3425,8 @@ export interface DeleteDirectConnectGatewayAssociationResult {
  */
 export interface DeleteDirectConnectGatewayAssociationProposalRequest {
   /**
-   * <p>The ID of the proposal.</p>
+   * The ID of the proposal.
+   *
    * @public
    */
   proposalId: string | undefined;
@@ -3608,7 +3437,8 @@ export interface DeleteDirectConnectGatewayAssociationProposalRequest {
  */
 export interface DeleteDirectConnectGatewayAssociationProposalResult {
   /**
-   * <p>The ID of the associated gateway.</p>
+   * The ID of the associated gateway.
+   *
    * @public
    */
   directConnectGatewayAssociationProposal?: DirectConnectGatewayAssociationProposal | undefined;
@@ -3619,7 +3449,8 @@ export interface DeleteDirectConnectGatewayAssociationProposalResult {
  */
 export interface DeleteInterconnectRequest {
   /**
-   * <p>The ID of the interconnect.</p>
+   * The ID of the interconnect.
+   *
    * @public
    */
   interconnectId: string | undefined;
@@ -3630,38 +3461,16 @@ export interface DeleteInterconnectRequest {
  */
 export interface DeleteInterconnectResponse {
   /**
-   * <p>The state of the interconnect. The following are the possible values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>requested</code>: The initial state of an interconnect. The interconnect stays in the
-   *         requested state until the Letter of Authorization (LOA) is sent to the customer.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>pending</code>: The interconnect is approved, and is being initialized.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>available</code>: The network link is up, and the interconnect is ready for use.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>down</code>: The network link is down.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>deleting</code>: The interconnect is being deleted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>deleted</code>: The interconnect is deleted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>unknown</code>: The state of the interconnect is not available.</p>
-   *             </li>
-   *          </ul>
+   * The state of the interconnect. The following are the possible values:
+   *
+   * - `requested`: The initial state of an interconnect. The interconnect stays in the requested state until the Letter of Authorization (LOA) is sent to the customer.
+   * - `pending`: The interconnect is approved, and is being initialized.
+   * - `available`: The network link is up, and the interconnect is ready for use.
+   * - `down`: The network link is down.
+   * - `deleting`: The interconnect is being deleted.
+   * - `deleted`: The interconnect is deleted.
+   * - `unknown`: The state of the interconnect is not available.
+   *
    * @public
    */
   interconnectState?: InterconnectState | undefined;
@@ -3672,7 +3481,8 @@ export interface DeleteInterconnectResponse {
  */
 export interface DeleteLagRequest {
   /**
-   * <p>The ID of the LAG.</p>
+   * The ID of the LAG.
+   *
    * @public
    */
   lagId: string | undefined;
@@ -3683,7 +3493,8 @@ export interface DeleteLagRequest {
  */
 export interface DeleteResiliencyGroupRequest {
   /**
-   * <p>The ID of the resiliency group.</p>
+   * The ID of the resiliency group.
+   *
    * @public
    */
   resiliencyGroupId: string | undefined;
@@ -3694,7 +3505,8 @@ export interface DeleteResiliencyGroupRequest {
  */
 export interface DeleteResiliencyGroupResult {
   /**
-   * <p>Information about the resiliency group.</p>
+   * Information about the resiliency group.
+   *
    * @public
    */
   resiliencyGroup?: ResiliencyGroup | undefined;
@@ -3705,7 +3517,8 @@ export interface DeleteResiliencyGroupResult {
  */
 export interface DeleteVirtualInterfaceRequest {
   /**
-   * <p>The ID of the virtual interface.</p>
+   * The ID of the virtual interface.
+   *
    * @public
    */
   virtualInterfaceId: string | undefined;
@@ -3716,49 +3529,19 @@ export interface DeleteVirtualInterfaceRequest {
  */
 export interface DeleteVirtualInterfaceResponse {
   /**
-   * <p>The state of the virtual interface. The following are the possible values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>confirming</code>: The creation of the virtual interface is pending confirmation from the virtual interface owner. If the owner of the virtual interface is different from the owner of the connection on which it is provisioned, then the virtual interface will remain in this state until it is confirmed by the virtual interface owner.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>verifying</code>: This state only applies to public virtual interfaces. Each public virtual interface needs validation before the virtual interface can be created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>pending</code>: A virtual interface is in this state from the time that it is created until the virtual interface is ready to forward traffic.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>available</code>: A virtual interface that is able to forward traffic.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>down</code>: A virtual interface that is BGP down.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>testing</code>: A virtual interface is in this state immediately after calling <a>StartBgpFailoverTest</a> and remains in this state during the duration of the test.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>deleting</code>: A virtual interface is in this state immediately after calling <a>DeleteVirtualInterface</a> until it can no longer forward traffic.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>deleted</code>: A virtual interface that cannot forward traffic.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>rejected</code>: The virtual interface owner has declined creation of the virtual interface. If a virtual interface in the <code>Confirming</code> state is deleted by the virtual interface owner, the virtual interface enters the <code>Rejected</code> state.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>unknown</code>: The state of the virtual interface is not available.</p>
-   *             </li>
-   *          </ul>
+   * The state of the virtual interface. The following are the possible values:
+   *
+   * - `confirming`: The creation of the virtual interface is pending confirmation from the virtual interface owner. If the owner of the virtual interface is different from the owner of the connection on which it is provisioned, then the virtual interface will remain in this state until it is confirmed by the virtual interface owner.
+   * - `verifying`: This state only applies to public virtual interfaces. Each public virtual interface needs validation before the virtual interface can be created.
+   * - `pending`: A virtual interface is in this state from the time that it is created until the virtual interface is ready to forward traffic.
+   * - `available`: A virtual interface that is able to forward traffic.
+   * - `down`: A virtual interface that is BGP down.
+   * - `testing`: A virtual interface is in this state immediately after calling StartBgpFailoverTest and remains in this state during the duration of the test.
+   * - `deleting`: A virtual interface is in this state immediately after calling DeleteVirtualInterface until it can no longer forward traffic.
+   * - `deleted`: A virtual interface that cannot forward traffic.
+   * - `rejected`: The virtual interface owner has declined creation of the virtual interface. If a virtual interface in the `Confirming` state is deleted by the virtual interface owner, the virtual interface enters the `Rejected` state.
+   * - `unknown`: The state of the virtual interface is not available.
+   *
    * @public
    */
   virtualInterfaceState?: VirtualInterfaceState | undefined;
@@ -3769,38 +3552,43 @@ export interface DeleteVirtualInterfaceResponse {
  */
 export interface DescribeConnectionLoaRequest {
   /**
-   * <p>The ID of the connection.</p>
+   * The ID of the connection.
+   *
    * @public
    */
   connectionId: string | undefined;
 
   /**
-   * <p>The name of the APN partner or service provider who establishes connectivity on your behalf. If you specify this parameter,
-   *       the LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.</p>
+   * The name of the APN partner or service provider who establishes connectivity on your behalf. If you specify this parameter, the LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.
+   *
    * @public
    */
   providerName?: string | undefined;
 
   /**
-   * <p>The standard media type for the LOA-CFA document. The only supported value is application/pdf.</p>
+   * The standard media type for the LOA-CFA document. The only supported value is application/pdf.
+   *
    * @public
    */
   loaContentType?: LoaContentType | undefined;
 }
 
 /**
- * <p>Information about a Letter of Authorization - Connecting Facility Assignment (LOA-CFA) for a connection.</p>
+ * Information about a Letter of Authorization - Connecting Facility Assignment (LOA-CFA) for a connection.
+ *
  * @public
  */
 export interface Loa {
   /**
-   * <p>The binary contents of the LOA-CFA document.</p>
+   * The binary contents of the LOA-CFA document.
+   *
    * @public
    */
   loaContent?: Uint8Array | undefined;
 
   /**
-   * <p>The standard media type for the LOA-CFA document. The only supported value is application/pdf.</p>
+   * The standard media type for the LOA-CFA document. The only supported value is application/pdf.
+   *
    * @public
    */
   loaContentType?: LoaContentType | undefined;
@@ -3811,7 +3599,8 @@ export interface Loa {
  */
 export interface DescribeConnectionLoaResponse {
   /**
-   * <p>The Letter of Authorization - Connecting Facility Assignment (LOA-CFA).</p>
+   * The Letter of Authorization - Connecting Facility Assignment (LOA-CFA).
+   *
    * @public
    */
   loa?: Loa | undefined;
@@ -3822,22 +3611,24 @@ export interface DescribeConnectionLoaResponse {
  */
 export interface DescribeConnectionsRequest {
   /**
-   * <p>The ID of the connection.</p>
+   * The ID of the connection.
+   *
    * @public
    */
   connectionId?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   *          <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are
-   *       returned.</p>
+   * The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned `nextToken` value.
+   *
+   * If `MaxResults` is given a value larger than 100, only 100 results are returned.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -3848,7 +3639,8 @@ export interface DescribeConnectionsRequest {
  */
 export interface DescribeConnectionsOnInterconnectRequest {
   /**
-   * <p>The ID of the interconnect.</p>
+   * The ID of the interconnect.
+   *
    * @public
    */
   interconnectId: string | undefined;
@@ -3859,24 +3651,19 @@ export interface DescribeConnectionsOnInterconnectRequest {
  */
 export interface DescribeCustomerMetadataResponse {
   /**
-   * <p>The list of customer agreements.</p>
+   * The list of customer agreements.
+   *
    * @public
    */
   agreements?: CustomerAgreement[] | undefined;
 
   /**
-   * <p>The type of network-to-network interface (NNI) partner. The partner type will be one of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>V1: This partner can only allocate 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, or 500Mbps subgigabit connections.</p>
-   *             </li>
-   *             <li>
-   *                <p>V2: This partner can only allocate 1GB, 2GB, 5GB, or 10GB hosted connections.</p>
-   *             </li>
-   *             <li>
-   *                <p>nonPartner: The customer is not a partner.</p>
-   *             </li>
-   *          </ul>
+   * The type of network-to-network interface (NNI) partner. The partner type will be one of the following:
+   *
+   * - V1: This partner can only allocate 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, or 500Mbps subgigabit connections.
+   * - V2: This partner can only allocate 1GB, 2GB, 5GB, or 10GB hosted connections.
+   * - nonPartner: The customer is not a partner.
+   *
    * @public
    */
   nniPartnerType?: NniPartnerType | undefined;
@@ -3887,34 +3674,38 @@ export interface DescribeCustomerMetadataResponse {
  */
 export interface DescribeDirectConnectGatewayAssociationProposalsRequest {
   /**
-   * <p>The ID of the Direct Connect gateway.</p>
+   * The ID of the Direct Connect gateway.
+   *
    * @public
    */
   directConnectGatewayId?: string | undefined;
 
   /**
-   * <p>The ID of the proposal.</p>
+   * The ID of the proposal.
+   *
    * @public
    */
   proposalId?: string | undefined;
 
   /**
-   * <p>The ID of the associated gateway.</p>
+   * The ID of the associated gateway.
+   *
    * @public
    */
   associatedGatewayId?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   *          <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are
-   *       returned.</p>
+   * The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned `nextToken` value.
+   *
+   * If `MaxResults` is given a value larger than 100, only 100 results are returned.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -3925,13 +3716,15 @@ export interface DescribeDirectConnectGatewayAssociationProposalsRequest {
  */
 export interface DescribeDirectConnectGatewayAssociationProposalsResult {
   /**
-   * <p>Describes the Direct Connect gateway association proposals.</p>
+   * Describes the Direct Connect gateway association proposals.
+   *
    * @public
    */
   directConnectGatewayAssociationProposals?: DirectConnectGatewayAssociationProposal[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * The token to use to retrieve the next page of results. This value is `null` when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -3942,40 +3735,45 @@ export interface DescribeDirectConnectGatewayAssociationProposalsResult {
  */
 export interface DescribeDirectConnectGatewayAssociationsRequest {
   /**
-   * <p>The ID of the Direct Connect gateway association.</p>
+   * The ID of the Direct Connect gateway association.
+   *
    * @public
    */
   associationId?: string | undefined;
 
   /**
-   * <p>The ID of the associated gateway.</p>
+   * The ID of the associated gateway.
+   *
    * @public
    */
   associatedGatewayId?: string | undefined;
 
   /**
-   * <p>The ID of the Direct Connect gateway.</p>
+   * The ID of the Direct Connect gateway.
+   *
    * @public
    */
   directConnectGatewayId?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   *          <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are
-   *       returned.</p>
+   * The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned `nextToken` value.
+   *
+   * If `MaxResults` is given a value larger than 100, only 100 results are returned.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token provided in the previous call to retrieve the next page.</p>
+   * The token provided in the previous call to retrieve the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The ID of the virtual private gateway or transit gateway.</p>
+   * The ID of the virtual private gateway or transit gateway.
+   *
    * @public
    */
   virtualGatewayId?: string | undefined;
@@ -3986,13 +3784,15 @@ export interface DescribeDirectConnectGatewayAssociationsRequest {
  */
 export interface DescribeDirectConnectGatewayAssociationsResult {
   /**
-   * <p>Information about the associations.</p>
+   * Information about the associations.
+   *
    * @public
    */
   directConnectGatewayAssociations?: DirectConnectGatewayAssociation[] | undefined;
 
   /**
-   * <p>The token to retrieve the next page.</p>
+   * The token to retrieve the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4003,94 +3803,92 @@ export interface DescribeDirectConnectGatewayAssociationsResult {
  */
 export interface DescribeDirectConnectGatewayAttachmentsRequest {
   /**
-   * <p>The ID of the Direct Connect gateway.</p>
+   * The ID of the Direct Connect gateway.
+   *
    * @public
    */
   directConnectGatewayId?: string | undefined;
 
   /**
-   * <p>The ID of the virtual interface.</p>
+   * The ID of the virtual interface.
+   *
    * @public
    */
   virtualInterfaceId?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   *          <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are
-   *       returned.</p>
+   * The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned `nextToken` value.
+   *
+   * If `MaxResults` is given a value larger than 100, only 100 results are returned.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token provided in the previous call to retrieve the next page.</p>
+   * The token provided in the previous call to retrieve the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Information about an attachment between a Direct Connect gateway and a virtual interface.</p>
+ * Information about an attachment between a Direct Connect gateway and a virtual interface.
+ *
  * @public
  */
 export interface DirectConnectGatewayAttachment {
   /**
-   * <p>The ID of the Direct Connect gateway.</p>
+   * The ID of the Direct Connect gateway.
+   *
    * @public
    */
   directConnectGatewayId?: string | undefined;
 
   /**
-   * <p>The ID of the virtual interface.</p>
+   * The ID of the virtual interface.
+   *
    * @public
    */
   virtualInterfaceId?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region where the virtual interface is located.</p>
+   * The Amazon Web Services Region where the virtual interface is located.
+   *
    * @public
    */
   virtualInterfaceRegion?: string | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services account that owns the virtual interface.</p>
+   * The ID of the Amazon Web Services account that owns the virtual interface.
+   *
    * @public
    */
   virtualInterfaceOwnerAccount?: string | undefined;
 
   /**
-   * <p>The state of the attachment. The following are the possible values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>attaching</code>: The initial state after a virtual interface is created using the Direct Connect gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>attached</code>: The Direct Connect gateway and virtual interface are attached and ready to pass traffic.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>detaching</code>: The initial state after calling <a>DeleteVirtualInterface</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>detached</code>: The virtual interface is detached from the Direct Connect gateway. Traffic flow between the Direct Connect gateway and virtual interface is stopped.</p>
-   *             </li>
-   *          </ul>
+   * The state of the attachment. The following are the possible values:
+   *
+   * - `attaching`: The initial state after a virtual interface is created using the Direct Connect gateway.
+   * - `attached`: The Direct Connect gateway and virtual interface are attached and ready to pass traffic.
+   * - `detaching`: The initial state after calling DeleteVirtualInterface.
+   * - `detached`: The virtual interface is detached from the Direct Connect gateway. Traffic flow between the Direct Connect gateway and virtual interface is stopped.
+   *
    * @public
    */
   attachmentState?: DirectConnectGatewayAttachmentState | undefined;
 
   /**
-   * <p>The type of attachment.</p>
+   * The type of attachment.
+   *
    * @public
    */
   attachmentType?: DirectConnectGatewayAttachmentType | undefined;
 
   /**
-   * <p>The error message if the state of an object failed to advance.</p>
+   * The error message if the state of an object failed to advance.
+   *
    * @public
    */
   stateChangeError?: string | undefined;
@@ -4101,13 +3899,15 @@ export interface DirectConnectGatewayAttachment {
  */
 export interface DescribeDirectConnectGatewayAttachmentsResult {
   /**
-   * <p>The attachments.</p>
+   * The attachments.
+   *
    * @public
    */
   directConnectGatewayAttachments?: DirectConnectGatewayAttachment[] | undefined;
 
   /**
-   * <p>The token to retrieve the next page.</p>
+   * The token to retrieve the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4118,22 +3918,24 @@ export interface DescribeDirectConnectGatewayAttachmentsResult {
  */
 export interface DescribeDirectConnectGatewaysRequest {
   /**
-   * <p>The ID of the Direct Connect gateway.</p>
+   * The ID of the Direct Connect gateway.
+   *
    * @public
    */
   directConnectGatewayId?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   *          <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are
-   *       returned.</p>
+   * The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned `nextToken` value.
+   *
+   * If `MaxResults` is given a value larger than 100, only 100 results are returned.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token provided in the previous call to retrieve the next page.</p>
+   * The token provided in the previous call to retrieve the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4144,13 +3946,15 @@ export interface DescribeDirectConnectGatewaysRequest {
  */
 export interface DescribeDirectConnectGatewaysResult {
   /**
-   * <p>The Direct Connect gateways.</p>
+   * The Direct Connect gateways.
+   *
    * @public
    */
   directConnectGateways?: DirectConnectGateway[] | undefined;
 
   /**
-   * <p>The token to retrieve the next page.</p>
+   * The token to retrieve the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4161,22 +3965,24 @@ export interface DescribeDirectConnectGatewaysResult {
  */
 export interface DescribeHostedConnectionsRequest {
   /**
-   * <p>The ID of the interconnect or LAG.</p>
+   * The ID of the interconnect or LAG.
+   *
    * @public
    */
   connectionId: string | undefined;
 
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   *          <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are
-   *       returned.</p>
+   * The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned `nextToken` value.
+   *
+   * If `MaxResults` is given a value larger than 100, only 100 results are returned.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4187,19 +3993,22 @@ export interface DescribeHostedConnectionsRequest {
  */
 export interface DescribeInterconnectLoaRequest {
   /**
-   * <p>The ID of the interconnect.</p>
+   * The ID of the interconnect.
+   *
    * @public
    */
   interconnectId: string | undefined;
 
   /**
-   * <p>The name of the service provider who establishes connectivity on your behalf. If you supply this parameter, the LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.</p>
+   * The name of the service provider who establishes connectivity on your behalf. If you supply this parameter, the LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.
+   *
    * @public
    */
   providerName?: string | undefined;
 
   /**
-   * <p>The standard media type for the LOA-CFA document. The only supported value is application/pdf.</p>
+   * The standard media type for the LOA-CFA document. The only supported value is application/pdf.
+   *
    * @public
    */
   loaContentType?: LoaContentType | undefined;
@@ -4210,7 +4019,8 @@ export interface DescribeInterconnectLoaRequest {
  */
 export interface DescribeInterconnectLoaResponse {
   /**
-   * <p>The Letter of Authorization - Connecting Facility Assignment (LOA-CFA).</p>
+   * The Letter of Authorization - Connecting Facility Assignment (LOA-CFA).
+   *
    * @public
    */
   loa?: Loa | undefined;
@@ -4221,22 +4031,24 @@ export interface DescribeInterconnectLoaResponse {
  */
 export interface DescribeInterconnectsRequest {
   /**
-   * <p>The ID of the interconnect.</p>
+   * The ID of the interconnect.
+   *
    * @public
    */
   interconnectId?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   *          <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are
-   *       returned.</p>
+   * The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned `nextToken` value.
+   *
+   * If `MaxResults` is given a value larger than 100, only 100 results are returned.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4247,13 +4059,15 @@ export interface DescribeInterconnectsRequest {
  */
 export interface Interconnects {
   /**
-   * <p>The interconnects.</p>
+   * The interconnects.
+   *
    * @public
    */
   interconnects?: Interconnect[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * The token to use to retrieve the next page of results. This value is `null` when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4264,22 +4078,24 @@ export interface Interconnects {
  */
 export interface DescribeLagsRequest {
   /**
-   * <p>The ID of the LAG.</p>
+   * The ID of the LAG.
+   *
    * @public
    */
   lagId?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   *          <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are
-   *       returned.</p>
+   * The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned `nextToken` value.
+   *
+   * If `MaxResults` is given a value larger than 100, only 100 results are returned.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4290,13 +4106,15 @@ export interface DescribeLagsRequest {
  */
 export interface Lags {
   /**
-   * <p>The LAGs.</p>
+   * The LAGs.
+   *
    * @public
    */
   lags?: Lag[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * The token to use to retrieve the next page of results. This value is `null` when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4307,69 +4125,78 @@ export interface Lags {
  */
 export interface DescribeLoaRequest {
   /**
-   * <p>The ID of a connection, LAG, or interconnect.</p>
+   * The ID of a connection, LAG, or interconnect.
+   *
    * @public
    */
   connectionId: string | undefined;
 
   /**
-   * <p>The name of the service provider who establishes connectivity on your behalf. If you specify this parameter, the
-   *       LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.</p>
+   * The name of the service provider who establishes connectivity on your behalf. If you specify this parameter, the LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.
+   *
    * @public
    */
   providerName?: string | undefined;
 
   /**
-   * <p>The standard media type for the LOA-CFA document. The only supported value is application/pdf.</p>
+   * The standard media type for the LOA-CFA document. The only supported value is application/pdf.
+   *
    * @public
    */
   loaContentType?: LoaContentType | undefined;
 }
 
 /**
- * <p>Information about an Direct Connect location.</p>
+ * Information about an Direct Connect location.
+ *
  * @public
  */
 export interface Location {
   /**
-   * <p>The code for the location.</p>
+   * The code for the location.
+   *
    * @public
    */
   locationCode?: string | undefined;
 
   /**
-   * <p>The name of the location. This includes the name of the colocation partner and the physical site of the building.</p>
+   * The name of the location. This includes the name of the colocation partner and the physical site of the building.
+   *
    * @public
    */
   locationName?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region for the location.</p>
+   * The Amazon Web Services Region for the location.
+   *
    * @public
    */
   region?: string | undefined;
 
   /**
-   * <p>The available port speeds for the location.</p>
+   * The available port speeds for the location.
+   *
    * @public
    */
   availablePortSpeeds?: string[] | undefined;
 
   /**
-   * <p>The name of the service provider for the location.</p>
+   * The name of the service provider for the location.
+   *
    * @public
    */
   availableProviders?: string[] | undefined;
 
   /**
-   * <p>The available MAC Security (MACsec) port speeds for the location.</p>
+   * The available MAC Security (MACsec) port speeds for the location.
+   *
    * @public
    */
   availableMacSecPortSpeeds?: string[] | undefined;
 
   /**
-   * <p>The billing modes available at the location, including the port speeds and
-   *       Amazon Web Services Regions supported by each mode.</p>
+   * The billing modes available at the location, including the port speeds and Amazon Web Services Regions supported by each mode.
+   *
    * @public
    */
   availableBillingModes?: AvailableBillingMode[] | undefined;
@@ -4380,67 +4207,78 @@ export interface Location {
  */
 export interface Locations {
   /**
-   * <p>The locations.</p>
+   * The locations.
+   *
    * @public
    */
   locations?: Location[] | undefined;
 }
 
 /**
- * <p>Provides the details about a virtual interface's router.</p>
+ * Provides the details about a virtual interface's router.
+ *
  * @public
  */
 export interface DescribeRouterConfigurationRequest {
   /**
-   * <p>The ID of the virtual interface.</p>
+   * The ID of the virtual interface.
+   *
    * @public
    */
   virtualInterfaceId: string | undefined;
 
   /**
-   * <p>Identifies the router by a combination of vendor, platform, and software version. For example, <code>CiscoSystemsInc-2900SeriesRouters-IOS124</code>.</p>
+   * Identifies the router by a combination of vendor, platform, and software version. For example, `CiscoSystemsInc-2900SeriesRouters-IOS124`.
+   *
    * @public
    */
   routerTypeIdentifier?: string | undefined;
 }
 
 /**
- * <p>Information about the virtual router.</p>
+ * Information about the virtual router.
+ *
  * @public
  */
 export interface RouterType {
   /**
-   * <p>The vendor for the virtual interface's router.</p>
+   * The vendor for the virtual interface's router.
+   *
    * @public
    */
   vendor?: string | undefined;
 
   /**
-   * <p>The virtual interface router platform.</p>
+   * The virtual interface router platform.
+   *
    * @public
    */
   platform?: string | undefined;
 
   /**
-   * <p>The router software. </p>
+   * The router software.
+   *
    * @public
    */
   software?: string | undefined;
 
   /**
-   * <p>The template for the virtual interface's router.</p>
+   * The template for the virtual interface's router.
+   *
    * @public
    */
   xsltTemplateName?: string | undefined;
 
   /**
-   * <p>The MAC Security (MACsec) template for the virtual interface's router.</p>
+   * The MAC Security (MACsec) template for the virtual interface's router.
+   *
    * @public
    */
   xsltTemplateNameForMacSec?: string | undefined;
 
   /**
-   * <p>Identifies the router by a combination of vendor, platform, and software version. For example, <code>CiscoSystemsInc-2900SeriesRouters-IOS124</code>.</p>
+   * Identifies the router by a combination of vendor, platform, and software version. For example, `CiscoSystemsInc-2900SeriesRouters-IOS124`.
+   *
    * @public
    */
   routerTypeIdentifier?: string | undefined;
@@ -4451,25 +4289,29 @@ export interface RouterType {
  */
 export interface DescribeRouterConfigurationResponse {
   /**
-   * <p>The customer router configuration.</p>
+   * The customer router configuration.
+   *
    * @public
    */
   customerRouterConfig?: string | undefined;
 
   /**
-   * <p>The details about the router.</p>
+   * The details about the router.
+   *
    * @public
    */
   router?: RouterType | undefined;
 
   /**
-   * <p>The ID assigned to the virtual interface.</p>
+   * The ID assigned to the virtual interface.
+   *
    * @public
    */
   virtualInterfaceId?: string | undefined;
 
   /**
-   * <p>Provides the details about a virtual interface's router.</p>
+   * Provides the details about a virtual interface's router.
+   *
    * @public
    */
   virtualInterfaceName?: string | undefined;
@@ -4480,25 +4322,29 @@ export interface DescribeRouterConfigurationResponse {
  */
 export interface DescribeTagsRequest {
   /**
-   * <p>The Amazon Resource Names (ARNs) of the resources.</p>
+   * The Amazon Resource Names (ARNs) of the resources.
+   *
    * @public
    */
   resourceArns: string[] | undefined;
 }
 
 /**
- * <p>Information about a tag associated with an Direct Connect resource.</p>
+ * Information about a tag associated with an Direct Connect resource.
+ *
  * @public
  */
 export interface ResourceTag {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   resourceArn?: string | undefined;
 
   /**
-   * <p>The tags.</p>
+   * The tags.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
@@ -4509,43 +4355,34 @@ export interface ResourceTag {
  */
 export interface DescribeTagsResponse {
   /**
-   * <p>Information about the tags.</p>
+   * Information about the tags.
+   *
    * @public
    */
   resourceTags?: ResourceTag[] | undefined;
 }
 
 /**
- * <p>Information about a virtual private gateway for a private virtual interface.</p>
+ * Information about a virtual private gateway for a private virtual interface.
+ *
  * @public
  */
 export interface VirtualGateway {
   /**
-   * <p>The ID of the virtual private gateway.</p>
+   * The ID of the virtual private gateway.
+   *
    * @public
    */
   virtualGatewayId?: string | undefined;
 
   /**
-   * <p>The state of the virtual private gateway. The following are the possible values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>pending</code>: Initial state after creating the virtual private gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>available</code>: Ready for use by a private virtual interface.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>deleting</code>: Initial state after deleting the virtual private gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>deleted</code>: The virtual private gateway is deleted. The private virtual interface is unable to send traffic over this gateway.</p>
-   *             </li>
-   *          </ul>
+   * The state of the virtual private gateway. The following are the possible values:
+   *
+   * - `pending`: Initial state after creating the virtual private gateway.
+   * - `available`: Ready for use by a private virtual interface.
+   * - `deleting`: Initial state after deleting the virtual private gateway.
+   * - `deleted`: The virtual private gateway is deleted. The private virtual interface is unable to send traffic over this gateway.
+   *
    * @public
    */
   virtualGatewayState?: string | undefined;
@@ -4556,7 +4393,8 @@ export interface VirtualGateway {
  */
 export interface VirtualGateways {
   /**
-   * <p>The virtual private gateways.</p>
+   * The virtual private gateways.
+   *
    * @public
    */
   virtualGateways?: VirtualGateway[] | undefined;
@@ -4567,28 +4405,31 @@ export interface VirtualGateways {
  */
 export interface DescribeVirtualInterfacesRequest {
   /**
-   * <p>The ID of the connection.</p>
+   * The ID of the connection.
+   *
    * @public
    */
   connectionId?: string | undefined;
 
   /**
-   * <p>The ID of the virtual interface.</p>
+   * The ID of the virtual interface.
+   *
    * @public
    */
   virtualInterfaceId?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   *          <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are
-   *       returned.</p>
+   * The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned `nextToken` value.
+   *
+   * If `MaxResults` is given a value larger than 100, only 100 results are returned.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4599,13 +4440,15 @@ export interface DescribeVirtualInterfacesRequest {
  */
 export interface VirtualInterfaces {
   /**
-   * <p>The virtual interfaces</p>
+   * The virtual interfaces
+   *
    * @public
    */
   virtualInterfaces?: VirtualInterface[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * The token to use to retrieve the next page of results. This value is `null` when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4616,13 +4459,15 @@ export interface VirtualInterfaces {
  */
 export interface DisassociateConnectionFromLagRequest {
   /**
-   * <p>The ID of the connection.</p>
+   * The ID of the connection.
+   *
    * @public
    */
   connectionId: string | undefined;
 
   /**
-   * <p>The ID of the LAG.</p>
+   * The ID of the LAG.
+   *
    * @public
    */
   lagId: string | undefined;
@@ -4633,20 +4478,22 @@ export interface DisassociateConnectionFromLagRequest {
  */
 export interface DisassociateConnectionsFromResiliencyGroupRequest {
   /**
-   * <p>The IDs or ARNs of the connections to disassociate from the resiliency group.</p>
+   * The IDs or ARNs of the connections to disassociate from the resiliency group.
+   *
    * @public
    */
   connectionIdentifiers: string[] | undefined;
 
   /**
-   * <p>The ID of the resiliency group.</p>
+   * The ID of the resiliency group.
+   *
    * @public
    */
   resiliencyGroupId: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *       request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -4657,7 +4504,8 @@ export interface DisassociateConnectionsFromResiliencyGroupRequest {
  */
 export interface DisassociateConnectionsFromResiliencyGroupResult {
   /**
-   * <p>The connection associations for the resiliency group.</p>
+   * The connection associations for the resiliency group.
+   *
    * @public
    */
   resiliencyGroupAssociations?: ResiliencyGroupAssociation[] | undefined;
@@ -4668,15 +4516,19 @@ export interface DisassociateConnectionsFromResiliencyGroupResult {
  */
 export interface DisassociateMacSecKeyRequest {
   /**
-   * <p>The ID of the dedicated connection (dxcon-xxxx), interconnect (dxcon-xxxx), or LAG (dxlag-xxxx).</p>
-   *          <p>You can use <a>DescribeConnections</a>, <a>DescribeInterconnects</a>, or <a>DescribeLags</a> to retrieve connection ID.</p>
+   * The ID of the dedicated connection (dxcon-xxxx), interconnect (dxcon-xxxx), or LAG (dxlag-xxxx).
+   *
+   * You can use DescribeConnections, DescribeInterconnects, or DescribeLags to retrieve connection ID.
+   *
    * @public
    */
   connectionId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key.</p>
-   *          <p>You can use <a>DescribeConnections</a> to retrieve the ARN of the MAC Security (MACsec) secret key.</p>
+   * The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key.
+   *
+   * You can use DescribeConnections to retrieve the ARN of the MAC Security (MACsec) secret key.
+   *
    * @public
    */
   secretARN: string | undefined;
@@ -4687,13 +4539,15 @@ export interface DisassociateMacSecKeyRequest {
  */
 export interface DisassociateMacSecKeyResponse {
   /**
-   * <p>The ID of the dedicated connection (dxcon-xxxx), interconnect (dxcon-xxxx), or LAG (dxlag-xxxx).</p>
+   * The ID of the dedicated connection (dxcon-xxxx), interconnect (dxcon-xxxx), or LAG (dxlag-xxxx).
+   *
    * @public
    */
   connectionId?: string | undefined;
 
   /**
-   * <p>The MAC Security (MACsec) security keys no longer associated with the connection.</p>
+   * The MAC Security (MACsec) security keys no longer associated with the connection.
+   *
    * @public
    */
   macSecKeys?: MacSecKey[] | undefined;
@@ -4704,7 +4558,8 @@ export interface DisassociateMacSecKeyResponse {
  */
 export interface GetResiliencyGroupRequest {
   /**
-   * <p>The ID of the resiliency group.</p>
+   * The ID of the resiliency group.
+   *
    * @public
    */
   resiliencyGroupId: string | undefined;
@@ -4715,7 +4570,8 @@ export interface GetResiliencyGroupRequest {
  */
 export interface GetResiliencyGroupResult {
   /**
-   * <p>Information about the resiliency group.</p>
+   * Information about the resiliency group.
+   *
    * @public
    */
   resiliencyGroup?: ResiliencyGroup | undefined;
@@ -4726,22 +4582,24 @@ export interface GetResiliencyGroupResult {
  */
 export interface ListResiliencyGroupAssociationsRequest {
   /**
-   * <p>The ID of the resiliency group.</p>
+   * The ID of the resiliency group.
+   *
    * @public
    */
   resiliencyGroupId: string | undefined;
 
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   *          <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are
-   *       returned.</p>
+   * The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned `nextToken` value.
+   *
+   * If `MaxResults` is given a value larger than 100, only 100 results are returned.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4752,13 +4610,15 @@ export interface ListResiliencyGroupAssociationsRequest {
  */
 export interface ListResiliencyGroupAssociationsResult {
   /**
-   * <p>The connection associations for the resiliency group.</p>
+   * The connection associations for the resiliency group.
+   *
    * @public
    */
   items?: ResiliencyGroupAssociation[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * The token to use to retrieve the next page of results. This value is `null` when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4769,58 +4629,66 @@ export interface ListResiliencyGroupAssociationsResult {
  */
 export interface ListResiliencyGroupsRequest {
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   *          <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are
-   *       returned.</p>
+   * The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned `nextToken` value.
+   *
+   * If `MaxResults` is given a value larger than 100, only 100 results are returned.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Summary information about a resiliency group.</p>
+ * Summary information about a resiliency group.
+ *
  * @public
  */
 export interface ResiliencyGroupSummary {
   /**
-   * <p>The ID of the resiliency group.</p>
+   * The ID of the resiliency group.
+   *
    * @public
    */
   resiliencyGroupId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the resiliency group.</p>
+   * The Amazon Resource Name (ARN) of the resiliency group.
+   *
    * @public
    */
   resiliencyGroupArn?: string | undefined;
 
   /**
-   * <p>The name of the resiliency group.</p>
+   * The name of the resiliency group.
+   *
    * @public
    */
   resiliencyGroupName?: string | undefined;
 
   /**
-   * <p>The type of the resiliency group. The valid value is <code>Managed</code>.</p>
+   * The type of the resiliency group. The valid value is `Managed`.
+   *
    * @public
    */
   resiliencyGroupType?: ResiliencyGroupType | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services account that owns the resiliency group.</p>
+   * The ID of the Amazon Web Services account that owns the resiliency group.
+   *
    * @public
    */
   ownerAccount?: string | undefined;
 
   /**
-   * <p>The state of the resiliency group.</p>
+   * The state of the resiliency group.
+   *
    * @public
    */
   state?: ResiliencyGroupState | undefined;
@@ -4831,51 +4699,61 @@ export interface ResiliencyGroupSummary {
  */
 export interface ListResiliencyGroupsResult {
   /**
-   * <p>Summary information about the resiliency groups.</p>
+   * Summary information about the resiliency groups.
+   *
    * @public
    */
   items?: ResiliencyGroupSummary[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * The token to use to retrieve the next page of results. This value is `null` when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>The filters used to limit the routes returned by <a>ListVirtualInterfaceRoutes</a>.</p>
+ * The filters used to limit the routes returned by ListVirtualInterfaceRoutes.
+ *
  * @public
  */
 export interface RouteFilters {
   /**
-   * <p>The direction of the routes to return.</p>
-   *          <p>The valid values are <code>accepted</code> (routes received from the customer network) and <code>advertised</code> (routes advertised to the customer network).</p>
+   * The direction of the routes to return.
+   *
+   * The valid values are `accepted` (routes received from the customer network) and `advertised` (routes advertised to the customer network).
+   *
    * @public
    */
   routeDirection?: RouteDirection | undefined;
 
   /**
-   * <p>The address family of the routes to return.</p>
-   *          <p>The valid values are <code>ipv4</code> and <code>ipv6</code>.</p>
+   * The address family of the routes to return.
+   *
+   * The valid values are `ipv4` and `ipv6`.
+   *
    * @public
    */
   addressFamily?: AddressFamily | undefined;
 
   /**
-   * <p>The CIDRs (prefixes) used to filter the routes. You can specify up to 10 CIDRs.</p>
+   * The CIDRs (prefixes) used to filter the routes. You can specify up to 10 CIDRs.
+   *
    * @public
    */
   cidrs?: string[] | undefined;
 
   /**
-   * <p>The autonomous system (AS) numbers used to filter the routes by their AS path.</p>
+   * The autonomous system (AS) numbers used to filter the routes by their AS path.
+   *
    * @public
    */
   asPath?: number[] | undefined;
 
   /**
-   * <p>The BGP communities used to filter the routes.</p>
+   * The BGP communities used to filter the routes.
+   *
    * @public
    */
   communities?: string[] | undefined;
@@ -4886,79 +4764,91 @@ export interface RouteFilters {
  */
 export interface ListVirtualInterfaceRoutesRequest {
   /**
-   * <p>The ID of the virtual interface.</p>
+   * The ID of the virtual interface.
+   *
    * @public
    */
   virtualInterfaceId?: string | undefined;
 
   /**
-   * <p>The filters to apply to the routes returned.</p>
+   * The filters to apply to the routes returned.
+   *
    * @public
    */
   filters?: RouteFilters | undefined;
 
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   *          <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are
-   *       returned.</p>
+   * The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned `nextToken` value.
+   *
+   * If `MaxResults` is given a value larger than 100, only 100 results are returned.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Information about a route for a virtual interface.</p>
+ * Information about a route for a virtual interface.
+ *
  * @public
  */
 export interface Route {
   /**
-   * <p>The CIDR (prefix) of the route.</p>
+   * The CIDR (prefix) of the route.
+   *
    * @public
    */
   cidr?: string | undefined;
 
   /**
-   * <p>The direction of the route.</p>
-   *          <p>The valid values are <code>accepted</code> (received from the customer network) and <code>advertised</code> (advertised to the customer network).</p>
+   * The direction of the route.
+   *
+   * The valid values are `accepted` (received from the customer network) and `advertised` (advertised to the customer network).
+   *
    * @public
    */
   routeDirection?: RouteDirection | undefined;
 
   /**
-   * <p>The address family of the route.</p>
-   *          <p>The valid values are <code>ipv4</code> and <code>ipv6</code>.</p>
+   * The address family of the route.
+   *
+   * The valid values are `ipv4` and `ipv6`.
+   *
    * @public
    */
   addressFamily?: AddressFamily | undefined;
 
   /**
-   * <p>The autonomous system (AS) path of the route.</p>
+   * The autonomous system (AS) path of the route.
+   *
    * @public
    */
   asPath?: AsPathSegment[] | undefined;
 
   /**
-   * <p>The BGP communities associated with the route.</p>
+   * The BGP communities associated with the route.
+   *
    * @public
    */
   communities?: string[] | undefined;
 
   /**
-   * <p>The Direct Connect endpoint that terminates the logical connection. This device might be
-   *       different than the device that terminates the physical connection.</p>
+   * The Direct Connect endpoint that terminates the logical connection. This device might be different than the device that terminates the physical connection.
+   *
    * @public
    */
   awsLogicalDeviceId?: string | undefined;
 
   /**
-   * <p>The time when the route was installed. The value is displayed in UTC format.</p>
+   * The time when the route was installed. The value is displayed in UTC format.
+   *
    * @public
    */
   routeInstalledAt?: Date | undefined;
@@ -4969,19 +4859,22 @@ export interface Route {
  */
 export interface ListVirtualInterfaceRoutesResponse {
   /**
-   * <p>The ID of the virtual interface.</p>
+   * The ID of the virtual interface.
+   *
    * @public
    */
   virtualInterfaceId?: string | undefined;
 
   /**
-   * <p>The routes for the virtual interface.</p>
+   * The routes for the virtual interface.
+   *
    * @public
    */
   routes?: Route[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * The token to use to retrieve the next page of results. This value is `null` when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4992,94 +4885,108 @@ export interface ListVirtualInterfaceRoutesResponse {
  */
 export interface ListVirtualInterfaceTestHistoryRequest {
   /**
-   * <p>The ID of the virtual interface failover test.</p>
+   * The ID of the virtual interface failover test.
+   *
    * @public
    */
   testId?: string | undefined;
 
   /**
-   * <p>The ID of the virtual interface that was tested.</p>
+   * The ID of the virtual interface that was tested.
+   *
    * @public
    */
   virtualInterfaceId?: string | undefined;
 
   /**
-   * <p>The BGP peers that were placed in the DOWN state during the virtual interface failover test.</p>
+   * The BGP peers that were placed in the DOWN state during the virtual interface failover test.
+   *
    * @public
    */
   bgpPeers?: string[] | undefined;
 
   /**
-   * <p>The status of the virtual interface failover test.</p>
+   * The status of the virtual interface failover test.
+   *
    * @public
    */
   status?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   *          <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are
-   *       returned.</p>
+   * The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned `nextToken` value.
+   *
+   * If `MaxResults` is given a value larger than 100, only 100 results are returned.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Information about the virtual interface failover test.</p>
+ * Information about the virtual interface failover test.
+ *
  * @public
  */
 export interface VirtualInterfaceTestHistory {
   /**
-   * <p>The ID of the virtual interface failover test.</p>
+   * The ID of the virtual interface failover test.
+   *
    * @public
    */
   testId?: string | undefined;
 
   /**
-   * <p>The ID of the tested virtual interface.</p>
+   * The ID of the tested virtual interface.
+   *
    * @public
    */
   virtualInterfaceId?: string | undefined;
 
   /**
-   * <p>The BGP peers that were put in the DOWN state as part of the virtual interface failover test.</p>
+   * The BGP peers that were put in the DOWN state as part of the virtual interface failover test.
+   *
    * @public
    */
   bgpPeers?: string[] | undefined;
 
   /**
-   * <p>The status of the virtual interface failover test.</p>
+   * The status of the virtual interface failover test.
+   *
    * @public
    */
   status?: string | undefined;
 
   /**
-   * <p>The owner ID of the tested virtual interface.</p>
+   * The owner ID of the tested virtual interface.
+   *
    * @public
    */
   ownerAccount?: string | undefined;
 
   /**
-   * <p>The time that the virtual interface failover test ran in minutes.</p>
+   * The time that the virtual interface failover test ran in minutes.
+   *
    * @public
    */
   testDurationInMinutes?: number | undefined;
 
   /**
-   * <p>The time that the virtual interface moves to the DOWN state.</p>
+   * The time that the virtual interface moves to the DOWN state.
+   *
    * @public
    */
   startTime?: Date | undefined;
 
   /**
-   * <p>The time that the virtual interface moves out of the DOWN state.</p>
+   * The time that the virtual interface moves out of the DOWN state.
+   *
    * @public
    */
   endTime?: Date | undefined;
@@ -5090,13 +4997,15 @@ export interface VirtualInterfaceTestHistory {
  */
 export interface ListVirtualInterfaceTestHistoryResponse {
   /**
-   * <p>The ID of the tested virtual interface.</p>
+   * The ID of the tested virtual interface.
+   *
    * @public
    */
   virtualInterfaceTestHistory?: VirtualInterfaceTestHistory[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * The token to use to retrieve the next page of results. This value is `null` when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -5107,21 +5016,26 @@ export interface ListVirtualInterfaceTestHistoryResponse {
  */
 export interface StartBgpFailoverTestRequest {
   /**
-   * <p>The ID of the virtual interface you want to test.</p>
+   * The ID of the virtual interface you want to test.
+   *
    * @public
    */
   virtualInterfaceId: string | undefined;
 
   /**
-   * <p>The BGP peers to place in the DOWN state.</p>
+   * The BGP peers to place in the DOWN state.
+   *
    * @public
    */
   bgpPeers?: string[] | undefined;
 
   /**
-   * <p>The time in minutes that the virtual interface failover test will last.</p>
-   *          <p>Maximum value: 4,320 minutes (72 hours).</p>
-   *          <p>Default: 180 minutes (3 hours).</p>
+   * The time in minutes that the virtual interface failover test will last.
+   *
+   * Maximum value: 4,320 minutes (72 hours).
+   *
+   * Default: 180 minutes (3 hours).
+   *
    * @public
    */
   testDurationInMinutes?: number | undefined;
@@ -5132,7 +5046,8 @@ export interface StartBgpFailoverTestRequest {
  */
 export interface StartBgpFailoverTestResponse {
   /**
-   * <p>Information about the virtual interface failover test.</p>
+   * Information about the virtual interface failover test.
+   *
    * @public
    */
   virtualInterfaceTest?: VirtualInterfaceTestHistory | undefined;
@@ -5143,7 +5058,8 @@ export interface StartBgpFailoverTestResponse {
  */
 export interface StopBgpFailoverTestRequest {
   /**
-   * <p>The ID of the virtual interface you no longer want to test.</p>
+   * The ID of the virtual interface you no longer want to test.
+   *
    * @public
    */
   virtualInterfaceId: string | undefined;
@@ -5154,7 +5070,8 @@ export interface StopBgpFailoverTestRequest {
  */
 export interface StopBgpFailoverTestResponse {
   /**
-   * <p>Information about the virtual interface failover test.</p>
+   * Information about the virtual interface failover test.
+   *
    * @public
    */
   virtualInterfaceTest?: VirtualInterfaceTestHistory | undefined;
@@ -5165,13 +5082,15 @@ export interface StopBgpFailoverTestResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The tags to add.</p>
+   * The tags to add.
+   *
    * @public
    */
   tags: Tag[] | undefined;
@@ -5187,13 +5106,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The tag keys of the tags to remove.</p>
+   * The tag keys of the tags to remove.
+   *
    * @public
    */
   tagKeys: string[] | undefined;
@@ -5209,21 +5130,26 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateConnectionRequest {
   /**
-   * <p>The ID of the connection.</p>
-   *          <p>You can use <a>DescribeConnections</a> to retrieve the connection ID.</p>
+   * The ID of the connection.
+   *
+   * You can use DescribeConnections to retrieve the connection ID.
+   *
    * @public
    */
   connectionId: string | undefined;
 
   /**
-   * <p>The name of the connection.</p>
+   * The name of the connection.
+   *
    * @public
    */
   connectionName?: string | undefined;
 
   /**
-   * <p>The connection MAC Security (MACsec) encryption mode.</p>
-   *          <p>The valid values are <code>no_encrypt</code>, <code>should_encrypt</code>, and <code>must_encrypt</code>.</p>
+   * The connection MAC Security (MACsec) encryption mode.
+   *
+   * The valid values are `no_encrypt`, `should_encrypt`, and `must_encrypt`.
+   *
    * @public
    */
   encryptionMode?: string | undefined;
@@ -5234,16 +5160,15 @@ export interface UpdateConnectionRequest {
  */
 export interface UpdateConnectionsBillingModeRequest {
   /**
-   * <p>The IDs of the connections to update. You can specify from 1 to 200 connections.</p>
+   * The IDs of the connections to update. You can specify from 1 to 200 connections.
+   *
    * @public
    */
   connectionIds: string[] | undefined;
 
   /**
-   * <p>The billing mode to apply to the specified connections. The valid values are
-   *       <code>PayAsYouGo</code>, <code>FlatRateTier1</code>, <code>FlatRateTier2</code>,
-   *       <code>FlatRateTier3</code>, <code>FlatRateTier4</code>, and
-   *       <code>FlatRateTier5</code>.</p>
+   * The billing mode to apply to the specified connections. The valid values are `PayAsYouGo`, `FlatRateTier1`, `FlatRateTier2`, `FlatRateTier3`, `FlatRateTier4`, and `FlatRateTier5`.
+   *
    * @public
    */
   billingMode: RequestBillingMode | undefined;
@@ -5254,13 +5179,15 @@ export interface UpdateConnectionsBillingModeRequest {
  */
 export interface UpdateConnectionsBillingModeResponse {
   /**
-   * <p>The billing mode applied to the connections.</p>
+   * The billing mode applied to the connections.
+   *
    * @public
    */
   billingMode?: BillingMode | undefined;
 
   /**
-   * <p>The connections with the updated billing mode.</p>
+   * The connections with the updated billing mode.
+   *
    * @public
    */
   connections?: Connection[] | undefined;
@@ -5271,13 +5198,15 @@ export interface UpdateConnectionsBillingModeResponse {
  */
 export interface UpdateDirectConnectGatewayRequest {
   /**
-   * <p>The ID of the Direct Connect gateway to update.</p>
+   * The ID of the Direct Connect gateway to update.
+   *
    * @public
    */
   directConnectGatewayId: string | undefined;
 
   /**
-   * <p>The new name for the Direct Connect gateway.</p>
+   * The new name for the Direct Connect gateway.
+   *
    * @public
    */
   newDirectConnectGatewayName: string | undefined;
@@ -5288,7 +5217,8 @@ export interface UpdateDirectConnectGatewayRequest {
  */
 export interface UpdateDirectConnectGatewayResponse {
   /**
-   * <p>Informaiton about a Direct Connect gateway, which enables you to connect virtual interfaces and virtual private gateways or transit gateways.</p>
+   * Informaiton about a Direct Connect gateway, which enables you to connect virtual interfaces and virtual private gateways or transit gateways.
+   *
    * @public
    */
   directConnectGateway?: DirectConnectGateway | undefined;
@@ -5299,19 +5229,22 @@ export interface UpdateDirectConnectGatewayResponse {
  */
 export interface UpdateDirectConnectGatewayAssociationRequest {
   /**
-   * <p>The ID of the Direct Connect gateway association.</p>
+   * The ID of the Direct Connect gateway association.
+   *
    * @public
    */
   associationId?: string | undefined;
 
   /**
-   * <p>The Amazon VPC prefixes to advertise to the Direct Connect gateway.</p>
+   * The Amazon VPC prefixes to advertise to the Direct Connect gateway.
+   *
    * @public
    */
   addAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[] | undefined;
 
   /**
-   * <p>The Amazon VPC prefixes to no longer advertise to the Direct Connect gateway.</p>
+   * The Amazon VPC prefixes to no longer advertise to the Direct Connect gateway.
+   *
    * @public
    */
   removeAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[] | undefined;
@@ -5322,7 +5255,8 @@ export interface UpdateDirectConnectGatewayAssociationRequest {
  */
 export interface UpdateDirectConnectGatewayAssociationResult {
   /**
-   * <p>Information about an association between a Direct Connect gateway and a virtual private gateway or transit gateway.</p>
+   * Information about an association between a Direct Connect gateway and a virtual private gateway or transit gateway.
+   *
    * @public
    */
   directConnectGatewayAssociation?: DirectConnectGatewayAssociation | undefined;
@@ -5333,26 +5267,31 @@ export interface UpdateDirectConnectGatewayAssociationResult {
  */
 export interface UpdateLagRequest {
   /**
-   * <p>The ID of the LAG.</p>
+   * The ID of the LAG.
+   *
    * @public
    */
   lagId: string | undefined;
 
   /**
-   * <p>The name of the LAG.</p>
+   * The name of the LAG.
+   *
    * @public
    */
   lagName?: string | undefined;
 
   /**
-   * <p>The minimum number of physical connections that must be operational for the LAG itself to be operational.</p>
+   * The minimum number of physical connections that must be operational for the LAG itself to be operational.
+   *
    * @public
    */
   minimumLinks?: number | undefined;
 
   /**
-   * <p>The LAG MAC Security (MACsec) encryption mode.</p>
-   *          <p>Amazon Web Services applies the value to all connections which are part of the LAG.</p>
+   * The LAG MAC Security (MACsec) encryption mode.
+   *
+   * Amazon Web Services applies the value to all connections which are part of the LAG.
+   *
    * @public
    */
   encryptionMode?: string | undefined;
@@ -5363,20 +5302,22 @@ export interface UpdateLagRequest {
  */
 export interface UpdateResiliencyGroupRequest {
   /**
-   * <p>The ID of the resiliency group.</p>
+   * The ID of the resiliency group.
+   *
    * @public
    */
   resiliencyGroupId: string | undefined;
 
   /**
-   * <p>The new name of the resiliency group.</p>
+   * The new name of the resiliency group.
+   *
    * @public
    */
   resiliencyGroupName: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *       request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -5387,7 +5328,8 @@ export interface UpdateResiliencyGroupRequest {
  */
 export interface UpdateResiliencyGroupResult {
   /**
-   * <p>Information about the resiliency group.</p>
+   * Information about the resiliency group.
+   *
    * @public
    */
   resiliencyGroup?: ResiliencyGroup | undefined;
@@ -5398,43 +5340,50 @@ export interface UpdateResiliencyGroupResult {
  */
 export interface UpdateVirtualInterfaceAttributesRequest {
   /**
-   * <p>The ID of the virtual private interface.</p>
+   * The ID of the virtual private interface.
+   *
    * @public
    */
   virtualInterfaceId: string | undefined;
 
   /**
-   * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 8500. The default value is 1500.</p>
+   * The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 8500. The default value is 1500.
+   *
    * @public
    */
   mtu?: number | undefined;
 
   /**
-   * <p>Indicates whether to enable or disable SiteLink.</p>
+   * Indicates whether to enable or disable SiteLink.
+   *
    * @public
    */
   enableSiteLink?: boolean | undefined;
 
   /**
-   * <p>The name of the virtual private interface.</p>
+   * The name of the virtual private interface.
+   *
    * @public
    */
   virtualInterfaceName?: string | undefined;
 
   /**
-   * <p>The number of inbound IPv4 route prefixes to allocate to the virtual interface. Not applicable to public virtual interfaces.</p>
+   * The number of inbound IPv4 route prefixes to allocate to the virtual interface. Not applicable to public virtual interfaces.
+   *
    * @public
    */
   prefixPoolAllocatedCountIpv4?: number | undefined;
 
   /**
-   * <p>The number of inbound IPv6 route prefixes to allocate to the virtual interface. Not applicable to public virtual interfaces.</p>
+   * The number of inbound IPv6 route prefixes to allocate to the virtual interface. Not applicable to public virtual interfaces.
+   *
    * @public
    */
   prefixPoolAllocatedCountIpv6?: number | undefined;
 
   /**
-   * <p>The rate limit (bandwidth allocation) to apply to the virtual interface. Use this to update the bandwidth allocation on an existing virtual interface.</p>
+   * The rate limit (bandwidth allocation) to apply to the virtual interface. Use this to update the bandwidth allocation on an existing virtual interface.
+   *
    * @public
    */
   rateLimit?: string | undefined;

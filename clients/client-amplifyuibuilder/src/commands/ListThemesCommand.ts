@@ -23,8 +23,8 @@ export interface ListThemesCommandInput extends ListThemesRequest {}
 export interface ListThemesCommandOutput extends ListThemesResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of themes for a specified Amplify app and backend
- *       environment.</p>
+ * Retrieves a list of themes for a specified Amplify app and backend environment.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,14 +62,16 @@ export interface ListThemesCommandOutput extends ListThemesResponse, __MetadataB
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error has occurred. Please retry your request.</p>
+ *
+ * An internal error has occurred. Please retry your request.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+ *
+ * An invalid or out-of-range value was supplied for the input parameter.
  *
  * @throws {@link AmplifyUIBuilderServiceException}
- * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ * Base exception class for all service exceptions from AmplifyUIBuilder service.
  *
  * @public
  */

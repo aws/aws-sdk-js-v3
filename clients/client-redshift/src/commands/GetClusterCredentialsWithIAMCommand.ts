@@ -23,16 +23,10 @@ export interface GetClusterCredentialsWithIAMCommandInput extends GetClusterCred
 export interface GetClusterCredentialsWithIAMCommandOutput extends ClusterExtendedCredentials, __MetadataBearer {}
 
 /**
- * <p>Returns a database user name and temporary password with temporary authorization to
- *             log in to an Amazon Redshift database.
- *             The database user is mapped 1:1 to the source Identity and Access Management (IAM) identity.
- *             For more information about IAM identities, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html">IAM Identities (users, user groups, and roles)</a> in the
- *             Amazon Web Services Identity and Access Management User Guide.</p>
- *          <p>The Identity and Access Management (IAM) identity that runs
- *             this operation must have an IAM policy attached that allows access to all
- *             necessary actions and resources.
- *                 For more information about permissions, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html">Using identity-based policies (IAM policies)</a> in the
- *             Amazon Redshift Cluster Management Guide. </p>
+ * Returns a database user name and temporary password with temporary authorization to log in to an Amazon Redshift database. The database user is mapped 1:1 to the source Identity and Access Management (IAM) identity. For more information about IAM identities, see [IAM Identities (users, user groups, and roles)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html) in the Amazon Web Services Identity and Access Management User Guide.
+ *
+ * The Identity and Access Management (IAM) identity that runs this operation must have an IAM policy attached that allows access to all necessary actions and resources. For more information about permissions, see [Using identity-based policies (IAM policies)](https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html) in the Amazon Redshift Cluster Management Guide.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,15 +59,16 @@ export interface GetClusterCredentialsWithIAMCommandOutput extends ClusterExtend
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
- *         </p>
+ *
+ * The `ClusterIdentifier` parameter does not refer to an existing cluster.
  *
  * @throws {@link UnsupportedOperationFault} (client fault)
- *  <p>The requested operation isn't supported.</p>
+ *
+ * The requested operation isn't supported.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

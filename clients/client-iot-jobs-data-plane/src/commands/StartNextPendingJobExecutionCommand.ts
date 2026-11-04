@@ -23,9 +23,10 @@ export interface StartNextPendingJobExecutionCommandInput extends StartNextPendi
 export interface StartNextPendingJobExecutionCommandOutput extends StartNextPendingJobExecutionResponse, __MetadataBearer {}
 
 /**
- * <p>Gets and starts the next pending (status IN_PROGRESS or QUEUED) job execution for a
- *          thing.</p>
- *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StartNextPendingJobExecution</a> action.</p>
+ * Gets and starts the next pending (status IN_PROGRESS or QUEUED) job execution for a thing.
+ *
+ * Requires permission to access the [StartNextPendingJobExecution](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,23 +71,28 @@ export interface StartNextPendingJobExecutionCommandOutput extends StartNextPend
  * @see {@link IoTJobsDataPlaneClientResolvedConfig | config} for IoTJobsDataPlaneClient's `config` shape.
  *
  * @throws {@link CertificateValidationException} (client fault)
- *  <p>The certificate is invalid.</p>
+ *
+ * The certificate is invalid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The contents of the request were invalid.</p>
+ *
+ * The contents of the request were invalid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is temporarily unavailable.</p>
+ *
+ * The service is temporarily unavailable.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The rate exceeds the limit.</p>
+ *
+ * The rate exceeds the limit.
  *
  * @throws {@link IoTJobsDataPlaneServiceException}
- * <p>Base exception class for all service exceptions from IoTJobsDataPlane service.</p>
  *
+ * Base exception class for all service exceptions from IoTJobsDataPlane service.
  *
  * @public
  */

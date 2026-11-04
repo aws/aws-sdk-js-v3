@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { BudgetsServiceException as __BaseException } from "./BudgetsServiceException";
 
 /**
- * <p>You are not authorized to use this operation with the given parameters.</p>
+ * You are not authorized to use this operation with the given parameters.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -12,7 +13,8 @@ export class AccessDeniedException extends __BaseException {
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error message the exception carries.</p>
+   * The error message the exception carries.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -31,9 +33,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>
- *       The billing view status must be HEALTHY to perform this action. Try again when the status is HEALTHY.
- *     </p>
+ * The billing view status must be HEALTHY to perform this action. Try again when the status is HEALTHY.
+ *
  * @public
  */
 export class BillingViewHealthStatusException extends __BaseException {
@@ -41,7 +42,8 @@ export class BillingViewHealthStatusException extends __BaseException {
   readonly name = "BillingViewHealthStatusException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error message the exception carries.</p>
+   * The error message the exception carries.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -60,7 +62,8 @@ export class BillingViewHealthStatusException extends __BaseException {
 }
 
 /**
- * <p>You've exceeded the notification or subscriber limit.</p>
+ * You've exceeded the notification or subscriber limit.
+ *
  * @public
  */
 export class CreationLimitExceededException extends __BaseException {
@@ -68,7 +71,8 @@ export class CreationLimitExceededException extends __BaseException {
   readonly name = "CreationLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error message the exception carries.</p>
+   * The error message the exception carries.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -87,7 +91,8 @@ export class CreationLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The budget name already exists. Budget names must be unique within an account.</p>
+ * The budget name already exists. Budget names must be unique within an account.
+ *
  * @public
  */
 export class DuplicateRecordException extends __BaseException {
@@ -95,7 +100,8 @@ export class DuplicateRecordException extends __BaseException {
   readonly name = "DuplicateRecordException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error message the exception carries.</p>
+   * The error message the exception carries.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -114,7 +120,8 @@ export class DuplicateRecordException extends __BaseException {
 }
 
 /**
- * <p>An error on the server occurred during the processing of your request. Try again later.</p>
+ * An error on the server occurred during the processing of your request. Try again later.
+ *
  * @public
  */
 export class InternalErrorException extends __BaseException {
@@ -122,7 +129,8 @@ export class InternalErrorException extends __BaseException {
   readonly name = "InternalErrorException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>The error message the exception carries.</p>
+   * The error message the exception carries.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -141,7 +149,8 @@ export class InternalErrorException extends __BaseException {
 }
 
 /**
- * <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+ * An error on the client occurred. Typically, the cause is an invalid input value.
+ *
  * @public
  */
 export class InvalidParameterException extends __BaseException {
@@ -149,7 +158,8 @@ export class InvalidParameterException extends __BaseException {
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error message the exception carries.</p>
+   * The error message the exception carries.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -168,7 +178,8 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>We can’t locate the resource that you specified.</p>
+ * We can’t locate the resource that you specified.
+ *
  * @public
  */
 export class NotFoundException extends __BaseException {
@@ -176,7 +187,8 @@ export class NotFoundException extends __BaseException {
   readonly name = "NotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error message the exception carries.</p>
+   * The error message the exception carries.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -195,7 +207,8 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * <p>You've reached a Service Quota limit on this resource.</p>
+ * You've reached a Service Quota limit on this resource.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -203,7 +216,8 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error message the exception carries.</p>
+   * The error message the exception carries.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -222,8 +236,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The number of API requests has exceeded the maximum allowed API request throttling limit
- *       for the account.</p>
+ * The number of API requests has exceeded the maximum allowed API request throttling limit for the account.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -231,7 +245,8 @@ export class ThrottlingException extends __BaseException {
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error message the exception carries.</p>
+   * The error message the exception carries.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -250,8 +265,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The request was received and recognized by the server, but the server rejected that
- *       particular method for the requested resource.</p>
+ * The request was received and recognized by the server, but the server rejected that particular method for the requested resource.
+ *
  * @public
  */
 export class ResourceLockedException extends __BaseException {
@@ -259,7 +274,8 @@ export class ResourceLockedException extends __BaseException {
   readonly name = "ResourceLockedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error message the exception carries.</p>
+   * The error message the exception carries.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -278,7 +294,8 @@ export class ResourceLockedException extends __BaseException {
 }
 
 /**
- * <p>The pagination token is invalid.</p>
+ * The pagination token is invalid.
+ *
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -286,7 +303,8 @@ export class InvalidNextTokenException extends __BaseException {
   readonly name = "InvalidNextTokenException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error message the exception carries.</p>
+   * The error message the exception carries.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -305,7 +323,8 @@ export class InvalidNextTokenException extends __BaseException {
 }
 
 /**
- * <p>The pagination token expired.</p>
+ * The pagination token expired.
+ *
  * @public
  */
 export class ExpiredNextTokenException extends __BaseException {
@@ -313,7 +332,8 @@ export class ExpiredNextTokenException extends __BaseException {
   readonly name = "ExpiredNextTokenException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error message the exception carries.</p>
+   * The error message the exception carries.
+   *
    * @public
    */
   Message?: string | undefined;

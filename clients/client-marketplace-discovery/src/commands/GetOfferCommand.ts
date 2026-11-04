@@ -23,7 +23,8 @@ export interface GetOfferCommandInput extends GetOfferInput {}
 export interface GetOfferCommandOutput extends GetOfferOutput, __MetadataBearer {}
 
 /**
- * <p>Provides details about an offer, such as the pricing model, seller of record, availability dates, badges, and associated products.</p>
+ * Provides details about an offer, such as the pricing model, seller of record, availability dates, badges, and associated products.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,23 +92,28 @@ export interface GetOfferCommandOutput extends GetOfferOutput, __MetadataBearer 
  * @see {@link MarketplaceDiscoveryClientResolvedConfig | config} for MarketplaceDiscoveryClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource doesn't exist.</p>
+ *
+ * The specified resource doesn't exist.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * You don't have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error during processing of the request.</p>
+ *
+ * Unexpected error during processing of the request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the service.</p>
+ *
+ * The input fails to satisfy the constraints specified by the service.
  *
  * @throws {@link MarketplaceDiscoveryServiceException}
- * <p>Base exception class for all service exceptions from MarketplaceDiscovery service.</p>
  *
+ * Base exception class for all service exceptions from MarketplaceDiscovery service.
  *
  * @example Invoke GetOffer for Contract Pricing offer
  * ```javascript

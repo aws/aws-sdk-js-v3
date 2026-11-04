@@ -23,7 +23,8 @@ export interface RemoveManagedScalingPolicyCommandInput extends RemoveManagedSca
 export interface RemoveManagedScalingPolicyCommandOutput extends RemoveManagedScalingPolicyOutput, __MetadataBearer {}
 
 /**
- * <p> Removes a managed scaling policy from a specified Amazon EMR cluster. </p>
+ * Removes a managed scaling policy from a specified Amazon EMR cluster.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,8 +49,8 @@ export interface RemoveManagedScalingPolicyCommandOutput extends RemoveManagedSc
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  * @throws {@link EMRServiceException}
- * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * Base exception class for all service exceptions from EMR service.
  *
  * @public
  */

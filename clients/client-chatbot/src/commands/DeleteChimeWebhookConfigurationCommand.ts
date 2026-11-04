@@ -23,7 +23,8 @@ export interface DeleteChimeWebhookConfigurationCommandInput extends DeleteChime
 export interface DeleteChimeWebhookConfigurationCommandOutput extends DeleteChimeWebhookConfigurationResult, __MetadataBearer {}
 
 /**
- * <p>Deletes a Amazon Chime webhook configuration for AWS Chatbot.</p>
+ * Deletes a Amazon Chime webhook configuration for AWS Chatbot.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,20 +49,24 @@ export interface DeleteChimeWebhookConfigurationCommandOutput extends DeleteChim
  * @see {@link ChatbotClientResolvedConfig | config} for ChatbotClient's `config` shape.
  *
  * @throws {@link DeleteChimeWebhookConfigurationException} (server fault)
- *  <p>We can’t process your request right now because of a server issue. Try again later.</p>
+ *
+ * We can’t process your request right now because of a server issue. Try again later.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+ *
+ * Your request input doesn't meet the constraints required by AWS Chatbot.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+ *
+ * Your request input doesn't meet the constraints required by AWS Chatbot.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>We were unable to find the resource for your request</p>
+ *
+ * We were unable to find the resource for your request
  *
  * @throws {@link ChatbotServiceException}
- * <p>Base exception class for all service exceptions from Chatbot service.</p>
  *
+ * Base exception class for all service exceptions from Chatbot service.
  *
  * @public
  */

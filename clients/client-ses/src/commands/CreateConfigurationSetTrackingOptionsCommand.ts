@@ -26,11 +26,10 @@ export interface CreateConfigurationSetTrackingOptionsCommandInput extends Creat
 export interface CreateConfigurationSetTrackingOptionsCommandOutput extends CreateConfigurationSetTrackingOptionsResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an association between a configuration set and a custom domain for open and
- *             click event tracking. </p>
- *          <p>By default, images and links used for tracking open and click events are hosted on
- *             domains operated by Amazon SES. You can configure a subdomain of your own to handle these
- *             events. For information about using custom domains, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/configure-custom-open-click-domains.html">Amazon SES Developer Guide</a>.</p>
+ * Creates an association between a configuration set and a custom domain for open and click event tracking.
+ *
+ * By default, images and links used for tracking open and click events are hosted on domains operated by Amazon SES. You can configure a subdomain of your own to handle these events. For information about using custom domains, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/dg/configure-custom-open-click-domains.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,28 +57,23 @@ export interface CreateConfigurationSetTrackingOptionsCommandOutput extends Crea
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link ConfigurationSetDoesNotExistException} (client fault)
- *  <p>Indicates that the configuration set does not exist.</p>
+ *
+ * Indicates that the configuration set does not exist.
  *
  * @throws {@link InvalidTrackingOptionsException} (client fault)
- *  <p>Indicates that the custom domain to be used for open and click tracking redirects is
- *             invalid. This error appears most often in the following situations:</p>
- *          <ul>
- *             <li>
- *                <p>When the tracking domain you specified is not verified in Amazon SES.</p>
- *             </li>
- *             <li>
- *                <p>When the tracking domain you specified is not a valid domain or
- *                     subdomain.</p>
- *             </li>
- *          </ul>
+ *
+ * Indicates that the custom domain to be used for open and click tracking redirects is invalid. This error appears most often in the following situations:
+ *
+ * - When the tracking domain you specified is not verified in Amazon SES.
+ * - When the tracking domain you specified is not a valid domain or subdomain.
  *
  * @throws {@link TrackingOptionsAlreadyExistsException} (client fault)
- *  <p>Indicates that the configuration set you specified already contains a TrackingOptions
- *             object.</p>
+ *
+ * Indicates that the configuration set you specified already contains a TrackingOptions object.
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @public
  */

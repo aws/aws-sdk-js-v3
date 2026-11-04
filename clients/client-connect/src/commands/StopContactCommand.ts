@@ -23,26 +23,16 @@ export interface StopContactCommandInput extends StopContactRequest {}
 export interface StopContactCommandOutput extends StopContactResponse, __MetadataBearer {}
 
 /**
- * <p>Ends the specified contact. Use this API to stop queued callbacks. It does not work for voice contacts that use
- *    the following initiation methods:</p>
- *          <ul>
- *             <li>
- *                <p>DISCONNECT</p>
- *             </li>
- *             <li>
- *                <p>TRANSFER</p>
- *             </li>
- *             <li>
- *                <p>QUEUE_TRANSFER</p>
- *             </li>
- *             <li>
- *                <p>EXTERNAL_OUTBOUND</p>
- *             </li>
- *             <li>
- *                <p>MONITOR</p>
- *             </li>
- *          </ul>
- *          <p>Chat and task contacts can be terminated in any state, regardless of initiation method.</p>
+ * Ends the specified contact. Use this API to stop queued callbacks. It does not work for voice contacts that use the following initiation methods:
+ *
+ * - DISCONNECT
+ * - TRANSFER
+ * - QUEUE_TRANSFER
+ * - EXTERNAL_OUTBOUND
+ * - MONITOR
+ *
+ * Chat and task contacts can be terminated in any state, regardless of initiation method.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,26 +61,32 @@ export interface StopContactCommandOutput extends StopContactResponse, __Metadat
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link ContactNotFoundException} (client fault)
- *  <p>The contact with the specified ID does not exist.</p>
+ *
+ * The contact with the specified ID does not exist.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidActiveRegionException} (client fault)
- *  <p>This exception occurs when an API request is made to a non-active region in an Amazon Connect instance configured with Amazon Connect Global Resiliency. For example, if the active region is US West (Oregon) and a request is made to US East (N. Virginia), the exception will be returned.</p>
+ *
+ * This exception occurs when an API request is made to a non-active region in an Amazon Connect instance configured with Amazon Connect Global Resiliency. For example, if the active region is US West (Oregon) and a request is made to US East (N. Virginia), the exception will be returned.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

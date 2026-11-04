@@ -23,21 +23,12 @@ export interface UpdateGroupCommandInput extends UpdateGroupRequest {}
 export interface UpdateGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Updates the name and/or the path of the specified IAM group.</p>
- *          <important>
- *             <p> You should understand the implications of changing a group's path or name. For
- *                 more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html">Renaming users and
- *                     groups</a> in the <i>IAM User Guide</i>.</p>
- *          </important>
- *          <note>
- *             <p>The person making the request (the principal), must have permission to change the
- *                 role group with the old name and the new name. For example, to change the group
- *                 named <code>Managers</code> to <code>MGRs</code>, the principal must have a policy
- *                 that allows them to update both groups. If the principal has permission to update
- *                 the <code>Managers</code> group, but not the <code>MGRs</code> group, then the
- *                 update fails. For more information about permissions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access management</a>.
- *             </p>
- *          </note>
+ * Updates the name and/or the path of the specified IAM group.
+ *
+ * > **Important:** You should understand the implications of changing a group's path or name. For more information, see [Renaming users and groups](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html) in the *IAM User Guide*.
+ *
+ * > **Note:** The person making the request (the principal), must have permission to change the role group with the old name and the new name. For example, to change the group named `Managers` to `MGRs`, the principal must have a policy that allows them to update both groups. If the principal has permission to update the `Managers` group, but not the `MGRs` group, then the update fails. For more information about permissions, see [Access management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,24 +55,24 @@ export interface UpdateGroupCommandOutput extends __MetadataBearer {}
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link EntityAlreadyExistsException} (client fault)
- *  <p>The request was rejected because it attempted to create a resource that already
- *       exists.</p>
+ *
+ * The request was rejected because it attempted to create a resource that already exists.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current
- *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+ *
+ * The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @example To rename an IAM group
  * ```javascript

@@ -6,7 +6,8 @@ import type { ConflictExceptionReason, ValidationExceptionReason } from "./enums
 import type { ValidationExceptionField } from "./models_0";
 
 /**
- * <p>You do not have sufficient access to perform this action. </p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -29,7 +30,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>You can cause an inconsistent state by updating or deleting a resource. </p>
+ * You can cause an inconsistent state by updating or deleting a resource.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -38,19 +40,22 @@ export class ConflictException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p>Identifier of the resource in use. </p>
+   * Identifier of the resource in use.
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>Type of the resource in use. </p>
+   * Type of the resource in use.
+   *
    * @public
    */
   ResourceType: string | undefined;
 
   /**
-   * <p>Reason for the inconsistent state. </p>
+   * Reason for the inconsistent state.
+   *
    * @public
    */
   Reason?: ConflictExceptionReason | undefined;
@@ -72,7 +77,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>An unexpected error occurred while processing a request. </p>
+ * An unexpected error occurred while processing a request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -81,7 +87,8 @@ export class InternalServerException extends __BaseException {
   readonly $fault = "server" as const;
   Message: string | undefined;
   /**
-   * <p>Number of seconds you can retry after the call. </p>
+   * Number of seconds you can retry after the call.
+   *
    * @public
    */
   RetryAfterSeconds?: number | undefined;
@@ -101,7 +108,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The request references a resource that doesn't exist. </p>
+ * The request references a resource that doesn't exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -110,13 +118,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p>Resource identifier that was not found. </p>
+   * Resource identifier that was not found.
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>Resource type that was not found. </p>
+   * Resource type that was not found.
+   *
    * @public
    */
   ResourceType: string | undefined;
@@ -137,7 +147,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request would cause a service limit to exceed. </p>
+ * The request would cause a service limit to exceed.
+ *
  * @public
  */
 export class ServiceLimitExceededException extends __BaseException {
@@ -146,25 +157,29 @@ export class ServiceLimitExceededException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p>Identifier of the resource affected. </p>
+   * Identifier of the resource affected.
+   *
    * @public
    */
   ResourceId?: string | undefined;
 
   /**
-   * <p>Type of the resource affected. </p>
+   * Type of the resource affected.
+   *
    * @public
    */
   ResourceType?: string | undefined;
 
   /**
-   * <p>The unique code identifier of the service limit that is being exceeded. </p>
+   * The unique code identifier of the service limit that is being exceeded.
+   *
    * @public
    */
   LimitCode: string | undefined;
 
   /**
-   * <p>The unique code for the service of the limit that is being exceeded. </p>
+   * The unique code for the service of the limit that is being exceeded.
+   *
    * @public
    */
   ServiceCode: string | undefined;
@@ -187,7 +202,8 @@ export class ServiceLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling. </p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -196,7 +212,8 @@ export class ThrottlingException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p>Number of seconds you can safely retry after the call. </p>
+   * Number of seconds you can safely retry after the call.
+   *
    * @public
    */
   RetryAfterSeconds?: number | undefined;
@@ -216,7 +233,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+ * The input doesn't match with the constraints specified by Amazon Web Services services.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -225,13 +243,15 @@ export class ValidationException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p>The reason the request's validation failed. </p>
+   * The reason the request's validation failed.
+   *
    * @public
    */
   Reason?: ValidationExceptionReason | undefined;
 
   /**
-   * <p>The fields that caused the error, if applicable. </p>
+   * The fields that caused the error, if applicable.
+   *
    * @public
    */
   Fields?: ValidationExceptionField[] | undefined;

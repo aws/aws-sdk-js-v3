@@ -64,8 +64,8 @@ export interface DeleteIntegrationCommandOutput extends DeleteIntegrationOutput,
  *  A parameter is specified incorrectly.
  *
  * @throws {@link CloudWatchOmniServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchOmni service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchOmni service.
  *
  * @example Delete an integration by id
  * ```javascript

@@ -23,14 +23,13 @@ export interface AllocateConnectionOnInterconnectCommandInput extends AllocateCo
 export interface AllocateConnectionOnInterconnectCommandOutput extends Connection, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>Deprecated. Use <a>AllocateHostedConnection</a> instead.</p>
- *          </note>
- *          <p>Creates a hosted connection on an interconnect.</p>
- *          <p>Allocates a VLAN number and a specified amount of bandwidth for use by a hosted connection on the specified interconnect.</p>
- *          <note>
- *             <p>Intended for use by Direct Connect Partners only.</p>
- *          </note>
+ * > **Note:** Deprecated. Use AllocateHostedConnection instead.
+ *
+ * Creates a hosted connection on an interconnect.
+ *
+ * Allocates a VLAN number and a specified amount of bandwidth for use by a hosted connection on the specified interconnect.
+ *
+ * > **Note:** Intended for use by Direct Connect Partners only.
  *
  * @deprecated deprecated.
  * @example
@@ -108,14 +107,16 @@ export interface AllocateConnectionOnInterconnectCommandOutput extends Connectio
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  * @throws {@link DirectConnectClientException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link DirectConnectServerException} (server fault)
- *  <p>A server-side error occurred.</p>
+ *
+ * A server-side error occurred.
  *
  * @throws {@link DirectConnectServiceException}
- * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * Base exception class for all service exceptions from DirectConnect service.
  *
  * @public
  */

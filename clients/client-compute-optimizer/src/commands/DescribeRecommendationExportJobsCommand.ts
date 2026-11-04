@@ -26,10 +26,10 @@ export interface DescribeRecommendationExportJobsCommandInput extends DescribeRe
 export interface DescribeRecommendationExportJobsCommandOutput extends DescribeRecommendationExportJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Describes recommendation export jobs created in the last seven days.</p>
- *          <p>Use the <a>ExportAutoScalingGroupRecommendations</a> or <a>ExportEC2InstanceRecommendations</a> actions to request an export of your
- *             recommendations. Then use the <a>DescribeRecommendationExportJobs</a> action
- *             to view your export jobs.</p>
+ * Describes recommendation export jobs created in the last seven days.
+ *
+ * Use the ExportAutoScalingGroupRecommendations or ExportEC2InstanceRecommendations actions to request an export of your recommendations. Then use the DescribeRecommendationExportJobs action to view your export jobs.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,33 +85,40 @@ export interface DescribeRecommendationExportJobsCommandOutput extends DescribeR
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error has occurred. Try your call again.</p>
+ *
+ * An internal error has occurred. Try your call again.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value supplied for the input parameter is out of range or not valid.</p>
+ *
+ * The value supplied for the input parameter is out of range or not valid.
  *
  * @throws {@link MissingAuthenticationToken} (client fault)
- *  <p>The request must contain either a valid (registered) Amazon Web Services access key ID
- *             or X.509 certificate.</p>
+ *
+ * The request must contain either a valid (registered) Amazon Web Services access key ID or X.509 certificate.
  *
  * @throws {@link OptInRequiredException} (client fault)
- *  <p>The account is not opted in to Compute Optimizer.</p>
+ *
+ * The account is not opted in to Compute Optimizer.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A resource that is required for the action doesn't exist.</p>
+ *
+ * A resource that is required for the action doesn't exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The request has failed due to a temporary failure of the server.</p>
+ *
+ * The request has failed due to a temporary failure of the server.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ComputeOptimizerServiceException}
- * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ * Base exception class for all service exceptions from ComputeOptimizer service.
  *
  * @public
  */

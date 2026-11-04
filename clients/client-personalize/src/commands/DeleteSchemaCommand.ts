@@ -23,9 +23,8 @@ export interface DeleteSchemaCommandInput extends DeleteSchemaRequest {}
 export interface DeleteSchemaCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a schema. Before deleting a schema, you must delete all
- *       datasets referencing the schema. For more information on schemas, see
- *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html">CreateSchema</a>.</p>
+ * Deletes a schema. Before deleting a schema, you must delete all datasets referencing the schema. For more information on schemas, see [CreateSchema](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,17 +49,20 @@ export interface DeleteSchemaCommandOutput extends __MetadataBearer {}
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * Provide a valid value for the field or parameter.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is in use.</p>
+ *
+ * The specified resource is in use.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Could not find the specified resource.</p>
+ *
+ * Could not find the specified resource.
  *
  * @throws {@link PersonalizeServiceException}
- * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * Base exception class for all service exceptions from Personalize service.
  *
  * @public
  */

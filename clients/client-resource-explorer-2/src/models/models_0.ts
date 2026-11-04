@@ -8,7 +8,8 @@ import type { AWSServiceAccessStatus, IndexState, IndexType, OperationStatus, Re
  */
 export interface AssociateDefaultViewInput {
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the view to set as the default for the Amazon Web Services Region and Amazon Web Services account in which you call this operation. The specified view must already exist in the called Region.</p>
+   * The [Amazon resource name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the view to set as the default for the Amazon Web Services Region and Amazon Web Services account in which you call this operation. The specified view must already exist in the called Region.
+   *
    * @public
    */
   ViewArn: string | undefined;
@@ -19,25 +20,29 @@ export interface AssociateDefaultViewInput {
  */
 export interface AssociateDefaultViewOutput {
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the view that the operation set as the default for queries made in the Amazon Web Services Region and Amazon Web Services account in which you called this operation.</p>
+   * The [Amazon resource name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the view that the operation set as the default for queries made in the Amazon Web Services Region and Amazon Web Services account in which you called this operation.
+   *
    * @public
    */
   ViewArn?: string | undefined;
 }
 
 /**
- * <p>A structure that describes a request field with a validation error.</p>
+ * A structure that describes a request field with a validation error.
+ *
  * @public
  */
 export interface ValidationExceptionField {
   /**
-   * <p>The name of the request field that had a validation error.</p>
+   * The name of the request field that had a validation error.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The validation error caused by the request field.</p>
+   * The validation error caused by the request field.
+   *
    * @public
    */
   ValidationIssue: string | undefined;
@@ -48,97 +53,119 @@ export interface ValidationExceptionField {
  */
 export interface BatchGetViewInput {
   /**
-   * <p>A list of <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource names (ARNs)</a> that identify the views you want details for.</p>
+   * A list of [Amazon resource names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) that identify the views you want details for.
+   *
    * @public
    */
   ViewArns?: string[] | undefined;
 }
 
 /**
- * <p>A collection of error messages for any views that Amazon Web Services Resource Explorer couldn't retrieve details.</p>
+ * A collection of error messages for any views that Amazon Web Services Resource Explorer couldn't retrieve details.
+ *
  * @public
  */
 export interface BatchGetViewError {
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the view for which Resource Explorer failed to retrieve details.</p>
+   * The [Amazon resource name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the view for which Resource Explorer failed to retrieve details.
+   *
    * @public
    */
   ViewArn: string | undefined;
 
   /**
-   * <p>The description of the error for the specified view.</p>
+   * The description of the error for the specified view.
+   *
    * @public
    */
   ErrorMessage: string | undefined;
 }
 
 /**
- * <p>A search filter defines which resources can be part of a search query result set.</p>
+ * A search filter defines which resources can be part of a search query result set.
+ *
  * @public
  */
 export interface SearchFilter {
   /**
-   * <p>The string that contains the search keywords, prefixes, and operators to control the results that can be returned by a <a>Search</a> operation. For more details, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/APIReference/about-query-syntax.html">Search query syntax</a>.</p>
+   * The string that contains the search keywords, prefixes, and operators to control the results that can be returned by a Search operation. For more details, see [Search query syntax](https://docs.aws.amazon.com/resource-explorer/latest/APIReference/about-query-syntax.html).
+   *
    * @public
    */
   FilterString: string | undefined;
 }
 
 /**
- * <p>Information about an additional property that describes a resource, that you can optionally include in the view. This lets you view that property in search results, and filter your search results based on the value of the property.</p>
+ * Information about an additional property that describes a resource, that you can optionally include in the view. This lets you view that property in search results, and filter your search results based on the value of the property.
+ *
  * @public
  */
 export interface IncludedProperty {
   /**
-   * <p>The name of the property that is included in this view.</p> <p>You can specify the following property names for this field:</p> <ul> <li> <p> <code>tags</code> </p> </li> </ul>
+   * The name of the property that is included in this view.
+   *
+   * You can specify the following property names for this field:
+   *
+   * - `tags`
+   *
    * @public
    */
   Name: string | undefined;
 }
 
 /**
- * <p>A view is a structure that defines a set of filters that provide a view into the information in the Amazon Web Services Resource Explorer index. The filters specify which information from the index is visible to the users of the view. For example, you can specify filters that include only resources that are tagged with the key "ENV" and the value "DEVELOPMENT" in the results returned by this view. You could also create a second view that includes only resources that are tagged with "ENV" and "PRODUCTION".</p>
+ * A view is a structure that defines a set of filters that provide a view into the information in the Amazon Web Services Resource Explorer index. The filters specify which information from the index is visible to the users of the view. For example, you can specify filters that include only resources that are tagged with the key "ENV" and the value "DEVELOPMENT" in the results returned by this view. You could also create a second view that includes only resources that are tagged with "ENV" and "PRODUCTION".
+ *
  * @public
  */
 export interface View {
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the view.</p>
+   * The [Amazon resource name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the view.
+   *
    * @public
    */
   ViewArn?: string | undefined;
 
   /**
-   * <p>The name of the view.</p>
+   * The name of the view.
+   *
    * @public
    */
   ViewName?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account that owns this view.</p>
+   * The Amazon Web Services account that owns this view.
+   *
    * @public
    */
   Owner?: string | undefined;
 
   /**
-   * <p>The date and time when this view was last modified.</p>
+   * The date and time when this view was last modified.
+   *
    * @public
    */
   LastUpdatedAt?: Date | undefined;
 
   /**
-   * <p>An <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of an Amazon Web Services account, an organization, or an organizational unit (OU) that specifies whether this view includes resources from only the specified Amazon Web Services account, all accounts in the specified organization, or all accounts in the specified OU.</p> <p>If not specified, the value defaults to the Amazon Web Services account used to call this operation.</p>
+   * An [Amazon resource name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of an Amazon Web Services account, an organization, or an organizational unit (OU) that specifies whether this view includes resources from only the specified Amazon Web Services account, all accounts in the specified organization, or all accounts in the specified OU.
+   *
+   * If not specified, the value defaults to the Amazon Web Services account used to call this operation.
+   *
    * @public
    */
   Scope?: string | undefined;
 
   /**
-   * <p>A structure that contains additional information about the view.</p>
+   * A structure that contains additional information about the view.
+   *
    * @public
    */
   IncludedProperties?: IncludedProperty[] | undefined;
 
   /**
-   * <p>An array of <a>SearchFilter</a> objects that specify which resources can be included in the results of queries made using this view.</p>
+   * An array of SearchFilter objects that specify which resources can be included in the results of queries made using this view.
+   *
    * @public
    */
   Filters?: SearchFilter | undefined;
@@ -149,13 +176,15 @@ export interface View {
  */
 export interface BatchGetViewOutput {
   /**
-   * <p>A structure with a list of objects with details for each of the specified views.</p>
+   * A structure with a list of objects with details for each of the specified views.
+   *
    * @public
    */
   Views?: View[] | undefined;
 
   /**
-   * <p>If any of the specified ARNs result in an error, then this structure describes the error.</p>
+   * If any of the specified ARNs result in an error, then this structure describes the error.
+   *
    * @public
    */
   Errors?: BatchGetViewError[] | undefined;
@@ -166,13 +195,15 @@ export interface BatchGetViewOutput {
  */
 export interface CreateIndexInput {
   /**
-   * <p>This value helps ensure idempotency. Resource Explorer uses this value to prevent the accidental creation of duplicate versions. We recommend that you generate a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID-type value</a> to ensure the uniqueness of your index.</p>
+   * This value helps ensure idempotency. Resource Explorer uses this value to prevent the accidental creation of duplicate versions. We recommend that you generate a [UUID-type value](https://wikipedia.org/wiki/Universally_unique_identifier) to ensure the uniqueness of your index.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The specified tags are attached only to the index created in this Amazon Web Services Region. The tags aren't attached to any of the resources listed in the index.</p>
+   * The specified tags are attached only to the index created in this Amazon Web Services Region. The tags aren't attached to any of the resources listed in the index.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -183,19 +214,24 @@ export interface CreateIndexInput {
  */
 export interface CreateIndexOutput {
   /**
-   * <p>The ARN of the new local index for the Region. You can reference this ARN in IAM permission policies to authorize the following operations: <a>DeleteIndex</a> | <a>GetIndex</a> | <a>UpdateIndexType</a> | <a>CreateView</a> </p>
+   * The ARN of the new local index for the Region. You can reference this ARN in IAM permission policies to authorize the following operations: DeleteIndex | GetIndex | UpdateIndexType | CreateView
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>Indicates the current state of the index. You can check for changes to the state for asynchronous operations by calling the <a>GetIndex</a> operation.</p> <note> <p>The state can remain in the <code>CREATING</code> or <code>UPDATING</code> state for several hours as Resource Explorer discovers the information about your resources and populates the index.</p> </note>
+   * Indicates the current state of the index. You can check for changes to the state for asynchronous operations by calling the GetIndex operation.
+   *
+   * > **Note:** The state can remain in the `CREATING` or `UPDATING` state for several hours as Resource Explorer discovers the information about your resources and populates the index.
+   *
    * @public
    */
   State?: IndexState | undefined;
 
   /**
-   * <p>The date and timestamp when the index was created.</p>
+   * The date and timestamp when the index was created.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
@@ -206,7 +242,8 @@ export interface CreateIndexOutput {
  */
 export interface DeleteIndexInput {
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the index that you want to delete.</p>
+   * The [Amazon resource name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the index that you want to delete.
+   *
    * @public
    */
   Arn: string | undefined;
@@ -217,19 +254,24 @@ export interface DeleteIndexInput {
  */
 export interface DeleteIndexOutput {
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the index that you successfully started the deletion process.</p> <note> <p>This operation is asynchronous. To check its status, call the <a>GetIndex</a> operation.</p> </note>
+   * The [Amazon resource name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the index that you successfully started the deletion process.
+   *
+   * > **Note:** This operation is asynchronous. To check its status, call the GetIndex operation.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>Indicates the current state of the index. </p>
+   * Indicates the current state of the index.
+   *
    * @public
    */
   State?: IndexState | undefined;
 
   /**
-   * <p>The date and time when you last updated this index.</p>
+   * The date and time when you last updated this index.
+   *
    * @public
    */
   LastUpdatedAt?: Date | undefined;
@@ -240,49 +282,66 @@ export interface DeleteIndexOutput {
  */
 export interface ListIndexesInput {
   /**
-   * <p>If specified, limits the output to only indexes of the specified Type, either <code>LOCAL</code> or <code>AGGREGATOR</code>.</p> <p>Use this option to discover the aggregator index for your account.</p>
+   * If specified, limits the output to only indexes of the specified Type, either `LOCAL` or `AGGREGATOR`.
+   *
+   * Use this option to discover the aggregator index for your account.
+   *
    * @public
    */
   Type?: IndexType | undefined;
 
   /**
-   * <p>If specified, limits the response to only information about the index in the specified list of Amazon Web Services Regions.</p>
+   * If specified, limits the response to only information about the index in the specified list of Amazon Web Services Regions.
+   *
    * @public
    */
   Regions?: string[] | undefined;
 
   /**
-   * <p>The maximum number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value appropriate to the operation. If additional items exist beyond those included in the current response, the <code>NextToken</code> response element is present and has a value (is not null). Include that value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results.</p> <note> <p>An API operation can return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p> </note>
+   * The maximum number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value appropriate to the operation. If additional items exist beyond those included in the current response, the `NextToken` response element is present and has a value (is not null). Include that value as the `NextToken` request parameter in the next call to the operation to get the next part of the results.
+   *
+   * > **Note:** An API operation can return fewer results than the maximum even when there are more results available. You should check `NextToken` after every operation to ensure that you receive all of the results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The parameter for receiving additional results if you receive a <code>NextToken</code> response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the value of the previous call's <code>NextToken</code> response to indicate where the output should continue from. The pagination tokens expire after 24 hours.</p>
+   * The parameter for receiving additional results if you receive a `NextToken` response in a previous request. A `NextToken` response indicates that more output is available. Set this parameter to the value of the previous call's `NextToken` response to indicate where the output should continue from. The pagination tokens expire after 24 hours.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>An index is the data store used by Amazon Web Services Resource Explorer to hold information about your Amazon Web Services resources that the service discovers. Creating an index in an Amazon Web Services Region turns on Resource Explorer and lets it discover your resources.</p> <p>By default, an index is <i>local</i>, meaning that it contains information about resources in only the same Region as the index. However, you can promote the index of one Region in the account by calling <a>UpdateIndexType</a> to convert it into an aggregator index. The aggregator index receives a replicated copy of the index information from all other Regions where Resource Explorer is turned on. This allows search operations in that Region to return results from all Regions in the account.</p>
+ * An index is the data store used by Amazon Web Services Resource Explorer to hold information about your Amazon Web Services resources that the service discovers. Creating an index in an Amazon Web Services Region turns on Resource Explorer and lets it discover your resources.
+ *
+ * By default, an index is *local*, meaning that it contains information about resources in only the same Region as the index. However, you can promote the index of one Region in the account by calling UpdateIndexType to convert it into an aggregator index. The aggregator index receives a replicated copy of the index information from all other Regions where Resource Explorer is turned on. This allows search operations in that Region to return results from all Regions in the account.
+ *
  * @public
  */
 export interface Index {
   /**
-   * <p>The Amazon Web Services Region in which the index exists.</p>
+   * The Amazon Web Services Region in which the index exists.
+   *
    * @public
    */
   Region?: string | undefined;
 
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the index.</p>
+   * The [Amazon resource name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the index.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The type of index. It can be one of the following values:</p> <ul> <li> <p> <code>LOCAL</code> – The index contains information about resources from only the same Amazon Web Services Region.</p> </li> <li> <p> <code>AGGREGATOR</code> – Resource Explorer replicates copies of the indexed information about resources in all other Amazon Web Services Regions to the aggregator index. This lets search results in the Region with the aggregator index to include resources from all Regions in the account where Resource Explorer is turned on.</p> </li> </ul>
+   * The type of index. It can be one of the following values:
+   *
+   * - `LOCAL` – The index contains information about resources from only the same Amazon Web Services Region.
+   * - `AGGREGATOR` – Resource Explorer replicates copies of the indexed information about resources in all other Amazon Web Services Regions to the aggregator index. This lets search results in the Region with the aggregator index to include resources from all Regions in the account where Resource Explorer is turned on.
+   *
    * @public
    */
   Type?: IndexType | undefined;
@@ -293,13 +352,15 @@ export interface Index {
  */
 export interface ListIndexesOutput {
   /**
-   * <p>A structure that contains the details and status of each index.</p>
+   * A structure that contains the details and status of each index.
+   *
    * @public
    */
   Indexes?: Index[] | undefined;
 
   /**
-   * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the <code>NextToken</code> response element comes back as <code>null</code>. The pagination tokens expire after 24 hours.</p>
+   * If present, indicates that more output is available than is included in the current response. Use this value in the `NextToken` request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the `NextToken` response element comes back as `null`. The pagination tokens expire after 24 hours.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -310,13 +371,15 @@ export interface ListIndexesOutput {
  */
 export interface UpdateIndexTypeInput {
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the index that you want to update.</p>
+   * The [Amazon resource name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the index that you want to update.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The type of the index. To understand the difference between <code>LOCAL</code> and <code>AGGREGATOR</code>, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html">Turning on cross-Region search</a> in the <i>Amazon Web Services Resource Explorer User Guide</i>.</p>
+   * The type of the index. To understand the difference between `LOCAL` and `AGGREGATOR`, see [Turning on cross-Region search](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html) in the *Amazon Web Services Resource Explorer User Guide*.
+   *
    * @public
    */
   Type: IndexType | undefined;
@@ -327,25 +390,29 @@ export interface UpdateIndexTypeInput {
  */
 export interface UpdateIndexTypeOutput {
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the index that you updated.</p>
+   * The [Amazon resource name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the index that you updated.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>Specifies the type of the specified index after the operation completes.</p>
+   * Specifies the type of the specified index after the operation completes.
+   *
    * @public
    */
   Type?: IndexType | undefined;
 
   /**
-   * <p>Indicates the state of the request to update the index. This operation is asynchronous. Call the <a>GetIndex</a> operation to check for changes.</p>
+   * Indicates the state of the request to update the index. This operation is asynchronous. Call the GetIndex operation to check for changes.
+   *
    * @public
    */
   State?: IndexState | undefined;
 
   /**
-   * <p>The date and timestamp when the index was last updated.</p>
+   * The date and timestamp when the index was last updated.
+   *
    * @public
    */
   LastUpdatedAt?: Date | undefined;
@@ -356,37 +423,51 @@ export interface UpdateIndexTypeOutput {
  */
 export interface CreateViewInput {
   /**
-   * <p>This value helps ensure idempotency. Resource Explorer uses this value to prevent the accidental creation of duplicate versions. We recommend that you generate a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID-type value</a> to ensure the uniqueness of your views.</p>
+   * This value helps ensure idempotency. Resource Explorer uses this value to prevent the accidental creation of duplicate versions. We recommend that you generate a [UUID-type value](https://wikipedia.org/wiki/Universally_unique_identifier) to ensure the uniqueness of your views.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The name of the new view. This name appears in the list of views in Resource Explorer.</p> <p>The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its Amazon Web Services Region.</p>
+   * The name of the new view. This name appears in the list of views in Resource Explorer.
+   *
+   * The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its Amazon Web Services Region.
+   *
    * @public
    */
   ViewName: string | undefined;
 
   /**
-   * <p>Specifies optional fields that you want included in search results from this view. It is a list of objects that each describe a field to include.</p> <p>The default is an empty list, with no optional fields included in the results.</p>
+   * Specifies optional fields that you want included in search results from this view. It is a list of objects that each describe a field to include.
+   *
+   * The default is an empty list, with no optional fields included in the results.
+   *
    * @public
    */
   IncludedProperties?: IncludedProperty[] | undefined;
 
   /**
-   * <p>The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.</p>
+   * The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
+   *
    * @public
    */
   Scope?: string | undefined;
 
   /**
-   * <p>An array of strings that specify which resources are included in the results of queries made using this view. When you use this view in a <a>Search</a> operation, the filter string is combined with the search's <code>QueryString</code> parameter using a logical <code>AND</code> operator.</p> <p>For information about the supported syntax, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html">Search query reference for Resource Explorer</a> in the <i>Amazon Web Services Resource Explorer User Guide</i>.</p> <important> <p>This query string in the context of this operation supports only <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-filters">filter prefixes</a> with optional <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-operators">operators</a>. It doesn't support free-form text. For example, the string <code>region:us* service:ec2 -tag:stage=prod</code> includes all Amazon EC2 resources in any Amazon Web Services Region that begins with the letters <code>us</code> and is <i>not</i> tagged with a key <code>Stage</code> that has the value <code>prod</code>.</p> </important>
+   * An array of strings that specify which resources are included in the results of queries made using this view. When you use this view in a Search operation, the filter string is combined with the search's `QueryString` parameter using a logical `AND` operator.
+   *
+   * For information about the supported syntax, see [Search query reference for Resource Explorer](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html) in the *Amazon Web Services Resource Explorer User Guide*.
+   *
+   * > **Important:** This query string in the context of this operation supports only [filter prefixes](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-filters) with optional [operators](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-operators). It doesn't support free-form text. For example, the string `region:us* service:ec2 -tag:stage=prod` includes all Amazon EC2 resources in any Amazon Web Services Region that begins with the letters `us` and is *not* tagged with a key `Stage` that has the value `prod`.
+   *
    * @public
    */
   Filters?: SearchFilter | undefined;
 
   /**
-   * <p>Tag key and value pairs that are attached to the view.</p>
+   * Tag key and value pairs that are attached to the view.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -397,7 +478,8 @@ export interface CreateViewInput {
  */
 export interface CreateViewOutput {
   /**
-   * <p>A structure that contains the details about the new view.</p>
+   * A structure that contains the details about the new view.
+   *
    * @public
    */
   View?: View | undefined;
@@ -408,7 +490,8 @@ export interface CreateViewOutput {
  */
 export interface DeleteViewInput {
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the view that you want to delete.</p>
+   * The [Amazon resource name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the view that you want to delete.
+   *
    * @public
    */
   ViewArn: string | undefined;
@@ -419,7 +502,8 @@ export interface DeleteViewInput {
  */
 export interface DeleteViewOutput {
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the view that you successfully deleted.</p>
+   * The [Amazon resource name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the view that you successfully deleted.
+   *
    * @public
    */
   ViewArn?: string | undefined;
@@ -430,7 +514,8 @@ export interface DeleteViewOutput {
  */
 export interface GetViewInput {
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the view that you want information about.</p>
+   * The [Amazon resource name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the view that you want information about.
+   *
    * @public
    */
   ViewArn: string | undefined;
@@ -441,13 +526,15 @@ export interface GetViewInput {
  */
 export interface GetViewOutput {
   /**
-   * <p>A structure that contains the details for the requested view.</p>
+   * A structure that contains the details for the requested view.
+   *
    * @public
    */
   View?: View | undefined;
 
   /**
-   * <p>Tag key and value pairs that are attached to the view.</p>
+   * Tag key and value pairs that are attached to the view.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -458,13 +545,17 @@ export interface GetViewOutput {
  */
 export interface ListViewsInput {
   /**
-   * <p>The parameter for receiving additional results if you receive a <code>NextToken</code> response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the value of the previous call's <code>NextToken</code> response to indicate where the output should continue from. The pagination tokens expire after 24 hours.</p>
+   * The parameter for receiving additional results if you receive a `NextToken` response in a previous request. A `NextToken` response indicates that more output is available. Set this parameter to the value of the previous call's `NextToken` response to indicate where the output should continue from. The pagination tokens expire after 24 hours.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value appropriate to the operation. If additional items exist beyond those included in the current response, the <code>NextToken</code> response element is present and has a value (is not null). Include that value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results.</p> <note> <p>An API operation can return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p> </note>
+   * The maximum number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value appropriate to the operation. If additional items exist beyond those included in the current response, the `NextToken` response element is present and has a value (is not null). Include that value as the `NextToken` request parameter in the next call to the operation to get the next part of the results.
+   *
+   * > **Note:** An API operation can return fewer results than the maximum even when there are more results available. You should check `NextToken` after every operation to ensure that you receive all of the results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
@@ -475,13 +566,15 @@ export interface ListViewsInput {
  */
 export interface ListViewsOutput {
   /**
-   * <p>The list of views available in the Amazon Web Services Region in which you called this operation.</p>
+   * The list of views available in the Amazon Web Services Region in which you called this operation.
+   *
    * @public
    */
   Views?: string[] | undefined;
 
   /**
-   * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the <code>NextToken</code> response element comes back as <code>null</code>. The pagination tokens expire after 24 hours.</p>
+   * If present, indicates that more output is available than is included in the current response. Use this value in the `NextToken` request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the `NextToken` response element comes back as `null`. The pagination tokens expire after 24 hours.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -492,19 +585,28 @@ export interface ListViewsOutput {
  */
 export interface UpdateViewInput {
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the view that you want to modify.</p>
+   * The [Amazon resource name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the view that you want to modify.
+   *
    * @public
    */
   ViewArn: string | undefined;
 
   /**
-   * <p>Specifies optional fields that you want included in search results from this view. It is a list of objects that each describe a field to include.</p> <p>The default is an empty list, with no optional fields included in the results.</p>
+   * Specifies optional fields that you want included in search results from this view. It is a list of objects that each describe a field to include.
+   *
+   * The default is an empty list, with no optional fields included in the results.
+   *
    * @public
    */
   IncludedProperties?: IncludedProperty[] | undefined;
 
   /**
-   * <p>An array of strings that specify which resources are included in the results of queries made using this view. When you use this view in a <a>Search</a> operation, the filter string is combined with the search's <code>QueryString</code> parameter using a logical <code>AND</code> operator.</p> <p>For information about the supported syntax, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html">Search query reference for Resource Explorer</a> in the <i>Amazon Web Services Resource Explorer User Guide</i>.</p> <important> <p>This query string in the context of this operation supports only <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-filters">filter prefixes</a> with optional <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-operators">operators</a>. It doesn't support free-form text. For example, the string <code>region:us* service:ec2 -tag:stage=prod</code> includes all Amazon EC2 resources in any Amazon Web Services Region that begins with the letters <code>us</code> and is <i>not</i> tagged with a key <code>Stage</code> that has the value <code>prod</code>.</p> </important>
+   * An array of strings that specify which resources are included in the results of queries made using this view. When you use this view in a Search operation, the filter string is combined with the search's `QueryString` parameter using a logical `AND` operator.
+   *
+   * For information about the supported syntax, see [Search query reference for Resource Explorer](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html) in the *Amazon Web Services Resource Explorer User Guide*.
+   *
+   * > **Important:** This query string in the context of this operation supports only [filter prefixes](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-filters) with optional [operators](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-operators). It doesn't support free-form text. For example, the string `region:us* service:ec2 -tag:stage=prod` includes all Amazon EC2 resources in any Amazon Web Services Region that begins with the letters `us` and is *not* tagged with a key `Stage` that has the value `prod`.
+   *
    * @public
    */
   Filters?: SearchFilter | undefined;
@@ -515,7 +617,8 @@ export interface UpdateViewInput {
  */
 export interface UpdateViewOutput {
   /**
-   * <p>Details about the view that you changed with this operation.</p>
+   * Details about the view that you changed with this operation.
+   *
    * @public
    */
   View?: View | undefined;
@@ -526,19 +629,22 @@ export interface UpdateViewOutput {
  */
 export interface CreateResourceExplorerSetupInput {
   /**
-   * <p>A list of Amazon Web Services Regions where Resource Explorer should be configured. Each Region in the list will have a user-owned index created.</p>
+   * A list of Amazon Web Services Regions where Resource Explorer should be configured. Each Region in the list will have a user-owned index created.
+   *
    * @public
    */
   RegionList: string[] | undefined;
 
   /**
-   * <p>A list of Amazon Web Services Regions that should be configured as aggregator Regions. Aggregator Regions receive replicated index information from all other Regions where there is a user-owned index.</p>
+   * A list of Amazon Web Services Regions that should be configured as aggregator Regions. Aggregator Regions receive replicated index information from all other Regions where there is a user-owned index.
+   *
    * @public
    */
   AggregatorRegions?: string[] | undefined;
 
   /**
-   * <p>The name for the view to be created as part of the Resource Explorer setup. The view name must be unique within the Amazon Web Services account and Region.</p>
+   * The name for the view to be created as part of the Resource Explorer setup. The view name must be unique within the Amazon Web Services account and Region.
+   *
    * @public
    */
   ViewName: string | undefined;
@@ -549,7 +655,8 @@ export interface CreateResourceExplorerSetupInput {
  */
 export interface CreateResourceExplorerSetupOutput {
   /**
-   * <p>The unique identifier for the setup task. Use this ID with <code>GetResourceExplorerSetup</code> to monitor the progress of the configuration operation.</p>
+   * The unique identifier for the setup task. Use this ID with `GetResourceExplorerSetup` to monitor the progress of the configuration operation.
+   *
    * @public
    */
   TaskId: string | undefined;
@@ -560,13 +667,15 @@ export interface CreateResourceExplorerSetupOutput {
  */
 export interface DeleteResourceExplorerSetupInput {
   /**
-   * <p>A list of Amazon Web Services Regions from which to delete the Resource Explorer configuration. If not specified, the operation uses the <code>DeleteInAllRegions</code> parameter to determine scope.</p>
+   * A list of Amazon Web Services Regions from which to delete the Resource Explorer configuration. If not specified, the operation uses the `DeleteInAllRegions` parameter to determine scope.
+   *
    * @public
    */
   RegionList?: string[] | undefined;
 
   /**
-   * <p>Specifies whether to delete Resource Explorer configuration from all Regions where it is currently enabled. If this parameter is set to <code>true</code>, a value for <code>RegionList</code> must not be provided. Otherwise, the operation fails with a <code>ValidationException</code> error.</p>
+   * Specifies whether to delete Resource Explorer configuration from all Regions where it is currently enabled. If this parameter is set to `true`, a value for `RegionList` must not be provided. Otherwise, the operation fails with a `ValidationException` error.
+   *
    * @public
    */
   DeleteInAllRegions?: boolean | undefined;
@@ -577,43 +686,50 @@ export interface DeleteResourceExplorerSetupInput {
  */
 export interface DeleteResourceExplorerSetupOutput {
   /**
-   * <p>The unique identifier for the deletion task. Use this ID with <code>GetResourceExplorerSetup</code> to monitor the progress of the deletion operation.</p>
+   * The unique identifier for the deletion task. Use this ID with `GetResourceExplorerSetup` to monitor the progress of the deletion operation.
+   *
    * @public
    */
   TaskId: string | undefined;
 }
 
 /**
- * <p>Contains information about an error that occurred during a Resource Explorer setup operation.</p>
+ * Contains information about an error that occurred during a Resource Explorer setup operation.
+ *
  * @public
  */
 export interface ErrorDetails {
   /**
-   * <p>The error code that identifies the type of error that occurred.</p>
+   * The error code that identifies the type of error that occurred.
+   *
    * @public
    */
   Code?: string | undefined;
 
   /**
-   * <p>A human-readable description of the error that occurred.</p>
+   * A human-readable description of the error that occurred.
+   *
    * @public
    */
   Message?: string | undefined;
 }
 
 /**
- * <p>This is a structure that contains the status of Amazon Web Services service access, and whether you have a valid service-linked role to enable multi-account search for your organization.</p>
+ * This is a structure that contains the status of Amazon Web Services service access, and whether you have a valid service-linked role to enable multi-account search for your organization.
+ *
  * @public
  */
 export interface OrgConfiguration {
   /**
-   * <p>This value displays whether your Amazon Web Services service access is <code>ENABLED</code> or <code>DISABLED</code>.</p>
+   * This value displays whether your Amazon Web Services service access is `ENABLED` or `DISABLED`.
+   *
    * @public
    */
   AWSServiceAccessStatus: AWSServiceAccessStatus | undefined;
 
   /**
-   * <p>This value shows whether or not you have a valid a service-linked role required to start the multi-account search feature.</p>
+   * This value shows whether or not you have a valid a service-linked role required to start the multi-account search feature.
+   *
    * @public
    */
   ServiceLinkedRole?: string | undefined;
@@ -624,7 +740,8 @@ export interface OrgConfiguration {
  */
 export interface GetAccountLevelServiceConfigurationOutput {
   /**
-   * <p>Details about the organization, and whether configuration is <code>ENABLED</code> or <code>DISABLED</code>.</p>
+   * Details about the organization, and whether configuration is `ENABLED` or `DISABLED`.
+   *
    * @public
    */
   OrgConfiguration?: OrgConfiguration | undefined;
@@ -635,7 +752,8 @@ export interface GetAccountLevelServiceConfigurationOutput {
  */
 export interface GetDefaultViewOutput {
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the view that is the current default for the Amazon Web Services Region in which you called this operation.</p>
+   * The [Amazon resource name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the view that is the current default for the Amazon Web Services Region in which you called this operation.
+   *
    * @public
    */
   ViewArn?: string | undefined;
@@ -646,49 +764,61 @@ export interface GetDefaultViewOutput {
  */
 export interface GetIndexOutput {
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the index.</p>
+   * The [Amazon resource name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the index.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The type of the index in this Region. For information about the aggregator index and how it differs from a local index, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html">Turning on cross-Region search by creating an aggregator index</a>.</p>
+   * The type of the index in this Region. For information about the aggregator index and how it differs from a local index, see [Turning on cross-Region search by creating an aggregator index](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html).
+   *
    * @public
    */
   Type?: IndexType | undefined;
 
   /**
-   * <p>The current state of the index in this Amazon Web Services Region.</p>
+   * The current state of the index in this Amazon Web Services Region.
+   *
    * @public
    */
   State?: IndexState | undefined;
 
   /**
-   * <p>This response value is present only if this index is <code>Type=AGGREGATOR</code>.</p> <p>A list of the Amazon Web Services Regions that replicate their content to the index in this Region.</p>
+   * This response value is present only if this index is `Type=AGGREGATOR`.
+   *
+   * A list of the Amazon Web Services Regions that replicate their content to the index in this Region.
+   *
    * @public
    */
   ReplicatingFrom?: string[] | undefined;
 
   /**
-   * <p>This response value is present only if this index is <code>Type=LOCAL</code>.</p> <p>The Amazon Web Services Region that contains the aggregator index, if one exists. If an aggregator index does exist then the Region in which you called this operation replicates its index information to the Region specified in this response value. </p>
+   * This response value is present only if this index is `Type=LOCAL`.
+   *
+   * The Amazon Web Services Region that contains the aggregator index, if one exists. If an aggregator index does exist then the Region in which you called this operation replicates its index information to the Region specified in this response value.
+   *
    * @public
    */
   ReplicatingTo?: string[] | undefined;
 
   /**
-   * <p>The date and time when the index was originally created.</p>
+   * The date and time when the index was originally created.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The date and time when the index was last updated.</p>
+   * The date and time when the index was last updated.
+   *
    * @public
    */
   LastUpdatedAt?: Date | undefined;
 
   /**
-   * <p>Tag key and value pairs that are attached to the index.</p>
+   * Tag key and value pairs that are attached to the index.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -699,73 +829,85 @@ export interface GetIndexOutput {
  */
 export interface GetManagedViewInput {
   /**
-   * <p>The Amazon resource name (ARN) of the managed view.</p>
+   * The Amazon resource name (ARN) of the managed view.
+   *
    * @public
    */
   ManagedViewArn: string | undefined;
 }
 
 /**
- * <p>An Amazon Web Services-managed view is how other Amazon Web Services services can access resource information indexed by Resource Explorer for your Amazon Web Services account or organization with your consent. For more information, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/aws-managed-views.html">Managed views</a>. </p>
+ * An Amazon Web Services-managed view is how other Amazon Web Services services can access resource information indexed by Resource Explorer for your Amazon Web Services account or organization with your consent. For more information, see [Managed views](https://docs.aws.amazon.com/resource-explorer/latest/userguide/aws-managed-views.html).
+ *
  * @public
  */
 export interface ManagedView {
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the managed view.</p>
+   * The [Amazon resource name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the managed view.
+   *
    * @public
    */
   ManagedViewArn?: string | undefined;
 
   /**
-   * <p>The name of the managed view. </p>
+   * The name of the managed view.
+   *
    * @public
    */
   ManagedViewName?: string | undefined;
 
   /**
-   * <p>The service principal of the Amazon Web Services service that created and manages the managed view. </p>
+   * The service principal of the Amazon Web Services service that created and manages the managed view.
+   *
    * @public
    */
   TrustedService?: string | undefined;
 
   /**
-   * <p>The date and time when this managed view was last modified.</p>
+   * The date and time when this managed view was last modified.
+   *
    * @public
    */
   LastUpdatedAt?: Date | undefined;
 
   /**
-   * <p>The Amazon Web Services account that owns this managed view.</p>
+   * The Amazon Web Services account that owns this managed view.
+   *
    * @public
    */
   Owner?: string | undefined;
 
   /**
-   * <p>An <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of an Amazon Web Services account or organization that specifies whether this managed view includes resources from only the specified Amazon Web Services account or all accounts in the specified organization. </p>
+   * An [Amazon resource name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of an Amazon Web Services account or organization that specifies whether this managed view includes resources from only the specified Amazon Web Services account or all accounts in the specified organization.
+   *
    * @public
    */
   Scope?: string | undefined;
 
   /**
-   * <p>A structure that contains additional information about the managed view.</p>
+   * A structure that contains additional information about the managed view.
+   *
    * @public
    */
   IncludedProperties?: IncludedProperty[] | undefined;
 
   /**
-   * <p>A search filter defines which resources can be part of a search query result set.</p>
+   * A search filter defines which resources can be part of a search query result set.
+   *
    * @public
    */
   Filters?: SearchFilter | undefined;
 
   /**
-   * <p>The resource policy that defines access to the managed view. To learn more about this policy, review <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/aws-managed-views.html">Managed views</a>.</p>
+   * The resource policy that defines access to the managed view. To learn more about this policy, review [Managed views](https://docs.aws.amazon.com/resource-explorer/latest/userguide/aws-managed-views.html).
+   *
    * @public
    */
   ResourcePolicy?: string | undefined;
 
   /**
-   * <p>The version of the managed view. </p>
+   * The version of the managed view.
+   *
    * @public
    */
   Version?: string | undefined;
@@ -776,7 +918,8 @@ export interface ManagedView {
  */
 export interface GetManagedViewOutput {
   /**
-   * <p>Details about the specified managed view. </p>
+   * Details about the specified managed view.
+   *
    * @public
    */
   ManagedView?: ManagedView | undefined;
@@ -787,91 +930,108 @@ export interface GetManagedViewOutput {
  */
 export interface GetResourceExplorerSetupInput {
   /**
-   * <p>The unique identifier of the setup task to retrieve status information for. This ID is returned by <code>CreateResourceExplorerSetup</code> or <code>DeleteResourceExplorerSetup</code> operations.</p>
+   * The unique identifier of the setup task to retrieve status information for. This ID is returned by `CreateResourceExplorerSetup` or `DeleteResourceExplorerSetup` operations.
+   *
    * @public
    */
   TaskId: string | undefined;
 
   /**
-   * <p>The maximum number of Region status results to return in a single response. Valid values are between <code>1</code> and <code>100</code>.</p>
+   * The maximum number of Region status results to return in a single response. Valid values are between `1` and `100`.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The pagination token from a previous <code>GetResourceExplorerSetup</code> response. Use this token to retrieve the next set of results.</p>
+   * The pagination token from a previous `GetResourceExplorerSetup` response. Use this token to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Contains information about the status of a Resource Explorer index operation in a specific Region.</p>
+ * Contains information about the status of a Resource Explorer index operation in a specific Region.
+ *
  * @public
  */
 export interface IndexStatus {
   /**
-   * <p>The current status of the index operation. Valid values are <code>SUCCEEDED</code>, <code>FAILED</code>, <code>IN_PROGRESS</code>, or <code>SKIPPED</code>.</p>
+   * The current status of the index operation. Valid values are `SUCCEEDED`, `FAILED`, `IN_PROGRESS`, or `SKIPPED`.
+   *
    * @public
    */
   Status?: OperationStatus | undefined;
 
   /**
-   * <p>An index is the data store used by Amazon Web Services Resource Explorer to hold information about your Amazon Web Services resources that the service discovers. Creating an index in an Amazon Web Services Region turns on Resource Explorer and lets it discover your resources.</p> <p>By default, an index is <i>local</i>, meaning that it contains information about resources in only the same Region as the index. However, you can promote the index of one Region in the account by calling <a>UpdateIndexType</a> to convert it into an aggregator index. The aggregator index receives a replicated copy of the index information from all other Regions where Resource Explorer is turned on. This allows search operations in that Region to return results from all Regions in the account.</p>
+   * An index is the data store used by Amazon Web Services Resource Explorer to hold information about your Amazon Web Services resources that the service discovers. Creating an index in an Amazon Web Services Region turns on Resource Explorer and lets it discover your resources.
+   *
+   * By default, an index is *local*, meaning that it contains information about resources in only the same Region as the index. However, you can promote the index of one Region in the account by calling UpdateIndexType to convert it into an aggregator index. The aggregator index receives a replicated copy of the index information from all other Regions where Resource Explorer is turned on. This allows search operations in that Region to return results from all Regions in the account.
+   *
    * @public
    */
   Index?: Index | undefined;
 
   /**
-   * <p>Details about any error that occurred during the index operation.</p>
+   * Details about any error that occurred during the index operation.
+   *
    * @public
    */
   ErrorDetails?: ErrorDetails | undefined;
 }
 
 /**
- * <p>Contains information about the status of a Resource Explorer view operation in a specific Region.</p>
+ * Contains information about the status of a Resource Explorer view operation in a specific Region.
+ *
  * @public
  */
 export interface ViewStatus {
   /**
-   * <p>The current status of the view operation. Valid values are <code>SUCCEEDED</code>, <code>FAILED</code>, <code>IN_PROGRESS</code>, or <code>SKIPPED</code>.</p>
+   * The current status of the view operation. Valid values are `SUCCEEDED`, `FAILED`, `IN_PROGRESS`, or `SKIPPED`.
+   *
    * @public
    */
   Status?: OperationStatus | undefined;
 
   /**
-   * <p>A view is a structure that defines a set of filters that provide a view into the information in the Amazon Web Services Resource Explorer index. The filters specify which information from the index is visible to the users of the view. For example, you can specify filters that include only resources that are tagged with the key "ENV" and the value "DEVELOPMENT" in the results returned by this view. You could also create a second view that includes only resources that are tagged with "ENV" and "PRODUCTION".</p>
+   * A view is a structure that defines a set of filters that provide a view into the information in the Amazon Web Services Resource Explorer index. The filters specify which information from the index is visible to the users of the view. For example, you can specify filters that include only resources that are tagged with the key "ENV" and the value "DEVELOPMENT" in the results returned by this view. You could also create a second view that includes only resources that are tagged with "ENV" and "PRODUCTION".
+   *
    * @public
    */
   View?: View | undefined;
 
   /**
-   * <p>Details about any error that occurred during the view operation.</p>
+   * Details about any error that occurred during the view operation.
+   *
    * @public
    */
   ErrorDetails?: ErrorDetails | undefined;
 }
 
 /**
- * <p>Contains information about the status of Resource Explorer configuration in a specific Amazon Web Services Region.</p>
+ * Contains information about the status of Resource Explorer configuration in a specific Amazon Web Services Region.
+ *
  * @public
  */
 export interface RegionStatus {
   /**
-   * <p>The Amazon Web Services Region for which this status information applies.</p>
+   * The Amazon Web Services Region for which this status information applies.
+   *
    * @public
    */
   Region?: string | undefined;
 
   /**
-   * <p>The status information for the Resource Explorer index in this Region.</p>
+   * The status information for the Resource Explorer index in this Region.
+   *
    * @public
    */
   Index?: IndexStatus | undefined;
 
   /**
-   * <p>The status information for the Resource Explorer view in this Region.</p>
+   * The status information for the Resource Explorer view in this Region.
+   *
    * @public
    */
   View?: ViewStatus | undefined;
@@ -882,13 +1042,15 @@ export interface RegionStatus {
  */
 export interface GetResourceExplorerSetupOutput {
   /**
-   * <p>A list of Region status objects that describe the current state of Resource Explorer configuration in each Region.</p>
+   * A list of Region status objects that describe the current state of Resource Explorer configuration in each Region.
+   *
    * @public
    */
   Regions?: RegionStatus[] | undefined;
 
   /**
-   * <p>The pagination token to use in a subsequent <code>GetResourceExplorerSetup</code> request to retrieve the next set of results.</p>
+   * The pagination token to use in a subsequent `GetResourceExplorerSetup` request to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -899,13 +1061,15 @@ export interface GetResourceExplorerSetupOutput {
  */
 export interface GetServiceIndexOutput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Resource Explorer index in the current Region.</p>
+   * The Amazon Resource Name (ARN) of the Resource Explorer index in the current Region.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The type of the index. Valid values are <code>LOCAL</code> (contains resources from the current Region only) or <code>AGGREGATOR</code> (contains replicated resource information from all Regions).</p>
+   * The type of the index. Valid values are `LOCAL` (contains resources from the current Region only) or `AGGREGATOR` (contains replicated resource information from all Regions).
+   *
    * @public
    */
   Type?: IndexType | undefined;
@@ -916,79 +1080,92 @@ export interface GetServiceIndexOutput {
  */
 export interface GetServiceViewInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the service view to retrieve details for.</p>
+   * The Amazon Resource Name (ARN) of the service view to retrieve details for.
+   *
    * @public
    */
   ServiceViewArn: string | undefined;
 }
 
 /**
- * <p>Contains information about the service-linked recorder paired with a service view.</p>
+ * Contains information about the service-linked recorder paired with a service view.
+ *
  * @public
  */
 export interface ServiceLinkedRecorderInfo {
   /**
-   * <p>The service principal of the Amazon Web Services service that owns the service-linked recorder, such as <code>observabilityadmin.amazonaws.com</code>.</p>
+   * The service principal of the Amazon Web Services service that owns the service-linked recorder, such as `observabilityadmin.amazonaws.com`.
+   *
    * @public
    */
   ServicePrincipal?: string | undefined;
 
   /**
-   * <p>The name of the service-linked recorder, such as <code>AWSConfigurationRecorderForObservabilityAdmin</code>.</p>
+   * The name of the service-linked recorder, such as `AWSConfigurationRecorderForObservabilityAdmin`.
+   *
    * @public
    */
   RecorderName?: string | undefined;
 
   /**
-   * <p>The type of the recorder. Valid values are <code>AWS</code> and <code>THIRD_PARTY</code>.</p>
+   * The type of the recorder. Valid values are `AWS` and `THIRD_PARTY`.
+   *
    * @public
    */
   RecorderType?: RecorderType | undefined;
 }
 
 /**
- * <p>Contains the configuration and properties of a Resource Explorer service view.</p>
+ * Contains the configuration and properties of a Resource Explorer service view.
+ *
  * @public
  */
 export interface ServiceView {
   /**
-   * <p>The Amazon Resource Name (ARN) of the service view.</p>
+   * The Amazon Resource Name (ARN) of the service view.
+   *
    * @public
    */
   ServiceViewArn: string | undefined;
 
   /**
-   * <p>The name of the service view.</p>
+   * The name of the service view.
+   *
    * @public
    */
   ServiceViewName?: string | undefined;
 
   /**
-   * <p>A search filter defines which resources can be part of a search query result set.</p>
+   * A search filter defines which resources can be part of a search query result set.
+   *
    * @public
    */
   Filters?: SearchFilter | undefined;
 
   /**
-   * <p>A list of additional resource properties that are included in this view for search and filtering purposes.</p>
+   * A list of additional resource properties that are included in this view for search and filtering purposes.
+   *
    * @public
    */
   IncludedProperties?: IncludedProperty[] | undefined;
 
   /**
-   * <p>The Amazon Web Services service that has streaming access to this view's data.</p>
+   * The Amazon Web Services service that has streaming access to this view's data.
+   *
    * @public
    */
   StreamingAccessForService?: string | undefined;
 
   /**
-   * <p>The scope type of the service view, which determines what resources are included.</p>
+   * The scope type of the service view, which determines what resources are included.
+   *
    * @public
    */
   ScopeType?: string | undefined;
 
   /**
-   * <p>Information about the service-linked recorder associated with this service view. When a service view is paired with a service-linked recorder, Resource Explorer uses the recorder's resource type list to filter search results and streaming data.</p>
+   * Information about the service-linked recorder associated with this service view. When a service view is paired with a service-linked recorder, Resource Explorer uses the recorder's resource type list to filter search results and streaming data.
+   *
    * @public
    */
   ServiceLinkedRecorder?: ServiceLinkedRecorderInfo | undefined;
@@ -999,7 +1176,8 @@ export interface ServiceView {
  */
 export interface GetServiceViewOutput {
   /**
-   * <p>A <code>ServiceView</code> object that contains the details and configuration of the requested service view.</p>
+   * A `ServiceView` object that contains the details and configuration of the requested service view.
+   *
    * @public
    */
   View: ServiceView | undefined;
@@ -1010,49 +1188,62 @@ export interface GetServiceViewOutput {
  */
 export interface ListIndexesForMembersInput {
   /**
-   * <p>The account IDs will limit the output to only indexes from these accounts.</p>
+   * The account IDs will limit the output to only indexes from these accounts.
+   *
    * @public
    */
   AccountIdList: string[] | undefined;
 
   /**
-   * <p>The maximum number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value appropriate to the operation. If additional items exist beyond those included in the current response, the <code>NextToken</code> response element is present and has a value (is not null). Include that value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results.</p> <note> <p>An API operation can return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p> </note>
+   * The maximum number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value appropriate to the operation. If additional items exist beyond those included in the current response, the `NextToken` response element is present and has a value (is not null). Include that value as the `NextToken` request parameter in the next call to the operation to get the next part of the results.
+   *
+   * > **Note:** An API operation can return fewer results than the maximum even when there are more results available. You should check `NextToken` after every operation to ensure that you receive all of the results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The parameter for receiving additional results if you receive a <code>NextToken</code> response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the value of the previous call's <code>NextToken</code> response to indicate where the output should continue from. The pagination tokens expire after 24 hours.</p>
+   * The parameter for receiving additional results if you receive a `NextToken` response in a previous request. A `NextToken` response indicates that more output is available. Set this parameter to the value of the previous call's `NextToken` response to indicate where the output should continue from. The pagination tokens expire after 24 hours.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>An index is the data store used by Amazon Web Services Resource Explorer to hold information about your Amazon Web Services resources that the service discovers. </p>
+ * An index is the data store used by Amazon Web Services Resource Explorer to hold information about your Amazon Web Services resources that the service discovers.
+ *
  * @public
  */
 export interface MemberIndex {
   /**
-   * <p>The account ID for the index.</p>
+   * The account ID for the index.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region in which the index exists.</p>
+   * The Amazon Web Services Region in which the index exists.
+   *
    * @public
    */
   Region?: string | undefined;
 
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the index.</p>
+   * The [Amazon resource name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the index.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The type of index. It can be one of the following values: </p> <ul> <li> <p> <code>LOCAL</code> – The index contains information about resources from only the same Amazon Web Services Region.</p> </li> <li> <p> <code>AGGREGATOR</code> – Resource Explorer replicates copies of the indexed information about resources in all other Amazon Web Services Regions to the aggregator index. This lets search results in the Region with the aggregator index to include resources from all Regions in the account where Resource Explorer is turned on.</p> </li> </ul>
+   * The type of index. It can be one of the following values:
+   *
+   * - `LOCAL` – The index contains information about resources from only the same Amazon Web Services Region.
+   * - `AGGREGATOR` – Resource Explorer replicates copies of the indexed information about resources in all other Amazon Web Services Regions to the aggregator index. This lets search results in the Region with the aggregator index to include resources from all Regions in the account where Resource Explorer is turned on.
+   *
    * @public
    */
   Type?: IndexType | undefined;
@@ -1063,13 +1254,15 @@ export interface MemberIndex {
  */
 export interface ListIndexesForMembersOutput {
   /**
-   * <p>A structure that contains the details and status of each index.</p>
+   * A structure that contains the details and status of each index.
+   *
    * @public
    */
   Indexes?: MemberIndex[] | undefined;
 
   /**
-   * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the <code>NextToken</code> response element comes back as <code>null</code>. The pagination tokens expire after 24 hours.</p>
+   * If present, indicates that more output is available than is included in the current response. Use this value in the `NextToken` request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the `NextToken` response element comes back as `null`. The pagination tokens expire after 24 hours.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1080,19 +1273,24 @@ export interface ListIndexesForMembersOutput {
  */
 export interface ListManagedViewsInput {
   /**
-   * <p>The maximum number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value appropriate to the operation. If additional items exist beyond those included in the current response, the <code>NextToken</code> response element is present and has a value (is not null). Include that value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results.</p> <note> <p>An API operation can return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p> </note>
+   * The maximum number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value appropriate to the operation. If additional items exist beyond those included in the current response, the `NextToken` response element is present and has a value (is not null). Include that value as the `NextToken` request parameter in the next call to the operation to get the next part of the results.
+   *
+   * > **Note:** An API operation can return fewer results than the maximum even when there are more results available. You should check `NextToken` after every operation to ensure that you receive all of the results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The parameter for receiving additional results if you receive a <code>NextToken</code> response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the value of the previous call's <code>NextToken</code> response to indicate where the output should continue from. The pagination tokens expire after 24 hours.</p>
+   * The parameter for receiving additional results if you receive a `NextToken` response in a previous request. A `NextToken` response indicates that more output is available. Set this parameter to the value of the previous call's `NextToken` response to indicate where the output should continue from. The pagination tokens expire after 24 hours.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>Specifies a service principal name. If specified, then the operation only returns the managed views that are managed by the input service. </p>
+   * Specifies a service principal name. If specified, then the operation only returns the managed views that are managed by the input service.
+   *
    * @public
    */
   ServicePrincipal?: string | undefined;
@@ -1103,13 +1301,15 @@ export interface ListManagedViewsInput {
  */
 export interface ListManagedViewsOutput {
   /**
-   * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the <code>NextToken</code> response element comes back as <code>null</code>. The pagination tokens expire after 24 hours.</p>
+   * If present, indicates that more output is available than is included in the current response. Use this value in the `NextToken` request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the `NextToken` response element comes back as `null`. The pagination tokens expire after 24 hours.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The list of managed views available in the Amazon Web Services Region in which you called this operation. </p>
+   * The list of managed views available in the Amazon Web Services Region in which you called this operation.
+   *
    * @public
    */
   ManagedViews?: string[] | undefined;
@@ -1120,103 +1320,128 @@ export interface ListManagedViewsOutput {
  */
 export interface ListResourcesInput {
   /**
-   * <p>An array of strings that specify which resources are included in the results of queries made using this view. When you use this view in a <a>Search</a> operation, the filter string is combined with the search's <code>QueryString</code> parameter using a logical <code>AND</code> operator.</p> <p>For information about the supported syntax, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html">Search query reference for Resource Explorer</a> in the <i>Amazon Web Services Resource Explorer User Guide</i>.</p> <important> <p>This query string in the context of this operation supports only <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-filters">filter prefixes</a> with optional <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-operators">operators</a>. It doesn't support free-form text. For example, the string <code>region:us* service:ec2 -tag:stage=prod</code> includes all Amazon EC2 resources in any Amazon Web Services Region that begins with the letters <code>us</code> and is <i>not</i> tagged with a key <code>Stage</code> that has the value <code>prod</code>.</p> </important>
+   * An array of strings that specify which resources are included in the results of queries made using this view. When you use this view in a Search operation, the filter string is combined with the search's `QueryString` parameter using a logical `AND` operator.
+   *
+   * For information about the supported syntax, see [Search query reference for Resource Explorer](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html) in the *Amazon Web Services Resource Explorer User Guide*.
+   *
+   * > **Important:** This query string in the context of this operation supports only [filter prefixes](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-filters) with optional [operators](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-operators). It doesn't support free-form text. For example, the string `region:us* service:ec2 -tag:stage=prod` includes all Amazon EC2 resources in any Amazon Web Services Region that begins with the letters `us` and is *not* tagged with a key `Stage` that has the value `prod`.
+   *
    * @public
    */
   Filters?: SearchFilter | undefined;
 
   /**
-   * <p>The maximum number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value appropriate to the operation. If additional items exist beyond those included in the current response, the <code>NextToken</code> response element is present and has a value (is not null). Include that value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results.</p> <note> <p>An API operation can return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p> </note>
+   * The maximum number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value appropriate to the operation. If additional items exist beyond those included in the current response, the `NextToken` response element is present and has a value (is not null). Include that value as the `NextToken` request parameter in the next call to the operation to get the next part of the results.
+   *
+   * > **Note:** An API operation can return fewer results than the maximum even when there are more results available. You should check `NextToken` after every operation to ensure that you receive all of the results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>Specifies the Amazon resource name (ARN) of the view to use for the query. If you don't specify a value for this parameter, then the operation automatically uses the default view for the Amazon Web Services Region in which you called this operation. If the Region either doesn't have a default view or if you don't have permission to use the default view, then the operation fails with a 401 Unauthorized exception.</p>
+   * Specifies the Amazon resource name (ARN) of the view to use for the query. If you don't specify a value for this parameter, then the operation automatically uses the default view for the Amazon Web Services Region in which you called this operation. If the Region either doesn't have a default view or if you don't have permission to use the default view, then the operation fails with a 401 Unauthorized exception.
+   *
    * @public
    */
   ViewArn?: string | undefined;
 
   /**
-   * <p>The parameter for receiving additional results if you receive a <code>NextToken</code> response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the value of the previous call's <code>NextToken</code> response to indicate where the output should continue from. The pagination tokens expire after 24 hours.</p> <note> <p>The <code>ListResources</code> operation does not generate a <code>NextToken</code> if you set <code>MaxResults</code> to 1000. </p> </note>
+   * The parameter for receiving additional results if you receive a `NextToken` response in a previous request. A `NextToken` response indicates that more output is available. Set this parameter to the value of the previous call's `NextToken` response to indicate where the output should continue from. The pagination tokens expire after 24 hours.
+   *
+   * > **Note:** The `ListResources` operation does not generate a `NextToken` if you set `MaxResults` to 1000.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>A structure that describes a property of a resource.</p>
+ * A structure that describes a property of a resource.
+ *
  * @public
  */
 export interface ResourceProperty {
   /**
-   * <p>The name of this property of the resource.</p>
+   * The name of this property of the resource.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The date and time that the information about this resource property was last updated.</p>
+   * The date and time that the information about this resource property was last updated.
+   *
    * @public
    */
   LastReportedAt?: Date | undefined;
 
   /**
-   * <p>Details about this property. The content of this field is a JSON object that varies based on the resource type.</p>
+   * Details about this property. The content of this field is a JSON object that varies based on the resource type.
+   *
    * @public
    */
   Data?: __DocumentType | undefined;
 }
 
 /**
- * <p>A resource in Amazon Web Services that Amazon Web Services Resource Explorer has discovered, and for which it has stored information in the index of the Amazon Web Services Region that contains the resource.</p>
+ * A resource in Amazon Web Services that Amazon Web Services Resource Explorer has discovered, and for which it has stored information in the index of the Amazon Web Services Region that contains the resource.
+ *
  * @public
  */
 export interface Resource {
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the resource.</p>
+   * The [Amazon resource name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the resource.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account that owns the resource.</p>
+   * The Amazon Web Services account that owns the resource.
+   *
    * @public
    */
   OwningAccountId?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region in which the resource was created and exists.</p>
+   * The Amazon Web Services Region in which the resource was created and exists.
+   *
    * @public
    */
   Region?: string | undefined;
 
   /**
-   * <p>The type of the resource.</p>
+   * The type of the resource.
+   *
    * @public
    */
   ResourceType?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services service that owns the resource and is responsible for creating and updating it.</p>
+   * The Amazon Web Services service that owns the resource and is responsible for creating and updating it.
+   *
    * @public
    */
   Service?: string | undefined;
 
   /**
-   * <p>The CloudFormation resource type identifier for the resource, such as <code>AWS::EC2::Instance</code> or <code>AWS::S3::Bucket</code>.</p>
+   * The CloudFormation resource type identifier for the resource, such as `AWS::EC2::Instance` or `AWS::S3::Bucket`.
+   *
    * @public
    */
   CfnResourceType?: string | undefined;
 
   /**
-   * <p>The date and time that Resource Explorer last queried this resource and updated the index with the latest information about the resource.</p>
+   * The date and time that Resource Explorer last queried this resource and updated the index with the latest information about the resource.
+   *
    * @public
    */
   LastReportedAt?: Date | undefined;
 
   /**
-   * <p>A structure with additional type-specific details about the resource. These properties can be added by turning on integration between Resource Explorer and other Amazon Web Services services.</p>
+   * A structure with additional type-specific details about the resource. These properties can be added by turning on integration between Resource Explorer and other Amazon Web Services services.
+   *
    * @public
    */
   Properties?: ResourceProperty[] | undefined;
@@ -1227,19 +1452,22 @@ export interface Resource {
  */
 export interface ListResourcesOutput {
   /**
-   * <p>The list of structures that describe the resources that match the query. </p>
+   * The list of structures that describe the resources that match the query.
+   *
    * @public
    */
   Resources?: Resource[] | undefined;
 
   /**
-   * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the <code>NextToken</code> response element comes back as <code>null</code>. The pagination tokens expire after 24 hours.</p>
+   * If present, indicates that more output is available than is included in the current response. Use this value in the `NextToken` request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the `NextToken` response element comes back as `null`. The pagination tokens expire after 24 hours.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The Amazon resource name (ARN) of the view that this operation used to perform the search. </p>
+   * The Amazon resource name (ARN) of the view that this operation used to perform the search.
+   *
    * @public
    */
   ViewArn?: string | undefined;
@@ -1250,19 +1478,22 @@ export interface ListResourcesOutput {
  */
 export interface ListServiceIndexesInput {
   /**
-   * <p>A list of Amazon Web Services Regions to include in the search for indexes. If not specified, indexes from all Regions are returned.</p>
+   * A list of Amazon Web Services Regions to include in the search for indexes. If not specified, indexes from all Regions are returned.
+   *
    * @public
    */
   Regions?: string[] | undefined;
 
   /**
-   * <p>The maximum number of index results to return in a single response. Valid values are between <code>1</code> and <code>100</code>.</p>
+   * The maximum number of index results to return in a single response. Valid values are between `1` and `100`.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The pagination token from a previous <code>ListServiceIndexes</code> response. Use this token to retrieve the next set of results.</p>
+   * The pagination token from a previous `ListServiceIndexes` response. Use this token to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1273,13 +1504,15 @@ export interface ListServiceIndexesInput {
  */
 export interface ListServiceIndexesOutput {
   /**
-   * <p>A list of <code>Index</code> objects that describe the Resource Explorer indexes found in the specified Regions.</p>
+   * A list of `Index` objects that describe the Resource Explorer indexes found in the specified Regions.
+   *
    * @public
    */
   Indexes?: Index[] | undefined;
 
   /**
-   * <p>The pagination token to use in a subsequent <code>ListServiceIndexes</code> request to retrieve the next set of results.</p>
+   * The pagination token to use in a subsequent `ListServiceIndexes` request to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1290,13 +1523,15 @@ export interface ListServiceIndexesOutput {
  */
 export interface ListServiceViewsInput {
   /**
-   * <p>The maximum number of service view results to return in a single response. Valid values are between <code>1</code> and <code>50</code>.</p>
+   * The maximum number of service view results to return in a single response. Valid values are between `1` and `50`.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The pagination token from a previous <code>ListServiceViews</code> response. Use this token to retrieve the next set of results.</p>
+   * The pagination token from a previous `ListServiceViews` response. Use this token to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1307,13 +1542,15 @@ export interface ListServiceViewsInput {
  */
 export interface ListServiceViewsOutput {
   /**
-   * <p>The pagination token to use in a subsequent <code>ListServiceViews</code> request to retrieve the next set of results.</p>
+   * The pagination token to use in a subsequent `ListServiceViews` request to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>A list of Amazon Resource Names (ARNs) for the service views available in the current Amazon Web Services account.</p>
+   * A list of Amazon Resource Names (ARNs) for the service views available in the current Amazon Web Services account.
+   *
    * @public
    */
   ServiceViews?: string[] | undefined;
@@ -1324,31 +1561,36 @@ export interface ListServiceViewsOutput {
  */
 export interface ListStreamingAccessForServicesInput {
   /**
-   * <p>The maximum number of streaming access entries to return in the response. If there are more results available, the response includes a NextToken value that you can use in a subsequent call to get the next set of results. The value must be between 1 and 50. If you don't specify a value, the default is 50.</p>
+   * The maximum number of streaming access entries to return in the response. If there are more results available, the response includes a NextToken value that you can use in a subsequent call to get the next set of results. The value must be between 1 and 50. If you don't specify a value, the default is 50.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The parameter for receiving additional results if you receive a <code>NextToken</code> response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the value of the previous call's <code>NextToken</code> response to indicate where the output should continue from. The pagination tokens expire after 24 hours.</p>
+   * The parameter for receiving additional results if you receive a `NextToken` response in a previous request. A `NextToken` response indicates that more output is available. Set this parameter to the value of the previous call's `NextToken` response to indicate where the output should continue from. The pagination tokens expire after 24 hours.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Contains information about an Amazon Web Services service that has been granted streaming access to your Resource Explorer data.</p>
+ * Contains information about an Amazon Web Services service that has been granted streaming access to your Resource Explorer data.
+ *
  * @public
  */
 export interface StreamingAccessDetails {
   /**
-   * <p>The service principal of the Amazon Web Services service that has streaming access to your Resource Explorer data. A service principal is a unique identifier for an Amazon Web Services service.</p>
+   * The service principal of the Amazon Web Services service that has streaming access to your Resource Explorer data. A service principal is a unique identifier for an Amazon Web Services service.
+   *
    * @public
    */
   ServicePrincipal: string | undefined;
 
   /**
-   * <p>The date and time when streaming access was granted to the Amazon Web Services service, in ISO 8601 format.</p>
+   * The date and time when streaming access was granted to the Amazon Web Services service, in ISO 8601 format.
+   *
    * @public
    */
   CreatedAt: Date | undefined;
@@ -1359,13 +1601,15 @@ export interface StreamingAccessDetails {
  */
 export interface ListStreamingAccessForServicesOutput {
   /**
-   * <p>A list of Amazon Web Services services that have streaming access to your Resource Explorer data, including details about when the access was granted.</p>
+   * A list of Amazon Web Services services that have streaming access to your Resource Explorer data, including details about when the access was granted.
+   *
    * @public
    */
   StreamingAccessForServices: StreamingAccessDetails[] | undefined;
 
   /**
-   * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the <code>NextToken</code> response element comes back as <code>null</code>. The pagination tokens expire after 24 hours.</p>
+   * If present, indicates that more output is available than is included in the current response. Use this value in the `NextToken` request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the `NextToken` response element comes back as `null`. The pagination tokens expire after 24 hours.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1376,37 +1620,45 @@ export interface ListStreamingAccessForServicesOutput {
  */
 export interface ListSupportedResourceTypesInput {
   /**
-   * <p>The parameter for receiving additional results if you receive a <code>NextToken</code> response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the value of the previous call's <code>NextToken</code> response to indicate where the output should continue from. The pagination tokens expire after 24 hours.</p>
+   * The parameter for receiving additional results if you receive a `NextToken` response in a previous request. A `NextToken` response indicates that more output is available. Set this parameter to the value of the previous call's `NextToken` response to indicate where the output should continue from. The pagination tokens expire after 24 hours.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value appropriate to the operation. If additional items exist beyond those included in the current response, the <code>NextToken</code> response element is present and has a value (is not null). Include that value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results.</p> <note> <p>An API operation can return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p> </note>
+   * The maximum number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value appropriate to the operation. If additional items exist beyond those included in the current response, the `NextToken` response element is present and has a value (is not null). Include that value as the `NextToken` request parameter in the next call to the operation to get the next part of the results.
+   *
+   * > **Note:** An API operation can return fewer results than the maximum even when there are more results available. You should check `NextToken` after every operation to ensure that you receive all of the results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>A structure that describes a resource type supported by Amazon Web Services Resource Explorer.</p>
+ * A structure that describes a resource type supported by Amazon Web Services Resource Explorer.
+ *
  * @public
  */
 export interface SupportedResourceType {
   /**
-   * <p>The Amazon Web Services service that is associated with the resource type. This is the primary service that lets you create and interact with resources of this type.</p>
+   * The Amazon Web Services service that is associated with the resource type. This is the primary service that lets you create and interact with resources of this type.
+   *
    * @public
    */
   Service?: string | undefined;
 
   /**
-   * <p>The unique identifier of the resource type.</p>
+   * The unique identifier of the resource type.
+   *
    * @public
    */
   ResourceType?: string | undefined;
 
   /**
-   * <p>The CloudFormation resource type identifiers for this resource type, such as <code>AWS::EC2::Instance</code>.</p>
+   * The CloudFormation resource type identifiers for this resource type, such as `AWS::EC2::Instance`.
+   *
    * @public
    */
   CFNResourceTypes?: string[] | undefined;
@@ -1417,13 +1669,15 @@ export interface SupportedResourceType {
  */
 export interface ListSupportedResourceTypesOutput {
   /**
-   * <p>The list of resource types supported by Resource Explorer.</p>
+   * The list of resource types supported by Resource Explorer.
+   *
    * @public
    */
   ResourceTypes?: SupportedResourceType[] | undefined;
 
   /**
-   * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the <code>NextToken</code> response element comes back as <code>null</code>. The pagination tokens expire after 24 hours.</p>
+   * If present, indicates that more output is available than is included in the current response. Use this value in the `NextToken` request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the `NextToken` response element comes back as `null`. The pagination tokens expire after 24 hours.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1434,7 +1688,8 @@ export interface ListSupportedResourceTypesOutput {
  */
 export interface ListTagsForResourceInput {
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the view or index that you want to attach tags to.</p>
+   * The [Amazon resource name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the view or index that you want to attach tags to.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -1445,25 +1700,34 @@ export interface ListTagsForResourceInput {
  */
 export interface ListTagsForResourceOutput {
   /**
-   * <p>The tag key and value pairs that you want to attach to the specified view or index.</p>
+   * The tag key and value pairs that you want to attach to the specified view or index.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Information about the number of results that match the query. At this time, Amazon Web Services Resource Explorer doesn't count more than 1,000 matches for any query. This structure provides information about whether the query exceeded this limit.</p> <p>This field is included in every page when you paginate the results.</p>
+ * Information about the number of results that match the query. At this time, Amazon Web Services Resource Explorer doesn't count more than 1,000 matches for any query. This structure provides information about whether the query exceeded this limit.
+ *
+ * This field is included in every page when you paginate the results.
+ *
  * @public
  */
 export interface ResourceCount {
   /**
-   * <p>The number of resources that match the search query. This value can't exceed 1,000. If there are more than 1,000 resources that match the query, then only 1,000 are counted and the <code>Complete</code> field is set to false. We recommend that you refine your query to return a smaller number of results.</p>
+   * The number of resources that match the search query. This value can't exceed 1,000. If there are more than 1,000 resources that match the query, then only 1,000 are counted and the `Complete` field is set to false. We recommend that you refine your query to return a smaller number of results.
+   *
    * @public
    */
   TotalResources?: number | undefined;
 
   /**
-   * <p>Indicates whether the <code>TotalResources</code> value represents an exhaustive count of search results.</p> <ul> <li> <p>If <code>True</code>, it indicates that the search was exhaustive. Every resource that matches the query was counted.</p> </li> <li> <p>If <code>False</code>, then the search reached the limit of 1,000 matching results, and stopped counting.</p> </li> </ul>
+   * Indicates whether the `TotalResources` value represents an exhaustive count of search results.
+   *
+   * - If `True`, it indicates that the search was exhaustive. Every resource that matches the query was counted.
+   * - If `False`, then the search reached the limit of 1,000 matching results, and stopped counting.
+   *
    * @public
    */
   Complete?: boolean | undefined;
@@ -1474,25 +1738,37 @@ export interface ResourceCount {
  */
 export interface SearchInput {
   /**
-   * <p>A string that includes keywords and filters that specify the resources that you want to include in the results.</p> <p>For the complete syntax supported by the <code>QueryString</code> parameter, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html">Search query syntax reference for Resource Explorer</a>.</p> <p>The search is completely case insensitive. You can specify an empty string to return all results up to the limit of 1,000 total results.</p> <note> <p>The operation can return only the first 1,000 results. If the resource you want is not included, then use a different value for <code>QueryString</code> to refine the results.</p> </note>
+   * A string that includes keywords and filters that specify the resources that you want to include in the results.
+   *
+   * For the complete syntax supported by the `QueryString` parameter, see [Search query syntax reference for Resource Explorer](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html).
+   *
+   * The search is completely case insensitive. You can specify an empty string to return all results up to the limit of 1,000 total results.
+   *
+   * > **Note:** The operation can return only the first 1,000 results. If the resource you want is not included, then use a different value for `QueryString` to refine the results.
+   *
    * @public
    */
   QueryString: string | undefined;
 
   /**
-   * <p>The maximum number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value appropriate to the operation. If additional items exist beyond those included in the current response, the <code>NextToken</code> response element is present and has a value (is not null). Include that value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results.</p> <note> <p>An API operation can return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p> </note>
+   * The maximum number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value appropriate to the operation. If additional items exist beyond those included in the current response, the `NextToken` response element is present and has a value (is not null). Include that value as the `NextToken` request parameter in the next call to the operation to get the next part of the results.
+   *
+   * > **Note:** An API operation can return fewer results than the maximum even when there are more results available. You should check `NextToken` after every operation to ensure that you receive all of the results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the view to use for the query. If you don't specify a value for this parameter, then the operation automatically uses the default view for the Amazon Web Services Region in which you called this operation. If the Region either doesn't have a default view or if you don't have permission to use the default view, then the operation fails with a <code>401 Unauthorized</code> exception.</p>
+   * Specifies the [Amazon resource name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the view to use for the query. If you don't specify a value for this parameter, then the operation automatically uses the default view for the Amazon Web Services Region in which you called this operation. If the Region either doesn't have a default view or if you don't have permission to use the default view, then the operation fails with a `401 Unauthorized` exception.
+   *
    * @public
    */
   ViewArn?: string | undefined;
 
   /**
-   * <p>The parameter for receiving additional results if you receive a <code>NextToken</code> response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the value of the previous call's <code>NextToken</code> response to indicate where the output should continue from. The pagination tokens expire after 24 hours.</p>
+   * The parameter for receiving additional results if you receive a `NextToken` response in a previous request. A `NextToken` response indicates that more output is available. Set this parameter to the value of the previous call's `NextToken` response to indicate where the output should continue from. The pagination tokens expire after 24 hours.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1503,25 +1779,29 @@ export interface SearchInput {
  */
 export interface SearchOutput {
   /**
-   * <p>The list of structures that describe the resources that match the query.</p>
+   * The list of structures that describe the resources that match the query.
+   *
    * @public
    */
   Resources?: Resource[] | undefined;
 
   /**
-   * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the <code>NextToken</code> response element comes back as <code>null</code>. The pagination tokens expire after 24 hours.</p>
+   * If present, indicates that more output is available than is included in the current response. Use this value in the `NextToken` request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the `NextToken` response element comes back as `null`. The pagination tokens expire after 24 hours.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the view that this operation used to perform the search.</p>
+   * The [Amazon resource name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the view that this operation used to perform the search.
+   *
    * @public
    */
   ViewArn?: string | undefined;
 
   /**
-   * <p>The number of resources that match the query.</p>
+   * The number of resources that match the query.
+   *
    * @public
    */
   Count?: ResourceCount | undefined;
@@ -1532,13 +1812,15 @@ export interface SearchOutput {
  */
 export interface TagResourceInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the view or index that you want to attach tags to.</p>
+   * The Amazon Resource Name (ARN) of the view or index that you want to attach tags to.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>A list of tag key and value pairs that you want to attach to the specified view or index.</p>
+   * A list of tag key and value pairs that you want to attach to the specified view or index.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -1554,13 +1836,15 @@ export interface TagResourceOutput {}
  */
 export interface UntagResourceInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the view or index that you want to remove tags from.</p>
+   * The Amazon Resource Name (ARN) of the view or index that you want to remove tags from.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>A list of the keys for the tags that you want to remove from the specified view or index.</p>
+   * A list of the keys for the tags that you want to remove from the specified view or index.
+   *
    * @public
    */
   tagKeys: string[] | undefined;

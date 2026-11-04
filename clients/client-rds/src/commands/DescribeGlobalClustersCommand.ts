@@ -23,7 +23,12 @@ export interface DescribeGlobalClustersCommandInput extends DescribeGlobalCluste
 export interface DescribeGlobalClustersCommandOutput extends GlobalClustersMessage, __MetadataBearer {}
 
 /**
- * <p>Returns information about Aurora global database clusters. This API supports pagination.</p> <p>For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html"> What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p> <note> <p>This action only applies to Aurora DB clusters.</p> </note>
+ * Returns information about Aurora global database clusters. This API supports pagination.
+ *
+ * For more information on Amazon Aurora, see [What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html) in the *Amazon Aurora User Guide*.
+ *
+ * > **Note:** This action only applies to Aurora DB clusters.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -99,11 +104,12 @@ export interface DescribeGlobalClustersCommandOutput extends GlobalClustersMessa
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link GlobalClusterNotFoundFault} (client fault)
- *  <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster.</p>
+ *
+ * The `GlobalClusterIdentifier` doesn't refer to an existing global database cluster.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To describe global DB clusters
  * ```javascript

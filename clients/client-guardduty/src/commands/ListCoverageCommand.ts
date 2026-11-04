@@ -23,7 +23,10 @@ export interface ListCoverageCommandInput extends ListCoverageRequest {}
 export interface ListCoverageCommandOutput extends ListCoverageResponse, __MetadataBearer {}
 
 /**
- * <p>Lists coverage details for your GuardDuty account. If you're a GuardDuty administrator, you can retrieve all resources associated with the active member accounts in your organization.</p> <p>Make sure the accounts have Runtime Monitoring enabled and GuardDuty agent running on their resources.</p>
+ * Lists coverage details for your GuardDuty account. If you're a GuardDuty administrator, you can retrieve all resources associated with the active member accounts in your organization.
+ *
+ * Make sure the accounts have Runtime Monitoring enabled and GuardDuty agent running on their resources.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -116,14 +119,16 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>A bad request exception object.</p>
+ *
+ * A bad request exception object.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>An internal server error exception object.</p>
+ *
+ * An internal server error exception object.
  *
  * @throws {@link GuardDutyServiceException}
- * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * Base exception class for all service exceptions from GuardDuty service.
  *
  * @public
  */

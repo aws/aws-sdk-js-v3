@@ -74,8 +74,8 @@ export interface CompleteRolloutCommandOutput extends CompleteRolloutResponse, _
  *  The request is not valid. Check the request syntax and parameters
  *
  * @throws {@link SagemakerJobRuntimeServiceException}
- * <p>Base exception class for all service exceptions from SagemakerJobRuntime service.</p>
  *
+ * Base exception class for all service exceptions from SagemakerJobRuntime service.
  *
  * @example Invoke CompleteRollout
  * ```javascript

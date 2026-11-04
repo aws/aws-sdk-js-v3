@@ -23,7 +23,10 @@ export interface UpdateHostKeyCommandInput extends UpdateHostKeyRequest {}
 export interface UpdateHostKeyCommandOutput extends UpdateHostKeyResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the host key that's specified by the <code>ServerId</code> and <code>HostKeyId</code> parameters. You can update the description of the host key, change where the host key is stored by specifying the <code>StorageType</code>, and specify the KMS key used to encrypt the host key when it's stored in Secrets Manager.</p> <p>To change a host key's storage type from <code>SERVICE_MANAGED</code> to <code>SECRETS_MANAGER</code>, you must have the <code>transfer:ExportHostKey</code> permission. <code>transfer:ExportHostKey</code> is a permission-only action that has no corresponding API operation.</p>
+ * Updates the host key that's specified by the `ServerId` and `HostKeyId` parameters. You can update the description of the host key, change where the host key is stored by specifying the `StorageType`, and specify the KMS key used to encrypt the host key when it's stored in Secrets Manager.
+ *
+ * To change a host key's storage type from `SERVICE_MANAGED` to `SECRETS_MANAGER`, you must have the `transfer:ExportHostKey` permission. `transfer:ExportHostKey` is a permission-only action that has no corresponding API operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,23 +58,28 @@ export interface UpdateHostKeyCommandOutput extends UpdateHostKeyResponse, __Met
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
  *
  * @throws {@link InternalServiceError} (server fault)
- *  <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+ *
+ * This exception is thrown when an error occurs in the Transfer Family service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * This exception is thrown when the client submits a malformed request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+ *
+ * This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+ *
+ * The request has failed because the Amazon Web ServicesTransfer Family service is not available.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link TransferServiceException}
- * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * Base exception class for all service exceptions from Transfer service.
  *
  * @public
  */

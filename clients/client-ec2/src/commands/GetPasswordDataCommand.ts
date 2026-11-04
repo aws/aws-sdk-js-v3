@@ -23,19 +23,16 @@ export interface GetPasswordDataCommandInput extends GetPasswordDataRequest {}
 export interface GetPasswordDataCommandOutput extends GetPasswordDataResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves the encrypted administrator password for a running Windows instance.</p>
- *          <p>The Windows password is generated at boot by the <code>EC2Config</code> service or
- *                 <code>EC2Launch</code> scripts (Windows Server 2016 and later). This usually only
- *             happens the first time an instance is launched. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UsingConfig_WinAMI.html">EC2Config</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2launch.html">EC2Launch</a> in the
- *                 <i>Amazon EC2 User Guide</i>.</p>
- *          <p>For the <code>EC2Config</code> service, the password is not generated for rebundled
- *             AMIs unless <code>Ec2SetPassword</code> is enabled before bundling.</p>
- *          <p>The password is encrypted using the key pair that you specified when you launched the
- *             instance. You must provide the corresponding key pair file.</p>
- *          <p>When you launch an instance, password generation and encryption may take a few
- *             minutes. If you try to retrieve the password before it's available, the output returns
- *             an empty string. We recommend that you wait up to 15 minutes after launching an instance
- *             before trying to retrieve the generated password.</p>
+ * Retrieves the encrypted administrator password for a running Windows instance.
+ *
+ * The Windows password is generated at boot by the `EC2Config` service or `EC2Launch` scripts (Windows Server 2016 and later). This usually only happens the first time an instance is launched. For more information, see [EC2Config](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UsingConfig_WinAMI.html) and [EC2Launch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2launch.html) in the *Amazon EC2 User Guide*.
+ *
+ * For the `EC2Config` service, the password is not generated for rebundled AMIs unless `Ec2SetPassword` is enabled before bundling.
+ *
+ * The password is encrypted using the key pair that you specified when you launched the instance. You must provide the corresponding key pair file.
+ *
+ * When you launch an instance, password generation and encryption may take a few minutes. If you try to retrieve the password before it's available, the output returns an empty string. We recommend that you wait up to 15 minutes after launching an instance before trying to retrieve the generated password.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,8 +62,8 @@ export interface GetPasswordDataCommandOutput extends GetPasswordDataResult, __M
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

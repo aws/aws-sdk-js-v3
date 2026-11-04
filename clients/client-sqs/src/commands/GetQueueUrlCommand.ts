@@ -23,17 +23,10 @@ export interface GetQueueUrlCommandInput extends GetQueueUrlRequest {}
 export interface GetQueueUrlCommandOutput extends GetQueueUrlResult, __MetadataBearer {}
 
 /**
- * <p>The <code>GetQueueUrl</code> API returns the URL of an existing Amazon SQS queue. This is
- *             useful when you know the queue's name but need to retrieve its URL for further
- *             operations.</p>
- *          <p>To access a queue owned by another Amazon Web Services account, use the
- *                 <code>QueueOwnerAWSAccountId</code> parameter to specify the account ID of the
- *             queue's owner. Note that the queue owner must grant you the necessary permissions to
- *             access the queue. For more information about accessing shared queues, see the
- *                     <code>
- *                <a>AddPermission</a>
- *             </code> API or <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-writing-an-sqs-policy.html#write-messages-to-shared-queue">Allow developers to write messages to a shared queue</a> in the <i>Amazon SQS
- *                 Developer Guide</i>. </p>
+ * The `GetQueueUrl` API returns the URL of an existing Amazon SQS queue. This is useful when you know the queue's name but need to retrieve its URL for further operations.
+ *
+ * To access a queue owned by another Amazon Web Services account, use the `QueueOwnerAWSAccountId` parameter to specify the account ID of the queue's owner. Note that the queue owner must grant you the necessary permissions to access the queue. For more information about accessing shared queues, see the `AddPermission` API or [Allow developers to write messages to a shared queue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-writing-an-sqs-policy.html#write-messages-to-shared-queue) in the *Amazon SQS Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,35 +54,31 @@ export interface GetQueueUrlCommandOutput extends GetQueueUrlResult, __MetadataB
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
  * @throws {@link InvalidAddress} (client fault)
- *  <p>The specified ID is invalid.</p>
+ *
+ * The specified ID is invalid.
  *
  * @throws {@link InvalidSecurity} (client fault)
- *  <p>The request was not made over HTTPS or did not use SigV4 for signing.</p>
+ *
+ * The request was not made over HTTPS or did not use SigV4 for signing.
  *
  * @throws {@link QueueDoesNotExist} (client fault)
- *  <p>Ensure that the <code>QueueUrl</code> is correct and that the queue has not been
- *             deleted.</p>
+ *
+ * Ensure that the `QueueUrl` is correct and that the queue has not been deleted.
  *
  * @throws {@link RequestThrottled} (client fault)
- *  <p>The request was denied due to request throttling.</p>
- *          <ul>
- *             <li>
- *                <p>Exceeds the permitted request rate for the queue or for the recipient of the
- *                     request.</p>
- *             </li>
- *             <li>
- *                <p>Ensure that the request rate is within the Amazon SQS limits for
- *                     sending messages. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-quotas.html#quotas-requests">Amazon SQS quotas</a> in the <i>Amazon SQS
- *                         Developer Guide</i>.</p>
- *             </li>
- *          </ul>
+ *
+ * The request was denied due to request throttling.
+ *
+ * - Exceeds the permitted request rate for the queue or for the recipient of the request.
+ * - Ensure that the request rate is within the Amazon SQS limits for sending messages. For more information, see [Amazon SQS quotas](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-quotas.html#quotas-requests) in the *Amazon SQS Developer Guide*.
  *
  * @throws {@link UnsupportedOperation} (client fault)
- *  <p>Error code 400. Unsupported operation.</p>
+ *
+ * Error code 400. Unsupported operation.
  *
  * @throws {@link SQSServiceException}
- * <p>Base exception class for all service exceptions from SQS service.</p>
  *
+ * Base exception class for all service exceptions from SQS service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface CreateSnapshotCommandInput extends CreateSnapshotRequest {}
 export interface CreateSnapshotCommandOutput extends CreateSnapshotResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a copy of an entire cluster at a specific moment in time.</p>
+ * Creates a copy of an entire cluster at a specific moment in time.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,32 +95,40 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResponse, __M
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The specified cluster does not exist.</p>
+ *
+ * The specified cluster does not exist.
  *
  * @throws {@link InvalidClusterStateFault} (client fault)
- *  <p>The cluster is not in a valid state for the requested operation.</p>
+ *
+ * The cluster is not in a valid state for the requested operation.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>The specified parameter combination is not valid.</p>
+ *
+ * The specified parameter combination is not valid.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The specified parameter value is not valid.</p>
+ *
+ * The specified parameter value is not valid.
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
- *  <p>The required service-linked role was not found.</p>
+ *
+ * The required service-linked role was not found.
  *
  * @throws {@link SnapshotAlreadyExistsFault} (client fault)
- *  <p>A snapshot with the specified name already exists.</p>
+ *
+ * A snapshot with the specified name already exists.
  *
  * @throws {@link SnapshotQuotaExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the maximum number of snapshots allowed.</p>
+ *
+ * The request cannot be processed because it would exceed the maximum number of snapshots allowed.
  *
  * @throws {@link TagQuotaPerResourceExceeded} (client fault)
- *  <p>The request cannot be processed because it would exceed the maximum number of tags allowed per resource.</p>
+ *
+ * The request cannot be processed because it would exceed the maximum number of tags allowed per resource.
  *
  * @throws {@link MemoryDBServiceException}
- * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * Base exception class for all service exceptions from MemoryDB service.
  *
  * @public
  */

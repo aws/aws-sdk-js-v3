@@ -23,9 +23,10 @@ export interface CreateCacheSubnetGroupCommandInput extends CreateCacheSubnetGro
 export interface CreateCacheSubnetGroupCommandOutput extends CreateCacheSubnetGroupResult, __MetadataBearer {}
 
 /**
- * <p>Creates a new cache subnet group.</p>
- *          <p>Use this parameter only when you are creating a cluster in an Amazon Virtual Private
- *             Cloud (Amazon VPC).</p>
+ * Creates a new cache subnet group.
+ *
+ * Use this parameter only when you are creating a cluster in an Amazon Virtual Private Cloud (Amazon VPC).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,34 +85,32 @@ export interface CreateCacheSubnetGroupCommandOutput extends CreateCacheSubnetGr
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link CacheSubnetGroupAlreadyExistsFault} (client fault)
- *  <p>The requested cache subnet group name is already in use by an existing cache subnet
- *             group.</p>
+ *
+ * The requested cache subnet group name is already in use by an existing cache subnet group.
  *
  * @throws {@link CacheSubnetGroupQuotaExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the allowed number of cache
- *             subnet groups.</p>
+ *
+ * The request cannot be processed because it would exceed the allowed number of cache subnet groups.
  *
  * @throws {@link CacheSubnetQuotaExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the allowed number of subnets
- *             in a cache subnet group.</p>
+ *
+ * The request cannot be processed because it would exceed the allowed number of subnets in a cache subnet group.
  *
  * @throws {@link InvalidSubnet} (client fault)
- *  <p>An invalid subnet identifier was specified.</p>
+ *
+ * An invalid subnet identifier was specified.
  *
  * @throws {@link SubnetNotAllowedFault} (client fault)
- *  <p>At least one subnet ID does not match the other subnet IDs. This mismatch typically
- *             occurs when a user sets one subnet ID to a regional Availability Zone and a different
- *             one to an outpost. Or when a user sets the subnet ID to an Outpost when not subscribed
- *             on this service.</p>
+ *
+ * At least one subnet ID does not match the other subnet IDs. This mismatch typically occurs when a user sets one subnet ID to a regional Availability Zone and a different one to an outpost. Or when a user sets the subnet ID to an Outpost when not subscribed on this service.
  *
  * @throws {@link TagQuotaPerResourceExceeded} (client fault)
- *  <p>The request cannot be processed because it would cause the resource to have more than
- *             the allowed number of tags. The maximum number of tags permitted on a resource is
- *             50.</p>
+ *
+ * The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @example CreateCacheSubnet
  * ```javascript

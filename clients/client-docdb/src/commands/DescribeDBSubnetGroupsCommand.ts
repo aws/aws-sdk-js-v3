@@ -23,8 +23,8 @@ export interface DescribeDBSubnetGroupsCommandInput extends DescribeDBSubnetGrou
 export interface DescribeDBSubnetGroupsCommandOutput extends DBSubnetGroupMessage, __MetadataBearer {}
 
 /**
- * <p>Returns a list of <code>DBSubnetGroup</code> descriptions. If a
- *                 <code>DBSubnetGroupName</code> is specified, the list will contain only the descriptions of the specified <code>DBSubnetGroup</code>.</p>
+ * Returns a list of `DBSubnetGroup` descriptions. If a `DBSubnetGroupName` is specified, the list will contain only the descriptions of the specified `DBSubnetGroup`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,12 +82,12 @@ export interface DescribeDBSubnetGroupsCommandOutput extends DBSubnetGroupMessag
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  * @throws {@link DBSubnetGroupNotFoundFault} (client fault)
- *  <p>
- *             <code>DBSubnetGroupName</code> doesn't refer to an existing subnet group. </p>
+ *
+ * `DBSubnetGroupName` doesn't refer to an existing subnet group.
  *
  * @throws {@link DocDBServiceException}
- * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * Base exception class for all service exceptions from DocDB service.
  *
  * @public
  */

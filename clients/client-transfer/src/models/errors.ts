@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { TransferServiceException as __BaseException } from "./TransferServiceException";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+ * This exception is thrown when an error occurs in the Transfer Family service.
+ *
  * @public
  */
 export class InternalServiceError extends __BaseException {
@@ -50,7 +52,8 @@ export class InternalServiceError extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the client submits a malformed request.</p>
+ * This exception is thrown when the client submits a malformed request.
+ *
  * @public
  */
 export class InvalidRequestException extends __BaseException {
@@ -73,7 +76,8 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * <p>The requested resource does not exist, or exists in a region other than the one specified for the command.</p>
+ * The requested resource does not exist, or exists in a region other than the one specified for the command.
+ *
  * @public
  */
 export class ResourceExistsException extends __BaseException {
@@ -100,7 +104,8 @@ export class ResourceExistsException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+ * This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -127,7 +132,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+ * The request has failed because the Amazon Web ServicesTransfer Family service is not available.
+ *
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -150,7 +156,8 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -173,7 +180,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The <code>NextToken</code> parameter that was passed is invalid.</p>
+ * The `NextToken` parameter that was passed is invalid.
+ *
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -196,7 +204,8 @@ export class InvalidNextTokenException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the <code>UpdateServer</code> is called for a file transfer protocol-enabled server that has VPC as the endpoint type and the server's <code>VpcEndpointID</code> is not in the available state.</p>
+ * This exception is thrown when the `UpdateServer` is called for a file transfer protocol-enabled server that has VPC as the endpoint type and the server's `VpcEndpointID` is not in the available state.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {

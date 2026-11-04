@@ -23,8 +23,8 @@ export interface DeleteGlobalClusterCommandInput extends DeleteGlobalClusterMess
 export interface DeleteGlobalClusterCommandOutput extends DeleteGlobalClusterResult, __MetadataBearer {}
 
 /**
- * <p>Deletes a global database. The primary and all secondary clusters must
- *       already be detached or deleted first.</p>
+ * Deletes a global database. The primary and all secondary clusters must already be detached or deleted first.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,14 +82,16 @@ export interface DeleteGlobalClusterCommandOutput extends DeleteGlobalClusterRes
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  * @throws {@link GlobalClusterNotFoundFault} (client fault)
- *  <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster. </p>
+ *
+ * The `GlobalClusterIdentifier` doesn't refer to an existing global database cluster.
  *
  * @throws {@link InvalidGlobalClusterStateFault} (client fault)
- *  <p>The global cluster is in an invalid state and can't perform the requested operation. </p>
+ *
+ * The global cluster is in an invalid state and can't perform the requested operation.
  *
  * @throws {@link NeptuneServiceException}
- * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * Base exception class for all service exceptions from Neptune service.
  *
  * @public
  */

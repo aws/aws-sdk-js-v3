@@ -2,7 +2,8 @@
 import type { AttachPointType, ConnectionState, EnvironmentState, RemoteAccountIdentifierType } from "./enums";
 
 /**
- * <p>Identifies an attach point to use with a Connection.</p>
+ * Identifies an attach point to use with a Connection.
+ *
  * @public
  */
 export type AttachPoint =
@@ -15,7 +16,8 @@ export type AttachPoint =
  */
 export namespace AttachPoint {
   /**
-   * <p>Identifies an DirectConnect Gateway attach point by DirectConnectGatewayID.</p>
+   * Identifies an DirectConnect Gateway attach point by DirectConnectGatewayID.
+   *
    * @public
    */
   export interface DirectConnectGatewayMember {
@@ -25,7 +27,8 @@ export namespace AttachPoint {
   }
 
   /**
-   * <p>Identifies an attach point by full ARN.</p>
+   * Identifies an attach point by full ARN.
+   *
    * @public
    */
   export interface ArnMember {
@@ -59,38 +62,46 @@ export namespace AttachPoint {
  */
 export interface AcceptConnectionProposalRequest {
   /**
-   * <p>The Attach Point to which the connection should be associated.</p>
+   * The Attach Point to which the connection should be associated.
+   *
    * @public
    */
   attachPoint: AttachPoint | undefined;
 
   /**
-   * <p>An Activation Key that was generated on a supported partner's portal. This key captures the desired parameters from the initial creation request.</p> <p>The details of this request can be described using with <a>DescribeConnectionProposal</a>. </p>
+   * An Activation Key that was generated on a supported partner's portal. This key captures the desired parameters from the initial creation request.
+   *
+   * The details of this request can be described using with DescribeConnectionProposal.
+   *
    * @public
    */
   activationKey: string | undefined;
 
   /**
-   * <p>A description to distinguish this <a>Connection</a>.</p>
+   * A description to distinguish this Connection.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The tags to associate with the resulting <a>Connection</a>.</p>
+   * The tags to associate with the resulting Connection.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Idempotency token used for the request.</p>
+   * Idempotency token used for the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 }
 
 /**
- * <p>Describes the respective AWS Interconnect Partner organization.</p>
+ * Describes the respective AWS Interconnect Partner organization.
+ *
  * @public
  */
 export type Provider =
@@ -103,7 +114,8 @@ export type Provider =
  */
 export namespace Provider {
   /**
-   * <p>The provider's name. Specifically, connections to/from this Cloud Service Provider will be considered Multicloud connections.</p>
+   * The provider's name. Specifically, connections to/from this Cloud Service Provider will be considered Multicloud connections.
+   *
    * @public
    */
   export interface CloudServiceProviderMember {
@@ -113,7 +125,8 @@ export namespace Provider {
   }
 
   /**
-   * <p>The provider's name. Specifically, connections to/from this Last Mile Provider will be considered LastMile connections.</p>
+   * The provider's name. Specifically, connections to/from this Last Mile Provider will be considered LastMile connections.
+   *
    * @public
    */
   export interface LastMileProviderMember {
@@ -143,96 +156,118 @@ export namespace Provider {
 }
 
 /**
- * <p>The object describing the provided connectivity from the AWS region to the partner location.</p>
+ * The object describing the provided connectivity from the AWS region to the partner location.
+ *
  * @public
  */
 export interface Connection {
   /**
-   * <p>The short identifier of the connection object.</p>
+   * The short identifier of the connection object.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>An ARN of a <a>Connection</a> object.</p>
+   * An ARN of a Connection object.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>A descriptive name for the connection.</p>
+   * A descriptive name for the connection.
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p>The specific selected bandwidth of this connection.</p>
+   * The specific selected bandwidth of this connection.
+   *
    * @public
    */
   bandwidth: string | undefined;
 
   /**
-   * <p>The Attach Point to which the connection should be associated."</p>
+   * The Attach Point to which the connection should be associated."
+   *
    * @public
    */
   attachPoint: AttachPoint | undefined;
 
   /**
-   * <p>The specific <a>Environment</a> this connection is placed upon.</p>
+   * The specific Environment this connection is placed upon.
+   *
    * @public
    */
   environmentId: string | undefined;
 
   /**
-   * <p>The provider on the remote side of this <a>Connection</a>.</p>
+   * The provider on the remote side of this Connection.
+   *
    * @public
    */
   provider: Provider | undefined;
 
   /**
-   * <p>The provider specific location on the remote side of this <a>Connection</a> </p>
+   * The provider specific location on the remote side of this Connection
+   *
    * @public
    */
   location: string | undefined;
 
   /**
-   * <p>The specific product type of this <a>Connection</a>.</p>
+   * The specific product type of this Connection.
+   *
    * @public
    */
   type: string | undefined;
 
   /**
-   * <ul> <li> <p> <code>requested</code>: The initial state of a connection. The state will remain here until the Connection is accepted on the Partner portal.</p> </li> <li> <p> <code>pending</code>: The connection has been accepted and is being provisioned between AWS and the Partner.</p> </li> <li> <p> <code>available</code>: The connection has been fully provisioned between AWS and the Partner.</p> </li> <li> <p> <code>deleting</code>: The connection is being deleted.</p> </li> <li> <p> <code>deleted</code>: The connection has been deleted.</p> </li> <li> <p> <code>failed</code>: The connection has failed to be created.</p> </li> <li> <p> <code>updating</code>: The connection is being updated.</p> </li> </ul>
+   * - `requested`: The initial state of a connection. The state will remain here until the Connection is accepted on the Partner portal.
+   * - `pending`: The connection has been accepted and is being provisioned between AWS and the Partner.
+   * - `available`: The connection has been fully provisioned between AWS and the Partner.
+   * - `deleting`: The connection is being deleted.
+   * - `deleted`: The connection has been deleted.
+   * - `failed`: The connection has failed to be created.
+   * - `updating`: The connection is being updated.
+   *
    * @public
    */
   state: ConnectionState | undefined;
 
   /**
-   * <p>An identifier used by both AWS and the remote partner to identify the specific connection.</p>
+   * An identifier used by both AWS and the remote partner to identify the specific connection.
+   *
    * @public
    */
   sharedId: string | undefined;
 
   /**
-   * <p>The billing tier this connection is currently assigned.</p>
+   * The billing tier this connection is currently assigned.
+   *
    * @public
    */
   billingTier?: number | undefined;
 
   /**
-   * <p>The account that owns this <a>Connection</a> </p>
+   * The account that owns this Connection
+   *
    * @public
    */
   ownerAccount: string | undefined;
 
   /**
-   * <p>The Activation Key associated to this connection.</p>
+   * The Activation Key associated to this connection.
+   *
    * @public
    */
   activationKey: string | undefined;
 
   /**
-   * <p>The tags on the <a>Connection</a> </p>
+   * The tags on the Connection
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -243,56 +278,70 @@ export interface Connection {
  */
 export interface AcceptConnectionProposalResponse {
   /**
-   * <p>The created <a>Connection</a> object.</p>
+   * The created Connection object.
+   *
    * @public
    */
   connection?: Connection | undefined;
 }
 
 /**
- * <p>Describes a possible Attach Point for a Connection.</p>
+ * Describes a possible Attach Point for a Connection.
+ *
  * @public
  */
 export interface AttachPointDescriptor {
   /**
-   * <p>The type of this AttachPoint, which will dictate the syntax of the identifier.</p> <p>Current types include:</p> <ul> <li> <p>ARN</p> </li> <li> <p>DirectConnect Gateway</p> </li> </ul>
+   * The type of this AttachPoint, which will dictate the syntax of the identifier.
+   *
+   * Current types include:
+   *
+   * - ARN
+   * - DirectConnect Gateway
+   *
    * @public
    */
   type: AttachPointType | undefined;
 
   /**
-   * <p>The identifier for the specific type of the AttachPoint.</p>
+   * The identifier for the specific type of the AttachPoint.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The descriptive name of the identifier attach point.</p>
+   * The descriptive name of the identifier attach point.
+   *
    * @public
    */
   name: string | undefined;
 }
 
 /**
- * <p>Contains the details about the available and supported bandwidths.</p>
+ * Contains the details about the available and supported bandwidths.
+ *
  * @public
  */
 export interface Bandwidths {
   /**
-   * <p>The list of currently available bandwidths.</p>
+   * The list of currently available bandwidths.
+   *
    * @public
    */
   available?: string[] | undefined;
 
   /**
-   * <p>The list of all bandwidths that this environment plans to support</p>
+   * The list of all bandwidths that this environment plans to support
+   *
    * @public
    */
   supported?: string[] | undefined;
 }
 
 /**
- * <p>The types of identifiers that may be needed for remote account specification.</p>
+ * The types of identifiers that may be needed for remote account specification.
+ *
  * @public
  */
 export type RemoteAccountIdentifier =
@@ -304,7 +353,8 @@ export type RemoteAccountIdentifier =
  */
 export namespace RemoteAccountIdentifier {
   /**
-   * <p>A generic bit of identifying information. Can be used in place of any of the more specific types.</p>
+   * A generic bit of identifying information. Can be used in place of any of the more specific types.
+   *
    * @public
    */
   export interface IdentifierMember {
@@ -335,43 +385,52 @@ export namespace RemoteAccountIdentifier {
  */
 export interface CreateConnectionRequest {
   /**
-   * <p>A description to distinguish this <a>Connection</a>.</p>
+   * A description to distinguish this Connection.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The desired bandwidth of the requested <a>Connection</a> </p>
+   * The desired bandwidth of the requested Connection
+   *
    * @public
    */
   bandwidth: string | undefined;
 
   /**
-   * <p>The Attach Point to which the connection should be associated."</p>
+   * The Attach Point to which the connection should be associated."
+   *
    * @public
    */
   attachPoint: AttachPoint | undefined;
 
   /**
-   * <p>The identifier of the <a>Environment</a> across which this <a>Connection</a> should be created.</p> <p>The available <a>Environment</a> objects can be determined using <a>ListEnvironments</a>.</p>
+   * The identifier of the Environment across which this Connection should be created.
+   *
+   * The available Environment objects can be determined using ListEnvironments.
+   *
    * @public
    */
   environmentId: string | undefined;
 
   /**
-   * <p>Account and/or principal identifying information that can be verified by the partner of this specific Environment.</p>
+   * Account and/or principal identifying information that can be verified by the partner of this specific Environment.
+   *
    * @public
    */
   remoteAccount?: RemoteAccountIdentifier | undefined;
 
   /**
-   * <p>The tag to associate with the resulting <a>Connection</a>.</p>
+   * The tag to associate with the resulting Connection.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Idempotency token used for the request.</p>
+   * Idempotency token used for the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -382,7 +441,8 @@ export interface CreateConnectionRequest {
  */
 export interface CreateConnectionResponse {
   /**
-   * <p>The resulting <a>Connection</a>.</p>
+   * The resulting Connection.
+   *
    * @public
    */
   connection?: Connection | undefined;
@@ -393,13 +453,15 @@ export interface CreateConnectionResponse {
  */
 export interface DeleteConnectionRequest {
   /**
-   * <p>The identifier of the <a>Connection</a> to be deleted. </p>
+   * The identifier of the Connection to be deleted.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>Idempotency token used for the request.</p>
+   * Idempotency token used for the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -410,7 +472,8 @@ export interface DeleteConnectionRequest {
  */
 export interface DeleteConnectionResponse {
   /**
-   * <p>The <a>Connection</a> object that has been marked for deletion.</p>
+   * The Connection object that has been marked for deletion.
+   *
    * @public
    */
   connection: Connection | undefined;
@@ -421,7 +484,8 @@ export interface DeleteConnectionResponse {
  */
 export interface GetConnectionRequest {
   /**
-   * <p>The identifier of the requested <a>Connection</a> </p>
+   * The identifier of the requested Connection
+   *
    * @public
    */
   identifier: string | undefined;
@@ -432,7 +496,8 @@ export interface GetConnectionRequest {
  */
 export interface GetConnectionResponse {
   /**
-   * <p>The existing <a>Connection</a> resource.</p>
+   * The existing Connection resource.
+   *
    * @public
    */
   connection?: Connection | undefined;
@@ -443,115 +508,140 @@ export interface GetConnectionResponse {
  */
 export interface ListConnectionsRequest {
   /**
-   * <p>The max number of list results in a single paginated response.</p>
+   * The max number of list results in a single paginated response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A pagination token from a previous paginated response indicating you wish to get the next page of results.</p>
+   * A pagination token from a previous paginated response indicating you wish to get the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Filter the results to only include <a>Connection</a> objects in the given <a>Connection$state</a>.</p>
+   * Filter the results to only include Connection objects in the given Connection$state.
+   *
    * @public
    */
   state?: ConnectionState | undefined;
 
   /**
-   * <p>Filter the results to only include <a>Connection</a> objects on the given <a>Environment</a>.</p>
+   * Filter the results to only include Connection objects on the given Environment.
+   *
    * @public
    */
   environmentId?: string | undefined;
 
   /**
-   * <p>Filter the results to only include <a>Connection</a> objects to the given <a>Provider</a>.</p>
+   * Filter the results to only include Connection objects to the given Provider.
+   *
    * @public
    */
   provider?: Provider | undefined;
 
   /**
-   * <p>Filter results to only include <a>Connection</a> objects attached to the given <a>AttachPoint</a>.</p>
+   * Filter results to only include Connection objects attached to the given AttachPoint.
+   *
    * @public
    */
   attachPoint?: AttachPoint | undefined;
 }
 
 /**
- * <p>Summarized view of a Connection object.</p>
+ * Summarized view of a Connection object.
+ *
  * @public
  */
 export interface ConnectionSummary {
   /**
-   * <p>The identifier of the requested <a>Connection</a> </p>
+   * The identifier of the requested Connection
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The ARN of the <a>Connection</a> </p>
+   * The ARN of the Connection
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>A descriptive name of the <a>Connection</a> </p>
+   * A descriptive name of the Connection
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p>The bandwidth of the <a>Connection</a> </p>
+   * The bandwidth of the Connection
+   *
    * @public
    */
   bandwidth: string | undefined;
 
   /**
-   * <p>The Attach Point to which the connection should be associated.</p>
+   * The Attach Point to which the connection should be associated.
+   *
    * @public
    */
   attachPoint: AttachPoint | undefined;
 
   /**
-   * <p>The <a>Environment</a> that this <a>Connection</a> is created on.</p>
+   * The Environment that this Connection is created on.
+   *
    * @public
    */
   environmentId: string | undefined;
 
   /**
-   * <p>The provider on the remote end of this <a>Connection</a> </p>
+   * The provider on the remote end of this Connection
+   *
    * @public
    */
   provider: Provider | undefined;
 
   /**
-   * <p>The provider specific location at the remote end of this <a>Connection</a> </p>
+   * The provider specific location at the remote end of this Connection
+   *
    * @public
    */
   location: string | undefined;
 
   /**
-   * <p>The product variant supplied by this resource.</p>
+   * The product variant supplied by this resource.
+   *
    * @public
    */
   type: string | undefined;
 
   /**
-   * <ul> <li> <p> <code>requested</code>: The initial state of a connection. The state will remain here until the Connection is accepted on the Partner portal.</p> </li> <li> <p> <code>pending</code>: The connection has been accepted and is being provisioned between AWS and the Partner.</p> </li> <li> <p> <code>available</code>: The connection has been fully provisioned between AWS and the Partner.</p> </li> <li> <p> <code>deleting</code>: The connection is being deleted.</p> </li> <li> <p> <code>deleted</code>: The connection has been deleted.</p> </li> <li> <p> <code>failed</code>: The connection has failed to be created.</p> </li> <li> <p> <code>updating</code>: The connection is being updated.</p> </li> </ul>
+   * - `requested`: The initial state of a connection. The state will remain here until the Connection is accepted on the Partner portal.
+   * - `pending`: The connection has been accepted and is being provisioned between AWS and the Partner.
+   * - `available`: The connection has been fully provisioned between AWS and the Partner.
+   * - `deleting`: The connection is being deleted.
+   * - `deleted`: The connection has been deleted.
+   * - `failed`: The connection has failed to be created.
+   * - `updating`: The connection is being updated.
+   *
    * @public
    */
   state: ConnectionState | undefined;
 
   /**
-   * <p>An identifier used by both AWS and the remote partner to identify the specific connection.</p>
+   * An identifier used by both AWS and the remote partner to identify the specific connection.
+   *
    * @public
    */
   sharedId: string | undefined;
 
   /**
-   * <p>The billing tier this connection is currently assigned.</p>
+   * The billing tier this connection is currently assigned.
+   *
    * @public
    */
   billingTier?: number | undefined;
@@ -562,13 +652,15 @@ export interface ConnectionSummary {
  */
 export interface ListConnectionsResponse {
   /**
-   * <p>The resulting list of <a>Connection</a> objects.</p>
+   * The resulting list of Connection objects.
+   *
    * @public
    */
   connections?: ConnectionSummary[] | undefined;
 
   /**
-   * <p>A pagination token for use in subsequent calls to fetch the next page of results.</p>
+   * A pagination token for use in subsequent calls to fetch the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -579,25 +671,31 @@ export interface ListConnectionsResponse {
  */
 export interface UpdateConnectionRequest {
   /**
-   * <p>The identifier of the <a>Connection</a> that should be updated.</p>
+   * The identifier of the Connection that should be updated.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>An updated description to apply to the <a>Connection</a> </p>
+   * An updated description to apply to the Connection
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Request a new bandwidth size on the given <a>Connection</a>.</p> <p>Note that changes to the size may be subject to additional policy, and does require the remote partner provider to acknowledge and permit this new bandwidth size.</p>
+   * Request a new bandwidth size on the given Connection.
+   *
+   * Note that changes to the size may be subject to additional policy, and does require the remote partner provider to acknowledge and permit this new bandwidth size.
+   *
    * @public
    */
   bandwidth?: string | undefined;
 
   /**
-   * <p>Idempotency token used for the request.</p>
+   * Idempotency token used for the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -608,7 +706,8 @@ export interface UpdateConnectionRequest {
  */
 export interface UpdateConnectionResponse {
   /**
-   * <p>The resulting updated <a>Connection</a> </p>
+   * The resulting updated Connection
+   *
    * @public
    */
   connection?: Connection | undefined;
@@ -619,7 +718,8 @@ export interface UpdateConnectionResponse {
  */
 export interface DescribeConnectionProposalRequest {
   /**
-   * <p>An Activation Key that was generated on a supported partner's portal. This key captures the desired parameters from the initial creation request.</p>
+   * An Activation Key that was generated on a supported partner's portal. This key captures the desired parameters from the initial creation request.
+   *
    * @public
    */
   activationKey: string | undefined;
@@ -630,79 +730,98 @@ export interface DescribeConnectionProposalRequest {
  */
 export interface DescribeConnectionProposalResponse {
   /**
-   * <p>The bandwidth of the proposed <a>Connection</a>. </p>
+   * The bandwidth of the proposed Connection.
+   *
    * @public
    */
   bandwidth: string | undefined;
 
   /**
-   * <p>The identifier of the <a>Environment</a> upon which the <a>Connection</a> would be placed if this proposal were accepted.</p>
+   * The identifier of the Environment upon which the Connection would be placed if this proposal were accepted.
+   *
    * @public
    */
   environmentId: string | undefined;
 
   /**
-   * <p>The partner provider of the specific <a>Environment</a> of the proposal.</p>
+   * The partner provider of the specific Environment of the proposal.
+   *
    * @public
    */
   provider: Provider | undefined;
 
   /**
-   * <p>The partner specific location distinguisher of the specific <a>Environment</a> of the proposal.</p>
+   * The partner specific location distinguisher of the specific Environment of the proposal.
+   *
    * @public
    */
   location: string | undefined;
 }
 
 /**
- * <p>Defines the logical topology that an AWS Interconnect Connection is created upon.</p> <p>Specifically, an Environment defines the partner The remote Cloud Service Provider of this resource. or The remote Last Mile Provider of this resource. and the region or location specification to which an AWS Interconnect Connection can be made.</p>
+ * Defines the logical topology that an AWS Interconnect Connection is created upon.
+ *
+ * Specifically, an Environment defines the partner The remote Cloud Service Provider of this resource. or The remote Last Mile Provider of this resource. and the region or location specification to which an AWS Interconnect Connection can be made.
+ *
  * @public
  */
 export interface Environment {
   /**
-   * <p>The provider on the remote side of this <a>Connection</a>.</p>
+   * The provider on the remote side of this Connection.
+   *
    * @public
    */
   provider: Provider | undefined;
 
   /**
-   * <p>The provider specific location on the remote side of this <a>Connection</a>.</p>
+   * The provider specific location on the remote side of this Connection.
+   *
    * @public
    */
   location: string | undefined;
 
   /**
-   * <p>The identifier of this <a>Environment</a> </p>
+   * The identifier of this Environment
+   *
    * @public
    */
   environmentId: string | undefined;
 
   /**
-   * <p>The state of the <a>Environment</a>. Possible values:</p> <ul> <li> <p> <code>available</code>: The environment is available and new <a>Connection</a> objects can be requested.</p> </li> <li> <p> <code>limited</code>: The environment is available, but overall capacity is limited. The set of available bandwidths </p> </li> <li> <p> <code>unavailable</code>: The environment is currently unavailable.</p> </li> </ul>
+   * The state of the Environment. Possible values:
+   *
+   * - `available`: The environment is available and new Connection objects can be requested.
+   * - `limited`: The environment is available, but overall capacity is limited. The set of available bandwidths
+   * - `unavailable`: The environment is currently unavailable.
+   *
    * @public
    */
   state: EnvironmentState | undefined;
 
   /**
-   * <p>The sets of bandwidths that are available and supported on this environment.</p>
+   * The sets of bandwidths that are available and supported on this environment.
+   *
    * @public
    */
   bandwidths: Bandwidths | undefined;
 
   /**
-   * <p>The specific product type of <a>Connection</a> objects provided by this <a>Environment</a>.</p>
+   * The specific product type of Connection objects provided by this Environment.
+   *
    * @public
    */
   type: string | undefined;
 
   /**
-   * <p>An HTTPS URL on the remote partner portal where the Activation Key should be brought to complete the creation process.</p>
+   * An HTTPS URL on the remote partner portal where the Activation Key should be brought to complete the creation process.
+   *
    * @public
    */
   activationPageUrl?: string | undefined;
 
   /**
-   * <p>The type of identifying information that should be supplied to the <code>remoteAccount</code> parameter of a <a>CreateConnection</a> call for this specific Environment.</p>
+   * The type of identifying information that should be supplied to the `remoteAccount` parameter of a CreateConnection call for this specific Environment.
+   *
    * @public
    */
   remoteIdentifierType?: RemoteAccountIdentifierType | undefined;
@@ -713,7 +832,8 @@ export interface Environment {
  */
 export interface GetEnvironmentRequest {
   /**
-   * <p>The identifier of the specific <a>Environment</a> to describe.</p>
+   * The identifier of the specific Environment to describe.
+   *
    * @public
    */
   id: string | undefined;
@@ -724,7 +844,8 @@ export interface GetEnvironmentRequest {
  */
 export interface GetEnvironmentResponse {
   /**
-   * <p>The requested <a>Environment</a> structure.</p>
+   * The requested Environment structure.
+   *
    * @public
    */
   environment: Environment | undefined;
@@ -735,25 +856,29 @@ export interface GetEnvironmentResponse {
  */
 export interface ListEnvironmentsRequest {
   /**
-   * <p>The max number of list results in a single paginated response.</p>
+   * The max number of list results in a single paginated response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A pagination token from a previous paginated response indicating you wish to get the next page of results.</p>
+   * A pagination token from a previous paginated response indicating you wish to get the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Filter results to only include <a>Environment</a> objects that connect to the <a>Provider</a>.</p>
+   * Filter results to only include Environment objects that connect to the Provider.
+   *
    * @public
    */
   provider?: Provider | undefined;
 
   /**
-   * <p>Filter results to only include <a>Environment</a> objects that connect to a given location distiguisher.</p>
+   * Filter results to only include Environment objects that connect to a given location distiguisher.
+   *
    * @public
    */
   location?: string | undefined;
@@ -764,13 +889,15 @@ export interface ListEnvironmentsRequest {
  */
 export interface ListEnvironmentsResponse {
   /**
-   * <p>The list of matching <a>Environment</a> objects.</p>
+   * The list of matching Environment objects.
+   *
    * @public
    */
   environments: Environment[] | undefined;
 
   /**
-   * <p>A pagination token for use in subsequent calls to fetch the next page of results.</p>
+   * A pagination token for use in subsequent calls to fetch the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -781,19 +908,22 @@ export interface ListEnvironmentsResponse {
  */
 export interface ListAttachPointsRequest {
   /**
-   * <p>The identifier of the <a>Environment</a> for which to list valid Attach Points.</p>
+   * The identifier of the Environment for which to list valid Attach Points.
+   *
    * @public
    */
   environmentId: string | undefined;
 
   /**
-   * <p>The max number of list results in a single paginated response.</p>
+   * The max number of list results in a single paginated response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A pagination token from a previous paginated response indicating you wish to get the next page.</p>
+   * A pagination token from a previous paginated response indicating you wish to get the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -804,13 +934,15 @@ export interface ListAttachPointsRequest {
  */
 export interface ListAttachPointsResponse {
   /**
-   * <p>The valid <a>AttachPoint</a> </p>
+   * The valid AttachPoint
+   *
    * @public
    */
   attachPoints: AttachPointDescriptor[] | undefined;
 
   /**
-   * <p>A pagination token indicating that there are more results that can be fetched.</p>
+   * A pagination token indicating that there are more results that can be fetched.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -821,7 +953,8 @@ export interface ListAttachPointsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The resource ARN for which to list tags. </p>
+   * The resource ARN for which to list tags.
+   *
    * @public
    */
   arn: string | undefined;
@@ -832,7 +965,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>The tags on the specified ARN.</p>
+   * The tags on the specified ARN.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -843,13 +977,15 @@ export interface ListTagsForResourceResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The ARN of the resource that should receive the new tags.</p>
+   * The ARN of the resource that should receive the new tags.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>A map of tags to apply to the specified resource.</p>
+   * A map of tags to apply to the specified resource.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -865,13 +1001,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The ARN of the resource from which the specified tags should be removed.</p>
+   * The ARN of the resource from which the specified tags should be removed.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The list of tag keys that should be removed from the resource.</p>
+   * The list of tag keys that should be removed from the resource.
+   *
    * @public
    */
   tagKeys: string[] | undefined;

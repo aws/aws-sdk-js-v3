@@ -23,10 +23,10 @@ export interface CancelResourceRequestCommandInput extends CancelResourceRequest
 export interface CancelResourceRequestCommandOutput extends CancelResourceRequestOutput, __MetadataBearer {}
 
 /**
- * <p>Cancels the specified resource operation request. For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html#resource-operations-manage-requests-cancel">Canceling resource operation requests</a> in the
- *         <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
- *          <p>Only resource operations requests with a status of <code>PENDING</code> or
- *         <code>IN_PROGRESS</code> can be canceled.</p>
+ * Cancels the specified resource operation request. For more information, see [Canceling resource operation requests](https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html#resource-operations-manage-requests-cancel) in the *Amazon Web Services Cloud Control API User Guide*.
+ *
+ * Only resource operations requests with a status of `PENDING` or `IN_PROGRESS` can be canceled.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,14 +65,16 @@ export interface CancelResourceRequestCommandOutput extends CancelResourceReques
  * @see {@link CloudControlClientResolvedConfig | config} for CloudControlClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (server fault)
- *  <p>The resource is currently being modified by another operation.</p>
+ *
+ * The resource is currently being modified by another operation.
  *
  * @throws {@link RequestTokenNotFoundException} (client fault)
- *  <p>A resource operation with the specified request token can't be found.</p>
+ *
+ * A resource operation with the specified request token can't be found.
  *
  * @throws {@link CloudControlServiceException}
- * <p>Base exception class for all service exceptions from CloudControl service.</p>
  *
+ * Base exception class for all service exceptions from CloudControl service.
  *
  * @public
  */

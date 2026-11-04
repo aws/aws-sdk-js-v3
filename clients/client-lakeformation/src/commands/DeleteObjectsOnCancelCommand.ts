@@ -23,14 +23,10 @@ export interface DeleteObjectsOnCancelCommandInput extends DeleteObjectsOnCancel
 export interface DeleteObjectsOnCancelCommandOutput extends DeleteObjectsOnCancelResponse, __MetadataBearer {}
 
 /**
- * <p>For a specific governed table, provides a list of Amazon S3 objects that will be written during the current transaction and that can be automatically deleted
- *       if the transaction is canceled. Without this call, no Amazon S3 objects are automatically deleted when a transaction cancels.
- *     </p>
- *          <p>
- *       The Glue ETL library function <code>write_dynamic_frame.from_catalog()</code> includes an option to automatically
- *       call <code>DeleteObjectsOnCancel</code> before writes. For more information, see
- *       <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/transactions-data-operations.html#rolling-back-writes">Rolling Back Amazon S3 Writes</a>.
- *     </p>
+ * For a specific governed table, provides a list of Amazon S3 objects that will be written during the current transaction and that can be automatically deleted if the transaction is canceled. Without this call, no Amazon S3 objects are automatically deleted when a transaction cancels.
+ *
+ * The Glue ETL library function `write_dynamic_frame.from_catalog()` includes an option to automatically call `DeleteObjectsOnCancel` before writes. For more information, see [Rolling Back Amazon S3 Writes](https://docs.aws.amazon.com/lake-formation/latest/dg/transactions-data-operations.html#rolling-back-writes).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,32 +60,40 @@ export interface DeleteObjectsOnCancelCommandOutput extends DeleteObjectsOnCance
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Two processes are trying to modify a resource simultaneously.</p>
+ *
+ * Two processes are trying to modify a resource simultaneously.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist.</p>
+ *
+ * A specified entity does not exist.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link ResourceNotReadyException} (client fault)
- *  <p>Contains details about an error related to a resource which is not ready for a transaction.</p>
+ *
+ * Contains details about an error related to a resource which is not ready for a transaction.
  *
  * @throws {@link TransactionCanceledException} (client fault)
- *  <p>Contains details about an error related to a transaction that was cancelled.</p>
+ *
+ * Contains details about an error related to a transaction that was cancelled.
  *
  * @throws {@link TransactionCommittedException} (client fault)
- *  <p>Contains details about an error where the specified transaction has already been committed and cannot be used for <code>UpdateTableObjects</code>.</p>
+ *
+ * Contains details about an error where the specified transaction has already been committed and cannot be used for `UpdateTableObjects`.
  *
  * @throws {@link LakeFormationServiceException}
- * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * Base exception class for all service exceptions from LakeFormation service.
  *
  * @public
  */

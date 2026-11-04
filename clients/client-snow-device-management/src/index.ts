@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>Amazon Web Services Snow Device Management documentation.</p>
+ * Amazon Web Services Snow Device Management documentation.
  *
  * @packageDocumentation
  */

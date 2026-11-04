@@ -23,13 +23,12 @@ export interface StopApplicationCommandInput extends StopApplicationRequest {}
 export interface StopApplicationCommandOutput extends StopApplicationResponse, __MetadataBearer {}
 
 /**
- * <p>Stops the application from processing data. You can stop
- *       an application only if it is in the running status, unless you set the <code>Force</code>
- *         parameter to <code>true</code>.</p>
- *          <p>You can use the <a>DescribeApplication</a> operation to find the application status.
- *        </p>
- *          <p>Managed Service for Apache Flink takes a snapshot when the application is stopped, unless <code>Force</code> is set
- *           to <code>true</code>.</p>
+ * Stops the application from processing data. You can stop an application only if it is in the running status, unless you set the `Force` parameter to `true`.
+ *
+ * You can use the DescribeApplication operation to find the application status.
+ *
+ * Managed Service for Apache Flink takes a snapshot when the application is stopped, unless `Force` is set to `true`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,28 +56,32 @@ export interface StopApplicationCommandOutput extends StopApplicationResponse, _
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Exception thrown as a result of concurrent modifications to an application. This error can
- *       be the result of attempting to modify an application without using the current application
- *       ID.</p>
+ *
+ * Exception thrown as a result of concurrent modifications to an application. This error can be the result of attempting to modify an application without using the current application ID.
  *
  * @throws {@link InvalidApplicationConfigurationException} (client fault)
- *  <p>The user-provided application configuration is not valid.</p>
+ *
+ * The user-provided application configuration is not valid.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>The specified input parameter value is not valid.</p>
+ *
+ * The specified input parameter value is not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request JSON is not valid for the operation.</p>
+ *
+ * The request JSON is not valid for the operation.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The application is not available for this operation.</p>
+ *
+ * The application is not available for this operation.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Specified application can't be found.</p>
+ *
+ * Specified application can't be found.
  *
  * @throws {@link KinesisAnalyticsV2ServiceException}
- * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ * Base exception class for all service exceptions from KinesisAnalyticsV2 service.
  *
  * @public
  */

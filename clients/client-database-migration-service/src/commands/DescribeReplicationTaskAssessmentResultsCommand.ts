@@ -26,10 +26,10 @@ export interface DescribeReplicationTaskAssessmentResultsCommandInput extends De
 export interface DescribeReplicationTaskAssessmentResultsCommandOutput extends DescribeReplicationTaskAssessmentResultsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the task assessment results from the Amazon S3 bucket that DMS creates in your
- *          Amazon Web Services account. This action always returns the latest results.</p>
- *          <p>For more information about DMS task assessments, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.AssessmentReport.html">Creating a task assessment
- *             report</a> in the <i>Database Migration Service User Guide</i>.</p>
+ * Returns the task assessment results from the Amazon S3 bucket that DMS creates in your Amazon Web Services account. This action always returns the latest results.
+ *
+ * For more information about DMS task assessments, see [Creating a task assessment report](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.AssessmentReport.html) in the *Database Migration Service User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,11 +70,12 @@ export interface DescribeReplicationTaskAssessmentResultsCommandOutput extends D
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @public
  */

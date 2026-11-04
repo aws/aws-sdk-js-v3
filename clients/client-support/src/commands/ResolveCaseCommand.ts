@@ -23,22 +23,13 @@ export interface ResolveCaseCommandInput extends ResolveCaseRequest {}
 export interface ResolveCaseCommandOutput extends ResolveCaseResponse, __MetadataBearer {}
 
 /**
- * <p>Resolves a support case. This operation takes a <code>caseId</code> and returns the
- *             initial and final state of the case.</p>
- *          <note>
- *             <ul>
- *                <li>
- *                   <p>You must have an Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan to use the Amazon Web Services Support
- *                         API. If you're in an Amazon Web Services Region that doesn't offer one of these Amazon Web Services Support plans, or if you haven't transitioned to one of these plans, you can use the Amazon Web Services Support API with a Business, Enterprise On-Ramp, or Enterprise Support plan.</p>
- *                </li>
- *                <li>
- *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have an
- *                         Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan, the
- *                             <code>SubscriptionRequiredException</code> error message appears. For
- *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
- *                </li>
- *             </ul>
- *          </note>
+ * Resolves a support case. This operation takes a `caseId` and returns the initial and final state of the case.
+ *
+ * > **Note:**
+ * >
+ * > - You must have an Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan to use the Amazon Web Services Support API. If you're in an Amazon Web Services Region that doesn't offer one of these Amazon Web Services Support plans, or if you haven't transitioned to one of these plans, you can use the Amazon Web Services Support API with a Business, Enterprise On-Ramp, or Enterprise Support plan.
+ * > - If you call the Amazon Web Services Support API from an account that doesn't have an Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan, the `SubscriptionRequiredException` error message appears. For information about changing your support plan, see [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,18 +58,20 @@ export interface ResolveCaseCommandOutput extends ResolveCaseResponse, __Metadat
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
  *
  * @throws {@link CaseIdNotFound} (client fault)
- *  <p>The requested <code>caseId</code> couldn't be located.</p>
+ *
+ * The requested `caseId` couldn't be located.
  *
  * @throws {@link DryRunOperationException} (client fault)
- *  <p>The request was valid, but the operation wasn't performed because <code>dryRun</code> was
- *          set to <code>true</code>.</p>
+ *
+ * The request was valid, but the operation wasn't performed because `dryRun` was set to `true`.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error occurred.</p>
+ *
+ * An internal server error occurred.
  *
  * @throws {@link SupportServiceException}
- * <p>Base exception class for all service exceptions from Support service.</p>
  *
+ * Base exception class for all service exceptions from Support service.
  *
  * @public
  */

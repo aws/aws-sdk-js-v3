@@ -23,17 +23,14 @@ export interface JoinDomainCommandInput extends JoinDomainInput {}
 export interface JoinDomainCommandOutput extends JoinDomainOutput, __MetadataBearer {}
 
 /**
- * <p>Adds a file gateway to an Active Directory domain. This operation is only supported for
- *          file gateways that support the SMB file protocol.</p>
- *          <note>
- *             <p>Joining a domain creates an Active Directory computer account in the default
- *             organizational unit, using the gateway's <b>Gateway ID</b> as
- *             the account name (for example, SGW-1234ADE). If your Active Directory environment
- *             requires that you pre-stage accounts to facilitate the join domain process, you will
- *             need to create this account ahead of time.</p>
- *             <p>To create the gateway's computer account in an organizational unit other than the
- *             default, you must specify the organizational unit when joining the domain.</p>
- *          </note>
+ * Adds a file gateway to an Active Directory domain. This operation is only supported for file gateways that support the SMB file protocol.
+ *
+ * > **Note:**
+ * >
+ * > Joining a domain creates an Active Directory computer account in the default organizational unit, using the gateway's **Gateway ID** as the account name (for example, SGW-1234ADE). If your Active Directory environment requires that you pre-stage accounts to facilitate the join domain process, you will need to create this account ahead of time.
+ * >
+ * > To create the gateway's computer account in an organizational unit other than the default, you must specify the organizational unit when joining the domain.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,16 +66,16 @@ export interface JoinDomainCommandOutput extends JoinDomainOutput, __MetadataBea
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @public
  */

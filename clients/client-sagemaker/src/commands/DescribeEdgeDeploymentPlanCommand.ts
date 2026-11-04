@@ -23,7 +23,8 @@ export interface DescribeEdgeDeploymentPlanCommandInput extends DescribeEdgeDepl
 export interface DescribeEdgeDeploymentPlanCommandOutput extends DescribeEdgeDeploymentPlanResponse, __MetadataBearer {}
 
 /**
- * <p>Describes an edge deployment plan with deployment status per stage.</p>
+ * Describes an edge deployment plan with deployment status per stage.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,11 +91,12 @@ export interface DescribeEdgeDeploymentPlanCommandOutput extends DescribeEdgeDep
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Resource being access is not found.</p>
+ *
+ * Resource being access is not found.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

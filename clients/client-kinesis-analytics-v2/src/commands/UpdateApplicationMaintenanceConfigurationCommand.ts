@@ -26,22 +26,16 @@ export interface UpdateApplicationMaintenanceConfigurationCommandInput extends U
 export interface UpdateApplicationMaintenanceConfigurationCommandOutput extends UpdateApplicationMaintenanceConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the maintenance configuration of the Managed Service for Apache Flink application. </p>
- *          <p>You can invoke this operation on an application that is in one of the two following
- *       states: <code>READY</code> or <code>RUNNING</code>. If you invoke it when the application is
- *       in a state other than these two states, it throws a <code>ResourceInUseException</code>. The
- *       service makes use of the updated configuration the next time it schedules maintenance for the
- *       application. If you invoke this operation after the service schedules maintenance, the service
- *       will apply the configuration update the next time it schedules maintenance for the
- *       application. This means that you might not see the maintenance configuration update applied to
- *       the maintenance process that follows a successful invocation of this operation, but to the
- *       following maintenance process instead.</p>
- *          <p>To see the current maintenance configuration of your application, invoke the
- *       <a>DescribeApplication</a> operation.</p>
- *          <p>For information about application maintenance, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/maintenance.html">Managed Service for Apache Flink for Apache Flink Maintenance</a>.</p>
- *          <note>
- *             <p>This operation is supported only for Managed Service for Apache Flink.</p>
- *          </note>
+ * Updates the maintenance configuration of the Managed Service for Apache Flink application.
+ *
+ * You can invoke this operation on an application that is in one of the two following states: `READY` or `RUNNING`. If you invoke it when the application is in a state other than these two states, it throws a `ResourceInUseException`. The service makes use of the updated configuration the next time it schedules maintenance for the application. If you invoke this operation after the service schedules maintenance, the service will apply the configuration update the next time it schedules maintenance for the application. This means that you might not see the maintenance configuration update applied to the maintenance process that follows a successful invocation of this operation, but to the following maintenance process instead.
+ *
+ * To see the current maintenance configuration of your application, invoke the DescribeApplication operation.
+ *
+ * For information about application maintenance, see [Managed Service for Apache Flink for Apache Flink Maintenance](https://docs.aws.amazon.com/kinesisanalytics/latest/java/maintenance.html).
+ *
+ * > **Note:** This operation is supported only for Managed Service for Apache Flink.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,26 +69,28 @@ export interface UpdateApplicationMaintenanceConfigurationCommandOutput extends 
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Exception thrown as a result of concurrent modifications to an application. This error can
- *       be the result of attempting to modify an application without using the current application
- *       ID.</p>
+ *
+ * Exception thrown as a result of concurrent modifications to an application. This error can be the result of attempting to modify an application without using the current application ID.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>The specified input parameter value is not valid.</p>
+ *
+ * The specified input parameter value is not valid.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The application is not available for this operation.</p>
+ *
+ * The application is not available for this operation.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Specified application can't be found.</p>
+ *
+ * Specified application can't be found.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this
- *       operation. </p>
+ *
+ * The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation.
  *
  * @throws {@link KinesisAnalyticsV2ServiceException}
- * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ * Base exception class for all service exceptions from KinesisAnalyticsV2 service.
  *
  * @public
  */

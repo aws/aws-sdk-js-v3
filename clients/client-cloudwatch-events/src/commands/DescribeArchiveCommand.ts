@@ -23,7 +23,8 @@ export interface DescribeArchiveCommandInput extends DescribeArchiveRequest {}
 export interface DescribeArchiveCommandOutput extends DescribeArchiveResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves details about an archive.</p>
+ * Retrieves details about an archive.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,17 +61,20 @@ export interface DescribeArchiveCommandOutput extends DescribeArchiveResponse, _
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * This exception occurs due to unexpected causes.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>The resource you are trying to create already exists.</p>
+ *
+ * The resource you are trying to create already exists.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An entity that you specified does not exist.</p>
+ *
+ * An entity that you specified does not exist.
  *
  * @throws {@link CloudWatchEventsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchEvents service.
  *
  * @public
  */

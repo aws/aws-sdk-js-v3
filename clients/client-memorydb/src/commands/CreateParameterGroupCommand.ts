@@ -23,10 +23,8 @@ export interface CreateParameterGroupCommandInput extends CreateParameterGroupRe
 export interface CreateParameterGroupCommandOutput extends CreateParameterGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new MemoryDB parameter group. A parameter group is a collection of parameters and their values that are applied to all of the nodes in any cluster. For
- *          more information, see <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/parametergroups.html">Configuring engine parameters using parameter groups</a>.
+ * Creates a new MemoryDB parameter group. A parameter group is a collection of parameters and their values that are applied to all of the nodes in any cluster. For more information, see [Configuring engine parameters using parameter groups](https://docs.aws.amazon.com/MemoryDB/latest/devguide/parametergroups.html).
  *
- *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,29 +64,36 @@ export interface CreateParameterGroupCommandOutput extends CreateParameterGroupR
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>The specified parameter combination is not valid.</p>
+ *
+ * The specified parameter combination is not valid.
  *
  * @throws {@link InvalidParameterGroupStateFault} (client fault)
- *  <p>The parameter group is not in a valid state for the requested operation.</p>
+ *
+ * The parameter group is not in a valid state for the requested operation.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The specified parameter value is not valid.</p>
+ *
+ * The specified parameter value is not valid.
  *
  * @throws {@link ParameterGroupAlreadyExistsFault} (client fault)
- *  <p>A parameter group with the specified name already exists.</p>
+ *
+ * A parameter group with the specified name already exists.
  *
  * @throws {@link ParameterGroupQuotaExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the maximum number of parameter groups allowed.</p>
+ *
+ * The request cannot be processed because it would exceed the maximum number of parameter groups allowed.
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
- *  <p>The required service-linked role was not found.</p>
+ *
+ * The required service-linked role was not found.
  *
  * @throws {@link TagQuotaPerResourceExceeded} (client fault)
- *  <p>The request cannot be processed because it would exceed the maximum number of tags allowed per resource.</p>
+ *
+ * The request cannot be processed because it would exceed the maximum number of tags allowed per resource.
  *
  * @throws {@link MemoryDBServiceException}
- * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * Base exception class for all service exceptions from MemoryDB service.
  *
  * @public
  */

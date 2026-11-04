@@ -23,11 +23,10 @@ export interface DescribeTableStatisticsCommandInput extends DescribeTableStatis
 export interface DescribeTableStatisticsCommandOutput extends DescribeTableStatisticsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns table statistics on the database migration task, including table name, rows
- *          inserted, rows updated, and rows deleted.</p>
- *          <p>Note that the "last updated" column the DMS console only indicates the time that DMS
- *          last updated the table statistics record for a table. It does not indicate the time of the
- *          last update to the table.</p>
+ * Returns table statistics on the database migration task, including table name, rows inserted, rows updated, and rows deleted.
+ *
+ * Note that the "last updated" column the DMS console only indicates the time that DMS last updated the table statistics record for a table. It does not indicate the time of the last update to the table.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -97,18 +96,20 @@ export interface DescribeTableStatisticsCommandOutput extends DescribeTableStati
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedFault} (client fault)
- *  <p>DMS was denied access to the endpoint. Check that the
- *             role is correctly configured.</p>
+ *
+ * DMS was denied access to the endpoint. Check that the role is correctly configured.
  *
  * @throws {@link InvalidResourceStateFault} (client fault)
- *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
+ * The resource is in a state that prevents it from being used for database migration.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @example Describe table statistics
  * ```javascript

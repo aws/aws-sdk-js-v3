@@ -23,13 +23,10 @@ export interface PublishTypeCommandInput extends PublishTypeInput {}
 export interface PublishTypeCommandOutput extends PublishTypeOutput, __MetadataBearer {}
 
 /**
- * <p>Publishes the specified extension to the CloudFormation registry as a public extension in this
- *       Region. Public extensions are available for use by all CloudFormation users. For more information
- *       about publishing extensions, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html">Publishing extensions to
- *         make them available for public use</a> in the
- *       <i>CloudFormation Command Line Interface (CLI) User Guide</i>.</p>
- *          <p>To publish an extension, you must be registered as a publisher with CloudFormation. For more
- *       information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterPublisher.html">RegisterPublisher</a>.</p>
+ * Publishes the specified extension to the CloudFormation registry as a public extension in this Region. Public extensions are available for use by all CloudFormation users. For more information about publishing extensions, see [Publishing extensions to make them available for public use](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html) in the *CloudFormation Command Line Interface (CLI) User Guide*.
+ *
+ * To publish an extension, you must be registered as a publisher with CloudFormation. For more information, see [RegisterPublisher](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterPublisher.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,14 +56,16 @@ export interface PublishTypeCommandOutput extends PublishTypeOutput, __MetadataB
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link CFNRegistryException} (client fault)
- *  <p>An error occurred during a CloudFormation registry operation.</p>
+ *
+ * An error occurred during a CloudFormation registry operation.
  *
  * @throws {@link TypeNotFoundException} (client fault)
- *  <p>The specified extension doesn't exist in the CloudFormation registry.</p>
+ *
+ * The specified extension doesn't exist in the CloudFormation registry.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

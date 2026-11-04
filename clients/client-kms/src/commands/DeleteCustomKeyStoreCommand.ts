@@ -23,68 +23,32 @@ export interface DeleteCustomKeyStoreCommandInput extends DeleteCustomKeyStoreRe
 export interface DeleteCustomKeyStoreCommandOutput extends DeleteCustomKeyStoreResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key store</a>. This operation does not affect any backing elements of the
- *       custom key store. It does not delete the CloudHSM cluster that is associated with an CloudHSM key
- *       store, or affect any users or keys in the cluster. For an external key store, it does not
- *       affect the external key store proxy, external key manager, or any external keys.</p>
- *          <p> This operation is part of the custom key stores feature in KMS, which
- * combines the convenience and extensive integration of KMS with the isolation and control of a
- * key store that you own and manage.</p>
- *          <p>The custom key store that you delete cannot contain any <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms_keys">KMS keys</a>. Before deleting the key store,
- *       verify that you will never need to use any of the KMS keys in the key store for any
- *       <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-cryptography.html#cryptographic-operations">cryptographic operations</a>. Then, use <a>ScheduleKeyDeletion</a> to delete the KMS keys from the
- *       key store. After the required waiting period expires and all KMS keys are deleted from the
- *       custom key store, use <a>DisconnectCustomKeyStore</a> to disconnect the key store
- *       from KMS. Then, you can delete the custom key store.</p>
- *          <p>For keys in an CloudHSM key store, the <code>ScheduleKeyDeletion</code> operation makes a
- *       best effort to delete the key material from the associated cluster. However, you might need to
- *       manually <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#fix-keystore-orphaned-key">delete the orphaned key
- *         material</a> from the cluster and its backups. KMS never creates, manages, or deletes
- *       cryptographic keys in the external key manager associated with an external key store. You must
- *       manage them using your external key manager tools.</p>
- *          <p>Instead of deleting the custom key store, consider using the <a>DisconnectCustomKeyStore</a> operation to disconnect the custom key store from its
- *       backing key store. While the key store is disconnected, you cannot create or use the KMS keys
- *       in the key store. But, you do not need to delete KMS keys and you can reconnect a disconnected
- *       custom key store at any time.</p>
- *          <p>If the operation succeeds, it returns a JSON object with no
- * properties.</p>
- *          <p>
- *             <b>Cross-account use</b>: No. You cannot perform this operation on a custom key store in a different Amazon Web Services account.</p>
- *          <p>
- *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:DeleteCustomKeyStore</a> (IAM policy)</p>
- *          <p>
- *             <b>Related operations:</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>ConnectCustomKeyStore</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>CreateCustomKeyStore</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DescribeCustomKeyStores</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DisconnectCustomKeyStore</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateCustomKeyStore</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
+ * Deletes a [custom key store](https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html). This operation does not affect any backing elements of the custom key store. It does not delete the CloudHSM cluster that is associated with an CloudHSM key store, or affect any users or keys in the cluster. For an external key store, it does not affect the external key store proxy, external key manager, or any external keys.
+ *
+ * This operation is part of the custom key stores feature in KMS, which combines the convenience and extensive integration of KMS with the isolation and control of a key store that you own and manage.
+ *
+ * The custom key store that you delete cannot contain any [KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms_keys). Before deleting the key store, verify that you will never need to use any of the KMS keys in the key store for any [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/kms-cryptography.html#cryptographic-operations). Then, use ScheduleKeyDeletion to delete the KMS keys from the key store. After the required waiting period expires and all KMS keys are deleted from the custom key store, use DisconnectCustomKeyStore to disconnect the key store from KMS. Then, you can delete the custom key store.
+ *
+ * For keys in an CloudHSM key store, the `ScheduleKeyDeletion` operation makes a best effort to delete the key material from the associated cluster. However, you might need to manually [delete the orphaned key material](https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#fix-keystore-orphaned-key) from the cluster and its backups. KMS never creates, manages, or deletes cryptographic keys in the external key manager associated with an external key store. You must manage them using your external key manager tools.
+ *
+ * Instead of deleting the custom key store, consider using the DisconnectCustomKeyStore operation to disconnect the custom key store from its backing key store. While the key store is disconnected, you cannot create or use the KMS keys in the key store. But, you do not need to delete KMS keys and you can reconnect a disconnected custom key store at any time.
+ *
+ * If the operation succeeds, it returns a JSON object with no properties.
+ *
+ * **Cross-account use**: No. You cannot perform this operation on a custom key store in a different Amazon Web Services account.
+ *
+ * **Required permissions**: [kms:DeleteCustomKeyStore](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (IAM policy)
+ *
+ * **Related operations:**
+ *
+ * - ConnectCustomKeyStore
+ * - CreateCustomKeyStore
+ * - DescribeCustomKeyStores
+ * - DisconnectCustomKeyStore
+ * - UpdateCustomKeyStore
+ *
+ * **Eventual consistency**: The KMS API follows an eventual consistency model. For more information, see [KMS eventual consistency](https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -109,60 +73,32 @@ export interface DeleteCustomKeyStoreCommandOutput extends DeleteCustomKeyStoreR
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
  * @throws {@link CustomKeyStoreHasCMKsException} (client fault)
- *  <p>The request was rejected because the custom key store contains KMS keys. After verifying
- *       that you do not need to use the KMS keys, use the <a>ScheduleKeyDeletion</a>
- *       operation to delete the KMS keys. After they are deleted, you can delete the custom key
- *       store.</p>
+ *
+ * The request was rejected because the custom key store contains KMS keys. After verifying that you do not need to use the KMS keys, use the ScheduleKeyDeletion operation to delete the KMS keys. After they are deleted, you can delete the custom key store.
  *
  * @throws {@link CustomKeyStoreInvalidStateException} (client fault)
- *  <p>The request was rejected because of the <code>ConnectionState</code> of the custom key
- *       store. To get the <code>ConnectionState</code> of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p>
- *          <p>This exception is thrown under the following conditions:</p>
- *          <ul>
- *             <li>
- *                <p>You requested the <a>ConnectCustomKeyStore</a> operation on a custom key
- *           store with a <code>ConnectionState</code> of <code>DISCONNECTING</code> or
- *             <code>FAILED</code>. This operation is valid for all other <code>ConnectionState</code>
- *           values. To reconnect a custom key store in a <code>FAILED</code> state, disconnect it
- *             (<a>DisconnectCustomKeyStore</a>), then connect it
- *             (<code>ConnectCustomKeyStore</code>).</p>
- *             </li>
- *             <li>
- *                <p>You requested the <a>CreateKey</a> operation in a custom key store that is
- *           not connected. This operations is valid only when the custom key store
- *             <code>ConnectionState</code> is <code>CONNECTED</code>.</p>
- *             </li>
- *             <li>
- *                <p>You requested the <a>DisconnectCustomKeyStore</a> operation on a custom key
- *           store with a <code>ConnectionState</code> of <code>DISCONNECTING</code> or
- *             <code>DISCONNECTED</code>. This operation is valid for all other
- *             <code>ConnectionState</code> values.</p>
- *             </li>
- *             <li>
- *                <p>You requested the <a>UpdateCustomKeyStore</a> or <a>DeleteCustomKeyStore</a> operation on a custom key store that is not
- *           disconnected. <code>UpdateCustomKeyStore</code> can be called on a custom key store in the
- *             <code>CONNECTED</code> state only to update <code>NewCustomKeyStoreName</code>.
- *             For all other properties, the custom key store
- *             <code>ConnectionState</code> must be <code>DISCONNECTED</code>.</p>
- *             </li>
- *             <li>
- *                <p>You requested the <a>GenerateRandom</a> operation in an CloudHSM key store
- *           that is not connected. This operation is valid only when the CloudHSM key store
- *             <code>ConnectionState</code> is <code>CONNECTED</code>. </p>
- *             </li>
- *          </ul>
+ *
+ * The request was rejected because of the `ConnectionState` of the custom key store. To get the `ConnectionState` of a custom key store, use the DescribeCustomKeyStores operation.
+ *
+ * This exception is thrown under the following conditions:
+ *
+ * - You requested the ConnectCustomKeyStore operation on a custom key store with a `ConnectionState` of `DISCONNECTING` or `FAILED`. This operation is valid for all other `ConnectionState` values. To reconnect a custom key store in a `FAILED` state, disconnect it (DisconnectCustomKeyStore), then connect it (`ConnectCustomKeyStore`).
+ * - You requested the CreateKey operation in a custom key store that is not connected. This operations is valid only when the custom key store `ConnectionState` is `CONNECTED`.
+ * - You requested the DisconnectCustomKeyStore operation on a custom key store with a `ConnectionState` of `DISCONNECTING` or `DISCONNECTED`. This operation is valid for all other `ConnectionState` values.
+ * - You requested the UpdateCustomKeyStore or DeleteCustomKeyStore operation on a custom key store that is not disconnected. `UpdateCustomKeyStore` can be called on a custom key store in the `CONNECTED` state only to update `NewCustomKeyStoreName`. For all other properties, the custom key store `ConnectionState` must be `DISCONNECTED`.
+ * - You requested the GenerateRandom operation in an CloudHSM key store that is not connected. This operation is valid only when the CloudHSM key store `ConnectionState` is `CONNECTED`.
  *
  * @throws {@link CustomKeyStoreNotFoundException} (client fault)
- *  <p>The request was rejected because KMS cannot find a custom key store with the specified
- *       key store name or ID.</p>
+ *
+ * The request was rejected because KMS cannot find a custom key store with the specified key store name or ID.
  *
  * @throws {@link KMSInternalException} (server fault)
- *  <p>The request was rejected because an internal exception occurred. The request can be
- *       retried.</p>
+ *
+ * The request was rejected because an internal exception occurred. The request can be retried.
  *
  * @throws {@link KMSServiceException}
- * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * Base exception class for all service exceptions from KMS service.
  *
  * @example To delete a custom key store from AWS KMS
  * ```javascript

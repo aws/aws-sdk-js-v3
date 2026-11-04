@@ -23,36 +23,17 @@ export interface ApproveAssignmentCommandInput extends ApproveAssignmentRequest 
 export interface ApproveAssignmentCommandOutput extends ApproveAssignmentResponse, __MetadataBearer {}
 
 /**
- * <p>
- *             The <code>ApproveAssignment</code> operation approves the results of a completed assignment.
- *         </p>
- *         <p>
- *             Approving an assignment initiates two payments from the Requester's Amazon.com account
- *         </p>
- *         <ul>
- *             <li>
- *                 <p>
- *                     The Worker who submitted the results is paid the reward specified in the HIT.
- *                 </p>
- *             </li>
- *             <li>
- *                 <p>
- *                     Amazon Mechanical Turk fees are debited.
- *                 </p>
- *             </li>
- *          </ul>
- *         <p>
- *             If the Requester's account does not have adequate funds for these payments,
- *             the call to ApproveAssignment returns an exception, and the approval is not processed.
- *             You can include an optional feedback message with the approval,
- *             which the Worker can see in the Status section of the web site.
- *         </p>
- *         <p>
- *             You can also call this operation for assignments that were previous rejected
- *             and approve them by explicitly overriding the previous rejection.
- *             This only works on rejected assignments that were submitted within the previous 30 days
- *             and only if the assignment's related HIT has not been deleted.
- *         </p>
+ * The `ApproveAssignment` operation approves the results of a completed assignment.
+ *
+ * Approving an assignment initiates two payments from the Requester's Amazon.com account
+ *
+ * - The Worker who submitted the results is paid the reward specified in the HIT.
+ * - Amazon Mechanical Turk fees are debited.
+ *
+ * If the Requester's account does not have adequate funds for these payments, the call to ApproveAssignment returns an exception, and the approval is not processed. You can include an optional feedback message with the approval, which the Worker can see in the Status section of the web site.
+ *
+ * You can also call this operation for assignments that were previous rejected and approve them by explicitly overriding the previous rejection. This only works on rejected assignments that were submitted within the previous 30 days and only if the assignment's related HIT has not been deleted.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,14 +60,16 @@ export interface ApproveAssignmentCommandOutput extends ApproveAssignmentRespons
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
  *
  * @throws {@link RequestError} (client fault)
- *  <p>Your request is invalid.</p>
+ *
+ * Your request is invalid.
  *
  * @throws {@link ServiceFault} (server fault)
- *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
+ * Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.
  *
  * @throws {@link MTurkServiceException}
- * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * Base exception class for all service exceptions from MTurk service.
  *
  * @public
  */

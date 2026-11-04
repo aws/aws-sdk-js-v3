@@ -23,7 +23,8 @@ export interface ListSatellitesCommandInput extends ListSatellitesRequest {}
 export interface ListSatellitesCommandOutput extends ListSatellitesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of satellites.</p>
+ * Returns a list of satellites.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,17 +68,20 @@ export interface ListSatellitesCommandOutput extends ListSatellitesResponse, __M
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
  *
  * @throws {@link DependencyException} (server fault)
- *  <p>Dependency encountered an error.</p>
+ *
+ * Dependency encountered an error.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource was not found.</p>
+ *
+ * Resource was not found.
  *
  * @throws {@link GroundStationServiceException}
- * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ * Base exception class for all service exceptions from GroundStation service.
  *
  * @public
  */

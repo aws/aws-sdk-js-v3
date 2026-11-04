@@ -23,20 +23,13 @@ export interface CreateSlotTypeVersionCommandInput extends CreateSlotTypeVersion
 export interface CreateSlotTypeVersionCommandOutput extends CreateSlotTypeVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new version of a slot type based on the
- *         <code>$LATEST</code> version of the specified slot type. If the
- *         <code>$LATEST</code> version of this resource has not changed since the
- *       last version that you created, Amazon Lex doesn't create a new version. It
- *       returns the last version that you created. </p>
- *          <note>
- *             <p>You can update only the <code>$LATEST</code> version of a slot
- *         type. You can't update the numbered versions that you create with the
- *           <code>CreateSlotTypeVersion</code> operation.</p>
- *          </note>
- *          <p>When you create a version of a slot type, Amazon Lex sets the version to
- *       1. Subsequent versions increment by 1. For more information, see <a>versioning-intro</a>. </p>
- *          <p>This operation requires permissions for the
- *         <code>lex:CreateSlotTypeVersion</code> action.</p>
+ * Creates a new version of a slot type based on the `$LATEST` version of the specified slot type. If the `$LATEST` version of this resource has not changed since the last version that you created, Amazon Lex doesn't create a new version. It returns the last version that you created.
+ *
+ * > **Note:** You can update only the `$LATEST` version of a slot type. You can't update the numbered versions that you create with the `CreateSlotTypeVersion` operation.
+ *
+ * When you create a version of a slot type, Amazon Lex sets the version to 1. Subsequent versions increment by 1. For more information, see versioning-intro.
+ *
+ * This operation requires permissions for the `lex:CreateSlotTypeVersion` action.
  *
  * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @example
@@ -88,32 +81,32 @@ export interface CreateSlotTypeVersionCommandOutput extends CreateSlotTypeVersio
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request is not well formed. For example, a value is invalid or
- *       a required field is missing. Check the field values, and try
- *       again.</p>
+ *
+ * The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p> There was a conflict processing the request. Try your request
- *       again. </p>
+ *
+ * There was a conflict processing the request. Try your request again.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An internal Amazon Lex error occurred. Try your request again.</p>
+ *
+ * An internal Amazon Lex error occurred. Try your request again.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request exceeded a limit. Try your request again.</p>
+ *
+ * The request exceeded a limit. Try your request again.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource specified in the request was not found. Check the
- *       resource and try again.</p>
+ *
+ * The resource specified in the request was not found. Check the resource and try again.
  *
  * @throws {@link PreconditionFailedException} (client fault)
- *  <p> The checksum of the resource that you are trying to change does
- *       not match the checksum in the request. Check the resource's checksum and
- *       try again.</p>
+ *
+ * The checksum of the resource that you are trying to change does not match the checksum in the request. Check the resource's checksum and try again.
  *
  * @throws {@link LexModelBuildingServiceServiceException}
- * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * Base exception class for all service exceptions from LexModelBuildingService service.
  *
  * @public
  */

@@ -23,20 +23,8 @@ export interface SendBonusCommandInput extends SendBonusRequest {}
 export interface SendBonusCommandOutput extends SendBonusResponse, __MetadataBearer {}
 
 /**
- * <p>
- *             The
- *             <code>SendBonus</code>
- *             operation issues a payment of money from your account to a Worker.
- *             This payment happens separately from the reward you pay to the Worker
- *             when you approve the Worker's assignment. The SendBonus operation
- *             requires the Worker's ID and the assignment ID as parameters to
- *             initiate payment of the bonus. You must include a message that
- *             explains the reason for the bonus payment, as the Worker may not be
- *             expecting the payment. Amazon Mechanical Turk collects a fee for
- *             bonus payments, similar to the HIT listing fee. This operation fails
- *             if your account does not have enough funds to pay for both the bonus
- *             and the fees.
- *         </p>
+ * The `SendBonus` operation issues a payment of money from your account to a Worker. This payment happens separately from the reward you pay to the Worker when you approve the Worker's assignment. The SendBonus operation requires the Worker's ID and the assignment ID as parameters to initiate payment of the bonus. You must include a message that explains the reason for the bonus payment, as the Worker may not be expecting the payment. Amazon Mechanical Turk collects a fee for bonus payments, similar to the HIT listing fee. This operation fails if your account does not have enough funds to pay for both the bonus and the fees.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,14 +53,16 @@ export interface SendBonusCommandOutput extends SendBonusResponse, __MetadataBea
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
  *
  * @throws {@link RequestError} (client fault)
- *  <p>Your request is invalid.</p>
+ *
+ * Your request is invalid.
  *
  * @throws {@link ServiceFault} (server fault)
- *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
+ * Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.
  *
  * @throws {@link MTurkServiceException}
- * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * Base exception class for all service exceptions from MTurk service.
  *
  * @public
  */

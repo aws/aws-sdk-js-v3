@@ -26,16 +26,14 @@ export interface CreateConfigurationSetEventDestinationCommandInput extends Crea
 export interface CreateConfigurationSetEventDestinationCommandOutput extends CreateConfigurationSetEventDestinationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a configuration set event destination.</p>
- *          <note>
- *             <p>When you create or update an event destination, you must provide one, and only
- *                 one, destination. The destination can be CloudWatch, Amazon Kinesis Firehose, or Amazon Simple Notification Service (Amazon SNS).</p>
- *          </note>
- *          <p>An event destination is the Amazon Web Services service to which Amazon SES publishes the email sending
- *             events associated with a configuration set. For information about using configuration
- *             sets, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity.html">Amazon SES Developer
- *             Guide</a>.</p>
- *          <p>You can execute this operation no more than once per second.</p>
+ * Creates a configuration set event destination.
+ *
+ * > **Note:** When you create or update an event destination, you must provide one, and only one, destination. The destination can be CloudWatch, Amazon Kinesis Firehose, or Amazon Simple Notification Service (Amazon SNS).
+ *
+ * An event destination is the Amazon Web Services service to which Amazon SES publishes the email sending events associated with a configuration set. For information about using configuration sets, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity.html).
+ *
+ * You can execute this operation no more than once per second.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,32 +81,32 @@ export interface CreateConfigurationSetEventDestinationCommandOutput extends Cre
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link ConfigurationSetDoesNotExistException} (client fault)
- *  <p>Indicates that the configuration set does not exist.</p>
+ *
+ * Indicates that the configuration set does not exist.
  *
  * @throws {@link EventDestinationAlreadyExistsException} (client fault)
- *  <p>Indicates that the event destination could not be created because of a naming
- *             conflict.</p>
+ *
+ * Indicates that the event destination could not be created because of a naming conflict.
  *
  * @throws {@link InvalidCloudWatchDestinationException} (client fault)
- *  <p>Indicates that the Amazon CloudWatch destination is invalid. See the error message for
- *             details.</p>
+ *
+ * Indicates that the Amazon CloudWatch destination is invalid. See the error message for details.
  *
  * @throws {@link InvalidFirehoseDestinationException} (client fault)
- *  <p>Indicates that the Amazon Kinesis Firehose destination is invalid. See the error
- *             message for details.</p>
+ *
+ * Indicates that the Amazon Kinesis Firehose destination is invalid. See the error message for details.
  *
  * @throws {@link InvalidSNSDestinationException} (client fault)
- *  <p>Indicates that the Amazon Simple Notification Service (Amazon SNS) destination is
- *             invalid. See the error message for details.</p>
+ *
+ * Indicates that the Amazon Simple Notification Service (Amazon SNS) destination is invalid. See the error message for details.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>Indicates that a resource could not be created because of service limits. For a list
- *             of Amazon SES limits, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html">Amazon SES Developer
- *             Guide</a>.</p>
+ *
+ * Indicates that a resource could not be created because of service limits. For a list of Amazon SES limits, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html).
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @public
  */

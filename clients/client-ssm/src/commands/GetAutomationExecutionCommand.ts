@@ -23,7 +23,8 @@ export interface GetAutomationExecutionCommandInput extends GetAutomationExecuti
 export interface GetAutomationExecutionCommandOutput extends GetAutomationExecutionResult, __MetadataBearer {}
 
 /**
- * <p>Get detailed information about a particular Automation execution.</p>
+ * Get detailed information about a particular Automation execution.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -260,15 +261,16 @@ export interface GetAutomationExecutionCommandOutput extends GetAutomationExecut
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link AutomationExecutionNotFoundException} (client fault)
- *  <p>There is no automation execution information for the requested automation execution
- *    ID.</p>
+ *
+ * There is no automation execution information for the requested automation execution ID.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

@@ -23,8 +23,8 @@ export interface ListRecipesCommandInput extends ListRecipesRequest {}
 export interface ListRecipesCommandOutput extends ListRecipesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of available recipes. The response provides the properties
- *        for each recipe, including the recipe's Amazon Resource Name (ARN).</p>
+ * Returns a list of available recipes. The response provides the properties for each recipe, including the recipe's Amazon Resource Name (ARN).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,14 +64,16 @@ export interface ListRecipesCommandOutput extends ListRecipesResponse, __Metadat
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * Provide a valid value for the field or parameter.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The token is not valid.</p>
+ *
+ * The token is not valid.
  *
  * @throws {@link PersonalizeServiceException}
- * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * Base exception class for all service exceptions from Personalize service.
  *
  * @public
  */

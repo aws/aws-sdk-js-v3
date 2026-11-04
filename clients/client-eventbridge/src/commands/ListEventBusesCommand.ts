@@ -23,8 +23,8 @@ export interface ListEventBusesCommandInput extends ListEventBusesRequest {}
 export interface ListEventBusesCommandOutput extends ListEventBusesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all the event buses in your account, including the default event bus, custom event
- *       buses, and partner event buses.</p>
+ * Lists all the event buses in your account, including the default event bus, custom event buses, and partner event buses.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,11 +64,12 @@ export interface ListEventBusesCommandOutput extends ListEventBusesResponse, __M
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * This exception occurs due to unexpected causes.
  *
  * @throws {@link EventBridgeServiceException}
- * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ * Base exception class for all service exceptions from EventBridge service.
  *
  * @public
  */

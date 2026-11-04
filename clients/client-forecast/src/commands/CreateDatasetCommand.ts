@@ -23,48 +23,20 @@ export interface CreateDatasetCommandInput extends CreateDatasetRequest {}
 export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon Forecast dataset. The information about the dataset that you provide helps
- *       Forecast understand how to consume the data for model training. This includes the
- *       following:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <i>
- *                      <code>DataFrequency</code>
- *                   </i> - How frequently your historical
- *           time-series data is collected.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <i>
- *                      <code>Domain</code>
- *                   </i> and
- *             <i>
- *                      <code>DatasetType</code>
- *                   </i> - Each dataset has an associated dataset
- *           domain and a type within the domain. Amazon Forecast provides a list of predefined domains and
- *           types within each domain. For each unique dataset domain and type within the domain,
- *           Amazon Forecast requires your data to include a minimum set of predefined fields.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <i>
- *                      <code>Schema</code>
- *                   </i> - A schema specifies the fields in the dataset,
- *           including the field name and data type.</p>
- *             </li>
- *          </ul>
- *          <p>After creating a dataset, you import your training data into it and add the dataset to a
- *       dataset group. You use the dataset group to create a predictor. For more information, see
- *         <a href="https://docs.aws.amazon.com/forecast/latest/dg/howitworks-datasets-groups.html">Importing datasets</a>.</p>
- *          <p>To get a list of all your datasets, use the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_ListDatasets.html">ListDatasets</a> operation.</p>
- *          <p>For example Forecast datasets, see the <a href="https://github.com/aws-samples/amazon-forecast-samples">Amazon Forecast Sample GitHub
- *         repository</a>.</p>
- *          <note>
- *             <p>The <code>Status</code> of a dataset must be <code>ACTIVE</code> before you can import
- *         training data. Use the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDataset.html">DescribeDataset</a> operation to get
- *         the status.</p>
- *          </note>
+ * Creates an Amazon Forecast dataset. The information about the dataset that you provide helps Forecast understand how to consume the data for model training. This includes the following:
+ *
+ * - *`DataFrequency`* - How frequently your historical time-series data is collected.
+ * - *`Domain`* and *`DatasetType`* - Each dataset has an associated dataset domain and a type within the domain. Amazon Forecast provides a list of predefined domains and types within each domain. For each unique dataset domain and type within the domain, Amazon Forecast requires your data to include a minimum set of predefined fields.
+ * - *`Schema`* - A schema specifies the fields in the dataset, including the field name and data type.
+ *
+ * After creating a dataset, you import your training data into it and add the dataset to a dataset group. You use the dataset group to create a predictor. For more information, see [Importing datasets](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-datasets-groups.html).
+ *
+ * To get a list of all your datasets, use the [ListDatasets](https://docs.aws.amazon.com/forecast/latest/dg/API_ListDatasets.html) operation.
+ *
+ * For example Forecast datasets, see the [Amazon Forecast Sample GitHub repository](https://github.com/aws-samples/amazon-forecast-samples).
+ *
+ * > **Note:** The `Status` of a dataset must be `ACTIVE` before you can import training data. Use the [DescribeDataset](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDataset.html) operation to get the status.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -112,18 +84,20 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>We can't process the request because it includes an invalid value or a value that exceeds
- *       the valid range.</p>
+ *
+ * We can't process the request because it includes an invalid value or a value that exceeds the valid range.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The limit on the number of resources per account has been exceeded.</p>
+ *
+ * The limit on the number of resources per account has been exceeded.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>There is already a resource with this name. Try again with a different name.</p>
+ *
+ * There is already a resource with this name. Try again with a different name.
  *
  * @throws {@link ForecastServiceException}
- * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * Base exception class for all service exceptions from Forecast service.
  *
  * @public
  */

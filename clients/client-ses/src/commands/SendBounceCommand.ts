@@ -23,16 +23,14 @@ export interface SendBounceCommandInput extends SendBounceRequest {}
 export interface SendBounceCommandOutput extends SendBounceResponse, __MetadataBearer {}
 
 /**
- * <p>Generates and sends a bounce message to the sender of an email you received through
- *             Amazon SES. You can only use this operation on an email up to 24 hours after you receive
- *             it.</p>
- *          <note>
- *             <p>You cannot use this operation to send generic bounces for mail that was not
- *                 received by Amazon SES.</p>
- *          </note>
- *          <p>For information about receiving email through Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/receiving-email.html">Amazon SES Developer
- *                 Guide</a>.</p>
- *          <p>You can execute this operation no more than once per second.</p>
+ * Generates and sends a bounce message to the sender of an email you received through Amazon SES. You can only use this operation on an email up to 24 hours after you receive it.
+ *
+ * > **Note:** You cannot use this operation to send generic bounces for mail that was not received by Amazon SES.
+ *
+ * For information about receiving email through Amazon SES, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/dg/receiving-email.html).
+ *
+ * You can execute this operation no more than once per second.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,12 +91,12 @@ export interface SendBounceCommandOutput extends SendBounceResponse, __MetadataB
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link MessageRejected} (client fault)
- *  <p>Indicates that the action failed, and the message could not be sent. Check the error
- *             stack for more information about what caused the error.</p>
+ *
+ * Indicates that the action failed, and the message could not be sent. Check the error stack for more information about what caused the error.
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @public
  */

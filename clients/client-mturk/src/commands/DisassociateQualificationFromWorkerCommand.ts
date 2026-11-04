@@ -26,14 +26,10 @@ export interface DisassociateQualificationFromWorkerCommandInput extends Disasso
 export interface DisassociateQualificationFromWorkerCommandOutput extends DisassociateQualificationFromWorkerResponse, __MetadataBearer {}
 
 /**
- * <p>
- *             The 	<code>DisassociateQualificationFromWorker</code>
- *             revokes a previously granted Qualification from a user.
- *         </p>
- *         <p>
- *             You can provide a text message explaining why the Qualification was
- *             revoked. The user who had the Qualification can see this message.
- *         </p>
+ * The `DisassociateQualificationFromWorker` revokes a previously granted Qualification from a user.
+ *
+ * You can provide a text message explaining why the Qualification was revoked. The user who had the Qualification can see this message.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,14 +56,16 @@ export interface DisassociateQualificationFromWorkerCommandOutput extends Disass
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
  *
  * @throws {@link RequestError} (client fault)
- *  <p>Your request is invalid.</p>
+ *
+ * Your request is invalid.
  *
  * @throws {@link ServiceFault} (server fault)
- *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
+ * Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.
  *
  * @throws {@link MTurkServiceException}
- * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * Base exception class for all service exceptions from MTurk service.
  *
  * @public
  */

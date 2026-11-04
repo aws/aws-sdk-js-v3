@@ -23,8 +23,8 @@ export interface GetEntitlementsCommandInput extends GetEntitlementsRequest {}
 export interface GetEntitlementsCommandOutput extends GetEntitlementsResult, __MetadataBearer {}
 
 /**
- * <p>GetEntitlements retrieves entitlement values for a given product. The results can be
- *       filtered based on customer identifier, AWS account ID, license ARN, or product dimensions.</p>
+ * GetEntitlements retrieves entitlement values for a given product. The results can be filtered based on customer identifier, AWS account ID, license ARN, or product dimensions.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,18 +74,20 @@ export interface GetEntitlementsCommandOutput extends GetEntitlementsResult, __M
  * @see {@link MarketplaceEntitlementServiceClientResolvedConfig | config} for MarketplaceEntitlementServiceClient's `config` shape.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>An internal error has occurred. Retry your request. If the problem persists, post a
- *    message with details on the AWS forums.</p>
+ *
+ * An internal error has occurred. Retry your request. If the problem persists, post a message with details on the AWS forums.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters in your request was invalid.</p>
+ *
+ * One or more parameters in your request was invalid.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The calls to the GetEntitlements API are throttled.</p>
+ *
+ * The calls to the GetEntitlements API are throttled.
  *
  * @throws {@link MarketplaceEntitlementServiceServiceException}
- * <p>Base exception class for all service exceptions from MarketplaceEntitlementService service.</p>
  *
+ * Base exception class for all service exceptions from MarketplaceEntitlementService service.
  *
  * @public
  */

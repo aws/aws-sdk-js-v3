@@ -23,8 +23,8 @@ export interface DeleteResourcePolicyCommandInput extends DeleteResourcePolicyRe
 export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Removes an existing policy from a bot or bot alias. If the resource
- *          doesn't have a policy attached, Amazon Lex returns an exception.</p>
+ * Removes an existing policy from a bot or bot alias. If the resource doesn't have a policy attached, Amazon Lex returns an exception.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,25 +53,24 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The service encountered an unexpected condition. Try your request
- *          again.</p>
+ *
+ * The service encountered an unexpected condition. Try your request again.
  *
  * @throws {@link PreconditionFailedException} (client fault)
- *  <p>Your request couldn't be completed because one or more request
- *          fields aren't valid. Check the fields in your request and try
- *          again.</p>
+ *
+ * Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>You asked to describe a resource that doesn't exist. Check the
- *          resource that you are requesting and try again.</p>
+ *
+ * You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Your request rate is too high. Reduce the frequency of
- *          requests.</p>
+ *
+ * Your request rate is too high. Reduce the frequency of requests.
  *
  * @throws {@link LexModelsV2ServiceException}
- * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * Base exception class for all service exceptions from LexModelsV2 service.
  *
  * @public
  */

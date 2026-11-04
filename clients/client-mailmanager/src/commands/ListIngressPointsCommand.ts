@@ -23,7 +23,8 @@ export interface ListIngressPointsCommandInput extends ListIngressPointsRequest 
 export interface ListIngressPointsCommandOutput extends ListIngressPointsResponse, __MetadataBearer {}
 
 /**
- * <p>List all ingress endpoint resources.</p>
+ * List all ingress endpoint resources.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,11 +61,12 @@ export interface ListIngressPointsCommandOutput extends ListIngressPointsRespons
  * @see {@link MailManagerClientResolvedConfig | config} for MailManagerClient's `config` shape.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request validation has failed. For details, see the accompanying error message.</p>
+ *
+ * The request validation has failed. For details, see the accompanying error message.
  *
  * @throws {@link MailManagerServiceException}
- * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ * Base exception class for all service exceptions from MailManager service.
  *
  * @example List IngressPoints
  * ```javascript

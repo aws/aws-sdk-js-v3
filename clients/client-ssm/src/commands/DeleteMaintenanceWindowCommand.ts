@@ -23,7 +23,8 @@ export interface DeleteMaintenanceWindowCommandInput extends DeleteMaintenanceWi
 export interface DeleteMaintenanceWindowCommandOutput extends DeleteMaintenanceWindowResult, __MetadataBearer {}
 
 /**
- * <p>Deletes a maintenance window.</p>
+ * Deletes a maintenance window.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,11 +51,12 @@ export interface DeleteMaintenanceWindowCommandOutput extends DeleteMaintenanceW
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

@@ -23,10 +23,8 @@ export interface CreateParallelDataCommandInput extends CreateParallelDataReques
 export interface CreateParallelDataCommandOutput extends CreateParallelDataResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a parallel data resource in Amazon Translate by importing an input file from
- *       Amazon S3. Parallel data files contain examples that show how you want segments of text to be
- *       translated. By adding parallel data, you can influence the style, tone, and word choice in
- *       your translation output.</p>
+ * Creates a parallel data resource in Amazon Translate by importing an input file from Amazon S3. Parallel data files contain examples that show how you want segments of text to be translated. By adding parallel data, you can influence the style, tone, and word choice in your translation output.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,37 +68,40 @@ export interface CreateParallelDataCommandOutput extends CreateParallelDataRespo
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Another modification is being made. That modification must complete before you can make
- *       your change.</p>
+ *
+ * Another modification is being made. That modification must complete before you can make your change.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>There was a conflict processing the request. Try your request again.</p>
+ *
+ * There was a conflict processing the request. Try your request again.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value of the parameter is not valid. Review the value of the parameter you are using
- *       to correct it, and then retry your operation.</p>
+ *
+ * The value of the parameter is not valid. Review the value of the parameter you are using to correct it, and then retry your operation.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p> The request that you made is not valid. Check your request to determine why it's not
- *       valid and then retry the request. </p>
+ *
+ * The request that you made is not valid. Check your request to determine why it's not valid and then retry the request.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The specified limit has been exceeded. Review your request and retry it with a quantity
- *       below the stated limit.</p>
+ *
+ * The specified limit has been exceeded. Review your request and retry it with a quantity below the stated limit.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p> You have made too many requests within a short period of time. Wait for a short time and
- *       then try your request again.</p>
+ *
+ * You have made too many requests within a short period of time. Wait for a short time and then try your request again.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>You have added too many tags to this resource. The maximum is 50 tags.</p>
+ *
+ * You have added too many tags to this resource. The maximum is 50 tags.
  *
  * @throws {@link TranslateServiceException}
- * <p>Base exception class for all service exceptions from Translate service.</p>
  *
+ * Base exception class for all service exceptions from Translate service.
  *
  * @public
  */

@@ -23,18 +23,16 @@ export interface ImportInstanceCommandInput extends ImportInstanceRequest {}
 export interface ImportInstanceCommandOutput extends ImportInstanceResult, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>We recommend that you use the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportImage.html">
- *                   <code>ImportImage</code>
- *                </a>
- *     API instead. For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html">Importing a VM as an image using VM
- *      Import/Export</a> in the <i>VM Import/Export User Guide</i>.</p>
- *          </note>
- *          <p>Creates an import instance task using metadata from the specified disk image.</p>
- *          <p>This API action supports only single-volume VMs. To import multi-volume VMs, use <a>ImportImage</a>
- *    instead.</p>
- *          <p>For information about the import manifest referenced by this API action, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html">VM Import Manifest</a>.</p>
- *          <p>This API action is not supported by the Command Line Interface (CLI).</p>
+ * > **Note:** We recommend that you use the [`ImportImage`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportImage.html) API instead. For more information, see [Importing a VM as an image using VM Import/Export](https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html) in the *VM Import/Export User Guide*.
+ *
+ * Creates an import instance task using metadata from the specified disk image.
+ *
+ * This API action supports only single-volume VMs. To import multi-volume VMs, use ImportImage instead.
+ *
+ * For information about the import manifest referenced by this API action, see [VM Import Manifest](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html).
+ *
+ * This API action is not supported by the Command Line Interface (CLI).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -158,8 +156,8 @@ export interface ImportInstanceCommandOutput extends ImportInstanceResult, __Met
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

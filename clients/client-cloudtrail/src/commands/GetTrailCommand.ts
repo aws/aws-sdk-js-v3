@@ -23,7 +23,8 @@ export interface GetTrailCommandInput extends GetTrailRequest {}
 export interface GetTrailCommandOutput extends GetTrailResponse, __MetadataBearer {}
 
 /**
- * <p>Returns settings information for a specified trail.</p>
+ * Returns settings information for a specified trail.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,53 +69,42 @@ export interface GetTrailCommandOutput extends GetTrailResponse, __MetadataBeare
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
  * @throws {@link CloudTrailARNInvalidException} (client fault)
- *  <p>This exception is thrown when an operation is called with an ARN that is not valid.</p>
- *          <p>The following is the format of a trail ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
- *          </p>
- *          <p>The following is the format of an event data store ARN:
- *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
- *          </p>
- *          <p>The following is the format of a dashboard ARN: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code>
- *          </p>
- *          <p>The following is the format of a channel ARN:
- *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
- *          </p>
+ *
+ * This exception is thrown when an operation is called with an ARN that is not valid.
+ *
+ * The following is the format of a trail ARN: `arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail`
+ *
+ * The following is the format of an event data store ARN: `arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE`
+ *
+ * The following is the format of a dashboard ARN: `arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash`
+ *
+ * The following is the format of a channel ARN: `arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890`
  *
  * @throws {@link InvalidTrailNameException} (client fault)
- *  <p>This exception is thrown when the provided trail name is not valid. Trail names must
- *          meet the following requirements:</p>
- *          <ul>
- *             <li>
- *                <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores
- *                (_), or dashes (-)</p>
- *             </li>
- *             <li>
- *                <p>Start with a letter or number, and end with a letter or number</p>
- *             </li>
- *             <li>
- *                <p>Be between 3 and 128 characters</p>
- *             </li>
- *             <li>
- *                <p>Have no adjacent periods, underscores or dashes. Names like
- *                   <code>my-_namespace</code> and <code>my--namespace</code> are not valid.</p>
- *             </li>
- *             <li>
- *                <p>Not be in IP address format (for example, 192.168.5.4)</p>
- *             </li>
- *          </ul>
+ *
+ * This exception is thrown when the provided trail name is not valid. Trail names must meet the following requirements:
+ *
+ * - Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)
+ * - Start with a letter or number, and end with a letter or number
+ * - Be between 3 and 128 characters
+ * - Have no adjacent periods, underscores or dashes. Names like `my-_namespace` and `my--namespace` are not valid.
+ * - Not be in IP address format (for example, 192.168.5.4)
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * This exception is thrown when the requested operation is not permitted.
  *
  * @throws {@link TrailNotFoundException} (client fault)
- *  <p>This exception is thrown when the trail with the given name is not found.</p>
+ *
+ * This exception is thrown when the trail with the given name is not found.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>This exception is thrown when the requested operation is not supported.</p>
+ *
+ * This exception is thrown when the requested operation is not supported.
  *
  * @throws {@link CloudTrailServiceException}
- * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * Base exception class for all service exceptions from CloudTrail service.
  *
  * @public
  */

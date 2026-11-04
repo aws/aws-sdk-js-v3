@@ -23,7 +23,8 @@ export interface DescribeEnvironmentResourcesCommandInput extends DescribeEnviro
 export interface DescribeEnvironmentResourcesCommandOutput extends EnvironmentResourceDescriptionsMessage, __MetadataBearer {}
 
 /**
- * <p>Returns Amazon Web Services resources for this environment.</p>
+ * Returns Amazon Web Services resources for this environment.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -92,11 +93,12 @@ export interface DescribeEnvironmentResourcesCommandOutput extends EnvironmentRe
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  * @throws {@link InsufficientPrivilegesException} (client fault)
- *  <p>The specified account does not have sufficient privileges for one or more Amazon Web Services services.</p>
+ *
+ * The specified account does not have sufficient privileges for one or more Amazon Web Services services.
  *
  * @throws {@link ElasticBeanstalkSyntheticServiceException}
- * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * Base exception class for all service exceptions from ElasticBeanstalk service.
  *
  * @example To view information about the AWS resources in your environment
  * ```javascript

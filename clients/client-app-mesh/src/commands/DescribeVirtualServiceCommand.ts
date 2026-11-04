@@ -23,7 +23,8 @@ export interface DescribeVirtualServiceCommandInput extends DescribeVirtualServi
 export interface DescribeVirtualServiceCommandOutput extends DescribeVirtualServiceOutput, __MetadataBearer {}
 
 /**
- * <p>Describes an existing virtual service.</p>
+ * Describes an existing virtual service.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,29 +78,32 @@ export interface DescribeVirtualServiceCommandOutput extends DescribeVirtualServ
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request syntax was malformed. Check your request syntax and try again.</p>
+ *
+ * The request syntax was malformed. Check your request syntax and try again.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>You don't have permissions to perform this action.</p>
+ *
+ * You don't have permissions to perform this action.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception, or
- *          failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception, or failure.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The specified resource doesn't exist. Check your request syntax and try again.</p>
+ *
+ * The specified resource doesn't exist. Check your request syntax and try again.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The request has failed due to a temporary failure of the service.</p>
+ *
+ * The request has failed due to a temporary failure of the service.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The maximum request rate permitted by the App Mesh APIs has been exceeded for
- *          your account. For best results, use an increasing or variable sleep interval between
- *          requests.</p>
+ *
+ * The maximum request rate permitted by the App Mesh APIs has been exceeded for your account. For best results, use an increasing or variable sleep interval between requests.
  *
  * @throws {@link AppMeshServiceException}
- * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ * Base exception class for all service exceptions from AppMesh service.
  *
  * @public
  */

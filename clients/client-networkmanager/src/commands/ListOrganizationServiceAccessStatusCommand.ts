@@ -26,7 +26,8 @@ export interface ListOrganizationServiceAccessStatusCommandInput extends ListOrg
 export interface ListOrganizationServiceAccessStatusCommandOutput extends ListOrganizationServiceAccessStatusResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the status of the Service Linked Role (SLR) deployment for the accounts in a given Amazon Web Services Organization.</p>
+ * Gets the status of the Service Linked Role (SLR) deployment for the accounts in a given Amazon Web Services Organization.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,8 +66,8 @@ export interface ListOrganizationServiceAccessStatusCommandOutput extends ListOr
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
  *
  * @throws {@link NetworkManagerServiceException}
- * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * Base exception class for all service exceptions from NetworkManager service.
  *
  * @public
  */

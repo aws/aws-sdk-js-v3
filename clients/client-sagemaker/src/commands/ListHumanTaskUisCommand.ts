@@ -23,7 +23,8 @@ export interface ListHumanTaskUisCommandInput extends ListHumanTaskUisRequest {}
 export interface ListHumanTaskUisCommandOutput extends ListHumanTaskUisResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about the human task user interfaces in your account.</p>
+ * Returns information about the human task user interfaces in your account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,8 +62,8 @@ export interface ListHumanTaskUisCommandOutput extends ListHumanTaskUisResponse,
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

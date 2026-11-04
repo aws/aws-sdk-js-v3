@@ -54,90 +54,105 @@ import type {
 } from "./enums";
 
 /**
- * <p>The authentication configuration for an actor, specifying the provider type and credentials.</p>
+ * The authentication configuration for an actor, specifying the provider type and credentials.
+ *
  * @public
  */
 export interface Authentication {
   /**
-   * <p>The type of authentication provider. Valid values include SECRETS_MANAGER, AWS_LAMBDA, AWS_IAM_ROLE, and AWS_INTERNAL.</p>
+   * The type of authentication provider. Valid values include SECRETS_MANAGER, AWS_LAMBDA, AWS_IAM_ROLE, and AWS_INTERNAL.
+   *
    * @public
    */
   providerType?: AuthenticationProviderType | undefined;
 
   /**
-   * <p>The authentication value, such as a secret ARN, Lambda function ARN, or IAM role ARN, depending on the provider type.</p>
+   * The authentication value, such as a secret ARN, Lambda function ARN, or IAM role ARN, depending on the provider type.
+   *
    * @public
    */
   value?: string | undefined;
 }
 
 /**
- * <p>Represents an actor used during penetration testing. An actor defines a user or entity that interacts with the target application, including authentication credentials and target URIs.</p>
+ * Represents an actor used during penetration testing. An actor defines a user or entity that interacts with the target application, including authentication credentials and target URIs.
+ *
  * @public
  */
 export interface Actor {
   /**
-   * <p>The unique identifier for the actor.</p>
+   * The unique identifier for the actor.
+   *
    * @public
    */
   identifier?: string | undefined;
 
   /**
-   * <p>The list of URIs that the actor targets during testing.</p>
+   * The list of URIs that the actor targets during testing.
+   *
    * @public
    */
   uris?: string[] | undefined;
 
   /**
-   * <p>The authentication configuration for the actor.</p>
+   * The authentication configuration for the actor.
+   *
    * @public
    */
   authentication?: Authentication | undefined;
 
   /**
-   * <p>A description of the actor.</p>
+   * A description of the actor.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Whether email-based MFA is enabled for this actor.</p>
+   * Whether email-based MFA is enabled for this actor.
+   *
    * @public
    */
   enableEmailMfa?: boolean | undefined;
 
   /**
-   * <p>Server-generated email forwarding address for receiving MFA codes.</p>
+   * Server-generated email forwarding address for receiving MFA codes.
+   *
    * @public
    */
   mfaForwardingAddress?: string | undefined;
 }
 
 /**
- * <p>A message received at an actor's server-generated email MFA address.</p>
+ * A message received at an actor's server-generated email MFA address.
+ *
  * @public
  */
 export interface ActorMessage {
   /**
-   * <p>The address the message was sent from.</p>
+   * The address the message was sent from.
+   *
    * @public
    */
   sender?: string | undefined;
 
   /**
-   * <p>The subject line of the message.</p>
+   * The subject line of the message.
+   *
    * @public
    */
   subject?: string | undefined;
 
   /**
-   * <p>The plain-text body of the message, containing the MFA code or verification link.</p>
+   * The plain-text body of the message, containing the MFA code or verification link.
+   *
    * @public
    */
   body?: string | undefined;
 
   /**
-   * <p>The time the message was received.</p>
+   * The time the message was received.
+   *
    * @public
    */
   receivedAt?: Date | undefined;
@@ -148,25 +163,29 @@ export interface ActorMessage {
  */
 export interface AddArtifactInput {
   /**
-   * <p>The unique identifier of the agent space to add the artifact to.</p>
+   * The unique identifier of the agent space to add the artifact to.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The binary content of the artifact to upload.</p>
+   * The binary content of the artifact to upload.
+   *
    * @public
    */
   artifactContent: Uint8Array | undefined;
 
   /**
-   * <p>The file type of the artifact. Valid values include TXT, PNG, JPEG, MD, PDF, DOCX, DOC, JSON, and YAML.</p>
+   * The file type of the artifact. Valid values include TXT, PNG, JPEG, MD, PDF, DOCX, DOC, JSON, and YAML.
+   *
    * @public
    */
   artifactType: ArtifactType | undefined;
 
   /**
-   * <p>The file name of the artifact.</p>
+   * The file name of the artifact.
+   *
    * @public
    */
   fileName: string | undefined;
@@ -177,493 +196,575 @@ export interface AddArtifactInput {
  */
 export interface AddArtifactOutput {
   /**
-   * <p>The unique identifier assigned to the uploaded artifact.</p>
+   * The unique identifier assigned to the uploaded artifact.
+   *
    * @public
    */
   artifactId: string | undefined;
 }
 
 /**
- * <p>Describes one specific validation failure for an input member.</p>
+ * Describes one specific validation failure for an input member.
+ *
  * @public
  */
 export interface ValidationExceptionField {
   /**
-   * <p>A JSONPointer expression to the structure member whose value failed to satisfy the modeled constraint.</p>
+   * A JSONPointer expression to the structure member whose value failed to satisfy the modeled constraint.
+   *
    * @public
    */
   path: string | undefined;
 
   /**
-   * <p>A detailed description of the validation failure.</p>
+   * A detailed description of the validation failure.
+   *
    * @public
    */
   message: string | undefined;
 }
 
 /**
- * <p>The VPC configuration for a pentest, specifying the VPC, security groups, and subnets to use during testing.</p>
+ * The VPC configuration for a pentest, specifying the VPC, security groups, and subnets to use during testing.
+ *
  * @public
  */
 export interface VpcConfig {
   /**
-   * <p>The Amazon Resource Name (ARN) or ID of the VPC.</p>
+   * The Amazon Resource Name (ARN) or ID of the VPC.
+   *
    * @public
    */
   vpcArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) or IDs of the security groups for the VPC configuration.</p>
+   * The Amazon Resource Names (ARNs) or IDs of the security groups for the VPC configuration.
+   *
    * @public
    */
   securityGroupArns?: string[] | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) or IDs of the subnets for the VPC configuration.</p>
+   * The Amazon Resource Names (ARNs) or IDs of the subnets for the VPC configuration.
+   *
    * @public
    */
   subnetArns?: string[] | undefined;
 }
 
 /**
- * <p>The AWS resources associated with an agent space, including VPCs, log groups, S3 buckets, secrets, Lambda functions, and IAM roles.</p>
+ * The AWS resources associated with an agent space, including VPCs, log groups, S3 buckets, secrets, Lambda functions, and IAM roles.
+ *
  * @public
  */
 export interface AWSResources {
   /**
-   * <p>The VPC configurations associated with the agent space.</p>
+   * The VPC configurations associated with the agent space.
+   *
    * @public
    */
   vpcs?: VpcConfig[] | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the CloudWatch log groups associated with the agent space.</p>
+   * The Amazon Resource Names (ARNs) of the CloudWatch log groups associated with the agent space.
+   *
    * @public
    */
   logGroups?: string[] | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the S3 buckets associated with the agent space.</p>
+   * The Amazon Resource Names (ARNs) of the S3 buckets associated with the agent space.
+   *
    * @public
    */
   s3Buckets?: string[] | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the Secrets Manager secrets associated with the agent space.</p>
+   * The Amazon Resource Names (ARNs) of the Secrets Manager secrets associated with the agent space.
+   *
    * @public
    */
   secretArns?: string[] | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the Lambda functions associated with the agent space.</p>
+   * The Amazon Resource Names (ARNs) of the Lambda functions associated with the agent space.
+   *
    * @public
    */
   lambdaFunctionArns?: string[] | undefined;
 
   /**
-   * <p>The IAM roles associated with the agent space.</p>
+   * The IAM roles associated with the agent space.
+   *
    * @public
    */
   iamRoles?: string[] | undefined;
 }
 
 /**
- * <p>The code review settings for an agent space, controlling which types of scanning are enabled.</p>
+ * The code review settings for an agent space, controlling which types of scanning are enabled.
+ *
  * @public
  */
 export interface CodeReviewSettings {
   /**
-   * <p>Indicates whether controls scanning is enabled for code reviews.</p>
+   * Indicates whether controls scanning is enabled for code reviews.
+   *
    * @public
    */
   controlsScanning: boolean | undefined;
 
   /**
-   * <p>Indicates whether general-purpose scanning is enabled for code reviews.</p>
+   * Indicates whether general-purpose scanning is enabled for code reviews.
+   *
    * @public
    */
   generalPurposeScanning: boolean | undefined;
 }
 
 /**
- * <p>Represents an agent space, which is a dedicated workspace for securing a specific application. An agent space contains the configuration, resources, and settings needed for security testing.</p>
+ * Represents an agent space, which is a dedicated workspace for securing a specific application. An agent space contains the configuration, resources, and settings needed for security testing.
+ *
  * @public
  */
 export interface AgentSpace {
   /**
-   * <p>The unique identifier of the agent space.</p>
+   * The unique identifier of the agent space.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The name of the agent space.</p>
+   * The name of the agent space.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description of the agent space.</p>
+   * A description of the agent space.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The AWS resources associated with the agent space.</p>
+   * The AWS resources associated with the agent space.
+   *
    * @public
    */
   awsResources?: AWSResources | undefined;
 
   /**
-   * <p>The list of target domain identifiers associated with the agent space.</p>
+   * The list of target domain identifiers associated with the agent space.
+   *
    * @public
    */
   targetDomainIds?: string[] | undefined;
 
   /**
-   * <p>The code review settings for the agent space.</p>
+   * The code review settings for the agent space.
+   *
    * @public
    */
   codeReviewSettings?: CodeReviewSettings | undefined;
 
   /**
-   * <p>The identifier of the AWS KMS key used to encrypt data in the agent space.</p>
+   * The identifier of the AWS KMS key used to encrypt data in the agent space.
+   *
    * @public
    */
   kmsKeyId?: string | undefined;
 
   /**
-   * <p>The date and time the agent space was created, in UTC format.</p>
+   * The date and time the agent space was created, in UTC format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time the agent space was last updated, in UTC format.</p>
+   * The date and time the agent space was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * <p>Input for batch retrieving agent spaces.</p>
+ * Input for batch retrieving agent spaces.
+ *
  * @public
  */
 export interface BatchGetAgentSpacesInput {
   /**
-   * <p>The list of agent space identifiers to retrieve.</p>
+   * The list of agent space identifiers to retrieve.
+   *
    * @public
    */
   agentSpaceIds: string[] | undefined;
 }
 
 /**
- * <p>Output for the BatchGetAgentSpaces operation.</p>
+ * Output for the BatchGetAgentSpaces operation.
+ *
  * @public
  */
 export interface BatchGetAgentSpacesOutput {
   /**
-   * <p>The list of agent spaces that were found.</p>
+   * The list of agent spaces that were found.
+   *
    * @public
    */
   agentSpaces?: AgentSpace[] | undefined;
 
   /**
-   * <p>The list of agent space identifiers that were not found.</p>
+   * The list of agent space identifiers that were not found.
+   *
    * @public
    */
   notFound?: string[] | undefined;
 }
 
 /**
- * <p>Input for creating a new agent space.</p>
+ * Input for creating a new agent space.
+ *
  * @public
  */
 export interface CreateAgentSpaceInput {
   /**
-   * <p>The name of the agent space.</p>
+   * The name of the agent space.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description of the agent space.</p>
+   * A description of the agent space.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The AWS resources to associate with the agent space.</p>
+   * The AWS resources to associate with the agent space.
+   *
    * @public
    */
   awsResources?: AWSResources | undefined;
 
   /**
-   * <p>The list of target domain identifiers to associate with the agent space.</p>
+   * The list of target domain identifiers to associate with the agent space.
+   *
    * @public
    */
   targetDomainIds?: string[] | undefined;
 
   /**
-   * <p>The code review settings for the agent space.</p>
+   * The code review settings for the agent space.
+   *
    * @public
    */
   codeReviewSettings?: CodeReviewSettings | undefined;
 
   /**
-   * <p>The identifier of the AWS KMS key to use for encrypting data in the agent space.</p>
+   * The identifier of the AWS KMS key to use for encrypting data in the agent space.
+   *
    * @public
    */
   kmsKeyId?: string | undefined;
 
   /**
-   * <p>The tags to associate with the agent space.</p>
+   * The tags to associate with the agent space.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Output for the CreateAgentSpace operation.</p>
+ * Output for the CreateAgentSpace operation.
+ *
  * @public
  */
 export interface CreateAgentSpaceOutput {
   /**
-   * <p>The unique identifier of the created agent space.</p>
+   * The unique identifier of the created agent space.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The name of the agent space.</p>
+   * The name of the agent space.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the agent space.</p>
+   * The description of the agent space.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The AWS resources associated with the agent space.</p>
+   * The AWS resources associated with the agent space.
+   *
    * @public
    */
   awsResources?: AWSResources | undefined;
 
   /**
-   * <p>The list of target domain identifiers associated with the agent space.</p>
+   * The list of target domain identifiers associated with the agent space.
+   *
    * @public
    */
   targetDomainIds?: string[] | undefined;
 
   /**
-   * <p>The code review settings for the agent space.</p>
+   * The code review settings for the agent space.
+   *
    * @public
    */
   codeReviewSettings?: CodeReviewSettings | undefined;
 
   /**
-   * <p>The identifier of the AWS KMS key used to encrypt data in the agent space.</p>
+   * The identifier of the AWS KMS key used to encrypt data in the agent space.
+   *
    * @public
    */
   kmsKeyId?: string | undefined;
 
   /**
-   * <p>The date and time the agent space was created, in UTC format.</p>
+   * The date and time the agent space was created, in UTC format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time the agent space was last updated, in UTC format.</p>
+   * The date and time the agent space was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * <p>Input for deleting an agent space.</p>
+ * Input for deleting an agent space.
+ *
  * @public
  */
 export interface DeleteAgentSpaceInput {
   /**
-   * <p>The unique identifier of the agent space to delete.</p>
+   * The unique identifier of the agent space to delete.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 }
 
 /**
- * <p>Output for the DeleteAgentSpace operation.</p>
+ * Output for the DeleteAgentSpace operation.
+ *
  * @public
  */
 export interface DeleteAgentSpaceOutput {
   /**
-   * <p>The unique identifier of the deleted agent space.</p>
+   * The unique identifier of the deleted agent space.
+   *
    * @public
    */
   agentSpaceId?: string | undefined;
 }
 
 /**
- * <p>Input for listing agent spaces.</p>
+ * Input for listing agent spaces.
+ *
  * @public
  */
 export interface ListAgentSpacesInput {
   /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+   * A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Contains summary information about an agent space.</p>
+ * Contains summary information about an agent space.
+ *
  * @public
  */
 export interface AgentSpaceSummary {
   /**
-   * <p>The unique identifier of the agent space.</p>
+   * The unique identifier of the agent space.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The name of the agent space.</p>
+   * The name of the agent space.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The date and time the agent space was created, in UTC format.</p>
+   * The date and time the agent space was created, in UTC format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time the agent space was last updated, in UTC format.</p>
+   * The date and time the agent space was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * <p>Output for the ListAgentSpaces operation.</p>
+ * Output for the ListAgentSpaces operation.
+ *
  * @public
  */
 export interface ListAgentSpacesOutput {
   /**
-   * <p>The list of agent space summaries.</p>
+   * The list of agent space summaries.
+   *
    * @public
    */
   agentSpaceSummaries?: AgentSpaceSummary[] | undefined;
 
   /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+   * A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Input for updating an agent space.</p>
+ * Input for updating an agent space.
+ *
  * @public
  */
 export interface UpdateAgentSpaceInput {
   /**
-   * <p>The unique identifier of the agent space to update.</p>
+   * The unique identifier of the agent space to update.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The updated name of the agent space.</p>
+   * The updated name of the agent space.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The updated description of the agent space.</p>
+   * The updated description of the agent space.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The updated AWS resources to associate with the agent space.</p>
+   * The updated AWS resources to associate with the agent space.
+   *
    * @public
    */
   awsResources?: AWSResources | undefined;
 
   /**
-   * <p>The updated list of target domain identifiers to associate with the agent space.</p>
+   * The updated list of target domain identifiers to associate with the agent space.
+   *
    * @public
    */
   targetDomainIds?: string[] | undefined;
 
   /**
-   * <p>The updated code review settings for the agent space.</p>
+   * The updated code review settings for the agent space.
+   *
    * @public
    */
   codeReviewSettings?: CodeReviewSettings | undefined;
 }
 
 /**
- * <p>Output for the UpdateAgentSpace operation.</p>
+ * Output for the UpdateAgentSpace operation.
+ *
  * @public
  */
 export interface UpdateAgentSpaceOutput {
   /**
-   * <p>The unique identifier of the updated agent space.</p>
+   * The unique identifier of the updated agent space.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The name of the agent space.</p>
+   * The name of the agent space.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the agent space.</p>
+   * The description of the agent space.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The AWS resources associated with the agent space.</p>
+   * The AWS resources associated with the agent space.
+   *
    * @public
    */
   awsResources?: AWSResources | undefined;
 
   /**
-   * <p>The list of target domain identifiers associated with the agent space.</p>
+   * The list of target domain identifiers associated with the agent space.
+   *
    * @public
    */
   targetDomainIds?: string[] | undefined;
 
   /**
-   * <p>The code review settings for the agent space.</p>
+   * The code review settings for the agent space.
+   *
    * @public
    */
   codeReviewSettings?: CodeReviewSettings | undefined;
 
   /**
-   * <p>The date and time the agent space was created, in UTC format.</p>
+   * The date and time the agent space was created, in UTC format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time the agent space was last updated, in UTC format.</p>
+   * The date and time the agent space was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -674,25 +775,29 @@ export interface UpdateAgentSpaceOutput {
  */
 export interface CreateApplicationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM Identity Center instance to associate with the application.</p>
+   * The Amazon Resource Name (ARN) of the IAM Identity Center instance to associate with the application.
+   *
    * @public
    */
   idcInstanceArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role to associate with the application.</p>
+   * The Amazon Resource Name (ARN) of the IAM role to associate with the application.
+   *
    * @public
    */
   roleArn?: string | undefined;
 
   /**
-   * <p>The identifier of the default AWS KMS key to use for encrypting data in the application.</p>
+   * The identifier of the default AWS KMS key to use for encrypting data in the application.
+   *
    * @public
    */
   defaultKmsKeyId?: string | undefined;
 
   /**
-   * <p>The tags to associate with the application.</p>
+   * The tags to associate with the application.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -703,7 +808,8 @@ export interface CreateApplicationRequest {
  */
 export interface CreateApplicationResponse {
   /**
-   * <p>The unique identifier of the created application.</p>
+   * The unique identifier of the created application.
+   *
    * @public
    */
   applicationId: string | undefined;
@@ -714,7 +820,8 @@ export interface CreateApplicationResponse {
  */
 export interface DeleteApplicationRequest {
   /**
-   * <p>The unique identifier of the application to delete.</p>
+   * The unique identifier of the application to delete.
+   *
    * @public
    */
   applicationId: string | undefined;
@@ -725,25 +832,29 @@ export interface DeleteApplicationRequest {
  */
 export interface GetApplicationRequest {
   /**
-   * <p>The unique identifier of the application to retrieve.</p>
+   * The unique identifier of the application to retrieve.
+   *
    * @public
    */
   applicationId: string | undefined;
 }
 
 /**
- * <p>The IAM Identity Center configuration for an application.</p>
+ * The IAM Identity Center configuration for an application.
+ *
  * @public
  */
 export interface IdCConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM Identity Center application.</p>
+   * The Amazon Resource Name (ARN) of the IAM Identity Center application.
+   *
    * @public
    */
   idcApplicationArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM Identity Center instance.</p>
+   * The Amazon Resource Name (ARN) of the IAM Identity Center instance.
+   *
    * @public
    */
   idcInstanceArn?: string | undefined;
@@ -754,37 +865,43 @@ export interface IdCConfiguration {
  */
 export interface GetApplicationResponse {
   /**
-   * <p>The unique identifier of the application.</p>
+   * The unique identifier of the application.
+   *
    * @public
    */
   applicationId: string | undefined;
 
   /**
-   * <p>The domain associated with the application.</p>
+   * The domain associated with the application.
+   *
    * @public
    */
   domain: string | undefined;
 
   /**
-   * <p>The name of the application.</p>
+   * The name of the application.
+   *
    * @public
    */
   applicationName?: string | undefined;
 
   /**
-   * <p>The IAM Identity Center configuration for the application.</p>
+   * The IAM Identity Center configuration for the application.
+   *
    * @public
    */
   idcConfiguration?: IdCConfiguration | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role associated with the application.</p>
+   * The Amazon Resource Name (ARN) of the IAM role associated with the application.
+   *
    * @public
    */
   roleArn?: string | undefined;
 
   /**
-   * <p>The identifier of the default AWS KMS key used to encrypt data for the application.</p>
+   * The identifier of the default AWS KMS key used to encrypt data for the application.
+   *
    * @public
    */
   defaultKmsKeyId?: string | undefined;
@@ -795,43 +912,50 @@ export interface GetApplicationResponse {
  */
 export interface ListApplicationsRequest {
   /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+   * A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Contains summary information about an application.</p>
+ * Contains summary information about an application.
+ *
  * @public
  */
 export interface ApplicationSummary {
   /**
-   * <p>The unique identifier of the application.</p>
+   * The unique identifier of the application.
+   *
    * @public
    */
   applicationId: string | undefined;
 
   /**
-   * <p>The name of the application.</p>
+   * The name of the application.
+   *
    * @public
    */
   applicationName: string | undefined;
 
   /**
-   * <p>The domain associated with the application.</p>
+   * The domain associated with the application.
+   *
    * @public
    */
   domain: string | undefined;
 
   /**
-   * <p>The identifier of the default AWS KMS key used to encrypt data for the application.</p>
+   * The identifier of the default AWS KMS key used to encrypt data for the application.
+   *
    * @public
    */
   defaultKmsKeyId?: string | undefined;
@@ -842,13 +966,15 @@ export interface ApplicationSummary {
  */
 export interface ListApplicationsResponse {
   /**
-   * <p>The list of application summaries.</p>
+   * The list of application summaries.
+   *
    * @public
    */
   applicationSummaries: ApplicationSummary[] | undefined;
 
   /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+   * A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -859,19 +985,22 @@ export interface ListApplicationsResponse {
  */
 export interface UpdateApplicationRequest {
   /**
-   * <p>The unique identifier of the application to update.</p>
+   * The unique identifier of the application to update.
+   *
    * @public
    */
   applicationId: string | undefined;
 
   /**
-   * <p>The updated Amazon Resource Name (ARN) of the IAM role for the application.</p>
+   * The updated Amazon Resource Name (ARN) of the IAM role for the application.
+   *
    * @public
    */
   roleArn?: string | undefined;
 
   /**
-   * <p>The updated identifier of the default AWS KMS key for the application.</p>
+   * The updated identifier of the default AWS KMS key for the application.
+   *
    * @public
    */
   defaultKmsKeyId?: string | undefined;
@@ -882,200 +1011,233 @@ export interface UpdateApplicationRequest {
  */
 export interface UpdateApplicationResponse {
   /**
-   * <p>The unique identifier of the updated application.</p>
+   * The unique identifier of the updated application.
+   *
    * @public
    */
   applicationId: string | undefined;
 }
 
 /**
- * <p>Represents an artifact that provides context for security testing, such as documentation, diagrams, or configuration files.</p>
+ * Represents an artifact that provides context for security testing, such as documentation, diagrams, or configuration files.
+ *
  * @public
  */
 export interface Artifact {
   /**
-   * <p>The content of the artifact.</p>
+   * The content of the artifact.
+   *
    * @public
    */
   contents: string | undefined;
 
   /**
-   * <p>The file type of the artifact.</p>
+   * The file type of the artifact.
+   *
    * @public
    */
   type: ArtifactType | undefined;
 }
 
 /**
- * <p>Contains metadata about an artifact.</p>
+ * Contains metadata about an artifact.
+ *
  * @public
  */
 export interface ArtifactMetadataItem {
   /**
-   * <p>The unique identifier of the agent space that contains the artifact.</p>
+   * The unique identifier of the agent space that contains the artifact.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The unique identifier of the artifact.</p>
+   * The unique identifier of the artifact.
+   *
    * @public
    */
   artifactId: string | undefined;
 
   /**
-   * <p>The file name of the artifact.</p>
+   * The file name of the artifact.
+   *
    * @public
    */
   fileName: string | undefined;
 
   /**
-   * <p>The date and time the artifact was last updated, in UTC format.</p>
+   * The date and time the artifact was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 }
 
 /**
- * <p>Contains summary information about an artifact.</p>
+ * Contains summary information about an artifact.
+ *
  * @public
  */
 export interface ArtifactSummary {
   /**
-   * <p>The unique identifier of the artifact.</p>
+   * The unique identifier of the artifact.
+   *
    * @public
    */
   artifactId: string | undefined;
 
   /**
-   * <p>The file name of the artifact.</p>
+   * The file name of the artifact.
+   *
    * @public
    */
   fileName: string | undefined;
 
   /**
-   * <p>The file type of the artifact.</p>
+   * The file type of the artifact.
+   *
    * @public
    */
   artifactType: ArtifactType | undefined;
 }
 
 /**
- * <p>A client certificate for mutual TLS (mTLS) authentication to target hosts.</p>
+ * A client certificate for mutual TLS (mTLS) authentication to target hosts.
+ *
  * @public
  */
 export interface ClientCertificate {
   /**
-   * <p>A customer-chosen name for this client certificate, used in error messages and console display.</p>
+   * A customer-chosen name for this client certificate, used in error messages and console display.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ARN of the Secrets Manager secret containing the certificate and private key.</p>
+   * The ARN of the Secrets Manager secret containing the certificate and private key.
+   *
    * @public
    */
   secretArn: string | undefined;
 
   /**
-   * <p>The origins (scheme://host[:port]) this certificate applies to. Paths are not supported. Each hostname can have at most one client certificate.</p>
+   * The origins (scheme://host[:port]) this certificate applies to. Paths are not supported. Each hostname can have at most one client certificate.
+   *
    * @public
    */
   origins: string[] | undefined;
 }
 
 /**
- * <p>A reference to a document in a third-party provider, such as a Confluence page linked via an integration.</p>
+ * A reference to a document in a third-party provider, such as a Confluence page linked via an integration.
+ *
  * @public
  */
 export interface IntegratedDocument {
   /**
-   * <p>The identifier of the integration that provides access to the document.</p>
+   * The identifier of the integration that provides access to the document.
+   *
    * @public
    */
   integrationId: string | undefined;
 
   /**
-   * <p>The provider-specific resource identifier for the document.</p>
+   * The provider-specific resource identifier for the document.
+   *
    * @public
    */
   resourceId: string | undefined;
 }
 
 /**
- * <p>Represents a document that provides context for security testing.</p>
+ * Represents a document that provides context for security testing.
+ *
  * @public
  */
 export interface DocumentInfo {
   /**
-   * <p>The Amazon S3 location of the document.</p>
+   * The Amazon S3 location of the document.
+   *
    * @public
    */
   s3Location?: string | undefined;
 
   /**
-   * <p>The unique identifier of the artifact associated with the document.</p>
+   * The unique identifier of the artifact associated with the document.
+   *
    * @public
    */
   artifactId?: string | undefined;
 
   /**
-   * <p>A reference to a document in an integrated third-party provider.</p>
+   * A reference to a document in an integrated third-party provider.
+   *
    * @public
    */
   integratedDocument?: IntegratedDocument | undefined;
 }
 
 /**
- * <p>Represents a target endpoint for penetration testing.</p>
+ * Represents a target endpoint for penetration testing.
+ *
  * @public
  */
 export interface Endpoint {
   /**
-   * <p>The URI of the endpoint.</p>
+   * The URI of the endpoint.
+   *
    * @public
    */
   uri?: string | undefined;
 }
 
 /**
- * <p>Represents a code repository that is integrated with the service through a third-party provider.</p>
+ * Represents a code repository that is integrated with the service through a third-party provider.
+ *
  * @public
  */
 export interface IntegratedRepository {
   /**
-   * <p>The unique identifier of the integration that provides access to the repository.</p>
+   * The unique identifier of the integration that provides access to the repository.
+   *
    * @public
    */
   integrationId: string | undefined;
 
   /**
-   * <p>The provider-specific resource identifier for the repository.</p>
+   * The provider-specific resource identifier for the repository.
+   *
    * @public
    */
   providerResourceId: string | undefined;
 
   /**
-   * <p>An optional override for the repository branch.</p>
+   * An optional override for the repository branch.
+   *
    * @public
    */
   branch?: string | undefined;
 }
 
 /**
- * <p>Represents a source code repository used for security analysis during a pentest.</p>
+ * Represents a source code repository used for security analysis during a pentest.
+ *
  * @public
  */
 export interface SourceCodeRepository {
   /**
-   * <p>The Amazon S3 location of the source code repository archive.</p>
+   * The Amazon S3 location of the source code repository archive.
+   *
    * @public
    */
   s3Location?: string | undefined;
 }
 
 /**
- * <p>The source of a trusted CA certificate. Exactly one member must be set.</p>
+ * The source of a trusted CA certificate. Exactly one member must be set.
+ *
  * @public
  */
 export type CaCertificateSource =
@@ -1089,7 +1251,8 @@ export type CaCertificateSource =
  */
 export namespace CaCertificateSource {
   /**
-   * <p>A PEM-encoded X.509 certificate supplied inline.</p>
+   * A PEM-encoded X.509 certificate supplied inline.
+   *
    * @public
    */
   export interface InlinePemMember {
@@ -1100,7 +1263,8 @@ export namespace CaCertificateSource {
   }
 
   /**
-   * <p>The artifact ID of an uploaded certificate file.</p>
+   * The artifact ID of an uploaded certificate file.
+   *
    * @public
    */
   export interface ArtifactIdMember {
@@ -1111,7 +1275,8 @@ export namespace CaCertificateSource {
   }
 
   /**
-   * <p>The Amazon S3 location URI of a customer-staged certificate.</p>
+   * The Amazon S3 location URI of a customer-staged certificate.
+   *
    * @public
    */
   export interface S3LocationMember {
@@ -1144,306 +1309,357 @@ export namespace CaCertificateSource {
 }
 
 /**
- * <p>A trust anchor used when validating a target endpoint's TLS certificate.</p>
+ * A trust anchor used when validating a target endpoint's TLS certificate.
+ *
  * @public
  */
 export interface TrustedCaCertificate {
   /**
-   * <p>The source that Security Agent reads the certificate from.</p>
+   * The source that Security Agent reads the certificate from.
+   *
    * @public
    */
   source: CaCertificateSource | undefined;
 }
 
 /**
- * <p>The collection of assets used in a pentest configuration, including endpoints, actors, documents, source code repositories, and integrated repositories.</p>
+ * The collection of assets used in a pentest configuration, including endpoints, actors, documents, source code repositories, and integrated repositories.
+ *
  * @public
  */
 export interface Assets {
   /**
-   * <p>The list of endpoints to test during the pentest.</p>
+   * The list of endpoints to test during the pentest.
+   *
    * @public
    */
   endpoints?: Endpoint[] | undefined;
 
   /**
-   * <p>The list of actors used during penetration testing.</p>
+   * The list of actors used during penetration testing.
+   *
    * @public
    */
   actors?: Actor[] | undefined;
 
   /**
-   * <p>The list of documents that provide context for the pentest.</p>
+   * The list of documents that provide context for the pentest.
+   *
    * @public
    */
   documents?: DocumentInfo[] | undefined;
 
   /**
-   * <p>The list of source code repositories to analyze during the pentest.</p>
+   * The list of source code repositories to analyze during the pentest.
+   *
    * @public
    */
   sourceCode?: SourceCodeRepository[] | undefined;
 
   /**
-   * <p>The list of integrated repositories associated with the pentest.</p>
+   * The list of integrated repositories associated with the pentest.
+   *
    * @public
    */
   integratedRepositories?: IntegratedRepository[] | undefined;
 
   /**
-   * <p>The trust anchors used to validate target endpoint TLS certificates. Provide these for endpoints served by a private or internal certificate authority (CA), an intermediate CA, or a self-signed certificate.</p>
+   * The trust anchors used to validate target endpoint TLS certificates. Provide these for endpoints served by a private or internal certificate authority (CA), an intermediate CA, or a self-signed certificate.
+   *
    * @public
    */
   trustedCaCertificates?: TrustedCaCertificate[] | undefined;
 
   /**
-   * <p>The client certificates for mutual TLS (mTLS) authentication to target hosts. Each certificate is stored in Secrets Manager and scoped to specific target origins.</p>
+   * The client certificates for mutual TLS (mTLS) authentication to target hosts. Each certificate is stored in Secrets Manager and scoped to specific target origins.
+   *
    * @public
    */
   clientCertificates?: ClientCertificate[] | undefined;
 }
 
 /**
- * <p>Connection details for an Azure DevOps integration.</p>
+ * Connection details for an Azure DevOps integration.
+ *
  * @public
  */
 export interface AzureDevOpsIntegrationInput {
   /**
-   * <p>The OAuth 2.0 authorization code returned to your redirect URL after the connection is authorized.</p>
+   * The OAuth 2.0 authorization code returned to your redirect URL after the connection is authorized.
+   *
    * @public
    */
   code: string | undefined;
 
   /**
-   * <p>The CSRF state value returned by <code>InitiateProviderRegistration</code> and echoed back on the authorization redirect.</p>
+   * The CSRF state value returned by `InitiateProviderRegistration` and echoed back on the authorization redirect.
+   *
    * @public
    */
   state: string | undefined;
 
   /**
-   * <p>The name of the Azure DevOps organization to connect, for example <code>my-org</code>.</p>
+   * The name of the Azure DevOps organization to connect, for example `my-org`.
+   *
    * @public
    */
   organizationName: string | undefined;
 }
 
 /**
- * <p>Metadata for an integrated Azure DevOps repository.</p>
+ * Metadata for an integrated Azure DevOps repository.
+ *
  * @public
  */
 export interface AzureDevOpsRepositoryMetadata {
   /**
-   * <p>Name of the resource e.g. repository name, etc.</p>
+   * Name of the resource e.g. repository name, etc.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Provider Id of the resource e.g. GitHub repository id, etc.</p>
+   * Provider Id of the resource e.g. GitHub repository id, etc.
+   *
    * @public
    */
   providerResourceId: string | undefined;
 
   /**
-   * <p>The name of the Azure DevOps organization that owns the repository.</p>
+   * The name of the Azure DevOps organization that owns the repository.
+   *
    * @public
    */
   organization: string | undefined;
 
   /**
-   * <p>The name of the Azure DevOps project that contains the repository.</p>
+   * The name of the Azure DevOps project that contains the repository.
+   *
    * @public
    */
   project?: string | undefined;
 
   /**
-   * <p>The GUID of the Azure DevOps project that contains the repository.</p>
+   * The GUID of the Azure DevOps project that contains the repository.
+   *
    * @public
    */
   projectId?: string | undefined;
 
   /**
-   * <p>Defines the visibility level of provider resources. PRIVATE indicates restricted access, while PUBLIC indicates open access.</p>
+   * Defines the visibility level of provider resources. PRIVATE indicates restricted access, while PUBLIC indicates open access.
+   *
    * @public
    */
   accessType?: AccessType | undefined;
 }
 
 /**
- * <p>An Azure DevOps repository integrated as a resource.</p>
+ * An Azure DevOps repository integrated as a resource.
+ *
  * @public
  */
 export interface AzureDevOpsRepositoryResource {
   /**
-   * <p>Name of the resource e.g. repository name, etc.</p>
+   * Name of the resource e.g. repository name, etc.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The name of the Azure DevOps organization that owns the repository.</p>
+   * The name of the Azure DevOps organization that owns the repository.
+   *
    * @public
    */
   organization: string | undefined;
 
   /**
-   * <p>The name of the Azure DevOps project that contains the repository.</p>
+   * The name of the Azure DevOps project that contains the repository.
+   *
    * @public
    */
   project?: string | undefined;
 }
 
 /**
- * <p>A condition on a pull request value.</p>
+ * A condition on a pull request value.
+ *
  * @public
  */
 export interface TriggerFilter {
   /**
-   * <p>The pull request value to match.</p>
+   * The pull request value to match.
+   *
    * @public
    */
   type: TriggerFilterType | undefined;
 
   /**
-   * <p>The regular expressions to match against the value.</p>
+   * The regular expressions to match against the value.
+   *
    * @public
    */
   patterns: string[] | undefined;
 
   /**
-   * <p>Whether the value must match the patterns. The default is <code>INCLUDE</code>.</p>
+   * Whether the value must match the patterns. The default is `INCLUDE`.
+   *
    * @public
    */
   matchMode?: TriggerFilterMatchMode | undefined;
 }
 
 /**
- * <p>A set of conditions that start an automatic code review when they all pass. A filter group must include <code>events</code>, <code>filters</code>, or both.</p>
+ * A set of conditions that start an automatic code review when they all pass. A filter group must include `events`, `filters`, or both.
+ *
  * @public
  */
 export interface TriggerFilterGroup {
   /**
-   * <p>Passes when the pull request event is one of the listed events. If you omit this, the group matches <code>PULL_REQUEST_READY_FOR_REVIEW</code> and <code>PULL_REQUEST_DRAFT</code> events only.</p>
+   * Passes when the pull request event is one of the listed events. If you omit this, the group matches `PULL_REQUEST_READY_FOR_REVIEW` and `PULL_REQUEST_DRAFT` events only.
+   *
    * @public
    */
   events?: TriggerEvent[] | undefined;
 
   /**
-   * <p>Passes when every filter passes. If you omit this, the group matches its events on any target branch and with any labels.</p>
+   * Passes when every filter passes. If you omit this, the group matches its events on any target branch and with any labels.
+   *
    * @public
    */
   filters?: TriggerFilter[] | undefined;
 }
 
 /**
- * <p>Capabilities for an integrated Azure DevOps repository.</p>
+ * Capabilities for an integrated Azure DevOps repository.
+ *
  * @public
  */
 export interface AzureDevOpsResourceCapabilities {
   /**
-   * <p>The filter groups that control which pull request events start an automatic code review when <code>leaveComments</code> is enabled. A review starts when any group matches. If you omit this, a review starts on <code>PULL_REQUEST_READY_FOR_REVIEW</code> events.</p>
+   * The filter groups that control which pull request events start an automatic code review when `leaveComments` is enabled. A review starts when any group matches. If you omit this, a review starts on `PULL_REQUEST_READY_FOR_REVIEW` events.
+   *
    * @public
    */
   triggerFilterGroups?: TriggerFilterGroup[] | undefined;
 
   /**
-   * <p>Whether to post code review comments on pull requests.</p>
+   * Whether to post code review comments on pull requests.
+   *
    * @public
    */
   leaveComments?: boolean | undefined;
 
   /**
-   * <p>Whether to create pull requests with automated fixes.</p>
+   * Whether to create pull requests with automated fixes.
+   *
    * @public
    */
   remediateCode?: boolean | undefined;
 }
 
 /**
- * <p>Contains information about a successfully created security requirement.</p>
+ * Contains information about a successfully created security requirement.
+ *
  * @public
  */
 export interface BatchCreateSecurityRequirementResult {
   /**
-   * <p>The unique identifier of the pack containing the security requirement.</p>
+   * The unique identifier of the pack containing the security requirement.
+   *
    * @public
    */
   packId: string | undefined;
 
   /**
-   * <p>The name of the security requirement.</p>
+   * The name of the security requirement.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description of the security requirement.</p>
+   * A description of the security requirement.
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p>The security domain the requirement belongs to.</p>
+   * The security domain the requirement belongs to.
+   *
    * @public
    */
   domain: string | undefined;
 
   /**
-   * <p>The evaluation criteria used to assess compliance with this requirement.</p>
+   * The evaluation criteria used to assess compliance with this requirement.
+   *
    * @public
    */
   evaluation: string | undefined;
 
   /**
-   * <p>The recommended remediation steps when the requirement is not met.</p>
+   * The recommended remediation steps when the requirement is not met.
+   *
    * @public
    */
   remediation?: string | undefined;
 
   /**
-   * <p>The date and time the security requirement was created, in UTC format.</p>
+   * The date and time the security requirement was created, in UTC format.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The date and time the security requirement was last updated, in UTC format.</p>
+   * The date and time the security requirement was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 }
 
 /**
- * <p>Contains the details for a security requirement to create within a pack.</p>
+ * Contains the details for a security requirement to create within a pack.
+ *
  * @public
  */
 export interface CreateSecurityRequirementEntry {
   /**
-   * <p>The name of the security requirement.</p>
+   * The name of the security requirement.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description of the security requirement.</p>
+   * A description of the security requirement.
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p>The security domain the requirement belongs to.</p>
+   * The security domain the requirement belongs to.
+   *
    * @public
    */
   domain: string | undefined;
 
   /**
-   * <p>The evaluation criteria used to assess compliance with this requirement.</p>
+   * The evaluation criteria used to assess compliance with this requirement.
+   *
    * @public
    */
   evaluation: string | undefined;
 
   /**
-   * <p>The recommended remediation steps when the requirement is not met.</p>
+   * The recommended remediation steps when the requirement is not met.
+   *
    * @public
    */
   remediation?: string | undefined;
@@ -1454,37 +1670,43 @@ export interface CreateSecurityRequirementEntry {
  */
 export interface BatchCreateSecurityRequirementsInput {
   /**
-   * <p>The unique identifier of the security requirement pack to add requirements to.</p>
+   * The unique identifier of the security requirement pack to add requirements to.
+   *
    * @public
    */
   packId: string | undefined;
 
   /**
-   * <p>The list of security requirements to create.</p>
+   * The list of security requirements to create.
+   *
    * @public
    */
   securityRequirements: CreateSecurityRequirementEntry[] | undefined;
 }
 
 /**
- * <p>Contains information about an error that occurred for a specific security requirement during a batch operation.</p>
+ * Contains information about an error that occurred for a specific security requirement during a batch operation.
+ *
  * @public
  */
 export interface BatchSecurityRequirementError {
   /**
-   * <p>The name of the security requirement that caused the error.</p>
+   * The name of the security requirement that caused the error.
+   *
    * @public
    */
   securityRequirementName: string | undefined;
 
   /**
-   * <p>The error code.</p>
+   * The error code.
+   *
    * @public
    */
   code: string | undefined;
 
   /**
-   * <p>The error message.</p>
+   * The error message.
+   *
    * @public
    */
   message: string | undefined;
@@ -1495,427 +1717,498 @@ export interface BatchSecurityRequirementError {
  */
 export interface BatchCreateSecurityRequirementsOutput {
   /**
-   * <p>The list of security requirements that were successfully created.</p>
+   * The list of security requirements that were successfully created.
+   *
    * @public
    */
   securityRequirements: BatchCreateSecurityRequirementResult[] | undefined;
 
   /**
-   * <p>The list of errors for security requirements that failed to be created.</p>
+   * The list of errors for security requirements that failed to be created.
+   *
    * @public
    */
   errors: BatchSecurityRequirementError[] | undefined;
 }
 
 /**
- * <p>Input for deleting multiple code reviews.</p>
+ * Input for deleting multiple code reviews.
+ *
  * @public
  */
 export interface BatchDeleteCodeReviewsInput {
   /**
-   * <p>The list of code review identifiers to delete.</p>
+   * The list of code review identifiers to delete.
+   *
    * @public
    */
   codeReviewIds: string[] | undefined;
 
   /**
-   * <p>The unique identifier of the agent space that contains the code reviews to delete.</p>
+   * The unique identifier of the agent space that contains the code reviews to delete.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 }
 
 /**
- * <p>Contains information about a code review that failed to delete.</p>
+ * Contains information about a code review that failed to delete.
+ *
  * @public
  */
 export interface DeleteCodeReviewFailure {
   /**
-   * <p>The unique identifier of the code review that failed to delete.</p>
+   * The unique identifier of the code review that failed to delete.
+   *
    * @public
    */
   codeReviewId?: string | undefined;
 
   /**
-   * <p>The reason the code review failed to delete.</p>
+   * The reason the code review failed to delete.
+   *
    * @public
    */
   reason?: string | undefined;
 }
 
 /**
- * <p>Output for the BatchDeleteCodeReviews operation.</p>
+ * Output for the BatchDeleteCodeReviews operation.
+ *
  * @public
  */
 export interface BatchDeleteCodeReviewsOutput {
   /**
-   * <p>The list of identifiers of the code reviews that were successfully deleted.</p>
+   * The list of identifiers of the code reviews that were successfully deleted.
+   *
    * @public
    */
   deleted?: string[] | undefined;
 
   /**
-   * <p>The list of code reviews that failed to delete, including the reason for each failure.</p>
+   * The list of code reviews that failed to delete, including the reason for each failure.
+   *
    * @public
    */
   failed?: DeleteCodeReviewFailure[] | undefined;
 }
 
 /**
- * <p>Input for deleting multiple pentests.</p>
+ * Input for deleting multiple pentests.
+ *
  * @public
  */
 export interface BatchDeletePentestsInput {
   /**
-   * <p>The list of pentest identifiers to delete.</p>
+   * The list of pentest identifiers to delete.
+   *
    * @public
    */
   pentestIds: string[] | undefined;
 
   /**
-   * <p>The unique identifier of the agent space that contains the pentests to delete.</p>
+   * The unique identifier of the agent space that contains the pentests to delete.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 }
 
 /**
- * <p>The configuration that enables a pentest to run as part of a CI/CD pipeline, scoped to the code changes in each pipeline run.</p>
+ * The configuration that enables a pentest to run as part of a CI/CD pipeline, scoped to the code changes in each pipeline run.
+ *
  * @public
  */
 export interface CiCdConfiguration {
   /**
-   * <p>Whether CI/CD pentesting is enabled for this pentest.</p>
+   * Whether CI/CD pentesting is enabled for this pentest.
+   *
    * @public
    */
   enabled?: boolean | undefined;
 }
 
 /**
- * <p>The Amazon CloudWatch Logs configuration for pentest job logging.</p>
+ * The Amazon CloudWatch Logs configuration for pentest job logging.
+ *
  * @public
  */
 export interface CloudWatchLog {
   /**
-   * <p>The name of the CloudWatch log group.</p>
+   * The name of the CloudWatch log group.
+   *
    * @public
    */
   logGroup?: string | undefined;
 
   /**
-   * <p>The name of the CloudWatch log stream.</p>
+   * The name of the CloudWatch log stream.
+   *
    * @public
    */
   logStream?: string | undefined;
 }
 
 /**
- * <p>A custom HTTP header to include in network traffic during penetration testing.</p>
+ * A custom HTTP header to include in network traffic during penetration testing.
+ *
  * @public
  */
 export interface CustomHeader {
   /**
-   * <p>The name of the custom header.</p>
+   * The name of the custom header.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The value of the custom header.</p>
+   * The value of the custom header.
+   *
    * @public
    */
   value?: string | undefined;
 }
 
 /**
- * <p>A rule that controls network traffic during penetration testing by allowing or denying traffic to specific URL patterns.</p>
+ * A rule that controls network traffic during penetration testing by allowing or denying traffic to specific URL patterns.
+ *
  * @public
  */
 export interface NetworkTrafficRule {
   /**
-   * <p>The effect of the rule. Valid values are ALLOW and DENY.</p>
+   * The effect of the rule. Valid values are ALLOW and DENY.
+   *
    * @public
    */
   effect?: NetworkTrafficRuleEffect | undefined;
 
   /**
-   * <p>The URL pattern to match for the rule.</p>
+   * The URL pattern to match for the rule.
+   *
    * @public
    */
   pattern?: string | undefined;
 
   /**
-   * <p>The type of the network traffic rule. Currently, only URL is supported.</p>
+   * The type of the network traffic rule. Currently, only URL is supported.
+   *
    * @public
    */
   networkTrafficRuleType?: NetworkTrafficRuleType | undefined;
 }
 
 /**
- * <p>The network traffic configuration for a pentest, including custom headers and traffic rules.</p>
+ * The network traffic configuration for a pentest, including custom headers and traffic rules.
+ *
  * @public
  */
 export interface NetworkTrafficConfig {
   /**
-   * <p>The list of network traffic rules that control which URLs are allowed or denied during testing.</p>
+   * The list of network traffic rules that control which URLs are allowed or denied during testing.
+   *
    * @public
    */
   rules?: NetworkTrafficRule[] | undefined;
 
   /**
-   * <p>The list of custom HTTP headers to include in network traffic during testing.</p>
+   * The list of custom HTTP headers to include in network traffic during testing.
+   *
    * @public
    */
   customHeaders?: CustomHeader[] | undefined;
 }
 
 /**
- * <p>Destination for publishing scan reports to an integrated document provider.</p>
+ * Destination for publishing scan reports to an integrated document provider.
+ *
  * @public
  */
 export interface ReportDestination {
   /**
-   * <p>The integration identifier for the document provider.</p>
+   * The integration identifier for the document provider.
+   *
    * @public
    */
   integrationId: string | undefined;
 
   /**
-   * <p>The container identifier where the report will be published.</p>
+   * The container identifier where the report will be published.
+   *
    * @public
    */
   containerId: string | undefined;
 
   /**
-   * <p>The parent document identifier under which the report will be created.</p>
+   * The parent document identifier under which the report will be created.
+   *
    * @public
    */
   parentId?: string | undefined;
 
   /**
-   * <p>The existing document identifier to update instead of creating a new document.</p>
+   * The existing document identifier to update instead of creating a new document.
+   *
    * @public
    */
   documentId?: string | undefined;
 }
 
 /**
- * <p>The report-generation filters applied when a pentest or code review report is exported.</p>
+ * The report-generation filters applied when a pentest or code review report is exported.
+ *
  * @public
  */
 export interface ReportFilters {
   /**
-   * <p>The severity levels to include in the report.</p>
+   * The severity levels to include in the report.
+   *
    * @public
    */
   riskLevels?: RiskLevel[] | undefined;
 
   /**
-   * <p>The confidence levels to include in the report.</p>
+   * The confidence levels to include in the report.
+   *
    * @public
    */
   confidenceLevels?: ConfidenceLevel[] | undefined;
 
   /**
-   * <p>The finding statuses to include in the report.</p>
+   * The finding statuses to include in the report.
+   *
    * @public
    */
   statuses?: FindingStatus[] | undefined;
 
   /**
-   * <p>The risk types to include in the report.</p>
+   * The risk types to include in the report.
+   *
    * @public
    */
   riskTypes?: RiskType[] | undefined;
 
   /**
-   * <p>The finding types to include in the report.</p>
+   * The finding types to include in the report.
+   *
    * @public
    */
   findingTypes?: string[] | undefined;
 
   /**
-   * <p>The task execution statuses to include in the report's task table.</p>
+   * The task execution statuses to include in the report's task table.
+   *
    * @public
    */
   taskStatuses?: TaskExecutionStatus[] | undefined;
 
   /**
-   * <p>Whether to include reviewer annotation notes under each finding.</p>
+   * Whether to include reviewer annotation notes under each finding.
+   *
    * @public
    */
   annotationNotes?: boolean | undefined;
 
   /**
-   * <p>Whether to include the compliance-ready report additions.</p>
+   * Whether to include the compliance-ready report additions.
+   *
    * @public
    */
   complianceReport?: boolean | undefined;
 }
 
 /**
- * <p>The category of application a pentest targets.</p>
+ * The category of application a pentest targets.
+ *
  * @public
  */
 export interface TestScope {
   /**
-   * <p>The category of application under test.</p>
+   * The category of application under test.
+   *
    * @public
    */
   type: TestScopeType | undefined;
 }
 
 /**
- * <p>Represents a pentest configuration that defines the parameters for security testing, including target assets, risk type exclusions, and infrastructure settings.</p>
+ * Represents a pentest configuration that defines the parameters for security testing, including target assets, risk type exclusions, and infrastructure settings.
+ *
  * @public
  */
 export interface Pentest {
   /**
-   * <p>The unique identifier of the pentest.</p>
+   * The unique identifier of the pentest.
+   *
    * @public
    */
   pentestId: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space that contains the pentest.</p>
+   * The unique identifier of the agent space that contains the pentest.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The title of the pentest.</p>
+   * The title of the pentest.
+   *
    * @public
    */
   title: string | undefined;
 
   /**
-   * <p>The assets included in the pentest.</p>
+   * The assets included in the pentest.
+   *
    * @public
    */
   assets: Assets | undefined;
 
   /**
-   * <p>The list of risk types excluded from the pentest.</p>
+   * The list of risk types excluded from the pentest.
+   *
    * @public
    */
   excludeRiskTypes?: RiskType[] | undefined;
 
   /**
-   * <p>The IAM service role used for the pentest.</p>
+   * The IAM service role used for the pentest.
+   *
    * @public
    */
   serviceRole?: string | undefined;
 
   /**
-   * <p>The CloudWatch Logs configuration for the pentest.</p>
+   * The CloudWatch Logs configuration for the pentest.
+   *
    * @public
    */
   logConfig?: CloudWatchLog | undefined;
 
   /**
-   * <p>The VPC configuration for the pentest.</p>
+   * The VPC configuration for the pentest.
+   *
    * @public
    */
   vpcConfig?: VpcConfig | undefined;
 
   /**
-   * <p>The network traffic configuration for the pentest.</p>
+   * The network traffic configuration for the pentest.
+   *
    * @public
    */
   networkTrafficConfig?: NetworkTrafficConfig | undefined;
 
   /**
-   * <p>The code remediation strategy for the pentest.</p>
+   * The code remediation strategy for the pentest.
+   *
    * @public
    */
   codeRemediationStrategy?: CodeRemediationStrategy | undefined;
 
   /**
-   * <p>Strategy for cleaning up resources after pentest job completion.</p>
+   * Strategy for cleaning up resources after pentest job completion.
+   *
    * @public
    */
   cleanUpStrategy?: CleanUpStrategy | undefined;
 
   /**
-   * <p>A list of managed skills to disable for this pentest. Valid values include FINDING_PERSONALIZATION and LOGIN_OPTIMIZATION.</p>
+   * A list of managed skills to disable for this pentest. Valid values include FINDING_PERSONALIZATION and LOGIN_OPTIMIZATION.
+   *
    * @public
    */
   disableManagedSkills?: SkillType[] | undefined;
 
   /**
-   * <p>The maximum number of billable task hours allowed for jobs started from this pentest. If a job reaches the configured limit, it is gracefully stopped. If not set, jobs run to completion with no budget cap.</p>
+   * The maximum number of billable task hours allowed for jobs started from this pentest. If a job reaches the configured limit, it is gracefully stopped. If not set, jobs run to completion with no budget cap.
+   *
    * @public
    */
   maxTaskHours?: number | undefined;
 
   /**
-   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * The destination for publishing scan reports to an integrated document provider.
+   *
    * @public
    */
   reportDestination?: ReportDestination | undefined;
 
   /**
-   * <p>The report-generation filters applied when the report is exported.</p>
+   * The report-generation filters applied when the report is exported.
+   *
    * @public
    */
   reportFilters?: ReportFilters | undefined;
 
   /**
-   * <p>The CI/CD pentesting configuration for this pentest. Present when the pentest is set up to run from a CI/CD pipeline.</p>
+   * The CI/CD pentesting configuration for this pentest. Present when the pentest is set up to run from a CI/CD pipeline.
+   *
    * @public
    */
   cicdConfiguration?: CiCdConfiguration | undefined;
 
   /**
-   * <p>The category of application a pentest targets.</p>
+   * The category of application a pentest targets.
+   *
    * @public
    */
   testScope?: TestScope | undefined;
 
   /**
-   * <p>The date and time the pentest was created, in UTC format.</p>
+   * The date and time the pentest was created, in UTC format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time the pentest was last updated, in UTC format.</p>
+   * The date and time the pentest was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * <p>Contains information about a pentest that failed to delete.</p>
+ * Contains information about a pentest that failed to delete.
+ *
  * @public
  */
 export interface DeletePentestFailure {
   /**
-   * <p>The unique identifier of the pentest that failed to delete.</p>
+   * The unique identifier of the pentest that failed to delete.
+   *
    * @public
    */
   pentestId?: string | undefined;
 
   /**
-   * <p>The reason the pentest failed to delete.</p>
+   * The reason the pentest failed to delete.
+   *
    * @public
    */
   reason?: string | undefined;
 }
 
 /**
- * <p>Output for the BatchDeletePentests operation.</p>
+ * Output for the BatchDeletePentests operation.
+ *
  * @public
  */
 export interface BatchDeletePentestsOutput {
   /**
-   * <p>The list of pentests that were successfully deleted.</p>
+   * The list of pentests that were successfully deleted.
+   *
    * @public
    */
   deleted?: Pentest[] | undefined;
 
   /**
-   * <p>The list of pentests that failed to delete, including the reason for each failure.</p>
+   * The list of pentests that failed to delete, including the reason for each failure.
+   *
    * @public
    */
   failed?: DeletePentestFailure[] | undefined;
@@ -1926,13 +2219,15 @@ export interface BatchDeletePentestsOutput {
  */
 export interface BatchDeleteSecurityRequirementsInput {
   /**
-   * <p>The unique identifier of the security requirement pack to remove requirements from.</p>
+   * The unique identifier of the security requirement pack to remove requirements from.
+   *
    * @public
    */
   packId: string | undefined;
 
   /**
-   * <p>The list of security requirement names to delete.</p>
+   * The list of security requirement names to delete.
+   *
    * @public
    */
   securityRequirementNames: string[] | undefined;
@@ -1943,295 +2238,344 @@ export interface BatchDeleteSecurityRequirementsInput {
  */
 export interface BatchDeleteSecurityRequirementsOutput {
   /**
-   * <p>The list of security requirement names that were successfully deleted.</p>
+   * The list of security requirement names that were successfully deleted.
+   *
    * @public
    */
   deletedSecurityRequirementNames: string[] | undefined;
 
   /**
-   * <p>The list of errors for security requirements that failed to be deleted.</p>
+   * The list of errors for security requirements that failed to be deleted.
+   *
    * @public
    */
   errors: BatchSecurityRequirementError[] | undefined;
 }
 
 /**
- * <p>Input for deleting multiple threat models.</p>
+ * Input for deleting multiple threat models.
+ *
  * @public
  */
 export interface BatchDeleteThreatModelsInput {
   /**
-   * <p>The list of threat model identifiers to delete.</p>
+   * The list of threat model identifiers to delete.
+   *
    * @public
    */
   threatModelIds: string[] | undefined;
 
   /**
-   * <p>The unique identifier of the agent space that contains the threat models to delete.</p>
+   * The unique identifier of the agent space that contains the threat models to delete.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 }
 
 /**
- * <p>Contains information about a threat model that failed to delete.</p>
+ * Contains information about a threat model that failed to delete.
+ *
  * @public
  */
 export interface DeleteThreatModelFailure {
   /**
-   * <p>The unique identifier of the threat model that failed to delete.</p>
+   * The unique identifier of the threat model that failed to delete.
+   *
    * @public
    */
   threatModelId?: string | undefined;
 
   /**
-   * <p>The reason the threat model failed to delete.</p>
+   * The reason the threat model failed to delete.
+   *
    * @public
    */
   reason?: string | undefined;
 }
 
 /**
- * <p>Output for the BatchDeleteThreatModels operation.</p>
+ * Output for the BatchDeleteThreatModels operation.
+ *
  * @public
  */
 export interface BatchDeleteThreatModelsOutput {
   /**
-   * <p>The list of threat model identifiers that were successfully deleted.</p>
+   * The list of threat model identifiers that were successfully deleted.
+   *
    * @public
    */
   deleted?: string[] | undefined;
 
   /**
-   * <p>The list of threat models that failed to delete, including the reason for each failure.</p>
+   * The list of threat models that failed to delete, including the reason for each failure.
+   *
    * @public
    */
   failed?: DeleteThreatModelFailure[] | undefined;
 }
 
 /**
- * <p>The input for the BatchDisassociateFindingIssue operation.</p>
+ * The input for the BatchDisassociateFindingIssue operation.
+ *
  * @public
  */
 export interface BatchDisassociateFindingIssueInput {
   /**
-   * <p>The identifier of the agent space where the job exists.</p>
+   * The identifier of the agent space where the job exists.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The identifier of the penetration test job. This parameter is mutually exclusive with <code>codeReviewJobId</code>.</p>
+   * The identifier of the penetration test job. This parameter is mutually exclusive with `codeReviewJobId`.
+   *
    * @public
    */
   pentestJobId?: string | undefined;
 
   /**
-   * <p>The identifier of the code review job. This parameter is mutually exclusive with <code>pentestJobId</code>.</p>
+   * The identifier of the code review job. This parameter is mutually exclusive with `pentestJobId`.
+   *
    * @public
    */
   codeReviewJobId?: string | undefined;
 
   /**
-   * <p>The identifiers of the findings to disassociate from their issues. Each must belong to the specified job.</p>
+   * The identifiers of the findings to disassociate from their issues. Each must belong to the specified job.
+   *
    * @public
    */
   findingIds: string[] | undefined;
 }
 
 /**
- * <p>A finding that failed to disassociate, with the cause of the failure.</p>
+ * A finding that failed to disassociate, with the cause of the failure.
+ *
  * @public
  */
 export interface BatchDisassociateFindingIssueError {
   /**
-   * <p>The identifier of the finding that failed to disassociate.</p>
+   * The identifier of the finding that failed to disassociate.
+   *
    * @public
    */
   findingId: string | undefined;
 
   /**
-   * <p>The machine-readable failure category.</p>
+   * The machine-readable failure category.
+   *
    * @public
    */
   code: ErrorCode | undefined;
 
   /**
-   * <p>A customer-facing explanation of the failure.</p>
+   * A customer-facing explanation of the failure.
+   *
    * @public
    */
   message: string | undefined;
 }
 
 /**
- * <p>The output for the BatchDisassociateFindingIssue operation.</p>
+ * The output for the BatchDisassociateFindingIssue operation.
+ *
  * @public
  */
 export interface BatchDisassociateFindingIssueOutput {
   /**
-   * <p>The findings whose issue could not be disassociated.</p>
+   * The findings whose issue could not be disassociated.
+   *
    * @public
    */
   errors: BatchDisassociateFindingIssueError[] | undefined;
 }
 
 /**
- * <p>A finding whose issue could not be created, with the cause of the failure.</p>
+ * A finding whose issue could not be created, with the cause of the failure.
+ *
  * @public
  */
 export interface BatchExportFindingError {
   /**
-   * <p>The identifier of the finding this error corresponds to.</p>
+   * The identifier of the finding this error corresponds to.
+   *
    * @public
    */
   findingId: string | undefined;
 
   /**
-   * <p>The machine-readable failure category.</p>
+   * The machine-readable failure category.
+   *
    * @public
    */
   code: ErrorCode | undefined;
 
   /**
-   * <p>A customer-facing explanation of why the issue could not be created.</p>
+   * A customer-facing explanation of why the issue could not be created.
+   *
    * @public
    */
   message: string | undefined;
 }
 
 /**
- * <p>A reference to an issue created for a finding in a third-party issue tracker.</p>
+ * A reference to an issue created for a finding in a third-party issue tracker.
+ *
  * @public
  */
 export interface LinkedIssue {
   /**
-   * <p>The issue-tracker provider.</p>
+   * The issue-tracker provider.
+   *
    * @public
    */
   provider?: Provider | undefined;
 
   /**
-   * <p>The integration identifier for the issue-tracker provider.</p>
+   * The integration identifier for the issue-tracker provider.
+   *
    * @public
    */
   integrationId?: string | undefined;
 
   /**
-   * <p>The key of the project the issue belongs to.</p>
+   * The key of the project the issue belongs to.
+   *
    * @public
    */
   projectKey?: string | undefined;
 
   /**
-   * <p>The issue key.</p>
+   * The issue key.
+   *
    * @public
    */
   issueKey?: string | undefined;
 
   /**
-   * <p>The stable numeric issue identifier.</p>
+   * The stable numeric issue identifier.
+   *
    * @public
    */
   issueId?: string | undefined;
 
   /**
-   * <p>The issue URL.</p>
+   * The issue URL.
+   *
    * @public
    */
   issueUrl?: string | undefined;
 
   /**
-   * <p>The Atlassian Cloud site URL.</p>
+   * The Atlassian Cloud site URL.
+   *
    * @public
    */
   siteUrl?: string | undefined;
 }
 
 /**
- * <p>A finding whose issue was created.</p>
+ * A finding whose issue was created.
+ *
  * @public
  */
 export interface BatchExportFindingResult {
   /**
-   * <p>The identifier of the finding this result corresponds to.</p>
+   * The identifier of the finding this result corresponds to.
+   *
    * @public
    */
   findingId: string | undefined;
 
   /**
-   * <p>The issue that was created for the finding.</p>
+   * The issue that was created for the finding.
+   *
    * @public
    */
   linkedIssue: LinkedIssue | undefined;
 }
 
 /**
- * <p>The destination for filing findings as issues in an integrated issue tracker.</p>
+ * The destination for filing findings as issues in an integrated issue tracker.
+ *
  * @public
  */
 export interface IssueDestination {
   /**
-   * <p>The integration identifier for the issue-tracker provider.</p>
+   * The integration identifier for the issue-tracker provider.
+   *
    * @public
    */
   integrationId: string | undefined;
 
   /**
-   * <p>The identifier of the project the issues are filed under.</p>
+   * The identifier of the project the issues are filed under.
+   *
    * @public
    */
   projectKey: string | undefined;
 }
 
 /**
- * <p>The input for the BatchExportFindings operation.</p>
+ * The input for the BatchExportFindings operation.
+ *
  * @public
  */
 export interface BatchExportFindingsInput {
   /**
-   * <p>The identifier of the agent space where the job exists.</p>
+   * The identifier of the agent space where the job exists.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The identifier of the penetration test job. This parameter is mutually exclusive with <code>codeReviewJobId</code>.</p>
+   * The identifier of the penetration test job. This parameter is mutually exclusive with `codeReviewJobId`.
+   *
    * @public
    */
   pentestJobId?: string | undefined;
 
   /**
-   * <p>The identifier of the code review job. This parameter is mutually exclusive with <code>pentestJobId</code>.</p>
+   * The identifier of the code review job. This parameter is mutually exclusive with `pentestJobId`.
+   *
    * @public
    */
   codeReviewJobId?: string | undefined;
 
   /**
-   * <p>The destination issue-tracker project the findings are exported to. Must be a connected capability of the agent space.</p>
+   * The destination issue-tracker project the findings are exported to. Must be a connected capability of the agent space.
+   *
    * @public
    */
   issueDestination: IssueDestination | undefined;
 
   /**
-   * <p>The identifiers of the findings to export. Each must belong to the specified job.</p>
+   * The identifiers of the findings to export. Each must belong to the specified job.
+   *
    * @public
    */
   findingIds: string[] | undefined;
 }
 
 /**
- * <p>The output for the BatchExportFindings operation.</p>
+ * The output for the BatchExportFindings operation.
+ *
  * @public
  */
 export interface BatchExportFindingsOutput {
   /**
-   * <p>The findings whose issue was created, each with its linked issue.</p>
+   * The findings whose issue was created, each with its linked issue.
+   *
    * @public
    */
   results: BatchExportFindingResult[] | undefined;
 
   /**
-   * <p>The findings whose issue could not be created, each with a customer-facing reason.</p>
+   * The findings whose issue could not be created, each with a customer-facing reason.
+   *
    * @public
    */
   errors: BatchExportFindingError[] | undefined;
@@ -2242,13 +2586,15 @@ export interface BatchExportFindingsOutput {
  */
 export interface BatchGetArtifactMetadataInput {
   /**
-   * <p>The unique identifier of the agent space that contains the artifacts.</p>
+   * The unique identifier of the agent space that contains the artifacts.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The list of artifact identifiers to retrieve metadata for.</p>
+   * The list of artifact identifiers to retrieve metadata for.
+   *
    * @public
    */
   artifactIds: string[] | undefined;
@@ -2259,1369 +2605,1597 @@ export interface BatchGetArtifactMetadataInput {
  */
 export interface BatchGetArtifactMetadataOutput {
   /**
-   * <p>The list of artifact metadata items that were found.</p>
+   * The list of artifact metadata items that were found.
+   *
    * @public
    */
   artifactMetadataList: ArtifactMetadataItem[] | undefined;
 }
 
 /**
- * <p>Input for BatchGetCodeReviewJobs operation.</p>
+ * Input for BatchGetCodeReviewJobs operation.
+ *
  * @public
  */
 export interface BatchGetCodeReviewJobsInput {
   /**
-   * <p>The list of code review job identifiers to retrieve.</p>
+   * The list of code review job identifiers to retrieve.
+   *
    * @public
    */
   codeReviewJobIds: string[] | undefined;
 
   /**
-   * <p>The unique identifier of the agent space that contains the code review jobs.</p>
+   * The unique identifier of the agent space that contains the code review jobs.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 }
 
 /**
- * <p>Contains error information for a pentest job that encountered an error.</p>
+ * Contains error information for a pentest job that encountered an error.
+ *
  * @public
  */
 export interface ErrorInformation {
   /**
-   * <p>The error code. Valid values include CLIENT_ERROR, INTERNAL_ERROR, and STOPPED_BY_USER.</p>
+   * The error code. Valid values include CLIENT_ERROR, INTERNAL_ERROR, and STOPPED_BY_USER.
+   *
    * @public
    */
   code?: ErrorCode | undefined;
 
   /**
-   * <p>A message describing the error.</p>
+   * A message describing the error.
+   *
    * @public
    */
   message?: string | undefined;
 }
 
 /**
- * <p>Contains contextual information about the execution of a pentest job, such as errors, warnings, or informational messages.</p>
+ * Contains contextual information about the execution of a pentest job, such as errors, warnings, or informational messages.
+ *
  * @public
  */
 export interface ExecutionContext {
   /**
-   * <p>The type of context. Valid values include ERROR, CLIENT_ERROR, WARNING, and INFO.</p>
+   * The type of context. Valid values include ERROR, CLIENT_ERROR, WARNING, and INFO.
+   *
    * @public
    */
   contextType?: ContextType | undefined;
 
   /**
-   * <p>The context message.</p>
+   * The context message.
+   *
    * @public
    */
   context?: string | undefined;
 
   /**
-   * <p>The date and time the context was recorded, in UTC format.</p>
+   * The date and time the context was recorded, in UTC format.
+   *
    * @public
    */
   timestamp?: Date | undefined;
 }
 
 /**
- * <p>Represents a step in the pentest job execution pipeline. Steps include preflight, static analysis, pentest, and finalizing.</p>
+ * Represents a step in the pentest job execution pipeline. Steps include preflight, static analysis, pentest, and finalizing.
+ *
  * @public
  */
 export interface Step {
   /**
-   * <p>The name of the step. Valid values include PREFLIGHT, STATIC_ANALYSIS, PENTEST, VALIDATION, and FINALIZING.</p>
+   * The name of the step. Valid values include PREFLIGHT, STATIC_ANALYSIS, PENTEST, VALIDATION, and FINALIZING.
+   *
    * @public
    */
   name?: StepName | undefined;
 
   /**
-   * <p>The current status of the step.</p>
+   * The current status of the step.
+   *
    * @public
    */
   status?: StepStatus | undefined;
 
   /**
-   * <p>The date and time the step was created, in UTC format.</p>
+   * The date and time the step was created, in UTC format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time the step was last updated, in UTC format.</p>
+   * The date and time the step was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * <p>Represents a code review job, which is an execution instance of a code review. A code review job progresses through preflight, static analysis, and finalizing steps.</p>
+ * Represents a code review job, which is an execution instance of a code review. A code review job progresses through preflight, static analysis, and finalizing steps.
+ *
  * @public
  */
 export interface CodeReviewJob {
   /**
-   * <p>The unique identifier of the code review job.</p>
+   * The unique identifier of the code review job.
+   *
    * @public
    */
   codeReviewJobId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the code review associated with the job.</p>
+   * The unique identifier of the code review associated with the job.
+   *
    * @public
    */
   codeReviewId?: string | undefined;
 
   /**
-   * <p>The title of the code review job.</p>
+   * The title of the code review job.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>An overview of the code review job results.</p>
+   * An overview of the code review job results.
+   *
    * @public
    */
   overview?: string | undefined;
 
   /**
-   * <p>The current status of the code review job.</p>
+   * The current status of the code review job.
+   *
    * @public
    */
   status?: JobStatus | undefined;
 
   /**
-   * <p>The list of documents providing context for the code review job.</p>
+   * The list of documents providing context for the code review job.
+   *
    * @public
    */
   documents?: DocumentInfo[] | undefined;
 
   /**
-   * <p>The list of source code repositories analyzed during the code review job.</p>
+   * The list of source code repositories analyzed during the code review job.
+   *
    * @public
    */
   sourceCode?: SourceCodeRepository[] | undefined;
 
   /**
-   * <p>The list of steps in the code review job execution.</p>
+   * The list of steps in the code review job execution.
+   *
    * @public
    */
   steps?: Step[] | undefined;
 
   /**
-   * <p>The execution context messages for the code review job.</p>
+   * The execution context messages for the code review job.
+   *
    * @public
    */
   executionContext?: ExecutionContext[] | undefined;
 
   /**
-   * <p>The IAM service role used for the code review job.</p>
+   * The IAM service role used for the code review job.
+   *
    * @public
    */
   serviceRole?: string | undefined;
 
   /**
-   * <p>The CloudWatch Logs configuration for the code review job.</p>
+   * The CloudWatch Logs configuration for the code review job.
+   *
    * @public
    */
   logConfig?: CloudWatchLog | undefined;
 
   /**
-   * <p>Error information if the code review job encountered an error.</p>
+   * Error information if the code review job encountered an error.
+   *
    * @public
    */
   errorInformation?: ErrorInformation | undefined;
 
   /**
-   * <p>The list of integrated repositories associated with the code review job.</p>
+   * The list of integrated repositories associated with the code review job.
+   *
    * @public
    */
   integratedRepositories?: IntegratedRepository[] | undefined;
 
   /**
-   * <p>The code remediation strategy for the code review job.</p>
+   * The code remediation strategy for the code review job.
+   *
    * @public
    */
   codeRemediationStrategy?: CodeRemediationStrategy | undefined;
 
   /**
-   * <p>The maximum number of billable task hours allowed for this code review job. If the cumulative task hours reach this limit, the job is gracefully stopped.</p>
+   * The maximum number of billable task hours allowed for this code review job. If the cumulative task hours reach this limit, the job is gracefully stopped.
+   *
    * @public
    */
   maxTaskHours?: number | undefined;
 
   /**
-   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * The destination for publishing scan reports to an integrated document provider.
+   *
    * @public
    */
   reportDestination?: ReportDestination | undefined;
 
   /**
-   * <p>The date and time the code review job was created, in UTC format.</p>
+   * The date and time the code review job was created, in UTC format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time the code review job was last updated, in UTC format.</p>
+   * The date and time the code review job was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * <p>Output for the BatchGetCodeReviewJobs operation.</p>
+ * Output for the BatchGetCodeReviewJobs operation.
+ *
  * @public
  */
 export interface BatchGetCodeReviewJobsOutput {
   /**
-   * <p>The list of code review jobs that were found.</p>
+   * The list of code review jobs that were found.
+   *
    * @public
    */
   codeReviewJobs?: CodeReviewJob[] | undefined;
 
   /**
-   * <p>The list of code review job identifiers that were not found.</p>
+   * The list of code review job identifiers that were not found.
+   *
    * @public
    */
   notFound?: string[] | undefined;
 }
 
 /**
- * <p>Input for retrieving multiple tasks associated with a code review job.</p>
+ * Input for retrieving multiple tasks associated with a code review job.
+ *
  * @public
  */
 export interface BatchGetCodeReviewJobTasksInput {
   /**
-   * <p>The unique identifier of the agent space that contains the tasks.</p>
+   * The unique identifier of the agent space that contains the tasks.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The list of task identifiers to retrieve.</p>
+   * The list of task identifiers to retrieve.
+   *
    * @public
    */
   codeReviewJobTaskIds: string[] | undefined;
 }
 
 /**
- * <p>Represents a category assigned to a security testing task.</p>
+ * Represents a category assigned to a security testing task.
+ *
  * @public
  */
 export interface Category {
   /**
-   * <p>The name of the category.</p>
+   * The name of the category.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Indicates whether this is the primary category for the task.</p>
+   * Indicates whether this is the primary category for the task.
+   *
    * @public
    */
   isPrimary?: boolean | undefined;
 }
 
 /**
- * <p>The log location for a task, specifying where task execution logs are stored.</p>
+ * The log location for a task, specifying where task execution logs are stored.
+ *
  * @public
  */
 export interface LogLocation {
   /**
-   * <p>The type of log storage. Currently, only CLOUDWATCH is supported.</p>
+   * The type of log storage. Currently, only CLOUDWATCH is supported.
+   *
    * @public
    */
   logType?: LogType | undefined;
 
   /**
-   * <p>The CloudWatch Logs location for the task logs.</p>
+   * The CloudWatch Logs location for the task logs.
+   *
    * @public
    */
   cloudWatchLog?: CloudWatchLog | undefined;
 }
 
 /**
- * <p>Represents an individual security test task within a code review job. Each task targets a specific risk type and executes independently.</p>
+ * Represents an individual security test task within a code review job. Each task targets a specific risk type and executes independently.
+ *
  * @public
  */
 export interface CodeReviewJobTask {
   /**
-   * <p>The unique identifier of the task.</p>
+   * The unique identifier of the task.
+   *
    * @public
    */
   taskId: string | undefined;
 
   /**
-   * <p>The unique identifier of the code review associated with the task.</p>
+   * The unique identifier of the code review associated with the task.
+   *
    * @public
    */
   codeReviewId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the code review job that contains the task.</p>
+   * The unique identifier of the code review job that contains the task.
+   *
    * @public
    */
   codeReviewJobId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space.</p>
+   * The unique identifier of the agent space.
+   *
    * @public
    */
   agentSpaceId?: string | undefined;
 
   /**
-   * <p>The title of the task.</p>
+   * The title of the task.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>A description of the task.</p>
+   * A description of the task.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The list of categories assigned to the task.</p>
+   * The list of categories assigned to the task.
+   *
    * @public
    */
   categories?: Category[] | undefined;
 
   /**
-   * <p>The type of security risk the task is testing for.</p>
+   * The type of security risk the task is testing for.
+   *
    * @public
    */
   riskType?: RiskType | undefined;
 
   /**
-   * <p>The current execution status of the task.</p>
+   * The current execution status of the task.
+   *
    * @public
    */
   executionStatus?: TaskExecutionStatus | undefined;
 
   /**
-   * <p>The location of the task execution logs.</p>
+   * The location of the task execution logs.
+   *
    * @public
    */
   logsLocation?: LogLocation | undefined;
 
   /**
-   * <p>The date and time the task was created, in UTC format.</p>
+   * The date and time the task was created, in UTC format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time the task was last updated, in UTC format.</p>
+   * The date and time the task was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * <p>Output for the BatchGetCodeReviewJobTasks operation.</p>
+ * Output for the BatchGetCodeReviewJobTasks operation.
+ *
  * @public
  */
 export interface BatchGetCodeReviewJobTasksOutput {
   /**
-   * <p>The list of code review job tasks that were found.</p>
+   * The list of code review job tasks that were found.
+   *
    * @public
    */
   codeReviewJobTasks?: CodeReviewJobTask[] | undefined;
 
   /**
-   * <p>The list of task identifiers that were not found.</p>
+   * The list of task identifiers that were not found.
+   *
    * @public
    */
   notFound?: string[] | undefined;
 }
 
 /**
- * <p>Input for retrieving multiple code reviews by their IDs.</p>
+ * Input for retrieving multiple code reviews by their IDs.
+ *
  * @public
  */
 export interface BatchGetCodeReviewsInput {
   /**
-   * <p>The list of code review identifiers to retrieve.</p>
+   * The list of code review identifiers to retrieve.
+   *
    * @public
    */
   codeReviewIds: string[] | undefined;
 
   /**
-   * <p>The unique identifier of the agent space that contains the code reviews.</p>
+   * The unique identifier of the agent space that contains the code reviews.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 }
 
 /**
- * <p>Represents a code review configuration that defines the parameters for automated security-focused code analysis, including target assets and logging configuration.</p>
+ * Represents a code review configuration that defines the parameters for automated security-focused code analysis, including target assets and logging configuration.
+ *
  * @public
  */
 export interface CodeReview {
   /**
-   * <p>The unique identifier of the code review.</p>
+   * The unique identifier of the code review.
+   *
    * @public
    */
   codeReviewId: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space that contains the code review.</p>
+   * The unique identifier of the agent space that contains the code review.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The title of the code review.</p>
+   * The title of the code review.
+   *
    * @public
    */
   title: string | undefined;
 
   /**
-   * <p>The assets included in the code review.</p>
+   * The assets included in the code review.
+   *
    * @public
    */
   assets: Assets | undefined;
 
   /**
-   * <p>The IAM service role used for the code review.</p>
+   * The IAM service role used for the code review.
+   *
    * @public
    */
   serviceRole?: string | undefined;
 
   /**
-   * <p>The CloudWatch Logs configuration for the code review.</p>
+   * The CloudWatch Logs configuration for the code review.
+   *
    * @public
    */
   logConfig?: CloudWatchLog | undefined;
 
   /**
-   * <p>The code remediation strategy for the code review.</p>
+   * The code remediation strategy for the code review.
+   *
    * @public
    */
   codeRemediationStrategy?: CodeRemediationStrategy | undefined;
 
   /**
-   * <p>The validation mode for the code review. Valid values are SIMULATED and DISABLED.</p>
+   * The validation mode for the code review. Valid values are SIMULATED and DISABLED.
+   *
    * @public
    */
   validationMode?: ValidationMode | undefined;
 
   /**
-   * <p>The maximum number of billable task hours allowed for jobs started from this code review. If a job reaches the configured limit, it is gracefully stopped. If not set, jobs run to completion with no budget cap.</p>
+   * The maximum number of billable task hours allowed for jobs started from this code review. If a job reaches the configured limit, it is gracefully stopped. If not set, jobs run to completion with no budget cap.
+   *
    * @public
    */
   maxTaskHours?: number | undefined;
 
   /**
-   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * The destination for publishing scan reports to an integrated document provider.
+   *
    * @public
    */
   reportDestination?: ReportDestination | undefined;
 
   /**
-   * <p>The report-generation filters applied when the report is exported.</p>
+   * The report-generation filters applied when the report is exported.
+   *
    * @public
    */
   reportFilters?: ReportFilters | undefined;
 
   /**
-   * <p>The date and time the code review was created, in UTC format.</p>
+   * The date and time the code review was created, in UTC format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time the code review was last updated, in UTC format.</p>
+   * The date and time the code review was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * <p>Output for the BatchGetCodeReviews operation.</p>
+ * Output for the BatchGetCodeReviews operation.
+ *
  * @public
  */
 export interface BatchGetCodeReviewsOutput {
   /**
-   * <p>The list of code reviews that were found.</p>
+   * The list of code reviews that were found.
+   *
    * @public
    */
   codeReviews?: CodeReview[] | undefined;
 
   /**
-   * <p>The list of code review identifiers that were not found.</p>
+   * The list of code review identifiers that were not found.
+   *
    * @public
    */
   notFound?: string[] | undefined;
 }
 
 /**
- * <p>Input for BatchGetFindings operation.</p>
+ * Input for BatchGetFindings operation.
+ *
  * @public
  */
 export interface BatchGetFindingsInput {
   /**
-   * <p>The list of finding identifiers to retrieve.</p>
+   * The list of finding identifiers to retrieve.
+   *
    * @public
    */
   findingIds: string[] | undefined;
 
   /**
-   * <p>The unique identifier of the agent space that contains the findings.</p>
+   * The unique identifier of the agent space that contains the findings.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 }
 
 /**
- * <p>Represents a location in source code associated with a security finding.</p>
+ * Represents a location in source code associated with a security finding.
+ *
  * @public
  */
 export interface CodeLocation {
   /**
-   * <p>The absolute path to the file containing the code location.</p>
+   * The absolute path to the file containing the code location.
+   *
    * @public
    */
   filePath: string | undefined;
 
   /**
-   * <p>The starting line number of the code location.</p>
+   * The starting line number of the code location.
+   *
    * @public
    */
   lineStart?: number | undefined;
 
   /**
-   * <p>The ending line number of the code location.</p>
+   * The ending line number of the code location.
+   *
    * @public
    */
   lineEnd?: number | undefined;
 
   /**
-   * <p>The role of this location in the vulnerability, such as source or sink.</p>
+   * The role of this location in the vulnerability, such as source or sink.
+   *
    * @public
    */
   label?: string | undefined;
 }
 
 /**
- * <p>Contains details about a code remediation task, including links to the code diff and pull request.</p>
+ * Contains details about a code remediation task, including links to the code diff and pull request.
+ *
  * @public
  */
 export interface CodeRemediationTaskDetails {
   /**
-   * <p>The name of the repository where the remediation was applied.</p>
+   * The name of the repository where the remediation was applied.
+   *
    * @public
    */
   repoName?: string | undefined;
 
   /**
-   * <p>The link to the code diff for the remediation.</p>
+   * The link to the code diff for the remediation.
+   *
    * @public
    */
   codeDiffLink?: string | undefined;
 
   /**
-   * <p>The link to the pull request created for the remediation.</p>
+   * The link to the pull request created for the remediation.
+   *
    * @public
    */
   pullRequestLink?: string | undefined;
 }
 
 /**
- * <p>Represents a code remediation task that was initiated to fix a security finding.</p>
+ * Represents a code remediation task that was initiated to fix a security finding.
+ *
  * @public
  */
 export interface CodeRemediationTask {
   /**
-   * <p>The current status of the code remediation task.</p>
+   * The current status of the code remediation task.
+   *
    * @public
    */
   status: CodeRemediationTaskStatus | undefined;
 
   /**
-   * <p>The reason for the current status of the code remediation task.</p>
+   * The reason for the current status of the code remediation task.
+   *
    * @public
    */
   statusReason?: string | undefined;
 
   /**
-   * <p>The list of details for the code remediation task, including repository name, code diff link, and pull request link.</p>
+   * The list of details for the code remediation task, including repository name, code diff link, and pull request link.
+   *
    * @public
    */
   taskDetails?: CodeRemediationTaskDetails[] | undefined;
 }
 
 /**
- * <p>Represents an environment variable required to run a verification script.</p>
+ * Represents an environment variable required to run a verification script.
+ *
  * @public
  */
 export interface VerificationScriptEnvVar {
   /**
-   * <p>The name of the environment variable.</p>
+   * The name of the environment variable.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The value of the environment variable.</p>
+   * The value of the environment variable.
+   *
    * @public
    */
   value?: string | undefined;
 }
 
 /**
- * <p>Contains metadata for a verification script that can be used to reproduce a security finding.</p>
+ * Contains metadata for a verification script that can be used to reproduce a security finding.
+ *
  * @public
  */
 export interface VerificationScript {
   /**
-   * <p>The type of script. Valid values are python and bash.</p>
+   * The type of script. Valid values are python and bash.
+   *
    * @public
    */
   scriptType?: string | undefined;
 
   /**
-   * <p>URL to download the verification script.</p>
+   * URL to download the verification script.
+   *
    * @public
    */
   scriptUrl?: string | undefined;
 
   /**
-   * <p>Instructions for running the verification script, including prerequisites and how to interpret results.</p>
+   * Instructions for running the verification script, including prerequisites and how to interpret results.
+   *
    * @public
    */
   instructions?: string | undefined;
 
   /**
-   * <p>The list of environment variables required to run the verification script.</p>
+   * The list of environment variables required to run the verification script.
+   *
    * @public
    */
   envVars?: VerificationScriptEnvVar[] | undefined;
 }
 
 /**
- * <p>Represents a security finding discovered during a pentest job. A finding contains details about a vulnerability, including its risk level, confidence, and remediation status.</p>
+ * Represents a security finding discovered during a pentest job. A finding contains details about a vulnerability, including its risk level, confidence, and remediation status.
+ *
  * @public
  */
 export interface Finding {
   /**
-   * <p>The unique identifier of the finding.</p>
+   * The unique identifier of the finding.
+   *
    * @public
    */
   findingId: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space associated with the finding.</p>
+   * The unique identifier of the agent space associated with the finding.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The unique identifier of the pentest associated with the finding.</p>
+   * The unique identifier of the pentest associated with the finding.
+   *
    * @public
    */
   pentestId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the pentest job that produced the finding.</p>
+   * The unique identifier of the pentest job that produced the finding.
+   *
    * @public
    */
   pentestJobId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the code review associated with the finding.</p>
+   * The unique identifier of the code review associated with the finding.
+   *
    * @public
    */
   codeReviewId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the code review job that produced the finding.</p>
+   * The unique identifier of the code review job that produced the finding.
+   *
    * @public
    */
   codeReviewJobId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the task that produced the finding.</p>
+   * The unique identifier of the task that produced the finding.
+   *
    * @public
    */
   taskId?: string | undefined;
 
   /**
-   * <p>The name of the finding.</p>
+   * The name of the finding.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>A description of the finding.</p>
+   * A description of the finding.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The current status of the finding. Valid values include ACTIVE, RESOLVED, ACCEPTED, and FALSE_POSITIVE.</p>
+   * The current status of the finding. Valid values include ACTIVE, RESOLVED, ACCEPTED, and FALSE_POSITIVE.
+   *
    * @public
    */
   status?: FindingStatus | undefined;
 
   /**
-   * <p>The type of security risk identified by the finding.</p>
+   * The type of security risk identified by the finding.
+   *
    * @public
    */
   riskType?: string | undefined;
 
   /**
-   * <p>The risk level of the finding. Valid values include UNKNOWN, INFORMATIONAL, LOW, MEDIUM, HIGH, and CRITICAL.</p>
+   * The risk level of the finding. Valid values include UNKNOWN, INFORMATIONAL, LOW, MEDIUM, HIGH, and CRITICAL.
+   *
    * @public
    */
   riskLevel?: RiskLevel | undefined;
 
   /**
-   * <p>The numerical risk score of the finding.</p>
+   * The numerical risk score of the finding.
+   *
    * @public
    */
   riskScore?: string | undefined;
 
   /**
-   * <p>The reasoning behind the finding, explaining why it was identified as a vulnerability.</p>
+   * The reasoning behind the finding, explaining why it was identified as a vulnerability.
+   *
    * @public
    */
   reasoning?: string | undefined;
 
   /**
-   * <p>The confidence level of the finding. Valid values include FALSE_POSITIVE, UNCONFIRMED, LOW, MEDIUM, and HIGH.</p>
+   * The confidence level of the finding. Valid values include FALSE_POSITIVE, UNCONFIRMED, LOW, MEDIUM, and HIGH.
+   *
    * @public
    */
   confidence?: ConfidenceLevel | undefined;
 
   /**
-   * <p>The simulated validation status of the finding. Valid values are NOT_VALIDATED, VALIDATING, CONFIRMED, NOT_REPRODUCED, and VALIDATION_FAILED.</p>
+   * The simulated validation status of the finding. Valid values are NOT_VALIDATED, VALIDATING, CONFIRMED, NOT_REPRODUCED, and VALIDATION_FAILED.
+   *
    * @public
    */
   validationStatus?: ValidationStatus | undefined;
 
   /**
-   * <p>The attack script used to reproduce the finding.</p>
+   * The attack script used to reproduce the finding.
+   *
    * @public
    */
   attackScript?: string | undefined;
 
   /**
-   * <p>The suggested fix for the finding, describing the changes recommended to remediate the vulnerability, with example code or configuration.</p>
+   * The suggested fix for the finding, describing the changes recommended to remediate the vulnerability, with example code or configuration.
+   *
    * @public
    */
   remediationCode?: string | undefined;
 
   /**
-   * <p>The code remediation task associated with the finding, if code remediation was initiated.</p>
+   * The code remediation task associated with the finding, if code remediation was initiated.
+   *
    * @public
    */
   codeRemediationTask?: CodeRemediationTask | undefined;
 
   /**
-   * <p>The identifier of the entity that last updated the finding.</p>
+   * The identifier of the entity that last updated the finding.
+   *
    * @public
    */
   lastUpdatedBy?: string | undefined;
 
   /**
-   * <p>A customer-provided note on the finding.</p>
+   * A customer-provided note on the finding.
+   *
    * @public
    */
   customerNote?: string | undefined;
 
   /**
-   * <p>The file locations involved in the vulnerability, as reported by the code scanner.</p>
+   * The file locations involved in the vulnerability, as reported by the code scanner.
+   *
    * @public
    */
   codeLocations?: CodeLocation[] | undefined;
 
   /**
-   * <p>The verification script metadata for reproducing the finding, including download URL, instructions, and required environment variables.</p>
+   * The verification script metadata for reproducing the finding, including download URL, instructions, and required environment variables.
+   *
    * @public
    */
   verificationScript?: VerificationScript | undefined;
 
   /**
-   * <p>The rationale provided by the alignment agent explaining how the finding was adjusted based on customer preferences.</p>
+   * The rationale provided by the alignment agent explaining how the finding was adjusted based on customer preferences.
+   *
    * @public
    */
   alignmentRationale?: string | undefined;
 
   /**
-   * <p>The list of pentest job identifiers for revalidation jobs that retested this finding.</p>
+   * The list of pentest job identifiers for revalidation jobs that retested this finding.
+   *
    * @public
    */
   revalidationJobIds?: string[] | undefined;
 
   /**
-   * <p>The identifier of the original finding that this revalidation finding was produced from.</p>
+   * The identifier of the original finding that this revalidation finding was produced from.
+   *
    * @public
    */
   originalFindingId?: string | undefined;
 
   /**
-   * <p>The issue in a third-party issue tracker that this finding has been exported to.</p>
+   * The issue in a third-party issue tracker that this finding has been exported to.
+   *
    * @public
    */
   linkedIssue?: LinkedIssue | undefined;
 
   /**
-   * <p>The date and time the finding was created, in UTC format.</p>
+   * The date and time the finding was created, in UTC format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time the finding was last updated, in UTC format.</p>
+   * The date and time the finding was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * <p>Output for the BatchGetFindings operation.</p>
+ * Output for the BatchGetFindings operation.
+ *
  * @public
  */
 export interface BatchGetFindingsOutput {
   /**
-   * <p>The list of findings that were found.</p>
+   * The list of findings that were found.
+   *
    * @public
    */
   findings?: Finding[] | undefined;
 
   /**
-   * <p>The list of finding identifiers that were not found.</p>
+   * The list of finding identifiers that were not found.
+   *
    * @public
    */
   notFound?: string[] | undefined;
 }
 
 /**
- * <p>Input for BatchGetPentestJobs operation.</p>
+ * Input for BatchGetPentestJobs operation.
+ *
  * @public
  */
 export interface BatchGetPentestJobsInput {
   /**
-   * <p>The list of pentest job identifiers to retrieve.</p>
+   * The list of pentest job identifiers to retrieve.
+   *
    * @public
    */
   pentestJobIds: string[] | undefined;
 
   /**
-   * <p>The unique identifier of the agent space that contains the pentest jobs.</p>
+   * The unique identifier of the agent space that contains the pentest jobs.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 }
 
 /**
- * <p>A code change in a CI/CD pipeline run that defines what a CI/CD pentest job tests. Each scope change identifies an integrated repository and the commit range for the change.</p>
+ * A code change in a CI/CD pipeline run that defines what a CI/CD pentest job tests. Each scope change identifies an integrated repository and the commit range for the change.
+ *
  * @public
  */
 export interface ScopeChange {
   /**
-   * <p>The identifier of the integration for the source-code provider that hosts the repository.</p>
+   * The identifier of the integration for the source-code provider that hosts the repository.
+   *
    * @public
    */
   integrationId: string | undefined;
 
   /**
-   * <p>The provider-specific identifier of the repository the change belongs to.</p>
+   * The provider-specific identifier of the repository the change belongs to.
+   *
    * @public
    */
   providerResourceId: string | undefined;
 
   /**
-   * <p>The commit SHA that the change is compared against. When omitted, the change is evaluated against the head commit alone.</p>
+   * The commit SHA that the change is compared against. When omitted, the change is evaluated against the head commit alone.
+   *
    * @public
    */
   baseCommitSha?: string | undefined;
 
   /**
-   * <p>The commit SHA at the tip of the change to be tested.</p>
+   * The commit SHA at the tip of the change to be tested.
+   *
    * @public
    */
   headCommitSha: string | undefined;
 
   /**
-   * <p>The identifier of the CI/CD pipeline run that triggered this pentest job.</p>
+   * The identifier of the CI/CD pipeline run that triggered this pentest job.
+   *
    * @public
    */
   triggerRunId?: string | undefined;
 }
 
 /**
- * <p>The outcome of scoping a CI/CD pentest job's code changes, including the decision and the reason for it.</p>
+ * The outcome of scoping a CI/CD pentest job's code changes, including the decision and the reason for it.
+ *
  * @public
  */
 export interface ScopeResult {
   /**
-   * <p>The scoping decision for the job's code changes.</p>
+   * The scoping decision for the job's code changes.
+   *
    * @public
    */
   decision: ScopeDecision | undefined;
 
   /**
-   * <p>A human-readable explanation of the scoping decision.</p>
+   * A human-readable explanation of the scoping decision.
+   *
    * @public
    */
   reason: string | undefined;
 }
 
 /**
- * <p>Represents a pentest job, which is an execution instance of a pentest. A pentest job progresses through preflight, static analysis, pentest, and finalizing steps.</p>
+ * Represents a pentest job, which is an execution instance of a pentest. A pentest job progresses through preflight, static analysis, pentest, and finalizing steps.
+ *
  * @public
  */
 export interface PentestJob {
   /**
-   * <p>The unique identifier of the pentest job.</p>
+   * The unique identifier of the pentest job.
+   *
    * @public
    */
   pentestJobId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the pentest associated with the job.</p>
+   * The unique identifier of the pentest associated with the job.
+   *
    * @public
    */
   pentestId?: string | undefined;
 
   /**
-   * <p>The title of the pentest job.</p>
+   * The title of the pentest job.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>An overview of the pentest job results.</p>
+   * An overview of the pentest job results.
+   *
    * @public
    */
   overview?: string | undefined;
 
   /**
-   * <p>The current status of the pentest job.</p>
+   * The current status of the pentest job.
+   *
    * @public
    */
   status?: JobStatus | undefined;
 
   /**
-   * <p>The list of endpoints being tested in the pentest job.</p>
+   * The list of endpoints being tested in the pentest job.
+   *
    * @public
    */
   endpoints?: Endpoint[] | undefined;
 
   /**
-   * <p>The list of actors used during the pentest job.</p>
+   * The list of actors used during the pentest job.
+   *
    * @public
    */
   actors?: Actor[] | undefined;
 
   /**
-   * <p>The list of documents providing context for the pentest job.</p>
+   * The list of documents providing context for the pentest job.
+   *
    * @public
    */
   documents?: DocumentInfo[] | undefined;
 
   /**
-   * <p>The list of source code repositories analyzed during the pentest job.</p>
+   * The list of source code repositories analyzed during the pentest job.
+   *
    * @public
    */
   sourceCode?: SourceCodeRepository[] | undefined;
 
   /**
-   * <p>The list of paths excluded from the pentest job.</p>
+   * The list of paths excluded from the pentest job.
+   *
    * @public
    */
   excludePaths?: Endpoint[] | undefined;
 
   /**
-   * <p>The list of domains allowed during the pentest job.</p>
+   * The list of domains allowed during the pentest job.
+   *
    * @public
    */
   allowedDomains?: Endpoint[] | undefined;
 
   /**
-   * <p>The list of risk types excluded from the pentest job.</p>
+   * The list of risk types excluded from the pentest job.
+   *
    * @public
    */
   excludeRiskTypes?: RiskType[] | undefined;
 
   /**
-   * <p>The list of steps in the pentest job execution.</p>
+   * The list of steps in the pentest job execution.
+   *
    * @public
    */
   steps?: Step[] | undefined;
 
   /**
-   * <p>The execution context messages for the pentest job.</p>
+   * The execution context messages for the pentest job.
+   *
    * @public
    */
   executionContext?: ExecutionContext[] | undefined;
 
   /**
-   * <p>The IAM service role used for the pentest job.</p>
+   * The IAM service role used for the pentest job.
+   *
    * @public
    */
   serviceRole?: string | undefined;
 
   /**
-   * <p>The CloudWatch Logs configuration for the pentest job.</p>
+   * The CloudWatch Logs configuration for the pentest job.
+   *
    * @public
    */
   logConfig?: CloudWatchLog | undefined;
 
   /**
-   * <p>The VPC configuration for the pentest job.</p>
+   * The VPC configuration for the pentest job.
+   *
    * @public
    */
   vpcConfig?: VpcConfig | undefined;
 
   /**
-   * <p>The network traffic configuration for the pentest job.</p>
+   * The network traffic configuration for the pentest job.
+   *
    * @public
    */
   networkTrafficConfig?: NetworkTrafficConfig | undefined;
 
   /**
-   * <p>Error information if the pentest job encountered an error.</p>
+   * Error information if the pentest job encountered an error.
+   *
    * @public
    */
   errorInformation?: ErrorInformation | undefined;
 
   /**
-   * <p>The list of integrated repositories associated with the pentest job.</p>
+   * The list of integrated repositories associated with the pentest job.
+   *
    * @public
    */
   integratedRepositories?: IntegratedRepository[] | undefined;
 
   /**
-   * <p>The trust anchors used to validate target endpoint TLS certificates during the pentest job.</p>
+   * The trust anchors used to validate target endpoint TLS certificates during the pentest job.
+   *
    * @public
    */
   trustedCaCertificates?: TrustedCaCertificate[] | undefined;
 
   /**
-   * <p>The client certificates for mutual TLS (mTLS) authentication to target hosts during the pentest job.</p>
+   * The client certificates for mutual TLS (mTLS) authentication to target hosts during the pentest job.
+   *
    * @public
    */
   clientCertificates?: ClientCertificate[] | undefined;
 
   /**
-   * <p>The code remediation strategy for the pentest job.</p>
+   * The code remediation strategy for the pentest job.
+   *
    * @public
    */
   codeRemediationStrategy?: CodeRemediationStrategy | undefined;
 
   /**
-   * <p>Strategy for cleaning up resources after pentest job completion.</p>
+   * Strategy for cleaning up resources after pentest job completion.
+   *
    * @public
    */
   cleanUpStrategy?: CleanUpStrategy | undefined;
 
   /**
-   * <p>A list of managed skills disabled for this pentest job. Valid values include FINDING_PERSONALIZATION and LOGIN_OPTIMIZATION.</p>
+   * A list of managed skills disabled for this pentest job. Valid values include FINDING_PERSONALIZATION and LOGIN_OPTIMIZATION.
+   *
    * @public
    */
   disableManagedSkills?: SkillType[] | undefined;
 
   /**
-   * <p>The maximum number of billable task hours allowed for this pentest job. If the cumulative task hours reach this limit, the job is gracefully stopped.</p>
+   * The maximum number of billable task hours allowed for this pentest job. If the cumulative task hours reach this limit, the job is gracefully stopped.
+   *
    * @public
    */
   maxTaskHours?: number | undefined;
 
   /**
-   * <p>The type of the pentest job. Valid values are FULL, REVALIDATION, and CICD.</p>
+   * The type of the pentest job. Valid values are FULL, REVALIDATION, and CICD.
+   *
    * @public
    */
   jobType?: JobType | undefined;
 
   /**
-   * <p>The list of finding identifiers selected for revalidation. Present only when jobType is REVALIDATION.</p>
+   * The list of finding identifiers selected for revalidation. Present only when jobType is REVALIDATION.
+   *
    * @public
    */
   selectedFindingIds?: string[] | undefined;
 
   /**
-   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * The destination for publishing scan reports to an integrated document provider.
+   *
    * @public
    */
   reportDestination?: ReportDestination | undefined;
 
   /**
-   * <p>The URL to view this pentest job's findings report in the console.</p>
+   * The URL to view this pentest job's findings report in the console.
+   *
    * @public
    */
   reportUrl?: string | undefined;
 
   /**
-   * <p>The scoping outcome for this CI/CD pentest job. Present only for jobs of type CICD.</p>
+   * The scoping outcome for this CI/CD pentest job. Present only for jobs of type CICD.
+   *
    * @public
    */
   scopeResult?: ScopeResult | undefined;
 
   /**
-   * <p>The code changes that defined the scope of this CI/CD pentest job. Present only for jobs of type CICD.</p>
+   * The code changes that defined the scope of this CI/CD pentest job. Present only for jobs of type CICD.
+   *
    * @public
    */
   scopeChanges?: ScopeChange[] | undefined;
 
   /**
-   * <p>The configuration that enables a pentest to run as part of a CI/CD pipeline, scoped to the code changes in each pipeline run.</p>
+   * The configuration that enables a pentest to run as part of a CI/CD pipeline, scoped to the code changes in each pipeline run.
+   *
    * @public
    */
   cicdConfiguration?: CiCdConfiguration | undefined;
 
   /**
-   * <p>The category of application a pentest targets.</p>
+   * The category of application a pentest targets.
+   *
    * @public
    */
   testScope?: TestScope | undefined;
 
   /**
-   * <p>The date and time the pentest job was created, in UTC format.</p>
+   * The date and time the pentest job was created, in UTC format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time the pentest job was last updated, in UTC format.</p>
+   * The date and time the pentest job was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * <p>Output for the BatchGetPentestJobs operation.</p>
+ * Output for the BatchGetPentestJobs operation.
+ *
  * @public
  */
 export interface BatchGetPentestJobsOutput {
   /**
-   * <p>The list of pentest jobs that were found.</p>
+   * The list of pentest jobs that were found.
+   *
    * @public
    */
   pentestJobs?: PentestJob[] | undefined;
 
   /**
-   * <p>The list of pentest job identifiers that were not found.</p>
+   * The list of pentest job identifiers that were not found.
+   *
    * @public
    */
   notFound?: string[] | undefined;
 }
 
 /**
- * <p>Input for retrieving multiple tasks associated with a pentest job.</p>
+ * Input for retrieving multiple tasks associated with a pentest job.
+ *
  * @public
  */
 export interface BatchGetPentestJobTasksInput {
   /**
-   * <p>The unique identifier of the agent space that contains the tasks.</p>
+   * The unique identifier of the agent space that contains the tasks.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The list of task identifiers to retrieve.</p>
+   * The list of task identifiers to retrieve.
+   *
    * @public
    */
   taskIds: string[] | undefined;
 }
 
 /**
- * <p>Represents an individual security test task within a pentest job. Each task targets a specific risk type or endpoint and executes independently.</p>
+ * Represents an individual security test task within a pentest job. Each task targets a specific risk type or endpoint and executes independently.
+ *
  * @public
  */
 export interface Task {
   /**
-   * <p>The unique identifier of the task.</p>
+   * The unique identifier of the task.
+   *
    * @public
    */
   taskId: string | undefined;
 
   /**
-   * <p>The unique identifier of the pentest associated with the task.</p>
+   * The unique identifier of the pentest associated with the task.
+   *
    * @public
    */
   pentestId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the pentest job that contains the task.</p>
+   * The unique identifier of the pentest job that contains the task.
+   *
    * @public
    */
   pentestJobId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space.</p>
+   * The unique identifier of the agent space.
+   *
    * @public
    */
   agentSpaceId?: string | undefined;
 
   /**
-   * <p>The title of the task.</p>
+   * The title of the task.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>A description of the task.</p>
+   * A description of the task.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The list of categories assigned to the task.</p>
+   * The list of categories assigned to the task.
+   *
    * @public
    */
   categories?: Category[] | undefined;
 
   /**
-   * <p>The type of security risk the task is testing for.</p>
+   * The type of security risk the task is testing for.
+   *
    * @public
    */
   riskType?: RiskType | undefined;
 
   /**
-   * <p>The target endpoint being tested by the task.</p>
+   * The target endpoint being tested by the task.
+   *
    * @public
    */
   targetEndpoint?: Endpoint | undefined;
 
   /**
-   * <p>The current execution status of the task.</p>
+   * The current execution status of the task.
+   *
    * @public
    */
   executionStatus?: TaskExecutionStatus | undefined;
 
   /**
-   * <p>The location of the task execution logs.</p>
+   * The location of the task execution logs.
+   *
    * @public
    */
   logsLocation?: LogLocation | undefined;
 
   /**
-   * <p>The number of active work hours consumed by the task during execution.</p>
+   * The number of active work hours consumed by the task during execution.
+   *
    * @public
    */
   taskHours?: number | undefined;
 
   /**
-   * <p>The date and time the task was created, in UTC format.</p>
+   * The date and time the task was created, in UTC format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time the task was last updated, in UTC format.</p>
+   * The date and time the task was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * <p>Output for the BatchGetPentestJobTasks operation.</p>
+ * Output for the BatchGetPentestJobTasks operation.
+ *
  * @public
  */
 export interface BatchGetPentestJobTasksOutput {
   /**
-   * <p>The list of tasks that were found.</p>
+   * The list of tasks that were found.
+   *
    * @public
    */
   tasks?: Task[] | undefined;
 
   /**
-   * <p>The list of task identifiers that were not found.</p>
+   * The list of task identifiers that were not found.
+   *
    * @public
    */
   notFound?: string[] | undefined;
 }
 
 /**
- * <p>Input for retrieving multiple pentests by their IDs.</p>
+ * Input for retrieving multiple pentests by their IDs.
+ *
  * @public
  */
 export interface BatchGetPentestsInput {
   /**
-   * <p>The list of pentest identifiers to retrieve.</p>
+   * The list of pentest identifiers to retrieve.
+   *
    * @public
    */
   pentestIds: string[] | undefined;
 
   /**
-   * <p>The unique identifier of the agent space that contains the pentests.</p>
+   * The unique identifier of the agent space that contains the pentests.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 }
 
 /**
- * <p>Output for the BatchGetPentests operation.</p>
+ * Output for the BatchGetPentests operation.
+ *
  * @public
  */
 export interface BatchGetPentestsOutput {
   /**
-   * <p>The list of pentests that were found.</p>
+   * The list of pentests that were found.
+   *
    * @public
    */
   pentests?: Pentest[] | undefined;
 
   /**
-   * <p>The list of pentest identifiers that were not found.</p>
+   * The list of pentest identifiers that were not found.
+   *
    * @public
    */
   notFound?: string[] | undefined;
 }
 
 /**
- * <p>Contains information about a successfully retrieved security requirement.</p>
+ * Contains information about a successfully retrieved security requirement.
+ *
  * @public
  */
 export interface BatchGetSecurityRequirementResult {
   /**
-   * <p>The unique identifier of the pack containing the security requirement.</p>
+   * The unique identifier of the pack containing the security requirement.
+   *
    * @public
    */
   packId: string | undefined;
 
   /**
-   * <p>The name of the security requirement.</p>
+   * The name of the security requirement.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description of the security requirement.</p>
+   * A description of the security requirement.
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p>The security domain the requirement belongs to.</p>
+   * The security domain the requirement belongs to.
+   *
    * @public
    */
   domain: string | undefined;
 
   /**
-   * <p>The evaluation criteria used to assess compliance with this requirement.</p>
+   * The evaluation criteria used to assess compliance with this requirement.
+   *
    * @public
    */
   evaluation: string | undefined;
 
   /**
-   * <p>The recommended remediation steps when the requirement is not met.</p>
+   * The recommended remediation steps when the requirement is not met.
+   *
    * @public
    */
   remediation?: string | undefined;
 
   /**
-   * <p>The date and time the security requirement was created, in UTC format.</p>
+   * The date and time the security requirement was created, in UTC format.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The date and time the security requirement was last updated, in UTC format.</p>
+   * The date and time the security requirement was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -3632,13 +4206,15 @@ export interface BatchGetSecurityRequirementResult {
  */
 export interface BatchGetSecurityRequirementsInput {
   /**
-   * <p>The unique identifier of the security requirement pack to retrieve requirements from.</p>
+   * The unique identifier of the security requirement pack to retrieve requirements from.
+   *
    * @public
    */
   packId: string | undefined;
 
   /**
-   * <p>The list of security requirement names to retrieve.</p>
+   * The list of security requirement names to retrieve.
+   *
    * @public
    */
   securityRequirementNames: string[] | undefined;
@@ -3649,751 +4225,876 @@ export interface BatchGetSecurityRequirementsInput {
  */
 export interface BatchGetSecurityRequirementsOutput {
   /**
-   * <p>The list of security requirements that were successfully retrieved.</p>
+   * The list of security requirements that were successfully retrieved.
+   *
    * @public
    */
   securityRequirements: BatchGetSecurityRequirementResult[] | undefined;
 
   /**
-   * <p>The list of errors for security requirements that failed to be retrieved.</p>
+   * The list of errors for security requirements that failed to be retrieved.
+   *
    * @public
    */
   errors: BatchSecurityRequirementError[] | undefined;
 }
 
 /**
- * <p>Input for batch retrieving target domains.</p>
+ * Input for batch retrieving target domains.
+ *
  * @public
  */
 export interface BatchGetTargetDomainsInput {
   /**
-   * <p>The list of target domain identifiers to retrieve.</p>
+   * The list of target domain identifiers to retrieve.
+   *
    * @public
    */
   targetDomainIds: string[] | undefined;
 }
 
 /**
- * <p>Contains DNS verification details for a target domain, including the DNS record to create for domain ownership verification.</p>
+ * Contains DNS verification details for a target domain, including the DNS record to create for domain ownership verification.
+ *
  * @public
  */
 export interface DnsVerification {
   /**
-   * <p>The verification token to include in the DNS record value.</p>
+   * The verification token to include in the DNS record value.
+   *
    * @public
    */
   token?: string | undefined;
 
   /**
-   * <p>The name of the DNS record to create for verification.</p>
+   * The name of the DNS record to create for verification.
+   *
    * @public
    */
   dnsRecordName?: string | undefined;
 
   /**
-   * <p>The type of DNS record to create. Currently, only TXT is supported.</p>
+   * The type of DNS record to create. Currently, only TXT is supported.
+   *
    * @public
    */
   dnsRecordType?: DNSRecordType | undefined;
 }
 
 /**
- * <p>Contains HTTP route verification details for a target domain, including the route path and token to serve for domain ownership verification.</p>
+ * Contains HTTP route verification details for a target domain, including the route path and token to serve for domain ownership verification.
+ *
  * @public
  */
 export interface HttpVerification {
   /**
-   * <p>The verification token to serve at the specified route path.</p>
+   * The verification token to serve at the specified route path.
+   *
    * @public
    */
   token?: string | undefined;
 
   /**
-   * <p>The HTTP route path where the verification token must be served.</p>
+   * The HTTP route path where the verification token must be served.
+   *
    * @public
    */
   routePath?: string | undefined;
 }
 
 /**
- * <p>Contains the verification details for a target domain, including the verification method and provider-specific details.</p>
+ * Contains the verification details for a target domain, including the verification method and provider-specific details.
+ *
  * @public
  */
 export interface VerificationDetails {
   /**
-   * <p>The verification method used for the target domain.</p>
+   * The verification method used for the target domain.
+   *
    * @public
    */
   method?: DomainVerificationMethod | undefined;
 
   /**
-   * <p>The DNS TXT verification details.</p>
+   * The DNS TXT verification details.
+   *
    * @public
    */
   dnsTxt?: DnsVerification | undefined;
 
   /**
-   * <p>The HTTP route verification details.</p>
+   * The HTTP route verification details.
+   *
    * @public
    */
   httpRoute?: HttpVerification | undefined;
 }
 
 /**
- * <p>Represents a target domain registered for penetration testing. A target domain must be verified through DNS TXT or HTTP route verification before it can be used in pentests.</p>
+ * Represents a target domain registered for penetration testing. A target domain must be verified through DNS TXT or HTTP route verification before it can be used in pentests.
+ *
  * @public
  */
 export interface TargetDomain {
   /**
-   * <p>The unique identifier of the target domain.</p>
+   * The unique identifier of the target domain.
+   *
    * @public
    */
   targetDomainId: string | undefined;
 
   /**
-   * <p>The domain name of the target domain.</p>
+   * The domain name of the target domain.
+   *
    * @public
    */
   domainName: string | undefined;
 
   /**
-   * <p>The current verification status of the target domain.</p>
+   * The current verification status of the target domain.
+   *
    * @public
    */
   verificationStatus?: TargetDomainStatus | undefined;
 
   /**
-   * <p>The reason for the current target domain verification status.</p>
+   * The reason for the current target domain verification status.
+   *
    * @public
    */
   verificationStatusReason?: string | undefined;
 
   /**
-   * <p>The verification details for the target domain.</p>
+   * The verification details for the target domain.
+   *
    * @public
    */
   verificationDetails?: VerificationDetails | undefined;
 
   /**
-   * <p>The date and time the target domain was created, in UTC format.</p>
+   * The date and time the target domain was created, in UTC format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time the target domain was verified, in UTC format.</p>
+   * The date and time the target domain was verified, in UTC format.
+   *
    * @public
    */
   verifiedAt?: Date | undefined;
 }
 
 /**
- * <p>Output for the BatchGetTargetDomains operation.</p>
+ * Output for the BatchGetTargetDomains operation.
+ *
  * @public
  */
 export interface BatchGetTargetDomainsOutput {
   /**
-   * <p>The list of target domains that were found.</p>
+   * The list of target domains that were found.
+   *
    * @public
    */
   targetDomains?: TargetDomain[] | undefined;
 
   /**
-   * <p>The list of target domain identifiers that were not found.</p>
+   * The list of target domain identifiers that were not found.
+   *
    * @public
    */
   notFound?: string[] | undefined;
 }
 
 /**
- * <p>Input for BatchGetThreatModelJobs operation.</p>
+ * Input for BatchGetThreatModelJobs operation.
+ *
  * @public
  */
 export interface BatchGetThreatModelJobsInput {
   /**
-   * <p>The list of threat model job identifiers to retrieve.</p>
+   * The list of threat model job identifiers to retrieve.
+   *
    * @public
    */
   threatModelJobIds: string[] | undefined;
 
   /**
-   * <p>The unique identifier of the agent space that contains the threat model jobs.</p>
+   * The unique identifier of the agent space that contains the threat model jobs.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 }
 
 /**
- * <p>Represents a threat model job, which is an execution instance of a threat model.</p>
+ * Represents a threat model job, which is an execution instance of a threat model.
+ *
  * @public
  */
 export interface ThreatModelJob {
   /**
-   * <p>The unique identifier of the threat model job.</p>
+   * The unique identifier of the threat model job.
+   *
    * @public
    */
   threatModelJobId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the threat model associated with the job.</p>
+   * The unique identifier of the threat model associated with the job.
+   *
    * @public
    */
   threatModelId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space.</p>
+   * The unique identifier of the agent space.
+   *
    * @public
    */
   agentSpaceId?: string | undefined;
 
   /**
-   * <p>The title of the threat model job.</p>
+   * The title of the threat model job.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>The current status of the threat model job.</p>
+   * The current status of the threat model job.
+   *
    * @public
    */
   status?: JobStatus | undefined;
 
   /**
-   * <p>The date and time the threat model job was created, in UTC format.</p>
+   * The date and time the threat model job was created, in UTC format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time the threat model job was last updated, in UTC format.</p>
+   * The date and time the threat model job was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The date and time the threat model job execution started, in UTC format.</p>
+   * The date and time the threat model job execution started, in UTC format.
+   *
    * @public
    */
   executionStartTime?: Date | undefined;
 
   /**
-   * <p>The date and time the threat model job execution ended, in UTC format.</p>
+   * The date and time the threat model job execution ended, in UTC format.
+   *
    * @public
    */
   executionEndTime?: Date | undefined;
 
   /**
-   * <p>The list of source code repositories used for threat modeling.</p>
+   * The list of source code repositories used for threat modeling.
+   *
    * @public
    */
   sourceCode?: SourceCodeRepository[] | undefined;
 
   /**
-   * <p>The list of integrated repositories used for threat modeling.</p>
+   * The list of integrated repositories used for threat modeling.
+   *
    * @public
    */
   integratedRepositories?: IntegratedRepository[] | undefined;
 
   /**
-   * <p>The list of documents used for threat modeling.</p>
+   * The list of documents used for threat modeling.
+   *
    * @public
    */
   documents?: DocumentInfo[] | undefined;
 
   /**
-   * <p>The scoped documents for the agent to focus on during threat modeling.</p>
+   * The scoped documents for the agent to focus on during threat modeling.
+   *
    * @public
    */
   scopeDocs?: DocumentInfo[] | undefined;
 
   /**
-   * <p>Error information if the threat model job encountered an error.</p>
+   * Error information if the threat model job encountered an error.
+   *
    * @public
    */
   errorInformation?: ErrorInformation | undefined;
 
   /**
-   * <p>The system overview generated during threat modeling.</p>
+   * The system overview generated during threat modeling.
+   *
    * @public
    */
   systemOverview?: string | undefined;
 
   /**
-   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * The destination for publishing scan reports to an integrated document provider.
+   *
    * @public
    */
   reportDestination?: ReportDestination | undefined;
 }
 
 /**
- * <p>Output for the BatchGetThreatModelJobs operation.</p>
+ * Output for the BatchGetThreatModelJobs operation.
+ *
  * @public
  */
 export interface BatchGetThreatModelJobsOutput {
   /**
-   * <p>The list of threat model jobs that were found.</p>
+   * The list of threat model jobs that were found.
+   *
    * @public
    */
   threatModelJobs?: ThreatModelJob[] | undefined;
 
   /**
-   * <p>The list of threat model job identifiers that were not found.</p>
+   * The list of threat model job identifiers that were not found.
+   *
    * @public
    */
   notFound?: string[] | undefined;
 }
 
 /**
- * <p>Input for retrieving multiple tasks associated with a threat model job.</p>
+ * Input for retrieving multiple tasks associated with a threat model job.
+ *
  * @public
  */
 export interface BatchGetThreatModelJobTasksInput {
   /**
-   * <p>The unique identifier of the agent space that contains the tasks.</p>
+   * The unique identifier of the agent space that contains the tasks.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The list of task identifiers to retrieve.</p>
+   * The list of task identifiers to retrieve.
+   *
    * @public
    */
   threatModelJobTaskIds: string[] | undefined;
 }
 
 /**
- * <p>Represents an individual task within a threat model job.</p>
+ * Represents an individual task within a threat model job.
+ *
  * @public
  */
 export interface ThreatModelJobTask {
   /**
-   * <p>The unique identifier of the task.</p>
+   * The unique identifier of the task.
+   *
    * @public
    */
   taskId: string | undefined;
 
   /**
-   * <p>The unique identifier of the threat model associated with the task.</p>
+   * The unique identifier of the threat model associated with the task.
+   *
    * @public
    */
   threatModelId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the threat model job that contains the task.</p>
+   * The unique identifier of the threat model job that contains the task.
+   *
    * @public
    */
   threatModelJobId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space.</p>
+   * The unique identifier of the agent space.
+   *
    * @public
    */
   agentSpaceId?: string | undefined;
 
   /**
-   * <p>The title of the task.</p>
+   * The title of the task.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>A description of the task.</p>
+   * A description of the task.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The current execution status of the task.</p>
+   * The current execution status of the task.
+   *
    * @public
    */
   executionStatus?: TaskExecutionStatus | undefined;
 
   /**
-   * <p>The location of the task execution logs.</p>
+   * The location of the task execution logs.
+   *
    * @public
    */
   logsLocation?: LogLocation | undefined;
 
   /**
-   * <p>The date and time the task was created, in UTC format.</p>
+   * The date and time the task was created, in UTC format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time the task was last updated, in UTC format.</p>
+   * The date and time the task was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * <p>Output for the BatchGetThreatModelJobTasks operation.</p>
+ * Output for the BatchGetThreatModelJobTasks operation.
+ *
  * @public
  */
 export interface BatchGetThreatModelJobTasksOutput {
   /**
-   * <p>The list of threat model job tasks that were found.</p>
+   * The list of threat model job tasks that were found.
+   *
    * @public
    */
   threatModelJobTasks?: ThreatModelJobTask[] | undefined;
 
   /**
-   * <p>The list of task identifiers that were not found.</p>
+   * The list of task identifiers that were not found.
+   *
    * @public
    */
   notFound?: string[] | undefined;
 }
 
 /**
- * <p>Input for retrieving multiple threat models by their IDs.</p>
+ * Input for retrieving multiple threat models by their IDs.
+ *
  * @public
  */
 export interface BatchGetThreatModelsInput {
   /**
-   * <p>The list of threat model identifiers to retrieve.</p>
+   * The list of threat model identifiers to retrieve.
+   *
    * @public
    */
   threatModelIds: string[] | undefined;
 
   /**
-   * <p>The unique identifier of the agent space that contains the threat models.</p>
+   * The unique identifier of the agent space that contains the threat models.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 }
 
 /**
- * <p>Represents a threat model configuration that defines the parameters for automated threat analysis, including target assets and logging configuration.</p>
+ * Represents a threat model configuration that defines the parameters for automated threat analysis, including target assets and logging configuration.
+ *
  * @public
  */
 export interface ThreatModel {
   /**
-   * <p>The unique identifier of the threat model.</p>
+   * The unique identifier of the threat model.
+   *
    * @public
    */
   threatModelId: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space that contains the threat model.</p>
+   * The unique identifier of the agent space that contains the threat model.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The title of the threat model.</p>
+   * The title of the threat model.
+   *
    * @public
    */
   title: string | undefined;
 
   /**
-   * <p>A description of the application or system being threat modeled.</p>
+   * A description of the application or system being threat modeled.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The assets included in the threat model.</p>
+   * The assets included in the threat model.
+   *
    * @public
    */
   assets: Assets | undefined;
 
   /**
-   * <p>The scoped documents for the agent to focus on during threat modeling.</p>
+   * The scoped documents for the agent to focus on during threat modeling.
+   *
    * @public
    */
   scopeDocs?: DocumentInfo[] | undefined;
 
   /**
-   * <p>The IAM service role used for the threat model.</p>
+   * The IAM service role used for the threat model.
+   *
    * @public
    */
   serviceRole?: string | undefined;
 
   /**
-   * <p>The CloudWatch Logs configuration for the threat model.</p>
+   * The CloudWatch Logs configuration for the threat model.
+   *
    * @public
    */
   logConfig?: CloudWatchLog | undefined;
 
   /**
-   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * The destination for publishing scan reports to an integrated document provider.
+   *
    * @public
    */
   reportDestination?: ReportDestination | undefined;
 
   /**
-   * <p>The date and time the threat model was created, in UTC format.</p>
+   * The date and time the threat model was created, in UTC format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time the threat model was last updated, in UTC format.</p>
+   * The date and time the threat model was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * <p>Output for the BatchGetThreatModels operation.</p>
+ * Output for the BatchGetThreatModels operation.
+ *
  * @public
  */
 export interface BatchGetThreatModelsOutput {
   /**
-   * <p>The list of threat models that were found.</p>
+   * The list of threat models that were found.
+   *
    * @public
    */
   threatModels?: ThreatModel[] | undefined;
 
   /**
-   * <p>The list of threat model identifiers that were not found.</p>
+   * The list of threat model identifiers that were not found.
+   *
    * @public
    */
   notFound?: string[] | undefined;
 }
 
 /**
- * <p>Input for retrieving multiple threats.</p>
+ * Input for retrieving multiple threats.
+ *
  * @public
  */
 export interface BatchGetThreatsInput {
   /**
-   * <p>The list of threat identifiers to retrieve.</p>
+   * The list of threat identifiers to retrieve.
+   *
    * @public
    */
   threatIds: string[] | undefined;
 
   /**
-   * <p>The unique identifier of the agent space.</p>
+   * The unique identifier of the agent space.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 }
 
 /**
- * <p>DFD element that a threat is anchored to.</p>
+ * DFD element that a threat is anchored to.
+ *
  * @public
  */
 export interface ThreatAnchorShape {
   /**
-   * <p>The kind of DFD element.</p>
+   * The kind of DFD element.
+   *
    * @public
    */
   kind?: string | undefined;
 
   /**
-   * <p>The identifier of the DFD element.</p>
+   * The identifier of the DFD element.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The package identifier containing the DFD element.</p>
+   * The package identifier containing the DFD element.
+   *
    * @public
    */
   packageId?: string | undefined;
 }
 
 /**
- * <p>Source code file supporting a threat.</p>
+ * Source code file supporting a threat.
+ *
  * @public
  */
 export interface ThreatEvidenceShape {
   /**
-   * <p>The package identifier containing the evidence file.</p>
+   * The package identifier containing the evidence file.
+   *
    * @public
    */
   packageId?: string | undefined;
 
   /**
-   * <p>The file path of the evidence.</p>
+   * The file path of the evidence.
+   *
    * @public
    */
   path?: string | undefined;
 }
 
 /**
- * <p>Represents a threat identified during threat modeling.</p>
+ * Represents a threat identified during threat modeling.
+ *
  * @public
  */
 export interface Threat {
   /**
-   * <p>The unique identifier of the threat.</p>
+   * The unique identifier of the threat.
+   *
    * @public
    */
   threatId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the threat model job that produced the threat.</p>
+   * The unique identifier of the threat model job that produced the threat.
+   *
    * @public
    */
   threatJobId?: string | undefined;
 
   /**
-   * <p>A short title summarizing the threat.</p>
+   * A short title summarizing the threat.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>The natural-language threat statement.</p>
+   * The natural-language threat statement.
+   *
    * @public
    */
   statement?: string | undefined;
 
   /**
-   * <p>The severity level of the threat.</p>
+   * The severity level of the threat.
+   *
    * @public
    */
   severity?: ThreatSeverity | undefined;
 
   /**
-   * <p>The current status of the threat.</p>
+   * The current status of the threat.
+   *
    * @public
    */
   status?: ThreatStatus | undefined;
 
   /**
-   * <p>Optional customer comment on the threat.</p>
+   * Optional customer comment on the threat.
+   *
    * @public
    */
   comments?: string | undefined;
 
   /**
-   * <p>The actor or origin of the threat.</p>
+   * The actor or origin of the threat.
+   *
    * @public
    */
   threatSource?: string | undefined;
 
   /**
-   * <p>The conditions required for the threat to be exploitable.</p>
+   * The conditions required for the threat to be exploitable.
+   *
    * @public
    */
   prerequisites?: string | undefined;
 
   /**
-   * <p>What the threat source can do.</p>
+   * What the threat source can do.
+   *
    * @public
    */
   threatAction?: string | undefined;
 
   /**
-   * <p>The direct consequence of the threat action.</p>
+   * The direct consequence of the threat action.
+   *
    * @public
    */
   threatImpact?: string | undefined;
 
   /**
-   * <p>The security goals affected by the threat.</p>
+   * The security goals affected by the threat.
+   *
    * @public
    */
   impactedGoal?: string[] | undefined;
 
   /**
-   * <p>The specific assets affected by the threat.</p>
+   * The specific assets affected by the threat.
+   *
    * @public
    */
   impactedAssets?: string[] | undefined;
 
   /**
-   * <p>The DFD element this threat is anchored to.</p>
+   * The DFD element this threat is anchored to.
+   *
    * @public
    */
   anchor?: ThreatAnchorShape | undefined;
 
   /**
-   * <p>The source code files supporting the threat.</p>
+   * The source code files supporting the threat.
+   *
    * @public
    */
   evidence?: ThreatEvidenceShape[] | undefined;
 
   /**
-   * <p>The STRIDE categories applicable to this threat.</p>
+   * The STRIDE categories applicable to this threat.
+   *
    * @public
    */
   stride?: StrideCategory[] | undefined;
 
   /**
-   * <p>The recommended mitigation guidance for this threat.</p>
+   * The recommended mitigation guidance for this threat.
+   *
    * @public
    */
   recommendation?: string | undefined;
 
   /**
-   * <p>Who created this threat.</p>
+   * Who created this threat.
+   *
    * @public
    */
   createdBy?: ThreatActor | undefined;
 
   /**
-   * <p>Who last updated this threat.</p>
+   * Who last updated this threat.
+   *
    * @public
    */
   updatedBy?: ThreatActor | undefined;
 
   /**
-   * <p>The date and time the threat was created, in UTC format.</p>
+   * The date and time the threat was created, in UTC format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time the threat was last updated, in UTC format.</p>
+   * The date and time the threat was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * <p>Output for the BatchGetThreats operation.</p>
+ * Output for the BatchGetThreats operation.
+ *
  * @public
  */
 export interface BatchGetThreatsOutput {
   /**
-   * <p>The list of threats that were found.</p>
+   * The list of threats that were found.
+   *
    * @public
    */
   threats?: Threat[] | undefined;
 
   /**
-   * <p>The list of threat identifiers that were not found.</p>
+   * The list of threat identifiers that were not found.
+   *
    * @public
    */
   notFound?: string[] | undefined;
 }
 
 /**
- * <p>Contains the details for updating an existing security requirement within a pack. The name is an immutable identifier used to locate the requirement and cannot be modified.</p>
+ * Contains the details for updating an existing security requirement within a pack. The name is an immutable identifier used to locate the requirement and cannot be modified.
+ *
  * @public
  */
 export interface UpdateSecurityRequirementEntry {
   /**
-   * <p>The name of the security requirement to update. This is an immutable identifier and cannot be changed once the requirement is created.</p>
+   * The name of the security requirement to update. This is an immutable identifier and cannot be changed once the requirement is created.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The updated description of the security requirement.</p>
+   * The updated description of the security requirement.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The updated security domain the requirement belongs to.</p>
+   * The updated security domain the requirement belongs to.
+   *
    * @public
    */
   domain?: string | undefined;
 
   /**
-   * <p>The updated evaluation criteria used to assess compliance with this requirement.</p>
+   * The updated evaluation criteria used to assess compliance with this requirement.
+   *
    * @public
    */
   evaluation?: string | undefined;
 
   /**
-   * <p>The updated remediation steps when the requirement is not met.</p>
+   * The updated remediation steps when the requirement is not met.
+   *
    * @public
    */
   remediation?: string | undefined;
@@ -4404,13 +5105,15 @@ export interface UpdateSecurityRequirementEntry {
  */
 export interface BatchUpdateSecurityRequirementsInput {
   /**
-   * <p>The unique identifier of the security requirement pack containing the requirements to update.</p>
+   * The unique identifier of the security requirement pack containing the requirements to update.
+   *
    * @public
    */
   packId: string | undefined;
 
   /**
-   * <p>The list of security requirement updates to apply.</p>
+   * The list of security requirement updates to apply.
+   *
    * @public
    */
   securityRequirements: UpdateSecurityRequirementEntry[] | undefined;
@@ -4421,662 +5124,772 @@ export interface BatchUpdateSecurityRequirementsInput {
  */
 export interface BatchUpdateSecurityRequirementsOutput {
   /**
-   * <p>The list of security requirement names that were successfully updated.</p>
+   * The list of security requirement names that were successfully updated.
+   *
    * @public
    */
   updatedSecurityRequirementNames: string[] | undefined;
 
   /**
-   * <p>The list of errors for security requirements that failed to be updated.</p>
+   * The list of errors for security requirements that failed to be updated.
+   *
    * @public
    */
   errors: BatchSecurityRequirementError[] | undefined;
 }
 
 /**
- * <p>Connection details for a self-managed Bitbucket Data Center integration.</p>
+ * Connection details for a self-managed Bitbucket Data Center integration.
+ *
  * @public
  */
 export interface BitbucketDataCenterIntegrationInput {
   /**
-   * <p>The HTTPS URL of your Bitbucket Data Center instance, for example <code>https://bitbucket.example.com</code>.</p>
+   * The HTTPS URL of your Bitbucket Data Center instance, for example `https://bitbucket.example.com`.
+   *
    * @public
    */
   targetUrl: string | undefined;
 
   /**
-   * <p>The OAuth 2.0 authorization code returned to your redirect URL after the connection is authorized.</p>
+   * The OAuth 2.0 authorization code returned to your redirect URL after the connection is authorized.
+   *
    * @public
    */
   code: string | undefined;
 
   /**
-   * <p>The CSRF state value returned by <code>InitiateProviderRegistration</code> and echoed back on the authorization redirect.</p>
+   * The CSRF state value returned by `InitiateProviderRegistration` and echoed back on the authorization redirect.
+   *
    * @public
    */
   state: string | undefined;
 }
 
 /**
- * <p>The configuration for creating a Bitbucket integration.</p>
+ * The configuration for creating a Bitbucket integration.
+ *
  * @public
  */
 export interface BitbucketIntegrationInput {
   /**
-   * <p>The Atlassian installation identifier, available from the Atlassian administration console.</p>
+   * The Atlassian installation identifier, available from the Atlassian administration console.
+   *
    * @public
    */
   installationId: string | undefined;
 
   /**
-   * <p>The Bitbucket workspace slug that identifies the workspace to integrate, for example acme-corp.</p>
+   * The Bitbucket workspace slug that identifies the workspace to integrate, for example acme-corp.
+   *
    * @public
    */
   workspace: string | undefined;
 
   /**
-   * <p>The OAuth 2.0 authorization code returned from the consent redirect.</p>
+   * The OAuth 2.0 authorization code returned from the consent redirect.
+   *
    * @public
    */
   code: string | undefined;
 
   /**
-   * <p>The CSRF state token echoed back from the OAuth redirect.</p>
+   * The CSRF state token echoed back from the OAuth redirect.
+   *
    * @public
    */
   state: string | undefined;
 }
 
 /**
- * <p>Metadata for an integrated Bitbucket repository.</p>
+ * Metadata for an integrated Bitbucket repository.
+ *
  * @public
  */
 export interface BitbucketRepositoryMetadata {
   /**
-   * <p>Name of the resource e.g. repository name, etc.</p>
+   * Name of the resource e.g. repository name, etc.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Provider Id of the resource e.g. GitHub repository id, etc.</p>
+   * Provider Id of the resource e.g. GitHub repository id, etc.
+   *
    * @public
    */
   providerResourceId: string | undefined;
 
   /**
-   * <p>The workspace slug that owns the repository.</p>
+   * The workspace slug that owns the repository.
+   *
    * @public
    */
   workspace: string | undefined;
 
   /**
-   * <p>Defines the visibility level of provider resources. PRIVATE indicates restricted access, while PUBLIC indicates open access.</p>
+   * Defines the visibility level of provider resources. PRIVATE indicates restricted access, while PUBLIC indicates open access.
+   *
    * @public
    */
   accessType?: AccessType | undefined;
 }
 
 /**
- * <p>A Bitbucket repository integrated as a resource.</p>
+ * A Bitbucket repository integrated as a resource.
+ *
  * @public
  */
 export interface BitbucketRepositoryResource {
   /**
-   * <p>Name of the resource e.g. repository name, etc.</p>
+   * Name of the resource e.g. repository name, etc.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The workspace slug that owns the repository.</p>
+   * The workspace slug that owns the repository.
+   *
    * @public
    */
   workspace: string | undefined;
 }
 
 /**
- * <p>Capabilities for an integrated Bitbucket repository.</p>
+ * Capabilities for an integrated Bitbucket repository.
+ *
  * @public
  */
 export interface BitbucketResourceCapabilities {
   /**
-   * <p>The filter groups that control which pull request events start an automatic code review when <code>leaveComments</code> is enabled. A review starts when any group matches. If you omit this, a review starts on <code>PULL_REQUEST_READY_FOR_REVIEW</code> events.</p>
+   * The filter groups that control which pull request events start an automatic code review when `leaveComments` is enabled. A review starts when any group matches. If you omit this, a review starts on `PULL_REQUEST_READY_FOR_REVIEW` events.
+   *
    * @public
    */
   triggerFilterGroups?: TriggerFilterGroup[] | undefined;
 
   /**
-   * <p>Whether to post code review comments on pull requests.</p>
+   * Whether to post code review comments on pull requests.
+   *
    * @public
    */
   leaveComments?: boolean | undefined;
 
   /**
-   * <p>Whether to create pull requests with automated fixes.</p>
+   * Whether to create pull requests with automated fixes.
+   *
    * @public
    */
   remediateCode?: boolean | undefined;
 }
 
 /**
- * <p>Contains summary information about a code review job.</p>
+ * Contains summary information about a code review job.
+ *
  * @public
  */
 export interface CodeReviewJobSummary {
   /**
-   * <p>The unique identifier of the code review job.</p>
+   * The unique identifier of the code review job.
+   *
    * @public
    */
   codeReviewJobId: string | undefined;
 
   /**
-   * <p>The unique identifier of the code review associated with the job.</p>
+   * The unique identifier of the code review associated with the job.
+   *
    * @public
    */
   codeReviewId: string | undefined;
 
   /**
-   * <p>The title of the code review job.</p>
+   * The title of the code review job.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>The current status of the code review job.</p>
+   * The current status of the code review job.
+   *
    * @public
    */
   status?: JobStatus | undefined;
 
   /**
-   * <p>The date and time the code review job was created, in UTC format.</p>
+   * The date and time the code review job was created, in UTC format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time the code review job was last updated, in UTC format.</p>
+   * The date and time the code review job was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * <p>Contains summary information about a code review job task.</p>
+ * Contains summary information about a code review job task.
+ *
  * @public
  */
 export interface CodeReviewJobTaskSummary {
   /**
-   * <p>The unique identifier of the task.</p>
+   * The unique identifier of the task.
+   *
    * @public
    */
   taskId: string | undefined;
 
   /**
-   * <p>The unique identifier of the code review associated with the task.</p>
+   * The unique identifier of the code review associated with the task.
+   *
    * @public
    */
   codeReviewId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the code review job that contains the task.</p>
+   * The unique identifier of the code review job that contains the task.
+   *
    * @public
    */
   codeReviewJobId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space.</p>
+   * The unique identifier of the agent space.
+   *
    * @public
    */
   agentSpaceId?: string | undefined;
 
   /**
-   * <p>The title of the task.</p>
+   * The title of the task.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>The type of security risk the task is testing for.</p>
+   * The type of security risk the task is testing for.
+   *
    * @public
    */
   riskType?: RiskType | undefined;
 
   /**
-   * <p>The current execution status of the task.</p>
+   * The current execution status of the task.
+   *
    * @public
    */
   executionStatus?: TaskExecutionStatus | undefined;
 
   /**
-   * <p>The date and time the task was created, in UTC format.</p>
+   * The date and time the task was created, in UTC format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time the task was last updated, in UTC format.</p>
+   * The date and time the task was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * <p>Contains summary information about a code review.</p>
+ * Contains summary information about a code review.
+ *
  * @public
  */
 export interface CodeReviewSummary {
   /**
-   * <p>The unique identifier of the code review.</p>
+   * The unique identifier of the code review.
+   *
    * @public
    */
   codeReviewId: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space that contains the code review.</p>
+   * The unique identifier of the agent space that contains the code review.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The title of the code review.</p>
+   * The title of the code review.
+   *
    * @public
    */
   title: string | undefined;
 
   /**
-   * <p>The date and time the code review was created, in UTC format.</p>
+   * The date and time the code review was created, in UTC format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time the code review was last updated, in UTC format.</p>
+   * The date and time the code review was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * <p>Metadata for an integrated Confluence document.</p>
+ * Metadata for an integrated Confluence document.
+ *
  * @public
  */
 export interface ConfluenceDocumentMetadata {
   /**
-   * <p>Name of the resource e.g. repository name, etc.</p>
+   * Name of the resource e.g. repository name, etc.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Provider Id of the resource e.g. GitHub repository id, etc.</p>
+   * Provider Id of the resource e.g. GitHub repository id, etc.
+   *
    * @public
    */
   providerResourceId: string | undefined;
 
   /**
-   * <p>The Confluence space key containing the document.</p>
+   * The Confluence space key containing the document.
+   *
    * @public
    */
   spaceKey: string | undefined;
 
   /**
-   * <p>The Confluence page identifier.</p>
+   * The Confluence page identifier.
+   *
    * @public
    */
   pageId: string | undefined;
 
   /**
-   * <p>The display title of the Confluence page.</p>
+   * The display title of the Confluence page.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>The display title of the Confluence space.</p>
+   * The display title of the Confluence space.
+   *
    * @public
    */
   spaceTitle?: string | undefined;
 }
 
 /**
- * <p>A Confluence document (page) integrated as a resource.</p>
+ * A Confluence document (page) integrated as a resource.
+ *
  * @public
  */
 export interface ConfluenceDocumentResource {
   /**
-   * <p>Name of the resource e.g. repository name, etc.</p>
+   * Name of the resource e.g. repository name, etc.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Confluence space key containing the document.</p>
+   * The Confluence space key containing the document.
+   *
    * @public
    */
   spaceKey: string | undefined;
 
   /**
-   * <p>The Confluence page identifier.</p>
+   * The Confluence page identifier.
+   *
    * @public
    */
   pageId: string | undefined;
 
   /**
-   * <p>The display title of the Confluence page.</p>
+   * The display title of the Confluence page.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>The display title of the Confluence space.</p>
+   * The display title of the Confluence space.
+   *
    * @public
    */
   spaceTitle?: string | undefined;
 }
 
 /**
- * <p>The configuration for creating a Confluence integration.</p>
+ * The configuration for creating a Confluence integration.
+ *
  * @public
  */
 export interface ConfluenceIntegrationInput {
   /**
-   * <p>The Atlassian installation identifier, available from the Atlassian administration console.</p>
+   * The Atlassian installation identifier, available from the Atlassian administration console.
+   *
    * @public
    */
   installationId: string | undefined;
 
   /**
-   * <p>The OAuth 2.0 authorization code returned from the consent redirect.</p>
+   * The OAuth 2.0 authorization code returned from the consent redirect.
+   *
    * @public
    */
   code: string | undefined;
 
   /**
-   * <p>The CSRF state token echoed back from the OAuth redirect.</p>
+   * The CSRF state token echoed back from the OAuth redirect.
+   *
    * @public
    */
   state: string | undefined;
 
   /**
-   * <p>The Confluence Cloud site URL, for example https://mysite.atlassian.net.</p>
+   * The Confluence Cloud site URL, for example https://mysite.atlassian.net.
+   *
    * @public
    */
   siteUrl: string | undefined;
 }
 
 /**
- * <p>Capabilities for an integrated Confluence space.</p>
+ * Capabilities for an integrated Confluence space.
+ *
  * @public
  */
 export interface ConfluenceResourceCapabilities {
   /**
-   * <p>Whether to fetch documents from this space.</p>
+   * Whether to fetch documents from this space.
+   *
    * @public
    */
   fetchDocument?: boolean | undefined;
 
   /**
-   * <p>Whether to create documents in this space.</p>
+   * Whether to create documents in this space.
+   *
    * @public
    */
   createDocument?: boolean | undefined;
 
   /**
-   * <p>Whether to update documents in this space.</p>
+   * Whether to update documents in this space.
+   *
    * @public
    */
   updateDocument?: boolean | undefined;
 }
 
 /**
- * <p>Input for creating a new code review.</p>
+ * Input for creating a new code review.
+ *
  * @public
  */
 export interface CreateCodeReviewInput {
   /**
-   * <p>The title of the code review.</p>
+   * The title of the code review.
+   *
    * @public
    */
   title: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space to create the code review in.</p>
+   * The unique identifier of the agent space to create the code review in.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The assets to include in the code review, such as documents and source code.</p>
+   * The assets to include in the code review, such as documents and source code.
+   *
    * @public
    */
   assets: Assets | undefined;
 
   /**
-   * <p>The IAM service role to use for the code review.</p>
+   * The IAM service role to use for the code review.
+   *
    * @public
    */
   serviceRole?: string | undefined;
 
   /**
-   * <p>The CloudWatch Logs configuration for the code review.</p>
+   * The CloudWatch Logs configuration for the code review.
+   *
    * @public
    */
   logConfig?: CloudWatchLog | undefined;
 
   /**
-   * <p>The code remediation strategy for the code review. Valid values are AUTOMATIC and DISABLED.</p>
+   * The code remediation strategy for the code review. Valid values are AUTOMATIC and DISABLED.
+   *
    * @public
    */
   codeRemediationStrategy?: CodeRemediationStrategy | undefined;
 
   /**
-   * <p>The validation mode for the code review. Valid values are SIMULATED and DISABLED.</p>
+   * The validation mode for the code review. Valid values are SIMULATED and DISABLED.
+   *
    * @public
    */
   validationMode?: ValidationMode | undefined;
 
   /**
-   * <p>The maximum number of billable task hours allowed for jobs started from this code review. Must be a positive number. If not set, jobs run to completion with no budget cap.</p>
+   * The maximum number of billable task hours allowed for jobs started from this code review. Must be a positive number. If not set, jobs run to completion with no budget cap.
+   *
    * @public
    */
   maxTaskHours?: number | undefined;
 
   /**
-   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * The destination for publishing scan reports to an integrated document provider.
+   *
    * @public
    */
   reportDestination?: ReportDestination | undefined;
 
   /**
-   * <p>The report-generation filters applied when the report is exported.</p>
+   * The report-generation filters applied when the report is exported.
+   *
    * @public
    */
   reportFilters?: ReportFilters | undefined;
 }
 
 /**
- * <p>Output for the CreateCodeReview operation.</p>
+ * Output for the CreateCodeReview operation.
+ *
  * @public
  */
 export interface CreateCodeReviewOutput {
   /**
-   * <p>The unique identifier of the created code review.</p>
+   * The unique identifier of the created code review.
+   *
    * @public
    */
   codeReviewId: string | undefined;
 
   /**
-   * <p>The title of the code review.</p>
+   * The title of the code review.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>The date and time the code review was created, in UTC format.</p>
+   * The date and time the code review was created, in UTC format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time the code review was last updated, in UTC format.</p>
+   * The date and time the code review was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The assets included in the code review.</p>
+   * The assets included in the code review.
+   *
    * @public
    */
   assets?: Assets | undefined;
 
   /**
-   * <p>The IAM service role used for the code review.</p>
+   * The IAM service role used for the code review.
+   *
    * @public
    */
   serviceRole?: string | undefined;
 
   /**
-   * <p>The CloudWatch Logs configuration for the code review.</p>
+   * The CloudWatch Logs configuration for the code review.
+   *
    * @public
    */
   logConfig?: CloudWatchLog | undefined;
 
   /**
-   * <p>The unique identifier of the agent space that contains the code review.</p>
+   * The unique identifier of the agent space that contains the code review.
+   *
    * @public
    */
   agentSpaceId?: string | undefined;
 
   /**
-   * <p>The code remediation strategy for the code review.</p>
+   * The code remediation strategy for the code review.
+   *
    * @public
    */
   codeRemediationStrategy?: CodeRemediationStrategy | undefined;
 
   /**
-   * <p>The validation mode for the code review.</p>
+   * The validation mode for the code review.
+   *
    * @public
    */
   validationMode?: ValidationMode | undefined;
 
   /**
-   * <p>The maximum number of billable task hours configured for jobs started from this code review. Null if no budget cap is set.</p>
+   * The maximum number of billable task hours configured for jobs started from this code review. Null if no budget cap is set.
+   *
    * @public
    */
   maxTaskHours?: number | undefined;
 
   /**
-   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * The destination for publishing scan reports to an integrated document provider.
+   *
    * @public
    */
   reportDestination?: ReportDestination | undefined;
 
   /**
-   * <p>The report-generation filters applied when the report is exported.</p>
+   * The report-generation filters applied when the report is exported.
+   *
    * @public
    */
   reportFilters?: ReportFilters | undefined;
 }
 
 /**
- * <p>The input required to create a GitHub integration, including the OAuth authorization code and CSRF state.</p>
+ * The input required to create a GitHub integration, including the OAuth authorization code and CSRF state.
+ *
  * @public
  */
 export interface GitHubIntegrationInput {
   /**
-   * <p>The OAuth authorization code received from GitHub.</p>
+   * The OAuth authorization code received from GitHub.
+   *
    * @public
    */
   code: string | undefined;
 
   /**
-   * <p>The CSRF state token for validating the OAuth flow.</p>
+   * The CSRF state token for validating the OAuth flow.
+   *
    * @public
    */
   state: string | undefined;
 
   /**
-   * <p>The name of the GitHub organization to integrate with.</p>
+   * The name of the GitHub organization to integrate with.
+   *
    * @public
    */
   organizationName?: string | undefined;
 
   /**
-   * <p>The HTTPS URL of a self-hosted GitHub Enterprise Server instance. Omit this value for GitHub.com.</p>
+   * The HTTPS URL of a self-hosted GitHub Enterprise Server instance. Omit this value for GitHub.com.
+   *
    * @public
    */
   targetUrl?: string | undefined;
 
   /**
-   * <p>The installation identifier provided by GitHub Enterprise Server on the install callback. Required for GitHub Enterprise Server integrations and ignored for GitHub.com.</p>
+   * The installation identifier provided by GitHub Enterprise Server on the install callback. Required for GitHub Enterprise Server integrations and ignored for GitHub.com.
+   *
    * @public
    */
   installationId?: string | undefined;
 }
 
 /**
- * <p>The configuration for creating a GitLab integration.</p>
+ * The configuration for creating a GitLab integration.
+ *
  * @public
  */
 export interface GitLabIntegrationInput {
   /**
-   * <p>The GitLab access token used to authenticate. This can be a personal access token or a group access token.</p>
+   * The GitLab access token used to authenticate. This can be a personal access token or a group access token.
+   *
    * @public
    */
   accessToken: string | undefined;
 
   /**
-   * <p>The HTTPS URL of a self-managed GitLab instance. Omit this value for GitLab SaaS (gitlab.com).</p>
+   * The HTTPS URL of a self-managed GitLab instance. Omit this value for GitLab SaaS (gitlab.com).
+   *
    * @public
    */
   targetUrl?: string | undefined;
 
   /**
-   * <p>The type of GitLab access token provided in accessToken.</p>
+   * The type of GitLab access token provided in accessToken.
+   *
    * @public
    */
   tokenType: GitLabTokenType | undefined;
 
   /**
-   * <p>The identifier of the GitLab group. Required when tokenType is group and ignored for personal tokens.</p>
+   * The identifier of the GitLab group. Required when tokenType is group and ignored for personal tokens.
+   *
    * @public
    */
   groupId?: string | undefined;
 }
 
 /**
- * <p>The configuration for creating a Jira integration.</p>
+ * The configuration for creating a Jira integration.
+ *
  * @public
  */
 export interface JiraIntegrationInput {
   /**
-   * <p>The Atlassian installation identifier, available from the Atlassian administration console.</p>
+   * The Atlassian installation identifier, available from the Atlassian administration console.
+   *
    * @public
    */
   installationId: string | undefined;
 
   /**
-   * <p>The OAuth 2.0 authorization code returned from the consent redirect.</p>
+   * The OAuth 2.0 authorization code returned from the consent redirect.
+   *
    * @public
    */
   code: string | undefined;
 
   /**
-   * <p>The CSRF state token echoed back from the OAuth redirect.</p>
+   * The CSRF state token echoed back from the OAuth redirect.
+   *
    * @public
    */
   state: string | undefined;
 
   /**
-   * <p>The Jira Cloud site URL, for example https://mysite.atlassian.net.</p>
+   * The Jira Cloud site URL, for example https://mysite.atlassian.net.
+   *
    * @public
    */
   siteUrl: string | undefined;
 }
 
 /**
- * <p>The provider-specific input for creating an integration. This is a union type that contains provider-specific configuration.</p>
+ * The provider-specific input for creating an integration. This is a union type that contains provider-specific configuration.
+ *
  * @public
  */
 export type ProviderInput =
@@ -5094,7 +5907,8 @@ export type ProviderInput =
  */
 export namespace ProviderInput {
   /**
-   * <p>The GitHub-specific input for creating an integration.</p>
+   * The GitHub-specific input for creating an integration.
+   *
    * @public
    */
   export interface GithubMember {
@@ -5109,7 +5923,8 @@ export namespace ProviderInput {
   }
 
   /**
-   * <p>The configuration for a GitLab integration.</p>
+   * The configuration for a GitLab integration.
+   *
    * @public
    */
   export interface GitlabMember {
@@ -5124,7 +5939,8 @@ export namespace ProviderInput {
   }
 
   /**
-   * <p>The configuration for a Bitbucket integration.</p>
+   * The configuration for a Bitbucket integration.
+   *
    * @public
    */
   export interface BitbucketMember {
@@ -5139,7 +5955,8 @@ export namespace ProviderInput {
   }
 
   /**
-   * <p>The configuration for a Confluence integration.</p>
+   * The configuration for a Confluence integration.
+   *
    * @public
    */
   export interface ConfluenceMember {
@@ -5154,7 +5971,8 @@ export namespace ProviderInput {
   }
 
   /**
-   * <p>The Azure DevOps-specific input for creating an integration.</p>
+   * The Azure DevOps-specific input for creating an integration.
+   *
    * @public
    */
   export interface AzureDevOpsMember {
@@ -5169,7 +5987,8 @@ export namespace ProviderInput {
   }
 
   /**
-   * <p>The Bitbucket Data Center-specific input for creating an integration.</p>
+   * The Bitbucket Data Center-specific input for creating an integration.
+   *
    * @public
    */
   export interface BitbucketDataCenterMember {
@@ -5184,7 +6003,8 @@ export namespace ProviderInput {
   }
 
   /**
-   * <p>The configuration for a Jira integration.</p>
+   * The configuration for a Jira integration.
+   *
    * @public
    */
   export interface JiraMember {
@@ -5233,37 +6053,43 @@ export namespace ProviderInput {
  */
 export interface CreateIntegrationInput {
   /**
-   * <p>The integration provider.</p>
+   * The integration provider.
+   *
    * @public
    */
   provider: Provider | undefined;
 
   /**
-   * <p>The provider-specific input required to create the integration.</p>
+   * The provider-specific input required to create the integration.
+   *
    * @public
    */
   input: ProviderInput | undefined;
 
   /**
-   * <p>The display name for the integration.</p>
+   * The display name for the integration.
+   *
    * @public
    */
   integrationDisplayName: string | undefined;
 
   /**
-   * <p>The identifier of the AWS KMS key to use for encrypting data associated with the integration.</p>
+   * The identifier of the AWS KMS key to use for encrypting data associated with the integration.
+   *
    * @public
    */
   kmsKeyId?: string | undefined;
 
   /**
-   * <p>The tags to associate with the integration.</p>
+   * The tags to associate with the integration.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The name of an active private connection used to reach a self-hosted provider instance over private networking. Specify this when the instance is not publicly reachable.</p>
+   * The name of an active private connection used to reach a self-hosted provider instance over private networking. Specify this when the instance is not publicly reachable.
+   *
    * @public
    */
   privateConnectionName?: string | undefined;
@@ -5274,26 +6100,30 @@ export interface CreateIntegrationInput {
  */
 export interface CreateIntegrationOutput {
   /**
-   * <p>The unique identifier of the created integration.</p>
+   * The unique identifier of the created integration.
+   *
    * @public
    */
   integrationId: string | undefined;
 }
 
 /**
- * <p>The configuration for a user membership, including the role assigned to the user within the agent space.</p>
+ * The configuration for a user membership, including the role assigned to the user within the agent space.
+ *
  * @public
  */
 export interface UserConfig {
   /**
-   * <p>The role assigned to the user. Currently, only MEMBER is supported.</p>
+   * The role assigned to the user. Currently, only MEMBER is supported.
+   *
    * @public
    */
   role?: UserRole | undefined;
 }
 
 /**
- * <p>The configuration for a membership. This is a union type that contains member-type-specific configuration.</p>
+ * The configuration for a membership. This is a union type that contains member-type-specific configuration.
+ *
  * @public
  */
 export type MembershipConfig =
@@ -5305,7 +6135,8 @@ export type MembershipConfig =
  */
 export namespace MembershipConfig {
   /**
-   * <p>The user configuration for the membership.</p>
+   * The user configuration for the membership.
+   *
    * @public
    */
   export interface UserMember {
@@ -5332,307 +6163,358 @@ export namespace MembershipConfig {
 }
 
 /**
- * <p>Request structure for adding a single member to an agent space.</p>
+ * Request structure for adding a single member to an agent space.
+ *
  * @public
  */
 export interface CreateMembershipRequest {
   /**
-   * <p>The unique identifier of the application that contains the agent space.</p>
+   * The unique identifier of the application that contains the agent space.
+   *
    * @public
    */
   applicationId: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space to grant access to.</p>
+   * The unique identifier of the agent space to grant access to.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The unique identifier for the membership.</p>
+   * The unique identifier for the membership.
+   *
    * @public
    */
   membershipId: string | undefined;
 
   /**
-   * <p>The type of member. Currently, only USER is supported.</p>
+   * The type of member. Currently, only USER is supported.
+   *
    * @public
    */
   memberType: MembershipType | undefined;
 
   /**
-   * <p>The configuration for the membership, such as the user role.</p>
+   * The configuration for the membership, such as the user role.
+   *
    * @public
    */
   config?: MembershipConfig | undefined;
 }
 
 /**
- * <p>Response structure for adding a single member to an agent space.</p>
+ * Response structure for adding a single member to an agent space.
+ *
  * @public
  */
 export interface CreateMembershipResponse {}
 
 /**
- * <p>Input for creating a new pentest.</p>
+ * Input for creating a new pentest.
+ *
  * @public
  */
 export interface CreatePentestInput {
   /**
-   * <p>The title of the pentest.</p>
+   * The title of the pentest.
+   *
    * @public
    */
   title: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space to create the pentest in.</p>
+   * The unique identifier of the agent space to create the pentest in.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The assets to include in the pentest, such as endpoints, actors, documents, and source code.</p>
+   * The assets to include in the pentest, such as endpoints, actors, documents, and source code.
+   *
    * @public
    */
   assets?: Assets | undefined;
 
   /**
-   * <p>The list of risk types to exclude from the pentest.</p>
+   * The list of risk types to exclude from the pentest.
+   *
    * @public
    */
   excludeRiskTypes?: RiskType[] | undefined;
 
   /**
-   * <p>The IAM service role to use for the pentest.</p>
+   * The IAM service role to use for the pentest.
+   *
    * @public
    */
   serviceRole?: string | undefined;
 
   /**
-   * <p>The CloudWatch Logs configuration for the pentest.</p>
+   * The CloudWatch Logs configuration for the pentest.
+   *
    * @public
    */
   logConfig?: CloudWatchLog | undefined;
 
   /**
-   * <p>The VPC configuration for the pentest.</p>
+   * The VPC configuration for the pentest.
+   *
    * @public
    */
   vpcConfig?: VpcConfig | undefined;
 
   /**
-   * <p>The network traffic configuration for the pentest, including custom headers and traffic rules.</p>
+   * The network traffic configuration for the pentest, including custom headers and traffic rules.
+   *
    * @public
    */
   networkTrafficConfig?: NetworkTrafficConfig | undefined;
 
   /**
-   * <p>The code remediation strategy for the pentest. Valid values are AUTOMATIC and DISABLED.</p>
+   * The code remediation strategy for the pentest. Valid values are AUTOMATIC and DISABLED.
+   *
    * @public
    */
   codeRemediationStrategy?: CodeRemediationStrategy | undefined;
 
   /**
-   * <p>A list of managed skills to disable for this pentest. Valid values include FINDING_PERSONALIZATION and LOGIN_OPTIMIZATION.</p>
+   * A list of managed skills to disable for this pentest. Valid values include FINDING_PERSONALIZATION and LOGIN_OPTIMIZATION.
+   *
    * @public
    */
   disableManagedSkills?: SkillType[] | undefined;
 
   /**
-   * <p>The maximum number of billable task hours allowed for jobs started from this pentest. Must be a positive number. If not set, jobs run to completion with no budget cap.</p>
+   * The maximum number of billable task hours allowed for jobs started from this pentest. Must be a positive number. If not set, jobs run to completion with no budget cap.
+   *
    * @public
    */
   maxTaskHours?: number | undefined;
 
   /**
-   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * The destination for publishing scan reports to an integrated document provider.
+   *
    * @public
    */
   reportDestination?: ReportDestination | undefined;
 
   /**
-   * <p>The report-generation filters applied when the report is exported.</p>
+   * The report-generation filters applied when the report is exported.
+   *
    * @public
    */
   reportFilters?: ReportFilters | undefined;
 
   /**
-   * <p>The CI/CD pentesting configuration to apply to the pentest.</p>
+   * The CI/CD pentesting configuration to apply to the pentest.
+   *
    * @public
    */
   cicdConfiguration?: CiCdConfiguration | undefined;
 
   /**
-   * <p>The category of application a pentest targets.</p>
+   * The category of application a pentest targets.
+   *
    * @public
    */
   testScope?: TestScope | undefined;
 }
 
 /**
- * <p>Output for the CreatePentest operation.</p>
+ * Output for the CreatePentest operation.
+ *
  * @public
  */
 export interface CreatePentestOutput {
   /**
-   * <p>The unique identifier of the created pentest.</p>
+   * The unique identifier of the created pentest.
+   *
    * @public
    */
   pentestId?: string | undefined;
 
   /**
-   * <p>The title of the pentest.</p>
+   * The title of the pentest.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>The date and time the pentest was created, in UTC format.</p>
+   * The date and time the pentest was created, in UTC format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time the pentest was last updated, in UTC format.</p>
+   * The date and time the pentest was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The assets included in the pentest.</p>
+   * The assets included in the pentest.
+   *
    * @public
    */
   assets?: Assets | undefined;
 
   /**
-   * <p>The list of risk types excluded from the pentest.</p>
+   * The list of risk types excluded from the pentest.
+   *
    * @public
    */
   excludeRiskTypes?: RiskType[] | undefined;
 
   /**
-   * <p>The IAM service role used for the pentest.</p>
+   * The IAM service role used for the pentest.
+   *
    * @public
    */
   serviceRole?: string | undefined;
 
   /**
-   * <p>The CloudWatch Logs configuration for the pentest.</p>
+   * The CloudWatch Logs configuration for the pentest.
+   *
    * @public
    */
   logConfig?: CloudWatchLog | undefined;
 
   /**
-   * <p>The unique identifier of the agent space that contains the pentest.</p>
+   * The unique identifier of the agent space that contains the pentest.
+   *
    * @public
    */
   agentSpaceId?: string | undefined;
 
   /**
-   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * The destination for publishing scan reports to an integrated document provider.
+   *
    * @public
    */
   reportDestination?: ReportDestination | undefined;
 
   /**
-   * <p>The report-generation filters applied when the report is exported.</p>
+   * The report-generation filters applied when the report is exported.
+   *
    * @public
    */
   reportFilters?: ReportFilters | undefined;
 
   /**
-   * <p>The CI/CD pentesting configuration applied to the pentest.</p>
+   * The CI/CD pentesting configuration applied to the pentest.
+   *
    * @public
    */
   cicdConfiguration?: CiCdConfiguration | undefined;
 
   /**
-   * <p>The category of application a pentest targets.</p>
+   * The category of application a pentest targets.
+   *
    * @public
    */
   testScope?: TestScope | undefined;
 }
 
 /**
- * <p>The configuration for a self-managed private connection.</p>
+ * The configuration for a self-managed private connection.
+ *
  * @public
  */
 export interface SelfManagedInput {
   /**
-   * <p>The identifier or ARN of the resource configuration.</p>
+   * The identifier or ARN of the resource configuration.
+   *
    * @public
    */
   resourceConfigurationId: string | undefined;
 
   /**
-   * <p>The certificate for the private connection.</p>
+   * The certificate for the private connection.
+   *
    * @public
    */
   certificate?: string | undefined;
 }
 
 /**
- * <p>The configuration for a service-managed private connection.</p>
+ * The configuration for a service-managed private connection.
+ *
  * @public
  */
 export interface ServiceManagedInput {
   /**
-   * <p>The IP address or DNS name of the target resource.</p>
+   * The IP address or DNS name of the target resource.
+   *
    * @public
    */
   hostAddress: string | undefined;
 
   /**
-   * <p>The VPC to create the service-managed resource gateway in.</p>
+   * The VPC to create the service-managed resource gateway in.
+   *
    * @public
    */
   vpcId: string | undefined;
 
   /**
-   * <p>The subnets that the service-managed resource gateway spans.</p>
+   * The subnets that the service-managed resource gateway spans.
+   *
    * @public
    */
   subnetIds: string[] | undefined;
 
   /**
-   * <p>The security groups to attach to the service-managed resource gateway.</p>
+   * The security groups to attach to the service-managed resource gateway.
+   *
    * @public
    */
   securityGroupIds?: string[] | undefined;
 
   /**
-   * <p>The IP address type of the service-managed resource gateway.</p>
+   * The IP address type of the service-managed resource gateway.
+   *
    * @public
    */
   ipAddressType?: IpAddressType | undefined;
 
   /**
-   * <p>The number of IPv4 addresses in each elastic network interface for the service-managed resource gateway.</p>
+   * The number of IPv4 addresses in each elastic network interface for the service-managed resource gateway.
+   *
    * @public
    */
   ipv4AddressesPerEni?: number | undefined;
 
   /**
-   * <p>The TCP port ranges that a consumer can use to access the resource.</p>
+   * The TCP port ranges that a consumer can use to access the resource.
+   *
    * @public
    */
   portRanges?: string[] | undefined;
 
   /**
-   * <p>The certificate for the private connection.</p>
+   * The certificate for the private connection.
+   *
    * @public
    */
   certificate?: string | undefined;
 
   /**
-   * <p>The DNS resolution mode for the resource gateway. Defaults to PUBLIC when not set.</p>
+   * The DNS resolution mode for the resource gateway. Defaults to PUBLIC when not set.
+   *
    * @public
    */
   dnsResolution?: ResourceConfigDnsResolution | undefined;
 }
 
 /**
- * <p>The configuration for a private connection. Specify either a service-managed or a self-managed mode.</p>
+ * The configuration for a private connection. Specify either a service-managed or a self-managed mode.
+ *
  * @public
  */
 export type PrivateConnectionMode =
@@ -5645,7 +6527,8 @@ export type PrivateConnectionMode =
  */
 export namespace PrivateConnectionMode {
   /**
-   * <p>The configuration for a service-managed private connection, where the service manages the resource gateway lifecycle.</p>
+   * The configuration for a service-managed private connection, where the service manages the resource gateway lifecycle.
+   *
    * @public
    */
   export interface ServiceManagedMember {
@@ -5655,7 +6538,8 @@ export namespace PrivateConnectionMode {
   }
 
   /**
-   * <p>The configuration for a self-managed private connection, where you manage your own resource configuration.</p>
+   * The configuration for a self-managed private connection, where you manage your own resource configuration.
+   *
    * @public
    */
   export interface SelfManagedMember {
@@ -5689,19 +6573,22 @@ export namespace PrivateConnectionMode {
  */
 export interface CreatePrivateConnectionInput {
   /**
-   * <p>A unique name for the private connection within your account.</p>
+   * A unique name for the private connection within your account.
+   *
    * @public
    */
   privateConnectionName: string | undefined;
 
   /**
-   * <p>The configuration for the private connection. Specify either a service-managed or a self-managed mode.</p>
+   * The configuration for the private connection. Specify either a service-managed or a self-managed mode.
+   *
    * @public
    */
   mode: PrivateConnectionMode | undefined;
 
   /**
-   * <p>The tags to attach to the private connection.</p>
+   * The tags to attach to the private connection.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -5712,67 +6599,78 @@ export interface CreatePrivateConnectionInput {
  */
 export interface CreatePrivateConnectionOutput {
   /**
-   * <p>The name of the private connection.</p>
+   * The name of the private connection.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of the private connection, indicating whether it is service-managed or self-managed.</p>
+   * The type of the private connection, indicating whether it is service-managed or self-managed.
+   *
    * @public
    */
   type: PrivateConnectionType | undefined;
 
   /**
-   * <p>The current status of the private connection.</p>
+   * The current status of the private connection.
+   *
    * @public
    */
   status: PrivateConnectionStatus | undefined;
 
   /**
-   * <p>The identifier or ARN of the VPC Lattice resource gateway.</p>
+   * The identifier or ARN of the VPC Lattice resource gateway.
+   *
    * @public
    */
   resourceGatewayId?: string | undefined;
 
   /**
-   * <p>The IP address or DNS name of the target resource.</p>
+   * The IP address or DNS name of the target resource.
+   *
    * @public
    */
   hostAddress?: string | undefined;
 
   /**
-   * <p>The identifier of the VPC the resource gateway is created in.</p>
+   * The identifier of the VPC the resource gateway is created in.
+   *
    * @public
    */
   vpcId?: string | undefined;
 
   /**
-   * <p>The identifier or ARN of the VPC Lattice resource configuration.</p>
+   * The identifier or ARN of the VPC Lattice resource configuration.
+   *
    * @public
    */
   resourceConfigurationId?: string | undefined;
 
   /**
-   * <p>The date and time the connection's certificate expires, in UTC format.</p>
+   * The date and time the connection's certificate expires, in UTC format.
+   *
    * @public
    */
   certificateExpiryTime?: Date | undefined;
 
   /**
-   * <p>The DNS resolution mode for the resource gateway.</p>
+   * The DNS resolution mode for the resource gateway.
+   *
    * @public
    */
   dnsResolution?: ResourceConfigDnsResolution | undefined;
 
   /**
-   * <p>A message describing why the private connection entered a failed state, if applicable.</p>
+   * A message describing why the private connection entered a failed state, if applicable.
+   *
    * @public
    */
   failureMessage?: string | undefined;
 
   /**
-   * <p>The tags attached to the private connection.</p>
+   * The tags attached to the private connection.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -5783,31 +6681,36 @@ export interface CreatePrivateConnectionOutput {
  */
 export interface CreateSecurityRequirementPackInput {
   /**
-   * <p>The name of the security requirement pack.</p>
+   * The name of the security requirement pack.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description of the security requirement pack.</p>
+   * A description of the security requirement pack.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The status of the pack. Defaults to ENABLED if not provided.</p>
+   * The status of the pack. Defaults to ENABLED if not provided.
+   *
    * @public
    */
   status?: SecurityRequirementPackStatus | undefined;
 
   /**
-   * <p>The identifier of the AWS KMS key used to encrypt pack contents.</p>
+   * The identifier of the AWS KMS key used to encrypt pack contents.
+   *
    * @public
    */
   kmsKeyId?: string | undefined;
 
   /**
-   * <p>The tags to associate with the security requirement pack.</p>
+   * The tags to associate with the security requirement pack.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -5818,451 +6721,526 @@ export interface CreateSecurityRequirementPackInput {
  */
 export interface CreateSecurityRequirementPackOutput {
   /**
-   * <p>The unique identifier of the created security requirement pack.</p>
+   * The unique identifier of the created security requirement pack.
+   *
    * @public
    */
   packId: string | undefined;
 
   /**
-   * <p>The status of the created security requirement pack.</p>
+   * The status of the created security requirement pack.
+   *
    * @public
    */
   status: SecurityRequirementPackStatus | undefined;
 
   /**
-   * <p>The identifier of the AWS KMS key used to encrypt pack contents.</p>
+   * The identifier of the AWS KMS key used to encrypt pack contents.
+   *
    * @public
    */
   kmsKeyId?: string | undefined;
 }
 
 /**
- * <p>Input for creating a new target domain.</p>
+ * Input for creating a new target domain.
+ *
  * @public
  */
 export interface CreateTargetDomainInput {
   /**
-   * <p>The domain name to register as a target domain.</p>
+   * The domain name to register as a target domain.
+   *
    * @public
    */
   targetDomainName: string | undefined;
 
   /**
-   * <p>The method to use for verifying domain ownership. Valid values are DNS_TXT, HTTP_ROUTE, and PRIVATE_VPC.</p>
+   * The method to use for verifying domain ownership. Valid values are DNS_TXT, HTTP_ROUTE, and PRIVATE_VPC.
+   *
    * @public
    */
   verificationMethod: DomainVerificationMethod | undefined;
 
   /**
-   * <p>The tags to associate with the target domain.</p>
+   * The tags to associate with the target domain.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Output for the CreateTargetDomain operation.</p>
+ * Output for the CreateTargetDomain operation.
+ *
  * @public
  */
 export interface CreateTargetDomainOutput {
   /**
-   * <p>The unique identifier of the created target domain.</p>
+   * The unique identifier of the created target domain.
+   *
    * @public
    */
   targetDomainId: string | undefined;
 
   /**
-   * <p>The domain name of the target domain.</p>
+   * The domain name of the target domain.
+   *
    * @public
    */
   domainName: string | undefined;
 
   /**
-   * <p>The current verification status of the target domain.</p>
+   * The current verification status of the target domain.
+   *
    * @public
    */
   verificationStatus: TargetDomainStatus | undefined;
 
   /**
-   * <p>The reason for the current target domain verification status.</p>
+   * The reason for the current target domain verification status.
+   *
    * @public
    */
   verificationStatusReason?: string | undefined;
 
   /**
-   * <p>The verification details for the target domain, including the verification token and instructions.</p>
+   * The verification details for the target domain, including the verification token and instructions.
+   *
    * @public
    */
   verificationDetails?: VerificationDetails | undefined;
 
   /**
-   * <p>The date and time the target domain was created, in UTC format.</p>
+   * The date and time the target domain was created, in UTC format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time the target domain was verified, in UTC format.</p>
+   * The date and time the target domain was verified, in UTC format.
+   *
    * @public
    */
   verifiedAt?: Date | undefined;
 }
 
 /**
- * <p>Input for creating a new threat.</p>
+ * Input for creating a new threat.
+ *
  * @public
  */
 export interface CreateThreatInput {
   /**
-   * <p>The unique identifier of the agent space.</p>
+   * The unique identifier of the agent space.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The unique identifier of the threat model job the threat belongs to.</p>
+   * The unique identifier of the threat model job the threat belongs to.
+   *
    * @public
    */
   threatJobId: string | undefined;
 
   /**
-   * <p>A short title summarizing the threat.</p>
+   * A short title summarizing the threat.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>The natural-language threat statement.</p>
+   * The natural-language threat statement.
+   *
    * @public
    */
   statement?: string | undefined;
 
   /**
-   * <p>The severity level of the threat.</p>
+   * The severity level of the threat.
+   *
    * @public
    */
   severity?: ThreatSeverity | undefined;
 
   /**
-   * <p>Optional customer comment on the threat.</p>
+   * Optional customer comment on the threat.
+   *
    * @public
    */
   comments?: string | undefined;
 
   /**
-   * <p>The STRIDE categories applicable to this threat.</p>
+   * The STRIDE categories applicable to this threat.
+   *
    * @public
    */
   stride?: StrideCategory[] | undefined;
 
   /**
-   * <p>The actor or origin of the threat.</p>
+   * The actor or origin of the threat.
+   *
    * @public
    */
   threatSource?: string | undefined;
 
   /**
-   * <p>The conditions required for the threat to be exploitable.</p>
+   * The conditions required for the threat to be exploitable.
+   *
    * @public
    */
   prerequisites?: string | undefined;
 
   /**
-   * <p>What the threat source can do.</p>
+   * What the threat source can do.
+   *
    * @public
    */
   threatAction?: string | undefined;
 
   /**
-   * <p>The direct consequence of the threat action.</p>
+   * The direct consequence of the threat action.
+   *
    * @public
    */
   threatImpact?: string | undefined;
 
   /**
-   * <p>The security goals affected by the threat.</p>
+   * The security goals affected by the threat.
+   *
    * @public
    */
   impactedGoal?: string[] | undefined;
 
   /**
-   * <p>The specific assets affected by the threat.</p>
+   * The specific assets affected by the threat.
+   *
    * @public
    */
   impactedAssets?: string[] | undefined;
 
   /**
-   * <p>The DFD element this threat is anchored to.</p>
+   * The DFD element this threat is anchored to.
+   *
    * @public
    */
   anchor?: ThreatAnchorShape | undefined;
 
   /**
-   * <p>The source code files supporting the threat.</p>
+   * The source code files supporting the threat.
+   *
    * @public
    */
   evidence?: ThreatEvidenceShape[] | undefined;
 
   /**
-   * <p>The recommended mitigation guidance for this threat.</p>
+   * The recommended mitigation guidance for this threat.
+   *
    * @public
    */
   recommendation?: string | undefined;
 }
 
 /**
- * <p>Output for the CreateThreat operation.</p>
+ * Output for the CreateThreat operation.
+ *
  * @public
  */
 export interface CreateThreatOutput {
   /**
-   * <p>The unique identifier of the created threat.</p>
+   * The unique identifier of the created threat.
+   *
    * @public
    */
   threatId: string | undefined;
 
   /**
-   * <p>The unique identifier of the threat model job the threat belongs to.</p>
+   * The unique identifier of the threat model job the threat belongs to.
+   *
    * @public
    */
   threatJobId: string | undefined;
 
   /**
-   * <p>A short title summarizing the threat.</p>
+   * A short title summarizing the threat.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>The natural-language threat statement.</p>
+   * The natural-language threat statement.
+   *
    * @public
    */
   statement?: string | undefined;
 
   /**
-   * <p>The severity level of the threat.</p>
+   * The severity level of the threat.
+   *
    * @public
    */
   severity?: ThreatSeverity | undefined;
 
   /**
-   * <p>The current status of the threat.</p>
+   * The current status of the threat.
+   *
    * @public
    */
   status?: ThreatStatus | undefined;
 
   /**
-   * <p>Optional customer comment on the threat.</p>
+   * Optional customer comment on the threat.
+   *
    * @public
    */
   comments?: string | undefined;
 
   /**
-   * <p>The STRIDE categories applicable to this threat.</p>
+   * The STRIDE categories applicable to this threat.
+   *
    * @public
    */
   stride?: StrideCategory[] | undefined;
 
   /**
-   * <p>The actor or origin of the threat.</p>
+   * The actor or origin of the threat.
+   *
    * @public
    */
   threatSource?: string | undefined;
 
   /**
-   * <p>The conditions required for the threat to be exploitable.</p>
+   * The conditions required for the threat to be exploitable.
+   *
    * @public
    */
   prerequisites?: string | undefined;
 
   /**
-   * <p>What the threat source can do.</p>
+   * What the threat source can do.
+   *
    * @public
    */
   threatAction?: string | undefined;
 
   /**
-   * <p>The direct consequence of the threat action.</p>
+   * The direct consequence of the threat action.
+   *
    * @public
    */
   threatImpact?: string | undefined;
 
   /**
-   * <p>The security goals affected by the threat.</p>
+   * The security goals affected by the threat.
+   *
    * @public
    */
   impactedGoal?: string[] | undefined;
 
   /**
-   * <p>The specific assets affected by the threat.</p>
+   * The specific assets affected by the threat.
+   *
    * @public
    */
   impactedAssets?: string[] | undefined;
 
   /**
-   * <p>The DFD element this threat is anchored to.</p>
+   * The DFD element this threat is anchored to.
+   *
    * @public
    */
   anchor?: ThreatAnchorShape | undefined;
 
   /**
-   * <p>The source code files supporting the threat.</p>
+   * The source code files supporting the threat.
+   *
    * @public
    */
   evidence?: ThreatEvidenceShape[] | undefined;
 
   /**
-   * <p>The recommended mitigation guidance for this threat.</p>
+   * The recommended mitigation guidance for this threat.
+   *
    * @public
    */
   recommendation?: string | undefined;
 
   /**
-   * <p>Who created this threat.</p>
+   * Who created this threat.
+   *
    * @public
    */
   createdBy?: ThreatActor | undefined;
 
   /**
-   * <p>Who last updated this threat.</p>
+   * Who last updated this threat.
+   *
    * @public
    */
   updatedBy?: ThreatActor | undefined;
 
   /**
-   * <p>The date and time the threat was created, in UTC format.</p>
+   * The date and time the threat was created, in UTC format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time the threat was last updated, in UTC format.</p>
+   * The date and time the threat was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * <p>Input for creating a new threat model.</p>
+ * Input for creating a new threat model.
+ *
  * @public
  */
 export interface CreateThreatModelInput {
   /**
-   * <p>The title of the threat model.</p>
+   * The title of the threat model.
+   *
    * @public
    */
   title: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space to create the threat model in.</p>
+   * The unique identifier of the agent space to create the threat model in.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>A description of the application or system being threat modeled.</p>
+   * A description of the application or system being threat modeled.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The assets to include in the threat model.</p>
+   * The assets to include in the threat model.
+   *
    * @public
    */
   assets?: Assets | undefined;
 
   /**
-   * <p>The scoped documents for the agent to focus on during threat modeling.</p>
+   * The scoped documents for the agent to focus on during threat modeling.
+   *
    * @public
    */
   scopeDocs?: DocumentInfo[] | undefined;
 
   /**
-   * <p>The IAM service role to use for the threat model.</p>
+   * The IAM service role to use for the threat model.
+   *
    * @public
    */
   serviceRole: string | undefined;
 
   /**
-   * <p>The CloudWatch Logs configuration for the threat model.</p>
+   * The CloudWatch Logs configuration for the threat model.
+   *
    * @public
    */
   logConfig?: CloudWatchLog | undefined;
 
   /**
-   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * The destination for publishing scan reports to an integrated document provider.
+   *
    * @public
    */
   reportDestination?: ReportDestination | undefined;
 }
 
 /**
- * <p>Output for the CreateThreatModel operation.</p>
+ * Output for the CreateThreatModel operation.
+ *
  * @public
  */
 export interface CreateThreatModelOutput {
   /**
-   * <p>The unique identifier of the created threat model.</p>
+   * The unique identifier of the created threat model.
+   *
    * @public
    */
   threatModelId: string | undefined;
 
   /**
-   * <p>The title of the threat model.</p>
+   * The title of the threat model.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space that contains the threat model.</p>
+   * The unique identifier of the agent space that contains the threat model.
+   *
    * @public
    */
   agentSpaceId?: string | undefined;
 
   /**
-   * <p>A description of the application or system being threat modeled.</p>
+   * A description of the application or system being threat modeled.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The assets included in the threat model.</p>
+   * The assets included in the threat model.
+   *
    * @public
    */
   assets?: Assets | undefined;
 
   /**
-   * <p>The scoped documents for the agent to focus on during threat modeling.</p>
+   * The scoped documents for the agent to focus on during threat modeling.
+   *
    * @public
    */
   scopeDocs?: DocumentInfo[] | undefined;
 
   /**
-   * <p>The IAM service role used for the threat model.</p>
+   * The IAM service role used for the threat model.
+   *
    * @public
    */
   serviceRole?: string | undefined;
 
   /**
-   * <p>The CloudWatch Logs configuration for the threat model.</p>
+   * The CloudWatch Logs configuration for the threat model.
+   *
    * @public
    */
   logConfig?: CloudWatchLog | undefined;
 
   /**
-   * <p>The date and time the threat model was created, in UTC format.</p>
+   * The date and time the threat model was created, in UTC format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time the threat model was last updated, in UTC format.</p>
+   * The date and time the threat model was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * The destination for publishing scan reports to an integrated document provider.
+   *
    * @public
    */
   reportDestination?: ReportDestination | undefined;
@@ -6273,13 +7251,15 @@ export interface CreateThreatModelOutput {
  */
 export interface DeleteArtifactInput {
   /**
-   * <p>The unique identifier of the agent space that contains the artifact.</p>
+   * The unique identifier of the agent space that contains the artifact.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The unique identifier of the artifact to delete.</p>
+   * The unique identifier of the artifact to delete.
+   *
    * @public
    */
   artifactId: string | undefined;
@@ -6295,7 +7275,8 @@ export interface DeleteArtifactOutput {}
  */
 export interface DeleteIntegrationInput {
   /**
-   * <p>The unique identifier of the integration to delete.</p>
+   * The unique identifier of the integration to delete.
+   *
    * @public
    */
   integrationId: string | undefined;
@@ -6307,37 +7288,43 @@ export interface DeleteIntegrationInput {
 export interface DeleteIntegrationOutput {}
 
 /**
- * <p>Request structure for removing a single member from an agent space.</p>
+ * Request structure for removing a single member from an agent space.
+ *
  * @public
  */
 export interface DeleteMembershipRequest {
   /**
-   * <p>The unique identifier of the application that contains the agent space.</p>
+   * The unique identifier of the application that contains the agent space.
+   *
    * @public
    */
   applicationId: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space to revoke access from.</p>
+   * The unique identifier of the agent space to revoke access from.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The unique identifier of the membership to delete.</p>
+   * The unique identifier of the membership to delete.
+   *
    * @public
    */
   membershipId: string | undefined;
 
   /**
-   * <p>The type of member to remove.</p>
+   * The type of member to remove.
+   *
    * @public
    */
   memberType?: MembershipType | undefined;
 }
 
 /**
- * <p>Response structure for removing a single member from an agent space.</p>
+ * Response structure for removing a single member from an agent space.
+ *
  * @public
  */
 export interface DeleteMembershipResponse {}
@@ -6347,7 +7334,8 @@ export interface DeleteMembershipResponse {}
  */
 export interface DeletePrivateConnectionInput {
   /**
-   * <p>The name of the private connection to delete.</p>
+   * The name of the private connection to delete.
+   *
    * @public
    */
   privateConnectionName: string | undefined;
@@ -6358,67 +7346,78 @@ export interface DeletePrivateConnectionInput {
  */
 export interface DeletePrivateConnectionOutput {
   /**
-   * <p>The name of the private connection.</p>
+   * The name of the private connection.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of the private connection, indicating whether it is service-managed or self-managed.</p>
+   * The type of the private connection, indicating whether it is service-managed or self-managed.
+   *
    * @public
    */
   type: PrivateConnectionType | undefined;
 
   /**
-   * <p>The current status of the private connection.</p>
+   * The current status of the private connection.
+   *
    * @public
    */
   status: PrivateConnectionStatus | undefined;
 
   /**
-   * <p>The identifier or ARN of the VPC Lattice resource gateway.</p>
+   * The identifier or ARN of the VPC Lattice resource gateway.
+   *
    * @public
    */
   resourceGatewayId?: string | undefined;
 
   /**
-   * <p>The IP address or DNS name of the target resource.</p>
+   * The IP address or DNS name of the target resource.
+   *
    * @public
    */
   hostAddress?: string | undefined;
 
   /**
-   * <p>The identifier of the VPC the resource gateway is created in.</p>
+   * The identifier of the VPC the resource gateway is created in.
+   *
    * @public
    */
   vpcId?: string | undefined;
 
   /**
-   * <p>The identifier or ARN of the VPC Lattice resource configuration.</p>
+   * The identifier or ARN of the VPC Lattice resource configuration.
+   *
    * @public
    */
   resourceConfigurationId?: string | undefined;
 
   /**
-   * <p>The date and time the connection's certificate expires, in UTC format.</p>
+   * The date and time the connection's certificate expires, in UTC format.
+   *
    * @public
    */
   certificateExpiryTime?: Date | undefined;
 
   /**
-   * <p>The DNS resolution mode for the resource gateway.</p>
+   * The DNS resolution mode for the resource gateway.
+   *
    * @public
    */
   dnsResolution?: ResourceConfigDnsResolution | undefined;
 
   /**
-   * <p>A message describing why the private connection entered a failed state, if applicable.</p>
+   * A message describing why the private connection entered a failed state, if applicable.
+   *
    * @public
    */
   failureMessage?: string | undefined;
 
   /**
-   * <p>The tags attached to the private connection.</p>
+   * The tags attached to the private connection.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -6429,7 +7428,8 @@ export interface DeletePrivateConnectionOutput {
  */
 export interface DeleteSecurityRequirementPackInput {
   /**
-   * <p>The unique identifier of the security requirement pack to delete.</p>
+   * The unique identifier of the security requirement pack to delete.
+   *
    * @public
    */
   packId: string | undefined;
@@ -6441,24 +7441,28 @@ export interface DeleteSecurityRequirementPackInput {
 export interface DeleteSecurityRequirementPackOutput {}
 
 /**
- * <p>Input for deleting a target domain.</p>
+ * Input for deleting a target domain.
+ *
  * @public
  */
 export interface DeleteTargetDomainInput {
   /**
-   * <p>The unique identifier of the target domain to delete.</p>
+   * The unique identifier of the target domain to delete.
+   *
    * @public
    */
   targetDomainId: string | undefined;
 }
 
 /**
- * <p>Output for the DeleteTargetDomain operation.</p>
+ * Output for the DeleteTargetDomain operation.
+ *
  * @public
  */
 export interface DeleteTargetDomainOutput {
   /**
-   * <p>The unique identifier of the deleted target domain.</p>
+   * The unique identifier of the deleted target domain.
+   *
    * @public
    */
   targetDomainId?: string | undefined;
@@ -6469,7 +7473,8 @@ export interface DeleteTargetDomainOutput {
  */
 export interface DescribePrivateConnectionInput {
   /**
-   * <p>The name of the private connection to describe.</p>
+   * The name of the private connection to describe.
+   *
    * @public
    */
   privateConnectionName: string | undefined;
@@ -6480,74 +7485,86 @@ export interface DescribePrivateConnectionInput {
  */
 export interface DescribePrivateConnectionOutput {
   /**
-   * <p>The name of the private connection.</p>
+   * The name of the private connection.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of the private connection, indicating whether it is service-managed or self-managed.</p>
+   * The type of the private connection, indicating whether it is service-managed or self-managed.
+   *
    * @public
    */
   type: PrivateConnectionType | undefined;
 
   /**
-   * <p>The current status of the private connection.</p>
+   * The current status of the private connection.
+   *
    * @public
    */
   status: PrivateConnectionStatus | undefined;
 
   /**
-   * <p>The identifier or ARN of the VPC Lattice resource gateway.</p>
+   * The identifier or ARN of the VPC Lattice resource gateway.
+   *
    * @public
    */
   resourceGatewayId?: string | undefined;
 
   /**
-   * <p>The IP address or DNS name of the target resource.</p>
+   * The IP address or DNS name of the target resource.
+   *
    * @public
    */
   hostAddress?: string | undefined;
 
   /**
-   * <p>The identifier of the VPC the resource gateway is created in.</p>
+   * The identifier of the VPC the resource gateway is created in.
+   *
    * @public
    */
   vpcId?: string | undefined;
 
   /**
-   * <p>The identifier or ARN of the VPC Lattice resource configuration.</p>
+   * The identifier or ARN of the VPC Lattice resource configuration.
+   *
    * @public
    */
   resourceConfigurationId?: string | undefined;
 
   /**
-   * <p>The date and time the connection's certificate expires, in UTC format.</p>
+   * The date and time the connection's certificate expires, in UTC format.
+   *
    * @public
    */
   certificateExpiryTime?: Date | undefined;
 
   /**
-   * <p>The DNS resolution mode for the resource gateway.</p>
+   * The DNS resolution mode for the resource gateway.
+   *
    * @public
    */
   dnsResolution?: ResourceConfigDnsResolution | undefined;
 
   /**
-   * <p>A message describing why the private connection entered a failed state, if applicable.</p>
+   * A message describing why the private connection entered a failed state, if applicable.
+   *
    * @public
    */
   failureMessage?: string | undefined;
 
   /**
-   * <p>The tags attached to the private connection.</p>
+   * The tags attached to the private connection.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Source of the diff for a differential code scan.</p>
+ * Source of the diff for a differential code scan.
+ *
  * @public
  */
 export type DiffSource =
@@ -6559,7 +7576,8 @@ export type DiffSource =
  */
 export namespace DiffSource {
   /**
-   * <p>S3 URI pointing to a unified diff file. The file must be in standard unified diff format and stored in an S3 bucket connected to your Agent Space.</p>
+   * S3 URI pointing to a unified diff file. The file must be in standard unified diff format and stored in an S3 bucket connected to your Agent Space.
+   *
    * @public
    */
   export interface S3UriMember {
@@ -6586,138 +7604,161 @@ export namespace DiffSource {
 }
 
 /**
- * <p>Represents an endpoint discovered during a pentest job.</p>
+ * Represents an endpoint discovered during a pentest job.
+ *
  * @public
  */
 export interface DiscoveredEndpoint {
   /**
-   * <p>The URI of the discovered endpoint.</p>
+   * The URI of the discovered endpoint.
+   *
    * @public
    */
   uri: string | undefined;
 
   /**
-   * <p>The unique identifier of the pentest job that discovered the endpoint.</p>
+   * The unique identifier of the pentest job that discovered the endpoint.
+   *
    * @public
    */
   pentestJobId: string | undefined;
 
   /**
-   * <p>The unique identifier of the task that discovered the endpoint.</p>
+   * The unique identifier of the task that discovered the endpoint.
+   *
    * @public
    */
   taskId: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space associated with the discovered endpoint.</p>
+   * The unique identifier of the agent space associated with the discovered endpoint.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The evidence that led to the discovery of the endpoint.</p>
+   * The evidence that led to the discovery of the endpoint.
+   *
    * @public
    */
   evidence?: string | undefined;
 
   /**
-   * <p>The HTTP operation associated with the discovered endpoint.</p>
+   * The HTTP operation associated with the discovered endpoint.
+   *
    * @public
    */
   operation?: string | undefined;
 
   /**
-   * <p>A description of the discovered endpoint.</p>
+   * A description of the discovered endpoint.
+   *
    * @public
    */
   description?: string | undefined;
 }
 
 /**
- * <p>Contains summary information about a security finding.</p>
+ * Contains summary information about a security finding.
+ *
  * @public
  */
 export interface FindingSummary {
   /**
-   * <p>The unique identifier of the finding.</p>
+   * The unique identifier of the finding.
+   *
    * @public
    */
   findingId: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space associated with the finding.</p>
+   * The unique identifier of the agent space associated with the finding.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The unique identifier of the pentest associated with the finding.</p>
+   * The unique identifier of the pentest associated with the finding.
+   *
    * @public
    */
   pentestId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the pentest job that produced the finding.</p>
+   * The unique identifier of the pentest job that produced the finding.
+   *
    * @public
    */
   pentestJobId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the code review associated with the finding.</p>
+   * The unique identifier of the code review associated with the finding.
+   *
    * @public
    */
   codeReviewId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the code review job that produced the finding.</p>
+   * The unique identifier of the code review job that produced the finding.
+   *
    * @public
    */
   codeReviewJobId?: string | undefined;
 
   /**
-   * <p>The name of the finding.</p>
+   * The name of the finding.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The current status of the finding.</p>
+   * The current status of the finding.
+   *
    * @public
    */
   status?: FindingStatus | undefined;
 
   /**
-   * <p>The type of security risk identified by the finding.</p>
+   * The type of security risk identified by the finding.
+   *
    * @public
    */
   riskType?: string | undefined;
 
   /**
-   * <p>The risk level of the finding.</p>
+   * The risk level of the finding.
+   *
    * @public
    */
   riskLevel?: RiskLevel | undefined;
 
   /**
-   * <p>The confidence level of the finding.</p>
+   * The confidence level of the finding.
+   *
    * @public
    */
   confidence?: ConfidenceLevel | undefined;
 
   /**
-   * <p>The simulated validation status of the finding.</p>
+   * The simulated validation status of the finding.
+   *
    * @public
    */
   validationStatus?: ValidationStatus | undefined;
 
   /**
-   * <p>The date and time the finding was created, in UTC format.</p>
+   * The date and time the finding was created, in UTC format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time the finding was last updated, in UTC format.</p>
+   * The date and time the finding was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -6728,13 +7769,15 @@ export interface FindingSummary {
  */
 export interface GetArtifactInput {
   /**
-   * <p>The unique identifier of the agent space that contains the artifact.</p>
+   * The unique identifier of the agent space that contains the artifact.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The unique identifier of the artifact to retrieve.</p>
+   * The unique identifier of the artifact to retrieve.
+   *
    * @public
    */
   artifactId: string | undefined;
@@ -6745,31 +7788,36 @@ export interface GetArtifactInput {
  */
 export interface GetArtifactOutput {
   /**
-   * <p>The unique identifier of the agent space that contains the artifact.</p>
+   * The unique identifier of the agent space that contains the artifact.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The unique identifier of the artifact.</p>
+   * The unique identifier of the artifact.
+   *
    * @public
    */
   artifactId: string | undefined;
 
   /**
-   * <p>The artifact content and type.</p>
+   * The artifact content and type.
+   *
    * @public
    */
   artifact: Artifact | undefined;
 
   /**
-   * <p>The file name of the artifact.</p>
+   * The file name of the artifact.
+   *
    * @public
    */
   fileName: string | undefined;
 
   /**
-   * <p>The date and time the artifact was last updated, in UTC format.</p>
+   * The date and time the artifact was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -6780,7 +7828,8 @@ export interface GetArtifactOutput {
  */
 export interface GetIntegrationInput {
   /**
-   * <p>The unique identifier of the integration to retrieve.</p>
+   * The unique identifier of the integration to retrieve.
+   *
    * @public
    */
   integrationId: string | undefined;
@@ -6791,61 +7840,71 @@ export interface GetIntegrationInput {
  */
 export interface GetIntegrationOutput {
   /**
-   * <p>The unique identifier of the integration.</p>
+   * The unique identifier of the integration.
+   *
    * @public
    */
   integrationId: string | undefined;
 
   /**
-   * <p>The installation identifier from the integration provider.</p>
+   * The installation identifier from the integration provider.
+   *
    * @public
    */
   installationId: string | undefined;
 
   /**
-   * <p>The integration provider.</p>
+   * The integration provider.
+   *
    * @public
    */
   provider: Provider | undefined;
 
   /**
-   * <p>The type of the integration provider.</p>
+   * The type of the integration provider.
+   *
    * @public
    */
   providerType: ProviderType | undefined;
 
   /**
-   * <p>The display name of the integration.</p>
+   * The display name of the integration.
+   *
    * @public
    */
   displayName?: string | undefined;
 
   /**
-   * <p>The identifier of the AWS KMS key used to encrypt data associated with the integration.</p>
+   * The identifier of the AWS KMS key used to encrypt data associated with the integration.
+   *
    * @public
    */
   kmsKeyId?: string | undefined;
 
   /**
-   * <p>The HTTPS URL of the customer self-hosted instance, such as a GitHub Enterprise Server or self-managed GitLab instance. This value is absent for SaaS integrations.</p>
+   * The HTTPS URL of the customer self-hosted instance, such as a GitHub Enterprise Server or self-managed GitLab instance. This value is absent for SaaS integrations.
+   *
    * @public
    */
   targetUrl?: string | undefined;
 
   /**
-   * <p>The Atlassian Cloud site URL for Atlassian integrations.</p>
+   * The Atlassian Cloud site URL for Atlassian integrations.
+   *
    * @public
    */
   siteUrl?: string | undefined;
 
   /**
-   * <p>The payload URL of the integration's webhook, once it has been created. The signing secret is never returned on a read.</p>
+   * The payload URL of the integration's webhook, once it has been created. The signing secret is never returned on a read.
+   *
    * @public
    */
   webhookUrl?: string | undefined;
 
   /**
-   * <p>The name of the private connection used to reach the integration's self-hosted instance over private networking, if one is configured.</p>
+   * The name of the private connection used to reach the integration's self-hosted instance over private networking, if one is configured.
+   *
    * @public
    */
   privateConnectionName?: string | undefined;
@@ -6856,7 +7915,8 @@ export interface GetIntegrationOutput {
  */
 export interface GetSecurityRequirementPackInput {
   /**
-   * <p>The unique identifier of the security requirement pack to retrieve.</p>
+   * The unique identifier of the security requirement pack to retrieve.
+   *
    * @public
    */
   packId: string | undefined;
@@ -6867,236 +7927,275 @@ export interface GetSecurityRequirementPackInput {
  */
 export interface GetSecurityRequirementPackOutput {
   /**
-   * <p>The unique identifier of the security requirement pack.</p>
+   * The unique identifier of the security requirement pack.
+   *
    * @public
    */
   packId: string | undefined;
 
   /**
-   * <p>The name of the security requirement pack.</p>
+   * The name of the security requirement pack.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description of the security requirement pack.</p>
+   * A description of the security requirement pack.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The vendor name for AWS managed packs, such as ISO or NIST.</p>
+   * The vendor name for AWS managed packs, such as ISO or NIST.
+   *
    * @public
    */
   vendorName?: string | undefined;
 
   /**
-   * <p>The management type of the pack. Valid values are AWS_MANAGED and CUSTOMER_MANAGED.</p>
+   * The management type of the pack. Valid values are AWS_MANAGED and CUSTOMER_MANAGED.
+   *
    * @public
    */
   managementType: ManagementType | undefined;
 
   /**
-   * <p>The status of the security requirement pack.</p>
+   * The status of the security requirement pack.
+   *
    * @public
    */
   status: SecurityRequirementPackStatus | undefined;
 
   /**
-   * <p>The status of the security requirements import workflow for this pack.</p>
+   * The status of the security requirements import workflow for this pack.
+   *
    * @public
    */
   importStatus?: SecurityRequirementPackImportStatus | undefined;
 
   /**
-   * <p>The date and time the security requirement pack was created, in UTC format.</p>
+   * The date and time the security requirement pack was created, in UTC format.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The date and time the security requirement pack was last updated, in UTC format.</p>
+   * The date and time the security requirement pack was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The identifier of the AWS KMS key used to encrypt pack contents.</p>
+   * The identifier of the AWS KMS key used to encrypt pack contents.
+   *
    * @public
    */
   kmsKeyId?: string | undefined;
 }
 
 /**
- * <p>Contains metadata about a GitHub repository that is integrated with the service.</p>
+ * Contains metadata about a GitHub repository that is integrated with the service.
+ *
  * @public
  */
 export interface GitHubRepositoryMetadata {
   /**
-   * <p>The name of the GitHub repository.</p>
+   * The name of the GitHub repository.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The provider-specific resource identifier for the GitHub repository.</p>
+   * The provider-specific resource identifier for the GitHub repository.
+   *
    * @public
    */
   providerResourceId: string | undefined;
 
   /**
-   * <p>The owner of the GitHub repository.</p>
+   * The owner of the GitHub repository.
+   *
    * @public
    */
   owner: string | undefined;
 
   /**
-   * <p>The access type of the GitHub repository. Valid values are PRIVATE and PUBLIC.</p>
+   * The access type of the GitHub repository. Valid values are PRIVATE and PUBLIC.
+   *
    * @public
    */
   accessType?: AccessType | undefined;
 }
 
 /**
- * <p>Represents a GitHub repository resource used in an integration.</p>
+ * Represents a GitHub repository resource used in an integration.
+ *
  * @public
  */
 export interface GitHubRepositoryResource {
   /**
-   * <p>The name of the GitHub repository.</p>
+   * The name of the GitHub repository.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The owner of the GitHub repository.</p>
+   * The owner of the GitHub repository.
+   *
    * @public
    */
   owner: string | undefined;
 }
 
 /**
- * <p>The capabilities enabled for a GitHub resource integration.</p>
+ * The capabilities enabled for a GitHub resource integration.
+ *
  * @public
  */
 export interface GitHubResourceCapabilities {
   /**
-   * <p>The filter groups that control which pull request events start an automatic code review when <code>leaveComments</code> is enabled. A review starts when any group matches. If you omit this, a review starts on <code>PULL_REQUEST_READY_FOR_REVIEW</code> events.</p>
+   * The filter groups that control which pull request events start an automatic code review when `leaveComments` is enabled. A review starts when any group matches. If you omit this, a review starts on `PULL_REQUEST_READY_FOR_REVIEW` events.
+   *
    * @public
    */
   triggerFilterGroups?: TriggerFilterGroup[] | undefined;
 
   /**
-   * <p>Indicates whether the integration can leave comments on pull requests.</p>
+   * Indicates whether the integration can leave comments on pull requests.
+   *
    * @public
    */
   leaveComments?: boolean | undefined;
 
   /**
-   * <p>Indicates whether the integration can create code remediation pull requests.</p>
+   * Indicates whether the integration can create code remediation pull requests.
+   *
    * @public
    */
   remediateCode?: boolean | undefined;
 }
 
 /**
- * <p>Metadata for an integrated GitLab repository.</p>
+ * Metadata for an integrated GitLab repository.
+ *
  * @public
  */
 export interface GitLabRepositoryMetadata {
   /**
-   * <p>Name of the resource e.g. repository name, etc.</p>
+   * Name of the resource e.g. repository name, etc.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Provider Id of the resource e.g. GitHub repository id, etc.</p>
+   * Provider Id of the resource e.g. GitHub repository id, etc.
+   *
    * @public
    */
   providerResourceId: string | undefined;
 
   /**
-   * <p>The namespace (group or user path) that owns the project.</p>
+   * The namespace (group or user path) that owns the project.
+   *
    * @public
    */
   namespace: string | undefined;
 
   /**
-   * <p>Defines the visibility level of provider resources. PRIVATE indicates restricted access, while PUBLIC indicates open access.</p>
+   * Defines the visibility level of provider resources. PRIVATE indicates restricted access, while PUBLIC indicates open access.
+   *
    * @public
    */
   accessType?: AccessType | undefined;
 }
 
 /**
- * <p>A GitLab repository integrated as a resource.</p>
+ * A GitLab repository integrated as a resource.
+ *
  * @public
  */
 export interface GitLabRepositoryResource {
   /**
-   * <p>Name of the resource e.g. repository name, etc.</p>
+   * Name of the resource e.g. repository name, etc.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The namespace (group or user path) that owns the project.</p>
+   * The namespace (group or user path) that owns the project.
+   *
    * @public
    */
   namespace: string | undefined;
 }
 
 /**
- * <p>Capabilities for an integrated GitLab repository.</p>
+ * Capabilities for an integrated GitLab repository.
+ *
  * @public
  */
 export interface GitLabResourceCapabilities {
   /**
-   * <p>The filter groups that control which merge request events start an automatic code review when <code>leaveComments</code> is enabled. A review starts when any group matches. If you omit this, a review starts on <code>PULL_REQUEST_READY_FOR_REVIEW</code> events.</p>
+   * The filter groups that control which merge request events start an automatic code review when `leaveComments` is enabled. A review starts when any group matches. If you omit this, a review starts on `PULL_REQUEST_READY_FOR_REVIEW` events.
+   *
    * @public
    */
   triggerFilterGroups?: TriggerFilterGroup[] | undefined;
 
   /**
-   * <p>Whether to post code review comments on merge request discussions.</p>
+   * Whether to post code review comments on merge request discussions.
+   *
    * @public
    */
   leaveComments?: boolean | undefined;
 
   /**
-   * <p>Whether to create merge requests with automated fixes.</p>
+   * Whether to create merge requests with automated fixes.
+   *
    * @public
    */
   remediateCode?: boolean | undefined;
 }
 
 /**
- * <p>A document used as source material for importing security requirements.</p>
+ * A document used as source material for importing security requirements.
+ *
  * @public
  */
 export interface SecurityRequirementArtifact {
   /**
-   * <p>The file name of the document.</p>
+   * The file name of the document.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The format of the document. Valid values are MD, PDF, TXT, DOCX, and DOC.</p>
+   * The format of the document. Valid values are MD, PDF, TXT, DOCX, and DOC.
+   *
    * @public
    */
   format: SecurityRequirementArtifactFormat | undefined;
 
   /**
-   * <p>The binary content of the document.</p>
+   * The binary content of the document.
+   *
    * @public
    */
   content: Uint8Array | undefined;
 }
 
 /**
- * <p>The source from which to import security requirements. Currently supports document uploads.</p>
+ * The source from which to import security requirements. Currently supports document uploads.
+ *
  * @public
  */
 export type ImportSource =
@@ -7108,7 +8207,8 @@ export type ImportSource =
  */
 export namespace ImportSource {
   /**
-   * <p>The list of documents to extract security requirements from.</p>
+   * The list of documents to extract security requirements from.
+   *
    * @public
    */
   export interface DocumentsMember {
@@ -7139,13 +8239,15 @@ export namespace ImportSource {
  */
 export interface ImportSecurityRequirementsInput {
   /**
-   * <p>The unique identifier of the security requirement pack to import requirements into.</p>
+   * The unique identifier of the security requirement pack to import requirements into.
+   *
    * @public
    */
   packId: string | undefined;
 
   /**
-   * <p>The import source containing the documents to extract security requirements from.</p>
+   * The import source containing the documents to extract security requirements from.
+   *
    * @public
    */
   input: ImportSource | undefined;
@@ -7156,13 +8258,15 @@ export interface ImportSecurityRequirementsInput {
  */
 export interface ImportSecurityRequirementsOutput {
   /**
-   * <p>The unique identifier of the security requirement pack.</p>
+   * The unique identifier of the security requirement pack.
+   *
    * @public
    */
   packId: string | undefined;
 
   /**
-   * <p>The status of the import workflow.</p>
+   * The status of the import workflow.
+   *
    * @public
    */
   importStatus: SecurityRequirementPackImportStatus | undefined;
@@ -7173,31 +8277,36 @@ export interface ImportSecurityRequirementsOutput {
  */
 export interface InitiateProviderRegistrationInput {
   /**
-   * <p>The provider to initiate registration with.</p>
+   * The provider to initiate registration with.
+   *
    * @public
    */
   provider: Provider | undefined;
 
   /**
-   * <p>The HTTPS URL of a self-managed provider instance. Omit for SaaS providers.</p>
+   * The HTTPS URL of a self-managed provider instance. Omit for SaaS providers.
+   *
    * @public
    */
   targetUrl?: string | undefined;
 
   /**
-   * <p>The name of the organization to connect.</p>
+   * The name of the organization to connect.
+   *
    * @public
    */
   organizationName?: string | undefined;
 
   /**
-   * <p>The client ID of the OAuth application registered on your self-managed provider instance.</p>
+   * The client ID of the OAuth application registered on your self-managed provider instance.
+   *
    * @public
    */
   clientId?: string | undefined;
 
   /**
-   * <p>The client secret of the OAuth application registered on your self-managed provider instance.</p>
+   * The client secret of the OAuth application registered on your self-managed provider instance.
+   *
    * @public
    */
   clientSecret?: string | undefined;
@@ -7208,50 +8317,58 @@ export interface InitiateProviderRegistrationInput {
  */
 export interface InitiateProviderRegistrationOutput {
   /**
-   * <p>The URL to redirect the user to for completing the OAuth authorization.</p>
+   * The URL to redirect the user to for completing the OAuth authorization.
+   *
    * @public
    */
   redirectTo: string | undefined;
 
   /**
-   * <p>The CSRF state token to use when completing the OAuth flow.</p>
+   * The CSRF state token to use when completing the OAuth flow.
+   *
    * @public
    */
   csrfState: string | undefined;
 }
 
 /**
- * <p>Represents a Jira project resource used in an integration.</p>
+ * Represents a Jira project resource used in an integration.
+ *
  * @public
  */
 export interface JiraProjectResource {
   /**
-   * <p>Name of the resource e.g. repository name, etc.</p>
+   * Name of the resource e.g. repository name, etc.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Jira project key, for example PROJ.</p>
+   * The Jira project key, for example PROJ.
+   *
    * @public
    */
   projectKey: string | undefined;
 
   /**
-   * <p>The Jira project identifier.</p>
+   * The Jira project identifier.
+   *
    * @public
    */
   projectId: string | undefined;
 
   /**
-   * <p>The display name of the Jira project.</p>
+   * The display name of the Jira project.
+   *
    * @public
    */
   projectName?: string | undefined;
 }
 
 /**
- * <p>Represents an integrated resource from a third-party provider. This is a union type that contains provider-specific resource information.</p>
+ * Represents an integrated resource from a third-party provider. This is a union type that contains provider-specific resource information.
+ *
  * @public
  */
 export type IntegratedResource =
@@ -7268,7 +8385,8 @@ export type IntegratedResource =
  */
 export namespace IntegratedResource {
   /**
-   * <p>The GitHub repository resource information.</p>
+   * The GitHub repository resource information.
+   *
    * @public
    */
   export interface GithubRepositoryMember {
@@ -7282,7 +8400,8 @@ export namespace IntegratedResource {
   }
 
   /**
-   * <p>A GitLab repository integrated as a resource.</p>
+   * A GitLab repository integrated as a resource.
+   *
    * @public
    */
   export interface GitlabRepositoryMember {
@@ -7296,7 +8415,8 @@ export namespace IntegratedResource {
   }
 
   /**
-   * <p>A Bitbucket repository integrated as a resource.</p>
+   * A Bitbucket repository integrated as a resource.
+   *
    * @public
    */
   export interface BitbucketRepositoryMember {
@@ -7310,7 +8430,8 @@ export namespace IntegratedResource {
   }
 
   /**
-   * <p>A Confluence document (page) integrated as a resource.</p>
+   * A Confluence document (page) integrated as a resource.
+   *
    * @public
    */
   export interface ConfluenceDocumentMember {
@@ -7324,7 +8445,8 @@ export namespace IntegratedResource {
   }
 
   /**
-   * <p>The Azure DevOps repository resource information.</p>
+   * The Azure DevOps repository resource information.
+   *
    * @public
    */
   export interface AzureDevOpsRepositoryMember {
@@ -7338,7 +8460,8 @@ export namespace IntegratedResource {
   }
 
   /**
-   * <p>The Jira project resource information.</p>
+   * The Jira project resource information.
+   *
    * @public
    */
   export interface JiraProjectMember {
@@ -7380,25 +8503,29 @@ export namespace IntegratedResource {
 }
 
 /**
- * <p>Capabilities for an integrated Jira project.</p>
+ * Capabilities for an integrated Jira project.
+ *
  * @public
  */
 export interface JiraResourceCapabilities {
   /**
-   * <p>Whether to create issues in the integrated jira project.</p>
+   * Whether to create issues in the integrated jira project.
+   *
    * @public
    */
   createIssue?: boolean | undefined;
 
   /**
-   * <p>Whether to post comments on issues in the integrated jira project.</p>
+   * Whether to post comments on issues in the integrated jira project.
+   *
    * @public
    */
   commentIssue?: boolean | undefined;
 }
 
 /**
- * <p>The capabilities for an integrated resource from a third-party provider. This is a union type that contains provider-specific capabilities.</p>
+ * The capabilities for an integrated resource from a third-party provider. This is a union type that contains provider-specific capabilities.
+ *
  * @public
  */
 export type ProviderResourceCapabilities =
@@ -7415,7 +8542,8 @@ export type ProviderResourceCapabilities =
  */
 export namespace ProviderResourceCapabilities {
   /**
-   * <p>The GitHub-specific resource capabilities.</p>
+   * The GitHub-specific resource capabilities.
+   *
    * @public
    */
   export interface GithubMember {
@@ -7429,7 +8557,8 @@ export namespace ProviderResourceCapabilities {
   }
 
   /**
-   * <p>Capabilities for an integrated GitLab repository.</p>
+   * Capabilities for an integrated GitLab repository.
+   *
    * @public
    */
   export interface GitlabMember {
@@ -7443,7 +8572,8 @@ export namespace ProviderResourceCapabilities {
   }
 
   /**
-   * <p>Capabilities for an integrated Bitbucket repository.</p>
+   * Capabilities for an integrated Bitbucket repository.
+   *
    * @public
    */
   export interface BitbucketMember {
@@ -7457,7 +8587,8 @@ export namespace ProviderResourceCapabilities {
   }
 
   /**
-   * <p>Capabilities for an integrated Confluence space.</p>
+   * Capabilities for an integrated Confluence space.
+   *
    * @public
    */
   export interface ConfluenceMember {
@@ -7471,7 +8602,8 @@ export namespace ProviderResourceCapabilities {
   }
 
   /**
-   * <p>The Azure DevOps-specific resource capabilities.</p>
+   * The Azure DevOps-specific resource capabilities.
+   *
    * @public
    */
   export interface AzureDevOpsMember {
@@ -7485,7 +8617,8 @@ export namespace ProviderResourceCapabilities {
   }
 
   /**
-   * <p>The Jira-specific resource capabilities.</p>
+   * The Jira-specific resource capabilities.
+   *
    * @public
    */
   export interface JiraMember {
@@ -7527,61 +8660,71 @@ export namespace ProviderResourceCapabilities {
 }
 
 /**
- * <p>Represents an input item for updating integrated resources, including the resource and its capabilities.</p>
+ * Represents an input item for updating integrated resources, including the resource and its capabilities.
+ *
  * @public
  */
 export interface IntegratedResourceInputItem {
   /**
-   * <p>The integrated resource to update.</p>
+   * The integrated resource to update.
+   *
    * @public
    */
   resource: IntegratedResource | undefined;
 
   /**
-   * <p>The capabilities to enable for the integrated resource.</p>
+   * The capabilities to enable for the integrated resource.
+   *
    * @public
    */
   capabilities?: ProviderResourceCapabilities | undefined;
 }
 
 /**
- * <p>Contains metadata about a Jira project that is integrated with the service.</p>
+ * Contains metadata about a Jira project that is integrated with the service.
+ *
  * @public
  */
 export interface JiraProjectMetadata {
   /**
-   * <p>Name of the resource e.g. repository name, etc.</p>
+   * Name of the resource e.g. repository name, etc.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Provider Id of the resource e.g. GitHub repository id, etc.</p>
+   * Provider Id of the resource e.g. GitHub repository id, etc.
+   *
    * @public
    */
   providerResourceId: string | undefined;
 
   /**
-   * <p>The Jira project key, for example PROJ.</p>
+   * The Jira project key, for example PROJ.
+   *
    * @public
    */
   projectKey: string | undefined;
 
   /**
-   * <p>The Jira project identifier.</p>
+   * The Jira project identifier.
+   *
    * @public
    */
   projectId: string | undefined;
 
   /**
-   * <p>The display name of the Jira project.</p>
+   * The display name of the Jira project.
+   *
    * @public
    */
   projectName?: string | undefined;
 }
 
 /**
- * <p>Contains metadata about an integrated resource. This is a union type that contains provider-specific metadata.</p>
+ * Contains metadata about an integrated resource. This is a union type that contains provider-specific metadata.
+ *
  * @public
  */
 export type IntegratedResourceMetadata =
@@ -7598,7 +8741,8 @@ export type IntegratedResourceMetadata =
  */
 export namespace IntegratedResourceMetadata {
   /**
-   * <p>The GitHub repository metadata.</p>
+   * The GitHub repository metadata.
+   *
    * @public
    */
   export interface GithubRepositoryMember {
@@ -7612,7 +8756,8 @@ export namespace IntegratedResourceMetadata {
   }
 
   /**
-   * <p>Metadata for an integrated GitLab repository.</p>
+   * Metadata for an integrated GitLab repository.
+   *
    * @public
    */
   export interface GitlabRepositoryMember {
@@ -7626,7 +8771,8 @@ export namespace IntegratedResourceMetadata {
   }
 
   /**
-   * <p>Metadata for an integrated Bitbucket repository.</p>
+   * Metadata for an integrated Bitbucket repository.
+   *
    * @public
    */
   export interface BitbucketRepositoryMember {
@@ -7640,7 +8786,8 @@ export namespace IntegratedResourceMetadata {
   }
 
   /**
-   * <p>Metadata for an integrated Confluence document.</p>
+   * Metadata for an integrated Confluence document.
+   *
    * @public
    */
   export interface ConfluenceDocumentMember {
@@ -7654,7 +8801,8 @@ export namespace IntegratedResourceMetadata {
   }
 
   /**
-   * <p>The Azure DevOps repository metadata.</p>
+   * The Azure DevOps repository metadata.
+   *
    * @public
    */
   export interface AzureDevOpsRepositoryMember {
@@ -7668,7 +8816,8 @@ export namespace IntegratedResourceMetadata {
   }
 
   /**
-   * <p>The Jira project metadata.</p>
+   * The Jira project metadata.
+   *
    * @public
    */
   export interface JiraProjectMember {
@@ -7710,31 +8859,36 @@ export namespace IntegratedResourceMetadata {
 }
 
 /**
- * <p>Contains summary information about an integrated resource.</p>
+ * Contains summary information about an integrated resource.
+ *
  * @public
  */
 export interface IntegratedResourceSummary {
   /**
-   * <p>The unique identifier of the integration that provides access to the resource.</p>
+   * The unique identifier of the integration that provides access to the resource.
+   *
    * @public
    */
   integrationId: string | undefined;
 
   /**
-   * <p>The metadata for the integrated resource.</p>
+   * The metadata for the integrated resource.
+   *
    * @public
    */
   resource: IntegratedResourceMetadata | undefined;
 
   /**
-   * <p>The capabilities enabled for the integrated resource.</p>
+   * The capabilities enabled for the integrated resource.
+   *
    * @public
    */
   capabilities?: ProviderResourceCapabilities | undefined;
 }
 
 /**
- * <p>A filter for listing integrations. This is a union type where you can filter by provider or provider type.</p>
+ * A filter for listing integrations. This is a union type where you can filter by provider or provider type.
+ *
  * @public
  */
 export type IntegrationFilter =
@@ -7747,7 +8901,8 @@ export type IntegrationFilter =
  */
 export namespace IntegrationFilter {
   /**
-   * <p>Filter integrations by provider.</p>
+   * Filter integrations by provider.
+   *
    * @public
    */
   export interface ProviderMember {
@@ -7757,7 +8912,8 @@ export namespace IntegrationFilter {
   }
 
   /**
-   * <p>Filter integrations by provider type.</p>
+   * Filter integrations by provider type.
+   *
    * @public
    */
   export interface ProviderTypeMember {
@@ -7791,73 +8947,85 @@ export namespace IntegrationFilter {
  */
 export interface ListIntegrationsInput {
   /**
-   * <p>A filter to apply to the list of integrations.</p>
+   * A filter to apply to the list of integrations.
+   *
    * @public
    */
   filter?: IntegrationFilter | undefined;
 
   /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+   * A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Contains summary information about an integration.</p>
+ * Contains summary information about an integration.
+ *
  * @public
  */
 export interface IntegrationSummary {
   /**
-   * <p>The unique identifier of the integration.</p>
+   * The unique identifier of the integration.
+   *
    * @public
    */
   integrationId: string | undefined;
 
   /**
-   * <p>The installation identifier from the integration provider.</p>
+   * The installation identifier from the integration provider.
+   *
    * @public
    */
   installationId: string | undefined;
 
   /**
-   * <p>The integration provider.</p>
+   * The integration provider.
+   *
    * @public
    */
   provider: Provider | undefined;
 
   /**
-   * <p>The type of the integration provider.</p>
+   * The type of the integration provider.
+   *
    * @public
    */
   providerType: ProviderType | undefined;
 
   /**
-   * <p>The display name of the integration.</p>
+   * The display name of the integration.
+   *
    * @public
    */
   displayName: string | undefined;
 
   /**
-   * <p>The HTTPS URL of the customer self-hosted instance, such as a GitHub Enterprise Server or self-managed GitLab instance. This value is absent for SaaS integrations.</p>
+   * The HTTPS URL of the customer self-hosted instance, such as a GitHub Enterprise Server or self-managed GitLab instance. This value is absent for SaaS integrations.
+   *
    * @public
    */
   targetUrl?: string | undefined;
 
   /**
-   * <p>The payload URL of the integration's webhook, once it has been created. The signing secret is never returned on a read.</p>
+   * The payload URL of the integration's webhook, once it has been created. The signing secret is never returned on a read.
+   *
    * @public
    */
   webhookUrl?: string | undefined;
 
   /**
-   * <p>The name of the private connection used to reach the integration's self-hosted instance over private networking, if one is configured.</p>
+   * The name of the private connection used to reach the integration's self-hosted instance over private networking, if one is configured.
+   *
    * @public
    */
   privateConnectionName?: string | undefined;
@@ -7868,55 +9036,64 @@ export interface IntegrationSummary {
  */
 export interface ListIntegrationsOutput {
   /**
-   * <p>The list of integration summaries.</p>
+   * The list of integration summaries.
+   *
    * @public
    */
   integrationSummaries: IntegrationSummary[] | undefined;
 
   /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+   * A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Input for creating or rotating an integration's webhook.</p>
+ * Input for creating or rotating an integration's webhook.
+ *
  * @public
  */
 export interface UpdateIntegrationInput {
   /**
-   * <p>The ID of the integration whose webhook you want to create or rotate.</p>
+   * The ID of the integration whose webhook you want to create or rotate.
+   *
    * @public
    */
   integrationId: string | undefined;
 
   /**
-   * <p>The action to perform on the integration's webhook.</p>
+   * The action to perform on the integration's webhook.
+   *
    * @public
    */
   webhookAction: WebhookAction | undefined;
 }
 
 /**
- * <p>Output for the UpdateIntegration operation.</p>
+ * Output for the UpdateIntegration operation.
+ *
  * @public
  */
 export interface UpdateIntegrationOutput {
   /**
-   * <p>The ID of the integration.</p>
+   * The ID of the integration.
+   *
    * @public
    */
   integrationId: string | undefined;
 
   /**
-   * <p>The payload URL to configure on your provider instance. Returned when a webhook is created; unchanged by a rotate.</p>
+   * The payload URL to configure on your provider instance. Returned when a webhook is created; unchanged by a rotate.
+   *
    * @public
    */
   webhookUrl?: string | undefined;
 
   /**
-   * <p>The HMAC signing secret for the webhook. Returned only once, in this response; it is never returned again.</p>
+   * The HMAC signing secret for the webhook. Returned only once, in this response; it is never returned again.
+   *
    * @public
    */
   secret?: string | undefined;
@@ -7927,31 +9104,36 @@ export interface UpdateIntegrationOutput {
  */
 export interface ListActorMessagesInput {
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+   * A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space that owns the pentest.</p>
+   * The unique identifier of the agent space that owns the pentest.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The unique identifier of the pentest that the actor belongs to.</p>
+   * The unique identifier of the pentest that the actor belongs to.
+   *
    * @public
    */
   pentestId: string | undefined;
 
   /**
-   * <p>The identifier of the actor whose messages to list. The identifier is case-insensitive.</p>
+   * The identifier of the actor whose messages to list. The identifier is case-insensitive.
+   *
    * @public
    */
   actorIdentifier: string | undefined;
@@ -7962,13 +9144,15 @@ export interface ListActorMessagesInput {
  */
 export interface ListActorMessagesOutput {
   /**
-   * <p>The list of messages received for the actor, most recent first.</p>
+   * The list of messages received for the actor, most recent first.
+   *
    * @public
    */
   messages?: ActorMessage[] | undefined;
 
   /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+   * A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -7979,19 +9163,22 @@ export interface ListActorMessagesOutput {
  */
 export interface ListArtifactsInput {
   /**
-   * <p>The unique identifier of the agent space to list artifacts for.</p>
+   * The unique identifier of the agent space to list artifacts for.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+   * A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
@@ -8002,301 +9189,351 @@ export interface ListArtifactsInput {
  */
 export interface ListArtifactsOutput {
   /**
-   * <p>The list of artifact summaries.</p>
+   * The list of artifact summaries.
+   *
    * @public
    */
   artifactSummaries: ArtifactSummary[] | undefined;
 
   /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+   * A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Input for ListCodeReviewJobsForCodeReview operation.</p>
+ * Input for ListCodeReviewJobsForCodeReview operation.
+ *
  * @public
  */
 export interface ListCodeReviewJobsForCodeReviewInput {
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The unique identifier of the code review to list jobs for.</p>
+   * The unique identifier of the code review to list jobs for.
+   *
    * @public
    */
   codeReviewId: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space.</p>
+   * The unique identifier of the agent space.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+   * A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Output for the ListCodeReviewJobsForCodeReview operation.</p>
+ * Output for the ListCodeReviewJobsForCodeReview operation.
+ *
  * @public
  */
 export interface ListCodeReviewJobsForCodeReviewOutput {
   /**
-   * <p>The list of code review job summaries.</p>
+   * The list of code review job summaries.
+   *
    * @public
    */
   codeReviewJobSummaries?: CodeReviewJobSummary[] | undefined;
 
   /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+   * A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Input for listing tasks associated with a code review job.</p>
+ * Input for listing tasks associated with a code review job.
+ *
  * @public
  */
 export interface ListCodeReviewJobTasksInput {
   /**
-   * <p>The unique identifier of the agent space.</p>
+   * The unique identifier of the agent space.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The unique identifier of the code review job to list tasks for.</p>
+   * The unique identifier of the code review job to list tasks for.
+   *
    * @public
    */
   codeReviewJobId?: string | undefined;
 
   /**
-   * <p>Filter tasks by step name.</p>
+   * Filter tasks by step name.
+   *
    * @public
    */
   stepName?: StepName | undefined;
 
   /**
-   * <p>Filter tasks by category name.</p>
+   * Filter tasks by category name.
+   *
    * @public
    */
   categoryName?: string | undefined;
 
   /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+   * A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Output for the ListCodeReviewJobTasks operation.</p>
+ * Output for the ListCodeReviewJobTasks operation.
+ *
  * @public
  */
 export interface ListCodeReviewJobTasksOutput {
   /**
-   * <p>The list of code review job task summaries.</p>
+   * The list of code review job task summaries.
+   *
    * @public
    */
   codeReviewJobTaskSummaries?: CodeReviewJobTaskSummary[] | undefined;
 
   /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+   * A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Input for listing code reviews with optional filtering.</p>
+ * Input for listing code reviews with optional filtering.
+ *
  * @public
  */
 export interface ListCodeReviewsInput {
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+   * A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space to list code reviews for.</p>
+   * The unique identifier of the agent space to list code reviews for.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 }
 
 /**
- * <p>Output for the ListCodeReviews operation.</p>
+ * Output for the ListCodeReviews operation.
+ *
  * @public
  */
 export interface ListCodeReviewsOutput {
   /**
-   * <p>The list of code review summaries.</p>
+   * The list of code review summaries.
+   *
    * @public
    */
   codeReviewSummaries?: CodeReviewSummary[] | undefined;
 
   /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+   * A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Input for ListDiscoveredEndpoints operation.</p>
+ * Input for ListDiscoveredEndpoints operation.
+ *
  * @public
  */
 export interface ListDiscoveredEndpointsInput {
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The unique identifier of the pentest job to list discovered endpoints for.</p>
+   * The unique identifier of the pentest job to list discovered endpoints for.
+   *
    * @public
    */
   pentestJobId: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space.</p>
+   * The unique identifier of the agent space.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>A prefix to filter discovered endpoints by URI.</p>
+   * A prefix to filter discovered endpoints by URI.
+   *
    * @public
    */
   prefix?: string | undefined;
 
   /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+   * A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Output for the ListDiscoveredEndpoints operation.</p>
+ * Output for the ListDiscoveredEndpoints operation.
+ *
  * @public
  */
 export interface ListDiscoveredEndpointsOutput {
   /**
-   * <p>The list of discovered endpoints.</p>
+   * The list of discovered endpoints.
+   *
    * @public
    */
   discoveredEndpoints?: DiscoveredEndpoint[] | undefined;
 
   /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+   * A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Input for ListFindings operation with filtering support.</p>
+ * Input for ListFindings operation with filtering support.
+ *
  * @public
  */
 export interface ListFindingsInput {
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The unique identifier of the pentest job to list findings for.</p>
+   * The unique identifier of the pentest job to list findings for.
+   *
    * @public
    */
   pentestJobId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the code review job to list findings for. Mutually exclusive with pentestJobId.</p>
+   * The unique identifier of the code review job to list findings for. Mutually exclusive with pentestJobId.
+   *
    * @public
    */
   codeReviewJobId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space.</p>
+   * The unique identifier of the agent space.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+   * A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Filter findings by risk type.</p>
+   * Filter findings by risk type.
+   *
    * @public
    */
   riskType?: string | undefined;
 
   /**
-   * <p>Filter findings by risk level.</p>
+   * Filter findings by risk level.
+   *
    * @public
    */
   riskLevel?: RiskLevel | undefined;
 
   /**
-   * <p>Filter findings by status.</p>
+   * Filter findings by status.
+   *
    * @public
    */
   status?: FindingStatus | undefined;
 
   /**
-   * <p>Filter findings by confidence level.</p>
+   * Filter findings by confidence level.
+   *
    * @public
    */
   confidence?: ConfidenceLevel | undefined;
 
   /**
-   * <p>Filter findings by name.</p>
+   * Filter findings by name.
+   *
    * @public
    */
   name?: string | undefined;
 }
 
 /**
- * <p>Output for the ListFindings operation.</p>
+ * Output for the ListFindings operation.
+ *
  * @public
  */
 export interface ListFindingsOutput {
   /**
-   * <p>The list of finding summaries.</p>
+   * The list of finding summaries.
+   *
    * @public
    */
   findingsSummaries?: FindingSummary[] | undefined;
 
   /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+   * A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -8307,31 +9544,36 @@ export interface ListFindingsOutput {
  */
 export interface ListIntegratedResourcesInput {
   /**
-   * <p>The unique identifier of the agent space to list integrated resources for.</p>
+   * The unique identifier of the agent space to list integrated resources for.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The unique identifier of the integration to filter by.</p>
+   * The unique identifier of the integration to filter by.
+   *
    * @public
    */
   integrationId?: string | undefined;
 
   /**
-   * <p>The type of resource to filter by.</p>
+   * The type of resource to filter by.
+   *
    * @public
    */
   resourceType?: ResourceType | undefined;
 
   /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+   * A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
@@ -8342,74 +9584,86 @@ export interface ListIntegratedResourcesInput {
  */
 export interface ListIntegratedResourcesOutput {
   /**
-   * <p>The list of integrated resource summaries.</p>
+   * The list of integrated resource summaries.
+   *
    * @public
    */
   integratedResourceSummaries: IntegratedResourceSummary[] | undefined;
 
   /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+   * A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Request structure for listing agent space members.</p>
+ * Request structure for listing agent space members.
+ *
  * @public
  */
 export interface ListMembershipsRequest {
   /**
-   * <p>The unique identifier of the application that contains the agent space.</p>
+   * The unique identifier of the application that contains the agent space.
+   *
    * @public
    */
   applicationId: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space to list memberships for.</p>
+   * The unique identifier of the agent space to list memberships for.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>Filter memberships by member type.</p>
+   * Filter memberships by member type.
+   *
    * @public
    */
   memberType?: MembershipTypeFilter | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+   * A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Contains metadata about a user member, including the username and email address.</p>
+ * Contains metadata about a user member, including the username and email address.
+ *
  * @public
  */
 export interface UserMetadata {
   /**
-   * <p>The username of the user.</p>
+   * The username of the user.
+   *
    * @public
    */
   username: string | undefined;
 
   /**
-   * <p>The email address of the user.</p>
+   * The email address of the user.
+   *
    * @public
    */
   email: string | undefined;
 }
 
 /**
- * <p>Contains metadata about a member. This is a union type that contains member-type-specific metadata.</p>
+ * Contains metadata about a member. This is a union type that contains member-type-specific metadata.
+ *
  * @public
  */
 export type MemberMetadata =
@@ -8421,7 +9675,8 @@ export type MemberMetadata =
  */
 export namespace MemberMetadata {
   /**
-   * <p>The user metadata for the member.</p>
+   * The user metadata for the member.
+   *
    * @public
    */
   export interface UserMember {
@@ -8448,396 +9703,462 @@ export namespace MemberMetadata {
 }
 
 /**
- * <p>Contains summary information about a membership.</p>
+ * Contains summary information about a membership.
+ *
  * @public
  */
 export interface MembershipSummary {
   /**
-   * <p>The unique identifier of the membership.</p>
+   * The unique identifier of the membership.
+   *
    * @public
    */
   membershipId: string | undefined;
 
   /**
-   * <p>The unique identifier of the application.</p>
+   * The unique identifier of the application.
+   *
    * @public
    */
   applicationId: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space.</p>
+   * The unique identifier of the agent space.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The type of member.</p>
+   * The type of member.
+   *
    * @public
    */
   memberType: MembershipType | undefined;
 
   /**
-   * <p>The configuration for the membership.</p>
+   * The configuration for the membership.
+   *
    * @public
    */
   config?: MembershipConfig | undefined;
 
   /**
-   * <p>The metadata for the member.</p>
+   * The metadata for the member.
+   *
    * @public
    */
   metadata?: MemberMetadata | undefined;
 
   /**
-   * <p>The date and time the membership was created, in UTC format.</p>
+   * The date and time the membership was created, in UTC format.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The date and time the membership was last updated, in UTC format.</p>
+   * The date and time the membership was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The identifier of the entity that created the membership.</p>
+   * The identifier of the entity that created the membership.
+   *
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The identifier of the entity that last updated the membership.</p>
+   * The identifier of the entity that last updated the membership.
+   *
    * @public
    */
   updatedBy: string | undefined;
 }
 
 /**
- * <p>Response structure for listing members associated to an agent space.</p>
+ * Response structure for listing members associated to an agent space.
+ *
  * @public
  */
 export interface ListMembershipsResponse {
   /**
-   * <p>The list of membership summaries.</p>
+   * The list of membership summaries.
+   *
    * @public
    */
   membershipSummaries: MembershipSummary[] | undefined;
 
   /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+   * A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Input for ListPentestJobsForPentest operation.</p>
+ * Input for ListPentestJobsForPentest operation.
+ *
  * @public
  */
 export interface ListPentestJobsForPentestInput {
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The unique identifier of the pentest to list jobs for.</p>
+   * The unique identifier of the pentest to list jobs for.
+   *
    * @public
    */
   pentestId: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space.</p>
+   * The unique identifier of the agent space.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+   * A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Filters the returned pentest jobs to only those of the specified job type.</p>
+   * Filters the returned pentest jobs to only those of the specified job type.
+   *
    * @public
    */
   jobType?: JobType | undefined;
 }
 
 /**
- * <p>Contains summary information about a pentest job.</p>
+ * Contains summary information about a pentest job.
+ *
  * @public
  */
 export interface PentestJobSummary {
   /**
-   * <p>The unique identifier of the pentest job.</p>
+   * The unique identifier of the pentest job.
+   *
    * @public
    */
   pentestJobId: string | undefined;
 
   /**
-   * <p>The unique identifier of the pentest associated with the job.</p>
+   * The unique identifier of the pentest associated with the job.
+   *
    * @public
    */
   pentestId: string | undefined;
 
   /**
-   * <p>The title of the pentest job.</p>
+   * The title of the pentest job.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>The current status of the pentest job.</p>
+   * The current status of the pentest job.
+   *
    * @public
    */
   status?: JobStatus | undefined;
 
   /**
-   * <p>The date and time the pentest job was created, in UTC format.</p>
+   * The date and time the pentest job was created, in UTC format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time the pentest job was last updated, in UTC format.</p>
+   * The date and time the pentest job was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The type of the pentest job. Valid values are FULL, REVALIDATION, and CICD.</p>
+   * The type of the pentest job. Valid values are FULL, REVALIDATION, and CICD.
+   *
    * @public
    */
   jobType?: JobType | undefined;
 
   /**
-   * <p>The URL to view this pentest job's findings report in the console.</p>
+   * The URL to view this pentest job's findings report in the console.
+   *
    * @public
    */
   reportUrl?: string | undefined;
 }
 
 /**
- * <p>Output for the ListPentestJobsForPentest operation.</p>
+ * Output for the ListPentestJobsForPentest operation.
+ *
  * @public
  */
 export interface ListPentestJobsForPentestOutput {
   /**
-   * <p>The list of pentest job summaries.</p>
+   * The list of pentest job summaries.
+   *
    * @public
    */
   pentestJobSummaries?: PentestJobSummary[] | undefined;
 
   /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+   * A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Input for listing tasks associated with a pentest job.</p>
+ * Input for listing tasks associated with a pentest job.
+ *
  * @public
  */
 export interface ListPentestJobTasksInput {
   /**
-   * <p>The unique identifier of the agent space.</p>
+   * The unique identifier of the agent space.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The unique identifier of the pentest job to list tasks for.</p>
+   * The unique identifier of the pentest job to list tasks for.
+   *
    * @public
    */
   pentestJobId?: string | undefined;
 
   /**
-   * <p>Filter tasks by step name. Valid values include PREFLIGHT, STATIC_ANALYSIS, PENTEST, VALIDATION, and FINALIZING.</p>
+   * Filter tasks by step name. Valid values include PREFLIGHT, STATIC_ANALYSIS, PENTEST, VALIDATION, and FINALIZING.
+   *
    * @public
    */
   stepName?: StepName | undefined;
 
   /**
-   * <p>Filter tasks by category name.</p>
+   * Filter tasks by category name.
+   *
    * @public
    */
   categoryName?: string | undefined;
 
   /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+   * A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Contains summary information about a task.</p>
+ * Contains summary information about a task.
+ *
  * @public
  */
 export interface TaskSummary {
   /**
-   * <p>The unique identifier of the task.</p>
+   * The unique identifier of the task.
+   *
    * @public
    */
   taskId: string | undefined;
 
   /**
-   * <p>The unique identifier of the pentest associated with the task.</p>
+   * The unique identifier of the pentest associated with the task.
+   *
    * @public
    */
   pentestId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the pentest job that contains the task.</p>
+   * The unique identifier of the pentest job that contains the task.
+   *
    * @public
    */
   pentestJobId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space.</p>
+   * The unique identifier of the agent space.
+   *
    * @public
    */
   agentSpaceId?: string | undefined;
 
   /**
-   * <p>The title of the task.</p>
+   * The title of the task.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>The type of security risk the task is testing for.</p>
+   * The type of security risk the task is testing for.
+   *
    * @public
    */
   riskType?: RiskType | undefined;
 
   /**
-   * <p>The current execution status of the task.</p>
+   * The current execution status of the task.
+   *
    * @public
    */
   executionStatus?: TaskExecutionStatus | undefined;
 
   /**
-   * <p>The number of active work hours consumed by the task during execution.</p>
+   * The number of active work hours consumed by the task during execution.
+   *
    * @public
    */
   taskHours?: number | undefined;
 
   /**
-   * <p>The date and time the task was created, in UTC format.</p>
+   * The date and time the task was created, in UTC format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time the task was last updated, in UTC format.</p>
+   * The date and time the task was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * <p>Output for the ListPentestJobTasks operation.</p>
+ * Output for the ListPentestJobTasks operation.
+ *
  * @public
  */
 export interface ListPentestJobTasksOutput {
   /**
-   * <p>The list of task summaries.</p>
+   * The list of task summaries.
+   *
    * @public
    */
   taskSummaries?: TaskSummary[] | undefined;
 
   /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+   * A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Input for listing pentests with optional filtering.</p>
+ * Input for listing pentests with optional filtering.
+ *
  * @public
  */
 export interface ListPentestsInput {
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+   * A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space to list pentests for.</p>
+   * The unique identifier of the agent space to list pentests for.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 }
 
 /**
- * <p>Contains summary information about a pentest.</p>
+ * Contains summary information about a pentest.
+ *
  * @public
  */
 export interface PentestSummary {
   /**
-   * <p>The unique identifier of the pentest.</p>
+   * The unique identifier of the pentest.
+   *
    * @public
    */
   pentestId: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space that contains the pentest.</p>
+   * The unique identifier of the agent space that contains the pentest.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The title of the pentest.</p>
+   * The title of the pentest.
+   *
    * @public
    */
   title: string | undefined;
 
   /**
-   * <p>The date and time the pentest was created, in UTC format.</p>
+   * The date and time the pentest was created, in UTC format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time the pentest was last updated, in UTC format.</p>
+   * The date and time the pentest was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * <p>Output for the ListPentests operation.</p>
+ * Output for the ListPentests operation.
+ *
  * @public
  */
 export interface ListPentestsOutput {
   /**
-   * <p>The list of pentest summaries.</p>
+   * The list of pentest summaries.
+   *
    * @public
    */
   pentestSummaries?: PentestSummary[] | undefined;
 
   /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+   * A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -8848,85 +10169,99 @@ export interface ListPentestsOutput {
  */
 export interface ListPrivateConnectionsInput {
   /**
-   * <p>The maximum number of private connections to return in a single response.</p>
+   * The maximum number of private connections to return in a single response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Summarizes a private connection.</p>
+ * Summarizes a private connection.
+ *
  * @public
  */
 export interface PrivateConnectionSummary {
   /**
-   * <p>The name of the private connection.</p>
+   * The name of the private connection.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of the private connection, indicating whether it is service-managed or self-managed.</p>
+   * The type of the private connection, indicating whether it is service-managed or self-managed.
+   *
    * @public
    */
   type: PrivateConnectionType | undefined;
 
   /**
-   * <p>The current status of the private connection.</p>
+   * The current status of the private connection.
+   *
    * @public
    */
   status: PrivateConnectionStatus | undefined;
 
   /**
-   * <p>The identifier or ARN of the VPC Lattice resource gateway.</p>
+   * The identifier or ARN of the VPC Lattice resource gateway.
+   *
    * @public
    */
   resourceGatewayId?: string | undefined;
 
   /**
-   * <p>The IP address or DNS name of the target resource.</p>
+   * The IP address or DNS name of the target resource.
+   *
    * @public
    */
   hostAddress?: string | undefined;
 
   /**
-   * <p>The identifier of the VPC the resource gateway is created in.</p>
+   * The identifier of the VPC the resource gateway is created in.
+   *
    * @public
    */
   vpcId?: string | undefined;
 
   /**
-   * <p>The identifier or ARN of the VPC Lattice resource configuration.</p>
+   * The identifier or ARN of the VPC Lattice resource configuration.
+   *
    * @public
    */
   resourceConfigurationId?: string | undefined;
 
   /**
-   * <p>The date and time the connection's certificate expires, in UTC format.</p>
+   * The date and time the connection's certificate expires, in UTC format.
+   *
    * @public
    */
   certificateExpiryTime?: Date | undefined;
 
   /**
-   * <p>The DNS resolution mode for the resource gateway.</p>
+   * The DNS resolution mode for the resource gateway.
+   *
    * @public
    */
   dnsResolution?: ResourceConfigDnsResolution | undefined;
 
   /**
-   * <p>A message describing why the private connection entered a failed state, if applicable.</p>
+   * A message describing why the private connection entered a failed state, if applicable.
+   *
    * @public
    */
   failureMessage?: string | undefined;
 
   /**
-   * <p>The tags attached to the private connection.</p>
+   * The tags attached to the private connection.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -8937,31 +10272,36 @@ export interface PrivateConnectionSummary {
  */
 export interface ListPrivateConnectionsOutput {
   /**
-   * <p>The list of private connections.</p>
+   * The list of private connections.
+   *
    * @public
    */
   privateConnections: PrivateConnectionSummary[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results, if more results are available.</p>
+   * The token to use to retrieve the next page of results, if more results are available.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Filter criteria for listing security requirement packs.</p>
+ * Filter criteria for listing security requirement packs.
+ *
  * @public
  */
 export interface ListSecurityRequirementPackFilter {
   /**
-   * <p>Filter packs by management type. Valid values are AWS_MANAGED and CUSTOMER_MANAGED.</p>
+   * Filter packs by management type. Valid values are AWS_MANAGED and CUSTOMER_MANAGED.
+   *
    * @public
    */
   managementType?: ManagementType | undefined;
 
   /**
-   * <p>Filter packs by status. Valid values are ENABLED and DISABLED.</p>
+   * Filter packs by status. Valid values are ENABLED and DISABLED.
+   *
    * @public
    */
   status?: SecurityRequirementPackStatus | undefined;
@@ -8972,73 +10312,85 @@ export interface ListSecurityRequirementPackFilter {
  */
 export interface ListSecurityRequirementPacksInput {
   /**
-   * <p>The filter criteria for listing security requirement packs.</p>
+   * The filter criteria for listing security requirement packs.
+   *
    * @public
    */
   filter?: ListSecurityRequirementPackFilter | undefined;
 
   /**
-   * <p>The pagination token from a previous request to retrieve the next page of results.</p>
+   * The pagination token from a previous request to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single request.</p>
+   * The maximum number of results to return in a single request.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Contains summary information about a security requirement pack.</p>
+ * Contains summary information about a security requirement pack.
+ *
  * @public
  */
 export interface SecurityRequirementPackSummary {
   /**
-   * <p>The unique identifier of the security requirement pack.</p>
+   * The unique identifier of the security requirement pack.
+   *
    * @public
    */
   packId: string | undefined;
 
   /**
-   * <p>The name of the security requirement pack.</p>
+   * The name of the security requirement pack.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description of the security requirement pack.</p>
+   * A description of the security requirement pack.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The vendor name for AWS managed packs.</p>
+   * The vendor name for AWS managed packs.
+   *
    * @public
    */
   vendorName?: string | undefined;
 
   /**
-   * <p>The management type of the pack.</p>
+   * The management type of the pack.
+   *
    * @public
    */
   managementType: ManagementType | undefined;
 
   /**
-   * <p>The status of the security requirement pack.</p>
+   * The status of the security requirement pack.
+   *
    * @public
    */
   status: SecurityRequirementPackStatus | undefined;
 
   /**
-   * <p>The date and time the security requirement pack was created, in UTC format.</p>
+   * The date and time the security requirement pack was created, in UTC format.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The date and time the security requirement pack was last updated, in UTC format.</p>
+   * The date and time the security requirement pack was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -9049,13 +10401,15 @@ export interface SecurityRequirementPackSummary {
  */
 export interface ListSecurityRequirementPacksOutput {
   /**
-   * <p>The list of security requirement pack summaries.</p>
+   * The list of security requirement pack summaries.
+   *
    * @public
    */
   securityRequirementPackSummaries: SecurityRequirementPackSummary[] | undefined;
 
   /**
-   * <p>The pagination token to use in a subsequent request to retrieve the next page of results.</p>
+   * The pagination token to use in a subsequent request to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -9066,55 +10420,64 @@ export interface ListSecurityRequirementPacksOutput {
  */
 export interface ListSecurityRequirementsInput {
   /**
-   * <p>The unique identifier of the security requirement pack to list requirements for.</p>
+   * The unique identifier of the security requirement pack to list requirements for.
+   *
    * @public
    */
   packId: string | undefined;
 
   /**
-   * <p>The pagination token from a previous request to retrieve the next page of results.</p>
+   * The pagination token from a previous request to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single request.</p>
+   * The maximum number of results to return in a single request.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Contains summary information about a security requirement.</p>
+ * Contains summary information about a security requirement.
+ *
  * @public
  */
 export interface SecurityRequirementSummary {
   /**
-   * <p>The unique identifier of the pack containing the security requirement.</p>
+   * The unique identifier of the pack containing the security requirement.
+   *
    * @public
    */
   packId: string | undefined;
 
   /**
-   * <p>The name of the security requirement.</p>
+   * The name of the security requirement.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description of the security requirement.</p>
+   * A description of the security requirement.
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p>The date and time the security requirement was created, in UTC format.</p>
+   * The date and time the security requirement was created, in UTC format.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The date and time the security requirement was last updated, in UTC format.</p>
+   * The date and time the security requirement was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -9125,493 +10488,575 @@ export interface SecurityRequirementSummary {
  */
 export interface ListSecurityRequirementsOutput {
   /**
-   * <p>The list of security requirement summaries.</p>
+   * The list of security requirement summaries.
+   *
    * @public
    */
   securityRequirementSummaries: SecurityRequirementSummary[] | undefined;
 
   /**
-   * <p>The pagination token to use in a subsequent request to retrieve the next page of results.</p>
+   * The pagination token to use in a subsequent request to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Input for ListTagsForResource operation.</p>
+ * Input for ListTagsForResource operation.
+ *
  * @public
  */
 export interface ListTagsForResourceInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource to list tags for.</p>
+   * The Amazon Resource Name (ARN) of the resource to list tags for.
+   *
    * @public
    */
   resourceArn: string | undefined;
 }
 
 /**
- * <p>Output for ListTagsForResource operation.</p>
+ * Output for ListTagsForResource operation.
+ *
  * @public
  */
 export interface ListTagsForResourceOutput {
   /**
-   * <p>The tags associated with the resource.</p>
+   * The tags associated with the resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Input for listing target domains.</p>
+ * Input for listing target domains.
+ *
  * @public
  */
 export interface ListTargetDomainsInput {
   /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+   * A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Contains summary information about a target domain.</p>
+ * Contains summary information about a target domain.
+ *
  * @public
  */
 export interface TargetDomainSummary {
   /**
-   * <p>The unique identifier of the target domain.</p>
+   * The unique identifier of the target domain.
+   *
    * @public
    */
   targetDomainId: string | undefined;
 
   /**
-   * <p>The domain name of the target domain.</p>
+   * The domain name of the target domain.
+   *
    * @public
    */
   domainName: string | undefined;
 
   /**
-   * <p>The current verification status of the target domain.</p>
+   * The current verification status of the target domain.
+   *
    * @public
    */
   verificationStatus?: TargetDomainStatus | undefined;
 }
 
 /**
- * <p>Output for the ListTargetDomains operation.</p>
+ * Output for the ListTargetDomains operation.
+ *
  * @public
  */
 export interface ListTargetDomainsOutput {
   /**
-   * <p>The list of target domain summaries.</p>
+   * The list of target domain summaries.
+   *
    * @public
    */
   targetDomainSummaries?: TargetDomainSummary[] | undefined;
 
   /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+   * A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Input for ListThreatModelJobs operation.</p>
+ * Input for ListThreatModelJobs operation.
+ *
  * @public
  */
 export interface ListThreatModelJobsInput {
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The unique identifier of the threat model to list jobs for.</p>
+   * The unique identifier of the threat model to list jobs for.
+   *
    * @public
    */
   threatModelId: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space.</p>
+   * The unique identifier of the agent space.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>A token to use for paginating results that are returned in the response.</p>
+   * A token to use for paginating results that are returned in the response.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Contains summary information about a threat model job.</p>
+ * Contains summary information about a threat model job.
+ *
  * @public
  */
 export interface ThreatModelJobSummary {
   /**
-   * <p>The unique identifier of the threat model job.</p>
+   * The unique identifier of the threat model job.
+   *
    * @public
    */
   threatModelJobId: string | undefined;
 
   /**
-   * <p>The unique identifier of the threat model associated with the job.</p>
+   * The unique identifier of the threat model associated with the job.
+   *
    * @public
    */
   threatModelId: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space.</p>
+   * The unique identifier of the agent space.
+   *
    * @public
    */
   agentSpaceId?: string | undefined;
 
   /**
-   * <p>The title of the threat model job.</p>
+   * The title of the threat model job.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>The current status of the threat model job.</p>
+   * The current status of the threat model job.
+   *
    * @public
    */
   status?: JobStatus | undefined;
 
   /**
-   * <p>The date and time the threat model job was created, in UTC format.</p>
+   * The date and time the threat model job was created, in UTC format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time the threat model job was last updated, in UTC format.</p>
+   * The date and time the threat model job was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * <p>Output for the ListThreatModelJobs operation.</p>
+ * Output for the ListThreatModelJobs operation.
+ *
  * @public
  */
 export interface ListThreatModelJobsOutput {
   /**
-   * <p>The list of threat model job summaries.</p>
+   * The list of threat model job summaries.
+   *
    * @public
    */
   threatModelJobSummaries?: ThreatModelJobSummary[] | undefined;
 
   /**
-   * <p>A token to use for paginating results that are returned in the response.</p>
+   * A token to use for paginating results that are returned in the response.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Input for listing tasks associated with a threat model job.</p>
+ * Input for listing tasks associated with a threat model job.
+ *
  * @public
  */
 export interface ListThreatModelJobTasksInput {
   /**
-   * <p>The unique identifier of the agent space.</p>
+   * The unique identifier of the agent space.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The unique identifier of the threat model job to list tasks for.</p>
+   * The unique identifier of the threat model job to list tasks for.
+   *
    * @public
    */
   threatModelJobId: string | undefined;
 
   /**
-   * <p>A token to use for paginating results that are returned in the response.</p>
+   * A token to use for paginating results that are returned in the response.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Contains summary information about a threat model job task.</p>
+ * Contains summary information about a threat model job task.
+ *
  * @public
  */
 export interface ThreatModelJobTaskSummary {
   /**
-   * <p>The unique identifier of the task.</p>
+   * The unique identifier of the task.
+   *
    * @public
    */
   taskId: string | undefined;
 
   /**
-   * <p>The unique identifier of the threat model associated with the task.</p>
+   * The unique identifier of the threat model associated with the task.
+   *
    * @public
    */
   threatModelId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the threat model job that contains the task.</p>
+   * The unique identifier of the threat model job that contains the task.
+   *
    * @public
    */
   threatModelJobId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space.</p>
+   * The unique identifier of the agent space.
+   *
    * @public
    */
   agentSpaceId?: string | undefined;
 
   /**
-   * <p>The title of the task.</p>
+   * The title of the task.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>The current execution status of the task.</p>
+   * The current execution status of the task.
+   *
    * @public
    */
   executionStatus?: TaskExecutionStatus | undefined;
 
   /**
-   * <p>The date and time the task was created, in UTC format.</p>
+   * The date and time the task was created, in UTC format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time the task was last updated, in UTC format.</p>
+   * The date and time the task was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * <p>Output for the ListThreatModelJobTasks operation.</p>
+ * Output for the ListThreatModelJobTasks operation.
+ *
  * @public
  */
 export interface ListThreatModelJobTasksOutput {
   /**
-   * <p>The list of threat model job task summaries.</p>
+   * The list of threat model job task summaries.
+   *
    * @public
    */
   threatModelJobTaskSummaries?: ThreatModelJobTaskSummary[] | undefined;
 
   /**
-   * <p>A token to use for paginating results that are returned in the response.</p>
+   * A token to use for paginating results that are returned in the response.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Input for listing threat models.</p>
+ * Input for listing threat models.
+ *
  * @public
  */
 export interface ListThreatModelsInput {
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token to use for paginating results that are returned in the response.</p>
+   * A token to use for paginating results that are returned in the response.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space to list threat models for.</p>
+   * The unique identifier of the agent space to list threat models for.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 }
 
 /**
- * <p>Contains summary information about a threat model.</p>
+ * Contains summary information about a threat model.
+ *
  * @public
  */
 export interface ThreatModelSummary {
   /**
-   * <p>The unique identifier of the threat model.</p>
+   * The unique identifier of the threat model.
+   *
    * @public
    */
   threatModelId: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space that contains the threat model.</p>
+   * The unique identifier of the agent space that contains the threat model.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The title of the threat model.</p>
+   * The title of the threat model.
+   *
    * @public
    */
   title: string | undefined;
 
   /**
-   * <p>The date and time the threat model was created, in UTC format.</p>
+   * The date and time the threat model was created, in UTC format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time the threat model was last updated, in UTC format.</p>
+   * The date and time the threat model was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * <p>Output for the ListThreatModels operation.</p>
+ * Output for the ListThreatModels operation.
+ *
  * @public
  */
 export interface ListThreatModelsOutput {
   /**
-   * <p>The list of threat model summaries.</p>
+   * The list of threat model summaries.
+   *
    * @public
    */
   threatModelSummaries?: ThreatModelSummary[] | undefined;
 
   /**
-   * <p>A token to use for paginating results that are returned in the response.</p>
+   * A token to use for paginating results that are returned in the response.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Input for listing threats.</p>
+ * Input for listing threats.
+ *
  * @public
  */
 export interface ListThreatsInput {
   /**
-   * <p>The unique identifier of the threat model job to list threats for.</p>
+   * The unique identifier of the threat model job to list threats for.
+   *
    * @public
    */
   threatJobId: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space.</p>
+   * The unique identifier of the agent space.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>A token to use for paginating results that are returned in the response.</p>
+   * A token to use for paginating results that are returned in the response.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Contains summary information about a threat.</p>
+ * Contains summary information about a threat.
+ *
  * @public
  */
 export interface ThreatSummary {
   /**
-   * <p>The unique identifier of the threat.</p>
+   * The unique identifier of the threat.
+   *
    * @public
    */
   threatId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the threat model job that produced the threat.</p>
+   * The unique identifier of the threat model job that produced the threat.
+   *
    * @public
    */
   threatJobId?: string | undefined;
 
   /**
-   * <p>A short title summarizing the threat.</p>
+   * A short title summarizing the threat.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>The natural-language threat statement.</p>
+   * The natural-language threat statement.
+   *
    * @public
    */
   statement?: string | undefined;
 
   /**
-   * <p>The severity level of the threat.</p>
+   * The severity level of the threat.
+   *
    * @public
    */
   severity?: ThreatSeverity | undefined;
 
   /**
-   * <p>The current status of the threat.</p>
+   * The current status of the threat.
+   *
    * @public
    */
   status?: ThreatStatus | undefined;
 
   /**
-   * <p>The STRIDE categories applicable to this threat.</p>
+   * The STRIDE categories applicable to this threat.
+   *
    * @public
    */
   stride?: StrideCategory[] | undefined;
 
   /**
-   * <p>Who created this threat.</p>
+   * Who created this threat.
+   *
    * @public
    */
   createdBy?: ThreatActor | undefined;
 
   /**
-   * <p>Who last updated this threat.</p>
+   * Who last updated this threat.
+   *
    * @public
    */
   updatedBy?: ThreatActor | undefined;
 
   /**
-   * <p>The date and time the threat was created, in UTC format.</p>
+   * The date and time the threat was created, in UTC format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time the threat was last updated, in UTC format.</p>
+   * The date and time the threat was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * <p>Output for the ListThreats operation.</p>
+ * Output for the ListThreats operation.
+ *
  * @public
  */
 export interface ListThreatsOutput {
   /**
-   * <p>The list of threat summaries.</p>
+   * The list of threat summaries.
+   *
    * @public
    */
   threats?: ThreatSummary[] | undefined;
 
   /**
-   * <p>A token to use for paginating results that are returned in the response.</p>
+   * A token to use for paginating results that are returned in the response.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -9622,13 +11067,15 @@ export interface ListThreatsOutput {
  */
 export interface UpdatePrivateConnectionCertificateInput {
   /**
-   * <p>The name of the private connection to update.</p>
+   * The name of the private connection to update.
+   *
    * @public
    */
   privateConnectionName: string | undefined;
 
   /**
-   * <p>The PEM-encoded certificate chain for the private connection.</p>
+   * The PEM-encoded certificate chain for the private connection.
+   *
    * @public
    */
   certificate: string | undefined;
@@ -9639,67 +11086,78 @@ export interface UpdatePrivateConnectionCertificateInput {
  */
 export interface UpdatePrivateConnectionCertificateOutput {
   /**
-   * <p>The name of the private connection.</p>
+   * The name of the private connection.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of the private connection, indicating whether it is service-managed or self-managed.</p>
+   * The type of the private connection, indicating whether it is service-managed or self-managed.
+   *
    * @public
    */
   type: PrivateConnectionType | undefined;
 
   /**
-   * <p>The current status of the private connection.</p>
+   * The current status of the private connection.
+   *
    * @public
    */
   status: PrivateConnectionStatus | undefined;
 
   /**
-   * <p>The identifier or ARN of the VPC Lattice resource gateway.</p>
+   * The identifier or ARN of the VPC Lattice resource gateway.
+   *
    * @public
    */
   resourceGatewayId?: string | undefined;
 
   /**
-   * <p>The IP address or DNS name of the target resource.</p>
+   * The IP address or DNS name of the target resource.
+   *
    * @public
    */
   hostAddress?: string | undefined;
 
   /**
-   * <p>The identifier of the VPC the resource gateway is created in.</p>
+   * The identifier of the VPC the resource gateway is created in.
+   *
    * @public
    */
   vpcId?: string | undefined;
 
   /**
-   * <p>The identifier or ARN of the VPC Lattice resource configuration.</p>
+   * The identifier or ARN of the VPC Lattice resource configuration.
+   *
    * @public
    */
   resourceConfigurationId?: string | undefined;
 
   /**
-   * <p>The date and time the connection's certificate expires, in UTC format.</p>
+   * The date and time the connection's certificate expires, in UTC format.
+   *
    * @public
    */
   certificateExpiryTime?: Date | undefined;
 
   /**
-   * <p>The DNS resolution mode for the resource gateway.</p>
+   * The DNS resolution mode for the resource gateway.
+   *
    * @public
    */
   dnsResolution?: ResourceConfigDnsResolution | undefined;
 
   /**
-   * <p>A message describing why the private connection entered a failed state, if applicable.</p>
+   * A message describing why the private connection entered a failed state, if applicable.
+   *
    * @public
    */
   failureMessage?: string | undefined;
 
   /**
-   * <p>The tags attached to the private connection.</p>
+   * The tags attached to the private connection.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -9710,25 +11168,29 @@ export interface UpdatePrivateConnectionCertificateOutput {
  */
 export interface UpdateSecurityRequirementPackInput {
   /**
-   * <p>The unique identifier of the security requirement pack to update.</p>
+   * The unique identifier of the security requirement pack to update.
+   *
    * @public
    */
   packId: string | undefined;
 
   /**
-   * <p>The updated name of the security requirement pack.</p>
+   * The updated name of the security requirement pack.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The updated description of the security requirement pack.</p>
+   * The updated description of the security requirement pack.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The updated status of the security requirement pack.</p>
+   * The updated status of the security requirement pack.
+   *
    * @public
    */
   status?: SecurityRequirementPackStatus | undefined;
@@ -9739,235 +11201,274 @@ export interface UpdateSecurityRequirementPackInput {
  */
 export interface UpdateSecurityRequirementPackOutput {
   /**
-   * <p>The unique identifier of the security requirement pack.</p>
+   * The unique identifier of the security requirement pack.
+   *
    * @public
    */
   packId: string | undefined;
 
   /**
-   * <p>The name of the security requirement pack.</p>
+   * The name of the security requirement pack.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The description of the security requirement pack.</p>
+   * The description of the security requirement pack.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The status of the security requirement pack.</p>
+   * The status of the security requirement pack.
+   *
    * @public
    */
   status?: SecurityRequirementPackStatus | undefined;
 }
 
 /**
- * <p>Input for the StartCodeRemediation operation.</p>
+ * Input for the StartCodeRemediation operation.
+ *
  * @public
  */
 export interface StartCodeRemediationInput {
   /**
-   * <p>The unique identifier of the agent space.</p>
+   * The unique identifier of the agent space.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The unique identifier of the pentest job that produced the findings. Mutually exclusive with <code>codeReviewJobId</code>.</p>
+   * The unique identifier of the pentest job that produced the findings. Mutually exclusive with `codeReviewJobId`.
+   *
    * @public
    */
   pentestJobId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the code review job that produced the findings. Mutually exclusive with <code>pentestJobId</code>.</p>
+   * The unique identifier of the code review job that produced the findings. Mutually exclusive with `pentestJobId`.
+   *
    * @public
    */
   codeReviewJobId?: string | undefined;
 
   /**
-   * <p>The list of finding identifiers to initiate code remediation for.</p>
+   * The list of finding identifiers to initiate code remediation for.
+   *
    * @public
    */
   findingIds: string[] | undefined;
 }
 
 /**
- * <p>Output for the StartCodeRemediation operation.</p>
+ * Output for the StartCodeRemediation operation.
+ *
  * @public
  */
 export interface StartCodeRemediationOutput {}
 
 /**
- * <p>Input for starting the execution of a code review.</p>
+ * Input for starting the execution of a code review.
+ *
  * @public
  */
 export interface StartCodeReviewJobInput {
   /**
-   * <p>The unique identifier of the agent space.</p>
+   * The unique identifier of the agent space.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The unique identifier of the code review to start a job for.</p>
+   * The unique identifier of the code review to start a job for.
+   *
    * @public
    */
   codeReviewId: string | undefined;
 
   /**
-   * <p>Source of the diff for a differential scan. When present, the job analyzes only the changed lines instead of performing a full scan.</p>
+   * Source of the diff for a differential scan. When present, the job analyzes only the changed lines instead of performing a full scan.
+   *
    * @public
    */
   diffSource?: DiffSource | undefined;
 }
 
 /**
- * <p>Output for the StartCodeReviewJob operation.</p>
+ * Output for the StartCodeReviewJob operation.
+ *
  * @public
  */
 export interface StartCodeReviewJobOutput {
   /**
-   * <p>The title of the code review job.</p>
+   * The title of the code review job.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>The current status of the code review job.</p>
+   * The current status of the code review job.
+   *
    * @public
    */
   status?: JobStatus | undefined;
 
   /**
-   * <p>The date and time the code review job was created, in UTC format.</p>
+   * The date and time the code review job was created, in UTC format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time the code review job was last updated, in UTC format.</p>
+   * The date and time the code review job was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The unique identifier of the code review.</p>
+   * The unique identifier of the code review.
+   *
    * @public
    */
   codeReviewId: string | undefined;
 
   /**
-   * <p>The unique identifier of the started code review job.</p>
+   * The unique identifier of the started code review job.
+   *
    * @public
    */
   codeReviewJobId: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space.</p>
+   * The unique identifier of the agent space.
+   *
    * @public
    */
   agentSpaceId?: string | undefined;
 }
 
 /**
- * <p>Input for starting the execution of a pentest.</p>
+ * Input for starting the execution of a pentest.
+ *
  * @public
  */
 export interface StartPentestJobInput {
   /**
-   * <p>The unique identifier of the agent space.</p>
+   * The unique identifier of the agent space.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The unique identifier of the pentest to start a job for.</p>
+   * The unique identifier of the pentest to start a job for.
+   *
    * @public
    */
   pentestId: string | undefined;
 
   /**
-   * <p>The type of pentest job to start. Valid values are FULL, REVALIDATION, and CICD. When set to REVALIDATION, the selectedFindingIds parameter is required. When set to CICD, the scopeChanges parameter defines the code changes to test.</p>
+   * The type of pentest job to start. Valid values are FULL, REVALIDATION, and CICD. When set to REVALIDATION, the selectedFindingIds parameter is required. When set to CICD, the scopeChanges parameter defines the code changes to test.
+   *
    * @public
    */
   jobType?: JobType | undefined;
 
   /**
-   * <p>The list of finding identifiers to revalidate. Required when jobType is REVALIDATION. Each finding must belong to the same agent space and pentest.</p>
+   * The list of finding identifiers to revalidate. Required when jobType is REVALIDATION. Each finding must belong to the same agent space and pentest.
+   *
    * @public
    */
   selectedFindingIds?: string[] | undefined;
 
   /**
-   * <p>The code changes that define the scope of a CI/CD pentest job. Provide this when starting a job with jobType CICD to test only the changes in the current pipeline run.</p>
+   * The code changes that define the scope of a CI/CD pentest job. Provide this when starting a job with jobType CICD to test only the changes in the current pipeline run.
+   *
    * @public
    */
   scopeChanges?: ScopeChange[] | undefined;
 }
 
 /**
- * <p>Output for the StartPentestJob operation.</p>
+ * Output for the StartPentestJob operation.
+ *
  * @public
  */
 export interface StartPentestJobOutput {
   /**
-   * <p>The title of the pentest job.</p>
+   * The title of the pentest job.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>The current status of the pentest job.</p>
+   * The current status of the pentest job.
+   *
    * @public
    */
   status?: JobStatus | undefined;
 
   /**
-   * <p>The date and time the pentest job was created, in UTC format.</p>
+   * The date and time the pentest job was created, in UTC format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time the pentest job was last updated, in UTC format.</p>
+   * The date and time the pentest job was last updated, in UTC format.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The unique identifier of the pentest.</p>
+   * The unique identifier of the pentest.
+   *
    * @public
    */
   pentestId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the started pentest job.</p>
+   * The unique identifier of the started pentest job.
+   *
    * @public
    */
   pentestJobId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent space.</p>
+   * The unique identifier of the agent space.
+   *
    * @public
    */
   agentSpaceId?: string | undefined;
 }
 
 /**
- * <p>Input for starting a threat model job.</p>
+ * Input for starting a threat model job.
+ *
  * @public
  */
 export interface StartThreatModelJobInput {
   /**
-   * <p>The unique identifier of the agent space.</p>
+   * The unique identifier of the agent space.
+   *
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The unique identifier of the threat model to start a job for.</p>
+   * The unique identifier of the threat model to start a job for.
+   *
    * @public
    */
   threatModelId: string | undefined;

@@ -23,7 +23,8 @@ export interface ImportPublicKeyCommandInput extends ImportPublicKeyRequest {}
 export interface ImportPublicKeyCommandOutput extends ImportPublicKeyResponse, __MetadataBearer {}
 
 /**
- * <p>Import a public key to be used for signing stage participant tokens.</p>
+ * Import a public key to be used for signing stage participant tokens.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,23 +63,28 @@ export interface ImportPublicKeyCommandOutput extends ImportPublicKeyResponse, _
  * @see {@link IVSRealTimeClientResolvedConfig | config} for IVSRealTimeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * User does not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ *
+ * Updating or deleting a resource can cause an inconsistent state.
  *
  * @throws {@link PendingVerification} (client fault)
- *  <p>Your account is pending verification.</p>
+ *
+ * Your account is pending verification.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Request would cause a service quota to be exceeded.</p>
+ *
+ * Request would cause a service quota to be exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link IVSRealTimeServiceException}
- * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ * Base exception class for all service exceptions from IVSRealTime service.
  *
  * @public
  */

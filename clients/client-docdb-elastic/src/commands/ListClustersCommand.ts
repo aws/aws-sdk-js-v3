@@ -23,7 +23,8 @@ export interface ListClustersCommandInput extends ListClustersInput {}
 export interface ListClustersCommandOutput extends ListClustersOutput, __MetadataBearer {}
 
 /**
- * <p>Returns information about provisioned Amazon DocumentDB elastic clusters.</p>
+ * Returns information about provisioned Amazon DocumentDB elastic clusters.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,20 +59,24 @@ export interface ListClustersCommandOutput extends ListClustersOutput, __Metadat
  * @see {@link DocDBElasticClientResolvedConfig | config} for DocDBElasticClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>An exception that occurs when there are not sufficient permissions to perform an action.</p>
+ *
+ * An exception that occurs when there are not sufficient permissions to perform an action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>There was an internal server error.</p>
+ *
+ * There was an internal server error.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>ThrottlingException will be thrown when request was denied due to request throttling.</p>
+ *
+ * ThrottlingException will be thrown when request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A structure defining a validation exception.</p>
+ *
+ * A structure defining a validation exception.
  *
  * @throws {@link DocDBElasticServiceException}
- * <p>Base exception class for all service exceptions from DocDBElastic service.</p>
  *
+ * Base exception class for all service exceptions from DocDBElastic service.
  *
  * @public
  */

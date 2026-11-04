@@ -23,11 +23,12 @@ export interface AllocateIpamPoolCidrCommandInput extends AllocateIpamPoolCidrRe
 export interface AllocateIpamPoolCidrCommandOutput extends AllocateIpamPoolCidrResult, __MetadataBearer {}
 
 /**
- * <p>Allocate a CIDR from an IPAM pool. The Region you use should be the IPAM pool locale. The locale is the Amazon Web Services Region where this IPAM pool is available for allocations.</p>
- *          <p>In IPAM, an allocation is a CIDR assignment from an IPAM pool to another IPAM pool or to a resource. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/allocate-cidrs-ipam.html">Allocate CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
- *          <note>
- *             <p>This action creates an allocation with strong consistency. The returned CIDR will not overlap with any other allocations from the same pool.</p>
- *          </note>
+ * Allocate a CIDR from an IPAM pool. The Region you use should be the IPAM pool locale. The locale is the Amazon Web Services Region where this IPAM pool is available for allocations.
+ *
+ * In IPAM, an allocation is a CIDR assignment from an IPAM pool to another IPAM pool or to a resource. For more information, see [Allocate CIDRs](https://docs.aws.amazon.com/vpc/latest/ipam/allocate-cidrs-ipam.html) in the *Amazon VPC IPAM User Guide*.
+ *
+ * > **Note:** This action creates an allocation with strong consistency. The returned CIDR will not overlap with any other allocations from the same pool.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,8 +92,8 @@ export interface AllocateIpamPoolCidrCommandOutput extends AllocateIpamPoolCidrR
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

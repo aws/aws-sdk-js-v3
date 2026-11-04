@@ -23,23 +23,16 @@ export interface TerminateInstanceInAutoScalingGroupCommandInput extends Termina
 export interface TerminateInstanceInAutoScalingGroupCommandOutput extends ActivityType, __MetadataBearer {}
 
 /**
- * <p>Terminates the specified instance and optionally adjusts the desired group size. This
- *             operation cannot be called on instances in a warm pool.</p>
- *          <p>This call simply makes a termination request. The instances are not terminated
- *             immediately. When an instance is terminated, the instance status changes to
- *                 <code>terminated</code>. You can't connect to or start an instance after you've
- *             terminated it.</p>
- *          <p>If you do not specify the option to decrement the desired capacity, Amazon EC2 Auto Scaling launches
- *             instances to replace the ones that are terminated. </p>
- *          <p>To terminate multiple instances in a single call, use the <code>InstanceIds</code>
- *             and <code>AutoScalingGroupName</code> parameters instead of <code>InstanceId</code>.
- *             When terminating multiple instances, the response populates
- *             <code>Activities</code> instead of <code>Activity</code>.</p>
- *          <p>By default, Amazon EC2 Auto Scaling balances instances across all Availability Zones. If you
- *             decrement the desired capacity, your Auto Scaling group can become unbalanced between
- *             Availability Zones. Amazon EC2 Auto Scaling tries to rebalance the group, and rebalancing might
- *             terminate instances in other zones. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scaling-manually.html">Manual
- *                 scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ * Terminates the specified instance and optionally adjusts the desired group size. This operation cannot be called on instances in a warm pool.
+ *
+ * This call simply makes a termination request. The instances are not terminated immediately. When an instance is terminated, the instance status changes to `terminated`. You can't connect to or start an instance after you've terminated it.
+ *
+ * If you do not specify the option to decrement the desired capacity, Amazon EC2 Auto Scaling launches instances to replace the ones that are terminated.
+ *
+ * To terminate multiple instances in a single call, use the `InstanceIds` and `AutoScalingGroupName` parameters instead of `InstanceId`. When terminating multiple instances, the response populates `Activities` instead of `Activity`.
+ *
+ * By default, Amazon EC2 Auto Scaling balances instances across all Availability Zones. If you decrement the desired capacity, your Auto Scaling group can become unbalanced between Availability Zones. Amazon EC2 Auto Scaling tries to rebalance the group, and rebalancing might terminate instances in other zones. For more information, see [Manual scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scaling-manually.html) in the *Amazon EC2 Auto Scaling User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -100,16 +93,16 @@ export interface TerminateInstanceInAutoScalingGroupCommandOutput extends Activi
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  * @throws {@link ResourceContentionFault} (server fault)
- *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
- *             instance, or load balancer).</p>
+ *
+ * You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).
  *
  * @throws {@link ScalingActivityInProgressFault} (client fault)
- *  <p>The operation can't be performed because there are scaling activities in
- *             progress.</p>
+ *
+ * The operation can't be performed because there are scaling activities in progress.
  *
  * @throws {@link AutoScalingServiceException}
- * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from AutoScaling service.
  *
  * @example To terminate an instance in an Auto Scaling group
  * ```javascript

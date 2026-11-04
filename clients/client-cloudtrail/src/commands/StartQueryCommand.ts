@@ -23,16 +23,12 @@ export interface StartQueryCommandInput extends StartQueryRequest {}
 export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataBearer {}
 
 /**
- * <important>
- *             <p>CloudTrail Lake will no longer be open to new customers starting May 31, 2026. If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-service-availability-change.html">CloudTrail Lake availability change</a>.</p>
- *          </important>
- *          <p>Starts a CloudTrail Lake query. Use the <code>QueryStatement</code>
- *          parameter to provide your SQL query, enclosed in single quotation marks. Use the optional
- *             <code>DeliveryS3Uri</code> parameter to deliver the query results to an S3
- *          bucket.</p>
- *          <p>
- *             <code>StartQuery</code> requires you specify either the <code>QueryStatement</code> parameter, or a <code>QueryAlias</code> and any <code>QueryParameters</code>. In the current release,
- *          the <code>QueryAlias</code> and <code>QueryParameters</code> parameters are used only for the queries that populate the CloudTrail Lake dashboards.</p>
+ * > **Important:** CloudTrail Lake will no longer be open to new customers starting May 31, 2026. If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [CloudTrail Lake availability change](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-service-availability-change.html).
+ *
+ * Starts a CloudTrail Lake query. Use the `QueryStatement` parameter to provide your SQL query, enclosed in single quotation marks. Use the optional `DeliveryS3Uri` parameter to deliver the query results to an S3 bucket.
+ *
+ * `StartQuery` requires you specify either the `QueryStatement` parameter, or a `QueryAlias` and any `QueryParameters`. In the current release, the `QueryAlias` and `QueryParameters` parameters are used only for the queries that populate the CloudTrail Lake dashboards.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,60 +62,66 @@ export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataB
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
  * @throws {@link EventDataStoreARNInvalidException} (client fault)
- *  <p>The specified event data store ARN is not valid or does not map to an event data store
- *          in your account.</p>
+ *
+ * The specified event data store ARN is not valid or does not map to an event data store in your account.
  *
  * @throws {@link EventDataStoreNotFoundException} (client fault)
- *  <p>The specified event data store was not found.</p>
+ *
+ * The specified event data store was not found.
  *
  * @throws {@link InactiveEventDataStoreException} (client fault)
- *  <p>The event data store is inactive.</p>
+ *
+ * The event data store is inactive.
  *
  * @throws {@link InsufficientEncryptionPolicyException} (client fault)
- *  <p>For the <code>CreateTrail</code>
- *             <code>PutInsightSelectors</code>, <code>UpdateTrail</code>, <code>StartQuery</code>, and <code>StartImport</code> operations, this exception is thrown
- *          when the policy on the S3 bucket or KMS key does
- *          not have sufficient permissions for the operation.</p>
- *          <p>For all other operations, this exception is thrown when the policy for the KMS key does
- *          not have sufficient permissions for the operation.</p>
+ *
+ * For the `CreateTrail` `PutInsightSelectors`, `UpdateTrail`, `StartQuery`, and `StartImport` operations, this exception is thrown when the policy on the S3 bucket or KMS key does not have sufficient permissions for the operation.
+ *
+ * For all other operations, this exception is thrown when the policy for the KMS key does not have sufficient permissions for the operation.
  *
  * @throws {@link InsufficientS3BucketPolicyException} (client fault)
- *  <p>This exception is thrown when the policy on the S3 bucket is not sufficient.</p>
+ *
+ * This exception is thrown when the policy on the S3 bucket is not sufficient.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The request includes a parameter that is not valid.</p>
+ *
+ * The request includes a parameter that is not valid.
  *
  * @throws {@link InvalidQueryStatementException} (client fault)
- *  <p>The query that was submitted has validation errors, or uses incorrect syntax or
- *          unsupported keywords. For more information about writing a query, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-create-edit-query.html">Create or edit a query</a> in the <i>CloudTrail User
- *             Guide</i>.</p>
+ *
+ * The query that was submitted has validation errors, or uses incorrect syntax or unsupported keywords. For more information about writing a query, see [Create or edit a query](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-create-edit-query.html) in the *CloudTrail User Guide*.
  *
  * @throws {@link InvalidS3BucketNameException} (client fault)
- *  <p>This exception is thrown when the provided S3 bucket name is not valid.</p>
+ *
+ * This exception is thrown when the provided S3 bucket name is not valid.
  *
  * @throws {@link InvalidS3PrefixException} (client fault)
- *  <p>This exception is thrown when the provided S3 prefix is not valid.</p>
+ *
+ * This exception is thrown when the provided S3 prefix is not valid.
  *
  * @throws {@link MaxConcurrentQueriesException} (client fault)
- *  <p>You are already running the maximum number of concurrent queries. The maximum number of concurrent queries is 10. Wait a minute for some
- *          queries to finish, and then run the query again.</p>
+ *
+ * You are already running the maximum number of concurrent queries. The maximum number of concurrent queries is 10. Wait a minute for some queries to finish, and then run the query again.
  *
  * @throws {@link NoManagementAccountSLRExistsException} (client fault)
- *  <p> This exception is thrown when the management account does not have a service-linked
- *          role. </p>
+ *
+ * This exception is thrown when the management account does not have a service-linked role.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * This exception is thrown when the requested operation is not permitted.
  *
  * @throws {@link S3BucketDoesNotExistException} (client fault)
- *  <p>This exception is thrown when the specified S3 bucket does not exist.</p>
+ *
+ * This exception is thrown when the specified S3 bucket does not exist.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>This exception is thrown when the requested operation is not supported.</p>
+ *
+ * This exception is thrown when the requested operation is not supported.
  *
  * @throws {@link CloudTrailServiceException}
- * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * Base exception class for all service exceptions from CloudTrail service.
  *
  * @public
  */

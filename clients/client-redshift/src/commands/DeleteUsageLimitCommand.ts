@@ -23,7 +23,8 @@ export interface DeleteUsageLimitCommandInput extends DeleteUsageLimitMessage {}
 export interface DeleteUsageLimitCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a usage limit from a cluster.</p>
+ * Deletes a usage limit from a cluster.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,14 +49,16 @@ export interface DeleteUsageLimitCommandOutput extends __MetadataBearer {}
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link UnsupportedOperationFault} (client fault)
- *  <p>The requested operation isn't supported.</p>
+ *
+ * The requested operation isn't supported.
  *
  * @throws {@link UsageLimitNotFoundFault} (client fault)
- *  <p>The usage limit identifier can't be found.</p>
+ *
+ * The usage limit identifier can't be found.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

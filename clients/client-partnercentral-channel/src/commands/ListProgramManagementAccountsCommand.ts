@@ -23,7 +23,8 @@ export interface ListProgramManagementAccountsCommandInput extends ListProgramMa
 export interface ListProgramManagementAccountsCommandOutput extends ListProgramManagementAccountsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists program management accounts based on specified criteria.</p>
+ * Lists program management accounts based on specified criteria.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,23 +84,28 @@ export interface ListProgramManagementAccountsCommandOutput extends ListProgramM
  * @see {@link PartnerCentralChannelClientResolvedConfig | config} for PartnerCentralChannelClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request was denied due to insufficient permissions.</p>
+ *
+ * The request was denied due to insufficient permissions.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred while processing the request.</p>
+ *
+ * An internal server error occurred while processing the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled due to too many requests being sent in a short period.</p>
+ *
+ * The request was throttled due to too many requests being sent in a short period.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request failed validation due to invalid input parameters.</p>
+ *
+ * The request failed validation due to invalid input parameters.
  *
  * @throws {@link PartnerCentralChannelServiceException}
- * <p>Base exception class for all service exceptions from PartnerCentralChannel service.</p>
  *
+ * Base exception class for all service exceptions from PartnerCentralChannel service.
  *
  * @example Example for ListProgramManagementAccounts
  * ```javascript

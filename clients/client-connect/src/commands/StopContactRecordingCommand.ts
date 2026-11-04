@@ -23,11 +23,10 @@ export interface StopContactRecordingCommandInput extends StopContactRecordingRe
 export interface StopContactRecordingCommandOutput extends StopContactRecordingResponse, __MetadataBearer {}
 
 /**
- * <p>Stops recording a call when a contact is being recorded. StopContactRecording is a one-time action. If you use
- *    StopContactRecording to stop recording an ongoing call, you can't use StartContactRecording to restart it. For
- *    scenarios where the recording has started and you want to suspend it for sensitive information (for example, to
- *    collect a credit card number), and then restart it, use SuspendContactRecording and ResumeContactRecording.</p>
- *          <p>Only voice recordings are supported at this time.</p>
+ * Stops recording a call when a contact is being recorded. StopContactRecording is a one-time action. If you use StopContactRecording to stop recording an ongoing call, you can't use StartContactRecording to restart it. For scenarios where the recording has started and you want to suspend it for sensitive information (for example, to collect a credit card number), and then restart it, use SuspendContactRecording and ResumeContactRecording.
+ *
+ * Only voice recordings are supported at this time.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,20 +54,24 @@ export interface StopContactRecordingCommandOutput extends StopContactRecordingR
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidActiveRegionException} (client fault)
- *  <p>This exception occurs when an API request is made to a non-active region in an Amazon Connect instance configured with Amazon Connect Global Resiliency. For example, if the active region is US West (Oregon) and a request is made to US East (N. Virginia), the exception will be returned.</p>
+ *
+ * This exception occurs when an API request is made to a non-active region in an Amazon Connect instance configured with Amazon Connect Global Resiliency. For example, if the active region is US West (Oregon) and a request is made to US East (N. Virginia), the exception will be returned.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

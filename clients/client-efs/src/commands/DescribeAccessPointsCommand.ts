@@ -23,12 +23,10 @@ export interface DescribeAccessPointsCommandInput extends DescribeAccessPointsRe
 export interface DescribeAccessPointsCommandOutput extends DescribeAccessPointsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the description of a specific Amazon EFS access point if the
- *         <code>AccessPointId</code> is provided. If you provide an EFS
- *         <code>FileSystemId</code>, it returns descriptions of all access points for that file
- *       system. You can provide either an <code>AccessPointId</code> or a <code>FileSystemId</code> in
- *       the request, but not both. </p>
- *          <p>This operation requires permissions for the <code>elasticfilesystem:DescribeAccessPoints</code> action.</p>
+ * Returns the description of a specific Amazon EFS access point if the `AccessPointId` is provided. If you provide an EFS `FileSystemId`, it returns descriptions of all access points for that file system. You can provide either an `AccessPointId` or a `FileSystemId` in the request, but not both.
+ *
+ * This operation requires permissions for the `elasticfilesystem:DescribeAccessPoints` action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,23 +88,24 @@ export interface DescribeAccessPointsCommandOutput extends DescribeAccessPointsR
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
  * @throws {@link AccessPointNotFound} (client fault)
- *  <p>Returned if the specified <code>AccessPointId</code> value doesn't exist in the
- *             requester's Amazon Web Services account.</p>
+ *
+ * Returned if the specified `AccessPointId` value doesn't exist in the requester's Amazon Web Services account.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>Returned if the request is malformed or contains an error such as an invalid
- *             parameter value or a missing required parameter.</p>
+ *
+ * Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.
  *
  * @throws {@link FileSystemNotFound} (client fault)
- *  <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the
- *             requester's Amazon Web Services account.</p>
+ *
+ * Returned if the specified `FileSystemId` value doesn't exist in the requester's Amazon Web Services account.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Returned if an error occurred on the server side.</p>
+ *
+ * Returned if an error occurred on the server side.
  *
  * @throws {@link EFSServiceException}
- * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * Base exception class for all service exceptions from EFS service.
  *
  * @public
  */

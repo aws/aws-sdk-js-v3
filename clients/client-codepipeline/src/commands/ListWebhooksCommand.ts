@@ -23,12 +23,10 @@ export interface ListWebhooksCommandInput extends ListWebhooksInput {}
 export interface ListWebhooksCommandOutput extends ListWebhooksOutput, __MetadataBearer {}
 
 /**
- * <p>Gets a listing of all the webhooks in this Amazon Web Services Region for this
- *             account. The output lists all webhooks and includes the webhook URL and ARN and the
- *             configuration for each webhook.</p>
- *          <note>
- *             <p>If a secret token was provided, it will be redacted in the response.</p>
- *          </note>
+ * Gets a listing of all the webhooks in this Amazon Web Services Region for this account. The output lists all webhooks and includes the webhook URL and ARN and the configuration for each webhook.
+ *
+ * > **Note:** If a secret token was provided, it will be redacted in the response.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,15 +85,16 @@ export interface ListWebhooksCommandOutput extends ListWebhooksOutput, __Metadat
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The next token was specified in an invalid format. Make sure that the next token
- *             you provide is the token returned by a previous call.</p>
+ *
+ * The next token was specified in an invalid format. Make sure that the next token you provide is the token returned by a previous call.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The validation was specified in an invalid format.</p>
+ *
+ * The validation was specified in an invalid format.
  *
  * @throws {@link CodePipelineServiceException}
- * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * Base exception class for all service exceptions from CodePipeline service.
  *
  * @public
  */

@@ -23,19 +23,12 @@ export interface CreateAccessEntryCommandInput extends CreateAccessEntryRequest 
 export interface CreateAccessEntryCommandOutput extends CreateAccessEntryResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an access entry.</p>
- *          <p>An access entry allows an IAM principal to access your cluster. Access
- *             entries can replace the need to maintain entries in the <code>aws-auth</code>
- *             <code>ConfigMap</code> for authentication. You have the following options for
- *             authorizing an IAM principal to access Kubernetes objects on your cluster: Kubernetes
- *             role-based access control (RBAC), Amazon EKS, or both. Kubernetes RBAC authorization requires you
- *             to create and manage Kubernetes <code>Role</code>, <code>ClusterRole</code>,
- *                 <code>RoleBinding</code>, and <code>ClusterRoleBinding</code> objects, in addition
- *             to managing access entries. If you use Amazon EKS authorization exclusively, you don't need
- *             to create and manage Kubernetes <code>Role</code>, <code>ClusterRole</code>,
- *                 <code>RoleBinding</code>, and <code>ClusterRoleBinding</code> objects.</p>
- *          <p>For more information about access entries, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html">Access entries</a> in the
- *             <i>Amazon EKS User Guide</i>.</p>
+ * Creates an access entry.
+ *
+ * An access entry allows an IAM principal to access your cluster. Access entries can replace the need to maintain entries in the `aws-auth` `ConfigMap` for authentication. You have the following options for authorizing an IAM principal to access Kubernetes objects on your cluster: Kubernetes role-based access control (RBAC), Amazon EKS, or both. Kubernetes RBAC authorization requires you to create and manage Kubernetes `Role`, `ClusterRole`, `RoleBinding`, and `ClusterRoleBinding` objects, in addition to managing access entries. If you use Amazon EKS authorization exclusively, you don't need to create and manage Kubernetes `Role`, `ClusterRole`, `RoleBinding`, and `ClusterRoleBinding` objects.
+ *
+ * For more information about access entries, see [Access entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html) in the *Amazon EKS User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,31 +79,32 @@ export interface CreateAccessEntryCommandOutput extends CreateAccessEntryRespons
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is invalid given the state of the cluster. Check the state of the cluster
- *             and the associated operations.</p>
+ *
+ * The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is in use.</p>
+ *
+ * The specified resource is in use.
  *
  * @throws {@link ResourceLimitExceededException} (client fault)
- *  <p>You have encountered a service limit on the specified resource.</p>
+ *
+ * You have encountered a service limit on the specified resource.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource could not be found. You can view your available clusters with
- *                 <code>ListClusters</code>. You can view your available managed node groups with
- *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region
- *             specific.</p>
+ *
+ * The specified resource could not be found. You can view your available clusters with `ListClusters`. You can view your available managed node groups with `ListNodegroups`. Amazon EKS clusters and node groups are Amazon Web Services Region specific.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link EKSServiceException}
- * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * Base exception class for all service exceptions from EKS service.
  *
  * @public
  */

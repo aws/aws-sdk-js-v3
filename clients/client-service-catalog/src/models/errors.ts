@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { ServiceCatalogServiceException as __BaseException } from "./ServiceCatalogServiceException";
 
 /**
- * <p>One or more parameters provided to the operation are not valid.</p>
+ * One or more parameters provided to the operation are not valid.
+ *
  * @public
  */
 export class InvalidParametersException extends __BaseException {
@@ -27,8 +28,8 @@ export class InvalidParametersException extends __BaseException {
 }
 
 /**
- * <p>The current limits of the service would have been exceeded by this operation. Decrease your
- *          resource use or increase your service limits and retry the operation.</p>
+ * The current limits of the service would have been exceeded by this operation. Decrease your resource use or increase your service limits and retry the operation.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -51,7 +52,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The specified resource was not found.</p>
+ * The specified resource was not found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -74,7 +76,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The specified resource is a duplicate.</p>
+ * The specified resource is a duplicate.
+ *
  * @public
  */
 export class DuplicateResourceException extends __BaseException {
@@ -97,8 +100,8 @@ export class DuplicateResourceException extends __BaseException {
 }
 
 /**
- * <p>An attempt was made to modify a resource that is in a state that is not valid.
- *          Check your resources to ensure that they are in valid states before retrying the operation.</p>
+ * An attempt was made to modify a resource that is in a state that is not valid. Check your resources to ensure that they are in valid states before retrying the operation.
+ *
  * @public
  */
 export class InvalidStateException extends __BaseException {
@@ -121,9 +124,8 @@ export class InvalidStateException extends __BaseException {
 }
 
 /**
- * <p>An operation requiring TagOptions failed because the TagOptions migration process has
- *          not been performed for this account. Use the Amazon Web Services Management Console to perform the migration
- *          process before retrying the operation.</p>
+ * An operation requiring TagOptions failed because the TagOptions migration process has not been performed for this account. Use the Amazon Web Services Management Console to perform the migration process before retrying the operation.
+ *
  * @public
  */
 export class TagOptionNotMigratedException extends __BaseException {
@@ -146,7 +148,8 @@ export class TagOptionNotMigratedException extends __BaseException {
 }
 
 /**
- * <p>The operation is not supported.</p>
+ * The operation is not supported.
+ *
  * @public
  */
 export class OperationNotSupportedException extends __BaseException {
@@ -169,7 +172,8 @@ export class OperationNotSupportedException extends __BaseException {
 }
 
 /**
- * <p>A resource that is currently in use. Ensure that the resource is not in use and retry the operation.</p>
+ * A resource that is currently in use. Ensure that the resource is not in use and retry the operation.
+ *
  * @public
  */
 export class ResourceInUseException extends __BaseException {

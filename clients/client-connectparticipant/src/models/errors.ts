@@ -5,7 +5,8 @@ import { ConnectParticipantServiceException as __BaseException } from "./Connect
 import type { ResourceType } from "./enums";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -28,7 +29,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>This exception occurs when there is an internal failure in the Amazon Connect service.</p>
+ * This exception occurs when there is an internal failure in the Amazon Connect service.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -51,7 +53,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -74,7 +77,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
+ * The input fails to satisfy the constraints specified by Amazon Connect.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -97,8 +101,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The requested operation conflicts with the current state of a service resource
- *             associated with the request. </p>
+ * The requested operation conflicts with the current state of a service resource associated with the request.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -121,7 +125,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The number of attachments per contact exceeds the quota.</p>
+ * The number of attachments per contact exceeds the quota.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -144,7 +149,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The resource was not found.</p>
+ * The resource was not found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -153,13 +159,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The identifier of the resource.</p>
+   * The identifier of the resource.
+   *
    * @public
    */
   ResourceId?: string | undefined;
 
   /**
-   * <p>The type of Connect Customer resource.</p>
+   * The type of Connect Customer resource.
+   *
    * @public
    */
   ResourceType?: ResourceType | undefined;

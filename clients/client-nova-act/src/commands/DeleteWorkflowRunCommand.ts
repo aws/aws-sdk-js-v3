@@ -23,7 +23,8 @@ export interface DeleteWorkflowRunCommandInput extends DeleteWorkflowRunRequest 
 export interface DeleteWorkflowRunCommandOutput extends DeleteWorkflowRunResponse, __MetadataBearer {}
 
 /**
- * <p>Terminates and cleans up a workflow run, stopping all associated acts and sessions.</p>
+ * Terminates and cleans up a workflow run, stopping all associated acts and sessions.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,26 +52,32 @@ export interface DeleteWorkflowRunCommandOutput extends DeleteWorkflowRunRespons
  * @see {@link NovaActClientResolvedConfig | config} for NovaActClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permissions to perform this action.</p>
+ *
+ * You don't have sufficient permissions to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be completed due to a conflict with the current state of the resource.</p>
+ *
+ * The request could not be completed due to a conflict with the current state of the resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Please try again later.</p>
+ *
+ * An internal server error occurred. Please try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource was not found.</p>
+ *
+ * The requested resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled due to too many requests. Please try again later.</p>
+ *
+ * The request was throttled due to too many requests. Please try again later.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input parameters for the request are invalid.</p>
+ *
+ * The input parameters for the request are invalid.
  *
  * @throws {@link NovaActServiceException}
- * <p>Base exception class for all service exceptions from NovaAct service.</p>
  *
+ * Base exception class for all service exceptions from NovaAct service.
  *
  * @public
  */

@@ -23,9 +23,8 @@ export interface GetAccessKeyLastUsedCommandInput extends GetAccessKeyLastUsedRe
 export interface GetAccessKeyLastUsedCommandOutput extends GetAccessKeyLastUsedResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about when the specified access key was last used. The
- *             information includes the date and time of last use, along with the Amazon Web Services service and
- *             Region that were specified in the last request made with that key.</p>
+ * Retrieves information about when the specified access key was last used. The information includes the date and time of last use, along with the Amazon Web Services service and Region that were specified in the last request made with that key.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,8 +56,8 @@ export interface GetAccessKeyLastUsedCommandOutput extends GetAccessKeyLastUsedR
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @public
  */

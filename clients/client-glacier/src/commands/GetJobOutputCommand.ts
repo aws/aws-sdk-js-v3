@@ -25,43 +25,26 @@ export interface GetJobOutputCommandOutput extends Omit<GetJobOutputOutput, "bod
 }
 
 /**
- * <p>This operation downloads the output of the job you initiated using <a>InitiateJob</a>. Depending on the job type you specified when you initiated the
- *          job, the output will be either the content of an archive or a vault inventory.</p>
+ * This operation downloads the output of the job you initiated using InitiateJob. Depending on the job type you specified when you initiated the job, the output will be either the content of an archive or a vault inventory.
  *
- *          <p>You can download all the job output or download a portion of the output by specifying
- *          a byte range. In the case of an archive retrieval job, depending on the byte range you
- *          specify, Amazon Glacier (Glacier) returns the checksum for the portion of the data. You can compute the
- *          checksum on the client and verify that the values match to ensure the portion you downloaded
- *          is the correct data.</p>
- *          <p>A job ID will not expire for at least 24 hours after Glacier completes the job. That
- *          a byte range. For both archive and inventory retrieval jobs, you should verify the downloaded
- *          size against the size returned in the headers from the
- *          <b>Get Job Output</b> response.</p>
- *          <p>For archive retrieval jobs, you should also verify that the size is what you expected. If
- *          you download a portion of the output, the expected size is based on the range of bytes
- *          you specified. For example, if you specify a range of <code>bytes=0-1048575</code>, you should
- *          verify your download size is 1,048,576 bytes. If you download an entire archive, the
- *          expected size is the size of the archive when you uploaded it to Amazon Glacier
- *          The expected size is also returned in the headers from the
- *          <b>Get Job Output</b> response.</p>
- *          <p>In the case of an archive retrieval job, depending on the byte range you
- *          specify, Glacier returns the checksum for the portion of the data. To ensure the portion you downloaded
- *          is the correct data, compute the checksum on the client, verify that the values match,
- *          and verify that the size is what you expected.</p>
+ * You can download all the job output or download a portion of the output by specifying a byte range. In the case of an archive retrieval job, depending on the byte range you specify, Amazon Glacier (Glacier) returns the checksum for the portion of the data. You can compute the checksum on the client and verify that the values match to ensure the portion you downloaded is the correct data.
  *
- *          <p>A job ID does not expire for at least 24 hours after Glacier completes the
- *          job. That is, you can download the job output within the 24 hours period after Amazon
- *          Glacier completes the job.</p>
+ * A job ID will not expire for at least 24 hours after Glacier completes the job. That a byte range. For both archive and inventory retrieval jobs, you should verify the downloaded size against the size returned in the headers from the **Get Job Output** response.
  *
- *          <p>An AWS account has full permission to perform all operations (actions). However, AWS
- *          Identity and Access Management (IAM) users don't have any permissions by default. You must
- *          grant them explicit permission to perform specific actions. For more information, see
- *             <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html">Access Control Using
- *             AWS Identity and Access Management (IAM)</a>.</p>
- *          <p>For conceptual information and the underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-inventory.html">Downloading a
- *             Vault Inventory</a>, <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/downloading-an-archive.html">Downloading an
- *             Archive</a>, and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-job-output-get.html">Get Job Output </a>
- *          </p>
+ * For archive retrieval jobs, you should also verify that the size is what you expected. If you download a portion of the output, the expected size is based on the range of bytes you specified. For example, if you specify a range of `bytes=0-1048575`, you should verify your download size is 1,048,576 bytes. If you download an entire archive, the expected size is the size of the archive when you uploaded it to Amazon Glacier The expected size is also returned in the headers from the **Get Job Output** response.
+ *
+ * In the case of an archive retrieval job, depending on the byte range you specify, Glacier returns the checksum for the portion of the data. To ensure the portion you downloaded is the correct data, compute the checksum on the client, verify that the values match, and verify that the size is what you expected.
+ *
+ *
+ *
+ * A job ID does not expire for at least 24 hours after Glacier completes the job. That is, you can download the job output within the 24 hours period after Amazon Glacier completes the job.
+ *
+ *
+ *
+ * An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see [Access Control Using AWS Identity and Access Management (IAM)](https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
+ *
+ * For conceptual information and the underlying REST API, see [Downloading a Vault Inventory](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-inventory.html), [Downloading an Archive](https://docs.aws.amazon.com/amazonglacier/latest/dev/downloading-an-archive.html), and [Get Job Output](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-job-output-get.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -102,24 +85,28 @@ export interface GetJobOutputCommandOutput extends Omit<GetJobOutputOutput, "bod
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>Returned if a parameter of the request is incorrectly specified.</p>
+ *
+ * Returned if a parameter of the request is incorrectly specified.
  *
  * @throws {@link MissingParameterValueException} (client fault)
- *  <p>Returned if a required header or parameter is missing from the request.</p>
+ *
+ * Returned if a required header or parameter is missing from the request.
  *
  * @throws {@link NoLongerSupportedException} (client fault)
- *  <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+ *
+ * Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't
- *          exist.</p>
+ *
+ * Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>Returned if the service cannot complete the request.</p>
+ *
+ * Returned if the service cannot complete the request.
  *
  * @throws {@link GlacierServiceException}
- * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * Base exception class for all service exceptions from Glacier service.
  *
  * @example To get the output of a previously initiated job
  * ```javascript

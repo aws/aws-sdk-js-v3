@@ -23,58 +23,27 @@ export interface UpdateFleetCapacityCommandInput extends UpdateFleetCapacityInpu
 export interface UpdateFleetCapacityCommandOutput extends UpdateFleetCapacityOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This API works with the following fleet types:</b> EC2, Container</p>
- *          <p>Updates capacity settings for a managed EC2 fleet or managed container fleet. For these
- *             fleets, you adjust capacity by changing the number of instances in the fleet. Fleet
- *             capacity determines the number of game sessions and players that the fleet can host
- *             based on its configuration. For fleets with multiple locations, use this operation to
- *             manage capacity settings in each location individually.</p>
- *          <ul>
- *             <li>
- *                <p>Minimum/maximum size: Set hard limits on the number of Amazon EC2 instances allowed. If Amazon GameLift Servers receives a
- *                     request--either through manual update or automatic scaling--it won't change the capacity
- *                     to a value outside of this range.</p>
- *             </li>
- *             <li>
- *                <p>Desired capacity: As an alternative to automatic scaling, manually set the number of Amazon EC2
- *                     instances to be maintained.
- *                     Before changing a fleet's desired capacity, check the maximum capacity of the
- *                     fleet's Amazon EC2 instance type by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeEC2InstanceLimits.html">DescribeEC2InstanceLimits</a>.</p>
- *             </li>
- *          </ul>
- *          <p>To update capacity for a fleet's home Region, or if the fleet has no remote
- *             locations, omit the <code>Location</code> parameter. The fleet must be in
- *             <code>ACTIVE</code> status. </p>
- *          <p>To update capacity for a fleet's remote location, set the
- *             <code>Location</code> parameter to the location to update. The location must be in
- *             <code>ACTIVE</code> status.</p>
- *          <p>If successful, Amazon GameLift Servers updates the capacity settings and returns the identifiers for
- *             the updated fleet and/or location. If a requested change to desired capacity exceeds the
- *             instance type's limit, the <code>LimitExceeded</code> exception occurs. </p>
- *          <p>Updates often prompt an immediate change in fleet capacity, such as when current
- *             capacity is different than the new desired capacity or outside the new limits. In this
- *             scenario, Amazon GameLift Servers automatically initiates steps to add or remove instances in the fleet
- *             location. You can track a fleet's current capacity by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html">DescribeFleetCapacity</a> or <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html">DescribeFleetLocationCapacity</a>.</p>
- *          <p> Use ManagedCapacityConfiguration with the "SCALE_TO_AND_FROM_ZERO" ZeroCapacityStrategy to enable Amazon
- *             GameLift Servers to fully manage the MinSize value, switching between 0 and 1 based on game session
- *             activity. This is ideal for eliminating compute costs during periods of no game activity.
- *             It is particularly beneficial during development when you're away from your desk, iterating on builds
- *             for extended periods, in production environments serving low-traffic locations, or for games with long,
- *             predictable downtime windows. By automatically managing capacity between 0 and 1 instances, you avoid paying
- *             for idle instances while maintaining the ability to serve game sessions when demand arrives. Note that while
- *             scale-out is triggered immediately upon receiving a game session request, actual game session availability
- *             depends on your server process startup time, so this approach works best with multi-location Fleets where
- *             cold-start latency is tolerable. With a "MANUAL" ZeroCapacityStrategy Amazon GameLift Servers will not
- *             modify Fleet MinSize values automatically and will not scale out from zero instances in response to game
- *             sessions. This is configurable per-location.</p>
- *          <p>
- *             <b>Learn more</b>
- *          </p>
- *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-manage-capacity.html">Scaling fleet
- *                         capacity</a>
- *          </p>
+ * **This API works with the following fleet types:** EC2, Container
+ *
+ * Updates capacity settings for a managed EC2 fleet or managed container fleet. For these fleets, you adjust capacity by changing the number of instances in the fleet. Fleet capacity determines the number of game sessions and players that the fleet can host based on its configuration. For fleets with multiple locations, use this operation to manage capacity settings in each location individually.
+ *
+ * - Minimum/maximum size: Set hard limits on the number of Amazon EC2 instances allowed. If Amazon GameLift Servers receives a request--either through manual update or automatic scaling--it won't change the capacity to a value outside of this range.
+ * - Desired capacity: As an alternative to automatic scaling, manually set the number of Amazon EC2 instances to be maintained. Before changing a fleet's desired capacity, check the maximum capacity of the fleet's Amazon EC2 instance type by calling [DescribeEC2InstanceLimits](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeEC2InstanceLimits.html).
+ *
+ * To update capacity for a fleet's home Region, or if the fleet has no remote locations, omit the `Location` parameter. The fleet must be in `ACTIVE` status.
+ *
+ * To update capacity for a fleet's remote location, set the `Location` parameter to the location to update. The location must be in `ACTIVE` status.
+ *
+ * If successful, Amazon GameLift Servers updates the capacity settings and returns the identifiers for the updated fleet and/or location. If a requested change to desired capacity exceeds the instance type's limit, the `LimitExceeded` exception occurs.
+ *
+ * Updates often prompt an immediate change in fleet capacity, such as when current capacity is different than the new desired capacity or outside the new limits. In this scenario, Amazon GameLift Servers automatically initiates steps to add or remove instances in the fleet location. You can track a fleet's current capacity by calling [DescribeFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html) or [DescribeFleetLocationCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html).
+ *
+ * Use ManagedCapacityConfiguration with the "SCALE_TO_AND_FROM_ZERO" ZeroCapacityStrategy to enable Amazon GameLift Servers to fully manage the MinSize value, switching between 0 and 1 based on game session activity. This is ideal for eliminating compute costs during periods of no game activity. It is particularly beneficial during development when you're away from your desk, iterating on builds for extended periods, in production environments serving low-traffic locations, or for games with long, predictable downtime windows. By automatically managing capacity between 0 and 1 instances, you avoid paying for idle instances while maintaining the ability to serve game sessions when demand arrives. Note that while scale-out is triggered immediately upon receiving a game session request, actual game session availability depends on your server process startup time, so this approach works best with multi-location Fleets where cold-start latency is tolerable. With a "MANUAL" ZeroCapacityStrategy Amazon GameLift Servers will not modify Fleet MinSize values automatically and will not scale out from zero instances in response to game sessions. This is configurable per-location.
+ *
+ * **Learn more**
+ *
+ * [Scaling fleet capacity](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-manage-capacity.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -115,40 +84,40 @@ export interface UpdateFleetCapacityCommandOutput extends UpdateFleetCapacityOut
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The requested operation would cause a conflict with the current state of a service
- *             resource associated with the request. Resolve the conflict before retrying this
- *             request.</p>
- *          <p></p>
+ *
+ * The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an unrecoverable internal failure while processing the
- *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.
  *
  * @throws {@link InvalidFleetStatusException} (client fault)
- *  <p>The requested operation would cause a conflict with the current state of a resource
- *             associated with the request and/or the fleet. Resolve the conflict before
- *             retrying.</p>
+ *
+ * The requested operation would cause a conflict with the current state of a resource associated with the request and/or the fleet. Resolve the conflict before retrying.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
- *             values before retrying.</p>
+ *
+ * One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The requested operation would cause the resource to exceed the allowed service limit.
- *             Resolve the issue before retrying.</p>
+ *
+ * The requested operation would cause the resource to exceed the allowed service limit. Resolve the issue before retrying.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resource was not found. The resource was either not created yet or deleted.</p>
+ *
+ * The requested resource was not found. The resource was either not created yet or deleted.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * The client failed authentication. Clients should not retry such requests.
  *
  * @throws {@link UnsupportedRegionException} (client fault)
- *  <p>The requested operation is not supported in the Region specified.</p>
+ *
+ * The requested operation is not supported in the Region specified.
  *
  * @throws {@link GameLiftServiceException}
- * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * Base exception class for all service exceptions from GameLift service.
  *
  * @public
  */

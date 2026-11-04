@@ -23,7 +23,8 @@ export interface ListIdMappingTablesCommandInput extends ListIdMappingTablesInpu
 export interface ListIdMappingTablesCommandOutput extends ListIdMappingTablesOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of ID mapping tables.</p>
+ * Returns a list of ID mapping tables.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,23 +71,28 @@ export interface ListIdMappingTablesCommandOutput extends ListIdMappingTablesOut
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Caller does not have sufficient access to perform this action.</p>
+ *
+ * Caller does not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error during processing of request.</p>
+ *
+ * Unexpected error during processing of request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Request references a resource which does not exist.</p>
+ *
+ * Request references a resource which does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Request was denied due to request throttling.</p>
+ *
+ * Request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the specified constraints.</p>
+ *
+ * The input fails to satisfy the specified constraints.
  *
  * @throws {@link CleanRoomsServiceException}
- * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ * Base exception class for all service exceptions from CleanRooms service.
  *
  * @public
  */

@@ -26,13 +26,10 @@ export interface DescribeMetadataModelExportsAsScriptCommandInput extends Descri
 export interface DescribeMetadataModelExportsAsScriptCommandOutput extends DescribeMetadataModelExportsAsScriptResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a paginated list of metadata model export requests for a migration
- *          project, initiated by
- *          <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartMetadataModelExportAsScript.html">StartMetadataModelExportAsScript</a>.</p>
- *          <p>
- *             <b>Required permissions:</b>
- *             <code>dms:ListMetadataModelExports</code>. For more information, see
- *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
+ * Returns a paginated list of metadata model export requests for a migration project, initiated by [StartMetadataModelExportAsScript](https://docs.aws.amazon.com/dms/latest/APIReference/API_StartMetadataModelExportAsScript.html).
+ *
+ * **Required permissions:** `dms:ListMetadataModelExports`. For more information, see [Actions, resources, and condition keys for Database Migration Service](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,11 +92,12 @@ export interface DescribeMetadataModelExportsAsScriptCommandOutput extends Descr
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @example Retrieve the status of metadata model exports as script
  * ```javascript

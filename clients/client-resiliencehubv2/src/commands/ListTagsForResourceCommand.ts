@@ -23,7 +23,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the tags for a resource.</p>
+ * Lists the tags for a resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,23 +53,28 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link Resiliencehubv2ClientResolvedConfig | config} for Resiliencehubv2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access denied — caller lacks required permissions.</p>
+ *
+ * Access denied — caller lacks required permissions.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal service error.</p>
+ *
+ * Internal service error.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource not found.</p>
+ *
+ * Resource not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Too many requests — rate limit exceeded.</p>
+ *
+ * Too many requests — rate limit exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Validation error — invalid input parameters.</p>
+ *
+ * Validation error — invalid input parameters.
  *
  * @throws {@link Resiliencehubv2ServiceException}
- * <p>Base exception class for all service exceptions from Resiliencehubv2 service.</p>
  *
+ * Base exception class for all service exceptions from Resiliencehubv2 service.
  *
  * @public
  */

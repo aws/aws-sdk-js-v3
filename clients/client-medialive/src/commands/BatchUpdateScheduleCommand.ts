@@ -558,8 +558,8 @@ export interface BatchUpdateScheduleCommandOutput extends BatchUpdateScheduleRes
  *  Placeholder documentation for UnprocessableEntityException
  *
  * @throws {@link MediaLiveServiceException}
- * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * Base exception class for all service exceptions from MediaLive service.
  *
  * @public
  */

@@ -23,12 +23,10 @@ export interface VerifyDomainIdentityCommandInput extends VerifyDomainIdentityRe
 export interface VerifyDomainIdentityCommandOutput extends VerifyDomainIdentityResponse, __MetadataBearer {}
 
 /**
- * <p>Adds a domain to the list of identities for your Amazon SES account in the current
- *             Amazon Web Services Region and attempts to verify it. For more information about verifying domains,
- *             see <a href="https://docs.aws.amazon.com/ses/latest/dg/verify-addresses-and-domains.html">Verifying Email Addresses and Domains</a> in the <i>Amazon SES Developer
- *                 Guide.</i>
- *          </p>
- *          <p>You can execute this operation no more than once per second.</p>
+ * Adds a domain to the list of identities for your Amazon SES account in the current Amazon Web Services Region and attempts to verify it. For more information about verifying domains, see [Verifying Email Addresses and Domains](https://docs.aws.amazon.com/ses/latest/dg/verify-addresses-and-domains.html) in the *Amazon SES Developer Guide.*
+ *
+ * You can execute this operation no more than once per second.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,8 +53,8 @@ export interface VerifyDomainIdentityCommandOutput extends VerifyDomainIdentityR
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @example VerifyDomainIdentity
  * ```javascript

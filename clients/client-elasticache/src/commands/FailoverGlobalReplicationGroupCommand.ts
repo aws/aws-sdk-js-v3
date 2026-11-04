@@ -23,8 +23,8 @@ export interface FailoverGlobalReplicationGroupCommandInput extends FailoverGlob
 export interface FailoverGlobalReplicationGroupCommandOutput extends FailoverGlobalReplicationGroupResult, __MetadataBearer {}
 
 /**
- * <p>Used to failover the primary region to a secondary region. The secondary region will
- *             become primary, and all other clusters will become secondary.</p>
+ * Used to failover the primary region to a secondary region. The secondary region will become primary, and all other clusters will become secondary.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,20 +80,24 @@ export interface FailoverGlobalReplicationGroupCommandOutput extends FailoverGlo
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link GlobalReplicationGroupNotFoundFault} (client fault)
- *  <p>The Global datastore does not exist</p>
+ *
+ * The Global datastore does not exist
  *
  * @throws {@link InvalidGlobalReplicationGroupStateFault} (client fault)
- *  <p>The Global datastore is not available or in primary-only state.</p>
+ *
+ * The Global datastore is not available or in primary-only state.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * Two or more incompatible parameters were specified.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @public
  */

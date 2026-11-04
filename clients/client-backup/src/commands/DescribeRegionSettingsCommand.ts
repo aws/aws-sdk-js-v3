@@ -23,11 +23,8 @@ export interface DescribeRegionSettingsCommandInput extends DescribeRegionSettin
 export interface DescribeRegionSettingsCommandOutput extends DescribeRegionSettingsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the current service opt-in settings for the Region. If service opt-in is enabled
- *          for a service, Backup tries to protect that service's resources in this Region,
- *          when the resource is included in an on-demand backup or scheduled backup plan. Otherwise,
- *             Backup does not try to protect that service's resources in this
- *          Region.</p>
+ * Returns the current service opt-in settings for the Region. If service opt-in is enabled for a service, Backup tries to protect that service's resources in this Region, when the resource is included in an on-demand backup or scheduled backup plan. Otherwise, Backup does not try to protect that service's resources in this Region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,11 +54,12 @@ export interface DescribeRegionSettingsCommandOutput extends DescribeRegionSetti
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The request failed due to a temporary failure of the server.</p>
+ *
+ * The request failed due to a temporary failure of the server.
  *
  * @throws {@link BackupServiceException}
- * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * Base exception class for all service exceptions from Backup service.
  *
  * @public
  */

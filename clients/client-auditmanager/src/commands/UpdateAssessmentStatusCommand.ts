@@ -23,7 +23,8 @@ export interface UpdateAssessmentStatusCommandInput extends UpdateAssessmentStat
 export interface UpdateAssessmentStatusCommandOutput extends UpdateAssessmentStatusResponse, __MetadataBearer {}
 
 /**
- * <p> Updates the status of an assessment in Audit Manager. </p>
+ * Updates the status of an assessment in Audit Manager.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -170,28 +171,28 @@ export interface UpdateAssessmentStatusCommandOutput extends UpdateAssessmentSta
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p> Your account isn't registered with Audit Manager. Check the delegated
- *          administrator setup on the Audit Manager settings page, and try again. </p>
+ *
+ * Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> An internal service error occurred during the processing of your request. Try again
- *          later. </p>
+ *
+ * An internal service error occurred during the processing of your request. Try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The resource that's specified in the request can't be found. </p>
+ *
+ * The resource that's specified in the request can't be found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You've reached your account quota for this resource type. To perform the requested
- *          action, delete some existing resources or <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">request a quota increase</a> from
- *          the Service Quotas console. For a list of Audit Manager service quotas, see <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html">Quotas and
- *             restrictions for Audit Manager</a>.</p>
+ *
+ * You've reached your account quota for this resource type. To perform the requested action, delete some existing resources or [request a quota increase](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) from the Service Quotas console. For a list of Audit Manager service quotas, see [Quotas and restrictions for Audit Manager](https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html).
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> The request has invalid or missing parameters. </p>
+ *
+ * The request has invalid or missing parameters.
  *
  * @throws {@link AuditManagerServiceException}
- * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * Base exception class for all service exceptions from AuditManager service.
  *
  * @public
  */

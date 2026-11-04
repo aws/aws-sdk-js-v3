@@ -23,10 +23,8 @@ export interface GetDimensionKeyDetailsCommandInput extends GetDimensionKeyDetai
 export interface GetDimensionKeyDetailsCommandOutput extends GetDimensionKeyDetailsResponse, __MetadataBearer {}
 
 /**
- * <p>Get the attributes of the specified dimension group for a DB instance or data source. For example, if you specify a SQL ID,
- *                 <code>GetDimensionKeyDetails</code> retrieves the full text of the dimension <code>db.sql.statement</code> associated with this ID.
- *             This operation is useful because <code>GetResourceMetrics</code> and <code>DescribeDimensionKeys</code> don't support retrieval of large
- *           SQL statement text, lock snapshots, and execution plans.</p>
+ * Get the attributes of the specified dimension group for a DB instance or data source. For example, if you specify a SQL ID, `GetDimensionKeyDetails` retrieves the full text of the dimension `db.sql.statement` associated with this ID. This operation is useful because `GetResourceMetrics` and `DescribeDimensionKeys` don't support retrieval of large SQL statement text, lock snapshots, and execution plans.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,17 +63,20 @@ export interface GetDimensionKeyDetailsCommandOutput extends GetDimensionKeyDeta
  * @see {@link PIClientResolvedConfig | config} for PIClient's `config` shape.
  *
  * @throws {@link InternalServiceError} (server fault)
- *  <p>The request failed due to an unknown error.</p>
+ *
+ * The request failed due to an unknown error.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>One of the arguments provided is invalid for this request.</p>
+ *
+ * One of the arguments provided is invalid for this request.
  *
  * @throws {@link NotAuthorizedException} (client fault)
- *  <p>The user is not authorized to perform this request.</p>
+ *
+ * The user is not authorized to perform this request.
  *
  * @throws {@link PIServiceException}
- * <p>Base exception class for all service exceptions from PI service.</p>
  *
+ * Base exception class for all service exceptions from PI service.
  *
  * @public
  */

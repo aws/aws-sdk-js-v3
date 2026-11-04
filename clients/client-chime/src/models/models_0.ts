@@ -21,113 +21,126 @@ import type {
 } from "./enums";
 
 /**
- * <p>An Active Directory (AD) group whose members are granted permission to act as delegates.</p>
+ * An Active Directory (AD) group whose members are granted permission to act as delegates.
+ *
  * @public
  */
 export interface SigninDelegateGroup {
   /**
-   * <p>The group name.</p>
+   * The group name.
+   *
    * @public
    */
   GroupName?: string | undefined;
 }
 
 /**
- * <p>The Amazon Chime account details. An AWS account can have multiple Amazon Chime accounts.</p>
+ * The Amazon Chime account details. An AWS account can have multiple Amazon Chime accounts.
+ *
  * @public
  */
 export interface Account {
   /**
-   * <p>The AWS account ID.</p>
+   * The AWS account ID.
+   *
    * @public
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The Amazon Chime account name.</p>
+   * The Amazon Chime account name.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The Amazon Chime account type. For more information about different account types, see
-   *     <a href="https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html">Managing Your Amazon Chime Accounts</a> in the <i>Amazon Chime Administration
-   *                 Guide</i>.</p>
+   * The Amazon Chime account type. For more information about different account types, see [Managing Your Amazon Chime Accounts](https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html) in the *Amazon Chime Administration Guide*.
+   *
    * @public
    */
   AccountType?: AccountType | undefined;
 
   /**
-   * <p>The Amazon Chime account creation timestamp, in ISO 8601 format.</p>
+   * The Amazon Chime account creation timestamp, in ISO 8601 format.
+   *
    * @public
    */
   CreatedTimestamp?: Date | undefined;
 
   /**
-   * <p>The default license for the Amazon Chime account.</p>
+   * The default license for the Amazon Chime account.
+   *
    * @public
    */
   DefaultLicense?: License | undefined;
 
   /**
-   * <p>Supported licenses for the Amazon Chime account.</p>
+   * Supported licenses for the Amazon Chime account.
+   *
    * @public
    */
   SupportedLicenses?: License[] | undefined;
 
   /**
-   * <p>The status of the account.</p>
+   * The status of the account.
+   *
    * @public
    */
   AccountStatus?: AccountStatus | undefined;
 
   /**
-   * <p>The sign-in delegate groups associated with the account.</p>
+   * The sign-in delegate groups associated with the account.
+   *
    * @public
    */
   SigninDelegateGroups?: SigninDelegateGroup[] | undefined;
 }
 
 /**
- * <p>Settings related to the Amazon Chime account. This includes settings that start or stop
- *             remote control of shared screens, or start or stop the dial-out option in the Amazon Chime web application. For more information about these settings, see
- *     <a href="https://docs.aws.amazon.com/chime/latest/ag/policies.html">Use the Policies Page</a> in the <i>Amazon Chime Administration Guide</i>.</p>
+ * Settings related to the Amazon Chime account. This includes settings that start or stop remote control of shared screens, or start or stop the dial-out option in the Amazon Chime web application. For more information about these settings, see [Use the Policies Page](https://docs.aws.amazon.com/chime/latest/ag/policies.html) in the *Amazon Chime Administration Guide*.
+ *
  * @public
  */
 export interface AccountSettings {
   /**
-   * <p>Setting that stops or starts remote control of shared screens during meetings.</p>
+   * Setting that stops or starts remote control of shared screens during meetings.
+   *
    * @public
    */
   DisableRemoteControl?: boolean | undefined;
 
   /**
-   * <p>Setting that allows meeting participants to choose the <b>Call me at a phone number</b> option. For more information, see
-   *     <a href="https://docs.aws.amazon.com/chime/latest/ug/chime-join-meeting.html">Join a Meeting without the Amazon Chime App</a>.</p>
+   * Setting that allows meeting participants to choose the **Call me at a phone number** option. For more information, see [Join a Meeting without the Amazon Chime App](https://docs.aws.amazon.com/chime/latest/ug/chime-join-meeting.html).
+   *
    * @public
    */
   EnableDialOut?: boolean | undefined;
 }
 
 /**
- * <p>The Alexa for Business metadata associated with an Amazon Chime user, used to integrate Alexa for Business with a device.</p>
+ * The Alexa for Business metadata associated with an Amazon Chime user, used to integrate Alexa for Business with a device.
+ *
  * @public
  */
 export interface AlexaForBusinessMetadata {
   /**
-   * <p>Starts or stops Alexa for Business.</p>
+   * Starts or stops Alexa for Business.
+   *
    * @public
    */
   IsAlexaForBusinessEnabled?: boolean | undefined;
 
   /**
-   * <p>The ARN of the room resource.</p>
+   * The ARN of the room resource.
+   *
    * @public
    */
   AlexaForBusinessRoomArn?: string | undefined;
@@ -138,19 +151,22 @@ export interface AlexaForBusinessMetadata {
  */
 export interface AssociatePhoneNumberWithUserRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The user ID.</p>
+   * The user ID.
+   *
    * @public
    */
   UserId: string | undefined;
 
   /**
-   * <p>The phone number, in E.164 format.</p>
+   * The phone number, in E.164 format.
+   *
    * @public
    */
   E164PhoneNumber: string | undefined;
@@ -166,13 +182,15 @@ export interface AssociatePhoneNumberWithUserResponse {}
  */
 export interface AssociateSigninDelegateGroupsWithAccountRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The sign-in delegate groups.</p>
+   * The sign-in delegate groups.
+   *
    * @public
    */
   SigninDelegateGroups: SigninDelegateGroup[] | undefined;
@@ -184,18 +202,21 @@ export interface AssociateSigninDelegateGroupsWithAccountRequest {
 export interface AssociateSigninDelegateGroupsWithAccountResponse {}
 
 /**
- * <p>Membership details, such as member ID and member role.</p>
+ * Membership details, such as member ID and member role.
+ *
  * @public
  */
 export interface MembershipItem {
   /**
-   * <p>The member ID.</p>
+   * The member ID.
+   *
    * @public
    */
   MemberId?: string | undefined;
 
   /**
-   * <p>The member role.</p>
+   * The member role.
+   *
    * @public
    */
   Role?: RoomMembershipRole | undefined;
@@ -206,43 +227,50 @@ export interface MembershipItem {
  */
 export interface BatchCreateRoomMembershipRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The room ID.</p>
+   * The room ID.
+   *
    * @public
    */
   RoomId: string | undefined;
 
   /**
-   * <p>The list of membership items.</p>
+   * The list of membership items.
+   *
    * @public
    */
   MembershipItemList: MembershipItem[] | undefined;
 }
 
 /**
- * <p>The list of errors returned when a member action results in an error.</p>
+ * The list of errors returned when a member action results in an error.
+ *
  * @public
  */
 export interface MemberError {
   /**
-   * <p>The member ID.</p>
+   * The member ID.
+   *
    * @public
    */
   MemberId?: string | undefined;
 
   /**
-   * <p>The error code.</p>
+   * The error code.
+   *
    * @public
    */
   ErrorCode?: ErrorCode | undefined;
 
   /**
-   * <p>The error message.</p>
+   * The error message.
+   *
    * @public
    */
   ErrorMessage?: string | undefined;
@@ -253,7 +281,8 @@ export interface MemberError {
  */
 export interface BatchCreateRoomMembershipResponse {
   /**
-   * <p>If the action fails for one or more of the member IDs in the request, a list of the member IDs is returned, along with error codes and error messages.</p>
+   * If the action fails for one or more of the member IDs in the request, a list of the member IDs is returned, along with error codes and error messages.
+   *
    * @public
    */
   Errors?: MemberError[] | undefined;
@@ -264,32 +293,36 @@ export interface BatchCreateRoomMembershipResponse {
  */
 export interface BatchDeletePhoneNumberRequest {
   /**
-   * <p>List of phone number IDs.</p>
+   * List of phone number IDs.
+   *
    * @public
    */
   PhoneNumberIds: string[] | undefined;
 }
 
 /**
- * <p>If the phone number action fails for one or more of the phone numbers in the request, a list of
- *             the phone numbers is returned, along with error codes and error messages.</p>
+ * If the phone number action fails for one or more of the phone numbers in the request, a list of the phone numbers is returned, along with error codes and error messages.
+ *
  * @public
  */
 export interface PhoneNumberError {
   /**
-   * <p>The phone number ID for which the action failed.</p>
+   * The phone number ID for which the action failed.
+   *
    * @public
    */
   PhoneNumberId?: string | undefined;
 
   /**
-   * <p>The error code.</p>
+   * The error code.
+   *
    * @public
    */
   ErrorCode?: ErrorCode | undefined;
 
   /**
-   * <p>The error message.</p>
+   * The error message.
+   *
    * @public
    */
   ErrorMessage?: string | undefined;
@@ -300,7 +333,8 @@ export interface PhoneNumberError {
  */
 export interface BatchDeletePhoneNumberResponse {
   /**
-   * <p>If the action fails for one or more of the phone numbers in the request, a list of the phone numbers is returned, along with error codes and error messages.</p>
+   * If the action fails for one or more of the phone numbers in the request, a list of the phone numbers is returned, along with error codes and error messages.
+   *
    * @public
    */
   PhoneNumberErrors?: PhoneNumberError[] | undefined;
@@ -311,38 +345,43 @@ export interface BatchDeletePhoneNumberResponse {
  */
 export interface BatchSuspendUserRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The request containing the user IDs to suspend.</p>
+   * The request containing the user IDs to suspend.
+   *
    * @public
    */
   UserIdList: string[] | undefined;
 }
 
 /**
- * <p>The list of errors returned when errors are encountered during the <a>BatchSuspendUser</a>, <a>BatchUnsuspendUser</a>, or
- *     <a>BatchUpdateUser</a> actions. This includes user IDs, error codes, and error messages.</p>
+ * The list of errors returned when errors are encountered during the BatchSuspendUser, BatchUnsuspendUser, or BatchUpdateUser actions. This includes user IDs, error codes, and error messages.
+ *
  * @public
  */
 export interface UserError {
   /**
-   * <p>The user ID for which the action failed.</p>
+   * The user ID for which the action failed.
+   *
    * @public
    */
   UserId?: string | undefined;
 
   /**
-   * <p>The error code.</p>
+   * The error code.
+   *
    * @public
    */
   ErrorCode?: ErrorCode | undefined;
 
   /**
-   * <p>The error message.</p>
+   * The error message.
+   *
    * @public
    */
   ErrorMessage?: string | undefined;
@@ -353,8 +392,8 @@ export interface UserError {
  */
 export interface BatchSuspendUserResponse {
   /**
-   * <p>If the <a>BatchSuspendUser</a> action fails for one or more of the user IDs in the
-   *             request, a list of the user IDs is returned, along with error codes and error messages.</p>
+   * If the BatchSuspendUser action fails for one or more of the user IDs in the request, a list of the user IDs is returned, along with error codes and error messages.
+   *
    * @public
    */
   UserErrors?: UserError[] | undefined;
@@ -365,13 +404,15 @@ export interface BatchSuspendUserResponse {
  */
 export interface BatchUnsuspendUserRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The request containing the user IDs to unsuspend.</p>
+   * The request containing the user IDs to unsuspend.
+   *
    * @public
    */
   UserIdList: string[] | undefined;
@@ -382,33 +423,36 @@ export interface BatchUnsuspendUserRequest {
  */
 export interface BatchUnsuspendUserResponse {
   /**
-   * <p>If the <a>BatchUnsuspendUser</a> action fails for one or more of the user IDs in the
-   *             request, a list of the user IDs is returned, along with error codes and error messages.</p>
+   * If the BatchUnsuspendUser action fails for one or more of the user IDs in the request, a list of the user IDs is returned, along with error codes and error messages.
+   *
    * @public
    */
   UserErrors?: UserError[] | undefined;
 }
 
 /**
- * <p>The phone number ID, product type, or calling name fields to update, used with the
- * <a>BatchUpdatePhoneNumber</a> and <a>UpdatePhoneNumber</a> actions.</p>
+ * The phone number ID, product type, or calling name fields to update, used with the BatchUpdatePhoneNumber and UpdatePhoneNumber actions.
+ *
  * @public
  */
 export interface UpdatePhoneNumberRequestItem {
   /**
-   * <p>The phone number ID to update.</p>
+   * The phone number ID to update.
+   *
    * @public
    */
   PhoneNumberId: string | undefined;
 
   /**
-   * <p>The product type to update.</p>
+   * The product type to update.
+   *
    * @public
    */
   ProductType?: PhoneNumberProductType | undefined;
 
   /**
-   * <p>The outbound calling name to update.</p>
+   * The outbound calling name to update.
+   *
    * @public
    */
   CallingName?: string | undefined;
@@ -419,7 +463,8 @@ export interface UpdatePhoneNumberRequestItem {
  */
 export interface BatchUpdatePhoneNumberRequest {
   /**
-   * <p>The request containing the phone number IDs and product types or calling names to update.</p>
+   * The request containing the phone number IDs and product types or calling names to update.
+   *
    * @public
    */
   UpdatePhoneNumberRequestItems: UpdatePhoneNumberRequestItem[] | undefined;
@@ -430,38 +475,43 @@ export interface BatchUpdatePhoneNumberRequest {
  */
 export interface BatchUpdatePhoneNumberResponse {
   /**
-   * <p>If the action fails for one or more of the phone numbers in the request, a list of the phone numbers is returned, along with error codes and error messages.</p>
+   * If the action fails for one or more of the phone numbers in the request, a list of the phone numbers is returned, along with error codes and error messages.
+   *
    * @public
    */
   PhoneNumberErrors?: PhoneNumberError[] | undefined;
 }
 
 /**
- * <p>The user ID and user fields to update, used with the
- * <a>BatchUpdateUser</a> action.</p>
+ * The user ID and user fields to update, used with the BatchUpdateUser action.
+ *
  * @public
  */
 export interface UpdateUserRequestItem {
   /**
-   * <p>The user ID.</p>
+   * The user ID.
+   *
    * @public
    */
   UserId: string | undefined;
 
   /**
-   * <p>The user license type.</p>
+   * The user license type.
+   *
    * @public
    */
   LicenseType?: License | undefined;
 
   /**
-   * <p>The user type.</p>
+   * The user type.
+   *
    * @public
    */
   UserType?: UserType | undefined;
 
   /**
-   * <p>The Alexa for Business metadata.</p>
+   * The Alexa for Business metadata.
+   *
    * @public
    */
   AlexaForBusinessMetadata?: AlexaForBusinessMetadata | undefined;
@@ -472,13 +522,15 @@ export interface UpdateUserRequestItem {
  */
 export interface BatchUpdateUserRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The request containing the user IDs and details to update.</p>
+   * The request containing the user IDs and details to update.
+   *
    * @public
    */
   UpdateUserRequestItems: UpdateUserRequestItem[] | undefined;
@@ -489,93 +541,106 @@ export interface BatchUpdateUserRequest {
  */
 export interface BatchUpdateUserResponse {
   /**
-   * <p>If the <a>BatchUpdateUser</a> action fails for one or more of the user IDs in the
-   *             request, a list of the user IDs is returned, along with error codes and error messages.</p>
+   * If the BatchUpdateUser action fails for one or more of the user IDs in the request, a list of the user IDs is returned, along with error codes and error messages.
+   *
    * @public
    */
   UserErrors?: UserError[] | undefined;
 }
 
 /**
- * <p>A resource that allows Enterprise account administrators to configure an interface to receive events from Amazon Chime.</p>
+ * A resource that allows Enterprise account administrators to configure an interface to receive events from Amazon Chime.
+ *
  * @public
  */
 export interface Bot {
   /**
-   * <p>The bot ID.</p>
+   * The bot ID.
+   *
    * @public
    */
   BotId?: string | undefined;
 
   /**
-   * <p>The unique ID for the bot user.</p>
+   * The unique ID for the bot user.
+   *
    * @public
    */
   UserId?: string | undefined;
 
   /**
-   * <p>The bot display name.</p>
+   * The bot display name.
+   *
    * @public
    */
   DisplayName?: string | undefined;
 
   /**
-   * <p>The bot type.</p>
+   * The bot type.
+   *
    * @public
    */
   BotType?: BotType | undefined;
 
   /**
-   * <p>When true, the bot is stopped from running in your account.</p>
+   * When true, the bot is stopped from running in your account.
+   *
    * @public
    */
   Disabled?: boolean | undefined;
 
   /**
-   * <p>The bot creation timestamp, in ISO 8601 format.</p>
+   * The bot creation timestamp, in ISO 8601 format.
+   *
    * @public
    */
   CreatedTimestamp?: Date | undefined;
 
   /**
-   * <p>The updated bot timestamp, in ISO 8601 format.</p>
+   * The updated bot timestamp, in ISO 8601 format.
+   *
    * @public
    */
   UpdatedTimestamp?: Date | undefined;
 
   /**
-   * <p>The bot email address.</p>
+   * The bot email address.
+   *
    * @public
    */
   BotEmail?: string | undefined;
 
   /**
-   * <p>The security token used to authenticate Amazon Chime with the outgoing event endpoint.</p>
+   * The security token used to authenticate Amazon Chime with the outgoing event endpoint.
+   *
    * @public
    */
   SecurityToken?: string | undefined;
 }
 
 /**
- * <p>The Amazon Chime Business Calling settings for the administrator's AWS account. Includes any
- *             Amazon S3 buckets designated for storing call detail records.</p>
+ * The Amazon Chime Business Calling settings for the administrator's AWS account. Includes any Amazon S3 buckets designated for storing call detail records.
+ *
  * @public
  */
 export interface BusinessCallingSettings {
   /**
-   * <p>The Amazon S3 bucket designated for call detail record storage.</p>
+   * The Amazon S3 bucket designated for call detail record storage.
+   *
    * @public
    */
   CdrBucket?: string | undefined;
 }
 
 /**
- * <p>The retention settings that determine how long to retain conversation messages for an Amazon Chime Enterprise account.</p>
+ * The retention settings that determine how long to retain conversation messages for an Amazon Chime Enterprise account.
+ *
  * @public
  */
 export interface ConversationRetentionSettings {
   /**
-   * <p>The number of days for which to retain conversation messages.</p>
+   * The number of days for which to retain conversation messages.
+   *
    * @public
    */
   RetentionDays?: number | undefined;
@@ -586,7 +651,8 @@ export interface ConversationRetentionSettings {
  */
 export interface CreateAccountRequest {
   /**
-   * <p>The name of the Amazon Chime account.</p>
+   * The name of the Amazon Chime account.
+   *
    * @public
    */
   Name: string | undefined;
@@ -597,7 +663,8 @@ export interface CreateAccountRequest {
  */
 export interface CreateAccountResponse {
   /**
-   * <p>The Amazon Chime account details.</p>
+   * The Amazon Chime account details.
+   *
    * @public
    */
   Account?: Account | undefined;
@@ -608,19 +675,22 @@ export interface CreateAccountResponse {
  */
 export interface CreateBotRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The bot display name.</p>
+   * The bot display name.
+   *
    * @public
    */
   DisplayName: string | undefined;
 
   /**
-   * <p>The domain of the Amazon Chime Enterprise account.</p>
+   * The domain of the Amazon Chime Enterprise account.
+   *
    * @public
    */
   Domain?: string | undefined;
@@ -631,7 +701,8 @@ export interface CreateBotRequest {
  */
 export interface CreateBotResponse {
   /**
-   * <p>The bot details.</p>
+   * The bot details.
+   *
    * @public
    */
   Bot?: Bot | undefined;
@@ -642,25 +713,29 @@ export interface CreateBotResponse {
  */
 export interface CreateMeetingDialOutRequest {
   /**
-   * <p>The Amazon Chime SDK meeting ID.</p>
+   * The Amazon Chime SDK meeting ID.
+   *
    * @public
    */
   MeetingId: string | undefined;
 
   /**
-   * <p>Phone number used as the caller ID when the remote party receives a call.</p>
+   * Phone number used as the caller ID when the remote party receives a call.
+   *
    * @public
    */
   FromPhoneNumber: string | undefined;
 
   /**
-   * <p>Phone number called when inviting someone to a meeting.</p>
+   * Phone number called when inviting someone to a meeting.
+   *
    * @public
    */
   ToPhoneNumber: string | undefined;
 
   /**
-   * <p>Token used by the Amazon Chime SDK attendee. Call the <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateAttendee.html">CreateAttendee</a> action to get a join token.</p>
+   * Token used by the Amazon Chime SDK attendee. Call the [CreateAttendee](https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateAttendee.html) action to get a join token.
+   *
    * @public
    */
   JoinToken: string | undefined;
@@ -671,7 +746,8 @@ export interface CreateMeetingDialOutRequest {
  */
 export interface CreateMeetingDialOutResponse {
   /**
-   * <p>Unique ID that tracks API calls.</p>
+   * Unique ID that tracks API calls.
+   *
    * @public
    */
   TransactionId?: string | undefined;
@@ -682,74 +758,85 @@ export interface CreateMeetingDialOutResponse {
  */
 export interface CreatePhoneNumberOrderRequest {
   /**
-   * <p>The phone number product type.</p>
+   * The phone number product type.
+   *
    * @public
    */
   ProductType: PhoneNumberProductType | undefined;
 
   /**
-   * <p>List of phone numbers, in E.164 format.</p>
+   * List of phone numbers, in E.164 format.
+   *
    * @public
    */
   E164PhoneNumbers: string[] | undefined;
 }
 
 /**
- * <p>A phone number for which an order has been placed.</p>
+ * A phone number for which an order has been placed.
+ *
  * @public
  */
 export interface OrderedPhoneNumber {
   /**
-   * <p>The phone number, in E.164 format.</p>
+   * The phone number, in E.164 format.
+   *
    * @public
    */
   E164PhoneNumber?: string | undefined;
 
   /**
-   * <p>The phone number status.</p>
+   * The phone number status.
+   *
    * @public
    */
   Status?: OrderedPhoneNumberStatus | undefined;
 }
 
 /**
- * <p>The details of a phone number order created for Amazon Chime.</p>
+ * The details of a phone number order created for Amazon Chime.
+ *
  * @public
  */
 export interface PhoneNumberOrder {
   /**
-   * <p>The phone number order ID.</p>
+   * The phone number order ID.
+   *
    * @public
    */
   PhoneNumberOrderId?: string | undefined;
 
   /**
-   * <p>The phone number order product type.</p>
+   * The phone number order product type.
+   *
    * @public
    */
   ProductType?: PhoneNumberProductType | undefined;
 
   /**
-   * <p>The status of the phone number order.</p>
+   * The status of the phone number order.
+   *
    * @public
    */
   Status?: PhoneNumberOrderStatus | undefined;
 
   /**
-   * <p>The ordered phone number details, such as the phone number in E.164 format and the phone
-   *             number status.</p>
+   * The ordered phone number details, such as the phone number in E.164 format and the phone number status.
+   *
    * @public
    */
   OrderedPhoneNumbers?: OrderedPhoneNumber[] | undefined;
 
   /**
-   * <p>The phone number order creation time stamp, in ISO 8601 format.</p>
+   * The phone number order creation time stamp, in ISO 8601 format.
+   *
    * @public
    */
   CreatedTimestamp?: Date | undefined;
 
   /**
-   * <p>The updated phone number order time stamp, in ISO 8601 format.</p>
+   * The updated phone number order time stamp, in ISO 8601 format.
+   *
    * @public
    */
   UpdatedTimestamp?: Date | undefined;
@@ -760,7 +847,8 @@ export interface PhoneNumberOrder {
  */
 export interface CreatePhoneNumberOrderResponse {
   /**
-   * <p>The phone number order details.</p>
+   * The phone number order details.
+   *
    * @public
    */
   PhoneNumberOrder?: PhoneNumberOrder | undefined;
@@ -771,61 +859,71 @@ export interface CreatePhoneNumberOrderResponse {
  */
 export interface CreateRoomRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The room name.</p>
+   * The room name.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The idempotency token for the request.</p>
+   * The idempotency token for the request.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
 }
 
 /**
- * <p>The Amazon Chime chat room details.</p>
+ * The Amazon Chime chat room details.
+ *
  * @public
  */
 export interface Room {
   /**
-   * <p>The room ID.</p>
+   * The room ID.
+   *
    * @public
    */
   RoomId?: string | undefined;
 
   /**
-   * <p>The room name.</p>
+   * The room name.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The identifier of the room creator.</p>
+   * The identifier of the room creator.
+   *
    * @public
    */
   CreatedBy?: string | undefined;
 
   /**
-   * <p>The room creation timestamp, in ISO 8601 format.</p>
+   * The room creation timestamp, in ISO 8601 format.
+   *
    * @public
    */
   CreatedTimestamp?: Date | undefined;
 
   /**
-   * <p>The room update timestamp, in ISO 8601 format.</p>
+   * The room update timestamp, in ISO 8601 format.
+   *
    * @public
    */
   UpdatedTimestamp?: Date | undefined;
@@ -836,7 +934,8 @@ export interface Room {
  */
 export interface CreateRoomResponse {
   /**
-   * <p>The room details.</p>
+   * The room details.
+   *
    * @public
    */
   Room?: Room | undefined;
@@ -847,97 +946,113 @@ export interface CreateRoomResponse {
  */
 export interface CreateRoomMembershipRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The room ID.</p>
+   * The room ID.
+   *
    * @public
    */
   RoomId: string | undefined;
 
   /**
-   * <p>The Amazon Chime member ID (user ID or bot ID).</p>
+   * The Amazon Chime member ID (user ID or bot ID).
+   *
    * @public
    */
   MemberId: string | undefined;
 
   /**
-   * <p>The role of the member.</p>
+   * The role of the member.
+   *
    * @public
    */
   Role?: RoomMembershipRole | undefined;
 }
 
 /**
- * <p>The member details, such as email address, name, member ID, and member type.</p>
+ * The member details, such as email address, name, member ID, and member type.
+ *
  * @public
  */
 export interface Member {
   /**
-   * <p>The member ID (user ID or bot ID).</p>
+   * The member ID (user ID or bot ID).
+   *
    * @public
    */
   MemberId?: string | undefined;
 
   /**
-   * <p>The member type.</p>
+   * The member type.
+   *
    * @public
    */
   MemberType?: MemberType | undefined;
 
   /**
-   * <p>The member email address.</p>
+   * The member email address.
+   *
    * @public
    */
   Email?: string | undefined;
 
   /**
-   * <p>The member name.</p>
+   * The member name.
+   *
    * @public
    */
   FullName?: string | undefined;
 
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId?: string | undefined;
 }
 
 /**
- * <p>The room membership details.</p>
+ * The room membership details.
+ *
  * @public
  */
 export interface RoomMembership {
   /**
-   * <p>The room ID.</p>
+   * The room ID.
+   *
    * @public
    */
   RoomId?: string | undefined;
 
   /**
-   * <p>The member details, such as email address, name, member ID, and member type.</p>
+   * The member details, such as email address, name, member ID, and member type.
+   *
    * @public
    */
   Member?: Member | undefined;
 
   /**
-   * <p>The membership role.</p>
+   * The membership role.
+   *
    * @public
    */
   Role?: RoomMembershipRole | undefined;
 
   /**
-   * <p>The identifier of the user that invited the room member.</p>
+   * The identifier of the user that invited the room member.
+   *
    * @public
    */
   InvitedBy?: string | undefined;
 
   /**
-   * <p>The room membership update timestamp, in ISO 8601 format.</p>
+   * The room membership update timestamp, in ISO 8601 format.
+   *
    * @public
    */
   UpdatedTimestamp?: Date | undefined;
@@ -948,7 +1063,8 @@ export interface RoomMembership {
  */
 export interface CreateRoomMembershipResponse {
   /**
-   * <p>The room membership details.</p>
+   * The room membership details.
+   *
    * @public
    */
   RoomMembership?: RoomMembership | undefined;
@@ -959,109 +1075,127 @@ export interface CreateRoomMembershipResponse {
  */
 export interface CreateUserRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The user name.</p>
+   * The user name.
+   *
    * @public
    */
   Username?: string | undefined;
 
   /**
-   * <p>The user's email address.</p>
+   * The user's email address.
+   *
    * @public
    */
   Email?: string | undefined;
 
   /**
-   * <p>The user type.</p>
+   * The user type.
+   *
    * @public
    */
   UserType?: UserType | undefined;
 }
 
 /**
- * <p>The user on the Amazon Chime account.</p>
+ * The user on the Amazon Chime account.
+ *
  * @public
  */
 export interface User {
   /**
-   * <p>The user ID.</p>
+   * The user ID.
+   *
    * @public
    */
   UserId: string | undefined;
 
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The primary email address of the user.</p>
+   * The primary email address of the user.
+   *
    * @public
    */
   PrimaryEmail?: string | undefined;
 
   /**
-   * <p>The primary phone number associated with the user.</p>
+   * The primary phone number associated with the user.
+   *
    * @public
    */
   PrimaryProvisionedNumber?: string | undefined;
 
   /**
-   * <p>The display name of the user.</p>
+   * The display name of the user.
+   *
    * @public
    */
   DisplayName?: string | undefined;
 
   /**
-   * <p>The license type for the user.</p>
+   * The license type for the user.
+   *
    * @public
    */
   LicenseType?: License | undefined;
 
   /**
-   * <p>The user type.</p>
+   * The user type.
+   *
    * @public
    */
   UserType?: UserType | undefined;
 
   /**
-   * <p>The user registration status.</p>
+   * The user registration status.
+   *
    * @public
    */
   UserRegistrationStatus?: RegistrationStatus | undefined;
 
   /**
-   * <p>The user invite status.</p>
+   * The user invite status.
+   *
    * @public
    */
   UserInvitationStatus?: InviteStatus | undefined;
 
   /**
-   * <p>Date and time when the user is registered, in ISO 8601 format.</p>
+   * Date and time when the user is registered, in ISO 8601 format.
+   *
    * @public
    */
   RegisteredOn?: Date | undefined;
 
   /**
-   * <p>Date and time when the user is invited to the Amazon Chime account, in ISO 8601 format.</p>
+   * Date and time when the user is invited to the Amazon Chime account, in ISO 8601 format.
+   *
    * @public
    */
   InvitedOn?: Date | undefined;
 
   /**
-   * <p>The Alexa for Business metadata.</p>
+   * The Alexa for Business metadata.
+   *
    * @public
    */
   AlexaForBusinessMetadata?: AlexaForBusinessMetadata | undefined;
 
   /**
-   * <p>The user's personal meeting PIN.</p>
+   * The user's personal meeting PIN.
+   *
    * @public
    */
   PersonalPIN?: string | undefined;
@@ -1072,7 +1206,8 @@ export interface User {
  */
 export interface CreateUserResponse {
   /**
-   * <p>The user on the Amazon Chime account.</p>
+   * The user on the Amazon Chime account.
+   *
    * @public
    */
   User?: User | undefined;
@@ -1083,7 +1218,8 @@ export interface CreateUserResponse {
  */
 export interface DeleteAccountRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
@@ -1099,13 +1235,15 @@ export interface DeleteAccountResponse {}
  */
 export interface DeleteEventsConfigurationRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The bot ID.</p>
+   * The bot ID.
+   *
    * @public
    */
   BotId: string | undefined;
@@ -1116,7 +1254,8 @@ export interface DeleteEventsConfigurationRequest {
  */
 export interface DeletePhoneNumberRequest {
   /**
-   * <p>The phone number ID.</p>
+   * The phone number ID.
+   *
    * @public
    */
   PhoneNumberId: string | undefined;
@@ -1127,13 +1266,15 @@ export interface DeletePhoneNumberRequest {
  */
 export interface DeleteRoomRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The chat room ID.</p>
+   * The chat room ID.
+   *
    * @public
    */
   RoomId: string | undefined;
@@ -1144,19 +1285,22 @@ export interface DeleteRoomRequest {
  */
 export interface DeleteRoomMembershipRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The room ID.</p>
+   * The room ID.
+   *
    * @public
    */
   RoomId: string | undefined;
 
   /**
-   * <p>The member ID (user ID or bot ID).</p>
+   * The member ID (user ID or bot ID).
+   *
    * @public
    */
   MemberId: string | undefined;
@@ -1167,13 +1311,15 @@ export interface DeleteRoomMembershipRequest {
  */
 export interface DisassociatePhoneNumberFromUserRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The user ID.</p>
+   * The user ID.
+   *
    * @public
    */
   UserId: string | undefined;
@@ -1189,13 +1335,15 @@ export interface DisassociatePhoneNumberFromUserResponse {}
  */
 export interface DisassociateSigninDelegateGroupsFromAccountRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The sign-in delegate group names.</p>
+   * The sign-in delegate group names.
+   *
    * @public
    */
   GroupNames: string[] | undefined;
@@ -1207,24 +1355,28 @@ export interface DisassociateSigninDelegateGroupsFromAccountRequest {
 export interface DisassociateSigninDelegateGroupsFromAccountResponse {}
 
 /**
- * <p>The configuration that allows a bot to receive outgoing events. Can be either an HTTPS endpoint or a Lambda function ARN.</p>
+ * The configuration that allows a bot to receive outgoing events. Can be either an HTTPS endpoint or a Lambda function ARN.
+ *
  * @public
  */
 export interface EventsConfiguration {
   /**
-   * <p>The bot ID.</p>
+   * The bot ID.
+   *
    * @public
    */
   BotId?: string | undefined;
 
   /**
-   * <p>HTTPS endpoint that allows a bot to receive outgoing events.</p>
+   * HTTPS endpoint that allows a bot to receive outgoing events.
+   *
    * @public
    */
   OutboundEventsHTTPSEndpoint?: string | undefined;
 
   /**
-   * <p>Lambda function ARN that allows a bot to receive outgoing events.</p>
+   * Lambda function ARN that allows a bot to receive outgoing events.
+   *
    * @public
    */
   LambdaFunctionArn?: string | undefined;
@@ -1235,7 +1387,8 @@ export interface EventsConfiguration {
  */
 export interface GetAccountRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
@@ -1246,7 +1399,8 @@ export interface GetAccountRequest {
  */
 export interface GetAccountResponse {
   /**
-   * <p>The Amazon Chime account details.</p>
+   * The Amazon Chime account details.
+   *
    * @public
    */
   Account?: Account | undefined;
@@ -1257,7 +1411,8 @@ export interface GetAccountResponse {
  */
 export interface GetAccountSettingsRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
@@ -1268,7 +1423,8 @@ export interface GetAccountSettingsRequest {
  */
 export interface GetAccountSettingsResponse {
   /**
-   * <p>The Amazon Chime account settings.</p>
+   * The Amazon Chime account settings.
+   *
    * @public
    */
   AccountSettings?: AccountSettings | undefined;
@@ -1279,13 +1435,15 @@ export interface GetAccountSettingsResponse {
  */
 export interface GetBotRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The bot ID.</p>
+   * The bot ID.
+   *
    * @public
    */
   BotId: string | undefined;
@@ -1296,7 +1454,8 @@ export interface GetBotRequest {
  */
 export interface GetBotResponse {
   /**
-   * <p>The chat bot details.</p>
+   * The chat bot details.
+   *
    * @public
    */
   Bot?: Bot | undefined;
@@ -1307,13 +1466,15 @@ export interface GetBotResponse {
  */
 export interface GetEventsConfigurationRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The bot ID.</p>
+   * The bot ID.
+   *
    * @public
    */
   BotId: string | undefined;
@@ -1324,20 +1485,22 @@ export interface GetEventsConfigurationRequest {
  */
 export interface GetEventsConfigurationResponse {
   /**
-   * <p>The events configuration details.</p>
+   * The events configuration details.
+   *
    * @public
    */
   EventsConfiguration?: EventsConfiguration | undefined;
 }
 
 /**
- * <p>The Amazon Chime Voice Connector settings. Includes any Amazon S3 buckets designated for
- *             storing call detail records.</p>
+ * The Amazon Chime Voice Connector settings. Includes any Amazon S3 buckets designated for storing call detail records.
+ *
  * @public
  */
 export interface VoiceConnectorSettings {
   /**
-   * <p>The Amazon S3 bucket designated for call detail record storage.</p>
+   * The Amazon S3 bucket designated for call detail record storage.
+   *
    * @public
    */
   CdrBucket?: string | undefined;
@@ -1348,13 +1511,15 @@ export interface VoiceConnectorSettings {
  */
 export interface GetGlobalSettingsResponse {
   /**
-   * <p>The Amazon Chime Business Calling settings.</p>
+   * The Amazon Chime Business Calling settings.
+   *
    * @public
    */
   BusinessCalling?: BusinessCallingSettings | undefined;
 
   /**
-   * <p>The Amazon Chime Voice Connector settings.</p>
+   * The Amazon Chime Voice Connector settings.
+   *
    * @public
    */
   VoiceConnector?: VoiceConnectorSettings | undefined;
@@ -1365,161 +1530,183 @@ export interface GetGlobalSettingsResponse {
  */
 export interface GetPhoneNumberRequest {
   /**
-   * <p>The phone number ID.</p>
+   * The phone number ID.
+   *
    * @public
    */
   PhoneNumberId: string | undefined;
 }
 
 /**
- * <p>The phone number associations, such as Amazon Chime account ID, Amazon Chime user ID, Amazon
- *             Chime Voice Connector ID, or Amazon Chime Voice Connector group ID.</p>
+ * The phone number associations, such as Amazon Chime account ID, Amazon Chime user ID, Amazon Chime Voice Connector ID, or Amazon Chime Voice Connector group ID.
+ *
  * @public
  */
 export interface PhoneNumberAssociation {
   /**
-   * <p>Contains the ID for the entity specified in Name.</p>
+   * Contains the ID for the entity specified in Name.
+   *
    * @public
    */
   Value?: string | undefined;
 
   /**
-   * <p>Defines the association with an Amazon Chime account ID, user ID, Amazon Chime Voice Connector
-   *             ID, or Amazon Chime Voice Connector group ID.</p>
+   * Defines the association with an Amazon Chime account ID, user ID, Amazon Chime Voice Connector ID, or Amazon Chime Voice Connector group ID.
+   *
    * @public
    */
   Name?: PhoneNumberAssociationName | undefined;
 
   /**
-   * <p>The timestamp of the phone number association, in ISO 8601 format.</p>
+   * The timestamp of the phone number association, in ISO 8601 format.
+   *
    * @public
    */
   AssociatedTimestamp?: Date | undefined;
 }
 
 /**
- * <p>The phone number capabilities for Amazon Chime Business Calling phone numbers, such as enabled
- *             inbound and outbound calling and text messaging.</p>
+ * The phone number capabilities for Amazon Chime Business Calling phone numbers, such as enabled inbound and outbound calling and text messaging.
+ *
  * @public
  */
 export interface PhoneNumberCapabilities {
   /**
-   * <p>Allows or denies inbound calling for the specified phone number.</p>
+   * Allows or denies inbound calling for the specified phone number.
+   *
    * @public
    */
   InboundCall?: boolean | undefined;
 
   /**
-   * <p>Allows or denies outbound calling for the specified phone number.</p>
+   * Allows or denies outbound calling for the specified phone number.
+   *
    * @public
    */
   OutboundCall?: boolean | undefined;
 
   /**
-   * <p>Allows or denies inbound SMS messaging for the specified phone number.</p>
+   * Allows or denies inbound SMS messaging for the specified phone number.
+   *
    * @public
    */
   InboundSMS?: boolean | undefined;
 
   /**
-   * <p>Allows or denies outbound SMS messaging for the specified phone number.</p>
+   * Allows or denies outbound SMS messaging for the specified phone number.
+   *
    * @public
    */
   OutboundSMS?: boolean | undefined;
 
   /**
-   * <p>Allows or denies inbound MMS messaging for the specified phone number.</p>
+   * Allows or denies inbound MMS messaging for the specified phone number.
+   *
    * @public
    */
   InboundMMS?: boolean | undefined;
 
   /**
-   * <p>Allows or denies outbound MMS messaging for the specified phone number.</p>
+   * Allows or denies outbound MMS messaging for the specified phone number.
+   *
    * @public
    */
   OutboundMMS?: boolean | undefined;
 }
 
 /**
- * <p>A phone number used for Amazon Chime Business Calling or an Amazon Chime Voice
- *             Connector.</p>
+ * A phone number used for Amazon Chime Business Calling or an Amazon Chime Voice Connector.
+ *
  * @public
  */
 export interface PhoneNumber {
   /**
-   * <p>The phone number ID.</p>
+   * The phone number ID.
+   *
    * @public
    */
   PhoneNumberId?: string | undefined;
 
   /**
-   * <p>The phone number, in E.164 format.</p>
+   * The phone number, in E.164 format.
+   *
    * @public
    */
   E164PhoneNumber?: string | undefined;
 
   /**
-   * <p>The phone number country. Format: ISO 3166-1 alpha-2.</p>
+   * The phone number country. Format: ISO 3166-1 alpha-2.
+   *
    * @public
    */
   Country?: string | undefined;
 
   /**
-   * <p>The phone number type.</p>
+   * The phone number type.
+   *
    * @public
    */
   Type?: PhoneNumberType | undefined;
 
   /**
-   * <p>The phone number product type.</p>
+   * The phone number product type.
+   *
    * @public
    */
   ProductType?: PhoneNumberProductType | undefined;
 
   /**
-   * <p>The phone number status.</p>
+   * The phone number status.
+   *
    * @public
    */
   Status?: PhoneNumberStatus | undefined;
 
   /**
-   * <p>The phone number capabilities.</p>
+   * The phone number capabilities.
+   *
    * @public
    */
   Capabilities?: PhoneNumberCapabilities | undefined;
 
   /**
-   * <p>The phone number associations.</p>
+   * The phone number associations.
+   *
    * @public
    */
   Associations?: PhoneNumberAssociation[] | undefined;
 
   /**
-   * <p>The outbound calling name associated with the phone number.</p>
+   * The outbound calling name associated with the phone number.
+   *
    * @public
    */
   CallingName?: string | undefined;
 
   /**
-   * <p>The outbound calling name status.</p>
+   * The outbound calling name status.
+   *
    * @public
    */
   CallingNameStatus?: CallingNameStatus | undefined;
 
   /**
-   * <p>The phone number creation timestamp, in ISO 8601 format.</p>
+   * The phone number creation timestamp, in ISO 8601 format.
+   *
    * @public
    */
   CreatedTimestamp?: Date | undefined;
 
   /**
-   * <p>The updated phone number timestamp, in ISO 8601 format.</p>
+   * The updated phone number timestamp, in ISO 8601 format.
+   *
    * @public
    */
   UpdatedTimestamp?: Date | undefined;
 
   /**
-   * <p>The deleted phone number timestamp, in ISO 8601 format.</p>
+   * The deleted phone number timestamp, in ISO 8601 format.
+   *
    * @public
    */
   DeletionTimestamp?: Date | undefined;
@@ -1530,7 +1717,8 @@ export interface PhoneNumber {
  */
 export interface GetPhoneNumberResponse {
   /**
-   * <p>The phone number details.</p>
+   * The phone number details.
+   *
    * @public
    */
   PhoneNumber?: PhoneNumber | undefined;
@@ -1541,7 +1729,8 @@ export interface GetPhoneNumberResponse {
  */
 export interface GetPhoneNumberOrderRequest {
   /**
-   * <p>The ID for the phone number order.</p>
+   * The ID for the phone number order.
+   *
    * @public
    */
   PhoneNumberOrderId: string | undefined;
@@ -1552,7 +1741,8 @@ export interface GetPhoneNumberOrderRequest {
  */
 export interface GetPhoneNumberOrderResponse {
   /**
-   * <p>The phone number order details.</p>
+   * The phone number order details.
+   *
    * @public
    */
   PhoneNumberOrder?: PhoneNumberOrder | undefined;
@@ -1563,13 +1753,15 @@ export interface GetPhoneNumberOrderResponse {
  */
 export interface GetPhoneNumberSettingsResponse {
   /**
-   * <p>The default outbound calling name for the account.</p>
+   * The default outbound calling name for the account.
+   *
    * @public
    */
   CallingName?: string | undefined;
 
   /**
-   * <p>The updated outbound calling name timestamp, in ISO 8601 format.</p>
+   * The updated outbound calling name timestamp, in ISO 8601 format.
+   *
    * @public
    */
   CallingNameUpdatedTimestamp?: Date | undefined;
@@ -1580,37 +1772,43 @@ export interface GetPhoneNumberSettingsResponse {
  */
 export interface GetRetentionSettingsRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
 }
 
 /**
- * <p>The retention settings that determine how long to retain chat-room messages for an Amazon Chime Enterprise account.</p>
+ * The retention settings that determine how long to retain chat-room messages for an Amazon Chime Enterprise account.
+ *
  * @public
  */
 export interface RoomRetentionSettings {
   /**
-   * <p>The number of days for which to retain chat-room messages.</p>
+   * The number of days for which to retain chat-room messages.
+   *
    * @public
    */
   RetentionDays?: number | undefined;
 }
 
 /**
- * <p>The retention settings for an Amazon Chime Enterprise account that determine how long to retain items such as chat-room messages and chat-conversation messages.</p>
+ * The retention settings for an Amazon Chime Enterprise account that determine how long to retain items such as chat-room messages and chat-conversation messages.
+ *
  * @public
  */
 export interface RetentionSettings {
   /**
-   * <p>The chat room retention settings.</p>
+   * The chat room retention settings.
+   *
    * @public
    */
   RoomRetentionSettings?: RoomRetentionSettings | undefined;
 
   /**
-   * <p>The chat conversation retention settings.</p>
+   * The chat conversation retention settings.
+   *
    * @public
    */
   ConversationRetentionSettings?: ConversationRetentionSettings | undefined;
@@ -1621,13 +1819,15 @@ export interface RetentionSettings {
  */
 export interface GetRetentionSettingsResponse {
   /**
-   * <p>The retention settings.</p>
+   * The retention settings.
+   *
    * @public
    */
   RetentionSettings?: RetentionSettings | undefined;
 
   /**
-   * <p>The timestamp representing the time at which the specified items are permanently deleted, in ISO 8601 format.</p>
+   * The timestamp representing the time at which the specified items are permanently deleted, in ISO 8601 format.
+   *
    * @public
    */
   InitiateDeletionTimestamp?: Date | undefined;
@@ -1638,13 +1838,15 @@ export interface GetRetentionSettingsResponse {
  */
 export interface GetRoomRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The room ID.</p>
+   * The room ID.
+   *
    * @public
    */
   RoomId: string | undefined;
@@ -1655,7 +1857,8 @@ export interface GetRoomRequest {
  */
 export interface GetRoomResponse {
   /**
-   * <p>The room details.</p>
+   * The room details.
+   *
    * @public
    */
   Room?: Room | undefined;
@@ -1666,13 +1869,15 @@ export interface GetRoomResponse {
  */
 export interface GetUserRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The user ID.</p>
+   * The user ID.
+   *
    * @public
    */
   UserId: string | undefined;
@@ -1683,7 +1888,8 @@ export interface GetUserRequest {
  */
 export interface GetUserResponse {
   /**
-   * <p>The user details.</p>
+   * The user details.
+   *
    * @public
    */
   User?: User | undefined;
@@ -1694,51 +1900,57 @@ export interface GetUserResponse {
  */
 export interface GetUserSettingsRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The user ID.</p>
+   * The user ID.
+   *
    * @public
    */
   UserId: string | undefined;
 }
 
 /**
- * <p>Settings that allow management of telephony permissions for an Amazon Chime user, such as
- *             inbound and outbound calling and text messaging.</p>
+ * Settings that allow management of telephony permissions for an Amazon Chime user, such as inbound and outbound calling and text messaging.
+ *
  * @public
  */
 export interface TelephonySettings {
   /**
-   * <p>Allows or denies inbound calling.</p>
+   * Allows or denies inbound calling.
+   *
    * @public
    */
   InboundCalling: boolean | undefined;
 
   /**
-   * <p>Allows or denies outbound calling.</p>
+   * Allows or denies outbound calling.
+   *
    * @public
    */
   OutboundCalling: boolean | undefined;
 
   /**
-   * <p>Allows or denies SMS messaging.</p>
+   * Allows or denies SMS messaging.
+   *
    * @public
    */
   SMS: boolean | undefined;
 }
 
 /**
- * <p>Settings associated with an Amazon Chime user, including inbound and outbound calling and text
- *             messaging.</p>
+ * Settings associated with an Amazon Chime user, including inbound and outbound calling and text messaging.
+ *
  * @public
  */
 export interface UserSettings {
   /**
-   * <p>The telephony settings associated with the user.</p>
+   * The telephony settings associated with the user.
+   *
    * @public
    */
   Telephony: TelephonySettings | undefined;
@@ -1749,38 +1961,43 @@ export interface UserSettings {
  */
 export interface GetUserSettingsResponse {
   /**
-   * <p>The user settings.</p>
+   * The user settings.
+   *
    * @public
    */
   UserSettings?: UserSettings | undefined;
 }
 
 /**
- * <p>Invitation object returned after emailing users to invite them to join the Amazon Chime
- *                 <code>Team</code> account.</p>
+ * Invitation object returned after emailing users to invite them to join the Amazon Chime `Team` account.
+ *
  * @public
  */
 export interface Invite {
   /**
-   * <p>The invite ID.</p>
+   * The invite ID.
+   *
    * @public
    */
   InviteId?: string | undefined;
 
   /**
-   * <p>The status of the invite.</p>
+   * The status of the invite.
+   *
    * @public
    */
   Status?: InviteStatus | undefined;
 
   /**
-   * <p>The email address to which the invite is sent.</p>
+   * The email address to which the invite is sent.
+   *
    * @public
    */
   EmailAddress?: string | undefined;
 
   /**
-   * <p>The status of the invite email.</p>
+   * The status of the invite email.
+   *
    * @public
    */
   EmailStatus?: EmailStatus | undefined;
@@ -1791,19 +2008,22 @@ export interface Invite {
  */
 export interface InviteUsersRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The user email addresses to which to send the email invitation.</p>
+   * The user email addresses to which to send the email invitation.
+   *
    * @public
    */
   UserEmailList: string[] | undefined;
 
   /**
-   * <p>The user type.</p>
+   * The user type.
+   *
    * @public
    */
   UserType?: UserType | undefined;
@@ -1814,7 +2034,8 @@ export interface InviteUsersRequest {
  */
 export interface InviteUsersResponse {
   /**
-   * <p>The email invitation details.</p>
+   * The email invitation details.
+   *
    * @public
    */
   Invites?: Invite[] | undefined;
@@ -1825,25 +2046,29 @@ export interface InviteUsersResponse {
  */
 export interface ListAccountsRequest {
   /**
-   * <p>Amazon Chime account name prefix with which to filter results.</p>
+   * Amazon Chime account name prefix with which to filter results.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>User email address with which to filter results.</p>
+   * User email address with which to filter results.
+   *
    * @public
    */
   UserEmail?: string | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results.</p>
+   * The token to use to retrieve the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. Defaults to 100.</p>
+   * The maximum number of results to return in a single call. Defaults to 100.
+   *
    * @public
    */
   MaxResults?: number | undefined;
@@ -1854,13 +2079,15 @@ export interface ListAccountsRequest {
  */
 export interface ListAccountsResponse {
   /**
-   * <p>List of Amazon Chime accounts and account details.</p>
+   * List of Amazon Chime accounts and account details.
+   *
    * @public
    */
   Accounts?: Account[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results.</p>
+   * The token to use to retrieve the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1871,19 +2098,22 @@ export interface ListAccountsResponse {
  */
 export interface ListBotsRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. The default is 10.</p>
+   * The maximum number of results to return in a single call. The default is 10.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results.</p>
+   * The token to use to retrieve the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1894,13 +2124,15 @@ export interface ListBotsRequest {
  */
 export interface ListBotsResponse {
   /**
-   * <p>List of bots and bot details.</p>
+   * List of bots and bot details.
+   *
    * @public
    */
   Bots?: Bot[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results.</p>
+   * The token to use to retrieve the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1911,13 +2143,15 @@ export interface ListBotsResponse {
  */
 export interface ListPhoneNumberOrdersRequest {
   /**
-   * <p>The token to use to retrieve the next page of results.</p>
+   * The token to use to retrieve the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
@@ -1928,13 +2162,15 @@ export interface ListPhoneNumberOrdersRequest {
  */
 export interface ListPhoneNumberOrdersResponse {
   /**
-   * <p>The phone number order details.</p>
+   * The phone number order details.
+   *
    * @public
    */
   PhoneNumberOrders?: PhoneNumberOrder[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results.</p>
+   * The token to use to retrieve the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1945,37 +2181,43 @@ export interface ListPhoneNumberOrdersResponse {
  */
 export interface ListPhoneNumbersRequest {
   /**
-   * <p>The phone number status.</p>
+   * The phone number status.
+   *
    * @public
    */
   Status?: PhoneNumberStatus | undefined;
 
   /**
-   * <p>The phone number product type.</p>
+   * The phone number product type.
+   *
    * @public
    */
   ProductType?: PhoneNumberProductType | undefined;
 
   /**
-   * <p>The filter to use to limit the number of results.</p>
+   * The filter to use to limit the number of results.
+   *
    * @public
    */
   FilterName?: PhoneNumberAssociationName | undefined;
 
   /**
-   * <p>The value to use for the filter.</p>
+   * The value to use for the filter.
+   *
    * @public
    */
   FilterValue?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results.</p>
+   * The token to use to retrieve the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1986,13 +2228,15 @@ export interface ListPhoneNumbersRequest {
  */
 export interface ListPhoneNumbersResponse {
   /**
-   * <p>The phone number details.</p>
+   * The phone number details.
+   *
    * @public
    */
   PhoneNumbers?: PhoneNumber[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results.</p>
+   * The token to use to retrieve the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2003,25 +2247,29 @@ export interface ListPhoneNumbersResponse {
  */
 export interface ListRoomMembershipsRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The room ID.</p>
+   * The room ID.
+   *
    * @public
    */
   RoomId: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results.</p>
+   * The token to use to retrieve the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2032,13 +2280,15 @@ export interface ListRoomMembershipsRequest {
  */
 export interface ListRoomMembershipsResponse {
   /**
-   * <p>The room membership details.</p>
+   * The room membership details.
+   *
    * @public
    */
   RoomMemberships?: RoomMembership[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results.</p>
+   * The token to use to retrieve the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2049,25 +2299,29 @@ export interface ListRoomMembershipsResponse {
  */
 export interface ListRoomsRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The member ID (user ID or bot ID).</p>
+   * The member ID (user ID or bot ID).
+   *
    * @public
    */
   MemberId?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results.</p>
+   * The token to use to retrieve the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2078,13 +2332,15 @@ export interface ListRoomsRequest {
  */
 export interface ListRoomsResponse {
   /**
-   * <p>The room details.</p>
+   * The room details.
+   *
    * @public
    */
   Rooms?: Room[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results.</p>
+   * The token to use to retrieve the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2095,25 +2351,29 @@ export interface ListRoomsResponse {
  */
 export interface ListSupportedPhoneNumberCountriesRequest {
   /**
-   * <p>The phone number product type.</p>
+   * The phone number product type.
+   *
    * @public
    */
   ProductType: PhoneNumberProductType | undefined;
 }
 
 /**
- * <p>The phone number country.</p>
+ * The phone number country.
+ *
  * @public
  */
 export interface PhoneNumberCountry {
   /**
-   * <p>The phone number country code. Format: ISO 3166-1 alpha-2.</p>
+   * The phone number country code. Format: ISO 3166-1 alpha-2.
+   *
    * @public
    */
   CountryCode?: string | undefined;
 
   /**
-   * <p>The supported phone number types. </p>
+   * The supported phone number types.
+   *
    * @public
    */
   SupportedPhoneNumberTypes?: PhoneNumberType[] | undefined;
@@ -2124,7 +2384,8 @@ export interface PhoneNumberCountry {
  */
 export interface ListSupportedPhoneNumberCountriesResponse {
   /**
-   * <p>The supported phone number countries.</p>
+   * The supported phone number countries.
+   *
    * @public
    */
   PhoneNumberCountries?: PhoneNumberCountry[] | undefined;
@@ -2135,31 +2396,36 @@ export interface ListSupportedPhoneNumberCountriesResponse {
  */
 export interface ListUsersRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>Optional. The user email address used to filter results. Maximum 1.</p>
+   * Optional. The user email address used to filter results. Maximum 1.
+   *
    * @public
    */
   UserEmail?: string | undefined;
 
   /**
-   * <p>The user type.</p>
+   * The user type.
+   *
    * @public
    */
   UserType?: UserType | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. Defaults to 100.</p>
+   * The maximum number of results to return in a single call. Defaults to 100.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results.</p>
+   * The token to use to retrieve the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2170,13 +2436,15 @@ export interface ListUsersRequest {
  */
 export interface ListUsersResponse {
   /**
-   * <p>List of users and user details.</p>
+   * List of users and user details.
+   *
    * @public
    */
   Users?: User[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results.</p>
+   * The token to use to retrieve the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2187,13 +2455,15 @@ export interface ListUsersResponse {
  */
 export interface LogoutUserRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The user ID.</p>
+   * The user ID.
+   *
    * @public
    */
   UserId: string | undefined;
@@ -2209,25 +2479,29 @@ export interface LogoutUserResponse {}
  */
 export interface PutEventsConfigurationRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The bot ID.</p>
+   * The bot ID.
+   *
    * @public
    */
   BotId: string | undefined;
 
   /**
-   * <p>HTTPS endpoint that allows the bot to receive outgoing events.</p>
+   * HTTPS endpoint that allows the bot to receive outgoing events.
+   *
    * @public
    */
   OutboundEventsHTTPSEndpoint?: string | undefined;
 
   /**
-   * <p>Lambda function ARN that allows the bot to receive outgoing events.</p>
+   * Lambda function ARN that allows the bot to receive outgoing events.
+   *
    * @public
    */
   LambdaFunctionArn?: string | undefined;
@@ -2238,8 +2512,8 @@ export interface PutEventsConfigurationRequest {
  */
 export interface PutEventsConfigurationResponse {
   /**
-   * <p>The configuration that allows a bot to receive outgoing events. Can be an HTTPS endpoint or an
-   *             AWS Lambda function ARN.</p>
+   * The configuration that allows a bot to receive outgoing events. Can be an HTTPS endpoint or an AWS Lambda function ARN.
+   *
    * @public
    */
   EventsConfiguration?: EventsConfiguration | undefined;
@@ -2250,13 +2524,15 @@ export interface PutEventsConfigurationResponse {
  */
 export interface PutRetentionSettingsRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The retention settings.</p>
+   * The retention settings.
+   *
    * @public
    */
   RetentionSettings: RetentionSettings | undefined;
@@ -2267,13 +2543,15 @@ export interface PutRetentionSettingsRequest {
  */
 export interface PutRetentionSettingsResponse {
   /**
-   * <p>The retention settings.</p>
+   * The retention settings.
+   *
    * @public
    */
   RetentionSettings?: RetentionSettings | undefined;
 
   /**
-   * <p>The timestamp representing the time at which the specified items are permanently deleted, in ISO 8601 format.</p>
+   * The timestamp representing the time at which the specified items are permanently deleted, in ISO 8601 format.
+   *
    * @public
    */
   InitiateDeletionTimestamp?: Date | undefined;
@@ -2284,19 +2562,22 @@ export interface PutRetentionSettingsResponse {
  */
 export interface RedactConversationMessageRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The conversation ID.</p>
+   * The conversation ID.
+   *
    * @public
    */
   ConversationId: string | undefined;
 
   /**
-   * <p>The message ID.</p>
+   * The message ID.
+   *
    * @public
    */
   MessageId: string | undefined;
@@ -2312,19 +2593,22 @@ export interface RedactConversationMessageResponse {}
  */
 export interface RedactRoomMessageRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The room ID.</p>
+   * The room ID.
+   *
    * @public
    */
   RoomId: string | undefined;
 
   /**
-   * <p>The message ID.</p>
+   * The message ID.
+   *
    * @public
    */
   MessageId: string | undefined;
@@ -2340,13 +2624,15 @@ export interface RedactRoomMessageResponse {}
  */
 export interface RegenerateSecurityTokenRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The bot ID.</p>
+   * The bot ID.
+   *
    * @public
    */
   BotId: string | undefined;
@@ -2357,7 +2643,8 @@ export interface RegenerateSecurityTokenRequest {
  */
 export interface RegenerateSecurityTokenResponse {
   /**
-   * <p>A resource that allows Enterprise account administrators to configure an interface that receives events from Amazon Chime.</p>
+   * A resource that allows Enterprise account administrators to configure an interface that receives events from Amazon Chime.
+   *
    * @public
    */
   Bot?: Bot | undefined;
@@ -2368,13 +2655,15 @@ export interface RegenerateSecurityTokenResponse {
  */
 export interface ResetPersonalPINRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The user ID.</p>
+   * The user ID.
+   *
    * @public
    */
   UserId: string | undefined;
@@ -2385,7 +2674,8 @@ export interface ResetPersonalPINRequest {
  */
 export interface ResetPersonalPINResponse {
   /**
-   * <p>The user details and new personal meeting PIN.</p>
+   * The user details and new personal meeting PIN.
+   *
    * @public
    */
   User?: User | undefined;
@@ -2396,7 +2686,8 @@ export interface ResetPersonalPINResponse {
  */
 export interface RestorePhoneNumberRequest {
   /**
-   * <p>The phone number.</p>
+   * The phone number.
+   *
    * @public
    */
   PhoneNumberId: string | undefined;
@@ -2407,7 +2698,8 @@ export interface RestorePhoneNumberRequest {
  */
 export interface RestorePhoneNumberResponse {
   /**
-   * <p>The phone number details.</p>
+   * The phone number details.
+   *
    * @public
    */
   PhoneNumber?: PhoneNumber | undefined;
@@ -2418,49 +2710,57 @@ export interface RestorePhoneNumberResponse {
  */
 export interface SearchAvailablePhoneNumbersRequest {
   /**
-   * <p>The area code used to filter results. Only applies to the US.</p>
+   * The area code used to filter results. Only applies to the US.
+   *
    * @public
    */
   AreaCode?: string | undefined;
 
   /**
-   * <p>The city used to filter results. Only applies to the US.</p>
+   * The city used to filter results. Only applies to the US.
+   *
    * @public
    */
   City?: string | undefined;
 
   /**
-   * <p>The country used to filter results. Defaults to the US Format: ISO 3166-1 alpha-2.</p>
+   * The country used to filter results. Defaults to the US Format: ISO 3166-1 alpha-2.
+   *
    * @public
    */
   Country?: string | undefined;
 
   /**
-   * <p>The state used to filter results. Required only if you provide <code>City</code>. Only applies to the US.</p>
+   * The state used to filter results. Required only if you provide `City`. Only applies to the US.
+   *
    * @public
    */
   State?: string | undefined;
 
   /**
-   * <p>The toll-free prefix that you use to filter results. Only applies to the US.</p>
+   * The toll-free prefix that you use to filter results. Only applies to the US.
+   *
    * @public
    */
   TollFreePrefix?: string | undefined;
 
   /**
-   * <p>The phone number type used to filter results. Required for non-US numbers.</p>
+   * The phone number type used to filter results. Required for non-US numbers.
+   *
    * @public
    */
   PhoneNumberType?: PhoneNumberType | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token used to retrieve the next page of results.</p>
+   * The token used to retrieve the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2471,13 +2771,15 @@ export interface SearchAvailablePhoneNumbersRequest {
  */
 export interface SearchAvailablePhoneNumbersResponse {
   /**
-   * <p>List of phone numbers, in E.164 format.</p>
+   * List of phone numbers, in E.164 format.
+   *
    * @public
    */
   E164PhoneNumbers?: string[] | undefined;
 
   /**
-   * <p>The token used to retrieve the next page of search results.</p>
+   * The token used to retrieve the next page of search results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2488,19 +2790,22 @@ export interface SearchAvailablePhoneNumbersResponse {
  */
 export interface UpdateAccountRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The new name for the specified Amazon Chime account.</p>
+   * The new name for the specified Amazon Chime account.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The default license applied when you add users to an Amazon Chime account.</p>
+   * The default license applied when you add users to an Amazon Chime account.
+   *
    * @public
    */
   DefaultLicense?: License | undefined;
@@ -2511,7 +2816,8 @@ export interface UpdateAccountRequest {
  */
 export interface UpdateAccountResponse {
   /**
-   * <p>The updated Amazon Chime account details.</p>
+   * The updated Amazon Chime account details.
+   *
    * @public
    */
   Account?: Account | undefined;
@@ -2522,13 +2828,15 @@ export interface UpdateAccountResponse {
  */
 export interface UpdateAccountSettingsRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The Amazon Chime account settings to update.</p>
+   * The Amazon Chime account settings to update.
+   *
    * @public
    */
   AccountSettings: AccountSettings | undefined;
@@ -2544,19 +2852,22 @@ export interface UpdateAccountSettingsResponse {}
  */
 export interface UpdateBotRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The bot ID.</p>
+   * The bot ID.
+   *
    * @public
    */
   BotId: string | undefined;
 
   /**
-   * <p>When true, stops the specified bot from running in your account.</p>
+   * When true, stops the specified bot from running in your account.
+   *
    * @public
    */
   Disabled?: boolean | undefined;
@@ -2567,7 +2878,8 @@ export interface UpdateBotRequest {
  */
 export interface UpdateBotResponse {
   /**
-   * <p>The updated bot details.</p>
+   * The updated bot details.
+   *
    * @public
    */
   Bot?: Bot | undefined;
@@ -2578,13 +2890,15 @@ export interface UpdateBotResponse {
  */
 export interface UpdateGlobalSettingsRequest {
   /**
-   * <p>The Amazon Chime Business Calling settings.</p>
+   * The Amazon Chime Business Calling settings.
+   *
    * @public
    */
   BusinessCalling?: BusinessCallingSettings | undefined;
 
   /**
-   * <p>The Amazon Chime Voice Connector settings.</p>
+   * The Amazon Chime Voice Connector settings.
+   *
    * @public
    */
   VoiceConnector?: VoiceConnectorSettings | undefined;
@@ -2595,19 +2909,22 @@ export interface UpdateGlobalSettingsRequest {
  */
 export interface UpdatePhoneNumberRequest {
   /**
-   * <p>The phone number ID.</p>
+   * The phone number ID.
+   *
    * @public
    */
   PhoneNumberId: string | undefined;
 
   /**
-   * <p>The product type.</p>
+   * The product type.
+   *
    * @public
    */
   ProductType?: PhoneNumberProductType | undefined;
 
   /**
-   * <p>The outbound calling name associated with the phone number.</p>
+   * The outbound calling name associated with the phone number.
+   *
    * @public
    */
   CallingName?: string | undefined;
@@ -2618,7 +2935,8 @@ export interface UpdatePhoneNumberRequest {
  */
 export interface UpdatePhoneNumberResponse {
   /**
-   * <p>The updated phone number details.</p>
+   * The updated phone number details.
+   *
    * @public
    */
   PhoneNumber?: PhoneNumber | undefined;
@@ -2629,7 +2947,8 @@ export interface UpdatePhoneNumberResponse {
  */
 export interface UpdatePhoneNumberSettingsRequest {
   /**
-   * <p>The default outbound calling name for the account.</p>
+   * The default outbound calling name for the account.
+   *
    * @public
    */
   CallingName: string | undefined;
@@ -2640,19 +2959,22 @@ export interface UpdatePhoneNumberSettingsRequest {
  */
 export interface UpdateRoomRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The room ID.</p>
+   * The room ID.
+   *
    * @public
    */
   RoomId: string | undefined;
 
   /**
-   * <p>The room name.</p>
+   * The room name.
+   *
    * @public
    */
   Name?: string | undefined;
@@ -2663,7 +2985,8 @@ export interface UpdateRoomRequest {
  */
 export interface UpdateRoomResponse {
   /**
-   * <p>The room details.</p>
+   * The room details.
+   *
    * @public
    */
   Room?: Room | undefined;
@@ -2674,25 +2997,29 @@ export interface UpdateRoomResponse {
  */
 export interface UpdateRoomMembershipRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The room ID.</p>
+   * The room ID.
+   *
    * @public
    */
   RoomId: string | undefined;
 
   /**
-   * <p>The member ID.</p>
+   * The member ID.
+   *
    * @public
    */
   MemberId: string | undefined;
 
   /**
-   * <p>The role of the member.</p>
+   * The role of the member.
+   *
    * @public
    */
   Role?: RoomMembershipRole | undefined;
@@ -2703,7 +3030,8 @@ export interface UpdateRoomMembershipRequest {
  */
 export interface UpdateRoomMembershipResponse {
   /**
-   * <p>The room membership details.</p>
+   * The room membership details.
+   *
    * @public
    */
   RoomMembership?: RoomMembership | undefined;
@@ -2714,32 +3042,36 @@ export interface UpdateRoomMembershipResponse {
  */
 export interface UpdateUserRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The user ID.</p>
+   * The user ID.
+   *
    * @public
    */
   UserId: string | undefined;
 
   /**
-   * <p>The user license type to update. This must be a supported license type for the Amazon Chime
-   *             account that the user belongs to.</p>
+   * The user license type to update. This must be a supported license type for the Amazon Chime account that the user belongs to.
+   *
    * @public
    */
   LicenseType?: License | undefined;
 
   /**
-   * <p>The user type.</p>
+   * The user type.
+   *
    * @public
    */
   UserType?: UserType | undefined;
 
   /**
-   * <p>The Alexa for Business metadata.</p>
+   * The Alexa for Business metadata.
+   *
    * @public
    */
   AlexaForBusinessMetadata?: AlexaForBusinessMetadata | undefined;
@@ -2750,7 +3082,8 @@ export interface UpdateUserRequest {
  */
 export interface UpdateUserResponse {
   /**
-   * <p>The updated user details.</p>
+   * The updated user details.
+   *
    * @public
    */
   User?: User | undefined;
@@ -2761,19 +3094,22 @@ export interface UpdateUserResponse {
  */
 export interface UpdateUserSettingsRequest {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * The Amazon Chime account ID.
+   *
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The user ID.</p>
+   * The user ID.
+   *
    * @public
    */
   UserId: string | undefined;
 
   /**
-   * <p>The user settings to update.</p>
+   * The user settings to update.
+   *
    * @public
    */
   UserSettings: UserSettings | undefined;

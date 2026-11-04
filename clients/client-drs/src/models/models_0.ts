@@ -48,12 +48,14 @@ import type {
 } from "./enums";
 
 /**
- * <p>AWS account.</p>
+ * AWS account.
+ *
  * @public
  */
 export interface Account {
   /**
-   * <p>Account ID of AWS account.</p>
+   * Account ID of AWS account.
+   *
    * @public
    */
   accountID?: string | undefined;
@@ -64,20 +66,23 @@ export interface Account {
  */
 export interface AssociateSourceNetworkStackRequest {
   /**
-   * <p>The Source Network ID to associate with CloudFormation template.</p>
+   * The Source Network ID to associate with CloudFormation template.
+   *
    * @public
    */
   sourceNetworkID: string | undefined;
 
   /**
-   * <p>CloudFormation template to associate with a Source Network.</p>
+   * CloudFormation template to associate with a Source Network.
+   *
    * @public
    */
   cfnStackName: string | undefined;
 }
 
 /**
- * <p>ID of a resource participating in an asynchronous Job.</p>
+ * ID of a resource participating in an asynchronous Job.
+ *
  * @public
  */
 export type ParticipatingResourceID =
@@ -89,7 +94,8 @@ export type ParticipatingResourceID =
  */
 export namespace ParticipatingResourceID {
   /**
-   * <p>Source Network ID.</p>
+   * Source Network ID.
+   *
    * @public
    */
   export interface SourceNetworkIDMember {
@@ -116,252 +122,294 @@ export namespace ParticipatingResourceID {
 }
 
 /**
- * <p>Represents a resource participating in an asynchronous Job.</p>
+ * Represents a resource participating in an asynchronous Job.
+ *
  * @public
  */
 export interface ParticipatingResource {
   /**
-   * <p>The ID of a participating resource.</p>
+   * The ID of a participating resource.
+   *
    * @public
    */
   participatingResourceID?: ParticipatingResourceID | undefined;
 
   /**
-   * <p>The launch status of a participating resource.</p>
+   * The launch status of a participating resource.
+   *
    * @public
    */
   launchStatus?: LaunchStatus | undefined;
 }
 
 /**
- * <p>Launch action parameter.</p>
+ * Launch action parameter.
+ *
  * @public
  */
 export interface LaunchActionParameter {
   /**
-   * <p>Value.</p>
+   * Value.
+   *
    * @public
    */
   value?: string | undefined;
 
   /**
-   * <p>Type.</p>
+   * Type.
+   *
    * @public
    */
   type?: LaunchActionParameterType | undefined;
 }
 
 /**
- * <p>Launch action.</p>
+ * Launch action.
+ *
  * @public
  */
 export interface LaunchAction {
   /**
-   * <p>Launch action Id.</p>
+   * Launch action Id.
+   *
    * @public
    */
   actionId?: string | undefined;
 
   /**
-   * <p>Launch action code.</p>
+   * Launch action code.
+   *
    * @public
    */
   actionCode?: string | undefined;
 
   /**
-   * <p>Launch action type.</p>
+   * Launch action type.
+   *
    * @public
    */
   type?: LaunchActionType | undefined;
 
   /**
-   * <p>Launch action name.</p>
+   * Launch action name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Whether the launch action is active.</p>
+   * Whether the launch action is active.
+   *
    * @public
    */
   active?: boolean | undefined;
 
   /**
-   * <p>Launch action order.</p>
+   * Launch action order.
+   *
    * @public
    */
   order?: number | undefined;
 
   /**
-   * <p>Launch action version.</p>
+   * Launch action version.
+   *
    * @public
    */
   actionVersion?: string | undefined;
 
   /**
-   * <p>Whether the launch will not be marked as failed if this action fails.</p>
+   * Whether the launch will not be marked as failed if this action fails.
+   *
    * @public
    */
   optional?: boolean | undefined;
 
   /**
-   * <p>Launch action parameters.</p>
+   * Launch action parameters.
+   *
    * @public
    */
   parameters?: Record<string, LaunchActionParameter> | undefined;
 
   /**
-   * <p>Launch action description.</p>
+   * Launch action description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Launch action category.</p>
+   * Launch action category.
+   *
    * @public
    */
   category?: LaunchActionCategory | undefined;
 }
 
 /**
- * <p>Launch action run.</p>
+ * Launch action run.
+ *
  * @public
  */
 export interface LaunchActionRun {
   /**
-   * <p>Action.</p>
+   * Action.
+   *
    * @public
    */
   action?: LaunchAction | undefined;
 
   /**
-   * <p>Run Id.</p>
+   * Run Id.
+   *
    * @public
    */
   runId?: string | undefined;
 
   /**
-   * <p>Run status.</p>
+   * Run status.
+   *
    * @public
    */
   status?: LaunchActionRunStatus | undefined;
 
   /**
-   * <p>Failure reason.</p>
+   * Failure reason.
+   *
    * @public
    */
   failureReason?: string | undefined;
 }
 
 /**
- * <p>Launch actions status.</p>
+ * Launch actions status.
+ *
  * @public
  */
 export interface LaunchActionsStatus {
   /**
-   * <p>Time where the AWS Systems Manager was detected as running on the launched instance.</p>
+   * Time where the AWS Systems Manager was detected as running on the launched instance.
+   *
    * @public
    */
   ssmAgentDiscoveryDatetime?: string | undefined;
 
   /**
-   * <p>List of post launch action status.</p>
+   * List of post launch action status.
+   *
    * @public
    */
   runs?: LaunchActionRun[] | undefined;
 }
 
 /**
- * <p>Represents a server participating in an asynchronous Job.</p>
+ * Represents a server participating in an asynchronous Job.
+ *
  * @public
  */
 export interface ParticipatingServer {
   /**
-   * <p>The Source Server ID of a participating server.</p>
+   * The Source Server ID of a participating server.
+   *
    * @public
    */
   sourceServerID?: string | undefined;
 
   /**
-   * <p>The Recovery Instance ID of a participating server.</p>
+   * The Recovery Instance ID of a participating server.
+   *
    * @public
    */
   recoveryInstanceID?: string | undefined;
 
   /**
-   * <p>The launch status of a participating server.</p>
+   * The launch status of a participating server.
+   *
    * @public
    */
   launchStatus?: LaunchStatus | undefined;
 
   /**
-   * <p>The post-launch action runs of a participating server.</p>
+   * The post-launch action runs of a participating server.
+   *
    * @public
    */
   launchActionsStatus?: LaunchActionsStatus | undefined;
 }
 
 /**
- * <p>A job is an asynchronous workflow.</p>
+ * A job is an asynchronous workflow.
+ *
  * @public
  */
 export interface Job {
   /**
-   * <p>The ID of the Job.</p>
+   * The ID of the Job.
+   *
    * @public
    */
   jobID: string | undefined;
 
   /**
-   * <p>The ARN of a Job.</p>
+   * The ARN of a Job.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The type of the Job.</p>
+   * The type of the Job.
+   *
    * @public
    */
   type?: JobType | undefined;
 
   /**
-   * <p>A string representing who initiated the Job.</p>
+   * A string representing who initiated the Job.
+   *
    * @public
    */
   initiatedBy?: InitiatedBy | undefined;
 
   /**
-   * <p>The date and time of when the Job was created.</p>
+   * The date and time of when the Job was created.
+   *
    * @public
    */
   creationDateTime?: string | undefined;
 
   /**
-   * <p>The date and time of when the Job ended.</p>
+   * The date and time of when the Job ended.
+   *
    * @public
    */
   endDateTime?: string | undefined;
 
   /**
-   * <p>The status of the Job.</p>
+   * The status of the Job.
+   *
    * @public
    */
   status?: JobStatus | undefined;
 
   /**
-   * <p>A list of servers that the Job is acting upon.</p>
+   * A list of servers that the Job is acting upon.
+   *
    * @public
    */
   participatingServers?: ParticipatingServer[] | undefined;
 
   /**
-   * <p>A list of tags associated with the Job.</p>
+   * A list of tags associated with the Job.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>A list of resources that the Job is acting upon.</p>
+   * A list of resources that the Job is acting upon.
+   *
    * @public
    */
   participatingResources?: ParticipatingResource[] | undefined;
@@ -372,25 +420,29 @@ export interface Job {
  */
 export interface AssociateSourceNetworkStackResponse {
   /**
-   * <p>The Source Network association Job.</p>
+   * The Source Network association Job.
+   *
    * @public
    */
   job?: Job | undefined;
 }
 
 /**
- * <p>Validate exception field.</p>
+ * Validate exception field.
+ *
  * @public
  */
 export interface ValidationExceptionField {
   /**
-   * <p>Validate exception field name.</p>
+   * Validate exception field name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Validate exception field message.</p>
+   * Validate exception field message.
+   *
    * @public
    */
   message?: string | undefined;
@@ -401,79 +453,92 @@ export interface ValidationExceptionField {
  */
 export interface CancelRecoveryPlanExecutionRequest {
   /**
-   * <p>The ARN of the Recovery Plan execution to cancel.</p>
+   * The ARN of the Recovery Plan execution to cancel.
+   *
    * @public
    */
   recoveryPlanExecutionArn: string | undefined;
 }
 
 /**
- * <p>Error details for a failed operation.</p>
+ * Error details for a failed operation.
+ *
  * @public
  */
 export interface ErrorDetail {
   /**
-   * <p>The error message.</p>
+   * The error message.
+   *
    * @public
    */
   message: string | undefined;
 
   /**
-   * <p>The error code.</p>
+   * The error code.
+   *
    * @public
    */
   code: string | undefined;
 }
 
 /**
- * <p>A Recovery Plan execution.</p>
+ * A Recovery Plan execution.
+ *
  * @public
  */
 export interface RecoveryPlanExecution {
   /**
-   * <p>The ARN of the Recovery Plan execution.</p>
+   * The ARN of the Recovery Plan execution.
+   *
    * @public
    */
   recoveryPlanExecutionArn: string | undefined;
 
   /**
-   * <p>The ARN of the Recovery Plan being executed.</p>
+   * The ARN of the Recovery Plan being executed.
+   *
    * @public
    */
   recoveryPlanArn: string | undefined;
 
   /**
-   * <p>The execution mode.</p>
+   * The execution mode.
+   *
    * @public
    */
   mode: RecoveryPlanExecutionMode | undefined;
 
   /**
-   * <p>The execution status.</p>
+   * The execution status.
+   *
    * @public
    */
   status: RecoveryPlanExecutionStatus | undefined;
 
   /**
-   * <p>The timestamp when the execution started.</p>
+   * The timestamp when the execution started.
+   *
    * @public
    */
   startedAt: string | undefined;
 
   /**
-   * <p>The timestamp when the execution completed.</p>
+   * The timestamp when the execution completed.
+   *
    * @public
    */
   completedAt?: string | undefined;
 
   /**
-   * <p>Error details if the execution failed.</p>
+   * Error details if the execution failed.
+   *
    * @public
    */
   errorDetail?: ErrorDetail | undefined;
 
   /**
-   * <p>The tags associated with the Recovery Plan execution.</p>
+   * The tags associated with the Recovery Plan execution.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -484,85 +549,99 @@ export interface RecoveryPlanExecution {
  */
 export interface CancelRecoveryPlanExecutionResponse {
   /**
-   * <p>The cancelled Recovery Plan execution.</p>
+   * The cancelled Recovery Plan execution.
+   *
    * @public
    */
   recoveryPlanExecution: RecoveryPlanExecution | undefined;
 }
 
 /**
- * <p>Properties of a product code associated with a volume.</p>
+ * Properties of a product code associated with a volume.
+ *
  * @public
  */
 export interface ProductCode {
   /**
-   * <p>Id of a product code associated with a volume.</p>
+   * Id of a product code associated with a volume.
+   *
    * @public
    */
   productCodeId?: string | undefined;
 
   /**
-   * <p>Mode of a product code associated with a volume.</p>
+   * Mode of a product code associated with a volume.
+   *
    * @public
    */
   productCodeMode?: ProductCodeMode | undefined;
 }
 
 /**
- * <p>Properties of a conversion job</p>
+ * Properties of a conversion job
+ *
  * @public
  */
 export interface ConversionProperties {
   /**
-   * <p>A mapping between the volumes being converted and the converted snapshot ids</p>
+   * A mapping between the volumes being converted and the converted snapshot ids
+   *
    * @public
    */
   volumeToConversionMap?: Record<string, Record<string, string>> | undefined;
 
   /**
-   * <p>The root volume name of a conversion job</p>
+   * The root volume name of a conversion job
+   *
    * @public
    */
   rootVolumeName?: string | undefined;
 
   /**
-   * <p>Whether the volume being converted uses UEFI or not</p>
+   * Whether the volume being converted uses UEFI or not
+   *
    * @public
    */
   forceUefi?: boolean | undefined;
 
   /**
-   * <p>The timestamp of when the snapshot being converted was taken</p>
+   * The timestamp of when the snapshot being converted was taken
+   *
    * @public
    */
   dataTimestamp?: string | undefined;
 
   /**
-   * <p>A mapping between the volumes and their sizes</p>
+   * A mapping between the volumes and their sizes
+   *
    * @public
    */
   volumeToVolumeSize?: Record<string, number> | undefined;
 
   /**
-   * <p>A mapping between the volumes being converted and the product codes associated with them</p>
+   * A mapping between the volumes being converted and the product codes associated with them
+   *
    * @public
    */
   volumeToProductCodes?: Record<string, ProductCode[]> | undefined;
 }
 
 /**
- * <p>Information about a server's CPU.</p>
+ * Information about a server's CPU.
+ *
  * @public
  */
 export interface CPU {
   /**
-   * <p>The number of CPU cores.</p>
+   * The number of CPU cores.
+   *
    * @public
    */
   cores?: number | undefined;
 
   /**
-   * <p>The model name of the CPU.</p>
+   * The model name of the CPU.
+   *
    * @public
    */
   modelName?: string | undefined;
@@ -573,457 +652,533 @@ export interface CPU {
  */
 export interface CreateExtendedSourceServerRequest {
   /**
-   * <p>This defines the ARN of the source server in staging Account based on which you want to create an extended source server.</p>
+   * This defines the ARN of the source server in staging Account based on which you want to create an extended source server.
+   *
    * @public
    */
   sourceServerArn: string | undefined;
 
   /**
-   * <p>A list of tags associated with the extended source server.</p>
+   * A list of tags associated with the extended source server.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Error in data replication.</p>
+ * Error in data replication.
+ *
  * @public
  */
 export interface DataReplicationError {
   /**
-   * <p>Error in data replication.</p>
+   * Error in data replication.
+   *
    * @public
    */
   error?: DataReplicationErrorString | undefined;
 
   /**
-   * <p>Error in data replication.</p>
+   * Error in data replication.
+   *
    * @public
    */
   rawError?: string | undefined;
 }
 
 /**
- * <p>Data replication initiation step.</p>
+ * Data replication initiation step.
+ *
  * @public
  */
 export interface DataReplicationInitiationStep {
   /**
-   * <p>The name of the step.</p>
+   * The name of the step.
+   *
    * @public
    */
   name?: DataReplicationInitiationStepName | undefined;
 
   /**
-   * <p>The status of the step.</p>
+   * The status of the step.
+   *
    * @public
    */
   status?: DataReplicationInitiationStepStatus | undefined;
 }
 
 /**
- * <p>Data replication initiation.</p>
+ * Data replication initiation.
+ *
  * @public
  */
 export interface DataReplicationInitiation {
   /**
-   * <p>The date and time of the current attempt to initiate data replication.</p>
+   * The date and time of the current attempt to initiate data replication.
+   *
    * @public
    */
   startDateTime?: string | undefined;
 
   /**
-   * <p>The date and time of the next attempt to initiate data replication.</p>
+   * The date and time of the next attempt to initiate data replication.
+   *
    * @public
    */
   nextAttemptDateTime?: string | undefined;
 
   /**
-   * <p>The steps of the current attempt to initiate data replication.</p>
+   * The steps of the current attempt to initiate data replication.
+   *
    * @public
    */
   steps?: DataReplicationInitiationStep[] | undefined;
 }
 
 /**
- * <p>A disk that should be replicated.</p>
+ * A disk that should be replicated.
+ *
  * @public
  */
 export interface DataReplicationInfoReplicatedDisk {
   /**
-   * <p>The name of the device.</p>
+   * The name of the device.
+   *
    * @public
    */
   deviceName?: string | undefined;
 
   /**
-   * <p>The total amount of data to be replicated in bytes.</p>
+   * The total amount of data to be replicated in bytes.
+   *
    * @public
    */
   totalStorageBytes?: number | undefined;
 
   /**
-   * <p>The amount of data replicated so far in bytes.</p>
+   * The amount of data replicated so far in bytes.
+   *
    * @public
    */
   replicatedStorageBytes?: number | undefined;
 
   /**
-   * <p>The amount of data to be rescanned in bytes.</p>
+   * The amount of data to be rescanned in bytes.
+   *
    * @public
    */
   rescannedStorageBytes?: number | undefined;
 
   /**
-   * <p>The size of the replication backlog in bytes.</p>
+   * The size of the replication backlog in bytes.
+   *
    * @public
    */
   backloggedStorageBytes?: number | undefined;
 
   /**
-   * <p>The status of the volume.</p>
+   * The status of the volume.
+   *
    * @public
    */
   volumeStatus?: VolumeStatus | undefined;
 }
 
 /**
- * <p>Information about Data Replication</p>
+ * Information about Data Replication
+ *
  * @public
  */
 export interface DataReplicationInfo {
   /**
-   * <p>Data replication lag duration.</p>
+   * Data replication lag duration.
+   *
    * @public
    */
   lagDuration?: string | undefined;
 
   /**
-   * <p>An estimate of when the data replication will be completed.</p>
+   * An estimate of when the data replication will be completed.
+   *
    * @public
    */
   etaDateTime?: string | undefined;
 
   /**
-   * <p>The disks that should be replicated.</p>
+   * The disks that should be replicated.
+   *
    * @public
    */
   replicatedDisks?: DataReplicationInfoReplicatedDisk[] | undefined;
 
   /**
-   * <p>The state of the data replication.</p>
+   * The state of the data replication.
+   *
    * @public
    */
   dataReplicationState?: DataReplicationState | undefined;
 
   /**
-   * <p>Information about whether the data replication has been initiated.</p>
+   * Information about whether the data replication has been initiated.
+   *
    * @public
    */
   dataReplicationInitiation?: DataReplicationInitiation | undefined;
 
   /**
-   * <p>Error in data replication.</p>
+   * Error in data replication.
+   *
    * @public
    */
   dataReplicationError?: DataReplicationError | undefined;
 
   /**
-   * <p>AWS Availability zone into which data is being replicated.</p>
+   * AWS Availability zone into which data is being replicated.
+   *
    * @public
    */
   stagingAvailabilityZone?: string | undefined;
 
   /**
-   * <p>The ARN of the staging Outpost</p>
+   * The ARN of the staging Outpost
+   *
    * @public
    */
   stagingOutpostArn?: string | undefined;
 }
 
 /**
- * <p>An object containing information regarding the initiation of the last launch of a Source Server.</p>
+ * An object containing information regarding the initiation of the last launch of a Source Server.
+ *
  * @public
  */
 export interface LifeCycleLastLaunchInitiated {
   /**
-   * <p>The date and time the last Source Server launch was initiated.</p>
+   * The date and time the last Source Server launch was initiated.
+   *
    * @public
    */
   apiCallDateTime?: string | undefined;
 
   /**
-   * <p>The ID of the Job that was used to last launch the Source Server.</p>
+   * The ID of the Job that was used to last launch the Source Server.
+   *
    * @public
    */
   jobID?: string | undefined;
 
   /**
-   * <p>The Job type that was used to last launch the Source Server.</p>
+   * The Job type that was used to last launch the Source Server.
+   *
    * @public
    */
   type?: LastLaunchType | undefined;
 }
 
 /**
- * <p>An object containing information regarding the last launch of a Source Server.</p>
+ * An object containing information regarding the last launch of a Source Server.
+ *
  * @public
  */
 export interface LifeCycleLastLaunch {
   /**
-   * <p>An object containing information regarding the initiation of the last launch of a Source Server.</p>
+   * An object containing information regarding the initiation of the last launch of a Source Server.
+   *
    * @public
    */
   initiated?: LifeCycleLastLaunchInitiated | undefined;
 
   /**
-   * <p>Status of Source Server's last launch.</p>
+   * Status of Source Server's last launch.
+   *
    * @public
    */
   status?: LaunchStatus | undefined;
 }
 
 /**
- * <p>An object representing the Source Server Lifecycle.</p>
+ * An object representing the Source Server Lifecycle.
+ *
  * @public
  */
 export interface LifeCycle {
   /**
-   * <p>The date and time of when the Source Server was added to the service.</p>
+   * The date and time of when the Source Server was added to the service.
+   *
    * @public
    */
   addedToServiceDateTime?: string | undefined;
 
   /**
-   * <p>The date and time of the first byte that was replicated from the Source Server.</p>
+   * The date and time of the first byte that was replicated from the Source Server.
+   *
    * @public
    */
   firstByteDateTime?: string | undefined;
 
   /**
-   * <p>The amount of time that the Source Server has been replicating for.</p>
+   * The amount of time that the Source Server has been replicating for.
+   *
    * @public
    */
   elapsedReplicationDuration?: string | undefined;
 
   /**
-   * <p>The date and time this Source Server was last seen by the service.</p>
+   * The date and time this Source Server was last seen by the service.
+   *
    * @public
    */
   lastSeenByServiceDateTime?: string | undefined;
 
   /**
-   * <p>An object containing information regarding the last launch of the Source Server.</p>
+   * An object containing information regarding the last launch of the Source Server.
+   *
    * @public
    */
   lastLaunch?: LifeCycleLastLaunch | undefined;
 }
 
 /**
- * <p>Properties of the cloud environment where this Source Server originated from.</p>
+ * Properties of the cloud environment where this Source Server originated from.
+ *
  * @public
  */
 export interface SourceCloudProperties {
   /**
-   * <p>AWS Account ID for an EC2-originated Source Server.</p>
+   * AWS Account ID for an EC2-originated Source Server.
+   *
    * @public
    */
   originAccountID?: string | undefined;
 
   /**
-   * <p>AWS Region for an EC2-originated Source Server.</p>
+   * AWS Region for an EC2-originated Source Server.
+   *
    * @public
    */
   originRegion?: string | undefined;
 
   /**
-   * <p>AWS Availability Zone for an EC2-originated Source Server.</p>
+   * AWS Availability Zone for an EC2-originated Source Server.
+   *
    * @public
    */
   originAvailabilityZone?: string | undefined;
 
   /**
-   * <p>The ARN of the source Outpost</p>
+   * The ARN of the source Outpost
+   *
    * @public
    */
   sourceOutpostArn?: string | undefined;
 }
 
 /**
- * <p>An object representing a data storage device on a server.</p>
+ * An object representing a data storage device on a server.
+ *
  * @public
  */
 export interface Disk {
   /**
-   * <p>The disk or device name.</p>
+   * The disk or device name.
+   *
    * @public
    */
   deviceName?: string | undefined;
 
   /**
-   * <p>The amount of storage on the disk in bytes.</p>
+   * The amount of storage on the disk in bytes.
+   *
    * @public
    */
   bytes?: number | undefined;
 }
 
 /**
- * <p>Hints used to uniquely identify a machine.</p>
+ * Hints used to uniquely identify a machine.
+ *
  * @public
  */
 export interface IdentificationHints {
   /**
-   * <p>Fully Qualified Domain Name identification hint.</p>
+   * Fully Qualified Domain Name identification hint.
+   *
    * @public
    */
   fqdn?: string | undefined;
 
   /**
-   * <p>Hostname identification hint.</p>
+   * Hostname identification hint.
+   *
    * @public
    */
   hostname?: string | undefined;
 
   /**
-   * <p>vCenter VM path identification hint.</p>
+   * vCenter VM path identification hint.
+   *
    * @public
    */
   vmWareUuid?: string | undefined;
 
   /**
-   * <p>AWS Instance ID identification hint.</p>
+   * AWS Instance ID identification hint.
+   *
    * @public
    */
   awsInstanceID?: string | undefined;
 }
 
 /**
- * <p>Network interface.</p>
+ * Network interface.
+ *
  * @public
  */
 export interface NetworkInterface {
   /**
-   * <p>The MAC address of the network interface.</p>
+   * The MAC address of the network interface.
+   *
    * @public
    */
   macAddress?: string | undefined;
 
   /**
-   * <p>Network interface IPs.</p>
+   * Network interface IPs.
+   *
    * @public
    */
   ips?: string[] | undefined;
 
   /**
-   * <p>Whether this is the primary network interface.</p>
+   * Whether this is the primary network interface.
+   *
    * @public
    */
   isPrimary?: boolean | undefined;
 }
 
 /**
- * <p>Operating System.</p>
+ * Operating System.
+ *
  * @public
  */
 export interface OS {
   /**
-   * <p>The long name of the Operating System.</p>
+   * The long name of the Operating System.
+   *
    * @public
    */
   fullString?: string | undefined;
 }
 
 /**
- * <p>Properties of the Source Server machine.</p>
+ * Properties of the Source Server machine.
+ *
  * @public
  */
 export interface SourceProperties {
   /**
-   * <p>The date and time the Source Properties were last updated on.</p>
+   * The date and time the Source Properties were last updated on.
+   *
    * @public
    */
   lastUpdatedDateTime?: string | undefined;
 
   /**
-   * <p>The recommended EC2 instance type that will be used when recovering the Source Server.</p>
+   * The recommended EC2 instance type that will be used when recovering the Source Server.
+   *
    * @public
    */
   recommendedInstanceType?: string | undefined;
 
   /**
-   * <p>Hints used to uniquely identify a machine.</p>
+   * Hints used to uniquely identify a machine.
+   *
    * @public
    */
   identificationHints?: IdentificationHints | undefined;
 
   /**
-   * <p>An array of network interfaces.</p>
+   * An array of network interfaces.
+   *
    * @public
    */
   networkInterfaces?: NetworkInterface[] | undefined;
 
   /**
-   * <p>An array of disks.</p>
+   * An array of disks.
+   *
    * @public
    */
   disks?: Disk[] | undefined;
 
   /**
-   * <p>An array of CPUs.</p>
+   * An array of CPUs.
+   *
    * @public
    */
   cpus?: CPU[] | undefined;
 
   /**
-   * <p>The amount of RAM in bytes.</p>
+   * The amount of RAM in bytes.
+   *
    * @public
    */
   ramBytes?: number | undefined;
 
   /**
-   * <p>Operating system.</p>
+   * Operating system.
+   *
    * @public
    */
   os?: OS | undefined;
 
   /**
-   * <p>Are EC2 nitro instance types supported when recovering the Source Server.</p>
+   * Are EC2 nitro instance types supported when recovering the Source Server.
+   *
    * @public
    */
   supportsNitroInstances?: boolean | undefined;
 
   /**
-   * <p>The architecture of the Source Server.</p>
+   * The architecture of the Source Server.
+   *
    * @public
    */
   architecture?: SourceServerArchitecture | undefined;
 }
 
 /**
- * <p>Staging information related to source server.</p>
+ * Staging information related to source server.
+ *
  * @public
  */
 export interface StagingArea {
   /**
-   * <p>Status of Source server extension. Possible values: (a) NOT_EXTENDED - This is a source server that is replicating in the current account. (b) EXTENDED - Source server is extended from a staging source server. In this case, the value of stagingSourceServerArn is pointing to the Arn of the source server in the staging account. (c) EXTENSION_ERROR - Some issue occurred when accessing staging source server. In this case, errorMessage field will contain an error message that explains what happened.</p>
+   * Status of Source server extension. Possible values: (a) NOT_EXTENDED - This is a source server that is replicating in the current account. (b) EXTENDED - Source server is extended from a staging source server. In this case, the value of stagingSourceServerArn is pointing to the Arn of the source server in the staging account. (c) EXTENSION_ERROR - Some issue occurred when accessing staging source server. In this case, errorMessage field will contain an error message that explains what happened.
+   *
    * @public
    */
   status?: ExtensionStatus | undefined;
 
   /**
-   * <p>Account ID of the account to which source server belongs. If this source server is extended - shows Account ID of staging source server.</p>
+   * Account ID of the account to which source server belongs. If this source server is extended - shows Account ID of staging source server.
+   *
    * @public
    */
   stagingAccountID?: string | undefined;
 
   /**
-   * <p>Arn of the staging source server if this source server is extended</p>
+   * Arn of the staging source server if this source server is extended
+   *
    * @public
    */
   stagingSourceServerArn?: string | undefined;
 
   /**
-   * <p>Shows an error message that occurred when DRS tried to access the staging source server. In this case StagingArea$status will have value EXTENSION_ERROR</p>
+   * Shows an error message that occurred when DRS tried to access the staging source server. In this case StagingArea$status will have value EXTENSION_ERROR
+   *
    * @public
    */
   errorMessage?: string | undefined;
@@ -1034,85 +1189,99 @@ export interface StagingArea {
  */
 export interface SourceServer {
   /**
-   * <p>The ID of the Source Server.</p>
+   * The ID of the Source Server.
+   *
    * @public
    */
   sourceServerID?: string | undefined;
 
   /**
-   * <p>The ARN of the Source Server.</p>
+   * The ARN of the Source Server.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The tags associated with the Source Server.</p>
+   * The tags associated with the Source Server.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The ID of the Recovery Instance associated with this Source Server.</p>
+   * The ID of the Recovery Instance associated with this Source Server.
+   *
    * @public
    */
   recoveryInstanceId?: string | undefined;
 
   /**
-   * <p>The status of the last recovery launch of this Source Server.</p>
+   * The status of the last recovery launch of this Source Server.
+   *
    * @public
    */
   lastLaunchResult?: LastLaunchResult | undefined;
 
   /**
-   * <p>The Data Replication Info of the Source Server.</p>
+   * The Data Replication Info of the Source Server.
+   *
    * @public
    */
   dataReplicationInfo?: DataReplicationInfo | undefined;
 
   /**
-   * <p>The lifecycle information of this Source Server.</p>
+   * The lifecycle information of this Source Server.
+   *
    * @public
    */
   lifeCycle?: LifeCycle | undefined;
 
   /**
-   * <p>The source properties of the Source Server.</p>
+   * The source properties of the Source Server.
+   *
    * @public
    */
   sourceProperties?: SourceProperties | undefined;
 
   /**
-   * <p>The staging area of the source server.</p>
+   * The staging area of the source server.
+   *
    * @public
    */
   stagingArea?: StagingArea | undefined;
 
   /**
-   * <p>Source cloud properties of the Source Server.</p>
+   * Source cloud properties of the Source Server.
+   *
    * @public
    */
   sourceCloudProperties?: SourceCloudProperties | undefined;
 
   /**
-   * <p>Replication direction of the Source Server.</p>
+   * Replication direction of the Source Server.
+   *
    * @public
    */
   replicationDirection?: ReplicationDirection | undefined;
 
   /**
-   * <p>For EC2-originated Source Servers which have been failed over and then failed back, this value will mean the ARN of the Source Server on the opposite replication direction.</p>
+   * For EC2-originated Source Servers which have been failed over and then failed back, this value will mean the ARN of the Source Server on the opposite replication direction.
+   *
    * @public
    */
   reversedDirectionSourceServerArn?: string | undefined;
 
   /**
-   * <p>ID of the Source Network which is protecting this Source Server's network.</p>
+   * ID of the Source Network which is protecting this Source Server's network.
+   *
    * @public
    */
   sourceNetworkID?: string | undefined;
 
   /**
-   * <p>The version of the DRS agent installed on the source server</p>
+   * The version of the DRS agent installed on the source server
+   *
    * @public
    */
   agentVersion?: string | undefined;
@@ -1123,19 +1292,22 @@ export interface SourceServer {
  */
 export interface CreateExtendedSourceServerResponse {
   /**
-   * <p>Created extended source server.</p>
+   * Created extended source server.
+   *
    * @public
    */
   sourceServer?: SourceServer | undefined;
 }
 
 /**
- * <p>Configuration of a machine's license.</p>
+ * Configuration of a machine's license.
+ *
  * @public
  */
 export interface Licensing {
   /**
-   * <p>Whether to enable "Bring your own license" or not.</p>
+   * Whether to enable "Bring your own license" or not.
+   *
    * @public
    */
   osByol?: boolean | undefined;
@@ -1146,139 +1318,162 @@ export interface Licensing {
  */
 export interface CreateLaunchConfigurationTemplateRequest {
   /**
-   * <p>Request to associate tags during creation of a Launch Configuration Template.</p>
+   * Request to associate tags during creation of a Launch Configuration Template.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Launch disposition.</p>
+   * Launch disposition.
+   *
    * @public
    */
   launchDisposition?: LaunchDisposition | undefined;
 
   /**
-   * <p>Target instance type right-sizing method.</p>
+   * Target instance type right-sizing method.
+   *
    * @public
    */
   targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | undefined;
 
   /**
-   * <p>Copy private IP.</p>
+   * Copy private IP.
+   *
    * @public
    */
   copyPrivateIp?: boolean | undefined;
 
   /**
-   * <p>Copy tags.</p>
+   * Copy tags.
+   *
    * @public
    */
   copyTags?: boolean | undefined;
 
   /**
-   * <p>Licensing.</p>
+   * Licensing.
+   *
    * @public
    */
   licensing?: Licensing | undefined;
 
   /**
-   * <p>S3 bucket ARN to export Source Network templates.</p>
+   * S3 bucket ARN to export Source Network templates.
+   *
    * @public
    */
   exportBucketArn?: string | undefined;
 
   /**
-   * <p>Whether we want to activate post-launch actions.</p>
+   * Whether we want to activate post-launch actions.
+   *
    * @public
    */
   postLaunchEnabled?: boolean | undefined;
 
   /**
-   * <p>DRS will set the 'launch into instance ID' of any source server when performing a drill, recovery or failback to the previous region or availability zone, using the instance ID of the source instance.</p>
+   * DRS will set the 'launch into instance ID' of any source server when performing a drill, recovery or failback to the previous region or availability zone, using the instance ID of the source instance.
+   *
    * @public
    */
   launchIntoSourceInstance?: boolean | undefined;
 
   /**
-   * <p>Recovery mode.</p>
+   * Recovery mode.
+   *
    * @public
    */
   recoveryMode?: RecoveryMode | undefined;
 }
 
 /**
- * <p>Account level Launch Configuration Template.</p>
+ * Account level Launch Configuration Template.
+ *
  * @public
  */
 export interface LaunchConfigurationTemplate {
   /**
-   * <p>ID of the Launch Configuration Template.</p>
+   * ID of the Launch Configuration Template.
+   *
    * @public
    */
   launchConfigurationTemplateID?: string | undefined;
 
   /**
-   * <p>ARN of the Launch Configuration Template.</p>
+   * ARN of the Launch Configuration Template.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>Tags of the Launch Configuration Template.</p>
+   * Tags of the Launch Configuration Template.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Launch disposition.</p>
+   * Launch disposition.
+   *
    * @public
    */
   launchDisposition?: LaunchDisposition | undefined;
 
   /**
-   * <p>Target instance type right-sizing method.</p>
+   * Target instance type right-sizing method.
+   *
    * @public
    */
   targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | undefined;
 
   /**
-   * <p>Copy private IP.</p>
+   * Copy private IP.
+   *
    * @public
    */
   copyPrivateIp?: boolean | undefined;
 
   /**
-   * <p>Copy tags.</p>
+   * Copy tags.
+   *
    * @public
    */
   copyTags?: boolean | undefined;
 
   /**
-   * <p>Licensing.</p>
+   * Licensing.
+   *
    * @public
    */
   licensing?: Licensing | undefined;
 
   /**
-   * <p>S3 bucket ARN to export Source Network templates.</p>
+   * S3 bucket ARN to export Source Network templates.
+   *
    * @public
    */
   exportBucketArn?: string | undefined;
 
   /**
-   * <p>Post-launch actions activated.</p>
+   * Post-launch actions activated.
+   *
    * @public
    */
   postLaunchEnabled?: boolean | undefined;
 
   /**
-   * <p>DRS will set the 'launch into instance ID' of any source server when performing a drill, recovery or failback to the previous region or availability zone, using the instance ID of the source instance.</p>
+   * DRS will set the 'launch into instance ID' of any source server when performing a drill, recovery or failback to the previous region or availability zone, using the instance ID of the source instance.
+   *
    * @public
    */
   launchIntoSourceInstance?: boolean | undefined;
 
   /**
-   * <p>Recovery mode.</p>
+   * Recovery mode.
+   *
    * @public
    */
   recoveryMode?: RecoveryMode | undefined;
@@ -1289,7 +1484,8 @@ export interface LaunchConfigurationTemplate {
  */
 export interface CreateLaunchConfigurationTemplateResponse {
   /**
-   * <p>Created Launch Configuration Template.</p>
+   * Created Launch Configuration Template.
+   *
    * @public
    */
   launchConfigurationTemplate?: LaunchConfigurationTemplate | undefined;
@@ -1312,13 +1508,15 @@ export interface CreateRecoveryPlanRequest {
   description?: string | undefined;
 
   /**
-   * <p>A unique string provided to ensure request idempotency.</p>
+   * A unique string provided to ensure request idempotency.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The tags to apply to the Recovery Plan.</p>
+   * The tags to apply to the Recovery Plan.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1330,7 +1528,8 @@ export interface CreateRecoveryPlanRequest {
  */
 export interface RecoveryPlan {
   /**
-   * <p>The ARN of the Recovery Plan.</p>
+   * The ARN of the Recovery Plan.
+   *
    * @public
    */
   recoveryPlanArn: string | undefined;
@@ -1348,25 +1547,29 @@ export interface RecoveryPlan {
   description?: string | undefined;
 
   /**
-   * <p>The status of the Recovery Plan.</p>
+   * The status of the Recovery Plan.
+   *
    * @public
    */
   status: RecoveryPlanStatus | undefined;
 
   /**
-   * <p>The timestamp when the Recovery Plan was created.</p>
+   * The timestamp when the Recovery Plan was created.
+   *
    * @public
    */
   createdAt: string | undefined;
 
   /**
-   * <p>The timestamp when the Recovery Plan was last updated.</p>
+   * The timestamp when the Recovery Plan was last updated.
+   *
    * @public
    */
   updatedAt: string | undefined;
 
   /**
-   * <p>The tags associated with the Recovery Plan.</p>
+   * The tags associated with the Recovery Plan.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1389,7 +1592,8 @@ export interface CreateRecoveryPlanResponse {
  */
 export interface RecoveryPlanServer {
   /**
-   * <p>The ARN of the source server.</p>
+   * The ARN of the source server.
+   *
    * @public
    */
   serverArn: string | undefined;
@@ -1402,19 +1606,22 @@ export interface RecoveryPlanServer {
 }
 
 /**
- * <p>Configuration for a <code>SERVER</code> type step.</p>
+ * Configuration for a `SERVER` type step.
+ *
  * @public
  */
 export interface ServerStepConfiguration {
   /**
-   * <p>The list of servers to recover in this step.</p>
+   * The list of servers to recover in this step.
+   *
    * @public
    */
   servers: RecoveryPlanServer[] | undefined;
 }
 
 /**
- * <p>Configuration for a <code>WAIT</code> type step.</p>
+ * Configuration for a `WAIT` type step.
+ *
  * @public
  */
 export interface WaitStepConfiguration {
@@ -1484,7 +1691,8 @@ export namespace RecoveryPlanStepConfiguration {
  */
 export interface CreateRecoveryPlanStepRequest {
   /**
-   * <p>The ARN of the Recovery Plan to add the step to.</p>
+   * The ARN of the Recovery Plan to add the step to.
+   *
    * @public
    */
   recoveryPlanArn: string | undefined;
@@ -1509,7 +1717,8 @@ export interface CreateRecoveryPlanStepRequest {
   configuration: RecoveryPlanStepConfiguration | undefined;
 
   /**
-   * <p>A unique string provided to ensure request idempotency.</p>
+   * A unique string provided to ensure request idempotency.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -1521,7 +1730,8 @@ export interface CreateRecoveryPlanStepRequest {
  */
 export interface RecoveryPlanStep {
   /**
-   * <p>The ARN of the Recovery Plan step.</p>
+   * The ARN of the Recovery Plan step.
+   *
    * @public
    */
   recoveryPlanStepArn: string | undefined;
@@ -1546,13 +1756,15 @@ export interface RecoveryPlanStep {
   configuration: RecoveryPlanStepConfiguration | undefined;
 
   /**
-   * <p>The timestamp when the step was created.</p>
+   * The timestamp when the step was created.
+   *
    * @public
    */
   createdAt: string | undefined;
 
   /**
-   * <p>The timestamp when the step was last updated.</p>
+   * The timestamp when the step was last updated.
+   *
    * @public
    */
   updatedAt: string | undefined;
@@ -1570,36 +1782,42 @@ export interface CreateRecoveryPlanStepResponse {
 }
 
 /**
- * <p>A rule in the Point in Time (PIT) policy representing when to take snapshots and how long to retain them for.</p>
+ * A rule in the Point in Time (PIT) policy representing when to take snapshots and how long to retain them for.
+ *
  * @public
  */
 export interface PITPolicyRule {
   /**
-   * <p>The ID of the rule.</p>
+   * The ID of the rule.
+   *
    * @public
    */
   ruleID?: number | undefined;
 
   /**
-   * <p>The units used to measure the interval and retentionDuration.</p>
+   * The units used to measure the interval and retentionDuration.
+   *
    * @public
    */
   units: PITPolicyRuleUnits | undefined;
 
   /**
-   * <p>How often, in the chosen units, a snapshot should be taken.</p>
+   * How often, in the chosen units, a snapshot should be taken.
+   *
    * @public
    */
   interval: number | undefined;
 
   /**
-   * <p>The duration to retain a snapshot for, in the chosen units.</p>
+   * The duration to retain a snapshot for, in the chosen units.
+   *
    * @public
    */
   retentionDuration: number | undefined;
 
   /**
-   * <p>Whether this rule is enabled or not.</p>
+   * Whether this rule is enabled or not.
+   *
    * @public
    */
   enabled?: boolean | undefined;
@@ -1610,97 +1828,113 @@ export interface PITPolicyRule {
  */
 export interface CreateReplicationConfigurationTemplateRequest {
   /**
-   * <p>The subnet to be used by the replication staging area.</p>
+   * The subnet to be used by the replication staging area.
+   *
    * @public
    */
   stagingAreaSubnetId: string | undefined;
 
   /**
-   * <p>Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration Template.</p>
+   * Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration Template.
+   *
    * @public
    */
   associateDefaultSecurityGroup?: boolean | undefined;
 
   /**
-   * <p>The security group IDs that will be used by the replication server.</p>
+   * The security group IDs that will be used by the replication server.
+   *
    * @public
    */
   replicationServersSecurityGroupsIDs: string[] | undefined;
 
   /**
-   * <p>The instance type to be used for the replication server.</p>
+   * The instance type to be used for the replication server.
+   *
    * @public
    */
   replicationServerInstanceType?: string | undefined;
 
   /**
-   * <p>Whether to use a dedicated Replication Server in the replication staging area.</p>
+   * Whether to use a dedicated Replication Server in the replication staging area.
+   *
    * @public
    */
   useDedicatedReplicationServer?: boolean | undefined;
 
   /**
-   * <p>The Staging Disk EBS volume type to be used during replication.</p>
+   * The Staging Disk EBS volume type to be used during replication.
+   *
    * @public
    */
   defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType | undefined;
 
   /**
-   * <p>The type of EBS encryption to be used during replication.</p>
+   * The type of EBS encryption to be used during replication.
+   *
    * @public
    */
   ebsEncryption: ReplicationConfigurationEbsEncryption | undefined;
 
   /**
-   * <p>The ARN of the EBS encryption key to be used during replication.</p>
+   * The ARN of the EBS encryption key to be used during replication.
+   *
    * @public
    */
   ebsEncryptionKeyArn?: string | undefined;
 
   /**
-   * <p>Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps.</p>
+   * Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps.
+   *
    * @public
    */
   bandwidthThrottling: number | undefined;
 
   /**
-   * <p>The data plane routing mechanism that will be used for replication.</p>
+   * The data plane routing mechanism that will be used for replication.
+   *
    * @public
    */
   dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting | undefined;
 
   /**
-   * <p>Whether to create a Public IP for the Recovery Instance by default.</p>
+   * Whether to create a Public IP for the Recovery Instance by default.
+   *
    * @public
    */
   createPublicIP?: boolean | undefined;
 
   /**
-   * <p>A set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.</p>
+   * A set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.
+   *
    * @public
    */
   stagingAreaTags: Record<string, string> | undefined;
 
   /**
-   * <p>The Point in time (PIT) policy to manage snapshots taken during replication.</p>
+   * The Point in time (PIT) policy to manage snapshots taken during replication.
+   *
    * @public
    */
   pitPolicy: PITPolicyRule[] | undefined;
 
   /**
-   * <p>A set of tags to be associated with the Replication Configuration Template resource.</p>
+   * A set of tags to be associated with the Replication Configuration Template resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Whether to allow the AWS replication agent to automatically replicate newly added disks.</p>
+   * Whether to allow the AWS replication agent to automatically replicate newly added disks.
+   *
    * @public
    */
   autoReplicateNewDisks?: boolean | undefined;
 
   /**
-   * <p>Which version of the Internet Protocol to use for replication of data. (IPv4 or IPv6)</p>
+   * Which version of the Internet Protocol to use for replication of data. (IPv4 or IPv6)
+   *
    * @public
    */
   internetProtocol?: InternetProtocol | undefined;
@@ -1711,109 +1945,127 @@ export interface CreateReplicationConfigurationTemplateRequest {
  */
 export interface ReplicationConfigurationTemplate {
   /**
-   * <p>The Replication Configuration Template ID.</p>
+   * The Replication Configuration Template ID.
+   *
    * @public
    */
   replicationConfigurationTemplateID: string | undefined;
 
   /**
-   * <p>The Replication Configuration Template ARN.</p>
+   * The Replication Configuration Template ARN.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The subnet to be used by the replication staging area.</p>
+   * The subnet to be used by the replication staging area.
+   *
    * @public
    */
   stagingAreaSubnetId?: string | undefined;
 
   /**
-   * <p>Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration Template.</p>
+   * Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration Template.
+   *
    * @public
    */
   associateDefaultSecurityGroup?: boolean | undefined;
 
   /**
-   * <p>The security group IDs that will be used by the replication server.</p>
+   * The security group IDs that will be used by the replication server.
+   *
    * @public
    */
   replicationServersSecurityGroupsIDs?: string[] | undefined;
 
   /**
-   * <p>The instance type to be used for the replication server.</p>
+   * The instance type to be used for the replication server.
+   *
    * @public
    */
   replicationServerInstanceType?: string | undefined;
 
   /**
-   * <p>Whether to use a dedicated Replication Server in the replication staging area.</p>
+   * Whether to use a dedicated Replication Server in the replication staging area.
+   *
    * @public
    */
   useDedicatedReplicationServer?: boolean | undefined;
 
   /**
-   * <p>The Staging Disk EBS volume type to be used during replication.</p>
+   * The Staging Disk EBS volume type to be used during replication.
+   *
    * @public
    */
   defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType | undefined;
 
   /**
-   * <p>The type of EBS encryption to be used during replication.</p>
+   * The type of EBS encryption to be used during replication.
+   *
    * @public
    */
   ebsEncryption?: ReplicationConfigurationEbsEncryption | undefined;
 
   /**
-   * <p>The ARN of the EBS encryption key to be used during replication.</p>
+   * The ARN of the EBS encryption key to be used during replication.
+   *
    * @public
    */
   ebsEncryptionKeyArn?: string | undefined;
 
   /**
-   * <p>Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps.</p>
+   * Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps.
+   *
    * @public
    */
   bandwidthThrottling?: number | undefined;
 
   /**
-   * <p>The data plane routing mechanism that will be used for replication.</p>
+   * The data plane routing mechanism that will be used for replication.
+   *
    * @public
    */
   dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting | undefined;
 
   /**
-   * <p>Whether to create a Public IP for the Recovery Instance by default.</p>
+   * Whether to create a Public IP for the Recovery Instance by default.
+   *
    * @public
    */
   createPublicIP?: boolean | undefined;
 
   /**
-   * <p>A set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.</p>
+   * A set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.
+   *
    * @public
    */
   stagingAreaTags?: Record<string, string> | undefined;
 
   /**
-   * <p>A set of tags to be associated with the Replication Configuration Template resource.</p>
+   * A set of tags to be associated with the Replication Configuration Template resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The Point in time (PIT) policy to manage snapshots taken during replication.</p>
+   * The Point in time (PIT) policy to manage snapshots taken during replication.
+   *
    * @public
    */
   pitPolicy?: PITPolicyRule[] | undefined;
 
   /**
-   * <p>Whether to allow the AWS replication agent to automatically replicate newly added disks.</p>
+   * Whether to allow the AWS replication agent to automatically replicate newly added disks.
+   *
    * @public
    */
   autoReplicateNewDisks?: boolean | undefined;
 
   /**
-   * <p>Which version of the Internet Protocol to use for replication of data. (IPv4 or IPv6)</p>
+   * Which version of the Internet Protocol to use for replication of data. (IPv4 or IPv6)
+   *
    * @public
    */
   internetProtocol?: InternetProtocol | undefined;
@@ -1824,25 +2076,29 @@ export interface ReplicationConfigurationTemplate {
  */
 export interface CreateSourceNetworkRequest {
   /**
-   * <p>Which VPC ID to protect.</p>
+   * Which VPC ID to protect.
+   *
    * @public
    */
   vpcID: string | undefined;
 
   /**
-   * <p>Account containing the VPC to protect.</p>
+   * Account containing the VPC to protect.
+   *
    * @public
    */
   originAccountID: string | undefined;
 
   /**
-   * <p>Region containing the VPC to protect.</p>
+   * Region containing the VPC to protect.
+   *
    * @public
    */
   originRegion: string | undefined;
 
   /**
-   * <p>A set of tags to be associated with the Source Network resource.</p>
+   * A set of tags to be associated with the Source Network resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1853,7 +2109,8 @@ export interface CreateSourceNetworkRequest {
  */
 export interface CreateSourceNetworkResponse {
   /**
-   * <p>ID of the created Source Network.</p>
+   * ID of the created Source Network.
+   *
    * @public
    */
   sourceNetworkID?: string | undefined;
@@ -1864,7 +2121,8 @@ export interface CreateSourceNetworkResponse {
  */
 export interface DeleteJobRequest {
   /**
-   * <p>The ID of the Job to be deleted.</p>
+   * The ID of the Job to be deleted.
+   *
    * @public
    */
   jobID: string | undefined;
@@ -1880,13 +2138,15 @@ export interface DeleteJobResponse {}
  */
 export interface DeleteLaunchActionRequest {
   /**
-   * <p>Launch configuration template Id or Source Server Id</p>
+   * Launch configuration template Id or Source Server Id
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>Launch action Id.</p>
+   * Launch action Id.
+   *
    * @public
    */
   actionId: string | undefined;
@@ -1902,7 +2162,8 @@ export interface DeleteLaunchActionResponse {}
  */
 export interface DeleteLaunchConfigurationTemplateRequest {
   /**
-   * <p>The ID of the Launch Configuration Template to be deleted.</p>
+   * The ID of the Launch Configuration Template to be deleted.
+   *
    * @public
    */
   launchConfigurationTemplateID: string | undefined;
@@ -1918,7 +2179,8 @@ export interface DeleteLaunchConfigurationTemplateResponse {}
  */
 export interface DeleteRecoveryInstanceRequest {
   /**
-   * <p>The ID of the Recovery Instance to be deleted.</p>
+   * The ID of the Recovery Instance to be deleted.
+   *
    * @public
    */
   recoveryInstanceID: string | undefined;
@@ -1929,7 +2191,8 @@ export interface DeleteRecoveryInstanceRequest {
  */
 export interface DeleteRecoveryPlanRequest {
   /**
-   * <p>The ARN of the Recovery Plan to delete.</p>
+   * The ARN of the Recovery Plan to delete.
+   *
    * @public
    */
   recoveryPlanArn: string | undefined;
@@ -1940,7 +2203,8 @@ export interface DeleteRecoveryPlanRequest {
  */
 export interface DeleteRecoveryPlanResponse {
   /**
-   * <p>The ARN of the deleted Recovery Plan.</p>
+   * The ARN of the deleted Recovery Plan.
+   *
    * @public
    */
   recoveryPlanArn: string | undefined;
@@ -1951,7 +2215,8 @@ export interface DeleteRecoveryPlanResponse {
  */
 export interface DeleteRecoveryPlanExecutionRequest {
   /**
-   * <p>The ARN of the Recovery Plan execution to delete.</p>
+   * The ARN of the Recovery Plan execution to delete.
+   *
    * @public
    */
   recoveryPlanExecutionArn: string | undefined;
@@ -1962,7 +2227,8 @@ export interface DeleteRecoveryPlanExecutionRequest {
  */
 export interface DeleteRecoveryPlanExecutionResponse {
   /**
-   * <p>The ARN of the deleted Recovery Plan execution.</p>
+   * The ARN of the deleted Recovery Plan execution.
+   *
    * @public
    */
   recoveryPlanExecutionArn: string | undefined;
@@ -1973,7 +2239,8 @@ export interface DeleteRecoveryPlanExecutionResponse {
  */
 export interface DeleteRecoveryPlanStepRequest {
   /**
-   * <p>The ARN of the Recovery Plan step to delete.</p>
+   * The ARN of the Recovery Plan step to delete.
+   *
    * @public
    */
   recoveryPlanStepArn: string | undefined;
@@ -1984,7 +2251,8 @@ export interface DeleteRecoveryPlanStepRequest {
  */
 export interface DeleteRecoveryPlanStepResponse {
   /**
-   * <p>The ARN of the deleted Recovery Plan step.</p>
+   * The ARN of the deleted Recovery Plan step.
+   *
    * @public
    */
   recoveryPlanStepArn: string | undefined;
@@ -1995,7 +2263,8 @@ export interface DeleteRecoveryPlanStepResponse {
  */
 export interface DeleteReplicationConfigurationTemplateRequest {
   /**
-   * <p>The ID of the Replication Configuration Template to be deleted.</p>
+   * The ID of the Replication Configuration Template to be deleted.
+   *
    * @public
    */
   replicationConfigurationTemplateID: string | undefined;
@@ -2011,7 +2280,8 @@ export interface DeleteReplicationConfigurationTemplateResponse {}
  */
 export interface DeleteSourceNetworkRequest {
   /**
-   * <p>ID of the Source Network to delete.</p>
+   * ID of the Source Network to delete.
+   *
    * @public
    */
   sourceNetworkID: string | undefined;
@@ -2027,7 +2297,8 @@ export interface DeleteSourceNetworkResponse {}
  */
 export interface DeleteSourceServerRequest {
   /**
-   * <p>The ID of the Source Server to be deleted.</p>
+   * The ID of the Source Server to be deleted.
+   *
    * @public
    */
   sourceServerID: string | undefined;
@@ -2043,56 +2314,65 @@ export interface DeleteSourceServerResponse {}
  */
 export interface DescribeJobLogItemsRequest {
   /**
-   * <p>The ID of the Job for which Job log items will be retrieved.</p>
+   * The ID of the Job for which Job log items will be retrieved.
+   *
    * @public
    */
   jobID: string | undefined;
 
   /**
-   * <p>Maximum number of Job log items to retrieve.</p>
+   * Maximum number of Job log items to retrieve.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token of the next Job log items to retrieve.</p>
+   * The token of the next Job log items to retrieve.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Properties of Source Network related to a job event.</p>
+ * Properties of Source Network related to a job event.
+ *
  * @public
  */
 export interface SourceNetworkData {
   /**
-   * <p>Source Network ID.</p>
+   * Source Network ID.
+   *
    * @public
    */
   sourceNetworkID?: string | undefined;
 
   /**
-   * <p>VPC ID protected by the Source Network.</p>
+   * VPC ID protected by the Source Network.
+   *
    * @public
    */
   sourceVpc?: string | undefined;
 
   /**
-   * <p>ID of the recovered VPC following Source Network recovery.</p>
+   * ID of the recovered VPC following Source Network recovery.
+   *
    * @public
    */
   targetVpc?: string | undefined;
 
   /**
-   * <p>CloudFormation stack name that was deployed for recovering the Source Network.</p>
+   * CloudFormation stack name that was deployed for recovering the Source Network.
+   *
    * @public
    */
   stackName?: string | undefined;
 }
 
 /**
- * <p>Properties of resource related to a job event.</p>
+ * Properties of resource related to a job event.
+ *
  * @public
  */
 export type EventResourceData =
@@ -2104,7 +2384,8 @@ export type EventResourceData =
  */
 export namespace EventResourceData {
   /**
-   * <p>Source Network properties.</p>
+   * Source Network properties.
+   *
    * @public
    */
   export interface SourceNetworkDataMember {
@@ -2131,78 +2412,91 @@ export namespace EventResourceData {
 }
 
 /**
- * <p>Metadata associated with a Job log.</p>
+ * Metadata associated with a Job log.
+ *
  * @public
  */
 export interface JobLogEventData {
   /**
-   * <p>The ID of a Source Server.</p>
+   * The ID of a Source Server.
+   *
    * @public
    */
   sourceServerID?: string | undefined;
 
   /**
-   * <p>The ID of a conversion server.</p>
+   * The ID of a conversion server.
+   *
    * @public
    */
   conversionServerID?: string | undefined;
 
   /**
-   * <p>The ID of a Recovery Instance.</p>
+   * The ID of a Recovery Instance.
+   *
    * @public
    */
   targetInstanceID?: string | undefined;
 
   /**
-   * <p>A string representing a job error.</p>
+   * A string representing a job error.
+   *
    * @public
    */
   rawError?: string | undefined;
 
   /**
-   * <p>Properties of a conversion job</p>
+   * Properties of a conversion job
+   *
    * @public
    */
   conversionProperties?: ConversionProperties | undefined;
 
   /**
-   * <p>Properties of resource related to a job event.</p>
+   * Properties of resource related to a job event.
+   *
    * @public
    */
   eventResourceData?: EventResourceData | undefined;
 
   /**
-   * <p>Retries for this operation.</p>
+   * Retries for this operation.
+   *
    * @public
    */
   attemptCount?: number | undefined;
 
   /**
-   * <p>The maximum number of retries that will be attempted if this operation failed.</p>
+   * The maximum number of retries that will be attempted if this operation failed.
+   *
    * @public
    */
   maxAttemptsCount?: number | undefined;
 }
 
 /**
- * <p>A log outputted by a Job.</p>
+ * A log outputted by a Job.
+ *
  * @public
  */
 export interface JobLog {
   /**
-   * <p>The date and time the log was taken.</p>
+   * The date and time the log was taken.
+   *
    * @public
    */
   logDateTime?: string | undefined;
 
   /**
-   * <p>The event represents the type of a log.</p>
+   * The event represents the type of a log.
+   *
    * @public
    */
   event?: JobLogEvent | undefined;
 
   /**
-   * <p>Metadata associated with a Job log.</p>
+   * Metadata associated with a Job log.
+   *
    * @public
    */
   eventData?: JobLogEventData | undefined;
@@ -2213,37 +2507,43 @@ export interface JobLog {
  */
 export interface DescribeJobLogItemsResponse {
   /**
-   * <p>An array of Job log items.</p>
+   * An array of Job log items.
+   *
    * @public
    */
   items?: JobLog[] | undefined;
 
   /**
-   * <p>The token of the next Job log items to retrieve.</p>
+   * The token of the next Job log items to retrieve.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>A set of filters by which to return Jobs.</p>
+ * A set of filters by which to return Jobs.
+ *
  * @public
  */
 export interface DescribeJobsRequestFilters {
   /**
-   * <p>An array of Job IDs that should be returned. An empty array means all jobs.</p>
+   * An array of Job IDs that should be returned. An empty array means all jobs.
+   *
    * @public
    */
   jobIDs?: string[] | undefined;
 
   /**
-   * <p>The start date in a date range query.</p>
+   * The start date in a date range query.
+   *
    * @public
    */
   fromDate?: string | undefined;
 
   /**
-   * <p>The end date in a date range query.</p>
+   * The end date in a date range query.
+   *
    * @public
    */
   toDate?: string | undefined;
@@ -2254,19 +2554,22 @@ export interface DescribeJobsRequestFilters {
  */
 export interface DescribeJobsRequest {
   /**
-   * <p>A set of filters by which to return Jobs.</p>
+   * A set of filters by which to return Jobs.
+   *
    * @public
    */
   filters?: DescribeJobsRequestFilters | undefined;
 
   /**
-   * <p>Maximum number of Jobs to retrieve.</p>
+   * Maximum number of Jobs to retrieve.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token of the next Job to retrieve.</p>
+   * The token of the next Job to retrieve.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2277,13 +2580,15 @@ export interface DescribeJobsRequest {
  */
 export interface DescribeJobsResponse {
   /**
-   * <p>An array of Jobs.</p>
+   * An array of Jobs.
+   *
    * @public
    */
   items?: Job[] | undefined;
 
   /**
-   * <p>The token of the next Job to retrieve.</p>
+   * The token of the next Job to retrieve.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2294,19 +2599,22 @@ export interface DescribeJobsResponse {
  */
 export interface DescribeLaunchConfigurationTemplatesRequest {
   /**
-   * <p>Request to filter Launch Configuration Templates list by Launch Configuration Template ID.</p>
+   * Request to filter Launch Configuration Templates list by Launch Configuration Template ID.
+   *
    * @public
    */
   launchConfigurationTemplateIDs?: string[] | undefined;
 
   /**
-   * <p>Maximum results to be returned in DescribeLaunchConfigurationTemplates.</p>
+   * Maximum results to be returned in DescribeLaunchConfigurationTemplates.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token of the next Launch Configuration Template to retrieve.</p>
+   * The token of the next Launch Configuration Template to retrieve.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2317,31 +2625,36 @@ export interface DescribeLaunchConfigurationTemplatesRequest {
  */
 export interface DescribeLaunchConfigurationTemplatesResponse {
   /**
-   * <p>List of items returned by DescribeLaunchConfigurationTemplates.</p>
+   * List of items returned by DescribeLaunchConfigurationTemplates.
+   *
    * @public
    */
   items?: LaunchConfigurationTemplate[] | undefined;
 
   /**
-   * <p>The token of the next Launch Configuration Template to retrieve.</p>
+   * The token of the next Launch Configuration Template to retrieve.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>A set of filters by which to return Recovery Instances.</p>
+ * A set of filters by which to return Recovery Instances.
+ *
  * @public
  */
 export interface DescribeRecoveryInstancesRequestFilters {
   /**
-   * <p>An array of Recovery Instance IDs that should be returned. An empty array means all Recovery Instances.</p>
+   * An array of Recovery Instance IDs that should be returned. An empty array means all Recovery Instances.
+   *
    * @public
    */
   recoveryInstanceIDs?: string[] | undefined;
 
   /**
-   * <p>An array of Source Server IDs for which associated Recovery Instances should be returned.</p>
+   * An array of Source Server IDs for which associated Recovery Instances should be returned.
+   *
    * @public
    */
   sourceServerIDs?: string[] | undefined;
@@ -2352,403 +2665,470 @@ export interface DescribeRecoveryInstancesRequestFilters {
  */
 export interface DescribeRecoveryInstancesRequest {
   /**
-   * <p>A set of filters by which to return Recovery Instances.</p>
+   * A set of filters by which to return Recovery Instances.
+   *
    * @public
    */
   filters?: DescribeRecoveryInstancesRequestFilters | undefined;
 
   /**
-   * <p>Maximum number of Recovery Instances to retrieve.</p>
+   * Maximum number of Recovery Instances to retrieve.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token of the next Recovery Instance to retrieve.</p>
+   * The token of the next Recovery Instance to retrieve.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Error in data replication.</p>
+ * Error in data replication.
+ *
  * @public
  */
 export interface RecoveryInstanceDataReplicationError {
   /**
-   * <p>Error in data replication.</p>
+   * Error in data replication.
+   *
    * @public
    */
   error?: FailbackReplicationError | undefined;
 
   /**
-   * <p>Error in data replication.</p>
+   * Error in data replication.
+   *
    * @public
    */
   rawError?: string | undefined;
 }
 
 /**
- * <p>Data replication initiation step.</p>
+ * Data replication initiation step.
+ *
  * @public
  */
 export interface RecoveryInstanceDataReplicationInitiationStep {
   /**
-   * <p>The name of the step.</p>
+   * The name of the step.
+   *
    * @public
    */
   name?: RecoveryInstanceDataReplicationInitiationStepName | undefined;
 
   /**
-   * <p>The status of the step.</p>
+   * The status of the step.
+   *
    * @public
    */
   status?: RecoveryInstanceDataReplicationInitiationStepStatus | undefined;
 }
 
 /**
- * <p>Data replication initiation.</p>
+ * Data replication initiation.
+ *
  * @public
  */
 export interface RecoveryInstanceDataReplicationInitiation {
   /**
-   * <p>The date and time of the current attempt to initiate data replication.</p>
+   * The date and time of the current attempt to initiate data replication.
+   *
    * @public
    */
   startDateTime?: string | undefined;
 
   /**
-   * <p>The steps of the current attempt to initiate data replication.</p>
+   * The steps of the current attempt to initiate data replication.
+   *
    * @public
    */
   steps?: RecoveryInstanceDataReplicationInitiationStep[] | undefined;
 }
 
 /**
- * <p>A disk that should be replicated.</p>
+ * A disk that should be replicated.
+ *
  * @public
  */
 export interface RecoveryInstanceDataReplicationInfoReplicatedDisk {
   /**
-   * <p>The name of the device.</p>
+   * The name of the device.
+   *
    * @public
    */
   deviceName?: string | undefined;
 
   /**
-   * <p>The total amount of data to be replicated in bytes.</p>
+   * The total amount of data to be replicated in bytes.
+   *
    * @public
    */
   totalStorageBytes?: number | undefined;
 
   /**
-   * <p>The amount of data replicated so far in bytes.</p>
+   * The amount of data replicated so far in bytes.
+   *
    * @public
    */
   replicatedStorageBytes?: number | undefined;
 
   /**
-   * <p>The amount of data to be rescanned in bytes.</p>
+   * The amount of data to be rescanned in bytes.
+   *
    * @public
    */
   rescannedStorageBytes?: number | undefined;
 
   /**
-   * <p>The size of the replication backlog in bytes.</p>
+   * The size of the replication backlog in bytes.
+   *
    * @public
    */
   backloggedStorageBytes?: number | undefined;
 }
 
 /**
- * <p>Information about Data Replication</p>
+ * Information about Data Replication
+ *
  * @public
  */
 export interface RecoveryInstanceDataReplicationInfo {
   /**
-   * <p>Data replication lag duration.</p>
+   * Data replication lag duration.
+   *
    * @public
    */
   lagDuration?: string | undefined;
 
   /**
-   * <p>An estimate of when the data replication will be completed.</p>
+   * An estimate of when the data replication will be completed.
+   *
    * @public
    */
   etaDateTime?: string | undefined;
 
   /**
-   * <p>The disks that should be replicated.</p>
+   * The disks that should be replicated.
+   *
    * @public
    */
   replicatedDisks?: RecoveryInstanceDataReplicationInfoReplicatedDisk[] | undefined;
 
   /**
-   * <p>The state of the data replication.</p>
+   * The state of the data replication.
+   *
    * @public
    */
   dataReplicationState?: RecoveryInstanceDataReplicationState | undefined;
 
   /**
-   * <p>Information about whether the data replication has been initiated.</p>
+   * Information about whether the data replication has been initiated.
+   *
    * @public
    */
   dataReplicationInitiation?: RecoveryInstanceDataReplicationInitiation | undefined;
 
   /**
-   * <p>Information about Data Replication</p>
+   * Information about Data Replication
+   *
    * @public
    */
   dataReplicationError?: RecoveryInstanceDataReplicationError | undefined;
 
   /**
-   * <p>AWS Availability zone into which data is being replicated.</p>
+   * AWS Availability zone into which data is being replicated.
+   *
    * @public
    */
   stagingAvailabilityZone?: string | undefined;
 
   /**
-   * <p>The ARN of the staging Outpost</p>
+   * The ARN of the staging Outpost
+   *
    * @public
    */
   stagingOutpostArn?: string | undefined;
 }
 
 /**
- * <p>An object representing failback related information of the Recovery Instance.</p>
+ * An object representing failback related information of the Recovery Instance.
+ *
  * @public
  */
 export interface RecoveryInstanceFailback {
   /**
-   * <p>The ID of the failback client that this Recovery Instance is associated with.</p>
+   * The ID of the failback client that this Recovery Instance is associated with.
+   *
    * @public
    */
   failbackClientID?: string | undefined;
 
   /**
-   * <p>The Job ID of the last failback log for this Recovery Instance.</p>
+   * The Job ID of the last failback log for this Recovery Instance.
+   *
    * @public
    */
   failbackJobID?: string | undefined;
 
   /**
-   * <p>The date and time that the failback initiation started.</p>
+   * The date and time that the failback initiation started.
+   *
    * @public
    */
   failbackInitiationTime?: string | undefined;
 
   /**
-   * <p>The state of the failback process that this Recovery Instance is in.</p>
+   * The state of the failback process that this Recovery Instance is in.
+   *
    * @public
    */
   state?: FailbackState | undefined;
 
   /**
-   * <p>The date and time the agent on the Recovery Instance was last seen by the service.</p>
+   * The date and time the agent on the Recovery Instance was last seen by the service.
+   *
    * @public
    */
   agentLastSeenByServiceDateTime?: string | undefined;
 
   /**
-   * <p>The date and time that the failback client was last seen by the service.</p>
+   * The date and time that the failback client was last seen by the service.
+   *
    * @public
    */
   failbackClientLastSeenByServiceDateTime?: string | undefined;
 
   /**
-   * <p>Whether we are failing back to the original Source Server for this Recovery Instance.</p>
+   * Whether we are failing back to the original Source Server for this Recovery Instance.
+   *
    * @public
    */
   failbackToOriginalServer?: boolean | undefined;
 
   /**
-   * <p>The date and time of the first byte that was replicated from the Recovery Instance.</p>
+   * The date and time of the first byte that was replicated from the Recovery Instance.
+   *
    * @public
    */
   firstByteDateTime?: string | undefined;
 
   /**
-   * <p>The amount of time that the Recovery Instance has been replicating for.</p>
+   * The amount of time that the Recovery Instance has been replicating for.
+   *
    * @public
    */
   elapsedReplicationDuration?: string | undefined;
 
   /**
-   * <p>The launch type (Recovery / Drill) of the last launch for the failback replication of this recovery instance.</p>
+   * The launch type (Recovery / Drill) of the last launch for the failback replication of this recovery instance.
+   *
    * @public
    */
   failbackLaunchType?: FailbackLaunchType | undefined;
 }
 
 /**
- * <p>An object representing a block storage device on the Recovery Instance.</p>
+ * An object representing a block storage device on the Recovery Instance.
+ *
  * @public
  */
 export interface RecoveryInstanceDisk {
   /**
-   * <p>The internal device name of this disk. This is the name that is visible on the machine itself and not from the EC2 console.</p>
+   * The internal device name of this disk. This is the name that is visible on the machine itself and not from the EC2 console.
+   *
    * @public
    */
   internalDeviceName?: string | undefined;
 
   /**
-   * <p>The amount of storage on the disk in bytes.</p>
+   * The amount of storage on the disk in bytes.
+   *
    * @public
    */
   bytes?: number | undefined;
 
   /**
-   * <p>The EBS Volume ID of this disk.</p>
+   * The EBS Volume ID of this disk.
+   *
    * @public
    */
   ebsVolumeID?: string | undefined;
 }
 
 /**
- * <p>Properties of the Recovery Instance machine.</p>
+ * Properties of the Recovery Instance machine.
+ *
  * @public
  */
 export interface RecoveryInstanceProperties {
   /**
-   * <p>The date and time the Recovery Instance properties were last updated on.</p>
+   * The date and time the Recovery Instance properties were last updated on.
+   *
    * @public
    */
   lastUpdatedDateTime?: string | undefined;
 
   /**
-   * <p>Hints used to uniquely identify a machine.</p>
+   * Hints used to uniquely identify a machine.
+   *
    * @public
    */
   identificationHints?: IdentificationHints | undefined;
 
   /**
-   * <p>An array of network interfaces.</p>
+   * An array of network interfaces.
+   *
    * @public
    */
   networkInterfaces?: NetworkInterface[] | undefined;
 
   /**
-   * <p>An array of disks.</p>
+   * An array of disks.
+   *
    * @public
    */
   disks?: RecoveryInstanceDisk[] | undefined;
 
   /**
-   * <p>An array of CPUs.</p>
+   * An array of CPUs.
+   *
    * @public
    */
   cpus?: CPU[] | undefined;
 
   /**
-   * <p>The amount of RAM in bytes.</p>
+   * The amount of RAM in bytes.
+   *
    * @public
    */
   ramBytes?: number | undefined;
 
   /**
-   * <p>Operating system.</p>
+   * Operating system.
+   *
    * @public
    */
   os?: OS | undefined;
 }
 
 /**
- * <p>A Recovery Instance is a replica of a Source Server running on EC2.</p>
+ * A Recovery Instance is a replica of a Source Server running on EC2.
+ *
  * @public
  */
 export interface RecoveryInstance {
   /**
-   * <p>The EC2 instance ID of the Recovery Instance.</p>
+   * The EC2 instance ID of the Recovery Instance.
+   *
    * @public
    */
   ec2InstanceID?: string | undefined;
 
   /**
-   * <p>The state of the EC2 instance for this Recovery Instance.</p>
+   * The state of the EC2 instance for this Recovery Instance.
+   *
    * @public
    */
   ec2InstanceState?: EC2InstanceState | undefined;
 
   /**
-   * <p>The ID of the Job that created the Recovery Instance.</p>
+   * The ID of the Job that created the Recovery Instance.
+   *
    * @public
    */
   jobID?: string | undefined;
 
   /**
-   * <p>The ID of the Recovery Instance.</p>
+   * The ID of the Recovery Instance.
+   *
    * @public
    */
   recoveryInstanceID?: string | undefined;
 
   /**
-   * <p>The Source Server ID that this Recovery Instance is associated with.</p>
+   * The Source Server ID that this Recovery Instance is associated with.
+   *
    * @public
    */
   sourceServerID?: string | undefined;
 
   /**
-   * <p>The ARN of the Recovery Instance.</p>
+   * The ARN of the Recovery Instance.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>An array of tags that are associated with the Recovery Instance.</p>
+   * An array of tags that are associated with the Recovery Instance.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>An object representing failback related information of the Recovery Instance.</p>
+   * An object representing failback related information of the Recovery Instance.
+   *
    * @public
    */
   failback?: RecoveryInstanceFailback | undefined;
 
   /**
-   * <p>The Data Replication Info of the Recovery Instance.</p>
+   * The Data Replication Info of the Recovery Instance.
+   *
    * @public
    */
   dataReplicationInfo?: RecoveryInstanceDataReplicationInfo | undefined;
 
   /**
-   * <p>Properties of the Recovery Instance machine.</p>
+   * Properties of the Recovery Instance machine.
+   *
    * @public
    */
   recoveryInstanceProperties?: RecoveryInstanceProperties | undefined;
 
   /**
-   * <p>The date and time of the Point in Time (PIT) snapshot that this Recovery Instance was launched from.</p>
+   * The date and time of the Point in Time (PIT) snapshot that this Recovery Instance was launched from.
+   *
    * @public
    */
   pointInTimeSnapshotDateTime?: string | undefined;
 
   /**
-   * <p>Whether this Recovery Instance was created for a drill or for an actual Recovery event.</p>
+   * Whether this Recovery Instance was created for a drill or for an actual Recovery event.
+   *
    * @public
    */
   isDrill?: boolean | undefined;
 
   /**
-   * <p>Environment (On Premises / AWS) of the instance that the recovery instance originated from.</p>
+   * Environment (On Premises / AWS) of the instance that the recovery instance originated from.
+   *
    * @public
    */
   originEnvironment?: OriginEnvironment | undefined;
 
   /**
-   * <p>AWS availability zone associated with the recovery instance.</p>
+   * AWS availability zone associated with the recovery instance.
+   *
    * @public
    */
   originAvailabilityZone?: string | undefined;
 
   /**
-   * <p>The version of the DRS agent installed on the recovery instance</p>
+   * The version of the DRS agent installed on the recovery instance
+   *
    * @public
    */
   agentVersion?: string | undefined;
 
   /**
-   * <p>The ARN of the source Outpost</p>
+   * The ARN of the source Outpost
+   *
    * @public
    */
   sourceOutpostArn?: string | undefined;
@@ -2759,31 +3139,36 @@ export interface RecoveryInstance {
  */
 export interface DescribeRecoveryInstancesResponse {
   /**
-   * <p>The token of the next Recovery Instance to retrieve.</p>
+   * The token of the next Recovery Instance to retrieve.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>An array of Recovery Instances.</p>
+   * An array of Recovery Instances.
+   *
    * @public
    */
   items?: RecoveryInstance[] | undefined;
 }
 
 /**
- * <p>A set of filters by which to return Recovery Snapshots.</p>
+ * A set of filters by which to return Recovery Snapshots.
+ *
  * @public
  */
 export interface DescribeRecoverySnapshotsRequestFilters {
   /**
-   * <p>The start date in a date range query.</p>
+   * The start date in a date range query.
+   *
    * @public
    */
   fromDateTime?: string | undefined;
 
   /**
-   * <p>The end date in a date range query.</p>
+   * The end date in a date range query.
+   *
    * @public
    */
   toDateTime?: string | undefined;
@@ -2794,67 +3179,78 @@ export interface DescribeRecoverySnapshotsRequestFilters {
  */
 export interface DescribeRecoverySnapshotsRequest {
   /**
-   * <p>Filter Recovery Snapshots by Source Server ID.</p>
+   * Filter Recovery Snapshots by Source Server ID.
+   *
    * @public
    */
   sourceServerID: string | undefined;
 
   /**
-   * <p>A set of filters by which to return Recovery Snapshots.</p>
+   * A set of filters by which to return Recovery Snapshots.
+   *
    * @public
    */
   filters?: DescribeRecoverySnapshotsRequestFilters | undefined;
 
   /**
-   * <p>The sorted ordering by which to return Recovery Snapshots.</p>
+   * The sorted ordering by which to return Recovery Snapshots.
+   *
    * @public
    */
   order?: RecoverySnapshotsOrder | undefined;
 
   /**
-   * <p>Maximum number of Recovery Snapshots to retrieve.</p>
+   * Maximum number of Recovery Snapshots to retrieve.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token of the next Recovery Snapshot to retrieve.</p>
+   * The token of the next Recovery Snapshot to retrieve.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>A snapshot of a Source Server used during recovery.</p>
+ * A snapshot of a Source Server used during recovery.
+ *
  * @public
  */
 export interface RecoverySnapshot {
   /**
-   * <p>The ID of the Recovery Snapshot.</p>
+   * The ID of the Recovery Snapshot.
+   *
    * @public
    */
   snapshotID: string | undefined;
 
   /**
-   * <p>The ID of the Source Server that the snapshot was taken for.</p>
+   * The ID of the Source Server that the snapshot was taken for.
+   *
    * @public
    */
   sourceServerID: string | undefined;
 
   /**
-   * <p>The timestamp of when we expect the snapshot to be taken.</p>
+   * The timestamp of when we expect the snapshot to be taken.
+   *
    * @public
    */
   expectedTimestamp: string | undefined;
 
   /**
-   * <p>The actual timestamp that the snapshot was taken.</p>
+   * The actual timestamp that the snapshot was taken.
+   *
    * @public
    */
   timestamp?: string | undefined;
 
   /**
-   * <p>A list of EBS snapshots.</p>
+   * A list of EBS snapshots.
+   *
    * @public
    */
   ebsSnapshots?: string[] | undefined;
@@ -2865,13 +3261,15 @@ export interface RecoverySnapshot {
  */
 export interface DescribeRecoverySnapshotsResponse {
   /**
-   * <p>An array of Recovery Snapshots.</p>
+   * An array of Recovery Snapshots.
+   *
    * @public
    */
   items?: RecoverySnapshot[] | undefined;
 
   /**
-   * <p>The token of the next Recovery Snapshot to retrieve.</p>
+   * The token of the next Recovery Snapshot to retrieve.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2882,19 +3280,22 @@ export interface DescribeRecoverySnapshotsResponse {
  */
 export interface DescribeReplicationConfigurationTemplatesRequest {
   /**
-   * <p>The IDs of the Replication Configuration Templates to retrieve. An empty list means all Replication Configuration Templates.</p>
+   * The IDs of the Replication Configuration Templates to retrieve. An empty list means all Replication Configuration Templates.
+   *
    * @public
    */
   replicationConfigurationTemplateIDs?: string[] | undefined;
 
   /**
-   * <p>Maximum number of Replication Configuration Templates to retrieve.</p>
+   * Maximum number of Replication Configuration Templates to retrieve.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token of the next Replication Configuration Template to retrieve.</p>
+   * The token of the next Replication Configuration Template to retrieve.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2905,37 +3306,43 @@ export interface DescribeReplicationConfigurationTemplatesRequest {
  */
 export interface DescribeReplicationConfigurationTemplatesResponse {
   /**
-   * <p>An array of Replication Configuration Templates.</p>
+   * An array of Replication Configuration Templates.
+   *
    * @public
    */
   items?: ReplicationConfigurationTemplate[] | undefined;
 
   /**
-   * <p>The token of the next Replication Configuration Template to retrieve.</p>
+   * The token of the next Replication Configuration Template to retrieve.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>A set of filters by which to return Source Networks.</p>
+ * A set of filters by which to return Source Networks.
+ *
  * @public
  */
 export interface DescribeSourceNetworksRequestFilters {
   /**
-   * <p>An array of Source Network IDs that should be returned. An empty array means all Source Networks.</p>
+   * An array of Source Network IDs that should be returned. An empty array means all Source Networks.
+   *
    * @public
    */
   sourceNetworkIDs?: string[] | undefined;
 
   /**
-   * <p>Filter Source Networks by account ID containing the protected VPCs.</p>
+   * Filter Source Networks by account ID containing the protected VPCs.
+   *
    * @public
    */
   originAccountID?: string | undefined;
 
   /**
-   * <p>Filter Source Networks by the region containing the protected VPCs.</p>
+   * Filter Source Networks by the region containing the protected VPCs.
+   *
    * @public
    */
   originRegion?: string | undefined;
@@ -2946,115 +3353,134 @@ export interface DescribeSourceNetworksRequestFilters {
  */
 export interface DescribeSourceNetworksRequest {
   /**
-   * <p>A set of filters by which to return Source Networks.</p>
+   * A set of filters by which to return Source Networks.
+   *
    * @public
    */
   filters?: DescribeSourceNetworksRequestFilters | undefined;
 
   /**
-   * <p>Maximum number of Source Networks to retrieve.</p>
+   * Maximum number of Source Networks to retrieve.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token of the next Source Networks to retrieve.</p>
+   * The token of the next Source Networks to retrieve.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>An object representing the Source Network recovery Lifecycle.</p>
+ * An object representing the Source Network recovery Lifecycle.
+ *
  * @public
  */
 export interface RecoveryLifeCycle {
   /**
-   * <p>The date and time the last Source Network recovery was initiated.</p>
+   * The date and time the last Source Network recovery was initiated.
+   *
    * @public
    */
   apiCallDateTime?: Date | undefined;
 
   /**
-   * <p>The ID of the Job that was used to last recover the Source Network.</p>
+   * The ID of the Job that was used to last recover the Source Network.
+   *
    * @public
    */
   jobID?: string | undefined;
 
   /**
-   * <p>The status of the last recovery status of this Source Network.</p>
+   * The status of the last recovery status of this Source Network.
+   *
    * @public
    */
   lastRecoveryResult?: RecoveryResult | undefined;
 }
 
 /**
- * <p>The ARN of the Source Network.</p>
+ * The ARN of the Source Network.
+ *
  * @public
  */
 export interface SourceNetwork {
   /**
-   * <p>Source Network ID.</p>
+   * Source Network ID.
+   *
    * @public
    */
   sourceNetworkID?: string | undefined;
 
   /**
-   * <p>VPC ID protected by the Source Network.</p>
+   * VPC ID protected by the Source Network.
+   *
    * @public
    */
   sourceVpcID?: string | undefined;
 
   /**
-   * <p>The ARN of the Source Network.</p>
+   * The ARN of the Source Network.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>A list of tags associated with the Source Network.</p>
+   * A list of tags associated with the Source Network.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Status of Source Network Replication. Possible values: (a) STOPPED - Source Network is not replicating. (b) IN_PROGRESS - Source Network is being replicated. (c) PROTECTED - Source Network was replicated successfully and is being synchronized for changes. (d) ERROR - Source Network replication has failed</p>
+   * Status of Source Network Replication. Possible values: (a) STOPPED - Source Network is not replicating. (b) IN_PROGRESS - Source Network is being replicated. (c) PROTECTED - Source Network was replicated successfully and is being synchronized for changes. (d) ERROR - Source Network replication has failed
+   *
    * @public
    */
   replicationStatus?: ReplicationStatus | undefined;
 
   /**
-   * <p>Error details in case Source Network replication status is ERROR.</p>
+   * Error details in case Source Network replication status is ERROR.
+   *
    * @public
    */
   replicationStatusDetails?: string | undefined;
 
   /**
-   * <p>CloudFormation stack name that was deployed for recovering the Source Network.</p>
+   * CloudFormation stack name that was deployed for recovering the Source Network.
+   *
    * @public
    */
   cfnStackName?: string | undefined;
 
   /**
-   * <p>Region containing the VPC protected by the Source Network.</p>
+   * Region containing the VPC protected by the Source Network.
+   *
    * @public
    */
   sourceRegion?: string | undefined;
 
   /**
-   * <p>Account ID containing the VPC protected by the Source Network.</p>
+   * Account ID containing the VPC protected by the Source Network.
+   *
    * @public
    */
   sourceAccountID?: string | undefined;
 
   /**
-   * <p>An object containing information regarding the last recovery of the Source Network.</p>
+   * An object containing information regarding the last recovery of the Source Network.
+   *
    * @public
    */
   lastRecovery?: RecoveryLifeCycle | undefined;
 
   /**
-   * <p>ID of the recovered VPC following Source Network recovery.</p>
+   * ID of the recovered VPC following Source Network recovery.
+   *
    * @public
    */
   launchedVpcID?: string | undefined;
@@ -3065,37 +3491,43 @@ export interface SourceNetwork {
  */
 export interface DescribeSourceNetworksResponse {
   /**
-   * <p>An array of Source Networks.</p>
+   * An array of Source Networks.
+   *
    * @public
    */
   items?: SourceNetwork[] | undefined;
 
   /**
-   * <p>The token of the next Source Networks to retrieve.</p>
+   * The token of the next Source Networks to retrieve.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>A set of filters by which to return Source Servers.</p>
+ * A set of filters by which to return Source Servers.
+ *
  * @public
  */
 export interface DescribeSourceServersRequestFilters {
   /**
-   * <p>An array of Source Servers IDs that should be returned. An empty array means all Source Servers.</p>
+   * An array of Source Servers IDs that should be returned. An empty array means all Source Servers.
+   *
    * @public
    */
   sourceServerIDs?: string[] | undefined;
 
   /**
-   * <p>An ID that describes the hardware of the Source Server. This is either an EC2 instance id, a VMware uuid or a mac address.</p>
+   * An ID that describes the hardware of the Source Server. This is either an EC2 instance id, a VMware uuid or a mac address.
+   *
    * @public
    */
   hardwareId?: string | undefined;
 
   /**
-   * <p>An array of staging account IDs that extended source servers belong to. An empty array means all source servers will be shown.</p>
+   * An array of staging account IDs that extended source servers belong to. An empty array means all source servers will be shown.
+   *
    * @public
    */
   stagingAccountIDs?: string[] | undefined;
@@ -3106,19 +3538,22 @@ export interface DescribeSourceServersRequestFilters {
  */
 export interface DescribeSourceServersRequest {
   /**
-   * <p>A set of filters by which to return Source Servers.</p>
+   * A set of filters by which to return Source Servers.
+   *
    * @public
    */
   filters?: DescribeSourceServersRequestFilters | undefined;
 
   /**
-   * <p>Maximum number of Source Servers to retrieve.</p>
+   * Maximum number of Source Servers to retrieve.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token of the next Source Server to retrieve.</p>
+   * The token of the next Source Server to retrieve.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -3129,13 +3564,15 @@ export interface DescribeSourceServersRequest {
  */
 export interface DescribeSourceServersResponse {
   /**
-   * <p>An array of Source Servers.</p>
+   * An array of Source Servers.
+   *
    * @public
    */
   items?: SourceServer[] | undefined;
 
   /**
-   * <p>The token of the next Source Server to retrieve.</p>
+   * The token of the next Source Server to retrieve.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -3146,7 +3583,8 @@ export interface DescribeSourceServersResponse {
  */
 export interface DisconnectRecoveryInstanceRequest {
   /**
-   * <p>The ID of the Recovery Instance to disconnect.</p>
+   * The ID of the Recovery Instance to disconnect.
+   *
    * @public
    */
   recoveryInstanceID: string | undefined;
@@ -3157,7 +3595,8 @@ export interface DisconnectRecoveryInstanceRequest {
  */
 export interface DisconnectSourceServerRequest {
   /**
-   * <p>The ID of the Source Server to disconnect.</p>
+   * The ID of the Source Server to disconnect.
+   *
    * @public
    */
   sourceServerID: string | undefined;
@@ -3168,7 +3607,8 @@ export interface DisconnectSourceServerRequest {
  */
 export interface GetRecoveryPlanRequest {
   /**
-   * <p>The ARN of the Recovery Plan to retrieve.</p>
+   * The ARN of the Recovery Plan to retrieve.
+   *
    * @public
    */
   recoveryPlanArn: string | undefined;
@@ -3190,7 +3630,8 @@ export interface GetRecoveryPlanResponse {
  */
 export interface GetRecoveryPlanExecutionRequest {
   /**
-   * <p>The ARN of the Recovery Plan execution.</p>
+   * The ARN of the Recovery Plan execution.
+   *
    * @public
    */
   recoveryPlanExecutionArn: string | undefined;
@@ -3201,7 +3642,8 @@ export interface GetRecoveryPlanExecutionRequest {
  */
 export interface GetRecoveryPlanExecutionResponse {
   /**
-   * <p>The Recovery Plan execution details.</p>
+   * The Recovery Plan execution details.
+   *
    * @public
    */
   recoveryPlanExecution: RecoveryPlanExecution | undefined;
@@ -3212,7 +3654,8 @@ export interface GetRecoveryPlanExecutionResponse {
  */
 export interface GetRecoveryPlanExecutionStepRequest {
   /**
-   * <p>The ARN of the execution step.</p>
+   * The ARN of the execution step.
+   *
    * @public
    */
   recoveryPlanExecutionStepArn: string | undefined;
@@ -3224,7 +3667,8 @@ export interface GetRecoveryPlanExecutionStepRequest {
  */
 export interface RecoveryPlanExecutionServer {
   /**
-   * <p>The ARN of the source server.</p>
+   * The ARN of the source server.
+   *
    * @public
    */
   serverArn: string | undefined;
@@ -3243,12 +3687,14 @@ export interface RecoveryPlanExecutionServer {
 }
 
 /**
- * <p>Configuration for a <code>SERVER</code> type execution step.</p>
+ * Configuration for a `SERVER` type execution step.
+ *
  * @public
  */
 export interface ExecutionServerStepConfiguration {
   /**
-   * <p>The list of servers in this execution step.</p>
+   * The list of servers in this execution step.
+   *
    * @public
    */
   servers: RecoveryPlanExecutionServer[] | undefined;
@@ -3314,7 +3760,8 @@ export namespace RecoveryPlanExecutionStepConfiguration {
  */
 export interface RecoveryPlanExecutionStep {
   /**
-   * <p>The ARN of the execution step.</p>
+   * The ARN of the execution step.
+   *
    * @public
    */
   recoveryPlanExecutionStepArn: string | undefined;
@@ -3326,7 +3773,8 @@ export interface RecoveryPlanExecutionStep {
   stepIndex: number | undefined;
 
   /**
-   * <p>The status of the execution step.</p>
+   * The status of the execution step.
+   *
    * @public
    */
   status: RecoveryPlanExecutionStepStatus | undefined;
@@ -3345,25 +3793,29 @@ export interface RecoveryPlanExecutionStep {
   configuration: RecoveryPlanExecutionStepConfiguration | undefined;
 
   /**
-   * <p>Error details if the step failed.</p>
+   * Error details if the step failed.
+   *
    * @public
    */
   errorDetail?: ErrorDetail | undefined;
 
   /**
-   * <p>The number of times this step has been attempted.</p>
+   * The number of times this step has been attempted.
+   *
    * @public
    */
   attempt: number | undefined;
 
   /**
-   * <p>The timestamp when the execution step was created.</p>
+   * The timestamp when the execution step was created.
+   *
    * @public
    */
   createdAt: string | undefined;
 
   /**
-   * <p>The timestamp when the execution step was last updated.</p>
+   * The timestamp when the execution step was last updated.
+   *
    * @public
    */
   updatedAt: string | undefined;
@@ -3385,7 +3837,8 @@ export interface GetRecoveryPlanExecutionStepResponse {
  */
 export interface GetRecoveryPlanStepRequest {
   /**
-   * <p>The ARN of the Recovery Plan step to retrieve.</p>
+   * The ARN of the Recovery Plan step to retrieve.
+   *
    * @public
    */
   recoveryPlanStepArn: string | undefined;
@@ -3417,61 +3870,71 @@ export interface InitializeServiceResponse {}
  */
 export interface UpdateLaunchConfigurationTemplateRequest {
   /**
-   * <p>Launch Configuration Template ID.</p>
+   * Launch Configuration Template ID.
+   *
    * @public
    */
   launchConfigurationTemplateID: string | undefined;
 
   /**
-   * <p>Launch disposition.</p>
+   * Launch disposition.
+   *
    * @public
    */
   launchDisposition?: LaunchDisposition | undefined;
 
   /**
-   * <p>Target instance type right-sizing method.</p>
+   * Target instance type right-sizing method.
+   *
    * @public
    */
   targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | undefined;
 
   /**
-   * <p>Copy private IP.</p>
+   * Copy private IP.
+   *
    * @public
    */
   copyPrivateIp?: boolean | undefined;
 
   /**
-   * <p>Copy tags.</p>
+   * Copy tags.
+   *
    * @public
    */
   copyTags?: boolean | undefined;
 
   /**
-   * <p>Licensing.</p>
+   * Licensing.
+   *
    * @public
    */
   licensing?: Licensing | undefined;
 
   /**
-   * <p>S3 bucket ARN to export Source Network templates.</p>
+   * S3 bucket ARN to export Source Network templates.
+   *
    * @public
    */
   exportBucketArn?: string | undefined;
 
   /**
-   * <p>Whether we want to activate post-launch actions.</p>
+   * Whether we want to activate post-launch actions.
+   *
    * @public
    */
   postLaunchEnabled?: boolean | undefined;
 
   /**
-   * <p>DRS will set the 'launch into instance ID' of any source server when performing a drill, recovery or failback to the previous region or availability zone, using the instance ID of the source instance.</p>
+   * DRS will set the 'launch into instance ID' of any source server when performing a drill, recovery or failback to the previous region or availability zone, using the instance ID of the source instance.
+   *
    * @public
    */
   launchIntoSourceInstance?: boolean | undefined;
 
   /**
-   * <p>Recovery mode.</p>
+   * Recovery mode.
+   *
    * @public
    */
   recoveryMode?: RecoveryMode | undefined;
@@ -3482,7 +3945,8 @@ export interface UpdateLaunchConfigurationTemplateRequest {
  */
 export interface UpdateLaunchConfigurationTemplateResponse {
   /**
-   * <p>Updated Launch Configuration Template.</p>
+   * Updated Launch Configuration Template.
+   *
    * @public
    */
   launchConfigurationTemplate?: LaunchConfigurationTemplate | undefined;
@@ -3493,43 +3957,50 @@ export interface UpdateLaunchConfigurationTemplateResponse {
  */
 export interface ListExtensibleSourceServersRequest {
   /**
-   * <p>The Id of the staging Account to retrieve extensible source servers from.</p>
+   * The Id of the staging Account to retrieve extensible source servers from.
+   *
    * @public
    */
   stagingAccountID: string | undefined;
 
   /**
-   * <p>The maximum number of extensible source servers to retrieve.</p>
+   * The maximum number of extensible source servers to retrieve.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token of the next extensible source server to retrieve.</p>
+   * The token of the next extensible source server to retrieve.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Source server in staging account that extended source server connected to.</p>
+ * Source server in staging account that extended source server connected to.
+ *
  * @public
  */
 export interface StagingSourceServer {
   /**
-   * <p>Hostname of staging source server.</p>
+   * Hostname of staging source server.
+   *
    * @public
    */
   hostname?: string | undefined;
 
   /**
-   * <p>The ARN of the source server.</p>
+   * The ARN of the source server.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>A list of tags associated with the staging source server.</p>
+   * A list of tags associated with the staging source server.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -3540,25 +4011,29 @@ export interface StagingSourceServer {
  */
 export interface ListExtensibleSourceServersResponse {
   /**
-   * <p>A list of source servers on a staging Account that are extensible.</p>
+   * A list of source servers on a staging Account that are extensible.
+   *
    * @public
    */
   items?: StagingSourceServer[] | undefined;
 
   /**
-   * <p>The token of the next extensible source server to retrieve.</p>
+   * The token of the next extensible source server to retrieve.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Resource launch actions filter.</p>
+ * Resource launch actions filter.
+ *
  * @public
  */
 export interface LaunchActionsRequestFilters {
   /**
-   * <p>Launch actions Ids.</p>
+   * Launch actions Ids.
+   *
    * @public
    */
   actionIds?: string[] | undefined;
@@ -3569,25 +4044,29 @@ export interface LaunchActionsRequestFilters {
  */
 export interface ListLaunchActionsRequest {
   /**
-   * <p>Launch configuration template Id or Source Server Id</p>
+   * Launch configuration template Id or Source Server Id
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>Filters to apply when listing resource launch actions.</p>
+   * Filters to apply when listing resource launch actions.
+   *
    * @public
    */
   filters?: LaunchActionsRequestFilters | undefined;
 
   /**
-   * <p>Maximum amount of items to return when listing resource launch actions.</p>
+   * Maximum amount of items to return when listing resource launch actions.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Next token to use when listing resource launch actions.</p>
+   * Next token to use when listing resource launch actions.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -3598,13 +4077,15 @@ export interface ListLaunchActionsRequest {
  */
 export interface ListLaunchActionsResponse {
   /**
-   * <p>List of resource launch actions.</p>
+   * List of resource launch actions.
+   *
    * @public
    */
   items?: LaunchAction[] | undefined;
 
   /**
-   * <p>Next token returned when listing resource launch actions.</p>
+   * Next token returned when listing resource launch actions.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -3615,67 +4096,78 @@ export interface ListLaunchActionsResponse {
  */
 export interface ListRecoveryPlanExecutionsRequest {
   /**
-   * <p>Filter executions by Recovery Plan ARN.</p>
+   * Filter executions by Recovery Plan ARN.
+   *
    * @public
    */
   recoveryPlanArn?: string | undefined;
 
   /**
-   * <p>Filter executions by status.</p>
+   * Filter executions by status.
+   *
    * @public
    */
   status?: RecoveryPlanExecutionStatus | undefined;
 
   /**
-   * <p>Maximum number of results to return.</p>
+   * Maximum number of results to return.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Summary information about a Recovery Plan execution.</p>
+ * Summary information about a Recovery Plan execution.
+ *
  * @public
  */
 export interface RecoveryPlanExecutionSummary {
   /**
-   * <p>The ARN of the Recovery Plan execution.</p>
+   * The ARN of the Recovery Plan execution.
+   *
    * @public
    */
   recoveryPlanExecutionArn: string | undefined;
 
   /**
-   * <p>The ARN of the Recovery Plan.</p>
+   * The ARN of the Recovery Plan.
+   *
    * @public
    */
   recoveryPlanArn: string | undefined;
 
   /**
-   * <p>The execution mode.</p>
+   * The execution mode.
+   *
    * @public
    */
   mode: RecoveryPlanExecutionMode | undefined;
 
   /**
-   * <p>The execution status.</p>
+   * The execution status.
+   *
    * @public
    */
   status: RecoveryPlanExecutionStatus | undefined;
 
   /**
-   * <p>The timestamp when the execution started.</p>
+   * The timestamp when the execution started.
+   *
    * @public
    */
   startedAt: string | undefined;
 
   /**
-   * <p>Error details if the execution failed.</p>
+   * Error details if the execution failed.
+   *
    * @public
    */
   errorDetail?: ErrorDetail | undefined;
@@ -3686,25 +4178,29 @@ export interface RecoveryPlanExecutionSummary {
  */
 export interface ListRecoveryPlanExecutionsResponse {
   /**
-   * <p>The list of Recovery Plan executions.</p>
+   * The list of Recovery Plan executions.
+   *
    * @public
    */
   recoveryPlanExecutions: RecoveryPlanExecutionSummary[] | undefined;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Filters for listing Recovery Plan execution steps.</p>
+ * Filters for listing Recovery Plan execution steps.
+ *
  * @public
  */
 export interface ListRecoveryPlanExecutionStepsFilter {
   /**
-   * <p>Filter by execution step status.</p>
+   * Filter by execution step status.
+   *
    * @public
    */
   status?: RecoveryPlanExecutionStepStatus | undefined;
@@ -3715,37 +4211,43 @@ export interface ListRecoveryPlanExecutionStepsFilter {
  */
 export interface ListRecoveryPlanExecutionStepsRequest {
   /**
-   * <p>The ARN of the Recovery Plan execution.</p>
+   * The ARN of the Recovery Plan execution.
+   *
    * @public
    */
   recoveryPlanExecutionArn: string | undefined;
 
   /**
-   * <p>Filters for listing execution steps.</p>
+   * Filters for listing execution steps.
+   *
    * @public
    */
   filter?: ListRecoveryPlanExecutionStepsFilter | undefined;
 
   /**
-   * <p>Maximum number of results to return.</p>
+   * Maximum number of results to return.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Summary information about a Recovery Plan execution step.</p>
+ * Summary information about a Recovery Plan execution step.
+ *
  * @public
  */
 export interface RecoveryPlanExecutionStepSummary {
   /**
-   * <p>The ARN of the execution step.</p>
+   * The ARN of the execution step.
+   *
    * @public
    */
   recoveryPlanExecutionStepArn: string | undefined;
@@ -3763,7 +4265,8 @@ export interface RecoveryPlanExecutionStepSummary {
   stepIndex: number | undefined;
 
   /**
-   * <p>The status of the execution step.</p>
+   * The status of the execution step.
+   *
    * @public
    */
   status: RecoveryPlanExecutionStepStatus | undefined;
@@ -3776,7 +4279,8 @@ export interface RecoveryPlanExecutionStepSummary {
   configuration: RecoveryPlanExecutionStepConfiguration | undefined;
 
   /**
-   * <p>Error details if the step failed.</p>
+   * Error details if the step failed.
+   *
    * @public
    */
   errorDetail?: ErrorDetail | undefined;
@@ -3787,13 +4291,15 @@ export interface RecoveryPlanExecutionStepSummary {
  */
 export interface ListRecoveryPlanExecutionStepsResponse {
   /**
-   * <p>The list of execution steps.</p>
+   * The list of execution steps.
+   *
    * @public
    */
   recoveryPlanExecutionSteps: RecoveryPlanExecutionStepSummary[] | undefined;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -3804,25 +4310,29 @@ export interface ListRecoveryPlanExecutionStepsResponse {
  */
 export interface ListRecoveryPlansRequest {
   /**
-   * <p>Maximum number of results to return.</p>
+   * Maximum number of results to return.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Summary information about a Recovery Plan.</p>
+ * Summary information about a Recovery Plan.
+ *
  * @public
  */
 export interface RecoveryPlanSummary {
   /**
-   * <p>The ARN of the Recovery Plan.</p>
+   * The ARN of the Recovery Plan.
+   *
    * @public
    */
   recoveryPlanArn: string | undefined;
@@ -3834,19 +4344,22 @@ export interface RecoveryPlanSummary {
   name: string | undefined;
 
   /**
-   * <p>The status of the Recovery Plan.</p>
+   * The status of the Recovery Plan.
+   *
    * @public
    */
   status: RecoveryPlanStatus | undefined;
 
   /**
-   * <p>The timestamp when the Recovery Plan was created.</p>
+   * The timestamp when the Recovery Plan was created.
+   *
    * @public
    */
   createdAt: string | undefined;
 
   /**
-   * <p>The timestamp when the Recovery Plan was last updated.</p>
+   * The timestamp when the Recovery Plan was last updated.
+   *
    * @public
    */
   updatedAt: string | undefined;
@@ -3857,13 +4370,15 @@ export interface RecoveryPlanSummary {
  */
 export interface ListRecoveryPlansResponse {
   /**
-   * <p>The list of Recovery Plans.</p>
+   * The list of Recovery Plans.
+   *
    * @public
    */
   recoveryPlans: RecoveryPlanSummary[] | undefined;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -3874,19 +4389,22 @@ export interface ListRecoveryPlansResponse {
  */
 export interface ListRecoveryPlanStepsRequest {
   /**
-   * <p>The ARN of the Recovery Plan.</p>
+   * The ARN of the Recovery Plan.
+   *
    * @public
    */
   recoveryPlanArn: string | undefined;
 
   /**
-   * <p>Maximum number of results to return.</p>
+   * Maximum number of results to return.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -3897,13 +4415,15 @@ export interface ListRecoveryPlanStepsRequest {
  */
 export interface ListRecoveryPlanStepsResponse {
   /**
-   * <p>The list of Recovery Plan steps.</p>
+   * The list of Recovery Plan steps.
+   *
    * @public
    */
   recoveryPlanSteps: RecoveryPlanStep[] | undefined;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -3914,13 +4434,15 @@ export interface ListRecoveryPlanStepsResponse {
  */
 export interface ListStagingAccountsRequest {
   /**
-   * <p>The maximum number of staging Accounts to retrieve.</p>
+   * The maximum number of staging Accounts to retrieve.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token of the next staging Account to retrieve.</p>
+   * The token of the next staging Account to retrieve.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -3931,13 +4453,15 @@ export interface ListStagingAccountsRequest {
  */
 export interface ListStagingAccountsResponse {
   /**
-   * <p>An array of staging AWS Accounts.</p>
+   * An array of staging AWS Accounts.
+   *
    * @public
    */
   accounts?: Account[] | undefined;
 
   /**
-   * <p>The token of the next staging Account to retrieve.</p>
+   * The token of the next staging Account to retrieve.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -3948,7 +4472,8 @@ export interface ListStagingAccountsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The ARN of the resource whose tags should be returned.</p>
+   * The ARN of the resource whose tags should be returned.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -3959,7 +4484,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>The tags of the requested resource.</p>
+   * The tags of the requested resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -3970,67 +4496,78 @@ export interface ListTagsForResourceResponse {
  */
 export interface PutLaunchActionRequest {
   /**
-   * <p>Launch configuration template Id or Source Server Id</p>
+   * Launch configuration template Id or Source Server Id
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>Launch action code.</p>
+   * Launch action code.
+   *
    * @public
    */
   actionCode: string | undefined;
 
   /**
-   * <p>Launch action order.</p>
+   * Launch action order.
+   *
    * @public
    */
   order: number | undefined;
 
   /**
-   * <p>Launch action Id.</p>
+   * Launch action Id.
+   *
    * @public
    */
   actionId: string | undefined;
 
   /**
-   * <p>Whether the launch will not be marked as failed if this action fails.</p>
+   * Whether the launch will not be marked as failed if this action fails.
+   *
    * @public
    */
   optional: boolean | undefined;
 
   /**
-   * <p>Whether the launch action is active.</p>
+   * Whether the launch action is active.
+   *
    * @public
    */
   active: boolean | undefined;
 
   /**
-   * <p>Launch action name.</p>
+   * Launch action name.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Launch action version.</p>
+   * Launch action version.
+   *
    * @public
    */
   actionVersion: string | undefined;
 
   /**
-   * <p>Launch action category.</p>
+   * Launch action category.
+   *
    * @public
    */
   category: LaunchActionCategory | undefined;
 
   /**
-   * <p>Launch action parameters.</p>
+   * Launch action parameters.
+   *
    * @public
    */
   parameters?: Record<string, LaunchActionParameter> | undefined;
 
   /**
-   * <p>Launch action description.</p>
+   * Launch action description.
+   *
    * @public
    */
   description: string | undefined;
@@ -4041,73 +4578,85 @@ export interface PutLaunchActionRequest {
  */
 export interface PutLaunchActionResponse {
   /**
-   * <p>Launch configuration template Id or Source Server Id</p>
+   * Launch configuration template Id or Source Server Id
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>Launch action Id.</p>
+   * Launch action Id.
+   *
    * @public
    */
   actionId?: string | undefined;
 
   /**
-   * <p>Launch action code.</p>
+   * Launch action code.
+   *
    * @public
    */
   actionCode?: string | undefined;
 
   /**
-   * <p>Launch action type.</p>
+   * Launch action type.
+   *
    * @public
    */
   type?: LaunchActionType | undefined;
 
   /**
-   * <p>Launch action name.</p>
+   * Launch action name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Whether the launch action is active.</p>
+   * Whether the launch action is active.
+   *
    * @public
    */
   active?: boolean | undefined;
 
   /**
-   * <p>Launch action order.</p>
+   * Launch action order.
+   *
    * @public
    */
   order?: number | undefined;
 
   /**
-   * <p>Launch action version.</p>
+   * Launch action version.
+   *
    * @public
    */
   actionVersion?: string | undefined;
 
   /**
-   * <p>Whether the launch will not be marked as failed if this action fails.</p>
+   * Whether the launch will not be marked as failed if this action fails.
+   *
    * @public
    */
   optional?: boolean | undefined;
 
   /**
-   * <p>Launch action parameters.</p>
+   * Launch action parameters.
+   *
    * @public
    */
   parameters?: Record<string, LaunchActionParameter> | undefined;
 
   /**
-   * <p>Launch action description.</p>
+   * Launch action description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Launch action category.</p>
+   * Launch action category.
+   *
    * @public
    */
   category?: LaunchActionCategory | undefined;
@@ -4118,7 +4667,8 @@ export interface PutLaunchActionResponse {
  */
 export interface GetFailbackReplicationConfigurationRequest {
   /**
-   * <p>The ID of the Recovery Instance whose failback replication configuration should be returned.</p>
+   * The ID of the Recovery Instance whose failback replication configuration should be returned.
+   *
    * @public
    */
   recoveryInstanceID: string | undefined;
@@ -4129,31 +4679,36 @@ export interface GetFailbackReplicationConfigurationRequest {
  */
 export interface GetFailbackReplicationConfigurationResponse {
   /**
-   * <p>The ID of the Recovery Instance.</p>
+   * The ID of the Recovery Instance.
+   *
    * @public
    */
   recoveryInstanceID: string | undefined;
 
   /**
-   * <p>The name of the Failback Replication Configuration.</p>
+   * The name of the Failback Replication Configuration.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Configure bandwidth throttling for the outbound data transfer rate of the Recovery Instance in Mbps.</p>
+   * Configure bandwidth throttling for the outbound data transfer rate of the Recovery Instance in Mbps.
+   *
    * @public
    */
   bandwidthThrottling?: number | undefined;
 
   /**
-   * <p>Whether to use Private IP for the failback replication of the Recovery Instance.</p>
+   * Whether to use Private IP for the failback replication of the Recovery Instance.
+   *
    * @public
    */
   usePrivateIP?: boolean | undefined;
 
   /**
-   * <p>Which version of the Internet Protocol to use for replication of data. (IPv4 or IPv6)</p>
+   * Which version of the Internet Protocol to use for replication of data. (IPv4 or IPv6)
+   *
    * @public
    */
   internetProtocol?: InternetProtocol | undefined;
@@ -4164,7 +4719,8 @@ export interface GetFailbackReplicationConfigurationResponse {
  */
 export interface ReverseReplicationRequest {
   /**
-   * <p>The ID of the Recovery Instance that we want to reverse the replication for.</p>
+   * The ID of the Recovery Instance that we want to reverse the replication for.
+   *
    * @public
    */
   recoveryInstanceID: string | undefined;
@@ -4175,7 +4731,8 @@ export interface ReverseReplicationRequest {
  */
 export interface ReverseReplicationResponse {
   /**
-   * <p>ARN of created SourceServer.</p>
+   * ARN of created SourceServer.
+   *
    * @public
    */
   reversedDirectionSourceServerArn?: string | undefined;
@@ -4186,13 +4743,15 @@ export interface ReverseReplicationResponse {
  */
 export interface StartFailbackLaunchRequest {
   /**
-   * <p>The IDs of the Recovery Instance whose failback launch we want to request.</p>
+   * The IDs of the Recovery Instance whose failback launch we want to request.
+   *
    * @public
    */
   recoveryInstanceIDs: string[] | undefined;
 
   /**
-   * <p>The tags to be associated with the failback launch Job.</p>
+   * The tags to be associated with the failback launch Job.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -4203,7 +4762,8 @@ export interface StartFailbackLaunchRequest {
  */
 export interface StartFailbackLaunchResponse {
   /**
-   * <p>The failback launch Job.</p>
+   * The failback launch Job.
+   *
    * @public
    */
   job?: Job | undefined;
@@ -4214,7 +4774,8 @@ export interface StartFailbackLaunchResponse {
  */
 export interface StopFailbackRequest {
   /**
-   * <p>The ID of the Recovery Instance we want to stop failback for.</p>
+   * The ID of the Recovery Instance we want to stop failback for.
+   *
    * @public
    */
   recoveryInstanceID: string | undefined;
@@ -4225,7 +4786,8 @@ export interface StopFailbackRequest {
  */
 export interface TerminateRecoveryInstancesRequest {
   /**
-   * <p>The IDs of the Recovery Instances that should be terminated.</p>
+   * The IDs of the Recovery Instances that should be terminated.
+   *
    * @public
    */
   recoveryInstanceIDs: string[] | undefined;
@@ -4236,7 +4798,8 @@ export interface TerminateRecoveryInstancesRequest {
  */
 export interface TerminateRecoveryInstancesResponse {
   /**
-   * <p>The Job for terminating the Recovery Instances.</p>
+   * The Job for terminating the Recovery Instances.
+   *
    * @public
    */
   job?: Job | undefined;
@@ -4247,49 +4810,57 @@ export interface TerminateRecoveryInstancesResponse {
  */
 export interface UpdateFailbackReplicationConfigurationRequest {
   /**
-   * <p>The ID of the Recovery Instance.</p>
+   * The ID of the Recovery Instance.
+   *
    * @public
    */
   recoveryInstanceID: string | undefined;
 
   /**
-   * <p>The name of the Failback Replication Configuration.</p>
+   * The name of the Failback Replication Configuration.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Configure bandwidth throttling for the outbound data transfer rate of the Recovery Instance in Mbps.</p>
+   * Configure bandwidth throttling for the outbound data transfer rate of the Recovery Instance in Mbps.
+   *
    * @public
    */
   bandwidthThrottling?: number | undefined;
 
   /**
-   * <p>Whether to use Private IP for the failback replication of the Recovery Instance.</p>
+   * Whether to use Private IP for the failback replication of the Recovery Instance.
+   *
    * @public
    */
   usePrivateIP?: boolean | undefined;
 
   /**
-   * <p>Which version of the Internet Protocol to use for replication of data. (IPv4 or IPv6)</p>
+   * Which version of the Internet Protocol to use for replication of data. (IPv4 or IPv6)
+   *
    * @public
    */
   internetProtocol?: InternetProtocol | undefined;
 }
 
 /**
- * <p>A source server with a specific recovery snapshot for plan execution.</p>
+ * A source server with a specific recovery snapshot for plan execution.
+ *
  * @public
  */
 export interface RecoveryPlanExecutionSourceServer {
   /**
-   * <p>The ID of the source server.</p>
+   * The ID of the source server.
+   *
    * @public
    */
   sourceServerID: string | undefined;
 
   /**
-   * <p>The ID of the recovery snapshot to use.</p>
+   * The ID of the recovery snapshot to use.
+   *
    * @public
    */
   recoverySnapshotID: string | undefined;
@@ -4300,31 +4871,36 @@ export interface RecoveryPlanExecutionSourceServer {
  */
 export interface StartRecoveryPlanExecutionRequest {
   /**
-   * <p>The ARN of the Recovery Plan to execute.</p>
+   * The ARN of the Recovery Plan to execute.
+   *
    * @public
    */
   recoveryPlanArn: string | undefined;
 
   /**
-   * <p>The execution mode (<code>DRILL</code> or <code>RECOVERY</code>).</p>
+   * The execution mode (`DRILL` or `RECOVERY`).
+   *
    * @public
    */
   mode: RecoveryPlanExecutionMode | undefined;
 
   /**
-   * <p>A unique string provided to ensure request idempotency.</p>
+   * A unique string provided to ensure request idempotency.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>Optional list of source servers with specific recovery snapshots. If not provided, the latest snapshot is used for each server.</p>
+   * Optional list of source servers with specific recovery snapshots. If not provided, the latest snapshot is used for each server.
+   *
    * @public
    */
   sourceServers?: RecoveryPlanExecutionSourceServer[] | undefined;
 
   /**
-   * <p>The tags to apply to the Recovery Plan execution.</p>
+   * The tags to apply to the Recovery Plan execution.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -4335,7 +4911,8 @@ export interface StartRecoveryPlanExecutionRequest {
  */
 export interface StartRecoveryPlanExecutionResponse {
   /**
-   * <p>The started Recovery Plan execution.</p>
+   * The started Recovery Plan execution.
+   *
    * @public
    */
   recoveryPlanExecution: RecoveryPlanExecution | undefined;
@@ -4346,13 +4923,15 @@ export interface StartRecoveryPlanExecutionResponse {
  */
 export interface ReorderRecoveryPlanStepsRequest {
   /**
-   * <p>The ARN of the Recovery Plan.</p>
+   * The ARN of the Recovery Plan.
+   *
    * @public
    */
   recoveryPlanArn: string | undefined;
 
   /**
-   * <p>Ordered list of all step ARNs representing the desired sequence.</p>
+   * Ordered list of all step ARNs representing the desired sequence.
+   *
    * @public
    */
   orderedStepArns: string[] | undefined;
@@ -4363,7 +4942,8 @@ export interface ReorderRecoveryPlanStepsRequest {
  */
 export interface ReorderRecoveryPlanStepsResponse {
   /**
-   * <p>The steps with updated order.</p>
+   * The steps with updated order.
+   *
    * @public
    */
   recoveryPlanSteps: RecoveryPlanStep[] | undefined;
@@ -4374,103 +4954,120 @@ export interface ReorderRecoveryPlanStepsResponse {
  */
 export interface UpdateReplicationConfigurationTemplateRequest {
   /**
-   * <p>The Replication Configuration Template ID.</p>
+   * The Replication Configuration Template ID.
+   *
    * @public
    */
   replicationConfigurationTemplateID: string | undefined;
 
   /**
-   * <p>The Replication Configuration Template ARN.</p>
+   * The Replication Configuration Template ARN.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The subnet to be used by the replication staging area.</p>
+   * The subnet to be used by the replication staging area.
+   *
    * @public
    */
   stagingAreaSubnetId?: string | undefined;
 
   /**
-   * <p>Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration Template.</p>
+   * Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration Template.
+   *
    * @public
    */
   associateDefaultSecurityGroup?: boolean | undefined;
 
   /**
-   * <p>The security group IDs that will be used by the replication server.</p>
+   * The security group IDs that will be used by the replication server.
+   *
    * @public
    */
   replicationServersSecurityGroupsIDs?: string[] | undefined;
 
   /**
-   * <p>The instance type to be used for the replication server.</p>
+   * The instance type to be used for the replication server.
+   *
    * @public
    */
   replicationServerInstanceType?: string | undefined;
 
   /**
-   * <p>Whether to use a dedicated Replication Server in the replication staging area.</p>
+   * Whether to use a dedicated Replication Server in the replication staging area.
+   *
    * @public
    */
   useDedicatedReplicationServer?: boolean | undefined;
 
   /**
-   * <p>The Staging Disk EBS volume type to be used during replication.</p>
+   * The Staging Disk EBS volume type to be used during replication.
+   *
    * @public
    */
   defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType | undefined;
 
   /**
-   * <p>The type of EBS encryption to be used during replication.</p>
+   * The type of EBS encryption to be used during replication.
+   *
    * @public
    */
   ebsEncryption?: ReplicationConfigurationEbsEncryption | undefined;
 
   /**
-   * <p>The ARN of the EBS encryption key to be used during replication.</p>
+   * The ARN of the EBS encryption key to be used during replication.
+   *
    * @public
    */
   ebsEncryptionKeyArn?: string | undefined;
 
   /**
-   * <p>Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps.</p>
+   * Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps.
+   *
    * @public
    */
   bandwidthThrottling?: number | undefined;
 
   /**
-   * <p>The data plane routing mechanism that will be used for replication.</p>
+   * The data plane routing mechanism that will be used for replication.
+   *
    * @public
    */
   dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting | undefined;
 
   /**
-   * <p>Whether to create a Public IP for the Recovery Instance by default.</p>
+   * Whether to create a Public IP for the Recovery Instance by default.
+   *
    * @public
    */
   createPublicIP?: boolean | undefined;
 
   /**
-   * <p>A set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.</p>
+   * A set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.
+   *
    * @public
    */
   stagingAreaTags?: Record<string, string> | undefined;
 
   /**
-   * <p>The Point in time (PIT) policy to manage snapshots taken during replication.</p>
+   * The Point in time (PIT) policy to manage snapshots taken during replication.
+   *
    * @public
    */
   pitPolicy?: PITPolicyRule[] | undefined;
 
   /**
-   * <p>Whether to allow the AWS replication agent to automatically replicate newly added disks.</p>
+   * Whether to allow the AWS replication agent to automatically replicate newly added disks.
+   *
    * @public
    */
   autoReplicateNewDisks?: boolean | undefined;
 
   /**
-   * <p>Which version of the Internet Protocol to use for replication of data. (IPv4 or IPv6)</p>
+   * Which version of the Internet Protocol to use for replication of data. (IPv4 or IPv6)
+   *
    * @public
    */
   internetProtocol?: InternetProtocol | undefined;
@@ -4481,7 +5078,8 @@ export interface UpdateReplicationConfigurationTemplateRequest {
  */
 export interface RetryRecoveryPlanExecutionStepRequest {
   /**
-   * <p>The ARN of the execution step to retry.</p>
+   * The ARN of the execution step to retry.
+   *
    * @public
    */
   recoveryPlanExecutionStepArn: string | undefined;
@@ -4503,7 +5101,8 @@ export interface RetryRecoveryPlanExecutionStepResponse {
  */
 export interface ExportSourceNetworkCfnTemplateRequest {
   /**
-   * <p>The Source Network ID to export its CloudFormation template to an S3 bucket.</p>
+   * The Source Network ID to export its CloudFormation template to an S3 bucket.
+   *
    * @public
    */
   sourceNetworkID: string | undefined;
@@ -4514,25 +5113,29 @@ export interface ExportSourceNetworkCfnTemplateRequest {
  */
 export interface ExportSourceNetworkCfnTemplateResponse {
   /**
-   * <p>S3 bucket URL where the Source Network CloudFormation template was exported to.</p>
+   * S3 bucket URL where the Source Network CloudFormation template was exported to.
+   *
    * @public
    */
   s3DestinationUrl?: string | undefined;
 }
 
 /**
- * <p>An object representing the Source Network to recover.</p>
+ * An object representing the Source Network to recover.
+ *
  * @public
  */
 export interface StartSourceNetworkRecoveryRequestNetworkEntry {
   /**
-   * <p>The ID of the Source Network you want to recover.</p>
+   * The ID of the Source Network you want to recover.
+   *
    * @public
    */
   sourceNetworkID: string | undefined;
 
   /**
-   * <p>CloudFormation stack name to be used for recovering the network.</p>
+   * CloudFormation stack name to be used for recovering the network.
+   *
    * @public
    */
   cfnStackName?: string | undefined;
@@ -4543,19 +5146,22 @@ export interface StartSourceNetworkRecoveryRequestNetworkEntry {
  */
 export interface StartSourceNetworkRecoveryRequest {
   /**
-   * <p>The Source Networks that we want to start a Recovery Job for.</p>
+   * The Source Networks that we want to start a Recovery Job for.
+   *
    * @public
    */
   sourceNetworks: StartSourceNetworkRecoveryRequestNetworkEntry[] | undefined;
 
   /**
-   * <p>Don't update existing CloudFormation Stack, recover the network using a new stack.</p>
+   * Don't update existing CloudFormation Stack, recover the network using a new stack.
+   *
    * @public
    */
   deployAsNew?: boolean | undefined;
 
   /**
-   * <p>The tags to be associated with the Source Network recovery Job.</p>
+   * The tags to be associated with the Source Network recovery Job.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -4566,7 +5172,8 @@ export interface StartSourceNetworkRecoveryRequest {
  */
 export interface StartSourceNetworkRecoveryResponse {
   /**
-   * <p>The Source Network recovery Job.</p>
+   * The Source Network recovery Job.
+   *
    * @public
    */
   job?: Job | undefined;
@@ -4577,7 +5184,8 @@ export interface StartSourceNetworkRecoveryResponse {
  */
 export interface StartSourceNetworkReplicationRequest {
   /**
-   * <p>ID of the Source Network to replicate.</p>
+   * ID of the Source Network to replicate.
+   *
    * @public
    */
   sourceNetworkID: string | undefined;
@@ -4588,7 +5196,8 @@ export interface StartSourceNetworkReplicationRequest {
  */
 export interface StartSourceNetworkReplicationResponse {
   /**
-   * <p>Source Network which was requested for replication.</p>
+   * Source Network which was requested for replication.
+   *
    * @public
    */
   sourceNetwork?: SourceNetwork | undefined;
@@ -4599,7 +5208,8 @@ export interface StartSourceNetworkReplicationResponse {
  */
 export interface StopSourceNetworkReplicationRequest {
   /**
-   * <p>ID of the Source Network to stop replication.</p>
+   * ID of the Source Network to stop replication.
+   *
    * @public
    */
   sourceNetworkID: string | undefined;
@@ -4610,7 +5220,8 @@ export interface StopSourceNetworkReplicationRequest {
  */
 export interface StopSourceNetworkReplicationResponse {
   /**
-   * <p>Source Network which was requested to stop replication.</p>
+   * Source Network which was requested to stop replication.
+   *
    * @public
    */
   sourceNetwork?: SourceNetwork | undefined;
@@ -4621,19 +5232,22 @@ export interface StopSourceNetworkReplicationResponse {
  */
 export interface GetLaunchConfigurationRequest {
   /**
-   * <p>The ID of the Source Server that we want to retrieve a Launch Configuration for.</p>
+   * The ID of the Source Server that we want to retrieve a Launch Configuration for.
+   *
    * @public
    */
   sourceServerID: string | undefined;
 }
 
 /**
- * <p>Launch into existing instance.</p>
+ * Launch into existing instance.
+ *
  * @public
  */
 export interface LaunchIntoInstanceProperties {
   /**
-   * <p>Optionally holds EC2 instance ID of an instance to launch into, instead of launching a new instance during drill, recovery or failback.</p>
+   * Optionally holds EC2 instance ID of an instance to launch into, instead of launching a new instance during drill, recovery or failback.
+   *
    * @public
    */
   launchIntoEC2InstanceID?: string | undefined;
@@ -4644,67 +5258,78 @@ export interface LaunchIntoInstanceProperties {
  */
 export interface LaunchConfiguration {
   /**
-   * <p>The ID of the Source Server for this launch configuration.</p>
+   * The ID of the Source Server for this launch configuration.
+   *
    * @public
    */
   sourceServerID?: string | undefined;
 
   /**
-   * <p>The name of the launch configuration.</p>
+   * The name of the launch configuration.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The EC2 launch template ID of this launch configuration.</p>
+   * The EC2 launch template ID of this launch configuration.
+   *
    * @public
    */
   ec2LaunchTemplateID?: string | undefined;
 
   /**
-   * <p>The state of the Recovery Instance in EC2 after the recovery operation.</p>
+   * The state of the Recovery Instance in EC2 after the recovery operation.
+   *
    * @public
    */
   launchDisposition?: LaunchDisposition | undefined;
 
   /**
-   * <p>Whether Elastic Disaster Recovery should try to automatically choose the instance type that best matches the OS, CPU, and RAM of your Source Server.</p>
+   * Whether Elastic Disaster Recovery should try to automatically choose the instance type that best matches the OS, CPU, and RAM of your Source Server.
+   *
    * @public
    */
   targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | undefined;
 
   /**
-   * <p>Whether we should copy the Private IP of the Source Server to the Recovery Instance.</p>
+   * Whether we should copy the Private IP of the Source Server to the Recovery Instance.
+   *
    * @public
    */
   copyPrivateIp?: boolean | undefined;
 
   /**
-   * <p>Whether we want to copy the tags of the Source Server to the EC2 machine of the Recovery Instance.</p>
+   * Whether we want to copy the tags of the Source Server to the EC2 machine of the Recovery Instance.
+   *
    * @public
    */
   copyTags?: boolean | undefined;
 
   /**
-   * <p>The licensing configuration to be used for this launch configuration.</p>
+   * The licensing configuration to be used for this launch configuration.
+   *
    * @public
    */
   licensing?: Licensing | undefined;
 
   /**
-   * <p>Whether we want to activate post-launch actions for the Source Server.</p>
+   * Whether we want to activate post-launch actions for the Source Server.
+   *
    * @public
    */
   postLaunchEnabled?: boolean | undefined;
 
   /**
-   * <p>Launch into existing instance properties.</p>
+   * Launch into existing instance properties.
+   *
    * @public
    */
   launchIntoInstanceProperties?: LaunchIntoInstanceProperties | undefined;
 
   /**
-   * <p>Recovery mode.</p>
+   * Recovery mode.
+   *
    * @public
    */
   recoveryMode?: RecoveryMode | undefined;
@@ -4715,49 +5340,57 @@ export interface LaunchConfiguration {
  */
 export interface GetReplicationConfigurationRequest {
   /**
-   * <p>The ID of the Source Serve for this Replication Configuration.r</p>
+   * The ID of the Source Serve for this Replication Configuration.r
+   *
    * @public
    */
   sourceServerID: string | undefined;
 }
 
 /**
- * <p>The configuration of a disk of the Source Server to be replicated.</p>
+ * The configuration of a disk of the Source Server to be replicated.
+ *
  * @public
  */
 export interface ReplicationConfigurationReplicatedDisk {
   /**
-   * <p>The name of the device.</p>
+   * The name of the device.
+   *
    * @public
    */
   deviceName?: string | undefined;
 
   /**
-   * <p>Whether to boot from this disk or not.</p>
+   * Whether to boot from this disk or not.
+   *
    * @public
    */
   isBootDisk?: boolean | undefined;
 
   /**
-   * <p>The Staging Disk EBS volume type to be used during replication.</p>
+   * The Staging Disk EBS volume type to be used during replication.
+   *
    * @public
    */
   stagingDiskType?: ReplicationConfigurationReplicatedDiskStagingDiskType | undefined;
 
   /**
-   * <p>The requested number of I/O operations per second (IOPS).</p>
+   * The requested number of I/O operations per second (IOPS).
+   *
    * @public
    */
   iops?: number | undefined;
 
   /**
-   * <p>The throughput to use for the EBS volume in MiB/s. This parameter is valid only for gp3 volumes.</p>
+   * The throughput to use for the EBS volume in MiB/s. This parameter is valid only for gp3 volumes.
+   *
    * @public
    */
   throughput?: number | undefined;
 
   /**
-   * <p>The Staging Disk EBS volume type to be used during replication when <code>stagingDiskType</code> is set to Auto. This is a read-only field.</p>
+   * The Staging Disk EBS volume type to be used during replication when `stagingDiskType` is set to Auto. This is a read-only field.
+   *
    * @public
    */
   optimizedStagingDiskType?: ReplicationConfigurationReplicatedDiskStagingDiskType | undefined;
@@ -4768,109 +5401,127 @@ export interface ReplicationConfigurationReplicatedDisk {
  */
 export interface ReplicationConfiguration {
   /**
-   * <p>The ID of the Source Server for this Replication Configuration.</p>
+   * The ID of the Source Server for this Replication Configuration.
+   *
    * @public
    */
   sourceServerID?: string | undefined;
 
   /**
-   * <p>The name of the Replication Configuration.</p>
+   * The name of the Replication Configuration.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The subnet to be used by the replication staging area.</p>
+   * The subnet to be used by the replication staging area.
+   *
    * @public
    */
   stagingAreaSubnetId?: string | undefined;
 
   /**
-   * <p>Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration.</p>
+   * Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration.
+   *
    * @public
    */
   associateDefaultSecurityGroup?: boolean | undefined;
 
   /**
-   * <p>The security group IDs that will be used by the replication server.</p>
+   * The security group IDs that will be used by the replication server.
+   *
    * @public
    */
   replicationServersSecurityGroupsIDs?: string[] | undefined;
 
   /**
-   * <p>The instance type to be used for the replication server.</p>
+   * The instance type to be used for the replication server.
+   *
    * @public
    */
   replicationServerInstanceType?: string | undefined;
 
   /**
-   * <p>Whether to use a dedicated Replication Server in the replication staging area.</p>
+   * Whether to use a dedicated Replication Server in the replication staging area.
+   *
    * @public
    */
   useDedicatedReplicationServer?: boolean | undefined;
 
   /**
-   * <p>The Staging Disk EBS volume type to be used during replication.</p>
+   * The Staging Disk EBS volume type to be used during replication.
+   *
    * @public
    */
   defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType | undefined;
 
   /**
-   * <p>The configuration of the disks of the Source Server to be replicated.</p>
+   * The configuration of the disks of the Source Server to be replicated.
+   *
    * @public
    */
   replicatedDisks?: ReplicationConfigurationReplicatedDisk[] | undefined;
 
   /**
-   * <p>The type of EBS encryption to be used during replication.</p>
+   * The type of EBS encryption to be used during replication.
+   *
    * @public
    */
   ebsEncryption?: ReplicationConfigurationEbsEncryption | undefined;
 
   /**
-   * <p>The ARN of the EBS encryption key to be used during replication.</p>
+   * The ARN of the EBS encryption key to be used during replication.
+   *
    * @public
    */
   ebsEncryptionKeyArn?: string | undefined;
 
   /**
-   * <p>Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps.</p>
+   * Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps.
+   *
    * @public
    */
   bandwidthThrottling?: number | undefined;
 
   /**
-   * <p>The data plane routing mechanism that will be used for replication.</p>
+   * The data plane routing mechanism that will be used for replication.
+   *
    * @public
    */
   dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting | undefined;
 
   /**
-   * <p>Whether to create a Public IP for the Recovery Instance by default.</p>
+   * Whether to create a Public IP for the Recovery Instance by default.
+   *
    * @public
    */
   createPublicIP?: boolean | undefined;
 
   /**
-   * <p>A set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.</p>
+   * A set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.
+   *
    * @public
    */
   stagingAreaTags?: Record<string, string> | undefined;
 
   /**
-   * <p>The Point in time (PIT) policy to manage snapshots taken during replication.</p>
+   * The Point in time (PIT) policy to manage snapshots taken during replication.
+   *
    * @public
    */
   pitPolicy?: PITPolicyRule[] | undefined;
 
   /**
-   * <p>Whether to allow the AWS replication agent to automatically replicate newly added disks.</p>
+   * Whether to allow the AWS replication agent to automatically replicate newly added disks.
+   *
    * @public
    */
   autoReplicateNewDisks?: boolean | undefined;
 
   /**
-   * <p>Which version of the Internet Protocol to use for replication of data. (IPv4 or IPv6)</p>
+   * Which version of the Internet Protocol to use for replication of data. (IPv4 or IPv6)
+   *
    * @public
    */
   internetProtocol?: InternetProtocol | undefined;
@@ -4882,25 +5533,29 @@ export interface ReplicationConfiguration {
  */
 export interface RetryDataReplicationRequest {
   /**
-   * <p>The ID of the Source Server whose data replication should be retried.</p>
+   * The ID of the Source Server whose data replication should be retried.
+   *
    * @public
    */
   sourceServerID: string | undefined;
 }
 
 /**
- * <p>An object representing the Source Server to recover.</p>
+ * An object representing the Source Server to recover.
+ *
  * @public
  */
 export interface StartRecoveryRequestSourceServer {
   /**
-   * <p>The ID of the Source Server you want to recover.</p>
+   * The ID of the Source Server you want to recover.
+   *
    * @public
    */
   sourceServerID: string | undefined;
 
   /**
-   * <p>The ID of a Recovery Snapshot we want to recover from. Omit this field to launch from the latest data by taking an on-demand snapshot.</p>
+   * The ID of a Recovery Snapshot we want to recover from. Omit this field to launch from the latest data by taking an on-demand snapshot.
+   *
    * @public
    */
   recoverySnapshotID?: string | undefined;
@@ -4911,19 +5566,22 @@ export interface StartRecoveryRequestSourceServer {
  */
 export interface StartRecoveryRequest {
   /**
-   * <p>The Source Servers that we want to start a Recovery Job for.</p>
+   * The Source Servers that we want to start a Recovery Job for.
+   *
    * @public
    */
   sourceServers: StartRecoveryRequestSourceServer[] | undefined;
 
   /**
-   * <p>Whether this Source Server Recovery operation is a drill or not.</p>
+   * Whether this Source Server Recovery operation is a drill or not.
+   *
    * @public
    */
   isDrill?: boolean | undefined;
 
   /**
-   * <p>The tags to be associated with the Recovery Job.</p>
+   * The tags to be associated with the Recovery Job.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -4934,7 +5592,8 @@ export interface StartRecoveryRequest {
  */
 export interface StartRecoveryResponse {
   /**
-   * <p>The Recovery Job.</p>
+   * The Recovery Job.
+   *
    * @public
    */
   job?: Job | undefined;
@@ -4945,7 +5604,8 @@ export interface StartRecoveryResponse {
  */
 export interface StartReplicationRequest {
   /**
-   * <p>The ID of the Source Server to start replication for.</p>
+   * The ID of the Source Server to start replication for.
+   *
    * @public
    */
   sourceServerID: string | undefined;
@@ -4956,7 +5616,8 @@ export interface StartReplicationRequest {
  */
 export interface StartReplicationResponse {
   /**
-   * <p>The Source Server that this action was targeted on.</p>
+   * The Source Server that this action was targeted on.
+   *
    * @public
    */
   sourceServer?: SourceServer | undefined;
@@ -4967,7 +5628,8 @@ export interface StartReplicationResponse {
  */
 export interface StopReplicationRequest {
   /**
-   * <p>The ID of the Source Server to stop replication for.</p>
+   * The ID of the Source Server to stop replication for.
+   *
    * @public
    */
   sourceServerID: string | undefined;
@@ -4978,7 +5640,8 @@ export interface StopReplicationRequest {
  */
 export interface StopReplicationResponse {
   /**
-   * <p>The Source Server that this action was targeted on.</p>
+   * The Source Server that this action was targeted on.
+   *
    * @public
    */
   sourceServer?: SourceServer | undefined;
@@ -4989,61 +5652,71 @@ export interface StopReplicationResponse {
  */
 export interface UpdateLaunchConfigurationRequest {
   /**
-   * <p>The ID of the Source Server that we want to retrieve a Launch Configuration for.</p>
+   * The ID of the Source Server that we want to retrieve a Launch Configuration for.
+   *
    * @public
    */
   sourceServerID: string | undefined;
 
   /**
-   * <p>The name of the launch configuration.</p>
+   * The name of the launch configuration.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The state of the Recovery Instance in EC2 after the recovery operation.</p>
+   * The state of the Recovery Instance in EC2 after the recovery operation.
+   *
    * @public
    */
   launchDisposition?: LaunchDisposition | undefined;
 
   /**
-   * <p>Whether Elastic Disaster Recovery should try to automatically choose the instance type that best matches the OS, CPU, and RAM of your Source Server.</p>
+   * Whether Elastic Disaster Recovery should try to automatically choose the instance type that best matches the OS, CPU, and RAM of your Source Server.
+   *
    * @public
    */
   targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | undefined;
 
   /**
-   * <p>Whether we should copy the Private IP of the Source Server to the Recovery Instance.</p>
+   * Whether we should copy the Private IP of the Source Server to the Recovery Instance.
+   *
    * @public
    */
   copyPrivateIp?: boolean | undefined;
 
   /**
-   * <p>Whether we want to copy the tags of the Source Server to the EC2 machine of the Recovery Instance.</p>
+   * Whether we want to copy the tags of the Source Server to the EC2 machine of the Recovery Instance.
+   *
    * @public
    */
   copyTags?: boolean | undefined;
 
   /**
-   * <p>The licensing configuration to be used for this launch configuration.</p>
+   * The licensing configuration to be used for this launch configuration.
+   *
    * @public
    */
   licensing?: Licensing | undefined;
 
   /**
-   * <p>Whether we want to enable post-launch actions for the Source Server.</p>
+   * Whether we want to enable post-launch actions for the Source Server.
+   *
    * @public
    */
   postLaunchEnabled?: boolean | undefined;
 
   /**
-   * <p>Launch into existing instance properties.</p>
+   * Launch into existing instance properties.
+   *
    * @public
    */
   launchIntoInstanceProperties?: LaunchIntoInstanceProperties | undefined;
 
   /**
-   * <p>Recovery mode.</p>
+   * Recovery mode.
+   *
    * @public
    */
   recoveryMode?: RecoveryMode | undefined;
@@ -5054,109 +5727,127 @@ export interface UpdateLaunchConfigurationRequest {
  */
 export interface UpdateReplicationConfigurationRequest {
   /**
-   * <p>The ID of the Source Server for this Replication Configuration.</p>
+   * The ID of the Source Server for this Replication Configuration.
+   *
    * @public
    */
   sourceServerID: string | undefined;
 
   /**
-   * <p>The name of the Replication Configuration.</p>
+   * The name of the Replication Configuration.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The subnet to be used by the replication staging area.</p>
+   * The subnet to be used by the replication staging area.
+   *
    * @public
    */
   stagingAreaSubnetId?: string | undefined;
 
   /**
-   * <p>Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration.</p>
+   * Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration.
+   *
    * @public
    */
   associateDefaultSecurityGroup?: boolean | undefined;
 
   /**
-   * <p>The security group IDs that will be used by the replication server.</p>
+   * The security group IDs that will be used by the replication server.
+   *
    * @public
    */
   replicationServersSecurityGroupsIDs?: string[] | undefined;
 
   /**
-   * <p>The instance type to be used for the replication server.</p>
+   * The instance type to be used for the replication server.
+   *
    * @public
    */
   replicationServerInstanceType?: string | undefined;
 
   /**
-   * <p>Whether to use a dedicated Replication Server in the replication staging area.</p>
+   * Whether to use a dedicated Replication Server in the replication staging area.
+   *
    * @public
    */
   useDedicatedReplicationServer?: boolean | undefined;
 
   /**
-   * <p>The Staging Disk EBS volume type to be used during replication.</p>
+   * The Staging Disk EBS volume type to be used during replication.
+   *
    * @public
    */
   defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType | undefined;
 
   /**
-   * <p>The configuration of the disks of the Source Server to be replicated.</p>
+   * The configuration of the disks of the Source Server to be replicated.
+   *
    * @public
    */
   replicatedDisks?: ReplicationConfigurationReplicatedDisk[] | undefined;
 
   /**
-   * <p>The type of EBS encryption to be used during replication.</p>
+   * The type of EBS encryption to be used during replication.
+   *
    * @public
    */
   ebsEncryption?: ReplicationConfigurationEbsEncryption | undefined;
 
   /**
-   * <p>The ARN of the EBS encryption key to be used during replication.</p>
+   * The ARN of the EBS encryption key to be used during replication.
+   *
    * @public
    */
   ebsEncryptionKeyArn?: string | undefined;
 
   /**
-   * <p>Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps.</p>
+   * Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps.
+   *
    * @public
    */
   bandwidthThrottling?: number | undefined;
 
   /**
-   * <p>The data plane routing mechanism that will be used for replication.</p>
+   * The data plane routing mechanism that will be used for replication.
+   *
    * @public
    */
   dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting | undefined;
 
   /**
-   * <p>Whether to create a Public IP for the Recovery Instance by default.</p>
+   * Whether to create a Public IP for the Recovery Instance by default.
+   *
    * @public
    */
   createPublicIP?: boolean | undefined;
 
   /**
-   * <p>A set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.</p>
+   * A set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.
+   *
    * @public
    */
   stagingAreaTags?: Record<string, string> | undefined;
 
   /**
-   * <p>The Point in time (PIT) policy to manage snapshots taken during replication.</p>
+   * The Point in time (PIT) policy to manage snapshots taken during replication.
+   *
    * @public
    */
   pitPolicy?: PITPolicyRule[] | undefined;
 
   /**
-   * <p>Whether to allow the AWS replication agent to automatically replicate newly added disks.</p>
+   * Whether to allow the AWS replication agent to automatically replicate newly added disks.
+   *
    * @public
    */
   autoReplicateNewDisks?: boolean | undefined;
 
   /**
-   * <p>Which version of the Internet Protocol to use for replication of data. (IPv4 or IPv6)</p>
+   * Which version of the Internet Protocol to use for replication of data. (IPv4 or IPv6)
+   *
    * @public
    */
   internetProtocol?: InternetProtocol | undefined;
@@ -5167,13 +5858,15 @@ export interface UpdateReplicationConfigurationRequest {
  */
 export interface TagResourceRequest {
   /**
-   * <p>ARN of the resource for which tags are to be added or updated.</p>
+   * ARN of the resource for which tags are to be added or updated.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>Array of tags to be added or updated.</p>
+   * Array of tags to be added or updated.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -5184,13 +5877,15 @@ export interface TagResourceRequest {
  */
 export interface UntagResourceRequest {
   /**
-   * <p>ARN of the resource for which tags are to be removed.</p>
+   * ARN of the resource for which tags are to be removed.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>Array of tags to be removed.</p>
+   * Array of tags to be removed.
+   *
    * @public
    */
   tagKeys: string[] | undefined;
@@ -5201,7 +5896,8 @@ export interface UntagResourceRequest {
  */
 export interface UpdateRecoveryPlanRequest {
   /**
-   * <p>The ARN of the Recovery Plan to update.</p>
+   * The ARN of the Recovery Plan to update.
+   *
    * @public
    */
   recoveryPlanArn: string | undefined;
@@ -5235,7 +5931,8 @@ export interface UpdateRecoveryPlanResponse {
  */
 export interface UpdateRecoveryPlanExecutionStepRequest {
   /**
-   * <p>The ARN of the execution step to update.</p>
+   * The ARN of the execution step to update.
+   *
    * @public
    */
   recoveryPlanExecutionStepArn: string | undefined;
@@ -5275,7 +5972,8 @@ export interface UpdateRecoveryPlanExecutionStepResponse {
  */
 export interface UpdateRecoveryPlanStepRequest {
   /**
-   * <p>The ARN of the Recovery Plan step to update.</p>
+   * The ARN of the Recovery Plan step to update.
+   *
    * @public
    */
   recoveryPlanStepArn: string | undefined;

@@ -23,8 +23,8 @@ export interface DescribePrefixListsCommandInput extends DescribePrefixListsRequ
 export interface DescribePrefixListsCommandOutput extends DescribePrefixListsResult, __MetadataBearer {}
 
 /**
- * <p>Describes available Amazon Web Services services in a prefix list format, which includes the prefix list
- *             name and prefix list ID of the service and the IP address range for the service.</p>
+ * Describes available Amazon Web Services services in a prefix list format, which includes the prefix list name and prefix list ID of the service and the IP address range for the service.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,8 +73,8 @@ export interface DescribePrefixListsCommandOutput extends DescribePrefixListsRes
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

@@ -23,7 +23,10 @@ export interface GetManagedThingMetaDataCommandInput extends GetManagedThingMeta
 export interface GetManagedThingMetaDataCommandOutput extends GetManagedThingMetaDataResponse, __MetadataBearer {}
 
 /**
- * <p>Get the metadata information for a managed thing.</p> <note> <p>The <code>managedThing</code> <code>metadata</code> parameter is used for associating attributes with a <code>managedThing</code> that can be used for grouping over-the-air (OTA) tasks. Name value pairs in <code>metadata</code> can be used in the <code>OtaTargetQueryString</code> parameter for the <code>CreateOtaTask</code> API operation.</p> </note>
+ * Get the metadata information for a managed thing.
+ *
+ * > **Note:** The `managedThing` `metadata` parameter is used for associating attributes with a `managedThing` that can be used for grouping over-the-air (OTA) tasks. Name value pairs in `metadata` can be used in the `OtaTargetQueryString` parameter for the `CreateOtaTask` API operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,29 +56,36 @@ export interface GetManagedThingMetaDataCommandOutput extends GetManagedThingMet
  * @see {@link IoTManagedIntegrationsClientResolvedConfig | config} for IoTManagedIntegrationsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>User is not authorized.</p>
+ *
+ * User is not authorized.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+ *
+ * Internal error from the service that indicates an unexpected error or that the service is unavailable.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is temporarily unavailable.</p>
+ *
+ * The service is temporarily unavailable.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The rate exceeds the limit.</p>
+ *
+ * The rate exceeds the limit.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>You are not authorized to perform this operation.</p>
+ *
+ * You are not authorized to perform this operation.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A validation error occurred when performing the API request.</p>
+ *
+ * A validation error occurred when performing the API request.
  *
  * @throws {@link IoTManagedIntegrationsServiceException}
- * <p>Base exception class for all service exceptions from IoTManagedIntegrations service.</p>
  *
+ * Base exception class for all service exceptions from IoTManagedIntegrations service.
  *
  * @public
  */

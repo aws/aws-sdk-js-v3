@@ -23,7 +23,8 @@ export interface ListWorkspacesCommandInput extends ListWorkspacesRequest {}
 export interface ListWorkspacesCommandOutput extends ListWorkspacesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of Amazon Managed Grafana workspaces in the account, with some information about each workspace. For more complete information about one workspace, use <a href="https://docs.aws.amazon.com/grafana/latest/APIReference/API_DescribeWorkspace.html">DescribeWorkspace</a>.</p>
+ * Returns a list of Amazon Managed Grafana workspaces in the account, with some information about each workspace. For more complete information about one workspace, use [DescribeWorkspace](https://docs.aws.amazon.com/grafana/latest/APIReference/API_DescribeWorkspace.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,17 +78,20 @@ export interface ListWorkspacesCommandOutput extends ListWorkspacesResponse, __M
  * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action. </p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error while processing the request. Retry the request.</p>
+ *
+ * Unexpected error while processing the request. Retry the request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied because of request throttling. Retry the request.</p>
+ *
+ * The request was denied because of request throttling. Retry the request.
  *
  * @throws {@link GrafanaServiceException}
- * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
+ * Base exception class for all service exceptions from Grafana service.
  *
  * @public
  */

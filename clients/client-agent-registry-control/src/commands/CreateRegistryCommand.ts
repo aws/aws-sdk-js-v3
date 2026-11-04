@@ -23,7 +23,8 @@ export interface CreateRegistryCommandInput extends CreateRegistryRequest {}
 export interface CreateRegistryCommandOutput extends CreateRegistryResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new registry, a catalog that organizes registry records and defines their discovery authorization and record approval behavior. Creation is asynchronous: the registry begins in the CREATING status and becomes usable once it reaches READY.</p>
+ * Creates a new registry, a catalog that organizes registry records and defines their discovery authorization and record approval behavior. Creation is asynchronous: the registry begins in the CREATING status and becomes usable once it reaches READY.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -149,26 +150,32 @@ export interface CreateRegistryCommandOutput extends CreateRegistryResponse, __M
  * @see {@link AgentRegistryControlClientResolvedConfig | config} for AgentRegistryControlClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The caller is not authorized to perform the requested action.</p>
+ *
+ * The caller is not authorized to perform the requested action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request conflicts with the current state of the resource.</p>
+ *
+ * The request conflicts with the current state of the resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request failed due to an unexpected internal error; the caller may retry.</p>
+ *
+ * The request failed due to an unexpected internal error; the caller may retry.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would exceed a service quota.</p>
+ *
+ * The request would exceed a service quota.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling; the caller may retry after a delay.</p>
+ *
+ * The request was denied due to request throttling; the caller may retry after a delay.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request failed validation of one or more input fields.</p>
+ *
+ * The request failed validation of one or more input fields.
  *
  * @throws {@link AgentRegistryControlServiceException}
- * <p>Base exception class for all service exceptions from AgentRegistryControl service.</p>
  *
+ * Base exception class for all service exceptions from AgentRegistryControl service.
  *
  * @public
  */

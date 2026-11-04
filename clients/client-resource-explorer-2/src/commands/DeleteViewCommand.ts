@@ -23,7 +23,10 @@ export interface DeleteViewCommandInput extends DeleteViewInput {}
 export interface DeleteViewCommandOutput extends DeleteViewOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified view.</p> <p>If the specified view is the default view for its Amazon Web Services Region, then all <a>Search</a> operations in that Region must explicitly specify the view to use until you configure a new default by calling the <a>AssociateDefaultView</a> operation.</p>
+ * Deletes the specified view.
+ *
+ * If the specified view is the default view for its Amazon Web Services Region, then all Search operations in that Region must explicitly specify the view to use until you configure a new default by calling the AssociateDefaultView operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,26 +53,32 @@ export interface DeleteViewCommandOutput extends DeleteViewOutput, __MetadataBea
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The credentials that you used to call this operation don't have the minimum required permissions.</p>
+ *
+ * The credentials that you used to call this operation don't have the minimum required permissions.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request failed because of internal service error. Try your request again later.</p>
+ *
+ * The request failed because of internal service error. Try your request again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>You specified a resource that doesn't exist. Check the ID or ARN that you used to identity the resource, and try again.</p>
+ *
+ * You specified a resource that doesn't exist. Check the ID or ARN that you used to identity the resource, and try again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request failed because you exceeded a rate limit for this operation. For more information, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/quotas.html">Quotas for Resource Explorer</a>.</p>
+ *
+ * The request failed because you exceeded a rate limit for this operation. For more information, see [Quotas for Resource Explorer](https://docs.aws.amazon.com/resource-explorer/latest/userguide/quotas.html).
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The principal making the request isn't permitted to perform the operation.</p>
+ *
+ * The principal making the request isn't permitted to perform the operation.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax for the operation, and try again.</p>
+ *
+ * You provided an invalid value for one of the operation's parameters. Check the syntax for the operation, and try again.
  *
  * @throws {@link ResourceExplorer2ServiceException}
- * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
+ * Base exception class for all service exceptions from ResourceExplorer2 service.
  *
  * @public
  */

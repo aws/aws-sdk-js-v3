@@ -23,7 +23,8 @@ export interface ListModelBiasJobDefinitionsCommandInput extends ListModelBiasJo
 export interface ListModelBiasJobDefinitionsCommandOutput extends ListModelBiasJobDefinitionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists model bias jobs definitions that satisfy various filters.</p>
+ * Lists model bias jobs definitions that satisfy various filters.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,8 +66,8 @@ export interface ListModelBiasJobDefinitionsCommandOutput extends ListModelBiasJ
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

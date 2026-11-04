@@ -23,41 +23,17 @@ export interface StartTranscriptionJobCommandInput extends StartTranscriptionJob
 export interface StartTranscriptionJobCommandOutput extends StartTranscriptionJobResponse, __MetadataBearer {}
 
 /**
- * <p>Transcribes the audio from a media file and applies any additional Request Parameters
- *             you choose to include in your request.</p>
- *          <p>To make a <code>StartTranscriptionJob</code> request, you must first upload your media
- *             file into an Amazon S3 bucket; you can then specify the Amazon S3
- *             location of the file using the <code>Media</code> parameter.</p>
- *          <p>You must include the following parameters in your <code>StartTranscriptionJob</code>
- *             request:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>region</code>: The Amazon Web Services Region where you are making your
- *                     request. For a list of Amazon Web Services Regions supported with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/general/latest/gr/transcribe.html">Amazon Transcribe endpoints and
- *                         quotas</a>.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>TranscriptionJobName</code>: A custom name you create for your
- *                     transcription job that is unique within your Amazon Web Services account.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Media</code> (<code>MediaFileUri</code>): The Amazon S3 location
- *                     of your media file.</p>
- *             </li>
- *             <li>
- *                <p>One of <code>LanguageCode</code>, <code>IdentifyLanguage</code>, or
- *                         <code>IdentifyMultipleLanguages</code>: If you know the language of your
- *                     media file, specify it using the <code>LanguageCode</code> parameter; you can
- *                     find all valid language codes in the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported
- *                         languages</a> table. If you do not know the languages spoken in your
- *                     media, use either <code>IdentifyLanguage</code> or
- *                         <code>IdentifyMultipleLanguages</code> and let Amazon Transcribe identify
- *                     the languages for you.</p>
- *             </li>
- *          </ul>
+ * Transcribes the audio from a media file and applies any additional Request Parameters you choose to include in your request.
+ *
+ * To make a `StartTranscriptionJob` request, you must first upload your media file into an Amazon S3 bucket; you can then specify the Amazon S3 location of the file using the `Media` parameter.
+ *
+ * You must include the following parameters in your `StartTranscriptionJob` request:
+ *
+ * - `region`: The Amazon Web Services Region where you are making your request. For a list of Amazon Web Services Regions supported with Amazon Transcribe, refer to [Amazon Transcribe endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/transcribe.html).
+ * - `TranscriptionJobName`: A custom name you create for your transcription job that is unique within your Amazon Web Services account.
+ * - `Media` (`MediaFileUri`): The Amazon S3 location of your media file.
+ * - One of `LanguageCode`, `IdentifyLanguage`, or `IdentifyMultipleLanguages`: If you know the language of your media file, specify it using the `LanguageCode` parameter; you can find all valid language codes in the [Supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) table. If you do not know the languages spoken in your media, use either `IdentifyLanguage` or `IdentifyMultipleLanguages` and let Amazon Transcribe identify the languages for you.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -235,26 +211,24 @@ export interface StartTranscriptionJobCommandOutput extends StartTranscriptionJo
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>Your request didn't pass one or more validation tests. This can occur when the entity
- *             you're trying to delete doesn't exist or if it's in a non-terminal state (such as
- *                 <code>IN PROGRESS</code>). See the exception message field for more
- *             information.</p>
+ *
+ * Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as `IN PROGRESS`). See the exception message field for more information.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A resource already exists with this name. Resource names must be unique within an
- *                 Amazon Web Services account.</p>
+ *
+ * A resource already exists with this name. Resource names must be unique within an Amazon Web Services account.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>There was an internal error. Check the error message, correct the issue, and try your
- *             request again.</p>
+ *
+ * There was an internal error. Check the error message, correct the issue, and try your request again.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You've either sent too many requests or your input file is too long. Wait before
- *             retrying your request, or use a smaller file and try your request again.</p>
+ *
+ * You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.
  *
  * @throws {@link TranscribeServiceException}
- * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * Base exception class for all service exceptions from Transcribe service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface DeleteSubnetCidrReservationCommandInput extends DeleteSubnetCid
 export interface DeleteSubnetCidrReservationCommandOutput extends DeleteSubnetCidrReservationResult, __MetadataBearer {}
 
 /**
- * <p>Deletes a subnet CIDR reservation.</p>
+ * Deletes a subnet CIDR reservation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,8 +65,8 @@ export interface DeleteSubnetCidrReservationCommandOutput extends DeleteSubnetCi
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

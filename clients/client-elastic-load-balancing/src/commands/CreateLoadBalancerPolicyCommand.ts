@@ -23,8 +23,10 @@ export interface CreateLoadBalancerPolicyCommandInput extends CreateLoadBalancer
 export interface CreateLoadBalancerPolicyCommandOutput extends CreateLoadBalancerPolicyOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a policy with the specified attributes for the specified load balancer.</p>
- *          <p>Policies are settings that are saved for your load balancer and that can be applied to the listener or the application server, depending on the policy type.</p>
+ * Creates a policy with the specified attributes for the specified load balancer.
+ *
+ * Policies are settings that are saved for your load balancer and that can be applied to the listener or the application server, depending on the policy type.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,23 +59,28 @@ export interface CreateLoadBalancerPolicyCommandOutput extends CreateLoadBalance
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
  * @throws {@link AccessPointNotFoundException} (client fault)
- *  <p>The specified load balancer does not exist.</p>
+ *
+ * The specified load balancer does not exist.
  *
  * @throws {@link DuplicatePolicyNameException} (client fault)
- *  <p>A policy with the specified name already exists for this load balancer.</p>
+ *
+ * A policy with the specified name already exists for this load balancer.
  *
  * @throws {@link InvalidConfigurationRequestException} (client fault)
- *  <p>The requested configuration change is not valid.</p>
+ *
+ * The requested configuration change is not valid.
  *
  * @throws {@link PolicyTypeNotFoundException} (client fault)
- *  <p>One or more of the specified policy types do not exist.</p>
+ *
+ * One or more of the specified policy types do not exist.
  *
  * @throws {@link TooManyPoliciesException} (client fault)
- *  <p>The quota for the number of policies for this load balancer has been reached.</p>
+ *
+ * The quota for the number of policies for this load balancer has been reached.
  *
  * @throws {@link ElasticLoadBalancingServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancing service.
  *
  * @example To create a policy that enables Proxy Protocol on a load balancer
  * ```javascript

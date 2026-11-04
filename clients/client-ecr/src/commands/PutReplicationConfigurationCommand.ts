@@ -23,17 +23,10 @@ export interface PutReplicationConfigurationCommandInput extends PutReplicationC
 export interface PutReplicationConfigurationCommandOutput extends PutReplicationConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates or updates the replication configuration for a registry. The existing
- *             replication configuration for a repository can be retrieved with the <a>DescribeRegistry</a> API action. The first time the
- *             PutReplicationConfiguration API is called, a service-linked IAM role is created in
- *             your account for the replication process. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/using-service-linked-roles.html">Using
- *                 service-linked roles for Amazon ECR</a> in the <i>Amazon Elastic Container Registry User Guide</i>.
- *             For more information on the custom role for replication, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/replication-creation-templates.html#roles-creatingrole-user-console">Creating an IAM role for replication</a>.</p>
- *          <note>
- *             <p>When configuring cross-account replication, the destination account must grant the
- *                 source account permission to replicate. This permission is controlled using a
- *                 registry permissions policy. For more information, see <a>PutRegistryPolicy</a>.</p>
- *          </note>
+ * Creates or updates the replication configuration for a registry. The existing replication configuration for a repository can be retrieved with the DescribeRegistry API action. The first time the PutReplicationConfiguration API is called, a service-linked IAM role is created in your account for the replication process. For more information, see [Using service-linked roles for Amazon ECR](https://docs.aws.amazon.com/AmazonECR/latest/userguide/using-service-linked-roles.html) in the *Amazon Elastic Container Registry User Guide*. For more information on the custom role for replication, see [Creating an IAM role for replication](https://docs.aws.amazon.com/AmazonECR/latest/userguide/replication-creation-templates.html#roles-creatingrole-user-console).
+ *
+ * > **Note:** When configuring cross-account replication, the destination account must grant the source account permission to replicate. This permission is controlled using a registry permissions policy. For more information, see PutRegistryPolicy.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,18 +87,20 @@ export interface PutReplicationConfigurationCommandOutput extends PutReplication
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>There was an exception validating this request.</p>
+ *
+ * There was an exception validating this request.
  *
  * @throws {@link ECRServiceException}
- * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * Base exception class for all service exceptions from ECR service.
  *
  * @public
  */

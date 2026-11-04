@@ -23,14 +23,12 @@ export interface ListInternetEventsCommandInput extends ListInternetEventsInput 
 export interface ListInternetEventsCommandOutput extends ListInternetEventsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists internet events that cause performance or availability issues for client locations. Amazon CloudWatch Internet Monitor displays information about
- * 			recent global health events, called internet events, on a global outages map that is available to all Amazon Web Services
- * 			customers. </p>
- *          <p>You can constrain the list of internet events returned by providing a start time and end time to define a total
- * 			time frame for events you want to list. Both start time and end time specify the time when an event started. End time
- * 			is optional. If you don't include it, the default end time is the current time.</p>
- *          <p>You can also limit the events returned to a specific status
- * 			(<code>ACTIVE</code> or <code>RESOLVED</code>) or type (<code>PERFORMANCE</code> or <code>AVAILABILITY</code>).</p>
+ * Lists internet events that cause performance or availability issues for client locations. Amazon CloudWatch Internet Monitor displays information about recent global health events, called internet events, on a global outages map that is available to all Amazon Web Services customers.
+ *
+ * You can constrain the list of internet events returned by providing a start time and end time to define a total time frame for events you want to list. Both start time and end time specify the time when an event started. End time is optional. If you don't include it, the default end time is the current time.
+ *
+ * You can also limit the events returned to a specific status (`ACTIVE` or `RESOLVED`) or type (`PERFORMANCE` or `AVAILABILITY`).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,20 +80,24 @@ export interface ListInternetEventsCommandOutput extends ListInternetEventsOutpu
  * @see {@link InternetMonitorClientResolvedConfig | config} for InternetMonitorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * You don't have sufficient permission to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error occurred.</p>
+ *
+ * An internal error occurred.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Invalid request.</p>
+ *
+ * Invalid request.
  *
  * @throws {@link InternetMonitorServiceException}
- * <p>Base exception class for all service exceptions from InternetMonitor service.</p>
  *
+ * Base exception class for all service exceptions from InternetMonitor service.
  *
  * @public
  */

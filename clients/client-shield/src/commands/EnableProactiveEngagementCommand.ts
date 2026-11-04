@@ -23,7 +23,8 @@ export interface EnableProactiveEngagementCommandInput extends EnableProactiveEn
 export interface EnableProactiveEngagementCommandOutput extends EnableProactiveEngagementResponse, __MetadataBearer {}
 
 /**
- * <p>Authorizes the Shield Response Team (SRT) to use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.</p>
+ * Authorizes the Shield Response Team (SRT) to use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -46,24 +47,28 @@ export interface EnableProactiveEngagementCommandOutput extends EnableProactiveE
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+ *
+ * Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.
  *
  * @throws {@link InvalidOperationException} (client fault)
- *  <p>Exception that indicates that the operation would not cause any change to occur.</p>
+ *
+ * Exception that indicates that the operation would not cause any change to occur.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Exception that indicates that the parameters passed to the API are invalid. If available, this exception includes details in additional properties. </p>
+ *
+ * Exception that indicates that the parameters passed to the API are invalid. If available, this exception includes details in additional properties.
  *
  * @throws {@link OptimisticLockException} (client fault)
- *  <p>Exception that indicates that the resource state has been modified by another
- *          client. Retrieve the resource and then retry your request.</p>
+ *
+ * Exception that indicates that the resource state has been modified by another client. Retrieve the resource and then retry your request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+ *
+ * Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties.
  *
  * @throws {@link ShieldServiceException}
- * <p>Base exception class for all service exceptions from Shield service.</p>
  *
+ * Base exception class for all service exceptions from Shield service.
  *
  * @public
  */

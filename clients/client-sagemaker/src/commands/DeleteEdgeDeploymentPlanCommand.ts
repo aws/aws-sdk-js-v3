@@ -23,7 +23,8 @@ export interface DeleteEdgeDeploymentPlanCommandInput extends DeleteEdgeDeployme
 export interface DeleteEdgeDeploymentPlanCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an edge deployment plan if (and only if) all the stages in the plan are inactive or there are no stages in the plan.</p>
+ * Deletes an edge deployment plan if (and only if) all the stages in the plan are inactive or there are no stages in the plan.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,11 +49,12 @@ export interface DeleteEdgeDeploymentPlanCommandOutput extends __MetadataBearer 
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceInUse} (client fault)
- *  <p>Resource being accessed is in use.</p>
+ *
+ * Resource being accessed is in use.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

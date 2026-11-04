@@ -23,7 +23,8 @@ export interface UpdateWorkteamCommandInput extends UpdateWorkteamRequest {}
 export interface UpdateWorkteamCommandOutput extends UpdateWorkteamResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an existing work team with new member definitions or description.</p>
+ * Updates an existing work team with new member definitions or description.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -112,11 +113,12 @@ export interface UpdateWorkteamCommandOutput extends UpdateWorkteamResponse, __M
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+ *
+ * You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

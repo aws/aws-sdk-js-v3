@@ -23,9 +23,10 @@ export interface StartWorkspacesCommandInput extends StartWorkspacesRequest {}
 export interface StartWorkspacesCommandOutput extends StartWorkspacesResult, __MetadataBearer {}
 
 /**
- * <p>Starts the specified WorkSpaces.</p>
- *          <p>You cannot start a WorkSpace unless it has a running mode of <code>AutoStop</code> or
- *          <code>Manual</code> and a state of <code>STOPPED</code>.</p>
+ * Starts the specified WorkSpaces.
+ *
+ * You cannot start a WorkSpace unless it has a running mode of `AutoStop` or `Manual` and a state of `STOPPED`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,8 +63,8 @@ export interface StartWorkspacesCommandOutput extends StartWorkspacesResult, __M
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  * @throws {@link WorkSpacesServiceException}
- * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * Base exception class for all service exceptions from WorkSpaces service.
  *
  * @public
  */

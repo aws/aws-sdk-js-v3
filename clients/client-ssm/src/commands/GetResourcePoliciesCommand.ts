@@ -23,7 +23,8 @@ export interface GetResourcePoliciesCommandInput extends GetResourcePoliciesRequ
 export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns an array of the <code>Policy</code> object.</p>
+ * Returns an array of the `Policy` object.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,18 +60,20 @@ export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesRes
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified parameter to be shared could not be found.</p>
+ *
+ * The specified parameter to be shared could not be found.
  *
  * @throws {@link ResourcePolicyInvalidParameterException} (client fault)
- *  <p>One or more parameters specified for the call aren't valid. Verify the parameters and their
- *    values and try again.</p>
+ *
+ * One or more parameters specified for the call aren't valid. Verify the parameters and their values and try again.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

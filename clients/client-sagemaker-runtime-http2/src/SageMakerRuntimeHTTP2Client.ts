@@ -300,7 +300,8 @@ export type SageMakerRuntimeHTTP2ClientResolvedConfigType = __SmithyResolvedConf
 export interface SageMakerRuntimeHTTP2ClientResolvedConfig extends SageMakerRuntimeHTTP2ClientResolvedConfigType {}
 
 /**
- * <p> The Amazon SageMaker AI runtime HTTP/2 API. </p>
+ * The Amazon SageMaker AI runtime HTTP/2 API.
+ *
  * @public
  */
 export class SageMakerRuntimeHTTP2Client extends __Client<

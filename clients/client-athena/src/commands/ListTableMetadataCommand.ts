@@ -23,7 +23,8 @@ export interface ListTableMetadataCommandInput extends ListTableMetadataInput {}
 export interface ListTableMetadataCommandOutput extends ListTableMetadataOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the metadata for the tables in the specified data catalog database.</p>
+ * Lists the metadata for the tables in the specified data catalog database.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,24 +81,20 @@ export interface ListTableMetadataCommandOutput extends ListTableMetadataOutput,
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Indicates a platform issue, which may be due to a transient condition or
- *             outage.</p>
+ *
+ * Indicates a platform issue, which may be due to a transient condition or outage.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Indicates that something is wrong with the input to the request. For example, a
- *             required parameter may be missing or out of range.</p>
+ *
+ * Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.
  *
  * @throws {@link MetadataException} (client fault)
- *  <p>An exception that Athena received when it called a custom metastore.
- *             Occurs if the error is not caused by user input (<code>InvalidRequestException</code>)
- *             or from the Athena platform (<code>InternalServerException</code>). For
- *             example, if a user-created Lambda function is missing permissions, the
- *                 Lambda
- *             <code>4XX</code> exception is returned in a <code>MetadataException</code>.</p>
+ *
+ * An exception that Athena received when it called a custom metastore. Occurs if the error is not caused by user input (`InvalidRequestException`) or from the Athena platform (`InternalServerException`). For example, if a user-created Lambda function is missing permissions, the Lambda `4XX` exception is returned in a `MetadataException`.
  *
  * @throws {@link AthenaServiceException}
- * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * Base exception class for all service exceptions from Athena service.
  *
  * @public
  */

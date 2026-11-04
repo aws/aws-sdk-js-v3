@@ -26,17 +26,16 @@ export interface SetLoadBalancerPoliciesForBackendServerCommandInput extends Set
 export interface SetLoadBalancerPoliciesForBackendServerCommandOutput extends SetLoadBalancerPoliciesForBackendServerOutput, __MetadataBearer {}
 
 /**
- * <p>Replaces the set of policies associated with the specified port on which the EC2 instance is listening with a new set of policies.
- *             At this time, only the back-end server authentication policy type can be applied to the instance ports; this policy type is composed of multiple public key policies.</p>
- *         <p>Each time you use <code>SetLoadBalancerPoliciesForBackendServer</code> to enable the policies,
- *             use the <code>PolicyNames</code> parameter to list the policies that you want to enable.</p>
- *         <p>You can use <a>DescribeLoadBalancers</a> or <a>DescribeLoadBalancerPolicies</a> to verify that the policy
- *             is associated with the EC2 instance.</p>
+ * Replaces the set of policies associated with the specified port on which the EC2 instance is listening with a new set of policies. At this time, only the back-end server authentication policy type can be applied to the instance ports; this policy type is composed of multiple public key policies.
  *
- *         <p>For more information about enabling back-end instance authentication, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-create-https-ssl-load-balancer.html#configure_backendauth_clt">Configure Back-end Instance Authentication</a>
- *             in the <i>Classic Load Balancers Guide</i>. For more information about Proxy Protocol, see
- *             <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-proxy-protocol.html">Configure Proxy Protocol Support</a>
- *             in the <i>Classic Load Balancers Guide</i>.</p>
+ * Each time you use `SetLoadBalancerPoliciesForBackendServer` to enable the policies, use the `PolicyNames` parameter to list the policies that you want to enable.
+ *
+ * You can use DescribeLoadBalancers or DescribeLoadBalancerPolicies to verify that the policy is associated with the EC2 instance.
+ *
+ *
+ *
+ * For more information about enabling back-end instance authentication, see [Configure Back-end Instance Authentication](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-create-https-ssl-load-balancer.html#configure_backendauth_clt) in the *Classic Load Balancers Guide*. For more information about Proxy Protocol, see [Configure Proxy Protocol Support](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-proxy-protocol.html) in the *Classic Load Balancers Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,17 +64,20 @@ export interface SetLoadBalancerPoliciesForBackendServerCommandOutput extends Se
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
  * @throws {@link AccessPointNotFoundException} (client fault)
- *  <p>The specified load balancer does not exist.</p>
+ *
+ * The specified load balancer does not exist.
  *
  * @throws {@link InvalidConfigurationRequestException} (client fault)
- *  <p>The requested configuration change is not valid.</p>
+ *
+ * The requested configuration change is not valid.
  *
  * @throws {@link PolicyNotFoundException} (client fault)
- *  <p>One or more of the specified policies do not exist.</p>
+ *
+ * One or more of the specified policies do not exist.
  *
  * @throws {@link ElasticLoadBalancingServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancing service.
  *
  * @example To replace the policies associated with a port for a backend instance
  * ```javascript

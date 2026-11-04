@@ -23,8 +23,8 @@ export interface CreatePermissionCommandInput extends CreatePermissionRequest {}
 export interface CreatePermissionCommandOutput extends CreatePermissionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a customer managed permission for a specified resource type that you can attach to resource shares.
- *             It is created in the Amazon Web Services Region in which you call the operation.</p>
+ * Creates a customer managed permission for a specified resource type that you can attach to resource shares. It is created in the Amazon Web Services Region in which you call the operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,44 +79,48 @@ export interface CreatePermissionCommandOutput extends CreatePermissionResponse,
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
  *
  * @throws {@link IdempotentParameterMismatchException} (client fault)
- *  <p>The operation failed because the client token input parameter matched one that was
- *             used with a previous call to the operation, but at least one of the other input
- *             parameters is different from the previous call.</p>
+ *
+ * The operation failed because the client token input parameter matched one that was used with a previous call to the operation, but at least one of the other input parameters is different from the previous call.
  *
  * @throws {@link InvalidClientTokenException} (client fault)
- *  <p>The operation failed because the specified client token isn't valid.</p>
+ *
+ * The operation failed because the specified client token isn't valid.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The operation failed because a parameter you specified isn't valid.</p>
+ *
+ * The operation failed because a parameter you specified isn't valid.
  *
  * @throws {@link InvalidPolicyException} (client fault)
- *  <p>The operation failed because a policy you specified isn't valid.</p>
+ *
+ * The operation failed because a policy you specified isn't valid.
  *
  * @throws {@link MalformedPolicyTemplateException} (client fault)
- *  <p>The operation failed because the policy template that you provided isn't valid.</p>
+ *
+ * The operation failed because the policy template that you provided isn't valid.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>The operation failed because the requested operation isn't permitted.</p>
+ *
+ * The operation failed because the requested operation isn't permitted.
  *
  * @throws {@link PermissionAlreadyExistsException} (client fault)
- *  <p>The operation failed because a permission with the specified name already exists in
- *             the requested Amazon Web Services Region. Choose a different name.</p>
+ *
+ * The operation failed because a permission with the specified name already exists in the requested Amazon Web Services Region. Choose a different name.
  *
  * @throws {@link PermissionLimitExceededException} (client fault)
- *  <p>The operation failed because it would exceed the maximum number of permissions you can
- *             create in each Amazon Web Services Region. To view the limits for your Amazon Web Services account, see the <a href="https://console.aws.amazon.com/servicequotas/home/services/ram/quotas">RAM page in the
- *                 Service Quotas console</a>.</p>
+ *
+ * The operation failed because it would exceed the maximum number of permissions you can create in each Amazon Web Services Region. To view the limits for your Amazon Web Services account, see the [RAM page in the Service Quotas console](https://console.aws.amazon.com/servicequotas/home/services/ram/quotas).
  *
  * @throws {@link ServerInternalException} (server fault)
- *  <p>The operation failed because the service could not respond to the request due to an
- *             internal problem. Try again later.</p>
+ *
+ * The operation failed because the service could not respond to the request due to an internal problem. Try again later.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The operation failed because the service isn't available. Try again later.</p>
+ *
+ * The operation failed because the service isn't available. Try again later.
  *
  * @throws {@link RAMServiceException}
- * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ * Base exception class for all service exceptions from RAM service.
  *
  * @public
  */

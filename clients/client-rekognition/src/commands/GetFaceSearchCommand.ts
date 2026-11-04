@@ -23,35 +23,18 @@ export interface GetFaceSearchCommandInput extends GetFaceSearchRequest {}
 export interface GetFaceSearchCommandOutput extends GetFaceSearchResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the face search results for Amazon Rekognition Video face search started by
- *       <a>StartFaceSearch</a>. The search returns faces in a collection that match the faces
- *     of persons detected in a video. It also includes the time(s) that faces are matched in the video.</p>
- *          <p>Face search in a video is an asynchronous operation. You start face search by calling
- *       to <a>StartFaceSearch</a> which returns a job identifier (<code>JobId</code>).
- *       When the search operation finishes, Amazon Rekognition Video publishes a completion status to the Amazon Simple Notification Service
- *       topic registered in the initial call to <code>StartFaceSearch</code>.
- *       To get the search results, first check that the status value published to the Amazon SNS
- *       topic is <code>SUCCEEDED</code>. If so, call  <code>GetFaceSearch</code> and pass the job identifier
- *       (<code>JobId</code>) from the initial call to <code>StartFaceSearch</code>.</p>
- *          <p>For more information, see Searching Faces in a Collection in the
- *       Amazon Rekognition Developer Guide.</p>
- *          <p>The search results are retured in an array, <code>Persons</code>, of
- *     <a>PersonMatch</a> objects. Each<code>PersonMatch</code> element contains
- *     details about the matching faces in the input collection, person information (facial attributes,
- *     bounding boxes, and person identifer)
- *     for the matched person, and the time the person was matched in the video.</p>
- *          <note>
- *             <p>
- *                <code>GetFaceSearch</code> only returns the default
- *         facial attributes (<code>BoundingBox</code>, <code>Confidence</code>,
- *         <code>Landmarks</code>, <code>Pose</code>, and <code>Quality</code>). The other facial attributes listed
- *         in the <code>Face</code> object of the following response syntax are not returned. For more information,
- *         see FaceDetail in the Amazon Rekognition Developer Guide. </p>
- *          </note>
- *          <p>By default, the <code>Persons</code> array is sorted by the time, in milliseconds from the
- *     start of the video, persons are matched.
- *     You can also sort by persons by specifying <code>INDEX</code> for the <code>SORTBY</code> input
- *     parameter.</p>
+ * Gets the face search results for Amazon Rekognition Video face search started by StartFaceSearch. The search returns faces in a collection that match the faces of persons detected in a video. It also includes the time(s) that faces are matched in the video.
+ *
+ * Face search in a video is an asynchronous operation. You start face search by calling to StartFaceSearch which returns a job identifier (`JobId`). When the search operation finishes, Amazon Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic registered in the initial call to `StartFaceSearch`. To get the search results, first check that the status value published to the Amazon SNS topic is `SUCCEEDED`. If so, call `GetFaceSearch` and pass the job identifier (`JobId`) from the initial call to `StartFaceSearch`.
+ *
+ * For more information, see Searching Faces in a Collection in the Amazon Rekognition Developer Guide.
+ *
+ * The search results are retured in an array, `Persons`, of PersonMatch objects. Each`PersonMatch` element contains details about the matching faces in the input collection, person information (facial attributes, bounding boxes, and person identifer) for the matched person, and the time the person was matched in the video.
+ *
+ * > **Note:** `GetFaceSearch` only returns the default facial attributes (`BoundingBox`, `Confidence`, `Landmarks`, `Pose`, and `Quality`). The other facial attributes listed in the `Face` object of the following response syntax are not returned. For more information, see FaceDetail in the Amazon Rekognition Developer Guide.
+ *
+ * By default, the `Persons` array is sorted by the time, in milliseconds from the start of the video, persons are matched. You can also sort by persons by specifying `INDEX` for the `SORTBY` input parameter.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -205,31 +188,36 @@ export interface GetFaceSearchCommandOutput extends GetFaceSearchResponse, __Met
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You are not authorized to perform the action.</p>
+ *
+ * You are not authorized to perform the action.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * Amazon Rekognition experienced a service issue. Try your call again.
  *
  * @throws {@link InvalidPaginationTokenException} (client fault)
- *  <p>Pagination token in the request is not valid.</p>
+ *
+ * Pagination token in the request is not valid.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
- *       operation again.</p>
+ *
+ * Input parameter violated a constraint. Validate your parameter before calling the API operation again.
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
- *  <p>The number of requests exceeded your throughput limit. If you want to increase this
- *       limit, contact Amazon Rekognition.</p>
+ *
+ * The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource specified in the request cannot be found.</p>
+ *
+ * The resource specified in the request cannot be found.
  *
  * @throws {@link ThrottlingException} (server fault)
- *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
+ * Amazon Rekognition is temporarily unable to process the request. Try your call again.
  *
  * @throws {@link RekognitionServiceException}
- * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * Base exception class for all service exceptions from Rekognition service.
  *
  * @public
  */

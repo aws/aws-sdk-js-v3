@@ -34,31 +34,36 @@ import type {
  */
 export interface CreateAccessLogSubscriptionRequest {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request that completed successfully using the same client token and parameters, the retry succeeds without performing any actions. If the parameters aren't identical, the retry fails.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request that completed successfully using the same client token and parameters, the retry succeeds without performing any actions. If the parameters aren't identical, the retry fails.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The ID or ARN of the service network or service.</p>
+   * The ID or ARN of the service network or service.
+   *
    * @public
    */
   resourceIdentifier: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the destination. The supported destination types are CloudWatch Log groups, Kinesis Data Firehose delivery streams, and Amazon S3 buckets.</p>
+   * The Amazon Resource Name (ARN) of the destination. The supported destination types are CloudWatch Log groups, Kinesis Data Firehose delivery streams, and Amazon S3 buckets.
+   *
    * @public
    */
   destinationArn: string | undefined;
 
   /**
-   * <p>The type of log that monitors your Amazon VPC Lattice service networks.</p>
+   * The type of log that monitors your Amazon VPC Lattice service networks.
+   *
    * @public
    */
   serviceNetworkLogType?: ServiceNetworkLogType | undefined;
 
   /**
-   * <p>The tags for the access log subscription.</p>
+   * The tags for the access log subscription.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -69,55 +74,64 @@ export interface CreateAccessLogSubscriptionRequest {
  */
 export interface CreateAccessLogSubscriptionResponse {
   /**
-   * <p>The ID of the access log subscription.</p>
+   * The ID of the access log subscription.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the access log subscription.</p>
+   * The Amazon Resource Name (ARN) of the access log subscription.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The ID of the service network or service.</p>
+   * The ID of the service network or service.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service network or service.</p>
+   * The Amazon Resource Name (ARN) of the service network or service.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The type of log that monitors your Amazon VPC Lattice service networks.</p>
+   * The type of log that monitors your Amazon VPC Lattice service networks.
+   *
    * @public
    */
   serviceNetworkLogType?: ServiceNetworkLogType | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the log destination.</p>
+   * The Amazon Resource Name (ARN) of the log destination.
+   *
    * @public
    */
   destinationArn: string | undefined;
 }
 
 /**
- * <p>Describes a validation failure.</p>
+ * Describes a validation failure.
+ *
  * @public
  */
 export interface ValidationExceptionField {
   /**
-   * <p>The name of the validation exception.</p>
+   * The name of the validation exception.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Additional information about why the validation failed.</p>
+   * Additional information about why the validation failed.
+   *
    * @public
    */
   message: string | undefined;
@@ -128,7 +142,8 @@ export interface ValidationExceptionField {
  */
 export interface DeleteAccessLogSubscriptionRequest {
   /**
-   * <p>The ID or ARN of the access log subscription.</p>
+   * The ID or ARN of the access log subscription.
+   *
    * @public
    */
   accessLogSubscriptionIdentifier: string | undefined;
@@ -144,7 +159,8 @@ export interface DeleteAccessLogSubscriptionResponse {}
  */
 export interface GetAccessLogSubscriptionRequest {
   /**
-   * <p>The ID or ARN of the access log subscription.</p>
+   * The ID or ARN of the access log subscription.
+   *
    * @public
    */
   accessLogSubscriptionIdentifier: string | undefined;
@@ -155,49 +171,57 @@ export interface GetAccessLogSubscriptionRequest {
  */
 export interface GetAccessLogSubscriptionResponse {
   /**
-   * <p>The ID of the access log subscription.</p>
+   * The ID of the access log subscription.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the access log subscription.</p>
+   * The Amazon Resource Name (ARN) of the access log subscription.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The ID of the service network or service.</p>
+   * The ID of the service network or service.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service network or service.</p>
+   * The Amazon Resource Name (ARN) of the service network or service.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the access log destination.</p>
+   * The Amazon Resource Name (ARN) of the access log destination.
+   *
    * @public
    */
   destinationArn: string | undefined;
 
   /**
-   * <p>The log type for the service network.</p>
+   * The log type for the service network.
+   *
    * @public
    */
   serviceNetworkLogType?: ServiceNetworkLogType | undefined;
 
   /**
-   * <p>The date and time that the access log subscription was created, in ISO-8601 format.</p>
+   * The date and time that the access log subscription was created, in ISO-8601 format.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The date and time that the access log subscription was last updated, in ISO-8601 format.</p>
+   * The date and time that the access log subscription was last updated, in ISO-8601 format.
+   *
    * @public
    */
   lastUpdatedAt: Date | undefined;
@@ -208,73 +232,85 @@ export interface GetAccessLogSubscriptionResponse {
  */
 export interface ListAccessLogSubscriptionsRequest {
   /**
-   * <p>The ID or ARN of the service network or service.</p>
+   * The ID or ARN of the service network or service.
+   *
    * @public
    */
   resourceIdentifier: string | undefined;
 
   /**
-   * <p>The maximum number of results to return.</p>
+   * The maximum number of results to return.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A pagination token for the next page of results.</p>
+   * A pagination token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Summary information about an access log subscription.</p>
+ * Summary information about an access log subscription.
+ *
  * @public
  */
 export interface AccessLogSubscriptionSummary {
   /**
-   * <p>The ID of the access log subscription.</p>
+   * The ID of the access log subscription.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the access log subscription</p>
+   * The Amazon Resource Name (ARN) of the access log subscription
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The ID of the service or service network.</p>
+   * The ID of the service or service network.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service or service network.</p>
+   * The Amazon Resource Name (ARN) of the service or service network.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the destination.</p>
+   * The Amazon Resource Name (ARN) of the destination.
+   *
    * @public
    */
   destinationArn: string | undefined;
 
   /**
-   * <p>Log type of the service network.</p>
+   * Log type of the service network.
+   *
    * @public
    */
   serviceNetworkLogType?: ServiceNetworkLogType | undefined;
 
   /**
-   * <p>The date and time that the access log subscription was created, in ISO-8601 format.</p>
+   * The date and time that the access log subscription was created, in ISO-8601 format.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The date and time that the access log subscription was last updated, in ISO-8601 format.</p>
+   * The date and time that the access log subscription was last updated, in ISO-8601 format.
+   *
    * @public
    */
   lastUpdatedAt: Date | undefined;
@@ -285,13 +321,15 @@ export interface AccessLogSubscriptionSummary {
  */
 export interface ListAccessLogSubscriptionsResponse {
   /**
-   * <p>Information about the access log subscriptions.</p>
+   * Information about the access log subscriptions.
+   *
    * @public
    */
   items: AccessLogSubscriptionSummary[] | undefined;
 
   /**
-   * <p>A pagination token for the next page of results.</p>
+   * A pagination token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -302,13 +340,15 @@ export interface ListAccessLogSubscriptionsResponse {
  */
 export interface UpdateAccessLogSubscriptionRequest {
   /**
-   * <p>The ID or ARN of the access log subscription.</p>
+   * The ID or ARN of the access log subscription.
+   *
    * @public
    */
   accessLogSubscriptionIdentifier: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the access log destination.</p>
+   * The Amazon Resource Name (ARN) of the access log destination.
+   *
    * @public
    */
   destinationArn: string | undefined;
@@ -319,92 +359,109 @@ export interface UpdateAccessLogSubscriptionRequest {
  */
 export interface UpdateAccessLogSubscriptionResponse {
   /**
-   * <p>The ID of the access log subscription.</p>
+   * The ID of the access log subscription.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the access log subscription.</p>
+   * The Amazon Resource Name (ARN) of the access log subscription.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The ID of the resource.</p>
+   * The ID of the resource.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the access log subscription.</p>
+   * The Amazon Resource Name (ARN) of the access log subscription.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the access log destination.</p>
+   * The Amazon Resource Name (ARN) of the access log destination.
+   *
    * @public
    */
   destinationArn: string | undefined;
 }
 
 /**
- * <p>The Amazon Resource Name (ARN) of the resource.</p>
+ * The Amazon Resource Name (ARN) of the resource.
+ *
  * @public
  */
 export interface ArnResource {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   arn?: string | undefined;
 }
 
 /**
- * <p>Describes an action that returns a custom HTTP response.</p>
+ * Describes an action that returns a custom HTTP response.
+ *
  * @public
  */
 export interface FixedResponseAction {
   /**
-   * <p>The HTTP response code. Only <code>404</code> and <code>500</code> status codes are supported.</p>
+   * The HTTP response code. Only `404` and `500` status codes are supported.
+   *
    * @public
    */
   statusCode: number | undefined;
 }
 
 /**
- * <p>Describes the weight of a target group.</p>
+ * Describes the weight of a target group.
+ *
  * @public
  */
 export interface WeightedTargetGroup {
   /**
-   * <p>The ID or ARN of the target group.</p>
+   * The ID or ARN of the target group.
+   *
    * @public
    */
   targetGroupIdentifier: string | undefined;
 
   /**
-   * <p>Only required if you specify multiple target groups for a forward action. The weight determines how requests are distributed to the target group. For example, if you specify two target groups, each with a weight of 10, each target group receives half the requests. If you specify two target groups, one with a weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. If there's only one target group specified, then the default value is 100.</p>
+   * Only required if you specify multiple target groups for a forward action. The weight determines how requests are distributed to the target group. For example, if you specify two target groups, each with a weight of 10, each target group receives half the requests. If you specify two target groups, one with a weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. If there's only one target group specified, then the default value is 100.
+   *
    * @public
    */
   weight?: number | undefined;
 }
 
 /**
- * <p>Describes a forward action. You can use forward actions to route requests to one or more target groups. </p>
+ * Describes a forward action. You can use forward actions to route requests to one or more target groups.
+ *
  * @public
  */
 export interface ForwardAction {
   /**
-   * <p>The target groups. Traffic matching the rule is forwarded to the specified target groups. With forward actions, you can assign a weight that controls the prioritization and selection of each target group. This means that requests are distributed to individual target groups based on their weights. For example, if two target groups have the same weight, each target group receives half of the traffic.</p> <p>The default value is 1. This means that if only one target group is provided, there is no need to set the weight; 100% of the traffic goes to that target group.</p>
+   * The target groups. Traffic matching the rule is forwarded to the specified target groups. With forward actions, you can assign a weight that controls the prioritization and selection of each target group. This means that requests are distributed to individual target groups based on their weights. For example, if two target groups have the same weight, each target group receives half of the traffic.
+   *
+   * The default value is 1. This means that if only one target group is provided, there is no need to set the weight; 100% of the traffic goes to that target group.
+   *
    * @public
    */
   targetGroups: WeightedTargetGroup[] | undefined;
 }
 
 /**
- * <p>Describes the action for a rule.</p>
+ * Describes the action for a rule.
+ *
  * @public
  */
 export type RuleAction =
@@ -417,7 +474,8 @@ export type RuleAction =
  */
 export namespace RuleAction {
   /**
-   * <p>The forward action. Traffic that matches the rule is forwarded to the specified target groups.</p>
+   * The forward action. Traffic that matches the rule is forwarded to the specified target groups.
+   *
    * @public
    */
   export interface ForwardMember {
@@ -427,7 +485,8 @@ export namespace RuleAction {
   }
 
   /**
-   * <p>The fixed response action. The rule returns a custom HTTP response.</p>
+   * The fixed response action. The rule returns a custom HTTP response.
+   *
    * @public
    */
   export interface FixedResponseMember {
@@ -457,7 +516,8 @@ export namespace RuleAction {
 }
 
 /**
- * <p>Describes a header match type.</p>
+ * Describes a header match type.
+ *
  * @public
  */
 export type HeaderMatchType =
@@ -471,7 +531,8 @@ export type HeaderMatchType =
  */
 export namespace HeaderMatchType {
   /**
-   * <p>An exact type match.</p>
+   * An exact type match.
+   *
    * @public
    */
   export interface ExactMember {
@@ -482,7 +543,8 @@ export namespace HeaderMatchType {
   }
 
   /**
-   * <p>A prefix type match. Matches the value with the prefix.</p>
+   * A prefix type match. Matches the value with the prefix.
+   *
    * @public
    */
   export interface PrefixMember {
@@ -493,7 +555,8 @@ export namespace HeaderMatchType {
   }
 
   /**
-   * <p>A contains type match.</p>
+   * A contains type match.
+   *
    * @public
    */
   export interface ContainsMember {
@@ -526,31 +589,36 @@ export namespace HeaderMatchType {
 }
 
 /**
- * <p>Describes the constraints for a header match. Matches incoming requests with rule based on request header value before applying rule action.</p>
+ * Describes the constraints for a header match. Matches incoming requests with rule based on request header value before applying rule action.
+ *
  * @public
  */
 export interface HeaderMatch {
   /**
-   * <p>The name of the header.</p>
+   * The name of the header.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The header match type.</p>
+   * The header match type.
+   *
    * @public
    */
   match: HeaderMatchType | undefined;
 
   /**
-   * <p>Indicates whether the match is case sensitive.</p>
+   * Indicates whether the match is case sensitive.
+   *
    * @public
    */
   caseSensitive?: boolean | undefined;
 }
 
 /**
- * <p>Describes a path match type. Each rule can include only one of the following types of paths.</p>
+ * Describes a path match type. Each rule can include only one of the following types of paths.
+ *
  * @public
  */
 export type PathMatchType =
@@ -563,7 +631,8 @@ export type PathMatchType =
  */
 export namespace PathMatchType {
   /**
-   * <p>An exact match of the path.</p>
+   * An exact match of the path.
+   *
    * @public
    */
   export interface ExactMember {
@@ -573,7 +642,8 @@ export namespace PathMatchType {
   }
 
   /**
-   * <p>A prefix match of the path.</p>
+   * A prefix match of the path.
+   *
    * @public
    */
   export interface PrefixMember {
@@ -603,49 +673,57 @@ export namespace PathMatchType {
 }
 
 /**
- * <p>Describes the conditions that can be applied when matching a path for incoming requests.</p>
+ * Describes the conditions that can be applied when matching a path for incoming requests.
+ *
  * @public
  */
 export interface PathMatch {
   /**
-   * <p>The type of path match.</p>
+   * The type of path match.
+   *
    * @public
    */
   match: PathMatchType | undefined;
 
   /**
-   * <p>Indicates whether the match is case sensitive.</p>
+   * Indicates whether the match is case sensitive.
+   *
    * @public
    */
   caseSensitive?: boolean | undefined;
 }
 
 /**
- * <p>Describes criteria that can be applied to incoming requests.</p>
+ * Describes criteria that can be applied to incoming requests.
+ *
  * @public
  */
 export interface HttpMatch {
   /**
-   * <p>The HTTP method type.</p>
+   * The HTTP method type.
+   *
    * @public
    */
   method?: string | undefined;
 
   /**
-   * <p>The path match.</p>
+   * The path match.
+   *
    * @public
    */
   pathMatch?: PathMatch | undefined;
 
   /**
-   * <p>The header matches. Matches incoming requests with rule based on request header value before applying rule action.</p>
+   * The header matches. Matches incoming requests with rule based on request header value before applying rule action.
+   *
    * @public
    */
   headerMatches?: HeaderMatch[] | undefined;
 }
 
 /**
- * <p>Describes a rule match.</p>
+ * Describes a rule match.
+ *
  * @public
  */
 export type RuleMatch =
@@ -657,7 +735,8 @@ export type RuleMatch =
  */
 export namespace RuleMatch {
   /**
-   * <p>The HTTP criteria that a rule must match.</p>
+   * The HTTP criteria that a rule must match.
+   *
    * @public
    */
   export interface HttpMatchMember {
@@ -684,30 +763,35 @@ export namespace RuleMatch {
 }
 
 /**
- * <p>Describes a rule update.</p>
+ * Describes a rule update.
+ *
  * @public
  */
 export interface RuleUpdate {
   /**
-   * <p>The ID or ARN of the rule.</p>
+   * The ID or ARN of the rule.
+   *
    * @public
    */
   ruleIdentifier: string | undefined;
 
   /**
-   * <p>The rule match.</p>
+   * The rule match.
+   *
    * @public
    */
   match?: RuleMatch | undefined;
 
   /**
-   * <p>The rule priority. A listener can't have multiple rules with the same priority.</p>
+   * The rule priority. A listener can't have multiple rules with the same priority.
+   *
    * @public
    */
   priority?: number | undefined;
 
   /**
-   * <p>The rule action.</p>
+   * The rule action.
+   *
    * @public
    */
   action?: RuleAction | undefined;
@@ -718,91 +802,106 @@ export interface RuleUpdate {
  */
 export interface BatchUpdateRuleRequest {
   /**
-   * <p>The ID or ARN of the service.</p>
+   * The ID or ARN of the service.
+   *
    * @public
    */
   serviceIdentifier: string | undefined;
 
   /**
-   * <p>The ID or ARN of the listener.</p>
+   * The ID or ARN of the listener.
+   *
    * @public
    */
   listenerIdentifier: string | undefined;
 
   /**
-   * <p>The rules for the specified listener.</p>
+   * The rules for the specified listener.
+   *
    * @public
    */
   rules: RuleUpdate[] | undefined;
 }
 
 /**
- * <p>Describes a successful rule update.</p>
+ * Describes a successful rule update.
+ *
  * @public
  */
 export interface RuleUpdateSuccess {
   /**
-   * <p>The Amazon Resource Name (ARN) of the listener.</p>
+   * The Amazon Resource Name (ARN) of the listener.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The ID of the listener.</p>
+   * The ID of the listener.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The name of the listener.</p>
+   * The name of the listener.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Indicates whether this is the default rule.</p>
+   * Indicates whether this is the default rule.
+   *
    * @public
    */
   isDefault?: boolean | undefined;
 
   /**
-   * <p>The rule match.</p>
+   * The rule match.
+   *
    * @public
    */
   match?: RuleMatch | undefined;
 
   /**
-   * <p>The rule priority.</p>
+   * The rule priority.
+   *
    * @public
    */
   priority?: number | undefined;
 
   /**
-   * <p>The action for the rule.</p>
+   * The action for the rule.
+   *
    * @public
    */
   action?: RuleAction | undefined;
 }
 
 /**
- * <p>Describes a rule update that failed.</p>
+ * Describes a rule update that failed.
+ *
  * @public
  */
 export interface RuleUpdateFailure {
   /**
-   * <p>The ID or ARN of the rule.</p>
+   * The ID or ARN of the rule.
+   *
    * @public
    */
   ruleIdentifier?: string | undefined;
 
   /**
-   * <p>The failure code.</p>
+   * The failure code.
+   *
    * @public
    */
   failureCode?: string | undefined;
 
   /**
-   * <p>The failure message.</p>
+   * The failure message.
+   *
    * @public
    */
   failureMessage?: string | undefined;
@@ -813,25 +912,29 @@ export interface RuleUpdateFailure {
  */
 export interface BatchUpdateRuleResponse {
   /**
-   * <p>The rules that were successfully updated.</p>
+   * The rules that were successfully updated.
+   *
    * @public
    */
   successful?: RuleUpdateSuccess[] | undefined;
 
   /**
-   * <p>The rules that the operation couldn't update.</p>
+   * The rules that the operation couldn't update.
+   *
    * @public
    */
   unsuccessful?: RuleUpdateFailure[] | undefined;
 }
 
 /**
- * <p>Describes a CIDR resource, which represents a network segment as one or more CIDR ranges.</p>
+ * Describes a CIDR resource, which represents a network segment as one or more CIDR ranges.
+ *
  * @public
  */
 export interface CidrResource {
   /**
-   * <p>The CIDR ranges of the network segment, for example, <code>10.0.0.0/16</code>.</p>
+   * The CIDR ranges of the network segment, for example, `10.0.0.0/16`.
+   *
    * @public
    */
   cidrRanges?: string[] | undefined;
@@ -842,43 +945,50 @@ export interface CidrResource {
  */
 export interface CreateListenerRequest {
   /**
-   * <p>The ID or ARN of the service.</p>
+   * The ID or ARN of the service.
+   *
    * @public
    */
   serviceIdentifier: string | undefined;
 
   /**
-   * <p>The name of the listener. A listener name must be unique within a service. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.</p>
+   * The name of the listener. A listener name must be unique within a service. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The listener protocol.</p>
+   * The listener protocol.
+   *
    * @public
    */
   protocol: ListenerProtocol | undefined;
 
   /**
-   * <p>The listener port. You can specify a value from 1 to 65535. For HTTP, the default is 80. For HTTPS, the default is 443.</p>
+   * The listener port. You can specify a value from 1 to 65535. For HTTP, the default is 80. For HTTPS, the default is 443.
+   *
    * @public
    */
   port?: number | undefined;
 
   /**
-   * <p>The action for the default rule. Each listener has a default rule. The default rule is used if no other rules match.</p>
+   * The action for the default rule. Each listener has a default rule. The default rule is used if no other rules match.
+   *
    * @public
    */
   defaultAction: RuleAction | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request that completed successfully using the same client token and parameters, the retry succeeds without performing any actions. If the parameters aren't identical, the retry fails.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request that completed successfully using the same client token and parameters, the retry succeeds without performing any actions. If the parameters aren't identical, the retry fails.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The tags for the listener.</p>
+   * The tags for the listener.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -889,86 +999,100 @@ export interface CreateListenerRequest {
  */
 export interface CreateListenerResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the listener.</p>
+   * The Amazon Resource Name (ARN) of the listener.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The ID of the listener.</p>
+   * The ID of the listener.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The name of the listener.</p>
+   * The name of the listener.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The protocol of the listener.</p>
+   * The protocol of the listener.
+   *
    * @public
    */
   protocol?: ListenerProtocol | undefined;
 
   /**
-   * <p>The port number of the listener.</p>
+   * The port number of the listener.
+   *
    * @public
    */
   port?: number | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service.</p>
+   * The Amazon Resource Name (ARN) of the service.
+   *
    * @public
    */
   serviceArn?: string | undefined;
 
   /**
-   * <p>The ID of the service.</p>
+   * The ID of the service.
+   *
    * @public
    */
   serviceId?: string | undefined;
 
   /**
-   * <p>The action for the default rule.</p>
+   * The action for the default rule.
+   *
    * @public
    */
   defaultAction?: RuleAction | undefined;
 }
 
 /**
- * <p>The DNS name of the resource.</p>
+ * The DNS name of the resource.
+ *
  * @public
  */
 export interface DnsResource {
   /**
-   * <p>The domain name of the resource.</p>
+   * The domain name of the resource.
+   *
    * @public
    */
   domainName?: string | undefined;
 
   /**
-   * <p>The type of IP address. Dualstack is currently not supported.</p>
+   * The type of IP address. Dualstack is currently not supported.
+   *
    * @public
    */
   ipAddressType?: ResourceConfigurationIpAddressType | undefined;
 }
 
 /**
- * <p>Describes an IP resource.</p>
+ * Describes an IP resource.
+ *
  * @public
  */
 export interface IpResource {
   /**
-   * <p>The IP address of the IP resource.</p>
+   * The IP address of the IP resource.
+   *
    * @public
    */
   ipAddress?: string | undefined;
 }
 
 /**
- * <p>Describes a resource configuration.</p>
+ * Describes a resource configuration.
+ *
  * @public
  */
 export type ResourceConfigurationDefinition =
@@ -983,7 +1107,8 @@ export type ResourceConfigurationDefinition =
  */
 export namespace ResourceConfigurationDefinition {
   /**
-   * <p>The DNS name of the resource.</p>
+   * The DNS name of the resource.
+   *
    * @public
    */
   export interface DnsResourceMember {
@@ -995,7 +1120,8 @@ export namespace ResourceConfigurationDefinition {
   }
 
   /**
-   * <p>The IP resource.</p>
+   * The IP resource.
+   *
    * @public
    */
   export interface IpResourceMember {
@@ -1007,7 +1133,8 @@ export namespace ResourceConfigurationDefinition {
   }
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   export interface ArnResourceMember {
@@ -1019,7 +1146,8 @@ export namespace ResourceConfigurationDefinition {
   }
 
   /**
-   * <p>The network segment for a resource configuration of type CIDR, specified as one or more CIDR ranges (<code>cidrRanges</code>). Resources whose IP addresses fall within these ranges are reachable through a <code>Tunnel</code> VPC endpoint.</p>
+   * The network segment for a resource configuration of type CIDR, specified as one or more CIDR ranges (`cidrRanges`). Resources whose IP addresses fall within these ranges are reachable through a `Tunnel` VPC endpoint.
+   *
    * @public
    */
   export interface CidrResourceMember {
@@ -1059,79 +1187,103 @@ export namespace ResourceConfigurationDefinition {
  */
 export interface CreateResourceConfigurationRequest {
   /**
-   * <p>The name of the resource configuration. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.</p>
+   * The name of the resource configuration. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of resource configuration. A resource configuration can be one of the following types:</p> <ul> <li> <p> <b>SINGLE</b> - A single resource.</p> </li> <li> <p> <b>GROUP</b> - A group of resources. You must create a group resource configuration before you create a child resource configuration.</p> </li> <li> <p> <b>CHILD</b> - A single resource that is part of a group resource configuration.</p> </li> <li> <p> <b>ARN</b> - An Amazon Web Services resource.</p> </li> <li> <p> <b>CIDR</b> - A network segment, expressed as a range of IP addresses (a CIDR block). Use this type to share a portion of your network rather than an individual resource. A consumer accesses the resources within the CIDR range through a <code>Tunnel</code> VPC endpoint. You can't add a CIDR resource configuration to a service network. A CIDR resource configuration must be associated with a resource gateway whose DNS resolution is set to <code>IN_VPC</code>.</p> </li> </ul>
+   * The type of resource configuration. A resource configuration can be one of the following types:
+   *
+   * - **SINGLE** - A single resource.
+   * - **GROUP** - A group of resources. You must create a group resource configuration before you create a child resource configuration.
+   * - **CHILD** - A single resource that is part of a group resource configuration.
+   * - **ARN** - An Amazon Web Services resource.
+   * - **CIDR** - A network segment, expressed as a range of IP addresses (a CIDR block). Use this type to share a portion of your network rather than an individual resource. A consumer accesses the resources within the CIDR range through a `Tunnel` VPC endpoint. You can't add a CIDR resource configuration to a service network. A CIDR resource configuration must be associated with a resource gateway whose DNS resolution is set to `IN_VPC`.
+   *
    * @public
    */
   type: ResourceConfigurationType | undefined;
 
   /**
-   * <p>(SINGLE, GROUP, CHILD, CIDR) The port ranges that a consumer can use to access a resource configuration (for example: 1-65535). You can separate port ranges using commas (for example: 1,2,22-30). To resolve DNS through a CIDR resource configuration, include port 53 in the port ranges.</p>
+   * (SINGLE, GROUP, CHILD, CIDR) The port ranges that a consumer can use to access a resource configuration (for example: 1-65535). You can separate port ranges using commas (for example: 1,2,22-30). To resolve DNS through a CIDR resource configuration, include port 53 in the port ranges.
+   *
    * @public
    */
   portRanges?: string[] | undefined;
 
   /**
-   * <p>(SINGLE, GROUP, CIDR) The protocol accepted by the resource configuration. The default is <code>TCP</code>. <code>TCP_UDP</code> is supported only for CIDR resource configurations; specify it for a CIDR resource configuration to allow DNS resolution, which uses UDP.</p>
+   * (SINGLE, GROUP, CIDR) The protocol accepted by the resource configuration. The default is `TCP`. `TCP_UDP` is supported only for CIDR resource configurations; specify it for a CIDR resource configuration to allow DNS resolution, which uses UDP.
+   *
    * @public
    */
   protocol?: ProtocolType | undefined;
 
   /**
-   * <p>(SINGLE, GROUP, ARN, CIDR) The ID or ARN of the resource gateway used to connect to the resource configuration. For a child resource configuration, this value is inherited from the parent resource configuration. For a CIDR resource configuration, the associated resource gateway must have its DNS resolution set to <code>IN_VPC</code> so that DNS queries resolve in the context of your VPC.</p>
+   * (SINGLE, GROUP, ARN, CIDR) The ID or ARN of the resource gateway used to connect to the resource configuration. For a child resource configuration, this value is inherited from the parent resource configuration. For a CIDR resource configuration, the associated resource gateway must have its DNS resolution set to `IN_VPC` so that DNS queries resolve in the context of your VPC.
+   *
    * @public
    */
   resourceGatewayIdentifier?: string | undefined;
 
   /**
-   * <p>(CHILD) The ID or ARN of the parent resource configuration of type <code>GROUP</code>. This is used to associate a child resource configuration with a group resource configuration.</p>
+   * (CHILD) The ID or ARN of the parent resource configuration of type `GROUP`. This is used to associate a child resource configuration with a group resource configuration.
+   *
    * @public
    */
   resourceConfigurationGroupIdentifier?: string | undefined;
 
   /**
-   * <p>Identifies the resource configuration in one of the following ways:</p> <ul> <li> <p> <b>Amazon Resource Name (ARN)</b> - Supported resource-types that are provisioned by Amazon Web Services services, such as RDS databases, can be identified by their ARN.</p> </li> <li> <p> <b>Domain name</b> - Any domain name that is publicly resolvable.</p> </li> <li> <p> <b>IP address</b> - For IPv4 and IPv6, only IP addresses in the VPC are supported.</p> </li> <li> <p> <b>CIDR range</b> - For a resource configuration of type CIDR, specify a <code>cidrResource</code> with one or more <code>cidrRanges</code> (for example, <code>10.0.0.0/16</code>) that cover the IP addresses of the resources you want to make accessible. You can specify up to 10 ranges, using IPv4, IPv6, or both, and each range must include a prefix length. To represent your entire network, specify <code>0.0.0.0/0</code> (IPv4) or <code>::/0</code> (IPv6) as the only range. You can't use reserved ranges such as <code>169.254.0.0/16</code>, <code>100.64.0.0/10</code>, <code>224.0.0.0/4</code>, <code>fe80::/10</code>, or <code>ff00::/8</code>.</p> </li> </ul>
+   * Identifies the resource configuration in one of the following ways:
+   *
+   * - **Amazon Resource Name (ARN)** - Supported resource-types that are provisioned by Amazon Web Services services, such as RDS databases, can be identified by their ARN.
+   * - **Domain name** - Any domain name that is publicly resolvable.
+   * - **IP address** - For IPv4 and IPv6, only IP addresses in the VPC are supported.
+   * - **CIDR range** - For a resource configuration of type CIDR, specify a `cidrResource` with one or more `cidrRanges` (for example, `10.0.0.0/16`) that cover the IP addresses of the resources you want to make accessible. You can specify up to 10 ranges, using IPv4, IPv6, or both, and each range must include a prefix length. To represent your entire network, specify `0.0.0.0/0` (IPv4) or `::/0` (IPv6) as the only range. You can't use reserved ranges such as `169.254.0.0/16`, `100.64.0.0/10`, `224.0.0.0/4`, `fe80::/10`, or `ff00::/8`.
+   *
    * @public
    */
   resourceConfigurationDefinition?: ResourceConfigurationDefinition | undefined;
 
   /**
-   * <p>(SINGLE, GROUP, ARN) Specifies whether the resource configuration can be associated with a sharable service network. The default is false.</p>
+   * (SINGLE, GROUP, ARN) Specifies whether the resource configuration can be associated with a sharable service network. The default is false.
+   *
    * @public
    */
   allowAssociationToShareableServiceNetwork?: boolean | undefined;
 
   /**
-   * <p> A custom domain name for your resource configuration. Additionally, provide a DomainVerificationID to prove your ownership of a domain. </p>
+   * A custom domain name for your resource configuration. Additionally, provide a DomainVerificationID to prove your ownership of a domain.
+   *
    * @public
    */
   customDomainName?: string | undefined;
 
   /**
-   * <p> (GROUP) The group domain for a group resource configuration. Any domains that you create for the child resource are subdomains of the group domain. Child resources inherit the verification status of the domain. </p>
+   * (GROUP) The group domain for a group resource configuration. Any domains that you create for the child resource are subdomains of the group domain. Child resources inherit the verification status of the domain.
+   *
    * @public
    */
   groupDomain?: string | undefined;
 
   /**
-   * <p> The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself. </p>
+   * The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
+   *
    * @public
    */
   domainVerificationIdentifier?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request that completed successfully using the same client token and parameters, the retry succeeds without performing any actions. If the parameters aren't identical, the retry fails.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request that completed successfully using the same client token and parameters, the retry succeeds without performing any actions. If the parameters aren't identical, the retry fails.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The tags for the resource configuration.</p>
+   * The tags for the resource configuration.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1142,103 +1294,130 @@ export interface CreateResourceConfigurationRequest {
  */
 export interface CreateResourceConfigurationResponse {
   /**
-   * <p>The ID of the resource configuration.</p>
+   * The ID of the resource configuration.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The name of the resource configuration.</p>
+   * The name of the resource configuration.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource configuration.</p>
+   * The Amazon Resource Name (ARN) of the resource configuration.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The ID of the resource gateway associated with the resource configuration.</p>
+   * The ID of the resource gateway associated with the resource configuration.
+   *
    * @public
    */
   resourceGatewayId?: string | undefined;
 
   /**
-   * <p>The ID of the parent resource configuration of type <code>GROUP</code>.</p>
+   * The ID of the parent resource configuration of type `GROUP`.
+   *
    * @public
    */
   resourceConfigurationGroupId?: string | undefined;
 
   /**
-   * <p>The type of resource configuration. A resource configuration can be one of the following types:</p> <ul> <li> <p> <b>SINGLE</b> - A single resource.</p> </li> <li> <p> <b>GROUP</b> - A group of resources. You must create a group resource configuration before you create a child resource configuration.</p> </li> <li> <p> <b>CHILD</b> - A single resource that is part of a group resource configuration.</p> </li> <li> <p> <b>ARN</b> - An Amazon Web Services resource.</p> </li> <li> <p> <b>CIDR</b> - A network segment, expressed as a range of IP addresses (a CIDR block). A consumer accesses the resources within the CIDR range through a <code>Tunnel</code> VPC endpoint. A CIDR resource configuration must be associated with a resource gateway whose DNS resolution is set to <code>IN_VPC</code>.</p> </li> </ul>
+   * The type of resource configuration. A resource configuration can be one of the following types:
+   *
+   * - **SINGLE** - A single resource.
+   * - **GROUP** - A group of resources. You must create a group resource configuration before you create a child resource configuration.
+   * - **CHILD** - A single resource that is part of a group resource configuration.
+   * - **ARN** - An Amazon Web Services resource.
+   * - **CIDR** - A network segment, expressed as a range of IP addresses (a CIDR block). A consumer accesses the resources within the CIDR range through a `Tunnel` VPC endpoint. A CIDR resource configuration must be associated with a resource gateway whose DNS resolution is set to `IN_VPC`.
+   *
    * @public
    */
   type?: ResourceConfigurationType | undefined;
 
   /**
-   * <p>The port range.</p>
+   * The port range.
+   *
    * @public
    */
   portRanges?: string[] | undefined;
 
   /**
-   * <p>The protocol.</p>
+   * The protocol.
+   *
    * @public
    */
   protocol?: ProtocolType | undefined;
 
   /**
-   * <p>The current status of the resource configuration.</p>
+   * The current status of the resource configuration.
+   *
    * @public
    */
   status?: ResourceConfigurationStatus | undefined;
 
   /**
-   * <p>Identifies the resource configuration in one of the following ways:</p> <ul> <li> <p> <b>Amazon Resource Name (ARN)</b> - Supported resource-types that are provisioned by Amazon Web Services services, such as RDS databases, can be identified by their ARN.</p> </li> <li> <p> <b>Domain name</b> - Any domain name that is publicly resolvable.</p> </li> <li> <p> <b>IP address</b> - For IPv4 and IPv6, only IP addresses in the VPC are supported.</p> </li> </ul>
+   * Identifies the resource configuration in one of the following ways:
+   *
+   * - **Amazon Resource Name (ARN)** - Supported resource-types that are provisioned by Amazon Web Services services, such as RDS databases, can be identified by their ARN.
+   * - **Domain name** - Any domain name that is publicly resolvable.
+   * - **IP address** - For IPv4 and IPv6, only IP addresses in the VPC are supported.
+   *
    * @public
    */
   resourceConfigurationDefinition?: ResourceConfigurationDefinition | undefined;
 
   /**
-   * <p>Specifies whether the resource configuration can be associated with a sharable service network.</p>
+   * Specifies whether the resource configuration can be associated with a sharable service network.
+   *
    * @public
    */
   allowAssociationToShareableServiceNetwork?: boolean | undefined;
 
   /**
-   * <p>The date and time that the resource configuration was created, in ISO-8601 format.</p>
+   * The date and time that the resource configuration was created, in ISO-8601 format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The reason that the request failed.</p>
+   * The reason that the request failed.
+   *
    * @public
    */
   failureReason?: string | undefined;
 
   /**
-   * <p> The custom domain name for your resource configuration. </p>
+   * The custom domain name for your resource configuration.
+   *
    * @public
    */
   customDomainName?: string | undefined;
 
   /**
-   * <p> The domain name verification ID. </p>
+   * The domain name verification ID.
+   *
    * @public
    */
   domainVerificationId?: string | undefined;
 
   /**
-   * <p> (GROUP) The group domain for a group resource configuration. Any domains that you create for the child resource are subdomains of the group domain. Child resources inherit the verification status of the domain. </p>
+   * (GROUP) The group domain for a group resource configuration. Any domains that you create for the child resource are subdomains of the group domain. Child resources inherit the verification status of the domain.
+   *
    * @public
    */
   groupDomain?: string | undefined;
 
   /**
-   * <p> The verification ID ARN </p>
+   * The verification ID ARN
+   *
    * @public
    */
   domainVerificationArn?: string | undefined;
@@ -1249,55 +1428,73 @@ export interface CreateResourceConfigurationResponse {
  */
 export interface CreateResourceGatewayRequest {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request that completed successfully using the same client token and parameters, the retry succeeds without performing any actions. If the parameters aren't identical, the retry fails.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request that completed successfully using the same client token and parameters, the retry succeeds without performing any actions. If the parameters aren't identical, the retry fails.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The name of the resource gateway.</p>
+   * The name of the resource gateway.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ID of the VPC for the resource gateway.</p>
+   * The ID of the VPC for the resource gateway.
+   *
    * @public
    */
   vpcIdentifier?: string | undefined;
 
   /**
-   * <p>The IDs of the VPC subnets in which to create the resource gateway.</p>
+   * The IDs of the VPC subnets in which to create the resource gateway.
+   *
    * @public
    */
   subnetIds?: string[] | undefined;
 
   /**
-   * <p>The IDs of the security groups to apply to the resource gateway. The security groups must be in the same VPC.</p>
+   * The IDs of the security groups to apply to the resource gateway. The security groups must be in the same VPC.
+   *
    * @public
    */
   securityGroupIds?: string[] | undefined;
 
   /**
-   * <p>A resource gateway can have IPv4, IPv6 or dualstack addresses. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource, as described here: </p> <ul> <li> <p> <b>IPv4</b>Assign IPv4 addresses to your resource gateway network interfaces. This option is supported only if all selected subnets have IPv4 address ranges, and the resource also has an IPv4 address.</p> </li> <li> <p> <b>IPv6</b>Assign IPv6 addresses to your resource gateway network interfaces. This option is supported only if all selected subnets are IPv6 only subnets, and the resource also has an IPv6 address.</p> </li> <li> <p> <b>Dualstack</b>Assign both IPv4 and IPv6 addresses to your resource gateway network interfaces. This option is supported only if all selected subnets have both IPv4 and IPv6 address ranges, and the resource either has an IPv4 or IPv6 address.</p> </li> </ul> <p>The IP address type of the resource gateway is independent of the IP address type of the client or the VPC endpoint through which the resource is accessed.</p>
+   * A resource gateway can have IPv4, IPv6 or dualstack addresses. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource, as described here:
+   *
+   * - **IPv4**Assign IPv4 addresses to your resource gateway network interfaces. This option is supported only if all selected subnets have IPv4 address ranges, and the resource also has an IPv4 address.
+   * - **IPv6**Assign IPv6 addresses to your resource gateway network interfaces. This option is supported only if all selected subnets are IPv6 only subnets, and the resource also has an IPv6 address.
+   * - **Dualstack**Assign both IPv4 and IPv6 addresses to your resource gateway network interfaces. This option is supported only if all selected subnets have both IPv4 and IPv6 address ranges, and the resource either has an IPv4 or IPv6 address.
+   *
+   * The IP address type of the resource gateway is independent of the IP address type of the client or the VPC endpoint through which the resource is accessed.
+   *
    * @public
    */
   ipAddressType?: ResourceGatewayIpAddressType | undefined;
 
   /**
-   * <p>The number of IPv4 addresses in each ENI for the resource gateway.</p>
+   * The number of IPv4 addresses in each ENI for the resource gateway.
+   *
    * @public
    */
   ipv4AddressesPerEni?: number | undefined;
 
   /**
-   * <p>Indicates how DNS is resolved for resource configurations associated with this resource gateway. This value is set when you create the resource gateway and can't be changed afterward. The default is <code>PUBLIC</code>.</p> <ul> <li> <p> <code>IN_VPC</code> - DNS resolution occurs privately within the resource gateway's VPC. DNS queries for resources behind this resource gateway resolve using the DNS resolvers defined in the VPC's DHCP option sets. Use this when your resource domain names are hosted in private Route 53 hosted zones or on-premises DNS servers reachable from the VPC. A CIDR resource configuration requires a resource gateway that uses <code>IN_VPC</code>, and an <code>IN_VPC</code> resource gateway can't be used for ARN resource configurations, so a single resource gateway can't serve both ARN and CIDR resource configurations.</p> </li> <li> <p> <code>PUBLIC</code> - DNS resolution occurs against public DNS resolvers. DNS queries for resources behind this resource gateway resolve using standard public DNS. Use this when your resource domain names are publicly resolvable.</p> </li> </ul>
+   * Indicates how DNS is resolved for resource configurations associated with this resource gateway. This value is set when you create the resource gateway and can't be changed afterward. The default is `PUBLIC`.
+   *
+   * - `IN_VPC` - DNS resolution occurs privately within the resource gateway's VPC. DNS queries for resources behind this resource gateway resolve using the DNS resolvers defined in the VPC's DHCP option sets. Use this when your resource domain names are hosted in private Route 53 hosted zones or on-premises DNS servers reachable from the VPC. A CIDR resource configuration requires a resource gateway that uses `IN_VPC`, and an `IN_VPC` resource gateway can't be used for ARN resource configurations, so a single resource gateway can't serve both ARN and CIDR resource configurations.
+   * - `PUBLIC` - DNS resolution occurs against public DNS resolvers. DNS queries for resources behind this resource gateway resolve using standard public DNS. Use this when your resource domain names are publicly resolvable.
+   *
    * @public
    */
   resourceConfigDnsResolution?: ResourceConfigDnsResolution | undefined;
 
   /**
-   * <p>The tags for the resource gateway.</p>
+   * The tags for the resource gateway.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1308,61 +1505,71 @@ export interface CreateResourceGatewayRequest {
  */
 export interface CreateResourceGatewayResponse {
   /**
-   * <p>The name of the resource gateway.</p>
+   * The name of the resource gateway.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The ID of the resource gateway.</p>
+   * The ID of the resource gateway.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource gateway.</p>
+   * The Amazon Resource Name (ARN) of the resource gateway.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The status of the resource gateway.</p>
+   * The status of the resource gateway.
+   *
    * @public
    */
   status?: ResourceGatewayStatus | undefined;
 
   /**
-   * <p>The ID of the VPC.</p>
+   * The ID of the VPC.
+   *
    * @public
    */
   vpcIdentifier?: string | undefined;
 
   /**
-   * <p>The IDs of the resource gateway subnets.</p>
+   * The IDs of the resource gateway subnets.
+   *
    * @public
    */
   subnetIds?: string[] | undefined;
 
   /**
-   * <p>The IDs of the security groups for the resource gateway.</p>
+   * The IDs of the security groups for the resource gateway.
+   *
    * @public
    */
   securityGroupIds?: string[] | undefined;
 
   /**
-   * <p>The type of IP address for the resource gateway.</p>
+   * The type of IP address for the resource gateway.
+   *
    * @public
    */
   ipAddressType?: ResourceGatewayIpAddressType | undefined;
 
   /**
-   * <p>The number of IPv4 addresses in each ENI for the resource gateway.</p>
+   * The number of IPv4 addresses in each ENI for the resource gateway.
+   *
    * @public
    */
   ipv4AddressesPerEni?: number | undefined;
 
   /**
-   * <p>The DNS resolution type for resource configurations that are associated with this resource gateway.</p>
+   * The DNS resolution type for resource configurations that are associated with this resource gateway.
+   *
    * @public
    */
   resourceConfigDnsResolution?: ResourceConfigDnsResolution | undefined;
@@ -1373,49 +1580,57 @@ export interface CreateResourceGatewayResponse {
  */
 export interface CreateRuleRequest {
   /**
-   * <p>The ID or ARN of the service.</p>
+   * The ID or ARN of the service.
+   *
    * @public
    */
   serviceIdentifier: string | undefined;
 
   /**
-   * <p>The ID or ARN of the listener.</p>
+   * The ID or ARN of the listener.
+   *
    * @public
    */
   listenerIdentifier: string | undefined;
 
   /**
-   * <p>The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.</p>
+   * The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The rule match.</p>
+   * The rule match.
+   *
    * @public
    */
   match: RuleMatch | undefined;
 
   /**
-   * <p>The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.</p>
+   * The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
+   *
    * @public
    */
   priority: number | undefined;
 
   /**
-   * <p>The action for the default rule.</p>
+   * The action for the default rule.
+   *
    * @public
    */
   action: RuleAction | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request that completed successfully using the same client token and parameters, the retry succeeds without performing any actions. If the parameters aren't identical, the retry fails.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request that completed successfully using the same client token and parameters, the retry succeeds without performing any actions. If the parameters aren't identical, the retry fails.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The tags for the rule.</p>
+   * The tags for the rule.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1426,37 +1641,43 @@ export interface CreateRuleRequest {
  */
 export interface CreateRuleResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the rule.</p>
+   * The Amazon Resource Name (ARN) of the rule.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The ID of the rule.</p>
+   * The ID of the rule.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The name of the rule.</p>
+   * The name of the rule.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The rule match. The <code>RuleMatch</code> must be an <code>HttpMatch</code>. This means that the rule should be an exact match on HTTP constraints which are made up of the HTTP method, path, and header.</p>
+   * The rule match. The `RuleMatch` must be an `HttpMatch`. This means that the rule should be an exact match on HTTP constraints which are made up of the HTTP method, path, and header.
+   *
    * @public
    */
   match?: RuleMatch | undefined;
 
   /**
-   * <p>The priority assigned to the rule. The lower the priority number the higher the priority.</p>
+   * The priority assigned to the rule. The lower the priority number the higher the priority.
+   *
    * @public
    */
   priority?: number | undefined;
 
   /**
-   * <p>The rule action.</p>
+   * The rule action.
+   *
    * @public
    */
   action?: RuleAction | undefined;
@@ -1467,61 +1688,74 @@ export interface CreateRuleResponse {
  */
 export interface CreateServiceRequest {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request that completed successfully using the same client token and parameters, the retry succeeds without performing any actions. If the parameters aren't identical, the retry fails.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request that completed successfully using the same client token and parameters, the retry succeeds without performing any actions. If the parameters aren't identical, the retry fails.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.</p>
+   * The name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The tags for the service.</p>
+   * The tags for the service.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The custom domain name of the service.</p>
+   * The custom domain name of the service.
+   *
    * @public
    */
   customDomainName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the certificate.</p>
+   * The Amazon Resource Name (ARN) of the certificate.
+   *
    * @public
    */
   certificateArn?: string | undefined;
 
   /**
-   * <p>The type of IAM policy.</p> <ul> <li> <p> <code>NONE</code>: The resource does not use an IAM policy. This is the default.</p> </li> <li> <p> <code>AWS_IAM</code>: The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.</p> </li> </ul>
+   * The type of IAM policy.
+   *
+   * - `NONE`: The resource does not use an IAM policy. This is the default.
+   * - `AWS_IAM`: The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
+   *
    * @public
    */
   authType?: AuthType | undefined;
 
   /**
-   * <p>The amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it. The valid range is 60 to 600 seconds. If you don't specify a value, the default is 60 seconds. This setting does not change the maximum connection duration of 10 minutes; connections are still closed when they reach that limit.</p>
+   * The amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it. The valid range is 60 to 600 seconds. If you don't specify a value, the default is 60 seconds. This setting does not change the maximum connection duration of 10 minutes; connections are still closed when they reach that limit.
+   *
    * @public
    */
   idleTimeoutSeconds?: number | undefined;
 }
 
 /**
- * <p>Describes the DNS information of a service.</p>
+ * Describes the DNS information of a service.
+ *
  * @public
  */
 export interface DnsEntry {
   /**
-   * <p>The domain name of the service.</p>
+   * The domain name of the service.
+   *
    * @public
    */
   domainName?: string | undefined;
 
   /**
-   * <p>The ID of the hosted zone.</p>
+   * The ID of the hosted zone.
+   *
    * @public
    */
   hostedZoneId?: string | undefined;
@@ -1532,67 +1766,78 @@ export interface DnsEntry {
  */
 export interface CreateServiceResponse {
   /**
-   * <p>The ID of the service.</p>
+   * The ID of the service.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service.</p>
+   * The Amazon Resource Name (ARN) of the service.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The name of the service.</p>
+   * The name of the service.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The custom domain name of the service.</p>
+   * The custom domain name of the service.
+   *
    * @public
    */
   customDomainName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the certificate.</p>
+   * The Amazon Resource Name (ARN) of the certificate.
+   *
    * @public
    */
   certificateArn?: string | undefined;
 
   /**
-   * <p>The status. If the status is <code>CREATE_FAILED</code>, you must delete and recreate the service.</p>
+   * The status. If the status is `CREATE_FAILED`, you must delete and recreate the service.
+   *
    * @public
    */
   status?: ServiceStatus | undefined;
 
   /**
-   * <p>The type of IAM policy.</p>
+   * The type of IAM policy.
+   *
    * @public
    */
   authType?: AuthType | undefined;
 
   /**
-   * <p>The amount of time, in seconds, that a connection can remain idle before VPC Lattice closes it.</p>
+   * The amount of time, in seconds, that a connection can remain idle before VPC Lattice closes it.
+   *
    * @public
    */
   idleTimeoutSeconds?: number | undefined;
 
   /**
-   * <p>The public DNS name of the service.</p>
+   * The public DNS name of the service.
+   *
    * @public
    */
   dnsEntry?: DnsEntry | undefined;
 }
 
 /**
- * <p>Specifies if the service network should be enabled for sharing.</p>
+ * Specifies if the service network should be enabled for sharing.
+ *
  * @public
  */
 export interface SharingConfig {
   /**
-   * <p>Specifies if the service network is enabled for sharing.</p>
+   * Specifies if the service network is enabled for sharing.
+   *
    * @public
    */
   enabled?: boolean | undefined;
@@ -1603,31 +1848,39 @@ export interface SharingConfig {
  */
 export interface CreateServiceNetworkRequest {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request that completed successfully using the same client token and parameters, the retry succeeds without performing any actions. If the parameters aren't identical, the retry fails.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request that completed successfully using the same client token and parameters, the retry succeeds without performing any actions. If the parameters aren't identical, the retry fails.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The name of the service network. The name must be unique to the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.</p>
+   * The name of the service network. The name must be unique to the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of IAM policy.</p> <ul> <li> <p> <code>NONE</code>: The resource does not use an IAM policy. This is the default.</p> </li> <li> <p> <code>AWS_IAM</code>: The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.</p> </li> </ul>
+   * The type of IAM policy.
+   *
+   * - `NONE`: The resource does not use an IAM policy. This is the default.
+   * - `AWS_IAM`: The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
+   *
    * @public
    */
   authType?: AuthType | undefined;
 
   /**
-   * <p>The tags for the service network.</p>
+   * The tags for the service network.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Specify if the service network should be enabled for sharing.</p>
+   * Specify if the service network should be enabled for sharing.
+   *
    * @public
    */
   sharingConfig?: SharingConfig | undefined;
@@ -1638,31 +1891,36 @@ export interface CreateServiceNetworkRequest {
  */
 export interface CreateServiceNetworkResponse {
   /**
-   * <p>The ID of the service network.</p>
+   * The ID of the service network.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The name of the service network.</p>
+   * The name of the service network.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service network.</p>
+   * The Amazon Resource Name (ARN) of the service network.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>Specifies if the service network is enabled for sharing.</p>
+   * Specifies if the service network is enabled for sharing.
+   *
    * @public
    */
   sharingConfig?: SharingConfig | undefined;
 
   /**
-   * <p>The type of IAM policy.</p>
+   * The type of IAM policy.
+   *
    * @public
    */
   authType?: AuthType | undefined;
@@ -1673,31 +1931,36 @@ export interface CreateServiceNetworkResponse {
  */
 export interface CreateServiceNetworkResourceAssociationRequest {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request that completed successfully using the same client token and parameters, the retry succeeds without performing any actions. If the parameters aren't identical, the retry fails.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request that completed successfully using the same client token and parameters, the retry succeeds without performing any actions. If the parameters aren't identical, the retry fails.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The ID of the resource configuration to associate with the service network.</p>
+   * The ID of the resource configuration to associate with the service network.
+   *
    * @public
    */
   resourceConfigurationIdentifier: string | undefined;
 
   /**
-   * <p>The ID of the service network to associate with the resource configuration.</p>
+   * The ID of the service network to associate with the resource configuration.
+   *
    * @public
    */
   serviceNetworkIdentifier: string | undefined;
 
   /**
-   * <p> Indicates if private DNS is enabled for the service network resource association. </p>
+   * Indicates if private DNS is enabled for the service network resource association.
+   *
    * @public
    */
   privateDnsEnabled?: boolean | undefined;
 
   /**
-   * <p>A key-value pair to associate with a resource.</p>
+   * A key-value pair to associate with a resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1708,31 +1971,36 @@ export interface CreateServiceNetworkResourceAssociationRequest {
  */
 export interface CreateServiceNetworkResourceAssociationResponse {
   /**
-   * <p>The ID of the association.</p>
+   * The ID of the association.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the association.</p>
+   * The Amazon Resource Name (ARN) of the association.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The status of the association.</p>
+   * The status of the association.
+   *
    * @public
    */
   status?: ServiceNetworkResourceAssociationStatus | undefined;
 
   /**
-   * <p>The ID of the account that created the association.</p>
+   * The ID of the account that created the association.
+   *
    * @public
    */
   createdBy?: string | undefined;
 
   /**
-   * <p> Indicates if private DNS is is enabled for the service network resource association. </p>
+   * Indicates if private DNS is is enabled for the service network resource association.
+   *
    * @public
    */
   privateDnsEnabled?: boolean | undefined;
@@ -1743,25 +2011,29 @@ export interface CreateServiceNetworkResourceAssociationResponse {
  */
 export interface CreateServiceNetworkServiceAssociationRequest {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request that completed successfully using the same client token and parameters, the retry succeeds without performing any actions. If the parameters aren't identical, the retry fails.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request that completed successfully using the same client token and parameters, the retry succeeds without performing any actions. If the parameters aren't identical, the retry fails.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The ID or ARN of the service.</p>
+   * The ID or ARN of the service.
+   *
    * @public
    */
   serviceIdentifier: string | undefined;
 
   /**
-   * <p>The ID or ARN of the service network. You must use an ARN if the resources are in different accounts.</p>
+   * The ID or ARN of the service network. You must use an ARN if the resources are in different accounts.
+   *
    * @public
    */
   serviceNetworkIdentifier: string | undefined;
 
   /**
-   * <p>The tags for the association.</p>
+   * The tags for the association.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1772,55 +2044,69 @@ export interface CreateServiceNetworkServiceAssociationRequest {
  */
 export interface CreateServiceNetworkServiceAssociationResponse {
   /**
-   * <p>The ID of the association.</p>
+   * The ID of the association.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The association status.</p>
+   * The association status.
+   *
    * @public
    */
   status?: ServiceNetworkServiceAssociationStatus | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the association.</p>
+   * The Amazon Resource Name (ARN) of the association.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The account that created the association.</p>
+   * The account that created the association.
+   *
    * @public
    */
   createdBy?: string | undefined;
 
   /**
-   * <p>The custom domain name of the service.</p>
+   * The custom domain name of the service.
+   *
    * @public
    */
   customDomainName?: string | undefined;
 
   /**
-   * <p>The DNS name of the service.</p>
+   * The DNS name of the service.
+   *
    * @public
    */
   dnsEntry?: DnsEntry | undefined;
 }
 
 /**
- * <p> The DNS configuration options. </p>
+ * The DNS configuration options.
+ *
  * @public
  */
 export interface DnsOptions {
   /**
-   * <p> The preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when private DNS is enabled and when the VPC endpoint type is ServiceNetwork or Resource. </p> <ul> <li> <p> <code>ALL_DOMAINS</code> - VPC Lattice provisions private hosted zones for all custom domain names.</p> </li> <li> <p> <code>VERIFIED_DOMAINS_ONLY</code> - VPC Lattice provisions a private hosted zone only if custom domain name has been verified by the provider.</p> </li> <li> <p> <code>VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS</code> - VPC Lattice provisions private hosted zones for all verified custom domain names and other domain names that the resource consumer specifies. The resource consumer specifies the domain names in the privateDnsSpecifiedDomains parameter.</p> </li> <li> <p> <code>SPECIFIED_DOMAINS_ONLY</code> - VPC Lattice provisions a private hosted zone for domain names specified by the resource consumer. The resource consumer specifies the domain names in the privateDnsSpecifiedDomains parameter.</p> </li> </ul>
+   * The preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when private DNS is enabled and when the VPC endpoint type is ServiceNetwork or Resource.
+   *
+   * - `ALL_DOMAINS` - VPC Lattice provisions private hosted zones for all custom domain names.
+   * - `VERIFIED_DOMAINS_ONLY` - VPC Lattice provisions a private hosted zone only if custom domain name has been verified by the provider.
+   * - `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` - VPC Lattice provisions private hosted zones for all verified custom domain names and other domain names that the resource consumer specifies. The resource consumer specifies the domain names in the privateDnsSpecifiedDomains parameter.
+   * - `SPECIFIED_DOMAINS_ONLY` - VPC Lattice provisions a private hosted zone for domain names specified by the resource consumer. The resource consumer specifies the domain names in the privateDnsSpecifiedDomains parameter.
+   *
    * @public
    */
   privateDnsPreference?: PrivateDnsPreference | undefined;
 
   /**
-   * <p> Indicates which of the private domains to create private hosted zones for and associate with the specified VPC. Only supported when private DNS is enabled and the private DNS preference is <code>VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS</code> or <code>SPECIFIED_DOMAINS_ONLY</code>. </p>
+   * Indicates which of the private domains to create private hosted zones for and associate with the specified VPC. Only supported when private DNS is enabled and the private DNS preference is `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY`.
+   *
    * @public
    */
   privateDnsSpecifiedDomains?: string[] | undefined;
@@ -1831,43 +2117,50 @@ export interface DnsOptions {
  */
 export interface CreateServiceNetworkVpcAssociationRequest {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request that completed successfully using the same client token and parameters, the retry succeeds without performing any actions. If the parameters aren't identical, the retry fails.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request that completed successfully using the same client token and parameters, the retry succeeds without performing any actions. If the parameters aren't identical, the retry fails.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The ID or ARN of the service network. You must use an ARN if the resources are in different accounts.</p>
+   * The ID or ARN of the service network. You must use an ARN if the resources are in different accounts.
+   *
    * @public
    */
   serviceNetworkIdentifier: string | undefined;
 
   /**
-   * <p>The ID of the VPC.</p>
+   * The ID of the VPC.
+   *
    * @public
    */
   vpcIdentifier: string | undefined;
 
   /**
-   * <p> Indicates if private DNS is enabled for the VPC association. </p>
+   * Indicates if private DNS is enabled for the VPC association.
+   *
    * @public
    */
   privateDnsEnabled?: boolean | undefined;
 
   /**
-   * <p>The IDs of the security groups. Security groups aren't added by default. You can add a security group to apply network level controls to control which resources in a VPC are allowed to access the service network and its services. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html">Control traffic to resources using security groups</a> in the <i>Amazon VPC User Guide</i>.</p>
+   * The IDs of the security groups. Security groups aren't added by default. You can add a security group to apply network level controls to control which resources in a VPC are allowed to access the service network and its services. For more information, see [Control traffic to resources using security groups](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide*.
+   *
    * @public
    */
   securityGroupIds?: string[] | undefined;
 
   /**
-   * <p>The tags for the association.</p>
+   * The tags for the association.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p> DNS options for the service network VPC association. </p>
+   * DNS options for the service network VPC association.
+   *
    * @public
    */
   dnsOptions?: DnsOptions | undefined;
@@ -1878,50 +2171,58 @@ export interface CreateServiceNetworkVpcAssociationRequest {
  */
 export interface CreateServiceNetworkVpcAssociationResponse {
   /**
-   * <p>The ID of the association.</p>
+   * The ID of the association.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The association status.</p>
+   * The association status.
+   *
    * @public
    */
   status?: ServiceNetworkVpcAssociationStatus | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the association.</p>
+   * The Amazon Resource Name (ARN) of the association.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The account that created the association.</p>
+   * The account that created the association.
+   *
    * @public
    */
   createdBy?: string | undefined;
 
   /**
-   * <p>The IDs of the security groups.</p>
+   * The IDs of the security groups.
+   *
    * @public
    */
   securityGroupIds?: string[] | undefined;
 
   /**
-   * <p> Indicates if private DNS is enabled for the VPC association. </p>
+   * Indicates if private DNS is enabled for the VPC association.
+   *
    * @public
    */
   privateDnsEnabled?: boolean | undefined;
 
   /**
-   * <p> The DNS configuration options. </p>
+   * The DNS configuration options.
+   *
    * @public
    */
   dnsOptions?: DnsOptions | undefined;
 }
 
 /**
- * <p>Describes the codes to use when checking for a successful response from a target for health checks.</p>
+ * Describes the codes to use when checking for a successful response from a target for health checks.
+ *
  * @public
  */
 export type Matcher =
@@ -1933,7 +2234,8 @@ export type Matcher =
  */
 export namespace Matcher {
   /**
-   * <p>The HTTP code to use when checking for a successful response from a target.</p>
+   * The HTTP code to use when checking for a successful response from a target.
+   *
    * @public
    */
   export interface HttpCodeMember {
@@ -1960,114 +2262,135 @@ export namespace Matcher {
 }
 
 /**
- * <p>Describes the health check configuration of a target group. Health check configurations aren't used for target groups of type <code>LAMBDA</code> or <code>ALB</code>.</p>
+ * Describes the health check configuration of a target group. Health check configurations aren't used for target groups of type `LAMBDA` or `ALB`.
+ *
  * @public
  */
 export interface HealthCheckConfig {
   /**
-   * <p>Indicates whether health checking is enabled.</p>
+   * Indicates whether health checking is enabled.
+   *
    * @public
    */
   enabled?: boolean | undefined;
 
   /**
-   * <p>The protocol used when performing health checks on targets. The possible protocols are <code>HTTP</code> and <code>HTTPS</code>. The default is <code>HTTP</code>.</p>
+   * The protocol used when performing health checks on targets. The possible protocols are `HTTP` and `HTTPS`. The default is `HTTP`.
+   *
    * @public
    */
   protocol?: TargetGroupProtocol | undefined;
 
   /**
-   * <p>The protocol version used when performing health checks on targets. The possible protocol versions are <code>HTTP1</code> and <code>HTTP2</code>.</p>
+   * The protocol version used when performing health checks on targets. The possible protocol versions are `HTTP1` and `HTTP2`.
+   *
    * @public
    */
   protocolVersion?: HealthCheckProtocolVersion | undefined;
 
   /**
-   * <p>The port used when performing health checks on targets. The default setting is the port that a target receives traffic on.</p>
+   * The port used when performing health checks on targets. The default setting is the port that a target receives traffic on.
+   *
    * @public
    */
   port?: number | undefined;
 
   /**
-   * <p>The destination for health checks on the targets. If the protocol version is <code>HTTP/1.1</code> or <code>HTTP/2</code>, specify a valid URI (for example, <code>/path?query</code>). The default path is <code>/</code>. Health checks are not supported if the protocol version is <code>gRPC</code>, however, you can choose <code>HTTP/1.1</code> or <code>HTTP/2</code> and specify a valid URI.</p>
+   * The destination for health checks on the targets. If the protocol version is `HTTP/1.1` or `HTTP/2`, specify a valid URI (for example, `/path?query`). The default path is `/`. Health checks are not supported if the protocol version is `gRPC`, however, you can choose `HTTP/1.1` or `HTTP/2` and specify a valid URI.
+   *
    * @public
    */
   path?: string | undefined;
 
   /**
-   * <p>The approximate amount of time, in seconds, between health checks of an individual target. The range is 5–300 seconds. The default is 30 seconds.</p>
+   * The approximate amount of time, in seconds, between health checks of an individual target. The range is 5–300 seconds. The default is 30 seconds.
+   *
    * @public
    */
   healthCheckIntervalSeconds?: number | undefined;
 
   /**
-   * <p>The amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.</p>
+   * The amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.
+   *
    * @public
    */
   healthCheckTimeoutSeconds?: number | undefined;
 
   /**
-   * <p>The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.</p>
+   * The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
+   *
    * @public
    */
   healthyThresholdCount?: number | undefined;
 
   /**
-   * <p>The number of consecutive failed health checks required before considering a target unhealthy. The range is 2–10. The default is 2.</p>
+   * The number of consecutive failed health checks required before considering a target unhealthy. The range is 2–10. The default is 2.
+   *
    * @public
    */
   unhealthyThresholdCount?: number | undefined;
 
   /**
-   * <p>The codes to use when checking for a successful response from a target.</p>
+   * The codes to use when checking for a successful response from a target.
+   *
    * @public
    */
   matcher?: Matcher | undefined;
 }
 
 /**
- * <p>Describes the configuration of a target group.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/target-groups.html">Target groups</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
+ * Describes the configuration of a target group.
+ *
+ * For more information, see [Target groups](https://docs.aws.amazon.com/vpc-lattice/latest/ug/target-groups.html) in the *Amazon VPC Lattice User Guide*.
+ *
  * @public
  */
 export interface TargetGroupConfig {
   /**
-   * <p>The port on which the targets are listening. For HTTP, the default is 80. For HTTPS, the default is 443. Not supported if the target group type is <code>LAMBDA</code>.</p>
+   * The port on which the targets are listening. For HTTP, the default is 80. For HTTPS, the default is 443. Not supported if the target group type is `LAMBDA`.
+   *
    * @public
    */
   port?: number | undefined;
 
   /**
-   * <p>The protocol to use for routing traffic to the targets. The default is the protocol of the target group. Not supported if the target group type is <code>LAMBDA</code>.</p>
+   * The protocol to use for routing traffic to the targets. The default is the protocol of the target group. Not supported if the target group type is `LAMBDA`.
+   *
    * @public
    */
   protocol?: TargetGroupProtocol | undefined;
 
   /**
-   * <p>The protocol version. The default is <code>HTTP1</code>. Not supported if the target group type is <code>LAMBDA</code>.</p>
+   * The protocol version. The default is `HTTP1`. Not supported if the target group type is `LAMBDA`.
+   *
    * @public
    */
   protocolVersion?: TargetGroupProtocolVersion | undefined;
 
   /**
-   * <p>The type of IP address used for the target group. Supported only if the target group type is <code>IP</code>. The default is <code>IPV4</code>.</p>
+   * The type of IP address used for the target group. Supported only if the target group type is `IP`. The default is `IPV4`.
+   *
    * @public
    */
   ipAddressType?: IpAddressType | undefined;
 
   /**
-   * <p>The ID of the VPC. Not supported if the target group type is <code>LAMBDA</code>.</p>
+   * The ID of the VPC. Not supported if the target group type is `LAMBDA`.
+   *
    * @public
    */
   vpcIdentifier?: string | undefined;
 
   /**
-   * <p>The health check configuration. Not supported if the target group type is <code>LAMBDA</code> or <code>ALB</code>.</p>
+   * The health check configuration. Not supported if the target group type is `LAMBDA` or `ALB`.
+   *
    * @public
    */
   healthCheck?: HealthCheckConfig | undefined;
 
   /**
-   * <p>The version of the event structure that your Lambda function receives. Supported only if the target group type is <code>LAMBDA</code>. The default is <code>V1</code>.</p>
+   * The version of the event structure that your Lambda function receives. Supported only if the target group type is `LAMBDA`. The default is `V1`.
+   *
    * @public
    */
   lambdaEventStructureVersion?: LambdaEventStructureVersion | undefined;
@@ -2078,31 +2401,36 @@ export interface TargetGroupConfig {
  */
 export interface CreateTargetGroupRequest {
   /**
-   * <p>The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.</p>
+   * The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of target group.</p>
+   * The type of target group.
+   *
    * @public
    */
   type: TargetGroupType | undefined;
 
   /**
-   * <p>The target group configuration.</p>
+   * The target group configuration.
+   *
    * @public
    */
   config?: TargetGroupConfig | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request that completed successfully using the same client token and parameters, the retry succeeds without performing any actions. If the parameters aren't identical, the retry fails.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request that completed successfully using the same client token and parameters, the retry succeeds without performing any actions. If the parameters aren't identical, the retry fails.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The tags for the target group.</p>
+   * The tags for the target group.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -2113,37 +2441,43 @@ export interface CreateTargetGroupRequest {
  */
 export interface CreateTargetGroupResponse {
   /**
-   * <p>The ID of the target group.</p>
+   * The ID of the target group.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the target group.</p>
+   * The Amazon Resource Name (ARN) of the target group.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The name of the target group.</p>
+   * The name of the target group.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The type of target group.</p>
+   * The type of target group.
+   *
    * @public
    */
   type?: TargetGroupType | undefined;
 
   /**
-   * <p>The target group configuration.</p>
+   * The target group configuration.
+   *
    * @public
    */
   config?: TargetGroupConfig | undefined;
 
   /**
-   * <p>The status. You can retry the operation if the status is <code>CREATE_FAILED</code>. However, if you retry it while the status is <code>CREATE_IN_PROGRESS</code>, there is no change in the status.</p>
+   * The status. You can retry the operation if the status is `CREATE_FAILED`. However, if you retry it while the status is `CREATE_IN_PROGRESS`, there is no change in the status.
+   *
    * @public
    */
   status?: TargetGroupStatus | undefined;
@@ -2154,7 +2488,8 @@ export interface CreateTargetGroupResponse {
  */
 export interface DeleteAuthPolicyRequest {
   /**
-   * <p>The ID or ARN of the resource.</p>
+   * The ID or ARN of the resource.
+   *
    * @public
    */
   resourceIdentifier: string | undefined;
@@ -2170,7 +2505,8 @@ export interface DeleteAuthPolicyResponse {}
  */
 export interface DeleteDomainVerificationRequest {
   /**
-   * <p> The ID of the domain verification to delete. </p>
+   * The ID of the domain verification to delete.
+   *
    * @public
    */
   domainVerificationIdentifier: string | undefined;
@@ -2186,13 +2522,15 @@ export interface DeleteDomainVerificationResponse {}
  */
 export interface DeleteListenerRequest {
   /**
-   * <p>The ID or ARN of the service.</p>
+   * The ID or ARN of the service.
+   *
    * @public
    */
   serviceIdentifier: string | undefined;
 
   /**
-   * <p>The ID or ARN of the listener.</p>
+   * The ID or ARN of the listener.
+   *
    * @public
    */
   listenerIdentifier: string | undefined;
@@ -2208,7 +2546,8 @@ export interface DeleteListenerResponse {}
  */
 export interface DeleteResourceConfigurationRequest {
   /**
-   * <p>The ID or ARN of the resource configuration.</p>
+   * The ID or ARN of the resource configuration.
+   *
    * @public
    */
   resourceConfigurationIdentifier: string | undefined;
@@ -2224,7 +2563,8 @@ export interface DeleteResourceConfigurationResponse {}
  */
 export interface DeleteResourceEndpointAssociationRequest {
   /**
-   * <p>The ID or ARN of the association.</p>
+   * The ID or ARN of the association.
+   *
    * @public
    */
   resourceEndpointAssociationIdentifier: string | undefined;
@@ -2235,31 +2575,36 @@ export interface DeleteResourceEndpointAssociationRequest {
  */
 export interface DeleteResourceEndpointAssociationResponse {
   /**
-   * <p>The ID of the association.</p>
+   * The ID of the association.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the association.</p>
+   * The Amazon Resource Name (ARN) of the association.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The ID of the resource configuration.</p>
+   * The ID of the resource configuration.
+   *
    * @public
    */
   resourceConfigurationId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource configuration associated with the VPC endpoint of type resource.</p>
+   * The Amazon Resource Name (ARN) of the resource configuration associated with the VPC endpoint of type resource.
+   *
    * @public
    */
   resourceConfigurationArn?: string | undefined;
 
   /**
-   * <p>The ID of the resource VPC endpoint that is associated with the resource configuration.</p>
+   * The ID of the resource VPC endpoint that is associated with the resource configuration.
+   *
    * @public
    */
   vpcEndpointId?: string | undefined;
@@ -2270,7 +2615,8 @@ export interface DeleteResourceEndpointAssociationResponse {
  */
 export interface DeleteResourceGatewayRequest {
   /**
-   * <p>The ID or ARN of the resource gateway.</p>
+   * The ID or ARN of the resource gateway.
+   *
    * @public
    */
   resourceGatewayIdentifier: string | undefined;
@@ -2281,25 +2627,29 @@ export interface DeleteResourceGatewayRequest {
  */
 export interface DeleteResourceGatewayResponse {
   /**
-   * <p>The ID of the resource gateway.</p>
+   * The ID of the resource gateway.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource gateway.</p>
+   * The Amazon Resource Name (ARN) of the resource gateway.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The name of the resource gateway.</p>
+   * The name of the resource gateway.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The status of the resource gateway.</p>
+   * The status of the resource gateway.
+   *
    * @public
    */
   status?: ResourceGatewayStatus | undefined;
@@ -2310,7 +2660,8 @@ export interface DeleteResourceGatewayResponse {
  */
 export interface DeleteResourcePolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -2326,19 +2677,22 @@ export interface DeleteResourcePolicyResponse {}
  */
 export interface DeleteRuleRequest {
   /**
-   * <p>The ID or ARN of the service.</p>
+   * The ID or ARN of the service.
+   *
    * @public
    */
   serviceIdentifier: string | undefined;
 
   /**
-   * <p>The ID or ARN of the listener.</p>
+   * The ID or ARN of the listener.
+   *
    * @public
    */
   listenerIdentifier: string | undefined;
 
   /**
-   * <p>The ID or ARN of the rule.</p>
+   * The ID or ARN of the rule.
+   *
    * @public
    */
   ruleIdentifier: string | undefined;
@@ -2354,7 +2708,8 @@ export interface DeleteRuleResponse {}
  */
 export interface DeleteServiceRequest {
   /**
-   * <p>The ID or ARN of the service.</p>
+   * The ID or ARN of the service.
+   *
    * @public
    */
   serviceIdentifier: string | undefined;
@@ -2365,25 +2720,29 @@ export interface DeleteServiceRequest {
  */
 export interface DeleteServiceResponse {
   /**
-   * <p>The ID of the service.</p>
+   * The ID of the service.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service.</p>
+   * The Amazon Resource Name (ARN) of the service.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The name of the service.</p>
+   * The name of the service.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The status. You can retry the operation if the status is <code>DELETE_FAILED</code>. However, if you retry it while the status is <code>DELETE_IN_PROGRESS</code>, the status doesn't change.</p>
+   * The status. You can retry the operation if the status is `DELETE_FAILED`. However, if you retry it while the status is `DELETE_IN_PROGRESS`, the status doesn't change.
+   *
    * @public
    */
   status?: ServiceStatus | undefined;
@@ -2394,7 +2753,8 @@ export interface DeleteServiceResponse {
  */
 export interface DeleteServiceNetworkRequest {
   /**
-   * <p>The ID or ARN of the service network.</p>
+   * The ID or ARN of the service network.
+   *
    * @public
    */
   serviceNetworkIdentifier: string | undefined;
@@ -2410,7 +2770,8 @@ export interface DeleteServiceNetworkResponse {}
  */
 export interface DeleteServiceNetworkResourceAssociationRequest {
   /**
-   * <p>The ID of the association.</p>
+   * The ID of the association.
+   *
    * @public
    */
   serviceNetworkResourceAssociationIdentifier: string | undefined;
@@ -2421,19 +2782,22 @@ export interface DeleteServiceNetworkResourceAssociationRequest {
  */
 export interface DeleteServiceNetworkResourceAssociationResponse {
   /**
-   * <p>The ID of the association.</p>
+   * The ID of the association.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the association.</p>
+   * The Amazon Resource Name (ARN) of the association.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The status of the association.</p>
+   * The status of the association.
+   *
    * @public
    */
   status?: ServiceNetworkResourceAssociationStatus | undefined;
@@ -2444,7 +2808,8 @@ export interface DeleteServiceNetworkResourceAssociationResponse {
  */
 export interface DeleteServiceNetworkServiceAssociationRequest {
   /**
-   * <p>The ID or ARN of the association.</p>
+   * The ID or ARN of the association.
+   *
    * @public
    */
   serviceNetworkServiceAssociationIdentifier: string | undefined;
@@ -2455,19 +2820,22 @@ export interface DeleteServiceNetworkServiceAssociationRequest {
  */
 export interface DeleteServiceNetworkServiceAssociationResponse {
   /**
-   * <p>The ID of the association.</p>
+   * The ID of the association.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The status. You can retry the operation if the status is <code>DELETE_FAILED</code>. However, if you retry it when the status is <code>DELETE_IN_PROGRESS</code>, there is no change in the status.</p>
+   * The status. You can retry the operation if the status is `DELETE_FAILED`. However, if you retry it when the status is `DELETE_IN_PROGRESS`, there is no change in the status.
+   *
    * @public
    */
   status?: ServiceNetworkServiceAssociationStatus | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the association.</p>
+   * The Amazon Resource Name (ARN) of the association.
+   *
    * @public
    */
   arn?: string | undefined;
@@ -2478,7 +2846,8 @@ export interface DeleteServiceNetworkServiceAssociationResponse {
  */
 export interface DeleteServiceNetworkVpcAssociationRequest {
   /**
-   * <p>The ID or ARN of the association.</p>
+   * The ID or ARN of the association.
+   *
    * @public
    */
   serviceNetworkVpcAssociationIdentifier: string | undefined;
@@ -2489,19 +2858,22 @@ export interface DeleteServiceNetworkVpcAssociationRequest {
  */
 export interface DeleteServiceNetworkVpcAssociationResponse {
   /**
-   * <p>The ID of the association.</p>
+   * The ID of the association.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The status. You can retry the operation if the status is <code>DELETE_FAILED</code>. However, if you retry it while the status is <code>DELETE_IN_PROGRESS</code>, there is no change in the status.</p>
+   * The status. You can retry the operation if the status is `DELETE_FAILED`. However, if you retry it while the status is `DELETE_IN_PROGRESS`, there is no change in the status.
+   *
    * @public
    */
   status?: ServiceNetworkVpcAssociationStatus | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the association.</p>
+   * The Amazon Resource Name (ARN) of the association.
+   *
    * @public
    */
   arn?: string | undefined;
@@ -2512,7 +2884,8 @@ export interface DeleteServiceNetworkVpcAssociationResponse {
  */
 export interface DeleteTargetGroupRequest {
   /**
-   * <p>The ID or ARN of the target group.</p>
+   * The ID or ARN of the target group.
+   *
    * @public
    */
   targetGroupIdentifier: string | undefined;
@@ -2523,37 +2896,43 @@ export interface DeleteTargetGroupRequest {
  */
 export interface DeleteTargetGroupResponse {
   /**
-   * <p>The ID of the target group.</p>
+   * The ID of the target group.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the target group.</p>
+   * The Amazon Resource Name (ARN) of the target group.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The status. You can retry the operation if the status is <code>DELETE_FAILED</code>. However, if you retry it while the status is <code>DELETE_IN_PROGRESS</code>, the status doesn't change.</p>
+   * The status. You can retry the operation if the status is `DELETE_FAILED`. However, if you retry it while the status is `DELETE_IN_PROGRESS`, the status doesn't change.
+   *
    * @public
    */
   status?: TargetGroupStatus | undefined;
 }
 
 /**
- * <p>Describes a target.</p>
+ * Describes a target.
+ *
  * @public
  */
 export interface Target {
   /**
-   * <p>The ID of the target. If the target group type is <code>INSTANCE</code>, this is an instance ID. If the target group type is <code>IP</code>, this is an IP address. If the target group type is <code>LAMBDA</code>, this is the ARN of a Lambda function. If the target group type is <code>ALB</code>, this is the ARN of an Application Load Balancer.</p>
+   * The ID of the target. If the target group type is `INSTANCE`, this is an instance ID. If the target group type is `IP`, this is an IP address. If the target group type is `LAMBDA`, this is the ARN of a Lambda function. If the target group type is `ALB`, this is the ARN of an Application Load Balancer.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The port on which the target is listening. For HTTP, the default is 80. For HTTPS, the default is 443.</p>
+   * The port on which the target is listening. For HTTP, the default is 80. For HTTPS, the default is 443.
+   *
    * @public
    */
   port?: number | undefined;
@@ -2564,43 +2943,50 @@ export interface Target {
  */
 export interface DeregisterTargetsRequest {
   /**
-   * <p>The ID or ARN of the target group.</p>
+   * The ID or ARN of the target group.
+   *
    * @public
    */
   targetGroupIdentifier: string | undefined;
 
   /**
-   * <p>The targets to deregister.</p>
+   * The targets to deregister.
+   *
    * @public
    */
   targets: Target[] | undefined;
 }
 
 /**
- * <p>Describes a target failure.</p>
+ * Describes a target failure.
+ *
  * @public
  */
 export interface TargetFailure {
   /**
-   * <p>The ID of the target. If the target group type is <code>INSTANCE</code>, this is an instance ID. If the target group type is <code>IP</code>, this is an IP address. If the target group type is <code>LAMBDA</code>, this is the ARN of a Lambda function. If the target group type is <code>ALB</code>, this is the ARN of an Application Load Balancer.</p>
+   * The ID of the target. If the target group type is `INSTANCE`, this is an instance ID. If the target group type is `IP`, this is an IP address. If the target group type is `LAMBDA`, this is the ARN of a Lambda function. If the target group type is `ALB`, this is the ARN of an Application Load Balancer.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The port on which the target is listening. This parameter doesn't apply if the target is a Lambda function.</p>
+   * The port on which the target is listening. This parameter doesn't apply if the target is a Lambda function.
+   *
    * @public
    */
   port?: number | undefined;
 
   /**
-   * <p>The failure code.</p>
+   * The failure code.
+   *
    * @public
    */
   failureCode?: string | undefined;
 
   /**
-   * <p>The failure message.</p>
+   * The failure message.
+   *
    * @public
    */
   failureMessage?: string | undefined;
@@ -2611,13 +2997,15 @@ export interface TargetFailure {
  */
 export interface DeregisterTargetsResponse {
   /**
-   * <p>The targets that were successfully deregistered.</p>
+   * The targets that were successfully deregistered.
+   *
    * @public
    */
   successful?: Target[] | undefined;
 
   /**
-   * <p>The targets that the operation couldn't deregister.</p>
+   * The targets that the operation couldn't deregister.
+   *
    * @public
    */
   unsuccessful?: TargetFailure[] | undefined;
@@ -2628,25 +3016,29 @@ export interface DeregisterTargetsResponse {
  */
 export interface GetDomainVerificationRequest {
   /**
-   * <p> The ID or ARN of the domain verification to retrieve. </p>
+   * The ID or ARN of the domain verification to retrieve.
+   *
    * @public
    */
   domainVerificationIdentifier: string | undefined;
 }
 
 /**
- * <p> Configuration for TXT record-based domain verification method. </p>
+ * Configuration for TXT record-based domain verification method.
+ *
  * @public
  */
 export interface TxtMethodConfig {
   /**
-   * <p> The value that must be added to the TXT record for domain verification. </p>
+   * The value that must be added to the TXT record for domain verification.
+   *
    * @public
    */
   value: string | undefined;
 
   /**
-   * <p> The name of the TXT record that must be created for domain verification. </p>
+   * The name of the TXT record that must be created for domain verification.
+   *
    * @public
    */
   name: string | undefined;
@@ -2657,49 +3049,57 @@ export interface TxtMethodConfig {
  */
 export interface GetDomainVerificationResponse {
   /**
-   * <p> The ID of the domain verification. </p>
+   * The ID of the domain verification.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the domain verification. </p>
+   * The Amazon Resource Name (ARN) of the domain verification.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p> The domain name being verified. </p>
+   * The domain name being verified.
+   *
    * @public
    */
   domainName: string | undefined;
 
   /**
-   * <p> The current status of the domain verification process. </p>
+   * The current status of the domain verification process.
+   *
    * @public
    */
   status: VerificationStatus | undefined;
 
   /**
-   * <p> The TXT record configuration used for domain verification. </p>
+   * The TXT record configuration used for domain verification.
+   *
    * @public
    */
   txtMethodConfig?: TxtMethodConfig | undefined;
 
   /**
-   * <p> The date and time that the domain verification was created, in ISO-8601 format. </p>
+   * The date and time that the domain verification was created, in ISO-8601 format.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p> The date and time that the domain was last successfully verified, in ISO-8601 format. </p>
+   * The date and time that the domain was last successfully verified, in ISO-8601 format.
+   *
    * @public
    */
   lastVerifiedTime?: Date | undefined;
 
   /**
-   * <p> The tags associated with the domain verification. </p>
+   * The tags associated with the domain verification.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -2710,67 +3110,78 @@ export interface GetDomainVerificationResponse {
  */
 export interface ListDomainVerificationsRequest {
   /**
-   * <p> The maximum number of results to return. </p>
+   * The maximum number of results to return.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p> A pagination token for the next page of results. </p>
+   * A pagination token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p> Summary information about a domain verification. </p>
+ * Summary information about a domain verification.
+ *
  * @public
  */
 export interface DomainVerificationSummary {
   /**
-   * <p> The ID of the domain verification. </p>
+   * The ID of the domain verification.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the domain verification. </p>
+   * The Amazon Resource Name (ARN) of the domain verification.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p> The domain name being verified. </p>
+   * The domain name being verified.
+   *
    * @public
    */
   domainName: string | undefined;
 
   /**
-   * <p> The current status of the domain verification process. </p>
+   * The current status of the domain verification process.
+   *
    * @public
    */
   status: VerificationStatus | undefined;
 
   /**
-   * <p> The TXT record configuration used for domain verification. </p>
+   * The TXT record configuration used for domain verification.
+   *
    * @public
    */
   txtMethodConfig?: TxtMethodConfig | undefined;
 
   /**
-   * <p> The date and time that the domain verification was created, in ISO-8601 format. </p>
+   * The date and time that the domain verification was created, in ISO-8601 format.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p> The date and time that the domain was last successfully verified, in ISO-8601 format. </p>
+   * The date and time that the domain was last successfully verified, in ISO-8601 format.
+   *
    * @public
    */
   lastVerifiedTime?: Date | undefined;
 
   /**
-   * <p> The tags associated with the domain verification. </p>
+   * The tags associated with the domain verification.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -2781,13 +3192,15 @@ export interface DomainVerificationSummary {
  */
 export interface ListDomainVerificationsResponse {
   /**
-   * <p> Information about the domain verifications. </p>
+   * Information about the domain verifications.
+   *
    * @public
    */
   items: DomainVerificationSummary[] | undefined;
 
   /**
-   * <p> A pagination token for the next page of results. </p>
+   * A pagination token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2798,19 +3211,22 @@ export interface ListDomainVerificationsResponse {
  */
 export interface StartDomainVerificationRequest {
   /**
-   * <p> A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request that completed successfully using the same client token and parameters, the retry succeeds without performing any actions. If the parameters aren't identical, the retry fails. </p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request that completed successfully using the same client token and parameters, the retry succeeds without performing any actions. If the parameters aren't identical, the retry fails.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p> The domain name to verify ownership for. </p>
+   * The domain name to verify ownership for.
+   *
    * @public
    */
   domainName: string | undefined;
 
   /**
-   * <p> The tags for the domain verification. </p>
+   * The tags for the domain verification.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -2821,31 +3237,36 @@ export interface StartDomainVerificationRequest {
  */
 export interface StartDomainVerificationResponse {
   /**
-   * <p> The ID of the domain verification. </p>
+   * The ID of the domain verification.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the domain verification. </p>
+   * The Amazon Resource Name (ARN) of the domain verification.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p> The domain name being verified. </p>
+   * The domain name being verified.
+   *
    * @public
    */
   domainName: string | undefined;
 
   /**
-   * <p> The current status of the domain verification process. </p>
+   * The current status of the domain verification process.
+   *
    * @public
    */
   status: VerificationStatus | undefined;
 
   /**
-   * <p> The TXT record configuration used for domain verification. </p>
+   * The TXT record configuration used for domain verification.
+   *
    * @public
    */
   txtMethodConfig?: TxtMethodConfig | undefined;
@@ -2856,7 +3277,8 @@ export interface StartDomainVerificationResponse {
  */
 export interface GetAuthPolicyRequest {
   /**
-   * <p>The ID or ARN of the service network or service.</p>
+   * The ID or ARN of the service network or service.
+   *
    * @public
    */
   resourceIdentifier: string | undefined;
@@ -2867,25 +3289,29 @@ export interface GetAuthPolicyRequest {
  */
 export interface GetAuthPolicyResponse {
   /**
-   * <p>The auth policy.</p>
+   * The auth policy.
+   *
    * @public
    */
   policy?: string | undefined;
 
   /**
-   * <p>The state of the auth policy. The auth policy is only active when the auth type is set to <code>AWS_IAM</code>. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the auth type is <code>NONE</code>, then any auth policy that you provide remains inactive. For more information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-networks.html#create-service-network">Create a service network</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
+   * The state of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the auth type is `NONE`, then any auth policy that you provide remains inactive. For more information, see [Create a service network](https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-networks.html#create-service-network) in the *Amazon VPC Lattice User Guide*.
+   *
    * @public
    */
   state?: AuthPolicyState | undefined;
 
   /**
-   * <p>The date and time that the auth policy was created, in ISO-8601 format.</p>
+   * The date and time that the auth policy was created, in ISO-8601 format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time that the auth policy was last updated, in ISO-8601 format.</p>
+   * The date and time that the auth policy was last updated, in ISO-8601 format.
+   *
    * @public
    */
   lastUpdatedAt?: Date | undefined;
@@ -2896,13 +3322,15 @@ export interface GetAuthPolicyResponse {
  */
 export interface GetListenerRequest {
   /**
-   * <p>The ID or ARN of the service.</p>
+   * The ID or ARN of the service.
+   *
    * @public
    */
   serviceIdentifier: string | undefined;
 
   /**
-   * <p>The ID or ARN of the listener.</p>
+   * The ID or ARN of the listener.
+   *
    * @public
    */
   listenerIdentifier: string | undefined;
@@ -2913,61 +3341,71 @@ export interface GetListenerRequest {
  */
 export interface GetListenerResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the listener.</p>
+   * The Amazon Resource Name (ARN) of the listener.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The ID of the listener.</p>
+   * The ID of the listener.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The name of the listener.</p>
+   * The name of the listener.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The listener protocol.</p>
+   * The listener protocol.
+   *
    * @public
    */
   protocol?: ListenerProtocol | undefined;
 
   /**
-   * <p>The listener port.</p>
+   * The listener port.
+   *
    * @public
    */
   port?: number | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service.</p>
+   * The Amazon Resource Name (ARN) of the service.
+   *
    * @public
    */
   serviceArn?: string | undefined;
 
   /**
-   * <p>The ID of the service.</p>
+   * The ID of the service.
+   *
    * @public
    */
   serviceId?: string | undefined;
 
   /**
-   * <p>The actions for the default listener rule.</p>
+   * The actions for the default listener rule.
+   *
    * @public
    */
   defaultAction?: RuleAction | undefined;
 
   /**
-   * <p>The date and time that the listener was created, in ISO-8601 format.</p>
+   * The date and time that the listener was created, in ISO-8601 format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time that the listener was last updated, in ISO-8601 format.</p>
+   * The date and time that the listener was last updated, in ISO-8601 format.
+   *
    * @public
    */
   lastUpdatedAt?: Date | undefined;
@@ -2978,7 +3416,8 @@ export interface GetListenerResponse {
  */
 export interface GetResourceConfigurationRequest {
   /**
-   * <p>The ID of the resource configuration.</p>
+   * The ID of the resource configuration.
+   *
    * @public
    */
   resourceConfigurationIdentifier: string | undefined;
@@ -2989,121 +3428,147 @@ export interface GetResourceConfigurationRequest {
  */
 export interface GetResourceConfigurationResponse {
   /**
-   * <p>The ID of the resource configuration.</p>
+   * The ID of the resource configuration.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The name of the resource configuration.</p>
+   * The name of the resource configuration.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource configuration.</p>
+   * The Amazon Resource Name (ARN) of the resource configuration.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The ID of the resource gateway used to connect to the resource configuration in a given VPC. You can specify the resource gateway identifier only for resource configurations with type SINGLE, GROUP, ARN, or CIDR.</p>
+   * The ID of the resource gateway used to connect to the resource configuration in a given VPC. You can specify the resource gateway identifier only for resource configurations with type SINGLE, GROUP, ARN, or CIDR.
+   *
    * @public
    */
   resourceGatewayId?: string | undefined;
 
   /**
-   * <p>The ID of the group resource configuration.</p>
+   * The ID of the group resource configuration.
+   *
    * @public
    */
   resourceConfigurationGroupId?: string | undefined;
 
   /**
-   * <p>The type of resource configuration.</p> <ul> <li> <p> <code>SINGLE</code> - A single resource.</p> </li> <li> <p> <code>GROUP</code> - A group of resources.</p> </li> <li> <p> <code>CHILD</code> - A single resource that is part of a group resource configuration.</p> </li> <li> <p> <code>ARN</code> - An Amazon Web Services resource.</p> </li> <li> <p> <code>CIDR</code> - A network segment (a range of IP addresses) accessed through a <code>Tunnel</code> VPC endpoint.</p> </li> </ul>
+   * The type of resource configuration.
+   *
+   * - `SINGLE` - A single resource.
+   * - `GROUP` - A group of resources.
+   * - `CHILD` - A single resource that is part of a group resource configuration.
+   * - `ARN` - An Amazon Web Services resource.
+   * - `CIDR` - A network segment (a range of IP addresses) accessed through a `Tunnel` VPC endpoint.
+   *
    * @public
    */
   type?: ResourceConfigurationType | undefined;
 
   /**
-   * <p>Specifies whether the resource configuration is associated with a sharable service network.</p>
+   * Specifies whether the resource configuration is associated with a sharable service network.
+   *
    * @public
    */
   allowAssociationToShareableServiceNetwork?: boolean | undefined;
 
   /**
-   * <p>The TCP port ranges that a consumer can use to access a resource configuration. You can separate port ranges with a comma. Example: 1-65535 or 1,2,22-30</p>
+   * The TCP port ranges that a consumer can use to access a resource configuration. You can separate port ranges with a comma. Example: 1-65535 or 1,2,22-30
+   *
    * @public
    */
   portRanges?: string[] | undefined;
 
   /**
-   * <p>The TCP protocol accepted by the specified resource configuration.</p>
+   * The TCP protocol accepted by the specified resource configuration.
+   *
    * @public
    */
   protocol?: ProtocolType | undefined;
 
   /**
-   * <p>The custom domain name of the resource configuration.</p>
+   * The custom domain name of the resource configuration.
+   *
    * @public
    */
   customDomainName?: string | undefined;
 
   /**
-   * <p>The status of the resource configuration.</p>
+   * The status of the resource configuration.
+   *
    * @public
    */
   status?: ResourceConfigurationStatus | undefined;
 
   /**
-   * <p>The resource configuration.</p>
+   * The resource configuration.
+   *
    * @public
    */
   resourceConfigurationDefinition?: ResourceConfigurationDefinition | undefined;
 
   /**
-   * <p>The date and time that the resource configuration was created, in ISO-8601 format.</p>
+   * The date and time that the resource configuration was created, in ISO-8601 format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>Indicates whether the resource configuration was created and is managed by Amazon.</p>
+   * Indicates whether the resource configuration was created and is managed by Amazon.
+   *
    * @public
    */
   amazonManaged?: boolean | undefined;
 
   /**
-   * <p>The reason the create-resource-configuration request failed.</p>
+   * The reason the create-resource-configuration request failed.
+   *
    * @public
    */
   failureReason?: string | undefined;
 
   /**
-   * <p>The most recent date and time that the resource configuration was updated, in ISO-8601 format.</p>
+   * The most recent date and time that the resource configuration was updated, in ISO-8601 format.
+   *
    * @public
    */
   lastUpdatedAt?: Date | undefined;
 
   /**
-   * <p> The domain verification ID. </p>
+   * The domain verification ID.
+   *
    * @public
    */
   domainVerificationId?: string | undefined;
 
   /**
-   * <p> The ARN of the domain verification. </p>
+   * The ARN of the domain verification.
+   *
    * @public
    */
   domainVerificationArn?: string | undefined;
 
   /**
-   * <p> The domain verification status. </p>
+   * The domain verification status.
+   *
    * @public
    */
   domainVerificationStatus?: VerificationStatus | undefined;
 
   /**
-   * <p> (GROUP) The group domain for a group resource configuration. Any domains that you create for the child resource are subdomains of the group domain. Child resources inherit the verification status of the domain. </p>
+   * (GROUP) The group domain for a group resource configuration. Any domains that you create for the child resource are subdomains of the group domain. Child resources inherit the verification status of the domain.
+   *
    * @public
    */
   groupDomain?: string | undefined;
@@ -3114,7 +3579,8 @@ export interface GetResourceConfigurationResponse {
  */
 export interface GetResourceGatewayRequest {
   /**
-   * <p>The ID of the resource gateway.</p>
+   * The ID of the resource gateway.
+   *
    * @public
    */
   resourceGatewayIdentifier: string | undefined;
@@ -3125,85 +3591,99 @@ export interface GetResourceGatewayRequest {
  */
 export interface GetResourceGatewayResponse {
   /**
-   * <p>The name of the resource gateway.</p>
+   * The name of the resource gateway.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The ID of the resource gateway.</p>
+   * The ID of the resource gateway.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource gateway.</p>
+   * The Amazon Resource Name (ARN) of the resource gateway.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The status for the resource gateway.</p>
+   * The status for the resource gateway.
+   *
    * @public
    */
   status?: ResourceGatewayStatus | undefined;
 
   /**
-   * <p>The ID of the VPC for the resource gateway.</p>
+   * The ID of the VPC for the resource gateway.
+   *
    * @public
    */
   vpcId?: string | undefined;
 
   /**
-   * <p>The IDs of the VPC subnets for resource gateway.</p>
+   * The IDs of the VPC subnets for resource gateway.
+   *
    * @public
    */
   subnetIds?: string[] | undefined;
 
   /**
-   * <p>Indicates whether the resource gateway is managed by an Amazon Web Services service.</p>
+   * Indicates whether the resource gateway is managed by an Amazon Web Services service.
+   *
    * @public
    */
   serviceManaged?: boolean | undefined;
 
   /**
-   * <p>The Amazon Web Services service that manages the resource gateway.</p>
+   * The Amazon Web Services service that manages the resource gateway.
+   *
    * @public
    */
   managedBy?: string | undefined;
 
   /**
-   * <p>The security group IDs associated with the resource gateway.</p>
+   * The security group IDs associated with the resource gateway.
+   *
    * @public
    */
   securityGroupIds?: string[] | undefined;
 
   /**
-   * <p>The type of IP address for the resource gateway.</p>
+   * The type of IP address for the resource gateway.
+   *
    * @public
    */
   ipAddressType?: ResourceGatewayIpAddressType | undefined;
 
   /**
-   * <p>The number of IPv4 addresses in each ENI for the resource gateway.</p>
+   * The number of IPv4 addresses in each ENI for the resource gateway.
+   *
    * @public
    */
   ipv4AddressesPerEni?: number | undefined;
 
   /**
-   * <p>The DNS resolution type for resource configurations that are associated with this resource gateway.</p>
+   * The DNS resolution type for resource configurations that are associated with this resource gateway.
+   *
    * @public
    */
   resourceConfigDnsResolution?: ResourceConfigDnsResolution | undefined;
 
   /**
-   * <p>The date and time that the resource gateway was created, in ISO-8601 format.</p>
+   * The date and time that the resource gateway was created, in ISO-8601 format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time that the resource gateway was last updated, in ISO-8601 format.</p>
+   * The date and time that the resource gateway was last updated, in ISO-8601 format.
+   *
    * @public
    */
   lastUpdatedAt?: Date | undefined;
@@ -3214,7 +3694,8 @@ export interface GetResourceGatewayResponse {
  */
 export interface GetResourcePolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the service network or service.</p>
+   * The Amazon Resource Name (ARN) of the service network or service.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -3225,7 +3706,8 @@ export interface GetResourcePolicyRequest {
  */
 export interface GetResourcePolicyResponse {
   /**
-   * <p>An IAM policy.</p>
+   * An IAM policy.
+   *
    * @public
    */
   policy?: string | undefined;
@@ -3236,19 +3718,22 @@ export interface GetResourcePolicyResponse {
  */
 export interface GetRuleRequest {
   /**
-   * <p>The ID or ARN of the service.</p>
+   * The ID or ARN of the service.
+   *
    * @public
    */
   serviceIdentifier: string | undefined;
 
   /**
-   * <p>The ID or ARN of the listener.</p>
+   * The ID or ARN of the listener.
+   *
    * @public
    */
   listenerIdentifier: string | undefined;
 
   /**
-   * <p>The ID or ARN of the listener rule.</p>
+   * The ID or ARN of the listener rule.
+   *
    * @public
    */
   ruleIdentifier: string | undefined;
@@ -3259,55 +3744,64 @@ export interface GetRuleRequest {
  */
 export interface GetRuleResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the listener.</p>
+   * The Amazon Resource Name (ARN) of the listener.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The ID of the listener.</p>
+   * The ID of the listener.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The name of the listener.</p>
+   * The name of the listener.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Indicates whether this is the default rule.</p>
+   * Indicates whether this is the default rule.
+   *
    * @public
    */
   isDefault?: boolean | undefined;
 
   /**
-   * <p>The rule match.</p>
+   * The rule match.
+   *
    * @public
    */
   match?: RuleMatch | undefined;
 
   /**
-   * <p>The priority level for the specified rule.</p>
+   * The priority level for the specified rule.
+   *
    * @public
    */
   priority?: number | undefined;
 
   /**
-   * <p>The action for the default rule.</p>
+   * The action for the default rule.
+   *
    * @public
    */
   action?: RuleAction | undefined;
 
   /**
-   * <p>The date and time that the listener rule was created, in ISO-8601 format.</p>
+   * The date and time that the listener rule was created, in ISO-8601 format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time that the listener rule was last updated, in ISO-8601 format.</p>
+   * The date and time that the listener rule was last updated, in ISO-8601 format.
+   *
    * @public
    */
   lastUpdatedAt?: Date | undefined;
@@ -3318,7 +3812,8 @@ export interface GetRuleResponse {
  */
 export interface GetServiceRequest {
   /**
-   * <p>The ID or ARN of the service.</p>
+   * The ID or ARN of the service.
+   *
    * @public
    */
   serviceIdentifier: string | undefined;
@@ -3329,79 +3824,92 @@ export interface GetServiceRequest {
  */
 export interface GetServiceResponse {
   /**
-   * <p>The ID of the service.</p>
+   * The ID of the service.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The name of the service.</p>
+   * The name of the service.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service.</p>
+   * The Amazon Resource Name (ARN) of the service.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The date and time that the service was created, in ISO-8601 format.</p>
+   * The date and time that the service was created, in ISO-8601 format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time that the service was last updated, in ISO-8601 format.</p>
+   * The date and time that the service was last updated, in ISO-8601 format.
+   *
    * @public
    */
   lastUpdatedAt?: Date | undefined;
 
   /**
-   * <p>The DNS name of the service.</p>
+   * The DNS name of the service.
+   *
    * @public
    */
   dnsEntry?: DnsEntry | undefined;
 
   /**
-   * <p>The custom domain name of the service.</p>
+   * The custom domain name of the service.
+   *
    * @public
    */
   customDomainName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the certificate.</p>
+   * The Amazon Resource Name (ARN) of the certificate.
+   *
    * @public
    */
   certificateArn?: string | undefined;
 
   /**
-   * <p>The status of the service.</p>
+   * The status of the service.
+   *
    * @public
    */
   status?: ServiceStatus | undefined;
 
   /**
-   * <p>The type of IAM policy.</p>
+   * The type of IAM policy.
+   *
    * @public
    */
   authType?: AuthType | undefined;
 
   /**
-   * <p>The amount of time, in seconds, that a connection can remain idle before VPC Lattice closes it.</p>
+   * The amount of time, in seconds, that a connection can remain idle before VPC Lattice closes it.
+   *
    * @public
    */
   idleTimeoutSeconds?: number | undefined;
 
   /**
-   * <p>The failure code.</p>
+   * The failure code.
+   *
    * @public
    */
   failureCode?: string | undefined;
 
   /**
-   * <p>The failure message.</p>
+   * The failure message.
+   *
    * @public
    */
   failureMessage?: string | undefined;
@@ -3412,7 +3920,8 @@ export interface GetServiceResponse {
  */
 export interface GetServiceNetworkRequest {
   /**
-   * <p>The ID or ARN of the service network.</p>
+   * The ID or ARN of the service network.
+   *
    * @public
    */
   serviceNetworkIdentifier: string | undefined;
@@ -3423,55 +3932,64 @@ export interface GetServiceNetworkRequest {
  */
 export interface GetServiceNetworkResponse {
   /**
-   * <p>The ID of the service network.</p>
+   * The ID of the service network.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The name of the service network.</p>
+   * The name of the service network.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The date and time that the service network was created, in ISO-8601 format.</p>
+   * The date and time that the service network was created, in ISO-8601 format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time of the last update, in ISO-8601 format.</p>
+   * The date and time of the last update, in ISO-8601 format.
+   *
    * @public
    */
   lastUpdatedAt?: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service network.</p>
+   * The Amazon Resource Name (ARN) of the service network.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The type of IAM policy.</p>
+   * The type of IAM policy.
+   *
    * @public
    */
   authType?: AuthType | undefined;
 
   /**
-   * <p>Specifies if the service network is enabled for sharing.</p>
+   * Specifies if the service network is enabled for sharing.
+   *
    * @public
    */
   sharingConfig?: SharingConfig | undefined;
 
   /**
-   * <p>The number of VPCs associated with the service network.</p>
+   * The number of VPCs associated with the service network.
+   *
    * @public
    */
   numberOfAssociatedVPCs?: number | undefined;
 
   /**
-   * <p>The number of services associated with the service network.</p>
+   * The number of services associated with the service network.
+   *
    * @public
    */
   numberOfAssociatedServices?: number | undefined;
@@ -3482,7 +4000,8 @@ export interface GetServiceNetworkResponse {
  */
 export interface GetServiceNetworkResourceAssociationRequest {
   /**
-   * <p>The ID of the association.</p>
+   * The ID of the association.
+   *
    * @public
    */
   serviceNetworkResourceAssociationIdentifier: string | undefined;
@@ -3493,115 +4012,134 @@ export interface GetServiceNetworkResourceAssociationRequest {
  */
 export interface GetServiceNetworkResourceAssociationResponse {
   /**
-   * <p>The ID of the association.</p>
+   * The ID of the association.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the association.</p>
+   * The Amazon Resource Name (ARN) of the association.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The status of the association.</p>
+   * The status of the association.
+   *
    * @public
    */
   status?: ServiceNetworkResourceAssociationStatus | undefined;
 
   /**
-   * <p>The account that created the association.</p>
+   * The account that created the association.
+   *
    * @public
    */
   createdBy?: string | undefined;
 
   /**
-   * <p>The date and time that the association was created, in ISO-8601 format.</p>
+   * The date and time that the association was created, in ISO-8601 format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The ID of the resource configuration that is associated with the service network.</p>
+   * The ID of the resource configuration that is associated with the service network.
+   *
    * @public
    */
   resourceConfigurationId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the association.</p>
+   * The Amazon Resource Name (ARN) of the association.
+   *
    * @public
    */
   resourceConfigurationArn?: string | undefined;
 
   /**
-   * <p>The name of the resource configuration that is associated with the service network.</p>
+   * The name of the resource configuration that is associated with the service network.
+   *
    * @public
    */
   resourceConfigurationName?: string | undefined;
 
   /**
-   * <p>The ID of the service network that is associated with the resource configuration.</p>
+   * The ID of the service network that is associated with the resource configuration.
+   *
    * @public
    */
   serviceNetworkId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service network that is associated with the resource configuration.</p>
+   * The Amazon Resource Name (ARN) of the service network that is associated with the resource configuration.
+   *
    * @public
    */
   serviceNetworkArn?: string | undefined;
 
   /**
-   * <p>The name of the service network that is associated with the resource configuration.</p>
+   * The name of the service network that is associated with the resource configuration.
+   *
    * @public
    */
   serviceNetworkName?: string | undefined;
 
   /**
-   * <p>The reason the association request failed.</p>
+   * The reason the association request failed.
+   *
    * @public
    */
   failureReason?: string | undefined;
 
   /**
-   * <p>The failure code.</p>
+   * The failure code.
+   *
    * @public
    */
   failureCode?: string | undefined;
 
   /**
-   * <p>The most recent date and time that the association was updated, in ISO-8601 format.</p>
+   * The most recent date and time that the association was updated, in ISO-8601 format.
+   *
    * @public
    */
   lastUpdatedAt?: Date | undefined;
 
   /**
-   * <p>The private DNS entry for the service. This entry includes only the domain name.</p>
+   * The private DNS entry for the service. This entry includes only the domain name.
+   *
    * @public
    */
   privateDnsEntry?: DnsEntry | undefined;
 
   /**
-   * <p> Indicates if private DNS is enabled in the service network resource association. </p>
+   * Indicates if private DNS is enabled in the service network resource association.
+   *
    * @public
    */
   privateDnsEnabled?: boolean | undefined;
 
   /**
-   * <p>The DNS entry for the service.</p>
+   * The DNS entry for the service.
+   *
    * @public
    */
   dnsEntry?: DnsEntry | undefined;
 
   /**
-   * <p>Indicates whether the association is managed by Amazon.</p>
+   * Indicates whether the association is managed by Amazon.
+   *
    * @public
    */
   isManagedAssociation?: boolean | undefined;
 
   /**
-   * <p> The domain verification status in the service network resource association. </p>
+   * The domain verification status in the service network resource association.
+   *
    * @public
    */
   domainVerificationStatus?: VerificationStatus | undefined;
@@ -3612,7 +4150,8 @@ export interface GetServiceNetworkResourceAssociationResponse {
  */
 export interface GetServiceNetworkServiceAssociationRequest {
   /**
-   * <p>The ID or ARN of the association.</p>
+   * The ID or ARN of the association.
+   *
    * @public
    */
   serviceNetworkServiceAssociationIdentifier: string | undefined;
@@ -3623,91 +4162,106 @@ export interface GetServiceNetworkServiceAssociationRequest {
  */
 export interface GetServiceNetworkServiceAssociationResponse {
   /**
-   * <p>The ID of the service network and service association.</p>
+   * The ID of the service network and service association.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The status of the association.</p>
+   * The status of the association.
+   *
    * @public
    */
   status?: ServiceNetworkServiceAssociationStatus | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the association.</p>
+   * The Amazon Resource Name (ARN) of the association.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The account that created the association.</p>
+   * The account that created the association.
+   *
    * @public
    */
   createdBy?: string | undefined;
 
   /**
-   * <p>The date and time that the association was created, in ISO-8601 format.</p>
+   * The date and time that the association was created, in ISO-8601 format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The ID of the service.</p>
+   * The ID of the service.
+   *
    * @public
    */
   serviceId?: string | undefined;
 
   /**
-   * <p>The name of the service.</p>
+   * The name of the service.
+   *
    * @public
    */
   serviceName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service.</p>
+   * The Amazon Resource Name (ARN) of the service.
+   *
    * @public
    */
   serviceArn?: string | undefined;
 
   /**
-   * <p>The ID of the service network.</p>
+   * The ID of the service network.
+   *
    * @public
    */
   serviceNetworkId?: string | undefined;
 
   /**
-   * <p>The name of the service network.</p>
+   * The name of the service network.
+   *
    * @public
    */
   serviceNetworkName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service network.</p>
+   * The Amazon Resource Name (ARN) of the service network.
+   *
    * @public
    */
   serviceNetworkArn?: string | undefined;
 
   /**
-   * <p>The DNS name of the service.</p>
+   * The DNS name of the service.
+   *
    * @public
    */
   dnsEntry?: DnsEntry | undefined;
 
   /**
-   * <p>The custom domain name of the service.</p>
+   * The custom domain name of the service.
+   *
    * @public
    */
   customDomainName?: string | undefined;
 
   /**
-   * <p>The failure message.</p>
+   * The failure message.
+   *
    * @public
    */
   failureMessage?: string | undefined;
 
   /**
-   * <p>The failure code.</p>
+   * The failure code.
+   *
    * @public
    */
   failureCode?: string | undefined;
@@ -3718,7 +4272,8 @@ export interface GetServiceNetworkServiceAssociationResponse {
  */
 export interface GetServiceNetworkVpcAssociationRequest {
   /**
-   * <p>The ID or ARN of the association.</p>
+   * The ID or ARN of the association.
+   *
    * @public
    */
   serviceNetworkVpcAssociationIdentifier: string | undefined;
@@ -3729,91 +4284,106 @@ export interface GetServiceNetworkVpcAssociationRequest {
  */
 export interface GetServiceNetworkVpcAssociationResponse {
   /**
-   * <p>The ID of the association.</p>
+   * The ID of the association.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The status of the association.</p>
+   * The status of the association.
+   *
    * @public
    */
   status?: ServiceNetworkVpcAssociationStatus | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the association.</p>
+   * The Amazon Resource Name (ARN) of the association.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The account that created the association.</p>
+   * The account that created the association.
+   *
    * @public
    */
   createdBy?: string | undefined;
 
   /**
-   * <p>The date and time that the association was created, in ISO-8601 format.</p>
+   * The date and time that the association was created, in ISO-8601 format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The ID of the service network.</p>
+   * The ID of the service network.
+   *
    * @public
    */
   serviceNetworkId?: string | undefined;
 
   /**
-   * <p>The name of the service network.</p>
+   * The name of the service network.
+   *
    * @public
    */
   serviceNetworkName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service network.</p>
+   * The Amazon Resource Name (ARN) of the service network.
+   *
    * @public
    */
   serviceNetworkArn?: string | undefined;
 
   /**
-   * <p>The ID of the VPC.</p>
+   * The ID of the VPC.
+   *
    * @public
    */
   vpcId?: string | undefined;
 
   /**
-   * <p>The IDs of the security groups.</p>
+   * The IDs of the security groups.
+   *
    * @public
    */
   securityGroupIds?: string[] | undefined;
 
   /**
-   * <p> Indicates if private DNS is enabled in the VPC association. </p>
+   * Indicates if private DNS is enabled in the VPC association.
+   *
    * @public
    */
   privateDnsEnabled?: boolean | undefined;
 
   /**
-   * <p>The failure message.</p>
+   * The failure message.
+   *
    * @public
    */
   failureMessage?: string | undefined;
 
   /**
-   * <p>The failure code.</p>
+   * The failure code.
+   *
    * @public
    */
   failureCode?: string | undefined;
 
   /**
-   * <p>The date and time that the association was last updated, in ISO-8601 format.</p>
+   * The date and time that the association was last updated, in ISO-8601 format.
+   *
    * @public
    */
   lastUpdatedAt?: Date | undefined;
 
   /**
-   * <p> DNS options for the service network VPC association. </p>
+   * DNS options for the service network VPC association.
+   *
    * @public
    */
   dnsOptions?: DnsOptions | undefined;
@@ -3824,7 +4394,8 @@ export interface GetServiceNetworkVpcAssociationResponse {
  */
 export interface GetTargetGroupRequest {
   /**
-   * <p>The ID or ARN of the target group.</p>
+   * The ID or ARN of the target group.
+   *
    * @public
    */
   targetGroupIdentifier: string | undefined;
@@ -3835,67 +4406,78 @@ export interface GetTargetGroupRequest {
  */
 export interface GetTargetGroupResponse {
   /**
-   * <p>The ID of the target group.</p>
+   * The ID of the target group.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the target group.</p>
+   * The Amazon Resource Name (ARN) of the target group.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The name of the target group.</p>
+   * The name of the target group.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The target group type.</p>
+   * The target group type.
+   *
    * @public
    */
   type?: TargetGroupType | undefined;
 
   /**
-   * <p>The target group configuration.</p>
+   * The target group configuration.
+   *
    * @public
    */
   config?: TargetGroupConfig | undefined;
 
   /**
-   * <p>The date and time that the target group was created, in ISO-8601 format.</p>
+   * The date and time that the target group was created, in ISO-8601 format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time that the target group was last updated, in ISO-8601 format.</p>
+   * The date and time that the target group was last updated, in ISO-8601 format.
+   *
    * @public
    */
   lastUpdatedAt?: Date | undefined;
 
   /**
-   * <p>The status.</p>
+   * The status.
+   *
    * @public
    */
   status?: TargetGroupStatus | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the service.</p>
+   * The Amazon Resource Names (ARNs) of the service.
+   *
    * @public
    */
   serviceArns?: string[] | undefined;
 
   /**
-   * <p>The failure message.</p>
+   * The failure message.
+   *
    * @public
    */
   failureMessage?: string | undefined;
 
   /**
-   * <p>The failure code.</p>
+   * The failure code.
+   *
    * @public
    */
   failureCode?: string | undefined;
@@ -3906,67 +4488,78 @@ export interface GetTargetGroupResponse {
  */
 export interface ListListenersRequest {
   /**
-   * <p>The ID or ARN of the service.</p>
+   * The ID or ARN of the service.
+   *
    * @public
    */
   serviceIdentifier: string | undefined;
 
   /**
-   * <p>The maximum number of results to return.</p>
+   * The maximum number of results to return.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A pagination token for the next page of results.</p>
+   * A pagination token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Summary information about a listener.</p>
+ * Summary information about a listener.
+ *
  * @public
  */
 export interface ListenerSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the listener.</p>
+   * The Amazon Resource Name (ARN) of the listener.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The ID of the listener.</p>
+   * The ID of the listener.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The name of the listener.</p>
+   * The name of the listener.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The listener protocol.</p>
+   * The listener protocol.
+   *
    * @public
    */
   protocol?: ListenerProtocol | undefined;
 
   /**
-   * <p>The listener port.</p>
+   * The listener port.
+   *
    * @public
    */
   port?: number | undefined;
 
   /**
-   * <p>The date and time that the listener was created, in ISO-8601 format.</p>
+   * The date and time that the listener was created, in ISO-8601 format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time that the listener was last updated, in ISO-8601 format.</p>
+   * The date and time that the listener was last updated, in ISO-8601 format.
+   *
    * @public
    */
   lastUpdatedAt?: Date | undefined;
@@ -3977,13 +4570,15 @@ export interface ListenerSummary {
  */
 export interface ListListenersResponse {
   /**
-   * <p>Information about the listeners.</p>
+   * Information about the listeners.
+   *
    * @public
    */
   items: ListenerSummary[] | undefined;
 
   /**
-   * <p>If there are additional results, a pagination token for the next page of results.</p>
+   * If there are additional results, a pagination token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -3994,19 +4589,22 @@ export interface ListListenersResponse {
  */
 export interface UpdateListenerRequest {
   /**
-   * <p>The ID or ARN of the service.</p>
+   * The ID or ARN of the service.
+   *
    * @public
    */
   serviceIdentifier: string | undefined;
 
   /**
-   * <p>The ID or ARN of the listener.</p>
+   * The ID or ARN of the listener.
+   *
    * @public
    */
   listenerIdentifier: string | undefined;
 
   /**
-   * <p>The action for the default rule.</p>
+   * The action for the default rule.
+   *
    * @public
    */
   defaultAction: RuleAction | undefined;
@@ -4017,49 +4615,57 @@ export interface UpdateListenerRequest {
  */
 export interface UpdateListenerResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the listener.</p>
+   * The Amazon Resource Name (ARN) of the listener.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The ID of the listener.</p>
+   * The ID of the listener.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The name of the listener.</p>
+   * The name of the listener.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The protocol of the listener.</p>
+   * The protocol of the listener.
+   *
    * @public
    */
   protocol?: ListenerProtocol | undefined;
 
   /**
-   * <p>The listener port.</p>
+   * The listener port.
+   *
    * @public
    */
   port?: number | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service.</p>
+   * The Amazon Resource Name (ARN) of the service.
+   *
    * @public
    */
   serviceArn?: string | undefined;
 
   /**
-   * <p>The ID of the service.</p>
+   * The ID of the service.
+   *
    * @public
    */
   serviceId?: string | undefined;
 
   /**
-   * <p>The action for the default rule.</p>
+   * The action for the default rule.
+   *
    * @public
    */
   defaultAction?: RuleAction | undefined;
@@ -4070,115 +4676,140 @@ export interface UpdateListenerResponse {
  */
 export interface ListResourceConfigurationsRequest {
   /**
-   * <p>The ID of the resource gateway for the resource configuration.</p>
+   * The ID of the resource gateway for the resource configuration.
+   *
    * @public
    */
   resourceGatewayIdentifier?: string | undefined;
 
   /**
-   * <p>The ID of the resource configuration of type <code>Group</code>.</p>
+   * The ID of the resource configuration of type `Group`.
+   *
    * @public
    */
   resourceConfigurationGroupIdentifier?: string | undefined;
 
   /**
-   * <p> The domain verification ID. </p>
+   * The domain verification ID.
+   *
    * @public
    */
   domainVerificationIdentifier?: string | undefined;
 
   /**
-   * <p>The maximum page size.</p>
+   * The maximum page size.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A pagination token for the next page of results.</p>
+   * A pagination token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Summary information about a resource configuration.</p>
+ * Summary information about a resource configuration.
+ *
  * @public
  */
 export interface ResourceConfigurationSummary {
   /**
-   * <p>The ID of the resource configuration.</p>
+   * The ID of the resource configuration.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The name of the resource configuration.</p>
+   * The name of the resource configuration.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource configuration.</p>
+   * The Amazon Resource Name (ARN) of the resource configuration.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The ID of the resource gateway.</p>
+   * The ID of the resource gateway.
+   *
    * @public
    */
   resourceGatewayId?: string | undefined;
 
   /**
-   * <p>The ID of the group resource configuration.</p>
+   * The ID of the group resource configuration.
+   *
    * @public
    */
   resourceConfigurationGroupId?: string | undefined;
 
   /**
-   * <p>The type of resource configuration.</p> <ul> <li> <p> <code>SINGLE</code> - A single resource.</p> </li> <li> <p> <code>GROUP</code> - A group of resources. You must create a group resource configuration before you create a child resource configuration.</p> </li> <li> <p> <code>CHILD</code> - A single resource that is part of a group resource configuration.</p> </li> <li> <p> <code>ARN</code> - An Amazon Web Services resource.</p> </li> <li> <p> <code>CIDR</code> - A network segment (a range of IP addresses) accessed through a <code>Tunnel</code> VPC endpoint.</p> </li> </ul>
+   * The type of resource configuration.
+   *
+   * - `SINGLE` - A single resource.
+   * - `GROUP` - A group of resources. You must create a group resource configuration before you create a child resource configuration.
+   * - `CHILD` - A single resource that is part of a group resource configuration.
+   * - `ARN` - An Amazon Web Services resource.
+   * - `CIDR` - A network segment (a range of IP addresses) accessed through a `Tunnel` VPC endpoint.
+   *
    * @public
    */
   type?: ResourceConfigurationType | undefined;
 
   /**
-   * <p>The status of the resource configuration.</p>
+   * The status of the resource configuration.
+   *
    * @public
    */
   status?: ResourceConfigurationStatus | undefined;
 
   /**
-   * <p>Indicates whether the resource configuration was created and is managed by Amazon.</p>
+   * Indicates whether the resource configuration was created and is managed by Amazon.
+   *
    * @public
    */
   amazonManaged?: boolean | undefined;
 
   /**
-   * <p>The date and time that the resource configuration was created, in ISO-8601 format.</p>
+   * The date and time that the resource configuration was created, in ISO-8601 format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The most recent date and time that the resource configuration was updated, in ISO-8601 format.</p>
+   * The most recent date and time that the resource configuration was updated, in ISO-8601 format.
+   *
    * @public
    */
   lastUpdatedAt?: Date | undefined;
 
   /**
-   * <p> The custom domain name. </p>
+   * The custom domain name.
+   *
    * @public
    */
   customDomainName?: string | undefined;
 
   /**
-   * <p> The domain verification ID. </p>
+   * The domain verification ID.
+   *
    * @public
    */
   domainVerificationId?: string | undefined;
 
   /**
-   * <p> (GROUP) The group domain for a group resource configuration. Any domains that you create for the child resource are subdomains of the group domain. Child resources inherit the verification status of the domain. </p>
+   * (GROUP) The group domain for a group resource configuration. Any domains that you create for the child resource are subdomains of the group domain. Child resources inherit the verification status of the domain.
+   *
    * @public
    */
   groupDomain?: string | undefined;
@@ -4189,13 +4820,15 @@ export interface ResourceConfigurationSummary {
  */
 export interface ListResourceConfigurationsResponse {
   /**
-   * <p>Information about the resource configurations.</p>
+   * Information about the resource configurations.
+   *
    * @public
    */
   items?: ResourceConfigurationSummary[] | undefined;
 
   /**
-   * <p>If there are additional results, a pagination token for the next page of results.</p>
+   * If there are additional results, a pagination token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4206,121 +4839,141 @@ export interface ListResourceConfigurationsResponse {
  */
 export interface ListResourceEndpointAssociationsRequest {
   /**
-   * <p>The ID for the resource configuration associated with the VPC endpoint.</p>
+   * The ID for the resource configuration associated with the VPC endpoint.
+   *
    * @public
    */
   resourceConfigurationIdentifier: string | undefined;
 
   /**
-   * <p>The ID of the association.</p>
+   * The ID of the association.
+   *
    * @public
    */
   resourceEndpointAssociationIdentifier?: string | undefined;
 
   /**
-   * <p>The ID of the VPC endpoint in the association.</p>
+   * The ID of the VPC endpoint in the association.
+   *
    * @public
    */
   vpcEndpointId?: string | undefined;
 
   /**
-   * <p>The owner of the VPC endpoint in the association.</p>
+   * The owner of the VPC endpoint in the association.
+   *
    * @public
    */
   vpcEndpointOwner?: string | undefined;
 
   /**
-   * <p>The maximum page size.</p>
+   * The maximum page size.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A pagination token for the next page of results.</p>
+   * A pagination token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Specifies which account pays for a category of charges on a VPC endpoint association.</p>
+ * Specifies which account pays for a category of charges on a VPC endpoint association.
+ *
  * @public
  */
 export interface PayerResponsibilityEntry {
   /**
-   * <p>The category of charges that this entry applies to. <code>ResourceGatewayCharges</code> covers the resource gateway's data processing charge.</p>
+   * The category of charges that this entry applies to. `ResourceGatewayCharges` covers the resource gateway's data processing charge.
+   *
    * @public
    */
   scope?: PayerResponsibilityScope | undefined;
 
   /**
-   * <p>The account that pays this category of charges. <code>VpcEndpointAccount</code> owns the VPC endpoint. <code>ResourceGatewayAccount</code> owns the resource gateway.</p>
+   * The account that pays this category of charges. `VpcEndpointAccount` owns the VPC endpoint. `ResourceGatewayAccount` owns the resource gateway.
+   *
    * @public
    */
   payerResponsibilityType?: PayerResponsibilityPayer | undefined;
 }
 
 /**
- * <p>Summary information about a VPC endpoint association.</p>
+ * Summary information about a VPC endpoint association.
+ *
  * @public
  */
 export interface ResourceEndpointAssociationSummary {
   /**
-   * <p>The ID of the VPC endpoint association.</p>
+   * The ID of the VPC endpoint association.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the VPC endpoint association.</p>
+   * The Amazon Resource Name (ARN) of the VPC endpoint association.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The ID of the resource configuration.</p>
+   * The ID of the resource configuration.
+   *
    * @public
    */
   resourceConfigurationId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource configuration.</p>
+   * The Amazon Resource Name (ARN) of the resource configuration.
+   *
    * @public
    */
   resourceConfigurationArn?: string | undefined;
 
   /**
-   * <p>The name of the resource configuration.</p>
+   * The name of the resource configuration.
+   *
    * @public
    */
   resourceConfigurationName?: string | undefined;
 
   /**
-   * <p>The ID of the VPC endpoint.</p>
+   * The ID of the VPC endpoint.
+   *
    * @public
    */
   vpcEndpointId?: string | undefined;
 
   /**
-   * <p>The owner of the VPC endpoint.</p>
+   * The owner of the VPC endpoint.
+   *
    * @public
    */
   vpcEndpointOwner?: string | undefined;
 
   /**
-   * <p>The account that created the association.</p>
+   * The account that created the association.
+   *
    * @public
    */
   createdBy?: string | undefined;
 
   /**
-   * <p>The date and time that the VPC endpoint association was created, in ISO-8601 format.</p>
+   * The date and time that the VPC endpoint association was created, in ISO-8601 format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>Who pays for each category of charges on the VPC endpoint association.</p>
+   * Who pays for each category of charges on the VPC endpoint association.
+   *
    * @public
    */
   payerResponsibility?: PayerResponsibilityEntry[] | undefined;
@@ -4331,13 +4984,15 @@ export interface ResourceEndpointAssociationSummary {
  */
 export interface ListResourceEndpointAssociationsResponse {
   /**
-   * <p>Information about the VPC endpoint associations.</p>
+   * Information about the VPC endpoint associations.
+   *
    * @public
    */
   items: ResourceEndpointAssociationSummary[] | undefined;
 
   /**
-   * <p>If there are additional results, a pagination token for the next page of results.</p>
+   * If there are additional results, a pagination token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4348,91 +5003,106 @@ export interface ListResourceEndpointAssociationsResponse {
  */
 export interface ListResourceGatewaysRequest {
   /**
-   * <p>The maximum page size.</p>
+   * The maximum page size.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>If there are additional results, a pagination token for the next page of results.</p>
+   * If there are additional results, a pagination token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Summary information about a resource gateway.</p>
+ * Summary information about a resource gateway.
+ *
  * @public
  */
 export interface ResourceGatewaySummary {
   /**
-   * <p>The name of the resource gateway.</p>
+   * The name of the resource gateway.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The ID of the resource gateway.</p>
+   * The ID of the resource gateway.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource gateway.</p>
+   * The Amazon Resource Name (ARN) of the resource gateway.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The name of the resource gateway.</p>
+   * The name of the resource gateway.
+   *
    * @public
    */
   status?: ResourceGatewayStatus | undefined;
 
   /**
-   * <p>The ID of the VPC for the resource gateway.</p>
+   * The ID of the VPC for the resource gateway.
+   *
    * @public
    */
   vpcIdentifier?: string | undefined;
 
   /**
-   * <p>The IDs of the VPC subnets for the resource gateway.</p>
+   * The IDs of the VPC subnets for the resource gateway.
+   *
    * @public
    */
   subnetIds?: string[] | undefined;
 
   /**
-   * <p>The IDs of the security groups applied to the resource gateway.</p>
+   * The IDs of the security groups applied to the resource gateway.
+   *
    * @public
    */
   securityGroupIds?: string[] | undefined;
 
   /**
-   * <p>The type of IP address used by the resource gateway.</p>
+   * The type of IP address used by the resource gateway.
+   *
    * @public
    */
   ipAddressType?: ResourceGatewayIpAddressType | undefined;
 
   /**
-   * <p>The number of IPv4 addresses in each ENI for the resource gateway.</p>
+   * The number of IPv4 addresses in each ENI for the resource gateway.
+   *
    * @public
    */
   ipv4AddressesPerEni?: number | undefined;
 
   /**
-   * <p>The DNS resolution type for resource configurations that are associated with this resource gateway.</p>
+   * The DNS resolution type for resource configurations that are associated with this resource gateway.
+   *
    * @public
    */
   resourceConfigDnsResolution?: ResourceConfigDnsResolution | undefined;
 
   /**
-   * <p>The date and time that the VPC endpoint association was created, in ISO-8601 format.</p>
+   * The date and time that the VPC endpoint association was created, in ISO-8601 format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The most recent date and time that the resource gateway was updated, in ISO-8601 format.</p>
+   * The most recent date and time that the resource gateway was updated, in ISO-8601 format.
+   *
    * @public
    */
   lastUpdatedAt?: Date | undefined;
@@ -4443,13 +5113,15 @@ export interface ResourceGatewaySummary {
  */
 export interface ListResourceGatewaysResponse {
   /**
-   * <p>Information about the resource gateways.</p>
+   * Information about the resource gateways.
+   *
    * @public
    */
   items?: ResourceGatewaySummary[] | undefined;
 
   /**
-   * <p>If there are additional results, a pagination token for the next page of results.</p>
+   * If there are additional results, a pagination token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4460,73 +5132,85 @@ export interface ListResourceGatewaysResponse {
  */
 export interface ListRulesRequest {
   /**
-   * <p>The ID or ARN of the service.</p>
+   * The ID or ARN of the service.
+   *
    * @public
    */
   serviceIdentifier: string | undefined;
 
   /**
-   * <p>The ID or ARN of the listener.</p>
+   * The ID or ARN of the listener.
+   *
    * @public
    */
   listenerIdentifier: string | undefined;
 
   /**
-   * <p>The maximum number of results to return.</p>
+   * The maximum number of results to return.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A pagination token for the next page of results.</p>
+   * A pagination token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Summary information about a listener rule.</p>
+ * Summary information about a listener rule.
+ *
  * @public
  */
 export interface RuleSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the rule.</p>
+   * The Amazon Resource Name (ARN) of the rule.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The ID of the rule.</p>
+   * The ID of the rule.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The name of the rule.</p>
+   * The name of the rule.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Indicates whether this is the default listener rule.</p>
+   * Indicates whether this is the default listener rule.
+   *
    * @public
    */
   isDefault?: boolean | undefined;
 
   /**
-   * <p>The priority of the rule.</p>
+   * The priority of the rule.
+   *
    * @public
    */
   priority?: number | undefined;
 
   /**
-   * <p>The date and time that the listener rule was created, in ISO-8601 format.</p>
+   * The date and time that the listener rule was created, in ISO-8601 format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time that the listener rule was last updated, in ISO-8601 format.</p>
+   * The date and time that the listener rule was last updated, in ISO-8601 format.
+   *
    * @public
    */
   lastUpdatedAt?: Date | undefined;
@@ -4537,13 +5221,15 @@ export interface RuleSummary {
  */
 export interface ListRulesResponse {
   /**
-   * <p>Information about the rules.</p>
+   * Information about the rules.
+   *
    * @public
    */
   items: RuleSummary[] | undefined;
 
   /**
-   * <p>If there are additional results, a pagination token for the next page of results.</p>
+   * If there are additional results, a pagination token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4554,133 +5240,157 @@ export interface ListRulesResponse {
  */
 export interface ListServiceNetworkResourceAssociationsRequest {
   /**
-   * <p>The ID of the service network.</p>
+   * The ID of the service network.
+   *
    * @public
    */
   serviceNetworkIdentifier?: string | undefined;
 
   /**
-   * <p>The ID of the resource configuration.</p>
+   * The ID of the resource configuration.
+   *
    * @public
    */
   resourceConfigurationIdentifier?: string | undefined;
 
   /**
-   * <p>The maximum page size.</p>
+   * The maximum page size.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>If there are additional results, a pagination token for the next page of results.</p>
+   * If there are additional results, a pagination token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Include service network resource associations of the child resource configuration with the grouped resource configuration.</p> <p>The type is boolean and the default value is false.</p>
+   * Include service network resource associations of the child resource configuration with the grouped resource configuration.
+   *
+   * The type is boolean and the default value is false.
+   *
    * @public
    */
   includeChildren?: boolean | undefined;
 }
 
 /**
- * <p>Summary information about an association between a service network and a resource configuration.</p>
+ * Summary information about an association between a service network and a resource configuration.
+ *
  * @public
  */
 export interface ServiceNetworkResourceAssociationSummary {
   /**
-   * <p>The ID of the association between the service network and resource configuration.</p>
+   * The ID of the association between the service network and resource configuration.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the association.</p>
+   * The Amazon Resource Name (ARN) of the association.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The status of the service network’s association with the resource configuration. If the deletion fails, try to delete again. </p>
+   * The status of the service network’s association with the resource configuration. If the deletion fails, try to delete again.
+   *
    * @public
    */
   status?: ServiceNetworkResourceAssociationStatus | undefined;
 
   /**
-   * <p>The account that created the association.</p>
+   * The account that created the association.
+   *
    * @public
    */
   createdBy?: string | undefined;
 
   /**
-   * <p>The date and time that the association was created, in ISO-8601 format.</p>
+   * The date and time that the association was created, in ISO-8601 format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The ID of the resource configuration associated with the service network.</p>
+   * The ID of the resource configuration associated with the service network.
+   *
    * @public
    */
   resourceConfigurationId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the association.</p>
+   * The Amazon Resource Name (ARN) of the association.
+   *
    * @public
    */
   resourceConfigurationArn?: string | undefined;
 
   /**
-   * <p>The name of the resource configuration associated with the service network.</p>
+   * The name of the resource configuration associated with the service network.
+   *
    * @public
    */
   resourceConfigurationName?: string | undefined;
 
   /**
-   * <p>The ID of the service network associated with the resource configuration.</p>
+   * The ID of the service network associated with the resource configuration.
+   *
    * @public
    */
   serviceNetworkId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service network associated with the resource configuration.</p>
+   * The Amazon Resource Name (ARN) of the service network associated with the resource configuration.
+   *
    * @public
    */
   serviceNetworkArn?: string | undefined;
 
   /**
-   * <p>The name of the service network associated with the resource configuration.</p>
+   * The name of the service network associated with the resource configuration.
+   *
    * @public
    */
   serviceNetworkName?: string | undefined;
 
   /**
-   * <p>The DNS entry for the service.</p>
+   * The DNS entry for the service.
+   *
    * @public
    */
   dnsEntry?: DnsEntry | undefined;
 
   /**
-   * <p>The private DNS entry for the service. This entry includes only the domain name.</p>
+   * The private DNS entry for the service. This entry includes only the domain name.
+   *
    * @public
    */
   privateDnsEntry?: DnsEntry | undefined;
 
   /**
-   * <p>Specifies whether the association is managed by Amazon.</p>
+   * Specifies whether the association is managed by Amazon.
+   *
    * @public
    */
   isManagedAssociation?: boolean | undefined;
 
   /**
-   * <p>The failure code.</p>
+   * The failure code.
+   *
    * @public
    */
   failureCode?: string | undefined;
 
   /**
-   * <p> Indicates if private DNS is enabled for the service network resource association. </p>
+   * Indicates if private DNS is enabled for the service network resource association.
+   *
    * @public
    */
   privateDnsEnabled?: boolean | undefined;
@@ -4691,13 +5401,15 @@ export interface ServiceNetworkResourceAssociationSummary {
  */
 export interface ListServiceNetworkResourceAssociationsResponse {
   /**
-   * <p>Information about the associations.</p>
+   * Information about the associations.
+   *
    * @public
    */
   items: ServiceNetworkResourceAssociationSummary[] | undefined;
 
   /**
-   * <p>If there are additional results, a pagination token for the next page of results.</p>
+   * If there are additional results, a pagination token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4708,67 +5420,78 @@ export interface ListServiceNetworkResourceAssociationsResponse {
  */
 export interface ListServiceNetworksRequest {
   /**
-   * <p>The maximum number of results to return.</p>
+   * The maximum number of results to return.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A pagination token for the next page of results.</p>
+   * A pagination token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Summary information about a service network.</p>
+ * Summary information about a service network.
+ *
  * @public
  */
 export interface ServiceNetworkSummary {
   /**
-   * <p>The ID of the service network.</p>
+   * The ID of the service network.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The name of the service network.</p>
+   * The name of the service network.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service network.</p>
+   * The Amazon Resource Name (ARN) of the service network.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The date and time that the service network was created, in ISO-8601 format.</p>
+   * The date and time that the service network was created, in ISO-8601 format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time that the service network was last updated, in ISO-8601 format.</p>
+   * The date and time that the service network was last updated, in ISO-8601 format.
+   *
    * @public
    */
   lastUpdatedAt?: Date | undefined;
 
   /**
-   * <p>The number of VPCs associated with the service network.</p>
+   * The number of VPCs associated with the service network.
+   *
    * @public
    */
   numberOfAssociatedVPCs?: number | undefined;
 
   /**
-   * <p>The number of services associated with the service network.</p>
+   * The number of services associated with the service network.
+   *
    * @public
    */
   numberOfAssociatedServices?: number | undefined;
 
   /**
-   * <p>The number of resource configurations associated with a service network.</p>
+   * The number of resource configurations associated with a service network.
+   *
    * @public
    */
   numberOfAssociatedResourceConfigurations?: number | undefined;
@@ -4779,13 +5502,15 @@ export interface ServiceNetworkSummary {
  */
 export interface ListServiceNetworksResponse {
   /**
-   * <p>Information about the service networks.</p>
+   * Information about the service networks.
+   *
    * @public
    */
   items: ServiceNetworkSummary[] | undefined;
 
   /**
-   * <p>If there are additional results, a pagination token for the next page of results.</p>
+   * If there are additional results, a pagination token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4796,109 +5521,127 @@ export interface ListServiceNetworksResponse {
  */
 export interface ListServiceNetworkServiceAssociationsRequest {
   /**
-   * <p>The ID or ARN of the service network.</p>
+   * The ID or ARN of the service network.
+   *
    * @public
    */
   serviceNetworkIdentifier?: string | undefined;
 
   /**
-   * <p>The ID or ARN of the service.</p>
+   * The ID or ARN of the service.
+   *
    * @public
    */
   serviceIdentifier?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return.</p>
+   * The maximum number of results to return.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A pagination token for the next page of results.</p>
+   * A pagination token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Summary information about an association between a service network and a service.</p>
+ * Summary information about an association between a service network and a service.
+ *
  * @public
  */
 export interface ServiceNetworkServiceAssociationSummary {
   /**
-   * <p>The ID of the association.</p>
+   * The ID of the association.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The status of the service network’s association with the service. If the deletion fails, try to delete again.</p>
+   * The status of the service network’s association with the service. If the deletion fails, try to delete again.
+   *
    * @public
    */
   status?: ServiceNetworkServiceAssociationStatus | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the association.</p>
+   * The Amazon Resource Name (ARN) of the association.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The account that created the association.</p>
+   * The account that created the association.
+   *
    * @public
    */
   createdBy?: string | undefined;
 
   /**
-   * <p>The date and time that the association was created, in ISO-8601 format.</p>
+   * The date and time that the association was created, in ISO-8601 format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The ID of the service.</p>
+   * The ID of the service.
+   *
    * @public
    */
   serviceId?: string | undefined;
 
   /**
-   * <p>The name of the service.</p>
+   * The name of the service.
+   *
    * @public
    */
   serviceName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service.</p>
+   * The Amazon Resource Name (ARN) of the service.
+   *
    * @public
    */
   serviceArn?: string | undefined;
 
   /**
-   * <p>The ID of the service network.</p>
+   * The ID of the service network.
+   *
    * @public
    */
   serviceNetworkId?: string | undefined;
 
   /**
-   * <p>The name of the service network.</p>
+   * The name of the service network.
+   *
    * @public
    */
   serviceNetworkName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service network.</p>
+   * The Amazon Resource Name (ARN) of the service network.
+   *
    * @public
    */
   serviceNetworkArn?: string | undefined;
 
   /**
-   * <p>The DNS information.</p>
+   * The DNS information.
+   *
    * @public
    */
   dnsEntry?: DnsEntry | undefined;
 
   /**
-   * <p>The custom domain name of the service.</p>
+   * The custom domain name of the service.
+   *
    * @public
    */
   customDomainName?: string | undefined;
@@ -4909,13 +5652,15 @@ export interface ServiceNetworkServiceAssociationSummary {
  */
 export interface ListServiceNetworkServiceAssociationsResponse {
   /**
-   * <p>Information about the associations.</p>
+   * Information about the associations.
+   *
    * @public
    */
   items: ServiceNetworkServiceAssociationSummary[] | undefined;
 
   /**
-   * <p>If there are additional results, a pagination token for the next page of results.</p>
+   * If there are additional results, a pagination token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4926,103 +5671,120 @@ export interface ListServiceNetworkServiceAssociationsResponse {
  */
 export interface ListServiceNetworkVpcAssociationsRequest {
   /**
-   * <p>The ID or ARN of the service network.</p>
+   * The ID or ARN of the service network.
+   *
    * @public
    */
   serviceNetworkIdentifier?: string | undefined;
 
   /**
-   * <p>The ID or ARN of the VPC.</p>
+   * The ID or ARN of the VPC.
+   *
    * @public
    */
   vpcIdentifier?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return.</p>
+   * The maximum number of results to return.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A pagination token for the next page of results.</p>
+   * A pagination token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Summary information about an association between a service network and a VPC.</p>
+ * Summary information about an association between a service network and a VPC.
+ *
  * @public
  */
 export interface ServiceNetworkVpcAssociationSummary {
   /**
-   * <p>The ID of the association.</p>
+   * The ID of the association.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the association.</p>
+   * The Amazon Resource Name (ARN) of the association.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The status.</p>
+   * The status.
+   *
    * @public
    */
   status?: ServiceNetworkVpcAssociationStatus | undefined;
 
   /**
-   * <p>The account that created the association.</p>
+   * The account that created the association.
+   *
    * @public
    */
   createdBy?: string | undefined;
 
   /**
-   * <p>The date and time that the association was created, in ISO-8601 format.</p>
+   * The date and time that the association was created, in ISO-8601 format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The ID of the service network.</p>
+   * The ID of the service network.
+   *
    * @public
    */
   serviceNetworkId?: string | undefined;
 
   /**
-   * <p>The name of the service network.</p>
+   * The name of the service network.
+   *
    * @public
    */
   serviceNetworkName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service network.</p>
+   * The Amazon Resource Name (ARN) of the service network.
+   *
    * @public
    */
   serviceNetworkArn?: string | undefined;
 
   /**
-   * <p> Indicates if private DNS is enabled for the service network VPC association. </p>
+   * Indicates if private DNS is enabled for the service network VPC association.
+   *
    * @public
    */
   privateDnsEnabled?: boolean | undefined;
 
   /**
-   * <p> The DNS options for the service network VPC association. </p>
+   * The DNS options for the service network VPC association.
+   *
    * @public
    */
   dnsOptions?: DnsOptions | undefined;
 
   /**
-   * <p>The ID of the VPC.</p>
+   * The ID of the VPC.
+   *
    * @public
    */
   vpcId?: string | undefined;
 
   /**
-   * <p>The date and time that the association was last updated, in ISO-8601 format.</p>
+   * The date and time that the association was last updated, in ISO-8601 format.
+   *
    * @public
    */
   lastUpdatedAt?: Date | undefined;
@@ -5033,13 +5795,15 @@ export interface ServiceNetworkVpcAssociationSummary {
  */
 export interface ListServiceNetworkVpcAssociationsResponse {
   /**
-   * <p>Information about the associations.</p>
+   * Information about the associations.
+   *
    * @public
    */
   items: ServiceNetworkVpcAssociationSummary[] | undefined;
 
   /**
-   * <p>If there are additional results, a pagination token for the next page of results.</p>
+   * If there are additional results, a pagination token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -5050,67 +5814,78 @@ export interface ListServiceNetworkVpcAssociationsResponse {
  */
 export interface ListServiceNetworkVpcEndpointAssociationsRequest {
   /**
-   * <p>The ID of the service network associated with the VPC endpoint.</p>
+   * The ID of the service network associated with the VPC endpoint.
+   *
    * @public
    */
   serviceNetworkIdentifier: string | undefined;
 
   /**
-   * <p>The maximum page size.</p>
+   * The maximum page size.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>If there are additional results, a pagination token for the next page of results.</p>
+   * If there are additional results, a pagination token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Describes the association between a service network and a VPC endpoint.</p>
+ * Describes the association between a service network and a VPC endpoint.
+ *
  * @public
  */
 export interface ServiceNetworkEndpointAssociation {
   /**
-   * <p>The ID of the VPC endpoint associated with the service network.</p>
+   * The ID of the VPC endpoint associated with the service network.
+   *
    * @public
    */
   vpcEndpointId?: string | undefined;
 
   /**
-   * <p>The ID of the VPC for the association.</p>
+   * The ID of the VPC for the association.
+   *
    * @public
    */
   vpcId?: string | undefined;
 
   /**
-   * <p>The owner of the VPC endpoint associated with the service network.</p>
+   * The owner of the VPC endpoint associated with the service network.
+   *
    * @public
    */
   vpcEndpointOwnerId?: string | undefined;
 
   /**
-   * <p>The ID of the association.</p>
+   * The ID of the association.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The state of the association.</p>
+   * The state of the association.
+   *
    * @public
    */
   state?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service network.</p>
+   * The Amazon Resource Name (ARN) of the service network.
+   *
    * @public
    */
   serviceNetworkArn?: string | undefined;
 
   /**
-   * <p>The date and time that the association was created, in ISO-8601 format.</p>
+   * The date and time that the association was created, in ISO-8601 format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
@@ -5121,13 +5896,15 @@ export interface ServiceNetworkEndpointAssociation {
  */
 export interface ListServiceNetworkVpcEndpointAssociationsResponse {
   /**
-   * <p>Information about the association between the VPC endpoint and service network.</p>
+   * Information about the association between the VPC endpoint and service network.
+   *
    * @public
    */
   items: ServiceNetworkEndpointAssociation[] | undefined;
 
   /**
-   * <p>If there are additional results, a pagination token for the next page of results.</p>
+   * If there are additional results, a pagination token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -5138,67 +5915,78 @@ export interface ListServiceNetworkVpcEndpointAssociationsResponse {
  */
 export interface ListServicesRequest {
   /**
-   * <p>The maximum number of results to return.</p>
+   * The maximum number of results to return.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A pagination token for the next page of results.</p>
+   * A pagination token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Summary information about a service.</p>
+ * Summary information about a service.
+ *
  * @public
  */
 export interface ServiceSummary {
   /**
-   * <p>The ID of the service.</p>
+   * The ID of the service.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The name of the service.</p>
+   * The name of the service.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service.</p>
+   * The Amazon Resource Name (ARN) of the service.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The date and time that the service was created, in ISO-8601 format.</p>
+   * The date and time that the service was created, in ISO-8601 format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time that the service was last updated, in ISO-8601 format.</p>
+   * The date and time that the service was last updated, in ISO-8601 format.
+   *
    * @public
    */
   lastUpdatedAt?: Date | undefined;
 
   /**
-   * <p>The DNS information.</p>
+   * The DNS information.
+   *
    * @public
    */
   dnsEntry?: DnsEntry | undefined;
 
   /**
-   * <p>The custom domain name of the service.</p>
+   * The custom domain name of the service.
+   *
    * @public
    */
   customDomainName?: string | undefined;
 
   /**
-   * <p>The status.</p>
+   * The status.
+   *
    * @public
    */
   status?: ServiceStatus | undefined;
@@ -5209,13 +5997,15 @@ export interface ServiceSummary {
  */
 export interface ListServicesResponse {
   /**
-   * <p>Information about the services.</p>
+   * Information about the services.
+   *
    * @public
    */
   items?: ServiceSummary[] | undefined;
 
   /**
-   * <p>If there are additional results, a pagination token for the next page of results.</p>
+   * If there are additional results, a pagination token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -5226,7 +6016,8 @@ export interface ListServicesResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -5237,7 +6028,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>Information about the tags.</p>
+   * Information about the tags.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -5248,109 +6040,129 @@ export interface ListTagsForResourceResponse {
  */
 export interface ListTargetGroupsRequest {
   /**
-   * <p>The maximum number of results to return.</p>
+   * The maximum number of results to return.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A pagination token for the next page of results.</p>
+   * A pagination token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The ID or ARN of the VPC.</p>
+   * The ID or ARN of the VPC.
+   *
    * @public
    */
   vpcIdentifier?: string | undefined;
 
   /**
-   * <p>The target group type.</p>
+   * The target group type.
+   *
    * @public
    */
   targetGroupType?: TargetGroupType | undefined;
 }
 
 /**
- * <p>Summary information about a target group.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/target-groups.html">Target groups</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
+ * Summary information about a target group.
+ *
+ * For more information, see [Target groups](https://docs.aws.amazon.com/vpc-lattice/latest/ug/target-groups.html) in the *Amazon VPC Lattice User Guide*.
+ *
  * @public
  */
 export interface TargetGroupSummary {
   /**
-   * <p>The ID of the target group.</p>
+   * The ID of the target group.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The ARN (Amazon Resource Name) of the target group.</p>
+   * The ARN (Amazon Resource Name) of the target group.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The name of the target group.</p>
+   * The name of the target group.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The target group type.</p>
+   * The target group type.
+   *
    * @public
    */
   type?: TargetGroupType | undefined;
 
   /**
-   * <p>The date and time that the target group was created, in ISO-8601 format.</p>
+   * The date and time that the target group was created, in ISO-8601 format.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The port of the target group.</p>
+   * The port of the target group.
+   *
    * @public
    */
   port?: number | undefined;
 
   /**
-   * <p>The protocol of the target group.</p>
+   * The protocol of the target group.
+   *
    * @public
    */
   protocol?: TargetGroupProtocol | undefined;
 
   /**
-   * <p>The type of IP address used for the target group. The possible values are <code>IPV4</code> and <code>IPV6</code>. This is an optional parameter. If not specified, the default is <code>IPV4</code>.</p>
+   * The type of IP address used for the target group. The possible values are `IPV4` and `IPV6`. This is an optional parameter. If not specified, the default is `IPV4`.
+   *
    * @public
    */
   ipAddressType?: IpAddressType | undefined;
 
   /**
-   * <p>The ID of the VPC of the target group.</p>
+   * The ID of the VPC of the target group.
+   *
    * @public
    */
   vpcIdentifier?: string | undefined;
 
   /**
-   * <p>The date and time that the target group was last updated, in ISO-8601 format.</p>
+   * The date and time that the target group was last updated, in ISO-8601 format.
+   *
    * @public
    */
   lastUpdatedAt?: Date | undefined;
 
   /**
-   * <p>The status.</p>
+   * The status.
+   *
    * @public
    */
   status?: TargetGroupStatus | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the service.</p>
+   * The Amazon Resource Names (ARNs) of the service.
+   *
    * @public
    */
   serviceArns?: string[] | undefined;
 
   /**
-   * <p>The version of the event structure that your Lambda function receives. Supported only if the target group type is <code>LAMBDA</code>.</p>
+   * The version of the event structure that your Lambda function receives. Supported only if the target group type is `LAMBDA`.
+   *
    * @public
    */
   lambdaEventStructureVersion?: LambdaEventStructureVersion | undefined;
@@ -5361,13 +6173,15 @@ export interface TargetGroupSummary {
  */
 export interface ListTargetGroupsResponse {
   /**
-   * <p>Information about the target groups.</p>
+   * Information about the target groups.
+   *
    * @public
    */
   items?: TargetGroupSummary[] | undefined;
 
   /**
-   * <p>If there are additional results, a pagination token for the next page of results.</p>
+   * If there are additional results, a pagination token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -5378,55 +6192,71 @@ export interface ListTargetGroupsResponse {
  */
 export interface ListTargetsRequest {
   /**
-   * <p>The ID or ARN of the target group.</p>
+   * The ID or ARN of the target group.
+   *
    * @public
    */
   targetGroupIdentifier: string | undefined;
 
   /**
-   * <p>The maximum number of results to return.</p>
+   * The maximum number of results to return.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A pagination token for the next page of results.</p>
+   * A pagination token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The targets.</p>
+   * The targets.
+   *
    * @public
    */
   targets?: Target[] | undefined;
 }
 
 /**
- * <p>Summary information about a target.</p>
+ * Summary information about a target.
+ *
  * @public
  */
 export interface TargetSummary {
   /**
-   * <p>The ID of the target. If the target group type is <code>INSTANCE</code>, this is an instance ID. If the target group type is <code>IP</code>, this is an IP address. If the target group type is <code>LAMBDA</code>, this is the ARN of a Lambda function. If the target type is <code>ALB</code>, this is the ARN of an Application Load Balancer.</p>
+   * The ID of the target. If the target group type is `INSTANCE`, this is an instance ID. If the target group type is `IP`, this is an IP address. If the target group type is `LAMBDA`, this is the ARN of a Lambda function. If the target type is `ALB`, this is the ARN of an Application Load Balancer.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The port on which the target is listening.</p>
+   * The port on which the target is listening.
+   *
    * @public
    */
   port?: number | undefined;
 
   /**
-   * <p>The status of the target.</p> <ul> <li> <p> <code>DRAINING</code>: The target is being deregistered. No new connections are sent to this target while current connections are being drained. The default draining time is 1 minute.</p> </li> <li> <p> <code>UNAVAILABLE</code>: Health checks are unavailable for the target group.</p> </li> <li> <p> <code>HEALTHY</code>: The target is healthy.</p> </li> <li> <p> <code>UNHEALTHY</code>: The target is unhealthy.</p> </li> <li> <p> <code>INITIAL</code>: Initial health checks on the target are being performed.</p> </li> <li> <p> <code>UNUSED</code>: Target group is not used in a service.</p> </li> </ul>
+   * The status of the target.
+   *
+   * - `DRAINING`: The target is being deregistered. No new connections are sent to this target while current connections are being drained. The default draining time is 1 minute.
+   * - `UNAVAILABLE`: Health checks are unavailable for the target group.
+   * - `HEALTHY`: The target is healthy.
+   * - `UNHEALTHY`: The target is unhealthy.
+   * - `INITIAL`: Initial health checks on the target are being performed.
+   * - `UNUSED`: Target group is not used in a service.
+   *
    * @public
    */
   status?: TargetStatus | undefined;
 
   /**
-   * <p>The code for why the target status is what it is.</p>
+   * The code for why the target status is what it is.
+   *
    * @public
    */
   reasonCode?: string | undefined;
@@ -5437,13 +6267,15 @@ export interface TargetSummary {
  */
 export interface ListTargetsResponse {
   /**
-   * <p>Information about the targets.</p>
+   * Information about the targets.
+   *
    * @public
    */
   items: TargetSummary[] | undefined;
 
   /**
-   * <p>If there are additional results, a pagination token for the next page of results.</p>
+   * If there are additional results, a pagination token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -5454,13 +6286,15 @@ export interface ListTargetsResponse {
  */
 export interface PutAuthPolicyRequest {
   /**
-   * <p>The ID or ARN of the service network or service for which the policy is created.</p>
+   * The ID or ARN of the service network or service for which the policy is created.
+   *
    * @public
    */
   resourceIdentifier: string | undefined;
 
   /**
-   * <p>The auth policy. The policy string in JSON must not contain newlines or blank lines.</p>
+   * The auth policy. The policy string in JSON must not contain newlines or blank lines.
+   *
    * @public
    */
   policy: string | undefined;
@@ -5471,13 +6305,15 @@ export interface PutAuthPolicyRequest {
  */
 export interface PutAuthPolicyResponse {
   /**
-   * <p>The auth policy. The policy string in JSON must not contain newlines or blank lines.</p>
+   * The auth policy. The policy string in JSON must not contain newlines or blank lines.
+   *
    * @public
    */
   policy?: string | undefined;
 
   /**
-   * <p>The state of the auth policy. The auth policy is only active when the auth type is set to <code>AWS_IAM</code>. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is <code>NONE</code>, then, any auth policy that you provide remains inactive. For more information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-networks.html#create-service-network">Create a service network</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
+   * The state of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is `NONE`, then, any auth policy that you provide remains inactive. For more information, see [Create a service network](https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-networks.html#create-service-network) in the *Amazon VPC Lattice User Guide*.
+   *
    * @public
    */
   state?: AuthPolicyState | undefined;
@@ -5488,13 +6324,15 @@ export interface PutAuthPolicyResponse {
  */
 export interface PutResourcePolicyRequest {
   /**
-   * <p>The ID or ARN of the service network or service for which the policy is created.</p>
+   * The ID or ARN of the service network or service for which the policy is created.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>An IAM policy. The policy string in JSON must not contain newlines or blank lines.</p>
+   * An IAM policy. The policy string in JSON must not contain newlines or blank lines.
+   *
    * @public
    */
   policy: string | undefined;
@@ -5510,25 +6348,33 @@ export interface PutResourcePolicyResponse {}
  */
 export interface UpdateResourceConfigurationRequest {
   /**
-   * <p>The ID of the resource configuration.</p>
+   * The ID of the resource configuration.
+   *
    * @public
    */
   resourceConfigurationIdentifier: string | undefined;
 
   /**
-   * <p>Identifies the resource configuration in one of the following ways:</p> <ul> <li> <p> <b>Amazon Resource Name (ARN)</b> - Supported resource-types that are provisioned by Amazon Web Services services, such as RDS databases, can be identified by their ARN.</p> </li> <li> <p> <b>Domain name</b> - Any domain name that is publicly resolvable.</p> </li> <li> <p> <b>IP address</b> - For IPv4 and IPv6, only IP addresses in the VPC are supported.</p> </li> </ul>
+   * Identifies the resource configuration in one of the following ways:
+   *
+   * - **Amazon Resource Name (ARN)** - Supported resource-types that are provisioned by Amazon Web Services services, such as RDS databases, can be identified by their ARN.
+   * - **Domain name** - Any domain name that is publicly resolvable.
+   * - **IP address** - For IPv4 and IPv6, only IP addresses in the VPC are supported.
+   *
    * @public
    */
   resourceConfigurationDefinition?: ResourceConfigurationDefinition | undefined;
 
   /**
-   * <p>Indicates whether to add the resource configuration to service networks that are shared with other accounts.</p>
+   * Indicates whether to add the resource configuration to service networks that are shared with other accounts.
+   *
    * @public
    */
   allowAssociationToShareableServiceNetwork?: boolean | undefined;
 
   /**
-   * <p>The TCP port ranges that a consumer can use to access a resource configuration. You can separate port ranges with a comma. Example: 1-65535 or 1,2,22-30</p>
+   * The TCP port ranges that a consumer can use to access a resource configuration. You can separate port ranges with a comma. Example: 1-65535 or 1,2,22-30
+   *
    * @public
    */
   portRanges?: string[] | undefined;
@@ -5539,67 +6385,84 @@ export interface UpdateResourceConfigurationRequest {
  */
 export interface UpdateResourceConfigurationResponse {
   /**
-   * <p>The ID of the resource configuration.</p>
+   * The ID of the resource configuration.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The name of the resource configuration.</p>
+   * The name of the resource configuration.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource configuration.</p>
+   * The Amazon Resource Name (ARN) of the resource configuration.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The ID of the resource gateway associated with the resource configuration.</p>
+   * The ID of the resource gateway associated with the resource configuration.
+   *
    * @public
    */
   resourceGatewayId?: string | undefined;
 
   /**
-   * <p>The ID of the group resource configuration.</p>
+   * The ID of the group resource configuration.
+   *
    * @public
    */
   resourceConfigurationGroupId?: string | undefined;
 
   /**
-   * <p>The type of resource configuration.</p> <ul> <li> <p> <code>SINGLE</code> - A single resource.</p> </li> <li> <p> <code>GROUP</code> - A group of resources.</p> </li> <li> <p> <code>CHILD</code> - A single resource that is part of a group resource configuration.</p> </li> <li> <p> <code>ARN</code> - An Amazon Web Services resource.</p> </li> <li> <p> <code>CIDR</code> - A network segment (a range of IP addresses) accessed through a <code>Tunnel</code> VPC endpoint.</p> </li> </ul>
+   * The type of resource configuration.
+   *
+   * - `SINGLE` - A single resource.
+   * - `GROUP` - A group of resources.
+   * - `CHILD` - A single resource that is part of a group resource configuration.
+   * - `ARN` - An Amazon Web Services resource.
+   * - `CIDR` - A network segment (a range of IP addresses) accessed through a `Tunnel` VPC endpoint.
+   *
    * @public
    */
   type?: ResourceConfigurationType | undefined;
 
   /**
-   * <p>The TCP port ranges that a consumer can use to access a resource configuration. You can separate port ranges with a comma. Example: 1-65535 or 1,2,22-30</p>
+   * The TCP port ranges that a consumer can use to access a resource configuration. You can separate port ranges with a comma. Example: 1-65535 or 1,2,22-30
+   *
    * @public
    */
   portRanges?: string[] | undefined;
 
   /**
-   * <p>Indicates whether to add the resource configuration to service networks that are shared with other accounts.</p>
+   * Indicates whether to add the resource configuration to service networks that are shared with other accounts.
+   *
    * @public
    */
   allowAssociationToShareableServiceNetwork?: boolean | undefined;
 
   /**
-   * <p>The TCP protocol accepted by the specified resource configuration.</p>
+   * The TCP protocol accepted by the specified resource configuration.
+   *
    * @public
    */
   protocol?: ProtocolType | undefined;
 
   /**
-   * <p>The status of the resource configuration.</p>
+   * The status of the resource configuration.
+   *
    * @public
    */
   status?: ResourceConfigurationStatus | undefined;
 
   /**
-   * <p>The resource configuration.</p>
+   * The resource configuration.
+   *
    * @public
    */
   resourceConfigurationDefinition?: ResourceConfigurationDefinition | undefined;
@@ -5610,13 +6473,15 @@ export interface UpdateResourceConfigurationResponse {
  */
 export interface UpdateResourceGatewayRequest {
   /**
-   * <p>The ID or ARN of the resource gateway.</p>
+   * The ID or ARN of the resource gateway.
+   *
    * @public
    */
   resourceGatewayIdentifier: string | undefined;
 
   /**
-   * <p>The IDs of the security groups associated with the resource gateway.</p>
+   * The IDs of the security groups associated with the resource gateway.
+   *
    * @public
    */
   securityGroupIds?: string[] | undefined;
@@ -5627,49 +6492,57 @@ export interface UpdateResourceGatewayRequest {
  */
 export interface UpdateResourceGatewayResponse {
   /**
-   * <p>The name of the resource gateway.</p>
+   * The name of the resource gateway.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The ID of the resource gateway.</p>
+   * The ID of the resource gateway.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource gateway.</p>
+   * The Amazon Resource Name (ARN) of the resource gateway.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The status of the resource gateway.</p>
+   * The status of the resource gateway.
+   *
    * @public
    */
   status?: ResourceGatewayStatus | undefined;
 
   /**
-   * <p>The ID of the VPC for the resource gateway.</p>
+   * The ID of the VPC for the resource gateway.
+   *
    * @public
    */
   vpcId?: string | undefined;
 
   /**
-   * <p>The IDs of the VPC subnets for the resource gateway.</p>
+   * The IDs of the VPC subnets for the resource gateway.
+   *
    * @public
    */
   subnetIds?: string[] | undefined;
 
   /**
-   * <p>The IDs of the security groups associated with the resource gateway.</p>
+   * The IDs of the security groups associated with the resource gateway.
+   *
    * @public
    */
   securityGroupIds?: string[] | undefined;
 
   /**
-   * <p>The type of IP address used by the resource gateway.</p>
+   * The type of IP address used by the resource gateway.
+   *
    * @public
    */
   ipAddressType?: IpAddressType | undefined;
@@ -5680,37 +6553,43 @@ export interface UpdateResourceGatewayResponse {
  */
 export interface UpdateRuleRequest {
   /**
-   * <p>The ID or ARN of the service.</p>
+   * The ID or ARN of the service.
+   *
    * @public
    */
   serviceIdentifier: string | undefined;
 
   /**
-   * <p>The ID or ARN of the listener.</p>
+   * The ID or ARN of the listener.
+   *
    * @public
    */
   listenerIdentifier: string | undefined;
 
   /**
-   * <p>The ID or ARN of the rule.</p>
+   * The ID or ARN of the rule.
+   *
    * @public
    */
   ruleIdentifier: string | undefined;
 
   /**
-   * <p>The rule match.</p>
+   * The rule match.
+   *
    * @public
    */
   match?: RuleMatch | undefined;
 
   /**
-   * <p>The rule priority. A listener can't have multiple rules with the same priority.</p>
+   * The rule priority. A listener can't have multiple rules with the same priority.
+   *
    * @public
    */
   priority?: number | undefined;
 
   /**
-   * <p>Information about the action for the specified listener rule.</p>
+   * Information about the action for the specified listener rule.
+   *
    * @public
    */
   action?: RuleAction | undefined;
@@ -5721,43 +6600,50 @@ export interface UpdateRuleRequest {
  */
 export interface UpdateRuleResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the listener.</p>
+   * The Amazon Resource Name (ARN) of the listener.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The ID of the listener.</p>
+   * The ID of the listener.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The name of the listener.</p>
+   * The name of the listener.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Indicates whether this is the default rule.</p>
+   * Indicates whether this is the default rule.
+   *
    * @public
    */
   isDefault?: boolean | undefined;
 
   /**
-   * <p>The rule match.</p>
+   * The rule match.
+   *
    * @public
    */
   match?: RuleMatch | undefined;
 
   /**
-   * <p>The rule priority.</p>
+   * The rule priority.
+   *
    * @public
    */
   priority?: number | undefined;
 
   /**
-   * <p>Information about the action for the specified listener rule.</p>
+   * Information about the action for the specified listener rule.
+   *
    * @public
    */
   action?: RuleAction | undefined;
@@ -5768,25 +6654,32 @@ export interface UpdateRuleResponse {
  */
 export interface UpdateServiceRequest {
   /**
-   * <p>The ID or ARN of the service.</p>
+   * The ID or ARN of the service.
+   *
    * @public
    */
   serviceIdentifier: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the certificate.</p>
+   * The Amazon Resource Name (ARN) of the certificate.
+   *
    * @public
    */
   certificateArn?: string | undefined;
 
   /**
-   * <p>The type of IAM policy.</p> <ul> <li> <p> <code>NONE</code>: The resource does not use an IAM policy. This is the default.</p> </li> <li> <p> <code>AWS_IAM</code>: The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.</p> </li> </ul>
+   * The type of IAM policy.
+   *
+   * - `NONE`: The resource does not use an IAM policy. This is the default.
+   * - `AWS_IAM`: The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
+   *
    * @public
    */
   authType?: AuthType | undefined;
 
   /**
-   * <p>The amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it. The valid range is 60 to 600 seconds. If you don't specify a value, the default is 60 seconds. This setting does not change the maximum connection duration of 10 minutes; connections are still closed when they reach that limit.</p>
+   * The amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it. The valid range is 60 to 600 seconds. If you don't specify a value, the default is 60 seconds. This setting does not change the maximum connection duration of 10 minutes; connections are still closed when they reach that limit.
+   *
    * @public
    */
   idleTimeoutSeconds?: number | undefined;
@@ -5797,43 +6690,50 @@ export interface UpdateServiceRequest {
  */
 export interface UpdateServiceResponse {
   /**
-   * <p>The ID of the service.</p>
+   * The ID of the service.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service.</p>
+   * The Amazon Resource Name (ARN) of the service.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The name of the service.</p>
+   * The name of the service.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The custom domain name of the service.</p>
+   * The custom domain name of the service.
+   *
    * @public
    */
   customDomainName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the certificate.</p>
+   * The Amazon Resource Name (ARN) of the certificate.
+   *
    * @public
    */
   certificateArn?: string | undefined;
 
   /**
-   * <p>The type of IAM policy.</p>
+   * The type of IAM policy.
+   *
    * @public
    */
   authType?: AuthType | undefined;
 
   /**
-   * <p>The amount of time, in seconds, that a connection can remain idle before VPC Lattice closes it.</p>
+   * The amount of time, in seconds, that a connection can remain idle before VPC Lattice closes it.
+   *
    * @public
    */
   idleTimeoutSeconds?: number | undefined;
@@ -5844,13 +6744,18 @@ export interface UpdateServiceResponse {
  */
 export interface UpdateServiceNetworkRequest {
   /**
-   * <p>The ID or ARN of the service network.</p>
+   * The ID or ARN of the service network.
+   *
    * @public
    */
   serviceNetworkIdentifier: string | undefined;
 
   /**
-   * <p>The type of IAM policy.</p> <ul> <li> <p> <code>NONE</code>: The resource does not use an IAM policy. This is the default.</p> </li> <li> <p> <code>AWS_IAM</code>: The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.</p> </li> </ul>
+   * The type of IAM policy.
+   *
+   * - `NONE`: The resource does not use an IAM policy. This is the default.
+   * - `AWS_IAM`: The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
+   *
    * @public
    */
   authType: AuthType | undefined;
@@ -5861,25 +6766,29 @@ export interface UpdateServiceNetworkRequest {
  */
 export interface UpdateServiceNetworkResponse {
   /**
-   * <p>The ID of the service network.</p>
+   * The ID of the service network.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The name of the service network.</p>
+   * The name of the service network.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service network.</p>
+   * The Amazon Resource Name (ARN) of the service network.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The type of IAM policy.</p>
+   * The type of IAM policy.
+   *
    * @public
    */
   authType?: AuthType | undefined;
@@ -5890,25 +6799,29 @@ export interface UpdateServiceNetworkResponse {
  */
 export interface UpdateServiceNetworkVpcAssociationRequest {
   /**
-   * <p>The ID or ARN of the association.</p>
+   * The ID or ARN of the association.
+   *
    * @public
    */
   serviceNetworkVpcAssociationIdentifier: string | undefined;
 
   /**
-   * <p>The IDs of the security groups.</p>
+   * The IDs of the security groups.
+   *
    * @public
    */
   securityGroupIds?: string[] | undefined;
 
   /**
-   * <p> Indicates if private DNS is enabled for the VPC association. </p>
+   * Indicates if private DNS is enabled for the VPC association.
+   *
    * @public
    */
   privateDnsEnabled?: boolean | undefined;
 
   /**
-   * <p> DNS options for the service network VPC association. </p>
+   * DNS options for the service network VPC association.
+   *
    * @public
    */
   dnsOptions?: DnsOptions | undefined;
@@ -5919,43 +6832,50 @@ export interface UpdateServiceNetworkVpcAssociationRequest {
  */
 export interface UpdateServiceNetworkVpcAssociationResponse {
   /**
-   * <p>The ID of the association.</p>
+   * The ID of the association.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the association.</p>
+   * The Amazon Resource Name (ARN) of the association.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The status. You can retry the operation if the status is <code>DELETE_FAILED</code>. However, if you retry it while the status is <code>DELETE_IN_PROGRESS</code>, there is no change in the status.</p>
+   * The status. You can retry the operation if the status is `DELETE_FAILED`. However, if you retry it while the status is `DELETE_IN_PROGRESS`, there is no change in the status.
+   *
    * @public
    */
   status?: ServiceNetworkVpcAssociationStatus | undefined;
 
   /**
-   * <p>The account that created the association.</p>
+   * The account that created the association.
+   *
    * @public
    */
   createdBy?: string | undefined;
 
   /**
-   * <p>The IDs of the security groups.</p>
+   * The IDs of the security groups.
+   *
    * @public
    */
   securityGroupIds?: string[] | undefined;
 
   /**
-   * <p> Indicates if private DNS is enabled for the VPC association. </p>
+   * Indicates if private DNS is enabled for the VPC association.
+   *
    * @public
    */
   privateDnsEnabled?: boolean | undefined;
 
   /**
-   * <p> DNS options for the service network VPC association. </p>
+   * DNS options for the service network VPC association.
+   *
    * @public
    */
   dnsOptions?: DnsOptions | undefined;
@@ -5966,13 +6886,15 @@ export interface UpdateServiceNetworkVpcAssociationResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The tags for the resource.</p>
+   * The tags for the resource.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -5988,13 +6910,15 @@ export interface TagResourceResponse {}
  */
 export interface RegisterTargetsRequest {
   /**
-   * <p>The ID or ARN of the target group.</p>
+   * The ID or ARN of the target group.
+   *
    * @public
    */
   targetGroupIdentifier: string | undefined;
 
   /**
-   * <p>The targets.</p>
+   * The targets.
+   *
    * @public
    */
   targets: Target[] | undefined;
@@ -6005,13 +6929,15 @@ export interface RegisterTargetsRequest {
  */
 export interface RegisterTargetsResponse {
   /**
-   * <p>The targets that were successfully registered.</p>
+   * The targets that were successfully registered.
+   *
    * @public
    */
   successful?: Target[] | undefined;
 
   /**
-   * <p>The targets that were not registered.</p>
+   * The targets that were not registered.
+   *
    * @public
    */
   unsuccessful?: TargetFailure[] | undefined;
@@ -6022,13 +6948,15 @@ export interface RegisterTargetsResponse {
  */
 export interface UpdateTargetGroupRequest {
   /**
-   * <p>The ID or ARN of the target group.</p>
+   * The ID or ARN of the target group.
+   *
    * @public
    */
   targetGroupIdentifier: string | undefined;
 
   /**
-   * <p>The health check configuration.</p>
+   * The health check configuration.
+   *
    * @public
    */
   healthCheck: HealthCheckConfig | undefined;
@@ -6039,37 +6967,43 @@ export interface UpdateTargetGroupRequest {
  */
 export interface UpdateTargetGroupResponse {
   /**
-   * <p>The ID of the target group.</p>
+   * The ID of the target group.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the target group.</p>
+   * The Amazon Resource Name (ARN) of the target group.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The name of the target group.</p>
+   * The name of the target group.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The target group type.</p>
+   * The target group type.
+   *
    * @public
    */
   type?: TargetGroupType | undefined;
 
   /**
-   * <p>The target group configuration.</p>
+   * The target group configuration.
+   *
    * @public
    */
   config?: TargetGroupConfig | undefined;
 
   /**
-   * <p>The status.</p>
+   * The status.
+   *
    * @public
    */
   status?: TargetGroupStatus | undefined;
@@ -6080,13 +7014,15 @@ export interface UpdateTargetGroupResponse {
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The tag keys of the tags to remove.</p>
+   * The tag keys of the tags to remove.
+   *
    * @public
    */
   tagKeys: string[] | undefined;

@@ -23,7 +23,16 @@ export interface CreateSafetyRuleCommandInput extends CreateSafetyRuleRequest {}
 export interface CreateSafetyRuleCommandOutput extends CreateSafetyRuleResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a safety rule in a control panel. Safety rules let you add safeguards around changing routing control states, and for enabling and disabling routing controls, to help prevent unexpected outcomes.</p> <p>There are two types of safety rules: assertion rules and gating rules.</p> <p>Assertion rule: An assertion rule enforces that, when you change a routing control state, that a certain criteria is met. For example, the criteria might be that at least one routing control state is On after the transaction so that traffic continues to flow to at least one cell for the application. This ensures that you avoid a fail-open scenario.</p> <p>Gating rule: A gating rule lets you configure a gating routing control as an overall "on/off" switch for a group of routing controls. Or, you can configure more complex gating scenarios, for example by configuring multiple gating routing controls.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.safety-rules.html">Safety rules</a> in the Amazon Route 53 Application Recovery Controller Developer Guide.</p>
+ * Creates a safety rule in a control panel. Safety rules let you add safeguards around changing routing control states, and for enabling and disabling routing controls, to help prevent unexpected outcomes.
+ *
+ * There are two types of safety rules: assertion rules and gating rules.
+ *
+ * Assertion rule: An assertion rule enforces that, when you change a routing control state, that a certain criteria is met. For example, the criteria might be that at least one routing control state is On after the transaction so that traffic continues to flow to at least one cell for the application. This ensures that you avoid a fail-open scenario.
+ *
+ * Gating rule: A gating rule lets you configure a gating routing control as an overall "on/off" switch for a group of routing controls. Or, you can configure more complex gating scenarios, for example by configuring multiple gating routing controls.
+ *
+ * For more information, see [Safety rules](https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.safety-rules.html) in the Amazon Route 53 Application Recovery Controller Developer Guide.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -116,14 +125,16 @@ export interface CreateSafetyRuleCommandOutput extends CreateSafetyRuleResponse,
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>500 response - InternalServiceError. Temporary service error. Retry the request.</p>
+ *
+ * 500 response - InternalServiceError. Temporary service error. Retry the request.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
+ *
+ * 400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.
  *
  * @throws {@link Route53RecoveryControlConfigServiceException}
- * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
+ * Base exception class for all service exceptions from Route53RecoveryControlConfig service.
  *
  * @public
  */

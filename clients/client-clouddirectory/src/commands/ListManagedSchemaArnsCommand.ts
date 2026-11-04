@@ -23,7 +23,8 @@ export interface ListManagedSchemaArnsCommandInput extends ListManagedSchemaArns
 export interface ListManagedSchemaArnsCommandOutput extends ListManagedSchemaArnsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the major version families of each managed schema. If a major version ARN is provided as SchemaArn, the minor version revisions in that family are listed instead.</p>
+ * Lists the major version families of each managed schema. If a major version ARN is provided as SchemaArn, the minor version revisions in that family are listed instead.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,27 +56,32 @@ export interface ListManagedSchemaArnsCommandOutput extends ListManagedSchemaArn
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+ *
+ * Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling ListDirectories and check your permissions.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href="http://status.aws.amazon.com/">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+ *
+ * Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the [AWS Service Health Dashboard](http://status.aws.amazon.com/) site to see if there are any operational issues with the service.
  *
  * @throws {@link InvalidArnException} (client fault)
- *  <p>Indicates that the provided ARN value is not valid.</p>
+ *
+ * Indicates that the provided ARN value is not valid.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>Indicates that the <code>NextToken</code> value is not valid.</p>
+ *
+ * Indicates that the `NextToken` value is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource could not be found.</p>
+ *
+ * The specified resource could not be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Indicates that your request is malformed in some manner. See the exception
- *       message.</p>
+ *
+ * Indicates that your request is malformed in some manner. See the exception message.
  *
  * @throws {@link CloudDirectoryServiceException}
- * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * Base exception class for all service exceptions from CloudDirectory service.
  *
  * @public
  */

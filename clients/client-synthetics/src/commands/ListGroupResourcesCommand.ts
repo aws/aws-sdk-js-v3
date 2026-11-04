@@ -23,7 +23,8 @@ export interface ListGroupResourcesCommandInput extends ListGroupResourcesReques
 export interface ListGroupResourcesCommandOutput extends ListGroupResourcesResponse, __MetadataBearer {}
 
 /**
- * <p>This operation returns a list of the ARNs of the canaries that are associated with the specified group.</p>
+ * This operation returns a list of the ARNs of the canaries that are associated with the specified group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,20 +56,24 @@ export interface ListGroupResourcesCommandOutput extends ListGroupResourcesRespo
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A conflicting operation is already in progress.</p>
+ *
+ * A conflicting operation is already in progress.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unknown internal error occurred.</p>
+ *
+ * An unknown internal error occurred.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>One of the specified resources was not found.</p>
+ *
+ * One of the specified resources was not found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A parameter could not be validated.</p>
+ *
+ * A parameter could not be validated.
  *
  * @throws {@link SyntheticsServiceException}
- * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ * Base exception class for all service exceptions from Synthetics service.
  *
  * @public
  */

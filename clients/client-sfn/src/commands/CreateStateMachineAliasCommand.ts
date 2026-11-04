@@ -23,47 +23,23 @@ export interface CreateStateMachineAliasCommandInput extends CreateStateMachineA
 export interface CreateStateMachineAliasCommandOutput extends CreateStateMachineAliasOutput, __MetadataBearer {}
 
 /**
- * <p>Creates an <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html">alias</a> for a state machine that points to one or two <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html">versions</a> of the same state machine. You can set your application to call <a>StartExecution</a> with an alias and update the version the alias uses without changing the client's code.</p>
- *          <p>You can also map an alias to split <a>StartExecution</a> requests between two
- *       versions of a state machine. To do this, add a second <code>RoutingConfig</code> object in the
- *         <code>routingConfiguration</code> parameter. You must also specify the percentage of
- *       execution run requests each version should receive in both <code>RoutingConfig</code> objects.
- *         Step Functions randomly chooses which version runs a given execution based on the
- *       percentage you specify.</p>
- *          <p>To create an alias that points to a single version, specify a single
- *         <code>RoutingConfig</code> object with a <code>weight</code> set to 100.</p>
- *          <p>You can create up to 100 aliases for each state machine. You must delete unused aliases using the <a>DeleteStateMachineAlias</a> API action.</p>
- *          <p>
- *             <code>CreateStateMachineAlias</code> is an idempotent API. Step Functions bases the
- *       idempotency check on the <code>stateMachineArn</code>, <code>description</code>,
- *         <code>name</code>, and <code>routingConfiguration</code> parameters. Requests that contain
- *       the same values for these parameters return a successful idempotent response without creating
- *       a duplicate resource.</p>
- *          <p>
- *             <b>Related operations:</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>DescribeStateMachineAlias</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListStateMachineAliases</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateStateMachineAlias</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteStateMachineAlias</a>
- *                </p>
- *             </li>
- *          </ul>
+ * Creates an [alias](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html) for a state machine that points to one or two [versions](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html) of the same state machine. You can set your application to call StartExecution with an alias and update the version the alias uses without changing the client's code.
+ *
+ * You can also map an alias to split StartExecution requests between two versions of a state machine. To do this, add a second `RoutingConfig` object in the `routingConfiguration` parameter. You must also specify the percentage of execution run requests each version should receive in both `RoutingConfig` objects. Step Functions randomly chooses which version runs a given execution based on the percentage you specify.
+ *
+ * To create an alias that points to a single version, specify a single `RoutingConfig` object with a `weight` set to 100.
+ *
+ * You can create up to 100 aliases for each state machine. You must delete unused aliases using the DeleteStateMachineAlias API action.
+ *
+ * `CreateStateMachineAlias` is an idempotent API. Step Functions bases the idempotency check on the `stateMachineArn`, `description`, `name`, and `routingConfiguration` parameters. Requests that contain the same values for these parameters return a successful idempotent response without creating a duplicate resource.
+ *
+ * **Related operations:**
+ *
+ * - DescribeStateMachineAlias
+ * - ListStateMachineAliases
+ * - UpdateStateMachineAlias
+ * - DeleteStateMachineAlias
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -98,31 +74,40 @@ export interface CreateStateMachineAliasCommandOutput extends CreateStateMachine
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting a resource can cause an inconsistent state. This error occurs when there're concurrent requests for <a>DeleteStateMachineVersion</a>, <a>PublishStateMachineVersion</a>, or <a>UpdateStateMachine</a> with the <code>publish</code> parameter set to <code>true</code>.</p>
- *          <p>HTTP Status Code: 409</p>
+ *
+ * Updating or deleting a resource can cause an inconsistent state. This error occurs when there're concurrent requests for DeleteStateMachineVersion, PublishStateMachineVersion, or UpdateStateMachine with the `publish` parameter set to `true`.
+ *
+ * HTTP Status Code: 409
  *
  * @throws {@link InvalidArn} (client fault)
- *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * The provided Amazon Resource Name (ARN) is not valid.
  *
  * @throws {@link InvalidName} (client fault)
- *  <p>The provided name is not valid.</p>
+ *
+ * The provided name is not valid.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Could not find the referenced resource.</p>
+ *
+ * Could not find the referenced resource.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would cause a service quota to be exceeded.</p>
- *          <p>HTTP Status Code: 402</p>
+ *
+ * The request would cause a service quota to be exceeded.
+ *
+ * HTTP Status Code: 402
  *
  * @throws {@link StateMachineDeleting} (client fault)
- *  <p>The specified state machine is being deleted.</p>
+ *
+ * The specified state machine is being deleted.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input does not satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link SFNServiceException}
- * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * Base exception class for all service exceptions from SFN service.
  *
  * @public
  */

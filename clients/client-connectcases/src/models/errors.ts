@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { ConnectCasesServiceException as __BaseException } from "./ConnectCasesServiceException";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+ * The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -46,7 +48,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>We couldn't process your request because of an issue with the server. Try again later.</p>
+ * We couldn't process your request because of an issue with the server. Try again later.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -55,7 +58,8 @@ export class InternalServerException extends __BaseException {
   readonly $fault = "server" as const;
   $retryable = {};
   /**
-   * <p>Advice to clients on when the call can be safely retried.</p>
+   * Advice to clients on when the call can be safely retried.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -75,7 +79,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>We couldn't find the requested resource. Check that your resources exists and were created in the same Amazon Web Services Region as your request, and try your request again.</p>
+ * We couldn't find the requested resource. Check that your resources exists and were created in the same Amazon Web Services Region as your request, and try your request again.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -83,13 +88,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Unique identifier of the resource affected.</p>
+   * Unique identifier of the resource affected.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>Type of the resource affected.</p>
+   * Type of the resource affected.
+   *
    * @public
    */
   resourceType: string | undefined;
@@ -110,7 +117,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The rate has been exceeded for this API. Please try again after a few minutes.</p>
+ * The rate has been exceeded for this API. Please try again after a few minutes.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -132,7 +140,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The request isn't valid. Check the syntax and try again.</p>
+ * The request isn't valid. Check the syntax and try again.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -153,7 +162,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The service quota has been exceeded. For a list of service quotas, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ * The service quota has been exceeded. For a list of service quotas, see [Amazon Connect Service Quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html) in the *Amazon Connect Administrator Guide*.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {

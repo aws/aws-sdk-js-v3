@@ -23,7 +23,12 @@ export interface DeleteResponseHeadersPolicyCommandInput extends DeleteResponseH
 export interface DeleteResponseHeadersPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a response headers policy.</p> <p>You cannot delete a response headers policy if it's attached to a cache behavior. First update your distributions to remove the response headers policy from all cache behaviors, then delete the response headers policy.</p> <p>To delete a response headers policy, you must provide the policy's identifier and version. To get these values, you can use <code>ListResponseHeadersPolicies</code> or <code>GetResponseHeadersPolicy</code>.</p>
+ * Deletes a response headers policy.
+ *
+ * You cannot delete a response headers policy if it's attached to a cache behavior. First update your distributions to remove the response headers policy from all cache behaviors, then delete the response headers policy.
+ *
+ * To delete a response headers policy, you must provide the policy's identifier and version. To get these values, you can use `ListResponseHeadersPolicies` or `GetResponseHeadersPolicy`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,26 +54,32 @@ export interface DeleteResponseHeadersPolicyCommandOutput extends __MetadataBear
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link AccessDenied} (client fault)
- *  <p>Access denied.</p>
+ *
+ * Access denied.
  *
  * @throws {@link IllegalDelete} (client fault)
- *  <p>Deletion is not allowed for this entity.</p>
+ *
+ * Deletion is not allowed for this entity.
  *
  * @throws {@link InvalidIfMatchVersion} (client fault)
- *  <p>The <code>If-Match</code> version is missing or not valid.</p>
+ *
+ * The `If-Match` version is missing or not valid.
  *
  * @throws {@link NoSuchResponseHeadersPolicy} (client fault)
- *  <p>The response headers policy does not exist.</p>
+ *
+ * The response headers policy does not exist.
  *
  * @throws {@link PreconditionFailed} (client fault)
- *  <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+ *
+ * The precondition in one or more of the request fields evaluated to `false`.
  *
  * @throws {@link ResponseHeadersPolicyInUse} (client fault)
- *  <p>Cannot delete the response headers policy because it is attached to one or more cache behaviors in a CloudFront distribution.</p>
+ *
+ * Cannot delete the response headers policy because it is attached to one or more cache behaviors in a CloudFront distribution.
  *
  * @throws {@link CloudFrontServiceException}
- * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * Base exception class for all service exceptions from CloudFront service.
  *
  * @public
  */

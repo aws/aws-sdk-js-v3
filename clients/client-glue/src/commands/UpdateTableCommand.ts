@@ -23,7 +23,8 @@ export interface UpdateTableCommandInput extends UpdateTableRequest {}
 export interface UpdateTableCommandOutput extends UpdateTableResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a metadata table in the Data Catalog.</p>
+ * Updates a metadata table in the Data Catalog.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -245,41 +246,52 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link AlreadyExistsException} (client fault)
- *  <p>A resource to be created or added already exists.</p>
+ *
+ * A resource to be created or added already exists.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Two processes are trying to modify a resource simultaneously.</p>
+ *
+ * Two processes are trying to modify a resource simultaneously.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link FederationSourceException} (client fault)
- *  <p>A federation source failed.</p>
+ *
+ * A federation source failed.
  *
  * @throws {@link FederationSourceRetryableException} (client fault)
- *  <p>A federation source failed, but the operation may be retried.</p>
+ *
+ * A federation source failed, but the operation may be retried.
  *
  * @throws {@link GlueEncryptionException} (client fault)
- *  <p>An encryption operation failed.</p>
+ *
+ * An encryption operation failed.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link ResourceNotReadyException} (client fault)
- *  <p>A resource was not ready for a transaction.</p>
+ *
+ * A resource was not ready for a transaction.
  *
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
- *  <p>A resource numerical limit was exceeded.</p>
+ *
+ * A resource numerical limit was exceeded.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

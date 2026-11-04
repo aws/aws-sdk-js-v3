@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { AccountAccessServiceException as __BaseException } from "./AccountAccessServiceException";
 
 /**
- * <p>You do not have sufficient access to perform this operation.</p>
+ * You do not have sufficient access to perform this operation.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The resource you are trying to create already exists. To retrieve the existing resource, use the corresponding Get operation.</p>
+ * The resource you are trying to create already exists. To retrieve the existing resource, use the corresponding Get operation.
+ *
  * @public
  */
 export class AlreadyCreatedException extends __BaseException {
@@ -46,7 +48,8 @@ export class AlreadyCreatedException extends __BaseException {
 }
 
 /**
- * <p>The request conflicts with the current state of the resource.</p>
+ * The request conflicts with the current state of the resource.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -67,7 +70,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>An internal service error occurred. Try your request again later.</p>
+ * An internal service error occurred. Try your request again later.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -88,7 +92,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling. Try your request again later.</p>
+ * The request was denied due to request throttling. Try your request again later.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -109,7 +114,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input does not satisfy the constraints specified by the service. Check your request parameters and retry the request.</p>
+ * The input does not satisfy the constraints specified by the service. Check your request parameters and retry the request.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -130,7 +136,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The specified resource does not exist. Verify that the resource identifier is correct and that the resource exists in the current Region.</p>
+ * The specified resource does not exist. Verify that the resource identifier is correct and that the resource exists in the current Region.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -151,7 +158,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request exceeds a service quota for your account.</p>
+ * The request exceeds a service quota for your account.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {

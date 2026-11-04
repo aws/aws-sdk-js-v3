@@ -26,7 +26,8 @@ export interface RejectTransitGatewayMulticastDomainAssociationsCommandInput ext
 export interface RejectTransitGatewayMulticastDomainAssociationsCommandOutput extends RejectTransitGatewayMulticastDomainAssociationsResult, __MetadataBearer {}
 
 /**
- * <p>Rejects a request to associate cross-account subnets with a transit gateway multicast domain.</p>
+ * Rejects a request to associate cross-account subnets with a transit gateway multicast domain.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,8 +71,8 @@ export interface RejectTransitGatewayMulticastDomainAssociationsCommandOutput ex
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

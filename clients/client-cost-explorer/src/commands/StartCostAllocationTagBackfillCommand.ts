@@ -23,10 +23,10 @@ export interface StartCostAllocationTagBackfillCommandInput extends StartCostAll
 export interface StartCostAllocationTagBackfillCommandOutput extends StartCostAllocationTagBackfillResponse, __MetadataBearer {}
 
 /**
- * <p>
- *       Request a cost allocation tag backfill. This will backfill the activation status (either <code>active</code> or <code>inactive</code>) for all tag keys from <code>para:BackfillFrom</code> up to the time this request is made.</p>
- *          <p>You can request a backfill once every 24 hours.
- *     </p>
+ * Request a cost allocation tag backfill. This will backfill the activation status (either `active` or `inactive`) for all tag keys from `para:BackfillFrom` up to the time this request is made.
+ *
+ * You can request a backfill once every 24 hours.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,16 +59,16 @@ export interface StartCostAllocationTagBackfillCommandOutput extends StartCostAl
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
  * @throws {@link BackfillLimitExceededException} (client fault)
- *  <p>
- *             A request to backfill is already in progress. Once the previous request is complete, you can create another request.
- *         </p>
+ *
+ * A request to backfill is already in progress. Once the previous request is complete, you can create another request.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ * You made too many calls in a short period of time. Try again later.
  *
  * @throws {@link CostExplorerServiceException}
- * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * Base exception class for all service exceptions from CostExplorer service.
  *
  * @public
  */

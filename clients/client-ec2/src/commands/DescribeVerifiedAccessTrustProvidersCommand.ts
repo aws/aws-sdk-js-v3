@@ -26,7 +26,8 @@ export interface DescribeVerifiedAccessTrustProvidersCommandInput extends Descri
 export interface DescribeVerifiedAccessTrustProvidersCommandOutput extends DescribeVerifiedAccessTrustProvidersResult, __MetadataBearer {}
 
 /**
- * <p>Describes the specified Amazon Web Services Verified Access trust providers.</p>
+ * Describes the specified Amazon Web Services Verified Access trust providers.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -110,8 +111,8 @@ export interface DescribeVerifiedAccessTrustProvidersCommandOutput extends Descr
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

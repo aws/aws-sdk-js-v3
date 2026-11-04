@@ -23,12 +23,10 @@ export interface BatchGetTracesCommandInput extends BatchGetTracesRequest {}
 export interface BatchGetTracesCommandOutput extends BatchGetTracesResult, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>You cannot find traces through this API if Transaction Search is enabled since trace is not indexed in X-Ray.</p>
- *          </note>
- *          <p>Retrieves a list of traces specified by ID. Each trace is a collection of segment
- *       documents that originates from a single request. Use <code>GetTraceSummaries</code> to get a
- *       list of trace IDs.</p>
+ * > **Note:** You cannot find traces through this API if Transaction Search is enabled since trace is not indexed in X-Ray.
+ *
+ * Retrieves a list of traces specified by ID. Each trace is a collection of segment documents that originates from a single request. Use `GetTraceSummaries` to get a list of trace IDs.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,14 +72,16 @@ export interface BatchGetTracesCommandOutput extends BatchGetTracesResult, __Met
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is missing required parameters or has invalid parameters.</p>
+ *
+ * The request is missing required parameters or has invalid parameters.
  *
  * @throws {@link ThrottledException} (client fault)
- *  <p>The request exceeds the maximum number of requests per second.</p>
+ *
+ * The request exceeds the maximum number of requests per second.
  *
  * @throws {@link XRayServiceException}
- * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ * Base exception class for all service exceptions from XRay service.
  *
  * @public
  */

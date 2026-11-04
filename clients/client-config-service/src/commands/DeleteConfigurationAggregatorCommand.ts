@@ -23,8 +23,8 @@ export interface DeleteConfigurationAggregatorCommandInput extends DeleteConfigu
 export interface DeleteConfigurationAggregatorCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified configuration aggregator and the
- * 			aggregated data associated with the aggregator.</p>
+ * Deletes the specified configuration aggregator and the aggregated data associated with the aggregator.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,11 +49,12 @@ export interface DeleteConfigurationAggregatorCommandOutput extends __MetadataBe
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  * @throws {@link NoSuchConfigurationAggregatorException} (client fault)
- *  <p>You have specified a configuration aggregator that does not exist.</p>
+ *
+ * You have specified a configuration aggregator that does not exist.
  *
  * @throws {@link ConfigServiceServiceException}
- * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * Base exception class for all service exceptions from ConfigService service.
  *
  * @public
  */

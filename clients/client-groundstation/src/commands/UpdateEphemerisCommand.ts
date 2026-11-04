@@ -23,7 +23,8 @@ export interface UpdateEphemerisCommandInput extends UpdateEphemerisRequest {}
 export interface UpdateEphemerisCommandOutput extends EphemerisIdResponse, __MetadataBearer {}
 
 /**
- * <p>Update an existing ephemeris.</p>
+ * Update an existing ephemeris.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,17 +54,20 @@ export interface UpdateEphemerisCommandOutput extends EphemerisIdResponse, __Met
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
  *
  * @throws {@link DependencyException} (server fault)
- *  <p>Dependency encountered an error.</p>
+ *
+ * Dependency encountered an error.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource was not found.</p>
+ *
+ * Resource was not found.
  *
  * @throws {@link GroundStationServiceException}
- * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ * Base exception class for all service exceptions from GroundStation service.
  *
  * @public
  */

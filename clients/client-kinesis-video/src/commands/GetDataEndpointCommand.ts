@@ -23,17 +23,12 @@ export interface GetDataEndpointCommandInput extends GetDataEndpointInput {}
 export interface GetDataEndpointCommandOutput extends GetDataEndpointOutput, __MetadataBearer {}
 
 /**
- * <p>Gets an endpoint for a specified stream for either reading or writing. Use this
- *             endpoint in your application to read from the specified stream (using the
- *                 <code>GetMedia</code> or <code>GetMediaForFragmentList</code> operations) or write
- *             to it (using the <code>PutMedia</code> operation).
- *             </p>
- *          <note>
- *             <p>The returned endpoint does not have the API name appended. The client needs to
- *                 add the API name to the returned endpoint.</p>
- *          </note>
- *          <p>In the request, specify the stream either by <code>StreamName</code> or
- *                 <code>StreamARN</code>.</p>
+ * Gets an endpoint for a specified stream for either reading or writing. Use this endpoint in your application to read from the specified stream (using the `GetMedia` or `GetMediaForFragmentList` operations) or write to it (using the `PutMedia` operation).
+ *
+ * > **Note:** The returned endpoint does not have the API name appended. The client needs to add the API name to the returned endpoint.
+ *
+ * In the request, specify the stream either by `StreamName` or `StreamARN`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,21 +57,24 @@ export interface GetDataEndpointCommandOutput extends GetDataEndpointOutput, __M
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
  *
  * @throws {@link ClientLimitExceededException} (client fault)
- *  <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
- *             allowed client calls. Try making the call later.</p>
+ *
+ * Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>The value for this input parameter is invalid.</p>
+ *
+ * The value for this input parameter is invalid.
  *
  * @throws {@link NotAuthorizedException} (client fault)
- *  <p>The caller is not authorized to perform this operation.</p>
+ *
+ * The caller is not authorized to perform this operation.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+ *
+ * Amazon Kinesis Video Streams can't find the stream that you specified.
  *
  * @throws {@link KinesisVideoServiceException}
- * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ * Base exception class for all service exceptions from KinesisVideo service.
  *
  * @public
  */

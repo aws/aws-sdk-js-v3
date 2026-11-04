@@ -23,8 +23,10 @@ export interface DeleteTagsCommandInput extends DeleteTagsInput {}
 export interface DeleteTagsCommandOutput extends DeleteTagsOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified tags associated with an ML object. After this operation is complete, you can't recover deleted tags.</p>
- * 		       <p>If you specify a tag that doesn't exist, Amazon ML ignores it.</p>
+ * Deletes the specified tags associated with an ML object. After this operation is complete, you can't recover deleted tags.
+ *
+ * If you specify a tag that doesn't exist, Amazon ML ignores it.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,19 +58,22 @@ export interface DeleteTagsCommandOutput extends DeleteTagsOutput, __MetadataBea
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An error on the server occurred when trying to process a request.</p>
+ *
+ * An error on the server occurred when trying to process a request.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+ *
+ * An error on the client occurred. Typically, the cause is an invalid input value.
  *
  * @throws {@link InvalidTagException} (client fault)
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A specified resource cannot be located.</p>
+ *
+ * A specified resource cannot be located.
  *
  * @throws {@link MachineLearningServiceException}
- * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ * Base exception class for all service exceptions from MachineLearning service.
  *
  * @public
  */

@@ -23,13 +23,10 @@ export interface CreateAcceleratorCommandInput extends CreateAcceleratorRequest 
 export interface CreateAcceleratorCommandOutput extends CreateAcceleratorResponse, __MetadataBearer {}
 
 /**
- * <p>Create an accelerator. An accelerator includes one or more listeners that process inbound connections and direct traffic
- * 			to one or more endpoint groups, each of which includes endpoints, such as Network Load Balancers. </p>
- *          <important>
- *             <p>Global Accelerator is a global service that supports endpoints in multiple Amazon Web Services Regions but you must specify the
- * 				US West (Oregon) Region to create, update, or otherwise work with accelerators.  That is, for example, specify <code>--region us-west-2</code>
- * 				on Amazon Web Services CLI commands.</p>
- *          </important>
+ * Create an accelerator. An accelerator includes one or more listeners that process inbound connections and direct traffic to one or more endpoint groups, each of which includes endpoints, such as Network Load Balancers.
+ *
+ * > **Important:** Global Accelerator is a global service that supports endpoints in multiple Amazon Web Services Regions but you must specify the US West (Oregon) Region to create, update, or otherwise work with accelerators. That is, for example, specify `--region us-west-2` on Amazon Web Services CLI commands.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -99,23 +96,28 @@ export interface CreateAcceleratorCommandOutput extends CreateAcceleratorRespons
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have access permission.</p>
+ *
+ * You don't have access permission.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * There was an internal error for Global Accelerator.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>An argument that you specified is invalid.</p>
+ *
+ * An argument that you specified is invalid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
+ *
+ * Processing your request would cause you to exceed an Global Accelerator limit.
  *
  * @throws {@link TransactionInProgressException} (client fault)
- *  <p>There's already a transaction in progress. Another transaction can't be processed.</p>
+ *
+ * There's already a transaction in progress. Another transaction can't be processed.
  *
  * @throws {@link GlobalAcceleratorServiceException}
- * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * Base exception class for all service exceptions from GlobalAccelerator service.
  *
  * @public
  */

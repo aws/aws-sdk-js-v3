@@ -23,49 +23,25 @@ export interface ReceiveMessageCommandInput extends ReceiveMessageRequest {}
 export interface ReceiveMessageCommandOutput extends ReceiveMessageResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves one or more messages (up to 10), from the specified queue. Using the
- *                 <code>WaitTimeSeconds</code> parameter enables long-poll support. For more
- *             information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-long-polling.html">Amazon SQS
- *                 Long Polling</a> in the <i>Amazon SQS Developer Guide</i>. </p>
- *          <p>Short poll is the default behavior where a weighted random set of machines is sampled
- *             on a <code>ReceiveMessage</code> call. Therefore, only the messages on the sampled
- *             machines are returned. If the number of messages in the queue is small (fewer than
- *             1,000), you most likely get fewer messages than you requested per
- *                 <code>ReceiveMessage</code> call. If the number of messages in the queue is
- *             extremely small, you might not receive any messages in a particular
- *                 <code>ReceiveMessage</code> response. If this happens, repeat the request.</p>
- *          <p>For each message returned, the response includes the following:</p>
- *          <ul>
- *             <li>
- *                <p>The message body.</p>
- *             </li>
- *             <li>
- *                <p>An MD5 digest of the message body. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
- *             </li>
- *             <li>
- *                <p>The <code>MessageId</code> you received when you sent the message to the
- *                     queue.</p>
- *             </li>
- *             <li>
- *                <p>The receipt handle.</p>
- *             </li>
- *             <li>
- *                <p>The message attributes.</p>
- *             </li>
- *             <li>
- *                <p>An MD5 digest of the message attributes.</p>
- *             </li>
- *          </ul>
- *          <p>The receipt handle is the identifier you must provide when deleting the message. For
- *             more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-message-identifiers.html">Queue and Message Identifiers</a> in the <i>Amazon SQS Developer
- *                 Guide</i>.</p>
- *          <p>You can provide the <code>VisibilityTimeout</code> parameter in your request. The
- *             parameter is applied to the messages that Amazon SQS returns in the response. If you don't
- *             include the parameter, the overall visibility timeout for the queue is used for the
- *             returned messages. The default visibility timeout for a queue is 30 seconds. </p>
- *          <note>
- *             <p>In the future, new attributes might be added. If you write code that calls this action, we recommend that you structure your code so that it can handle new attributes gracefully.</p>
- *          </note>
+ * Retrieves one or more messages (up to 10), from the specified queue. Using the `WaitTimeSeconds` parameter enables long-poll support. For more information, see [Amazon SQS Long Polling](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-long-polling.html) in the *Amazon SQS Developer Guide*.
+ *
+ * Short poll is the default behavior where a weighted random set of machines is sampled on a `ReceiveMessage` call. Therefore, only the messages on the sampled machines are returned. If the number of messages in the queue is small (fewer than 1,000), you most likely get fewer messages than you requested per `ReceiveMessage` call. If the number of messages in the queue is extremely small, you might not receive any messages in a particular `ReceiveMessage` response. If this happens, repeat the request.
+ *
+ * For each message returned, the response includes the following:
+ *
+ * - The message body.
+ * - An MD5 digest of the message body. For information about MD5, see [RFC1321](https://www.ietf.org/rfc/rfc1321.txt).
+ * - The `MessageId` you received when you sent the message to the queue.
+ * - The receipt handle.
+ * - The message attributes.
+ * - An MD5 digest of the message attributes.
+ *
+ * The receipt handle is the identifier you must provide when deleting the message. For more information, see [Queue and Message Identifiers](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-message-identifiers.html) in the *Amazon SQS Developer Guide*.
+ *
+ * You can provide the `VisibilityTimeout` parameter in your request. The parameter is applied to the messages that Amazon SQS returns in the response. If you don't include the parameter, the overall visibility timeout for the queue is used for the returned messages. The default visibility timeout for a queue is 30 seconds.
+ *
+ * > **Note:** In the future, new attributes might be added. If you write code that calls this action, we recommend that you structure your code so that it can handle new attributes gracefully.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -129,75 +105,66 @@ export interface ReceiveMessageCommandOutput extends ReceiveMessageResult, __Met
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
  * @throws {@link InvalidAddress} (client fault)
- *  <p>The specified ID is invalid.</p>
+ *
+ * The specified ID is invalid.
  *
  * @throws {@link InvalidSecurity} (client fault)
- *  <p>The request was not made over HTTPS or did not use SigV4 for signing.</p>
+ *
+ * The request was not made over HTTPS or did not use SigV4 for signing.
  *
  * @throws {@link KmsAccessDenied} (client fault)
- *  <p>The caller doesn't have the required KMS access.</p>
+ *
+ * The caller doesn't have the required KMS access.
  *
  * @throws {@link KmsDisabled} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link KmsInvalidKeyUsage} (client fault)
- *  <p>The request was rejected for one of the following reasons:</p>
- *          <ul>
- *             <li>
- *                <p>The KeyUsage value of the KMS key is incompatible with the API
- *                     operation.</p>
- *             </li>
- *             <li>
- *                <p>The encryption algorithm or signing algorithm specified for the operation is
- *                     incompatible with the type of key material in the KMS key (KeySpec).</p>
- *             </li>
- *          </ul>
+ *
+ * The request was rejected for one of the following reasons:
+ *
+ * - The KeyUsage value of the KMS key is incompatible with the API operation.
+ * - The encryption algorithm or signing algorithm specified for the operation is incompatible with the type of key material in the KMS key (KeySpec).
  *
  * @throws {@link KmsInvalidState} (client fault)
- *  <p>The request was rejected because the state of the specified resource is not valid for
- *             this request.</p>
+ *
+ * The request was rejected because the state of the specified resource is not valid for this request.
  *
  * @throws {@link KmsNotFound} (client fault)
- *  <p>The request was rejected because the specified entity or resource could not be found.
- *         </p>
+ *
+ * The request was rejected because the specified entity or resource could not be found.
  *
  * @throws {@link KmsOptInRequired} (client fault)
- *  <p>The request was rejected because the specified key policy isn't syntactically or
- *             semantically correct.</p>
+ *
+ * The request was rejected because the specified key policy isn't syntactically or semantically correct.
  *
  * @throws {@link KmsThrottled} (client fault)
- *  <p>Amazon Web Services KMS throttles requests for the following conditions.</p>
+ *
+ * Amazon Web Services KMS throttles requests for the following conditions.
  *
  * @throws {@link OverLimit} (client fault)
- *  <p>The specified action violates a limit. For example, <code>ReceiveMessage</code>
- *             returns this error if the maximum number of in flight messages is reached and
- *                 <code>AddPermission</code> returns this error if the maximum number of permissions
- *             for the queue is reached.</p>
+ *
+ * The specified action violates a limit. For example, `ReceiveMessage` returns this error if the maximum number of in flight messages is reached and `AddPermission` returns this error if the maximum number of permissions for the queue is reached.
  *
  * @throws {@link QueueDoesNotExist} (client fault)
- *  <p>Ensure that the <code>QueueUrl</code> is correct and that the queue has not been
- *             deleted.</p>
+ *
+ * Ensure that the `QueueUrl` is correct and that the queue has not been deleted.
  *
  * @throws {@link RequestThrottled} (client fault)
- *  <p>The request was denied due to request throttling.</p>
- *          <ul>
- *             <li>
- *                <p>Exceeds the permitted request rate for the queue or for the recipient of the
- *                     request.</p>
- *             </li>
- *             <li>
- *                <p>Ensure that the request rate is within the Amazon SQS limits for
- *                     sending messages. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-quotas.html#quotas-requests">Amazon SQS quotas</a> in the <i>Amazon SQS
- *                         Developer Guide</i>.</p>
- *             </li>
- *          </ul>
+ *
+ * The request was denied due to request throttling.
+ *
+ * - Exceeds the permitted request rate for the queue or for the recipient of the request.
+ * - Ensure that the request rate is within the Amazon SQS limits for sending messages. For more information, see [Amazon SQS quotas](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-quotas.html#quotas-requests) in the *Amazon SQS Developer Guide*.
  *
  * @throws {@link UnsupportedOperation} (client fault)
- *  <p>Error code 400. Unsupported operation.</p>
+ *
+ * Error code 400. Unsupported operation.
  *
  * @throws {@link SQSServiceException}
- * <p>Base exception class for all service exceptions from SQS service.</p>
  *
+ * Base exception class for all service exceptions from SQS service.
  *
  * @public
  */

@@ -25,13 +25,15 @@ import type {
  */
 export interface AcceptAgreementCancellationRequestInput {
   /**
-   * <p>The unique identifier of the agreement associated with the cancellation request.</p>
+   * The unique identifier of the agreement associated with the cancellation request.
+   *
    * @public
    */
   agreementId: string | undefined;
 
   /**
-   * <p>The unique identifier of the cancellation request to accept.</p>
+   * The unique identifier of the cancellation request to accept.
+   *
    * @public
    */
   agreementCancellationRequestId: string | undefined;
@@ -42,61 +44,71 @@ export interface AcceptAgreementCancellationRequestInput {
  */
 export interface AcceptAgreementCancellationRequestOutput {
   /**
-   * <p>The unique identifier of the agreement associated with this cancellation request.</p>
+   * The unique identifier of the agreement associated with this cancellation request.
+   *
    * @public
    */
   agreementId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the accepted cancellation request.</p>
+   * The unique identifier of the accepted cancellation request.
+   *
    * @public
    */
   agreementCancellationRequestId?: string | undefined;
 
   /**
-   * <p>The updated status of the cancellation request, which is <code>APPROVED</code>.</p>
+   * The updated status of the cancellation request, which is `APPROVED`.
+   *
    * @public
    */
   status?: AgreementCancellationRequestStatus | undefined;
 
   /**
-   * <p>The original reason code provided when the cancellation request was created.</p>
+   * The original reason code provided when the cancellation request was created.
+   *
    * @public
    */
   reasonCode?: AgreementCancellationRequestReasonCode | undefined;
 
   /**
-   * <p>The detailed description of the cancellation reason, if provided.</p>
+   * The detailed description of the cancellation reason, if provided.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The date and time when the cancellation request was originally created.</p>
+   * The date and time when the cancellation request was originally created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time when the cancellation request was accepted.</p>
+   * The date and time when the cancellation request was accepted.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by the service.</p>
+ * The input fails to satisfy the constraints specified by the service.
+ *
  * @public
  */
 export interface ValidationExceptionField {
   /**
-   * <p>The name of the field associated with the error.</p>
+   * The name of the field associated with the error.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>See applicable actions.</p>
+   * See applicable actions.
+   *
    * @public
    */
   message: string | undefined;
@@ -107,19 +119,22 @@ export interface ValidationExceptionField {
  */
 export interface AcceptAgreementPaymentRequestInput {
   /**
-   * <p>The unique identifier of the payment request to accept.</p>
+   * The unique identifier of the payment request to accept.
+   *
    * @public
    */
   paymentRequestId: string | undefined;
 
   /**
-   * <p>The unique identifier of the agreement associated with the payment request.</p>
+   * The unique identifier of the agreement associated with the payment request.
+   *
    * @public
    */
   agreementId: string | undefined;
 
   /**
-   * <p>An optional purchase order reference that buyers can provide to associate the payment request with their internal purchase order system.</p>
+   * An optional purchase order reference that buyers can provide to associate the payment request with their internal purchase order system.
+   *
    * @public
    */
   purchaseOrderReference?: string | undefined;
@@ -130,85 +145,99 @@ export interface AcceptAgreementPaymentRequestInput {
  */
 export interface AcceptAgreementPaymentRequestOutput {
   /**
-   * <p>The unique identifier of the accepted payment request.</p>
+   * The unique identifier of the accepted payment request.
+   *
    * @public
    */
   paymentRequestId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the agreement associated with this payment request.</p>
+   * The unique identifier of the agreement associated with this payment request.
+   *
    * @public
    */
   agreementId?: string | undefined;
 
   /**
-   * <p>The updated status of the payment request, which is <code>APPROVED</code>.</p>
+   * The updated status of the payment request, which is `APPROVED`.
+   *
    * @public
    */
   status?: PaymentRequestStatus | undefined;
 
   /**
-   * <p>The descriptive name of the payment request.</p>
+   * The descriptive name of the payment request.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The detailed description of the payment request, if provided.</p>
+   * The detailed description of the payment request, if provided.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The amount that was approved to be charged.</p>
+   * The amount that was approved to be charged.
+   *
    * @public
    */
   chargeAmount?: string | undefined;
 
   /**
-   * <p>The currency code for the charge amount.</p>
+   * The currency code for the charge amount.
+   *
    * @public
    */
   currencyCode?: string | undefined;
 
   /**
-   * <p>The date and time when the payment request was originally created.</p>
+   * The date and time when the payment request was originally created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time when the payment request was accepted.</p>
+   * The date and time when the payment request was accepted.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * <p>Contains information about a purchase order association to a charge within an agreement.</p>
+ * Contains information about a purchase order association to a charge within an agreement.
+ *
  * @public
  */
 export interface PurchaseOrder {
   /**
-   * <p>The unique identifier of the charge to associate the purchase order with.</p>
+   * The unique identifier of the charge to associate the purchase order with.
+   *
    * @public
    */
   chargeId: string | undefined;
 
   /**
-   * <p>The revision of the charge.</p>
+   * The revision of the charge.
+   *
    * @public
    */
   chargeRevision?: number | undefined;
 
   /**
-   * <p>The unique identifier of the agreement associated with this charge.</p>
+   * The unique identifier of the agreement associated with this charge.
+   *
    * @public
    */
   agreementId?: string | undefined;
 
   /**
-   * <p>The purchase order reference to associate with the charge.</p>
+   * The purchase order reference to associate with the charge.
+   *
    * @public
    */
   purchaseOrderReference?: string | undefined;
@@ -219,13 +248,15 @@ export interface PurchaseOrder {
  */
 export interface AcceptAgreementRequestInput {
   /**
-   * <p>The unique identifier of the agreement request.</p>
+   * The unique identifier of the agreement request.
+   *
    * @public
    */
   agreementRequestId: string | undefined;
 
   /**
-   * <p>A list of purchase orders associated with accepting a marketplace agreement request.</p>
+   * A list of purchase orders associated with accepting a marketplace agreement request.
+   *
    * @public
    */
   purchaseOrders?: PurchaseOrder[] | undefined;
@@ -236,476 +267,564 @@ export interface AcceptAgreementRequestInput {
  */
 export interface AcceptAgreementRequestOutput {
   /**
-   * <p>The unique identifier of the agreement created or modified by accepting the agreement request.</p>
+   * The unique identifier of the agreement created or modified by accepting the agreement request.
+   *
    * @public
    */
   agreementId?: string | undefined;
 }
 
 /**
- * <p>Enables you and your customers to move your existing agreements to AWS Marketplace. The customer won't be charged for product usage in AWS Marketplace because they already paid for the product outside of AWS Marketplace.</p>
+ * Enables you and your customers to move your existing agreements to AWS Marketplace. The customer won't be charged for product usage in AWS Marketplace because they already paid for the product outside of AWS Marketplace.
+ *
  * @public
  */
 export interface ByolPricingTerm {
   /**
-   * <p>Type of the term being updated.</p>
+   * Type of the term being updated.
+   *
    * @public
    */
   type?: string | undefined;
 
   /**
-   * <p>The unique identifier for the term.</p>
+   * The unique identifier for the term.
+   *
    * @public
    */
   id?: string | undefined;
 }
 
 /**
- * <p>Defines the dimensions that the acceptor has purchased from the overall set of dimensions presented in the rate card.</p>
+ * Defines the dimensions that the acceptor has purchased from the overall set of dimensions presented in the rate card.
+ *
  * @public
  */
 export interface Dimension {
   /**
-   * <p>The name of key value of the dimension.</p>
+   * The name of key value of the dimension.
+   *
    * @public
    */
   dimensionKey: string | undefined;
 
   /**
-   * <p>The number of units of the dimension the acceptor has purchased.</p> <note> <p>For Agreements with <code>ConfigurableUpfrontPricingTerm</code>, the <code>RateCard</code> section will define the prices and dimensions defined by the seller (proposer), whereas the <code>Configuration</code> section will define the actual dimensions, prices, and units the buyer has chosen to accept.</p> </note>
+   * The number of units of the dimension the acceptor has purchased.
+   *
+   * > **Note:** For Agreements with `ConfigurableUpfrontPricingTerm`, the `RateCard` section will define the prices and dimensions defined by the seller (proposer), whereas the `Configuration` section will define the actual dimensions, prices, and units the buyer has chosen to accept.
+   *
    * @public
    */
   dimensionValue: number | undefined;
 }
 
 /**
- * <p>Defines a prepaid payment model that allows buyers to configure the entitlements they want to purchase and the duration.</p>
+ * Defines a prepaid payment model that allows buyers to configure the entitlements they want to purchase and the duration.
+ *
  * @public
  */
 export interface ConfigurableUpfrontPricingTermConfiguration {
   /**
-   * <p>Defines the length of time for which the particular pricing/dimension is being purchased by the acceptor.</p>
+   * Defines the length of time for which the particular pricing/dimension is being purchased by the acceptor.
+   *
    * @public
    */
   selectorValue: string | undefined;
 
   /**
-   * <p>Defines the dimensions that the acceptor has purchased from the overall set of dimensions presented in the rate card.</p>
+   * Defines the dimensions that the acceptor has purchased from the overall set of dimensions presented in the rate card.
+   *
    * @public
    */
   dimensions: Dimension[] | undefined;
 }
 
 /**
- * <p>Defines limits on how the term can be configured by acceptors. </p>
+ * Defines limits on how the term can be configured by acceptors.
+ *
  * @public
  */
 export interface Constraints {
   /**
-   * <p>Determines if buyers are allowed to select multiple dimensions in the rate card. The possible values are <code>Allowed</code> and <code>Disallowed</code>. The default value is <code>Allowed</code>.</p>
+   * Determines if buyers are allowed to select multiple dimensions in the rate card. The possible values are `Allowed` and `Disallowed`. The default value is `Allowed`.
+   *
    * @public
    */
   multipleDimensionSelection?: string | undefined;
 
   /**
-   * <p>Determines if acceptors are allowed to configure quantity for each dimension in rate card. The possible values are <code>Allowed</code> and <code>Disallowed</code>. The default value is <code>Allowed</code>.</p>
+   * Determines if acceptors are allowed to configure quantity for each dimension in rate card. The possible values are `Allowed` and `Disallowed`. The default value is `Allowed`.
+   *
    * @public
    */
   quantityConfiguration?: string | undefined;
 }
 
 /**
- * <p>Defines the per unit rates for each individual product dimension.</p>
+ * Defines the per unit rates for each individual product dimension.
+ *
  * @public
  */
 export interface RateCardItem {
   /**
-   * <p>Dimension for which the given entitlement applies. Dimensions represent categories of capacity in a product and are specified when the product is listed in AWS Marketplace.</p>
+   * Dimension for which the given entitlement applies. Dimensions represent categories of capacity in a product and are specified when the product is listed in AWS Marketplace.
+   *
    * @public
    */
   dimensionKey?: string | undefined;
 
   /**
-   * <p>Per unit price for the product dimension that’s used for calculating the amount to be charged.</p>
+   * Per unit price for the product dimension that’s used for calculating the amount to be charged.
+   *
    * @public
    */
   price?: string | undefined;
 }
 
 /**
- * <p>Differentiates between the mutually exclusive rate cards in the same pricing term to be selected by the buyer.</p>
+ * Differentiates between the mutually exclusive rate cards in the same pricing term to be selected by the buyer.
+ *
  * @public
  */
 export interface Selector {
   /**
-   * <p>Category of selector.</p>
+   * Category of selector.
+   *
    * @public
    */
   type?: string | undefined;
 
   /**
-   * <p>Contract duration. This field supports the ISO 8601 format. </p>
+   * Contract duration. This field supports the ISO 8601 format.
+   *
    * @public
    */
   value?: string | undefined;
 }
 
 /**
- * <p>Within the prepaid payment model defined under <code>ConfigurableUpfrontPricingTerm</code>, the <code>RateCardItem</code> defines all the various rate cards (including pricing and dimensions) that have been proposed.</p>
+ * Within the prepaid payment model defined under `ConfigurableUpfrontPricingTerm`, the `RateCardItem` defines all the various rate cards (including pricing and dimensions) that have been proposed.
+ *
  * @public
  */
 export interface ConfigurableUpfrontRateCardItem {
   /**
-   * <p>Differentiates between the mutually exclusive rate cards in the same pricing term to be selected by the buyer.</p>
+   * Differentiates between the mutually exclusive rate cards in the same pricing term to be selected by the buyer.
+   *
    * @public
    */
   selector?: Selector | undefined;
 
   /**
-   * <p>Defines limits on how the term can be configured by acceptors.</p>
+   * Defines limits on how the term can be configured by acceptors.
+   *
    * @public
    */
   constraints?: Constraints | undefined;
 
   /**
-   * <p>Defines the per unit rates for product dimensions.</p>
+   * Defines the per unit rates for product dimensions.
+   *
    * @public
    */
   rateCard?: RateCardItem[] | undefined;
 }
 
 /**
- * <p>Defines a prepaid payment model that allows buyers to configure the entitlements they want to purchase and the duration.</p>
+ * Defines a prepaid payment model that allows buyers to configure the entitlements they want to purchase and the duration.
+ *
  * @public
  */
 export interface ConfigurableUpfrontPricingTerm {
   /**
-   * <p>Category of selector.</p>
+   * Category of selector.
+   *
    * @public
    */
   type?: string | undefined;
 
   /**
-   * <p>The unique identifier of the term.</p>
+   * The unique identifier of the term.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>Defines the currency for the prices mentioned in the term.</p>
+   * Defines the currency for the prices mentioned in the term.
+   *
    * @public
    */
   currencyCode?: string | undefined;
 
   /**
-   * <p>A rate card defines the per unit rates for product dimensions.</p>
+   * A rate card defines the per unit rates for product dimensions.
+   *
    * @public
    */
   rateCards?: ConfigurableUpfrontRateCardItem[] | undefined;
 
   /**
-   * <p>Additional parameters specified by the acceptor while accepting the term.</p>
+   * Additional parameters specified by the acceptor while accepting the term.
+   *
    * @public
    */
   configuration?: ConfigurableUpfrontPricingTermConfiguration | undefined;
 }
 
 /**
- * <p>Entitlements granted to the acceptor of fixed upfront as part of agreement execution.</p>
+ * Entitlements granted to the acceptor of fixed upfront as part of agreement execution.
+ *
  * @public
  */
 export interface GrantItem {
   /**
-   * <p>Unique dimension key defined in the product document. Dimensions represent categories of capacity in a product and are specified when the product is listed in AWS Marketplace. </p>
+   * Unique dimension key defined in the product document. Dimensions represent categories of capacity in a product and are specified when the product is listed in AWS Marketplace.
+   *
    * @public
    */
   dimensionKey?: string | undefined;
 
   /**
-   * <p>Maximum amount of capacity that the buyer can be entitled to the given dimension of the product. If <code>MaxQuantity</code> is not provided, the buyer will be able to use an unlimited amount of the given dimension. </p>
+   * Maximum amount of capacity that the buyer can be entitled to the given dimension of the product. If `MaxQuantity` is not provided, the buyer will be able to use an unlimited amount of the given dimension.
+   *
    * @public
    */
   maxQuantity?: number | undefined;
 }
 
 /**
- * <p>Defines a prepaid pricing model where the customers are charged a fixed upfront amount.</p>
+ * Defines a prepaid pricing model where the customers are charged a fixed upfront amount.
+ *
  * @public
  */
 export interface FixedUpfrontPricingTerm {
   /**
-   * <p>Category of the term being updated.</p>
+   * Category of the term being updated.
+   *
    * @public
    */
   type?: string | undefined;
 
   /**
-   * <p>The unique identifier for the term.</p>
+   * The unique identifier for the term.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>Defines the currency for the prices mentioned in this term. </p>
+   * Defines the currency for the prices mentioned in this term.
+   *
    * @public
    */
   currencyCode?: string | undefined;
 
   /**
-   * <p>Contract duration for the terms.</p>
+   * Contract duration for the terms.
+   *
    * @public
    */
   duration?: string | undefined;
 
   /**
-   * <p>Fixed amount to be charged to the customer when this term is accepted.</p>
+   * Fixed amount to be charged to the customer when this term is accepted.
+   *
    * @public
    */
   price?: string | undefined;
 
   /**
-   * <p>Entitlements granted to the acceptor of fixed upfront as part of agreement execution.</p>
+   * Entitlements granted to the acceptor of fixed upfront as part of agreement execution.
+   *
    * @public
    */
   grants?: GrantItem[] | undefined;
 }
 
 /**
- * <p>Defines a short-term free pricing model where the buyers aren’t charged anything within a specified limit.</p>
+ * Defines a short-term free pricing model where the buyers aren’t charged anything within a specified limit.
+ *
  * @public
  */
 export interface FreeTrialPricingTerm {
   /**
-   * <p>Category of the term.</p>
+   * Category of the term.
+   *
    * @public
    */
   type?: string | undefined;
 
   /**
-   * <p>The unique identifier for the terms.</p>
+   * The unique identifier for the terms.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>Duration of the free trial period (5–31 days). </p>
+   * Duration of the free trial period (5–31 days).
+   *
    * @public
    */
   duration?: string | undefined;
 
   /**
-   * <p>Entitlements granted to the acceptor of a free trial as part of an agreement execution.</p>
+   * Entitlements granted to the acceptor of a free trial as part of an agreement execution.
+   *
    * @public
    */
   grants?: GrantItem[] | undefined;
 }
 
 /**
- * <p>Includes the list of references to legal resources proposed by the proposer to the acceptor. Each <code>DocumentItem</code> refers to an individual reference.</p>
+ * Includes the list of references to legal resources proposed by the proposer to the acceptor. Each `DocumentItem` refers to an individual reference.
+ *
  * @public
  */
 export interface DocumentItem {
   /**
-   * <p>Category of the document. Document types include:</p> <ul> <li> <p> <code>CustomEula</code> – A custom EULA provided by you as seller. A URL for a EULA stored in an accessible Amazon S3 bucket is required for this document type.</p> </li> <li> <p> <code>CustomDsa</code> – A custom Data Subscription Agreement (DSA) provided by you as seller. A URL for a DSA stored in an accessible Amazon S3 bucket is required for this document type.</p> </li> <li> <p> <code>StandardEula</code> – The Standard Contract for AWS Marketplace (SCMP). For more information about SCMP, see the AWS Marketplace Seller Guide. You don’t provide a URL for this type because it’s managed by AWS Marketplace.</p> </li> <li> <p> <code>StandardDsa</code> – DSA for AWS Marketplace. For more information about the DSA, see the AWS Data Exchange User Guide. You don’t provide a URL for this type because it’s managed by AWS Marketplace.</p> </li> </ul>
+   * Category of the document. Document types include:
+   *
+   * - `CustomEula` – A custom EULA provided by you as seller. A URL for a EULA stored in an accessible Amazon S3 bucket is required for this document type.
+   * - `CustomDsa` – A custom Data Subscription Agreement (DSA) provided by you as seller. A URL for a DSA stored in an accessible Amazon S3 bucket is required for this document type.
+   * - `StandardEula` – The Standard Contract for AWS Marketplace (SCMP). For more information about SCMP, see the AWS Marketplace Seller Guide. You don’t provide a URL for this type because it’s managed by AWS Marketplace.
+   * - `StandardDsa` – DSA for AWS Marketplace. For more information about the DSA, see the AWS Data Exchange User Guide. You don’t provide a URL for this type because it’s managed by AWS Marketplace.
+   *
    * @public
    */
   type?: string | undefined;
 
   /**
-   * <p>A URL to the legal document for buyers to read. Required when <code>Type</code> is <code>CustomEula</code>.</p>
+   * A URL to the legal document for buyers to read. Required when `Type` is `CustomEula`.
+   *
    * @public
    */
   url?: string | undefined;
 
   /**
-   * <p>Version of standard contracts provided by AWS Marketplace. Required when Type is <code>StandardEula</code> or <code>StandardDsa</code>. </p>
+   * Version of standard contracts provided by AWS Marketplace. Required when Type is `StandardEula` or `StandardDsa`.
+   *
    * @public
    */
   version?: string | undefined;
 }
 
 /**
- * <p>Defines the list of text agreements proposed to the acceptors. An example is the end user license agreement (EULA).</p>
+ * Defines the list of text agreements proposed to the acceptors. An example is the end user license agreement (EULA).
+ *
  * @public
  */
 export interface LegalTerm {
   /**
-   * <p>Category of the term being updated.</p>
+   * Category of the term being updated.
+   *
    * @public
    */
   type?: string | undefined;
 
   /**
-   * <p>The unique identifer for the term.</p>
+   * The unique identifer for the term.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>List of references to legal resources proposed to the buyers. An example is the EULA.</p>
+   * List of references to legal resources proposed to the buyers. An example is the EULA.
+   *
    * @public
    */
   documents?: DocumentItem[] | undefined;
 }
 
 /**
- * <p>Defines the net payment due period for the agreement, specifying when payment is due after an invoice is issued.</p>
+ * Defines the net payment due period for the agreement, specifying when payment is due after an invoice is issued.
+ *
  * @public
  */
 export interface NetPaymentTerm {
   /**
-   * <p>Type of the term being updated.</p>
+   * Type of the term being updated.
+   *
    * @public
    */
   type?: string | undefined;
 
   /**
-   * <p>The unique identifier for the term.</p>
+   * The unique identifier for the term.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The duration after an invoice is issued within which the payment is due. The duration is represented in the ISO 8601 format (for example, <code>P30D</code> for 30 days or <code>P60D</code> for 60 days).</p>
+   * The duration after an invoice is issued within which the payment is due. The duration is represented in the ISO 8601 format (for example, `P30D` for 30 days or `P60D` for 60 days).
+   *
    * @public
    */
   paymentDuePeriod?: string | undefined;
 }
 
 /**
- * <p>An individual installment of the payment that includes the date and amount of the charge.</p>
+ * An individual installment of the payment that includes the date and amount of the charge.
+ *
  * @public
  */
 export interface ScheduleItem {
   /**
-   * <p>The date that the customer would pay the price defined in this payment schedule term. Invoices are generated on the date provided.</p>
+   * The date that the customer would pay the price defined in this payment schedule term. Invoices are generated on the date provided.
+   *
    * @public
    */
   chargeDate?: Date | undefined;
 
   /**
-   * <p>The price that the customer would pay on the scheduled date (chargeDate).</p>
+   * The price that the customer would pay on the scheduled date (chargeDate).
+   *
    * @public
    */
   chargeAmount?: string | undefined;
 }
 
 /**
- * <p>Defines an installment-based pricing model where customers are charged a fixed price on different dates during the agreement validity period. This is used most commonly for flexible payment schedule pricing.</p>
+ * Defines an installment-based pricing model where customers are charged a fixed price on different dates during the agreement validity period. This is used most commonly for flexible payment schedule pricing.
+ *
  * @public
  */
 export interface PaymentScheduleTerm {
   /**
-   * <p>Type of the term.</p>
+   * Type of the term.
+   *
    * @public
    */
   type?: string | undefined;
 
   /**
-   * <p>The unique identifier for the term.</p>
+   * The unique identifier for the term.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>Defines the currency for the prices mentioned in the term. </p>
+   * Defines the currency for the prices mentioned in the term.
+   *
    * @public
    */
   currencyCode?: string | undefined;
 
   /**
-   * <p>List of the payment schedule where each element defines one installment of payment. It contains the information necessary for calculating the price.</p>
+   * List of the payment schedule where each element defines one installment of payment. It contains the information necessary for calculating the price.
+   *
    * @public
    */
   schedule?: ScheduleItem[] | undefined;
 }
 
 /**
- * <p>Defines a pricing model where customers are charged a fixed recurring price at the end of each billing period.</p>
+ * Defines a pricing model where customers are charged a fixed recurring price at the end of each billing period.
+ *
  * @public
  */
 export interface RecurringPaymentTerm {
   /**
-   * <p>Type of the term being updated.</p>
+   * Type of the term being updated.
+   *
    * @public
    */
   type?: string | undefined;
 
   /**
-   * <p>The unique identifier for the term.</p>
+   * The unique identifier for the term.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>Defines the currency for the prices mentioned in this term. </p>
+   * Defines the currency for the prices mentioned in this term.
+   *
    * @public
    */
   currencyCode?: string | undefined;
 
   /**
-   * <p>Defines the recurrence at which buyers are charged.</p>
+   * Defines the recurrence at which buyers are charged.
+   *
    * @public
    */
   billingPeriod?: string | undefined;
 
   /**
-   * <p>Amount charged to the buyer every billing period.</p>
+   * Amount charged to the buyer every billing period.
+   *
    * @public
    */
   price?: string | undefined;
 }
 
 /**
- * <p>Additional parameters specified by the acceptor while accepting the term.</p>
+ * Additional parameters specified by the acceptor while accepting the term.
+ *
  * @public
  */
 export interface RenewalTermConfiguration {
   /**
-   * <p>Defines whether the acceptor has chosen to auto-renew the agreement when it reaches its end date. Can be set to <code>True</code> or <code>False</code>. The acceptor can change this value within the limits set by <code>LockoutPeriod</code> and <code>MaxRenewals</code>.</p>
+   * Defines whether the acceptor has chosen to auto-renew the agreement when it reaches its end date. Can be set to `True` or `False`. The acceptor can change this value within the limits set by `LockoutPeriod` and `MaxRenewals`.
+   *
    * @public
    */
   enableAutoRenew: boolean | undefined;
 }
 
 /**
- * <p>A fixed price increase that is applied each time the agreement renews.</p>
+ * A fixed price increase that is applied each time the agreement renews.
+ *
  * @public
  */
 export interface FixedPercentage {
   /**
-   * <p>The percentage by which the price increases at each renewal, from <code>0.00</code> to <code>100.00</code> with up to two decimal places. A value of <code>0.00</code> means that the agreement renews at the same price.</p>
+   * The percentage by which the price increases at each renewal, from `0.00` to `100.00` with up to two decimal places. A value of `0.00` means that the agreement renews at the same price.
+   *
    * @public
    */
   value?: string | undefined;
 }
 
 /**
- * <p>A range of price increase percentages that the proposer can choose from before the adjustment deadline of the agreement.</p> <p> <code>MinValue</code> will be less than <code>MaxValue</code>, and <code>DefaultValue</code> will fall within the range. When the proposer authorizes a single percentage instead of a range, <code>PriceIncrease</code> is a <code>FixedPercentage</code> rather than a <code>PercentageRange</code>.</p>
+ * A range of price increase percentages that the proposer can choose from before the adjustment deadline of the agreement.
+ *
+ * `MinValue` will be less than `MaxValue`, and `DefaultValue` will fall within the range. When the proposer authorizes a single percentage instead of a range, `PriceIncrease` is a `FixedPercentage` rather than a `PercentageRange`.
+ *
  * @public
  */
 export interface PercentageRange {
   /**
-   * <p>The lowest percentage that the proposer can choose, from <code>0.00</code> to <code>100.00</code> with up to two decimal places.</p>
+   * The lowest percentage that the proposer can choose, from `0.00` to `100.00` with up to two decimal places.
+   *
    * @public
    */
   minValue?: string | undefined;
 
   /**
-   * <p>The highest percentage that the proposer can choose, from <code>0.00</code> to <code>100.00</code> with up to two decimal places.</p>
+   * The highest percentage that the proposer can choose, from `0.00` to `100.00` with up to two decimal places.
+   *
    * @public
    */
   maxValue?: string | undefined;
 
   /**
-   * <p>The percentage that is applied if the proposer doesn't choose a value before the adjustment deadline. Valid values range from <code>0.00</code> to <code>100.00</code>, with up to two decimal places.</p>
+   * The percentage that is applied if the proposer doesn't choose a value before the adjustment deadline. Valid values range from `0.00` to `100.00`, with up to two decimal places.
+   *
    * @public
    */
   defaultValue?: string | undefined;
 }
 
 /**
- * <p>The price increase that is applied each time the agreement renews. Exactly one of the following fields is set.</p>
+ * The price increase that is applied each time the agreement renews. Exactly one of the following fields is set.
+ *
  * @public
  */
 export type PriceIncrease =
@@ -718,7 +837,8 @@ export type PriceIncrease =
  */
 export namespace PriceIncrease {
   /**
-   * <p>A fixed price increase percentage that is applied at each renewal.</p>
+   * A fixed price increase percentage that is applied at each renewal.
+   *
    * @public
    */
   export interface FixedPercentageMember {
@@ -728,7 +848,8 @@ export namespace PriceIncrease {
   }
 
   /**
-   * <p>A range of price increase percentages that the proposer can choose from before the adjustment deadline of the agreement.</p>
+   * A range of price increase percentages that the proposer can choose from before the adjustment deadline of the agreement.
+   *
    * @public
    */
   export interface PercentageRangeMember {
@@ -758,43 +879,50 @@ export namespace PriceIncrease {
 }
 
 /**
- * <p>A single installment in a payment schedule template. Because the start date of the renewed agreement isn't known when the offer is created, the charge date of each installment is expressed as an offset from that start date rather than as an absolute date.</p>
+ * A single installment in a payment schedule template. Because the start date of the renewed agreement isn't known when the offer is created, the charge date of each installment is expressed as an offset from that start date rather than as an absolute date.
+ *
  * @public
  */
 export interface PaymentScheduleEntry {
   /**
-   * <p>The time between the start date of the renewed agreement and the date this installment is charged. The duration is represented in the ISO 8601 format in either whole months or whole days (for example, <code>P1M</code> for 1 month or <code>P30D</code> for 30 days). All installments in a schedule use the same unit.</p>
+   * The time between the start date of the renewed agreement and the date this installment is charged. The duration is represented in the ISO 8601 format in either whole months or whole days (for example, `P1M` for 1 month or `P30D` for 30 days). All installments in a schedule use the same unit.
+   *
    * @public
    */
   chargeDateOffset?: string | undefined;
 
   /**
-   * <p>The percentage of the total contract value of the renewed agreement that is charged in this installment. Valid values range from <code>0.01</code> to <code>100.00</code>, with up to two decimal places.</p>
+   * The percentage of the total contract value of the renewed agreement that is charged in this installment. Valid values range from `0.01` to `100.00`, with up to two decimal places.
+   *
    * @public
    */
   chargePercentage?: string | undefined;
 
   /**
-   * <p>The day of the month on which this installment is charged, from <code>1</code> to <code>31</code>. Use this field to anchor the charge to a specific calendar day within the month identified by <code>ChargeDateOffset</code>. This field is supported only when <code>ChargeDateOffset</code> is expressed in months.</p>
+   * The day of the month on which this installment is charged, from `1` to `31`. Use this field to anchor the charge to a specific calendar day within the month identified by `ChargeDateOffset`. This field is supported only when `ChargeDateOffset` is expressed in months.
+   *
    * @public
    */
   dayOfMonth?: number | undefined;
 }
 
 /**
- * <p>Defines the payment schedule that is applied to the renewed agreement.</p>
+ * Defines the payment schedule that is applied to the renewed agreement.
+ *
  * @public
  */
 export interface PaymentScheduleTermTemplate {
   /**
-   * <p>The installments that make up the payment schedule of the renewed agreement. The <code>ChargePercentage</code> values of all installments add up to <code>100</code>.</p>
+   * The installments that make up the payment schedule of the renewed agreement. The `ChargePercentage` values of all installments add up to `100`.
+   *
    * @public
    */
   schedule?: PaymentScheduleEntry[] | undefined;
 }
 
 /**
- * <p>Defines how a specific type of term changes each time the agreement renews. Exactly one of the following fields is set.</p>
+ * Defines how a specific type of term changes each time the agreement renews. Exactly one of the following fields is set.
+ *
  * @public
  */
 export type TermTemplate =
@@ -806,7 +934,8 @@ export type TermTemplate =
  */
 export namespace TermTemplate {
   /**
-   * <p>Defines the payment schedule that is applied to the renewed agreement.</p>
+   * Defines the payment schedule that is applied to the renewed agreement.
+   *
    * @public
    */
   export interface PaymentScheduleTermTemplateMember {
@@ -833,217 +962,261 @@ export namespace TermTemplate {
 }
 
 /**
- * <p>Defines that on graceful expiration of the agreement (when the agreement ends on its pre-defined end date), a new agreement will be created using the accepted terms on the existing agreement. In other words, the agreement will be renewed. Presence of <code>RenewalTerm</code> in the offer document means that auto-renewal is allowed. The acceptor will have the option to accept or decline auto-renewal at the offer acceptance/agreement creation. The acceptor can also change this flag from <code>True</code> to <code>False</code> or <code>False</code> to <code>True</code>, within the limits set by <code>LockoutPeriod</code> and <code>MaxRenewals</code>. Setting the flag to <code>True</code> doesn't by itself guarantee that the agreement renews, because the proposer can also opt out.</p>
+ * Defines that on graceful expiration of the agreement (when the agreement ends on its pre-defined end date), a new agreement will be created using the accepted terms on the existing agreement. In other words, the agreement will be renewed. Presence of `RenewalTerm` in the offer document means that auto-renewal is allowed. The acceptor will have the option to accept or decline auto-renewal at the offer acceptance/agreement creation. The acceptor can also change this flag from `True` to `False` or `False` to `True`, within the limits set by `LockoutPeriod` and `MaxRenewals`. Setting the flag to `True` doesn't by itself guarantee that the agreement renews, because the proposer can also opt out.
+ *
  * @public
  */
 export interface RenewalTerm {
   /**
-   * <p>Category of the term being updated. </p>
+   * Category of the term being updated.
+   *
    * @public
    */
   type?: string | undefined;
 
   /**
-   * <p>The unique identifier for the term.</p>
+   * The unique identifier for the term.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>Additional parameters specified by the acceptor while accepting the term.</p>
+   * Additional parameters specified by the acceptor while accepting the term.
+   *
    * @public
    */
   configuration?: RenewalTermConfiguration | undefined;
 
   /**
-   * <p>The renewal decision deadline, measured back from the end date of the agreement. This is the last day either party can opt in to or opt out of the renewal. The duration is represented in the ISO 8601 format in whole days (for example, <code>P30D</code> for 30 days or <code>P60D</code> for 60 days).</p> <p>The field is <code>null</code> when no renewal decision deadline is set. In that case, either party can change the auto-renewal decision up to the end date of the agreement.</p>
+   * The renewal decision deadline, measured back from the end date of the agreement. This is the last day either party can opt in to or opt out of the renewal. The duration is represented in the ISO 8601 format in whole days (for example, `P30D` for 30 days or `P60D` for 60 days).
+   *
+   * The field is `null` when no renewal decision deadline is set. In that case, either party can change the auto-renewal decision up to the end date of the agreement.
+   *
    * @public
    */
   lockoutPeriod?: string | undefined;
 
   /**
-   * <p>The maximum number of times the agreement can be renewed. The field is <code>null</code> when the number of renewals is unlimited.</p> <p>After the agreement reaches this limit, it expires on its end date instead of renewing.</p>
+   * The maximum number of times the agreement can be renewed. The field is `null` when the number of renewals is unlimited.
+   *
+   * After the agreement reaches this limit, it expires on its end date instead of renewing.
+   *
    * @public
    */
   maxRenewals?: number | undefined;
 
   /**
-   * <p>The date by which the proposer must finalize the price increase for the next renewal, measured back from the end date of the agreement. The duration is represented in the ISO 8601 format in whole days (for example, <code>P30D</code> for 30 days or <code>P60D</code> for 60 days).</p> <p>This field applies only when <code>PriceIncrease</code> is a <code>PercentageRange</code>. The field is <code>null</code> when <code>PriceIncrease</code> is a <code>FixedPercentage</code>, because the price increase is already fixed and there is nothing for the proposer to finalize. If the proposer doesn't finalize a value by the adjustment deadline, the <code>DefaultValue</code> of the range applies.</p> <p> <code>AdjustmentDeadline</code> must be greater than <code>LockoutPeriod</code>.</p>
+   * The date by which the proposer must finalize the price increase for the next renewal, measured back from the end date of the agreement. The duration is represented in the ISO 8601 format in whole days (for example, `P30D` for 30 days or `P60D` for 60 days).
+   *
+   * This field applies only when `PriceIncrease` is a `PercentageRange`. The field is `null` when `PriceIncrease` is a `FixedPercentage`, because the price increase is already fixed and there is nothing for the proposer to finalize. If the proposer doesn't finalize a value by the adjustment deadline, the `DefaultValue` of the range applies.
+   *
+   * `AdjustmentDeadline` must be greater than `LockoutPeriod`.
+   *
    * @public
    */
   adjustmentDeadline?: string | undefined;
 
   /**
-   * <p>The price increase that is applied each time the agreement renews. The field is <code>null</code> when the price doesn't change at renewal.</p>
+   * The price increase that is applied each time the agreement renews. The field is `null` when the price doesn't change at renewal.
+   *
    * @public
    */
   priceIncrease?: PriceIncrease | undefined;
 
   /**
-   * <p>Defines how specific terms change each time the agreement renews. The field is <code>null</code> when no terms change at renewal.</p>
+   * Defines how specific terms change each time the agreement renews. The field is `null` when no terms change at renewal.
+   *
    * @public
    */
   termTemplates?: TermTemplate[] | undefined;
 }
 
 /**
- * <p>Defines the customer support available for the acceptors when they purchase the software.</p>
+ * Defines the customer support available for the acceptors when they purchase the software.
+ *
  * @public
  */
 export interface SupportTerm {
   /**
-   * <p>Category of the term being updated.</p>
+   * Category of the term being updated.
+   *
    * @public
    */
   type?: string | undefined;
 
   /**
-   * <p>The unique identifier for the term.</p>
+   * The unique identifier for the term.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>Free-text field about the refund policy description that will be shown to customers as is on the website and console.</p>
+   * Free-text field about the refund policy description that will be shown to customers as is on the website and console.
+   *
    * @public
    */
   refundPolicy?: string | undefined;
 }
 
 /**
- * <p>Within the pay-as-you-go model defined under <code>UsageBasedPricingTerm</code>, the <code>UsageBasedRateCardItem</code> defines an individual rate for a product dimension.</p>
+ * Within the pay-as-you-go model defined under `UsageBasedPricingTerm`, the `UsageBasedRateCardItem` defines an individual rate for a product dimension.
+ *
  * @public
  */
 export interface UsageBasedRateCardItem {
   /**
-   * <p>Defines the per unit rates for product dimensions.</p>
+   * Defines the per unit rates for product dimensions.
+   *
    * @public
    */
   rateCard?: RateCardItem[] | undefined;
 }
 
 /**
- * <p>Defines a usage-based pricing model (typically, pay-as-you-go pricing), where the customers are charged based on product usage.</p>
+ * Defines a usage-based pricing model (typically, pay-as-you-go pricing), where the customers are charged based on product usage.
+ *
  * @public
  */
 export interface UsageBasedPricingTerm {
   /**
-   * <p>Category of the term.</p>
+   * Category of the term.
+   *
    * @public
    */
   type?: string | undefined;
 
   /**
-   * <p>The unique identifier for the term.</p>
+   * The unique identifier for the term.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>Defines the currency for the prices mentioned in the term. </p>
+   * Defines the currency for the prices mentioned in the term.
+   *
    * @public
    */
   currencyCode?: string | undefined;
 
   /**
-   * <p>List of rate cards.</p>
+   * List of rate cards.
+   *
    * @public
    */
   rateCards?: UsageBasedRateCardItem[] | undefined;
 }
 
 /**
- * <p>Defines the conditions that will keep an agreement created from this offer valid. </p>
+ * Defines the conditions that will keep an agreement created from this offer valid.
+ *
  * @public
  */
 export interface ValidityTerm {
   /**
-   * <p>Category of the term being updated. </p>
+   * Category of the term being updated.
+   *
    * @public
    */
   type?: string | undefined;
 
   /**
-   * <p>The unique identifier for the term.</p>
+   * The unique identifier for the term.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>Defines the duration that the agreement remains active. If <code>AgreementStartDate</code> isn’t provided, the agreement duration is relative to the agreement signature time. The duration is represented in the ISO_8601 format.</p>
+   * Defines the duration that the agreement remains active. If `AgreementStartDate` isn’t provided, the agreement duration is relative to the agreement signature time. The duration is represented in the ISO_8601 format.
+   *
    * @public
    */
   agreementDuration?: string | undefined;
 
   /**
-   * <p>Defines the date when agreement starts. The agreement starts at 00:00:00.000 UTC on the date provided. If <code>AgreementStartDate</code> isn’t provided, the agreement start date is determined based on agreement signature time.</p>
+   * Defines the date when agreement starts. The agreement starts at 00:00:00.000 UTC on the date provided. If `AgreementStartDate` isn’t provided, the agreement start date is determined based on agreement signature time.
+   *
    * @public
    */
   agreementStartDate?: Date | undefined;
 
   /**
-   * <p>Defines the date when the agreement ends. The agreement ends at 23:59:59.999 UTC on the date provided. If <code>AgreementEndDate</code> isn’t provided, the agreement end date is determined by the validity of individual terms.</p>
+   * Defines the date when the agreement ends. The agreement ends at 23:59:59.999 UTC on the date provided. If `AgreementEndDate` isn’t provided, the agreement end date is determined by the validity of individual terms.
+   *
    * @public
    */
   agreementEndDate?: Date | undefined;
 }
 
 /**
- * <p>Additional parameters specified by the acceptor while accepting the variable payment term.</p>
+ * Additional parameters specified by the acceptor while accepting the variable payment term.
+ *
  * @public
  */
 export interface VariablePaymentTermConfiguration {
   /**
-   * <p>Defines the strategy for approving payment requests. Values include <code>AUTO_APPROVE_ON_EXPIRATION</code> and <code>WAIT_FOR_APPROVAL</code> </p>
+   * Defines the strategy for approving payment requests. Values include `AUTO_APPROVE_ON_EXPIRATION` and `WAIT_FOR_APPROVAL`
+   *
    * @public
    */
   paymentRequestApprovalStrategy: PaymentRequestApprovalStrategy | undefined;
 
   /**
-   * <p>Defines the duration after which a payment request is automatically approved if no further action is taken. This only applies when the payment request approval strategy is set to <code>AUTO_APPROVE_ON_EXPIRATION</code>. The duration is represented in the ISO_8601 format (e.g., P10D for 10 days).</p>
+   * Defines the duration after which a payment request is automatically approved if no further action is taken. This only applies when the payment request approval strategy is set to `AUTO_APPROVE_ON_EXPIRATION`. The duration is represented in the ISO_8601 format (e.g., P10D for 10 days).
+   *
    * @public
    */
   expirationDuration?: string | undefined;
 }
 
 /**
- * <p>Defines a payment model where sellers can submit variable payment requests up to a maximum charge amount, with configurable approval strategies and expiration timelines.</p>
+ * Defines a payment model where sellers can submit variable payment requests up to a maximum charge amount, with configurable approval strategies and expiration timelines.
+ *
  * @public
  */
 export interface VariablePaymentTerm {
   /**
-   * <p>Type of the term.</p>
+   * Type of the term.
+   *
    * @public
    */
   type?: string | undefined;
 
   /**
-   * <p>The unique identifier for the term.</p>
+   * The unique identifier for the term.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>Defines the currency for the prices mentioned in the term.</p>
+   * Defines the currency for the prices mentioned in the term.
+   *
    * @public
    */
   currencyCode?: string | undefined;
 
   /**
-   * <p>The maximum total amount that can be charged to the customer through variable payment requests under this term.</p>
+   * The maximum total amount that can be charged to the customer through variable payment requests under this term.
+   *
    * @public
    */
   maxTotalChargeAmount?: string | undefined;
 
   /**
-   * <p>Additional parameters specified by the acceptor while accepting the term.</p>
+   * Additional parameters specified by the acceptor while accepting the term.
+   *
    * @public
    */
   configuration?: VariablePaymentTermConfiguration | undefined;
 }
 
 /**
- * <p>A subset of terms proposed by the proposer, which have been accepted by the acceptor as part of agreement creation.</p>
+ * A subset of terms proposed by the proposer, which have been accepted by the acceptor as part of agreement creation.
+ *
  * @public
  */
 export type AcceptedTerm =
@@ -1067,7 +1240,8 @@ export type AcceptedTerm =
  */
 export namespace AcceptedTerm {
   /**
-   * <p>Defines the list of text agreements proposed to the acceptors. An example is the end user license agreement (EULA).</p>
+   * Defines the list of text agreements proposed to the acceptors. An example is the end user license agreement (EULA).
+   *
    * @public
    */
   export interface LegalTermMember {
@@ -1088,7 +1262,8 @@ export namespace AcceptedTerm {
   }
 
   /**
-   * <p>Defines the customer support available for the acceptors when they purchase the software.</p>
+   * Defines the customer support available for the acceptors when they purchase the software.
+   *
    * @public
    */
   export interface SupportTermMember {
@@ -1109,7 +1284,8 @@ export namespace AcceptedTerm {
   }
 
   /**
-   * <p>Defines that on graceful expiration of the agreement (when the agreement ends on its pre-defined end date), a new agreement will be created using the accepted terms on the existing agreement. In other words, the agreement will be renewed. Presence of <code>RenewalTerm</code> in the offer document means that auto-renewal is allowed. The acceptor will have the option to accept or decline auto-renewal at the offer acceptance/agreement creation. The acceptor can also change this flag from <code>True</code> to <code>False</code> or <code>False</code> to <code>True</code>, within the limits set by <code>LockoutPeriod</code> and <code>MaxRenewals</code>. Setting the flag to <code>True</code> doesn't by itself guarantee that the agreement renews, because the proposer can also opt out.</p>
+   * Defines that on graceful expiration of the agreement (when the agreement ends on its pre-defined end date), a new agreement will be created using the accepted terms on the existing agreement. In other words, the agreement will be renewed. Presence of `RenewalTerm` in the offer document means that auto-renewal is allowed. The acceptor will have the option to accept or decline auto-renewal at the offer acceptance/agreement creation. The acceptor can also change this flag from `True` to `False` or `False` to `True`, within the limits set by `LockoutPeriod` and `MaxRenewals`. Setting the flag to `True` doesn't by itself guarantee that the agreement renews, because the proposer can also opt out.
+   *
    * @public
    */
   export interface RenewalTermMember {
@@ -1130,7 +1306,8 @@ export namespace AcceptedTerm {
   }
 
   /**
-   * <p>Defines a usage-based pricing model (typically, pay-as-you-go pricing), where the customers are charged based on product usage.</p>
+   * Defines a usage-based pricing model (typically, pay-as-you-go pricing), where the customers are charged based on product usage.
+   *
    * @public
    */
   export interface UsageBasedPricingTermMember {
@@ -1151,7 +1328,8 @@ export namespace AcceptedTerm {
   }
 
   /**
-   * <p>Defines a prepaid payment model that allows buyers to configure the entitlements they want to purchase and the duration.</p>
+   * Defines a prepaid payment model that allows buyers to configure the entitlements they want to purchase and the duration.
+   *
    * @public
    */
   export interface ConfigurableUpfrontPricingTermMember {
@@ -1172,7 +1350,8 @@ export namespace AcceptedTerm {
   }
 
   /**
-   * <p>Enables you and your customers to move your existing agreements to AWS Marketplace. The customer won't be charged for product usage in AWS Marketplace because they already paid for the product outside of AWS Marketplace.</p>
+   * Enables you and your customers to move your existing agreements to AWS Marketplace. The customer won't be charged for product usage in AWS Marketplace because they already paid for the product outside of AWS Marketplace.
+   *
    * @public
    */
   export interface ByolPricingTermMember {
@@ -1193,7 +1372,8 @@ export namespace AcceptedTerm {
   }
 
   /**
-   * <p>Defines a pricing model where customers are charged a fixed recurring price at the end of each billing period.</p>
+   * Defines a pricing model where customers are charged a fixed recurring price at the end of each billing period.
+   *
    * @public
    */
   export interface RecurringPaymentTermMember {
@@ -1214,7 +1394,8 @@ export namespace AcceptedTerm {
   }
 
   /**
-   * <p>Defines the conditions that will keep an agreement created from this offer valid.</p>
+   * Defines the conditions that will keep an agreement created from this offer valid.
+   *
    * @public
    */
   export interface ValidityTermMember {
@@ -1235,7 +1416,8 @@ export namespace AcceptedTerm {
   }
 
   /**
-   * <p>Defines an installment-based pricing model where customers are charged a fixed price on different dates during the agreement validity period. This is used most commonly for flexible payment schedule pricing.</p>
+   * Defines an installment-based pricing model where customers are charged a fixed price on different dates during the agreement validity period. This is used most commonly for flexible payment schedule pricing.
+   *
    * @public
    */
   export interface PaymentScheduleTermMember {
@@ -1256,7 +1438,8 @@ export namespace AcceptedTerm {
   }
 
   /**
-   * <p>Defines a short-term free pricing model where the buyers aren’t charged anything within a specified limit.</p>
+   * Defines a short-term free pricing model where the buyers aren’t charged anything within a specified limit.
+   *
    * @public
    */
   export interface FreeTrialPricingTermMember {
@@ -1277,7 +1460,8 @@ export namespace AcceptedTerm {
   }
 
   /**
-   * <p>Defines a pre-paid pricing model where the customers are charged a fixed upfront amount.</p>
+   * Defines a pre-paid pricing model where the customers are charged a fixed upfront amount.
+   *
    * @public
    */
   export interface FixedUpfrontPricingTermMember {
@@ -1298,7 +1482,8 @@ export namespace AcceptedTerm {
   }
 
   /**
-   * <p>Defines a payment model where sellers can submit variable payment requests up to a maximum charge amount, with configurable approval strategies and expiration timelines.</p>
+   * Defines a payment model where sellers can submit variable payment requests up to a maximum charge amount, with configurable approval strategies and expiration timelines.
+   *
    * @public
    */
   export interface VariablePaymentTermMember {
@@ -1319,7 +1504,8 @@ export namespace AcceptedTerm {
   }
 
   /**
-   * <p>Defines the net payment due period for the agreement, specifying when payment is due after an invoice is issued.</p>
+   * Defines the net payment due period for the agreement, specifying when payment is due after an invoice is issued.
+   *
    * @public
    */
   export interface NetPaymentTermMember {
@@ -1382,420 +1568,511 @@ export namespace AcceptedTerm {
 }
 
 /**
- * <p>The details of the party accepting the agreement terms. This is commonly the buyer for <code>PurchaseAgreement</code>.</p>
+ * The details of the party accepting the agreement terms. This is commonly the buyer for `PurchaseAgreement`.
+ *
  * @public
  */
 export interface Acceptor {
   /**
-   * <p>The AWS account ID of the acceptor.</p>
+   * The AWS account ID of the acceptor.
+   *
    * @public
    */
   accountId?: string | undefined;
 }
 
 /**
- * <p>Summary view of an agreement cancellation request.</p>
+ * Summary view of an agreement cancellation request.
+ *
  * @public
  */
 export interface AgreementCancellationRequestSummary {
   /**
-   * <p>The unique identifier of the cancellation request.</p>
+   * The unique identifier of the cancellation request.
+   *
    * @public
    */
   agreementCancellationRequestId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the agreement associated with this cancellation request.</p>
+   * The unique identifier of the agreement associated with this cancellation request.
+   *
    * @public
    */
   agreementId?: string | undefined;
 
   /**
-   * <p>The current status of the cancellation request. Possible values include <code>PENDING_APPROVAL</code>, <code>APPROVED</code>, <code>REJECTED</code>, <code>CANCELLED</code>, and <code>VALIDATION_FAILED</code>.</p>
+   * The current status of the cancellation request. Possible values include `PENDING_APPROVAL`, `APPROVED`, `REJECTED`, `CANCELLED`, and `VALIDATION_FAILED`.
+   *
    * @public
    */
   status?: AgreementCancellationRequestStatus | undefined;
 
   /**
-   * <p>The reason code provided for the cancellation.</p>
+   * The reason code provided for the cancellation.
+   *
    * @public
    */
   reasonCode?: AgreementCancellationRequestReasonCode | undefined;
 
   /**
-   * <p>The type of agreement.</p>
+   * The type of agreement.
+   *
    * @public
    */
   agreementType?: string | undefined;
 
   /**
-   * <p>The catalog in which the agreement was created.</p>
+   * The catalog in which the agreement was created.
+   *
    * @public
    */
   catalog?: string | undefined;
 
   /**
-   * <p>The date and time when the cancellation request was created.</p>
+   * The date and time when the cancellation request was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time when the cancellation request was last updated.</p>
+   * The date and time when the cancellation request was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * <p>The list of resources involved in the agreement.</p>
+ * The list of resources involved in the agreement.
+ *
  * @public
  */
 export interface Resource {
   /**
-   * <p>The unique identifier of the resource.</p> <note> <p>We mention the term resource, which is most commonly a product, so a <code>resourceId</code> is also a <code>productId</code>.</p> </note>
+   * The unique identifier of the resource.
+   *
+   * > **Note:** We mention the term resource, which is most commonly a product, so a `resourceId` is also a `productId`.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>Type of the resource, which is the product (for example, <code>SaaSProduct</code>, <code>AmiProduct</code>, <code>ContainerProduct</code>).</p>
+   * Type of the resource, which is the product (for example, `SaaSProduct`, `AmiProduct`, `ContainerProduct`).
+   *
    * @public
    */
   type?: string | undefined;
 }
 
 /**
- * <p>Represents an entitlement associated with an agreement, including the provisioning status, resource, and type.</p>
+ * Represents an entitlement associated with an agreement, including the provisioning status, resource, and type.
+ *
  * @public
  */
 export interface AgreementEntitlement {
   /**
-   * <p>The resource that the entitlement is provisioned to, such as a product.</p>
+   * The resource that the entitlement is provisioned to, such as a product.
+   *
    * @public
    */
   resource?: Resource | undefined;
 
   /**
-   * <p>The type of entitlement.</p>
+   * The type of entitlement.
+   *
    * @public
    */
   type?: string | undefined;
 
   /**
-   * <p>A short-lived token required by acceptors to register their account with the product provider. The token is only valid for 30 minutes after creation and is only applicable for purchase agreements.</p>
+   * A short-lived token required by acceptors to register their account with the product provider. The token is only valid for 30 minutes after creation and is only applicable for purchase agreements.
+   *
    * @public
    */
   registrationToken?: string | undefined;
 
   /**
-   * <p>The current state of an entitlement.</p>
+   * The current state of an entitlement.
+   *
    * @public
    */
   status?: AgreementEntitlementStatus | undefined;
 
   /**
-   * <p>Provides more information about the status of an entitlement.</p>
+   * Provides more information about the status of an entitlement.
+   *
    * @public
    */
   statusReasonCode?: AgreementEntitlementStatusReasonCode | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS License Manager license associated with the entitlement.</p>
+   * The Amazon Resource Name (ARN) of the AWS License Manager license associated with the entitlement.
+   *
    * @public
    */
   licenseArn?: string | undefined;
 }
 
 /**
- * <p>The billing period for an invoice, specified by month and year.</p>
+ * The billing period for an invoice, specified by month and year.
+ *
  * @public
  */
 export interface InvoiceBillingPeriod {
   /**
-   * <p>The billing period month. Valid range: 1-12.</p>
+   * The billing period month. Valid range: 1-12.
+   *
    * @public
    */
   month: number | undefined;
 
   /**
-   * <p>The billing period year.</p>
+   * The billing period year.
+   *
    * @public
    */
   year: number | undefined;
 }
 
 /**
- * <p>The entity responsible for issuing the invoice.</p>
+ * The entity responsible for issuing the invoice.
+ *
  * @public
  */
 export interface InvoicingEntity {
   /**
-   * <p>Legal name of the entity issuing the invoice.</p>
+   * Legal name of the entity issuing the invoice.
+   *
    * @public
    */
   legalName?: string | undefined;
 
   /**
-   * <p>The branch where the issuing entity is operating from.</p>
+   * The branch where the issuing entity is operating from.
+   *
    * @public
    */
   branchName?: string | undefined;
 }
 
 /**
- * <p>Monetary amounts associated with an invoice line item group.</p>
+ * Monetary amounts associated with an invoice line item group.
+ *
  * @public
  */
 export interface PricingCurrencyAmount {
   /**
-   * <p>The monetary amount before tax.</p>
+   * The monetary amount before tax.
+   *
    * @public
    */
   amount?: string | undefined;
 
   /**
-   * <p>The maximum refundable amount as a string representation of a decimal number.</p>
+   * The maximum refundable amount as a string representation of a decimal number.
+   *
    * @public
    */
   maxAdjustmentAmount?: string | undefined;
 
   /**
-   * <p>The 3-letter ISO 4217 currency code (e.g., <code>USD</code>, <code>EUR</code>, <code>JPY</code>).</p>
+   * The 3-letter ISO 4217 currency code (e.g., `USD`, `EUR`, `JPY`).
+   *
    * @public
    */
   currencyCode?: string | undefined;
 }
 
 /**
- * <p>A summary of grouped billing data for an agreement invoice line item.</p>
+ * A summary of grouped billing data for an agreement invoice line item.
+ *
  * @public
  */
 export interface AgreementInvoiceLineItemGroupSummary {
   /**
-   * <p>The unique identifier of the agreement.</p>
+   * The unique identifier of the agreement.
+   *
    * @public
    */
   agreementId?: string | undefined;
 
   /**
-   * <p>The identifier of the invoice for this group.</p>
+   * The identifier of the invoice for this group.
+   *
    * @public
    */
   invoiceId?: string | undefined;
 
   /**
-   * <p>Monetary amounts for this invoice group.</p>
+   * Monetary amounts for this invoice group.
+   *
    * @public
    */
   pricingCurrencyAmount?: PricingCurrencyAmount | undefined;
 
   /**
-   * <p>The billing period associated with this group.</p>
+   * The billing period associated with this group.
+   *
    * @public
    */
   invoiceBillingPeriod?: InvoiceBillingPeriod | undefined;
 
   /**
-   * <p>The timestamp when the invoice containing this group was created.</p>
+   * The timestamp when the invoice containing this group was created.
+   *
    * @public
    */
   issuedTime?: Date | undefined;
 
   /**
-   * <p>The type of invoice. Valid values are <code>INVOICE</code> and <code>CREDIT_MEMO</code>.</p>
+   * The type of invoice. Valid values are `INVOICE` and `CREDIT_MEMO`.
+   *
    * @public
    */
   invoiceType?: InvoiceType | undefined;
 
   /**
-   * <p>The entity that issues the invoice.</p>
+   * The entity that issues the invoice.
+   *
    * @public
    */
   invoicingEntity?: InvoicingEntity | undefined;
 }
 
 /**
- * <p>Represents an entitlement associated with an agreement.</p>
+ * Represents an entitlement associated with an agreement.
+ *
  * @public
  */
 export interface Entitlement {
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS License Manager license associated with the entitlement.</p>
+   * The Amazon Resource Name (ARN) of the AWS License Manager license associated with the entitlement.
+   *
    * @public
    */
   licenseArn?: string | undefined;
 }
 
 /**
- * <p>A summary of the proposal received from the proposer.</p>
+ * A summary of the proposal received from the proposer.
+ *
  * @public
  */
 export interface ProposalSummary {
   /**
-   * <p>The list of resources involved in the agreement.</p>
+   * The list of resources involved in the agreement.
+   *
    * @public
    */
   resources?: Resource[] | undefined;
 
   /**
-   * <p>The unique identifier of the offer in AWS Marketplace.</p>
+   * The unique identifier of the offer in AWS Marketplace.
+   *
    * @public
    */
   offerId?: string | undefined;
 
   /**
-   * <p>A unique identifier for the offer set containing this offer. All agreements created from offers in this set include this identifier as context.</p>
+   * A unique identifier for the offer set containing this offer. All agreements created from offers in this set include this identifier as context.
+   *
    * @public
    */
   offerSetId?: string | undefined;
 }
 
 /**
- * <p>Details of the party proposing the agreement terms,. This is commonly the seller for <code>PurchaseAgreement</code>. </p>
+ * Details of the party proposing the agreement terms,. This is commonly the seller for `PurchaseAgreement`.
+ *
  * @public
  */
 export interface Proposer {
   /**
-   * <p>The AWS account ID of the proposer.</p>
+   * The AWS account ID of the proposer.
+   *
    * @public
    */
   accountId?: string | undefined;
 }
 
 /**
- * <p>A summary of the agreement, including top-level attributes (for example, the agreement ID, proposer, and acceptor).</p>
+ * A summary of the agreement, including top-level attributes (for example, the agreement ID, proposer, and acceptor).
+ *
  * @public
  */
 export interface AgreementViewSummary {
   /**
-   * <p>The unique identifier of the agreement.</p>
+   * The unique identifier of the agreement.
+   *
    * @public
    */
   agreementId?: string | undefined;
 
   /**
-   * <p>The date and time that the agreement was accepted.</p>
+   * The date and time that the agreement was accepted.
+   *
    * @public
    */
   acceptanceTime?: Date | undefined;
 
   /**
-   * <p>The date and time when the agreement starts.</p>
+   * The date and time when the agreement starts.
+   *
    * @public
    */
   startTime?: Date | undefined;
 
   /**
-   * <p>The date and time when the agreement ends. The field is <code>null</code> for pay-as-you-go agreements, which don’t have end dates.</p>
+   * The date and time when the agreement ends. The field is `null` for pay-as-you-go agreements, which don’t have end dates.
+   *
    * @public
    */
   endTime?: Date | undefined;
 
   /**
-   * <p>The date and time when the agreement was last updated. An agreement is updated when any of its attributes or accepted terms change. Amendments, renewals, and a party changing whether the agreement renews are all examples.</p> <p>Use the <code>BeforeLastUpdateTime</code> and <code>AfterLastUpdateTime</code> filters to search on this value, and <code>LastUpdateTime</code> as the <code>SortBy</code> value to sort by it. Sorting by <code>LastUpdateTime</code> is supported only when <code>PartyType</code> is <code>Proposer</code>.</p>
+   * The date and time when the agreement was last updated. An agreement is updated when any of its attributes or accepted terms change. Amendments, renewals, and a party changing whether the agreement renews are all examples.
+   *
+   * Use the `BeforeLastUpdateTime` and `AfterLastUpdateTime` filters to search on this value, and `LastUpdateTime` as the `SortBy` value to sort by it. Sorting by `LastUpdateTime` is supported only when `PartyType` is `Proposer`.
+   *
    * @public
    */
   lastUpdateTime?: Date | undefined;
 
   /**
-   * <p>The type of agreement.</p>
+   * The type of agreement.
+   *
    * @public
    */
   agreementType?: string | undefined;
 
   /**
-   * <p>Details of the party accepting the agreement terms. This is commonly the buyer for <code>PurchaseAgreement.</code> </p>
+   * Details of the party accepting the agreement terms. This is commonly the buyer for `PurchaseAgreement.`
+   *
    * @public
    */
   acceptor?: Acceptor | undefined;
 
   /**
-   * <p>Details of the party proposing the agreement terms, most commonly the seller for <code>PurchaseAgreement</code>.</p>
+   * Details of the party proposing the agreement terms, most commonly the seller for `PurchaseAgreement`.
+   *
    * @public
    */
   proposer?: Proposer | undefined;
 
   /**
-   * <p>A summary of the proposal</p>
+   * A summary of the proposal
+   *
    * @public
    */
   proposalSummary?: ProposalSummary | undefined;
 
   /**
-   * <p>The current status of the agreement. </p>
+   * The current status of the agreement.
+   *
    * @public
    */
   status?: AgreementStatus | undefined;
 
   /**
-   * <p>A list of entitlements associated with the agreement.</p>
+   * A list of entitlements associated with the agreement.
+   *
    * @public
    */
   entitlements?: Entitlement[] | undefined;
 
   /**
-   * <p>The unique identifier of the very first agreement in a chain of related agreements, such as renewals or replacements. It stays the same across all agreements in that chain, which lets you trace an agreement back to the original. You can also use it as the <code>InitialAgreementId</code> filter value to return every agreement in the same chain.</p>
+   * The unique identifier of the very first agreement in a chain of related agreements, such as renewals or replacements. It stays the same across all agreements in that chain, which lets you trace an agreement back to the original. You can also use it as the `InitialAgreementId` filter value to return every agreement in the same chain.
+   *
    * @public
    */
   initialAgreementId?: string | undefined;
 
   /**
-   * <p>The behavior of the agreement when it reaches its end date. The field is <code>null</code> for agreements that have no end date, because those agreements never reach an end time.</p> <p>Types include:</p> <ul> <li> <p> <code>RENEW</code> – A new agreement is created from the accepted terms of this agreement.</p> </li> <li> <p> <code>REPLACE</code> – A new agreement is created from a different offer than the one this agreement was created from. This happens, for example, when a private offer reaches its end date and the acceptor transitions to the public offer for the product.</p> </li> <li> <p> <code>EXPIRE</code> – The agreement ends and isn't renewed or replaced.</p> </li> </ul>
+   * The behavior of the agreement when it reaches its end date. The field is `null` for agreements that have no end date, because those agreements never reach an end time.
+   *
+   * Types include:
+   *
+   * - `RENEW` – A new agreement is created from the accepted terms of this agreement.
+   * - `REPLACE` – A new agreement is created from a different offer than the one this agreement was created from. This happens, for example, when a private offer reaches its end date and the acceptor transitions to the public offer for the product.
+   * - `EXPIRE` – The agreement ends and isn't renewed or replaced.
+   *
    * @public
    */
   endTimeBehaviorType?: EndTimeBehaviorType | undefined;
 
   /**
-   * <p>The reason why the agreement doesn't renew at its end date. The field is <code>null</code> when the agreement renews.</p> <p>More than one reason can apply to the same agreement. When that happens, the operation returns only one reason code, and <code>PROPOSER_RENEW_OPTED_OUT</code> takes precedence over all others.</p> <p>The <code>EnableAutoRenew</code> field reflects only the acceptor's preference, and doesn't reflect the other reasons an agreement might not renew.</p> <p>Reason codes include:</p> <ul> <li> <p> <code>PROPOSER_RENEW_OPTED_OUT</code> – The proposer opted out of renewing the agreement.</p> </li> <li> <p> <code>ACCEPTOR_RENEW_OPTED_OUT</code> – The acceptor opted out of renewing the agreement.</p> </li> <li> <p> <code>NO_RENEWAL_TERM</code> – The accepted terms of the agreement don't include a renewal term, which is required for an agreement to renew.</p> </li> <li> <p> <code>RENEWAL_LIMIT_EXHAUSTED</code> – The agreement reached the maximum number of renewals allowed by its renewal term.</p> </li> </ul>
+   * The reason why the agreement doesn't renew at its end date. The field is `null` when the agreement renews.
+   *
+   * More than one reason can apply to the same agreement. When that happens, the operation returns only one reason code, and `PROPOSER_RENEW_OPTED_OUT` takes precedence over all others.
+   *
+   * The `EnableAutoRenew` field reflects only the acceptor's preference, and doesn't reflect the other reasons an agreement might not renew.
+   *
+   * Reason codes include:
+   *
+   * - `PROPOSER_RENEW_OPTED_OUT` – The proposer opted out of renewing the agreement.
+   * - `ACCEPTOR_RENEW_OPTED_OUT` – The acceptor opted out of renewing the agreement.
+   * - `NO_RENEWAL_TERM` – The accepted terms of the agreement don't include a renewal term, which is required for an agreement to renew.
+   * - `RENEWAL_LIMIT_EXHAUSTED` – The agreement reached the maximum number of renewals allowed by its renewal term.
+   *
    * @public
    */
   endTimeBehaviorReasonCode?: EndTimeBehaviorReasonCode | undefined;
 }
 
 /**
- * <p>An individual entry in a batch billing adjustment request, specifying the invoice and adjustment details.</p>
+ * An individual entry in a batch billing adjustment request, specifying the invoice and adjustment details.
+ *
  * @public
  */
 export interface BatchCreateBillingAdjustmentRequestEntry {
   /**
-   * <p>The unique identifier of the agreement associated with the invoice.</p>
+   * The unique identifier of the agreement associated with the invoice.
+   *
    * @public
    */
   agreementId: string | undefined;
 
   /**
-   * <p>The identifier of the original invoice to adjust.</p>
+   * The identifier of the original invoice to adjust.
+   *
    * @public
    */
   originalInvoiceId: string | undefined;
 
   /**
-   * <p>The adjustment amount as a string representation of a decimal number in the currency of the invoice.</p>
+   * The adjustment amount as a string representation of a decimal number in the currency of the invoice.
+   *
    * @public
    */
   adjustmentAmount: string | undefined;
 
   /**
-   * <p>The 3-letter ISO 4217 currency code for the adjustment amount. Must match the currency code of the offer associated with the agreement (e.g., <code>USD</code>).</p>
+   * The 3-letter ISO 4217 currency code for the adjustment amount. Must match the currency code of the offer associated with the agreement (e.g., `USD`).
+   *
    * @public
    */
   currencyCode: string | undefined;
 
   /**
-   * <p>The reason code for the billing adjustment.</p>
+   * The reason code for the billing adjustment.
+   *
    * @public
    */
   adjustmentReasonCode: BillingAdjustmentReasonCode | undefined;
 
   /**
-   * <p>An optional detailed description of the adjustment reason.</p>
+   * An optional detailed description of the adjustment reason.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken: string | undefined;
@@ -1806,49 +2083,57 @@ export interface BatchCreateBillingAdjustmentRequestEntry {
  */
 export interface BatchCreateBillingAdjustmentRequestInput {
   /**
-   * <p>A list of billing adjustment request entries. Each entry specifies the invoice and adjustment details.</p>
+   * A list of billing adjustment request entries. Each entry specifies the invoice and adjustment details.
+   *
    * @public
    */
   billingAdjustmentRequestEntries: BatchCreateBillingAdjustmentRequestEntry[] | undefined;
 }
 
 /**
- * <p>An error for a billing adjustment request entry that failed validation.</p>
+ * An error for a billing adjustment request entry that failed validation.
+ *
  * @public
  */
 export interface BatchCreateBillingAdjustmentError {
   /**
-   * <p>The error code indicating the reason for failure.</p>
+   * The error code indicating the reason for failure.
+   *
    * @public
    */
   code: BillingAdjustmentErrorCode | undefined;
 
   /**
-   * <p>A human-readable message describing the error.</p>
+   * A human-readable message describing the error.
+   *
    * @public
    */
   message: string | undefined;
 
   /**
-   * <p>The client token of the request entry that failed.</p>
+   * The client token of the request entry that failed.
+   *
    * @public
    */
   clientToken: string | undefined;
 }
 
 /**
- * <p>A successfully created billing adjustment request item.</p>
+ * A successfully created billing adjustment request item.
+ *
  * @public
  */
 export interface BatchCreateBillingAdjustmentItem {
   /**
-   * <p>The unique identifier of the created billing adjustment request.</p>
+   * The unique identifier of the created billing adjustment request.
+   *
    * @public
    */
   billingAdjustmentRequestId: string | undefined;
 
   /**
-   * <p>The client token provided in the corresponding request entry.</p>
+   * The client token provided in the corresponding request entry.
+   *
    * @public
    */
   clientToken: string | undefined;
@@ -1859,13 +2144,15 @@ export interface BatchCreateBillingAdjustmentItem {
  */
 export interface BatchCreateBillingAdjustmentRequestOutput {
   /**
-   * <p>A list of successfully created billing adjustment items, each containing the <code>billingAdjustmentRequestId</code> and <code>clientToken</code>.</p>
+   * A list of successfully created billing adjustment items, each containing the `billingAdjustmentRequestId` and `clientToken`.
+   *
    * @public
    */
   items: BatchCreateBillingAdjustmentItem[] | undefined;
 
   /**
-   * <p>A list of errors for entries that failed validation, each containing the <code>clientToken</code>, error <code>code</code>, and <code>message</code>.</p>
+   * A list of errors for entries that failed validation, each containing the `clientToken`, error `code`, and `message`.
+   *
    * @public
    */
   errors: BatchCreateBillingAdjustmentError[] | undefined;
@@ -1876,7 +2163,8 @@ export interface BatchCreateBillingAdjustmentRequestOutput {
  */
 export interface CancelAgreementInput {
   /**
-   * <p>The unique identifier of the agreement.</p>
+   * The unique identifier of the agreement.
+   *
    * @public
    */
   agreementId: string | undefined;
@@ -1892,19 +2180,22 @@ export interface CancelAgreementOutput {}
  */
 export interface CancelAgreementCancellationRequestInput {
   /**
-   * <p>The unique identifier of the agreement associated with the cancellation request.</p>
+   * The unique identifier of the agreement associated with the cancellation request.
+   *
    * @public
    */
   agreementId: string | undefined;
 
   /**
-   * <p>The unique identifier of the cancellation request to cancel.</p>
+   * The unique identifier of the cancellation request to cancel.
+   *
    * @public
    */
   agreementCancellationRequestId: string | undefined;
 
   /**
-   * <p>A required message explaining why the cancellation request is being withdrawn (1-2000 characters).</p>
+   * A required message explaining why the cancellation request is being withdrawn (1-2000 characters).
+   *
    * @public
    */
   cancellationReason: string | undefined;
@@ -1915,49 +2206,57 @@ export interface CancelAgreementCancellationRequestInput {
  */
 export interface CancelAgreementCancellationRequestOutput {
   /**
-   * <p>The unique identifier of the cancelled cancellation request.</p>
+   * The unique identifier of the cancelled cancellation request.
+   *
    * @public
    */
   agreementCancellationRequestId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the agreement associated with this cancellation request.</p>
+   * The unique identifier of the agreement associated with this cancellation request.
+   *
    * @public
    */
   agreementId?: string | undefined;
 
   /**
-   * <p>The original reason code provided when the cancellation request was created.</p>
+   * The original reason code provided when the cancellation request was created.
+   *
    * @public
    */
   reasonCode?: AgreementCancellationRequestReasonCode | undefined;
 
   /**
-   * <p>The detailed description of the original cancellation reason, if provided.</p>
+   * The detailed description of the original cancellation reason, if provided.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The updated status of the cancellation request, which is <code>CANCELLED</code>.</p>
+   * The updated status of the cancellation request, which is `CANCELLED`.
+   *
    * @public
    */
   status?: AgreementCancellationRequestStatus | undefined;
 
   /**
-   * <p>A message providing additional context about the cancellation request status.</p>
+   * A message providing additional context about the cancellation request status.
+   *
    * @public
    */
   statusMessage?: string | undefined;
 
   /**
-   * <p>The date and time when the cancellation request was originally created.</p>
+   * The date and time when the cancellation request was originally created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time when the cancellation request was cancelled.</p>
+   * The date and time when the cancellation request was cancelled.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -1968,13 +2267,15 @@ export interface CancelAgreementCancellationRequestOutput {
  */
 export interface CancelAgreementPaymentRequestInput {
   /**
-   * <p>The unique identifier of the payment request to cancel.</p>
+   * The unique identifier of the payment request to cancel.
+   *
    * @public
    */
   paymentRequestId: string | undefined;
 
   /**
-   * <p>The unique identifier of the agreement associated with the payment request.</p>
+   * The unique identifier of the agreement associated with the payment request.
+   *
    * @public
    */
   agreementId: string | undefined;
@@ -1985,62 +2286,72 @@ export interface CancelAgreementPaymentRequestInput {
  */
 export interface CancelAgreementPaymentRequestOutput {
   /**
-   * <p>The unique identifier of the cancelled payment request.</p>
+   * The unique identifier of the cancelled payment request.
+   *
    * @public
    */
   paymentRequestId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the agreement associated with this payment request.</p>
+   * The unique identifier of the agreement associated with this payment request.
+   *
    * @public
    */
   agreementId?: string | undefined;
 
   /**
-   * <p>The updated status of the payment request, which is <code>CANCELLED</code>.</p>
+   * The updated status of the payment request, which is `CANCELLED`.
+   *
    * @public
    */
   status?: PaymentRequestStatus | undefined;
 
   /**
-   * <p>The descriptive name of the payment request.</p>
+   * The descriptive name of the payment request.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The detailed description of the payment request, if provided.</p>
+   * The detailed description of the payment request, if provided.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The amount that was requested to be charged.</p>
+   * The amount that was requested to be charged.
+   *
    * @public
    */
   chargeAmount?: string | undefined;
 
   /**
-   * <p>The currency code for the charge amount.</p>
+   * The currency code for the charge amount.
+   *
    * @public
    */
   currencyCode?: string | undefined;
 
   /**
-   * <p>The date and time when the payment request was originally created.</p>
+   * The date and time when the payment request was originally created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time when the payment request was cancelled.</p>
+   * The date and time when the payment request was cancelled.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * <p>A tagged union that represents the term configuration provided by the acceptor. Only one configuration is accepted per term.</p>
+ * A tagged union that represents the term configuration provided by the acceptor. Only one configuration is accepted per term.
+ *
  * @public
  */
 export type RequestedTermConfiguration =
@@ -2054,7 +2365,8 @@ export type RequestedTermConfiguration =
  */
 export namespace RequestedTermConfiguration {
   /**
-   * <p>Defines a prepaid payment model that allows buyers to configure the entitlements they want to purchase and the duration.</p>
+   * Defines a prepaid payment model that allows buyers to configure the entitlements they want to purchase and the duration.
+   *
    * @public
    */
   export interface ConfigurableUpfrontPricingTermConfigurationMember {
@@ -2065,7 +2377,8 @@ export namespace RequestedTermConfiguration {
   }
 
   /**
-   * <p>Additional parameters specified by the acceptor while accepting the term.</p>
+   * Additional parameters specified by the acceptor while accepting the term.
+   *
    * @public
    */
   export interface RenewalTermConfigurationMember {
@@ -2076,7 +2389,8 @@ export namespace RequestedTermConfiguration {
   }
 
   /**
-   * <p>Additional parameters specified by the acceptor while accepting the variable payment term.</p>
+   * Additional parameters specified by the acceptor while accepting the variable payment term.
+   *
    * @public
    */
   export interface VariablePaymentTermConfigurationMember {
@@ -2109,30 +2423,35 @@ export namespace RequestedTermConfiguration {
 }
 
 /**
- * <p>Defines what is being accepted as part of the agreement creation or update request, and it includes their configurations.</p>
+ * Defines what is being accepted as part of the agreement creation or update request, and it includes their configurations.
+ *
  * @public
  */
 export interface RequestedTerm {
   /**
-   * <p>The unique identifier of the term in the agreement proposal.</p>
+   * The unique identifier of the term in the agreement proposal.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>Additional configuration for the requested terms. This configuration is applicable only to the terms that accept a customer-provided configuration, such as <code>ConfigurableUpfrontPricingTerm</code>.</p>
+   * Additional configuration for the requested terms. This configuration is applicable only to the terms that accept a customer-provided configuration, such as `ConfigurableUpfrontPricingTerm`.
+   *
    * @public
    */
   configuration?: RequestedTermConfiguration | undefined;
 }
 
 /**
- * <p>Configuration controls for tax estimation in the agreement request.</p>
+ * Configuration controls for tax estimation in the agreement request.
+ *
  * @public
  */
 export interface TaxConfiguration {
   /**
-   * <p>Toggle to estimate tax as part of the response. Values include <code>ENABLED</code> and <code>DISABLED</code>. Default is <code>DISABLED</code>.</p>
+   * Toggle to estimate tax as part of the response. Values include `ENABLED` and `DISABLED`. Default is `DISABLED`.
+   *
    * @public
    */
   taxEstimation?: TaxEstimation | undefined;
@@ -2143,205 +2462,256 @@ export interface TaxConfiguration {
  */
 export interface CreateAgreementRequestInput {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The purpose and desired outcome of the agreement request. This is a required parameter that determines how the agreement request is processed.</p> <ul> <li> <p> <code>NEW</code> – Creates a new agreement for terms in the request.</p> </li> <li> <p> <code>AMEND</code> – Modifies an existing agreement with terms that are accepted in the request.</p> </li> <li> <p> <code>REPLACE</code> – Creates a new agreement with accepted terms and replaces the existing agreement.</p> </li> </ul>
+   * The purpose and desired outcome of the agreement request. This is a required parameter that determines how the agreement request is processed.
+   *
+   * - `NEW` – Creates a new agreement for terms in the request.
+   * - `AMEND` – Modifies an existing agreement with terms that are accepted in the request.
+   * - `REPLACE` – Creates a new agreement with accepted terms and replaces the existing agreement.
+   *
    * @public
    */
   intent: Intent | undefined;
 
   /**
-   * <p>A list of terms that define what is being accepted as part of the agreement. Some terms require configuration.</p>
+   * A list of terms that define what is being accepted as part of the agreement. Some terms require configuration.
+   *
    * @public
    */
   requestedTerms: RequestedTerm[] | undefined;
 
   /**
-   * <p>The agreement's identifier that the request acts upon.</p> <important> <p> This parameter is required for all non-<code>NEW</code> intents (i.e., <code>AMEND</code> or <code>REPLACE</code>). Don't provide this parameter if the intent is <code>NEW</code>. </p> </important>
+   * The agreement's identifier that the request acts upon.
+   *
+   * > **Important:** This parameter is required for all non-`NEW` intents (i.e., `AMEND` or `REPLACE`). Don't provide this parameter if the intent is `NEW`.
+   *
    * @public
    */
   sourceAgreementIdentifier?: string | undefined;
 
   /**
-   * <p>The agreement proposal signed by the proposer. The proposal includes the requested resources and the terms that outline an agreement outcome.</p> <important> <p> This parameter is required if the intent is not <code>AMEND</code>.</p> </important>
+   * The agreement proposal signed by the proposer. The proposal includes the requested resources and the terms that outline an agreement outcome.
+   *
+   * > **Important:** This parameter is required if the intent is not `AMEND`.
+   *
    * @public
    */
   agreementProposalIdentifier?: string | undefined;
 
   /**
-   * <p>Configuration for tax estimation in the agreement request response.</p>
+   * Configuration for tax estimation in the agreement request response.
+   *
    * @public
    */
   taxConfiguration?: TaxConfiguration | undefined;
 }
 
 /**
- * <p>Represents a single tax breakdown entry with amount, rate, and type.</p>
+ * Represents a single tax breakdown entry with amount, rate, and type.
+ *
  * @public
  */
 export interface TaxBreakdownItem {
   /**
-   * <p>The estimated tax amount.</p>
+   * The estimated tax amount.
+   *
    * @public
    */
   amount?: string | undefined;
 
   /**
-   * <p>The tax rate, in decimals.</p>
+   * The tax rate, in decimals.
+   *
    * @public
    */
   rate?: string | undefined;
 
   /**
-   * <p>The type of tax (for example, VAT, ST, or GST).</p>
+   * The type of tax (for example, VAT, ST, or GST).
+   *
    * @public
    */
   type?: string | undefined;
 }
 
 /**
- * <p>Provides an aggregated view of estimated tax information.</p>
+ * Provides an aggregated view of estimated tax information.
+ *
  * @public
  */
 export interface EstimatedTaxes {
   /**
-   * <p>A list of tax breakdown information.</p>
+   * A list of tax breakdown information.
+   *
    * @public
    */
   breakdown?: TaxBreakdownItem[] | undefined;
 
   /**
-   * <p>The total amount of tax aggregated from the tax breakdown.</p>
+   * The total amount of tax aggregated from the tax breakdown.
+   *
    * @public
    */
   totalAmount?: string | undefined;
 }
 
 /**
- * <p>Estimated charge for the request.</p>
+ * Estimated charge for the request.
+ *
  * @public
  */
 export interface ExpectedCharge {
   /**
-   * <p>Unique identifier of the charge for a given agreement.</p>
+   * Unique identifier of the charge for a given agreement.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The date and time when the charge is due to be invoiced. This is available only when the charge date is known.</p>
+   * The date and time when the charge is due to be invoiced. This is available only when the charge date is known.
+   *
    * @public
    */
   time?: Date | undefined;
 
   /**
-   * <p>The tax-exclusive amount of the charge. Only available when the charge amount is known.</p>
+   * The tax-exclusive amount of the charge. Only available when the charge amount is known.
+   *
    * @public
    */
   amount?: string | undefined;
 
   /**
-   * <p>The tax-inclusive amount the acceptor has to pay. The amount is only present for fixed charges.</p>
+   * The tax-inclusive amount the acceptor has to pay. The amount is only present for fixed charges.
+   *
    * @public
    */
   amountAfterTax?: string | undefined;
 
   /**
-   * <p>Indicates when the charge amount will be incurred. Values include <code>ON_ACCEPTANCE</code> (charged immediately when the agreement request is accepted), <code>BILLING_PERIOD</code> (charged on each billing period), and <code>SCHEDULED</code> (charged at a predetermined future date).</p>
+   * Indicates when the charge amount will be incurred. Values include `ON_ACCEPTANCE` (charged immediately when the agreement request is accepted), `BILLING_PERIOD` (charged on each billing period), and `SCHEDULED` (charged at a predetermined future date).
+   *
    * @public
    */
   timing?: Timing | undefined;
 
   /**
-   * <p>Provides an aggregated view of estimated tax information for this specific charge.</p>
+   * Provides an aggregated view of estimated tax information for this specific charge.
+   *
    * @public
    */
   estimatedTaxes?: EstimatedTaxes | undefined;
 }
 
 /**
- * <p>A breakdown of individual charges or line items within a billing or pricing context.</p>
+ * A breakdown of individual charges or line items within a billing or pricing context.
+ *
  * @public
  */
 export interface ItemizedCharge {
   /**
-   * <p>The dimension key as specified in the accepted term.</p>
+   * The dimension key as specified in the accepted term.
+   *
    * @public
    */
   dimensionKey?: string | undefined;
 
   /**
-   * <p>The requested quantity for this dimension.</p>
+   * The requested quantity for this dimension.
+   *
    * @public
    */
   newQuantity?: number | undefined;
 
   /**
-   * <p>The existing quantity for this dimension from the source agreement. This value is <code>0</code> for NEW intent.</p>
+   * The existing quantity for this dimension from the source agreement. This value is `0` for NEW intent.
+   *
    * @public
    */
   oldQuantity?: number | undefined;
 
   /**
-   * <p>The identifier of the expected charge that this itemized charge contributes to.</p>
+   * The identifier of the expected charge that this itemized charge contributes to.
+   *
    * @public
    */
   chargeReference?: string | undefined;
 
   /**
-   * <p>The total incremental charge amount for this dimension.</p>
+   * The total incremental charge amount for this dimension.
+   *
    * @public
    */
   incrementalChargeAmount?: string | undefined;
 }
 
 /**
- * <p>The <code>ChargeSummary</code> provides a detailed breakdown of charges that are associated with an agreement request. This is applicable only when a request is created for a <code>PurchaseAgreement</code>.</p> <note> <p>Tax and invoicing fields (such as <code>estimatedTaxes</code>, <code>amountAfterTax</code>, <code>newAgreementValueAfterTax</code>, and <code>invoicingEntity</code>) are returned on a best-effort basis and do not cause the request to fail if unavailable.</p> <p>A <code>null</code> tax amount can have two meanings:</p> <ul> <li> <p>Tax estimation was unavailable at the time of the request.</p> </li> <li> <p>The charge timing is <code>BILLING_PERIOD</code>, so the charge amount is not determined at request time. In this case, the tax breakdown may still include the tax <code>rate</code> and <code>type</code>.</p> </li> </ul> </note>
+ * The `ChargeSummary` provides a detailed breakdown of charges that are associated with an agreement request. This is applicable only when a request is created for a `PurchaseAgreement`.
+ *
+ * > **Note:**
+ * >
+ * > Tax and invoicing fields (such as `estimatedTaxes`, `amountAfterTax`, `newAgreementValueAfterTax`, and `invoicingEntity`) are returned on a best-effort basis and do not cause the request to fail if unavailable.
+ * >
+ * > A `null` tax amount can have two meanings:
+ * >
+ * > - Tax estimation was unavailable at the time of the request.
+ * > - The charge timing is `BILLING_PERIOD`, so the charge amount is not determined at request time. In this case, the tax breakdown may still include the tax `rate` and `type`.
+ *
  * @public
  */
 export interface ChargeSummary {
   /**
-   * <p>The three-letter currency code for all charges (e.g., USD).</p>
+   * The three-letter currency code for all charges (e.g., USD).
+   *
    * @public
    */
   currencyCode?: string | undefined;
 
   /**
-   * <p>The total value of the agreement, which includes any amendments.</p>
+   * The total value of the agreement, which includes any amendments.
+   *
    * @public
    */
   newAgreementValue?: string | undefined;
 
   /**
-   * <p>Expected new agreement value after estimated taxes are applied.</p>
+   * Expected new agreement value after estimated taxes are applied.
+   *
    * @public
    */
   newAgreementValueAfterTax?: string | undefined;
 
   /**
-   * <p>A list of expected charges for the agreement request.</p>
+   * A list of expected charges for the agreement request.
+   *
    * @public
    */
   expectedCharges?: ExpectedCharge[] | undefined;
 
   /**
-   * <p>Provides an aggregated view of estimated tax information for the agreement.</p>
+   * Provides an aggregated view of estimated tax information for the agreement.
+   *
    * @public
    */
   estimatedTaxes?: EstimatedTaxes | undefined;
 
   /**
-   * <p>An itemized list of charges for the agreement request.</p>
+   * An itemized list of charges for the agreement request.
+   *
    * @public
    */
   itemizedCharges?: ItemizedCharge[] | undefined;
 
   /**
-   * <p>The entity responsible for issuing the invoice.</p>
+   * The entity responsible for issuing the invoice.
+   *
    * @public
    */
   invoicingEntity?: InvoicingEntity | undefined;
@@ -2352,13 +2722,15 @@ export interface ChargeSummary {
  */
 export interface CreateAgreementRequestOutput {
   /**
-   * <p>The unique identifier of the agreement request created. Use this identifier with <code>AcceptAgreementRequest</code> to accept the agreement.</p>
+   * The unique identifier of the agreement request created. Use this identifier with `AcceptAgreementRequest` to accept the agreement.
+   *
    * @public
    */
   agreementRequestId?: string | undefined;
 
   /**
-   * <p>Provides details of the charges associated with the agreement request. This is only applicable when a request is created for <code>PurchaseAgreement</code>.</p>
+   * Provides details of the charges associated with the agreement request. This is only applicable when a request is created for `PurchaseAgreement`.
+   *
    * @public
    */
   chargeSummary?: ChargeSummary | undefined;
@@ -2369,61 +2741,98 @@ export interface CreateAgreementRequestOutput {
  */
 export interface DescribeAgreementInput {
   /**
-   * <p>The unique identifier of the agreement.</p>
+   * The unique identifier of the agreement.
+   *
    * @public
    */
   agreementId: string | undefined;
 }
 
 /**
- * <p>The details of the renewal that applies at the end date of an agreement.</p>
+ * The details of the renewal that applies at the end date of an agreement.
+ *
  * @public
  */
 export interface RenewalSummary {
   /**
-   * <p>The unique identifier of the offer that provides the terms for the next renewal cycle. For most renewals, this is the same offer that the agreement was created from.</p>
+   * The unique identifier of the offer that provides the terms for the next renewal cycle. For most renewals, this is the same offer that the agreement was created from.
+   *
    * @public
    */
   offerId?: string | undefined;
 }
 
 /**
- * <p>The behavior of an agreement when it reaches its end date. For example, whether the agreement renews, and if it doesn't, the reason why.</p>
+ * The behavior of an agreement when it reaches its end date. For example, whether the agreement renews, and if it doesn't, the reason why.
+ *
  * @public
  */
 export interface EndTimeBehavior {
   /**
-   * <p>The behavior of the agreement when it reaches its end date.</p> <p>Types include:</p> <ul> <li> <p> <code>RENEW</code> – A new agreement is created from the accepted terms of this agreement.</p> </li> <li> <p> <code>REPLACE</code> – A new agreement is created from a different offer than the one this agreement was created from. This happens, for example, when a private offer reaches its end date and the acceptor transitions to the public offer for the product.</p> </li> <li> <p> <code>EXPIRE</code> – The agreement ends and isn't renewed or replaced.</p> </li> </ul>
+   * The behavior of the agreement when it reaches its end date.
+   *
+   * Types include:
+   *
+   * - `RENEW` – A new agreement is created from the accepted terms of this agreement.
+   * - `REPLACE` – A new agreement is created from a different offer than the one this agreement was created from. This happens, for example, when a private offer reaches its end date and the acceptor transitions to the public offer for the product.
+   * - `EXPIRE` – The agreement ends and isn't renewed or replaced.
+   *
    * @public
    */
   type: EndTimeBehaviorType | undefined;
 
   /**
-   * <p>The reason why the agreement doesn't renew at its end date. The field is <code>null</code> when the agreement renews.</p> <p>More than one reason can apply to the same agreement. When that happens, the operation returns only one reason code, and <code>PROPOSER_RENEW_OPTED_OUT</code> takes precedence over all others.</p> <p>The <code>EnableAutoRenew</code> field reflects only the acceptor's preference, and doesn't reflect the other reasons an agreement might not renew.</p> <p>Reason codes include:</p> <ul> <li> <p> <code>PROPOSER_RENEW_OPTED_OUT</code> – The proposer opted out of renewing the agreement.</p> </li> <li> <p> <code>ACCEPTOR_RENEW_OPTED_OUT</code> – The acceptor opted out of renewing the agreement.</p> </li> <li> <p> <code>NO_RENEWAL_TERM</code> – The accepted terms of the agreement don't include a renewal term, which is required for an agreement to renew.</p> </li> <li> <p> <code>RENEWAL_LIMIT_EXHAUSTED</code> – The agreement reached the maximum number of renewals allowed by its renewal term.</p> </li> </ul>
+   * The reason why the agreement doesn't renew at its end date. The field is `null` when the agreement renews.
+   *
+   * More than one reason can apply to the same agreement. When that happens, the operation returns only one reason code, and `PROPOSER_RENEW_OPTED_OUT` takes precedence over all others.
+   *
+   * The `EnableAutoRenew` field reflects only the acceptor's preference, and doesn't reflect the other reasons an agreement might not renew.
+   *
+   * Reason codes include:
+   *
+   * - `PROPOSER_RENEW_OPTED_OUT` – The proposer opted out of renewing the agreement.
+   * - `ACCEPTOR_RENEW_OPTED_OUT` – The acceptor opted out of renewing the agreement.
+   * - `NO_RENEWAL_TERM` – The accepted terms of the agreement don't include a renewal term, which is required for an agreement to renew.
+   * - `RENEWAL_LIMIT_EXHAUSTED` – The agreement reached the maximum number of renewals allowed by its renewal term.
+   *
    * @public
    */
   reasonCode?: EndTimeBehaviorReasonCode | undefined;
 
   /**
-   * <p>The details of the renewal that applies at the end date of the agreement. This field is present when <code>Type</code> is <code>RENEW</code>. It is also present when <code>ReasonCode</code> is <code>PROPOSER_RENEW_OPTED_OUT</code> or <code>ACCEPTOR_RENEW_OPTED_OUT</code>. In those cases, it identifies the offer that the agreement would otherwise have renewed from. The field is <code>null</code> in all other cases.</p>
+   * The details of the renewal that applies at the end date of the agreement. This field is present when `Type` is `RENEW`. It is also present when `ReasonCode` is `PROPOSER_RENEW_OPTED_OUT` or `ACCEPTOR_RENEW_OPTED_OUT`. In those cases, it identifies the offer that the agreement would otherwise have renewed from. The field is `null` in all other cases.
+   *
    * @public
    */
   renewalSummary?: RenewalSummary | undefined;
 }
 
 /**
- * <p>Estimated cost of the agreement.</p>
+ * Estimated cost of the agreement.
+ *
  * @public
  */
 export interface EstimatedCharges {
   /**
-   * <p>Defines the currency code for the charge.</p>
+   * Defines the currency code for the charge.
+   *
    * @public
    */
   currencyCode?: string | undefined;
 
   /**
-   * <p>The total known amount customer has to pay across the lifecycle of the agreement.</p> <note> <p>This is the total contract value if accepted terms contain <code>ConfigurableUpfrontPricingTerm</code> or <code>FixedUpfrontPricingTerm</code>. In the case of pure contract pricing, this will be the total value of the contract. In the case of contracts with consumption pricing, this will only include the committed value and not include any overages that occur.</p> <p>If the accepted terms contain <code>PaymentScheduleTerm</code>, it will be the total payment schedule amount. This occurs when flexible payment schedule is used, and is the sum of all invoice charges in the payment schedule.</p> <p>In case a customer has amended an agreement, by purchasing more units of any dimension, this will include both the original cost as well as the added cost incurred due to addition of new units. </p> <p>This is <code>0</code> if the accepted terms contain <code>UsageBasedPricingTerm</code> without <code>ConfigurableUpfrontPricingTerm</code> or <code>RecurringPaymentTerm</code>. This occurs for usage-based pricing (such as SaaS metered or AMI/container hourly or monthly), because the exact usage is not known upfront.</p> </note>
+   * The total known amount customer has to pay across the lifecycle of the agreement.
+   *
+   * > **Note:**
+   * >
+   * > This is the total contract value if accepted terms contain `ConfigurableUpfrontPricingTerm` or `FixedUpfrontPricingTerm`. In the case of pure contract pricing, this will be the total value of the contract. In the case of contracts with consumption pricing, this will only include the committed value and not include any overages that occur.
+   * >
+   * > If the accepted terms contain `PaymentScheduleTerm`, it will be the total payment schedule amount. This occurs when flexible payment schedule is used, and is the sum of all invoice charges in the payment schedule.
+   * >
+   * > In case a customer has amended an agreement, by purchasing more units of any dimension, this will include both the original cost as well as the added cost incurred due to addition of new units.
+   * >
+   * > This is `0` if the accepted terms contain `UsageBasedPricingTerm` without `ConfigurableUpfrontPricingTerm` or `RecurringPaymentTerm`. This occurs for usage-based pricing (such as SaaS metered or AMI/container hourly or monthly), because the exact usage is not known upfront.
+   *
    * @public
    */
   agreementValue?: string | undefined;
@@ -2434,73 +2843,98 @@ export interface EstimatedCharges {
  */
 export interface DescribeAgreementOutput {
   /**
-   * <p>The unique identifier of the agreement.</p>
+   * The unique identifier of the agreement.
+   *
    * @public
    */
   agreementId?: string | undefined;
 
   /**
-   * <p>The details of the party accepting the agreement terms. This is commonly the buyer for <code>PurchaseAgreement</code>.</p>
+   * The details of the party accepting the agreement terms. This is commonly the buyer for `PurchaseAgreement`.
+   *
    * @public
    */
   acceptor?: Acceptor | undefined;
 
   /**
-   * <p>The details of the party proposing the agreement terms. This is commonly the seller for <code>PurchaseAgreement</code>.</p>
+   * The details of the party proposing the agreement terms. This is commonly the seller for `PurchaseAgreement`.
+   *
    * @public
    */
   proposer?: Proposer | undefined;
 
   /**
-   * <p>The date and time when the agreement starts.</p>
+   * The date and time when the agreement starts.
+   *
    * @public
    */
   startTime?: Date | undefined;
 
   /**
-   * <p>The date and time when the agreement ends. The field is <code>null</code> for pay-as-you-go agreements, which don’t have end dates.</p>
+   * The date and time when the agreement ends. The field is `null` for pay-as-you-go agreements, which don’t have end dates.
+   *
    * @public
    */
   endTime?: Date | undefined;
 
   /**
-   * <p>The date and time the offer was accepted or the agreement was created.</p> <note> <p> <code>AcceptanceTime</code> and <code>StartTime</code> can differ for future dated agreements (FDAs).</p> </note>
+   * The date and time the offer was accepted or the agreement was created.
+   *
+   * > **Note:** `AcceptanceTime` and `StartTime` can differ for future dated agreements (FDAs).
+   *
    * @public
    */
   acceptanceTime?: Date | undefined;
 
   /**
-   * <p>The type of agreement. Values are <code>PurchaseAgreement</code> or <code>VendorInsightsAgreement</code>.</p>
+   * The type of agreement. Values are `PurchaseAgreement` or `VendorInsightsAgreement`.
+   *
    * @public
    */
   agreementType?: string | undefined;
 
   /**
-   * <p>The estimated cost of the agreement.</p>
+   * The estimated cost of the agreement.
+   *
    * @public
    */
   estimatedCharges?: EstimatedCharges | undefined;
 
   /**
-   * <p>A summary of the proposal received from the proposer.</p>
+   * A summary of the proposal received from the proposer.
+   *
    * @public
    */
   proposalSummary?: ProposalSummary | undefined;
 
   /**
-   * <p>The current status of the agreement.</p> <p>Statuses include:</p> <ul> <li> <p> <code>ACTIVE</code> – The terms of the agreement are active.</p> </li> <li> <p> <code>CANCELLED</code> – The acceptor ended the agreement before the defined end date.</p> </li> <li> <p> <code>EXPIRED</code> – The agreement ended on the defined end date.</p> </li> <li> <p> <code>RENEWED</code> – The agreement was renewed into a new agreement (for example, an auto-renewal).</p> </li> <li> <p> <code>REPLACED</code> – The agreement was replaced using an agreement replacement offer.</p> </li> <li> <p> <code>TERMINATED</code> – The agreement ended before the defined end date because of an AWS termination (for example, a payment failure).</p> </li> </ul>
+   * The current status of the agreement.
+   *
+   * Statuses include:
+   *
+   * - `ACTIVE` – The terms of the agreement are active.
+   * - `CANCELLED` – The acceptor ended the agreement before the defined end date.
+   * - `EXPIRED` – The agreement ended on the defined end date.
+   * - `RENEWED` – The agreement was renewed into a new agreement (for example, an auto-renewal).
+   * - `REPLACED` – The agreement was replaced using an agreement replacement offer.
+   * - `TERMINATED` – The agreement ended before the defined end date because of an AWS termination (for example, a payment failure).
+   *
    * @public
    */
   status?: AgreementStatus | undefined;
 
   /**
-   * <p>The unique identifier of the very first agreement in a chain of related agreements, such as renewals or replacements. It stays the same across all agreements in that chain, which lets you trace an agreement back to the original. When an agreement isn't derived from another agreement, its <code>InitialAgreementId</code> is its own <code>AgreementId</code>.</p>
+   * The unique identifier of the very first agreement in a chain of related agreements, such as renewals or replacements. It stays the same across all agreements in that chain, which lets you trace an agreement back to the original. When an agreement isn't derived from another agreement, its `InitialAgreementId` is its own `AgreementId`.
+   *
    * @public
    */
   initialAgreementId?: string | undefined;
 
   /**
-   * <p>The behavior of the agreement when it reaches its end date. For example, whether the agreement renews, and if it doesn't, the reason why.</p> <p>This field is present for every active agreement that has an end date. It is not present for an agreement that has no end date, because such an agreement never reaches an end time. Pay-as-you-go agreements are the most common example. It is also not present for an agreement that is no longer active.</p>
+   * The behavior of the agreement when it reaches its end date. For example, whether the agreement renews, and if it doesn't, the reason why.
+   *
+   * This field is present for every active agreement that has an end date. It is not present for an agreement that has no end date, because such an agreement never reaches an end time. Pay-as-you-go agreements are the most common example. It is also not present for an agreement that is no longer active.
+   *
    * @public
    */
   endTimeBehavior?: EndTimeBehavior | undefined;
@@ -2511,13 +2945,15 @@ export interface DescribeAgreementOutput {
  */
 export interface GetAgreementCancellationRequestInput {
   /**
-   * <p>The unique identifier of the cancellation request.</p>
+   * The unique identifier of the cancellation request.
+   *
    * @public
    */
   agreementCancellationRequestId: string | undefined;
 
   /**
-   * <p>The unique identifier of the agreement associated with the cancellation request.</p>
+   * The unique identifier of the agreement associated with the cancellation request.
+   *
    * @public
    */
   agreementId: string | undefined;
@@ -2528,49 +2964,57 @@ export interface GetAgreementCancellationRequestInput {
  */
 export interface GetAgreementCancellationRequestOutput {
   /**
-   * <p>The unique identifier of the cancellation request.</p>
+   * The unique identifier of the cancellation request.
+   *
    * @public
    */
   agreementCancellationRequestId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the agreement associated with this cancellation request. Use <code>DescribeAgreement</code> to retrieve full agreement details.</p>
+   * The unique identifier of the agreement associated with this cancellation request. Use `DescribeAgreement` to retrieve full agreement details.
+   *
    * @public
    */
   agreementId?: string | undefined;
 
   /**
-   * <p>The reason code provided for the cancellation.</p>
+   * The reason code provided for the cancellation.
+   *
    * @public
    */
   reasonCode?: AgreementCancellationRequestReasonCode | undefined;
 
   /**
-   * <p>The detailed description of the cancellation reason, if provided.</p>
+   * The detailed description of the cancellation reason, if provided.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The current status of the cancellation request.</p>
+   * The current status of the cancellation request.
+   *
    * @public
    */
   status?: AgreementCancellationRequestStatus | undefined;
 
   /**
-   * <p>A message providing additional context about the cancellation request status.</p>
+   * A message providing additional context about the cancellation request status.
+   *
    * @public
    */
   statusMessage?: string | undefined;
 
   /**
-   * <p>The date and time when the cancellation request was created.</p>
+   * The date and time when the cancellation request was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time when the cancellation request was last updated.</p>
+   * The date and time when the cancellation request was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -2581,19 +3025,22 @@ export interface GetAgreementCancellationRequestOutput {
  */
 export interface GetAgreementEntitlementsInput {
   /**
-   * <p>The unique identifier of the agreement.</p>
+   * The unique identifier of the agreement.
+   *
    * @public
    */
   agreementId: string | undefined;
 
   /**
-   * <p>The maximum number of agreement entitlements to return in the response.</p>
+   * The maximum number of agreement entitlements to return in the response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token to specify where to start pagination.</p>
+   * A token to specify where to start pagination.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2604,13 +3051,15 @@ export interface GetAgreementEntitlementsInput {
  */
 export interface GetAgreementEntitlementsOutput {
   /**
-   * <p>A list of agreement entitlements which are part of the latest agreement.</p>
+   * A list of agreement entitlements which are part of the latest agreement.
+   *
    * @public
    */
   agreementEntitlements?: AgreementEntitlement[] | undefined;
 
   /**
-   * <p>The token used for pagination. The field is <code>null</code> if there are no more results.</p>
+   * The token used for pagination. The field is `null` if there are no more results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2621,13 +3070,15 @@ export interface GetAgreementEntitlementsOutput {
  */
 export interface GetAgreementPaymentRequestInput {
   /**
-   * <p>The identifier of the payment request.</p>
+   * The identifier of the payment request.
+   *
    * @public
    */
   paymentRequestId: string | undefined;
 
   /**
-   * <p>The unique identifier of the agreement associated with the payment request.</p>
+   * The unique identifier of the agreement associated with the payment request.
+   *
    * @public
    */
   agreementId: string | undefined;
@@ -2638,67 +3089,85 @@ export interface GetAgreementPaymentRequestInput {
  */
 export interface GetAgreementPaymentRequestOutput {
   /**
-   * <p>The unique identifier of the payment request.</p>
+   * The unique identifier of the payment request.
+   *
    * @public
    */
   paymentRequestId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the agreement associated with this payment request. Use <code>DescribeAgreement</code> to retrieve full agreement details.</p>
+   * The unique identifier of the agreement associated with this payment request. Use `DescribeAgreement` to retrieve full agreement details.
+   *
    * @public
    */
   agreementId?: string | undefined;
 
   /**
-   * <p>The current status of the payment request. Possible values include:</p> <ul> <li> <p> <code>VALIDATING</code> – The payment request is being validated against agreement terms.</p> </li> <li> <p> <code>VALIDATION_FAILED</code> – The payment request failed validation.</p> </li> <li> <p> <code>PENDING_APPROVAL</code> – The payment request is awaiting buyer action.</p> </li> <li> <p> <code>APPROVED</code> – The buyer has approved the payment request.</p> </li> <li> <p> <code>REJECTED</code> – The buyer has rejected the payment request.</p> </li> <li> <p> <code>CANCELLED</code> – The seller has cancelled the payment request.</p> </li> </ul>
+   * The current status of the payment request. Possible values include:
+   *
+   * - `VALIDATING` – The payment request is being validated against agreement terms.
+   * - `VALIDATION_FAILED` – The payment request failed validation.
+   * - `PENDING_APPROVAL` – The payment request is awaiting buyer action.
+   * - `APPROVED` – The buyer has approved the payment request.
+   * - `REJECTED` – The buyer has rejected the payment request.
+   * - `CANCELLED` – The seller has cancelled the payment request.
+   *
    * @public
    */
   status?: PaymentRequestStatus | undefined;
 
   /**
-   * <p>An optional message providing additional context about the payment request status, such as a rejection reason or validation failure details.</p>
+   * An optional message providing additional context about the payment request status, such as a rejection reason or validation failure details.
+   *
    * @public
    */
   statusMessage?: string | undefined;
 
   /**
-   * <p>The descriptive name of the payment request.</p>
+   * The descriptive name of the payment request.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The detailed description of the payment request, if provided.</p>
+   * The detailed description of the payment request, if provided.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The unique identifier of the charge created after the payment request is approved. This field is only present for approved payment requests and follows the pattern <code>ch-[a-zA-Z0-9]+</code>.</p>
+   * The unique identifier of the charge created after the payment request is approved. This field is only present for approved payment requests and follows the pattern `ch-[a-zA-Z0-9]+`.
+   *
    * @public
    */
   chargeId?: string | undefined;
 
   /**
-   * <p>The amount charged or to be charged to the buyer.</p>
+   * The amount charged or to be charged to the buyer.
+   *
    * @public
    */
   chargeAmount?: string | undefined;
 
   /**
-   * <p>The currency code for the charge amount.</p>
+   * The currency code for the charge amount.
+   *
    * @public
    */
   currencyCode?: string | undefined;
 
   /**
-   * <p>The date and time when the payment request was created.</p>
+   * The date and time when the payment request was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time when the payment request was last updated.</p>
+   * The date and time when the payment request was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -2709,19 +3178,22 @@ export interface GetAgreementPaymentRequestOutput {
  */
 export interface GetAgreementTermsInput {
   /**
-   * <p>The unique identifier of the agreement.</p>
+   * The unique identifier of the agreement.
+   *
    * @public
    */
   agreementId: string | undefined;
 
   /**
-   * <p>The maximum number of agreements to return in the response.</p>
+   * The maximum number of agreements to return in the response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token to specify where to start pagination.</p>
+   * A token to specify where to start pagination.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2732,13 +3204,15 @@ export interface GetAgreementTermsInput {
  */
 export interface GetAgreementTermsOutput {
   /**
-   * <p>A subset of terms proposed by the proposer that have been accepted by the acceptor as part of the agreement creation.</p>
+   * A subset of terms proposed by the proposer that have been accepted by the acceptor as part of the agreement creation.
+   *
    * @public
    */
   acceptedTerms?: AcceptedTerm[] | undefined;
 
   /**
-   * <p>The token used for pagination. The field is <code>null</code> if there are no more results.</p>
+   * The token used for pagination. The field is `null` if there are no more results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2749,13 +3223,15 @@ export interface GetAgreementTermsOutput {
  */
 export interface GetBillingAdjustmentRequestInput {
   /**
-   * <p>The unique identifier of the agreement associated with the billing adjustment request.</p>
+   * The unique identifier of the agreement associated with the billing adjustment request.
+   *
    * @public
    */
   agreementId: string | undefined;
 
   /**
-   * <p>The unique identifier of the billing adjustment request.</p>
+   * The unique identifier of the billing adjustment request.
+   *
    * @public
    */
   billingAdjustmentRequestId: string | undefined;
@@ -2766,67 +3242,78 @@ export interface GetBillingAdjustmentRequestInput {
  */
 export interface GetBillingAdjustmentRequestOutput {
   /**
-   * <p>The unique identifier of the billing adjustment request.</p>
+   * The unique identifier of the billing adjustment request.
+   *
    * @public
    */
   billingAdjustmentRequestId: string | undefined;
 
   /**
-   * <p>The unique identifier of the agreement associated with this billing adjustment request.</p>
+   * The unique identifier of the agreement associated with this billing adjustment request.
+   *
    * @public
    */
   agreementId: string | undefined;
 
   /**
-   * <p>The reason code for the billing adjustment.</p>
+   * The reason code for the billing adjustment.
+   *
    * @public
    */
   adjustmentReasonCode: BillingAdjustmentReasonCode | undefined;
 
   /**
-   * <p>The detailed description of the billing adjustment reason, if provided.</p>
+   * The detailed description of the billing adjustment reason, if provided.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The identifier of the original invoice being adjusted.</p>
+   * The identifier of the original invoice being adjusted.
+   *
    * @public
    */
   originalInvoiceId: string | undefined;
 
   /**
-   * <p>The adjustment amount as a string representation of a decimal number.</p>
+   * The adjustment amount as a string representation of a decimal number.
+   *
    * @public
    */
   adjustmentAmount: string | undefined;
 
   /**
-   * <p>The currency code for the adjustment amount (e.g., <code>USD</code>).</p>
+   * The currency code for the adjustment amount (e.g., `USD`).
+   *
    * @public
    */
   currencyCode: string | undefined;
 
   /**
-   * <p>The current status of the billing adjustment request.</p>
+   * The current status of the billing adjustment request.
+   *
    * @public
    */
   status: BillingAdjustmentStatus | undefined;
 
   /**
-   * <p>A message providing additional context about the billing adjustment request status. This field is populated only when the status is <code>VALIDATION_FAILED</code>.</p>
+   * A message providing additional context about the billing adjustment request status. This field is populated only when the status is `VALIDATION_FAILED`.
+   *
    * @public
    */
   statusMessage?: string | undefined;
 
   /**
-   * <p>The date and time when the billing adjustment request was created.</p>
+   * The date and time when the billing adjustment request was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The date and time when the billing adjustment request was last updated.</p>
+   * The date and time when the billing adjustment request was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -2837,43 +3324,50 @@ export interface GetBillingAdjustmentRequestOutput {
  */
 export interface ListAgreementCancellationRequestsInput {
   /**
-   * <p>The party type for the cancellation requests. Required parameter. Use <code>Proposer</code> to list cancellation requests where you are the seller, or <code>Acceptor</code> to list cancellation requests where you are the buyer.</p>
+   * The party type for the cancellation requests. Required parameter. Use `Proposer` to list cancellation requests where you are the seller, or `Acceptor` to list cancellation requests where you are the buyer.
+   *
    * @public
    */
   partyType: string | undefined;
 
   /**
-   * <p>An optional parameter to filter cancellation requests for a specific agreement.</p>
+   * An optional parameter to filter cancellation requests for a specific agreement.
+   *
    * @public
    */
   agreementId?: string | undefined;
 
   /**
-   * <p>An optional parameter to filter cancellation requests by status.</p>
+   * An optional parameter to filter cancellation requests by status.
+   *
    * @public
    */
   status?: AgreementCancellationRequestStatus | undefined;
 
   /**
-   * <p>An optional parameter to filter cancellation requests by agreement type (e.g., <code>PurchaseAgreement</code>).</p>
+   * An optional parameter to filter cancellation requests by agreement type (e.g., `PurchaseAgreement`).
+   *
    * @public
    */
   agreementType?: string | undefined;
 
   /**
-   * <p>An optional parameter to filter cancellation requests by catalog (e.g., <code>AWSMarketplace</code>).</p>
+   * An optional parameter to filter cancellation requests by catalog (e.g., `AWSMarketplace`).
+   *
    * @public
    */
   catalog?: string | undefined;
 
   /**
-   * <p>The maximum number of cancellation requests to return in the response.</p>
+   * The maximum number of cancellation requests to return in the response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token to specify where to start pagination.</p>
+   * A token to specify where to start pagination.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2884,13 +3378,15 @@ export interface ListAgreementCancellationRequestsInput {
  */
 export interface ListAgreementCancellationRequestsOutput {
   /**
-   * <p>The token used for pagination. The field is <code>null</code> if there are no more results.</p>
+   * The token used for pagination. The field is `null` if there are no more results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>An array of <code>AgreementCancellationRequestSummary</code> objects containing summary information about each cancellation request.</p>
+   * An array of `AgreementCancellationRequestSummary` objects containing summary information about each cancellation request.
+   *
    * @public
    */
   items?: AgreementCancellationRequestSummary[] | undefined;
@@ -2901,85 +3397,99 @@ export interface ListAgreementCancellationRequestsOutput {
  */
 export interface ListAgreementChargesInput {
   /**
-   * <p>The catalog in which the charges were created.</p>
+   * The catalog in which the charges were created.
+   *
    * @public
    */
   catalog?: string | undefined;
 
   /**
-   * <p>The unique identifier of the agreement.</p>
+   * The unique identifier of the agreement.
+   *
    * @public
    */
   agreementId?: string | undefined;
 
   /**
-   * <p>Filter to retrieve charges of a specific agreement type (for example, <code>PurchaseAgreement</code>).</p>
+   * Filter to retrieve charges of a specific agreement type (for example, `PurchaseAgreement`).
+   *
    * @public
    */
   agreementType?: string | undefined;
 
   /**
-   * <p>The maximum number of charges to return in the response.</p>
+   * The maximum number of charges to return in the response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token to specify where to start pagination.</p>
+   * A token to specify where to start pagination.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Represents a charge associated with an agreement, including amount, timing, and purchase order details.</p>
+ * Represents a charge associated with an agreement, including amount, timing, and purchase order details.
+ *
  * @public
  */
 export interface Charge {
   /**
-   * <p>The unique identifier of the charge.</p>
+   * The unique identifier of the charge.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The revision number of the charge.</p>
+   * The revision number of the charge.
+   *
    * @public
    */
   revision?: number | undefined;
 
   /**
-   * <p>The unique identifier of the agreement that resulted in this charge.</p>
+   * The unique identifier of the agreement that resulted in this charge.
+   *
    * @public
    */
   agreementId?: string | undefined;
 
   /**
-   * <p>The type of agreement that resulted in this charge (for example, <code>PurchaseAgreement</code>).</p>
+   * The type of agreement that resulted in this charge (for example, `PurchaseAgreement`).
+   *
    * @public
    */
   agreementType?: string | undefined;
 
   /**
-   * <p>The purchase order reference associated with the charge, if any.</p>
+   * The purchase order reference associated with the charge, if any.
+   *
    * @public
    */
   purchaseOrderReference?: string | undefined;
 
   /**
-   * <p>The currency code for the charge amount.</p>
+   * The currency code for the charge amount.
+   *
    * @public
    */
   currencyCode?: string | undefined;
 
   /**
-   * <p>The amount of the charge.</p>
+   * The amount of the charge.
+   *
    * @public
    */
   amount?: string | undefined;
 
   /**
-   * <p>The date and time when the charge will be incurred. This is available only when the charge date is known.</p>
+   * The date and time when the charge will be incurred. This is available only when the charge date is known.
+   *
    * @public
    */
   time?: Date | undefined;
@@ -2990,13 +3500,15 @@ export interface Charge {
  */
 export interface ListAgreementChargesOutput {
   /**
-   * <p>A list of agreement charges.</p>
+   * A list of agreement charges.
+   *
    * @public
    */
   items?: Charge[] | undefined;
 
   /**
-   * <p>The token used for pagination. The field is <code>null</code> if there are no more results.</p>
+   * The token used for pagination. The field is `null` if there are no more results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -3007,55 +3519,64 @@ export interface ListAgreementChargesOutput {
  */
 export interface ListAgreementInvoiceLineItemsInput {
   /**
-   * <p>The unique identifier of the agreement.</p>
+   * The unique identifier of the agreement.
+   *
    * @public
    */
   agreementId: string | undefined;
 
   /**
-   * <p>Specifies a grouping strategy for line items. Currently supports <code>INVOICE_ID</code>.</p>
+   * Specifies a grouping strategy for line items. Currently supports `INVOICE_ID`.
+   *
    * @public
    */
   groupBy: LineItemGroupBy | undefined;
 
   /**
-   * <p>An optional filter to retrieve invoice information for a specific invoice.</p>
+   * An optional filter to retrieve invoice information for a specific invoice.
+   *
    * @public
    */
   invoiceId?: string | undefined;
 
   /**
-   * <p>An optional filter for the type of invoice. Valid values are <code>INVOICE</code> and <code>CREDIT_MEMO</code>.</p>
+   * An optional filter for the type of invoice. Valid values are `INVOICE` and `CREDIT_MEMO`.
+   *
    * @public
    */
   invoiceType?: InvoiceType | undefined;
 
   /**
-   * <p>An optional filter for the billing period associated with the invoice.</p>
+   * An optional filter for the billing period associated with the invoice.
+   *
    * @public
    */
   invoiceBillingPeriod?: InvoiceBillingPeriod | undefined;
 
   /**
-   * <p>An optional filter for invoices issued before the specified timestamp.</p>
+   * An optional filter for invoices issued before the specified timestamp.
+   *
    * @public
    */
   beforeIssuedTime?: Date | undefined;
 
   /**
-   * <p>An optional filter for invoices issued after the specified timestamp.</p>
+   * An optional filter for invoices issued after the specified timestamp.
+   *
    * @public
    */
   afterIssuedTime?: Date | undefined;
 
   /**
-   * <p>The maximum number of results to return in the response.</p>
+   * The maximum number of results to return in the response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token to specify where to start pagination.</p>
+   * A token to specify where to start pagination.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -3066,13 +3587,15 @@ export interface ListAgreementInvoiceLineItemsInput {
  */
 export interface ListAgreementInvoiceLineItemsOutput {
   /**
-   * <p>A list of grouped billing data objects.</p>
+   * A list of grouped billing data objects.
+   *
    * @public
    */
   agreementInvoiceLineItemGroupSummaries?: AgreementInvoiceLineItemGroupSummary[] | undefined;
 
   /**
-   * <p>The token used for pagination. The field is <code>null</code> if there are no more results.</p>
+   * The token used for pagination. The field is `null` if there are no more results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -3083,103 +3606,120 @@ export interface ListAgreementInvoiceLineItemsOutput {
  */
 export interface ListAgreementPaymentRequestsInput {
   /**
-   * <p>The party type for the payment requests. Required parameter. Use <code>Proposer</code> to list payment requests where you are the seller, or <code>Acceptor</code> to list payment requests where you are the buyer.</p>
+   * The party type for the payment requests. Required parameter. Use `Proposer` to list payment requests where you are the seller, or `Acceptor` to list payment requests where you are the buyer.
+   *
    * @public
    */
   partyType: string | undefined;
 
   /**
-   * <p>An optional parameter to list payment requests by agreement type (e.g., <code>PurchaseAgreement</code>).</p>
+   * An optional parameter to list payment requests by agreement type (e.g., `PurchaseAgreement`).
+   *
    * @public
    */
   agreementType?: string | undefined;
 
   /**
-   * <p>An optional parameter to list payment requests by catalog (e.g., <code>AWSMarketplace</code>).</p>
+   * An optional parameter to list payment requests by catalog (e.g., `AWSMarketplace`).
+   *
    * @public
    */
   catalog?: string | undefined;
 
   /**
-   * <p>An optional parameter to list payment requests for a specific agreement.</p>
+   * An optional parameter to list payment requests for a specific agreement.
+   *
    * @public
    */
   agreementId?: string | undefined;
 
   /**
-   * <p>An optional parameter to list payment requests by status. Valid values include <code>VALIDATING</code>, <code>VALIDATION_FAILED</code>, <code>PENDING_APPROVAL</code>, <code>APPROVED</code>, <code>REJECTED</code>, and <code>CANCELLED</code>.</p>
+   * An optional parameter to list payment requests by status. Valid values include `VALIDATING`, `VALIDATION_FAILED`, `PENDING_APPROVAL`, `APPROVED`, `REJECTED`, and `CANCELLED`.
+   *
    * @public
    */
   status?: PaymentRequestStatus | undefined;
 
   /**
-   * <p>The maximum number of payment requests to return in a single response (1-50). Default is 50.</p>
+   * The maximum number of payment requests to return in a single response (1-50). Default is 50.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token to specify where to start pagination.</p>
+   * A token to specify where to start pagination.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Summary view of a payment request.</p>
+ * Summary view of a payment request.
+ *
  * @public
  */
 export interface PaymentRequestSummary {
   /**
-   * <p>The unique identifier of the payment request.</p>
+   * The unique identifier of the payment request.
+   *
    * @public
    */
   paymentRequestId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the agreement associated with this payment request.</p>
+   * The unique identifier of the agreement associated with this payment request.
+   *
    * @public
    */
   agreementId?: string | undefined;
 
   /**
-   * <p>The current status of the payment request. Possible values include <code>VALIDATING</code>, <code>VALIDATION_FAILED</code>, <code>PENDING_APPROVAL</code>, <code>APPROVED</code>, <code>REJECTED</code>, and <code>CANCELLED</code>.</p>
+   * The current status of the payment request. Possible values include `VALIDATING`, `VALIDATION_FAILED`, `PENDING_APPROVAL`, `APPROVED`, `REJECTED`, and `CANCELLED`.
+   *
    * @public
    */
   status?: PaymentRequestStatus | undefined;
 
   /**
-   * <p>The descriptive name of the payment request.</p>
+   * The descriptive name of the payment request.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The unique identifier of the charge created after the payment request is approved. This field is only present for approved payment requests.</p>
+   * The unique identifier of the charge created after the payment request is approved. This field is only present for approved payment requests.
+   *
    * @public
    */
   chargeId?: string | undefined;
 
   /**
-   * <p>The amount charged or to be charged to the buyer.</p>
+   * The amount charged or to be charged to the buyer.
+   *
    * @public
    */
   chargeAmount?: string | undefined;
 
   /**
-   * <p>The currency code for the charge amount.</p>
+   * The currency code for the charge amount.
+   *
    * @public
    */
   currencyCode?: string | undefined;
 
   /**
-   * <p>The date and time when the payment request was created.</p>
+   * The date and time when the payment request was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time when the payment request was last updated.</p>
+   * The date and time when the payment request was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -3190,13 +3730,15 @@ export interface PaymentRequestSummary {
  */
 export interface ListAgreementPaymentRequestsOutput {
   /**
-   * <p>The token used for pagination. The field is <code>null</code> if there are no more results.</p>
+   * The token used for pagination. The field is `null` if there are no more results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>An array of <code>PaymentRequestSummary</code> objects containing summary information about each payment request.</p>
+   * An array of `PaymentRequestSummary` objects containing summary information about each payment request.
+   *
    * @public
    */
   items: PaymentRequestSummary[] | undefined;
@@ -3207,115 +3749,134 @@ export interface ListAgreementPaymentRequestsOutput {
  */
 export interface ListBillingAdjustmentRequestsInput {
   /**
-   * <p>The unique identifier of the agreement to list billing adjustment requests for.</p>
+   * The unique identifier of the agreement to list billing adjustment requests for.
+   *
    * @public
    */
   agreementId?: string | undefined;
 
   /**
-   * <p>An optional filter to return billing adjustment requests with the specified status.</p>
+   * An optional filter to return billing adjustment requests with the specified status.
+   *
    * @public
    */
   status?: BillingAdjustmentStatus | undefined;
 
   /**
-   * <p>An optional filter to return billing adjustment requests created after the specified timestamp.</p>
+   * An optional filter to return billing adjustment requests created after the specified timestamp.
+   *
    * @public
    */
   createdAfter?: Date | undefined;
 
   /**
-   * <p>An optional filter to return billing adjustment requests created before the specified timestamp.</p>
+   * An optional filter to return billing adjustment requests created before the specified timestamp.
+   *
    * @public
    */
   createdBefore?: Date | undefined;
 
   /**
-   * <p>The maximum number of billing adjustment requests to return in the response.</p>
+   * The maximum number of billing adjustment requests to return in the response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>An optional filter to return billing adjustment requests by catalog (e.g., <code>AWSMarketplace</code>).</p>
+   * An optional filter to return billing adjustment requests by catalog (e.g., `AWSMarketplace`).
+   *
    * @public
    */
   catalog?: string | undefined;
 
   /**
-   * <p>An optional filter to return billing adjustment requests by agreement type (e.g., <code>PurchaseAgreement</code>).</p>
+   * An optional filter to return billing adjustment requests by agreement type (e.g., `PurchaseAgreement`).
+   *
    * @public
    */
   agreementType?: string | undefined;
 
   /**
-   * <p>A token to specify where to start pagination.</p>
+   * A token to specify where to start pagination.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Summary view of a billing adjustment request.</p>
+ * Summary view of a billing adjustment request.
+ *
  * @public
  */
 export interface BillingAdjustmentSummary {
   /**
-   * <p>The unique identifier of the billing adjustment request.</p>
+   * The unique identifier of the billing adjustment request.
+   *
    * @public
    */
   billingAdjustmentRequestId: string | undefined;
 
   /**
-   * <p>The identifier of the original invoice being adjusted.</p>
+   * The identifier of the original invoice being adjusted.
+   *
    * @public
    */
   originalInvoiceId: string | undefined;
 
   /**
-   * <p>The adjustment amount as a string representation of a decimal number.</p>
+   * The adjustment amount as a string representation of a decimal number.
+   *
    * @public
    */
   adjustmentAmount: string | undefined;
 
   /**
-   * <p>The currency code for the adjustment amount.</p>
+   * The currency code for the adjustment amount.
+   *
    * @public
    */
   currencyCode: string | undefined;
 
   /**
-   * <p>The current status of the billing adjustment request.</p>
+   * The current status of the billing adjustment request.
+   *
    * @public
    */
   status: BillingAdjustmentStatus | undefined;
 
   /**
-   * <p>The unique identifier of the agreement associated with this billing adjustment request.</p>
+   * The unique identifier of the agreement associated with this billing adjustment request.
+   *
    * @public
    */
   agreementId: string | undefined;
 
   /**
-   * <p>The date and time when the billing adjustment request was created.</p>
+   * The date and time when the billing adjustment request was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The date and time when the billing adjustment request was last updated.</p>
+   * The date and time when the billing adjustment request was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The type of agreement.</p>
+   * The type of agreement.
+   *
    * @public
    */
   agreementType: string | undefined;
 
   /**
-   * <p>The catalog in which the agreement was created.</p>
+   * The catalog in which the agreement was created.
+   *
    * @public
    */
   catalog: string | undefined;
@@ -3326,13 +3887,15 @@ export interface BillingAdjustmentSummary {
  */
 export interface ListBillingAdjustmentRequestsOutput {
   /**
-   * <p>The token used for pagination. The field is <code>null</code> if there are no more results.</p>
+   * The token used for pagination. The field is `null` if there are no more results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>An array of <code>BillingAdjustmentSummary</code> objects containing summary information about each billing adjustment request.</p>
+   * An array of `BillingAdjustmentSummary` objects containing summary information about each billing adjustment request.
+   *
    * @public
    */
   items: BillingAdjustmentSummary[] | undefined;
@@ -3343,19 +3906,22 @@ export interface ListBillingAdjustmentRequestsOutput {
  */
 export interface RejectAgreementCancellationRequestInput {
   /**
-   * <p>The unique identifier of the agreement associated with the cancellation request.</p>
+   * The unique identifier of the agreement associated with the cancellation request.
+   *
    * @public
    */
   agreementId: string | undefined;
 
   /**
-   * <p>The unique identifier of the cancellation request to reject.</p>
+   * The unique identifier of the cancellation request to reject.
+   *
    * @public
    */
   agreementCancellationRequestId: string | undefined;
 
   /**
-   * <p>The reason for rejecting the cancellation request (1-2000 characters). This message is visible to the seller.</p>
+   * The reason for rejecting the cancellation request (1-2000 characters). This message is visible to the seller.
+   *
    * @public
    */
   rejectionReason: string | undefined;
@@ -3366,49 +3932,57 @@ export interface RejectAgreementCancellationRequestInput {
  */
 export interface RejectAgreementCancellationRequestOutput {
   /**
-   * <p>The unique identifier of the agreement associated with this cancellation request.</p>
+   * The unique identifier of the agreement associated with this cancellation request.
+   *
    * @public
    */
   agreementId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the rejected cancellation request.</p>
+   * The unique identifier of the rejected cancellation request.
+   *
    * @public
    */
   agreementCancellationRequestId?: string | undefined;
 
   /**
-   * <p>The updated status of the cancellation request, which is <code>REJECTED</code>.</p>
+   * The updated status of the cancellation request, which is `REJECTED`.
+   *
    * @public
    */
   status?: AgreementCancellationRequestStatus | undefined;
 
   /**
-   * <p>The rejection reason provided by the buyer.</p>
+   * The rejection reason provided by the buyer.
+   *
    * @public
    */
   statusMessage?: string | undefined;
 
   /**
-   * <p>The original reason code provided when the cancellation request was created.</p>
+   * The original reason code provided when the cancellation request was created.
+   *
    * @public
    */
   reasonCode?: AgreementCancellationRequestReasonCode | undefined;
 
   /**
-   * <p>The detailed description of the cancellation reason, if provided.</p>
+   * The detailed description of the cancellation reason, if provided.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The date and time when the cancellation request was originally created.</p>
+   * The date and time when the cancellation request was originally created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time when the cancellation request was rejected.</p>
+   * The date and time when the cancellation request was rejected.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -3419,19 +3993,22 @@ export interface RejectAgreementCancellationRequestOutput {
  */
 export interface RejectAgreementPaymentRequestInput {
   /**
-   * <p>The unique identifier of the payment request to reject.</p>
+   * The unique identifier of the payment request to reject.
+   *
    * @public
    */
   paymentRequestId: string | undefined;
 
   /**
-   * <p>The unique identifier of the agreement associated with the payment request.</p>
+   * The unique identifier of the agreement associated with the payment request.
+   *
    * @public
    */
   agreementId: string | undefined;
 
   /**
-   * <p>An optional reason for rejecting the payment request (1-250 characters). This message is visible to the seller.</p>
+   * An optional reason for rejecting the payment request (1-250 characters). This message is visible to the seller.
+   *
    * @public
    */
   rejectionReason?: string | undefined;
@@ -3442,97 +4019,113 @@ export interface RejectAgreementPaymentRequestInput {
  */
 export interface RejectAgreementPaymentRequestOutput {
   /**
-   * <p>The unique identifier of the rejected payment request.</p>
+   * The unique identifier of the rejected payment request.
+   *
    * @public
    */
   paymentRequestId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the agreement associated with this payment request.</p>
+   * The unique identifier of the agreement associated with this payment request.
+   *
    * @public
    */
   agreementId?: string | undefined;
 
   /**
-   * <p>The updated status of the payment request, which is <code>REJECTED</code>.</p>
+   * The updated status of the payment request, which is `REJECTED`.
+   *
    * @public
    */
   status?: PaymentRequestStatus | undefined;
 
   /**
-   * <p>The rejection reason provided by the buyer, if any.</p>
+   * The rejection reason provided by the buyer, if any.
+   *
    * @public
    */
   statusMessage?: string | undefined;
 
   /**
-   * <p>The descriptive name of the payment request.</p>
+   * The descriptive name of the payment request.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The detailed description of the payment request, if provided.</p>
+   * The detailed description of the payment request, if provided.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The amount that was requested to be charged.</p>
+   * The amount that was requested to be charged.
+   *
    * @public
    */
   chargeAmount?: string | undefined;
 
   /**
-   * <p>The currency code for the charge amount.</p>
+   * The currency code for the charge amount.
+   *
    * @public
    */
   currencyCode?: string | undefined;
 
   /**
-   * <p>The date and time when the payment request was originally created.</p>
+   * The date and time when the payment request was originally created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time when the payment request was rejected.</p>
+   * The date and time when the payment request was rejected.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * <p>The filter name and value pair that is used to return a more specific list of results. Filters can be used to match a set of resources by various criteria, such as <code>offerId</code> or <code>productId</code>.</p>
+ * The filter name and value pair that is used to return a more specific list of results. Filters can be used to match a set of resources by various criteria, such as `offerId` or `productId`.
+ *
  * @public
  */
 export interface Filter {
   /**
-   * <p>The name of the filter.</p>
+   * The name of the filter.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The filter value.</p>
+   * The filter value.
+   *
    * @public
    */
   values?: string[] | undefined;
 }
 
 /**
- * <p>An object that contains the <code>SortBy</code> and <code>SortOrder</code> attributes.</p>
+ * An object that contains the `SortBy` and `SortOrder` attributes.
+ *
  * @public
  */
 export interface Sort {
   /**
-   * <p>The attribute on which the data is grouped, which can be <code>EndTime</code>, <code>StartTime</code>, or <code>LastUpdateTime</code>. <code>StartTime</code> and <code>LastUpdateTime</code> are supported only when <code>PartyType</code> is <code>Proposer</code>. The default value is <code>EndTime</code>.</p>
+   * The attribute on which the data is grouped, which can be `EndTime`, `StartTime`, or `LastUpdateTime`. `StartTime` and `LastUpdateTime` are supported only when `PartyType` is `Proposer`. The default value is `EndTime`.
+   *
    * @public
    */
   sortBy?: string | undefined;
 
   /**
-   * <p>The sorting order, which can be <code>ASCENDING</code> or <code>DESCENDING</code>. The default value is <code>ASCENDING</code>.</p>
+   * The sorting order, which can be `ASCENDING` or `DESCENDING`. The default value is `ASCENDING`.
+   *
    * @public
    */
   sortOrder?: SortOrder | undefined;
@@ -3543,31 +4136,82 @@ export interface Sort {
  */
 export interface SearchAgreementsInput {
   /**
-   * <p>The catalog in which the agreement was created.</p>
+   * The catalog in which the agreement was created.
+   *
    * @public
    */
   catalog?: string | undefined;
 
   /**
-   * <p>The filter name and value pair used to return a specific list of results.</p> <p>The following filters are supported:</p> <ul> <li> <p> <code>ResourceIdentifier</code> – The unique identifier of the resource.</p> </li> <li> <p> <code>ResourceType</code> – Type of the resource, which is the product (<code>AmiProduct</code>, <code>ContainerProduct</code>, <code>SaaSProduct</code>, <code>ProfessionalServicesProduct</code>, or <code>MachineLearningProduct</code>).</p> </li> <li> <p> <code>PartyType</code> – The party type of the caller. Use <code>Proposer</code> or <code>Acceptor</code>.</p> </li> <li> <p> <code>AcceptorAccountId</code> – The AWS account ID of the party accepting the agreement terms.</p> </li> <li> <p> <code>OfferId</code> – The unique identifier of the offer in which the terms are registered in the agreement token.</p> </li> <li> <p> <code>Status</code> – The current status of the agreement. Values include <code>ACTIVE</code>, <code>CANCELLED</code>, <code>EXPIRED</code>, <code>RENEWED</code>, <code>REPLACED</code>, and <code>TERMINATED</code>.</p> </li> <li> <p> <code>BeforeEndTime</code> – A date used to filter agreements with a date before the <code>endTime</code> of an agreement.</p> </li> <li> <p> <code>AfterEndTime</code> – A date used to filter agreements with a date after the <code>endTime</code> of an agreement.</p> </li> <li> <p> <code>BeforeStartTime</code> – A date used to filter agreements with a date before the <code>startTime</code> of an agreement.</p> </li> <li> <p> <code>AfterStartTime</code> – A date used to filter agreements with a date after the <code>startTime</code> of an agreement.</p> </li> <li> <p> <code>BeforeLastUpdateTime</code> – A date used to filter agreements with a date before the <code>lastUpdateTime</code> of an agreement.</p> </li> <li> <p> <code>AfterLastUpdateTime</code> – A date used to filter agreements with a date after the <code>lastUpdateTime</code> of an agreement.</p> </li> <li> <p> <code>AgreementType</code> – The type of agreement. Supported value includes <code>PurchaseAgreement</code>.</p> </li> <li> <p> <code>OfferSetId</code> – A unique identifier for the offer set containing this offer. All agreements created from offers in this set include this identifier as context.</p> </li> <li> <p> <code>EndTimeBehaviorType</code> – What happens to the agreement when it reaches its end date. Values include <code>RENEW</code>, <code>REPLACE</code>, and <code>EXPIRE</code>.</p> </li> <li> <p> <code>EndTimeBehaviorReasonCode</code> – The reason why the agreement doesn't renew at its end date. Values include <code>PROPOSER_RENEW_OPTED_OUT</code>, <code>ACCEPTOR_RENEW_OPTED_OUT</code>, <code>NO_RENEWAL_TERM</code>, and <code>RENEWAL_LIMIT_EXHAUSTED</code>.</p> </li> <li> <p> <code>InitialAgreementId</code> – The unique identifier of the very first agreement in a chain of related agreements. Use this filter to return every agreement in the same chain.</p> </li> <li> <p> <code>LicenseArn</code> – The Amazon Resource Name (ARN) of the AWS License Manager license associated with an entitlement granted by the agreement.</p> </li> </ul> <p>A proposer can use any combination of the preceding filters along with <code>AgreementType</code>, which is required.</p> <p>The following filter combinations are supported when the <code>PartyType</code> is <code>Acceptor</code>:</p> <ul> <li> <p> <code>AgreementType</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>Status</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>EndTime</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>Status</code> + <code>EndTime</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>ResourceIdentifier</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>ResourceIdentifier</code> + <code>EndTime</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>ResourceIdentifier</code> + <code>Status</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>ResourceIdentifier</code> + <code>Status</code> + <code>EndTime</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>ResourceType</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>ResourceType</code> + <code>EndTime</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>OfferId</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>OfferId</code> + <code>EndTime</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>OfferId</code> + <code>Status</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>OfferId</code> + <code>Status</code> + <code>EndTime</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>OfferSetId</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>OfferSetId</code> + <code>EndTime</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>OfferSetId</code> + <code>Status</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>OfferSetId</code> + <code>Status</code> + <code>EndTime</code> </p> </li> </ul> <note> <p>To filter by <code>EndTime</code>, you can use <code>BeforeEndTime</code>, <code>AfterEndTime</code>, or both.</p> </note>
+   * The filter name and value pair used to return a specific list of results.
+   *
+   * The following filters are supported:
+   *
+   * - `ResourceIdentifier` – The unique identifier of the resource.
+   * - `ResourceType` – Type of the resource, which is the product (`AmiProduct`, `ContainerProduct`, `SaaSProduct`, `ProfessionalServicesProduct`, or `MachineLearningProduct`).
+   * - `PartyType` – The party type of the caller. Use `Proposer` or `Acceptor`.
+   * - `AcceptorAccountId` – The AWS account ID of the party accepting the agreement terms.
+   * - `OfferId` – The unique identifier of the offer in which the terms are registered in the agreement token.
+   * - `Status` – The current status of the agreement. Values include `ACTIVE`, `CANCELLED`, `EXPIRED`, `RENEWED`, `REPLACED`, and `TERMINATED`.
+   * - `BeforeEndTime` – A date used to filter agreements with a date before the `endTime` of an agreement.
+   * - `AfterEndTime` – A date used to filter agreements with a date after the `endTime` of an agreement.
+   * - `BeforeStartTime` – A date used to filter agreements with a date before the `startTime` of an agreement.
+   * - `AfterStartTime` – A date used to filter agreements with a date after the `startTime` of an agreement.
+   * - `BeforeLastUpdateTime` – A date used to filter agreements with a date before the `lastUpdateTime` of an agreement.
+   * - `AfterLastUpdateTime` – A date used to filter agreements with a date after the `lastUpdateTime` of an agreement.
+   * - `AgreementType` – The type of agreement. Supported value includes `PurchaseAgreement`.
+   * - `OfferSetId` – A unique identifier for the offer set containing this offer. All agreements created from offers in this set include this identifier as context.
+   * - `EndTimeBehaviorType` – What happens to the agreement when it reaches its end date. Values include `RENEW`, `REPLACE`, and `EXPIRE`.
+   * - `EndTimeBehaviorReasonCode` – The reason why the agreement doesn't renew at its end date. Values include `PROPOSER_RENEW_OPTED_OUT`, `ACCEPTOR_RENEW_OPTED_OUT`, `NO_RENEWAL_TERM`, and `RENEWAL_LIMIT_EXHAUSTED`.
+   * - `InitialAgreementId` – The unique identifier of the very first agreement in a chain of related agreements. Use this filter to return every agreement in the same chain.
+   * - `LicenseArn` – The Amazon Resource Name (ARN) of the AWS License Manager license associated with an entitlement granted by the agreement.
+   *
+   * A proposer can use any combination of the preceding filters along with `AgreementType`, which is required.
+   *
+   * The following filter combinations are supported when the `PartyType` is `Acceptor`:
+   *
+   * - `AgreementType`
+   * - `AgreementType` + `Status`
+   * - `AgreementType` + `EndTime`
+   * - `AgreementType` + `Status` + `EndTime`
+   * - `AgreementType` + `ResourceIdentifier`
+   * - `AgreementType` + `ResourceIdentifier` + `EndTime`
+   * - `AgreementType` + `ResourceIdentifier` + `Status`
+   * - `AgreementType` + `ResourceIdentifier` + `Status` + `EndTime`
+   * - `AgreementType` + `ResourceType`
+   * - `AgreementType` + `ResourceType` + `EndTime`
+   * - `AgreementType` + `OfferId`
+   * - `AgreementType` + `OfferId` + `EndTime`
+   * - `AgreementType` + `OfferId` + `Status`
+   * - `AgreementType` + `OfferId` + `Status` + `EndTime`
+   * - `AgreementType` + `OfferSetId`
+   * - `AgreementType` + `OfferSetId` + `EndTime`
+   * - `AgreementType` + `OfferSetId` + `Status`
+   * - `AgreementType` + `OfferSetId` + `Status` + `EndTime`
+   *
+   * > **Note:** To filter by `EndTime`, you can use `BeforeEndTime`, `AfterEndTime`, or both.
+   *
    * @public
    */
   filters?: Filter[] | undefined;
 
   /**
-   * <p>An object that contains the <code>SortBy</code> and <code>SortOrder</code> attributes. For <code>SearchAgreements</code>, <code>SortBy</code> supports <code>EndTime</code> for both party types, and <code>StartTime</code> and <code>LastUpdateTime</code> only when <code>PartyType</code> is <code>Proposer</code>. The default <code>SortBy</code> value is <code>EndTime</code>.</p>
+   * An object that contains the `SortBy` and `SortOrder` attributes. For `SearchAgreements`, `SortBy` supports `EndTime` for both party types, and `StartTime` and `LastUpdateTime` only when `PartyType` is `Proposer`. The default `SortBy` value is `EndTime`.
+   *
    * @public
    */
   sort?: Sort | undefined;
 
   /**
-   * <p>The maximum number of agreements to return in the response.</p>
+   * The maximum number of agreements to return in the response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token to specify where to start pagination.</p>
+   * A token to specify where to start pagination.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -3578,13 +4222,15 @@ export interface SearchAgreementsInput {
  */
 export interface SearchAgreementsOutput {
   /**
-   * <p>A summary of the agreement, including top-level attributes (for example, the agreement ID, proposer, and acceptor).</p>
+   * A summary of the agreement, including top-level attributes (for example, the agreement ID, proposer, and acceptor).
+   *
    * @public
    */
   agreementViewSummaries?: AgreementViewSummary[] | undefined;
 
   /**
-   * <p>The token used for pagination. The field is <code>null</code> if there are no more results.</p>
+   * The token used for pagination. The field is `null` if there are no more results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -3595,25 +4241,29 @@ export interface SearchAgreementsOutput {
  */
 export interface SendAgreementCancellationRequestInput {
   /**
-   * <p>The unique identifier of the agreement for which the cancellation request is being submitted.</p>
+   * The unique identifier of the agreement for which the cancellation request is being submitted.
+   *
    * @public
    */
   agreementId: string | undefined;
 
   /**
-   * <p>The reason code for the cancellation request.</p>
+   * The reason code for the cancellation request.
+   *
    * @public
    */
   reasonCode: AgreementCancellationRequestReasonCode | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>An optional detailed description of the cancellation reason (1-2000 characters).</p>
+   * An optional detailed description of the cancellation reason (1-2000 characters).
+   *
    * @public
    */
   description?: string | undefined;
@@ -3624,43 +4274,50 @@ export interface SendAgreementCancellationRequestInput {
  */
 export interface SendAgreementCancellationRequestOutput {
   /**
-   * <p>The unique identifier of the agreement.</p>
+   * The unique identifier of the agreement.
+   *
    * @public
    */
   agreementId?: string | undefined;
 
   /**
-   * <p>The unique identifier for the created cancellation request.</p>
+   * The unique identifier for the created cancellation request.
+   *
    * @public
    */
   agreementCancellationRequestId?: string | undefined;
 
   /**
-   * <p>The current status of the cancellation request. The initial status is <code>PENDING_APPROVAL</code>.</p>
+   * The current status of the cancellation request. The initial status is `PENDING_APPROVAL`.
+   *
    * @public
    */
   status?: AgreementCancellationRequestStatus | undefined;
 
   /**
-   * <p>The reason code provided for the cancellation.</p>
+   * The reason code provided for the cancellation.
+   *
    * @public
    */
   reasonCode?: AgreementCancellationRequestReasonCode | undefined;
 
   /**
-   * <p>The detailed description of the cancellation reason, if provided.</p>
+   * The detailed description of the cancellation reason, if provided.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The time when the cancellation request was created.</p>
+   * The time when the cancellation request was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The time when the cancellation request was last updated.</p>
+   * The time when the cancellation request was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -3671,37 +4328,45 @@ export interface SendAgreementCancellationRequestOutput {
  */
 export interface SendAgreementPaymentRequestInput {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The unique identifier of the agreement for which the payment request is being submitted. Use <code>GetAgreementTerms</code> to retrieve agreement term details.</p>
+   * The unique identifier of the agreement for which the payment request is being submitted. Use `GetAgreementTerms` to retrieve agreement term details.
+   *
    * @public
    */
   agreementId: string | undefined;
 
   /**
-   * <p>The unique identifier of the <code>VariablePaymentTerm</code> for the agreement that the payment request is being sent for.</p>
+   * The unique identifier of the `VariablePaymentTerm` for the agreement that the payment request is being sent for.
+   *
    * @public
    */
   termId: string | undefined;
 
   /**
-   * <p>A descriptive name for the payment request (5-64 characters).</p>
+   * A descriptive name for the payment request (5-64 characters).
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The amount requested to be charged to the buyer, positive decimal value in the currency of the accepted term.</p> <note> <p>A <code>ValidationException</code> is returned if the <code>chargeAmount</code> exceeds the available balance, if the agreement doesn't have an active <code>VariablePaymentTerm</code>, or if the <code>termId</code> is invalid.</p> </note>
+   * The amount requested to be charged to the buyer, positive decimal value in the currency of the accepted term.
+   *
+   * > **Note:** A `ValidationException` is returned if the `chargeAmount` exceeds the available balance, if the agreement doesn't have an active `VariablePaymentTerm`, or if the `termId` is invalid.
+   *
    * @public
    */
   chargeAmount: string | undefined;
 
   /**
-   * <p>An optional detailed description of the payment request (1-2000 characters).</p>
+   * An optional detailed description of the payment request (1-2000 characters).
+   *
    * @public
    */
   description?: string | undefined;
@@ -3712,49 +4377,57 @@ export interface SendAgreementPaymentRequestInput {
  */
 export interface SendAgreementPaymentRequestOutput {
   /**
-   * <p>The unique identifier for the sent payment request.</p>
+   * The unique identifier for the sent payment request.
+   *
    * @public
    */
   paymentRequestId?: string | undefined;
 
   /**
-   * <p>The agreement identifier for this payment request.</p>
+   * The agreement identifier for this payment request.
+   *
    * @public
    */
   agreementId?: string | undefined;
 
   /**
-   * <p>The current status of the payment request. The initial status is <code>PENDING_APPROVAL</code>.</p>
+   * The current status of the payment request. The initial status is `PENDING_APPROVAL`.
+   *
    * @public
    */
   status?: PaymentRequestStatus | undefined;
 
   /**
-   * <p>The descriptive name of the payment request.</p>
+   * The descriptive name of the payment request.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The detailed description of the payment request, if provided.</p>
+   * The detailed description of the payment request, if provided.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The amount being charged to the buyer.</p>
+   * The amount being charged to the buyer.
+   *
    * @public
    */
   chargeAmount?: string | undefined;
 
   /**
-   * <p>The currency code for the charge amount (e.g., <code>USD</code>).</p>
+   * The currency code for the charge amount (e.g., `USD`).
+   *
    * @public
    */
   currencyCode?: string | undefined;
 
   /**
-   * <p>The time when the payment request was created.</p>
+   * The time when the payment request was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
@@ -3765,7 +4438,8 @@ export interface SendAgreementPaymentRequestOutput {
  */
 export interface UpdatePurchaseOrdersInput {
   /**
-   * <p>Contains information about purchase order associations.</p>
+   * Contains information about purchase order associations.
+   *
    * @public
    */
   purchaseOrders: PurchaseOrder[] | undefined;

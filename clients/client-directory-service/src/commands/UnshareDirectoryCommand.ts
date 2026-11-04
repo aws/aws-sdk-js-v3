@@ -23,7 +23,8 @@ export interface UnshareDirectoryCommandInput extends UnshareDirectoryRequest {}
 export interface UnshareDirectoryCommandOutput extends UnshareDirectoryResult, __MetadataBearer {}
 
 /**
- * <p>Stops the directory sharing between the directory owner and consumer accounts. </p>
+ * Stops the directory sharing between the directory owner and consumer accounts.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,23 +55,28 @@ export interface UnshareDirectoryCommandOutput extends UnshareDirectoryResult, _
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>A client exception has occurred.</p>
+ *
+ * A client exception has occurred.
  *
  * @throws {@link DirectoryNotSharedException} (client fault)
- *  <p>The specified directory has not been shared with this Amazon Web Services account.</p>
+ *
+ * The specified directory has not been shared with this Amazon Web Services account.
  *
  * @throws {@link EntityDoesNotExistException} (client fault)
- *  <p>The specified entity could not be found.</p>
+ *
+ * The specified entity could not be found.
  *
  * @throws {@link InvalidTargetException} (client fault)
- *  <p>The specified shared target is not valid.</p>
+ *
+ * The specified shared target is not valid.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * An exception has occurred in Directory Service.
  *
  * @throws {@link DirectoryServiceServiceException}
- * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * Base exception class for all service exceptions from DirectoryService service.
  *
  * @public
  */

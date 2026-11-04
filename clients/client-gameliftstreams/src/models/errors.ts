@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { GameLiftStreamsServiceException as __BaseException } from "./GameLiftStreamsServiceException";
 
 /**
- * <p>You don't have the required permissions to access this Amazon GameLift Streams resource. Correct the permissions before you try again.</p>
+ * You don't have the required permissions to access this Amazon GameLift Streams resource. Correct the permissions before you try again.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -12,7 +13,8 @@ export class AccessDeniedException extends __BaseException {
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Description of the error.</p>
+   * Description of the error.
+   *
    * @public
    */
   Message: string | undefined;
@@ -31,7 +33,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The service encountered an internal error and is unable to complete the request.</p>
+ * The service encountered an internal error and is unable to complete the request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -40,7 +43,8 @@ export class InternalServerException extends __BaseException {
   readonly $fault = "server" as const;
   $retryable = {};
   /**
-   * <p>Description of the error.</p>
+   * Description of the error.
+   *
    * @public
    */
   Message: string | undefined;
@@ -59,7 +63,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The resource specified in the request was not found. Correct the request before you try again.</p>
+ * The resource specified in the request was not found. Correct the request before you try again.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -67,7 +72,8 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Description of the error.</p>
+   * Description of the error.
+   *
    * @public
    */
   Message: string | undefined;
@@ -86,7 +92,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request would cause the resource to exceed an allowed service quota. Resolve the issue before you try again.</p>
+ * The request would cause the resource to exceed an allowed service quota. Resolve the issue before you try again.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -94,7 +101,8 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Description of the error.</p>
+   * Description of the error.
+   *
    * @public
    */
   Message: string | undefined;
@@ -113,7 +121,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling. Retry the request after the suggested wait time.</p>
+ * The request was denied due to request throttling. Retry the request after the suggested wait time.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -124,7 +133,8 @@ export class ThrottlingException extends __BaseException {
     throttling: true,
   };
   /**
-   * <p>Description of the error.</p>
+   * Description of the error.
+   *
    * @public
    */
   Message: string | undefined;
@@ -143,7 +153,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>One or more parameter values in the request fail to satisfy the specified constraints. Correct the invalid parameter values before retrying the request.</p>
+ * One or more parameter values in the request fail to satisfy the specified constraints. Correct the invalid parameter values before retrying the request.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -151,7 +162,8 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Description of the error.</p>
+   * Description of the error.
+   *
    * @public
    */
   Message: string | undefined;
@@ -170,7 +182,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p>
+ * The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -178,7 +191,8 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Description of the error.</p>
+   * Description of the error.
+   *
    * @public
    */
   Message: string | undefined;
@@ -197,7 +211,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The terminal connection to the stream session is not yet available. Wait before retrying the request.</p>
+ * The terminal connection to the stream session is not yet available. Wait before retrying the request.
+ *
  * @public
  */
 export class StreamSessionAccessNotReadyException extends __BaseException {
@@ -206,7 +221,8 @@ export class StreamSessionAccessNotReadyException extends __BaseException {
   readonly $fault = "client" as const;
   $retryable = {};
   /**
-   * <p>Description of the error.</p>
+   * Description of the error.
+   *
    * @public
    */
   Message: string | undefined;

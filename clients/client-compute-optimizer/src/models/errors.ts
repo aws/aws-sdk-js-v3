@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { ComputeOptimizerServiceException as __BaseException } from "./ComputeOptimizerServiceException";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>An internal error has occurred. Try your call again.</p>
+ * An internal error has occurred. Try your call again.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -46,7 +48,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The value supplied for the input parameter is out of range or not valid.</p>
+ * The value supplied for the input parameter is out of range or not valid.
+ *
  * @public
  */
 export class InvalidParameterValueException extends __BaseException {
@@ -67,8 +70,8 @@ export class InvalidParameterValueException extends __BaseException {
 }
 
 /**
- * <p>The request must contain either a valid (registered) Amazon Web Services access key ID
- *             or X.509 certificate.</p>
+ * The request must contain either a valid (registered) Amazon Web Services access key ID or X.509 certificate.
+ *
  * @public
  */
 export class MissingAuthenticationToken extends __BaseException {
@@ -89,7 +92,8 @@ export class MissingAuthenticationToken extends __BaseException {
 }
 
 /**
- * <p>The account is not opted in to Compute Optimizer.</p>
+ * The account is not opted in to Compute Optimizer.
+ *
  * @public
  */
 export class OptInRequiredException extends __BaseException {
@@ -110,7 +114,8 @@ export class OptInRequiredException extends __BaseException {
 }
 
 /**
- * <p>A resource that is required for the action doesn't exist.</p>
+ * A resource that is required for the action doesn't exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -131,7 +136,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request has failed due to a temporary failure of the server.</p>
+ * The request has failed due to a temporary failure of the server.
+ *
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -152,7 +158,8 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -173,7 +180,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The request exceeds a limit of the service.</p>
+ * The request exceeds a limit of the service.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {

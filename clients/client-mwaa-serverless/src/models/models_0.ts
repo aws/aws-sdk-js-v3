@@ -15,7 +15,8 @@ import type {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource for which to list tags.</p>
+   * The Amazon Resource Name (ARN) of the resource for which to list tags.
+   *
    * @public
    */
   ResourceArn: string | undefined;
@@ -26,25 +27,29 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>A map of tags that are associated with the resource, where each tag consists of a key-value pair.</p>
+   * A map of tags that are associated with the resource, where each tag consists of a key-value pair.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Contains information about a field that failed validation, including the field name and a descriptive error message.</p>
+ * Contains information about a field that failed validation, including the field name and a descriptive error message.
+ *
  * @public
  */
 export interface ValidationExceptionField {
   /**
-   * <p>The name of the field that failed validation.</p>
+   * The name of the field that failed validation.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>A message that describes why the field failed validation.</p>
+   * A message that describes why the field failed validation.
+   *
    * @public
    */
   Message: string | undefined;
@@ -55,13 +60,15 @@ export interface ValidationExceptionField {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource to which to add tags.</p>
+   * The Amazon Resource Name (ARN) of the resource to which to add tags.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>A map of tags to add to the resource. Each tag consists of a key-value pair.</p>
+   * A map of tags to add to the resource. Each tag consists of a key-value pair.
+   *
    * @public
    */
   Tags: Record<string, string> | undefined;
@@ -77,19 +84,22 @@ export interface TagResourceResponse {}
  */
 export interface GetTaskInstanceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the workflow that contains the task instance.</p>
+   * The Amazon Resource Name (ARN) of the workflow that contains the task instance.
+   *
    * @public
    */
   WorkflowArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the task instance to retrieve.</p>
+   * The unique identifier of the task instance to retrieve.
+   *
    * @public
    */
   TaskInstanceId: string | undefined;
 
   /**
-   * <p>The unique identifier of the workflow run that contains the task instance.</p>
+   * The unique identifier of the workflow run that contains the task instance.
+   *
    * @public
    */
   RunId: string | undefined;
@@ -100,91 +110,106 @@ export interface GetTaskInstanceRequest {
  */
 export interface GetTaskInstanceResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the workflow that contains this task instance.</p>
+   * The Amazon Resource Name (ARN) of the workflow that contains this task instance.
+   *
    * @public
    */
   WorkflowArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the workflow run that contains this task instance.</p>
+   * The unique identifier of the workflow run that contains this task instance.
+   *
    * @public
    */
   RunId: string | undefined;
 
   /**
-   * <p>The unique identifier of this task instance.</p>
+   * The unique identifier of this task instance.
+   *
    * @public
    */
   TaskInstanceId: string | undefined;
 
   /**
-   * <p>The version of the workflow that contains this task instance.</p>
+   * The version of the workflow that contains this task instance.
+   *
    * @public
    */
   WorkflowVersion?: string | undefined;
 
   /**
-   * <p>The current status of the task instance.</p>
+   * The current status of the task instance.
+   *
    * @public
    */
   Status?: TaskInstanceStatus | undefined;
 
   /**
-   * <p>The duration of the task instance execution in seconds. This value is null if the task is not complete.</p>
+   * The duration of the task instance execution in seconds. This value is null if the task is not complete.
+   *
    * @public
    */
   DurationInSeconds?: number | undefined;
 
   /**
-   * <p>The name of the Apache Airflow operator used for this task instance.</p>
+   * The name of the Apache Airflow operator used for this task instance.
+   *
    * @public
    */
   OperatorName?: string | undefined;
 
   /**
-   * <p>The timestamp when the task instance was last modified, in ISO 8601 date-time format.</p>
+   * The timestamp when the task instance was last modified, in ISO 8601 date-time format.
+   *
    * @public
    */
   ModifiedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when the task instance completed execution, in ISO 8601 date-time format. This value is null if the task is not complete.</p>
+   * The timestamp when the task instance completed execution, in ISO 8601 date-time format. This value is null if the task is not complete.
+   *
    * @public
    */
   EndedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when the task instance started execution, in ISO 8601 date-time format. This value is null if the task has not started.</p>
+   * The timestamp when the task instance started execution, in ISO 8601 date-time format. This value is null if the task has not started.
+   *
    * @public
    */
   StartedAt?: Date | undefined;
 
   /**
-   * <p>The attempt number for this task instance.</p>
+   * The attempt number for this task instance.
+   *
    * @public
    */
   AttemptNumber?: number | undefined;
 
   /**
-   * <p>The error message if the task instance failed. This value is null if the task completed successfully.</p>
+   * The error message if the task instance failed. This value is null if the task completed successfully.
+   *
    * @public
    */
   ErrorMessage?: string | undefined;
 
   /**
-   * <p>The unique identifier of the task definition within the workflow.</p>
+   * The unique identifier of the task definition within the workflow.
+   *
    * @public
    */
   TaskId?: string | undefined;
 
   /**
-   * <p>The CloudWatch log stream name for this task instance execution.</p>
+   * The CloudWatch log stream name for this task instance execution.
+   *
    * @public
    */
   LogStream?: string | undefined;
 
   /**
-   * <p>Cross-communication data exchanged between tasks in the workflow execution.</p>
+   * Cross-communication data exchanged between tasks in the workflow execution.
+   *
    * @public
    */
   Xcom?: Record<string, string> | undefined;
@@ -195,73 +220,85 @@ export interface GetTaskInstanceResponse {
  */
 export interface ListTaskInstancesRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the workflow that contains the run.</p>
+   * The Amazon Resource Name (ARN) of the workflow that contains the run.
+   *
    * @public
    */
   WorkflowArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the workflow run for which you want a list of task instances.</p>
+   * The unique identifier of the workflow run for which you want a list of task instances.
+   *
    * @public
    */
   RunId: string | undefined;
 
   /**
-   * <p>The maximum number of task instances to return in a single response.</p>
+   * The maximum number of task instances to return in a single response.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The pagination token you need to use to retrieve the next set of results. This value is returned from a previous call to <code>ListTaskInstances</code>.</p>
+   * The pagination token you need to use to retrieve the next set of results. This value is returned from a previous call to `ListTaskInstances`.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Summary information about a task instance within a workflow run, including its status and execution details.</p>
+ * Summary information about a task instance within a workflow run, including its status and execution details.
+ *
  * @public
  */
 export interface TaskInstanceSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the workflow that contains this task instance.</p>
+   * The Amazon Resource Name (ARN) of the workflow that contains this task instance.
+   *
    * @public
    */
   WorkflowArn?: string | undefined;
 
   /**
-   * <p>The version of the workflow that contains this task instance.</p>
+   * The version of the workflow that contains this task instance.
+   *
    * @public
    */
   WorkflowVersion?: string | undefined;
 
   /**
-   * <p>The unique identifier of the workflow run that contains this task instance.</p>
+   * The unique identifier of the workflow run that contains this task instance.
+   *
    * @public
    */
   RunId?: string | undefined;
 
   /**
-   * <p>The unique identifier of this task instance.</p>
+   * The unique identifier of this task instance.
+   *
    * @public
    */
   TaskInstanceId?: string | undefined;
 
   /**
-   * <p>The current status of the task instance.</p>
+   * The current status of the task instance.
+   *
    * @public
    */
   Status?: TaskInstanceStatus | undefined;
 
   /**
-   * <p>The duration of the task instance execution in seconds. This value is null if the task is not complete.</p>
+   * The duration of the task instance execution in seconds. This value is null if the task is not complete.
+   *
    * @public
    */
   DurationInSeconds?: number | undefined;
 
   /**
-   * <p>The name of the Apache Airflow operator used for this task instance.</p>
+   * The name of the Apache Airflow operator used for this task instance.
+   *
    * @public
    */
   OperatorName?: string | undefined;
@@ -272,13 +309,15 @@ export interface TaskInstanceSummary {
  */
 export interface ListTaskInstancesResponse {
   /**
-   * <p>A list of task instance summaries for the specified workflow run.</p>
+   * A list of task instance summaries for the specified workflow run.
+   *
    * @public
    */
   TaskInstances?: TaskInstanceSummary[] | undefined;
 
   /**
-   * <p>The pagination token you need to use to retrieve the next set of results. This value is null if there are no more results.</p>
+   * The pagination token you need to use to retrieve the next set of results. This value is null if there are no more results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -289,13 +328,15 @@ export interface ListTaskInstancesResponse {
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource from which to remove tags.</p>
+   * The Amazon Resource Name (ARN) of the resource from which to remove tags.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>A list of tag keys to remove from the resource. Only the keys are required; the values are ignored.</p>
+   * A list of tag keys to remove from the resource. Only the keys are required; the values are ignored.
+   *
    * @public
    */
   TagKeys: string[] | undefined;
@@ -307,31 +348,36 @@ export interface UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 /**
- * <p>Specifies the Amazon S3 location of code artifacts that workflows use during execution.</p>
+ * Specifies the Amazon S3 location of code artifacts that workflows use during execution.
+ *
  * @public
  */
 export interface S3Location {
   /**
-   * <p>The name of the Amazon S3 bucket.</p>
+   * The name of the Amazon S3 bucket.
+   *
    * @public
    */
   Bucket: string | undefined;
 
   /**
-   * <p>The key of the code artifact within the Amazon S3 bucket.</p>
+   * The key of the code artifact within the Amazon S3 bucket.
+   *
    * @public
    */
   ObjectKey: string | undefined;
 
   /**
-   * <p>The version ID of the object in Amazon S3. If not specified, the latest version is used.</p>
+   * The version ID of the object in Amazon S3. If not specified, the latest version is used.
+   *
    * @public
    */
   VersionId?: string | undefined;
 }
 
 /**
- * <p>Specifies the Amazon S3 location of code artifacts that workflows use during execution.</p>
+ * Specifies the Amazon S3 location of code artifacts that workflows use during execution.
+ *
  * @public
  */
 export type Code =
@@ -343,7 +389,8 @@ export type Code =
  */
 export namespace Code {
   /**
-   * <p>The Amazon S3 location of the code artifacts that your workflow tasks use during execution.</p>
+   * The Amazon S3 location of the code artifacts that your workflow tasks use during execution.
+   *
    * @public
    */
   export interface S3LocationMember {
@@ -370,72 +417,84 @@ export namespace Code {
 }
 
 /**
- * <p>Specifies the Amazon S3 location of a workflow definition file. This structure contains the bucket name, object key, and optional version ID for the workflow definition. Amazon Managed Workflows for Apache Airflow Serverless takes a snapshot of the definition file at the time of workflow creation or update, ensuring that the workflow behavior remains consistent even if the source file is modified. The definition must be a valid YAML file that uses supported Amazon Web Services operators and Amazon Managed Workflows for Apache Airflow Serverless syntax.</p>
+ * Specifies the Amazon S3 location of a workflow definition file. This structure contains the bucket name, object key, and optional version ID for the workflow definition. Amazon Managed Workflows for Apache Airflow Serverless takes a snapshot of the definition file at the time of workflow creation or update, ensuring that the workflow behavior remains consistent even if the source file is modified. The definition must be a valid YAML file that uses supported Amazon Web Services operators and Amazon Managed Workflows for Apache Airflow Serverless syntax.
+ *
  * @public
  */
 export interface DefinitionS3Location {
   /**
-   * <p>The name of the Amazon S3 bucket that contains the workflow definition file.</p>
+   * The name of the Amazon S3 bucket that contains the workflow definition file.
+   *
    * @public
    */
   Bucket: string | undefined;
 
   /**
-   * <p>The key (name) of the workflow definition file within the S3 bucket.</p>
+   * The key (name) of the workflow definition file within the S3 bucket.
+   *
    * @public
    */
   ObjectKey: string | undefined;
 
   /**
-   * <p>Optional. The version ID of the workflow definition file in Amazon S3. If not specified, the latest version is used.</p>
+   * Optional. The version ID of the workflow definition file in Amazon S3. If not specified, the latest version is used.
+   *
    * @public
    */
   VersionId?: string | undefined;
 }
 
 /**
- * <p>Configuration for encrypting workflow data at rest and in transit. Amazon Managed Workflows for Apache Airflow Serverless provides comprehensive encryption capabilities to protect sensitive workflow data, parameters, and execution logs. When using customer-managed keys, the service integrates with Amazon Web Services KMS to provide fine-grained access control and audit capabilities. Encryption is applied consistently across the distributed execution environment including task containers, metadata storage, and log streams.</p>
+ * Configuration for encrypting workflow data at rest and in transit. Amazon Managed Workflows for Apache Airflow Serverless provides comprehensive encryption capabilities to protect sensitive workflow data, parameters, and execution logs. When using customer-managed keys, the service integrates with Amazon Web Services KMS to provide fine-grained access control and audit capabilities. Encryption is applied consistently across the distributed execution environment including task containers, metadata storage, and log streams.
+ *
  * @public
  */
 export interface EncryptionConfiguration {
   /**
-   * <p>The type of encryption to use. Values are <code>AWS_MANAGED_KEY</code> (Amazon Web Services manages the encryption key) or <code>CUSTOMER_MANAGED_KEY</code> (you provide a KMS key).</p>
+   * The type of encryption to use. Values are `AWS_MANAGED_KEY` (Amazon Web Services manages the encryption key) or `CUSTOMER_MANAGED_KEY` (you provide a KMS key).
+   *
    * @public
    */
   Type: EncryptionType | undefined;
 
   /**
-   * <p>The ID or ARN of the Amazon Web Services KMS key to use for encryption. Required when <code>Type</code> is <code>CUSTOMER_MANAGED_KEY</code>.</p>
+   * The ID or ARN of the Amazon Web Services KMS key to use for encryption. Required when `Type` is `CUSTOMER_MANAGED_KEY`.
+   *
    * @public
    */
   KmsKeyId?: string | undefined;
 }
 
 /**
- * <p>Configuration for workflow logging that specifies where you should store your workflow execution logs. Amazon Managed Workflows for Apache Airflow Serverless provides comprehensive logging capabilities that capture workflow execution details, task-level information, and system events. Logs are automatically exported to your specified CloudWatch log group using remote logging functionality, providing centralized observability across the distributed, multi-tenant execution environment. This enables effective debugging, monitoring, and compliance auditing of workflow executions.</p>
+ * Configuration for workflow logging that specifies where you should store your workflow execution logs. Amazon Managed Workflows for Apache Airflow Serverless provides comprehensive logging capabilities that capture workflow execution details, task-level information, and system events. Logs are automatically exported to your specified CloudWatch log group using remote logging functionality, providing centralized observability across the distributed, multi-tenant execution environment. This enables effective debugging, monitoring, and compliance auditing of workflow executions.
+ *
  * @public
  */
 export interface LoggingConfiguration {
   /**
-   * <p>The name of the CloudWatch log group where workflow execution logs are stored.</p>
+   * The name of the CloudWatch log group where workflow execution logs are stored.
+   *
    * @public
    */
   LogGroupName: string | undefined;
 }
 
 /**
- * <p>Network configuration for workflow execution. Specifies VPC security groups and subnets for secure network access. When provided, Amazon Managed Workflows for Apache Airflow Serverless deploys ECS worker tasks in your specified VPC configuration, enabling secure access to VPC-only resources. The service uses a proxy API container architecture where one container handles external communication while the worker container connects to your VPC for task execution. This design provides both security isolation and connectivity flexibility.</p>
+ * Network configuration for workflow execution. Specifies VPC security groups and subnets for secure network access. When provided, Amazon Managed Workflows for Apache Airflow Serverless deploys ECS worker tasks in your specified VPC configuration, enabling secure access to VPC-only resources. The service uses a proxy API container architecture where one container handles external communication while the worker container connects to your VPC for task execution. This design provides both security isolation and connectivity flexibility.
+ *
  * @public
  */
 export interface NetworkConfiguration {
   /**
-   * <p>A list of VPC security group IDs to associate with the workflow execution environment.</p>
+   * A list of VPC security group IDs to associate with the workflow execution environment.
+   *
    * @public
    */
   SecurityGroupIds?: string[] | undefined;
 
   /**
-   * <p>A list of VPC subnet IDs where the workflow execution environment is deployed.</p>
+   * A list of VPC subnet IDs where the workflow execution environment is deployed.
+   *
    * @public
    */
   SubnetIds?: string[] | undefined;
@@ -446,73 +505,85 @@ export interface NetworkConfiguration {
  */
 export interface CreateWorkflowRequest {
   /**
-   * <p>The name of the workflow. You must use unique workflow names within your Amazon Web Services account. The service generates a unique identifier that is appended to ensure temporal uniqueness across the account lifecycle.</p>
+   * The name of the workflow. You must use unique workflow names within your Amazon Web Services account. The service generates a unique identifier that is appended to ensure temporal uniqueness across the account lifecycle.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This token prevents duplicate workflow creation requests.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This token prevents duplicate workflow creation requests.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The Amazon S3 location where the workflow definition file is stored. This must point to a valid YAML file that defines the workflow structure using supported Amazon Web Services operators and tasks. Amazon Managed Workflows for Apache Airflow Serverless takes a snapshot of the definition at creation time, so subsequent changes to the Amazon S3 object will not affect the workflow unless you create a new version. In your YAML definition, include task dependencies, scheduling information, and operator configurations that are compatible with the Amazon Managed Workflows for Apache Airflow Serverless execution environment.</p>
+   * The Amazon S3 location where the workflow definition file is stored. This must point to a valid YAML file that defines the workflow structure using supported Amazon Web Services operators and tasks. Amazon Managed Workflows for Apache Airflow Serverless takes a snapshot of the definition at creation time, so subsequent changes to the Amazon S3 object will not affect the workflow unless you create a new version. In your YAML definition, include task dependencies, scheduling information, and operator configurations that are compatible with the Amazon Managed Workflows for Apache Airflow Serverless execution environment.
+   *
    * @public
    */
   DefinitionS3Location: DefinitionS3Location | undefined;
 
   /**
-   * <p>The location of code artifacts in Amazon S3 for the workflow. The service copies the code from this location at the time of the request.</p>
+   * The location of code artifacts in Amazon S3 for the workflow. The service copies the code from this location at the time of the request.
+   *
    * @public
    */
   Code?: Code | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that Amazon Managed Workflows for Apache Airflow Serverless assumes when executing the workflow. This role must have the necessary permissions to access the required Amazon Web Services services and resources that your workflow tasks will interact with. The role is used for task execution in the isolated, multi-tenant environment and should follow the principle of least privilege. Amazon Managed Workflows for Apache Airflow Serverless validates role access during workflow creation but runtime permission checks are performed by the target services.</p>
+   * The Amazon Resource Name (ARN) of the IAM role that Amazon Managed Workflows for Apache Airflow Serverless assumes when executing the workflow. This role must have the necessary permissions to access the required Amazon Web Services services and resources that your workflow tasks will interact with. The role is used for task execution in the isolated, multi-tenant environment and should follow the principle of least privilege. Amazon Managed Workflows for Apache Airflow Serverless validates role access during workflow creation but runtime permission checks are performed by the target services.
+   *
    * @public
    */
   RoleArn: string | undefined;
 
   /**
-   * <p>An optional description of the workflow that you can use to provide additional context about the workflow's purpose and functionality.</p>
+   * An optional description of the workflow that you can use to provide additional context about the workflow's purpose and functionality.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The configuration for encrypting workflow data at rest and in transit. Specifies the encryption type and optional KMS key for customer-managed encryption.</p>
+   * The configuration for encrypting workflow data at rest and in transit. Specifies the encryption type and optional KMS key for customer-managed encryption.
+   *
    * @public
    */
   EncryptionConfiguration?: EncryptionConfiguration | undefined;
 
   /**
-   * <p>The configuration for workflow logging. Specifies the CloudWatch log group where workflow execution logs are stored. Amazon Managed Workflows for Apache Airflow Serverless automatically exports worker logs and task-level information to the specified log group in your account using remote logging functionality. This provides comprehensive observability for debugging and monitoring workflow execution across the distributed, serverless environment.</p>
+   * The configuration for workflow logging. Specifies the CloudWatch log group where workflow execution logs are stored. Amazon Managed Workflows for Apache Airflow Serverless automatically exports worker logs and task-level information to the specified log group in your account using remote logging functionality. This provides comprehensive observability for debugging and monitoring workflow execution across the distributed, serverless environment.
+   *
    * @public
    */
   LoggingConfiguration?: LoggingConfiguration | undefined;
 
   /**
-   * <p>The version of the Amazon Managed Workflows for Apache Airflow Serverless engine that you want to use for this workflow. This determines the feature set, supported operators, and execution environment capabilities available to your workflow. Amazon Managed Workflows for Apache Airflow Serverless maintains backward compatibility across versions while introducing new features and improvements. Currently supports version 1 with plans for additional versions as the service evolves.</p>
+   * The version of the Amazon Managed Workflows for Apache Airflow Serverless engine that you want to use for this workflow. This determines the feature set, supported operators, and execution environment capabilities available to your workflow. Amazon Managed Workflows for Apache Airflow Serverless maintains backward compatibility across versions while introducing new features and improvements. Currently supports version 1 with plans for additional versions as the service evolves.
+   *
    * @public
    */
   EngineVersion?: EngineVersion | undefined;
 
   /**
-   * <p>Network configuration for the workflow execution environment, including VPC security groups and subnets for secure network access. When specified, Amazon Managed Workflows for Apache Airflow Serverless deploys ECS worker tasks in your customer VPC to provide secure connectivity to your resources. If not specified, tasks run in the service's default worker VPC with network isolation from other customers. This configuration enables secure access to VPC-only resources like RDS databases or private endpoints.</p>
+   * Network configuration for the workflow execution environment, including VPC security groups and subnets for secure network access. When specified, Amazon Managed Workflows for Apache Airflow Serverless deploys ECS worker tasks in your customer VPC to provide secure connectivity to your resources. If not specified, tasks run in the service's default worker VPC with network isolation from other customers. This configuration enables secure access to VPC-only resources like RDS databases or private endpoints.
+   *
    * @public
    */
   NetworkConfiguration?: NetworkConfiguration | undefined;
 
   /**
-   * <p>A map of tags to assign to the workflow resource. Tags are key-value pairs that are used for resource organization and cost allocation.</p>
+   * A map of tags to assign to the workflow resource. Tags are key-value pairs that are used for resource organization and cost allocation.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The trigger mode for the workflow execution.</p>
+   * The trigger mode for the workflow execution.
+   *
    * @public
    */
   TriggerMode?: string | undefined;
@@ -523,43 +594,50 @@ export interface CreateWorkflowRequest {
  */
 export interface CreateWorkflowResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the newly created workflow. This ARN uniquely identifies the workflow resource.</p>
+   * The Amazon Resource Name (ARN) of the newly created workflow. This ARN uniquely identifies the workflow resource.
+   *
    * @public
    */
   WorkflowArn: string | undefined;
 
   /**
-   * <p>The timestamp when the workflow was created, in ISO 8601 date-time format.</p>
+   * The timestamp when the workflow was created, in ISO 8601 date-time format.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>A unique identifier for this revision of the workflow configuration. This ID changes when the workflow is updated and you can use it for optimistic concurrency control in update operations. The revision ID helps prevent conflicting updates and ensures that updates are applied to the expected version of the workflow configuration.</p>
+   * A unique identifier for this revision of the workflow configuration. This ID changes when the workflow is updated and you can use it for optimistic concurrency control in update operations. The revision ID helps prevent conflicting updates and ensures that updates are applied to the expected version of the workflow configuration.
+   *
    * @public
    */
   RevisionId?: string | undefined;
 
   /**
-   * <p>The current status of the workflow. Possible values are <code>READY</code> (workflow is ready to run) and <code>DELETING</code> (workflow is being deleted).</p>
+   * The current status of the workflow. Possible values are `READY` (workflow is ready to run) and `DELETING` (workflow is being deleted).
+   *
    * @public
    */
   WorkflowStatus?: WorkflowStatus | undefined;
 
   /**
-   * <p>The version identifier of the workflow. This is a service-generated alphanumeric string that uniquely identifies this version of the workflow. Amazon Managed Workflows for Apache Airflow Serverless uses a version-first approach where each workflow can have multiple immutable versions, which allows you to maintain different configurations and roll back to previous versions as needed. The version identifier is used in ARNs and API operations to reference specific workflow versions.</p>
+   * The version identifier of the workflow. This is a service-generated alphanumeric string that uniquely identifies this version of the workflow. Amazon Managed Workflows for Apache Airflow Serverless uses a version-first approach where each workflow can have multiple immutable versions, which allows you to maintain different configurations and roll back to previous versions as needed. The version identifier is used in ARNs and API operations to reference specific workflow versions.
+   *
    * @public
    */
   WorkflowVersion?: string | undefined;
 
   /**
-   * <p>A Boolean flag that indicates whether this workflow version is the latest version of the workflow.</p>
+   * A Boolean flag that indicates whether this workflow version is the latest version of the workflow.
+   *
    * @public
    */
   IsLatestVersion?: boolean | undefined;
 
   /**
-   * <p>Warning messages generated during workflow creation.</p>
+   * Warning messages generated during workflow creation.
+   *
    * @public
    */
   Warnings?: string[] | undefined;
@@ -570,13 +648,15 @@ export interface CreateWorkflowResponse {
  */
 export interface DeleteWorkflowRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the workflow you want to delete.</p>
+   * The Amazon Resource Name (ARN) of the workflow you want to delete.
+   *
    * @public
    */
   WorkflowArn: string | undefined;
 
   /**
-   * <p>Optional. The specific version of the workflow to delete. If not specified, all versions of the workflow are deleted.</p>
+   * Optional. The specific version of the workflow to delete. If not specified, all versions of the workflow are deleted.
+   *
    * @public
    */
   WorkflowVersion?: string | undefined;
@@ -587,13 +667,15 @@ export interface DeleteWorkflowRequest {
  */
 export interface DeleteWorkflowResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the deleted workflow.</p>
+   * The Amazon Resource Name (ARN) of the deleted workflow.
+   *
    * @public
    */
   WorkflowArn: string | undefined;
 
   /**
-   * <p>The version of the workflow that was deleted.</p>
+   * The version of the workflow that was deleted.
+   *
    * @public
    */
   WorkflowVersion?: string | undefined;
@@ -604,25 +686,29 @@ export interface DeleteWorkflowResponse {
  */
 export interface GetWorkflowRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the workflow you want to retrieve.</p>
+   * The Amazon Resource Name (ARN) of the workflow you want to retrieve.
+   *
    * @public
    */
   WorkflowArn: string | undefined;
 
   /**
-   * <p>Optional. The specific version of the workflow to retrieve. If not specified, the latest version is returned.</p>
+   * Optional. The specific version of the workflow to retrieve. If not specified, the latest version is returned.
+   *
    * @public
    */
   WorkflowVersion?: string | undefined;
 }
 
 /**
- * <p>The configuration to use to schedule automated workflow execution using cron expressions. Amazon Managed Workflows for Apache Airflow Serverless integrates with EventBridge Scheduler to provide cost-effective, timezone-aware scheduling capabilities. The service supports both time-based and event-based scheduling (event-based scheduling available post-GA). When a workflow definition includes scheduling information, Amazon Managed Workflows for Apache Airflow Serverless automatically configures the appropriate triggers and ensures only one version of a workflow has an active schedule at any time.</p>
+ * The configuration to use to schedule automated workflow execution using cron expressions. Amazon Managed Workflows for Apache Airflow Serverless integrates with EventBridge Scheduler to provide cost-effective, timezone-aware scheduling capabilities. The service supports both time-based and event-based scheduling (event-based scheduling available post-GA). When a workflow definition includes scheduling information, Amazon Managed Workflows for Apache Airflow Serverless automatically configures the appropriate triggers and ensures only one version of a workflow has an active schedule at any time.
+ *
  * @public
  */
 export interface ScheduleConfiguration {
   /**
-   * <p>A cron expression that defines when the workflow is automatically executed. Uses standard cron syntax.</p>
+   * A cron expression that defines when the workflow is automatically executed. Uses standard cron syntax.
+   *
    * @public
    */
   CronExpression?: string | undefined;
@@ -633,109 +719,127 @@ export interface ScheduleConfiguration {
  */
 export interface GetWorkflowResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the workflow.</p>
+   * The Amazon Resource Name (ARN) of the workflow.
+   *
    * @public
    */
   WorkflowArn: string | undefined;
 
   /**
-   * <p>The version identifier of the workflow.</p>
+   * The version identifier of the workflow.
+   *
    * @public
    */
   WorkflowVersion?: string | undefined;
 
   /**
-   * <p>The name of the workflow.</p>
+   * The name of the workflow.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The description of the workflow.</p>
+   * The description of the workflow.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The timestamp when the workflow was created, in ISO 8601 date-time format.</p>
+   * The timestamp when the workflow was created, in ISO 8601 date-time format.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when the workflow was last modified, in ISO 8601 date-time format.</p>
+   * The timestamp when the workflow was last modified, in ISO 8601 date-time format.
+   *
    * @public
    */
   ModifiedAt?: Date | undefined;
 
   /**
-   * <p>The encryption configuration for the workflow.</p>
+   * The encryption configuration for the workflow.
+   *
    * @public
    */
   EncryptionConfiguration?: EncryptionConfiguration | undefined;
 
   /**
-   * <p>The logging configuration for the workflow.</p>
+   * The logging configuration for the workflow.
+   *
    * @public
    */
   LoggingConfiguration?: LoggingConfiguration | undefined;
 
   /**
-   * <p>The version of the Amazon Managed Workflows for Apache Airflow Serverless engine that this workflow uses.</p>
+   * The version of the Amazon Managed Workflows for Apache Airflow Serverless engine that this workflow uses.
+   *
    * @public
    */
   EngineVersion?: EngineVersion | undefined;
 
   /**
-   * <p>The current status of the workflow.</p>
+   * The current status of the workflow.
+   *
    * @public
    */
   WorkflowStatus?: WorkflowStatus | undefined;
 
   /**
-   * <p>The Amazon S3 location of the workflow definition file.</p>
+   * The Amazon S3 location of the workflow definition file.
+   *
    * @public
    */
   DefinitionS3Location?: DefinitionS3Location | undefined;
 
   /**
-   * <p>The Amazon S3 location of the code artifacts provided during workflow creation or update.</p>
+   * The Amazon S3 location of the code artifacts provided during workflow creation or update.
+   *
    * @public
    */
   Code?: Code | undefined;
 
   /**
-   * <p>The time at which the code artifacts were copied for this workflow, in ISO 8601 date-time format.</p>
+   * The time at which the code artifacts were copied for this workflow, in ISO 8601 date-time format.
+   *
    * @public
    */
   CodeSnapshottedAt?: Date | undefined;
 
   /**
-   * <p>The schedule configuration for the workflow, including cron expressions for automated execution. Amazon Managed Workflows for Apache Airflow Serverless uses EventBridge Scheduler for cost-effective, timezone-aware scheduling. When a workflow includes schedule information in its YAML definition, the service automatically configures the appropriate triggers for automated execution. Only one version of a workflow can have an active schedule at any given time.</p>
+   * The schedule configuration for the workflow, including cron expressions for automated execution. Amazon Managed Workflows for Apache Airflow Serverless uses EventBridge Scheduler for cost-effective, timezone-aware scheduling. When a workflow includes schedule information in its YAML definition, the service automatically configures the appropriate triggers for automated execution. Only one version of a workflow can have an active schedule at any given time.
+   *
    * @public
    */
   ScheduleConfiguration?: ScheduleConfiguration | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role used for workflow execution.</p>
+   * The Amazon Resource Name (ARN) of the IAM role used for workflow execution.
+   *
    * @public
    */
   RoleArn?: string | undefined;
 
   /**
-   * <p>The network configuration for the workflow execution environment.</p>
+   * The network configuration for the workflow execution environment.
+   *
    * @public
    */
   NetworkConfiguration?: NetworkConfiguration | undefined;
 
   /**
-   * <p>The trigger mode for the workflow execution.</p>
+   * The trigger mode for the workflow execution.
+   *
    * @public
    */
   TriggerMode?: string | undefined;
 
   /**
-   * <p>The workflow definition content.</p>
+   * The workflow definition content.
+   *
    * @public
    */
   WorkflowDefinition?: string | undefined;
@@ -746,67 +850,78 @@ export interface GetWorkflowResponse {
  */
 export interface ListWorkflowsRequest {
   /**
-   * <p>The maximum number of workflows you want to return in a single response.</p>
+   * The maximum number of workflows you want to return in a single response.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The pagination token you need to use to retrieve the next set of results. This value is returned from a previous call to <code>ListWorkflows</code>.</p>
+   * The pagination token you need to use to retrieve the next set of results. This value is returned from a previous call to `ListWorkflows`.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Summary information about a workflow, including basic identification and metadata.</p>
+ * Summary information about a workflow, including basic identification and metadata.
+ *
  * @public
  */
 export interface WorkflowSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the workflow.</p>
+   * The Amazon Resource Name (ARN) of the workflow.
+   *
    * @public
    */
   WorkflowArn: string | undefined;
 
   /**
-   * <p>The version identifier of the workflow.</p>
+   * The version identifier of the workflow.
+   *
    * @public
    */
   WorkflowVersion?: string | undefined;
 
   /**
-   * <p>The name of the workflow.</p>
+   * The name of the workflow.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The description of the workflow.</p>
+   * The description of the workflow.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The timestamp when the workflow was created, in ISO 8601 date-time format.</p>
+   * The timestamp when the workflow was created, in ISO 8601 date-time format.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when the workflow was last modified, in ISO 8601 date-time format.</p>
+   * The timestamp when the workflow was last modified, in ISO 8601 date-time format.
+   *
    * @public
    */
   ModifiedAt?: Date | undefined;
 
   /**
-   * <p>The current status of the workflow.</p>
+   * The current status of the workflow.
+   *
    * @public
    */
   WorkflowStatus?: WorkflowStatus | undefined;
 
   /**
-   * <p>The trigger mode for the workflow execution.</p>
+   * The trigger mode for the workflow execution.
+   *
    * @public
    */
   TriggerMode?: string | undefined;
@@ -817,13 +932,15 @@ export interface WorkflowSummary {
  */
 export interface ListWorkflowsResponse {
   /**
-   * <p>A list of workflow summaries for all workflows in your account.</p>
+   * A list of workflow summaries for all workflows in your account.
+   *
    * @public
    */
   Workflows: WorkflowSummary[] | undefined;
 
   /**
-   * <p>The pagination token you need to use to retrieve the next set of results. This value is null if there are no more results.</p>
+   * The pagination token you need to use to retrieve the next set of results. This value is null if there are no more results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -834,55 +951,64 @@ export interface ListWorkflowsResponse {
  */
 export interface UpdateWorkflowRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the workflow you want to update.</p>
+   * The Amazon Resource Name (ARN) of the workflow you want to update.
+   *
    * @public
    */
   WorkflowArn: string | undefined;
 
   /**
-   * <p>The Amazon S3 location where the updated workflow definition file is stored.</p>
+   * The Amazon S3 location where the updated workflow definition file is stored.
+   *
    * @public
    */
   DefinitionS3Location: DefinitionS3Location | undefined;
 
   /**
-   * <p>The location of code artifacts in Amazon S3 for the updated workflow. The service copies the code from this location at the time of the request.</p>
+   * The location of code artifacts in Amazon S3 for the updated workflow. The service copies the code from this location at the time of the request.
+   *
    * @public
    */
   Code?: Code | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that Amazon Managed Workflows for Apache Airflow Serverless assumes when it executes the updated workflow.</p>
+   * The Amazon Resource Name (ARN) of the IAM role that Amazon Managed Workflows for Apache Airflow Serverless assumes when it executes the updated workflow.
+   *
    * @public
    */
   RoleArn: string | undefined;
 
   /**
-   * <p>An updated description for the workflow.</p>
+   * An updated description for the workflow.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Updated logging configuration for the workflow.</p>
+   * Updated logging configuration for the workflow.
+   *
    * @public
    */
   LoggingConfiguration?: LoggingConfiguration | undefined;
 
   /**
-   * <p>The version of the Amazon Managed Workflows for Apache Airflow Serverless engine that you want to use for the updated workflow.</p>
+   * The version of the Amazon Managed Workflows for Apache Airflow Serverless engine that you want to use for the updated workflow.
+   *
    * @public
    */
   EngineVersion?: EngineVersion | undefined;
 
   /**
-   * <p>Updated network configuration for the workflow execution environment.</p>
+   * Updated network configuration for the workflow execution environment.
+   *
    * @public
    */
   NetworkConfiguration?: NetworkConfiguration | undefined;
 
   /**
-   * <p>The trigger mode for the workflow execution.</p>
+   * The trigger mode for the workflow execution.
+   *
    * @public
    */
   TriggerMode?: string | undefined;
@@ -893,25 +1019,29 @@ export interface UpdateWorkflowRequest {
  */
 export interface UpdateWorkflowResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the updated workflow.</p>
+   * The Amazon Resource Name (ARN) of the updated workflow.
+   *
    * @public
    */
   WorkflowArn: string | undefined;
 
   /**
-   * <p>The timestamp when the workflow was last modified, in ISO 8601 date-time format.</p>
+   * The timestamp when the workflow was last modified, in ISO 8601 date-time format.
+   *
    * @public
    */
   ModifiedAt?: Date | undefined;
 
   /**
-   * <p>The version identifier of the updated workflow.</p>
+   * The version identifier of the updated workflow.
+   *
    * @public
    */
   WorkflowVersion?: string | undefined;
 
   /**
-   * <p>Warning messages generated during workflow update.</p>
+   * Warning messages generated during workflow update.
+   *
    * @public
    */
   Warnings?: string[] | undefined;
@@ -922,91 +1052,106 @@ export interface UpdateWorkflowResponse {
  */
 export interface GetWorkflowRunRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the workflow that contains the run.</p>
+   * The Amazon Resource Name (ARN) of the workflow that contains the run.
+   *
    * @public
    */
   WorkflowArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the workflow run to retrieve.</p>
+   * The unique identifier of the workflow run to retrieve.
+   *
    * @public
    */
   RunId: string | undefined;
 }
 
 /**
- * <p>Detailed information about a workflow run execution, including timing, status, error information, and associated task instances. This structure provides comprehensive visibility into the workflow execution lifecycle within the Amazon Managed Workflows for Apache Airflow Serverless serverless environment. The service tracks execution across distributed ECS worker tasks and provides detailed timing information, error diagnostics, and task instance relationships to support effective monitoring and troubleshooting of complex workflow executions.</p>
+ * Detailed information about a workflow run execution, including timing, status, error information, and associated task instances. This structure provides comprehensive visibility into the workflow execution lifecycle within the Amazon Managed Workflows for Apache Airflow Serverless serverless environment. The service tracks execution across distributed ECS worker tasks and provides detailed timing information, error diagnostics, and task instance relationships to support effective monitoring and troubleshooting of complex workflow executions.
+ *
  * @public
  */
 export interface WorkflowRunDetail {
   /**
-   * <p>The Amazon Resource Name (ARN) of the workflow that contains this run.</p>
+   * The Amazon Resource Name (ARN) of the workflow that contains this run.
+   *
    * @public
    */
   WorkflowArn?: string | undefined;
 
   /**
-   * <p>The version of the workflow used for this run.</p>
+   * The version of the workflow used for this run.
+   *
    * @public
    */
   WorkflowVersion?: string | undefined;
 
   /**
-   * <p>The unique identifier of this workflow run.</p>
+   * The unique identifier of this workflow run.
+   *
    * @public
    */
   RunId?: string | undefined;
 
   /**
-   * <p>The type of workflow run.</p>
+   * The type of workflow run.
+   *
    * @public
    */
   RunType?: RunType | undefined;
 
   /**
-   * <p>The timestamp when the workflow run started execution, in ISO 8601 date-time format.</p>
+   * The timestamp when the workflow run started execution, in ISO 8601 date-time format.
+   *
    * @public
    */
   StartedOn?: Date | undefined;
 
   /**
-   * <p>The timestamp when the workflow run was created, in ISO 8601 date-time format.</p>
+   * The timestamp when the workflow run was created, in ISO 8601 date-time format.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when the workflow run completed execution, in ISO 8601 date-time format. This value is null if the run is not complete.</p>
+   * The timestamp when the workflow run completed execution, in ISO 8601 date-time format. This value is null if the run is not complete.
+   *
    * @public
    */
   CompletedOn?: Date | undefined;
 
   /**
-   * <p>The timestamp when the workflow run was last modified, in ISO 8601 date-time format.</p>
+   * The timestamp when the workflow run was last modified, in ISO 8601 date-time format.
+   *
    * @public
    */
   ModifiedAt?: Date | undefined;
 
   /**
-   * <p>The total duration of the workflow run execution in seconds. This value is null if the run is not complete.</p>
+   * The total duration of the workflow run execution in seconds. This value is null if the run is not complete.
+   *
    * @public
    */
   Duration?: number | undefined;
 
   /**
-   * <p>The error message if the workflow run failed. This value is null if the run completed successfully.</p>
+   * The error message if the workflow run failed. This value is null if the run completed successfully.
+   *
    * @public
    */
   ErrorMessage?: string | undefined;
 
   /**
-   * <p>A list of task instance IDs that are part of this workflow run.</p>
+   * A list of task instance IDs that are part of this workflow run.
+   *
    * @public
    */
   TaskInstances?: string[] | undefined;
 
   /**
-   * <p>The current execution state of the workflow run.</p>
+   * The current execution state of the workflow run.
+   *
    * @public
    */
   RunState?: WorkflowRunStatus | undefined;
@@ -1017,37 +1162,43 @@ export interface WorkflowRunDetail {
  */
 export interface GetWorkflowRunResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the workflow that contains this run.</p>
+   * The Amazon Resource Name (ARN) of the workflow that contains this run.
+   *
    * @public
    */
   WorkflowArn?: string | undefined;
 
   /**
-   * <p>The version of the workflow that is used for this run.</p>
+   * The version of the workflow that is used for this run.
+   *
    * @public
    */
   WorkflowVersion?: string | undefined;
 
   /**
-   * <p>The unique identifier of this workflow run.</p>
+   * The unique identifier of this workflow run.
+   *
    * @public
    */
   RunId?: string | undefined;
 
   /**
-   * <p>The type of workflow run. Values are <code>ON_DEMAND</code> (manually triggered) or <code>SCHEDULED</code> (automatically triggered by schedule).</p>
+   * The type of workflow run. Values are `ON_DEMAND` (manually triggered) or `SCHEDULED` (automatically triggered by schedule).
+   *
    * @public
    */
   RunType?: RunType | undefined;
 
   /**
-   * <p>Parameters that were overridden for this specific workflow run.</p>
+   * Parameters that were overridden for this specific workflow run.
+   *
    * @public
    */
   OverrideParameters?: Record<string, __DocumentType> | undefined;
 
   /**
-   * <p>Detailed information about the workflow run execution, including timing, status, and task instances.</p>
+   * Detailed information about the workflow run execution, including timing, status, and task instances.
+   *
    * @public
    */
   RunDetail?: WorkflowRunDetail | undefined;
@@ -1058,91 +1209,106 @@ export interface GetWorkflowRunResponse {
  */
 export interface ListWorkflowRunsRequest {
   /**
-   * <p>The maximum number of workflow runs to return in a single response.</p>
+   * The maximum number of workflow runs to return in a single response.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The pagination token you need to use to retrieve the next set of results. This value is returned from a previous call to <code>ListWorkflowRuns</code>.</p>
+   * The pagination token you need to use to retrieve the next set of results. This value is returned from a previous call to `ListWorkflowRuns`.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the workflow for which you want a list of runs.</p>
+   * The Amazon Resource Name (ARN) of the workflow for which you want a list of runs.
+   *
    * @public
    */
   WorkflowArn: string | undefined;
 
   /**
-   * <p>Optional. The specific version of the workflow for which you want a list of runs. If not specified, runs for all versions are returned.</p>
+   * Optional. The specific version of the workflow for which you want a list of runs. If not specified, runs for all versions are returned.
+   *
    * @public
    */
   WorkflowVersion?: string | undefined;
 }
 
 /**
- * <p>Summary information about a workflow run's execution details, including status and timing information.</p>
+ * Summary information about a workflow run's execution details, including status and timing information.
+ *
  * @public
  */
 export interface RunDetailSummary {
   /**
-   * <p>The current status of the workflow run.</p>
+   * The current status of the workflow run.
+   *
    * @public
    */
   Status?: WorkflowRunStatus | undefined;
 
   /**
-   * <p>The timestamp when the workflow run was created, in ISO 8601 date-time format.</p>
+   * The timestamp when the workflow run was created, in ISO 8601 date-time format.
+   *
    * @public
    */
   CreatedOn?: Date | undefined;
 
   /**
-   * <p>The timestamp when the workflow run started execution, in ISO 8601 date-time format.</p>
+   * The timestamp when the workflow run started execution, in ISO 8601 date-time format.
+   *
    * @public
    */
   StartedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when the workflow run completed execution, in ISO 8601 date-time format. This value is null if the run is not complete.</p>
+   * The timestamp when the workflow run completed execution, in ISO 8601 date-time format. This value is null if the run is not complete.
+   *
    * @public
    */
   EndedAt?: Date | undefined;
 }
 
 /**
- * <p>Summary information about a workflow run, including basic identification and status information.</p>
+ * Summary information about a workflow run, including basic identification and status information.
+ *
  * @public
  */
 export interface WorkflowRunSummary {
   /**
-   * <p>The unique identifier of the workflow run.</p>
+   * The unique identifier of the workflow run.
+   *
    * @public
    */
   RunId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the workflow that contains this run.</p>
+   * The Amazon Resource Name (ARN) of the workflow that contains this run.
+   *
    * @public
    */
   WorkflowArn?: string | undefined;
 
   /**
-   * <p>The version of the workflow used for this run.</p>
+   * The version of the workflow used for this run.
+   *
    * @public
    */
   WorkflowVersion?: string | undefined;
 
   /**
-   * <p>The type of workflow run.</p>
+   * The type of workflow run.
+   *
    * @public
    */
   RunType?: RunType | undefined;
 
   /**
-   * <p>Summary details about the workflow run execution.</p>
+   * Summary details about the workflow run execution.
+   *
    * @public
    */
   RunDetailSummary?: RunDetailSummary | undefined;
@@ -1153,13 +1319,15 @@ export interface WorkflowRunSummary {
  */
 export interface ListWorkflowRunsResponse {
   /**
-   * <p>A list of workflow run summaries for the specified workflow.</p>
+   * A list of workflow run summaries for the specified workflow.
+   *
    * @public
    */
   WorkflowRuns?: WorkflowRunSummary[] | undefined;
 
   /**
-   * <p>The pagination token you need to use to retrieve the next set of results. This value is null if there are no more results.</p>
+   * The pagination token you need to use to retrieve the next set of results. This value is null if there are no more results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1170,25 +1338,29 @@ export interface ListWorkflowRunsResponse {
  */
 export interface StartWorkflowRunRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the workflow you want to run.</p>
+   * The Amazon Resource Name (ARN) of the workflow you want to run.
+   *
    * @public
    */
   WorkflowArn: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This token prevents duplicate workflow run requests.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This token prevents duplicate workflow run requests.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>Optional parameters to override default workflow parameters for this specific run. These parameters are passed to the workflow during execution and can be used to customize behavior without modifying the workflow definition. Parameters are made available as environment variables to tasks and you can reference them within the YAML workflow definition using standard parameter substitution syntax.</p>
+   * Optional parameters to override default workflow parameters for this specific run. These parameters are passed to the workflow during execution and can be used to customize behavior without modifying the workflow definition. Parameters are made available as environment variables to tasks and you can reference them within the YAML workflow definition using standard parameter substitution syntax.
+   *
    * @public
    */
   OverrideParameters?: Record<string, __DocumentType> | undefined;
 
   /**
-   * <p>Optional. The specific version of the workflow to execute. If not specified, the latest version is used.</p>
+   * Optional. The specific version of the workflow to execute. If not specified, the latest version is used.
+   *
    * @public
    */
   WorkflowVersion?: string | undefined;
@@ -1199,19 +1371,22 @@ export interface StartWorkflowRunRequest {
  */
 export interface StartWorkflowRunResponse {
   /**
-   * <p>The unique identifier of the newly started workflow run.</p>
+   * The unique identifier of the newly started workflow run.
+   *
    * @public
    */
   RunId?: string | undefined;
 
   /**
-   * <p>The initial status of the workflow run. This is typically <code>STARTING</code> when you first create the run.</p>
+   * The initial status of the workflow run. This is typically `STARTING` when you first create the run.
+   *
    * @public
    */
   Status?: WorkflowRunStatus | undefined;
 
   /**
-   * <p>The timestamp when the workflow run was started, in ISO 8601 date-time format.</p>
+   * The timestamp when the workflow run was started, in ISO 8601 date-time format.
+   *
    * @public
    */
   StartedAt?: Date | undefined;
@@ -1222,13 +1397,15 @@ export interface StartWorkflowRunResponse {
  */
 export interface StopWorkflowRunRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the workflow that contains the run you want to stop.</p>
+   * The Amazon Resource Name (ARN) of the workflow that contains the run you want to stop.
+   *
    * @public
    */
   WorkflowArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the workflow run to stop.</p>
+   * The unique identifier of the workflow run to stop.
+   *
    * @public
    */
   RunId: string | undefined;
@@ -1239,25 +1416,29 @@ export interface StopWorkflowRunRequest {
  */
 export interface StopWorkflowRunResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the workflow that contains the stopped run.</p>
+   * The Amazon Resource Name (ARN) of the workflow that contains the stopped run.
+   *
    * @public
    */
   WorkflowArn?: string | undefined;
 
   /**
-   * <p>The version of the workflow that was stopped.</p>
+   * The version of the workflow that was stopped.
+   *
    * @public
    */
   WorkflowVersion?: string | undefined;
 
   /**
-   * <p>The unique identifier of the stopped workflow run.</p>
+   * The unique identifier of the stopped workflow run.
+   *
    * @public
    */
   RunId?: string | undefined;
 
   /**
-   * <p>The status of the workflow run after the stop operation. This is typically <code>STOPPING</code> or <code>STOPPED</code>.</p>
+   * The status of the workflow run after the stop operation. This is typically `STOPPING` or `STOPPED`.
+   *
    * @public
    */
   Status?: WorkflowRunStatus | undefined;
@@ -1268,73 +1449,85 @@ export interface StopWorkflowRunResponse {
  */
 export interface ListWorkflowVersionsRequest {
   /**
-   * <p>The maximum number of workflow versions to return in a single response.</p>
+   * The maximum number of workflow versions to return in a single response.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The pagination token you need to use to retrieve the next set of results. This value is returned from a previous call to <code>ListWorkflowVersions</code>.</p>
+   * The pagination token you need to use to retrieve the next set of results. This value is returned from a previous call to `ListWorkflowVersions`.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the workflow for which you want to list versions.</p>
+   * The Amazon Resource Name (ARN) of the workflow for which you want to list versions.
+   *
    * @public
    */
   WorkflowArn: string | undefined;
 }
 
 /**
- * <p>Summary information about a workflow version, including identification and configuration details.</p>
+ * Summary information about a workflow version, including identification and configuration details.
+ *
  * @public
  */
 export interface WorkflowVersionSummary {
   /**
-   * <p>The version identifier of the workflow version.</p>
+   * The version identifier of the workflow version.
+   *
    * @public
    */
   WorkflowVersion: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the workflow that contains this version.</p>
+   * The Amazon Resource Name (ARN) of the workflow that contains this version.
+   *
    * @public
    */
   WorkflowArn: string | undefined;
 
   /**
-   * <p>Boolean flag that indicates whether this is the latest version of the workflow.</p>
+   * Boolean flag that indicates whether this is the latest version of the workflow.
+   *
    * @public
    */
   IsLatestVersion?: boolean | undefined;
 
   /**
-   * <p>The timestamp when the workflow version was created, in ISO 8601 date-time format.</p>
+   * The timestamp when the workflow version was created, in ISO 8601 date-time format.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when the workflow version was last modified, in ISO 8601 date-time format.</p>
+   * The timestamp when the workflow version was last modified, in ISO 8601 date-time format.
+   *
    * @public
    */
   ModifiedAt?: Date | undefined;
 
   /**
-   * <p>The Amazon S3 location of the workflow definition file for this version.</p>
+   * The Amazon S3 location of the workflow definition file for this version.
+   *
    * @public
    */
   DefinitionS3Location?: DefinitionS3Location | undefined;
 
   /**
-   * <p>The schedule configuration for this workflow version.</p>
+   * The schedule configuration for this workflow version.
+   *
    * @public
    */
   ScheduleConfiguration?: ScheduleConfiguration | undefined;
 
   /**
-   * <p>The trigger mode for the workflow execution.</p>
+   * The trigger mode for the workflow execution.
+   *
    * @public
    */
   TriggerMode?: string | undefined;
@@ -1345,13 +1538,15 @@ export interface WorkflowVersionSummary {
  */
 export interface ListWorkflowVersionsResponse {
   /**
-   * <p>A list of workflow version summaries for the specified workflow.</p>
+   * A list of workflow version summaries for the specified workflow.
+   *
    * @public
    */
   WorkflowVersions?: WorkflowVersionSummary[] | undefined;
 
   /**
-   * <p>The pagination token you need to use to retrieve the next set of results. This value is null if there are no more results.</p>
+   * The pagination token you need to use to retrieve the next set of results. This value is null if there are no more results.
+   *
    * @public
    */
   NextToken?: string | undefined;

@@ -26,8 +26,8 @@ export interface DescribeCapacityBlockExtensionHistoryCommandInput extends Descr
 export interface DescribeCapacityBlockExtensionHistoryCommandOutput extends DescribeCapacityBlockExtensionHistoryResult, __MetadataBearer {}
 
 /**
- * <p>Describes the events for the specified Capacity Block extension during the specified
- * 			time.</p>
+ * Describes the events for the specified Capacity Block extension during the specified time.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,8 +85,8 @@ export interface DescribeCapacityBlockExtensionHistoryCommandOutput extends Desc
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

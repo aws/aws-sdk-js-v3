@@ -23,7 +23,12 @@ export interface ListAttachedLinksCommandInput extends ListAttachedLinksInput {}
 export interface ListAttachedLinksCommandOutput extends ListAttachedLinksOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of source account links that are linked to this monitoring account sink.</p> <p>To use this operation, provide the sink ARN. To retrieve a list of sink ARNs, use <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html">ListSinks</a>.</p> <p>To find a list of links for one source account, use <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListLinks.html">ListLinks</a>.</p>
+ * Returns a list of source account links that are linked to this monitoring account sink.
+ *
+ * To use this operation, provide the sink ARN. To retrieve a list of sink ARNs, use [ListSinks](https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html).
+ *
+ * To find a list of links for one source account, use [ListLinks](https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListLinks.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,20 +66,24 @@ export interface ListAttachedLinksCommandOutput extends ListAttachedLinksOutput,
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.
  *
  * @throws {@link InternalServiceFault} (server fault)
- *  <p>Unexpected error while processing the request. Retry the request.</p>
+ *
+ * Unexpected error while processing the request. Retry the request.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is specified incorrectly.</p>
+ *
+ * A parameter is specified incorrectly.
  *
  * @throws {@link MissingRequiredParameterException} (client fault)
- *  <p>A required parameter is missing from the request.</p>
+ *
+ * A required parameter is missing from the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request references a resource that does not exist.</p>
+ *
+ * The request references a resource that does not exist.
  *
  * @throws {@link OAMServiceException}
- * <p>Base exception class for all service exceptions from OAM service.</p>
  *
+ * Base exception class for all service exceptions from OAM service.
  *
  * @public
  */

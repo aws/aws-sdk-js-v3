@@ -23,7 +23,8 @@ export interface DeleteAnycastIpListCommandInput extends DeleteAnycastIpListRequ
 export interface DeleteAnycastIpListCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an Anycast static IP list.</p>
+ * Deletes an Anycast static IP list.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,32 +50,40 @@ export interface DeleteAnycastIpListCommandOutput extends __MetadataBearer {}
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link AccessDenied} (client fault)
- *  <p>Access denied.</p>
+ *
+ * Access denied.
  *
  * @throws {@link CannotDeleteEntityWhileInUse} (client fault)
- *  <p>The entity cannot be deleted while it is in use.</p>
+ *
+ * The entity cannot be deleted while it is in use.
  *
  * @throws {@link EntityNotFound} (client fault)
- *  <p>The entity was not found.</p>
+ *
+ * The entity was not found.
  *
  * @throws {@link IllegalDelete} (client fault)
- *  <p>Deletion is not allowed for this entity.</p>
+ *
+ * Deletion is not allowed for this entity.
  *
  * @throws {@link InvalidArgument} (client fault)
- *  <p>An argument is invalid.</p>
+ *
+ * An argument is invalid.
  *
  * @throws {@link InvalidIfMatchVersion} (client fault)
- *  <p>The <code>If-Match</code> version is missing or not valid.</p>
+ *
+ * The `If-Match` version is missing or not valid.
  *
  * @throws {@link PreconditionFailed} (client fault)
- *  <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+ *
+ * The precondition in one or more of the request fields evaluated to `false`.
  *
  * @throws {@link UnsupportedOperation} (client fault)
- *  <p>This operation is not supported in this Amazon Web Services Region.</p>
+ *
+ * This operation is not supported in this Amazon Web Services Region.
  *
  * @throws {@link CloudFrontServiceException}
- * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * Base exception class for all service exceptions from CloudFront service.
  *
  * @public
  */

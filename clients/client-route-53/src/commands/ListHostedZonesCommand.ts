@@ -23,12 +23,10 @@ export interface ListHostedZonesCommandInput extends ListHostedZonesRequest {}
 export interface ListHostedZonesCommandOutput extends ListHostedZonesResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of the public and private hosted zones that are associated with the
- * 			current Amazon Web Services account. The response includes a <code>HostedZones</code>
- * 			child element for each hosted zone.</p>
- *          <p>Amazon Route 53 returns a maximum of 100 items in each response. If you have a lot of
- * 			hosted zones, you can use the <code>maxitems</code> parameter to list them in groups of
- * 			up to 100.</p>
+ * Retrieves a list of the public and private hosted zones that are associated with the current Amazon Web Services account. The response includes a `HostedZones` child element for each hosted zone.
+ *
+ * Amazon Route 53 returns a maximum of 100 items in each response. If you have a lot of hosted zones, you can use the `maxitems` parameter to list them in groups of up to 100.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,17 +81,20 @@ export interface ListHostedZonesCommandOutput extends ListHostedZonesResponse, _
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link DelegationSetNotReusable} (client fault)
- *  <p>A reusable delegation set with the specified ID does not exist.</p>
+ *
+ * A reusable delegation set with the specified ID does not exist.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link NoSuchDelegationSet} (client fault)
- *  <p>A reusable delegation set with the specified ID does not exist.</p>
+ *
+ * A reusable delegation set with the specified ID does not exist.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @public
  */

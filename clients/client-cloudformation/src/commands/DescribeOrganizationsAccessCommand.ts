@@ -23,10 +23,8 @@ export interface DescribeOrganizationsAccessCommandInput extends DescribeOrganiz
 export interface DescribeOrganizationsAccessCommandOutput extends DescribeOrganizationsAccessOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about the account's <code>OrganizationAccess</code> status. This API
- *       can be called either by the management account or the delegated administrator by using the
- *         <code>CallAs</code> parameter. This API can also be called without the <code>CallAs</code>
- *       parameter by the management account.</p>
+ * Retrieves information about the account's `OrganizationAccess` status. This API can be called either by the management account or the delegated administrator by using the `CallAs` parameter. This API can also be called without the `CallAs` parameter by the management account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,14 +51,16 @@ export interface DescribeOrganizationsAccessCommandOutput extends DescribeOrgani
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link InvalidOperationException} (client fault)
- *  <p>The specified operation isn't valid.</p>
+ *
+ * The specified operation isn't valid.
  *
  * @throws {@link OperationNotFoundException} (client fault)
- *  <p>The specified ID refers to an operation that doesn't exist.</p>
+ *
+ * The specified ID refers to an operation that doesn't exist.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

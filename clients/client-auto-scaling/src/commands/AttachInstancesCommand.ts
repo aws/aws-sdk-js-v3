@@ -23,16 +23,14 @@ export interface AttachInstancesCommandInput extends AttachInstancesQuery {}
 export interface AttachInstancesCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Attaches one or more EC2 instances to the specified Auto Scaling group.</p>
- *          <p>When you attach instances, Amazon EC2 Auto Scaling increases the desired capacity of the group by the
- *             number of instances being attached. If the number of instances being attached plus the
- *             desired capacity of the group exceeds the maximum size of the group, the operation
- *             fails.</p>
- *          <p>If there is a Classic Load Balancer attached to your Auto Scaling group, the instances are
- *             also registered with the load balancer. If there are target groups attached to your Auto Scaling
- *             group, the instances are also registered with the target groups.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-detach-attach-instances.html">Detach
- *                 or attach instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ * Attaches one or more EC2 instances to the specified Auto Scaling group.
+ *
+ * When you attach instances, Amazon EC2 Auto Scaling increases the desired capacity of the group by the number of instances being attached. If the number of instances being attached plus the desired capacity of the group exceeds the maximum size of the group, the operation fails.
+ *
+ * If there is a Classic Load Balancer attached to your Auto Scaling group, the instances are also registered with the load balancer. If there are target groups attached to your Auto Scaling group, the instances are also registered with the target groups.
+ *
+ * For more information, see [Detach or attach instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-detach-attach-instances.html) in the *Amazon EC2 Auto Scaling User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,15 +58,16 @@ export interface AttachInstancesCommandOutput extends __MetadataBearer {}
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  * @throws {@link ResourceContentionFault} (server fault)
- *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
- *             instance, or load balancer).</p>
+ *
+ * You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).
  *
  * @throws {@link ServiceLinkedRoleFailure} (server fault)
- *  <p>The service-linked role is not yet ready for use.</p>
+ *
+ * The service-linked role is not yet ready for use.
  *
  * @throws {@link AutoScalingServiceException}
- * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from AutoScaling service.
  *
  * @example To attach an instance to an Auto Scaling group
  * ```javascript

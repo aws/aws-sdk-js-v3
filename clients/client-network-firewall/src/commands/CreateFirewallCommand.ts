@@ -23,14 +23,20 @@ export interface CreateFirewallCommandInput extends CreateFirewallRequest {}
 export interface CreateFirewallCommandOutput extends CreateFirewallResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Network Firewall <a>Firewall</a> and accompanying <a>FirewallStatus</a> for a VPC. </p>
- *          <p>The firewall defines the configuration settings for an Network Firewall firewall. The settings that you can define at creation include the firewall policy, the subnets in your VPC to use for the firewall endpoints, and any tags that are attached to the firewall Amazon Web Services resource. </p>
- *          <p>After you create a firewall, you can provide additional settings, like the logging configuration. </p>
- *          <p>To update the settings for a firewall, you use the operations that apply to the settings
- *          themselves, for example <a>UpdateLoggingConfiguration</a>, <a>AssociateSubnets</a>, and <a>UpdateFirewallDeleteProtection</a>. </p>
- *          <p>To manage a firewall's tags, use the standard Amazon Web Services resource tagging operations, <a>ListTagsForResource</a>, <a>TagResource</a>, and <a>UntagResource</a>.</p>
- *          <p>To retrieve information about firewalls, use <a>ListFirewalls</a> and <a>DescribeFirewall</a>.</p>
- *          <p>To generate a report on the last 30 days of traffic monitored by a firewall, use <a>StartAnalysisReport</a>.</p>
+ * Creates an Network Firewall Firewall and accompanying FirewallStatus for a VPC.
+ *
+ * The firewall defines the configuration settings for an Network Firewall firewall. The settings that you can define at creation include the firewall policy, the subnets in your VPC to use for the firewall endpoints, and any tags that are attached to the firewall Amazon Web Services resource.
+ *
+ * After you create a firewall, you can provide additional settings, like the logging configuration.
+ *
+ * To update the settings for a firewall, you use the operations that apply to the settings themselves, for example UpdateLoggingConfiguration, AssociateSubnets, and UpdateFirewallDeleteProtection.
+ *
+ * To manage a firewall's tags, use the standard Amazon Web Services resource tagging operations, ListTagsForResource, TagResource, and UntagResource.
+ *
+ * To retrieve information about firewalls, use ListFirewalls and DescribeFirewall.
+ *
+ * To generate a report on the last 30 days of traffic monitored by a firewall, use StartAnalysisReport.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -218,42 +224,36 @@ export interface CreateFirewallCommandOutput extends CreateFirewallResponse, __M
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
  *
  * @throws {@link InsufficientCapacityException} (server fault)
- *  <p>Amazon Web Services doesn't currently have enough available capacity to fulfill your request. Try your
- *          request later. </p>
+ *
+ * Amazon Web Services doesn't currently have enough available capacity to fulfill your request. Try your request later.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Your request is valid, but Network Firewall couldn't perform the operation because of a
- *          system problem. Retry your request. </p>
+ *
+ * Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request.
  *
  * @throws {@link InvalidOperationException} (client fault)
- *  <p>The operation failed because it's not valid. For example, you might have tried to delete
- *          a rule group or firewall policy that's in use.</p>
+ *
+ * The operation failed because it's not valid. For example, you might have tried to delete a rule group or firewall policy that's in use.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The operation failed because of a problem with your request. Examples include: </p>
- *          <ul>
- *             <li>
- *                <p>You specified an unsupported parameter name or value.</p>
- *             </li>
- *             <li>
- *                <p>You tried to update a property with a value that isn't among the available
- *                types.</p>
- *             </li>
- *             <li>
- *                <p>Your request references an ARN that is malformed, or corresponds to a resource
- *                that isn't valid in the context of the request.</p>
- *             </li>
- *          </ul>
+ *
+ * The operation failed because of a problem with your request. Examples include:
+ *
+ * - You specified an unsupported parameter name or value.
+ * - You tried to update a property with a value that isn't among the available types.
+ * - Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>Unable to perform the operation because doing so would violate a limit setting. </p>
+ *
+ * Unable to perform the operation because doing so would violate a limit setting.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Unable to process the request due to throttling limitations.</p>
+ *
+ * Unable to process the request due to throttling limitations.
  *
  * @throws {@link NetworkFirewallServiceException}
- * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ * Base exception class for all service exceptions from NetworkFirewall service.
  *
  * @public
  */

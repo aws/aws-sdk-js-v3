@@ -23,7 +23,8 @@ export interface DescribeParametersCommandInput extends DescribeParametersReques
 export interface DescribeParametersCommandOutput extends DescribeParametersResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the detailed parameter list for a particular parameter group.</p>
+ * Returns the detailed parameter list for a particular parameter group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,20 +73,24 @@ export interface DescribeParametersCommandOutput extends DescribeParametersRespo
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * Two or more incompatible parameters were specified.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link ParameterGroupNotFoundFault} (client fault)
- *  <p>The specified parameter group does not exist.</p>
+ *
+ * The specified parameter group does not exist.
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
- *  <p>The specified service linked role (SLR) was not found.</p>
+ *
+ * The specified service linked role (SLR) was not found.
  *
  * @throws {@link DAXServiceException}
- * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ * Base exception class for all service exceptions from DAX service.
  *
  * @public
  */

@@ -26,7 +26,8 @@ export interface AcceptDirectConnectGatewayAssociationProposalCommandInput exten
 export interface AcceptDirectConnectGatewayAssociationProposalCommandOutput extends AcceptDirectConnectGatewayAssociationProposalResult, __MetadataBearer {}
 
 /**
- * <p>Accepts a proposal request to attach a virtual private gateway or transit gateway to a Direct Connect gateway.</p>
+ * Accepts a proposal request to attach a virtual private gateway or transit gateway to a Direct Connect gateway.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,14 +86,16 @@ export interface AcceptDirectConnectGatewayAssociationProposalCommandOutput exte
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  * @throws {@link DirectConnectClientException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link DirectConnectServerException} (server fault)
- *  <p>A server-side error occurred.</p>
+ *
+ * A server-side error occurred.
  *
  * @throws {@link DirectConnectServiceException}
- * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * Base exception class for all service exceptions from DirectConnect service.
  *
  * @public
  */

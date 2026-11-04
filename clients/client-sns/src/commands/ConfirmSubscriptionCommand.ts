@@ -23,11 +23,8 @@ export interface ConfirmSubscriptionCommandInput extends ConfirmSubscriptionInpu
 export interface ConfirmSubscriptionCommandOutput extends ConfirmSubscriptionResponse, __MetadataBearer {}
 
 /**
- * <p>Verifies an endpoint owner's intent to receive messages by validating the token sent
- *             to the endpoint by an earlier <code>Subscribe</code> action. If the token is valid, the
- *             action creates a new subscription and returns its Amazon Resource Name (ARN). This call
- *             requires an AWS signature only when the <code>AuthenticateOnUnsubscribe</code> flag is
- *             set to "true".</p>
+ * Verifies an endpoint owner's intent to receive messages by validating the token sent to the endpoint by an earlier `Subscribe` action. If the token is valid, the action creates a new subscription and returns its Amazon Resource Name (ARN). This call requires an AWS signature only when the `AuthenticateOnUnsubscribe` flag is set to "true".
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,33 +53,36 @@ export interface ConfirmSubscriptionCommandOutput extends ConfirmSubscriptionRes
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
  *
  * @throws {@link AuthorizationErrorException} (client fault)
- *  <p>Indicates that the user has been denied access to the requested resource.</p>
+ *
+ * Indicates that the user has been denied access to the requested resource.
  *
  * @throws {@link FilterPolicyLimitExceededException} (client fault)
- *  <p>Indicates that the number of filter polices in your Amazon Web Services account exceeds the limit. To
- *             add more filter polices, submit an Amazon SNS Limit Increase case in the Amazon Web Services Support
- *             Center.</p>
+ *
+ * Indicates that the number of filter polices in your Amazon Web Services account exceeds the limit. To add more filter polices, submit an Amazon SNS Limit Increase case in the Amazon Web Services Support Center.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>Indicates an internal service error.</p>
+ *
+ * Indicates an internal service error.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Indicates that a request parameter does not comply with the associated
- *             constraints.</p>
+ *
+ * Indicates that a request parameter does not comply with the associated constraints.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>Indicates that the requested resource does not exist.</p>
+ *
+ * Indicates that the requested resource does not exist.
  *
  * @throws {@link ReplayLimitExceededException} (client fault)
- *  <p>Indicates that the request parameter has exceeded the maximum number of concurrent message replays.</p>
+ *
+ * Indicates that the request parameter has exceeded the maximum number of concurrent message replays.
  *
  * @throws {@link SubscriptionLimitExceededException} (client fault)
- *  <p>Indicates that the customer already owns the maximum allowed number of
- *             subscriptions.</p>
+ *
+ * Indicates that the customer already owns the maximum allowed number of subscriptions.
  *
  * @throws {@link SNSServiceException}
- * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * Base exception class for all service exceptions from SNS service.
  *
  * @public
  */

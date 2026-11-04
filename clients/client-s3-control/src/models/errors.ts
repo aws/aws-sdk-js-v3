@@ -4,9 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { S3ControlServiceException as __BaseException } from "./S3ControlServiceException";
 
 /**
- * <p>The requested Outposts bucket name is not available. The bucket namespace is shared by
- *          all users of the Outposts in this Region. Select a different name and try
- *          again.</p>
+ * The requested Outposts bucket name is not available. The bucket namespace is shared by all users of the Outposts in this Region. Select a different name and try again.
+ *
  * @public
  */
 export class BucketAlreadyExists extends __BaseException {
@@ -27,7 +26,8 @@ export class BucketAlreadyExists extends __BaseException {
 }
 
 /**
- * <p>The Outposts bucket you tried to create already exists, and you own it. </p>
+ * The Outposts bucket you tried to create already exists, and you own it.
+ *
  * @public
  */
 export class BucketAlreadyOwnedByYou extends __BaseException {
@@ -48,7 +48,6 @@ export class BucketAlreadyOwnedByYou extends __BaseException {
 }
 
 /**
- * <p></p>
  * @public
  */
 export class BadRequestException extends __BaseException {
@@ -71,7 +70,6 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * <p></p>
  * @public
  */
 export class IdempotencyException extends __BaseException {
@@ -94,7 +92,6 @@ export class IdempotencyException extends __BaseException {
 }
 
 /**
- * <p></p>
  * @public
  */
 export class InternalServiceException extends __BaseException {
@@ -117,7 +114,6 @@ export class InternalServiceException extends __BaseException {
 }
 
 /**
- * <p></p>
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
@@ -140,7 +136,6 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * <p></p>
  * @public
  */
 export class NotFoundException extends __BaseException {
@@ -163,9 +158,8 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * <p>Amazon S3 throws this exception if you make a <code>GetPublicAccessBlock</code> request
- *          against an account that doesn't have a <code>PublicAccessBlockConfiguration</code>
- *          set.</p>
+ * Amazon S3 throws this exception if you make a `GetPublicAccessBlock` request against an account that doesn't have a `PublicAccessBlockConfiguration` set.
+ *
  * @public
  */
 export class NoSuchPublicAccessBlockConfiguration extends __BaseException {
@@ -188,7 +182,6 @@ export class NoSuchPublicAccessBlockConfiguration extends __BaseException {
 }
 
 /**
- * <p></p>
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -211,7 +204,6 @@ export class InvalidNextTokenException extends __BaseException {
 }
 
 /**
- * <p></p>
  * @public
  */
 export class InvalidRequestException extends __BaseException {
@@ -234,7 +226,8 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * <p>Amazon S3 throws this exception if you have too many tags in your tag set.</p>
+ * Amazon S3 throws this exception if you have too many tags in your tag set.
+ *
  * @public
  */
 export class TooManyTagsException extends __BaseException {
@@ -257,7 +250,6 @@ export class TooManyTagsException extends __BaseException {
 }
 
 /**
- * <p></p>
  * @public
  */
 export class JobStatusException extends __BaseException {

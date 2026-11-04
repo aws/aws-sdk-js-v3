@@ -23,15 +23,12 @@ export interface RetrieveEnvironmentInfoCommandInput extends RetrieveEnvironment
 export interface RetrieveEnvironmentInfoCommandOutput extends RetrieveEnvironmentInfoResultMessage, __MetadataBearer {}
 
 /**
- * <p>Retrieves the compiled information from a <a>RequestEnvironmentInfo</a> request.</p>
- *          <p>Related Topics</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>RequestEnvironmentInfo</a>
- *                </p>
- *             </li>
- *          </ul>
+ * Retrieves the compiled information from a RequestEnvironmentInfo request.
+ *
+ * Related Topics
+ *
+ * - RequestEnvironmentInfo
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,8 +64,8 @@ export interface RetrieveEnvironmentInfoCommandOutput extends RetrieveEnvironmen
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  * @throws {@link ElasticBeanstalkSyntheticServiceException}
- * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * Base exception class for all service exceptions from ElasticBeanstalk service.
  *
  * @example To retrieve tailed logs
  * ```javascript

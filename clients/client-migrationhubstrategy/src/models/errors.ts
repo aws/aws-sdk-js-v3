@@ -4,8 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { MigrationHubStrategyServiceException as __BaseException } from "./MigrationHubStrategyServiceException";
 
 /**
- * <p> The user does not have permission to perform the action. Check the
- *       AWS Identity and Access Management (IAM) policy associated with this user.</p>
+ * The user does not have permission to perform the action. Check the AWS Identity and Access Management (IAM) policy associated with this user.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -26,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p> The server experienced an internal error. Try again. </p>
+ * The server experienced an internal error. Try again.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -47,7 +48,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p> The specified ID in the request is not found. </p>
+ * The specified ID in the request is not found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -68,7 +70,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p> The request was denied due to request throttling. </p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -89,7 +92,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p> The request body isn't valid. </p>
+ * The request body isn't valid.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -110,7 +114,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>Dependency encountered an error.</p>
+ * Dependency encountered an error.
+ *
  * @public
  */
 export class DependencyException extends __BaseException {
@@ -131,7 +136,8 @@ export class DependencyException extends __BaseException {
 }
 
 /**
- * <p> Exception to indicate that the service-linked role (SLR) is locked. </p>
+ * Exception to indicate that the service-linked role (SLR) is locked.
+ *
  * @public
  */
 export class ServiceLinkedRoleLockClientException extends __BaseException {
@@ -152,8 +158,8 @@ export class ServiceLinkedRoleLockClientException extends __BaseException {
 }
 
 /**
- * <p> Exception to indicate that there is an ongoing task when a new task is created. Return
- *       when once the existing tasks are complete. </p>
+ * Exception to indicate that there is an ongoing task when a new task is created. Return when once the existing tasks are complete.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -174,8 +180,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p> The AWS account has reached its quota of imports. Contact AWS Support to increase the
- *       quota for this account. </p>
+ * The AWS account has reached its quota of imports. Contact AWS Support to increase the quota for this account.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {

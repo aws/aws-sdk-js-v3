@@ -23,55 +23,23 @@ export interface SendTemplatedEmailCommandInput extends SendTemplatedEmailReques
 export interface SendTemplatedEmailCommandOutput extends SendTemplatedEmailResponse, __MetadataBearer {}
 
 /**
- * <p>Composes an email message using an email template and immediately queues it for
- *             sending.</p>
- *          <p>To send email using this operation, your call must meet the following
- *             requirements:</p>
- *          <ul>
- *             <li>
- *                <p>The call must refer to an existing email template. You can create email
- *                     templates using the <a>CreateTemplate</a> operation.</p>
- *             </li>
- *             <li>
- *                <p>The message must be sent from a verified email address or domain.</p>
- *             </li>
- *             <li>
- *                <p>If your account is still in the Amazon SES sandbox, you may only send to verified
- *                     addresses or domains, or to email addresses associated with the Amazon SES Mailbox
- *                     Simulator. For more information, see <a href="https://docs.aws.amazon.com/ses/latest/dg/verify-addresses-and-domains.html">Verifying Email
- *                         Addresses and Domains</a> in the <i>Amazon SES Developer
- *                         Guide.</i>
- *                </p>
- *             </li>
- *             <li>
- *                <p>The maximum message size is 10 MB.</p>
- *             </li>
- *             <li>
- *                <p>Calls to the <code>SendTemplatedEmail</code> operation may only include one
- *                         <code>Destination</code> parameter. A destination is a set of recipients
- *                     that receives the same version of the email. The <code>Destination</code>
- *                     parameter can include up to 50 recipients, across the To:, CC: and BCC:
- *                     fields.</p>
- *             </li>
- *             <li>
- *                <p>The <code>Destination</code> parameter must include at least one recipient
- *                     email address. The recipient address can be a To: address, a CC: address, or a
- *                     BCC: address. If a recipient email address is invalid (that is, it is not in the
- *                     format <i>UserName@[SubDomain.]Domain.TopLevelDomain</i>), the
- *                     entire message is rejected, even if the message contains other recipients that
- *                     are valid.</p>
- *             </li>
- *          </ul>
- *          <important>
- *             <p>If your call to the <code>SendTemplatedEmail</code> operation includes all of the
- *                 required parameters, Amazon SES accepts it and returns a Message ID. However, if Amazon SES
- *                 can't render the email because the template contains errors, it doesn't send the
- *                 email. Additionally, because it already accepted the message, Amazon SES doesn't return a
- *                 message stating that it was unable to send the email.</p>
- *             <p>For these reasons, we highly recommend that you set up Amazon SES to send you
- *                 notifications when Rendering Failure events occur. For more information, see <a href="https://docs.aws.amazon.com/ses/latest/dg/send-personalized-email-api.html">Sending Personalized Email Using the Amazon SES API</a> in the
- *                     <i>Amazon Simple Email Service Developer Guide</i>.</p>
- *          </important>
+ * Composes an email message using an email template and immediately queues it for sending.
+ *
+ * To send email using this operation, your call must meet the following requirements:
+ *
+ * - The call must refer to an existing email template. You can create email templates using the CreateTemplate operation.
+ * - The message must be sent from a verified email address or domain.
+ * - If your account is still in the Amazon SES sandbox, you may only send to verified addresses or domains, or to email addresses associated with the Amazon SES Mailbox Simulator. For more information, see [Verifying Email Addresses and Domains](https://docs.aws.amazon.com/ses/latest/dg/verify-addresses-and-domains.html) in the *Amazon SES Developer Guide.*
+ * - The maximum message size is 10 MB.
+ * - Calls to the `SendTemplatedEmail` operation may only include one `Destination` parameter. A destination is a set of recipients that receives the same version of the email. The `Destination` parameter can include up to 50 recipients, across the To:, CC: and BCC: fields.
+ * - The `Destination` parameter must include at least one recipient email address. The recipient address can be a To: address, a CC: address, or a BCC: address. If a recipient email address is invalid (that is, it is not in the format *UserName@[SubDomain.]Domain.TopLevelDomain*), the entire message is rejected, even if the message contains other recipients that are valid.
+ *
+ * > **Important:**
+ * >
+ * > If your call to the `SendTemplatedEmail` operation includes all of the required parameters, Amazon SES accepts it and returns a Message ID. However, if Amazon SES can't render the email because the template contains errors, it doesn't send the email. Additionally, because it already accepted the message, Amazon SES doesn't return a message stating that it was unable to send the email.
+ * >
+ * > For these reasons, we highly recommend that you set up Amazon SES to send you notifications when Rendering Failure events occur. For more information, see [Sending Personalized Email Using the Amazon SES API](https://docs.aws.amazon.com/ses/latest/dg/send-personalized-email-api.html) in the *Amazon Simple Email Service Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -125,33 +93,36 @@ export interface SendTemplatedEmailCommandOutput extends SendTemplatedEmailRespo
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link AccountSendingPausedException} (client fault)
- *  <p>Indicates that email sending is disabled for your entire Amazon SES account.</p>
- *          <p>You can enable or disable email sending for your Amazon SES account using <a>UpdateAccountSendingEnabled</a>.</p>
+ *
+ * Indicates that email sending is disabled for your entire Amazon SES account.
+ *
+ * You can enable or disable email sending for your Amazon SES account using UpdateAccountSendingEnabled.
  *
  * @throws {@link ConfigurationSetDoesNotExistException} (client fault)
- *  <p>Indicates that the configuration set does not exist.</p>
+ *
+ * Indicates that the configuration set does not exist.
  *
  * @throws {@link ConfigurationSetSendingPausedException} (client fault)
- *  <p>Indicates that email sending is disabled for the configuration set.</p>
- *          <p>You can enable or disable email sending for a configuration set using <a>UpdateConfigurationSetSendingEnabled</a>.</p>
+ *
+ * Indicates that email sending is disabled for the configuration set.
+ *
+ * You can enable or disable email sending for a configuration set using UpdateConfigurationSetSendingEnabled.
  *
  * @throws {@link MailFromDomainNotVerifiedException} (client fault)
- *  <p> Indicates that the message could not be sent because Amazon SES could not read the MX
- *             record required to use the specified MAIL FROM domain. For information about editing the
- *             custom MAIL FROM domain settings for an identity, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-edit.html">Amazon SES Developer
- *                 Guide</a>.</p>
+ *
+ * Indicates that the message could not be sent because Amazon SES could not read the MX record required to use the specified MAIL FROM domain. For information about editing the custom MAIL FROM domain settings for an identity, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-edit.html).
  *
  * @throws {@link MessageRejected} (client fault)
- *  <p>Indicates that the action failed, and the message could not be sent. Check the error
- *             stack for more information about what caused the error.</p>
+ *
+ * Indicates that the action failed, and the message could not be sent. Check the error stack for more information about what caused the error.
  *
  * @throws {@link TemplateDoesNotExistException} (client fault)
- *  <p>Indicates that the Template object you specified does not exist in your Amazon SES
- *             account.</p>
+ *
+ * Indicates that the Template object you specified does not exist in your Amazon SES account.
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @public
  */

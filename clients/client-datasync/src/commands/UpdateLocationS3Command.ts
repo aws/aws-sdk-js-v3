@@ -23,24 +23,15 @@ export interface UpdateLocationS3CommandInput extends UpdateLocationS3Request {}
 export interface UpdateLocationS3CommandOutput extends UpdateLocationS3Response, __MetadataBearer {}
 
 /**
- * <p>Modifies the following configuration parameters of the Amazon S3 transfer location
- *       that you're using with DataSync.</p>
- *          <important>
- *             <p>Before you begin, make sure that you read the following topics:</p>
- *             <ul>
- *                <li>
- *                   <p>
- *                      <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Storage
- *               class considerations with Amazon S3 locations</a>
- *                   </p>
- *                </li>
- *                <li>
- *                   <p>
- *                      <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-s3-requests">Evaluating S3 request costs when using DataSync</a>
- *                   </p>
- *                </li>
- *             </ul>
- *          </important>
+ * Modifies the following configuration parameters of the Amazon S3 transfer location that you're using with DataSync.
+ *
+ * > **Important:**
+ * >
+ * > Before you begin, make sure that you read the following topics:
+ * >
+ * > - [Storage class considerations with Amazon S3 locations](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+ * > - [Evaluating S3 request costs when using DataSync](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-s3-requests)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,15 +61,16 @@ export interface UpdateLocationS3CommandOutput extends UpdateLocationS3Response,
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception is thrown when an error occurs in the DataSync
- *       service.</p>
+ *
+ * This exception is thrown when an error occurs in the DataSync service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * This exception is thrown when the client submits a malformed request.
  *
  * @throws {@link DataSyncServiceException}
- * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * Base exception class for all service exceptions from DataSync service.
  *
  * @public
  */

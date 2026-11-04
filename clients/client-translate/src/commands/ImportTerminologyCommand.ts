@@ -23,14 +23,10 @@ export interface ImportTerminologyCommandInput extends ImportTerminologyRequest 
 export interface ImportTerminologyCommandOutput extends ImportTerminologyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates or updates a custom terminology, depending on whether one already exists for the
- *       given terminology name. Importing a terminology with the same name as an existing one will
- *       merge the terminologies based on the chosen merge strategy. The only supported merge strategy
- *       is OVERWRITE, where the imported terminology overwrites the existing terminology of the same
- *       name.</p>
- *          <p>If you import a terminology that overwrites an existing one, the new terminology takes up
- *       to 10 minutes to fully propagate. After that, translations have access to the new
- *       terminology.</p>
+ * Creates or updates a custom terminology, depending on whether one already exists for the given terminology name. Importing a terminology with the same name as an existing one will merge the terminologies based on the chosen merge strategy. The only supported merge strategy is OVERWRITE, where the imported terminology overwrites the existing terminology of the same name.
+ *
+ * If you import a terminology that overwrites an existing one, the new terminology takes up to 10 minutes to fully propagate. After that, translations have access to the new terminology.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -98,30 +94,32 @@ export interface ImportTerminologyCommandOutput extends ImportTerminologyRespons
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Another modification is being made. That modification must complete before you can make
- *       your change.</p>
+ *
+ * Another modification is being made. That modification must complete before you can make your change.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value of the parameter is not valid. Review the value of the parameter you are using
- *       to correct it, and then retry your operation.</p>
+ *
+ * The value of the parameter is not valid. Review the value of the parameter you are using to correct it, and then retry your operation.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The specified limit has been exceeded. Review your request and retry it with a quantity
- *       below the stated limit.</p>
+ *
+ * The specified limit has been exceeded. Review your request and retry it with a quantity below the stated limit.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p> You have made too many requests within a short period of time. Wait for a short time and
- *       then try your request again.</p>
+ *
+ * You have made too many requests within a short period of time. Wait for a short time and then try your request again.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>You have added too many tags to this resource. The maximum is 50 tags.</p>
+ *
+ * You have added too many tags to this resource. The maximum is 50 tags.
  *
  * @throws {@link TranslateServiceException}
- * <p>Base exception class for all service exceptions from Translate service.</p>
  *
+ * Base exception class for all service exceptions from Translate service.
  *
  * @public
  */

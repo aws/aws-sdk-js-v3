@@ -23,9 +23,8 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Associate a set of tags with a Timestream resource. You can then activate these
- *             user-defined tags so that they appear on the Billing and Cost Management console for
- *             cost allocation tracking. </p>
+ * Associate a set of tags with a Timestream resource. You can then activate these user-defined tags so that they appear on the Billing and Cost Management console for cost allocation tracking.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,23 +55,28 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link TimestreamQueryClientResolvedConfig | config} for TimestreamQueryClient's `config` shape.
  *
  * @throws {@link InvalidEndpointException} (client fault)
- *  <p>The requested endpoint is invalid.</p>
+ *
+ * The requested endpoint is invalid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource could not be found.</p>
+ *
+ * The requested resource could not be found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You have exceeded the service quota.</p>
+ *
+ * You have exceeded the service quota.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled due to excessive requests.</p>
+ *
+ * The request was throttled due to excessive requests.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> Invalid or malformed request. </p>
+ *
+ * Invalid or malformed request.
  *
  * @throws {@link TimestreamQueryServiceException}
- * <p>Base exception class for all service exceptions from TimestreamQuery service.</p>
  *
+ * Base exception class for all service exceptions from TimestreamQuery service.
  *
  * @public
  */

@@ -23,11 +23,8 @@ export interface TerminateSessionCommandInput extends TerminateSessionRequest {}
 export interface TerminateSessionCommandOutput extends TerminateSessionResponse, __MetadataBearer {}
 
 /**
- * <p>Terminates an active session. A <code>TerminateSession</code> call on a session that
- *             is already inactive (for example, in a <code>FAILED</code>, <code>TERMINATED</code> or
- *                 <code>TERMINATING</code> state) succeeds but has no effect. Calculations running in
- *             the session when <code>TerminateSession</code> is called are forcefully stopped, but may
- *             display as <code>FAILED</code> instead of <code>STOPPED</code>.</p>
+ * Terminates an active session. A `TerminateSession` call on a session that is already inactive (for example, in a `FAILED`, `TERMINATED` or `TERMINATING` state) succeeds but has no effect. Calculations running in the session when `TerminateSession` is called are forcefully stopped, but may display as `FAILED` instead of `STOPPED`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,19 +51,20 @@ export interface TerminateSessionCommandOutput extends TerminateSessionResponse,
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Indicates a platform issue, which may be due to a transient condition or
- *             outage.</p>
+ *
+ * Indicates a platform issue, which may be due to a transient condition or outage.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Indicates that something is wrong with the input to the request. For example, a
- *             required parameter may be missing or out of range.</p>
+ *
+ * Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A resource, such as a workgroup, was not found.</p>
+ *
+ * A resource, such as a workgroup, was not found.
  *
  * @throws {@link AthenaServiceException}
- * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * Base exception class for all service exceptions from Athena service.
  *
  * @public
  */

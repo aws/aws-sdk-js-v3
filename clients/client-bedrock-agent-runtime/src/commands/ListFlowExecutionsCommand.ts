@@ -23,7 +23,10 @@ export interface ListFlowExecutionsCommandInput extends ListFlowExecutionsReques
 export interface ListFlowExecutionsCommandOutput extends ListFlowExecutionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all executions of a flow. Results can be paginated and include summary information about each execution, such as status, start and end times, and the execution's Amazon Resource Name (ARN).</p> <note> <p>Flow executions is in preview release for Amazon Bedrock and is subject to change.</p> </note>
+ * Lists all executions of a flow. Results can be paginated and include summary information about each execution, such as status, start and end times, and the execution's Amazon Resource Name (ARN).
+ *
+ * > **Note:** Flow executions is in preview release for Amazon Bedrock and is subject to change.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,23 +67,28 @@ export interface ListFlowExecutionsCommandOutput extends ListFlowExecutionsRespo
  * @see {@link BedrockAgentRuntimeClientResolvedConfig | config} for BedrockAgentRuntimeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request is denied because of missing access permissions. Check your permissions and retry your request.</p>
+ *
+ * The request is denied because of missing access permissions. Check your permissions and retry your request.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
+ *
+ * The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
+ * The number of requests exceeds the limit. Resubmit your request later.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Input validation failed. Check your request parameters and retry the request.</p>
+ *
+ * Input validation failed. Check your request parameters and retry the request.
  *
  * @throws {@link BedrockAgentRuntimeServiceException}
- * <p>Base exception class for all service exceptions from BedrockAgentRuntime service.</p>
  *
+ * Base exception class for all service exceptions from BedrockAgentRuntime service.
  *
  * @public
  */

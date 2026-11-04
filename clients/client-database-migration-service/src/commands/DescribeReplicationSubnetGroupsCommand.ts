@@ -26,7 +26,8 @@ export interface DescribeReplicationSubnetGroupsCommandInput extends DescribeRep
 export interface DescribeReplicationSubnetGroupsCommandOutput extends DescribeReplicationSubnetGroupsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about the replication subnet groups.</p>
+ * Returns information about the replication subnet groups.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,11 +84,12 @@ export interface DescribeReplicationSubnetGroupsCommandOutput extends DescribeRe
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @example Describe replication subnet groups
  * ```javascript

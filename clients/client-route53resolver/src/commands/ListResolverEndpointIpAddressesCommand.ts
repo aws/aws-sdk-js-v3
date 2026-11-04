@@ -26,7 +26,8 @@ export interface ListResolverEndpointIpAddressesCommandInput extends ListResolve
 export interface ListResolverEndpointIpAddressesCommandOutput extends ListResolverEndpointIpAddressesResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the IP addresses for a specified Resolver endpoint.</p>
+ * Gets the IP addresses for a specified Resolver endpoint.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,23 +69,28 @@ export interface ListResolverEndpointIpAddressesCommandOutput extends ListResolv
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
  *
  * @throws {@link InternalServiceErrorException} (client fault)
- *  <p>We encountered an unknown error. Try again in a few minutes.</p>
+ *
+ * We encountered an unknown error. Try again in a few minutes.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The value that you specified for <code>NextToken</code> in a <code>List</code> request isn't valid.</p>
+ *
+ * The value that you specified for `NextToken` in a `List` request isn't valid.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters in this request are not valid.</p>
+ *
+ * One or more parameters in this request are not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource doesn't exist.</p>
+ *
+ * The specified resource doesn't exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled. Try again in a few minutes.</p>
+ *
+ * The request was throttled. Try again in a few minutes.
  *
  * @throws {@link Route53ResolverServiceException}
- * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * Base exception class for all service exceptions from Route53Resolver service.
  *
  * @public
  */

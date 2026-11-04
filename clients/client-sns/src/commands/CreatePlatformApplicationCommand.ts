@@ -23,58 +23,21 @@ export interface CreatePlatformApplicationCommandInput extends CreatePlatformApp
 export interface CreatePlatformApplicationCommandOutput extends CreatePlatformApplicationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a platform application object for one of the supported push notification
- *             services, such as APNS and GCM (Firebase Cloud Messaging), to which devices and mobile
- *             apps may register. You must specify <code>PlatformPrincipal</code> and
- *                 <code>PlatformCredential</code> attributes when using the
- *                 <code>CreatePlatformApplication</code> action.</p>
- *          <p>
- *             <code>PlatformPrincipal</code> and <code>PlatformCredential</code> are received from
- *             the notification service.</p>
- *          <ul>
- *             <li>
- *                <p>For ADM, <code>PlatformPrincipal</code> is <code>client id</code> and
- *                         <code>PlatformCredential</code> is <code>client secret</code>.</p>
- *             </li>
- *             <li>
- *                <p>For APNS and <code>APNS_SANDBOX</code> using certificate credentials,
- *                         <code>PlatformPrincipal</code> is <code>SSL certificate</code> and
- *                         <code>PlatformCredential</code> is <code>private key</code>.</p>
- *             </li>
- *             <li>
- *                <p>For APNS and <code>APNS_SANDBOX</code> using token credentials,
- *                         <code>PlatformPrincipal</code> is <code>signing key ID</code> and
- *                         <code>PlatformCredential</code> is <code>signing key</code>.</p>
- *             </li>
- *             <li>
- *                <p>For Baidu, <code>PlatformPrincipal</code> is <code>API key</code> and
- *                         <code>PlatformCredential</code> is <code>secret key</code>.</p>
- *             </li>
- *             <li>
- *                <p>For GCM (Firebase Cloud Messaging) using key credentials, there is no
- *                         <code>PlatformPrincipal</code>. The <code>PlatformCredential</code> is
- *                         <code>API key</code>.</p>
- *             </li>
- *             <li>
- *                <p>For GCM (Firebase Cloud Messaging) using token credentials, there is no
- *                         <code>PlatformPrincipal</code>. The <code>PlatformCredential</code> is a
- *                     JSON formatted private key file. When using the Amazon Web Services CLI or Amazon Web Services SDKs, the
- *                     file must be in string format and special characters must be ignored. To format
- *                     the file correctly, Amazon SNS recommends using the following command:
- *                         <code>SERVICE_JSON=$(jq @json < service.json)</code>.</p>
- *             </li>
- *             <li>
- *                <p>For MPNS, <code>PlatformPrincipal</code> is <code>TLS certificate</code> and
- *                         <code>PlatformCredential</code> is <code>private key</code>.</p>
- *             </li>
- *             <li>
- *                <p>For WNS, <code>PlatformPrincipal</code> is <code>Package Security
- *                         Identifier</code> and <code>PlatformCredential</code> is <code>secret
- *                         key</code>.</p>
- *             </li>
- *          </ul>
- *          <p>You can use the returned <code>PlatformApplicationArn</code> as an attribute for the
- *                 <code>CreatePlatformEndpoint</code> action.</p>
+ * Creates a platform application object for one of the supported push notification services, such as APNS and GCM (Firebase Cloud Messaging), to which devices and mobile apps may register. You must specify `PlatformPrincipal` and `PlatformCredential` attributes when using the `CreatePlatformApplication` action.
+ *
+ * `PlatformPrincipal` and `PlatformCredential` are received from the notification service.
+ *
+ * - For ADM, `PlatformPrincipal` is `client id` and `PlatformCredential` is `client secret`.
+ * - For APNS and `APNS_SANDBOX` using certificate credentials, `PlatformPrincipal` is `SSL certificate` and `PlatformCredential` is `private key`.
+ * - For APNS and `APNS_SANDBOX` using token credentials, `PlatformPrincipal` is `signing key ID` and `PlatformCredential` is `signing key`.
+ * - For Baidu, `PlatformPrincipal` is `API key` and `PlatformCredential` is `secret key`.
+ * - For GCM (Firebase Cloud Messaging) using key credentials, there is no `PlatformPrincipal`. The `PlatformCredential` is `API key`.
+ * - For GCM (Firebase Cloud Messaging) using token credentials, there is no `PlatformPrincipal`. The `PlatformCredential` is a JSON formatted private key file. When using the Amazon Web Services CLI or Amazon Web Services SDKs, the file must be in string format and special characters must be ignored. To format the file correctly, Amazon SNS recommends using the following command: `SERVICE_JSON=$(jq @json < service.json)`.
+ * - For MPNS, `PlatformPrincipal` is `TLS certificate` and `PlatformCredential` is `private key`.
+ * - For WNS, `PlatformPrincipal` is `Package Security Identifier` and `PlatformCredential` is `secret key`.
+ *
+ * You can use the returned `PlatformApplicationArn` as an attribute for the `CreatePlatformEndpoint` action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -105,18 +68,20 @@ export interface CreatePlatformApplicationCommandOutput extends CreatePlatformAp
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
  *
  * @throws {@link AuthorizationErrorException} (client fault)
- *  <p>Indicates that the user has been denied access to the requested resource.</p>
+ *
+ * Indicates that the user has been denied access to the requested resource.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>Indicates an internal service error.</p>
+ *
+ * Indicates an internal service error.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Indicates that a request parameter does not comply with the associated
- *             constraints.</p>
+ *
+ * Indicates that a request parameter does not comply with the associated constraints.
  *
  * @throws {@link SNSServiceException}
- * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * Base exception class for all service exceptions from SNS service.
  *
  * @public
  */

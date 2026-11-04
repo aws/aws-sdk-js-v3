@@ -54,121 +54,141 @@ import type {
 } from "./enums";
 
 /**
- * <p>The agent card definition for an A2A descriptor. Contains the schema version and inline content for the agent card.</p>
+ * The agent card definition for an A2A descriptor. Contains the schema version and inline content for the agent card.
+ *
  * @public
  */
 export interface AgentCardDefinition {
   /**
-   * <p>The schema version of the agent card based on the A2A protocol specification.</p>
+   * The schema version of the agent card based on the A2A protocol specification.
+   *
    * @public
    */
   schemaVersion?: string | undefined;
 
   /**
-   * <p>The JSON content containing the A2A agent card definition, conforming to the A2A protocol specification.</p>
+   * The JSON content containing the A2A agent card definition, conforming to the A2A protocol specification.
+   *
    * @public
    */
   inlineContent?: string | undefined;
 }
 
 /**
- * <p>The Agent-to-Agent (A2A) protocol descriptor for a registry record. Contains the agent card definition as defined by the A2A protocol specification.</p>
+ * The Agent-to-Agent (A2A) protocol descriptor for a registry record. Contains the agent card definition as defined by the A2A protocol specification.
+ *
  * @public
  */
 export interface A2aDescriptor {
   /**
-   * <p>The agent card definition for the A2A agent, as defined by the A2A protocol specification.</p>
+   * The agent card definition for the A2A agent, as defined by the A2A protocol specification.
+   *
    * @public
    */
   agentCard?: AgentCardDefinition | undefined;
 }
 
 /**
- * <p>A static configuration bundle override.</p>
+ * A static configuration bundle override.
+ *
  * @public
  */
 export interface StaticOverride {
   /**
-   * <p>The Amazon Resource Name (ARN) of the configuration bundle to apply.</p>
+   * The Amazon Resource Name (ARN) of the configuration bundle to apply.
+   *
    * @public
    */
   bundleArn: string | undefined;
 
   /**
-   * <p>The version of the configuration bundle to apply.</p>
+   * The version of the configuration bundle to apply.
+   *
    * @public
    */
   bundleVersion: string | undefined;
 }
 
 /**
- * <p>A reference to a specific version of a configuration bundle.</p>
+ * A reference to a specific version of a configuration bundle.
+ *
  * @public
  */
 export interface ConfigurationBundleReference {
   /**
-   * <p>The Amazon Resource Name (ARN) of the configuration bundle.</p>
+   * The Amazon Resource Name (ARN) of the configuration bundle.
+   *
    * @public
    */
   bundleArn: string | undefined;
 
   /**
-   * <p>The version of the configuration bundle.</p>
+   * The version of the configuration bundle.
+   *
    * @public
    */
   bundleVersion: string | undefined;
 }
 
 /**
- * <p>An entry in a traffic split configuration, defining a named variant with a weight and configuration bundle reference.</p>
+ * An entry in a traffic split configuration, defining a named variant with a weight and configuration bundle reference.
+ *
  * @public
  */
 export interface TrafficSplitEntry {
   /**
-   * <p>The name of this traffic split variant.</p>
+   * The name of this traffic split variant.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The percentage of traffic to route to this variant. Weights across all entries must sum to 100.</p>
+   * The percentage of traffic to route to this variant. Weights across all entries must sum to 100.
+   *
    * @public
    */
   weight: number | undefined;
 
   /**
-   * <p>The configuration bundle reference for this variant.</p>
+   * The configuration bundle reference for this variant.
+   *
    * @public
    */
   configurationBundle: ConfigurationBundleReference | undefined;
 
   /**
-   * <p>The description of this traffic split variant.</p>
+   * The description of this traffic split variant.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Key-value metadata associated with this traffic split variant.</p>
+   * Key-value metadata associated with this traffic split variant.
+   *
    * @public
    */
   metadata?: Record<string, string> | undefined;
 }
 
 /**
- * <p>A weighted configuration bundle override that splits traffic between multiple bundle versions.</p>
+ * A weighted configuration bundle override that splits traffic between multiple bundle versions.
+ *
  * @public
  */
 export interface WeightedOverride {
   /**
-   * <p>The traffic split entries defining how traffic is distributed between configuration bundle versions.</p>
+   * The traffic split entries defining how traffic is distributed between configuration bundle versions.
+   *
    * @public
    */
   trafficSplit: TrafficSplitEntry[] | undefined;
 }
 
 /**
- * <p>An action that applies a configuration bundle override, either as a static override or a weighted split for A/B testing.</p>
+ * An action that applies a configuration bundle override, either as a static override or a weighted split for A/B testing.
+ *
  * @public
  */
 export type ConfigurationBundleAction =
@@ -181,7 +201,8 @@ export type ConfigurationBundleAction =
  */
 export namespace ConfigurationBundleAction {
   /**
-   * <p>A static configuration bundle override that applies a single bundle version to all matching requests.</p>
+   * A static configuration bundle override that applies a single bundle version to all matching requests.
+   *
    * @public
    */
   export interface StaticOverrideMember {
@@ -191,7 +212,8 @@ export namespace ConfigurationBundleAction {
   }
 
   /**
-   * <p>A weighted configuration bundle override that splits traffic between multiple bundle versions based on configured weights.</p>
+   * A weighted configuration bundle override that splits traffic between multiple bundle versions based on configured weights.
+   *
    * @public
    */
   export interface WeightedOverrideMember {
@@ -221,181 +243,220 @@ export namespace ConfigurationBundleAction {
 }
 
 /**
- * <p>Specifies whether the circuit breaker monitors failures for the targets in a fallback chain.</p>
+ * Specifies whether the circuit breaker monitors failures for the targets in a fallback chain.
+ *
  * @public
  */
 export interface CircuitBreakerConfiguration {
   /**
-   * <p>Specifies whether you want the circuit breaker turned on. To turn it off, set this value to <code>DISABLED</code>. The default is <code>ENABLED</code>.</p>
+   * Specifies whether you want the circuit breaker turned on. To turn it off, set this value to `DISABLED`. The default is `ENABLED`.
+   *
    * @public
    */
   mode?: CircuitBreakerMode | undefined;
 }
 
 /**
- * <p>The conditions that trigger a fallback to the next target. A fallback occurs if the response matches any of the specified status codes or errors.</p>
+ * The conditions that trigger a fallback to the next target. A fallback occurs if the response matches any of the specified status codes or errors.
+ *
  * @public
  */
 export interface FallbackTriggers {
   /**
-   * <p>The HTTP status codes returned by the target that trigger a fallback. You can specify the following:</p> <ul> <li> <p>An exact status code – A three-digit code, such as <code>429</code>.</p> </li> <li> <p>A class of status codes – The first digit followed by <code>XX</code>, such as <code>5XX</code>, which matches every code from 500 to 599.</p> </li> </ul> <p>Only 4XX and 5XX codes are supported. Throttling by the gateway itself doesn't trigger a fallback.</p>
+   * The HTTP status codes returned by the target that trigger a fallback. You can specify the following:
+   *
+   * - An exact status code – A three-digit code, such as `429`.
+   * - A class of status codes – The first digit followed by `XX`, such as `5XX`, which matches every code from 500 to 599.
+   *
+   * Only 4XX and 5XX codes are supported. Throttling by the gateway itself doesn't trigger a fallback.
+   *
    * @public
    */
   statusCodes?: string[] | undefined;
 
   /**
-   * <p>The errors that trigger a fallback. You can specify the following:</p> <ul> <li> <p> <code>CONNECTION_ERROR</code> – The gateway couldn't connect to the target because the connection was refused, reset, or timed out. The request didn't reach the target.</p> </li> <li> <p> <code>FIRST_BYTE_TIMEOUT</code> – The target accepted the connection but didn't return the first byte of the response within <code>firstByteTimeoutMilliseconds</code>. The gateway abandons the request before any of the response reaches you.</p> </li> <li> <p> <code>UNROUTABLE</code> – The gateway couldn't route the request to the target, for example because the target doesn't exist or doesn't support the request path. These errors don't count toward the circuit breaker.</p> </li> </ul>
+   * The errors that trigger a fallback. You can specify the following:
+   *
+   * - `CONNECTION_ERROR` – The gateway couldn't connect to the target because the connection was refused, reset, or timed out. The request didn't reach the target.
+   * - `FIRST_BYTE_TIMEOUT` – The target accepted the connection but didn't return the first byte of the response within `firstByteTimeoutMilliseconds`. The gateway abandons the request before any of the response reaches you.
+   * - `UNROUTABLE` – The gateway couldn't route the request to the target, for example because the target doesn't exist or doesn't support the request path. These errors don't count toward the circuit breaker.
+   *
    * @public
    */
   errors?: FallbackError[] | undefined;
 }
 
 /**
- * <p>Specifies a target to send the request to when the previous target in the fallback chain fails. Includes the target name, the model to send, and the conditions that trigger a fallback from this target to the next one.</p>
+ * Specifies a target to send the request to when the previous target in the fallback chain fails. Includes the target name, the model to send, and the conditions that trigger a fallback from this target to the next one.
+ *
  * @public
  */
 export interface FallbackTarget {
   /**
-   * <p>The name of the gateway target to fall back to. The target must be an inference target.</p>
+   * The name of the gateway target to fall back to. The target must be an inference target.
+   *
    * @public
    */
   targetName: string | undefined;
 
   /**
-   * <p>The model ID to send to this fallback target. If you don't specify a model, the gateway sends the model from the original request.</p>
+   * The model ID to send to this fallback target. If you don't specify a model, the gateway sends the model from the original request.
+   *
    * @public
    */
   model?: string | undefined;
 
   /**
-   * <p>The status codes and errors from this target that cause the gateway to send the request to the next fallback target. This setting isn't inherited from the route. If you omit it, the gateway uses the default triggers: <code>5XX</code> status codes and the <code>CONNECTION_ERROR</code>, <code>FIRST_BYTE_TIMEOUT</code>, and <code>UNROUTABLE</code> errors.</p>
+   * The status codes and errors from this target that cause the gateway to send the request to the next fallback target. This setting isn't inherited from the route. If you omit it, the gateway uses the default triggers: `5XX` status codes and the `CONNECTION_ERROR`, `FIRST_BYTE_TIMEOUT`, and `UNROUTABLE` errors.
+   *
    * @public
    */
   triggerOn?: FallbackTriggers | undefined;
 
   /**
-   * <p>The maximum time, in milliseconds, from sending the request to this target until the first byte of the response body arrives. This setting isn't inherited from the route. If you don't specify a value, no timeout is enforced.</p>
+   * The maximum time, in milliseconds, from sending the request to this target until the first byte of the response body arrives. This setting isn't inherited from the route. If you don't specify a value, no timeout is enforced.
+   *
    * @public
    */
   firstByteTimeoutMilliseconds?: number | undefined;
 }
 
 /**
- * <p>The fallback configuration for a route to an inference target. Defines an ordered list of fallback targets to try when a request to the route's target fails, and the conditions that trigger a fallback. A fallback can occur only before the gateway sends the first byte of the response to the caller. After a streaming response starts, the gateway doesn't fall back.</p>
+ * The fallback configuration for a route to an inference target. Defines an ordered list of fallback targets to try when a request to the route's target fails, and the conditions that trigger a fallback. A fallback can occur only before the gateway sends the first byte of the response to the caller. After a streaming response starts, the gateway doesn't fall back.
+ *
  * @public
  */
 export interface Fallback {
   /**
-   * <p>The status codes and errors from the route's target that cause the gateway to send the request to the first fallback target. If you omit <code>triggerOn</code>, the gateway falls back on <code>5XX</code> status codes and on the <code>CONNECTION_ERROR</code>, <code>FIRST_BYTE_TIMEOUT</code>, and <code>UNROUTABLE</code> errors. If you specify <code>triggerOn</code>, only the status codes and errors that you list trigger a fallback.</p>
+   * The status codes and errors from the route's target that cause the gateway to send the request to the first fallback target. If you omit `triggerOn`, the gateway falls back on `5XX` status codes and on the `CONNECTION_ERROR`, `FIRST_BYTE_TIMEOUT`, and `UNROUTABLE` errors. If you specify `triggerOn`, only the status codes and errors that you list trigger a fallback.
+   *
    * @public
    */
   triggerOn?: FallbackTriggers | undefined;
 
   /**
-   * <p>The maximum time, in milliseconds, from sending the request to the route's target until the first byte of the response body arrives. If the time expires, the gateway abandons the request and treats it as a <code>FIRST_BYTE_TIMEOUT</code> error. If you don't specify a value, no timeout is enforced.</p>
+   * The maximum time, in milliseconds, from sending the request to the route's target until the first byte of the response body arrives. If the time expires, the gateway abandons the request and treats it as a `FIRST_BYTE_TIMEOUT` error. If you don't specify a value, no timeout is enforced.
+   *
    * @public
    */
   firstByteTimeoutMilliseconds?: number | undefined;
 
   /**
-   * <p>Specifies whether the gateway temporarily stops sending your requests to a failing target. The circuit breaker tracks each combination of target and model separately. With the circuit breaker enabled, the gateway skips one or more targets and models that fail repeatedly, and your requests go to the next target in the chain. The gateway always tries the last remaining target in the chain. The gateway enables the circuit breaker by default.</p>
+   * Specifies whether the gateway temporarily stops sending your requests to a failing target. The circuit breaker tracks each combination of target and model separately. With the circuit breaker enabled, the gateway skips one or more targets and models that fail repeatedly, and your requests go to the next target in the chain. The gateway always tries the last remaining target in the chain. The gateway enables the circuit breaker by default.
+   *
    * @public
    */
   circuitBreaker?: CircuitBreakerConfiguration | undefined;
 
   /**
-   * <p>The ordered list of fallback targets. The gateway tries each target in order until a response doesn't match that target's triggers, and returns that response to the caller. If every target fails, the gateway returns the last response. You can specify up to two fallback targets. Each combination of target and model, including the route's target, can appear only once.</p>
+   * The ordered list of fallback targets. The gateway tries each target in order until a response doesn't match that target's triggers, and returns that response to the caller. If every target fails, the gateway returns the last response. You can specify up to two fallback targets. Each combination of target and model, including the route's target, can appear only once.
+   *
    * @public
    */
   targetFallback: FallbackTarget[] | undefined;
 }
 
 /**
- * <p>A static route to a single gateway target.</p>
+ * A static route to a single gateway target.
+ *
  * @public
  */
 export interface StaticRoute {
   /**
-   * <p>The name of the target to route requests to.</p>
+   * The name of the target to route requests to.
+   *
    * @public
    */
   targetName: string | undefined;
 
   /**
-   * <p>The model ID to send to the target. Supported only for inference targets. If you don't specify a model, the gateway sends the model from the original request.</p>
+   * The model ID to send to the target. Supported only for inference targets. If you don't specify a model, the gateway sends the model from the original request.
+   *
    * @public
    */
   model?: string | undefined;
 
   /**
-   * <p>The fallback configuration for this route. Supported only for inference targets.</p>
+   * The fallback configuration for this route. Supported only for inference targets.
+   *
    * @public
    */
   fallback?: Fallback | undefined;
 }
 
 /**
- * <p>An entry in a target traffic split configuration.</p>
+ * An entry in a target traffic split configuration.
+ *
  * @public
  */
 export interface TargetTrafficSplitEntry {
   /**
-   * <p>The name of the target to route traffic to.</p>
+   * The name of the target to route traffic to.
+   *
    * @public
    */
   targetName: string | undefined;
 
   /**
-   * <p>The model ID to send to the target for this variant. Supported only for inference targets. If you don't specify a model, the gateway sends the model from the original request.</p>
+   * The model ID to send to the target for this variant. Supported only for inference targets. If you don't specify a model, the gateway sends the model from the original request.
+   *
    * @public
    */
   model?: string | undefined;
 
   /**
-   * <p>The fallback configuration for this variant. Supported only for inference targets.</p>
+   * The fallback configuration for this variant. Supported only for inference targets.
+   *
    * @public
    */
   fallback?: Fallback | undefined;
 
   /**
-   * <p>The name of this traffic split variant.</p>
+   * The name of this traffic split variant.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The percentage of traffic to route to this variant.</p>
+   * The percentage of traffic to route to this variant.
+   *
    * @public
    */
   weight: number | undefined;
 
   /**
-   * <p>The description of this traffic split variant.</p>
+   * The description of this traffic split variant.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Key-value metadata associated with this traffic split variant.</p>
+   * Key-value metadata associated with this traffic split variant.
+   *
    * @public
    */
   metadata?: Record<string, string> | undefined;
 }
 
 /**
- * <p>A weighted route that splits traffic between multiple gateway targets.</p>
+ * A weighted route that splits traffic between multiple gateway targets.
+ *
  * @public
  */
 export interface WeightedRoute {
   /**
-   * <p>The traffic split entries defining how traffic is distributed between targets.</p>
+   * The traffic split entries defining how traffic is distributed between targets.
+   *
    * @public
    */
   trafficSplit: TargetTrafficSplitEntry[] | undefined;
 }
 
 /**
- * <p>An action that routes requests to a gateway target, either statically or with weighted traffic splitting.</p>
+ * An action that routes requests to a gateway target, either statically or with weighted traffic splitting.
+ *
  * @public
  */
 export type RouteToTargetAction =
@@ -408,7 +469,8 @@ export type RouteToTargetAction =
  */
 export namespace RouteToTargetAction {
   /**
-   * <p>A static route that sends all matching requests to a single target.</p>
+   * A static route that sends all matching requests to a single target.
+   *
    * @public
    */
   export interface StaticRouteMember {
@@ -418,7 +480,8 @@ export namespace RouteToTargetAction {
   }
 
   /**
-   * <p>A weighted route that splits traffic between multiple targets.</p>
+   * A weighted route that splits traffic between multiple targets.
+   *
    * @public
    */
   export interface WeightedRouteMember {
@@ -448,7 +511,8 @@ export namespace RouteToTargetAction {
 }
 
 /**
- * <p>An action to take when a gateway rule's conditions are met.</p>
+ * An action to take when a gateway rule's conditions are met.
+ *
  * @public
  */
 export type Action =
@@ -461,7 +525,8 @@ export type Action =
  */
 export namespace Action {
   /**
-   * <p>An action that applies a configuration bundle override to the request.</p>
+   * An action that applies a configuration bundle override to the request.
+   *
    * @public
    */
   export interface ConfigurationBundleMember {
@@ -471,7 +536,8 @@ export namespace Action {
   }
 
   /**
-   * <p>An action that routes the request to a specific target.</p>
+   * An action that routes the request to a specific target.
+   *
    * @public
    */
   export interface RouteToTargetMember {
@@ -501,31 +567,36 @@ export namespace Action {
 }
 
 /**
- * <p> Inline examples provided directly in the request body. </p>
+ * Inline examples provided directly in the request body.
+ *
  * @public
  */
 export interface InlineExamplesSource {
   /**
-   * <p> Examples to add. Each example is assigned an auto-generated UUID. </p>
+   * Examples to add. Each example is assigned an auto-generated UUID.
+   *
    * @public
    */
   examples: __DocumentType[] | undefined;
 }
 
 /**
- * <p> Amazon S3 location of a JSONL file containing dataset examples. </p>
+ * Amazon S3 location of a JSONL file containing dataset examples.
+ *
  * @public
  */
 export interface S3Source {
   /**
-   * <p> Amazon S3 URI of the JSONL file (for example, <code>s3://my-bucket/path/to/examples.jsonl</code>). </p>
+   * Amazon S3 URI of the JSONL file (for example, `s3://my-bucket/path/to/examples.jsonl`).
+   *
    * @public
    */
   s3Uri: string | undefined;
 }
 
 /**
- * <p> Source of examples to add to the dataset. </p>
+ * Source of examples to add to the dataset.
+ *
  * @public
  */
 export type DataSourceType =
@@ -538,7 +609,8 @@ export type DataSourceType =
  */
 export namespace DataSourceType {
   /**
-   * <p> Inline examples provided directly in the request body. </p>
+   * Inline examples provided directly in the request body.
+   *
    * @public
    */
   export interface InlineExamplesMember {
@@ -548,7 +620,8 @@ export namespace DataSourceType {
   }
 
   /**
-   * <p> Amazon S3 URI pointing to a JSONL file in the customer's bucket. </p>
+   * Amazon S3 URI pointing to a JSONL file in the customer's bucket.
+   *
    * @public
    */
   export interface S3SourceMember {
@@ -582,19 +655,22 @@ export namespace DataSourceType {
  */
 export interface AddDatasetExamplesRequest {
   /**
-   * <p> The unique identifier of the dataset to add examples to. </p>
+   * The unique identifier of the dataset to add examples to.
+   *
    * @public
    */
   datasetId: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p> Source of examples to add. Provide either inline examples or an S3 URI pointing to a JSONL file. </p>
+   * Source of examples to add. Provide either inline examples or an S3 URI pointing to a JSONL file.
+   *
    * @public
    */
   source: DataSourceType | undefined;
@@ -605,55 +681,64 @@ export interface AddDatasetExamplesRequest {
  */
 export interface AddDatasetExamplesResponse {
   /**
-   * <p> The Amazon Resource Name (ARN) of the dataset. </p>
+   * The Amazon Resource Name (ARN) of the dataset.
+   *
    * @public
    */
   datasetArn: string | undefined;
 
   /**
-   * <p> The unique identifier of the dataset. </p>
+   * The unique identifier of the dataset.
+   *
    * @public
    */
   datasetId: string | undefined;
 
   /**
-   * <p> The current status of the dataset. </p>
+   * The current status of the dataset.
+   *
    * @public
    */
   status: DatasetStatus | undefined;
 
   /**
-   * <p> The number of examples added. </p>
+   * The number of examples added.
+   *
    * @public
    */
   addedCount: number | undefined;
 
   /**
-   * <p> The timestamp when the examples were added. </p>
+   * The timestamp when the examples were added.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p> IDs of all added examples (auto-generated UUIDs). </p>
+   * IDs of all added examples (auto-generated UUIDs).
+   *
    * @public
    */
   exampleIds: string[] | undefined;
 }
 
 /**
- * <p>Stores information about a field passed inside a request that resulted in an exception.</p>
+ * Stores information about a field passed inside a request that resulted in an exception.
+ *
  * @public
  */
 export interface ValidationExceptionField {
   /**
-   * <p>The name of the field.</p>
+   * The name of the field.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A message describing why this field failed validation.</p>
+   * A message describing why this field failed validation.
+   *
    * @public
    */
   message: string | undefined;
@@ -664,37 +749,43 @@ export interface ValidationExceptionField {
  */
 export interface CreateAgentRuntimeEndpointRequest {
   /**
-   * <p>The unique identifier of the AgentCore Runtime to create an endpoint for.</p>
+   * The unique identifier of the AgentCore Runtime to create an endpoint for.
+   *
    * @public
    */
   agentRuntimeId: string | undefined;
 
   /**
-   * <p>The name of the AgentCore Runtime endpoint.</p>
+   * The name of the AgentCore Runtime endpoint.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The version of the AgentCore Runtime to use for the endpoint.</p>
+   * The version of the AgentCore Runtime to use for the endpoint.
+   *
    * @public
    */
   agentRuntimeVersion?: string | undefined;
 
   /**
-   * <p>The description of the AgentCore Runtime endpoint.</p>
+   * The description of the AgentCore Runtime endpoint.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * A unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>A map of tag keys and values to assign to the agent runtime endpoint. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
+   * A map of tag keys and values to assign to the agent runtime endpoint. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -705,43 +796,50 @@ export interface CreateAgentRuntimeEndpointRequest {
  */
 export interface CreateAgentRuntimeEndpointResponse {
   /**
-   * <p>The target version of the AgentCore Runtime for the endpoint.</p>
+   * The target version of the AgentCore Runtime for the endpoint.
+   *
    * @public
    */
   targetVersion: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AgentCore Runtime endpoint.</p>
+   * The Amazon Resource Name (ARN) of the AgentCore Runtime endpoint.
+   *
    * @public
    */
   agentRuntimeEndpointArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AgentCore Runtime.</p>
+   * The Amazon Resource Name (ARN) of the AgentCore Runtime.
+   *
    * @public
    */
   agentRuntimeArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the AgentCore Runtime.</p>
+   * The unique identifier of the AgentCore Runtime.
+   *
    * @public
    */
   agentRuntimeId?: string | undefined;
 
   /**
-   * <p>The name of the AgentCore Runtime endpoint.</p>
+   * The name of the AgentCore Runtime endpoint.
+   *
    * @public
    */
   endpointName?: string | undefined;
 
   /**
-   * <p>The current status of the AgentCore Runtime endpoint.</p>
+   * The current status of the AgentCore Runtime endpoint.
+   *
    * @public
    */
   status: AgentRuntimeEndpointStatus | undefined;
 
   /**
-   * <p>The timestamp when the AgentCore Runtime endpoint was created.</p>
+   * The timestamp when the AgentCore Runtime endpoint was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
@@ -752,19 +850,22 @@ export interface CreateAgentRuntimeEndpointResponse {
  */
 export interface DeleteAgentRuntimeEndpointRequest {
   /**
-   * <p>The unique identifier of the AgentCore Runtime associated with the endpoint.</p>
+   * The unique identifier of the AgentCore Runtime associated with the endpoint.
+   *
    * @public
    */
   agentRuntimeId: string | undefined;
 
   /**
-   * <p>The name of the AgentCore Runtime endpoint to delete.</p>
+   * The name of the AgentCore Runtime endpoint to delete.
+   *
    * @public
    */
   endpointName: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * A unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -775,19 +876,22 @@ export interface DeleteAgentRuntimeEndpointRequest {
  */
 export interface DeleteAgentRuntimeEndpointResponse {
   /**
-   * <p>The current status of the AgentCore Runtime endpoint deletion.</p>
+   * The current status of the AgentCore Runtime endpoint deletion.
+   *
    * @public
    */
   status: AgentRuntimeEndpointStatus | undefined;
 
   /**
-   * <p>The unique identifier of the AgentCore Runtime.</p>
+   * The unique identifier of the AgentCore Runtime.
+   *
    * @public
    */
   agentRuntimeId?: string | undefined;
 
   /**
-   * <p>The name of the AgentCore Runtime endpoint.</p>
+   * The name of the AgentCore Runtime endpoint.
+   *
    * @public
    */
   endpointName?: string | undefined;
@@ -798,13 +902,15 @@ export interface DeleteAgentRuntimeEndpointResponse {
  */
 export interface GetAgentRuntimeEndpointRequest {
   /**
-   * <p>The unique identifier of the AgentCore Runtime associated with the endpoint.</p>
+   * The unique identifier of the AgentCore Runtime associated with the endpoint.
+   *
    * @public
    */
   agentRuntimeId: string | undefined;
 
   /**
-   * <p>The name of the AgentCore Runtime endpoint to retrieve.</p>
+   * The name of the AgentCore Runtime endpoint to retrieve.
+   *
    * @public
    */
   endpointName: string | undefined;
@@ -815,67 +921,78 @@ export interface GetAgentRuntimeEndpointRequest {
  */
 export interface GetAgentRuntimeEndpointResponse {
   /**
-   * <p>The currently deployed version of the AgentCore Runtime on the endpoint.</p>
+   * The currently deployed version of the AgentCore Runtime on the endpoint.
+   *
    * @public
    */
   liveVersion?: string | undefined;
 
   /**
-   * <p>The target version of the AgentCore Runtime for the endpoint.</p>
+   * The target version of the AgentCore Runtime for the endpoint.
+   *
    * @public
    */
   targetVersion?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AgentCore Runtime endpoint.</p>
+   * The Amazon Resource Name (ARN) of the AgentCore Runtime endpoint.
+   *
    * @public
    */
   agentRuntimeEndpointArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AgentCore Runtime.</p>
+   * The Amazon Resource Name (ARN) of the AgentCore Runtime.
+   *
    * @public
    */
   agentRuntimeArn: string | undefined;
 
   /**
-   * <p>The description of the AgentCore Runtime endpoint.</p>
+   * The description of the AgentCore Runtime endpoint.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The current status of the AgentCore Runtime endpoint.</p>
+   * The current status of the AgentCore Runtime endpoint.
+   *
    * @public
    */
   status: AgentRuntimeEndpointStatus | undefined;
 
   /**
-   * <p>The timestamp when the AgentCore Runtime endpoint was created.</p>
+   * The timestamp when the AgentCore Runtime endpoint was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the AgentCore Runtime endpoint was last updated.</p>
+   * The timestamp when the AgentCore Runtime endpoint was last updated.
+   *
    * @public
    */
   lastUpdatedAt: Date | undefined;
 
   /**
-   * <p>The reason for failure if the AgentCore Runtime endpoint is in a failed state.</p>
+   * The reason for failure if the AgentCore Runtime endpoint is in a failed state.
+   *
    * @public
    */
   failureReason?: string | undefined;
 
   /**
-   * <p>The name of the AgentCore Runtime endpoint.</p>
+   * The name of the AgentCore Runtime endpoint.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The unique identifier of the AgentCore Runtime endpoint.</p>
+   * The unique identifier of the AgentCore Runtime endpoint.
+   *
    * @public
    */
   id: string | undefined;
@@ -886,85 +1003,99 @@ export interface GetAgentRuntimeEndpointResponse {
  */
 export interface ListAgentRuntimeEndpointsRequest {
   /**
-   * <p>The unique identifier of the AgentCore Runtime to list endpoints for.</p>
+   * The unique identifier of the AgentCore Runtime to list endpoints for.
+   *
    * @public
    */
   agentRuntimeId: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in the response.</p>
+   * The maximum number of results to return in the response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token to retrieve the next page of results.</p>
+   * A token to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Contains information about an agent runtime endpoint. An endpoint provides a way to connect to and interact with an agent runtime.</p>
+ * Contains information about an agent runtime endpoint. An endpoint provides a way to connect to and interact with an agent runtime.
+ *
  * @public
  */
 export interface AgentRuntimeEndpoint {
   /**
-   * <p>The name of the agent runtime endpoint.</p>
+   * The name of the agent runtime endpoint.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The live version of the agent runtime endpoint. This is the version that is currently serving requests.</p>
+   * The live version of the agent runtime endpoint. This is the version that is currently serving requests.
+   *
    * @public
    */
   liveVersion?: string | undefined;
 
   /**
-   * <p>The target version of the agent runtime endpoint. This is the version that the endpoint is being updated to.</p>
+   * The target version of the agent runtime endpoint. This is the version that the endpoint is being updated to.
+   *
    * @public
    */
   targetVersion?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the agent runtime endpoint.</p>
+   * The Amazon Resource Name (ARN) of the agent runtime endpoint.
+   *
    * @public
    */
   agentRuntimeEndpointArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the agent runtime associated with the endpoint.</p>
+   * The Amazon Resource Name (ARN) of the agent runtime associated with the endpoint.
+   *
    * @public
    */
   agentRuntimeArn: string | undefined;
 
   /**
-   * <p>The current status of the agent runtime endpoint.</p>
+   * The current status of the agent runtime endpoint.
+   *
    * @public
    */
   status: AgentRuntimeEndpointStatus | undefined;
 
   /**
-   * <p>The unique identifier of the agent runtime endpoint.</p>
+   * The unique identifier of the agent runtime endpoint.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The description of the agent runtime endpoint.</p>
+   * The description of the agent runtime endpoint.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The timestamp when the agent runtime endpoint was created.</p>
+   * The timestamp when the agent runtime endpoint was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the agent runtime endpoint was last updated.</p>
+   * The timestamp when the agent runtime endpoint was last updated.
+   *
    * @public
    */
   lastUpdatedAt: Date | undefined;
@@ -975,13 +1106,15 @@ export interface AgentRuntimeEndpoint {
  */
 export interface ListAgentRuntimeEndpointsResponse {
   /**
-   * <p>The list of AgentCore Runtime endpoints.</p>
+   * The list of AgentCore Runtime endpoints.
+   *
    * @public
    */
   runtimeEndpoints: AgentRuntimeEndpoint[] | undefined;
 
   /**
-   * <p>A token to retrieve the next page of results.</p>
+   * A token to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -992,31 +1125,36 @@ export interface ListAgentRuntimeEndpointsResponse {
  */
 export interface UpdateAgentRuntimeEndpointRequest {
   /**
-   * <p>The unique identifier of the AgentCore Runtime associated with the endpoint.</p>
+   * The unique identifier of the AgentCore Runtime associated with the endpoint.
+   *
    * @public
    */
   agentRuntimeId: string | undefined;
 
   /**
-   * <p>The name of the AgentCore Runtime endpoint to update.</p>
+   * The name of the AgentCore Runtime endpoint to update.
+   *
    * @public
    */
   endpointName: string | undefined;
 
   /**
-   * <p>The updated version of the AgentCore Runtime for the endpoint.</p>
+   * The updated version of the AgentCore Runtime for the endpoint.
+   *
    * @public
    */
   agentRuntimeVersion?: string | undefined;
 
   /**
-   * <p>The updated description of the AgentCore Runtime endpoint.</p>
+   * The updated description of the AgentCore Runtime endpoint.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * A unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -1027,74 +1165,86 @@ export interface UpdateAgentRuntimeEndpointRequest {
  */
 export interface UpdateAgentRuntimeEndpointResponse {
   /**
-   * <p>The currently deployed version of the AgentCore Runtime on the endpoint.</p>
+   * The currently deployed version of the AgentCore Runtime on the endpoint.
+   *
    * @public
    */
   liveVersion?: string | undefined;
 
   /**
-   * <p>The target version of the AgentCore Runtime for the endpoint.</p>
+   * The target version of the AgentCore Runtime for the endpoint.
+   *
    * @public
    */
   targetVersion?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AgentCore Runtime endpoint.</p>
+   * The Amazon Resource Name (ARN) of the AgentCore Runtime endpoint.
+   *
    * @public
    */
   agentRuntimeEndpointArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AgentCore Runtime.</p>
+   * The Amazon Resource Name (ARN) of the AgentCore Runtime.
+   *
    * @public
    */
   agentRuntimeArn: string | undefined;
 
   /**
-   * <p>The current status of the updated AgentCore Runtime endpoint.</p>
+   * The current status of the updated AgentCore Runtime endpoint.
+   *
    * @public
    */
   status: AgentRuntimeEndpointStatus | undefined;
 
   /**
-   * <p>The timestamp when the AgentCore Runtime endpoint was created.</p>
+   * The timestamp when the AgentCore Runtime endpoint was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the AgentCore Runtime endpoint was last updated.</p>
+   * The timestamp when the AgentCore Runtime endpoint was last updated.
+   *
    * @public
    */
   lastUpdatedAt: Date | undefined;
 }
 
 /**
- * <p>The Amazon S3 location for storing data. This structure defines where in Amazon S3 data is stored.</p>
+ * The Amazon S3 location for storing data. This structure defines where in Amazon S3 data is stored.
+ *
  * @public
  */
 export interface S3Location {
   /**
-   * <p>The name of the Amazon S3 bucket. This bucket contains the stored data.</p>
+   * The name of the Amazon S3 bucket. This bucket contains the stored data.
+   *
    * @public
    */
   bucket: string | undefined;
 
   /**
-   * <p>The prefix for objects in the Amazon S3 bucket. This prefix is added to the object keys to organize the data.</p>
+   * The prefix for objects in the Amazon S3 bucket. This prefix is added to the object keys to organize the data.
+   *
    * @public
    */
   prefix: string | undefined;
 
   /**
-   * <p>The version ID of the Amazon Amazon S3 object. If not specified, the latest version of the object is used.</p>
+   * The version ID of the Amazon Amazon S3 object. If not specified, the latest version of the object is used.
+   *
    * @public
    */
   versionId?: string | undefined;
 }
 
 /**
- * <p>The source code configuration that specifies the location and details of the code to be executed.</p>
+ * The source code configuration that specifies the location and details of the code to be executed.
+ *
  * @public
  */
 export type Code =
@@ -1106,7 +1256,8 @@ export type Code =
  */
 export namespace Code {
   /**
-   * <p>The Amazon Amazon S3 object that contains the source code for the agent runtime.</p>
+   * The Amazon Amazon S3 object that contains the source code for the agent runtime.
+   *
    * @public
    */
   export interface S3Member {
@@ -1133,43 +1284,50 @@ export namespace Code {
 }
 
 /**
- * <p>The configuration for the source code that defines how the agent runtime code should be executed, including the code location, runtime environment, and entry point.</p>
+ * The configuration for the source code that defines how the agent runtime code should be executed, including the code location, runtime environment, and entry point.
+ *
  * @public
  */
 export interface CodeConfiguration {
   /**
-   * <p>The source code location and configuration details.</p>
+   * The source code location and configuration details.
+   *
    * @public
    */
   code: Code | undefined;
 
   /**
-   * <p>The runtime environment for executing the agent code. Specify the programming language and version to use for the agent runtime. For valid values, see the list of supported runtimes.</p>
+   * The runtime environment for executing the agent code. Specify the programming language and version to use for the agent runtime. For valid values, see the list of supported runtimes.
+   *
    * @public
    */
   runtime: AgentManagedRuntimeType | undefined;
 
   /**
-   * <p>The entry point for the code execution, specifying the function or method that should be invoked when the code runs.</p>
+   * The entry point for the code execution, specifying the function or method that should be invoked when the code runs.
+   *
    * @public
    */
   entryPoint: string[] | undefined;
 }
 
 /**
- * <p>Representation of a container configuration.</p>
+ * Representation of a container configuration.
+ *
  * @public
  */
 export interface ContainerConfiguration {
   /**
-   * <p>The ECR URI of the container.</p>
+   * The ECR URI of the container.
+   *
    * @public
    */
   containerUri: string | undefined;
 }
 
 /**
- * <p>The artifact of the agent.</p>
+ * The artifact of the agent.
+ *
  * @public
  */
 export type AgentRuntimeArtifact =
@@ -1182,7 +1340,8 @@ export type AgentRuntimeArtifact =
  */
 export namespace AgentRuntimeArtifact {
   /**
-   * <p>The container configuration for the agent artifact.</p>
+   * The container configuration for the agent artifact.
+   *
    * @public
    */
   export interface ContainerConfigurationMember {
@@ -1192,7 +1351,8 @@ export namespace AgentRuntimeArtifact {
   }
 
   /**
-   * <p>The code configuration for the agent runtime artifact, including the source code location and execution settings.</p>
+   * The code configuration for the agent runtime artifact, including the source code location and execution settings.
+   *
    * @public
    */
   export interface CodeConfigurationMember {
@@ -1222,25 +1382,29 @@ export namespace AgentRuntimeArtifact {
 }
 
 /**
- * <p>An inclusive range of ports. The value of <code>from</code> must be less than or equal to the value of <code>to</code>.</p>
+ * An inclusive range of ports. The value of `from` must be less than or equal to the value of `to`.
+ *
  * @public
  */
 export interface PortRange {
   /**
-   * <p>The first port in the inclusive range.</p>
+   * The first port in the inclusive range.
+   *
    * @public
    */
   from: number | undefined;
 
   /**
-   * <p>The last port in the inclusive range.</p>
+   * The last port in the inclusive range.
+   *
    * @public
    */
   to: number | undefined;
 }
 
 /**
- * <p>A port or port range that is reachable through the runtime's session URL. Specify exactly one of <code>port</code> or <code>portRange</code>.</p>
+ * A port or port range that is reachable through the runtime's session URL. Specify exactly one of `port` or `portRange`.
+ *
  * @public
  */
 export type AllowedPort =
@@ -1253,7 +1417,8 @@ export type AllowedPort =
  */
 export namespace AllowedPort {
   /**
-   * <p>A single port that is reachable through the runtime's session URL.</p>
+   * A single port that is reachable through the runtime's session URL.
+   *
    * @public
    */
   export interface PortMember {
@@ -1263,7 +1428,8 @@ export namespace AllowedPort {
   }
 
   /**
-   * <p>An inclusive range of ports that are reachable through the runtime's session URL.</p>
+   * An inclusive range of ports that are reachable through the runtime's session URL.
+   *
    * @public
    */
   export interface PortRangeMember {
@@ -1293,37 +1459,49 @@ export namespace AllowedPort {
 }
 
 /**
- * <p>A hosting environment whose workloads are allowed to invoke the target. At launch, the only supported hosting environment is AgentCore Gateway.</p>
+ * A hosting environment whose workloads are allowed to invoke the target. At launch, the only supported hosting environment is AgentCore Gateway.
+ *
  * @public
  */
 export interface HostingEnvironment {
   /**
-   * <p>The Amazon Resource Name (ARN) of the hosting environment.</p>
+   * The Amazon Resource Name (ARN) of the hosting environment.
+   *
    * @public
    */
   arn: string | undefined;
 }
 
 /**
- * <p>The configuration that restricts which workloads in the request's identity chain are allowed to invoke the target, identified by their hosting environments and workload identities. At launch, this is supported only for AgentCore Runtime targets, and the allowed workloads are AgentCore Gateways.</p>
+ * The configuration that restricts which workloads in the request's identity chain are allowed to invoke the target, identified by their hosting environments and workload identities. At launch, this is supported only for AgentCore Runtime targets, and the allowed workloads are AgentCore Gateways.
+ *
  * @public
  */
 export interface AllowedWorkloadConfiguration {
   /**
-   * <p>The list of hosting environments whose workloads are allowed to invoke the target. At launch, the only supported hosting environment is AgentCore Gateway.</p>
+   * The list of hosting environments whose workloads are allowed to invoke the target. At launch, the only supported hosting environment is AgentCore Gateway.
+   *
    * @public
    */
   hostingEnvironments?: HostingEnvironment[] | undefined;
 
   /**
-   * <p>The list of workload identities that are allowed to invoke the target.</p>
+   * The list of workload identities that are allowed to invoke the target.
+   *
    * @public
    */
   workloadIdentities?: string[] | undefined;
 }
 
 /**
- * <p>The value or values to match for.</p> <ul> <li> <p>Include a <code>matchValueString</code> with the <code>EQUALS</code> operator to specify a string that matches the claim field value.</p> </li> <li> <p>Include a <code>matchValueArray</code> to specify an array of string values. You can use the following operators:</p> <ul> <li> <p>Use <code>CONTAINS</code> to yield a match if the claim field value is in the array.</p> </li> <li> <p>Use <code>CONTAINS_ANY</code> to yield a match if the claim field value contains any of the strings in the array.</p> </li> </ul> </li> </ul>
+ * The value or values to match for.
+ *
+ * - Include a `matchValueString` with the `EQUALS` operator to specify a string that matches the claim field value.
+ * - Include a `matchValueArray` to specify an array of string values. You can use the following operators:
+ *
+ *   - Use `CONTAINS` to yield a match if the claim field value is in the array.
+ *   - Use `CONTAINS_ANY` to yield a match if the claim field value contains any of the strings in the array.
+ *
  * @public
  */
 export type ClaimMatchValueType =
@@ -1336,7 +1514,8 @@ export type ClaimMatchValueType =
  */
 export namespace ClaimMatchValueType {
   /**
-   * <p>The string value to match for.</p>
+   * The string value to match for.
+   *
    * @public
    */
   export interface MatchValueStringMember {
@@ -1346,7 +1525,8 @@ export namespace ClaimMatchValueType {
   }
 
   /**
-   * <p>An array of strings to check for a match.</p>
+   * An array of strings to check for a match.
+   *
    * @public
    */
   export interface MatchValueStringListMember {
@@ -1376,91 +1556,109 @@ export namespace ClaimMatchValueType {
 }
 
 /**
- * <p>Defines the value or values to match for and the relationship of the match.</p>
+ * Defines the value or values to match for and the relationship of the match.
+ *
  * @public
  */
 export interface AuthorizingClaimMatchValueType {
   /**
-   * <p>The value or values to match for.</p>
+   * The value or values to match for.
+   *
    * @public
    */
   claimMatchValue: ClaimMatchValueType | undefined;
 
   /**
-   * <p>Defines the relationship between the claim field value and the value or values you're matching for.</p>
+   * Defines the relationship between the claim field value and the value or values you're matching for.
+   *
    * @public
    */
   claimMatchOperator: ClaimMatchOperatorType | undefined;
 }
 
 /**
- * <p>Defines the name of a custom claim field and rules for finding matches to authenticate its value.</p>
+ * Defines the name of a custom claim field and rules for finding matches to authenticate its value.
+ *
  * @public
  */
 export interface CustomClaimValidationType {
   /**
-   * <p>The name of the custom claim field to check.</p>
+   * The name of the custom claim field to check.
+   *
    * @public
    */
   inboundTokenClaimName: string | undefined;
 
   /**
-   * <p>The data type of the claim value to check for.</p> <ul> <li> <p>Use <code>STRING</code> if you want to find an exact match to a string you define.</p> </li> <li> <p>Use <code>STRING_ARRAY</code> if you want to fnd a match to at least one value in an array you define.</p> </li> </ul>
+   * The data type of the claim value to check for.
+   *
+   * - Use `STRING` if you want to find an exact match to a string you define.
+   * - Use `STRING_ARRAY` if you want to fnd a match to at least one value in an array you define.
+   *
    * @public
    */
   inboundTokenClaimValueType: InboundTokenClaimValueType | undefined;
 
   /**
-   * <p>Defines the value or values to match for and the relationship of the match.</p>
+   * Defines the value or values to match for and the relationship of the match.
+   *
    * @public
    */
   authorizingClaimMatchValue: AuthorizingClaimMatchValueType | undefined;
 }
 
 /**
- * <p>Configuration for a managed VPC Lattice resource. The gateway creates and manages the VPC Lattice resource gateway and resource configuration on your behalf using a service-linked role.</p>
+ * Configuration for a managed VPC Lattice resource. The gateway creates and manages the VPC Lattice resource gateway and resource configuration on your behalf using a service-linked role.
+ *
  * @public
  */
 export interface ManagedVpcResource {
   /**
-   * <p>The ID of the VPC that contains your private resource.</p>
+   * The ID of the VPC that contains your private resource.
+   *
    * @public
    */
   vpcIdentifier: string | undefined;
 
   /**
-   * <p>The subnet IDs within the VPC where the VPC Lattice resource gateway is placed.</p>
+   * The subnet IDs within the VPC where the VPC Lattice resource gateway is placed.
+   *
    * @public
    */
   subnetIds: string[] | undefined;
 
   /**
-   * <p>The IP address type for the resource configuration endpoint.</p>
+   * The IP address type for the resource configuration endpoint.
+   *
    * @public
    */
   endpointIpAddressType: EndpointIpAddressType | undefined;
 
   /**
-   * <p>The security group IDs to associate with the VPC Lattice resource gateway. If not specified, the default security group for the VPC is used.</p>
+   * The security group IDs to associate with the VPC Lattice resource gateway. If not specified, the default security group for the VPC is used.
+   *
    * @public
    */
   securityGroupIds?: string[] | undefined;
 
   /**
-   * <p>Tags to apply to the managed VPC Lattice resource gateway.</p>
+   * Tags to apply to the managed VPC Lattice resource gateway.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>An intermediate domain to use as the resource configuration endpoint instead of the actual target domain. Use this when you want to route traffic through an intermediate component such as a VPC endpoint or internal load balancer. For more information, see xref:lattice-vpc-egress-routing-domain[Route traffic through an intermediate domain].</p>
+   * An intermediate domain to use as the resource configuration endpoint instead of the actual target domain. Use this when you want to route traffic through an intermediate component such as a VPC endpoint or internal load balancer. For more information, see xref:lattice-vpc-egress-routing-domain[Route traffic through an intermediate domain].
+   *
    * @public
    */
   routingDomain?: string | undefined;
 }
 
 /**
- * <p>Configuration for a self-managed VPC Lattice resource. You create and manage the VPC Lattice resource gateway and resource configuration, then provide the resource configuration identifier.</p>
+ * Configuration for a self-managed VPC Lattice resource. You create and manage the VPC Lattice resource gateway and resource configuration, then provide the resource configuration identifier.
+ *
  * @public
  */
 export type SelfManagedLatticeResource =
@@ -1472,7 +1670,8 @@ export type SelfManagedLatticeResource =
  */
 export namespace SelfManagedLatticeResource {
   /**
-   * <p>The ARN or ID of the VPC Lattice resource configuration.</p>
+   * The ARN or ID of the VPC Lattice resource configuration.
+   *
    * @public
    */
   export interface ResourceConfigurationIdentifierMember {
@@ -1499,7 +1698,8 @@ export namespace SelfManagedLatticeResource {
 }
 
 /**
- * <p>The private endpoint configuration for a gateway target. Defines how the gateway connects to private resources in your VPC.</p>
+ * The private endpoint configuration for a gateway target. Defines how the gateway connects to private resources in your VPC.
+ *
  * @public
  */
 export type PrivateEndpoint =
@@ -1512,7 +1712,8 @@ export type PrivateEndpoint =
  */
 export namespace PrivateEndpoint {
   /**
-   * <p>Configuration for connecting to a private resource using a self-managed VPC Lattice resource configuration.</p>
+   * Configuration for connecting to a private resource using a self-managed VPC Lattice resource configuration.
+   *
    * @public
    */
   export interface SelfManagedLatticeResourceMember {
@@ -1522,7 +1723,8 @@ export namespace PrivateEndpoint {
   }
 
   /**
-   * <p>Configuration for connecting to a private resource using a managed VPC Lattice resource. The gateway creates and manages the VPC Lattice resources on your behalf.</p>
+   * Configuration for connecting to a private resource using a managed VPC Lattice resource. The gateway creates and manages the VPC Lattice resources on your behalf.
+   *
    * @public
    */
   export interface ManagedVpcResourceMember {
@@ -1552,85 +1754,99 @@ export namespace PrivateEndpoint {
 }
 
 /**
- * <p>A mapping of a specific domain to a private endpoint for secure connectivity through a VPC Lattice resource configuration.</p>
+ * A mapping of a specific domain to a private endpoint for secure connectivity through a VPC Lattice resource configuration.
+ *
  * @public
  */
 export interface PrivateEndpointOverride {
   /**
-   * <p>The domain to override with a private endpoint.</p>
+   * The domain to override with a private endpoint.
+   *
    * @public
    */
   domain: string | undefined;
 
   /**
-   * <p>The private endpoint configuration for the specified domain.</p>
+   * The private endpoint configuration for the specified domain.
+   *
    * @public
    */
   privateEndpoint: PrivateEndpoint | undefined;
 }
 
 /**
- * <p>Configuration for inbound JWT-based authorization, specifying how incoming requests should be authenticated.</p>
+ * Configuration for inbound JWT-based authorization, specifying how incoming requests should be authenticated.
+ *
  * @public
  */
 export interface CustomJWTAuthorizerConfiguration {
   /**
-   * <p>This URL is used to fetch OpenID Connect configuration or authorization server metadata for validating incoming tokens.</p>
+   * This URL is used to fetch OpenID Connect configuration or authorization server metadata for validating incoming tokens.
+   *
    * @public
    */
   discoveryUrl: string | undefined;
 
   /**
-   * <p>Represents individual audience values that are validated in the incoming JWT token validation process.</p>
+   * Represents individual audience values that are validated in the incoming JWT token validation process.
+   *
    * @public
    */
   allowedAudience?: string[] | undefined;
 
   /**
-   * <p>Represents individual client IDs that are validated in the incoming JWT token validation process.</p>
+   * Represents individual client IDs that are validated in the incoming JWT token validation process.
+   *
    * @public
    */
   allowedClients?: string[] | undefined;
 
   /**
-   * <p>An array of scopes that are allowed to access the token.</p>
+   * An array of scopes that are allowed to access the token.
+   *
    * @public
    */
   allowedScopes?: string[] | undefined;
 
   /**
-   * <p>A map that associates each scope in <code>allowedScopes</code> with a corresponding advertised scope value. The advertised scope appears in OAuth protected resource metadata and <code>WWW-Authenticate</code> response headers. Use this parameter when the scope that clients request from your identity provider differs from the scope in the validated token. Each key is a scope from <code>allowedScopes</code> that the service uses for token validation. Each value is the corresponding scope that the service advertises to clients. Scopes without a mapping entry appear unchanged to clients.</p>
+   * A map that associates each scope in `allowedScopes` with a corresponding advertised scope value. The advertised scope appears in OAuth protected resource metadata and `WWW-Authenticate` response headers. Use this parameter when the scope that clients request from your identity provider differs from the scope in the validated token. Each key is a scope from `allowedScopes` that the service uses for token validation. Each value is the corresponding scope that the service advertises to clients. Scopes without a mapping entry appear unchanged to clients.
+   *
    * @public
    */
   advertisedScopeMapping?: Record<string, string> | undefined;
 
   /**
-   * <p>An array of objects that define a custom claim validation name, value, and operation </p>
+   * An array of objects that define a custom claim validation name, value, and operation
+   *
    * @public
    */
   customClaims?: CustomClaimValidationType[] | undefined;
 
   /**
-   * <p>The private endpoint configuration for a gateway target. Defines how the gateway connects to private resources in your VPC.</p>
+   * The private endpoint configuration for a gateway target. Defines how the gateway connects to private resources in your VPC.
+   *
    * @public
    */
   privateEndpoint?: PrivateEndpoint | undefined;
 
   /**
-   * <p>The private endpoint overrides for the custom JWT authorizer configuration.</p>
+   * The private endpoint overrides for the custom JWT authorizer configuration.
+   *
    * @public
    */
   privateEndpointOverrides?: PrivateEndpointOverride[] | undefined;
 
   /**
-   * <p>The configuration that restricts which workloads in the request's identity chain are allowed to invoke the target, identified by their hosting environments and workload identities. At launch, this is supported only for AgentCore Runtime targets, and the allowed workloads are AgentCore Gateways.</p>
+   * The configuration that restricts which workloads in the request's identity chain are allowed to invoke the target, identified by their hosting environments and workload identities. At launch, this is supported only for AgentCore Runtime targets, and the allowed workloads are AgentCore Gateways.
+   *
    * @public
    */
   allowedWorkloadConfiguration?: AllowedWorkloadConfiguration | undefined;
 }
 
 /**
- * <p>Represents inbound authorization configuration options used to authenticate incoming requests. </p>
+ * Represents inbound authorization configuration options used to authenticate incoming requests.
+ *
  * @public
  */
 export type AuthorizerConfiguration =
@@ -1642,7 +1858,8 @@ export type AuthorizerConfiguration =
  */
 export namespace AuthorizerConfiguration {
   /**
-   * <p>The inbound JWT-based authorization, specifying how incoming requests should be authenticated.</p>
+   * The inbound JWT-based authorization, specifying how incoming requests should be authenticated.
+   *
    * @public
    */
   export interface CustomJWTAuthorizerMember {
@@ -1669,85 +1886,99 @@ export namespace AuthorizerConfiguration {
 }
 
 /**
- * <p>Configuration for customer-managed compute capacity for the AgentCore Runtime. A capacity provider runs the AgentCore Runtime on the Instances compute type, using Amazon Web Services managed compute in your account.</p>
+ * Configuration for customer-managed compute capacity for the AgentCore Runtime. A capacity provider runs the AgentCore Runtime on the Instances compute type, using Amazon Web Services managed compute in your account.
+ *
  * @public
  */
 export interface CapacityProviderConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the capacity provider to use for the AgentCore Runtime.</p>
+   * The Amazon Resource Name (ARN) of the capacity provider to use for the AgentCore Runtime.
+   *
    * @public
    */
   capacityProviderArn: string | undefined;
 }
 
 /**
- * <p>Configuration for a capacity provider volume mounted into the AgentCore Runtime. This references a persistent volume by its logical name, as defined in the capacity provider's list of volumes.</p>
+ * Configuration for a capacity provider volume mounted into the AgentCore Runtime. This references a persistent volume by its logical name, as defined in the capacity provider's list of volumes.
+ *
  * @public
  */
 export interface CapacityProviderVolumeConfiguration {
   /**
-   * <p>The logical name of the capacity provider volume to mount. This name must match a volume that is defined in the capacity provider's list of volumes.</p>
+   * The logical name of the capacity provider volume to mount. This name must match a volume that is defined in the capacity provider's list of volumes.
+   *
    * @public
    */
   volumeName: string | undefined;
 
   /**
-   * <p>The mount path for the capacity provider volume inside the AgentCore Runtime. The path must be under <code>/mnt</code> with exactly one subdirectory level (for example, <code>/mnt/data</code>).</p>
+   * The mount path for the capacity provider volume inside the AgentCore Runtime. The path must be under `/mnt` with exactly one subdirectory level (for example, `/mnt/data`).
+   *
    * @public
    */
   mountPath: string | undefined;
 }
 
 /**
- * <p>Configuration for an Amazon EFS access point filesystem mounted into the AgentCore Runtime. EFS access points provide shared file storage accessible from your AgentCore Runtime sessions.</p>
+ * Configuration for an Amazon EFS access point filesystem mounted into the AgentCore Runtime. EFS access points provide shared file storage accessible from your AgentCore Runtime sessions.
+ *
  * @public
  */
 export interface EfsAccessPointConfiguration {
   /**
-   * <p>The ARN of the EFS access point to mount into the AgentCore Runtime.</p>
+   * The ARN of the EFS access point to mount into the AgentCore Runtime.
+   *
    * @public
    */
   accessPointArn: string | undefined;
 
   /**
-   * <p>The mount path for the EFS access point inside the AgentCore Runtime. The path must be under <code>/mnt</code> with exactly one subdirectory level (for example, <code>/mnt/data</code>).</p>
+   * The mount path for the EFS access point inside the AgentCore Runtime. The path must be under `/mnt` with exactly one subdirectory level (for example, `/mnt/data`).
+   *
    * @public
    */
   mountPath: string | undefined;
 }
 
 /**
- * <p>Configuration for an Amazon S3 Files access point filesystem mounted into the AgentCore Runtime. S3 Files access points provide shared file storage accessible from your AgentCore Runtime sessions.</p>
+ * Configuration for an Amazon S3 Files access point filesystem mounted into the AgentCore Runtime. S3 Files access points provide shared file storage accessible from your AgentCore Runtime sessions.
+ *
  * @public
  */
 export interface S3FilesAccessPointConfiguration {
   /**
-   * <p>The ARN of the S3 Files access point to mount into the AgentCore Runtime.</p>
+   * The ARN of the S3 Files access point to mount into the AgentCore Runtime.
+   *
    * @public
    */
   accessPointArn: string | undefined;
 
   /**
-   * <p>The mount path for the S3 Files access point inside the AgentCore Runtime. The path must be under <code>/mnt</code> with exactly one subdirectory level (for example, <code>/mnt/data</code>).</p>
+   * The mount path for the S3 Files access point inside the AgentCore Runtime. The path must be under `/mnt` with exactly one subdirectory level (for example, `/mnt/data`).
+   *
    * @public
    */
   mountPath: string | undefined;
 }
 
 /**
- * <p>Configuration for a session storage filesystem mounted into the AgentCore Runtime. Session storage provides persistent storage that is preserved across AgentCore Runtime session invocations.</p>
+ * Configuration for a session storage filesystem mounted into the AgentCore Runtime. Session storage provides persistent storage that is preserved across AgentCore Runtime session invocations.
+ *
  * @public
  */
 export interface SessionStorageConfiguration {
   /**
-   * <p>The mount path for the session storage filesystem inside the AgentCore Runtime. The path must be under <code>/mnt</code> with exactly one subdirectory level (for example, <code>/mnt/data</code>).</p>
+   * The mount path for the session storage filesystem inside the AgentCore Runtime. The path must be under `/mnt` with exactly one subdirectory level (for example, `/mnt/data`).
+   *
    * @public
    */
   mountPath: string | undefined;
 }
 
 /**
- * <p>Configuration for a filesystem that can be mounted into the AgentCore Runtime.</p>
+ * Configuration for a filesystem that can be mounted into the AgentCore Runtime.
+ *
  * @public
  */
 export type FilesystemConfiguration =
@@ -1762,7 +1993,8 @@ export type FilesystemConfiguration =
  */
 export namespace FilesystemConfiguration {
   /**
-   * <p>Configuration for session storage. Session storage provides persistent storage that is preserved across AgentCore Runtime session invocations.</p>
+   * Configuration for session storage. Session storage provides persistent storage that is preserved across AgentCore Runtime session invocations.
+   *
    * @public
    */
   export interface SessionStorageMember {
@@ -1774,7 +2006,8 @@ export namespace FilesystemConfiguration {
   }
 
   /**
-   * <p>Configuration for an Amazon S3 Files access point to mount into the AgentCore Runtime.</p>
+   * Configuration for an Amazon S3 Files access point to mount into the AgentCore Runtime.
+   *
    * @public
    */
   export interface S3FilesAccessPointMember {
@@ -1786,7 +2019,8 @@ export namespace FilesystemConfiguration {
   }
 
   /**
-   * <p>Configuration for an Amazon EFS access point to mount into the AgentCore Runtime.</p>
+   * Configuration for an Amazon EFS access point to mount into the AgentCore Runtime.
+   *
    * @public
    */
   export interface EfsAccessPointMember {
@@ -1798,7 +2032,8 @@ export namespace FilesystemConfiguration {
   }
 
   /**
-   * <p>Configuration for a capacity provider volume to mount into the AgentCore Runtime. This mounts a persistent volume that is defined on the capacity provider, referenced by its logical name.</p>
+   * Configuration for a capacity provider volume to mount into the AgentCore Runtime. This mounts a persistent volume that is defined on the capacity provider, referenced by its logical name.
+   *
    * @public
    */
   export interface CapacityProviderVolumeMember {
@@ -1834,91 +2069,114 @@ export namespace FilesystemConfiguration {
 }
 
 /**
- * <p>LifecycleConfiguration lets you manage the lifecycle of runtime sessions and resources in AgentCore Runtime. This configuration helps optimize resource utilization by automatically cleaning up idle sessions and preventing long-running instances from consuming resources indefinitely.</p>
+ * LifecycleConfiguration lets you manage the lifecycle of runtime sessions and resources in AgentCore Runtime. This configuration helps optimize resource utilization by automatically cleaning up idle sessions and preventing long-running instances from consuming resources indefinitely.
+ *
  * @public
  */
 export interface LifecycleConfiguration {
   /**
-   * <p>Timeout in seconds for idle runtime sessions. When a session remains idle for this duration, it will be automatically terminated. Default: 900 seconds (15 minutes).</p>
+   * Timeout in seconds for idle runtime sessions. When a session remains idle for this duration, it will be automatically terminated. Default: 900 seconds (15 minutes).
+   *
    * @public
    */
   idleRuntimeSessionTimeout?: number | undefined;
 
   /**
-   * <p>Maximum lifetime for the instance in seconds. Once reached, instances will be automatically terminated and replaced. Default: 28800 seconds (8 hours).</p>
+   * Maximum lifetime for the instance in seconds. Once reached, instances will be automatically terminated and replaced. Default: 28800 seconds (8 hours).
+   *
    * @public
    */
   maxLifetime?: number | undefined;
 }
 
 /**
- * <p>VpcConfig for the Agent.</p>
+ * VpcConfig for the Agent.
+ *
  * @public
  */
 export interface VpcConfig {
   /**
-   * <p>The security groups associated with the VPC configuration.</p>
+   * The security groups associated with the VPC configuration.
+   *
    * @public
    */
   securityGroups: string[] | undefined;
 
   /**
-   * <p>The subnets associated with the VPC configuration.</p>
+   * The subnets associated with the VPC configuration.
+   *
    * @public
    */
   subnets: string[] | undefined;
 
   /**
-   * <note> <p>This field applies only to Agent Runtimes. It is not applicable to Browsers or Code Interpreters.</p> </note> <p>Controls whether a service-managed Amazon S3 gateway endpoint is provisioned in the VPC network topology for the agent runtime. This gateway is used by Amazon Bedrock AgentCore Runtime to download code and container images during agent startup.</p> <p>Starting May 5, 2026, Amazon Bedrock AgentCore Runtime is gradually rolling out a change to how network isolation is configured for VPC mode agents. Agent runtimes created on or after this rollout will no longer include the service-managed Amazon S3 gateway. Instead, all network access, including to Amazon S3, is governed exclusively by your VPC configuration. This field cannot be set on agent runtimes created after the rollout. Passing this field in an <code>UpdateAgentRuntime</code> request for these agent runtimes returns a <code>ValidationException</code>.</p> <p>Agent runtimes created before the rollout are not affected and continue to operate with the service-managed Amazon S3 gateway. To enforce full VPC network isolation on these existing agent runtimes, set this field to <code>false</code> via the <code>UpdateAgentRuntime</code> API. Before opting out, ensure your VPC provides the Amazon S3 access required for agent startup. If this field is not specified or is set to <code>true</code>, the service-managed Amazon S3 gateway remains provisioned.</p> <p>This field is only supported in the <code>UpdateAgentRuntime</code> API for pre-rollout agent runtimes. Passing this field in a <code>CreateAgentRuntime</code> request returns a <code>ValidationException</code>.</p>
+   * > **Note:** This field applies only to Agent Runtimes. It is not applicable to Browsers or Code Interpreters.
+   *
+   * Controls whether a service-managed Amazon S3 gateway endpoint is provisioned in the VPC network topology for the agent runtime. This gateway is used by Amazon Bedrock AgentCore Runtime to download code and container images during agent startup.
+   *
+   * Starting May 5, 2026, Amazon Bedrock AgentCore Runtime is gradually rolling out a change to how network isolation is configured for VPC mode agents. Agent runtimes created on or after this rollout will no longer include the service-managed Amazon S3 gateway. Instead, all network access, including to Amazon S3, is governed exclusively by your VPC configuration. This field cannot be set on agent runtimes created after the rollout. Passing this field in an `UpdateAgentRuntime` request for these agent runtimes returns a `ValidationException`.
+   *
+   * Agent runtimes created before the rollout are not affected and continue to operate with the service-managed Amazon S3 gateway. To enforce full VPC network isolation on these existing agent runtimes, set this field to `false` via the `UpdateAgentRuntime` API. Before opting out, ensure your VPC provides the Amazon S3 access required for agent startup. If this field is not specified or is set to `true`, the service-managed Amazon S3 gateway remains provisioned.
+   *
+   * This field is only supported in the `UpdateAgentRuntime` API for pre-rollout agent runtimes. Passing this field in a `CreateAgentRuntime` request returns a `ValidationException`.
+   *
    * @public
    */
   requireServiceS3Endpoint?: boolean | undefined;
 }
 
 /**
- * <p>SecurityConfig for the Agent.</p>
+ * SecurityConfig for the Agent.
+ *
  * @public
  */
 export interface NetworkConfiguration {
   /**
-   * <p>The network mode for the AgentCore Runtime.</p>
+   * The network mode for the AgentCore Runtime.
+   *
    * @public
    */
   networkMode: NetworkMode | undefined;
 
   /**
-   * <p>The network mode configuration for the AgentCore Runtime.</p>
+   * The network mode configuration for the AgentCore Runtime.
+   *
    * @public
    */
   networkModeConfig?: VpcConfig | undefined;
 }
 
 /**
- * <p>The protocol configuration for an agent runtime. This structure defines how the agent runtime communicates with clients.</p>
+ * The protocol configuration for an agent runtime. This structure defines how the agent runtime communicates with clients.
+ *
  * @public
  */
 export interface ProtocolConfiguration {
   /**
-   * <p>The server protocol for the agent runtime. This field specifies which protocol the agent runtime uses to communicate with clients.</p>
+   * The server protocol for the agent runtime. This field specifies which protocol the agent runtime uses to communicate with clients.
+   *
    * @public
    */
   serverProtocol: ServerProtocol | undefined;
 
   /**
-   * <p>The port on which the agent server listens. The port must be between <code>8000</code> and <code>12000</code>, excluding the reserved port <code>8443</code>. When this field is omitted, the default is <code>8080</code> for <code>HTTP</code> and <code>AGUI</code>, <code>8000</code> for <code>MCP</code>, and <code>9000</code> for <code>A2A</code>.</p>
+   * The port on which the agent server listens. The port must be between `8000` and `12000`, excluding the reserved port `8443`. When this field is omitted, the default is `8080` for `HTTP` and `AGUI`, `8000` for `MCP`, and `9000` for `A2A`.
+   *
    * @public
    */
   port?: number | undefined;
 
   /**
-   * <p>The path on which the agent server accepts requests. The path must begin with <code>/</code>. When this field is omitted, the default is <code>/invocations</code> for <code>HTTP</code> and <code>AGUI</code>, <code>/mcp</code> for <code>MCP</code>, and <code>/</code> for <code>A2A</code>.</p>
+   * The path on which the agent server accepts requests. The path must begin with `/`. When this field is omitted, the default is `/invocations` for `HTTP` and `AGUI`, `/mcp` for `MCP`, and `/` for `A2A`.
+   *
    * @public
    */
   path?: string | undefined;
 }
 
 /**
- * <p>Configuration for HTTP request headers that will be passed through to the runtime.</p>
+ * Configuration for HTTP request headers that will be passed through to the runtime.
+ *
  * @public
  */
 export type RequestHeaderConfiguration =
@@ -1930,7 +2188,8 @@ export type RequestHeaderConfiguration =
  */
 export namespace RequestHeaderConfiguration {
   /**
-   * <p>A list of HTTP request headers that are allowed to be passed through to the runtime.</p>
+   * A list of HTTP request headers that are allowed to be passed through to the runtime.
+   *
    * @public
    */
   export interface RequestHeaderAllowlistMember {
@@ -1961,109 +2220,127 @@ export namespace RequestHeaderConfiguration {
  */
 export interface CreateAgentRuntimeRequest {
   /**
-   * <p>The name of the AgentCore Runtime.</p>
+   * The name of the AgentCore Runtime.
+   *
    * @public
    */
   agentRuntimeName: string | undefined;
 
   /**
-   * <p>The artifact of the AgentCore Runtime.</p>
+   * The artifact of the AgentCore Runtime.
+   *
    * @public
    */
   agentRuntimeArtifact: AgentRuntimeArtifact | undefined;
 
   /**
-   * <p>The IAM role ARN that provides permissions for the AgentCore Runtime.</p>
+   * The IAM role ARN that provides permissions for the AgentCore Runtime.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>The network configuration for the AgentCore Runtime.</p>
+   * The network configuration for the AgentCore Runtime.
+   *
    * @public
    */
   networkConfiguration?: NetworkConfiguration | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * A unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The description of the AgentCore Runtime.</p>
+   * The description of the AgentCore Runtime.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The authorizer configuration for the AgentCore Runtime.</p>
+   * The authorizer configuration for the AgentCore Runtime.
+   *
    * @public
    */
   authorizerConfiguration?: AuthorizerConfiguration | undefined;
 
   /**
-   * <p>Configuration for HTTP request headers that will be passed through to the runtime.</p>
+   * Configuration for HTTP request headers that will be passed through to the runtime.
+   *
    * @public
    */
   requestHeaderConfiguration?: RequestHeaderConfiguration | undefined;
 
   /**
-   * <p>The protocol configuration for the AgentCore Runtime, including the protocol, port, and path on which the agent server is available.</p>
+   * The protocol configuration for the AgentCore Runtime, including the protocol, port, and path on which the agent server is available.
+   *
    * @public
    */
   protocolConfiguration?: ProtocolConfiguration | undefined;
 
   /**
-   * <p>The life cycle configuration for the AgentCore Runtime.</p>
+   * The life cycle configuration for the AgentCore Runtime.
+   *
    * @public
    */
   lifecycleConfiguration?: LifecycleConfiguration | undefined;
 
   /**
-   * <p>Environment variables to set in the AgentCore Runtime environment.</p>
+   * Environment variables to set in the AgentCore Runtime environment.
+   *
    * @public
    */
   environmentVariables?: Record<string, string> | undefined;
 
   /**
-   * <p>The filesystem configurations to mount into the AgentCore Runtime. Use filesystem configurations to provide persistent storage to your AgentCore Runtime sessions.</p>
+   * The filesystem configurations to mount into the AgentCore Runtime. Use filesystem configurations to provide persistent storage to your AgentCore Runtime sessions.
+   *
    * @public
    */
   filesystemConfigurations?: FilesystemConfiguration[] | undefined;
 
   /**
-   * <p>The capacity provider configuration for the AgentCore Runtime. Use a capacity provider to run the AgentCore Runtime on the Instances compute type, which provisions Amazon Web Services managed compute in your account.</p>
+   * The capacity provider configuration for the AgentCore Runtime. Use a capacity provider to run the AgentCore Runtime on the Instances compute type, which provisions Amazon Web Services managed compute in your account.
+   *
    * @public
    */
   capacityProviderConfiguration?: CapacityProviderConfiguration | undefined;
 
   /**
-   * <p>A map of tag keys and values to assign to the agent runtime. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
+   * A map of tag keys and values to assign to the agent runtime. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The version of the runtime platform to use for the AgentCore Runtime.</p>
+   * The version of the runtime platform to use for the AgentCore Runtime.
+   *
    * @public
    */
   platformVersion?: string | undefined;
 
   /**
-   * <p>The additional ports on the AgentCore Runtime that are reachable through the runtime's session URL. Specify one to five non-overlapping entries, each containing either a single port or an inclusive port range. Ports must be between <code>8000</code> and <code>12000</code>, excluding the reserved port <code>8443</code>.</p>
+   * The additional ports on the AgentCore Runtime that are reachable through the runtime's session URL. Specify one to five non-overlapping entries, each containing either a single port or an inclusive port range. Ports must be between `8000` and `12000`, excluding the reserved port `8443`.
+   *
    * @public
    */
   allowedPorts?: AllowedPort[] | undefined;
 }
 
 /**
- * <p>The information about the workload identity.</p>
+ * The information about the workload identity.
+ *
  * @public
  */
 export interface WorkloadIdentityDetails {
   /**
-   * <p>The ARN associated with the workload identity.</p>
+   * The ARN associated with the workload identity.
+   *
    * @public
    */
   workloadIdentityArn: string | undefined;
@@ -2074,37 +2351,43 @@ export interface WorkloadIdentityDetails {
  */
 export interface CreateAgentRuntimeResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the AgentCore Runtime.</p>
+   * The Amazon Resource Name (ARN) of the AgentCore Runtime.
+   *
    * @public
    */
   agentRuntimeArn: string | undefined;
 
   /**
-   * <p>The workload identity details for the AgentCore Runtime.</p>
+   * The workload identity details for the AgentCore Runtime.
+   *
    * @public
    */
   workloadIdentityDetails?: WorkloadIdentityDetails | undefined;
 
   /**
-   * <p>The unique identifier of the AgentCore Runtime.</p>
+   * The unique identifier of the AgentCore Runtime.
+   *
    * @public
    */
   agentRuntimeId: string | undefined;
 
   /**
-   * <p>The version of the AgentCore Runtime.</p>
+   * The version of the AgentCore Runtime.
+   *
    * @public
    */
   agentRuntimeVersion: string | undefined;
 
   /**
-   * <p>The timestamp when the AgentCore Runtime was created.</p>
+   * The timestamp when the AgentCore Runtime was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The current status of the AgentCore Runtime.</p>
+   * The current status of the AgentCore Runtime.
+   *
    * @public
    */
   status: AgentRuntimeStatus | undefined;
@@ -2115,19 +2398,22 @@ export interface CreateAgentRuntimeResponse {
  */
 export interface DeleteAgentRuntimeRequest {
   /**
-   * <p>The unique identifier of the AgentCore Runtime to delete.</p>
+   * The unique identifier of the AgentCore Runtime to delete.
+   *
    * @public
    */
   agentRuntimeId: string | undefined;
 
   /**
-   * <p>The version of the AgentCore Runtime to delete. When you provide this value, only that version is deleted. When you omit it, the entire AgentCore Runtime and all of its versions are deleted.</p>
+   * The version of the AgentCore Runtime to delete. When you provide this value, only that version is deleted. When you omit it, the entire AgentCore Runtime and all of its versions are deleted.
+   *
    * @public
    */
   agentRuntimeVersion?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, the service ignores the request but does not return an error.</p>
+   * A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, the service ignores the request but does not return an error.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -2138,19 +2424,22 @@ export interface DeleteAgentRuntimeRequest {
  */
 export interface DeleteAgentRuntimeResponse {
   /**
-   * <p>The current status of the AgentCore Runtime deletion.</p>
+   * The current status of the AgentCore Runtime deletion.
+   *
    * @public
    */
   status: AgentRuntimeStatus | undefined;
 
   /**
-   * <p>The unique identifier of the AgentCore Runtime.</p>
+   * The unique identifier of the AgentCore Runtime.
+   *
    * @public
    */
   agentRuntimeId?: string | undefined;
 
   /**
-   * <p>The version of the AgentCore Runtime that was deleted. This value is present only when you delete a single version.</p>
+   * The version of the AgentCore Runtime that was deleted. This value is present only when you delete a single version.
+   *
    * @public
    */
   agentRuntimeVersion?: string | undefined;
@@ -2161,25 +2450,29 @@ export interface DeleteAgentRuntimeResponse {
  */
 export interface GetAgentRuntimeRequest {
   /**
-   * <p>The unique identifier of the AgentCore Runtime to retrieve.</p>
+   * The unique identifier of the AgentCore Runtime to retrieve.
+   *
    * @public
    */
   agentRuntimeId: string | undefined;
 
   /**
-   * <p>The version of the AgentCore Runtime to retrieve.</p>
+   * The version of the AgentCore Runtime to retrieve.
+   *
    * @public
    */
   agentRuntimeVersion?: string | undefined;
 }
 
 /**
- * <p>Configuration for microVM metadata service settings.</p>
+ * Configuration for microVM metadata service settings.
+ *
  * @public
  */
 export interface RuntimeMetadataConfiguration {
   /**
-   * <p>Enables MMDSv2 (microVM Metadata Service Version 2) requirement for the agent runtime. When set to <code>true</code>, the runtime microVM will only accept MMDSv2 requests.</p>
+   * Enables MMDSv2 (microVM Metadata Service Version 2) requirement for the agent runtime. When set to `true`, the runtime microVM will only accept MMDSv2 requests.
+   *
    * @public
    */
   requireMMDSV2: boolean | undefined;
@@ -2190,139 +2483,162 @@ export interface RuntimeMetadataConfiguration {
  */
 export interface GetAgentRuntimeResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the AgentCore Runtime.</p>
+   * The Amazon Resource Name (ARN) of the AgentCore Runtime.
+   *
    * @public
    */
   agentRuntimeArn: string | undefined;
 
   /**
-   * <p>The name of the AgentCore Runtime.</p>
+   * The name of the AgentCore Runtime.
+   *
    * @public
    */
   agentRuntimeName: string | undefined;
 
   /**
-   * <p>The unique identifier of the AgentCore Runtime.</p>
+   * The unique identifier of the AgentCore Runtime.
+   *
    * @public
    */
   agentRuntimeId: string | undefined;
 
   /**
-   * <p>The version of the AgentCore Runtime.</p>
+   * The version of the AgentCore Runtime.
+   *
    * @public
    */
   agentRuntimeVersion: string | undefined;
 
   /**
-   * <p>The timestamp when the AgentCore Runtime was created.</p>
+   * The timestamp when the AgentCore Runtime was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the AgentCore Runtime was last updated.</p>
+   * The timestamp when the AgentCore Runtime was last updated.
+   *
    * @public
    */
   lastUpdatedAt: Date | undefined;
 
   /**
-   * <p>The IAM role ARN that provides permissions for the AgentCore Runtime.</p>
+   * The IAM role ARN that provides permissions for the AgentCore Runtime.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>The network configuration for the AgentCore Runtime.</p>
+   * The network configuration for the AgentCore Runtime.
+   *
    * @public
    */
   networkConfiguration?: NetworkConfiguration | undefined;
 
   /**
-   * <p>The current status of the AgentCore Runtime.</p>
+   * The current status of the AgentCore Runtime.
+   *
    * @public
    */
   status: AgentRuntimeStatus | undefined;
 
   /**
-   * <p>The life cycle configuration for the AgentCore Runtime.</p>
+   * The life cycle configuration for the AgentCore Runtime.
+   *
    * @public
    */
   lifecycleConfiguration: LifecycleConfiguration | undefined;
 
   /**
-   * <p>The reason for failure if the AgentCore Runtime is in a failed state.</p>
+   * The reason for failure if the AgentCore Runtime is in a failed state.
+   *
    * @public
    */
   failureReason?: string | undefined;
 
   /**
-   * <p>The description of the AgentCore Runtime.</p>
+   * The description of the AgentCore Runtime.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The workload identity details for the AgentCore Runtime.</p>
+   * The workload identity details for the AgentCore Runtime.
+   *
    * @public
    */
   workloadIdentityDetails?: WorkloadIdentityDetails | undefined;
 
   /**
-   * <p>The artifact of the AgentCore Runtime.</p>
+   * The artifact of the AgentCore Runtime.
+   *
    * @public
    */
   agentRuntimeArtifact?: AgentRuntimeArtifact | undefined;
 
   /**
-   * <p>The protocol configuration for the AgentCore Runtime, including the protocol, port, and path on which the agent server is available.</p>
+   * The protocol configuration for the AgentCore Runtime, including the protocol, port, and path on which the agent server is available.
+   *
    * @public
    */
   protocolConfiguration?: ProtocolConfiguration | undefined;
 
   /**
-   * <p>Environment variables set in the AgentCore Runtime environment.</p>
+   * Environment variables set in the AgentCore Runtime environment.
+   *
    * @public
    */
   environmentVariables?: Record<string, string> | undefined;
 
   /**
-   * <p>The authorizer configuration for the AgentCore Runtime.</p>
+   * The authorizer configuration for the AgentCore Runtime.
+   *
    * @public
    */
   authorizerConfiguration?: AuthorizerConfiguration | undefined;
 
   /**
-   * <p>Configuration for HTTP request headers that will be passed through to the runtime.</p>
+   * Configuration for HTTP request headers that will be passed through to the runtime.
+   *
    * @public
    */
   requestHeaderConfiguration?: RequestHeaderConfiguration | undefined;
 
   /**
-   * <p>Configuration for microVM Metadata Service (MMDS) settings for the AgentCore Runtime.</p>
+   * Configuration for microVM Metadata Service (MMDS) settings for the AgentCore Runtime.
+   *
    * @public
    */
   metadataConfiguration?: RuntimeMetadataConfiguration | undefined;
 
   /**
-   * <p>The filesystem configurations mounted into the AgentCore Runtime.</p>
+   * The filesystem configurations mounted into the AgentCore Runtime.
+   *
    * @public
    */
   filesystemConfigurations?: FilesystemConfiguration[] | undefined;
 
   /**
-   * <p>The capacity provider configuration for the AgentCore Runtime.</p>
+   * The capacity provider configuration for the AgentCore Runtime.
+   *
    * @public
    */
   capacityProviderConfiguration?: CapacityProviderConfiguration | undefined;
 
   /**
-   * <p>The version of the runtime platform used by the AgentCore Runtime.</p>
+   * The version of the runtime platform used by the AgentCore Runtime.
+   *
    * @public
    */
   platformVersion?: string | undefined;
 
   /**
-   * <p>The additional ports on the AgentCore Runtime that are reachable through the runtime's session URL.</p>
+   * The additional ports on the AgentCore Runtime that are reachable through the runtime's session URL.
+   *
    * @public
    */
   allowedPorts?: AllowedPort[] | undefined;
@@ -2333,61 +2649,71 @@ export interface GetAgentRuntimeResponse {
  */
 export interface ListAgentRuntimesRequest {
   /**
-   * <p>The maximum number of results to return in the response.</p>
+   * The maximum number of results to return in the response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token to retrieve the next page of results.</p>
+   * A token to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Contains information about an agent runtime. An agent runtime is the execution environment for a Amazon Bedrock AgentCore Agent.</p>
+ * Contains information about an agent runtime. An agent runtime is the execution environment for a Amazon Bedrock AgentCore Agent.
+ *
  * @public
  */
 export interface AgentRuntime {
   /**
-   * <p>The Amazon Resource Name (ARN) of the agent runtime.</p>
+   * The Amazon Resource Name (ARN) of the agent runtime.
+   *
    * @public
    */
   agentRuntimeArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent runtime.</p>
+   * The unique identifier of the agent runtime.
+   *
    * @public
    */
   agentRuntimeId: string | undefined;
 
   /**
-   * <p>The version of the agent runtime.</p>
+   * The version of the agent runtime.
+   *
    * @public
    */
   agentRuntimeVersion: string | undefined;
 
   /**
-   * <p>The name of the agent runtime.</p>
+   * The name of the agent runtime.
+   *
    * @public
    */
   agentRuntimeName: string | undefined;
 
   /**
-   * <p>The description of the agent runtime.</p>
+   * The description of the agent runtime.
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p>The timestamp when the agent runtime was last updated.</p>
+   * The timestamp when the agent runtime was last updated.
+   *
    * @public
    */
   lastUpdatedAt: Date | undefined;
 
   /**
-   * <p>The current status of the agent runtime.</p>
+   * The current status of the agent runtime.
+   *
    * @public
    */
   status: AgentRuntimeStatus | undefined;
@@ -2398,13 +2724,15 @@ export interface AgentRuntime {
  */
 export interface ListAgentRuntimesResponse {
   /**
-   * <p>The list of AgentCore Runtime resources.</p>
+   * The list of AgentCore Runtime resources.
+   *
    * @public
    */
   agentRuntimes: AgentRuntime[] | undefined;
 
   /**
-   * <p>A token to retrieve the next page of results.</p>
+   * A token to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2415,19 +2743,22 @@ export interface ListAgentRuntimesResponse {
  */
 export interface ListAgentRuntimeVersionsRequest {
   /**
-   * <p>The unique identifier of the AgentCore Runtime to list versions for.</p>
+   * The unique identifier of the AgentCore Runtime to list versions for.
+   *
    * @public
    */
   agentRuntimeId: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in the response.</p>
+   * The maximum number of results to return in the response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token to retrieve the next page of results.</p>
+   * A token to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2438,13 +2769,15 @@ export interface ListAgentRuntimeVersionsRequest {
  */
 export interface ListAgentRuntimeVersionsResponse {
   /**
-   * <p>The list of AgentCore Runtime versions.</p>
+   * The list of AgentCore Runtime versions.
+   *
    * @public
    */
   agentRuntimes: AgentRuntime[] | undefined;
 
   /**
-   * <p>A token to retrieve the next page of results.</p>
+   * A token to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2455,97 +2788,113 @@ export interface ListAgentRuntimeVersionsResponse {
  */
 export interface UpdateAgentRuntimeRequest {
   /**
-   * <p>The unique identifier of the AgentCore Runtime to update.</p>
+   * The unique identifier of the AgentCore Runtime to update.
+   *
    * @public
    */
   agentRuntimeId: string | undefined;
 
   /**
-   * <p>The updated artifact of the AgentCore Runtime.</p>
+   * The updated artifact of the AgentCore Runtime.
+   *
    * @public
    */
   agentRuntimeArtifact: AgentRuntimeArtifact | undefined;
 
   /**
-   * <p>The updated IAM role ARN that provides permissions for the AgentCore Runtime.</p>
+   * The updated IAM role ARN that provides permissions for the AgentCore Runtime.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>The updated network configuration for the AgentCore Runtime.</p>
+   * The updated network configuration for the AgentCore Runtime.
+   *
    * @public
    */
   networkConfiguration?: NetworkConfiguration | undefined;
 
   /**
-   * <p>The updated description of the AgentCore Runtime.</p>
+   * The updated description of the AgentCore Runtime.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The updated authorizer configuration for the AgentCore Runtime.</p>
+   * The updated authorizer configuration for the AgentCore Runtime.
+   *
    * @public
    */
   authorizerConfiguration?: AuthorizerConfiguration | undefined;
 
   /**
-   * <p>The updated configuration for HTTP request headers that will be passed through to the runtime.</p>
+   * The updated configuration for HTTP request headers that will be passed through to the runtime.
+   *
    * @public
    */
   requestHeaderConfiguration?: RequestHeaderConfiguration | undefined;
 
   /**
-   * <p>The updated protocol configuration for the AgentCore Runtime, including the protocol, port, and path on which the agent server is available.</p>
+   * The updated protocol configuration for the AgentCore Runtime, including the protocol, port, and path on which the agent server is available.
+   *
    * @public
    */
   protocolConfiguration?: ProtocolConfiguration | undefined;
 
   /**
-   * <p>The updated life cycle configuration for the AgentCore Runtime.</p>
+   * The updated life cycle configuration for the AgentCore Runtime.
+   *
    * @public
    */
   lifecycleConfiguration?: LifecycleConfiguration | undefined;
 
   /**
-   * <p>The updated configuration for microVM Metadata Service (MMDS) settings for the AgentCore Runtime.</p>
+   * The updated configuration for microVM Metadata Service (MMDS) settings for the AgentCore Runtime.
+   *
    * @public
    */
   metadataConfiguration?: RuntimeMetadataConfiguration | undefined;
 
   /**
-   * <p>Updated environment variables to set in the AgentCore Runtime environment.</p>
+   * Updated environment variables to set in the AgentCore Runtime environment.
+   *
    * @public
    */
   environmentVariables?: Record<string, string> | undefined;
 
   /**
-   * <p>The updated filesystem configurations to mount into the AgentCore Runtime.</p>
+   * The updated filesystem configurations to mount into the AgentCore Runtime.
+   *
    * @public
    */
   filesystemConfigurations?: FilesystemConfiguration[] | undefined;
 
   /**
-   * <p>The updated capacity provider configuration for the AgentCore Runtime.</p>
+   * The updated capacity provider configuration for the AgentCore Runtime.
+   *
    * @public
    */
   capacityProviderConfiguration?: CapacityProviderConfiguration | undefined;
 
   /**
-   * <p>The updated version of the runtime platform to use for the AgentCore Runtime.</p>
+   * The updated version of the runtime platform to use for the AgentCore Runtime.
+   *
    * @public
    */
   platformVersion?: string | undefined;
 
   /**
-   * <p>The updated additional ports on the AgentCore Runtime that are reachable through the runtime's session URL. Specify one to five non-overlapping entries, each containing either a single port or an inclusive port range. Ports must be between <code>8000</code> and <code>12000</code>, excluding the reserved port <code>8443</code>.</p>
+   * The updated additional ports on the AgentCore Runtime that are reachable through the runtime's session URL. Specify one to five non-overlapping entries, each containing either a single port or an inclusive port range. Ports must be between `8000` and `12000`, excluding the reserved port `8443`.
+   *
    * @public
    */
   allowedPorts?: AllowedPort[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * A unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -2556,133 +2905,155 @@ export interface UpdateAgentRuntimeRequest {
  */
 export interface UpdateAgentRuntimeResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the updated AgentCore Runtime.</p>
+   * The Amazon Resource Name (ARN) of the updated AgentCore Runtime.
+   *
    * @public
    */
   agentRuntimeArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the updated AgentCore Runtime.</p>
+   * The unique identifier of the updated AgentCore Runtime.
+   *
    * @public
    */
   agentRuntimeId: string | undefined;
 
   /**
-   * <p>The workload identity details for the updated AgentCore Runtime.</p>
+   * The workload identity details for the updated AgentCore Runtime.
+   *
    * @public
    */
   workloadIdentityDetails?: WorkloadIdentityDetails | undefined;
 
   /**
-   * <p>The version of the updated AgentCore Runtime.</p>
+   * The version of the updated AgentCore Runtime.
+   *
    * @public
    */
   agentRuntimeVersion: string | undefined;
 
   /**
-   * <p>The timestamp when the AgentCore Runtime was created.</p>
+   * The timestamp when the AgentCore Runtime was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the AgentCore Runtime was last updated.</p>
+   * The timestamp when the AgentCore Runtime was last updated.
+   *
    * @public
    */
   lastUpdatedAt: Date | undefined;
 
   /**
-   * <p>The current status of the updated AgentCore Runtime.</p>
+   * The current status of the updated AgentCore Runtime.
+   *
    * @public
    */
   status: AgentRuntimeStatus | undefined;
 }
 
 /**
- * <p>Summary information about an agent runtime version associated with a capacity provider. This is returned by <code>ListAgentRuntimeVersionsByCapacityProvider</code>.</p>
+ * Summary information about an agent runtime version associated with a capacity provider. This is returned by `ListAgentRuntimeVersionsByCapacityProvider`.
+ *
  * @public
  */
 export interface AgentRuntimeVersionSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the agent runtime.</p>
+   * The Amazon Resource Name (ARN) of the agent runtime.
+   *
    * @public
    */
   agentRuntimeArn: string | undefined;
 
   /**
-   * <p>The version of the agent runtime.</p>
+   * The version of the agent runtime.
+   *
    * @public
    */
   agentRuntimeVersion: string | undefined;
 
   /**
-   * <p>The current status of the agent runtime version.</p>
+   * The current status of the agent runtime version.
+   *
    * @public
    */
   status: AgentRuntimeStatus | undefined;
 }
 
 /**
- * <p>The structured skill definition with schema version and content.</p>
+ * The structured skill definition with schema version and content.
+ *
  * @public
  */
 export interface SkillDefinition {
   /**
-   * <p>The version of the skill definition schema.</p>
+   * The version of the skill definition schema.
+   *
    * @public
    */
   schemaVersion?: string | undefined;
 
   /**
-   * <p>The JSON content containing the structured skill definition.</p>
+   * The JSON content containing the structured skill definition.
+   *
    * @public
    */
   inlineContent?: string | undefined;
 }
 
 /**
- * <p>The skill markdown definition for an agent skills descriptor.</p>
+ * The skill markdown definition for an agent skills descriptor.
+ *
  * @public
  */
 export interface SkillMdDefinition {
   /**
-   * <p>The markdown content describing the agent's skills in a human-readable format.</p>
+   * The markdown content describing the agent's skills in a human-readable format.
+   *
    * @public
    */
   inlineContent?: string | undefined;
 }
 
 /**
- * <p>The agent skills descriptor for a registry record. Contains an optional skill markdown definition in human-readable format and an optional structured skill definition.</p>
+ * The agent skills descriptor for a registry record. Contains an optional skill markdown definition in human-readable format and an optional structured skill definition.
+ *
  * @public
  */
 export interface AgentSkillsDescriptor {
   /**
-   * <p>The optional skill markdown definition describing the agent's skills in a human-readable format.</p>
+   * The optional skill markdown definition describing the agent's skills in a human-readable format.
+   *
    * @public
    */
   skillMd?: SkillMdDefinition | undefined;
 
   /**
-   * <p>The structured skill definition with schema version and content.</p>
+   * The structured skill definition with schema version and content.
+   *
    * @public
    */
   skillDefinition?: SkillDefinition | undefined;
 }
 
 /**
- * <p>Contains a reference to a secret stored in Amazon Web Services Secrets Manager.</p>
+ * Contains a reference to a secret stored in Amazon Web Services Secrets Manager.
+ *
  * @public
  */
 export interface SecretReference {
   /**
-   * <p>The ID of the Amazon Web Services Secrets Manager secret that stores the secret value.</p>
+   * The ID of the Amazon Web Services Secrets Manager secret that stores the secret value.
+   *
    * @public
    */
   secretId: string | undefined;
 
   /**
-   * <p>The JSON key used to extract the secret value from the Amazon Web Services Secrets Manager secret.</p>
+   * The JSON key used to extract the secret value from the Amazon Web Services Secrets Manager secret.
+   *
    * @public
    */
   jsonKey: string | undefined;
@@ -2693,43 +3064,50 @@ export interface SecretReference {
  */
 export interface CreateApiKeyCredentialProviderRequest {
   /**
-   * <p>The name of the API key credential provider. The name must be unique within your account.</p>
+   * The name of the API key credential provider. The name must be unique within your account.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The API key to use for authentication. This value is encrypted and stored securely.</p>
+   * The API key to use for authentication. This value is encrypted and stored securely.
+   *
    * @public
    */
   apiKey?: string | undefined;
 
   /**
-   * <p>A reference to the Amazon Web Services Secrets Manager secret that stores the API key. This includes the secret ID and the JSON key used to extract the API key value from the secret. Required when <code>apiKeySecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * A reference to the Amazon Web Services Secrets Manager secret that stores the API key. This includes the secret ID and the JSON key used to extract the API key value from the secret. Required when `apiKeySecretSource` is set to `EXTERNAL`.
+   *
    * @public
    */
   apiKeySecretConfig?: SecretReference | undefined;
 
   /**
-   * <p>The source type of the API key secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
+   * The source type of the API key secret. Use `MANAGED` if the secret is managed by the service, or `EXTERNAL` if you manage the secret yourself in Amazon Web Services Secrets Manager.
+   *
    * @public
    */
   apiKeySecretSource?: SecretSourceType | undefined;
 
   /**
-   * <p>A map of tag keys and values to assign to the API key credential provider. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
+   * A map of tag keys and values to assign to the API key credential provider. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Contains information about a secret in Amazon Web Services Secrets Manager.</p>
+ * Contains information about a secret in Amazon Web Services Secrets Manager.
+ *
  * @public
  */
 export interface Secret {
   /**
-   * <p>The Amazon Resource Name (ARN) of the secret in Amazon Web Services Secrets Manager.</p>
+   * The Amazon Resource Name (ARN) of the secret in Amazon Web Services Secrets Manager.
+   *
    * @public
    */
   secretArn: string | undefined;
@@ -2740,31 +3118,36 @@ export interface Secret {
  */
 export interface CreateApiKeyCredentialProviderResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the secret containing the API key.</p>
+   * The Amazon Resource Name (ARN) of the secret containing the API key.
+   *
    * @public
    */
   apiKeySecretArn: Secret | undefined;
 
   /**
-   * <p>The JSON key used to extract the API key value from the Amazon Web Services Secrets Manager secret.</p>
+   * The JSON key used to extract the API key value from the Amazon Web Services Secrets Manager secret.
+   *
    * @public
    */
   apiKeySecretJsonKey?: string | undefined;
 
   /**
-   * <p>The source type of the API key secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in Amazon Web Services Secrets Manager.</p>
+   * The source type of the API key secret. Either `MANAGED` if the secret is managed by the service, or `EXTERNAL` if managed by the user in Amazon Web Services Secrets Manager.
+   *
    * @public
    */
   apiKeySecretSource?: SecretSourceType | undefined;
 
   /**
-   * <p>The name of the created API key credential provider.</p>
+   * The name of the created API key credential provider.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the created API key credential provider.</p>
+   * The Amazon Resource Name (ARN) of the created API key credential provider.
+   *
    * @public
    */
   credentialProviderArn: string | undefined;
@@ -2775,7 +3158,8 @@ export interface CreateApiKeyCredentialProviderResponse {
  */
 export interface DeleteApiKeyCredentialProviderRequest {
   /**
-   * <p>The name of the API key credential provider to delete.</p>
+   * The name of the API key credential provider to delete.
+   *
    * @public
    */
   name: string | undefined;
@@ -2791,7 +3175,8 @@ export interface DeleteApiKeyCredentialProviderResponse {}
  */
 export interface GetApiKeyCredentialProviderRequest {
   /**
-   * <p>The name of the API key credential provider to retrieve.</p>
+   * The name of the API key credential provider to retrieve.
+   *
    * @public
    */
   name: string | undefined;
@@ -2802,43 +3187,50 @@ export interface GetApiKeyCredentialProviderRequest {
  */
 export interface GetApiKeyCredentialProviderResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the API key secret in Amazon Web Services Secrets Manager.</p>
+   * The Amazon Resource Name (ARN) of the API key secret in Amazon Web Services Secrets Manager.
+   *
    * @public
    */
   apiKeySecretArn: Secret | undefined;
 
   /**
-   * <p>The JSON key used to extract the API key value from the Amazon Web Services Secrets Manager secret.</p>
+   * The JSON key used to extract the API key value from the Amazon Web Services Secrets Manager secret.
+   *
    * @public
    */
   apiKeySecretJsonKey?: string | undefined;
 
   /**
-   * <p>The source type of the API key secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in Amazon Web Services Secrets Manager.</p>
+   * The source type of the API key secret. Either `MANAGED` if the secret is managed by the service, or `EXTERNAL` if managed by the user in Amazon Web Services Secrets Manager.
+   *
    * @public
    */
   apiKeySecretSource?: SecretSourceType | undefined;
 
   /**
-   * <p>The name of the API key credential provider.</p>
+   * The name of the API key credential provider.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the API key credential provider.</p>
+   * The Amazon Resource Name (ARN) of the API key credential provider.
+   *
    * @public
    */
   credentialProviderArn: string | undefined;
 
   /**
-   * <p>The timestamp when the API key credential provider was created.</p>
+   * The timestamp when the API key credential provider was created.
+   *
    * @public
    */
   createdTime: Date | undefined;
 
   /**
-   * <p>The timestamp when the API key credential provider was last updated.</p>
+   * The timestamp when the API key credential provider was last updated.
+   *
    * @public
    */
   lastUpdatedTime: Date | undefined;
@@ -2849,43 +3241,50 @@ export interface GetApiKeyCredentialProviderResponse {
  */
 export interface ListApiKeyCredentialProvidersRequest {
   /**
-   * <p>Pagination token.</p>
+   * Pagination token.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Maximum number of results to return.</p>
+   * Maximum number of results to return.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Contains information about an API key credential provider.</p>
+ * Contains information about an API key credential provider.
+ *
  * @public
  */
 export interface ApiKeyCredentialProviderItem {
   /**
-   * <p>The name of the API key credential provider.</p>
+   * The name of the API key credential provider.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the API key credential provider.</p>
+   * The Amazon Resource Name (ARN) of the API key credential provider.
+   *
    * @public
    */
   credentialProviderArn: string | undefined;
 
   /**
-   * <p>The timestamp when the API key credential provider was created.</p>
+   * The timestamp when the API key credential provider was created.
+   *
    * @public
    */
   createdTime: Date | undefined;
 
   /**
-   * <p>The timestamp when the API key credential provider was last updated.</p>
+   * The timestamp when the API key credential provider was last updated.
+   *
    * @public
    */
   lastUpdatedTime: Date | undefined;
@@ -2896,13 +3295,15 @@ export interface ApiKeyCredentialProviderItem {
  */
 export interface ListApiKeyCredentialProvidersResponse {
   /**
-   * <p>The list of API key credential providers.</p>
+   * The list of API key credential providers.
+   *
    * @public
    */
   credentialProviders: ApiKeyCredentialProviderItem[] | undefined;
 
   /**
-   * <p>Pagination token for the next page of results.</p>
+   * Pagination token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2913,25 +3314,29 @@ export interface ListApiKeyCredentialProvidersResponse {
  */
 export interface UpdateApiKeyCredentialProviderRequest {
   /**
-   * <p>The name of the API key credential provider to update.</p>
+   * The name of the API key credential provider to update.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The new API key to use for authentication. This value replaces the existing API key and is encrypted and stored securely.</p>
+   * The new API key to use for authentication. This value replaces the existing API key and is encrypted and stored securely.
+   *
    * @public
    */
   apiKey?: string | undefined;
 
   /**
-   * <p>A reference to the Amazon Web Services Secrets Manager secret that stores the API key. This includes the secret ID and the JSON key used to extract the API key value from the secret. Required when <code>apiKeySecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * A reference to the Amazon Web Services Secrets Manager secret that stores the API key. This includes the secret ID and the JSON key used to extract the API key value from the secret. Required when `apiKeySecretSource` is set to `EXTERNAL`.
+   *
    * @public
    */
   apiKeySecretConfig?: SecretReference | undefined;
 
   /**
-   * <p>The source type of the API key secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in Amazon Web Services Secrets Manager.</p>
+   * The source type of the API key secret. Use `MANAGED` if the secret is managed by the service, or `EXTERNAL` if you manage the secret yourself in Amazon Web Services Secrets Manager.
+   *
    * @public
    */
   apiKeySecretSource?: SecretSourceType | undefined;
@@ -2942,43 +3347,50 @@ export interface UpdateApiKeyCredentialProviderRequest {
  */
 export interface UpdateApiKeyCredentialProviderResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the API key secret in Amazon Web Services Secrets Manager.</p>
+   * The Amazon Resource Name (ARN) of the API key secret in Amazon Web Services Secrets Manager.
+   *
    * @public
    */
   apiKeySecretArn: Secret | undefined;
 
   /**
-   * <p>The JSON key used to extract the API key value from the Amazon Web Services Secrets Manager secret.</p>
+   * The JSON key used to extract the API key value from the Amazon Web Services Secrets Manager secret.
+   *
    * @public
    */
   apiKeySecretJsonKey?: string | undefined;
 
   /**
-   * <p>The source type of the API key secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in Amazon Web Services Secrets Manager.</p>
+   * The source type of the API key secret. Either `MANAGED` if the secret is managed by the service, or `EXTERNAL` if managed by the user in Amazon Web Services Secrets Manager.
+   *
    * @public
    */
   apiKeySecretSource?: SecretSourceType | undefined;
 
   /**
-   * <p>The name of the API key credential provider.</p>
+   * The name of the API key credential provider.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the API key credential provider.</p>
+   * The Amazon Resource Name (ARN) of the API key credential provider.
+   *
    * @public
    */
   credentialProviderArn: string | undefined;
 
   /**
-   * <p>The timestamp when the API key credential provider was created.</p>
+   * The timestamp when the API key credential provider was created.
+   *
    * @public
    */
   createdTime: Date | undefined;
 
   /**
-   * <p>The timestamp when the API key credential provider was last updated.</p>
+   * The timestamp when the API key credential provider was last updated.
+   *
    * @public
    */
   lastUpdatedTime: Date | undefined;
@@ -2989,25 +3401,29 @@ export interface UpdateApiKeyCredentialProviderResponse {
  */
 export interface CreateBrowserProfileRequest {
   /**
-   * <p>The name of the browser profile. The name must be unique within your account and can contain alphanumeric characters and underscores.</p>
+   * The name of the browser profile. The name must be unique within your account and can contain alphanumeric characters and underscores.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description of the browser profile. Use this field to describe the purpose or contents of the profile.</p>
+   * A description of the browser profile. Use this field to describe the purpose or contents of the profile.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock AgentCore ignores the request but does not return an error.</p>
+   * A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock AgentCore ignores the request but does not return an error.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>A map of tag keys and values to assign to the browser profile. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
+   * A map of tag keys and values to assign to the browser profile. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -3018,25 +3434,29 @@ export interface CreateBrowserProfileRequest {
  */
 export interface CreateBrowserProfileResponse {
   /**
-   * <p>The unique identifier of the created browser profile.</p>
+   * The unique identifier of the created browser profile.
+   *
    * @public
    */
   profileId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the created browser profile.</p>
+   * The Amazon Resource Name (ARN) of the created browser profile.
+   *
    * @public
    */
   profileArn: string | undefined;
 
   /**
-   * <p>The timestamp when the browser profile was created.</p>
+   * The timestamp when the browser profile was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The current status of the browser profile.</p>
+   * The current status of the browser profile.
+   *
    * @public
    */
   status: BrowserProfileStatus | undefined;
@@ -3047,13 +3467,15 @@ export interface CreateBrowserProfileResponse {
  */
 export interface DeleteBrowserProfileRequest {
   /**
-   * <p>The unique identifier of the browser profile to delete.</p>
+   * The unique identifier of the browser profile to delete.
+   *
    * @public
    */
   profileId: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * A unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -3064,31 +3486,36 @@ export interface DeleteBrowserProfileRequest {
  */
 export interface DeleteBrowserProfileResponse {
   /**
-   * <p>The unique identifier of the deleted browser profile.</p>
+   * The unique identifier of the deleted browser profile.
+   *
    * @public
    */
   profileId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the deleted browser profile.</p>
+   * The Amazon Resource Name (ARN) of the deleted browser profile.
+   *
    * @public
    */
   profileArn: string | undefined;
 
   /**
-   * <p>The current status of the browser profile deletion.</p>
+   * The current status of the browser profile deletion.
+   *
    * @public
    */
   status: BrowserProfileStatus | undefined;
 
   /**
-   * <p>The timestamp when the browser profile was last updated.</p>
+   * The timestamp when the browser profile was last updated.
+   *
    * @public
    */
   lastUpdatedAt: Date | undefined;
 
   /**
-   * <p>The timestamp when browser session data was last saved to this profile before deletion.</p>
+   * The timestamp when browser session data was last saved to this profile before deletion.
+   *
    * @public
    */
   lastSavedAt?: Date | undefined;
@@ -3099,7 +3526,8 @@ export interface DeleteBrowserProfileResponse {
  */
 export interface GetBrowserProfileRequest {
   /**
-   * <p>The unique identifier of the browser profile to retrieve.</p>
+   * The unique identifier of the browser profile to retrieve.
+   *
    * @public
    */
   profileId: string | undefined;
@@ -3110,61 +3538,71 @@ export interface GetBrowserProfileRequest {
  */
 export interface GetBrowserProfileResponse {
   /**
-   * <p>The unique identifier of the browser profile.</p>
+   * The unique identifier of the browser profile.
+   *
    * @public
    */
   profileId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the browser profile.</p>
+   * The Amazon Resource Name (ARN) of the browser profile.
+   *
    * @public
    */
   profileArn: string | undefined;
 
   /**
-   * <p>The name of the browser profile.</p>
+   * The name of the browser profile.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the browser profile.</p>
+   * The description of the browser profile.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The current status of the browser profile.</p>
+   * The current status of the browser profile.
+   *
    * @public
    */
   status: BrowserProfileStatus | undefined;
 
   /**
-   * <p>The timestamp when the browser profile was created.</p>
+   * The timestamp when the browser profile was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the browser profile was last updated.</p>
+   * The timestamp when the browser profile was last updated.
+   *
    * @public
    */
   lastUpdatedAt: Date | undefined;
 
   /**
-   * <p>The timestamp when browser session data was last saved to this profile.</p>
+   * The timestamp when browser session data was last saved to this profile.
+   *
    * @public
    */
   lastSavedAt?: Date | undefined;
 
   /**
-   * <p>The identifier of the browser session from which data was last saved to this profile.</p>
+   * The identifier of the browser session from which data was last saved to this profile.
+   *
    * @public
    */
   lastSavedBrowserSessionId?: string | undefined;
 
   /**
-   * <p>The identifier of the browser from which data was last saved to this profile.</p>
+   * The identifier of the browser from which data was last saved to this profile.
+   *
    * @public
    */
   lastSavedBrowserId?: string | undefined;
@@ -3175,85 +3613,99 @@ export interface GetBrowserProfileResponse {
  */
 export interface ListBrowserProfilesRequest {
   /**
-   * <p>The maximum number of results to return in the response.</p>
+   * The maximum number of results to return in the response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token to retrieve the next page of results.</p>
+   * A token to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The name of the browser profile to filter results by.</p>
+   * The name of the browser profile to filter results by.
+   *
    * @public
    */
   name?: string | undefined;
 }
 
 /**
- * <p>Contains summary information about a browser profile. A browser profile stores persistent browser data that can be reused across browser sessions.</p>
+ * Contains summary information about a browser profile. A browser profile stores persistent browser data that can be reused across browser sessions.
+ *
  * @public
  */
 export interface BrowserProfileSummary {
   /**
-   * <p>The unique identifier of the browser profile.</p>
+   * The unique identifier of the browser profile.
+   *
    * @public
    */
   profileId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the browser profile.</p>
+   * The Amazon Resource Name (ARN) of the browser profile.
+   *
    * @public
    */
   profileArn: string | undefined;
 
   /**
-   * <p>The name of the browser profile.</p>
+   * The name of the browser profile.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the browser profile.</p>
+   * The description of the browser profile.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The current status of the browser profile. Possible values include READY, SAVING, DELETING, and DELETED.</p>
+   * The current status of the browser profile. Possible values include READY, SAVING, DELETING, and DELETED.
+   *
    * @public
    */
   status: BrowserProfileStatus | undefined;
 
   /**
-   * <p>The timestamp when the browser profile was created.</p>
+   * The timestamp when the browser profile was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the browser profile was last updated.</p>
+   * The timestamp when the browser profile was last updated.
+   *
    * @public
    */
   lastUpdatedAt: Date | undefined;
 
   /**
-   * <p>The timestamp when browser session data was last saved to this profile.</p>
+   * The timestamp when browser session data was last saved to this profile.
+   *
    * @public
    */
   lastSavedAt?: Date | undefined;
 
   /**
-   * <p>The identifier of the browser session from which data was last saved to this profile.</p>
+   * The identifier of the browser session from which data was last saved to this profile.
+   *
    * @public
    */
   lastSavedBrowserSessionId?: string | undefined;
 
   /**
-   * <p>The identifier of the browser from which data was last saved to this profile.</p>
+   * The identifier of the browser from which data was last saved to this profile.
+   *
    * @public
    */
   lastSavedBrowserId?: string | undefined;
@@ -3264,44 +3716,51 @@ export interface BrowserProfileSummary {
  */
 export interface ListBrowserProfilesResponse {
   /**
-   * <p>The list of browser profile summaries.</p>
+   * The list of browser profile summaries.
+   *
    * @public
    */
   profileSummaries: BrowserProfileSummary[] | undefined;
 
   /**
-   * <p>A token to retrieve the next page of results.</p>
+   * A token to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Configuration for enabling browser signing capabilities that allow agents to cryptographically identify themselves to websites using HTTP message signatures.</p>
+ * Configuration for enabling browser signing capabilities that allow agents to cryptographically identify themselves to websites using HTTP message signatures.
+ *
  * @public
  */
 export interface BrowserSigningConfigInput {
   /**
-   * <p>Specifies whether browser signing is enabled. When enabled, the browser will cryptographically sign HTTP requests to identify itself as an AI agent to bot control vendors.</p>
+   * Specifies whether browser signing is enabled. When enabled, the browser will cryptographically sign HTTP requests to identify itself as an AI agent to bot control vendors.
+   *
    * @public
    */
   enabled: boolean | undefined;
 }
 
 /**
- * <p>The Amazon Web Services Secrets Manager location configuration.</p>
+ * The Amazon Web Services Secrets Manager location configuration.
+ *
  * @public
  */
 export interface SecretsManagerLocation {
   /**
-   * <p>The ARN of the Amazon Web Services Secrets Manager secret containing the certificate.</p>
+   * The ARN of the Amazon Web Services Secrets Manager secret containing the certificate.
+   *
    * @public
    */
   secretArn: string | undefined;
 }
 
 /**
- * <p>The location from which to retrieve a certificate.</p>
+ * The location from which to retrieve a certificate.
+ *
  * @public
  */
 export type CertificateLocation =
@@ -3313,7 +3772,8 @@ export type CertificateLocation =
  */
 export namespace CertificateLocation {
   /**
-   * <p>The Amazon Web Services Secrets Manager location of the certificate.</p>
+   * The Amazon Web Services Secrets Manager location of the certificate.
+   *
    * @public
    */
   export interface SecretsManagerMember {
@@ -3340,19 +3800,22 @@ export namespace CertificateLocation {
 }
 
 /**
- * <p>A certificate to install in the browser or code interpreter.</p>
+ * A certificate to install in the browser or code interpreter.
+ *
  * @public
  */
 export interface Certificate {
   /**
-   * <p>The location of the certificate.</p>
+   * The location of the certificate.
+   *
    * @public
    */
   location: CertificateLocation | undefined;
 }
 
 /**
- * <p>The location of a resource.</p>
+ * The location of a resource.
+ *
  * @public
  */
 export type ResourceLocation =
@@ -3364,7 +3827,8 @@ export type ResourceLocation =
  */
 export namespace ResourceLocation {
   /**
-   * <p>The Amazon S3 location for storing data. This structure defines where in Amazon S3 data is stored.</p>
+   * The Amazon S3 location for storing data. This structure defines where in Amazon S3 data is stored.
+   *
    * @public
    */
   export interface S3Member {
@@ -3391,73 +3855,88 @@ export namespace ResourceLocation {
 }
 
 /**
- * <p>Browser enterprise policy configuration.</p>
+ * Browser enterprise policy configuration.
+ *
  * @public
  */
 export interface BrowserEnterprisePolicy {
   /**
-   * <p>The location of the enterprise policy file.</p>
+   * The location of the enterprise policy file.
+   *
    * @public
    */
   location: ResourceLocation | undefined;
 
   /**
-   * <p>The type of browser enterprise policy. Available values are <code>MANAGED</code> and <code>RECOMMENDED</code>.</p>
+   * The type of browser enterprise policy. Available values are `MANAGED` and `RECOMMENDED`.
+   *
    * @public
    */
   type?: BrowserEnterprisePolicyType | undefined;
 }
 
 /**
- * <p>The configuration for mounting an Amazon Elastic File System (Amazon EFS) access point that you own into a session.</p>
+ * The configuration for mounting an Amazon Elastic File System (Amazon EFS) access point that you own into a session.
+ *
  * @public
  */
 export interface EfsConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Elastic File System (Amazon EFS) access point to mount.</p>
+   * The Amazon Resource Name (ARN) of the Amazon Elastic File System (Amazon EFS) access point to mount.
+   *
    * @public
    */
   accessPointArn: string | undefined;
 
   /**
-   * <p>The absolute path within the session at which the access point is mounted, for example <code>/mnt/efs</code>. Each mount path must be unique across all file system configurations in the session.</p>
+   * The absolute path within the session at which the access point is mounted, for example `/mnt/efs`. Each mount path must be unique across all file system configurations in the session.
+   *
    * @public
    */
   mountPath: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Elastic File System (Amazon EFS) file system that owns the access point.</p>
+   * The Amazon Resource Name (ARN) of the Amazon Elastic File System (Amazon EFS) file system that owns the access point.
+   *
    * @public
    */
   fileSystemArn: string | undefined;
 }
 
 /**
- * <p>The configuration for mounting an Amazon Simple Storage Service (Amazon S3) Files access point that you own into a session.</p>
+ * The configuration for mounting an Amazon Simple Storage Service (Amazon S3) Files access point that you own into a session.
+ *
  * @public
  */
 export interface S3FilesConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Simple Storage Service (Amazon S3) Files access point to mount.</p>
+   * The Amazon Resource Name (ARN) of the Amazon Simple Storage Service (Amazon S3) Files access point to mount.
+   *
    * @public
    */
   accessPointArn: string | undefined;
 
   /**
-   * <p>The absolute path within the session at which the access point is mounted, for example <code>/mnt/s3data</code>. Each mount path must be unique across all file system configurations in the session.</p>
+   * The absolute path within the session at which the access point is mounted, for example `/mnt/s3data`. Each mount path must be unique across all file system configurations in the session.
+   *
    * @public
    */
   mountPath: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Simple Storage Service (Amazon S3) Files file system that owns the access point.</p>
+   * The Amazon Resource Name (ARN) of the Amazon Simple Storage Service (Amazon S3) Files file system that owns the access point.
+   *
    * @public
    */
   fileSystemArn: string | undefined;
 }
 
 /**
- * <p>Specifies a file system to mount into the session by providing exactly one of the following:</p> <ul> <li> <p> <code>s3FilesConfiguration</code> - Mounts an Amazon Simple Storage Service (Amazon S3) Files access point.</p> </li> <li> <p> <code>efsConfiguration</code> - Mounts an Amazon Elastic File System (Amazon EFS) access point.</p> </li> </ul>
+ * Specifies a file system to mount into the session by providing exactly one of the following:
+ *
+ * - `s3FilesConfiguration` - Mounts an Amazon Simple Storage Service (Amazon S3) Files access point.
+ * - `efsConfiguration` - Mounts an Amazon Elastic File System (Amazon EFS) access point.
+ *
  * @public
  */
 export type ToolsFileSystemConfiguration =
@@ -3470,7 +3949,8 @@ export type ToolsFileSystemConfiguration =
  */
 export namespace ToolsFileSystemConfiguration {
   /**
-   * <p>The configuration for mounting your own Amazon Simple Storage Service (Amazon S3) Files access point into the session.</p>
+   * The configuration for mounting your own Amazon Simple Storage Service (Amazon S3) Files access point into the session.
+   *
    * @public
    */
   export interface S3FilesConfigurationMember {
@@ -3480,7 +3960,8 @@ export namespace ToolsFileSystemConfiguration {
   }
 
   /**
-   * <p>The configuration for mounting your own Amazon Elastic File System (Amazon EFS) access point into the session.</p>
+   * The configuration for mounting your own Amazon Elastic File System (Amazon EFS) access point into the session.
+   *
    * @public
    */
   export interface EfsConfigurationMember {
@@ -3510,36 +3991,42 @@ export namespace ToolsFileSystemConfiguration {
 }
 
 /**
- * <p>The network configuration for a browser. This structure defines how the browser connects to the network.</p>
+ * The network configuration for a browser. This structure defines how the browser connects to the network.
+ *
  * @public
  */
 export interface BrowserNetworkConfiguration {
   /**
-   * <p>The network mode for the browser. This field specifies how the browser connects to the network.</p>
+   * The network mode for the browser. This field specifies how the browser connects to the network.
+   *
    * @public
    */
   networkMode: BrowserNetworkMode | undefined;
 
   /**
-   * <p>The VPC configuration for the browser. This configuration is required when the network mode is set to <code>VPC</code>.</p>
+   * The VPC configuration for the browser. This configuration is required when the network mode is set to `VPC`.
+   *
    * @public
    */
   vpcConfig?: VpcConfig | undefined;
 }
 
 /**
- * <p>The recording configuration for a browser. This structure defines how browser sessions are recorded.</p>
+ * The recording configuration for a browser. This structure defines how browser sessions are recorded.
+ *
  * @public
  */
 export interface RecordingConfig {
   /**
-   * <p>Indicates whether recording is enabled for the browser. When set to true, browser sessions are recorded.</p>
+   * Indicates whether recording is enabled for the browser. When set to true, browser sessions are recorded.
+   *
    * @public
    */
   enabled?: boolean | undefined;
 
   /**
-   * <p>The Amazon S3 location where browser recordings are stored. This location contains the recorded browser sessions.</p>
+   * The Amazon S3 location where browser recordings are stored. This location contains the recorded browser sessions.
+   *
    * @public
    */
   s3Location?: S3Location | undefined;
@@ -3550,67 +4037,78 @@ export interface RecordingConfig {
  */
 export interface CreateBrowserRequest {
   /**
-   * <p>The name of the browser. The name must be unique within your account.</p>
+   * The name of the browser. The name must be unique within your account.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the browser.</p>
+   * The description of the browser.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that provides permissions for the browser to access Amazon Web Services services.</p>
+   * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the browser to access Amazon Web Services services.
+   *
    * @public
    */
   executionRoleArn?: string | undefined;
 
   /**
-   * <p>The network configuration for the browser. This configuration specifies the network mode for the browser.</p>
+   * The network configuration for the browser. This configuration specifies the network mode for the browser.
+   *
    * @public
    */
   networkConfiguration: BrowserNetworkConfiguration | undefined;
 
   /**
-   * <p>The recording configuration for the browser. When enabled, browser sessions are recorded and stored in the specified Amazon S3 location.</p>
+   * The recording configuration for the browser. When enabled, browser sessions are recorded and stored in the specified Amazon S3 location.
+   *
    * @public
    */
   recording?: RecordingConfig | undefined;
 
   /**
-   * <p>The browser signing configuration that enables cryptographic agent identification using HTTP message signatures for web bot authentication.</p>
+   * The browser signing configuration that enables cryptographic agent identification using HTTP message signatures for web bot authentication.
+   *
    * @public
    */
   browserSigning?: BrowserSigningConfigInput | undefined;
 
   /**
-   * <p>A list of enterprise policy files for the browser.</p>
+   * A list of enterprise policy files for the browser.
+   *
    * @public
    */
   enterprisePolicies?: BrowserEnterprisePolicy[] | undefined;
 
   /**
-   * <p>A list of certificates to install in the browser.</p>
+   * A list of certificates to install in the browser.
+   *
    * @public
    */
   certificates?: Certificate[] | undefined;
 
   /**
-   * <p>The file system configurations to mount into the browser. Use these configurations to mount your own Amazon Simple Storage Service (Amazon S3) Files or Amazon Elastic File System (Amazon EFS) access points. Your sessions can then access your data. If you don't specify this field, no file systems are mounted.</p>
+   * The file system configurations to mount into the browser. Use these configurations to mount your own Amazon Simple Storage Service (Amazon S3) Files or Amazon Elastic File System (Amazon EFS) access points. Your sessions can then access your data. If you don't specify this field, no file systems are mounted.
+   *
    * @public
    */
   filesystemConfigurations?: ToolsFileSystemConfiguration[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock AgentCore ignores the request but does not return an error.</p>
+   * A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock AgentCore ignores the request but does not return an error.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>A map of tag keys and values to assign to the browser. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
+   * A map of tag keys and values to assign to the browser. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -3621,25 +4119,29 @@ export interface CreateBrowserRequest {
  */
 export interface CreateBrowserResponse {
   /**
-   * <p>The unique identifier of the created browser.</p>
+   * The unique identifier of the created browser.
+   *
    * @public
    */
   browserId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the created browser.</p>
+   * The Amazon Resource Name (ARN) of the created browser.
+   *
    * @public
    */
   browserArn: string | undefined;
 
   /**
-   * <p>The timestamp when the browser was created.</p>
+   * The timestamp when the browser was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The current status of the browser.</p>
+   * The current status of the browser.
+   *
    * @public
    */
   status: BrowserStatus | undefined;
@@ -3650,13 +4152,15 @@ export interface CreateBrowserResponse {
  */
 export interface DeleteBrowserRequest {
   /**
-   * <p>The unique identifier of the browser to delete.</p>
+   * The unique identifier of the browser to delete.
+   *
    * @public
    */
   browserId: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * A unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -3667,19 +4171,22 @@ export interface DeleteBrowserRequest {
  */
 export interface DeleteBrowserResponse {
   /**
-   * <p>The unique identifier of the deleted browser.</p>
+   * The unique identifier of the deleted browser.
+   *
    * @public
    */
   browserId: string | undefined;
 
   /**
-   * <p>The current status of the browser deletion.</p>
+   * The current status of the browser deletion.
+   *
    * @public
    */
   status: BrowserStatus | undefined;
 
   /**
-   * <p>The timestamp when the browser was last updated.</p>
+   * The timestamp when the browser was last updated.
+   *
    * @public
    */
   lastUpdatedAt: Date | undefined;
@@ -3690,19 +4197,22 @@ export interface DeleteBrowserResponse {
  */
 export interface GetBrowserRequest {
   /**
-   * <p>The unique identifier of the browser to retrieve.</p>
+   * The unique identifier of the browser to retrieve.
+   *
    * @public
    */
   browserId: string | undefined;
 }
 
 /**
- * <p>The current browser signing configuration that shows whether cryptographic agent identification is enabled for web bot authentication.</p>
+ * The current browser signing configuration that shows whether cryptographic agent identification is enabled for web bot authentication.
+ *
  * @public
  */
 export interface BrowserSigningConfigOutput {
   /**
-   * <p>Indicates whether browser signing is currently enabled for cryptographic agent identification using HTTP message signatures.</p>
+   * Indicates whether browser signing is currently enabled for cryptographic agent identification using HTTP message signatures.
+   *
    * @public
    */
   enabled: boolean | undefined;
@@ -3713,91 +4223,106 @@ export interface BrowserSigningConfigOutput {
  */
 export interface GetBrowserResponse {
   /**
-   * <p>The unique identifier of the browser.</p>
+   * The unique identifier of the browser.
+   *
    * @public
    */
   browserId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the browser.</p>
+   * The Amazon Resource Name (ARN) of the browser.
+   *
    * @public
    */
   browserArn: string | undefined;
 
   /**
-   * <p>The name of the browser.</p>
+   * The name of the browser.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the browser.</p>
+   * The description of the browser.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The IAM role ARN that provides permissions for the browser.</p>
+   * The IAM role ARN that provides permissions for the browser.
+   *
    * @public
    */
   executionRoleArn?: string | undefined;
 
   /**
-   * <p>The network configuration for a browser. This structure defines how the browser connects to the network.</p>
+   * The network configuration for a browser. This structure defines how the browser connects to the network.
+   *
    * @public
    */
   networkConfiguration: BrowserNetworkConfiguration | undefined;
 
   /**
-   * <p>The recording configuration for a browser. This structure defines how browser sessions are recorded.</p>
+   * The recording configuration for a browser. This structure defines how browser sessions are recorded.
+   *
    * @public
    */
   recording?: RecordingConfig | undefined;
 
   /**
-   * <p>The browser signing configuration that shows whether cryptographic agent identification is enabled for web bot authentication.</p>
+   * The browser signing configuration that shows whether cryptographic agent identification is enabled for web bot authentication.
+   *
    * @public
    */
   browserSigning?: BrowserSigningConfigOutput | undefined;
 
   /**
-   * <p>The list of enterprise policy files configured for the browser.</p>
+   * The list of enterprise policy files configured for the browser.
+   *
    * @public
    */
   enterprisePolicies?: BrowserEnterprisePolicy[] | undefined;
 
   /**
-   * <p>The list of certificates configured for the browser.</p>
+   * The list of certificates configured for the browser.
+   *
    * @public
    */
   certificates?: Certificate[] | undefined;
 
   /**
-   * <p>The file system configurations mounted into the browser. Each entry describes an access point and its mount path.</p>
+   * The file system configurations mounted into the browser. Each entry describes an access point and its mount path.
+   *
    * @public
    */
   filesystemConfigurations?: ToolsFileSystemConfiguration[] | undefined;
 
   /**
-   * <p>The current status of the browser.</p>
+   * The current status of the browser.
+   *
    * @public
    */
   status: BrowserStatus | undefined;
 
   /**
-   * <p>The reason for failure if the browser is in a failed state.</p>
+   * The reason for failure if the browser is in a failed state.
+   *
    * @public
    */
   failureReason?: string | undefined;
 
   /**
-   * <p>The timestamp when the browser was created.</p>
+   * The timestamp when the browser was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the browser was last updated.</p>
+   * The timestamp when the browser was last updated.
+   *
    * @public
    */
   lastUpdatedAt: Date | undefined;
@@ -3808,67 +4333,78 @@ export interface GetBrowserResponse {
  */
 export interface ListBrowsersRequest {
   /**
-   * <p>The maximum number of results to return in a single call. The default value is 10. The maximum value is 50.</p>
+   * The maximum number of results to return in a single call. The default value is 10. The maximum value is 50.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The type of browsers to list. If not specified, all browser types are returned.</p>
+   * The type of browsers to list. If not specified, all browser types are returned.
+   *
    * @public
    */
   type?: ResourceType | undefined;
 }
 
 /**
- * <p>Contains summary information about a browser. A browser enables Amazon Bedrock AgentCore Agent to interact with web content.</p>
+ * Contains summary information about a browser. A browser enables Amazon Bedrock AgentCore Agent to interact with web content.
+ *
  * @public
  */
 export interface BrowserSummary {
   /**
-   * <p>The unique identifier of the browser.</p>
+   * The unique identifier of the browser.
+   *
    * @public
    */
   browserId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the browser.</p>
+   * The Amazon Resource Name (ARN) of the browser.
+   *
    * @public
    */
   browserArn: string | undefined;
 
   /**
-   * <p>The name of the browser.</p>
+   * The name of the browser.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The description of the browser.</p>
+   * The description of the browser.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The current status of the browser.</p>
+   * The current status of the browser.
+   *
    * @public
    */
   status: BrowserStatus | undefined;
 
   /**
-   * <p>The timestamp when the browser was created.</p>
+   * The timestamp when the browser was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the browser was last updated.</p>
+   * The timestamp when the browser was last updated.
+   *
    * @public
    */
   lastUpdatedAt?: Date | undefined;
@@ -3879,224 +4415,261 @@ export interface BrowserSummary {
  */
 export interface ListBrowsersResponse {
   /**
-   * <p>The list of browser summaries.</p>
+   * The list of browser summaries.
+   *
    * @public
    */
   browserSummaries: BrowserSummary[] | undefined;
 
   /**
-   * <p>A token to retrieve the next page of results.</p>
+   * A token to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Information about the target Capacity Reservation or Capacity Reservation group for the instances.</p>
+ * Information about the target Capacity Reservation or Capacity Reservation group for the instances.
+ *
  * @public
  */
 export interface CapacityReservationTarget {
   /**
-   * <p>The ID of the Capacity Reservation in which to run the instances.</p>
+   * The ID of the Capacity Reservation in which to run the instances.
+   *
    * @public
    */
   capacityReservationId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Capacity Reservation resource group in which to run the instances.</p>
+   * The Amazon Resource Name (ARN) of the Capacity Reservation resource group in which to run the instances.
+   *
    * @public
    */
   capacityReservationResourceGroupArn?: string | undefined;
 }
 
 /**
- * <p>The Capacity Reservation targeting option for the instances.</p>
+ * The Capacity Reservation targeting option for the instances.
+ *
  * @public
  */
 export interface CapacityReservationSpecification {
   /**
-   * <p>The Capacity Reservation preference for the instances.</p>
+   * The Capacity Reservation preference for the instances.
+   *
    * @public
    */
   capacityReservationPreference?: CapacityReservationPreference | undefined;
 
   /**
-   * <p>The target Capacity Reservation or Capacity Reservation group for the instances.</p>
+   * The target Capacity Reservation or Capacity Reservation group for the instances.
+   *
    * @public
    */
   capacityReservationTarget?: CapacityReservationTarget | undefined;
 }
 
 /**
- * <p>The shared Amazon EBS performance and encryption properties for a volume. These properties are common across the different volume configurations for a capacity provider.</p>
+ * The shared Amazon EBS performance and encryption properties for a volume. These properties are common across the different volume configurations for a capacity provider.
+ *
  * @public
  */
 export interface EphemeralEBSVolumeConfiguration {
   /**
-   * <p>The Amazon EBS volume type. If you do not specify a type, the default is <code>gp3</code>.</p>
+   * The Amazon EBS volume type. If you do not specify a type, the default is `gp3`.
+   *
    * @public
    */
   volumeType?: EbsVolumeType | undefined;
 
   /**
-   * <p>The number of IOPS to provision. For <code>gp3</code>, <code>io1</code>, and <code>io2</code> volumes, this is the number of IOPS provisioned for the volume. For <code>gp2</code> volumes, this sets the baseline IOPS performance. It also controls the rate at which the volume accumulates I/O credits for bursting. Supported values: <code>gp3</code>, 3,000–80,000; <code>io1</code>, 100–64,000; <code>io2</code>, 100–256,000.</p>
+   * The number of IOPS to provision. For `gp3`, `io1`, and `io2` volumes, this is the number of IOPS provisioned for the volume. For `gp2` volumes, this sets the baseline IOPS performance. It also controls the rate at which the volume accumulates I/O credits for bursting. Supported values: `gp3`, 3,000–80,000; `io1`, 100–64,000; `io2`, 100–256,000.
+   *
    * @public
    */
   iops?: number | undefined;
 
   /**
-   * <p>The throughput to provision, in MiB/s. Valid only for <code>gp3</code> volumes. Valid range: 125–2,000 MiB/s.</p>
+   * The throughput to provision, in MiB/s. Valid only for `gp3` volumes. Valid range: 125–2,000 MiB/s.
+   *
    * @public
    */
   throughput?: number | undefined;
 
   /**
-   * <p>Specifies whether to encrypt the volume. Encrypted volumes can be attached only to instances that support Amazon EBS encryption. If you create a volume from a snapshot, you cannot specify an encryption value.</p>
+   * Specifies whether to encrypt the volume. Encrypted volumes can be attached only to instances that support Amazon EBS encryption. If you create a volume from a snapshot, you cannot specify an encryption value.
+   *
    * @public
    */
   encrypted?: boolean | undefined;
 
   /**
-   * <p>The identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for Amazon EBS encryption.</p>
+   * The identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for Amazon EBS encryption.
+   *
    * @public
    */
   kmsKeyId?: string | undefined;
 
   /**
-   * <p>The ID of the snapshot.</p>
+   * The ID of the snapshot.
+   *
    * @public
    */
   snapshotId?: string | undefined;
 
   /**
-   * <p>The size of the volume, in GiB. You must specify either a snapshot ID or a volume size. Supported sizes: <code>gp2</code>, 1–16,384; <code>gp3</code>, 1–65,536; <code>io1</code>, 4–16,384; <code>io2</code>, 4–65,536.</p>
+   * The size of the volume, in GiB. You must specify either a snapshot ID or a volume size. Supported sizes: `gp2`, 1–16,384; `gp3`, 1–65,536; `io1`, 4–16,384; `io2`, 4–65,536.
+   *
    * @public
    */
   volumeSize?: number | undefined;
 
   /**
-   * <p>The rate at which the volume is initialized after creation, in MiB/s. Supported only for volumes created from snapshots. Valid range: 100–300 MiB/s.</p>
+   * The rate at which the volume is initialized after creation, in MiB/s. Supported only for volumes created from snapshots. Valid range: 100–300 MiB/s.
+   *
    * @public
    */
   volumeInitializationRate?: number | undefined;
 
   /**
-   * <p>The index of the Amazon EBS card. Applies to instances with multiple Amazon EBS cards.</p>
+   * The index of the Amazon EBS card. Applies to instances with multiple Amazon EBS cards.
+   *
    * @public
    */
   ebsCardIndex?: number | undefined;
 }
 
 /**
- * <p>A block device mapping for an instance store (ephemeral) volume.</p>
+ * A block device mapping for an instance store (ephemeral) volume.
+ *
  * @public
  */
 export interface EphemeralBlockDeviceMapping {
   /**
-   * <p>The device name, for example <code>/dev/sdh</code> or <code>xvdh</code>.</p>
+   * The device name, for example `/dev/sdh` or `xvdh`.
+   *
    * @public
    */
   deviceName?: string | undefined;
 
   /**
-   * <p>The virtual device name (<code>ephemeralN</code>). Instance store volumes are numbered starting from 0. The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.</p>
+   * The virtual device name (`ephemeralN`). Instance store volumes are numbered starting from 0. The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
+   *
    * @public
    */
   virtualName?: string | undefined;
 
   /**
-   * <p>The shared Amazon EBS performance and encryption properties for a volume. These properties are common across the different volume configurations for a capacity provider.</p>
+   * The shared Amazon EBS performance and encryption properties for a volume. These properties are common across the different volume configurations for a capacity provider.
+   *
    * @public
    */
   ebs?: EphemeralEBSVolumeConfiguration | undefined;
 }
 
 /**
- * <p>The requirements for Amazon EC2 instance types in a capacity provider.</p>
+ * The requirements for Amazon EC2 instance types in a capacity provider.
+ *
  * @public
  */
 export interface InstanceRequirements {
   /**
-   * <p>The list of allowed instance types. You can specify up to 30 instance types.</p>
+   * The list of allowed instance types. You can specify up to 30 instance types.
+   *
    * @public
    */
   allowedInstanceTypes: string[] | undefined;
 }
 
 /**
- * <p>A license configuration to associate with the instances.</p>
+ * A license configuration to associate with the instances.
+ *
  * @public
  */
 export interface LicenseSpecification {
   /**
-   * <p>The Amazon Resource Name (ARN) of the license configuration.</p>
+   * The Amazon Resource Name (ARN) of the license configuration.
+   *
    * @public
    */
   licenseConfigurationArn: string | undefined;
 }
 
 /**
- * <p>The parameters for launching Amazon EC2 instances in a capacity provider.</p>
+ * The parameters for launching Amazon EC2 instances in a capacity provider.
+ *
  * @public
  */
 export interface LaunchParameters {
   /**
-   * <p>The operating system and CPU architecture for the instances.</p>
+   * The operating system and CPU architecture for the instances.
+   *
    * @public
    */
   operatingSystem: OperatingSystem | undefined;
 
   /**
-   * <p>The requirements that determine which instance types can be launched.</p>
+   * The requirements that determine which instance types can be launched.
+   *
    * @public
    */
   instanceRequirements: InstanceRequirements | undefined;
 
   /**
-   * <p>The block device mappings for instance store (ephemeral) volumes. You can specify up to five mappings.</p>
+   * The block device mappings for instance store (ephemeral) volumes. You can specify up to five mappings.
+   *
    * @public
    */
   ephemeralVolumes?: EphemeralBlockDeviceMapping[] | undefined;
 
   /**
-   * <p>The monitoring level for the instances.</p>
+   * The monitoring level for the instances.
+   *
    * @public
    */
   monitoring?: Monitoring | undefined;
 
   /**
-   * <p>The license configurations to associate with the instances. You can specify up to five configurations.</p>
+   * The license configurations to associate with the instances. You can specify up to five configurations.
+   *
    * @public
    */
   licenseSpecifications?: LicenseSpecification[] | undefined;
 
   /**
-   * <p>The Capacity Reservation targeting option for the instances.</p>
+   * The Capacity Reservation targeting option for the instances.
+   *
    * @public
    */
   capacityReservationSpecification?: CapacityReservationSpecification | undefined;
 
   /**
-   * <p>The name of the SSH key pair to configure on the instances for SSH connectivity.</p>
+   * The name of the SSH key pair to configure on the instances for SSH connectivity.
+   *
    * @public
    */
   sshKeyName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM instance profile to associate with launched instances. If provided, this overrides the default instance profile.</p>
+   * The Amazon Resource Name (ARN) of the IAM instance profile to associate with launched instances. If provided, this overrides the default instance profile.
+   *
    * @public
    */
   instanceProfileArn?: string | undefined;
 
   /**
-   * <p>The tags to propagate to all Amazon EC2 resources (instances, volumes, and network interfaces) that the capacity provider creates.</p>
+   * The tags to propagate to all Amazon EC2 resources (instances, volumes, and network interfaces) that the capacity provider creates.
+   *
    * @public
    */
   propagatedTags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>The source of the launch template configuration for a capacity provider. The <code>launchParameters</code> member specifies the operating system, instance requirements, and other settings used to launch instances.</p>
+ * The source of the launch template configuration for a capacity provider. The `launchParameters` member specifies the operating system, instance requirements, and other settings used to launch instances.
+ *
  * @public
  */
 export type LaunchTemplateSource =
@@ -4108,7 +4681,8 @@ export type LaunchTemplateSource =
  */
 export namespace LaunchTemplateSource {
   /**
-   * <p>The parameters that AgentCore uses to create the launch template.</p>
+   * The parameters that AgentCore uses to create the launch template.
+   *
    * @public
    */
   export interface LaunchParametersMember {
@@ -4135,121 +4709,141 @@ export namespace LaunchTemplateSource {
 }
 
 /**
- * <p>The configuration that manages the lifecycle of instances in a capacity provider, including idle timeout and maximum lifetime.</p>
+ * The configuration that manages the lifecycle of instances in a capacity provider, including idle timeout and maximum lifetime.
+ *
  * @public
  */
 export interface InstanceLifecycleConfiguration {
   /**
-   * <p>The number of seconds an instance can remain idle before it is stopped. An instance is considered idle when all of its agents are idle. The default is 900 seconds (15 minutes).</p>
+   * The number of seconds an instance can remain idle before it is stopped. An instance is considered idle when all of its agents are idle. The default is 900 seconds (15 minutes).
+   *
    * @public
    */
   idleInstanceTimeout?: number | undefined;
 
   /**
-   * <p>The maximum lifetime of an instance, in seconds. When an instance reaches this limit, the service terminates it regardless of activity. The default is 28800 seconds (8 hours). The maximum is 1209600 seconds (14 days).</p>
+   * The maximum lifetime of an instance, in seconds. When an instance reaches this limit, the service terminates it regardless of activity. The default is 28800 seconds (8 hours). The maximum is 1209600 seconds (14 days).
+   *
    * @public
    */
   maxLifetime?: number | undefined;
 }
 
 /**
- * <p>The configuration for the root volume of a capacity provider instance. Specify the amount of free space to guarantee on the root volume. The device name and delete-on-termination settings are fixed and cannot be changed.</p>
+ * The configuration for the root volume of a capacity provider instance. Specify the amount of free space to guarantee on the root volume. The device name and delete-on-termination settings are fixed and cannot be changed.
+ *
  * @public
  */
 export interface RootVolumeConfiguration {
   /**
-   * <p>The Amazon EBS volume type. If you do not specify a type, the default is <code>gp3</code>.</p>
+   * The Amazon EBS volume type. If you do not specify a type, the default is `gp3`.
+   *
    * @public
    */
   volumeType?: EbsVolumeType | undefined;
 
   /**
-   * <p>The number of IOPS to provision. For <code>gp3</code>, <code>io1</code>, and <code>io2</code> volumes, this is the number of IOPS provisioned for the volume. For <code>gp2</code> volumes, this sets the baseline IOPS performance. It also controls the rate at which the volume accumulates I/O credits for bursting. Supported values: <code>gp3</code>, 3,000–80,000; <code>io1</code>, 100–64,000; <code>io2</code>, 100–256,000.</p>
+   * The number of IOPS to provision. For `gp3`, `io1`, and `io2` volumes, this is the number of IOPS provisioned for the volume. For `gp2` volumes, this sets the baseline IOPS performance. It also controls the rate at which the volume accumulates I/O credits for bursting. Supported values: `gp3`, 3,000–80,000; `io1`, 100–64,000; `io2`, 100–256,000.
+   *
    * @public
    */
   iops?: number | undefined;
 
   /**
-   * <p>The throughput to provision, in MiB/s. Valid only for <code>gp3</code> volumes. Valid range: 125–2,000 MiB/s.</p>
+   * The throughput to provision, in MiB/s. Valid only for `gp3` volumes. Valid range: 125–2,000 MiB/s.
+   *
    * @public
    */
   throughput?: number | undefined;
 
   /**
-   * <p>Specifies whether to encrypt the volume. Encrypted volumes can be attached only to instances that support Amazon EBS encryption. If you create a volume from a snapshot, you cannot specify an encryption value.</p>
+   * Specifies whether to encrypt the volume. Encrypted volumes can be attached only to instances that support Amazon EBS encryption. If you create a volume from a snapshot, you cannot specify an encryption value.
+   *
    * @public
    */
   encrypted?: boolean | undefined;
 
   /**
-   * <p>The identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for Amazon EBS encryption.</p>
+   * The identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for Amazon EBS encryption.
+   *
    * @public
    */
   kmsKeyId?: string | undefined;
 
   /**
-   * <p>The free space guaranteed on the root volume, in GiB. AgentCore adds the operating system overhead on top of this value. The default is 8 GiB.</p>
+   * The free space guaranteed on the root volume, in GiB. AgentCore adds the operating system overhead on top of this value. The default is 8 GiB.
+   *
    * @public
    */
   freeSpaceGiB?: number | undefined;
 }
 
 /**
- * <p>The configuration for an Amazon EBS-backed persistent volume. The service creates persistent volumes when a session first launches, and the volumes survive instance termination. The volumes persist until you delete the session.</p>
+ * The configuration for an Amazon EBS-backed persistent volume. The service creates persistent volumes when a session first launches, and the volumes survive instance termination. The volumes persist until you delete the session.
+ *
  * @public
  */
 export interface EbsVolumeConfiguration {
   /**
-   * <p>The logical name of the volume. Use this name to reference the volume when you mount it into an agent runtime.</p>
+   * The logical name of the volume. Use this name to reference the volume when you mount it into an agent runtime.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The size of the volume, in GiB.</p>
+   * The size of the volume, in GiB.
+   *
    * @public
    */
   sizeGiB: number | undefined;
 
   /**
-   * <p>The Amazon EBS volume type. If you do not specify a type, the default is <code>gp3</code>.</p>
+   * The Amazon EBS volume type. If you do not specify a type, the default is `gp3`.
+   *
    * @public
    */
   volumeType?: EbsVolumeType | undefined;
 
   /**
-   * <p>The number of IOPS to provision. Valid only for <code>gp3</code>, <code>io1</code>, and <code>io2</code> volumes.</p>
+   * The number of IOPS to provision. Valid only for `gp3`, `io1`, and `io2` volumes.
+   *
    * @public
    */
   iops?: number | undefined;
 
   /**
-   * <p>The throughput, in MiB/s. Valid only for <code>gp3</code> volumes.</p>
+   * The throughput, in MiB/s. Valid only for `gp3` volumes.
+   *
    * @public
    */
   throughput?: number | undefined;
 
   /**
-   * <p>Specifies whether to encrypt the volume. If <code>true</code>, the service encrypts the volume with the KMS key that you specify in <code>kmsKeyId</code>, or the default KMS key for Amazon EBS if you do not specify one. The default is <code>true</code>.</p>
+   * Specifies whether to encrypt the volume. If `true`, the service encrypts the volume with the KMS key that you specify in `kmsKeyId`, or the default KMS key for Amazon EBS if you do not specify one. The default is `true`.
+   *
    * @public
    */
   encrypted?: boolean | undefined;
 
   /**
-   * <p>The identifier of the KMS key to use for encryption.</p>
+   * The identifier of the KMS key to use for encryption.
+   *
    * @public
    */
   kmsKeyId?: string | undefined;
 
   /**
-   * <p>An optional Amazon EBS snapshot ID. If provided, the volume is initialized from this snapshot the first time it is created. On subsequent restarts, the existing volume is used and the snapshot is ignored.</p>
+   * An optional Amazon EBS snapshot ID. If provided, the volume is initialized from this snapshot the first time it is created. On subsequent restarts, the existing volume is used and the snapshot is ignored.
+   *
    * @public
    */
   snapshotId?: string | undefined;
 }
 
 /**
- * <p>The configuration for a persistent volume attached to a capacity provider. This structure defines the storage backing for the persistent volumes used by agents that run on capacity provider instances.</p>
+ * The configuration for a persistent volume attached to a capacity provider. This structure defines the storage backing for the persistent volumes used by agents that run on capacity provider instances.
+ *
  * @public
  */
 export type VolumeConfiguration =
@@ -4261,7 +4855,8 @@ export type VolumeConfiguration =
  */
 export namespace VolumeConfiguration {
   /**
-   * <p>The configuration for an Amazon EBS-backed persistent volume.</p>
+   * The configuration for an Amazon EBS-backed persistent volume.
+   *
    * @public
    */
   export interface EbsConfigurationMember {
@@ -4288,61 +4883,71 @@ export namespace VolumeConfiguration {
 }
 
 /**
- * <p>The VPC configuration for launching Amazon EC2 instances.</p>
+ * The VPC configuration for launching Amazon EC2 instances.
+ *
  * @public
  */
 export interface VpcConfiguration {
   /**
-   * <p>The IDs of the subnets in which to launch instances. You must specify at least one subnet.</p>
+   * The IDs of the subnets in which to launch instances. You must specify at least one subnet.
+   *
    * @public
    */
   subnets: string[] | undefined;
 
   /**
-   * <p>The IDs of the security groups to associate with the instances. You must specify at least one security group.</p>
+   * The IDs of the security groups to associate with the instances. You must specify at least one security group.
+   *
    * @public
    */
   securityGroups: string[] | undefined;
 }
 
 /**
- * <p>The configuration for Amazon EC2-based compute, including the launch template source, networking, storage volumes, and instance lifecycle settings.</p>
+ * The configuration for Amazon EC2-based compute, including the launch template source, networking, storage volumes, and instance lifecycle settings.
+ *
  * @public
  */
 export interface Ec2Configuration {
   /**
-   * <p>The source of the launch template configuration that defines how instances are launched.</p>
+   * The source of the launch template configuration that defines how instances are launched.
+   *
    * @public
    */
   launchTemplateSource: LaunchTemplateSource | undefined;
 
   /**
-   * <p>The VPC configuration for launching instances, including subnets and security groups.</p>
+   * The VPC configuration for launching instances, including subnets and security groups.
+   *
    * @public
    */
   vpcConfiguration: VpcConfiguration | undefined;
 
   /**
-   * <p>The named persistent Amazon EBS volumes for the capacity provider. A capacity provider can define up to five volumes.</p>
+   * The named persistent Amazon EBS volumes for the capacity provider. A capacity provider can define up to five volumes.
+   *
    * @public
    */
   volumes?: VolumeConfiguration[] | undefined;
 
   /**
-   * <p>The lifecycle configuration for instances in the capacity provider.</p>
+   * The lifecycle configuration for instances in the capacity provider.
+   *
    * @public
    */
   lifecycleConfiguration?: InstanceLifecycleConfiguration | undefined;
 
   /**
-   * <p>The configuration for the instance root volume. Specify the amount of free space to guarantee and, optionally, the Amazon EBS performance and encryption settings. The device name and delete-on-termination behavior are not configurable.</p>
+   * The configuration for the instance root volume. Specify the amount of free space to guarantee and, optionally, the Amazon EBS performance and encryption settings. The device name and delete-on-termination behavior are not configurable.
+   *
    * @public
    */
   rootVolume?: RootVolumeConfiguration | undefined;
 }
 
 /**
- * <p>The compute configuration for a capacity provider. This structure defines the type and settings of the compute resources used to launch instances.</p>
+ * The compute configuration for a capacity provider. This structure defines the type and settings of the compute resources used to launch instances.
+ *
  * @public
  */
 export type ComputeConfiguration =
@@ -4354,7 +4959,8 @@ export type ComputeConfiguration =
  */
 export namespace ComputeConfiguration {
   /**
-   * <p>The Amazon EC2 compute configuration for the capacity provider.</p>
+   * The Amazon EC2 compute configuration for the capacity provider.
+   *
    * @public
    */
   export interface Ec2ConfigurationMember {
@@ -4381,12 +4987,14 @@ export namespace ComputeConfiguration {
 }
 
 /**
- * <p>The permissions configuration for a capacity provider. This specifies the IAM role that AgentCore uses to manage the Amazon EC2 instances for the capacity provider on your behalf.</p>
+ * The permissions configuration for a capacity provider. This specifies the IAM role that AgentCore uses to manage the Amazon EC2 instances for the capacity provider on your behalf.
+ *
  * @public
  */
 export interface PermissionsConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that AgentCore assumes to manage the capacity provider, including launching, tagging, and terminating instances and their network interfaces. We recommend scoping this role to the minimum permissions that your workloads require.</p>
+   * The Amazon Resource Name (ARN) of the IAM role that AgentCore assumes to manage the capacity provider, including launching, tagging, and terminating instances and their network interfaces. We recommend scoping this role to the minimum permissions that your workloads require.
+   *
    * @public
    */
   capacityProviderOperatorRoleArn: string | undefined;
@@ -4397,37 +5005,43 @@ export interface PermissionsConfiguration {
  */
 export interface CreateCapacityProviderInput {
   /**
-   * <p>The name of the capacity provider. The name must be unique within your account.</p>
+   * The name of the capacity provider. The name must be unique within your account.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>An optional description of the capacity provider. If you don't specify a description, the service creates the capacity provider without one.</p>
+   * An optional description of the capacity provider. If you don't specify a description, the service creates the capacity provider without one.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The permissions configuration for the capacity provider. This specifies the IAM role that AgentCore uses to manage the Amazon EC2 instances on your behalf.</p>
+   * The permissions configuration for the capacity provider. This specifies the IAM role that AgentCore uses to manage the Amazon EC2 instances on your behalf.
+   *
    * @public
    */
   permissionsConfiguration: PermissionsConfiguration | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>A map of tag keys and values to associate with the capacity provider. If you don't specify tags, the capacity provider is created with no tags.</p>
+   * A map of tag keys and values to associate with the capacity provider. If you don't specify tags, the capacity provider is created with no tags.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The compute configuration for the capacity provider. This defines the Amazon EC2 compute resources used to launch instances: the operating system, allowed instance types, networking, and storage.</p>
+   * The compute configuration for the capacity provider. This defines the Amazon EC2 compute resources used to launch instances: the operating system, allowed instance types, networking, and storage.
+   *
    * @public
    */
   computeConfiguration: ComputeConfiguration | undefined;
@@ -4438,25 +5052,29 @@ export interface CreateCapacityProviderInput {
  */
 export interface CreateCapacityProviderOutput {
   /**
-   * <p>The unique identifier of the created capacity provider.</p>
+   * The unique identifier of the created capacity provider.
+   *
    * @public
    */
   capacityProviderId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the capacity provider.</p>
+   * The Amazon Resource Name (ARN) of the capacity provider.
+   *
    * @public
    */
   capacityProviderArn: string | undefined;
 
   /**
-   * <p>The name of the capacity provider.</p>
+   * The name of the capacity provider.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The current status of the capacity provider. For possible values, see <code>CapacityProviderStatus</code>.</p>
+   * The current status of the capacity provider. For possible values, see `CapacityProviderStatus`.
+   *
    * @public
    */
   status: CapacityProviderStatus | undefined;
@@ -4467,13 +5085,15 @@ export interface CreateCapacityProviderOutput {
  */
 export interface DeleteCapacityProviderInput {
   /**
-   * <p>The unique identifier of the capacity provider to delete.</p>
+   * The unique identifier of the capacity provider to delete.
+   *
    * @public
    */
   capacityProviderId: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -4484,13 +5104,15 @@ export interface DeleteCapacityProviderInput {
  */
 export interface DeleteCapacityProviderOutput {
   /**
-   * <p>The unique identifier of the deleted capacity provider.</p>
+   * The unique identifier of the deleted capacity provider.
+   *
    * @public
    */
   capacityProviderId: string | undefined;
 
   /**
-   * <p>The current status of the capacity provider. For possible values, see <code>CapacityProviderStatus</code>.</p>
+   * The current status of the capacity provider. For possible values, see `CapacityProviderStatus`.
+   *
    * @public
    */
   status: CapacityProviderStatus | undefined;
@@ -4501,7 +5123,8 @@ export interface DeleteCapacityProviderOutput {
  */
 export interface GetCapacityProviderInput {
   /**
-   * <p>The unique identifier of the capacity provider.</p>
+   * The unique identifier of the capacity provider.
+   *
    * @public
    */
   capacityProviderId: string | undefined;
@@ -4512,67 +5135,78 @@ export interface GetCapacityProviderInput {
  */
 export interface GetCapacityProviderOutput {
   /**
-   * <p>The unique identifier of the capacity provider.</p>
+   * The unique identifier of the capacity provider.
+   *
    * @public
    */
   capacityProviderId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the capacity provider.</p>
+   * The Amazon Resource Name (ARN) of the capacity provider.
+   *
    * @public
    */
   capacityProviderArn: string | undefined;
 
   /**
-   * <p>The name of the capacity provider.</p>
+   * The name of the capacity provider.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The current status of the capacity provider. For possible values, see <code>CapacityProviderStatus</code>.</p>
+   * The current status of the capacity provider. For possible values, see `CapacityProviderStatus`.
+   *
    * @public
    */
   status: CapacityProviderStatus | undefined;
 
   /**
-   * <p>The description of the capacity provider, if one was provided.</p>
+   * The description of the capacity provider, if one was provided.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>A reason code for a capacity provider that is not in the <code>READY</code> state. Use this code for programmatic error handling.</p>
+   * A reason code for a capacity provider that is not in the `READY` state. Use this code for programmatic error handling.
+   *
    * @public
    */
   statusCode?: CapacityProviderStatusCode | undefined;
 
   /**
-   * <p>A human-readable message that describes why the capacity provider is not in the <code>READY</code> state. Because these messages can change, use <code>statusCode</code> for programmatic error handling.</p>
+   * A human-readable message that describes why the capacity provider is not in the `READY` state. Because these messages can change, use `statusCode` for programmatic error handling.
+   *
    * @public
    */
   statusReason?: string | undefined;
 
   /**
-   * <p>The permissions configuration for the capacity provider.</p>
+   * The permissions configuration for the capacity provider.
+   *
    * @public
    */
   permissionsConfiguration: PermissionsConfiguration | undefined;
 
   /**
-   * <p>The compute configuration for the capacity provider.</p>
+   * The compute configuration for the capacity provider.
+   *
    * @public
    */
   computeConfiguration: ComputeConfiguration | undefined;
 
   /**
-   * <p>The timestamp when the capacity provider was created.</p>
+   * The timestamp when the capacity provider was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the capacity provider was last updated.</p>
+   * The timestamp when the capacity provider was last updated.
+   *
    * @public
    */
   lastUpdatedAt: Date | undefined;
@@ -4583,19 +5217,22 @@ export interface GetCapacityProviderOutput {
  */
 export interface ListAgentRuntimeVersionsByCapacityProviderInput {
   /**
-   * <p>The unique identifier of the capacity provider.</p>
+   * The unique identifier of the capacity provider.
+   *
    * @public
    */
   capacityProviderId: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the `nextToken` field when making another request to return the next batch of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * If the total number of results is greater than the `maxResults` value provided in the request, enter the token returned in the `nextToken` field in the response in this field to return the next batch of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4606,13 +5243,15 @@ export interface ListAgentRuntimeVersionsByCapacityProviderInput {
  */
 export interface ListAgentRuntimeVersionsByCapacityProviderOutput {
   /**
-   * <p>The list of agent runtime versions that are associated with the capacity provider.</p>
+   * The list of agent runtime versions that are associated with the capacity provider.
+   *
    * @public
    */
   agentRuntimes: AgentRuntimeVersionSummary[] | undefined;
 
   /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * If the total number of results is greater than the `maxResults` value provided in the request, use this token when making another request in the `nextToken` field to return the next batch of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4623,49 +5262,57 @@ export interface ListAgentRuntimeVersionsByCapacityProviderOutput {
  */
 export interface ListCapacityProvidersInput {
   /**
-   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the `nextToken` field when making another request to return the next batch of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * If the total number of results is greater than the `maxResults` value provided in the request, enter the token returned in the `nextToken` field in the response in this field to return the next batch of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>A summary of a capacity provider, as returned by <code>ListCapacityProviders</code>. Each summary includes the capacity provider identifier, Amazon Resource Name (ARN), name, status, and last-updated timestamp.</p>
+ * A summary of a capacity provider, as returned by `ListCapacityProviders`. Each summary includes the capacity provider identifier, Amazon Resource Name (ARN), name, status, and last-updated timestamp.
+ *
  * @public
  */
 export interface CapacityProviderSummary {
   /**
-   * <p>The unique identifier of the capacity provider.</p>
+   * The unique identifier of the capacity provider.
+   *
    * @public
    */
   capacityProviderId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the capacity provider.</p>
+   * The Amazon Resource Name (ARN) of the capacity provider.
+   *
    * @public
    */
   capacityProviderArn: string | undefined;
 
   /**
-   * <p>The name of the capacity provider.</p>
+   * The name of the capacity provider.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The current status of the capacity provider. For possible values, see <code>CapacityProviderStatus</code>.</p>
+   * The current status of the capacity provider. For possible values, see `CapacityProviderStatus`.
+   *
    * @public
    */
   status: CapacityProviderStatus | undefined;
 
   /**
-   * <p>The timestamp when the capacity provider was last updated.</p>
+   * The timestamp when the capacity provider was last updated.
+   *
    * @public
    */
   lastUpdatedAt: Date | undefined;
@@ -4676,25 +5323,29 @@ export interface CapacityProviderSummary {
  */
 export interface ListCapacityProvidersOutput {
   /**
-   * <p>The list of capacity provider summaries.</p>
+   * The list of capacity provider summaries.
+   *
    * @public
    */
   capacityProviders: CapacityProviderSummary[] | undefined;
 
   /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * If the total number of results is greater than the `maxResults` value provided in the request, use this token when making another request in the `nextToken` field to return the next batch of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Wrapper for updating an optional Description field with PATCH semantics. When present in an update request, the description is replaced with optionalValue. When absent, the description is left unchanged. To unset the description, include the wrapper with optionalValue not specified.</p>
+ * Wrapper for updating an optional Description field with PATCH semantics. When present in an update request, the description is replaced with optionalValue. When absent, the description is left unchanged. To unset the description, include the wrapper with optionalValue not specified.
+ *
  * @public
  */
 export interface UpdatedDescription {
   /**
-   * <p>Represents an optional value that is used to update the human-readable description of the resource. If not specified, it will clear the current description of the resource.</p>
+   * Represents an optional value that is used to update the human-readable description of the resource. If not specified, it will clear the current description of the resource.
+   *
    * @public
    */
   optionalValue?: string | undefined;
@@ -4705,19 +5356,22 @@ export interface UpdatedDescription {
  */
 export interface UpdateCapacityProviderInput {
   /**
-   * <p>The unique identifier of the capacity provider to update.</p>
+   * The unique identifier of the capacity provider to update.
+   *
    * @public
    */
   capacityProviderId: string | undefined;
 
   /**
-   * <p>The updated description of the capacity provider.</p>
+   * The updated description of the capacity provider.
+   *
    * @public
    */
   description?: UpdatedDescription | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -4728,55 +5382,64 @@ export interface UpdateCapacityProviderInput {
  */
 export interface UpdateCapacityProviderOutput {
   /**
-   * <p>The unique identifier of the capacity provider.</p>
+   * The unique identifier of the capacity provider.
+   *
    * @public
    */
   capacityProviderId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the capacity provider.</p>
+   * The Amazon Resource Name (ARN) of the capacity provider.
+   *
    * @public
    */
   capacityProviderArn: string | undefined;
 
   /**
-   * <p>The name of the capacity provider.</p>
+   * The name of the capacity provider.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The current status of the capacity provider. For possible values, see <code>CapacityProviderStatus</code>.</p>
+   * The current status of the capacity provider. For possible values, see `CapacityProviderStatus`.
+   *
    * @public
    */
   status: CapacityProviderStatus | undefined;
 
   /**
-   * <p>The timestamp when the capacity provider was created.</p>
+   * The timestamp when the capacity provider was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the capacity provider was last updated.</p>
+   * The timestamp when the capacity provider was last updated.
+   *
    * @public
    */
   lastUpdatedAt: Date | undefined;
 }
 
 /**
- * <p>The network configuration for a code interpreter. This structure defines how the code interpreter connects to the network.</p>
+ * The network configuration for a code interpreter. This structure defines how the code interpreter connects to the network.
+ *
  * @public
  */
 export interface CodeInterpreterNetworkConfiguration {
   /**
-   * <p>The network mode for the code interpreter. This field specifies how the code interpreter connects to the network.</p>
+   * The network mode for the code interpreter. This field specifies how the code interpreter connects to the network.
+   *
    * @public
    */
   networkMode: CodeInterpreterNetworkMode | undefined;
 
   /**
-   * <p>The VPC configuration for the code interpreter. This configuration is required when the network mode is set to <code>VPC</code>.</p>
+   * The VPC configuration for the code interpreter. This configuration is required when the network mode is set to `VPC`.
+   *
    * @public
    */
   vpcConfig?: VpcConfig | undefined;
@@ -4787,49 +5450,57 @@ export interface CodeInterpreterNetworkConfiguration {
  */
 export interface CreateCodeInterpreterRequest {
   /**
-   * <p>The name of the code interpreter. The name must be unique within your account.</p>
+   * The name of the code interpreter. The name must be unique within your account.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the code interpreter.</p>
+   * The description of the code interpreter.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that provides permissions for the code interpreter to access Amazon Web Services services.</p>
+   * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the code interpreter to access Amazon Web Services services.
+   *
    * @public
    */
   executionRoleArn?: string | undefined;
 
   /**
-   * <p>The network configuration for the code interpreter. This configuration specifies the network mode for the code interpreter.</p>
+   * The network configuration for the code interpreter. This configuration specifies the network mode for the code interpreter.
+   *
    * @public
    */
   networkConfiguration: CodeInterpreterNetworkConfiguration | undefined;
 
   /**
-   * <p>A list of certificates to install in the code interpreter.</p>
+   * A list of certificates to install in the code interpreter.
+   *
    * @public
    */
   certificates?: Certificate[] | undefined;
 
   /**
-   * <p>The file system configurations to mount into the code interpreter. Use these configurations to mount your own Amazon Simple Storage Service (Amazon S3) Files or Amazon Elastic File System (Amazon EFS) access points. Your sessions can then access your data. If you don't specify this field, no file systems are mounted.</p>
+   * The file system configurations to mount into the code interpreter. Use these configurations to mount your own Amazon Simple Storage Service (Amazon S3) Files or Amazon Elastic File System (Amazon EFS) access points. Your sessions can then access your data. If you don't specify this field, no file systems are mounted.
+   *
    * @public
    */
   filesystemConfigurations?: ToolsFileSystemConfiguration[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock AgentCore ignores the request but does not return an error.</p>
+   * A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock AgentCore ignores the request but does not return an error.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>A map of tag keys and values to assign to the code interpreter. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
+   * A map of tag keys and values to assign to the code interpreter. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -4840,25 +5511,29 @@ export interface CreateCodeInterpreterRequest {
  */
 export interface CreateCodeInterpreterResponse {
   /**
-   * <p>The unique identifier of the created code interpreter.</p>
+   * The unique identifier of the created code interpreter.
+   *
    * @public
    */
   codeInterpreterId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the created code interpreter.</p>
+   * The Amazon Resource Name (ARN) of the created code interpreter.
+   *
    * @public
    */
   codeInterpreterArn: string | undefined;
 
   /**
-   * <p>The timestamp when the code interpreter was created.</p>
+   * The timestamp when the code interpreter was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The current status of the code interpreter.</p>
+   * The current status of the code interpreter.
+   *
    * @public
    */
   status: CodeInterpreterStatus | undefined;
@@ -4869,13 +5544,15 @@ export interface CreateCodeInterpreterResponse {
  */
 export interface DeleteCodeInterpreterRequest {
   /**
-   * <p>The unique identifier of the code interpreter to delete.</p>
+   * The unique identifier of the code interpreter to delete.
+   *
    * @public
    */
   codeInterpreterId: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * A unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -4886,19 +5563,22 @@ export interface DeleteCodeInterpreterRequest {
  */
 export interface DeleteCodeInterpreterResponse {
   /**
-   * <p>The unique identifier of the deleted code interpreter.</p>
+   * The unique identifier of the deleted code interpreter.
+   *
    * @public
    */
   codeInterpreterId: string | undefined;
 
   /**
-   * <p>The current status of the code interpreter deletion.</p>
+   * The current status of the code interpreter deletion.
+   *
    * @public
    */
   status: CodeInterpreterStatus | undefined;
 
   /**
-   * <p>The timestamp when the code interpreter was last updated.</p>
+   * The timestamp when the code interpreter was last updated.
+   *
    * @public
    */
   lastUpdatedAt: Date | undefined;
@@ -4909,7 +5589,8 @@ export interface DeleteCodeInterpreterResponse {
  */
 export interface GetCodeInterpreterRequest {
   /**
-   * <p>The unique identifier of the code interpreter to retrieve.</p>
+   * The unique identifier of the code interpreter to retrieve.
+   *
    * @public
    */
   codeInterpreterId: string | undefined;
@@ -4920,73 +5601,85 @@ export interface GetCodeInterpreterRequest {
  */
 export interface GetCodeInterpreterResponse {
   /**
-   * <p>The unique identifier of the code interpreter.</p>
+   * The unique identifier of the code interpreter.
+   *
    * @public
    */
   codeInterpreterId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the code interpreter.</p>
+   * The Amazon Resource Name (ARN) of the code interpreter.
+   *
    * @public
    */
   codeInterpreterArn: string | undefined;
 
   /**
-   * <p>The name of the code interpreter.</p>
+   * The name of the code interpreter.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the code interpreter.</p>
+   * The description of the code interpreter.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The IAM role ARN that provides permissions for the code interpreter.</p>
+   * The IAM role ARN that provides permissions for the code interpreter.
+   *
    * @public
    */
   executionRoleArn?: string | undefined;
 
   /**
-   * <p>The network configuration for a code interpreter. This structure defines how the code interpreter connects to the network.</p>
+   * The network configuration for a code interpreter. This structure defines how the code interpreter connects to the network.
+   *
    * @public
    */
   networkConfiguration: CodeInterpreterNetworkConfiguration | undefined;
 
   /**
-   * <p>The current status of the code interpreter.</p>
+   * The current status of the code interpreter.
+   *
    * @public
    */
   status: CodeInterpreterStatus | undefined;
 
   /**
-   * <p>The list of certificates configured for the code interpreter.</p>
+   * The list of certificates configured for the code interpreter.
+   *
    * @public
    */
   certificates?: Certificate[] | undefined;
 
   /**
-   * <p>The file system configurations mounted into the code interpreter. Each entry describes an access point and its mount path.</p>
+   * The file system configurations mounted into the code interpreter. Each entry describes an access point and its mount path.
+   *
    * @public
    */
   filesystemConfigurations?: ToolsFileSystemConfiguration[] | undefined;
 
   /**
-   * <p>The reason for failure if the code interpreter is in a failed state.</p>
+   * The reason for failure if the code interpreter is in a failed state.
+   *
    * @public
    */
   failureReason?: string | undefined;
 
   /**
-   * <p>The timestamp when the code interpreter was created.</p>
+   * The timestamp when the code interpreter was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the code interpreter was last updated.</p>
+   * The timestamp when the code interpreter was last updated.
+   *
    * @public
    */
   lastUpdatedAt: Date | undefined;
@@ -4997,67 +5690,78 @@ export interface GetCodeInterpreterResponse {
  */
 export interface ListCodeInterpretersRequest {
   /**
-   * <p>The maximum number of results to return in the response.</p>
+   * The maximum number of results to return in the response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token to retrieve the next page of results.</p>
+   * A token to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The type of code interpreters to list.</p>
+   * The type of code interpreters to list.
+   *
    * @public
    */
   type?: ResourceType | undefined;
 }
 
 /**
- * <p>Contains summary information about a code interpreter. A code interpreter enables Amazon Bedrock AgentCore Agent to execute code.</p>
+ * Contains summary information about a code interpreter. A code interpreter enables Amazon Bedrock AgentCore Agent to execute code.
+ *
  * @public
  */
 export interface CodeInterpreterSummary {
   /**
-   * <p>The unique identifier of the code interpreter.</p>
+   * The unique identifier of the code interpreter.
+   *
    * @public
    */
   codeInterpreterId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the code interpreter.</p>
+   * The Amazon Resource Name (ARN) of the code interpreter.
+   *
    * @public
    */
   codeInterpreterArn: string | undefined;
 
   /**
-   * <p>The name of the code interpreter.</p>
+   * The name of the code interpreter.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The description of the code interpreter.</p>
+   * The description of the code interpreter.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The current status of the code interpreter.</p>
+   * The current status of the code interpreter.
+   *
    * @public
    */
   status: CodeInterpreterStatus | undefined;
 
   /**
-   * <p>The timestamp when the code interpreter was created.</p>
+   * The timestamp when the code interpreter was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the code interpreter was last updated.</p>
+   * The timestamp when the code interpreter was last updated.
+   *
    * @public
    */
   lastUpdatedAt?: Date | undefined;
@@ -5068,43 +5772,50 @@ export interface CodeInterpreterSummary {
  */
 export interface ListCodeInterpretersResponse {
   /**
-   * <p>The list of code interpreter summaries.</p>
+   * The list of code interpreter summaries.
+   *
    * @public
    */
   codeInterpreterSummaries: CodeInterpreterSummary[] | undefined;
 
   /**
-   * <p>A token to retrieve the next page of results.</p>
+   * A token to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>The configuration for a component within a configuration bundle. The component type is inferred from the component identifier ARN.</p>
+ * The configuration for a component within a configuration bundle. The component type is inferred from the component identifier ARN.
+ *
  * @public
  */
 export interface ComponentConfiguration {
   /**
-   * <p>The configuration values as a flexible JSON document.</p>
+   * The configuration values as a flexible JSON document.
+   *
    * @public
    */
   configuration: __DocumentType | undefined;
 }
 
 /**
- * <p>The source that created a configuration bundle version.</p>
+ * The source that created a configuration bundle version.
+ *
  * @public
  */
 export interface VersionCreatedBySource {
   /**
-   * <p>The name of the source (for example, <code>user</code>, <code>optimization-job</code>, or <code>system</code>).</p>
+   * The name of the source (for example, `user`, `optimization-job`, or `system`).
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the source, if applicable (for example, a user ARN or optimization job ARN).</p>
+   * The Amazon Resource Name (ARN) of the source, if applicable (for example, a user ARN or optimization job ARN).
+   *
    * @public
    */
   arn?: string | undefined;
@@ -5115,55 +5826,64 @@ export interface VersionCreatedBySource {
  */
 export interface CreateConfigurationBundleRequest {
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The name for the configuration bundle. Names must be unique within your account.</p>
+   * The name for the configuration bundle. Names must be unique within your account.
+   *
    * @public
    */
   bundleName: string | undefined;
 
   /**
-   * <p>The description for the configuration bundle.</p>
+   * The description for the configuration bundle.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>A map of component identifiers to their configurations. Each component represents a configurable element within the bundle.</p>
+   * A map of component identifiers to their configurations. Each component represents a configurable element within the bundle.
+   *
    * @public
    */
   components: Record<string, ComponentConfiguration> | undefined;
 
   /**
-   * <p>The branch name for version tracking. Defaults to <code>mainline</code> if not specified.</p>
+   * The branch name for version tracking. Defaults to `mainline` if not specified.
+   *
    * @public
    */
   branchName?: string | undefined;
 
   /**
-   * <p>A commit message describing the initial version of the configuration bundle.</p>
+   * A commit message describing the initial version of the configuration bundle.
+   *
    * @public
    */
   commitMessage?: string | undefined;
 
   /**
-   * <p>The source that created this version, including the source name and optional ARN.</p>
+   * The source that created this version, including the source name and optional ARN.
+   *
    * @public
    */
   createdBy?: VersionCreatedBySource | undefined;
 
   /**
-   * <p>Optional KMS key ARN for encrypting component configurations.</p>
+   * Optional KMS key ARN for encrypting component configurations.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>A map of tag keys and values to assign to the configuration bundle. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
+   * A map of tag keys and values to assign to the configuration bundle. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -5174,25 +5894,29 @@ export interface CreateConfigurationBundleRequest {
  */
 export interface CreateConfigurationBundleResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the created configuration bundle.</p>
+   * The Amazon Resource Name (ARN) of the created configuration bundle.
+   *
    * @public
    */
   bundleArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the created configuration bundle.</p>
+   * The unique identifier of the created configuration bundle.
+   *
    * @public
    */
   bundleId: string | undefined;
 
   /**
-   * <p>The initial version identifier of the configuration bundle.</p>
+   * The initial version identifier of the configuration bundle.
+   *
    * @public
    */
   versionId: string | undefined;
 
   /**
-   * <p>The timestamp when the configuration bundle was created.</p>
+   * The timestamp when the configuration bundle was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
@@ -5203,7 +5927,8 @@ export interface CreateConfigurationBundleResponse {
  */
 export interface DeleteConfigurationBundleRequest {
   /**
-   * <p>The unique identifier of the configuration bundle to delete.</p>
+   * The unique identifier of the configuration bundle to delete.
+   *
    * @public
    */
   bundleId: string | undefined;
@@ -5214,19 +5939,22 @@ export interface DeleteConfigurationBundleRequest {
  */
 export interface DeleteConfigurationBundleResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the deleted configuration bundle.</p>
+   * The Amazon Resource Name (ARN) of the deleted configuration bundle.
+   *
    * @public
    */
   bundleArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the deleted configuration bundle.</p>
+   * The unique identifier of the deleted configuration bundle.
+   *
    * @public
    */
   bundleId: string | undefined;
 
   /**
-   * <p>The status of the configuration bundle deletion operation.</p>
+   * The status of the configuration bundle deletion operation.
+   *
    * @public
    */
   status: ConfigurationBundleStatus | undefined;
@@ -5237,43 +5965,50 @@ export interface DeleteConfigurationBundleResponse {
  */
 export interface GetConfigurationBundleRequest {
   /**
-   * <p>The unique identifier of the configuration bundle to retrieve.</p>
+   * The unique identifier of the configuration bundle to retrieve.
+   *
    * @public
    */
   bundleId: string | undefined;
 
   /**
-   * <p>The branch name to get the latest version from. If not specified, returns the latest version on the mainline branch.</p>
+   * The branch name to get the latest version from. If not specified, returns the latest version on the mainline branch.
+   *
    * @public
    */
   branchName?: string | undefined;
 }
 
 /**
- * <p>The version lineage metadata that tracks parent versions and creation source. Supports git-like two-parent merges for branch management.</p>
+ * The version lineage metadata that tracks parent versions and creation source. Supports git-like two-parent merges for branch management.
+ *
  * @public
  */
 export interface VersionLineageMetadata {
   /**
-   * <p>A list of parent version identifiers. Regular commits have 0-1 parents. Merge commits have 2 parents: the target branch parent and the source branch parent. The first parent represents the primary lineage.</p>
+   * A list of parent version identifiers. Regular commits have 0-1 parents. Merge commits have 2 parents: the target branch parent and the source branch parent. The first parent represents the primary lineage.
+   *
    * @public
    */
   parentVersionIds?: string[] | undefined;
 
   /**
-   * <p>The branch name for this version. If not specified, inherits the parent's branch or defaults to <code>mainline</code>.</p>
+   * The branch name for this version. If not specified, inherits the parent's branch or defaults to `mainline`.
+   *
    * @public
    */
   branchName?: string | undefined;
 
   /**
-   * <p>The source that created this version.</p>
+   * The source that created this version.
+   *
    * @public
    */
   createdBy?: VersionCreatedBySource | undefined;
 
   /**
-   * <p>A commit message describing the changes in this version.</p>
+   * A commit message describing the changes in this version.
+   *
    * @public
    */
   commitMessage?: string | undefined;
@@ -5284,61 +6019,71 @@ export interface VersionLineageMetadata {
  */
 export interface GetConfigurationBundleResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the configuration bundle.</p>
+   * The Amazon Resource Name (ARN) of the configuration bundle.
+   *
    * @public
    */
   bundleArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the configuration bundle.</p>
+   * The unique identifier of the configuration bundle.
+   *
    * @public
    */
   bundleId: string | undefined;
 
   /**
-   * <p>The name of the configuration bundle.</p>
+   * The name of the configuration bundle.
+   *
    * @public
    */
   bundleName: string | undefined;
 
   /**
-   * <p>The description of the configuration bundle.</p>
+   * The description of the configuration bundle.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The version identifier of this configuration bundle.</p>
+   * The version identifier of this configuration bundle.
+   *
    * @public
    */
   versionId: string | undefined;
 
   /**
-   * <p>A map of component identifiers to their configurations for this version.</p>
+   * A map of component identifiers to their configurations for this version.
+   *
    * @public
    */
   components: Record<string, ComponentConfiguration> | undefined;
 
   /**
-   * <p>The version lineage metadata, including parent versions, branch name, and creation source.</p>
+   * The version lineage metadata, including parent versions, branch name, and creation source.
+   *
    * @public
    */
   lineageMetadata?: VersionLineageMetadata | undefined;
 
   /**
-   * <p>The timestamp when the configuration bundle was created.</p>
+   * The timestamp when the configuration bundle was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the configuration bundle was last updated.</p>
+   * The timestamp when the configuration bundle was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>KMS key ARN used to encrypt component configurations, if CMK was provided.</p>
+   * KMS key ARN used to encrypt component configurations, if CMK was provided.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
@@ -5349,13 +6094,15 @@ export interface GetConfigurationBundleResponse {
  */
 export interface GetConfigurationBundleVersionRequest {
   /**
-   * <p>The unique identifier of the configuration bundle.</p>
+   * The unique identifier of the configuration bundle.
+   *
    * @public
    */
   bundleId: string | undefined;
 
   /**
-   * <p>The version identifier of the configuration bundle version to retrieve.</p>
+   * The version identifier of the configuration bundle version to retrieve.
+   *
    * @public
    */
   versionId: string | undefined;
@@ -5366,61 +6113,71 @@ export interface GetConfigurationBundleVersionRequest {
  */
 export interface GetConfigurationBundleVersionResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the configuration bundle.</p>
+   * The Amazon Resource Name (ARN) of the configuration bundle.
+   *
    * @public
    */
   bundleArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the configuration bundle.</p>
+   * The unique identifier of the configuration bundle.
+   *
    * @public
    */
   bundleId: string | undefined;
 
   /**
-   * <p>The name of the configuration bundle.</p>
+   * The name of the configuration bundle.
+   *
    * @public
    */
   bundleName: string | undefined;
 
   /**
-   * <p>The description of the configuration bundle.</p>
+   * The description of the configuration bundle.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The version identifier of this configuration bundle version.</p>
+   * The version identifier of this configuration bundle version.
+   *
    * @public
    */
   versionId: string | undefined;
 
   /**
-   * <p>A map of component identifiers to their configurations for this version.</p>
+   * A map of component identifiers to their configurations for this version.
+   *
    * @public
    */
   components: Record<string, ComponentConfiguration> | undefined;
 
   /**
-   * <p>The version lineage metadata, including parent versions, branch name, and creation source.</p>
+   * The version lineage metadata, including parent versions, branch name, and creation source.
+   *
    * @public
    */
   lineageMetadata?: VersionLineageMetadata | undefined;
 
   /**
-   * <p>The timestamp when the configuration bundle was created.</p>
+   * The timestamp when the configuration bundle was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when this specific version was created.</p>
+   * The timestamp when this specific version was created.
+   *
    * @public
    */
   versionCreatedAt: Date | undefined;
 
   /**
-   * <p>KMS key ARN used to encrypt component configurations, if CMK was provided.</p>
+   * KMS key ARN used to encrypt component configurations, if CMK was provided.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
@@ -5431,49 +6188,57 @@ export interface GetConfigurationBundleVersionResponse {
  */
 export interface ListConfigurationBundlesRequest {
   /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * If the total number of results is greater than the `maxResults` value provided in the request, enter the token returned in the `nextToken` field in the response in this field to return the next batch of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the `nextToken` field when making another request to return the next batch of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Summary information about a configuration bundle.</p>
+ * Summary information about a configuration bundle.
+ *
  * @public
  */
 export interface ConfigurationBundleSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the configuration bundle.</p>
+   * The Amazon Resource Name (ARN) of the configuration bundle.
+   *
    * @public
    */
   bundleArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the configuration bundle.</p>
+   * The unique identifier of the configuration bundle.
+   *
    * @public
    */
   bundleId: string | undefined;
 
   /**
-   * <p>The name of the configuration bundle.</p>
+   * The name of the configuration bundle.
+   *
    * @public
    */
   bundleName: string | undefined;
 
   /**
-   * <p>The description of the configuration bundle.</p>
+   * The description of the configuration bundle.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The timestamp when the configuration bundle was created.</p>
+   * The timestamp when the configuration bundle was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
@@ -5484,37 +6249,43 @@ export interface ConfigurationBundleSummary {
  */
 export interface ListConfigurationBundlesResponse {
   /**
-   * <p>The list of configuration bundle summaries.</p>
+   * The list of configuration bundle summaries.
+   *
    * @public
    */
   bundles: ConfigurationBundleSummary[] | undefined;
 
   /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * If the total number of results is greater than the `maxResults` value provided in the request, use this token when making another request in the `nextToken` field to return the next batch of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>A filter for listing configuration bundle versions.</p>
+ * A filter for listing configuration bundle versions.
+ *
  * @public
  */
 export interface VersionFilter {
   /**
-   * <p>Filter by branch name.</p>
+   * Filter by branch name.
+   *
    * @public
    */
   branchName?: string | undefined;
 
   /**
-   * <p>Filter by creation source name.</p>
+   * Filter by creation source name.
+   *
    * @public
    */
   createdByName?: string | undefined;
 
   /**
-   * <p>When true, returns only the latest version for each branch. When false or not specified, returns all versions. Can be combined with <code>branchName</code> to get the latest version for a specific branch.</p>
+   * When true, returns only the latest version for each branch. When false or not specified, returns all versions. Can be combined with `branchName` to get the latest version for a specific branch.
+   *
    * @public
    */
   latestPerBranch?: boolean | undefined;
@@ -5525,61 +6296,71 @@ export interface VersionFilter {
  */
 export interface ListConfigurationBundleVersionsRequest {
   /**
-   * <p>The unique identifier of the configuration bundle to list versions for.</p>
+   * The unique identifier of the configuration bundle to list versions for.
+   *
    * @public
    */
   bundleId: string | undefined;
 
   /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * If the total number of results is greater than the `maxResults` value provided in the request, enter the token returned in the `nextToken` field in the response in this field to return the next batch of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the `nextToken` field when making another request to return the next batch of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>An optional filter for listing versions, including branch name, creation source, and whether to return only the latest version per branch.</p>
+   * An optional filter for listing versions, including branch name, creation source, and whether to return only the latest version per branch.
+   *
    * @public
    */
   filter?: VersionFilter | undefined;
 }
 
 /**
- * <p>Summary information about a configuration bundle version.</p>
+ * Summary information about a configuration bundle version.
+ *
  * @public
  */
 export interface ConfigurationBundleVersionSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the configuration bundle.</p>
+   * The Amazon Resource Name (ARN) of the configuration bundle.
+   *
    * @public
    */
   bundleArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the configuration bundle.</p>
+   * The unique identifier of the configuration bundle.
+   *
    * @public
    */
   bundleId: string | undefined;
 
   /**
-   * <p>The version identifier of this configuration bundle version.</p>
+   * The version identifier of this configuration bundle version.
+   *
    * @public
    */
   versionId: string | undefined;
 
   /**
-   * <p>The version lineage metadata, including parent versions, branch name, and creation source.</p>
+   * The version lineage metadata, including parent versions, branch name, and creation source.
+   *
    * @public
    */
   lineageMetadata?: VersionLineageMetadata | undefined;
 
   /**
-   * <p>The timestamp when this version was created.</p>
+   * The timestamp when this version was created.
+   *
    * @public
    */
   versionCreatedAt: Date | undefined;
@@ -5590,13 +6371,15 @@ export interface ConfigurationBundleVersionSummary {
  */
 export interface ListConfigurationBundleVersionsResponse {
   /**
-   * <p>The list of configuration bundle version summaries.</p>
+   * The list of configuration bundle version summaries.
+   *
    * @public
    */
   versions: ConfigurationBundleVersionSummary[] | undefined;
 
   /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * If the total number of results is greater than the `maxResults` value provided in the request, use this token when making another request in the `nextToken` field to return the next batch of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -5607,61 +6390,71 @@ export interface ListConfigurationBundleVersionsResponse {
  */
 export interface UpdateConfigurationBundleRequest {
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The unique identifier of the configuration bundle to update.</p>
+   * The unique identifier of the configuration bundle to update.
+   *
    * @public
    */
   bundleId: string | undefined;
 
   /**
-   * <p>The updated name for the configuration bundle.</p>
+   * The updated name for the configuration bundle.
+   *
    * @public
    */
   bundleName?: string | undefined;
 
   /**
-   * <p>The updated description for the configuration bundle.</p>
+   * The updated description for the configuration bundle.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The updated component configurations. Creates a new version of the bundle.</p>
+   * The updated component configurations. Creates a new version of the bundle.
+   *
    * @public
    */
   components?: Record<string, ComponentConfiguration> | undefined;
 
   /**
-   * <p>A list of parent version identifiers for lineage tracking. Regular commits have a single parent. Merge commits have two parents: the target branch parent and the source branch parent. If the branch already exists, the first parent must be the latest version on that branch.</p>
+   * A list of parent version identifiers for lineage tracking. Regular commits have a single parent. Merge commits have two parents: the target branch parent and the source branch parent. If the branch already exists, the first parent must be the latest version on that branch.
+   *
    * @public
    */
   parentVersionIds: string[] | undefined;
 
   /**
-   * <p>The branch name for this version. If not specified, inherits the parent's branch or defaults to <code>mainline</code>.</p>
+   * The branch name for this version. If not specified, inherits the parent's branch or defaults to `mainline`.
+   *
    * @public
    */
   branchName?: string | undefined;
 
   /**
-   * <p>A commit message describing the changes in this version.</p>
+   * A commit message describing the changes in this version.
+   *
    * @public
    */
   commitMessage: string | undefined;
 
   /**
-   * <p>The source that created this version, including the source name and optional ARN.</p>
+   * The source that created this version, including the source name and optional ARN.
+   *
    * @public
    */
   createdBy?: VersionCreatedBySource | undefined;
 
   /**
-   * <p>Optional KMS key ARN for encrypting component configurations. If provided, components will be encrypted with this key. If the bundle already has a KMS key, this rotates to the new key.</p>
+   * Optional KMS key ARN for encrypting component configurations. If provided, components will be encrypted with this key. If the bundle already has a KMS key, this rotates to the new key.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
@@ -5672,67 +6465,78 @@ export interface UpdateConfigurationBundleRequest {
  */
 export interface UpdateConfigurationBundleResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the updated configuration bundle.</p>
+   * The Amazon Resource Name (ARN) of the updated configuration bundle.
+   *
    * @public
    */
   bundleArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the updated configuration bundle.</p>
+   * The unique identifier of the updated configuration bundle.
+   *
    * @public
    */
   bundleId: string | undefined;
 
   /**
-   * <p>The new version identifier created by this update.</p>
+   * The new version identifier created by this update.
+   *
    * @public
    */
   versionId: string | undefined;
 
   /**
-   * <p>The timestamp when the configuration bundle was updated.</p>
+   * The timestamp when the configuration bundle was updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 }
 
 /**
- * <p>The identity provider configuration used to authenticate end users to the consent portal.</p>
+ * The identity provider configuration used to authenticate end users to the consent portal.
+ *
  * @public
  */
 export interface ConsentPortalIdpConfig {
   /**
-   * <p>The Amazon Resource Name (ARN) of the OAuth2 credential provider used to authenticate end users to the consent portal.</p>
+   * The Amazon Resource Name (ARN) of the OAuth2 credential provider used to authenticate end users to the consent portal.
+   *
    * @public
    */
   credentialProviderArn: string | undefined;
 
   /**
-   * <p>The OAuth2 scopes that the consent portal requests when authenticating end users.</p>
+   * The OAuth2 scopes that the consent portal requests when authenticating end users.
+   *
    * @public
    */
   scopes: string[] | undefined;
 
   /**
-   * <p>The audience value that the consent portal includes when requesting tokens from the identity provider.</p>
+   * The audience value that the consent portal includes when requesting tokens from the identity provider.
+   *
    * @public
    */
   audience?: string | undefined;
 }
 
 /**
- * <p>A resource served by the consent portal.</p>
+ * A resource served by the consent portal.
+ *
  * @public
  */
 export interface ConsentPortalSource {
   /**
-   * <p>The identifier of the source resource. For an <code>agentcore-gateway</code> source, this is the gateway ID or its Amazon Resource Name (ARN).</p>
+   * The identifier of the source resource. For an `agentcore-gateway` source, this is the gateway ID or its Amazon Resource Name (ARN).
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The type of the source resource.</p>
+   * The type of the source resource.
+   *
    * @public
    */
   type: ConsentPortalSourceType | undefined;
@@ -5743,37 +6547,43 @@ export interface ConsentPortalSource {
  */
 export interface CreateConsentPortalRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that the consent portal assumes to access the resources defined in its sources.</p>
+   * The Amazon Resource Name (ARN) of the IAM role that the consent portal assumes to access the resources defined in its sources.
+   *
    * @public
    */
   executionRoleArn: string | undefined;
 
   /**
-   * <p>The identity provider configuration that the consent portal uses to authenticate end users.</p>
+   * The identity provider configuration that the consent portal uses to authenticate end users.
+   *
    * @public
    */
   idpConfig: ConsentPortalIdpConfig | undefined;
 
   /**
-   * <p>The name of the consent portal. The name must be unique within your account.</p>
+   * The name of the consent portal. The name must be unique within your account.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The resources served by the consent portal. Currently, we only support type <code>agentcore-gateway</code>.</p>
+   * The resources served by the consent portal. Currently, we only support type `agentcore-gateway`.
+   *
    * @public
    */
   sources: ConsentPortalSource[] | undefined;
 
   /**
-   * <p>The description of the consent portal.</p>
+   * The description of the consent portal.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>A map of tag keys and values to assign to the consent portal. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
+   * A map of tag keys and values to assign to the consent portal. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -5784,73 +6594,85 @@ export interface CreateConsentPortalRequest {
  */
 export interface CreateConsentPortalResponse {
   /**
-   * <p>The resources served by the consent portal.</p>
+   * The resources served by the consent portal.
+   *
    * @public
    */
   sources: ConsentPortalSource[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the consent portal.</p>
+   * The Amazon Resource Name (ARN) of the consent portal.
+   *
    * @public
    */
   consentPortalArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the consent portal.</p>
+   * The unique identifier of the consent portal.
+   *
    * @public
    */
   consentPortalId: string | undefined;
 
   /**
-   * <p>The timestamp for when the consent portal was created.</p>
+   * The timestamp for when the consent portal was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The description of the consent portal.</p>
+   * The description of the consent portal.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that the consent portal assumes to access the resources defined in its sources.</p>
+   * The Amazon Resource Name (ARN) of the IAM role that the consent portal assumes to access the resources defined in its sources.
+   *
    * @public
    */
   executionRoleArn: string | undefined;
 
   /**
-   * <p>The identity provider configuration that the consent portal uses to authenticate end users.</p>
+   * The identity provider configuration that the consent portal uses to authenticate end users.
+   *
    * @public
    */
   idpConfig: ConsentPortalIdpConfig | undefined;
 
   /**
-   * <p>The name of the consent portal.</p>
+   * The name of the consent portal.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The URL used to access the consent portal.</p>
+   * The URL used to access the consent portal.
+   *
    * @public
    */
   portalUrl?: string | undefined;
 
   /**
-   * <p>The current status of the consent portal.</p>
+   * The current status of the consent portal.
+   *
    * @public
    */
   status: ConsentPortalStatus | undefined;
 
   /**
-   * <p>A message that provides additional information about the current status of the consent portal.</p>
+   * A message that provides additional information about the current status of the consent portal.
+   *
    * @public
    */
   statusReason?: string | undefined;
 
   /**
-   * <p>The timestamp for when the consent portal was last updated.</p>
+   * The timestamp for when the consent portal was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -5861,7 +6683,8 @@ export interface CreateConsentPortalResponse {
  */
 export interface DeleteConsentPortalRequest {
   /**
-   * <p>The identifier of the consent portal. You can specify either the consent portal ID or its Amazon Resource Name (ARN).</p>
+   * The identifier of the consent portal. You can specify either the consent portal ID or its Amazon Resource Name (ARN).
+   *
    * @public
    */
   consentPortalIdentifier: string | undefined;
@@ -5877,7 +6700,8 @@ export interface DeleteConsentPortalResponse {}
  */
 export interface GetConsentPortalRequest {
   /**
-   * <p>The identifier of the consent portal. You can specify either the consent portal ID or its Amazon Resource Name (ARN).</p>
+   * The identifier of the consent portal. You can specify either the consent portal ID or its Amazon Resource Name (ARN).
+   *
    * @public
    */
   consentPortalIdentifier: string | undefined;
@@ -5888,73 +6712,85 @@ export interface GetConsentPortalRequest {
  */
 export interface GetConsentPortalResponse {
   /**
-   * <p>The resources served by the consent portal.</p>
+   * The resources served by the consent portal.
+   *
    * @public
    */
   sources: ConsentPortalSource[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the consent portal.</p>
+   * The Amazon Resource Name (ARN) of the consent portal.
+   *
    * @public
    */
   consentPortalArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the consent portal.</p>
+   * The unique identifier of the consent portal.
+   *
    * @public
    */
   consentPortalId: string | undefined;
 
   /**
-   * <p>The timestamp for when the consent portal was created.</p>
+   * The timestamp for when the consent portal was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The description of the consent portal.</p>
+   * The description of the consent portal.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that the consent portal assumes to access the resources defined in its sources.</p>
+   * The Amazon Resource Name (ARN) of the IAM role that the consent portal assumes to access the resources defined in its sources.
+   *
    * @public
    */
   executionRoleArn: string | undefined;
 
   /**
-   * <p>The identity provider configuration that the consent portal uses to authenticate end users.</p>
+   * The identity provider configuration that the consent portal uses to authenticate end users.
+   *
    * @public
    */
   idpConfig: ConsentPortalIdpConfig | undefined;
 
   /**
-   * <p>The name of the consent portal.</p>
+   * The name of the consent portal.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The URL used to access the consent portal.</p>
+   * The URL used to access the consent portal.
+   *
    * @public
    */
   portalUrl?: string | undefined;
 
   /**
-   * <p>The current status of the consent portal.</p>
+   * The current status of the consent portal.
+   *
    * @public
    */
   status: ConsentPortalStatus | undefined;
 
   /**
-   * <p>A message that provides additional information about the current status of the consent portal.</p>
+   * A message that provides additional information about the current status of the consent portal.
+   *
    * @public
    */
   statusReason?: string | undefined;
 
   /**
-   * <p>The timestamp for when the consent portal was last updated.</p>
+   * The timestamp for when the consent portal was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -5965,73 +6801,85 @@ export interface GetConsentPortalResponse {
  */
 export interface ListConsentPortalsRequest {
   /**
-   * <p>The maximum number of consent portals to return in a single call.</p>
+   * The maximum number of consent portals to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token to retrieve the next page of results. Use the value returned in a previous response to request the next page.</p>
+   * A token to retrieve the next page of results. Use the value returned in a previous response to request the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Summary information about a consent portal.</p>
+ * Summary information about a consent portal.
+ *
  * @public
  */
 export interface ConsentPortalSummary {
   /**
-   * <p>The resources served by the consent portal.</p>
+   * The resources served by the consent portal.
+   *
    * @public
    */
   sources: ConsentPortalSource[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the consent portal.</p>
+   * The Amazon Resource Name (ARN) of the consent portal.
+   *
    * @public
    */
   consentPortalArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the consent portal.</p>
+   * The unique identifier of the consent portal.
+   *
    * @public
    */
   consentPortalId: string | undefined;
 
   /**
-   * <p>The timestamp for when the consent portal was created.</p>
+   * The timestamp for when the consent portal was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The description of the consent portal.</p>
+   * The description of the consent portal.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The name of the consent portal.</p>
+   * The name of the consent portal.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The URL used to access the consent portal.</p>
+   * The URL used to access the consent portal.
+   *
    * @public
    */
   portalUrl?: string | undefined;
 
   /**
-   * <p>The current status of the consent portal.</p>
+   * The current status of the consent portal.
+   *
    * @public
    */
   status: ConsentPortalStatus | undefined;
 
   /**
-   * <p>The timestamp for when the consent portal was last updated.</p>
+   * The timestamp for when the consent portal was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -6042,13 +6890,15 @@ export interface ConsentPortalSummary {
  */
 export interface ListConsentPortalsResponse {
   /**
-   * <p>The list of consent portals.</p>
+   * The list of consent portals.
+   *
    * @public
    */
   consentPortals: ConsentPortalSummary[] | undefined;
 
   /**
-   * <p>The token to use in a subsequent request to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * The token to use in a subsequent request to retrieve the next page of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -6059,25 +6909,29 @@ export interface ListConsentPortalsResponse {
  */
 export interface UpdateConsentPortalRequest {
   /**
-   * <p>The identifier of the consent portal. You can specify either the consent portal ID or its Amazon Resource Name (ARN).</p>
+   * The identifier of the consent portal. You can specify either the consent portal ID or its Amazon Resource Name (ARN).
+   *
    * @public
    */
   consentPortalIdentifier: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that the consent portal assumes to access the resources defined in its sources.</p>
+   * The Amazon Resource Name (ARN) of the IAM role that the consent portal assumes to access the resources defined in its sources.
+   *
    * @public
    */
   executionRoleArn?: string | undefined;
 
   /**
-   * <p>The identity provider configuration that the consent portal uses to authenticate end users.</p>
+   * The identity provider configuration that the consent portal uses to authenticate end users.
+   *
    * @public
    */
   idpConfig?: ConsentPortalIdpConfig | undefined;
 
   /**
-   * <p>The description of the consent portal.</p>
+   * The description of the consent portal.
+   *
    * @public
    */
   description?: string | undefined;
@@ -6088,73 +6942,85 @@ export interface UpdateConsentPortalRequest {
  */
 export interface UpdateConsentPortalResponse {
   /**
-   * <p>The resources served by the consent portal.</p>
+   * The resources served by the consent portal.
+   *
    * @public
    */
   sources: ConsentPortalSource[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the consent portal.</p>
+   * The Amazon Resource Name (ARN) of the consent portal.
+   *
    * @public
    */
   consentPortalArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the consent portal.</p>
+   * The unique identifier of the consent portal.
+   *
    * @public
    */
   consentPortalId: string | undefined;
 
   /**
-   * <p>The timestamp for when the consent portal was created.</p>
+   * The timestamp for when the consent portal was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The description of the consent portal.</p>
+   * The description of the consent portal.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that the consent portal assumes to access the resources defined in its sources.</p>
+   * The Amazon Resource Name (ARN) of the IAM role that the consent portal assumes to access the resources defined in its sources.
+   *
    * @public
    */
   executionRoleArn: string | undefined;
 
   /**
-   * <p>The identity provider configuration that the consent portal uses to authenticate end users.</p>
+   * The identity provider configuration that the consent portal uses to authenticate end users.
+   *
    * @public
    */
   idpConfig: ConsentPortalIdpConfig | undefined;
 
   /**
-   * <p>The name of the consent portal.</p>
+   * The name of the consent portal.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The URL used to access the consent portal.</p>
+   * The URL used to access the consent portal.
+   *
    * @public
    */
   portalUrl?: string | undefined;
 
   /**
-   * <p>The current status of the consent portal.</p>
+   * The current status of the consent portal.
+   *
    * @public
    */
   status: ConsentPortalStatus | undefined;
 
   /**
-   * <p>A message that provides additional information about the current status of the consent portal.</p>
+   * A message that provides additional information about the current status of the consent portal.
+   *
    * @public
    */
   statusReason?: string | undefined;
 
   /**
-   * <p>The timestamp for when the consent portal was last updated.</p>
+   * The timestamp for when the consent portal was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -6165,43 +7031,50 @@ export interface UpdateConsentPortalResponse {
  */
 export interface CreateDatasetRequest {
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p> Human-readable name for the dataset. Must be unique within the account. Immutable after creation. </p>
+   * Human-readable name for the dataset. Must be unique within the account. Immutable after creation.
+   *
    * @public
    */
   datasetName: string | undefined;
 
   /**
-   * <p> A description of the dataset. </p>
+   * A description of the dataset.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p> Source of initial examples. Provide either inline examples or an S3 URI pointing to a JSONL file. </p>
+   * Source of initial examples. Provide either inline examples or an S3 URI pointing to a JSONL file.
+   *
    * @public
    */
   source: DataSourceType | undefined;
 
   /**
-   * <p> Versioned schema type governing the structure of examples. Immutable after creation. </p>
+   * Versioned schema type governing the structure of examples. Immutable after creation.
+   *
    * @public
    */
   schemaType: DatasetSchemaType | undefined;
 
   /**
-   * <p> Optional KMS key ARN for server-side encryption on service Amazon S3 writes. </p>
+   * Optional KMS key ARN for server-side encryption on service Amazon S3 writes.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p> A map of tag keys and values to assign to the dataset. </p>
+   * A map of tag keys and values to assign to the dataset.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -6212,25 +7085,29 @@ export interface CreateDatasetRequest {
  */
 export interface CreateDatasetResponse {
   /**
-   * <p> The Amazon Resource Name (ARN) of the created dataset. </p>
+   * The Amazon Resource Name (ARN) of the created dataset.
+   *
    * @public
    */
   datasetArn: string | undefined;
 
   /**
-   * <p> The unique identifier of the created dataset. </p>
+   * The unique identifier of the created dataset.
+   *
    * @public
    */
   datasetId: string | undefined;
 
   /**
-   * <p> Always CREATING immediately after this call. Poll <code>GetDataset</code> until status transitions to ACTIVE or CREATE_FAILED. </p>
+   * Always CREATING immediately after this call. Poll `GetDataset` until status transitions to ACTIVE or CREATE_FAILED.
+   *
    * @public
    */
   status: DatasetStatus | undefined;
 
   /**
-   * <p> The timestamp when the dataset was created. </p>
+   * The timestamp when the dataset was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
@@ -6241,13 +7118,15 @@ export interface CreateDatasetResponse {
  */
 export interface CreateDatasetVersionRequest {
   /**
-   * <p> The unique identifier of the dataset to publish a version for. </p>
+   * The unique identifier of the dataset to publish a version for.
+   *
    * @public
    */
   datasetId: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -6258,31 +7137,36 @@ export interface CreateDatasetVersionRequest {
  */
 export interface CreateDatasetVersionResponse {
   /**
-   * <p> The Amazon Resource Name (ARN) of the dataset. </p>
+   * The Amazon Resource Name (ARN) of the dataset.
+   *
    * @public
    */
   datasetArn: string | undefined;
 
   /**
-   * <p> The unique identifier of the dataset. </p>
+   * The unique identifier of the dataset.
+   *
    * @public
    */
   datasetId: string | undefined;
 
   /**
-   * <p> Always UPDATING immediately after this call. Poll <code>GetDataset</code> until status transitions to ACTIVE or UPDATE_FAILED. </p>
+   * Always UPDATING immediately after this call. Poll `GetDataset` until status transitions to ACTIVE or UPDATE_FAILED.
+   *
    * @public
    */
   status: DatasetStatus | undefined;
 
   /**
-   * <p> The version number being created. </p>
+   * The version number being created.
+   *
    * @public
    */
   datasetVersion: string | undefined;
 
   /**
-   * <p> The timestamp when the version creation was initiated. </p>
+   * The timestamp when the version creation was initiated.
+   *
    * @public
    */
   createdAt: Date | undefined;
@@ -6293,13 +7177,15 @@ export interface CreateDatasetVersionResponse {
  */
 export interface DeleteDatasetRequest {
   /**
-   * <p> The unique identifier of the dataset to delete. </p>
+   * The unique identifier of the dataset to delete.
+   *
    * @public
    */
   datasetId: string | undefined;
 
   /**
-   * <p> Optional version to delete. If absent, deletes the entire dataset. If provided, deletes only that specific version. </p>
+   * Optional version to delete. If absent, deletes the entire dataset. If provided, deletes only that specific version.
+   *
    * @public
    */
   datasetVersion?: string | undefined;
@@ -6310,31 +7196,36 @@ export interface DeleteDatasetRequest {
  */
 export interface DeleteDatasetResponse {
   /**
-   * <p> The Amazon Resource Name (ARN) of the dataset. </p>
+   * The Amazon Resource Name (ARN) of the dataset.
+   *
    * @public
    */
   datasetArn: string | undefined;
 
   /**
-   * <p> The unique identifier of the dataset. </p>
+   * The unique identifier of the dataset.
+   *
    * @public
    */
   datasetId: string | undefined;
 
   /**
-   * <p> The current status of the dataset after the delete request. </p>
+   * The current status of the dataset after the delete request.
+   *
    * @public
    */
   status: DatasetStatus | undefined;
 
   /**
-   * <p> The version that was deleted. </p>
+   * The version that was deleted.
+   *
    * @public
    */
   datasetVersion: string | undefined;
 
   /**
-   * <p> The timestamp when the delete was initiated. </p>
+   * The timestamp when the delete was initiated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -6345,19 +7236,22 @@ export interface DeleteDatasetResponse {
  */
 export interface DeleteDatasetExamplesRequest {
   /**
-   * <p> The unique identifier of the dataset. </p>
+   * The unique identifier of the dataset.
+   *
    * @public
    */
   datasetId: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p> The IDs of the examples to delete. </p>
+   * The IDs of the examples to delete.
+   *
    * @public
    */
   exampleIds: string[] | undefined;
@@ -6368,31 +7262,36 @@ export interface DeleteDatasetExamplesRequest {
  */
 export interface DeleteDatasetExamplesResponse {
   /**
-   * <p> The Amazon Resource Name (ARN) of the dataset. </p>
+   * The Amazon Resource Name (ARN) of the dataset.
+   *
    * @public
    */
   datasetArn: string | undefined;
 
   /**
-   * <p> The unique identifier of the dataset. </p>
+   * The unique identifier of the dataset.
+   *
    * @public
    */
   datasetId: string | undefined;
 
   /**
-   * <p> The current status of the dataset. </p>
+   * The current status of the dataset.
+   *
    * @public
    */
   status: DatasetStatus | undefined;
 
   /**
-   * <p> The number of examples deleted. </p>
+   * The number of examples deleted.
+   *
    * @public
    */
   deletedCount: number | undefined;
 
   /**
-   * <p> The timestamp when the examples were deleted. </p>
+   * The timestamp when the examples were deleted.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -6403,13 +7302,15 @@ export interface DeleteDatasetExamplesResponse {
  */
 export interface GetDatasetRequest {
   /**
-   * <p> The unique identifier of the dataset to retrieve. </p>
+   * The unique identifier of the dataset to retrieve.
+   *
    * @public
    */
   datasetId: string | undefined;
 
   /**
-   * <p> Version to retrieve: "DRAFT" or a version number. Defaults to DRAFT if absent. </p>
+   * Version to retrieve: "DRAFT" or a version number. Defaults to DRAFT if absent.
+   *
    * @public
    */
   datasetVersion?: string | undefined;
@@ -6420,97 +7321,113 @@ export interface GetDatasetRequest {
  */
 export interface GetDatasetResponse {
   /**
-   * <p> The Amazon Resource Name (ARN) of the dataset. </p>
+   * The Amazon Resource Name (ARN) of the dataset.
+   *
    * @public
    */
   datasetArn: string | undefined;
 
   /**
-   * <p> The unique identifier of the dataset. </p>
+   * The unique identifier of the dataset.
+   *
    * @public
    */
   datasetId: string | undefined;
 
   /**
-   * <p> The resolved version: "DRAFT" (default) or the requested version number. </p>
+   * The resolved version: "DRAFT" (default) or the requested version number.
+   *
    * @public
    */
   datasetVersion: string | undefined;
 
   /**
-   * <p> The name of the dataset. </p>
+   * The name of the dataset.
+   *
    * @public
    */
   datasetName: string | undefined;
 
   /**
-   * <p> The description of the dataset. </p>
+   * The description of the dataset.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p> The current status of the dataset. </p>
+   * The current status of the dataset.
+   *
    * @public
    */
   status: DatasetStatus | undefined;
 
   /**
-   * <p> Publish synchronization state. Only authoritative when status is ACTIVE. MODIFIED indicates DRAFT has unpublished changes. UNMODIFIED indicates DRAFT matches the latest published version. </p>
+   * Publish synchronization state. Only authoritative when status is ACTIVE. MODIFIED indicates DRAFT has unpublished changes. UNMODIFIED indicates DRAFT matches the latest published version.
+   *
    * @public
    */
   draftStatus?: DraftStatus | undefined;
 
   /**
-   * <p> Populated when status is CREATE_FAILED, UPDATE_FAILED, or DELETE_FAILED. Describes the reason for the failure. </p>
+   * Populated when status is CREATE_FAILED, UPDATE_FAILED, or DELETE_FAILED. Describes the reason for the failure.
+   *
    * @public
    */
   failureReason?: string | undefined;
 
   /**
-   * <p> The schema type declared at create time. Immutable after creation. </p>
+   * The schema type declared at create time. Immutable after creation.
+   *
    * @public
    */
   schemaType: DatasetSchemaType | undefined;
 
   /**
-   * <p> KMS key ARN used for server-side encryption on service Amazon S3 writes, if configured. </p>
+   * KMS key ARN used for server-side encryption on service Amazon S3 writes, if configured.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p> The number of examples in the DRAFT. </p>
+   * The number of examples in the DRAFT.
+   *
    * @public
    */
   exampleCount: number | undefined;
 
   /**
-   * <p> Presigned Amazon S3 URL to download the consolidated dataset file for the resolved version. Expires after 5 minutes. Omitted if the file does not yet exist. </p>
+   * Presigned Amazon S3 URL to download the consolidated dataset file for the resolved version. Expires after 5 minutes. Omitted if the file does not yet exist.
+   *
    * @public
    */
   downloadUrl?: string | undefined;
 
   /**
-   * <p> Expiry timestamp for the download URL. </p>
+   * Expiry timestamp for the download URL.
+   *
    * @public
    */
   downloadUrlExpiresAt?: Date | undefined;
 
   /**
-   * <p> The timestamp when the dataset was created. </p>
+   * The timestamp when the dataset was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p> The timestamp when the dataset was last updated. </p>
+   * The timestamp when the dataset was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p> The tags associated with the dataset. </p>
+   * The tags associated with the dataset.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -6521,25 +7438,29 @@ export interface GetDatasetResponse {
  */
 export interface ListDatasetExamplesRequest {
   /**
-   * <p> The unique identifier of the dataset. </p>
+   * The unique identifier of the dataset.
+   *
    * @public
    */
   datasetId: string | undefined;
 
   /**
-   * <p> Version to paginate: "DRAFT" or a version number. Defaults to DRAFT if absent. Only used on the first request; for subsequent pages, the version is extracted from the pagination token. </p>
+   * Version to paginate: "DRAFT" or a version number. Defaults to DRAFT if absent. Only used on the first request; for subsequent pages, the version is extracted from the pagination token.
+   *
    * @public
    */
   datasetVersion?: string | undefined;
 
   /**
-   * <p> Maximum number of examples to return per page. </p>
+   * Maximum number of examples to return per page.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p> The token for the next page of results. </p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -6550,31 +7471,36 @@ export interface ListDatasetExamplesRequest {
  */
 export interface ListDatasetExamplesResponse {
   /**
-   * <p> The Amazon Resource Name (ARN) of the dataset. </p>
+   * The Amazon Resource Name (ARN) of the dataset.
+   *
    * @public
    */
   datasetArn: string | undefined;
 
   /**
-   * <p> The unique identifier of the dataset. </p>
+   * The unique identifier of the dataset.
+   *
    * @public
    */
   datasetId: string | undefined;
 
   /**
-   * <p> The version returned. </p>
+   * The version returned.
+   *
    * @public
    */
   datasetVersion: string | undefined;
 
   /**
-   * <p> Paginated example content. Each element is a JSON object containing at least an <code>exampleId</code> field plus the schema-specific content fields. </p>
+   * Paginated example content. Each element is a JSON object containing at least an `exampleId` field plus the schema-specific content fields.
+   *
    * @public
    */
   examples: __DocumentType[] | undefined;
 
   /**
-   * <p> The token for the next page of results, or null if there are no more results. </p>
+   * The token for the next page of results, or null if there are no more results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -6585,79 +7511,92 @@ export interface ListDatasetExamplesResponse {
  */
 export interface ListDatasetsRequest {
   /**
-   * <p> The token for the next page of results. </p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p> The maximum number of datasets to return per page. </p>
+   * The maximum number of datasets to return per page.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p> Summary information about a dataset. </p>
+ * Summary information about a dataset.
+ *
  * @public
  */
 export interface DatasetSummary {
   /**
-   * <p> The Amazon Resource Name (ARN) of the dataset. </p>
+   * The Amazon Resource Name (ARN) of the dataset.
+   *
    * @public
    */
   datasetArn: string | undefined;
 
   /**
-   * <p> The unique identifier of the dataset. </p>
+   * The unique identifier of the dataset.
+   *
    * @public
    */
   datasetId: string | undefined;
 
   /**
-   * <p> The name of the dataset. </p>
+   * The name of the dataset.
+   *
    * @public
    */
   datasetName: string | undefined;
 
   /**
-   * <p> The description of the dataset. </p>
+   * The description of the dataset.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p> The current status of the dataset. </p>
+   * The current status of the dataset.
+   *
    * @public
    */
   status: DatasetStatus | undefined;
 
   /**
-   * <p> Publish synchronization state. Only authoritative when status is ACTIVE. </p>
+   * Publish synchronization state. Only authoritative when status is ACTIVE.
+   *
    * @public
    */
   draftStatus?: DraftStatus | undefined;
 
   /**
-   * <p> The schema type of the dataset. </p>
+   * The schema type of the dataset.
+   *
    * @public
    */
   schemaType: DatasetSchemaType | undefined;
 
   /**
-   * <p> The number of examples in the dataset. </p>
+   * The number of examples in the dataset.
+   *
    * @public
    */
   exampleCount: number | undefined;
 
   /**
-   * <p> The timestamp when the dataset was created. </p>
+   * The timestamp when the dataset was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p> The timestamp when the dataset was last updated. </p>
+   * The timestamp when the dataset was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -6668,13 +7607,15 @@ export interface DatasetSummary {
  */
 export interface ListDatasetsResponse {
   /**
-   * <p> The list of datasets. </p>
+   * The list of datasets.
+   *
    * @public
    */
   datasets: DatasetSummary[] | undefined;
 
   /**
-   * <p> The token for the next page of results, or null if there are no more results. </p>
+   * The token for the next page of results, or null if there are no more results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -6685,43 +7626,50 @@ export interface ListDatasetsResponse {
  */
 export interface ListDatasetVersionsRequest {
   /**
-   * <p> The unique identifier of the dataset. </p>
+   * The unique identifier of the dataset.
+   *
    * @public
    */
   datasetId: string | undefined;
 
   /**
-   * <p> The token for the next page of results. </p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p> The maximum number of versions to return per page. </p>
+   * The maximum number of versions to return per page.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p> Summary information about a published dataset version. </p>
+ * Summary information about a published dataset version.
+ *
  * @public
  */
 export interface DatasetVersionSummary {
   /**
-   * <p> The version number of this published snapshot. </p>
+   * The version number of this published snapshot.
+   *
    * @public
    */
   datasetVersion: string | undefined;
 
   /**
-   * <p> The number of examples in this version. </p>
+   * The number of examples in this version.
+   *
    * @public
    */
   exampleCount: number | undefined;
 
   /**
-   * <p> The timestamp when this version was published. </p>
+   * The timestamp when this version was published.
+   *
    * @public
    */
   createdAt: Date | undefined;
@@ -6732,13 +7680,15 @@ export interface DatasetVersionSummary {
  */
 export interface ListDatasetVersionsResponse {
   /**
-   * <p> The list of published dataset versions. </p>
+   * The list of published dataset versions.
+   *
    * @public
    */
   versions: DatasetVersionSummary[] | undefined;
 
   /**
-   * <p> The token for the next page of results, or null if there are no more results. </p>
+   * The token for the next page of results, or null if there are no more results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -6749,19 +7699,22 @@ export interface ListDatasetVersionsResponse {
  */
 export interface UpdateDatasetRequest {
   /**
-   * <p> The unique identifier of the dataset to update. </p>
+   * The unique identifier of the dataset to update.
+   *
    * @public
    */
   datasetId: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p> The updated description for the dataset. </p>
+   * The updated description for the dataset.
+   *
    * @public
    */
   description?: string | undefined;
@@ -6772,19 +7725,22 @@ export interface UpdateDatasetRequest {
  */
 export interface UpdateDatasetResponse {
   /**
-   * <p> The Amazon Resource Name (ARN) of the updated dataset. </p>
+   * The Amazon Resource Name (ARN) of the updated dataset.
+   *
    * @public
    */
   datasetArn: string | undefined;
 
   /**
-   * <p> The unique identifier of the updated dataset. </p>
+   * The unique identifier of the updated dataset.
+   *
    * @public
    */
   datasetId: string | undefined;
 
   /**
-   * <p> The timestamp when the dataset was updated. </p>
+   * The timestamp when the dataset was updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -6795,19 +7751,22 @@ export interface UpdateDatasetResponse {
  */
 export interface UpdateDatasetExamplesRequest {
   /**
-   * <p> The unique identifier of the dataset. </p>
+   * The unique identifier of the dataset.
+   *
    * @public
    */
   datasetId: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p> Examples to update. Each element is a JSON object containing a required <code>exampleId</code> field identifying the existing example, plus the replacement fields. Maximum 1000 examples per call. </p>
+   * Examples to update. Each element is a JSON object containing a required `exampleId` field identifying the existing example, plus the replacement fields. Maximum 1000 examples per call.
+   *
    * @public
    */
   examples: __DocumentType[] | undefined;
@@ -6818,31 +7777,36 @@ export interface UpdateDatasetExamplesRequest {
  */
 export interface UpdateDatasetExamplesResponse {
   /**
-   * <p> The Amazon Resource Name (ARN) of the dataset. </p>
+   * The Amazon Resource Name (ARN) of the dataset.
+   *
    * @public
    */
   datasetArn: string | undefined;
 
   /**
-   * <p> The unique identifier of the dataset. </p>
+   * The unique identifier of the dataset.
+   *
    * @public
    */
   datasetId: string | undefined;
 
   /**
-   * <p> The current status of the dataset. </p>
+   * The current status of the dataset.
+   *
    * @public
    */
   status: DatasetStatus | undefined;
 
   /**
-   * <p> The number of examples updated. </p>
+   * The number of examples updated.
+   *
    * @public
    */
   updatedCount: number | undefined;
 
   /**
-   * <p> The timestamp when the examples were updated. </p>
+   * The timestamp when the examples were updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -6853,7 +7817,8 @@ export interface UpdateDatasetExamplesResponse {
  */
 export interface DeleteResourcePolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource for which to delete the resource policy.</p>
+   * The Amazon Resource Name (ARN) of the resource for which to delete the resource policy.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -6865,25 +7830,29 @@ export interface DeleteResourcePolicyRequest {
 export interface DeleteResourcePolicyResponse {}
 
 /**
- * <p> Configuration for a Lambda function used as a code-based evaluator. </p>
+ * Configuration for a Lambda function used as a code-based evaluator.
+ *
  * @public
  */
 export interface LambdaEvaluatorConfig {
   /**
-   * <p> The Amazon Resource Name (ARN) of the Lambda function that implements the evaluation logic. </p>
+   * The Amazon Resource Name (ARN) of the Lambda function that implements the evaluation logic.
+   *
    * @public
    */
   lambdaArn: string | undefined;
 
   /**
-   * <p> The timeout in seconds for the Lambda function invocation. Defaults to 60. Must be between 1 and 300. </p>
+   * The timeout in seconds for the Lambda function invocation. Defaults to 60. Must be between 1 and 300.
+   *
    * @public
    */
   lambdaTimeoutInSeconds?: number | undefined;
 }
 
 /**
- * <p> Configuration for a code-based evaluator. Specify the Lambda function to use for evaluation. </p>
+ * Configuration for a code-based evaluator. Specify the Lambda function to use for evaluation.
+ *
  * @public
  */
 export type CodeBasedEvaluatorConfig =
@@ -6895,7 +7864,8 @@ export type CodeBasedEvaluatorConfig =
  */
 export namespace CodeBasedEvaluatorConfig {
   /**
-   * <p> The Lambda function configuration for code-based evaluation. </p>
+   * The Lambda function configuration for code-based evaluation.
+   *
    * @public
    */
   export interface LambdaConfigMember {
@@ -6922,109 +7892,127 @@ export namespace CodeBasedEvaluatorConfig {
 }
 
 /**
- * <p> The configuration parameters that control how the foundation model behaves during evaluation, including response generation settings. </p>
+ * The configuration parameters that control how the foundation model behaves during evaluation, including response generation settings.
+ *
  * @public
  */
 export interface InferenceConfiguration {
   /**
-   * <p> The maximum number of tokens to generate in the model response during evaluation. </p>
+   * The maximum number of tokens to generate in the model response during evaluation.
+   *
    * @public
    */
   maxTokens?: number | undefined;
 
   /**
-   * <p> The temperature value that controls randomness in the model's responses. Lower values produce more deterministic outputs. </p>
+   * The temperature value that controls randomness in the model's responses. Lower values produce more deterministic outputs.
+   *
    * @public
    */
   temperature?: number | undefined;
 
   /**
-   * <p> The top-p sampling parameter that controls the diversity of the model's responses by limiting the cumulative probability of token choices. </p>
+   * The top-p sampling parameter that controls the diversity of the model's responses by limiting the cumulative probability of token choices.
+   *
    * @public
    */
   topP?: number | undefined;
 
   /**
-   * <p> The list of sequences that will cause the model to stop generating tokens when encountered. </p>
+   * The list of sequences that will cause the model to stop generating tokens when encountered.
+   *
    * @public
    */
   stopSequences?: string[] | undefined;
 }
 
 /**
- * <p> The configuration for using Amazon Bedrock models in evaluator assessments, including model selection and inference parameters. </p>
+ * The configuration for using Amazon Bedrock models in evaluator assessments, including model selection and inference parameters.
+ *
  * @public
  */
 export interface BedrockEvaluatorModelConfig {
   /**
-   * <p> The identifier of the Amazon Bedrock model to use for evaluation. Must be a supported foundation model available in your region. </p>
+   * The identifier of the Amazon Bedrock model to use for evaluation. Must be a supported foundation model available in your region.
+   *
    * @public
    */
   modelId: string | undefined;
 
   /**
-   * <p> The inference configuration parameters that control model behavior during evaluation, including temperature, token limits, and sampling settings. </p>
+   * The inference configuration parameters that control model behavior during evaluation, including temperature, token limits, and sampling settings.
+   *
    * @public
    */
   inferenceConfig?: InferenceConfiguration | undefined;
 
   /**
-   * <p> Additional model-specific request fields to customize model behavior beyond the standard inference configuration. </p>
+   * Additional model-specific request fields to customize model behavior beyond the standard inference configuration.
+   *
    * @public
    */
   additionalModelRequestFields?: __DocumentType | undefined;
 }
 
 /**
- * <p> The reasoning configuration that controls how a reasoning model allocates effort during evaluation. </p>
+ * The reasoning configuration that controls how a reasoning model allocates effort during evaluation.
+ *
  * @public
  */
 export interface ReasoningConfiguration {
   /**
-   * <p> The level of reasoning effort the model applies when generating a response. For supported values, see the model provider's documentation. </p>
+   * The level of reasoning effort the model applies when generating a response. For supported values, see the model provider's documentation.
+   *
    * @public
    */
   effort?: string | undefined;
 }
 
 /**
- * <p> The configuration for using models served through the OpenResponses API in evaluator assessments, including model selection and inference parameters. </p>
+ * The configuration for using models served through the OpenResponses API in evaluator assessments, including model selection and inference parameters.
+ *
  * @public
  */
 export interface OpenResponsesEvaluatorModelConfig {
   /**
-   * <p> The identifier of the model to use for evaluation. </p>
+   * The identifier of the model to use for evaluation.
+   *
    * @public
    */
   modelId: string | undefined;
 
   /**
-   * <p> The maximum number of tokens to generate in the model response, including visible output and reasoning tokens. </p>
+   * The maximum number of tokens to generate in the model response, including visible output and reasoning tokens.
+   *
    * @public
    */
   maxOutputTokens?: number | undefined;
 
   /**
-   * <p> The temperature value that controls randomness in the model's responses. Lower values produce more deterministic outputs. </p>
+   * The temperature value that controls randomness in the model's responses. Lower values produce more deterministic outputs.
+   *
    * @public
    */
   temperature?: number | undefined;
 
   /**
-   * <p> The top-p sampling parameter that controls the diversity of the model's responses by limiting the cumulative probability of token choices. </p>
+   * The top-p sampling parameter that controls the diversity of the model's responses by limiting the cumulative probability of token choices.
+   *
    * @public
    */
   topP?: number | undefined;
 
   /**
-   * <p> The reasoning configuration for reasoning models. Non-reasoning models ignore this configuration. </p>
+   * The reasoning configuration for reasoning models. Non-reasoning models ignore this configuration.
+   *
    * @public
    */
   reasoning?: ReasoningConfiguration | undefined;
 }
 
 /**
- * <p> The model configuration that specifies which foundation model to use for evaluation and how to configure it. </p>
+ * The model configuration that specifies which foundation model to use for evaluation and how to configure it.
+ *
  * @public
  */
 export type EvaluatorModelConfig =
@@ -7037,7 +8025,8 @@ export type EvaluatorModelConfig =
  */
 export namespace EvaluatorModelConfig {
   /**
-   * <p> The Amazon Bedrock model configuration for evaluation. </p>
+   * The Amazon Bedrock model configuration for evaluation.
+   *
    * @public
    */
   export interface BedrockEvaluatorModelConfigMember {
@@ -7047,7 +8036,8 @@ export namespace EvaluatorModelConfig {
   }
 
   /**
-   * <p> The OpenResponses model configuration for evaluation. </p>
+   * The OpenResponses model configuration for evaluation.
+   *
    * @public
    */
   export interface ResponsesEvaluatorModelConfigMember {
@@ -7077,67 +8067,78 @@ export namespace EvaluatorModelConfig {
 }
 
 /**
- * <p> The configuration for a derived evaluator. It reuses an existing evaluator's logic on your own model. </p>
+ * The configuration for a derived evaluator. It reuses an existing evaluator's logic on your own model.
+ *
  * @public
  */
 export interface DerivedEvaluatorConfig {
   /**
-   * <p> The identifier of the base evaluator whose logic to run (a <code>Builtin.*</code> or <code>ThirdParty.*</code> evaluator). </p>
+   * The identifier of the base evaluator whose logic to run (a `Builtin.*` or `ThirdParty.*` evaluator).
+   *
    * @public
    */
   baseEvaluatorId: string | undefined;
 
   /**
-   * <p> The configuration of the evaluator model that you supply. </p>
+   * The configuration of the evaluator model that you supply.
+   *
    * @public
    */
   modelConfig: EvaluatorModelConfig | undefined;
 }
 
 /**
- * <p> The definition of a categorical rating scale option that provides a named category with its description for evaluation scoring. </p>
+ * The definition of a categorical rating scale option that provides a named category with its description for evaluation scoring.
+ *
  * @public
  */
 export interface CategoricalScaleDefinition {
   /**
-   * <p> The description that explains what this categorical rating represents and when it should be used. </p>
+   * The description that explains what this categorical rating represents and when it should be used.
+   *
    * @public
    */
   definition: string | undefined;
 
   /**
-   * <p> The label or name of this categorical rating option. </p>
+   * The label or name of this categorical rating option.
+   *
    * @public
    */
   label: string | undefined;
 }
 
 /**
- * <p> The definition of a numerical rating scale option that provides a numeric value with its description for evaluation scoring. </p>
+ * The definition of a numerical rating scale option that provides a numeric value with its description for evaluation scoring.
+ *
  * @public
  */
 export interface NumericalScaleDefinition {
   /**
-   * <p> The description that explains what this numerical rating represents and when it should be used. </p>
+   * The description that explains what this numerical rating represents and when it should be used.
+   *
    * @public
    */
   definition: string | undefined;
 
   /**
-   * <p> The numerical value for this rating scale option. </p>
+   * The numerical value for this rating scale option.
+   *
    * @public
    */
   value: number | undefined;
 
   /**
-   * <p> The label or name that describes this numerical rating option. </p>
+   * The label or name that describes this numerical rating option.
+   *
    * @public
    */
   label: string | undefined;
 }
 
 /**
- * <p> The rating scale for one dimension of an LLM-as-a-judge evaluator, supporting either a numerical or a categorical scale. </p>
+ * The rating scale for one dimension of an LLM-as-a-judge evaluator, supporting either a numerical or a categorical scale.
+ *
  * @public
  */
 export type DimensionRatingScale =
@@ -7150,7 +8151,8 @@ export type DimensionRatingScale =
  */
 export namespace DimensionRatingScale {
   /**
-   * <p> The numerical rating scale with defined score values and descriptions for quantitative evaluation of the dimension. </p>
+   * The numerical rating scale with defined score values and descriptions for quantitative evaluation of the dimension.
+   *
    * @public
    */
   export interface NumericalMember {
@@ -7160,7 +8162,8 @@ export namespace DimensionRatingScale {
   }
 
   /**
-   * <p> The categorical rating scale with named categories and definitions for qualitative evaluation of the dimension. </p>
+   * The categorical rating scale with named categories and definitions for qualitative evaluation of the dimension.
+   *
    * @public
    */
   export interface CategoricalMember {
@@ -7190,31 +8193,36 @@ export namespace DimensionRatingScale {
 }
 
 /**
- * <p> A single dimension of an LLM-as-a-judge evaluator, defining what the evaluator model should judge for that dimension and how it should be scored. </p>
+ * A single dimension of an LLM-as-a-judge evaluator, defining what the evaluator model should judge for that dimension and how it should be scored.
+ *
  * @public
  */
 export interface EvaluationDimension {
   /**
-   * <p> The name of the dimension. This name is unique within the evaluator and identifies the dimension's results. </p>
+   * The name of the dimension. This name is unique within the evaluator and identifies the dimension's results.
+   *
    * @public
    */
   dimensionName: string | undefined;
 
   /**
-   * <p> The instruction to the evaluator model for this dimension, describing what the model should judge when scoring the dimension. </p>
+   * The instruction to the evaluator model for this dimension, describing what the model should judge when scoring the dimension.
+   *
    * @public
    */
   dimensionInstruction: string | undefined;
 
   /**
-   * <p> The rating scale for this dimension, which can be numerical or categorical. A dimension's rating scale cannot itself be multi-dimensional. </p>
+   * The rating scale for this dimension, which can be numerical or categorical. A dimension's rating scale cannot itself be multi-dimensional.
+   *
    * @public
    */
   dimensionRatingScale: DimensionRatingScale | undefined;
 }
 
 /**
- * <p> The rating scale that defines how evaluators should score agent performance, supporting both numerical and categorical scales. </p>
+ * The rating scale that defines how evaluators should score agent performance, supporting both numerical and categorical scales.
+ *
  * @public
  */
 export type RatingScale =
@@ -7228,7 +8236,8 @@ export type RatingScale =
  */
 export namespace RatingScale {
   /**
-   * <p> The numerical rating scale with defined score values and descriptions for quantitative evaluation. </p>
+   * The numerical rating scale with defined score values and descriptions for quantitative evaluation.
+   *
    * @public
    */
   export interface NumericalMember {
@@ -7239,7 +8248,8 @@ export namespace RatingScale {
   }
 
   /**
-   * <p> The categorical rating scale with named categories and definitions for qualitative evaluation. </p>
+   * The categorical rating scale with named categories and definitions for qualitative evaluation.
+   *
    * @public
    */
   export interface CategoricalMember {
@@ -7250,7 +8260,8 @@ export namespace RatingScale {
   }
 
   /**
-   * <p> A list of dimensions that lets an LLM-as-a-judge evaluator score several dimensions of the same target in a single evaluation. Each dimension has its own instruction and rating scale, and produces its own result. </p>
+   * A list of dimensions that lets an LLM-as-a-judge evaluator score several dimensions of the same target in a single evaluation. Each dimension has its own instruction and rating scale, and produces its own result.
+   *
    * @public
    */
   export interface MultiDimensionalMember {
@@ -7283,31 +8294,36 @@ export namespace RatingScale {
 }
 
 /**
- * <p> The configuration for LLM-as-a-Judge evaluation that uses a language model to assess agent performance based on custom instructions and rating scales. </p>
+ * The configuration for LLM-as-a-Judge evaluation that uses a language model to assess agent performance based on custom instructions and rating scales.
+ *
  * @public
  */
 export interface LlmAsAJudgeEvaluatorConfig {
   /**
-   * <p> The evaluation instructions that guide the language model in assessing agent performance, including criteria and evaluation guidelines. </p>
+   * The evaluation instructions that guide the language model in assessing agent performance, including criteria and evaluation guidelines.
+   *
    * @public
    */
   instructions: string | undefined;
 
   /**
-   * <p> The rating scale that defines how the evaluator should score agent performance, either numerical or categorical. </p>
+   * The rating scale that defines how the evaluator should score agent performance, either numerical or categorical.
+   *
    * @public
    */
   ratingScale: RatingScale | undefined;
 
   /**
-   * <p> The model configuration that specifies which foundation model to use and how to configure it for evaluation. </p>
+   * The model configuration that specifies which foundation model to use and how to configure it for evaluation.
+   *
    * @public
    */
   modelConfig: EvaluatorModelConfig | undefined;
 }
 
 /**
- * <p> The configuration that defines how an evaluator assesses agent performance, including the evaluation method and parameters. </p>
+ * The configuration that defines how an evaluator assesses agent performance, including the evaluation method and parameters.
+ *
  * @public
  */
 export type EvaluatorConfig =
@@ -7321,7 +8337,8 @@ export type EvaluatorConfig =
  */
 export namespace EvaluatorConfig {
   /**
-   * <p> The LLM-as-a-Judge configuration that uses a language model to evaluate agent performance based on custom instructions and rating scales. </p>
+   * The LLM-as-a-Judge configuration that uses a language model to evaluate agent performance based on custom instructions and rating scales.
+   *
    * @public
    */
   export interface LlmAsAJudgeMember {
@@ -7332,7 +8349,8 @@ export namespace EvaluatorConfig {
   }
 
   /**
-   * <p> Configuration for a code-based evaluator that uses a customer-managed Lambda function to programmatically assess agent performance. </p>
+   * Configuration for a code-based evaluator that uses a customer-managed Lambda function to programmatically assess agent performance.
+   *
    * @public
    */
   export interface CodeBasedMember {
@@ -7343,7 +8361,8 @@ export namespace EvaluatorConfig {
   }
 
   /**
-   * <p> The configuration for an evaluator derived from an existing base evaluator (a built-in or third-party evaluator), run on your own model. The base evaluator supplies the prompt and scoring. </p>
+   * The configuration for an evaluator derived from an existing base evaluator (a built-in or third-party evaluator), run on your own model. The base evaluator supplies the prompt and scoring.
+   *
    * @public
    */
   export interface DerivedMember {
@@ -7380,43 +8399,50 @@ export namespace EvaluatorConfig {
  */
 export interface CreateEvaluatorRequest {
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p> The name of the evaluator. Must be unique within your account. </p>
+   * The name of the evaluator. Must be unique within your account.
+   *
    * @public
    */
   evaluatorName: string | undefined;
 
   /**
-   * <p> The description of the evaluator that explains its purpose and evaluation criteria. </p>
+   * The description of the evaluator that explains its purpose and evaluation criteria.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p> The configuration for the evaluator. Specify either LLM-as-a-Judge settings with instructions, rating scale, and model configuration, or code-based settings with a customer-managed Lambda function. </p>
+   * The configuration for the evaluator. Specify either LLM-as-a-Judge settings with instructions, rating scale, and model configuration, or code-based settings with a customer-managed Lambda function.
+   *
    * @public
    */
   evaluatorConfig: EvaluatorConfig | undefined;
 
   /**
-   * <p> The evaluation level that determines the scope of evaluation. Valid values are <code>TOOL_CALL</code> for individual tool invocations, <code>TRACE</code> for single request-response interactions, or <code>SESSION</code> for entire conversation sessions. </p>
+   * The evaluation level that determines the scope of evaluation. Valid values are `TOOL_CALL` for individual tool invocations, `TRACE` for single request-response interactions, or `SESSION` for entire conversation sessions.
+   *
    * @public
    */
   level: EvaluatorLevel | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of a customer managed KMS key to use for encrypting sensitive evaluator data, including instructions and rating scale. If you don't specify a KMS key, the evaluator data is encrypted with an Amazon Web Services owned key. Only symmetric encryption KMS keys are supported. For more information, see <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/evaluations-encryption.html">Encryption at rest for AgentCore Evaluations</a>. </p>
+   * The Amazon Resource Name (ARN) of a customer managed KMS key to use for encrypting sensitive evaluator data, including instructions and rating scale. If you don't specify a KMS key, the evaluator data is encrypted with an Amazon Web Services owned key. Only symmetric encryption KMS keys are supported. For more information, see [Encryption at rest for AgentCore Evaluations](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/evaluations-encryption.html).
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>A map of tag keys and values to assign to an AgentCore Evaluator. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
+   * A map of tag keys and values to assign to an AgentCore Evaluator. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -7427,25 +8453,29 @@ export interface CreateEvaluatorRequest {
  */
 export interface CreateEvaluatorResponse {
   /**
-   * <p> The Amazon Resource Name (ARN) of the created evaluator. </p>
+   * The Amazon Resource Name (ARN) of the created evaluator.
+   *
    * @public
    */
   evaluatorArn: string | undefined;
 
   /**
-   * <p> The unique identifier of the created evaluator. </p>
+   * The unique identifier of the created evaluator.
+   *
    * @public
    */
   evaluatorId: string | undefined;
 
   /**
-   * <p> The timestamp when the evaluator was created. </p>
+   * The timestamp when the evaluator was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p> The status of the evaluator creation operation. </p>
+   * The status of the evaluator creation operation.
+   *
    * @public
    */
   status: EvaluatorStatus | undefined;
@@ -7456,7 +8486,8 @@ export interface CreateEvaluatorResponse {
  */
 export interface DeleteEvaluatorRequest {
   /**
-   * <p> The unique identifier of the evaluator to delete. </p>
+   * The unique identifier of the evaluator to delete.
+   *
    * @public
    */
   evaluatorId: string | undefined;
@@ -7467,19 +8498,22 @@ export interface DeleteEvaluatorRequest {
  */
 export interface DeleteEvaluatorResponse {
   /**
-   * <p> The Amazon Resource Name (ARN) of the deleted evaluator. </p>
+   * The Amazon Resource Name (ARN) of the deleted evaluator.
+   *
    * @public
    */
   evaluatorArn: string | undefined;
 
   /**
-   * <p> The unique identifier of the deleted evaluator. </p>
+   * The unique identifier of the deleted evaluator.
+   *
    * @public
    */
   evaluatorId: string | undefined;
 
   /**
-   * <p> The status of the evaluator deletion operation. </p>
+   * The status of the evaluator deletion operation.
+   *
    * @public
    */
   status: EvaluatorStatus | undefined;
@@ -7490,13 +8524,15 @@ export interface DeleteEvaluatorResponse {
  */
 export interface GetEvaluatorRequest {
   /**
-   * <p> The unique identifier of the evaluator to retrieve. Can be a built-in evaluator ID (e.g., Builtin.Helpfulness) or a custom evaluator ID. </p>
+   * The unique identifier of the evaluator to retrieve. Can be a built-in evaluator ID (e.g., Builtin.Helpfulness) or a custom evaluator ID.
+   *
    * @public
    */
   evaluatorId: string | undefined;
 
   /**
-   * <p> Controls which data is returned in the response. <code>ALL_DATA</code> (default) returns the full evaluator including decrypted instructions and rating scale. For evaluators encrypted with a customer managed KMS key, this requires <code>kms:Decrypt</code> permission on the key. <code>METADATA_ONLY</code> returns evaluator metadata and model configuration without instructions or rating scale, and does not require any KMS permissions. </p>
+   * Controls which data is returned in the response. `ALL_DATA` (default) returns the full evaluator including decrypted instructions and rating scale. For evaluators encrypted with a customer managed KMS key, this requires `kms:Decrypt` permission on the key. `METADATA_ONLY` returns evaluator metadata and model configuration without instructions or rating scale, and does not require any KMS permissions.
+   *
    * @public
    */
   includedData?: IncludedData | undefined;
@@ -7507,79 +8543,98 @@ export interface GetEvaluatorRequest {
  */
 export interface GetEvaluatorResponse {
   /**
-   * <p> The Amazon Resource Name (ARN) of the evaluator. </p>
+   * The Amazon Resource Name (ARN) of the evaluator.
+   *
    * @public
    */
   evaluatorArn: string | undefined;
 
   /**
-   * <p> The unique identifier of the evaluator. </p>
+   * The unique identifier of the evaluator.
+   *
    * @public
    */
   evaluatorId: string | undefined;
 
   /**
-   * <p> The name of the evaluator. </p>
+   * The name of the evaluator.
+   *
    * @public
    */
   evaluatorName: string | undefined;
 
   /**
-   * <p> The description of the evaluator. </p>
+   * The description of the evaluator.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p> The configuration of the evaluator, including LLM-as-a-Judge or code-based settings. </p>
+   * The configuration of the evaluator, including LLM-as-a-Judge or code-based settings.
+   *
    * @public
    */
   evaluatorConfig: EvaluatorConfig | undefined;
 
   /**
-   * <p> The kind of evaluator resource. Valid values: </p> <ul> <li> <p> <code>Builtin</code> – An Amazon Web Services-managed global evaluator.</p> </li> <li> <p> <code>ThirdParty</code> – An Amazon Web Services-managed global evaluator from a third-party provider.</p> </li> <li> <p> <code>Custom</code> – A customer-created evaluator.</p> </li> <li> <p> <code>CustomCode</code> – A customer-created code-based evaluator.</p> </li> <li> <p> <code>CustomDerived</code> – A customer-created evaluator derived from an existing base evaluator.</p> </li> </ul>
+   * The kind of evaluator resource. Valid values:
+   *
+   * - `Builtin` – An Amazon Web Services-managed global evaluator.
+   * - `ThirdParty` – An Amazon Web Services-managed global evaluator from a third-party provider.
+   * - `Custom` – A customer-created evaluator.
+   * - `CustomCode` – A customer-created code-based evaluator.
+   * - `CustomDerived` – A customer-created evaluator derived from an existing base evaluator.
+   *
    * @public
    */
   evaluatorType?: EvaluatorType | undefined;
 
   /**
-   * <p> The source of the evaluator's logic: Amazon Web Services, a third-party library, or you. </p>
+   * The source of the evaluator's logic: Amazon Web Services, a third-party library, or you.
+   *
    * @public
    */
   provider?: Provider | undefined;
 
   /**
-   * <p> The evaluation level (<code>TOOL_CALL</code>, <code>TRACE</code>, or <code>SESSION</code>) that determines the scope of evaluation. </p>
+   * The evaluation level (`TOOL_CALL`, `TRACE`, or `SESSION`) that determines the scope of evaluation.
+   *
    * @public
    */
   level: EvaluatorLevel | undefined;
 
   /**
-   * <p> The current status of the evaluator. </p>
+   * The current status of the evaluator.
+   *
    * @public
    */
   status: EvaluatorStatus | undefined;
 
   /**
-   * <p> The timestamp when the evaluator was created. </p>
+   * The timestamp when the evaluator was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p> The timestamp when the evaluator was last updated. </p>
+   * The timestamp when the evaluator was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p> Whether the evaluator is locked for modification due to being referenced by active online evaluation configurations. </p>
+   * Whether the evaluator is locked for modification due to being referenced by active online evaluation configurations.
+   *
    * @public
    */
   lockedForModification?: boolean | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the customer managed KMS key used to encrypt the evaluator's sensitive data. This field is only present for evaluators encrypted with a customer managed key. </p>
+   * The Amazon Resource Name (ARN) of the customer managed KMS key used to encrypt the evaluator's sensitive data. This field is only present for evaluators encrypted with a customer managed key.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
@@ -7590,91 +8645,106 @@ export interface GetEvaluatorResponse {
  */
 export interface ListEvaluatorsRequest {
   /**
-   * <p> The pagination token from a previous request to retrieve the next page of results. </p>
+   * The pagination token from a previous request to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p> The maximum number of evaluators to return in a single response. </p>
+   * The maximum number of evaluators to return in a single response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p> The summary information about an evaluator, including basic metadata and status information. </p>
+ * The summary information about an evaluator, including basic metadata and status information.
+ *
  * @public
  */
 export interface EvaluatorSummary {
   /**
-   * <p> The Amazon Resource Name (ARN) of the evaluator. </p>
+   * The Amazon Resource Name (ARN) of the evaluator.
+   *
    * @public
    */
   evaluatorArn: string | undefined;
 
   /**
-   * <p> The unique identifier of the evaluator. </p>
+   * The unique identifier of the evaluator.
+   *
    * @public
    */
   evaluatorId: string | undefined;
 
   /**
-   * <p> The name of the evaluator. </p>
+   * The name of the evaluator.
+   *
    * @public
    */
   evaluatorName: string | undefined;
 
   /**
-   * <p> The description of the evaluator. </p>
+   * The description of the evaluator.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p> The type of evaluator, indicating whether it is a built-in evaluator provided by the service or a custom evaluator created by the user. </p>
+   * The type of evaluator, indicating whether it is a built-in evaluator provided by the service or a custom evaluator created by the user.
+   *
    * @public
    */
   evaluatorType: EvaluatorType | undefined;
 
   /**
-   * <p> The source of the evaluator's logic: Amazon Web Services, a third-party library, or you. </p>
+   * The source of the evaluator's logic: Amazon Web Services, a third-party library, or you.
+   *
    * @public
    */
   provider?: Provider | undefined;
 
   /**
-   * <p> The evaluation level (<code>TOOL_CALL</code>, <code>TRACE</code>, or <code>SESSION</code>) that determines the scope of evaluation. </p>
+   * The evaluation level (`TOOL_CALL`, `TRACE`, or `SESSION`) that determines the scope of evaluation.
+   *
    * @public
    */
   level?: EvaluatorLevel | undefined;
 
   /**
-   * <p> The current status of the evaluator. </p>
+   * The current status of the evaluator.
+   *
    * @public
    */
   status: EvaluatorStatus | undefined;
 
   /**
-   * <p> The timestamp when the evaluator was created. </p>
+   * The timestamp when the evaluator was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p> The timestamp when the evaluator was last updated. </p>
+   * The timestamp when the evaluator was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p> Whether the evaluator is locked for modification due to being referenced by active online evaluation configurations. </p>
+   * Whether the evaluator is locked for modification due to being referenced by active online evaluation configurations.
+   *
    * @public
    */
   lockedForModification?: boolean | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the customer managed KMS key used to encrypt the evaluator's sensitive data. This field is only present for evaluators encrypted with a customer managed key. </p>
+   * The Amazon Resource Name (ARN) of the customer managed KMS key used to encrypt the evaluator's sensitive data. This field is only present for evaluators encrypted with a customer managed key.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
@@ -7685,13 +8755,15 @@ export interface EvaluatorSummary {
  */
 export interface ListEvaluatorsResponse {
   /**
-   * <p> The list of evaluator summaries containing basic information about each evaluator. </p>
+   * The list of evaluator summaries containing basic information about each evaluator.
+   *
    * @public
    */
   evaluators: EvaluatorSummary[] | undefined;
 
   /**
-   * <p> The pagination token to use in a subsequent request to retrieve the next page of results. </p>
+   * The pagination token to use in a subsequent request to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -7702,37 +8774,43 @@ export interface ListEvaluatorsResponse {
  */
 export interface UpdateEvaluatorRequest {
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p> The unique identifier of the evaluator to update. </p>
+   * The unique identifier of the evaluator to update.
+   *
    * @public
    */
   evaluatorId: string | undefined;
 
   /**
-   * <p> The updated description of the evaluator. </p>
+   * The updated description of the evaluator.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p> The updated configuration for the evaluator. Specify either LLM-as-a-Judge settings with instructions, rating scale, and model configuration, or code-based settings with a customer-managed Lambda function. </p>
+   * The updated configuration for the evaluator. Specify either LLM-as-a-Judge settings with instructions, rating scale, and model configuration, or code-based settings with a customer-managed Lambda function.
+   *
    * @public
    */
   evaluatorConfig?: EvaluatorConfig | undefined;
 
   /**
-   * <p> The updated evaluation level (<code>TOOL_CALL</code>, <code>TRACE</code>, or <code>SESSION</code>) that determines the scope of evaluation. </p>
+   * The updated evaluation level (`TOOL_CALL`, `TRACE`, or `SESSION`) that determines the scope of evaluation.
+   *
    * @public
    */
   level?: EvaluatorLevel | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of a customer managed KMS key to use for encrypting sensitive evaluator data. Specify a new key ARN to rotate the encryption key, or specify a key ARN to add encryption to an evaluator that was previously created without one. When you rotate to a new key, the service decrypts the existing data with the old key and re-encrypts it with the new key. Only symmetric encryption KMS keys are supported. For more information, see <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/evaluations-encryption.html">Encryption at rest for AgentCore Evaluations</a>. </p>
+   * The Amazon Resource Name (ARN) of a customer managed KMS key to use for encrypting sensitive evaluator data. Specify a new key ARN to rotate the encryption key, or specify a key ARN to add encryption to an evaluator that was previously created without one. When you rotate to a new key, the service decrypts the existing data with the old key and re-encrypts it with the new key. Only symmetric encryption KMS keys are supported. For more information, see [Encryption at rest for AgentCore Evaluations](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/evaluations-encryption.html).
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
@@ -7743,103 +8821,123 @@ export interface UpdateEvaluatorRequest {
  */
 export interface UpdateEvaluatorResponse {
   /**
-   * <p> The Amazon Resource Name (ARN) of the updated evaluator. </p>
+   * The Amazon Resource Name (ARN) of the updated evaluator.
+   *
    * @public
    */
   evaluatorArn: string | undefined;
 
   /**
-   * <p> The unique identifier of the updated evaluator. </p>
+   * The unique identifier of the updated evaluator.
+   *
    * @public
    */
   evaluatorId: string | undefined;
 
   /**
-   * <p> The timestamp when the evaluator was last updated. </p>
+   * The timestamp when the evaluator was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p> The status of the evaluator update operation. </p>
+   * The status of the evaluator update operation.
+   *
    * @public
    */
   status: EvaluatorStatus | undefined;
 }
 
 /**
- * <p>Contains the rate configuration for a rate limit metric, specifying the allowed rate and time period.</p>
+ * Contains the rate configuration for a rate limit metric, specifying the allowed rate and time period.
+ *
  * @public
  */
 export interface RateConfig {
   /**
-   * <p>The rate value for the limit. For request limits, this is the number of requests allowed per period. For token limits, this is the number of tokens allowed per period. For connection limits, this is the number of concurrent connections allowed.</p>
+   * The rate value for the limit. For request limits, this is the number of requests allowed per period. For token limits, this is the number of tokens allowed per period. For connection limits, this is the number of concurrent connections allowed.
+   *
    * @public
    */
   rate: number | undefined;
 
   /**
-   * <p>The time period for the rate limit. Valid values:</p> <ul> <li> <p> <code>second</code>—Measures the rate limit over a one-second window.</p> </li> <li> <p> <code>minute</code>—Measures the rate limit over a one-minute window.</p> </li> </ul>
+   * The time period for the rate limit. Valid values:
+   *
+   * - `second`—Measures the rate limit over a one-second window.
+   * - `minute`—Measures the rate limit over a one-minute window.
+   *
    * @public
    */
   period: Period | undefined;
 }
 
 /**
- * <p>A single rule entry within a rate limit that maps dimension values to rate configurations. Each entry defines the rate limits for a specific combination of dimension values.</p>
+ * A single rule entry within a rate limit that maps dimension values to rate configurations. Each entry defines the rate limits for a specific combination of dimension values.
+ *
  * @public
  */
 export interface LimitEntry {
   /**
-   * <p>A map of dimension names to dimension values for this rule entry. Keys must match the parent rate limit's dimension keys. Values may use <code>*</code> as a wildcard, but only in trailing positions based on the dimension keys ordering.</p>
+   * A map of dimension names to dimension values for this rule entry. Keys must match the parent rate limit's dimension keys. Values may use `*` as a wildcard, but only in trailing positions based on the dimension keys ordering.
+   *
    * @public
    */
   dimensions: Record<string, string> | undefined;
 
   /**
-   * <p>The request rate limit configuration. Specifies the maximum number of requests allowed per time period.</p>
+   * The request rate limit configuration. Specifies the maximum number of requests allowed per time period.
+   *
    * @public
    */
   requests?: RateConfig[] | undefined;
 
   /**
-   * <p>The token rate limit configuration. Specifies the maximum number of tokens allowed per time period.</p>
+   * The token rate limit configuration. Specifies the maximum number of tokens allowed per time period.
+   *
    * @public
    */
   tokens?: RateConfig[] | undefined;
 
   /**
-   * <p>The connection rate limit configuration. Specifies the maximum number of concurrent connections allowed.</p>
+   * The connection rate limit configuration. Specifies the maximum number of concurrent connections allowed.
+   *
    * @public
    */
   connections?: RateConfig[] | undefined;
 }
 
 /**
- * <p>A rate limit definition within a batch put request. If you provide a <code>rateLimitId</code>, the service uses it for upsert matching against existing rate limits.</p>
+ * A rate limit definition within a batch put request. If you provide a `rateLimitId`, the service uses it for upsert matching against existing rate limits.
+ *
  * @public
  */
 export interface BatchPutLimitEntry {
   /**
-   * <p>The unique identifier of the rate limit. If provided, the service uses it for upsert matching against existing rate limits.</p>
+   * The unique identifier of the rate limit. If provided, the service uses it for upsert matching against existing rate limits.
+   *
    * @public
    */
   rateLimitId?: string | undefined;
 
   /**
-   * <p>An optional human-readable description for this rate limit. If not provided, the rate limit is created without a description.</p>
+   * An optional human-readable description for this rate limit. If not provided, the rate limit is created without a description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The ordered list of dimension key names that define the scope of this rate limit.</p>
+   * The ordered list of dimension key names that define the scope of this rate limit.
+   *
    * @public
    */
   dimensionKeys: string[] | undefined;
 
   /**
-   * <p>The list of rule entries that map dimension values to rate configurations.</p>
+   * The list of rule entries that map dimension values to rate configurations.
+   *
    * @public
    */
   entries: LimitEntry[] | undefined;
@@ -7850,73 +8948,85 @@ export interface BatchPutLimitEntry {
  */
 export interface BatchPutGatewayRateLimitsRequest {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayIdentifier: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The complete set of rate limits for this gateway. This operation replaces all existing rate limits in a single request. If the operation fails, no rate limits are changed.</p>
+   * The complete set of rate limits for this gateway. This operation replaces all existing rate limits in a single request. If the operation fails, no rate limits are changed.
+   *
    * @public
    */
   rateLimits: BatchPutLimitEntry[] | undefined;
 }
 
 /**
- * <p>Contains detailed information about a gateway rate limit, including its configuration and current status.</p>
+ * Contains detailed information about a gateway rate limit, including its configuration and current status.
+ *
  * @public
  */
 export interface GatewayRateLimitDetail {
   /**
-   * <p>The unique identifier of the rate limit.</p>
+   * The unique identifier of the rate limit.
+   *
    * @public
    */
   rateLimitId: string | undefined;
 
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayIdentifier: string | undefined;
 
   /**
-   * <p>The human-readable description of the rate limit.</p>
+   * The human-readable description of the rate limit.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The ordered list of dimension key names that define the scope of this rate limit.</p>
+   * The ordered list of dimension key names that define the scope of this rate limit.
+   *
    * @public
    */
   dimensionKeys: string[] | undefined;
 
   /**
-   * <p>The list of rule entries that map dimension values to rate configurations.</p>
+   * The list of rule entries that map dimension values to rate configurations.
+   *
    * @public
    */
   entries: LimitEntry[] | undefined;
 
   /**
-   * <p>The current status of the rate limit.</p>
+   * The current status of the rate limit.
+   *
    * @public
    */
   status: GatewayRateLimitStatus | undefined;
 
   /**
-   * <p>The timestamp when the rate limit was created.</p>
+   * The timestamp when the rate limit was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the rate limit was last updated.</p>
+   * The timestamp when the rate limit was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -7927,7 +9037,8 @@ export interface GatewayRateLimitDetail {
  */
 export interface BatchPutGatewayRateLimitsResponse {
   /**
-   * <p>The resulting set of rate limits after the batch operation.</p>
+   * The resulting set of rate limits after the batch operation.
+   *
    * @public
    */
   rateLimits: GatewayRateLimitDetail[] | undefined;
@@ -7938,91 +9049,106 @@ export interface BatchPutGatewayRateLimitsResponse {
  */
 export interface CreateGatewayRateLimitRequest {
   /**
-   * <p>The unique identifier of the gateway to create the rate limit for.</p>
+   * The unique identifier of the gateway to create the rate limit for.
+   *
    * @public
    */
   gatewayIdentifier: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>An optional customer-defined identifier for the rate limit. If not provided, the system generates one.</p>
+   * An optional customer-defined identifier for the rate limit. If not provided, the system generates one.
+   *
    * @public
    */
   rateLimitId?: string | undefined;
 
   /**
-   * <p>An optional human-readable description for this rate limit. If not provided, the rate limit is created without a description.</p>
+   * An optional human-readable description for this rate limit. If not provided, the rate limit is created without a description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The ordered list of dimension key names that define the scope of this rate limit. Must be unique per gateway—no two rate limits can share the same dimension keys.</p>
+   * The ordered list of dimension key names that define the scope of this rate limit. Must be unique per gateway—no two rate limits can share the same dimension keys.
+   *
    * @public
    */
   dimensionKeys: string[] | undefined;
 
   /**
-   * <p>The rule entries that map dimension values to rate configurations.</p>
+   * The rule entries that map dimension values to rate configurations.
+   *
    * @public
    */
   entries: LimitEntry[] | undefined;
 }
 
 /**
- * <p>Shared fields for <code>GatewayRateLimit</code> responses.</p>
+ * Shared fields for `GatewayRateLimit` responses.
+ *
  * @public
  */
 export interface CreateGatewayRateLimitResponse {
   /**
-   * <p>The unique identifier of the created rate limit.</p>
+   * The unique identifier of the created rate limit.
+   *
    * @public
    */
   rateLimitId: string | undefined;
 
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayIdentifier: string | undefined;
 
   /**
-   * <p>The human-readable description of the rate limit.</p>
+   * The human-readable description of the rate limit.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The ordered list of dimension key names that define the scope of this rate limit.</p>
+   * The ordered list of dimension key names that define the scope of this rate limit.
+   *
    * @public
    */
   dimensionKeys: string[] | undefined;
 
   /**
-   * <p>The list of rule entries that map dimension values to rate configurations.</p>
+   * The list of rule entries that map dimension values to rate configurations.
+   *
    * @public
    */
   entries: LimitEntry[] | undefined;
 
   /**
-   * <p>The current status of the rate limit.</p>
+   * The current status of the rate limit.
+   *
    * @public
    */
   status: GatewayRateLimitStatus | undefined;
 
   /**
-   * <p>The timestamp when the rate limit was created.</p>
+   * The timestamp when the rate limit was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the rate limit was last updated.</p>
+   * The timestamp when the rate limit was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -8033,13 +9159,15 @@ export interface CreateGatewayRateLimitResponse {
  */
 export interface DeleteGatewayRateLimitRequest {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the rate limit to delete.</p>
+   * The unique identifier of the rate limit to delete.
+   *
    * @public
    */
   rateLimitId: string | undefined;
@@ -8050,13 +9178,15 @@ export interface DeleteGatewayRateLimitRequest {
  */
 export interface DeleteGatewayRateLimitResponse {
   /**
-   * <p>The unique identifier of the deleted rate limit.</p>
+   * The unique identifier of the deleted rate limit.
+   *
    * @public
    */
   rateLimitId: string | undefined;
 
   /**
-   * <p>The current status of the rate limit deletion.</p>
+   * The current status of the rate limit deletion.
+   *
    * @public
    */
   status: GatewayRateLimitStatus | undefined;
@@ -8067,67 +9197,78 @@ export interface DeleteGatewayRateLimitResponse {
  */
 export interface GetGatewayRateLimitRequest {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the rate limit to retrieve.</p>
+   * The unique identifier of the rate limit to retrieve.
+   *
    * @public
    */
   rateLimitId: string | undefined;
 }
 
 /**
- * <p>Shared fields for <code>GatewayRateLimit</code> responses.</p>
+ * Shared fields for `GatewayRateLimit` responses.
+ *
  * @public
  */
 export interface GetGatewayRateLimitResponse {
   /**
-   * <p>The unique identifier of the rate limit.</p>
+   * The unique identifier of the rate limit.
+   *
    * @public
    */
   rateLimitId: string | undefined;
 
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayIdentifier: string | undefined;
 
   /**
-   * <p>The human-readable description of the rate limit.</p>
+   * The human-readable description of the rate limit.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The ordered list of dimension key names that define the scope of this rate limit.</p>
+   * The ordered list of dimension key names that define the scope of this rate limit.
+   *
    * @public
    */
   dimensionKeys: string[] | undefined;
 
   /**
-   * <p>The list of rule entries that map dimension values to rate configurations.</p>
+   * The list of rule entries that map dimension values to rate configurations.
+   *
    * @public
    */
   entries: LimitEntry[] | undefined;
 
   /**
-   * <p>The current status of the rate limit.</p>
+   * The current status of the rate limit.
+   *
    * @public
    */
   status: GatewayRateLimitStatus | undefined;
 
   /**
-   * <p>The timestamp when the rate limit was created.</p>
+   * The timestamp when the rate limit was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the rate limit was last updated.</p>
+   * The timestamp when the rate limit was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -8138,19 +9279,22 @@ export interface GetGatewayRateLimitResponse {
  */
 export interface ListGatewayRateLimitsRequest {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayIdentifier: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the `nextToken` field when making another request to return the next batch of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. Use the value returned in a previous <code>ListGatewayRateLimits</code> response.</p>
+   * The token to use to retrieve the next page of results. Use the value returned in a previous `ListGatewayRateLimits` response.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -8161,13 +9305,15 @@ export interface ListGatewayRateLimitsRequest {
  */
 export interface ListGatewayRateLimitsResponse {
   /**
-   * <p>The list of rate limits for the gateway.</p>
+   * The list of rate limits for the gateway.
+   *
    * @public
    */
   rateLimits: GatewayRateLimitDetail[] | undefined;
 
   /**
-   * <p>The token for the next page of results. If this value is absent, there are no more results to retrieve.</p>
+   * The token for the next page of results. If this value is absent, there are no more results to retrieve.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -8178,86 +9324,100 @@ export interface ListGatewayRateLimitsResponse {
  */
 export interface UpdateGatewayRateLimitRequest {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the rate limit to update.</p>
+   * The unique identifier of the rate limit to update.
+   *
    * @public
    */
   rateLimitId: string | undefined;
 
   /**
-   * <p>The updated human-readable description for this rate limit.</p>
+   * The updated human-readable description for this rate limit.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The updated rule entries. The dimension keys are immutable after creation and cannot be changed.</p>
+   * The updated rule entries. The dimension keys are immutable after creation and cannot be changed.
+   *
    * @public
    */
   entries: LimitEntry[] | undefined;
 }
 
 /**
- * <p>Shared fields for <code>GatewayRateLimit</code> responses.</p>
+ * Shared fields for `GatewayRateLimit` responses.
+ *
  * @public
  */
 export interface UpdateGatewayRateLimitResponse {
   /**
-   * <p>The unique identifier of the rate limit.</p>
+   * The unique identifier of the rate limit.
+   *
    * @public
    */
   rateLimitId: string | undefined;
 
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayIdentifier: string | undefined;
 
   /**
-   * <p>The human-readable description of the rate limit.</p>
+   * The human-readable description of the rate limit.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The ordered list of dimension key names that define the scope of this rate limit.</p>
+   * The ordered list of dimension key names that define the scope of this rate limit.
+   *
    * @public
    */
   dimensionKeys: string[] | undefined;
 
   /**
-   * <p>The list of rule entries that map dimension values to rate configurations.</p>
+   * The list of rule entries that map dimension values to rate configurations.
+   *
    * @public
    */
   entries: LimitEntry[] | undefined;
 
   /**
-   * <p>The current status of the rate limit.</p>
+   * The current status of the rate limit.
+   *
    * @public
    */
   status: GatewayRateLimitStatus | undefined;
 
   /**
-   * <p>The timestamp when the rate limit was created.</p>
+   * The timestamp when the rate limit was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the rate limit was last updated.</p>
+   * The timestamp when the rate limit was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 }
 
 /**
- * <p>A selector that identifies a payload field to exclude from the interceptor input.</p>
+ * A selector that identifies a payload field to exclude from the interceptor input.
+ *
  * @public
  */
 export type InterceptorPayloadExclusionSelector =
@@ -8269,7 +9429,8 @@ export type InterceptorPayloadExclusionSelector =
  */
 export namespace InterceptorPayloadExclusionSelector {
   /**
-   * <p>The field to exclude from the interceptor input.</p>
+   * The field to exclude from the interceptor input.
+   *
    * @public
    */
   export interface FieldMember {
@@ -8296,49 +9457,57 @@ export namespace InterceptorPayloadExclusionSelector {
 }
 
 /**
- * <p>The filter that controls which fields of the request or response payload are included in the input to the interceptor.</p>
+ * The filter that controls which fields of the request or response payload are included in the input to the interceptor.
+ *
  * @public
  */
 export interface InterceptorPayloadFilter {
   /**
-   * <p>The list of selectors that identify payload fields to exclude from the interceptor input.</p>
+   * The list of selectors that identify payload fields to exclude from the interceptor input.
+   *
    * @public
    */
   exclude: InterceptorPayloadExclusionSelector[] | undefined;
 }
 
 /**
- * <p>The input configuration of the interceptor.</p>
+ * The input configuration of the interceptor.
+ *
  * @public
  */
 export interface InterceptorInputConfiguration {
   /**
-   * <p>Indicates whether to pass request headers as input into the interceptor. When set to true, request headers will be passed.</p>
+   * Indicates whether to pass request headers as input into the interceptor. When set to true, request headers will be passed.
+   *
    * @public
    */
   passRequestHeaders: boolean | undefined;
 
   /**
-   * <p>The filter that determines which parts of the request or response payload are passed as input to the interceptor.</p>
+   * The filter that determines which parts of the request or response payload are passed as input to the interceptor.
+   *
    * @public
    */
   payloadFilter?: InterceptorPayloadFilter | undefined;
 }
 
 /**
- * <p>The lambda configuration for the interceptor</p>
+ * The lambda configuration for the interceptor
+ *
  * @public
  */
 export interface LambdaInterceptorConfiguration {
   /**
-   * <p>The arn of the lambda function to be invoked for the interceptor.</p>
+   * The arn of the lambda function to be invoked for the interceptor.
+   *
    * @public
    */
   arn: string | undefined;
 }
 
 /**
- * <p>The interceptor configuration.</p>
+ * The interceptor configuration.
+ *
  * @public
  */
 export type InterceptorConfiguration =
@@ -8350,7 +9519,8 @@ export type InterceptorConfiguration =
  */
 export namespace InterceptorConfiguration {
   /**
-   * <p>The details of the lambda function used for the interceptor.</p>
+   * The details of the lambda function used for the interceptor.
+   *
    * @public
    */
   export interface LambdaMember {
@@ -8377,115 +9547,137 @@ export namespace InterceptorConfiguration {
 }
 
 /**
- * <p>The configuration for an interceptor on a gateway. This structure defines settings for an interceptor that will be invoked during the invocation of the gateway.</p>
+ * The configuration for an interceptor on a gateway. This structure defines settings for an interceptor that will be invoked during the invocation of the gateway.
+ *
  * @public
  */
 export interface GatewayInterceptorConfiguration {
   /**
-   * <p>The infrastructure settings of an interceptor configuration. This structure defines how the interceptor can be invoked.</p>
+   * The infrastructure settings of an interceptor configuration. This structure defines how the interceptor can be invoked.
+   *
    * @public
    */
   interceptor: InterceptorConfiguration | undefined;
 
   /**
-   * <p>The supported points of interception. This field specifies which points during the gateway invocation to invoke the interceptor</p>
+   * The supported points of interception. This field specifies which points during the gateway invocation to invoke the interceptor
+   *
    * @public
    */
   interceptionPoints: GatewayInterceptionPoint[] | undefined;
 
   /**
-   * <p>The configuration for the input of the interceptor. This field specifies how the input to the interceptor is constructed</p>
+   * The configuration for the input of the interceptor. This field specifies how the input to the interceptor is constructed
+   *
    * @public
    */
   inputConfiguration?: InterceptorInputConfiguration | undefined;
 }
 
 /**
- * <p>The configuration for a policy engine associated with a gateway. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies.</p>
+ * The configuration for a policy engine associated with a gateway. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies.
+ *
  * @public
  */
 export interface GatewayPolicyEngineConfiguration {
   /**
-   * <p>The ARN of the policy engine. The policy engine contains Cedar or Dogwood policies that define fine-grained authorization rules specifying who can perform what actions on which resources as agents interact through the gateway.</p>
+   * The ARN of the policy engine. The policy engine contains Cedar or Dogwood policies that define fine-grained authorization rules specifying who can perform what actions on which resources as agents interact through the gateway.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The enforcement mode for the policy engine. Valid values include:</p> <ul> <li> <p> <code>LOG_ONLY</code> - The policy engine evaluates each action against your policies and adds traces on whether tool calls would be allowed or denied, but does not enforce the decision. Use this mode to test and validate policies before enabling enforcement.</p> </li> <li> <p> <code>ENFORCE</code> - The policy engine evaluates actions against your policies and enforces decisions by allowing or denying agent operations. Test and validate policies in <code>LOG_ONLY</code> mode before enabling enforcement to avoid unintended denials or adversely affecting production traffic.</p> </li> </ul>
+   * The enforcement mode for the policy engine. Valid values include:
+   *
+   * - `LOG_ONLY` - The policy engine evaluates each action against your policies and adds traces on whether tool calls would be allowed or denied, but does not enforce the decision. Use this mode to test and validate policies before enabling enforcement.
+   * - `ENFORCE` - The policy engine evaluates actions against your policies and enforces decisions by allowing or denying agent operations. Test and validate policies in `LOG_ONLY` mode before enabling enforcement to avoid unintended denials or adversely affecting production traffic.
+   *
    * @public
    */
   mode: GatewayPolicyEngineMode | undefined;
 }
 
 /**
- * <p>The session configuration for an MCP gateway. This structure defines settings that control session behavior.</p>
+ * The session configuration for an MCP gateway. This structure defines settings that control session behavior.
+ *
  * @public
  */
 export interface SessionConfiguration {
   /**
-   * <p>The session timeout in seconds. After this timeout, the session expires and subsequent requests to this session will receive an error. The minimum value is 900 seconds (15 minutes), the maximum value is 28800 seconds (8 hours), and the default value is 3600 seconds (1 hour).</p>
+   * The session timeout in seconds. After this timeout, the session expires and subsequent requests to this session will receive an error. The minimum value is 900 seconds (15 minutes), the maximum value is 28800 seconds (8 hours), and the default value is 3600 seconds (1 hour).
+   *
    * @public
    */
   sessionTimeoutInSeconds?: number | undefined;
 }
 
 /**
- * <p>The streaming configuration for an MCP gateway. This structure defines settings that control response streaming behavior.</p>
+ * The streaming configuration for an MCP gateway. This structure defines settings that control response streaming behavior.
+ *
  * @public
  */
 export interface StreamingConfiguration {
   /**
-   * <p>Indicates whether response streaming is enabled for the gateway. When set to <code>true</code>, the gateway streams responses from targets back to the client.</p>
+   * Indicates whether response streaming is enabled for the gateway. When set to `true`, the gateway streams responses from targets back to the client.
+   *
    * @public
    */
   enableResponseStreaming?: boolean | undefined;
 }
 
 /**
- * <p>The configuration for a Model Context Protocol (MCP) gateway. This structure defines how the gateway implements the MCP protocol.</p>
+ * The configuration for a Model Context Protocol (MCP) gateway. This structure defines how the gateway implements the MCP protocol.
+ *
  * @public
  */
 export interface MCPGatewayConfiguration {
   /**
-   * <p>The supported versions of the Model Context Protocol. This field specifies which versions of the protocol the gateway can use.</p>
+   * The supported versions of the Model Context Protocol. This field specifies which versions of the protocol the gateway can use.
+   *
    * @public
    */
   supportedVersions?: string[] | undefined;
 
   /**
-   * <p>The instructions for using the Model Context Protocol gateway. These instructions provide guidance on how to interact with the gateway.</p>
+   * The instructions for using the Model Context Protocol gateway. These instructions provide guidance on how to interact with the gateway.
+   *
    * @public
    */
   instructions?: string | undefined;
 
   /**
-   * <p>The search type for the Model Context Protocol gateway. This field specifies how the gateway handles search operations.</p>
+   * The search type for the Model Context Protocol gateway. This field specifies how the gateway handles search operations.
+   *
    * @public
    */
   searchType?: SearchType | undefined;
 
   /**
-   * <p>The session configuration for the MCP gateway. This configuration controls session behavior, including session timeout settings.</p>
+   * The session configuration for the MCP gateway. This configuration controls session behavior, including session timeout settings.
+   *
    * @public
    */
   sessionConfiguration?: SessionConfiguration | undefined;
 
   /**
-   * <p>The streaming configuration for the MCP gateway. This configuration controls whether response streaming is enabled for the gateway.</p>
+   * The streaming configuration for the MCP gateway. This configuration controls whether response streaming is enabled for the gateway.
+   *
    * @public
    */
   streamingConfiguration?: StreamingConfiguration | undefined;
 
   /**
-   * <p>Specifies whether the gateway disables pagination for the Model Context Protocol (MCP) <code>tools/list</code> operation. When set to <code>true</code>, the gateway returns the complete list of tools in a single response without a pagination cursor. When set to <code>false</code> or omitted, the gateway returns tools in paginated responses. For information about changing this value on an existing gateway, see <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_UpdateGateway.html">UpdateGateway</a>.</p>
+   * Specifies whether the gateway disables pagination for the Model Context Protocol (MCP) `tools/list` operation. When set to `true`, the gateway returns the complete list of tools in a single response without a pagination cursor. When set to `false` or omitted, the gateway returns tools in paginated responses. For information about changing this value on an existing gateway, see [UpdateGateway](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_UpdateGateway.html).
+   *
    * @public
    */
   disableMcpListToolsPagination?: boolean | undefined;
 }
 
 /**
- * <p>The configuration for a gateway protocol. This structure defines how the gateway communicates with external services.</p>
+ * The configuration for a gateway protocol. This structure defines how the gateway communicates with external services.
+ *
  * @public
  */
 export type GatewayProtocolConfiguration =
@@ -8497,7 +9689,8 @@ export type GatewayProtocolConfiguration =
  */
 export namespace GatewayProtocolConfiguration {
   /**
-   * <p>The configuration for the Model Context Protocol (MCP). This protocol enables communication between Amazon Bedrock Agent and external tools.</p>
+   * The configuration for the Model Context Protocol (MCP). This protocol enables communication between Amazon Bedrock Agent and external tools.
+   *
    * @public
    */
   export interface McpMember {
@@ -8528,115 +9721,144 @@ export namespace GatewayProtocolConfiguration {
  */
 export interface CreateGatewayRequest {
   /**
-   * <p>The name of the gateway. The name must be unique within your account.</p>
+   * The name of the gateway. The name must be unique within your account.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the gateway.</p>
+   * The description of the gateway.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that provides permissions for the gateway to access Amazon Web Services services.</p>
+   * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the gateway to access Amazon Web Services services.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>The protocol type for the gateway.</p>
+   * The protocol type for the gateway.
+   *
    * @public
    */
   protocolType?: GatewayProtocolType | undefined;
 
   /**
-   * <p>The configuration settings for the protocol specified in the <code>protocolType</code> parameter.</p>
+   * The configuration settings for the protocol specified in the `protocolType` parameter.
+   *
    * @public
    */
   protocolConfiguration?: GatewayProtocolConfiguration | undefined;
 
   /**
-   * <p>The type of authorizer to use for the gateway.</p> <ul> <li> <p> <code>CUSTOM_JWT</code> - Authorize with a bearer token.</p> </li> <li> <p> <code>AWS_IAM</code> - Authorize with your Amazon Web Services IAM credentials.</p> </li> <li> <p> <code>NONE</code> - No authorization</p> </li> </ul>
+   * The type of authorizer to use for the gateway.
+   *
+   * - `CUSTOM_JWT` - Authorize with a bearer token.
+   * - `AWS_IAM` - Authorize with your Amazon Web Services IAM credentials.
+   * - `NONE` - No authorization
+   *
    * @public
    */
   authorizerType: AuthorizerType | undefined;
 
   /**
-   * <p>The authorizer configuration for the gateway. Required if <code>authorizerType</code> is <code>CUSTOM_JWT</code>.</p>
+   * The authorizer configuration for the gateway. Required if `authorizerType` is `CUSTOM_JWT`.
+   *
    * @public
    */
   authorizerConfiguration?: AuthorizerConfiguration | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt data associated with the gateway.</p>
+   * The Amazon Resource Name (ARN) of the KMS key used to encrypt data associated with the gateway.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>A list of configuration settings for a gateway interceptor. Gateway interceptors allow custom code to be invoked during gateway invocations.</p>
+   * A list of configuration settings for a gateway interceptor. Gateway interceptors allow custom code to be invoked during gateway invocations.
+   *
    * @public
    */
   interceptorConfigurations?: GatewayInterceptorConfiguration[] | undefined;
 
   /**
-   * <p>The policy engine configuration for the gateway. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies.</p>
+   * The policy engine configuration for the gateway. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies.
+   *
    * @public
    */
   policyEngineConfiguration?: GatewayPolicyEngineConfiguration | undefined;
 
   /**
-   * <p>The level of detail in error messages returned when invoking the gateway.</p> <ul> <li> <p>If the value is <code>DEBUG</code>, granular exception messages are returned to help a user debug the gateway.</p> </li> <li> <p>If the value is omitted, a generic error message is returned to the end user.</p> </li> </ul>
+   * The level of detail in error messages returned when invoking the gateway.
+   *
+   * - If the value is `DEBUG`, granular exception messages are returned to help a user debug the gateway.
+   * - If the value is omitted, a generic error message is returned to the end user.
+   *
    * @public
    */
   exceptionLevel?: ExceptionLevel | undefined;
 
   /**
-   * <p>A map of key-value pairs to associate with the gateway as metadata tags.</p>
+   * A map of key-value pairs to associate with the gateway as metadata tags.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>The Lambda configuration for custom transformations. This structure defines the Lambda function that the gateway invokes to transform data.</p>
+ * The Lambda configuration for custom transformations. This structure defines the Lambda function that the gateway invokes to transform data.
+ *
  * @public
  */
 export interface LambdaTransformConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Lambda function. This function is invoked by the gateway to transform data.</p>
+   * The Amazon Resource Name (ARN) of the Lambda function. This function is invoked by the gateway to transform data.
+   *
    * @public
    */
   arn?: string | undefined;
 }
 
 /**
- * <p>The configuration for custom transformations applied to requests and responses through the gateway. This structure defines how the gateway transforms data.</p>
+ * The configuration for custom transformations applied to requests and responses through the gateway. This structure defines how the gateway transforms data.
+ *
  * @public
  */
 export interface CustomTransformConfiguration {
   /**
-   * <p>The Lambda configuration for custom transformations. This configuration defines how the gateway uses a Lambda function to transform data.</p>
+   * The Lambda configuration for custom transformations. This configuration defines how the gateway uses a Lambda function to transform data.
+   *
    * @public
    */
   lambda?: LambdaTransformConfiguration | undefined;
 }
 
 /**
- * <p>The Amazon Web Services WAF configuration for the gateway. This configuration controls how the gateway behaves when the associated web ACL cannot be evaluated.</p>
+ * The Amazon Web Services WAF configuration for the gateway. This configuration controls how the gateway behaves when the associated web ACL cannot be evaluated.
+ *
  * @public
  */
 export interface WafConfiguration {
   /**
-   * <p>The failure mode that determines how the gateway handles requests when Amazon Web Services WAF is unreachable or times out. Valid values include:</p> <ul> <li> <p> <code>FAIL_CLOSE</code> - The gateway blocks requests when Amazon Web Services WAF cannot be evaluated.</p> </li> <li> <p> <code>FAIL_OPEN</code> - The gateway allows requests when Amazon Web Services WAF cannot be evaluated.</p> </li> </ul>
+   * The failure mode that determines how the gateway handles requests when Amazon Web Services WAF is unreachable or times out. Valid values include:
+   *
+   * - `FAIL_CLOSE` - The gateway blocks requests when Amazon Web Services WAF cannot be evaluated.
+   * - `FAIL_OPEN` - The gateway allows requests when Amazon Web Services WAF cannot be evaluated.
+   *
    * @public
    */
   failureMode?: WafFailureMode | undefined;
@@ -8647,133 +9869,158 @@ export interface WafConfiguration {
  */
 export interface CreateGatewayResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the created gateway.</p>
+   * The Amazon Resource Name (ARN) of the created gateway.
+   *
    * @public
    */
   gatewayArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the created gateway.</p>
+   * The unique identifier of the created gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The URL endpoint for the created gateway.</p>
+   * The URL endpoint for the created gateway.
+   *
    * @public
    */
   gatewayUrl?: string | undefined;
 
   /**
-   * <p>The timestamp when the gateway was created.</p>
+   * The timestamp when the gateway was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the gateway was last updated.</p>
+   * The timestamp when the gateway was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The current status of the gateway.</p>
+   * The current status of the gateway.
+   *
    * @public
    */
   status: GatewayStatus | undefined;
 
   /**
-   * <p>The reasons for the current status of the gateway.</p>
+   * The reasons for the current status of the gateway.
+   *
    * @public
    */
   statusReasons?: string[] | undefined;
 
   /**
-   * <p>The name of the gateway.</p>
+   * The name of the gateway.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the gateway.</p>
+   * The description of the gateway.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role associated with the gateway.</p>
+   * The Amazon Resource Name (ARN) of the IAM role associated with the gateway.
+   *
    * @public
    */
   roleArn?: string | undefined;
 
   /**
-   * <p>The protocol type of the gateway.</p>
+   * The protocol type of the gateway.
+   *
    * @public
    */
   protocolType?: GatewayProtocolType | undefined;
 
   /**
-   * <p>The configuration settings for the protocol used by the gateway.</p>
+   * The configuration settings for the protocol used by the gateway.
+   *
    * @public
    */
   protocolConfiguration?: GatewayProtocolConfiguration | undefined;
 
   /**
-   * <p>The type of authorizer used by the gateway.</p>
+   * The type of authorizer used by the gateway.
+   *
    * @public
    */
   authorizerType: AuthorizerType | undefined;
 
   /**
-   * <p>The authorizer configuration for the created gateway.</p>
+   * The authorizer configuration for the created gateway.
+   *
    * @public
    */
   authorizerConfiguration?: AuthorizerConfiguration | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt data associated with the gateway.</p>
+   * The Amazon Resource Name (ARN) of the KMS key used to encrypt data associated with the gateway.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The custom transformation configuration for the gateway. This configuration defines how the gateway transforms requests and responses.</p>
+   * The custom transformation configuration for the gateway. This configuration defines how the gateway transforms requests and responses.
+   *
    * @public
    */
   customTransformConfiguration?: CustomTransformConfiguration | undefined;
 
   /**
-   * <p>The list of interceptor configurations for the created gateway.</p>
+   * The list of interceptor configurations for the created gateway.
+   *
    * @public
    */
   interceptorConfigurations?: GatewayInterceptorConfiguration[] | undefined;
 
   /**
-   * <p>The policy engine configuration for the created gateway.</p>
+   * The policy engine configuration for the created gateway.
+   *
    * @public
    */
   policyEngineConfiguration?: GatewayPolicyEngineConfiguration | undefined;
 
   /**
-   * <p>The workload identity details for the created gateway.</p>
+   * The workload identity details for the created gateway.
+   *
    * @public
    */
   workloadIdentityDetails?: WorkloadIdentityDetails | undefined;
 
   /**
-   * <p>The level of detail in error messages returned when invoking the gateway.</p> <ul> <li> <p>If the value is <code>DEBUG</code>, granular exception messages are returned to help a user debug the gateway.</p> </li> <li> <p>If the value is omitted, a generic error message is returned to the end user.</p> </li> </ul>
+   * The level of detail in error messages returned when invoking the gateway.
+   *
+   * - If the value is `DEBUG`, granular exception messages are returned to help a user debug the gateway.
+   * - If the value is omitted, a generic error message is returned to the end user.
+   *
    * @public
    */
   exceptionLevel?: ExceptionLevel | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services WAF web ACL associated with the gateway.</p>
+   * The Amazon Resource Name (ARN) of the Amazon Web Services WAF web ACL associated with the gateway.
+   *
    * @public
    */
   webAclArn?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services WAF configuration for the gateway.</p>
+   * The Amazon Web Services WAF configuration for the gateway.
+   *
    * @public
    */
   wafConfiguration?: WafConfiguration | undefined;
@@ -8784,7 +10031,8 @@ export interface CreateGatewayResponse {
  */
 export interface DeleteGatewayRequest {
   /**
-   * <p>The identifier of the gateway to delete.</p>
+   * The identifier of the gateway to delete.
+   *
    * @public
    */
   gatewayIdentifier: string | undefined;
@@ -8795,19 +10043,22 @@ export interface DeleteGatewayRequest {
  */
 export interface DeleteGatewayResponse {
   /**
-   * <p>The unique identifier of the deleted gateway.</p>
+   * The unique identifier of the deleted gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The current status of the gateway deletion.</p>
+   * The current status of the gateway deletion.
+   *
    * @public
    */
   status: GatewayStatus | undefined;
 
   /**
-   * <p>The reasons for the current status of the gateway deletion.</p>
+   * The reasons for the current status of the gateway deletion.
+   *
    * @public
    */
   statusReasons?: string[] | undefined;
@@ -8818,7 +10069,8 @@ export interface DeleteGatewayResponse {
  */
 export interface GetGatewayRequest {
   /**
-   * <p>The identifier of the gateway to retrieve.</p>
+   * The identifier of the gateway to retrieve.
+   *
    * @public
    */
   gatewayIdentifier: string | undefined;
@@ -8829,133 +10081,158 @@ export interface GetGatewayRequest {
  */
 export interface GetGatewayResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the gateway.</p>
+   * The Amazon Resource Name (ARN) of the gateway.
+   *
    * @public
    */
   gatewayArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>An endpoint for invoking gateway.</p>
+   * An endpoint for invoking gateway.
+   *
    * @public
    */
   gatewayUrl?: string | undefined;
 
   /**
-   * <p>The timestamp when the gateway was created.</p>
+   * The timestamp when the gateway was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the gateway was last updated.</p>
+   * The timestamp when the gateway was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The current status of the gateway.</p>
+   * The current status of the gateway.
+   *
    * @public
    */
   status: GatewayStatus | undefined;
 
   /**
-   * <p>The reasons for the current status of the gateway.</p>
+   * The reasons for the current status of the gateway.
+   *
    * @public
    */
   statusReasons?: string[] | undefined;
 
   /**
-   * <p>The name of the gateway.</p>
+   * The name of the gateway.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the gateway.</p>
+   * The description of the gateway.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The IAM role ARN that provides permissions for the gateway.</p>
+   * The IAM role ARN that provides permissions for the gateway.
+   *
    * @public
    */
   roleArn?: string | undefined;
 
   /**
-   * <p>Protocol applied to a gateway.</p>
+   * Protocol applied to a gateway.
+   *
    * @public
    */
   protocolType?: GatewayProtocolType | undefined;
 
   /**
-   * <p>The configuration for a gateway protocol. This structure defines how the gateway communicates with external services.</p>
+   * The configuration for a gateway protocol. This structure defines how the gateway communicates with external services.
+   *
    * @public
    */
   protocolConfiguration?: GatewayProtocolConfiguration | undefined;
 
   /**
-   * <p>Authorizer type for the gateway.</p>
+   * Authorizer type for the gateway.
+   *
    * @public
    */
   authorizerType: AuthorizerType | undefined;
 
   /**
-   * <p>The authorizer configuration for the gateway.</p>
+   * The authorizer configuration for the gateway.
+   *
    * @public
    */
   authorizerConfiguration?: AuthorizerConfiguration | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the gateway.</p>
+   * The Amazon Resource Name (ARN) of the KMS key used to encrypt the gateway.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The custom transformation configuration for the gateway. This configuration defines how the gateway transforms requests and responses.</p>
+   * The custom transformation configuration for the gateway. This configuration defines how the gateway transforms requests and responses.
+   *
    * @public
    */
   customTransformConfiguration?: CustomTransformConfiguration | undefined;
 
   /**
-   * <p>The interceptors configured on the gateway.</p>
+   * The interceptors configured on the gateway.
+   *
    * @public
    */
   interceptorConfigurations?: GatewayInterceptorConfiguration[] | undefined;
 
   /**
-   * <p>The policy engine configuration for the gateway.</p>
+   * The policy engine configuration for the gateway.
+   *
    * @public
    */
   policyEngineConfiguration?: GatewayPolicyEngineConfiguration | undefined;
 
   /**
-   * <p>The workload identity details for the gateway.</p>
+   * The workload identity details for the gateway.
+   *
    * @public
    */
   workloadIdentityDetails?: WorkloadIdentityDetails | undefined;
 
   /**
-   * <p>The level of detail in error messages returned when invoking the gateway.</p> <ul> <li> <p>If the value is <code>DEBUG</code>, granular exception messages are returned to help a user debug the gateway.</p> </li> <li> <p>If the value is omitted, a generic error message is returned to the end user.</p> </li> </ul>
+   * The level of detail in error messages returned when invoking the gateway.
+   *
+   * - If the value is `DEBUG`, granular exception messages are returned to help a user debug the gateway.
+   * - If the value is omitted, a generic error message is returned to the end user.
+   *
    * @public
    */
   exceptionLevel?: ExceptionLevel | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services WAF web ACL associated with the gateway.</p>
+   * The Amazon Resource Name (ARN) of the Amazon Web Services WAF web ACL associated with the gateway.
+   *
    * @public
    */
   webAclArn?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services WAF configuration for the gateway.</p>
+   * The Amazon Web Services WAF configuration for the gateway.
+   *
    * @public
    */
   wafConfiguration?: WafConfiguration | undefined;
@@ -8966,67 +10243,78 @@ export interface GetGatewayResponse {
  */
 export interface ListGatewaysRequest {
   /**
-   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the `nextToken` field when making another request to return the next batch of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * If the total number of results is greater than the `maxResults` value provided in the request, enter the token returned in the `nextToken` field in the response in this field to return the next batch of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Contains summary information about a gateway.</p>
+ * Contains summary information about a gateway.
+ *
  * @public
  */
 export interface GatewaySummary {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The name of the gateway.</p>
+   * The name of the gateway.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The current status of the gateway.</p>
+   * The current status of the gateway.
+   *
    * @public
    */
   status: GatewayStatus | undefined;
 
   /**
-   * <p>The description of the gateway.</p>
+   * The description of the gateway.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The timestamp when the gateway was created.</p>
+   * The timestamp when the gateway was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the gateway was last updated.</p>
+   * The timestamp when the gateway was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The type of authorizer used by the gateway.</p>
+   * The type of authorizer used by the gateway.
+   *
    * @public
    */
   authorizerType: AuthorizerType | undefined;
 
   /**
-   * <p>The protocol type used by the gateway.</p>
+   * The protocol type used by the gateway.
+   *
    * @public
    */
   protocolType?: GatewayProtocolType | undefined;
@@ -9037,13 +10325,15 @@ export interface GatewaySummary {
  */
 export interface ListGatewaysResponse {
   /**
-   * <p>The list of gateway summaries.</p>
+   * The list of gateway summaries.
+   *
    * @public
    */
   items: GatewaySummary[] | undefined;
 
   /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * If the total number of results is greater than the `maxResults` value provided in the request, use this token when making another request in the `nextToken` field to return the next batch of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -9054,85 +10344,102 @@ export interface ListGatewaysResponse {
  */
 export interface UpdateGatewayRequest {
   /**
-   * <p>The identifier of the gateway to update.</p>
+   * The identifier of the gateway to update.
+   *
    * @public
    */
   gatewayIdentifier: string | undefined;
 
   /**
-   * <p>The name of the gateway. This name must be the same as the one when the gateway was created.</p>
+   * The name of the gateway. This name must be the same as the one when the gateway was created.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The updated description for the gateway.</p>
+   * The updated description for the gateway.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The updated IAM role ARN that provides permissions for the gateway.</p>
+   * The updated IAM role ARN that provides permissions for the gateway.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>The updated protocol type for the gateway.</p>
+   * The updated protocol type for the gateway.
+   *
    * @public
    */
   protocolType?: GatewayProtocolType | undefined;
 
   /**
-   * <p>The configuration for a gateway protocol. This structure defines how the gateway communicates with external services.</p>
+   * The configuration for a gateway protocol. This structure defines how the gateway communicates with external services.
+   *
    * @public
    */
   protocolConfiguration?: GatewayProtocolConfiguration | undefined;
 
   /**
-   * <p>The updated authorizer type for the gateway.</p>
+   * The updated authorizer type for the gateway.
+   *
    * @public
    */
   authorizerType: AuthorizerType | undefined;
 
   /**
-   * <p>The updated authorizer configuration for the gateway.</p>
+   * The updated authorizer configuration for the gateway.
+   *
    * @public
    */
   authorizerConfiguration?: AuthorizerConfiguration | undefined;
 
   /**
-   * <p>The updated ARN of the KMS key used to encrypt the gateway.</p>
+   * The updated ARN of the KMS key used to encrypt the gateway.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The updated custom transformation configuration for the gateway. This configuration defines how the gateway transforms requests and responses.</p>
+   * The updated custom transformation configuration for the gateway. This configuration defines how the gateway transforms requests and responses.
+   *
    * @public
    */
   customTransformConfiguration?: CustomTransformConfiguration | undefined;
 
   /**
-   * <p>The updated interceptor configurations for the gateway.</p>
+   * The updated interceptor configurations for the gateway.
+   *
    * @public
    */
   interceptorConfigurations?: GatewayInterceptorConfiguration[] | undefined;
 
   /**
-   * <p>The updated policy engine configuration for the gateway. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies.</p>
+   * The updated policy engine configuration for the gateway. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies.
+   *
    * @public
    */
   policyEngineConfiguration?: GatewayPolicyEngineConfiguration | undefined;
 
   /**
-   * <p>The level of detail in error messages returned when invoking the gateway.</p> <ul> <li> <p>If the value is <code>DEBUG</code>, granular exception messages are returned to help a user debug the gateway.</p> </li> <li> <p>If the value is omitted, a generic error message is returned to the end user.</p> </li> </ul>
+   * The level of detail in error messages returned when invoking the gateway.
+   *
+   * - If the value is `DEBUG`, granular exception messages are returned to help a user debug the gateway.
+   * - If the value is omitted, a generic error message is returned to the end user.
+   *
    * @public
    */
   exceptionLevel?: ExceptionLevel | undefined;
 
   /**
-   * <p>The updated Amazon Web Services WAF configuration for the gateway.</p>
+   * The updated Amazon Web Services WAF configuration for the gateway.
+   *
    * @public
    */
   wafConfiguration?: WafConfiguration | undefined;
@@ -9143,200 +10450,239 @@ export interface UpdateGatewayRequest {
  */
 export interface UpdateGatewayResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the updated gateway.</p>
+   * The Amazon Resource Name (ARN) of the updated gateway.
+   *
    * @public
    */
   gatewayArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the updated gateway.</p>
+   * The unique identifier of the updated gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>An endpoint for invoking the updated gateway.</p>
+   * An endpoint for invoking the updated gateway.
+   *
    * @public
    */
   gatewayUrl?: string | undefined;
 
   /**
-   * <p>The timestamp when the gateway was created.</p>
+   * The timestamp when the gateway was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the gateway was last updated.</p>
+   * The timestamp when the gateway was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The current status of the updated gateway.</p>
+   * The current status of the updated gateway.
+   *
    * @public
    */
   status: GatewayStatus | undefined;
 
   /**
-   * <p>The reasons for the current status of the updated gateway.</p>
+   * The reasons for the current status of the updated gateway.
+   *
    * @public
    */
   statusReasons?: string[] | undefined;
 
   /**
-   * <p>The name of the gateway.</p>
+   * The name of the gateway.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The updated description of the gateway.</p>
+   * The updated description of the gateway.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The updated IAM role ARN that provides permissions for the gateway.</p>
+   * The updated IAM role ARN that provides permissions for the gateway.
+   *
    * @public
    */
   roleArn?: string | undefined;
 
   /**
-   * <p>The updated protocol type for the gateway.</p>
+   * The updated protocol type for the gateway.
+   *
    * @public
    */
   protocolType?: GatewayProtocolType | undefined;
 
   /**
-   * <p>The configuration for a gateway protocol. This structure defines how the gateway communicates with external services.</p>
+   * The configuration for a gateway protocol. This structure defines how the gateway communicates with external services.
+   *
    * @public
    */
   protocolConfiguration?: GatewayProtocolConfiguration | undefined;
 
   /**
-   * <p>The updated authorizer type for the gateway.</p>
+   * The updated authorizer type for the gateway.
+   *
    * @public
    */
   authorizerType: AuthorizerType | undefined;
 
   /**
-   * <p>The updated authorizer configuration for the gateway.</p>
+   * The updated authorizer configuration for the gateway.
+   *
    * @public
    */
   authorizerConfiguration?: AuthorizerConfiguration | undefined;
 
   /**
-   * <p>The updated ARN of the KMS key used to encrypt the gateway.</p>
+   * The updated ARN of the KMS key used to encrypt the gateway.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The custom transformation configuration for the gateway. This configuration defines how the gateway transforms requests and responses.</p>
+   * The custom transformation configuration for the gateway. This configuration defines how the gateway transforms requests and responses.
+   *
    * @public
    */
   customTransformConfiguration?: CustomTransformConfiguration | undefined;
 
   /**
-   * <p>The updated interceptor configurations for the gateway.</p>
+   * The updated interceptor configurations for the gateway.
+   *
    * @public
    */
   interceptorConfigurations?: GatewayInterceptorConfiguration[] | undefined;
 
   /**
-   * <p>The updated policy engine configuration for the gateway.</p>
+   * The updated policy engine configuration for the gateway.
+   *
    * @public
    */
   policyEngineConfiguration?: GatewayPolicyEngineConfiguration | undefined;
 
   /**
-   * <p>The workload identity details for the updated gateway.</p>
+   * The workload identity details for the updated gateway.
+   *
    * @public
    */
   workloadIdentityDetails?: WorkloadIdentityDetails | undefined;
 
   /**
-   * <p>The level of detail in error messages returned when invoking the gateway.</p> <ul> <li> <p>If the value is <code>DEBUG</code>, granular exception messages are returned to help a user debug the gateway.</p> </li> <li> <p>If the value is omitted, a generic error message is returned to the end user.</p> </li> </ul>
+   * The level of detail in error messages returned when invoking the gateway.
+   *
+   * - If the value is `DEBUG`, granular exception messages are returned to help a user debug the gateway.
+   * - If the value is omitted, a generic error message is returned to the end user.
+   *
    * @public
    */
   exceptionLevel?: ExceptionLevel | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services WAF web ACL associated with the gateway.</p>
+   * The Amazon Resource Name (ARN) of the Amazon Web Services WAF web ACL associated with the gateway.
+   *
    * @public
    */
   webAclArn?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services WAF configuration for the gateway.</p>
+   * The Amazon Web Services WAF configuration for the gateway.
+   *
    * @public
    */
   wafConfiguration?: WafConfiguration | undefined;
 }
 
 /**
- * <p>A model ID or pattern to match against the requested model, and the operator to use for the comparison.</p>
+ * A model ID or pattern to match against the requested model, and the operator to use for the comparison.
+ *
  * @public
  */
 export interface MatchModelEntry {
   /**
-   * <p>The model ID or pattern to match. With the <code>StringLike</code> operator, you can use <code>*</code> and <code>?</code> as wildcards, for example <code>anthropic.claude-*</code>.</p>
+   * The model ID or pattern to match. With the `StringLike` operator, you can use `*` and `?` as wildcards, for example `anthropic.claude-*`.
+   *
    * @public
    */
   value: string | undefined;
 
   /**
-   * <p>The operator to use when comparing the requested model to the value:</p> <ul> <li> <p> <code>StringEquals</code> – Requires an exact match.</p> </li> <li> <p> <code>StringLike</code> – Supports wildcard patterns using <code>*</code> and <code>?</code>. This is the default.</p> </li> </ul>
+   * The operator to use when comparing the requested model to the value:
+   *
+   * - `StringEquals` – Requires an exact match.
+   * - `StringLike` – Supports wildcard patterns using `*` and `?`. This is the default.
+   *
    * @public
    */
   operator?: MatchOperator | undefined;
 }
 
 /**
- * <p>A condition that matches inference requests based on the requested model.</p>
+ * A condition that matches inference requests based on the requested model.
+ *
  * @public
  */
 export interface MatchModels {
   /**
-   * <p>A list of model entries. The condition is met if the requested model matches any of the entries.</p>
+   * A list of model entries. The condition is met if the requested model matches any of the entries.
+   *
    * @public
    */
   anyOf: MatchModelEntry[] | undefined;
 }
 
 /**
- * <p>A condition that matches requests based on the request path.</p>
+ * A condition that matches requests based on the request path.
+ *
  * @public
  */
 export interface MatchPaths {
   /**
-   * <p>A list of path patterns. The condition is met if the request path matches any of the patterns.</p>
+   * A list of path patterns. The condition is met if the request path matches any of the patterns.
+   *
    * @public
    */
   anyOf: string[] | undefined;
 }
 
 /**
- * <p>An IAM principal specification for rule matching.</p>
+ * An IAM principal specification for rule matching.
+ *
  * @public
  */
 export interface IamPrincipal {
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM principal. Supports user, role, and assumed-role ARNs. Wildcards can be used with the <code>StringLike</code> operator.</p>
+   * The Amazon Resource Name (ARN) of the IAM principal. Supports user, role, and assumed-role ARNs. Wildcards can be used with the `StringLike` operator.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The match operator. <code>StringEquals</code> requires an exact match. <code>StringLike</code> supports wildcard patterns using <code>*</code> and <code>?</code>.</p>
+   * The match operator. `StringEquals` requires an exact match. `StringLike` supports wildcard patterns using `*` and `?`.
+   *
    * @public
    */
   operator?: PrincipalMatchOperator | undefined;
 }
 
 /**
- * <p>Union for principal matching. Currently supports IAM principal ARN glob matching.</p>
+ * Union for principal matching. Currently supports IAM principal ARN glob matching.
+ *
  * @public
  */
 export type MatchPrincipalEntry =
@@ -9348,7 +10694,8 @@ export type MatchPrincipalEntry =
  */
 export namespace MatchPrincipalEntry {
   /**
-   * <p>An IAM principal to match against, specified by ARN.</p>
+   * An IAM principal to match against, specified by ARN.
+   *
    * @public
    */
   export interface IamPrincipalMember {
@@ -9375,19 +10722,22 @@ export namespace MatchPrincipalEntry {
 }
 
 /**
- * <p>A condition that matches requests based on the caller's identity.</p>
+ * A condition that matches requests based on the caller's identity.
+ *
  * @public
  */
 export interface MatchPrincipals {
   /**
-   * <p>A list of principal entries. The condition is met if any of the entries match the caller's identity.</p>
+   * A list of principal entries. The condition is met if any of the entries match the caller's identity.
+   *
    * @public
    */
   anyOf: MatchPrincipalEntry[] | undefined;
 }
 
 /**
- * <p>A condition that determines when a gateway rule applies. Conditions can match on principals, request paths, or the requested model.</p>
+ * A condition that determines when a gateway rule applies. Conditions can match on principals, request paths, or the requested model.
+ *
  * @public
  */
 export type Condition =
@@ -9401,7 +10751,8 @@ export type Condition =
  */
 export namespace Condition {
   /**
-   * <p>A condition that matches on the identity of the caller making the request.</p>
+   * A condition that matches on the identity of the caller making the request.
+   *
    * @public
    */
   export interface MatchPrincipalsMember {
@@ -9412,7 +10763,8 @@ export namespace Condition {
   }
 
   /**
-   * <p>A condition that matches on the request path.</p>
+   * A condition that matches on the request path.
+   *
    * @public
    */
   export interface MatchPathsMember {
@@ -9423,7 +10775,8 @@ export namespace Condition {
   }
 
   /**
-   * <p>A condition that matches on the model requested in an inference request.</p>
+   * A condition that matches on the model requested in an inference request.
+   *
    * @public
    */
   export interface MatchModelsMember {
@@ -9460,49 +10813,57 @@ export namespace Condition {
  */
 export interface CreateGatewayRuleRequest {
   /**
-   * <p>The identifier of the gateway to create a rule for.</p>
+   * The identifier of the gateway to create a rule for.
+   *
    * @public
    */
   gatewayIdentifier: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The priority of the rule. Rules are evaluated in order of priority, with lower numbers evaluated first. Must be between 1 and 1,000,000.</p>
+   * The priority of the rule. Rules are evaluated in order of priority, with lower numbers evaluated first. Must be between 1 and 1,000,000.
+   *
    * @public
    */
   priority: number | undefined;
 
   /**
-   * <p>The conditions that must be met for the rule to apply. Conditions can match on principals (IAM ARNs) or request paths.</p>
+   * The conditions that must be met for the rule to apply. Conditions can match on principals (IAM ARNs) or request paths.
+   *
    * @public
    */
   conditions?: Condition[] | undefined;
 
   /**
-   * <p>The actions to take when the rule conditions are met. Actions can route to a specific target or apply a configuration bundle override.</p>
+   * The actions to take when the rule conditions are met. Actions can route to a specific target or apply a configuration bundle override.
+   *
    * @public
    */
   actions: Action[] | undefined;
 
   /**
-   * <p>The description of the gateway rule.</p>
+   * The description of the gateway rule.
+   *
    * @public
    */
   description?: string | undefined;
 }
 
 /**
- * <p>System-managed metadata for rules created by automated processes such as A/B tests.</p>
+ * System-managed metadata for rules created by automated processes such as A/B tests.
+ *
  * @public
  */
 export interface SystemManagedBlock {
   /**
-   * <p>The identifier of the system or process that manages this rule.</p>
+   * The identifier of the system or process that manages this rule.
+   *
    * @public
    */
   managedBy: string | undefined;
@@ -9513,55 +10874,64 @@ export interface SystemManagedBlock {
  */
 export interface CreateGatewayRuleResponse {
   /**
-   * <p>The unique identifier of the gateway rule.</p>
+   * The unique identifier of the gateway rule.
+   *
    * @public
    */
   ruleId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the gateway that the rule belongs to.</p>
+   * The Amazon Resource Name (ARN) of the gateway that the rule belongs to.
+   *
    * @public
    */
   gatewayArn: string | undefined;
 
   /**
-   * <p>The priority of the rule. Rules are evaluated in order of priority, with lower numbers evaluated first.</p>
+   * The priority of the rule. Rules are evaluated in order of priority, with lower numbers evaluated first.
+   *
    * @public
    */
   priority: number | undefined;
 
   /**
-   * <p>The conditions that must be met for the rule to apply.</p>
+   * The conditions that must be met for the rule to apply.
+   *
    * @public
    */
   conditions?: Condition[] | undefined;
 
   /**
-   * <p>The actions to take when the rule conditions are met.</p>
+   * The actions to take when the rule conditions are met.
+   *
    * @public
    */
   actions: Action[] | undefined;
 
   /**
-   * <p>The description of the gateway rule.</p>
+   * The description of the gateway rule.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The timestamp when the rule was created.</p>
+   * The timestamp when the rule was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The current status of the rule.</p>
+   * The current status of the rule.
+   *
    * @public
    */
   status: GatewayRuleStatus | undefined;
 
   /**
-   * <p>System-managed metadata for rules created by automated processes.</p>
+   * System-managed metadata for rules created by automated processes.
+   *
    * @public
    */
   system?: SystemManagedBlock | undefined;
@@ -9572,13 +10942,15 @@ export interface CreateGatewayRuleResponse {
  */
 export interface DeleteGatewayRuleRequest {
   /**
-   * <p>The identifier of the gateway containing the rule.</p>
+   * The identifier of the gateway containing the rule.
+   *
    * @public
    */
   gatewayIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the rule to delete.</p>
+   * The unique identifier of the rule to delete.
+   *
    * @public
    */
   ruleId: string | undefined;
@@ -9589,13 +10961,15 @@ export interface DeleteGatewayRuleRequest {
  */
 export interface DeleteGatewayRuleResponse {
   /**
-   * <p>The unique identifier of the deleted rule.</p>
+   * The unique identifier of the deleted rule.
+   *
    * @public
    */
   ruleId: string | undefined;
 
   /**
-   * <p>The status of the rule deletion operation.</p>
+   * The status of the rule deletion operation.
+   *
    * @public
    */
   status: GatewayRuleStatus | undefined;

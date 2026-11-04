@@ -23,7 +23,8 @@ export interface GetRegistryCatalogDataCommandInput extends GetRegistryCatalogDa
 export interface GetRegistryCatalogDataCommandOutput extends GetRegistryCatalogDataResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves catalog metadata for a public registry.</p>
+ * Retrieves catalog metadata for a public registry.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,14 +51,16 @@ export interface GetRegistryCatalogDataCommandOutput extends GetRegistryCatalogD
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link UnsupportedCommandException} (client fault)
- *  <p>The action isn't supported in this Region.</p>
+ *
+ * The action isn't supported in this Region.
  *
  * @throws {@link ECRPUBLICServiceException}
- * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
+ * Base exception class for all service exceptions from ECRPUBLIC service.
  *
  * @public
  */

@@ -23,7 +23,7 @@ export interface UpdateMonitorCommandInput extends UpdateMonitorRequest {}
 export interface UpdateMonitorCommandOutput extends UpdateMonitorResponse, __MetadataBearer {}
 
 /**
- * Modifies the settings for a Deadline Cloud monitor. You can modify one or all of the settings when you call <code>UpdateMonitor</code>.
+ * Modifies the settings for a Deadline Cloud monitor. You can modify one or all of the settings when you call `UpdateMonitor`.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,8 +66,8 @@ export interface UpdateMonitorCommandOutput extends UpdateMonitorResponse, __Met
  *  The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.
  *
  * @throws {@link DeadlineServiceException}
- * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ * Base exception class for all service exceptions from Deadline service.
  *
  * @public
  */

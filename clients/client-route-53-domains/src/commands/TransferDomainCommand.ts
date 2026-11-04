@@ -23,44 +23,22 @@ export interface TransferDomainCommandInput extends TransferDomainRequest {}
 export interface TransferDomainCommandOutput extends TransferDomainResponse, __MetadataBearer {}
 
 /**
- * <p>Transfers a domain from another registrar to Amazon Route 53. </p>
- *          <p>For more information about transferring domains, see the following topics:</p>
- *          <ul>
- *             <li>
- *                <p>For transfer requirements, a detailed procedure, and information about viewing
- * 					the status of a domain that you're transferring to Route 53, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-transfer-to-route-53.html">Transferring Registration for a Domain to Amazon Route 53</a> in the
- * 						<i>Amazon Route 53 Developer Guide</i>.</p>
- *             </li>
- *             <li>
- *                <p>For information about how to transfer a domain from one Amazon Web Services account to another, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html">TransferDomainToAnotherAwsAccount</a>. </p>
- *             </li>
- *             <li>
- *                <p>For information about how to transfer a domain to another domain registrar,
- * 					see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-transfer-from-route-53.html">Transferring a Domain from Amazon Route 53 to Another Registrar</a> in
- * 					the <i>Amazon Route 53 Developer Guide</i>.</p>
- *             </li>
- *          </ul>
- *          <important>
- *             <p>During the transfer of any country code top-level domains (ccTLDs) to Route 53, except for .cc and .tv,
- * 			updates to the owner contact are ignored and the owner contact data from the registry is used.
- * 			You can
- * 			update the owner contact after the transfer is complete. For more information, see
- * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_UpdateDomainContact.html">UpdateDomainContact</a>.</p>
- *          </important>
- *          <p>If the registrar for your domain is also the DNS service provider for the domain, we
- * 			highly recommend that you transfer your DNS service to Route 53 or to another DNS
- * 			service provider before you transfer your registration. Some registrars provide free DNS
- * 			service when you purchase a domain registration. When you transfer the registration, the
- * 			previous registrar will not renew your domain registration and could end your DNS
- * 			service at any time.</p>
- *          <important>
- *             <p>If the registrar for your domain is also the DNS service provider for the domain
- * 				and you don't transfer DNS service to another provider, your website, email, and the
- * 				web applications associated with the domain might become unavailable.</p>
- *          </important>
- *          <p>If the transfer is successful, this method returns an operation ID that you can use to
- * 			track the progress and completion of the action. If the transfer doesn't complete
- * 			successfully, the domain registrant will be notified by email.</p>
+ * Transfers a domain from another registrar to Amazon Route 53.
+ *
+ * For more information about transferring domains, see the following topics:
+ *
+ * - For transfer requirements, a detailed procedure, and information about viewing the status of a domain that you're transferring to Route 53, see [Transferring Registration for a Domain to Amazon Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-transfer-to-route-53.html) in the *Amazon Route 53 Developer Guide*.
+ * - For information about how to transfer a domain from one Amazon Web Services account to another, see [TransferDomainToAnotherAwsAccount](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html).
+ * - For information about how to transfer a domain to another domain registrar, see [Transferring a Domain from Amazon Route 53 to Another Registrar](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-transfer-from-route-53.html) in the *Amazon Route 53 Developer Guide*.
+ *
+ * > **Important:** During the transfer of any country code top-level domains (ccTLDs) to Route 53, except for .cc and .tv, updates to the owner contact are ignored and the owner contact data from the registry is used. You can update the owner contact after the transfer is complete. For more information, see [UpdateDomainContact](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_UpdateDomainContact.html).
+ *
+ * If the registrar for your domain is also the DNS service provider for the domain, we highly recommend that you transfer your DNS service to Route 53 or to another DNS service provider before you transfer your registration. Some registrars provide free DNS service when you purchase a domain registration. When you transfer the registration, the previous registrar will not renew your domain registration and could end your DNS service at any time.
+ *
+ * > **Important:** If the registrar for your domain is also the DNS service provider for the domain and you don't transfer DNS service to another provider, your website, email, and the web applications associated with the domain might become unavailable.
+ *
+ * If the transfer is successful, this method returns an operation ID that you can use to track the progress and completion of the action. If the transfer doesn't complete successfully, the domain registrant will be notified by email.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -191,30 +169,32 @@ export interface TransferDomainCommandOutput extends TransferDomainResponse, __M
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
  *
  * @throws {@link DomainLimitExceeded} (client fault)
- *  <p>The number of domains has exceeded the allowed threshold for the account.</p>
+ *
+ * The number of domains has exceeded the allowed threshold for the account.
  *
  * @throws {@link DuplicateRequest} (client fault)
- *  <p>The request is already in progress for the domain.</p>
+ *
+ * The request is already in progress for the domain.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The requested item is not acceptable. For example, for APIs that accept a domain name,
- * 			the request might specify a domain name that doesn't belong to the account that
- * 			submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the
- * 			password might be invalid.</p>
+ *
+ * The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For `AcceptDomainTransferFromAnotherAwsAccount`, the password might be invalid.
  *
  * @throws {@link OperationLimitExceeded} (client fault)
- *  <p>The number of operations or jobs running exceeded the allowed threshold for the
- * 			account.</p>
+ *
+ * The number of operations or jobs running exceeded the allowed threshold for the account.
  *
  * @throws {@link TLDRulesViolation} (client fault)
- *  <p>The top-level domain does not support this operation.</p>
+ *
+ * The top-level domain does not support this operation.
  *
  * @throws {@link UnsupportedTLD} (client fault)
- *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+ *
+ * Amazon Route 53 does not support this top-level domain (TLD).
  *
  * @throws {@link Route53DomainsServiceException}
- * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ * Base exception class for all service exceptions from Route53Domains service.
  *
  * @public
  */

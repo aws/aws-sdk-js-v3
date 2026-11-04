@@ -23,8 +23,8 @@ export interface DescribeExportTasksCommandInput extends DescribeExportTasksRequ
 export interface DescribeExportTasksCommandOutput extends DescribeExportTasksResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the specified export tasks. You can list all your export tasks or filter the
- *       results based on task ID or task status.</p>
+ * Lists the specified export tasks. You can list all your export tasks or filter the results based on task ID or task status.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,14 +73,16 @@ export interface DescribeExportTasksCommandOutput extends DescribeExportTasksRes
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is specified incorrectly.</p>
+ *
+ * A parameter is specified incorrectly.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service cannot complete the request.</p>
+ *
+ * The service cannot complete the request.
  *
  * @throws {@link CloudWatchLogsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchLogs service.
  *
  * @public
  */

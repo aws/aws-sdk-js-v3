@@ -4,9 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { CloudTrailServiceException as __BaseException } from "./CloudTrailServiceException";
 
 /**
- * <p>
- *          You do not have sufficient access to perform this action.
- *       </p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -14,7 +13,8 @@ export class AccessDeniedException extends __BaseException {
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -33,8 +33,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p> This exception is thrown when you start a new import and a previous import is still in
- *          progress. </p>
+ * This exception is thrown when you start a new import and a previous import is still in progress.
+ *
  * @public
  */
 export class AccountHasOngoingImportException extends __BaseException {
@@ -42,7 +42,8 @@ export class AccountHasOngoingImportException extends __BaseException {
   readonly name = "AccountHasOngoingImportException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -61,8 +62,8 @@ export class AccountHasOngoingImportException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the specified account is not found or not part of an
- *          organization.</p>
+ * This exception is thrown when the specified account is not found or not part of an organization.
+ *
  * @public
  */
 export class AccountNotFoundException extends __BaseException {
@@ -70,7 +71,8 @@ export class AccountNotFoundException extends __BaseException {
   readonly name = "AccountNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -89,7 +91,8 @@ export class AccountNotFoundException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the specified account is not registered as the CloudTrail delegated administrator.</p>
+ * This exception is thrown when the specified account is not registered as the CloudTrail delegated administrator.
+ *
  * @public
  */
 export class AccountNotRegisteredException extends __BaseException {
@@ -97,7 +100,8 @@ export class AccountNotRegisteredException extends __BaseException {
   readonly name = "AccountNotRegisteredException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -116,8 +120,8 @@ export class AccountNotRegisteredException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the account is already registered as the CloudTrail
- *          delegated administrator.</p>
+ * This exception is thrown when the account is already registered as the CloudTrail delegated administrator.
+ *
  * @public
  */
 export class AccountRegisteredException extends __BaseException {
@@ -125,7 +129,8 @@ export class AccountRegisteredException extends __BaseException {
   readonly name = "AccountRegisteredException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -144,8 +149,8 @@ export class AccountRegisteredException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the specified value of <code>ChannelARN</code> is not
- *          valid.</p>
+ * This exception is thrown when the specified value of `ChannelARN` is not valid.
+ *
  * @public
  */
 export class ChannelARNInvalidException extends __BaseException {
@@ -153,7 +158,8 @@ export class ChannelARNInvalidException extends __BaseException {
   readonly name = "ChannelARNInvalidException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -172,7 +178,8 @@ export class ChannelARNInvalidException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when CloudTrail cannot find the specified channel.</p>
+ * This exception is thrown when CloudTrail cannot find the specified channel.
+ *
  * @public
  */
 export class ChannelNotFoundException extends __BaseException {
@@ -180,7 +187,8 @@ export class ChannelNotFoundException extends __BaseException {
   readonly name = "ChannelNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -199,17 +207,16 @@ export class ChannelNotFoundException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when an operation is called with an ARN that is not valid.</p>
- *          <p>The following is the format of a trail ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
- *          </p>
- *          <p>The following is the format of an event data store ARN:
- *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
- *          </p>
- *          <p>The following is the format of a dashboard ARN: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code>
- *          </p>
- *          <p>The following is the format of a channel ARN:
- *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
- *          </p>
+ * This exception is thrown when an operation is called with an ARN that is not valid.
+ *
+ * The following is the format of a trail ARN: `arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail`
+ *
+ * The following is the format of an event data store ARN: `arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE`
+ *
+ * The following is the format of a dashboard ARN: `arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash`
+ *
+ * The following is the format of a channel ARN: `arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890`
+ *
  * @public
  */
 export class CloudTrailARNInvalidException extends __BaseException {
@@ -217,7 +224,8 @@ export class CloudTrailARNInvalidException extends __BaseException {
   readonly name = "CloudTrailARNInvalidException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -236,10 +244,8 @@ export class CloudTrailARNInvalidException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the specified resource is not ready for an operation. This
- *          can occur when you try to run an operation on a resource before CloudTrail has time
- *          to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the
- *          operation again.</p>
+ * This exception is thrown when the specified resource is not ready for an operation. This can occur when you try to run an operation on a resource before CloudTrail has time to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the operation again.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -247,7 +253,8 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -266,8 +273,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The specified event data store ARN is not valid or does not map to an event data store
- *          in your account.</p>
+ * The specified event data store ARN is not valid or does not map to an event data store in your account.
+ *
  * @public
  */
 export class EventDataStoreARNInvalidException extends __BaseException {
@@ -275,7 +282,8 @@ export class EventDataStoreARNInvalidException extends __BaseException {
   readonly name = "EventDataStoreARNInvalidException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -294,7 +302,8 @@ export class EventDataStoreARNInvalidException extends __BaseException {
 }
 
 /**
- * <p>The specified event data store was not found.</p>
+ * The specified event data store was not found.
+ *
  * @public
  */
 export class EventDataStoreNotFoundException extends __BaseException {
@@ -302,7 +311,8 @@ export class EventDataStoreNotFoundException extends __BaseException {
   readonly name = "EventDataStoreNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -321,7 +331,8 @@ export class EventDataStoreNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The event data store is inactive.</p>
+ * The event data store is inactive.
+ *
  * @public
  */
 export class InactiveEventDataStoreException extends __BaseException {
@@ -329,7 +340,8 @@ export class InactiveEventDataStoreException extends __BaseException {
   readonly name = "InactiveEventDataStoreException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -348,8 +360,8 @@ export class InactiveEventDataStoreException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the specified tag key or values are not valid. It can also
- *          occur if there are duplicate tags or too many tags on the resource.</p>
+ * This exception is thrown when the specified tag key or values are not valid. It can also occur if there are duplicate tags or too many tags on the resource.
+ *
  * @public
  */
 export class InvalidTagParameterException extends __BaseException {
@@ -357,7 +369,8 @@ export class InvalidTagParameterException extends __BaseException {
   readonly name = "InvalidTagParameterException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -376,27 +389,14 @@ export class InvalidTagParameterException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the provided trail name is not valid. Trail names must
- *          meet the following requirements:</p>
- *          <ul>
- *             <li>
- *                <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores
- *                (_), or dashes (-)</p>
- *             </li>
- *             <li>
- *                <p>Start with a letter or number, and end with a letter or number</p>
- *             </li>
- *             <li>
- *                <p>Be between 3 and 128 characters</p>
- *             </li>
- *             <li>
- *                <p>Have no adjacent periods, underscores or dashes. Names like
- *                   <code>my-_namespace</code> and <code>my--namespace</code> are not valid.</p>
- *             </li>
- *             <li>
- *                <p>Not be in IP address format (for example, 192.168.5.4)</p>
- *             </li>
- *          </ul>
+ * This exception is thrown when the provided trail name is not valid. Trail names must meet the following requirements:
+ *
+ * - Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)
+ * - Start with a letter or number, and end with a letter or number
+ * - Be between 3 and 128 characters
+ * - Have no adjacent periods, underscores or dashes. Names like `my-_namespace` and `my--namespace` are not valid.
+ * - Not be in IP address format (for example, 192.168.5.4)
+ *
  * @public
  */
 export class InvalidTrailNameException extends __BaseException {
@@ -404,7 +404,8 @@ export class InvalidTrailNameException extends __BaseException {
   readonly name = "InvalidTrailNameException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -423,8 +424,8 @@ export class InvalidTrailNameException extends __BaseException {
 }
 
 /**
- * <p> This exception is thrown when the management account does not have a service-linked
- *          role. </p>
+ * This exception is thrown when the management account does not have a service-linked role.
+ *
  * @public
  */
 export class NoManagementAccountSLRExistsException extends __BaseException {
@@ -432,7 +433,8 @@ export class NoManagementAccountSLRExistsException extends __BaseException {
   readonly name = "NoManagementAccountSLRExistsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -451,9 +453,8 @@ export class NoManagementAccountSLRExistsException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the Amazon Web Services account making the request to
- *          create or update an organization trail or event data store is not the management account
- *          for an organization in Organizations. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a> or <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-organizations.html">Organization event data stores</a>.</p>
+ * This exception is thrown when the Amazon Web Services account making the request to create or update an organization trail or event data store is not the management account for an organization in Organizations. For more information, see [Prepare For Creating a Trail For Your Organization](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html) or [Organization event data stores](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-organizations.html).
+ *
  * @public
  */
 export class NotOrganizationMasterAccountException extends __BaseException {
@@ -461,7 +462,8 @@ export class NotOrganizationMasterAccountException extends __BaseException {
   readonly name = "NotOrganizationMasterAccountException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -480,7 +482,8 @@ export class NotOrganizationMasterAccountException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the requested operation is not permitted.</p>
+ * This exception is thrown when the requested operation is not permitted.
+ *
  * @public
  */
 export class OperationNotPermittedException extends __BaseException {
@@ -488,7 +491,8 @@ export class OperationNotPermittedException extends __BaseException {
   readonly name = "OperationNotPermittedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -507,7 +511,8 @@ export class OperationNotPermittedException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the specified resource is not found.</p>
+ * This exception is thrown when the specified resource is not found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -515,7 +520,8 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -534,7 +540,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the specified resource type is not supported by CloudTrail.</p>
+ * This exception is thrown when the specified resource type is not supported by CloudTrail.
+ *
  * @public
  */
 export class ResourceTypeNotSupportedException extends __BaseException {
@@ -542,7 +549,8 @@ export class ResourceTypeNotSupportedException extends __BaseException {
   readonly name = "ResourceTypeNotSupportedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -561,8 +569,8 @@ export class ResourceTypeNotSupportedException extends __BaseException {
 }
 
 /**
- * <p>The number of tags per trail, event data store, dashboard, or channel has exceeded the permitted amount. Currently, the limit is
- *          50.</p>
+ * The number of tags per trail, event data store, dashboard, or channel has exceeded the permitted amount. Currently, the limit is 50.
+ *
  * @public
  */
 export class TagsLimitExceededException extends __BaseException {
@@ -570,7 +578,8 @@ export class TagsLimitExceededException extends __BaseException {
   readonly name = "TagsLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -589,7 +598,8 @@ export class TagsLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the requested operation is not supported.</p>
+ * This exception is thrown when the requested operation is not supported.
+ *
  * @public
  */
 export class UnsupportedOperationException extends __BaseException {
@@ -597,7 +607,8 @@ export class UnsupportedOperationException extends __BaseException {
   readonly name = "UnsupportedOperationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -616,8 +627,8 @@ export class UnsupportedOperationException extends __BaseException {
 }
 
 /**
- * <p>The specified query cannot be canceled because it is in the <code>FINISHED</code>,
- *             <code>FAILED</code>, <code>TIMED_OUT</code>, or <code>CANCELLED</code> state.</p>
+ * The specified query cannot be canceled because it is in the `FINISHED`, `FAILED`, `TIMED_OUT`, or `CANCELLED` state.
+ *
  * @public
  */
 export class InactiveQueryException extends __BaseException {
@@ -625,7 +636,8 @@ export class InactiveQueryException extends __BaseException {
   readonly name = "InactiveQueryException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -644,7 +656,8 @@ export class InactiveQueryException extends __BaseException {
 }
 
 /**
- * <p>The request includes a parameter that is not valid.</p>
+ * The request includes a parameter that is not valid.
+ *
  * @public
  */
 export class InvalidParameterException extends __BaseException {
@@ -652,7 +665,8 @@ export class InvalidParameterException extends __BaseException {
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -671,7 +685,8 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>The query ID does not exist or does not map to a query.</p>
+ * The query ID does not exist or does not map to a query.
+ *
  * @public
  */
 export class QueryIdNotFoundException extends __BaseException {
@@ -679,7 +694,8 @@ export class QueryIdNotFoundException extends __BaseException {
   readonly name = "QueryIdNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -698,8 +714,8 @@ export class QueryIdNotFoundException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the management account of an organization is registered as
- *          the CloudTrail delegated administrator.</p>
+ * This exception is thrown when the management account of an organization is registered as the CloudTrail delegated administrator.
+ *
  * @public
  */
 export class CannotDelegateManagementAccountException extends __BaseException {
@@ -707,7 +723,8 @@ export class CannotDelegateManagementAccountException extends __BaseException {
   readonly name = "CannotDelegateManagementAccountException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -726,9 +743,8 @@ export class CannotDelegateManagementAccountException extends __BaseException {
 }
 
 /**
- * <p>
- *          This exception is thrown when the provided channel already exists.
- *       </p>
+ * This exception is thrown when the provided channel already exists.
+ *
  * @public
  */
 export class ChannelAlreadyExistsException extends __BaseException {
@@ -736,7 +752,8 @@ export class ChannelAlreadyExistsException extends __BaseException {
   readonly name = "ChannelAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -755,8 +772,8 @@ export class ChannelAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the specified event data store cannot yet be deleted because it
- *          is in use by a channel.</p>
+ * This exception is thrown when the specified event data store cannot yet be deleted because it is in use by a channel.
+ *
  * @public
  */
 export class ChannelExistsForEDSException extends __BaseException {
@@ -764,7 +781,8 @@ export class ChannelExistsForEDSException extends __BaseException {
   readonly name = "ChannelExistsForEDSException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -783,9 +801,8 @@ export class ChannelExistsForEDSException extends __BaseException {
 }
 
 /**
- * <p>
- *          This exception is thrown when the maximum number of channels limit is exceeded.
- *       </p>
+ * This exception is thrown when the maximum number of channels limit is exceeded.
+ *
  * @public
  */
 export class ChannelMaxLimitExceededException extends __BaseException {
@@ -793,7 +810,8 @@ export class ChannelMaxLimitExceededException extends __BaseException {
   readonly name = "ChannelMaxLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -812,8 +830,8 @@ export class ChannelMaxLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when event categories of specified event data stores are not
- *          valid.</p>
+ * This exception is thrown when event categories of specified event data stores are not valid.
+ *
  * @public
  */
 export class InvalidEventDataStoreCategoryException extends __BaseException {
@@ -821,7 +839,8 @@ export class InvalidEventDataStoreCategoryException extends __BaseException {
   readonly name = "InvalidEventDataStoreCategoryException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -840,7 +859,8 @@ export class InvalidEventDataStoreCategoryException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the specified value of <code>Source</code> is not valid.</p>
+ * This exception is thrown when the specified value of `Source` is not valid.
+ *
  * @public
  */
 export class InvalidSourceException extends __BaseException {
@@ -848,7 +868,8 @@ export class InvalidSourceException extends __BaseException {
   readonly name = "InvalidSourceException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -867,12 +888,10 @@ export class InvalidSourceException extends __BaseException {
 }
 
 /**
- * <p>For the <code>CreateTrail</code>
- *             <code>PutInsightSelectors</code>, <code>UpdateTrail</code>, <code>StartQuery</code>, and <code>StartImport</code> operations, this exception is thrown
- *          when the policy on the S3 bucket or KMS key does
- *          not have sufficient permissions for the operation.</p>
- *          <p>For all other operations, this exception is thrown when the policy for the KMS key does
- *          not have sufficient permissions for the operation.</p>
+ * For the `CreateTrail` `PutInsightSelectors`, `UpdateTrail`, `StartQuery`, and `StartImport` operations, this exception is thrown when the policy on the S3 bucket or KMS key does not have sufficient permissions for the operation.
+ *
+ * For all other operations, this exception is thrown when the policy for the KMS key does not have sufficient permissions for the operation.
+ *
  * @public
  */
 export class InsufficientEncryptionPolicyException extends __BaseException {
@@ -880,7 +899,8 @@ export class InsufficientEncryptionPolicyException extends __BaseException {
   readonly name = "InsufficientEncryptionPolicyException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -899,9 +919,8 @@ export class InsufficientEncryptionPolicyException extends __BaseException {
 }
 
 /**
- * <p>The query that was submitted has validation errors, or uses incorrect syntax or
- *          unsupported keywords. For more information about writing a query, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-create-edit-query.html">Create or edit a query</a> in the <i>CloudTrail User
- *             Guide</i>.</p>
+ * The query that was submitted has validation errors, or uses incorrect syntax or unsupported keywords. For more information about writing a query, see [Create or edit a query](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-create-edit-query.html) in the *CloudTrail User Guide*.
+ *
  * @public
  */
 export class InvalidQueryStatementException extends __BaseException {
@@ -909,7 +928,8 @@ export class InvalidQueryStatementException extends __BaseException {
   readonly name = "InvalidQueryStatementException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -928,10 +948,8 @@ export class InvalidQueryStatementException extends __BaseException {
 }
 
 /**
- * <p>
- *    This exception is thrown when the quota is exceeded. For information about CloudTrail quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/ct.html#limits_cloudtrail">Service quotas</a>
- *    in the <i>Amazon Web Services General Reference</i>.
- * </p>
+ * This exception is thrown when the quota is exceeded. For information about CloudTrail quotas, see [Service quotas](https://docs.aws.amazon.com/general/latest/gr/ct.html#limits_cloudtrail) in the *Amazon Web Services General Reference*.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -939,7 +957,8 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -958,7 +977,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when trusted access has not been enabled between CloudTrail and Organizations. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#orgs_how-to-enable-disable-trusted-access">How to enable or disable trusted access</a> in the <i>Organizations User Guide</i> and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a> in the <i>CloudTrail User Guide</i>.</p>
+ * This exception is thrown when trusted access has not been enabled between CloudTrail and Organizations. For more information, see [How to enable or disable trusted access](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#orgs_how-to-enable-disable-trusted-access) in the *Organizations User Guide* and [Prepare For Creating a Trail For Your Organization](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html) in the *CloudTrail User Guide*.
+ *
  * @public
  */
 export class CloudTrailAccessNotEnabledException extends __BaseException {
@@ -966,7 +986,8 @@ export class CloudTrailAccessNotEnabledException extends __BaseException {
   readonly name = "CloudTrailAccessNotEnabledException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -985,7 +1006,8 @@ export class CloudTrailAccessNotEnabledException extends __BaseException {
 }
 
 /**
- * <p>An event data store with that name already exists.</p>
+ * An event data store with that name already exists.
+ *
  * @public
  */
 export class EventDataStoreAlreadyExistsException extends __BaseException {
@@ -993,7 +1015,8 @@ export class EventDataStoreAlreadyExistsException extends __BaseException {
   readonly name = "EventDataStoreAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1012,7 +1035,8 @@ export class EventDataStoreAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>Your account has used the maximum number of event data stores.</p>
+ * Your account has used the maximum number of event data stores.
+ *
  * @public
  */
 export class EventDataStoreMaxLimitExceededException extends __BaseException {
@@ -1020,7 +1044,8 @@ export class EventDataStoreMaxLimitExceededException extends __BaseException {
   readonly name = "EventDataStoreMaxLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1039,9 +1064,8 @@ export class EventDataStoreMaxLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the IAM identity that is used to create
- *          the organization resource lacks one or more required permissions for creating an
- *          organization resource in a required service.</p>
+ * This exception is thrown when the IAM identity that is used to create the organization resource lacks one or more required permissions for creating an organization resource in a required service.
+ *
  * @public
  */
 export class InsufficientDependencyServiceAccessPermissionException extends __BaseException {
@@ -1049,7 +1073,8 @@ export class InsufficientDependencyServiceAccessPermissionException extends __Ba
   readonly name = "InsufficientDependencyServiceAccessPermissionException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1068,34 +1093,15 @@ export class InsufficientDependencyServiceAccessPermissionException extends __Ba
 }
 
 /**
- * <p>This exception is thrown when the <code>PutEventSelectors</code> operation is called
- *          with a number of event selectors, advanced event selectors, or data resources that is not
- *          valid. The combination of event selectors or advanced event selectors and data resources is
- *          not valid. A trail can have up to 5 event selectors. If a trail uses advanced event
- *          selectors, a maximum of 500 total values for all conditions in all advanced event selectors
- *          is allowed. A trail is limited to 250 data resources. These data resources can be
- *          distributed across event selectors, but the overall total cannot exceed 250.</p>
- *          <p>You can:</p>
- *          <ul>
- *             <li>
- *                <p>Specify a valid number of event selectors (1 to 5) for a trail.</p>
- *             </li>
- *             <li>
- *                <p>Specify a valid number of data resources (1 to 250) for an event selector. The
- *                limit of number of resources on an individual event selector is configurable up to
- *                250. However, this upper limit is allowed only if the total number of data resources
- *                does not exceed 250 across all event selectors for a trail.</p>
- *             </li>
- *             <li>
- *                <p>Specify up to 500 values for all conditions in all advanced event selectors for a
- *                trail.</p>
- *             </li>
- *             <li>
- *                <p>Specify a valid value for a parameter. For example, specifying the
- *                   <code>ReadWriteType</code> parameter with a value of <code>read-only</code> is not
- *                valid.</p>
- *             </li>
- *          </ul>
+ * This exception is thrown when the `PutEventSelectors` operation is called with a number of event selectors, advanced event selectors, or data resources that is not valid. The combination of event selectors or advanced event selectors and data resources is not valid. A trail can have up to 5 event selectors. If a trail uses advanced event selectors, a maximum of 500 total values for all conditions in all advanced event selectors is allowed. A trail is limited to 250 data resources. These data resources can be distributed across event selectors, but the overall total cannot exceed 250.
+ *
+ * You can:
+ *
+ * - Specify a valid number of event selectors (1 to 5) for a trail.
+ * - Specify a valid number of data resources (1 to 250) for an event selector. The limit of number of resources on an individual event selector is configurable up to 250. However, this upper limit is allowed only if the total number of data resources does not exceed 250 across all event selectors for a trail.
+ * - Specify up to 500 values for all conditions in all advanced event selectors for a trail.
+ * - Specify a valid value for a parameter. For example, specifying the `ReadWriteType` parameter with a value of `read-only` is not valid.
+ *
  * @public
  */
 export class InvalidEventSelectorsException extends __BaseException {
@@ -1103,7 +1109,8 @@ export class InvalidEventSelectorsException extends __BaseException {
   readonly name = "InvalidEventSelectorsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1122,7 +1129,8 @@ export class InvalidEventSelectorsException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the KMS key ARN is not valid.</p>
+ * This exception is thrown when the KMS key ARN is not valid.
+ *
  * @public
  */
 export class InvalidKmsKeyIdException extends __BaseException {
@@ -1130,7 +1138,8 @@ export class InvalidKmsKeyIdException extends __BaseException {
   readonly name = "InvalidKmsKeyIdException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1149,8 +1158,8 @@ export class InvalidKmsKeyIdException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when there is an issue with the specified KMS
- *          key and the trail or event data store can't be updated.</p>
+ * This exception is thrown when there is an issue with the specified KMS key and the trail or event data store can't be updated.
+ *
  * @public
  */
 export class KmsException extends __BaseException {
@@ -1158,7 +1167,8 @@ export class KmsException extends __BaseException {
   readonly name = "KmsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1177,9 +1187,8 @@ export class KmsException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the KMS key does not exist, when the S3
- *          bucket and the KMS key are not in the same Region, or when the KMS key associated with the Amazon SNS topic either does not exist or is
- *          not in the same Region.</p>
+ * This exception is thrown when the KMS key does not exist, when the S3 bucket and the KMS key are not in the same Region, or when the KMS key associated with the Amazon SNS topic either does not exist or is not in the same Region.
+ *
  * @public
  */
 export class KmsKeyNotFoundException extends __BaseException {
@@ -1187,7 +1196,8 @@ export class KmsKeyNotFoundException extends __BaseException {
   readonly name = "KmsKeyNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1206,9 +1216,8 @@ export class KmsKeyNotFoundException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when Organizations is not configured to support all
- *          features. All features must be enabled in Organizations to support creating an
- *          organization trail or event data store.</p>
+ * This exception is thrown when Organizations is not configured to support all features. All features must be enabled in Organizations to support creating an organization trail or event data store.
+ *
  * @public
  */
 export class OrganizationNotInAllFeaturesModeException extends __BaseException {
@@ -1216,7 +1225,8 @@ export class OrganizationNotInAllFeaturesModeException extends __BaseException {
   readonly name = "OrganizationNotInAllFeaturesModeException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1235,9 +1245,8 @@ export class OrganizationNotInAllFeaturesModeException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the request is made from an Amazon Web Services account
- *          that is not a member of an organization. To make this request, sign in using the
- *          credentials of an account that belongs to an organization.</p>
+ * This exception is thrown when the request is made from an Amazon Web Services account that is not a member of an organization. To make this request, sign in using the credentials of an account that belongs to an organization.
+ *
  * @public
  */
 export class OrganizationsNotInUseException extends __BaseException {
@@ -1245,7 +1254,8 @@ export class OrganizationsNotInUseException extends __BaseException {
   readonly name = "OrganizationsNotInUseException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1264,9 +1274,8 @@ export class OrganizationsNotInUseException extends __BaseException {
 }
 
 /**
- * <p>
- *          This exception is thrown when the request rate exceeds the limit.
- *       </p>
+ * This exception is thrown when the request rate exceeds the limit.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -1274,7 +1283,8 @@ export class ThrottlingException extends __BaseException {
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1293,9 +1303,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when a call results in the <code>InvalidClientTokenId</code>
- *          error code. This can occur when you are creating or updating a trail to send notifications
- *          to an Amazon SNS topic that is in a suspended Amazon Web Services account.</p>
+ * This exception is thrown when a call results in the `InvalidClientTokenId` error code. This can occur when you are creating or updating a trail to send notifications to an Amazon SNS topic that is in a suspended Amazon Web Services account.
+ *
  * @public
  */
 export class CloudTrailInvalidClientTokenIdException extends __BaseException {
@@ -1303,7 +1312,8 @@ export class CloudTrailInvalidClientTokenIdException extends __BaseException {
   readonly name = "CloudTrailInvalidClientTokenIdException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1322,7 +1332,8 @@ export class CloudTrailInvalidClientTokenIdException extends __BaseException {
 }
 
 /**
- * <p>Cannot set a CloudWatch Logs delivery for this Region.</p>
+ * Cannot set a CloudWatch Logs delivery for this Region.
+ *
  * @public
  */
 export class CloudWatchLogsDeliveryUnavailableException extends __BaseException {
@@ -1330,7 +1341,8 @@ export class CloudWatchLogsDeliveryUnavailableException extends __BaseException 
   readonly name = "CloudWatchLogsDeliveryUnavailableException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1349,7 +1361,8 @@ export class CloudWatchLogsDeliveryUnavailableException extends __BaseException 
 }
 
 /**
- * <p>This exception is thrown when the policy on the S3 bucket is not sufficient.</p>
+ * This exception is thrown when the policy on the S3 bucket is not sufficient.
+ *
  * @public
  */
 export class InsufficientS3BucketPolicyException extends __BaseException {
@@ -1357,7 +1370,8 @@ export class InsufficientS3BucketPolicyException extends __BaseException {
   readonly name = "InsufficientS3BucketPolicyException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1376,8 +1390,8 @@ export class InsufficientS3BucketPolicyException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the policy on the Amazon SNS topic is not
- *          sufficient.</p>
+ * This exception is thrown when the policy on the Amazon SNS topic is not sufficient.
+ *
  * @public
  */
 export class InsufficientSnsTopicPolicyException extends __BaseException {
@@ -1385,7 +1399,8 @@ export class InsufficientSnsTopicPolicyException extends __BaseException {
   readonly name = "InsufficientSnsTopicPolicyException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1404,8 +1419,8 @@ export class InsufficientSnsTopicPolicyException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the provided CloudWatch Logs log group is not
- *          valid.</p>
+ * This exception is thrown when the provided CloudWatch Logs log group is not valid.
+ *
  * @public
  */
 export class InvalidCloudWatchLogsLogGroupArnException extends __BaseException {
@@ -1413,7 +1428,8 @@ export class InvalidCloudWatchLogsLogGroupArnException extends __BaseException {
   readonly name = "InvalidCloudWatchLogsLogGroupArnException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1432,7 +1448,8 @@ export class InvalidCloudWatchLogsLogGroupArnException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the provided role is not valid.</p>
+ * This exception is thrown when the provided role is not valid.
+ *
  * @public
  */
 export class InvalidCloudWatchLogsRoleArnException extends __BaseException {
@@ -1440,7 +1457,8 @@ export class InvalidCloudWatchLogsRoleArnException extends __BaseException {
   readonly name = "InvalidCloudWatchLogsRoleArnException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1459,8 +1477,8 @@ export class InvalidCloudWatchLogsRoleArnException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the combination of parameters provided is not
- *          valid.</p>
+ * This exception is thrown when the combination of parameters provided is not valid.
+ *
  * @public
  */
 export class InvalidParameterCombinationException extends __BaseException {
@@ -1468,7 +1486,8 @@ export class InvalidParameterCombinationException extends __BaseException {
   readonly name = "InvalidParameterCombinationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1487,7 +1506,8 @@ export class InvalidParameterCombinationException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the provided S3 bucket name is not valid.</p>
+ * This exception is thrown when the provided S3 bucket name is not valid.
+ *
  * @public
  */
 export class InvalidS3BucketNameException extends __BaseException {
@@ -1495,7 +1515,8 @@ export class InvalidS3BucketNameException extends __BaseException {
   readonly name = "InvalidS3BucketNameException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1514,7 +1535,8 @@ export class InvalidS3BucketNameException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the provided S3 prefix is not valid.</p>
+ * This exception is thrown when the provided S3 prefix is not valid.
+ *
  * @public
  */
 export class InvalidS3PrefixException extends __BaseException {
@@ -1522,7 +1544,8 @@ export class InvalidS3PrefixException extends __BaseException {
   readonly name = "InvalidS3PrefixException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1541,7 +1564,8 @@ export class InvalidS3PrefixException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the provided SNS topic name is not valid.</p>
+ * This exception is thrown when the provided SNS topic name is not valid.
+ *
  * @public
  */
 export class InvalidSnsTopicNameException extends __BaseException {
@@ -1549,7 +1573,8 @@ export class InvalidSnsTopicNameException extends __BaseException {
   readonly name = "InvalidSnsTopicNameException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1568,7 +1593,7 @@ export class InvalidSnsTopicNameException extends __BaseException {
 }
 
 /**
- * <p>This exception is no longer in use.</p>
+ * This exception is no longer in use.
  *
  * @deprecated deprecated.
  * @public
@@ -1578,7 +1603,8 @@ export class KmsKeyDisabledException extends __BaseException {
   readonly name = "KmsKeyDisabledException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1597,7 +1623,8 @@ export class KmsKeyDisabledException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the maximum number of trails is reached.</p>
+ * This exception is thrown when the maximum number of trails is reached.
+ *
  * @public
  */
 export class MaximumNumberOfTrailsExceededException extends __BaseException {
@@ -1605,7 +1632,8 @@ export class MaximumNumberOfTrailsExceededException extends __BaseException {
   readonly name = "MaximumNumberOfTrailsExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1624,7 +1652,8 @@ export class MaximumNumberOfTrailsExceededException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the specified S3 bucket does not exist.</p>
+ * This exception is thrown when the specified S3 bucket does not exist.
+ *
  * @public
  */
 export class S3BucketDoesNotExistException extends __BaseException {
@@ -1632,7 +1661,8 @@ export class S3BucketDoesNotExistException extends __BaseException {
   readonly name = "S3BucketDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1651,7 +1681,8 @@ export class S3BucketDoesNotExistException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the specified trail already exists.</p>
+ * This exception is thrown when the specified trail already exists.
+ *
  * @public
  */
 export class TrailAlreadyExistsException extends __BaseException {
@@ -1659,7 +1690,8 @@ export class TrailAlreadyExistsException extends __BaseException {
   readonly name = "TrailAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1678,7 +1710,8 @@ export class TrailAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>This exception is no longer in use.</p>
+ * This exception is no longer in use.
+ *
  * @public
  */
 export class TrailNotProvidedException extends __BaseException {
@@ -1686,7 +1719,8 @@ export class TrailNotProvidedException extends __BaseException {
   readonly name = "TrailNotProvidedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1705,10 +1739,8 @@ export class TrailNotProvidedException extends __BaseException {
 }
 
 /**
- * <p>
- *         You cannot delete the event data store because Lake query federation is enabled. To delete the event data store, run the <code>DisableFederation</code> operation to
- *          disable Lake query federation on the event data store.
- *       </p>
+ * You cannot delete the event data store because Lake query federation is enabled. To delete the event data store, run the `DisableFederation` operation to disable Lake query federation on the event data store.
+ *
  * @public
  */
 export class EventDataStoreFederationEnabledException extends __BaseException {
@@ -1716,7 +1748,8 @@ export class EventDataStoreFederationEnabledException extends __BaseException {
   readonly name = "EventDataStoreFederationEnabledException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1735,8 +1768,8 @@ export class EventDataStoreFederationEnabledException extends __BaseException {
 }
 
 /**
- * <p> This exception is thrown when you try to update or delete an event data store that
- *          currently has an import in progress. </p>
+ * This exception is thrown when you try to update or delete an event data store that currently has an import in progress.
+ *
  * @public
  */
 export class EventDataStoreHasOngoingImportException extends __BaseException {
@@ -1744,7 +1777,8 @@ export class EventDataStoreHasOngoingImportException extends __BaseException {
   readonly name = "EventDataStoreHasOngoingImportException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1763,8 +1797,8 @@ export class EventDataStoreHasOngoingImportException extends __BaseException {
 }
 
 /**
- * <p>The event data store cannot be deleted because termination protection is enabled for
- *          it.</p>
+ * The event data store cannot be deleted because termination protection is enabled for it.
+ *
  * @public
  */
 export class EventDataStoreTerminationProtectedException extends __BaseException {
@@ -1772,7 +1806,8 @@ export class EventDataStoreTerminationProtectedException extends __BaseException
   readonly name = "EventDataStoreTerminationProtectedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1791,17 +1826,14 @@ export class EventDataStoreTerminationProtectedException extends __BaseException
 }
 
 /**
- * <p>
- *          This exception is thrown when the provided resource does not exist, or the ARN format of the resource is not valid.
- *       </p>
- *          <p>The following is the format of an event data store ARN:
- *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
- *          </p>
- *          <p>The following is the format of a dashboard ARN: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code>
- *          </p>
- *          <p>The following is the format of a channel ARN:
- *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
- *          </p>
+ * This exception is thrown when the provided resource does not exist, or the ARN format of the resource is not valid.
+ *
+ * The following is the format of an event data store ARN: `arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE`
+ *
+ * The following is the format of a dashboard ARN: `arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash`
+ *
+ * The following is the format of a channel ARN: `arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890`
+ *
  * @public
  */
 export class ResourceARNNotValidException extends __BaseException {
@@ -1809,7 +1841,8 @@ export class ResourceARNNotValidException extends __BaseException {
   readonly name = "ResourceARNNotValidException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1828,9 +1861,8 @@ export class ResourceARNNotValidException extends __BaseException {
 }
 
 /**
- * <p>
- *          This exception is thrown when the specified resource policy is not found.
- *       </p>
+ * This exception is thrown when the specified resource policy is not found.
+ *
  * @public
  */
 export class ResourcePolicyNotFoundException extends __BaseException {
@@ -1838,7 +1870,8 @@ export class ResourcePolicyNotFoundException extends __BaseException {
   readonly name = "ResourcePolicyNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1857,8 +1890,8 @@ export class ResourcePolicyNotFoundException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when an operation is called on a trail from a Region other than
- *          the Region in which the trail was created.</p>
+ * This exception is thrown when an operation is called on a trail from a Region other than the Region in which the trail was created.
+ *
  * @public
  */
 export class InvalidHomeRegionException extends __BaseException {
@@ -1866,7 +1899,8 @@ export class InvalidHomeRegionException extends __BaseException {
   readonly name = "InvalidHomeRegionException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1885,7 +1919,8 @@ export class InvalidHomeRegionException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the trail with the given name is not found.</p>
+ * This exception is thrown when the trail with the given name is not found.
+ *
  * @public
  */
 export class TrailNotFoundException extends __BaseException {
@@ -1893,7 +1928,8 @@ export class TrailNotFoundException extends __BaseException {
   readonly name = "TrailNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1912,8 +1948,8 @@ export class TrailNotFoundException extends __BaseException {
 }
 
 /**
- * <p> This exception is thrown when the account making the request is not the organization's
- *          management account. </p>
+ * This exception is thrown when the account making the request is not the organization's management account.
+ *
  * @public
  */
 export class NotOrganizationManagementAccountException extends __BaseException {
@@ -1921,7 +1957,8 @@ export class NotOrganizationManagementAccountException extends __BaseException {
   readonly name = "NotOrganizationManagementAccountException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1940,9 +1977,8 @@ export class NotOrganizationManagementAccountException extends __BaseException {
 }
 
 /**
- * <p>
- *          You are trying to update a resource when another request is in progress. Allow sufficient wait time for the previous request to complete, then retry your request.
- *       </p>
+ * You are trying to update a resource when another request is in progress. Allow sufficient wait time for the previous request to complete, then retry your request.
+ *
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
@@ -1950,7 +1986,8 @@ export class ConcurrentModificationException extends __BaseException {
   readonly name = "ConcurrentModificationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1969,9 +2006,8 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
- * <p>
- *          This exception is thrown when a valid query could not be generated for the provided prompt.
- *       </p>
+ * This exception is thrown when a valid query could not be generated for the provided prompt.
+ *
  * @public
  */
 export class GenerateResponseException extends __BaseException {
@@ -1979,7 +2015,8 @@ export class GenerateResponseException extends __BaseException {
   readonly name = "GenerateResponseException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1998,7 +2035,8 @@ export class GenerateResponseException extends __BaseException {
 }
 
 /**
- * <p>The event data store is not in a status that supports the operation.</p>
+ * The event data store is not in a status that supports the operation.
+ *
  * @public
  */
 export class InvalidEventDataStoreStatusException extends __BaseException {
@@ -2006,7 +2044,8 @@ export class InvalidEventDataStoreStatusException extends __BaseException {
   readonly name = "InvalidEventDataStoreStatusException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -2025,7 +2064,8 @@ export class InvalidEventDataStoreStatusException extends __BaseException {
 }
 
 /**
- * <p> The specified import was not found. </p>
+ * The specified import was not found.
+ *
  * @public
  */
 export class ImportNotFoundException extends __BaseException {
@@ -2033,7 +2073,8 @@ export class ImportNotFoundException extends __BaseException {
   readonly name = "ImportNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -2052,9 +2093,8 @@ export class ImportNotFoundException extends __BaseException {
 }
 
 /**
- * <p>If you run <code>GetInsightSelectors</code> on a trail or event data store that does not have Insights
- *          events enabled, the operation throws the exception
- *          <code>InsightNotEnabledException</code>.</p>
+ * If you run `GetInsightSelectors` on a trail or event data store that does not have Insights events enabled, the operation throws the exception `InsightNotEnabledException`.
+ *
  * @public
  */
 export class InsightNotEnabledException extends __BaseException {
@@ -2062,7 +2102,8 @@ export class InsightNotEnabledException extends __BaseException {
   readonly name = "InsightNotEnabledException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -2081,7 +2122,8 @@ export class InsightNotEnabledException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown if the limit specified is not valid.</p>
+ * This exception is thrown if the limit specified is not valid.
+ *
  * @public
  */
 export class InvalidMaxResultsException extends __BaseException {
@@ -2089,7 +2131,8 @@ export class InvalidMaxResultsException extends __BaseException {
   readonly name = "InvalidMaxResultsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -2108,8 +2151,8 @@ export class InvalidMaxResultsException extends __BaseException {
 }
 
 /**
- * <p>A token that is not valid, or a token that was previously used in a request with
- *          different parameters. This exception is thrown if the token is not valid.</p>
+ * A token that is not valid, or a token that was previously used in a request with different parameters. This exception is thrown if the token is not valid.
+ *
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -2117,7 +2160,8 @@ export class InvalidNextTokenException extends __BaseException {
   readonly name = "InvalidNextTokenException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -2136,8 +2180,8 @@ export class InvalidNextTokenException extends __BaseException {
 }
 
 /**
- * <p>Occurs if the timestamp values are not valid. Either the start time occurs after the end
- *          time, or the time range is outside the range of possible values.</p>
+ * Occurs if the timestamp values are not valid. Either the start time occurs after the end time, or the time range is outside the range of possible values.
+ *
  * @public
  */
 export class InvalidTimeRangeException extends __BaseException {
@@ -2145,7 +2189,8 @@ export class InvalidTimeRangeException extends __BaseException {
   readonly name = "InvalidTimeRangeException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -2164,7 +2209,8 @@ export class InvalidTimeRangeException extends __BaseException {
 }
 
 /**
- * <p>Reserved for future use.</p>
+ * Reserved for future use.
+ *
  * @public
  */
 export class InvalidTokenException extends __BaseException {
@@ -2172,7 +2218,8 @@ export class InvalidTokenException extends __BaseException {
   readonly name = "InvalidTokenException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -2191,9 +2238,8 @@ export class InvalidTokenException extends __BaseException {
 }
 
 /**
- * <p>A date range for the query was specified that is not valid. Be sure that the start time
- *          is chronologically before the end time. For more information about writing a query, see
- *             <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-create-edit-query.html">Create or edit a query</a> in the <i>CloudTrail User Guide</i>.</p>
+ * A date range for the query was specified that is not valid. Be sure that the start time is chronologically before the end time. For more information about writing a query, see [Create or edit a query](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-create-edit-query.html) in the *CloudTrail User Guide*.
+ *
  * @public
  */
 export class InvalidDateRangeException extends __BaseException {
@@ -2201,7 +2247,8 @@ export class InvalidDateRangeException extends __BaseException {
   readonly name = "InvalidDateRangeException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -2220,7 +2267,8 @@ export class InvalidDateRangeException extends __BaseException {
 }
 
 /**
- * <p>The query status is not valid for the operation.</p>
+ * The query status is not valid for the operation.
+ *
  * @public
  */
 export class InvalidQueryStatusException extends __BaseException {
@@ -2228,7 +2276,8 @@ export class InvalidQueryStatusException extends __BaseException {
   readonly name = "InvalidQueryStatusException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -2247,8 +2296,8 @@ export class InvalidQueryStatusException extends __BaseException {
 }
 
 /**
- * <p>Occurs if an event category that is not valid is specified as a value of
- *             <code>EventCategory</code>.</p>
+ * Occurs if an event category that is not valid is specified as a value of `EventCategory`.
+ *
  * @public
  */
 export class InvalidEventCategoryException extends __BaseException {
@@ -2256,7 +2305,8 @@ export class InvalidEventCategoryException extends __BaseException {
   readonly name = "InvalidEventCategoryException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -2275,7 +2325,8 @@ export class InvalidEventCategoryException extends __BaseException {
 }
 
 /**
- * <p>Occurs when a lookup attribute is specified that is not valid.</p>
+ * Occurs when a lookup attribute is specified that is not valid.
+ *
  * @public
  */
 export class InvalidLookupAttributesException extends __BaseException {
@@ -2283,7 +2334,8 @@ export class InvalidLookupAttributesException extends __BaseException {
   readonly name = "InvalidLookupAttributesException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -2302,7 +2354,8 @@ export class InvalidLookupAttributesException extends __BaseException {
 }
 
 /**
- * <p>The task can't be completed because you are signed in with an account that lacks permissions to view or create a service-linked role. Sign in with an account that has the required permissions and then try again.</p>
+ * The task can't be completed because you are signed in with an account that lacks permissions to view or create a service-linked role. Sign in with an account that has the required permissions and then try again.
+ *
  * @public
  */
 export class InsufficientIAMAccessPermissionException extends __BaseException {
@@ -2310,7 +2363,8 @@ export class InsufficientIAMAccessPermissionException extends __BaseException {
   readonly name = "InsufficientIAMAccessPermissionException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -2329,15 +2383,10 @@ export class InsufficientIAMAccessPermissionException extends __BaseException {
 }
 
 /**
- * <p>For <code>PutInsightSelectors</code>, this exception is thrown when the formatting or syntax of the <code>InsightSelectors</code> JSON statement is not
- *          valid, or the specified <code>InsightType</code> in the <code>InsightSelectors</code> statement is not
- *          valid. Valid values for <code>InsightType</code> are <code>ApiCallRateInsight</code> and <code>ApiErrorRateInsight</code>. To enable Insights on an event data store, the destination event data store specified by the
- *          <code>InsightsDestination</code> parameter must log Insights events and the source event data
- *          store specified by the <code>EventDataStore</code> parameter must log management events.</p>
- *          <p>For <code>UpdateEventDataStore</code>, this exception is thrown if Insights are enabled on the event data store and the updated
- *          advanced event selectors are not compatible with the configured <code>InsightSelectors</code>.
- *          If the <code>InsightSelectors</code> includes an <code>InsightType</code> of <code>ApiCallRateInsight</code>, the source event data store must log <code>write</code> management events.
- *          If the <code>InsightSelectors</code> includes an <code>InsightType</code> of <code>ApiErrorRateInsight</code>, the source event data store must log management events.</p>
+ * For `PutInsightSelectors`, this exception is thrown when the formatting or syntax of the `InsightSelectors` JSON statement is not valid, or the specified `InsightType` in the `InsightSelectors` statement is not valid. Valid values for `InsightType` are `ApiCallRateInsight` and `ApiErrorRateInsight`. To enable Insights on an event data store, the destination event data store specified by the `InsightsDestination` parameter must log Insights events and the source event data store specified by the `EventDataStore` parameter must log management events.
+ *
+ * For `UpdateEventDataStore`, this exception is thrown if Insights are enabled on the event data store and the updated advanced event selectors are not compatible with the configured `InsightSelectors`. If the `InsightSelectors` includes an `InsightType` of `ApiCallRateInsight`, the source event data store must log `write` management events. If the `InsightSelectors` includes an `InsightType` of `ApiErrorRateInsight`, the source event data store must log management events.
+ *
  * @public
  */
 export class InvalidInsightSelectorsException extends __BaseException {
@@ -2345,7 +2394,8 @@ export class InvalidInsightSelectorsException extends __BaseException {
   readonly name = "InvalidInsightSelectorsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -2364,9 +2414,8 @@ export class InvalidInsightSelectorsException extends __BaseException {
 }
 
 /**
- * <p>
- *          This exception is thrown when the resouce-based policy has syntax errors, or contains a principal that is not valid.
- *       </p>
+ * This exception is thrown when the resouce-based policy has syntax errors, or contains a principal that is not valid.
+ *
  * @public
  */
 export class ResourcePolicyNotValidException extends __BaseException {
@@ -2374,7 +2423,8 @@ export class ResourcePolicyNotValidException extends __BaseException {
   readonly name = "ResourcePolicyNotValidException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -2393,8 +2443,8 @@ export class ResourcePolicyNotValidException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the maximum number of CloudTrail delegated
- *          administrators is reached.</p>
+ * This exception is thrown when the maximum number of CloudTrail delegated administrators is reached.
+ *
  * @public
  */
 export class DelegatedAdminAccountLimitExceededException extends __BaseException {
@@ -2402,7 +2452,8 @@ export class DelegatedAdminAccountLimitExceededException extends __BaseException
   readonly name = "DelegatedAdminAccountLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -2421,8 +2472,8 @@ export class DelegatedAdminAccountLimitExceededException extends __BaseException
 }
 
 /**
- * <p> This exception is thrown when the provided source S3 bucket is not valid for import.
- *       </p>
+ * This exception is thrown when the provided source S3 bucket is not valid for import.
+ *
  * @public
  */
 export class InvalidImportSourceException extends __BaseException {
@@ -2430,7 +2481,8 @@ export class InvalidImportSourceException extends __BaseException {
   readonly name = "InvalidImportSourceException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -2449,8 +2501,8 @@ export class InvalidImportSourceException extends __BaseException {
 }
 
 /**
- * <p>You are already running the maximum number of concurrent queries. The maximum number of concurrent queries is 10. Wait a minute for some
- *          queries to finish, and then run the query again.</p>
+ * You are already running the maximum number of concurrent queries. The maximum number of concurrent queries is 10. Wait a minute for some queries to finish, and then run the query again.
+ *
  * @public
  */
 export class MaxConcurrentQueriesException extends __BaseException {
@@ -2458,7 +2510,8 @@ export class MaxConcurrentQueriesException extends __BaseException {
   readonly name = "MaxConcurrentQueriesException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Brief description of the exception returned by the request.</p>
+   * Brief description of the exception returned by the request.
+   *
    * @public
    */
   Message?: string | undefined;

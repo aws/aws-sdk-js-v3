@@ -23,8 +23,8 @@ export interface PutThirdPartyJobSuccessResultCommandInput extends PutThirdParty
 export interface PutThirdPartyJobSuccessResultCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Represents the success of a third party job as returned to the pipeline by a job
- *             worker. Used for partner actions only.</p>
+ * Represents the success of a third party job as returned to the pipeline by a job worker. Used for partner actions only.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,20 +62,24 @@ export interface PutThirdPartyJobSuccessResultCommandOutput extends __MetadataBe
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  * @throws {@link InvalidClientTokenException} (client fault)
- *  <p>The client token was specified in an invalid format</p>
+ *
+ * The client token was specified in an invalid format
  *
  * @throws {@link InvalidJobStateException} (client fault)
- *  <p>The job state was specified in an invalid format.</p>
+ *
+ * The job state was specified in an invalid format.
  *
  * @throws {@link JobNotFoundException} (client fault)
- *  <p>The job was specified in an invalid format or cannot be found.</p>
+ *
+ * The job was specified in an invalid format or cannot be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The validation was specified in an invalid format.</p>
+ *
+ * The validation was specified in an invalid format.
  *
  * @throws {@link CodePipelineServiceException}
- * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * Base exception class for all service exceptions from CodePipeline service.
  *
  * @public
  */

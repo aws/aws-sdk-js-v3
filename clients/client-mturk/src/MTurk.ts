@@ -1037,7 +1037,8 @@ export interface MTurk {
 }
 
 /**
- * <fullname>Amazon Mechanical Turk API Reference</fullname>
+ * Amazon Mechanical Turk API Reference
+ *
  * @public
  */
 export class MTurk extends MTurkClient implements MTurk {}

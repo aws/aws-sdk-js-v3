@@ -26,35 +26,22 @@ export interface ReplaceImageInstanceTypeSpecificationCommandInput extends Repla
 export interface ReplaceImageInstanceTypeSpecificationCommandOutput extends ReplaceImageInstanceTypeSpecificationResult, __MetadataBearer {}
 
 /**
- * <p>Replaces or removes the instance type specification for an AMI. The instance type
- *       specification defines which instance types are compatible with the AMI.</p>
- *          <p>When you launch an instance using
- *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>, Amazon EC2 validates the requested instance type against the AMI's
- *       instance type specification. If the instance type is not compatible, the request fails with an
- *         <code>InvalidParameterCombination</code> error.</p>
- *          <p>You can specify supported instance types, unsupported instance types, or both. The
- *       evaluation logic is as follows:</p>
- *          <ul>
- *             <li>
- *                <p>No specification set – all instance types are allowed.</p>
- *             </li>
- *             <li>
- *                <p>Only <code>UnsupportedInstanceTypes</code> set – All instance types are allowed
- *           except those that match the unsupported list.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>SupportedInstanceTypes</code> set – The instance type must match the
- *           supported list and must not match the unsupported list.</p>
- *             </li>
- *          </ul>
- *          <p>Instance type entries support wildcard patterns using <code>*</code> (for example,
- *         <code>t3.*</code> matches all t3 sizes).</p>
- *          <p>To remove an existing instance type specification, omit the
- *         <code>InstanceTypeSpecification</code> parameter or set it to <code>null</code>.</p>
- *          <p>To set the instance type specification, you must be the AMI owner. You cannot set an instance
- *       type specification on an AMI that is listed in Amazon Web Services Marketplace, and you cannot list an AMI
- *       in Amazon Web Services Marketplace if it has an instance type specification set.</p>
+ * Replaces or removes the instance type specification for an AMI. The instance type specification defines which instance types are compatible with the AMI.
+ *
+ * When you launch an instance using [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html), Amazon EC2 validates the requested instance type against the AMI's instance type specification. If the instance type is not compatible, the request fails with an `InvalidParameterCombination` error.
+ *
+ * You can specify supported instance types, unsupported instance types, or both. The evaluation logic is as follows:
+ *
+ * - No specification set – all instance types are allowed.
+ * - Only `UnsupportedInstanceTypes` set – All instance types are allowed except those that match the unsupported list.
+ * - `SupportedInstanceTypes` set – The instance type must match the supported list and must not match the unsupported list.
+ *
+ * Instance type entries support wildcard patterns using `*` (for example, `t3.*` matches all t3 sizes).
+ *
+ * To remove an existing instance type specification, omit the `InstanceTypeSpecification` parameter or set it to `null`.
+ *
+ * To set the instance type specification, you must be the AMI owner. You cannot set an instance type specification on an AMI that is listed in Amazon Web Services Marketplace, and you cannot list an AMI in Amazon Web Services Marketplace if it has an instance type specification set.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,8 +77,8 @@ export interface ReplaceImageInstanceTypeSpecificationCommandOutput extends Repl
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

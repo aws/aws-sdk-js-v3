@@ -26,10 +26,10 @@ export interface DeleteMobileDeviceAccessOverrideCommandInput extends DeleteMobi
 export interface DeleteMobileDeviceAccessOverrideCommandOutput extends DeleteMobileDeviceAccessOverrideResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the mobile device access override for the given WorkMail organization, user, and device.</p>
- *          <note>
- *             <p>Deleting already deleted and non-existing overrides does not produce an error. In those cases, the service sends back an HTTP 200 response with an empty HTTP body.</p>
- *          </note>
+ * Deletes the mobile device access override for the given WorkMail organization, user, and device.
+ *
+ * > **Note:** Deleting already deleted and non-existing overrides does not produce an error. In those cases, the service sends back an HTTP 200 response with an empty HTTP body.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,23 +56,24 @@ export interface DeleteMobileDeviceAccessOverrideCommandOutput extends DeleteMob
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>The identifier supplied for the user, group, or resource does not exist in your
- *          organization.</p>
+ *
+ * The identifier supplied for the user, group, or resource does not exist in your organization.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the input parameters don't match the service's restrictions.</p>
+ *
+ * One or more of the input parameters don't match the service's restrictions.
  *
  * @throws {@link OrganizationNotFoundException} (client fault)
- *  <p>An operation received a valid organization identifier that either doesn't belong or
- *          exist in the system.</p>
+ *
+ * An operation received a valid organization identifier that either doesn't belong or exist in the system.
  *
  * @throws {@link OrganizationStateException} (client fault)
- *  <p>The organization must have a valid state to perform certain
- *          operations on the organization or its members.</p>
+ *
+ * The organization must have a valid state to perform certain operations on the organization or its members.
  *
  * @throws {@link WorkMailServiceException}
- * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * Base exception class for all service exceptions from WorkMail service.
  *
  * @public
  */

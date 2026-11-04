@@ -62,30 +62,35 @@ import type {
 } from "./enums";
 
 /**
- * <p>Application aggregated status.</p>
+ * Application aggregated status.
+ *
  * @public
  */
 export interface ApplicationAggregatedStatus {
   /**
-   * <p>Application aggregated status last update dateTime.</p>
+   * Application aggregated status last update dateTime.
+   *
    * @public
    */
   lastUpdateDateTime?: string | undefined;
 
   /**
-   * <p>Application aggregated status health status.</p>
+   * Application aggregated status health status.
+   *
    * @public
    */
   healthStatus?: ApplicationHealthStatus | undefined;
 
   /**
-   * <p>Application aggregated status progress status.</p>
+   * Application aggregated status progress status.
+   *
    * @public
    */
   progressStatus?: ApplicationProgressStatus | undefined;
 
   /**
-   * <p>Application aggregated status total source servers amount.</p>
+   * Application aggregated status total source servers amount.
+   *
    * @public
    */
   totalSourceServers?: number | undefined;
@@ -96,61 +101,71 @@ export interface ApplicationAggregatedStatus {
  */
 export interface Application {
   /**
-   * <p>Application ID.</p>
+   * Application ID.
+   *
    * @public
    */
   applicationID?: string | undefined;
 
   /**
-   * <p>Application ARN.</p>
+   * Application ARN.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>Application name.</p>
+   * Application name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Application description.</p>
+   * Application description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Application archival status.</p>
+   * Application archival status.
+   *
    * @public
    */
   isArchived?: boolean | undefined;
 
   /**
-   * <p>Application aggregated status.</p>
+   * Application aggregated status.
+   *
    * @public
    */
   applicationAggregatedStatus?: ApplicationAggregatedStatus | undefined;
 
   /**
-   * <p>Application creation dateTime.</p>
+   * Application creation dateTime.
+   *
    * @public
    */
   creationDateTime?: string | undefined;
 
   /**
-   * <p>Application last modified dateTime.</p>
+   * Application last modified dateTime.
+   *
    * @public
    */
   lastModifiedDateTime?: string | undefined;
 
   /**
-   * <p>Application tags.</p>
+   * Application tags.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Application wave ID.</p>
+   * Application wave ID.
+   *
    * @public
    */
   waveID?: string | undefined;
@@ -161,43 +176,50 @@ export interface Application {
  */
 export interface ArchiveApplicationRequest {
   /**
-   * <p>Application ID.</p>
+   * Application ID.
+   *
    * @public
    */
   applicationID: string | undefined;
 
   /**
-   * <p>Account ID.</p>
+   * Account ID.
+   *
    * @public
    */
   accountID?: string | undefined;
 }
 
 /**
- * <p>Error details.</p>
+ * Error details.
+ *
  * @public
  */
 export interface ErrorDetails {
   /**
-   * <p>Error details message.</p>
+   * Error details message.
+   *
    * @public
    */
   message?: string | undefined;
 
   /**
-   * <p>Error details code.</p>
+   * Error details code.
+   *
    * @public
    */
   code?: string | undefined;
 
   /**
-   * <p>Error details resourceId.</p>
+   * Error details resourceId.
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>Error details resourceType.</p>
+   * Error details resourceType.
+   *
    * @public
    */
   resourceType?: string | undefined;
@@ -208,19 +230,22 @@ export interface ErrorDetails {
  */
 export interface AssociateSourceServersRequest {
   /**
-   * <p>Application ID.</p>
+   * Application ID.
+   *
    * @public
    */
   applicationID: string | undefined;
 
   /**
-   * <p>Source server IDs list.</p>
+   * Source server IDs list.
+   *
    * @public
    */
   sourceServerIDs: string[] | undefined;
 
   /**
-   * <p>Account ID.</p>
+   * Account ID.
+   *
    * @public
    */
   accountID?: string | undefined;
@@ -236,25 +261,29 @@ export interface AssociateSourceServersResponse {}
  */
 export interface CreateApplicationRequest {
   /**
-   * <p>Application name.</p>
+   * Application name.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Application description.</p>
+   * Application description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Application tags.</p>
+   * Application tags.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Account ID.</p>
+   * Account ID.
+   *
    * @public
    */
   accountID?: string | undefined;
@@ -265,13 +294,15 @@ export interface CreateApplicationRequest {
  */
 export interface DeleteApplicationRequest {
   /**
-   * <p>Application ID.</p>
+   * Application ID.
+   *
    * @public
    */
   applicationID: string | undefined;
 
   /**
-   * <p>Account ID.</p>
+   * Account ID.
+   *
    * @public
    */
   accountID?: string | undefined;
@@ -287,19 +318,22 @@ export interface DeleteApplicationResponse {}
  */
 export interface DisassociateSourceServersRequest {
   /**
-   * <p>Application ID.</p>
+   * Application ID.
+   *
    * @public
    */
   applicationID: string | undefined;
 
   /**
-   * <p>Source server IDs list.</p>
+   * Source server IDs list.
+   *
    * @public
    */
   sourceServerIDs: string[] | undefined;
 
   /**
-   * <p>Account ID.</p>
+   * Account ID.
+   *
    * @public
    */
   accountID?: string | undefined;
@@ -311,24 +345,28 @@ export interface DisassociateSourceServersRequest {
 export interface DisassociateSourceServersResponse {}
 
 /**
- * <p>Applications list filters.</p>
+ * Applications list filters.
+ *
  * @public
  */
 export interface ListApplicationsRequestFilters {
   /**
-   * <p>Filter applications list by application ID.</p>
+   * Filter applications list by application ID.
+   *
    * @public
    */
   applicationIDs?: string[] | undefined;
 
   /**
-   * <p>Filter applications list by archival status.</p>
+   * Filter applications list by archival status.
+   *
    * @public
    */
   isArchived?: boolean | undefined;
 
   /**
-   * <p>Filter applications list by wave ID.</p>
+   * Filter applications list by wave ID.
+   *
    * @public
    */
   waveIDs?: string[] | undefined;
@@ -339,25 +377,29 @@ export interface ListApplicationsRequestFilters {
  */
 export interface ListApplicationsRequest {
   /**
-   * <p>Applications list filters.</p>
+   * Applications list filters.
+   *
    * @public
    */
   filters?: ListApplicationsRequestFilters | undefined;
 
   /**
-   * <p>Maximum results to return when listing applications.</p>
+   * Maximum results to return when listing applications.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Request next token.</p>
+   * Request next token.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Applications list Account ID.</p>
+   * Applications list Account ID.
+   *
    * @public
    */
   accountID?: string | undefined;
@@ -368,13 +410,15 @@ export interface ListApplicationsRequest {
  */
 export interface ListApplicationsResponse {
   /**
-   * <p>Applications list.</p>
+   * Applications list.
+   *
    * @public
    */
   items?: Application[] | undefined;
 
   /**
-   * <p>Response next token.</p>
+   * Response next token.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -385,13 +429,15 @@ export interface ListApplicationsResponse {
  */
 export interface UnarchiveApplicationRequest {
   /**
-   * <p>Application ID.</p>
+   * Application ID.
+   *
    * @public
    */
   applicationID: string | undefined;
 
   /**
-   * <p>Account ID.</p>
+   * Account ID.
+   *
    * @public
    */
   accountID?: string | undefined;
@@ -402,55 +448,64 @@ export interface UnarchiveApplicationRequest {
  */
 export interface UpdateApplicationRequest {
   /**
-   * <p>Application ID.</p>
+   * Application ID.
+   *
    * @public
    */
   applicationID: string | undefined;
 
   /**
-   * <p>Application name.</p>
+   * Application name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Application description.</p>
+   * Application description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Account ID.</p>
+   * Account ID.
+   *
    * @public
    */
   accountID?: string | undefined;
 }
 
 /**
- * <p>Connector SSM command config.</p>
+ * Connector SSM command config.
+ *
  * @public
  */
 export interface ConnectorSsmCommandConfig {
   /**
-   * <p>Connector SSM command config S3 output enabled.</p>
+   * Connector SSM command config S3 output enabled.
+   *
    * @public
    */
   s3OutputEnabled: boolean | undefined;
 
   /**
-   * <p>Connector SSM command config output S3 bucket name.</p>
+   * Connector SSM command config output S3 bucket name.
+   *
    * @public
    */
   outputS3BucketName?: string | undefined;
 
   /**
-   * <p>Connector SSM command config CloudWatch output enabled.</p>
+   * Connector SSM command config CloudWatch output enabled.
+   *
    * @public
    */
   cloudWatchOutputEnabled: boolean | undefined;
 
   /**
-   * <p>Connector SSM command config CloudWatch log group name.</p>
+   * Connector SSM command config CloudWatch log group name.
+   *
    * @public
    */
   cloudWatchLogGroupName?: string | undefined;
@@ -461,37 +516,43 @@ export interface ConnectorSsmCommandConfig {
  */
 export interface Connector {
   /**
-   * <p>Connector ID.</p>
+   * Connector ID.
+   *
    * @public
    */
   connectorID?: string | undefined;
 
   /**
-   * <p>Connector name.</p>
+   * Connector name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Connector SSM instance ID.</p>
+   * Connector SSM instance ID.
+   *
    * @public
    */
   ssmInstanceID?: string | undefined;
 
   /**
-   * <p>Connector arn.</p>
+   * Connector arn.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>Connector tags.</p>
+   * Connector tags.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Connector SSM command config.</p>
+   * Connector SSM command config.
+   *
    * @public
    */
   ssmCommandConfig?: ConnectorSsmCommandConfig | undefined;
@@ -502,43 +563,50 @@ export interface Connector {
  */
 export interface CreateConnectorRequest {
   /**
-   * <p>Create Connector request name.</p>
+   * Create Connector request name.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Create Connector request SSM instance ID.</p>
+   * Create Connector request SSM instance ID.
+   *
    * @public
    */
   ssmInstanceID: string | undefined;
 
   /**
-   * <p>Create Connector request tags.</p>
+   * Create Connector request tags.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Create Connector request SSM command config.</p>
+   * Create Connector request SSM command config.
+   *
    * @public
    */
   ssmCommandConfig?: ConnectorSsmCommandConfig | undefined;
 }
 
 /**
- * <p>Validate exception field.</p>
+ * Validate exception field.
+ *
  * @public
  */
 export interface ValidationExceptionField {
   /**
-   * <p>Validate exception field name.</p>
+   * Validate exception field name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Validate exception field message.</p>
+   * Validate exception field message.
+   *
    * @public
    */
   message?: string | undefined;
@@ -549,19 +617,22 @@ export interface ValidationExceptionField {
  */
 export interface DeleteConnectorRequest {
   /**
-   * <p>Delete Connector request connector ID.</p>
+   * Delete Connector request connector ID.
+   *
    * @public
    */
   connectorID: string | undefined;
 }
 
 /**
- * <p>List Connectors Request Filters.</p>
+ * List Connectors Request Filters.
+ *
  * @public
  */
 export interface ListConnectorsRequestFilters {
   /**
-   * <p>List Connectors Request Filters connector IDs.</p>
+   * List Connectors Request Filters connector IDs.
+   *
    * @public
    */
   connectorIDs?: string[] | undefined;
@@ -572,19 +643,22 @@ export interface ListConnectorsRequestFilters {
  */
 export interface ListConnectorsRequest {
   /**
-   * <p>List Connectors Request filters.</p>
+   * List Connectors Request filters.
+   *
    * @public
    */
   filters?: ListConnectorsRequestFilters | undefined;
 
   /**
-   * <p>List Connectors Request max results.</p>
+   * List Connectors Request max results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>List Connectors Request next token.</p>
+   * List Connectors Request next token.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -595,13 +669,15 @@ export interface ListConnectorsRequest {
  */
 export interface ListConnectorsResponse {
   /**
-   * <p>List connectors response items.</p>
+   * List connectors response items.
+   *
    * @public
    */
   items?: Connector[] | undefined;
 
   /**
-   * <p>List connectors response next token.</p>
+   * List connectors response next token.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -612,649 +688,757 @@ export interface ListConnectorsResponse {
  */
 export interface UpdateConnectorRequest {
   /**
-   * <p>Update Connector request connector ID.</p>
+   * Update Connector request connector ID.
+   *
    * @public
    */
   connectorID: string | undefined;
 
   /**
-   * <p>Update Connector request name.</p>
+   * Update Connector request name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Update Connector request SSM command config.</p>
+   * Update Connector request SSM command config.
+   *
    * @public
    */
   ssmCommandConfig?: ConnectorSsmCommandConfig | undefined;
 }
 
 /**
- * <p>List export errors request.</p>
+ * List export errors request.
+ *
  * @public
  */
 export interface ListExportErrorsRequest {
   /**
-   * <p>List export errors request export id.</p>
+   * List export errors request export id.
+   *
    * @public
    */
   exportID: string | undefined;
 
   /**
-   * <p>List export errors request max results.</p>
+   * List export errors request max results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>List export errors request next token.</p>
+   * List export errors request next token.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Export errors data.</p>
+ * Export errors data.
+ *
  * @public
  */
 export interface ExportErrorData {
   /**
-   * <p>Export errors data raw error.</p>
+   * Export errors data raw error.
+   *
    * @public
    */
   rawError?: string | undefined;
 }
 
 /**
- * <p>Export task error.</p>
+ * Export task error.
+ *
  * @public
  */
 export interface ExportTaskError {
   /**
-   * <p>Export task error datetime.</p>
+   * Export task error datetime.
+   *
    * @public
    */
   errorDateTime?: string | undefined;
 
   /**
-   * <p>Export task error data.</p>
+   * Export task error data.
+   *
    * @public
    */
   errorData?: ExportErrorData | undefined;
 }
 
 /**
- * <p>List export errors response.</p>
+ * List export errors response.
+ *
  * @public
  */
 export interface ListExportErrorsResponse {
   /**
-   * <p>List export errors response items.</p>
+   * List export errors response items.
+   *
    * @public
    */
   items?: ExportTaskError[] | undefined;
 
   /**
-   * <p>List export errors response next token.</p>
+   * List export errors response next token.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>List exports request filters.</p>
+ * List exports request filters.
+ *
  * @public
  */
 export interface ListExportsRequestFilters {
   /**
-   * <p>List exports request filters export ids.</p>
+   * List exports request filters export ids.
+   *
    * @public
    */
   exportIDs?: string[] | undefined;
 }
 
 /**
- * <p>List export request.</p>
+ * List export request.
+ *
  * @public
  */
 export interface ListExportsRequest {
   /**
-   * <p>List exports request filters.</p>
+   * List exports request filters.
+   *
    * @public
    */
   filters?: ListExportsRequestFilters | undefined;
 
   /**
-   * <p>List export request max results.</p>
+   * List export request max results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>List export request next token.</p>
+   * List export request next token.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Export task summary.</p>
+ * Export task summary.
+ *
  * @public
  */
 export interface ExportTaskSummary {
   /**
-   * <p>Export task summary servers count.</p>
+   * Export task summary servers count.
+   *
    * @public
    */
   serversCount?: number | undefined;
 
   /**
-   * <p>Export task summary applications count.</p>
+   * Export task summary applications count.
+   *
    * @public
    */
   applicationsCount?: number | undefined;
 
   /**
-   * <p>Export task summary waves count.</p>
+   * Export task summary waves count.
+   *
    * @public
    */
   wavesCount?: number | undefined;
 }
 
 /**
- * <p>Export task.</p>
+ * Export task.
+ *
  * @public
  */
 export interface ExportTask {
   /**
-   * <p>Export task id.</p>
+   * Export task id.
+   *
    * @public
    */
   exportID?: string | undefined;
 
   /**
-   * <p>ExportTask arn.</p>
+   * ExportTask arn.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>Export task s3 bucket.</p>
+   * Export task s3 bucket.
+   *
    * @public
    */
   s3Bucket?: string | undefined;
 
   /**
-   * <p>Export task s3 key.</p>
+   * Export task s3 key.
+   *
    * @public
    */
   s3Key?: string | undefined;
 
   /**
-   * <p>Export task s3 bucket owner.</p>
+   * Export task s3 bucket owner.
+   *
    * @public
    */
   s3BucketOwner?: string | undefined;
 
   /**
-   * <p>Export task creation datetime.</p>
+   * Export task creation datetime.
+   *
    * @public
    */
   creationDateTime?: string | undefined;
 
   /**
-   * <p>Export task end datetime.</p>
+   * Export task end datetime.
+   *
    * @public
    */
   endDateTime?: string | undefined;
 
   /**
-   * <p>Export task status.</p>
+   * Export task status.
+   *
    * @public
    */
   status?: ExportStatus | undefined;
 
   /**
-   * <p>Export task progress percentage.</p>
+   * Export task progress percentage.
+   *
    * @public
    */
   progressPercentage?: number | undefined;
 
   /**
-   * <p>Export task summary.</p>
+   * Export task summary.
+   *
    * @public
    */
   summary?: ExportTaskSummary | undefined;
 
   /**
-   * <p>Export task tags.</p>
+   * Export task tags.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>List export response.</p>
+ * List export response.
+ *
  * @public
  */
 export interface ListExportsResponse {
   /**
-   * <p>List export response items.</p>
+   * List export response items.
+   *
    * @public
    */
   items?: ExportTask[] | undefined;
 
   /**
-   * <p>List export response next token.</p>
+   * List export response next token.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Start export request.</p>
+ * Start export request.
+ *
  * @public
  */
 export interface StartExportRequest {
   /**
-   * <p>Start export request s3 bucket.</p>
+   * Start export request s3 bucket.
+   *
    * @public
    */
   s3Bucket: string | undefined;
 
   /**
-   * <p>Start export request s3key.</p>
+   * Start export request s3key.
+   *
    * @public
    */
   s3Key: string | undefined;
 
   /**
-   * <p>Start export request s3 bucket owner.</p>
+   * Start export request s3 bucket owner.
+   *
    * @public
    */
   s3BucketOwner?: string | undefined;
 
   /**
-   * <p>Start export request tags.</p>
+   * Start export request tags.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Start export response.</p>
+ * Start export response.
+ *
  * @public
  */
 export interface StartExportResponse {
   /**
-   * <p>Start export response export task.</p>
+   * Start export response export task.
+   *
    * @public
    */
   exportTask?: ExportTask | undefined;
 }
 
 /**
- * <p>List import errors request.</p>
+ * List import errors request.
+ *
  * @public
  */
 export interface ListImportErrorsRequest {
   /**
-   * <p>List import errors request import id.</p>
+   * List import errors request import id.
+   *
    * @public
    */
   importID: string | undefined;
 
   /**
-   * <p>List import errors request max results.</p>
+   * List import errors request max results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>List import errors request next token.</p>
+   * List import errors request next token.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Import error data.</p>
+ * Import error data.
+ *
  * @public
  */
 export interface ImportErrorData {
   /**
-   * <p>Import error data source server ID.</p>
+   * Import error data source server ID.
+   *
    * @public
    */
   sourceServerID?: string | undefined;
 
   /**
-   * <p>Import error data application ID.</p>
+   * Import error data application ID.
+   *
    * @public
    */
   applicationID?: string | undefined;
 
   /**
-   * <p>Import error data wave id.</p>
+   * Import error data wave id.
+   *
    * @public
    */
   waveID?: string | undefined;
 
   /**
-   * <p>Import error data ec2 LaunchTemplate ID.</p>
+   * Import error data ec2 LaunchTemplate ID.
+   *
    * @public
    */
   ec2LaunchTemplateID?: string | undefined;
 
   /**
-   * <p>Import error data row number.</p>
+   * Import error data row number.
+   *
    * @public
    */
   rowNumber?: number | undefined;
 
   /**
-   * <p>Import error data raw error.</p>
+   * Import error data raw error.
+   *
    * @public
    */
   rawError?: string | undefined;
 
   /**
-   * <p>Import error data source account ID.</p>
+   * Import error data source account ID.
+   *
    * @public
    */
   accountID?: string | undefined;
 }
 
 /**
- * <p>Import task error.</p>
+ * Import task error.
+ *
  * @public
  */
 export interface ImportTaskError {
   /**
-   * <p>Import task error datetime.</p>
+   * Import task error datetime.
+   *
    * @public
    */
   errorDateTime?: string | undefined;
 
   /**
-   * <p>Import task error type.</p>
+   * Import task error type.
+   *
    * @public
    */
   errorType?: ImportErrorType | undefined;
 
   /**
-   * <p>Import task error data.</p>
+   * Import task error data.
+   *
    * @public
    */
   errorData?: ImportErrorData | undefined;
 }
 
 /**
- * <p>List imports errors response.</p>
+ * List imports errors response.
+ *
  * @public
  */
 export interface ListImportErrorsResponse {
   /**
-   * <p>List imports errors response items.</p>
+   * List imports errors response items.
+   *
    * @public
    */
   items?: ImportTaskError[] | undefined;
 
   /**
-   * <p>List imports errors response next token.</p>
+   * List imports errors response next token.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>List imports request filters.</p>
+ * List imports request filters.
+ *
  * @public
  */
 export interface ListImportsRequestFilters {
   /**
-   * <p>List imports request filters import IDs.</p>
+   * List imports request filters import IDs.
+   *
    * @public
    */
   importIDs?: string[] | undefined;
 }
 
 /**
- * <p>List imports request.</p>
+ * List imports request.
+ *
  * @public
  */
 export interface ListImportsRequest {
   /**
-   * <p>List imports request filters.</p>
+   * List imports request filters.
+   *
    * @public
    */
   filters?: ListImportsRequestFilters | undefined;
 
   /**
-   * <p>List imports request max results.</p>
+   * List imports request max results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>List imports request next token.</p>
+   * List imports request next token.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>S3 bucket source.</p>
+ * S3 bucket source.
+ *
  * @public
  */
 export interface S3BucketSource {
   /**
-   * <p>S3 bucket source s3 bucket.</p>
+   * S3 bucket source s3 bucket.
+   *
    * @public
    */
   s3Bucket: string | undefined;
 
   /**
-   * <p>S3 bucket source s3 key.</p>
+   * S3 bucket source s3 key.
+   *
    * @public
    */
   s3Key: string | undefined;
 
   /**
-   * <p>S3 bucket source s3 bucket owner.</p>
+   * S3 bucket source s3 bucket owner.
+   *
    * @public
    */
   s3BucketOwner?: string | undefined;
 }
 
 /**
- * <p>Import task summary applications.</p>
+ * Import task summary applications.
+ *
  * @public
  */
 export interface ImportTaskSummaryApplications {
   /**
-   * <p>Import task summary applications created count.</p>
+   * Import task summary applications created count.
+   *
    * @public
    */
   createdCount?: number | undefined;
 
   /**
-   * <p>Import task summary applications modified count.</p>
+   * Import task summary applications modified count.
+   *
    * @public
    */
   modifiedCount?: number | undefined;
 }
 
 /**
- * <p>Import task summary servers.</p>
+ * Import task summary servers.
+ *
  * @public
  */
 export interface ImportTaskSummaryServers {
   /**
-   * <p>Import task summary servers created count.</p>
+   * Import task summary servers created count.
+   *
    * @public
    */
   createdCount?: number | undefined;
 
   /**
-   * <p>Import task summary servers modified count.</p>
+   * Import task summary servers modified count.
+   *
    * @public
    */
   modifiedCount?: number | undefined;
 }
 
 /**
- * <p>Import task summary waves.</p>
+ * Import task summary waves.
+ *
  * @public
  */
 export interface ImportTaskSummaryWaves {
   /**
-   * <p>Import task summary waves created count.</p>
+   * Import task summary waves created count.
+   *
    * @public
    */
   createdCount?: number | undefined;
 
   /**
-   * <p>Import task summary waves modified count.</p>
+   * Import task summary waves modified count.
+   *
    * @public
    */
   modifiedCount?: number | undefined;
 }
 
 /**
- * <p>Import task summary.</p>
+ * Import task summary.
+ *
  * @public
  */
 export interface ImportTaskSummary {
   /**
-   * <p>Import task summary waves.</p>
+   * Import task summary waves.
+   *
    * @public
    */
   waves?: ImportTaskSummaryWaves | undefined;
 
   /**
-   * <p>Import task summary applications.</p>
+   * Import task summary applications.
+   *
    * @public
    */
   applications?: ImportTaskSummaryApplications | undefined;
 
   /**
-   * <p>Import task summary servers.</p>
+   * Import task summary servers.
+   *
    * @public
    */
   servers?: ImportTaskSummaryServers | undefined;
 }
 
 /**
- * <p>Import task.</p>
+ * Import task.
+ *
  * @public
  */
 export interface ImportTask {
   /**
-   * <p>Import task id.</p>
+   * Import task id.
+   *
    * @public
    */
   importID?: string | undefined;
 
   /**
-   * <p>ImportTask arn.</p>
+   * ImportTask arn.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>Import task s3 bucket source.</p>
+   * Import task s3 bucket source.
+   *
    * @public
    */
   s3BucketSource?: S3BucketSource | undefined;
 
   /**
-   * <p>Import task creation datetime.</p>
+   * Import task creation datetime.
+   *
    * @public
    */
   creationDateTime?: string | undefined;
 
   /**
-   * <p>Import task end datetime.</p>
+   * Import task end datetime.
+   *
    * @public
    */
   endDateTime?: string | undefined;
 
   /**
-   * <p>Import task status.</p>
+   * Import task status.
+   *
    * @public
    */
   status?: ImportStatus | undefined;
 
   /**
-   * <p>Import task progress percentage.</p>
+   * Import task progress percentage.
+   *
    * @public
    */
   progressPercentage?: number | undefined;
 
   /**
-   * <p>Import task summary.</p>
+   * Import task summary.
+   *
    * @public
    */
   summary?: ImportTaskSummary | undefined;
 
   /**
-   * <p>Import task tags.</p>
+   * Import task tags.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>List import response.</p>
+ * List import response.
+ *
  * @public
  */
 export interface ListImportsResponse {
   /**
-   * <p>List import response items.</p>
+   * List import response items.
+   *
    * @public
    */
   items?: ImportTask[] | undefined;
 
   /**
-   * <p>List import response next token.</p>
+   * List import response next token.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Start import request.</p>
+ * Start import request.
+ *
  * @public
  */
 export interface StartImportRequest {
   /**
-   * <p>Start import request client token.</p>
+   * Start import request client token.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>Start import request s3 bucket source.</p>
+   * Start import request s3 bucket source.
+   *
    * @public
    */
   s3BucketSource: S3BucketSource | undefined;
 
   /**
-   * <p>Start import request tags.</p>
+   * Start import request tags.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Start import response.</p>
+ * Start import response.
+ *
  * @public
  */
 export interface StartImportResponse {
   /**
-   * <p>Start import response import task.</p>
+   * Start import response import task.
+   *
    * @public
    */
   importTask?: ImportTask | undefined;
@@ -1275,13 +1459,15 @@ export interface InitializeServiceResponse {}
  */
 export interface DeleteJobRequest {
   /**
-   * <p>Request to delete Job from service by Job ID.</p>
+   * Request to delete Job from service by Job ID.
+   *
    * @public
    */
   jobID: string | undefined;
 
   /**
-   * <p>Request to delete Job from service by Account ID.</p>
+   * Request to delete Job from service by Account ID.
+   *
    * @public
    */
   accountID?: string | undefined;
@@ -1297,91 +1483,106 @@ export interface DeleteJobResponse {}
  */
 export interface DescribeJobLogItemsRequest {
   /**
-   * <p>Request to describe Job log job ID.</p>
+   * Request to describe Job log job ID.
+   *
    * @public
    */
   jobID: string | undefined;
 
   /**
-   * <p>Request to describe Job log item maximum results.</p>
+   * Request to describe Job log item maximum results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Request to describe Job log next token.</p>
+   * Request to describe Job log next token.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Request to describe Job log Account ID.</p>
+   * Request to describe Job log Account ID.
+   *
    * @public
    */
   accountID?: string | undefined;
 }
 
 /**
- * <p>Job log data</p>
+ * Job log data
+ *
  * @public
  */
 export interface JobLogEventData {
   /**
-   * <p>Job Event Source Server ID.</p>
+   * Job Event Source Server ID.
+   *
    * @public
    */
   sourceServerID?: string | undefined;
 
   /**
-   * <p>Job Event conversion Server ID.</p>
+   * Job Event conversion Server ID.
+   *
    * @public
    */
   conversionServerID?: string | undefined;
 
   /**
-   * <p>Job Event Target instance ID.</p>
+   * Job Event Target instance ID.
+   *
    * @public
    */
   targetInstanceID?: string | undefined;
 
   /**
-   * <p>Job error.</p>
+   * Job error.
+   *
    * @public
    */
   rawError?: string | undefined;
 
   /**
-   * <p>Retries for this operation.</p>
+   * Retries for this operation.
+   *
    * @public
    */
   attemptCount?: number | undefined;
 
   /**
-   * <p>The maximum number of retries that will be attempted if this operation failed.</p>
+   * The maximum number of retries that will be attempted if this operation failed.
+   *
    * @public
    */
   maxAttemptsCount?: number | undefined;
 }
 
 /**
- * <p>Job log.</p>
+ * Job log.
+ *
  * @public
  */
 export interface JobLog {
   /**
-   * <p>Job log event date and time.</p>
+   * Job log event date and time.
+   *
    * @public
    */
   logDateTime?: string | undefined;
 
   /**
-   * <p>Job log event.</p>
+   * Job log event.
+   *
    * @public
    */
   event?: JobLogEvent | undefined;
 
   /**
-   * <p>Job event data</p>
+   * Job event data
+   *
    * @public
    */
   eventData?: JobLogEventData | undefined;
@@ -1392,37 +1593,43 @@ export interface JobLog {
  */
 export interface DescribeJobLogItemsResponse {
   /**
-   * <p>Request to describe Job log response items.</p>
+   * Request to describe Job log response items.
+   *
    * @public
    */
   items?: JobLog[] | undefined;
 
   /**
-   * <p>Request to describe Job log response next token.</p>
+   * Request to describe Job log response next token.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Request to describe Job log filters.</p>
+ * Request to describe Job log filters.
+ *
  * @public
  */
 export interface DescribeJobsRequestFilters {
   /**
-   * <p>Request to describe Job log filters by job ID.</p>
+   * Request to describe Job log filters by job ID.
+   *
    * @public
    */
   jobIDs?: string[] | undefined;
 
   /**
-   * <p>Request to describe Job log filters by date.</p>
+   * Request to describe Job log filters by date.
+   *
    * @public
    */
   fromDate?: string | undefined;
 
   /**
-   * <p>Request to describe job log items by last date.</p>
+   * Request to describe job log items by last date.
+   *
    * @public
    */
   toDate?: string | undefined;
@@ -1433,32 +1640,37 @@ export interface DescribeJobsRequestFilters {
  */
 export interface DescribeJobsRequest {
   /**
-   * <p>Request to describe Job log filters.</p>
+   * Request to describe Job log filters.
+   *
    * @public
    */
   filters?: DescribeJobsRequestFilters | undefined;
 
   /**
-   * <p>Request to describe job log items by max results.</p>
+   * Request to describe job log items by max results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Request to describe job log items by next token.</p>
+   * Request to describe job log items by next token.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Request to describe job log items by Account ID.</p>
+   * Request to describe job log items by Account ID.
+   *
    * @public
    */
   accountID?: string | undefined;
 }
 
 /**
- * <p>AWS Systems Manager Document external parameter.</p>
+ * AWS Systems Manager Document external parameter.
+ *
  * @public
  */
 export type SsmExternalParameter =
@@ -1470,7 +1682,8 @@ export type SsmExternalParameter =
  */
 export namespace SsmExternalParameter {
   /**
-   * <p>AWS Systems Manager Document external parameters dynamic path.</p>
+   * AWS Systems Manager Document external parameters dynamic path.
+   *
    * @public
    */
   export interface DynamicPathMember {
@@ -1497,204 +1710,238 @@ export namespace SsmExternalParameter {
 }
 
 /**
- * <p>AWS Systems Manager Parameter Store parameter.</p>
+ * AWS Systems Manager Parameter Store parameter.
+ *
  * @public
  */
 export interface SsmParameterStoreParameter {
   /**
-   * <p>AWS Systems Manager Parameter Store parameter type.</p>
+   * AWS Systems Manager Parameter Store parameter type.
+   *
    * @public
    */
   parameterType: SsmParameterStoreParameterType | undefined;
 
   /**
-   * <p>AWS Systems Manager Parameter Store parameter name.</p>
+   * AWS Systems Manager Parameter Store parameter name.
+   *
    * @public
    */
   parameterName: string | undefined;
 }
 
 /**
- * <p>AWS Systems Manager Document.</p>
+ * AWS Systems Manager Document.
+ *
  * @public
  */
 export interface SsmDocument {
   /**
-   * <p>User-friendly name for the AWS Systems Manager Document.</p>
+   * User-friendly name for the AWS Systems Manager Document.
+   *
    * @public
    */
   actionName: string | undefined;
 
   /**
-   * <p>AWS Systems Manager Document name or full ARN.</p>
+   * AWS Systems Manager Document name or full ARN.
+   *
    * @public
    */
   ssmDocumentName: string | undefined;
 
   /**
-   * <p>AWS Systems Manager Document timeout seconds.</p>
+   * AWS Systems Manager Document timeout seconds.
+   *
    * @public
    */
   timeoutSeconds?: number | undefined;
 
   /**
-   * <p>If true, Cutover will not be enabled if the document has failed.</p>
+   * If true, Cutover will not be enabled if the document has failed.
+   *
    * @public
    */
   mustSucceedForCutover?: boolean | undefined;
 
   /**
-   * <p>AWS Systems Manager Document parameters.</p>
+   * AWS Systems Manager Document parameters.
+   *
    * @public
    */
   parameters?: Record<string, SsmParameterStoreParameter[]> | undefined;
 
   /**
-   * <p>AWS Systems Manager Document external parameters.</p>
+   * AWS Systems Manager Document external parameters.
+   *
    * @public
    */
   externalParameters?: Record<string, SsmExternalParameter> | undefined;
 }
 
 /**
- * <p>Launch Status of the Job Post Launch Actions.</p>
+ * Launch Status of the Job Post Launch Actions.
+ *
  * @public
  */
 export interface JobPostLaunchActionsLaunchStatus {
   /**
-   * <p>AWS Systems Manager's Document of the Job Post Launch Actions.</p>
+   * AWS Systems Manager's Document of the Job Post Launch Actions.
+   *
    * @public
    */
   ssmDocument?: SsmDocument | undefined;
 
   /**
-   * <p>AWS Systems Manager Document type.</p>
+   * AWS Systems Manager Document type.
+   *
    * @public
    */
   ssmDocumentType?: SsmDocumentType | undefined;
 
   /**
-   * <p>AWS Systems Manager Document's execution ID of the Job Post Launch Actions.</p>
+   * AWS Systems Manager Document's execution ID of the Job Post Launch Actions.
+   *
    * @public
    */
   executionID?: string | undefined;
 
   /**
-   * <p>AWS Systems Manager Document's execution status.</p>
+   * AWS Systems Manager Document's execution status.
+   *
    * @public
    */
   executionStatus?: PostLaunchActionExecutionStatus | undefined;
 
   /**
-   * <p>AWS Systems Manager Document's failure reason.</p>
+   * AWS Systems Manager Document's failure reason.
+   *
    * @public
    */
   failureReason?: string | undefined;
 }
 
 /**
- * <p>Status of the Post Launch Actions running on the Test or Cutover instance.</p>
+ * Status of the Post Launch Actions running on the Test or Cutover instance.
+ *
  * @public
  */
 export interface PostLaunchActionsStatus {
   /**
-   * <p>Time where the AWS Systems Manager was detected as running on the Test or Cutover instance.</p>
+   * Time where the AWS Systems Manager was detected as running on the Test or Cutover instance.
+   *
    * @public
    */
   ssmAgentDiscoveryDatetime?: string | undefined;
 
   /**
-   * <p>List of Post Launch Action status.</p>
+   * List of Post Launch Action status.
+   *
    * @public
    */
   postLaunchActionsLaunchStatusList?: JobPostLaunchActionsLaunchStatus[] | undefined;
 }
 
 /**
- * <p>Server participating in Job.</p>
+ * Server participating in Job.
+ *
  * @public
  */
 export interface ParticipatingServer {
   /**
-   * <p>Participating server Source Server ID.</p>
+   * Participating server Source Server ID.
+   *
    * @public
    */
   sourceServerID: string | undefined;
 
   /**
-   * <p>Participating server launch status.</p>
+   * Participating server launch status.
+   *
    * @public
    */
   launchStatus?: LaunchStatus | undefined;
 
   /**
-   * <p>Participating server's launched ec2 instance ID.</p>
+   * Participating server's launched ec2 instance ID.
+   *
    * @public
    */
   launchedEc2InstanceID?: string | undefined;
 
   /**
-   * <p>Participating server's Post Launch Actions Status.</p>
+   * Participating server's Post Launch Actions Status.
+   *
    * @public
    */
   postLaunchActionsStatus?: PostLaunchActionsStatus | undefined;
 }
 
 /**
- * <p>Job.</p>
+ * Job.
+ *
  * @public
  */
 export interface Job {
   /**
-   * <p>Job ID.</p>
+   * Job ID.
+   *
    * @public
    */
   jobID: string | undefined;
 
   /**
-   * <p>the ARN of the specific Job.</p>
+   * the ARN of the specific Job.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>Job type.</p>
+   * Job type.
+   *
    * @public
    */
   type?: JobType | undefined;
 
   /**
-   * <p>Job initiated by field.</p>
+   * Job initiated by field.
+   *
    * @public
    */
   initiatedBy?: InitiatedBy | undefined;
 
   /**
-   * <p>Job creation time.</p>
+   * Job creation time.
+   *
    * @public
    */
   creationDateTime?: string | undefined;
 
   /**
-   * <p>Job end time.</p>
+   * Job end time.
+   *
    * @public
    */
   endDateTime?: string | undefined;
 
   /**
-   * <p>Job status.</p>
+   * Job status.
+   *
    * @public
    */
   status?: JobStatus | undefined;
 
   /**
-   * <p>Servers participating in a specific Job.</p>
+   * Servers participating in a specific Job.
+   *
    * @public
    */
   participatingServers?: ParticipatingServer[] | undefined;
 
   /**
-   * <p>Tags associated with specific Job.</p>
+   * Tags associated with specific Job.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1705,97 +1952,113 @@ export interface Job {
  */
 export interface DescribeJobsResponse {
   /**
-   * <p>Request to describe Job log items.</p>
+   * Request to describe Job log items.
+   *
    * @public
    */
   items?: Job[] | undefined;
 
   /**
-   * <p>Request to describe Job response by next token.</p>
+   * Request to describe Job response by next token.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Launch template disk configuration.</p>
+ * Launch template disk configuration.
+ *
  * @public
  */
 export interface LaunchTemplateDiskConf {
   /**
-   * <p>Launch template disk volume type configuration.</p>
+   * Launch template disk volume type configuration.
+   *
    * @public
    */
   volumeType?: VolumeType | undefined;
 
   /**
-   * <p>Launch template disk iops configuration.</p>
+   * Launch template disk iops configuration.
+   *
    * @public
    */
   iops?: number | undefined;
 
   /**
-   * <p>Launch template disk throughput configuration.</p>
+   * Launch template disk throughput configuration.
+   *
    * @public
    */
   throughput?: number | undefined;
 
   /**
-   * <p>Launch template disk volume initialization rate configuration.</p>
+   * Launch template disk volume initialization rate configuration.
+   *
    * @public
    */
   volumeInitializationRate?: number | undefined;
 
   /**
-   * <p>Launch template disk delete on termination configuration.</p>
+   * Launch template disk delete on termination configuration.
+   *
    * @public
    */
   deleteOnTermination?: boolean | undefined;
 }
 
 /**
- * <p>Configure Licensing.</p>
+ * Configure Licensing.
+ *
  * @public
  */
 export interface Licensing {
   /**
-   * <p>Configure BYOL OS licensing.</p>
+   * Configure BYOL OS licensing.
+   *
    * @public
    */
   osByol?: boolean | undefined;
 }
 
 /**
- * <p>Post Launch Actions to be executed on the Test or Cutover instance.</p>
+ * Post Launch Actions to be executed on the Test or Cutover instance.
+ *
  * @public
  */
 export interface PostLaunchActions {
   /**
-   * <p>Deployment type in which AWS Systems Manager Documents will be executed.</p>
+   * Deployment type in which AWS Systems Manager Documents will be executed.
+   *
    * @public
    */
   deployment?: PostLaunchActionsDeploymentType | undefined;
 
   /**
-   * <p>AWS Systems Manager Command's logs S3 log bucket.</p>
+   * AWS Systems Manager Command's logs S3 log bucket.
+   *
    * @public
    */
   s3LogBucket?: string | undefined;
 
   /**
-   * <p>AWS Systems Manager Command's logs S3 output key prefix.</p>
+   * AWS Systems Manager Command's logs S3 output key prefix.
+   *
    * @public
    */
   s3OutputKeyPrefix?: string | undefined;
 
   /**
-   * <p>AWS Systems Manager Command's CloudWatch log group name.</p>
+   * AWS Systems Manager Command's CloudWatch log group name.
+   *
    * @public
    */
   cloudWatchLogGroupName?: string | undefined;
 
   /**
-   * <p>AWS Systems Manager Documents.</p>
+   * AWS Systems Manager Documents.
+   *
    * @public
    */
   ssmDocuments?: SsmDocument[] | undefined;
@@ -1806,97 +2069,113 @@ export interface PostLaunchActions {
  */
 export interface CreateLaunchConfigurationTemplateRequest {
   /**
-   * <p>Launch configuration template post launch actions.</p>
+   * Launch configuration template post launch actions.
+   *
    * @public
    */
   postLaunchActions?: PostLaunchActions | undefined;
 
   /**
-   * <p>Enable map auto tagging.</p>
+   * Enable map auto tagging.
+   *
    * @public
    */
   enableMapAutoTagging?: boolean | undefined;
 
   /**
-   * <p>Launch configuration template map auto tagging MPE ID.</p>
+   * Launch configuration template map auto tagging MPE ID.
+   *
    * @public
    */
   mapAutoTaggingMpeID?: string | undefined;
 
   /**
-   * <p>Request to associate tags during creation of a Launch Configuration Template.</p>
+   * Request to associate tags during creation of a Launch Configuration Template.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Launch disposition.</p>
+   * Launch disposition.
+   *
    * @public
    */
   launchDisposition?: LaunchDisposition | undefined;
 
   /**
-   * <p>Target instance type right-sizing method.</p>
+   * Target instance type right-sizing method.
+   *
    * @public
    */
   targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | undefined;
 
   /**
-   * <p>Copy private Ip.</p>
+   * Copy private Ip.
+   *
    * @public
    */
   copyPrivateIp?: boolean | undefined;
 
   /**
-   * <p>Associate public Ip address.</p>
+   * Associate public Ip address.
+   *
    * @public
    */
   associatePublicIpAddress?: boolean | undefined;
 
   /**
-   * <p>Copy tags.</p>
+   * Copy tags.
+   *
    * @public
    */
   copyTags?: boolean | undefined;
 
   /**
-   * <p>Configure Licensing.</p>
+   * Configure Licensing.
+   *
    * @public
    */
   licensing?: Licensing | undefined;
 
   /**
-   * <p>Launch configuration template boot mode.</p>
+   * Launch configuration template boot mode.
+   *
    * @public
    */
   bootMode?: BootMode | undefined;
 
   /**
-   * <p>Small volume maximum size.</p>
+   * Small volume maximum size.
+   *
    * @public
    */
   smallVolumeMaxSize?: number | undefined;
 
   /**
-   * <p>Small volume config.</p>
+   * Small volume config.
+   *
    * @public
    */
   smallVolumeConf?: LaunchTemplateDiskConf | undefined;
 
   /**
-   * <p>Large volume config.</p>
+   * Large volume config.
+   *
    * @public
    */
   largeVolumeConf?: LaunchTemplateDiskConf | undefined;
 
   /**
-   * <p>Enable parameters encryption.</p>
+   * Enable parameters encryption.
+   *
    * @public
    */
   enableParametersEncryption?: boolean | undefined;
 
   /**
-   * <p>Parameters encryption key.</p>
+   * Parameters encryption key.
+   *
    * @public
    */
   parametersEncryptionKey?: string | undefined;
@@ -1907,115 +2186,134 @@ export interface CreateLaunchConfigurationTemplateRequest {
  */
 export interface LaunchConfigurationTemplate {
   /**
-   * <p>ID of the Launch Configuration Template.</p>
+   * ID of the Launch Configuration Template.
+   *
    * @public
    */
   launchConfigurationTemplateID: string | undefined;
 
   /**
-   * <p>ARN of the Launch Configuration Template.</p>
+   * ARN of the Launch Configuration Template.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>Post Launch Actions of the Launch Configuration Template.</p>
+   * Post Launch Actions of the Launch Configuration Template.
+   *
    * @public
    */
   postLaunchActions?: PostLaunchActions | undefined;
 
   /**
-   * <p>Enable map auto tagging.</p>
+   * Enable map auto tagging.
+   *
    * @public
    */
   enableMapAutoTagging?: boolean | undefined;
 
   /**
-   * <p>Launch configuration template map auto tagging MPE ID.</p>
+   * Launch configuration template map auto tagging MPE ID.
+   *
    * @public
    */
   mapAutoTaggingMpeID?: string | undefined;
 
   /**
-   * <p>Tags of the Launch Configuration Template.</p>
+   * Tags of the Launch Configuration Template.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>EC2 launch template ID.</p>
+   * EC2 launch template ID.
+   *
    * @public
    */
   ec2LaunchTemplateID?: string | undefined;
 
   /**
-   * <p>Launch disposition.</p>
+   * Launch disposition.
+   *
    * @public
    */
   launchDisposition?: LaunchDisposition | undefined;
 
   /**
-   * <p>Target instance type right-sizing method.</p>
+   * Target instance type right-sizing method.
+   *
    * @public
    */
   targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | undefined;
 
   /**
-   * <p>Copy private Ip.</p>
+   * Copy private Ip.
+   *
    * @public
    */
   copyPrivateIp?: boolean | undefined;
 
   /**
-   * <p>Associate public Ip address.</p>
+   * Associate public Ip address.
+   *
    * @public
    */
   associatePublicIpAddress?: boolean | undefined;
 
   /**
-   * <p>Copy tags.</p>
+   * Copy tags.
+   *
    * @public
    */
   copyTags?: boolean | undefined;
 
   /**
-   * <p>Configure Licensing.</p>
+   * Configure Licensing.
+   *
    * @public
    */
   licensing?: Licensing | undefined;
 
   /**
-   * <p>Launch configuration template boot mode.</p>
+   * Launch configuration template boot mode.
+   *
    * @public
    */
   bootMode?: BootMode | undefined;
 
   /**
-   * <p>Small volume maximum size.</p>
+   * Small volume maximum size.
+   *
    * @public
    */
   smallVolumeMaxSize?: number | undefined;
 
   /**
-   * <p>Small volume config.</p>
+   * Small volume config.
+   *
    * @public
    */
   smallVolumeConf?: LaunchTemplateDiskConf | undefined;
 
   /**
-   * <p>Large volume config.</p>
+   * Large volume config.
+   *
    * @public
    */
   largeVolumeConf?: LaunchTemplateDiskConf | undefined;
 
   /**
-   * <p>Enable parameters encryption.</p>
+   * Enable parameters encryption.
+   *
    * @public
    */
   enableParametersEncryption?: boolean | undefined;
 
   /**
-   * <p>Parameters encryption key.</p>
+   * Parameters encryption key.
+   *
    * @public
    */
   parametersEncryptionKey?: string | undefined;
@@ -2026,7 +2324,8 @@ export interface LaunchConfigurationTemplate {
  */
 export interface DeleteLaunchConfigurationTemplateRequest {
   /**
-   * <p>ID of resource to be deleted.</p>
+   * ID of resource to be deleted.
+   *
    * @public
    */
   launchConfigurationTemplateID: string | undefined;
@@ -2042,19 +2341,22 @@ export interface DeleteLaunchConfigurationTemplateResponse {}
  */
 export interface DescribeLaunchConfigurationTemplatesRequest {
   /**
-   * <p>Request to filter Launch Configuration Templates list by Launch Configuration Template ID.</p>
+   * Request to filter Launch Configuration Templates list by Launch Configuration Template ID.
+   *
    * @public
    */
   launchConfigurationTemplateIDs?: string[] | undefined;
 
   /**
-   * <p>Maximum results to be returned in DescribeLaunchConfigurationTemplates.</p>
+   * Maximum results to be returned in DescribeLaunchConfigurationTemplates.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Next pagination token returned from DescribeLaunchConfigurationTemplates.</p>
+   * Next pagination token returned from DescribeLaunchConfigurationTemplates.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2065,25 +2367,29 @@ export interface DescribeLaunchConfigurationTemplatesRequest {
  */
 export interface DescribeLaunchConfigurationTemplatesResponse {
   /**
-   * <p>List of items returned by DescribeLaunchConfigurationTemplates.</p>
+   * List of items returned by DescribeLaunchConfigurationTemplates.
+   *
    * @public
    */
   items?: LaunchConfigurationTemplate[] | undefined;
 
   /**
-   * <p>Next pagination token returned from DescribeLaunchConfigurationTemplates.</p>
+   * Next pagination token returned from DescribeLaunchConfigurationTemplates.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Template post migration custom action filters.</p>
+ * Template post migration custom action filters.
+ *
  * @public
  */
 export interface TemplateActionsRequestFilters {
   /**
-   * <p>Action IDs to filter template post migration custom actions by.</p>
+   * Action IDs to filter template post migration custom actions by.
+   *
    * @public
    */
   actionIDs?: string[] | undefined;
@@ -2094,25 +2400,29 @@ export interface TemplateActionsRequestFilters {
  */
 export interface ListTemplateActionsRequest {
   /**
-   * <p>Launch configuration template ID.</p>
+   * Launch configuration template ID.
+   *
    * @public
    */
   launchConfigurationTemplateID: string | undefined;
 
   /**
-   * <p>Filters to apply when listing template post migration custom actions.</p>
+   * Filters to apply when listing template post migration custom actions.
+   *
    * @public
    */
   filters?: TemplateActionsRequestFilters | undefined;
 
   /**
-   * <p>Maximum amount of items to return when listing template post migration custom actions.</p>
+   * Maximum amount of items to return when listing template post migration custom actions.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Next token to use when listing template post migration custom actions.</p>
+   * Next token to use when listing template post migration custom actions.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2123,79 +2433,92 @@ export interface ListTemplateActionsRequest {
  */
 export interface TemplateActionDocument {
   /**
-   * <p>Template post migration custom action ID.</p>
+   * Template post migration custom action ID.
+   *
    * @public
    */
   actionID?: string | undefined;
 
   /**
-   * <p>Template post migration custom action name.</p>
+   * Template post migration custom action name.
+   *
    * @public
    */
   actionName?: string | undefined;
 
   /**
-   * <p>Template post migration custom action document identifier.</p>
+   * Template post migration custom action document identifier.
+   *
    * @public
    */
   documentIdentifier?: string | undefined;
 
   /**
-   * <p>Template post migration custom action order.</p>
+   * Template post migration custom action order.
+   *
    * @public
    */
   order?: number | undefined;
 
   /**
-   * <p>Template post migration custom action document version.</p>
+   * Template post migration custom action document version.
+   *
    * @public
    */
   documentVersion?: string | undefined;
 
   /**
-   * <p>Template post migration custom action active status.</p>
+   * Template post migration custom action active status.
+   *
    * @public
    */
   active?: boolean | undefined;
 
   /**
-   * <p>Template post migration custom action timeout in seconds.</p>
+   * Template post migration custom action timeout in seconds.
+   *
    * @public
    */
   timeoutSeconds?: number | undefined;
 
   /**
-   * <p>Template post migration custom action must succeed for cutover.</p>
+   * Template post migration custom action must succeed for cutover.
+   *
    * @public
    */
   mustSucceedForCutover?: boolean | undefined;
 
   /**
-   * <p>Template post migration custom action parameters.</p>
+   * Template post migration custom action parameters.
+   *
    * @public
    */
   parameters?: Record<string, SsmParameterStoreParameter[]> | undefined;
 
   /**
-   * <p>Operating system eligible for this template post migration custom action.</p>
+   * Operating system eligible for this template post migration custom action.
+   *
    * @public
    */
   operatingSystem?: string | undefined;
 
   /**
-   * <p>Template post migration custom action external parameters.</p>
+   * Template post migration custom action external parameters.
+   *
    * @public
    */
   externalParameters?: Record<string, SsmExternalParameter> | undefined;
 
   /**
-   * <p>Template post migration custom action description.</p>
+   * Template post migration custom action description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Template post migration custom action category.</p>
+   * Template post migration custom action category.
+   *
    * @public
    */
   category?: ActionCategory | undefined;
@@ -2206,13 +2529,15 @@ export interface TemplateActionDocument {
  */
 export interface ListTemplateActionsResponse {
   /**
-   * <p>List of template post migration custom actions.</p>
+   * List of template post migration custom actions.
+   *
    * @public
    */
   items?: TemplateActionDocument[] | undefined;
 
   /**
-   * <p>Next token returned when listing template post migration custom actions.</p>
+   * Next token returned when listing template post migration custom actions.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2223,85 +2548,99 @@ export interface ListTemplateActionsResponse {
  */
 export interface PutTemplateActionRequest {
   /**
-   * <p>Launch configuration template ID.</p>
+   * Launch configuration template ID.
+   *
    * @public
    */
   launchConfigurationTemplateID: string | undefined;
 
   /**
-   * <p>Template post migration custom action name.</p>
+   * Template post migration custom action name.
+   *
    * @public
    */
   actionName: string | undefined;
 
   /**
-   * <p>Template post migration custom action document identifier.</p>
+   * Template post migration custom action document identifier.
+   *
    * @public
    */
   documentIdentifier: string | undefined;
 
   /**
-   * <p>Template post migration custom action order.</p>
+   * Template post migration custom action order.
+   *
    * @public
    */
   order: number | undefined;
 
   /**
-   * <p>Template post migration custom action ID.</p>
+   * Template post migration custom action ID.
+   *
    * @public
    */
   actionID: string | undefined;
 
   /**
-   * <p>Template post migration custom action document version.</p>
+   * Template post migration custom action document version.
+   *
    * @public
    */
   documentVersion?: string | undefined;
 
   /**
-   * <p>Template post migration custom action active status.</p>
+   * Template post migration custom action active status.
+   *
    * @public
    */
   active?: boolean | undefined;
 
   /**
-   * <p>Template post migration custom action timeout in seconds.</p>
+   * Template post migration custom action timeout in seconds.
+   *
    * @public
    */
   timeoutSeconds?: number | undefined;
 
   /**
-   * <p>Template post migration custom action must succeed for cutover.</p>
+   * Template post migration custom action must succeed for cutover.
+   *
    * @public
    */
   mustSucceedForCutover?: boolean | undefined;
 
   /**
-   * <p>Template post migration custom action parameters.</p>
+   * Template post migration custom action parameters.
+   *
    * @public
    */
   parameters?: Record<string, SsmParameterStoreParameter[]> | undefined;
 
   /**
-   * <p>Operating system eligible for this template post migration custom action.</p>
+   * Operating system eligible for this template post migration custom action.
+   *
    * @public
    */
   operatingSystem?: string | undefined;
 
   /**
-   * <p>Template post migration custom action external parameters.</p>
+   * Template post migration custom action external parameters.
+   *
    * @public
    */
   externalParameters?: Record<string, SsmExternalParameter> | undefined;
 
   /**
-   * <p>Template post migration custom action description.</p>
+   * Template post migration custom action description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Template post migration custom action category.</p>
+   * Template post migration custom action category.
+   *
    * @public
    */
   category?: ActionCategory | undefined;
@@ -2312,13 +2651,15 @@ export interface PutTemplateActionRequest {
  */
 export interface RemoveTemplateActionRequest {
   /**
-   * <p>Launch configuration template ID of the post migration custom action to remove.</p>
+   * Launch configuration template ID of the post migration custom action to remove.
+   *
    * @public
    */
   launchConfigurationTemplateID: string | undefined;
 
   /**
-   * <p>Template post migration custom action ID to remove.</p>
+   * Template post migration custom action ID to remove.
+   *
    * @public
    */
   actionID: string | undefined;
@@ -2334,109 +2675,127 @@ export interface RemoveTemplateActionResponse {}
  */
 export interface UpdateLaunchConfigurationTemplateRequest {
   /**
-   * <p>Launch Configuration Template ID.</p>
+   * Launch Configuration Template ID.
+   *
    * @public
    */
   launchConfigurationTemplateID: string | undefined;
 
   /**
-   * <p>Post Launch Action to execute on the Test or Cutover instance.</p>
+   * Post Launch Action to execute on the Test or Cutover instance.
+   *
    * @public
    */
   postLaunchActions?: PostLaunchActions | undefined;
 
   /**
-   * <p>Enable map auto tagging.</p>
+   * Enable map auto tagging.
+   *
    * @public
    */
   enableMapAutoTagging?: boolean | undefined;
 
   /**
-   * <p>Launch configuration template map auto tagging MPE ID.</p>
+   * Launch configuration template map auto tagging MPE ID.
+   *
    * @public
    */
   mapAutoTaggingMpeID?: string | undefined;
 
   /**
-   * <p>Launch disposition.</p>
+   * Launch disposition.
+   *
    * @public
    */
   launchDisposition?: LaunchDisposition | undefined;
 
   /**
-   * <p>Target instance type right-sizing method.</p>
+   * Target instance type right-sizing method.
+   *
    * @public
    */
   targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | undefined;
 
   /**
-   * <p>Copy private Ip.</p>
+   * Copy private Ip.
+   *
    * @public
    */
   copyPrivateIp?: boolean | undefined;
 
   /**
-   * <p>Associate public Ip address.</p>
+   * Associate public Ip address.
+   *
    * @public
    */
   associatePublicIpAddress?: boolean | undefined;
 
   /**
-   * <p>Copy tags.</p>
+   * Copy tags.
+   *
    * @public
    */
   copyTags?: boolean | undefined;
 
   /**
-   * <p>Configure Licensing.</p>
+   * Configure Licensing.
+   *
    * @public
    */
   licensing?: Licensing | undefined;
 
   /**
-   * <p>Launch configuration template boot mode.</p>
+   * Launch configuration template boot mode.
+   *
    * @public
    */
   bootMode?: BootMode | undefined;
 
   /**
-   * <p>Small volume maximum size.</p>
+   * Small volume maximum size.
+   *
    * @public
    */
   smallVolumeMaxSize?: number | undefined;
 
   /**
-   * <p>Small volume config.</p>
+   * Small volume config.
+   *
    * @public
    */
   smallVolumeConf?: LaunchTemplateDiskConf | undefined;
 
   /**
-   * <p>Large volume config.</p>
+   * Large volume config.
+   *
    * @public
    */
   largeVolumeConf?: LaunchTemplateDiskConf | undefined;
 
   /**
-   * <p>Enable parameters encryption.</p>
+   * Enable parameters encryption.
+   *
    * @public
    */
   enableParametersEncryption?: boolean | undefined;
 
   /**
-   * <p>Parameters encryption key.</p>
+   * Parameters encryption key.
+   *
    * @public
    */
   parametersEncryptionKey?: string | undefined;
 }
 
 /**
- * <p>Filters for listing import file enrichment jobs.</p>
+ * Filters for listing import file enrichment jobs.
+ *
  * @public
  */
 export interface ListImportFileEnrichmentsFilters {
   /**
-   * <p>A list of job IDs to filter by.</p>
+   * A list of job IDs to filter by.
+   *
    * @public
    */
   jobIDs?: string[] | undefined;
@@ -2447,109 +2806,127 @@ export interface ListImportFileEnrichmentsFilters {
  */
 export interface ListImportFileEnrichmentsRequest {
   /**
-   * <p>Filters to apply when listing import file enrichment jobs.</p>
+   * Filters to apply when listing import file enrichment jobs.
+   *
    * @public
    */
   filters?: ListImportFileEnrichmentsFilters | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>A checksum structure used to verify data integrity.</p>
+ * A checksum structure used to verify data integrity.
+ *
  * @public
  */
 export interface Checksum {
   /**
-   * <p>The encryption algorithm used to generate the checksum.</p>
+   * The encryption algorithm used to generate the checksum.
+   *
    * @public
    */
   encryptionAlgorithm?: EncryptionAlgorithm | undefined;
 
   /**
-   * <p>The hash value of the checksum.</p>
+   * The hash value of the checksum.
+   *
    * @public
    */
   hash?: string | undefined;
 }
 
 /**
- * <p>S3 configuration for storing the enriched import file.</p>
+ * S3 configuration for storing the enriched import file.
+ *
  * @public
  */
 export interface EnrichmentTargetS3Configuration {
   /**
-   * <p>The name of the S3 bucket where the enriched import file will be stored.</p>
+   * The name of the S3 bucket where the enriched import file will be stored.
+   *
    * @public
    */
   s3Bucket: string | undefined;
 
   /**
-   * <p>The AWS account ID of the target S3 bucket owner.</p>
+   * The AWS account ID of the target S3 bucket owner.
+   *
    * @public
    */
   s3BucketOwner: string | undefined;
 
   /**
-   * <p>The S3 key (path) where the enriched import file will be stored.</p>
+   * The S3 key (path) where the enriched import file will be stored.
+   *
    * @public
    */
   s3Key: string | undefined;
 }
 
 /**
- * <p>Details about an import file enrichment job.</p>
+ * Details about an import file enrichment job.
+ *
  * @public
  */
 export interface ImportFileEnrichment {
   /**
-   * <p>The unique identifier of the import file enrichment job.</p>
+   * The unique identifier of the import file enrichment job.
+   *
    * @public
    */
   jobID?: string | undefined;
 
   /**
-   * <p>The timestamp when the enrichment job was created.</p>
+   * The timestamp when the enrichment job was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when the enrichment job completed or failed.</p>
+   * The timestamp when the enrichment job completed or failed.
+   *
    * @public
    */
   endedAt?: Date | undefined;
 
   /**
-   * <p>The current status of the import file enrichment job.</p>
+   * The current status of the import file enrichment job.
+   *
    * @public
    */
   status?: ImportFileEnrichmentStatus | undefined;
 
   /**
-   * <p>Detailed status information about the enrichment job.</p>
+   * Detailed status information about the enrichment job.
+   *
    * @public
    */
   statusDetails?: string | undefined;
 
   /**
-   * <p>The checksum of the enriched file for integrity verification.</p>
+   * The checksum of the enriched file for integrity verification.
+   *
    * @public
    */
   checksum?: Checksum | undefined;
 
   /**
-   * <p>The target S3 configuration for the enriched import file.</p>
+   * The target S3 configuration for the enriched import file.
+   *
    * @public
    */
   s3BucketTarget?: EnrichmentTargetS3Configuration | undefined;
@@ -2560,61 +2937,71 @@ export interface ImportFileEnrichment {
  */
 export interface ListImportFileEnrichmentsResponse {
   /**
-   * <p>A list of import file enrichment jobs.</p>
+   * A list of import file enrichment jobs.
+   *
    * @public
    */
   items?: ImportFileEnrichment[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * The token to use to retrieve the next page of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>List managed accounts request.</p>
+ * List managed accounts request.
+ *
  * @public
  */
 export interface ListManagedAccountsRequest {
   /**
-   * <p>List managed accounts request max results.</p>
+   * List managed accounts request max results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>List managed accounts request next token.</p>
+   * List managed accounts request next token.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Managed account.</p>
+ * Managed account.
+ *
  * @public
  */
 export interface ManagedAccount {
   /**
-   * <p>Managed account, account ID.</p>
+   * Managed account, account ID.
+   *
    * @public
    */
   accountId?: string | undefined;
 }
 
 /**
- * <p>List managed accounts response.</p>
+ * List managed accounts response.
+ *
  * @public
  */
 export interface ListManagedAccountsResponse {
   /**
-   * <p>List managed accounts response items.</p>
+   * List managed accounts response items.
+   *
    * @public
    */
   items: ManagedAccount[] | undefined;
 
   /**
-   * <p>List managed accounts response next token.</p>
+   * List managed accounts response next token.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2625,7 +3012,8 @@ export interface ListManagedAccountsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>List tags for resource request by ARN.</p>
+   * List tags for resource request by ARN.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -2636,115 +3024,134 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>List tags for resource response.</p>
+   * List tags for resource response.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Maps a source CIDR range to the corresponding target CIDR range to use in the target network.</p>
+ * Maps a source CIDR range to the corresponding target CIDR range to use in the target network.
+ *
  * @public
  */
 export interface CidrMapping {
   /**
-   * <p>The original CIDR range in the source network.</p>
+   * The original CIDR range in the source network.
+   *
    * @public
    */
   originalCidr: string | undefined;
 
   /**
-   * <p>The updated CIDR range to use in the target network.</p>
+   * The updated CIDR range to use in the target network.
+   *
    * @public
    */
   updatedCidr: string | undefined;
 }
 
 /**
- * <p>S3 configuration for source network data.</p>
+ * S3 configuration for source network data.
+ *
  * @public
  */
 export interface SourceS3Configuration {
   /**
-   * <p>The name of the S3 bucket containing source data.</p>
+   * The name of the S3 bucket containing source data.
+   *
    * @public
    */
   s3Bucket: string | undefined;
 
   /**
-   * <p>The AWS account ID of the S3 bucket owner.</p>
+   * The AWS account ID of the S3 bucket owner.
+   *
    * @public
    */
   s3BucketOwner: string | undefined;
 
   /**
-   * <p>The S3 key (path) for the source data.</p>
+   * The S3 key (path) for the source data.
+   *
    * @public
    */
   s3Key: string | undefined;
 }
 
 /**
- * <p>Configuration for a migration source environment.</p>
+ * Configuration for a migration source environment.
+ *
  * @public
  */
 export interface SourceConfiguration {
   /**
-   * <p>The source environment type.</p>
+   * The source environment type.
+   *
    * @public
    */
   sourceEnvironment: SourceEnvironment | undefined;
 
   /**
-   * <p>The S3 configuration for the source data.</p>
+   * The S3 configuration for the source data.
+   *
    * @public
    */
   sourceS3Configuration: SourceS3Configuration | undefined;
 }
 
 /**
- * <p>Configuration for the target network topology and addressing.</p>
+ * Configuration for the target network topology and addressing.
+ *
  * @public
  */
 export interface TargetNetwork {
   /**
-   * <p>The network topology type for the target environment.</p>
+   * The network topology type for the target environment.
+   *
    * @public
    */
   topology: TargetNetworkTopology | undefined;
 
   /**
-   * <p>The CIDR block for inbound traffic in the target network.</p>
+   * The CIDR block for inbound traffic in the target network.
+   *
    * @public
    */
   inboundCidr?: string | undefined;
 
   /**
-   * <p>The CIDR block for outbound traffic in the target network.</p>
+   * The CIDR block for outbound traffic in the target network.
+   *
    * @public
    */
   outboundCidr?: string | undefined;
 
   /**
-   * <p>The CIDR block for inspection traffic in the target network.</p>
+   * The CIDR block for inspection traffic in the target network.
+   *
    * @public
    */
   inspectionCidr?: string | undefined;
 }
 
 /**
- * <p>S3 configuration for storing target network artifacts.</p>
+ * S3 configuration for storing target network artifacts.
+ *
  * @public
  */
 export interface TargetS3Configuration {
   /**
-   * <p>The name of the S3 bucket for target artifacts.</p>
+   * The name of the S3 bucket for target artifacts.
+   *
    * @public
    */
   s3Bucket: string | undefined;
 
   /**
-   * <p>The AWS account ID of the S3 bucket owner.</p>
+   * The AWS account ID of the S3 bucket owner.
+   *
    * @public
    */
   s3BucketOwner: string | undefined;
@@ -2755,61 +3162,71 @@ export interface TargetS3Configuration {
  */
 export interface CreateNetworkMigrationDefinitionRequest {
   /**
-   * <p>The name of the network migration definition.</p>
+   * The name of the network migration definition.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description of the network migration definition.</p>
+   * A description of the network migration definition.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>A list of source configurations for the network migration.</p>
+   * A list of source configurations for the network migration.
+   *
    * @public
    */
   sourceConfigurations?: SourceConfiguration[] | undefined;
 
   /**
-   * <p>The S3 configuration for storing the target network artifacts.</p>
+   * The S3 configuration for storing the target network artifacts.
+   *
    * @public
    */
   targetS3Configuration: TargetS3Configuration | undefined;
 
   /**
-   * <p>The target network configuration including topology and CIDR ranges.</p>
+   * The target network configuration including topology and CIDR ranges.
+   *
    * @public
    */
   targetNetwork: TargetNetwork | undefined;
 
   /**
-   * <p>The target deployment configuration for the migrated network.</p>
+   * The target deployment configuration for the migrated network.
+   *
    * @public
    */
   targetDeployment?: TargetDeployment | undefined;
 
   /**
-   * <p>Specifies whether to create new target VPCs or use existing ones. Set to <code>CREATE_NEW</code> to provision new target VPCs as part of the migration, or <code>USE_EXISTING</code> to migrate into existing VPCs in the target account.</p>
+   * Specifies whether to create new target VPCs or use existing ones. Set to `CREATE_NEW` to provision new target VPCs as part of the migration, or `USE_EXISTING` to migrate into existing VPCs in the target account.
+   *
    * @public
    */
   vpcProvisioningStrategy?: VpcProvisioningStrategy | undefined;
 
   /**
-   * <p>A list of CIDR mappings that map original source CIDR ranges to updated target CIDR ranges. CIDR mappings can be provided only when <code>vpcProvisioningStrategy</code> is set to <code>USE_EXISTING</code>.</p>
+   * A list of CIDR mappings that map original source CIDR ranges to updated target CIDR ranges. CIDR mappings can be provided only when `vpcProvisioningStrategy` is set to `USE_EXISTING`.
+   *
    * @public
    */
   cidrMappings?: CidrMapping[] | undefined;
 
   /**
-   * <p>Tags to assign to the network migration definition.</p>
+   * Tags to assign to the network migration definition.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Scope tags for the network migration definition to control access and organization.</p>
+   * Scope tags for the network migration definition to control access and organization.
+   *
    * @public
    */
   scopeTags?: Record<string, string> | undefined;
@@ -2820,85 +3237,99 @@ export interface CreateNetworkMigrationDefinitionRequest {
  */
 export interface NetworkMigrationDefinition {
   /**
-   * <p>The Amazon Resource Name (ARN) of the network migration definition.</p>
+   * The Amazon Resource Name (ARN) of the network migration definition.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The unique identifier of the network migration definition.</p>
+   * The unique identifier of the network migration definition.
+   *
    * @public
    */
   networkMigrationDefinitionID?: string | undefined;
 
   /**
-   * <p>The name of the network migration definition.</p>
+   * The name of the network migration definition.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>A description of the network migration definition.</p>
+   * A description of the network migration definition.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>A list of source configurations for the network migration.</p>
+   * A list of source configurations for the network migration.
+   *
    * @public
    */
   sourceConfigurations?: SourceConfiguration[] | undefined;
 
   /**
-   * <p>The S3 configuration for storing the target network artifacts.</p>
+   * The S3 configuration for storing the target network artifacts.
+   *
    * @public
    */
   targetS3Configuration?: TargetS3Configuration | undefined;
 
   /**
-   * <p>The target network configuration including topology and CIDR ranges.</p>
+   * The target network configuration including topology and CIDR ranges.
+   *
    * @public
    */
   targetNetwork?: TargetNetwork | undefined;
 
   /**
-   * <p>The target deployment configuration for the migrated network.</p>
+   * The target deployment configuration for the migrated network.
+   *
    * @public
    */
   targetDeployment?: TargetDeployment | undefined;
 
   /**
-   * <p>Indicates whether the migration creates new target VPCs or uses existing ones. <code>CREATE_NEW</code> provisions new target VPCs; <code>USE_EXISTING</code> migrates into existing VPCs in the target account.</p>
+   * Indicates whether the migration creates new target VPCs or uses existing ones. `CREATE_NEW` provisions new target VPCs; `USE_EXISTING` migrates into existing VPCs in the target account.
+   *
    * @public
    */
   vpcProvisioningStrategy?: VpcProvisioningStrategy | undefined;
 
   /**
-   * <p>A list of CIDR mappings that map original source CIDR ranges to updated target CIDR ranges. CIDR mappings apply only when <code>vpcProvisioningStrategy</code> is set to <code>USE_EXISTING</code>.</p>
+   * A list of CIDR mappings that map original source CIDR ranges to updated target CIDR ranges. CIDR mappings apply only when `vpcProvisioningStrategy` is set to `USE_EXISTING`.
+   *
    * @public
    */
   cidrMappings?: CidrMapping[] | undefined;
 
   /**
-   * <p>The timestamp when the network migration definition was created.</p>
+   * The timestamp when the network migration definition was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when the network migration definition was last updated.</p>
+   * The timestamp when the network migration definition was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>Tags assigned to the network migration definition.</p>
+   * Tags assigned to the network migration definition.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Scope tags for the network migration definition.</p>
+   * Scope tags for the network migration definition.
+   *
    * @public
    */
   scopeTags?: Record<string, string> | undefined;
@@ -2909,7 +3340,8 @@ export interface NetworkMigrationDefinition {
  */
 export interface DeleteNetworkMigrationDefinitionRequest {
   /**
-   * <p>The unique identifier of the network migration definition to delete.</p>
+   * The unique identifier of the network migration definition to delete.
+   *
    * @public
    */
   networkMigrationDefinitionID: string | undefined;
@@ -2925,7 +3357,8 @@ export interface DeleteNetworkMigrationDefinitionResponse {}
  */
 export interface GetNetworkMigrationDefinitionRequest {
   /**
-   * <p>The unique identifier of the network migration definition to retrieve.</p>
+   * The unique identifier of the network migration definition to retrieve.
+   *
    * @public
    */
   networkMigrationDefinitionID: string | undefined;
@@ -2936,85 +3369,99 @@ export interface GetNetworkMigrationDefinitionRequest {
  */
 export interface GetNetworkMigrationMapperSegmentConstructRequest {
   /**
-   * <p>The unique identifier of the network migration definition.</p>
+   * The unique identifier of the network migration definition.
+   *
    * @public
    */
   networkMigrationDefinitionID: string | undefined;
 
   /**
-   * <p>The unique identifier of the network migration execution.</p>
+   * The unique identifier of the network migration execution.
+   *
    * @public
    */
   networkMigrationExecutionID: string | undefined;
 
   /**
-   * <p>The unique identifier of the mapper segment.</p>
+   * The unique identifier of the mapper segment.
+   *
    * @public
    */
   segmentID: string | undefined;
 
   /**
-   * <p>The unique identifier of the construct within the segment.</p>
+   * The unique identifier of the construct within the segment.
+   *
    * @public
    */
   constructID: string | undefined;
 }
 
 /**
- * <p>Represents a construct within a mapper segment. A construct is an individual infrastructure component such as a VPC, subnet, security group, route table, or other network resource that is part of the network migration.</p>
+ * Represents a construct within a mapper segment. A construct is an individual infrastructure component such as a VPC, subnet, security group, route table, or other network resource that is part of the network migration.
+ *
  * @public
  */
 export interface NetworkMigrationMapperSegmentConstruct {
   /**
-   * <p>The unique identifier of the construct.</p>
+   * The unique identifier of the construct.
+   *
    * @public
    */
   constructID?: string | undefined;
 
   /**
-   * <p>The type of the construct, such as VPC, subnet, security group, or route table.</p>
+   * The type of the construct, such as VPC, subnet, security group, or route table.
+   *
    * @public
    */
   constructType?: string | undefined;
 
   /**
-   * <p>The name of the construct.</p>
+   * The name of the construct.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>A description of the construct.</p>
+   * A description of the construct.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The logical identifier for the construct in the infrastructure code.</p>
+   * The logical identifier for the construct in the infrastructure code.
+   *
    * @public
    */
   logicalID?: string | undefined;
 
   /**
-   * <p>Whether this construct is excluded from the migration.</p>
+   * Whether this construct is excluded from the migration.
+   *
    * @public
    */
   excluded?: boolean | undefined;
 
   /**
-   * <p>The timestamp when the construct was created.</p>
+   * The timestamp when the construct was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when the construct was last updated.</p>
+   * The timestamp when the construct was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The properties and configuration of the construct.</p>
+   * The properties and configuration of the construct.
+   *
    * @public
    */
   properties?: Record<string, string> | undefined;
@@ -3025,19 +3472,22 @@ export interface NetworkMigrationMapperSegmentConstruct {
  */
 export interface GetNetworkMigrationMapperSegmentConstructResponse {
   /**
-   * <p>The construct metadata including type, name, and configuration.</p>
+   * The construct metadata including type, name, and configuration.
+   *
    * @public
    */
   construct?: NetworkMigrationMapperSegmentConstruct | undefined;
 }
 
 /**
- * <p>Filters for listing network migration analysis jobs.</p>
+ * Filters for listing network migration analysis jobs.
+ *
  * @public
  */
 export interface ListNetworkMigrationAnalysesFilters {
   /**
-   * <p>A list of job IDs to filter by.</p>
+   * A list of job IDs to filter by.
+   *
    * @public
    */
   jobIDs?: string[] | undefined;
@@ -3048,79 +3498,92 @@ export interface ListNetworkMigrationAnalysesFilters {
  */
 export interface ListNetworkMigrationAnalysesRequest {
   /**
-   * <p>The unique identifier of the network migration execution to list analyses for.</p>
+   * The unique identifier of the network migration execution to list analyses for.
+   *
    * @public
    */
   networkMigrationExecutionID: string | undefined;
 
   /**
-   * <p>The unique identifier of the network migration definition.</p>
+   * The unique identifier of the network migration definition.
+   *
    * @public
    */
   networkMigrationDefinitionID: string | undefined;
 
   /**
-   * <p>Filters to apply when listing analysis jobs.</p>
+   * Filters to apply when listing analysis jobs.
+   *
    * @public
    */
   filters?: ListNetworkMigrationAnalysesFilters | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Details about a network migration analysis job.</p>
+ * Details about a network migration analysis job.
+ *
  * @public
  */
 export interface NetworkMigrationAnalysisJobDetails {
   /**
-   * <p>The unique identifier of the analysis job.</p>
+   * The unique identifier of the analysis job.
+   *
    * @public
    */
   jobID?: string | undefined;
 
   /**
-   * <p>The unique identifier of the network migration execution.</p>
+   * The unique identifier of the network migration execution.
+   *
    * @public
    */
   networkMigrationExecutionID?: string | undefined;
 
   /**
-   * <p>The unique identifier of the network migration definition.</p>
+   * The unique identifier of the network migration definition.
+   *
    * @public
    */
   networkMigrationDefinitionID?: string | undefined;
 
   /**
-   * <p>The timestamp when the job was created.</p>
+   * The timestamp when the job was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when the job completed or failed.</p>
+   * The timestamp when the job completed or failed.
+   *
    * @public
    */
   endedAt?: Date | undefined;
 
   /**
-   * <p>The current status of the analysis job.</p>
+   * The current status of the analysis job.
+   *
    * @public
    */
   status?: NetworkMigrationJobStatus | undefined;
 
   /**
-   * <p>Detailed status information about the job.</p>
+   * Detailed status information about the job.
+   *
    * @public
    */
   statusDetails?: string | undefined;
@@ -3131,25 +3594,29 @@ export interface NetworkMigrationAnalysisJobDetails {
  */
 export interface ListNetworkMigrationAnalysesResponse {
   /**
-   * <p>A list of network migration analysis job details.</p>
+   * A list of network migration analysis job details.
+   *
    * @public
    */
   items?: NetworkMigrationAnalysisJobDetails[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * The token to use to retrieve the next page of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Filters for listing network migration analysis results.</p>
+ * Filters for listing network migration analysis results.
+ *
  * @public
  */
 export interface ListNetworkMigrationAnalysisResultsFilters {
   /**
-   * <p>A list of VPC IDs to filter results by.</p>
+   * A list of VPC IDs to filter results by.
+   *
    * @public
    */
   vpcIDs?: string[] | undefined;
@@ -3160,121 +3627,141 @@ export interface ListNetworkMigrationAnalysisResultsFilters {
  */
 export interface ListNetworkMigrationAnalysisResultsRequest {
   /**
-   * <p>The unique identifier of the network migration execution.</p>
+   * The unique identifier of the network migration execution.
+   *
    * @public
    */
   networkMigrationExecutionID: string | undefined;
 
   /**
-   * <p>The unique identifier of the network migration definition.</p>
+   * The unique identifier of the network migration definition.
+   *
    * @public
    */
   networkMigrationDefinitionID: string | undefined;
 
   /**
-   * <p>Filters to apply when listing analysis results, such as VPC IDs.</p>
+   * Filters to apply when listing analysis results, such as VPC IDs.
+   *
    * @public
    */
   filters?: ListNetworkMigrationAnalysisResultsFilters | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>The source resource information for an analysis result.</p>
+ * The source resource information for an analysis result.
+ *
  * @public
  */
 export interface NetworkMigrationAnalysisResultSource {
   /**
-   * <p>The VPC ID of the source resource.</p>
+   * The VPC ID of the source resource.
+   *
    * @public
    */
   vpcID?: string | undefined;
 
   /**
-   * <p>The subnet ID of the source resource.</p>
+   * The subnet ID of the source resource.
+   *
    * @public
    */
   subnetID?: string | undefined;
 }
 
 /**
- * <p>The target resource information for an analysis result.</p>
+ * The target resource information for an analysis result.
+ *
  * @public
  */
 export interface NetworkMigrationAnalysisResultTarget {
   /**
-   * <p>The VPC ID of the target resource.</p>
+   * The VPC ID of the target resource.
+   *
    * @public
    */
   vpcID?: string | undefined;
 
   /**
-   * <p>The subnet ID of the target resource.</p>
+   * The subnet ID of the target resource.
+   *
    * @public
    */
   subnetID?: string | undefined;
 }
 
 /**
- * <p>The result of a network migration analysis operation.</p>
+ * The result of a network migration analysis operation.
+ *
  * @public
  */
 export interface NetworkMigrationAnalysisResult {
   /**
-   * <p>The unique identifier of the analysis job that generated this result.</p>
+   * The unique identifier of the analysis job that generated this result.
+   *
    * @public
    */
   jobID?: string | undefined;
 
   /**
-   * <p>The unique identifier of the network migration execution.</p>
+   * The unique identifier of the network migration execution.
+   *
    * @public
    */
   networkMigrationExecutionID?: string | undefined;
 
   /**
-   * <p>The unique identifier of the network migration definition.</p>
+   * The unique identifier of the network migration definition.
+   *
    * @public
    */
   networkMigrationDefinitionID?: string | undefined;
 
   /**
-   * <p>The type of analyzer that generated this result.</p>
+   * The type of analyzer that generated this result.
+   *
    * @public
    */
   analyzerType?: AnalyzerType | undefined;
 
   /**
-   * <p>The source resource that was analyzed.</p>
+   * The source resource that was analyzed.
+   *
    * @public
    */
   source?: NetworkMigrationAnalysisResultSource | undefined;
 
   /**
-   * <p>The target resource in the analysis.</p>
+   * The target resource in the analysis.
+   *
    * @public
    */
   target?: NetworkMigrationAnalysisResultTarget | undefined;
 
   /**
-   * <p>The status of the analysis result.</p>
+   * The status of the analysis result.
+   *
    * @public
    */
   status?: NetworkMigrationAnalysisResultStatus | undefined;
 
   /**
-   * <p>The detailed analysis findings and recommendations.</p>
+   * The detailed analysis findings and recommendations.
+   *
    * @public
    */
   analysisResult?: string | undefined;
@@ -3285,25 +3772,29 @@ export interface NetworkMigrationAnalysisResult {
  */
 export interface ListNetworkMigrationAnalysisResultsResponse {
   /**
-   * <p>A list of network migration analysis results.</p>
+   * A list of network migration analysis results.
+   *
    * @public
    */
   items?: NetworkMigrationAnalysisResult[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * The token to use to retrieve the next page of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Filters for listing code generation jobs.</p>
+ * Filters for listing code generation jobs.
+ *
  * @public
  */
 export interface ListNetworkMigrationCodeGenerationsFilters {
   /**
-   * <p>A list of job IDs to filter by.</p>
+   * A list of job IDs to filter by.
+   *
    * @public
    */
   jobIDs?: string[] | undefined;
@@ -3314,103 +3805,120 @@ export interface ListNetworkMigrationCodeGenerationsFilters {
  */
 export interface ListNetworkMigrationCodeGenerationsRequest {
   /**
-   * <p>The unique identifier of the network migration execution.</p>
+   * The unique identifier of the network migration execution.
+   *
    * @public
    */
   networkMigrationExecutionID: string | undefined;
 
   /**
-   * <p>The unique identifier of the network migration definition.</p>
+   * The unique identifier of the network migration definition.
+   *
    * @public
    */
   networkMigrationDefinitionID: string | undefined;
 
   /**
-   * <p>Filters to apply when listing code generation jobs.</p>
+   * Filters to apply when listing code generation jobs.
+   *
    * @public
    */
   filters?: ListNetworkMigrationCodeGenerationsFilters | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Status details for a specific code generation output format.</p>
+ * Status details for a specific code generation output format.
+ *
  * @public
  */
 export interface CodeGenerationOutputFormatStatusDetails {
   /**
-   * <p>The status of the code generation for this output format.</p>
+   * The status of the code generation for this output format.
+   *
    * @public
    */
   status?: CodeGenerationOutputFormatStatus | undefined;
 
   /**
-   * <p>A list of detailed status information for the code generation.</p>
+   * A list of detailed status information for the code generation.
+   *
    * @public
    */
   statusDetailList?: string | undefined;
 }
 
 /**
- * <p>Details about a network migration code generation job.</p>
+ * Details about a network migration code generation job.
+ *
  * @public
  */
 export interface NetworkMigrationCodeGenerationJobDetails {
   /**
-   * <p>The unique identifier of the code generation job.</p>
+   * The unique identifier of the code generation job.
+   *
    * @public
    */
   jobID?: string | undefined;
 
   /**
-   * <p>The unique identifier of the network migration execution.</p>
+   * The unique identifier of the network migration execution.
+   *
    * @public
    */
   networkMigrationExecutionID?: string | undefined;
 
   /**
-   * <p>The unique identifier of the network migration definition.</p>
+   * The unique identifier of the network migration definition.
+   *
    * @public
    */
   networkMigrationDefinitionID?: string | undefined;
 
   /**
-   * <p>The timestamp when the job was created.</p>
+   * The timestamp when the job was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when the job completed or failed.</p>
+   * The timestamp when the job completed or failed.
+   *
    * @public
    */
   endedAt?: Date | undefined;
 
   /**
-   * <p>The current status of the code generation job.</p>
+   * The current status of the code generation job.
+   *
    * @public
    */
   status?: NetworkMigrationJobStatus | undefined;
 
   /**
-   * <p>Detailed status information about the job.</p>
+   * Detailed status information about the job.
+   *
    * @public
    */
   statusDetails?: string | undefined;
 
   /**
-   * <p>A map of output format types to their status details.</p>
+   * A map of output format types to their status details.
+   *
    * @public
    */
   codeGenerationOutputFormatStatusDetailsMap?: Partial<Record<CodeGenerationOutputFormatType, CodeGenerationOutputFormatStatusDetails>> | undefined;
@@ -3421,25 +3929,29 @@ export interface NetworkMigrationCodeGenerationJobDetails {
  */
 export interface ListNetworkMigrationCodeGenerationsResponse {
   /**
-   * <p>A list of network migration code generation job details.</p>
+   * A list of network migration code generation job details.
+   *
    * @public
    */
   items?: NetworkMigrationCodeGenerationJobDetails[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * The token to use to retrieve the next page of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Filters for listing code generation segments.</p>
+ * Filters for listing code generation segments.
+ *
  * @public
  */
 export interface ListNetworkMigrationCodeGenerationSegmentsFilters {
   /**
-   * <p>A list of segment IDs to filter by.</p>
+   * A list of segment IDs to filter by.
+   *
    * @public
    */
   segmentIDs?: string[] | undefined;
@@ -3450,169 +3962,197 @@ export interface ListNetworkMigrationCodeGenerationSegmentsFilters {
  */
 export interface ListNetworkMigrationCodeGenerationSegmentsRequest {
   /**
-   * <p>The unique identifier of the network migration execution.</p>
+   * The unique identifier of the network migration execution.
+   *
    * @public
    */
   networkMigrationExecutionID: string | undefined;
 
   /**
-   * <p>The unique identifier of the network migration definition.</p>
+   * The unique identifier of the network migration definition.
+   *
    * @public
    */
   networkMigrationDefinitionID: string | undefined;
 
   /**
-   * <p>Filters to apply when listing code generation segments.</p>
+   * Filters to apply when listing code generation segments.
+   *
    * @public
    */
   filters?: ListNetworkMigrationCodeGenerationSegmentsFilters | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Configuration for an S3 location.</p>
+ * Configuration for an S3 location.
+ *
  * @public
  */
 export interface S3Configuration {
   /**
-   * <p>The name of the S3 bucket.</p>
+   * The name of the S3 bucket.
+   *
    * @public
    */
   s3Bucket?: string | undefined;
 
   /**
-   * <p>The AWS account ID of the S3 bucket owner.</p>
+   * The AWS account ID of the S3 bucket owner.
+   *
    * @public
    */
   s3BucketOwner?: string | undefined;
 
   /**
-   * <p>The S3 key (path) for the object.</p>
+   * The S3 key (path) for the object.
+   *
    * @public
    */
   s3Key?: string | undefined;
 }
 
 /**
- * <p>An artifact generated during code generation, such as a CloudFormation template or Terraform file.</p>
+ * An artifact generated during code generation, such as a CloudFormation template or Terraform file.
+ *
  * @public
  */
 export interface NetworkMigrationCodeGenerationArtifact {
   /**
-   * <p>The unique identifier of the artifact.</p>
+   * The unique identifier of the artifact.
+   *
    * @public
    */
   artifactID?: string | undefined;
 
   /**
-   * <p>The type of the generated artifact.</p>
+   * The type of the generated artifact.
+   *
    * @public
    */
   artifactType?: NetworkMigrationCodeGenerationArtifactType | undefined;
 
   /**
-   * <p>The sub-type of the artifact for further classification.</p>
+   * The sub-type of the artifact for further classification.
+   *
    * @public
    */
   artifactSubType?: NetworkMigrationCodeGenerationArtifactSubType | undefined;
 
   /**
-   * <p>The logical identifier for the artifact.</p>
+   * The logical identifier for the artifact.
+   *
    * @public
    */
   logicalID?: string | undefined;
 
   /**
-   * <p>The S3 location where the artifact is stored.</p>
+   * The S3 location where the artifact is stored.
+   *
    * @public
    */
   outputS3Configuration?: S3Configuration | undefined;
 
   /**
-   * <p>The checksum of the artifact for integrity verification.</p>
+   * The checksum of the artifact for integrity verification.
+   *
    * @public
    */
   checksum?: Checksum | undefined;
 
   /**
-   * <p>The timestamp when the artifact was created.</p>
+   * The timestamp when the artifact was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 }
 
 /**
- * <p>A segment of generated code representing a logical grouping of infrastructure resources.</p>
+ * A segment of generated code representing a logical grouping of infrastructure resources.
+ *
  * @public
  */
 export interface NetworkMigrationCodeGenerationSegment {
   /**
-   * <p>The unique identifier of the code generation job.</p>
+   * The unique identifier of the code generation job.
+   *
    * @public
    */
   jobID?: string | undefined;
 
   /**
-   * <p>The unique identifier of the network migration execution.</p>
+   * The unique identifier of the network migration execution.
+   *
    * @public
    */
   networkMigrationExecutionID?: string | undefined;
 
   /**
-   * <p>The unique identifier of the network migration definition.</p>
+   * The unique identifier of the network migration definition.
+   *
    * @public
    */
   networkMigrationDefinitionID?: string | undefined;
 
   /**
-   * <p>The unique identifier of the segment.</p>
+   * The unique identifier of the segment.
+   *
    * @public
    */
   segmentID?: string | undefined;
 
   /**
-   * <p>The type of the segment.</p>
+   * The type of the segment.
+   *
    * @public
    */
   segmentType?: NetworkMigrationCodeGenerationSegmentType | undefined;
 
   /**
-   * <p>The logical identifier for the segment.</p>
+   * The logical identifier for the segment.
+   *
    * @public
    */
   logicalID?: string | undefined;
 
   /**
-   * <p>The ID of the mapper segment that this code generation segment was created from.</p>
+   * The ID of the mapper segment that this code generation segment was created from.
+   *
    * @public
    */
   mapperSegmentID?: string | undefined;
 
   /**
-   * <p>A list of artifacts generated for this segment.</p>
+   * A list of artifacts generated for this segment.
+   *
    * @public
    */
   artifacts?: NetworkMigrationCodeGenerationArtifact[] | undefined;
 
   /**
-   * <p>A list of other segments that this segment depends on or references.</p>
+   * A list of other segments that this segment depends on or references.
+   *
    * @public
    */
   referencedSegments?: string[] | undefined;
 
   /**
-   * <p>The timestamp when the segment was created.</p>
+   * The timestamp when the segment was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
@@ -3623,25 +4163,29 @@ export interface NetworkMigrationCodeGenerationSegment {
  */
 export interface ListNetworkMigrationCodeGenerationSegmentsResponse {
   /**
-   * <p>A list of network migration code generation segments.</p>
+   * A list of network migration code generation segments.
+   *
    * @public
    */
   items?: NetworkMigrationCodeGenerationSegment[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * The token to use to retrieve the next page of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Filters for listing network migration definitions.</p>
+ * Filters for listing network migration definitions.
+ *
  * @public
  */
 export interface ListNetworkMigrationDefinitionsRequestFilters {
   /**
-   * <p>A list of definition IDs to filter by.</p>
+   * A list of definition IDs to filter by.
+   *
    * @public
    */
   networkMigrationDefinitionIDs?: string[] | undefined;
@@ -3652,61 +4196,71 @@ export interface ListNetworkMigrationDefinitionsRequestFilters {
  */
 export interface ListNetworkMigrationDefinitionsRequest {
   /**
-   * <p>Filters to apply when listing network migration definitions.</p>
+   * Filters to apply when listing network migration definitions.
+   *
    * @public
    */
   filters?: ListNetworkMigrationDefinitionsRequestFilters | undefined;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>A summary of a network migration definition.</p>
+ * A summary of a network migration definition.
+ *
  * @public
  */
 export interface NetworkMigrationDefinitionSummary {
   /**
-   * <p>The unique identifier of the network migration definition.</p>
+   * The unique identifier of the network migration definition.
+   *
    * @public
    */
   networkMigrationDefinitionID?: string | undefined;
 
   /**
-   * <p>The name of the network migration definition.</p>
+   * The name of the network migration definition.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The source environment configuration.</p>
+   * The source environment configuration.
+   *
    * @public
    */
   sourceEnvironment?: SourceEnvironment | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the network migration definition.</p>
+   * The Amazon Resource Name (ARN) of the network migration definition.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>Tags assigned to the network migration definition.</p>
+   * Tags assigned to the network migration definition.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Scope tags for the network migration definition.</p>
+   * Scope tags for the network migration definition.
+   *
    * @public
    */
   scopeTags?: Record<string, string> | undefined;
@@ -3717,13 +4271,15 @@ export interface NetworkMigrationDefinitionSummary {
  */
 export interface ListNetworkMigrationDefinitionsResponse {
   /**
-   * <p>A list of network migration definition summaries.</p>
+   * A list of network migration definition summaries.
+   *
    * @public
    */
   items?: NetworkMigrationDefinitionSummary[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * The token to use to retrieve the next page of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -3734,91 +4290,106 @@ export interface ListNetworkMigrationDefinitionsResponse {
  */
 export interface ListNetworkMigrationDeployedStacksRequest {
   /**
-   * <p>The unique identifier of the network migration execution.</p>
+   * The unique identifier of the network migration execution.
+   *
    * @public
    */
   networkMigrationExecutionID: string | undefined;
 
   /**
-   * <p>The unique identifier of the network migration definition.</p>
+   * The unique identifier of the network migration definition.
+   *
    * @public
    */
   networkMigrationDefinitionID: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Details about a resource that failed to deploy.</p>
+ * Details about a resource that failed to deploy.
+ *
  * @public
  */
 export interface NetworkMigrationFailedResourceDetails {
   /**
-   * <p>The logical ID of the failed resource.</p>
+   * The logical ID of the failed resource.
+   *
    * @public
    */
   logicalID?: string | undefined;
 
   /**
-   * <p>The status of the failed resource.</p>
+   * The status of the failed resource.
+   *
    * @public
    */
   status?: NetworkMigrationFailedResourceStatus | undefined;
 
   /**
-   * <p>The reason why the resource failed.</p>
+   * The reason why the resource failed.
+   *
    * @public
    */
   statusReason?: string | undefined;
 }
 
 /**
- * <p>Details about a CloudFormation stack that has been deployed as part of the network migration.</p>
+ * Details about a CloudFormation stack that has been deployed as part of the network migration.
+ *
  * @public
  */
 export interface NetworkMigrationDeployedStackDetails {
   /**
-   * <p>The current status of the deployed stack.</p>
+   * The current status of the deployed stack.
+   *
    * @public
    */
   status?: NetworkMigrationDeployedStackStatus | undefined;
 
   /**
-   * <p>The physical ID of the CloudFormation stack.</p>
+   * The physical ID of the CloudFormation stack.
+   *
    * @public
    */
   stackPhysicalID?: string | undefined;
 
   /**
-   * <p>The logical ID of the stack.</p>
+   * The logical ID of the stack.
+   *
    * @public
    */
   stackLogicalID?: string | undefined;
 
   /**
-   * <p>The ID of the segment that this stack was deployed for.</p>
+   * The ID of the segment that this stack was deployed for.
+   *
    * @public
    */
   segmentID?: string | undefined;
 
   /**
-   * <p>The target AWS account where the stack was deployed.</p>
+   * The target AWS account where the stack was deployed.
+   *
    * @public
    */
   targetAccount?: string | undefined;
 
   /**
-   * <p>A list of resources that failed to deploy.</p>
+   * A list of resources that failed to deploy.
+   *
    * @public
    */
   failedResources?: NetworkMigrationFailedResourceDetails[] | undefined;
@@ -3829,61 +4400,71 @@ export interface NetworkMigrationDeployedStackDetails {
  */
 export interface ListNetworkMigrationDeployedStacksResponse {
   /**
-   * <p>A list of deployed stack details including status and resources.</p>
+   * A list of deployed stack details including status and resources.
+   *
    * @public
    */
   items?: NetworkMigrationDeployedStackDetails[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * The token to use to retrieve the next page of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Details about a network migration deployer job.</p>
+ * Details about a network migration deployer job.
+ *
  * @public
  */
 export interface NetworkMigrationDeployerJobDetails {
   /**
-   * <p>The unique identifier of the deployer job.</p>
+   * The unique identifier of the deployer job.
+   *
    * @public
    */
   jobID?: string | undefined;
 
   /**
-   * <p>The unique identifier of the network migration execution.</p>
+   * The unique identifier of the network migration execution.
+   *
    * @public
    */
   networkMigrationExecutionID?: string | undefined;
 
   /**
-   * <p>The unique identifier of the network migration definition.</p>
+   * The unique identifier of the network migration definition.
+   *
    * @public
    */
   networkMigrationDefinitionID?: string | undefined;
 
   /**
-   * <p>The timestamp when the job was created.</p>
+   * The timestamp when the job was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when the job completed or failed.</p>
+   * The timestamp when the job completed or failed.
+   *
    * @public
    */
   endedAt?: Date | undefined;
 
   /**
-   * <p>The current status of the deployer job.</p>
+   * The current status of the deployer job.
+   *
    * @public
    */
   status?: NetworkMigrationJobStatus | undefined;
 
   /**
-   * <p>Detailed status information about the job.</p>
+   * Detailed status information about the job.
+   *
    * @public
    */
   statusDetails?: string | undefined;
@@ -3894,25 +4475,29 @@ export interface NetworkMigrationDeployerJobDetails {
  */
 export interface ListNetworkMigrationDeployerJobResponse {
   /**
-   * <p>A list of deployer job details.</p>
+   * A list of deployer job details.
+   *
    * @public
    */
   items?: NetworkMigrationDeployerJobDetails[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * The token to use to retrieve the next page of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Filters for listing deployer jobs.</p>
+ * Filters for listing deployer jobs.
+ *
  * @public
  */
 export interface ListNetworkMigrationDeployerJobFilters {
   /**
-   * <p>A list of job IDs to filter by.</p>
+   * A list of job IDs to filter by.
+   *
    * @public
    */
   jobIDs?: string[] | undefined;
@@ -3923,49 +4508,57 @@ export interface ListNetworkMigrationDeployerJobFilters {
  */
 export interface ListNetworkMigrationDeploymentsRequest {
   /**
-   * <p>The unique identifier of the network migration execution.</p>
+   * The unique identifier of the network migration execution.
+   *
    * @public
    */
   networkMigrationExecutionID: string | undefined;
 
   /**
-   * <p>The unique identifier of the network migration definition.</p>
+   * The unique identifier of the network migration definition.
+   *
    * @public
    */
   networkMigrationDefinitionID: string | undefined;
 
   /**
-   * <p>Filters to apply when listing deployment jobs.</p>
+   * Filters to apply when listing deployment jobs.
+   *
    * @public
    */
   filters?: ListNetworkMigrationDeployerJobFilters | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Filters for listing network migration executions.</p>
+ * Filters for listing network migration executions.
+ *
  * @public
  */
 export interface ListNetworkMigrationExecutionRequestFilters {
   /**
-   * <p>A list of execution IDs to filter by.</p>
+   * A list of execution IDs to filter by.
+   *
    * @public
    */
   networkMigrationExecutionIDs?: string[] | undefined;
 
   /**
-   * <p>A list of execution statuses to filter by.</p>
+   * A list of execution statuses to filter by.
+   *
    * @public
    */
   networkMigrationExecutionStatuses?: ExecutionStatus[] | undefined;
@@ -3976,79 +4569,92 @@ export interface ListNetworkMigrationExecutionRequestFilters {
  */
 export interface ListNetworkMigrationExecutionsRequest {
   /**
-   * <p>The unique identifier of the network migration definition to list executions for.</p>
+   * The unique identifier of the network migration definition to list executions for.
+   *
    * @public
    */
   networkMigrationDefinitionID: string | undefined;
 
   /**
-   * <p>Filters to apply when listing executions, such as status or execution ID.</p>
+   * Filters to apply when listing executions, such as status or execution ID.
+   *
    * @public
    */
   filters?: ListNetworkMigrationExecutionRequestFilters | undefined;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Details about a network migration execution instance.</p>
+ * Details about a network migration execution instance.
+ *
  * @public
  */
 export interface NetworkMigrationExecution {
   /**
-   * <p>The unique identifier of the network migration definition used by this execution.</p>
+   * The unique identifier of the network migration definition used by this execution.
+   *
    * @public
    */
   networkMigrationDefinitionID?: string | undefined;
 
   /**
-   * <p>The unique identifier of the execution.</p>
+   * The unique identifier of the execution.
+   *
    * @public
    */
   networkMigrationExecutionID?: string | undefined;
 
   /**
-   * <p>The current status of the execution.</p>
+   * The current status of the execution.
+   *
    * @public
    */
   status?: ExecutionStatus | undefined;
 
   /**
-   * <p>The current stage of the execution in the migration workflow.</p>
+   * The current stage of the execution in the migration workflow.
+   *
    * @public
    */
   stage?: ExecutionStage | undefined;
 
   /**
-   * <p>The current activity being performed in the execution.</p>
+   * The current activity being performed in the execution.
+   *
    * @public
    */
   activity?: ExecutionStageActivity | undefined;
 
   /**
-   * <p>The timestamp when the execution was created.</p>
+   * The timestamp when the execution was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when the execution was last updated.</p>
+   * The timestamp when the execution was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>Tags assigned to the execution.</p>
+   * Tags assigned to the execution.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -4059,31 +4665,36 @@ export interface NetworkMigrationExecution {
  */
 export interface ListNetworkMigrationExecutionsResponse {
   /**
-   * <p>A list of network migration execution details.</p>
+   * A list of network migration execution details.
+   *
    * @public
    */
   items?: NetworkMigrationExecution[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * The token to use to retrieve the next page of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Filters for listing mapper segment constructs.</p>
+ * Filters for listing mapper segment constructs.
+ *
  * @public
  */
 export interface ListNetworkMigrationMapperSegmentConstructsFilters {
   /**
-   * <p>A list of construct IDs to filter by.</p>
+   * A list of construct IDs to filter by.
+   *
    * @public
    */
   constructIDs?: string[] | undefined;
 
   /**
-   * <p>A list of construct types to filter by.</p>
+   * A list of construct types to filter by.
+   *
    * @public
    */
   constructTypes?: string[] | undefined;
@@ -4094,37 +4705,43 @@ export interface ListNetworkMigrationMapperSegmentConstructsFilters {
  */
 export interface ListNetworkMigrationMapperSegmentConstructsRequest {
   /**
-   * <p>The unique identifier of the network migration execution.</p>
+   * The unique identifier of the network migration execution.
+   *
    * @public
    */
   networkMigrationExecutionID: string | undefined;
 
   /**
-   * <p>The unique identifier of the network migration definition.</p>
+   * The unique identifier of the network migration definition.
+   *
    * @public
    */
   networkMigrationDefinitionID: string | undefined;
 
   /**
-   * <p>The unique identifier of the segment to list constructs for.</p>
+   * The unique identifier of the segment to list constructs for.
+   *
    * @public
    */
   segmentID: string | undefined;
 
   /**
-   * <p>Filters to apply when listing constructs, such as construct type or ID.</p>
+   * Filters to apply when listing constructs, such as construct type or ID.
+   *
    * @public
    */
   filters?: ListNetworkMigrationMapperSegmentConstructsFilters | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4135,25 +4752,29 @@ export interface ListNetworkMigrationMapperSegmentConstructsRequest {
  */
 export interface ListNetworkMigrationMapperSegmentConstructsResponse {
   /**
-   * <p>A list of mapper segment constructs.</p>
+   * A list of mapper segment constructs.
+   *
    * @public
    */
   items?: NetworkMigrationMapperSegmentConstruct[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * The token to use to retrieve the next page of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Filters for listing mapper segments.</p>
+ * Filters for listing mapper segments.
+ *
  * @public
  */
 export interface ListNetworkMigrationMapperSegmentsFilters {
   /**
-   * <p>A list of segment IDs to filter by.</p>
+   * A list of segment IDs to filter by.
+   *
    * @public
    */
   segmentIDs?: string[] | undefined;
@@ -4164,31 +4785,36 @@ export interface ListNetworkMigrationMapperSegmentsFilters {
  */
 export interface ListNetworkMigrationMapperSegmentsRequest {
   /**
-   * <p>The unique identifier of the network migration execution.</p>
+   * The unique identifier of the network migration execution.
+   *
    * @public
    */
   networkMigrationExecutionID: string | undefined;
 
   /**
-   * <p>The unique identifier of the network migration definition.</p>
+   * The unique identifier of the network migration definition.
+   *
    * @public
    */
   networkMigrationDefinitionID: string | undefined;
 
   /**
-   * <p>Filters to apply when listing segments.</p>
+   * Filters to apply when listing segments.
+   *
    * @public
    */
   filters?: ListNetworkMigrationMapperSegmentsFilters | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4199,91 +4825,106 @@ export interface ListNetworkMigrationMapperSegmentsRequest {
  */
 export interface NetworkMigrationMapperSegment {
   /**
-   * <p>The unique identifier of the job that created this segment.</p>
+   * The unique identifier of the job that created this segment.
+   *
    * @public
    */
   jobID?: string | undefined;
 
   /**
-   * <p>The unique identifier of the network migration execution.</p>
+   * The unique identifier of the network migration execution.
+   *
    * @public
    */
   networkMigrationExecutionID?: string | undefined;
 
   /**
-   * <p>The unique identifier of the network migration definition.</p>
+   * The unique identifier of the network migration definition.
+   *
    * @public
    */
   networkMigrationDefinitionID?: string | undefined;
 
   /**
-   * <p>The unique identifier of the segment.</p>
+   * The unique identifier of the segment.
+   *
    * @public
    */
   segmentID?: string | undefined;
 
   /**
-   * <p>The category of the network migration segment. A segment groups the network constructs (such as VPCs, subnets, and security groups) that are migrated together. Valid values: <code>WORKLOAD</code>, <code>APPLIANCE</code>.</p>
+   * The category of the network migration segment. A segment groups the network constructs (such as VPCs, subnets, and security groups) that are migrated together. Valid values: `WORKLOAD`, `APPLIANCE`.
+   *
    * @public
    */
   segmentType?: NetworkMigrationMapperSegmentType | undefined;
 
   /**
-   * <p>The name of the segment.</p>
+   * The name of the segment.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>A description of the segment.</p>
+   * A description of the segment.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The logical identifier for the segment in the infrastructure code.</p>
+   * The logical identifier for the segment in the infrastructure code.
+   *
    * @public
    */
   logicalID?: string | undefined;
 
   /**
-   * <p>The checksum of the segment data for integrity verification.</p>
+   * The checksum of the segment data for integrity verification.
+   *
    * @public
    */
   checksum?: Checksum | undefined;
 
   /**
-   * <p>The S3 location where segment artifacts are stored.</p>
+   * The S3 location where segment artifacts are stored.
+   *
    * @public
    */
   outputS3Configuration?: S3Configuration | undefined;
 
   /**
-   * <p>The timestamp when the segment was created.</p>
+   * The timestamp when the segment was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when the segment was last updated.</p>
+   * The timestamp when the segment was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>Scope tags for the segment.</p>
+   * Scope tags for the segment.
+   *
    * @public
    */
   scopeTags?: Record<string, string> | undefined;
 
   /**
-   * <p>The target AWS account where this segment will be deployed.</p>
+   * The target AWS account where this segment will be deployed.
+   *
    * @public
    */
   targetAccount?: string | undefined;
 
   /**
-   * <p>A list of other segments that this segment depends on or references.</p>
+   * A list of other segments that this segment depends on or references.
+   *
    * @public
    */
   referencedSegments?: string[] | undefined;
@@ -4294,25 +4935,29 @@ export interface NetworkMigrationMapperSegment {
  */
 export interface ListNetworkMigrationMapperSegmentsResponse {
   /**
-   * <p>A list of mapper segments.</p>
+   * A list of mapper segments.
+   *
    * @public
    */
   items?: NetworkMigrationMapperSegment[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * The token to use to retrieve the next page of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Filters for listing network migration mapping jobs.</p>
+ * Filters for listing network migration mapping jobs.
+ *
  * @public
  */
 export interface ListNetworkMigrationMappingsFilters {
   /**
-   * <p>A list of job IDs to filter by.</p>
+   * A list of job IDs to filter by.
+   *
    * @public
    */
   jobIDs?: string[] | undefined;
@@ -4323,79 +4968,92 @@ export interface ListNetworkMigrationMappingsFilters {
  */
 export interface ListNetworkMigrationMappingsRequest {
   /**
-   * <p>The unique identifier of the network migration execution.</p>
+   * The unique identifier of the network migration execution.
+   *
    * @public
    */
   networkMigrationExecutionID: string | undefined;
 
   /**
-   * <p>The unique identifier of the network migration definition.</p>
+   * The unique identifier of the network migration definition.
+   *
    * @public
    */
   networkMigrationDefinitionID: string | undefined;
 
   /**
-   * <p>Filters to apply when listing mapping jobs.</p>
+   * Filters to apply when listing mapping jobs.
+   *
    * @public
    */
   filters?: ListNetworkMigrationMappingsFilters | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Details about a network migration mapping job.</p>
+ * Details about a network migration mapping job.
+ *
  * @public
  */
 export interface NetworkMigrationMappingJobDetails {
   /**
-   * <p>The unique identifier of the mapping job.</p>
+   * The unique identifier of the mapping job.
+   *
    * @public
    */
   jobID?: string | undefined;
 
   /**
-   * <p>The unique identifier of the network migration execution.</p>
+   * The unique identifier of the network migration execution.
+   *
    * @public
    */
   networkMigrationExecutionID?: string | undefined;
 
   /**
-   * <p>The unique identifier of the network migration definition.</p>
+   * The unique identifier of the network migration definition.
+   *
    * @public
    */
   networkMigrationDefinitionID?: string | undefined;
 
   /**
-   * <p>The timestamp when the job was created.</p>
+   * The timestamp when the job was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when the job completed or failed.</p>
+   * The timestamp when the job completed or failed.
+   *
    * @public
    */
   endedAt?: Date | undefined;
 
   /**
-   * <p>The current status of the mapping job.</p>
+   * The current status of the mapping job.
+   *
    * @public
    */
   status?: NetworkMigrationJobStatus | undefined;
 
   /**
-   * <p>Detailed status information about the job.</p>
+   * Detailed status information about the job.
+   *
    * @public
    */
   statusDetails?: string | undefined;
@@ -4406,25 +5064,29 @@ export interface NetworkMigrationMappingJobDetails {
  */
 export interface ListNetworkMigrationMappingsResponse {
   /**
-   * <p>A list of network migration mapping job details.</p>
+   * A list of network migration mapping job details.
+   *
    * @public
    */
   items?: NetworkMigrationMappingJobDetails[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * The token to use to retrieve the next page of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Filters for listing mapping update jobs.</p>
+ * Filters for listing mapping update jobs.
+ *
  * @public
  */
 export interface ListNetworkMigrationMappingUpdatesFilters {
   /**
-   * <p>A list of job IDs to filter by.</p>
+   * A list of job IDs to filter by.
+   *
    * @public
    */
   jobIDs?: string[] | undefined;
@@ -4435,79 +5097,92 @@ export interface ListNetworkMigrationMappingUpdatesFilters {
  */
 export interface ListNetworkMigrationMappingUpdatesRequest {
   /**
-   * <p>The unique identifier of the network migration execution.</p>
+   * The unique identifier of the network migration execution.
+   *
    * @public
    */
   networkMigrationExecutionID: string | undefined;
 
   /**
-   * <p>The unique identifier of the network migration definition.</p>
+   * The unique identifier of the network migration definition.
+   *
    * @public
    */
   networkMigrationDefinitionID: string | undefined;
 
   /**
-   * <p>Filters to apply when listing mapping update jobs.</p>
+   * Filters to apply when listing mapping update jobs.
+   *
    * @public
    */
   filters?: ListNetworkMigrationMappingUpdatesFilters | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Details about a network migration mapping update job.</p>
+ * Details about a network migration mapping update job.
+ *
  * @public
  */
 export interface NetworkMigrationMappingUpdateJobDetails {
   /**
-   * <p>The unique identifier of the mapping update job.</p>
+   * The unique identifier of the mapping update job.
+   *
    * @public
    */
   jobID?: string | undefined;
 
   /**
-   * <p>The unique identifier of the network migration execution.</p>
+   * The unique identifier of the network migration execution.
+   *
    * @public
    */
   networkMigrationExecutionID?: string | undefined;
 
   /**
-   * <p>The unique identifier of the network migration definition.</p>
+   * The unique identifier of the network migration definition.
+   *
    * @public
    */
   networkMigrationDefinitionID?: string | undefined;
 
   /**
-   * <p>The timestamp when the job was created.</p>
+   * The timestamp when the job was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when the job completed or failed.</p>
+   * The timestamp when the job completed or failed.
+   *
    * @public
    */
   endedAt?: Date | undefined;
 
   /**
-   * <p>The current status of the mapping update job.</p>
+   * The current status of the mapping update job.
+   *
    * @public
    */
   status?: NetworkMigrationJobStatus | undefined;
 
   /**
-   * <p>Detailed status information about the job.</p>
+   * Detailed status information about the job.
+   *
    * @public
    */
   statusDetails?: string | undefined;
@@ -4518,13 +5193,15 @@ export interface NetworkMigrationMappingUpdateJobDetails {
  */
 export interface ListNetworkMigrationMappingUpdatesResponse {
   /**
-   * <p>A list of mapping update job details.</p>
+   * A list of mapping update job details.
+   *
    * @public
    */
   items?: NetworkMigrationMappingUpdateJobDetails[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * The token to use to retrieve the next page of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4535,13 +5212,15 @@ export interface ListNetworkMigrationMappingUpdatesResponse {
  */
 export interface StartNetworkMigrationAnalysisRequest {
   /**
-   * <p>The unique identifier of the network migration execution to analyze.</p>
+   * The unique identifier of the network migration execution to analyze.
+   *
    * @public
    */
   networkMigrationExecutionID: string | undefined;
 
   /**
-   * <p>The unique identifier of the network migration definition.</p>
+   * The unique identifier of the network migration definition.
+   *
    * @public
    */
   networkMigrationDefinitionID: string | undefined;
@@ -4552,7 +5231,8 @@ export interface StartNetworkMigrationAnalysisRequest {
  */
 export interface StartNetworkMigrationAnalysisResponse {
   /**
-   * <p>The unique identifier of the analysis job that was started.</p>
+   * The unique identifier of the analysis job that was started.
+   *
    * @public
    */
   jobID?: string | undefined;
@@ -4563,19 +5243,22 @@ export interface StartNetworkMigrationAnalysisResponse {
  */
 export interface StartNetworkMigrationCodeGenerationRequest {
   /**
-   * <p>The unique identifier of the network migration execution.</p>
+   * The unique identifier of the network migration execution.
+   *
    * @public
    */
   networkMigrationExecutionID: string | undefined;
 
   /**
-   * <p>The unique identifier of the network migration definition.</p>
+   * The unique identifier of the network migration definition.
+   *
    * @public
    */
   networkMigrationDefinitionID: string | undefined;
 
   /**
-   * <p>The output format types for code generation, such as CloudFormation or Terraform.</p>
+   * The output format types for code generation, such as CloudFormation or Terraform.
+   *
    * @public
    */
   codeGenerationOutputFormatTypes?: CodeGenerationOutputFormatType[] | undefined;
@@ -4586,7 +5269,8 @@ export interface StartNetworkMigrationCodeGenerationRequest {
  */
 export interface StartNetworkMigrationCodeGenerationResponse {
   /**
-   * <p>The unique identifier of the code generation job that was started.</p>
+   * The unique identifier of the code generation job that was started.
+   *
    * @public
    */
   jobID?: string | undefined;
@@ -4597,7 +5281,8 @@ export interface StartNetworkMigrationCodeGenerationResponse {
  */
 export interface StartNetworkMigrationDeployerJobResponse {
   /**
-   * <p>The unique identifier of the deployer job that was started.</p>
+   * The unique identifier of the deployer job that was started.
+   *
    * @public
    */
   jobID?: string | undefined;
@@ -4608,13 +5293,15 @@ export interface StartNetworkMigrationDeployerJobResponse {
  */
 export interface StartNetworkMigrationDeploymentRequest {
   /**
-   * <p>The unique identifier of the network migration execution.</p>
+   * The unique identifier of the network migration execution.
+   *
    * @public
    */
   networkMigrationExecutionID: string | undefined;
 
   /**
-   * <p>The unique identifier of the network migration definition.</p>
+   * The unique identifier of the network migration definition.
+   *
    * @public
    */
   networkMigrationDefinitionID: string | undefined;
@@ -4625,19 +5312,22 @@ export interface StartNetworkMigrationDeploymentRequest {
  */
 export interface StartNetworkMigrationMappingRequest {
   /**
-   * <p>The unique identifier of the network migration execution.</p>
+   * The unique identifier of the network migration execution.
+   *
    * @public
    */
   networkMigrationExecutionID: string | undefined;
 
   /**
-   * <p>The unique identifier of the network migration definition.</p>
+   * The unique identifier of the network migration definition.
+   *
    * @public
    */
   networkMigrationDefinitionID: string | undefined;
 
   /**
-   * <p>The security group mapping strategy to use.</p>
+   * The security group mapping strategy to use.
+   *
    * @public
    */
   securityGroupMappingStrategy?: SecurityGroupMappingStrategy | undefined;
@@ -4648,98 +5338,114 @@ export interface StartNetworkMigrationMappingRequest {
  */
 export interface StartNetworkMigrationMappingResponse {
   /**
-   * <p>The unique identifier of the mapping job that was started.</p>
+   * The unique identifier of the mapping job that was started.
+   *
    * @public
    */
   jobID?: string | undefined;
 }
 
 /**
- * <p>An operation that deletes a construct from the mapping.</p>
+ * An operation that deletes a construct from the mapping.
+ *
  * @public
  */
 export interface DeleteOperation {}
 
 /**
- * <p>A construct reference specifying the source segment and construct to merge.</p>
+ * A construct reference specifying the source segment and construct to merge.
+ *
  * @public
  */
 export interface MergeConstruct {
   /**
-   * <p>The segment ID of the construct to merge.</p>
+   * The segment ID of the construct to merge.
+   *
    * @public
    */
   segmentID?: string | undefined;
 
   /**
-   * <p>The construct ID to merge.</p>
+   * The construct ID to merge.
+   *
    * @public
    */
   constructID?: string | undefined;
 }
 
 /**
- * <p>An operation that merges constructs from different segments into the target construct.</p>
+ * An operation that merges constructs from different segments into the target construct.
+ *
  * @public
  */
 export interface MergeOperation {
   /**
-   * <p>The list of constructs to merge into the target.</p>
+   * The list of constructs to merge into the target.
+   *
    * @public
    */
   mergeConstructs?: MergeConstruct[] | undefined;
 }
 
 /**
- * <p>A split target specifying the CIDR block for the new construct.</p>
+ * A split target specifying the CIDR block for the new construct.
+ *
  * @public
  */
 export interface SplitConstruct {
   /**
-   * <p>The CIDR block for the split construct.</p>
+   * The CIDR block for the split construct.
+   *
    * @public
    */
   cidrBlock?: string | undefined;
 }
 
 /**
- * <p>An operation that splits a construct into multiple constructs with different CIDR blocks.</p>
+ * An operation that splits a construct into multiple constructs with different CIDR blocks.
+ *
  * @public
  */
 export interface SplitOperation {
   /**
-   * <p>The list of split targets with their CIDR blocks.</p>
+   * The list of split targets with their CIDR blocks.
+   *
    * @public
    */
   splitConstructs?: SplitConstruct[] | undefined;
 }
 
 /**
- * <p>An operation that updates the properties of a construct.</p>
+ * An operation that updates the properties of a construct.
+ *
  * @public
  */
 export interface UpdateOperation {
   /**
-   * <p>The updated name for the construct.</p>
+   * The updated name for the construct.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Whether to exclude this construct from the migration.</p>
+   * Whether to exclude this construct from the migration.
+   *
    * @public
    */
   excluded?: boolean | undefined;
 
   /**
-   * <p>The properties to update on the construct.</p>
+   * The properties to update on the construct.
+   *
    * @public
    */
   properties?: Record<string, string> | undefined;
 }
 
 /**
- * <p>A union type representing the operation to perform on a construct during a mapping update.</p>
+ * A union type representing the operation to perform on a construct during a mapping update.
+ *
  * @public
  */
 export type OperationUnion =
@@ -4754,7 +5460,8 @@ export type OperationUnion =
  */
 export namespace OperationUnion {
   /**
-   * <p>A merge operation to combine constructs from different segments.</p>
+   * A merge operation to combine constructs from different segments.
+   *
    * @public
    */
   export interface MergeMember {
@@ -4766,7 +5473,8 @@ export namespace OperationUnion {
   }
 
   /**
-   * <p>A split operation to divide a construct into multiple constructs with specified CIDR blocks.</p>
+   * A split operation to divide a construct into multiple constructs with specified CIDR blocks.
+   *
    * @public
    */
   export interface SplitMember {
@@ -4778,7 +5486,8 @@ export namespace OperationUnion {
   }
 
   /**
-   * <p>A delete operation to remove a construct from the mapping.</p>
+   * A delete operation to remove a construct from the mapping.
+   *
    * @public
    */
   export interface DeleteMember {
@@ -4790,7 +5499,8 @@ export namespace OperationUnion {
   }
 
   /**
-   * <p>An update operation to modify construct properties.</p>
+   * An update operation to modify construct properties.
+   *
    * @public
    */
   export interface UpdateMember {
@@ -4826,54 +5536,63 @@ export namespace OperationUnion {
 }
 
 /**
- * <p>A construct update to apply during a mapping update operation.</p>
+ * A construct update to apply during a mapping update operation.
+ *
  * @public
  */
 export interface StartNetworkMigrationMappingUpdateConstruct {
   /**
-   * <p>The ID of the segment containing the construct.</p>
+   * The ID of the segment containing the construct.
+   *
    * @public
    */
   segmentID: string | undefined;
 
   /**
-   * <p>The ID of the construct to update.</p>
+   * The ID of the construct to update.
+   *
    * @public
    */
   constructID: string | undefined;
 
   /**
-   * <p>The type of the construct.</p>
+   * The type of the construct.
+   *
    * @public
    */
   constructType: string | undefined;
 
   /**
-   * <p>The operation to perform on the construct.</p>
+   * The operation to perform on the construct.
+   *
    * @public
    */
   operation?: OperationUnion | undefined;
 }
 
 /**
- * <p>A segment update to apply during a mapping update operation.</p>
+ * A segment update to apply during a mapping update operation.
+ *
  * @public
  */
 export interface StartNetworkMigrationMappingUpdateSegment {
   /**
-   * <p>The ID of the segment to update.</p>
+   * The ID of the segment to update.
+   *
    * @public
    */
   segmentID: string | undefined;
 
   /**
-   * <p>The updated target AWS account for the segment.</p>
+   * The updated target AWS account for the segment.
+   *
    * @public
    */
   targetAccount?: string | undefined;
 
   /**
-   * <p>The updated scope tags for the segment.</p>
+   * The updated scope tags for the segment.
+   *
    * @public
    */
   scopeTags?: Record<string, string> | undefined;
@@ -4884,25 +5603,29 @@ export interface StartNetworkMigrationMappingUpdateSegment {
  */
 export interface StartNetworkMigrationMappingUpdateRequest {
   /**
-   * <p>The unique identifier of the network migration execution.</p>
+   * The unique identifier of the network migration execution.
+   *
    * @public
    */
   networkMigrationExecutionID: string | undefined;
 
   /**
-   * <p>The unique identifier of the network migration definition.</p>
+   * The unique identifier of the network migration definition.
+   *
    * @public
    */
   networkMigrationDefinitionID: string | undefined;
 
   /**
-   * <p>A list of construct updates to apply.</p>
+   * A list of construct updates to apply.
+   *
    * @public
    */
   constructs?: StartNetworkMigrationMappingUpdateConstruct[] | undefined;
 
   /**
-   * <p>A list of segment updates to apply.</p>
+   * A list of segment updates to apply.
+   *
    * @public
    */
   segments?: StartNetworkMigrationMappingUpdateSegment[] | undefined;
@@ -4913,55 +5636,64 @@ export interface StartNetworkMigrationMappingUpdateRequest {
  */
 export interface StartNetworkMigrationMappingUpdateResponse {
   /**
-   * <p>The unique identifier of the mapping update job that was started.</p>
+   * The unique identifier of the mapping update job that was started.
+   *
    * @public
    */
   jobID?: string | undefined;
 }
 
 /**
- * <p>Updated configuration for the target network topology and addressing.</p>
+ * Updated configuration for the target network topology and addressing.
+ *
  * @public
  */
 export interface TargetNetworkUpdate {
   /**
-   * <p>The updated network topology type.</p>
+   * The updated network topology type.
+   *
    * @public
    */
   topology?: TargetNetworkTopology | undefined;
 
   /**
-   * <p>The updated CIDR block for inbound traffic.</p>
+   * The updated CIDR block for inbound traffic.
+   *
    * @public
    */
   inboundCidr?: string | undefined;
 
   /**
-   * <p>The updated CIDR block for outbound traffic.</p>
+   * The updated CIDR block for outbound traffic.
+   *
    * @public
    */
   outboundCidr?: string | undefined;
 
   /**
-   * <p>The updated CIDR block for inspection traffic.</p>
+   * The updated CIDR block for inspection traffic.
+   *
    * @public
    */
   inspectionCidr?: string | undefined;
 }
 
 /**
- * <p>Updated S3 configuration for storing target network artifacts.</p>
+ * Updated S3 configuration for storing target network artifacts.
+ *
  * @public
  */
 export interface TargetS3ConfigurationUpdate {
   /**
-   * <p>The updated name of the S3 bucket.</p>
+   * The updated name of the S3 bucket.
+   *
    * @public
    */
   s3Bucket?: string | undefined;
 
   /**
-   * <p>The updated AWS account ID of the S3 bucket owner.</p>
+   * The updated AWS account ID of the S3 bucket owner.
+   *
    * @public
    */
   s3BucketOwner?: string | undefined;
@@ -4972,61 +5704,71 @@ export interface TargetS3ConfigurationUpdate {
  */
 export interface UpdateNetworkMigrationDefinitionRequest {
   /**
-   * <p>The unique identifier of the network migration definition to update.</p>
+   * The unique identifier of the network migration definition to update.
+   *
    * @public
    */
   networkMigrationDefinitionID: string | undefined;
 
   /**
-   * <p>The updated name of the network migration definition.</p>
+   * The updated name of the network migration definition.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The updated description of the network migration definition.</p>
+   * The updated description of the network migration definition.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The updated list of source configurations.</p>
+   * The updated list of source configurations.
+   *
    * @public
    */
   sourceConfigurations?: SourceConfiguration[] | undefined;
 
   /**
-   * <p>The updated S3 configuration for storing the target network artifacts.</p>
+   * The updated S3 configuration for storing the target network artifacts.
+   *
    * @public
    */
   targetS3Configuration?: TargetS3ConfigurationUpdate | undefined;
 
   /**
-   * <p>The updated target network configuration.</p>
+   * The updated target network configuration.
+   *
    * @public
    */
   targetNetwork?: TargetNetworkUpdate | undefined;
 
   /**
-   * <p>The updated target deployment configuration.</p>
+   * The updated target deployment configuration.
+   *
    * @public
    */
   targetDeployment?: TargetDeployment | undefined;
 
   /**
-   * <p>Updates whether the migration creates new target VPCs or uses existing ones. Set to <code>USE_EXISTING</code> to migrate into existing VPCs in the target account, or to <code>CREATE_NEW</code> to provision new target VPCs.</p>
+   * Updates whether the migration creates new target VPCs or uses existing ones. Set to `USE_EXISTING` to migrate into existing VPCs in the target account, or to `CREATE_NEW` to provision new target VPCs.
+   *
    * @public
    */
   vpcProvisioningStrategy?: VpcProvisioningStrategy | undefined;
 
   /**
-   * <p>The updated list of CIDR mappings that map original source CIDR ranges to updated target CIDR ranges. CIDR mappings can be provided only when <code>vpcProvisioningStrategy</code> is set to <code>USE_EXISTING</code>.</p>
+   * The updated list of CIDR mappings that map original source CIDR ranges to updated target CIDR ranges. CIDR mappings can be provided only when `vpcProvisioningStrategy` is set to `USE_EXISTING`.
+   *
    * @public
    */
   cidrMappings?: CidrMapping[] | undefined;
 
   /**
-   * <p>The updated scope tags for the network migration definition.</p>
+   * The updated scope tags for the network migration definition.
+   *
    * @public
    */
   scopeTags?: Record<string, string> | undefined;
@@ -5037,61 +5779,71 @@ export interface UpdateNetworkMigrationDefinitionRequest {
  */
 export interface UpdateNetworkMigrationMapperSegmentRequest {
   /**
-   * <p>The unique identifier of the network migration definition.</p>
+   * The unique identifier of the network migration definition.
+   *
    * @public
    */
   networkMigrationDefinitionID: string | undefined;
 
   /**
-   * <p>The unique identifier of the network migration execution.</p>
+   * The unique identifier of the network migration execution.
+   *
    * @public
    */
   networkMigrationExecutionID: string | undefined;
 
   /**
-   * <p>The unique identifier of the segment to update.</p>
+   * The unique identifier of the segment to update.
+   *
    * @public
    */
   segmentID: string | undefined;
 
   /**
-   * <p>The updated scope tags for the segment.</p>
+   * The updated scope tags for the segment.
+   *
    * @public
    */
   scopeTags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>FSx for ONTAP storage configuration.</p>
+ * FSx for ONTAP storage configuration.
+ *
  * @public
  */
 export interface FsxOntapConfiguration {
   /**
-   * <p>FSx ONTAP configuration storage virtual machine ID.</p>
+   * FSx ONTAP configuration storage virtual machine ID.
+   *
    * @public
    */
   storageVirtualMachineId: string | undefined;
 
   /**
-   * <p>FSx ONTAP configuration credentials secret ARN.</p>
+   * FSx ONTAP configuration credentials secret ARN.
+   *
    * @public
    */
   credentialsSecretArn: string | undefined;
 }
 
 /**
- * <p>Storage configuration for replication.</p>
+ * Storage configuration for replication.
+ *
  * @public
  */
 export interface StorageConfiguration {
   /**
-   * <p>Storage configuration storage type.</p>
+   * Storage configuration storage type.
+   *
    * @public
    */
   storageType: StorageType | undefined;
 
   /**
-   * <p>Storage configuration FSx ONTAP configuration.</p>
+   * Storage configuration FSx ONTAP configuration.
+   *
    * @public
    */
   fsxOntapConfiguration?: FsxOntapConfiguration | undefined;
@@ -5102,103 +5854,120 @@ export interface StorageConfiguration {
  */
 export interface CreateReplicationConfigurationTemplateRequest {
   /**
-   * <p>Request to configure the Staging Area subnet ID during Replication Settings template creation.</p>
+   * Request to configure the Staging Area subnet ID during Replication Settings template creation.
+   *
    * @public
    */
   stagingAreaSubnetId: string | undefined;
 
   /**
-   * <p>Request to associate the default Application Migration Service Security group with the Replication Settings template.</p>
+   * Request to associate the default Application Migration Service Security group with the Replication Settings template.
+   *
    * @public
    */
   associateDefaultSecurityGroup: boolean | undefined;
 
   /**
-   * <p>Request to configure the Replication Server Security group ID during Replication Settings template creation.</p>
+   * Request to configure the Replication Server Security group ID during Replication Settings template creation.
+   *
    * @public
    */
   replicationServersSecurityGroupsIDs: string[] | undefined;
 
   /**
-   * <p>Request to configure the Replication Server instance type during Replication Settings template creation.</p>
+   * Request to configure the Replication Server instance type during Replication Settings template creation.
+   *
    * @public
    */
   replicationServerInstanceType: string | undefined;
 
   /**
-   * <p>Request to use Dedicated Replication Servers during Replication Settings template creation.</p>
+   * Request to use Dedicated Replication Servers during Replication Settings template creation.
+   *
    * @public
    */
   useDedicatedReplicationServer: boolean | undefined;
 
   /**
-   * <p>Request to configure the default large staging disk EBS volume type during Replication Settings template creation.</p>
+   * Request to configure the default large staging disk EBS volume type during Replication Settings template creation.
+   *
    * @public
    */
   defaultLargeStagingDiskType: ReplicationConfigurationDefaultLargeStagingDiskType | undefined;
 
   /**
-   * <p>Request to configure EBS encryption during Replication Settings template creation.</p>
+   * Request to configure EBS encryption during Replication Settings template creation.
+   *
    * @public
    */
   ebsEncryption: ReplicationConfigurationEbsEncryption | undefined;
 
   /**
-   * <p>Request to configure an EBS encryption key during Replication Settings template creation.</p>
+   * Request to configure an EBS encryption key during Replication Settings template creation.
+   *
    * @public
    */
   ebsEncryptionKeyArn?: string | undefined;
 
   /**
-   * <p>Request to configure bandwidth throttling during Replication Settings template creation.</p>
+   * Request to configure bandwidth throttling during Replication Settings template creation.
+   *
    * @public
    */
   bandwidthThrottling: number | undefined;
 
   /**
-   * <p>Request to configure data plane routing during Replication Settings template creation.</p>
+   * Request to configure data plane routing during Replication Settings template creation.
+   *
    * @public
    */
   dataPlaneRouting: ReplicationConfigurationDataPlaneRouting | undefined;
 
   /**
-   * <p>Request to create Public IP during Replication Settings template creation.</p>
+   * Request to create Public IP during Replication Settings template creation.
+   *
    * @public
    */
   createPublicIP: boolean | undefined;
 
   /**
-   * <p>Request to configure Staging Area tags during Replication Settings template creation.</p>
+   * Request to configure Staging Area tags during Replication Settings template creation.
+   *
    * @public
    */
   stagingAreaTags: Record<string, string> | undefined;
 
   /**
-   * <p>Request to use Fips Endpoint during Replication Settings template creation.</p>
+   * Request to use Fips Endpoint during Replication Settings template creation.
+   *
    * @public
    */
   useFipsEndpoint?: boolean | undefined;
 
   /**
-   * <p>Request to configure tags during Replication Settings template creation.</p>
+   * Request to configure tags during Replication Settings template creation.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Request to configure the internet protocol to IPv4 or IPv6.</p>
+   * Request to configure the internet protocol to IPv4 or IPv6.
+   *
    * @public
    */
   internetProtocol?: InternetProtocol | undefined;
 
   /**
-   * <p>Request to store snapshot on local zone during Replication Settings template creation.</p>
+   * Request to store snapshot on local zone during Replication Settings template creation.
+   *
    * @public
    */
   storeSnapshotOnLocalZone?: boolean | undefined;
 
   /**
-   * <p>Request to configure storage during Replication Settings template creation.</p>
+   * Request to configure storage during Replication Settings template creation.
+   *
    * @public
    */
   storageConfiguration?: StorageConfiguration | undefined;
@@ -5209,115 +5978,134 @@ export interface CreateReplicationConfigurationTemplateRequest {
  */
 export interface ReplicationConfigurationTemplate {
   /**
-   * <p>Replication Configuration template ID.</p>
+   * Replication Configuration template ID.
+   *
    * @public
    */
   replicationConfigurationTemplateID: string | undefined;
 
   /**
-   * <p>Replication Configuration template ARN.</p>
+   * Replication Configuration template ARN.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>Replication Configuration template Staging Area subnet ID.</p>
+   * Replication Configuration template Staging Area subnet ID.
+   *
    * @public
    */
   stagingAreaSubnetId?: string | undefined;
 
   /**
-   * <p>Replication Configuration template associate default Application Migration Service Security group.</p>
+   * Replication Configuration template associate default Application Migration Service Security group.
+   *
    * @public
    */
   associateDefaultSecurityGroup?: boolean | undefined;
 
   /**
-   * <p>Replication Configuration template server Security Groups IDs.</p>
+   * Replication Configuration template server Security Groups IDs.
+   *
    * @public
    */
   replicationServersSecurityGroupsIDs?: string[] | undefined;
 
   /**
-   * <p>Replication Configuration template server instance type.</p>
+   * Replication Configuration template server instance type.
+   *
    * @public
    */
   replicationServerInstanceType?: string | undefined;
 
   /**
-   * <p>Replication Configuration template use Dedicated Replication Server.</p>
+   * Replication Configuration template use Dedicated Replication Server.
+   *
    * @public
    */
   useDedicatedReplicationServer?: boolean | undefined;
 
   /**
-   * <p>Replication Configuration template use default large Staging Disk type.</p>
+   * Replication Configuration template use default large Staging Disk type.
+   *
    * @public
    */
   defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType | undefined;
 
   /**
-   * <p>Replication Configuration template EBS encryption.</p>
+   * Replication Configuration template EBS encryption.
+   *
    * @public
    */
   ebsEncryption?: ReplicationConfigurationEbsEncryption | undefined;
 
   /**
-   * <p>Replication Configuration template EBS encryption key ARN.</p>
+   * Replication Configuration template EBS encryption key ARN.
+   *
    * @public
    */
   ebsEncryptionKeyArn?: string | undefined;
 
   /**
-   * <p>Replication Configuration template bandwidth throttling.</p>
+   * Replication Configuration template bandwidth throttling.
+   *
    * @public
    */
   bandwidthThrottling?: number | undefined;
 
   /**
-   * <p>Replication Configuration template data plane routing.</p>
+   * Replication Configuration template data plane routing.
+   *
    * @public
    */
   dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting | undefined;
 
   /**
-   * <p>Replication Configuration template create Public IP.</p>
+   * Replication Configuration template create Public IP.
+   *
    * @public
    */
   createPublicIP?: boolean | undefined;
 
   /**
-   * <p>Replication Configuration template Staging Area Tags.</p>
+   * Replication Configuration template Staging Area Tags.
+   *
    * @public
    */
   stagingAreaTags?: Record<string, string> | undefined;
 
   /**
-   * <p>Replication Configuration template use Fips Endpoint.</p>
+   * Replication Configuration template use Fips Endpoint.
+   *
    * @public
    */
   useFipsEndpoint?: boolean | undefined;
 
   /**
-   * <p>Replication Configuration template Tags.</p>
+   * Replication Configuration template Tags.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Replication Configuration template internet protocol.</p>
+   * Replication Configuration template internet protocol.
+   *
    * @public
    */
   internetProtocol?: InternetProtocol | undefined;
 
   /**
-   * <p>Replication Configuration template store snapshot on local zone.</p>
+   * Replication Configuration template store snapshot on local zone.
+   *
    * @public
    */
   storeSnapshotOnLocalZone?: boolean | undefined;
 
   /**
-   * <p>Replication Configuration template storage configuration.</p>
+   * Replication Configuration template storage configuration.
+   *
    * @public
    */
   storageConfiguration?: StorageConfiguration | undefined;
@@ -5328,7 +6116,8 @@ export interface ReplicationConfigurationTemplate {
  */
 export interface DeleteReplicationConfigurationTemplateRequest {
   /**
-   * <p>Request to delete Replication Configuration Template from service by Replication Configuration Template ID.</p>
+   * Request to delete Replication Configuration Template from service by Replication Configuration Template ID.
+   *
    * @public
    */
   replicationConfigurationTemplateID: string | undefined;
@@ -5344,19 +6133,22 @@ export interface DeleteReplicationConfigurationTemplateResponse {}
  */
 export interface DescribeReplicationConfigurationTemplatesRequest {
   /**
-   * <p>Request to describe Replication Configuration template by template IDs.</p>
+   * Request to describe Replication Configuration template by template IDs.
+   *
    * @public
    */
   replicationConfigurationTemplateIDs?: string[] | undefined;
 
   /**
-   * <p>Request to describe Replication Configuration template by max results.</p>
+   * Request to describe Replication Configuration template by max results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Request to describe Replication Configuration template by next token.</p>
+   * Request to describe Replication Configuration template by next token.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -5367,13 +6159,15 @@ export interface DescribeReplicationConfigurationTemplatesRequest {
  */
 export interface DescribeReplicationConfigurationTemplatesResponse {
   /**
-   * <p>Request to describe Replication Configuration template by items.</p>
+   * Request to describe Replication Configuration template by items.
+   *
    * @public
    */
   items?: ReplicationConfigurationTemplate[] | undefined;
 
   /**
-   * <p>Request to describe Replication Configuration template by next token.</p>
+   * Request to describe Replication Configuration template by next token.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -5384,121 +6178,141 @@ export interface DescribeReplicationConfigurationTemplatesResponse {
  */
 export interface UpdateReplicationConfigurationTemplateRequest {
   /**
-   * <p>Update replication configuration template template ID request.</p>
+   * Update replication configuration template template ID request.
+   *
    * @public
    */
   replicationConfigurationTemplateID: string | undefined;
 
   /**
-   * <p>Update replication configuration template ARN request.</p>
+   * Update replication configuration template ARN request.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>Update replication configuration template Staging Area subnet ID request.</p>
+   * Update replication configuration template Staging Area subnet ID request.
+   *
    * @public
    */
   stagingAreaSubnetId?: string | undefined;
 
   /**
-   * <p>Update replication configuration template associate default Application Migration Service Security group request.</p>
+   * Update replication configuration template associate default Application Migration Service Security group request.
+   *
    * @public
    */
   associateDefaultSecurityGroup?: boolean | undefined;
 
   /**
-   * <p>Update replication configuration template Replication Server Security groups IDs request.</p>
+   * Update replication configuration template Replication Server Security groups IDs request.
+   *
    * @public
    */
   replicationServersSecurityGroupsIDs?: string[] | undefined;
 
   /**
-   * <p>Update replication configuration template Replication Server instance type request.</p>
+   * Update replication configuration template Replication Server instance type request.
+   *
    * @public
    */
   replicationServerInstanceType?: string | undefined;
 
   /**
-   * <p>Update replication configuration template use dedicated Replication Server request.</p>
+   * Update replication configuration template use dedicated Replication Server request.
+   *
    * @public
    */
   useDedicatedReplicationServer?: boolean | undefined;
 
   /**
-   * <p>Update replication configuration template use default large Staging Disk type request.</p>
+   * Update replication configuration template use default large Staging Disk type request.
+   *
    * @public
    */
   defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType | undefined;
 
   /**
-   * <p>Update replication configuration template EBS encryption request.</p>
+   * Update replication configuration template EBS encryption request.
+   *
    * @public
    */
   ebsEncryption?: ReplicationConfigurationEbsEncryption | undefined;
 
   /**
-   * <p>Update replication configuration template EBS encryption key ARN request.</p>
+   * Update replication configuration template EBS encryption key ARN request.
+   *
    * @public
    */
   ebsEncryptionKeyArn?: string | undefined;
 
   /**
-   * <p>Update replication configuration template bandwidth throttling request.</p>
+   * Update replication configuration template bandwidth throttling request.
+   *
    * @public
    */
   bandwidthThrottling?: number | undefined;
 
   /**
-   * <p>Update replication configuration template data plane routing request.</p>
+   * Update replication configuration template data plane routing request.
+   *
    * @public
    */
   dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting | undefined;
 
   /**
-   * <p>Update replication configuration template create Public IP request.</p>
+   * Update replication configuration template create Public IP request.
+   *
    * @public
    */
   createPublicIP?: boolean | undefined;
 
   /**
-   * <p>Update replication configuration template Staging Area Tags request.</p>
+   * Update replication configuration template Staging Area Tags request.
+   *
    * @public
    */
   stagingAreaTags?: Record<string, string> | undefined;
 
   /**
-   * <p>Update replication configuration template use Fips Endpoint request.</p>
+   * Update replication configuration template use Fips Endpoint request.
+   *
    * @public
    */
   useFipsEndpoint?: boolean | undefined;
 
   /**
-   * <p>Update replication configuration template internet protocol request.</p>
+   * Update replication configuration template internet protocol request.
+   *
    * @public
    */
   internetProtocol?: InternetProtocol | undefined;
 
   /**
-   * <p>Update replication configuration template store snapshot on local zone request.</p>
+   * Update replication configuration template store snapshot on local zone request.
+   *
    * @public
    */
   storeSnapshotOnLocalZone?: boolean | undefined;
 
   /**
-   * <p>Update replication configuration template storage configuration request.</p>
+   * Update replication configuration template storage configuration request.
+   *
    * @public
    */
   storageConfiguration?: StorageConfiguration | undefined;
 }
 
 /**
- * <p>The request to change the source server migration lifecycle state.</p>
+ * The request to change the source server migration lifecycle state.
+ *
  * @public
  */
 export interface ChangeServerLifeCycleStateSourceServerLifecycle {
   /**
-   * <p>The request to change the source server migration lifecycle state.</p>
+   * The request to change the source server migration lifecycle state.
+   *
    * @public
    */
   state: ChangeServerLifeCycleStateSourceServerLifecycleState | undefined;
@@ -5509,601 +6323,699 @@ export interface ChangeServerLifeCycleStateSourceServerLifecycle {
  */
 export interface ChangeServerLifeCycleStateRequest {
   /**
-   * <p>The request to change the source server migration lifecycle state by source server ID.</p>
+   * The request to change the source server migration lifecycle state by source server ID.
+   *
    * @public
    */
   sourceServerID: string | undefined;
 
   /**
-   * <p>The request to change the source server migration lifecycle state.</p>
+   * The request to change the source server migration lifecycle state.
+   *
    * @public
    */
   lifeCycle: ChangeServerLifeCycleStateSourceServerLifecycle | undefined;
 
   /**
-   * <p>The request to change the source server migration account ID.</p>
+   * The request to change the source server migration account ID.
+   *
    * @public
    */
   accountID?: string | undefined;
 }
 
 /**
- * <p>Source Server connector action.</p>
+ * Source Server connector action.
+ *
  * @public
  */
 export interface SourceServerConnectorAction {
   /**
-   * <p>Source Server connector action credentials secret arn.</p>
+   * Source Server connector action credentials secret arn.
+   *
    * @public
    */
   credentialsSecretArn?: string | undefined;
 
   /**
-   * <p>Source Server connector action connector arn.</p>
+   * Source Server connector action connector arn.
+   *
    * @public
    */
   connectorArn?: string | undefined;
 }
 
 /**
- * <p>Error in data replication.</p>
+ * Error in data replication.
+ *
  * @public
  */
 export interface DataReplicationError {
   /**
-   * <p>Error in data replication.</p>
+   * Error in data replication.
+   *
    * @public
    */
   error?: DataReplicationErrorString | undefined;
 
   /**
-   * <p>Error in data replication.</p>
+   * Error in data replication.
+   *
    * @public
    */
   rawError?: string | undefined;
 }
 
 /**
- * <p>Data replication initiation step.</p>
+ * Data replication initiation step.
+ *
  * @public
  */
 export interface DataReplicationInitiationStep {
   /**
-   * <p>Request to query data initiation step name.</p>
+   * Request to query data initiation step name.
+   *
    * @public
    */
   name?: DataReplicationInitiationStepName | undefined;
 
   /**
-   * <p>Request to query data initiation status.</p>
+   * Request to query data initiation status.
+   *
    * @public
    */
   status?: DataReplicationInitiationStepStatus | undefined;
 }
 
 /**
- * <p>Data replication initiation.</p>
+ * Data replication initiation.
+ *
  * @public
  */
 export interface DataReplicationInitiation {
   /**
-   * <p>Request to query data initiation start date and time.</p>
+   * Request to query data initiation start date and time.
+   *
    * @public
    */
   startDateTime?: string | undefined;
 
   /**
-   * <p>Request to query next data initiation date and time.</p>
+   * Request to query next data initiation date and time.
+   *
    * @public
    */
   nextAttemptDateTime?: string | undefined;
 
   /**
-   * <p>Request to query data initiation steps.</p>
+   * Request to query data initiation steps.
+   *
    * @public
    */
   steps?: DataReplicationInitiationStep[] | undefined;
 }
 
 /**
- * <p>Request to query disks replicated.</p>
+ * Request to query disks replicated.
+ *
  * @public
  */
 export interface DataReplicationInfoReplicatedDisk {
   /**
-   * <p>Request to query device name.</p>
+   * Request to query device name.
+   *
    * @public
    */
   deviceName?: string | undefined;
 
   /**
-   * <p>Request to query total amount of data replicated in bytes.</p>
+   * Request to query total amount of data replicated in bytes.
+   *
    * @public
    */
   totalStorageBytes?: number | undefined;
 
   /**
-   * <p>Request to query amount of data replicated in bytes.</p>
+   * Request to query amount of data replicated in bytes.
+   *
    * @public
    */
   replicatedStorageBytes?: number | undefined;
 
   /**
-   * <p>Request to query amount of data rescanned in bytes.</p>
+   * Request to query amount of data rescanned in bytes.
+   *
    * @public
    */
   rescannedStorageBytes?: number | undefined;
 
   /**
-   * <p>Request to query data replication backlog size in bytes.</p>
+   * Request to query data replication backlog size in bytes.
+   *
    * @public
    */
   backloggedStorageBytes?: number | undefined;
 }
 
 /**
- * <p>Request data replication info.</p>
+ * Request data replication info.
+ *
  * @public
  */
 export interface DataReplicationInfo {
   /**
-   * <p>Request to query data replication lag duration.</p>
+   * Request to query data replication lag duration.
+   *
    * @public
    */
   lagDuration?: string | undefined;
 
   /**
-   * <p>Request to query the time when data replication will be complete.</p>
+   * Request to query the time when data replication will be complete.
+   *
    * @public
    */
   etaDateTime?: string | undefined;
 
   /**
-   * <p>Request to query disks replicated.</p>
+   * Request to query disks replicated.
+   *
    * @public
    */
   replicatedDisks?: DataReplicationInfoReplicatedDisk[] | undefined;
 
   /**
-   * <p>Request to query the data replication state.</p>
+   * Request to query the data replication state.
+   *
    * @public
    */
   dataReplicationState?: DataReplicationState | undefined;
 
   /**
-   * <p>Request to query whether data replication has been initiated.</p>
+   * Request to query whether data replication has been initiated.
+   *
    * @public
    */
   dataReplicationInitiation?: DataReplicationInitiation | undefined;
 
   /**
-   * <p>Error in obtaining data replication info.</p>
+   * Error in obtaining data replication info.
+   *
    * @public
    */
   dataReplicationError?: DataReplicationError | undefined;
 
   /**
-   * <p>Request to query data replication last snapshot time.</p>
+   * Request to query data replication last snapshot time.
+   *
    * @public
    */
   lastSnapshotDateTime?: string | undefined;
 
   /**
-   * <p>Replication server instance ID.</p>
+   * Replication server instance ID.
+   *
    * @public
    */
   replicatorId?: string | undefined;
 }
 
 /**
- * <p>Last known check performed on a launched instance.</p>
+ * Last known check performed on a launched instance.
+ *
  * @public
  */
 export interface LastKnownCheck {
   /**
-   * <p>Last known check type.</p>
+   * Last known check type.
+   *
    * @public
    */
   type?: LastKnownCheckType | undefined;
 
   /**
-   * <p>Last known check name.</p>
+   * Last known check name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Last known check status.</p>
+   * Last known check status.
+   *
    * @public
    */
   status?: LastKnownCheckStatus | undefined;
 
   /**
-   * <p>Last known check error.</p>
+   * Last known check error.
+   *
    * @public
    */
   error?: string | undefined;
 
   /**
-   * <p>Last known check timestamp.</p>
+   * Last known check timestamp.
+   *
    * @public
    */
   checkedAt?: Date | undefined;
 }
 
 /**
- * <p>Launched instance.</p>
+ * Launched instance.
+ *
  * @public
  */
 export interface LaunchedInstance {
   /**
-   * <p>Launched instance EC2 ID.</p>
+   * Launched instance EC2 ID.
+   *
    * @public
    */
   ec2InstanceID?: string | undefined;
 
   /**
-   * <p>Launched instance Job ID.</p>
+   * Launched instance Job ID.
+   *
    * @public
    */
   jobID?: string | undefined;
 
   /**
-   * <p>Launched instance first boot.</p>
+   * Launched instance first boot.
+   *
    * @public
    */
   firstBoot?: FirstBoot | undefined;
 
   /**
-   * <p>Launched instance last known checks.</p>
+   * Launched instance last known checks.
+   *
    * @public
    */
   lastKnownChecks?: LastKnownCheck[] | undefined;
 
   /**
-   * <p>Launched instance last known FSx checks status.</p>
+   * Launched instance last known FSx checks status.
+   *
    * @public
    */
   lastKnownFsxChecksStatus?: LastKnownCheckStatus | undefined;
 }
 
 /**
- * <p>Lifecycle Cutover finalized</p>
+ * Lifecycle Cutover finalized
+ *
  * @public
  */
 export interface LifeCycleLastCutoverFinalized {
   /**
-   * <p>Lifecycle Cutover finalized date and time.</p>
+   * Lifecycle Cutover finalized date and time.
+   *
    * @public
    */
   apiCallDateTime?: string | undefined;
 }
 
 /**
- * <p>Lifecycle last Cutover initiated.</p>
+ * Lifecycle last Cutover initiated.
+ *
  * @public
  */
 export interface LifeCycleLastCutoverInitiated {
   /**
-   * <p/>
    * @public
    */
   apiCallDateTime?: string | undefined;
 
   /**
-   * <p>Lifecycle last Cutover initiated by Job ID.</p>
+   * Lifecycle last Cutover initiated by Job ID.
+   *
    * @public
    */
   jobID?: string | undefined;
 }
 
 /**
- * <p>Lifecycle last Cutover reverted.</p>
+ * Lifecycle last Cutover reverted.
+ *
  * @public
  */
 export interface LifeCycleLastCutoverReverted {
   /**
-   * <p>Lifecycle last Cutover reverted API call date time.</p>
+   * Lifecycle last Cutover reverted API call date time.
+   *
    * @public
    */
   apiCallDateTime?: string | undefined;
 }
 
 /**
- * <p>Lifecycle last Cutover .</p>
+ * Lifecycle last Cutover .
+ *
  * @public
  */
 export interface LifeCycleLastCutover {
   /**
-   * <p>Lifecycle last Cutover initiated.</p>
+   * Lifecycle last Cutover initiated.
+   *
    * @public
    */
   initiated?: LifeCycleLastCutoverInitiated | undefined;
 
   /**
-   * <p>Lifecycle last Cutover reverted.</p>
+   * Lifecycle last Cutover reverted.
+   *
    * @public
    */
   reverted?: LifeCycleLastCutoverReverted | undefined;
 
   /**
-   * <p>Lifecycle Cutover finalized date and time.</p>
+   * Lifecycle Cutover finalized date and time.
+   *
    * @public
    */
   finalized?: LifeCycleLastCutoverFinalized | undefined;
 }
 
 /**
- * <p>Lifecycle last Test finalized.</p>
+ * Lifecycle last Test finalized.
+ *
  * @public
  */
 export interface LifeCycleLastTestFinalized {
   /**
-   * <p>Lifecycle Test finalized API call date and time.</p>
+   * Lifecycle Test finalized API call date and time.
+   *
    * @public
    */
   apiCallDateTime?: string | undefined;
 }
 
 /**
- * <p>Lifecycle last Test initiated.</p>
+ * Lifecycle last Test initiated.
+ *
  * @public
  */
 export interface LifeCycleLastTestInitiated {
   /**
-   * <p>Lifecycle last Test initiated API call date and time.</p>
+   * Lifecycle last Test initiated API call date and time.
+   *
    * @public
    */
   apiCallDateTime?: string | undefined;
 
   /**
-   * <p>Lifecycle last Test initiated Job ID.</p>
+   * Lifecycle last Test initiated Job ID.
+   *
    * @public
    */
   jobID?: string | undefined;
 }
 
 /**
- * <p>Lifecycle last Test reverted.</p>
+ * Lifecycle last Test reverted.
+ *
  * @public
  */
 export interface LifeCycleLastTestReverted {
   /**
-   * <p>Lifecycle last Test reverted API call date and time.</p>
+   * Lifecycle last Test reverted API call date and time.
+   *
    * @public
    */
   apiCallDateTime?: string | undefined;
 }
 
 /**
- * <p>Lifecycle last Test.</p>
+ * Lifecycle last Test.
+ *
  * @public
  */
 export interface LifeCycleLastTest {
   /**
-   * <p>Lifecycle last Test initiated.</p>
+   * Lifecycle last Test initiated.
+   *
    * @public
    */
   initiated?: LifeCycleLastTestInitiated | undefined;
 
   /**
-   * <p>Lifecycle last Test reverted.</p>
+   * Lifecycle last Test reverted.
+   *
    * @public
    */
   reverted?: LifeCycleLastTestReverted | undefined;
 
   /**
-   * <p>Lifecycle last Test finalized.</p>
+   * Lifecycle last Test finalized.
+   *
    * @public
    */
   finalized?: LifeCycleLastTestFinalized | undefined;
 }
 
 /**
- * <p>Lifecycle.</p>
+ * Lifecycle.
+ *
  * @public
  */
 export interface LifeCycle {
   /**
-   * <p>Lifecycle added to service date and time.</p>
+   * Lifecycle added to service date and time.
+   *
    * @public
    */
   addedToServiceDateTime?: string | undefined;
 
   /**
-   * <p>Lifecycle replication initiation date and time.</p>
+   * Lifecycle replication initiation date and time.
+   *
    * @public
    */
   firstByteDateTime?: string | undefined;
 
   /**
-   * <p>Lifecycle elapsed time and duration.</p>
+   * Lifecycle elapsed time and duration.
+   *
    * @public
    */
   elapsedReplicationDuration?: string | undefined;
 
   /**
-   * <p>Lifecycle last seen date and time.</p>
+   * Lifecycle last seen date and time.
+   *
    * @public
    */
   lastSeenByServiceDateTime?: string | undefined;
 
   /**
-   * <p>Lifecycle last Test.</p>
+   * Lifecycle last Test.
+   *
    * @public
    */
   lastTest?: LifeCycleLastTest | undefined;
 
   /**
-   * <p>Lifecycle last Cutover.</p>
+   * Lifecycle last Cutover.
+   *
    * @public
    */
   lastCutover?: LifeCycleLastCutover | undefined;
 
   /**
-   * <p>Lifecycle state.</p>
+   * Lifecycle state.
+   *
    * @public
    */
   state?: LifeCycleState | undefined;
 }
 
 /**
- * <p>Source server CPU information.</p>
+ * Source server CPU information.
+ *
  * @public
  */
 export interface CPU {
   /**
-   * <p>The number of CPU cores on the source server.</p>
+   * The number of CPU cores on the source server.
+   *
    * @public
    */
   cores?: number | undefined;
 
   /**
-   * <p>The source server's CPU model name.</p>
+   * The source server's CPU model name.
+   *
    * @public
    */
   modelName?: string | undefined;
 }
 
 /**
- * <p>The disk identifier.</p>
+ * The disk identifier.
+ *
  * @public
  */
 export interface Disk {
   /**
-   * <p>The disk or device name.</p>
+   * The disk or device name.
+   *
    * @public
    */
   deviceName?: string | undefined;
 
   /**
-   * <p>The amount of storage on the disk in bytes.</p>
+   * The amount of storage on the disk in bytes.
+   *
    * @public
    */
   bytes?: number | undefined;
 }
 
 /**
- * <p>Identification hints.</p>
+ * Identification hints.
+ *
  * @public
  */
 export interface IdentificationHints {
   /**
-   * <p>FQDN address identification hint.</p>
+   * FQDN address identification hint.
+   *
    * @public
    */
   fqdn?: string | undefined;
 
   /**
-   * <p>Hostname identification hint.</p>
+   * Hostname identification hint.
+   *
    * @public
    */
   hostname?: string | undefined;
 
   /**
-   * <p>vmWare UUID identification hint.</p>
+   * vmWare UUID identification hint.
+   *
    * @public
    */
   vmWareUuid?: string | undefined;
 
   /**
-   * <p>AWS Instance ID identification hint.</p>
+   * AWS Instance ID identification hint.
+   *
    * @public
    */
   awsInstanceID?: string | undefined;
 
   /**
-   * <p>vCenter VM path identification hint.</p>
+   * vCenter VM path identification hint.
+   *
    * @public
    */
   vmPath?: string | undefined;
 }
 
 /**
- * <p>Network interface.</p>
+ * Network interface.
+ *
  * @public
  */
 export interface NetworkInterface {
   /**
-   * <p>Network interface Mac address.</p>
+   * Network interface Mac address.
+   *
    * @public
    */
   macAddress?: string | undefined;
 
   /**
-   * <p>Network interface IPs.</p>
+   * Network interface IPs.
+   *
    * @public
    */
   ips?: string[] | undefined;
 
   /**
-   * <p>Network interface primary IP.</p>
+   * Network interface primary IP.
+   *
    * @public
    */
   isPrimary?: boolean | undefined;
 }
 
 /**
- * <p>Operating System.</p>
+ * Operating System.
+ *
  * @public
  */
 export interface OS {
   /**
-   * <p>OS full string.</p>
+   * OS full string.
+   *
    * @public
    */
   fullString?: string | undefined;
 }
 
 /**
- * <p>Source server properties.</p>
+ * Source server properties.
+ *
  * @public
  */
 export interface SourceProperties {
   /**
-   * <p>Source server last update date and time.</p>
+   * Source server last update date and time.
+   *
    * @public
    */
   lastUpdatedDateTime?: string | undefined;
 
   /**
-   * <p>Source server recommended instance type.</p>
+   * Source server recommended instance type.
+   *
    * @public
    */
   recommendedInstanceType?: string | undefined;
 
   /**
-   * <p>Source server identification hints.</p>
+   * Source server identification hints.
+   *
    * @public
    */
   identificationHints?: IdentificationHints | undefined;
 
   /**
-   * <p>Source server network interfaces.</p>
+   * Source server network interfaces.
+   *
    * @public
    */
   networkInterfaces?: NetworkInterface[] | undefined;
 
   /**
-   * <p>Source Server disks.</p>
+   * Source Server disks.
+   *
    * @public
    */
   disks?: Disk[] | undefined;
 
   /**
-   * <p>Source Server CPUs.</p>
+   * Source Server CPUs.
+   *
    * @public
    */
   cpus?: CPU[] | undefined;
 
   /**
-   * <p>Source server RAM in bytes.</p>
+   * Source server RAM in bytes.
+   *
    * @public
    */
   ramBytes?: number | undefined;
 
   /**
-   * <p>Source server OS.</p>
+   * Source server OS.
+   *
    * @public
    */
   os?: OS | undefined;
@@ -6114,85 +7026,99 @@ export interface SourceProperties {
  */
 export interface SourceServer {
   /**
-   * <p>Source server ID.</p>
+   * Source server ID.
+   *
    * @public
    */
   sourceServerID?: string | undefined;
 
   /**
-   * <p>Source server ARN.</p>
+   * Source server ARN.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>Source server archived status.</p>
+   * Source server archived status.
+   *
    * @public
    */
   isArchived?: boolean | undefined;
 
   /**
-   * <p>Source server Tags.</p>
+   * Source server Tags.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Source server launched instance.</p>
+   * Source server launched instance.
+   *
    * @public
    */
   launchedInstance?: LaunchedInstance | undefined;
 
   /**
-   * <p>Source server data replication info.</p>
+   * Source server data replication info.
+   *
    * @public
    */
   dataReplicationInfo?: DataReplicationInfo | undefined;
 
   /**
-   * <p>Source server lifecycle state.</p>
+   * Source server lifecycle state.
+   *
    * @public
    */
   lifeCycle?: LifeCycle | undefined;
 
   /**
-   * <p>Source server properties.</p>
+   * Source server properties.
+   *
    * @public
    */
   sourceProperties?: SourceProperties | undefined;
 
   /**
-   * <p>Source server replication type.</p>
+   * Source server replication type.
+   *
    * @public
    */
   replicationType?: ReplicationType | undefined;
 
   /**
-   * <p>Source server vCenter client id.</p>
+   * Source server vCenter client id.
+   *
    * @public
    */
   vcenterClientID?: string | undefined;
 
   /**
-   * <p>Source server application ID.</p>
+   * Source server application ID.
+   *
    * @public
    */
   applicationID?: string | undefined;
 
   /**
-   * <p>Source server user provided ID.</p>
+   * Source server user provided ID.
+   *
    * @public
    */
   userProvidedID?: string | undefined;
 
   /**
-   * <p>Source server fqdn for action framework.</p>
+   * Source server fqdn for action framework.
+   *
    * @public
    */
   fqdnForActionFramework?: string | undefined;
 
   /**
-   * <p>Source Server connector action.</p>
+   * Source Server connector action.
+   *
    * @public
    */
   connectorAction?: SourceServerConnectorAction | undefined;
@@ -6203,13 +7129,15 @@ export interface SourceServer {
  */
 export interface DeleteSourceServerRequest {
   /**
-   * <p>Request to delete Source Server from service by Server ID.</p>
+   * Request to delete Source Server from service by Server ID.
+   *
    * @public
    */
   sourceServerID: string | undefined;
 
   /**
-   * <p>Request to delete Source Server from service by Account ID.</p>
+   * Request to delete Source Server from service by Account ID.
+   *
    * @public
    */
   accountID?: string | undefined;
@@ -6221,36 +7149,42 @@ export interface DeleteSourceServerRequest {
 export interface DeleteSourceServerResponse {}
 
 /**
- * <p>Request to filter Source Servers list.</p>
+ * Request to filter Source Servers list.
+ *
  * @public
  */
 export interface DescribeSourceServersRequestFilters {
   /**
-   * <p>Request to filter Source Servers list by Source Server ID.</p>
+   * Request to filter Source Servers list by Source Server ID.
+   *
    * @public
    */
   sourceServerIDs?: string[] | undefined;
 
   /**
-   * <p>Request to filter Source Servers list by archived.</p>
+   * Request to filter Source Servers list by archived.
+   *
    * @public
    */
   isArchived?: boolean | undefined;
 
   /**
-   * <p>Request to filter Source Servers list by replication type.</p>
+   * Request to filter Source Servers list by replication type.
+   *
    * @public
    */
   replicationTypes?: ReplicationType[] | undefined;
 
   /**
-   * <p>Request to filter Source Servers list by life cycle states.</p>
+   * Request to filter Source Servers list by life cycle states.
+   *
    * @public
    */
   lifeCycleStates?: LifeCycleState[] | undefined;
 
   /**
-   * <p>Request to filter Source Servers list by application IDs.</p>
+   * Request to filter Source Servers list by application IDs.
+   *
    * @public
    */
   applicationIDs?: string[] | undefined;
@@ -6261,25 +7195,29 @@ export interface DescribeSourceServersRequestFilters {
  */
 export interface DescribeSourceServersRequest {
   /**
-   * <p>Request to filter Source Servers list.</p>
+   * Request to filter Source Servers list.
+   *
    * @public
    */
   filters?: DescribeSourceServersRequestFilters | undefined;
 
   /**
-   * <p>Request to filter Source Servers list by maximum results.</p>
+   * Request to filter Source Servers list by maximum results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Request to filter Source Servers list by next token.</p>
+   * Request to filter Source Servers list by next token.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Request to filter Source Servers list by Account ID.</p>
+   * Request to filter Source Servers list by Account ID.
+   *
    * @public
    */
   accountID?: string | undefined;
@@ -6290,13 +7228,15 @@ export interface DescribeSourceServersRequest {
  */
 export interface DescribeSourceServersResponse {
   /**
-   * <p>The list of returned Source Servers.</p>
+   * The list of returned Source Servers.
+   *
    * @public
    */
   items?: SourceServer[] | undefined;
 
   /**
-   * <p>The token of the next Source Server to retrieve.</p>
+   * The token of the next Source Server to retrieve.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -6307,13 +7247,15 @@ export interface DescribeSourceServersResponse {
  */
 export interface DisconnectFromServiceRequest {
   /**
-   * <p>Request to disconnect Source Server from service by Server ID.</p>
+   * Request to disconnect Source Server from service by Server ID.
+   *
    * @public
    */
   sourceServerID: string | undefined;
 
   /**
-   * <p>Request to disconnect Source Server from service by Account ID.</p>
+   * Request to disconnect Source Server from service by Account ID.
+   *
    * @public
    */
   accountID?: string | undefined;
@@ -6324,13 +7266,15 @@ export interface DisconnectFromServiceRequest {
  */
 export interface FinalizeCutoverRequest {
   /**
-   * <p>Request to finalize Cutover by Source Server ID.</p>
+   * Request to finalize Cutover by Source Server ID.
+   *
    * @public
    */
   sourceServerID: string | undefined;
 
   /**
-   * <p>Request to finalize Cutover by Source Account ID.</p>
+   * Request to finalize Cutover by Source Account ID.
+   *
    * @public
    */
   accountID?: string | undefined;
@@ -6341,13 +7285,15 @@ export interface FinalizeCutoverRequest {
  */
 export interface GetLaunchConfigurationRequest {
   /**
-   * <p>Request to get Launch Configuration information by Source Server ID.</p>
+   * Request to get Launch Configuration information by Source Server ID.
+   *
    * @public
    */
   sourceServerID: string | undefined;
 
   /**
-   * <p>Request to get Launch Configuration information by Account ID.</p>
+   * Request to get Launch Configuration information by Account ID.
+   *
    * @public
    */
   accountID?: string | undefined;
@@ -6358,73 +7304,85 @@ export interface GetLaunchConfigurationRequest {
  */
 export interface LaunchConfiguration {
   /**
-   * <p>Launch configuration Source Server ID.</p>
+   * Launch configuration Source Server ID.
+   *
    * @public
    */
   sourceServerID?: string | undefined;
 
   /**
-   * <p>Launch configuration name.</p>
+   * Launch configuration name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Launch configuration EC2 Launch template ID.</p>
+   * Launch configuration EC2 Launch template ID.
+   *
    * @public
    */
   ec2LaunchTemplateID?: string | undefined;
 
   /**
-   * <p>Launch disposition for launch configuration.</p>
+   * Launch disposition for launch configuration.
+   *
    * @public
    */
   launchDisposition?: LaunchDisposition | undefined;
 
   /**
-   * <p>Launch configuration Target instance type right sizing method.</p>
+   * Launch configuration Target instance type right sizing method.
+   *
    * @public
    */
   targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | undefined;
 
   /**
-   * <p>Copy Private IP during Launch Configuration.</p>
+   * Copy Private IP during Launch Configuration.
+   *
    * @public
    */
   copyPrivateIp?: boolean | undefined;
 
   /**
-   * <p>Copy Tags during Launch Configuration.</p>
+   * Copy Tags during Launch Configuration.
+   *
    * @public
    */
   copyTags?: boolean | undefined;
 
   /**
-   * <p>Launch configuration OS licensing.</p>
+   * Launch configuration OS licensing.
+   *
    * @public
    */
   licensing?: Licensing | undefined;
 
   /**
-   * <p>Launch configuration boot mode.</p>
+   * Launch configuration boot mode.
+   *
    * @public
    */
   bootMode?: BootMode | undefined;
 
   /**
-   * <p>Post Launch Actions to be executed on the Test or Cutover instance.</p>
+   * Post Launch Actions to be executed on the Test or Cutover instance.
+   *
    * @public
    */
   postLaunchActions?: PostLaunchActions | undefined;
 
   /**
-   * <p>Enable map auto tagging.</p>
+   * Enable map auto tagging.
+   *
    * @public
    */
   enableMapAutoTagging?: boolean | undefined;
 
   /**
-   * <p>Map auto tagging MPE ID.</p>
+   * Map auto tagging MPE ID.
+   *
    * @public
    */
   mapAutoTaggingMpeID?: string | undefined;
@@ -6435,49 +7393,57 @@ export interface LaunchConfiguration {
  */
 export interface GetReplicationConfigurationRequest {
   /**
-   * <p>Request to get Replication Configuration by Source Server ID.</p>
+   * Request to get Replication Configuration by Source Server ID.
+   *
    * @public
    */
   sourceServerID: string | undefined;
 
   /**
-   * <p>Request to get Replication Configuration by Account ID.</p>
+   * Request to get Replication Configuration by Account ID.
+   *
    * @public
    */
   accountID?: string | undefined;
 }
 
 /**
- * <p>Replication Configuration replicated disk.</p>
+ * Replication Configuration replicated disk.
+ *
  * @public
  */
 export interface ReplicationConfigurationReplicatedDisk {
   /**
-   * <p>Replication Configuration replicated disk device name.</p>
+   * Replication Configuration replicated disk device name.
+   *
    * @public
    */
   deviceName?: string | undefined;
 
   /**
-   * <p>Replication Configuration replicated disk boot disk.</p>
+   * Replication Configuration replicated disk boot disk.
+   *
    * @public
    */
   isBootDisk?: boolean | undefined;
 
   /**
-   * <p>Replication Configuration replicated disk staging disk type.</p>
+   * Replication Configuration replicated disk staging disk type.
+   *
    * @public
    */
   stagingDiskType?: ReplicationConfigurationReplicatedDiskStagingDiskType | undefined;
 
   /**
-   * <p>Replication Configuration replicated disk IOPs.</p>
+   * Replication Configuration replicated disk IOPs.
+   *
    * @public
    */
   iops?: number | undefined;
 
   /**
-   * <p>Replication Configuration replicated disk throughput.</p>
+   * Replication Configuration replicated disk throughput.
+   *
    * @public
    */
   throughput?: number | undefined;
@@ -6488,127 +7454,148 @@ export interface ReplicationConfigurationReplicatedDisk {
  */
 export interface ReplicationConfiguration {
   /**
-   * <p>Replication Configuration Source Server ID.</p>
+   * Replication Configuration Source Server ID.
+   *
    * @public
    */
   sourceServerID?: string | undefined;
 
   /**
-   * <p>Replication Configuration name.</p>
+   * Replication Configuration name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Replication Configuration Staging Area subnet ID.</p>
+   * Replication Configuration Staging Area subnet ID.
+   *
    * @public
    */
   stagingAreaSubnetId?: string | undefined;
 
   /**
-   * <p>Replication Configuration associate default Application Migration Service Security Group.</p>
+   * Replication Configuration associate default Application Migration Service Security Group.
+   *
    * @public
    */
   associateDefaultSecurityGroup?: boolean | undefined;
 
   /**
-   * <p>Replication Configuration Replication Server Security Group IDs.</p>
+   * Replication Configuration Replication Server Security Group IDs.
+   *
    * @public
    */
   replicationServersSecurityGroupsIDs?: string[] | undefined;
 
   /**
-   * <p>Replication Configuration Replication Server instance type.</p>
+   * Replication Configuration Replication Server instance type.
+   *
    * @public
    */
   replicationServerInstanceType?: string | undefined;
 
   /**
-   * <p>Replication Configuration use Dedicated Replication Server.</p>
+   * Replication Configuration use Dedicated Replication Server.
+   *
    * @public
    */
   useDedicatedReplicationServer?: boolean | undefined;
 
   /**
-   * <p>Replication Configuration use default large Staging Disks.</p>
+   * Replication Configuration use default large Staging Disks.
+   *
    * @public
    */
   defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType | undefined;
 
   /**
-   * <p>Replication Configuration replicated disks.</p>
+   * Replication Configuration replicated disks.
+   *
    * @public
    */
   replicatedDisks?: ReplicationConfigurationReplicatedDisk[] | undefined;
 
   /**
-   * <p>Replication Configuration EBS encryption.</p>
+   * Replication Configuration EBS encryption.
+   *
    * @public
    */
   ebsEncryption?: ReplicationConfigurationEbsEncryption | undefined;
 
   /**
-   * <p>Replication Configuration EBS encryption key ARN.</p>
+   * Replication Configuration EBS encryption key ARN.
+   *
    * @public
    */
   ebsEncryptionKeyArn?: string | undefined;
 
   /**
-   * <p>Replication Configuration set bandwidth throttling.</p>
+   * Replication Configuration set bandwidth throttling.
+   *
    * @public
    */
   bandwidthThrottling?: number | undefined;
 
   /**
-   * <p>Replication Configuration data plane routing.</p>
+   * Replication Configuration data plane routing.
+   *
    * @public
    */
   dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting | undefined;
 
   /**
-   * <p>Replication Configuration create Public IP.</p>
+   * Replication Configuration create Public IP.
+   *
    * @public
    */
   createPublicIP?: boolean | undefined;
 
   /**
-   * <p>Replication Configuration Staging Area tags.</p>
+   * Replication Configuration Staging Area tags.
+   *
    * @public
    */
   stagingAreaTags?: Record<string, string> | undefined;
 
   /**
-   * <p>Replication Configuration use Fips Endpoint.</p>
+   * Replication Configuration use Fips Endpoint.
+   *
    * @public
    */
   useFipsEndpoint?: boolean | undefined;
 
   /**
-   * <p>Replication Configuration internet protocol.</p>
+   * Replication Configuration internet protocol.
+   *
    * @public
    */
   internetProtocol?: InternetProtocol | undefined;
 
   /**
-   * <p>Replication Configuration store snapshot on local zone.</p>
+   * Replication Configuration store snapshot on local zone.
+   *
    * @public
    */
   storeSnapshotOnLocalZone?: boolean | undefined;
 
   /**
-   * <p>Replication Configuration storage configuration.</p>
+   * Replication Configuration storage configuration.
+   *
    * @public
    */
   storageConfiguration?: StorageConfiguration | undefined;
 }
 
 /**
- * <p>Source server post migration custom action filters.</p>
+ * Source server post migration custom action filters.
+ *
  * @public
  */
 export interface SourceServerActionsRequestFilters {
   /**
-   * <p>Action IDs to filter source server post migration custom actions by.</p>
+   * Action IDs to filter source server post migration custom actions by.
+   *
    * @public
    */
   actionIDs?: string[] | undefined;
@@ -6619,31 +7606,36 @@ export interface SourceServerActionsRequestFilters {
  */
 export interface ListSourceServerActionsRequest {
   /**
-   * <p>Source server ID.</p>
+   * Source server ID.
+   *
    * @public
    */
   sourceServerID: string | undefined;
 
   /**
-   * <p>Filters to apply when listing source server post migration custom actions.</p>
+   * Filters to apply when listing source server post migration custom actions.
+   *
    * @public
    */
   filters?: SourceServerActionsRequestFilters | undefined;
 
   /**
-   * <p>Maximum amount of items to return when listing source server post migration custom actions.</p>
+   * Maximum amount of items to return when listing source server post migration custom actions.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Next token to use when listing source server post migration custom actions.</p>
+   * Next token to use when listing source server post migration custom actions.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Account ID to return when listing source server post migration custom actions.</p>
+   * Account ID to return when listing source server post migration custom actions.
+   *
    * @public
    */
   accountID?: string | undefined;
@@ -6654,73 +7646,85 @@ export interface ListSourceServerActionsRequest {
  */
 export interface SourceServerActionDocument {
   /**
-   * <p>Source server post migration custom action ID.</p>
+   * Source server post migration custom action ID.
+   *
    * @public
    */
   actionID?: string | undefined;
 
   /**
-   * <p>Source server post migration custom action name.</p>
+   * Source server post migration custom action name.
+   *
    * @public
    */
   actionName?: string | undefined;
 
   /**
-   * <p>Source server post migration custom action document identifier.</p>
+   * Source server post migration custom action document identifier.
+   *
    * @public
    */
   documentIdentifier?: string | undefined;
 
   /**
-   * <p>Source server post migration custom action order.</p>
+   * Source server post migration custom action order.
+   *
    * @public
    */
   order?: number | undefined;
 
   /**
-   * <p>Source server post migration custom action document version.</p>
+   * Source server post migration custom action document version.
+   *
    * @public
    */
   documentVersion?: string | undefined;
 
   /**
-   * <p>Source server post migration custom action active status.</p>
+   * Source server post migration custom action active status.
+   *
    * @public
    */
   active?: boolean | undefined;
 
   /**
-   * <p>Source server post migration custom action timeout in seconds.</p>
+   * Source server post migration custom action timeout in seconds.
+   *
    * @public
    */
   timeoutSeconds?: number | undefined;
 
   /**
-   * <p>Source server post migration custom action must succeed for cutover.</p>
+   * Source server post migration custom action must succeed for cutover.
+   *
    * @public
    */
   mustSucceedForCutover?: boolean | undefined;
 
   /**
-   * <p>Source server post migration custom action parameters.</p>
+   * Source server post migration custom action parameters.
+   *
    * @public
    */
   parameters?: Record<string, SsmParameterStoreParameter[]> | undefined;
 
   /**
-   * <p>Source server post migration custom action external parameters.</p>
+   * Source server post migration custom action external parameters.
+   *
    * @public
    */
   externalParameters?: Record<string, SsmExternalParameter> | undefined;
 
   /**
-   * <p>Source server post migration custom action description.</p>
+   * Source server post migration custom action description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Source server post migration custom action category.</p>
+   * Source server post migration custom action category.
+   *
    * @public
    */
   category?: ActionCategory | undefined;
@@ -6731,13 +7735,15 @@ export interface SourceServerActionDocument {
  */
 export interface ListSourceServerActionsResponse {
   /**
-   * <p>List of source server post migration custom actions.</p>
+   * List of source server post migration custom actions.
+   *
    * @public
    */
   items?: SourceServerActionDocument[] | undefined;
 
   /**
-   * <p>Next token returned when listing source server post migration custom actions.</p>
+   * Next token returned when listing source server post migration custom actions.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -6748,13 +7754,15 @@ export interface ListSourceServerActionsResponse {
  */
 export interface MarkAsArchivedRequest {
   /**
-   * <p>Mark as archived by Source Server ID.</p>
+   * Mark as archived by Source Server ID.
+   *
    * @public
    */
   sourceServerID: string | undefined;
 
   /**
-   * <p>Mark as archived by Account ID.</p>
+   * Mark as archived by Account ID.
+   *
    * @public
    */
   accountID?: string | undefined;
@@ -6765,13 +7773,15 @@ export interface MarkAsArchivedRequest {
  */
 export interface PauseReplicationRequest {
   /**
-   * <p>Pause Replication Request source server ID.</p>
+   * Pause Replication Request source server ID.
+   *
    * @public
    */
   sourceServerID: string | undefined;
 
   /**
-   * <p>Pause Replication Request account ID.</p>
+   * Pause Replication Request account ID.
+   *
    * @public
    */
   accountID?: string | undefined;
@@ -6782,85 +7792,99 @@ export interface PauseReplicationRequest {
  */
 export interface PutSourceServerActionRequest {
   /**
-   * <p>Source server ID.</p>
+   * Source server ID.
+   *
    * @public
    */
   sourceServerID: string | undefined;
 
   /**
-   * <p>Source server post migration custom action name.</p>
+   * Source server post migration custom action name.
+   *
    * @public
    */
   actionName: string | undefined;
 
   /**
-   * <p>Source server post migration custom action document identifier.</p>
+   * Source server post migration custom action document identifier.
+   *
    * @public
    */
   documentIdentifier: string | undefined;
 
   /**
-   * <p>Source server post migration custom action order.</p>
+   * Source server post migration custom action order.
+   *
    * @public
    */
   order: number | undefined;
 
   /**
-   * <p>Source server post migration custom action ID.</p>
+   * Source server post migration custom action ID.
+   *
    * @public
    */
   actionID: string | undefined;
 
   /**
-   * <p>Source server post migration custom action document version.</p>
+   * Source server post migration custom action document version.
+   *
    * @public
    */
   documentVersion?: string | undefined;
 
   /**
-   * <p>Source server post migration custom action active status.</p>
+   * Source server post migration custom action active status.
+   *
    * @public
    */
   active?: boolean | undefined;
 
   /**
-   * <p>Source server post migration custom action timeout in seconds.</p>
+   * Source server post migration custom action timeout in seconds.
+   *
    * @public
    */
   timeoutSeconds?: number | undefined;
 
   /**
-   * <p>Source server post migration custom action must succeed for cutover.</p>
+   * Source server post migration custom action must succeed for cutover.
+   *
    * @public
    */
   mustSucceedForCutover?: boolean | undefined;
 
   /**
-   * <p>Source server post migration custom action parameters.</p>
+   * Source server post migration custom action parameters.
+   *
    * @public
    */
   parameters?: Record<string, SsmParameterStoreParameter[]> | undefined;
 
   /**
-   * <p>Source server post migration custom action external parameters.</p>
+   * Source server post migration custom action external parameters.
+   *
    * @public
    */
   externalParameters?: Record<string, SsmExternalParameter> | undefined;
 
   /**
-   * <p>Source server post migration custom action description.</p>
+   * Source server post migration custom action description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Source server post migration custom action category.</p>
+   * Source server post migration custom action category.
+   *
    * @public
    */
   category?: ActionCategory | undefined;
 
   /**
-   * <p>Source server post migration custom account ID.</p>
+   * Source server post migration custom account ID.
+   *
    * @public
    */
   accountID?: string | undefined;
@@ -6871,19 +7895,22 @@ export interface PutSourceServerActionRequest {
  */
 export interface RemoveSourceServerActionRequest {
   /**
-   * <p>Source server ID of the post migration custom action to remove.</p>
+   * Source server ID of the post migration custom action to remove.
+   *
    * @public
    */
   sourceServerID: string | undefined;
 
   /**
-   * <p>Source server post migration custom action ID to remove.</p>
+   * Source server post migration custom action ID to remove.
+   *
    * @public
    */
   actionID: string | undefined;
 
   /**
-   * <p>Source server post migration account ID.</p>
+   * Source server post migration account ID.
+   *
    * @public
    */
   accountID?: string | undefined;
@@ -6899,13 +7926,15 @@ export interface RemoveSourceServerActionResponse {}
  */
 export interface ResumeReplicationRequest {
   /**
-   * <p>Resume Replication Request source server ID.</p>
+   * Resume Replication Request source server ID.
+   *
    * @public
    */
   sourceServerID: string | undefined;
 
   /**
-   * <p>Resume Replication Request account ID.</p>
+   * Resume Replication Request account ID.
+   *
    * @public
    */
   accountID?: string | undefined;
@@ -6916,13 +7945,15 @@ export interface ResumeReplicationRequest {
  */
 export interface RetryDataReplicationRequest {
   /**
-   * <p>Retry data replication for Source Server ID.</p>
+   * Retry data replication for Source Server ID.
+   *
    * @public
    */
   sourceServerID: string | undefined;
 
   /**
-   * <p>Retry data replication for Account ID.</p>
+   * Retry data replication for Account ID.
+   *
    * @public
    */
   accountID?: string | undefined;
@@ -6933,19 +7964,22 @@ export interface RetryDataReplicationRequest {
  */
 export interface StartCutoverRequest {
   /**
-   * <p>Start Cutover by Source Server IDs.</p>
+   * Start Cutover by Source Server IDs.
+   *
    * @public
    */
   sourceServerIDs: string[] | undefined;
 
   /**
-   * <p>Start Cutover by Tags.</p>
+   * Start Cutover by Tags.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Start Cutover by Account IDs</p>
+   * Start Cutover by Account IDs
+   *
    * @public
    */
   accountID?: string | undefined;
@@ -6956,7 +7990,8 @@ export interface StartCutoverRequest {
  */
 export interface StartCutoverResponse {
   /**
-   * <p>Start Cutover Job response.</p>
+   * Start Cutover Job response.
+   *
    * @public
    */
   job?: Job | undefined;
@@ -6967,13 +8002,15 @@ export interface StartCutoverResponse {
  */
 export interface StartReplicationRequest {
   /**
-   * <p>ID of source server on which to start replication.</p>
+   * ID of source server on which to start replication.
+   *
    * @public
    */
   sourceServerID: string | undefined;
 
   /**
-   * <p>Account ID on which to start replication.</p>
+   * Account ID on which to start replication.
+   *
    * @public
    */
   accountID?: string | undefined;
@@ -6984,19 +8021,22 @@ export interface StartReplicationRequest {
  */
 export interface StartTestRequest {
   /**
-   * <p>Start Test for Source Server IDs.</p>
+   * Start Test for Source Server IDs.
+   *
    * @public
    */
   sourceServerIDs: string[] | undefined;
 
   /**
-   * <p>Start Test by Tags.</p>
+   * Start Test by Tags.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Start Test for Account ID.</p>
+   * Start Test for Account ID.
+   *
    * @public
    */
   accountID?: string | undefined;
@@ -7007,7 +8047,8 @@ export interface StartTestRequest {
  */
 export interface StartTestResponse {
   /**
-   * <p>Start Test Job response.</p>
+   * Start Test Job response.
+   *
    * @public
    */
   job?: Job | undefined;
@@ -7018,13 +8059,15 @@ export interface StartTestResponse {
  */
 export interface StopReplicationRequest {
   /**
-   * <p>Stop Replication Request source server ID.</p>
+   * Stop Replication Request source server ID.
+   *
    * @public
    */
   sourceServerID: string | undefined;
 
   /**
-   * <p>Stop Replication Request account ID.</p>
+   * Stop Replication Request account ID.
+   *
    * @public
    */
   accountID?: string | undefined;
@@ -7035,19 +8078,22 @@ export interface StopReplicationRequest {
  */
 export interface TerminateTargetInstancesRequest {
   /**
-   * <p>Terminate Target instance by Source Server IDs.</p>
+   * Terminate Target instance by Source Server IDs.
+   *
    * @public
    */
   sourceServerIDs: string[] | undefined;
 
   /**
-   * <p>Terminate Target instance by Tags.</p>
+   * Terminate Target instance by Tags.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Terminate Target instance by Account ID</p>
+   * Terminate Target instance by Account ID
+   *
    * @public
    */
   accountID?: string | undefined;
@@ -7058,7 +8104,8 @@ export interface TerminateTargetInstancesRequest {
  */
 export interface TerminateTargetInstancesResponse {
   /**
-   * <p>Terminate Target instance Job response.</p>
+   * Terminate Target instance Job response.
+   *
    * @public
    */
   job?: Job | undefined;
@@ -7069,73 +8116,85 @@ export interface TerminateTargetInstancesResponse {
  */
 export interface UpdateLaunchConfigurationRequest {
   /**
-   * <p>Update Launch configuration by Source Server ID request.</p>
+   * Update Launch configuration by Source Server ID request.
+   *
    * @public
    */
   sourceServerID: string | undefined;
 
   /**
-   * <p>Update Launch configuration name request.</p>
+   * Update Launch configuration name request.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Update Launch configuration launch disposition request.</p>
+   * Update Launch configuration launch disposition request.
+   *
    * @public
    */
   launchDisposition?: LaunchDisposition | undefined;
 
   /**
-   * <p>Update Launch configuration Target instance right sizing request.</p>
+   * Update Launch configuration Target instance right sizing request.
+   *
    * @public
    */
   targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | undefined;
 
   /**
-   * <p>Update Launch configuration copy Private IP request.</p>
+   * Update Launch configuration copy Private IP request.
+   *
    * @public
    */
   copyPrivateIp?: boolean | undefined;
 
   /**
-   * <p>Update Launch configuration copy Tags request.</p>
+   * Update Launch configuration copy Tags request.
+   *
    * @public
    */
   copyTags?: boolean | undefined;
 
   /**
-   * <p>Update Launch configuration licensing request.</p>
+   * Update Launch configuration licensing request.
+   *
    * @public
    */
   licensing?: Licensing | undefined;
 
   /**
-   * <p>Update Launch configuration boot mode request.</p>
+   * Update Launch configuration boot mode request.
+   *
    * @public
    */
   bootMode?: BootMode | undefined;
 
   /**
-   * <p>Post Launch Actions to be executed on the Test or Cutover instance.</p>
+   * Post Launch Actions to be executed on the Test or Cutover instance.
+   *
    * @public
    */
   postLaunchActions?: PostLaunchActions | undefined;
 
   /**
-   * <p>Enable map auto tagging.</p>
+   * Enable map auto tagging.
+   *
    * @public
    */
   enableMapAutoTagging?: boolean | undefined;
 
   /**
-   * <p>Launch configuration map auto tagging MPE ID.</p>
+   * Launch configuration map auto tagging MPE ID.
+   *
    * @public
    */
   mapAutoTaggingMpeID?: string | undefined;
 
   /**
-   * <p>Update Launch configuration Account ID.</p>
+   * Update Launch configuration Account ID.
+   *
    * @public
    */
   accountID?: string | undefined;
@@ -7146,121 +8205,141 @@ export interface UpdateLaunchConfigurationRequest {
  */
 export interface UpdateReplicationConfigurationRequest {
   /**
-   * <p>Update replication configuration Source Server ID request.</p>
+   * Update replication configuration Source Server ID request.
+   *
    * @public
    */
   sourceServerID: string | undefined;
 
   /**
-   * <p>Update replication configuration name request.</p>
+   * Update replication configuration name request.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Update replication configuration Staging Area subnet request.</p>
+   * Update replication configuration Staging Area subnet request.
+   *
    * @public
    */
   stagingAreaSubnetId?: string | undefined;
 
   /**
-   * <p>Update replication configuration associate default Application Migration Service Security group request.</p>
+   * Update replication configuration associate default Application Migration Service Security group request.
+   *
    * @public
    */
   associateDefaultSecurityGroup?: boolean | undefined;
 
   /**
-   * <p>Update replication configuration Replication Server Security Groups IDs request.</p>
+   * Update replication configuration Replication Server Security Groups IDs request.
+   *
    * @public
    */
   replicationServersSecurityGroupsIDs?: string[] | undefined;
 
   /**
-   * <p>Update replication configuration Replication Server instance type request.</p>
+   * Update replication configuration Replication Server instance type request.
+   *
    * @public
    */
   replicationServerInstanceType?: string | undefined;
 
   /**
-   * <p>Update replication configuration use dedicated Replication Server request.</p>
+   * Update replication configuration use dedicated Replication Server request.
+   *
    * @public
    */
   useDedicatedReplicationServer?: boolean | undefined;
 
   /**
-   * <p>Update replication configuration use default large Staging Disk type request.</p>
+   * Update replication configuration use default large Staging Disk type request.
+   *
    * @public
    */
   defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType | undefined;
 
   /**
-   * <p>Update replication configuration replicated disks request.</p>
+   * Update replication configuration replicated disks request.
+   *
    * @public
    */
   replicatedDisks?: ReplicationConfigurationReplicatedDisk[] | undefined;
 
   /**
-   * <p>Update replication configuration EBS encryption request.</p>
+   * Update replication configuration EBS encryption request.
+   *
    * @public
    */
   ebsEncryption?: ReplicationConfigurationEbsEncryption | undefined;
 
   /**
-   * <p>Update replication configuration EBS encryption key ARN request.</p>
+   * Update replication configuration EBS encryption key ARN request.
+   *
    * @public
    */
   ebsEncryptionKeyArn?: string | undefined;
 
   /**
-   * <p>Update replication configuration bandwidth throttling request.</p>
+   * Update replication configuration bandwidth throttling request.
+   *
    * @public
    */
   bandwidthThrottling?: number | undefined;
 
   /**
-   * <p>Update replication configuration data plane routing request.</p>
+   * Update replication configuration data plane routing request.
+   *
    * @public
    */
   dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting | undefined;
 
   /**
-   * <p>Update replication configuration create Public IP request.</p>
+   * Update replication configuration create Public IP request.
+   *
    * @public
    */
   createPublicIP?: boolean | undefined;
 
   /**
-   * <p>Update replication configuration Staging Area Tags request.</p>
+   * Update replication configuration Staging Area Tags request.
+   *
    * @public
    */
   stagingAreaTags?: Record<string, string> | undefined;
 
   /**
-   * <p>Update replication configuration use Fips Endpoint.</p>
+   * Update replication configuration use Fips Endpoint.
+   *
    * @public
    */
   useFipsEndpoint?: boolean | undefined;
 
   /**
-   * <p>Update replication configuration Account ID request.</p>
+   * Update replication configuration Account ID request.
+   *
    * @public
    */
   accountID?: string | undefined;
 
   /**
-   * <p>Update replication configuration internet protocol.</p>
+   * Update replication configuration internet protocol.
+   *
    * @public
    */
   internetProtocol?: InternetProtocol | undefined;
 
   /**
-   * <p>Update replication configuration store snapshot on local zone.</p>
+   * Update replication configuration store snapshot on local zone.
+   *
    * @public
    */
   storeSnapshotOnLocalZone?: boolean | undefined;
 
   /**
-   * <p>Update replication configuration storage configuration.</p>
+   * Update replication configuration storage configuration.
+   *
    * @public
    */
   storageConfiguration?: StorageConfiguration | undefined;
@@ -7271,37 +8350,43 @@ export interface UpdateReplicationConfigurationRequest {
  */
 export interface UpdateSourceServerRequest {
   /**
-   * <p>Update Source Server request account ID.</p>
+   * Update Source Server request account ID.
+   *
    * @public
    */
   accountID?: string | undefined;
 
   /**
-   * <p>Update Source Server request source server ID.</p>
+   * Update Source Server request source server ID.
+   *
    * @public
    */
   sourceServerID: string | undefined;
 
   /**
-   * <p>Update Source Server request connector action.</p>
+   * Update Source Server request connector action.
+   *
    * @public
    */
   connectorAction?: SourceServerConnectorAction | undefined;
 
   /**
-   * <p>Update Source Server request user provided ID.</p>
+   * Update Source Server request user provided ID.
+   *
    * @public
    */
   userProvidedID?: string | undefined;
 
   /**
-   * <p>Update Source Server request FQDN for action framework.</p>
+   * Update Source Server request FQDN for action framework.
+   *
    * @public
    */
   fqdnForActionFramework?: string | undefined;
 
   /**
-   * <p>Update Source Server request platform operating system.</p>
+   * Update Source Server request platform operating system.
+   *
    * @public
    */
   platform?: string | undefined;
@@ -7312,43 +8397,50 @@ export interface UpdateSourceServerRequest {
  */
 export interface UpdateSourceServerReplicationTypeRequest {
   /**
-   * <p>ID of source server on which to update replication type.</p>
+   * ID of source server on which to update replication type.
+   *
    * @public
    */
   sourceServerID: string | undefined;
 
   /**
-   * <p>Replication type to which to update source server.</p>
+   * Replication type to which to update source server.
+   *
    * @public
    */
   replicationType: ReplicationType | undefined;
 
   /**
-   * <p>Account ID on which to update replication type.</p>
+   * Account ID on which to update replication type.
+   *
    * @public
    */
   accountID?: string | undefined;
 }
 
 /**
- * <p>S3 configuration for the source import file to be enriched.</p>
+ * S3 configuration for the source import file to be enriched.
+ *
  * @public
  */
 export interface EnrichmentSourceS3Configuration {
   /**
-   * <p>The name of the S3 bucket containing the source import file.</p>
+   * The name of the S3 bucket containing the source import file.
+   *
    * @public
    */
   s3Bucket: string | undefined;
 
   /**
-   * <p>The AWS account ID of the S3 bucket owner.</p>
+   * The AWS account ID of the S3 bucket owner.
+   *
    * @public
    */
   s3BucketOwner: string | undefined;
 
   /**
-   * <p>The S3 key (path) for the source import file.</p>
+   * The S3 key (path) for the source import file.
+   *
    * @public
    */
   s3Key: string | undefined;
@@ -7359,25 +8451,29 @@ export interface EnrichmentSourceS3Configuration {
  */
 export interface StartImportFileEnrichmentRequest {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The S3 configuration specifying the source location of the import file to be enriched.</p>
+   * The S3 configuration specifying the source location of the import file to be enriched.
+   *
    * @public
    */
   s3BucketSource: EnrichmentSourceS3Configuration | undefined;
 
   /**
-   * <p>The S3 configuration specifying the target location where the enriched import file will be stored.</p>
+   * The S3 configuration specifying the target location where the enriched import file will be stored.
+   *
    * @public
    */
   s3BucketTarget: EnrichmentTargetS3Configuration | undefined;
 
   /**
-   * <p>The IP assignment strategy to use when enriching the import file. Can be STATIC or DYNAMIC.</p>
+   * The IP assignment strategy to use when enriching the import file. Can be STATIC or DYNAMIC.
+   *
    * @public
    */
   ipAssignmentStrategy?: IpAssignmentStrategy | undefined;
@@ -7388,7 +8484,8 @@ export interface StartImportFileEnrichmentRequest {
  */
 export interface StartImportFileEnrichmentResponse {
   /**
-   * <p>The unique identifier of the import file enrichment job that was started.</p>
+   * The unique identifier of the import file enrichment job that was started.
+   *
    * @public
    */
   jobID?: string | undefined;
@@ -7399,13 +8496,15 @@ export interface StartImportFileEnrichmentResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>Tag resource by ARN.</p>
+   * Tag resource by ARN.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>Tag resource by Tags.</p>
+   * Tag resource by Tags.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -7416,13 +8515,15 @@ export interface TagResourceRequest {
  */
 export interface UntagResourceRequest {
   /**
-   * <p>Untag resource by ARN.</p>
+   * Untag resource by ARN.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>Untag resource by Keys.</p>
+   * Untag resource by Keys.
+   *
    * @public
    */
   tagKeys: string[] | undefined;
@@ -7433,7 +8534,8 @@ export interface UntagResourceRequest {
  */
 export interface DeleteVcenterClientRequest {
   /**
-   * <p>ID of resource to be deleted.</p>
+   * ID of resource to be deleted.
+   *
    * @public
    */
   vcenterClientID: string | undefined;
@@ -7444,67 +8546,78 @@ export interface DeleteVcenterClientRequest {
  */
 export interface DescribeVcenterClientsRequest {
   /**
-   * <p>Maximum results to be returned in DescribeVcenterClients.</p>
+   * Maximum results to be returned in DescribeVcenterClients.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Next pagination token to be provided for DescribeVcenterClients.</p>
+   * Next pagination token to be provided for DescribeVcenterClients.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>vCenter client.</p>
+ * vCenter client.
+ *
  * @public
  */
 export interface VcenterClient {
   /**
-   * <p>ID of vCenter client.</p>
+   * ID of vCenter client.
+   *
    * @public
    */
   vcenterClientID?: string | undefined;
 
   /**
-   * <p>Arn of vCenter client.</p>
+   * Arn of vCenter client.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>Hostname of vCenter client .</p>
+   * Hostname of vCenter client .
+   *
    * @public
    */
   hostname?: string | undefined;
 
   /**
-   * <p>Vcenter UUID of vCenter client.</p>
+   * Vcenter UUID of vCenter client.
+   *
    * @public
    */
   vcenterUUID?: string | undefined;
 
   /**
-   * <p>Datacenter name of vCenter client.</p>
+   * Datacenter name of vCenter client.
+   *
    * @public
    */
   datacenterName?: string | undefined;
 
   /**
-   * <p>Last seen time of vCenter client.</p>
+   * Last seen time of vCenter client.
+   *
    * @public
    */
   lastSeenDatetime?: string | undefined;
 
   /**
-   * <p>Tags for Source Server of vCenter client.</p>
+   * Tags for Source Server of vCenter client.
+   *
    * @public
    */
   sourceServerTags?: Record<string, string> | undefined;
 
   /**
-   * <p>Tags for vCenter client.</p>
+   * Tags for vCenter client.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -7515,13 +8628,15 @@ export interface VcenterClient {
  */
 export interface DescribeVcenterClientsResponse {
   /**
-   * <p>List of items returned by DescribeVcenterClients.</p>
+   * List of items returned by DescribeVcenterClients.
+   *
    * @public
    */
   items?: VcenterClient[] | undefined;
 
   /**
-   * <p>Next pagination token returned from DescribeVcenterClients.</p>
+   * Next pagination token returned from DescribeVcenterClients.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -7532,49 +8647,57 @@ export interface DescribeVcenterClientsResponse {
  */
 export interface ArchiveWaveRequest {
   /**
-   * <p>Wave ID.</p>
+   * Wave ID.
+   *
    * @public
    */
   waveID: string | undefined;
 
   /**
-   * <p>Account ID.</p>
+   * Account ID.
+   *
    * @public
    */
   accountID?: string | undefined;
 }
 
 /**
- * <p>Wave aggregated status.</p>
+ * Wave aggregated status.
+ *
  * @public
  */
 export interface WaveAggregatedStatus {
   /**
-   * <p>Wave aggregated status last update dateTime.</p>
+   * Wave aggregated status last update dateTime.
+   *
    * @public
    */
   lastUpdateDateTime?: string | undefined;
 
   /**
-   * <p>DateTime marking when the first source server in the wave started replication.</p>
+   * DateTime marking when the first source server in the wave started replication.
+   *
    * @public
    */
   replicationStartedDateTime?: string | undefined;
 
   /**
-   * <p>Wave aggregated status health status.</p>
+   * Wave aggregated status health status.
+   *
    * @public
    */
   healthStatus?: WaveHealthStatus | undefined;
 
   /**
-   * <p>Wave aggregated status progress status.</p>
+   * Wave aggregated status progress status.
+   *
    * @public
    */
   progressStatus?: WaveProgressStatus | undefined;
 
   /**
-   * <p>Wave aggregated status total applications amount.</p>
+   * Wave aggregated status total applications amount.
+   *
    * @public
    */
   totalApplications?: number | undefined;
@@ -7585,55 +8708,64 @@ export interface WaveAggregatedStatus {
  */
 export interface Wave {
   /**
-   * <p>Wave ID.</p>
+   * Wave ID.
+   *
    * @public
    */
   waveID?: string | undefined;
 
   /**
-   * <p>Wave ARN.</p>
+   * Wave ARN.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>Wave name.</p>
+   * Wave name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Wave description.</p>
+   * Wave description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Wave archival status.</p>
+   * Wave archival status.
+   *
    * @public
    */
   isArchived?: boolean | undefined;
 
   /**
-   * <p>Wave aggregated status.</p>
+   * Wave aggregated status.
+   *
    * @public
    */
   waveAggregatedStatus?: WaveAggregatedStatus | undefined;
 
   /**
-   * <p>Wave creation dateTime.</p>
+   * Wave creation dateTime.
+   *
    * @public
    */
   creationDateTime?: string | undefined;
 
   /**
-   * <p>Wave last modified dateTime.</p>
+   * Wave last modified dateTime.
+   *
    * @public
    */
   lastModifiedDateTime?: string | undefined;
 
   /**
-   * <p>Wave tags.</p>
+   * Wave tags.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -7644,19 +8776,22 @@ export interface Wave {
  */
 export interface AssociateApplicationsRequest {
   /**
-   * <p>Wave ID.</p>
+   * Wave ID.
+   *
    * @public
    */
   waveID: string | undefined;
 
   /**
-   * <p>Application IDs list.</p>
+   * Application IDs list.
+   *
    * @public
    */
   applicationIDs: string[] | undefined;
 
   /**
-   * <p>Account ID.</p>
+   * Account ID.
+   *
    * @public
    */
   accountID?: string | undefined;
@@ -7672,25 +8807,29 @@ export interface AssociateApplicationsResponse {}
  */
 export interface CreateWaveRequest {
   /**
-   * <p>Wave name.</p>
+   * Wave name.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Wave description.</p>
+   * Wave description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Wave tags.</p>
+   * Wave tags.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Account ID.</p>
+   * Account ID.
+   *
    * @public
    */
   accountID?: string | undefined;
@@ -7701,13 +8840,15 @@ export interface CreateWaveRequest {
  */
 export interface DeleteWaveRequest {
   /**
-   * <p>Wave ID.</p>
+   * Wave ID.
+   *
    * @public
    */
   waveID: string | undefined;
 
   /**
-   * <p>Account ID.</p>
+   * Account ID.
+   *
    * @public
    */
   accountID?: string | undefined;
@@ -7723,19 +8864,22 @@ export interface DeleteWaveResponse {}
  */
 export interface DisassociateApplicationsRequest {
   /**
-   * <p>Wave ID.</p>
+   * Wave ID.
+   *
    * @public
    */
   waveID: string | undefined;
 
   /**
-   * <p>Application IDs list.</p>
+   * Application IDs list.
+   *
    * @public
    */
   applicationIDs: string[] | undefined;
 
   /**
-   * <p>Account ID.</p>
+   * Account ID.
+   *
    * @public
    */
   accountID?: string | undefined;
@@ -7747,18 +8891,21 @@ export interface DisassociateApplicationsRequest {
 export interface DisassociateApplicationsResponse {}
 
 /**
- * <p>Waves list filters.</p>
+ * Waves list filters.
+ *
  * @public
  */
 export interface ListWavesRequestFilters {
   /**
-   * <p>Filter waves list by wave ID.</p>
+   * Filter waves list by wave ID.
+   *
    * @public
    */
   waveIDs?: string[] | undefined;
 
   /**
-   * <p>Filter waves list by archival status.</p>
+   * Filter waves list by archival status.
+   *
    * @public
    */
   isArchived?: boolean | undefined;
@@ -7769,25 +8916,29 @@ export interface ListWavesRequestFilters {
  */
 export interface ListWavesRequest {
   /**
-   * <p>Waves list filters.</p>
+   * Waves list filters.
+   *
    * @public
    */
   filters?: ListWavesRequestFilters | undefined;
 
   /**
-   * <p>Maximum results to return when listing waves.</p>
+   * Maximum results to return when listing waves.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Request next token.</p>
+   * Request next token.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Request account ID.</p>
+   * Request account ID.
+   *
    * @public
    */
   accountID?: string | undefined;
@@ -7798,13 +8949,15 @@ export interface ListWavesRequest {
  */
 export interface ListWavesResponse {
   /**
-   * <p>Waves list.</p>
+   * Waves list.
+   *
    * @public
    */
   items?: Wave[] | undefined;
 
   /**
-   * <p>Response next token.</p>
+   * Response next token.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -7815,13 +8968,15 @@ export interface ListWavesResponse {
  */
 export interface UnarchiveWaveRequest {
   /**
-   * <p>Wave ID.</p>
+   * Wave ID.
+   *
    * @public
    */
   waveID: string | undefined;
 
   /**
-   * <p>Account ID.</p>
+   * Account ID.
+   *
    * @public
    */
   accountID?: string | undefined;
@@ -7832,25 +8987,29 @@ export interface UnarchiveWaveRequest {
  */
 export interface UpdateWaveRequest {
   /**
-   * <p>Wave ID.</p>
+   * Wave ID.
+   *
    * @public
    */
   waveID: string | undefined;
 
   /**
-   * <p>Wave name.</p>
+   * Wave name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Wave description.</p>
+   * Wave description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Account ID.</p>
+   * Account ID.
+   *
    * @public
    */
   accountID?: string | undefined;

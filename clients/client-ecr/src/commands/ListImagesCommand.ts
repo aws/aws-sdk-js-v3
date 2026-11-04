@@ -23,13 +23,10 @@ export interface ListImagesCommandInput extends ListImagesRequest {}
 export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all the image IDs for the specified repository.</p>
- *          <p>You can filter images based on whether or not they are tagged by using the
- *                 <code>tagStatus</code> filter and specifying either <code>TAGGED</code>,
- *                 <code>UNTAGGED</code> or <code>ANY</code>. For example, you can filter your results
- *             to return only <code>UNTAGGED</code> images and then pipe that result to a <a>BatchDeleteImage</a> operation to delete them. Or, you can filter your
- *             results to return only <code>TAGGED</code> images to list all of the tags in your
- *             repository.</p>
+ * Lists all the image IDs for the specified repository.
+ *
+ * You can filter images based on whether or not they are tagged by using the `tagStatus` filter and specifying either `TAGGED`, `UNTAGGED` or `ANY`. For example, you can filter your results to return only `UNTAGGED` images and then pipe that result to a BatchDeleteImage operation to delete them. Or, you can filter your results to return only `TAGGED` images to list all of the tags in your repository.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,19 +66,20 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link RepositoryNotFoundException} (client fault)
- *  <p>The specified repository could not be found. Check the spelling of the specified
- *             repository and ensure that you are performing operations on the correct registry.</p>
+ *
+ * The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link ECRServiceException}
- * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * Base exception class for all service exceptions from ECR service.
  *
  * @example To list all images in a repository
  * ```javascript

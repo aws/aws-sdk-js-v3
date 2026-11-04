@@ -23,48 +23,36 @@ export interface StartExecutionCommandInput extends StartExecutionInput {}
 export interface StartExecutionCommandOutput extends StartExecutionOutput, __MetadataBearer {}
 
 /**
- * <p>Starts a state machine execution.</p>
- *          <p>A qualified state machine ARN can either refer to a <i>Distributed Map state</i> defined within a state machine, a version ARN, or an alias ARN.</p>
- *          <p>The following are some examples of qualified and unqualified state machine ARNs:</p>
- *          <ul>
- *             <li>
- *                <p>The following qualified state machine ARN refers to a <i>Distributed Map state</i> with a label <code>mapStateLabel</code> in a state machine named <code>myStateMachine</code>.</p>
- *                <p>
- *                   <code>arn:partition:states:region:account-id:stateMachine:myStateMachine/mapStateLabel</code>
- *                </p>
- *                <note>
- *                   <p>If you provide a qualified state machine ARN that refers to a <i>Distributed Map state</i>, the request fails with <code>ValidationException</code>.</p>
- *                </note>
- *             </li>
- *             <li>
- *                <p>The following qualified state machine ARN refers to an alias named <code>PROD</code>.</p>
- *                <p>
- *                   <code>arn:<partition>:states:<region>:<account-id>:stateMachine:<myStateMachine:PROD></code>
- *                </p>
- *                <note>
- *                   <p>If you provide a qualified state machine ARN that refers to a version ARN or an alias ARN, the request starts execution for that version or alias.</p>
- *                </note>
- *             </li>
- *             <li>
- *                <p>The following unqualified state machine ARN refers to a state machine named <code>myStateMachine</code>.</p>
- *                <p>
- *                   <code>arn:<partition>:states:<region>:<account-id>:stateMachine:<myStateMachine></code>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>If you start an execution with an unqualified state machine ARN, Step Functions uses the latest revision of the state machine for the execution.</p>
- *          <p>To start executions of a state machine <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html">version</a>, call
- *         <code>StartExecution</code> and provide the version ARN or the ARN of an <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html">alias</a> that points to the version.</p>
- *          <note>
- *             <p>
- *                <code>StartExecution</code> is idempotent for <code>STANDARD</code> workflows. For a
- *           <code>STANDARD</code> workflow, if you call <code>StartExecution</code> with the same name
- *         and input as a running execution, the call succeeds and return the same response as the
- *         original request. If the execution is closed or if the input is different, it returns a
- *           <code>400 ExecutionAlreadyExists</code> error. You can reuse the name 90 days after it closes. </p>
- *             <p>
- *                <code>StartExecution</code> isn't idempotent for <code>EXPRESS</code> workflows. </p>
- *          </note>
+ * Starts a state machine execution.
+ *
+ * A qualified state machine ARN can either refer to a *Distributed Map state* defined within a state machine, a version ARN, or an alias ARN.
+ *
+ * The following are some examples of qualified and unqualified state machine ARNs:
+ *
+ * - The following qualified state machine ARN refers to a *Distributed Map state* with a label `mapStateLabel` in a state machine named `myStateMachine`.
+ *
+ *   `arn:partition:states:region:account-id:stateMachine:myStateMachine/mapStateLabel`
+ *
+ *   > **Note:** If you provide a qualified state machine ARN that refers to a *Distributed Map state*, the request fails with `ValidationException`.
+ * - The following qualified state machine ARN refers to an alias named `PROD`.
+ *
+ *   `arn:<partition>:states:<region>:<account-id>:stateMachine:<myStateMachine:PROD>`
+ *
+ *   > **Note:** If you provide a qualified state machine ARN that refers to a version ARN or an alias ARN, the request starts execution for that version or alias.
+ * - The following unqualified state machine ARN refers to a state machine named `myStateMachine`.
+ *
+ *   `arn:<partition>:states:<region>:<account-id>:stateMachine:<myStateMachine>`
+ *
+ * If you start an execution with an unqualified state machine ARN, Step Functions uses the latest revision of the state machine for the execution.
+ *
+ * To start executions of a state machine [version](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html), call `StartExecution` and provide the version ARN or the ARN of an [alias](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html) that points to the version.
+ *
+ * > **Note:**
+ * >
+ * > `StartExecution` is idempotent for `STANDARD` workflows. For a `STANDARD` workflow, if you call `StartExecution` with the same name and input as a running execution, the call succeeds and return the same response as the original request. If the execution is closed or if the input is different, it returns a `400 ExecutionAlreadyExists` error. You can reuse the name 90 days after it closes.
+ * >
+ * > `StartExecution` isn't idempotent for `EXPRESS` workflows.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,47 +83,54 @@ export interface StartExecutionCommandOutput extends StartExecutionOutput, __Met
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
  * @throws {@link ExecutionAlreadyExists} (client fault)
- *  <p>The execution has the same <code>name</code> as another execution (but a different
- *         <code>input</code>).</p>
- *          <note>
- *             <p>Executions with the same <code>name</code> and <code>input</code> are considered
- *         idempotent.</p>
- *          </note>
+ *
+ * The execution has the same `name` as another execution (but a different `input`).
+ *
+ * > **Note:** Executions with the same `name` and `input` are considered idempotent.
  *
  * @throws {@link ExecutionLimitExceeded} (client fault)
- *  <p>The maximum number of running executions has been reached. Running executions must end or
- *       be stopped before a new execution can be started.</p>
+ *
+ * The maximum number of running executions has been reached. Running executions must end or be stopped before a new execution can be started.
  *
  * @throws {@link InvalidArn} (client fault)
- *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * The provided Amazon Resource Name (ARN) is not valid.
  *
  * @throws {@link InvalidExecutionInput} (client fault)
- *  <p>The provided JSON input data is not valid.</p>
+ *
+ * The provided JSON input data is not valid.
  *
  * @throws {@link InvalidName} (client fault)
- *  <p>The provided name is not valid.</p>
+ *
+ * The provided name is not valid.
  *
  * @throws {@link KmsAccessDeniedException} (client fault)
- *  <p>Either your KMS key policy or API caller does not have the required permissions.</p>
+ *
+ * Either your KMS key policy or API caller does not have the required permissions.
  *
  * @throws {@link KmsInvalidStateException} (client fault)
- *  <p>The KMS key is not in valid state, for example: Disabled or Deleted.</p>
+ *
+ * The KMS key is not in valid state, for example: Disabled or Deleted.
  *
  * @throws {@link KmsThrottlingException} (client fault)
- *  <p>Received when KMS returns <code>ThrottlingException</code> for a KMS call that Step Functions makes on behalf of the caller.</p>
+ *
+ * Received when KMS returns `ThrottlingException` for a KMS call that Step Functions makes on behalf of the caller.
  *
  * @throws {@link StateMachineDeleting} (client fault)
- *  <p>The specified state machine is being deleted.</p>
+ *
+ * The specified state machine is being deleted.
  *
  * @throws {@link StateMachineDoesNotExist} (client fault)
- *  <p>The specified state machine does not exist.</p>
+ *
+ * The specified state machine does not exist.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input does not satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link SFNServiceException}
- * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * Base exception class for all service exceptions from SFN service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface CreateIngestConfigurationCommandInput extends CreateIngestConfi
 export interface CreateIngestConfigurationCommandOutput extends CreateIngestConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new IngestConfiguration resource, used to specify the ingest protocol for a stage.</p>
+ * Creates a new IngestConfiguration resource, used to specify the ingest protocol for a stage.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,20 +91,24 @@ export interface CreateIngestConfigurationCommandOutput extends CreateIngestConf
  * @see {@link IVSRealTimeClientResolvedConfig | config} for IVSRealTimeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * User does not have sufficient access to perform this action.
  *
  * @throws {@link PendingVerification} (client fault)
- *  <p>Your account is pending verification.</p>
+ *
+ * Your account is pending verification.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Request would cause a service quota to be exceeded.</p>
+ *
+ * Request would cause a service quota to be exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link IVSRealTimeServiceException}
- * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ * Base exception class for all service exceptions from IVSRealTime service.
  *
  * @public
  */

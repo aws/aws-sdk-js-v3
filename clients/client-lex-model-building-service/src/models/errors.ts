@@ -6,8 +6,8 @@ import { LexModelBuildingServiceServiceException as __BaseException } from "./Le
 import type { ResourceReference } from "./models_0";
 
 /**
- * <p>Your IAM user or role does not have permission to call the Amazon Lex V2 APIs
- *       required to migrate your bot.</p>
+ * Your IAM user or role does not have permission to call the Amazon Lex V2 APIs required to migrate your bot.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -28,9 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request is not well formed. For example, a value is invalid or
- *       a required field is missing. Check the field values, and try
- *       again.</p>
+ * The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.
+ *
  * @public
  */
 export class BadRequestException extends __BaseException {
@@ -51,8 +50,8 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * <p> There was a conflict processing the request. Try your request
- *       again. </p>
+ * There was a conflict processing the request. Try your request again.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -73,7 +72,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>An internal Amazon Lex error occurred. Try your request again.</p>
+ * An internal Amazon Lex error occurred. Try your request again.
+ *
  * @public
  */
 export class InternalFailureException extends __BaseException {
@@ -94,7 +94,8 @@ export class InternalFailureException extends __BaseException {
 }
 
 /**
- * <p>The request exceeded a limit. Try your request again.</p>
+ * The request exceeded a limit. Try your request again.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -117,8 +118,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The resource specified in the request was not found. Check the
- *       resource and try again.</p>
+ * The resource specified in the request was not found. Check the resource and try again.
+ *
  * @public
  */
 export class NotFoundException extends __BaseException {
@@ -139,9 +140,8 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * <p> The checksum of the resource that you are trying to change does
- *       not match the checksum in the request. Check the resource's checksum and
- *       try again.</p>
+ * The checksum of the resource that you are trying to change does not match the checksum in the request. Check the resource's checksum and try again.
+ *
  * @public
  */
 export class PreconditionFailedException extends __BaseException {
@@ -162,22 +162,16 @@ export class PreconditionFailedException extends __BaseException {
 }
 
 /**
- * <p>The resource that you are attempting to delete is referred to by
- *       another resource. Use this information to remove references to the
- *       resource that you are trying to delete.</p>
- *          <p>The body of the exception contains a JSON object that describes the
- *       resource.</p>
- *          <p>
- *             <code>\{ "resourceType": BOT | BOTALIAS | BOTCHANNEL |
- *         INTENT,</code>
- *          </p>
- *          <p>
- *             <code>"resourceReference": \{</code>
- *          </p>
- *          <p>
- *             <code>"name": <i>string</i>, "version":
- *           <i>string</i> \} \}</code>
- *          </p>
+ * The resource that you are attempting to delete is referred to by another resource. Use this information to remove references to the resource that you are trying to delete.
+ *
+ * The body of the exception contains a JSON object that describes the resource.
+ *
+ * `\{ "resourceType": BOT | BOTALIAS | BOTCHANNEL | INTENT,`
+ *
+ * `"resourceReference": \{`
+ *
+ * `"name": string, "version": string \} \}`
+ *
  * @public
  */
 export class ResourceInUseException extends __BaseException {
@@ -186,9 +180,8 @@ export class ResourceInUseException extends __BaseException {
   readonly $fault = "client" as const;
   referenceType?: ReferenceType | undefined;
   /**
-   * <p>Describes the resource that refers to the resource that you are
-   *       attempting to delete. This object is returned as part of the
-   *         <code>ResourceInUseException</code> exception. </p>
+   * Describes the resource that refers to the resource that you are attempting to delete. This object is returned as part of the `ResourceInUseException` exception.
+   *
    * @public
    */
   exampleReference?: ResourceReference | undefined;

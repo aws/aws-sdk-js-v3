@@ -23,7 +23,8 @@ export interface DeleteRuleSetCommandInput extends DeleteRuleSetRequest {}
 export interface DeleteRuleSetCommandOutput extends DeleteRuleSetResponse, __MetadataBearer {}
 
 /**
- * <p>Delete a rule set.</p>
+ * Delete a rule set.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,14 +49,16 @@ export interface DeleteRuleSetCommandOutput extends DeleteRuleSetResponse, __Met
  * @see {@link MailManagerClientResolvedConfig | config} for MailManagerClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+ *
+ * The request configuration has conflicts. For details, see the accompanying error message.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request validation has failed. For details, see the accompanying error message.</p>
+ *
+ * The request validation has failed. For details, see the accompanying error message.
  *
  * @throws {@link MailManagerServiceException}
- * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ * Base exception class for all service exceptions from MailManager service.
  *
  * @public
  */

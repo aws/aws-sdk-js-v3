@@ -23,27 +23,16 @@ export interface DescribeEndpointsCommandInput extends DescribeEndpointsRequest 
 export interface DescribeEndpointsCommandOutput extends DescribeEndpointsResponse, __MetadataBearer {}
 
 /**
- * <p>DescribeEndpoints returns a list of available endpoints to make Timestream
- *             API calls against. This API is available through both Write and Query.</p>
- *          <p>Because the Timestream SDKs are designed to transparently work with the
- *             service’s architecture, including the management and mapping of the service endpoints,
- *                 <i>it is not recommended that you use this API unless</i>:</p>
- *          <ul>
- *             <li>
- *                <p>You are using <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/VPCEndpoints">VPC endpoints (Amazon Web Services PrivateLink) with Timestream
- *                     </a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>Your application uses a programming language that does not yet have SDK
- *                     support</p>
- *             </li>
- *             <li>
- *                <p>You require better control over the client-side implementation</p>
- *             </li>
- *          </ul>
- *          <p>For detailed information on how and when to use and implement DescribeEndpoints, see
- *                 <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/Using.API.html#Using-API.endpoint-discovery">The Endpoint Discovery Pattern</a>.</p>
+ * DescribeEndpoints returns a list of available endpoints to make Timestream API calls against. This API is available through both Write and Query.
+ *
+ * Because the Timestream SDKs are designed to transparently work with the service’s architecture, including the management and mapping of the service endpoints, *it is not recommended that you use this API unless*:
+ *
+ * - You are using [VPC endpoints (Amazon Web Services PrivateLink) with Timestream](https://docs.aws.amazon.com/timestream/latest/developerguide/VPCEndpoints)
+ * - Your application uses a programming language that does not yet have SDK support
+ * - You require better control over the client-side implementation
+ *
+ * For detailed information on how and when to use and implement DescribeEndpoints, see [The Endpoint Discovery Pattern](https://docs.aws.amazon.com/timestream/latest/developerguide/Using.API.html#Using-API.endpoint-discovery).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,17 +62,20 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  * @see {@link TimestreamQueryClientResolvedConfig | config} for TimestreamQueryClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred while processing the request.</p>
+ *
+ * An internal server error occurred while processing the request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled due to excessive requests.</p>
+ *
+ * The request was throttled due to excessive requests.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> Invalid or malformed request. </p>
+ *
+ * Invalid or malformed request.
  *
  * @throws {@link TimestreamQueryServiceException}
- * <p>Base exception class for all service exceptions from TimestreamQuery service.</p>
  *
+ * Base exception class for all service exceptions from TimestreamQuery service.
  *
  * @public
  */

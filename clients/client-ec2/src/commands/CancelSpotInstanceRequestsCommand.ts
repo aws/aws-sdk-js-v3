@@ -23,11 +23,10 @@ export interface CancelSpotInstanceRequestsCommandInput extends CancelSpotInstan
 export interface CancelSpotInstanceRequestsCommandOutput extends CancelSpotInstanceRequestsResult, __MetadataBearer {}
 
 /**
- * <p>Cancels one or more Spot Instance requests.</p>
- *          <important>
- *             <p>Canceling a Spot Instance request does not terminate running Spot Instances
- *                 associated with the request.</p>
- *          </important>
+ * Cancels one or more Spot Instance requests.
+ *
+ * > **Important:** Canceling a Spot Instance request does not terminate running Spot Instances associated with the request.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,8 +61,8 @@ export interface CancelSpotInstanceRequestsCommandOutput extends CancelSpotInsta
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To cancel Spot Instance requests
  * ```javascript

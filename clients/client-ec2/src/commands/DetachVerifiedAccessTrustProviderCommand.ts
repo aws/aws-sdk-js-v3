@@ -26,7 +26,8 @@ export interface DetachVerifiedAccessTrustProviderCommandInput extends DetachVer
 export interface DetachVerifiedAccessTrustProviderCommandOutput extends DetachVerifiedAccessTrustProviderResult, __MetadataBearer {}
 
 /**
- * <p>Detaches the specified Amazon Web Services Verified Access trust provider from the specified Amazon Web Services Verified Access instance.</p>
+ * Detaches the specified Amazon Web Services Verified Access trust provider from the specified Amazon Web Services Verified Access instance.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -125,8 +126,8 @@ export interface DetachVerifiedAccessTrustProviderCommandOutput extends DetachVe
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

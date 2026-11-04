@@ -23,9 +23,10 @@ export interface DeleteIdentityCommandInput extends DeleteIdentityRequest {}
 export interface DeleteIdentityCommandOutput extends DeleteIdentityResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified identity (an email address or a domain) from the list of
- *             verified identities.</p>
- *          <p>You can execute this operation no more than once per second.</p>
+ * Deletes the specified identity (an email address or a domain) from the list of verified identities.
+ *
+ * You can execute this operation no more than once per second.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,8 +51,8 @@ export interface DeleteIdentityCommandOutput extends DeleteIdentityResponse, __M
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @example DeleteIdentity
  * ```javascript

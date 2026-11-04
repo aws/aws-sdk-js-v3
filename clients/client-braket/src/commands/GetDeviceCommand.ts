@@ -23,7 +23,10 @@ export interface GetDeviceCommandInput extends GetDeviceRequest {}
 export interface GetDeviceCommandOutput extends GetDeviceResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the devices available in Amazon Braket.</p> <note> <p>For backwards compatibility with older versions of BraketSchemas, OpenQASM information is omitted from GetDevice API calls. To get this information the user-agent needs to present a recent version of the BraketSchemas (1.8.0 or later). The Braket SDK automatically reports this for you. If you do not see OpenQASM results in the GetDevice response when using a Braket SDK, you may need to set AWS_EXECUTION_ENV environment variable to configure user-agent. See the code examples provided below for how to do this for the AWS CLI, Boto3, and the Go, Java, and JavaScript/TypeScript SDKs.</p> </note>
+ * Retrieves the devices available in Amazon Braket.
+ *
+ * > **Note:** For backwards compatibility with older versions of BraketSchemas, OpenQASM information is omitted from GetDevice API calls. To get this information the user-agent needs to present a recent version of the BraketSchemas (1.8.0 or later). The Braket SDK automatically reports this for you. If you do not see OpenQASM results in the GetDevice response when using a Braket SDK, you may need to set AWS_EXECUTION_ENV environment variable to configure user-agent. See the code examples provided below for how to do this for the AWS CLI, Boto3, and the Go, Java, and JavaScript/TypeScript SDKs.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,23 +65,28 @@ export interface GetDeviceCommandOutput extends GetDeviceResponse, __MetadataBea
  * @see {@link BraketClientResolvedConfig | config} for BraketClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The request failed because of an unknown error.</p>
+ *
+ * The request failed because of an unknown error.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The API throttling rate limit is exceeded.</p>
+ *
+ * The API throttling rate limit is exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input request failed to satisfy constraints expected by Amazon Braket.</p>
+ *
+ * The input request failed to satisfy constraints expected by Amazon Braket.
  *
  * @throws {@link BraketServiceException}
- * <p>Base exception class for all service exceptions from Braket service.</p>
  *
+ * Base exception class for all service exceptions from Braket service.
  *
  * @public
  */

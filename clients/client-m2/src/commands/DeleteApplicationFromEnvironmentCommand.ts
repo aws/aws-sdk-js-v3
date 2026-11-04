@@ -26,10 +26,8 @@ export interface DeleteApplicationFromEnvironmentCommandInput extends DeleteAppl
 export interface DeleteApplicationFromEnvironmentCommandOutput extends DeleteApplicationFromEnvironmentResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a specific application from the specific runtime environment where it was
- *          previously deployed. You cannot delete a runtime environment using DeleteEnvironment if any
- *          application has ever been deployed to it. This API removes the association of the
- *          application with the runtime environment so you can delete the environment smoothly.</p>
+ * Deletes a specific application from the specific runtime environment where it was previously deployed. You cannot delete a runtime environment using DeleteEnvironment if any application has ever been deployed to it. This API removes the association of the application with the runtime environment so you can delete the environment smoothly.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,26 +53,32 @@ export interface DeleteApplicationFromEnvironmentCommandOutput extends DeleteApp
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The account or role doesn't have the right permissions to make the request.</p>
+ *
+ * The account or role doesn't have the right permissions to make the request.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The parameters provided in the request conflict with existing resources.</p>
+ *
+ * The parameters provided in the request conflict with existing resources.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred during the processing of the request.</p>
+ *
+ * An unexpected error occurred during the processing of the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The number of requests made exceeds the limit.</p>
+ *
+ * The number of requests made exceeds the limit.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One or more parameters provided in the request is not valid.</p>
+ *
+ * One or more parameters provided in the request is not valid.
  *
  * @throws {@link M2ServiceException}
- * <p>Base exception class for all service exceptions from M2 service.</p>
  *
+ * Base exception class for all service exceptions from M2 service.
  *
  * @public
  */

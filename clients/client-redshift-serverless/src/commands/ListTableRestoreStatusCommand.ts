@@ -23,7 +23,8 @@ export interface ListTableRestoreStatusCommandInput extends ListTableRestoreStat
 export interface ListTableRestoreStatusCommandOutput extends ListTableRestoreStatusResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about an array of <code>TableRestoreStatus</code> objects.</p>
+ * Returns information about an array of `TableRestoreStatus` objects.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,17 +74,20 @@ export interface ListTableRestoreStatusCommandOutput extends ListTableRestoreSta
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
  *
  * @throws {@link InvalidPaginationException} (client fault)
- *  <p>The provided pagination token is invalid.</p>
+ *
+ * The provided pagination token is invalid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input failed to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link RedshiftServerlessServiceException}
- * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ * Base exception class for all service exceptions from RedshiftServerless service.
  *
  * @public
  */

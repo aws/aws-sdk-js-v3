@@ -23,10 +23,10 @@ export interface UpdateHealthCheckCommandInput extends UpdateHealthCheckRequest 
 export interface UpdateHealthCheckCommandOutput extends UpdateHealthCheckResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an existing health check. Note that some values can't be updated. </p>
- *          <p>For more information about updating health checks, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating-deleting.html">Creating,
- * 				Updating, and Deleting Health Checks</a> in the <i>Amazon Route 53
- * 				Developer Guide</i>.</p>
+ * Updates an existing health check. Note that some values can't be updated.
+ *
+ * For more information about updating health checks, see [Creating, Updating, and Deleting Health Checks](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating-deleting.html) in the *Amazon Route 53 Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -128,18 +128,20 @@ export interface UpdateHealthCheckCommandOutput extends UpdateHealthCheckRespons
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link HealthCheckVersionMismatch} (client fault)
- *  <p>The value of <code>HealthCheckVersion</code> in the request doesn't match the value of
- * 				<code>HealthCheckVersion</code> in the health check.</p>
+ *
+ * The value of `HealthCheckVersion` in the request doesn't match the value of `HealthCheckVersion` in the health check.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link NoSuchHealthCheck} (client fault)
- *  <p>No health check exists with the specified ID.</p>
+ *
+ * No health check exists with the specified ID.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @public
  */

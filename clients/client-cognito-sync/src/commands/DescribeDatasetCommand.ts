@@ -23,10 +23,10 @@ export interface DescribeDatasetCommandInput extends DescribeDatasetRequest {}
 export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, __MetadataBearer {}
 
 /**
- * <p>Gets meta data about a dataset by identity and dataset name. With Amazon Cognito Sync, each
- *          identity has access only to its own data. Thus, the credentials used to make this API call
- *          need to have access to the identity data.</p>
- *       <p>This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials. You should use Cognito Identity credentials to make this API call.</p>
+ * Gets meta data about a dataset by identity and dataset name. With Amazon Cognito Sync, each identity has access only to its own data. Thus, the credentials used to make this API call need to have access to the identity data.
+ *
+ * This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials. You should use Cognito Identity credentials to make this API call.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,8 +83,8 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  *       throttled.
  *
  * @throws {@link CognitoSyncServiceException}
- * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
+ * Base exception class for all service exceptions from CognitoSync service.
  *
  * @public
  */

@@ -23,12 +23,8 @@ export interface BatchGetQueryExecutionCommandInput extends BatchGetQueryExecuti
 export interface BatchGetQueryExecutionCommandOutput extends BatchGetQueryExecutionOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the details of a single query execution or a list of up to 50 query
- *             executions, which you provide as an array of query execution ID strings. Requires you to
- *             have access to the workgroup in which the queries ran. To get a list of query execution
- *             IDs, use <a>ListQueryExecutionsInput$WorkGroup</a>. Query executions differ
- *             from named (saved) queries. Use <a>BatchGetNamedQueryInput</a> to get details
- *             about named queries.</p>
+ * Returns the details of a single query execution or a list of up to 50 query executions, which you provide as an array of query execution ID strings. Requires you to have access to the workgroup in which the queries ran. To get a list of query execution IDs, use ListQueryExecutionsInput$WorkGroup. Query executions differ from named (saved) queries. Use BatchGetNamedQueryInput to get details about named queries.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -137,16 +133,16 @@ export interface BatchGetQueryExecutionCommandOutput extends BatchGetQueryExecut
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Indicates a platform issue, which may be due to a transient condition or
- *             outage.</p>
+ *
+ * Indicates a platform issue, which may be due to a transient condition or outage.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Indicates that something is wrong with the input to the request. For example, a
- *             required parameter may be missing or out of range.</p>
+ *
+ * Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.
  *
  * @throws {@link AthenaServiceException}
- * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * Base exception class for all service exceptions from Athena service.
  *
  * @public
  */

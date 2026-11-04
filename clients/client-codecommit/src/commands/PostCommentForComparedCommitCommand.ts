@@ -23,7 +23,8 @@ export interface PostCommentForComparedCommitCommandInput extends PostCommentFor
 export interface PostCommentForComparedCommitCommandOutput extends PostCommentForComparedCommitOutput, __MetadataBearer {}
 
 /**
- * <p>Posts a comment on the comparison between two commits.</p>
+ * Posts a comment on the comparison between two commits.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,88 +85,102 @@ export interface PostCommentForComparedCommitCommandOutput extends PostCommentFo
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  * @throws {@link BeforeCommitIdAndAfterCommitIdAreSameException} (client fault)
- *  <p>The before commit ID and the after commit ID are the same, which is not valid. The before commit ID and the after commit ID must be different commit IDs.</p>
+ *
+ * The before commit ID and the after commit ID are the same, which is not valid. The before commit ID and the after commit ID must be different commit IDs.
  *
  * @throws {@link ClientRequestTokenRequiredException} (client fault)
- *  <p>A client request token is required. A client request token is an unique,
- *             client-generated idempotency token that, when provided in a request, ensures the request
- *             cannot be repeated with a changed parameter. If a request is received with the same
- *             parameters and a token is included, the request returns information about the initial
- *             request that used that token.</p>
+ *
+ * A client request token is required. A client request token is an unique, client-generated idempotency token that, when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request returns information about the initial request that used that token.
  *
  * @throws {@link CommentContentRequiredException} (client fault)
- *  <p>The comment is empty. You must provide some content for a comment. The content cannot be null.</p>
+ *
+ * The comment is empty. You must provide some content for a comment. The content cannot be null.
  *
  * @throws {@link CommentContentSizeLimitExceededException} (client fault)
- *  <p>The comment is too large. Comments are limited to 10,240 characters.</p>
+ *
+ * The comment is too large. Comments are limited to 10,240 characters.
  *
  * @throws {@link CommitDoesNotExistException} (client fault)
- *  <p>The specified commit does not exist or no commit was specified, and the specified repository has no default branch.</p>
+ *
+ * The specified commit does not exist or no commit was specified, and the specified repository has no default branch.
  *
  * @throws {@link CommitIdRequiredException} (client fault)
- *  <p>A commit ID was not specified.</p>
+ *
+ * A commit ID was not specified.
  *
  * @throws {@link EncryptionIntegrityChecksFailedException} (server fault)
- *  <p>An encryption integrity check failed.</p>
+ *
+ * An encryption integrity check failed.
  *
  * @throws {@link EncryptionKeyAccessDeniedException} (client fault)
- *  <p>An encryption key could not be accessed.</p>
+ *
+ * An encryption key could not be accessed.
  *
  * @throws {@link EncryptionKeyDisabledException} (client fault)
- *  <p>The encryption key is disabled.</p>
+ *
+ * The encryption key is disabled.
  *
  * @throws {@link EncryptionKeyNotFoundException} (client fault)
- *  <p>No encryption key was found.</p>
+ *
+ * No encryption key was found.
  *
  * @throws {@link EncryptionKeyUnavailableException} (client fault)
- *  <p>The encryption key is not available.</p>
+ *
+ * The encryption key is not available.
  *
  * @throws {@link IdempotencyParameterMismatchException} (client fault)
- *  <p>The client request token is not valid. Either the token is not in a valid format, or
- *             the token has been used in a previous request and cannot be reused.</p>
+ *
+ * The client request token is not valid. Either the token is not in a valid format, or the token has been used in a previous request and cannot be reused.
  *
  * @throws {@link InvalidClientRequestTokenException} (client fault)
- *  <p>The client request token is not valid.</p>
+ *
+ * The client request token is not valid.
  *
  * @throws {@link InvalidCommitIdException} (client fault)
- *  <p>The specified commit ID is not valid.</p>
+ *
+ * The specified commit ID is not valid.
  *
  * @throws {@link InvalidFileLocationException} (client fault)
- *  <p>The location of the file is not valid. Make sure that you include the file name and
- *             extension.</p>
+ *
+ * The location of the file is not valid. Make sure that you include the file name and extension.
  *
  * @throws {@link InvalidFilePositionException} (client fault)
- *  <p>The position is not valid. Make sure that the line number exists in the version of the file you want to comment on.</p>
+ *
+ * The position is not valid. Make sure that the line number exists in the version of the file you want to comment on.
  *
  * @throws {@link InvalidPathException} (client fault)
- *  <p>The specified path is not valid.</p>
+ *
+ * The specified path is not valid.
  *
  * @throws {@link InvalidRelativeFileVersionEnumException} (client fault)
- *  <p>Either the enum is not in a valid format, or the specified file version enum is not valid in respect to the current file version.</p>
+ *
+ * Either the enum is not in a valid format, or the specified file version enum is not valid in respect to the current file version.
  *
  * @throws {@link InvalidRepositoryNameException} (client fault)
- *  <p>A specified repository name is not valid.</p>
- *          <note>
- *             <p>This exception occurs only when a specified repository name is not valid. Other
- *                 exceptions occur when a required repository parameter is missing, or when a
- *                 specified repository does not exist.</p>
- *          </note>
+ *
+ * A specified repository name is not valid.
+ *
+ * > **Note:** This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.
  *
  * @throws {@link PathDoesNotExistException} (client fault)
- *  <p>The specified path does not exist.</p>
+ *
+ * The specified path does not exist.
  *
  * @throws {@link PathRequiredException} (client fault)
- *  <p>The folderPath for a location cannot be null.</p>
+ *
+ * The folderPath for a location cannot be null.
  *
  * @throws {@link RepositoryDoesNotExistException} (client fault)
- *  <p>The specified repository does not exist.</p>
+ *
+ * The specified repository does not exist.
  *
  * @throws {@link RepositoryNameRequiredException} (client fault)
- *  <p>A repository name is required, but was not specified.</p>
+ *
+ * A repository name is required, but was not specified.
  *
  * @throws {@link CodeCommitServiceException}
- * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * Base exception class for all service exceptions from CodeCommit service.
  *
  * @public
  */

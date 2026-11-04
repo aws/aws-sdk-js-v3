@@ -26,11 +26,8 @@ export interface CreateTargetAccountConfigurationCommandInput extends CreateTarg
 export interface CreateTargetAccountConfigurationCommandOutput extends CreateTargetAccountConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a target account configuration for the experiment template. A target account configuration
- *       is required when <code>accountTargeting</code> of <code>experimentOptions</code> is set to <code>multi-account</code>.
- *       For more information, see <a href="https://docs.aws.amazon.com/fis/latest/userguide/experiment-options.html">experiment options</a>
- *       in the <i>Fault Injection Service User Guide</i>.
- *       </p>
+ * Creates a target account configuration for the experiment template. A target account configuration is required when `accountTargeting` of `experimentOptions` is set to `multi-account`. For more information, see [experiment options](https://docs.aws.amazon.com/fis/latest/userguide/experiment-options.html) in the *Fault Injection Service User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,20 +62,24 @@ export interface CreateTargetAccountConfigurationCommandOutput extends CreateTar
  * @see {@link FisClientResolvedConfig | config} for FisClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of a conflict.</p>
+ *
+ * The request could not be processed because of a conflict.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource cannot be found.</p>
+ *
+ * The specified resource cannot be found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You have exceeded your service quota.</p>
+ *
+ * You have exceeded your service quota.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
+ *
+ * The specified input is not valid, or fails to satisfy the constraints for the request.
  *
  * @throws {@link FisServiceException}
- * <p>Base exception class for all service exceptions from Fis service.</p>
  *
+ * Base exception class for all service exceptions from Fis service.
  *
  * @public
  */
